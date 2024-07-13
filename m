@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B696C3DA42
-	for <linux-riscv@archiver.kernel.org>; Sat, 13 Jul 2024 22:35:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A86AC3DA42
+	for <linux-riscv@archiver.kernel.org>; Sat, 13 Jul 2024 22:35:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=bOufj0k9k/T99AmfkKBXoRhtK31nJ6wnMo5vjWe5WcA=; b=hcjGQ5EnkW9HQL
-	5in4xBPh8T+o7atokqKAZeVtrnWEArJYzmxQaLFk0dBtpg+nEjQt4YjnVXhWBgpZM/9zt+pqXp+7L
-	0ig/yqwQMblJt0Sxp+n5P0xygd3tv/BtAWrc8B+mFcr/Yba9Y50QlYLDrp5zEI6u5vdGnpft1Wjaj
-	F392dvDx18loZb/VRlaXAUMD4NcvuwsmrCKPPRJxv6RTw9oiNwSNwvvDNYeu9MTnd3m0nAb4JXY8b
-	oeHQVrzWTa7othD/ZVKHaNxN3bnwxvA7aBzcFGYGsjYSlGR8mJfTRhzrzFgjpLS4mLIFhM/DK4myv
-	zxETv1ubqZiU0yBKN15Q==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4wFWcCMGCjbuw2F0baKsW/9QtNnrd1m8WOb5jRKUUJo=; b=mx6Eb/VHokAxS1
+	wSkHtMivXv7o7hcHv+vRdsWBJ/TzbFWeOyNZFiTEnqAA37P6XgOjDoAwGoaFRk3amkt66uoZ6Ol/U
+	+KYg0VAWfZMoVLl2x5aCpF2KLE8Ow/YkO+mN/9kLK/yfrYO6f6uSDiAphr02t4DpdQ0rv6noblWlJ
+	YY6OLg/rAA7SLLgjR6JrjW6NVCC+oZPj6ars4IuGp76/C8w3rNChqBKtIYFGWYl9eVE2eHIY1kAYB
+	e2L91QRm8SdYZD4A/EjJGtn9A4KFPaeev0HX3MQIl19SKOs8xZjCTHy1MaksGElhUeQVujLviBdqy
+	K1NHP4eBtfVecp4OBPWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sSlKw-00000003IS6-09PN;
-	Sat, 13 Jul 2024 22:35:26 +0000
-Received: from mail-ot1-x32a.google.com ([2607:f8b0:4864:20::32a])
+	id 1sSlLE-00000003IYl-0OXy;
+	Sat, 13 Jul 2024 22:35:44 +0000
+Received: from mail-io1-xd2e.google.com ([2607:f8b0:4864:20::d2e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sSlKs-00000003IPy-3GIW
+	id 1sSlKt-00000003IQS-2sla
 	for linux-riscv@lists.infradead.org;
-	Sat, 13 Jul 2024 22:35:24 +0000
-Received: by mail-ot1-x32a.google.com with SMTP id 46e09a7af769-70445f0d9b8so1892774a34.0
-        for <linux-riscv@lists.infradead.org>; Sat, 13 Jul 2024 15:35:21 -0700 (PDT)
+	Sat, 13 Jul 2024 22:35:25 +0000
+Received: by mail-io1-xd2e.google.com with SMTP id ca18e2360f4ac-80557928673so176827139f.2
+        for <linux-riscv@lists.infradead.org>; Sat, 13 Jul 2024 15:35:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1720910121; x=1721514921; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=59P5oqU7NcCQSekZycQB8SHFulzZjU5cylTceccordQ=;
-        b=pXR16lqFza9gg4E+Z0DJcRV5kxxCYkrHv0wNm2pcipf2mco+APgRzcm0UuH59eFql+
-         RcWK2N6I8ru6PHp3+9jU/hfQfdQpWQ4vKNVGmNftxkFF4juHHtmt6wj2LU08spuCrugS
-         unsZKEWkqmqEYhkJkbbsEJGtsoW+98m+5kDqiCKT/l9CmZgCHoVFttM8Qvqi40iAS0xj
-         ssZ9ORozpyZ09gJkTKZEcgqPwgULZeupGArsMCJwy73h4ZrrToGuEI3WTUWK0e4uwk3/
-         bN+PruYnh0fndG8mgSEOAPuyGCHX/dEmlWWvcZ2DCr8v9J8lN7OoH6sxp1vsQ1bTZAG7
-         sIZw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1720910121; x=1721514921;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1720910122; x=1721514922; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=59P5oqU7NcCQSekZycQB8SHFulzZjU5cylTceccordQ=;
-        b=X66AWU6QUTAJDYH4hXj9Rs+I6iKXEjL4tpeJII0YZh3pwMd6vG30J5TZilGo4uaA97
-         5oS5R93Vl8pAUY3TyNWRfnkWw0xjzXC1fzQ96IYms33OB8GFzn4vVQtthq/6nGucqnXY
-         zyVGbrWF1fUOTKetwgwz1uQqOgPnTC9QYFyY2/0ASmmyh0bl2BzEcjKK3HOBI6hWSSty
-         ZSYcpoQtpTg82vRJZnbgXbyyHVggRGaIaj4KBsLruWiXrJMdrPdlHnrP1leu2wmou2Mj
-         RM6WCV3d6ubFEexuutVh32M9gyi5C8Mh21E6k/g0lPURVFTAldKd9RLrTmKmPoJKzszz
-         OXuQ==
-X-Forwarded-Encrypted: i=1; AJvYcCURe0irkdLNOJkdYrplKG67qWPhVzCqIjgQ8B0QoSpNEl0zd/ErDv4dmgOJhJKdrTmojCg6n5sxJcBh0OjRBqKjG/NzSk/63d4oTtzLR5/P
-X-Gm-Message-State: AOJu0Yz3O1+s3uS4SZATeXOmgy6xw0bL9ooKGWEi27xZXpc4JqN1rnsR
-	0OBcZpIill79g+W7avSEXgLy1OAdBIjCjEHHn1EE1kId0l6fIotxyOjcrkDaxWs=
-X-Google-Smtp-Source: AGHT+IEg9antJl5Um5shbWWC4aJSAEXG1X4QgFtAyLnt8rqbE/pGgSXXmoU49K8Rk27lGnV7pllKRA==
-X-Received: by 2002:a05:6808:19a8:b0:3d6:317b:a95c with SMTP id 5614622812f47-3d93c07512amr17596782b6e.38.1720910120935;
-        Sat, 13 Jul 2024 15:35:20 -0700 (PDT)
+        bh=Z9djOW17Hq6Bkvn3DcF8Wpe8/RB5nd3f1kRECjv6cq8=;
+        b=XTzm4Az4gs+dDzdBEIdJYJvzpezTpalrJ2lwOQvY56nN0e97+utz9o0bZcO14qmfnp
+         JwGFbnf9bHoZ1ZUy5dCPwQvvTo7EK3wk1tlqphSWlez4zcPmWbgtPE7FA8eZKEPIKFPU
+         qF7VLJluSBSc/NoSSsDBw6ysfB3ilxJsGEDXCUlZSV495+FgtLKru/SzOXG2dMnWAJ2Q
+         Jlb7JThTktXilKxy0+M4qfUPGr+4YfHuwcIUggWd7znUREp+u3BAVCkfBLGWHvSzKclL
+         K6GB+K3eucY6YgCev+MrYYGnSiKCzWO2Kygx2r8ed4fnfbAjvD0lpDTmrMEqfDIn8CwZ
+         8Z3w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1720910122; x=1721514922;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Z9djOW17Hq6Bkvn3DcF8Wpe8/RB5nd3f1kRECjv6cq8=;
+        b=B+S6jJLjMJ7v7uwZ9+9a0ZQ61eM0scy9AkaDMVrdxPsV6rHp5Y8Sxp00iNlUt1/uZJ
+         ZgzwNBKfXOddVWAjtzeSriv/N0++5nhI95wPAZquFfle0kx1XwWF/hziUCIr7+HAWAgl
+         Z2woZkUrBSrFgoQft+AdEKbD4vp7F5Ei2mcxJwQjq3R6FmMbmM6xMEYzy4MWlY69wIlz
+         0m5N0xekL8zxP4BSlx+Dl65JW74Rdn/9d1g4k+ZN3MNNbpy4iwKs/mNU5ONzNHkPqp2p
+         VXgzOKJKavmYyHf2Da3cF/f6HbBFsWHgwgckWJOhvFJHAGnptiV/5jDegUvwoQ4Q0XMs
+         9tZQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWgZUlUdY8qDiUsyK1Xfwtc+ik5yda7V9NWDiYIkgBa0WW5FBTf2HezZP/Ounk/g9LrtjFe1KbXkzwf6lsOPBXAV7mxmEgMiww68+pYfcMB
+X-Gm-Message-State: AOJu0YzRiXmsdiycrXmUBmYnTRZCoAF1GwDGso91qVqCsUJpwhsWTzX9
+	SrLIGarNJ60oulPM81NUk6cD4sGoKiUtdmv8TGTmDnbN7gTzEawfVHk5MqawJ7Y=
+X-Google-Smtp-Source: AGHT+IGNoMVxgXKi4Huov/Am3Ivchl0iprmp4ADpiiyaxEKkK4U/SDRcp1yh3lV7jZtqlVQMYQIEhg==
+X-Received: by 2002:a05:6e02:1aaa:b0:37a:a9f0:f263 with SMTP id e9e14a558f8ab-38a5910a9dbmr198272225ab.20.1720910122467;
+        Sat, 13 Jul 2024 15:35:22 -0700 (PDT)
 Received: from [127.0.1.1] ([2601:1c2:1802:170:d7fc:57d0:ada6:13b7])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1fc0bc4d9d8sm14640025ad.264.2024.07.13.15.35.19
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1fc0bc4d9d8sm14640025ad.264.2024.07.13.15.35.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 13 Jul 2024 15:35:20 -0700 (PDT)
+        Sat, 13 Jul 2024 15:35:22 -0700 (PDT)
 From: Drew Fustini <drew@pdp7.com>
-Subject: [PATCH RFC net-next 0/4] Add the dwmac driver support for T-HEAD
- TH1520 SoC.
-Date: Sat, 13 Jul 2024 15:35:09 -0700
-Message-Id: <20240713-thead-dwmac-v1-0-81f04480cd31@tenstorrent.com>
+Date: Sat, 13 Jul 2024 15:35:10 -0700
+Subject: [PATCH RFC net-next 1/4] dt-bindings: net: snps,dwmac: allow
+ dwmac-3.70a to set pbl properties
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAB4Bk2YC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIxMDc0Mj3ZKM1MQU3ZTy3MRkXcMUE5NkE3OjpKQUUyWgjoKi1LTMCrBp0Up
- Bbs4gsbzUEt281IoSpdjaWgC5/rGAbgAAAA==
+Message-Id: <20240713-thead-dwmac-v1-1-81f04480cd31@tenstorrent.com>
+References: <20240713-thead-dwmac-v1-0-81f04480cd31@tenstorrent.com>
+In-Reply-To: <20240713-thead-dwmac-v1-0-81f04480cd31@tenstorrent.com>
 To: "David S. Miller" <davem@davemloft.net>, 
  Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
  Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
@@ -90,16 +90,17 @@ Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
  Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1720910119; l=2542;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1720910119; l=1130;
  i=dfustini@tenstorrent.com; s=20230430; h=from:subject:message-id;
- bh=w/NbNx0hQrYCCt4fhGgjxPcsuaVQDgpxDwOcni8EUgY=;
- b=zhSGOkCGTA785OB0MaNJWsmX/0kLmkWTEMMzX8DoIdS3pa54QR5Rc1GW96RessAlJhjWKCsbm
- OZwPPbSVHNBARLIGPxYzRew0qKbsZpMAUxb9mzEk1yLH2//jZDwblTr
+ bh=L968+RrYNmrkLCbknalApiDQwXty2dLJdHRIixXyCag=;
+ b=L3rqLpVjtvL21xgmZs17aB0F6yoEoEFcG/yalWgNg23k2p7NGXFOeub8Bz4u6U8EICTfuR3s6
+ 7Lx5UJrPN2QAxVkpjpSt/mOQiqvngcDggj0buGRWYjAWtMSM++8boGB
 X-Developer-Key: i=dfustini@tenstorrent.com; a=ed25519;
  pk=p3GKE9XFmjhwAayAHG4U108yag7V8xQVd4zJLdW0g7g=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240713_153522_905404_2F7342A8 
-X-CRM114-Status: GOOD (  13.11  )
+X-CRM114-CacheID: sfid-20240713_153523_770950_0DC2EAB5 
+X-CRM114-Status: UNSURE (   7.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,66 +117,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-I am marking this as an RFC since it has been almost a year since the
-previous series and Jisheng has handed it off to me. There was
-discussion about the syscon for the APB registers in Jisheng's v2. I've
-gone a different route and switched to adding a second memory region to
-the gmac node:
+From: Jisheng Zhang <jszhang@kernel.org>
 
-  dwmac: DesignWare GMAC IP core registers
-    apb: GMAC APB registers
+snps dwmac 3.70a also supports setting pbl related properties, such as
+"snps,pbl", "snps,txpbl", "snps,rxpbl" and "snps,no-pbl-x8".
 
-This patch depends my clock controller series:
-
- [PATCH v3 0/7] clk: thead: Add support for TH1520 AP_SUBSYS clock controller
- https://lore.kernel.org/linux-riscv/20240711-th1520-clk-v3-0-6ff17bb318fb@tenstorrent.com/
-
-and the pinctrl series from Emil:
-
- [PATCH v2 0/8] Add T-Head TH1520 SoC pin control
- https://lore.kernel.org/linux-riscv/20240103132852.298964-1-emil.renner.berthing@canonical.com
-
-I have a branch with this series and the dependencies on top of 6.10-rc7:
- https://github.com/pdp7/linux/tree/b4/thead-dwmac
-
-Changes since Jisheng v2:
- - remove thead,gmacapb that references syscon for APB registers
- - add a second memory region to gmac nodes for the APB registers
- - Link: https://lore.kernel.org/all/20230827091710.1483-1-jszhang@kernel.org/
-
-Changes since Jisheng v1:
- - rebase on the lastest net-next
- - collect Reviewed-by tag
- - address Krzysztof's comment of the dt binding
- - fix "div is not initialised" issue pointed out by Simon
- - Link: https://lore.kernel.org/all/20230820120213.2054-1-jszhang@kernel.org/
-
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Link: https://lore.kernel.org/r/20230827091710.1483-2-jszhang@kernel.org
+Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Signed-off-by: Drew Fustini <drew@pdp7.com>
 ---
-Emil Renner Berthing (1):
-      riscv: dts: thead: Add TH1520 ethernet nodes
+ Documentation/devicetree/bindings/net/snps,dwmac.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-Jisheng Zhang (3):
-      dt-bindings: net: snps,dwmac: allow dwmac-3.70a to set pbl properties
-      dt-bindings: net: add T-HEAD dwmac support
-      net: stmmac: add glue layer for T-HEAD TH1520 SoC
+diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+index 21cc27e75f50..0ad3bf5dafa7 100644
+--- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+@@ -584,6 +584,7 @@ allOf:
+               - qcom,sa8775p-ethqos
+               - qcom,sc8280xp-ethqos
+               - snps,dwmac-3.50a
++              - snps,dwmac-3.70a
+               - snps,dwmac-4.10a
+               - snps,dwmac-4.20a
+               - snps,dwmac-5.20
 
- .../devicetree/bindings/net/snps,dwmac.yaml        |   2 +
- .../devicetree/bindings/net/thead,dwmac.yaml       |  81 ++++++
- MAINTAINERS                                        |   2 +
- arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts |  89 ++++++
- .../boot/dts/thead/th1520-lichee-module-4a.dtsi    | 131 +++++++++
- arch/riscv/boot/dts/thead/th1520.dtsi              |  55 +++-
- drivers/net/ethernet/stmicro/stmmac/Kconfig        |  11 +
- drivers/net/ethernet/stmicro/stmmac/Makefile       |   1 +
- drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c  | 300 +++++++++++++++++++++
- 9 files changed, 670 insertions(+), 2 deletions(-)
----
-base-commit: 568c4e4b646777f3373f383cc38864a3cd91bbb7
-change-id: 20240712-thead-dwmac-1d44c472bbd5
-
-Best regards,
 -- 
-Drew Fustini <dfustini@tenstorrent.com>
+2.34.1
 
 
 _______________________________________________
