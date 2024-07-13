@@ -4,87 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09952C3DA42
-	for <linux-riscv@archiver.kernel.org>; Sat, 13 Jul 2024 07:10:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B696C3DA42
+	for <linux-riscv@archiver.kernel.org>; Sat, 13 Jul 2024 22:35:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Vb5mUO3XaX9zo2v8klSVNyc5E+t7O5tNVMQA/Hg7OWA=; b=De1j3ViEfGCNOZ
-	LWxElD/2SCO1DDlm6erEKrLTfuomhOC+7x+9zcEZ6nwKmpzJIct5fZrj13JH6osthuEfbkQ97LB9G
-	sQOSzzVqZiQ7+JycsXqJvxdJgEJI5i2ivzPSnL0mxXhe8Nz+Tqn9xxt6itT1K4DGSJ7RimhYHfNYI
-	BoOKZKXyK/98QYsz8/1Hovmq8Ypp2eG3lXpeUGfGZE7eW8S9sd3JyQ78vxO28meCQzxv79J1wd1dU
-	hku81H47grLNGZleCQkt+csrlOVlOUoPLbaIsOHN8HAGUSKooRRs8jMc+Am3bfF8fvLhnIXpevOMZ
-	ppLgu+/aHFmzN0ZiBD1w==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=bOufj0k9k/T99AmfkKBXoRhtK31nJ6wnMo5vjWe5WcA=; b=hcjGQ5EnkW9HQL
+	5in4xBPh8T+o7atokqKAZeVtrnWEArJYzmxQaLFk0dBtpg+nEjQt4YjnVXhWBgpZM/9zt+pqXp+7L
+	0ig/yqwQMblJt0Sxp+n5P0xygd3tv/BtAWrc8B+mFcr/Yba9Y50QlYLDrp5zEI6u5vdGnpft1Wjaj
+	F392dvDx18loZb/VRlaXAUMD4NcvuwsmrCKPPRJxv6RTw9oiNwSNwvvDNYeu9MTnd3m0nAb4JXY8b
+	oeHQVrzWTa7othD/ZVKHaNxN3bnwxvA7aBzcFGYGsjYSlGR8mJfTRhzrzFgjpLS4mLIFhM/DK4myv
+	zxETv1ubqZiU0yBKN15Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sSWty-000000025II-1tof;
-	Sat, 13 Jul 2024 07:10:38 +0000
-Received: from pegase2.c-s.fr ([93.17.235.10])
+	id 1sSlKw-00000003IS6-09PN;
+	Sat, 13 Jul 2024 22:35:26 +0000
+Received: from mail-ot1-x32a.google.com ([2607:f8b0:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sSWsp-000000024jW-2puG;
-	Sat, 13 Jul 2024 07:09:29 +0000
-Received: from localhost (mailhub3.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4WLfhZ1Ccnz9sSb;
-	Sat, 13 Jul 2024 09:09:02 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase2.c-s.fr ([172.26.127.65])
-	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id rBAPNnN2erdv; Sat, 13 Jul 2024 09:09:02 +0200 (CEST)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4WLfhY68WVz9sSS;
-	Sat, 13 Jul 2024 09:09:01 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id BCB5C8B764;
-	Sat, 13 Jul 2024 09:09:01 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id U1NlTXZ3sw-T; Sat, 13 Jul 2024 09:09:01 +0200 (CEST)
-Received: from PO20335.idsi0.si.c-s.fr (unknown [192.168.233.195])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id B6F798B76C;
-	Sat, 13 Jul 2024 09:09:00 +0200 (CEST)
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-arch@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org,
-	Peter Xu <peterx@redhat.com>
-Subject: [PATCH v3 5/5] mm: Add p{g/4}d_leaf() in asm-generic/pgtable-nop{4/u}d.h
-Date: Sat, 13 Jul 2024 09:08:27 +0200
-Message-ID: <7b6f39f3cc9823e0a058b27f50ad4f47b2e10979.1720854135.git.christophe.leroy@csgroup.eu>
-X-Mailer: git-send-email 2.44.0
-In-Reply-To: <c81566e5df160587de50f9095d0ec377114fdba8.1720854135.git.christophe.leroy@csgroup.eu>
-References: <c81566e5df160587de50f9095d0ec377114fdba8.1720854135.git.christophe.leroy@csgroup.eu>
+	id 1sSlKs-00000003IPy-3GIW
+	for linux-riscv@lists.infradead.org;
+	Sat, 13 Jul 2024 22:35:24 +0000
+Received: by mail-ot1-x32a.google.com with SMTP id 46e09a7af769-70445f0d9b8so1892774a34.0
+        for <linux-riscv@lists.infradead.org>; Sat, 13 Jul 2024 15:35:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1720910121; x=1721514921; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=59P5oqU7NcCQSekZycQB8SHFulzZjU5cylTceccordQ=;
+        b=pXR16lqFza9gg4E+Z0DJcRV5kxxCYkrHv0wNm2pcipf2mco+APgRzcm0UuH59eFql+
+         RcWK2N6I8ru6PHp3+9jU/hfQfdQpWQ4vKNVGmNftxkFF4juHHtmt6wj2LU08spuCrugS
+         unsZKEWkqmqEYhkJkbbsEJGtsoW+98m+5kDqiCKT/l9CmZgCHoVFttM8Qvqi40iAS0xj
+         ssZ9ORozpyZ09gJkTKZEcgqPwgULZeupGArsMCJwy73h4ZrrToGuEI3WTUWK0e4uwk3/
+         bN+PruYnh0fndG8mgSEOAPuyGCHX/dEmlWWvcZ2DCr8v9J8lN7OoH6sxp1vsQ1bTZAG7
+         sIZw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1720910121; x=1721514921;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=59P5oqU7NcCQSekZycQB8SHFulzZjU5cylTceccordQ=;
+        b=X66AWU6QUTAJDYH4hXj9Rs+I6iKXEjL4tpeJII0YZh3pwMd6vG30J5TZilGo4uaA97
+         5oS5R93Vl8pAUY3TyNWRfnkWw0xjzXC1fzQ96IYms33OB8GFzn4vVQtthq/6nGucqnXY
+         zyVGbrWF1fUOTKetwgwz1uQqOgPnTC9QYFyY2/0ASmmyh0bl2BzEcjKK3HOBI6hWSSty
+         ZSYcpoQtpTg82vRJZnbgXbyyHVggRGaIaj4KBsLruWiXrJMdrPdlHnrP1leu2wmou2Mj
+         RM6WCV3d6ubFEexuutVh32M9gyi5C8Mh21E6k/g0lPURVFTAldKd9RLrTmKmPoJKzszz
+         OXuQ==
+X-Forwarded-Encrypted: i=1; AJvYcCURe0irkdLNOJkdYrplKG67qWPhVzCqIjgQ8B0QoSpNEl0zd/ErDv4dmgOJhJKdrTmojCg6n5sxJcBh0OjRBqKjG/NzSk/63d4oTtzLR5/P
+X-Gm-Message-State: AOJu0Yz3O1+s3uS4SZATeXOmgy6xw0bL9ooKGWEi27xZXpc4JqN1rnsR
+	0OBcZpIill79g+W7avSEXgLy1OAdBIjCjEHHn1EE1kId0l6fIotxyOjcrkDaxWs=
+X-Google-Smtp-Source: AGHT+IEg9antJl5Um5shbWWC4aJSAEXG1X4QgFtAyLnt8rqbE/pGgSXXmoU49K8Rk27lGnV7pllKRA==
+X-Received: by 2002:a05:6808:19a8:b0:3d6:317b:a95c with SMTP id 5614622812f47-3d93c07512amr17596782b6e.38.1720910120935;
+        Sat, 13 Jul 2024 15:35:20 -0700 (PDT)
+Received: from [127.0.1.1] ([2601:1c2:1802:170:d7fc:57d0:ada6:13b7])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1fc0bc4d9d8sm14640025ad.264.2024.07.13.15.35.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 13 Jul 2024 15:35:20 -0700 (PDT)
+From: Drew Fustini <drew@pdp7.com>
+Subject: [PATCH RFC net-next 0/4] Add the dwmac driver support for T-HEAD
+ TH1520 SoC.
+Date: Sat, 13 Jul 2024 15:35:09 -0700
+Message-Id: <20240713-thead-dwmac-v1-0-81f04480cd31@tenstorrent.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1720854504; l=2504; i=christophe.leroy@csgroup.eu; s=20211009; h=from:subject:message-id; bh=9cGeujZtX2c/zEf05hq/l7o1WBt5GJFv+9LPfky90p8=; b=MN2/woF7LqGhnWnq57H61zGqJsMcmtZviZwr/m6VoCoVv5XepEx+34tqeLFna5lL+rtgkoHC6 84JnWQ04MY8AFTasVOBH1guX6oXN81IRpiabqc6NIYejAVLsU1O2E4y
-X-Developer-Key: i=christophe.leroy@csgroup.eu; a=ed25519; pk=HIzTzUj91asvincQGOFx6+ZF5AoUuP9GdOtQChs7Mm0=
+X-B4-Tracking: v=1; b=H4sIAB4Bk2YC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIxMDc0Mj3ZKM1MQU3ZTy3MRkXcMUE5NkE3OjpKQUUyWgjoKi1LTMCrBp0Up
+ Bbs4gsbzUEt281IoSpdjaWgC5/rGAbgAAAA==
+To: "David S. Miller" <davem@davemloft.net>, 
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
+ Jose Abreu <joabreu@synopsys.com>, Jisheng Zhang <jszhang@kernel.org>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
+ Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>, 
+ Fu Wei <wefu@redhat.com>, Conor Dooley <conor@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1720910119; l=2542;
+ i=dfustini@tenstorrent.com; s=20230430; h=from:subject:message-id;
+ bh=w/NbNx0hQrYCCt4fhGgjxPcsuaVQDgpxDwOcni8EUgY=;
+ b=zhSGOkCGTA785OB0MaNJWsmX/0kLmkWTEMMzX8DoIdS3pa54QR5Rc1GW96RessAlJhjWKCsbm
+ OZwPPbSVHNBARLIGPxYzRew0qKbsZpMAUxb9mzEk1yLH2//jZDwblTr
+X-Developer-Key: i=dfustini@tenstorrent.com; a=ed25519;
+ pk=p3GKE9XFmjhwAayAHG4U108yag7V8xQVd4zJLdW0g7g=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240713_000927_890089_32736278 
-X-CRM114-Status: UNSURE (   9.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240713_153522_905404_2F7342A8 
+X-CRM114-Status: GOOD (  13.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,63 +116,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Commit 2c8a81dc0cc5 ("riscv/mm: fix two page table check related
-issues") added pud_leaf() in include/asm-generic/pgtable-nopmd.h
+I am marking this as an RFC since it has been almost a year since the
+previous series and Jisheng has handed it off to me. There was
+discussion about the syscon for the APB registers in Jisheng's v2. I've
+gone a different route and switched to adding a second memory region to
+the gmac node:
 
-Do the same for p4d_leaf() and pgd_leaf() to avoid getting them
-erroneously defined by architectures that do not implement the
-related page level.
+  dwmac: DesignWare GMAC IP core registers
+    apb: GMAC APB registers
 
-Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
-Reviewed-by: Peter Xu <peterx@redhat.com>
+This patch depends my clock controller series:
+
+ [PATCH v3 0/7] clk: thead: Add support for TH1520 AP_SUBSYS clock controller
+ https://lore.kernel.org/linux-riscv/20240711-th1520-clk-v3-0-6ff17bb318fb@tenstorrent.com/
+
+and the pinctrl series from Emil:
+
+ [PATCH v2 0/8] Add T-Head TH1520 SoC pin control
+ https://lore.kernel.org/linux-riscv/20240103132852.298964-1-emil.renner.berthing@canonical.com
+
+I have a branch with this series and the dependencies on top of 6.10-rc7:
+ https://github.com/pdp7/linux/tree/b4/thead-dwmac
+
+Changes since Jisheng v2:
+ - remove thead,gmacapb that references syscon for APB registers
+ - add a second memory region to gmac nodes for the APB registers
+ - Link: https://lore.kernel.org/all/20230827091710.1483-1-jszhang@kernel.org/
+
+Changes since Jisheng v1:
+ - rebase on the lastest net-next
+ - collect Reviewed-by tag
+ - address Krzysztof's comment of the dt binding
+ - fix "div is not initialised" issue pointed out by Simon
+ - Link: https://lore.kernel.org/all/20230820120213.2054-1-jszhang@kernel.org/
+
 ---
-v2: Added pXd_leaf macro as well in asm-generic/pgtable-nopXd.h to cohabit with the fallback
----
- include/asm-generic/pgtable-nop4d.h | 2 ++
- include/asm-generic/pgtable-nopmd.h | 1 +
- include/asm-generic/pgtable-nopud.h | 2 ++
- 3 files changed, 5 insertions(+)
+Emil Renner Berthing (1):
+      riscv: dts: thead: Add TH1520 ethernet nodes
 
-diff --git a/include/asm-generic/pgtable-nop4d.h b/include/asm-generic/pgtable-nop4d.h
-index 03b7dae47dd4..ed7ba008469f 100644
---- a/include/asm-generic/pgtable-nop4d.h
-+++ b/include/asm-generic/pgtable-nop4d.h
-@@ -21,6 +21,8 @@ typedef struct { pgd_t pgd; } p4d_t;
- static inline int pgd_none(pgd_t pgd)		{ return 0; }
- static inline int pgd_bad(pgd_t pgd)		{ return 0; }
- static inline int pgd_present(pgd_t pgd)	{ return 1; }
-+static inline int pgd_leaf(pgd_t pgd)		{ return 0; }
-+#define pgd_leaf pgd_leaf
- static inline void pgd_clear(pgd_t *pgd)	{ }
- #define p4d_ERROR(p4d)				(pgd_ERROR((p4d).pgd))
- 
-diff --git a/include/asm-generic/pgtable-nopmd.h b/include/asm-generic/pgtable-nopmd.h
-index b01349a312fa..e178ace2e23e 100644
---- a/include/asm-generic/pgtable-nopmd.h
-+++ b/include/asm-generic/pgtable-nopmd.h
-@@ -31,6 +31,7 @@ static inline int pud_none(pud_t pud)		{ return 0; }
- static inline int pud_bad(pud_t pud)		{ return 0; }
- static inline int pud_present(pud_t pud)	{ return 1; }
- static inline int pud_leaf(pud_t pud)		{ return 0; }
-+#define pud_leaf pud_leaf
- static inline void pud_clear(pud_t *pud)	{ }
- #define pmd_ERROR(pmd)				(pud_ERROR((pmd).pud))
- 
-diff --git a/include/asm-generic/pgtable-nopud.h b/include/asm-generic/pgtable-nopud.h
-index eb70c6d7ceff..655dfebea91c 100644
---- a/include/asm-generic/pgtable-nopud.h
-+++ b/include/asm-generic/pgtable-nopud.h
-@@ -28,6 +28,8 @@ typedef struct { p4d_t p4d; } pud_t;
- static inline int p4d_none(p4d_t p4d)		{ return 0; }
- static inline int p4d_bad(p4d_t p4d)		{ return 0; }
- static inline int p4d_present(p4d_t p4d)	{ return 1; }
-+static inline int p4d_leaf(p4d_t p4d)		{ return 0; }
-+#define p4d_leaf p4d_leaf
- static inline void p4d_clear(p4d_t *p4d)	{ }
- #define pud_ERROR(pud)				(p4d_ERROR((pud).p4d))
- 
+Jisheng Zhang (3):
+      dt-bindings: net: snps,dwmac: allow dwmac-3.70a to set pbl properties
+      dt-bindings: net: add T-HEAD dwmac support
+      net: stmmac: add glue layer for T-HEAD TH1520 SoC
+
+ .../devicetree/bindings/net/snps,dwmac.yaml        |   2 +
+ .../devicetree/bindings/net/thead,dwmac.yaml       |  81 ++++++
+ MAINTAINERS                                        |   2 +
+ arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts |  89 ++++++
+ .../boot/dts/thead/th1520-lichee-module-4a.dtsi    | 131 +++++++++
+ arch/riscv/boot/dts/thead/th1520.dtsi              |  55 +++-
+ drivers/net/ethernet/stmicro/stmmac/Kconfig        |  11 +
+ drivers/net/ethernet/stmicro/stmmac/Makefile       |   1 +
+ drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c  | 300 +++++++++++++++++++++
+ 9 files changed, 670 insertions(+), 2 deletions(-)
+---
+base-commit: 568c4e4b646777f3373f383cc38864a3cd91bbb7
+change-id: 20240712-thead-dwmac-1d44c472bbd5
+
+Best regards,
 -- 
-2.44.0
+Drew Fustini <dfustini@tenstorrent.com>
 
 
 _______________________________________________
