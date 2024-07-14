@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C5FAC3DA4B
-	for <linux-riscv@archiver.kernel.org>; Sun, 14 Jul 2024 08:59:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2117C3DA42
+	for <linux-riscv@archiver.kernel.org>; Sun, 14 Jul 2024 08:59:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=lz4rPAuJfTbIJ597lAqQX7MsyNRencd8tABYFfzCvbA=; b=X3scF/Hf8zTy0A
-	vHYq+NDlEgrHO0zkBfRiVi66o0ElgvBNW8rloCX6srRVtgwe7iKJDlqUJ7UFVRd1SKZb3yqL1TWUq
-	zOZ3pa2FP8ctKxgcweOO3loJ7FjL+EqZjvNN7JenEU0VHB4VTIfu3HaUXG+E7MBeqqAZGyLIovmqR
-	NkJefCuVN7p7tx2+RTg+d2G6DeUolm/Q3ZMc5yUMLp/FhKPWiWGrMEn53KjulWm87xN6YO6Ars6Nu
-	yj4ujTAdtjMxxIbc68g8YyyzGJiJZLm9HcCkriCtrj+voW/FO/4YlR7PJKf2OcLJqyDKusKEpSYjO
-	VxjjsNaECw9egagLAHEg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=GNUrsBV8koLgJTgtAEQjk4kSGYLx4/FGnes9RtwOvVM=; b=Qs8v+4eHLPcpRu
+	sT8fkE+CdfSse60W+yMg/9RpmtG+ELrXRY74cXdvAyDOnoR2ouBrQ0H1EBphAYDJXP/AxZxP5e/AF
+	RIhCQTnDixorKvio3pH9XyPL3wt5Wn7TbyGI2ojvoh4JGnJ9n3hNTX9PIqCWCxA86Wn+GDP48RtIG
+	KZ9jC1thU34lP0UdrBJwWs5Ouvq0P1g1gFJBeV3Rvki0YTKSGaevWs7QeCu8hW6iOU2kAbE2CtsLP
+	TnHuEA6/ROY2BjZxiDK/8iJ+dL75yjoLv1ngC7744T+lxEfQiLI7SlEk5Nde1A0kJOIfhrPQwOXry
+	hmtfVaL/DtW7ea/zDeCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sSv4N-000000046nC-1TFs;
-	Sun, 14 Jul 2024 08:58:59 +0000
+	id 1sSv4f-000000046vb-1eKL;
+	Sun, 14 Jul 2024 08:59:17 +0000
 Received: from mail.envs.net ([5.199.136.28])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sSv3m-000000046bq-34Db;
-	Sun, 14 Jul 2024 08:58:25 +0000
+	id 1sSv43-000000046hQ-3F5u;
+	Sun, 14 Jul 2024 08:58:41 +0000
 Received: from localhost (mail.envs.net [127.0.0.1])
-	by mail.envs.net (Postfix) with ESMTP id 58F5638A399D;
-	Sun, 14 Jul 2024 08:58:06 +0000 (UTC)
+	by mail.envs.net (Postfix) with ESMTP id 5A89638A39A0;
+	Sun, 14 Jul 2024 08:58:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=envs.net; s=modoboa;
-	t=1720947486; bh=B10Vnlot+2ilvHh7OCvlmhyXD6mosKAEgX9C4cq3ecg=;
-	h=From:To:Cc:Subject:Date:From;
-	b=N9D5n6GtwH3qiq3p2Rzh9SVuJAnEifqgMQyqesEqh+rAcGqNpZ6q9N9b0nhJiPNlJ
-	 PEDPoE3u41YojQH+7XAMCQEKnXMRTlqFjGrhy6MJDDh2aIb+VtL1gSthA5kxqmyOyN
-	 3ZoeWdceL9TP/JWEe9pIZBQbUIv00JAlxRpCZNniJHRC6CQDRSr7ufL4DGpth/2sdO
-	 TEKPrwzRH4vqz3fxgS9PMoErT2yNwY5ghdNNkfH+s2/E9Uk/VRgScWp9ABq71z+so2
-	 asZZh8t+lH2mNxDjZjOJgF5i0V2/C8imuDXoi6qWCA5tKfNPRnRKJ7tg78BDgQd8M/
-	 kGYuUOGE1KHimjYZSAJ2kfC4vmYtdT4BCjGSETK1ZNOKD6d0/4t+OXI5E7U5cngxEF
-	 fvDsbR9PyEOBKuB5EcBlKliQEg/mzXJ+g3oKKZ5SdHREM3MBmSi3Tcs0B+iHVyHaxp
-	 YIH+agaGkHtPkDO8eVN50i7feX/ovB73Wfbf5dR347DlCZFkVn10UTktYSoa49yWIt
-	 cVyAS01Y4MLkyxd6ca04e5RNOuVjIWdecu3zBmhqmWWdmQrTb9HaJN6nTqhaw5V9/G
-	 uDtg+M5JyeT/e16lqkqdH0tT55WGB1DA5XlwzgFl7OSD/keHJq/okoE19Fl5pNpdhM
-	 7a75ulRRnKxBl8Q5K22HnnqU=
+	t=1720947518; bh=3RXoGcCjW+CB+wVoqLryQrySRvbelditpYUk0T7yTSY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Yxeb2wDgejzOcVVnBnS/+WSj4hVrhCdfZp86xCr1uxSFHj3oyiRHXJuQZsPOdeFf+
+	 QwsdEM4lYdILp7QQ7+gF4JHJFlZzIkglpVaa9Jth2npuU3GtpUq5C/O8U8PqAK52Xg
+	 oEzKqdmTsD800zMMcQBsuxIcOHgJK67FM9gXEzAQJM3jOBb6rY8BYA9g5+OkIxMGDX
+	 QIv6XcJ6tM0UIt4M1wsqBEgdDPznCePITV6kytVXayXeYGtCChVBzad0OUig9I2LN+
+	 jffwEGwCw61rhGknsDSD4FlbN/fOpM27CaiWF5r0f5GsFGjkDUp7biL9Y44N1fMPoy
+	 3XBEIBpoWSzO4s6XjJDn11MfzinWfrAohQ2m+mplZK0y+MCyeTdCkYUd2rjLn1Z68k
+	 fgp04oFcNAj5XTLrDXxzE222ziQx3tel+Eevr1b2LfjSqZjqzfCutqejV6iG7kQIdv
+	 691slFWz8P/RStIunv7yIp2HQOHn89RZubeDi/LphxRFvKTJvJ29yEcfSsgQKH6vsv
+	 GPgvcZeAE2MByB8W8r0VKw5DJrKcZjAHQoDBUKKd3JVZrW+vMjLB1+y349YKr3jSkt
+	 LdAX4sLLK++K613ZmI/6yp8P+fYm2mLrjNSiIrMcpCKUdQWGevpzh6Iuqpxe87iRws
+	 CP0WcrxYs1ADXePPmP/CoQt8=
 X-Virus-Scanned: Debian amavisd-new at mail.envs.net
 Received: from mail.envs.net ([127.0.0.1])
 	by localhost (mail.envs.net [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id fJoepO1z1VH4; Sun, 14 Jul 2024 08:57:55 +0000 (UTC)
+	with ESMTP id xu_dqvWydv6f; Sun, 14 Jul 2024 08:58:28 +0000 (UTC)
 Received: from xtexx.eu.org (unknown [120.230.214.120])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
 	by mail.envs.net (Postfix) with ESMTPSA;
-	Sun, 14 Jul 2024 08:57:55 +0000 (UTC)
+	Sun, 14 Jul 2024 08:58:28 +0000 (UTC)
 From: Zhang Bingwu <xtex@envs.net>
 To: Russell King <linux@armlinux.org.uk>,
 	Catalin Marinas <catalin.marinas@arm.com>,
@@ -89,14 +89,16 @@ Cc: x86@kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-s390@vger.kernel.org,
 	sparclinux@vger.kernel.org
-Subject: [RESEND PATCH 0/2] kbuild: Fix install errors when INSTALL_PATH does not exist
-Date: Sun, 14 Jul 2024 16:57:49 +0800
-Message-ID: <20240714085751.176357-1-xtex@envs.net>
+Subject: [PATCH 2/2] kbuild: Create INSTALL_PATH directory if it does not exist
+Date: Sun, 14 Jul 2024 16:57:51 +0800
+Message-ID: <20240714085751.176357-3-xtex@envs.net>
 X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20240714085751.176357-1-xtex@envs.net>
+References: <20240714085751.176357-1-xtex@envs.net>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240714_015823_564248_AF44CC9C 
-X-CRM114-Status: GOOD (  10.37  )
+X-CRM114-CacheID: sfid-20240714_015839_980539_9098286F 
+X-CRM114-Status: GOOD (  10.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,45 +117,29 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Zhang Bingwu <xtexchooser@duck.com>
 
-When running 'make zinstall INSTALL_PATH=somepath'
- where 'somepath' does not exist, the install
- scripts (install.sh) print error messages
- but also return a success status code.
-This will make 'make' regard 'install' (and 'zinstall', etc)
- succeeded.
-When there are also other targets at the same time,
- for example, 'make zinstall dtbs_install modules_install',
- make will keep going on and other outputs will fill stdout,
- and make the error message hard to find.
+If INSTALL_PATH is not a valid directory, create it, like what
+modules_install and dtbs_install will do in the same situation.
 
-dtbs_install and modules_install creates the target directory
- if it does not exist. install, zinstall and others should
- have the same behaviour.
+Signed-off-by: Zhang Bingwu <xtexchooser@duck.com>
+---
+ scripts/install.sh | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-If INSTALL_PATH is not a valid directory, we should create it.
-If the installation process still fails with errors, for example,
- insufficient space on disk or permission denied, make should regard
- the install target failed, stop as soon as possible,
- and exit with error.
-
-Zhang Bingwu (2):
-  kbuild: Abort make on install failures
-  kbuild: Create INSTALL_PATH directory if it does not exist
-
- arch/arm/boot/install.sh   | 2 ++
- arch/arm64/boot/install.sh | 2 ++
- arch/m68k/install.sh       | 2 ++
- arch/nios2/boot/install.sh | 2 ++
- arch/parisc/install.sh     | 2 ++
- arch/riscv/boot/install.sh | 2 ++
- arch/s390/boot/install.sh  | 2 ++
- arch/sparc/boot/install.sh | 2 ++
- arch/x86/boot/install.sh   | 2 ++
- scripts/install.sh         | 4 ++++
- 10 files changed, 22 insertions(+)
-
-
-base-commit: d0f86d080e3d7d5e1e75a56d88daf8e5f56a4146
+diff --git a/scripts/install.sh b/scripts/install.sh
+index 9bb0fb44f04a..02b845e7ab33 100755
+--- a/scripts/install.sh
++++ b/scripts/install.sh
+@@ -20,6 +20,10 @@ do
+ 	fi
+ done
+ 
++if [ "${INSTALL_PATH}" != "" ] && ! [ -e "${INSTALL_PATH}" ]; then
++	mkdir -p "${INSTALL_PATH}"
++fi
++
+ # User/arch may have a custom install script
+ for file in "${HOME}/bin/${INSTALLKERNEL}"		\
+ 	    "/sbin/${INSTALLKERNEL}"			\
 -- 
 2.43.0
 
