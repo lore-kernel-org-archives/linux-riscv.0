@@ -4,71 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 387CAC3DA59
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jul 2024 10:14:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 402F6C3DA59
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jul 2024 11:21:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=K3ohQsk+KjUlC1Mgnsczlc12vOY0c5sLTcNNm1hkaSQ=; b=1cNMkXqwWms7OS
-	kjDICnMEshZOXiWEbIIkzg7xJt4MOI9VU49VaODzWdwACuFjIwQ0CIPzsFMVnUJO15uPX+lw5Bu9+
-	9YGN8Ixu4Lg5GjI1aIEs09PJNYMlPpFlqvK0muHelNgCXZy9uI7N5M+9D8UmFyJvi7jMkEwZ7PGNc
-	4IBkbGoKUhpqa5A6Qc9RKdw/NhDFXHEy39ycRhADeR5UQeyvEqjnNoteP95LzqbNLgNPjoJp6eWhj
-	4JgEvfi0eAhIWbPSH1xTue9DeBcdBsbFMCil0U3FK+TgBKXExFO6fw6wrZZc6m2Cj1dWV4g1U26G1
-	pfinAY5v1Ymzrolvh2Cg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=er99NwIGNQug2liPwupFa50EOhb+ItocGZYJP26MSGE=; b=McnDOffGCMb/vh
+	Q4yjlyJEtibxUM3tS8wzSMj9IYlZuDtU0SPXGgM7/o7vc97E5fRBn7IX+aYV0+++H2Tc2nfrE2MNb
+	weD3O1ob7w6EY263yUcXtTYD+03T/GUvS53sTywi8yaSmYMPSSGitxLXUY9WvBe6yqqRVjjQ6qV4v
+	km8R6SWVTkmluzE3YpZg53rZBdlN6xfclgG+f9WWMcAybYkDIETC5UpMteDslYDj/5pLloLiD2GE1
+	l8/Aw7gqm9bH1Lvb88dfXGhTi3Qst33nncQFMEQIrVrAK2OSSfOijfApfihEvcaFBg1FwDIfDd2o4
+	2pwozDdgRg5q/Udx/Uug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sTIit-00000006fD8-2xL7;
-	Mon, 15 Jul 2024 10:14:24 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1sTJli-00000006qr3-2zuD;
+	Mon, 15 Jul 2024 11:21:22 +0000
+Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sTIip-00000006fC9-3Xzu
+	id 1sTJlg-00000006qqP-13Qj
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Jul 2024 10:14:22 +0000
-Received: from ubuntu-2204-dev.. (unknown [180.110.112.93])
-	by APP-05 (Coremail) with SMTP id zQCowACHjeVp9pRmxFxsAw--.40406S2;
-	Mon, 15 Jul 2024 18:14:02 +0800 (CST)
-From: Zhu Hengbo <zhuhengbo@iscas.ac.cn>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Zhu Hengbo <zhuhengbo@iscas.ac.cn>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Kefeng Wang <wangkefeng.wang@huawei.com>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] riscv: add tracepoints for page fault
-Date: Mon, 15 Jul 2024 10:13:55 +0000
-Message-Id: <20240715101400.39103-1-zhuhengbo@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	Mon, 15 Jul 2024 11:21:21 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 3AFA760003;
+	Mon, 15 Jul 2024 11:21:11 +0000 (UTC)
+Message-ID: <9bf70f7c-5deb-4fce-b7c1-ec70d78cb5db@ghiti.fr>
+Date: Mon, 15 Jul 2024 13:21:11 +0200
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowACHjeVp9pRmxFxsAw--.40406S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxWF45Gr18ZrWrKw1rtw17trb_yoWrZr4rpF
-	nFkF95Gr47Xwsa93yxuw1qyF15AanYyayjgry7Gw4Yvw4IqryUAws2vrWDtryxGr1kGFyI
-	9F4Yyrya9w15u3JanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvj14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Cr0_Gr1UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4
-	xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43
-	MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I
-	0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWU
-	JVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUwr
-	WFUUUUU
-X-Originating-IP: [180.110.112.93]
-X-CM-SenderInfo: x2kxxvpqje0q5lvft2wodfhubq/
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv/mm: Add soft-dirty page tracking support
+Content-Language: en-US
+To: Chunyan Zhang <zhangchunyan@iscas.ac.cn>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Chunyan Zhang <zhang.lyra@gmail.com>
+References: <20240710033004.3923527-1-zhangchunyan@iscas.ac.cn>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20240710033004.3923527-1-zhangchunyan@iscas.ac.cn>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240715_031420_303162_3DC35F7C 
-X-CRM114-Status: GOOD (  13.49  )
+X-CRM114-CacheID: sfid-20240715_042120_613999_A663FEFE 
+X-CRM114-Status: GOOD (  25.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,151 +59,186 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduce page_fault_user and page_fault_kernel for riscv page fault.
-Help to get more detail information when page fault happen.
+Hi Chunyan,
 
----
-Simple test go below:
+On 10/07/2024 05:30, Chunyan Zhang wrote:
+> The PTE bit (9) is reserved for software, so we can use it for
+> soft-dirty tracking. This patch adds its standard handlers for
+> PTE, PMD, and swap entry.
 
-root@riscv-ubuntu2204 ~ # bin/perf list | grep exceptions
-  exceptions:page_fault_kernel                       [Tracepoint event]
-  exceptions:page_fault_user                         [Tracepoint event]
 
-root@riscv-ubuntu2204 ~ # bin/perf record -e exceptions:page_fault_kernel -e exceptions:page_fault_user
-[ perf record: Woken up 1 times to write data ]
-[ perf record: Captured and wrote 0.091 MB perf.data (19 samples) ]
+Unfortunately, ZONE_DEVICE has just used this last bit and should be 
+merged in 6.11.
 
-perf report tracepoint:
+I'm currently discussing internally how we can get 2 other PTE bits from 
+RVI in order to have the same number of available bits as x86 and arm64. 
+I guess that for now, if we really have a usecase for softdirty (and I 
+think we do with CRIU), we'll have to make ZONE_DEVICE and softdirty 
+mutually exclusive.
 
-perf     826 [007]   894.795520:   exceptions:page_fault_user: user page fault, address=0x7fff95af4400 cause=0xd
-perf     826 [007]   894.795970:   exceptions:page_fault_user: user page fault, address=0x7fff95a73400 cause=0xd
-perf     826 [007]   894.796738:   exceptions:page_fault_user: user page fault, address=0x7fff959f2400 cause=0xd
-perf     826 [007]   894.797088:   exceptions:page_fault_user: user page fault, address=0x7fff95971400 cause=0xd
-perf     826 [007]   894.797273:   exceptions:page_fault_user: user page fault, address=0x7fff958f0400 cause=0xd
-perf     826 [007]   894.797445:   exceptions:page_fault_user: user page fault, address=0x7fff9586f400 cause=0xd
-perf     826 [007]   894.797998: exceptions:page_fault_kernel: kernel page fault, address=0x7fff95870000 cause=0xd
 
-Signed-off-by: Zhu Hengbo <zhuhengbo@iscas.ac.cn>
----
- arch/riscv/include/asm/trace/exceptions.h | 60 +++++++++++++++++++++++
- arch/riscv/mm/fault.c                     | 15 ++++++
- 2 files changed, 75 insertions(+)
- create mode 100644 arch/riscv/include/asm/trace/exceptions.h
+>
+> To add swap PTE soft-dirty tracking, we borrow bit (4) which is
+> available for swap PTEs on RISC-V systems.
+>
+> This patch has been tested with the kselftest mm suite in which
+> soft-dirty and madv_populate run and pass, and no regressions
+> are observed in any of the other tests.
 
-diff --git a/arch/riscv/include/asm/trace/exceptions.h b/arch/riscv/include/asm/trace/exceptions.h
-new file mode 100644
-index 000000000000..a9a68d471703
---- /dev/null
-+++ b/arch/riscv/include/asm/trace/exceptions.h
-@@ -0,0 +1,60 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Tracepoints for RISC-V exceptions
-+ *
-+ * Copyright (C) 2024 ISCAS. All rights reserved
-+ *
-+ */
-+
-+#if !defined(_TRACE_PAGE_FAULT_H) || defined(TRACE_HEADER_MULTI_READ)
-+#define _TRACE_PAGE_FAULT_H
-+
-+#include <linux/tracepoint.h>
-+
-+#undef TRACE_SYSTEM
-+#define TRACE_SYSTEM exceptions
-+
-+TRACE_EVENT(page_fault_user,
-+	TP_PROTO(struct pt_regs *regs),
-+	TP_ARGS(regs),
-+
-+	TP_STRUCT__entry(
-+		__field(unsigned long, address)
-+		__field(unsigned long, cause)
-+	),
-+
-+	TP_fast_assign(
-+		__entry->address	= regs->badaddr;
-+		__entry->cause		= regs->cause;
-+	),
-+
-+	TP_printk("user page fault, address=%ps cause=0x%lx",
-+		  (void *)__entry->address, __entry->cause)
-+);
-+
-+TRACE_EVENT(page_fault_kernel,
-+	TP_PROTO(struct pt_regs *regs),
-+	TP_ARGS(regs),
-+
-+	TP_STRUCT__entry(
-+		__field(unsigned long, address)
-+		__field(unsigned long, cause)
-+	),
-+
-+	TP_fast_assign(
-+		__entry->address	= regs->badaddr;
-+		__entry->cause		= regs->cause;
-+	),
-+
-+	TP_printk("kernel page fault, address=%ps cause=0x%lx",
-+		  (void *)__entry->address, __entry->cause)
-+);
-+
-+#undef TRACE_INCLUDE_PATH
-+#undef TRACE_INCLUDE_FILE
-+#define TRACE_INCLUDE_PATH asm/trace/
-+#define TRACE_INCLUDE_FILE exceptions
-+#endif /*  _TRACE_PAGE_FAULT_H */
-+
-+/* This part must be outside protection */
-+#include <trace/define_trace.h>
-diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
-index 5224f3733802..22874074c5bc 100644
---- a/arch/riscv/mm/fault.c
-+++ b/arch/riscv/mm/fault.c
-@@ -22,6 +22,10 @@
- 
- #include "../kernel/head.h"
- 
-+
-+#define CREATE_TRACE_POINTS
-+#include <asm/trace/exceptions.h>
-+
- static void die_kernel_fault(const char *msg, unsigned long addr,
- 		struct pt_regs *regs)
- {
-@@ -215,6 +219,15 @@ static inline bool access_error(unsigned long cause, struct vm_area_struct *vma)
- 	return false;
- }
- 
-+
-+static inline void trace_page_fault(struct pt_regs *regs)
-+{
-+	if (user_mode(regs))
-+		trace_page_fault_user(regs);
-+	else
-+		trace_page_fault_kernel(regs);
-+}
-+
- /*
-  * This routine handles page faults.  It determines the address and the
-  * problem, and then passes it off to one of the appropriate routines.
-@@ -235,6 +248,8 @@ void handle_page_fault(struct pt_regs *regs)
- 	tsk = current;
- 	mm = tsk->mm;
- 
-+	trace_page_fault(regs);
-+
- 	if (kprobe_page_fault(regs, cause))
- 		return;
- 
--- 
-2.34.1
 
+Did you give CRIU a try?
+
+Thanks,
+
+Alex
+
+
+>
+> Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+> ---
+>   arch/riscv/Kconfig                    |  1 +
+>   arch/riscv/include/asm/pgtable-bits.h | 13 ++++++
+>   arch/riscv/include/asm/pgtable.h      | 65 ++++++++++++++++++++++++++-
+>   3 files changed, 78 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index b94176e25be1..2e3ad2925a6b 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -118,6 +118,7 @@ config RISCV
+>   	select HAVE_ARCH_MMAP_RND_COMPAT_BITS if COMPAT
+>   	select HAVE_ARCH_RANDOMIZE_KSTACK_OFFSET
+>   	select HAVE_ARCH_SECCOMP_FILTER
+> +	select HAVE_ARCH_SOFT_DIRTY
+>   	select HAVE_ARCH_THREAD_STRUCT_WHITELIST
+>   	select HAVE_ARCH_TRACEHOOK
+>   	select HAVE_ARCH_TRANSPARENT_HUGEPAGE if 64BIT && MMU
+> diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
+> index 179bd4afece4..bab48f5fd1e2 100644
+> --- a/arch/riscv/include/asm/pgtable-bits.h
+> +++ b/arch/riscv/include/asm/pgtable-bits.h
+> @@ -19,6 +19,19 @@
+>   #define _PAGE_SOFT      (3 << 8)    /* Reserved for software */
+>   
+>   #define _PAGE_SPECIAL   (1 << 8)    /* RSW: 0x1 */
+> +
+> +#ifdef CONFIG_MEM_SOFT_DIRTY
+> +#define _PAGE_SOFT_DIRTY	(1 << 9)    /* RSW: 0x2 for software dirty tracking */
+> +/*
+> + * BIT 4 is not involved into swap entry computation, so we
+> + * can borrow it for swap page soft-dirty tracking.
+> + */
+> +#define _PAGE_SWP_SOFT_DIRTY	_PAGE_USER
+> +#else
+> +#define _PAGE_SOFT_DIRTY	0
+> +#define _PAGE_SWP_SOFT_DIRTY	0
+> +#endif /* CONFIG_MEM_SOFT_DIRTY */
+> +
+>   #define _PAGE_TABLE     _PAGE_PRESENT
+>   
+>   /*
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index aad8b8ca51f1..46f512f52580 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -408,7 +408,7 @@ static inline pte_t pte_mkwrite_novma(pte_t pte)
+>   
+>   static inline pte_t pte_mkdirty(pte_t pte)
+>   {
+> -	return __pte(pte_val(pte) | _PAGE_DIRTY);
+> +	return __pte(pte_val(pte) | _PAGE_DIRTY | _PAGE_SOFT_DIRTY);
+>   }
+>   
+>   static inline pte_t pte_mkclean(pte_t pte)
+> @@ -436,6 +436,36 @@ static inline pte_t pte_mkhuge(pte_t pte)
+>   	return pte;
+>   }
+>   
+> +static inline int pte_soft_dirty(pte_t pte)
+> +{
+> +	return pte_val(pte) & _PAGE_SOFT_DIRTY;
+> +}
+> +
+> +static inline pte_t pte_mksoft_dirty(pte_t pte)
+> +{
+> +	return __pte(pte_val(pte) | _PAGE_SOFT_DIRTY);
+> +}
+> +
+> +static inline pte_t pte_clear_soft_dirty(pte_t pte)
+> +{
+> +	return __pte(pte_val(pte) & ~(_PAGE_SOFT_DIRTY));
+> +}
+> +
+> +static inline int pte_swp_soft_dirty(pte_t pte)
+> +{
+> +	return pte_val(pte) & _PAGE_SWP_SOFT_DIRTY;
+> +}
+> +
+> +static inline pte_t pte_swp_mksoft_dirty(pte_t pte)
+> +{
+> +	return __pte(pte_val(pte) | _PAGE_SWP_SOFT_DIRTY);
+> +}
+> +
+> +static inline pte_t pte_swp_clear_soft_dirty(pte_t pte)
+> +{
+> +	return __pte(pte_val(pte) & ~(_PAGE_SWP_SOFT_DIRTY));
+> +}
+> +
+>   #ifdef CONFIG_RISCV_ISA_SVNAPOT
+>   #define pte_leaf_size(pte)	(pte_napot(pte) ?				\
+>   					napot_cont_size(napot_cont_order(pte)) :\
+> @@ -721,6 +751,38 @@ static inline pmd_t pmd_mkdirty(pmd_t pmd)
+>   	return pte_pmd(pte_mkdirty(pmd_pte(pmd)));
+>   }
+>   
+> +static inline int pmd_soft_dirty(pmd_t pmd)
+> +{
+> +	return pte_soft_dirty(pmd_pte(pmd));
+> +}
+> +
+> +static inline pmd_t pmd_mksoft_dirty(pmd_t pmd)
+> +{
+> +	return pte_pmd(pte_mksoft_dirty(pmd_pte(pmd)));
+> +}
+> +
+> +static inline pmd_t pmd_clear_soft_dirty(pmd_t pmd)
+> +{
+> +	return pte_pmd(pte_clear_soft_dirty(pmd_pte(pmd)));
+> +}
+> +
+> +#ifdef CONFIG_ARCH_ENABLE_THP_MIGRATION
+> +static inline int pmd_swp_soft_dirty(pmd_t pmd)
+> +{
+> +	return pte_swp_soft_dirty(pmd_pte(pmd));
+> +}
+> +
+> +static inline pmd_t pmd_swp_mksoft_dirty(pmd_t pmd)
+> +{
+> +	return pte_pmd(pte_swp_mksoft_dirty(pmd_pte(pmd)));
+> +}
+> +
+> +static inline pmd_t pmd_swp_clear_soft_dirty(pmd_t pmd)
+> +{
+> +	return pte_pmd(pte_swp_clear_soft_dirty(pmd_pte(pmd)));
+> +}
+> +#endif /* CONFIG_ARCH_ENABLE_THP_MIGRATION */
+> +
+>   static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
+>   				pmd_t *pmdp, pmd_t pmd)
+>   {
+> @@ -811,6 +873,7 @@ extern pmd_t pmdp_collapse_flush(struct vm_area_struct *vma,
+>    * Format of swap PTE:
+>    *	bit            0:	_PAGE_PRESENT (zero)
+>    *	bit       1 to 3:       _PAGE_LEAF (zero)
+> + *	bit            4:	_PAGE_SWP_SOFT_DIRTY
+>    *	bit            5:	_PAGE_PROT_NONE (zero)
+>    *	bit            6:	exclusive marker
+>    *	bits      7 to 11:	swap type
 
 _______________________________________________
 linux-riscv mailing list
