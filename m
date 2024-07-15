@@ -4,42 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37F5BC2BD09
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Jul 2024 09:13:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EBB4C3DA5E
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jul 2024 19:10:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:References:
+	In-Reply-To:MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zOXh1FjEQjCtO6ORMGEtya5/MzAiX3kmfqOQ91pYrQI=; b=qljK1AMOjKnl57
-	vw+vqrPvgO8B5FMgpZys0e/jG2586S+MBLg7r342YkuFbwPEsTnr951TSTiQPfdU4iyHzepVJQsTD
-	BJbHHW1i35xhfI2UskH7R+lSK7kJ63be+1C9qy2w+iO9UxiZh1Y8MFyZ5DfV2bta/XFZKZxADy8w9
-	jwzfXowNo0prydWLj3h773613Bzhft+ifXI0MtLD5DAryGg6Kilhe9qA2ntVhdM489bw51kSM0tc/
-	DhF18NIOe7eessh6sEtmUlBZj1RX5azEJlPIRZWIBQzSwFQDcrWZuaci57+b1bpdqgUY8j6pTb/yz
-	3OkrYoHRoNTh3AwV7H+A==;
+	List-Owner; bh=jqj/vP3TPzVRG3d5v0RHNmTyuznw5HSH/klOgr/Urdo=; b=avU7STdRjz+Jvu
+	rgwNluDdwTgS/7mJP49zeoz3Kr6WtIS7LeAaalqQx8iVgOUo3xa834FQpsIdY08wbEnrvloTAPoTs
+	sivZeLqpFyRYtUmsOLSZ3SC424bnrx1KXmUuGoXg7yfP/DwVRbXX08apQQtsUb3K/NTnFexXfERy8
+	2nESQzx0/T3r0RO10S/UzgQmHanyOucuaZpABboI5HyrHrWhKkt8Bf78qWrM4Yruws5B0vSTotmdG
+	lDziL4zrlGWHzON/6r9OMGcN9K6EVjND2bTbQrIrZ099eM5CgBhfFm3HdfZufNWrtw8/SyvHdqylg
+	Lr5N9sBPjUz5wtSVoOEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sSCLU-0000000H2aB-0itr;
-	Fri, 12 Jul 2024 09:13:40 +0000
-Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1sTR5r-000000085wv-42kI;
+	Mon, 15 Jul 2024 19:10:39 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sSCLR-0000000H2Z7-2sRM
+	id 1sTR5o-000000085w7-2EV7
 	for linux-riscv@lists.infradead.org;
-	Fri, 12 Jul 2024 09:13:39 +0000
-Date: Fri, 12 Jul 2024 09:13:23 +0000
-From: Yixun Lan <dlan@gentoo.org>
-To: Conor Dooley <conor@kernel.org>
-Subject: Re: [PATCH v4 00/10] riscv: add initial support for SpacemiT K1
-Message-ID: <20240712091323.GYA2136013.dlan.gentoo>
-References: <20240709-k1-01-basic-dt-v4-0-ae5bb5e56aaf@gentoo.org>
- <20240711-zeppelin-property-aef2ee5fe999@spud>
+	Mon, 15 Jul 2024 19:10:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9E44D61226;
+	Mon, 15 Jul 2024 19:10:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D881C4AF0D;
+	Mon, 15 Jul 2024 19:10:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1721070634;
+	bh=i1YPP8GvnIotxIx3buh+wyZmCmdXEPtkuDjQhHiWPl4=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=aDmd1VLMC+Z9X3Q5GUqgh57bYNGh/33JFHUQyxiX2ol+2nYPr0XBOgCPVSPQboAy8
+	 PJuC/1NOP0L6lq9hH+HHsJ/qs6Or517HUUOxXzIwNjEJtvhLr5Iwf45QePhwlAe9a1
+	 se3QUDf4SlRWFqJFW2b40ykLpKgGFgOQ6Bujx6aQb4IzwWam9NyTwDoxkt2mQfwEJK
+	 OUBwjV+xz33oMGmU91E0gVLgl8ydTlHC5mYHoW1jfQvK8JW3s5nKmO5WFpcxcQm8Ei
+	 LUYAxEyGoaQabRV4DXKCr/zPxzn9a7ENb499PIqenQfU4MTGT5lsYa31e/+R/R+T47
+	 sLpZF+Judc01w==
+Message-ID: <b6c9ece6ea9a0a476057ced63669017e.sboyd@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240711-zeppelin-property-aef2ee5fe999@spud>
+In-Reply-To: <20240711-th1520-clk-v3-0-6ff17bb318fb@tenstorrent.com>
+References: <20240711-th1520-clk-v3-0-6ff17bb318fb@tenstorrent.com>
+Subject: Re: [PATCH v3 0/7] clk: thead: Add support for TH1520 AP_SUBSYS clock controller
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, Drew Fustini <dfustini@tenstorrent.com>
+To: Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor+dt@kernel.org>, Drew Fustini <dfustini@tenstorrent.com>, Emil Renner Berthing <emil.renner.berthing@canonical.com>, Fu Wei <wefu@redhat.com>, Guo Ren <guoren@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh@kernel.org>, Thomas Bonnefille <thomas.bonnefille@bootlin.com>, Yangtao Li <frank.li@vivo.com>
+Date: Mon, 15 Jul 2024 12:10:32 -0700
+User-Agent: alot/0.10
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240712_021337_771600_9CFA5217 
-X-CRM114-Status: GOOD (  17.75  )
+X-CRM114-CacheID: sfid-20240715_121036_662178_F4825EAD 
+X-CRM114-Status: GOOD (  11.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -51,50 +66,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Yangyu Chen <cyy@cyyself.name>, Conor Dooley <conor.dooley@microchip.com>, Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org, Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>, Meng Zhang <zhangmeng.kevin@spacemit.com>, Anup Patel <anup@brainfault.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, Haylen Chu <heylenay@outlook.com>, Meng Zhang <kevin.z.m@hotmail.com>, linux-serial@vger.kernel.org, Inochi Amaoto <inochiama@outlook.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Lubomir Rintel <lkundrak@v3.sk>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org, Jesse Taube <jesse@rivosinc.com>, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Matthias Brugger <matthias.bgg@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor:
-
-On 17:08 Thu 11 Jul     , Conor Dooley wrote:
-> On Tue, Jul 09, 2024 at 03:18:43AM +0000, Yixun Lan wrote:
-> > SpacemiT K1 is an ideal chip for some new extension such as RISC-V Vector
-> > 1.0 and Zicond evaluation now. Add initial support for it to allow more
-> > people to participate in building drivers to mainline for it.
-> > 
-> > This kernel has been tested upon Banana Pi BPI-F3 board on vendor U-Boot
-> > bootflow generated by Armbian SDK[1] and patched OpenSBI[2] to enable
-> > Zicboz, which does not in the vendor dts on its U-Boot. Then successfully
-> > booted to busybox on initrd with this log[3].
-> > 
-> > As previous discussion in patch v1[4], maintainer expect more basic drivers
-> > ready before really merging it, which would be fine. For other follow-up patches, 
-> > that are clk, pinctrl/gpio, reset.. My current goal would target at a headless
-> > system including SD card, emmc, and ethernet.
+Quoting Drew Fustini (2024-07-11 09:56:18)
+> This series adds support for the AP sub-system clock controller in the
+> T-Head TH1520 [1]. Yangtao Li originally submitted this series in May
+> 2023 [2]. Jisheng made additional improvements and then passed on the
+> work in progress to me.
 > 
-> This stuff is already too late for 6.11 as I already sent my PRs, so
-understood, no worry, let's target 6.12, I will send an updated version
-once next -rc1 tagged.
-
-> there's no immediate rush. Is there any progress made on creating the
-> clock or pinctrl drivers?
-I'm working on pinctrl, probably will send an initial version next week
-(ideally should include gpio/gpio-irq, or at least will push pinctrl part out..)
-
-for clk, I think Haylen is working on this..
+> Link: https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf [1]
+> Link: https://lore.kernel.org/all/20230515054402.27633-1-frank.li@vivo.com/ [2]
 > 
-> Cheers,
-> Conor.
+> Changes in v3:
+>  - dt-binding patch has been applied to clk-next by Stephen but I'm
+>    keeping it in the series for completeness.
+>  - move dt-bindings include after linux includes in driver
+>  - change rate to u64 in th1520_pll_vco_recalc_rate()
+>  - replace do_div() with normal division operation in both
+>    th1520_pll_vco_recalc_rate() and th1520_pll_postdiv_recalc_rate()
+>  - add static to ccu_mux structs: c910_i0_clk, c910_clk, uart_sclk
 
-
-
--- 
-Yixun Lan (dlan)
-Gentoo Linux Developer
-GPG Key ID AABEFD55
+This didn't happen, so I just did it myself.
 
 _______________________________________________
 linux-riscv mailing list
