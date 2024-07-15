@@ -4,81 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DF65C3DA42
-	for <linux-riscv@archiver.kernel.org>; Sun, 14 Jul 2024 21:21:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB909C3DA49
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jul 2024 02:00:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:From:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=8DDvHS/qnMvKMzo6+cuuZa7WrOkMVhjSWCedn9sG9KA=; b=rKkDf6/GETrvdw
-	b514OnJsIZaTenavLsvKgUK4MNDIJKGEGHeJFFES6/r7p3TYICxVz2JQggpVd0tadSiKaxUho+MWc
-	tduQfFzacdQQdHV/wpo0pbVYICoww5NMXSgT1e9qLftCj9hM6Shb8S30WVDUT6d1mkazfKErqf0ei
-	Df9Hpj5miCueEUa6FrOFwxbRz9MIgWGL1dwzTOjMwfzuA5p+rqD3iw55YJmwy05cq3koqLVWnSRA1
-	ugKt5n/SawOnLLmw3kI6JW0WuZTQlAAmrIfjtb9h3cokoY8Ts4x3TBcfDRAuKD47DSFR3RfKKUuh9
-	IKdyTp66A1AtemcaBL/A==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jy+AtEvXm7r3j8w5XLnvYUbPGeODIlLW/9Y/K1ENN0E=; b=iGp010Mt/METJC
+	tv3USFLoO8bubT/aNIfW2BKXQ+JzsLY3zyTneVInGoNzASmKU7fI4foXQO6LKrK9LTCpguBQANfQH
+	2hQbcPHN6wZh1tYxWIQTWfXfsGnoaGlnWYK0u/k5aS6xKootFsqCzmDolo4KO9Welo1vEa6+ymZxU
+	Fwz3cZO7YjzqguuASu1zjwCrXt1RdcSwE6jh4YqI/rLySZ2CKUFw0LAJ/AZbjgQz6jaL5Fi+m6Wp6
+	X+hmSn6BYydi3E1gWBlTBWIFIcsP9UC3v9RzZwKA3+U3h9h4Cbrji7lR+KrVniHSAk691KSr4lRvr
+	EAWj+k2AozgkM/jnDqRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sT6ed-00000005BcD-1zjT;
-	Sun, 14 Jul 2024 21:21:11 +0000
-Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
+	id 1sTB0d-00000005abc-1ulU;
+	Mon, 15 Jul 2024 02:00:11 +0000
+Received: from mgamail.intel.com ([192.198.163.11])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sT6eZ-00000005Bbc-46ow
+	id 1sTB0a-00000005ab1-3Dj3
 	for linux-riscv@lists.infradead.org;
-	Sun, 14 Jul 2024 21:21:09 +0000
-Received: by mail-pl1-x643.google.com with SMTP id d9443c01a7336-1fbe6f83957so28842105ad.3
-        for <linux-riscv@lists.infradead.org>; Sun, 14 Jul 2024 14:21:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=kernelci-org.20230601.gappssmtp.com; s=20230601; t=1720992067; x=1721596867; darn=lists.infradead.org;
-        h=from:to:subject:content-transfer-encoding:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=7aWpgnOwUGkXOUIf/K9lPgFEh5Aub75C0cBK+s7jKRo=;
-        b=mHfu+v3vhfFpvOi3szQY6cpyzw54/3e6tung9sQbhlHe8D9P4LS52jBV4F2t42l5QE
-         tLRVZRIYVZU2Mi9xKd3DUuVq3fQocrklalhqGBO81eoVnvKZMJm2UGxO5cjLUzXS+hLk
-         J6jRZjz1IwkPPp404zS0IgV5tbiWFMWaUYBcTEqvsFLnFmPGjKotEN7cdW6vH4mx4O5/
-         5WwD6Jqajq9D5lcNQmEv05bOo2pnqzXgqj/hF2mv8rueNPWr5wPYpg0kXN3U1pEtlpkq
-         NfxIVImfIUTPQLooHhOqAElei85+eGAS1Omgu+4xQrKvyrKuKO+IZc2A1xUdvM93DU9B
-         86Zg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1720992067; x=1721596867;
-        h=from:to:subject:content-transfer-encoding:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=7aWpgnOwUGkXOUIf/K9lPgFEh5Aub75C0cBK+s7jKRo=;
-        b=i4+XL2W5nIwIuJhFL1jNcCLUF/XTVSVb9w2I4/pfveHLVzpq3sOOB90+J67kv6b/B8
-         mxhjzUc4OSOE1tlb84PetqRrKlwROFsoUptfqtrArZIaHCCeozUkv27U+mS5JwBPHdNG
-         V9WBr/FIegATivKy57KV3mg4683K5FDF7ZKcvL00x22m1rTgHHNPZJZ7DM4SNZyk9o1k
-         O7X8wSEgUul1JBXejStf5Ix6Y+HxeVd5+93oU+dMZ2IzhZp0kcZsr1tM/OTgcg/+dOPg
-         worwLeD4LEx2Xh18f1GfFQmDTXhAKnxwtiSGPZ6DVmXFf/BgSqsz9BvC9qsCvPz3/0NH
-         o82Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUiRIzJPuIAbQv3C71rk9fG4yb7F4QQ9zHhy8gkzDmr3W0cP0Cp2CcRps2jQ5JvmYD+vwWxurDfCYHE7AyxW/Lx3/DQr3ND2fvCYKNGKdQ6
-X-Gm-Message-State: AOJu0YzPBmuhLwaN9l+X5XVYFmWikn33l3EXzavfRPKgeuk6C81QkHIt
-	UyVqzgBTFOUhuLRGzItd9lxjR66uX5lGL5QrJCy91d0TCuV83uPhlCQxB2lm1Mg38t7sIeaupu3
-	Dm3PWTA==
-X-Google-Smtp-Source: AGHT+IGAOFbKxulrE4acoOI/WSXdDRrvSoMzb+9s8oRURju46z457p8v5a3PCnUTGyBlaUvTD8bK1Q==
-X-Received: by 2002:a17:902:d4d0:b0:1fb:779e:4fd0 with SMTP id d9443c01a7336-1fbb6d3d176mr179748025ad.24.1720992067219;
-        Sun, 14 Jul 2024 14:21:07 -0700 (PDT)
-Received: from kernelci-production.internal.cloudapp.net ([20.171.243.82])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1fc0bc2783asm28286395ad.122.2024.07.14.14.21.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 14 Jul 2024 14:21:06 -0700 (PDT)
-Message-ID: <66944142.170a0220.ceea8.5b58@mx.google.com>
-Date: Sun, 14 Jul 2024 14:21:06 -0700 (PDT)
+	Mon, 15 Jul 2024 02:00:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1721008809; x=1752544809;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=eFeM/mubVUDDERtFQAHi8bGxnrvJRVJGCBfZtYGgymA=;
+  b=IfhMGSppL8SiFpSCNY60GS2z0qasg0kzLd9fA/4Vb7RjwXkrWRgmM2q1
+   O6AZ/BQklcx2lhCe4dkAQOCl9GgCwRbc3GkA0xazF0+2XE4ILt5vBrAMr
+   v4gixsSInL3LPMHL6b8XFUGGkVpCddBZUypryzmpfP+8f//DCP0E8a1pA
+   MH7LLqgClcc5GHR/F+BKWSdwalXsyZ5EQdiruLd+GBNzb9c/HYW2jG4Aa
+   tP65J8a1k1j2nojqoQFOAeAg8h63RFu+VVux+cZo030ylOgUWLG4uDkQm
+   O60XpvHUGh3LhWl6eLURpmFNRIOrL9Q922pAZfrppGIMN4Iy76HICOFfT
+   Q==;
+X-CSE-ConnectionGUID: KdNrXtXcQhGLVNb4lFxOrw==
+X-CSE-MsgGUID: ERBTVKf/Tmq+e1EgTbVedw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11133"; a="28977057"
+X-IronPort-AV: E=Sophos;i="6.09,209,1716274800"; 
+   d="scan'208";a="28977057"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jul 2024 19:00:02 -0700
+X-CSE-ConnectionGUID: x8eZ/MO0TkeFXyGhdI9v4Q==
+X-CSE-MsgGUID: 2zoIrlmTRBuw5qQNvc/QMQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.09,209,1716274800"; 
+   d="scan'208";a="54294866"
+Received: from lkp-server01.sh.intel.com (HELO 68891e0c336b) ([10.239.97.150])
+  by orviesa003.jf.intel.com with ESMTP; 14 Jul 2024 18:59:58 -0700
+Received: from kbuild by 68891e0c336b with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1sTB0O-000dru-15;
+	Mon, 15 Jul 2024 01:59:56 +0000
+Date: Mon, 15 Jul 2024 09:59:12 +0800
+From: kernel test robot <lkp@intel.com>
+To: Yuntao Dai <d1581209858@live.com>, jassisinghbrar@gmail.com,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	unicorn_wang@outlook.com, inochiama@outlook.com,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu
+Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Yuntao Dai <d1581209858@live.com>
+Subject: Re: [PATCH v2 3/3] mailbox: sophgo: add mailbox driver for cv18x SoCs
+Message-ID: <202407150911.KZchf5cj-lkp@intel.com>
+References: <SYBP282MB2238F93565D20F0A5F3EEB6BC4A02@SYBP282MB2238.AUSP282.PROD.OUTLOOK.COM>
 MIME-Version: 1.0
-X-Kernelci-Kernel: v6.10-rc1-63-g6ad8735994b8
-X-Kernelci-Report-Type: test
-X-Kernelci-Branch: for-next
-X-Kernelci-Tree: riscv
-Subject: riscv/for-next baseline: 20 runs,
- 2 regressions (v6.10-rc1-63-g6ad8735994b8)
-To: kernelci-results@groups.io, kernel-ci-triage@rivosinc.com,
- linux-riscv@lists.infradead.org
-From: "kernelci.org bot" <bot@kernelci.org>
+Content-Disposition: inline
+In-Reply-To: <SYBP282MB2238F93565D20F0A5F3EEB6BC4A02@SYBP282MB2238.AUSP282.PROD.OUTLOOK.COM>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240714_142108_046682_052FB902 
-X-CRM114-Status: UNSURE (   3.32  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240714_190008_877953_333466F7 
+X-CRM114-Status: GOOD (  11.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,66 +92,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-riscv/for-next baseline: 20 runs, 2 regressions (v6.10-rc1-63-g6ad8735994b8)
+Hi Yuntao,
 
-Regressions Summary
--------------------
+kernel test robot noticed the following build warnings:
 
-platform             | arch  | lab          | compiler | defconfig              | regressions
----------------------+-------+--------------+----------+------------------------+------------
-hifive-unleashed-a00 | riscv | lab-baylibre | clang-16 | defconfig+CONFIG_SMP=n | 1          
-hifive-unleashed-a00 | riscv | lab-baylibre | clang-16 | defconfig              | 1          
+[auto build test WARNING on robh/for-next]
+[also build test WARNING on linus/master v6.10 next-20240712]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-  Details:  https://kernelci.org/test/job/riscv/branch/for-next/kernel/v6.10-rc1-63-g6ad8735994b8/plan/baseline/
+url:    https://github.com/intel-lab-lkp/linux/commits/Yuntao-Dai/dt-bindings-mailbox-add-Sophgo-cv18x-SoCs-mailbox/20240715-003952
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
+patch link:    https://lore.kernel.org/r/SYBP282MB2238F93565D20F0A5F3EEB6BC4A02%40SYBP282MB2238.AUSP282.PROD.OUTLOOK.COM
+patch subject: [PATCH v2 3/3] mailbox: sophgo: add mailbox driver for cv18x SoCs
+config: alpha-allyesconfig (https://download.01.org/0day-ci/archive/20240715/202407150911.KZchf5cj-lkp@intel.com/config)
+compiler: alpha-linux-gcc (GCC) 13.3.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20240715/202407150911.KZchf5cj-lkp@intel.com/reproduce)
 
-  Test:     baseline
-  Tree:     riscv
-  Branch:   for-next
-  Describe: v6.10-rc1-63-g6ad8735994b8
-  URL:      https://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
-  SHA:      6ad8735994b854b23c824dd6b1dd2126e893a3b4 
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202407150911.KZchf5cj-lkp@intel.com/
 
+All warnings (new ones prefixed by >>):
 
-Test Regressions
----------------- 
-
-
-platform             | arch  | lab          | compiler | defconfig              | regressions
----------------------+-------+--------------+----------+------------------------+------------
-hifive-unleashed-a00 | riscv | lab-baylibre | clang-16 | defconfig+CONFIG_SMP=n | 1          
-
-  Details:     https://kernelci.org/test/plan/id/66943de612a72296af7e7087
-
-  Results:     0 PASS, 1 FAIL, 0 SKIP
-  Full config: defconfig+CONFIG_SMP=n
-  Compiler:    clang-16 (Debian clang version 16.0.6 (15~deb12u1))
-  Plain log:   https://storage.kernelci.org//riscv/for-next/v6.10-rc1-63-g6ad8735994b8/riscv/defconfig+CONFIG_SMP=n/clang-16/lab-baylibre/baseline-hifive-unleashed-a00.txt
-  HTML log:    https://storage.kernelci.org//riscv/for-next/v6.10-rc1-63-g6ad8735994b8/riscv/defconfig+CONFIG_SMP=n/clang-16/lab-baylibre/baseline-hifive-unleashed-a00.html
-  Rootfs:      http://storage.kernelci.org/images/rootfs/buildroot/buildroot-baseline/20230703.0/riscv/rootfs.cpio.gz 
+>> drivers/mailbox/cv1800-mailbox.c:30: warning: This comment starts with '/**', but isn't a kernel-doc comment. Refer Documentation/doc-guide/kernel-doc.rst
+    * cv1800 mailbox channel private data
 
 
-  * baseline.login: https://kernelci.org/test/case/id/66943de612a72296af7e7088
-        failing since 52 days (last pass: riscv-for-linus-6.10-mw1-6-g018b9d9874e72, first fail: v6.9-11099-gc6c901b7d9833) 
- 
+vim +30 drivers/mailbox/cv1800-mailbox.c
 
+    28	
+    29	/**
+  > 30	 * cv1800 mailbox channel private data
+    31	 * @idx: index of channel
+    32	 * @cpu: send to which processor
+    33	 */
+    34	struct cv1800_mbox_chan_priv {
+    35		int idx;
+    36		int cpu;
+    37	};
+    38	
 
-platform             | arch  | lab          | compiler | defconfig              | regressions
----------------------+-------+--------------+----------+------------------------+------------
-hifive-unleashed-a00 | riscv | lab-baylibre | clang-16 | defconfig              | 1          
-
-  Details:     https://kernelci.org/test/plan/id/66943f4e9f5fe687207e706f
-
-  Results:     0 PASS, 1 FAIL, 0 SKIP
-  Full config: defconfig
-  Compiler:    clang-16 (Debian clang version 16.0.6 (15~deb12u1))
-  Plain log:   https://storage.kernelci.org//riscv/for-next/v6.10-rc1-63-g6ad8735994b8/riscv/defconfig/clang-16/lab-baylibre/baseline-hifive-unleashed-a00.txt
-  HTML log:    https://storage.kernelci.org//riscv/for-next/v6.10-rc1-63-g6ad8735994b8/riscv/defconfig/clang-16/lab-baylibre/baseline-hifive-unleashed-a00.html
-  Rootfs:      http://storage.kernelci.org/images/rootfs/buildroot/buildroot-baseline/20230703.0/riscv/rootfs.cpio.gz 
-
-
-  * baseline.login: https://kernelci.org/test/case/id/66943f4e9f5fe687207e7070
-        failing since 38 days (last pass: riscv-for-linus-6.10-mw1-6-g018b9d9874e72, first fail: v6.10-rc1-9-g6d8e604c9502) 
-  
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
