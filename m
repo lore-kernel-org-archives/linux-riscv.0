@@ -4,77 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13E3FC3DA4B
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jul 2024 02:17:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1066C3DA59
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jul 2024 06:43:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=o6i2nE++W8CqRCnP4r3Qyb0TqFIQ/n+UbzXUxkHGf2g=; b=FkJy3OOlgb7PPl
-	f65OsliixaVYzhviMSdlA/45N7JKTXf8CxGlAT7TTNKGX+bUFpY6zRlYER49RsDDzLpd/Im34edbT
-	6v4cUAg8H2GuH4p5aCZ+ZJXmw1Zd5FAALsc+z5lZbsaUoRuiUSjNx9dMuFSpcPpO38I3PrD1ysozD
-	235gkbQHocCAAUdLPAdp5b3gTBF/13l0BWoMlyrTAnSnhM+ANvI7rlJVok1JXyIGVkZISVe7+xNTy
-	hVAMgXkCNASi2lPB5spVtmy+lBh5lgD3sQJOIsY2NlT3HUuWW2PmegVyfgrLcfwEGWijDzC5ctOZH
-	rFakndyZXmxBwuuPm9eg==;
+	List-Owner; bh=+ZwMSHzKXto1LOMQAlpxZXgxWeyeZvpHLcnZsrikOP4=; b=wYw8H9H+2TRH5G
+	25zzmVcnpxiWPLv9rLclo0vlE6eOtHLplI+CtuLr4EM+qHuceUjdvYAsHpUISRKWj8fEiUXIHBT+2
+	QJIH3efWbp1ZHUnlJStSKv38eWiT2aH2p5rsG2VRpU7x6TZiEGo4Bm5tQkjhrdgwdeEyX+t82pmXc
+	olLcr5s8mGYEhuLLm693JN/DnaI9VEAVsOqMilyTTDLyg/HfNsAAZABhMRm0iieHixs/2ml5JDv9R
+	boky43mhXeXUDGvLMbzPJ+x+ggdB4W8oZrgRUpWfEuH42YBztPxydXG7bj+MGhOiZA60NGa/4oGix
+	LUx18Py54naEFysqrLFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sTXl6-000000092fl-41RR;
-	Tue, 16 Jul 2024 02:17:40 +0000
-Received: from mail-ot1-x32d.google.com ([2607:f8b0:4864:20::32d])
+	id 1sTbuB-00000009Ua8-31cI;
+	Tue, 16 Jul 2024 06:43:19 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sTXl4-000000092f2-0Kne
+	id 1sTbu8-00000009UZD-00C4
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Jul 2024 02:17:39 +0000
-Received: by mail-ot1-x32d.google.com with SMTP id 46e09a7af769-7035b717880so2977025a34.1
-        for <linux-riscv@lists.infradead.org>; Mon, 15 Jul 2024 19:17:36 -0700 (PDT)
+	Tue, 16 Jul 2024 06:43:17 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-59f7fc89201so5032a12.3
+        for <linux-riscv@lists.infradead.org>; Mon, 15 Jul 2024 23:43:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1721096256; x=1721701056; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=3qG2e5OOr0a9SDC7lHn4BFqHyo95FcZxWbDfNRVBACI=;
-        b=RHS3Lsb/0mNfexJB3Opvg9ln9YVxjake0cuSxbAK3thFheEfqMvszLA7V8C2gRs/gu
-         DuPgPKbaKOvLqjJaPfW1EqCDhfROMiR8WZixdjBpislEOU4pAAhxaYY7JvV26n8QPKWP
-         prEqZATuhN5TBIVwBCMsxA9UQ6jiIVQPJvn193ocfrWo/t5xZBo1UXNJNSSC6kkZbMub
-         6uK1iDOymaYiagS3gOCLPQ9ds9l1qy0+2B77qHRC23NII7Xqv3DlVELAmoZm4vohw+MW
-         +W1jOpscwQs7Vf/Cakh/cWTFXEx+bnadFkBFydNimjas4VcyNniGUXS3PpYCgaHSSdIZ
-         7L+Q==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1721112194; x=1721716994; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=cCRSoAuECKcouO/voz6zEzYgSUjC3FMdxbyfDTdU7og=;
+        b=JrdN0w69aM8gPJxa3tUEEbObw8VLC7s7N/ZC1oyAsFixXPAzWwsl9ig2A/VdXnF+A2
+         YXILjJBaueBmglnQiQZnwXhYQMXz1dHgAus6bGGgkARIrcswC+JrmZkBbVPZG4LZQ4WI
+         NoX8JvqfqDoeNnZ5lyP7CmFwOKw6RMyC9rDfcPPJ98M7HiN2GV5QnCpnNkQqqisCVvVa
+         6DujR7isT4AqGHukwl9wMkNU3iqUclGmB/KH4EcXa3KtVCGfFerXPcpq534hCcP+Bi88
+         Z7Fl+g5snoKHp3ODZUSNb5TTGHyGI6astHfVXike8Rv9sJADovzGekmrnvnj0+iV+XM+
+         3haw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1721096256; x=1721701056;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=3qG2e5OOr0a9SDC7lHn4BFqHyo95FcZxWbDfNRVBACI=;
-        b=sDaAlrxVWV4iP1qulnz5VdKUhEQd0mHxYy53oWPn9JG+5ZQ3KKsBlGVbrsv2ElEhsG
-         E/QTWH9UxHig3qI6myQpH2/ZHaZxtYeSZDFSUbco4wJOrvh6EAWcoQn79MXOeAkZ+ZkD
-         3nXD9lwhTjOp7IWKXabgWzbpez3qaEpzrRFv/skAPfuEs+dIRprWBmWy06SlBdmkizHq
-         jb3HWYO79FGfPAC9UBy+SBQgitDJikln8wwqFsvUQiyWhNVuD/xEbJ6+nTJbkoimdoRk
-         40ty8jP+6TwPNd9RGYEESseGASAD0ey8Wqrfwcjdzqxg0LAQQzvKEgbqSm4kSX0CQlMF
-         P66w==
-X-Forwarded-Encrypted: i=1; AJvYcCU+TklmbLpAOkUICbtitN7t07CYS9aYksLCOITfD/DxB+m+HBElYy76HD51LvDe4OoeBpwnQfdlh/TPTxOQ8Hadr0t7TODNJvkzDZqVb4q7
-X-Gm-Message-State: AOJu0Ywi+lxdVukpgMqF3juvSSrV83QMzYD43/oIOb8Gnm9NQtnTbxl6
-	NZuAYMoZ96Fec1uyAYqv8lUKWnjhvGuYAL24rZcYXoe8FnyGZRUCoQt7v3TP29l9/L3eEVqcZGM
-	Jfzk1SDafqf2e/gmBqduUlTrwBRE=
-X-Google-Smtp-Source: AGHT+IF2iQvXMWZ+A/wS21lKkIcp4ScrIAImMKmhcq0FvVKMA7n1XTY7UZQNopwH2fOnvWt5n+kBM1ZVCbdtyBlI7Y8=
-X-Received: by 2002:a05:6870:9e4d:b0:25e:b74e:e1b8 with SMTP id
- 586e51a60fabf-260bf388476mr234928fac.9.1721096256110; Mon, 15 Jul 2024
- 19:17:36 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1721112194; x=1721716994;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=cCRSoAuECKcouO/voz6zEzYgSUjC3FMdxbyfDTdU7og=;
+        b=jYSFlde3JPjUNUhh2YAhyfIsKBIAx7uuWGJavCCtVS9kQM3FUyMX5lbLhzIbEaDJMh
+         2OA40/Srcen8UpC2Igl2eBzcOWory3w4tKLV3lubNnIt9p40OEk0lVjFHkdvBMzQyR1c
+         E6JC5AjGebdHYEfz/mpVlcyyME6jJbxcKgYtnGBrTI2ootp9049bdDJnRNYbam5vDkzC
+         NFrhj9QZ848N4OGMiKNsqXajoudHds1pYTIZiIPxIPSyf+28gXzWH1NAVPhtOVb6togd
+         CEtx47ComkDPweudTMkkD4uYTnaqfaV+UUlAsyQIVlqNXa9liEY8+7wu1gxqc3enB/9o
+         LLuA==
+X-Forwarded-Encrypted: i=1; AJvYcCVhvqSF4/zaw1M5kfMctcCz/YRTr7fjHfUW8PSmWqm0cX3QRSJMuCrZjfzshWfSYskuvkSdvOIZ6ojDZcP52ZON2xNct14rfoThzcJ0CnwS
+X-Gm-Message-State: AOJu0Yz9c2NzOwCp9zUu4EzQAxrMBvL34TngZBI5FWda9sULv+mNiII6
+	hLDeKaMR4jwyUf1FpBTXLzewVF5bGDd6nmyLAsY1UP19fIVQ35Bcbv113KqNUnUPEWpI62CyiPT
+	KgEotz2XmSD/JJWERROag4xvqPQf2CY+y8F7xm2WLoNOPnah4nQc=
+X-Google-Smtp-Source: AGHT+IGqVByFr0luOwoskb/AgZKNB8jHzqqvJMaLn4zx34p82HWK9+YsdjHaH5Pd8zOz5r4AWhXGqXuvh7iA0eU4fIA=
+X-Received: by 2002:a17:906:c784:b0:a72:676a:7d7b with SMTP id
+ a640c23a62f3a-a79ea3da90fmr69418966b.9.1721112194052; Mon, 15 Jul 2024
+ 23:43:14 -0700 (PDT)
 MIME-Version: 1.0
-References: <20240710033004.3923527-1-zhangchunyan@iscas.ac.cn> <9bf70f7c-5deb-4fce-b7c1-ec70d78cb5db@ghiti.fr>
-In-Reply-To: <9bf70f7c-5deb-4fce-b7c1-ec70d78cb5db@ghiti.fr>
-From: Chunyan Zhang <zhang.lyra@gmail.com>
-Date: Tue, 16 Jul 2024 10:16:59 +0800
-Message-ID: <CAAfSe-vhhVvP5Sa9bGGSw4ZQvexqUrjdTFjJL-4gLn0jsuk0ew@mail.gmail.com>
-Subject: Re: [PATCH] riscv/mm: Add soft-dirty page tracking support
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: Chunyan Zhang <zhangchunyan@iscas.ac.cn>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Andrew Morton <akpm@linux-foundation.org>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+References: <20240626130347.520750-1-alexghiti@rivosinc.com>
+ <20240626130347.520750-11-alexghiti@rivosinc.com> <CAJF2gTSG7HzV7mgZpkWLbSBNn2dRv_NaSmCimd+kRdU=EZrmmg@mail.gmail.com>
+ <CAHVXubizLq=qZgVQ2vBFe5zVuLRP0DGw=UN4U_Wkx2P2xsP3Mw@mail.gmail.com>
+ <a096151c-c349-455f-8939-3b739d73f016@redhat.com> <CAJF2gTRrZwVk2xyhF_PsJGKCfkvun-rifG8MjDBcGDt3YBuhPg@mail.gmail.com>
+In-Reply-To: <CAJF2gTRrZwVk2xyhF_PsJGKCfkvun-rifG8MjDBcGDt3YBuhPg@mail.gmail.com>
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+Date: Tue, 16 Jul 2024 08:43:02 +0200
+Message-ID: <CAHVXubh00OyazGP2C6sg0N2=kWqV-HXpzEiZCDdex8hcmLEM2g@mail.gmail.com>
+Subject: Re: [PATCH v2 10/10] riscv: Add qspinlock support based on Zabha extension
+To: Guo Ren <guoren@kernel.org>
+Cc: Waiman Long <longman@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Andrea Parri <parri.andrea@gmail.com>, 
+	Nathan Chancellor <nathan@kernel.org>, Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Will Deacon <will@kernel.org>, Boqun Feng <boqun.feng@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Leonardo Bras <leobras@redhat.com>, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-arch@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240715_191738_146192_2E0477BC 
-X-CRM114-Status: GOOD (  36.20  )
+X-CRM114-CacheID: sfid-20240715_234316_337085_8647642A 
+X-CRM114-Status: GOOD (  32.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,217 +94,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Alex,
-
-On Mon, 15 Jul 2024 at 19:21, Alexandre Ghiti <alex@ghiti.fr> wrote:
->
-> Hi Chunyan,
->
-> On 10/07/2024 05:30, Chunyan Zhang wrote:
-> > The PTE bit (9) is reserved for software, so we can use it for
-> > soft-dirty tracking. This patch adds its standard handlers for
-> > PTE, PMD, and swap entry.
->
->
-> Unfortunately, ZONE_DEVICE has just used this last bit and should be
-> merged in 6.11.
-
-Yes, I read the patch just now.
-
-> I'm currently discussing internally how we can get 2 other PTE bits from
-> RVI in order to have the same number of available bits as x86 and arm64.
-
-Yes I noticed that PTE bits reserved for software are too limited on RISC-V.
-
-Besides softdirty, we probably can support uffd write-protect on
-RISC-V if we will have two PTE bits for use.
-
-> I guess that for now, if we really have a usecase for softdirty (and I
-> think we do with CRIU), we'll have to make ZONE_DEVICE and soft-dirty
-> mutually exclusive.
-
-Yes, I also learned that CRIU uses soft-dirty.
-
-> >
-> > To add swap PTE soft-dirty tracking, we borrow bit (4) which is
-> > available for swap PTEs on RISC-V systems.
-> >
-> > This patch has been tested with the kselftest mm suite in which
-> > soft-dirty and madv_populate run and pass, and no regressions
-> > are observed in any of the other tests.
->
->
-> Did you give CRIU a try?
-
-I haven't tried CRIU, actually I found soft-dirty was missing on
-RISC-V by the way of running mm selftest cases.
-
-I can cook a new patch to implement soft-dirty and ZONE_DEVICE share
-the PTE bit(9), and make both features mutually exclusive if this
-solution is accepted.
-
-Or not to add soft-dirty until we have more other PTE bits that can be
-used for software.
-
-I'm open to listen to suggestions.
-
-Thanks,
-Chunyan
-
->
-> Thanks,
->
-> Alex
->
->
-> >
-> > Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
-> > ---
-> >   arch/riscv/Kconfig                    |  1 +
-> >   arch/riscv/include/asm/pgtable-bits.h | 13 ++++++
-> >   arch/riscv/include/asm/pgtable.h      | 65 ++++++++++++++++++++++++++-
-> >   3 files changed, 78 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > index b94176e25be1..2e3ad2925a6b 100644
-> > --- a/arch/riscv/Kconfig
-> > +++ b/arch/riscv/Kconfig
-> > @@ -118,6 +118,7 @@ config RISCV
-> >       select HAVE_ARCH_MMAP_RND_COMPAT_BITS if COMPAT
-> >       select HAVE_ARCH_RANDOMIZE_KSTACK_OFFSET
-> >       select HAVE_ARCH_SECCOMP_FILTER
-> > +     select HAVE_ARCH_SOFT_DIRTY
-> >       select HAVE_ARCH_THREAD_STRUCT_WHITELIST
-> >       select HAVE_ARCH_TRACEHOOK
-> >       select HAVE_ARCH_TRANSPARENT_HUGEPAGE if 64BIT && MMU
-> > diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
-> > index 179bd4afece4..bab48f5fd1e2 100644
-> > --- a/arch/riscv/include/asm/pgtable-bits.h
-> > +++ b/arch/riscv/include/asm/pgtable-bits.h
-> > @@ -19,6 +19,19 @@
-> >   #define _PAGE_SOFT      (3 << 8)    /* Reserved for software */
-> >
-> >   #define _PAGE_SPECIAL   (1 << 8)    /* RSW: 0x1 */
-> > +
-> > +#ifdef CONFIG_MEM_SOFT_DIRTY
-> > +#define _PAGE_SOFT_DIRTY     (1 << 9)    /* RSW: 0x2 for software dirty tracking */
-> > +/*
-> > + * BIT 4 is not involved into swap entry computation, so we
-> > + * can borrow it for swap page soft-dirty tracking.
-> > + */
-> > +#define _PAGE_SWP_SOFT_DIRTY _PAGE_USER
-> > +#else
-> > +#define _PAGE_SOFT_DIRTY     0
-> > +#define _PAGE_SWP_SOFT_DIRTY 0
-> > +#endif /* CONFIG_MEM_SOFT_DIRTY */
-> > +
-> >   #define _PAGE_TABLE     _PAGE_PRESENT
-> >
-> >   /*
-> > diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> > index aad8b8ca51f1..46f512f52580 100644
-> > --- a/arch/riscv/include/asm/pgtable.h
-> > +++ b/arch/riscv/include/asm/pgtable.h
-> > @@ -408,7 +408,7 @@ static inline pte_t pte_mkwrite_novma(pte_t pte)
-> >
-> >   static inline pte_t pte_mkdirty(pte_t pte)
-> >   {
-> > -     return __pte(pte_val(pte) | _PAGE_DIRTY);
-> > +     return __pte(pte_val(pte) | _PAGE_DIRTY | _PAGE_SOFT_DIRTY);
-> >   }
-> >
-> >   static inline pte_t pte_mkclean(pte_t pte)
-> > @@ -436,6 +436,36 @@ static inline pte_t pte_mkhuge(pte_t pte)
-> >       return pte;
-> >   }
-> >
-> > +static inline int pte_soft_dirty(pte_t pte)
-> > +{
-> > +     return pte_val(pte) & _PAGE_SOFT_DIRTY;
-> > +}
-> > +
-> > +static inline pte_t pte_mksoft_dirty(pte_t pte)
-> > +{
-> > +     return __pte(pte_val(pte) | _PAGE_SOFT_DIRTY);
-> > +}
-> > +
-> > +static inline pte_t pte_clear_soft_dirty(pte_t pte)
-> > +{
-> > +     return __pte(pte_val(pte) & ~(_PAGE_SOFT_DIRTY));
-> > +}
-> > +
-> > +static inline int pte_swp_soft_dirty(pte_t pte)
-> > +{
-> > +     return pte_val(pte) & _PAGE_SWP_SOFT_DIRTY;
-> > +}
-> > +
-> > +static inline pte_t pte_swp_mksoft_dirty(pte_t pte)
-> > +{
-> > +     return __pte(pte_val(pte) | _PAGE_SWP_SOFT_DIRTY);
-> > +}
-> > +
-> > +static inline pte_t pte_swp_clear_soft_dirty(pte_t pte)
-> > +{
-> > +     return __pte(pte_val(pte) & ~(_PAGE_SWP_SOFT_DIRTY));
-> > +}
-> > +
-> >   #ifdef CONFIG_RISCV_ISA_SVNAPOT
-> >   #define pte_leaf_size(pte)  (pte_napot(pte) ?                               \
-> >                                       napot_cont_size(napot_cont_order(pte)) :\
-> > @@ -721,6 +751,38 @@ static inline pmd_t pmd_mkdirty(pmd_t pmd)
-> >       return pte_pmd(pte_mkdirty(pmd_pte(pmd)));
-> >   }
-> >
-> > +static inline int pmd_soft_dirty(pmd_t pmd)
-> > +{
-> > +     return pte_soft_dirty(pmd_pte(pmd));
-> > +}
-> > +
-> > +static inline pmd_t pmd_mksoft_dirty(pmd_t pmd)
-> > +{
-> > +     return pte_pmd(pte_mksoft_dirty(pmd_pte(pmd)));
-> > +}
-> > +
-> > +static inline pmd_t pmd_clear_soft_dirty(pmd_t pmd)
-> > +{
-> > +     return pte_pmd(pte_clear_soft_dirty(pmd_pte(pmd)));
-> > +}
-> > +
-> > +#ifdef CONFIG_ARCH_ENABLE_THP_MIGRATION
-> > +static inline int pmd_swp_soft_dirty(pmd_t pmd)
-> > +{
-> > +     return pte_swp_soft_dirty(pmd_pte(pmd));
-> > +}
-> > +
-> > +static inline pmd_t pmd_swp_mksoft_dirty(pmd_t pmd)
-> > +{
-> > +     return pte_pmd(pte_swp_mksoft_dirty(pmd_pte(pmd)));
-> > +}
-> > +
-> > +static inline pmd_t pmd_swp_clear_soft_dirty(pmd_t pmd)
-> > +{
-> > +     return pte_pmd(pte_swp_clear_soft_dirty(pmd_pte(pmd)));
-> > +}
-> > +#endif /* CONFIG_ARCH_ENABLE_THP_MIGRATION */
-> > +
-> >   static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
-> >                               pmd_t *pmdp, pmd_t pmd)
-> >   {
-> > @@ -811,6 +873,7 @@ extern pmd_t pmdp_collapse_flush(struct vm_area_struct *vma,
-> >    * Format of swap PTE:
-> >    *  bit            0:       _PAGE_PRESENT (zero)
-> >    *  bit       1 to 3:       _PAGE_LEAF (zero)
-> > + *   bit            4:       _PAGE_SWP_SOFT_DIRTY
-> >    *  bit            5:       _PAGE_PROT_NONE (zero)
-> >    *  bit            6:       exclusive marker
-> >    *  bits      7 to 11:      swap type
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgR3VvLCBXYWltYW4sCgpPbiBUdWUsIEp1bCAxNiwgMjAyNCBhdCAzOjA14oCvQU0gR3VvIFJl
+biA8Z3VvcmVuQGtlcm5lbC5vcmc+IHdyb3RlOgo+Cj4gT24gVHVlLCBKdWwgMTYsIDIwMjQgYXQg
+MzozMOKAr0FNIFdhaW1hbiBMb25nIDxsb25nbWFuQHJlZGhhdC5jb20+IHdyb3RlOgo+ID4KPiA+
+IE9uIDcvMTUvMjQgMDM6MjcsIEFsZXhhbmRyZSBHaGl0aSB3cm90ZToKPiA+ID4gSGkgR3VvLAo+
+ID4gPgo+ID4gPiBPbiBTdW4sIEp1bCA3LCAyMDI0IGF0IDQ6MjDigK9BTSBHdW8gUmVuIDxndW9y
+ZW5Aa2VybmVsLm9yZz4gd3JvdGU6Cj4gPiA+PiBPbiBXZWQsIEp1biAyNiwgMjAyNCBhdCA5OjE0
+4oCvUE0gQWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPiB3cm90ZToKPiA+
+ID4+PiBJbiBvcmRlciB0byBwcm9kdWNlIGEgZ2VuZXJpYyBrZXJuZWwsIGEgdXNlciBjYW4gc2Vs
+ZWN0Cj4gPiA+Pj4gQ09ORklHX0NPTUJPX1NQSU5MT0NLUyB3aGljaCB3aWxsIGZhbGxiYWNrIGF0
+IHJ1bnRpbWUgdG8gdGhlIHRpY2tldAo+ID4gPj4+IHNwaW5sb2NrIGltcGxlbWVudGF0aW9uIGlm
+IFphYmhhIGlzIG5vdCBwcmVzZW50Lgo+ID4gPj4+Cj4gPiA+Pj4gTm90ZSB0aGF0IHdlIGNhbid0
+IHVzZSBhbHRlcm5hdGl2ZXMgaGVyZSBiZWNhdXNlIHRoZSBkaXNjb3Zlcnkgb2YKPiA+ID4+PiBl
+eHRlbnNpb25zIGlzIGRvbmUgdG9vIGxhdGUgYW5kIHdlIG5lZWQgdG8gc3RhcnQgd2l0aCB0aGUg
+cXNwaW5sb2NrCj4gPiA+PiBUaGF0J3Mgbm90IHRydWU7IHdlIHRyZWF0IHNwaW5sb2NrIGFzIHFz
+cGlubG9jayBhdCBmaXJzdC4KPiA+ID4gVGhhdCdzIHdoYXQgSSBzYWlkOiB3ZSBoYXZlIHRvIHVz
+ZSB0aGUgcXNwaW5sb2NrIGltcGxlbWVudGF0aW9uIGF0Cj4gPiA+IGZpcnN0ICpiZWNhdXNlKiB3
+ZSBjYW4ndCBkaXNjb3ZlciB0aGUgZXh0ZW5zaW9ucyBzb29uIGVub3VnaCB0byB1c2UKPiA+ID4g
+dGhlIHJpZ2h0IHNwaW5sb2NrIGltcGxlbWVudGF0aW9uIGJlZm9yZSB0aGUga2VybmVsIHVzZXMg
+YSBzcGlubG9jay4KPiA+ID4gQW5kIHNpbmNlIHRoZSBzcGlubG9ja3MgYXJlIHVzZWQgKmJlZm9y
+ZSogdGhlIGRpc2NvdmVyeSBvZiB0aGUKPiA+ID4gZXh0ZW5zaW9ucywgd2UgY2Fubm90IHVzZSB0
+aGUgY3VycmVudCBhbHRlcm5hdGl2ZSBtZWNoYW5pc20gb3Igd2UnZAo+ID4gPiBuZWVkIHRvIGV4
+dGVuZCBpdCB0byBhZGQgYW4gImluaXRpYWwiIHZhbHVlIHdoaWNoIGRvZXMgbm90IGRlcGVuZCBv
+bgo+ID4gPiB0aGUgYXZhaWxhYmxlIGV4dGVuc2lvbnMuCj4gPgo+ID4gV2l0aCBxc3BpbmxvY2ss
+IHRoZSBsb2NrIHJlbWFpbnMgemVybyBhZnRlciBhIGxvY2svdW5sb2NrIHNlcXVlbmNlLiBUaGF0
+Cj4gPiBpcyBub3QgdGhlIGNhc2Ugd2l0aCB0aWNrZXQgbG9jay4gQXNzdW1pbmcgdGhhdCBhbGwg
+dGhlIGRpc2NvdmVyeSB3aWxsCj4gPiBiZSBkb25lIGJlZm9yZSBTTVAgYm9vdCwgdGhlIHFzcGlu
+bG9jayBzbG93cGF0aCB3b24ndCBiZSBhY3RpdmF0ZWQgYW5kCj4gPiBzbyB3ZSBkb24ndCBuZWVk
+IHRoZSBwcmVzZW5jZSBvZiBhbnkgZXh0ZW5zaW9uLiBJIGJlbGlldmUgdGhhdCBpcyB0aGUKPiA+
+IG1haW4gcmVhc29uIHdoeSBxc3BpbmxvY2sgaXMgdXNlZCBhcyB0aGUgaW5pdGlhbCBkZWZhdWx0
+IGFuZCBub3QgdGlja2V0Cj4gPiBsb2NrLgo+IFRoeCBXYWltYW4sCj4gWWVzLCBxc3BpbmxvY2sg
+aXMgYSBjbGVhbiBndXksIGJ1dCB0aWNrZXQgbG9jayBpcyBhIGRpcnR5IG9uZS4KCkd1eXMsIHdl
+IGFsbCBhZ3JlZSBvbiB0aGF0LCB0aGF0J3Mgd2h5IEkga2VwdCB0aGlzIGJlaGF2aW91ciBpbiB0
+aGlzIHBhdGNoc2V0LgoKPgo+IEhpIEFsZXhhbmRyZSwKPiBUaGVyZWZvcmUsIHRoZSBzd2l0Y2gg
+cG9pbnQoYmVmb3JlIHJlc2V0X2luaXQoKSkgaXMgbGF0ZSBlbm91Z2ggdG8KPiBjaGFuZ2UgdGhl
+IGxvY2sgbWVjaGFuaXNtLCBhbmQgdGhpcyBzYXRpc2ZpZXMgdGhlIHJlcXVpcmVtZW50cyBvZgo+
+IGFwcGx5X2Jvb3RfYWx0ZXJuYXRpdmVzKCksIGFwcGx5X2Vhcmx5X2Jvb3RfYWx0ZXJuYXRpdmVz
+KCksIGFuZAo+IGFwcGx5X21vZHVsZV9hbHRlcm5hdGl2ZXMoKS4KCkkgY2FuJ3QgZmluZCByZXNl
+dF9pbml0KCkuCgpUaGUgZGlzY292ZXJ5IG9mIHRoZSBleHRlbnNpb25zIGlzIGRvbmUgaW4gcmlz
+Y3ZfZmlsbF9od2NhcCgpIGNhbGxlZApmcm9tIHNldHVwX2FyY2goKQpodHRwczovL2VsaXhpci5i
+b290bGluLmNvbS9saW51eC9sYXRlc3Qvc291cmNlL2FyY2gvcmlzY3Yva2VybmVsL3NldHVwLmMj
+TDI4OC4KU28gKmJlZm9yZSogdGhpcyBwb2ludCwgd2UgaGF2ZSBubyBrbm93bGVkZ2Ugb2YgdGhl
+IGF2YWlsYWJsZQpleHRlbnNpb25zIG9uIHRoZSBwbGF0Zm9ybS4gIExldCdzIGltYWdpbmUgbm93
+IHRoYXQgd2UgdXNlIGFuCmFsdGVybmF0aXZlIGZvciB0aGUgcXNwaW5sb2NrIGltcGxlbWVudGF0
+aW9uLCBpdCB3aWxsIGxvb2sgbGlrZSB0aGlzCihJIHVzZSBvbmx5IHphYmhhIGhlcmUsIHRoYXQn
+cyBhbiBleGFtcGxlKToKCi0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3BpbmxvY2suaAor
+KysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3NwaW5sb2NrLmgKQEAgLTE2LDggKzE2LDEyIEBA
+IERFQ0xBUkVfU1RBVElDX0tFWV9UUlVFKHFzcGlubG9ja19rZXkpOwogI2RlZmluZSBTUElOTE9D
+S19CQVNFX0RFQ0xBUkUob3AsIHR5cGUsIHR5cGVfbG9jaykgICAgICAgICAgICAgICAgICAgICBc
+CiBzdGF0aWMgX19hbHdheXNfaW5saW5lIHR5cGUgYXJjaF9zcGluXyMjb3AodHlwZV9sb2NrIGxv
+Y2spICAgICAgICAgICAgIFwKIHsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAotICAgICAgIGlmIChzdGF0aWNfYnJh
+bmNoX3VubGlrZWx5KCZxc3BpbmxvY2tfa2V5KSkgICAgICAgICAgICAgICAgICAgICBcCi0gICAg
+ICAgICAgICAgICByZXR1cm4gcXVldWVkX3NwaW5fIyNvcChsb2NrKTsgICAgICAgICAgICAgICAg
+ICAgICAgICAgIFwKKyAgICAgICBhc20gZ290byhBTFRFUk5BVElWRSgiaiAlW25vX3phYmhhXSIs
+ICJub3AiLCAwLCAgICAgICAgICAgICAgICAgXAorICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIFJJU0NWX0lTQV9FWFRfWkFCSEEsIDEpICAgICAgICAgICAgXAorICAgICAgICAg
+ICAgICAgICAgICAgICAgIDogOiA6IDogbm9femFiaGEpOyAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICBcCisgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIFwKKyAgICAgICByZXR1cm4gcXVldWVkX3NwaW5fIyNvcChs
+b2NrKTsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAorbm9femFiaGE6ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBc
+CiAgICAgICAgcmV0dXJuIHRpY2tldF9zcGluXyMjb3AobG9jayk7ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIFwKIH0KCmFwcGx5X2Vhcmx5X2Jvb3RfYWx0ZXJuYXRpdmVzKCkgY2Fu
+J3QgYmUgdXNlZCB0byBwYXRjaCB0aGUgYWJvdmUKYWx0ZXJuYXRpdmUgc2luY2UgaXQgaXMgY2Fs
+bGVkIGZyb20gc2V0dXBfdm0oKSwgd2F5IGJlZm9yZSB3ZSBrbm93IHRoZQphdmFpbGFibGUgZXh0
+ZW5zaW9ucy4KYXBwbHlfYm9vdF9hbHRlcm5hdGl2ZXMoKSwgaW5zdGVhZCwgaXMgY2FsbGVkIGFm
+dGVyIHJpc2N2X2ZpbGxfaHdjYXAoKQphbmQgdGhlbiB3aWxsIGJlIGFibGUgdG8gcGF0Y2ggdGhl
+IGFsdGVybmF0aXZlcyBjb3JyZWN0bHkKaHR0cHM6Ly9lbGl4aXIuYm9vdGxpbi5jb20vbGludXgv
+bGF0ZXN0L3NvdXJjZS9hcmNoL3Jpc2N2L2tlcm5lbC9zZXR1cC5jI0wyOTAuCgpCdXQgdGhlbiwg
+YmVmb3JlIGFwcGx5X2Jvb3RfYWx0ZXJuYXRpdmVzKCksIGFueSB1c2Ugb2YgYSBzcGlubG9jawoo
+cHJpbnRrIGRvZXMgc28pIHdpbGwgdXNlIGEgdGlja2V0IHNwaW5sb2NrIGltcGxlbWVudGF0aW9u
+LCBhbmQgbm90CnRoZSBxc3BpbmxvY2sgaW1wbGVtZW50YXRpb24uIEhvdyBkbyB5b3UgZml4IHRo
+YXQ/Cgo+Cj4gPgo+ID4gQ2hlZXJzLAo+ID4gTG9uZ21hbgo+ID4KPgo+Cj4gLS0KPiBCZXN0IFJl
+Z2FyZHMKPiAgR3VvIFJlbgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
+ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
+eC1yaXNjdgo=
