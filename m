@@ -4,73 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6F68C3DA49
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jul 2024 14:00:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1063C3DA59
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jul 2024 14:27:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pH4ktRsasxKzDiT5KjG1Ic/uYvNNoKYdZA5Lsd8Lcyw=; b=Q/oAHXc/EQQT57
-	hKAINosSWWBwhS/7rutlHEXhjr4nTJMJb2GA4Grs7C4KdMgZbYklvW/8EM6vXN1C8YeoklqwRsiBF
-	Hif5KLIGAx/xl06aHLJw4f948JbPD052yD5X875USOAOCKRw+sayM01vU7162S+t0hg0p0UpxsQeJ
-	N3ge7SZ47rucB9AEZP8hTO6ED/KYJMW0NV3Z1V0fie0SZorROUof6n++pzLRAbsWkfIrY8ROGbxGg
-	2tXhazLvZM6d9y86PXPovds/7cRmEnWpg6t4wtwZim+cR9ObIEHfnffricsywNpyIto0EXYbEz+n8
-	m+V0azEWL2ax7ZwcaYAQ==;
+	List-Owner; bh=geW39jhzU2tAlbrRfMIQ1GHN9qTNkA7E/DDdWH8edQo=; b=WBbcOLmuPdRr0I
+	sSG7bx1DxSVlMesErhABbMMUIFqOAJahedntY/Sj3nrnYPlQBLP8mxVIQN9eYpmxBfaa9RPy75KlT
+	iYDqKG9g8Qr0UYDbajlnpLYTmQjNwAmyHC9iM1eXrRZBUQuUu48IExssj/t4lhCPwzc1YaqiZhANX
+	v1GUnFfMs1FmIrAPsBwGfHXBSQj6TM/nQL9T6G4xfE3pjkhGKaEXp+5Z9Ar6c7LUSPbgJdnioQCKZ
+	SvQNei14Jez6rP62YNkoP8kGoTgdK2ZppfuTDMi13Ybsi9ypZBMpaogzwrAF2Sgkk+J5Hs8jHVPel
+	Nhva6p2qOGB982wA0m7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sTijW-0000000Aczt-2Rk0;
-	Tue, 16 Jul 2024 14:00:46 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1sTj94-0000000Ah2H-098e;
+	Tue, 16 Jul 2024 14:27:10 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sTijU-0000000Acyx-0YQp
+	id 1sTj8m-0000000Agwv-1twK
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Jul 2024 14:00:45 +0000
+	Tue, 16 Jul 2024 14:26:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 2C6FACE1320;
-	Tue, 16 Jul 2024 14:00:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 405FBC116B1;
-	Tue, 16 Jul 2024 14:00:40 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id E653461236;
+	Tue, 16 Jul 2024 14:26:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4BA5C116B1;
+	Tue, 16 Jul 2024 14:26:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1721138441;
-	bh=q6G0LaBTnMOqEYsABjZwsURGHz9QWdlHe+gyWVklxts=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FuBb6prhshjfIeleU2KrheelYSh2TnxOI7dWe1G5Dd3y1F4w95HaNp1CjgnCeXkNW
-	 OR9rOeHh6duuGkkJ5a9B5+hzU+Zcd1olvWoEkNfYz71Bws4g6DG4L8z7Aa5cenrALe
-	 6D26r7/ySoliE5GFuI9+e63sLpiG32FtnKhiUAgadyy9kgEJBASbO6dTYH3hiBULVG
-	 o01Fgg3qZspZLf72CjxlxGa/zXLNpsWmPMJ0jKY5R+4I3dpTGrFGl6nBJRy9Lqwuf2
-	 ZfivNfieZL0KusjE55gOWZQ+MTgxa5TCybgmzgp02+S7nSMi5MozglZjRCUHjRgmJ8
-	 BqzAaLW5GH6JQ==
-Date: Tue, 16 Jul 2024 07:00:38 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	kernel test robot <lkp@intel.com>, Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrea Parri <parri.andrea@gmail.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>,
-	Waiman Long <longman@redhat.com>, Boqun Feng <boqun.feng@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>, Leonardo Bras <leobras@redhat.com>,
-	Guo Ren <guoren@kernel.org>, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-arch@vger.kernel.org, llvm@lists.linux.dev,
-	oe-kbuild-all@lists.linux.dev
-Subject: Re: [PATCH v2 01/10] riscv: Implement cmpxchg32/64() using Zacas
-Message-ID: <20240716140038.GA3272205@thelio-3990X>
-References: <20240626130347.520750-2-alexghiti@rivosinc.com>
- <202407041157.odTZAYZ6-lkp@intel.com>
- <20240705172750.GF987634@thelio-3990X>
- <CAHVXubhvk_CbBX=hWFGt+1HEM4cj=cAc1NsCEknn=B8UDcXVSQ@mail.gmail.com>
+	s=k20201202; t=1721140011;
+	bh=GvxcA8wr20XF4fdAl9dv1Gnq+YAu/czSgSdTv7mKfqU=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=g0fOx72vFZ8ep20tFlAdPuHW/ceqJpO3KI/4L6UPERt4tUvCsFH6o1HlchTCRvQZ2
+	 YigmvrCL+V3yMLEzyAiEeNcq5jPc0dnE0kLDJH8U7//pNSphXwlo/W4KBMWzVD5fTW
+	 kh3ZhG6cczWqs00Cz+8h6scage9uu+sdMGPY/DdzPwI8DrrwHJTWNi/wEJpDIagMoj
+	 tQW7mQ6vENEapgX94ajR20iOq+TWEaNwjaoG9md7aW3S9wiXihM1MnIZUROJ7w0a5g
+	 FqcxYFEFB42URz+scF1z6eL2aLLMrRSfx+vSZwJmHYzrFDv7aYe7wAjK54mxxY6S/Q
+	 JocpLgejHmKZw==
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Puranjay Mohan <puranjay@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	Sasha Levin <sashal@kernel.org>,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alexghiti@rivosinc.com,
+	dev.mbstr@gmail.com,
+	andy.chiu@sifive.com,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.9 22/22] riscv: stacktrace: fix usage of ftrace_graph_ret_addr()
+Date: Tue, 16 Jul 2024 10:24:29 -0400
+Message-ID: <20240716142519.2712487-22-sashal@kernel.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20240716142519.2712487-1-sashal@kernel.org>
+References: <20240716142519.2712487-1-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAHVXubhvk_CbBX=hWFGt+1HEM4cj=cAc1NsCEknn=B8UDcXVSQ@mail.gmail.com>
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.9.9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240716_070044_540690_0318C112 
-X-CRM114-Status: GOOD (  19.49  )
+X-CRM114-CacheID: sfid-20240716_072652_568311_026D9744 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,44 +80,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBKdWwgMTYsIDIwMjQgYXQgMDI6MTk6NTdQTSArMDIwMCwgQWxleGFuZHJlIEdoaXRp
-IHdyb3RlOgo+IE9uIEZyaSwgSnVsIDUsIDIwMjQgYXQgNzoyN+KAr1BNIE5hdGhhbiBDaGFuY2Vs
-bG9yIDxuYXRoYW5Aa2VybmVsLm9yZz4gd3JvdGU6Cj4gPiBBbm90aGVyIGFsdGVybmF0aXZlIHdv
-dWxkIGJlIHRvIHJlcXVpcmUgTExWTSAxNysgZm9yIFJJU0MtViwgd2hpY2ggbWF5Cj4gPiBub3Qg
-YmUgdGhlIHdvcnN0IGFsdGVybmF0aXZlLCBzaW5jZSBJIHRoaW5rIG1vc3QgcGVvcGxlIGRvaW5n
-IHNlcmlvdXMKPiA+IHdvcmsgd2l0aCBjbGFuZyB3aWxsIHByb2JhYmx5IGJlIGxpdmluZyBjbG9z
-ZSB0byB0aXAgb2YgdHJlZSBhbnl3YXlzCj4gPiBiZWNhdXNlIG9mIGFsbCB0aGUgZXh0ZW5zaW9u
-IHdvcmsgdGhhdCBnb2VzIG9uIHVwc3RyZWFtLgo+IAo+IFN0dXBpZCBxdWVzdGlvbiBidXQgd2h5
-IHRoZSBmaXggaW4gbGx2bSAxNyB3YXMgbm90IGJhY2twb3J0ZWQgdG8KPiBwcmV2aW91cyB2ZXJz
-aW9ucz8KClVuZm9ydHVuYXRlbHksIExMVk0gcmVsZWFzZXMgYXJlIG9ubHkgc3VwcG9ydGVkIGZv
-ciBhIGZldyBtb250aHMgd2l0aApmaXhlcywgdW5saWtlIEdDQyB0aGF0IHN1cHBvcnRlZCB0aGVp
-ciByZWxlYXNlcyBmb3IgYSBmZXcgeWVhcnMuIEJ5IHRoZQp0aW1lIHRoaXMgaXNzdWUgd2FzIHVu
-Y292ZXJlZCBhbmQgcmVzb2x2ZWQgaW4gTExWTSBtYWluICgxNyBhdCB0aGUKdGltZSksIExMVk0g
-MTYgd2FzIG5vIGxvbmdlciBzdXBwb3J0ZWQuCgpJIGNvdWxkIHBvdGVudGlhbGx5IHBhdGNoIHRo
-ZSBrZXJuZWwub3JnIHRvb2xjaGFpbnMgYnV0IHRoYXQgZG9lc24ndCBmaXgKdGhlIGlzc3VlIGZv
-ciBvdGhlciB2ZXJzaW9ucyBvZiBjbGFuZyBvdXQgdGhlcmUuCgo+IEFueXdheSwgSSdkIHJhdGhl
-ciByZXF1aXJlIGxsdm0gMTcrIHRoYW4gYWRkIGEgYnVuY2ggb2YgcHJlcHJvY2Vzc29yCj4gZ3Vh
-cmRzIGluIHRoaXMgZmlsZSAoSUlVQyB3aGF0IHlvdSBzYWlkIGFib3ZlKSBhcyBpdCBpcyBjb21w
-bGV4Cj4gZW5vdWdoLgoKU3VyZSwgdGhpcyBpcyBub3QgYSBzdXBlciB1bnJlYXNvbmFibGUgaXNz
-dWUgdG8gYnVtcCB0aGUgbWluaW11bQpzdXBwb3J0ZWQgdmVyc2lvbiBmb3IgUklTQy1WIG92ZXIg
-aW4gbXkgb3Bpbmlvbiwgc28gbm8gcmVhbCBvYmplY3Rpb25zCmZyb20gbWUuCgo+IEBDb25vciBE
-b29sZXkgQFBhbG1lciBEYWJiZWx0IFdEWVQ/IElzIHRoZXJlIGFueSBpbnRlcmVzdCBpbgo+IHN1
-cHBvcnRpbmcgbGx2bSA8IDE3PyBXZSBtYXkgZW5jb3VudGVyIHRoaXMgYnVnIGFnYWluIGluIHRo
-ZSBmdXR1cmUgc28KPiBJJ2QgYmUgaW4gZmF2b3Igb2YgbW92aW5nIHRvIGxsdm0gMTcrLgoKRldJ
-VywgSSB3b3VsZCBlbnZpc2lvbiBhIGRpZmYgbGlrZSB0aGlzIChhc3N1bWluZyBpdCBhY3R1YWxs
-eSB3b3JrcyB0bwpyZXNvbHZlIHRoaXMgaXNzdWUsIEkgZGlkbid0IGFjdHVhbGx5IHRlc3QgaXQp
-OgoKZGlmZiAtLWdpdCBhL3NjcmlwdHMvbWluLXRvb2wtdmVyc2lvbi5zaCBiL3NjcmlwdHMvbWlu
-LXRvb2wtdmVyc2lvbi5zaAppbmRleCA5MWM5MTIwMTIxMmMuLmU4MWViN2VkMjU3ZCAxMDA3NTUK
-LS0tIGEvc2NyaXB0cy9taW4tdG9vbC12ZXJzaW9uLnNoCisrKyBiL3NjcmlwdHMvbWluLXRvb2wt
-dmVyc2lvbi5zaApAQCAtMjgsNiArMjgsOCBAQCBsbHZtKQogCQllY2hvIDE1LjAuMAogCWVsaWYg
-WyAiJFNSQ0FSQ0giID0gbG9vbmdhcmNoIF07IHRoZW4KIAkJZWNobyAxOC4wLjAKKwllbGlmIFsg
-IiRTUkNBUkNIIiA9IHJpc2N2IF07IHRoZW4KKwkJZWNobyAxNy4wLjAKIAllbHNlCiAJCWVjaG8g
-MTMuMC4xCiAJZmkKCkNoZWVycywKTmF0aGFuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZA
-bGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
-c3RpbmZvL2xpbnV4LXJpc2N2Cg==
+From: Puranjay Mohan <puranjay@kernel.org>
+
+[ Upstream commit 393da6cbb2ff89aadc47683a85269f913aa1c139 ]
+
+ftrace_graph_ret_addr() takes an `idx` integer pointer that is used to
+optimize the stack unwinding. Pass it a valid pointer to utilize the
+optimizations that might be available in the future.
+
+The commit is making riscv's usage of ftrace_graph_ret_addr() match
+x86_64.
+
+Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
+Reviewed-by: Steven Rostedt (Google) <rostedt@goodmis.org>
+Link: https://lore.kernel.org/r/20240618145820.62112-1-puranjay@kernel.org
+Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ arch/riscv/kernel/stacktrace.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
+index 0d3f00eb0baee..10e311b2759d3 100644
+--- a/arch/riscv/kernel/stacktrace.c
++++ b/arch/riscv/kernel/stacktrace.c
+@@ -32,6 +32,7 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+ 			     bool (*fn)(void *, unsigned long), void *arg)
+ {
+ 	unsigned long fp, sp, pc;
++	int graph_idx = 0;
+ 	int level = 0;
+ 
+ 	if (regs) {
+@@ -68,7 +69,7 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+ 			pc = regs->ra;
+ 		} else {
+ 			fp = frame->fp;
+-			pc = ftrace_graph_ret_addr(current, NULL, frame->ra,
++			pc = ftrace_graph_ret_addr(current, &graph_idx, frame->ra,
+ 						   &frame->ra);
+ 			if (pc == (unsigned long)ret_from_exception) {
+ 				if (unlikely(!__kernel_text_address(pc) || !fn(arg, pc)))
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
