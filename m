@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1063C3DA59
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jul 2024 14:27:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7C0AC3DA49
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jul 2024 14:27:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=geW39jhzU2tAlbrRfMIQ1GHN9qTNkA7E/DDdWH8edQo=; b=WBbcOLmuPdRr0I
-	sSG7bx1DxSVlMesErhABbMMUIFqOAJahedntY/Sj3nrnYPlQBLP8mxVIQN9eYpmxBfaa9RPy75KlT
-	iYDqKG9g8Qr0UYDbajlnpLYTmQjNwAmyHC9iM1eXrRZBUQuUu48IExssj/t4lhCPwzc1YaqiZhANX
-	v1GUnFfMs1FmIrAPsBwGfHXBSQj6TM/nQL9T6G4xfE3pjkhGKaEXp+5Z9Ar6c7LUSPbgJdnioQCKZ
-	SvQNei14Jez6rP62YNkoP8kGoTgdK2ZppfuTDMi13Ybsi9ypZBMpaogzwrAF2Sgkk+J5Hs8jHVPel
-	Nhva6p2qOGB982wA0m7Q==;
+	List-Owner; bh=aYKeHEhQxIOUyHAiJQn41O8bO8DYAC4srVw6hWZJRoQ=; b=VsODVmxzs1PRLk
+	38k6ztbHOLpnE/vU9kWNFHuTj7ASA2f4D006IC7ZeJa7un3slIs4r5Z64V+wZpx5W/zpBAs9MZ7x0
+	3AZNiSdHMsPBDjteTiO9m9/4f6fPvKhFSkEY46xZOdMLkf41i8aT2PuwI3IVTdwLIWmTaQkKdSvbn
+	SMieJNrp4Vr8IaBKCCUiBu+7GSswyBAOqLneyZq9qFwiLHPrbZTZKwZ9aDRcJVfRZro2A7ERGIK7y
+	5VECSF5jLaXVPZt/frE9jshESRb3GVbh8v6NnGJ3dQT6UTLgVZWXUxa1RSe791aUdvDuQvmdez28d
+	x0wslPuQ4lbNHsbsO8Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sTj94-0000000Ah2H-098e;
-	Tue, 16 Jul 2024 14:27:10 +0000
+	id 1sTj92-0000000Ah20-47Ne;
+	Tue, 16 Jul 2024 14:27:08 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sTj8m-0000000Agwv-1twK
-	for linux-riscv@lists.infradead.org;
-	Tue, 16 Jul 2024 14:26:53 +0000
+	id 1sTj8i-0000000AgvJ-2LTU;
+	Tue, 16 Jul 2024 14:26:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E653461236;
-	Tue, 16 Jul 2024 14:26:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4BA5C116B1;
-	Tue, 16 Jul 2024 14:26:49 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0AD5F6125F;
+	Tue, 16 Jul 2024 14:26:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E501C116B1;
+	Tue, 16 Jul 2024 14:26:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1721140011;
-	bh=GvxcA8wr20XF4fdAl9dv1Gnq+YAu/czSgSdTv7mKfqU=;
+	s=k20201202; t=1721140007;
+	bh=EXYSkTpfZdRsAURefw+wp/oHxR/nZJWgDFo0FkryX7s=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=g0fOx72vFZ8ep20tFlAdPuHW/ceqJpO3KI/4L6UPERt4tUvCsFH6o1HlchTCRvQZ2
-	 YigmvrCL+V3yMLEzyAiEeNcq5jPc0dnE0kLDJH8U7//pNSphXwlo/W4KBMWzVD5fTW
-	 kh3ZhG6cczWqs00Cz+8h6scage9uu+sdMGPY/DdzPwI8DrrwHJTWNi/wEJpDIagMoj
-	 tQW7mQ6vENEapgX94ajR20iOq+TWEaNwjaoG9md7aW3S9wiXihM1MnIZUROJ7w0a5g
-	 FqcxYFEFB42URz+scF1z6eL2aLLMrRSfx+vSZwJmHYzrFDv7aYe7wAjK54mxxY6S/Q
-	 JocpLgejHmKZw==
+	b=tCnIEk7ITVMenMm3d9yP9wF6PZbszYZTlDOkexVGkuO/qzwmhEtLzjxTWO5fpXZvh
+	 laqjeYg6V03HEi+bJWds9jrLw9TinBUQZxR6H4pHT/5YWujcRKnnA6nEOt6CxRFfXq
+	 K+L2TJloJCZgiIv7akZgN9FS/F8aDsks9Yni2pAUfgR+wFfSXN7vJD9zfXI5r+wqlx
+	 m9UEimLEv8xSjZaAK+8gFGetzLVsNgSGC7COxVk53LrJIS67cyRoyMvO284GlNtJRV
+	 G3p7sSSWE0tX1mn8mcwyTDBNkwqboi33VIWpKHJhvXYb7IDqwxSFWx268NqL8thXO2
+	 dtEzNPiqwzAVQ==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Puranjay Mohan <puranjay@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
+Cc: Samuel Holland <samuel.holland@sifive.com>,
+	Atish Patra <atishp@rivosinc.com>,
 	Palmer Dabbelt <palmer@rivosinc.com>,
 	Sasha Levin <sashal@kernel.org>,
+	atishp@atishpatra.org,
+	will@kernel.org,
+	mark.rutland@arm.com,
 	paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
 	aou@eecs.berkeley.edu,
-	alexghiti@rivosinc.com,
-	dev.mbstr@gmail.com,
-	andy.chiu@sifive.com,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.9 22/22] riscv: stacktrace: fix usage of ftrace_graph_ret_addr()
-Date: Tue, 16 Jul 2024 10:24:29 -0400
-Message-ID: <20240716142519.2712487-22-sashal@kernel.org>
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.9 21/22] drivers/perf: riscv: Reset the counter to hpmevent mapping while starting cpus
+Date: Tue, 16 Jul 2024 10:24:28 -0400
+Message-ID: <20240716142519.2712487-21-sashal@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240716142519.2712487-1-sashal@kernel.org>
 References: <20240716142519.2712487-1-sashal@kernel.org>
@@ -67,8 +67,8 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.9.9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240716_072652_568311_026D9744 
-X-CRM114-Status: GOOD (  11.37  )
+X-CRM114-CacheID: sfid-20240716_072648_672242_C1D8FB3C 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,47 +85,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Puranjay Mohan <puranjay@kernel.org>
+From: Samuel Holland <samuel.holland@sifive.com>
 
-[ Upstream commit 393da6cbb2ff89aadc47683a85269f913aa1c139 ]
+[ Upstream commit 7dd646cf745c34d31e7ed2a52265e9ca8308f58f ]
 
-ftrace_graph_ret_addr() takes an `idx` integer pointer that is used to
-optimize the stack unwinding. Pass it a valid pointer to utilize the
-optimizations that might be available in the future.
+Currently, we stop all the counters while a new cpu is brought online.
+However, the hpmevent to counter mappings are not reset. The firmware may
+have some stale encoding in their mapping structure which may lead to
+undesirable results. We have not encountered such scenario though.
 
-The commit is making riscv's usage of ftrace_graph_ret_addr() match
-x86_64.
-
-Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
-Reviewed-by: Steven Rostedt (Google) <rostedt@goodmis.org>
-Link: https://lore.kernel.org/r/20240618145820.62112-1-puranjay@kernel.org
+Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+Signed-off-by: Atish Patra <atishp@rivosinc.com>
+Link: https://lore.kernel.org/r/20240628-misc_perf_fixes-v4-2-e01cfddcf035@rivosinc.com
 Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- arch/riscv/kernel/stacktrace.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ drivers/perf/riscv_pmu_sbi.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
-index 0d3f00eb0baee..10e311b2759d3 100644
---- a/arch/riscv/kernel/stacktrace.c
-+++ b/arch/riscv/kernel/stacktrace.c
-@@ -32,6 +32,7 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
- 			     bool (*fn)(void *, unsigned long), void *arg)
- {
- 	unsigned long fp, sp, pc;
-+	int graph_idx = 0;
- 	int level = 0;
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 3e44d2fb8bf81..6d3fdf3a688dd 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -634,7 +634,7 @@ static inline void pmu_sbi_stop_all(struct riscv_pmu *pmu)
+ 	 * which may include counters that are not enabled yet.
+ 	 */
+ 	sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP,
+-		  0, pmu->cmask, 0, 0, 0, 0);
++		  0, pmu->cmask, SBI_PMU_STOP_FLAG_RESET, 0, 0, 0);
+ }
  
- 	if (regs) {
-@@ -68,7 +69,7 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
- 			pc = regs->ra;
- 		} else {
- 			fp = frame->fp;
--			pc = ftrace_graph_ret_addr(current, NULL, frame->ra,
-+			pc = ftrace_graph_ret_addr(current, &graph_idx, frame->ra,
- 						   &frame->ra);
- 			if (pc == (unsigned long)ret_from_exception) {
- 				if (unlikely(!__kernel_text_address(pc) || !fn(arg, pc)))
+ static inline void pmu_sbi_stop_hw_ctrs(struct riscv_pmu *pmu)
 -- 
 2.43.0
 
