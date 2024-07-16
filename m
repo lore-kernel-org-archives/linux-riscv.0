@@ -4,79 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8467C3DA49
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jul 2024 20:04:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D00CC3DA49
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jul 2024 20:41:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:From:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=R0KiCJE7oe2XI9iBZ/ahv6kBbScZR0XxTC1aWAk5v+U=; b=Tw+BptB5p/sVIs
-	pldjZLLqRotvyuSIr45mIzz5d7ASY0GPwwE/jdQYexMGfU59sMdR5y5PnMga963C95PXJMVf1TKXs
-	8mtMnHZz2fvcTOjwU5sSbMl7LcSB9IBst9lG8zln1rCG0uJvepeh18aPVl0OIMvsFdJz0Pux4NM1Z
-	U6ItXUDQF+mUfXdA5cHRPhSixN9GmuMSHQqK6Hzzkf6CRRV+zNRBmYwqj/WJiR08F2esmG+zNnKlJ
-	ybFWZqnjpiMzXiyD60WHg5umD/n26ztlNhMd1c4fpA7FjeGA97w9CLshD/AeZOMwwSz93FcyAIZJI
-	UKEsJG/KxgytEFo6Rrjw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=RTWGhk/mJN4Z3rU3q0lEH/Sfgyy3Qcje3Ohtdxjp6dg=; b=hmL9vcndRvJV2T
+	PIt+cXKcx+/bEHTsfELq6QZoKJsYbpD5SXh/J9UfWtIF+DkzZxDTcMLLk9HP4oygRrUSWjpxqIzfm
+	Sm7FZEUUatfeh8W6mC1tvHPoTnoRhbKZ7ktFxoHDqu9QmyxoLt+5j0piILEX8a+z7YkvM4Gd9oHaE
+	K9Cu4hNf6wV3ByCCeA8okIH7M/fodDjH6tXZEq0TzXOzBvHJxC2BVpp4aKlEX6ruVOjjBXkM6MYly
+	ZIs1dPvuZuCl0/pmZlZSgr5JufRnIQ9nfmVCd/N6++wdKNnqcAJd2bKb0dU7tGuo20Vg7SoMPQ/Tx
+	cJjhXmYAcmYknGyIuuOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sToPB-0000000Bbpq-1mqQ;
-	Tue, 16 Jul 2024 20:04:09 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1sToyr-0000000BhT6-2gZ6;
+	Tue, 16 Jul 2024 20:41:01 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sToP8-0000000BbpU-3LVf
+	id 1sToyo-0000000BhSY-2BOc
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Jul 2024 20:04:08 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-70b0d0fefe3so3950007b3a.2
-        for <linux-riscv@lists.infradead.org>; Tue, 16 Jul 2024 13:04:06 -0700 (PDT)
+	Tue, 16 Jul 2024 20:41:00 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-52e9c55febcso7793031e87.2
+        for <linux-riscv@lists.infradead.org>; Tue, 16 Jul 2024 13:40:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=kernelci-org.20230601.gappssmtp.com; s=20230601; t=1721160245; x=1721765045; darn=lists.infradead.org;
-        h=from:to:subject:content-transfer-encoding:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=iQG8mIhVVmL6xGbNiHThIM12nVXndwU8wyKuegz3/QQ=;
-        b=ecc6y37HB56OZbUxZ+Mx1c54DFZMhlS2B4kHDM1S0O7zSoYnYW4JTMSIpZUIuT3q45
-         a9WYDhVAyy/pTU3lRk+zcp4+YVT0COKlxooKZKvW7wLOqIPgU7MTcQ1oJ3CayxmpUssf
-         roJKbWscNAvZUu2zxd9RSf0fdcmwBrg1P3/EC0VJPZ5nr9R+WdaQfcSHJn+QhXtgfb+d
-         0A9eSKJdKnV8J//zG3zq+Tbfh6zyvjRm4afCpfRCgtbEfYzud0Y6LCAvpu+4n30NH1pP
-         q2WpEXn1nm6s0LQSmbrf6ZvZyY7t3PFryfgpwExR+BSsZPy2bkqCzJrkCRSqQ6fPY0dT
-         1pgQ==
+        d=googlemail.com; s=20230601; t=1721162456; x=1721767256; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=YMdxg3WCwHw04RHmhTv9jlPPA04o7My1YPASt49ZqeQ=;
+        b=cLbZmg8ww2M9RvwqB0uD9xUv4eLwfPdpSR+BmPqEfzEN0iGPnuKO/JcF0H7ppxXJH/
+         oxud6oxyokOVgchPE1ONSMnzIDXXn4Wml54SwWdljPqlAqx6SlYY39a+0pJjQmQsD9ZB
+         /DU7wYXmViQi6zAaYOajHr7A3SoqMKuZDXcGvqGY+CpK7zLwAsw0ohAL2mTs/QHZ63uB
+         tS6iGiiXHBoG7Y93htjNSMavk1FmyYzyrhwXvHaEdvfOy+FMESFAPpKo8JI7gAcfydyf
+         bjKoFc195eBEjDZB8pM0M1LLZPv1WK2EtJ2qWhCTD5NPX9rxVa0HYSJ8DQ7gjKqTbSta
+         xFcw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1721160245; x=1721765045;
-        h=from:to:subject:content-transfer-encoding:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1721162456; x=1721767256;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=iQG8mIhVVmL6xGbNiHThIM12nVXndwU8wyKuegz3/QQ=;
-        b=C69h25Jdlgw8KmJYZT8LCNV71o/x7MpJ2dForPfFxzYD7kY3ybtovP6etyTigVvxF2
-         D86e7/LSp/QtdoCvkEQTUzlfhTtY+k/mbAoG9Vn3oHQikDRQFUDQAFhPh4cKNf4huQjd
-         3Z03UW6z5aht0Bv8IZf10YW5neEmRmZg+X/wtf/CaGqqElarUYVO7hM+vWJEYlQoPXv3
-         /EeqT0O4LLHDNsGc4Yh1iG/WTFkTLaZaxmJ+Ay37biyI4kn+j9xSwpR/j5x7edW9NMOb
-         myDGUtkpExAwTkEVlrRPp5UrGIRmp8jcJ+vSmUEYFJUhsr77WEpvMITN1oUAMFIasZt9
-         /l7g==
-X-Forwarded-Encrypted: i=1; AJvYcCUt1I8pgLK0id39SQ9i184g6bFUcANBh5AqEU1vLUwJAVZhHX58VRrJO4PAfY7oPmr39xGXec54zvBzaFlXLjwykrEgOkrupQ3AfLKAGrOd
-X-Gm-Message-State: AOJu0YwP1ICgNfX/01Pg6Wn69eaaIXavleRFfBlyaMd1k5UzLNAK6FQp
-	aHIM7e//vzvzEN07OeOMhmN693usTPQv06VTlSZwWRMk47l+QfOtPFM7k8LHyDY=
-X-Google-Smtp-Source: AGHT+IGQ6z8jB7QEkj/iZ2WgJe7xj7brawT8Ba4BI00DYf9Qt/9D+TtS6U+RlyEuUftedqFGfqFnJg==
-X-Received: by 2002:a05:6a20:a103:b0:1c0:ecfd:e6f9 with SMTP id adf61e73a8af0-1c3f11f1549mr4187470637.4.1721160245642;
-        Tue, 16 Jul 2024 13:04:05 -0700 (PDT)
-Received: from kernelci-production.internal.cloudapp.net ([20.171.243.82])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2caedbe8c48sm6731988a91.4.2024.07.16.13.04.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Jul 2024 13:04:05 -0700 (PDT)
-Message-ID: <6696d235.170a0220.1d6df.82dc@mx.google.com>
-Date: Tue, 16 Jul 2024 13:04:05 -0700 (PDT)
+        bh=YMdxg3WCwHw04RHmhTv9jlPPA04o7My1YPASt49ZqeQ=;
+        b=Ew+fdy91a8ixvkdlT0w5Ms1U201e9PaH+bNAEAQgG7pLrTgPPJ77hEwq/Eva7ni2t6
+         0gijh+jGQbO1KipkxOiyIMfZDRpRaO6cd7lKcxZ8gmSkU2sURbdKat0TVl/uPx5g548N
+         46cyF69uYDgkYtiPnsoh9yV+bb58Kkcn0l/foGQGKEwBJ+0y65eU2xUGZTQGrtRS6zkJ
+         +zjL/fqk5UqNaQPdzuPkQAj1yAZTqDo1vUbE+9nzIBAzYmqbzD/yydjD0Wgg88RW8ZYE
+         gW5Ea712LNlZElrN2eui7yz6eUSX22jDuyWavZM7xfuoomT/4dNzSHN7P1hDx+KjaYQu
+         cxew==
+X-Gm-Message-State: AOJu0YzTJdtaXcMRN/wF5/IxuJAgbm1EAB/TebXKmtvqMMYrW5yawQAi
+	n2YspgqxwKL9OeQJP+Mr77ec+5GYeDmCf7eL7P+veCetLBByGiI=
+X-Google-Smtp-Source: AGHT+IGOSCmfEE2w313/uxtqARZUa2eopmYvj2gIVS9Exg7eTgrFdKFNUJQS4TG2vJz6Kz9djUKE1g==
+X-Received: by 2002:a05:6512:224e:b0:52c:d90d:77aa with SMTP id 2adb3069b0e04-52edf034b88mr2113388e87.61.1721162456118;
+        Tue, 16 Jul 2024 13:40:56 -0700 (PDT)
+Received: from localhost (ip-005-147-049-029.um06.pools.vodafone-ip.de. [5.147.49.29])
+        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-a79bc7f1d79sm354825766b.100.2024.07.16.13.40.54
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 16 Jul 2024 13:40:55 -0700 (PDT)
+From: Daniel Maslowski <cyrevolt@googlemail.com>
+X-Google-Original-From: Daniel Maslowski <cyrevolt@gmail.com>
+To: linux-riscv@lists.infradead.org
+Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
+	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	Daniel Maslowski <cyrevolt@gmail.com>
+Subject: [PATCH v2] riscv/purgatory: align riscv_kernel_entry
+Date: Tue, 16 Jul 2024 22:40:47 +0200
+Message-ID: <20240716204047.7649-1-cyrevolt@gmail.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-X-Kernelci-Kernel: v6.10-rc1-64-g93b63f68d00a
-X-Kernelci-Report-Type: test
-X-Kernelci-Branch: for-next
-X-Kernelci-Tree: riscv
-Subject: riscv/for-next baseline: 20 runs,
- 2 regressions (v6.10-rc1-64-g93b63f68d00a)
-To: kernelci-results@groups.io, kernel-ci-triage@rivosinc.com,
- linux-riscv@lists.infradead.org
-From: "kernelci.org bot" <bot@kernelci.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240716_130406_860358_E02ADA11 
-X-CRM114-Status: UNSURE (   3.59  )
+X-CRM114-CacheID: sfid-20240716_134058_618125_0C359C67 
+X-CRM114-Status: UNSURE (   8.89  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,66 +92,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-riscv/for-next baseline: 20 runs, 2 regressions (v6.10-rc1-64-g93b63f68d00a)
+When alignment handling is delegated to the kernel, everything must be
+word-aligned in purgatory, since the trap handler is then set to the
+kexec one. Without the alignment, hitting the exception would
+ultimately crash. On other occasions, the kernel's handler would take
+care of exceptions.
+This has been tested on a JH7110 SoC with oreboot and its SBI delegating
+unaligned access exceptions and the kernel configured to handle them.
 
-Regressions Summary
--------------------
+Fixes: 736e30af583fb6e0e2b8211b894ff99dea0f1ee7
+Signed-off-by: Daniel Maslowski <cyrevolt@gmail.com>
+---
+ arch/riscv/purgatory/entry.S | 2 ++
+ 1 file changed, 2 insertions(+)
 
-platform             | arch  | lab          | compiler | defconfig              | regressions
----------------------+-------+--------------+----------+------------------------+------------
-hifive-unleashed-a00 | riscv | lab-baylibre | clang-16 | defconfig+CONFIG_SMP=n | 1          
-hifive-unleashed-a00 | riscv | lab-baylibre | clang-16 | defconfig              | 1          
-
-  Details:  https://kernelci.org/test/job/riscv/branch/for-next/kernel/v6.10-rc1-64-g93b63f68d00a/plan/baseline/
-
-  Test:     baseline
-  Tree:     riscv
-  Branch:   for-next
-  Describe: v6.10-rc1-64-g93b63f68d00a
-  URL:      https://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
-  SHA:      93b63f68d00a0483b450b446e2ea5386a1b94213 
-
-
-Test Regressions
----------------- 
-
-
-platform             | arch  | lab          | compiler | defconfig              | regressions
----------------------+-------+--------------+----------+------------------------+------------
-hifive-unleashed-a00 | riscv | lab-baylibre | clang-16 | defconfig+CONFIG_SMP=n | 1          
-
-  Details:     https://kernelci.org/test/plan/id/6696cb0ddd5066115e7e707b
-
-  Results:     0 PASS, 1 FAIL, 0 SKIP
-  Full config: defconfig+CONFIG_SMP=n
-  Compiler:    clang-16 (Debian clang version 16.0.6 (15~deb12u1))
-  Plain log:   https://storage.kernelci.org//riscv/for-next/v6.10-rc1-64-g93b63f68d00a/riscv/defconfig+CONFIG_SMP=n/clang-16/lab-baylibre/baseline-hifive-unleashed-a00.txt
-  HTML log:    https://storage.kernelci.org//riscv/for-next/v6.10-rc1-64-g93b63f68d00a/riscv/defconfig+CONFIG_SMP=n/clang-16/lab-baylibre/baseline-hifive-unleashed-a00.html
-  Rootfs:      http://storage.kernelci.org/images/rootfs/buildroot/buildroot-baseline/20230703.0/riscv/rootfs.cpio.gz 
-
-
-  * baseline.login: https://kernelci.org/test/case/id/6696cb0ddd5066115e7e707c
-        failing since 54 days (last pass: riscv-for-linus-6.10-mw1-6-g018b9d9874e72, first fail: v6.9-11099-gc6c901b7d9833) 
+diff --git a/arch/riscv/purgatory/entry.S b/arch/riscv/purgatory/entry.S
+index 5bcf3af903da..0e6ca6d5ae4b 100644
+--- a/arch/riscv/purgatory/entry.S
++++ b/arch/riscv/purgatory/entry.S
+@@ -7,6 +7,7 @@
+  * Author: Li Zhengyu (lizhengyu3@huawei.com)
+  *
+  */
++#include <asm/asm.h>
+ #include <linux/linkage.h>
  
+ .text
+@@ -34,6 +35,7 @@ SYM_CODE_END(purgatory_start)
+ 
+ .data
+ 
++.align LGREG
+ SYM_DATA(riscv_kernel_entry, .quad 0)
+ 
+ .end
+-- 
+2.45.2
 
-
-platform             | arch  | lab          | compiler | defconfig              | regressions
----------------------+-------+--------------+----------+------------------------+------------
-hifive-unleashed-a00 | riscv | lab-baylibre | clang-16 | defconfig              | 1          
-
-  Details:     https://kernelci.org/test/plan/id/6696cdca5572503f9c7e7121
-
-  Results:     0 PASS, 1 FAIL, 0 SKIP
-  Full config: defconfig
-  Compiler:    clang-16 (Debian clang version 16.0.6 (15~deb12u1))
-  Plain log:   https://storage.kernelci.org//riscv/for-next/v6.10-rc1-64-g93b63f68d00a/riscv/defconfig/clang-16/lab-baylibre/baseline-hifive-unleashed-a00.txt
-  HTML log:    https://storage.kernelci.org//riscv/for-next/v6.10-rc1-64-g93b63f68d00a/riscv/defconfig/clang-16/lab-baylibre/baseline-hifive-unleashed-a00.html
-  Rootfs:      http://storage.kernelci.org/images/rootfs/buildroot/buildroot-baseline/20230703.0/riscv/rootfs.cpio.gz 
-
-
-  * baseline.login: https://kernelci.org/test/case/id/6696cdca5572503f9c7e7122
-        failing since 40 days (last pass: riscv-for-linus-6.10-mw1-6-g018b9d9874e72, first fail: v6.10-rc1-9-g6d8e604c9502) 
-  
 
 _______________________________________________
 linux-riscv mailing list
