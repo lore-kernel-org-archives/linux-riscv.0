@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C42AC3DA42
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jul 2024 14:33:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B086C3DA4B
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jul 2024 14:33:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nx4sVqhB/MScw09oQu4WQeCvA6HORKhh5WmgoWKAWIE=; b=y17ljfARezDWFD
-	avQ5x0Z7YPqF6K4lO+BPGJHdbzMLDTexmrPQdaXDD/zX2ajiBENzjy8v5NLdaJJoDz3pCpd49Nsft
-	YmwwT3ztPHRqTCGXti1blvkkgcp7gPOCi+2Ob6xOyHfmeB5/fmw21vcDkgbyPDlfu+vl7hCfuY17P
-	L4i0tWK1fEgd07GmBBHy+m7pBWj/eUnCrzNKS8vaduVv70jLfN1Q9RqD/YiTtWLKSy0tongMCt5QX
-	Db2SGquA9DisNozjPt+AX1kRNrwzoLB56NKjb0JRbJZqkmYBodUyrWkicNxugf57u9m8FXf2s7vXS
-	snKAXPHHMIfYTSolE6Gg==;
+	List-Owner; bh=29sLxQV8ZVpR3iS0W91vI7XNbcSg36qRJQfsVcWIxCQ=; b=OiLE0ATBeVC33V
+	um6ZuMgu1ebvUnMWZAhPmNw7Ayyk2T69TrdA+6dXVaUiVE1I9gKxCDAWmEma6OXKr90Evp8sTxz+5
+	1C+b2oLC0+Q0GGB86+vVueZVhWMhj5NKR6tqvw7dHsdjK1d4LcPwAm+kjX1E7WEvxsKs8G9LcRp9M
+	VpXku1Nfpwl75K6zLCinZGqySw4tN0FMPeMoN4eMVnRsKU/MoX7nRs4AzieuWX5v5QS1xlOsJjwK9
+	yjqcVgOfhAm7EI/cXqBe4Iairbeq96Pb6Eki9WzBII1hxAx1r0zkuH+ixJV8rnlgdJ1oodL5HjQ/p
+	Mpw10RnhR8tjfNXd2jhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sU5iQ-0000000E3C3-45sj;
-	Wed, 17 Jul 2024 14:33:11 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1sU5iu-0000000E3Pv-2FrK;
+	Wed, 17 Jul 2024 14:33:40 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sU5iN-0000000E3Au-1bMH
+	id 1sU5ir-0000000E3Mn-2Fbm
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 Jul 2024 14:33:08 +0000
+	Wed, 17 Jul 2024 14:33:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1721226786;
+	s=mimecast20190719; t=1721226816;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=GICXT0BFVJy0QIZX9VPtiCc3OM2RPQjhgUFSA0WTx1U=;
-	b=JMEfvWlnEYvA5xaJH8O5qWmlSQsva64M29x7yJ8vPxQhiKCEsn1MsY4+WSkYBCrqCqhyc5
-	6V2DvodGPWZ+n1xdgI3gcywN5jQ0+YI9+dTNvybTmE7qh6/NIeTTRCnNzWKI/QXpN1QOLx
-	PW+zcSdIgnOHo+1OfBByOrVqU+X+onQ=
-Received: from mail-lf1-f71.google.com (mail-lf1-f71.google.com
- [209.85.167.71]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=mXBB0qjMEXfzqVaUDcGt6NXANeyKiUeQZZAQu7kGYb4=;
+	b=P0Y7FKA+lyV/G1Bo26ilk4gx7xs5Zqu/cC209/VRd3cDzalUSggtu1dC9Lr+SlvyBSCBSZ
+	Z+TGUiy9xl7RW81CJFON+juaPagQmT5InCE5KypNvAI2lJ9FvTOqssh8FTxSWtSHF8bYMx
+	jigxJa8qUqqyLT+SQn5UoH3NPZNyx5w=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-440-ENDlIoINMdqcC7NylDVd0w-1; Wed, 17 Jul 2024 10:33:03 -0400
-X-MC-Unique: ENDlIoINMdqcC7NylDVd0w-1
-Received: by mail-lf1-f71.google.com with SMTP id 2adb3069b0e04-52e969d0198so7055933e87.2
-        for <linux-riscv@lists.infradead.org>; Wed, 17 Jul 2024 07:33:03 -0700 (PDT)
+ us-mta-659-LGvzKWBrOGWTE85w6bpHTA-1; Wed, 17 Jul 2024 10:33:34 -0400
+X-MC-Unique: LGvzKWBrOGWTE85w6bpHTA-1
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-42796140873so45383615e9.2
+        for <linux-riscv@lists.infradead.org>; Wed, 17 Jul 2024 07:33:34 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1721226782; x=1721831582;
+        d=1e100.net; s=20230601; t=1721226813; x=1721831613;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:from:references:cc:to:subject:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=GICXT0BFVJy0QIZX9VPtiCc3OM2RPQjhgUFSA0WTx1U=;
-        b=uslVy5qmAqaSh9Y65npS2ry3TvsvvswSMO+uC65UrKnfQF0YwjHKLfRa21gt1xzzDN
-         q9CqVbXuoztVKKqHY3ayZ1nSAeVlp153dilcwxRriJKsgsEeSb00GV5yk9NgrVPsvKuF
-         rSn1WkItuIbBX0xUmCO3ZgmqxkrIqVUIqoXEBZXWpqdX1mSXlUqFSNCoYaIL2SDf/f0e
-         UgYTgFrJ7l5j2FdodLh8C/ywrd/p3nVTM4/v1pYpqZyBPef8JB5H0gieid6U7VbGHTcA
-         9vUgV6gSwEfkIQAxvcc9rL/uXjHZOaO54z3Q/0QKD7OKTqgrVohpYPsS9BVy1rDcCHPd
-         5P/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCW7NhF3nv72LllMOWXHzqSPPbYA0tzaTk+LT1/qGRmoodT6sTSNRZXzq6p0VZcN69yZnJ13GX0oDfuV2l0iEMS0wSJ5jvOZ403LRpiO8ftO
-X-Gm-Message-State: AOJu0YwQE982wPz7tSqRlSY3zrpKpp1E43n7xsLPRqqEYaVDpHHN2oz2
-	keeTj1OnOdIIE1eqV8tbyNzVRolMXz3hTqhF1Rx/UOeDlclzdPSMZURjt1hMCx0yJJESa+XjAK/
-	tcpTW72p+yqSFYoluCC//WWftiTTjr2qwUfsKfClaKsAzadr/Qr2fPti981zvZB+dLg==
-X-Received: by 2002:a05:6512:33c5:b0:52c:ec68:6165 with SMTP id 2adb3069b0e04-52ee53cc00bmr1663754e87.33.1721226782339;
-        Wed, 17 Jul 2024 07:33:02 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGrqpAiEHpfyNE8LzYLpjmIqAoQj/aWWnfve8BOPOkkfeVMrwCw7kn1k4etYvjz09EiWJN/XQ==
-X-Received: by 2002:a05:6512:33c5:b0:52c:ec68:6165 with SMTP id 2adb3069b0e04-52ee53cc00bmr1663731e87.33.1721226781780;
-        Wed, 17 Jul 2024 07:33:01 -0700 (PDT)
+        bh=mXBB0qjMEXfzqVaUDcGt6NXANeyKiUeQZZAQu7kGYb4=;
+        b=Gj+KKySJ9bQrfhWfjcOA7FqcTuU5fsiogpyuO47qgySIJGwl/oiro4jTgcNcvO9Gth
+         z6qZNwHLek26VkZpxisXPvdEinBalqtyS8F5dQMJ++O9wJsyYzmKKz6DhvJH2yftphBM
+         Q5LgWyHgW7Tqpm+IrU8j1jSWYAeu7wXW96KLlAAoAavWx8p+zSKtl5vynI7lZzDJ+/RP
+         6dY26R919E0AA7kuXe1RAjypqCTB07VP3Aeeyxrew3Xjz4JGRFOk7LCeYcVm6O2gQRGU
+         eI90fvIi68eRlWb6FNayslHrQBex/wsGc/0AWe1vrgYUlrgPOBzRKj+PsPJoItHexKyv
+         aWYw==
+X-Forwarded-Encrypted: i=1; AJvYcCXtZvhrK2h085ZKv+vpq+WGZsSrJm0x5TRofYWE43opZfnPo0aaYx/Mxyh+xgfPWjR33IISALUxQYrbhcbNRzKZPdmMwbq3+uLQlkj+E9dR
+X-Gm-Message-State: AOJu0YzBFKexemQdRsDQSiDP0EnJG26wEDKWjFOy3tzU6RO0d5cTBmUP
+	xFDc/06pLZlY5g9A7JRuPmYngyuddnmtFFAi6Ol3BSy43btGb27cPJU5t1WzGqtDLvAk+adigXF
+	sCszthoOACqLZ8l1ZjdssLrDtHDUEwqWkpocViGgMFpMLqamqYtnHWBCZtImBTsnJYuXNAVkyOg
+	==
+X-Received: by 2002:a05:600c:3d96:b0:426:6f81:d235 with SMTP id 5b1f17b1804b1-427c303a321mr14977045e9.15.1721226813638;
+        Wed, 17 Jul 2024 07:33:33 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGgu8rq663eT8ufhgNgCFLg21tSPwYTS9ihkX5BMsdTSuq5GcoEgyv7xkCuRjh9w8LzVIxZFg==
+X-Received: by 2002:a05:600c:3d96:b0:426:6f81:d235 with SMTP id 5b1f17b1804b1-427c303a321mr14976865e9.15.1721226813241;
+        Wed, 17 Jul 2024 07:33:33 -0700 (PDT)
 Received: from ?IPV6:2003:cb:c714:c00:b08b:a871:ce99:dfde? (p200300cbc7140c00b08ba871ce99dfde.dip0.t-ipconnect.de. [2003:cb:c714:c00:b08b:a871:ce99:dfde])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-427c77a5804sm92385e9.16.2024.07.17.07.32.59
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-427c77bffa1sm74815e9.18.2024.07.17.07.33.31
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 17 Jul 2024 07:33:01 -0700 (PDT)
-Message-ID: <e57eca18-b66d-4b5d-9e73-8ab22f6bc747@redhat.com>
-Date: Wed, 17 Jul 2024 16:32:59 +0200
+        Wed, 17 Jul 2024 07:33:32 -0700 (PDT)
+Message-ID: <f73022b4-20d4-4358-9b15-949934d52b5e@redhat.com>
+Date: Wed, 17 Jul 2024 16:33:30 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 02/17] MIPS: sgi-ip27: make NODE_DATA() the same as on all
- other architectures
+Subject: Re: [PATCH 03/17] MIPS: loongson64: rename __node_data to node_data
 To: Mike Rapoport <rppt@kernel.org>, linux-kernel@vger.kernel.org
 Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
  Andreas Larsson <andreas@gaisler.com>,
@@ -103,7 +103,7 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
  devicetree@vger.kernel.org, linux-arch@vger.kernel.org, linux-mm@kvack.org,
  x86@kernel.org
 References: <20240716111346.3676969-1-rppt@kernel.org>
- <20240716111346.3676969-3-rppt@kernel.org>
+ <20240716111346.3676969-4-rppt@kernel.org>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -150,13 +150,14 @@ Autocrypt: addr=david@redhat.com; keydata=
  jPrnvUsUUsjRoRNJjKKA/REq+sAnhkNPPZ/NNMjaZ5b8Tovi8C0tmxiCHaQYqj7G2rgnT0kt
  WNyWQQ==
 Organization: Red Hat
-In-Reply-To: <20240716111346.3676969-3-rppt@kernel.org>
+In-Reply-To: <20240716111346.3676969-4-rppt@kernel.org>
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240717_073307_566774_196158BD 
-X-CRM114-Status: GOOD (  19.27  )
+X-CRM114-CacheID: sfid-20240717_073337_745249_460B31C4 
+X-CRM114-Status: UNSURE (   8.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,68 +177,12 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On 16.07.24 13:13, Mike Rapoport wrote:
 > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 > 
-> sgi-ip27 is the only system that defines NODE_DATA() differently than
-> the rest of NUMA machines.
-> 
-> Add node_data array of struct pglist pointers that will point to
-> __node_data[node]->pglist and redefine NODE_DATA() to use node_data
-> array.
-> 
-> This will allow pulling declaration of node_data to the generic mm code
-> in the next commit.
+> Make definition of node_data match other architectures.
+> This will allow pulling declaration of node_data to the generic mm code in
+> the following commit.
 > 
 > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 > ---
->   arch/mips/include/asm/mach-ip27/mmzone.h | 5 ++++-
->   arch/mips/sgi-ip27/ip27-memory.c         | 5 ++++-
->   2 files changed, 8 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/mips/include/asm/mach-ip27/mmzone.h b/arch/mips/include/asm/mach-ip27/mmzone.h
-> index 08c36e50a860..629c3f290203 100644
-> --- a/arch/mips/include/asm/mach-ip27/mmzone.h
-> +++ b/arch/mips/include/asm/mach-ip27/mmzone.h
-> @@ -22,7 +22,10 @@ struct node_data {
->   
->   extern struct node_data *__node_data[];
->   
-> -#define NODE_DATA(n)		(&__node_data[(n)]->pglist)
->   #define hub_data(n)		(&__node_data[(n)]->hub)
->   
-> +extern struct pglist_data *node_data[];
-> +
-> +#define NODE_DATA(nid)		(node_data[nid])
-> +
->   #endif /* _ASM_MACH_MMZONE_H */
-> diff --git a/arch/mips/sgi-ip27/ip27-memory.c b/arch/mips/sgi-ip27/ip27-memory.c
-> index b8ca94cfb4fe..c30ef6958b97 100644
-> --- a/arch/mips/sgi-ip27/ip27-memory.c
-> +++ b/arch/mips/sgi-ip27/ip27-memory.c
-> @@ -34,8 +34,10 @@
->   #define SLOT_PFNSHIFT		(SLOT_SHIFT - PAGE_SHIFT)
->   #define PFN_NASIDSHFT		(NASID_SHFT - PAGE_SHIFT)
->   
-> -struct node_data *__node_data[MAX_NUMNODES];
-> +struct pglist_data *node_data[MAX_NUMNODES];
-> +EXPORT_SYMBOL(node_data);
->   
-> +struct node_data *__node_data[MAX_NUMNODES];
->   EXPORT_SYMBOL(__node_data);
->   
->   static u64 gen_region_mask(void)
-> @@ -361,6 +363,7 @@ static void __init node_mem_init(nasid_t node)
->   	 */
->   	__node_data[node] = __va(slot_freepfn << PAGE_SHIFT);
->   	memset(__node_data[node], 0, PAGE_SIZE);
-> +	node_data[node] = &__node_data[node]->pglist;
->   
->   	NODE_DATA(node)->node_start_pfn = start_pfn;
->   	NODE_DATA(node)->node_spanned_pages = end_pfn - start_pfn;
-
-I was assuming we could get rid of __node_data->pglist.
-
-But now I am confused where that is actually set.
-
-Anyhow
 
 Reviewed-by: David Hildenbrand <david@redhat.com>
 
