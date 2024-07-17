@@ -4,117 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28317C3DA42
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jul 2024 06:23:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11CE4C3DA60
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jul 2024 06:23:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Uj4CwYgNAHErHScznp9nr/atckxI1TJwwaPii78vtro=; b=iZ8gjmvimsGi3Q
-	b5SokQlMG/r1OMfJdogqU47SJWfHwS+TYG36Nk/OO0bPAKTvFDlbeV87d8YAGUyIFxoZJeDzeGMU/
-	XB840E/f3/eioU0wbGoKmxG1plmSpnZ5/tueLZe3Eqf8YpUDoGCqIEkjP1vbwR6FgCbQTxHTVwTFk
-	jhJcwrBhlo6lyjLkjnygoi8rsUpl5pYFXZ76IwHZM6fs07+qkZm/DBmHbZg9RrxsEAzxb8cn2P17+
-	1IqimgXuJKkf/BeOfm/73xLwd+houjILUEkvaj7hNtLYBelZigYGXs9XM/+xaRwvbNdMePHHlo7Wa
-	v/OTDDSiNvXI0h+ZPFAA==;
+	List-Owner; bh=3wu+emxUvN/CLXUOaxwKsNRvNWNpi6A5jAApcRgUjc4=; b=EMRUnQMmA6lg3i
+	E78zoLBMShh0CMq+1QIyho+Vl8i6lABgSncgekrvCTV8z7pDpFX4273ufzeyjn1uvEH8BrF7pdH7R
+	0QpeXkeucCu5zUWOkvIVYyZlPXaKmQmFMDnXQkF7Pj6kJ7esBERs1v7ZmaMtC/NbFnJ4eplqRSj24
+	cUOYm978QgTMhPkCCw6dkzoQQq9sV9Z4p7bm8TIWvygqTDgqKtk9m02vo1Jykiv0/NCuJvvpNzGxH
+	PbBMblGkEPzjjeuEQ8sNLcJYqsiNvLjoZfVCtLVrV+qNvb73KAMvOrbhRyDXNrKj7LcaovLjdIlsA
+	mgYy78JI5Z9preJ6Nrng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sTy43-0000000CoMU-0l0g;
-	Wed, 17 Jul 2024 06:22:59 +0000
-Received: from mail-sn1nam02olkn20815.outbound.protection.outlook.com ([2a01:111:f400:7ea9::815] helo=NAM02-SN1-obe.outbound.protection.outlook.com)
+	id 1sTy4C-0000000CoP8-0Ywb;
+	Wed, 17 Jul 2024 06:23:08 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sTy3z-0000000CoKG-0v0p
+	id 1sTy49-0000000CoNR-140R
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 Jul 2024 06:22:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nFeItEJYN59x9k26F9MPyn+wrqvRNKKFdlrIjwePRBrjFWlZAApQOhYIu9WxL5If8jGlRdtsKKDiffS4Fxj4NBbW1Frr2oqS0ntM4hsd1kT0N/9XyGefHh7KbpP26Y24+57/DLS11F+Ad45LMcUJZKal+llDRhQTHEMTwleYC3EEvFtsx/lcGOR1F9kNq400A5KoweWhvOV9at2JJRIetKcqCn9me97tr77g7thmu14FLhWpcKCFqvTqdDky05Eq/ZBEvXy2rCs51XOEuF3e1ydIyVDkCaXQn4twitiVQHr3rm/Dht1e+FZsv6v+CCR0tEHrXfghcC762eyVLRQ69A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dT58tTSHLtBcrJ1Q1cckITVrp/s3aO0PJnIrfROWE5c=;
- b=PNYJNrpehazXr0CMOomd0dlwK2Vg1hVxZOumDtUdaSheXpOOcjUjfwkDKXIjsLsXj62LbJSo28fi4uayKXJzHhY9J2tjc0GD5VXwiE1ftYuXpHCaaydEldYeKq5ic97rGop5OekmK6kvMWTkdMj2eghnNLtOth8Eofx7QuEiWgNknsE9zOTPHa53WG2eBnmKD83sGAPKfSzx+RbCoOQVRSDpe2jx8h1NM6qepYAMl45GZrG53hHuTJ6UYCfXbFFRXzerSLcsTTN3ODye+riWq6CZIhLikjwPGrXh12F8XKV3Sn9ZPqyBi6S0ZV4m8J1ZvZP0mFKm4uduK8ufVZZrhw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dT58tTSHLtBcrJ1Q1cckITVrp/s3aO0PJnIrfROWE5c=;
- b=nhOzEGABsdsNctJoVboQf0CGBA/5ByYF58xRqfLcFNAe/LcQdQUG1AlV/3FShsYnUtyUofqMr5GO5/hCzG5XQFdzrSHySnNeYnjEDpcYCq+zqfiK3BXcK50sjUN2R9EvHzgme+m6D410+6J/mdYOHLSxwgzzbvriV6rCw8nBWy631MNlLWNe+MIPQh/HgeE/0q03bmEBwW4r7b5eXfYCbw6OVIfhKbXc2oQc7sbriXrfR0JKHEc4jnsCmcoij8a6WY/uMQ/GVpUfwKT+9TqsdmMCgOZ8/6/F0IZPvyJr7yf8Rlxt1m9Qw2jO434ugBzDL5LgYmIJ71D5qSWJKguLIQ==
-Received: from PH7PR20MB4962.namprd20.prod.outlook.com (2603:10b6:510:1fa::6)
- by SN7PR20MB5093.namprd20.prod.outlook.com (2603:10b6:806:26f::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7762.28; Wed, 17 Jul
- 2024 06:22:45 +0000
-Received: from PH7PR20MB4962.namprd20.prod.outlook.com
- ([fe80::b5de:b82:43d9:4e8c]) by PH7PR20MB4962.namprd20.prod.outlook.com
- ([fe80::b5de:b82:43d9:4e8c%5]) with mapi id 15.20.7784.013; Wed, 17 Jul 2024
- 06:22:45 +0000
-Date: Wed, 17 Jul 2024 14:22:32 +0800
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Haylen Chu <heylenay@outlook.com>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@outlook.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Jisheng Zhang <jszhang@kernel.org>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 3/3] thermal: cv180x: Add cv180x thermal driver support
-Message-ID: <PH7PR20MB4962DD8526FF0845258ECE2FBBA32@PH7PR20MB4962.namprd20.prod.outlook.com>
-References: <SEYPR01MB422158B2766DA03728AD90CBD7A22@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
- <SEYPR01MB42215C6F248AF99499F6A050D7A22@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
-Content-Disposition: inline
-In-Reply-To: <SEYPR01MB42215C6F248AF99499F6A050D7A22@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
-X-TMN: [rXCyd0KqeWZ4DXEHgS+LvusMKluvz2GUPbPUQmh2jo4=]
-X-ClientProxiedBy: PS1PR01CA0024.apcprd01.prod.exchangelabs.com
- (2603:1096:300:75::36) To PH7PR20MB4962.namprd20.prod.outlook.com
- (2603:10b6:510:1fa::6)
-X-Microsoft-Original-Message-ID: <y6brlmrhs2m4sm5kvfuluv6hmxjfz5zxmxtf6vww7hzpc3yn2p@m3gg6wh3mtvd>
+	Wed, 17 Jul 2024 06:23:06 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-426526d30aaso45401695e9.0
+        for <linux-riscv@lists.infradead.org>; Tue, 16 Jul 2024 23:23:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1721197384; x=1721802184; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0QjpPjoLwI+58peQzByots6FWlw3e8eiNriVwaJAk3o=;
+        b=mOrGhL/uPYUD7YNwrPqX2Ze5sbZH/+JdOM1YsWzEmMPm6cCXwrOa56v0GE1TxQ9hGf
+         bDxeGT9Ji00O7py//MWMBRI8ys3sBXPOAoHWT1IUz/5CYm2mt1S4SUaETsmBkoYiBkoJ
+         ftST/soXmSPZdyZJKmy0ZgwUEQn2WP2pd3s9kc2FLmRTPsijTDeV74KysrsEJoalbZmS
+         cPnf45FY3/S8bVwgvEF3oJm26aoigF6uqUcQmV6852x+H5lp2Hb+HLMKfZFnzZpPomzs
+         CyVHYMJTUha0QrSR26U650QZayUeSMKTn5az+an8r0iAsy0ICURzobc/UjjCf2RA+fBj
+         1E/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1721197384; x=1721802184;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=0QjpPjoLwI+58peQzByots6FWlw3e8eiNriVwaJAk3o=;
+        b=rg0SVlaCBCMOwvq6kuAgwOenkoFtxQS2g5Q0MM/uhj0Ph9f8JWn7VzF3tGdoH8PCNp
+         G/OXbAIMqaR9J7CADDD8QrcfEV2m2hDJ/aAuwKT3umHZknjmeBsMhqNcnr4U/OMsyv5E
+         IPNGoQinrF3ii4K1K3v83xJQfp9HTk8rjB3U1mHU2XVz/+MDdrMW2wxDnTdKw3mQHw9U
+         /K+aSgRYRyjW3/kC5K4PrpkM280DDvMP3VfEKaNodSPKCbvOMWM7+z4l2oo6TqVhe0x6
+         q6RljI9QpZd/j5mHFs1fxiopj3ix+cTjr3LQ9TF3UqrGZDziLFd3tIKlSIYeMTPofYsL
+         n8cA==
+X-Forwarded-Encrypted: i=1; AJvYcCWfiN80HSpV6jNcsQ6cyPT57e1ULhlIYnhOLjisAge72j/s3l7plF4gBmAeIvf4rZ4MO6P56ZFEn9Iw42ZsxpXKFXsMoDK/+ENdgmCgTqt+
+X-Gm-Message-State: AOJu0Yy8OMsrGwKkUDnYLe28odIPsaMm2Ca6wPGDr0+woM1QEPHQbWGr
+	GwcQQkzB5WYiNmfrKICdqamX8r3M3FKCB8iuscCsf6mlz9QWV3iMg6fRX2wCYQk=
+X-Google-Smtp-Source: AGHT+IFPLb6pDwn4ZT2PDYb1qbrSJD7FUpoL0IeRpIU13kaHx3oluVLPGx9Y3b3221ag/XCVCbja3g==
+X-Received: by 2002:a05:600c:3592:b0:426:5dca:50a with SMTP id 5b1f17b1804b1-427c2ce6539mr4895335e9.21.1721197383614;
+        Tue, 16 Jul 2024 23:23:03 -0700 (PDT)
+Received: from alex-rivos.home (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3680db03e41sm10773043f8f.98.2024.07.16.23.23.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Jul 2024 23:23:03 -0700 (PDT)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Conor Dooley <conor@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Andrea Parri <parri.andrea@gmail.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Will Deacon <will@kernel.org>,
+	Waiman Long <longman@redhat.com>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Leonardo Bras <leobras@redhat.com>,
+	Guo Ren <guoren@kernel.org>,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-arch@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH v3 03/11] riscv: Implement cmpxchg8/16() using Zabha
+Date: Wed, 17 Jul 2024 08:19:49 +0200
+Message-Id: <20240717061957.140712-4-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20240717061957.140712-1-alexghiti@rivosinc.com>
+References: <20240717061957.140712-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PR20MB4962:EE_|SN7PR20MB5093:EE_
-X-MS-Office365-Filtering-Correlation-Id: c6892e0a-0d29-4b35-0984-08dca628de97
-X-Microsoft-Antispam: BCL:0;ARA:14566002|19110799003|461199028|8060799006|3412199025|440099028|1710799026;
-X-Microsoft-Antispam-Message-Info: 7PMbcgKkD2KESgZ9pSDotIVnPWVu9qeobVUnlY8NLBeXd/oYw5wIdrAM61V7276SF/tLAIyVj3IiqvylhGsrBDGZ+Pa4SnX6giQnKZTA9azpouPW0fKjwr3YB5ZilHi8nuqpj2DHvJKhJFRHVSINHW8HgFALDSuOVVzLN2TaKbnEs75ZfVKtf3iglZYOg0YCZN/5d0Y7uvcMyfOIrtfIKwGycWEF5CtYbNbFmKJ0q7dhw9JauKV0AbB7rqJfVlSXqbiJ6gEli4nHg0fCHZuQBW+K0yaYXbeO7eLgD4dTx6b918I+evx5H0waLg4kpuwdzkR2dryNl0V+7BlJ15E4H7TACiao/42DkbtG9kh5auHNVyOh3/uKSsAay5LE+joKIhBeasQn9cLpE9vtKvVPCyfBa2OiSfF5sOUxDqBxEZJLo40hNqrEZQoRHEKUWONjKUFq/qbQD+isLxTZ6Mhzby/noGxDsv6ClXkCDkFDfMZZNVV0dBntoEgBAUSPIut5aALv4wtHN425ZYIHzbx3STTxEsjwMGv+bPdnmrHMZixV7Z3c2qKZKOjoAJDSH9xe0IOmn6+SL52eGXKz7eCLdPLgxL/gGHrNjl41ZgWsMHIK0fery0/4SF773zq9MpmNAJnKTkCLmlCJrBQnsZHJkjfKPnxC/V+ZQiVlLo/JrR8eWK5YUEn0CZS9poyMI+TI
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?iMnTbZtZyd423EFcOGscNjX8f5Zp0KQEJ7BtuZH/d7r+meBw9aAHnMKeTJZT?=
- =?us-ascii?Q?+khfu5q4yDuUguWlqMZ8WxjYAl0uMmcdSpjx3lWiWl/h8PejfSlunzZwwk3T?=
- =?us-ascii?Q?kn8rT2i+af9NRRUpAZv5y+CUqLBrYKM/GJl3LG+Gi9Qo+KWHjz/K+nbKgSuL?=
- =?us-ascii?Q?cfj4ptH7g6W07+kRSEuh1UxaD1irgiI1Mcj+ZpavbKd11N20tS7V3b4TDBod?=
- =?us-ascii?Q?rmXXVlbaHanZl+cqwtSkeD0gBnk9ROM5bRIh6F+VYEP1E7aZeh7fL55N53fh?=
- =?us-ascii?Q?063T/b6ZlXI1vqC57j8XIcokNhsPFKkgyW7rUtrfm53IJrPRw+1ulCx6c97l?=
- =?us-ascii?Q?s+Kzal4tIliLEuJh43DpXOT78irNBnju/dHk7UBB7j9NfYP7l6i0w6Eo65bi?=
- =?us-ascii?Q?rbE/TAQ8yEoARXzH4TWlg2xdA5B51p2NA0j9JYj7sV7R/6/fx/8laAnZI7dZ?=
- =?us-ascii?Q?6OAhLRb4ulq96yKV2Qoeqg5xBPCC5ckWjgGIwPH8yuQO7mcEMpOHPVl0GX6s?=
- =?us-ascii?Q?V8obCcdidZ47haq6aw/1NtGcRkCyyMRY0goY9RhT5W+4sr9TyqYnmQYrwH4Y?=
- =?us-ascii?Q?WAPU7Hn48oq99EFLJRqbDu9g/V8OW3TNSmbCfTO32wzgAAh/8k4zkOGHcs+1?=
- =?us-ascii?Q?+vCUsIrcBGV+Nz4C13ge4tXAyUdsKHpOppgZNso2QYBqfA0t7wQtl2OGSLeh?=
- =?us-ascii?Q?8U38+rpM2uPVziF0AavbeKoOanlv3Mz6R7pe2ih45vByeVb4GDOsN/DdffPN?=
- =?us-ascii?Q?MA4gXoKLJAo6CLHyL/s2puANmsGk43Vm/8gO0/uNsQIiTzolQhMpGlQq/HQq?=
- =?us-ascii?Q?hL/TFZHrdKQuHPoFhjkjufCWGBrk878AvWIpvs2vCGWY0+snG8nOmcCAmZoL?=
- =?us-ascii?Q?Vl1PPGoBh5a95fh3J2kJB+oSAHPD1fjtGX2NlNkJ14bWFK8eucH1xfBPy+be?=
- =?us-ascii?Q?C0kTD+MkmFqoOSvU6OA/lTvz21kU5l9NiDhWxZS6rQJpv8f8XrqyrZkYF1Kh?=
- =?us-ascii?Q?oKx0dc1HkFDQCVJTG1N2HGcXJ6lLKIc5DDq306IUyxZ4RCpgRTSyUh48eS7U?=
- =?us-ascii?Q?q/KgUpQ8Jpl9jHOLuAMiTfpAf5nCwWM4W6dklG36v9CHPDECx3KniiUq1tEY?=
- =?us-ascii?Q?JdinigN54jTwlUVz7zqKOA/xAWrrUreraQ28rBoI10CPwa7AzDTAfhQTQHxC?=
- =?us-ascii?Q?5iZ9VfsA4/zoQTX8nhE7f0YEWGHr8ghjaxidSDOy4VXtfoJYGDt3gylLAJOO?=
- =?us-ascii?Q?TW9jzoDsnzs2sx5L0M+i?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c6892e0a-0d29-4b35-0984-08dca628de97
-X-MS-Exchange-CrossTenant-AuthSource: PH7PR20MB4962.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2024 06:22:44.8020
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR20MB5093
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240716_232255_394469_8CFF439F 
-X-CRM114-Status: GOOD (  25.05  )
+X-CRM114-CacheID: sfid-20240716_232305_321187_9C4AAE21 
+X-CRM114-Status: GOOD (  15.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,296 +112,149 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 16, 2024 at 09:42:35AM GMT, Haylen Chu wrote:
-> Add support for cv180x SoCs integrated thermal sensors.
-> 
-> Signed-off-by: Haylen Chu <heylenay@outlook.com>
-> ---
->  drivers/thermal/Kconfig          |   6 +
->  drivers/thermal/Makefile         |   1 +
->  drivers/thermal/cv180x_thermal.c | 241 +++++++++++++++++++++++++++++++
->  3 files changed, 248 insertions(+)
->  create mode 100644 drivers/thermal/cv180x_thermal.c
-> 
-> diff --git a/drivers/thermal/Kconfig b/drivers/thermal/Kconfig
-> index 204ed89a3ec9..f53c973a361d 100644
-> --- a/drivers/thermal/Kconfig
-> +++ b/drivers/thermal/Kconfig
-> @@ -514,4 +514,10 @@ config LOONGSON2_THERMAL
->  	  is higher than the high temperature threshold or lower than the low
->  	  temperature threshold, the interrupt will occur.
->  
-> +config CV180X_THERMAL
-> +	tristate "Temperature sensor driver for Sophgo CV180X"
-> +	help
-> +	  If you say yes here you get support for thermal sensor integrated in
-> +	  Sophgo CV180X SoCs.
-> +
->  endif
-> diff --git a/drivers/thermal/Makefile b/drivers/thermal/Makefile
-> index 5cdf7d68687f..5b59bde8a579 100644
-> --- a/drivers/thermal/Makefile
-> +++ b/drivers/thermal/Makefile
-> @@ -65,3 +65,4 @@ obj-$(CONFIG_AMLOGIC_THERMAL)     += amlogic_thermal.o
->  obj-$(CONFIG_SPRD_THERMAL)	+= sprd_thermal.o
->  obj-$(CONFIG_KHADAS_MCU_FAN_THERMAL)	+= khadas_mcu_fan.o
->  obj-$(CONFIG_LOONGSON2_THERMAL)	+= loongson2_thermal.o
-> +obj-$(CONFIG_CV180X_THERMAL)	+= cv180x_thermal.o
-> diff --git a/drivers/thermal/cv180x_thermal.c b/drivers/thermal/cv180x_thermal.c
-> new file mode 100644
-> index 000000000000..8b726c0ad848
-> --- /dev/null
-> +++ b/drivers/thermal/cv180x_thermal.c
-> @@ -0,0 +1,241 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (C) 2021 Sophgo Inc.
-> + * Copyright (C) 2024 Haylen Chu <heylenay@outlook.com>
-> + */
-> +
-> +#include <linux/bits.h>
-> +#include <linux/clk.h>
-> +#include <linux/io.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/thermal.h>
-> +
-> +#define TEMPSEN_VERSION					0x0
-> +#define TEMPSEN_CTRL					0x4
-> +#define  TEMPSEN_CTRL_EN				BIT(0)
-> +#define  TEMPSEN_CTRL_SEL_MASK				GENMASK(7, 4)
-> +#define  TEMPSEN_CTRL_SEL_OFFSET			4
-> +#define TEMPSEN_STATUS					0x8
-> +#define TEMPSEN_SET					0xc
-> +#define  TEMPSEN_SET_CHOPSEL_MASK			GENMASK(5, 4)
-> +#define  TEMPSEN_SET_CHOPSEL_OFFSET			4
-> +#define  TEMPSEN_SET_CHOPSEL_128T			0
-> +#define  TEMPSEN_SET_CHOPSEL_256T			1
-> +#define  TEMPSEN_SET_CHOPSEL_512T			2
-> +#define  TEMPSEN_SET_CHOPSEL_1024T			3
-> +#define  TEMPSEN_SET_ACCSEL_MASK			GENMASK(7, 6)
-> +#define  TEMPSEN_SET_ACCSEL_OFFSET			6
-> +#define  TEMPSEN_SET_ACCSEL_512T			0
-> +#define  TEMPSEN_SET_ACCSEL_1024T			1
-> +#define  TEMPSEN_SET_ACCSEL_2048T			2
-> +#define  TEMPSEN_SET_ACCSEL_4096T			3
-> +#define  TEMPSEN_SET_CYC_CLKDIV_MASK			GENMASK(15, 8)
-> +#define  TEMPSEN_SET_CYC_CLKDIV_OFFSET			8
-> +#define TEMPSEN_INTR_EN					0x10
-> +#define TEMPSEN_INTR_CLR				0x14
-> +#define TEMPSEN_INTR_STA				0x18
-> +#define TEMPSEN_INTR_RAW				0x1c
-> +#define TEMPSEN_RESULT(n)				(0x20 + (n) * 4)
-> +#define  TEMPSEN_RESULT_RESULT_MASK			GENMASK(12, 0)
-> +#define  TEMPSEN_RESULT_MAX_RESULT_MASK			GENMASK(28, 16)
-> +#define  TEMPSEN_RESULT_CLR_MAX_RESULT			BIT(31)
-> +#define TEMPSEN_AUTO_PERIOD				0x64
-> +#define  TEMPSEN_AUTO_PERIOD_AUTO_CYCLE_MASK		GENMASK(23, 0)
-> +#define  TEMPSEN_AUTO_PERIOD_AUTO_CYCLE_OFFSET		0
-> +
-> +struct cv180x_thermal_zone {
-> +	struct device *dev;
-> +	void __iomem *base;
-> +	struct clk *clk_tempsen;
-> +	u32 sample_cycle;
-> +};
-> +
-> +static void cv180x_thermal_init(struct cv180x_thermal_zone *ctz)
-> +{
-> +	void __iomem *base = ctz->base;
-> +	u32 regval;
-> +
-> +	writel(readl(base + TEMPSEN_INTR_RAW), base + TEMPSEN_INTR_CLR);
-> +	writel(TEMPSEN_RESULT_CLR_MAX_RESULT, base + TEMPSEN_RESULT(0));
-> +
-> +	regval = readl(base + TEMPSEN_SET);
-> +	regval &= ~TEMPSEN_SET_CHOPSEL_MASK;
-> +	regval &= ~TEMPSEN_SET_ACCSEL_MASK;
-> +	regval &= ~TEMPSEN_SET_CYC_CLKDIV_MASK;
-> +	regval |= TEMPSEN_SET_CHOPSEL_1024T << TEMPSEN_SET_CHOPSEL_OFFSET;
-> +	regval |= TEMPSEN_SET_ACCSEL_2048T << TEMPSEN_SET_ACCSEL_OFFSET;
-> +	regval |= 0x31 << TEMPSEN_SET_CYC_CLKDIV_OFFSET;
-> +	writel(regval, base + TEMPSEN_SET);
-> +
-> +	regval = readl(base + TEMPSEN_AUTO_PERIOD);
-> +	regval &= ~TEMPSEN_AUTO_PERIOD_AUTO_CYCLE_MASK;
-> +	regval |= ctz->sample_cycle << TEMPSEN_AUTO_PERIOD_AUTO_CYCLE_OFFSET;
-> +	writel(regval, base + TEMPSEN_AUTO_PERIOD);
-> +
-> +	regval = readl(base + TEMPSEN_CTRL);
-> +	regval &= ~TEMPSEN_CTRL_SEL_MASK;
-> +	regval |= 1 << TEMPSEN_CTRL_SEL_OFFSET;
-> +	regval |= TEMPSEN_CTRL_EN;
-> +	writel(regval, base + TEMPSEN_CTRL);
-> +}
-> +
-> +static void cv180x_thermal_deinit(struct cv180x_thermal_zone *ct)
-> +{
-> +	void __iomem *base = ct->base;
-> +	u32 regval;
-> +
-> +	regval = readl(base + TEMPSEN_CTRL);
-> +	regval &= ~(TEMPSEN_CTRL_SEL_MASK | TEMPSEN_CTRL_EN);
-> +	writel(regval, base + TEMPSEN_CTRL);
-> +
-> +	writel(readl(base + TEMPSEN_INTR_RAW), base + TEMPSEN_INTR_CLR);
-> +}
-> +
-> +/*
-> + *	Raw register value to temperature (mC) formula:
-> + *
-> + *		       read_val * 1000 * 716
-> + *	Temperature = ----------------------- - 273000
-> + *				divider
-> + *
-> + *	where divider should be ticks number of accumulation period,
-> + *	e.g. 2048 for TEMPSEN_CTRL_ACCSEL_2048T
-> + */
-> +static int cv180x_calc_temp(struct cv180x_thermal_zone *ctz, u32 result)
-> +{
-> +	return (result * 1000) * 716 / 2048 - 273000;
-> +}
-> +
-> +static int cv180x_get_temp(struct thermal_zone_device *tdev, int *temperature)
-> +{
-> +	struct cv180x_thermal_zone *ctz = thermal_zone_device_priv(tdev);
-> +	void __iomem *base = ctz->base;
-> +	u32 result;
-> +
-> +	result = readl(base + TEMPSEN_RESULT(0)) & TEMPSEN_RESULT_RESULT_MASK;
-> +	*temperature = cv180x_calc_temp(ctz, result);
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct thermal_zone_device_ops cv180x_thermal_ops = {
-> +	.get_temp = cv180x_get_temp,
-> +};
-> +
-> +static const struct of_device_id cv180x_thermal_of_match[] = {
-> +	{ .compatible = "sophgo,cv1800-thermal" },
-> +	{},
-> +};
-> +MODULE_DEVICE_TABLE(of, cv180x_thermal_of_match);
-> +
-> +static int
-> +cv180x_parse_dt(struct cv180x_thermal_zone *ctz)
-> +{
-> +	struct device_node *np = ctz->dev->of_node;
-> +	u32 tmp;
-> +
-> +	if (of_property_read_u32(np, "sample-rate-hz", &tmp)) {
-> +		ctz->sample_cycle = 1000000;
-> +	} else {
-> +		/* sample cycle should be at least 524us */
-> +		if (tmp > 1000000 / 524) {
-> +			dev_err(ctz->dev, "invalid sample rate %d\n", tmp);
-> +			return -EINVAL;
-> +		}
-> +
-> +		ctz->sample_cycle = 1000000 / tmp;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int cv180x_thermal_probe(struct platform_device *pdev)
-> +{
-> +	struct cv180x_thermal_zone *ctz;
-> +	struct thermal_zone_device *tz;
-> +	struct resource *res;
-> +	int ret;
-> +
-> +	ctz = devm_kzalloc(&pdev->dev, sizeof(*ctz), GFP_KERNEL);
-> +	if (!ctz)
-> +		return -ENOMEM;
-> +
-> +	ctz->dev = &pdev->dev;
-> +
-> +	ret = cv180x_parse_dt(ctz);
-> +	if (ret)
-> +		return dev_err_probe(&pdev->dev, ret, "failed to parse dt\n");
-> +
-> +	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> +	ctz->base = devm_ioremap_resource(&pdev->dev, res);
-> +	if (IS_ERR(ctz->base))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(ctz->base),
-> +				     "failed to map tempsen registers\n");
-> +
-> +	ctz->clk_tempsen = devm_clk_get_enabled(&pdev->dev, NULL);
-> +	if (IS_ERR(ctz->clk_tempsen))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(ctz->clk_tempsen),
-> +				     "failed to get clk_tempsen\n");
-> +
-> +	cv180x_thermal_init(ctz);
-> +
-> +	tz = devm_thermal_of_zone_register(&pdev->dev, 0, ctz,
-> +					   &cv180x_thermal_ops);
-> +	if (IS_ERR(tz))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(tz),
-> +				     "failed to register thermal zone\n");
-> +
-> +	platform_set_drvdata(pdev, ctz);
-> +
-> +	return 0;
-> +}
-> +
-> +static int cv180x_thermal_remove(struct platform_device *pdev)
-> +{
-> +	struct cv180x_thermal_zone *ctz = platform_get_drvdata(pdev);
-> +
-> +	cv180x_thermal_deinit(ctz);
-> +
-> +	return 0;
-> +}
-> +
-> +static int __maybe_unused cv180x_thermal_suspend(struct device *dev)
-> +{
-> +	struct cv180x_thermal_zone *ctz = dev_get_drvdata(dev);
-> +
-> +	cv180x_thermal_deinit(ctz);
-> +	clk_disable_unprepare(ctz->clk_tempsen);
-> +
-> +	return 0;
-> +}
-> +
-> +static int __maybe_unused cv180x_thermal_resume(struct device *dev)
-> +{
-> +	struct cv180x_thermal_zone *ctz = dev_get_drvdata(dev);
-> +
-> +	clk_prepare_enable(ctz->clk_tempsen);
-> +	cv180x_thermal_init(ctz);
-> +
-> +	return 0;
-> +}
-> +
-> +static SIMPLE_DEV_PM_OPS(cv180x_thermal_pm_ops,
-> +			 cv180x_thermal_suspend, cv180x_thermal_resume);
-> +
-> +static struct platform_driver cv180x_thermal_driver = {
-> +	.probe = cv180x_thermal_probe,
-> +	.remove = cv180x_thermal_remove,
-> +	.driver = {
-> +		.name = "cv180x-thermal",
-> +		.pm = &cv180x_thermal_pm_ops,
-> +		.of_match_table = cv180x_thermal_of_match,
-> +	},
-> +};
-> +
-> +module_platform_driver(cv180x_thermal_driver);
-> +
-> +MODULE_DESCRIPTION("Sophgo CV180x thermal driver");
-> +MODULE_AUTHOR("Haylen Chu <heylenay@outlook.com>");
-> +MODULE_LICENSE("GPL");
-> -- 
-> 2.45.2
-> 
+This adds runtime support for Zabha in cmpxchg8/16() operations.
 
-Where is interrupt handler? I see nothing about it.
+Note that in the absence of Zacas support in the toolchain, CAS
+instructions from Zabha won't be used.
 
-Regards,
-Inochi
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
+ arch/riscv/Kconfig               | 17 ++++++++++++++++
+ arch/riscv/Makefile              |  3 +++
+ arch/riscv/include/asm/cmpxchg.h | 33 ++++++++++++++++++++++++++++++--
+ arch/riscv/include/asm/hwcap.h   |  1 +
+ arch/riscv/kernel/cpufeature.c   |  1 +
+ 5 files changed, 53 insertions(+), 2 deletions(-)
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 1caaedec88c7..d3b0f92f92da 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -596,6 +596,23 @@ config RISCV_ISA_V_PREEMPTIVE
+ 	  preemption. Enabling this config will result in higher memory
+ 	  consumption due to the allocation of per-task's kernel Vector context.
+ 
++config TOOLCHAIN_HAS_ZABHA
++	bool
++	default y
++	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zabha)
++	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zabha)
++	depends on AS_HAS_OPTION_ARCH
++
++config RISCV_ISA_ZABHA
++	bool "Zabha extension support for atomic byte/halfword operations"
++	depends on TOOLCHAIN_HAS_ZABHA
++	default y
++	help
++	  Enable the use of the Zabha ISA-extension to implement kernel
++	  byte/halfword atomic memory operations when it is detected at boot.
++
++	  If you don't know what to do here, say Y.
++
+ config TOOLCHAIN_HAS_ZACAS
+ 	bool
+ 	default y
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index 9fd13d7a9cc6..78dcaaeebf4e 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -88,6 +88,9 @@ riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZIHINTPAUSE) := $(riscv-march-y)_zihintpause
+ # Check if the toolchain supports Zacas
+ riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZACAS) := $(riscv-march-y)_zacas
+ 
++# Check if the toolchain supports Zabha
++riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZABHA) := $(riscv-march-y)_zabha
++
+ # Remove F,D,V from isa string for all. Keep extensions between "fd" and "v" by
+ # matching non-v and non-multi-letter extensions out with the filter ([^v_]*)
+ KBUILD_CFLAGS += -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64ima)fd([^v_]*)v?/\1\2/')
+diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
+index 5d38153e2f13..c86722a101d0 100644
+--- a/arch/riscv/include/asm/cmpxchg.h
++++ b/arch/riscv/include/asm/cmpxchg.h
+@@ -105,8 +105,30 @@
+  * indicated by comparing RETURN with OLD.
+  */
+ 
+-#define __arch_cmpxchg_masked(sc_sfx, prepend, append, r, p, o, n)	\
++#define __arch_cmpxchg_masked(sc_sfx, cas_sfx, prepend, append, r, p, o, n)	\
+ ({									\
++	__label__ no_zabha_zacas, end;					\
++									\
++	if (IS_ENABLED(CONFIG_RISCV_ISA_ZABHA) &&			\
++	    IS_ENABLED(CONFIG_RISCV_ISA_ZACAS)) {			\
++		asm goto(ALTERNATIVE("j %[no_zabha_zacas]", "nop", 0,	\
++				     RISCV_ISA_EXT_ZABHA, 1)		\
++			 : : : : no_zabha_zacas);			\
++		asm goto(ALTERNATIVE("j %[no_zabha_zacas]", "nop", 0,	\
++				     RISCV_ISA_EXT_ZACAS, 1)		\
++			 : : : : no_zabha_zacas);			\
++									\
++		__asm__ __volatile__ (					\
++			prepend						\
++			"	amocas" cas_sfx " %0, %z2, %1\n"	\
++			append						\
++			: "+&r" (r), "+A" (*(p))			\
++			: "rJ" (n)					\
++			: "memory");					\
++		goto end;						\
++	}								\
++									\
++no_zabha_zacas:;							\
+ 	u32 *__ptr32b = (u32 *)((ulong)(p) & ~0x3);			\
+ 	ulong __s = ((ulong)(p) & (0x4 - sizeof(*p))) * BITS_PER_BYTE;	\
+ 	ulong __mask = GENMASK(((sizeof(*p)) * BITS_PER_BYTE) - 1, 0)	\
+@@ -133,6 +155,8 @@
+ 		: "memory");						\
+ 									\
+ 	r = (__typeof__(*(p)))((__retx & __mask) >> __s);		\
++									\
++end:;									\
+ })
+ 
+ #define __arch_cmpxchg(lr_sfx, sc_cas_sfx, prepend, append, r, p, co, o, n)	\
+@@ -180,8 +204,13 @@ end:;									\
+ 									\
+ 	switch (sizeof(*__ptr)) {					\
+ 	case 1:								\
++		__arch_cmpxchg_masked(sc_sfx, ".b" sc_sfx,		\
++					prepend, append,		\
++					__ret, __ptr, __old, __new);    \
++		break;							\
+ 	case 2:								\
+-		__arch_cmpxchg_masked(sc_sfx, prepend, append,		\
++		__arch_cmpxchg_masked(sc_sfx, ".h" sc_sfx,		\
++					prepend, append,		\
+ 					__ret, __ptr, __old, __new);	\
+ 		break;							\
+ 	case 4:								\
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index e17d0078a651..f71ddd2ca163 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -81,6 +81,7 @@
+ #define RISCV_ISA_EXT_ZTSO		72
+ #define RISCV_ISA_EXT_ZACAS		73
+ #define RISCV_ISA_EXT_XANDESPMU		74
++#define RISCV_ISA_EXT_ZABHA		75
+ 
+ #define RISCV_ISA_EXT_XLINUXENVCFG	127
+ 
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 5ef48cb20ee1..c125d82c894b 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -257,6 +257,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+ 	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
+ 	__RISCV_ISA_EXT_DATA(zihpm, RISCV_ISA_EXT_ZIHPM),
+ 	__RISCV_ISA_EXT_DATA(zacas, RISCV_ISA_EXT_ZACAS),
++	__RISCV_ISA_EXT_DATA(zabha, RISCV_ISA_EXT_ZABHA),
+ 	__RISCV_ISA_EXT_DATA(zfa, RISCV_ISA_EXT_ZFA),
+ 	__RISCV_ISA_EXT_DATA(zfh, RISCV_ISA_EXT_ZFH),
+ 	__RISCV_ISA_EXT_DATA(zfhmin, RISCV_ISA_EXT_ZFHMIN),
+-- 
+2.39.2
+
 
 _______________________________________________
 linux-riscv mailing list
