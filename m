@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF4D6C3DA61
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jul 2024 14:35:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98221C3DA42
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jul 2024 14:43:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ggsnVjyfg9y4C5/QY4O8wpOCnluEbf1RKpb/IRfCv3k=; b=EV71XVAXYEL4qG
-	rPDFq+B3rj/g6V7T5Rqi1e8Z2uPNBhIQzrLGSB4PffLSvHlfQBFbmjyy3zx+Oo7ZQ7omr1EyMhwsH
-	ykq8CvMf1hNvWLCznjt/FwkWQNKjmdl6wnvSJmV6v++5PP0IjuhaGzr87eMLzVoWCKGv61YI1DDsh
-	vjp1YdeSCDgYtgDUnqV3TJNCSIJ0sbbFHHA0QRwWHN9c1Gl3Q6ed/eVjB5Z56px2DuVz8rcT5pOuz
-	TovD3/6ACYfZUtlEuWDgKuJEZ3+CtGFD0bUJoSgl++tg2+4LTePz+0F+Kft6MOKKu50st11Tvq03I
-	ltAXfjIv8iOg2vWfvIhA==;
+	List-Owner; bh=VKEegW+MrCYJMu2010/HqxWieFMI/Sldv+XIQr4l/aE=; b=MDU5L66cwqvxje
+	5MWy2QYhebab+8ceHjtTIS63u/QDTfaQoE1/PDOTh0cgpydfKLIXOfi7TpPgCpqY8FBJ+JKFs6A4R
+	yh2IqgF4wKFWYJOS8n1uGwWKB7bxFIq+8owKCllsPmStLWdRBRQ7JWCarx1P9YvaWtDxvDuM+a1tr
+	UJZ3LiARJP8P/RJtcCa3Q/l420iGPX+LTOwQxpEVBtL0+qcYtY/rM3B+Fid2xxH1WPUqPanWm9ssq
+	6k4iEJDl2z2yB4RKZ92XImrRlpb2NxT1bpaUfNTgcmd/YHLx6fQGWBetRxHvC5tjRGCSgIOzipyjl
+	jmdk6AROYV7zWFYwqUkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sU5kr-0000000E45u-0iwi;
-	Wed, 17 Jul 2024 14:35:41 +0000
+	id 1sU5rv-0000000E5RU-1LAD;
+	Wed, 17 Jul 2024 14:42:59 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sU5ko-0000000E44o-0Luo
+	id 1sU5rs-0000000E5QG-1E2m
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 Jul 2024 14:35:39 +0000
+	Wed, 17 Jul 2024 14:42:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1721226937;
+	s=mimecast20190719; t=1721227374;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=N1ZA4THI/NaMS6hGpfXHfX7B4XiRlWC0xjiP6EIcxcw=;
-	b=RVQsncTNteAyYnzZuO93RUi6bg2eoYSzx3pfkuea0hTL7Kb5t8fUlvP3nMEsGxj3wkypod
-	FwkO1yPK8EJhHLPcKMRwp9qPFNvsS6rz8V8JmZJyI/xjyN26xRmKDeU+VMRBBgTK33B+kj
-	nVv2QCD+i/7RmebQ6Igb0Vfznx7BdY8=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=M2vL8rRc69gotddfUAFMWYk4nVzDmp9tj4adCdBDziU=;
+	b=TEJC5mgEqqLu+j5SkvTipJT3CBFqO6gWUNsYjXWc1qS5Jju1GXl9Kp3enqyRCML9siWLCM
+	3tlfqdFwQONyuuPuC+PT2rcmqBF86/tquI2PeGpCTG61OcSUrcGDaqcRULov4+YKvDkOyp
+	WyCZ5Nw5Rgk180NYLALDBdlgSgQH+S8=
+Received: from mail-ej1-f69.google.com (mail-ej1-f69.google.com
+ [209.85.218.69]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-227-2Wu3Lk-sPMeIAUg9292x7Q-1; Wed, 17 Jul 2024 10:35:34 -0400
-X-MC-Unique: 2Wu3Lk-sPMeIAUg9292x7Q-1
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-427a7a65e7dso4406145e9.1
-        for <linux-riscv@lists.infradead.org>; Wed, 17 Jul 2024 07:35:34 -0700 (PDT)
+ us-mta-433-gHSb9GH6ONmZxd8-imsQvw-1; Wed, 17 Jul 2024 10:42:53 -0400
+X-MC-Unique: gHSb9GH6ONmZxd8-imsQvw-1
+Received: by mail-ej1-f69.google.com with SMTP id a640c23a62f3a-a77cb9467beso135109966b.0
+        for <linux-riscv@lists.infradead.org>; Wed, 17 Jul 2024 07:42:53 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1721226934; x=1721831734;
+        d=1e100.net; s=20230601; t=1721227372; x=1721832172;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:from:references:cc:to:subject:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=N1ZA4THI/NaMS6hGpfXHfX7B4XiRlWC0xjiP6EIcxcw=;
-        b=AUHxfZMLrb4dawssetyRWKdyPwaM/4i6gcgpQOhLFJNhSJf5nhR7moofJU2+h9A2Th
-         ZwgUsapy3Eqoz114Ci9/NkIBBp685C3IVw9GYzgTK+TNm8TE45dbjGM1ilhsuf2Th3Cq
-         gImU/QOtOWHburrKLctryBceQocWSud4viHANFEcCOZjYCpBA1TdevCsKL5yIBR3WebY
-         2Z+royLK5qUGHYVXk9j/r4j3KYdjJ2tehSvsJ8/UZpbRE5psH+mfJzs6/L8iNsSy2cX3
-         VRmIxVYFwhANFwLL18cZunLg4FL4+Sp91nDXpgMgLPGKKBMtnl5w2Hmh2IkbpNUMk8tp
-         L6yA==
-X-Forwarded-Encrypted: i=1; AJvYcCUHdOZx78f5NtcOqOto9cmA0ymMEQSO7KEAaQMHgfw4w/hzWy61jYmWr4nfSbHow93OLbxR27E1IP3AdJt97squgA1oKdrsi63kovIgAcIB
-X-Gm-Message-State: AOJu0Yy2WJaGs0s0OHVxPfcEKBsEZitgmxYHa22DHGZgq3CWy9fah6nq
-	XCxNQtJu+zORR9D6s0Inz3iTDccp7tI3QA02B26uQOOz6i/jxchYgsJB6UFVYUazFQ+8LF4p76M
-	i2I6z+bFNRtBWfx7yPwLxbmYn8zpBW7kzmbytqSX3Gd+Px/p4RJZSk2ODeatHaURPUQ==
-X-Received: by 2002:a05:600c:5121:b0:426:618a:a092 with SMTP id 5b1f17b1804b1-427bb8e85c4mr39358875e9.13.1721226933820;
-        Wed, 17 Jul 2024 07:35:33 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEX70FS4S+9yQpWhIxbutDmeW8IdP8r1sizijP5dFKFOs14MIR+fctf34DTHwiKpauxrYwt+w==
-X-Received: by 2002:a05:600c:5121:b0:426:618a:a092 with SMTP id 5b1f17b1804b1-427bb8e85c4mr39358625e9.13.1721226933478;
-        Wed, 17 Jul 2024 07:35:33 -0700 (PDT)
+        bh=M2vL8rRc69gotddfUAFMWYk4nVzDmp9tj4adCdBDziU=;
+        b=l9QfdyxF4kR/oh2rBpvQXDWtlisRZKnyaiWINc3CQw+KFnqQivfnfIRVZd/VkzFoRz
+         LQaHo4YKClfCvPCzURuR/dEAz140+ehoNgHbpXzGh+gdZDOfA7pIZ1FDwgJiZHRuAj8z
+         HlQRSCP3tRyA9ZwAHYdyRA/sOqIY7jUKQJ+viELmspuVfCjRmL49kzwozvwJqkSaYpbJ
+         s7q9GNN1C4YpvOQBl8vni3nktIEuB3c046mmtduA0yk+49E9a6Nnmmr46z8uBwIp4uyM
+         csMi+ERhwcJtJCdPPU1TxWZe7YknigPC998AoxKAyzzbYIm9KIteNKeoVNuEAzypMQMi
+         GSAA==
+X-Forwarded-Encrypted: i=1; AJvYcCUgf7zNhHJV9fi9T4hTTbfmsphn1Vh2e4P6+MD7OHzaU9uri+/AsJOLIJFZpoafg/EPcwPakzJWSnBOmJeW5wbM6tsO1hr7MpaPB45DusEQ
+X-Gm-Message-State: AOJu0YwBlH0ulLXfqYfsK4LIEQD2vrsOAWT9zPl94w6z6ORq9puMGiSP
+	VmHNSsCnpXCXBXVBJaN66hYdtpw3sfer9E6jkqctN65nH5ZW/CKV1PVu3xS6f44c7Qop/aux7dT
+	cm8LwW7FUlmumh12vyJosYLuXO0jpUmWt7PLuMUd6+e4vgpNi1S5GX+Zb5KumJ0I9ig==
+X-Received: by 2002:a17:906:1c0f:b0:a6f:46f1:5434 with SMTP id a640c23a62f3a-a79eda04168mr521685966b.6.1721227372351;
+        Wed, 17 Jul 2024 07:42:52 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEi6DrDSqxxObcD+4KvqZEIVIf6XCAhrJ0LWIBdtNZjezxwhMU5bcwwGQ0tRJ1krbBOftaEqw==
+X-Received: by 2002:a17:906:1c0f:b0:a6f:46f1:5434 with SMTP id a640c23a62f3a-a79eda04168mr521682366b.6.1721227371866;
+        Wed, 17 Jul 2024 07:42:51 -0700 (PDT)
 Received: from ?IPV6:2003:cb:c714:c00:b08b:a871:ce99:dfde? (p200300cbc7140c00b08ba871ce99dfde.dip0.t-ipconnect.de. [2003:cb:c714:c00:b08b:a871:ce99:dfde])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-427c77a8078sm244165e9.18.2024.07.17.07.35.31
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a79bc5d2018sm453924466b.85.2024.07.17.07.42.49
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 17 Jul 2024 07:35:33 -0700 (PDT)
-Message-ID: <bceb7745-dfbc-446c-9fc0-38aa8ae4cb6a@redhat.com>
-Date: Wed, 17 Jul 2024 16:35:31 +0200
+        Wed, 17 Jul 2024 07:42:51 -0700 (PDT)
+Message-ID: <220da8ed-337a-4b1e-badf-2bff1d36e6c3@redhat.com>
+Date: Wed, 17 Jul 2024 16:42:48 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 01/17] mm: move kernel/numa.c to mm/
+Subject: Re: [PATCH 05/17] arch, mm: pull out allocation of NODE_DATA to
+ generic code
 To: Mike Rapoport <rppt@kernel.org>, linux-kernel@vger.kernel.org
 Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
  Andreas Larsson <andreas@gaisler.com>,
@@ -102,7 +103,7 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
  devicetree@vger.kernel.org, linux-arch@vger.kernel.org, linux-mm@kvack.org,
  x86@kernel.org
 References: <20240716111346.3676969-1-rppt@kernel.org>
- <20240716111346.3676969-2-rppt@kernel.org>
+ <20240716111346.3676969-6-rppt@kernel.org>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -149,14 +150,13 @@ Autocrypt: addr=david@redhat.com; keydata=
  jPrnvUsUUsjRoRNJjKKA/REq+sAnhkNPPZ/NNMjaZ5b8Tovi8C0tmxiCHaQYqj7G2rgnT0kt
  WNyWQQ==
 Organization: Red Hat
-In-Reply-To: <20240716111346.3676969-2-rppt@kernel.org>
+In-Reply-To: <20240716111346.3676969-6-rppt@kernel.org>
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240717_073538_229992_A457553C 
-X-CRM114-Status: UNSURE (   6.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240717_074256_447925_59481FF8 
+X-CRM114-Status: GOOD (  21.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,12 +176,88 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On 16.07.24 13:13, Mike Rapoport wrote:
 > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 > 
-> The stub functions in kernel/numa.c belong to mm/ rather than to kernel/
+> Architectures that support NUMA duplicate the code that allocates
+> NODE_DATA on the node-local memory with slight variations in reporting
+> of the addresses where the memory was allocated.
+> 
+> Use x86 version as the basis for the generic alloc_node_data() function
+> and call this function in architecture specific numa initialization.
 > 
 > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 > ---
 
-Acked-by: David Hildenbrand <david@redhat.com>
+[...]
+
+> diff --git a/arch/mips/loongson64/numa.c b/arch/mips/loongson64/numa.c
+> index 9208eaadf690..909f6cec3a26 100644
+> --- a/arch/mips/loongson64/numa.c
+> +++ b/arch/mips/loongson64/numa.c
+> @@ -81,12 +81,8 @@ static void __init init_topology_matrix(void)
+>   
+>   static void __init node_mem_init(unsigned int node)
+>   {
+> -	struct pglist_data *nd;
+>   	unsigned long node_addrspace_offset;
+>   	unsigned long start_pfn, end_pfn;
+> -	unsigned long nd_pa;
+> -	int tnid;
+> -	const size_t nd_size = roundup(sizeof(pg_data_t), SMP_CACHE_BYTES);
+
+One interesting change is that we now always round up to full pages on 
+architectures where we previously rounded up to SMP_CACHE_BYTES.
+
+I assume we don't really expect a significant growth in memory 
+consumption that we care about, especially because most systems with 
+many nodes also have  quite some memory around.
+
+
+> -/* Allocate NODE_DATA for a node on the local memory */
+> -static void __init alloc_node_data(int nid)
+> -{
+> -	const size_t nd_size = roundup(sizeof(pg_data_t), PAGE_SIZE);
+> -	u64 nd_pa;
+> -	void *nd;
+> -	int tnid;
+> -
+> -	/*
+> -	 * Allocate node data.  Try node-local memory and then any node.
+> -	 * Never allocate in DMA zone.
+> -	 */
+> -	nd_pa = memblock_phys_alloc_try_nid(nd_size, SMP_CACHE_BYTES, nid);
+> -	if (!nd_pa) {
+> -		pr_err("Cannot find %zu bytes in any node (initial node: %d)\n",
+> -		       nd_size, nid);
+> -		return;
+> -	}
+> -	nd = __va(nd_pa);
+> -
+> -	/* report and initialize */
+> -	printk(KERN_INFO "NODE_DATA(%d) allocated [mem %#010Lx-%#010Lx]\n", nid,
+> -	       nd_pa, nd_pa + nd_size - 1);
+> -	tnid = early_pfn_to_nid(nd_pa >> PAGE_SHIFT);
+> -	if (tnid != nid)
+> -		printk(KERN_INFO "    NODE_DATA(%d) on node %d\n", nid, tnid);
+> -
+> -	node_data[nid] = nd;
+> -	memset(NODE_DATA(nid), 0, sizeof(pg_data_t));
+> -
+> -	node_set_online(nid);
+> -}
+> -
+>   /**
+>    * numa_cleanup_meminfo - Cleanup a numa_meminfo
+>    * @mi: numa_meminfo to clean up
+> @@ -571,6 +538,7 @@ static int __init numa_register_memblks(struct numa_meminfo *mi)
+>   			continue;
+>   
+>   		alloc_node_data(nid);
+> +		node_set_online(nid);
+>   	}
+
+I can spot that we only remove a single node_set_online() call from x86.
+
+What about all the other architectures? Will there be any change in 
+behavior for them? Or do we simply set the nodes online later once more?
 
 -- 
 Cheers,
