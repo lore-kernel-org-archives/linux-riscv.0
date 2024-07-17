@@ -4,78 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28EADC3DA4B
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jul 2024 14:35:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF4D6C3DA61
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jul 2024 14:35:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M3TvS1EgXJkBvA0I3Ns2vmBsXMeBnzg4ek18AGJQ7VQ=; b=W4YG4Z5kyYSQIQ
-	oKlZYJN6WxBAHcFNBBOgQ38VwotVPUNuIpMEx1VkSslTOIzd7vfobnmWgrEij8mTNFg4D49+KaYk3
-	AM6GCPl6eKCiOhbJZKqV17qohp9xgBi2Da/Bied7FAWXYYtyxdo7SELJfiKcz0VM+gw2ROgtTh3uT
-	PnkdyDA2gbt6F1e0BRZ8raxcDQH3q6OVOrW93bUoZo2IsU1lmVnIe7Jd9ViUjSYpDNEswCmRv0HKk
-	80SRwBfNN7QFi2CQmrR4lYcRCwWqzZYktCusuOU8TU/HNUft3ZTwtd5E7M5LgATVC6fh3gLAkWSLj
-	ralbRFHBenlZ1uhXpN4w==;
+	List-Owner; bh=ggsnVjyfg9y4C5/QY4O8wpOCnluEbf1RKpb/IRfCv3k=; b=EV71XVAXYEL4qG
+	rPDFq+B3rj/g6V7T5Rqi1e8Z2uPNBhIQzrLGSB4PffLSvHlfQBFbmjyy3zx+Oo7ZQ7omr1EyMhwsH
+	ykq8CvMf1hNvWLCznjt/FwkWQNKjmdl6wnvSJmV6v++5PP0IjuhaGzr87eMLzVoWCKGv61YI1DDsh
+	vjp1YdeSCDgYtgDUnqV3TJNCSIJ0sbbFHHA0QRwWHN9c1Gl3Q6ed/eVjB5Z56px2DuVz8rcT5pOuz
+	TovD3/6ACYfZUtlEuWDgKuJEZ3+CtGFD0bUJoSgl++tg2+4LTePz+0F+Kft6MOKKu50st11Tvq03I
+	ltAXfjIv8iOg2vWfvIhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sU5kP-0000000E3wZ-3UEc;
-	Wed, 17 Jul 2024 14:35:13 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1sU5kr-0000000E45u-0iwi;
+	Wed, 17 Jul 2024 14:35:41 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sU5kN-0000000E3vp-2Apa
+	id 1sU5ko-0000000E44o-0Luo
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 Jul 2024 14:35:12 +0000
+	Wed, 17 Jul 2024 14:35:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1721226910;
+	s=mimecast20190719; t=1721226937;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=bQ+fqkZTCVbwQr6DwGYo0tiSadNAEaaTmdSJdfMrkK4=;
-	b=XckOrP3r0ZoqjB5ImUMK5DB/Va78uZp+Ajri1O6PgHcCbflP2wzd3e/3kGSAmhf2s9Ohi+
-	+Yk8S/A/AUd+hwjhj1/U0CRGaMlnkvBY+slV9g7gNTI1HdsFVO87bfHIAxLIqWhgv6wkMR
-	sFCkpSjbGq6zHP2QYUypKj3sNhXJi4E=
-Received: from mail-lj1-f199.google.com (mail-lj1-f199.google.com
- [209.85.208.199]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=N1ZA4THI/NaMS6hGpfXHfX7B4XiRlWC0xjiP6EIcxcw=;
+	b=RVQsncTNteAyYnzZuO93RUi6bg2eoYSzx3pfkuea0hTL7Kb5t8fUlvP3nMEsGxj3wkypod
+	FwkO1yPK8EJhHLPcKMRwp9qPFNvsS6rz8V8JmZJyI/xjyN26xRmKDeU+VMRBBgTK33B+kj
+	nVv2QCD+i/7RmebQ6Igb0Vfznx7BdY8=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-194-jV-gVtSGOnireb9lRlj0cw-1; Wed, 17 Jul 2024 10:35:06 -0400
-X-MC-Unique: jV-gVtSGOnireb9lRlj0cw-1
-Received: by mail-lj1-f199.google.com with SMTP id 38308e7fff4ca-2ee95497b77so68748621fa.1
-        for <linux-riscv@lists.infradead.org>; Wed, 17 Jul 2024 07:35:06 -0700 (PDT)
+ us-mta-227-2Wu3Lk-sPMeIAUg9292x7Q-1; Wed, 17 Jul 2024 10:35:34 -0400
+X-MC-Unique: 2Wu3Lk-sPMeIAUg9292x7Q-1
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-427a7a65e7dso4406145e9.1
+        for <linux-riscv@lists.infradead.org>; Wed, 17 Jul 2024 07:35:34 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1721226905; x=1721831705;
+        d=1e100.net; s=20230601; t=1721226934; x=1721831734;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:from:references:cc:to:subject:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=bQ+fqkZTCVbwQr6DwGYo0tiSadNAEaaTmdSJdfMrkK4=;
-        b=RNafLbr8EdVSAwJo8XdYu/dBsRf0/KXmR9efkOcN1lV7c+xH4R4wxsa8XXSiMQ3lS3
-         rxOEDddFAcPEU5eTZTfGuCsB/UHFnsDkGejM4PZGRP+q+srRx563fQ3e63aBI1QlmFgo
-         2sqxlCwGdvLWDLN8HxuEYN6F30OTzIloN8JUtDBx/5fazleO6OCt+/jtQe7MtS7u89q4
-         8A+WIrDcnE8MmsnessgZyz9DrqB6/Sj8cobj7FLo8Sz+7FBIGA3Xe/Fx50nyizJ4go97
-         OkjPE6GJzjOlS5I6sWBg17Yt4pqfJpnIgO9e2VOq/fAwOp8QmeKzxX1FUBvkRg9J2TMD
-         FGdg==
-X-Forwarded-Encrypted: i=1; AJvYcCWmL/aBEtfCJv9fQyDOzEF8chTIMF/A/Ljsau6PUzB/Ww5iZpHqf2zjU4dlavijuyMETBXSf3HdXwBqeJZaz0LJWJPseOxsjlKwE7KHy8/q
-X-Gm-Message-State: AOJu0YweFJsD/kVt/1fdosQ4yxHabGwn72Nazqwzl2l6T5FU3mkJIyGM
-	lYtEynn+5kM4Pixt2VWUt11AbiKoBFIFT2RkEePTQvly0Zov1l5x5jxvdlbTJ3PF8Rx0mFhqDUs
-	wlPgxQLEpGMjzucSx0vQMPB4LCb0R5C8qTNk54Vv69MOU0mEu7jqG/YoEDrvWJatEWg==
-X-Received: by 2002:a05:6512:1316:b0:52e:a60e:3a04 with SMTP id 2adb3069b0e04-52ee542a129mr1866182e87.59.1721226905226;
-        Wed, 17 Jul 2024 07:35:05 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IH04Gq57875HpWPakTIyYyIvXlTOyNbE9pUtdgazlRW5m2Y5upStMZ+SEMfPLUpoxgxOiDOHQ==
-X-Received: by 2002:a05:6512:1316:b0:52e:a60e:3a04 with SMTP id 2adb3069b0e04-52ee542a129mr1866156e87.59.1721226904762;
-        Wed, 17 Jul 2024 07:35:04 -0700 (PDT)
+        bh=N1ZA4THI/NaMS6hGpfXHfX7B4XiRlWC0xjiP6EIcxcw=;
+        b=AUHxfZMLrb4dawssetyRWKdyPwaM/4i6gcgpQOhLFJNhSJf5nhR7moofJU2+h9A2Th
+         ZwgUsapy3Eqoz114Ci9/NkIBBp685C3IVw9GYzgTK+TNm8TE45dbjGM1ilhsuf2Th3Cq
+         gImU/QOtOWHburrKLctryBceQocWSud4viHANFEcCOZjYCpBA1TdevCsKL5yIBR3WebY
+         2Z+royLK5qUGHYVXk9j/r4j3KYdjJ2tehSvsJ8/UZpbRE5psH+mfJzs6/L8iNsSy2cX3
+         VRmIxVYFwhANFwLL18cZunLg4FL4+Sp91nDXpgMgLPGKKBMtnl5w2Hmh2IkbpNUMk8tp
+         L6yA==
+X-Forwarded-Encrypted: i=1; AJvYcCUHdOZx78f5NtcOqOto9cmA0ymMEQSO7KEAaQMHgfw4w/hzWy61jYmWr4nfSbHow93OLbxR27E1IP3AdJt97squgA1oKdrsi63kovIgAcIB
+X-Gm-Message-State: AOJu0Yy2WJaGs0s0OHVxPfcEKBsEZitgmxYHa22DHGZgq3CWy9fah6nq
+	XCxNQtJu+zORR9D6s0Inz3iTDccp7tI3QA02B26uQOOz6i/jxchYgsJB6UFVYUazFQ+8LF4p76M
+	i2I6z+bFNRtBWfx7yPwLxbmYn8zpBW7kzmbytqSX3Gd+Px/p4RJZSk2ODeatHaURPUQ==
+X-Received: by 2002:a05:600c:5121:b0:426:618a:a092 with SMTP id 5b1f17b1804b1-427bb8e85c4mr39358875e9.13.1721226933820;
+        Wed, 17 Jul 2024 07:35:33 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEX70FS4S+9yQpWhIxbutDmeW8IdP8r1sizijP5dFKFOs14MIR+fctf34DTHwiKpauxrYwt+w==
+X-Received: by 2002:a05:600c:5121:b0:426:618a:a092 with SMTP id 5b1f17b1804b1-427bb8e85c4mr39358625e9.13.1721226933478;
+        Wed, 17 Jul 2024 07:35:33 -0700 (PDT)
 Received: from ?IPV6:2003:cb:c714:c00:b08b:a871:ce99:dfde? (p200300cbc7140c00b08ba871ce99dfde.dip0.t-ipconnect.de. [2003:cb:c714:c00:b08b:a871:ce99:dfde])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-427c779847asm301165e9.8.2024.07.17.07.35.02
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-427c77a8078sm244165e9.18.2024.07.17.07.35.31
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 17 Jul 2024 07:35:04 -0700 (PDT)
-Message-ID: <11c4ffb9-ea48-44d0-8a58-2c705c7176de@redhat.com>
-Date: Wed, 17 Jul 2024 16:35:02 +0200
+        Wed, 17 Jul 2024 07:35:33 -0700 (PDT)
+Message-ID: <bceb7745-dfbc-446c-9fc0-38aa8ae4cb6a@redhat.com>
+Date: Wed, 17 Jul 2024 16:35:31 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 04/17] arch, mm: move definition of node_data to generic
- code
+Subject: Re: [PATCH 01/17] mm: move kernel/numa.c to mm/
 To: Mike Rapoport <rppt@kernel.org>, linux-kernel@vger.kernel.org
 Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
  Andreas Larsson <andreas@gaisler.com>,
@@ -103,7 +102,7 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
  devicetree@vger.kernel.org, linux-arch@vger.kernel.org, linux-mm@kvack.org,
  x86@kernel.org
 References: <20240716111346.3676969-1-rppt@kernel.org>
- <20240716111346.3676969-5-rppt@kernel.org>
+ <20240716111346.3676969-2-rppt@kernel.org>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -150,13 +149,14 @@ Autocrypt: addr=david@redhat.com; keydata=
  jPrnvUsUUsjRoRNJjKKA/REq+sAnhkNPPZ/NNMjaZ5b8Tovi8C0tmxiCHaQYqj7G2rgnT0kt
  WNyWQQ==
 Organization: Red Hat
-In-Reply-To: <20240716111346.3676969-5-rppt@kernel.org>
+In-Reply-To: <20240716111346.3676969-2-rppt@kernel.org>
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240717_073511_668122_447E7807 
-X-CRM114-Status: GOOD (  13.43  )
+X-CRM114-CacheID: sfid-20240717_073538_229992_A457553C 
+X-CRM114-Status: UNSURE (   6.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,62 +176,10 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On 16.07.24 13:13, Mike Rapoport wrote:
 > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 > 
-> Every architecture that supports NUMA defines node_data in the same way:
-> 
-> 	struct pglist_data *node_data[MAX_NUMNODES];
-> 
-> No reason to keep multiple copies of this definition and its forward
-> declarations, especially when such forward declaration is the only thing
-> in include/asm/mmzone.h for many architectures.
-> 
-> Add definition and declaration of node_data to generic code and drop
-> architecture-specific versions.
+> The stub functions in kernel/numa.c belong to mm/ rather than to kernel/
 > 
 > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 > ---
->   arch/arm64/include/asm/Kbuild                  |  1 +
->   arch/arm64/include/asm/mmzone.h                | 13 -------------
->   arch/arm64/include/asm/topology.h              |  1 +
->   arch/loongarch/include/asm/Kbuild              |  1 +
->   arch/loongarch/include/asm/mmzone.h            | 16 ----------------
->   arch/loongarch/include/asm/topology.h          |  1 +
->   arch/loongarch/kernel/numa.c                   |  3 ---
->   arch/mips/include/asm/mach-ip27/mmzone.h       |  4 ----
->   arch/mips/include/asm/mach-loongson64/mmzone.h |  4 ----
->   arch/mips/loongson64/numa.c                    |  2 --
->   arch/mips/sgi-ip27/ip27-memory.c               |  3 ---
->   arch/powerpc/include/asm/mmzone.h              |  6 ------
->   arch/powerpc/mm/numa.c                         |  2 --
->   arch/riscv/include/asm/Kbuild                  |  1 +
->   arch/riscv/include/asm/mmzone.h                | 13 -------------
->   arch/riscv/include/asm/topology.h              |  4 ++++
->   arch/s390/include/asm/Kbuild                   |  1 +
->   arch/s390/include/asm/mmzone.h                 | 17 -----------------
->   arch/s390/kernel/numa.c                        |  3 ---
->   arch/sh/include/asm/mmzone.h                   |  3 ---
->   arch/sh/mm/numa.c                              |  3 ---
->   arch/sparc/include/asm/mmzone.h                |  4 ----
->   arch/sparc/mm/init_64.c                        |  2 --
->   arch/x86/include/asm/Kbuild                    |  1 +
->   arch/x86/include/asm/mmzone.h                  |  6 ------
->   arch/x86/include/asm/mmzone_32.h               | 17 -----------------
->   arch/x86/include/asm/mmzone_64.h               | 18 ------------------
->   arch/x86/mm/numa.c                             |  3 ---
->   drivers/base/arch_numa.c                       |  2 --
->   include/asm-generic/mmzone.h                   |  5 +++++
->   include/linux/numa.h                           |  3 +++
->   mm/numa.c                                      |  3 +++
->   32 files changed, 22 insertions(+), 144 deletions(-)
->   delete mode 100644 arch/arm64/include/asm/mmzone.h
->   delete mode 100644 arch/loongarch/include/asm/mmzone.h
->   delete mode 100644 arch/riscv/include/asm/mmzone.h
->   delete mode 100644 arch/s390/include/asm/mmzone.h
->   delete mode 100644 arch/x86/include/asm/mmzone.h
->   delete mode 100644 arch/x86/include/asm/mmzone_32.h
->   delete mode 100644 arch/x86/include/asm/mmzone_64.h
->   create mode 100644 include/asm-generic/mmzone.h
-
-Nice!
 
 Acked-by: David Hildenbrand <david@redhat.com>
 
