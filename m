@@ -4,104 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17C33C3DA42
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jul 2024 08:41:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E821C3DA42
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jul 2024 08:42:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=vktKFCArI02xzoZuO4jQNGZ4tXyHCa0WSkKdEYK7fZo=; b=kgtu1tW04Gq0qA
-	7kGapx0bNBfVu/UzafxFfwlIPUf4wDdulz3BENefR2cQjfU+7Lo8JcQqPUsmQz05MeNUfjP/tsVPU
-	SLDmU1LNbt4iDDo2cFNfrVlZOd8kN0sm1RjzvQF8LWvFkY2440pHuGQSQ/Ba8nLJvmgy6uMfGkVPO
-	x7RvOj9l/ZWE7wt51ZsNbbNUrzFKDcLT0JZRktqdMClQhI/xz9Mp5ykDai/pwtHmwnZYm3raxJgOH
-	0IGw5RiOsPscue621+iEG0QIfCKjoWaHp3qYPeW83h6pe5iLz4Ljx65IlSLFKftSn57rwqseTG3of
-	3aqySAxNAhyQYYqIf2/Q==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Rs1u3dohHjYA30jqy36KkMas5ddZayht0F1FW763a3k=; b=z7+H3axCLwET7b
+	Cw05L0iNT740iguJLMhPow+xEK+dB0pR3d6fEEEjuvVcq7L6N3Ea4L6XqSDt4Xwkmscg205hIPDow
+	sce8mVT9Am8TnTIUlYy6raTtWcAaeOYcBHxbIE2CVyFX31PJmmxM2ZU6sD5Znw7DgHtwOts6it0RJ
+	+THGxu1BjyTOZxEySDuGT6ZsI+AnlM8U6sBT2i6MFHmzrh998VfvjJGLHJjp8ZYcMSGMOhAm3s+sa
+	MyZ+sW7SAnqIrKG6SR9jLm1QnvGs/+fC39K97kKAvNpXqd+JEB3LKZtN4nZw2AXmf7c3g7o5N9Qxs
+	NMQvBpymdBVNatvi/JDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sU0Ds-0000000DBFD-2ueC;
-	Wed, 17 Jul 2024 08:41:16 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1sU0FQ-0000000DBhS-2gMc;
+	Wed, 17 Jul 2024 08:42:52 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sU0Dn-0000000DBD2-35Bx
+	id 1sU0FN-0000000DBen-0G1J
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 Jul 2024 08:41:14 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4257d5fc9b7so52353575e9.2
-        for <linux-riscv@lists.infradead.org>; Wed, 17 Jul 2024 01:41:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1721205670; x=1721810470; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=viTeXUKki+C4RSOqEtc6JZRlZB9YfhZcpuRfiwEJWmA=;
-        b=TPLRP+EdYtuxDyb6cvhBKpO/hSGRtGgrSLchP6e0ndB0PQfq2OIgJFRZaQkOl/CPMd
-         45CGbkyH27ytyvH9h0Jz0X+BsN7pWTPZUigjKLTfNeO54CxHWrLkWBmwupW/igQyz3uv
-         EuUgD68G8BUCg8DWQf1PjZ2EuvsJNyVKRAlTPsTBj7/tAIGIspB6xL3VEH728WjCq4Le
-         7IVuR5TKwPtio8Y3iynRDxG3uhPYbHIHXlYMteZpHTYa6+zpxrdaP6NrJjWoD2BFEXS4
-         GHcnsRn6Lq46KLGB6Ln/XbfDnIK2fQBoGNTfJuR2ktIP/dLhvUxFBqS36TrDGRtLNqhe
-         3fGg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1721205670; x=1721810470;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=viTeXUKki+C4RSOqEtc6JZRlZB9YfhZcpuRfiwEJWmA=;
-        b=H/mbKtfh9no9UJ0t8ROgeeN0eQMkbG79w+Tn2y45VgLrzTwEUx5WRcbRdwqG4gwJ00
-         WvVxgbXqIRro17ADJ6rrTO8nScuyFbBV/4r6MZSUyw+ubAPPHZT+YI8TKdEsj2UWKrim
-         gTGRYy/1/vtYa3qmhnw0u7dvm4/IBu79j/nfU5VzioP2WB166Atlpk8HnuCXV2yiXmsy
-         TxOx2/2X0UfqrPaqZQ6FsforQEhH/GTUKcIc2+jfnL09kPFJ/Jw7cjWwOFxYf8w94Xc4
-         eoPpbJDvRRYL5fH+y15u+uTFaPXFRUc/+AAxD440J81ipejeLb2+CrpxnJR9Ry8Wo24g
-         bNYQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW/mm/JjkCVAAZiqm9oOONj5gZ2ewOHXl+Ov0EIQCx++WhwAxLjF6P7Wvl2OgrWEdtMdJad6QFNkGiSeS8W2iGJ2f9nc+0NCeO5vb44nefP
-X-Gm-Message-State: AOJu0Yz8x8osZxMs1G6K8AYqI9VNcu2RVxX/z9TiemJ+PwSmlHeyB+QV
-	+blG3ISaBDsLrhq816WDZ4E35j5jD4+YbF9nVDI7MPCljKU2rzeXu8gsI9ro6jk=
-X-Google-Smtp-Source: AGHT+IHJRc0QXrVEpcHHfalimM+vrl4OVXAX7XvhAEimTQc8pDDZRyX0mHbtVfKgSdMOkO1myMU9og==
-X-Received: by 2002:a05:600c:3595:b0:426:5c81:2538 with SMTP id 5b1f17b1804b1-427c2cb8a05mr7311085e9.14.1721205669874;
-        Wed, 17 Jul 2024 01:41:09 -0700 (PDT)
-Received: from alex-rivos.ba.rivosinc.com ([193.33.57.199])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-427ba20c8aasm29024645e9.0.2024.07.17.01.41.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Jul 2024 01:41:09 -0700 (PDT)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Jason Baron <jbaron@akamai.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Hao Luo <haoluo@google.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
-	Pu Lehui <pulehui@huawei.com>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Luke Nelson <luke.r.nels@gmail.com>,
-	Xi Wang <xi.wang@gmail.com>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	bpf@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>
-Subject: [PATCH] riscv: patch: Remove redundant functions
-Date: Wed, 17 Jul 2024 10:41:02 +0200
-Message-Id: <20240717084102.150914-1-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.39.2
+	Wed, 17 Jul 2024 08:42:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 3E3A4CE16A2;
+	Wed, 17 Jul 2024 08:42:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BC5AC32782;
+	Wed, 17 Jul 2024 08:42:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1721205766;
+	bh=Gr+rH+sMnSIBeAsAWHpnMXviyYiqXsfmjzUS+poyQjI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Sufi1ChmZDWC8K5+Q18Dukb8U/TeOUL5G3HaKSKuRRyk1XpxfhFKJEqdLshNCeh07
+	 LZxqETm4vEY3m3a8hvUBx+srtVk2IoyjXvMQy71mVppqLN/o63hhl1XlGjmpMDY3GL
+	 anuW+DrR0/PeWSm5mPS6D2Al1upwW0DnsWJ+2f2T4O5PN7Rnw148xZamsjDFSzQ/b3
+	 MwjD0lLKOuEBnyhl53UkKAy8/OJuTqJUW36gp7pMtIPb7LAUCIq3DLVITdzxoOGKE2
+	 f+X/3v/BCZuT/qoM8Kla5FWJpFkl8Fv3k7atP1ImqUNqErOtFJk6lzqH61FX3NUthN
+	 UvMSMEjAxpMtQ==
+Message-ID: <4fdd11e0-fe1f-4112-ab18-b9b72a5cee2b@kernel.org>
+Date: Wed, 17 Jul 2024 10:42:39 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1] riscv: dts: starfive: remove non-existant spi device
+ from jh7110-common.dtsi
+To: Conor Dooley <conor.dooley@microchip.com>, linux-riscv@lists.infradead.org
+Cc: conor@kernel.org, Emil Renner Berthing <kernel@esmil.dk>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ William Qiu <william.qiu@starfivetech.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20240716-majesty-antler-d9bedc7fd0af@wendy>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20240716-majesty-antler-d9bedc7fd0af@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240717_014112_060331_06597C22 
-X-CRM114-Status: GOOD (  12.61  )
+X-CRM114-CacheID: sfid-20240717_014249_632099_90ECE67B 
+X-CRM114-Status: GOOD (  10.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,190 +121,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Commit edf2d546bfd6f5c4 ("riscv: patch: Flush the icache right after
-patching to avoid illegal insns") removed the last differences between
-patch_text_set_nosync() and patch_insn_set(), and between
-patch_text_nosync() and patch_insn_write().
+On 16/07/2024 12:54, Conor Dooley wrote:
+> There is no rohm,dh2228fv on any of supported JH7110 boards - in fact
+> the dh2228fv almost certainly does not exist as it is not a valid Rohm
+> part number. Likely a typo by Maxime when adding the device originally,
+> and should have been bh2228fv, but these boards do not have a bh2228fv
+> either! Remove it from jh7110-common.dtsi - pretending to have a device
+> so that the spidev driver will be bound by Linux is not acceptable.
+> 
+> Fixes: 74fb20c8f05d ("riscv: dts: starfive: Add spi node and pins configuration")
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 
-So remove the redundant *_nosync() functions.
 
-Reported-by: Geert Uytterhoeven <geert@linux-m68k.org>
-Closes: https://lore.kernel.org/linux-riscv/CAMuHMdUwx=rU2MWhFTE6KhYHm64phxx2Y6u05-aBLGfeG5696A@mail.gmail.com/
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
----
- arch/riscv/errata/sifive/errata.c |  4 ++--
- arch/riscv/errata/thead/errata.c  |  2 +-
- arch/riscv/include/asm/patch.h    |  3 +--
- arch/riscv/kernel/alternative.c   |  4 ++--
- arch/riscv/kernel/cpufeature.c    |  2 +-
- arch/riscv/kernel/jump_label.c    |  2 +-
- arch/riscv/kernel/patch.c         | 24 +-----------------------
- arch/riscv/net/bpf_jit_core.c     |  4 ++--
- 8 files changed, 11 insertions(+), 34 deletions(-)
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-diff --git a/arch/riscv/errata/sifive/errata.c b/arch/riscv/errata/sifive/errata.c
-index 716cfedad3a2..5253b205aa17 100644
---- a/arch/riscv/errata/sifive/errata.c
-+++ b/arch/riscv/errata/sifive/errata.c
-@@ -112,8 +112,8 @@ void sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
- 		tmp = (1U << alt->patch_id);
- 		if (cpu_req_errata & tmp) {
- 			mutex_lock(&text_mutex);
--			patch_text_nosync(ALT_OLD_PTR(alt), ALT_ALT_PTR(alt),
--					  alt->alt_len);
-+			patch_insn_write(ALT_OLD_PTR(alt), ALT_ALT_PTR(alt),
-+					 alt->alt_len);
- 			mutex_unlock(&text_mutex);
- 			cpu_apply_errata |= tmp;
- 		}
-diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
-index bf6a0a6318ee..0ce280a190b6 100644
---- a/arch/riscv/errata/thead/errata.c
-+++ b/arch/riscv/errata/thead/errata.c
-@@ -182,7 +182,7 @@ void thead_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
- 				memcpy(oldptr, altptr, alt->alt_len);
- 			} else {
- 				mutex_lock(&text_mutex);
--				patch_text_nosync(oldptr, altptr, alt->alt_len);
-+				patch_insn_write(oldptr, altptr, alt->alt_len);
- 				mutex_unlock(&text_mutex);
- 			}
- 		}
-diff --git a/arch/riscv/include/asm/patch.h b/arch/riscv/include/asm/patch.h
-index 9f5d6e14c405..6b0e9b8a321b 100644
---- a/arch/riscv/include/asm/patch.h
-+++ b/arch/riscv/include/asm/patch.h
-@@ -6,9 +6,8 @@
- #ifndef _ASM_RISCV_PATCH_H
- #define _ASM_RISCV_PATCH_H
- 
-+int patch_insn_set(void *addr, u8 c, size_t len);
- int patch_insn_write(void *addr, const void *insn, size_t len);
--int patch_text_nosync(void *addr, const void *insns, size_t len);
--int patch_text_set_nosync(void *addr, u8 c, size_t len);
- int patch_text(void *addr, u32 *insns, int ninsns);
- 
- extern int riscv_patch_in_stop_machine;
-diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
-index 0128b161bfda..a8b508d99cf8 100644
---- a/arch/riscv/kernel/alternative.c
-+++ b/arch/riscv/kernel/alternative.c
-@@ -83,7 +83,7 @@ static void riscv_alternative_fix_auipc_jalr(void *ptr, u32 auipc_insn,
- 	riscv_insn_insert_utype_itype_imm(&call[0], &call[1], imm);
- 
- 	/* patch the call place again */
--	patch_text_nosync(ptr, call, sizeof(u32) * 2);
-+	patch_insn_write(ptr, call, sizeof(u32) * 2);
- }
- 
- static void riscv_alternative_fix_jal(void *ptr, u32 jal_insn, int patch_offset)
-@@ -98,7 +98,7 @@ static void riscv_alternative_fix_jal(void *ptr, u32 jal_insn, int patch_offset)
- 	riscv_insn_insert_jtype_imm(&jal_insn, imm);
- 
- 	/* patch the call place again */
--	patch_text_nosync(ptr, &jal_insn, sizeof(u32));
-+	patch_insn_write(ptr, &jal_insn, sizeof(u32));
- }
- 
- void riscv_alternative_fix_offsets(void *alt_ptr, unsigned int len,
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 5ef48cb20ee1..4c040a857c7e 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -795,7 +795,7 @@ void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begin,
- 		altptr = ALT_ALT_PTR(alt);
- 
- 		mutex_lock(&text_mutex);
--		patch_text_nosync(oldptr, altptr, alt->alt_len);
-+		patch_insn_write(oldptr, altptr, alt->alt_len);
- 		riscv_alternative_fix_offsets(oldptr, alt->alt_len, oldptr - altptr);
- 		mutex_unlock(&text_mutex);
- 	}
-diff --git a/arch/riscv/kernel/jump_label.c b/arch/riscv/kernel/jump_label.c
-index e6694759dbd0..74b5ebfacf4a 100644
---- a/arch/riscv/kernel/jump_label.c
-+++ b/arch/riscv/kernel/jump_label.c
-@@ -36,6 +36,6 @@ void arch_jump_label_transform(struct jump_entry *entry,
- 	}
- 
- 	mutex_lock(&text_mutex);
--	patch_text_nosync(addr, &insn, sizeof(insn));
-+	patch_insn_write(addr, &insn, sizeof(insn));
- 	mutex_unlock(&text_mutex);
- }
-diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
-index ab03732d06c4..bf45b507f900 100644
---- a/arch/riscv/kernel/patch.c
-+++ b/arch/riscv/kernel/patch.c
-@@ -177,7 +177,7 @@ static int __patch_insn_write(void *addr, const void *insn, size_t len)
- NOKPROBE_SYMBOL(__patch_insn_write);
- #endif /* CONFIG_MMU */
- 
--static int patch_insn_set(void *addr, u8 c, size_t len)
-+int patch_insn_set(void *addr, u8 c, size_t len)
- {
- 	size_t patched = 0;
- 	size_t size;
-@@ -198,17 +198,6 @@ static int patch_insn_set(void *addr, u8 c, size_t len)
- }
- NOKPROBE_SYMBOL(patch_insn_set);
- 
--int patch_text_set_nosync(void *addr, u8 c, size_t len)
--{
--	u32 *tp = addr;
--	int ret;
--
--	ret = patch_insn_set(tp, c, len);
--
--	return ret;
--}
--NOKPROBE_SYMBOL(patch_text_set_nosync);
--
- int patch_insn_write(void *addr, const void *insn, size_t len)
- {
- 	size_t patched = 0;
-@@ -230,17 +219,6 @@ int patch_insn_write(void *addr, const void *insn, size_t len)
- }
- NOKPROBE_SYMBOL(patch_insn_write);
- 
--int patch_text_nosync(void *addr, const void *insns, size_t len)
--{
--	u32 *tp = addr;
--	int ret;
--
--	ret = patch_insn_write(tp, insns, len);
--
--	return ret;
--}
--NOKPROBE_SYMBOL(patch_text_nosync);
--
- static int patch_text_cb(void *data)
- {
- 	struct patch_insn *patch = data;
-diff --git a/arch/riscv/net/bpf_jit_core.c b/arch/riscv/net/bpf_jit_core.c
-index 0a96abdaca65..b053ae5c4191 100644
---- a/arch/riscv/net/bpf_jit_core.c
-+++ b/arch/riscv/net/bpf_jit_core.c
-@@ -226,7 +226,7 @@ void *bpf_arch_text_copy(void *dst, void *src, size_t len)
- 	int ret;
- 
- 	mutex_lock(&text_mutex);
--	ret = patch_text_nosync(dst, src, len);
-+	ret = patch_insn_write(dst, src, len);
- 	mutex_unlock(&text_mutex);
- 
- 	if (ret)
-@@ -240,7 +240,7 @@ int bpf_arch_text_invalidate(void *dst, size_t len)
- 	int ret;
- 
- 	mutex_lock(&text_mutex);
--	ret = patch_text_set_nosync(dst, 0, len);
-+	ret = patch_insn_set(dst, 0, len);
- 	mutex_unlock(&text_mutex);
- 
- 	return ret;
--- 
-2.39.2
+Best regards,
+Krzysztof
 
 
 _______________________________________________
