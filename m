@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAFBFC3DA63
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jul 2024 18:07:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 138FFC3DA60
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jul 2024 18:08:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9gHWMM/2P9Zqia2NzIgUXYtlexxcpuLqT562/Vvi7Co=; b=b5YuHjoEu22JzE
-	XCvyQYW7VQG5k9K2omDW80A0yJ6v7WhhVjlAhakVzAbfNWKc5MnAgWrGDYLRp5EsRQRjyq2CupBTn
-	hqIcJ5MJZq/S6oKGRAcXsARd+mPP6x4901xmtwbLnONEJcMrxpFyTVImVQNENHJPEcQne3u51Cgz/
-	Hm1RiJm43MA1NqxPGIHyDSO/WHnS8gVXlIxqmJ8fSxKFLn3WRdjZgDUdJzljPPElViRbxzWap/O8c
-	+JrSpdDuhV3sslcX79QUcD2gkitkbDMJph8llUjnFIBDkxP7ROD0Twx03iH1Xs6/QIWv4qppo4MAe
-	ajHrmubaZugU9LlG+5lg==;
+	List-Owner; bh=zugEUE5OJck4JyaSLbIpFbGcYnYI9LgT0oUYQD5nCbk=; b=SXlPUKIvlKiVAi
+	7rJU2mCLFwoNzOIBT9+diB2r6cy/wHhbPxKiwnf9y4hje86KvtRlGS7v0ha1RvJTV/rkLdus/osMZ
+	WEfNVVzmaXBhTk0NLT8EOlw/aD2kVCFn8OrEr6BtupwsTEJNRH37xC9+bm43nKlg5BNm6VV5xOR0T
+	+BDRXh0kF+a61qSHZ68CGueOOSR6UbCnIBTgOZbiTPx6Yc+XSOAGkhyqBy5vdXYANIPetLQ3vJsGi
+	vVWtl1yIbgDG+RgB6kzzA8zAvdSuBVlS8oK/S2gJcfUx3ZOnOw+grC9dSMxZ6+nBtCqFX5VM0R9Is
+	lH2pt3pwJW2VfdMsjZOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sU946-0000000EYvj-0QMk;
-	Wed, 17 Jul 2024 18:07:46 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1sU94F-0000000EZ0C-1bPf;
+	Wed, 17 Jul 2024 18:07:55 +0000
+Received: from mail-oo1-xc2b.google.com ([2607:f8b0:4864:20::c2b])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sU93z-0000000EYsr-0KVy
+	id 1sU94C-0000000EYyw-3kE0
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 Jul 2024 18:07:40 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-70b0d0fefe3so4718010b3a.2
-        for <linux-riscv@lists.infradead.org>; Wed, 17 Jul 2024 11:07:38 -0700 (PDT)
+	Wed, 17 Jul 2024 18:07:54 +0000
+Received: by mail-oo1-xc2b.google.com with SMTP id 006d021491bc7-5b9778bb7c8so649082eaf.3
+        for <linux-riscv@lists.infradead.org>; Wed, 17 Jul 2024 11:07:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1721239657; x=1721844457; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1721239671; x=1721844471; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=o2OMTYC/MNcVeOyXPOMVBzI30A2f7Sr+q9J7Q/pzG1U=;
-        b=yjQV5PS1iqegUucoPOXWhYJDvLAJGXSZ1SHcFocjEP1cBQDdEx1yUPKQ+ky8oiPrF3
-         6CswwHUdkvTvs6rCJhNns9FvkG5/gthobKJpI9lNAE8sDkMsza2w5U+tEkH1u/XKK2rM
-         YmyoT4nX9vl5p3RyoSwZDPfjGeHfFS7rEViutzWn6phvhXRr8l/xoCWoJC20LFftsPtL
-         c01p/Us6gO2Y8zcvfq6Hc7cDC3+EPm4qi2Vwnv9Gcn3z+Srj6Rs9YtnGLt+M3A6Xvbx7
-         Bye0SwLbtJtnqPj6hs+0Ee1lXBJwHOyYQSWXJOG2WVavos7hDa91wRbevOOhVE8aaHMZ
-         J28w==
+        bh=+ZGP4amj4JHRu+ZiXMm6+tXe3yHE+8btsGaWXLScD4I=;
+        b=Kn8A1H0A9wtST2U/V43vOe11YpjUVU0kjS2aS3pJ9cfg+JR+C4sJvezggf9iEy5Yuc
+         FEfP+SzHqioSIOXW1noYQHclViXmKrz8ibWVds1Wowrd9T1gbWw2P5FbVcIGb8JCBwEu
+         6ZpPNYxilMBebYv/JtP1q/K7g+tQDcMDC2OKP+9QSNSz3IGYopA8JGlUsJ9uOEJ0hUpd
+         UgFav7jqAdzytD8RKTs3FZ9XOaZC9x63awdSRp+EiulnS9inui9U3HgHLTd0LECym17I
+         xqQie715PSnPt+xp48prC1OYR4ELALu3guC1gbvx53CvtSVmjrPFl1fzPTPC3Tv3iYQb
+         B5Lw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1721239657; x=1721844457;
+        d=1e100.net; s=20230601; t=1721239671; x=1721844471;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=o2OMTYC/MNcVeOyXPOMVBzI30A2f7Sr+q9J7Q/pzG1U=;
-        b=vfaYeGd/d8QPDHkTo1FjVZBCilGxKP+AO7X4o3jcIK/IbGaAKLzzvxwvLBP5+huB02
-         KqOgLmfYoLsu5P2yI4QVZctJo9Ck1ipa3aoaux72eECFzqaEUo8B3odHR7x4NWSd+Hle
-         x4kso3SbkHnIbbAE7gnb+bwuRxY/sUL95DSBczvHk8RQbnP3rBW3iUvusTf2YIAswqqv
-         EIoLCC7sIJk+pD5Kmk1Q75kYRY7iFg0OYfPvU1YJqIe1XRCntTbVRE/lcopz8g/KO1HJ
-         MU5qBgIrSMuugVwmGD2//esAD3nBj04S01JLa0c6qLWOBHiYQ5ar6pQ+tLuSy+fimTQE
-         0nvQ==
-X-Gm-Message-State: AOJu0Yw25cTZ//7DefOpCrowlYuDuZ/MHoey/XfiU2WXFIHPISfWbSB5
-	YC3GhlULcq2G2d7NYtjaSphuBSjULkHiwoWGmAnbio6Cc1y+5B+ZgKFK1GhHTlRHf6cmUJt7PcO
-	Q
-X-Google-Smtp-Source: AGHT+IFq74oC6EAPkDfOOhEZ2uuPqNUHNS1vpdiPnumm3jDU47nu1l5KY8m0Uc4gjSauQ20Tt6jeNA==
-X-Received: by 2002:a05:6a20:6a23:b0:1c0:f315:ec7e with SMTP id adf61e73a8af0-1c3fdc9def7mr3501112637.28.1721239657571;
-        Wed, 17 Jul 2024 11:07:37 -0700 (PDT)
+        bh=+ZGP4amj4JHRu+ZiXMm6+tXe3yHE+8btsGaWXLScD4I=;
+        b=aFijNYOa+frgbR4e08PHPq/PwvA51LUYywGjDjyP9/cwZ+VG8iXkHOBz53G0BfiRAk
+         wxIe+Sw+qNwWDd/BLWIg/olQnmh7lqFDuOFkdx3vavz66U96Hw3sOFNeT+iSHjke9Vwp
+         Kync34ucJv4JZji70UDQL/5xz8JEEJKJaWL1rA0KhqbkQNDSN4151yC07/tlfvEW+JVr
+         /eZQ5Px2RKkG9tVcRT+qWWgkMJDizQBd0hRwurKvOCw7qBB3GNw3lhQQEf4+y+ZqJHcz
+         s4jQ47a6u2hCkSLQI9K3/rPIM8CHVle7bO/idCHI4hOepQLXshnvBzmZc5b4PIMMN4HR
+         6WYw==
+X-Gm-Message-State: AOJu0YyPcv9PGmTMh2ujxfvr5nXgpdDYBUCUYB0aGy5DaQvfyORFvBd3
+	/cIC/A19MS7rtql92c0Byw4EHxE0HwJFGIw3ZHkGfEZ0uQwSo2SdtemGGeHub9QsqtbzKlTIg/L
+	1
+X-Google-Smtp-Source: AGHT+IEgBzF+gfFQzJNjZLcJzhw0bsIHBlAoB3Z5GJOcTbtbN55/3YK6Ae70QLjmvQ1MioqOk/sMZA==
+X-Received: by 2002:a05:6870:3325:b0:251:109:98f4 with SMTP id 586e51a60fabf-260d950b68amr1898816fac.47.1721239670887;
+        Wed, 17 Jul 2024 11:07:50 -0700 (PDT)
 Received: from jesse-desktop.ba.rivosinc.com (pool-108-26-179-17.bstnma.fios.verizon.net. [108.26.179.17])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-70b7eb9c969sm8432332b3a.35.2024.07.17.11.07.33
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-70b7eb9c969sm8432332b3a.35.2024.07.17.11.07.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Jul 2024 11:07:37 -0700 (PDT)
+        Wed, 17 Jul 2024 11:07:50 -0700 (PDT)
 From: Jesse Taube <jesse@rivosinc.com>
 To: linux-riscv@lists.infradead.org
 Cc: Jonathan Corbet <corbet@lwn.net>,
@@ -98,16 +98,16 @@ Cc: Jonathan Corbet <corbet@lwn.net>,
 	linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v5 1/7] RISC-V: Add Zicclsm to cpufeature and hwprobe
-Date: Wed, 17 Jul 2024 14:07:21 -0400
-Message-ID: <20240717180727.4180475-2-jesse@rivosinc.com>
+Subject: [PATCH v5 4/7] RISC-V: Replace RISCV_MISALIGNED with RISCV_SCALAR_MISALIGNED
+Date: Wed, 17 Jul 2024 14:07:24 -0400
+Message-ID: <20240717180727.4180475-5-jesse@rivosinc.com>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20240717180727.4180475-1-jesse@rivosinc.com>
 References: <20240717180727.4180475-1-jesse@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240717_110739_139935_963FA8FE 
-X-CRM114-Status: GOOD (  17.85  )
+X-CRM114-CacheID: sfid-20240717_110752_962191_51D37933 
+X-CRM114-Status: GOOD (  14.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,108 +124,119 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> Zicclsm Misaligned loads and stores to main memory regions with both
-> the cacheability and coherence PMAs must be supported.
-> Note:
-> This introduces a new extension name for this feature.
-> This requires misaligned support for all regular load and store
-> instructions (including scalar and vector) but not AMOs or other
-> specialized forms of memory access. Even though mandated, misaligned
-> loads and stores might execute extremely slowly. Standard software
-> distributions should assume their existence only for correctness,
-> not for performance.
-
-Detecing zicclsm allows the kernel to report if the
-hardware supports misaligned accesses even if support wasn't probed.
-
-This is useful for usermode to know if vector misaligned accesses are
-supported.
+Replace RISCV_MISALIGNED with RISCV_SCALAR_MISALIGNED to allow
+for the addition of RISCV_VECTOR_MISALIGNED in a later patch.
 
 Signed-off-by: Jesse Taube <jesse@rivosinc.com>
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Andy Chiu <andy.chiu@sifive.com>
+Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
 ---
-V1 -> V2:
- - Add documentation for Zicclsm
- - Move Zicclsm to correct location
 V2 -> V3:
- - No changes
+ - New patch
 V3 -> V4:
- - Add definitions to hwprobe.rst
+ - No changes
 V4 -> V5:
  - No changes
 ---
- Documentation/arch/riscv/hwprobe.rst  | 5 +++++
- arch/riscv/include/asm/hwcap.h        | 1 +
- arch/riscv/include/uapi/asm/hwprobe.h | 1 +
- arch/riscv/kernel/cpufeature.c        | 1 +
- arch/riscv/kernel/sys_hwprobe.c       | 1 +
- 5 files changed, 9 insertions(+)
+ arch/riscv/Kconfig                    | 6 +++---
+ arch/riscv/include/asm/cpufeature.h   | 2 +-
+ arch/riscv/include/asm/entry-common.h | 2 +-
+ arch/riscv/kernel/Makefile            | 4 ++--
+ arch/riscv/kernel/fpu.S               | 4 ++--
+ 5 files changed, 9 insertions(+), 9 deletions(-)
 
-diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
-index df5045103e73..78acd37b6477 100644
---- a/Documentation/arch/riscv/hwprobe.rst
-+++ b/Documentation/arch/riscv/hwprobe.rst
-@@ -207,6 +207,11 @@ The following keys are defined:
-   * :c:macro:`RISCV_HWPROBE_EXT_ZVE64D`: The Vector sub-extension Zve64d is
-     supported, as defined by version 1.0 of the RISC-V Vector extension manual.
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index b94176e25be1..34d24242e37a 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -717,7 +717,7 @@ config THREAD_SIZE_ORDER
+ 	  Specify the Pages of thread stack size (from 4KB to 64KB), which also
+ 	  affects irq stack size, which is equal to thread stack size.
  
-+  * :c:macro:`RISCV_HWPROBE_EXT_ZICCLSM`:  The Zicclsm extension is supported as
-+        defined in the RISC-V RVA Profiles Specification. Misaligned support for
-+        all regular load and store instructions (including scalar and vector) but
-+        not AMOs or other specialized forms of memory access.
-+
- * :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: Deprecated. Returns similar values to
-      :c:macro:`RISCV_HWPROBE_KEY_MISALIGNED_PERF`, but the key was mistakenly
-      classified as a bitmask rather than a value.
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index f64d4e98e67c..0b3bd8885a2b 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -86,6 +86,7 @@
- #define RISCV_ISA_EXT_ZVE64X		77
- #define RISCV_ISA_EXT_ZVE64F		78
- #define RISCV_ISA_EXT_ZVE64D		79
-+#define RISCV_ISA_EXT_ZICCLSM		80
+-config RISCV_MISALIGNED
++config RISCV_SCALAR_MISALIGNED
+ 	bool
+ 	select SYSCTL_ARCH_UNALIGN_ALLOW
+ 	help
+@@ -734,7 +734,7 @@ choice
  
- #define RISCV_ISA_EXT_XLINUXENVCFG	127
+ config RISCV_PROBE_UNALIGNED_ACCESS
+ 	bool "Probe for hardware unaligned access support"
+-	select RISCV_MISALIGNED
++	select RISCV_SCALAR_MISALIGNED
+ 	help
+ 	  During boot, the kernel will run a series of tests to determine the
+ 	  speed of unaligned accesses. This probing will dynamically determine
+@@ -745,7 +745,7 @@ config RISCV_PROBE_UNALIGNED_ACCESS
  
-diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
-index 2fb8a8185e7a..023b7771d1b7 100644
---- a/arch/riscv/include/uapi/asm/hwprobe.h
-+++ b/arch/riscv/include/uapi/asm/hwprobe.h
-@@ -65,6 +65,7 @@ struct riscv_hwprobe {
- #define		RISCV_HWPROBE_EXT_ZVE64X	(1ULL << 39)
- #define		RISCV_HWPROBE_EXT_ZVE64F	(1ULL << 40)
- #define		RISCV_HWPROBE_EXT_ZVE64D	(1ULL << 41)
-+#define		RISCV_HWPROBE_EXT_ZICCLSM	(1ULL << 42)
- #define RISCV_HWPROBE_KEY_CPUPERF_0	5
- #define		RISCV_HWPROBE_MISALIGNED_UNKNOWN	(0 << 0)
- #define		RISCV_HWPROBE_MISALIGNED_EMULATED	(1 << 0)
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 1d6e4fda00f8..83c5ae16ad5e 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -283,6 +283,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
- 	__RISCV_ISA_EXT_DATA(h, RISCV_ISA_EXT_h),
- 	__RISCV_ISA_EXT_SUPERSET(zicbom, RISCV_ISA_EXT_ZICBOM, riscv_xlinuxenvcfg_exts),
- 	__RISCV_ISA_EXT_SUPERSET(zicboz, RISCV_ISA_EXT_ZICBOZ, riscv_xlinuxenvcfg_exts),
-+	__RISCV_ISA_EXT_DATA(zicclsm, RISCV_ISA_EXT_ZICCLSM),
- 	__RISCV_ISA_EXT_DATA(zicntr, RISCV_ISA_EXT_ZICNTR),
- 	__RISCV_ISA_EXT_DATA(zicond, RISCV_ISA_EXT_ZICOND),
- 	__RISCV_ISA_EXT_DATA(zicsr, RISCV_ISA_EXT_ZICSR),
-diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
-index e4ec9166339f..e910e2971984 100644
---- a/arch/riscv/kernel/sys_hwprobe.c
-+++ b/arch/riscv/kernel/sys_hwprobe.c
-@@ -96,6 +96,7 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe *pair,
- 		EXT_KEY(ZBB);
- 		EXT_KEY(ZBS);
- 		EXT_KEY(ZICBOZ);
-+		EXT_KEY(ZICCLSM);
- 		EXT_KEY(ZBC);
+ config RISCV_EMULATED_UNALIGNED_ACCESS
+ 	bool "Emulate unaligned access where system support is missing"
+-	select RISCV_MISALIGNED
++	select RISCV_SCALAR_MISALIGNED
+ 	help
+ 	  If unaligned memory accesses trap into the kernel as they are not
+ 	  supported by the system, the kernel will emulate the unaligned
+diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
+index 347805446151..0ed7d99c14dd 100644
+--- a/arch/riscv/include/asm/cpufeature.h
++++ b/arch/riscv/include/asm/cpufeature.h
+@@ -33,8 +33,8 @@ extern struct riscv_isainfo hart_isa[NR_CPUS];
  
- 		EXT_KEY(ZBKB);
+ void riscv_user_isa_enable(void);
+ 
+-#if defined(CONFIG_RISCV_MISALIGNED)
+ bool check_unaligned_access_emulated_all_cpus(void);
++#if defined(CONFIG_RISCV_SCALAR_MISALIGNED)
+ void unaligned_emulation_finish(void);
+ bool unaligned_ctl_available(void);
+ DECLARE_PER_CPU(long, misaligned_access_speed);
+diff --git a/arch/riscv/include/asm/entry-common.h b/arch/riscv/include/asm/entry-common.h
+index 2293e535f865..0a4e3544c877 100644
+--- a/arch/riscv/include/asm/entry-common.h
++++ b/arch/riscv/include/asm/entry-common.h
+@@ -25,7 +25,7 @@ static inline void arch_exit_to_user_mode_prepare(struct pt_regs *regs,
+ void handle_page_fault(struct pt_regs *regs);
+ void handle_break(struct pt_regs *regs);
+ 
+-#ifdef CONFIG_RISCV_MISALIGNED
++#ifdef CONFIG_RISCV_SCALAR_MISALIGNED
+ int handle_misaligned_load(struct pt_regs *regs);
+ int handle_misaligned_store(struct pt_regs *regs);
+ #else
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index 5b243d46f4b1..8d4e7d40e42f 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -62,8 +62,8 @@ obj-y	+= probes/
+ obj-y	+= tests/
+ obj-$(CONFIG_MMU) += vdso.o vdso/
+ 
+-obj-$(CONFIG_RISCV_MISALIGNED)	+= traps_misaligned.o
+-obj-$(CONFIG_RISCV_MISALIGNED)	+= unaligned_access_speed.o
++obj-$(CONFIG_RISCV_SCALAR_MISALIGNED)	+= traps_misaligned.o
++obj-$(CONFIG_RISCV_SCALAR_MISALIGNED)	+= unaligned_access_speed.o
+ obj-$(CONFIG_RISCV_PROBE_UNALIGNED_ACCESS)	+= copy-unaligned.o
+ 
+ obj-$(CONFIG_FPU)		+= fpu.o
+diff --git a/arch/riscv/kernel/fpu.S b/arch/riscv/kernel/fpu.S
+index 327cf527dd7e..f74f6b60e347 100644
+--- a/arch/riscv/kernel/fpu.S
++++ b/arch/riscv/kernel/fpu.S
+@@ -170,7 +170,7 @@ SYM_FUNC_END(__fstate_restore)
+ 	__access_func(f31)
+ 
+ 
+-#ifdef CONFIG_RISCV_MISALIGNED
++#ifdef CONFIG_RISCV_SCALAR_MISALIGNED
+ 
+ /*
+  * Disable compressed instructions set to keep a constant offset between FP
+@@ -224,4 +224,4 @@ SYM_FUNC_START(get_f64_reg)
+ 	fp_access_epilogue
+ SYM_FUNC_END(get_f64_reg)
+ 
+-#endif /* CONFIG_RISCV_MISALIGNED */
++#endif /* CONFIG_RISCV_SCALAR_MISALIGNED */
 -- 
 2.45.2
 
