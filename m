@@ -4,96 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9663AC3DA5D
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jul 2024 22:03:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0533BC3DA5D
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jul 2024 22:04:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vZZaRY0sEMOIar5EFA39ZfILbWs7o64kSIDuRG3wCnA=; b=hkJto+Iw2HudN5
-	JXkcz6Gr8BxEtkbQiBCDiujxZxrKEi+RuwQ0RYMPu+b4/LtlX004ZgHzy2K2ITQ8GyGiIuzWcZ6Xk
-	+d/DwH6Umi9Ai3LEGh0AuWjrKn+KsevtEbwxP7jX2ycYngsENQOjdwRd6RlQZjjsscloct2MqOGfN
-	sHvAaQGuU8UrHpu2SGHPms19b95wy+V/gPBJqDEQSTNO+eJf1pIE0xNSLl+lzR6WChR+OiPp8ji6E
-	2Iv7s9guEkDXrlyPp+zLZ88DGZ5o0RnQYhiQlaTwk0RoQTvcI04IYgjCARvmuB5Ji55FuLmMLkd8T
-	OX+eeRmJ2sn9VNAzwIfw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dM7+cJq63gQlutbgKi32cWhx1iKe5ucFFSPewTeWYfc=; b=EhDf9Kzx59TTXw
+	hYVtyciLHVqze0UTrqGxSvdya9kzkh3bfJsrI6MrnaDC2XDEckQYh0aTYaar/AbCk0PHs2Y3Gqq2F
+	F1hI6osg9o+2/0LpjPlEGEbMirVLcxG95sBvXrZ3fJ3TPJjMQHH8GSTKiUm2jAMy7DNqnVtTFI1Z8
+	/j4cMkeWhhTdTatVyeFZXMC1aSdWilOzTrAWcOeH7F7agLUzOYArUMj8rybth8ObmkuB7POLNmeaF
+	RWwz5HrVAg5C/7m5JxI2uzHWvbWbMxOUxB10UGLh7XVitN/jyDQ+vgn6eSOo05blXwJDtPrfLdj7d
+	lOY4aMpmtcWGqipuwe2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUCk5-0000000F3TD-40tE;
-	Wed, 17 Jul 2024 22:03:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUCjS-0000000F3FP-1aEs
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 17 Jul 2024 22:02:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=cM3uv1r2lWcW+xf+zoFP/LGFvU433fJ+6ETuZi6JTtc=; b=YGFyMMP/EApp6Dm9b8oPVyp0hJ
-	DGe9B7qiWdI480t2Wb7rZJcv6ggexL29wV42N9k6dZxTUcJnVUfztsfLb/8A7HI9rLf0Hc3PieBUx
-	hu1NR6vMreLwjMuV88A/ttnO1Ot+poC91SrTE8Dvhmkh1+Q3el2tpWxuplz+EThhkwkZEYs3vsgfW
-	HZWw1vmb2jhqTsuHzV+wNSv6qDKfgnGp5tzpr7UTB7I5WpzoO4ltoh2Ox976oZ7rlWpmtcSpNGg1e
-	Lr9itW9++cdDmmTC497B2k83QVPdmMwyihW6F9mKRo8bTyIpaCufc90UcX62986rJI4zIntX44Nuh
-	VZfu+R5w==;
+	id 1sUCkl-0000000F3p3-0fv9;
+	Wed, 17 Jul 2024 22:04:03 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUCjO-00000002Q2w-1QNG
+	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1sUCjE-0000000F38d-0t9V
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 Jul 2024 22:02:41 +0000
+	Wed, 17 Jul 2024 22:02:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1721253757;
+	s=mimecast20190719; t=1721253746;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=cM3uv1r2lWcW+xf+zoFP/LGFvU433fJ+6ETuZi6JTtc=;
-	b=X4x4G6uceckUzUEFGydtnyMyFkRjLVoqyUUMh/QrfNuBPjzC9RjvYSOEIxX7VF0qrmHG1L
-	RU6fyidvyYkpp1Lt2j+kEsYvydnRlVukrOufvWQQ/KI4aMiJNOYvm9RwuSVL2eDTGweXnt
-	ICK1+wdNZr4ufiu3xQP6BO7pWI//sbg=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1721253757;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=cM3uv1r2lWcW+xf+zoFP/LGFvU433fJ+6ETuZi6JTtc=;
-	b=X4x4G6uceckUzUEFGydtnyMyFkRjLVoqyUUMh/QrfNuBPjzC9RjvYSOEIxX7VF0qrmHG1L
-	RU6fyidvyYkpp1Lt2j+kEsYvydnRlVukrOufvWQQ/KI4aMiJNOYvm9RwuSVL2eDTGweXnt
-	ICK1+wdNZr4ufiu3xQP6BO7pWI//sbg=
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com
- [209.85.160.199]) by relay.mimecast.com with ESMTP with STARTTLS
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=22URfq8NjvGndByOojJP9eQog6fnp2xGbHVHJb+hEIw=;
+	b=ZZ55QWP+Jb9IXzzMGu2SHc1HRvrudcI/usrldFmwK92IX+V/OWLLdMHMy1PCXzMTDF79UT
+	p9nFP2dwww6+nQdabO7kF1+5KwF2uRFvnYamJtdQnGIOPz9c+1XcSHtO4w/HAzcupCpC/z
+	1KE3un0nVimNd+E6Ap8+v7ytU/jrfzI=
+Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com
+ [209.85.219.69]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-90-pJQZUHekMLimCbSNKGjinw-1; Wed, 17 Jul 2024 18:02:35 -0400
-X-MC-Unique: pJQZUHekMLimCbSNKGjinw-1
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-447e34d7437so240561cf.3
-        for <linux-riscv@lists.infradead.org>; Wed, 17 Jul 2024 15:02:35 -0700 (PDT)
+ us-mta-108-0bKwHi-JPz6Bh8JgKvjUfA-1; Wed, 17 Jul 2024 18:02:23 -0400
+X-MC-Unique: 0bKwHi-JPz6Bh8JgKvjUfA-1
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-6b7740643fbso589936d6.1
+        for <linux-riscv@lists.infradead.org>; Wed, 17 Jul 2024 15:02:23 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1721253755; x=1721858555;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=cM3uv1r2lWcW+xf+zoFP/LGFvU433fJ+6ETuZi6JTtc=;
-        b=c0WMZm5F5zd/2a6nPCTY2hWjXDZ3is65tdK0e5zrX/9GB4ZLoeDI9k+/qiB5c9e46s
-         95579+i3g6Zqw81BMDFO+kemJ4EH7NO//Li9Nw2yibdADw5+bCwwsVXTZDn0A4aN7Wpi
-         8x5sdiZUWHvR47QPiCv1t2Bg9K75wdFwwPHgH+NQt8iV4XqFtXan7ohmGbylqg0EQeUu
-         qRj8t4MTs9kk0wav+q5YecFXtWDPGjeTSYtK7x/T7AMz4YDuxW5TRhJxhOjWj/0CJGp1
-         Ln6ueuR/xpjH+5ykchQvNP7eJ84vLl2nclgsGEHyGG+PAqWXwu1sv48Q52pwieChMR8S
-         eJZA==
-X-Forwarded-Encrypted: i=1; AJvYcCVo+LPPGBWK4P8+kYms6DGZ3rx0CIM/njcrbtf+oIU4M6jbsP+Yks0u94xQr7TkU1gfy8kG07tQm4//UQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3aUhiZNnVBAwGb77ziRvLQ/ILpNkmFHCyC9kw3NHD9gN3DLJ+
-	igy/+/Nmyi1y1L0pgmj7lXGMcM4MRiw75UQSdPVaoisRA+TY/XoGVWCI/Eef4WXt3KheApbD/Z7
-	OhVOFXELK2GHIU2fMPjxqJBgEmf7DMZFwcHrWmeEPvrtDBPlJWf4Fns1Ot5AYAGfuXg==
-X-Received: by 2002:a05:622a:19a8:b0:446:5a29:c501 with SMTP id d75a77b69052e-44f864afa6cmr22373011cf.1.1721253755329;
-        Wed, 17 Jul 2024 15:02:35 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IH8QsOTDoliMPT3fo+/7Outqv1nF7W8rzQA7PybYEjXwyS1q7X3t8IYBAe2znVX4XcYe4OF/A==
-X-Received: by 2002:a05:622a:19a8:b0:446:5a29:c501 with SMTP id d75a77b69052e-44f864afa6cmr22372781cf.1.1721253754848;
-        Wed, 17 Jul 2024 15:02:34 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1721253743; x=1721858543;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=22URfq8NjvGndByOojJP9eQog6fnp2xGbHVHJb+hEIw=;
+        b=xCxjy+NPG/dIWGwMWI2mBKRUto+IywmiIg6S9sstsFLA/ANoY9GE1tFKmzt3AUNn63
+         ffuHvv0e+Nn2w2+mxvrvyKUg3CTOdGTAlGBRPfDu1jl5a1zq8oULQyGKw7z4J/UgLzmG
+         HONaW0WVvF97KX3tm1gkufm+NrG4JbdyGpiM6/3cuhPi2lgb+/FRDvfxJEOpDtvBCu+2
+         7okQJxgHNH3hm62ZPLIaj8x3++XJe3IQ9u8fkLO8FaxyDT/B59PuOSBqkbsbygbHwnW2
+         QmHoen+9f8FLN7OwVuyIj+avD3YOgRVRzY81J53wQ0oediCZn5NBqqT/8N5oYWPzDkPn
+         DTww==
+X-Forwarded-Encrypted: i=1; AJvYcCU1wKNoIKYU8pa5qPLWrrz5Ek6JoItRZJCnMrvkNOL3VpsiL2H+IfrVWuzF93VvE192QDDiD6HcZSw9bw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxA4OI/tYDxG2+TyLZZQGyJ7cieeLmox0L/0sdOkwUMNa0wTo3P
+	0P744CRvcwu5OljAxr35w3JG4jF3KRJYrQS3g8VH5YYyMPGuhqWLV9dGuH1BHKkX8k0HJuUItAG
+	2jFta3ejMZcijJnObO1yGj/T4pkTGQw9+ViTiLLjhCCCOMxdWKQDzSa5ArVCDhntwLw==
+X-Received: by 2002:ac8:5e4e:0:b0:44f:89e3:e8d2 with SMTP id d75a77b69052e-44f89e3ec09mr15923561cf.12.1721253742645;
+        Wed, 17 Jul 2024 15:02:22 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IH030U/0PuH20CJyPZJMzLVzXnymjVCbugSgXnKR5JUMtRiVtVl+1d1cBUhmI+Iq8e7T2bLTA==
+X-Received: by 2002:ac8:5e4e:0:b0:44f:89e3:e8d2 with SMTP id d75a77b69052e-44f89e3ec09mr15923181cf.12.1721253742192;
+        Wed, 17 Jul 2024 15:02:22 -0700 (PDT)
 Received: from x1n.redhat.com (pool-99-254-121-117.cpe.net.cable.rogers.com. [99.254.121.117])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-44f5b83f632sm53071651cf.85.2024.07.17.15.02.33
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-44f5b83f632sm53071651cf.85.2024.07.17.15.02.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Jul 2024 15:02:34 -0700 (PDT)
+        Wed, 17 Jul 2024 15:02:21 -0700 (PDT)
 From: Peter Xu <peterx@redhat.com>
 To: linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org
@@ -117,18 +91,16 @@ Cc: Vlastimil Babka <vbabka@suse.cz>,
 	Ryan Roberts <ryan.roberts@arm.com>,
 	Hugh Dickins <hughd@google.com>,
 	Axel Rasmussen <axelrasmussen@google.com>
-Subject: [PATCH RFC 6/6] mm: Convert "*_trans_huge() || *_devmap()" to use *_leaf()
-Date: Wed, 17 Jul 2024 18:02:19 -0400
-Message-ID: <20240717220219.3743374-7-peterx@redhat.com>
+Subject: [PATCH RFC 0/6] mm: THP-agnostic refactor on huge mappings
+Date: Wed, 17 Jul 2024 18:02:13 -0400
+Message-ID: <20240717220219.3743374-1-peterx@redhat.com>
 X-Mailer: git-send-email 2.45.0
-In-Reply-To: <20240717220219.3743374-1-peterx@redhat.com>
-References: <20240717220219.3743374-1-peterx@redhat.com>
 MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240717_230238_672156_2089E88B 
-X-CRM114-Status: GOOD (  25.92  )
+X-CRM114-CacheID: sfid-20240717_150228_328849_481DDAD6 
+X-CRM114-Status: GOOD (  22.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,411 +117,111 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch converted all such checks into one *_leaf() check under common
-mm/, as "thp+devmap" should compose everything for a *_leaf() for now.  I
-didn't yet touch arch code in other directories, as some arch may need some
-special attention, so I left those separately.
+This is an RFC series, so not yet for merging.  Please don't be scared by
+the code changes: most of them are code movements only.
 
-It should start to save some cycles on such check and pave way for the new
-leaf types.  E.g., when a new type of leaf is introduced, it'll naturally
-go the same route to what we have now for thp+devmap.
+This series is based on the dax mprotect fix series here (while that one is
+based on mm-unstable):
 
-Here one issue with pxx_leaf() API is that such API will be defined by arch
-but it doesn't consider kernel config.  For example, below "if" branch
-cannot be automatically optimized:
+  [PATCH v3 0/8] mm/mprotect: Fix dax puds
+  https://lore.kernel.org/r/20240715192142.3241557-1-peterx@redhat.com
 
-  if (pmd_leaf()) { ... }
+Overview
+========
 
-Even if both THP && HUGETLB are not enabled (which means pmd_leaf() can
-never return true).
+This series doesn't provide any feature change.  The only goal of this
+series is to start decoupling two ideas: "THP" and "huge mapping".  We
+already started with having PGTABLE_HAS_HUGE_LEAVES config option, and this
+one extends that idea into the code.
 
-To provide a chance for compilers to optimize and omit code when possible,
-introduce a light wrapper for them and call them pxx_is_leaf().  That will
-take kernel config into account and properly allow omitting branches when
-the compiler knows it'll constantly returns false.  This tries to mimic
-what we used to have with pxx_trans_huge() when !THP, so it now also
-applies to pxx_leaf() API.
+The issue is that we have so many functions that only compile with
+CONFIG_THP=on, even though they're about huge mappings, and huge mapping is
+a pretty common concept, which can apply to many things besides THPs
+nowadays.  The major THP file is mm/huge_memory.c as of now.
 
-Cc: Alistair Popple <apopple@nvidia.com>
-Cc: Dan Williams <dan.j.williams@intel.com>
-Cc: Jason Gunthorpe <jgg@nvidia.com>
-Signed-off-by: Peter Xu <peterx@redhat.com>
----
- include/linux/huge_mm.h    |  6 +++---
- include/linux/pgtable.h    | 30 +++++++++++++++++++++++++++++-
- mm/hmm.c                   |  4 ++--
- mm/huge_mapping_pmd.c      |  9 +++------
- mm/huge_mapping_pud.c      |  6 +++---
- mm/mapping_dirty_helpers.c |  4 ++--
- mm/memory.c                | 14 ++++++--------
- mm/migrate_device.c        |  2 +-
- mm/mprotect.c              |  4 ++--
- mm/mremap.c                |  5 ++---
- mm/page_vma_mapped.c       |  5 ++---
- mm/pgtable-generic.c       |  7 +++----
- 12 files changed, 58 insertions(+), 38 deletions(-)
+The first example of such huge mapping users will be hugetlb.  We lived
+until now with no problem simply because Linux almost duplicated all the
+logics there in the "THP" files into hugetlb APIs.  If we want to get rid
+of hugetlb specific APIs and paths, this _might_ be the first thing we want
+to do, because we want to be able to e.g., zapping a hugetlb pmd entry even
+if !CONFIG_THP.
 
-diff --git a/include/linux/huge_mm.h b/include/linux/huge_mm.h
-index aea2784df8ef..a5b026d0731e 100644
---- a/include/linux/huge_mm.h
-+++ b/include/linux/huge_mm.h
-@@ -27,7 +27,7 @@ spinlock_t *__pud_trans_huge_lock(pud_t *pud, struct vm_area_struct *vma);
- static inline spinlock_t *
- pud_trans_huge_lock(pud_t *pud, struct vm_area_struct *vma)
- {
--	if (pud_trans_huge(*pud) || pud_devmap(*pud))
-+	if (pud_is_leaf(*pud))
- 		return __pud_trans_huge_lock(pud, vma);
- 	else
- 		return NULL;
-@@ -36,7 +36,7 @@ pud_trans_huge_lock(pud_t *pud, struct vm_area_struct *vma)
- #define split_huge_pud(__vma, __pud, __address)				\
- 	do {								\
- 		pud_t *____pud = (__pud);				\
--		if (pud_trans_huge(*____pud) || pud_devmap(*____pud))	\
-+		if (pud_is_leaf(*____pud))				\
- 			__split_huge_pud(__vma, __pud, __address);	\
- 	}  while (0)
- #else  /* CONFIG_PGTABLE_HAS_PUD_LEAVES */
-@@ -125,7 +125,7 @@ static inline int is_swap_pmd(pmd_t pmd)
- static inline spinlock_t *
- pmd_trans_huge_lock(pmd_t *pmd, struct vm_area_struct *vma)
- {
--	if (is_swap_pmd(*pmd) || pmd_trans_huge(*pmd) || pmd_devmap(*pmd))
-+	if (is_swap_pmd(*pmd) || pmd_is_leaf(*pmd))
- 		return __pmd_trans_huge_lock(pmd, vma);
- 	else
- 		return NULL;
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index 5e505373b113..af7709a132aa 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -1641,7 +1641,7 @@ static inline int pud_trans_unstable(pud_t *pud)
- 	defined(CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD)
- 	pud_t pudval = READ_ONCE(*pud);
- 
--	if (pud_none(pudval) || pud_trans_huge(pudval) || pud_devmap(pudval))
-+	if (pud_none(pudval) || pud_leaf(pudval))
- 		return 1;
- 	if (unlikely(pud_bad(pudval))) {
- 		pud_clear_bad(pud);
-@@ -1901,6 +1901,34 @@ typedef unsigned int pgtbl_mod_mask;
- #define pmd_leaf(x)	false
- #endif
- 
-+/*
-+ * Wrapper of pxx_leaf() helpers.
-+ *
-+ * Comparing to pxx_leaf() API, the only difference is: using these macros
-+ * can help code generation, so unnecessary code can be omitted when the
-+ * specific level of leaf is not possible due to kernel config.  It is
-+ * needed because normally pxx_leaf() can be defined in arch code without
-+ * knowing the kernel config.
-+ *
-+ * Currently we only need pmd/pud versions, because the largest leaf Linux
-+ * supports so far is pud.
-+ *
-+ * Defining here also means that in arch's pgtable headers these macros
-+ * cannot be used, pxx_leaf()s need to be used instead, because this file
-+ * will not be included in arch's pgtable headers.
-+ */
-+#ifdef CONFIG_PGTABLE_HAS_PMD_LEAVES
-+#define pmd_is_leaf(x)  pmd_leaf(x)
-+#else
-+#define pmd_is_leaf(x)  false
-+#endif
-+
-+#ifdef CONFIG_PGTABLE_HAS_PUD_LEAVES
-+#define pud_is_leaf(x)  pud_leaf(x)
-+#else
-+#define pud_is_leaf(x)  false
-+#endif
-+
- #ifndef pgd_leaf_size
- #define pgd_leaf_size(x) (1ULL << PGDIR_SHIFT)
- #endif
-diff --git a/mm/hmm.c b/mm/hmm.c
-index 7e0229ae4a5a..8d985bbbfee9 100644
---- a/mm/hmm.c
-+++ b/mm/hmm.c
-@@ -351,7 +351,7 @@ static int hmm_vma_walk_pmd(pmd_t *pmdp,
- 		return hmm_pfns_fill(start, end, range, HMM_PFN_ERROR);
- 	}
- 
--	if (pmd_devmap(pmd) || pmd_trans_huge(pmd)) {
-+	if (pmd_is_leaf(pmd)) {
- 		/*
- 		 * No need to take pmd_lock here, even if some other thread
- 		 * is splitting the huge pmd we will get that event through
-@@ -362,7 +362,7 @@ static int hmm_vma_walk_pmd(pmd_t *pmdp,
- 		 * values.
- 		 */
- 		pmd = pmdp_get_lockless(pmdp);
--		if (!pmd_devmap(pmd) && !pmd_trans_huge(pmd))
-+		if (!pmd_is_leaf(pmd))
- 			goto again;
- 
- 		return hmm_vma_handle_pmd(walk, addr, end, hmm_pfns, pmd);
-diff --git a/mm/huge_mapping_pmd.c b/mm/huge_mapping_pmd.c
-index 7b85e2a564d6..d30c60685f66 100644
---- a/mm/huge_mapping_pmd.c
-+++ b/mm/huge_mapping_pmd.c
-@@ -60,8 +60,7 @@ spinlock_t *__pmd_trans_huge_lock(pmd_t *pmd, struct vm_area_struct *vma)
- 	spinlock_t *ptl;
- 
- 	ptl = pmd_lock(vma->vm_mm, pmd);
--	if (likely(is_swap_pmd(*pmd) || pmd_trans_huge(*pmd) ||
--		   pmd_devmap(*pmd)))
-+	if (likely(is_swap_pmd(*pmd) || pmd_is_leaf(*pmd)))
- 		return ptl;
- 	spin_unlock(ptl);
- 	return NULL;
-@@ -627,8 +626,7 @@ static void __split_huge_pmd_locked(struct vm_area_struct *vma, pmd_t *pmd,
- 	VM_BUG_ON(haddr & ~HPAGE_PMD_MASK);
- 	VM_BUG_ON_VMA(vma->vm_start > haddr, vma);
- 	VM_BUG_ON_VMA(vma->vm_end < haddr + HPAGE_PMD_SIZE, vma);
--	VM_BUG_ON(!is_pmd_migration_entry(*pmd) && !pmd_trans_huge(*pmd) &&
--		  !pmd_devmap(*pmd));
-+	VM_BUG_ON(!is_pmd_migration_entry(*pmd) && !pmd_is_leaf(*pmd));
- 
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
- 	count_vm_event(THP_SPLIT_PMD);
-@@ -845,8 +843,7 @@ void split_huge_pmd_locked(struct vm_area_struct *vma, unsigned long address,
- 	 * require a folio to check the PMD against. Otherwise, there
- 	 * is a risk of replacing the wrong folio.
- 	 */
--	if (pmd_trans_huge(*pmd) || pmd_devmap(*pmd) ||
--	    is_pmd_migration_entry(*pmd)) {
-+	if (pmd_is_leaf(*pmd) || is_pmd_migration_entry(*pmd)) {
- 		if (folio && folio != pmd_folio(*pmd))
- 			return;
- 		__split_huge_pmd_locked(vma, pmd, address, freeze);
-diff --git a/mm/huge_mapping_pud.c b/mm/huge_mapping_pud.c
-index c3a6bffe2871..58871dd74df2 100644
---- a/mm/huge_mapping_pud.c
-+++ b/mm/huge_mapping_pud.c
-@@ -57,7 +57,7 @@ spinlock_t *__pud_trans_huge_lock(pud_t *pud, struct vm_area_struct *vma)
- 	spinlock_t *ptl;
- 
- 	ptl = pud_lock(vma->vm_mm, pud);
--	if (likely(pud_trans_huge(*pud) || pud_devmap(*pud)))
-+	if (likely(pud_is_leaf(*pud)))
- 		return ptl;
- 	spin_unlock(ptl);
- 	return NULL;
-@@ -90,7 +90,7 @@ int copy_huge_pud(struct mm_struct *dst_mm, struct mm_struct *src_mm,
- 
- 	ret = -EAGAIN;
- 	pud = *src_pud;
--	if (unlikely(!pud_trans_huge(pud) && !pud_devmap(pud)))
-+	if (unlikely(!pud_leaf(pud)))
- 		goto out_unlock;
- 
- 	/*
-@@ -225,7 +225,7 @@ void __split_huge_pud(struct vm_area_struct *vma, pud_t *pud,
- 				(address & HPAGE_PUD_MASK) + HPAGE_PUD_SIZE);
- 	mmu_notifier_invalidate_range_start(&range);
- 	ptl = pud_lock(vma->vm_mm, pud);
--	if (unlikely(!pud_trans_huge(*pud) && !pud_devmap(*pud)))
-+	if (unlikely(!pud_is_leaf(*pud)))
- 		goto out;
- 	__split_huge_pud_locked(vma, pud, range.start);
- 
-diff --git a/mm/mapping_dirty_helpers.c b/mm/mapping_dirty_helpers.c
-index 2f8829b3541a..a9ea767d2d73 100644
---- a/mm/mapping_dirty_helpers.c
-+++ b/mm/mapping_dirty_helpers.c
-@@ -129,7 +129,7 @@ static int wp_clean_pmd_entry(pmd_t *pmd, unsigned long addr, unsigned long end,
- 	pmd_t pmdval = pmdp_get_lockless(pmd);
- 
- 	/* Do not split a huge pmd, present or migrated */
--	if (pmd_trans_huge(pmdval) || pmd_devmap(pmdval)) {
-+	if (pmd_is_leaf(pmdval)) {
- 		WARN_ON(pmd_write(pmdval) || pmd_dirty(pmdval));
- 		walk->action = ACTION_CONTINUE;
- 	}
-@@ -152,7 +152,7 @@ static int wp_clean_pud_entry(pud_t *pud, unsigned long addr, unsigned long end,
- 	pud_t pudval = READ_ONCE(*pud);
- 
- 	/* Do not split a huge pud */
--	if (pud_trans_huge(pudval) || pud_devmap(pudval)) {
-+	if (pud_is_leaf(pudval)) {
- 		WARN_ON(pud_write(pudval) || pud_dirty(pudval));
- 		walk->action = ACTION_CONTINUE;
- 	}
-diff --git a/mm/memory.c b/mm/memory.c
-index 126ee0903c79..6dc92c514bb7 100644
---- a/mm/memory.c
-+++ b/mm/memory.c
-@@ -1235,8 +1235,7 @@ copy_pmd_range(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma,
- 	src_pmd = pmd_offset(src_pud, addr);
- 	do {
- 		next = pmd_addr_end(addr, end);
--		if (is_swap_pmd(*src_pmd) || pmd_trans_huge(*src_pmd)
--			|| pmd_devmap(*src_pmd)) {
-+		if (is_swap_pmd(*src_pmd) || pmd_is_leaf(*src_pmd)) {
- 			int err;
- 			VM_BUG_ON_VMA(next-addr != HPAGE_PMD_SIZE, src_vma);
- 			err = copy_huge_pmd(dst_mm, src_mm, dst_pmd, src_pmd,
-@@ -1272,7 +1271,7 @@ copy_pud_range(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma,
- 	src_pud = pud_offset(src_p4d, addr);
- 	do {
- 		next = pud_addr_end(addr, end);
--		if (pud_trans_huge(*src_pud) || pud_devmap(*src_pud)) {
-+		if (pud_is_leaf(*src_pud)) {
- 			int err;
- 
- 			VM_BUG_ON_VMA(next-addr != HPAGE_PUD_SIZE, src_vma);
-@@ -1710,7 +1709,7 @@ static inline unsigned long zap_pmd_range(struct mmu_gather *tlb,
- 	pmd = pmd_offset(pud, addr);
- 	do {
- 		next = pmd_addr_end(addr, end);
--		if (is_swap_pmd(*pmd) || pmd_trans_huge(*pmd) || pmd_devmap(*pmd)) {
-+		if (is_swap_pmd(*pmd) || pmd_is_leaf(*pmd)) {
- 			if (next - addr != HPAGE_PMD_SIZE)
- 				__split_huge_pmd(vma, pmd, addr, false, NULL);
- 			else if (zap_huge_pmd(tlb, vma, pmd, addr)) {
-@@ -1752,7 +1751,7 @@ static inline unsigned long zap_pud_range(struct mmu_gather *tlb,
- 	pud = pud_offset(p4d, addr);
- 	do {
- 		next = pud_addr_end(addr, end);
--		if (pud_trans_huge(*pud) || pud_devmap(*pud)) {
-+		if (pud_is_leaf(*pud)) {
- 			if (next - addr != HPAGE_PUD_SIZE) {
- 				mmap_assert_locked(tlb->mm);
- 				split_huge_pud(vma, pud, addr);
-@@ -5605,8 +5604,7 @@ static vm_fault_t __handle_mm_fault(struct vm_area_struct *vma,
- 		pud_t orig_pud = *vmf.pud;
- 
- 		barrier();
--		if (pud_trans_huge(orig_pud) || pud_devmap(orig_pud)) {
--
-+		if (pud_is_leaf(orig_pud)) {
- 			/*
- 			 * TODO once we support anonymous PUDs: NUMA case and
- 			 * FAULT_FLAG_UNSHARE handling.
-@@ -5646,7 +5644,7 @@ static vm_fault_t __handle_mm_fault(struct vm_area_struct *vma,
- 				pmd_migration_entry_wait(mm, vmf.pmd);
- 			return 0;
- 		}
--		if (pmd_trans_huge(vmf.orig_pmd) || pmd_devmap(vmf.orig_pmd)) {
-+		if (pmd_is_leaf(vmf.orig_pmd)) {
- 			if (pmd_protnone(vmf.orig_pmd) && vma_is_accessible(vma))
- 				return do_huge_pmd_numa_page(&vmf);
- 
-diff --git a/mm/migrate_device.c b/mm/migrate_device.c
-index 6d66dc1c6ffa..1fbeee9619c8 100644
---- a/mm/migrate_device.c
-+++ b/mm/migrate_device.c
-@@ -596,7 +596,7 @@ static void migrate_vma_insert_page(struct migrate_vma *migrate,
- 	pmdp = pmd_alloc(mm, pudp, addr);
- 	if (!pmdp)
- 		goto abort;
--	if (pmd_trans_huge(*pmdp) || pmd_devmap(*pmdp))
-+	if (pmd_leaf(*pmdp))
- 		goto abort;
- 	if (pte_alloc(mm, pmdp))
- 		goto abort;
-diff --git a/mm/mprotect.c b/mm/mprotect.c
-index 694f13b83864..ddfee216a02b 100644
---- a/mm/mprotect.c
-+++ b/mm/mprotect.c
-@@ -381,7 +381,7 @@ static inline long change_pmd_range(struct mmu_gather *tlb,
- 			goto next;
- 
- 		_pmd = pmdp_get_lockless(pmd);
--		if (is_swap_pmd(_pmd) || pmd_trans_huge(_pmd) || pmd_devmap(_pmd)) {
-+		if (is_swap_pmd(_pmd) || pmd_is_leaf(_pmd)) {
- 			if ((next - addr != HPAGE_PMD_SIZE) ||
- 			    pgtable_split_needed(vma, cp_flags)) {
- 				__split_huge_pmd(vma, pmd, addr, false, NULL);
-@@ -452,7 +452,7 @@ static inline long change_pud_range(struct mmu_gather *tlb,
- 			mmu_notifier_invalidate_range_start(&range);
- 		}
- 
--		if (pud_leaf(pud)) {
-+		if (pud_is_leaf(pud)) {
- 			if ((next - addr != PUD_SIZE) ||
- 			    pgtable_split_needed(vma, cp_flags)) {
- 				__split_huge_pud(vma, pudp, addr);
-diff --git a/mm/mremap.c b/mm/mremap.c
-index e7ae140fc640..f5c9884ea1f8 100644
---- a/mm/mremap.c
-+++ b/mm/mremap.c
-@@ -587,7 +587,7 @@ unsigned long move_page_tables(struct vm_area_struct *vma,
- 		new_pud = alloc_new_pud(vma->vm_mm, vma, new_addr);
- 		if (!new_pud)
- 			break;
--		if (pud_trans_huge(*old_pud) || pud_devmap(*old_pud)) {
-+		if (pud_is_leaf(*old_pud)) {
- 			if (extent == HPAGE_PUD_SIZE) {
- 				move_pgt_entry(HPAGE_PUD, vma, old_addr, new_addr,
- 					       old_pud, new_pud, need_rmap_locks);
-@@ -609,8 +609,7 @@ unsigned long move_page_tables(struct vm_area_struct *vma,
- 		if (!new_pmd)
- 			break;
- again:
--		if (is_swap_pmd(*old_pmd) || pmd_trans_huge(*old_pmd) ||
--		    pmd_devmap(*old_pmd)) {
-+		if (is_swap_pmd(*old_pmd) || pmd_is_leaf(*old_pmd)) {
- 			if (extent == HPAGE_PMD_SIZE &&
- 			    move_pgt_entry(HPAGE_PMD, vma, old_addr, new_addr,
- 					   old_pmd, new_pmd, need_rmap_locks))
-diff --git a/mm/page_vma_mapped.c b/mm/page_vma_mapped.c
-index ae5cc42aa208..891bea8062d2 100644
---- a/mm/page_vma_mapped.c
-+++ b/mm/page_vma_mapped.c
-@@ -235,8 +235,7 @@ bool page_vma_mapped_walk(struct page_vma_mapped_walk *pvmw)
- 		 */
- 		pmde = pmdp_get_lockless(pvmw->pmd);
- 
--		if (pmd_trans_huge(pmde) || is_pmd_migration_entry(pmde) ||
--		    (pmd_present(pmde) && pmd_devmap(pmde))) {
-+		if (pmd_is_leaf(pmde) || is_pmd_migration_entry(pmde)) {
- 			pvmw->ptl = pmd_lock(mm, pvmw->pmd);
- 			pmde = *pvmw->pmd;
- 			if (!pmd_present(pmde)) {
-@@ -251,7 +250,7 @@ bool page_vma_mapped_walk(struct page_vma_mapped_walk *pvmw)
- 					return not_found(pvmw);
- 				return true;
- 			}
--			if (likely(pmd_trans_huge(pmde) || pmd_devmap(pmde))) {
-+			if (likely(pmd_is_leaf(pmde))) {
- 				if (pvmw->flags & PVMW_MIGRATION)
- 					return not_found(pvmw);
- 				if (!check_pmd(pmd_pfn(pmde), pvmw))
-diff --git a/mm/pgtable-generic.c b/mm/pgtable-generic.c
-index e9fc3f6774a6..c7b7a803f4ad 100644
---- a/mm/pgtable-generic.c
-+++ b/mm/pgtable-generic.c
-@@ -139,8 +139,7 @@ pmd_t pmdp_huge_clear_flush(struct vm_area_struct *vma, unsigned long address,
- {
- 	pmd_t pmd;
- 	VM_BUG_ON(address & ~HPAGE_PMD_MASK);
--	VM_BUG_ON(pmd_present(*pmdp) && !pmd_trans_huge(*pmdp) &&
--			   !pmd_devmap(*pmdp));
-+	VM_BUG_ON(pmd_present(*pmdp) && !pmd_leaf(*pmdp));
- 	pmd = pmdp_huge_get_and_clear(vma->vm_mm, address, pmdp);
- 	flush_pmd_tlb_range(vma, address, address + HPAGE_PMD_SIZE);
- 	return pmd;
-@@ -247,7 +246,7 @@ pud_t pudp_huge_clear_flush(struct vm_area_struct *vma, unsigned long address,
- 	pud_t pud;
- 
- 	VM_BUG_ON(address & ~HPAGE_PUD_MASK);
--	VM_BUG_ON(!pud_trans_huge(*pudp) && !pud_devmap(*pudp));
-+	VM_BUG_ON(!pud_leaf(*pudp));
- 	pud = pudp_huge_get_and_clear(vma->vm_mm, address, pudp);
- 	flush_pud_tlb_range(vma, address, address + HPAGE_PUD_SIZE);
- 	return pud;
-@@ -293,7 +292,7 @@ pte_t *__pte_offset_map(pmd_t *pmd, unsigned long addr, pmd_t *pmdvalp)
- 		*pmdvalp = pmdval;
- 	if (unlikely(pmd_none(pmdval) || is_pmd_migration_entry(pmdval)))
- 		goto nomap;
--	if (unlikely(pmd_trans_huge(pmdval) || pmd_devmap(pmdval)))
-+	if (unlikely(pmd_leaf(pmdval)))
- 		goto nomap;
- 	if (unlikely(pmd_bad(pmdval))) {
- 		pmd_clear_bad(pmd);
+Then consider other things like dax / pfnmaps.  Dax can depend on THP, then
+it'll naturally be able to use pmd/pud helpers, that's okay.  However is it
+a must?  Do we also want to have every new pmd/pud mappings in the future
+to depend on THP (like PFNMAP)?  My answer is no, but I'm open to opinions.
+
+If anyone agrees with me that "huge mapping" (aka, PMD/PUD mappings that
+are larger than PAGE_SIZE) is a more generic concept than THP, then I think
+at some point we need to move the generic code out of THP code into a
+common code base.
+
+This is what this series does as a start.
+
+In general, this series tries to move many THP things (mostly resides in
+huge_memory.c right now) into two new files: huge_mapping_{pmd|pud}.c.
+When I move them out, I also put them separately into different files for
+different layers.  Then if an arch supports e.g. only PMD, it can avoid
+compile the PUD helpers, with things like:
+
+        CONFIG_PGTABLE_HAS_PUD_LEAVES=n
+        obj-$(CONFIG_PGTABLE_HAS_PUD_LEAVES) += huge_mapping_pud.o
+
+Note that there're a few tree-wide changes into arch/, but that's not a
+lot, to make this not disturbing too much people, I only copied the open
+lists of each arch not yet the arch maintainers.
+
+Tests
+=====
+
+My normal 19-archs cross-compilation tests pass with it, and smoke tested
+on x86_64 with a local config of mine.
+
+Comments welcomed, thanks.
+
+Peter Xu (6):
+  mm/treewide: Remove pgd_devmap()
+  mm: PGTABLE_HAS_P[MU]D_LEAVES config options
+  mm/treewide: Make pgtable-generic.c THP agnostic
+  mm: Move huge mapping declarations from internal.h to huge_mm.h
+  mm/huge_mapping: Create huge_mapping_pxx.c
+  mm: Convert "*_trans_huge() || *_devmap()" to use *_leaf()
+
+ arch/arm64/include/asm/pgtable.h             |   11 +-
+ arch/powerpc/include/asm/book3s/64/pgtable.h |    7 +-
+ arch/powerpc/mm/book3s64/pgtable.c           |    2 +-
+ arch/riscv/include/asm/pgtable.h             |    4 +-
+ arch/s390/include/asm/pgtable.h              |    2 +-
+ arch/s390/mm/pgtable.c                       |    4 +-
+ arch/sparc/mm/tlb.c                          |    2 +-
+ arch/x86/include/asm/pgtable.h               |    5 -
+ arch/x86/mm/pgtable.c                        |   15 +-
+ include/linux/huge_mm.h                      |  332 ++++--
+ include/linux/mm.h                           |   18 +
+ include/linux/mm_types.h                     |    2 +-
+ include/linux/pgtable.h                      |   61 +-
+ include/trace/events/huge_mapping.h          |   41 +
+ include/trace/events/thp.h                   |   28 -
+ mm/Kconfig                                   |    6 +
+ mm/Makefile                                  |    2 +
+ mm/gup.c                                     |    2 -
+ mm/hmm.c                                     |    4 +-
+ mm/huge_mapping_pmd.c                        |  976 +++++++++++++++
+ mm/huge_mapping_pud.c                        |  235 ++++
+ mm/huge_memory.c                             | 1125 +-----------------
+ mm/internal.h                                |   33 -
+ mm/mapping_dirty_helpers.c                   |    4 +-
+ mm/memory.c                                  |   16 +-
+ mm/migrate_device.c                          |    2 +-
+ mm/mprotect.c                                |    4 +-
+ mm/mremap.c                                  |    5 +-
+ mm/page_vma_mapped.c                         |    5 +-
+ mm/pgtable-generic.c                         |   37 +-
+ 30 files changed, 1595 insertions(+), 1395 deletions(-)
+ create mode 100644 include/trace/events/huge_mapping.h
+ create mode 100644 mm/huge_mapping_pmd.c
+ create mode 100644 mm/huge_mapping_pud.c
+
 -- 
 2.45.0
 
