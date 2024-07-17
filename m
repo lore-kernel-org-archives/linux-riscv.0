@@ -4,66 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE894C3DA4B
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jul 2024 13:07:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAAFAC3DA4B
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jul 2024 13:14:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TS4RQDGNOKA1Fxdz0SkdmMIQg+hMnbfWPybOkRl02nY=; b=Jy/s84PzpW/Ml9uhLhLkHlImW6
-	sb1ThEtxodn/p3aspAgk/rtdLw/J2Ol3adQqkMRIrbMUYTgX1ZnnimFFJbPyA5/XC2gfgpkYy3OSG
-	ih94Hnwt95jBBA1T9vcaSr3/CIcgf54iwv3kzK2OuGTor+sv9ywkALdGTt21FjUF6ir8rufezv0bh
-	jp2PI5hI6eWW0znZDe0NKL0LgY2NO/a1TB9po/iBEssyVrUubB1XB8nM4tz5MWfKAqEFhS7dR2NiL
-	FFs3IlZWwlft9Yocj9ELuQgw4Yo40yfHJQppZ/VUx0zEHM6wNYXyzp2gf1NOXLUDT7ykUAy6ESm4E
-	cfJj0gpw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=r2+t+2VJDZe1F4m76myRhBjiJb8glMVVd/4krjWhUfA=; b=SEcvCyF5+TM83D
+	A6IHfDYPkD7OAiQPkcWHzvh5fANUccnP1LTWq3muFC8/LXSG0PazwnqVTz9ECehxgCosaId63IbFw
+	D6mf/Lz5Wr/b1XeCgkbv7lmF69E9LNU4RXVUOdlPEMY7+A9jqlip6z2L1w5jrFCmXKNV2t3HHEAjx
+	h7mepnxCROiLUeIid2E0guB7iN+qWYRx9tdLrpsrNzrDQI2l5tJvb0ri2enBTYdW2lJQbnfnP7dym
+	+fWNdksRkSLHvmZUVm2E7ykBV760b6IssonMGYpnPnfmodnrQC3k0By0Z5PoyJWqC7YuDoHHW/iDk
+	nZNfQOcawDsxw4FcxXmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sU4NJ-0000000DqFc-2ASN;
-	Wed, 17 Jul 2024 13:07:17 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1sU4Tw-0000000DrAZ-295z;
+	Wed, 17 Jul 2024 13:14:08 +0000
+Received: from mail-il1-x12a.google.com ([2607:f8b0:4864:20::12a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sU4NG-0000000DqET-1qTY
+	id 1sU4Tu-0000000Dr9U-0iKy
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 Jul 2024 13:07:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 44393CE179C;
-	Wed, 17 Jul 2024 13:07:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 737F1C4AF09;
-	Wed, 17 Jul 2024 13:06:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1721221606;
-	bh=C0t1p4/tPnP1VjckQRuFWVTqpJzCj/as7FvZ2OtK1FU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PBN0Vm3zfQglSh2z2hOBJcGSr6u46+zZMw7HBXU1EJirkcatyCEo9GxLnywePcACe
-	 QjbL9eRFJCZ+rM9xxgQB5KOLMbXHqhSUfrs9Tl9eTFK8t9OSJ2lKpwyl1b6HH9OHF3
-	 eifqboVxfEOdyu6pXmZqzb0wzc6dnNFiPJnZXg1EqvzI3jWYZUcrgi9nfsih80IQN3
-	 aMmNE4J2N7kuJx8QyeZM8FgPEBRyjGKdi9V3F+5EJWUZThMp3VMR52UftDYVT5DyKR
-	 mch8x/m5MSZfmKxARiWtldp27yNeLKS6/ZzBMGc6euPDdbwp58KbPESew1jzYsYs8u
-	 jSGM4zEcF72MQ==
-Date: Wed, 17 Jul 2024 14:06:42 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Nathan Chancellor <nathan@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, kernel test robot <lkp@intel.com>
-Subject: Re: [PATCH RFC] riscv: Allow to build only with LLVM >= 17.0.0
-Message-ID: <20240717-commuting-channel-4ad202950e4c@spud>
-References: <20240717111716.157149-1-alexghiti@rivosinc.com>
- <20240717-synapse-decade-a0d41bd7afce@spud>
- <203e8784-54f2-43ea-a442-833d7e4a06c8@ghiti.fr>
- <20240717-theft-resample-19c248bb2a26@spud>
+	Wed, 17 Jul 2024 13:14:07 +0000
+Received: by mail-il1-x12a.google.com with SMTP id e9e14a558f8ab-36da84df7adso2522725ab.1
+        for <linux-riscv@lists.infradead.org>; Wed, 17 Jul 2024 06:14:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1721222044; x=1721826844; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=5uVCb0H5+qw23qlc6XhoPIVvBE69YNuKQHQJOvzKA2E=;
+        b=F18JXOmrNmI0lFB4LJUI2ltYyyQcHlrlUtw+h7x6rxzMdkG0zKlV6IfHZxMuFWHg28
+         E3HJBrpaYVcL5OvmsdsTIo26yoqiVbiJB3KpcpVO8W6Ksx4bA0FM0j/zG3IfQhnwldPf
+         e/JstgnrQTHo4HS7jl2F704pUZqdf9rH2d26zEZV7hOPXLJLU9tlq/dj6/9oG6ERFE4Z
+         0qEqPBe/zvK3mX3ZcJkRazQsibYAzQuoHPD4ewBxaAh7naNVnHuUvMDoXY4TiwW+1gzi
+         2XUPbx/TzghhlCqd1pZxfJY5zgYKvUGuXPlGcsuX0AY8NG/70HIT1qktV5vry7I58KGY
+         FJnw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1721222044; x=1721826844;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5uVCb0H5+qw23qlc6XhoPIVvBE69YNuKQHQJOvzKA2E=;
+        b=RozTZT+J5Bqaj7tASIPxMHB7mk84L2u/OEaLbebQa43rTX5toBHsb3r1FFfXNBLF1o
+         THm+TBpy4ljOXtzjHVecUmH0CkCCj4b7p/l5acBlzp/RABAApvAdBb6oABpQXe8FjL+6
+         m2yx9fmHPmAqPQFCRhdWxGOq8q42xk8j6e7X/nlwKlm0tDTjxnp8MG/WTt/nixfqj82K
+         VpUun5+Oj60L8jtP5WXfW2wQmR9RGVXT4cF43syh0Jekbf4hFAX9mGgRxF9qGOdyyPsv
+         2ppkyoD1mimOMmYCRyskfUB/8M3sDntGhKUn1FrwAUc9lrEpaNKTFjdBepsY1ryN/nxV
+         Rc4g==
+X-Forwarded-Encrypted: i=1; AJvYcCXjLK6KvBfpeZ9wSuk/BFzBAfhCbWo52hpy+1oE2T1xQIqrEOnogoSEtcjcaL537t9iJd5bAWYfyQL9fhnFTw142oYjqG3JeD8D6PruXgvb
+X-Gm-Message-State: AOJu0Yzt9r3ugfX6fEmwzchSJgWN38LewtrgXver9DIUtUS0s7gat+Yq
+	FNNY1eKzyasClYmp/0etowNW9ryy+tgn844F6f8OKt/1mDmd1UsAdKRk4azilO8=
+X-Google-Smtp-Source: AGHT+IFhw3MWoZSEt2rfShEC06vRpqsGgviNG/vejjaH60Y+5HYzE8TtnavkRKo4N4oXKY9d7Dnl1A==
+X-Received: by 2002:a05:6e02:1c0d:b0:376:3c3b:e235 with SMTP id e9e14a558f8ab-3950f2855e2mr16902955ab.13.1721222043808;
+        Wed, 17 Jul 2024 06:14:03 -0700 (PDT)
+Received: from localhost ([140.82.166.162])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4c210f7c4c8sm651830173.130.2024.07.17.06.14.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 17 Jul 2024 06:14:03 -0700 (PDT)
+Date: Wed, 17 Jul 2024 08:14:02 -0500
+From: Andrew Jones <ajones@ventanamicro.com>
+To: sunying@isrc.iscas.ac.cn
+Cc: ebiederm@xmission.com, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu, kexec@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, zhuhengbo@iscas.ac.cn, Petr Tesarik <petr@tesarici.cz>
+Subject: Re: [PATCH v1] riscv/kexec_file: Fix relocation type R_RISCV_ADD16
+ and R_RISCV_SUB16 unknown
+Message-ID: <20240717-c761f5af7369cdeba5b9c759@orel>
+References: <20240711083236.2859632-1-sunying@isrc.iscas.ac.cn>
 MIME-Version: 1.0
-In-Reply-To: <20240717-theft-resample-19c248bb2a26@spud>
+Content-Disposition: inline
+In-Reply-To: <20240711083236.2859632-1-sunying@isrc.iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240717_060714_833110_57021681 
-X-CRM114-Status: GOOD (  24.00  )
+X-CRM114-CacheID: sfid-20240717_061406_234462_A487B8C6 
+X-CRM114-Status: GOOD (  14.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,93 +89,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1235586648519144822=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jul 11, 2024 at 08:32:36AM GMT, sunying@isrc.iscas.ac.cn wrote:
+> From: Ying Sun <sunying@isrc.iscas.ac.cn>
+> 
+> Runs on the kernel with CONFIG_RISCV_ALTERNATIVE enabled:
+>   kexec -sl vmlinux
+> 
+> Error:
+>   kexec_image: Unknown rela relocation: 34
+>   kexec_image: Error loading purgatory ret=-8
+> and
+>   kexec_image: Unknown rela relocation: 38
+>   kexec_image: Error loading purgatory ret=-8
+> 
+> The purgatory code uses the 16-bit addition and subtraction relocation
+> type, but not handled, resulting in kexec_file_load failure.
+> So add handle to arch_kexec_apply_relocations_add().
+> 
+> Tested on RISC-V64 Qemu-virt, issue fixed.
+> 
+> Co-developed-by: Petr Tesarik <petr@tesarici.cz>
+> Signed-off-by: Petr Tesarik <petr@tesarici.cz>
+> Signed-off-by: Ying Sun <sunying@isrc.iscas.ac.cn>
+> ---
+>  arch/riscv/kernel/elf_kexec.c | 6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
+> diff --git a/arch/riscv/kernel/elf_kexec.c b/arch/riscv/kernel/elf_kexec.c
+> index 11c0d2e0becf..3c37661801f9 100644
+> --- a/arch/riscv/kernel/elf_kexec.c
+> +++ b/arch/riscv/kernel/elf_kexec.c
+> @@ -451,6 +451,12 @@ int arch_kexec_apply_relocations_add(struct purgatory_info *pi,
+>  			*(u32 *)loc = CLEAN_IMM(CJTYPE, *(u32 *)loc) |
+>  				 ENCODE_CJTYPE_IMM(val - addr);
+>  			break;
+> +		case R_RISCV_ADD16:
+> +			*(u16 *)loc += val;
+> +			break;
+> +		case R_RISCV_SUB16:
+> +			*(u16 *)loc -= val;
+> +			break;
+>  		case R_RISCV_ADD32:
+>  			*(u32 *)loc += val;
+>  			break;
+> -- 
+> 2.34.1
+>
 
---===============1235586648519144822==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="2Tdx5ZzAQtnjYisr"
-Content-Disposition: inline
-
-
---2Tdx5ZzAQtnjYisr
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Jul 17, 2024 at 01:06:39PM +0100, Conor Dooley wrote:
-> On Wed, Jul 17, 2024 at 01:41:23PM +0200, Alexandre Ghiti wrote:
-> > Hi Conor,
-> >=20
-> > On 17/07/2024 13:32, Conor Dooley wrote:
-> > > On Wed, Jul 17, 2024 at 01:17:16PM +0200, Alexandre Ghiti wrote:
-> > > > The following build failure happens when using LLVM < 17.0.0:
-> > > >=20
-> > > > kernel/sched/core.c:11873:7: error: cannot jump from this asm goto =
-statement to one of its possible targets
-> > > >=20
-> > > > This is a known issue [1] so let's upgrade the minimal requirement =
-for
-> > > > LLVM to the version 17.0.0, which is the first version to contain t=
-he
-> > > > fix.
-> > > I think doing this unilaterally is kinda insane, LLVM 17 isn't even a
-> > > year old. Debian testing doesn't have anything later than 16.
-> >=20
-> >=20
-> > Debian will very likely select the qspinlocks when available anyway, so
-> > they'll need llvm >=3D 17. And Debian won't ship a kernel >=3D 6.11 unt=
-il some
-> > time right? So they'll probably update their infra to llvm >=3D 17 (and
-> > they'll probably do to take advantages of the new extensions).
->=20
-> What I mean is that you are going to prevent people building the kernel
-> with llvm on machines running anything but very recent rolling-release
-> distros. Your patch would stop most developers, including those who don't
-> care about your qspinlock stuff, even build testing with the version of
-> LLVM that their distro provides. I'm not talking about distros building
-> kernels in their build infrastructure.
->=20
-> >=20
-> >=20
-> > > Why does
-> > > it need to be done unilaterally rather than just when the qspinlock
-> > > stuff is built?
-> >=20
-> >=20
-> > We can do that indeed, it may happen again and we can keep requiring ll=
-vm 17
-> > on a per-config basis.
-
-Nathan pointed out to me that I misunderstood the build failure, and
-that it happens whether or not the option is enabled. /sigh.
-
---2Tdx5ZzAQtnjYisr
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZpfB4gAKCRB4tDGHoIJi
-0l6BAQCd0FpEzXdgZp2Uy/j3HO577wh65f4yVPgCTfXFW93RSAD9EVU1EgR+YBzH
-OU9kSaTlxRGRHmENI0ilR/fv4OZrJwU=
-=bjUU
------END PGP SIGNATURE-----
-
---2Tdx5ZzAQtnjYisr--
-
-
---===============1235586648519144822==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1235586648519144822==--
-
