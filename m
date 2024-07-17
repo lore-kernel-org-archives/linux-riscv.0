@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78F02C3DA42
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jul 2024 06:28:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18AF3C3DA4B
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jul 2024 06:29:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ch1fU7HxtxblHEnw2eK8E63qnmnxpbMDLgaMVzTElew=; b=fFtLIJrLdNIr0R
-	74wBBD8gEC8Zo+Lc5Nh8+Q+vPLAXFRJjNNUyiREBwo1S+DTI4sBa/Phdg+l+7jo5zSBg7IyXrzJlf
-	XetvkiGFjOcuYuNKBEG2Oim0WSDpEzxGz98+VjOxW+Ojx26v3rRq1Qpk9ruY3DsAKcbQf9L2LAECn
-	cA894uS9xt/OfXchgH2n8kqrCw1HyppLCttfhSUZFBb0CilbSULtsB7z2FSwIzJ2ODMt7QgO+WErl
-	u87RPc8M6gcqbCUHkOmvCxKa7qzVZE8HNSrY6BShi1eBd4G/msudByJOc8rAa2UqGBRZVaoulYa7s
-	FqGJ2ieRh0ta7k/3DUfA==;
+	List-Owner; bh=ZRfBXR/uvQ9ppuE6GNmcPtoTTzop/NOFbxTgzcz8tM0=; b=x6M5Xeo2j5O5aO
+	JPQb2x3QJfWNmRBGWSVQjFhaR3mI7K49msgs2MU0yu0d0BbzcVuFFRZltr+OyoDU7W5XFfqAUgGwy
+	rlcYmeQmEslUgD1jEvEhtHYpb6cts8yCtZndjJLw23dkefPDvWPBBye9vMI+i5u7cMqEJtYlxSPyw
+	ZFQ6DaL8xZUmILkfIsgRvC14DYAa/SeprMx/DdnWTTjxK9aiPUMH5QVDWWfIrWKIiB+ogwL6pf5Yu
+	xGxMytmt545OKb2pU9GL9gNqvzZQaZ/2k6wjCbhJ/HQ3vhOxdIIDK0+V3uTeM8ZP3almMBh7V9Bc1
+	kAkAh4qMGIc+yozV9l9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sTy99-0000000Cpzh-0OX3;
-	Wed, 17 Jul 2024 06:28:15 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1sTyA8-0000000CqK1-24FM;
+	Wed, 17 Jul 2024 06:29:16 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sTy95-0000000CpxQ-2xDN
+	id 1sTyA5-0000000CqJ4-0umX
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 Jul 2024 06:28:13 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-367ab76d5e1so2119322f8f.3
-        for <linux-riscv@lists.infradead.org>; Tue, 16 Jul 2024 23:28:11 -0700 (PDT)
+	Wed, 17 Jul 2024 06:29:14 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4279ca8af51so40471905e9.3
+        for <linux-riscv@lists.infradead.org>; Tue, 16 Jul 2024 23:29:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1721197690; x=1721802490; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1721197751; x=1721802551; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=JpMFH6VmSNUk91jIQ+0kjGx11FiPCz2ltKgHshZWUPg=;
-        b=2fCa6ZYMB8Tl7dm8G+kbR7wyS7xr3zdDvnnnf6/c2wwxFI96JcgE9v3MFXc1Etb+uC
-         wjNkE3B3CpMQp6Q9Ed91QUQ6lxKzwP3YrqUUVQ8ho7BDclGfIWEgxjvYjpFJkGw0Y9Wo
-         fXipFCivni4C8WyITGOJ9llkCH1i29QC/gaqLiRX1aB0GXv8+ZI7QyugemIUw/mIGbSx
-         tnJ7aXiAopk4tIJn1/bATXXLpAx3UU28tPPNaHLlHzQv/yR3pDE4hlr4avL4FimHSkwG
-         yyQ+ySGrbmcrV2/ccw8jAiApEkf/EJy0e5Be/nURcJyFMnsiaAAzNeaaMoDyyBx5Fgo7
-         Nn8g==
+        bh=qV10XIriQxrkSLT6hfJ9bzuJQGW5jGWUcHq8Bf3DvNw=;
+        b=p/b34UEpTOWRz5pn4FRSOTyHWtU66U4EBdrM0VOYszGTrFgAVT2CeR0eK8NhG22A1u
+         BFzfh6oEqrAC7VQY+zpX4sQFQJR2FQ9hM2WaYsKJJ9elxe7DtGvII6NdOqoY6CgjaJSH
+         eSb7Kxje0qI9u1iNzwRbCveJxqpRq/vtLQx7k3V1SIxYKEaDzru1IAO7C+Wxe/W2taAZ
+         TmhtykQ20D1na8+pAyNpaCaXUg6tPAf/hDMdGI16hthDktnzJDgt5mtJOQI0GYsEXUnf
+         21YwGGxNYU+Fg4cue4jC5bUIPgsLKx2zJsdzort6ThTADeUIIC2bev4wdW6J7l0A9tAt
+         oVyg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1721197690; x=1721802490;
+        d=1e100.net; s=20230601; t=1721197751; x=1721802551;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=JpMFH6VmSNUk91jIQ+0kjGx11FiPCz2ltKgHshZWUPg=;
-        b=pjC6T6VHACFtlZnsyWGIEWdmxozmqGxpNMKtiHmD76H2COA1wkWaj3JF+9DyrsqOwc
-         c7VUoNL00Kb+XQks6N285aLXitgfZDNIH1W7O4hTWbFrGBLe5+qrCZPlP+JlXshjETmB
-         /9HieJTIjoTZUPHVHMzFL+Rw7Y9wXEqADNq/K2sxWu8988epLAiUbGruyOccxDFZ2GRS
-         K1ivOVBYSrv23eucGivhl9AowoLGaaXdC3StFbQzNITFMi66X1c0utpPbX+fI5ji/rVt
-         hTAU+t65vBWStZCJjGEGmfSCdGUHkVRgnA0HKGNtHu2Rjaoqxa7S6cxZ5bXDcNI8Rwtg
-         +aqA==
-X-Forwarded-Encrypted: i=1; AJvYcCUfuBbGH2xvqBtWaJ6aeBUPjho9cBx9/o0CIjWy9BeNZVufFX2gKiMNu/lmFd5k9G+/zcPXQlxDQ4s7q4MjtYxBIdcgUYLwrBVBJp/DdZp9
-X-Gm-Message-State: AOJu0YyjKhaCdZOYTVjCfcbSc9Xw7au8T3Yc4Yv3Y/gy730n+xlsAlij
-	i4vpyHx9PK4VJjev7WeMW56Jojlkk/E7eVyBP+z0qBjH3WtlJ/L3PkwWhkpSm08=
-X-Google-Smtp-Source: AGHT+IFM/AGZ5F1dS74/5pYkBU8cAcbJDWrIIu9c3nYaG0zPFdfcFYCGZfuTjOfFxaw1xsX/SOzMGA==
-X-Received: by 2002:adf:e508:0:b0:366:f041:935d with SMTP id ffacd0b85a97d-3683179ebc7mr379203f8f.60.1721197690168;
-        Tue, 16 Jul 2024 23:28:10 -0700 (PDT)
+        bh=qV10XIriQxrkSLT6hfJ9bzuJQGW5jGWUcHq8Bf3DvNw=;
+        b=S4RZf/hiHA24MjfYDyplX9BL38JOoKApxcBZBrp2Aq/VQrvfvakTwgD9r5X1grOmnm
+         rQZvSJ4nobPnzb6/y3ZacLft41P+g6vTc9Tr+8m5iMU7eflOrB0/xLHRiWeKldQN19I4
+         dNWdIzJ7hgM/Eqni2VvLqemxKsz8owAFbjpA1dw0gdOYhL/9TmgCeU1MFGlpeZSHGLyp
+         SkrK/pPJskRwa3yCvPFJlK1im4iU+mQzP/otZk7vvVonItIxk8lHV5aMmNyMDGOMT58R
+         QiIaGWNXv7vcnOZE2qIO62C03t4jmLEEik6Shi0XC1zocWBN25ONqF/KeSzntP4CfKh2
+         4wPw==
+X-Forwarded-Encrypted: i=1; AJvYcCW+KruYWI5aFY8i2MogXMAIjxyB0ihIrD/wx73GkpT39BLB2PiPiLIM1Ii5RWr5mMDW7bgwsP6Z3Owsri9QoTYr+1Yp4uLOf/rhs/6RoB+R
+X-Gm-Message-State: AOJu0YxT/XKLdssEyFqJ1S8T5tNFPP2U7waXQ2lXgDpb+TjLVbEIARoX
+	D5Py0UBftrYrgmOFy9lQ2PA2HQoPgCU9U5AWHrQsjCHRtg8ysjuAaJSn7ClHxL4=
+X-Google-Smtp-Source: AGHT+IGP/cuCt+F0ta7uxUlFKhwXsnKpljMYZclyaPYQLOpIG5TT5vjECTCQ1Rcr5BTRTziHhuytmQ==
+X-Received: by 2002:adf:fa03:0:b0:368:303b:8fe7 with SMTP id ffacd0b85a97d-36831600243mr520432f8f.7.1721197751437;
+        Tue, 16 Jul 2024 23:29:11 -0700 (PDT)
 Received: from alex-rivos.home (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3680daccacdsm10824862f8f.62.2024.07.16.23.28.09
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3680daccad8sm10840137f8f.60.2024.07.16.23.29.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Jul 2024 23:28:09 -0700 (PDT)
+        Tue, 16 Jul 2024 23:29:11 -0700 (PDT)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Jonathan Corbet <corbet@lwn.net>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
@@ -85,17 +85,17 @@ To: Jonathan Corbet <corbet@lwn.net>,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-arch@vger.kernel.org
-Cc: Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH v3 08/11] asm-generic: ticket-lock: Add separate ticket-lock.h
-Date: Wed, 17 Jul 2024 08:19:54 +0200
-Message-Id: <20240717061957.140712-9-alexghiti@rivosinc.com>
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH v3 09/11] riscv: Add ISA extension parsing for Ziccrse
+Date: Wed, 17 Jul 2024 08:19:55 +0200
+Message-Id: <20240717061957.140712-10-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20240717061957.140712-1-alexghiti@rivosinc.com>
 References: <20240717061957.140712-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240716_232811_784574_1CCF9B33 
-X-CRM114-Status: GOOD (  21.55  )
+X-CRM114-CacheID: sfid-20240716_232913_266946_869FA688 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,231 +112,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
+Add support to parse the Ziccrse string in the riscv,isa string.
 
-Add a separate ticket-lock.h to include multiple spinlock versions and
-select one at compile time or runtime.
-
-Reviewed-by: Leonardo Bras <leobras@redhat.com>
-Suggested-by: Arnd Bergmann <arnd@arndb.de>
-Link: https://lore.kernel.org/linux-riscv/CAK8P3a2rnz9mQqhN6-e0CGUUv9rntRELFdxt_weiD7FxH7fkfQ@mail.gmail.com/
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Signed-off-by: Guo Ren <guoren@kernel.org>
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 ---
- include/asm-generic/spinlock.h        |  87 +---------------------
- include/asm-generic/ticket_spinlock.h | 103 ++++++++++++++++++++++++++
- 2 files changed, 104 insertions(+), 86 deletions(-)
- create mode 100644 include/asm-generic/ticket_spinlock.h
+ arch/riscv/include/asm/hwcap.h | 1 +
+ arch/riscv/kernel/cpufeature.c | 1 +
+ 2 files changed, 2 insertions(+)
 
-diff --git a/include/asm-generic/spinlock.h b/include/asm-generic/spinlock.h
-index 4773334ee638..970590baf61b 100644
---- a/include/asm-generic/spinlock.h
-+++ b/include/asm-generic/spinlock.h
-@@ -1,94 +1,9 @@
- /* SPDX-License-Identifier: GPL-2.0 */
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index f71ddd2ca163..863b9b7d4a4f 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -82,6 +82,7 @@
+ #define RISCV_ISA_EXT_ZACAS		73
+ #define RISCV_ISA_EXT_XANDESPMU		74
+ #define RISCV_ISA_EXT_ZABHA		75
++#define RISCV_ISA_EXT_ZICCRSE		76
  
--/*
-- * 'Generic' ticket-lock implementation.
-- *
-- * It relies on atomic_fetch_add() having well defined forward progress
-- * guarantees under contention. If your architecture cannot provide this, stick
-- * to a test-and-set lock.
-- *
-- * It also relies on atomic_fetch_add() being safe vs smp_store_release() on a
-- * sub-word of the value. This is generally true for anything LL/SC although
-- * you'd be hard pressed to find anything useful in architecture specifications
-- * about this. If your architecture cannot do this you might be better off with
-- * a test-and-set.
-- *
-- * It further assumes atomic_*_release() + atomic_*_acquire() is RCpc and hence
-- * uses atomic_fetch_add() which is RCsc to create an RCsc hot path, along with
-- * a full fence after the spin to upgrade the otherwise-RCpc
-- * atomic_cond_read_acquire().
-- *
-- * The implementation uses smp_cond_load_acquire() to spin, so if the
-- * architecture has WFE like instructions to sleep instead of poll for word
-- * modifications be sure to implement that (see ARM64 for example).
-- *
-- */
--
- #ifndef __ASM_GENERIC_SPINLOCK_H
- #define __ASM_GENERIC_SPINLOCK_H
+ #define RISCV_ISA_EXT_XLINUXENVCFG	127
  
--#include <linux/atomic.h>
--#include <asm-generic/spinlock_types.h>
--
--static __always_inline void arch_spin_lock(arch_spinlock_t *lock)
--{
--	u32 val = atomic_fetch_add(1<<16, &lock->val);
--	u16 ticket = val >> 16;
--
--	if (ticket == (u16)val)
--		return;
--
--	/*
--	 * atomic_cond_read_acquire() is RCpc, but rather than defining a
--	 * custom cond_read_rcsc() here we just emit a full fence.  We only
--	 * need the prior reads before subsequent writes ordering from
--	 * smb_mb(), but as atomic_cond_read_acquire() just emits reads and we
--	 * have no outstanding writes due to the atomic_fetch_add() the extra
--	 * orderings are free.
--	 */
--	atomic_cond_read_acquire(&lock->val, ticket == (u16)VAL);
--	smp_mb();
--}
--
--static __always_inline bool arch_spin_trylock(arch_spinlock_t *lock)
--{
--	u32 old = atomic_read(&lock->val);
--
--	if ((old >> 16) != (old & 0xffff))
--		return false;
--
--	return atomic_try_cmpxchg(&lock->val, &old, old + (1<<16)); /* SC, for RCsc */
--}
--
--static __always_inline void arch_spin_unlock(arch_spinlock_t *lock)
--{
--	u16 *ptr = (u16 *)lock + IS_ENABLED(CONFIG_CPU_BIG_ENDIAN);
--	u32 val = atomic_read(&lock->val);
--
--	smp_store_release(ptr, (u16)val + 1);
--}
--
--static __always_inline int arch_spin_value_unlocked(arch_spinlock_t lock)
--{
--	u32 val = lock.val.counter;
--
--	return ((val >> 16) == (val & 0xffff));
--}
--
--static __always_inline int arch_spin_is_locked(arch_spinlock_t *lock)
--{
--	arch_spinlock_t val = READ_ONCE(*lock);
--
--	return !arch_spin_value_unlocked(val);
--}
--
--static __always_inline int arch_spin_is_contended(arch_spinlock_t *lock)
--{
--	u32 val = atomic_read(&lock->val);
--
--	return (s16)((val >> 16) - (val & 0xffff)) > 1;
--}
--
-+#include <asm-generic/ticket_spinlock.h>
- #include <asm/qrwlock.h>
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index c125d82c894b..93d8cc7e232c 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -306,6 +306,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+ 	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
+ 	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
+ 	__RISCV_ISA_EXT_DATA(xandespmu, RISCV_ISA_EXT_XANDESPMU),
++	__RISCV_ISA_EXT_DATA(ziccrse, RISCV_ISA_EXT_ZICCRSE),
+ };
  
- #endif /* __ASM_GENERIC_SPINLOCK_H */
-diff --git a/include/asm-generic/ticket_spinlock.h b/include/asm-generic/ticket_spinlock.h
-new file mode 100644
-index 000000000000..cfcff22b37b3
---- /dev/null
-+++ b/include/asm-generic/ticket_spinlock.h
-@@ -0,0 +1,103 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+
-+/*
-+ * 'Generic' ticket-lock implementation.
-+ *
-+ * It relies on atomic_fetch_add() having well defined forward progress
-+ * guarantees under contention. If your architecture cannot provide this, stick
-+ * to a test-and-set lock.
-+ *
-+ * It also relies on atomic_fetch_add() being safe vs smp_store_release() on a
-+ * sub-word of the value. This is generally true for anything LL/SC although
-+ * you'd be hard pressed to find anything useful in architecture specifications
-+ * about this. If your architecture cannot do this you might be better off with
-+ * a test-and-set.
-+ *
-+ * It further assumes atomic_*_release() + atomic_*_acquire() is RCpc and hence
-+ * uses atomic_fetch_add() which is RCsc to create an RCsc hot path, along with
-+ * a full fence after the spin to upgrade the otherwise-RCpc
-+ * atomic_cond_read_acquire().
-+ *
-+ * The implementation uses smp_cond_load_acquire() to spin, so if the
-+ * architecture has WFE like instructions to sleep instead of poll for word
-+ * modifications be sure to implement that (see ARM64 for example).
-+ *
-+ */
-+
-+#ifndef __ASM_GENERIC_TICKET_SPINLOCK_H
-+#define __ASM_GENERIC_TICKET_SPINLOCK_H
-+
-+#include <linux/atomic.h>
-+#include <asm-generic/spinlock_types.h>
-+
-+static __always_inline void ticket_spin_lock(arch_spinlock_t *lock)
-+{
-+	u32 val = atomic_fetch_add(1<<16, &lock->val);
-+	u16 ticket = val >> 16;
-+
-+	if (ticket == (u16)val)
-+		return;
-+
-+	/*
-+	 * atomic_cond_read_acquire() is RCpc, but rather than defining a
-+	 * custom cond_read_rcsc() here we just emit a full fence.  We only
-+	 * need the prior reads before subsequent writes ordering from
-+	 * smb_mb(), but as atomic_cond_read_acquire() just emits reads and we
-+	 * have no outstanding writes due to the atomic_fetch_add() the extra
-+	 * orderings are free.
-+	 */
-+	atomic_cond_read_acquire(&lock->val, ticket == (u16)VAL);
-+	smp_mb();
-+}
-+
-+static __always_inline bool ticket_spin_trylock(arch_spinlock_t *lock)
-+{
-+	u32 old = atomic_read(&lock->val);
-+
-+	if ((old >> 16) != (old & 0xffff))
-+		return false;
-+
-+	return atomic_try_cmpxchg(&lock->val, &old, old + (1<<16)); /* SC, for RCsc */
-+}
-+
-+static __always_inline void ticket_spin_unlock(arch_spinlock_t *lock)
-+{
-+	u16 *ptr = (u16 *)lock + IS_ENABLED(CONFIG_CPU_BIG_ENDIAN);
-+	u32 val = atomic_read(&lock->val);
-+
-+	smp_store_release(ptr, (u16)val + 1);
-+}
-+
-+static __always_inline int ticket_spin_value_unlocked(arch_spinlock_t lock)
-+{
-+	u32 val = lock.val.counter;
-+
-+	return ((val >> 16) == (val & 0xffff));
-+}
-+
-+static __always_inline int ticket_spin_is_locked(arch_spinlock_t *lock)
-+{
-+	arch_spinlock_t val = READ_ONCE(*lock);
-+
-+	return !ticket_spin_value_unlocked(val);
-+}
-+
-+static __always_inline int ticket_spin_is_contended(arch_spinlock_t *lock)
-+{
-+	u32 val = atomic_read(&lock->val);
-+
-+	return (s16)((val >> 16) - (val & 0xffff)) > 1;
-+}
-+
-+/*
-+ * Remapping spinlock architecture specific functions to the corresponding
-+ * ticket spinlock functions.
-+ */
-+#define arch_spin_is_locked(l)		ticket_spin_is_locked(l)
-+#define arch_spin_is_contended(l)	ticket_spin_is_contended(l)
-+#define arch_spin_value_unlocked(l)	ticket_spin_value_unlocked(l)
-+#define arch_spin_lock(l)		ticket_spin_lock(l)
-+#define arch_spin_trylock(l)		ticket_spin_trylock(l)
-+#define arch_spin_unlock(l)		ticket_spin_unlock(l)
-+
-+#endif /* __ASM_GENERIC_TICKET_SPINLOCK_H */
+ const size_t riscv_isa_ext_count = ARRAY_SIZE(riscv_isa_ext);
 -- 
 2.39.2
 
