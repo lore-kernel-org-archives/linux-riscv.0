@@ -4,127 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B69C8C3DA42
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jul 2024 08:06:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B75CBC3DA4B
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jul 2024 08:28:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:To:Subject:
-	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=84YFigKl1h4QZw3/M1iTcisFQx06WNZfqVzLcJBTlkw=; b=jprsOR5EFJ7Jq2YFZmFJy44aCD
-	1+ptQZyA1pjfEWX1OF4P3/jJOpDys/F8BlknFSdk7DqC1Oi6X0mSEIsFLtlWg2LdYFvFlGhClzqTD
-	aEOaMNwiBaP8XdEvJfcaENfdtJfH65obnJ1MvZcy5SCKXHt/AdUby8SJMTP5b7ie/3+RWDvbnc92v
-	D1QeuoSjf0Ig+h+8UDdu3brixwDt/bqoEtbeVppOhPdTHulTbDmzziEBlNtBNUB6rOupZlc6Glh6L
-	F73Um5EylPj5dze4wqvikvXEIK8RdA2J/8vT5JAG2swYs6crt6qltTCmpqgz59UKF9RjMQGhilE0w
-	6bXP5/lg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ZEBtEF9dXfLtAizGYB6BBCrV3PKP0E3IKbyoL9VtQt0=; b=nLjX6ohGORCwI/
+	fHKZhEezsgcm1b3XbTR34HsWHOZOgSJGdazAy/UAMKSKjc5PYO1F+CU8dUKtDlyw/qpZ8Bd5PJ7JN
+	wdxNEHQEXEDSGu1ovLHoHNEaX8PSvfMnKGFXUNBn34cc62KsMXPSr/oFisEkwUHCQE/TNTLO6fZYi
+	ss4bMIEQ3VZ/48MX4VIu74+4frvIXWkAq08qse9T7PiSkg34WIrdAupblcYOGRc1LtfdfJtf2Jyt6
+	7r51VKEwKgAcTR3zdyKWH824J2aFkMvsaZdT/TbYtczBR3mUwmZfeLRNV0M458jVodZlWHoJK+j/Y
+	AYRgtzmA475zghPiDdpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sTzgE-0000000D4Um-2ROw;
-	Wed, 17 Jul 2024 08:06:30 +0000
-Received: from mail-maxind01olkn20800.outbound.protection.outlook.com ([2a01:111:f403:281b::800] helo=IND01-MAX-obe.outbound.protection.outlook.com)
+	id 1sU01G-0000000D8bb-2tw9;
+	Wed, 17 Jul 2024 08:28:14 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sTzg2-0000000D4Rw-1XtB
+	id 1sU01D-0000000D8b1-0p4I
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 Jul 2024 08:06:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TwxtSBbvoDAONYbLdMDNQtVzmsUO6zXuhEZhwgsq927akRzXK2f2T9OTMxIeNAfdQ2Jd2nRbesigQvQqTRJ30pt6gTmtHhlfSuWaAm8ux0AhI5f+euREF/IQA09XqEbK7zMsdtBFuBpRyxdgWcKopMBwwKGDI5YYxX8B41fvsKAineCYebRe54qxVy6+xRE7BGDzaxjK8aWFLut0xur9/KWc2MrTrOR+8tRw2SodANnkacI+J9hs4+A4CAB6U5HQNS8MdcRQgnON4fOWlauTcgP0A+C2ShWobDLmZO7/1X9hLBYcIe7bQatWz4vIaeciTLpYVl20uaqQoiK3GijV3w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vj/ENntbYy4nal5paba94PHvH1uvloInkN8uFd3HLhA=;
- b=tCnMOOXCNAYBrjCqvvnvKSHRA30MaNVpGMKrBp7mykFjQ5cu3vbmsI8OCDo8cjIDeKYbR+J4s0IPR0Ma3SvbScyyurhRFrbqNlRwJqjUcdKZjWBxzIue9s3SW6FCB39abqjgDFX4bLejYeTPDptq3QxNGXUzMhqmp2YXUjmD5bK5BJ4Fm42jeLHK5jU8qbkMy67Z3Lp7+ka5A6xqgeVPT5GqprIjGyrClPbiSNk+tTbwks/TMY7Y7yOg4rJeLmtQhaXzw5SUft0yOHl7WK0xu6ZIA8TaUtHV1XkmAer45oMY7yHfhaeNcbfse66lSd+iNk2MVfapaIy8lPOvxSZHYQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vj/ENntbYy4nal5paba94PHvH1uvloInkN8uFd3HLhA=;
- b=Hm957+c4orPRtLeB5ktjOsrSS9riBN3gTYOMfYllltdrGRTPy9y7+tRn2kBs5WvuYPUlGj58XTrd0lf5w9SbXUp2R1bDyHgVOQEXTpcL1A4s/kRghr983YAVQkcNLKX+p+IV9unU05qA0tLscOt+5lNb8eLjVwAka7hBMKbOB685u5heEtmS9cXJWhLNuIXsP9nSaXVwn5YmpVFzD94Ro3Mc1eUTBMtb4f4V5KO5XOsNwgKZLgfvft3Ckk1yOVxwQynzH1DhQbr3DFlR47q/1WdFIQkS0jkjfSrVz6E4asZvbveLtXKCL32AelG2VV6dFK5IWI5RAg09u95hrKf0bg==
-Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:138::5)
- by PN0P287MB0151.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:e3::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7784.16; Wed, 17 Jul
- 2024 08:06:04 +0000
-Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- ([fe80::a94:ad0a:9071:806c]) by MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- ([fe80::a94:ad0a:9071:806c%6]) with mapi id 15.20.7784.016; Wed, 17 Jul 2024
- 08:06:04 +0000
-Message-ID: <MA0P287MB282258A1D5F475639A961CB6FEA32@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
-Date: Wed, 17 Jul 2024 16:05:58 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/4] mmc: sdhci-of-dwcmshc: add callback functions for
- dwcmshc
-To: Adrian Hunter <adrian.hunter@intel.com>, Chen Wang <unicornxw@gmail.com>,
- aou@eecs.berkeley.edu, conor+dt@kernel.org, guoren@kernel.org,
- inochiama@outlook.com, jszhang@kernel.org,
- krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com,
- paul.walmsley@sifive.com, robh@kernel.org, ulf.hansson@linaro.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-mmc@vger.kernel.org, linux-riscv@lists.infradead.org,
- chao.wei@sophgo.com, haijiao.liu@sophgo.com, xiaoguang.xing@sophgo.com,
- tingzhu.wang@sophgo.com
-References: <cover.1718697954.git.unicorn_wang@outlook.com>
- <8d13fcec6059b640dc126def05515ca582542c11.1718697954.git.unicorn_wang@outlook.com>
- <6f4acb70-b4a1-4583-b1fe-20f979ef16c6@intel.com>
-From: Chen Wang <unicorn_wang@outlook.com>
-In-Reply-To: <6f4acb70-b4a1-4583-b1fe-20f979ef16c6@intel.com>
-X-TMN: [xkwhl46exvSt28EH3w3krBiT6os/LrO9]
-X-ClientProxiedBy: SI2P153CA0017.APCP153.PROD.OUTLOOK.COM
- (2603:1096:4:140::10) To MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:138::5)
-X-Microsoft-Original-Message-ID: <7f2dacd2-7036-4764-a82a-67066ddec3f5@outlook.com>
+	Wed, 17 Jul 2024 08:28:12 +0000
+Received: from ubuntu-2204-dev.. (unknown [180.110.112.93])
+	by APP-01 (Coremail) with SMTP id qwCowABnbsp1gJdmjKDXAw--.5352S2;
+	Wed, 17 Jul 2024 16:27:34 +0800 (CST)
+From: Zhu Hengbo <zhuhengbo@iscas.ac.cn>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Zhu Hengbo <zhuhengbo@iscas.ac.cn>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Kefeng Wang <wangkefeng.wang@huawei.com>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] riscv: add tracepoints for page fault
+Date: Wed, 17 Jul 2024 08:27:19 +0000
+Message-Id: <20240717082728.84401-1-zhuhengbo@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20240715101400.39103-1-zhuhengbo@iscas.ac.cn>
+References: <20240715101400.39103-1-zhuhengbo@iscas.ac.cn>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MA0P287MB2822:EE_|PN0P287MB0151:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8688f263-33a1-4162-3de5-08dca6374dcc
-X-Microsoft-Antispam: BCL:0;ARA:14566002|461199028|19110799003|8060799006|3412199025|440099028;
-X-Microsoft-Antispam-Message-Info: 4Q06OqR7u5n5fGUDsEEdpd5YqJaaosxsUvBBMoW0qdS4yaBXEoRuybL3JQFipUJnHAGnNxml1a9rVe73KIBctl37lmk/W+6DnHML/azb8pRNPgy773qvLHLeLZhS7D7zfxGlxmI+uQrxughuOvWfQDa9LY6sXP9GiC9EoWDRQzvR4XSq4oKdAU01BbV5wy5tDLYYErRSHRc9z79VnFzXifXGNHQB3NSz7rIXcoknB99sbDud5SeuJ38PC5KNJWumZY+bO7huKprIYOoENCUvLpC82VQVcj7Dpx+qI9MDshLl/WDL6SOY3GYwea2jy6KaaP6IWdRS45p6TLkyw6HlOClx6tQGi7puPuJzpbmSsq03Q4reTGGvZhZHPQxjR2XFqOekgTatahTxim1iQZH2Qj2SpXCXzHleN78A3OWKmcu3AF0X3uDWhJxUhNF8M002+Czj/hdwHomkuAh4q2Caxsc6ZRqNWbdNFHYzyVirYZ/hYRl/2+YeiVN3bMoUWg60KZVYwXa3HI+zForr+K9gt/qVFz83lFnZGnSh/xc7K3uYN4eD+u6fVoLdedda/uNfGxHfZoS4BEgKEAatigalRpHXm9w8I9/LG5yQ5LObidlApakKsegTmpMoXWKx3479H6QEdS31cPyVWeTsPVb62g==
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dVFESmtpRldmbFUvcFZwQjUvLzd2SkpCZkRmemJ0c1drcEE4N3hSODhFdkhV?=
- =?utf-8?B?YlpQQ2xodTlYZWlhZTQ3WUp2KzZDY1E4SG1iK3hkWGdPakNWSG5IRWxzTFZr?=
- =?utf-8?B?TWdRYzkxd1ZrK3BsQ1JyM3psM01xRWROZ3YxejlJd3dtTVJnQUczdWNsb0lJ?=
- =?utf-8?B?bTFSSzNWajRCeXE0K09DaWV3d3I3L1dZalJJZDArL0l5SnZBRDVxOFNHSHhs?=
- =?utf-8?B?ckdQZzU0eGQ0MWNSRlJ5eGJTa2JsdWJaVUdOQWRBL3E3NDJJUklxdGdPNkRE?=
- =?utf-8?B?alVmY1BMMlB1YkdUV1dDcGxMbWI3YUduUG5TblA0OEN6VEZNc01qMEdTSnB1?=
- =?utf-8?B?RFNYVDhJcDMrUE81SWpaUXhocnRCTzRWZTBzb1Mwb1pacGR2QnRQN3F2dERX?=
- =?utf-8?B?ZnNSN1lPdFlXeCtWdXRNWm1nRU85eklGYUVyOFRRODRmVzhoRlZMSDVBUXpm?=
- =?utf-8?B?aG4wNnJPdC9WYUFFSXZpWE1uL2grT0NxVFJ0eThlT1M1a2VJMDU4QkZOS0hk?=
- =?utf-8?B?RXd2WlFXNnNxcXBTNTdHcG9uRVJPbnlBZUU4L1NNNjZYTERFRDJIMVVWVEhn?=
- =?utf-8?B?ckpnc3ZsdE82SW41dWhuMW4xcU9SWVJMak5YTG1tMjdWaUJiMjRsdTRBU3Fv?=
- =?utf-8?B?Q3lYZWkxS1Z0RittZHZ4Z0tkWVlWd3VLMk92c1JQdDB4TU42bmFqSGpJQXg3?=
- =?utf-8?B?Vzl6SG13dWN3YnV5WlA4OWhmbW5Tb1IwNndHNXBlS2J2cGhTVWh1SW13SEIz?=
- =?utf-8?B?N3FoOWtQanVXUHo0Um9jSjFwRUEwU1BFNkYzRXp4bk1BVUVMeEpPdlNuSUZh?=
- =?utf-8?B?NEFDazRVSTJTUHREcnQ0NEJKNldLcWJJWHZxNmdkOC9XSEprZDBseDRBNDBP?=
- =?utf-8?B?VnNXcFF4Q1RwY1E5OXYybW44WDN2c0FodTNBTXN5T3Z0T05nVVpEMXRzVU1s?=
- =?utf-8?B?clErVUlCQ2xMVUFSamtKZjZValZEWUJIcGNWUzhLVTdOSDhTMUFRTFRyZFc4?=
- =?utf-8?B?Z1hWUTJxSkdYbFFTRld4Z0U1cnBpeU04MU9weEZZMTJPd1g1MEpQSEl6blFJ?=
- =?utf-8?B?RGEwZ2JVRjI4M0ZsUWxHb0c3YzhKV1RacXA4ZlQ4Z25SVVFJUlZxUkVhUWlQ?=
- =?utf-8?B?VWhTQkpTY1U4U1VmMk9XZnNpNHQwZWwyRlNaV0k2S3J4R1Fvb3NOYXhqMm1W?=
- =?utf-8?B?aFJkbFlHaUtoOXZhbVNkbjhpM1JyaXhXTnpUUExPdXRCTVh5U1ZydEpSLzFZ?=
- =?utf-8?B?QlFnb0xuZG1RTVFGYlh6SnJJc1NGOHlyYVhvRUFyQXJ1UWFCc3FqaUw1UlAv?=
- =?utf-8?B?MVJoUnVBdXZ5bDkrOCtJbk1jZ3VPdi8wMk90OEl5K1RQWXlibjVtb2hRdFNF?=
- =?utf-8?B?SVYwR2dTRzNMVG5lVE9QWHhTcERkYUx2QlR3eHVEUHRkZ0p3VFNqWWUyN2RZ?=
- =?utf-8?B?cGpoSXhTS2hsNWhVSGZPNGRzeUM0VjlXRmJyVkNxNDE5M2FnU29SSTBtcENj?=
- =?utf-8?B?UmJ3TzJ2TDloeVBubUVNUlV1NllINnlia2hOcE9COFJjcHBxMDhMZzZvVFUv?=
- =?utf-8?B?WUp1cXZuaVd5N1pyNTEyaForYmtPYVB2bmNqYWJ5YXI0R2trWHJxanM3K3pL?=
- =?utf-8?B?QUNEY084aS8zRVpyTUdUdjEyWFRaajlBOXFEUG9yV3dSNUtlVGdkemxVcE5N?=
- =?utf-8?Q?lokICwkA2tyVKIxQY5N/?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8688f263-33a1-4162-3de5-08dca6374dcc
-X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2024 08:06:04.0281
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN0P287MB0151
+X-CM-TRANSID: qwCowABnbsp1gJdmjKDXAw--.5352S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxWryrtw4xXr1DGry7Xw4DXFb_yoWrKrWkpF
+	nFkr95Gr47Xwsa93yxZwn2vF15CanYkayjgry3C3yYvw4IqryUA392q3yqyr17Ar1kGFyI
+	9F4Yyrya9w45uaUanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvY14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v26r
+	xl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj
+	6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWxJVW8Jr1lOx8S6xCaFVCjc4AY6r
+	1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02
+	628vn2kIc2xKxwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c
+	02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_
+	GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7
+	CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v2
+	6r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0J
+	jUTmhUUUUU=
+X-Originating-IP: [180.110.112.93]
+X-CM-SenderInfo: x2kxxvpqje0q5lvft2wodfhubq/1tbiBwkBDGaXTZmt1QABsf
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240717_010618_449875_EA2266F9 
-X-CRM114-Status: UNSURE (   8.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240717_012811_625206_0A190CD4 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,45 +82,157 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Introduce page_fault_user and page_fault_kernel for riscv page fault.
+Help to get more detail information when page fault happen.
 
-On 2024/6/27 3:13, Adrian Hunter wrote:
-> On 18/06/24 11:38, Chen Wang wrote:
->> From: Chen Wang <unicorn_wang@outlook.com>
->>
->> The current framework is not easily extended to support new SOCs.
->> For example, in the current code we see that the SOC-level
->> structure `rk35xx_priv` and related logic are distributed in
->> functions such as dwcmshc_probe/dwcmshc_remove/dwcmshc_suspend/......,
->> which is inappropriate.
->>
->> The solution is to abstract some possible common operations of soc
->> as dwcmshc platform data. Each soc implements the corresponding callback
->> function according to its own needs.
->> dwcmshc framework is responsible for calling these callback functions
->> in those dwcmshc_xxx functions at proper positions.
-> This could be 5 patches:
-> 	1. Common bulk optional clocks support (as suggested below)
-> 	2. Move functions dwcmshc_rk35xx_init() and dwcmshc_rk35xx_postinit()
-> 	3. Factor out code for th1520_init()
-> 	4. Factor out code into dwcmshc_rk35xx_init
-> 	5. Add dwcmshc_pltfm_data etc
+Signed-off-by: Zhu Hengbo <zhuhengbo@iscas.ac.cn>
+---
+Changes in v2:
+- Add print instruction point info
 
-Hi, I'm back, and I finally found the time to continue this work.
+Simple test go below:
 
-Thank you Adrian for your execllent input, I will investigate and rework 
-the code as per your suggestion.
+root@riscv-ubuntu2204 ~ # bin/perf list | grep exceptions
+  exceptions:page_fault_kernel                       [Tracepoint event]
+  exceptions:page_fault_user                         [Tracepoint event]
 
-Regards,
+root@riscv-ubuntu2204 ~ # bin/perf record -e exceptions:page_fault_kernel -e exceptions:page_fault_user
+[ perf record: Woken up 1 times to write data ]
+[ perf record: Captured and wrote 0.091 MB perf.data (19 samples) ]
 
-Chen
+perf report tracepoint:
+perf     563 [007]   115.824363:   exceptions:page_fault_user: user page fault, address=0x7fff94cf6400 epc=0x55558632808e cause=0xd
+perf     563 [007]   115.824441:   exceptions:page_fault_user: user page fault, address=0x7fff94c75400 epc=0x55558632808e cause=0xd
+perf     563 [007]   115.824518:   exceptions:page_fault_user: user page fault, address=0x7fff94bf4400 epc=0x55558632808e cause=0xd
+perf     563 [007]   115.824907: exceptions:page_fault_kernel: kernel page fault, address=0x7fff94bf5000 epc=fault_in_readable cause=0xd
+perf     563 [007]   115.825238:   exceptions:page_fault_user: user page fault, address=0x7fff94bf4408 epc=0x5555863281bc cause=0xf
+perf     564 [000]   116.247999:   exceptions:page_fault_user: user page fault, address=0x7fff94b73400 epc=0x55558632808e cause=0xd
+perf     564 [000]   116.248558:   exceptions:page_fault_user: user page fault, address=0x7fff94af2400 epc=0x55558632808e cause=0xd
+---
+ arch/riscv/include/asm/trace/exceptions.h | 66 +++++++++++++++++++++++
+ arch/riscv/mm/fault.c                     | 15 ++++++
+ 2 files changed, 81 insertions(+)
+ create mode 100644 arch/riscv/include/asm/trace/exceptions.h
 
-[......]
-
+diff --git a/arch/riscv/include/asm/trace/exceptions.h b/arch/riscv/include/asm/trace/exceptions.h
+new file mode 100644
+index 000000000000..ff258da2f45f
+--- /dev/null
++++ b/arch/riscv/include/asm/trace/exceptions.h
+@@ -0,0 +1,66 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Tracepoints for RISC-V exceptions
++ *
++ * Copyright (C) 2024 ISCAS. All rights reserved
++ *
++ */
++
++#if !defined(_TRACE_PAGE_FAULT_H) || defined(TRACE_HEADER_MULTI_READ)
++#define _TRACE_PAGE_FAULT_H
++
++#include <linux/tracepoint.h>
++
++#undef TRACE_SYSTEM
++#define TRACE_SYSTEM exceptions
++
++TRACE_EVENT(page_fault_user,
++	TP_PROTO(struct pt_regs *regs),
++	TP_ARGS(regs),
++
++	TP_STRUCT__entry(
++		__field(unsigned long, address)
++		__field(unsigned long, epc)
++		__field(unsigned long, cause)
++	),
++
++	TP_fast_assign(
++		__entry->address	= regs->badaddr;
++		__entry->epc		= regs->epc;
++		__entry->cause		= regs->cause;
++	),
++
++	TP_printk("user page fault, address=%ps epc=%ps cause=0x%lx",
++			(void *)__entry->address, (void *)__entry->epc,
++			__entry->cause)
++);
++
++TRACE_EVENT(page_fault_kernel,
++	TP_PROTO(struct pt_regs *regs),
++	TP_ARGS(regs),
++
++	TP_STRUCT__entry(
++		__field(unsigned long, address)
++		__field(unsigned long, epc)
++		__field(unsigned long, cause)
++	),
++
++	TP_fast_assign(
++		__entry->address	= regs->badaddr;
++		__entry->epc		= regs->epc;
++		__entry->cause		= regs->cause;
++	),
++
++	TP_printk("kernel page fault, address=%ps epc=%ps cause=0x%lx",
++			(void *)__entry->address, (void *)__entry->epc,
++			__entry->cause)
++);
++
++#undef TRACE_INCLUDE_PATH
++#undef TRACE_INCLUDE_FILE
++#define TRACE_INCLUDE_PATH asm/trace/
++#define TRACE_INCLUDE_FILE exceptions
++#endif /*  _TRACE_PAGE_FAULT_H */
++
++/* This part must be outside protection */
++#include <trace/define_trace.h>
+diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
+index 5224f3733802..22874074c5bc 100644
+--- a/arch/riscv/mm/fault.c
++++ b/arch/riscv/mm/fault.c
+@@ -22,6 +22,10 @@
+ 
+ #include "../kernel/head.h"
+ 
++
++#define CREATE_TRACE_POINTS
++#include <asm/trace/exceptions.h>
++
+ static void die_kernel_fault(const char *msg, unsigned long addr,
+ 		struct pt_regs *regs)
+ {
+@@ -215,6 +219,15 @@ static inline bool access_error(unsigned long cause, struct vm_area_struct *vma)
+ 	return false;
+ }
+ 
++
++static inline void trace_page_fault(struct pt_regs *regs)
++{
++	if (user_mode(regs))
++		trace_page_fault_user(regs);
++	else
++		trace_page_fault_kernel(regs);
++}
++
+ /*
+  * This routine handles page faults.  It determines the address and the
+  * problem, and then passes it off to one of the appropriate routines.
+@@ -235,6 +248,8 @@ void handle_page_fault(struct pt_regs *regs)
+ 	tsk = current;
+ 	mm = tsk->mm;
+ 
++	trace_page_fault(regs);
++
+ 	if (kprobe_page_fault(regs, cause))
+ 		return;
+ 
+-- 
+2.34.1
 
 
 _______________________________________________
