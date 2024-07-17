@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88619C3DA42
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jul 2024 06:42:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C257C3DA42
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jul 2024 06:56:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=c97MIT1dQzDkQYdCnKvJhCsnh/UX1tuPACPp5t8SRxo=; b=MPvHvSTGIwvz8M
-	fpMFpp5rgES3x9KPxCUibNGZ0WB56Xt1/jTwu87ImjDwmBOIDlVuXhwLA6zABhLzdV3k2ANs5cyJP
-	Veiie/Z/RuNdpbWGPVMtsWb/LYh0iLXAFEypBdnU48hG0psY+Cszv3dadi6oUGWw46V9g8wBxb/40
-	LUHQqJz60ImLnITNaLsmOGHrjEk+DxsxAPp8eMXJIIt5vqfl3DzeiW7VnvlS6QGoun4tyaPzURzV1
-	bthiZoU/TwXYk0fHuZP5skoEmT7gvkcy7SqG+RAK7e4ZSIdxhgLx+l5ClLnZz+oZbeVGSJMtV2JMd
-	hvE8qvQAyzgGCLEqkINg==;
+	List-Owner; bh=wSCKZZ8ge/JGoFhudpGRXlLHY1pPIXHwPo0BhSAwYlA=; b=ofxMYV5UUIqknq
+	ixkasrumxMvUrLSXgf7acvaZoKuzc4nVDtxAcn21qbXMj5dpSfxzLEzy//XrISKTcjGXn9Pt4pagu
+	NcOjL/vL8tZJmwDBHEuk/m+JgWaNFaGMggkDEsWZEeYKim8tg5CUQyThhCTszNOKDc21sVpEnYR8m
+	Iah14h7IIPr5rQWXENx45MMOjVEcAcVWTjv0QbtCUMblpxHEj8I680NP9RlYy15BguMufqUxGyeFG
+	owoS2ldlF9H+EZWzn9/arD7HlnzQAJfCUXLQDudIbSF2p2wU+97e+Py0lmL1shv4r+WH0YKm+kIVl
+	Y+QwM3aIDnTvKZ8Y9NWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sTyMt-0000000Cseg-0RgC;
-	Wed, 17 Jul 2024 06:42:27 +0000
+	id 1sTya2-0000000Cubg-2Yh5;
+	Wed, 17 Jul 2024 06:56:02 +0000
 Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sTyMq-0000000Csdl-0Wxi
+	id 1sTyZz-0000000CuZj-0NN2
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 Jul 2024 06:42:26 +0000
+	Wed, 17 Jul 2024 06:56:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 72210CE14E9;
-	Wed, 17 Jul 2024 06:42:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17D2AC32782;
-	Wed, 17 Jul 2024 06:42:14 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 17C3BCE1685;
+	Wed, 17 Jul 2024 06:55:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61994C4AF0C;
+	Wed, 17 Jul 2024 06:55:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1721198541;
-	bh=spQRPZaYq5tzQGw7T8xlS+i7lp0wAGAT4aBxUl8eZco=;
+	s=k20201202; t=1721199356;
+	bh=WUKjxeCHiwFtmo+gm+BNy9YZfIYrgx0j4AH0tWl7VOc=;
 	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=D0hHQEEjWyhI/GgZFL35GxpL/9QIa/DMN1CV7+7LwSiCdcM0HYp7NFQsuBjzkxFu7
-	 uTzAXqxcYHlcI4F7z8viOvmXocI5nqeKBYtOkeMHuLGwrJsEz/tBzESq0nuxB1r72a
-	 ovN6hnxaWRAec682e6xGTlWsceSdS7P3nbDuiJQn64fHmZRabijnuy1QZbQpC9Cs5i
-	 7E5H2sPGjyjRNzUvdBBOjqPoaxQtxCyMixY8rYBDX7+tJkN1DVJrwAc3EmMj7oEOf0
-	 2MvxB2JFWR/zv7jonR/WI6x9BOvm0QF18r/NoKvjbnqRNUL0UstN9eUkccBBpTLO9p
-	 /dtey7YdQPTfA==
-Message-ID: <032ca0b4-94e2-4ada-8ea1-9915cba01e86@kernel.org>
-Date: Wed, 17 Jul 2024 08:42:11 +0200
+	b=p5EzZrYWhoooorSQcFP16ktfLMDg5rNQK9Sh8ivta4yqXV2Yxljgrro1Up2zcRd1O
+	 zBI2nMFnfW748MnEo+H33KmGRAK2hq9rEg5VtlbyiNQs+u4GRDUND3XLBRiXg0KvI/
+	 0Ew5dZv0zEeHnn0q32/u7ug3zIE89KuZ8TSN503FqTMTA5pAJTXz78DeWu/GvgUOFP
+	 i8Z0BD3Qe8oc/dA1FiV2IJRODuqXmuUR+mktkX3xri9B7draEhWX6WDwpWttyjFkzr
+	 QIdX4plD/IjMr8thTcuUb5uaOdCYvq6XjHUOWic1cLYBUcC3kxmvEvSJ7GHS7KXwo4
+	 vU1xfONTGT9uQ==
+Message-ID: <656bc50f-3c8b-48de-a1ba-ff27749ebb78@kernel.org>
+Date: Wed, 17 Jul 2024 08:55:46 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 02/11] dt-bindings: riscv: Add Zabha ISA extension
+Subject: Re: [PATCH v3 10/11] dt-bindings: riscv: Add Ziccrse ISA extension
  description
 To: Alexandre Ghiti <alexghiti@rivosinc.com>, Jonathan Corbet
  <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
@@ -62,9 +62,9 @@ To: Alexandre Ghiti <alexghiti@rivosinc.com>, Jonathan Corbet
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  linux-arch@vger.kernel.org
 References: <20240717061957.140712-1-alexghiti@rivosinc.com>
- <20240717061957.140712-3-alexghiti@rivosinc.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <20240717061957.140712-11-alexghiti@rivosinc.com>
 Content-Language: en-US
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
  cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
@@ -108,10 +108,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20240717061957.140712-3-alexghiti@rivosinc.com>
+In-Reply-To: <20240717061957.140712-11-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240716_234224_583442_A960C3BD 
-X-CRM114-Status: UNSURE (   8.50  )
+X-CRM114-CacheID: sfid-20240716_235559_505533_A4F7B3F6 
+X-CRM114-Status: UNSURE (   8.26  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -130,8 +130,8 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 17/07/2024 08:19, Alexandre Ghiti wrote:
-> Add description for the Zabha ISA extension which was ratified in April
-> 2024.
+> Add description for the Ziccrse ISA extension which was introduced in
+> the riscv profiles specification v0.9.2.
 > 
 > Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 
