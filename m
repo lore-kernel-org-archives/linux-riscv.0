@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A70CC3DA4B
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jul 2024 06:04:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B96D1C3DA4B
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jul 2024 06:06:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=v7IYUgZiHUHrmUcRs0WbHvYV9Or1ucMH05pbVR35/d8=; b=MkPMFIyD6vwg57
-	BUcMcmUMHeT9+RSdlDGhAq2W3GArSasZB0efnOqaywqst4/6W7hIjJP88n2aVXguS3eOpxXVGVd4v
-	fER/RUqhPznC/EAiGkNtj+rgcbCSX888PcYL3USrUY+CnUDQQpPPSyRJxu28f1MZnB9nBpmmWiQZJ
-	Crq60mBoavhBHBVrWKGkuoLSz+/Og6teYSk5G32bZdqDIkAl2peT8HRRwe8RIwEJ3z+zMfDqGaFCU
-	okqgu+IwfeArG/mHosrcI2cu73BlbnLUyxh2JLv8gxdbSCT3+UWz8OglpPtPsEw1VXNe4sWz51JLY
-	qTZEzMdBfUkpHXil0ESA==;
+	List-Owner; bh=JA0iXQUOQcwo12i7GB1NZA8PAj3hecAayYZa1LFiz/Q=; b=WBtrvhhdlereZ/
+	rLSP3hGEkLPOhBgkIDdi2x6vCz89h+szhtS+TF+zo2APTfTR8RKIh87FQ3UYVqX4xHC7MbXLGhGsO
+	GMY2DyR+UPWA/vsp4ZBfYt8jNfDITgJmanuhWMmiRWTTHHWnK75t2wWX4wTbcio5XpIDbsUzh9ZeT
+	mABdXKrlR5zl9ioIhxxT62QiE6d2G0QCi/yfFN4WPzYodytdl7unAeVBgKvUSFYVAXA01Rm9UqyuQ
+	bjsKE3mHU+heesKQjrfZlj8nAfEaVAut2ijBuljTWcxTw8x3Rz7E9lOU52PiJVldXMG/0bvN5JZIK
+	aHE4xiJt2dgBNUusj0Bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sTxmN-0000000ClZr-3zFy;
-	Wed, 17 Jul 2024 06:04:43 +0000
+	id 1sTxnZ-0000000Clqt-1ANf;
+	Wed, 17 Jul 2024 06:05:57 +0000
 Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sTxmJ-0000000ClYx-2pVE
+	id 1sTxnH-0000000CllZ-3Art
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 Jul 2024 06:04:41 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4265b7514fcso2109925e9.1
-        for <linux-riscv@lists.infradead.org>; Tue, 16 Jul 2024 23:04:39 -0700 (PDT)
+	Wed, 17 Jul 2024 06:05:41 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-427c4843840so818055e9.1
+        for <linux-riscv@lists.infradead.org>; Tue, 16 Jul 2024 23:05:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1721196277; x=1721801077; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1721196338; x=1721801138; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=8dbUbbFULfsrE+nsrlyCzBk7XNc7NNIs5oq3jJIx/UQ=;
-        b=rTo7c5zzg4rT0RORNoLmtDHAt7+eF9oNXxmQjuG6MxxHEp5JeXCDUuXMP9iGXYiyBg
-         /Y2cArdiy0lFqhWL8z4orWbHa9cB0O+2/UsnC3l8dPhmk45oApn+zFJ3lbd3IA68GeEd
-         oSBRQRyJggy2MDgBgnNqMMrk9xAXfOIxwfWlLHxHEDSx6zmLYAIb8mty7Hd+KKYAxfwT
-         oiA0/Ky5Dc+dA8e4ub217Ert0vBhhuk/+wQfHAhqDrObu6aB/SZmEASVDxaD6PfUbHNd
-         7uNAXJGbqfu6r5c0pGPy5CNcmqIV5DFBIpdiIUVbCkyBRwsSyDBV8iF/RN+xAFRwz/eO
-         I49w==
+        bh=ZQT7T4D4OYiXP5aLvX/ZPT3Ko40XHhQXHQMq6Si+lCQ=;
+        b=NHfSEuPFGyqKx4zzwjEHmVXneWhP11g1yLPWrT/2qx44ZXISLWNhXnlr+JfLn3zQC3
+         dGgEH3OtNnmdxHz4J2X9wyakc1XIYn/0radNkZ2om3B00wnjFmHQ2i7pf1MQ0E0pxBKx
+         /VD4hhAlc+NK0zrguzqS2i6ol8Yi8J/9xe5FawT6EK8CBhX6bWuYk06N9AyixxQPYAZB
+         OL+hB3HdevfH+3AXPtpRRd9cf9aq3MXkPAbDTojC7GLuZ1hqsM5iLdBGXwDfe0uY+HBs
+         IQ1UUJQefq97ENZBYqD7Q+SxngSiMZgS0uxDgBpvEzS5wzNY90Oi1niLk4qdSeX/Fe2O
+         4L5g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1721196277; x=1721801077;
+        d=1e100.net; s=20230601; t=1721196338; x=1721801138;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=8dbUbbFULfsrE+nsrlyCzBk7XNc7NNIs5oq3jJIx/UQ=;
-        b=SZlqezHW6OCADxz/5xVofQKQa24ZAWXsVoHpl8384GkYpkfWr8hBJMn9NTlwXhUI0V
-         NQRHpBX9dtFBqF4QOX8jM01WputldTeh+GslEAgiQ25y71jDJwVPu2RezT1CUQfeCsIw
-         U5ovkl3tFm55eHtqW9aQViaffMIpyWYSSIU9IEGMV3d75iYtq0+sqPvNUzaOhxAp37ey
-         s4xIoPu4ykLFTC2W+aj4Ld6hJ0Ue/EoVQWyawv/LXMIOeaa5/FaKC6y1gZKxG4sz1qDH
-         hIfEekgJWZ3l3YGuEmI01cGlfc2/j4jHL6Nj1ISG6JZqAngyN+iYIWHfP26aBXL6JlRT
-         /pOA==
-X-Forwarded-Encrypted: i=1; AJvYcCW7Y2aYZV6ER0Cq9UPjsak1bV/P0H/jUwOy/NoH/wJwtkJlGaa3qPROCHOoDcPGXDVHBKVFb4thwAloybczeL2H5zCO9tJRhP27nrlIqD/S
-X-Gm-Message-State: AOJu0Ywmo0PMj+YbqmRGUiJw4NjiyCdLBXUItNDm5lhrqHs2/qHQMK4i
-	DW+XnlkPMHYTmMg01eBCunqwnvdQgTD9Yb7MMtc/8aFw3HlZcIP0QVsl0VPS2G0=
-X-Google-Smtp-Source: AGHT+IGgTBw59SAll6q8f849Ql4AF2T90E5dzsLW36EmpJYdcpnIk4GBd2+w+Nbh6vr0y5veXIlAlA==
-X-Received: by 2002:adf:f206:0:b0:360:8c88:ab82 with SMTP id ffacd0b85a97d-36831694075mr404751f8f.30.1721196277153;
-        Tue, 16 Jul 2024 23:04:37 -0700 (PDT)
+        bh=ZQT7T4D4OYiXP5aLvX/ZPT3Ko40XHhQXHQMq6Si+lCQ=;
+        b=HLFfaxdBXVwvzSxdrClmHTVmu1UTsj4adr+1jl7n85EaWPGVIsWDVk0oBOMcvEsHKA
+         107WlyY2NXei1yWcf5Au6QTUZENLBwy82t/YmukvK8kHgHWtdL31KT0qwVaDFNs2CBX/
+         I+lg8C5QeNSEc9sn/NsMekrT5bmuUwJlMIXfI9BFgeete7dhh+jSohasbQYNjIO+qlNE
+         OKYDK4wshXgkAfw+3ZU4f6zfs5h3J7Cl5HTRxeZZwj/Tzgk1SAO2fdfSr3NrlzLgd1hK
+         bivWnisc8y8mOgFb8UoGWaR8VACTIChYlAJWvGiB8CqtshRZFgxykFXdp1McztUdJtT6
+         z/WA==
+X-Forwarded-Encrypted: i=1; AJvYcCW7mZ7Kt+cnhWnfKb2/wCjo1Xv9leIFhu3dKhlwYx8+V1CV1blvKMYM0dOEq06glsjteuw3VthkyGRhIMazS9AfbI+Rjzj5xOAqZTxnuNIO
+X-Gm-Message-State: AOJu0YzEHBurq1cYPmLWTP5TWcgANTzDmb0DwL/68sb4Jv5DtpHNU7BJ
+	zuNUcgajsABvs99NXhnLDJUdXpnwhlYLEtmmIPILBBA78Y9ltI4qeABsT4Ad8Hc=
+X-Google-Smtp-Source: AGHT+IEQqqsHVBQzuLlWNCNqvz+HzbR2Qu8oxbxrJwmk7GCmEw2/2fyCAGSldEtDwshPiZQG+MKGzw==
+X-Received: by 2002:a5d:624b:0:b0:365:8547:90b1 with SMTP id ffacd0b85a97d-36831657d1amr462626f8f.39.1721196338221;
+        Tue, 16 Jul 2024 23:05:38 -0700 (PDT)
 Received: from alex-rivos.home (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3680dabf195sm10708915f8f.42.2024.07.16.23.04.36
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3680dab3cc6sm10834293f8f.11.2024.07.16.23.05.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Jul 2024 23:04:36 -0700 (PDT)
+        Tue, 16 Jul 2024 23:05:37 -0700 (PDT)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Conor Dooley <conor@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -78,16 +78,16 @@ To: Conor Dooley <conor@kernel.org>,
 	linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org
 Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH v4 3/4] riscv: Stop emitting preventive sfence.vma for new vmalloc mappings
-Date: Wed, 17 Jul 2024 08:01:24 +0200
-Message-Id: <20240717060125.139416-4-alexghiti@rivosinc.com>
+Subject: [PATCH v4 4/4] riscv: Stop emitting preventive sfence.vma for new userspace mappings with Svvptc
+Date: Wed, 17 Jul 2024 08:01:25 +0200
+Message-Id: <20240717060125.139416-5-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20240717060125.139416-1-alexghiti@rivosinc.com>
 References: <20240717060125.139416-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240716_230439_811404_82D6F795 
-X-CRM114-Status: GOOD (  23.84  )
+X-CRM114-CacheID: sfid-20240716_230539_837000_02E44C2D 
+X-CRM114-Status: GOOD (  14.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,232 +104,106 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In 6.5, we removed the vmalloc fault path because that can't work (see
-[1] [2]). Then in order to make sure that new page table entries were
-seen by the page table walker, we had to preventively emit a sfence.vma
-on all harts [3] but this solution is very costly since it relies on IPI.
+The preventive sfence.vma were emitted because new mappings must be made
+visible to the page table walker but Svvptc guarantees that it will
+happen within a bounded timeframe, so no need to sfence.vma for the uarchs
+that implement this extension, we will then take gratuitous (but very
+unlikely) page faults, similarly to x86 and arm64.
 
-And even there, we could end up in a loop of vmalloc faults if a vmalloc
-allocation is done in the IPI path (for example if it is traced, see
-[4]), which could result in a kernel stack overflow.
+This allows to drastically reduce the number of sfence.vma emitted:
 
-Those preventive sfence.vma needed to be emitted because:
+* Ubuntu boot to login:
+Before: ~630k sfence.vma
+After:  ~200k sfence.vma
 
-- if the uarch caches invalid entries, the new mapping may not be
-  observed by the page table walker and an invalidation may be needed.
-- if the uarch does not cache invalid entries, a reordered access
-  could "miss" the new mapping and traps: in that case, we would actually
-  only need to retry the access, no sfence.vma is required.
+* ltp - mmapstress01
+Before: ~45k
+After:  ~6.3k
 
-So this patch removes those preventive sfence.vma and actually handles
-the possible (and unlikely) exceptions. And since the kernel stacks
-mappings lie in the vmalloc area, this handling must be done very early
-when the trap is taken, at the very beginning of handle_exception: this
-also rules out the vmalloc allocations in the fault path.
+* lmbench - lat_pagefault
+Before: ~665k
+After:   832 (!)
 
-Link: https://lore.kernel.org/linux-riscv/20230531093817.665799-1-bjorn@kernel.org/ [1]
-Link: https://lore.kernel.org/linux-riscv/20230801090927.2018653-1-dylan@andestech.com [2]
-Link: https://lore.kernel.org/linux-riscv/20230725132246.817726-1-alexghiti@rivosinc.com/ [3]
-Link: https://lore.kernel.org/lkml/20200508144043.13893-1-joro@8bytes.org/ [4]
+* lmbench - lat_mmap
+Before: ~546k
+After:   718 (!)
+
 Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 ---
- arch/riscv/include/asm/cacheflush.h  | 18 +++++-
- arch/riscv/include/asm/thread_info.h |  7 +++
- arch/riscv/kernel/asm-offsets.c      |  7 +++
- arch/riscv/kernel/entry.S            | 87 ++++++++++++++++++++++++++++
- arch/riscv/mm/init.c                 |  2 +
- 5 files changed, 120 insertions(+), 1 deletion(-)
+ arch/riscv/include/asm/pgtable.h | 16 +++++++++++++++-
+ arch/riscv/mm/pgtable.c          | 13 +++++++++++++
+ 2 files changed, 28 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
-index ce79c558a4c8..8de73f91bfa3 100644
---- a/arch/riscv/include/asm/cacheflush.h
-+++ b/arch/riscv/include/asm/cacheflush.h
-@@ -46,7 +46,23 @@ do {							\
- } while (0)
- 
- #ifdef CONFIG_64BIT
--#define flush_cache_vmap(start, end)		flush_tlb_kernel_range(start, end)
-+extern u64 new_vmalloc[NR_CPUS / sizeof(u64) + 1];
-+extern char _end[];
-+#define flush_cache_vmap flush_cache_vmap
-+static inline void flush_cache_vmap(unsigned long start, unsigned long end)
-+{
-+	if (is_vmalloc_or_module_addr((void *)start)) {
-+		int i;
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index aad8b8ca51f1..4ed85329317d 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -476,6 +476,9 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
+ 		struct vm_area_struct *vma, unsigned long address,
+ 		pte_t *ptep, unsigned int nr)
+ {
++	asm goto(ALTERNATIVE("nop", "j %l[svvptc]", 0, RISCV_ISA_EXT_SVVPTC, 1)
++		 : : : : svvptc);
 +
-+		/*
-+		 * We don't care if concurrently a cpu resets this value since
-+		 * the only place this can happen is in handle_exception() where
-+		 * an sfence.vma is emitted.
-+		 */
-+		for (i = 0; i < ARRAY_SIZE(new_vmalloc); ++i)
-+			new_vmalloc[i] = -1ULL;
-+	}
-+}
- #define flush_cache_vmap_early(start, end)	local_flush_tlb_kernel_range(start, end)
- #endif
- 
-diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
-index 5d473343634b..0ddf1123b5ba 100644
---- a/arch/riscv/include/asm/thread_info.h
-+++ b/arch/riscv/include/asm/thread_info.h
-@@ -60,6 +60,13 @@ struct thread_info {
- 	void			*scs_base;
- 	void			*scs_sp;
- #endif
-+#ifdef CONFIG_64BIT
-+	/*
-+	 * Used in handle_exception() to save a0, a1 and a2 before knowing if we
-+	 * can access the kernel stack.
-+	 */
-+	unsigned long		a0, a1, a2;
-+#endif
- };
- 
- #ifdef CONFIG_SHADOW_CALL_STACK
-diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
-index b09ca5f944f7..e94180ba432f 100644
---- a/arch/riscv/kernel/asm-offsets.c
-+++ b/arch/riscv/kernel/asm-offsets.c
-@@ -36,6 +36,8 @@ void asm_offsets(void)
- 	OFFSET(TASK_THREAD_S9, task_struct, thread.s[9]);
- 	OFFSET(TASK_THREAD_S10, task_struct, thread.s[10]);
- 	OFFSET(TASK_THREAD_S11, task_struct, thread.s[11]);
-+
-+	OFFSET(TASK_TI_CPU, task_struct, thread_info.cpu);
- 	OFFSET(TASK_TI_FLAGS, task_struct, thread_info.flags);
- 	OFFSET(TASK_TI_PREEMPT_COUNT, task_struct, thread_info.preempt_count);
- 	OFFSET(TASK_TI_KERNEL_SP, task_struct, thread_info.kernel_sp);
-@@ -43,6 +45,11 @@ void asm_offsets(void)
- #ifdef CONFIG_SHADOW_CALL_STACK
- 	OFFSET(TASK_TI_SCS_SP, task_struct, thread_info.scs_sp);
- #endif
-+#ifdef CONFIG_64BIT
-+	OFFSET(TASK_TI_A0, task_struct, thread_info.a0);
-+	OFFSET(TASK_TI_A1, task_struct, thread_info.a1);
-+	OFFSET(TASK_TI_A2, task_struct, thread_info.a2);
-+#endif
- 
- 	OFFSET(TASK_TI_CPU_NUM, task_struct, thread_info.cpu);
- 	OFFSET(TASK_THREAD_F0,  task_struct, thread.fstate.f[0]);
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 68a24cf9481a..d80b90f99bc1 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -19,6 +19,79 @@
- 
- 	.section .irqentry.text, "ax"
- 
-+.macro new_vmalloc_check
-+	REG_S 	a0, TASK_TI_A0(tp)
-+	csrr 	a0, CSR_CAUSE
-+	/* Exclude IRQs */
-+	blt  	a0, zero, _new_vmalloc_restore_context_a0
-+
-+	REG_S 	a1, TASK_TI_A1(tp)
-+	/* Only check new_vmalloc if we are in page/protection fault */
-+	li   	a1, EXC_LOAD_PAGE_FAULT
-+	beq  	a0, a1, _new_vmalloc_kernel_address
-+	li   	a1, EXC_STORE_PAGE_FAULT
-+	beq  	a0, a1, _new_vmalloc_kernel_address
-+	li   	a1, EXC_INST_PAGE_FAULT
-+	bne  	a0, a1, _new_vmalloc_restore_context_a1
-+
-+_new_vmalloc_kernel_address:
-+	/* Is it a kernel address? */
-+	csrr 	a0, CSR_TVAL
-+	bge 	a0, zero, _new_vmalloc_restore_context_a1
-+
-+	/* Check if a new vmalloc mapping appeared that could explain the trap */
-+	REG_S	a2, TASK_TI_A2(tp)
-+	/*
-+	 * Computes:
-+	 * a0 = &new_vmalloc[BIT_WORD(cpu)]
-+	 * a1 = BIT_MASK(cpu)
-+	 */
-+	REG_L 	a2, TASK_TI_CPU(tp)
-+	/*
-+	 * Compute the new_vmalloc element position:
-+	 * (cpu / 64) * 8 = (cpu >> 6) << 3
-+	 */
-+	srli	a1, a2, 6
-+	slli	a1, a1, 3
-+	la	a0, new_vmalloc
-+	add	a0, a0, a1
-+	/*
-+	 * Compute the bit position in the new_vmalloc element:
-+	 * bit_pos = cpu % 64 = cpu - (cpu / 64) * 64 = cpu - (cpu >> 6) << 6
-+	 * 	   = cpu - ((cpu >> 6) << 3) << 3
-+	 */
-+	slli	a1, a1, 3
-+	sub	a1, a2, a1
-+	/* Compute the "get mask": 1 << bit_pos */
-+	li	a2, 1
-+	sll	a1, a2, a1
-+
-+	/* Check the value of new_vmalloc for this cpu */
-+	REG_L	a2, 0(a0)
-+	and	a2, a2, a1
-+	beq	a2, zero, _new_vmalloc_restore_context
-+
-+	/* Atomically reset the current cpu bit in new_vmalloc */
-+	amoxor.d	a0, a1, (a0)
-+
-+	/* Only emit a sfence.vma if the uarch caches invalid entries */
-+	ALTERNATIVE("sfence.vma", "nop", 0, RISCV_ISA_EXT_SVVPTC, 1)
-+
-+	REG_L	a0, TASK_TI_A0(tp)
-+	REG_L	a1, TASK_TI_A1(tp)
-+	REG_L	a2, TASK_TI_A2(tp)
-+	csrw	CSR_SCRATCH, x0
-+	sret
-+
-+_new_vmalloc_restore_context:
-+	REG_L 	a2, TASK_TI_A2(tp)
-+_new_vmalloc_restore_context_a1:
-+	REG_L 	a1, TASK_TI_A1(tp)
-+_new_vmalloc_restore_context_a0:
-+	REG_L	a0, TASK_TI_A0(tp)
-+.endm
-+
-+
- SYM_CODE_START(handle_exception)
  	/*
- 	 * If coming from userspace, preserve the user thread pointer and load
-@@ -30,6 +103,20 @@ SYM_CODE_START(handle_exception)
- 
- .Lrestore_kernel_tpsp:
- 	csrr tp, CSR_SCRATCH
+ 	 * The kernel assumes that TLBs don't cache invalid entries, but
+ 	 * in RISC-V, SFENCE.VMA specifies an ordering constraint, not a
+@@ -485,12 +488,23 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
+ 	 */
+ 	while (nr--)
+ 		local_flush_tlb_page(address + nr * PAGE_SIZE);
 +
-+#ifdef CONFIG_64BIT
++svvptc:;
 +	/*
-+	 * The RISC-V kernel does not eagerly emit a sfence.vma after each
-+	 * new vmalloc mapping, which may result in exceptions:
-+	 * - if the uarch caches invalid entries, the new mapping would not be
-+	 *   observed by the page table walker and an invalidation is needed.
-+	 * - if the uarch does not cache invalid entries, a reordered access
-+	 *   could "miss" the new mapping and traps: in that case, we only need
-+	 *   to retry the access, no sfence.vma is required.
++	 * Svvptc guarantees that the new valid pte will be visible within
++	 * a bounded timeframe, so when the uarch does not cache invalid
++	 * entries, we don't have to do anything.
 +	 */
-+	new_vmalloc_check
-+#endif
+ }
+ #define update_mmu_cache(vma, addr, ptep) \
+ 	update_mmu_cache_range(NULL, vma, addr, ptep, 1)
+ 
+ #define __HAVE_ARCH_UPDATE_MMU_TLB
+-#define update_mmu_tlb update_mmu_cache
++static inline void update_mmu_tlb(struct vm_area_struct *vma,
++				  unsigned long address, pte_t *ptep)
++{
++	flush_tlb_range(vma, address, address + PAGE_SIZE);
++}
+ 
+ static inline void update_mmu_cache_pmd(struct vm_area_struct *vma,
+ 		unsigned long address, pmd_t *pmdp)
+diff --git a/arch/riscv/mm/pgtable.c b/arch/riscv/mm/pgtable.c
+index 533ec9055fa0..4ae67324f992 100644
+--- a/arch/riscv/mm/pgtable.c
++++ b/arch/riscv/mm/pgtable.c
+@@ -9,6 +9,9 @@ int ptep_set_access_flags(struct vm_area_struct *vma,
+ 			  unsigned long address, pte_t *ptep,
+ 			  pte_t entry, int dirty)
+ {
++	asm goto(ALTERNATIVE("nop", "j %l[svvptc]", 0, RISCV_ISA_EXT_SVVPTC, 1)
++		 : : : : svvptc);
 +
- 	REG_S sp, TASK_TI_KERNEL_SP(tp)
- 
- #ifdef CONFIG_VMAP_STACK
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index e3405e4b99af..2367a156c33b 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -36,6 +36,8 @@
- 
- #include "../kernel/head.h"
- 
-+u64 new_vmalloc[NR_CPUS / sizeof(u64) + 1];
+ 	if (!pte_same(ptep_get(ptep), entry))
+ 		__set_pte_at(vma->vm_mm, ptep, entry);
+ 	/*
+@@ -16,6 +19,16 @@ int ptep_set_access_flags(struct vm_area_struct *vma,
+ 	 * the case that the PTE changed and the spurious fault case.
+ 	 */
+ 	return true;
 +
- struct kernel_mapping kernel_map __ro_after_init;
- EXPORT_SYMBOL(kernel_map);
- #ifdef CONFIG_XIP_KERNEL
++svvptc:
++	if (!pte_same(ptep_get(ptep), entry)) {
++		__set_pte_at(vma->vm_mm, ptep, entry);
++		/* Here only not svadu is impacted */
++		flush_tlb_page(vma, address);
++		return true;
++	}
++
++	return false;
+ }
+ 
+ int ptep_test_and_clear_young(struct vm_area_struct *vma,
 -- 
 2.39.2
 
