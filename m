@@ -4,129 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDCB9C3DA49
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jul 2024 00:05:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0192C3DA59
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jul 2024 01:16:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eFbNlpJaoMVtK3Qv+iMPaG9y74O+AVYarnFll1eX/NE=; b=YiwC1eZbv+LP7u0+3lEekv+z4m
-	nX9snBEu0z1vtcCbJ2jwBr+nCJAbqjBCl8CeWIu1Ozwd2zV8p6yOTTK8tKIhWZh9z/ulOA0mAPIbu
-	NMc/O7HUPa1DdlUagZ29LauzlHH3ar13qB9r7axaX4yI/z7Q4cKKkPAQQyIM/xiz1Ht2wyjna9VEz
-	VclzVzzZJ1i0eD4F5nFxlq3QWg+25QTpJVbsuTu5adKsmGDJ834mwALMLkMLu+BKUyxP1RSnqhsKm
-	lQKc6QVstT2nVt9+z1m2iZ7WQI+f5Pw/rlmwYL43MWuML7AIPRF012Ecaoz82ExK3du0gIfZevmkC
-	c60bWiBw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=k/QXZfI2Myg6jG2AP/JNCwYuJMHQMZMgXOhIv7HzbIY=; b=LDv8cmerigHlmD
+	r0oEtSOOyH1APwLn0WpZEoDzVL9RRRQ31nk0Vh4BafzgFl73U8nWVLQWOtjBzu6ofG9QPi3xLfjai
+	G+UeHuHqPVH/s7uvmkY+cW6FEIMqXRHToE2PgqVk46lxOVDzPU+9Ohn4G+3hT0vOioiKoyvOGtW7o
+	j7aa+8ttE02GSwz1CBvO7AygSg16vYtDjAEowL2e9dqpFAXuJ7FmHd3fSxcDqtolVAmKwr2GAYc1Y
+	VXU0+0nNR03zHGctaJhV01EAg0JqsOyLodiuJHOvBY8cExgsShybCyT+W3Vyep1q5lJlXAH4g53TO
+	6IGKSLqlaB9tF/BcY/SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sTsB2-0000000C7rS-3FSw;
-	Wed, 17 Jul 2024 00:05:49 +0000
-Received: from mail-bmxind01olkn2080c.outbound.protection.outlook.com ([2a01:111:f403:281c::80c] helo=IND01-BMX-obe.outbound.protection.outlook.com)
+	id 1sTtGw-0000000CEyJ-1jpJ;
+	Wed, 17 Jul 2024 01:15:58 +0000
+Received: from mail-oo1-xc36.google.com ([2607:f8b0:4864:20::c36])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sTsAz-0000000C7po-2bAl
+	id 1sTtGr-0000000CExa-2vxp
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 Jul 2024 00:05:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XpRbmPCTFQNWz31F1sHKL2631773JZtfwpQDlCO1Do863aINN2J0uUA1a7NARhEjDS96oW2iYIRXbCpZ3W2sVTzvinDi7V/Gbj8qBLBJ+7laMEe5tgnsMu4/wk62co2xvqAT4f+ua5aMd7mZ9jYj/NkMU8QGiNMgumXWybp+lXjY/EOTKX8zk0L+rEyjr88qBypYmfDxgPZzH+gjkKbQipxO59vwZcD4hLJN0lG4pX+zSbIkVXkCL5LA0jG4Mhrv2pEtlyg8pPUoc42wR/A44CcDs0oiUXE84xMVsK6EZ8JIKMkBUacJn3rcD8DhdLvxcRy0raj9eGXrZUcX2dLYWQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=FrAFoceKbzCmnB43qcb4eqFSbqhe6i9j124s71Gk6ME=;
- b=COpgTSI6bosNb5etA/5Z4lLVCOeUtyp3S7kjWWzv/E9nVOEss5TvUfI+d4lZf948Kdt3wvXWIv93rwB2GwMXfYKv+g9/FeDXYYJMzXpQ5lULsJsv6MNvjFzy21cs7t3ltUni5kS5pGpHl3qyq4Wf7nVWdadLGCCPNC766SHCxjIT2OEwCFM40Hp227RcbEp5IJHdnuiWjME7HrjHIkIAAjmROM6LLrKJ2rkfn+Ro2v8/N+bMiRsMuGPaYBDqtfNxf3V4IOMKclShnvVZWl5+6/gZzlGQ71fiXem6M6EQkem5G7ghQFFb6I5FX/lbQKBssCNGSiCZIeWTatP7OEGYlw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=FrAFoceKbzCmnB43qcb4eqFSbqhe6i9j124s71Gk6ME=;
- b=YJFA0oA03u1t+gJRrSORrUXKIWq/L/sT7fJ4XBiMmJh37LWX61IHacUV9gurx3udzHcPjij5NnB2ElLASGMlzCcB86o1OfeDLb6EGK4+1g3NTP77pP/AWIs7ISPdYbL/lTgrafU6aaNb572/HoJIl8u7jHbsBY452CdGhp3AWqd3gqEsW+f/JBnm8dmJ1G6hbMjl3hWIX/tRGuZjFqF2ZOJAHukOUNO056+v1Udmmn2/gLzRkqfgYZxx1ZUINHU/aZ4jy5soqpKIi0eE4eQV1e8LRa71wpBdXKp4XTNjVmZcSvvdb5FuUFncGbimjM81oR//hBLdKbYFKbRb+GVH0A==
-Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:138::5)
- by PN2P287MB0127.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:f2::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7784.14; Wed, 17 Jul
- 2024 00:05:17 +0000
-Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- ([fe80::a94:ad0a:9071:806c]) by MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- ([fe80::a94:ad0a:9071:806c%5]) with mapi id 15.20.7762.027; Wed, 17 Jul 2024
- 00:05:17 +0000
-Message-ID: <MA0P287MB28228BA5CC8B6F61A4C237E9FEA32@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
-Date: Wed, 17 Jul 2024 08:05:10 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/3] dt-bindings: thermal: sophgo,cv1800-thermal: Add
- Sophgo CV1800 thermal
-To: Conor Dooley <conor@kernel.org>, Haylen Chu <heylenay@outlook.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Inochi Amaoto <inochiama@outlook.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Jisheng Zhang <jszhang@kernel.org>, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-References: <SEYPR01MB422158B2766DA03728AD90CBD7A22@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
- <SEYPR01MB4221281561CCE511A5094D28D7A22@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
- <MA0P287MB2822445DD34485B94D22E7FFFEA22@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
- <20240716-cloning-canopy-a6799dc7f3b9@spud>
-From: Chen Wang <unicorn_wang@outlook.com>
-In-Reply-To: <20240716-cloning-canopy-a6799dc7f3b9@spud>
-X-TMN: [5z3UkJHxCw2SmGiwl/TIWg1R18hcSlqj]
-X-ClientProxiedBy: SI2PR02CA0045.apcprd02.prod.outlook.com
- (2603:1096:4:196::21) To MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:138::5)
-X-Microsoft-Original-Message-ID: <5328125e-f851-49f1-b3ab-b72b5f4b106c@outlook.com>
+	Wed, 17 Jul 2024 01:15:56 +0000
+Received: by mail-oo1-xc36.google.com with SMTP id 006d021491bc7-5cdf7edddc5so199488eaf.0
+        for <linux-riscv@lists.infradead.org>; Tue, 16 Jul 2024 18:15:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1721178952; x=1721783752; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=wEUpYDGdX5lK9tIEEyrjSHz4yYVdmswjNv1Bx1TiqLg=;
+        b=UjnqYK1Pdeqf87Pv1rTpOcvOn1wVF2/qqnPfOGqwSBM6KWgFGQc1RuFO6EUbGh6ANf
+         cIe+hiw1omzLzvZKUT1mZ1Z/mFr6tEZrJ8diQuhlV/Vgo01WimZNCoVP1Y4kR9qn5gvW
+         fqujFhqOdgdRKuuFZi0Kypk+xMheh6VwCfWfl2pryirdr9d3CgkxcxUHI/AhZIeYRLVm
+         BJhq/acs1c9rMZ7zB6ls1vlAxHq3EOVE93DNyR4JPHUxKcWi6+AXkVQx5pgCJXecSKQx
+         qWTyJxKHC3vnI3OLkpQIwED3mg2V9Y2jO9DsRDEZ+Fu3seOgJQANI4s7Vg40TeOLM1tx
+         Gkxg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1721178952; x=1721783752;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=wEUpYDGdX5lK9tIEEyrjSHz4yYVdmswjNv1Bx1TiqLg=;
+        b=U0soKZrQU/Noe6dfmwTTUqJy263wD9t+astPF3U0rBT7ld/2+5b0VFyhjJQkmX4Bxy
+         cVMUeH4xk2yDfzcPRZBJEQxs8YXocwmMlGc0uqq5l9g1oQKbWt6a1yxro5EoThFab3/N
+         xt2Yy6OGk1HWnWo0s1q/kslX/BTERY6i7nuDMTDsKDNBdgZYkmXO0GthTAoDwbArbbDH
+         c87XoRwrzYdyCaxAjJq7pD3TFPdaNeb3Zi2G7HCUC9idp71Y0VcUc+blt4PkI8z6OQr6
+         x00Zp32GhfP/aEzD+Cwz0eqadOYYttgO4BBwXLfs0GUfWjLgFy9zdnJL5aIfusXtP5q5
+         hNbQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUnz81pfHGZC9dzgVE8G6kKgV2YjPna4Ek/lAC+2MbSRisbkdDCgB6+06jqvqNmoOdWqOu8z+6SwH/gohJ1E/Q//tT0WGqPGdfiBbKtF927
+X-Gm-Message-State: AOJu0YzD5Hs57JaWkBn9up9iEDejX6w1AoYYhgL0Pm+1ltuWQohlTC/r
+	NU8TgnNJc+diTWkMpAcZX5Qu8p9eUKFUYlF43dnKlYr2z97f820B9mQFcxIKwH8v7bgdkwiiLzR
+	MDCTOiBEcyICfa12dhYMteyxEnIs=
+X-Google-Smtp-Source: AGHT+IEaHceH9gR31knisVH1Y/FJiWaha8+lmXmk3GDYifVrdzmXRQGZdEQq5dsRWC64P9siHh14K++VjMZXVtuwmhQ=
+X-Received: by 2002:a05:6870:c081:b0:25d:53ff:7543 with SMTP id
+ 586e51a60fabf-260d905da13mr146014fac.22.1721178952239; Tue, 16 Jul 2024
+ 18:15:52 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MA0P287MB2822:EE_|PN2P287MB0127:EE_
-X-MS-Office365-Filtering-Correlation-Id: c764be03-4ebf-419a-4e90-08dca5f423aa
-X-Microsoft-Antispam: BCL:0;ARA:14566002|461199028|8060799006|19110799003|440099028|3412199025|4302099013|1602099012;
-X-Microsoft-Antispam-Message-Info: eQydvmU+8rmx1m/GQU/7gA5Te4zJYk0zkMpcK2jN/LKhd5mADz0p4GY/cuawv+Md3ZrorxnQEED4H0PQVyiIAfuq7POCgJp8U286SDPIohiKsoCsDrD1nZYQIs7I5t9HroLVpR9wY5uEPmYHcxpHtSAXHMDvWNim/nJ970WvEuEQOWY9/+A/ovGxM2IUD1SU2v5GnBj4202ZYDT2m8xRldMsrvB3FLA3atNsWEIETxv3ZBEteAxDTbTucHMzl/ZlCxm7+MHi7gMzois7re1amH47AxpNHRbJY/lOVMECxfJeheln5Lc/05E8BZWLbvQ93spUOk1snyZk+rGh7A5LQs7+QMEINLlIDcJAl/yMaMDdv5mK6Mj1z9mfB5ZiE+ixOzTktsq0JcDkuN9F7oELMW+erya4c/onr0bY1n6ZXZpO3DanvXW6xs6qesGSgmG2qpbjURmt5xTKnke7buQVY3ybljsmV+HOgCuw2DIyH67sQoHZCUapWxHBZ7wUnNkHogOFdP6GumPYIEIQOY0TKSfGOpIs+se3bU9mLXo3RoSYwGytqOZQJRabA9yWgkpARug9GKTMXa+u/l20Z2YxNbDlgmwHEGgY12ae3D0XXA4BvVDB4uo9QXNQ5Yqgf5Ze1m9zvaB2a5r6FkrN5s7BYLEEZ9BxCL7pE0H5HC6ZgxKVX15o18LTZbBLrHpNoLHQwtGlxgBEko8TCGOwcqhDOiN+oerMs/scmklM7Hzybbkq7QYgqbvOv9W7sCuuN8PxCRSLUy+iED29H9AdNpmpAg==
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VWl4eUV1QXp1c2dUY3lla0JvcmlWU0NQVUxhVHc5L0UxWDFtTm4vT2c4SDdj?=
- =?utf-8?B?ZXpBakFFYXYzNlJoVnlKanpSN3pOVnJNRmJ2VnhMVFNWNVFqSGQ1Vm1kWVM1?=
- =?utf-8?B?aDZwZE82N00wMWt0cmYrNUZnSFhpbFJ6d3RJSlloT2lEUkEwTnR3OHZjM0sv?=
- =?utf-8?B?YnFBUVN1WGVQU05iVDhWV0tCVU16S3JSaE0vNzkwME0vZnRzYVJIeTRJQTVz?=
- =?utf-8?B?OVpGc0o4azlvMU1UQzB2eFI1ek9kNEhRT2pFL2tvNkNpMU41ZEpSaUYzSnBv?=
- =?utf-8?B?WVNVRnBKMi9CNlhVZk5pOFlQLzZHV2d3VStTWjZYU1hjL1JEbUFIdFo1VWRp?=
- =?utf-8?B?cDJkSVM1aTArSmI3NlgyZG1UU2RRMS9yOVR3c05kdDd3V1Z0VGJ0Wm9ITk01?=
- =?utf-8?B?OUhNb2VKLzVjcUtXa29rVXdVOVhhY2pqOUpDRnkzd3ZBSC8vc2tNUVhHK3U5?=
- =?utf-8?B?L2xKMHZmSWRoaG02VUNJN0tsWGR2TGt0RDZtb1BwNEhYTGs1QktncFA0R2N3?=
- =?utf-8?B?TGxYVTVaTG5uYzR4ZXFhL3pSd0NPUHdQRDVUVGpLZDhuNHRYcTBWKzlER0hw?=
- =?utf-8?B?a2VHelQ4c28xZ0hvTHBscEFkYk5UZUpWNjJQSVZOTVRPV3pScldWVW84bXM5?=
- =?utf-8?B?eEFwUHRZYi9kaEpDa0YwTVUvREJMZEJtTnBUR0pOZzlTQXFSUzRvL09zKzR4?=
- =?utf-8?B?bFRHdnVMTUI2STgvUHFhVUZIWGZJSFdVMjlqc2hralM0SHdUeGFTNDNrSnFR?=
- =?utf-8?B?TzBueXlwV0ZaVUJhV1ozcmZvL3krMXNLQnpJNXBsKzlTYlNIOG9nbXhIb3lB?=
- =?utf-8?B?dnJrWUNzMDg2Y2R6c2N2UjZQekdsdHJMc0hXckpkUjVsU3FTZjNEY2RCVk1a?=
- =?utf-8?B?QW9XL0tCMVRIOUFlYldTNlZXVmZNUnlXVWxQTW9CWkI3OUhrUi9yK3pqWW1q?=
- =?utf-8?B?TnpjN2lDeFlaQnV4a1ZPYUNYTU83RnlJWnhpTkU4UW4wQWpoQWN1N3dzSWd2?=
- =?utf-8?B?eUxaQTRSYjVqVFo5WDY1OFlVWS9tM2pOdVFyVndZZTNOVk9Nck9yTEJCeXE1?=
- =?utf-8?B?WXhIUjdJMUZmVXQrK20vcHpVS0loMzVyaEM3MHk2aVpiWnl1bkROOEljVGho?=
- =?utf-8?B?bWFMMGZsMExUdkdhZDhEWWZxSk5NakZXNXFCY2N4eHFqWDNMN28zVXI1Tm1y?=
- =?utf-8?B?cW5LYituVUk3bmx3eWd2Tmw1MjhlUkUwM3NTMHpST1lmRjMwcjdsUWQxV3Jw?=
- =?utf-8?B?Yms0b3NVUWFmRUg0cnhRRnp0QjVuTkM0VlpVYVhkM2RBQlN2MUF2dldBUkVl?=
- =?utf-8?B?c1dSYTQ0MWVFQUg5V00xbW5DZG9RcU1OWEgwdWxYU1MwY2t5Uk1OR1pKLzZ0?=
- =?utf-8?B?MXRGZHJReDBON1M3ZmtPZXkvZE11Qk5oR0pjYXZNUVhla0x0K3hJZWovZ0Y3?=
- =?utf-8?B?YnZJMFA0UjYwYmVPQWlHRm9ITE9IKzhnVnF5N09mWjM0N28wU3hHRXFrUVlK?=
- =?utf-8?B?RE9sMW9UMmVLeHlTUkROcVlFK1pKUVZHZ3grOFYxVnA2ZWVoR29wdDluREd3?=
- =?utf-8?B?NHAzcVlwRyt1R0cwVDl4Y2NFMHdQdU81VnArdUQvNHk0aHY5ZEMwTXV6S2VM?=
- =?utf-8?B?K2F0djB3VDduSk9LUDdid2lZdnUyMlRoR3IvUlNUaEs3NWpNK1E0QVVSSWov?=
- =?utf-8?Q?EOb70G0rTm9vkeGFkhTT?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c764be03-4ebf-419a-4e90-08dca5f423aa
-X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2024 00:05:17.0857
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN2P287MB0127
+References: <20240710033004.3923527-1-zhangchunyan@iscas.ac.cn>
+ <9bf70f7c-5deb-4fce-b7c1-ec70d78cb5db@ghiti.fr> <CAAfSe-vhhVvP5Sa9bGGSw4ZQvexqUrjdTFjJL-4gLn0jsuk0ew@mail.gmail.com>
+ <cab9dc95-c40c-4c4e-a91d-5698cbd5b4d2@ghiti.fr>
+In-Reply-To: <cab9dc95-c40c-4c4e-a91d-5698cbd5b4d2@ghiti.fr>
+From: Chunyan Zhang <zhang.lyra@gmail.com>
+Date: Wed, 17 Jul 2024 09:15:15 +0800
+Message-ID: <CAAfSe-tdFjDwSob6M3mQxaa2SPyYOK0V8dyx_kz9ac_4-iAH+Q@mail.gmail.com>
+Subject: Re: [PATCH] riscv/mm: Add soft-dirty page tracking support
+To: Alexandre Ghiti <alex@ghiti.fr>
+Cc: Chunyan Zhang <zhangchunyan@iscas.ac.cn>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Andrew Morton <akpm@linux-foundation.org>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240716_170545_673813_7908A02E 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20240716_181553_769146_229DEFE1 
+X-CRM114-Status: GOOD (  43.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,68 +88,247 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Tue, 16 Jul 2024 at 21:00, Alexandre Ghiti <alex@ghiti.fr> wrote:
+>
+> Hi Chunyan,
+>
+> On 16/07/2024 04:16, Chunyan Zhang wrote:
+> > Hi Alex,
+> >
+> > On Mon, 15 Jul 2024 at 19:21, Alexandre Ghiti <alex@ghiti.fr> wrote:
+> >> Hi Chunyan,
+> >>
+> >> On 10/07/2024 05:30, Chunyan Zhang wrote:
+> >>> The PTE bit (9) is reserved for software, so we can use it for
+> >>> soft-dirty tracking. This patch adds its standard handlers for
+> >>> PTE, PMD, and swap entry.
+> >>
+> >> Unfortunately, ZONE_DEVICE has just used this last bit and should be
+> >> merged in 6.11.
+> > Yes, I read the patch just now.
+> >
+> >> I'm currently discussing internally how we can get 2 other PTE bits from
+> >> RVI in order to have the same number of available bits as x86 and arm64.
+> > Yes I noticed that PTE bits reserved for software are too limited on RISC-V.
+> >
+> > Besides softdirty, we probably can support uffd write-protect on
+> > RISC-V if we will have two PTE bits for use.
+>
+>
+> Indeed, softdirty and uffd-wp will use two PTE bits.
+>
+>
+> >
+> >> I guess that for now, if we really have a usecase for softdirty (and I
+> >> think we do with CRIU), we'll have to make ZONE_DEVICE and soft-dirty
+> >> mutually exclusive.
+> > Yes, I also learned that CRIU uses soft-dirty.
+> >
+> >>> To add swap PTE soft-dirty tracking, we borrow bit (4) which is
+> >>> available for swap PTEs on RISC-V systems.
+> >>>
+> >>> This patch has been tested with the kselftest mm suite in which
+> >>> soft-dirty and madv_populate run and pass, and no regressions
+> >>> are observed in any of the other tests.
+> >>
+> >> Did you give CRIU a try?
+> > I haven't tried CRIU, actually I found soft-dirty was missing on
+> > RISC-V by the way of running mm selftest cases.
+>
+>
+> Since CRIU is the main user (?) of softdirty, it would be really nice if
+> you can test it :)
 
-On 2024/7/16 23:48, Conor Dooley wrote:
-> On Tue, Jul 16, 2024 at 08:43:19PM +0800, Chen Wang wrote:
->> On 2024/7/16 17:42, Haylen Chu wrote:
->>> Add devicetree binding documentation for thermal sensors integrated in
->>> Sophgo CV180X SoCs.
->>>
->>> Signed-off-by: Haylen Chu <heylenay@outlook.com>
->>> ---
->>>    .../thermal/sophgo,cv1800-thermal.yaml        | 55 +++++++++++++++++++
->> I see sometimes you call it cv1800, and in patch 3, the file name is
->> cv180x_thermal.c, and for dts changes, you changed cv18xx.dtsi. Please unify
->> it.
->>
->> I think sg200x is new name for cv181x serias, so if you want to cover
->> cv180x/sg200x, is cv18xx better?
->>
->>>    1 file changed, 55 insertions(+)
->>>    create mode 100644 Documentation/devicetree/bindings/thermal/sophgo,cv1800-thermal.yaml
->>>
->>> diff --git a/Documentation/devicetree/bindings/thermal/sophgo,cv1800-thermal.yaml b/Documentation/devicetree/bindings/thermal/sophgo,cv1800-thermal.yaml
->>> new file mode 100644
->>> index 000000000000..58bd4432cd10
->>> --- /dev/null
->>> +++ b/Documentation/devicetree/bindings/thermal/sophgo,cv1800-thermal.yaml
->>> @@ -0,0 +1,55 @@
->>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
->>> +%YAML 1.2
->>> +---
->>> +$id: http://devicetree.org/schemas/thermal/sophgo,cv1800-thermal.yaml#
->>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>> +
->>> +title: Sophgo CV1800 on-SoC Thermal Sensor
->>> +
->>> +maintainers:
->>> +  - Haylen Chu <heylenay@outlook.com>
->>> +
->>> +description: Sophgo CV1800 on-SoC thermal sensor
->>> +
->>> +properties:
->>> +  compatible:
->>> +    enum:
->>> +      - sophgo,cv1800-thermal
->> cv18xx-thermal ?
-> Please, no wildcards in compatibles :/
+Sure, and will keep you updated with the progress.
 
-Sorry for my confusion.
+> >
+> > I can cook a new patch to implement soft-dirty and ZONE_DEVICE share
+> > the PTE bit(9), and make both features mutually exclusive if this
+> > solution is accepted.
+>
+>
+> I agree with this solution, let's implement both softdirty and uffd-wp
+> by sharing the last PTE bit that ZONE_DEVICE stole. At least it will
+> allow people to play with them.
 
-Haylen, so you want a compatible that matches an actual SoC and use it 
-everywhere?
+Ok, then I will do next.
 
-Or we can add ones for each SoC and have a fallback to cv1800.
+> Do you intend to work on uffd-wp? This is on my todo list, so up to you.
 
+Yes, this is not hard for me, let me take it.
 
-[......]
+Thanks for your review,
+Chunyan
 
-
+> > Or not to add soft-dirty until we have more other PTE bits that can be
+> > used for software.
+> >
+> > I'm open to listen to suggestions.
+> >
+> > Thanks,
+> > Chunyan
+>
+>
+> Thanks,
+>
+> Alex
+>
+>
+> >
+> >> Thanks,
+> >>
+> >> Alex
+> >>
+> >>
+> >>> Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+> >>> ---
+> >>>    arch/riscv/Kconfig                    |  1 +
+> >>>    arch/riscv/include/asm/pgtable-bits.h | 13 ++++++
+> >>>    arch/riscv/include/asm/pgtable.h      | 65 ++++++++++++++++++++++++++-
+> >>>    3 files changed, 78 insertions(+), 1 deletion(-)
+> >>>
+> >>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> >>> index b94176e25be1..2e3ad2925a6b 100644
+> >>> --- a/arch/riscv/Kconfig
+> >>> +++ b/arch/riscv/Kconfig
+> >>> @@ -118,6 +118,7 @@ config RISCV
+> >>>        select HAVE_ARCH_MMAP_RND_COMPAT_BITS if COMPAT
+> >>>        select HAVE_ARCH_RANDOMIZE_KSTACK_OFFSET
+> >>>        select HAVE_ARCH_SECCOMP_FILTER
+> >>> +     select HAVE_ARCH_SOFT_DIRTY
+> >>>        select HAVE_ARCH_THREAD_STRUCT_WHITELIST
+> >>>        select HAVE_ARCH_TRACEHOOK
+> >>>        select HAVE_ARCH_TRANSPARENT_HUGEPAGE if 64BIT && MMU
+> >>> diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
+> >>> index 179bd4afece4..bab48f5fd1e2 100644
+> >>> --- a/arch/riscv/include/asm/pgtable-bits.h
+> >>> +++ b/arch/riscv/include/asm/pgtable-bits.h
+> >>> @@ -19,6 +19,19 @@
+> >>>    #define _PAGE_SOFT      (3 << 8)    /* Reserved for software */
+> >>>
+> >>>    #define _PAGE_SPECIAL   (1 << 8)    /* RSW: 0x1 */
+> >>> +
+> >>> +#ifdef CONFIG_MEM_SOFT_DIRTY
+> >>> +#define _PAGE_SOFT_DIRTY     (1 << 9)    /* RSW: 0x2 for software dirty tracking */
+> >>> +/*
+> >>> + * BIT 4 is not involved into swap entry computation, so we
+> >>> + * can borrow it for swap page soft-dirty tracking.
+> >>> + */
+> >>> +#define _PAGE_SWP_SOFT_DIRTY _PAGE_USER
+> >>> +#else
+> >>> +#define _PAGE_SOFT_DIRTY     0
+> >>> +#define _PAGE_SWP_SOFT_DIRTY 0
+> >>> +#endif /* CONFIG_MEM_SOFT_DIRTY */
+> >>> +
+> >>>    #define _PAGE_TABLE     _PAGE_PRESENT
+> >>>
+> >>>    /*
+> >>> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> >>> index aad8b8ca51f1..46f512f52580 100644
+> >>> --- a/arch/riscv/include/asm/pgtable.h
+> >>> +++ b/arch/riscv/include/asm/pgtable.h
+> >>> @@ -408,7 +408,7 @@ static inline pte_t pte_mkwrite_novma(pte_t pte)
+> >>>
+> >>>    static inline pte_t pte_mkdirty(pte_t pte)
+> >>>    {
+> >>> -     return __pte(pte_val(pte) | _PAGE_DIRTY);
+> >>> +     return __pte(pte_val(pte) | _PAGE_DIRTY | _PAGE_SOFT_DIRTY);
+> >>>    }
+> >>>
+> >>>    static inline pte_t pte_mkclean(pte_t pte)
+> >>> @@ -436,6 +436,36 @@ static inline pte_t pte_mkhuge(pte_t pte)
+> >>>        return pte;
+> >>>    }
+> >>>
+> >>> +static inline int pte_soft_dirty(pte_t pte)
+> >>> +{
+> >>> +     return pte_val(pte) & _PAGE_SOFT_DIRTY;
+> >>> +}
+> >>> +
+> >>> +static inline pte_t pte_mksoft_dirty(pte_t pte)
+> >>> +{
+> >>> +     return __pte(pte_val(pte) | _PAGE_SOFT_DIRTY);
+> >>> +}
+> >>> +
+> >>> +static inline pte_t pte_clear_soft_dirty(pte_t pte)
+> >>> +{
+> >>> +     return __pte(pte_val(pte) & ~(_PAGE_SOFT_DIRTY));
+> >>> +}
+> >>> +
+> >>> +static inline int pte_swp_soft_dirty(pte_t pte)
+> >>> +{
+> >>> +     return pte_val(pte) & _PAGE_SWP_SOFT_DIRTY;
+> >>> +}
+> >>> +
+> >>> +static inline pte_t pte_swp_mksoft_dirty(pte_t pte)
+> >>> +{
+> >>> +     return __pte(pte_val(pte) | _PAGE_SWP_SOFT_DIRTY);
+> >>> +}
+> >>> +
+> >>> +static inline pte_t pte_swp_clear_soft_dirty(pte_t pte)
+> >>> +{
+> >>> +     return __pte(pte_val(pte) & ~(_PAGE_SWP_SOFT_DIRTY));
+> >>> +}
+> >>> +
+> >>>    #ifdef CONFIG_RISCV_ISA_SVNAPOT
+> >>>    #define pte_leaf_size(pte)  (pte_napot(pte) ?                               \
+> >>>                                        napot_cont_size(napot_cont_order(pte)) :\
+> >>> @@ -721,6 +751,38 @@ static inline pmd_t pmd_mkdirty(pmd_t pmd)
+> >>>        return pte_pmd(pte_mkdirty(pmd_pte(pmd)));
+> >>>    }
+> >>>
+> >>> +static inline int pmd_soft_dirty(pmd_t pmd)
+> >>> +{
+> >>> +     return pte_soft_dirty(pmd_pte(pmd));
+> >>> +}
+> >>> +
+> >>> +static inline pmd_t pmd_mksoft_dirty(pmd_t pmd)
+> >>> +{
+> >>> +     return pte_pmd(pte_mksoft_dirty(pmd_pte(pmd)));
+> >>> +}
+> >>> +
+> >>> +static inline pmd_t pmd_clear_soft_dirty(pmd_t pmd)
+> >>> +{
+> >>> +     return pte_pmd(pte_clear_soft_dirty(pmd_pte(pmd)));
+> >>> +}
+> >>> +
+> >>> +#ifdef CONFIG_ARCH_ENABLE_THP_MIGRATION
+> >>> +static inline int pmd_swp_soft_dirty(pmd_t pmd)
+> >>> +{
+> >>> +     return pte_swp_soft_dirty(pmd_pte(pmd));
+> >>> +}
+> >>> +
+> >>> +static inline pmd_t pmd_swp_mksoft_dirty(pmd_t pmd)
+> >>> +{
+> >>> +     return pte_pmd(pte_swp_mksoft_dirty(pmd_pte(pmd)));
+> >>> +}
+> >>> +
+> >>> +static inline pmd_t pmd_swp_clear_soft_dirty(pmd_t pmd)
+> >>> +{
+> >>> +     return pte_pmd(pte_swp_clear_soft_dirty(pmd_pte(pmd)));
+> >>> +}
+> >>> +#endif /* CONFIG_ARCH_ENABLE_THP_MIGRATION */
+> >>> +
+> >>>    static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
+> >>>                                pmd_t *pmdp, pmd_t pmd)
+> >>>    {
+> >>> @@ -811,6 +873,7 @@ extern pmd_t pmdp_collapse_flush(struct vm_area_struct *vma,
+> >>>     * Format of swap PTE:
+> >>>     *  bit            0:       _PAGE_PRESENT (zero)
+> >>>     *  bit       1 to 3:       _PAGE_LEAF (zero)
+> >>> + *   bit            4:       _PAGE_SWP_SOFT_DIRTY
+> >>>     *  bit            5:       _PAGE_PROT_NONE (zero)
+> >>>     *  bit            6:       exclusive marker
+> >>>     *  bits      7 to 11:      swap type
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
