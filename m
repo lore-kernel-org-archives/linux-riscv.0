@@ -4,73 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B75CBC3DA4B
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jul 2024 08:28:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17C33C3DA42
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jul 2024 08:41:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZEBtEF9dXfLtAizGYB6BBCrV3PKP0E3IKbyoL9VtQt0=; b=nLjX6ohGORCwI/
-	fHKZhEezsgcm1b3XbTR34HsWHOZOgSJGdazAy/UAMKSKjc5PYO1F+CU8dUKtDlyw/qpZ8Bd5PJ7JN
-	wdxNEHQEXEDSGu1ovLHoHNEaX8PSvfMnKGFXUNBn34cc62KsMXPSr/oFisEkwUHCQE/TNTLO6fZYi
-	ss4bMIEQ3VZ/48MX4VIu74+4frvIXWkAq08qse9T7PiSkg34WIrdAupblcYOGRc1LtfdfJtf2Jyt6
-	7r51VKEwKgAcTR3zdyKWH824J2aFkMvsaZdT/TbYtczBR3mUwmZfeLRNV0M458jVodZlWHoJK+j/Y
-	AYRgtzmA475zghPiDdpA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=vktKFCArI02xzoZuO4jQNGZ4tXyHCa0WSkKdEYK7fZo=; b=kgtu1tW04Gq0qA
+	7kGapx0bNBfVu/UzafxFfwlIPUf4wDdulz3BENefR2cQjfU+7Lo8JcQqPUsmQz05MeNUfjP/tsVPU
+	SLDmU1LNbt4iDDo2cFNfrVlZOd8kN0sm1RjzvQF8LWvFkY2440pHuGQSQ/Ba8nLJvmgy6uMfGkVPO
+	x7RvOj9l/ZWE7wt51ZsNbbNUrzFKDcLT0JZRktqdMClQhI/xz9Mp5ykDai/pwtHmwnZYm3raxJgOH
+	0IGw5RiOsPscue621+iEG0QIfCKjoWaHp3qYPeW83h6pe5iLz4Ljx65IlSLFKftSn57rwqseTG3of
+	3aqySAxNAhyQYYqIf2/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sU01G-0000000D8bb-2tw9;
-	Wed, 17 Jul 2024 08:28:14 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1sU0Ds-0000000DBFD-2ueC;
+	Wed, 17 Jul 2024 08:41:16 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sU01D-0000000D8b1-0p4I
+	id 1sU0Dn-0000000DBD2-35Bx
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 Jul 2024 08:28:12 +0000
-Received: from ubuntu-2204-dev.. (unknown [180.110.112.93])
-	by APP-01 (Coremail) with SMTP id qwCowABnbsp1gJdmjKDXAw--.5352S2;
-	Wed, 17 Jul 2024 16:27:34 +0800 (CST)
-From: Zhu Hengbo <zhuhengbo@iscas.ac.cn>
+	Wed, 17 Jul 2024 08:41:14 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4257d5fc9b7so52353575e9.2
+        for <linux-riscv@lists.infradead.org>; Wed, 17 Jul 2024 01:41:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1721205670; x=1721810470; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=viTeXUKki+C4RSOqEtc6JZRlZB9YfhZcpuRfiwEJWmA=;
+        b=TPLRP+EdYtuxDyb6cvhBKpO/hSGRtGgrSLchP6e0ndB0PQfq2OIgJFRZaQkOl/CPMd
+         45CGbkyH27ytyvH9h0Jz0X+BsN7pWTPZUigjKLTfNeO54CxHWrLkWBmwupW/igQyz3uv
+         EuUgD68G8BUCg8DWQf1PjZ2EuvsJNyVKRAlTPsTBj7/tAIGIspB6xL3VEH728WjCq4Le
+         7IVuR5TKwPtio8Y3iynRDxG3uhPYbHIHXlYMteZpHTYa6+zpxrdaP6NrJjWoD2BFEXS4
+         GHcnsRn6Lq46KLGB6Ln/XbfDnIK2fQBoGNTfJuR2ktIP/dLhvUxFBqS36TrDGRtLNqhe
+         3fGg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1721205670; x=1721810470;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=viTeXUKki+C4RSOqEtc6JZRlZB9YfhZcpuRfiwEJWmA=;
+        b=H/mbKtfh9no9UJ0t8ROgeeN0eQMkbG79w+Tn2y45VgLrzTwEUx5WRcbRdwqG4gwJ00
+         WvVxgbXqIRro17ADJ6rrTO8nScuyFbBV/4r6MZSUyw+ubAPPHZT+YI8TKdEsj2UWKrim
+         gTGRYy/1/vtYa3qmhnw0u7dvm4/IBu79j/nfU5VzioP2WB166Atlpk8HnuCXV2yiXmsy
+         TxOx2/2X0UfqrPaqZQ6FsforQEhH/GTUKcIc2+jfnL09kPFJ/Jw7cjWwOFxYf8w94Xc4
+         eoPpbJDvRRYL5fH+y15u+uTFaPXFRUc/+AAxD440J81ipejeLb2+CrpxnJR9Ry8Wo24g
+         bNYQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW/mm/JjkCVAAZiqm9oOONj5gZ2ewOHXl+Ov0EIQCx++WhwAxLjF6P7Wvl2OgrWEdtMdJad6QFNkGiSeS8W2iGJ2f9nc+0NCeO5vb44nefP
+X-Gm-Message-State: AOJu0Yz8x8osZxMs1G6K8AYqI9VNcu2RVxX/z9TiemJ+PwSmlHeyB+QV
+	+blG3ISaBDsLrhq816WDZ4E35j5jD4+YbF9nVDI7MPCljKU2rzeXu8gsI9ro6jk=
+X-Google-Smtp-Source: AGHT+IHJRc0QXrVEpcHHfalimM+vrl4OVXAX7XvhAEimTQc8pDDZRyX0mHbtVfKgSdMOkO1myMU9og==
+X-Received: by 2002:a05:600c:3595:b0:426:5c81:2538 with SMTP id 5b1f17b1804b1-427c2cb8a05mr7311085e9.14.1721205669874;
+        Wed, 17 Jul 2024 01:41:09 -0700 (PDT)
+Received: from alex-rivos.ba.rivosinc.com ([193.33.57.199])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-427ba20c8aasm29024645e9.0.2024.07.17.01.41.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 17 Jul 2024 01:41:09 -0700 (PDT)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Zhu Hengbo <zhuhengbo@iscas.ac.cn>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Kefeng Wang <wangkefeng.wang@huawei.com>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Jason Baron <jbaron@akamai.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Hao Luo <haoluo@google.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	Pu Lehui <pulehui@huawei.com>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Luke Nelson <luke.r.nels@gmail.com>,
+	Xi Wang <xi.wang@gmail.com>,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] riscv: add tracepoints for page fault
-Date: Wed, 17 Jul 2024 08:27:19 +0000
-Message-Id: <20240717082728.84401-1-zhuhengbo@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20240715101400.39103-1-zhuhengbo@iscas.ac.cn>
-References: <20240715101400.39103-1-zhuhengbo@iscas.ac.cn>
+	linux-kernel@vger.kernel.org,
+	bpf@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>
+Subject: [PATCH] riscv: patch: Remove redundant functions
+Date: Wed, 17 Jul 2024 10:41:02 +0200
+Message-Id: <20240717084102.150914-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowABnbsp1gJdmjKDXAw--.5352S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxWryrtw4xXr1DGry7Xw4DXFb_yoWrKrWkpF
-	nFkr95Gr47Xwsa93yxZwn2vF15CanYkayjgry3C3yYvw4IqryUA392q3yqyr17Ar1kGFyI
-	9F4Yyrya9w45uaUanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvY14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
-	JVWxJr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v26r
-	xl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj
-	6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWxJVW8Jr1lOx8S6xCaFVCjc4AY6r
-	1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02
-	628vn2kIc2xKxwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c
-	02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_
-	GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7
-	CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v2
-	6r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0J
-	jUTmhUUUUU=
-X-Originating-IP: [180.110.112.93]
-X-CM-SenderInfo: x2kxxvpqje0q5lvft2wodfhubq/1tbiBwkBDGaXTZmt1QABsf
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240717_012811_625206_0A190CD4 
-X-CRM114-Status: GOOD (  14.06  )
+X-CRM114-CacheID: sfid-20240717_014112_060331_06597C22 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,152 +118,190 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduce page_fault_user and page_fault_kernel for riscv page fault.
-Help to get more detail information when page fault happen.
+Commit edf2d546bfd6f5c4 ("riscv: patch: Flush the icache right after
+patching to avoid illegal insns") removed the last differences between
+patch_text_set_nosync() and patch_insn_set(), and between
+patch_text_nosync() and patch_insn_write().
 
-Signed-off-by: Zhu Hengbo <zhuhengbo@iscas.ac.cn>
+So remove the redundant *_nosync() functions.
+
+Reported-by: Geert Uytterhoeven <geert@linux-m68k.org>
+Closes: https://lore.kernel.org/linux-riscv/CAMuHMdUwx=rU2MWhFTE6KhYHm64phxx2Y6u05-aBLGfeG5696A@mail.gmail.com/
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 ---
-Changes in v2:
-- Add print instruction point info
+ arch/riscv/errata/sifive/errata.c |  4 ++--
+ arch/riscv/errata/thead/errata.c  |  2 +-
+ arch/riscv/include/asm/patch.h    |  3 +--
+ arch/riscv/kernel/alternative.c   |  4 ++--
+ arch/riscv/kernel/cpufeature.c    |  2 +-
+ arch/riscv/kernel/jump_label.c    |  2 +-
+ arch/riscv/kernel/patch.c         | 24 +-----------------------
+ arch/riscv/net/bpf_jit_core.c     |  4 ++--
+ 8 files changed, 11 insertions(+), 34 deletions(-)
 
-Simple test go below:
-
-root@riscv-ubuntu2204 ~ # bin/perf list | grep exceptions
-  exceptions:page_fault_kernel                       [Tracepoint event]
-  exceptions:page_fault_user                         [Tracepoint event]
-
-root@riscv-ubuntu2204 ~ # bin/perf record -e exceptions:page_fault_kernel -e exceptions:page_fault_user
-[ perf record: Woken up 1 times to write data ]
-[ perf record: Captured and wrote 0.091 MB perf.data (19 samples) ]
-
-perf report tracepoint:
-perf     563 [007]   115.824363:   exceptions:page_fault_user: user page fault, address=0x7fff94cf6400 epc=0x55558632808e cause=0xd
-perf     563 [007]   115.824441:   exceptions:page_fault_user: user page fault, address=0x7fff94c75400 epc=0x55558632808e cause=0xd
-perf     563 [007]   115.824518:   exceptions:page_fault_user: user page fault, address=0x7fff94bf4400 epc=0x55558632808e cause=0xd
-perf     563 [007]   115.824907: exceptions:page_fault_kernel: kernel page fault, address=0x7fff94bf5000 epc=fault_in_readable cause=0xd
-perf     563 [007]   115.825238:   exceptions:page_fault_user: user page fault, address=0x7fff94bf4408 epc=0x5555863281bc cause=0xf
-perf     564 [000]   116.247999:   exceptions:page_fault_user: user page fault, address=0x7fff94b73400 epc=0x55558632808e cause=0xd
-perf     564 [000]   116.248558:   exceptions:page_fault_user: user page fault, address=0x7fff94af2400 epc=0x55558632808e cause=0xd
----
- arch/riscv/include/asm/trace/exceptions.h | 66 +++++++++++++++++++++++
- arch/riscv/mm/fault.c                     | 15 ++++++
- 2 files changed, 81 insertions(+)
- create mode 100644 arch/riscv/include/asm/trace/exceptions.h
-
-diff --git a/arch/riscv/include/asm/trace/exceptions.h b/arch/riscv/include/asm/trace/exceptions.h
-new file mode 100644
-index 000000000000..ff258da2f45f
---- /dev/null
-+++ b/arch/riscv/include/asm/trace/exceptions.h
-@@ -0,0 +1,66 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Tracepoints for RISC-V exceptions
-+ *
-+ * Copyright (C) 2024 ISCAS. All rights reserved
-+ *
-+ */
-+
-+#if !defined(_TRACE_PAGE_FAULT_H) || defined(TRACE_HEADER_MULTI_READ)
-+#define _TRACE_PAGE_FAULT_H
-+
-+#include <linux/tracepoint.h>
-+
-+#undef TRACE_SYSTEM
-+#define TRACE_SYSTEM exceptions
-+
-+TRACE_EVENT(page_fault_user,
-+	TP_PROTO(struct pt_regs *regs),
-+	TP_ARGS(regs),
-+
-+	TP_STRUCT__entry(
-+		__field(unsigned long, address)
-+		__field(unsigned long, epc)
-+		__field(unsigned long, cause)
-+	),
-+
-+	TP_fast_assign(
-+		__entry->address	= regs->badaddr;
-+		__entry->epc		= regs->epc;
-+		__entry->cause		= regs->cause;
-+	),
-+
-+	TP_printk("user page fault, address=%ps epc=%ps cause=0x%lx",
-+			(void *)__entry->address, (void *)__entry->epc,
-+			__entry->cause)
-+);
-+
-+TRACE_EVENT(page_fault_kernel,
-+	TP_PROTO(struct pt_regs *regs),
-+	TP_ARGS(regs),
-+
-+	TP_STRUCT__entry(
-+		__field(unsigned long, address)
-+		__field(unsigned long, epc)
-+		__field(unsigned long, cause)
-+	),
-+
-+	TP_fast_assign(
-+		__entry->address	= regs->badaddr;
-+		__entry->epc		= regs->epc;
-+		__entry->cause		= regs->cause;
-+	),
-+
-+	TP_printk("kernel page fault, address=%ps epc=%ps cause=0x%lx",
-+			(void *)__entry->address, (void *)__entry->epc,
-+			__entry->cause)
-+);
-+
-+#undef TRACE_INCLUDE_PATH
-+#undef TRACE_INCLUDE_FILE
-+#define TRACE_INCLUDE_PATH asm/trace/
-+#define TRACE_INCLUDE_FILE exceptions
-+#endif /*  _TRACE_PAGE_FAULT_H */
-+
-+/* This part must be outside protection */
-+#include <trace/define_trace.h>
-diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
-index 5224f3733802..22874074c5bc 100644
---- a/arch/riscv/mm/fault.c
-+++ b/arch/riscv/mm/fault.c
-@@ -22,6 +22,10 @@
+diff --git a/arch/riscv/errata/sifive/errata.c b/arch/riscv/errata/sifive/errata.c
+index 716cfedad3a2..5253b205aa17 100644
+--- a/arch/riscv/errata/sifive/errata.c
++++ b/arch/riscv/errata/sifive/errata.c
+@@ -112,8 +112,8 @@ void sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
+ 		tmp = (1U << alt->patch_id);
+ 		if (cpu_req_errata & tmp) {
+ 			mutex_lock(&text_mutex);
+-			patch_text_nosync(ALT_OLD_PTR(alt), ALT_ALT_PTR(alt),
+-					  alt->alt_len);
++			patch_insn_write(ALT_OLD_PTR(alt), ALT_ALT_PTR(alt),
++					 alt->alt_len);
+ 			mutex_unlock(&text_mutex);
+ 			cpu_apply_errata |= tmp;
+ 		}
+diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
+index bf6a0a6318ee..0ce280a190b6 100644
+--- a/arch/riscv/errata/thead/errata.c
++++ b/arch/riscv/errata/thead/errata.c
+@@ -182,7 +182,7 @@ void thead_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
+ 				memcpy(oldptr, altptr, alt->alt_len);
+ 			} else {
+ 				mutex_lock(&text_mutex);
+-				patch_text_nosync(oldptr, altptr, alt->alt_len);
++				patch_insn_write(oldptr, altptr, alt->alt_len);
+ 				mutex_unlock(&text_mutex);
+ 			}
+ 		}
+diff --git a/arch/riscv/include/asm/patch.h b/arch/riscv/include/asm/patch.h
+index 9f5d6e14c405..6b0e9b8a321b 100644
+--- a/arch/riscv/include/asm/patch.h
++++ b/arch/riscv/include/asm/patch.h
+@@ -6,9 +6,8 @@
+ #ifndef _ASM_RISCV_PATCH_H
+ #define _ASM_RISCV_PATCH_H
  
- #include "../kernel/head.h"
++int patch_insn_set(void *addr, u8 c, size_t len);
+ int patch_insn_write(void *addr, const void *insn, size_t len);
+-int patch_text_nosync(void *addr, const void *insns, size_t len);
+-int patch_text_set_nosync(void *addr, u8 c, size_t len);
+ int patch_text(void *addr, u32 *insns, int ninsns);
  
-+
-+#define CREATE_TRACE_POINTS
-+#include <asm/trace/exceptions.h>
-+
- static void die_kernel_fault(const char *msg, unsigned long addr,
- 		struct pt_regs *regs)
- {
-@@ -215,6 +219,15 @@ static inline bool access_error(unsigned long cause, struct vm_area_struct *vma)
- 	return false;
+ extern int riscv_patch_in_stop_machine;
+diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
+index 0128b161bfda..a8b508d99cf8 100644
+--- a/arch/riscv/kernel/alternative.c
++++ b/arch/riscv/kernel/alternative.c
+@@ -83,7 +83,7 @@ static void riscv_alternative_fix_auipc_jalr(void *ptr, u32 auipc_insn,
+ 	riscv_insn_insert_utype_itype_imm(&call[0], &call[1], imm);
+ 
+ 	/* patch the call place again */
+-	patch_text_nosync(ptr, call, sizeof(u32) * 2);
++	patch_insn_write(ptr, call, sizeof(u32) * 2);
  }
  
-+
-+static inline void trace_page_fault(struct pt_regs *regs)
-+{
-+	if (user_mode(regs))
-+		trace_page_fault_user(regs);
-+	else
-+		trace_page_fault_kernel(regs);
-+}
-+
- /*
-  * This routine handles page faults.  It determines the address and the
-  * problem, and then passes it off to one of the appropriate routines.
-@@ -235,6 +248,8 @@ void handle_page_fault(struct pt_regs *regs)
- 	tsk = current;
- 	mm = tsk->mm;
+ static void riscv_alternative_fix_jal(void *ptr, u32 jal_insn, int patch_offset)
+@@ -98,7 +98,7 @@ static void riscv_alternative_fix_jal(void *ptr, u32 jal_insn, int patch_offset)
+ 	riscv_insn_insert_jtype_imm(&jal_insn, imm);
  
-+	trace_page_fault(regs);
-+
- 	if (kprobe_page_fault(regs, cause))
- 		return;
+ 	/* patch the call place again */
+-	patch_text_nosync(ptr, &jal_insn, sizeof(u32));
++	patch_insn_write(ptr, &jal_insn, sizeof(u32));
+ }
  
+ void riscv_alternative_fix_offsets(void *alt_ptr, unsigned int len,
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 5ef48cb20ee1..4c040a857c7e 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -795,7 +795,7 @@ void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begin,
+ 		altptr = ALT_ALT_PTR(alt);
+ 
+ 		mutex_lock(&text_mutex);
+-		patch_text_nosync(oldptr, altptr, alt->alt_len);
++		patch_insn_write(oldptr, altptr, alt->alt_len);
+ 		riscv_alternative_fix_offsets(oldptr, alt->alt_len, oldptr - altptr);
+ 		mutex_unlock(&text_mutex);
+ 	}
+diff --git a/arch/riscv/kernel/jump_label.c b/arch/riscv/kernel/jump_label.c
+index e6694759dbd0..74b5ebfacf4a 100644
+--- a/arch/riscv/kernel/jump_label.c
++++ b/arch/riscv/kernel/jump_label.c
+@@ -36,6 +36,6 @@ void arch_jump_label_transform(struct jump_entry *entry,
+ 	}
+ 
+ 	mutex_lock(&text_mutex);
+-	patch_text_nosync(addr, &insn, sizeof(insn));
++	patch_insn_write(addr, &insn, sizeof(insn));
+ 	mutex_unlock(&text_mutex);
+ }
+diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
+index ab03732d06c4..bf45b507f900 100644
+--- a/arch/riscv/kernel/patch.c
++++ b/arch/riscv/kernel/patch.c
+@@ -177,7 +177,7 @@ static int __patch_insn_write(void *addr, const void *insn, size_t len)
+ NOKPROBE_SYMBOL(__patch_insn_write);
+ #endif /* CONFIG_MMU */
+ 
+-static int patch_insn_set(void *addr, u8 c, size_t len)
++int patch_insn_set(void *addr, u8 c, size_t len)
+ {
+ 	size_t patched = 0;
+ 	size_t size;
+@@ -198,17 +198,6 @@ static int patch_insn_set(void *addr, u8 c, size_t len)
+ }
+ NOKPROBE_SYMBOL(patch_insn_set);
+ 
+-int patch_text_set_nosync(void *addr, u8 c, size_t len)
+-{
+-	u32 *tp = addr;
+-	int ret;
+-
+-	ret = patch_insn_set(tp, c, len);
+-
+-	return ret;
+-}
+-NOKPROBE_SYMBOL(patch_text_set_nosync);
+-
+ int patch_insn_write(void *addr, const void *insn, size_t len)
+ {
+ 	size_t patched = 0;
+@@ -230,17 +219,6 @@ int patch_insn_write(void *addr, const void *insn, size_t len)
+ }
+ NOKPROBE_SYMBOL(patch_insn_write);
+ 
+-int patch_text_nosync(void *addr, const void *insns, size_t len)
+-{
+-	u32 *tp = addr;
+-	int ret;
+-
+-	ret = patch_insn_write(tp, insns, len);
+-
+-	return ret;
+-}
+-NOKPROBE_SYMBOL(patch_text_nosync);
+-
+ static int patch_text_cb(void *data)
+ {
+ 	struct patch_insn *patch = data;
+diff --git a/arch/riscv/net/bpf_jit_core.c b/arch/riscv/net/bpf_jit_core.c
+index 0a96abdaca65..b053ae5c4191 100644
+--- a/arch/riscv/net/bpf_jit_core.c
++++ b/arch/riscv/net/bpf_jit_core.c
+@@ -226,7 +226,7 @@ void *bpf_arch_text_copy(void *dst, void *src, size_t len)
+ 	int ret;
+ 
+ 	mutex_lock(&text_mutex);
+-	ret = patch_text_nosync(dst, src, len);
++	ret = patch_insn_write(dst, src, len);
+ 	mutex_unlock(&text_mutex);
+ 
+ 	if (ret)
+@@ -240,7 +240,7 @@ int bpf_arch_text_invalidate(void *dst, size_t len)
+ 	int ret;
+ 
+ 	mutex_lock(&text_mutex);
+-	ret = patch_text_set_nosync(dst, 0, len);
++	ret = patch_insn_set(dst, 0, len);
+ 	mutex_unlock(&text_mutex);
+ 
+ 	return ret;
 -- 
-2.34.1
+2.39.2
 
 
 _______________________________________________
