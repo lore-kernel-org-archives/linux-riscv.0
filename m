@@ -4,105 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49E6FC3DA49
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jul 2024 21:46:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22817C3DA49
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jul 2024 21:57:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BKCXKqfckKTYdANvlEVuuv3QRrUwfPH91/ob9vrOCfg=; b=HRi62CdmcrPB3I
-	bshBwT5E+rvuzyKSJNwMt3MMxhxszzLhLGeoyNzpDXQOm7Gq3Dolwd80pxoXSa+mPlCFN5v6xi716
-	97AunrFK5hh+zsfQ5MU5XYDhXajHSibuf4w+gfFSDBt2XSGnuw3YL0YnbNpDpgcpmXA9IpmnLbso+
-	rw2N5aAiGcc563OvZtmea+JEYlZ6DGcGRQ2SeDnbdJArLLODhLqLjNDQBqvHQksEw5OYXH139maNj
-	qYR2G5YwzS9s1Ddm8RU7w5CVagnDLvWhsA4xK6smgoVnIZX80KBjgvMpirKd/JeK0DCNaVv2YGj7o
-	aq2o5Z/WLDe2z6G/Dsxg==;
+	List-Owner; bh=nmC9hv/DLsbtbZU2UNB3lvRPNhDGPffeOJFM/fa3lSY=; b=0Yn/A/HC0IWcNH
+	9UeiMuJ04vtgKQKKVwRWuyh3QLDCOd357JT21ZnfoQApxux0XMJ2LyYCbTPhFD1CR4cYUh+t6yi/4
+	bNZFMM9pmzWvHIwwSSmJMR9svYvPYDTsBmc6TKb+CwSjEvLRP8RdhAyzeAgTlEg9wwchBzQBGQIup
+	J0fOXjAoRlgKOJyGut4FLAC6zTI/miJDQVuQGymPb+SJ/FO9E3LQXocngm67js6nFGCmn1+9fEdPY
+	wPfQJHPi33NDcBozsGOTnvXbwf6tunmScSJM1GhkvVuUm2VAibqM1ndazaLMYOWxTi/5qlZVvMGRs
+	/zzle+Dfx84os6vsTIxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUYxF-00000000lo0-2nCE;
-	Thu, 18 Jul 2024 21:46:25 +0000
-Received: from mail-io1-xd33.google.com ([2607:f8b0:4864:20::d33])
+	id 1sUZ7g-00000000nQ5-35bE;
+	Thu, 18 Jul 2024 21:57:12 +0000
+Received: from mail-io1-xd35.google.com ([2607:f8b0:4864:20::d35])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUYxC-00000000ln8-43fm
+	id 1sUZ7e-00000000nOu-0MEo
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 Jul 2024 21:46:24 +0000
-Received: by mail-io1-xd33.google.com with SMTP id ca18e2360f4ac-7eee7728b00so51088639f.3
-        for <linux-riscv@lists.infradead.org>; Thu, 18 Jul 2024 14:46:22 -0700 (PDT)
+	Thu, 18 Jul 2024 21:57:11 +0000
+Received: by mail-io1-xd35.google.com with SMTP id ca18e2360f4ac-816b627a7b6so45772539f.0
+        for <linux-riscv@lists.infradead.org>; Thu, 18 Jul 2024 14:57:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1721339181; x=1721943981; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=b/3KVXgmf69sNo7YCAFBU75fVyP3kLvsv8BGm2iEjzc=;
-        b=mk+pEd8WV8W3KnbqxV7AcMnLMWPhbbib0KtXzuDZygdr0KRuuFc/k86ZobbUwwpU+V
-         Jhz9Kt7Vttvsxl4SRRl3StNGRV5SrwyZ8lt82EzjPKqHZh1hAArIJ7Tt0yQowb1G9QIi
-         yvvM3RGLBF+ykUM1rEpPJ3cb+FZaRhSIvUR2zlWGCjckrgt/NTDWCHlqRDtDPgC6+KVq
-         TDVhD94QWkDCfc4haJXy79XQZZOYomu5o4begscTYUzyaNaWQNqY6+DnxeTlHJPs422Q
-         Jy39hHk+H8OfYlGTQxeW2As+adTk/iHU04ORiVFQ+K/UmTQo3hhT9a6H6VCbqBa23emy
-         UovA==
+        d=ventanamicro.com; s=google; t=1721339828; x=1721944628; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=bHwfmEtN2E+ymE9t7lYKh6HDNkIVdbk4aYEg9FHEZF4=;
+        b=hT34Zf6OfzAth874qA/QTIIFP0l49c9EjlEXASGEdRzx9qzhGn2Rjvyac7n3aN29TQ
+         CwTpaIYk9aQuN319x4JRn7Yh34olxI+KLZrf+4s4XAAgq1cYq8J0t/WM7vIgDaqXecEI
+         f3B/eY3yWtYmlHenUOIKVquuuTAfUvmycberIbIdqblCGIeGzHsFVNM+uol/LAKUn8rM
+         TD3rHGrH/svLth9u4payn6SBkYxACc2H9M7g8CnhOEbmEWSdJqmWKo1YIAA0/hB12RqQ
+         YpEEHQuET7WMpJQgvKTM6Q+pvvbFm0vuw3bBITVEybfRU2CJJ1plKH0s5yhYHuYOw5G8
+         5IUA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1721339181; x=1721943981;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=b/3KVXgmf69sNo7YCAFBU75fVyP3kLvsv8BGm2iEjzc=;
-        b=dRsUs51UhqHvIA9UNQx5UYrA50oWGfjKKQQg/880CxAEeOOR0VPcckIysRK1R5BmNg
-         pfyXGoj2Wnmtsi+4YkMpnw81/RcRq30AxkZtNCuf5yinITy6ru/xmhpJP78vL7PD9yOV
-         jtQh1FGLiMhZDwHW41lo5B6nBLJyRVLaUj48fjonp1kS/cCGqchpMgEugf4Bj2m4bF6m
-         5ad+HLhLehT5nfU4alqGYvLHCeHGr9u5kLdtyrnTMcEqUNbsTglW9Co6ZEak3go3NRRJ
-         ynVnfaQ0NyNTOjGpII2Far3gCNhLSd9wLAv7+Njyp/j5R3kWicUYJuTP5LrLTnbv27Ud
-         AmKA==
-X-Forwarded-Encrypted: i=1; AJvYcCWS8fUITyHL7Rr0zCPoOia9s0FThHg+c7qM2Wj1SEAOaDiIgxwLnnC+D+n3Gxa6/9qp6cHbOl2+n/4fyjii3d2DVJffApzKj+DJ6/Fxt/BA
-X-Gm-Message-State: AOJu0Yyn6DgHTDyDNI8GJfNT0MvVplq1T1VPAYpRP5hEM/BpOgVD5oil
-	bzRRGyOlfTJqXDVXAU5Lbt3KWYGizJ8jbHlsxrH5upJoejFIKf3ZBXEYQCjxjEg=
-X-Google-Smtp-Source: AGHT+IFfmYe/UsMSfgkCsdMUFOYZdCp937Ia8bMlaDCUPuHT0PtpOJmSb9jac6FVvVir80F2WXRXbQ==
-X-Received: by 2002:a05:6602:26c7:b0:806:7f5a:1fb7 with SMTP id ca18e2360f4ac-81710605dacmr801576939f.5.1721339181354;
-        Thu, 18 Jul 2024 14:46:21 -0700 (PDT)
-Received: from [100.64.0.1] ([147.124.94.167])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4c2342f164esm35433173.69.2024.07.18.14.46.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 18 Jul 2024 14:46:20 -0700 (PDT)
-Message-ID: <8b402e92-d874-4b30-9108-f521bd20d36c@sifive.com>
-Date: Thu, 18 Jul 2024 16:46:17 -0500
+        d=1e100.net; s=20230601; t=1721339828; x=1721944628;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bHwfmEtN2E+ymE9t7lYKh6HDNkIVdbk4aYEg9FHEZF4=;
+        b=LuNgt2C8VobWPXK+K5+LlORIO3xf1XWiBAUrNqVA+ZH70ibVTvLnNq6EC35ShvhaHL
+         3JODxVL7D24ytKYpd3J4KsD73WQgkty5pGqcGU1/28jGdDGrRurO3s6w2rtCPLrMZ0y9
+         GfXmKKwj7x+xln+c1e7R4oAL3fpZHDGvkpYTx5316ghJiSY/+5KpkRYhfhu5EkEsQe7T
+         oyXhDcfv+xbauZM4qAmLLca7kOzZUU/CnnTUYLWDdJ0uQCtGlKMd0j1uEKhDlQB8jyPR
+         TplfP6txwx6CdQnDiVZqQJZHx2iRAgwoLueBj7+2kdOOGxLMFEsfVbRsd5+gTbhBIsat
+         xmAQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUeTrzDO7dw4bRge/wCMXari0xKUDOa5htpExYBoBIYj/5HwLIm2AsgGUViLd+LJ4Q5FYmpV7cBbTyM43ak7IE6BYp+Xdmyn/ZTQoy4cpbk
+X-Gm-Message-State: AOJu0YwmEMQhTpjQ+QwzNIUI4rtfo3Wk9ajl+n/c+X2DUVrDhjP2LYHZ
+	wC8SBtUkOa1w72qHf2q9FhEC5UKU1iaiO/8wCycqh+aoDz0p3T/OdFkomX2BV4U=
+X-Google-Smtp-Source: AGHT+IHgduXCJ2ARddrS9gvb1XzJLRZZuOvRvqS0t1x1wW6YQXNExLkXLMyBN1QygkfCSlId5RMcxw==
+X-Received: by 2002:a05:6602:6c01:b0:7f6:1f87:70c7 with SMTP id ca18e2360f4ac-81710cca2bcmr710978439f.11.1721339828191;
+        Thu, 18 Jul 2024 14:57:08 -0700 (PDT)
+Received: from localhost ([140.82.166.162])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4c2343d3364sm36300173.132.2024.07.18.14.57.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 18 Jul 2024 14:57:07 -0700 (PDT)
+Date: Thu, 18 Jul 2024 16:57:07 -0500
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Samuel Holland <samuel.holland@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, 
+	Albert Ou <aou@eecs.berkeley.edu>, Andy Chiu <andy.chiu@sifive.com>, 
+	Charlie Jenkins <charlie@rivosinc.com>, =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>, 
+	Conor Dooley <conor@kernel.org>, Evan Green <evan@rivosinc.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH -fixes] riscv: cpufeature: Do not drop Linux-internal
+ extensions
+Message-ID: <20240718-a5097a4070f457529d2fff91@orel>
+References: <20240718213011.2600150-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 13/17] mm: move numa_distance and related code from x86 to
- numa_memblks
-To: Mike Rapoport <rppt@kernel.org>, linux-kernel@vger.kernel.org
-Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
- Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>,
- Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dan Williams <dan.j.williams@intel.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- David Hildenbrand <david@redhat.com>, "David S. Miller"
- <davem@davemloft.net>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Heiko Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Jiaxun Yang <jiaxun.yang@flygoat.com>,
- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
- Jonathan Cameron <jonathan.cameron@huawei.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Palmer Dabbelt <palmer@dabbelt.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Thomas Gleixner <tglx@linutronix.de>, Vasily Gorbik <gor@linux.ibm.com>,
- Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
- loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-cxl@vger.kernel.org, nvdimm@lists.linux.dev,
- devicetree@vger.kernel.org, linux-arch@vger.kernel.org, linux-mm@kvack.org,
- x86@kernel.org
-References: <20240716111346.3676969-1-rppt@kernel.org>
- <20240716111346.3676969-14-rppt@kernel.org>
-From: Samuel Holland <samuel.holland@sifive.com>
-Content-Language: en-US
-In-Reply-To: <20240716111346.3676969-14-rppt@kernel.org>
+Content-Disposition: inline
+In-Reply-To: <20240718213011.2600150-1-samuel.holland@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240718_144623_071404_33D3E873 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20240718_145710_161132_C5E0C211 
+X-CRM114-Status: GOOD (  22.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,29 +96,89 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2024-07-16 6:13 AM, Mike Rapoport wrote:
-> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+On Thu, Jul 18, 2024 at 02:29:59PM GMT, Samuel Holland wrote:
+> The Linux-internal Xlinuxenvcfg ISA extension is omitted from the
+> riscv_isa_ext array because it has no DT binding and should not appear
+> in /proc/cpuinfo. The logic added in commit 625034abd52a ("riscv: add
+> ISA extensions validation callback") assumes all extensions are included
+> in riscv_isa_ext, and so riscv_resolve_isa() wrongly drops Xlinuxenvcfg
+> from the final ISA string. Instead, accept such Linux-internal ISA
+> extensions as if they have no validation callback.
+
+This assumes we'll never need a validation callback for a Linux-internal
+ISA extension. We can make that assumption now and change our mind
+later, but we could also add Xlinuxenvcfg to riscv_isa_ext now and
+modify the places where it matters (just print_isa?). If we add
+Xlinuxenvcfg to the array with a NULL name then we could do something
+like
+
+ print_isa()
+ {
+    for (...) {
+        ...
+        if (!riscv_isa_ext[i].name)
+	   continue;
+    }
+ }
+
 > 
-> Move code dealing with numa_distance array from arch/x86 to
-> mm/numa_memblks.c
-> 
-> This code will be later reused by arch_numa.
-> 
-> No functional changes.
-> 
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> Fixes: 625034abd52a ("riscv: add ISA extensions validation callback")
+> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 > ---
->  arch/x86/mm/numa.c                   | 101 ---------------------------
->  arch/x86/mm/numa_internal.h          |   2 -
->  include/linux/numa_memblks.h         |   4 ++
->  {arch/x86/mm => mm}/numa_emulation.c |   0
->  mm/numa_memblks.c                    | 101 +++++++++++++++++++++++++++
->  5 files changed, 105 insertions(+), 103 deletions(-)
->  rename {arch/x86/mm => mm}/numa_emulation.c (100%)
+> 
+>  arch/riscv/kernel/cpufeature.c | 14 ++++++--------
+>  1 file changed, 6 insertions(+), 8 deletions(-)
+> 
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index 0366dc3baf33..dd25677d60de 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -457,28 +457,26 @@ static void __init riscv_resolve_isa(unsigned long *source_isa,
+>  		bitmap_copy(prev_resolved_isa, resolved_isa, RISCV_ISA_EXT_MAX);
+>  		for_each_set_bit(bit, source_isa, RISCV_ISA_EXT_MAX) {
+>  			ext = riscv_get_isa_ext_data(bit);
+> -			if (!ext)
+> -				continue;
+>  
+> -			if (ext->validate) {
+> +			if (ext && ext->validate) {
+>  				ret = ext->validate(ext, resolved_isa);
+>  				if (ret == -EPROBE_DEFER) {
+>  					loop = true;
+>  					continue;
+>  				} else if (ret) {
+>  					/* Disable the extension entirely */
+> -					clear_bit(ext->id, source_isa);
+> +					clear_bit(bit, source_isa);
+>  					continue;
+>  				}
+>  			}
+>  
+> -			set_bit(ext->id, resolved_isa);
+> +			set_bit(bit, resolved_isa);
+>  			/* No need to keep it in source isa now that it is enabled */
+> -			clear_bit(ext->id, source_isa);
+> +			clear_bit(bit, source_isa);
+>  
+>  			/* Single letter extensions get set in hwcap */
+> -			if (ext->id < RISCV_ISA_EXT_BASE)
+> -				*this_hwcap |= isa2hwcap[ext->id];
+> +			if (bit < RISCV_ISA_EXT_BASE)
+> +				*this_hwcap |= isa2hwcap[bit];
+>  		}
+>  	} while (loop && memcmp(prev_resolved_isa, resolved_isa, sizeof(prev_resolved_isa)));
+>  }
+> -- 
+> 2.45.1
+>
 
-The numa_emulation.c rename looks like it should be part of the next commit, not
-this one.
+If we'd rather leave Xlinuxenvcfg out of the array (and generally support
+extensions not in the array), then LGTM
 
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
