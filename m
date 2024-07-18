@@ -4,89 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA12EC3DA63
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jul 2024 16:06:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86074C3DA49
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jul 2024 16:14:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yeOyQbGS7FSavNkh0NFx9zgAKBH6X00qf6yB+VXyWbk=; b=yzuNUyg+Ja0mNN
-	5luqSpfLvcZsul2C7WH0kpEPdZCNaj6Xbwy8o6jVvASDzPKPXZ++KyggBkIonkFHi6pKQeV0ztEkp
-	kZfjEGskivUlwtR/fWB3+ajPIuBZ9nk+qIqxA7H2jrB2+FNVOXil6EtB6Gc+NrTSUz1mp4ecpaK0J
-	4VHvCJR9FhlskZPIbPdZcbMsu9Sj0ec0kwC6N5nYnq9MLpE03f0LDRr4ntygFJv4GuTIa8o5Pki4l
-	+u6MtPmUo6q1bCfIU/DypJnxiq/GIYZeK4Q0UNI1jmYYGcno1cy4ofR53NLqZjdy0WLYGRjupB/tM
-	uhM3JNqdcNVLwInbvVYQ==;
+	List-Owner; bh=GpHlL4lQqYhsAJKHRO+GnYuI6KwOjlOIgzHoz3xspxY=; b=rxrjw6rXls4VxE
+	vVLlI5lPKpIin0EgF4OGKmTSmH9rr19C7fEDYU9Sr4YJNHfbx9l8TYUPZxXOEydfutfE5st+RQdvF
+	Lpk5Cf95YNGwDbA+STs8vRI77VqtDUcGF53G33wU+YKsURGSM+Wyl19Y4D4cOpqkEYva2c2AizgFc
+	goHsXwVnGNzIb+b8t/cu9Q45qvI76io48tDyb1mW98GKmKf1l1V62AktjYCj7nqkXmgHx0hGr78Yk
+	XAcRNwXu4qHEa83ZrLO5nn09GSsVt7XsxV+W8VsApTPxvSsPanl9BKLEsIC23NF2jQfRjcAA7Xzq8
+	k9G2/VR6tSXpTyhMILVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUTe4-0000000HXKm-0NVV;
-	Thu, 18 Jul 2024 16:06:16 +0000
-Received: from mail-io1-xd2c.google.com ([2607:f8b0:4864:20::d2c])
+	id 1sUTmM-0000000HY0m-1S1B;
+	Thu, 18 Jul 2024 16:14:50 +0000
+Received: from mail-io1-xd2d.google.com ([2607:f8b0:4864:20::d2d])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUTe0-0000000HXJu-1x6d
+	id 1sUTmI-0000000HXzy-2jOP
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 Jul 2024 16:06:14 +0000
-Received: by mail-io1-xd2c.google.com with SMTP id ca18e2360f4ac-808a8c90f5bso30099739f.2
-        for <linux-riscv@lists.infradead.org>; Thu, 18 Jul 2024 09:06:10 -0700 (PDT)
+	Thu, 18 Jul 2024 16:14:48 +0000
+Received: by mail-io1-xd2d.google.com with SMTP id ca18e2360f4ac-7f97e794f34so37297039f.3
+        for <linux-riscv@lists.infradead.org>; Thu, 18 Jul 2024 09:14:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1721318770; x=1721923570; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=viUABkBmfTgkqCa/7vhlbq4p5oq9ftTQ0S5SnBOY0Nk=;
-        b=WDmKDGsKfPk+7wOrLL3ZP0j3UdmGkckl0Bfhj6yykgPHWg0Jdz2XPrWVsPYUIBMaV/
-         YosEZTGce0qP4Ko8Xq6dY5BXCvT3me183alQEd6lnlSLV4GIkirZJe/HngMGq8/k+Kz3
-         tAKSd/MfnD4cBIfcqf954xVdFpZtL/vNavpD5KjsvbPTBx7yNY0xaB7+U8Z1YJdL2/py
-         9WBS4nGud2jLTnpIXMrSe+OMWcgKYPK04ICGCBtvYifbibjOniw96S3969gd8c2nmPy6
-         eZjEavY2x6V5n4d24DfnwxGbf5MCSeey3KTkx18VHbB9lmey9mVwSwzENnHneq0Um4Bw
-         4rrg==
+        d=linaro.org; s=google; t=1721319285; x=1721924085; darn=lists.infradead.org;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=cKUm2Sno0VCM0sKj4rcn5Z8Kw9gJMdGTQrF0ZDE8JgQ=;
+        b=YGTeyyHil/vS7xOYHGXaITKXBfrOMLNEUzAXL2pOPfOSIPo5RUGkVV+5iuHCoQ9Igk
+         9j3Z0tgxiflkpu+BXiEeyP/afqJeKiBuNu1TOAju1qoX51G29WeWxLRRNwQogiQOhHv5
+         RvZY1cp9OOc3tHdGVpUI8LSQUP80JLQrSDPetqt9YgdKrU4n2m2CRrFlNJHh4rMrC3Rs
+         VIL1L77aV8dmZNC52kExZ/vWzDcWpMHYe2uqoK1ME90OK90luYUEBhCDVEg7hbR35SEj
+         pOY7A5qAnTPGtSAztQUJKFcHGz5FVDdeRGkTdPDKXwaQhRUqIAdqF9MXkmp1fcduaVKG
+         XMxg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1721318770; x=1721923570;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=viUABkBmfTgkqCa/7vhlbq4p5oq9ftTQ0S5SnBOY0Nk=;
-        b=OhPW2MMa527woXNRpKDmQbNU6zsI7y5y164JPXeCnaAAfUuUArnahS10kWmRi/hSGP
-         nKTX9Q4xlAxnk7pku9mjz+uj0fszFWW0BtFa68Bn27fXAcAoa0mN1zGWhpLRLIV7ZtP4
-         7QEYG8zGyH7x4+FLne4nDqk8wjH6iQNLNcwBNjWGCNPKEIFi+Rxmk6ftM3oeKQQJ14dO
-         Y/RHU6FXNEjqrMr2l7PN6OdeXPfoQ0bZ52m/bhozDGJM3Z+CEfwlQzguYXwzP3uNx+hd
-         xDjQ2RRYs8NeFlMM3UQpREeetEnecxBvkBhjRIxOf3EfcHUY3ArE/0JZooVRRrypSuOh
-         mREA==
-X-Forwarded-Encrypted: i=1; AJvYcCVbZgzwDOqFZGoiE86j/M8tQpwBwjfA6vxHsPXgvKqtAqJ17/Foj2XQvnZX/D/CuobxyYgEVlFTCFh+TZXpoCuBhSK++5fOufuDYg6Sxw4j
-X-Gm-Message-State: AOJu0YwAo5J1qk7VVl6FxpWP4maqig748WgbYcLMXe1u8HqM/3HtUN3Q
-	u1eA41i9xAFpEPZh1RF+4590/By4UMrf4sxzA9HMsz1gDxWnn5/Y+aeRZzb24t4=
-X-Google-Smtp-Source: AGHT+IFm1MwbtKKQ42pdLPFRWB3QURVJC7xbjJO/hmp2xPNIG+w6wDszyBZqmIMxtUybkHCFqiqGvQ==
-X-Received: by 2002:a05:6e02:1e0e:b0:376:4049:69d2 with SMTP id e9e14a558f8ab-3955542a2f1mr76353275ab.6.1721318769739;
-        Thu, 18 Jul 2024 09:06:09 -0700 (PDT)
-Received: from localhost ([140.82.166.162])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3950b6ad778sm17393005ab.40.2024.07.18.09.06.08
+        d=1e100.net; s=20230601; t=1721319285; x=1721924085;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=cKUm2Sno0VCM0sKj4rcn5Z8Kw9gJMdGTQrF0ZDE8JgQ=;
+        b=t5PUVzQHYOP3C3vfFd9a9FZ1NZE95jdNq+0FyzB8bEs/3qJVasxMKOP24rWT+3GXpE
+         /ccdGVSx8/5h6Z88LT4jD5o5BoW16lQgxqSMrAYXQUg93zqR2Zqlk15iMKbc/AKmNFSj
+         tKEx1xl2eeJur0HJ+pOYYsYWlGDOcoLEMaIRIF3DdANY/qGSMq+xC74ZYTq2GYmbGyC7
+         EZy1qE/tMGvPFvZZR3to91kUQIhta6jhknrxXrLV8YeYNTdD9pk/v2/59O4JmSS9ZbkA
+         40sJKwlkrQYXNACtfjfraj2GV+7Pfx167zngIqmvGBJX6lfjQ8DdOTC6hhFmT8GhqZJd
+         667Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUmk9whMCOGGh2We//eT7ll9RbDiDnV4lAtOsqn2QoBu+e5bc41danVDOLEdMZ59XFhnBotTEAKVSnN+ipaMSlOY3NuVoxO/d+UOm8SsFxA
+X-Gm-Message-State: AOJu0YwlrtGtrVp7DQdfAKPcJ7XtxIEsTqRPfMLK63PshP7EMiK7FR1a
+	9o/Vs0WhwRxxix+fah/UeP+ytKNDTtoX4HlAwajX2gDoK+DIqb9+whZC/VRAErY7c/6gvDuD6rD
+	j0DM=
+X-Google-Smtp-Source: AGHT+IGBl5SUOSetZ7hpvAsBcsY+3Cb2iftUEXypwidAC9j+tfeb4FVk4PWmNhC4HY+kt6K5hLBh4A==
+X-Received: by 2002:a05:6602:3fcc:b0:804:657d:92fc with SMTP id ca18e2360f4ac-817123e1bb4mr642950839f.18.1721319284795;
+        Thu, 18 Jul 2024 09:14:44 -0700 (PDT)
+Received: from localhost ([2804:14d:7e39:8470:49aa:ec5c:43c8:2afb])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-78e34d2c7e2sm7993415a12.54.2024.07.18.09.14.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 18 Jul 2024 09:06:08 -0700 (PDT)
-Date: Thu, 18 Jul 2024 11:06:06 -0500
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Andrea Parri <parri.andrea@gmail.com>, 
-	Nathan Chancellor <nathan@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>, Waiman Long <longman@redhat.com>, 
-	Boqun Feng <boqun.feng@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Leonardo Bras <leobras@redhat.com>, Guo Ren <guoren@kernel.org>, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org
-Subject: Re: [PATCH v3 03/11] riscv: Implement cmpxchg8/16() using Zabha
-Message-ID: <20240718-d583846f09bc103b7eab6b4e@orel>
-References: <20240717061957.140712-1-alexghiti@rivosinc.com>
- <20240717061957.140712-4-alexghiti@rivosinc.com>
- <20240717-e7104dac172d9f2cbc25d9c6@orel>
- <fb03939b-502b-410a-85f5-2785b2bd0676@ghiti.fr>
+        Thu, 18 Jul 2024 09:14:44 -0700 (PDT)
+From: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,  Will Deacon
+ <will@kernel.org>,  Jonathan Corbet <corbet@lwn.net>,  Andrew Morton
+ <akpm@linux-foundation.org>,  Marc Zyngier <maz@kernel.org>,  Oliver Upton
+ <oliver.upton@linux.dev>,  James Morse <james.morse@arm.com>,  Suzuki K
+ Poulose <suzuki.poulose@arm.com>,  Arnd Bergmann <arnd@arndb.de>,  Oleg
+ Nesterov <oleg@redhat.com>,  Eric Biederman <ebiederm@xmission.com>,
+  Shuah Khan <shuah@kernel.org>,  "Rick P. Edgecombe"
+ <rick.p.edgecombe@intel.com>,  Deepak Gupta <debug@rivosinc.com>,  Ard
+ Biesheuvel <ardb@kernel.org>,  Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
+  Kees Cook <kees@kernel.org>,  "H.J. Lu" <hjl.tools@gmail.com>,  Paul
+ Walmsley <paul.walmsley@sifive.com>,  Palmer Dabbelt <palmer@dabbelt.com>,
+  Albert Ou <aou@eecs.berkeley.edu>,  Florian Weimer <fweimer@redhat.com>,
+  Christian Brauner <brauner@kernel.org>,  Ross Burton
+ <ross.burton@arm.com>,  linux-arm-kernel@lists.infradead.org,
+  linux-doc@vger.kernel.org,  kvmarm@lists.linux.dev,
+  linux-fsdevel@vger.kernel.org,  linux-arch@vger.kernel.org,
+  linux-mm@kvack.org,  linux-kselftest@vger.kernel.org,
+  linux-kernel@vger.kernel.org,  linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v9 35/39] kselftest/arm64: Add a GCS test program built
+ with the system libc
+In-Reply-To: <20240625-arm64-gcs-v9-35-0f634469b8f0@kernel.org> (Mark Brown's
+	message of "Tue, 25 Jun 2024 15:58:03 +0100")
+References: <20240625-arm64-gcs-v9-0-0f634469b8f0@kernel.org>
+	<20240625-arm64-gcs-v9-35-0f634469b8f0@kernel.org>
+Date: Thu, 18 Jul 2024 13:14:41 -0300
+Message-ID: <87plray8we.fsf@linaro.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <fb03939b-502b-410a-85f5-2785b2bd0676@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240718_090612_529569_EDDF49C0 
-X-CRM114-Status: GOOD (  10.28  )
+X-CRM114-CacheID: sfid-20240718_091446_724464_74E97114 
+X-CRM114-Status: GOOD (  15.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,32 +110,124 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 18, 2024 at 02:50:28PM GMT, Alexandre Ghiti wrote:
-...
-> > > +									\
-> > > +		__asm__ __volatile__ (					\
-> > > +			prepend						\
-> > > +			"	amocas" cas_sfx " %0, %z2, %1\n"	\
-> > > +			append						\
-> > > +			: "+&r" (r), "+A" (*(p))			\
-> > > +			: "rJ" (n)					\
-> > > +			: "memory");					\
-> > > +		goto end;						\
-> > > +	}								\
-> > > +									\
-> > > +no_zabha_zacas:;							\
-> > unnecessary ;
-> 
-> 
-> Actually it is, it fixes a warning encountered on llvm:
-> https://lore.kernel.org/linux-riscv/20240528193110.GA2196855@thelio-3990X/
+Mark Brown <broonie@kernel.org> writes:
 
-I'm not complaining about the 'end:' label. That one we need ';' because
-there's no following statement and labels must be followed by a statement.
-But no_zabha_zacas always has following statements.
+> There are things like threads which nolibc struggles with which we want
+> to add coverage for, and the ABI allows us to test most of these even if
+> libc itself does not understand GCS so add a test application built
+> using the system libc.
+>
+> Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> ---
+>  tools/testing/selftests/arm64/gcs/.gitignore |   1 +
+>  tools/testing/selftests/arm64/gcs/Makefile   |   4 +-
+>  tools/testing/selftests/arm64/gcs/gcs-util.h |  10 +
+>  tools/testing/selftests/arm64/gcs/libc-gcs.c | 736 +++++++++++++++++++++++++++
+>  4 files changed, 750 insertions(+), 1 deletion(-)
 
-Thanks,
-drew
+In my FVP VM, this test gets a GCS SIGSEGV before running the first test:
+
+$ sudo ./run_kselftest.sh -t arm64:libc-gcs
+[sudo] password for bauermann:
+TAP version 13
+1..1
+# timeout set to 45
+# selftests: arm64: libc-gcs
+# TAP version 13
+# 1..118
+# # Starting 118 tests from 32 test cases.
+# #  RUN           global.can_call_function ...
+# Segmentation fault
+not ok 1 selftests: arm64: libc-gcs # exit=139
+$ 
+
+It happens when returning from the syscall() glibc function that does
+the clone3 syscall in kselftest_harness.h:
+
+$ /var/tmp/gdb-gcs/bin/gdb -q arm64/libc-gcs
+Reading symbols from arm64/libc-gcs...
+(gdb) r
+Starting program: /var/tmp/selftests-v9/arm64/libc-gcs
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/aarch64-linux-gnu/libthread_db.so.1".
+TAP version 13
+1..118
+# Starting 118 tests from 32 test cases.
+#  RUN           global.can_call_function ...
+[Detaching after vfork from child process 823]
+
+Program received signal SIGSEGV, Segmentation fault
+Guarded Control Stack error.
+syscall () at ../sysdeps/unix/sysv/linux/aarch64/syscall.S:41 [GCS error]
+warning: 41     ../sysdeps/unix/sysv/linux/aarch64/syscall.S: No such file or directory
+(gdb) p $_siginfo.si_signo
+$1 = 11
+(gdb) p $_siginfo.si_code
+$2 = 10
+(gdb) p $_siginfo._sifields._sigfault.si_addr
+$3 = (void *) 0xfffff7ed96b0 <syscall+48>
+(gdb) disassemble
+Dump of assembler code for function syscall:
+   0x0000fffff7ed9680 <+0>:     nop
+   0x0000fffff7ed9684 <+4>:     mov     w8, w0
+   0x0000fffff7ed9688 <+8>:     mov     x0, x1
+   0x0000fffff7ed968c <+12>:    mov     x1, x2
+   0x0000fffff7ed9690 <+16>:    mov     x2, x3
+   0x0000fffff7ed9694 <+20>:    mov     x3, x4
+   0x0000fffff7ed9698 <+24>:    mov     x4, x5
+   0x0000fffff7ed969c <+28>:    mov     x5, x6
+   0x0000fffff7ed96a0 <+32>:    mov     x6, x7
+   0x0000fffff7ed96a4 <+36>:    svc     #0x0
+   0x0000fffff7ed96a8 <+40>:    cmn     x0, #0xfff
+   0x0000fffff7ed96ac <+44>:    b.cs    0xfffff7ed96b4 <syscall+52>  // b.hs, b.nlast
+=> 0x0000fffff7ed96b0 <+48>:    ret
+   0x0000fffff7ed96b4 <+52>:    b       0xfffff7e18660 <__GI___syscall_error>
+   0x0000fffff7ed96b8 <+56>:    b       0xfffff7e18660 <__GI___syscall_error>
+End of assembler dump.
+(gdb) bt
+#0  syscall () at ../sysdeps/unix/sysv/linux/aarch64/syscall.S:41 [GCS error]
+#1  0x0000aaaaaaaa4acc in clone3_vfork ()
+    at /home/bauermann/src/linux/tools/testing/selftests/kselftest_harness.h:93
+#2  __run_test (f=f@entry=0xaaaaaaac0b88 <_fixture_global>, variant=variant@entry=0xffffffffee00,
+    t=t@entry=0xaaaaaaac0018 <_can_call_function_object>)
+    at /home/bauermann/src/linux/tools/testing/selftests/kselftest_harness.h:1239 [GCS error]
+#3  0x0000aaaaaaaa2c40 in test_harness_run (argv=0xfffffffff008, argc=1)
+    at /home/bauermann/src/linux/tools/testing/selftests/kselftest_harness.h:1314
+#4  main (argc=1, argv=0xfffffffff008) at libc-gcs.c:735 [GCS error]
+(gdb) 
+
+And indeed, the svc call in the disassemble above corrupts the GCS.
+This is the GCS and lr values right before the svc call:
+
+(gdb) x/i $pc
+=> 0xfffff7ed96a4 <syscall+36>: svc     #0x0
+(gdb) p/x $lr
+$3 = 0xaaaaaaaa4acc
+(gdb) p/x $gcspr
+$4 = 0xfffff7bfffe8
+(gdb) x/g $gcspr
+0xfffff7bfffe8: 0x0000aaaaaaaa4acc
+
+So far so good, the tip of the GCS matches $lr. But then:
+
+(gdb) stepi
+[Detaching after vfork from child process 2491]
+39      in ../sysdeps/unix/sysv/linux/aarch64/syscall.S
+(gdb) x/i $pc
+=> 0xfffff7ed96a8 <syscall+40>: cmn     x0, #0xfff
+(gdb) p/x $gcspr
+$5 = 0xfffff7bfffe8
+(gdb) x/g $gcspr
+0xfffff7bfffe8: 0x0000aaaaaaaa4c04
+(gdb) p/x $lr
+$6 = 0xaaaaaaaa4acc
+
+So, right after svc returns, the tip of the GCS is corrupted and will
+cause the GCS error.
+
+-- 
+Thiago
 
 _______________________________________________
 linux-riscv mailing list
