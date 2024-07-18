@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E8BAC3DA60
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jul 2024 13:08:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF7ECC3DA60
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jul 2024 13:11:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nGMis88/ZUdUvg5bZijbD1/6zcRrTPtTeGNyuHUjuEw=; b=Zu/UKCAk7kAfb2
-	kWT8GwXoZl5JzhfXB8z2R0J2dZTAQ+QbTAl1kXYk6bMdBSZQBZ/wahJTqRijDI8VNl8KHqpwZgPBo
-	nr58fxJ3039dCvh3eAIc4Ud/lBlx6XGfMgstnPW2fXSJozeMENMg8ZVN2ntqLd9etrDhbEupnfyQ6
-	kS78gyQUXuCUKjBSscO0BGvusoQML/TFdeaKVUBxOASg6jP6mHMJIfgbSoLyn227aAAlklHPZM1g/
-	rwcS+SzCd+F2yE0xQVDT0gHmTD6n5n+GRhrZMT+hYQPU2HhXfPD2xNSl2GqdyopROon6kvfrDcg6r
-	WM3llYdkbMd5aotw0lOw==;
+	List-Owner; bh=CfJdmnNYP3z/HYV6qyK5eOCNmqU4X8GWt1aaC8rPl34=; b=Adfp9eZpM50qi6
+	h5XQ+k1C7s+EVN1jzq9Qr1hAOYEFPnXEol1ZxOLKOp+uzh95TmeQVPgZUZw/sdv82tDSuz9dRmpT2
+	sR2iUxsUx3Xs/AedxX6UNQ2ImAPIm/GbHDqjuLqmIQ/QIEzzOtuknZjh/6QMA19CnsFSHwz1175Kd
+	wfIpL4omTn9tys5/4QJB14fk6Kzvv5Tvu1CUXi9GuYE3dmSUySC/n4eZxfaN4uU7h+dWFqcfmSA2f
+	9kFkExJkqfooZtEpHl2RUcetJvVG5e3l0BdnY0cYYmDLBTeiTOPnlNsQ4+5b9r++WfhUpP3rr9x9h
+	pcNdfkc9gU4IQqC+pjMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUQsL-0000000H3di-3rBp;
-	Thu, 18 Jul 2024 13:08:49 +0000
-Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
+	id 1sUQvC-0000000H4Hx-0VlD;
+	Thu, 18 Jul 2024 13:11:46 +0000
+Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUQsH-0000000H3ck-42NW
+	id 1sUQv7-0000000H4Gu-40qs
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 Jul 2024 13:08:48 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id A304B1C0009;
-	Thu, 18 Jul 2024 13:08:39 +0000 (UTC)
-Message-ID: <2c227c58-d414-4994-9382-11feb80bb818@ghiti.fr>
-Date: Thu, 18 Jul 2024 15:08:39 +0200
+	Thu, 18 Jul 2024 13:11:44 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 04B676000B;
+	Thu, 18 Jul 2024 13:11:32 +0000 (UTC)
+Message-ID: <8b817513-a901-4445-b523-54ad8ceaf8c8@ghiti.fr>
+Date: Thu, 18 Jul 2024 15:11:32 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v3 11/11] riscv: Add qspinlock support
 Content-Language: en-US
-To: Andrea Parri <parri.andrea@gmail.com>,
- Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Guo Ren <guoren@kernel.org>, Alexandre Ghiti <alexghiti@rivosinc.com>
 Cc: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley
  <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
  Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Nathan Chancellor <nathan@kernel.org>, Peter Zijlstra
- <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Will Deacon <will@kernel.org>, Waiman Long <longman@redhat.com>,
- Boqun Feng <boqun.feng@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
- Leonardo Bras <leobras@redhat.com>, Guo Ren <guoren@kernel.org>,
+ Andrea Parri <parri.andrea@gmail.com>, Nathan Chancellor
+ <nathan@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>,
+ Waiman Long <longman@redhat.com>, Boqun Feng <boqun.feng@gmail.com>,
+ Arnd Bergmann <arnd@arndb.de>, Leonardo Bras <leobras@redhat.com>,
  linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org
 References: <20240717061957.140712-1-alexghiti@rivosinc.com>
- <20240717061957.140712-12-alexghiti@rivosinc.com> <ZpfxUvIx+0ClOqCc@andrea>
+ <20240717061957.140712-12-alexghiti@rivosinc.com>
+ <CAJF2gTQtT5KxpjjOs5QMcrxz6wEKTjHgxrgXZvXy1HbQ3AhhTQ@mail.gmail.com>
 From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <ZpfxUvIx+0ClOqCc@andrea>
+In-Reply-To: <CAJF2gTQtT5KxpjjOs5QMcrxz6wEKTjHgxrgXZvXy1HbQ3AhhTQ@mail.gmail.com>
 X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240718_060846_328614_EC2ADA6C 
-X-CRM114-Status: GOOD (  20.98  )
+X-CRM114-CacheID: sfid-20240718_061142_316527_B17A327D 
+X-CRM114-Status: GOOD (  26.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,170 +67,188 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Andrea,
-
-On 17/07/2024 18:29, Andrea Parri wrote:
->> +config RISCV_QUEUED_SPINLOCKS
-> I'm seeing the following warnings with CONFIG_RISCV_QUEUED_SPINLOCKS=y:
->
-> In file included from ./arch/riscv/include/generated/asm/qspinlock.h:1,
->                   from kernel/locking/qspinlock.c:24:
-> ./include/asm-generic/qspinlock.h:144:9: warning: "arch_spin_is_locked" redefined
->    144 | #define arch_spin_is_locked(l)          queued_spin_is_locked(l)
->        |         ^~~~~~~~~~~~~~~~~~~
-> In file included from ./arch/riscv/include/generated/asm/ticket_spinlock.h:1,
->                   from ./arch/riscv/include/asm/spinlock.h:33,
->                   from ./include/linux/spinlock.h:95,
->                   from ./include/linux/sched.h:2142,
->                   from ./include/linux/percpu.h:13,
->                   from kernel/locking/qspinlock.c:19:
-> ./include/asm-generic/ticket_spinlock.h:97:9: note: this is the location of the previous definition
->     97 | #define arch_spin_is_locked(l)          ticket_spin_is_locked(l)
->        |         ^~~~~~~~~~~~~~~~~~~
-> ./include/asm-generic/qspinlock.h:145:9: warning: "arch_spin_is_contended" redefined
->    145 | #define arch_spin_is_contended(l)       queued_spin_is_contended(l)
->        |         ^~~~~~~~~~~~~~~~~~~~~~
-> ./include/asm-generic/ticket_spinlock.h:98:9: note: this is the location of the previous definition
->     98 | #define arch_spin_is_contended(l)       ticket_spin_is_contended(l)
->        |         ^~~~~~~~~~~~~~~~~~~~~~
-> ./include/asm-generic/qspinlock.h:146:9: warning: "arch_spin_value_unlocked" redefined
->    146 | #define arch_spin_value_unlocked(l)     queued_spin_value_unlocked(l)
->        |         ^~~~~~~~~~~~~~~~~~~~~~~~
-> ./include/asm-generic/ticket_spinlock.h:99:9: note: this is the location of the previous definition
->     99 | #define arch_spin_value_unlocked(l)     ticket_spin_value_unlocked(l)
->        |         ^~~~~~~~~~~~~~~~~~~~~~~~
-> ./include/asm-generic/qspinlock.h:147:9: warning: "arch_spin_lock" redefined
->    147 | #define arch_spin_lock(l)               queued_spin_lock(l)
->        |         ^~~~~~~~~~~~~~
-> ./include/asm-generic/ticket_spinlock.h:100:9: note: this is the location of the previous definition
->    100 | #define arch_spin_lock(l)               ticket_spin_lock(l)
->        |         ^~~~~~~~~~~~~~
-> ./include/asm-generic/qspinlock.h:148:9: warning: "arch_spin_trylock" redefined
->    148 | #define arch_spin_trylock(l)            queued_spin_trylock(l)
->        |         ^~~~~~~~~~~~~~~~~
-> ./include/asm-generic/ticket_spinlock.h:101:9: note: this is the location of the previous definition
->    101 | #define arch_spin_trylock(l)            ticket_spin_trylock(l)
->        |         ^~~~~~~~~~~~~~~~~
-> ./include/asm-generic/qspinlock.h:149:9: warning: "arch_spin_unlock" redefined
->    149 | #define arch_spin_unlock(l)             queued_spin_unlock(l)
->        |         ^~~~~~~~~~~~~~~~
-> ./include/asm-generic/ticket_spinlock.h:102:9: note: this is the location of the previous definition
->    102 | #define arch_spin_unlock(l)             ticket_spin_unlock(l)
->
->
-> The following diff resolves them for me (please double check):
->
-> diff --git a/arch/riscv/include/asm/spinlock.h b/arch/riscv/include/asm/spinlock.h
-> index 4856d50006f28..2d59f56a9e2d1 100644
-> --- a/arch/riscv/include/asm/spinlock.h
-> +++ b/arch/riscv/include/asm/spinlock.h
-> @@ -30,7 +30,11 @@ SPINLOCK_BASE_DECLARE(value_unlocked, int, arch_spinlock_t)
->   
->   #else
->   
-> +#if defined(CONFIG_RISCV_TICKET_SPINLOCKS)
->   #include <asm/ticket_spinlock.h>
-> +#elif defined(CONFIG_RISCV_QUEUED_SPINLOCKS)
-> +#include <asm/qspinlock.h>
-> +#endif
->   
->   #endif
-
-
-Thanks for testing this config (when I did not...)!
-
-I came up with something slightly different, but same fix in the end, 
-thanks!
-
-
->
->> +DEFINE_STATIC_KEY_TRUE(qspinlock_key);
->> +EXPORT_SYMBOL(qspinlock_key);
->> +
->> +static void __init riscv_spinlock_init(void)
->> +{
->> +	char *using_ext;
->> +
->> +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZACAS) &&
->> +	    IS_ENABLED(CONFIG_RISCV_ISA_ZABHA)) {
->> +		using_ext = "using Zabha";
->> +
->> +		asm goto(ALTERNATIVE("j %[no_zacas]", "nop", 0, RISCV_ISA_EXT_ZACAS, 1)
->> +			 : : : : no_zacas);
->> +		asm goto(ALTERNATIVE("nop", "j %[qspinlock]", 0, RISCV_ISA_EXT_ZABHA, 1)
->> +			 : : : : qspinlock);
->> +	}
->> +
->> +no_zacas:
->> +	using_ext = "using Ziccrse";
->> +	asm goto(ALTERNATIVE("nop", "j %[qspinlock]", 0,
->> +			     RISCV_ISA_EXT_ZICCRSE, 1)
->> +		 : : : : qspinlock);
->> +
->> +	static_branch_disable(&qspinlock_key);
->> +	pr_info("Ticket spinlock: enabled\n");
->> +
->> +	return;
->> +
->> +qspinlock:
->> +	pr_info("Queued spinlock %s: enabled\n", using_ext);
->> +}
->> +
-> Your commit message suggests that riscv_spinlock_init() doesn't need to
-> do anything if CONFIG_RISCV_COMBO_SPINLOCKS=n:
->
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index d7c31c9b8ead2..b2be1b0b700d2 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -244,6 +244,7 @@ static void __init parse_dtb(void)
->   #endif
->   }
->   
-> +#if defined(CONFIG_RISCV_COMBO_SPINLOCKS)
->   DEFINE_STATIC_KEY_TRUE(qspinlock_key);
->   EXPORT_SYMBOL(qspinlock_key);
->   
-> @@ -275,6 +276,11 @@ static void __init riscv_spinlock_init(void)
->   qspinlock:
->   	pr_info("Queued spinlock %s: enabled\n", using_ext);
->   }
-> +#else
-> +static void __init riscv_spinlock_init(void)
-> +{
-> +}
-> +#endif
->   
->   extern void __init init_rt_signal_env(void);
->
->
-> Makes sense?  What am I missing?
-
-
-Totally makes sense, I completely overlooked this when I added the 
-ticket/queued configs, thanks for taking the time to look into it.
-
-That will be fixed in the next version.
-
-Thanks again,
-
-Alex
-
-
->
->    Andrea
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgR3VvLAoKT24gMTcvMDcvMjAyNCAxMTozMCwgR3VvIFJlbiB3cm90ZToKPiBPbiBXZWQsIEp1
+bCAxNywgMjAyNCBhdCAyOjMx4oCvUE0gQWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3Np
+bmMuY29tPiB3cm90ZToKPj4gSW4gb3JkZXIgdG8gcHJvZHVjZSBhIGdlbmVyaWMga2VybmVsLCBh
+IHVzZXIgY2FuIHNlbGVjdAo+PiBDT05GSUdfQ09NQk9fU1BJTkxPQ0tTIHdoaWNoIHdpbGwgZmFs
+bGJhY2sgYXQgcnVudGltZSB0byB0aGUgdGlja2V0Cj4+IHNwaW5sb2NrIGltcGxlbWVudGF0aW9u
+IGlmIFphYmhhIG9yIFppY2Nyc2UgYXJlIG5vdCBwcmVzZW50Lgo+Pgo+PiBOb3RlIHRoYXQgd2Ug
+Y2FuJ3QgdXNlIGFsdGVybmF0aXZlcyBoZXJlIGJlY2F1c2UgdGhlIGRpc2NvdmVyeSBvZgo+PiBl
+eHRlbnNpb25zIGlzIGRvbmUgdG9vIGxhdGUgYW5kIHdlIG5lZWQgdG8gc3RhcnQgd2l0aCB0aGUg
+cXNwaW5sb2NrCj4+IGltcGxlbWVudGF0aW9uIGJlY2F1c2UgdGhlIHRpY2tldCBzcGlubG9jayBp
+bXBsZW1lbnRhdGlvbiB3b3VsZCBwb2xsdXRlCj4+IHRoZSBzcGlubG9jayB2YWx1ZSwgc28gbGV0
+J3MgdXNlIHN0YXRpYyBrZXlzLgo+Pgo+PiBUaGlzIGlzIGxhcmdlbHkgYmFzZWQgb24gR3VvJ3Mg
+d29yayBhbmQgTGVvbmFyZG8gcmV2aWV3cyBhdCBbMV0uCj4+Cj4+IExpbms6IGh0dHBzOi8vbG9y
+ZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2LzIwMjMxMjI1MTI1ODQ3LjI3Nzg2MzgtMS1ndW9yZW5A
+a2VybmVsLm9yZy8gWzFdCj4+IFNpZ25lZC1vZmYtYnk6IEd1byBSZW4gPGd1b3JlbkBrZXJuZWwu
+b3JnPgo+PiBTaWduZWQtb2ZmLWJ5OiBBbGV4YW5kcmUgR2hpdGkgPGFsZXhnaGl0aUByaXZvc2lu
+Yy5jb20+Cj4+IC0tLQo+PiAgIC4uLi9sb2NraW5nL3F1ZXVlZC1zcGlubG9ja3MvYXJjaC1zdXBw
+b3J0LnR4dCB8ICAyICstCj4+ICAgYXJjaC9yaXNjdi9LY29uZmlnICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIHwgMjkgKysrKysrKysrKysrKysKPj4gICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNt
+L0tidWlsZCAgICAgICAgICAgICAgICAgfCAgNCArLQo+PiAgIGFyY2gvcmlzY3YvaW5jbHVkZS9h
+c20vc3BpbmxvY2suaCAgICAgICAgICAgICB8IDM5ICsrKysrKysrKysrKysrKysrKysKPj4gICBh
+cmNoL3Jpc2N2L2tlcm5lbC9zZXR1cC5jICAgICAgICAgICAgICAgICAgICAgfCAzMyArKysrKysr
+KysrKysrKysrCj4+ICAgaW5jbHVkZS9hc20tZ2VuZXJpYy9xc3BpbmxvY2suaCAgICAgICAgICAg
+ICAgIHwgIDIgKwo+PiAgIGluY2x1ZGUvYXNtLWdlbmVyaWMvdGlja2V0X3NwaW5sb2NrLmggICAg
+ICAgICB8ICAyICsKPj4gICA3IGZpbGVzIGNoYW5nZWQsIDEwOSBpbnNlcnRpb25zKCspLCAyIGRl
+bGV0aW9ucygtKQo+PiAgIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNt
+L3NwaW5sb2NrLmgKPj4KPj4gZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRpb24vZmVhdHVyZXMvbG9j
+a2luZy9xdWV1ZWQtc3BpbmxvY2tzL2FyY2gtc3VwcG9ydC50eHQgYi9Eb2N1bWVudGF0aW9uL2Zl
+YXR1cmVzL2xvY2tpbmcvcXVldWVkLXNwaW5sb2Nrcy9hcmNoLXN1cHBvcnQudHh0Cj4+IGluZGV4
+IDIyZjI5OTAzOTJmZi4uY2YyNjA0MjQ4MGUyIDEwMDY0NAo+PiAtLS0gYS9Eb2N1bWVudGF0aW9u
+L2ZlYXR1cmVzL2xvY2tpbmcvcXVldWVkLXNwaW5sb2Nrcy9hcmNoLXN1cHBvcnQudHh0Cj4+ICsr
+KyBiL0RvY3VtZW50YXRpb24vZmVhdHVyZXMvbG9ja2luZy9xdWV1ZWQtc3BpbmxvY2tzL2FyY2gt
+c3VwcG9ydC50eHQKPj4gQEAgLTIwLDcgKzIwLDcgQEAKPj4gICAgICAgfCAgICBvcGVucmlzYzog
+fCAgb2sgIHwKPj4gICAgICAgfCAgICAgIHBhcmlzYzogfCBUT0RPIHwKPj4gICAgICAgfCAgICAg
+cG93ZXJwYzogfCAgb2sgIHwKPj4gLSAgICB8ICAgICAgIHJpc2N2OiB8IFRPRE8gfAo+PiArICAg
+IHwgICAgICAgcmlzY3Y6IHwgIG9rICB8Cj4+ICAgICAgIHwgICAgICAgIHMzOTA6IHwgVE9ETyB8
+Cj4+ICAgICAgIHwgICAgICAgICAgc2g6IHwgVE9ETyB8Cj4+ICAgICAgIHwgICAgICAgc3BhcmM6
+IHwgIG9rICB8Cj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L0tjb25maWcgYi9hcmNoL3Jpc2N2
+L0tjb25maWcKPj4gaW5kZXggMGJiYWVjMDQ0NGQwLi41MDQwYzdlYWM3MGQgMTAwNjQ0Cj4+IC0t
+LSBhL2FyY2gvcmlzY3YvS2NvbmZpZwo+PiArKysgYi9hcmNoL3Jpc2N2L0tjb25maWcKPj4gQEAg
+LTcyLDYgKzcyLDcgQEAgY29uZmlnIFJJU0NWCj4+ICAgICAgICAgIHNlbGVjdCBBUkNIX1dBTlRf
+T1BUSU1JWkVfSFVHRVRMQl9WTUVNTUFQCj4+ICAgICAgICAgIHNlbGVjdCBBUkNIX1dBTlRTX05P
+X0lOU1RSCj4+ICAgICAgICAgIHNlbGVjdCBBUkNIX1dBTlRTX1RIUF9TV0FQIGlmIEhBVkVfQVJD
+SF9UUkFOU1BBUkVOVF9IVUdFUEFHRQo+PiArICAgICAgIHNlbGVjdCBBUkNIX1dFQUtfUkVMRUFT
+RV9BQ1FVSVJFIGlmIEFSQ0hfVVNFX1FVRVVFRF9TUElOTE9DS1MKPj4gICAgICAgICAgc2VsZWN0
+IEJJTkZNVF9GTEFUX05PX0RBVEFfU1RBUlRfT0ZGU0VUIGlmICFNTVUKPj4gICAgICAgICAgc2Vs
+ZWN0IEJVSUxEVElNRV9UQUJMRV9TT1JUIGlmIE1NVQo+PiAgICAgICAgICBzZWxlY3QgQ0xJTlRf
+VElNRVIgaWYgUklTQ1ZfTV9NT0RFCj4+IEBAIC00ODIsNiArNDgzLDM0IEBAIGNvbmZpZyBOT0RF
+U19TSElGVAo+PiAgICAgICAgICAgIFNwZWNpZnkgdGhlIG1heGltdW0gbnVtYmVyIG9mIE5VTUEg
+Tm9kZXMgYXZhaWxhYmxlIG9uIHRoZSB0YXJnZXQKPj4gICAgICAgICAgICBzeXN0ZW0uICBJbmNy
+ZWFzZXMgbWVtb3J5IHJlc2VydmVkIHRvIGFjY29tbW9kYXRlIHZhcmlvdXMgdGFibGVzLgo+Pgo+
+PiArY2hvaWNlCj4+ICsgICAgICAgcHJvbXB0ICJSSVNDLVYgc3BpbmxvY2sgdHlwZSIKPj4gKyAg
+ICAgICBkZWZhdWx0IFJJU0NWX0NPTUJPX1NQSU5MT0NLUwo+PiArCj4+ICtjb25maWcgUklTQ1Zf
+VElDS0VUX1NQSU5MT0NLUwo+PiArICAgICAgIGJvb2wgIlVzaW5nIHRpY2tldCBzcGlubG9jayIK
+Pj4gKwo+PiArY29uZmlnIFJJU0NWX1FVRVVFRF9TUElOTE9DS1MKPj4gKyAgICAgICBib29sICJV
+c2luZyBxdWV1ZWQgc3BpbmxvY2siCj4+ICsgICAgICAgZGVwZW5kcyBvbiBTTVAgJiYgTU1VCj4+
+ICsgICAgICAgc2VsZWN0IEFSQ0hfVVNFX1FVRVVFRF9TUElOTE9DS1MKPj4gKyAgICAgICBoZWxw
+Cj4+ICsgICAgICAgICBUaGUgcXVldWVkIHNwaW5sb2NrIGltcGxlbWVudGF0aW9uIHJlcXVpcmVz
+IHRoZSBmb3J3YXJkIHByb2dyZXNzCj4+ICsgICAgICAgICBndWFyYW50ZWUgb2YgY21weGNoZygp
+L3hjaGcoKSBhdG9taWMgb3BlcmF0aW9uczogQ0FTIHdpdGggWmFiaGEgb3IKPj4gKyAgICAgICAg
+IExSL1NDIHdpdGggWmljY3JzZSBwcm92aWRlIHN1Y2ggZ3VhcmFudGVlLgo+PiArCj4+ICsgICAg
+ICAgICBTZWxlY3QgdGhpcyBpZiBhbmQgb25seSBpZiBaYWJoYSBvciBaaWNjcnNlIGlzIGF2YWls
+YWJsZSBvbiB5b3VyCj4+ICsgICAgICAgICBwbGF0Zm9ybS4KPj4gKwo+PiArY29uZmlnIFJJU0NW
+X0NPTUJPX1NQSU5MT0NLUwo+PiArICAgICAgIGJvb2wgIlVzaW5nIGNvbWJvIHNwaW5sb2NrIgo+
+PiArICAgICAgIGRlcGVuZHMgb24gU01QICYmIE1NVQo+PiArICAgICAgIHNlbGVjdCBBUkNIX1VT
+RV9RVUVVRURfU1BJTkxPQ0tTCj4+ICsgICAgICAgaGVscAo+PiArICAgICAgICAgRW1iZWQgYm90
+aCBxdWV1ZWQgc3BpbmxvY2sgYW5kIHRpY2tldCBsb2NrIHNvIHRoYXQgdGhlIHNwaW5sb2NrCj4+
+ICsgICAgICAgICBpbXBsZW1lbnRhdGlvbiBjYW4gYmUgY2hvc2VuIGF0IHJ1bnRpbWUuCj4+ICtl
+bmRjaG9pY2UKPj4gKwo+PiAgIGNvbmZpZyBSSVNDVl9BTFRFUk5BVElWRQo+PiAgICAgICAgICBi
+b29sCj4+ICAgICAgICAgIGRlcGVuZHMgb24gIVhJUF9LRVJORUwKPj4gZGlmZiAtLWdpdCBhL2Fy
+Y2gvcmlzY3YvaW5jbHVkZS9hc20vS2J1aWxkIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9LYnVp
+bGQKPj4gaW5kZXggNTA0ZjhiN2U3MmQ0Li5hZDcyZjJiZDRjYzkgMTAwNjQ0Cj4+IC0tLSBhL2Fy
+Y2gvcmlzY3YvaW5jbHVkZS9hc20vS2J1aWxkCj4+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9h
+c20vS2J1aWxkCj4+IEBAIC0yLDEwICsyLDEyIEBACj4+ICAgZ2VuZXJpYy15ICs9IGVhcmx5X2lv
+cmVtYXAuaAo+PiAgIGdlbmVyaWMteSArPSBmbGF0LmgKPj4gICBnZW5lcmljLXkgKz0ga3ZtX3Bh
+cmEuaAo+PiArZ2VuZXJpYy15ICs9IG1jc19zcGlubG9jay5oCj4+ICAgZ2VuZXJpYy15ICs9IHBh
+cnBvcnQuaAo+PiAtZ2VuZXJpYy15ICs9IHNwaW5sb2NrLmgKPj4gICBnZW5lcmljLXkgKz0gc3Bp
+bmxvY2tfdHlwZXMuaAo+PiArZ2VuZXJpYy15ICs9IHRpY2tldF9zcGlubG9jay5oCj4+ICAgZ2Vu
+ZXJpYy15ICs9IHFyd2xvY2suaAo+PiAgIGdlbmVyaWMteSArPSBxcndsb2NrX3R5cGVzLmgKPj4g
+K2dlbmVyaWMteSArPSBxc3BpbmxvY2suaAo+PiAgIGdlbmVyaWMteSArPSB1c2VyLmgKPj4gICBn
+ZW5lcmljLXkgKz0gdm1saW51eC5sZHMuaAo+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNs
+dWRlL2FzbS9zcGlubG9jay5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zcGlubG9jay5oCj4+
+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4+IGluZGV4IDAwMDAwMDAwMDAwMC4uNDg1NmQ1MDAwNmYy
+Cj4+IC0tLSAvZGV2L251bGwKPj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zcGlubG9j
+ay5oCj4+IEBAIC0wLDAgKzEsMzkgQEAKPj4gKy8qIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBH
+UEwtMi4wICovCj4+ICsKPj4gKyNpZm5kZWYgX19BU01fUklTQ1ZfU1BJTkxPQ0tfSAo+PiArI2Rl
+ZmluZSBfX0FTTV9SSVNDVl9TUElOTE9DS19ICj4+ICsKPj4gKyNpZmRlZiBDT05GSUdfUklTQ1Zf
+Q09NQk9fU1BJTkxPQ0tTCj4+ICsjZGVmaW5lIF9RX1BFTkRJTkdfTE9PUFMgICAgICAgKDEgPDwg
+OSkKPj4gKwo+PiArI2RlZmluZSBfX25vX2FyY2hfc3BpbmxvY2tfcmVkZWZpbmUKPj4gKyNpbmNs
+dWRlIDxhc20vdGlja2V0X3NwaW5sb2NrLmg+Cj4+ICsjaW5jbHVkZSA8YXNtL3FzcGlubG9jay5o
+Pgo+PiArI2luY2x1ZGUgPGFzbS9hbHRlcm5hdGl2ZS5oPgo+PiArCj4+ICtERUNMQVJFX1NUQVRJ
+Q19LRVlfVFJVRShxc3BpbmxvY2tfa2V5KTsKPj4gKwo+PiArI2RlZmluZSBTUElOTE9DS19CQVNF
+X0RFQ0xBUkUob3AsIHR5cGUsIHR5cGVfbG9jaykgICAgICAgICAgICAgICAgICAgICBcCj4+ICtz
+dGF0aWMgX19hbHdheXNfaW5saW5lIHR5cGUgYXJjaF9zcGluXyMjb3AodHlwZV9sb2NrIGxvY2sp
+ICAgICAgICAgICAgIFwKPj4gK3sgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+PiArICAgICAgIGlmIChzdGF0aWNf
+YnJhbmNoX3VubGlrZWx5KCZxc3BpbmxvY2tfa2V5KSkgICAgICAgICAgICAgICAgICAgICBcCj4+
+ICsgICAgICAgICAgICAgICByZXR1cm4gcXVldWVkX3NwaW5fIyNvcChsb2NrKTsgICAgICAgICAg
+ICAgICAgICAgICAgICAgIFwKPj4gKyAgICAgICByZXR1cm4gdGlja2V0X3NwaW5fIyNvcChsb2Nr
+KTsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+PiArfQo+PiArCj4+ICtTUElO
+TE9DS19CQVNFX0RFQ0xBUkUobG9jaywgdm9pZCwgYXJjaF9zcGlubG9ja190ICopCj4+ICtTUElO
+TE9DS19CQVNFX0RFQ0xBUkUodW5sb2NrLCB2b2lkLCBhcmNoX3NwaW5sb2NrX3QgKikKPj4gK1NQ
+SU5MT0NLX0JBU0VfREVDTEFSRShpc19sb2NrZWQsIGludCwgYXJjaF9zcGlubG9ja190ICopCj4+
+ICtTUElOTE9DS19CQVNFX0RFQ0xBUkUoaXNfY29udGVuZGVkLCBpbnQsIGFyY2hfc3BpbmxvY2tf
+dCAqKQo+PiArU1BJTkxPQ0tfQkFTRV9ERUNMQVJFKHRyeWxvY2ssIGJvb2wsIGFyY2hfc3Bpbmxv
+Y2tfdCAqKQo+PiArU1BJTkxPQ0tfQkFTRV9ERUNMQVJFKHZhbHVlX3VubG9ja2VkLCBpbnQsIGFy
+Y2hfc3BpbmxvY2tfdCkKPj4gKwo+PiArI2Vsc2UKPj4gKwo+PiArI2luY2x1ZGUgPGFzbS90aWNr
+ZXRfc3BpbmxvY2suaD4KPj4gKwo+PiArI2VuZGlmCj4+ICsKPj4gKyNpbmNsdWRlIDxhc20vcXJ3
+bG9jay5oPgo+PiArCj4+ICsjZW5kaWYgLyogX19BU01fUklTQ1ZfU1BJTkxPQ0tfSCAqLwo+PiBk
+aWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvc2V0dXAuYyBiL2FyY2gvcmlzY3Yva2VybmVs
+L3NldHVwLmMKPj4gaW5kZXggNGY3M2MwYWU0NGIyLi5kN2MzMWM5YjhlYWQgMTAwNjQ0Cj4+IC0t
+LSBhL2FyY2gvcmlzY3Yva2VybmVsL3NldHVwLmMKPj4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwv
+c2V0dXAuYwo+PiBAQCAtMjQ0LDYgKzI0NCwzOCBAQCBzdGF0aWMgdm9pZCBfX2luaXQgcGFyc2Vf
+ZHRiKHZvaWQpCj4+ICAgI2VuZGlmCj4+ICAgfQo+Pgo+PiArREVGSU5FX1NUQVRJQ19LRVlfVFJV
+RShxc3BpbmxvY2tfa2V5KTsKPj4gK0VYUE9SVF9TWU1CT0wocXNwaW5sb2NrX2tleSk7Cj4+ICsK
+Pj4gK3N0YXRpYyB2b2lkIF9faW5pdCByaXNjdl9zcGlubG9ja19pbml0KHZvaWQpCj4+ICt7Cj4+
+ICsgICAgICAgY2hhciAqdXNpbmdfZXh0Owo+PiArCj4+ICsgICAgICAgaWYgKElTX0VOQUJMRUQo
+Q09ORklHX1JJU0NWX0lTQV9aQUNBUykgJiYKPj4gKyAgICAgICAgICAgSVNfRU5BQkxFRChDT05G
+SUdfUklTQ1ZfSVNBX1pBQkhBKSkgewo+PiArICAgICAgICAgICAgICAgdXNpbmdfZXh0ID0gInVz
+aW5nIFphYmhhIjsKPj4gKwo+PiArICAgICAgICAgICAgICAgYXNtIGdvdG8oQUxURVJOQVRJVkUo
+ImogJVtub196YWNhc10iLCAibm9wIiwgMCwgUklTQ1ZfSVNBX0VYVF9aQUNBUywgMSkKPj4gKyAg
+ICAgICAgICAgICAgICAgICAgICAgIDogOiA6IDogbm9femFjYXMpOwo+PiArICAgICAgICAgICAg
+ICAgYXNtIGdvdG8oQUxURVJOQVRJVkUoIm5vcCIsICJqICVbcXNwaW5sb2NrXSIsIDAsIFJJU0NW
+X0lTQV9FWFRfWkFCSEEsIDEpCj4+ICsgICAgICAgICAgICAgICAgICAgICAgICA6IDogOiA6IHFz
+cGlubG9jayk7Cj4+ICsgICAgICAgfQo+IEknbSBva2F5IHdpdGggdGhpcyBwYXRjaC4KCgpHcmVh
+dCwgdGhhbmtzIQoKCj4gSSBzdWdnZXN0IHB1dHRpbmcgYW4gYXJnIHN1Y2ggYXMgImVuYWJsZV9x
+c3BpbmxvY2ssIiB3aGljaCBwZW9wbGUKPiBjb3VsZCB1c2Ugb24gdGhlIG5vbi1aQUJIQSBtYWNo
+aW5lcy4gSSBob3BlIGl0IGNvdWxkIGhhcHBlbiBpbiB0aGlzCj4gc2VyaWVzLiBUaGF0J3MgYWxs
+IEkgbmVlZCwgdGhhbmsgeW91IHZlcnkgbXVjaC4KCgpEbyB5b3UgdGhpbmsgdGhhdCdzIHJlYWxs
+eSBuZWNlc3Nhcnk/IEkgYWRkZWQgWmljY3JzZSBzdXBwb3J0IGp1c3QgCmJlbG93LCB0byBtZSB0
+aGF0IGZpdHMgeW91ciBuZWVkcyB0byB1c2UgcXNwaW5sb2NrcyBvbiAhWmljY3JzZS4KCkJUVywg
+Y2FuIEkgYWRkIHlvdSBTb0Igb24gdGhpcyBwYXRjaD8gT3IgYSBDby1kZXZlbG9wZWQtYnkgb3Ig
+YW55dGhpbmcgCnRvIHNob3cgdGhhdCB5b3UgZ3JlYXRseSBjb250cmlidXRlZCB0byB0aGlzIHBh
+dGNoPwoKVGhhbmtzLAoKQWxleAoKCj4KPj4gKwo+PiArbm9femFjYXM6Cj4+ICsgICAgICAgdXNp
+bmdfZXh0ID0gInVzaW5nIFppY2Nyc2UiOwo+PiArICAgICAgIGFzbSBnb3RvKEFMVEVSTkFUSVZF
+KCJub3AiLCAiaiAlW3FzcGlubG9ja10iLCAwLAo+PiArICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIFJJU0NWX0lTQV9FWFRfWklDQ1JTRSwgMSkKPj4gKyAgICAgICAgICAgICAgICA6IDogOiA6
+IHFzcGlubG9jayk7Cj4+ICsKPj4gKyAgICAgICBzdGF0aWNfYnJhbmNoX2Rpc2FibGUoJnFzcGlu
+bG9ja19rZXkpOwo+PiArICAgICAgIHByX2luZm8oIlRpY2tldCBzcGlubG9jazogZW5hYmxlZFxu
+Iik7Cj4+ICsKPj4gKyAgICAgICByZXR1cm47Cj4+ICsKPj4gK3FzcGlubG9jazoKPj4gKyAgICAg
+ICBwcl9pbmZvKCJRdWV1ZWQgc3BpbmxvY2sgJXM6IGVuYWJsZWRcbiIsIHVzaW5nX2V4dCk7Cj4+
+ICt9Cj4+ICsKPj4gICBleHRlcm4gdm9pZCBfX2luaXQgaW5pdF9ydF9zaWduYWxfZW52KHZvaWQp
+Owo+Pgo+PiAgIHZvaWQgX19pbml0IHNldHVwX2FyY2goY2hhciAqKmNtZGxpbmVfcCkKPj4gQEAg
+LTI5NSw2ICszMjcsNyBAQCB2b2lkIF9faW5pdCBzZXR1cF9hcmNoKGNoYXIgKipjbWRsaW5lX3Ap
+Cj4+ICAgICAgICAgIHJpc2N2X3NldF9kbWFfY2FjaGVfYWxpZ25tZW50KCk7Cj4+Cj4+ICAgICAg
+ICAgIHJpc2N2X3VzZXJfaXNhX2VuYWJsZSgpOwo+PiArICAgICAgIHJpc2N2X3NwaW5sb2NrX2lu
+aXQoKTsKPj4gICB9Cj4+Cj4+ICAgYm9vbCBhcmNoX2NwdV9pc19ob3RwbHVnZ2FibGUoaW50IGNw
+dSkKPj4gZGlmZiAtLWdpdCBhL2luY2x1ZGUvYXNtLWdlbmVyaWMvcXNwaW5sb2NrLmggYi9pbmNs
+dWRlL2FzbS1nZW5lcmljL3FzcGlubG9jay5oCj4+IGluZGV4IDA2NTVhYTViNTdiMi4uYmY0N2Nj
+YTJjMzc1IDEwMDY0NAo+PiAtLS0gYS9pbmNsdWRlL2FzbS1nZW5lcmljL3FzcGlubG9jay5oCj4+
+ICsrKyBiL2luY2x1ZGUvYXNtLWdlbmVyaWMvcXNwaW5sb2NrLmgKPj4gQEAgLTEzNiw2ICsxMzYs
+NyBAQCBzdGF0aWMgX19hbHdheXNfaW5saW5lIGJvb2wgdmlydF9zcGluX2xvY2soc3RydWN0IHFz
+cGlubG9jayAqbG9jaykKPj4gICB9Cj4+ICAgI2VuZGlmCj4+Cj4+ICsjaWZuZGVmIF9fbm9fYXJj
+aF9zcGlubG9ja19yZWRlZmluZQo+PiAgIC8qCj4+ICAgICogUmVtYXBwaW5nIHNwaW5sb2NrIGFy
+Y2hpdGVjdHVyZSBzcGVjaWZpYyBmdW5jdGlvbnMgdG8gdGhlIGNvcnJlc3BvbmRpbmcKPj4gICAg
+KiBxdWV1ZWQgc3BpbmxvY2sgZnVuY3Rpb25zLgo+PiBAQCAtMTQ2LDUgKzE0Nyw2IEBAIHN0YXRp
+YyBfX2Fsd2F5c19pbmxpbmUgYm9vbCB2aXJ0X3NwaW5fbG9jayhzdHJ1Y3QgcXNwaW5sb2NrICps
+b2NrKQo+PiAgICNkZWZpbmUgYXJjaF9zcGluX2xvY2sobCkgICAgICAgICAgICAgIHF1ZXVlZF9z
+cGluX2xvY2sobCkKPj4gICAjZGVmaW5lIGFyY2hfc3Bpbl90cnlsb2NrKGwpICAgICAgICAgICBx
+dWV1ZWRfc3Bpbl90cnlsb2NrKGwpCj4+ICAgI2RlZmluZSBhcmNoX3NwaW5fdW5sb2NrKGwpICAg
+ICAgICAgICAgcXVldWVkX3NwaW5fdW5sb2NrKGwpCj4+ICsjZW5kaWYKPj4KPj4gICAjZW5kaWYg
+LyogX19BU01fR0VORVJJQ19RU1BJTkxPQ0tfSCAqLwo+PiBkaWZmIC0tZ2l0IGEvaW5jbHVkZS9h
+c20tZ2VuZXJpYy90aWNrZXRfc3BpbmxvY2suaCBiL2luY2x1ZGUvYXNtLWdlbmVyaWMvdGlja2V0
+X3NwaW5sb2NrLmgKPj4gaW5kZXggY2ZjZmYyMmIzN2IzLi4zMjU3Nzk5NzBkOGEgMTAwNjQ0Cj4+
+IC0tLSBhL2luY2x1ZGUvYXNtLWdlbmVyaWMvdGlja2V0X3NwaW5sb2NrLmgKPj4gKysrIGIvaW5j
+bHVkZS9hc20tZ2VuZXJpYy90aWNrZXRfc3BpbmxvY2suaAo+PiBAQCAtODksNiArODksNyBAQCBz
+dGF0aWMgX19hbHdheXNfaW5saW5lIGludCB0aWNrZXRfc3Bpbl9pc19jb250ZW5kZWQoYXJjaF9z
+cGlubG9ja190ICpsb2NrKQo+PiAgICAgICAgICByZXR1cm4gKHMxNikoKHZhbCA+PiAxNikgLSAo
+dmFsICYgMHhmZmZmKSkgPiAxOwo+PiAgIH0KPj4KPj4gKyNpZm5kZWYgX19ub19hcmNoX3NwaW5s
+b2NrX3JlZGVmaW5lCj4+ICAgLyoKPj4gICAgKiBSZW1hcHBpbmcgc3BpbmxvY2sgYXJjaGl0ZWN0
+dXJlIHNwZWNpZmljIGZ1bmN0aW9ucyB0byB0aGUgY29ycmVzcG9uZGluZwo+PiAgICAqIHRpY2tl
+dCBzcGlubG9jayBmdW5jdGlvbnMuCj4+IEBAIC05OSw1ICsxMDAsNiBAQCBzdGF0aWMgX19hbHdh
+eXNfaW5saW5lIGludCB0aWNrZXRfc3Bpbl9pc19jb250ZW5kZWQoYXJjaF9zcGlubG9ja190ICps
+b2NrKQo+PiAgICNkZWZpbmUgYXJjaF9zcGluX2xvY2sobCkgICAgICAgICAgICAgIHRpY2tldF9z
+cGluX2xvY2sobCkKPj4gICAjZGVmaW5lIGFyY2hfc3Bpbl90cnlsb2NrKGwpICAgICAgICAgICB0
+aWNrZXRfc3Bpbl90cnlsb2NrKGwpCj4+ICAgI2RlZmluZSBhcmNoX3NwaW5fdW5sb2NrKGwpICAg
+ICAgICAgICAgdGlja2V0X3NwaW5fdW5sb2NrKGwpCj4+ICsjZW5kaWYKPj4KPj4gICAjZW5kaWYg
+LyogX19BU01fR0VORVJJQ19USUNLRVRfU1BJTkxPQ0tfSCAqLwo+PiAtLQo+PiAyLjM5LjIKPj4K
+PgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
+cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
+L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
