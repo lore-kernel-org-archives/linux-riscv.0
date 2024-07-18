@@ -4,70 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B0FFC3DA60
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jul 2024 12:12:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BB4FC3DA60
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jul 2024 12:50:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pjmfYEDGpGd2m1FMSIeJso6kRU/bCXeQcEaN3yRnwAI=; b=26YPsg6tG4zS9M
-	hb888bSX/zrVAtcUo5mCX/B5tMHTv3Qg5L/aDR/sA1wdzxTaAtqzxLVY0cGzaVH87VER4/hyhRmij
-	M8daMBOlIesWAFmPZMp8/a2zKHioS7uORv5Cf4nzayPvNUa3RcA8iuCW0clJQUHrgfFf2wDmyASNf
-	LhCMW0JcQ/r+YW1FkdF6JaKbSnIx2W9nZp2uKa1UMNsmhEEZqa7hcYzkhchtxSnVFGyM82TjCRKEr
-	f3dFajkQ8JMBKwMSNu1U2edLLIIRlhrUUhlPOTfH4iAu7ozlgzvxYcZel3/Wm+bI8C/O7JGjmJDG2
-	YmamhT7gY1ps4RjYmQvg==;
+	List-Owner; bh=ePzgJTvsBJOO81CqGoF0qPQrPLqYMuXzimAJULLCNAw=; b=SXQG9wIHGnDBKC
+	T92HJ5w7X0tt4bzl84sO7th2UhO7FoAUFgDl4uBBgFBll1XDAcRp0+rzOnypsx4LVNx5Bq0YlDNsK
+	woaEVa0t4KzQCYiWRuwjWwDuHRopl60CITwByURkkB4WDsGNcui81oTV6FMayo3M3nQv2G4nOUzvr
+	K6OZ7mAyXLHQtIGlnCyqjeesQI1aDOSVatQWFgWgh2ppJE7d7yjAfcP12tW6YM2qThE6m3ZiNR2C7
+	KC6WpsbYCovfIpjrH7mw4L4DLn24jbimC0Tih3FZhhwEZFU7CG5G9+x4NQZuf69KAj+yIpOWFpNGH
+	Mj+S3lCuIi1wgDFEtqCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUPzW-0000000Gw6U-04tz;
-	Thu, 18 Jul 2024 12:12:10 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1sUQan-0000000H0rT-2Djt;
+	Thu, 18 Jul 2024 12:50:41 +0000
+Received: from relay5-d.mail.gandi.net ([217.70.183.197])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUPz5-0000000Gvxa-2eaa;
-	Thu, 18 Jul 2024 12:11:45 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.48])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4WPs7T1x7fzdjDQ;
-	Thu, 18 Jul 2024 20:09:57 +0800 (CST)
-Received: from kwepemi100008.china.huawei.com (unknown [7.221.188.57])
-	by mail.maildlp.com (Postfix) with ESMTPS id 7FA0B180087;
-	Thu, 18 Jul 2024 20:11:41 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- kwepemi100008.china.huawei.com (7.221.188.57) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Thu, 18 Jul 2024 20:11:40 +0800
-Message-ID: <42e69f31-44da-0525-0a79-8d4b5f3e4c57@huawei.com>
-Date: Thu, 18 Jul 2024 20:11:39 +0800
+	id 1sUQaj-0000000H0pb-2xBj
+	for linux-riscv@lists.infradead.org;
+	Thu, 18 Jul 2024 12:50:40 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 4A1E21C000C;
+	Thu, 18 Jul 2024 12:50:29 +0000 (UTC)
+Message-ID: <fb03939b-502b-410a-85f5-2785b2bd0676@ghiti.fr>
+Date: Thu, 18 Jul 2024 14:50:28 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.0
-Subject: Re: [PATCH v3 1/3] crash: Fix x86_32 crash memory reserve dead loop
- bug
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 03/11] riscv: Implement cmpxchg8/16() using Zabha
 Content-Language: en-US
-To: Baoquan He <bhe@redhat.com>
-CC: <linux@armlinux.org.uk>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<tglx@linutronix.de>, <mingo@redhat.com>, <bp@alien8.de>,
-	<dave.hansen@linux.intel.com>, <hpa@zytor.com>, <vgoyal@redhat.com>,
-	<dyoung@redhat.com>, <arnd@arndb.de>, <afd@ti.com>,
-	<linus.walleij@linaro.org>, <akpm@linux-foundation.org>,
-	<eric.devolder@oracle.com>, <gregkh@linuxfoundation.org>,
-	<javierm@redhat.com>, <deller@gmx.de>, <robh@kernel.org>,
-	<hbathini@linux.ibm.com>, <thunder.leizhen@huawei.com>,
-	<chenjiahao16@huawei.com>, <linux-kernel@vger.kernel.org>,
-	<kexec@lists.infradead.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-riscv@lists.infradead.org>
-References: <20240718035444.2977105-1-ruanjinjie@huawei.com>
- <20240718035444.2977105-2-ruanjinjie@huawei.com>
- <Zpj4OUsTPshBK4JZ@MiWiFi-R3L-srv>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <Zpj4OUsTPshBK4JZ@MiWiFi-R3L-srv>
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- kwepemi100008.china.huawei.com (7.221.188.57)
+To: Andrew Jones <ajones@ventanamicro.com>,
+ Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Andrea Parri <parri.andrea@gmail.com>, Nathan Chancellor
+ <nathan@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>,
+ Waiman Long <longman@redhat.com>, Boqun Feng <boqun.feng@gmail.com>,
+ Arnd Bergmann <arnd@arndb.de>, Leonardo Bras <leobras@redhat.com>,
+ Guo Ren <guoren@kernel.org>, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-arch@vger.kernel.org
+References: <20240717061957.140712-1-alexghiti@rivosinc.com>
+ <20240717061957.140712-4-alexghiti@rivosinc.com>
+ <20240717-e7104dac172d9f2cbc25d9c6@orel>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20240717-e7104dac172d9f2cbc25d9c6@orel>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240718_051144_061072_346B2CA0 
-X-CRM114-Status: GOOD (  20.43  )
+X-CRM114-CacheID: sfid-20240718_055038_038722_C59A8261 
+X-CRM114-Status: GOOD (  24.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,136 +69,191 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Drew,
 
-
-On 2024/7/18 19:10, Baoquan He wrote:
-> On 07/18/24 at 11:54am, Jinjie Ruan wrote:
->> On x86_32 Qemu machine with 1GB memory, the cmdline "crashkernel=1G,high"
->> will cause system stall as below:
+On 17/07/2024 17:26, Andrew Jones wrote:
+> On Wed, Jul 17, 2024 at 08:19:49AM GMT, Alexandre Ghiti wrote:
+>> This adds runtime support for Zabha in cmpxchg8/16() operations.
 >>
->> 	ACPI: Reserving FACP table memory at [mem 0x3ffe18b8-0x3ffe192b]
->> 	ACPI: Reserving DSDT table memory at [mem 0x3ffe0040-0x3ffe18b7]
->> 	ACPI: Reserving FACS table memory at [mem 0x3ffe0000-0x3ffe003f]
->> 	ACPI: Reserving APIC table memory at [mem 0x3ffe192c-0x3ffe19bb]
->> 	ACPI: Reserving HPET table memory at [mem 0x3ffe19bc-0x3ffe19f3]
->> 	ACPI: Reserving WAET table memory at [mem 0x3ffe19f4-0x3ffe1a1b]
->> 	143MB HIGHMEM available.
->> 	879MB LOWMEM available.
->> 	  mapped low ram: 0 - 36ffe000
->> 	  low ram: 0 - 36ffe000
->> 	 (stall here)
+>> Note that in the absence of Zacas support in the toolchain, CAS
+>> instructions from Zabha won't be used.
 >>
->> The reason is that the CRASH_ADDR_LOW_MAX is equal to CRASH_ADDR_HIGH_MAX
->> on x86_32, the first high crash kernel memory reservation will fail, then
->> go into the "retry" loop and never came out as below.
->>
->> -> reserve_crashkernel_generic() and high is true
->>  -> alloc at [CRASH_ADDR_LOW_MAX, CRASH_ADDR_HIGH_MAX] fail
->>     -> alloc at [0, CRASH_ADDR_LOW_MAX] fail and repeatedly
->>        (because CRASH_ADDR_LOW_MAX = CRASH_ADDR_HIGH_MAX).
->>
->> Fix it by prevent crashkernel=,high from being parsed successfully on 32bit
->> system with a architecture-defined macro.
->>
->> After this patch, the 'crashkernel=,high' for 32bit system can't succeed,
->> and it has no chance to call reserve_crashkernel_generic(), therefore this
->> issue on x86_32 is solved.
->>
->> Fixes: 9c08a2a139fe ("x86: kdump: use generic interface to simplify crashkernel reservation code")
->> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
->> Signed-off-by: Baoquan He <bhe@redhat.com>
-> 
-> Just adding my Suggested-by is fine. If multiple people cooperate on one
-> patch, the Co-developed-by tag is needed. As a maintainer, I prefer to
-> have the Suggested-by tag in this case.
-
-OK, thank you very much!
-
-> 
->> Tested-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> 
-> You can't add Tested-by tag for your own patch. When you post patch,
-> testing it is your obligation.
-> 
-> Other than these tag adding concerns, this patch looks good to me. You
-> can post v4 to update and add my:
-
-Thank you, I'll fix it next version.
-
-> 
-> Acked-by: Baoquan He <bhe@redhat.com>>
+>> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 >> ---
->> v3:
->> - Fix it as Baoquan suggested.
->> - Update the commit message.
->> v2:
->> - Peel off the other two patches.
->> - Update the commit message and fix tag.
->> ---
->>  arch/arm64/include/asm/crash_reserve.h | 2 ++
->>  arch/riscv/include/asm/crash_reserve.h | 2 ++
->>  arch/x86/include/asm/crash_reserve.h   | 1 +
->>  kernel/crash_reserve.c                 | 2 +-
->>  4 files changed, 6 insertions(+), 1 deletion(-)
+>>   arch/riscv/Kconfig               | 17 ++++++++++++++++
+>>   arch/riscv/Makefile              |  3 +++
+>>   arch/riscv/include/asm/cmpxchg.h | 33 ++++++++++++++++++++++++++++++--
+>>   arch/riscv/include/asm/hwcap.h   |  1 +
+>>   arch/riscv/kernel/cpufeature.c   |  1 +
+>>   5 files changed, 53 insertions(+), 2 deletions(-)
 >>
->> diff --git a/arch/arm64/include/asm/crash_reserve.h b/arch/arm64/include/asm/crash_reserve.h
->> index 4afe027a4e7b..bf362c1a612f 100644
->> --- a/arch/arm64/include/asm/crash_reserve.h
->> +++ b/arch/arm64/include/asm/crash_reserve.h
->> @@ -7,4 +7,6 @@
->>  
->>  #define CRASH_ADDR_LOW_MAX              arm64_dma_phys_limit
->>  #define CRASH_ADDR_HIGH_MAX             (PHYS_MASK + 1)
+>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+>> index 1caaedec88c7..d3b0f92f92da 100644
+>> --- a/arch/riscv/Kconfig
+>> +++ b/arch/riscv/Kconfig
+>> @@ -596,6 +596,23 @@ config RISCV_ISA_V_PREEMPTIVE
+>>   	  preemption. Enabling this config will result in higher memory
+>>   	  consumption due to the allocation of per-task's kernel Vector context.
+>>   
+>> +config TOOLCHAIN_HAS_ZABHA
+>> +	bool
+>> +	default y
+>> +	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zabha)
+>> +	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zabha)
+>> +	depends on AS_HAS_OPTION_ARCH
 >> +
->> +#define HAVE_ARCH_CRASHKERNEL_RESERVATION_HIGH
->>  #endif
->> diff --git a/arch/riscv/include/asm/crash_reserve.h b/arch/riscv/include/asm/crash_reserve.h
->> index 013962e63587..8d7a8fc1d459 100644
->> --- a/arch/riscv/include/asm/crash_reserve.h
->> +++ b/arch/riscv/include/asm/crash_reserve.h
->> @@ -7,5 +7,7 @@
->>  #define CRASH_ADDR_LOW_MAX		dma32_phys_limit
->>  #define CRASH_ADDR_HIGH_MAX		memblock_end_of_DRAM()
->>  
->> +#define HAVE_ARCH_CRASHKERNEL_RESERVATION_HIGH
+>> +config RISCV_ISA_ZABHA
+>> +	bool "Zabha extension support for atomic byte/halfword operations"
+>> +	depends on TOOLCHAIN_HAS_ZABHA
+>> +	default y
+>> +	help
+>> +	  Enable the use of the Zabha ISA-extension to implement kernel
+>> +	  byte/halfword atomic memory operations when it is detected at boot.
 >> +
->>  extern phys_addr_t memblock_end_of_DRAM(void);
->>  #endif
->> diff --git a/arch/x86/include/asm/crash_reserve.h b/arch/x86/include/asm/crash_reserve.h
->> index 7835b2cdff04..24c2327f9a16 100644
->> --- a/arch/x86/include/asm/crash_reserve.h
->> +++ b/arch/x86/include/asm/crash_reserve.h
->> @@ -26,6 +26,7 @@ extern unsigned long swiotlb_size_or_default(void);
->>  #else
->>  # define CRASH_ADDR_LOW_MAX     SZ_4G
->>  # define CRASH_ADDR_HIGH_MAX    SZ_64T
->> +#define HAVE_ARCH_CRASHKERNEL_RESERVATION_HIGH
->>  #endif
->>  
->>  # define DEFAULT_CRASH_KERNEL_LOW_SIZE crash_low_size_default()
->> diff --git a/kernel/crash_reserve.c b/kernel/crash_reserve.c
->> index 5b2722a93a48..c5213f123e19 100644
->> --- a/kernel/crash_reserve.c
->> +++ b/kernel/crash_reserve.c
->> @@ -306,7 +306,7 @@ int __init parse_crashkernel(char *cmdline,
->>  	/* crashkernel=X[@offset] */
->>  	ret = __parse_crashkernel(cmdline, system_ram, crash_size,
->>  				crash_base, NULL);
->> -#ifdef CONFIG_ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION
->> +#ifdef HAVE_ARCH_CRASHKERNEL_RESERVATION_HIGH
->>  	/*
->>  	 * If non-NULL 'high' passed in and no normal crashkernel
->>  	 * setting detected, try parsing crashkernel=,high|low.
+>> +	  If you don't know what to do here, say Y.
+>> +
+>>   config TOOLCHAIN_HAS_ZACAS
+>>   	bool
+>>   	default y
+>> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+>> index 9fd13d7a9cc6..78dcaaeebf4e 100644
+>> --- a/arch/riscv/Makefile
+>> +++ b/arch/riscv/Makefile
+>> @@ -88,6 +88,9 @@ riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZIHINTPAUSE) := $(riscv-march-y)_zihintpause
+>>   # Check if the toolchain supports Zacas
+>>   riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZACAS) := $(riscv-march-y)_zacas
+>>   
+>> +# Check if the toolchain supports Zabha
+>> +riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZABHA) := $(riscv-march-y)_zabha
+>> +
+>>   # Remove F,D,V from isa string for all. Keep extensions between "fd" and "v" by
+>>   # matching non-v and non-multi-letter extensions out with the filter ([^v_]*)
+>>   KBUILD_CFLAGS += -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64ima)fd([^v_]*)v?/\1\2/')
+>> diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
+>> index 5d38153e2f13..c86722a101d0 100644
+>> --- a/arch/riscv/include/asm/cmpxchg.h
+>> +++ b/arch/riscv/include/asm/cmpxchg.h
+>> @@ -105,8 +105,30 @@
+>>    * indicated by comparing RETURN with OLD.
+>>    */
+>>   
+>> -#define __arch_cmpxchg_masked(sc_sfx, prepend, append, r, p, o, n)	\
+>> +#define __arch_cmpxchg_masked(sc_sfx, cas_sfx, prepend, append, r, p, o, n)	\
+>>   ({									\
+>> +	__label__ no_zabha_zacas, end;					\
+>> +									\
+>> +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZABHA) &&			\
+>> +	    IS_ENABLED(CONFIG_RISCV_ISA_ZACAS)) {			\
+>> +		asm goto(ALTERNATIVE("j %[no_zabha_zacas]", "nop", 0,	\
+>> +				     RISCV_ISA_EXT_ZABHA, 1)		\
+>> +			 : : : : no_zabha_zacas);			\
+>> +		asm goto(ALTERNATIVE("j %[no_zabha_zacas]", "nop", 0,	\
+>> +				     RISCV_ISA_EXT_ZACAS, 1)		\
+>> +			 : : : : no_zabha_zacas);			\
+> I came late to the call, but I guess trying to get rid of these asm gotos
+> was the topic of the discussion. The proposal was to try and use static
+> branches, but keep in mind that we've had trouble with static branches
+> inside macros in the past when those macros are used in many places[1]
+>
+> [1] commit 0b1d60d6dd9e ("riscv: Fix build with CONFIG_CC_OPTIMIZE_FOR_SIZE=y")
+
+
+Thanks for the pointer, I was not aware of this. I came up with a 
+solution with preprocessor guards, not the prettiest solution but at 
+least it does not create more problems :)
+
+
+>
+>> +									\
+>> +		__asm__ __volatile__ (					\
+>> +			prepend						\
+>> +			"	amocas" cas_sfx " %0, %z2, %1\n"	\
+>> +			append						\
+>> +			: "+&r" (r), "+A" (*(p))			\
+>> +			: "rJ" (n)					\
+>> +			: "memory");					\
+>> +		goto end;						\
+>> +	}								\
+>> +									\
+>> +no_zabha_zacas:;							\
+> unnecessary ;
+
+
+Actually it is, it fixes a warning encountered on llvm: 
+https://lore.kernel.org/linux-riscv/20240528193110.GA2196855@thelio-3990X/
+
+Thanks,
+
+Alex
+
+
+>
+>>   	u32 *__ptr32b = (u32 *)((ulong)(p) & ~0x3);			\
+>>   	ulong __s = ((ulong)(p) & (0x4 - sizeof(*p))) * BITS_PER_BYTE;	\
+>>   	ulong __mask = GENMASK(((sizeof(*p)) * BITS_PER_BYTE) - 1, 0)	\
+>> @@ -133,6 +155,8 @@
+>>   		: "memory");						\
+>>   									\
+>>   	r = (__typeof__(*(p)))((__retx & __mask) >> __s);		\
+>> +									\
+>> +end:;									\
+>>   })
+>>   
+>>   #define __arch_cmpxchg(lr_sfx, sc_cas_sfx, prepend, append, r, p, co, o, n)	\
+>> @@ -180,8 +204,13 @@ end:;									\
+>>   									\
+>>   	switch (sizeof(*__ptr)) {					\
+>>   	case 1:								\
+>> +		__arch_cmpxchg_masked(sc_sfx, ".b" sc_sfx,		\
+>> +					prepend, append,		\
+>> +					__ret, __ptr, __old, __new);    \
+>> +		break;							\
+>>   	case 2:								\
+>> -		__arch_cmpxchg_masked(sc_sfx, prepend, append,		\
+>> +		__arch_cmpxchg_masked(sc_sfx, ".h" sc_sfx,		\
+>> +					prepend, append,		\
+>>   					__ret, __ptr, __old, __new);	\
+>>   		break;							\
+>>   	case 4:								\
+>> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+>> index e17d0078a651..f71ddd2ca163 100644
+>> --- a/arch/riscv/include/asm/hwcap.h
+>> +++ b/arch/riscv/include/asm/hwcap.h
+>> @@ -81,6 +81,7 @@
+>>   #define RISCV_ISA_EXT_ZTSO		72
+>>   #define RISCV_ISA_EXT_ZACAS		73
+>>   #define RISCV_ISA_EXT_XANDESPMU		74
+>> +#define RISCV_ISA_EXT_ZABHA		75
+>>   
+>>   #define RISCV_ISA_EXT_XLINUXENVCFG	127
+>>   
+>> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+>> index 5ef48cb20ee1..c125d82c894b 100644
+>> --- a/arch/riscv/kernel/cpufeature.c
+>> +++ b/arch/riscv/kernel/cpufeature.c
+>> @@ -257,6 +257,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+>>   	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
+>>   	__RISCV_ISA_EXT_DATA(zihpm, RISCV_ISA_EXT_ZIHPM),
+>>   	__RISCV_ISA_EXT_DATA(zacas, RISCV_ISA_EXT_ZACAS),
+>> +	__RISCV_ISA_EXT_DATA(zabha, RISCV_ISA_EXT_ZABHA),
+>>   	__RISCV_ISA_EXT_DATA(zfa, RISCV_ISA_EXT_ZFA),
+>>   	__RISCV_ISA_EXT_DATA(zfh, RISCV_ISA_EXT_ZFH),
+>>   	__RISCV_ISA_EXT_DATA(zfhmin, RISCV_ISA_EXT_ZFHMIN),
 >> -- 
->> 2.34.1
+>> 2.39.2
 >>
-> 
-> 
+> Thanks,
+> drew
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
