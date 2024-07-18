@@ -4,65 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5481BC3DA49
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jul 2024 03:52:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 325DAC3DA49
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jul 2024 06:49:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GwMU91bDCxC/AvkhTIT03po1aAGyrlNFKTKp0KOwqKY=; b=LhE0WrSgsObWjb
-	0O4P8U1qC5eBQtQTkZTvDI2FHpCLFDTnb6dLcO9leu8zYrogg6Eij5wF7AWY+9bIDFKxsPuwDSEDR
-	RXFFn0M2Po/aa1eOxPkCrcWY8WyJ4jU/myEY5D3+KfYVdyoAmSMVMBYp2yyZmzYZnY1055kx0xS6T
-	42hmDdMib2NRnuk4gT6kQ2fz7fRAX5MndXapbjXk7ipD5QvJp92bnjHRKRiFOPb2/tPtWRcf9m21v
-	TPlpXwSk3oSjy7i2qElajeqBm4p3m8YzPA0FEZlTj5xrBTg2lqG4ufC8k+fSpwDuOzWCrtNuU4hbu
-	m80sW+RMHAowt/x1r6RA==;
+	List-Owner; bh=DHh6azmFJ5Wn7Nof/2sP0FmCgt1EshlQ7PImgSuVynQ=; b=cGlOkXtsp/lJfn
+	7KXf0ho2JBbqlh1u0MAcUGXO1EiQQ43okVzF/7dUbM/pTMdjdzLIiMln7wBZSzc9IAiV8pYjFDR7v
+	KHbe4IE8YGfp/kiq1LtS8ppORxPyClO1xVPCHTcrT4pGAbD36/WnP3O5uHI692fIxtOqAs3rSY7Ck
+	09kerxmLSEn6Bt3xKd+F/PEuAvqt3d6ckx7AdoAMxahw2UTUPFT/pxrQGUmFO6sqPWtRWmLsLV3Wr
+	UUIbUACQdeuRw8KZiDR5WKUthZP0wZCH7NDqUFza4datFJr+8Fe65Q/9WODymFh+rUOlNutbbdLcN
+	AFJoE5RnErF1DLeBt4HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUICA-0000000FgTq-3elV;
-	Thu, 18 Jul 2024 03:52:42 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1sUKxN-0000000G2DB-3MjM;
+	Thu, 18 Jul 2024 06:49:37 +0000
+Received: from mail-southeastasiaazolkn190120002.outbound.protection.outlook.com ([2a01:111:f403:d402::2] helo=SINPR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUIAP-0000000FfZ6-46zx;
-	Thu, 18 Jul 2024 03:50:55 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.254])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4WPf1Z1J4nzdhdQ;
-	Thu, 18 Jul 2024 11:49:06 +0800 (CST)
-Received: from kwepemi100008.china.huawei.com (unknown [7.221.188.57])
-	by mail.maildlp.com (Postfix) with ESMTPS id 42D43180105;
-	Thu, 18 Jul 2024 11:50:35 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by kwepemi100008.china.huawei.com
- (7.221.188.57) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Thu, 18 Jul
- 2024 11:50:05 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <linux@armlinux.org.uk>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<tglx@linutronix.de>, <mingo@redhat.com>, <bp@alien8.de>,
-	<dave.hansen@linux.intel.com>, <hpa@zytor.com>, <bhe@redhat.com>,
-	<vgoyal@redhat.com>, <dyoung@redhat.com>, <arnd@arndb.de>, <afd@ti.com>,
-	<linus.walleij@linaro.org>, <akpm@linux-foundation.org>,
-	<eric.devolder@oracle.com>, <gregkh@linuxfoundation.org>,
-	<javierm@redhat.com>, <deller@gmx.de>, <robh@kernel.org>,
-	<hbathini@linux.ibm.com>, <thunder.leizhen@huawei.com>,
-	<chenjiahao16@huawei.com>, <linux-kernel@vger.kernel.org>,
-	<kexec@lists.infradead.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-riscv@lists.infradead.org>
-CC: <ruanjinjie@huawei.com>
-Subject: [PATCH v3 3/3] ARM: Use generic interface to simplify crashkernel reservation
-Date: Thu, 18 Jul 2024 11:54:44 +0800
-Message-ID: <20240718035444.2977105-4-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20240718035444.2977105-1-ruanjinjie@huawei.com>
-References: <20240718035444.2977105-1-ruanjinjie@huawei.com>
+	id 1sUKxK-0000000G2BO-2xBS
+	for linux-riscv@lists.infradead.org;
+	Thu, 18 Jul 2024 06:49:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=V2bt83dpi66V9jinXXEaV0QEfanTDi1MWXM3r9oKbnq283P6V+VeAfIotj+xQfaHGK1HkG1sg9TBT+1n5QQq9aG991WIi84iHyWSP0I5/eOWSMCAGNvLfTEUCYtZO9wlkWZcIqwA09ItYl777rtxijX1sQhSlMwUyXthN6Na6WTQUTBVUQIyqAQPx6kwU9yF3jXrwSBQUlRqAYk6+0u/gGsEQtENBGki3/1nTIeAqoZ+g0IfL7xg7ygk1e0q52WnjfWNIICq4SbfzfJ1CBm1m5OXOSnV/+8yPa4x+yo990VYWYk1c6l2i+bPDGom8+mF+mRGyzpJ7LT5rlw+7jDYwA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1dj1dCUGHPuDcs8f5L48a8MYf7ZqslST0r1An7BNp0E=;
+ b=bwOT8xUGIVoU2TxGrERlIp6OSO588W7ohkqPl6HPP5I8VWEgKW/kv7IjkrRv0GKQsl5kb9UBJ6DH/qj0o6shCeeCDI6sxFpAl8OLblnl/GUeqgaC8jV3Qgnp44cELhIpukA3JfzcEV8H2DKM43vJhDOvHxG/LPGK2ewY3UPBziysgNCASL92F3dTxVGj8f8boLapmcnA+GkDDnd2koGd/k96Hxv1dPLnzy4OuK8Z0kyOUWWCUuBXhfgMMhMGEvAbYiycz6zydymX30tVKSvyqTy73ESSHMkKxD6JXdvzlNbv/MA20vjSSb0bK9Mcaht3j1YcQl0JYXOMYpTSn4dBbw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1dj1dCUGHPuDcs8f5L48a8MYf7ZqslST0r1An7BNp0E=;
+ b=ExTwYY3nMnJexZQp3GbQELkabPaPJwr0UxP57NSFdZScOSxTShKqvEyEFOYPZObC6lmc3GwRX0PxR3z7ufLUtaPsdbdZPh87r2BSP5DhMc6AmMXt1u6rPihoHHw9bR2BiHiK+PoK2Xk58YOFC/apglCHSaH4WFqPmgfSmF2lObe8C0blHu50fHaLeDrf8VXuqynXj1yGbwnHYIrBiIxWt0M3Fq3wFL2PraCs3enJe9P3x38C8hqEb1k/+RFPomRqZBlFhyjHv0AumCVnVMmThaBj0mGOHEOPIw31NSCGCvThf1aUmVKfqPqdwzhEfldMUKoDIylJHtN1brA5STK1Mg==
+Received: from SEYPR01MB4221.apcprd01.prod.exchangelabs.com
+ (2603:1096:101:56::12) by TYUPR01MB5399.apcprd01.prod.exchangelabs.com
+ (2603:1096:400:356::13) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7762.29; Thu, 18 Jul
+ 2024 06:49:14 +0000
+Received: from SEYPR01MB4221.apcprd01.prod.exchangelabs.com
+ ([fe80::b674:8f70:6e29:3756]) by SEYPR01MB4221.apcprd01.prod.exchangelabs.com
+ ([fe80::b674:8f70:6e29:3756%5]) with mapi id 15.20.7762.027; Thu, 18 Jul 2024
+ 06:49:13 +0000
+Date: Thu, 18 Jul 2024 06:49:05 +0000
+From: Haylen Chu <heylenay@outlook.com>
+To: Inochi Amaoto <inochiama@outlook.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Jisheng Zhang <jszhang@kernel.org>
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 3/3] thermal: cv180x: Add cv180x thermal driver support
+Message-ID: <SEYPR01MB4221611E6BB87C70B30999E5D7AC2@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
+References: <SEYPR01MB422158B2766DA03728AD90CBD7A22@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
+ <SEYPR01MB42215C6F248AF99499F6A050D7A22@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
+ <PH7PR20MB4962DD8526FF0845258ECE2FBBA32@PH7PR20MB4962.namprd20.prod.outlook.com>
+Content-Disposition: inline
+In-Reply-To: <PH7PR20MB4962DD8526FF0845258ECE2FBBA32@PH7PR20MB4962.namprd20.prod.outlook.com>
+X-TMN: [I7SB39OJtPOmW025sWfm+fva033bMFH1]
+X-ClientProxiedBy: TYAPR01CA0235.jpnprd01.prod.outlook.com
+ (2603:1096:404:11e::31) To SEYPR01MB4221.apcprd01.prod.exchangelabs.com
+ (2603:1096:101:56::12)
+X-Microsoft-Original-Message-ID: <Zpi64YtcgEdgnzyi@ketchup>
 MIME-Version: 1.0
-X-Originating-IP: [10.90.53.73]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- kwepemi100008.china.huawei.com (7.221.188.57)
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SEYPR01MB4221:EE_|TYUPR01MB5399:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1b8cf5f3-eb67-4605-82e7-08dca6f5bb97
+X-Microsoft-Antispam: BCL:0;ARA:14566002|19110799003|8060799006|461199028|440099028|3412199025;
+X-Microsoft-Antispam-Message-Info: JetZF8Z600j+EkNX4lWaIShNKjL4xbb1tj9x/G1xyFoBWE4vCheC/KKddu/BCry/uWYbauOExiJGoefBmFWkhUqmyRu1QJUrD7alTiwXQnpEpwj5u2SZ/xf9qzG7XImPjVA0+XdkmyfwZF13A0IT3u0rR7E0BYwzi1JsOvWmFtSF+DGTYiWh5SnnI5bC/YstwrFPsvUcKl+r01SQfrVrorsE91BIC77O1glyHGM+qOn8lNlTHWP6nPUC/XJ1U/1++VCElGTWYJW+O/M9Kf0Ij4w1SHT7sss88WlLWl3GEmxYI4iP3J/84TQfK62cUGKcbUqR2H5RE3YOGOw3ALtUKGi7bdJ/RJ1AezLS8JmMrKrttdcHt/XGgO4yTt12lxJbF8noptMPNedq40xucsOqtV1qHogNGcIzUPScrwmGScEi7QpCra7/ivnw2zh8mqeUqzHNgwhJ2ou50i7De3eoJwlTSSaMCM/B2S5fm97Z0d05SJa2j3a4FhwTc7xK5X/5vZSqEBUZtJwgf4ayBXgihVq5FntDihkcIzvcy77XCxVe2abfqzMOLPMOsyNJvsir5QOigOkTPpTUCJ9Wqz4fdQxd2B2D4bTjRqq1SkqGQKo0YoLzZjbVrNdMREykgd2KwZFp+6tF14alBn8jjPl4Fg==
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/dM9NBgsy2x7UeubXbOFyLYwXE8P16gEEZ3zY/2uatqySvWm9hy/2dkNQoPK?=
+ =?us-ascii?Q?UWtcJHbDyTjMhC8gkSxHl/j4k9sJa+KbhjsU8mKxZNLKTrd7HkpKwM5C6laC?=
+ =?us-ascii?Q?uWZd0FPZtP47H+L8z1Su6w62UIgJV30EGnhveqiqcPp5qJ0T1uiAm6vrxHIV?=
+ =?us-ascii?Q?GOYcYBO+4nRftmosK5/WCkjWdW1+ZfRCquY9C0lOO+i+RKRJRX47PlN8tZaA?=
+ =?us-ascii?Q?q8GoF0Qp6OfuouumlrrlA3VkR0tPoKtbCBwm06yruch0f4BUNIi0lQP6OkWU?=
+ =?us-ascii?Q?wIkyywEO9QKN7NblYH/9I5rJmu4muxsmo4xSXHJHv3SIf+o91wdWO574HVZQ?=
+ =?us-ascii?Q?H/mC8mGieadwt7Xp2dYFGczpgL9GcZtm9abJm2Eg85T7teuf2ipRqxNVJmgt?=
+ =?us-ascii?Q?ewbQ4VUzKA5Zy0mDdAdw1/POCKXIWn4aOMQ+vYyFZzdlrV07Xg5AQxKzx403?=
+ =?us-ascii?Q?krwryQMO116PGtuttbpjTeYoy7E5sdIJRjSIDMNSZYzPmL4TJl92U9v5Ofl5?=
+ =?us-ascii?Q?ubYkjHFCLljWwKMvQRj9qzJF8bB8ZmZZhk4/Emg9l0djCi817/POjx+R7tc7?=
+ =?us-ascii?Q?UcunxQxhRmX1zTTDD1s1y+pY1WSjSyIeKvPYoS7SYp4mKjqE2LBrQ2fzif0d?=
+ =?us-ascii?Q?+Th3o57zPxFh7YlvVgiSwWiI5XshsvvjS/kFyVIUN2q/L6SSAmySidN4hCx+?=
+ =?us-ascii?Q?9BZUl0gROXRmeYAKaLWuEqpV9IoxdIOFnpn1hO7klEmtecDelnfDIwiiJV+r?=
+ =?us-ascii?Q?kh4/KggOwvmRPb1L6ATTu0cbOLwErc9PNyLGBegRLEglLPdAM1/h/CbO0tu3?=
+ =?us-ascii?Q?yz0Y1xgEcj8QCxvoRuWKbk4+Xu/6eBaWmj65koWmqVD0HtEJvEeYlFTt/8XZ?=
+ =?us-ascii?Q?aDlZ0eyFeXh1ziWBifco8GKpq9+miJ1D4EQa5T5JhvvNSH9kOSxlY+WXuwXP?=
+ =?us-ascii?Q?Gt1p3pIbpJrzsFIIbAdxDhVXFzyhm6r9bAQjJynx05o1TcbWq6jSfFWBHMHg?=
+ =?us-ascii?Q?37xr1qz4FGjqh/dL0cjPjti4CB4nbDOj8mrymoVuM/d6JJCaYsuLVfSawRCt?=
+ =?us-ascii?Q?ESOuHZXbNFnyAC5dXZ3xa1fCHcuI8Ws8JPaANJBfJvXLXPV3eIrfbqXNY5Ej?=
+ =?us-ascii?Q?f36AmVMEGfbuYez0TZtWc1s+gzPAPwIR3ZmvnjIy/ThUm3CwkcxCH0isPAOQ?=
+ =?us-ascii?Q?JBoNKtrfn0uKWNxFopCwpovzpffqaBorv9QWpj0ZKvrsMnrkO3kr6ot1Q8U?=
+ =?us-ascii?Q?=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1b8cf5f3-eb67-4605-82e7-08dca6f5bb97
+X-MS-Exchange-CrossTenant-AuthSource: SEYPR01MB4221.apcprd01.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jul 2024 06:49:12.8483
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYUPR01MB5399
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240717_205054_409522_653FEA6B 
-X-CRM114-Status: GOOD (  20.88  )
+X-CRM114-CacheID: sfid-20240717_234934_960390_AED4C568 
+X-CRM114-Status: GOOD (  28.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,206 +137,303 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, x86, arm64, riscv and loongarch has been switched to generic
-crashkernel reservation, which is also ready for 32bit system.
-So with the help of function parse_crashkernel() and generic
-reserve_crashkernel_generic(), arm32 crashkernel reservation can also
-be simplified by steps:
+On Wed, Jul 17, 2024 at 02:22:32PM +0800, Inochi Amaoto wrote:
+> On Tue, Jul 16, 2024 at 09:42:35AM GMT, Haylen Chu wrote:
+> > Add support for cv180x SoCs integrated thermal sensors.
+> > 
+> > Signed-off-by: Haylen Chu <heylenay@outlook.com>
+> > ---
+> >  drivers/thermal/Kconfig          |   6 +
+> >  drivers/thermal/Makefile         |   1 +
+> >  drivers/thermal/cv180x_thermal.c | 241 +++++++++++++++++++++++++++++++
+> >  3 files changed, 248 insertions(+)
+> >  create mode 100644 drivers/thermal/cv180x_thermal.c
+> > 
+> > diff --git a/drivers/thermal/Kconfig b/drivers/thermal/Kconfig
+> > index 204ed89a3ec9..f53c973a361d 100644
+> > --- a/drivers/thermal/Kconfig
+> > +++ b/drivers/thermal/Kconfig
+> > @@ -514,4 +514,10 @@ config LOONGSON2_THERMAL
+> >  	  is higher than the high temperature threshold or lower than the low
+> >  	  temperature threshold, the interrupt will occur.
+> >  
+> > +config CV180X_THERMAL
+> > +	tristate "Temperature sensor driver for Sophgo CV180X"
+> > +	help
+> > +	  If you say yes here you get support for thermal sensor integrated in
+> > +	  Sophgo CV180X SoCs.
+> > +
+> >  endif
+> > diff --git a/drivers/thermal/Makefile b/drivers/thermal/Makefile
+> > index 5cdf7d68687f..5b59bde8a579 100644
+> > --- a/drivers/thermal/Makefile
+> > +++ b/drivers/thermal/Makefile
+> > @@ -65,3 +65,4 @@ obj-$(CONFIG_AMLOGIC_THERMAL)     += amlogic_thermal.o
+> >  obj-$(CONFIG_SPRD_THERMAL)	+= sprd_thermal.o
+> >  obj-$(CONFIG_KHADAS_MCU_FAN_THERMAL)	+= khadas_mcu_fan.o
+> >  obj-$(CONFIG_LOONGSON2_THERMAL)	+= loongson2_thermal.o
+> > +obj-$(CONFIG_CV180X_THERMAL)	+= cv180x_thermal.o
+> > diff --git a/drivers/thermal/cv180x_thermal.c b/drivers/thermal/cv180x_thermal.c
+> > new file mode 100644
+> > index 000000000000..8b726c0ad848
+> > --- /dev/null
+> > +++ b/drivers/thermal/cv180x_thermal.c
+> > @@ -0,0 +1,241 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +/*
+> > + * Copyright (C) 2021 Sophgo Inc.
+> > + * Copyright (C) 2024 Haylen Chu <heylenay@outlook.com>
+> > + */
+> > +
+> > +#include <linux/bits.h>
+> > +#include <linux/clk.h>
+> > +#include <linux/io.h>
+> > +#include <linux/module.h>
+> > +#include <linux/of.h>
+> > +#include <linux/platform_device.h>
+> > +#include <linux/thermal.h>
+> > +
+> > +#define TEMPSEN_VERSION					0x0
+> > +#define TEMPSEN_CTRL					0x4
+> > +#define  TEMPSEN_CTRL_EN				BIT(0)
+> > +#define  TEMPSEN_CTRL_SEL_MASK				GENMASK(7, 4)
+> > +#define  TEMPSEN_CTRL_SEL_OFFSET			4
+> > +#define TEMPSEN_STATUS					0x8
+> > +#define TEMPSEN_SET					0xc
+> > +#define  TEMPSEN_SET_CHOPSEL_MASK			GENMASK(5, 4)
+> > +#define  TEMPSEN_SET_CHOPSEL_OFFSET			4
+> > +#define  TEMPSEN_SET_CHOPSEL_128T			0
+> > +#define  TEMPSEN_SET_CHOPSEL_256T			1
+> > +#define  TEMPSEN_SET_CHOPSEL_512T			2
+> > +#define  TEMPSEN_SET_CHOPSEL_1024T			3
+> > +#define  TEMPSEN_SET_ACCSEL_MASK			GENMASK(7, 6)
+> > +#define  TEMPSEN_SET_ACCSEL_OFFSET			6
+> > +#define  TEMPSEN_SET_ACCSEL_512T			0
+> > +#define  TEMPSEN_SET_ACCSEL_1024T			1
+> > +#define  TEMPSEN_SET_ACCSEL_2048T			2
+> > +#define  TEMPSEN_SET_ACCSEL_4096T			3
+> > +#define  TEMPSEN_SET_CYC_CLKDIV_MASK			GENMASK(15, 8)
+> > +#define  TEMPSEN_SET_CYC_CLKDIV_OFFSET			8
+> > +#define TEMPSEN_INTR_EN					0x10
+> > +#define TEMPSEN_INTR_CLR				0x14
+> > +#define TEMPSEN_INTR_STA				0x18
+> > +#define TEMPSEN_INTR_RAW				0x1c
+> > +#define TEMPSEN_RESULT(n)				(0x20 + (n) * 4)
+> > +#define  TEMPSEN_RESULT_RESULT_MASK			GENMASK(12, 0)
+> > +#define  TEMPSEN_RESULT_MAX_RESULT_MASK			GENMASK(28, 16)
+> > +#define  TEMPSEN_RESULT_CLR_MAX_RESULT			BIT(31)
+> > +#define TEMPSEN_AUTO_PERIOD				0x64
+> > +#define  TEMPSEN_AUTO_PERIOD_AUTO_CYCLE_MASK		GENMASK(23, 0)
+> > +#define  TEMPSEN_AUTO_PERIOD_AUTO_CYCLE_OFFSET		0
+> > +
+> > +struct cv180x_thermal_zone {
+> > +	struct device *dev;
+> > +	void __iomem *base;
+> > +	struct clk *clk_tempsen;
+> > +	u32 sample_cycle;
+> > +};
+> > +
+> > +static void cv180x_thermal_init(struct cv180x_thermal_zone *ctz)
+> > +{
+> > +	void __iomem *base = ctz->base;
+> > +	u32 regval;
+> > +
+> > +	writel(readl(base + TEMPSEN_INTR_RAW), base + TEMPSEN_INTR_CLR);
+> > +	writel(TEMPSEN_RESULT_CLR_MAX_RESULT, base + TEMPSEN_RESULT(0));
+> > +
+> > +	regval = readl(base + TEMPSEN_SET);
+> > +	regval &= ~TEMPSEN_SET_CHOPSEL_MASK;
+> > +	regval &= ~TEMPSEN_SET_ACCSEL_MASK;
+> > +	regval &= ~TEMPSEN_SET_CYC_CLKDIV_MASK;
+> > +	regval |= TEMPSEN_SET_CHOPSEL_1024T << TEMPSEN_SET_CHOPSEL_OFFSET;
+> > +	regval |= TEMPSEN_SET_ACCSEL_2048T << TEMPSEN_SET_ACCSEL_OFFSET;
+> > +	regval |= 0x31 << TEMPSEN_SET_CYC_CLKDIV_OFFSET;
+> > +	writel(regval, base + TEMPSEN_SET);
+> > +
+> > +	regval = readl(base + TEMPSEN_AUTO_PERIOD);
+> > +	regval &= ~TEMPSEN_AUTO_PERIOD_AUTO_CYCLE_MASK;
+> > +	regval |= ctz->sample_cycle << TEMPSEN_AUTO_PERIOD_AUTO_CYCLE_OFFSET;
+> > +	writel(regval, base + TEMPSEN_AUTO_PERIOD);
+> > +
+> > +	regval = readl(base + TEMPSEN_CTRL);
+> > +	regval &= ~TEMPSEN_CTRL_SEL_MASK;
+> > +	regval |= 1 << TEMPSEN_CTRL_SEL_OFFSET;
+> > +	regval |= TEMPSEN_CTRL_EN;
+> > +	writel(regval, base + TEMPSEN_CTRL);
+> > +}
+> > +
+> > +static void cv180x_thermal_deinit(struct cv180x_thermal_zone *ct)
+> > +{
+> > +	void __iomem *base = ct->base;
+> > +	u32 regval;
+> > +
+> > +	regval = readl(base + TEMPSEN_CTRL);
+> > +	regval &= ~(TEMPSEN_CTRL_SEL_MASK | TEMPSEN_CTRL_EN);
+> > +	writel(regval, base + TEMPSEN_CTRL);
+> > +
+> > +	writel(readl(base + TEMPSEN_INTR_RAW), base + TEMPSEN_INTR_CLR);
+> > +}
+> > +
+> > +/*
+> > + *	Raw register value to temperature (mC) formula:
+> > + *
+> > + *		       read_val * 1000 * 716
+> > + *	Temperature = ----------------------- - 273000
+> > + *				divider
+> > + *
+> > + *	where divider should be ticks number of accumulation period,
+> > + *	e.g. 2048 for TEMPSEN_CTRL_ACCSEL_2048T
+> > + */
+> > +static int cv180x_calc_temp(struct cv180x_thermal_zone *ctz, u32 result)
+> > +{
+> > +	return (result * 1000) * 716 / 2048 - 273000;
+> > +}
+> > +
+> > +static int cv180x_get_temp(struct thermal_zone_device *tdev, int *temperature)
+> > +{
+> > +	struct cv180x_thermal_zone *ctz = thermal_zone_device_priv(tdev);
+> > +	void __iomem *base = ctz->base;
+> > +	u32 result;
+> > +
+> > +	result = readl(base + TEMPSEN_RESULT(0)) & TEMPSEN_RESULT_RESULT_MASK;
+> > +	*temperature = cv180x_calc_temp(ctz, result);
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static const struct thermal_zone_device_ops cv180x_thermal_ops = {
+> > +	.get_temp = cv180x_get_temp,
+> > +};
+> > +
+> > +static const struct of_device_id cv180x_thermal_of_match[] = {
+> > +	{ .compatible = "sophgo,cv1800-thermal" },
+> > +	{},
+> > +};
+> > +MODULE_DEVICE_TABLE(of, cv180x_thermal_of_match);
+> > +
+> > +static int
+> > +cv180x_parse_dt(struct cv180x_thermal_zone *ctz)
+> > +{
+> > +	struct device_node *np = ctz->dev->of_node;
+> > +	u32 tmp;
+> > +
+> > +	if (of_property_read_u32(np, "sample-rate-hz", &tmp)) {
+> > +		ctz->sample_cycle = 1000000;
+> > +	} else {
+> > +		/* sample cycle should be at least 524us */
+> > +		if (tmp > 1000000 / 524) {
+> > +			dev_err(ctz->dev, "invalid sample rate %d\n", tmp);
+> > +			return -EINVAL;
+> > +		}
+> > +
+> > +		ctz->sample_cycle = 1000000 / tmp;
+> > +	}
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static int cv180x_thermal_probe(struct platform_device *pdev)
+> > +{
+> > +	struct cv180x_thermal_zone *ctz;
+> > +	struct thermal_zone_device *tz;
+> > +	struct resource *res;
+> > +	int ret;
+> > +
+> > +	ctz = devm_kzalloc(&pdev->dev, sizeof(*ctz), GFP_KERNEL);
+> > +	if (!ctz)
+> > +		return -ENOMEM;
+> > +
+> > +	ctz->dev = &pdev->dev;
+> > +
+> > +	ret = cv180x_parse_dt(ctz);
+> > +	if (ret)
+> > +		return dev_err_probe(&pdev->dev, ret, "failed to parse dt\n");
+> > +
+> > +	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+> > +	ctz->base = devm_ioremap_resource(&pdev->dev, res);
+> > +	if (IS_ERR(ctz->base))
+> > +		return dev_err_probe(&pdev->dev, PTR_ERR(ctz->base),
+> > +				     "failed to map tempsen registers\n");
+> > +
+> > +	ctz->clk_tempsen = devm_clk_get_enabled(&pdev->dev, NULL);
+> > +	if (IS_ERR(ctz->clk_tempsen))
+> > +		return dev_err_probe(&pdev->dev, PTR_ERR(ctz->clk_tempsen),
+> > +				     "failed to get clk_tempsen\n");
+> > +
+> > +	cv180x_thermal_init(ctz);
+> > +
+> > +	tz = devm_thermal_of_zone_register(&pdev->dev, 0, ctz,
+> > +					   &cv180x_thermal_ops);
+> > +	if (IS_ERR(tz))
+> > +		return dev_err_probe(&pdev->dev, PTR_ERR(tz),
+> > +				     "failed to register thermal zone\n");
+> > +
+> > +	platform_set_drvdata(pdev, ctz);
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static int cv180x_thermal_remove(struct platform_device *pdev)
+> > +{
+> > +	struct cv180x_thermal_zone *ctz = platform_get_drvdata(pdev);
+> > +
+> > +	cv180x_thermal_deinit(ctz);
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static int __maybe_unused cv180x_thermal_suspend(struct device *dev)
+> > +{
+> > +	struct cv180x_thermal_zone *ctz = dev_get_drvdata(dev);
+> > +
+> > +	cv180x_thermal_deinit(ctz);
+> > +	clk_disable_unprepare(ctz->clk_tempsen);
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static int __maybe_unused cv180x_thermal_resume(struct device *dev)
+> > +{
+> > +	struct cv180x_thermal_zone *ctz = dev_get_drvdata(dev);
+> > +
+> > +	clk_prepare_enable(ctz->clk_tempsen);
+> > +	cv180x_thermal_init(ctz);
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static SIMPLE_DEV_PM_OPS(cv180x_thermal_pm_ops,
+> > +			 cv180x_thermal_suspend, cv180x_thermal_resume);
+> > +
+> > +static struct platform_driver cv180x_thermal_driver = {
+> > +	.probe = cv180x_thermal_probe,
+> > +	.remove = cv180x_thermal_remove,
+> > +	.driver = {
+> > +		.name = "cv180x-thermal",
+> > +		.pm = &cv180x_thermal_pm_ops,
+> > +		.of_match_table = cv180x_thermal_of_match,
+> > +	},
+> > +};
+> > +
+> > +module_platform_driver(cv180x_thermal_driver);
+> > +
+> > +MODULE_DESCRIPTION("Sophgo CV180x thermal driver");
+> > +MODULE_AUTHOR("Haylen Chu <heylenay@outlook.com>");
+> > +MODULE_LICENSE("GPL");
+> > -- 
+> > 2.45.2
+> > 
+> 
+> Where is interrupt handler? I see nothing about it.
+> 
+> Regards,
+> Inochi
 
-1) Add a new header file <asm/crash_reserve.h>, and define CRASH_ALIGN,
-   CRASH_ADDR_LOW_MAX, CRASH_ADDR_HIGH_MAX in it;
+Interrupts are not used. This driver implements only polling the
+temperature.
 
-2) Add arch_reserve_crashkernel() to call parse_crashkernel() and
-   reserve_crashkernel_generic();
-
-3) Add ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION Kconfig in
-   arch/arm/Kconfig.
-
-The old reserve_crashkernel() can be removed.
-
-Following test cases have been performed as expected on QEMU vexpress-a9
-(1GB system memory):
-
-1) crashkernel=4G,high				// invalid
-2) crashkernel=1G,high				// invalid
-3) crashkernel=1G,high crashkernel=0M,low	// invalid
-4) crashkernel=256M,high			// invalid
-5) crashkernel=256M,low				// invalid
-6) crashkernel=256M crashkernel=256M,high	// high is ignored, ok
-7) crashkernel=256M crashkernel=256M,low	// low is ignored, ok
-8) crashkernel=256M,high crashkernel=256M,low	// invalid
-9) crashkernel=256M,high crashkernel=4G,low	// invalid
-10) crashkernel=256M				// ok
-11) crashkernel=512M				// ok
-12) crashkernel=256M@0x88000000			// ok
-13) crashkernel=256M@0x78000000			// ok
-14) crashkernel=512M@0x78000000			// ok
-
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-Tested-by: Jinjie Ruan <ruanjinjie@huawei.com>
----
-v3:
-- Update the commit message.
----
- arch/arm/Kconfig                     |  3 ++
- arch/arm/include/asm/crash_reserve.h | 24 +++++++++++
- arch/arm/kernel/setup.c              | 63 ++++------------------------
- 3 files changed, 36 insertions(+), 54 deletions(-)
- create mode 100644 arch/arm/include/asm/crash_reserve.h
-
-diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index f434afff4a2c..3f198ae63950 100644
---- a/arch/arm/Kconfig
-+++ b/arch/arm/Kconfig
-@@ -1597,6 +1597,9 @@ config ATAGS_PROC
- config ARCH_SUPPORTS_CRASH_DUMP
- 	def_bool y
- 
-+config ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION
-+	def_bool CRASH_RESERVE
-+
- config AUTO_ZRELADDR
- 	bool "Auto calculation of the decompressed kernel image address" if !ARCH_MULTIPLATFORM
- 	default !(ARCH_FOOTBRIDGE || ARCH_RPC || ARCH_SA1100)
-diff --git a/arch/arm/include/asm/crash_reserve.h b/arch/arm/include/asm/crash_reserve.h
-new file mode 100644
-index 000000000000..85c9298bd3b7
---- /dev/null
-+++ b/arch/arm/include/asm/crash_reserve.h
-@@ -0,0 +1,24 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+#ifndef _ARM_CRASH_RESERVE_H
-+#define _ARM_CRASH_RESERVE_H
-+
-+/*
-+ * The crash region must be aligned to 128MB to avoid
-+ * zImage relocating below the reserved region.
-+ */
-+#define CRASH_ALIGN			(128 << 20)
-+
-+#define CRASH_ADDR_LOW_MAX		crash_addr_low_max()
-+#define CRASH_ADDR_HIGH_MAX		memblock_end_of_DRAM()
-+
-+static inline unsigned long crash_addr_low_max(void)
-+{
-+	unsigned long long crash_max = idmap_to_phys((u32)~0);
-+	unsigned long long lowmem_max = __pa(high_memory - 1) + 1;
-+
-+	return (crash_max > lowmem_max) ? lowmem_max : crash_max;
-+}
-+
-+
-+#define HAVE_ARCH_ADD_CRASH_RES_TO_IOMEM_EARLY
-+#endif
-diff --git a/arch/arm/kernel/setup.c b/arch/arm/kernel/setup.c
-index e6a857bf0ce6..fc0ada003f6d 100644
---- a/arch/arm/kernel/setup.c
-+++ b/arch/arm/kernel/setup.c
-@@ -979,13 +979,6 @@ static int __init init_machine_late(void)
- }
- late_initcall(init_machine_late);
- 
--#ifdef CONFIG_CRASH_RESERVE
--/*
-- * The crash region must be aligned to 128MB to avoid
-- * zImage relocating below the reserved region.
-- */
--#define CRASH_ALIGN	(128 << 20)
--
- static inline unsigned long long get_total_mem(void)
- {
- 	unsigned long total;
-@@ -994,60 +987,25 @@ static inline unsigned long long get_total_mem(void)
- 	return total << PAGE_SHIFT;
- }
- 
--/**
-- * reserve_crashkernel() - reserves memory are for crash kernel
-- *
-- * This function reserves memory area given in "crashkernel=" kernel command
-- * line parameter. The memory reserved is used by a dump capture kernel when
-- * primary kernel is crashing.
-- */
--static void __init reserve_crashkernel(void)
-+static void __init arch_reserve_crashkernel(void)
- {
--	unsigned long long crash_size, crash_base;
-+	unsigned long long crash_size, crash_base, low_size = 0;
- 	unsigned long long total_mem;
-+	bool high = false;
- 	int ret;
- 
-+	if (!IS_ENABLED(CONFIG_CRASH_RESERVE))
-+		return;
-+
- 	total_mem = get_total_mem();
- 	ret = parse_crashkernel(boot_command_line, total_mem,
- 				&crash_size, &crash_base,
--				NULL, NULL);
-+				&low_size, &high);
- 	/* invalid value specified or crashkernel=0 */
- 	if (ret || !crash_size)
- 		return;
- 
--	if (crash_base <= 0) {
--		unsigned long long crash_max = idmap_to_phys((u32)~0);
--		unsigned long long lowmem_max = __pa(high_memory - 1) + 1;
--		if (crash_max > lowmem_max)
--			crash_max = lowmem_max;
--
--		crash_base = memblock_phys_alloc_range(crash_size, CRASH_ALIGN,
--						       CRASH_ALIGN, crash_max);
--		if (!crash_base) {
--			pr_err("crashkernel reservation failed - No suitable area found.\n");
--			return;
--		}
--	} else {
--		unsigned long long crash_max = crash_base + crash_size;
--		unsigned long long start;
--
--		start = memblock_phys_alloc_range(crash_size, SECTION_SIZE,
--						  crash_base, crash_max);
--		if (!start) {
--			pr_err("crashkernel reservation failed - memory is in use.\n");
--			return;
--		}
--	}
--
--	pr_info("Reserving %ldMB of memory at %ldMB for crashkernel (System RAM: %ldMB)\n",
--		(unsigned long)(crash_size >> 20),
--		(unsigned long)(crash_base >> 20),
--		(unsigned long)(total_mem >> 20));
--
--	/* The crashk resource must always be located in normal mem */
--	crashk_res.start = crash_base;
--	crashk_res.end = crash_base + crash_size - 1;
--	insert_resource(&iomem_resource, &crashk_res);
-+	reserve_crashkernel_generic(boot_command_line, crash_size, crash_base, low_size, high);
- 
- 	if (arm_has_idmap_alias()) {
- 		/*
-@@ -1064,9 +1022,6 @@ static void __init reserve_crashkernel(void)
- 		insert_resource(&iomem_resource, &crashk_boot_res);
- 	}
- }
--#else
--static inline void reserve_crashkernel(void) {}
--#endif /* CONFIG_CRASH_RESERVE*/
- 
- void __init hyp_mode_check(void)
- {
-@@ -1189,7 +1144,7 @@ void __init setup_arch(char **cmdline_p)
- 	if (!is_smp())
- 		hyp_mode_check();
- 
--	reserve_crashkernel();
-+	arch_reserve_crashkernel();
- 
- #ifdef CONFIG_VT
- #if defined(CONFIG_VGA_CONSOLE)
--- 
-2.34.1
-
+Best regards,
+Haylen Chu
 
 _______________________________________________
 linux-riscv mailing list
