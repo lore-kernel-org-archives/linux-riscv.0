@@ -4,67 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4381C3DA49
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jul 2024 09:37:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5FBFC3DA60
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jul 2024 10:54:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=7gmkq8if1BMmEKUIeXpc/vy4kDta3MndXm9VxsUDaho=; b=0NjH0OVjeNvho5
-	OeAkXIRdZCFJUJ5p31PEhVqm09gAGUozKpJsOkN6DtwcDcDPWPp0zos+y/pPtDcukwnCIqlQYOOfu
-	TBAkTXUY6ELS1JQeeKwzEqpkpt1pv6LZDS/Zjk4oNDIOOHnJXgZsyo/p+qy52xbx0KYX4/1GnoKS7
-	IP2MHZ+jLzpUno+kX2FsFPO2tKLAw2kDG6ecY1qkyE45WRit0hSO2+u0bEbXldaOtCJ4luHEyaqkG
-	/V04K3uz7Pml0f+cEpY+4rtwj8UvvGojX4Vr7tgauciDccFSeDIGhDxCGSG/V1jmrAGZzkpFlHYd7
-	A7JwFDwsdMwGYn70ZJYA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=pF92xKKVWQsMzVRdvfnwP3re4+uGi+R5rC7QNDBmdKw=; b=ENOXJP4nem31Di
+	T2woC9g+PisH5q4/XHo/UOF9aw13gSFyFMyKYMSgaFodcAhq+s0/mEBjSFEAzvk6/SqEGSWH4X871
+	aO19IhCg0T8vrWh6jubRrC4+RayUlki17ckL0KtfKMGss/gI3dC9uAki8LAzlr0SEgKOnfUJNzLqd
+	yPENmgaiuOBVBK/4ccQaPtdKbQrO3JucuNzC5UWSSnRowhdm0ejz20etTR7YIX45tJyLulRD3H759
+	hJqokD4gNg1Ql57osH39FQvgUjZg18HdnBoc9VFEw8ovHLLYVkD8wdQQo2kKtjr+QaRm1+/+wNbmw
+	wuZLW78BdZCHKWr9Mozw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUNZa-0000000Ga01-1rr8;
-	Thu, 18 Jul 2024 09:37:14 +0000
-Received: from mail.valinux.co.jp ([210.128.90.3])
+	id 1sUOm1-0000000GkDc-16W8;
+	Thu, 18 Jul 2024 10:54:09 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUNZX-0000000GZzN-2bZ1
+	id 1sUOlx-0000000GkCy-3eq2
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 Jul 2024 09:37:13 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by mail.valinux.co.jp (Postfix) with ESMTP id F07ACA9D5E;
-	Thu, 18 Jul 2024 18:37:06 +0900 (JST)
-X-Virus-Scanned: Debian amavisd-new at valinux.co.jp
-Received: from mail.valinux.co.jp ([127.0.0.1])
-	by localhost (mail.valinux.co.jp [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id UzITp37JSzLc; Thu, 18 Jul 2024 18:37:06 +0900 (JST)
-Received: from DESKTOP-NBGHJ1C.local.valinux.co.jp (vagw.valinux.co.jp [210.128.90.14])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail.valinux.co.jp (Postfix) with ESMTPSA id C2B36A9606;
-	Thu, 18 Jul 2024 18:37:06 +0900 (JST)
-From: takakura@valinux.co.jp
-To: palmer@dabbelt.com,
-	bjorn@kernel.org,
-	paul.walmsley@sifive.com,
-	akpm@linux-foundation.org,
-	aou@eecs.berkeley.edu,
-	apatel@ventanamicro.com,
-	arnd@arndb.de,
-	atishp@rivosinc.com,
-	bmeng.cn@gmail.com,
-	conor.dooley@microchip.com,
-	daniel.thompson@linaro.org,
-	samuel.holland@sifive.com,
-	sfr@canb.auug.org.au
-Cc: linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	taka@valinux.co.jp,
-	Ryo Takakura <takakura@valinux.co.jp>
-Subject: [PATCH v2] RISC-V: Enable IPI CPU Backtrace
-Date: Thu, 18 Jul 2024 18:36:59 +0900
-Message-Id: <20240718093659.158912-1-takakura@valinux.co.jp>
-X-Mailer: git-send-email 2.34.1
+	Thu, 18 Jul 2024 10:54:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1BF9461985;
+	Thu, 18 Jul 2024 10:54:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10D49C116B1;
+	Thu, 18 Jul 2024 10:53:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1721300044;
+	bh=H20qHZWg3BotWC1vJsjvuhtgbNZOFsFgVHhz3CyfqTQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=tVuwIs9wbNOgYp/zri+xnm2JLWhwAKhDeC8c6OArSTURsxGZQ5dCvM4FN5jTXPlU4
+	 dGypesbeG/5ImZixPyX9/+uVBzf9ennHUzZYPP6r2j8VOZDgBY+UHhZymHHO7Pxt0t
+	 +ROm4G04/Wtl7xcqviWYwU2rnW1Vy+k6XnKJ+sKa47Py5q8Z+PZVe6NkXHF5/1KiCO
+	 +AdPHFMsLhp103n30TrosnKXdHo0nT9U875XUJ8eY1UwnU42DfFT0xqIO4ahkYjack
+	 qi67w3f+/S8ZghmtLe4PjCXkMSqSrle5xm9+NeGpVrTOLTlarJf7pCfD1fxBln2Ulk
+	 +91prrXqbKmvw==
+Message-ID: <ef481d85-dff1-4f8f-87ab-5e9086dd8eed@kernel.org>
+Date: Thu, 18 Jul 2024 12:53:56 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/3] dt-bindings: thermal: sophgo,cv1800-thermal: Add
+ Sophgo CV1800 thermal
+To: Haylen Chu <heylenay@outlook.com>, Chen Wang <unicorn_wang@outlook.com>,
+ Conor Dooley <conor@kernel.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Inochi Amaoto <inochiama@outlook.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Jisheng Zhang <jszhang@kernel.org>, linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <SEYPR01MB422158B2766DA03728AD90CBD7A22@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
+ <SEYPR01MB4221281561CCE511A5094D28D7A22@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
+ <MA0P287MB2822445DD34485B94D22E7FFFEA22@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
+ <20240716-cloning-canopy-a6799dc7f3b9@spud>
+ <MA0P287MB28228BA5CC8B6F61A4C237E9FEA32@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
+ <SEYPR01MB4221940059E23BCD8BA75125D7A32@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
+ <aee6eff4-4421-4122-be97-f258cfaa9f43@kernel.org>
+ <SEYPR01MB422112F63D19A0EA86726110D7AC2@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <SEYPR01MB422112F63D19A0EA86726110D7AC2@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240718_023711_901536_504C3249 
-X-CRM114-Status: GOOD (  12.53  )
+X-CRM114-CacheID: sfid-20240718_035406_076289_822065A7 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,131 +133,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Ryo Takakura <takakura@valinux.co.jp>
+On 18/07/2024 09:04, Haylen Chu wrote:
+> On Wed, Jul 17, 2024 at 11:12:52AM +0200, Krzysztof Kozlowski wrote:
+>> On 17/07/2024 07:19, Haylen Chu wrote:
+>>> On Wed, Jul 17, 2024 at 08:05:10AM +0800, Chen Wang wrote:
+>>>> Haylen, so you want a compatible that matches an actual SoC and use it
+>>>> everywhere?
+>>>>
+>>>> Or we can add ones for each SoC and have a fallback to cv1800.
+>>>
+>>> I would prefer "sophgo,cv1800-thermal" and use it everywhere. I don't
+>>> see any difference on thermal sensors between cv18xx-series SoCs.
+>>
+>> Please use proper fallbacks - there is a very specific rule, repeated
+>> many times:
+>>
+>> https://elixir.bootlin.com/linux/v6.10-rc1/source/Documentation/devicetree/bindings/writing-bindings.rst#L42
+> 
+> Just in case I misunderstood,
+> 
+> You would prefer different SoC-specific compatible strings like
+> "sophgo,cv1800-thermal" "sophgo,sg2002-thermal" added to the driver,
 
-Add arch_trigger_cpumask_backtrace() which is a generic infrastructure 
-for sampling other CPUs' backtrace using IPI.
+There is nothing in above - comment or guideline - mentioning drivers.
 
-The feature is used when lockups are detected or in case of oops/panic 
-if parameters are set accordingly.
+> and each thermal-sensor node contains two compatible strings, one
+> matches the SoC exactly and one is "sophgo,cv1800-thermal" just as a
+> fallback, right?
 
-Below is the case of oops with the oops_all_cpu_backtrace enabled.
 
-$ sysctl kernel.oops_all_cpu_backtrace=1
 
-triggering oops shows:
-[  212.214237] NMI backtrace for cpu 1
-[  212.214390] CPU: 1 PID: 610 Comm: in:imklog Tainted: G           OE      6.10.0-rc6 #1
-[  212.214570] Hardware name: riscv-virtio,qemu (DT)
-[  212.214690] epc : fallback_scalar_usercopy+0x8/0xdc
-[  212.214809]  ra : _copy_to_user+0x20/0x40
-[  212.214913] epc : ffffffff80c3a930 ra : ffffffff8059ba7e sp : ff20000000eabb50
-[  212.215061]  gp : ffffffff82066f90 tp : ff6000008e958000 t0 : 3463303866660000
-[  212.215210]  t1 : 000000000000005b t2 : 3463303866666666 s0 : ff20000000eabb60
-[  212.215358]  s1 : 0000000000000386 a0 : 00007ff6e81df926 a1 : ff600000824df800
-[  212.215505]  a2 : 000000000000003f a3 : 7fffffffffffffc0 a4 : 0000000000000000
-[  212.215651]  a5 : 000000000000003f a6 : 0000000000000000 a7 : 0000000000000000
-[  212.215857]  s2 : ff600000824df800 s3 : ffffffff82066cc0 s4 : 0000000000001c1a
-[  212.216074]  s5 : ffffffff8206a5a8 s6 : 00007ff6e81df926 s7 : ffffffff8206a5a0
-[  212.216278]  s8 : ff600000824df800 s9 : ffffffff81e25de0 s10: 000000000000003f
-[  212.216471]  s11: ffffffff8206a59d t3 : ff600000824df812 t4 : ff600000824df812
-[  212.216651]  t5 : ff600000824df818 t6 : 0000000000040000
-[  212.216796] status: 0000000000040120 badaddr: 0000000000000000 cause: 8000000000000001
-[  212.217035] [<ffffffff80c3a930>] fallback_scalar_usercopy+0x8/0xdc
-[  212.217207] [<ffffffff80095f56>] syslog_print+0x1f4/0x2b2
-[  212.217362] [<ffffffff80096e5c>] do_syslog.part.0+0x94/0x2d8
-[  212.217502] [<ffffffff800979e8>] do_syslog+0x66/0x88
-[  212.217636] [<ffffffff803a5dda>] kmsg_read+0x44/0x5c
-[  212.217764] [<ffffffff80392dbe>] proc_reg_read+0x7a/0xa8
-[  212.217952] [<ffffffff802ff726>] vfs_read+0xb0/0x24e
-[  212.218090] [<ffffffff803001ba>] ksys_read+0x64/0xe4
-[  212.218264] [<ffffffff8030025a>] __riscv_sys_read+0x20/0x2c
-[  212.218453] [<ffffffff80c4af9a>] do_trap_ecall_u+0x60/0x1d4
-[  212.218664] [<ffffffff80c56998>] ret_from_exception+0x0/0x64
-
-Signed-off-by: Ryo Takakura <takakura@valinux.co.jp>
-
----
-
-Changes since V1:
-https://lore.kernel.org/lkml/20240417050711.41930-1-takakura@valinux.co.jp/
-- fix build failure when SMP=n as @Palmer pointed out
-
----
- arch/riscv/include/asm/irq.h |  5 +++++
- arch/riscv/kernel/smp.c      | 16 ++++++++++++++++
- 2 files changed, 21 insertions(+)
-
-diff --git a/arch/riscv/include/asm/irq.h b/arch/riscv/include/asm/irq.h
-index 8e10a9443..8330d16b0 100644
---- a/arch/riscv/include/asm/irq.h
-+++ b/arch/riscv/include/asm/irq.h
-@@ -12,6 +12,11 @@
- 
- #include <asm-generic/irq.h>
- 
-+#ifdef CONFIG_SMP
-+void arch_trigger_cpumask_backtrace(const cpumask_t *mask, int exclude_cpu);
-+#define arch_trigger_cpumask_backtrace arch_trigger_cpumask_backtrace
-+#endif
-+
- void riscv_set_intc_hwnode_fn(struct fwnode_handle *(*fn)(void));
- 
- struct fwnode_handle *riscv_get_intc_hwnode(void);
-diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
-index 8e6eb6445..9b0478997 100644
---- a/arch/riscv/kernel/smp.c
-+++ b/arch/riscv/kernel/smp.c
-@@ -21,6 +21,7 @@
- #include <linux/delay.h>
- #include <linux/irq.h>
- #include <linux/irq_work.h>
-+#include <linux/nmi.h>
- 
- #include <asm/tlbflush.h>
- #include <asm/cacheflush.h>
-@@ -33,6 +34,7 @@ enum ipi_message_type {
- 	IPI_CPU_CRASH_STOP,
- 	IPI_IRQ_WORK,
- 	IPI_TIMER,
-+	IPI_CPU_BACKTRACE,
- 	IPI_MAX
- };
- 
-@@ -136,6 +138,9 @@ static irqreturn_t handle_IPI(int irq, void *data)
- 		tick_receive_broadcast();
- 		break;
- #endif
-+	case IPI_CPU_BACKTRACE:
-+		nmi_cpu_backtrace(get_irq_regs());
-+		break;
- 	default:
- 		pr_warn("CPU%d: unhandled IPI%d\n", smp_processor_id(), ipi);
- 		break;
-@@ -203,6 +208,7 @@ static const char * const ipi_names[] = {
- 	[IPI_CPU_CRASH_STOP]	= "CPU stop (for crash dump) interrupts",
- 	[IPI_IRQ_WORK]		= "IRQ work interrupts",
- 	[IPI_TIMER]		= "Timer broadcast interrupts",
-+	[IPI_CPU_BACKTRACE]     = "CPU backtrace interrupts",
- };
- 
- void show_ipi_stats(struct seq_file *p, int prec)
-@@ -323,3 +329,13 @@ void arch_smp_send_reschedule(int cpu)
- 	send_ipi_single(cpu, IPI_RESCHEDULE);
- }
- EXPORT_SYMBOL_GPL(arch_smp_send_reschedule);
-+
-+static void riscv_backtrace_ipi(cpumask_t *mask)
-+{
-+	send_ipi_mask(mask, IPI_CPU_BACKTRACE);
-+}
-+
-+void arch_trigger_cpumask_backtrace(const cpumask_t *mask, int exclude_cpu)
-+{
-+	nmi_trigger_cpumask_backtrace(mask, exclude_cpu, riscv_backtrace_ipi);
-+}
--- 
-2.34.1
+Best regards,
+Krzysztof
 
 
 _______________________________________________
