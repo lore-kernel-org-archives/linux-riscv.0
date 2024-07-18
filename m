@@ -4,80 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 883F3C3DA49
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jul 2024 11:14:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84685C3DA49
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jul 2024 11:24:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=e+IOVWaTIQ/qyOtUvZgeerhPU/GPHSm3z9asu1Y2lQU=; b=0GbFAQuSwav0MO
-	jhfBeUx/Vqtt1ObnWOjD2MY1wBG5/i2auvqqTNS9elWSjQJ46/BAGysZanwaZqpKYR3E86nAZwoxi
-	kunMLQZoop9iswoM55W5qUPv+rSqRMmM7C9fazXT5cDm/sz1jjdRA0H+SidybU3ST1Ko6lny6tuqb
-	7GtJ/l3f8PTSkKjbaqg7uMsdXmmp1kB/LZTfK85nxIPvz/E+IANc0HLP8coA/Mwf2dkvTVvULhkUR
-	PN83Jx9pmvXXij6nkIKCoxRBRa5ubMhhGrIn9/Lm6cShhV4Wxp4lKAWEznpS3HVq7doxqFKTfs0Xn
-	ZcG9xTruPg2febIfThLA==;
+	List-Owner; bh=OlJFEOo9TSAxcaMvODn2GaxgqEDSDRUb46CaD7bwiCM=; b=v+tvVCLeRfzQNP
+	iQEHVbEkvsTMOT5jJcf+Xh9eFbX83XOZYE06u/ber0JZvIlpvLrZe1T9RuMr3GpRy4Tn8klCwOFhZ
+	w1vvdBdRZsI7q6OePzZjW3xuVw/ujETPbN4BRnch6jzBT3ll79rUV/oH/mB+Y8I3GNOOCeHy460V8
+	d+LAirEhYpfd4vfcFMd85sf4oa9Xm/WQi0wydl1RDKGY7YP/3Lno4gVtJoe0sYinpSpMQ9hpDpBjr
+	YK0m/dU7uFwzosXQ7cxe+efVeFSPGg/Z25MWNNSHQder9f0jLCEobkzVfvR8gWcypPHCu7/wK7DBl
+	fadZMbBD/hECoIaRwOKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUP5c-0000000Gnmb-2mUS;
-	Thu, 18 Jul 2024 11:14:24 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1sUPEs-0000000GpRL-06Nq;
+	Thu, 18 Jul 2024 11:23:58 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUP5Z-0000000GnlC-0U5L
-	for linux-riscv@lists.infradead.org;
-	Thu, 18 Jul 2024 11:14:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1721301259;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=yaMYBnsmHVguo1+b/EMIXO5bT8FcNVXk06LyZCMh0p0=;
-	b=RtOoNhE3k6ERzY6rTP5tkRnP+HBIyuZBCgNVRMV3am8L+pS5B9TzQtdZ2HwlLc4r6ql9S2
-	gCMP3VI9nbt0A+R7eUoS6xwH7QInLVMhD2YU5sU92nZUGbB0AxEeLm//5N7PDelPeI2Jw1
-	DA4kFwJvfFNisutuqmxn8FYhfOiBBLM=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-682-hGO9jZbyMYGs8ICG87O2eQ-1; Thu,
- 18 Jul 2024 07:14:15 -0400
-X-MC-Unique: hGO9jZbyMYGs8ICG87O2eQ-1
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D5D5B1955D4D;
-	Thu, 18 Jul 2024 11:14:10 +0000 (UTC)
-Received: from localhost (unknown [10.72.112.39])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 9849919560B2;
-	Thu, 18 Jul 2024 11:14:05 +0000 (UTC)
-Date: Thu, 18 Jul 2024 19:14:00 +0800
-From: Baoquan He <bhe@redhat.com>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, hpa@zytor.com, vgoyal@redhat.com,
-	dyoung@redhat.com, arnd@arndb.de, afd@ti.com,
-	linus.walleij@linaro.org, akpm@linux-foundation.org,
-	eric.devolder@oracle.com, gregkh@linuxfoundation.org,
-	javierm@redhat.com, deller@gmx.de, robh@kernel.org,
-	hbathini@linux.ibm.com, thunder.leizhen@huawei.com,
-	chenjiahao16@huawei.com, linux-kernel@vger.kernel.org,
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 2/3] crash: Fix x86_32 crash memory reserve dead loop
- bug at high
-Message-ID: <Zpj4+G5OwTYBQGIA@MiWiFi-R3L-srv>
-References: <20240718035444.2977105-1-ruanjinjie@huawei.com>
- <20240718035444.2977105-3-ruanjinjie@huawei.com>
+	id 1sUPEo-0000000GpPN-2MCL;
+	Thu, 18 Jul 2024 11:23:56 +0000
+Received: from ThinkPad-T480s.. (unknown [180.110.112.93])
+	by APP-03 (Coremail) with SMTP id rQCowAAXHZk9+5hm0aZgFg--.36049S2;
+	Thu, 18 Jul 2024 19:23:42 +0800 (CST)
+From: zhouquan@iscas.ac.cn
+To: linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-perf-users@vger.kernel.org
+Cc: anup@brainfault.org,
+	atishp@atishpatra.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com,
+	jolsa@kernel.org,
+	Quan Zhou <zhouquan@iscas.ac.cn>
+Subject: [PATCH 1/2] riscv: perf: add guest vs host distinction
+Date: Thu, 18 Jul 2024 19:23:41 +0800
+Message-Id: <8e2d2f60fc30d64b6c69b38184a1b640c7b30003.1721271251.git.zhouquan@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <cover.1721271251.git.zhouquan@iscas.ac.cn>
+References: <cover.1721271251.git.zhouquan@iscas.ac.cn>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240718035444.2977105-3-ruanjinjie@huawei.com>
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+X-CM-TRANSID: rQCowAAXHZk9+5hm0aZgFg--.36049S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxXw45tF18Xw45CFy7tF43Wrg_yoW5Wr4DpF
+	4DC3Z3KrWUWrs2934ayF4Uur15ur1rX3y7ZryI9w45CrsFqF98JF1kKw15AryFyrykXFy8
+	J3WYvr45Cwn8taUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvG14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
+	n2kIc2xKxwAKzVCY07xG64k0F24l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr
+	0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY
+	17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcV
+	C0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY
+	6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa
+	73UjIFyTuYvjfUYManUUUUU
+X-Originating-IP: [180.110.112.93]
+X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiBwsCBmaY8NAcmAAAsS
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240718_041421_251343_93640AD7 
-X-CRM114-Status: GOOD (  22.17  )
+X-CRM114-CacheID: sfid-20240718_042355_142783_33B20624 
+X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,78 +90,100 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 07/18/24 at 11:54am, Jinjie Ruan wrote:
+From: Quan Zhou <zhouquan@iscas.ac.cn>
 
-I don't fully catch the subject, what does the 'dead loop bug at high'
-mean?
+Introduce basic guest support in perf, enabling it to distinguish
+between PMU interrupts in the host or guest, and collect
+fundamental information.
 
-> On x86_32 Qemu machine with 1GB memory, the cmdline "crashkernel=512M" will
-> also cause system stall as below:
-> 
-> 	ACPI: Reserving FACP table memory at [mem 0x3ffe18b8-0x3ffe192b]
-> 	ACPI: Reserving DSDT table memory at [mem 0x3ffe0040-0x3ffe18b7]
-> 	ACPI: Reserving FACS table memory at [mem 0x3ffe0000-0x3ffe003f]
-> 	ACPI: Reserving APIC table memory at [mem 0x3ffe192c-0x3ffe19bb]
-> 	ACPI: Reserving HPET table memory at [mem 0x3ffe19bc-0x3ffe19f3]
-> 	ACPI: Reserving WAET table memory at [mem 0x3ffe19f4-0x3ffe1a1b]
-> 	143MB HIGHMEM available.
-> 	879MB LOWMEM available.
-> 	  mapped low ram: 0 - 36ffe000
-> 	  low ram: 0 - 36ffe000
-> 	  (stall here)
-> 
-> The reason is that the CRASH_ADDR_LOW_MAX is equal to CRASH_ADDR_HIGH_MAX
-> on x86_32, the first "low" crash kernel memory reservation for 512M fails,
-> then it go into the "retry" loop and never came out as below (consider
-> CRASH_ADDR_LOW_MAX = CRASH_ADDR_HIGH_MAX = 512M):
-> 
-> -> reserve_crashkernel_generic() and high is false
->    -> alloc at [0, 0x20000000] fail
->       -> alloc at [0x20000000, 0x20000000] fail and repeatedly
->       (because CRASH_ADDR_LOW_MAX = CRASH_ADDR_HIGH_MAX).
-> 
-> Fix it by skipping meaningless calls of memblock_phys_alloc_range() with
-> `start = end`
-> 
-> After this patch, the retry dead loop is avoided and print below info:
-> 	cannot allocate crashkernel (size:0x20000000)
-> 
-> And apply generic crashkernel reservation to 32bit system will be ready.
-> 
-> Fixes: 9c08a2a139fe ("x86: kdump: use generic interface to simplify crashkernel reservation code")
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> Signed-off-by: Baoquan He <bhe@redhat.com>
-> Tested-by: Jinjie Ruan <ruanjinjie@huawei.com>
+Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
+---
+ arch/riscv/include/asm/perf_event.h |  7 ++++++
+ arch/riscv/kernel/perf_callchain.c  | 38 +++++++++++++++++++++++++++++
+ 2 files changed, 45 insertions(+)
 
-Also the tag issues, please update.
-
-Other than above concerns, the patch looks good to me.
-
-> ---
-> v3:
-> - Fix it as Baoquan suggested.
-> - Update the commit message.
-> ---
->  kernel/crash_reserve.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/kernel/crash_reserve.c b/kernel/crash_reserve.c
-> index c5213f123e19..dacc268429e2 100644
-> --- a/kernel/crash_reserve.c
-> +++ b/kernel/crash_reserve.c
-> @@ -414,7 +414,8 @@ void __init reserve_crashkernel_generic(char *cmdline,
->  			search_end = CRASH_ADDR_HIGH_MAX;
->  			search_base = CRASH_ADDR_LOW_MAX;
->  			crash_low_size = DEFAULT_CRASH_KERNEL_LOW_SIZE;
-> -			goto retry;
-> +			if (search_base != search_end)
-> +				goto retry;
->  		}
->  
->  		/*
-> -- 
-> 2.34.1
-> 
+diff --git a/arch/riscv/include/asm/perf_event.h b/arch/riscv/include/asm/perf_event.h
+index 665bbc9b2f84..5866d028aee5 100644
+--- a/arch/riscv/include/asm/perf_event.h
++++ b/arch/riscv/include/asm/perf_event.h
+@@ -8,13 +8,20 @@
+ #ifndef _ASM_RISCV_PERF_EVENT_H
+ #define _ASM_RISCV_PERF_EVENT_H
+ 
++#ifdef CONFIG_PERF_EVENTS
+ #include <linux/perf_event.h>
+ #define perf_arch_bpf_user_pt_regs(regs) (struct user_regs_struct *)regs
+ 
++extern unsigned long perf_instruction_pointer(struct pt_regs *regs);
++extern unsigned long perf_misc_flags(struct pt_regs *regs);
++#define perf_misc_flags(regs) perf_misc_flags(regs)
++
+ #define perf_arch_fetch_caller_regs(regs, __ip) { \
+ 	(regs)->epc = (__ip); \
+ 	(regs)->s0 = (unsigned long) __builtin_frame_address(0); \
+ 	(regs)->sp = current_stack_pointer; \
+ 	(regs)->status = SR_PP; \
+ }
++#endif
++
+ #endif /* _ASM_RISCV_PERF_EVENT_H */
+diff --git a/arch/riscv/kernel/perf_callchain.c b/arch/riscv/kernel/perf_callchain.c
+index 3348a61de7d9..c673dc6d9bd2 100644
+--- a/arch/riscv/kernel/perf_callchain.c
++++ b/arch/riscv/kernel/perf_callchain.c
+@@ -58,6 +58,11 @@ void perf_callchain_user(struct perf_callchain_entry_ctx *entry,
+ {
+ 	unsigned long fp = 0;
+ 
++	if (perf_guest_state()) {
++		/* TODO: We don't support guest os callchain now */
++		return;
++	}
++
+ 	fp = regs->s0;
+ 	perf_callchain_store(entry, regs->epc);
+ 
+@@ -74,5 +79,38 @@ static bool fill_callchain(void *entry, unsigned long pc)
+ void perf_callchain_kernel(struct perf_callchain_entry_ctx *entry,
+ 			   struct pt_regs *regs)
+ {
++	if (perf_guest_state()) {
++		/* TODO: We don't support guest os callchain now */
++		return;
++	}
++
+ 	walk_stackframe(NULL, regs, fill_callchain, entry);
+ }
++
++unsigned long perf_instruction_pointer(struct pt_regs *regs)
++{
++	if (perf_guest_state())
++		return perf_guest_get_ip();
++
++	return instruction_pointer(regs);
++}
++
++unsigned long perf_misc_flags(struct pt_regs *regs)
++{
++	unsigned int guest_state = perf_guest_state();
++	int misc = 0;
++
++	if (guest_state) {
++		if (guest_state & PERF_GUEST_USER)
++			misc |= PERF_RECORD_MISC_GUEST_USER;
++		else
++			misc |= PERF_RECORD_MISC_GUEST_KERNEL;
++	} else {
++		if (user_mode(regs))
++			misc |= PERF_RECORD_MISC_USER;
++		else
++			misc |= PERF_RECORD_MISC_KERNEL;
++	}
++
++	return misc;
++}
+-- 
+2.34.1
 
 
 _______________________________________________
