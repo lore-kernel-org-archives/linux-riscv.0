@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84685C3DA49
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jul 2024 11:24:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E2ACC3DA60
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jul 2024 11:24:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OlJFEOo9TSAxcaMvODn2GaxgqEDSDRUb46CaD7bwiCM=; b=v+tvVCLeRfzQNP
-	iQEHVbEkvsTMOT5jJcf+Xh9eFbX83XOZYE06u/ber0JZvIlpvLrZe1T9RuMr3GpRy4Tn8klCwOFhZ
-	w1vvdBdRZsI7q6OePzZjW3xuVw/ujETPbN4BRnch6jzBT3ll79rUV/oH/mB+Y8I3GNOOCeHy460V8
-	d+LAirEhYpfd4vfcFMd85sf4oa9Xm/WQi0wydl1RDKGY7YP/3Lno4gVtJoe0sYinpSpMQ9hpDpBjr
-	YK0m/dU7uFwzosXQ7cxe+efVeFSPGg/Z25MWNNSHQder9f0jLCEobkzVfvR8gWcypPHCu7/wK7DBl
-	fadZMbBD/hECoIaRwOKw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=HW3GJ5sUyXgJVtx0HoUVy285GPiImn1z6JH8QrOTD58=; b=RaFru20B95GgTs
+	065Nw8nE/k1F041VI3eoZTTICWq9ngOoYTlfatPxvASdRGte2OVIuOigba2+SY/T/RdCaakK7qqsX
+	BZ07XJLRBSV3QcCfaQ29AWGwVTrMKXz5QUzhJeyitHLoOxr4monPP0DlGJJHqM7KPDnBvXttk/JwA
+	/PanHZoeFQ3JKt7zMBipel8oYbAzdSa6C6LhokIyRDKntuxSmAMwnLu6b2SW8GYTU8hUOEr5l0S0x
+	rs/ao8Du/zMN4OgfGGp5GC6hlzY0yAJkqW7LrHUKF10opiB6fjjfsNe1OxxvcAESQiI9DoFsnPEbf
+	T7EfC4afPfWpdjou6iWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUPEs-0000000GpRL-06Nq;
-	Thu, 18 Jul 2024 11:23:58 +0000
+	id 1sUPEv-0000000GpSC-0ou6;
+	Thu, 18 Jul 2024 11:24:01 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUPEo-0000000GpPN-2MCL;
-	Thu, 18 Jul 2024 11:23:56 +0000
+	id 1sUPEo-0000000GpP2-0jw8;
+	Thu, 18 Jul 2024 11:23:57 +0000
 Received: from ThinkPad-T480s.. (unknown [180.110.112.93])
-	by APP-03 (Coremail) with SMTP id rQCowAAXHZk9+5hm0aZgFg--.36049S2;
-	Thu, 18 Jul 2024 19:23:42 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowABXXNQ1+5hmHaZgFg--.36655S2;
+	Thu, 18 Jul 2024 19:23:35 +0800 (CST)
 From: zhouquan@iscas.ac.cn
 To: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
@@ -44,35 +44,33 @@ Cc: anup@brainfault.org,
 	alexander.shishkin@linux.intel.com,
 	jolsa@kernel.org,
 	Quan Zhou <zhouquan@iscas.ac.cn>
-Subject: [PATCH 1/2] riscv: perf: add guest vs host distinction
-Date: Thu, 18 Jul 2024 19:23:41 +0800
-Message-Id: <8e2d2f60fc30d64b6c69b38184a1b640c7b30003.1721271251.git.zhouquan@iscas.ac.cn>
+Subject: [PATCH 0/2] Add perf support to collect KVM guest statistics from host side
+Date: Thu, 18 Jul 2024 19:23:33 +0800
+Message-Id: <cover.1721271251.git.zhouquan@iscas.ac.cn>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1721271251.git.zhouquan@iscas.ac.cn>
-References: <cover.1721271251.git.zhouquan@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowAAXHZk9+5hm0aZgFg--.36049S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxXw45tF18Xw45CFy7tF43Wrg_yoW5Wr4DpF
-	4DC3Z3KrWUWrs2934ayF4Uur15ur1rX3y7ZryI9w45CrsFqF98JF1kKw15AryFyrykXFy8
-	J3WYvr45Cwn8taUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+X-CM-TRANSID: rQCowABXXNQ1+5hmHaZgFg--.36655S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxJw17AFy7Gr4UGF1rCr1xKrg_yoWrtr17pr
+	43CrsxtF4rAryIqw1Svr1YkryUJ397XrnxGrnxJr4rAr4jvaykXwn2gr1xZ3y0qrykKryr
+	Xw1ktFy2kas0yFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
 	9KBjDU0xBIdaVrnRJUUUvG14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
 	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
 	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
 	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r
+	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r
 	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
 	n2kIc2xKxwAKzVCY07xG64k0F24l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr
 	0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY
 	17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcV
 	C0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY
 	6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa
-	73UjIFyTuYvjfUYManUUUUU
+	73UjIFyTuYvjfUe6pBDUUUU
 X-Originating-IP: [180.110.112.93]
-X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiBwsCBmaY8NAcmAAAsS
+X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiDAUCBmaY7wwhDAAAs9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240718_042355_142783_33B20624 
-X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-CacheID: sfid-20240718_042354_624453_953CBD50 
+X-CRM114-Status: UNSURE (   7.04  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,96 +90,109 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Quan Zhou <zhouquan@iscas.ac.cn>
 
-Introduce basic guest support in perf, enabling it to distinguish
-between PMU interrupts in the host or guest, and collect
-fundamental information.
+Add basic guest support to RISC-V perf, enabling it to distinguish
+whether PMU interrupts occur in the host or the guest, and then
+collect some basic guest information from the host side
+(guest os callchain is not supported for now).
 
-Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
----
+Based on the x86/arm implementation, tested with kvm-riscv.
+test env:
+- host: qemu-9.0.0
+- guest: qemu-9.0.0 --enable-kvm (only start one guest and run top)
+
+-----------------------------------------
+1) perf kvm top
+./perf kvm --host --guest \
+  --guestkallsyms=/root/repo/shared/kallsyms \
+  --guestmodules=/root/repo/shared/modules top
+
+PerfTop:      41 irqs/sec  kernel:97.6% us: 0.0% guest kernel: 0.0% guest us: 0.0% exact:  0.0% [250Hz cycles:P],  (all, 4 CPUs)
+-------------------------------------------------------------------------------
+
+    64.57%  [kernel]        [k] default_idle_call
+     3.12%  [kernel]        [k] _raw_spin_unlock_irqrestore
+     3.03%  [guest.kernel]  [g] mem_serial_out
+     2.61%  [kernel]        [k] handle_softirqs
+     2.32%  [kernel]        [k] do_trap_ecall_u
+     1.71%  [kernel]        [k] _raw_spin_unlock_irq
+     1.26%  [guest.kernel]  [g] do_raw_spin_lock
+     1.25%  [kernel]        [k] finish_task_switch.isra.0
+     1.16%  [kernel]        [k] do_idle
+     0.77%  libc.so.6       [.] ioctl
+     0.76%  [kernel]        [k] queue_work_on
+     0.69%  [kernel]        [k] __local_bh_enable_ip
+     0.67%  [guest.kernel]  [g] __noinstr_text_start
+     0.64%  [guest.kernel]  [g] mem_serial_in
+     0.41%  libc.so.6       [.] pthread_sigmask
+     0.39%  [kernel]        [k] mem_cgroup_uncharge_skmem
+     0.39%  [kernel]        [k] __might_resched
+     0.39%  [guest.kernel]  [g] _nohz_idle_balance.isra.0
+     0.37%  [kernel]        [k] sched_balance_update_blocked_averages
+     0.34%  [kernel]        [k] sched_balance_rq
+
+2) perf kvm record
+./perf kvm --host --guest \
+  --guestkallsyms=/root/repo/shared/kallsyms \
+  --guestmodules=/root/repo/shared/modules record -a sleep 60
+
+[ perf record: Woken up 3 times to write data ]
+[ perf record: Captured and wrote 1.292 MB perf.data.kvm (17990 samples) ]
+
+3) perf kvm report (the data shown here is not complete)
+./perf kvm --host --guest \
+  --guestkallsyms=/root/repo/shared/kallsyms \
+  --guestmodules=/root/repo/shared/modules report -i perf.data.kvm
+
+# Total Lost Samples: 0
+#
+# Samples: 17K of event 'cycles:P'
+# Event count (approx.): 269968947184
+#
+# Overhead  Command          Shared Object            Symbol                                        
+# ........  ...............  .......................  ..............................................
+#
+    61.86%  swapper          [kernel.kallsyms]        [k] default_idle_call
+     2.93%  :6463            [guest.kernel.kallsyms]  [g] do_raw_spin_lock
+     2.82%  :6462            [guest.kernel.kallsyms]  [g] mem_serial_out
+     2.11%  sshd             [kernel.kallsyms]        [k] _raw_spin_unlock_irqrestore
+     1.78%  :6462            [guest.kernel.kallsyms]  [g] do_raw_spin_lock
+     1.37%  swapper          [kernel.kallsyms]        [k] handle_softirqs
+     1.36%  swapper          [kernel.kallsyms]        [k] do_idle
+     1.21%  sshd             [kernel.kallsyms]        [k] do_trap_ecall_u
+     1.21%  sshd             [kernel.kallsyms]        [k] _raw_spin_unlock_irq
+     1.11%  qemu-system-ris  [kernel.kallsyms]        [k] do_trap_ecall_u
+     0.93%  qemu-system-ris  libc.so.6                [.] ioctl
+     0.89%  sshd             [kernel.kallsyms]        [k] __local_bh_enable_ip
+     0.77%  qemu-system-ris  [kernel.kallsyms]        [k] _raw_spin_unlock_irqrestore
+     0.68%  qemu-system-ris  [kernel.kallsyms]        [k] queue_work_on
+     0.65%  sshd             [kernel.kallsyms]        [k] handle_softirqs
+     0.44%  :6462            [guest.kernel.kallsyms]  [g] mem_serial_in
+     0.42%  sshd             libc.so.6                [.] pthread_sigmask
+     0.34%  :6462            [guest.kernel.kallsyms]  [g] serial8250_tx_chars
+     0.30%  swapper          [kernel.kallsyms]        [k] finish_task_switch.isra.0
+     0.29%  swapper          [kernel.kallsyms]        [k] sched_balance_rq
+     0.29%  sshd             [kernel.kallsyms]        [k] __might_resched
+     0.26%  swapper          [kernel.kallsyms]        [k] tick_nohz_idle_exit
+     0.26%  swapper          [kernel.kallsyms]        [k] sched_balance_update_blocked_averages
+     0.26%  swapper          [kernel.kallsyms]        [k] _nohz_idle_balance.isra.0
+     0.24%  qemu-system-ris  [kernel.kallsyms]        [k] finish_task_switch.isra.0
+     0.23%  :6462            [guest.kernel.kallsyms]  [g] __noinstr_text_start
+
+
+Quan Zhou (2):
+  riscv: perf: add guest vs host distinction
+  riscv: KVM: add basic support for host vs guest profiling
+
+ arch/riscv/include/asm/kvm_host.h   |  6 +++++
  arch/riscv/include/asm/perf_event.h |  7 ++++++
  arch/riscv/kernel/perf_callchain.c  | 38 +++++++++++++++++++++++++++++
- 2 files changed, 45 insertions(+)
+ arch/riscv/kvm/Kconfig              |  1 +
+ arch/riscv/kvm/main.c               | 12 +++++++--
+ arch/riscv/kvm/vcpu.c               |  7 ++++++
+ 6 files changed, 69 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/include/asm/perf_event.h b/arch/riscv/include/asm/perf_event.h
-index 665bbc9b2f84..5866d028aee5 100644
---- a/arch/riscv/include/asm/perf_event.h
-+++ b/arch/riscv/include/asm/perf_event.h
-@@ -8,13 +8,20 @@
- #ifndef _ASM_RISCV_PERF_EVENT_H
- #define _ASM_RISCV_PERF_EVENT_H
- 
-+#ifdef CONFIG_PERF_EVENTS
- #include <linux/perf_event.h>
- #define perf_arch_bpf_user_pt_regs(regs) (struct user_regs_struct *)regs
- 
-+extern unsigned long perf_instruction_pointer(struct pt_regs *regs);
-+extern unsigned long perf_misc_flags(struct pt_regs *regs);
-+#define perf_misc_flags(regs) perf_misc_flags(regs)
-+
- #define perf_arch_fetch_caller_regs(regs, __ip) { \
- 	(regs)->epc = (__ip); \
- 	(regs)->s0 = (unsigned long) __builtin_frame_address(0); \
- 	(regs)->sp = current_stack_pointer; \
- 	(regs)->status = SR_PP; \
- }
-+#endif
-+
- #endif /* _ASM_RISCV_PERF_EVENT_H */
-diff --git a/arch/riscv/kernel/perf_callchain.c b/arch/riscv/kernel/perf_callchain.c
-index 3348a61de7d9..c673dc6d9bd2 100644
---- a/arch/riscv/kernel/perf_callchain.c
-+++ b/arch/riscv/kernel/perf_callchain.c
-@@ -58,6 +58,11 @@ void perf_callchain_user(struct perf_callchain_entry_ctx *entry,
- {
- 	unsigned long fp = 0;
- 
-+	if (perf_guest_state()) {
-+		/* TODO: We don't support guest os callchain now */
-+		return;
-+	}
-+
- 	fp = regs->s0;
- 	perf_callchain_store(entry, regs->epc);
- 
-@@ -74,5 +79,38 @@ static bool fill_callchain(void *entry, unsigned long pc)
- void perf_callchain_kernel(struct perf_callchain_entry_ctx *entry,
- 			   struct pt_regs *regs)
- {
-+	if (perf_guest_state()) {
-+		/* TODO: We don't support guest os callchain now */
-+		return;
-+	}
-+
- 	walk_stackframe(NULL, regs, fill_callchain, entry);
- }
-+
-+unsigned long perf_instruction_pointer(struct pt_regs *regs)
-+{
-+	if (perf_guest_state())
-+		return perf_guest_get_ip();
-+
-+	return instruction_pointer(regs);
-+}
-+
-+unsigned long perf_misc_flags(struct pt_regs *regs)
-+{
-+	unsigned int guest_state = perf_guest_state();
-+	int misc = 0;
-+
-+	if (guest_state) {
-+		if (guest_state & PERF_GUEST_USER)
-+			misc |= PERF_RECORD_MISC_GUEST_USER;
-+		else
-+			misc |= PERF_RECORD_MISC_GUEST_KERNEL;
-+	} else {
-+		if (user_mode(regs))
-+			misc |= PERF_RECORD_MISC_USER;
-+		else
-+			misc |= PERF_RECORD_MISC_KERNEL;
-+	}
-+
-+	return misc;
-+}
+
+base-commit: 0c3836482481200ead7b416ca80c68a29cfdaabd
 -- 
 2.34.1
 
