@@ -4,58 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68751C3DA60
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jul 2024 23:33:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AD72C3DA5D
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jul 2024 00:48:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:References:
-	In-Reply-To:MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=snydDX7MD6EuBZzVPhB3OaEH3u/kIaethdvsQY9rvbM=; b=Au4bxjYAxkQj0k
-	UWgl2i0DIHkp4oTfOYWaBADi1dP5zdEwWkoFFmOINRtDWNnHTN80awnFGi6l83Rwz8dI5+o9aoUn6
-	OnvnZMGD0wASibR8oOIKVZTGCniyZ7VCXLttavFL9s/PnTIIeSLHlZPjvOQng6/S4eNU+Y4/F0zys
-	cm3rx7G3/bl8Ad31UGIydX62jxF09FWi9eMK0G0KYba+pgGHhBxACfJBI/ac4zxAGO7DbXJ/FP7+S
-	RL6XzmtR++Rr3H/N9Oo2wdBV6dnwacYUkVil8rBXxgyllbC5MeiLGSx6Oe3rVph7PIxKUiaBZsqgP
-	otKbdwVB8MtntuTLONnQ==;
+	List-Owner; bh=U4DQwfrrSVPHhehvZ4r1tkJidKzRLZW64z0JBILMtXs=; b=OjA1lyDAzPStJm
+	CItPG+N9K+drdBZDChVWPUmr+fmoUvh4AgQssLSElpyM83BWcJSwDZAOjp2VP9c9jou0hiCrDzW2b
+	igKBBZNKB0OcWMo6UdPwOcMvqUZSeK3t3hqnngFai++H+2OGFCLUIzx0/dzx8kjtT62wNLfDJ0Ur6
+	5PFGeZ9DovQcODh+rUBxqX9xdwOHFg7IobltCCU1V76obzTGMJz4jwA3hsnRT8IIXDQgYb0P3CMRm
+	cVWtHfvhBTijNSTiAgvIqKRdERwmL2CWfSAEBvpwLX3IFgkuVtw0RTG7uscpx2yf1f4fBbnjLqERb
+	9H8wwWB6q8+UlH7JjxmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUE9X-0000000FCTa-0Nkk;
-	Wed, 17 Jul 2024 23:33:43 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1sUFJk-0000000FIGI-2V1Q;
+	Thu, 18 Jul 2024 00:48:20 +0000
+Received: from mail-oo1-xc31.google.com ([2607:f8b0:4864:20::c31])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUE9S-0000000FCSw-2gRw;
-	Wed, 17 Jul 2024 23:33:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3527261976;
-	Wed, 17 Jul 2024 23:33:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A59E2C2BD10;
-	Wed, 17 Jul 2024 23:33:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1721259216;
-	bh=/vntp9yziGCzvLchAgMHXkRgHgytqWIKu6wEIUPrxlQ=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=m/tYahsI7GcAsn0eTT4WF3W3BC90QDmQbipyzN62A8EQrxsGjJuDHvLvxJTe9ClPb
-	 SxfN7qFIZCngz7gztSRBpz2eEzrUCy4jUV1ydb6l65kKp+wAq1QWNBsZy5KABTYVQR
-	 tq+sCrNewY9i6SpEr8eZIOLHRCKt7Ey7NF7M1f0KLVQ+ZcrJeHrDZjeNPd1EsmFr+5
-	 4zTlnoxdZoC9fCxuCKnodh5r8fGggVstFE9nygPb3O0rvXh68bBkRq/sZ9W1kFT6Vp
-	 PNOejeGFpQtHdc4Q11bbXLpU6fBG4A6iIgpFlB92tbnMPPxy5xVe6T52lr0cg39ZBV
-	 sbhS/c+mN45rg==
-Message-ID: <1e36b1ba8af3584128550822a70cb072.sboyd@kernel.org>
+	id 1sUFJg-0000000FIEn-3ECH
+	for linux-riscv@lists.infradead.org;
+	Thu, 18 Jul 2024 00:48:18 +0000
+Received: by mail-oo1-xc31.google.com with SMTP id 006d021491bc7-5b9776123a3so90397eaf.0
+        for <linux-riscv@lists.infradead.org>; Wed, 17 Jul 2024 17:48:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1721263695; x=1721868495; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0yshoBMmTilnB7Tn31CojFxfms9fcaLBu92AZXjz1tU=;
+        b=fEIbSon7afZUmLlaUmKIUR9L0E7vw8QjLhC1cZiDlghSP+jN7xxRVTz8jgv/YeJqRD
+         VrnI1BxjSViB5xCYWUHq4R36jW3Eqa6LLBldpcIBNSUymiRerj54eVSa9ScCFShOJuFG
+         2hjrU7cPsSP6RHUuckm4U2OFMeFebL4cgZJSi5o3IdjmpYsrj0gEXX1SBsCKUZJutRc1
+         UqbSSzxqq/YQmnXVwjdy3cBBekaFnPoVgJTZ4vUy9D9HvQqZLAxqLKbx79/3YnRoHX1c
+         w6b7g1HOBzZvcZpq55l9Ge8CFDuRpKQYbNkjyiv7Iucpe5JIijZq0dEbGNzxptxzQxla
+         wjHA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1721263695; x=1721868495;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=0yshoBMmTilnB7Tn31CojFxfms9fcaLBu92AZXjz1tU=;
+        b=vkSj+F5gTx91480dcoUWGWogXRaPH1af8Yd31jRVNzaIcbdu1m9zXrNC7auV04bYEb
+         BrSjtANGIZ3B7VC7fANovNG/6FPDq8NpW/0nrErVq5wq2g2UbeyIQNUJL8XQov+SHG6v
+         Vaz9Ns/Y8U6FE3x7pnqplidwM9mHC3Et7WVwCu8YCfHJe1vIVhCisPpJy4XSyokLDSxa
+         1Gmp3hizXNPlOghy2L5CIDQvxKBPPn0pdKPZuOrO/L4gEN+YfjqKWH56RMUVTwFw170s
+         3Fp7BHP33GoTjq1DgtFy48vyTNiGBLpQ3j7TfPLEfczDj1ETyrto06SGy3wKaClXRhBd
+         Km7g==
+X-Gm-Message-State: AOJu0YzSKjqCCrxmF8CAjPE0OI08Pf3RqF8WpzTS4QzK8Lvz4gvFXaVk
+	3QVvFMS/rJvESQJrUIDbfZACqiceYlz/7I4UtQuMJungMp5ltqn5+ztMGUuX4amCSQO+rnRepkh
+	nQKJvR87pTOGOMfdsHqsgGqccXfmz+OCfJnbz2b+9vWxFUJA/5Im4BO9SupfdpZsTskC3HQ7Bhm
+	gLeq+hR+PwFgEOIb+2BIYPr2Ul76u8oRdRTExlkwHpeNK0+E/QIklC3uCC
+X-Google-Smtp-Source: AGHT+IFRqJmu713tBVUOkgi8JXhj0gBme+e9qJOsn5K+mQGju57nj8Rza2na6vwCvpeIB6ToTiVXyQ==
+X-Received: by 2002:a05:6820:3095:b0:5c6:9320:4f1e with SMTP id 006d021491bc7-5d41d0c0709mr4511184eaf.6.1721263695492;
+        Wed, 17 Jul 2024 17:48:15 -0700 (PDT)
+Received: from sw06.internal.sifive.com ([4.53.31.132])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-78e386d53e4sm5694300a12.70.2024.07.17.17.48.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 17 Jul 2024 17:48:14 -0700 (PDT)
+From: Samuel Holland <samuel.holland@sifive.com>
+To: linux-riscv@lists.infradead.org,
+	Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Andrew Jones <ajones@ventanamicro.com>,
+	Conor Dooley <conor@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	Deepak Gupta <debug@rivosinc.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andy Chiu <andy.chiu@sifive.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	Evan Green <evan@rivosinc.com>,
+	Greentime Hu <greentime.hu@sifive.com>,
+	Guo Ren <guoren@kernel.org>,
+	Leonardo Bras <leobras@redhat.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Xiao Wang <xiao.w.wang@intel.com>
+Subject: [PATCH v3 2/3] riscv: Add support for per-thread envcfg CSR values
+Date: Wed, 17 Jul 2024 17:47:55 -0700
+Message-ID: <20240718004808.2246354-3-samuel.holland@sifive.com>
+X-Mailer: git-send-email 2.45.1
+In-Reply-To: <20240718004808.2246354-1-samuel.holland@sifive.com>
+References: <20240718004808.2246354-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
-In-Reply-To: <20240717-of_property_for_each_u32-v2-1-4060990f49c9@bootlin.com>
-References: <20240717-of_property_for_each_u32-v2-1-4060990f49c9@bootlin.com>
-Subject: Re: [PATCH v2] of: remove internal arguments from of_property_for_each_u32()
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: Peng Fan (OSS) <peng.fan@oss.nxp.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, llvm@lists.linux.dev, linux-clk@vger.kernel.org, linux-omap@vger.kernel.org, linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org, linux-iio@vger.kernel.org, linux-pwm@vger.kernel.org, linux-serial@vger.kernel.org, linux-usb@vger.kernel.org, patches@opensource.cirrus.com, linux-sound@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, Luca Ceresoli <luca.ceresoli@bootlin.com>, Andre Przywara <andre.przywara@arm.com>, Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Jonathan Cameron <Jonathan.Cameron@huawei.com>, Uwe =?utf-8?q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, Richard Fitzgerald <rf@opensource.cirrus.com>
-To: Aaro Koskinen <aaro.koskinen@iki.fi>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Alim Akhtar <alim.akhtar@samsung.com>, Andreas Kemnade <andreas@kemnade.info>, Bartosz Golaszewski <brgl@bgdev.pl>, Bjorn Andersson <andersson@kernel.org>, Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Chen-Yu Tsai <wens@csie.org>, Chester Lin <chester62515@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Damien Le Moal <dlemoal@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, Dong Aisheng <aisheng.dong@nxp.com>, Doug Berger <opendmb@gmail.com>, Emilio =?utf-8?q?L=C3=B3pez?= <emilio@elopez.com.ar>, Fabio Estevam <festevam@gmail.com>, Florian Fainelli <florian.fainelli@broadcom.com>, Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jacky Bai <ping.bai@nxp.com>, Jaroslav Kysela <perex@perex.cz>, Jernej Skrabec <jernej.skrabec@gmail.com>, Jiri Slaby
-  <jirislaby@kernel.org>, Jonathan Cameron <jic23@kernel.org>, Kevin Hilman <khilman@baylibre.com>, Krzysztof Kozlowski <krzk@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, Lee Jones <lee@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Linus Walleij <linus.walleij@linaro.org>, Luca Ceresoli <luca.ceresoli@bootlin.com>, Mark Brown <broonie@kernel.org>, Matthias Brugger <mbrugger@suse.com>, Michael Ellerman <mpe@ellerman.id.au>, Michael Turquette <mturquette@baylibre.com>, Miguel Ojeda <ojeda@kernel.org>, Nathan Chancellor <nathan@kernel.org>, Naveen N. Rao <naveen.n.rao@linux.ibm.com>, Nicholas Piggin <npiggin@gmail.com>, Nicolas Ferre <nicolas.ferre@microchip.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Richard Leitner <richard.leitner@linux.dev>, Rob Herring <robh@kernel.org>, Roger Quadros <rogerq@kernel.org>, Samuel Holland <samuel@sholland.org>, Saravana Kannan <saravanak@google.com>, Shawn Guo <shawnguo@kernel.org>, Takashi Iwai <tiwai@suse.com>, Thomas Gleixner 
- <tglx@linutronix.de>, Tony Lindgren <tony@atomide.com>, Uwe =?utf-8?q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-Date: Wed, 17 Jul 2024 16:33:34 -0700
-User-Agent: alot/0.10
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240717_163338_787073_50670111 
-X-CRM114-Status: GOOD (  16.46  )
+X-CRM114-CacheID: sfid-20240717_174816_834153_B13D3E01 
+X-CRM114-Status: GOOD (  16.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,78 +108,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Quoting Luca Ceresoli (2024-07-17 09:16:32)
-> diff --git a/drivers/clk/clk-si5351.c b/drivers/clk/clk-si5351.c
-> index 4ce83c5265b8..d4904f59f83f 100644
-> --- a/drivers/clk/clk-si5351.c
-> +++ b/drivers/clk/clk-si5351.c
-> @@ -1175,8 +1175,8 @@ static int si5351_dt_parse(struct i2c_client *client,
->  {
->         struct device_node *child, *np = client->dev.of_node;
->         struct si5351_platform_data *pdata;
-> -       struct property *prop;
-> -       const __be32 *p;
-> +       u32 array[4];
-> +       int sz, i;
->         int num = 0;
->         u32 val;
->  
-> @@ -1191,20 +1191,24 @@ static int si5351_dt_parse(struct i2c_client *client,
->          * property silabs,pll-source : <num src>, [<..>]
->          * allow to selectively set pll source
->          */
-> -       of_property_for_each_u32(np, "silabs,pll-source", prop, p, num) {
-> +       sz = of_property_read_variable_u32_array(np, "silabs,pll-source", array, 2, 4);
-> +       sz = (sz == -EINVAL) ? 0 : sz; /* Missing property is OK */
-> +       if (sz < 0)
-> +               return dev_err_probe(&client->dev, sz, "invalid pll-source");
+Some bits in the [ms]envcfg CSR, such as the CFI state and pointer
+masking mode, need to be controlled on a per-thread basis. Support this
+by keeping a copy of the CSR value in struct thread_struct and writing
+it during context switches. It is safe to discard the old CSR value
+during the context switch because the CSR is modified only by software,
+so the CSR will remain in sync with the copy in thread_struct.
 
-Needs a newline on the printk message.
+Use ALTERNATIVE directly instead of riscv_has_extension_unlikely() to
+minimize branchiness in the context switching code.
 
-> +       if (sz % 2)
-> +               return dev_err_probe(&client->dev, -EINVAL,
-> +                                    "missing pll-source for pll %d\n", array[sz - 1]);
-> +
-> +       for (i = 0; i < sz; i += 2) {
-> +               num = array[i];
-> +               val = array[i + 1];
-> +
->                 if (num >= 2) {
->                         dev_err(&client->dev,
->                                 "invalid pll %d on pll-source prop\n", num);
->                         return -EINVAL;
->                 }
->  
-> -               p = of_prop_next_u32(prop, p, &val);
-> -               if (!p) {
-> -                       dev_err(&client->dev,
-> -                               "missing pll-source for pll %d\n", num);
-> -                       return -EINVAL;
-> -               }
-> -
->                 switch (val) {
->                 case 0:
->                         pdata->pll_src[num] = SI5351_PLL_SRC_XTAL;
-> @@ -1232,19 +1236,24 @@ static int si5351_dt_parse(struct i2c_client *client,
->         pdata->pll_reset[0] = true;
->         pdata->pll_reset[1] = true;
->  
-> -       of_property_for_each_u32(np, "silabs,pll-reset-mode", prop, p, num) {
-> +       sz = of_property_read_variable_u32_array(np, "silabs,pll-reset-mode", array, 2, 4);
-> +       sz = (sz == -EINVAL) ? 0 : sz; /* Missing property is OK */
-> +       if (sz < 0)
-> +               return dev_err_probe(&client->dev, sz, "invalid pll-reset-mode");
+Since thread_struct is copied during fork(), setting the value for the
+init task sets the default value for all other threads.
 
-Needs a newline on the printk message.
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Reviewed-by: Deepak Gupta <debug@rivosinc.com>
+Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+---
 
-> +       if (sz % 2)
-> +               return dev_err_probe(&client->dev, -EINVAL,
-> +                                    "missing pll-reset-mode for pll %d\n", array[sz - 1]);
-> +
+(no changes since v1)
 
-With those fixed
+ arch/riscv/include/asm/processor.h | 1 +
+ arch/riscv/include/asm/switch_to.h | 8 ++++++++
+ arch/riscv/kernel/cpufeature.c     | 2 +-
+ 3 files changed, 10 insertions(+), 1 deletion(-)
 
-Acked-by: Stephen Boyd <sboyd@kernel.org> # clk
+diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+index 8702b8721a27..586e4ab701c4 100644
+--- a/arch/riscv/include/asm/processor.h
++++ b/arch/riscv/include/asm/processor.h
+@@ -124,6 +124,7 @@ struct thread_struct {
+ 	unsigned long s[12];	/* s[0]: frame pointer */
+ 	struct __riscv_d_ext_state fstate;
+ 	unsigned long bad_cause;
++	unsigned long envcfg;
+ 	u32 riscv_v_flags;
+ 	u32 vstate_ctrl;
+ 	struct __riscv_v_ext_state vstate;
+diff --git a/arch/riscv/include/asm/switch_to.h b/arch/riscv/include/asm/switch_to.h
+index 7594df37cc9f..9685cd85e57c 100644
+--- a/arch/riscv/include/asm/switch_to.h
++++ b/arch/riscv/include/asm/switch_to.h
+@@ -70,6 +70,13 @@ static __always_inline bool has_fpu(void) { return false; }
+ #define __switch_to_fpu(__prev, __next) do { } while (0)
+ #endif
+ 
++static inline void __switch_to_envcfg(struct task_struct *next)
++{
++	asm volatile (ALTERNATIVE("nop", "csrw " __stringify(CSR_ENVCFG) ", %0",
++				  0, RISCV_ISA_EXT_XLINUXENVCFG, 1)
++			:: "r" (next->thread.envcfg) : "memory");
++}
++
+ extern struct task_struct *__switch_to(struct task_struct *,
+ 				       struct task_struct *);
+ 
+@@ -103,6 +110,7 @@ do {							\
+ 		__switch_to_vector(__prev, __next);	\
+ 	if (switch_to_should_flush_icache(__next))	\
+ 		local_flush_icache_all();		\
++	__switch_to_envcfg(__next);			\
+ 	((last) = __switch_to(__prev, __next));		\
+ } while (0)
+ 
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 4efaf12b470e..43fdae953379 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -878,7 +878,7 @@ unsigned long riscv_get_elf_hwcap(void)
+ void riscv_user_isa_enable(void)
+ {
+ 	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_ZICBOZ))
+-		csr_set(CSR_ENVCFG, ENVCFG_CBZE);
++		current->thread.envcfg |= ENVCFG_CBZE;
+ 	else if (any_cpu_has_zicboz)
+ 		pr_warn_once("Zicboz disabled as it is unavailable on some harts\n");
+ }
+-- 
+2.45.1
+
 
 _______________________________________________
 linux-riscv mailing list
