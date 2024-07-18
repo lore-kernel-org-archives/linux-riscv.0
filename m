@@ -4,96 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1110C3DA49
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jul 2024 23:34:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFFECC3DA61
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jul 2024 23:35:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4hExyGlxMzKdkmGnKKqwZWSX/Y2bErqAyJ6vGh/dghA=; b=AwgMRhM1zrP99v
-	pxO7fmAmKHqTDajGu1X8L/Du3DDuY3qFw1bMNs8Oc7SyUCCJjktIyOUPIQpLFkTTQGo0isSup+ELT
-	FW7/VRXZIhyRallNNUHyzHZI8+Kla7bGy+mjWlV4le5JV9qUXW1q6DodxCccC89T2AqJoB0EZJt4M
-	uFfIk6PeSJLhfJEI8g6wEbtg+VuLmGtFippOMQ3GE8L/Q4n9cwLWg4qqxHDDf8oohPbFLmqtA7LsQ
-	7c/Y8zhDJzeiZ51N/219KrD9QjN/m7gy/0jYGRhVSFV5ECgjQ2yQqFISBBmOBpjE4Kw/lVEDQTnR9
-	ZFQ8Hx8r92odjQFn3GoQ==;
+	List-Owner; bh=AJ9OK1BN7pcVISykeg/xL6XCmbuFiq83Gxna1kFeYPQ=; b=Z039Je0qVBoW/x
+	PaY+MTmBeBjlfws4ymA+aJfq5V3mT+RZeSHRECDEZ/baZJ6jesWwooveWnARkPEBARHDyy8tj2E48
+	CRF0gcH/Lxs5FjBaua5P3tMx+hILdZF57YXf1CCZHDzQxCLTYw+bKhDuD4MBSORmxnnriwpQKMJq5
+	LdZjWU1S0C5cnuADqxMoQRXi1bNxZlcdw7Xk1sQ0C0mAh3bYAFKXHdF3woJZTg4bJ86WLv/1kIiEj
+	3axoVtOfyhUblqcuYzXCp6tR7AouiKtdBfQolbn2n76dUW6zRZ3qzpRq8UKFFYCTOOgdlKReuGrVJ
+	7rgps4llSLJG4KJlOExg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUadl-00000000za5-3kLm;
-	Thu, 18 Jul 2024 23:34:25 +0000
-Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
+	id 1sUaek-00000000zuJ-31EG;
+	Thu, 18 Jul 2024 23:35:26 +0000
+Received: from mail-il1-x12f.google.com ([2607:f8b0:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUadi-00000000zZF-2vMb
+	id 1sUaeh-00000000zsa-1aIV
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 Jul 2024 23:34:24 +0000
-Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-6bce380eb9bso914083a12.0
-        for <linux-riscv@lists.infradead.org>; Thu, 18 Jul 2024 16:34:21 -0700 (PDT)
+	Thu, 18 Jul 2024 23:35:24 +0000
+Received: by mail-il1-x12f.google.com with SMTP id e9e14a558f8ab-39626aee4easo5510045ab.3
+        for <linux-riscv@lists.infradead.org>; Thu, 18 Jul 2024 16:35:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1721345661; x=1721950461; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:references
-         :in-reply-to:subject:cc:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/qF+1IDJjtH4yt3+dIXZUb/sL6BCvMKOBa4IWo3wL00=;
-        b=HKWkgfQosF5IerZcYde4gdWc15UJI/pPoSGm0CPgZGUaNbzTssJEKWm2sJ4hHRbKWa
-         fIxYKKmcBnFBwhWV1Um6GKalJHh2rfZ++Fhk8YmVBiQG9G2dVmzB5TMfroadGcOPUfuA
-         FTyNob1PHTxgi67gxe2l0YkxuTHssLaNrbT42ISt/Kby57ySESjwgH0i2eKw8OOSwKII
-         PuOWbuLblWUn3QbYkUh1WAvYqD5A9O53R/cFwtbtqM3WmS20LGkJHTJPsVfYa0ly/8WF
-         YhozKDRfOhP2+IxgnouQQPHsyFo6z3tzaaToW6Ms23a8z3TybTkzb6WW3Y3RPisLbgi3
-         GriA==
+        d=sifive.com; s=google; t=1721345722; x=1721950522; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=2wuB824Hrye/65n89Susd5Qn8V22yeQN5eVpd+tL4OM=;
+        b=GZyX5W9xzQDjKorbCCeWoqpz1xYLigiHZJ9Yyr7mBDVatD0fjBjI0IoyKdi2dcd7cL
+         PrDWlGMN4pMQWIJKrfCr1K/xNmRK0+PLwyVws6tQ4h2jIFWhOm0r+qlXsEa336AXx1qK
+         2Fpd94lPZCLNYzT96J/7OS5CCE3dZhi5B6F/YmOQiTsj+41NW57joLL3zhjmYVo2Oa92
+         WWmskje7Rws4043MMwXtmRV0yDh3P/Y3GyL5FXyUo5cJLkRlTzQFc8SiR76pSioiJhh9
+         NpFSoGMurRDKmRCGZp1AlDE2jGWHn0NDDpSnsC/jMs42Iz3aRAjhOK104378m8Zm0cXZ
+         QrsA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1721345661; x=1721950461;
-        h=content-transfer-encoding:mime-version:message-id:date:references
-         :in-reply-to:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/qF+1IDJjtH4yt3+dIXZUb/sL6BCvMKOBa4IWo3wL00=;
-        b=kjtOG/wSaBUlwPw10123tqE4kQyROeXISnFw7sj9pySmbqdH1Af/ZeexHC2jpbVuKj
-         4pWr53V5OvMEKppdywbwRp+/TejyXtsVhrFiDEpD8VCbDoCEUPWDjRcD4aCIVWra1u8u
-         IZ0qz99hYD+GGfBBudatIvSxiy+UvjWOUiFBub8qlXq9QA7YxQlCifRsDYrZgYep3gq3
-         cLP6GlMAdkBCkCJowU8P0uiX3wI3QECUkQwL74IPCXru8QYAgmhn1B2b22+WhSDxJXcE
-         tr69m7TS9d5lTadQLcDQLBJBbavKWSWqzz/b0f8KoGgTWp74a73Uvgn2DP35CQw+Cl/F
-         01Vg==
-X-Forwarded-Encrypted: i=1; AJvYcCX9X5IPsMLIgOiPnxipPQFZi/KHut9rnFMeGL3cuWMOvzQkzPSxOVNdEKziVsJT6T8hNny6HrVxfUfuXyP6taATZSgWdsOJNQSv4u+QEdlh
-X-Gm-Message-State: AOJu0YxqEOnO4fAx2uuyQPnfao0kKmSn92+npv/PH7REAzl6d1kcyey2
-	LcON/+1O7GGEwjwpSzhIbxau7SnuCm4ySJRn65tJvWP++dJ7mMKJZP2ii534t0s=
-X-Google-Smtp-Source: AGHT+IEKbX/FsbhFnIw71MBLVcrzrP5T77uZDA6cQicktN0+nhvg+Wct/m4wkCJiaiaT9dRkb2DrPg==
-X-Received: by 2002:a05:6a20:918c:b0:1c3:a411:dc45 with SMTP id adf61e73a8af0-1c3fdd6b4e7mr7804327637.39.1721345661197;
-        Thu, 18 Jul 2024 16:34:21 -0700 (PDT)
-Received: from localhost ([2804:14d:7e39:8470:15c8:3512:f33c:2f80])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2ccf7c72075sm199845a91.28.2024.07.18.16.34.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 18 Jul 2024 16:34:20 -0700 (PDT)
-From: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,  Will Deacon
- <will@kernel.org>,  Jonathan Corbet <corbet@lwn.net>,  Andrew Morton
- <akpm@linux-foundation.org>,  Marc Zyngier <maz@kernel.org>,  Oliver Upton
- <oliver.upton@linux.dev>,  James Morse <james.morse@arm.com>,  Suzuki K
- Poulose <suzuki.poulose@arm.com>,  Arnd Bergmann <arnd@arndb.de>,  Oleg
- Nesterov <oleg@redhat.com>,  Eric Biederman <ebiederm@xmission.com>,
-  Shuah Khan <shuah@kernel.org>,  "Rick P. Edgecombe"
- <rick.p.edgecombe@intel.com>,  Deepak Gupta <debug@rivosinc.com>,  Ard
- Biesheuvel <ardb@kernel.org>,  Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
-  Kees Cook <kees@kernel.org>,  "H.J. Lu" <hjl.tools@gmail.com>,  Paul
- Walmsley <paul.walmsley@sifive.com>,  Palmer Dabbelt <palmer@dabbelt.com>,
-  Albert Ou <aou@eecs.berkeley.edu>,  Florian Weimer <fweimer@redhat.com>,
-  Christian Brauner <brauner@kernel.org>,  Ross Burton
- <ross.burton@arm.com>,  linux-arm-kernel@lists.infradead.org,
-  linux-doc@vger.kernel.org,  kvmarm@lists.linux.dev,
-  linux-fsdevel@vger.kernel.org,  linux-arch@vger.kernel.org,
-  linux-mm@kvack.org,  linux-kselftest@vger.kernel.org,
-  linux-kernel@vger.kernel.org,  linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v9 38/39] kselftest/arm64: Add a GCS stress test
-In-Reply-To: <20240625-arm64-gcs-v9-38-0f634469b8f0@kernel.org> (Mark Brown's
-	message of "Tue, 25 Jun 2024 15:58:06 +0100")
-References: <20240625-arm64-gcs-v9-0-0f634469b8f0@kernel.org>
-	<20240625-arm64-gcs-v9-38-0f634469b8f0@kernel.org>
-Date: Thu, 18 Jul 2024 20:34:18 -0300
-Message-ID: <875xt2xojp.fsf@linaro.org>
+        d=1e100.net; s=20230601; t=1721345722; x=1721950522;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=2wuB824Hrye/65n89Susd5Qn8V22yeQN5eVpd+tL4OM=;
+        b=JGfhIVQd514om3pGXu/kYrl7a6G7Y+rdJbl8xhBwpe0fZrFPJAT2clCSkzj/X5gB08
+         tLScg2N7S+ENQuv+vc59eE3G2BPOXXsTZBLzIUbIAcD4O18SWl5ADFz9u4bKF+fWnP+v
+         pA+NcjpLBRDbKRMAErp69Z5m9bP2nlb5RKtsmRUXpXfgcDATYeznakbFlrSRwt4hA8jv
+         qXGHh4NY22OhGBqvAA8S0AClk3HWnoQnOmVGmn/4XseIP+JsfLbkF9tUFAQs7kV7X7FC
+         tBMeQOzggL6P8nECNZKkAsf7tkDLrgHlYm7SPecMbbCs0wCABXAat+V2qD2tcsJUgyOA
+         EalA==
+X-Forwarded-Encrypted: i=1; AJvYcCUedwb/hM3wYASQTlnAEWVbfyxZZLijpXM9EC5bBPhc/Q1P3mY+jfXkoF4SvvHoTjOeVp9s8m8H8NWE5ISurxXnfY8ShS5Xp3yopSHjKzVZ
+X-Gm-Message-State: AOJu0YxonDgC5xo6Esg2hzxWnlwsQiMwOjeirV6vsF9UQiAY6FmamsKy
+	MKAzPm5bLDrwBBvRCwWDpXZwM5rkvSGjuSFoFY3wdTSXvTop9u5Z0Vvd0W7SrmQ=
+X-Google-Smtp-Source: AGHT+IFtVhVM9BDBi07vxZXR86hASuWPxepp8zLd6TCw6Ag6AJelMqPZkldzEt6k5/Z8Yqp4PAfVOw==
+X-Received: by 2002:a05:6e02:168a:b0:37a:a9f0:f263 with SMTP id e9e14a558f8ab-39556e4ff57mr82165945ab.20.1721345722320;
+        Thu, 18 Jul 2024 16:35:22 -0700 (PDT)
+Received: from [100.64.0.1] ([147.124.94.167])
+        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-397f7efad1asm502335ab.76.2024.07.18.16.35.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 18 Jul 2024 16:35:21 -0700 (PDT)
+Message-ID: <c403de1d-cda8-45bc-a6a2-a92170ad8575@sifive.com>
+Date: Thu, 18 Jul 2024 18:35:19 -0500
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 1/4] RISC-V: Add Svade and Svadu Extensions Support
+To: Yong-Xuan Wang <yongxuan.wang@sifive.com>
+Cc: greentime.hu@sifive.com, vincent.chen@sifive.com,
+ Jinyu Tang <tjytimi@163.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Andrew Jones <ajones@ventanamicro.com>, Anup Patel <anup@brainfault.org>,
+ Conor Dooley <conor.dooley@microchip.com>,
+ Mayuresh Chitale <mchitale@ventanamicro.com>,
+ Atish Patra <atishp@rivosinc.com>, Samuel Ortiz <sameo@rivosinc.com>,
+ Daniel Henrique Barboza <dbarboza@ventanamicro.com>,
+ =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
+ Evan Green <evan@rivosinc.com>, Xiao Wang <xiao.w.wang@intel.com>,
+ Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Kemeng Shi <shikemeng@huaweicloud.com>, "Mike Rapoport (IBM)"
+ <rppt@kernel.org>, Leonardo Bras <leobras@redhat.com>,
+ Charlie Jenkins <charlie@rivosinc.com>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Jisheng Zhang <jszhang@kernel.org>, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org,
+ kvm@vger.kernel.org
+References: <20240712083850.4242-1-yongxuan.wang@sifive.com>
+ <20240712083850.4242-2-yongxuan.wang@sifive.com>
+From: Samuel Holland <samuel.holland@sifive.com>
+Content-Language: en-US
+In-Reply-To: <20240712083850.4242-2-yongxuan.wang@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240718_163422_931239_99065780 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20240718_163523_633996_A157D78C 
+X-CRM114-Status: GOOD (  28.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,60 +107,185 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-TWFyayBCcm93biA8YnJvb25pZUBrZXJuZWwub3JnPiB3cml0ZXM6Cgo+IEFkZCBhIHN0cmVzcyB0
-ZXN0IHdoaWNoIHJ1bnMgb25lIG1vcmUgcHJvY2VzcyB0aGFuIHdlIGhhdmUgQ1BVcyBzcGlubmlu
-Zwo+IHRocm91Z2ggYSB2ZXJ5IHJlY3Vyc2l2ZSBmdW5jdGlvbiB3aXRoIGZyZXF1ZW50IHN5c2Nh
-bGxzIGltbWVkaWF0ZWx5IHByaW9yCj4gdG8gcmV0dXJuIGFuZCBzaWduYWxzIGJlaW5nIGluamVj
-dGVkIGV2ZXJ5IDEwMG1zLiBUaGUgZ29hbCBpcyB0byBmbGFnIHVwCj4gYW55IHNjaGVkdWxpbmcg
-cmVsYXRlZCBpc3N1ZXMsIGZvciBleGFtcGxlIGZhaWx1cmUgdG8gZW5zdXJlIHRoYXQgYmFycmll
-cnMKPiBhcmUgaW5zZXJ0ZWQgd2hlbiBtb3ZpbmcgYSBHQ1MgdXNpbmcgdGFzayB0byBhbm90aGVy
-IENQVS4gVGhlIHRlc3QgcnVucyBmb3IKPiBhIGNvbmZpZ3VyYWJsZSBhbW91bnQgb2YgdGltZSwg
-ZGVmYXVsdGluZyB0byAxMCBzZWNvbmRzLgo+Cj4gUmV2aWV3ZWQtYnk6IFRoaWFnbyBKdW5nIEJh
-dWVybWFubiA8dGhpYWdvLmJhdWVybWFubkBsaW5hcm8ub3JnPgo+IFNpZ25lZC1vZmYtYnk6IE1h
-cmsgQnJvd24gPGJyb29uaWVAa2VybmVsLm9yZz4KPiAtLS0KPiAgdG9vbHMvdGVzdGluZy9zZWxm
-dGVzdHMvYXJtNjQvZ2NzLy5naXRpZ25vcmUgICAgICAgfCAgIDIgKwo+ICB0b29scy90ZXN0aW5n
-L3NlbGZ0ZXN0cy9hcm02NC9nY3MvTWFrZWZpbGUgICAgICAgICB8ICAgNiArLQo+ICB0b29scy90
-ZXN0aW5nL3NlbGZ0ZXN0cy9hcm02NC9nY3MvYXNtLW9mZnNldHMuaCAgICB8ICAgMAo+ICAuLi4v
-c2VsZnRlc3RzL2FybTY0L2djcy9nY3Mtc3RyZXNzLXRocmVhZC5TICAgICAgICB8IDMxMSArKysr
-KysrKysrKysKPiAgdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMvYXJtNjQvZ2NzL2djcy1zdHJlc3Mu
-YyAgICAgfCA1MzIgKysrKysrKysrKysrKysrKysrKysrCj4gIDUgZmlsZXMgY2hhbmdlZCwgODUw
-IGluc2VydGlvbnMoKyksIDEgZGVsZXRpb24oLSkKClRoaXMgdGVzdCBmYWlscyBmb3IgbWUsIGV2
-ZW4gd2l0aG91dCBUSFA6CgokIHN1ZG8gLi9ydW5fa3NlbGZ0ZXN0LnNoIC10IGFybTY0Omdjcy1z
-dHJlc3MKVEFQIHZlcnNpb24gMTMKMS4uMQojIHRpbWVvdXQgc2V0IHRvIDQ1CiMgc2VsZnRlc3Rz
-OiBhcm02NDogZ2NzLXN0cmVzcwojIFRBUCB2ZXJzaW9uIDEzCiMgMS4uOQojICMgOCBDUFVzLCA5
-IEdDUyB0aHJlYWRzCiMgIyBXaWxsIHJ1biBmb3IgMTBzCiMgIyBTdGFydGVkIFRocmVhZC00MDMw
-CiMgIyBTdGFydGVkIFRocmVhZC00MDMxCiMgIyBTdGFydGVkIFRocmVhZC00MDMyCiMgIyBTdGFy
-dGVkIFRocmVhZC00MDMzCiMgIyBTdGFydGVkIFRocmVhZC00MDM0CiMgIyBTdGFydGVkIFRocmVh
-ZC00MDM1CiMgIyBTdGFydGVkIFRocmVhZC00MDM2CiMgIyBTdGFydGVkIFRocmVhZC00MDM3CiMg
-IyBTdGFydGVkIFRocmVhZC00MDM4CiMgIyBXYWl0aW5nIGZvciA5IGNoaWxkcmVuCiMgIyBXYWl0
-aW5nIGZvciA5IGNoaWxkcmVuCiMgIyBUaHJlYWQtNDAzMDogRmFpbGVkIHRvIGVuYWJsZSBHQ1MK
-IyAjIFRocmVhZC00MDMxOiBGYWlsZWQgdG8gZW5hYmxlIEdDUwojICMgVGhyZWFkLTQwMzI6IEZh
-aWxlZCB0byBlbmFibGUgR0NTCiMgIyBUaHJlYWQtNDAzMzogRmFpbGVkIHRvIGVuYWJsZSBHQ1MK
-IyAjIFRocmVhZC00MDM0OiBGYWlsZWQgdG8gZW5hYmxlIEdDUwojICMgVGhyZWFkLTQwMzU6IEZh
-aWxlZCB0byBlbmFibGUgR0NTCiMgIyBUaHJlYWQtNDAzNjogRmFpbGVkIHRvIGVuYWJsZSBHQ1MK
-IyAjIFRocmVhZC00MDM4OiBGYWlsZWQgdG8gZW5hYmxlIEdDUwojICMgVGhyZWFkLTQwMzc6IEZh
-aWxlZCB0byBlbmFibGUgR0NTCiMgIyBTZW5kaW5nIHNpZ25hbHMsIHRpbWVvdXQgcmVtYWluaW5n
-OiAxMDAwMG1zCiMgIyBTZW5kaW5nIHNpZ25hbHMsIHRpbWVvdXQgcmVtYWluaW5nOiA5OTAwbXMK
-ICAgIOKLrgojICMgU2VuZGluZyBzaWduYWxzLCB0aW1lb3V0IHJlbWFpbmluZzogMjAwbXMKIyAj
-IFNlbmRpbmcgc2lnbmFscywgdGltZW91dCByZW1haW5pbmc6IDEwMG1zCiMgIyBGaW5pc2hpbmcg
-dXAuLi4KIyAjIFRocmVhZC00MDMwIGV4aXRlZCB3aXRoIGVycm9yIGNvZGUgMjU1CiMgbm90IG9r
-IDEgVGhyZWFkLTQwMzAKIyAjIFRocmVhZC00MDMxIGV4aXRlZCB3aXRoIGVycm9yIGNvZGUgMjU1
-CiMgbm90IG9rIDIgVGhyZWFkLTQwMzEKIyAjIFRocmVhZC00MDMyIGV4aXRlZCB3aXRoIGVycm9y
-IGNvZGUgMjU1CiMgbm90IG9rIDMgVGhyZWFkLTQwMzIKIyAjIFRocmVhZC00MDMzIGV4aXRlZCB3
-aXRoIGVycm9yIGNvZGUgMjU1CiMgbm90IG9rIDQgVGhyZWFkLTQwMzMKIyAjIFRocmVhZC00MDM0
-IGV4aXRlZCB3aXRoIGVycm9yIGNvZGUgMjU1CiMgbm90IG9rIDUgVGhyZWFkLTQwMzQKIyAjIFRo
-cmVhZC00MDM1IGV4aXRlZCB3aXRoIGVycm9yIGNvZGUgMjU1CiMgbm90IG9rIDYgVGhyZWFkLTQw
-MzUKIyAjIFRocmVhZC00MDM2IGV4aXRlZCB3aXRoIGVycm9yIGNvZGUgMjU1CiMgbm90IG9rIDcg
-VGhyZWFkLTQwMzYKIyAjIFRocmVhZC00MDM3IGV4aXRlZCB3aXRoIGVycm9yIGNvZGUgMjU1CiMg
-bm90IG9rIDggVGhyZWFkLTQwMzcKIyAjIFRocmVhZC00MDM4IGV4aXRlZCB3aXRoIGVycm9yIGNv
-ZGUgMjU1CiMgbm90IG9rIDkgVGhyZWFkLTQwMzgKIyAjIFRvdGFsczogcGFzczowIGZhaWw6OSB4
-ZmFpbDowIHhwYXNzOjAgc2tpcDowIGVycm9yOjAKb2sgMSBzZWxmdGVzdHM6IGFybTY0OiBnY3Mt
-c3RyZXNzCgotLSAKVGhpYWdvCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
-cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
-bnV4LXJpc2N2Cg==
+Hi Yong-Xuan,
+
+Two trivial comments below for if you send another version of the series.
+
+On 2024-07-12 3:38 AM, Yong-Xuan Wang wrote:
+> Svade and Svadu extensions represent two schemes for managing the PTE A/D
+> bits. When the PTE A/D bits need to be set, Svade extension intdicates
+> that a related page fault will be raised. In contrast, the Svadu extension
+> supports hardware updating of PTE A/D bits. Since the Svade extension is
+> mandatory and the Svadu extension is optional in RVA23 profile, by default
+> the M-mode firmware will enable the Svadu extension in the menvcfg CSR
+> when only Svadu is present in DT.
+> 
+> This patch detects Svade and Svadu extensions from DT and adds
+> arch_has_hw_pte_young() to enable optimization in MGLRU and
+> __wp_page_copy_user() when we have the PTE A/D bits hardware updating
+> support.
+> 
+> Co-developed-by: Jinyu Tang <tjytimi@163.com>
+> Signed-off-by: Jinyu Tang <tjytimi@163.com>
+> Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
+> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> ---
+>  arch/riscv/Kconfig               |  1 +
+>  arch/riscv/include/asm/csr.h     |  1 +
+>  arch/riscv/include/asm/hwcap.h   |  2 ++
+>  arch/riscv/include/asm/pgtable.h | 13 ++++++++++++-
+>  arch/riscv/kernel/cpufeature.c   | 32 ++++++++++++++++++++++++++++++++
+>  5 files changed, 48 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 0525ee2d63c7..3d705e28ff85 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -36,6 +36,7 @@ config RISCV
+>  	select ARCH_HAS_PMEM_API
+>  	select ARCH_HAS_PREPARE_SYNC_CORE_CMD
+>  	select ARCH_HAS_PTE_SPECIAL
+> +	select ARCH_HAS_HW_PTE_YOUNG
+
+These lines should be sorted alphabetically.
+
+>  	select ARCH_HAS_SET_DIRECT_MAP if MMU
+>  	select ARCH_HAS_SET_MEMORY if MMU
+>  	select ARCH_HAS_STRICT_KERNEL_RWX if MMU && !XIP_KERNEL
+> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+> index 25966995da04..524cd4131c71 100644
+> --- a/arch/riscv/include/asm/csr.h
+> +++ b/arch/riscv/include/asm/csr.h
+> @@ -195,6 +195,7 @@
+>  /* xENVCFG flags */
+>  #define ENVCFG_STCE			(_AC(1, ULL) << 63)
+>  #define ENVCFG_PBMTE			(_AC(1, ULL) << 62)
+> +#define ENVCFG_ADUE			(_AC(1, ULL) << 61)
+>  #define ENVCFG_CBZE			(_AC(1, UL) << 7)
+>  #define ENVCFG_CBCFE			(_AC(1, UL) << 6)
+>  #define ENVCFG_CBIE_SHIFT		4
+> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+> index e17d0078a651..35d7aa49785d 100644
+> --- a/arch/riscv/include/asm/hwcap.h
+> +++ b/arch/riscv/include/asm/hwcap.h
+> @@ -81,6 +81,8 @@
+>  #define RISCV_ISA_EXT_ZTSO		72
+>  #define RISCV_ISA_EXT_ZACAS		73
+>  #define RISCV_ISA_EXT_XANDESPMU		74
+> +#define RISCV_ISA_EXT_SVADE             75
+
+The number here should be aligned with tabs, like the surrounding lines.
+
+Regards,
+Samuel
+
+> +#define RISCV_ISA_EXT_SVADU		76
+>  
+>  #define RISCV_ISA_EXT_XLINUXENVCFG	127
+>  
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index aad8b8ca51f1..ec0cdacd7da0 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -120,6 +120,7 @@
+>  #include <asm/tlbflush.h>
+>  #include <linux/mm_types.h>
+>  #include <asm/compat.h>
+> +#include <asm/cpufeature.h>
+>  
+>  #define __page_val_to_pfn(_val)  (((_val) & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT)
+>  
+> @@ -288,7 +289,6 @@ static inline pte_t pud_pte(pud_t pud)
+>  }
+>  
+>  #ifdef CONFIG_RISCV_ISA_SVNAPOT
+> -#include <asm/cpufeature.h>
+>  
+>  static __always_inline bool has_svnapot(void)
+>  {
+> @@ -624,6 +624,17 @@ static inline pgprot_t pgprot_writecombine(pgprot_t _prot)
+>  	return __pgprot(prot);
+>  }
+>  
+> +/*
+> + * Both Svade and Svadu control the hardware behavior when the PTE A/D bits need to be set. By
+> + * default the M-mode firmware enables the hardware updating scheme when only Svadu is present in
+> + * DT.
+> + */
+> +#define arch_has_hw_pte_young arch_has_hw_pte_young
+> +static inline bool arch_has_hw_pte_young(void)
+> +{
+> +	return riscv_has_extension_unlikely(RISCV_ISA_EXT_SVADU);
+> +}
+> +
+>  /*
+>   * THP functions
+>   */
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index 5ef48cb20ee1..b2c3fe945e89 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -301,6 +301,8 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+>  	__RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
+>  	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
+>  	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
+> +	__RISCV_ISA_EXT_DATA(svade, RISCV_ISA_EXT_SVADE),
+> +	__RISCV_ISA_EXT_DATA(svadu, RISCV_ISA_EXT_SVADU),
+>  	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
+>  	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
+>  	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
+> @@ -554,6 +556,21 @@ static void __init riscv_fill_hwcap_from_isa_string(unsigned long *isa2hwcap)
+>  			clear_bit(RISCV_ISA_EXT_v, isainfo->isa);
+>  		}
+>  
+> +		/*
+> +		 * When neither Svade nor Svadu present in DT, it is technically
+> +		 * unknown whether the platform uses Svade or Svadu. Supervisor may
+> +		 * assume Svade to be present and enabled or it can discover based
+> +		 * on mvendorid, marchid, and mimpid. When both Svade and Svadu present
+> +		 * in DT, supervisor must assume Svadu turned-off at boot time. To use
+> +		 * Svadu, supervisor must explicitly enable it using the SBI FWFT extension.
+> +		 */
+> +		if (!test_bit(RISCV_ISA_EXT_SVADE, isainfo->isa) &&
+> +		    !test_bit(RISCV_ISA_EXT_SVADU, isainfo->isa))
+> +			set_bit(RISCV_ISA_EXT_SVADE, isainfo->isa);
+> +		else if (test_bit(RISCV_ISA_EXT_SVADE, isainfo->isa) &&
+> +			 test_bit(RISCV_ISA_EXT_SVADU, isainfo->isa))
+> +			clear_bit(RISCV_ISA_EXT_SVADU, isainfo->isa);
+> +
+>  		/*
+>  		 * All "okay" hart should have same isa. Set HWCAP based on
+>  		 * common capabilities of every "okay" hart, in case they don't
+> @@ -619,6 +636,21 @@ static int __init riscv_fill_hwcap_from_ext_list(unsigned long *isa2hwcap)
+>  
+>  		of_node_put(cpu_node);
+>  
+> +		/*
+> +		 * When neither Svade nor Svadu present in DT, it is technically
+> +		 * unknown whether the platform uses Svade or Svadu. Supervisor may
+> +		 * assume Svade to be present and enabled or it can discover based
+> +		 * on mvendorid, marchid, and mimpid. When both Svade and Svadu present
+> +		 * in DT, supervisor must assume Svadu turned-off at boot time. To use
+> +		 * Svadu, supervisor must explicitly enable it using the SBI FWFT extension.
+> +		 */
+> +		if (!test_bit(RISCV_ISA_EXT_SVADE, isainfo->isa) &&
+> +		    !test_bit(RISCV_ISA_EXT_SVADU, isainfo->isa))
+> +			set_bit(RISCV_ISA_EXT_SVADE, isainfo->isa);
+> +		else if (test_bit(RISCV_ISA_EXT_SVADE, isainfo->isa) &&
+> +			 test_bit(RISCV_ISA_EXT_SVADU, isainfo->isa))
+> +			clear_bit(RISCV_ISA_EXT_SVADU, isainfo->isa);
+> +
+>  		/*
+>  		 * All "okay" harts should have same isa. Set HWCAP based on
+>  		 * common capabilities of every "okay" hart, in case they don't.
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
