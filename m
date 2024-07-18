@@ -4,75 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC025C3DA49
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jul 2024 11:24:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04381C3DA60
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jul 2024 12:11:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nj9odDYK3VgnkE1G7LZ/s8Is+bBDAhf/NA6p5cjr24g=; b=e1Ou1gK26AogBK
-	78nKobQbE/BkVOBAQfApL/0i5HBJj52B86kb4zLZFe3Ic75UBJHqadIPlO4jWADS0Ozo91/B2wNWv
-	sbJK3GVKvWm9iwF/O66j5/tZzMrsBFscymrvFMDBmD8u8FpA3aPM45Imq5dcjfi0syvzUQflTj4Dg
-	oAUXPdoLe9DZ+PTcXJ3qVdtxLH5rXvfSKBqIUx9hp3GCxgdTTtnutQOYeeRWOxjs5l/fiv7jBhTsi
-	4tG008rxyINA60/Vh5hjU1FB7N+3T5+nxTMg0oKnbpyZhYZrwlIn13kBbsbTNbXmnJvayGUjYhTJa
-	taV/nAi6VJHBKSXcSvJg==;
+	List-Owner; bh=iPC7tuPrxi/oZeAlLD/1bu8lsnBoJQLGqe6ubkrxEHk=; b=qpety/COzrz6cQ
+	8QWyrK0bwPlIsfsXW1fDaplBg+95oGVXWHtwlAABo+/Zp5mwfr/rjTO02dn1hYkX4/NxpYs1AZG9D
+	ckXkCh+Y0D8IcCt0iXcj2ohzeILPxEBQhtwnIfSPB36dsVEGbEjHIOndOqRxgpRewauI87+Erl+TK
+	E278znsvgmWy30Rsr2V/L3y/XVs67kGvuXrPVIoiCSG4J/LUPNwFwvwba/vjuRlZreNYeAmsd1JTN
+	lxpPW2LbYnjeKunw5gzZZX46goRkSt+TvNGEX+xSORWPCF5QXTjfD34VpUKXqLBegUz+lSFw8SREK
+	BE4FnfsrSfKUiILUlCrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUPEx-0000000GpUA-2uau;
-	Thu, 18 Jul 2024 11:24:03 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1sUPyN-0000000Gvi3-3YGA;
+	Thu, 18 Jul 2024 12:10:59 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUPEu-0000000GpRi-42Oz;
-	Thu, 18 Jul 2024 11:24:02 +0000
-Received: from ThinkPad-T480s.. (unknown [180.110.112.93])
-	by APP-03 (Coremail) with SMTP id rQCowADHzppH+5hmqKdgFg--.35992S2;
-	Thu, 18 Jul 2024 19:23:52 +0800 (CST)
-From: zhouquan@iscas.ac.cn
-To: linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-perf-users@vger.kernel.org
-Cc: anup@brainfault.org,
-	atishp@atishpatra.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org,
-	Quan Zhou <zhouquan@iscas.ac.cn>
-Subject: [PATCH 2/2] riscv: KVM: add basic support for host vs guest profiling
-Date: Thu, 18 Jul 2024 19:23:51 +0800
-Message-Id: <fbf8a9fcca05a1b554ac0d01b0c46fbb6263c435.1721271251.git.zhouquan@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1721271251.git.zhouquan@iscas.ac.cn>
-References: <cover.1721271251.git.zhouquan@iscas.ac.cn>
+	id 1sUPxy-0000000GvXo-44aH;
+	Thu, 18 Jul 2024 12:10:37 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.105])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4WPs5z63W3zdjDq;
+	Thu, 18 Jul 2024 20:08:39 +0800 (CST)
+Received: from kwepemi100008.china.huawei.com (unknown [7.221.188.57])
+	by mail.maildlp.com (Postfix) with ESMTPS id 1932B140109;
+	Thu, 18 Jul 2024 20:10:24 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ kwepemi100008.china.huawei.com (7.221.188.57) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.39; Thu, 18 Jul 2024 20:10:22 +0800
+Message-ID: <aca0795c-f1a8-20c1-3daf-7f39d2ebf1bc@huawei.com>
+Date: Thu, 18 Jul 2024 20:10:21 +0800
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowADHzppH+5hmqKdgFg--.35992S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxJFW5KF4Utw45Zw43KrykXwb_yoW5CF4fpF
-	s8urn5u3ya9ryxGa4ayr1v9r45WFsYgw13Xry7Cay5Gr45try8Jr4vg34DAry5JFW0qa4f
-	CF95KFyruwn8Jw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvG14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwAKzVCY07xG64k0F24l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr
-	0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY
-	17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcV
-	C0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY
-	6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa
-	73UjIFyTuYvjfU5rWFUUUUU
-X-Originating-IP: [180.110.112.93]
-X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiDAYCBmaY7wwhMwAAsB
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.0
+Subject: Re: [PATCH v3 2/3] crash: Fix x86_32 crash memory reserve dead loop
+ bug at high
+Content-Language: en-US
+To: Baoquan He <bhe@redhat.com>
+CC: <linux@armlinux.org.uk>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<tglx@linutronix.de>, <mingo@redhat.com>, <bp@alien8.de>,
+	<dave.hansen@linux.intel.com>, <hpa@zytor.com>, <vgoyal@redhat.com>,
+	<dyoung@redhat.com>, <arnd@arndb.de>, <afd@ti.com>,
+	<linus.walleij@linaro.org>, <akpm@linux-foundation.org>,
+	<eric.devolder@oracle.com>, <gregkh@linuxfoundation.org>,
+	<javierm@redhat.com>, <deller@gmx.de>, <robh@kernel.org>,
+	<hbathini@linux.ibm.com>, <thunder.leizhen@huawei.com>,
+	<chenjiahao16@huawei.com>, <linux-kernel@vger.kernel.org>,
+	<kexec@lists.infradead.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-riscv@lists.infradead.org>
+References: <20240718035444.2977105-1-ruanjinjie@huawei.com>
+ <20240718035444.2977105-3-ruanjinjie@huawei.com>
+ <Zpj4+G5OwTYBQGIA@MiWiFi-R3L-srv>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <Zpj4+G5OwTYBQGIA@MiWiFi-R3L-srv>
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
+ kwepemi100008.china.huawei.com (7.221.188.57)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240718_042401_425767_62EFE9FD 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20240718_051035_397099_67124AC9 
+X-CRM114-Status: GOOD (  15.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,110 +84,90 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Quan Zhou <zhouquan@iscas.ac.cn>
 
-For the information collected on the host side, we need to
-identify which data originates from the guest and record
-these events separately. This can be achieved by having
-KVM register perf callbacks.
 
-Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
----
- arch/riscv/include/asm/kvm_host.h |  6 ++++++
- arch/riscv/kvm/Kconfig            |  1 +
- arch/riscv/kvm/main.c             | 12 ++++++++++--
- arch/riscv/kvm/vcpu.c             |  7 +++++++
- 4 files changed, 24 insertions(+), 2 deletions(-)
+On 2024/7/18 19:14, Baoquan He wrote:
+> On 07/18/24 at 11:54am, Jinjie Ruan wrote:
+> 
+> I don't fully catch the subject, what does the 'dead loop bug at high'
+> mean?
 
-diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-index d96281278586..b7bbe1c0c5dd 100644
---- a/arch/riscv/include/asm/kvm_host.h
-+++ b/arch/riscv/include/asm/kvm_host.h
-@@ -285,6 +285,12 @@ struct kvm_vcpu_arch {
- 	} sta;
- };
- 
-+/* TODO: A more explicit approach might be needed here than this simple one */
-+static inline bool kvm_arch_pmi_in_guest(struct kvm_vcpu *vcpu)
-+{
-+	return IS_ENABLED(CONFIG_GUEST_PERF_EVENTS) && !!vcpu;
-+}
-+
- static inline void kvm_arch_sync_events(struct kvm *kvm) {}
- static inline void kvm_arch_sched_in(struct kvm_vcpu *vcpu, int cpu) {}
- 
-diff --git a/arch/riscv/kvm/Kconfig b/arch/riscv/kvm/Kconfig
-index 26d1727f0550..0c3cbb0915ff 100644
---- a/arch/riscv/kvm/Kconfig
-+++ b/arch/riscv/kvm/Kconfig
-@@ -32,6 +32,7 @@ config KVM
- 	select KVM_XFER_TO_GUEST_WORK
- 	select KVM_GENERIC_MMU_NOTIFIER
- 	select SCHED_INFO
-+	select GUEST_PERF_EVENTS if PERF_EVENTS
- 	help
- 	  Support hosting virtualized guest machines.
- 
-diff --git a/arch/riscv/kvm/main.c b/arch/riscv/kvm/main.c
-index bab2ec34cd87..734b48d8f6dd 100644
---- a/arch/riscv/kvm/main.c
-+++ b/arch/riscv/kvm/main.c
-@@ -51,6 +51,12 @@ void kvm_arch_hardware_disable(void)
- 	csr_write(CSR_HIDELEG, 0);
- }
- 
-+static void kvm_riscv_teardown(void)
-+{
-+	kvm_riscv_aia_exit();
-+	kvm_unregister_perf_callbacks();
-+}
-+
- static int __init riscv_kvm_init(void)
- {
- 	int rc;
-@@ -105,9 +111,11 @@ static int __init riscv_kvm_init(void)
- 		kvm_info("AIA available with %d guest external interrupts\n",
- 			 kvm_riscv_aia_nr_hgei);
- 
-+	kvm_register_perf_callbacks(NULL);
-+
- 	rc = kvm_init(sizeof(struct kvm_vcpu), 0, THIS_MODULE);
- 	if (rc) {
--		kvm_riscv_aia_exit();
-+		kvm_riscv_teardown();
- 		return rc;
- 	}
- 
-@@ -117,7 +125,7 @@ module_init(riscv_kvm_init);
- 
- static void __exit riscv_kvm_exit(void)
- {
--	kvm_riscv_aia_exit();
-+	kvm_riscv_teardown();
- 
- 	kvm_exit();
- }
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index 17e21df36cc1..c9d291865141 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -222,6 +222,13 @@ bool kvm_arch_vcpu_in_kernel(struct kvm_vcpu *vcpu)
- 	return (vcpu->arch.guest_context.sstatus & SR_SPP) ? true : false;
- }
- 
-+#ifdef CONFIG_GUEST_PERF_EVENTS
-+unsigned long kvm_arch_vcpu_get_ip(struct kvm_vcpu *vcpu)
-+{
-+	return vcpu->arch.guest_context.sepc;
-+}
-+#endif
-+
- vm_fault_t kvm_arch_vcpu_fault(struct kvm_vcpu *vcpu, struct vm_fault *vmf)
- {
- 	return VM_FAULT_SIGBUS;
--- 
-2.34.1
+It means alloc at [CRASH_ADDR_LOW_MAX, CRASH_ADDR_HIGH_MAX] repeatedly
+which corresponds to the crashkernel parameter of the "high".
 
+> 
+>> On x86_32 Qemu machine with 1GB memory, the cmdline "crashkernel=512M" will
+>> also cause system stall as below:
+>>
+>> 	ACPI: Reserving FACP table memory at [mem 0x3ffe18b8-0x3ffe192b]
+>> 	ACPI: Reserving DSDT table memory at [mem 0x3ffe0040-0x3ffe18b7]
+>> 	ACPI: Reserving FACS table memory at [mem 0x3ffe0000-0x3ffe003f]
+>> 	ACPI: Reserving APIC table memory at [mem 0x3ffe192c-0x3ffe19bb]
+>> 	ACPI: Reserving HPET table memory at [mem 0x3ffe19bc-0x3ffe19f3]
+>> 	ACPI: Reserving WAET table memory at [mem 0x3ffe19f4-0x3ffe1a1b]
+>> 	143MB HIGHMEM available.
+>> 	879MB LOWMEM available.
+>> 	  mapped low ram: 0 - 36ffe000
+>> 	  low ram: 0 - 36ffe000
+>> 	  (stall here)
+>>
+>> The reason is that the CRASH_ADDR_LOW_MAX is equal to CRASH_ADDR_HIGH_MAX
+>> on x86_32, the first "low" crash kernel memory reservation for 512M fails,
+>> then it go into the "retry" loop and never came out as below (consider
+>> CRASH_ADDR_LOW_MAX = CRASH_ADDR_HIGH_MAX = 512M):
+>>
+>> -> reserve_crashkernel_generic() and high is false
+>>    -> alloc at [0, 0x20000000] fail
+>>       -> alloc at [0x20000000, 0x20000000] fail and repeatedly
+>>       (because CRASH_ADDR_LOW_MAX = CRASH_ADDR_HIGH_MAX).
+>>
+>> Fix it by skipping meaningless calls of memblock_phys_alloc_range() with
+>> `start = end`
+>>
+>> After this patch, the retry dead loop is avoided and print below info:
+>> 	cannot allocate crashkernel (size:0x20000000)
+>>
+>> And apply generic crashkernel reservation to 32bit system will be ready.
+>>
+>> Fixes: 9c08a2a139fe ("x86: kdump: use generic interface to simplify crashkernel reservation code")
+>> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+>> Signed-off-by: Baoquan He <bhe@redhat.com>
+>> Tested-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> 
+> Also the tag issues, please update.
+> 
+> Other than above concerns, the patch looks good to me.
+
+Thank you for your review, I'll fix it.
+
+> 
+>> ---
+>> v3:
+>> - Fix it as Baoquan suggested.
+>> - Update the commit message.
+>> ---
+>>  kernel/crash_reserve.c | 3 ++-
+>>  1 file changed, 2 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/kernel/crash_reserve.c b/kernel/crash_reserve.c
+>> index c5213f123e19..dacc268429e2 100644
+>> --- a/kernel/crash_reserve.c
+>> +++ b/kernel/crash_reserve.c
+>> @@ -414,7 +414,8 @@ void __init reserve_crashkernel_generic(char *cmdline,
+>>  			search_end = CRASH_ADDR_HIGH_MAX;
+>>  			search_base = CRASH_ADDR_LOW_MAX;
+>>  			crash_low_size = DEFAULT_CRASH_KERNEL_LOW_SIZE;
+>> -			goto retry;
+>> +			if (search_base != search_end)
+>> +				goto retry;
+>>  		}
+>>  
+>>  		/*
+>> -- 
+>> 2.34.1
+>>
+> 
+> 
 
 _______________________________________________
 linux-riscv mailing list
