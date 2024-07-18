@@ -4,64 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E98EC3DA49
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jul 2024 17:10:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EDC9C3DA61
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jul 2024 21:30:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=asmyU7pAUthr/AoS8po9YagTrthFZFXKDr4PRomyG2A=; b=gut5crdUZxD+/S
-	3zMYrC3rUNjtIIm4Xhiz26Op+RlbfevR/CxlBeVV65DeFyGXjv5rSE+6dw3bm35bih+g6OM48d+pp
-	xjoqHI1Xu3Jwpbjf6UxkN5GpNgyIUvuYprfnQZOOTJU6i51vwnnrNlY+YsB9CxjWHit8ncABZmJcB
-	aOZjrSRELMwLB0vkLzo6Vto8T2+GPZWEgmbs6c14jNtV7+Ci+sUVl63Dvc4Xk9Nzhl07+5igffQ6g
-	NG7mxeFgVxYs3LBEOOSu2fXq+Bwz3thncp/o7SaO9JPDPLrICV0X2iSD6MUKMBZdwSzyv6xagXYOk
-	BujV4yr22NuJbxlYMHdg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=TDcX1DK5rNQT4mPWFQfx8LEUl7iNYEPV32ClpkOkBDw=; b=3HVvgH9vmUv9Li
+	Hklqi6mMLXha/BX3IeUeoqRVPVNaQicbGTihlSmt83C8k+BXxFkBNlGSLD/A6Szu29TkfQvNHDFzl
+	8g42OaI56XFdOm4WLIvcLCv90wuewg48NNwTC8BHRDUq22rxTEKnJmE91c/jqvNZEKX5UfghymvDn
+	XqiRhzuPiXYAUoGqi7FaQaZmMlDkx+ofVgxfUaw4rjUhlM6h7EWNVgL6Q73yNwv1ruv9NvkFfnKtI
+	x9DyH6AUU61RX3ZC+TqKBP7c3SYPsPUC03Iat8yQOavON38urNsqRu5v8ruC7f7bx8izsSlihZmZT
+	HIO47u2+/vwHss5epxOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUUeR-000000003p3-2Oyg;
-	Thu, 18 Jul 2024 17:10:43 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1sUYhe-00000000jJV-3fqm;
+	Thu, 18 Jul 2024 21:30:18 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUUeP-000000003oI-3ywd
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 18 Jul 2024 17:10:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=NsOKOoz/n0E7x52hYduE2+T+cVMkB7jCqVFM0M9IM1k=; b=l+MePdu8bYu/cU+TSh7JRJxYS1
-	rvABr1XnTuOowsMjAnc7fLAlZWmwOr4QbzAFTrrXTBbwDKw5l2/F7QMIYUSip9VEs8jl5WdI360as
-	NM1ndolkJhBZiKcWR+00oSycKtbrKf62pmreoJKJUi1g/obBHg02KhSWXsnY6YmcIheEHucoQofNi
-	Y8SvSROJNeqwIpv1Cs5vD6zzvJ+zCWbxBvGxHLlkd+CRO7abc9lNwApOae6Fqf0/zBZY2sywg1twv
-	8/CInLdVbrl/403Osb+TJ5ItrU8L9HPawmVOdrac5P03vENZmeeWlFgfUDbT506ge3kwnGdCeVhsc
-	CpqMyvAA==;
-Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUUeM-00000002Zvu-0OlR
+	id 1sUYhb-00000000jIg-1hlp
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 Jul 2024 17:10:40 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id D09F3E0003;
-	Thu, 18 Jul 2024 17:10:31 +0000 (UTC)
-Message-ID: <1305dab1-9d9b-4c9d-bbcd-b81b823e5034@ghiti.fr>
-Date: Thu, 18 Jul 2024 19:10:31 +0200
+	Thu, 18 Jul 2024 21:30:17 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-1fc6a017abdso7234575ad.0
+        for <linux-riscv@lists.infradead.org>; Thu, 18 Jul 2024 14:30:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1721338214; x=1721943014; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=OQATAomh3oMordhqCE1xgMTp4P8G2Bzv2s8BgrxXwdg=;
+        b=Io68BEIQI3C8amjvsjqk+uKOrpwl9cPTRfqc3R0T5lZ7jUJ+XoJ0Em4U53qnRcECcB
+         u+mini94TIay0XkWs5gi+PwkIAeyMrrNmjZVX9YleOpwynV9nLWFNbs6DnTHUxOcziOd
+         L4U1XJlu7aWTQ/4k2PZz4L6t8bFH3R3ejwfcC0TtTVORkdKDQcRmzfb7PtFBAso8tCWL
+         EHU+AMn9xMDvttaWLCT3I1wnptjiOUyg6iE7LlfyjIu4DcjtFMW+ZC/h9P895jjNOM7Z
+         PcwfTecy714Id9u9xsdv2xTGkJwFcjoSLSayVyW0jnwo3iu3kIUXAQqUbgw6Aw4Bgh8b
+         J00A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1721338214; x=1721943014;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=OQATAomh3oMordhqCE1xgMTp4P8G2Bzv2s8BgrxXwdg=;
+        b=cs8bBBiAgqL2o2hXPxR5AciF4JesqfLeUjTq62BNJxN2JOgF5JugXGJkCrqT4kDJk/
+         sJKPAku8Df9bJBtARCdjMwsnLCSA3t/PWSu3288+DMBUefMoK0lR8UsmT5TolQG7U371
+         OrSrT7EMamOzluyoZkA/IuaRbt0AqRS0qiZv1hxfwNmo+jKmatk8+HzCoxosNDAs7tCN
+         vztCvFxZAYjdHkcgWjI8CGcn3PLTbWiYqGyX+xSODy2fHceI189O5OA5iMAqJ7FobypX
+         1k4NmoVCpME2uFAX908AY0EkvEmYAhBZuidWxkunZ4DCNRZ0JSvlazGIi0eEJRUkkjps
+         Q0Kw==
+X-Forwarded-Encrypted: i=1; AJvYcCVRiddQdy5HadpECXxTw49JoTLMM5lLtGcMp7ZMvUq8wK2SL/alAp6pN5tHjmRLyS4IJSH3xrRbOMiMu3V2moPLAX/qqlDRN06gtvUo+YEg
+X-Gm-Message-State: AOJu0YxWW1XyEtsSAwCZOlrz6YvNTCKzpLhgY8XLjaoP+YKE8ffcV5g+
+	xrkWBrPDHEZKY3sU8DzRLrawB2iKREuEv8b58POkbVC+zZF+f0DFVisKuKG+GTU=
+X-Google-Smtp-Source: AGHT+IHD6wgOvrlgEKckIcPuHnHz5I62mcvWorh7TX0JSsIO8SzWHfMN3uJvQG/y2O99WXw9rRA3KA==
+X-Received: by 2002:a17:903:32c1:b0:1fc:3600:5ce7 with SMTP id d9443c01a7336-1fc4e134b59mr58715475ad.17.1721338214259;
+        Thu, 18 Jul 2024 14:30:14 -0700 (PDT)
+Received: from sw06.internal.sifive.com ([4.53.31.132])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1fd64d1a18dsm231735ad.207.2024.07.18.14.30.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 18 Jul 2024 14:30:13 -0700 (PDT)
+From: Samuel Holland <samuel.holland@sifive.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org
+Cc: Samuel Holland <samuel.holland@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Andy Chiu <andy.chiu@sifive.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	Conor Dooley <conor@kernel.org>,
+	Evan Green <evan@rivosinc.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH -fixes] riscv: cpufeature: Do not drop Linux-internal extensions
+Date: Thu, 18 Jul 2024 14:29:59 -0700
+Message-ID: <20240718213011.2600150-1-samuel.holland@sifive.com>
+X-Mailer: git-send-email 2.45.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] riscv/purgatory: align riscv_kernel_entry
-Content-Language: en-US
-To: Daniel Maslowski <cyrevolt@googlemail.com>,
- linux-riscv@lists.infradead.org
-Cc: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
- =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
- Daniel Maslowski <cyrevolt@gmail.com>
-References: <20240716204047.7649-1-cyrevolt@gmail.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20240716204047.7649-1-cyrevolt@gmail.com>
-X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240718_181038_772356_F4D69E7F 
-X-CRM114-Status: GOOD (  12.74  )
+X-CRM114-CacheID: sfid-20240718_143015_503783_CF867612 
+X-CRM114-Status: GOOD (  12.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,57 +94,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Daniel,
+The Linux-internal Xlinuxenvcfg ISA extension is omitted from the
+riscv_isa_ext array because it has no DT binding and should not appear
+in /proc/cpuinfo. The logic added in commit 625034abd52a ("riscv: add
+ISA extensions validation callback") assumes all extensions are included
+in riscv_isa_ext, and so riscv_resolve_isa() wrongly drops Xlinuxenvcfg
+from the final ISA string. Instead, accept such Linux-internal ISA
+extensions as if they have no validation callback.
 
-On 16/07/2024 22:40, Daniel Maslowski wrote:
-> When alignment handling is delegated to the kernel, everything must be
-> word-aligned in purgatory, since the trap handler is then set to the
-> kexec one. Without the alignment, hitting the exception would
-> ultimately crash. On other occasions, the kernel's handler would take
-> care of exceptions.
-> This has been tested on a JH7110 SoC with oreboot and its SBI delegating
-> unaligned access exceptions and the kernel configured to handle them.
->
-> Fixes: 736e30af583fb6e0e2b8211b894ff99dea0f1ee7
-> Signed-off-by: Daniel Maslowski <cyrevolt@gmail.com>
-> ---
->   arch/riscv/purgatory/entry.S | 2 ++
->   1 file changed, 2 insertions(+)
->
-> diff --git a/arch/riscv/purgatory/entry.S b/arch/riscv/purgatory/entry.S
-> index 5bcf3af903da..0e6ca6d5ae4b 100644
-> --- a/arch/riscv/purgatory/entry.S
-> +++ b/arch/riscv/purgatory/entry.S
-> @@ -7,6 +7,7 @@
->    * Author: Li Zhengyu (lizhengyu3@huawei.com)
->    *
->    */
-> +#include <asm/asm.h>
->   #include <linux/linkage.h>
->   
->   .text
-> @@ -34,6 +35,7 @@ SYM_CODE_END(purgatory_start)
->   
->   .data
->   
-> +.align LGREG
->   SYM_DATA(riscv_kernel_entry, .quad 0)
->   
->   .end
+Fixes: 625034abd52a ("riscv: add ISA extensions validation callback")
+Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+---
 
+ arch/riscv/kernel/cpufeature.c | 14 ++++++--------
+ 1 file changed, 6 insertions(+), 8 deletions(-)
 
-With the Fixes tag fixed like Matthias suggested, you can add:
-
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-
-Thanks,
-
-Alex
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 0366dc3baf33..dd25677d60de 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -457,28 +457,26 @@ static void __init riscv_resolve_isa(unsigned long *source_isa,
+ 		bitmap_copy(prev_resolved_isa, resolved_isa, RISCV_ISA_EXT_MAX);
+ 		for_each_set_bit(bit, source_isa, RISCV_ISA_EXT_MAX) {
+ 			ext = riscv_get_isa_ext_data(bit);
+-			if (!ext)
+-				continue;
+ 
+-			if (ext->validate) {
++			if (ext && ext->validate) {
+ 				ret = ext->validate(ext, resolved_isa);
+ 				if (ret == -EPROBE_DEFER) {
+ 					loop = true;
+ 					continue;
+ 				} else if (ret) {
+ 					/* Disable the extension entirely */
+-					clear_bit(ext->id, source_isa);
++					clear_bit(bit, source_isa);
+ 					continue;
+ 				}
+ 			}
+ 
+-			set_bit(ext->id, resolved_isa);
++			set_bit(bit, resolved_isa);
+ 			/* No need to keep it in source isa now that it is enabled */
+-			clear_bit(ext->id, source_isa);
++			clear_bit(bit, source_isa);
+ 
+ 			/* Single letter extensions get set in hwcap */
+-			if (ext->id < RISCV_ISA_EXT_BASE)
+-				*this_hwcap |= isa2hwcap[ext->id];
++			if (bit < RISCV_ISA_EXT_BASE)
++				*this_hwcap |= isa2hwcap[bit];
+ 		}
+ 	} while (loop && memcmp(prev_resolved_isa, resolved_isa, sizeof(prev_resolved_isa)));
+ }
+-- 
+2.45.1
 
 
 _______________________________________________
