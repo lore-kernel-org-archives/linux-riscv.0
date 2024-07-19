@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A4E6C3DA59
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jul 2024 18:16:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 561C8C3DA70
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jul 2024 18:17:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Rh5sD6+aGHTLGm2HdBCVn62wmUO5xh4iQdICrk+FL1g=; b=ozerXF8/BBt5h5
-	haX2UgjXFPGNzyTIx7QIdbadzqov4fO6DAGkz/YB9WChl0geyPVH/04I4vWWCMQxo2BGUe/xz2r94
-	HKcw/jmx+p6a5PIADmZHTW9gxGN5iF2UgGE4k5aMJhlE2UZSgh67f7KzffVQGmM0RSAIys93siJTO
-	rBlPhaGn4b64aeMq4b1Y7oYXyjWnJRhr1Hb1zaZHoMveyrDIvYqe+Q14mldeuoLtA5OOxHIoLkACe
-	wtjoBX3Romsbv97Rtoze5EWNJHxXY2MWSuOtyMnimOamE/k7hbGuhpyfNITbvR0UXiSov6ucN8WcW
-	4quobqeqZaMq15TBwrTA==;
+	List-Owner; bh=cAHlAOrb916AUL+aM44v4qZ9cKG4tMOw0shd8FLke4M=; b=mVBBzXccESNHUO
+	kKTmZa03HLo5AOtCsebMiDW+Hat1i/RWtmdWQZSJSaWRmIv3KbiRNYVehRQuvHqXCX5+Xo2VY4/1s
+	uMgykW9e46SNqs+9k3CIGkIu2miGsoH6KjQwQvpywqQXRo+RKlO/nhM1dDJF28zvR8bFxKLr89Df/
+	m3YJxyLxlE1f8du/2YA3ARmm5ma9XVSoZNUTgwQ5VT7bJ0W/wWFshkJl8KILajqKsAV60P0DMOzuq
+	ahrXHfhDZ5vMN23TOhV4eppqmVL3Veg53HoF9Ey1I5lFmOvaKNZvouWwa3lCiXTYc4udYxzku4gVI
+	lMC3pAlI9X21fBYYWgrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUs9g-00000003Ufl-3Jx9;
-	Fri, 19 Jul 2024 18:16:32 +0000
+	id 1sUsAO-00000003UtJ-2HwH;
+	Fri, 19 Jul 2024 18:17:16 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUs9K-00000003UYc-0wtS;
-	Fri, 19 Jul 2024 18:16:11 +0000
+	id 1sUsA0-00000003UjC-0MwV;
+	Fri, 19 Jul 2024 18:16:53 +0000
 Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4WQd9q016gz6JBkF;
-	Sat, 20 Jul 2024 02:14:39 +0800 (CST)
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4WQdBj2QNxz6JBGZ;
+	Sat, 20 Jul 2024 02:15:25 +0800 (CST)
 Received: from lhrpeml500005.china.huawei.com (unknown [7.191.163.240])
-	by mail.maildlp.com (Postfix) with ESMTPS id 1F7D11408FE;
-	Sat, 20 Jul 2024 02:16:04 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 158871408FE;
+	Sat, 20 Jul 2024 02:16:50 +0800 (CST)
 Received: from localhost (10.48.157.16) by lhrpeml500005.china.huawei.com
  (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 19 Jul
- 2024 19:16:03 +0100
-Date: Fri, 19 Jul 2024 19:16:02 +0100
+ 2024 19:16:48 +0100
+Date: Fri, 19 Jul 2024 19:16:47 +0100
 From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
 To: Mike Rapoport <rppt@kernel.org>
 CC: <linux-kernel@vger.kernel.org>, Alexander Gordeev
@@ -62,11 +62,11 @@ CC: <linux-kernel@vger.kernel.org>, Alexander Gordeev
 	<linux-cxl@vger.kernel.org>, <nvdimm@lists.linux.dev>,
 	<devicetree@vger.kernel.org>, <linux-arch@vger.kernel.org>,
 	<linux-mm@kvack.org>, <x86@kernel.org>
-Subject: Re: [PATCH 16/17] arch_numa: switch over to numa_memblks
-Message-ID: <20240719191602.000075d2@Huawei.com>
-In-Reply-To: <20240716111346.3676969-17-rppt@kernel.org>
+Subject: Re: [PATCH 12/17] mm: introduce numa_memblks
+Message-ID: <20240719191647.000072f6@Huawei.com>
+In-Reply-To: <20240716111346.3676969-13-rppt@kernel.org>
 References: <20240716111346.3676969-1-rppt@kernel.org>
-	<20240716111346.3676969-17-rppt@kernel.org>
+	<20240716111346.3676969-13-rppt@kernel.org>
 Organization: Huawei Technologies Research and Development (UK) Ltd.
 X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
 MIME-Version: 1.0
@@ -74,8 +74,8 @@ X-Originating-IP: [10.48.157.16]
 X-ClientProxiedBy: lhrpeml500001.china.huawei.com (7.191.163.213) To
  lhrpeml500005.china.huawei.com (7.191.163.240)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240719_111610_563994_188EE6A0 
-X-CRM114-Status: GOOD (  18.34  )
+X-CRM114-CacheID: sfid-20240719_111652_462931_CBEAD108 
+X-CRM114-Status: GOOD (  32.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,71 +92,213 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 16 Jul 2024 14:13:45 +0300
+On Tue, 16 Jul 2024 14:13:41 +0300
 Mike Rapoport <rppt@kernel.org> wrote:
 
 > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 > 
-> Until now arch_numa was directly translating firmware NUMA information
-> to memblock.
+> Move code dealing with numa_memblks from arch/x86 to mm/ and add Kconfig
+> options to let x86 select it in its Kconfig.
 > 
-> Using numa_memblks as an intermediate step has a few advantages:
-> * alignment with more battle tested x86 implementation
-> * availability of NUMA emulation
-> * maintaining node information for not yet populated memory
+> This code will be later reused by arch_numa.
 > 
-> Replace current functionality related to numa_add_memblk() and
-> __node_distance() with the implementation based on numa_memblks and add
-> functions required by numa_emulation.
+> No functional changes.
 > 
 > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Hi Mike,
 
-One trivial comment inline,
+My only real concern in here is there are a few places where
+the lifted code makes changes to memblocks that are x86 only today.
+I need to do some more digging to work out if those are safe
+in all cases.
 
 Jonathan
->  /*
->   * Initialize NODE_DATA for a node on the local memory
->   */
-> @@ -226,116 +204,9 @@ static void __init setup_node_data(int nid, u64 start_pfn, u64 end_pfn)
->  	NODE_DATA(nid)->node_spanned_pages = end_pfn - start_pfn;
->  }
 
->  
-> @@ -454,3 +321,54 @@ void __init arch_numa_init(void)
->  
->  	numa_init(dummy_numa_init);
->  }
-> +
-> +#ifdef CONFIG_NUMA_EMU
-> +void __init numa_emu_update_cpu_to_node(int *emu_nid_to_phys,
-> +					unsigned int nr_emu_nids)
+
+
+> +/**
+> + * numa_cleanup_meminfo - Cleanup a numa_meminfo
+> + * @mi: numa_meminfo to clean up
+> + *
+> + * Sanitize @mi by merging and removing unnecessary memblks.  Also check for
+> + * conflicts and clear unused memblks.
+> + *
+> + * RETURNS:
+> + * 0 on success, -errno on failure.
+> + */
+> +int __init numa_cleanup_meminfo(struct numa_meminfo *mi)
 > +{
-> +	int i, j;
+> +	const u64 low = 0;
+
+Given always zero, why not just use that value inline?
+
+> +	const u64 high = PFN_PHYS(max_pfn);
+> +	int i, j, k;
+> +
+> +	/* first, trim all entries */
+> +	for (i = 0; i < mi->nr_blks; i++) {
+> +		struct numa_memblk *bi = &mi->blk[i];
+> +
+> +		/* move / save reserved memory ranges */
+> +		if (!memblock_overlaps_region(&memblock.memory,
+> +					bi->start, bi->end - bi->start)) {
+> +			numa_move_tail_memblk(&numa_reserved_meminfo, i--, mi);
+> +			continue;
+> +		}
+> +
+> +		/* make sure all non-reserved blocks are inside the limits */
+> +		bi->start = max(bi->start, low);
+> +
+> +		/* preserve info for non-RAM areas above 'max_pfn': */
+> +		if (bi->end > high) {
+> +			numa_add_memblk_to(bi->nid, high, bi->end,
+> +					   &numa_reserved_meminfo);
+> +			bi->end = high;
+> +		}
+> +
+> +		/* and there's no empty block */
+> +		if (bi->start >= bi->end)
+> +			numa_remove_memblk_from(i--, mi);
+> +	}
+> +
+> +	/* merge neighboring / overlapping entries */
+> +	for (i = 0; i < mi->nr_blks; i++) {
+> +		struct numa_memblk *bi = &mi->blk[i];
+> +
+> +		for (j = i + 1; j < mi->nr_blks; j++) {
+> +			struct numa_memblk *bj = &mi->blk[j];
+> +			u64 start, end;
+> +
+> +			/*
+> +			 * See whether there are overlapping blocks.  Whine
+> +			 * about but allow overlaps of the same nid.  They
+> +			 * will be merged below.
+> +			 */
+> +			if (bi->end > bj->start && bi->start < bj->end) {
+> +				if (bi->nid != bj->nid) {
+> +					pr_err("node %d [mem %#010Lx-%#010Lx] overlaps with node %d [mem %#010Lx-%#010Lx]\n",
+> +					       bi->nid, bi->start, bi->end - 1,
+> +					       bj->nid, bj->start, bj->end - 1);
+> +					return -EINVAL;
+> +				}
+> +				pr_warn("Warning: node %d [mem %#010Lx-%#010Lx] overlaps with itself [mem %#010Lx-%#010Lx]\n",
+> +					bi->nid, bi->start, bi->end - 1,
+> +					bj->start, bj->end - 1);
+> +			}
+> +
+> +			/*
+> +			 * Join together blocks on the same node, holes
+> +			 * between which don't overlap with memory on other
+> +			 * nodes.
+> +			 */
+> +			if (bi->nid != bj->nid)
+> +				continue;
+> +			start = min(bi->start, bj->start);
+> +			end = max(bi->end, bj->end);
+> +			for (k = 0; k < mi->nr_blks; k++) {
+> +				struct numa_memblk *bk = &mi->blk[k];
+> +
+> +				if (bi->nid == bk->nid)
+> +					continue;
+> +				if (start < bk->end && end > bk->start)
+> +					break;
+> +			}
+> +			if (k < mi->nr_blks)
+> +				continue;
+> +			pr_info("NUMA: Node %d [mem %#010Lx-%#010Lx] + [mem %#010Lx-%#010Lx] -> [mem %#010Lx-%#010Lx]\n",
+> +			       bi->nid, bi->start, bi->end - 1, bj->start,
+> +			       bj->end - 1, start, end - 1);
+> +			bi->start = start;
+> +			bi->end = end;
+> +			numa_remove_memblk_from(j--, mi);
+> +		}
+> +	}
+> +
+> +	/* clear unused ones */
+> +	for (i = mi->nr_blks; i < ARRAY_SIZE(mi->blk); i++) {
+> +		mi->blk[i].start = mi->blk[i].end = 0;
+> +		mi->blk[i].nid = NUMA_NO_NODE;
+> +	}
+> +
+> +	return 0;
+> +}
+
+...
+
+
+> +/*
+> + * Mark all currently memblock-reserved physical memory (which covers the
+> + * kernel's own memory ranges) as hot-unswappable.
+> + */
+> +static void __init numa_clear_kernel_node_hotplug(void)
+
+This will be a change for non x86 architectures.  'should' be fine
+but I'm not 100% sure.
+
+> +{
+> +	nodemask_t reserved_nodemask = NODE_MASK_NONE;
+> +	struct memblock_region *mb_region;
+> +	int i;
 > +
 > +	/*
-> +	 * Transform __apicid_to_node table to use emulated nids by
+> +	 * We have to do some preprocessing of memblock regions, to
+> +	 * make them suitable for reservation.
+> +	 *
+> +	 * At this time, all memory regions reserved by memblock are
+> +	 * used by the kernel, but those regions are not split up
+> +	 * along node boundaries yet, and don't necessarily have their
+> +	 * node ID set yet either.
+> +	 *
+> +	 * So iterate over all memory known to the x86 architecture,
 
-Comment needs an update seeing as there is no __apicid_to_node table
-here.
+Comment needs an update at least given not x86 specific any more.
 
-> +	 * reverse-mapping phys_nid.  The maps should always exist but fall
-> +	 * back to zero just in case.
+> +	 * and use those ranges to set the nid in memblock.reserved.
+> +	 * This will split up the memblock regions along node
+> +	 * boundaries and will set the node IDs as well.
 > +	 */
-> +	for (i = 0; i < ARRAY_SIZE(cpu_to_node_map); i++) {
-> +		if (cpu_to_node_map[i] == NUMA_NO_NODE)
+> +	for (i = 0; i < numa_meminfo.nr_blks; i++) {
+> +		struct numa_memblk *mb = numa_meminfo.blk + i;
+> +		int ret;
+> +
+> +		ret = memblock_set_node(mb->start, mb->end - mb->start,
+> +					&memblock.reserved, mb->nid);
+> +		WARN_ON_ONCE(ret);
+> +	}
+> +
+> +	/*
+> +	 * Now go over all reserved memblock regions, to construct a
+> +	 * node mask of all kernel reserved memory areas.
+> +	 *
+> +	 * [ Note, when booting with mem=nn[kMG] or in a kdump kernel,
+> +	 *   numa_meminfo might not include all memblock.reserved
+> +	 *   memory ranges, because quirks such as trim_snb_memory()
+> +	 *   reserve specific pages for Sandy Bridge graphics. ]
+> +	 */
+> +	for_each_reserved_mem_region(mb_region) {
+> +		int nid = memblock_get_region_node(mb_region);
+> +
+> +		if (nid != MAX_NUMNODES)
+> +			node_set(nid, reserved_nodemask);
+> +	}
+> +
+> +	/*
+> +	 * Finally, clear the MEMBLOCK_HOTPLUG flag for all memory
+> +	 * belonging to the reserved node mask.
+> +	 *
+> +	 * Note that this will include memory regions that reside
+> +	 * on nodes that contain kernel memory - entire nodes
+> +	 * become hot-unpluggable:
+> +	 */
+> +	for (i = 0; i < numa_meminfo.nr_blks; i++) {
+> +		struct numa_memblk *mb = numa_meminfo.blk + i;
+> +
+> +		if (!node_isset(mb->nid, reserved_nodemask))
 > +			continue;
-> +		for (j = 0; j < nr_emu_nids; j++)
-> +			if (cpu_to_node_map[i] == emu_nid_to_phys[j])
-> +				break;
-> +		cpu_to_node_map[i] = j < nr_emu_nids ? j : 0;
+> +
+> +		memblock_clear_hotplug(mb->start, mb->end - mb->start);
 > +	}
 > +}
-> +
-> +u64 __init numa_emu_dma_end(void)
-> +{
-> +	return PFN_PHYS(memblock_start_of_DRAM() + SZ_4G);
-> +}
-
 
 _______________________________________________
 linux-riscv mailing list
