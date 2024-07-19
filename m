@@ -4,65 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 583A4C3DA5D
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jul 2024 09:54:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8614BC3DA59
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jul 2024 09:55:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IcKamGor5N9ePpLs6H38Tcq0mMdVo7lbfo1VBz3ex28=; b=D6FEdxPeNi/rHd
-	Nkmlbxe1ZKxnp3so9gUDhIvnhUV7PXzBLVEzmMmCnsYVuuYf2CKvdnDOPrp7n6uG2ZIEcA3a1td9E
-	+cP+o9rnQ5gSk45kBohxx2taEt+GOzPk/Sb2QQrvzxdLbELhrFd74O6DX033cjPdikS+JtPclffUJ
-	dfYdCBYlPJ970Tp3DZp/QMNb6H68pbTfIa4+f4qpbFe4fRLzR3uZ1Xm/qMPHT3IxapETRyou5L41c
-	TBjA1FwjDw13OWh9o8yf/G9A7wa4q6zKIPqS8WD5HHieNJ8AiZGYFiIGePCqXw1k3/fIPem0G2TTD
-	jwilkIhUG279ecsyAKOA==;
+	List-Owner; bh=lx/GfEAVgbLonSr3TCU8687wWRw2butmWu7qYXSV1DQ=; b=QlEZA5ZLe5kdMj
+	2oxkNDEhVqzdwbE1Kfsd3treJnBKZKrb6zu+fScEViXzsXdVO72sBXP+mBC3BDjM2Tz0YGkWDCLh4
+	76gFQay3c5kKVt8Bce/DVWo7dL4Z6NwrcB5pwPrjmbD0ebRZg99bRGzTYfqaU6RTZUKWkGK0HNY1d
+	oUASyLkwejxadTKXDt8sd+pnGYSOnNFm11xY34Z14aCs2UrQr+aGK33qEW/vZWHqsxOML6Ee5Y1WA
+	Odf5AJGN9BUkmsXZqo7L9iohbbwrQi3ZJ8qtQ1Vc7x4EI541/xDkjJH2ASYLvcr3Bj/UfPmeoSK4G
+	BQGVDh6EpkiRwzy+JvfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUkJj-00000002K5a-1ffN;
-	Fri, 19 Jul 2024 09:54:23 +0000
-Received: from szxga08-in.huawei.com ([45.249.212.255])
+	id 1sUkLA-00000002KRj-2U5Z;
+	Fri, 19 Jul 2024 09:55:52 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUkIN-00000002JUE-3ujG;
-	Fri, 19 Jul 2024 09:53:02 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.174])
-	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4WQPxH0Mmrz1JCj9;
-	Fri, 19 Jul 2024 17:48:03 +0800 (CST)
-Received: from kwepemi100008.china.huawei.com (unknown [7.221.188.57])
-	by mail.maildlp.com (Postfix) with ESMTPS id 5F5D3140154;
-	Fri, 19 Jul 2024 17:52:57 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by kwepemi100008.china.huawei.com
- (7.221.188.57) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 19 Jul
- 2024 17:52:56 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <linux@armlinux.org.uk>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<chenhuacai@kernel.org>, <kernel@xen0n.name>, <paul.walmsley@sifive.com>,
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <tglx@linutronix.de>,
-	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
-	<hpa@zytor.com>, <bhe@redhat.com>, <vgoyal@redhat.com>, <dyoung@redhat.com>,
-	<arnd@arndb.de>, <afd@ti.com>, <akpm@linux-foundation.org>,
-	<linus.walleij@linaro.org>, <eric.devolder@oracle.com>,
-	<gregkh@linuxfoundation.org>, <javierm@redhat.com>, <deller@gmx.de>,
-	<robh@kernel.org>, <thunder.leizhen@huawei.com>, <hbathini@linux.ibm.com>,
-	<tangyouling@kylinos.cn>, <chenjiahao16@huawei.com>,
-	<kexec@lists.infradead.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-riscv@lists.infradead.org>
-CC: <ruanjinjie@huawei.com>
-Subject: [PATCH v4 3/3] ARM: Use generic interface to simplify crashkernel reservation
-Date: Fri, 19 Jul 2024 17:57:35 +0800
-Message-ID: <20240719095735.1912878-4-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20240719095735.1912878-1-ruanjinjie@huawei.com>
-References: <20240719095735.1912878-1-ruanjinjie@huawei.com>
+	id 1sUkL6-00000002KQw-3kAa;
+	Fri, 19 Jul 2024 09:55:50 +0000
+Received: from [192.168.12.218] (unknown [121.237.44.107])
+	by APP-01 (Coremail) with SMTP id qwCowAB3fMgaOJpmVhxMBA--.3012S2;
+	Fri, 19 Jul 2024 17:55:38 +0800 (CST)
+Message-ID: <2dc4c5bb-57b0-415a-87e9-f738062e1d29@iscas.ac.cn>
+Date: Fri, 19 Jul 2024 17:55:38 +0800
 MIME-Version: 1.0
-X-Originating-IP: [10.90.53.73]
-X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
- kwepemi100008.china.huawei.com (7.221.188.57)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] riscv: KVM: add basic support for host vs guest
+ profiling
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-perf-users@vger.kernel.org, anup@brainfault.org,
+ atishp@atishpatra.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, mark.rutland@arm.com,
+ alexander.shishkin@linux.intel.com, jolsa@kernel.org
+References: <cover.1721271251.git.zhouquan@iscas.ac.cn>
+ <fbf8a9fcca05a1b554ac0d01b0c46fbb6263c435.1721271251.git.zhouquan@iscas.ac.cn>
+ <20240718-f39bdec648fc285ffe46cc3e@orel>
+Content-Language: en-US
+From: Quan Zhou <zhouquan@iscas.ac.cn>
+In-Reply-To: <20240718-f39bdec648fc285ffe46cc3e@orel>
+X-CM-TRANSID: qwCowAB3fMgaOJpmVhxMBA--.3012S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxArW3KFy7Cr4UKr4fuw4xtFb_yoWrAFy5pF
+	Z8CFs8Cw4rtryxKa4Svr1v9r4Fqrs5Kw13Zry8CFy5Jrs8Kry8Jr4vg34DCr98AF40qF1I
+	yFy8KF13uwn8J3DanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvIb7Iv0xC_Zr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwV
+	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
+	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr
+	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7
+	MxkIecxEwVAFwVW8uwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s
+	026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_
+	Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20x
+	vEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE
+	14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf
+	9x07jY89tUUUUU=
+X-Originating-IP: [121.237.44.107]
+X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiDAgDBmaZ9QP4jgABs-
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240719_025300_397784_5641316F 
-X-CRM114-Status: GOOD (  20.78  )
+X-CRM114-CacheID: sfid-20240719_025549_365174_05C71DCE 
+X-CRM114-Status: GOOD (  18.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,211 +81,142 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, x86, arm64, riscv and loongarch has been switched to generic
-crashkernel reservation, which is also ready for 32bit system.
-So with the help of function parse_crashkernel() and generic
-reserve_crashkernel_generic(), arm32 crashkernel reservation can also
-be simplified by steps:
 
-1) Add a new header file <asm/crash_reserve.h>, and define CRASH_ALIGN,
-   CRASH_ADDR_LOW_MAX, CRASH_ADDR_HIGH_MAX in it;
+On 2024/7/19 01:09, Andrew Jones wrote:
+> On Thu, Jul 18, 2024 at 07:23:51PM GMT, zhouquan@iscas.ac.cn wrote:
+>> From: Quan Zhou <zhouquan@iscas.ac.cn>
+>>
+>> For the information collected on the host side, we need to
+>> identify which data originates from the guest and record
+>> these events separately. This can be achieved by having
+>> KVM register perf callbacks.
+>>
+>> Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
+>> ---
+>>   arch/riscv/include/asm/kvm_host.h |  6 ++++++
+>>   arch/riscv/kvm/Kconfig            |  1 +
+>>   arch/riscv/kvm/main.c             | 12 ++++++++++--
+>>   arch/riscv/kvm/vcpu.c             |  7 +++++++
+>>   4 files changed, 24 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
+>> index d96281278586..b7bbe1c0c5dd 100644
+>> --- a/arch/riscv/include/asm/kvm_host.h
+>> +++ b/arch/riscv/include/asm/kvm_host.h
+>> @@ -285,6 +285,12 @@ struct kvm_vcpu_arch {
+>>   	} sta;
+>>   };
+>>   
+>> +/* TODO: A more explicit approach might be needed here than this simple one */
+> 
+> Can you elaborate on this concern?
+> 
 
-2) Add arch_reserve_crashkernel() to call parse_crashkernel() and
-   reserve_crashkernel_generic();
+Can we determine if a PMU interrupt occurs in the guest solely based on 
+whether the vcpu is loaded?
 
-3) Add ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION Kconfig in
-   arch/arm/Kconfig.
+In the kvm_arch_vcpu_ioctl_run while loop, when the guest exits, 
+host-side interrupts should be handled in local_irq_{enable/disable}. 
+Should we add a flag here (referencing x86) to further determine if 
+"this is a host interrupt triggered while the guest was running, rather 
+than when the host is running". Doing so might further reduce the 
+likelihood of perf incorrectly identifying "PMI in host" as "PMI in 
+guest," but it may not completely eliminate it.
 
-The old reserve_crashkernel() can be removed.
+Have I misunderstood any points here?
 
-Following test cases have been performed as expected on QEMU vexpress-a9
-(1GB system memory):
+Thanks,
+Quan
 
-1) crashkernel=4G,high				// invalid
-2) crashkernel=1G,high				// invalid
-3) crashkernel=1G,high crashkernel=0M,low	// invalid
-4) crashkernel=256M,high			// invalid
-5) crashkernel=256M,low				// invalid
-6) crashkernel=256M crashkernel=256M,high	// high is ignored, ok
-7) crashkernel=256M crashkernel=256M,low	// low is ignored, ok
-8) crashkernel=256M,high crashkernel=256M,low	// invalid
-9) crashkernel=256M,high crashkernel=4G,low	// invalid
-10) crashkernel=256M				// ok
-11) crashkernel=512M				// ok
-12) crashkernel=256M@0x88000000			// ok
-13) crashkernel=256M@0x78000000			// ok
-14) crashkernel=512M@0x78000000			// ok
-
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
----
-v4:
-- Remove the Tested-by as suggested.
-v3:
-- Update the commit message.
----
- arch/arm/Kconfig                     |  3 ++
- arch/arm/include/asm/crash_reserve.h | 24 +++++++++++
- arch/arm/kernel/setup.c              | 63 ++++------------------------
- 3 files changed, 36 insertions(+), 54 deletions(-)
- create mode 100644 arch/arm/include/asm/crash_reserve.h
-
-diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index f434afff4a2c..3f198ae63950 100644
---- a/arch/arm/Kconfig
-+++ b/arch/arm/Kconfig
-@@ -1597,6 +1597,9 @@ config ATAGS_PROC
- config ARCH_SUPPORTS_CRASH_DUMP
- 	def_bool y
- 
-+config ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION
-+	def_bool CRASH_RESERVE
-+
- config AUTO_ZRELADDR
- 	bool "Auto calculation of the decompressed kernel image address" if !ARCH_MULTIPLATFORM
- 	default !(ARCH_FOOTBRIDGE || ARCH_RPC || ARCH_SA1100)
-diff --git a/arch/arm/include/asm/crash_reserve.h b/arch/arm/include/asm/crash_reserve.h
-new file mode 100644
-index 000000000000..85c9298bd3b7
---- /dev/null
-+++ b/arch/arm/include/asm/crash_reserve.h
-@@ -0,0 +1,24 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+#ifndef _ARM_CRASH_RESERVE_H
-+#define _ARM_CRASH_RESERVE_H
-+
-+/*
-+ * The crash region must be aligned to 128MB to avoid
-+ * zImage relocating below the reserved region.
-+ */
-+#define CRASH_ALIGN			(128 << 20)
-+
-+#define CRASH_ADDR_LOW_MAX		crash_addr_low_max()
-+#define CRASH_ADDR_HIGH_MAX		memblock_end_of_DRAM()
-+
-+static inline unsigned long crash_addr_low_max(void)
-+{
-+	unsigned long long crash_max = idmap_to_phys((u32)~0);
-+	unsigned long long lowmem_max = __pa(high_memory - 1) + 1;
-+
-+	return (crash_max > lowmem_max) ? lowmem_max : crash_max;
-+}
-+
-+
-+#define HAVE_ARCH_ADD_CRASH_RES_TO_IOMEM_EARLY
-+#endif
-diff --git a/arch/arm/kernel/setup.c b/arch/arm/kernel/setup.c
-index e6a857bf0ce6..fc0ada003f6d 100644
---- a/arch/arm/kernel/setup.c
-+++ b/arch/arm/kernel/setup.c
-@@ -979,13 +979,6 @@ static int __init init_machine_late(void)
- }
- late_initcall(init_machine_late);
- 
--#ifdef CONFIG_CRASH_RESERVE
--/*
-- * The crash region must be aligned to 128MB to avoid
-- * zImage relocating below the reserved region.
-- */
--#define CRASH_ALIGN	(128 << 20)
--
- static inline unsigned long long get_total_mem(void)
- {
- 	unsigned long total;
-@@ -994,60 +987,25 @@ static inline unsigned long long get_total_mem(void)
- 	return total << PAGE_SHIFT;
- }
- 
--/**
-- * reserve_crashkernel() - reserves memory are for crash kernel
-- *
-- * This function reserves memory area given in "crashkernel=" kernel command
-- * line parameter. The memory reserved is used by a dump capture kernel when
-- * primary kernel is crashing.
-- */
--static void __init reserve_crashkernel(void)
-+static void __init arch_reserve_crashkernel(void)
- {
--	unsigned long long crash_size, crash_base;
-+	unsigned long long crash_size, crash_base, low_size = 0;
- 	unsigned long long total_mem;
-+	bool high = false;
- 	int ret;
- 
-+	if (!IS_ENABLED(CONFIG_CRASH_RESERVE))
-+		return;
-+
- 	total_mem = get_total_mem();
- 	ret = parse_crashkernel(boot_command_line, total_mem,
- 				&crash_size, &crash_base,
--				NULL, NULL);
-+				&low_size, &high);
- 	/* invalid value specified or crashkernel=0 */
- 	if (ret || !crash_size)
- 		return;
- 
--	if (crash_base <= 0) {
--		unsigned long long crash_max = idmap_to_phys((u32)~0);
--		unsigned long long lowmem_max = __pa(high_memory - 1) + 1;
--		if (crash_max > lowmem_max)
--			crash_max = lowmem_max;
--
--		crash_base = memblock_phys_alloc_range(crash_size, CRASH_ALIGN,
--						       CRASH_ALIGN, crash_max);
--		if (!crash_base) {
--			pr_err("crashkernel reservation failed - No suitable area found.\n");
--			return;
--		}
--	} else {
--		unsigned long long crash_max = crash_base + crash_size;
--		unsigned long long start;
--
--		start = memblock_phys_alloc_range(crash_size, SECTION_SIZE,
--						  crash_base, crash_max);
--		if (!start) {
--			pr_err("crashkernel reservation failed - memory is in use.\n");
--			return;
--		}
--	}
--
--	pr_info("Reserving %ldMB of memory at %ldMB for crashkernel (System RAM: %ldMB)\n",
--		(unsigned long)(crash_size >> 20),
--		(unsigned long)(crash_base >> 20),
--		(unsigned long)(total_mem >> 20));
--
--	/* The crashk resource must always be located in normal mem */
--	crashk_res.start = crash_base;
--	crashk_res.end = crash_base + crash_size - 1;
--	insert_resource(&iomem_resource, &crashk_res);
-+	reserve_crashkernel_generic(boot_command_line, crash_size, crash_base, low_size, high);
- 
- 	if (arm_has_idmap_alias()) {
- 		/*
-@@ -1064,9 +1022,6 @@ static void __init reserve_crashkernel(void)
- 		insert_resource(&iomem_resource, &crashk_boot_res);
- 	}
- }
--#else
--static inline void reserve_crashkernel(void) {}
--#endif /* CONFIG_CRASH_RESERVE*/
- 
- void __init hyp_mode_check(void)
- {
-@@ -1189,7 +1144,7 @@ void __init setup_arch(char **cmdline_p)
- 	if (!is_smp())
- 		hyp_mode_check();
- 
--	reserve_crashkernel();
-+	arch_reserve_crashkernel();
- 
- #ifdef CONFIG_VT
- #if defined(CONFIG_VGA_CONSOLE)
--- 
-2.34.1
+>> +static inline bool kvm_arch_pmi_in_guest(struct kvm_vcpu *vcpu)
+>> +{
+>> +	return IS_ENABLED(CONFIG_GUEST_PERF_EVENTS) && !!vcpu;
+>> +}
+>> +
+>>   static inline void kvm_arch_sync_events(struct kvm *kvm) {}
+>>   static inline void kvm_arch_sched_in(struct kvm_vcpu *vcpu, int cpu) {}
+>>   
+>> diff --git a/arch/riscv/kvm/Kconfig b/arch/riscv/kvm/Kconfig
+>> index 26d1727f0550..0c3cbb0915ff 100644
+>> --- a/arch/riscv/kvm/Kconfig
+>> +++ b/arch/riscv/kvm/Kconfig
+>> @@ -32,6 +32,7 @@ config KVM
+>>   	select KVM_XFER_TO_GUEST_WORK
+>>   	select KVM_GENERIC_MMU_NOTIFIER
+>>   	select SCHED_INFO
+>> +	select GUEST_PERF_EVENTS if PERF_EVENTS
+>>   	help
+>>   	  Support hosting virtualized guest machines.
+>>   
+>> diff --git a/arch/riscv/kvm/main.c b/arch/riscv/kvm/main.c
+>> index bab2ec34cd87..734b48d8f6dd 100644
+>> --- a/arch/riscv/kvm/main.c
+>> +++ b/arch/riscv/kvm/main.c
+>> @@ -51,6 +51,12 @@ void kvm_arch_hardware_disable(void)
+>>   	csr_write(CSR_HIDELEG, 0);
+>>   }
+>>   
+>> +static void kvm_riscv_teardown(void)
+>> +{
+>> +	kvm_riscv_aia_exit();
+>> +	kvm_unregister_perf_callbacks();
+>> +}
+>> +
+>>   static int __init riscv_kvm_init(void)
+>>   {
+>>   	int rc;
+>> @@ -105,9 +111,11 @@ static int __init riscv_kvm_init(void)
+>>   		kvm_info("AIA available with %d guest external interrupts\n",
+>>   			 kvm_riscv_aia_nr_hgei);
+>>   
+>> +	kvm_register_perf_callbacks(NULL);
+>> +
+>>   	rc = kvm_init(sizeof(struct kvm_vcpu), 0, THIS_MODULE);
+>>   	if (rc) {
+>> -		kvm_riscv_aia_exit();
+>> +		kvm_riscv_teardown();
+>>   		return rc;
+>>   	}
+>>   
+>> @@ -117,7 +125,7 @@ module_init(riscv_kvm_init);
+>>   
+>>   static void __exit riscv_kvm_exit(void)
+>>   {
+>> -	kvm_riscv_aia_exit();
+>> +	kvm_riscv_teardown();
+>>   
+>>   	kvm_exit();
+>>   }
+>> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+>> index 17e21df36cc1..c9d291865141 100644
+>> --- a/arch/riscv/kvm/vcpu.c
+>> +++ b/arch/riscv/kvm/vcpu.c
+>> @@ -222,6 +222,13 @@ bool kvm_arch_vcpu_in_kernel(struct kvm_vcpu *vcpu)
+>>   	return (vcpu->arch.guest_context.sstatus & SR_SPP) ? true : false;
+>>   }
+>>   
+>> +#ifdef CONFIG_GUEST_PERF_EVENTS
+>> +unsigned long kvm_arch_vcpu_get_ip(struct kvm_vcpu *vcpu)
+>> +{
+>> +	return vcpu->arch.guest_context.sepc;
+>> +}
+>> +#endif
+>> +
+>>   vm_fault_t kvm_arch_vcpu_fault(struct kvm_vcpu *vcpu, struct vm_fault *vmf)
+>>   {
+>>   	return VM_FAULT_SIGBUS;
+>> -- 
+>> 2.34.1
+>>
+> 
+> Otherwise,
+> 
+> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 
 _______________________________________________
