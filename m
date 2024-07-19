@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2742AC3DA59
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jul 2024 08:45:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B89F7C3DA5D
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jul 2024 08:46:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Yl139mWJo63Hw3oclmrFYDKw8iQ0fNm5qW4+gZxGKXM=; b=CIV1jrOUNxmGPp
-	09f2Vts/AzDGhXiSmsDdIzvk8xhbvAd+w/gGOpTYInpGbcxiAXRJwotH0F53l27vBqqadilf/R4ed
-	AKyBs5ofnM9yhcwxzNH6RqOrMsj471D9sD0AYS5It+tdqQURGGn7JDh4Fw/ZL3j3Lpquvtbc5zKc2
-	VKE0/Ybba32H4Q3oP0/QF9HeUbBqNs/wNH9z8yVouSsIzTlBiavcBwvXW4NJ9nvETLCtqbWylR/yx
-	oVtF2iDgAA1KC9kZREdzv9Lkc2qu6luUDEfwYXW/JqCoER6ek9qm3WwbETfu4gNoYD+y/PLvfWFpv
-	txntKx9Y0CBnhhwck1RQ==;
+	List-Owner; bh=AGhPukx5dPIEBty8M4RoETE//C1llILOBck28hTovo8=; b=fo7BnyhTHvY2FI
+	zwz1BWgQ5UboKjJAUxMQoo4fQN3pMWARyBmIn39KY5XHytbTxtqeBP5yr3BJ6u0vc1QYHt4wb2fmS
+	Y9GSns4e2ob88CinCD8l/Lr/S2DK8geD10dz9RqbOFak2m6ugEIQI9leLDMoBTGhJc6zpHTRUx+GA
+	nq/qgHsG/APZWOulNXfOzR6+V4IbQnWk6vI8prtrg95OiImtrbSbyBPgrF1gi1hhZtnsX6reMA6Qv
+	TwaWFVQmW4G2DMcTLUl314aiSQE9R4UH4PpjOdh74UgX6xlNCs4DZGF43BoDLKFvs6ek1daQl0Qm/
+	d0eYLbzcPZ9VrE2IGZGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUjFQ-000000028Il-2jAK;
-	Fri, 19 Jul 2024 08:45:52 +0000
-Received: from mail-oo1-xc2b.google.com ([2607:f8b0:4864:20::c2b])
+	id 1sUjFh-000000028PH-4B4u;
+	Fri, 19 Jul 2024 08:46:10 +0000
+Received: from mail-oo1-xc2e.google.com ([2607:f8b0:4864:20::c2e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUjFN-000000028HW-26by
+	id 1sUjFf-000000028O7-1PaC
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Jul 2024 08:45:51 +0000
-Received: by mail-oo1-xc2b.google.com with SMTP id 006d021491bc7-5cebd3bd468so847770eaf.1
-        for <linux-riscv@lists.infradead.org>; Fri, 19 Jul 2024 01:45:49 -0700 (PDT)
+	Fri, 19 Jul 2024 08:46:08 +0000
+Received: by mail-oo1-xc2e.google.com with SMTP id 006d021491bc7-5ccfdc3157dso767572eaf.0
+        for <linux-riscv@lists.infradead.org>; Fri, 19 Jul 2024 01:46:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1721378748; x=1721983548; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1721378766; x=1721983566; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=6uqvBP32xV6qRefoyJcm+diCLzvCyHwlNjo5p8QbsSQ=;
-        b=Z1DZ5F1tAmgLdlDKkbwozufNud0BdLMQrtZw7QbfVIACBMqNo8vm7w0WN2snrOGE7H
-         I1+zRgqXmBM0Ebh218Xmz/LavC7K8jiO+Ubw2rxoL0fGLO6Xw7o0o8v8kAm/mbFH0F/z
-         0+4cZvvi547pp5mIEnzXwt5h+UvOia75CRBPcZpXiWa29JZJCKpYgyDXl2Z9bzej4lhv
-         +03mWLdwfT2jTiEfhDe29lzmNioHaZDFolONWEkDukXNXjG1p9u9I0ZIR0qbdwy+rQo8
-         DujReMrMiDIVoQ84dx39r9NjMlLWyCOK79pVTb/kduTInDdFA/WgdewVd6qysN2LwGPw
-         /SYg==
+        bh=oydJeqRMAIcWXHWtFSpsEnC22p0yugXf58j/ILvTUj4=;
+        b=Uq1j+ZMzQCUlGLOsGj0Jfng8+siaiziBsaEEbaLCgB+jn1+NMfSm8OtQQjRKc5RoFD
+         0J7n4qPomx76oRkcvriwpvDIi4+OyqVUq48aV837nHRkNyQ6Gn1Rvu1FUfZ8l1Klu7Th
+         lzDVIeDUT/1MGGdml/nEoOfF5EmjiByjiTS6HWVCdz/5ZAGFFYj1Hohg6yHosQO/qR+c
+         LQbr8GlIktulKeIaCPzT44KHEmxcC0WYhlOd3p8YwLKUdvGe1G10cb8d1pZa1/+OjxJI
+         01C6gHyrqnsmmtTe8sMOEvaTzaeav0nhOiSdv980ENFpEOoui/OnEDJGT+DvDsutlEiK
+         hDJw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1721378748; x=1721983548;
+        d=1e100.net; s=20230601; t=1721378766; x=1721983566;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=6uqvBP32xV6qRefoyJcm+diCLzvCyHwlNjo5p8QbsSQ=;
-        b=ZaPuXzQWtiVuKY8ANBcrB1UhtHVCgbvsScWkXAa88ih0Ha/kLSSc/qt8YKvtSoE/8B
-         z/txJDCN5rS+TtFZt08xuzcN9KgxJlrW1huiSv+L5T2GE5xLxmqAPOf+Quc0Bi65uIR7
-         44gf8RUh07RP/lpbd6JvLvqgHsiZKMoNrY6S5RcduICsmEM8zoW0YVZjOzfzfl/Y6hOb
-         EVCrTgNKwT3OO3xue+ZSJXjQs8nw6bRhYaV0fSZRffbEWSlrB4bhlJZZ30YTgHSejrA7
-         3xyXjhJrHqsU/fsLXRbwAfxcHhnxIqHHXpMCBgMYx5MOpYkXDt2ILjkTzrrhjj8sVAlG
-         /J2g==
-X-Forwarded-Encrypted: i=1; AJvYcCUCVyRVCapC+LYlOc2Z1JzJt0Nn6h2SolQp6GBbWPuYQ6/TOV7wo2699oLhI7t/ppDn51ptv58W5sOHS5RZQda6GM26XtgvHAUUw64YBR6G
-X-Gm-Message-State: AOJu0YzLHko2xMkCD1N8aP0aROVfO2EBcNUkqHVGwhYJk7L2RhzIbJtv
-	Sgn2UwWLnoUrVgy5WTiH8BPjgc33ksbwmcG3ko+49nwPCwBolLmB
-X-Google-Smtp-Source: AGHT+IHXTA/zgkdr+H1RuzNCjWddediAA0SHwbiJ+VeYitWvUf/Oywvo4d5FAaFRIYS1Lp9cmPpbZA==
-X-Received: by 2002:a05:6820:270f:b0:5cd:2e7:cc6 with SMTP id 006d021491bc7-5d41cade049mr8811826eaf.8.1721378748386;
-        Fri, 19 Jul 2024 01:45:48 -0700 (PDT)
+        bh=oydJeqRMAIcWXHWtFSpsEnC22p0yugXf58j/ILvTUj4=;
+        b=QDFrREUNZQNuEtQVtp2uPJRfsyP7VhMRMyqQlWYwQMtlDmvYYBAy/zaczGlzVHeJki
+         kzBDhDMY004D/at6urxemIeNWcpVCtn3co65VguDhZ2k6/41dMRSAjQvah++ojuWLqqW
+         MYdAe3utAGyrD9rzNgkxTUVqMmtojMKdKr2JfDLe+jVrHk0QGrgjTmA1sP+7KJ+CljsE
+         U9hSq6tiAJrYp+MrlSXh2wHjH+SCrlBTZO8vHlZwdrSrvlYVa/beKGpYEp0wmGAvZ5lo
+         APb/5ioF6gxj6z8Rl0w9qt8RXsZEwPUWpVUfN2B6I9jQfnIDENW409s6RMfL2TJo4Hx3
+         cCTA==
+X-Forwarded-Encrypted: i=1; AJvYcCWphVPxDRwEy3nQ4Tf/Nq7q56PZM1qwsx+im4JLVrGNlfBxTJaGyT/ReeDo6wkEB2rjaSrz7d0rAEUZi7+gfpW2HOw3/9RxqQW1V316M1+D
+X-Gm-Message-State: AOJu0YzNvmgad+1oel1VpIbIVgGtch14KfFQsIPDJD3VPmBFKPd5Ym/x
+	z2rZsJabcsOF6N+wPQ9ZuSXq2Y7WPNi8CKG68QVCiFDxhc+kkeyN
+X-Google-Smtp-Source: AGHT+IHn4qha4kbRrWIiX+a0mGhPKxilYgIXp1gDMiIDeE58q68IhDxPbZIJpjFtfNBe92nq4RZ4Hg==
+X-Received: by 2002:a4a:d018:0:b0:5c2:260b:305d with SMTP id 006d021491bc7-5d51f967addmr2896107eaf.2.1721378766628;
+        Fri, 19 Jul 2024 01:46:06 -0700 (PDT)
 Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-5d55a7fa65esm179536eaf.5.2024.07.19.01.45.46
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-5d55a7fa3a6sm177640eaf.9.2024.07.19.01.46.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Jul 2024 01:45:48 -0700 (PDT)
+        Fri, 19 Jul 2024 01:46:06 -0700 (PDT)
 From: Chen Wang <unicornxw@gmail.com>
 To: adrian.hunter@intel.com,
 	aou@eecs.berkeley.edu,
@@ -84,16 +84,16 @@ To: adrian.hunter@intel.com,
 	xiaoguang.xing@sophgo.com,
 	tingzhu.wang@sophgo.com
 Cc: Chen Wang <unicorn_wang@outlook.com>
-Subject: [PATCH v5 2/8] mmc: sdhci-of-dwcmshc: move two rk35xx functions
-Date: Fri, 19 Jul 2024 16:45:41 +0800
-Message-Id: <ebfe6fb90fb85a0f203d9816211eccd23d5a5330.1721377374.git.unicorn_wang@outlook.com>
+Subject: [PATCH v5 3/8] mmc: sdhci-of-dwcmshc: factor out code for th1520_init()
+Date: Fri, 19 Jul 2024 16:45:59 +0800
+Message-Id: <b774f2b62d68edab2d95d9dbd1f55cac50c6abff.1721377374.git.unicorn_wang@outlook.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <cover.1721377374.git.unicorn_wang@outlook.com>
 References: <cover.1721377374.git.unicorn_wang@outlook.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240719_014549_570791_BE0BB85D 
-X-CRM114-Status: GOOD (  15.39  )
+X-CRM114-CacheID: sfid-20240719_014607_402824_14550B92 
+X-CRM114-Status: GOOD (  14.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,126 +112,85 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Chen Wang <unicorn_wang@outlook.com>
 
-This patch just move dwcmshc_rk35xx_init() and
-dwcmshc_rk35xx_postinit() to put the functions
-of rk35xx together as much as possible.
+Different socs have initialization operations in
+the probe process, which are summarized as functions.
 
-This change is an intermediate process before
-further modification.
+This patch first factor out init function for th1520.
 
 Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
 ---
- drivers/mmc/host/sdhci-of-dwcmshc.c | 90 ++++++++++++++---------------
- 1 file changed, 45 insertions(+), 45 deletions(-)
+ drivers/mmc/host/sdhci-of-dwcmshc.c | 51 +++++++++++++++++------------
+ 1 file changed, 30 insertions(+), 21 deletions(-)
 
 diff --git a/drivers/mmc/host/sdhci-of-dwcmshc.c b/drivers/mmc/host/sdhci-of-dwcmshc.c
-index fb4076c19ed5..903fe06050e4 100644
+index 903fe06050e4..bb0adc2ee325 100644
 --- a/drivers/mmc/host/sdhci-of-dwcmshc.c
 +++ b/drivers/mmc/host/sdhci-of-dwcmshc.c
-@@ -711,6 +711,51 @@ static void rk35xx_sdhci_reset(struct sdhci_host *host, u8 mask)
- 	sdhci_reset(host, mask);
+@@ -830,6 +830,35 @@ static void th1520_sdhci_reset(struct sdhci_host *host, u8 mask)
+ 	}
  }
  
-+static int dwcmshc_rk35xx_init(struct sdhci_host *host, struct dwcmshc_priv *dwc_priv)
++static int th1520_init(struct device *dev,
++		       struct sdhci_host *host,
++		       struct dwcmshc_priv *dwc_priv)
 +{
-+	static const char * const clk_ids[] = {"axi", "block", "timer"};
-+	struct rk35xx_priv *priv = dwc_priv->priv;
-+	int err;
++	dwc_priv->delay_line = PHY_SDCLKDL_DC_DEFAULT;
 +
-+	priv->reset = devm_reset_control_array_get_optional_exclusive(mmc_dev(host->mmc));
-+	if (IS_ERR(priv->reset)) {
-+		err = PTR_ERR(priv->reset);
-+		dev_err(mmc_dev(host->mmc), "failed to get reset control %d\n", err);
-+		return err;
++	if (device_property_read_bool(dev, "mmc-ddr-1_8v") ||
++	    device_property_read_bool(dev, "mmc-hs200-1_8v") ||
++	    device_property_read_bool(dev, "mmc-hs400-1_8v"))
++		dwc_priv->flags |= FLAG_IO_FIXED_1V8;
++	else
++		dwc_priv->flags &= ~FLAG_IO_FIXED_1V8;
++
++	/*
++	 * start_signal_voltage_switch() will try 3.3V first
++	 * then 1.8V. Use SDHCI_SIGNALING_180 rather than
++	 * SDHCI_SIGNALING_330 to avoid setting voltage to 3.3V
++	 * in sdhci_start_signal_voltage_switch().
++	 */
++	if (dwc_priv->flags & FLAG_IO_FIXED_1V8) {
++		host->flags &= ~SDHCI_SIGNALING_330;
++		host->flags |=  SDHCI_SIGNALING_180;
 +	}
 +
-+	err = dwcmshc_get_enable_other_clks(mmc_dev(host->mmc), dwc_priv,
-+					    ARRAY_SIZE(clk_ids), clk_ids);
-+	if (err)
-+		return err;
-+
-+	if (of_property_read_u8(mmc_dev(host->mmc)->of_node, "rockchip,txclk-tapnum",
-+				&priv->txclk_tapnum))
-+		priv->txclk_tapnum = DLL_TXCLK_TAPNUM_DEFAULT;
-+
-+	/* Disable cmd conflict check */
-+	sdhci_writel(host, 0x0, dwc_priv->vendor_specific_area1 + DWCMSHC_HOST_CTRL3);
-+	/* Reset previous settings */
-+	sdhci_writel(host, 0, DWCMSHC_EMMC_DLL_TXCLK);
-+	sdhci_writel(host, 0, DWCMSHC_EMMC_DLL_STRBIN);
++	sdhci_enable_v4_mode(host);
 +
 +	return 0;
 +}
 +
-+static void dwcmshc_rk35xx_postinit(struct sdhci_host *host, struct dwcmshc_priv *dwc_priv)
-+{
-+	/*
-+	 * Don't support highspeed bus mode with low clk speed as we
-+	 * cannot use DLL for this condition.
-+	 */
-+	if (host->mmc->f_max <= 52000000) {
-+		dev_info(mmc_dev(host->mmc), "Disabling HS200/HS400, frequency too low (%d)\n",
-+			 host->mmc->f_max);
-+		host->mmc->caps2 &= ~(MMC_CAP2_HS200 | MMC_CAP2_HS400);
-+		host->mmc->caps &= ~(MMC_CAP_3_3V_DDR | MMC_CAP_1_8V_DDR);
-+	}
-+}
-+
- static int th1520_execute_tuning(struct sdhci_host *host, u32 opcode)
+ static void cv18xx_sdhci_reset(struct sdhci_host *host, u8 mask)
  {
  	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-@@ -1064,51 +1109,6 @@ static void dwcmshc_cqhci_init(struct sdhci_host *host, struct platform_device *
- 	host->mmc->caps2 &= ~(MMC_CAP2_CQE | MMC_CAP2_CQE_DCMD);
- }
+@@ -1231,27 +1260,7 @@ static int dwcmshc_probe(struct platform_device *pdev)
+ 	}
  
--static int dwcmshc_rk35xx_init(struct sdhci_host *host, struct dwcmshc_priv *dwc_priv)
--{
--	static const char * const clk_ids[] = {"axi", "block", "timer"};
--	struct rk35xx_priv *priv = dwc_priv->priv;
--	int err;
+ 	if (pltfm_data == &sdhci_dwcmshc_th1520_pdata) {
+-		priv->delay_line = PHY_SDCLKDL_DC_DEFAULT;
 -
--	priv->reset = devm_reset_control_array_get_optional_exclusive(mmc_dev(host->mmc));
--	if (IS_ERR(priv->reset)) {
--		err = PTR_ERR(priv->reset);
--		dev_err(mmc_dev(host->mmc), "failed to get reset control %d\n", err);
--		return err;
--	}
+-		if (device_property_read_bool(dev, "mmc-ddr-1_8v") ||
+-		    device_property_read_bool(dev, "mmc-hs200-1_8v") ||
+-		    device_property_read_bool(dev, "mmc-hs400-1_8v"))
+-			priv->flags |= FLAG_IO_FIXED_1V8;
+-		else
+-			priv->flags &= ~FLAG_IO_FIXED_1V8;
 -
--	err = dwcmshc_get_enable_other_clks(mmc_dev(host->mmc), dwc_priv,
--					    ARRAY_SIZE(clk_ids), clk_ids);
--	if (err)
--		return err;
+-		/*
+-		 * start_signal_voltage_switch() will try 3.3V first
+-		 * then 1.8V. Use SDHCI_SIGNALING_180 rather than
+-		 * SDHCI_SIGNALING_330 to avoid setting voltage to 3.3V
+-		 * in sdhci_start_signal_voltage_switch().
+-		 */
+-		if (priv->flags & FLAG_IO_FIXED_1V8) {
+-			host->flags &= ~SDHCI_SIGNALING_330;
+-			host->flags |=  SDHCI_SIGNALING_180;
+-		}
 -
--	if (of_property_read_u8(mmc_dev(host->mmc)->of_node, "rockchip,txclk-tapnum",
--				&priv->txclk_tapnum))
--		priv->txclk_tapnum = DLL_TXCLK_TAPNUM_DEFAULT;
--
--	/* Disable cmd conflict check */
--	sdhci_writel(host, 0x0, dwc_priv->vendor_specific_area1 + DWCMSHC_HOST_CTRL3);
--	/* Reset previous settings */
--	sdhci_writel(host, 0, DWCMSHC_EMMC_DLL_TXCLK);
--	sdhci_writel(host, 0, DWCMSHC_EMMC_DLL_STRBIN);
--
--	return 0;
--}
--
--static void dwcmshc_rk35xx_postinit(struct sdhci_host *host, struct dwcmshc_priv *dwc_priv)
--{
--	/*
--	 * Don't support highspeed bus mode with low clk speed as we
--	 * cannot use DLL for this condition.
--	 */
--	if (host->mmc->f_max <= 52000000) {
--		dev_info(mmc_dev(host->mmc), "Disabling HS200/HS400, frequency too low (%d)\n",
--			 host->mmc->f_max);
--		host->mmc->caps2 &= ~(MMC_CAP2_HS200 | MMC_CAP2_HS400);
--		host->mmc->caps &= ~(MMC_CAP_3_3V_DDR | MMC_CAP_1_8V_DDR);
--	}
--}
--
- static const struct of_device_id sdhci_dwcmshc_dt_ids[] = {
- 	{
- 		.compatible = "rockchip,rk3588-dwcmshc",
+-		sdhci_enable_v4_mode(host);
++		th1520_init(dev, host, priv);
+ 	}
+ 
+ #ifdef CONFIG_ACPI
 -- 
 2.34.1
 
