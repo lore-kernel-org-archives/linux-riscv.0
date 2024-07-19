@@ -4,100 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C95BEC3DA59
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jul 2024 17:31:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBE5CC3DA59
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jul 2024 17:31:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8sLQszs8uvBMuM7q3YsznaxRjkr+k4U7AGQHcLo4/h0=; b=KQek6yaxfd8dj4
-	jM7DFIRiXrPGdcVkSw1NDoySVVO8XFY/1NJV9NuudJ4zHBIhRRY3/IpIDwLAG3ipErDRI0d9OoqI/
-	KxM1RgqPwlWSIJZEJ0a3Gq3SvnuktnpAipdGdVXyKGopKBsskEDyns4vhVtuAezC6emBFK1MEMmTI
-	pnCYpJk+SraqTX2S/H1QbMnR9xtOUAGFqdXlmF+h0NoWbRZMighG7+Ppgw+ZwZKvrns937j7VNcQ+
-	zON5t+v+T3B2S+EhyhYTaoQTTyUga+81BLXwbqqGzkliklEcY6gMVtfTiGjMqV4NBbLxs8gyvAR2m
-	L76Osm2ABOWJfcRtjpmg==;
+	List-Owner; bh=Qtui43RIkh0cCRdberqFDeII2FKkpK468OA05IlzzPA=; b=dAyHsY50//kDHK
+	sJDnaFRIc7/NszSl9gxUOtNr9ZK3gPCTNC35l/8p6pst9IJjc98oFJUA3H8kAtVh35rU/81skRqHg
+	usam55aqFjulBwZ7nybISwj3cnN35HpjhSpm440eEBCT+gldRTkItmpFlSuSLEfIUPlKdTCMPQ+w7
+	FeIT6EYXFqE5JEPPBZoUTDOqYaZ8WOiJcxBSSzN/DBkCL3Ur5G5v79/eh1LontkND2oQgdkQPgTsZ
+	2jTcEPsh6nwhmydEqNPR+PMKiFBlrgslS1ZsZwo9hwI2PKlExix7TzPiAyBpCkIfznTKpZPXc500z
+	fRG93dUgILW9LW89rMYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUrRY-00000003OIe-3ING;
-	Fri, 19 Jul 2024 17:30:56 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1sUrRa-00000003OIq-26nE;
+	Fri, 19 Jul 2024 17:30:58 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUqK2-00000003EU2-17qU
-	for linux-riscv@lists.infradead.org;
-	Fri, 19 Jul 2024 16:19:08 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-70aec66c936so813274b3a.0
-        for <linux-riscv@lists.infradead.org>; Fri, 19 Jul 2024 09:19:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1721405944; x=1722010744; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=GWtR9ZjYZiSKNZtqnpkUxp+qNZzbKrCzo+6HVfyCbsc=;
-        b=WuXKaqZt5efLR9P4aCXowdcekl6VDyIcuP65h6qxremLh5Ey/j3z6fOf4UAEocfg6o
-         98ZpM6NkzpOqeGjx4ySCQbacFINfEaxA50P3EAgpSi3/rODpdHPHCRWwjWM1cFeu97p+
-         ixZQkLU3amp7nJWjejERDMNyohVX2tDzjm6jZpHRslT0Fh2mLt7TkaMyLUJUp3e59w06
-         9A9uma9bOXbMM3XornaGCckGp9oQEcsocOzIRv8rceQ3PO3brhW3DI4B78dhCykP11Re
-         IQXnS45GRkF0KcYY9FhYLqnoMkPl64NYzaDjd7x1Q6LlkwC4z1zLlt3MoIKxLF/NQaTR
-         4VJw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1721405944; x=1722010744;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=GWtR9ZjYZiSKNZtqnpkUxp+qNZzbKrCzo+6HVfyCbsc=;
-        b=UNQl+Fb2SDT3yv9hUSoLVvIPYvj3z1ni4bjHI2VuLK3MYcS/saG2TrXvxwuOol6hiX
-         Arh573EZA6Ni3cSWQZMs8T6e0DCiFuD0lqKHVqysDwqXWnaA3htJTQJGlopyH7MWvz4k
-         2DejRfvUqQBFHx+7JsjOdTUoyrakXRgi9bfJqiCevwOe7aRS2AsWBhIBP630VoRjYcU5
-         zWFxrkex+CAL6Yi48SNUDd6uJketew4VGnnCKWGGhhlPj2k7wWL221LvlyJ/gK2UrLKn
-         qi0QSu+lzhaBLybtaXNX0frSpNRHErsDE4dpilXVWfT68z9kZD3JHN+LsZpVwjQo9RGg
-         k4Rw==
-X-Gm-Message-State: AOJu0YyOztHZm9AppsQuNiaQNR3L/pArmWt09fIRxTXypRofPpBoAFXZ
-	pfOw3GSleXr31fUlTMij30jh6Azau/T2HjmAAuiHZXAEGTHOhOiSOuVrab8tGfA=
-X-Google-Smtp-Source: AGHT+IF+GUycFbxFYTPQ12A0f+u6HHfmC+GBd8iT7cSCSlcQGb4rtoa2bA7r6TUBDPjdWpdM8jx1FA==
-X-Received: by 2002:a05:6a20:6a0f:b0:1c0:f648:8571 with SMTP id adf61e73a8af0-1c3fdc5c9b3mr10485350637.4.1721405944499;
-        Fri, 19 Jul 2024 09:19:04 -0700 (PDT)
-Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1fd6f490dcbsm6461435ad.297.2024.07.19.09.19.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Jul 2024 09:19:03 -0700 (PDT)
-From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Fri, 19 Jul 2024 09:18:56 -0700
-Subject: [PATCH v5 01/13] dt-bindings: riscv: Add xtheadvector ISA
- extension description
+	id 1sUqTa-00000003Huo-3IK9;
+	Fri, 19 Jul 2024 16:29:00 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4WQZn61R1mz6K7Fc;
+	Sat, 20 Jul 2024 00:26:34 +0800 (CST)
+Received: from lhrpeml500005.china.huawei.com (unknown [7.191.163.240])
+	by mail.maildlp.com (Postfix) with ESMTPS id 9E616140517;
+	Sat, 20 Jul 2024 00:28:51 +0800 (CST)
+Received: from localhost (10.48.157.16) by lhrpeml500005.china.huawei.com
+ (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 19 Jul
+ 2024 17:28:50 +0100
+Date: Fri, 19 Jul 2024 17:28:49 +0100
+From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
+To: Mike Rapoport <rppt@kernel.org>
+CC: <linux-kernel@vger.kernel.org>, Alexander Gordeev
+	<agordeev@linux.ibm.com>, Andreas Larsson <andreas@gaisler.com>, "Andrew
+ Morton" <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>, "Borislav
+ Petkov" <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>, Christophe
+ Leroy <christophe.leroy@csgroup.eu>, Dan Williams <dan.j.williams@intel.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>, David Hildenbrand
+	<david@redhat.com>, "David S. Miller" <davem@davemloft.net>, Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>, Heiko Carstens
+	<hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar
+	<mingo@redhat.com>, Jiaxun Yang <jiaxun.yang@flygoat.com>, "John Paul Adrian
+ Glaubitz" <glaubitz@physik.fu-berlin.de>, Michael Ellerman
+	<mpe@ellerman.id.au>, Palmer Dabbelt <palmer@dabbelt.com>, "Rafael J.
+ Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>, "Thomas
+ Bogendoerfer" <tsbogend@alpha.franken.de>, Thomas Gleixner
+	<tglx@linutronix.de>, Vasily Gorbik <gor@linux.ibm.com>, Will Deacon
+	<will@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<loongarch@lists.linux.dev>, <linux-mips@vger.kernel.org>,
+	<linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>,
+	<linux-s390@vger.kernel.org>, <linux-sh@vger.kernel.org>,
+	<sparclinux@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-cxl@vger.kernel.org>, <nvdimm@lists.linux.dev>,
+	<devicetree@vger.kernel.org>, <linux-arch@vger.kernel.org>,
+	<linux-mm@kvack.org>, <x86@kernel.org>
+Subject: Re: [PATCH 06/17] x86/numa: simplify numa_distance allocation
+Message-ID: <20240719172849.000019a0@Huawei.com>
+In-Reply-To: <20240716111346.3676969-7-rppt@kernel.org>
+References: <20240716111346.3676969-1-rppt@kernel.org>
+	<20240716111346.3676969-7-rppt@kernel.org>
+Organization: Huawei Technologies Research and Development (UK) Ltd.
+X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Message-Id: <20240719-xtheadvector-v5-1-4b485fc7d55f@rivosinc.com>
-References: <20240719-xtheadvector-v5-0-4b485fc7d55f@rivosinc.com>
-In-Reply-To: <20240719-xtheadvector-v5-0-4b485fc7d55f@rivosinc.com>
-To: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Jisheng Zhang <jszhang@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, 
- Samuel Holland <samuel.holland@sifive.com>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, 
- Guo Ren <guoren@kernel.org>, Evan Green <evan@rivosinc.com>, 
- Andy Chiu <andy.chiu@sifive.com>, Jessica Clarke <jrtc27@jrtc27.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev, 
- linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- Charlie Jenkins <charlie@rivosinc.com>, 
- Conor Dooley <conor.dooley@microchip.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1721405940; l=1788;
- i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
- bh=ZzH0VgSdYutk/uKY2omj651o9v+E5HP1BijtgXJzAp0=;
- b=rsQNwNk/nGw07WypZ0WFD3o9JfwjjscYkiNaMlQ+k6T5GEeUL6lGIKjpeR+owwiCEdCVico/6
- whuYOjwhUL5CLoFlffJhH8svBTCXqBxdop2d5EsODMFY81AqvwP2Mwf
-X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
- pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
+X-Originating-IP: [10.48.157.16]
+X-ClientProxiedBy: lhrpeml500006.china.huawei.com (7.191.161.198) To
+ lhrpeml500005.china.huawei.com (7.191.163.240)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240719_091906_341708_51B2FFC8 
-X-CRM114-Status: UNSURE (   8.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240719_092859_151486_BC310754 
+X-CRM114-Status: GOOD (  23.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,48 +92,82 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The xtheadvector ISA extension is described on the T-Head extension spec
-Github page [1] at commit 95358cb2cca9.
+On Tue, 16 Jul 2024 14:13:35 +0300
+Mike Rapoport <rppt@kernel.org> wrote:
 
-Link: https://github.com/T-head-Semi/thead-extension-spec/blob/95358cb2cca9489361c61d335e03d3134b14133f/xtheadvector.adoc [1]
+> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+> 
+> Allocation of numa_distance uses memblock_phys_alloc_range() to limit
+> allocation to be below the last mapped page.
+> 
+> But NUMA initializaition runs after the direct map is populated and
 
-Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
----
- Documentation/devicetree/bindings/riscv/extensions.yaml | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+initialization (one too many 'i's)
 
-diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
-index a06dbc6b4928..1a3d01aedde6 100644
---- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-+++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-@@ -556,6 +556,10 @@ properties:
-             latency, as ratified in commit 56ed795 ("Update
-             riscv-crypto-spec-vector.adoc") of riscv-crypto.
- 
-+        # vendor extensions, each extension sorted alphanumerically under the
-+        # vendor they belong to. Vendors are sorted alphanumerically as well.
-+
-+        # Andes
-         - const: xandespmu
-           description:
-             The Andes Technology performance monitor extension for counter overflow
-@@ -563,6 +567,12 @@ properties:
-             Registers in the AX45MP datasheet.
-             https://www.andestech.com/wp-content/uploads/AX45MP-1C-Rev.-5.0.0-Datasheet.pdf
- 
-+        # T-HEAD
-+        - const: xtheadvector
-+          description:
-+            The T-HEAD specific 0.7.1 vector implementation as written in
-+            https://github.com/T-head-Semi/thead-extension-spec/blob/95358cb2cca9489361c61d335e03d3134b14133f/xtheadvector.adoc.
-+
-     allOf:
-       # Zcb depends on Zca
-       - if:
+> there is also code in setup_arch() that adjusts memblock limit to
+> reflect how much memory is already mapped in the direct map.
+> 
+> Simplify the allocation of numa_distance and use plain memblock_alloc().
+> This makes the code clearer and ensures that when numa_distance is not
+> allocated it is always NULL.
+Doesn't this break the comment in numa_set_distance() kernel-doc?
+"
+ * If such table cannot be allocated, a warning is printed and further
+ * calls are ignored until the distance table is reset with
+ * numa_reset_distance().
+"
 
--- 
-2.44.0
+Superficially that looks to be to avoid repeatedly hitting the
+singleton bit at the top of numa_set_distance() as SRAT or similar
+parsing occurs.
+
+> 
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> ---
+>  arch/x86/mm/numa.c | 12 +++---------
+>  1 file changed, 3 insertions(+), 9 deletions(-)
+> 
+> diff --git a/arch/x86/mm/numa.c b/arch/x86/mm/numa.c
+> index 5e1dde26674b..ab2d4ecef786 100644
+> --- a/arch/x86/mm/numa.c
+> +++ b/arch/x86/mm/numa.c
+> @@ -319,8 +319,7 @@ void __init numa_reset_distance(void)
+>  {
+>  	size_t size = numa_distance_cnt * numa_distance_cnt * sizeof(numa_distance[0]);
+>  
+> -	/* numa_distance could be 1LU marking allocation failure, test cnt */
+> -	if (numa_distance_cnt)
+> +	if (numa_distance)
+>  		memblock_free(numa_distance, size);
+>  	numa_distance_cnt = 0;
+>  	numa_distance = NULL;	/* enable table creation */
+> @@ -331,7 +330,6 @@ static int __init numa_alloc_distance(void)
+>  	nodemask_t nodes_parsed;
+>  	size_t size;
+>  	int i, j, cnt = 0;
+> -	u64 phys;
+>  
+>  	/* size the new table and allocate it */
+>  	nodes_parsed = numa_nodes_parsed;
+> @@ -342,16 +340,12 @@ static int __init numa_alloc_distance(void)
+>  	cnt++;
+>  	size = cnt * cnt * sizeof(numa_distance[0]);
+>  
+> -	phys = memblock_phys_alloc_range(size, PAGE_SIZE, 0,
+> -					 PFN_PHYS(max_pfn_mapped));
+> -	if (!phys) {
+> +	numa_distance = memblock_alloc(size, PAGE_SIZE);
+> +	if (!numa_distance) {
+>  		pr_warn("Warning: can't allocate distance table!\n");
+> -		/* don't retry until explicitly reset */
+> -		numa_distance = (void *)1LU;
+>  		return -ENOMEM;
+>  	}
+>  
+> -	numa_distance = __va(phys);
+>  	numa_distance_cnt = cnt;
+>  
+>  	/* fill with the default distances */
 
 
 _______________________________________________
