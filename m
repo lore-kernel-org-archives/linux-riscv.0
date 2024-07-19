@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4D7DC3DA5D
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jul 2024 16:50:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B87BDC3DA59
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jul 2024 16:57:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LYO5nNKHF5maXFYWztAJRLbYbGb74iFbzy90nd5qqzc=; b=ZWXHwZKhaA3bF4
-	WOpvsxUSagSdo+mXspRbKUCWXXnCLXoGK4EP2LiF8MlhGp6ZtX7goBFhozWVi5/K9qbNgsPJMuYHi
-	McoMgdIlUUiW9b5k0ERCNyoIEYfiSo1Z1B7NNQ9MWhRxstn+/vDw9A14571yE7ewzkXRasPolm3/O
-	45HUel0yLAAODH4AT4zldpMEWw5fJaT2KqAOJhlrsPti9odOb/DzPczqg+9t0xTXevxqoP5DxFSV6
-	bXrSYdjDtcNn0W7R1fZDjK+dT/S51T5icIlR+nzv8AQn5AarWjRMjSf6NWkT+4TDiiyGieq039krt
-	FIOz1/W8vtOfVQgwTQQg==;
+	List-Owner; bh=Xm4hPGEet55b3WILURinUGzZh/HWv/gVdC8HM5MOHWw=; b=SiLJU4SONsRx4v
+	HHDy/rPCZfJOXu5UOfIK4XlTC5gfWs2HBJmrAfVidBspeTIcUbS9LpTfZZU0hGtEeKZmMWiWaqXox
+	qHKQAau+I1mtIuPzK3KftIr/IdSZl9yyADkFLs2gcpaxp5SvjivCMDcXyrmz25EZMN3nKh9wVb9k0
+	qtQ4Eu/7zz26M1nw0CLRdWJxAIdkCQejUKWEM4fwK+dhXKUesRqHStM2eVS3Ar5sPKaSAIAPq2Hnq
+	QrUZCkSxRwKLu0YZDqVVUPi6p3wPAmc+SPamwGo6h0s8hMoZv4KSln8B4xt57bYfBWQVZNzGiagZP
+	4aQacpg/vEYtyTxg8kpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUqoZ-00000003Ks3-1Tnl;
-	Fri, 19 Jul 2024 16:50:39 +0000
+	id 1sUqva-00000003Lch-2HBV;
+	Fri, 19 Jul 2024 16:57:54 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUqoB-00000003Kks-39nt;
-	Fri, 19 Jul 2024 16:50:17 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4WQbG40yg8z689J2;
-	Sat, 20 Jul 2024 00:48:12 +0800 (CST)
+	id 1sUqvC-00000003LVf-3BGv;
+	Fri, 19 Jul 2024 16:57:32 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4WQbQ30Sw7z6K8lH;
+	Sat, 20 Jul 2024 00:55:07 +0800 (CST)
 Received: from lhrpeml500005.china.huawei.com (unknown [7.191.163.240])
-	by mail.maildlp.com (Postfix) with ESMTPS id CC918140A36;
-	Sat, 20 Jul 2024 00:50:06 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 84DA0140A79;
+	Sat, 20 Jul 2024 00:57:24 +0800 (CST)
 Received: from localhost (10.48.157.16) by lhrpeml500005.china.huawei.com
  (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 19 Jul
- 2024 17:50:05 +0100
-Date: Fri, 19 Jul 2024 17:50:04 +0100
+ 2024 17:57:23 +0100
+Date: Fri, 19 Jul 2024 17:57:22 +0100
 From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
 To: Mike Rapoport <rppt@kernel.org>
 CC: <linux-kernel@vger.kernel.org>, Alexander Gordeev
@@ -62,12 +62,12 @@ CC: <linux-kernel@vger.kernel.org>, Alexander Gordeev
 	<linux-cxl@vger.kernel.org>, <nvdimm@lists.linux.dev>,
 	<devicetree@vger.kernel.org>, <linux-arch@vger.kernel.org>,
 	<linux-mm@kvack.org>, <x86@kernel.org>
-Subject: Re: [PATCH 10/17] x86/numa_emu: use a helper function to get
- MAX_DMA32_PFN
-Message-ID: <20240719175004.00004f57@Huawei.com>
-In-Reply-To: <20240716111346.3676969-11-rppt@kernel.org>
+Subject: Re: [PATCH 11/17] x86/numa: numa_{add,remove}_cpu: make cpu
+ parameter unsigned
+Message-ID: <20240719175722.000016f8@Huawei.com>
+In-Reply-To: <20240716111346.3676969-12-rppt@kernel.org>
 References: <20240716111346.3676969-1-rppt@kernel.org>
-	<20240716111346.3676969-11-rppt@kernel.org>
+	<20240716111346.3676969-12-rppt@kernel.org>
 Organization: Huawei Technologies Research and Development (UK) Ltd.
 X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
 MIME-Version: 1.0
@@ -75,8 +75,8 @@ X-Originating-IP: [10.48.157.16]
 X-ClientProxiedBy: lhrpeml500001.china.huawei.com (7.191.163.213) To
  lhrpeml500005.china.huawei.com (7.191.163.240)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240719_095016_044888_5CDC3E0A 
-X-CRM114-Status: UNSURE (   7.42  )
+X-CRM114-CacheID: sfid-20240719_095731_049255_CDA9EEFA 
+X-CRM114-Status: UNSURE (   7.55  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,15 +94,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 16 Jul 2024 14:13:39 +0300
+On Tue, 16 Jul 2024 14:13:40 +0300
 Mike Rapoport <rppt@kernel.org> wrote:
 
 > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 > 
-> This is required to make numa emulation code architecture independent s
-> that it can be moved to generic code in following commits.
+> CPU id cannot be negative.
+> 
+> Making it unsigned also aligns with declarations in
+> include/asm-generic/numa.h used by arm64 and riscv and allows sharing
+> numa emulation code with these architectures.
 > 
 > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Makes sense for both reasons. FWIW given how simple it is.
+
+Maybe worth bringing a few more functions inline with this?
+Probably something for another day given we don't care about the
+inconsistency for this series.
+
 Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 
 _______________________________________________
