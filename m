@@ -4,120 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 147E5C3DA49
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jul 2024 01:27:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A57CBC3DA49
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jul 2024 01:35:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nioj4KZBCB86RbQJdiIj6nAAScp2sknSHeNapIh5suw=; b=EJ9AZGTxlOvdxI
-	jsCJOXYLug+bXQgZoTL8GFtu3kSwONXuOyTq4Lc9l2/hxrvT8KrqmaCmz67c+QMYvxH6WXLJCewci
-	p76PZ72LifuedquIlHuhEFx8ChAw/ezsnPa9RpQvTIiEwWL53l/IhpdXqBhNpwdyFRUFxOP2Jw/kv
-	+ZtCZsWkr8M6wqKDiKe8NNTVIBZE2Dov+kTQd1UDIfyJ+m2GYDQajxDQYNS1CQ4b2HaqpgkOeojpc
-	05zdbaaCtahXGNws/U8p3n15xy32KjL3Lm8b0Dv7IfLbACYGZGKD+z0Wqx7TghyHMPY81fjGlYv9e
-	Sn4yycxHMS+5wPq2oKuw==;
+	List-Owner; bh=6ldHzF+Oo4J1x9nPa0d1+DjM10vMCZZPCQTrfXGxC14=; b=w5LKIzTMxfgRjN
+	v6d64ILACTzp038PIkYwXHKnipknECM/12WSIs/b7KFXf6JwuR2bECMM/QF73Nh4QC+Yv8vTvzRpW
+	FxvyM8/UrwYqU9Z19sYOncNgPy+iTK5U0SjOrbqWPEK6FKYp5nKPFNQBlQMlJTKq2J7an1Td9NwAZ
+	pzECUw5zbJLS4u87YKzBQk4ASqx5Bm+AkR2/feUmu3pn9x/T2pZPZiDAjR8CSmZMOhy9sux8F7vjj
+	8Vgl0XgKt0SDZ+Z7fVkMo6qGeCLGUJZFzYQ4fxsGR94Wv6MeBdymIYID7xVwLXq3m602T7NCFmaiC
+	HD42wXD0bxyRPRQ/911A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUcPC-00000001DkW-43US;
-	Fri, 19 Jul 2024 01:27:30 +0000
-Received: from mail-co1nam11olkn20800.outbound.protection.outlook.com ([2a01:111:f403:2c16::800] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
+	id 1sUcX0-00000001Ef0-1OuI;
+	Fri, 19 Jul 2024 01:35:34 +0000
+Received: from mail-io1-xd31.google.com ([2607:f8b0:4864:20::d31])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUcP9-00000001DdT-0xTB
+	id 1sUcWw-00000001Ee0-2Ile
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Jul 2024 01:27:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=djW4gRpRJvId3bkgS+lf3KCNB4PYnAQwWQDA/XTqy11uSD0NbGLrZsP3rJ2Ps+iUsYXtxEyRKL3FTniKccbUJd2it2iHaNQVwd8UaU9Xsrs8szRCzKu7Mbmahgb+LzKarr/Y4FFgFlG2094Z4/IRqYqaZBjiHP1WnwPmf8mW+x4bd97VjLAyHTMpARhzprwJRdZ6ytClcCP7UPEjLk2XXffMVrY29XZExQWVmnGJzwQLtfYLZSIXOEyDnJbqMLsTc8uP2xheQNS/TdMK+vFHvugUTJuv0CktErN50eEsErsJC60TxEnLuCFf+LxIwRdsZV+mekYXUWi/KTpBvkbjaw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=G20LkvR30Q5T7iRgbwJFtst7KOVKYN1iuwpAHrJ+W94=;
- b=jslcGqNjlW2jF6dJZBPPOdqnk715L2Sq57oFU7MNSKacBZmOm1WV+dcCtN3nTbEA4TT5QSYvNHL5ODxR1Hp6HBakjr4p9hUuxf9pEbfQVMRkr+9J8WInvGbq1KwyXpNAd8qNPIiNm0nAoZLZDk0TkXV30/0DhvZZgeUS95uMAkYsYD/1VyFQi1hE33rWzqhvoaVY3Iiyh8lRoIWZNeoTQplDKeDA/9khB280IjBSPrqRqzdg9PxXgA1wAW8aS6fPFZAojPHpRYGKTYjht0zn6W4xo1RRGQLjYYuI9Ta80iuqj0Zzp1kOyAxvgxLSKya3b3eIXXc0BZfhK/bcX/Tw9A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=G20LkvR30Q5T7iRgbwJFtst7KOVKYN1iuwpAHrJ+W94=;
- b=FL91u/hP5hKRFUZ/gTcgItPMMMDc/rwkI41fqTn44xxi5mgV/r1cm8/t/X2xxQIFO7emNrEEBHxYL8NZY0iE/9fGOpTDtYtp3xSTtJVdTyaQamLMmDr+9a35HDChzxmSyKttWSXsPOSGXThK77pEHvoc0eepJjOck+wxqDLtlJTd4tfZ4HzKij0KPI6ylrLjskL+V5j/RGBmxNgd20TQC6amytACIP6wXJu29xI7PGIOR8txp6gJZwffIfD3pONEICZhl3iSVVSf2OXOLOPBTwBGZauuHvvJZtjPMLRJj11l2WnEtWMST2RwMpEx6SjAu+ykeeGunByD44lwMfGeBw==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by PH7PR20MB7071.namprd20.prod.outlook.com (2603:10b6:510:2fd::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7784.17; Fri, 19 Jul
- 2024 01:27:14 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::ab0b:c0d3:1f91:d149]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::ab0b:c0d3:1f91:d149%5]) with mapi id 15.20.7784.016; Fri, 19 Jul 2024
- 01:27:13 +0000
-Date: Fri, 19 Jul 2024 09:26:57 +0800
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Haylen Chu <heylenay@outlook.com>, 
-	Inochi Amaoto <inochiama@outlook.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
-	Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Jisheng Zhang <jszhang@kernel.org>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 3/3] thermal: cv180x: Add cv180x thermal driver support
-Message-ID: <IA1PR20MB4953D7CE439F97E4982830B5BBAD2@IA1PR20MB4953.namprd20.prod.outlook.com>
-References: <SEYPR01MB422158B2766DA03728AD90CBD7A22@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
- <SEYPR01MB42215C6F248AF99499F6A050D7A22@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
- <PH7PR20MB4962DD8526FF0845258ECE2FBBA32@PH7PR20MB4962.namprd20.prod.outlook.com>
- <SEYPR01MB4221611E6BB87C70B30999E5D7AC2@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
-Content-Disposition: inline
-In-Reply-To: <SEYPR01MB4221611E6BB87C70B30999E5D7AC2@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
-X-TMN: [fyPZjtLdMCUGccx0mbswvgoMym9vo2JqrAFPPdog+6Y=]
-X-ClientProxiedBy: PS1PR01CA0024.apcprd01.prod.exchangelabs.com
- (2603:1096:300:75::36) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <fw2wqjl3hjb35tjm7uewooxocqrzda5puxns5p6ukhliyx7frl@rwkgx4l2nx6d>
+	Fri, 19 Jul 2024 01:35:32 +0000
+Received: by mail-io1-xd31.google.com with SMTP id ca18e2360f4ac-8036ce66164so48434439f.3
+        for <linux-riscv@lists.infradead.org>; Thu, 18 Jul 2024 18:35:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1721352929; x=1721957729; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=kCKSxmpGpgIaFLiWGefaq2tuapYPzU27sKjs+BRgK0I=;
+        b=D6mpnJv2AKzniKxC/3jzyd+8kUgt0HaI3FBPTKk5MrYpQwM+jm8mrA6pkv0rDd7Do2
+         dYHTOpeyxjans5z2oPJXLFEg3kl3qkXaSkeZzDUgu3POqVZlcm8aYT1gzx3Ank9XTsHg
+         kQgZZKzIN8le5FQ6GPJXtJuinn72hyFqW0tToNCZQXaudwnf7Ge9I9kDo4NaA8rig9fX
+         4GoJucbyGkQD7dcy+X61dnEAlT+BKzQuxA4tYkVMlUZ4gevF8asHxydIivPJVWj0yrsF
+         O9hDm1wEBTJARla2cxpBzFxlCNfDPVc0VaD5NnoOmwGiagGxdjaSI6Q+h77LuBfIc/Vd
+         nmEA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1721352929; x=1721957729;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=kCKSxmpGpgIaFLiWGefaq2tuapYPzU27sKjs+BRgK0I=;
+        b=G8BAfVYmSIq34BNA8NeXdRpZl8tqnH/0hcg7GRh8hnTThTk7F4JpqWSSDwEnNrnDPJ
+         fC3jmoSS9Y+jGZilzw+vKbnXjRIbA8S+jUECVt5PbhU1Bgp5CIS707oPan5kP45i4rVS
+         J4FFjXLW+Cnv4P+9Bt3TFt0DBJFyNvgD24LWrzRWzgkf8dEy4DdM01o3G4Tms0oXHoLl
+         jz5CrwP13d2jufjau68q3p+13DOhB63e4WRjQl8XrKCnirLYneg9PNPg60NWWbzpf1Ij
+         wj9jUo1q6CzxdQvzob+dh2XbKv57TIT7q8Twfalf/fEiV6HZIb8TmApHNU8/kuyhEMvn
+         ufaw==
+X-Forwarded-Encrypted: i=1; AJvYcCWEgVNHTEeD5Va0i9LbmBSZF8jXQmKqJfpKZACuMTgVqAp55oqWwDFTgccRpMTFB7MU9ay+LHdX13oJGXQI0xv6klsSYYmIWFIdnmOEfHv0
+X-Gm-Message-State: AOJu0Yy2LIQCvRId3+1nXUwl7W0RMFmhL/Ps+qx17n5M7MMOpvaDxfMo
+	S7Ex4foD4OYPDFO/fr5PcB8kckyunJB9rVVz1yqzEr6my3o3DANPW3uD2RkG5aM=
+X-Google-Smtp-Source: AGHT+IETQFuHKrO4/S58tyD5OTrRmmOWT93LlD/6BpqMiB9K7t92N18nv7O5GBBuy0MITzv7YIG4RA==
+X-Received: by 2002:a05:6602:14c8:b0:806:560:92b5 with SMTP id ca18e2360f4ac-81710bd4048mr846335739f.11.1721352929336;
+        Thu, 18 Jul 2024 18:35:29 -0700 (PDT)
+Received: from [100.64.0.1] ([147.124.94.167])
+        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-819adeeec61sm15485539f.47.2024.07.18.18.35.28
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 18 Jul 2024 18:35:28 -0700 (PDT)
+Message-ID: <dca205a1-46cc-4712-bdb1-15517e63e824@sifive.com>
+Date: Thu, 18 Jul 2024 20:35:27 -0500
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|PH7PR20MB7071:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9d9bf29b-81e5-465a-5acb-08dca791eb27
-X-Microsoft-Antispam: BCL:0;ARA:14566002|461199028|8060799006|19110799003|3412199025|440099028|1710799026;
-X-Microsoft-Antispam-Message-Info: bVwIomt8z09JA35WlN17vpNNZsizW9uhV+zLzbeSJBXYGNI/qTvBNrNH3eAbVcF2oyxQF9FhF5tAIE85vTVxDaCKGLPGPCEMyBEMihHUGzKrLylNbA3hfwOEBGWZWRvgH28VOpv1EeUm/sK2u30BonMSs0WHS7LZA3U2g5X2lFX7nqqM0vn4UQp8p6D3WWlD+fox9XF3GYXszsszWfY04mbxiUlXQOw7WjQlGbCsRbR2rARq30m6IxEXeGwxUQWHLIvu9DD9zmY2/7LeJnPXocIuidR72HdyaK7Ir6sILnchHIvHNqDFmzPkZvaYvuIWsX9SQETVRJGal9RXhzz5jDDiObUk8TLyWeS5j6D1FjyqffcsGviQ9tN6uy5DxqghZkqp8Qhgi+C2WsKUUKrF4pPPAG+Tb+ebA2jueJq+fJPR9UYvR76roiTIjHC4P/zZhxmD7/MIvsbWUFBoV2vQoHFGbnk+EypAgfurjC20CE0fPM/U6rGt5X+nUI3TY+Td2pyG1EvKDvXqs86ovVjZk1Lyl9YC5bM9/SwrNkW6sa4rT6wc4KCTya3vhfmy/WQhS6YDZ4Wz3XFsa49GjjyxYa3sk2xCThQGw/SlwFg3PKa01Oww56SUOZ9WnxJb4d/Yxtw/L23ClJv58+EZQL0qaFiZ6LPWytY66nObfW0HfCdClGIpjfRkAFPrXzJl9DxI
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Sj0O8C+YzrqrIkZC8olPe5OWt8bUN5H2dlwqogs0hur3qTaNGBdcdhBJCi8r?=
- =?us-ascii?Q?dP2sYO2LrUEC/huHyAf8VA3FjMKEDakdlIgxsymoTu1RzQD2Pn1pfBeznXKd?=
- =?us-ascii?Q?WxSvEfNpwSUCbn4C66jlGxZt9iwNrgyMLfmaT+B2B6Y3n0RX1N4Ceu5Ju87j?=
- =?us-ascii?Q?Kc3Uix/WZdYfohqiccnC/zDgyPN4lLOFRLze41l7KvkvmT74Fn+qhcOlJYG1?=
- =?us-ascii?Q?5Pc9ckBzr6NaCCZ3WnE0PetC3UfClt8mifDbfPsOzvyhHq0OKz+ifTCPBVRA?=
- =?us-ascii?Q?RlgvQExoDgu6Gq0Qbd+CcQ1QYGcZiS50Rg5GyY0Dr2GJTEzx7AXJXp5M7hCA?=
- =?us-ascii?Q?NlocCjE5I0u2/GKBxgo8/4cQxrh1Fv0JPEYqW4qu8fwxKSRq7UPgzwHQkONm?=
- =?us-ascii?Q?jGc8FsSHGdAnyH+ERrz684d+FnPVNn+jeL/WyeNhk8oj+AHZV1un4d57FFVL?=
- =?us-ascii?Q?jHTBvHOeLTy+Dx1K18pkWwIIePBWq/vyAxYnlEehWBPxHDHyCdBrLw9Vj6Ei?=
- =?us-ascii?Q?3DTcEDXYudk64k5k83cWmfwbEQGxvJLNF8dVh93EcWTCMJxkbuZsRCOg85UO?=
- =?us-ascii?Q?FF6PNWg/6Xak1t5YwrTkDgaAV8WDgdBQ4GK7iDjhNW6Ez7LKxmlXNP3vvh+I?=
- =?us-ascii?Q?HmTF5FYS2TxwblbPXYlN8qe2Xw+ngB4NnvjAJJ4Pb0Udyt4kyZoqM2L846XE?=
- =?us-ascii?Q?rE1gZ8lWO8ryljPMDtPrBHX3A7+Diezu5IBbwovhejZNKGBx65krUWhef8gH?=
- =?us-ascii?Q?u8unIu2WmMQzj4onNcelfJ4UvSdEPI2nnEQ8nIXUmGYJCy9zbrJycGwn/vwd?=
- =?us-ascii?Q?5vhhl0cMh8xdSihXcbxELYFng4+yMwv2HhnAMMIbGp/fE+Mo3wH8pyszHtzv?=
- =?us-ascii?Q?tfu/Wi92Xcf2ppv0EL6KuoFOSHqYcI3CNmKAZQDomBjY2J/zHjOVG6FgWxMb?=
- =?us-ascii?Q?zSeJSDa+dqTwgjbDomuI2Y2hQ1InDUXzuaONUoHOaeVDFcQH2IiYKZVTluzr?=
- =?us-ascii?Q?0rtdXYUcEXy2z5nBcrjCQcX+rTQRKjwkdEMz+O9xwAlG1iYpeaeqf7g0Qghd?=
- =?us-ascii?Q?qknfn3dFOMfbqAkWQAR9/BJOnXDFDAhnE6oXRRyug2bOcV8hz+LJ9gJCcXJN?=
- =?us-ascii?Q?3/xWCb6rLmStOFC+fB/L8W56inoiOdNV9joCXSzT9FyODh8bhpyPSR/Dn//j?=
- =?us-ascii?Q?fZHCG3/v4d4fovBQz3+tBA+7qZzRNjX6GMLnoJqp5YGAYDJky474GlRKFhvY?=
- =?us-ascii?Q?xrtdJ5w9N8yRERR2TsKI?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9d9bf29b-81e5-465a-5acb-08dca791eb27
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Jul 2024 01:27:13.9436
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR20MB7071
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/3] mailbox: sophgo: add mailbox driver for cv18x SoCs
+To: Yuntao Dai <d1581209858@live.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, jassisinghbrar@gmail.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, unicorn_wang@outlook.com,
+ inochiama@outlook.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu
+References: <SYBP282MB223825D5903777B937A8A377C4A02@SYBP282MB2238.AUSP282.PROD.OUTLOOK.COM>
+ <SYBP282MB2238F93565D20F0A5F3EEB6BC4A02@SYBP282MB2238.AUSP282.PROD.OUTLOOK.COM>
+From: Samuel Holland <samuel.holland@sifive.com>
+Content-Language: en-US
+In-Reply-To: <SYBP282MB2238F93565D20F0A5F3EEB6BC4A02@SYBP282MB2238.AUSP282.PROD.OUTLOOK.COM>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240718_182727_366522_5FA17E8A 
-X-CRM114-Status: GOOD (  28.26  )
+X-CRM114-CacheID: sfid-20240718_183530_661406_C49B6D1E 
+X-CRM114-Status: GOOD (  33.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,314 +98,283 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 18, 2024 at 06:49:05AM GMT, Haylen Chu wrote:
-> On Wed, Jul 17, 2024 at 02:22:32PM +0800, Inochi Amaoto wrote:
-> > On Tue, Jul 16, 2024 at 09:42:35AM GMT, Haylen Chu wrote:
-> > > Add support for cv180x SoCs integrated thermal sensors.
-> > > 
-> > > Signed-off-by: Haylen Chu <heylenay@outlook.com>
-> > > ---
-> > >  drivers/thermal/Kconfig          |   6 +
-> > >  drivers/thermal/Makefile         |   1 +
-> > >  drivers/thermal/cv180x_thermal.c | 241 +++++++++++++++++++++++++++++++
-> > >  3 files changed, 248 insertions(+)
-> > >  create mode 100644 drivers/thermal/cv180x_thermal.c
-> > > 
-> > > diff --git a/drivers/thermal/Kconfig b/drivers/thermal/Kconfig
-> > > index 204ed89a3ec9..f53c973a361d 100644
-> > > --- a/drivers/thermal/Kconfig
-> > > +++ b/drivers/thermal/Kconfig
-> > > @@ -514,4 +514,10 @@ config LOONGSON2_THERMAL
-> > >  	  is higher than the high temperature threshold or lower than the low
-> > >  	  temperature threshold, the interrupt will occur.
-> > >  
-> > > +config CV180X_THERMAL
-> > > +	tristate "Temperature sensor driver for Sophgo CV180X"
-> > > +	help
-> > > +	  If you say yes here you get support for thermal sensor integrated in
-> > > +	  Sophgo CV180X SoCs.
-> > > +
-> > >  endif
-> > > diff --git a/drivers/thermal/Makefile b/drivers/thermal/Makefile
-> > > index 5cdf7d68687f..5b59bde8a579 100644
-> > > --- a/drivers/thermal/Makefile
-> > > +++ b/drivers/thermal/Makefile
-> > > @@ -65,3 +65,4 @@ obj-$(CONFIG_AMLOGIC_THERMAL)     += amlogic_thermal.o
-> > >  obj-$(CONFIG_SPRD_THERMAL)	+= sprd_thermal.o
-> > >  obj-$(CONFIG_KHADAS_MCU_FAN_THERMAL)	+= khadas_mcu_fan.o
-> > >  obj-$(CONFIG_LOONGSON2_THERMAL)	+= loongson2_thermal.o
-> > > +obj-$(CONFIG_CV180X_THERMAL)	+= cv180x_thermal.o
-> > > diff --git a/drivers/thermal/cv180x_thermal.c b/drivers/thermal/cv180x_thermal.c
-> > > new file mode 100644
-> > > index 000000000000..8b726c0ad848
-> > > --- /dev/null
-> > > +++ b/drivers/thermal/cv180x_thermal.c
-> > > @@ -0,0 +1,241 @@
-> > > +// SPDX-License-Identifier: GPL-2.0
-> > > +/*
-> > > + * Copyright (C) 2021 Sophgo Inc.
-> > > + * Copyright (C) 2024 Haylen Chu <heylenay@outlook.com>
-> > > + */
-> > > +
-> > > +#include <linux/bits.h>
-> > > +#include <linux/clk.h>
-> > > +#include <linux/io.h>
-> > > +#include <linux/module.h>
-> > > +#include <linux/of.h>
-> > > +#include <linux/platform_device.h>
-> > > +#include <linux/thermal.h>
-> > > +
-> > > +#define TEMPSEN_VERSION					0x0
-> > > +#define TEMPSEN_CTRL					0x4
-> > > +#define  TEMPSEN_CTRL_EN				BIT(0)
-> > > +#define  TEMPSEN_CTRL_SEL_MASK				GENMASK(7, 4)
-> > > +#define  TEMPSEN_CTRL_SEL_OFFSET			4
-> > > +#define TEMPSEN_STATUS					0x8
-> > > +#define TEMPSEN_SET					0xc
-> > > +#define  TEMPSEN_SET_CHOPSEL_MASK			GENMASK(5, 4)
-> > > +#define  TEMPSEN_SET_CHOPSEL_OFFSET			4
-> > > +#define  TEMPSEN_SET_CHOPSEL_128T			0
-> > > +#define  TEMPSEN_SET_CHOPSEL_256T			1
-> > > +#define  TEMPSEN_SET_CHOPSEL_512T			2
-> > > +#define  TEMPSEN_SET_CHOPSEL_1024T			3
-> > > +#define  TEMPSEN_SET_ACCSEL_MASK			GENMASK(7, 6)
-> > > +#define  TEMPSEN_SET_ACCSEL_OFFSET			6
-> > > +#define  TEMPSEN_SET_ACCSEL_512T			0
-> > > +#define  TEMPSEN_SET_ACCSEL_1024T			1
-> > > +#define  TEMPSEN_SET_ACCSEL_2048T			2
-> > > +#define  TEMPSEN_SET_ACCSEL_4096T			3
-> > > +#define  TEMPSEN_SET_CYC_CLKDIV_MASK			GENMASK(15, 8)
-> > > +#define  TEMPSEN_SET_CYC_CLKDIV_OFFSET			8
-> > > +#define TEMPSEN_INTR_EN					0x10
-> > > +#define TEMPSEN_INTR_CLR				0x14
-> > > +#define TEMPSEN_INTR_STA				0x18
-> > > +#define TEMPSEN_INTR_RAW				0x1c
-> > > +#define TEMPSEN_RESULT(n)				(0x20 + (n) * 4)
-> > > +#define  TEMPSEN_RESULT_RESULT_MASK			GENMASK(12, 0)
-> > > +#define  TEMPSEN_RESULT_MAX_RESULT_MASK			GENMASK(28, 16)
-> > > +#define  TEMPSEN_RESULT_CLR_MAX_RESULT			BIT(31)
-> > > +#define TEMPSEN_AUTO_PERIOD				0x64
-> > > +#define  TEMPSEN_AUTO_PERIOD_AUTO_CYCLE_MASK		GENMASK(23, 0)
-> > > +#define  TEMPSEN_AUTO_PERIOD_AUTO_CYCLE_OFFSET		0
-> > > +
-> > > +struct cv180x_thermal_zone {
-> > > +	struct device *dev;
-> > > +	void __iomem *base;
-> > > +	struct clk *clk_tempsen;
-> > > +	u32 sample_cycle;
-> > > +};
-> > > +
-> > > +static void cv180x_thermal_init(struct cv180x_thermal_zone *ctz)
-> > > +{
-> > > +	void __iomem *base = ctz->base;
-> > > +	u32 regval;
-> > > +
-> > > +	writel(readl(base + TEMPSEN_INTR_RAW), base + TEMPSEN_INTR_CLR);
-> > > +	writel(TEMPSEN_RESULT_CLR_MAX_RESULT, base + TEMPSEN_RESULT(0));
-> > > +
-> > > +	regval = readl(base + TEMPSEN_SET);
-> > > +	regval &= ~TEMPSEN_SET_CHOPSEL_MASK;
-> > > +	regval &= ~TEMPSEN_SET_ACCSEL_MASK;
-> > > +	regval &= ~TEMPSEN_SET_CYC_CLKDIV_MASK;
-> > > +	regval |= TEMPSEN_SET_CHOPSEL_1024T << TEMPSEN_SET_CHOPSEL_OFFSET;
-> > > +	regval |= TEMPSEN_SET_ACCSEL_2048T << TEMPSEN_SET_ACCSEL_OFFSET;
-> > > +	regval |= 0x31 << TEMPSEN_SET_CYC_CLKDIV_OFFSET;
-> > > +	writel(regval, base + TEMPSEN_SET);
-> > > +
-> > > +	regval = readl(base + TEMPSEN_AUTO_PERIOD);
-> > > +	regval &= ~TEMPSEN_AUTO_PERIOD_AUTO_CYCLE_MASK;
-> > > +	regval |= ctz->sample_cycle << TEMPSEN_AUTO_PERIOD_AUTO_CYCLE_OFFSET;
-> > > +	writel(regval, base + TEMPSEN_AUTO_PERIOD);
-> > > +
-> > > +	regval = readl(base + TEMPSEN_CTRL);
-> > > +	regval &= ~TEMPSEN_CTRL_SEL_MASK;
-> > > +	regval |= 1 << TEMPSEN_CTRL_SEL_OFFSET;
-> > > +	regval |= TEMPSEN_CTRL_EN;
-> > > +	writel(regval, base + TEMPSEN_CTRL);
-> > > +}
-> > > +
-> > > +static void cv180x_thermal_deinit(struct cv180x_thermal_zone *ct)
-> > > +{
-> > > +	void __iomem *base = ct->base;
-> > > +	u32 regval;
-> > > +
-> > > +	regval = readl(base + TEMPSEN_CTRL);
-> > > +	regval &= ~(TEMPSEN_CTRL_SEL_MASK | TEMPSEN_CTRL_EN);
-> > > +	writel(regval, base + TEMPSEN_CTRL);
-> > > +
-> > > +	writel(readl(base + TEMPSEN_INTR_RAW), base + TEMPSEN_INTR_CLR);
-> > > +}
-> > > +
-> > > +/*
-> > > + *	Raw register value to temperature (mC) formula:
-> > > + *
-> > > + *		       read_val * 1000 * 716
-> > > + *	Temperature = ----------------------- - 273000
-> > > + *				divider
-> > > + *
-> > > + *	where divider should be ticks number of accumulation period,
-> > > + *	e.g. 2048 for TEMPSEN_CTRL_ACCSEL_2048T
-> > > + */
-> > > +static int cv180x_calc_temp(struct cv180x_thermal_zone *ctz, u32 result)
-> > > +{
-> > > +	return (result * 1000) * 716 / 2048 - 273000;
-> > > +}
-> > > +
-> > > +static int cv180x_get_temp(struct thermal_zone_device *tdev, int *temperature)
-> > > +{
-> > > +	struct cv180x_thermal_zone *ctz = thermal_zone_device_priv(tdev);
-> > > +	void __iomem *base = ctz->base;
-> > > +	u32 result;
-> > > +
-> > > +	result = readl(base + TEMPSEN_RESULT(0)) & TEMPSEN_RESULT_RESULT_MASK;
-> > > +	*temperature = cv180x_calc_temp(ctz, result);
-> > > +
-> > > +	return 0;
-> > > +}
-> > > +
-> > > +static const struct thermal_zone_device_ops cv180x_thermal_ops = {
-> > > +	.get_temp = cv180x_get_temp,
-> > > +};
-> > > +
-> > > +static const struct of_device_id cv180x_thermal_of_match[] = {
-> > > +	{ .compatible = "sophgo,cv1800-thermal" },
-> > > +	{},
-> > > +};
-> > > +MODULE_DEVICE_TABLE(of, cv180x_thermal_of_match);
-> > > +
-> > > +static int
-> > > +cv180x_parse_dt(struct cv180x_thermal_zone *ctz)
-> > > +{
-> > > +	struct device_node *np = ctz->dev->of_node;
-> > > +	u32 tmp;
-> > > +
-> > > +	if (of_property_read_u32(np, "sample-rate-hz", &tmp)) {
-> > > +		ctz->sample_cycle = 1000000;
-> > > +	} else {
-> > > +		/* sample cycle should be at least 524us */
-> > > +		if (tmp > 1000000 / 524) {
-> > > +			dev_err(ctz->dev, "invalid sample rate %d\n", tmp);
-> > > +			return -EINVAL;
-> > > +		}
-> > > +
-> > > +		ctz->sample_cycle = 1000000 / tmp;
-> > > +	}
-> > > +
-> > > +	return 0;
-> > > +}
-> > > +
-> > > +static int cv180x_thermal_probe(struct platform_device *pdev)
-> > > +{
-> > > +	struct cv180x_thermal_zone *ctz;
-> > > +	struct thermal_zone_device *tz;
-> > > +	struct resource *res;
-> > > +	int ret;
-> > > +
-> > > +	ctz = devm_kzalloc(&pdev->dev, sizeof(*ctz), GFP_KERNEL);
-> > > +	if (!ctz)
-> > > +		return -ENOMEM;
-> > > +
-> > > +	ctz->dev = &pdev->dev;
-> > > +
-> > > +	ret = cv180x_parse_dt(ctz);
-> > > +	if (ret)
-> > > +		return dev_err_probe(&pdev->dev, ret, "failed to parse dt\n");
-> > > +
-> > > +	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> > > +	ctz->base = devm_ioremap_resource(&pdev->dev, res);
-> > > +	if (IS_ERR(ctz->base))
-> > > +		return dev_err_probe(&pdev->dev, PTR_ERR(ctz->base),
-> > > +				     "failed to map tempsen registers\n");
-> > > +
-> > > +	ctz->clk_tempsen = devm_clk_get_enabled(&pdev->dev, NULL);
-> > > +	if (IS_ERR(ctz->clk_tempsen))
-> > > +		return dev_err_probe(&pdev->dev, PTR_ERR(ctz->clk_tempsen),
-> > > +				     "failed to get clk_tempsen\n");
-> > > +
-> > > +	cv180x_thermal_init(ctz);
-> > > +
-> > > +	tz = devm_thermal_of_zone_register(&pdev->dev, 0, ctz,
-> > > +					   &cv180x_thermal_ops);
-> > > +	if (IS_ERR(tz))
-> > > +		return dev_err_probe(&pdev->dev, PTR_ERR(tz),
-> > > +				     "failed to register thermal zone\n");
-> > > +
-> > > +	platform_set_drvdata(pdev, ctz);
-> > > +
-> > > +	return 0;
-> > > +}
-> > > +
-> > > +static int cv180x_thermal_remove(struct platform_device *pdev)
-> > > +{
-> > > +	struct cv180x_thermal_zone *ctz = platform_get_drvdata(pdev);
-> > > +
-> > > +	cv180x_thermal_deinit(ctz);
-> > > +
-> > > +	return 0;
-> > > +}
-> > > +
-> > > +static int __maybe_unused cv180x_thermal_suspend(struct device *dev)
-> > > +{
-> > > +	struct cv180x_thermal_zone *ctz = dev_get_drvdata(dev);
-> > > +
-> > > +	cv180x_thermal_deinit(ctz);
-> > > +	clk_disable_unprepare(ctz->clk_tempsen);
-> > > +
-> > > +	return 0;
-> > > +}
-> > > +
-> > > +static int __maybe_unused cv180x_thermal_resume(struct device *dev)
-> > > +{
-> > > +	struct cv180x_thermal_zone *ctz = dev_get_drvdata(dev);
-> > > +
-> > > +	clk_prepare_enable(ctz->clk_tempsen);
-> > > +	cv180x_thermal_init(ctz);
-> > > +
-> > > +	return 0;
-> > > +}
-> > > +
-> > > +static SIMPLE_DEV_PM_OPS(cv180x_thermal_pm_ops,
-> > > +			 cv180x_thermal_suspend, cv180x_thermal_resume);
-> > > +
-> > > +static struct platform_driver cv180x_thermal_driver = {
-> > > +	.probe = cv180x_thermal_probe,
-> > > +	.remove = cv180x_thermal_remove,
-> > > +	.driver = {
-> > > +		.name = "cv180x-thermal",
-> > > +		.pm = &cv180x_thermal_pm_ops,
-> > > +		.of_match_table = cv180x_thermal_of_match,
-> > > +	},
-> > > +};
-> > > +
-> > > +module_platform_driver(cv180x_thermal_driver);
-> > > +
-> > > +MODULE_DESCRIPTION("Sophgo CV180x thermal driver");
-> > > +MODULE_AUTHOR("Haylen Chu <heylenay@outlook.com>");
-> > > +MODULE_LICENSE("GPL");
-> > > -- 
-> > > 2.45.2
-> > > 
-> > 
-> > Where is interrupt handler? I see nothing about it.
-> > 
-> > Regards,
-> > Inochi
+On 2024-07-14 11:36 AM, Yuntao Dai wrote:
+> Add mailbox controller driver for cv18x SoCs, tested on mailbox-test
+> client.
 > 
-> Interrupts are not used. This driver implements only polling the
-> temperature.
+> Signed-off-by: Yuntao Dai <d1581209858@live.com>
+> ---
+>  drivers/mailbox/Kconfig          |  11 ++
+>  drivers/mailbox/Makefile         |   2 +
+>  drivers/mailbox/cv1800-mailbox.c | 203 +++++++++++++++++++++++++++++++
+>  3 files changed, 216 insertions(+)
+>  create mode 100644 drivers/mailbox/cv1800-mailbox.c
 > 
-> Best regards,
-> Haylen Chu
+> diff --git a/drivers/mailbox/Kconfig b/drivers/mailbox/Kconfig
+> index 3b8842c4a..db856ec7e 100644
+> --- a/drivers/mailbox/Kconfig
+> +++ b/drivers/mailbox/Kconfig
+> @@ -286,4 +286,15 @@ config QCOM_IPCC
+>  	  acts as an interrupt controller for receiving interrupts from clients.
+>  	  Say Y here if you want to build this driver.
+>  
+> +config CV1800_MBOX
+> +	tristate "cv1800 mailbox"
+> +	depends on OF
 
-"xxx is not used" is not the reason for you to not implement it.
-In addition, interrupt-driven is not just for reading sensors. I
-have seen something important like critical alert. Drop interrupt
-support may miss these alert.
-If you do not want to implement this, move your driver to staging 
-as it is not complete.
+This dependency is not necessary once the probe function is fixed (see below).
 
-Regard,
-Inochi
+> +	depends on ARCH_SOPHGO || COMPILE_TEST
+> +	help
+> +	  Mailbox driver implementation for Sophgo cv180x SoCs. This driver
+> +	  can be used to send message between different processors in SoC. Any
+> +	  processer can write data in a channel, and set co-responding register
+> +	  to raise interrupt to notice another processor, and it is allowed to
+> +	  send data to itself.
+> +
+>  endif
+> diff --git a/drivers/mailbox/Makefile b/drivers/mailbox/Makefile
+> index 5cf2f54de..2c6db8c5c 100644
+> --- a/drivers/mailbox/Makefile
+> +++ b/drivers/mailbox/Makefile
+> @@ -62,3 +62,5 @@ obj-$(CONFIG_SUN6I_MSGBOX)	+= sun6i-msgbox.o
+>  obj-$(CONFIG_SPRD_MBOX)		+= sprd-mailbox.o
+>  
+>  obj-$(CONFIG_QCOM_IPCC)		+= qcom-ipcc.o
+> +
+> +obj-$(CONFIG_CV1800_MBOX)	+= cv1800-mailbox.o
+> \ No newline at end of file
+
+Please add the missing newline.
+
+> diff --git a/drivers/mailbox/cv1800-mailbox.c b/drivers/mailbox/cv1800-mailbox.c
+> new file mode 100644
+> index 000000000..a3b214b4d
+> --- /dev/null
+> +++ b/drivers/mailbox/cv1800-mailbox.c
+> @@ -0,0 +1,203 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +
+> +#include <linux/device.h>
+> +#include <linux/err.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/io.h>
+> +#include <linux/kfifo.h>
+> +#include <linux/mailbox_controller.h>
+> +#include <linux/mailbox_client.h>
+> +#include <linux/module.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/slab.h>
+> +
+> +#define RECV_CPU 2
+> +
+> +#define MAILBOX_MAX_CHAN 0x0008
+> +#define MAILBOX_DONE_OFFSET 0x0002
+> +#define MAILBOX_CONTEXT_SIZE 0x0040
+> +#define MAILBOX_CONTEXT_OFFSET 0x0400
+> +
+> +#define MBOX_EN_REG(cpu) (cpu << 2)
+> +#define MBOX_DONE_REG(cpu) ((cpu << 2) + MAILBOX_DONE_OFFSET)
+> +
+> +#define MBOX_SET_CLR_REG(cpu) (0x10 + (cpu << 4))
+> +#define MBOX_SET_INT_REG(cpu) (0x18 + (cpu << 4))
+> +
+> +#define MBOX_SET_REG 0x60
+> +
+> +/**
+> + * cv1800 mailbox channel private data
+> + * @idx: index of channel
+> + * @cpu: send to which processor
+> + */
+> +struct cv1800_mbox_chan_priv {
+> +	int idx;
+> +	int cpu;
+> +};
+> +
+> +struct cv1800_mbox {
+> +	struct mbox_controller mbox;
+> +	struct cv1800_mbox_chan_priv priv[MAILBOX_MAX_CHAN];
+> +	struct mbox_chan chans[MAILBOX_MAX_CHAN];
+> +	u64 __iomem *content[MAILBOX_MAX_CHAN];
+> +	void __iomem *mbox_base;
+> +	int recvid;
+> +};
+> +
+> +static irqreturn_t cv1800_mbox_isr(int irq, void *dev_id)
+> +{
+> +	struct cv1800_mbox *mbox = (struct cv1800_mbox *)dev_id;
+> +	size_t i;
+> +
+> +	for (i = 0; i < MAILBOX_MAX_CHAN; i++) {
+> +		if (mbox->content[i] && mbox->chans[i].cl) {
+> +			mbox_chan_received_data(&mbox->chans[i],
+> +						mbox->content[i]);
+> +			mbox->content[i] = NULL;
+> +			return IRQ_HANDLED;
+
+Are you sure you only want to handle one channel per interrupt? Should this be
+"ret = IRQ_HANDLED;" or similar instead of early return? The same applies to
+cv1800_mbox_irq().
+
+> +		}
+> +	}
+> +	return IRQ_NONE;
+> +}
+> +
+> +static irqreturn_t cv1800_mbox_irq(int irq, void *dev_id)
+> +{
+> +	struct cv1800_mbox *mbox = (struct cv1800_mbox *)dev_id;
+> +	u64 __iomem *addr;
+> +	u8 set, valid;
+> +	size_t i;
+> +
+> +	set = readb(mbox->mbox_base + MBOX_SET_INT_REG(RECV_CPU));
+> +
+> +	if (!set)
+> +		return IRQ_NONE;
+> +
+> +	for (i = 0; i < MAILBOX_MAX_CHAN; i++) {
+> +		valid = set & (1 << i);
+> +		addr = (u64 *)(mbox->mbox_base + MAILBOX_CONTEXT_OFFSET) + i;
+> +		if (valid) {
+> +			mbox->content[i] = addr;
+> +			writeb(valid,
+> +			       mbox->mbox_base + MBOX_SET_CLR_REG(RECV_CPU));
+> +			writeb(~valid, mbox->mbox_base + MBOX_EN_REG(RECV_CPU));
+> +			return IRQ_WAKE_THREAD;
+> +		}
+> +	}
+> +
+> +	return IRQ_NONE;
+> +}
+> +
+> +static int cv1800_mbox_send_data(struct mbox_chan *chan, void *data)
+> +{
+> +	struct cv1800_mbox_chan_priv *priv =
+> +		(struct cv1800_mbox_chan_priv *)chan->con_priv;
+> +	struct cv1800_mbox *mbox = dev_get_drvdata(chan->mbox->dev);
+> +	u64 __iomem *addr;
+> +	u8 en, valid;
+> +
+> +	int idx = priv->idx;
+> +	int cpu = priv->cpu;
+> +
+> +	addr = (u64 *)(mbox->mbox_base + MAILBOX_CONTEXT_OFFSET) + idx;
+> +	memcpy_toio(addr, data, 8);
+> +
+> +	valid = 1 << idx;
+> +	writeb(valid, mbox->mbox_base + MBOX_SET_CLR_REG(cpu));
+> +	en = readb(mbox->mbox_base + MBOX_EN_REG(cpu));
+> +	writeb(en | valid, mbox->mbox_base + MBOX_EN_REG(cpu));
+> +	writeb(valid, mbox->mbox_base + MBOX_SET_REG);
+> +
+> +	return 0;
+> +}
+> +
+> +static bool cv1800_last_tx_done(struct mbox_chan *chan)
+> +{
+> +	return true;
+
+Shouldn't this check MBOX_EN_REG(priv->cpu) or similar to check that the
+receiver has read the message?
+
+> +}
+> +
+> +static const struct mbox_chan_ops cv1800_mbox_chan_ops = {
+> +	.send_data = cv1800_mbox_send_data,
+> +	.last_tx_done = cv1800_last_tx_done,
+> +};
+> +
+> +static struct mbox_chan *cv1800_mbox_xlate(struct mbox_controller *mbox,
+> +					   const struct of_phandle_args *spec)
+> +{
+> +	struct cv1800_mbox_chan_priv *priv;
+> +
+> +	int idx = spec->args[0];
+> +	int cpu = spec->args[1];
+> +
+> +	if (idx >= mbox->num_chans)
+> +		return ERR_PTR(-EINVAL);
+> +
+> +	priv = mbox->chans[idx].con_priv;
+> +	priv->cpu = cpu;
+> +
+> +	return &mbox->chans[idx];
+> +}
+> +
+> +static const struct of_device_id cv1800_mbox_of_match[] = {
+> +	{ .compatible = "sophgo,cv1800-mailbox", },
+> +	{},
+> +};
+> +MODULE_DEVICE_TABLE(of, cv1800_mbox_of_match);
+> +
+> +static int cv1800_mbox_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct cv1800_mbox *mb;
+> +	int irq, idx, err;
+> +
+> +	if (!dev->of_node)
+> +		return -ENODEV;
+
+No need for this check.
+
+> +
+> +	mb = devm_kzalloc(dev, sizeof(*mb), GFP_KERNEL);
+> +	if (!mb)
+> +		return -ENOMEM;
+> +
+> +	mb->mbox_base = devm_of_iomap(dev, dev->of_node, 0, NULL);
+
+Please use devm_platform_ioremap_resource() here, which abstracts away the OF node.
+
+> +	if (IS_ERR(mb->mbox_base))
+> +		return dev_err_probe(dev, PTR_ERR(mb->mbox_base),
+> +				     "Failed to map resource\n");
+> +
+> +	mb->mbox.dev = dev;
+> +	mb->mbox.chans = mb->chans;
+> +	mb->mbox.txdone_poll = true;
+> +	mb->mbox.ops = &cv1800_mbox_chan_ops;
+> +	mb->mbox.num_chans = MAILBOX_MAX_CHAN;
+> +	mb->mbox.of_xlate = cv1800_mbox_xlate;
+> +
+> +	irq = platform_get_irq_byname(pdev, "mailbox");
+> +	err = devm_request_threaded_irq(dev, irq, cv1800_mbox_irq,
+> +					cv1800_mbox_isr, IRQF_ONESHOT,
+> +					dev_name(&pdev->dev), mb);
+> +	if (err < 0)
+> +		return dev_err_probe(dev, err, "Failed to register irq\n");
+> +
+> +	for (idx = 0; idx < MAILBOX_MAX_CHAN; idx++) {
+> +		mb->priv[idx].idx = idx;
+> +		mb->mbox.chans[idx].con_priv = &mb->priv[idx];
+> +	}
+> +
+> +	err = devm_mbox_controller_register(dev, &mb->mbox);
+> +	if (err)
+> +		return dev_err_probe(dev, err, "Failed to register mailbox\n");
+> +
+> +	platform_set_drvdata(pdev, mb);
+
+cv1800_mbox_send_data() could be called even inside
+devm_mbox_controller_register(), so this needs to be moved up.
+
+> +	return 0;
+> +}
+> +
+> +static struct platform_driver cv1800_mbox_driver = {
+> +	.driver = {
+> +		.name = "cv1800-mbox",
+> +		.of_match_table = cv1800_mbox_of_match,
+> +	},
+> +	.probe	= cv1800_mbox_probe,
+> +};
+> +
+> +module_platform_driver(cv1800_mbox_driver);
+> +
+> +MODULE_DESCRIPTION("cv1800 mailbox driver");
+> +MODULE_LICENSE("GPL");
 
 
 _______________________________________________
