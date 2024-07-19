@@ -4,96 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30906C3DA5D
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jul 2024 08:47:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94EA3C3DA5D
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jul 2024 08:51:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sCy6NVj46mj+ro7M+AOcb+gQyNpLxV7JOLx/gpr9hFg=; b=pnC3HYWwref0Ea
-	BDOfhUBHj3NGaUEvzP1Qi1bvfqlFCkb13eewwWYrusXuU1SywIU0hCbWiW+5mL9f4mpW5nGfYo3fE
-	l7p+4YGcMnzkFm/mRK8y2C17bAwO5CA3neXj4D529tsG9mkyP9DbW+xwxFWoacHVVtXOcCgMHxkz+
-	MCSHiv8PzKzAHHn/ctCVChINVmL+mtiWyOex19faN3fFciH9Tgo/1UbGVMja3Z9qLUvH2SFu2JD6r
-	4PT1/QOwgkCrTsEyKc21F+jI3+sAhrpm31IdoUdkhe55GE87sH3n9tuyIq4zTFA5vT8e8CUXrgEuj
-	XeILWektNBYSFUqaVhsQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:Date:Cc:To:
+	From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=iycUb2EjaqVUE0nWsglBAxR376y+4q78cRowbJUMk2g=; b=DCZP7IkPfO4eqg
+	VMAEvmdNANnlIGqw+O0qLvRxCWR8MXvmQm6YsJktpO2Ix+7N6iDkO80lWsEh95qJVRXPdHAG02xRc
+	8sOsej2mznOwnCudgpmd2yynIsYtCtwYBeV6167CdZSvO6dhDDNC5ChoAnybdB2KNBhN4fKhJjBVA
+	EYUNMdqrnR11UgNYLf5Yh/TF7Mj4mAVHPrTBTjqjC6enU3QJxtuaYvCgllOM0VSD8ILInlZmUiVOc
+	HwjU3OxtUy9kYpu2WlvdGJptGO0iFNteJG9ZYdsvT8+UspNnDgaWW86N4BVCwqyK3H5MaBf17ryZH
+	1h1s2NVxzFQm/is8tNNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUjH4-0000000290U-1nyk;
-	Fri, 19 Jul 2024 08:47:34 +0000
-Received: from mail-oi1-x236.google.com ([2607:f8b0:4864:20::236])
+	id 1sUjKl-000000029gV-47uL;
+	Fri, 19 Jul 2024 08:51:23 +0000
+Received: from forward101d.mail.yandex.net ([2a02:6b8:c41:1300:1:45:d181:d101])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUjH1-000000028yi-01Fj
+	id 1sUjKh-000000029eS-1uJn
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Jul 2024 08:47:32 +0000
-Received: by mail-oi1-x236.google.com with SMTP id 5614622812f47-3d9ddfbbc58so985580b6e.2
-        for <linux-riscv@lists.infradead.org>; Fri, 19 Jul 2024 01:47:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1721378850; x=1721983650; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8010fnFp4bSW28SSmXx92MpzvQhq7D5Mg6hXVKiJ92g=;
-        b=fl70gLM8hdksjliVhhUszwZBSOsFlaLaLlBY5XB3hO7yqW7oI2yeGPh7xgXIgUyGGQ
-         MSlUbXI3/ShJqSRlnJm5/Frf63kkdlllcV/Ss7oQbg0ybH5k56saMCnIe/v2jichho69
-         lgr3vxLwCxdqj/+UVea77AmEx7O7QeyM/YXwG4Rj7Kk0iv71ALyhCH51OmPYYp5rru2Z
-         3CQc80C+43uPhHbgNbzajZVq1541rJJytwpYdRCNInHl6L6zqwOMBvbLlIxidxVmQ2oU
-         TLfrImVepW42GHRG3G7k/1H8U8WSYvR5O1X0HcLDemsJ+tf0ZNsDeVk8tHJnfe8esO99
-         dO7g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1721378850; x=1721983650;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=8010fnFp4bSW28SSmXx92MpzvQhq7D5Mg6hXVKiJ92g=;
-        b=Lgp4s6Dod9GLqwLUmU8RLXcPTv0TSw4TdjNsw4waNl/fkbq+WnS02jeS2IxuIMNTol
-         LAIgfbN2qm8kLFD3vSOUMS1YTFT1snB+1uyeOxepVZolLJ2LRiw1hPSQtzctcMieHtAB
-         X5b19dARlpx/Yzy9ZH60KOnCDALt22IuQOFc2vg+VTCJIwwwZkD9Y02k9r03OvA5I/nE
-         eqEYm96MQ6hvWRvH1dKVPYMaN5Q6ChmJqz8kNRR2sHZms1L4/r1bQioJlsEyJL09oV/A
-         rHn4Xq+UPLlXdQsOFhbslCAC6fPEBUUK17fdWgwrW29tyoLF3nNR8rvwvCKVTzcRP/LD
-         cSng==
-X-Forwarded-Encrypted: i=1; AJvYcCU9l7KXZ9S9eE8Ujwtzt3iQFbR5OOfbfeolC3OoXQRX9t/OfFsY7W7J4vK7MIvMAuxJiMQ+A7VUZCJG2ecwYJw6yvN7eNJcSa7LxaE0SA+w
-X-Gm-Message-State: AOJu0Yy3QSiSIOhRwaYrc+XQMbgOFoaVF7Lkh+oMzUeMNiCpNEd6CPyl
-	37XiOjtoFpQ9pe850sePdjC28PsuRa86DLnwVYxwmZBMHquDs0eK
-X-Google-Smtp-Source: AGHT+IEcrcICdMO2BQR9SZdf8B1sqIfILWJsv2xAN22U15n04nucXVZlzWKnOPIkj7CAFhyibZvnWA==
-X-Received: by 2002:a05:6808:14cc:b0:3da:bc74:e9c6 with SMTP id 5614622812f47-3dad5271b67mr8796899b6e.37.1721378849865;
-        Fri, 19 Jul 2024 01:47:29 -0700 (PDT)
-Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-3dae09d5fa7sm209479b6e.48.2024.07.19.01.47.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Jul 2024 01:47:29 -0700 (PDT)
-From: Chen Wang <unicornxw@gmail.com>
-To: adrian.hunter@intel.com,
-	aou@eecs.berkeley.edu,
-	conor+dt@kernel.org,
-	guoren@kernel.org,
-	inochiama@outlook.com,
-	jszhang@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	robh@kernel.org,
-	ulf.hansson@linaro.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-mmc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	chao.wei@sophgo.com,
-	haijiao.liu@sophgo.com,
-	xiaoguang.xing@sophgo.com,
-	tingzhu.wang@sophgo.com
-Cc: Chen Wang <unicorn_wang@outlook.com>
-Subject: [PATCH v5 8/8] riscv: sophgo: dts: add mmc controllers for SG2042 SoC
-Date: Fri, 19 Jul 2024 16:47:22 +0800
-Message-Id: <5110a64d513390c01daf3b4a6a6fc5560baf77a8.1721377374.git.unicorn_wang@outlook.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1721377374.git.unicorn_wang@outlook.com>
-References: <cover.1721377374.git.unicorn_wang@outlook.com>
+	Fri, 19 Jul 2024 08:51:22 +0000
+Received: from mail-nwsmtp-smtp-production-main-39.klg.yp-c.yandex.net (mail-nwsmtp-smtp-production-main-39.klg.yp-c.yandex.net [IPv6:2a02:6b8:c42:4e22:0:640:3724:0])
+	by forward101d.mail.yandex.net (Yandex) with ESMTPS id E30B0609A9;
+	Fri, 19 Jul 2024 11:51:09 +0300 (MSK)
+Received: by mail-nwsmtp-smtp-production-main-39.klg.yp-c.yandex.net (smtp/Yandex) with ESMTPSA id 2pFgMY1On8c0-UCuAlS9V;
+	Fri, 19 Jul 2024 11:51:08 +0300
+X-Yandex-Fwd: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=maquefel.me; s=mail;
+	t=1721379068; bh=SLTEoIanWY5XtN1aVQbk85fIW9AXREmPvziMz0cN42g=;
+	h=Date:In-Reply-To:Cc:To:From:Subject:Message-ID;
+	b=ApOmpFlyHodXNs2nKBGExgy7/kJQW9Wd3Rc5Roy9paoG/0gRvV9XAMaOn2voIEjcW
+	 Z1rYnyrSNXqtUYsTqbHoQyI0eYyVrnrHlOgpyn62SKe2W/p4lFvbDt8j9VS4oDGeFE
+	 U9fpBiDEdnDcB2xuI1vzTBjqMSvpweEXfxfSgku4=
+Authentication-Results: mail-nwsmtp-smtp-production-main-39.klg.yp-c.yandex.net; dkim=pass header.i=@maquefel.me
+Message-ID: <12bd744ea481c8a3505e6f4869d409d24d3db795.camel@maquefel.me>
+Subject: Re: [PATCH] perf arch events: Fix duplicate RISC-V SBI firmware
+ event name
+From: Nikita Shubin <nikita.shubin@maquefel.me>
+To: eric.lin@sifive.com
+Cc: acme@kernel.org, adrian.hunter@intel.com, 
+ alexander.shishkin@linux.intel.com, aou@eecs.berkeley.edu,
+ dminus@andestech.com,  inochiama@outlook.com, irogers@google.com,
+ jisheng.teoh@starfivetech.com,  jolsa@kernel.org,
+ kan.liang@linux.intel.com, linux-kernel@vger.kernel.org, 
+ linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ locus84@andestech.com, mark.rutland@arm.com, mingo@redhat.com,
+ n.shubin@yadro.com,  namhyung@kernel.org, palmer@dabbelt.com,
+ peterlin@andestech.com,  peterz@infradead.org, samuel.holland@sifive.com
+Date: Fri, 19 Jul 2024 11:51:06 +0300
+In-Reply-To: <20240718152254.16007-1-eric.lin@sifive.com>
+User-Agent: Evolution 3.48.4 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240719_014731_070601_39CBACD2 
-X-CRM114-Status: UNSURE (   8.88  )
+X-CRM114-CacheID: sfid-20240719_015120_333417_1834FB88 
+X-CRM114-Status: UNSURE (   2.99  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,85 +78,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Chen Wang <unicorn_wang@outlook.com>
+Hi Eric,
 
-SG2042 has two MMC controller, one for emmc, another for sd-card.
+Nice catch!
 
-Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
----
- .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  | 17 +++++++++++
- arch/riscv/boot/dts/sophgo/sg2042.dtsi        | 28 +++++++++++++++++++
- 2 files changed, 45 insertions(+)
+Shouldn't it fix every patch that copied affected 'firmware.json' by
+the way ?
 
-diff --git a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
-index 49b4b9c2c101..164db23586e0 100644
---- a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
-+++ b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
-@@ -14,6 +14,23 @@ chosen {
- 	};
- };
- 
-+&emmc {
-+	bus-width = <4>;
-+	no-sdio;
-+	no-sd;
-+	non-removable;
-+	wp-inverted;
-+	status = "okay";
-+};
-+
-+&sd {
-+	bus-width = <4>;
-+	no-sdio;
-+	no-mmc;
-+	wp-inverted;
-+	status = "okay";
-+};
-+
- &uart0 {
- 	status = "okay";
- };
-diff --git a/arch/riscv/boot/dts/sophgo/sg2042.dtsi b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-index 81fda312f988..e3194f147d13 100644
---- a/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-+++ b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-@@ -346,5 +346,33 @@ uart0: serial@7040000000 {
- 			resets = <&rstgen RST_UART0>;
- 			status = "disabled";
- 		};
-+
-+		emmc: mmc@704002a000 {
-+			compatible = "sophgo,sg2042-dwcmshc";
-+			reg = <0x70 0x4002a000 0x0 0x1000>;
-+			interrupt-parent = <&intc>;
-+			interrupts = <134 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clkgen GATE_CLK_EMMC_100M>,
-+				 <&clkgen GATE_CLK_AXI_EMMC>,
-+				 <&clkgen GATE_CLK_100K_EMMC>;
-+			clock-names = "core",
-+				      "bus",
-+				      "timer";
-+			status = "disabled";
-+		};
-+
-+		sd: mmc@704002b000 {
-+			compatible = "sophgo,sg2042-dwcmshc";
-+			reg = <0x70 0x4002b000 0x0 0x1000>;
-+			interrupt-parent = <&intc>;
-+			interrupts = <136 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clkgen GATE_CLK_SD_100M>,
-+				 <&clkgen GATE_CLK_AXI_SD>,
-+				 <&clkgen GATE_CLK_100K_SD>;
-+			clock-names = "core",
-+				      "bus",
-+				      "timer";
-+			status = "disabled";
-+		};
- 	};
- };
--- 
-2.34.1
+Something like:
 
+Fixes: 8f0dcb4e7364 ("perf arch events: riscv sbi firmware std event
+files")
+Fixes: c4f769d4093d ("perf vendor events riscv: add Sifive U74 JSON
+file")
+Fixes: acbf6de674ef ("perf vendor events riscv: Add StarFive Dubhe-80
+JSON file")
+Fixes: 7340c6df49df ("perf vendor events riscv: add T-HEAD C9xx JSON
+file")
+Fixes: f5102e31c209 ("riscv: andes: Support specifying symbolic
+firmware and hardware raw event")
+
+Reviewed-by: Nikita Shubin <n.shubin@yadro.com>
 
 _______________________________________________
 linux-riscv mailing list
