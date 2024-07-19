@@ -4,161 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B996C3DA5D
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jul 2024 15:08:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8257FC3DA5D
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jul 2024 15:14:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1jxGCigalLNl0RznTRX+DwMZ7V/J/m7atcv3fk0T9Ns=; b=B61HswmkrKxgJe
-	VMTtE8kA45M7b6uip5vI/LBIQUzxRbOkpmt0TB0vX+kKi9oR4KGuSaGw/qIPlZT2Xe5e6fgmgGdVu
-	ePf9OFkKaDR46QbBOjW64/RE4OUdZyh6nAO8+YPs1aSy40/nYXWIIKYKE7MNY+C/RCLVW9SQYwKE5
-	TwVytpQGhfbqLV9lyxN14YxpqjdsYUNVBHRYI6/pdv42ppxb5Aq8/QBwB88mDphhrF4ufcDm4Lbnm
-	OqmcpyXnx2X5hCFUgLQkOFlpGlolt36Govqjr7bctLqzeZQbNO78VDqD3G9Qs41kqiB3koHtCBD0f
-	Ic/zBn1oMnqMshEf80LA==;
+	List-Owner; bh=H7XFuwP6M/LPU7Vlj8KJ2n06ALr0m0kZeXGFyMUhMIw=; b=wDeyiCJJuTE1pX
+	rM9/y6Upn3eZU2OojI4rWiL3m74MImwPBsdIUQGXKEUQ/iW00dJ9JZD0wUcy4Qtn+yjmF4YdTKwxd
+	pBpMUXIiuGuzrO4jqN3bTSaDJCz9yM3dyXUAHo7wP1ctbSH1orcb3Ke3TvX3nDXdQca1vOZzLeW73
+	sKWIvD6J7TvnSe3VzT+PvCV/natt8cIHhuScSoSTu6Fy28Oe8HCoTEl4PixtCJdDviZc+Q3CeTh7A
+	CLYkMOnpCTaPI6USixcqI4TxqemtOy0SGizXgD30smesxOvIn8uBcgjZsUBCSvCP3cB/3wUeM6iwU
+	GMmfFdA86T5Ofk35iUTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUpDK-000000032Iy-42pU;
-	Fri, 19 Jul 2024 15:08:06 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1sUpJR-000000033TN-2aYi;
+	Fri, 19 Jul 2024 15:14:25 +0000
+Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUpCz-000000032Dy-18db
+	id 1sUpJP-000000033Sp-1mus
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Jul 2024 15:07:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1721401664;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=+Hqez4+gddnelY4DOtO/pf2QUbb3lrjCJ7TtxZBjoRk=;
-	b=RRR0SMk2qhmF86YTkpeiUCU5tHK0J+9Q+Q5rq8A/sOmLudHI+VeW4neqf7VNH+nor4dgQh
-	+OTswT2NrUKuxpyT4szrayPWK1HOONiiGNMCnkgM/5jR5L7mEapxPm4s3hOJmYhVk6ytlI
-	DS4ckAKIm4/YeTVSS3hqHXzC9lJbyeE=
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
- [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-296-RB4tqi2FPJ-VByHx59PVTQ-1; Fri, 19 Jul 2024 11:07:40 -0400
-X-MC-Unique: RB4tqi2FPJ-VByHx59PVTQ-1
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-3687f5a2480so458280f8f.3
-        for <linux-riscv@lists.infradead.org>; Fri, 19 Jul 2024 08:07:39 -0700 (PDT)
+	Fri, 19 Jul 2024 15:14:24 +0000
+Received: by mail-yw1-x1130.google.com with SMTP id 00721157ae682-65f9708c50dso19970477b3.2
+        for <linux-riscv@lists.infradead.org>; Fri, 19 Jul 2024 08:14:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1721402061; x=1722006861; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ep7USquIc8ObqQgurTx1eKeBf6SX6vM17VAQn9SQ8FQ=;
+        b=VNXOt22j8/NDBRmHnPSSKqDt9/QAjOHGuJGAayF7M6qfTbMhp7yycmILUn09GoPZew
+         97MLDpAGPEfoluopP9eVGDubIgBoF2Y8yY7grGD4gHOCKeXx4e7Ngw1vX982yDmtssz6
+         LE/qkEsX1xRLmiX8/0t0bgJ0tNPvoq0mQ2O0CGSo12wyOB2ZXZrHaKcjlicI4MBhRtWX
+         lFlYzzBSAxiqH3lObjaMfimC3xcLUf17FmVQ0FOV91JgEdXSM6bEsOpuYLYILz86q0zD
+         uyazQ27vlscJi8QrZapTpwEEBgmg/9a+C5woAe5F30ixnw4PkWgdfWQaDv4ncOSFcCNh
+         sphg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1721401659; x=1722006459;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:from:references:cc:to:subject:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=+Hqez4+gddnelY4DOtO/pf2QUbb3lrjCJ7TtxZBjoRk=;
-        b=E6BcccX7nlCHaoFB6OZEf/sgiuuUve1V3twp6alBpm0unv8jGfHfV6GwMmF/uY/7UF
-         g4vdRykwdf1y3FBxBRwAWrpsdgfEETPVtNrjajwumNfW8eZ6OrVgm3QASkOeKemVqra+
-         tz9yuurAter8z3JSh6kUcCJf/HtmQ6J825H00wzxZDzO8kiEZATzEwpl5O7kjxUyx9Te
-         RDz0KZr+0zXIoVJDatD8ZU3/O6xWTSh72neYRRtHKcuHZ/V14dFyhoVwU03PLhI74mjV
-         B32MjESEIxhWZ1yl9Vavbuj7vObg6MYOip62KvqszZgi8MrdlKz01LBwa8yHe9Na9p9K
-         UrZQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWh6vnFqOAlIi6MxkDltN5Ga5PpGl03KjFdOkIYkoVwMjyczAVngDcQrcjAQk4YcWlxrPlxXdoKONZYSy8ttz7o/LY/COuZc/hqSqHQdxhD
-X-Gm-Message-State: AOJu0Yz7Ayh9C3UQ9MBCFmdcE4xPM8sF/+fjfQc44te5my4+0s9l4qUX
-	i1YrH1RrwxCxuBsob2hf+7r5285Vz01QqcPdpZRoudYmS16obaz835lLWDA9O1h/aoyvHItemoW
-	ix9jvqKMLpP/yp30QquWFi31tAmaHLxUFjgbciOpKjRXGJw87ZbWFWl0HGZH/DOeppw==
-X-Received: by 2002:adf:f6c8:0:b0:367:96b9:760a with SMTP id ffacd0b85a97d-3683171fa20mr5351623f8f.41.1721401658857;
-        Fri, 19 Jul 2024 08:07:38 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IH3kf0+DVAX3s8AIoi07dbvv+TNfmFDQl0q2xJMZuXjXyMFfWvqwQOQgw4uRzUtRYfwr43y2A==
-X-Received: by 2002:adf:f6c8:0:b0:367:96b9:760a with SMTP id ffacd0b85a97d-3683171fa20mr5351603f8f.41.1721401658315;
-        Fri, 19 Jul 2024 08:07:38 -0700 (PDT)
-Received: from ?IPV6:2003:cb:c705:1000:c4af:a24f:b8ba:8bbc? (p200300cbc7051000c4afa24fb8ba8bbc.dip0.t-ipconnect.de. [2003:cb:c705:1000:c4af:a24f:b8ba:8bbc])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-368785c58e7sm1876063f8f.0.2024.07.19.08.07.36
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 19 Jul 2024 08:07:37 -0700 (PDT)
-Message-ID: <96850252-a49f-4d78-a94b-a9a25e3f2bd5@redhat.com>
-Date: Fri, 19 Jul 2024 17:07:35 +0200
+        d=1e100.net; s=20230601; t=1721402061; x=1722006861;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ep7USquIc8ObqQgurTx1eKeBf6SX6vM17VAQn9SQ8FQ=;
+        b=hbvM65nK2KD8ywwC7+T7CY2CbdxbXbQF8UJW/ke29P/IhRjl8CbjgRXK44zUzJRgnP
+         IlV94okdAibB9Idd1uMkNmW87RNJWt5gInSF0D8pN34aLMHVshRxcBPN1pIZgXM5t1SX
+         Ckvvrc/Q4ykpk9Z5xXXjnXrbeBTN3nCnaS3IEn3e62mmYBMM9H+VbvUkavSDw6434nqq
+         rPNl+UWLrzAVTTyunKV3ghpsXEqUf4cnLShQvcMsA35lhecKXhBKCn2/o+h1gPJVVItv
+         191qBShPudLyPMmoR3W7CwP1pMecCCofhv6W4kyknCFZmTyX1YGfwTdp6StUPQPLgOLn
+         5YIQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVGvfOJH+i5qC04LL5uovovUkTa/ekhqJVzzWQh8kWhdIkSAcbo8XMiOvogyRlyXxaVbyB6ZCRa8V73U8NSdzJYnH9H2oaQeVukGGiAY+e4
+X-Gm-Message-State: AOJu0YxczZm2VwdNjAOtxfIoCMABGs8DcNhNFTL06VJYy49kl/HpCKQ9
+	1KA8xhDhvKxNKDvVxoJs3r3xI5GB1tvLlcCUfjoXNk28hT7L532puikJ5oMw5L4=
+X-Google-Smtp-Source: AGHT+IG+4qcjwODC/mjEvyVMtdvYVHkfFCV6ubPYqh5WoweDatTqVpmhoXnXig8R9l1fsymD/hQgPQ==
+X-Received: by 2002:a81:8804:0:b0:64a:791b:60ce with SMTP id 00721157ae682-66500574925mr85667487b3.30.1721402061512;
+        Fri, 19 Jul 2024 08:14:21 -0700 (PDT)
+Received: from localhost ([140.82.166.162])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-44f9cd04062sm8510161cf.40.2024.07.19.08.14.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 19 Jul 2024 08:14:21 -0700 (PDT)
+Date: Fri, 19 Jul 2024 10:14:19 -0500
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	samuel.holland@sifive.com, conor.dooley@microchip.com, takakura@valinux.co.jp, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] RISC-V: Implement kgdb_roundup_cpus() to enable IPI KGDB
+ Roundup
+Message-ID: <20240719-8841a9a99566e15c9bd1ff3d@orel>
+References: <20240719081210.1457512-1-ruanjinjie@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 05/17] arch, mm: pull out allocation of NODE_DATA to
- generic code
-To: Mike Rapoport <rppt@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
- Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>,
- Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dan Williams <dan.j.williams@intel.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "David S. Miller" <davem@davemloft.net>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Heiko Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Jiaxun Yang <jiaxun.yang@flygoat.com>,
- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
- Jonathan Cameron <jonathan.cameron@huawei.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Palmer Dabbelt <palmer@dabbelt.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Thomas Gleixner <tglx@linutronix.de>, Vasily Gorbik <gor@linux.ibm.com>,
- Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
- loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-cxl@vger.kernel.org, nvdimm@lists.linux.dev,
- devicetree@vger.kernel.org, linux-arch@vger.kernel.org, linux-mm@kvack.org,
- x86@kernel.org
-References: <20240716111346.3676969-1-rppt@kernel.org>
- <20240716111346.3676969-6-rppt@kernel.org>
- <220da8ed-337a-4b1e-badf-2bff1d36e6c3@redhat.com>
- <Zpi-HAb7EBxrZBtK@kernel.org>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- WNyWQQ==
-Organization: Red Hat
-In-Reply-To: <Zpi-HAb7EBxrZBtK@kernel.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+Content-Disposition: inline
+In-Reply-To: <20240719081210.1457512-1-ruanjinjie@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240719_080745_401922_3CE56834 
-X-CRM114-Status: GOOD (  13.12  )
+X-CRM114-CacheID: sfid-20240719_081423_489274_2DAD200D 
+X-CRM114-Status: GOOD (  27.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,67 +89,151 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
->>> -	 * Allocate node data.  Try node-local memory and then any node.
->>> -	 * Never allocate in DMA zone.
->>> -	 */
->>> -	nd_pa = memblock_phys_alloc_try_nid(nd_size, SMP_CACHE_BYTES, nid);
->>> -	if (!nd_pa) {
->>> -		pr_err("Cannot find %zu bytes in any node (initial node: %d)\n",
->>> -		       nd_size, nid);
->>> -		return;
->>> -	}
->>> -	nd = __va(nd_pa);
->>> -
->>> -	/* report and initialize */
->>> -	printk(KERN_INFO "NODE_DATA(%d) allocated [mem %#010Lx-%#010Lx]\n", nid,
->>> -	       nd_pa, nd_pa + nd_size - 1);
->>> -	tnid = early_pfn_to_nid(nd_pa >> PAGE_SHIFT);
->>> -	if (tnid != nid)
->>> -		printk(KERN_INFO "    NODE_DATA(%d) on node %d\n", nid, tnid);
->>> -
->>> -	node_data[nid] = nd;
->>> -	memset(NODE_DATA(nid), 0, sizeof(pg_data_t));
->>> -
->>> -	node_set_online(nid);
->>> -}
->>> -
->>>    /**
->>>     * numa_cleanup_meminfo - Cleanup a numa_meminfo
->>>     * @mi: numa_meminfo to clean up
->>> @@ -571,6 +538,7 @@ static int __init numa_register_memblks(struct numa_meminfo *mi)
->>>    			continue;
->>>    		alloc_node_data(nid);
->>> +		node_set_online(nid);
->>>    	}
->>
->> I can spot that we only remove a single node_set_online() call from x86.
->>
->> What about all the other architectures? Will there be any change in behavior
->> for them? Or do we simply set the nodes online later once more?
+On Fri, Jul 19, 2024 at 04:12:10PM GMT, Jinjie Ruan wrote:
+> Until now, the generic weak kgdb_roundup_cpus() has been used for kgdb on
+> RISCV. A custom one allows to debug CPUs that are stuck with interrupts
+> disabled.
+
+This confuses me since we're using an IPI for the roundup. How does that
+work on CPUs stuck with interrupts disabled? I think this text comes
+from the commit message for the arm64 patch, but arm64 does the roundup
+with a pseudo-NMI.
+
+> And using an IPI is better than the generic one since it avoids
+> the potential situation described in the generic kgdb_call_nmi_hook().
+
+This is true.
+
 > 
-> On x86 node_set_online() was a part of alloc_node_data() and I moved it
-> outside so it's called right after alloc_node_data(). On other
-> architectures the allocation didn't include that call, so there should be
-> no difference there.
+> After this patch, the kgdb test show that:
+> 	# echo g > /proc/sysrq-trigger
+> 	[2]kdb> btc
+> 	btc: cpu status: Currently on cpu 2
+> 	Available cpus: 0-1(-), 2, 3(-)
+> 	Stack traceback for pid 0
+> 	0xffffffff81c13a40        0        0  1    0   -  0xffffffff81c14510  swapper/0
+> 	CPU: 0 PID: 0 Comm: swapper/0 Not tainted 6.10.0-g3120273055b6-dirty #51
+> 	Hardware name: riscv-virtio,qemu (DT)
+> 	Call Trace:
+> 	[<ffffffff80006c48>] dump_backtrace+0x28/0x30
+> 	[<ffffffff80fceb38>] show_stack+0x38/0x44
+> 	[<ffffffff80fe6a04>] dump_stack_lvl+0x58/0x7a
+> 	[<ffffffff80fe6a3e>] dump_stack+0x18/0x20
+> 	[<ffffffff801143fa>] kgdb_cpu_enter+0x682/0x6b2
+> 	[<ffffffff801144ca>] kgdb_nmicallback+0xa0/0xac
+> 	[<ffffffff8000a392>] handle_IPI+0x9c/0x120
+> 	[<ffffffff800a2baa>] handle_percpu_devid_irq+0xa4/0x1e4
+> 	[<ffffffff8009cca8>] generic_handle_domain_irq+0x28/0x36
+> 	[<ffffffff800a9e5c>] ipi_mux_process+0xe8/0x110
+> 	[<ffffffff806e1e30>] imsic_handle_irq+0xf8/0x13a
+> 	[<ffffffff8009cca8>] generic_handle_domain_irq+0x28/0x36
+> 	[<ffffffff806dff12>] riscv_intc_aia_irq+0x2e/0x40
+> 	[<ffffffff80fe6ab0>] handle_riscv_irq+0x54/0x86
+> 	[<ffffffff80ff2e4a>] call_on_irq_stack+0x32/0x40
+> 
+> Rebased on Ryo Takakura's "RISC-V: Enable IPI CPU Backtrace" patch.
+> 
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> ---
+>  arch/riscv/kernel/smp.c | 27 +++++++++++++++++++++++++--
+>  1 file changed, 25 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+> index 9b047899791c..c180a647a30e 100644
+> --- a/arch/riscv/kernel/smp.c
+> +++ b/arch/riscv/kernel/smp.c
+> @@ -13,6 +13,7 @@
+>  #include <linux/interrupt.h>
+>  #include <linux/module.h>
+>  #include <linux/kexec.h>
+> +#include <linux/kgdb.h>
+>  #include <linux/percpu.h>
+>  #include <linux/profile.h>
+>  #include <linux/smp.h>
+> @@ -35,6 +36,7 @@ enum ipi_message_type {
+>  	IPI_IRQ_WORK,
+>  	IPI_TIMER,
+>  	IPI_CPU_BACKTRACE,
+> +	IPI_KGDB_ROUNDUP,
+>  	IPI_MAX
+>  };
+>  
+> @@ -115,6 +117,7 @@ void arch_irq_work_raise(void)
+>  
+>  static irqreturn_t handle_IPI(int irq, void *data)
+>  {
+> +	unsigned int cpu = smp_processor_id();
+>  	int ipi = irq - ipi_virq_base;
+>  
+>  	switch (ipi) {
+> @@ -128,7 +131,7 @@ static irqreturn_t handle_IPI(int irq, void *data)
+>  		ipi_stop();
+>  		break;
+>  	case IPI_CPU_CRASH_STOP:
+> -		ipi_cpu_crash_stop(smp_processor_id(), get_irq_regs());
+> +		ipi_cpu_crash_stop(cpu, get_irq_regs());
+>  		break;
+>  	case IPI_IRQ_WORK:
+>  		irq_work_run();
+> @@ -141,8 +144,11 @@ static irqreturn_t handle_IPI(int irq, void *data)
+>  	case IPI_CPU_BACKTRACE:
+>  		nmi_cpu_backtrace(get_irq_regs());
+>  		break;
+> +	case IPI_KGDB_ROUNDUP:
+> +		kgdb_nmicallback(cpu, get_irq_regs());
+> +		break;
+>  	default:
+> -		pr_warn("CPU%d: unhandled IPI%d\n", smp_processor_id(), ipi);
+> +		pr_warn("CPU%d: unhandled IPI%d\n", cpu, ipi);
+>  		break;
+>  	}
+>  
+> @@ -209,6 +215,7 @@ static const char * const ipi_names[] = {
+>  	[IPI_IRQ_WORK]		= "IRQ work interrupts",
+>  	[IPI_TIMER]		= "Timer broadcast interrupts",
+>  	[IPI_CPU_BACKTRACE]     = "CPU backtrace interrupts",
+> +	[IPI_KGDB_ROUNDUP]	= "KGDB roundup interrupts",
+>  };
+>  
+>  void show_ipi_stats(struct seq_file *p, int prec)
+> @@ -339,3 +346,19 @@ void arch_trigger_cpumask_backtrace(const cpumask_t *mask, int exclude_cpu)
+>  {
+>  	nmi_trigger_cpumask_backtrace(mask, exclude_cpu, riscv_backtrace_ipi);
+>  }
+> +
+> +#ifdef CONFIG_KGDB
+> +void kgdb_roundup_cpus(void)
+> +{
+> +	int this_cpu = raw_smp_processor_id();
+> +	int cpu;
+> +
+> +	for_each_online_cpu(cpu) {
+> +		/* No need to roundup ourselves */
+> +		if (cpu == this_cpu)
+> +			continue;
+> +
+> +		send_ipi_single(cpu, IPI_KGDB_ROUNDUP);
+> +	}
+> +}
+> +#endif
+> -- 
+> 2.34.1
+>
 
-But won't their arch code try setting the nodes online at a later stage?
+Other than the commit message, the patch looks good to me, so
 
-And I think, some architectures only set nodes online conditionally
-(see most other node_set_online() calls).
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
-Sorry if I'm confused here, but with now unconditional node_set_online(), won't
-we change the behavior of other architectures?
+but I guess we should extend this and the CPU backtrace support to use
+NMIs when we have support for them.
 
--- 
-Cheers,
-
-David / dhildenb
-
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
