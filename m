@@ -4,65 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1710C3DA5D
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jul 2024 13:17:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E57C8C3DA59
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jul 2024 13:22:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MbBz9yJ8Tq6dhA9vrvu8CQzX+pzZQ+kroQ5pX2xbsVk=; b=jg9hJUV/j3TOqoXTPF2E+Vq/sr
-	KkW+hkuT+vhxu9hZ2OGpJqjhOBgOdG+SSrsOJGwjEN2Db8kr/t2i/TIUyG7xr/scnfvFdzftMu4qa
-	jgB2L6JtLwiCtuWc27ZnCeimyA735ZTuXRNzqRfTLvv+cMBoOPBsuXp6sc/cL4AXVfOlAmkmmh1Qu
-	YKrvwbelid1jpiuMuwPnMQkqih839u23TTVMvJcb0d3Mh1MCZ098pMsrglCE8agGDW4/1wmFClP3D
-	pQpY/+V5QD6Ag2iedny6DWKBwaKUkvtC7KSwrRE4ZsK292BsEx88TseSeBxipqI4F0093rexMGTvu
-	oHLFGJqA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=q3CoDcxwPoJB1gqqZZZJNGfBURk/GZCa57IJJRfmaQI=; b=Rxg9zO2YEMcyff
+	WDMS11rFRbmVWBpHU5uYTPKm+jsdFBOkr1uSByrIpB9Sy+sA2HbTOyZ67I+9ypk9RI4viB7+bvJMC
+	i1p9r2YZ5KPBs8wW62xG0yutgvBSeteweZ3yMNjw3946wEoa+eg5Pxsj5qtd3Idilbs8xybPtJUqm
+	xd4ksA+l18Z2nx8h4i+y/JjJyj2dadBmE+O+PtAYDmbepbCeMLkF5otKO4o7cRB1BRtR24V7pCmUA
+	e1tBSMnmIAf8Q7q2W2sILzmU8nPFPzVwcJAupiCh4W2i83+jxKR4LVRC9WeXLKTo7RGRvJg/mc3n7
+	z//lTPMFopOC8SmwKXdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUnU9-00000002kFG-45iA;
-	Fri, 19 Jul 2024 13:17:21 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1sUnZH-00000002lHZ-1ROT;
+	Fri, 19 Jul 2024 13:22:39 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUnU6-00000002kDK-23GR;
-	Fri, 19 Jul 2024 13:17:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EBD9B61BBB;
-	Fri, 19 Jul 2024 13:17:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA35AC32782;
-	Fri, 19 Jul 2024 13:17:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1721395037;
-	bh=qtLPFOhjqFSQYLpvCLe3qCCW4Py65LMqZdG1qvlJQ00=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BX2Ysd7HikpMDPOtr1h9L5jSD24rg6Ar4jIpudeOW75Ly61bPrVuFM8vH1CYKX6Li
-	 2uJyxkwcqs9OnDeFrBkpahew6+Mie/ztcLEfSa4Dv3EXLvfUHnkEFajzNh5uKBqBni
-	 iJFP0EkMY77o821Fwfkh2xlFsyatrgxuX+Qv/MRRMLJwOBcES5LFBoRG/gCNB6QJq8
-	 WcIutfAiNxcpZU75Qf7cfS1j8EeyoLjrbPDUfxDsW+4vwPGMFldfln9TKqaFiX9Dye
-	 OuLHSRI8uIWoEPoStzlx6ROavXVt9xom8g3hmKL8Ldp0XaXaaXNFlZBOivtfEMyR/s
-	 4lJIYzCFCmJEw==
-Date: Fri, 19 Jul 2024 14:17:12 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-Cc: Samuel Holland <samuel.holland@sifive.com>, greentime.hu@sifive.com,
-	vincent.chen@sifive.com, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org
-Subject: Re: [PATCH v7 2/4] dt-bindings: riscv: Add Svade and Svadu Entries
-Message-ID: <20240719-flatten-elixir-d4476977ab95@spud>
-References: <20240712083850.4242-1-yongxuan.wang@sifive.com>
- <20240712083850.4242-3-yongxuan.wang@sifive.com>
- <727b966a-a8c4-4021-acf6-3c031ccd843a@sifive.com>
- <CAMWQL2g-peSYJQaxeJtyOzGdEmDQ6cnkRBdFQvLr2NQA1+mv2g@mail.gmail.com>
+	id 1sUnZF-00000002lH7-0lZP
+	for linux-riscv@lists.infradead.org;
+	Fri, 19 Jul 2024 13:22:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1721395357; x=1752931357;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=9Nakq1tGJdPzBFgVh+daEn1/8+fMREvL4fAwk6DJBjc=;
+  b=RiSIXsJQm+VbLFLXK6QigZbFaPoAwpJKmyG6f+RiCEgkCHAnRpzaHr0o
+   WX6TpcFyZGQHTM9mPyei2LqMelnZhU18NWzNIRNPM6/GqoQi4iiaLROjc
+   vi89N51R464NKDi6cN/YUSYj9AsY/rdUNCC7b6DYdTbtKbVeVMR4W3HFo
+   n7ZAQS1RLeMpLlz0I1XkM9RRVsCtRlkWtafOGJVRsaLbQOWuoWoDw+XzM
+   o25EnF0rXVofkoKAV8jKsaVH/X+6aXko4MP139Y/kfpeBawa0n0aRKhx9
+   73mwLqtzgmvzvr2450s9pJFqe4+fIgtwpkrsikcI8CzsOUuif/isjW4I2
+   A==;
+X-CSE-ConnectionGUID: ih8GLA5VR8eg6/zrevIRqA==
+X-CSE-MsgGUID: sex9cld2SwGfoGUeSXU6TA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11138"; a="30158802"
+X-IronPort-AV: E=Sophos;i="6.09,220,1716274800"; 
+   d="scan'208";a="30158802"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Jul 2024 06:22:32 -0700
+X-CSE-ConnectionGUID: MlDv4wKcRsOa0jfxUy3vSQ==
+X-CSE-MsgGUID: 2IFtte+OReya7KNsFJSmwA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.09,220,1716274800"; 
+   d="scan'208";a="51171000"
+Received: from ahunter6-mobl1.ger.corp.intel.com (HELO [10.0.2.15]) ([10.245.150.149])
+  by fmviesa010-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Jul 2024 06:22:24 -0700
+Message-ID: <e3a21f89-d857-4f67-8878-c3f2f4dcc205@intel.com>
+Date: Fri, 19 Jul 2024 16:22:17 +0300
 MIME-Version: 1.0
-In-Reply-To: <CAMWQL2g-peSYJQaxeJtyOzGdEmDQ6cnkRBdFQvLr2NQA1+mv2g@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 1/8] mmc: sdhci-of-dwcmshc: add common bulk optional
+ clocks support
+To: Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu,
+ conor+dt@kernel.org, guoren@kernel.org, inochiama@outlook.com,
+ jszhang@kernel.org, krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, robh@kernel.org, ulf.hansson@linaro.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-mmc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ chao.wei@sophgo.com, haijiao.liu@sophgo.com, xiaoguang.xing@sophgo.com,
+ tingzhu.wang@sophgo.com
+Cc: Chen Wang <unicorn_wang@outlook.com>
+References: <cover.1721377374.git.unicorn_wang@outlook.com>
+ <e6d09bb8f0b02843967cd5c6d378ce5adbbf661f.1721377374.git.unicorn_wang@outlook.com>
+Content-Language: en-US
+From: Adrian Hunter <adrian.hunter@intel.com>
+Organization: Intel Finland Oy, Registered Address: PL 281, 00181 Helsinki,
+ Business Identity Code: 0357606 - 4, Domiciled in Helsinki
+In-Reply-To: <e6d09bb8f0b02843967cd5c6d378ce5adbbf661f.1721377374.git.unicorn_wang@outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240719_061718_647928_B6FC91D6 
-X-CRM114-Status: GOOD (  26.93  )
+X-CRM114-CacheID: sfid-20240719_062237_307421_E9B52D8C 
+X-CRM114-Status: GOOD (  24.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,131 +90,233 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4187711450152382329=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 19/07/24 11:45, Chen Wang wrote:
+> From: Chen Wang <unicorn_wang@outlook.com>
+> 
+> In addition to the required core clock and optional
+> bus clock, the soc will expand its own clocks, so
+> the bulk clock mechanism is abstracted.
+> 
+> Note, I call the bulk clocks as "other clocks" due
+> to the bus clock has been called as "optional".
+> 
+> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
+> ---
+>  drivers/mmc/host/sdhci-of-dwcmshc.c | 91 ++++++++++++++++-------------
+>  1 file changed, 49 insertions(+), 42 deletions(-)
+> 
+> diff --git a/drivers/mmc/host/sdhci-of-dwcmshc.c b/drivers/mmc/host/sdhci-of-dwcmshc.c
+> index e79aa4b3b6c3..fb4076c19ed5 100644
+> --- a/drivers/mmc/host/sdhci-of-dwcmshc.c
+> +++ b/drivers/mmc/host/sdhci-of-dwcmshc.c
+> @@ -108,7 +108,6 @@
+>  #define DLL_LOCK_WO_TMOUT(x) \
+>  	((((x) & DWCMSHC_EMMC_DLL_LOCKED) == DWCMSHC_EMMC_DLL_LOCKED) && \
+>  	(((x) & DWCMSHC_EMMC_DLL_TIMEOUT) == 0))
+> -#define RK35xx_MAX_CLKS 3
+>  
+>  /* PHY register area pointer */
+>  #define DWC_MSHC_PTR_PHY_R	0x300
+> @@ -199,23 +198,54 @@ enum dwcmshc_rk_type {
+>  };
+>  
+>  struct rk35xx_priv {
+> -	/* Rockchip specified optional clocks */
+> -	struct clk_bulk_data rockchip_clks[RK35xx_MAX_CLKS];
+>  	struct reset_control *reset;
+>  	enum dwcmshc_rk_type devtype;
+>  	u8 txclk_tapnum;
+>  };
+>  
+> +#define DWCMSHC_MAX_OTHER_CLKS 3
+> +
+>  struct dwcmshc_priv {
+>  	struct clk	*bus_clk;
+>  	int vendor_specific_area1; /* P_VENDOR_SPECIFIC_AREA1 reg */
+>  	int vendor_specific_area2; /* P_VENDOR_SPECIFIC_AREA2 reg */
+>  
+> +	int num_other_clks;
+> +	struct clk_bulk_data other_clks[DWCMSHC_MAX_OTHER_CLKS];
+> +
+>  	void *priv; /* pointer to SoC private stuff */
+>  	u16 delay_line;
+>  	u16 flags;
+>  };
+>  
+> +static int dwcmshc_get_enable_other_clks(struct device *dev,
+> +					 struct dwcmshc_priv *priv,
+> +					 int num_clks,
+> +					 const char * const clk_ids[])
+> +{
+> +	int err;
+> +
+> +	if (num_clks > DWCMSHC_MAX_OTHER_CLKS)
+> +		return -EINVAL;
+> +
+> +	for (int i = 0; i < num_clks; i++)
+> +		priv->other_clks[i].id = clk_ids[i];
+> +
+> +	err = devm_clk_bulk_get_optional(dev, num_clks, priv->other_clks);
+> +	if (err) {
+> +		dev_err(dev, "failed to get clocks %d\n", err);
+> +		return err;
+> +	}
+> +
+> +	err = clk_bulk_prepare_enable(num_clks, priv->other_clks);
+> +	if (err)
+> +		dev_err(dev, "failed to enable clocks %d\n", err);
+> +
+> +	priv->num_other_clks = num_clks;
+> +
+> +	return err;
+> +}
+> +
+>  /*
+>   * If DMA addr spans 128MB boundary, we split the DMA transfer into two
+>   * so that each DMA transfer doesn't exceed the boundary.
+> @@ -1036,8 +1066,9 @@ static void dwcmshc_cqhci_init(struct sdhci_host *host, struct platform_device *
+>  
+>  static int dwcmshc_rk35xx_init(struct sdhci_host *host, struct dwcmshc_priv *dwc_priv)
+>  {
+> -	int err;
+> +	static const char * const clk_ids[] = {"axi", "block", "timer"};
+>  	struct rk35xx_priv *priv = dwc_priv->priv;
+> +	int err;
+>  
+>  	priv->reset = devm_reset_control_array_get_optional_exclusive(mmc_dev(host->mmc));
+>  	if (IS_ERR(priv->reset)) {
+> @@ -1046,21 +1077,10 @@ static int dwcmshc_rk35xx_init(struct sdhci_host *host, struct dwcmshc_priv *dwc
+>  		return err;
+>  	}
+>  
+> -	priv->rockchip_clks[0].id = "axi";
+> -	priv->rockchip_clks[1].id = "block";
+> -	priv->rockchip_clks[2].id = "timer";
+> -	err = devm_clk_bulk_get_optional(mmc_dev(host->mmc), RK35xx_MAX_CLKS,
+> -					 priv->rockchip_clks);
+> -	if (err) {
+> -		dev_err(mmc_dev(host->mmc), "failed to get clocks %d\n", err);
+> -		return err;
+> -	}
+> -
+> -	err = clk_bulk_prepare_enable(RK35xx_MAX_CLKS, priv->rockchip_clks);
+> -	if (err) {
+> -		dev_err(mmc_dev(host->mmc), "failed to enable clocks %d\n", err);
+> +	err = dwcmshc_get_enable_other_clks(mmc_dev(host->mmc), dwc_priv,
+> +					    ARRAY_SIZE(clk_ids), clk_ids);
+> +	if (err)
+>  		return err;
+> -	}
+>  
+>  	if (of_property_read_u8(mmc_dev(host->mmc)->of_node, "rockchip,txclk-tapnum",
+>  				&priv->txclk_tapnum))
+> @@ -1280,9 +1300,8 @@ static int dwcmshc_probe(struct platform_device *pdev)
+>  err_clk:
+>  	clk_disable_unprepare(pltfm_host->clk);
+>  	clk_disable_unprepare(priv->bus_clk);
+> -	if (rk_priv)
+> -		clk_bulk_disable_unprepare(RK35xx_MAX_CLKS,
+> -					   rk_priv->rockchip_clks);
+> +	if (priv->num_other_clks)
 
---===============4187711450152382329==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="FVYN+Rx9CKi55/SI"
-Content-Disposition: inline
+'if (priv->num_other_clks)' is not necessary. clk_bulk_disable_unprepare()
+does nothing if the number of clks is zero.
 
+> +		clk_bulk_disable_unprepare(priv->num_other_clks, priv->other_clks);
+>  free_pltfm:
+>  	sdhci_pltfm_free(pdev);
+>  	return err;
+> @@ -1304,7 +1323,6 @@ static void dwcmshc_remove(struct platform_device *pdev)
+>  	struct sdhci_host *host = platform_get_drvdata(pdev);
+>  	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
+>  	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
+> -	struct rk35xx_priv *rk_priv = priv->priv;
+>  
+>  	pm_runtime_get_sync(&pdev->dev);
+>  	pm_runtime_disable(&pdev->dev);
+> @@ -1316,9 +1334,7 @@ static void dwcmshc_remove(struct platform_device *pdev)
+>  
+>  	clk_disable_unprepare(pltfm_host->clk);
+>  	clk_disable_unprepare(priv->bus_clk);
+> -	if (rk_priv)
+> -		clk_bulk_disable_unprepare(RK35xx_MAX_CLKS,
+> -					   rk_priv->rockchip_clks);
+> +	clk_bulk_disable_unprepare(priv->num_other_clks, priv->other_clks);
+>  	sdhci_pltfm_free(pdev);
+>  }
+>  
+> @@ -1328,7 +1344,6 @@ static int dwcmshc_suspend(struct device *dev)
+>  	struct sdhci_host *host = dev_get_drvdata(dev);
+>  	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
+>  	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
+> -	struct rk35xx_priv *rk_priv = priv->priv;
+>  	int ret;
+>  
+>  	pm_runtime_resume(dev);
+> @@ -1347,9 +1362,7 @@ static int dwcmshc_suspend(struct device *dev)
+>  	if (!IS_ERR(priv->bus_clk))
+>  		clk_disable_unprepare(priv->bus_clk);
+>  
+> -	if (rk_priv)
+> -		clk_bulk_disable_unprepare(RK35xx_MAX_CLKS,
+> -					   rk_priv->rockchip_clks);
+> +	clk_bulk_disable_unprepare(priv->num_other_clks, priv->other_clks);
+>  
+>  	return ret;
+>  }
+> @@ -1359,7 +1372,6 @@ static int dwcmshc_resume(struct device *dev)
+>  	struct sdhci_host *host = dev_get_drvdata(dev);
+>  	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
+>  	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
+> -	struct rk35xx_priv *rk_priv = priv->priv;
+>  	int ret;
+>  
+>  	ret = clk_prepare_enable(pltfm_host->clk);
+> @@ -1372,29 +1384,24 @@ static int dwcmshc_resume(struct device *dev)
+>  			goto disable_clk;
+>  	}
+>  
+> -	if (rk_priv) {
+> -		ret = clk_bulk_prepare_enable(RK35xx_MAX_CLKS,
+> -					      rk_priv->rockchip_clks);
+> -		if (ret)
+> -			goto disable_bus_clk;
+> -	}
+> +	ret = clk_bulk_prepare_enable(priv->num_other_clks, priv->other_clks);
+> +	if (ret)
+> +		goto disable_bus_clk;
+>  
+>  	ret = sdhci_resume_host(host);
+>  	if (ret)
+> -		goto disable_rockchip_clks;
+> +		goto disable_other_clks;
+>  
+>  	if (host->mmc->caps2 & MMC_CAP2_CQE) {
+>  		ret = cqhci_resume(host->mmc);
+>  		if (ret)
+> -			goto disable_rockchip_clks;
+> +			goto disable_other_clks;
+>  	}
+>  
+>  	return 0;
+>  
+> -disable_rockchip_clks:
+> -	if (rk_priv)
+> -		clk_bulk_disable_unprepare(RK35xx_MAX_CLKS,
+> -					   rk_priv->rockchip_clks);
+> +disable_other_clks:
+> +	clk_bulk_disable_unprepare(priv->num_other_clks, priv->other_clks);
+>  disable_bus_clk:
+>  	if (!IS_ERR(priv->bus_clk))
+>  		clk_disable_unprepare(priv->bus_clk);
 
---FVYN+Rx9CKi55/SI
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Jul 19, 2024 at 02:58:59PM +0800, Yong-Xuan Wang wrote:
-> Hi Samuel,
->=20
-> On Fri, Jul 19, 2024 at 7:38=E2=80=AFAM Samuel Holland
-> <samuel.holland@sifive.com> wrote:
-> >
-> > On 2024-07-12 3:38 AM, Yong-Xuan Wang wrote:
-> > > Add entries for the Svade and Svadu extensions to the riscv,isa-exten=
-sions
-> > > property.
-> > >
-> > > Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-> > > ---
-> > >  .../devicetree/bindings/riscv/extensions.yaml | 28 +++++++++++++++++=
-++
-> > >  1 file changed, 28 insertions(+)
-> > >
-> > > diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml =
-b/Documentation/devicetree/bindings/riscv/extensions.yaml
-> > > index 468c646247aa..e91a6f4ede38 100644
-> > > --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-> > > +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-> > > @@ -153,6 +153,34 @@ properties:
-> > >              ratified at commit 3f9ed34 ("Add ability to manually tri=
-gger
-> > >              workflow. (#2)") of riscv-time-compare.
-> > >
-> > > +        - const: svade
-> > > +          description: |
-> > > +            The standard Svade supervisor-level extension for SW-man=
-aged PTE A/D
-> > > +            bit updates as ratified in the 20240213 version of the p=
-rivileged
-> > > +            ISA specification.
-> > > +
-> > > +            Both Svade and Svadu extensions control the hardware beh=
-avior when
-> > > +            the PTE A/D bits need to be set. The default behavior fo=
-r the four
-> > > +            possible combinations of these extensions in the device =
-tree are:
-> > > +            1) Neither Svade nor Svadu present in DT =3D> It is tech=
-nically
-> > > +               unknown whether the platform uses Svade or Svadu. Sup=
-ervisor
-> > > +               software should be prepared to handle either hardware=
- updating
-> > > +               of the PTE A/D bits or page faults when they need upd=
-ated.
-> > > +            2) Only Svade present in DT =3D> Supervisor must assume =
-Svade to be
-> > > +               always enabled.
-> > > +            3) Only Svadu present in DT =3D> Supervisor must assume =
-Svadu to be
-> > > +               always enabled.
-> > > +            4) Both Svade and Svadu present in DT =3D> Supervisor mu=
-st assume
-> > > +               Svadu turned-off at boot time. To use Svadu, supervis=
-or must
-> > > +               explicitly enable it using the SBI FWFT extension.
-> > > +
-> > > +        - const: svadu
-> > > +          description: |
-> > > +            The standard Svadu supervisor-level extension for hardwa=
-re updating
-> > > +            of PTE A/D bits as ratified at commit c1abccf ("Merge pu=
-ll request
-> > > +            #25 from ved-rivos/ratified") of riscv-svadu. Please ref=
-er to Svade
-> >
-> > Should we be referencing the archived riscv-svadu repository now that S=
-vadu has
-> > been merged to the main privileged ISA manual? Either way:
-> >
-> > Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
-> >
->=20
-> Yes, this commit is from the archived riscv-svadu repo. Or should I updat=
-e it to
-> "commit c1abccf ("Merge pull request  #25 from ved-rivos/ratified") of
-> riscvarchive/riscv-svadu."?
-
-I think Samuel was saying that we should use the commit where it was
-merged into riscv-isa-manual instead.
-
---FVYN+Rx9CKi55/SI
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZppnRwAKCRB4tDGHoIJi
-0qmzAPwPCohsOIh0JMJTv+r89hx01GSGvJwwS4SEQyLjNq8GTwD/bTyQl6+PLCAD
-n+bWqAgty3EMTJXCctxru5eDIOrN3wU=
-=IM8G
------END PGP SIGNATURE-----
-
---FVYN+Rx9CKi55/SI--
-
-
---===============4187711450152382329==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4187711450152382329==--
-
