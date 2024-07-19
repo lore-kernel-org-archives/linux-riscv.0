@@ -4,72 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8614BC3DA59
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jul 2024 09:55:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 119F7C3DA59
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jul 2024 11:05:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lx/GfEAVgbLonSr3TCU8687wWRw2butmWu7qYXSV1DQ=; b=QlEZA5ZLe5kdMj
-	2oxkNDEhVqzdwbE1Kfsd3treJnBKZKrb6zu+fScEViXzsXdVO72sBXP+mBC3BDjM2Tz0YGkWDCLh4
-	76gFQay3c5kKVt8Bce/DVWo7dL4Z6NwrcB5pwPrjmbD0ebRZg99bRGzTYfqaU6RTZUKWkGK0HNY1d
-	oUASyLkwejxadTKXDt8sd+pnGYSOnNFm11xY34Z14aCs2UrQr+aGK33qEW/vZWHqsxOML6Ee5Y1WA
-	Odf5AJGN9BUkmsXZqo7L9iohbbwrQi3ZJ8qtQ1Vc7x4EI541/xDkjJH2ASYLvcr3Bj/UfPmeoSK4G
-	BQGVDh6EpkiRwzy+JvfQ==;
+	List-Owner; bh=dfgHL4VNVFA2X2iDzj9xHVsDSZGJRo3y/+MuqBiMvQk=; b=EoAG+f6VjUuWCk
+	1hBzNtFnZxTHWkxVhAapX40w6OgEpygYmSxFvSKD9cMqX1F7xhFeq3cW1Xy61E7FWWbrQZs2WJogC
+	P1l+P54OBacrycT90ff6OVfTRlUAf3vo69dsKADvRrllistfzK6gIsVrUKS1e7+/QNkri/BCSKybX
+	iZD4Xrh5vZlBpTYkzMwyaeQhKjGMFKPt++gGDzSkbkLpeZFY9rT2JHEPcCDAkfjuFCubnUGA9AzUP
+	/YD0hV1RxFKQWfW7nBMcEcfnBeO443ONKg6n8Y6winLnLQ2F9xEl5/Z27fzfg6rkt4l8xYf1f+APN
+	ahK+uxi9t5FRdZx81FsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUkLA-00000002KRj-2U5Z;
-	Fri, 19 Jul 2024 09:55:52 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1sUlQZ-00000002TGE-1P3v;
+	Fri, 19 Jul 2024 11:05:31 +0000
+Received: from mail-yw1-f171.google.com ([209.85.128.171])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUkL6-00000002KQw-3kAa;
-	Fri, 19 Jul 2024 09:55:50 +0000
-Received: from [192.168.12.218] (unknown [121.237.44.107])
-	by APP-01 (Coremail) with SMTP id qwCowAB3fMgaOJpmVhxMBA--.3012S2;
-	Fri, 19 Jul 2024 17:55:38 +0800 (CST)
-Message-ID: <2dc4c5bb-57b0-415a-87e9-f738062e1d29@iscas.ac.cn>
-Date: Fri, 19 Jul 2024 17:55:38 +0800
+	id 1sUlQV-00000002TFj-3TU2
+	for linux-riscv@lists.infradead.org;
+	Fri, 19 Jul 2024 11:05:29 +0000
+Received: by mail-yw1-f171.google.com with SMTP id 00721157ae682-664ccd158b0so18443077b3.1
+        for <linux-riscv@lists.infradead.org>; Fri, 19 Jul 2024 04:05:26 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1721387124; x=1721991924;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=f9Syv7sYvr8dFphe6oDhNBd5AoqFGOBMWLjrnJkdXso=;
+        b=ruR0dfijnp1EoitVJ0N940ES1+L7+nsIR0FHzP9vhjzb7T5rcDWOB7JufxNnrp6kpc
+         HWjGs9V1k1TTU7hUMqS+XrbxOcZfpasAmaix8BjYBFe/pHvuxtbGfMRWkyhO9A/YfcW4
+         ogweA3gioUb8iT/BaDA3HUCcSDQx70udGXO188NJh8U0bavUaHUuLklMsN/c+514UsF8
+         8irPeNkTRsVXbviA4DVzZFTAofoxnixpfCPmUGuFVZn4NOqyaHmItGdp/2rktTQbEFey
+         19w245eFSqXas5slvi1m8ryIzyRdF8QsmTwD4mS+RadXr7ec4lmL/nFd30WZDEziQtR0
+         FlPw==
+X-Gm-Message-State: AOJu0YwRdHz0kSaffsbEkiGhi6wTrkfMLxlm6+UR+VMlrGGTyzrGiD/E
+	u/62vbHtr+9e51aGj3VxLujU7ZYwZW2vS585jrdA5zi2+N5MAbIIrxavG4C1
+X-Google-Smtp-Source: AGHT+IEp55OqJpom3vXQtcfDJyndwO66LZjAwKmFV/Yi+0yuF5D+HP6NB/qQ4xuTusi5bNeXy0dSrA==
+X-Received: by 2002:a81:85c5:0:b0:64a:489c:4fbc with SMTP id 00721157ae682-66500d32c71mr86329507b3.46.1721387124278;
+        Fri, 19 Jul 2024 04:05:24 -0700 (PDT)
+Received: from mail-yb1-f172.google.com (mail-yb1-f172.google.com. [209.85.219.172])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-6695245b17esm4087697b3.51.2024.07.19.04.05.22
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 19 Jul 2024 04:05:24 -0700 (PDT)
+Received: by mail-yb1-f172.google.com with SMTP id 3f1490d57ef6-e05e4c3228bso1632976276.0
+        for <linux-riscv@lists.infradead.org>; Fri, 19 Jul 2024 04:05:22 -0700 (PDT)
+X-Received: by 2002:a05:6902:2b93:b0:dff:3028:4631 with SMTP id
+ 3f1490d57ef6-e05ed729577mr9622463276.33.1721387122548; Fri, 19 Jul 2024
+ 04:05:22 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] riscv: KVM: add basic support for host vs guest
- profiling
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-perf-users@vger.kernel.org, anup@brainfault.org,
- atishp@atishpatra.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, mark.rutland@arm.com,
- alexander.shishkin@linux.intel.com, jolsa@kernel.org
-References: <cover.1721271251.git.zhouquan@iscas.ac.cn>
- <fbf8a9fcca05a1b554ac0d01b0c46fbb6263c435.1721271251.git.zhouquan@iscas.ac.cn>
- <20240718-f39bdec648fc285ffe46cc3e@orel>
-Content-Language: en-US
-From: Quan Zhou <zhouquan@iscas.ac.cn>
-In-Reply-To: <20240718-f39bdec648fc285ffe46cc3e@orel>
-X-CM-TRANSID: qwCowAB3fMgaOJpmVhxMBA--.3012S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxArW3KFy7Cr4UKr4fuw4xtFb_yoWrAFy5pF
-	Z8CFs8Cw4rtryxKa4Svr1v9r4Fqrs5Kw13Zry8CFy5Jrs8Kry8Jr4vg34DCr98AF40qF1I
-	yFy8KF13uwn8J3DanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvIb7Iv0xC_Zr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwV
-	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr
-	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7
-	MxkIecxEwVAFwVW8uwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s
-	026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_
-	Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20x
-	vEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE
-	14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf
-	9x07jY89tUUUUU=
-X-Originating-IP: [121.237.44.107]
-X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiDAgDBmaZ9QP4jgABs-
+References: <20240717-shrubs-concise-51600886babf@spud>
+In-Reply-To: <20240717-shrubs-concise-51600886babf@spud>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 19 Jul 2024 13:05:10 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdXc_VPRLg1N_uCerXzzntJ23pq6m3Jb5eSPVZjxuXjHAg@mail.gmail.com>
+Message-ID: <CAMuHMdXc_VPRLg1N_uCerXzzntJ23pq6m3Jb5eSPVZjxuXjHAg@mail.gmail.com>
+Subject: Re: [PATCH v1] RISC-V: run savedefconfig for defconfig
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, linux-renesas-soc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240719_025549_365174_05C71DCE 
-X-CRM114-Status: GOOD (  18.64  )
+X-CRM114-CacheID: sfid-20240719_040527_887670_FC2852BA 
+X-CRM114-Status: GOOD (  17.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,145 +84,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On 2024/7/19 01:09, Andrew Jones wrote:
-> On Thu, Jul 18, 2024 at 07:23:51PM GMT, zhouquan@iscas.ac.cn wrote:
->> From: Quan Zhou <zhouquan@iscas.ac.cn>
->>
->> For the information collected on the host side, we need to
->> identify which data originates from the guest and record
->> these events separately. This can be achieved by having
->> KVM register perf callbacks.
->>
->> Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
->> ---
->>   arch/riscv/include/asm/kvm_host.h |  6 ++++++
->>   arch/riscv/kvm/Kconfig            |  1 +
->>   arch/riscv/kvm/main.c             | 12 ++++++++++--
->>   arch/riscv/kvm/vcpu.c             |  7 +++++++
->>   4 files changed, 24 insertions(+), 2 deletions(-)
->>
->> diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
->> index d96281278586..b7bbe1c0c5dd 100644
->> --- a/arch/riscv/include/asm/kvm_host.h
->> +++ b/arch/riscv/include/asm/kvm_host.h
->> @@ -285,6 +285,12 @@ struct kvm_vcpu_arch {
->>   	} sta;
->>   };
->>   
->> +/* TODO: A more explicit approach might be needed here than this simple one */
-> 
-> Can you elaborate on this concern?
-> 
-
-Can we determine if a PMU interrupt occurs in the guest solely based on 
-whether the vcpu is loaded?
-
-In the kvm_arch_vcpu_ioctl_run while loop, when the guest exits, 
-host-side interrupts should be handled in local_irq_{enable/disable}. 
-Should we add a flag here (referencing x86) to further determine if 
-"this is a host interrupt triggered while the guest was running, rather 
-than when the host is running". Doing so might further reduce the 
-likelihood of perf incorrectly identifying "PMI in host" as "PMI in 
-guest," but it may not completely eliminate it.
-
-Have I misunderstood any points here?
-
-Thanks,
-Quan
-
->> +static inline bool kvm_arch_pmi_in_guest(struct kvm_vcpu *vcpu)
->> +{
->> +	return IS_ENABLED(CONFIG_GUEST_PERF_EVENTS) && !!vcpu;
->> +}
->> +
->>   static inline void kvm_arch_sync_events(struct kvm *kvm) {}
->>   static inline void kvm_arch_sched_in(struct kvm_vcpu *vcpu, int cpu) {}
->>   
->> diff --git a/arch/riscv/kvm/Kconfig b/arch/riscv/kvm/Kconfig
->> index 26d1727f0550..0c3cbb0915ff 100644
->> --- a/arch/riscv/kvm/Kconfig
->> +++ b/arch/riscv/kvm/Kconfig
->> @@ -32,6 +32,7 @@ config KVM
->>   	select KVM_XFER_TO_GUEST_WORK
->>   	select KVM_GENERIC_MMU_NOTIFIER
->>   	select SCHED_INFO
->> +	select GUEST_PERF_EVENTS if PERF_EVENTS
->>   	help
->>   	  Support hosting virtualized guest machines.
->>   
->> diff --git a/arch/riscv/kvm/main.c b/arch/riscv/kvm/main.c
->> index bab2ec34cd87..734b48d8f6dd 100644
->> --- a/arch/riscv/kvm/main.c
->> +++ b/arch/riscv/kvm/main.c
->> @@ -51,6 +51,12 @@ void kvm_arch_hardware_disable(void)
->>   	csr_write(CSR_HIDELEG, 0);
->>   }
->>   
->> +static void kvm_riscv_teardown(void)
->> +{
->> +	kvm_riscv_aia_exit();
->> +	kvm_unregister_perf_callbacks();
->> +}
->> +
->>   static int __init riscv_kvm_init(void)
->>   {
->>   	int rc;
->> @@ -105,9 +111,11 @@ static int __init riscv_kvm_init(void)
->>   		kvm_info("AIA available with %d guest external interrupts\n",
->>   			 kvm_riscv_aia_nr_hgei);
->>   
->> +	kvm_register_perf_callbacks(NULL);
->> +
->>   	rc = kvm_init(sizeof(struct kvm_vcpu), 0, THIS_MODULE);
->>   	if (rc) {
->> -		kvm_riscv_aia_exit();
->> +		kvm_riscv_teardown();
->>   		return rc;
->>   	}
->>   
->> @@ -117,7 +125,7 @@ module_init(riscv_kvm_init);
->>   
->>   static void __exit riscv_kvm_exit(void)
->>   {
->> -	kvm_riscv_aia_exit();
->> +	kvm_riscv_teardown();
->>   
->>   	kvm_exit();
->>   }
->> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
->> index 17e21df36cc1..c9d291865141 100644
->> --- a/arch/riscv/kvm/vcpu.c
->> +++ b/arch/riscv/kvm/vcpu.c
->> @@ -222,6 +222,13 @@ bool kvm_arch_vcpu_in_kernel(struct kvm_vcpu *vcpu)
->>   	return (vcpu->arch.guest_context.sstatus & SR_SPP) ? true : false;
->>   }
->>   
->> +#ifdef CONFIG_GUEST_PERF_EVENTS
->> +unsigned long kvm_arch_vcpu_get_ip(struct kvm_vcpu *vcpu)
->> +{
->> +	return vcpu->arch.guest_context.sepc;
->> +}
->> +#endif
->> +
->>   vm_fault_t kvm_arch_vcpu_fault(struct kvm_vcpu *vcpu, struct vm_fault *vmf)
->>   {
->>   	return VM_FAULT_SIGBUS;
->> -- 
->> 2.34.1
->>
-> 
-> Otherwise,
-> 
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQ29ub3IsCgpPbiBXZWQsIEp1bCAxNywgMjAyNCBhdCAzOjI54oCvUE0gQ29ub3IgRG9vbGV5
+IDxjb25vckBrZXJuZWwub3JnPiB3cm90ZToKPiBGcm9tOiBDb25vciBEb29sZXkgPGNvbm9yLmRv
+b2xleUBtaWNyb2NoaXAuY29tPgo+Cj4gSXQncyBiZWVuIGEgd2hpbGUgc2luY2UgdGhpcyB3YXMg
+cnVuLCBhbmQgdGhlcmUncyBhIGZldyB0aGluZ3MgdGhhdCBoYXZlCj4gY2hhbmdlZC4gRmlyc3Rs
+eSwgYWxtb3N0IGFsbCBvZiB0aGUgUmVuZXNhcyBzdHVmZiB2YW5pc2hlcyBiZWNhdXNlIHRoZQo+
+IGNvbmZpZyBmb3IgdGhlIFJaL0ZpdmUgaXMgZ2F0ZWQgYmVoaW5kIE5PTlBPUlRBQkxFLiBTZXZl
+cmFsIG9wdGlvbnMKPiAobGlrZSBDT05GSUdfUE0pIGFyZSByZW1vdmVkIGFzIHRoZXkgYXJlIHRo
+ZSBkZWZhdWx0IHZhbHVlcy4KPgo+IFRvIHJldGFpbiBERUZWRlJFUV9USEVSTUFMIGFuZCBCTEtf
+REVWX1RIUk9UVExJTkcsIGFkZCBQTV9ERVZGUkVRIGFuZAo+IEJMS19DR1JPVVAgcmVzcGVjdGl2
+ZWx5Lgo+Cj4gU2lnbmVkLW9mZi1ieTogQ29ub3IgRG9vbGV5IDxjb25vci5kb29sZXlAbWljcm9j
+aGlwLmNvbT4KClRoYW5rcyBmb3IgeW91ciBwYXRjaCEKClBlcmhhcHMgd2Ugc2hvdWxkIGFkZCBh
+biByemZpdmVfZGVmY29uZmlnPwoKR3J7b2V0amUsZWV0aW5nfXMsCgogICAgICAgICAgICAgICAg
+ICAgICAgICBHZWVydAoKLS0gCkdlZXJ0IFV5dHRlcmhvZXZlbiAtLSBUaGVyZSdzIGxvdHMgb2Yg
+TGludXggYmV5b25kIGlhMzIgLS0gZ2VlcnRAbGludXgtbTY4ay5vcmcKCkluIHBlcnNvbmFsIGNv
+bnZlcnNhdGlvbnMgd2l0aCB0ZWNobmljYWwgcGVvcGxlLCBJIGNhbGwgbXlzZWxmIGEgaGFja2Vy
+LiBCdXQKd2hlbiBJJ20gdGFsa2luZyB0byBqb3VybmFsaXN0cyBJIGp1c3Qgc2F5ICJwcm9ncmFt
+bWVyIiBvciBzb21ldGhpbmcgbGlrZSB0aGF0LgogICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIC0tIExpbnVzIFRvcnZhbGRzCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
+aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
+L2xpbnV4LXJpc2N2Cg==
