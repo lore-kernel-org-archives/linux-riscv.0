@@ -4,83 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4897C3DA59
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jul 2024 09:38:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5948C3DA59
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jul 2024 09:51:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/MKyaOzmA+T5g39XSk3JIA3MHfzSSXZ+tG3JQSrnD/s=; b=dbMBlmUKihGq4M
-	0wauJK3P1nOIUTDo0AbbzSjjp278ILKtH2i0Jeg6i2C/jznh8rQKjfcTSYFGL7negcE+HCRBZPuyQ
-	2hgmxu5LeG6KM2t9R7HdgeBWyknuBP1sETGYU7Zwa+jLI1pJeLcfoP77rxFuW9Kuait+H3gXV4jyl
-	ZtbVOfBH+jLe/29nImTaZ8Hzohum54ZpLQY3AjisXNRoZWHGmRxPhzYvdWkSMWMg5v4emmrALXAai
-	BgyJSV/BcTDcZyM1Wha95bOQ5Nd+DEdXek1uWjfHfVtJUiMhPIZczucX/xALsztqnIraHpitBcH5F
-	yQ+6fsGEzwQLNlvnfLdg==;
+	List-Owner; bh=b5aw99QzpP/fzvj/D81oW/TadyzWAw70qBwOw4S0Yf8=; b=Cee7KYl88IiRWC
+	dFLVIyJEfWj6qy33w3z8bDah1b3Y4teauNqgM3s5V1KRPVFqNbSZUYjWM4jicoQA6QKpOVPwKJDLo
+	zs6C2MpeGEdHggi/byLQ/F2e0BS78Moyr73t9WehGTNeltvaLgwmSte49VjantrY+z6EuKZl9fQc/
+	lSQHpi6GU2i6myYAWmpp6Wk6/ZaHDjPifehQgilWbrLC917UtGTdwDUPOS8YQ3zF/dVbDxg0QFW3y
+	Qn7dQqj/ZJdCpy1P+NvnTAuyqnODY8rVHHCL2qEgetoF5oS8ZtzWiX4+7HR8ulYK9+hOnunt+sWJn
+	IWRuRkuwwxQi4T1jrYaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUk42-00000002G8N-14lY;
-	Fri, 19 Jul 2024 09:38:10 +0000
-Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
+	id 1sUkGm-00000002J71-0nJ4;
+	Fri, 19 Jul 2024 09:51:20 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUk3z-00000002G6z-056d
-	for linux-riscv@lists.infradead.org;
-	Fri, 19 Jul 2024 09:38:08 +0000
-Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-2eec7e43229so24117011fa.3
-        for <linux-riscv@lists.infradead.org>; Fri, 19 Jul 2024 02:38:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1721381885; x=1721986685; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WHuQOzwZHF/RNpfChTvHFJsWi3ick1N/VEEIytMiyeQ=;
-        b=EwG4zFJrMXhor2bocgwkPjQlgI9g/u/rtK/zAkuzMNm5nblEh6rjU4J5WbNEYnD8Dm
-         K67HGlsKp/f2SblhaGx747jTVWw8ZKBIlx12caXxSUgAkBlmh20l5328Pd2s5QLgID12
-         Kvc19RlgKh/TLDqZp/sFEe/zl+4OPCzCNU2D7n5K6e5QkAYQsmmKi8EjMQzop5v8VwGj
-         EkHqC8BsCC+jHj6uRCXYKk/kkQUMkgaeLWbnJ1953JCLzuMVCrLggztCtQJVAwtmZQ+9
-         drTUV5BLp+z69NdrRK32rhX+3usqSiND3gTWq0/Pjsc+U6yvsMVOj0ksndU7y8w9Bogz
-         B7ZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1721381885; x=1721986685;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=WHuQOzwZHF/RNpfChTvHFJsWi3ick1N/VEEIytMiyeQ=;
-        b=CGWKlLsfnXbLVIZGru7UYBPvvjFQjIUjUpihDJOIkuyVxZuRSABTQpwIxCdgJWagw1
-         QuR1UxqbguvHC0p/hBEPZFzLbp3ZSvm2HNwvatJjMu6BmXK51kS5v8YcT7BIu0k+IUt/
-         8NL7wxFw00sctB5c8kM+3LPPqtsS0gf6aIO2dSWf3k0wNsO5nmypFV1/hW5Y3bRHAeQ/
-         n9xp1y9TS0z3n64fgyQNrLVZcT5+B7Hc0ypWwuec1gyTJOXbLK8g7Cjeddy0f3BO25Sm
-         iMb3XoMtTR9bxwRGc1rCt2IpSfFRB62JBYSdioGqMf9KnaQcbPsCPzHL45Ai0jAvipip
-         al1Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXUvAscFZX1pnvzu+Z+ZiXg/Fu/dmqkahRNBEfGE+ovQAfSS2YbqgNJ47ZFcrCeq4+A8ISqZ6q1wV0O1b8uscfyPk9vTyE9VBh8DIGb/SvS
-X-Gm-Message-State: AOJu0Yw7e4p8EVDfxXsH3OB5Qr2Z/kmAkfR2I8RfarbzmMZ9EJR61qI1
-	GR/n77u2yrq5RiWZaMY8BuQaQybNhwzfi7Y1di5JWVL2j+9IUR60hXLj69Yl/KWSgVxS/2fctAj
-	Nv8mnMeNk3vbu8UDWcy5Zn54NTeMsRGT9VjvgNA==
-X-Google-Smtp-Source: AGHT+IGiJNTRWlBgnX41CQFZmILGxpV1J9kBUt1OoMxruvBGLdHaDWwzwf0eXsqOE/wPqccfZTwogeTX0F7BgSX59RM=
-X-Received: by 2002:a2e:a17b:0:b0:2ec:596c:b629 with SMTP id
- 38308e7fff4ca-2ef05c726bbmr33287691fa.20.1721381885303; Fri, 19 Jul 2024
- 02:38:05 -0700 (PDT)
+	id 1sUkGh-00000002J5q-2hyZ;
+	Fri, 19 Jul 2024 09:51:18 +0000
+Received: from [192.168.12.218] (unknown [121.237.44.107])
+	by APP-01 (Coremail) with SMTP id qwCowACXeU7aNppm0N1LBA--.722S2;
+	Fri, 19 Jul 2024 17:50:20 +0800 (CST)
+Message-ID: <a78bb55e-ae7d-47ad-a3fc-f4662f42625f@iscas.ac.cn>
+Date: Fri, 19 Jul 2024 17:50:18 +0800
 MIME-Version: 1.0
-References: <20240718152254.16007-1-eric.lin@sifive.com> <12bd744ea481c8a3505e6f4869d409d24d3db795.camel@maquefel.me>
-In-Reply-To: <12bd744ea481c8a3505e6f4869d409d24d3db795.camel@maquefel.me>
-From: Eric Lin <eric.lin@sifive.com>
-Date: Fri, 19 Jul 2024 17:37:53 +0800
-Message-ID: <CAPqJEFp+KHku2ygaHhv0YP3Wy1RhuKOZ33EAonzaUxxkM5z-Fg@mail.gmail.com>
-Subject: Re: [PATCH] perf arch events: Fix duplicate RISC-V SBI firmware event name
-To: Nikita Shubin <nikita.shubin@maquefel.me>
-Cc: acme@kernel.org, adrian.hunter@intel.com, 
-	alexander.shishkin@linux.intel.com, aou@eecs.berkeley.edu, 
-	dminus@andestech.com, inochiama@outlook.com, irogers@google.com, 
-	jisheng.teoh@starfivetech.com, jolsa@kernel.org, kan.liang@linux.intel.com, 
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, locus84@andestech.com, mark.rutland@arm.com, 
-	mingo@redhat.com, n.shubin@yadro.com, namhyung@kernel.org, palmer@dabbelt.com, 
-	peterlin@andestech.com, peterz@infradead.org, samuel.holland@sifive.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] riscv: perf: add guest vs host distinction
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-perf-users@vger.kernel.org, anup@brainfault.org,
+ atishp@atishpatra.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, mark.rutland@arm.com,
+ alexander.shishkin@linux.intel.com, jolsa@kernel.org
+References: <cover.1721271251.git.zhouquan@iscas.ac.cn>
+ <8e2d2f60fc30d64b6c69b38184a1b640c7b30003.1721271251.git.zhouquan@iscas.ac.cn>
+ <20240718-e689be134be5b958b1eec65a@orel>
+Content-Language: en-US
+From: Quan Zhou <zhouquan@iscas.ac.cn>
+In-Reply-To: <20240718-e689be134be5b958b1eec65a@orel>
+X-CM-TRANSID: qwCowACXeU7aNppm0N1LBA--.722S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxArWfZF18ZFWkKw1UKFy3Arb_yoW5Kry8pr
+	4DCFnxKFWUXryIg34SqFs8WF1Yqr1rXay29rW2k345Cr9FvF98J3WDKwn8CryrArykXFy0
+	yF1qqFsxuws8ta7anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUkqb7Iv0xC_Zr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwV
+	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
+	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr
+	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7
+	MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr
+	0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0E
+	wIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JV
+	WxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAI
+	cVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU8fwIDUUUUU==
+X-Originating-IP: [121.237.44.107]
+X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiBgoDBmaZ7vP5RgABsV
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240719_023807_406930_781A1CDB 
-X-CRM114-Status: UNSURE (   8.15  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240719_025116_121808_0B3DAAB5 
+X-CRM114-Status: GOOD (  16.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,26 +79,135 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgTmlraXRhLAoKT24gRnJpLCBKdWwgMTksIDIwMjQgYXQgNDo1MeKAr1BNIE5pa2l0YSBTaHVi
-aW4gPG5pa2l0YS5zaHViaW5AbWFxdWVmZWwubWU+IHdyb3RlOgo+Cj4gSGkgRXJpYywKPgo+IE5p
-Y2UgY2F0Y2ghCj4KPiBTaG91bGRuJ3QgaXQgZml4IGV2ZXJ5IHBhdGNoIHRoYXQgY29waWVkIGFm
-ZmVjdGVkICdmaXJtd2FyZS5qc29uJyBieQo+IHRoZSB3YXkgPwo+Cj4gU29tZXRoaW5nIGxpa2U6
-Cj4KPiBGaXhlczogOGYwZGNiNGU3MzY0ICgicGVyZiBhcmNoIGV2ZW50czogcmlzY3Ygc2JpIGZp
-cm13YXJlIHN0ZCBldmVudAo+IGZpbGVzIikKPiBGaXhlczogYzRmNzY5ZDQwOTNkICgicGVyZiB2
-ZW5kb3IgZXZlbnRzIHJpc2N2OiBhZGQgU2lmaXZlIFU3NCBKU09OCj4gZmlsZSIpCj4gRml4ZXM6
-IGFjYmY2ZGU2NzRlZiAoInBlcmYgdmVuZG9yIGV2ZW50cyByaXNjdjogQWRkIFN0YXJGaXZlIER1
-YmhlLTgwCj4gSlNPTiBmaWxlIikKPiBGaXhlczogNzM0MGM2ZGY0OWRmICgicGVyZiB2ZW5kb3Ig
-ZXZlbnRzIHJpc2N2OiBhZGQgVC1IRUFEIEM5eHggSlNPTgo+IGZpbGUiKQo+IEZpeGVzOiBmNTEw
-MmUzMWMyMDkgKCJyaXNjdjogYW5kZXM6IFN1cHBvcnQgc3BlY2lmeWluZyBzeW1ib2xpYwo+IGZp
-cm13YXJlIGFuZCBoYXJkd2FyZSByYXcgZXZlbnQiKQo+Cj4gUmV2aWV3ZWQtYnk6IE5pa2l0YSBT
-aHViaW4gPG4uc2h1YmluQHlhZHJvLmNvbT4KCgpPSywgSSdsbCBhZGQgZXZlcnkgcGF0Y2ggIkZp
-eGVzOiIgIGluIHRoZSBjb21taXQgbWVzc2FnZSBhbmQgc2VuZCB0aGUgdjIgcGF0Y2guClRoYW5r
-cyBmb3IgdGhlIHJldmlldy4KClJlZ2FyZHMsCkVyaWMgTGluCgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+
+On 2024/7/19 00:53, Andrew Jones wrote:
+> On Thu, Jul 18, 2024 at 07:23:41PM GMT, zhouquan@iscas.ac.cn wrote:
+>> From: Quan Zhou <zhouquan@iscas.ac.cn>
+>>
+>> Introduce basic guest support in perf, enabling it to distinguish
+>> between PMU interrupts in the host or guest, and collect
+>> fundamental information.
+>>
+>> Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
+>> ---
+>>   arch/riscv/include/asm/perf_event.h |  7 ++++++
+>>   arch/riscv/kernel/perf_callchain.c  | 38 +++++++++++++++++++++++++++++
+>>   2 files changed, 45 insertions(+)
+>>
+>> diff --git a/arch/riscv/include/asm/perf_event.h b/arch/riscv/include/asm/perf_event.h
+>> index 665bbc9b2f84..5866d028aee5 100644
+>> --- a/arch/riscv/include/asm/perf_event.h
+>> +++ b/arch/riscv/include/asm/perf_event.h
+>> @@ -8,13 +8,20 @@
+>>   #ifndef _ASM_RISCV_PERF_EVENT_H
+>>   #define _ASM_RISCV_PERF_EVENT_H
+>>   
+>> +#ifdef CONFIG_PERF_EVENTS
+>>   #include <linux/perf_event.h>
+>>   #define perf_arch_bpf_user_pt_regs(regs) (struct user_regs_struct *)regs
+>>   
+>> +extern unsigned long perf_instruction_pointer(struct pt_regs *regs);
+>> +extern unsigned long perf_misc_flags(struct pt_regs *regs);
+>> +#define perf_misc_flags(regs) perf_misc_flags(regs)
+>> +
+>>   #define perf_arch_fetch_caller_regs(regs, __ip) { \
+> 
+> Arm has this outside the #ifdef CONFIG_PERF_EVENTS, but it doesn't
+> look like it should be.
+> 
+
+Yes, Arm makes perf_arch_fetch_caller_regs independent of 
+CONFIG_PERF_EVENTS. What is the rationale behind this? I'm
+not clear on this point. It's reasonable to have them inside
+for riscv, right?
+
+>>   	(regs)->epc = (__ip); \
+>>   	(regs)->s0 = (unsigned long) __builtin_frame_address(0); \
+>>   	(regs)->sp = current_stack_pointer; \
+>>   	(regs)->status = SR_PP; \
+>>   }
+>> +#endif
+>> +
+>>   #endif /* _ASM_RISCV_PERF_EVENT_H */
+>> diff --git a/arch/riscv/kernel/perf_callchain.c b/arch/riscv/kernel/perf_callchain.c
+>> index 3348a61de7d9..c673dc6d9bd2 100644
+>> --- a/arch/riscv/kernel/perf_callchain.c
+>> +++ b/arch/riscv/kernel/perf_callchain.c
+>> @@ -58,6 +58,11 @@ void perf_callchain_user(struct perf_callchain_entry_ctx *entry,
+>>   {
+>>   	unsigned long fp = 0;
+>>   
+>> +	if (perf_guest_state()) {
+>> +		/* TODO: We don't support guest os callchain now */
+>> +		return;
+>> +	}
+>> +
+>>   	fp = regs->s0;
+>>   	perf_callchain_store(entry, regs->epc);
+>>   
+>> @@ -74,5 +79,38 @@ static bool fill_callchain(void *entry, unsigned long pc)
+>>   void perf_callchain_kernel(struct perf_callchain_entry_ctx *entry,
+>>   			   struct pt_regs *regs)
+>>   {
+>> +	if (perf_guest_state()) {
+>> +		/* TODO: We don't support guest os callchain now */
+>> +		return;
+>> +	}
+>> +
+>>   	walk_stackframe(NULL, regs, fill_callchain, entry);
+>>   }
+>> +
+>> +unsigned long perf_instruction_pointer(struct pt_regs *regs)
+>> +{
+>> +	if (perf_guest_state())
+>> +		return perf_guest_get_ip();
+>> +
+>> +	return instruction_pointer(regs);
+>> +}
+>> +
+>> +unsigned long perf_misc_flags(struct pt_regs *regs)
+>> +{
+>> +	unsigned int guest_state = perf_guest_state();
+>> +	int misc = 0;
+> 
+> Should use unsigned long for misc.
+> 
+
+Okay, I'll fix it.
+
+Thanks,
+Quan
+
+>> +
+>> +	if (guest_state) {
+>> +		if (guest_state & PERF_GUEST_USER)
+>> +			misc |= PERF_RECORD_MISC_GUEST_USER;
+>> +		else
+>> +			misc |= PERF_RECORD_MISC_GUEST_KERNEL;
+>> +	} else {
+>> +		if (user_mode(regs))
+>> +			misc |= PERF_RECORD_MISC_USER;
+>> +		else
+>> +			misc |= PERF_RECORD_MISC_KERNEL;
+>> +	}
+>> +
+>> +	return misc;
+>> +}
+>> -- 
+>> 2.34.1
+>>
+> 
+> Thanks,
+> drew
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
