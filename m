@@ -4,84 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A57CBC3DA49
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jul 2024 01:35:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2143C3DA49
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jul 2024 01:56:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6ldHzF+Oo4J1x9nPa0d1+DjM10vMCZZPCQTrfXGxC14=; b=w5LKIzTMxfgRjN
-	v6d64ILACTzp038PIkYwXHKnipknECM/12WSIs/b7KFXf6JwuR2bECMM/QF73Nh4QC+Yv8vTvzRpW
-	FxvyM8/UrwYqU9Z19sYOncNgPy+iTK5U0SjOrbqWPEK6FKYp5nKPFNQBlQMlJTKq2J7an1Td9NwAZ
-	pzECUw5zbJLS4u87YKzBQk4ASqx5Bm+AkR2/feUmu3pn9x/T2pZPZiDAjR8CSmZMOhy9sux8F7vjj
-	8Vgl0XgKt0SDZ+Z7fVkMo6qGeCLGUJZFzYQ4fxsGR94Wv6MeBdymIYID7xVwLXq3m602T7NCFmaiC
-	HD42wXD0bxyRPRQ/911A==;
+	List-Owner; bh=iKa0TWyLJBBLRCbW3L0ntGoJOV5tB8ej/Ca+LSiHbCc=; b=cHGL1wgMPhWew4
+	2zsOn0xcNyKiMEHJEYccrJ/DpN74Ce9AeGoJBkXSyeHcNZQW2VQNQ6mpQH4A3j9pz0VKIwMMMZSsP
+	pmv47PuPMO8PoQmHZh8o2iIXzvUQhFf3mOjb7NPDZg3SfnLuWrqPi2mgN3wPAMJHnIJalS3W3I+6s
+	oIaryY0i0yElV3XYlANwxja72ZIRpnRQ5KP3elKV7Dw9TwnzeRnIWvFaB/Bwfq79CVJBEMxh0Nu05
+	iYe95ogBdmpAPfW9MMiG8wO/ZC5vXf7oePW0/X4P82+Jah4PvotkTLRjwZKJXveUFvVLtV26O5dk5
+	Nu3x9iMKIGLO/PX1gCyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUcX0-00000001Ef0-1OuI;
-	Fri, 19 Jul 2024 01:35:34 +0000
-Received: from mail-io1-xd31.google.com ([2607:f8b0:4864:20::d31])
+	id 1sUcqv-00000001GWs-1JD3;
+	Fri, 19 Jul 2024 01:56:09 +0000
+Received: from mail-io1-xd2f.google.com ([2607:f8b0:4864:20::d2f])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUcWw-00000001Ee0-2Ile
+	id 1sUcqo-00000001GVH-2ECw
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Jul 2024 01:35:32 +0000
-Received: by mail-io1-xd31.google.com with SMTP id ca18e2360f4ac-8036ce66164so48434439f.3
-        for <linux-riscv@lists.infradead.org>; Thu, 18 Jul 2024 18:35:30 -0700 (PDT)
+	Fri, 19 Jul 2024 01:56:07 +0000
+Received: by mail-io1-xd2f.google.com with SMTP id ca18e2360f4ac-8036ce66134so54775139f.3
+        for <linux-riscv@lists.infradead.org>; Thu, 18 Jul 2024 18:56:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1721352929; x=1721957729; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1721354161; x=1721958961; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=kCKSxmpGpgIaFLiWGefaq2tuapYPzU27sKjs+BRgK0I=;
-        b=D6mpnJv2AKzniKxC/3jzyd+8kUgt0HaI3FBPTKk5MrYpQwM+jm8mrA6pkv0rDd7Do2
-         dYHTOpeyxjans5z2oPJXLFEg3kl3qkXaSkeZzDUgu3POqVZlcm8aYT1gzx3Ank9XTsHg
-         kQgZZKzIN8le5FQ6GPJXtJuinn72hyFqW0tToNCZQXaudwnf7Ge9I9kDo4NaA8rig9fX
-         4GoJucbyGkQD7dcy+X61dnEAlT+BKzQuxA4tYkVMlUZ4gevF8asHxydIivPJVWj0yrsF
-         O9hDm1wEBTJARla2cxpBzFxlCNfDPVc0VaD5NnoOmwGiagGxdjaSI6Q+h77LuBfIc/Vd
-         nmEA==
+        bh=BBMoNxUmM+zvCwOfsVSk2SpUB5b5ZDpmyE9LlBQJw9Q=;
+        b=Bt5MeIwqg8ejtT4A6Gcdtedi8PimVOxILwWw3O7UsaE3BLFpV6x11wL3qqktb5mZDF
+         q68kw0PaRa1X/KT8cHuTNfU57CuHHBzeZjhLWntRAAAu0O3Eez6yu6wjQZ1oMVBY/yCW
+         9dCKwqTWjRO7u0d3mcETVBDvy5grBjJBUtiGFEq3ggKIh9gP+jcNODXKjg+CXRPfCJc2
+         /20zEftraiSf3EmcfNI69KJ8f5fBIv9fZz+RSnM+niFi1QMF/MMpC3TxFvA7KmV8zX4d
+         p4bvpkj9HK3LZw4lAsV3G8G1wEpXDD/h002lbZA1kiOsSLZh8vIgpff9XRKOzEDw3Z9o
+         Vc8Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1721352929; x=1721957729;
+        d=1e100.net; s=20230601; t=1721354161; x=1721958961;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=kCKSxmpGpgIaFLiWGefaq2tuapYPzU27sKjs+BRgK0I=;
-        b=G8BAfVYmSIq34BNA8NeXdRpZl8tqnH/0hcg7GRh8hnTThTk7F4JpqWSSDwEnNrnDPJ
-         fC3jmoSS9Y+jGZilzw+vKbnXjRIbA8S+jUECVt5PbhU1Bgp5CIS707oPan5kP45i4rVS
-         J4FFjXLW+Cnv4P+9Bt3TFt0DBJFyNvgD24LWrzRWzgkf8dEy4DdM01o3G4Tms0oXHoLl
-         jz5CrwP13d2jufjau68q3p+13DOhB63e4WRjQl8XrKCnirLYneg9PNPg60NWWbzpf1Ij
-         wj9jUo1q6CzxdQvzob+dh2XbKv57TIT7q8Twfalf/fEiV6HZIb8TmApHNU8/kuyhEMvn
-         ufaw==
-X-Forwarded-Encrypted: i=1; AJvYcCWEgVNHTEeD5Va0i9LbmBSZF8jXQmKqJfpKZACuMTgVqAp55oqWwDFTgccRpMTFB7MU9ay+LHdX13oJGXQI0xv6klsSYYmIWFIdnmOEfHv0
-X-Gm-Message-State: AOJu0Yy2LIQCvRId3+1nXUwl7W0RMFmhL/Ps+qx17n5M7MMOpvaDxfMo
-	S7Ex4foD4OYPDFO/fr5PcB8kckyunJB9rVVz1yqzEr6my3o3DANPW3uD2RkG5aM=
-X-Google-Smtp-Source: AGHT+IETQFuHKrO4/S58tyD5OTrRmmOWT93LlD/6BpqMiB9K7t92N18nv7O5GBBuy0MITzv7YIG4RA==
-X-Received: by 2002:a05:6602:14c8:b0:806:560:92b5 with SMTP id ca18e2360f4ac-81710bd4048mr846335739f.11.1721352929336;
-        Thu, 18 Jul 2024 18:35:29 -0700 (PDT)
+        bh=BBMoNxUmM+zvCwOfsVSk2SpUB5b5ZDpmyE9LlBQJw9Q=;
+        b=GaswzTM+VoeeLDOeCVXDkw6dn0gxSqxAK4tQVc47SfhPYFDCKXS+6cBPOIPY85JLxb
+         0gGgbYPBdjgYBfxVPP/NAjNKNcbpNah/Xs8EzzyM9g9z4qcggMO1WA1fOX6f8AzUpPFA
+         7ZC52yQj0IOrGPIgmM/Efwq1IKUy9bK7veYj1mFw0cGPdkeT8w6qa6Bsp/T4kJf3Wimv
+         h37G1niqU5BOa7nzYwLCdShrtiq9/ekLPD9HSvXPJl7O1xzvse6aQO6RY/37W1aMcgNT
+         NjFrW7xq46/RO6MElaGU3shV80A8Co8tZkJrajnYKuvR8GtG4tWZM2eM9H9Noza0g7m2
+         68dw==
+X-Forwarded-Encrypted: i=1; AJvYcCU1Y+14yUnFNTJ6cdu87dqZfxddxL7/YNUrDIYnbhjtql+PatWGhe64qWH1pimOGevUmm8JLp/VpmO/v+6SkbTuw0zTSj8wq33uB9hqWZnB
+X-Gm-Message-State: AOJu0YxlC9lI1JWHdAv2n0rwqJrbEICe0XxpeM7rAbAyxhdk31lPuIef
+	psKMdyFqx10mweTjKFdGeuxQau0of2O7xSNqP+H+NTg4WiPz+qpUhv+QEV/2NnY=
+X-Google-Smtp-Source: AGHT+IG2CoPSYAyYkOoMBa2c9qiOtGSDneT6EFNBl+4SSwvbjQ9YO4XF8yNAxCBa+piiQdYwhgiz9A==
+X-Received: by 2002:a05:6602:6d8d:b0:813:f74:e6e6 with SMTP id ca18e2360f4ac-81711e18cd9mr843812239f.15.1721354161352;
+        Thu, 18 Jul 2024 18:56:01 -0700 (PDT)
 Received: from [100.64.0.1] ([147.124.94.167])
-        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-819adeeec61sm15485539f.47.2024.07.18.18.35.28
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4c2342bf2cfsm124927173.8.2024.07.18.18.55.59
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 18 Jul 2024 18:35:28 -0700 (PDT)
-Message-ID: <dca205a1-46cc-4712-bdb1-15517e63e824@sifive.com>
-Date: Thu, 18 Jul 2024 20:35:27 -0500
+        Thu, 18 Jul 2024 18:56:00 -0700 (PDT)
+Message-ID: <a28ddc26-d77a-470a-a33f-88144f717e86@sifive.com>
+Date: Thu, 18 Jul 2024 20:55:58 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/3] mailbox: sophgo: add mailbox driver for cv18x SoCs
-To: Yuntao Dai <d1581209858@live.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, jassisinghbrar@gmail.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, unicorn_wang@outlook.com,
- inochiama@outlook.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu
-References: <SYBP282MB223825D5903777B937A8A377C4A02@SYBP282MB2238.AUSP282.PROD.OUTLOOK.COM>
- <SYBP282MB2238F93565D20F0A5F3EEB6BC4A02@SYBP282MB2238.AUSP282.PROD.OUTLOOK.COM>
+Subject: Re: [PATCH] riscv: patch: Remove redundant functions
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Peter Zijlstra <peterz@infradead.org>, Josh Poimboeuf <jpoimboe@kernel.org>,
+ Jason Baron <jbaron@akamai.com>, Steven Rostedt <rostedt@goodmis.org>,
+ Ard Biesheuvel <ardb@kernel.org>, Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman
+ <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>,
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
+ Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>,
+ Jiri Olsa <jolsa@kernel.org>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@kernel.org>, Pu Lehui <pulehui@huawei.com>,
+ Puranjay Mohan <puranjay@kernel.org>, Luke Nelson <luke.r.nels@gmail.com>,
+ Xi Wang <xi.wang@gmail.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, bpf@vger.kernel.org
+References: <20240717084102.150914-1-alexghiti@rivosinc.com>
 From: Samuel Holland <samuel.holland@sifive.com>
 Content-Language: en-US
-In-Reply-To: <SYBP282MB2238F93565D20F0A5F3EEB6BC4A02@SYBP282MB2238.AUSP282.PROD.OUTLOOK.COM>
+In-Reply-To: <20240717084102.150914-1-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240718_183530_661406_C49B6D1E 
-X-CRM114-Status: GOOD (  33.59  )
+X-CRM114-CacheID: sfid-20240718_185602_640482_0F45DEC3 
+X-CRM114-Status: GOOD (  21.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,283 +109,204 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2024-07-14 11:36 AM, Yuntao Dai wrote:
-> Add mailbox controller driver for cv18x SoCs, tested on mailbox-test
-> client.
+Hi Alex,
+
+On 2024-07-17 3:41 AM, Alexandre Ghiti wrote:
+> Commit edf2d546bfd6f5c4 ("riscv: patch: Flush the icache right after
+> patching to avoid illegal insns") removed the last differences between
+> patch_text_set_nosync() and patch_insn_set(), and between
+> patch_text_nosync() and patch_insn_write().
 > 
-> Signed-off-by: Yuntao Dai <d1581209858@live.com>
+> So remove the redundant *_nosync() functions.
+
+My understanding was that we would eventually revert that patch, once we are
+sure we never non-atomically patch the text patching code. So it's helpful to
+keep the semantic distinction between the two sets of functions.
+
+And looking at this closer, I think the original patch should not have removed
+the calls to flush_icache_range() anyway. It replaces a global icache flush with
+a local icache flush, which is wrong if there is more than one CPU online, and
+there are a couple of places (bpf_jit_core.c, kprobes.c) where those functions
+are called at runtime.
+
+Regards,
+Samuel
+
+> Reported-by: Geert Uytterhoeven <geert@linux-m68k.org>
+> Closes: https://lore.kernel.org/linux-riscv/CAMuHMdUwx=rU2MWhFTE6KhYHm64phxx2Y6u05-aBLGfeG5696A@mail.gmail.com/
+> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 > ---
->  drivers/mailbox/Kconfig          |  11 ++
->  drivers/mailbox/Makefile         |   2 +
->  drivers/mailbox/cv1800-mailbox.c | 203 +++++++++++++++++++++++++++++++
->  3 files changed, 216 insertions(+)
->  create mode 100644 drivers/mailbox/cv1800-mailbox.c
+>  arch/riscv/errata/sifive/errata.c |  4 ++--
+>  arch/riscv/errata/thead/errata.c  |  2 +-
+>  arch/riscv/include/asm/patch.h    |  3 +--
+>  arch/riscv/kernel/alternative.c   |  4 ++--
+>  arch/riscv/kernel/cpufeature.c    |  2 +-
+>  arch/riscv/kernel/jump_label.c    |  2 +-
+>  arch/riscv/kernel/patch.c         | 24 +-----------------------
+>  arch/riscv/net/bpf_jit_core.c     |  4 ++--
+>  8 files changed, 11 insertions(+), 34 deletions(-)
 > 
-> diff --git a/drivers/mailbox/Kconfig b/drivers/mailbox/Kconfig
-> index 3b8842c4a..db856ec7e 100644
-> --- a/drivers/mailbox/Kconfig
-> +++ b/drivers/mailbox/Kconfig
-> @@ -286,4 +286,15 @@ config QCOM_IPCC
->  	  acts as an interrupt controller for receiving interrupts from clients.
->  	  Say Y here if you want to build this driver.
+> diff --git a/arch/riscv/errata/sifive/errata.c b/arch/riscv/errata/sifive/errata.c
+> index 716cfedad3a2..5253b205aa17 100644
+> --- a/arch/riscv/errata/sifive/errata.c
+> +++ b/arch/riscv/errata/sifive/errata.c
+> @@ -112,8 +112,8 @@ void sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
+>  		tmp = (1U << alt->patch_id);
+>  		if (cpu_req_errata & tmp) {
+>  			mutex_lock(&text_mutex);
+> -			patch_text_nosync(ALT_OLD_PTR(alt), ALT_ALT_PTR(alt),
+> -					  alt->alt_len);
+> +			patch_insn_write(ALT_OLD_PTR(alt), ALT_ALT_PTR(alt),
+> +					 alt->alt_len);
+>  			mutex_unlock(&text_mutex);
+>  			cpu_apply_errata |= tmp;
+>  		}
+> diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
+> index bf6a0a6318ee..0ce280a190b6 100644
+> --- a/arch/riscv/errata/thead/errata.c
+> +++ b/arch/riscv/errata/thead/errata.c
+> @@ -182,7 +182,7 @@ void thead_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
+>  				memcpy(oldptr, altptr, alt->alt_len);
+>  			} else {
+>  				mutex_lock(&text_mutex);
+> -				patch_text_nosync(oldptr, altptr, alt->alt_len);
+> +				patch_insn_write(oldptr, altptr, alt->alt_len);
+>  				mutex_unlock(&text_mutex);
+>  			}
+>  		}
+> diff --git a/arch/riscv/include/asm/patch.h b/arch/riscv/include/asm/patch.h
+> index 9f5d6e14c405..6b0e9b8a321b 100644
+> --- a/arch/riscv/include/asm/patch.h
+> +++ b/arch/riscv/include/asm/patch.h
+> @@ -6,9 +6,8 @@
+>  #ifndef _ASM_RISCV_PATCH_H
+>  #define _ASM_RISCV_PATCH_H
 >  
-> +config CV1800_MBOX
-> +	tristate "cv1800 mailbox"
-> +	depends on OF
-
-This dependency is not necessary once the probe function is fixed (see below).
-
-> +	depends on ARCH_SOPHGO || COMPILE_TEST
-> +	help
-> +	  Mailbox driver implementation for Sophgo cv180x SoCs. This driver
-> +	  can be used to send message between different processors in SoC. Any
-> +	  processer can write data in a channel, and set co-responding register
-> +	  to raise interrupt to notice another processor, and it is allowed to
-> +	  send data to itself.
-> +
->  endif
-> diff --git a/drivers/mailbox/Makefile b/drivers/mailbox/Makefile
-> index 5cf2f54de..2c6db8c5c 100644
-> --- a/drivers/mailbox/Makefile
-> +++ b/drivers/mailbox/Makefile
-> @@ -62,3 +62,5 @@ obj-$(CONFIG_SUN6I_MSGBOX)	+= sun6i-msgbox.o
->  obj-$(CONFIG_SPRD_MBOX)		+= sprd-mailbox.o
+> +int patch_insn_set(void *addr, u8 c, size_t len);
+>  int patch_insn_write(void *addr, const void *insn, size_t len);
+> -int patch_text_nosync(void *addr, const void *insns, size_t len);
+> -int patch_text_set_nosync(void *addr, u8 c, size_t len);
+>  int patch_text(void *addr, u32 *insns, int ninsns);
 >  
->  obj-$(CONFIG_QCOM_IPCC)		+= qcom-ipcc.o
-> +
-> +obj-$(CONFIG_CV1800_MBOX)	+= cv1800-mailbox.o
-> \ No newline at end of file
-
-Please add the missing newline.
-
-> diff --git a/drivers/mailbox/cv1800-mailbox.c b/drivers/mailbox/cv1800-mailbox.c
-> new file mode 100644
-> index 000000000..a3b214b4d
-> --- /dev/null
-> +++ b/drivers/mailbox/cv1800-mailbox.c
-> @@ -0,0 +1,203 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +
-> +#include <linux/device.h>
-> +#include <linux/err.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/io.h>
-> +#include <linux/kfifo.h>
-> +#include <linux/mailbox_controller.h>
-> +#include <linux/mailbox_client.h>
-> +#include <linux/module.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/slab.h>
-> +
-> +#define RECV_CPU 2
-> +
-> +#define MAILBOX_MAX_CHAN 0x0008
-> +#define MAILBOX_DONE_OFFSET 0x0002
-> +#define MAILBOX_CONTEXT_SIZE 0x0040
-> +#define MAILBOX_CONTEXT_OFFSET 0x0400
-> +
-> +#define MBOX_EN_REG(cpu) (cpu << 2)
-> +#define MBOX_DONE_REG(cpu) ((cpu << 2) + MAILBOX_DONE_OFFSET)
-> +
-> +#define MBOX_SET_CLR_REG(cpu) (0x10 + (cpu << 4))
-> +#define MBOX_SET_INT_REG(cpu) (0x18 + (cpu << 4))
-> +
-> +#define MBOX_SET_REG 0x60
-> +
-> +/**
-> + * cv1800 mailbox channel private data
-> + * @idx: index of channel
-> + * @cpu: send to which processor
-> + */
-> +struct cv1800_mbox_chan_priv {
-> +	int idx;
-> +	int cpu;
-> +};
-> +
-> +struct cv1800_mbox {
-> +	struct mbox_controller mbox;
-> +	struct cv1800_mbox_chan_priv priv[MAILBOX_MAX_CHAN];
-> +	struct mbox_chan chans[MAILBOX_MAX_CHAN];
-> +	u64 __iomem *content[MAILBOX_MAX_CHAN];
-> +	void __iomem *mbox_base;
-> +	int recvid;
-> +};
-> +
-> +static irqreturn_t cv1800_mbox_isr(int irq, void *dev_id)
-> +{
-> +	struct cv1800_mbox *mbox = (struct cv1800_mbox *)dev_id;
-> +	size_t i;
-> +
-> +	for (i = 0; i < MAILBOX_MAX_CHAN; i++) {
-> +		if (mbox->content[i] && mbox->chans[i].cl) {
-> +			mbox_chan_received_data(&mbox->chans[i],
-> +						mbox->content[i]);
-> +			mbox->content[i] = NULL;
-> +			return IRQ_HANDLED;
-
-Are you sure you only want to handle one channel per interrupt? Should this be
-"ret = IRQ_HANDLED;" or similar instead of early return? The same applies to
-cv1800_mbox_irq().
-
-> +		}
-> +	}
-> +	return IRQ_NONE;
-> +}
-> +
-> +static irqreturn_t cv1800_mbox_irq(int irq, void *dev_id)
-> +{
-> +	struct cv1800_mbox *mbox = (struct cv1800_mbox *)dev_id;
-> +	u64 __iomem *addr;
-> +	u8 set, valid;
-> +	size_t i;
-> +
-> +	set = readb(mbox->mbox_base + MBOX_SET_INT_REG(RECV_CPU));
-> +
-> +	if (!set)
-> +		return IRQ_NONE;
-> +
-> +	for (i = 0; i < MAILBOX_MAX_CHAN; i++) {
-> +		valid = set & (1 << i);
-> +		addr = (u64 *)(mbox->mbox_base + MAILBOX_CONTEXT_OFFSET) + i;
-> +		if (valid) {
-> +			mbox->content[i] = addr;
-> +			writeb(valid,
-> +			       mbox->mbox_base + MBOX_SET_CLR_REG(RECV_CPU));
-> +			writeb(~valid, mbox->mbox_base + MBOX_EN_REG(RECV_CPU));
-> +			return IRQ_WAKE_THREAD;
-> +		}
-> +	}
-> +
-> +	return IRQ_NONE;
-> +}
-> +
-> +static int cv1800_mbox_send_data(struct mbox_chan *chan, void *data)
-> +{
-> +	struct cv1800_mbox_chan_priv *priv =
-> +		(struct cv1800_mbox_chan_priv *)chan->con_priv;
-> +	struct cv1800_mbox *mbox = dev_get_drvdata(chan->mbox->dev);
-> +	u64 __iomem *addr;
-> +	u8 en, valid;
-> +
-> +	int idx = priv->idx;
-> +	int cpu = priv->cpu;
-> +
-> +	addr = (u64 *)(mbox->mbox_base + MAILBOX_CONTEXT_OFFSET) + idx;
-> +	memcpy_toio(addr, data, 8);
-> +
-> +	valid = 1 << idx;
-> +	writeb(valid, mbox->mbox_base + MBOX_SET_CLR_REG(cpu));
-> +	en = readb(mbox->mbox_base + MBOX_EN_REG(cpu));
-> +	writeb(en | valid, mbox->mbox_base + MBOX_EN_REG(cpu));
-> +	writeb(valid, mbox->mbox_base + MBOX_SET_REG);
-> +
-> +	return 0;
-> +}
-> +
-> +static bool cv1800_last_tx_done(struct mbox_chan *chan)
-> +{
-> +	return true;
-
-Shouldn't this check MBOX_EN_REG(priv->cpu) or similar to check that the
-receiver has read the message?
-
-> +}
-> +
-> +static const struct mbox_chan_ops cv1800_mbox_chan_ops = {
-> +	.send_data = cv1800_mbox_send_data,
-> +	.last_tx_done = cv1800_last_tx_done,
-> +};
-> +
-> +static struct mbox_chan *cv1800_mbox_xlate(struct mbox_controller *mbox,
-> +					   const struct of_phandle_args *spec)
-> +{
-> +	struct cv1800_mbox_chan_priv *priv;
-> +
-> +	int idx = spec->args[0];
-> +	int cpu = spec->args[1];
-> +
-> +	if (idx >= mbox->num_chans)
-> +		return ERR_PTR(-EINVAL);
-> +
-> +	priv = mbox->chans[idx].con_priv;
-> +	priv->cpu = cpu;
-> +
-> +	return &mbox->chans[idx];
-> +}
-> +
-> +static const struct of_device_id cv1800_mbox_of_match[] = {
-> +	{ .compatible = "sophgo,cv1800-mailbox", },
-> +	{},
-> +};
-> +MODULE_DEVICE_TABLE(of, cv1800_mbox_of_match);
-> +
-> +static int cv1800_mbox_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct cv1800_mbox *mb;
-> +	int irq, idx, err;
-> +
-> +	if (!dev->of_node)
-> +		return -ENODEV;
-
-No need for this check.
-
-> +
-> +	mb = devm_kzalloc(dev, sizeof(*mb), GFP_KERNEL);
-> +	if (!mb)
-> +		return -ENOMEM;
-> +
-> +	mb->mbox_base = devm_of_iomap(dev, dev->of_node, 0, NULL);
-
-Please use devm_platform_ioremap_resource() here, which abstracts away the OF node.
-
-> +	if (IS_ERR(mb->mbox_base))
-> +		return dev_err_probe(dev, PTR_ERR(mb->mbox_base),
-> +				     "Failed to map resource\n");
-> +
-> +	mb->mbox.dev = dev;
-> +	mb->mbox.chans = mb->chans;
-> +	mb->mbox.txdone_poll = true;
-> +	mb->mbox.ops = &cv1800_mbox_chan_ops;
-> +	mb->mbox.num_chans = MAILBOX_MAX_CHAN;
-> +	mb->mbox.of_xlate = cv1800_mbox_xlate;
-> +
-> +	irq = platform_get_irq_byname(pdev, "mailbox");
-> +	err = devm_request_threaded_irq(dev, irq, cv1800_mbox_irq,
-> +					cv1800_mbox_isr, IRQF_ONESHOT,
-> +					dev_name(&pdev->dev), mb);
-> +	if (err < 0)
-> +		return dev_err_probe(dev, err, "Failed to register irq\n");
-> +
-> +	for (idx = 0; idx < MAILBOX_MAX_CHAN; idx++) {
-> +		mb->priv[idx].idx = idx;
-> +		mb->mbox.chans[idx].con_priv = &mb->priv[idx];
-> +	}
-> +
-> +	err = devm_mbox_controller_register(dev, &mb->mbox);
-> +	if (err)
-> +		return dev_err_probe(dev, err, "Failed to register mailbox\n");
-> +
-> +	platform_set_drvdata(pdev, mb);
-
-cv1800_mbox_send_data() could be called even inside
-devm_mbox_controller_register(), so this needs to be moved up.
-
-> +	return 0;
-> +}
-> +
-> +static struct platform_driver cv1800_mbox_driver = {
-> +	.driver = {
-> +		.name = "cv1800-mbox",
-> +		.of_match_table = cv1800_mbox_of_match,
-> +	},
-> +	.probe	= cv1800_mbox_probe,
-> +};
-> +
-> +module_platform_driver(cv1800_mbox_driver);
-> +
-> +MODULE_DESCRIPTION("cv1800 mailbox driver");
-> +MODULE_LICENSE("GPL");
+>  extern int riscv_patch_in_stop_machine;
+> diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
+> index 0128b161bfda..a8b508d99cf8 100644
+> --- a/arch/riscv/kernel/alternative.c
+> +++ b/arch/riscv/kernel/alternative.c
+> @@ -83,7 +83,7 @@ static void riscv_alternative_fix_auipc_jalr(void *ptr, u32 auipc_insn,
+>  	riscv_insn_insert_utype_itype_imm(&call[0], &call[1], imm);
+>  
+>  	/* patch the call place again */
+> -	patch_text_nosync(ptr, call, sizeof(u32) * 2);
+> +	patch_insn_write(ptr, call, sizeof(u32) * 2);
+>  }
+>  
+>  static void riscv_alternative_fix_jal(void *ptr, u32 jal_insn, int patch_offset)
+> @@ -98,7 +98,7 @@ static void riscv_alternative_fix_jal(void *ptr, u32 jal_insn, int patch_offset)
+>  	riscv_insn_insert_jtype_imm(&jal_insn, imm);
+>  
+>  	/* patch the call place again */
+> -	patch_text_nosync(ptr, &jal_insn, sizeof(u32));
+> +	patch_insn_write(ptr, &jal_insn, sizeof(u32));
+>  }
+>  
+>  void riscv_alternative_fix_offsets(void *alt_ptr, unsigned int len,
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index 5ef48cb20ee1..4c040a857c7e 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -795,7 +795,7 @@ void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begin,
+>  		altptr = ALT_ALT_PTR(alt);
+>  
+>  		mutex_lock(&text_mutex);
+> -		patch_text_nosync(oldptr, altptr, alt->alt_len);
+> +		patch_insn_write(oldptr, altptr, alt->alt_len);
+>  		riscv_alternative_fix_offsets(oldptr, alt->alt_len, oldptr - altptr);
+>  		mutex_unlock(&text_mutex);
+>  	}
+> diff --git a/arch/riscv/kernel/jump_label.c b/arch/riscv/kernel/jump_label.c
+> index e6694759dbd0..74b5ebfacf4a 100644
+> --- a/arch/riscv/kernel/jump_label.c
+> +++ b/arch/riscv/kernel/jump_label.c
+> @@ -36,6 +36,6 @@ void arch_jump_label_transform(struct jump_entry *entry,
+>  	}
+>  
+>  	mutex_lock(&text_mutex);
+> -	patch_text_nosync(addr, &insn, sizeof(insn));
+> +	patch_insn_write(addr, &insn, sizeof(insn));
+>  	mutex_unlock(&text_mutex);
+>  }
+> diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
+> index ab03732d06c4..bf45b507f900 100644
+> --- a/arch/riscv/kernel/patch.c
+> +++ b/arch/riscv/kernel/patch.c
+> @@ -177,7 +177,7 @@ static int __patch_insn_write(void *addr, const void *insn, size_t len)
+>  NOKPROBE_SYMBOL(__patch_insn_write);
+>  #endif /* CONFIG_MMU */
+>  
+> -static int patch_insn_set(void *addr, u8 c, size_t len)
+> +int patch_insn_set(void *addr, u8 c, size_t len)
+>  {
+>  	size_t patched = 0;
+>  	size_t size;
+> @@ -198,17 +198,6 @@ static int patch_insn_set(void *addr, u8 c, size_t len)
+>  }
+>  NOKPROBE_SYMBOL(patch_insn_set);
+>  
+> -int patch_text_set_nosync(void *addr, u8 c, size_t len)
+> -{
+> -	u32 *tp = addr;
+> -	int ret;
+> -
+> -	ret = patch_insn_set(tp, c, len);
+> -
+> -	return ret;
+> -}
+> -NOKPROBE_SYMBOL(patch_text_set_nosync);
+> -
+>  int patch_insn_write(void *addr, const void *insn, size_t len)
+>  {
+>  	size_t patched = 0;
+> @@ -230,17 +219,6 @@ int patch_insn_write(void *addr, const void *insn, size_t len)
+>  }
+>  NOKPROBE_SYMBOL(patch_insn_write);
+>  
+> -int patch_text_nosync(void *addr, const void *insns, size_t len)
+> -{
+> -	u32 *tp = addr;
+> -	int ret;
+> -
+> -	ret = patch_insn_write(tp, insns, len);
+> -
+> -	return ret;
+> -}
+> -NOKPROBE_SYMBOL(patch_text_nosync);
+> -
+>  static int patch_text_cb(void *data)
+>  {
+>  	struct patch_insn *patch = data;
+> diff --git a/arch/riscv/net/bpf_jit_core.c b/arch/riscv/net/bpf_jit_core.c
+> index 0a96abdaca65..b053ae5c4191 100644
+> --- a/arch/riscv/net/bpf_jit_core.c
+> +++ b/arch/riscv/net/bpf_jit_core.c
+> @@ -226,7 +226,7 @@ void *bpf_arch_text_copy(void *dst, void *src, size_t len)
+>  	int ret;
+>  
+>  	mutex_lock(&text_mutex);
+> -	ret = patch_text_nosync(dst, src, len);
+> +	ret = patch_insn_write(dst, src, len);
+>  	mutex_unlock(&text_mutex);
+>  
+>  	if (ret)
+> @@ -240,7 +240,7 @@ int bpf_arch_text_invalidate(void *dst, size_t len)
+>  	int ret;
+>  
+>  	mutex_lock(&text_mutex);
+> -	ret = patch_text_set_nosync(dst, 0, len);
+> +	ret = patch_insn_set(dst, 0, len);
+>  	mutex_unlock(&text_mutex);
+>  
+>  	return ret;
 
 
 _______________________________________________
