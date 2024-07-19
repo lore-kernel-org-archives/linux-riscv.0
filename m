@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A80A7C3DA59
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jul 2024 18:20:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24AD5C3DA5D
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jul 2024 19:01:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FQbnuVdpH266vyWXCcQAzjtQ0hRVf9bERfEhYqqj35E=; b=ILlrXi+IfAO5Fd
-	lpSW2zoNUuNGXwIuNURXKUF0vitftL8tBRlAVRsTBogJm0g7diZb5KZP5Xc4f2IYnFaRCpilp8Xq9
-	BuGwSUhvn1R76/14Ht5td47pp+ZofFrSZ/1kTHHXevIVN5fE92w9whja063bXfclPw3NpzIWkAZ0S
-	nRUT6R4rWo5tOx0QyPDHZA7hlSyBYIjR0lEtQDlN9bxM5z0uHl18bPfHQZvm7qfB36qhOoWKamYhM
-	R/kYfhaM9yExu+FssRlc5CXiWzMvywcr7MV+c9opsl7SOe0zVTqoeVsqmJLBoXBQIRFYQ19v15U0Z
-	2c6qFbjLDLh0pKq+d0hQ==;
+	List-Owner; bh=Ndj8eWP/BhZHsDyIzu2BwpqL4CF1NkPCzpvG6fVOtd0=; b=wYXiAfgivqkWuV
+	uQOxWxdAIcEGy/U7APxU2Lmhrk6BIApoK+IuXmYheZ1jThtZcpRsnHMHrA9amxS4ah1pPkZVk6ta5
+	rSEAmiTSXzBQdYETCy9cdP8IyRfEsjm55PwSihM9lOhNbx9QTnfC2z3HcN7alDrPPJ67nnREm6WqP
+	8m3nO2pbL8mpKeWlV7IxmxiFEjoCP2rN/fXMssgG+LxqUFj8sBQyFYKKyf9O4UNx/Z4odK/1kROXw
+	uC9ee+gY3XJzQFH3sh45F3h32ifucQ0urjcC7k3itcRKHL0lbg/F7pUEVirnWip56fiurlegAjW5l
+	74Y1KHZq+ASG8wQLcfmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUsDP-00000003VNb-2FrE;
-	Fri, 19 Jul 2024 18:20:23 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1sUsqg-00000003ZVE-0AkE;
+	Fri, 19 Jul 2024 19:00:58 +0000
+Received: from [185.176.79.56] (helo=frasgout.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUsD2-00000003VFZ-1t9X;
-	Fri, 19 Jul 2024 18:20:01 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4WQdFc5j7rz6K6Qn;
-	Sat, 20 Jul 2024 02:17:56 +0800 (CST)
+	id 1sUrj3-00000003QBj-0HMJ;
+	Fri, 19 Jul 2024 17:49:18 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4WQcZJ1Dcbz6J9fr;
+	Sat, 20 Jul 2024 01:47:20 +0800 (CST)
 Received: from lhrpeml500005.china.huawei.com (unknown [7.191.163.240])
-	by mail.maildlp.com (Postfix) with ESMTPS id AC6AB140A36;
-	Sat, 20 Jul 2024 02:19:51 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id CF8E5140A79;
+	Sat, 20 Jul 2024 01:48:44 +0800 (CST)
 Received: from localhost (10.48.157.16) by lhrpeml500005.china.huawei.com
  (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 19 Jul
- 2024 19:19:50 +0100
-Date: Fri, 19 Jul 2024 19:19:49 +0100
+ 2024 18:48:43 +0100
+Date: Fri, 19 Jul 2024 18:48:42 +0100
 From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
 To: Mike Rapoport <rppt@kernel.org>
 CC: <linux-kernel@vger.kernel.org>, Alexander Gordeev
@@ -62,21 +62,21 @@ CC: <linux-kernel@vger.kernel.org>, Alexander Gordeev
 	<linux-cxl@vger.kernel.org>, <nvdimm@lists.linux.dev>,
 	<devicetree@vger.kernel.org>, <linux-arch@vger.kernel.org>,
 	<linux-mm@kvack.org>, <x86@kernel.org>
-Subject: Re: [PATCH 17/17] mm: make range-to-target_node lookup facility a
- part of numa_memblks
-Message-ID: <20240719191949.000045c6@Huawei.com>
-In-Reply-To: <20240716111346.3676969-18-rppt@kernel.org>
+Subject: Re: [PATCH 13/17] mm: move numa_distance and related code from x86
+ to numa_memblks
+Message-ID: <20240719184842.000030bc@Huawei.com>
+In-Reply-To: <20240716111346.3676969-14-rppt@kernel.org>
 References: <20240716111346.3676969-1-rppt@kernel.org>
-	<20240716111346.3676969-18-rppt@kernel.org>
+	<20240716111346.3676969-14-rppt@kernel.org>
 Organization: Huawei Technologies Research and Development (UK) Ltd.
 X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
 MIME-Version: 1.0
 X-Originating-IP: [10.48.157.16]
-X-ClientProxiedBy: lhrpeml500006.china.huawei.com (7.191.161.198) To
+X-ClientProxiedBy: lhrpeml100002.china.huawei.com (7.191.160.241) To
  lhrpeml500005.china.huawei.com (7.191.163.240)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240719_112000_643558_D190661B 
-X-CRM114-Status: UNSURE (   7.90  )
+X-CRM114-CacheID: sfid-20240719_104901_312462_E02AA9D0 
+X-CRM114-Status: UNSURE (   8.51  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,26 +94,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 16 Jul 2024 14:13:46 +0300
+On Tue, 16 Jul 2024 14:13:42 +0300
 Mike Rapoport <rppt@kernel.org> wrote:
 
 > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 > 
-> The x86 implementation of range-to-target_node lookup (i.e.
-> phys_to_target_node() and memory_add_physaddr_to_nid()) relies on
-> numa_memblks.
+> Move code dealing with numa_distance array from arch/x86 to
+> mm/numa_memblks.c
+
+It's not really numa memblock related. Is this the best place
+to put it?
+
 > 
-> Since numa_memblks are now part of the generic code, move these
-> functions from x86 to mm/numa_memblks.c and select
-> CONFIG_NUMA_KEEP_MEMINFO when CONFIG_NUMA_MEMBLKS=y for dax and cxl.
+> This code will be later reused by arch_numa.
+> 
+> No functional changes.
 > 
 > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-
-Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-
-Thanks. I'll poke around more next week.  Have a good weekend.
-
-Jonathan
 
 
 _______________________________________________
