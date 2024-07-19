@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CA95C3DA5D
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jul 2024 16:30:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 799C9C3DA59
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jul 2024 16:39:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BeJ3ROaEiwMD+5KWCuPh2Kv0OY0DZI9tCEalm/V1F8k=; b=Iw6q4x1qS0paCY
-	0NdwP1C4ZD4NwHKF5ZGkvpBRXOEhQMCDJIXN4maqtagFwQdusDuOQ+x3KgYE0eTqPTcJRx3mMPdQ1
-	Mdbwq5/RfXbTQoJX2B2HQ6BHnYjSqzfwqf+RzO5Sc9ZstF3hYOtQaT8N/cIPuu7BaTq+8HlIIX4eA
-	nVNc4PX6qH5F9iMr0vx+ArqfMF8MJ6AyceAJoi9HoS+qg6Q8T43f4bBG7LmBPQz8qIDczNxSblk+1
-	uRm94mgoB6bMM+AWSgQUmnETVEZR2TOoJTgVjVTrJvRZh1J9lE3omPOH2cXTZusDcgktrwVKFCYT5
-	9GVBDwm3Xuvwj48r1B0g==;
+	List-Owner; bh=zTVvGkvgArfhh/q4YlBZbQUP8n3zfB4STX8ds91aBvQ=; b=EdLuaUwIxA59WR
+	8Mens94mFnFfBJyRYNiJ9rAWLL1Yxz9yqWO88nX72OY1LuthkI1mK7DWgk0Yj1hwX3VWUDzYKjDmf
+	/TBA74zj7yVYgAZJl3KbRE0FvA5SCT8lZH/s4VwL5iBlmoexeUaYt4VFpLCeOES1MvJMXv9QAgNSe
+	pEZiwwmpukWo+bm3lXbon3JL0mlDlbklLZL8HFsQ/tW9CFsURnT1baXxL+PhWxiVYbKR+gT+mT64F
+	uB35TI1siZMp2V13ciUSdpWiaHBz8/7fkBbHV9We90rZgRvetG+cVlqzGX0WAVk55QCfLdedfxIMU
+	VgiieYRZEbQZfjpLfdWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUqVS-00000003IDo-2SsS;
-	Fri, 19 Jul 2024 16:30:54 +0000
+	id 1sUqdq-00000003JNq-0iTX;
+	Fri, 19 Jul 2024 16:39:34 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUqV5-00000003I7T-2xuk;
-	Fri, 19 Jul 2024 16:30:33 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4WQZqJ0Xzhz6K6TT;
-	Sat, 20 Jul 2024 00:28:28 +0800 (CST)
+	id 1sUqdT-00000003JFm-02kD;
+	Fri, 19 Jul 2024 16:39:12 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4WQb1q2xppz6JBgm;
+	Sat, 20 Jul 2024 00:37:35 +0800 (CST)
 Received: from lhrpeml500005.china.huawei.com (unknown [7.191.163.240])
-	by mail.maildlp.com (Postfix) with ESMTPS id B243F140C98;
-	Sat, 20 Jul 2024 00:30:22 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id EE605140517;
+	Sat, 20 Jul 2024 00:38:59 +0800 (CST)
 Received: from localhost (10.48.157.16) by lhrpeml500005.china.huawei.com
  (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 19 Jul
- 2024 17:30:16 +0100
-Date: Fri, 19 Jul 2024 17:30:15 +0100
+ 2024 17:38:58 +0100
+Date: Fri, 19 Jul 2024 17:38:49 +0100
 From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
 To: Mike Rapoport <rppt@kernel.org>
 CC: <linux-kernel@vger.kernel.org>, Alexander Gordeev
@@ -62,11 +62,11 @@ CC: <linux-kernel@vger.kernel.org>, Alexander Gordeev
 	<linux-cxl@vger.kernel.org>, <nvdimm@lists.linux.dev>,
 	<devicetree@vger.kernel.org>, <linux-arch@vger.kernel.org>,
 	<linux-mm@kvack.org>, <x86@kernel.org>
-Subject: Re: [PATCH 07/17] x86/numa: move FAKE_NODE_* defines to numa_emu
-Message-ID: <20240719173015.00002a01@Huawei.com>
-In-Reply-To: <20240716111346.3676969-8-rppt@kernel.org>
+Subject: Re: [PATCH 08/17] x86/numa_emu: simplify allocation of phys_dist
+Message-ID: <20240719173849.00007c51@Huawei.com>
+In-Reply-To: <20240716111346.3676969-9-rppt@kernel.org>
 References: <20240716111346.3676969-1-rppt@kernel.org>
-	<20240716111346.3676969-8-rppt@kernel.org>
+	<20240716111346.3676969-9-rppt@kernel.org>
 Organization: Huawei Technologies Research and Development (UK) Ltd.
 X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
 MIME-Version: 1.0
@@ -74,8 +74,8 @@ X-Originating-IP: [10.48.157.16]
 X-ClientProxiedBy: lhrpeml500006.china.huawei.com (7.191.161.198) To
  lhrpeml500005.china.huawei.com (7.191.163.240)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240719_093031_943133_A49D9691 
-X-CRM114-Status: UNSURE (   6.91  )
+X-CRM114-CacheID: sfid-20240719_093911_201509_E08A6056 
+X-CRM114-Status: UNSURE (   7.92  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -93,17 +93,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 16 Jul 2024 14:13:36 +0300
+On Tue, 16 Jul 2024 14:13:37 +0300
 Mike Rapoport <rppt@kernel.org> wrote:
 
 > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 > 
-> The definitions of FAKE_NODE_MIN_SIZE and FAKE_NODE_MIN_HASH_MASK are
-> only used by numa emulation code, make them local to
-> arch/x86/mm/numa_emulation.c
+> By the time numa_emulation() is called, all physical memory is already
+> mapped in the direct map and there is no need to define limits for
+> memblock allocation.
+> 
+> Replace memblock_phys_alloc_range() with memblock_alloc().
 > 
 > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-
+Indeed seems to be after mapping physical memory, so this looks fine.
 Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 
 _______________________________________________
