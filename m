@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 653ADC3DA5D
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jul 2024 16:09:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC0B8C3DA59
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jul 2024 16:09:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=9yfGkK/9idGKKSq4AK3WVJYPYlCNJizA3Sv2EYClXS8=; b=XURnJqNXN7+7+s
-	dfk1fGohBlao3lxUMTjRH25XDyAKuLlNYFUS/q59PJBeYjwoJV/8V8HpU2cxAwAwnjj5Mf1/qJ7Bp
-	HW3L3y3ACQ9zrKtYU+FGXAROvMs2yKAH/sKUZk9YZXqbWU2tunpB7AZlADpyIsZjBekupL84e3IBm
-	HukxWPsP7pDuuXOd5QAum+WXQjzoTvfZvmogGG0N/Kd+eamIxWl5Wq40SmLhdex4mAS1gHguxKAoY
-	J2E0njhz7I6116aTKf4a5iCedR+ojXdUF2PaGsHBbmx3XPvITRIt0/3yyPkhdGU51Axawuq3dToCe
-	nLeAUQou11nY3iQzezhA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=CLrrN1SCu5RCCtw31++kJVF3GUhzuTEG58HDl/h8qEk=; b=2kbW+/VHIhaqn1
+	eBszzYdqbIQL3/EQuEkTEKKUOX6QyV4ziGGwt0/WCxBJQVBPMjoK+bbXZ7dHTQjrHOOsKLMVjr8AV
+	5aDzzkcjSOia0fWkWqe1GUZMkr3r5+MzchAmbQXncV3ykq6gR+qGPDCs1kEuaW26aq0t8eo6c2fu5
+	3ljZuXKG0kShpJbZRbS2bAQxowBDB+VspZYUJawxeiic/A/uLeqtOSGgEr2eJe35EcPnyoeFvxMY8
+	hw6lQafyOrEPD0Cp+ZZrJ/EupwVaJtQN+ABOoMr8TLuuR8NQJVXnkjmPGy8DpYjXvUWC+eZWQy8KB
+	vtLSG6CxOxe4UuUoPmuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUqAk-00000003B70-399o;
-	Fri, 19 Jul 2024 16:09:30 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1sUqAm-00000003B7u-39AP;
+	Fri, 19 Jul 2024 16:09:32 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUqAh-00000003B5f-0RaE
+	id 1sUqAj-00000003B6G-3GBq
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Jul 2024 16:09:29 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-1fc66fc35f2so13171975ad.0
-        for <linux-riscv@lists.infradead.org>; Fri, 19 Jul 2024 09:09:25 -0700 (PDT)
+	Fri, 19 Jul 2024 16:09:31 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-1fc4fccdd78so14282975ad.2
+        for <linux-riscv@lists.infradead.org>; Fri, 19 Jul 2024 09:09:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1721405365; x=1722010165; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=xYWKSzPxNF1FBMt6vsXOOAcJiLP6695b+s20Dc1fH5Y=;
-        b=jliwpiLbxtHfkH0nnLfINOOCRhey8argmEWJODWTQZmh8pV+uov/7HLJK01WHQ+q67
-         0iS5roPIpIVoEBOMov6KlyzSRAARbEvm8VI35El1yMy+hhc9e4nezf0KFn+iP+GvU1Cr
-         YiBboIriXzu+tTo9HMOoH+DrSlhX7x0vGZFJi0trWrh7lla6u784J7NidZLcEpWf57NJ
-         KaoAM2sidFFtairzCr75S9f/XOagr9hh6IYgYVDXtVUCNRsT3ax3CanWPl81kzXg+YNE
-         3w2BWHk9Xz3AY5v9I0njqHDV+9xcqqzPqUAfZlhhd4QPO2HBiJnqOe5qjMic6eZI1tb8
-         OKhQ==
+        d=ventanamicro.com; s=google; t=1721405368; x=1722010168; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4afLvyEEC8RtJCW4UQr1WFckvidc7t8VQbZfjqmPCBw=;
+        b=GM4IfbKoYR5NhSsxwRbmON73o++Ylw9oXrf2eT6kF3g1XkT3/FkswaBJohVwHj7rdC
+         WVKLfJGNm1788mGCEZ/Lf1WZB6iffF3Hv6IcvvrIJcvmGOCT4u9QovTTHzRQFgLZmT6f
+         8JWEbJWF5F+xbZI+QsLN8nHdRxuk58dEz/alMW2xS0PGewSV7uTnxBaaSd9pMoyJSEP/
+         JQtJGJqnM7nxOUpbcmX1TgogPYjJdFyr4/ig0wzaDTTswqesixeKM1r+Fm3dA6+LO4Z/
+         tXZXUC+eegZrhxWvLv0SAmiUvEWnSfqRc69oVenVZsZCI4ymUKzABD535TAEjm8GfiUF
+         Gp/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1721405365; x=1722010165;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=xYWKSzPxNF1FBMt6vsXOOAcJiLP6695b+s20Dc1fH5Y=;
-        b=MAQzwkPOliPx3DH/LExEGWgPBflMIUEudldYsQ0sw9dsLR+fdxYkDUdBXS4kk22ZSZ
-         E5m9nzLHlPc1j46Emc5Keytzpj3Sdp5AGrtxvXA3ZQE81UZAnuBhyD5j3t4swiJMA5kW
-         ibc7iRBgbLS/SiH/jIs9U8i71j9WDzqT40CSMXHtT1CuMz7wQYCbCDlqwbT+ryHoIL89
-         v5V0XBTSWB1qio1zvsqp+ojb6/un+6WLnqW4sc7a0+6JauWXlZZQGr/MiWWwDh6+x5VY
-         xiYDmcXajFoSHxSJ8nrCjzBLZtwp4V2RX4NredmeFafWtY3CQ7fquop2JXY5f+nvWavI
-         9HaA==
-X-Forwarded-Encrypted: i=1; AJvYcCXk0qKRWMZvpTSzP93WAPzqIPIJOhODiC7GJM3J0n0l4s5K8Q/Mz+g0SATqVKzT45IHYR5anbwmFXMebMYq4zDQ2qv7QprYa69im/Fv3YS6
-X-Gm-Message-State: AOJu0YwBzLcnydSFsbFc7hcRS9J2rj0dcPjLfGH+GDECsGiyptQqdSDt
-	zTI8brqOW/qM+QEN1zrr+NHjgPKpS0lVuxxEXNAAXgbCrT0lqLc10Yv1XyjZ894=
-X-Google-Smtp-Source: AGHT+IEDU6P9hJ2nz3TyZ6kiWvc/ZyeAut4s//9AkbdAxAzckMrzsXplgQo8noxdWpSASQCmveYruw==
-X-Received: by 2002:a17:903:98d:b0:1fc:58b7:ae66 with SMTP id d9443c01a7336-1fd74d366dcmr1596895ad.17.1721405364733;
-        Fri, 19 Jul 2024 09:09:24 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1721405368; x=1722010168;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=4afLvyEEC8RtJCW4UQr1WFckvidc7t8VQbZfjqmPCBw=;
+        b=VDCvWdnTKoXQT2lroYghlAa8sKTprRRCN3sn3nsp1zcCjs3glsWA6uC+SjSsg72GFf
+         y0H8k8aiM4bN2I0L5vID9kJ3ukXz/fJUH9Q4/QYwlsoj+SPBCH6eUSk0eb1PvFo/Mehc
+         Y3JP0fon+sPXdKuSEeETeOuT+vFldLWxXfW3Ra/HI5cYXTfIYBhOrScLlj44cpUTxHmv
+         O1+rXVEO5jzPmFM1LDoxQMLQZyA83sdAA8z1i1GTX88AF58ltiGQ5TJhKuGxZfawcied
+         pI8XAb9VYb9gt5M2rpwl0qBgtHk1hF4mh/vWbxPlHuh0GHCkI4+YiTL78AM3SwrDy3BV
+         aKvg==
+X-Forwarded-Encrypted: i=1; AJvYcCU4RyHmu9qkINQaQLqimMbCZPWzMzDQd2YA5SxckB37TMZ+V819lImILt7E6MI8v5SWOZn6dqTOa83bpYI05wAMdyD4CT+ts0pDhNR+7F1R
+X-Gm-Message-State: AOJu0Yx6ql4wZptZqBrTWjg3YX1OWh07Tm0wnnC5vT5J1+t5eiOixUdC
+	T8abfxPlLlJVMmABDRAIxuNl0CyZLNrEGiE1k9qSN/ETOeRgogMS9J/nT/Ch6eU=
+X-Google-Smtp-Source: AGHT+IFvnzeRYXUnxpbkoVZbtYpLHtISa8TDnsAJ4DZ27uwiHvkB35LGFVFo5pBDK1eTxYFOHUVg1Q==
+X-Received: by 2002:a17:903:2306:b0:1fb:55da:c3d with SMTP id d9443c01a7336-1fd745637b5mr4123095ad.25.1721405368211;
+        Fri, 19 Jul 2024 09:09:28 -0700 (PDT)
 Received: from anup-ubuntu-vm.localdomain ([223.185.135.236])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1fd6f28f518sm6632615ad.69.2024.07.19.09.09.21
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1fd6f28f518sm6632615ad.69.2024.07.19.09.09.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Jul 2024 09:09:24 -0700 (PDT)
+        Fri, 19 Jul 2024 09:09:27 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>
@@ -73,14 +74,17 @@ Cc: Atish Patra <atishp@atishpatra.org>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH 00/13] Accelerate KVM RISC-V when running as a guest
-Date: Fri, 19 Jul 2024 21:39:00 +0530
-Message-Id: <20240719160913.342027-1-apatel@ventanamicro.com>
+Subject: [PATCH 01/13] RISC-V: KVM: Order the object files alphabetically
+Date: Fri, 19 Jul 2024 21:39:01 +0530
+Message-Id: <20240719160913.342027-2-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20240719160913.342027-1-apatel@ventanamicro.com>
+References: <20240719160913.342027-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240719_090927_149794_99E10EA5 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20240719_090929_838116_6019FA1A 
+X-CRM114-Status: UNSURE (   8.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,59 +101,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The KVM RISC-V hypervisor might be running as a guest under some other
-host hypervisor in which case the complete H-extension functionality will
-be trap-n-emulated by the host hypervisor. In this case, the KVM RISC-V
-performance can be accelerated using the SBI nested acceleration (NACL)
-extension if the host hypervisor provides it.
+Order the object files alphabetically in the Makefile so that
+it is very predictable inserting new object files in the future.
 
-These series extends KVM RISC-V to use SBI NACL extension whenever
-underlying SBI implementation (aka host hypervisor) provides it.
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+---
+ arch/riscv/kvm/Makefile | 26 ++++++++++++++------------
+ 1 file changed, 14 insertions(+), 12 deletions(-)
 
-These patches can also be found in the riscv_sbi_nested_v1 branch at:
-https://github.com/avpatel/linux.git
-
-To test these patches, run KVM RISC-V as Guest under latest Xvisor
-found at: https://github.com/xvisor/xvisor.git
-
-For the steps to test on Xvisor, refer the Xvisor documentation
-<xvisor_source>/docs/riscv/riscv64-qemu.txt with two small changes:
-
-1) In step#11, make sure compressed kvm.ko, guest kernel image, and
-   kvmtool are present in the rootfs.img
-2) In step#14, make sure AIA is available to Xvisor by using
-   "virt,aia=aplic-imsic" as the QEMU machine name.
-
-Anup Patel (13):
-  RISC-V: KVM: Order the object files alphabetically
-  RISC-V: KVM: Save/restore HSTATUS in C source
-  RISC-V: KVM: Save/restore SCOUNTEREN in C source
-  RISC-V: KVM: Break down the __kvm_riscv_switch_to() into macros
-  RISC-V: KVM: Replace aia_set_hvictl() with aia_hvictl_value()
-  RISC-V: KVM: Don't setup SGEI for zero guest external interrupts
-  RISC-V: Add defines for the SBI nested acceleration extension
-  RISC-V: KVM: Add common nested acceleration support
-  RISC-V: KVM: Use nacl_csr_xyz() for accessing H-extension CSRs
-  RISC-V: KVM: Use nacl_csr_xyz() for accessing AIA CSRs
-  RISC-V: KVM: Use SBI sync SRET call when available
-  RISC-V: KVM: Save trap CSRs in kvm_riscv_vcpu_enter_exit()
-  RISC-V: KVM: Use NACL HFENCEs for KVM request based HFENCEs
-
- arch/riscv/include/asm/kvm_nacl.h | 237 ++++++++++++++++++++++++++++++
- arch/riscv/include/asm/sbi.h      | 120 +++++++++++++++
- arch/riscv/kvm/Makefile           |  27 ++--
- arch/riscv/kvm/aia.c              | 114 +++++++++-----
- arch/riscv/kvm/main.c             |  53 ++++++-
- arch/riscv/kvm/mmu.c              |   4 +-
- arch/riscv/kvm/nacl.c             | 152 +++++++++++++++++++
- arch/riscv/kvm/tlb.c              |  57 ++++---
- arch/riscv/kvm/vcpu.c             | 184 +++++++++++++++++------
- arch/riscv/kvm/vcpu_switch.S      | 137 ++++++++++-------
- arch/riscv/kvm/vcpu_timer.c       |  28 ++--
- 11 files changed, 935 insertions(+), 178 deletions(-)
- create mode 100644 arch/riscv/include/asm/kvm_nacl.h
- create mode 100644 arch/riscv/kvm/nacl.c
-
+diff --git a/arch/riscv/kvm/Makefile b/arch/riscv/kvm/Makefile
+index c2cacfbc06a0..c1eac0d093de 100644
+--- a/arch/riscv/kvm/Makefile
++++ b/arch/riscv/kvm/Makefile
+@@ -9,27 +9,29 @@ include $(srctree)/virt/kvm/Makefile.kvm
+ 
+ obj-$(CONFIG_KVM) += kvm.o
+ 
++# Ordered alphabetically
++kvm-y += aia.o
++kvm-y += aia_aplic.o
++kvm-y += aia_device.o
++kvm-y += aia_imsic.o
+ kvm-y += main.o
+-kvm-y += vm.o
+-kvm-y += vmid.o
+-kvm-y += tlb.o
+ kvm-y += mmu.o
++kvm-y += tlb.o
+ kvm-y += vcpu.o
+ kvm-y += vcpu_exit.o
+ kvm-y += vcpu_fp.o
+-kvm-y += vcpu_vector.o
+ kvm-y += vcpu_insn.o
+ kvm-y += vcpu_onereg.o
+-kvm-y += vcpu_switch.o
++kvm-$(CONFIG_RISCV_PMU_SBI) += vcpu_pmu.o
+ kvm-y += vcpu_sbi.o
+-kvm-$(CONFIG_RISCV_SBI_V01) += vcpu_sbi_v01.o
+ kvm-y += vcpu_sbi_base.o
+-kvm-y += vcpu_sbi_replace.o
+ kvm-y += vcpu_sbi_hsm.o
++kvm-$(CONFIG_RISCV_PMU_SBI) += vcpu_sbi_pmu.o
++kvm-y += vcpu_sbi_replace.o
+ kvm-y += vcpu_sbi_sta.o
++kvm-$(CONFIG_RISCV_SBI_V01) += vcpu_sbi_v01.o
++kvm-y += vcpu_switch.o
+ kvm-y += vcpu_timer.o
+-kvm-$(CONFIG_RISCV_PMU_SBI) += vcpu_pmu.o vcpu_sbi_pmu.o
+-kvm-y += aia.o
+-kvm-y += aia_device.o
+-kvm-y += aia_aplic.o
+-kvm-y += aia_imsic.o
++kvm-y += vcpu_vector.o
++kvm-y += vm.o
++kvm-y += vmid.o
 -- 
 2.34.1
 
