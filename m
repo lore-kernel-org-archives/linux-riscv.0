@@ -4,105 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E5D1C3DA5D
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jul 2024 22:26:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56057C3DA5D
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 Jul 2024 00:31:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h0lO4/5vsqmAXpx8e5JrfPvV3HotfBPJ3gcORCHLm2k=; b=elIWgFHZRuxdQZ
-	pG0wHSyZzMrzux/RH9XVMddnGzoqHVWgczVs5wzHxtAvk862Em97t3dGq99TxB3GeOmQqr45cQT7K
-	ErTV5RYjlMhmn02CwjytgpBZnqkFQQcb2nGPDne2ySBGK4eY07Etqx/Go8IT2nKIVflSM/+lqs2ea
-	nPJAmfh6ocXtNR8NY0ucS0vU4U5vByrhH3QNdW25PaKYr5NYRaJUiVRT+/n5dWshWDbFlIhgtPSTK
-	mvbL9DLAD5SNlHlwPeIW3sWl1G2KJUnGoOE9QUsLQd5A69mPANjft5h4D/qfckQ8Y/O7Mrpq9e7tB
-	ukTB5TVR+kK+5KDaO8uw==;
+	List-Owner; bh=PVyxqqsfe4nLWVSFPQb9Aln/3FxMMT8bfPA0mNMlfaQ=; b=IucwGJaPIKYsHX
+	Os+oxQZfOEg8TxunBd/w/J7aVd9Uwh29PWdAFUkSn6I1GesyPwvffaprIoXdaZF72g1oGurgiyznV
+	2VTBt6uT3NJHeCTBrpkc+CjosZ7xdpKLb5zSZk/tUxncftOGgV4gXfbPxdRtSCZFZA9BAQ+uX7OnQ
+	zluiRsOI6VnsrVBegUwxkV1dlzv6Abi6z5r0RfYa5/ry2FXVtbBg2tCgbscCfU0iIAHNYWKHdKh9v
+	ocQwE6PgxA40P06xv2aLPmGOcSV3ax9Ys+R3hDhTqeaA4nYjvmmiA7bGyZgUHBhQfGbyNod+fJMb9
+	9eXT0XP6/j8kReX0xM6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUw37-00000003uD3-1xiR;
-	Fri, 19 Jul 2024 22:26:01 +0000
-Received: from mail-yb1-xb36.google.com ([2607:f8b0:4864:20::b36])
+	id 1sUy0g-000000049P2-0QcY;
+	Sat, 20 Jul 2024 00:31:38 +0000
+Received: from mail-bn8nam04olkn2082a.outbound.protection.outlook.com ([2a01:111:f403:2c08::82a] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sUw33-00000003uCP-0alp
+	id 1sUy0Z-000000049Mi-2HlF
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Jul 2024 22:25:59 +0000
-Received: by mail-yb1-xb36.google.com with SMTP id 3f1490d57ef6-e0878971aa9so47936276.0
-        for <linux-riscv@lists.infradead.org>; Fri, 19 Jul 2024 15:25:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1721427956; x=1722032756; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=S386uNHUa1mDO7HUkcI0rCKHyM1BbL2df0I71SUcBA0=;
-        b=n/F6978BweSTWQrAWpa/0wyo3dMjX7wSsR1eyDnPIMMjqvhNrPIg8BtpfLMFxdOBek
-         bfR+32uY2jAqjIT723xEy/ls6/G0eN1SEEN5ZkOp+oVjC0e5Nzh6E3Srzze2UyYFvVdD
-         ynj8TsESjeXf7pY6tRPgsLnc4L9S+MiUJ5154C8WmgsETJsOOhTWqmaA6ZM9v9Yn7H8l
-         JFVQTM7OqELjp8F252esZIDuGVOYkh9QtV0T00XD8peQY2A3ev9GNDTIsW93va8E844b
-         biDEpU7nHebXrVvnjEFf0683L9F8orlRIWEhIO7Mv0C41BepKdo/MbBLjaPHXQmVT+TA
-         3Czg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1721427956; x=1722032756;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=S386uNHUa1mDO7HUkcI0rCKHyM1BbL2df0I71SUcBA0=;
-        b=tPTd24o+k4/FbFtwMn1d6msjjbj5x3rX+ZyiAnooYEA5yLUuo2UTIbjIxaj80T7epk
-         QZPUfA4ZzVMgoa3CC5B+wT4tWOKYGqPHF5y1VnanqRpb72MBNHGkQcFAngAlcpSf3mvA
-         qp8+XgNs1IDF6tindKpNd3qPJwZZARksbI+mA95s9YT92D8nD+8pk3Q3XJt8MMb0VALZ
-         21K+heZj2uhVVWVQ1ycaufg4UKuknh0vRCjPCX2MFzLy33OKPuvdlCOK+Dy0qlQ7nxQT
-         2tXKjOjwU7oYjjL/CNnrit3eH0uwnybxvloCugXXq11ps0R1OTZoU9NOGm8Ll/AVV5NJ
-         K6ng==
-X-Forwarded-Encrypted: i=1; AJvYcCXwrHCrOsAyv17Elrd6ef+eaabXBVpU08E9Qs8KTV1kU4U0j0o1Kfmmjyal8xmWlqE/sMJDWiKAnNcCOHtjJ02lZuwE+kyZs9q20meSB4pl
-X-Gm-Message-State: AOJu0Ywl50t66zWvfkQ8E7GyfSnY/tpCXpMSK64yModfKuA3mboPxek9
-	uz7ePqjZwKE0yiBY9qHkgzkpV1w55BR5WOMZusI8W2KD9WYefyz/O1T8kXsNM7M=
-X-Google-Smtp-Source: AGHT+IFJ/Xb7HTvxClUkzKPmIMXRkcAoU0Ag2NvfoFtCiJ60OAXbvUitaY7qqrsTDC3Xsq46oxUHdw==
-X-Received: by 2002:a25:6b45:0:b0:e05:f632:3ef3 with SMTP id 3f1490d57ef6-e05ff2e2ac7mr5211912276.23.1721427955741;
-        Fri, 19 Jul 2024 15:25:55 -0700 (PDT)
-Received: from ghost ([50.146.0.2])
-        by smtp.gmail.com with ESMTPSA id 3f1490d57ef6-e086096b428sm699235276.2.2024.07.19.15.25.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Jul 2024 15:25:54 -0700 (PDT)
-Date: Fri, 19 Jul 2024 15:25:53 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Evan Green <evan@rivosinc.com>
-Cc: Jesse Taube <jesse@rivosinc.com>, linux-riscv@lists.infradead.org,
-	Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Xiao Wang <xiao.w.wang@intel.com>, Andy Chiu <andy.chiu@sifive.com>,
-	Eric Biggers <ebiggers@google.com>,
-	Greentime Hu <greentime.hu@sifive.com>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Costa Shulyupin <costa.shul@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Baoquan He <bhe@redhat.com>, Anup Patel <apatel@ventanamicro.com>,
-	Zong Li <zong.li@sifive.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Ben Dooks <ben.dooks@codethink.co.uk>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Erick Archer <erick.archer@gmx.com>,
-	Joel Granados <j.granados@samsung.com>, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v5 6/7] RISC-V: Report vector unaligned access speed
- hwprobe
-Message-ID: <Zprn8ctubWJxZjpX@ghost>
-References: <20240717180727.4180475-1-jesse@rivosinc.com>
- <20240717180727.4180475-7-jesse@rivosinc.com>
- <CALs-Hsuph7-1FmTqtH-395k84f5ZzkKu8PbX7VqU5JkshFr_3w@mail.gmail.com>
-MIME-Version: 1.0
+	Sat, 20 Jul 2024 00:31:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xokT8D+zmpfPi1hd4nkGroK9IkW8/877yRirZwo9IYOs0VnHlpaAH/cE1K0yHuEsqC8xew3XCh1k8k9deir4kaCArm7q5C5+j7fhUCFzaTjBop+pUdvkzjgdwpl05i7OEVQQ2xwROLXkGyozFizk8qeQD2Wdxp2BVqLI3xep17I2q4VTxgZVMIf5fWRkeCBa2eRDWhAcsxDDv8pKI18odX3vUZ/UDSbHgLtt4TjEyA3xxvNHYQAg1dC8JHZPGn/hkgOklgmiOiPYGlhJT6HVez2kCY+YU8Hsd4GNzYstPfOfwNUF++94pwD3MLmZXosnSDBeoBrEcv8tkinfGSFkow==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IbedgCzV4BfFEXJu6Oq9d07pE3+QPKMExflUR9wpZpA=;
+ b=yew/JauenRs+gG7S4uY4cIQxDuueH2PXlCjHDzNqi38wPCEPoSH8dE3pO1ZNLQNEiI/yChXC4rjmVzfRixVgnOaWQWUvWvLNq8sPHefBTy0uxYWnop9yX9W8jSWnAJzB81WvHvDO9Jm4iSB22J1vwbPfRQKy+onnqe0tNp7EGzZFE0yiQzk5HjZ0jft4GLbaxkvkXAW5OGu1nOvPin/wc+lVLGAh3h7alRTxfCqg+7xFAV5bQTeq4cNuxKAxYiNln+BcCnZ8gEPZ2YYHjQbSd89l4mCNg+pus3PvoP9ClnorAQrrw6grYBEERyTBa/NJuU5xFxFGvUMoPnxBqcEarA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IbedgCzV4BfFEXJu6Oq9d07pE3+QPKMExflUR9wpZpA=;
+ b=c53oI7RxMYoumjqVXg4bWWJS/PqFDTBNs70tUcdF4ciDV1OSLS/OApPWkoxTOXE70qd5jeqOnuwIdDGycCcWZhjysL8iVEKRbvrfy1vj6UeZbItEyLz3J85jjHY3x19Ydm3ZCtg1zqWndnGoCI5u0QSua/GbTt8qKvCUo2CzcuqY3qm8P2hGQUN3zGYfYO9vBOIAEqjALaN2mZzYZtJr/9OOIdXFUBHxvYaCU7PZ26OwNSdEh63Tgi+N+fz/BEQwYVnVr9DoOocDq25ULO49ukWDqN+crGQARhg3VrnJX19G5qMU8kZb94L29hi+VZrA7gWBQv1ydNb5sS7cDtC/BQ==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by DS7PR20MB6233.namprd20.prod.outlook.com (2603:10b6:8:db::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7784.15; Sat, 20 Jul
+ 2024 00:31:14 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::ab0b:c0d3:1f91:d149]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::ab0b:c0d3:1f91:d149%5]) with mapi id 15.20.7784.016; Sat, 20 Jul 2024
+ 00:31:14 +0000
+Date: Sat, 20 Jul 2024 08:30:57 +0800
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Yixun Lan <dlan@gentoo.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>
+Subject: Re: [PATCH 1/2] riscv: dts: spacemit: add pinctrl support for K1 SoC
+Message-ID: <IA1PR20MB4953D7FC538E7E67B00434AEBBAE2@IA1PR20MB4953.namprd20.prod.outlook.com>
+References: <20240719-02-k1-pinctrl-v1-0-239ac5b77dd6@gentoo.org>
+ <20240719-02-k1-pinctrl-v1-1-239ac5b77dd6@gentoo.org>
 Content-Disposition: inline
-In-Reply-To: <CALs-Hsuph7-1FmTqtH-395k84f5ZzkKu8PbX7VqU5JkshFr_3w@mail.gmail.com>
+In-Reply-To: <20240719-02-k1-pinctrl-v1-1-239ac5b77dd6@gentoo.org>
+X-TMN: [YaMR9+Hsz9A/wXsnDVYM1uDgdldK3WbBUURj8xYU4l0=]
+X-ClientProxiedBy: OS7PR01CA0111.jpnprd01.prod.outlook.com
+ (2603:1096:604:258::7) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <77dxiaud6gy5exvizefo34wrcjg77oohy3es6tv55jq5tst2du@bxh76auya3tp>
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|DS7PR20MB6233:EE_
+X-MS-Office365-Filtering-Correlation-Id: f8030572-ea2b-42c5-1735-08dca853431c
+X-MS-Exchange-SLBlob-MailProps: dx7TrgQSB6elLiMRHB5H6rzWn7vhF1Vnfi/HePOulkxwuTNdmLhYd3bADgwDq93bpWnxYGb5sHVmkaIppH/E9kWRMBU62Q6bw1IorOm3xsDGFmkLXCZgkMPaBV5Mx4z5YNraJqp0ruYYAbIwA8y4N+hiQ0dxIc4Ig/N3bBenyY6DRxZf30QWAeYpmF9tksIK+ejLrCHnIx+/m2paA0f24nNwsG3IGqN14+vYZg02W/frIpHGazlRgUZA/BbsXnuJ6duuSvBSrXtULu+O39kGSHD9uuprOCMZue4PXA0kMcyR/5qYaaWIMWdHhg8277kpo80gdv7kZ9an4mUFWCigC2n6KseetW72nb3Krpz2PAm9MdLBfZItnG5CdqRfEvV41uNblekZ4MzAtRH+hlZsUgxS8FFgDXYqS38PN9839tMp9Ze0uxhcmOg2e3mC3uZJxXTeFZ4yukdYaBTQ5SonYdOLLg5cf4h04Bv6uTRt/rWB3M+0YanYCWed84vI5uJ5jrX3djX9nbE4XMAhs3zvwMXV5lumajVpNJj82LHPiqhchqzh8QyreVsztk0LdGApzcSbnd+Vzqx6dtdZg73h8oxZolYA+fsSqTcBGiBicztxqr6RWpU7dsoy2Dl35QkoJOFMERMo3PWLj7fPcsbZQuG8LorXnSzKh1HhKDFp36zXngPtAArKefkc2/V1Kjkf68MCUIAGD9OD7a4xqnpFK7Dnq8qK07ujWnWBjUaPi3UJVjj4V4GGe2lgcNUg5B2SzNpenn5PoJI=
+X-Microsoft-Antispam: BCL:0;ARA:14566002|8060799006|19110799003|461199028|440099028|3412199025|1710799026;
+X-Microsoft-Antispam-Message-Info: TuDzCUI3Fex7aBpOYpXG0jrgl5C2TNvvqReFlG/THelVArfUCkmezfAdW6PaKtD8leTKnkA6GNx+NAE7auH7k/DRNEfasjWmPdljqc3fcHwfSTRuXzvQTRbJ9z5b/YgTTlnlSU49yn4C/NARbM1YTR268PPK2FkT0+aknfDIcH1sXVBpCMCmSU/aodNb8wIVpkOVxR6DuAgNhfi8LIrXbmMciXO1LzF0RROJlLWHOHzpeATLqSygYCXRSRfNLkoN3VNtw0va2cIeTn58GSXg9J/Gjsvd8SQ5TSfWseKl35Z4ukuwEmMMgWx8iYyuffTjwHn4lQ/Bzw8iKLaRjZZiDPl8/j/nwK+nZ4Zm2qwMuOXJ5VWfsWZsrMqcDjwAYEMANISPLWykexyVuMUMLDoFBD0SrFrroaXXp/Cz7GOwSERwfMwm6KJvw2NmBif9csW3fE2qDZh8zXEdXNZSzQd2p3uulC6v8/4KcKVffEPb+A/6kXvNFaKeAKKVfg4wd4l+DdznTbvvGQS3y+hnrpouwyuD6QuEGRP/xZmYmYRvtjnjmb9a8ZfpyBJnLpjlVFLcwNpsE/xBOWICQLDBuERmeSnTLQzEwWAdCicqAudHgdeoGm6T44Fx6IOSKgxgUN0FUpZ4pREVVnepVPlgbqTV3ARE1hes3D4ATOEZAYG0r4yuotNcDXyy/c59Ao4JlPg0
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZJ+8gmC8bCI5P73jN8AV91pXG1jbrI7/ISQt9xda67D3AUF7EGrPD6E9GxFD?=
+ =?us-ascii?Q?beY/3H2ZmJ4tcUEsHSt/gJKlEjA0zgHNS9eIwcSOCDufnm7rhnOiF0nEW5Hq?=
+ =?us-ascii?Q?aa1FwbSM8gip7ob4E0v+KutSkd1wa5X3hyONcNlTMp/5Mw6e4bNuC+F2brCl?=
+ =?us-ascii?Q?h/KeKOGhi0sIrsJGJzJtILQdpcBg6vlBRIOmVmUUiOFKuhcd82NvO+shDSKt?=
+ =?us-ascii?Q?3k/ISj+fjCPGwuRknidhCgacf3ENP5GQGfSQli/kwdcoZtPtfipbM7+81WOt?=
+ =?us-ascii?Q?o7hLkxcxco7HKxpWLVP7UJP6fvW5RD+1rqndkz6qgmP2uo4wGYz5Z4fB2OHZ?=
+ =?us-ascii?Q?4NcE1FG2ot9MilhNYyxGDNJHb1mW6U8CRUI0+kyjPVnxthObnlLR5Gn0gKh5?=
+ =?us-ascii?Q?JG0diG9fA3V9HTSMfyzBVS9oGD3JfnA0BzOOZJsOaPMDf13FQwfoRNOICHnc?=
+ =?us-ascii?Q?qu8RRDqs2VTJ2ZIYuC6jWTwK8LZq6LeAGClaE776T8ANWLGSHALf8KQCTLtj?=
+ =?us-ascii?Q?s0srKy9h6yoYuHC77eUaVpzx9Og8AcLNIqwsy05mQRkHkDz0b42+xgCeHUwp?=
+ =?us-ascii?Q?CUOj3gwGKBvdhXvlbG2LK3yk/yreNCi6sOVyJGzWmt76zObizjCcXXizwoJ3?=
+ =?us-ascii?Q?yRZqQ60N540IRH5/YGO9YFfYCXDnwHRPaBY4XXqNddQ4fPDaXgSll8XhyBZh?=
+ =?us-ascii?Q?LoWsViSI21ZT3W1QcsB2RB6l2Rtmwsdw8E6eDU13hnJvJCTrPg1/ZKVti8WC?=
+ =?us-ascii?Q?kLwf3T7Gl1Wr8JR516/VEi4rGyubLl7EJ1FtCriBtLX4IyYxaHtMQB8kLvwO?=
+ =?us-ascii?Q?8U0hF29uzftj0X+sHNPp1d9Gqap+S772/T8JjzK1Ls5zMNvFLrjlEFMT4pyx?=
+ =?us-ascii?Q?0dEioDsORmrGCPxvE/AlWPs95ypr7pJzMROFZiKZ4s2YPcK9IqIkKvQYeYvo?=
+ =?us-ascii?Q?nxQCGRw8ZLDN4omnb3lhQLvd7JkzJ0MzT2acCCUp1fJ/VH/bY0kQfsU/nJMy?=
+ =?us-ascii?Q?LkgvttW4ZJs7P191/91KLQepDKZeC6Bt6fKtA67+C3NGCJMFSucPapMOSCBk?=
+ =?us-ascii?Q?yvoxfh02PMoOYfoeAkQFVTC1BhzhSYMr7dbIfDITCE5JhVjKEZoG2pJKIPXr?=
+ =?us-ascii?Q?s1fnlzc/nBqWksumlgIOfFQIFcmM3uWLm/EPryi3J169b6aJiQDh+ncTPhP3?=
+ =?us-ascii?Q?fgkRmvvUN7NWhxnNfMVPe73FgT21yEAkM3fVTupMjxIhMA6UDqksmR+0c2gi?=
+ =?us-ascii?Q?aLwg0ZcNG2PnUzs/eepC?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f8030572-ea2b-42c5-1735-08dca853431c
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jul 2024 00:31:14.7300
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR20MB6233
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240719_152557_481594_56784E64 
-X-CRM114-Status: GOOD (  46.46  )
+X-CRM114-CacheID: sfid-20240719_173131_912505_9188F976 
+X-CRM114-Status: GOOD (  13.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,301 +122,2054 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: devicetree@vger.kernel.org, Meng Zhang <zhangmeng.kevin@spacemit.com>, linux-kernel@vger.kernel.org, Jesse Taube <jesse@rivosinc.com>, Yangyu Chen <cyy@cyyself.name>, Inochi Amaoto <inochiama@outlook.com>, Jisheng Zhang <jszhang@kernel.org>, Meng Zhang <kevin.z.m@hotmail.com>, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBKdWwgMTksIDIwMjQgYXQgMDE6MDA6MTZQTSAtMDcwMCwgRXZhbiBHcmVlbiB3cm90
-ZToKPiBPbiBXZWQsIEp1bCAxNywgMjAyNCBhdCAxMTowOOKAr0FNIEplc3NlIFRhdWJlIDxqZXNz
-ZUByaXZvc2luYy5jb20+IHdyb3RlOgo+ID4KPiA+IERldGVjdCBpZiB2ZWN0b3IgbWlzYWxpZ25l
-ZCBhY2Nlc3NlcyBhcmUgZmFzdGVyIG9yIHNsb3dlciB0aGFuCj4gPiBlcXVpdmFsZW50IHZlY3Rv
-ciBieXRlIGFjY2Vzc2VzLiBUaGlzIGlzIHVzZWZ1bCBmb3IgdXNlcm1vZGUgdG8ga25vdwo+ID4g
-d2hldGhlciB2ZWN0b3IgYnl0ZSBhY2Nlc3NlcyBvciB2ZWN0b3IgbWlzYWxpZ25lZCBhY2Nlc3Nl
-cyBoYXZlIGEgYmV0dGVyCj4gPiBiYW5kd2lkdGggZm9yIG9wZXJhdGlvbnMgbGlrZSBtZW1jcHku
-Cj4gPgo+ID4gU2lnbmVkLW9mZi1ieTogSmVzc2UgVGF1YmUgPGplc3NlQHJpdm9zaW5jLmNvbT4K
-PiA+IFJldmlld2VkLWJ5OiBDaGFybGllIEplbmtpbnMgPGNoYXJsaWVAcml2b3NpbmMuY29tPgo+
-ID4gLS0tCj4gPiBWMSAtPiBWMjoKPiA+ICAtIEFkZCBLY29uZmlnIG9wdGlvbnMKPiA+ICAtIEFk
-ZCBXT1JEX0VFVyB0byB2ZWMtY29weS11bmFsaWduZWQuUwo+ID4gVjIgLT4gVjM6Cj4gPiAgLSBS
-ZW1vdmUgdW5uZWNlc3NhcnkgY29tbWVudAo+ID4gIC0gUmVtb3ZlIGxvY2FsX2lycV9lbmFibGUK
-PiA+IFYzIC0+IFY0Ogo+ID4gIC0gQWRkIHByZWVtcHRfZGlzYWJsZS9lbmFibGUKPiA+ICAtIEFs
-cGhhYmV0aXplIGluY2x1ZGVzIGluIHZlYy1jb3B5LXVuYWxpZ25lZC5TIGFuZCB1bmFsaWduZWRf
-YWNjZXNzX3NwZWVkLmMKPiA+ICAtIEFkZCBkdXBsaWNhdGUgY29tbWVudHMgYWJvdmUgbWIoKSB0
-byBwbGVhc2UgY2hlY2twYXRjaAo+ID4gIC0gY2hhbmdlIGFsbF9jcHVzX3ZlY19zdXBwb3J0ZWQg
-dG8gYWxsX2NwdXNfdmVjX3Vuc3VwcG9ydGVkCj4gPiAgICAgc28gc3BlZWQgaXMgdGVzdGVkIGlm
-IGFueSBjcHVzIHN1cHBvcnQgdW5hbGlnbmVkIHZlY3RvciBhY2Nlc3Nlcwo+ID4gIC0gU3BlbGwg
-b3V0IF9WRUNUT1JfIGluIG1hY3Jvcwo+ID4gVjQgLT4gVjU6Cj4gPiAgLSBDaGFuZ2Ugdm9pZCAq
-dW51c2VkIHRvIHZvaWQgKnVudXNlZCBfX2Fsd2F5c191bnVzZWQKPiA+IC0tLQo+ID4gIGFyY2gv
-cmlzY3YvS2NvbmZpZyAgICAgICAgICAgICAgICAgICAgICAgICB8ICAxOCArKysKPiA+ICBhcmNo
-L3Jpc2N2L2tlcm5lbC9NYWtlZmlsZSAgICAgICAgICAgICAgICAgfCAgIDMgKy0KPiA+ICBhcmNo
-L3Jpc2N2L2tlcm5lbC9jb3B5LXVuYWxpZ25lZC5oICAgICAgICAgfCAgIDUgKwo+ID4gIGFyY2gv
-cmlzY3Yva2VybmVsL3N5c19od3Byb2JlLmMgICAgICAgICAgICB8ICAgNiArCj4gPiAgYXJjaC9y
-aXNjdi9rZXJuZWwvdW5hbGlnbmVkX2FjY2Vzc19zcGVlZC5jIHwgMTM0ICsrKysrKysrKysrKysr
-KysrKysrLQo+ID4gIGFyY2gvcmlzY3Yva2VybmVsL3ZlYy1jb3B5LXVuYWxpZ25lZC5TICAgICB8
-ICA1OCArKysrKysrKysKPiA+ICA2IGZpbGVzIGNoYW5nZWQsIDIyMSBpbnNlcnRpb25zKCspLCAz
-IGRlbGV0aW9ucygtKQo+ID4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2tlcm5lbC92
-ZWMtY29weS11bmFsaWduZWQuUwo+ID4KPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L0tjb25m
-aWcgYi9hcmNoL3Jpc2N2L0tjb25maWcKPiA+IGluZGV4IGZmYmUwZmRkN2ZiMy4uZTk4MTM5MzQw
-YzFjIDEwMDY0NAo+ID4gLS0tIGEvYXJjaC9yaXNjdi9LY29uZmlnCj4gPiArKysgYi9hcmNoL3Jp
-c2N2L0tjb25maWcKPiA+IEBAIC04MDcsNiArODA3LDI0IEBAIGNvbmZpZyBSSVNDVl9QUk9CRV9W
-RUNUT1JfVU5BTElHTkVEX0FDQ0VTUwo+ID4gICAgICAgICAgIHdpbGwgZHluYW1pY2FsbHkgZGV0
-ZXJtaW5lIHRoZSBzcGVlZCBvZiB2ZWN0b3IgdW5hbGlnbmVkIGFjY2Vzc2VzIG9uCj4gPiAgICAg
-ICAgICAgdGhlIHVuZGVybHlpbmcgc3lzdGVtIGlmIHRoZXkgYXJlIHN1cHBvcnRlZC4KPiA+Cj4g
-PiArY29uZmlnIFJJU0NWX1NMT1dfVkVDVE9SX1VOQUxJR05FRF9BQ0NFU1MKPiA+ICsgICAgICAg
-Ym9vbCAiQXNzdW1lIHRoZSBzeXN0ZW0gc3VwcG9ydHMgc2xvdyB2ZWN0b3IgdW5hbGlnbmVkIG1l
-bW9yeSBhY2Nlc3NlcyIKPiA+ICsgICAgICAgZGVwZW5kcyBvbiBOT05QT1JUQUJMRQo+ID4gKyAg
-ICAgICBoZWxwCj4gPiArICAgICAgICAgQXNzdW1lIHRoYXQgdGhlIHN5c3RlbSBzdXBwb3J0cyBz
-bG93IHZlY3RvciB1bmFsaWduZWQgbWVtb3J5IGFjY2Vzc2VzLiBUaGUKPiA+ICsgICAgICAgICBr
-ZXJuZWwgYW5kIHVzZXJzcGFjZSBwcm9ncmFtcyBtYXkgbm90IGJlIGFibGUgdG8gcnVuIGF0IGFs
-bCBvbiBzeXN0ZW1zCj4gPiArICAgICAgICAgdGhhdCBkbyBub3Qgc3VwcG9ydCB1bmFsaWduZWQg
-bWVtb3J5IGFjY2Vzc2VzLgo+ID4gKwo+ID4gK2NvbmZpZyBSSVNDVl9FRkZJQ0lFTlRfVkVDVE9S
-X1VOQUxJR05FRF9BQ0NFU1MKPiA+ICsgICAgICAgYm9vbCAiQXNzdW1lIHRoZSBzeXN0ZW0gc3Vw
-cG9ydHMgZmFzdCB2ZWN0b3IgdW5hbGlnbmVkIG1lbW9yeSBhY2Nlc3NlcyIKPiA+ICsgICAgICAg
-ZGVwZW5kcyBvbiBOT05QT1JUQUJMRQo+ID4gKyAgICAgICBoZWxwCj4gPiArICAgICAgICAgQXNz
-dW1lIHRoYXQgdGhlIHN5c3RlbSBzdXBwb3J0cyBmYXN0IHZlY3RvciB1bmFsaWduZWQgbWVtb3J5
-IGFjY2Vzc2VzLiBXaGVuCj4gPiArICAgICAgICAgZW5hYmxlZCwgdGhpcyBvcHRpb24gaW1wcm92
-ZXMgdGhlIHBlcmZvcm1hbmNlIG9mIHRoZSBrZXJuZWwgb24gc3VjaAo+ID4gKyAgICAgICAgIHN5
-c3RlbXMuIEhvd2V2ZXIsIHRoZSBrZXJuZWwgYW5kIHVzZXJzcGFjZSBwcm9ncmFtcyB3aWxsIHJ1
-biBtdWNoIG1vcmUKPiA+ICsgICAgICAgICBzbG93bHksIG9yIHdpbGwgbm90IGJlIGFibGUgdG8g
-cnVuIGF0IGFsbCwgb24gc3lzdGVtcyB0aGF0IGRvIG5vdAo+ID4gKyAgICAgICAgIHN1cHBvcnQg
-ZWZmaWNpZW50IHVuYWxpZ25lZCBtZW1vcnkgYWNjZXNzZXMuCj4gPiArCj4gPiAgZW5kY2hvaWNl
-Cj4gPgo+ID4gIGVuZG1lbnUgIyAiUGxhdGZvcm0gdHlwZSIKPiA+IGRpZmYgLS1naXQgYS9hcmNo
-L3Jpc2N2L2tlcm5lbC9NYWtlZmlsZSBiL2FyY2gvcmlzY3Yva2VybmVsL01ha2VmaWxlCj4gPiBp
-bmRleCA1YjI0M2Q0NmY0YjEuLjI5MTkzNWEwODRkNSAxMDA2NDQKPiA+IC0tLSBhL2FyY2gvcmlz
-Y3Yva2VybmVsL01ha2VmaWxlCj4gPiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9NYWtlZmlsZQo+
-ID4gQEAgLTY0LDcgKzY0LDggQEAgb2JqLSQoQ09ORklHX01NVSkgKz0gdmRzby5vIHZkc28vCj4g
-Pgo+ID4gIG9iai0kKENPTkZJR19SSVNDVl9NSVNBTElHTkVEKSArPSB0cmFwc19taXNhbGlnbmVk
-Lm8KPiA+ICBvYmotJChDT05GSUdfUklTQ1ZfTUlTQUxJR05FRCkgKz0gdW5hbGlnbmVkX2FjY2Vz
-c19zcGVlZC5vCj4gPiAtb2JqLSQoQ09ORklHX1JJU0NWX1BST0JFX1VOQUxJR05FRF9BQ0NFU1Mp
-ICAgICArPSBjb3B5LXVuYWxpZ25lZC5vCj4gPiArb2JqLSQoQ09ORklHX1JJU0NWX1BST0JFX1VO
-QUxJR05FRF9BQ0NFU1MpICAgICAgICAgICAgICs9IGNvcHktdW5hbGlnbmVkLm8KPiA+ICtvYmot
-JChDT05GSUdfUklTQ1ZfUFJPQkVfVkVDVE9SX1VOQUxJR05FRF9BQ0NFU1MpICAgICAgKz0gdmVj
-LWNvcHktdW5hbGlnbmVkLm8KPiA+Cj4gPiAgb2JqLSQoQ09ORklHX0ZQVSkgICAgICAgICAgICAg
-ICs9IGZwdS5vCj4gPiAgb2JqLSQoQ09ORklHX0ZQVSkgICAgICAgICAgICAgICs9IGtlcm5lbF9t
-b2RlX2ZwdS5vCj4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvY29weS11bmFsaWdu
-ZWQuaCBiL2FyY2gvcmlzY3Yva2VybmVsL2NvcHktdW5hbGlnbmVkLmgKPiA+IGluZGV4IGUzZDcw
-ZDM1YjcwOC4uODVkNGQxMTQ1MGNiIDEwMDY0NAo+ID4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwv
-Y29weS11bmFsaWduZWQuaAo+ID4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvY29weS11bmFsaWdu
-ZWQuaAo+ID4gQEAgLTEwLDQgKzEwLDkgQEAKPiA+ICB2b2lkIF9fcmlzY3ZfY29weV93b3Jkc191
-bmFsaWduZWQodm9pZCAqZHN0LCBjb25zdCB2b2lkICpzcmMsIHNpemVfdCBzaXplKTsKPiA+ICB2
-b2lkIF9fcmlzY3ZfY29weV9ieXRlc191bmFsaWduZWQodm9pZCAqZHN0LCBjb25zdCB2b2lkICpz
-cmMsIHNpemVfdCBzaXplKTsKPiA+Cj4gPiArI2lmZGVmIENPTkZJR19SSVNDVl9QUk9CRV9WRUNU
-T1JfVU5BTElHTkVEX0FDQ0VTUwo+ID4gK3ZvaWQgX19yaXNjdl9jb3B5X3ZlY193b3Jkc191bmFs
-aWduZWQodm9pZCAqZHN0LCBjb25zdCB2b2lkICpzcmMsIHNpemVfdCBzaXplKTsKPiA+ICt2b2lk
-IF9fcmlzY3ZfY29weV92ZWNfYnl0ZXNfdW5hbGlnbmVkKHZvaWQgKmRzdCwgY29uc3Qgdm9pZCAq
-c3JjLCBzaXplX3Qgc2l6ZSk7Cj4gPiArI2VuZGlmCj4gPiArCj4gPiAgI2VuZGlmIC8qIF9fUklT
-Q1ZfS0VSTkVMX0NPUFlfVU5BTElHTkVEX0ggKi8KPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2
-L2tlcm5lbC9zeXNfaHdwcm9iZS5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvc3lzX2h3cHJvYmUuYwo+
-ID4gaW5kZXggMmUzZTMyNGJhZDM4Li45OWQzZTYzZDA0NDQgMTAwNjQ0Cj4gPiAtLS0gYS9hcmNo
-L3Jpc2N2L2tlcm5lbC9zeXNfaHdwcm9iZS5jCj4gPiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9z
-eXNfaHdwcm9iZS5jCj4gPiBAQCAtMjIxLDYgKzIyMSwxMiBAQCBzdGF0aWMgdTY0IGh3cHJvYmVf
-dmVjX21pc2FsaWduZWQoY29uc3Qgc3RydWN0IGNwdW1hc2sgKmNwdXMpCj4gPiAgI2Vsc2UKPiA+
-ICBzdGF0aWMgdTY0IGh3cHJvYmVfdmVjX21pc2FsaWduZWQoY29uc3Qgc3RydWN0IGNwdW1hc2sg
-KmNwdXMpCj4gPiAgewo+ID4gKyAgICAgICBpZiAoSVNfRU5BQkxFRChDT05GSUdfUklTQ1ZfRUZG
-SUNJRU5UX1ZFQ1RPUl9VTkFMSUdORURfQUNDRVNTKSkKPiA+ICsgICAgICAgICAgICAgICByZXR1
-cm4gUklTQ1ZfSFdQUk9CRV9WRUNUT1JfTUlTQUxJR05FRF9GQVNUOwo+ID4gKwo+ID4gKyAgICAg
-ICBpZiAoSVNfRU5BQkxFRChDT05GSUdfUklTQ1ZfU0xPV19WRUNUT1JfVU5BTElHTkVEX0FDQ0VT
-UykpCj4gPiArICAgICAgICAgICAgICAgcmV0dXJuIFJJU0NWX0hXUFJPQkVfVkVDVE9SX01JU0FM
-SUdORURfU0xPVzsKPiA+ICsKPiA+ICAgICAgICAgcmV0dXJuIFJJU0NWX0hXUFJPQkVfVkVDVE9S
-X01JU0FMSUdORURfVU5LTk9XTjsKPiA+ICB9Cj4gPiAgI2VuZGlmCj4gPiBkaWZmIC0tZ2l0IGEv
-YXJjaC9yaXNjdi9rZXJuZWwvdW5hbGlnbmVkX2FjY2Vzc19zcGVlZC5jIGIvYXJjaC9yaXNjdi9r
-ZXJuZWwvdW5hbGlnbmVkX2FjY2Vzc19zcGVlZC5jCj4gPiBpbmRleCAyNGI4ODgzYTIzZjAuLjUz
-MmU5MTUxNjg1YiAxMDA2NDQKPiA+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL3VuYWxpZ25lZF9h
-Y2Nlc3Nfc3BlZWQuYwo+ID4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvdW5hbGlnbmVkX2FjY2Vz
-c19zcGVlZC5jCj4gPiBAQCAtNiwxMSArNiwxMyBAQAo+ID4gICNpbmNsdWRlIDxsaW51eC9jcHUu
-aD4KPiA+ICAjaW5jbHVkZSA8bGludXgvY3B1bWFzay5oPgo+ID4gICNpbmNsdWRlIDxsaW51eC9q
-dW1wX2xhYmVsLmg+Cj4gPiArI2luY2x1ZGUgPGxpbnV4L2t0aHJlYWQuaD4KPiA+ICAjaW5jbHVk
-ZSA8bGludXgvbW0uaD4KPiA+ICAjaW5jbHVkZSA8bGludXgvc21wLmg+Cj4gPiAgI2luY2x1ZGUg
-PGxpbnV4L3R5cGVzLmg+Cj4gPiAgI2luY2x1ZGUgPGFzbS9jcHVmZWF0dXJlLmg+Cj4gPiAgI2lu
-Y2x1ZGUgPGFzbS9od3Byb2JlLmg+Cj4gPiArI2luY2x1ZGUgPGFzbS92ZWN0b3IuaD4KPiA+Cj4g
-PiAgI2luY2x1ZGUgImNvcHktdW5hbGlnbmVkLmgiCj4gPgo+ID4gQEAgLTI2NywxMiArMjY5LDE0
-MCBAQCBzdGF0aWMgaW50IGNoZWNrX3VuYWxpZ25lZF9hY2Nlc3Nfc3BlZWRfYWxsX2NwdXModm9p
-ZCkKPiA+ICB9Cj4gPiAgI2VuZGlmCj4gPgo+ID4gKyNpZmRlZiBDT05GSUdfUklTQ1ZfUFJPQkVf
-VkVDVE9SX1VOQUxJR05FRF9BQ0NFU1MKPiA+ICtzdGF0aWMgdm9pZCBjaGVja192ZWN0b3JfdW5h
-bGlnbmVkX2FjY2VzcyhzdHJ1Y3Qgd29ya19zdHJ1Y3QgKndvcmsgX19hbHdheXNfdW51c2VkKQo+
-ID4gK3sKPiA+ICsgICAgICAgaW50IGNwdSA9IHNtcF9wcm9jZXNzb3JfaWQoKTsKPiA+ICsgICAg
-ICAgdTY0IHN0YXJ0X2N5Y2xlcywgZW5kX2N5Y2xlczsKPiA+ICsgICAgICAgdTY0IHdvcmRfY3lj
-bGVzOwo+ID4gKyAgICAgICB1NjQgYnl0ZV9jeWNsZXM7Cj4gPiArICAgICAgIGludCByYXRpbzsK
-PiA+ICsgICAgICAgdW5zaWduZWQgbG9uZyBzdGFydF9qaWZmaWVzLCBub3c7Cj4gPiArICAgICAg
-IHN0cnVjdCBwYWdlICpwYWdlOwo+ID4gKyAgICAgICB2b2lkICpkc3Q7Cj4gPiArICAgICAgIHZv
-aWQgKnNyYzsKPiA+ICsgICAgICAgbG9uZyBzcGVlZCA9IFJJU0NWX0hXUFJPQkVfVkVDVE9SX01J
-U0FMSUdORURfU0xPVzsKPiA+ICsKPiA+ICsgICAgICAgaWYgKHBlcl9jcHUodmVjdG9yX21pc2Fs
-aWduZWRfYWNjZXNzLCBjcHUpICE9IFJJU0NWX0hXUFJPQkVfVkVDVE9SX01JU0FMSUdORURfU0xP
-VykKPiA+ICsgICAgICAgICAgICAgICByZXR1cm47Cj4gPiArCj4gPiArICAgICAgIHBhZ2UgPSBh
-bGxvY19wYWdlcyhHRlBfS0VSTkVMLCBNSVNBTElHTkVEX0JVRkZFUl9PUkRFUik7Cj4gPiArICAg
-ICAgIGlmICghcGFnZSkgewo+ID4gKyAgICAgICAgICAgICAgIHByX3dhcm4oIkFsbG9jYXRpb24g
-ZmFpbHVyZSwgbm90IG1lYXN1cmluZyB2ZWN0b3IgbWlzYWxpZ25lZCBwZXJmb3JtYW5jZVxuIik7
-Cj4gPiArICAgICAgICAgICAgICAgcmV0dXJuOwo+ID4gKyAgICAgICB9Cj4gPiArCj4gPiArICAg
-ICAgIC8qIE1ha2UgYW4gdW5hbGlnbmVkIGRlc3RpbmF0aW9uIGJ1ZmZlci4gKi8KPiA+ICsgICAg
-ICAgZHN0ID0gKHZvaWQgKikoKHVuc2lnbmVkIGxvbmcpcGFnZV9hZGRyZXNzKHBhZ2UpIHwgMHgx
-KTsKPiA+ICsgICAgICAgLyogVW5hbGlnbiBzcmMgYXMgd2VsbCwgYnV0IGRpZmZlcmVudGx5IChv
-ZmYgYnkgMSArIDIgPSAzKS4gKi8KPiA+ICsgICAgICAgc3JjID0gZHN0ICsgKE1JU0FMSUdORURf
-QlVGRkVSX1NJWkUgLyAyKTsKPiA+ICsgICAgICAgc3JjICs9IDI7Cj4gPiArICAgICAgIHdvcmRf
-Y3ljbGVzID0gLTFVTEw7Cj4gPiArCj4gPiArICAgICAgIC8qIERvIGEgd2FybXVwLiAqLwo+ID4g
-KyAgICAgICBrZXJuZWxfdmVjdG9yX2JlZ2luKCk7Cj4gPiArICAgICAgIF9fcmlzY3ZfY29weV92
-ZWNfd29yZHNfdW5hbGlnbmVkKGRzdCwgc3JjLCBNSVNBTElHTkVEX0NPUFlfU0laRSk7Cj4gPiAr
-Cj4gPiArICAgICAgIHN0YXJ0X2ppZmZpZXMgPSBqaWZmaWVzOwo+ID4gKyAgICAgICB3aGlsZSAo
-KG5vdyA9IGppZmZpZXMpID09IHN0YXJ0X2ppZmZpZXMpCj4gPiArICAgICAgICAgICAgICAgY3B1
-X3JlbGF4KCk7Cj4gPiArCj4gPiArICAgICAgIC8qCj4gPiArICAgICAgICAqIEZvciBhIGZpeGVk
-IGFtb3VudCBvZiB0aW1lLCByZXBlYXRlZGx5IHRyeSB0aGUgZnVuY3Rpb24sIGFuZCB0YWtlCj4g
-PiArICAgICAgICAqIHRoZSBiZXN0IHRpbWUgaW4gY3ljbGVzIGFzIHRoZSBtZWFzdXJlbWVudC4K
-PiA+ICsgICAgICAgICovCj4gPiArICAgICAgIHdoaWxlICh0aW1lX2JlZm9yZShqaWZmaWVzLCBu
-b3cgKyAoMSA8PCBNSVNBTElHTkVEX0FDQ0VTU19KSUZGSUVTX0xHMikpKSB7Cj4gPiArICAgICAg
-ICAgICAgICAgc3RhcnRfY3ljbGVzID0gZ2V0X2N5Y2xlczY0KCk7Cj4gPiArICAgICAgICAgICAg
-ICAgLyogRW5zdXJlIHRoZSBDU1IgcmVhZCBjYW4ndCByZW9yZGVyIFdSVCB0byB0aGUgY29weS4g
-Ki8KPiA+ICsgICAgICAgICAgICAgICBtYigpOwo+ID4gKyAgICAgICAgICAgICAgIF9fcmlzY3Zf
-Y29weV92ZWNfd29yZHNfdW5hbGlnbmVkKGRzdCwgc3JjLCBNSVNBTElHTkVEX0NPUFlfU0laRSk7
-Cj4gPiArICAgICAgICAgICAgICAgLyogRW5zdXJlIHRoZSBjb3B5IGVuZHMgYmVmb3JlIHRoZSBl
-bmQgdGltZSBpcyBzbmFwcGVkLiAqLwo+ID4gKyAgICAgICAgICAgICAgIG1iKCk7Cj4gPiArICAg
-ICAgICAgICAgICAgZW5kX2N5Y2xlcyA9IGdldF9jeWNsZXM2NCgpOwo+ID4gKyAgICAgICAgICAg
-ICAgIGlmICgoZW5kX2N5Y2xlcyAtIHN0YXJ0X2N5Y2xlcykgPCB3b3JkX2N5Y2xlcykKPiA+ICsg
-ICAgICAgICAgICAgICAgICAgICAgIHdvcmRfY3ljbGVzID0gZW5kX2N5Y2xlcyAtIHN0YXJ0X2N5
-Y2xlczsKPiA+ICsgICAgICAgfQo+ID4gKwo+ID4gKyAgICAgICBieXRlX2N5Y2xlcyA9IC0xVUxM
-Owo+ID4gKyAgICAgICBfX3Jpc2N2X2NvcHlfdmVjX2J5dGVzX3VuYWxpZ25lZChkc3QsIHNyYywg
-TUlTQUxJR05FRF9DT1BZX1NJWkUpOwo+ID4gKyAgICAgICBzdGFydF9qaWZmaWVzID0gamlmZmll
-czsKPiA+ICsgICAgICAgd2hpbGUgKChub3cgPSBqaWZmaWVzKSA9PSBzdGFydF9qaWZmaWVzKQo+
-ID4gKyAgICAgICAgICAgICAgIGNwdV9yZWxheCgpOwo+ID4gKwo+ID4gKyAgICAgICB3aGlsZSAo
-dGltZV9iZWZvcmUoamlmZmllcywgbm93ICsgKDEgPDwgTUlTQUxJR05FRF9BQ0NFU1NfSklGRklF
-U19MRzIpKSkgewo+ID4gKyAgICAgICAgICAgICAgIHN0YXJ0X2N5Y2xlcyA9IGdldF9jeWNsZXM2
-NCgpOwo+ID4gKyAgICAgICAgICAgICAgIC8qIEVuc3VyZSB0aGUgQ1NSIHJlYWQgY2FuJ3QgcmVv
-cmRlciBXUlQgdG8gdGhlIGNvcHkuICovCj4gPiArICAgICAgICAgICAgICAgbWIoKTsKPiA+ICsg
-ICAgICAgICAgICAgICBfX3Jpc2N2X2NvcHlfdmVjX2J5dGVzX3VuYWxpZ25lZChkc3QsIHNyYywg
-TUlTQUxJR05FRF9DT1BZX1NJWkUpOwo+ID4gKyAgICAgICAgICAgICAgIC8qIEVuc3VyZSB0aGUg
-Y29weSBlbmRzIGJlZm9yZSB0aGUgZW5kIHRpbWUgaXMgc25hcHBlZC4gKi8KPiA+ICsgICAgICAg
-ICAgICAgICBtYigpOwo+ID4gKyAgICAgICAgICAgICAgIGVuZF9jeWNsZXMgPSBnZXRfY3ljbGVz
-NjQoKTsKPiA+ICsgICAgICAgICAgICAgICBpZiAoKGVuZF9jeWNsZXMgLSBzdGFydF9jeWNsZXMp
-IDwgYnl0ZV9jeWNsZXMpCj4gPiArICAgICAgICAgICAgICAgICAgICAgICBieXRlX2N5Y2xlcyA9
-IGVuZF9jeWNsZXMgLSBzdGFydF9jeWNsZXM7Cj4gPiArICAgICAgIH0KPiA+ICsKPiA+ICsgICAg
-ICAga2VybmVsX3ZlY3Rvcl9lbmQoKTsKPiA+ICsKPiA+ICsgICAgICAgLyogRG9uJ3QgZGl2aWRl
-IGJ5IHplcm8uICovCj4gPiArICAgICAgIGlmICghd29yZF9jeWNsZXMgfHwgIWJ5dGVfY3ljbGVz
-KSB7Cj4gPiArICAgICAgICAgICAgICAgcHJfd2FybigiY3B1JWQ6IHJkdGltZSBsYWNrcyBncmFu
-dWxhcml0eSBuZWVkZWQgdG8gbWVhc3VyZSB1bmFsaWduZWQgdmVjdG9yIGFjY2VzcyBzcGVlZFxu
-IiwKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgIGNwdSk7Cj4gPiArCj4gPiArICAgICAgICAg
-ICAgICAgcmV0dXJuOwo+ID4gKyAgICAgICB9Cj4gPiArCj4gPiArICAgICAgIGlmICh3b3JkX2N5
-Y2xlcyA8IGJ5dGVfY3ljbGVzKQo+ID4gKyAgICAgICAgICAgICAgIHNwZWVkID0gUklTQ1ZfSFdQ
-Uk9CRV9WRUNUT1JfTUlTQUxJR05FRF9GQVNUOwo+ID4gKwo+ID4gKyAgICAgICByYXRpbyA9IGRp
-dl91NjQoKGJ5dGVfY3ljbGVzICogMTAwKSwgd29yZF9jeWNsZXMpOwo+ID4gKyAgICAgICBwcl9p
-bmZvKCJjcHUlZDogUmF0aW8gb2YgdmVjdG9yIGJ5dGUgYWNjZXNzIHRpbWUgdG8gdmVjdG9yIHVu
-YWxpZ25lZCB3b3JkIGFjY2VzcyBpcyAlZC4lMDJkLCB1bmFsaWduZWQgYWNjZXNzZXMgYXJlICVz
-XG4iLAo+ID4gKyAgICAgICAgICAgICAgIGNwdSwKPiA+ICsgICAgICAgICAgICAgICByYXRpbyAv
-IDEwMCwKPiA+ICsgICAgICAgICAgICAgICByYXRpbyAlIDEwMCwKPiA+ICsgICAgICAgICAgICAg
-ICAoc3BlZWQgPT0gIFJJU0NWX0hXUFJPQkVfVkVDVE9SX01JU0FMSUdORURfRkFTVCkgPyAiZmFz
-dCIgOiAic2xvdyIpOwo+ID4gKwo+ID4gKyAgICAgICBwZXJfY3B1KHZlY3Rvcl9taXNhbGlnbmVk
-X2FjY2VzcywgY3B1KSA9IHNwZWVkOwo+ID4gK30KPiA+ICsKPiA+ICtzdGF0aWMgaW50IHJpc2N2
-X29ubGluZV9jcHVfdmVjKHVuc2lnbmVkIGludCBjcHUpCj4gPiArewo+ID4gKyAgICAgICBjaGVj
-a192ZWN0b3JfdW5hbGlnbmVkX2FjY2VzcyhOVUxMKTsKPiAKPiBNYXliZSBJIG1pc3NlZCB0aGUg
-Y2FsbCBzaXRlIGluIGFub3RoZXIgcGF0Y2gsIGJ1dCBhcmUgeW91IGNhbGxpbmcKPiBjaGVja192
-ZWN0b3JfdW5hbGlnbmVkX2FjY2Vzc19lbXVsYXRlZCgpIGFueXdoZXJlIGluIHRoZSBob3RwbHVn
-IHBhdGg/Cj4gV2l0aG91dCB0aGlzLCBmb3IgYSBDUFUgdGhhdCB3YXNuJ3QgcHJlc2VudCBhdCBi
-b290LCBpdCBzZWVtcyBsaWtlIHRoZQo+IHBlci1jcHUgdmFyaWFibGUgd291bGQgYmUgc2V0IHRv
-IGl0cyBpbml0aWFsaXplZCB2YWx1ZSBvZiBVTlNVUFBPUlRFRCwKPiBhbmQgdGhlbiB5b3UnZCBi
-YWlsIGVhcmx5IG91dCBvZiBjaGVja192ZWN0b3JfdW5hbGlnbmVkX2FjY2VzcygpIGF0Cj4gdGhl
-ICIhPSBTTE9XIiBjb25kaXRpb25hbC4KPiAKPiBJTU8gaXQgd291bGQgYmUgYmV0dGVyIGlmIHRo
-ZSB2YWx1ZXMgdHJ1bHkgbWVhbnQgd2hhdCB0aGV5IHNhaWQuIFNvIHdlCj4gaW5pdGlhbGl6ZSBp
-dCB0byBVTktOT1dOLCB1bmNvbmRpdGlvbmFsbHkgY2hhbmdlIHRvIFVOU1VQUE9SVEVEIGlmIHdl
-Cj4gZGlzY292ZXIgaXQncyBlbXVsYXRlZCBvciB0aGVyZSBpcyBubyB2ZWN0b3Igc3VwcG9ydCwg
-YW5kIG9ubHkgc2V0IHRvCj4gU0xPVyBvciBGQVNUIGFzIGEgcmVzdWx0IG9mIHByb2JlIG1lYXN1
-cmVtZW50IG9yIEtjb25maWcgb3ZlcnJpZGUuCj4gSXQncyB0aGUgIlNMT1cgbWVhbnMgc2xvdyBv
-ciBkb24ndCBrbm93IiBmcm9tIHRoZSBwcmV2aW91cyBwYXRjaAo+IHRoYXQncyBidWdnaW5nIG1l
-LiBUaGlzIGNyZWF0ZXMgZG93bnN0cmVhbSBlZmZlY3RzIGxpa2UgdGhpcyAiIT0gU0xPVyIKPiBj
-b25kaXRpb25hbCAoYnkgd2hpY2ggeW91IHJlYWxseSBtZWFuICIhPSBVTktOT1dOIikgdGhhdCBh
-cmUKPiBjaGFsbGVuZ2luZyB0byByZWFzb24gYWJvdXQgYW5kIG1haW50YWluLgo+IAo+IEkgaGF2
-ZSB0aGlzIHZhZ3VlIHNlbnNlIHRoYXQgeW91IGRpZCB0aGlzIGluIHJlc3BvbnNlIHRvIGZlZWRi
-YWNrIGluCj4gYW4gZWFybGllciBzZXJpZXMsIGJ1dCBJIGNhbid0IGZpbmQgaXQgbm93LgoKWWVz
-IHRoZXJlIGhhcyBiZWVuIGEgbG90IG9mIGJhY2sgYW5kIGZvcnRoIG9uIHRoaXMuIEhlcmUgaXMg
-dGhlIG9yaWdpbmFsCmRpc2N1c3Npb246IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xrbWwvWm1O
-OGdFUjRSbnlveVFUNEBnaG9zdC8uIEkKb3JpZ2luYWxseSBhZ3JlZWQgd2l0aCBDb25vciB0aGF0
-IFNMT1cgd291bGQgYmUgcmVhc29uYWJsZSBiZWNhdXNlIGl0CnByZXZlbnRlZCBwcm9ncmFtcyBm
-cm9tIHJlY2VpdmluZyBhbiBVTktOT1dOIHdoaWNoIHRoZXkgbWF5IGJlIHVuc3VyZQpob3cgdG8g
-aGFuZGxlLiBUaGUgaWRlYSBoZXJlIGlzIHRoYXQgcHJvZ3JhbXMgdGhhdCByZWx5IG9uIG1pc2Fs
-aWduZWQKYWNjZXNzIHNwZWVkIHNob3VsZCBhdm9pZCB1c2luZyBtaXNhbGlnbmVkIGFjY2Vzc2Vz
-IGlmIHRoZSBzcGVlZCBpcwpVTktOT1dOLiBSZXBvcnRpbmcgU0xPVyBpbnN0ZWFkIG9mIFVOS05P
-V04gdGFrZXMgdGhlIGRlY2lzaW9uIG91dCBvZiB0aGUKaGFuZHMgb2YgdGhlIHByb2dyYW0sIHNv
-IHRoZXkgZG9uJ3QgaGF2ZSB0byB3b3JyeSBhYm91dCBVTktOT1dOLiBIb3dldmVyCm92ZXIgdGhl
-IGNvdXJzZSBvZiB0aGlzIHNlcmllcyBJIHRvbyBoYXZlIGJlZW4gaW5jcmVhc2luZ2x5IHVuY29u
-dmluY2VkCmJ5IHRoaXMgcmVhc29uaW5nLiBJdCBkb2Vzbid0IHNlZW0gbGlrZSB0aGUga2VybmVs
-J3MgcGxhY2UgdG8gbWFrZSB0aGlzCmRlY2lzaW9uIGZvciB1c2Vyc3BhY2UgYW5kIHNob3VsZCBq
-dXN0IHByb3ZpZGUgdGhlIGNvcnJlY3QgaW5mb3JtYXRpb24uCgpUaGUgbW9yZSBjb25jcmV0ZSBp
-c3N1ZSBpcyB3aXRoIENQVSBob3RwbHVnLiBXaGVuIGEgQ1BVIGlzIGhvdHBsdWdnZWQKaW50byBh
-IG5ldyBDUFUgaW5kZXgsIGl0IHdpbGwgZGVmYXVsdCB0byBVTlNVUFBPUlRFRC4gV2hlbiB0aGUg
-Q1BVCmVudGVycyBjaGVja192ZWN0b3JfdW5hbGlnbmVkX2FjY2VzcygpLCBpdHMgc3BlZWQgd2ls
-bCBub3QgYmUgU0xPVyBzbwp0aGUgY29kZSBhc3N1bWVzIGl0IGhhcyBhbHJlYWR5IGJlZW4gcHJv
-YmVkIC0tIGV2ZW4gdGhvdWdoIGl0IGhhc24ndC4KVGhlIGRlZmF1bHQgc2hvdWxkIGJlIFVOS05P
-V04gKGluc3RlYWQgb2YgVU5TVVBQT1JURUQpIGFuZCB0aGlzIGNvZGUKc2hvdWxkIGNoZWNrIGZv
-ciBVTktOT1dOIHRvIGRldGVybWluZSBpZiB0aGUgY3B1IGhhcyBhbHJlYWR5IGJlZW4KcHJvYmVk
-LgoKV2UgY2FuIHRlc3QgdGhpcyBieSBib290aW5nIExpbnV4IHdpdGggdGhlIGFyZ3VtZW50ICJt
-YXhjcHVzPTEiIGFuZAphZnRlciBpdCBib290cyBydW46CgojIGVjaG8gMSA+IC9zeXMvZGV2aWNl
-cy9zeXN0ZW0vY3B1L2NwdTEvb25saW5lClsgICA0MC40ODExNTNdIGNwdTE6IFJhdGlvIG9mIGJ5
-dGUgYWNjZXNzIHRpbWUgdG8gdW5hbGlnbmVkIHdvcmQgYWNjZXNzIGlzIDkuMDUsIHVuYWxpZ25l
-ZCBhY2Nlc3NlcyBhcmUgZmFzdAojCgpPbmx5IHRoZSBzY2FsYXIgbWlzYWxpZ25lZCBhY2Nlc3Mg
-c3BlZWQgY2hlY2tlciByYW4uIEkgYWxzbyB2ZXJpZmllZAp0aGF0IGNoZWNrX3ZlY3Rvcl91bmFs
-aWduZWRfYWNjZXNzKCkgc2VlcyB0aGF0IHRoZSBzcGVlZCBpcyBVTktOT1dOCndoaWNoIGlzIG5v
-dCBTTE9XIHNvIGV4aXRzLgoKLSBDaGFybGllCgo+IAo+IAo+IC1FdmFuCj4gCj4gCj4gPiArICAg
-ICAgIHJldHVybiAwOwo+ID4gK30KPiA+ICsKPiA+ICsvKiBNZWFzdXJlIHVuYWxpZ25lZCBhY2Nl
-c3Mgc3BlZWQgb24gYWxsIENQVXMgcHJlc2VudCBhdCBib290IGluIHBhcmFsbGVsLiAqLwo+ID4g
-K3N0YXRpYyBpbnQgdmVjX2NoZWNrX3VuYWxpZ25lZF9hY2Nlc3Nfc3BlZWRfYWxsX2NwdXModm9p
-ZCAqdW51c2VkIF9fYWx3YXlzX3VudXNlZCkKPiA+ICt7Cj4gPiArICAgICAgIHNjaGVkdWxlX29u
-X2VhY2hfY3B1KGNoZWNrX3ZlY3Rvcl91bmFsaWduZWRfYWNjZXNzKTsKPiA+ICsKPiA+ICsgICAg
-ICAgLyoKPiA+ICsgICAgICAgICogU2V0dXAgaG90cGx1ZyBjYWxsYmFja3MgZm9yIGFueSBuZXcg
-Q1BVcyB0aGF0IGNvbWUgb25saW5lIG9yIGdvCj4gPiArICAgICAgICAqIG9mZmxpbmUuCj4gPiAr
-ICAgICAgICAqLwo+ID4gKyAgICAgICBjcHVocF9zZXR1cF9zdGF0ZV9ub2NhbGxzKENQVUhQX0FQ
-X09OTElORV9EWU4sICJyaXNjdjpvbmxpbmUiLAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgIHJpc2N2X29ubGluZV9jcHVfdmVjLCBOVUxMKTsKPiA+ICsKPiA+ICsgICAgICAg
-cmV0dXJuIDA7Cj4gPiArfQo+ID4gKyNlbHNlIC8qIENPTkZJR19SSVNDVl9QUk9CRV9WRUNUT1Jf
-VU5BTElHTkVEX0FDQ0VTUyAqLwo+ID4gK3N0YXRpYyBpbnQgdmVjX2NoZWNrX3VuYWxpZ25lZF9h
-Y2Nlc3Nfc3BlZWRfYWxsX2NwdXModm9pZCAqdW51c2VkIF9fYWx3YXlzX3VudXNlZCkKPiA+ICt7
-Cj4gPiArICAgICAgIHJldHVybiAwOwo+ID4gK30KPiA+ICsjZW5kaWYKPiA+ICsKPiA+ICBzdGF0
-aWMgaW50IGNoZWNrX3VuYWxpZ25lZF9hY2Nlc3NfYWxsX2NwdXModm9pZCkKPiA+ICB7Cj4gPiAt
-ICAgICAgIGJvb2wgYWxsX2NwdXNfZW11bGF0ZWQ7Cj4gPiArICAgICAgIGJvb2wgYWxsX2NwdXNf
-ZW11bGF0ZWQsIGFsbF9jcHVzX3ZlY191bnN1cHBvcnRlZDsKPiA+Cj4gPiAgICAgICAgIGFsbF9j
-cHVzX2VtdWxhdGVkID0gY2hlY2tfdW5hbGlnbmVkX2FjY2Vzc19lbXVsYXRlZF9hbGxfY3B1cygp
-Owo+ID4gLSAgICAgICBjaGVja192ZWN0b3JfdW5hbGlnbmVkX2FjY2Vzc19lbXVsYXRlZF9hbGxf
-Y3B1cygpOwo+ID4gKyAgICAgICBhbGxfY3B1c192ZWNfdW5zdXBwb3J0ZWQgPSBjaGVja192ZWN0
-b3JfdW5hbGlnbmVkX2FjY2Vzc19lbXVsYXRlZF9hbGxfY3B1cygpOwo+ID4gKwo+ID4gKyAgICAg
-ICBpZiAoIWFsbF9jcHVzX3ZlY191bnN1cHBvcnRlZCAmJgo+ID4gKyAgICAgICAgICAgSVNfRU5B
-QkxFRChDT05GSUdfUklTQ1ZfUFJPQkVfVkVDVE9SX1VOQUxJR05FRF9BQ0NFU1MpKSB7Cj4gPiAr
-ICAgICAgICAgICAgICAga3RocmVhZF9ydW4odmVjX2NoZWNrX3VuYWxpZ25lZF9hY2Nlc3Nfc3Bl
-ZWRfYWxsX2NwdXMsCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgTlVMTCwgInZlY19j
-aGVja191bmFsaWduZWRfYWNjZXNzX3NwZWVkX2FsbF9jcHVzIik7Cj4gPiArICAgICAgIH0KPiA+
-Cj4gPiAgICAgICAgIGlmICghYWxsX2NwdXNfZW11bGF0ZWQpCj4gPiAgICAgICAgICAgICAgICAg
-cmV0dXJuIGNoZWNrX3VuYWxpZ25lZF9hY2Nlc3Nfc3BlZWRfYWxsX2NwdXMoKTsKPiA+IGRpZmYg
-LS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC92ZWMtY29weS11bmFsaWduZWQuUyBiL2FyY2gvcmlz
-Y3Yva2VybmVsL3ZlYy1jb3B5LXVuYWxpZ25lZC5TCj4gPiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+
-ID4gaW5kZXggMDAwMDAwMDAwMDAwLi5kMTZmMTlmMWIzYjYKPiA+IC0tLSAvZGV2L251bGwKPiA+
-ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3ZlYy1jb3B5LXVuYWxpZ25lZC5TCj4gPiBAQCAtMCww
-ICsxLDU4IEBACj4gPiArLyogU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAgKi8KPiA+
-ICsvKiBDb3B5cmlnaHQgKEMpIDIwMjQgUml2b3MgSW5jLiAqLwo+ID4gKwo+ID4gKyNpbmNsdWRl
-IDxsaW51eC9hcmdzLmg+Cj4gPiArI2luY2x1ZGUgPGxpbnV4L2xpbmthZ2UuaD4KPiA+ICsjaW5j
-bHVkZSA8YXNtL2FzbS5oPgo+ID4gKwo+ID4gKyAgICAgICAudGV4dAo+ID4gKwo+ID4gKyNkZWZp
-bmUgV09SRF9FRVcgMzIKPiA+ICsKPiA+ICsjZGVmaW5lIFdPUkRfU0VXIENPTkNBVEVOQVRFKGUs
-IFdPUkRfRUVXKQo+ID4gKyNkZWZpbmUgVkVDX0wgQ09OQ0FURU5BVEUodmxlLCBXT1JEX0VFVyku
-dgo+ID4gKyNkZWZpbmUgVkVDX1MgQ09OQ0FURU5BVEUodmxlLCBXT1JEX0VFVykudgo+ID4gKwo+
-ID4gKy8qIHZvaWQgX19yaXNjdl9jb3B5X3ZlY193b3Jkc191bmFsaWduZWQodm9pZCAqLCBjb25z
-dCB2b2lkICosIHNpemVfdCkgKi8KPiA+ICsvKiBQZXJmb3JtcyBhIG1lbWNweSB3aXRob3V0IGFs
-aWduaW5nIGJ1ZmZlcnMsIHVzaW5nIHdvcmQgbG9hZHMgYW5kIHN0b3Jlcy4gKi8KPiA+ICsvKiBO
-b3RlOiBUaGUgc2l6ZSBpcyB0cnVuY2F0ZWQgdG8gYSBtdWx0aXBsZSBvZiBXT1JEX0VFVyAqLwo+
-ID4gK1NZTV9GVU5DX1NUQVJUKF9fcmlzY3ZfY29weV92ZWNfd29yZHNfdW5hbGlnbmVkKQo+ID4g
-KyAgICAgICBhbmRpICBhNCwgYTIsIH4oV09SRF9FRVctMSkKPiA+ICsgICAgICAgYmVxeiAgYTQs
-IDJmCj4gPiArICAgICAgIGFkZCAgIGEzLCBhMSwgYTQKPiA+ICsgICAgICAgLm9wdGlvbiBwdXNo
-Cj4gPiArICAgICAgIC5vcHRpb24gYXJjaCwgK3p2ZTMyeAo+ID4gKzE6Cj4gPiArICAgICAgIHZz
-ZXRpdmxpIHQwLCA4LCBXT1JEX1NFVywgbTgsIHRhLCBtYQo+ID4gKyAgICAgICBWRUNfTCB2MCwg
-KGExKQo+ID4gKyAgICAgICBWRUNfUyB2MCwgKGEwKQo+ID4gKyAgICAgICBhZGRpICBhMCwgYTAs
-IFdPUkRfRUVXCj4gPiArICAgICAgIGFkZGkgIGExLCBhMSwgV09SRF9FRVcKPiA+ICsgICAgICAg
-Ymx0dSAgYTEsIGEzLCAxYgo+ID4gKwo+ID4gKzI6Cj4gPiArICAgICAgIC5vcHRpb24gcG9wCj4g
-PiArICAgICAgIHJldAo+ID4gK1NZTV9GVU5DX0VORChfX3Jpc2N2X2NvcHlfdmVjX3dvcmRzX3Vu
-YWxpZ25lZCkKPiA+ICsKPiA+ICsvKiB2b2lkIF9fcmlzY3ZfY29weV92ZWNfYnl0ZXNfdW5hbGln
-bmVkKHZvaWQgKiwgY29uc3Qgdm9pZCAqLCBzaXplX3QpICovCj4gPiArLyogUGVyZm9ybXMgYSBt
-ZW1jcHkgd2l0aG91dCBhbGlnbmluZyBidWZmZXJzLCB1c2luZyBvbmx5IGJ5dGUgYWNjZXNzZXMu
-ICovCj4gPiArLyogTm90ZTogVGhlIHNpemUgaXMgdHJ1bmNhdGVkIHRvIGEgbXVsdGlwbGUgb2Yg
-OCAqLwo+ID4gK1NZTV9GVU5DX1NUQVJUKF9fcmlzY3ZfY29weV92ZWNfYnl0ZXNfdW5hbGlnbmVk
-KQo+ID4gKyAgICAgICBhbmRpIGE0LCBhMiwgfig4LTEpCj4gPiArICAgICAgIGJlcXogYTQsIDJm
-Cj4gPiArICAgICAgIGFkZCAgYTMsIGExLCBhNAo+ID4gKyAgICAgICAub3B0aW9uIHB1c2gKPiA+
-ICsgICAgICAgLm9wdGlvbiBhcmNoLCArenZlMzJ4Cj4gPiArMToKPiA+ICsgICAgICAgdnNldGl2
-bGkgdDAsIDgsIGU4LCBtOCwgdGEsIG1hCj4gPiArICAgICAgIHZsZTgudiB2MCwgKGExKQo+ID4g
-KyAgICAgICB2c2U4LnYgdjAsIChhMCkKPiA+ICsgICAgICAgYWRkaSBhMCwgYTAsIDgKPiA+ICsg
-ICAgICAgYWRkaSBhMSwgYTEsIDgKPiA+ICsgICAgICAgYmx0dSBhMSwgYTMsIDFiCj4gPiArCj4g
-PiArMjoKPiA+ICsgICAgICAgLm9wdGlvbiBwb3AKPiA+ICsgICAgICAgcmV0Cj4gPiArU1lNX0ZV
-TkNfRU5EKF9fcmlzY3ZfY29weV92ZWNfYnl0ZXNfdW5hbGlnbmVkKQo+ID4gLS0KPiA+IDIuNDUu
-Mgo+ID4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
-bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
-dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Fri, Jul 19, 2024 at 12:21:39PM GMT, Yixun Lan wrote:
+> SpacemiT's K1 SoC has a pinctrl controller which can be
+> modeled using the pinctrl-single driver.
+> 
+> Signed-off-by: Yixun Lan <dlan@gentoo.org>
+> ---
+>  arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi | 1746 ++++++++++++++++++++++++++
+>  arch/riscv/boot/dts/spacemit/k1-pinctrl.h    |  220 ++++
+>  arch/riscv/boot/dts/spacemit/k1.dtsi         |   14 +
+>  3 files changed, 1980 insertions(+)
+> 
+> diff --git a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
+> new file mode 100644
+> index 0000000000000..ad6f171d3ec1f
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
+> @@ -0,0 +1,1746 @@
+> +// SPDX-License-Identifier: GPL-2.0 OR MIT
+> +/*
+> + * Copyright (c) 2022 SpacemiT (Hangzhou) Technology Co. Ltd
+
+Copyright should always match the year 2024, this apply to other files.
+
+> + * Copyright (c) 2024 Yixun Lan <dlan@gentoo.org>
+> + */
+> +
+> +#include "k1-pinctrl.h"
+> +
+> +&pinctrl {
+> +	camera0_pin: camera0-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(53, 1) /* cam_mclk0 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	camera1_pin: camera1-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(58, 1) /* cam_mclk1 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	camera2_pin: camera2-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(120, 1) /* cam_mclk2 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	can_0_pins: can-0-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(75, 3) /* can_tx0 */
+> +			K1_PADCONF0(76, 3) /* can_rx0 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_3V_DS(4);
+> +	};
+> +
+> +	can_1_pins: can-1-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(54, 2) /* can_tx0 */
+> +			K1_PADCONF0(55, 2) /* can_rx0 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	clk_32k_out_0_pin: clk-32k-out-0-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(21, 3) /* 32k_out */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	clk_32k_out_1_pin: clk-32k-out-1-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(31, 3) /* 32k_out */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	clk_32k_out_2_pin: clk-32k-out-2-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(28, 4) /* 32k_out */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	gmac0_pins: gmac0-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF1(00, 1) /* gmac0_rxdv */
+> +			K1_PADCONF1(01, 1) /* gmac0_rx_d0 */
+> +			K1_PADCONF1(02, 1) /* gmac0_rx_d1 */
+> +			K1_PADCONF1(03, 1) /* gmac0_rx_clk */
+> +			K1_PADCONF1(04, 1) /* gmac0_rx_d2 */
+> +			K1_PADCONF1(05, 1) /* gmac0_rx_d3 */
+> +			K1_PADCONF1(06, 1) /* gmac0_tx_d0 */
+> +			K1_PADCONF1(07, 1) /* gmac0_tx_d1 */
+> +			K1_PADCONF1(08, 1) /* gmac0_tx */
+> +			K1_PADCONF1(09, 1) /* gmac0_tx_d2 */
+> +			K1_PADCONF1(10, 1) /* gmac0_tx_d3 */
+> +			K1_PADCONF1(11, 1) /* gmac0_tx_en */
+> +			K1_PADCONF1(12, 1) /* gmac0_mdc */
+> +			K1_PADCONF1(13, 1) /* gmac0_mdio */
+> +			K1_PADCONF1(14, 1) /* gmac0_int_n */
+> +			K1_PADCONF1(45, 1) /* gmac0_clk_ref */
+> +		>;
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	gmac1_pins: gmac1-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF1(29, 1) /* gmac1_rxdv */
+> +			K1_PADCONF1(30, 1) /* gmac1_rx_d0 */
+> +			K1_PADCONF1(31, 1) /* gmac1_rx_d1 */
+> +			K1_PADCONF1(32, 1) /* gmac1_rx_clk */
+> +			K1_PADCONF1(33, 1) /* gmac1_rx_d2 */
+> +			K1_PADCONF1(34, 1) /* gmac1_rx_d3 */
+> +			K1_PADCONF1(35, 1) /* gmac1_tx_d0 */
+> +			K1_PADCONF1(36, 1) /* gmac1_tx_d1 */
+> +			K1_PADCONF1(37, 1) /* gmac1_tx */
+> +			K1_PADCONF1(38, 1) /* gmac1_tx_d2 */
+> +			K1_PADCONF1(39, 1) /* gmac1_tx_d3 */
+> +			K1_PADCONF1(40, 1) /* gmac1_tx_en */
+> +			K1_PADCONF1(41, 1) /* gmac1_mdc */
+> +			K1_PADCONF1(42, 1) /* gmac1_mdio */
+> +			K1_PADCONF1(43, 1) /* gmac1_int_n */
+> +			K1_PADCONF1(46, 1) /* gmac1_clk_ref */
+> +		>;
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	hdmi_0_pins_0: hdmi-0-pins-0 {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(86, 1) /* hdmi_tx_hscl */
+> +			K1_PADCONF0(87, 1) /* hdmi_tx_hsda */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	hdmi_0_pins_1: hdmi-0-pins-1 {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(88, 1) /* hdmi_tx_hcec */
+> +			K1_PADCONF0(89, 1) /* hdmi_tx_pdp */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	hdmi_1_pins: hdmi-1-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(59, 1) /* hdmi_tx_hscl */
+> +			K1_PADCONF0(60, 1) /* hdmi_tx_hsda */
+> +			K1_PADCONF0(61, 1) /* hdmi_tx_hcec */
+> +			K1_PADCONF0(62, 1) /* hdmi_tx_pdp */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	i2c0_pins: i2c0-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(54, 1) /* i2c0_scl */
+> +			K1_PADCONF0(55, 1) /* i2c0_sda */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(0);
+> +	};
+> +
+> +	i2c1_pins: i2c1-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(56, 1) /* i2c1_scl */
+> +			K1_PADCONF0(57, 1) /* i2c1_sda */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(0);
+> +	};
+> +
+> +	i2c2_0_pins: i2c2-0-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(84, 4) /* i2c2_scl */
+> +			K1_PADCONF0(85, 4) /* i2c2_sda */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(0);
+> +	};
+> +
+> +	i2c2_1_pins: i2c2-1-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(70, 2) /* i2c2_scl */
+> +			K1_PADCONF0(71, 2) /* i2c2_sda */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(0);
+> +	};
+> +
+> +	i2c2_2_pins: i2c2-2-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(68, 3) /* i2c2_scl */
+> +			K1_PADCONF0(69, 3) /* i2c2_sda */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(0);
+> +	};
+> +
+> +	i2c3_0_pins: i2c3-0-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(38, 2) /* i2c3_scl */
+> +			K1_PADCONF0(39, 2) /* i2c3_sda */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(0);
+> +	};
+> +
+> +	i2c3_1_pins: i2c3-1-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(47, 4) /* i2c3_scl */
+> +			K1_PADCONF0(48, 4) /* i2c3_sda */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(0);
+> +	};
+> +
+> +	i2c3_2_pins: i2c3-2-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(77, 3) /* i2c3_scl */
+> +			K1_PADCONF0(78, 3) /* i2c3_sda */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(0);
+> +	};
+> +
+> +	i2c4_0_pins: i2c4-0-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(40, 2) /* i2c4_scl */
+> +			K1_PADCONF0(41, 2) /* i2c4_sda */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(0);
+> +	};
+> +
+> +	i2c4_1_pins: i2c4-1-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(75, 5) /* i2c4_scl */
+> +			K1_PADCONF0(76, 5) /* i2c4_sda */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_3V_DS(0);
+> +	};
+> +
+> +	i2c4_2_pins: i2c4-2-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(51, 4) /* i2c4_scl */
+> +			K1_PADCONF0(52, 4) /* i2c4_sda */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_3V_DS(0);
+> +	};
+> +
+> +	i2c5_0_pins: i2c5-0-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(81, 5) /* i2c5_scl */
+> +			K1_PADCONF0(82, 5) /* i2c5_sda */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(0);
+> +	};
+> +
+> +	i2c5_1_pins: i2c5-1-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(54, 5) /* i2c5_scl */
+> +			K1_PADCONF0(55, 5) /* i2c5_sda */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(0);
+> +	};
+> +
+> +	i2c6_0_pins: i2c6-0-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(83, 5) /* i2c6_scl */
+> +			K1_PADCONF0(90, 5) /* i2c6_sda */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(0);
+> +	};
+> +
+> +	i2c6_1_pins: i2c6-1-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(118, 2) /* i2c6_scl */
+> +			K1_PADCONF0(119, 2) /* i2c6_sda */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(0);
+> +	};
+> +
+> +	i2c6_2_pins: i2c6-2-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(56, 5) /* i2c6_scl */
+> +			K1_PADCONF0(57, 5) /* i2c6_sda */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(0);
+> +	};
+> +
+> +	i2c7_pins: i2c7-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(118, 1) /* i2c6_scl */
+> +			K1_PADCONF0(119, 1) /* i2c6_sda */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(0);
+> +	};
+> +
+> +	i2c8_pins: i2c8-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(93, 0) /* pwr_scl */
+> +			K1_PADCONF0(94, 0) /* pwr_sda */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(0);
+> +	};
+> +
+> +	one_wire_0_pin: one-wire-0-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(110, 5) /* one_wire */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	one_wire_1_pin: one-wire-1-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(47, 5) /* one_wire */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_3V_DS(4);
+> +	};
+> +
+> +	ir_rx_0_pin: ir-rx-0-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(97, 2) /* ir_rx */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	ir_rx_1_pin: ir-rx-1-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(79, 1) /* ir_rx */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_3V_DS(4);
+> +	};
+> +
+> +	ir_rx_2_pin: ir-rx-2-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(58, 4) /* ir_rx */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	mmc1_pins_0: mmc1-pins-0 {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(104, 0) /* mmc1_d3 */
+> +			K1_PADCONF0(105, 0) /* mmc1_d2 */
+> +			K1_PADCONF0(106, 0) /* mmc1_d1 */
+> +			K1_PADCONF0(107, 0) /* mmc1_d0 */
+> +			K1_PADCONF0(108, 0) /* mmc1_cmd */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_3V_DS(4);
+> +	};
+> +
+> +
+> +	mmc1_pins_1: mmc1-pins-1 {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(109, 0) /* mmc1_clk */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_3V_DS(4);
+> +	};
+> +
+> +	mmc1_fast_pins_0: mmc1-fast-pins-0 {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(104, 0) /* mmc1_d3 */
+> +			K1_PADCONF0(105, 0) /* mmc1_d2 */
+> +			K1_PADCONF0(106, 0) /* mmc1_d1 */
+> +			K1_PADCONF0(107, 0) /* mmc1_d0 */
+> +			K1_PADCONF0(108, 0) /* mmc1_cmd */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(3);
+> +	};
+> +
+> +	mmc1_fast_pins_1: mmc1-fast-pins-1 {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(109, 0) /* mmc1_clk */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(3);
+> +	};
+> +
+> +	mmc2_pins: mmc2-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(15, 1) /* mmc2_data3 */
+> +			K1_PADCONF0(16, 1) /* mmc2_data2 */
+> +			K1_PADCONF0(17, 1) /* mmc2_data1 */
+> +			K1_PADCONF0(18, 1) /* mmc2_data0 */
+> +			K1_PADCONF0(19, 1) /* mmc2_cmd */
+> +			K1_PADCONF0(20, 1) /* mmc2_clk */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	mn_clk_0_pin: mn-clk-0-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(92, 1) /* mn_clk */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	mn_clk_1_pin: mn-clk-1-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(81, 4) /* mn_clk */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	mn_clk_2_pin: mn-clk-2-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(44, 1) /* mn_clk */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	mn_clk_3_pin: mn-clk-3-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(20, 3) /* mn_clk */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	mn_clk_4_pin: mn-clk-4-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(23, 3) /* mn_clk */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	mn_clk_5_pin: mn-clk_5-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(32, 3) /* mn_clk */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	mn_clk2_0_pin: mn-clk2-0-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(91, 1) /* mn_clk2 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	mn_clk2_1_pin: mn-clk2-1-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(85, 3) /* mn_clk2 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pcie0_0_pins: pcie0-0-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(15, 2) /* PCIe0_perstn */
+> +			K1_PADCONF0(16, 2) /* PCIe0_waken */
+> +			K1_PADCONF0(17, 2) /* PCIe0_clkreqn */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pcie0_1_pins: pcie0-1-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(29, 4) /* PCIe0_perstn */
+> +			K1_PADCONF0(30, 4) /* PCIe0_waken */
+> +			K1_PADCONF0(31, 4) /* PCIe0_clkreqn */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pcie0_2_pins: pcie0-2-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(110, 4) /* PCIe0_perstn */
+> +			K1_PADCONF0(115, 4) /* PCIe0_waken */
+> +			K1_PADCONF0(116, 4) /* PCIe0_clkreqn */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pcie0_3_pins_0: pcie0-3-pins-0 {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(53, 3) /* PCIe0_perstn */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pcie0_3_pins_1: pcie0-3-pins-1 {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(54, 3) /* PCIe0_waken */
+> +			K1_PADCONF0(55, 3) /* PCIe0_clkreqn */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pcie1_0_pins: pcie1-0-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(15, 4) /* PCIe1_perstn */
+> +			K1_PADCONF0(16, 4) /* PCIe1_waken */
+> +			K1_PADCONF0(17, 4) /* PCIe1_clkreqn */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pcie1_1_pins: pcie1-1-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(32, 4) /* PCIe1_perstn */
+> +			K1_PADCONF0(33, 4) /* PCIe1_waken */
+> +			K1_PADCONF0(34, 4) /* PCIe1_clkreqn */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pcie1_2_pins_0: pcie1-2-pins-0 {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(56, 3) /* PCIe1_perstn */
+> +			K1_PADCONF0(57, 3) /* PCIe1_waken */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pcie1_2_pins_1: pcie1-2-pins-1 {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(58, 3) /* PCIe1_clkreqn */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pcie1_3_pins: pcie1-3-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(59, 4) /* PCIe1_perstn */
+> +			K1_PADCONF0(60, 4) /* PCIe1_waken */
+> +			K1_PADCONF0(61, 4) /* PCIe1_clkreqn */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pcie2_0_pins: pcie2-0-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(18, 4) /* PCIe2_perstn */
+> +			K1_PADCONF0(19, 4) /* PCIe2_waken */
+> +			K1_PADCONF0(20, 4) /* PCIe2_clkreqn */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pcie2_1_pins: pcie2-1-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(35, 4) /* PCIe2_perstn */
+> +			K1_PADCONF0(36, 4) /* PCIe2_waken */
+> +			K1_PADCONF0(37, 4) /* PCIe2_clkreqn */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pcie2_2_pins_0: pcie2-2-pins-0 {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(62,  4) /* PCIe2_perstn */
+> +			K1_PADCONF0(74,  4) /* PCIe2_waken */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +
+> +	pcie2_2_pins_1: pcie2-2-pins-1 {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(117, 4) /* PCIe2_clkreqn */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pcie2_3_pins: pcie2-3-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(111, 3) /* PCIe2_perstn */
+> +			K1_PADCONF0(112, 3) /* PCIe2_waken */
+> +			K1_PADCONF0(113, 3) /* PCIe2_clkreqn */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pcie2_4_pins_0: pcie2-4-pins-0 {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0( 62, 4) /* PCIe2_perstn */
+> +			K1_PADCONF0(112, 3) /* PCIe2_waken */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +
+> +	pcie2_4_pins_1: pcie2-4-pins-1 {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(117, 4) /* PCIe2_clkreqn */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pri_pins_0: pri-pins-0 {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(70, 0) /* pri_tdi */
+> +			K1_PADCONF0(71, 0) /* pri_tms */
+> +			K1_PADCONF0(73, 0) /* pri_tck */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pmic_pins_0: pmic-pins-0 {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(95, 0) /* vcxo_en */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pmic_pins_1: pmic-pins-1 {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(96, 0) /* dvl0 */
+> +			K1_PADCONF0(97, 0) /* dvl1 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pri_pins_1: pri-pins-1 {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(72, 0) /* pri_tck */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm0_0_pin: pwm0-0-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(104, 5) /* pwm0 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_3V_DS(4);
+> +	};
+> +
+> +	pwm0_1_pin: pwm0-1-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(14, 3) /* pwm0 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm0_2_pin: pwm0-2-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(22, 4) /* pwm0 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm1_0_pin: pwm1-0-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(105, 5) /* pwm1 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_3V_DS(4);
+> +	};
+> +
+> +	pwm1_1_pin: pwm1-1-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(29, 3) /* pwm1 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm1_2_pin: pwm1-2-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(23, 4) /* pwm1 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm2_0_pin: pwm2-0-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(106, 5) /* pwm2 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_3V_DS(4);
+> +	};
+> +
+> +	pwm2_1_pin: pwm2-1-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(22, 2) /* pwm2 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm2_2_pin: pwm2-2-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(30, 3) /* pwm2 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm2_3_pin: pwm2-3-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(24, 4) /* pwm2 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm3_0_pin: pwm3-0-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(107, 5) /* pwm3 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_3V_DS(4);
+> +	};
+> +
+> +	pwm3_1_pin: pwm3-1-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(33, 3) /* pwm3 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm3_2_pin: pwm3-2-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(25, 4) /* pwm3 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm4_0_pin: pwm4-0-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(108, 5) /* pwm4 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_3V_DS(4);
+> +	};
+> +
+> +	pwm4_1_pin: pwm4-1-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(34, 3) /* pwm4 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm5_0_pin: pwm5-0-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(109, 5) /* pwm5 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_3V_DS(4);
+> +	};
+> +
+> +	pwm5_1_pin: pwm5-1-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(35, 3) /* pwm5 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm6_0_pin: pwm6-0-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(88, 4) /* pwm6 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm6_1_pin: pwm6-1-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(36, 3) /* pwm6 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm7_0_pin: pwm7-0-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(92, 2) /* pwm7 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm7_1_pin: pwm7-1-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(37, 2) /* pwm7 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm8_0_pin: pwm8-0-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(00, 3) /* pwm8 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm8_1_pin: pwm8-1-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(38, 4) /* pwm8 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm9_0_pin: pwm9-0-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(01, 3) /* pwm9 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm9_1_pin: pwm9-1-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(39, 4) /* pwm9 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm9_2_pin: pwm9-2-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(74, 2) /* pwm9 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm10_0_pin: pwm10-0-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(02, 3) /* pwm10 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm10_1_pin: pwm10-1-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(40, 4) /* pwm10 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm11_0_pin: pwm11-0-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(03, 3) /* pwm11 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm11_1_pin: pwm11-1-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(41, 4) /* pwm11 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm12_0_pin: pwm12-0-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(04, 3) /* pwm12 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm12_1_pin: pwm12-1-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(42, 4) /* pwm12 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm13_0_pin: pwm13-0-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(05, 3) /* pwm13 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm13_1_pin: pwm13-1-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(43, 4) /* pwm13 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm14_0_pin: pwm14-0-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(06, 3) /* pwm14 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm14_1_pin: pwm14-1-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(44, 4) /* pwm14 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm15_0_pin: pwm15-0-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(07, 3) /* pwm15 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm15_1_pin: pwm15-1-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(45, 4) /* pwm15 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm16_0_pin: pwm16-0-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(09, 3) /* pwm16 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm16_1_pin: pwm16-1-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(46, 4) /* pwm16 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm17_0_pin: pwm17-0-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(10, 3) /* pwm17 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm17_1_pin: pwm17-1-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(53, 2) /* pwm17 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm18_0_pin: pwm18-0-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(11, 3) /* pwm18 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm18_1_pin: pwm18-1-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(57, 4) /* pwm18 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm19_0_pin: pwm19-0-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(13, 3) /* pwm19 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	pwm19_1_pin: pwm19-1-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(63, 4) /* pwm19 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	qspi_pins_0: qspi-pins-0 {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(98,  0) /* qspi_d3 */
+> +			K1_PADCONF0(99,  0) /* qspi_d2 */
+> +			K1_PADCONF0(100, 0) /* qspi_d1 */
+> +			K1_PADCONF0(101, 0) /* qspi_d1 */
+> +			K1_PADCONF0(102, 0) /* qspi_clk */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_3V_DS(4);
+> +	};
+> +
+> +	qspi_pins_1: qspi-pins-1 {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(103, 0) /* qspi_csi */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_3V_DS(4);
+> +	};
+> +
+> +	rcpu_pins: rcpu-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(47, 1) /* r_uart0_tx */
+> +			K1_PADCONF0(48, 1) /* r_uart0_rx */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_3V_DS(4);
+> +	};
+> +
+> +	spi_lcd_0_pins_0: spi-lcd-0-pins-0 {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(86, 3) /* dclk */
+> +			K1_PADCONF0(87, 3) /* dcx */
+> +			K1_PADCONF0(91, 3) /* dsi_te */
+> +			K1_PADCONF0(92, 3) /* smpn_rstb */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	spi_lcd_0_pins_1: spi-lcd-0-pins-1 {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(88, 3) /* din */
+> +			K1_PADCONF0(89, 3) /* dout0 */
+> +			K1_PADCONF0(90, 3) /* dout1 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	spi_lcd_1_pins_0: spi-lcd-1-pins-0 {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(70, 3) /* dclk */
+> +			K1_PADCONF0(71, 3) /* dcx */
+> +			K1_PADCONF0(73, 3) /* dout0 */
+> +			K1_PADCONF0(74, 3) /* dout1 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	spi_lcd_1_pins_1: spi-lcd-1-pins-1 {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0( 72, 3) /* din */
+> +			K1_PADCONF0(114, 3) /* dsi_te */
+> +			K1_PADCONF0( 63, 3) /* smpn_rstb */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	sspa0_0_pins_0: sspa0-0-pins-0 {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(118, 3) /* sspa0_clk */
+> +			K1_PADCONF0(119, 3) /* sspa0_frm */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(0);
+> +	};
+> +
+> +	sspa0_0_pins_1: sspa0-0-pins-1 {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(120, 3) /* sspa0_txd */
+> +			K1_PADCONF0(121, 3) /* sspa0_rxd */
+> +			K1_PADCONF0(122, 3) /* sspa0_sysclk */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(0);
+> +	};
+> +
+> +	sspa0_1_pins: sspa0-1-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(58,  2) /* sspa0_sysclk */
+> +			K1_PADCONF0(111, 2) /* sspa0_clk */
+> +			K1_PADCONF0(112, 2) /* sspa0_frm */
+> +			K1_PADCONF0(113, 2) /* sspa0_txd */
+> +			K1_PADCONF0(114, 2) /* sspa0_rxd */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(0);
+> +	};
+> +
+> +	sspa1_pins: sspa1-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(24, 3) /* sspa1_sysclk */
+> +			K1_PADCONF0(25, 1) /* sspa1_sclk */
+> +			K1_PADCONF0(26, 1) /* sspa1_frm */
+> +			K1_PADCONF0(27, 1) /* sspa1_txd */
+> +			K1_PADCONF0(28, 1) /* sspa1_rxd */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(0);
+> +	};
+> +
+> +	ssp2_0_pins: ssp2-0-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(75, 1) /* ssp2_sclk */
+> +			K1_PADCONF0(76, 1) /* ssp2_frm */
+> +			K1_PADCONF0(77, 1) /* ssp2_txd */
+> +			K1_PADCONF0(78, 1) /* ssp2_rxd */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_3V_DS(4);
+> +	};
+> +
+> +	ssp2_1_pins: ssp2-1-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(64, 3) /* ssp2_sclk */
+> +			K1_PADCONF0(65, 3) /* ssp2_frm */
+> +			K1_PADCONF0(66, 3) /* ssp2_txd */
+> +			K1_PADCONF0(67, 3) /* ssp2_rxd */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_3V_DS(4);
+> +	};
+> +
+> +	ssp3_0_pins: ssp3-0-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(75, 2) /* ssp3_sclk */
+> +			K1_PADCONF0(76, 2) /* ssp3_frm */
+> +			K1_PADCONF0(77, 2) /* ssp3_txd */
+> +			K1_PADCONF0(78, 2) /* ssp3_rxd */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_3V_DS(4);
+> +	};
+> +
+> +	ssp3_1_pins: ssp3-1-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(59, 2) /* ssp3_sclk */
+> +			K1_PADCONF0(60, 2) /* ssp3_frm */
+> +			K1_PADCONF0(61, 2) /* ssp3_txd */
+> +			K1_PADCONF0(62, 2) /* ssp3_rxd */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	uart0_0_pins: uart0-0-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(104, 3) /* uart0_txd */
+> +			K1_PADCONF0(105, 3) /* uart0_rxd */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_3V_DS(4);
+> +	};
+> +
+> +	uart0_1_pins: uart0-1-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(80, 3) /* uart0_rxd */
+> +			K1_PADCONF0(108, 1) /* uart0_txd */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_3V_DS(4);
+> +	};
+> +
+> +	uart0_2_pins: uart0-2-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(68, 2) /* uart0_txd */
+> +			K1_PADCONF0(69, 2) /* uart0_rxd */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	uart2_pins: uart2-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(21, 1) /* uart2_txd */
+> +			K1_PADCONF0(22, 1) /* uart2_rxd */
+> +			K1_PADCONF0(23, 1) /* uart2_cts_n */
+> +			K1_PADCONF0(24, 1) /* uart2_rts_n */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(0);
+> +	};
+> +
+> +	uart3_0_pins: uart3-0-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(81, 2) /* uart3_txd */
+> +			K1_PADCONF0(82, 2) /* uart3_txd */
+> +			K1_PADCONF0(83, 2) /* uart3_cts_n */
+> +			K1_PADCONF0(84, 2) /* uart3_rts_n */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	uart3_1_pins: uart3-1-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(18, 2) /* uart3_txd */
+> +			K1_PADCONF0(19, 2) /* uart3_rxd */
+> +			K1_PADCONF0(20, 2) /* uart3_cts_n */
+> +			K1_PADCONF0(21, 2) /* uart3_rts_n */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	uart3_2_pins: uart3-2-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(53, 4) /* uart3_txd */
+> +			K1_PADCONF0(54, 4) /* uart3_rxd */
+> +			K1_PADCONF0(55, 4) /* uart3_cts_n */
+> +			K1_PADCONF0(56, 4) /* uart3_rts_n */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	uart4_0_pins: uart4-0-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(100, 4) /* uart4_txd */
+> +			K1_PADCONF0(101, 4) /* uart4_rxd */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_3V_DS(4);
+> +	};
+> +
+> +	uart4_1_pins: uart4-1-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(81, 3) /* uart4_cts_n */
+> +			K1_PADCONF0(82, 3) /* uart4_rts_n */
+> +			K1_PADCONF0(83, 3) /* uart4_txd */
+> +			K1_PADCONF0(84, 3) /* uart4_rxd */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	uart4_2_pins: uart4-2-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(23, 2) /* uart4_txd */
+> +			K1_PADCONF0(24, 2) /* uart4_rxd */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	uart4_3_pins: uart4-3-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(33, 2) /* uart4_txd */
+> +			K1_PADCONF0(34, 2) /* uart4_rxd */
+> +			K1_PADCONF0(35, 2) /* uart4_cts_n */
+> +			K1_PADCONF0(36, 2) /* uart4_rts_n */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	uart4_4_pins: uart4-4-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(111, 4) /* uart4_txd */
+> +			K1_PADCONF0(112, 4) /* uart4_rxd */
+> +			K1_PADCONF0(113, 4) /* uart4_cts_n */
+> +			K1_PADCONF0(114, 4) /* uart4_rts_n */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	uart5_0_pins: uart5-0-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(102, 3) /* uart5_txd */
+> +			K1_PADCONF0(103, 3) /* uart5_rxd */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_3V_DS(4);
+> +	};
+> +
+> +	uart5_1_pins: uart5-1-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(25, 2) /* uart5_txd */
+> +			K1_PADCONF0(26, 2) /* uart5_rxd */
+> +			K1_PADCONF0(27, 2) /* uart5_cts_n */
+> +			K1_PADCONF0(28, 2) /* uart5_rts_n */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	uart5_2_pins: uart5-2-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(42, 2) /* uart5_txd */
+> +			K1_PADCONF0(43, 2) /* uart5_rxd */
+> +			K1_PADCONF0(44, 2) /* uart5_cts_n */
+> +			K1_PADCONF0(45, 2) /* uart5_rts_n */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	uart5_3_pins: uart5-3-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(70, 4) /* uart5_txd */
+> +			K1_PADCONF0(71, 4) /* uart5_rxd */
+> +			K1_PADCONF0(72, 4) /* uart5_cts_n */
+> +			K1_PADCONF0(73, 4) /* uart5_rts_n */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	uart6_0_pins: uart6-0-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(85, 2) /* uart6_cts_n */
+> +			K1_PADCONF0(86, 2) /* uart6_txd */
+> +			K1_PADCONF0(87, 2) /* uart6_rxd */
+> +			K1_PADCONF0(90, 2) /* uart6_rts_n */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	uart6_1_pins: uart6-1-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(00, 2) /* uart6_txd */
+> +			K1_PADCONF0(01, 2) /* uart6_rxd */
+> +			K1_PADCONF0(02, 2) /* uart6_cts_n */
+> +			K1_PADCONF0(03, 2) /* uart6_rts_n */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	uart6_2_pins: uart6-2-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(56, 2) /* uart6_txd */
+> +			K1_PADCONF0(57, 2) /* uart6_rxd */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	uart7_0_pins: uart7-0-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(88, 2) /* uart7_txd */
+> +			K1_PADCONF0(89, 2) /* uart7_rxd */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	uart7_1_pins: uart7-1-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(04, 2) /* uart7_txd */
+> +			K1_PADCONF0(05, 2) /* uart7_rxd */
+> +			K1_PADCONF0(06, 2) /* uart7_cts_n */
+> +			K1_PADCONF0(07, 2) /* uart7_rts_n */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	uart8_0_pins: uart8-0-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(82, 4) /* uart8_txd */
+> +			K1_PADCONF0(83, 4) /* uart8_rxd */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	uart8_1_pins: uart8-1-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(08, 2) /* uart8_txd */
+> +			K1_PADCONF0(09, 2) /* uart8_rxd */
+> +			K1_PADCONF0(10, 2) /* uart8_cts_n */
+> +			K1_PADCONF0(11, 2) /* uart8_rts_n */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	uart8_2_pins: uart8-2-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(75, 4) /* uart8_txd */
+> +			K1_PADCONF0(76, 4) /* uart8_rxd */
+> +			K1_PADCONF0(77, 4) /* uart8_cts_n */
+> +			K1_PADCONF0(78, 4) /* uart8_rts_n */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_3V_DS(4);
+> +	};
+> +
+> +	uart9_0_pins: uart9-0-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(12, 2) /* uart9_txd */
+> +			K1_PADCONF0(13, 2) /* uart9_rxd */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	uart9_1_pins: uart9-1-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(110, 3) /* uart9_cts_n */
+> +			K1_PADCONF0(115, 3) /* uart9_rts_n */
+> +			K1_PADCONF0(116, 3) /* uart9_txd */
+> +			K1_PADCONF0(117, 3) /* uart9_rxd */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	uart9_2_pins: uart9-2-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(72, 2) /* uart9_txd */
+> +			K1_PADCONF0(73, 2) /* uart9_rxd */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	usb0_0_pins: usb0-0-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(125, 1) /* vbus_on0 */
+> +			K1_PADCONF0(126, 1) /* usb_id0 */
+> +			K1_PADCONF0(127, 1) /* drive_vbus0_iso */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	usb0_1_pins_0: usb0-1-pins-0 {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(63, 1) /* drive_vbus0_iso */
+> +			K1_PADCONF0(64, 1) /* vbus_on0 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	usb0_1_pins_1: usb0-1-pins-1 {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(65, 1) /* usb_id0 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	usb1_0_pin: usb1-0-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(124, 1) /* drive_vbus1_iso */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	usb1_1_pin: usb1-1-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(66, 1) /* drive_vbus1_iso */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	usb2_0_pins: usb2-0-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(121, 2) /* vbus_on2 */
+> +			K1_PADCONF0(122, 2) /* usb_id2 */
+> +			K1_PADCONF0(123, 1) /* drive_vbus2_iso */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	usb2_1_pins_0: usb2-1-pins-0 {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(67, 1) /* drive_vbus2_iso */
+> +			K1_PADCONF0(68, 1) /* vbus_on2 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	usb2_1_pins_1: usb2-1-pins-1 {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(69, 1) /* usb_id2 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	vcxo_0_pins: vcxo-0-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(96, 3) /* vcxo_req */
+> +			K1_PADCONF0(97, 3) /* vcxo_out */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	vcxo_1_pins: vcxo-1-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(16, 3) /* vcxo_req */
+> +			K1_PADCONF0(17, 3) /* vcxo_out */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	vcxo_2_pins: vcxo-2-pins {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(89, 4) /* vcxo_req */
+> +			K1_PADCONF0(90, 4) /* vcxo_out */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	vcxo_out_0_pin: vcxo-out-0-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(91, 2) /* vcxo_out_0 */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(1);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(0);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +
+> +	vcxo_out_1_pin: vcxo-out-1-pin {
+> +		pinctrl-single,pins = <
+> +			K1_PADCONF0(12, 3) /* vcxo_out */
+> +		>;
+> +		pinctrl-single,bias-pullup = PINCTRL_PULLUP(0);
+> +		pinctrl-single,bias-pulldown = PINCTRL_PULLDN(1);
+> +		pinctrl-single,drive-strength = PINCTRL_1V8_DS(2);
+> +	};
+> +};
+
+I see that you may add all the pin definition for the SoC. It is OK,
+but I think these may be too much as some board may have different
+configurations. I think adding the common pin definition to this file
+is enough. Others should be left in the board dts.
+
+> diff --git a/arch/riscv/boot/dts/spacemit/k1-pinctrl.h b/arch/riscv/boot/dts/spacemit/k1-pinctrl.h
+> new file mode 100644
+> index 0000000000000..22eec2293ee33
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/spacemit/k1-pinctrl.h
+> @@ -0,0 +1,220 @@
+> +/* SPDX-License-Identifier: GPL-2.0 OR MIT */
+> +/*
+> + * Copyright (c) 2022 SpacemiT (Hangzhou) Technology Co. Ltd
+> + * Copyright (c) 2024 Yixun Lan <dlan@gentoo.org>
+> + */
+> +
+> +#ifndef __DT_BINDINGS_K1_PINCTRL_H
+> +#define __DT_BINDINGS_K1_PINCTRL_H
+> +
+> +/* pin offset */
+> +#define PINID(x)	((x) + 1)
+> +
+> +#define GPIO_00     PINID(0)
+> +#define GPIO_01     PINID(1)
+> +#define GPIO_02     PINID(2)
+> +#define GPIO_03     PINID(3)
+> +#define GPIO_04     PINID(4)
+> +#define GPIO_05     PINID(5)
+> +#define GPIO_06     PINID(6)
+> +#define GPIO_07     PINID(7)
+> +#define GPIO_08     PINID(8)
+> +#define GPIO_09     PINID(9)
+> +#define GPIO_10     PINID(10)
+> +#define GPIO_11     PINID(11)
+> +#define GPIO_12     PINID(12)
+> +#define GPIO_13     PINID(13)
+> +#define GPIO_14     PINID(14)
+> +#define GPIO_15     PINID(15)
+> +#define GPIO_16     PINID(16)
+> +#define GPIO_17     PINID(17)
+> +#define GPIO_18     PINID(18)
+> +#define GPIO_19     PINID(19)
+> +#define GPIO_20     PINID(20)
+> +#define GPIO_21     PINID(21)
+> +#define GPIO_22     PINID(22)
+> +#define GPIO_23     PINID(23)
+> +#define GPIO_24     PINID(24)
+> +#define GPIO_25     PINID(25)
+> +#define GPIO_26     PINID(26)
+> +#define GPIO_27     PINID(27)
+> +#define GPIO_28     PINID(28)
+> +#define GPIO_29     PINID(29)
+> +#define GPIO_30     PINID(30)
+> +#define GPIO_31     PINID(31)
+> +
+> +#define GPIO_32     PINID(32)
+> +#define GPIO_33     PINID(33)
+> +#define GPIO_34     PINID(34)
+> +#define GPIO_35     PINID(35)
+> +#define GPIO_36     PINID(36)
+> +#define GPIO_37     PINID(37)
+> +#define GPIO_38     PINID(38)
+> +#define GPIO_39     PINID(39)
+> +#define GPIO_40     PINID(40)
+> +#define GPIO_41     PINID(41)
+> +#define GPIO_42     PINID(42)
+> +#define GPIO_43     PINID(43)
+> +#define GPIO_44     PINID(44)
+> +#define GPIO_45     PINID(45)
+> +#define GPIO_46     PINID(46)
+> +#define GPIO_47     PINID(47)
+> +#define GPIO_48     PINID(48)
+> +#define GPIO_49     PINID(49)
+> +#define GPIO_50     PINID(50)
+> +#define GPIO_51     PINID(51)
+> +#define GPIO_52     PINID(52)
+> +#define GPIO_53     PINID(53)
+> +#define GPIO_54     PINID(54)
+> +#define GPIO_55     PINID(55)
+> +#define GPIO_56     PINID(56)
+> +#define GPIO_57     PINID(57)
+> +#define GPIO_58     PINID(58)
+> +#define GPIO_59     PINID(59)
+> +#define GPIO_60     PINID(60)
+> +#define GPIO_61     PINID(61)
+> +#define GPIO_62     PINID(62)
+> +#define GPIO_63     PINID(63)
+> +
+> +#define GPIO_64     PINID(64)
+> +#define GPIO_65     PINID(65)
+> +#define GPIO_66     PINID(66)
+> +#define GPIO_67     PINID(67)
+> +#define GPIO_68     PINID(68)
+> +#define GPIO_69     PINID(69)
+> +#define GPIO_70     PINID(70)
+> +#define GPIO_71     PINID(71)
+> +#define GPIO_72     PINID(72)
+> +#define GPIO_73     PINID(73)
+> +#define GPIO_74     PINID(74)
+> +#define GPIO_75     PINID(75)
+> +#define GPIO_76     PINID(76)
+> +#define GPIO_77     PINID(77)
+> +#define GPIO_78     PINID(78)
+> +#define GPIO_79     PINID(79)
+> +#define GPIO_80     PINID(80)
+> +#define GPIO_81     PINID(81)
+> +#define GPIO_82     PINID(82)
+> +#define GPIO_83     PINID(83)
+> +#define GPIO_84     PINID(84)
+> +#define GPIO_85     PINID(85)
+> +
+> +#define GPIO_101    PINID(89)
+> +#define GPIO_100    PINID(90)
+> +#define GPIO_99     PINID(91)
+> +#define GPIO_98     PINID(92)
+> +#define GPIO_103    PINID(93)
+> +#define GPIO_102    PINID(94)
+> +
+> +#define GPIO_104    PINID(109)
+> +#define GPIO_105    PINID(110)
+> +#define GPIO_106    PINID(111)
+> +#define GPIO_107    PINID(112)
+> +#define GPIO_108    PINID(113)
+> +#define GPIO_109    PINID(114)
+> +#define GPIO_110    PINID(115)
+> +
+> +#define GPIO_93     PINID(116)
+> +#define GPIO_94     PINID(117)
+> +#define GPIO_95     PINID(118)
+> +#define GPIO_96     PINID(119)
+> +#define GPIO_97     PINID(120)
+> +
+> +#define GPIO_86     PINID(122)
+> +#define GPIO_87     PINID(123)
+> +#define GPIO_88     PINID(124)
+> +#define GPIO_89     PINID(125)
+> +#define GPIO_90     PINID(126)
+> +#define GPIO_91     PINID(127)
+> +#define GPIO_92     PINID(128)
+> +
+> +#define GPIO_111    PINID(130)
+> +#define GPIO_112    PINID(131)
+> +#define GPIO_113    PINID(132)
+> +#define GPIO_114    PINID(133)
+> +#define GPIO_115    PINID(134)
+> +#define GPIO_116    PINID(135)
+> +#define GPIO_117    PINID(136)
+> +#define GPIO_118    PINID(137)
+> +#define GPIO_119    PINID(138)
+> +#define GPIO_120    PINID(139)
+> +#define GPIO_121    PINID(140)
+> +#define GPIO_122    PINID(141)
+> +#define GPIO_123    PINID(142)
+> +#define GPIO_124    PINID(143)
+> +#define GPIO_125    PINID(144)
+> +#define GPIO_126    PINID(145)
+> +#define GPIO_127    PINID(146)
+> +
+> +/*
+> + * +-------------------+-------------------+------+------+---------+-----+
+> + * |   pull  |   drive  | schmitter |  slew  |  edge  |  strong  |   mux  |
+> + * | up/down | strength |  trigger  |  rate  | detect |   pull   |  mode  |
+> + * +---------+----------+-----------+--------+--------+----------+--------+
+> + *   3 bits     3 bits     2 bits     1 bit    3 bits     1 bit    3 bits
+> + *
+> + */
+> +
+
+> +/* strong pull */
+> +#define SPU_EN          (1 << 3)
+> +
+> +/* edge detect */
+> +#define EDGE_NONE       (1 << 6)
+> +#define EDGE_RISE       (1 << 4)
+> +#define EDGE_FALL       (1 << 5)
+> +#define EDGE_BOTH       (3 << 4)
+> +
+
+Just curious, how do you map the attributes "strong pull" and 
+"edge detect"?
+
+> +/* slew rate output control */
+> +#define SLE_EN          (1 << 7)
+> +
+> +#define PINCTRL_SLEW_RATE(val)	< (val << 7) (1 << 7) >
+
+It will be good to setting slew rate explictly.
+
+> +
+> +/* schmitter trigger input threshold */
+> +#define ST00            (0 << 8)
+> +#define ST01            (1 << 8)
+> +#define ST02            (2 << 8)
+> +#define ST03            (3 << 8)
+> +
+> +#define SCHMITT_ENABLE  (3 << 8)
+> +#define SCHMITT_DISABLE (0 << 8)
+> +
+> +# define PINCTRL_INPUT_SCHMITT(val)  \
+> +	< (val << 8) (SCHMITT_ENABLE) (SCHMITT_DISABLE) (SCHMITT_ENABLE) >
+> +
+> +/* driver strength*/
+> +#define PAD_1V8_DS0     (0 << 11)
+> +#define PAD_1V8_DS1     (1 << 11)
+> +#define PAD_1V8_DS2     (2 << 11)
+> +#define PAD_1V8_DS3     (3 << 11)
+> +
+> +#define PAD_3V_DS0      (0 << 10)
+> +#define PAD_3V_DS1      (2 << 10)
+> +#define PAD_3V_DS2      (4 << 10)
+> +#define PAD_3V_DS3      (6 << 10)
+> +#define PAD_3V_DS4      (1 << 10)
+> +#define PAD_3V_DS5      (3 << 10)
+> +#define PAD_3V_DS6      (5 << 10)
+> +#define PAD_3V_DS7      (7 << 10)
+
+For drive strength mapping, your can change DSx -> xmA or xuA.
+Then uses your DS macro to mapping it. 
+The same apply to schmitt trigger.
+
+> +
+> +#define PINCTRL_1V8_DS(value)	\
+> +	< (PAD_1V8_DS##value) (0x7 << 10) >
+> +#define PINCTRL_3V_DS(value)	\
+> +	< (PAD_3V_DS##value)  (0x7 << 10) >
+> +
+> +/* pull up/down */
+> +#define PULL_SEL        (1 << 15)
+> +#define PULLUP_EN       (1 << 14)
+> +#define PULLDN_EN       (1 << 13)
+> +
+> +#define PINCTRL_PULLUP(val)		\
+> +	< (val << 14) (PULLUP_EN) (0 << 14) (PULLUP_EN) >
+> +#define PINCTRL_PULLDN(val)		\
+> +	< (val << 13) (PULLDN_EN) (0 << 13) (PULLDN_EN) >
+> +
+> +#define K1_PADCONF0(id, mux) \
+> +	((GPIO_##id) * 4) (mux) (EDGE_NONE | PULL_SEL)
+> +
+> +#define K1_PADCONF1(id, mux) \
+> +	((GPIO_##id) * 4) (mux) (EDGE_NONE)
+> +
+> +#endif /* __DT_BINDINGS_K1_PINCTRL_H */
+> diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
+> index 0777bf9e01183..2f0c56b06d413 100644
+> --- a/arch/riscv/boot/dts/spacemit/k1.dtsi
+> +++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
+> @@ -416,6 +416,20 @@ uart9: serial@d4017800 {
+>  			status = "disabled";
+>  		};
+>  
+> +		pinctrl: pinctrl@d401e000 {
+> +			compatible = "pinconf-single";
+> +			reg = <0x0 0xd401e000 0x0 0x400>;
+> +			#pinctrl-cells = <2>;
+> +			#gpio-range-cells = <3>;
+> +
+> +			pinctrl-single,register-width = <32>;
+> +			pinctrl-single,function-mask = <0xff77>;
+> +
+> +			range: gpio-range {
+> +				#pinctrl-single,gpio-range-cells = <3>;
+> +			};
+> +		};
+> +
+>  		plic: interrupt-controller@e0000000 {
+>  			compatible = "spacemit,k1-plic", "sifive,plic-1.0.0";
+>  			reg = <0x0 0xe0000000 0x0 0x4000000>;
+> 
+> -- 
+> 2.45.2
+> 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
