@@ -4,66 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D250EC3DA49
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 Jul 2024 10:32:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2C39C3DA59
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 Jul 2024 12:13:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3hFy0WQbiCNFNPdWzThQpyqIX/2xDuA3UUIkBCuuT2A=; b=nc5hKfPM0JxY8V
-	Ej8i487qVIFMHy+8nb5ES16ClWO6miHfdu9qDXMQlKQ5kFvq0oKoPiaJloKAL/Y780jBUf82aGB0J
-	sjqXcMFFmgq8m9Zqz1TAI1Uk14lan5TzqeASpeUzKv404E+aCSwK4a7nssLG6PKCyAT4eVNW6L7v1
-	FXcnUioKRX9JNp39WQLavxidDvSjULwZ051Qn9dfGxkR5WBO5ARxGcHSIyZRdv7i8N8ypwf0OmqRZ
-	oO9a/oYyl1xbZa+wMV7T/2M4yJBI4dRjpzfj95wa5nrEw7hpfcAMl0qmFcyyJ9BYd/kUw9W31l9ck
-	NotPW7Ym5D615pc9n8aA==;
+	List-Owner; bh=qcwTDJSZDcDd4ZSLV2Oqv8Y7B2tVE+91bl1H+kYeOBw=; b=mALTrTM9UShpSq
+	eTzoSSV6oq1qDDKxL75/9IcoPQZ9L2uNg/ZCWl+XfMpSC3VMWn1g3bcbpjE1DgQkLF8JHjLHZyBlL
+	8657iFqdCvxrP8V9GrzOer9raefZvl0t8XPQC2nbfuWlZAwzTW2aW5Yg67OKvp3yYe3wgzZMauLCf
+	LNqzPY05Uq6yQ3G9StvOH99lxah86MjN0HaGY30epfYx9pwC5r6jO60gH10Rk0u00LIivGR+rSmnV
+	/+Bhe0IvhbZ1hWVkDn/CBWsUbIi6Xe5zw/5bw9kiC/YIcfNRu2nScBOKf0nEDs/3GHc9esu/OW5ls
+	ubDpfiPQjDB3En7d9alA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sV7OX-00000004vfJ-3P9W;
-	Sat, 20 Jul 2024 10:32:53 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1sV8xU-000000054Am-1J9S;
+	Sat, 20 Jul 2024 12:13:04 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sV7OT-00000004ve9-3O5m
-	for linux-riscv@lists.infradead.org;
-	Sat, 20 Jul 2024 10:32:51 +0000
+	id 1sV8x7-0000000543l-0dwG;
+	Sat, 20 Jul 2024 12:12:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id E133ECE0138;
-	Sat, 20 Jul 2024 10:32:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42204C2BD10;
-	Sat, 20 Jul 2024 10:32:44 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 160BD60AC0;
+	Sat, 20 Jul 2024 12:12:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09110C2BD10;
+	Sat, 20 Jul 2024 12:12:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1721471566;
-	bh=no/gchey9dA5kKh7DZHwzN7x/LS5bd0amWk45TC0q7M=;
+	s=k20201202; t=1721477557;
+	bh=fwbjiZOl2jVEvkjLoIR5P7+CK/Chy3OdwVeEOh6ZuS0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Xy9vauJshyR5q9vr91qVrTnhjzabpUPzwwaph9Roklj6vKyFQKl50URKVpwk/nDmh
-	 IoPjT+3lB5B7JUNIjUogPU4RFi/WGab2Av/AjW2eBo6W+fkqKr5xmrwSHC00pczwAn
-	 WK0Fxn1sFwSVKJoPpmaIZ2ZnzdmJzjPRnCzc56BX3ouJR4T0moB6TZog2kqiDSOHN0
-	 RVKWRcuxxqchQmp5zULFdfzlRN6Be32qM/UeBMvAXSQVX6IcbyJ99ocP/VgdIbSY91
-	 9cb1+ksIYETXHh5iF4ififYMEzkSpoOuGtq/1DjgPz0wR50sqsKDkKzuSBsDRzT2cs
-	 VYdK/gj5lYagw==
-Date: Sat, 20 Jul 2024 18:18:20 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Zhu Hengbo <zhuhengbo@iscas.ac.cn>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
+	b=Zrgu0SuBbpILpJBm8U5PR8XGe87tRutuy1WzG7Fmsz4VozP42z8IfYuFPMEiCO6ez
+	 djid8auGU5SdaEK5v5L5Kcs3yzuWYeCcZtOzcSL3vqkCL7k8A8lfqmCMd/yVXhjtF8
+	 VHhSwiU64gORZkNkAHRI6mECdB/Pr9e9NEqnu9OJaFfY/A4K+TFaCMAZSDIPmjuJXD
+	 m9fyDujPC45QYgAsPUjQDHQ+rAx5rEVo8xTvK67ZSw30TE3zGPomSDzPciI4/ZXvh5
+	 fjlXjrfuFyfqzBaLPEL/6dkuLr5m5vWTRuYPQWlUZ6Y2t6qDf8GDx6tPL5wdYxPr4T
+	 RVe/6SLZl02bQ==
+Date: Sat, 20 Jul 2024 15:09:28 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Zi Yan <ziy@nvidia.com>
+Cc: linux-kernel@vger.kernel.org,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Larsson <andreas@gaisler.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Kefeng Wang <wangkefeng.wang@huawei.com>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] riscv: add tracepoints for page fault
-Message-ID: <ZpuO7Du1L-m_I-GB@xhacker>
-References: <20240715101400.39103-1-zhuhengbo@iscas.ac.cn>
- <20240717082728.84401-1-zhuhengbo@iscas.ac.cn>
+	Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Hildenbrand <david@redhat.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+	linux-acpi@vger.kernel.org, linux-cxl@vger.kernel.org,
+	nvdimm@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
+Subject: Re: [PATCH 14/17] mm: introduce numa_emulation
+Message-ID: <Zpuo-BWxvdbun5z7@kernel.org>
+References: <20240716111346.3676969-1-rppt@kernel.org>
+ <20240716111346.3676969-15-rppt@kernel.org>
+ <CCB95DEB-6B72-4175-A379-7E60D89114A6@nvidia.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240717082728.84401-1-zhuhengbo@iscas.ac.cn>
+In-Reply-To: <CCB95DEB-6B72-4175-A379-7E60D89114A6@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240720_033250_231426_FA8D965D 
-X-CRM114-Status: GOOD (  23.29  )
+X-CRM114-CacheID: sfid-20240720_051241_354944_070C359A 
+X-CRM114-Status: GOOD (  21.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,163 +102,92 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 17, 2024 at 08:27:19AM +0000, Zhu Hengbo wrote:
-> Introduce page_fault_user and page_fault_kernel for riscv page fault.
-> Help to get more detail information when page fault happen.
+On Fri, Jul 19, 2024 at 12:03:11PM -0400, Zi Yan wrote:
+> On 16 Jul 2024, at 7:13, Mike Rapoport wrote:
+> 
+> > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+> >
+> > Move numa_emulation codfrom arch/x86 to mm/numa_emulation.c
+> >
+> > This code will be later reused by arch_numa.
+> >
+> > No functional changes.
+> >
+> > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> > ---
+> >  arch/x86/Kconfig             |  8 --------
+> >  arch/x86/include/asm/numa.h  | 12 ------------
+> >  arch/x86/mm/Makefile         |  1 -
+> >  arch/x86/mm/numa_internal.h  | 11 -----------
+> >  include/linux/numa_memblks.h | 17 +++++++++++++++++
+> >  mm/Kconfig                   |  8 ++++++++
+> >  mm/Makefile                  |  1 +
+> >  mm/numa_emulation.c          |  4 +---
+> >  8 files changed, 27 insertions(+), 35 deletions(-)
+> 
+> After this code move, the document of numa=fake= should be moved from
+> Documentation/arch/x86/x86_64/boot-options.rst to
+> Documentation/admin-guide/kernel-parameters.txt
+> too.
 
-Just curious what's the expected usage? The mm subsystem has supported
-page faults perf software event, is it enough?
+I'll add this as a separate commit.
+ 
+> Something like:
+> 
+> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+> index bc55fb55cd26..ce3659289b5e 100644
+> --- a/Documentation/admin-guide/kernel-parameters.txt
+> +++ b/Documentation/admin-guide/kernel-parameters.txt
+> @@ -4158,6 +4158,18 @@
+>                         Disable NUMA, Only set up a single NUMA node
+>                         spanning all memory.
+> 
+> +       numa=fake=<size>[MG]
+> +                       If given as a memory unit, fills all system RAM with nodes of
+> +                       size interleaved over physical nodes.
+> +
+> +       numa=fake=<N>
+> +                       If given as an integer, fills all system RAM with N fake nodes
+> +                       interleaved over physical nodes.
+> +
+> +       numa=fake=<N>U
+> +                       If given as an integer followed by 'U', it will divide each
+> +                       physical node into N emulated nodes.
+> +
+>         numa_balancing= [KNL,ARM64,PPC,RISCV,S390,X86] Enable or disable automatic
+>                         NUMA balancing.
+>                         Allowed values are enable and disable
+> diff --git a/Documentation/arch/x86/x86_64/boot-options.rst b/Documentation/arch/x86/x86_64/boot-options.rst
+> index 137432d34109..98d4805f0823 100644
+> --- a/Documentation/arch/x86/x86_64/boot-options.rst
+> +++ b/Documentation/arch/x86/x86_64/boot-options.rst
+> @@ -170,18 +170,6 @@ NUMA
+>      Don't parse the HMAT table for NUMA setup, or soft-reserved memory
+>      partitioning.
+> 
+> -  numa=fake=<size>[MG]
+> -    If given as a memory unit, fills all system RAM with nodes of
+> -    size interleaved over physical nodes.
+> -
+> -  numa=fake=<N>
+> -    If given as an integer, fills all system RAM with N fake nodes
+> -    interleaved over physical nodes.
+> -
+> -  numa=fake=<N>U
+> -    If given as an integer followed by 'U', it will divide each
+> -    physical node into N emulated nodes.
+> -
+>  ACPI
+>  ====
+> 
+> Best Regards,
+> Yan, Zi
 
-> 
-> Signed-off-by: Zhu Hengbo <zhuhengbo@iscas.ac.cn>
-> ---
-> Changes in v2:
-> - Add print instruction point info
-> 
-> Simple test go below:
-> 
-> root@riscv-ubuntu2204 ~ # bin/perf list | grep exceptions
->   exceptions:page_fault_kernel                       [Tracepoint event]
->   exceptions:page_fault_user                         [Tracepoint event]
-> 
-> root@riscv-ubuntu2204 ~ # bin/perf record -e exceptions:page_fault_kernel -e exceptions:page_fault_user
-> [ perf record: Woken up 1 times to write data ]
-> [ perf record: Captured and wrote 0.091 MB perf.data (19 samples) ]
-> 
-> perf report tracepoint:
-> perf     563 [007]   115.824363:   exceptions:page_fault_user: user page fault, address=0x7fff94cf6400 epc=0x55558632808e cause=0xd
-> perf     563 [007]   115.824441:   exceptions:page_fault_user: user page fault, address=0x7fff94c75400 epc=0x55558632808e cause=0xd
-> perf     563 [007]   115.824518:   exceptions:page_fault_user: user page fault, address=0x7fff94bf4400 epc=0x55558632808e cause=0xd
-> perf     563 [007]   115.824907: exceptions:page_fault_kernel: kernel page fault, address=0x7fff94bf5000 epc=fault_in_readable cause=0xd
-> perf     563 [007]   115.825238:   exceptions:page_fault_user: user page fault, address=0x7fff94bf4408 epc=0x5555863281bc cause=0xf
-> perf     564 [000]   116.247999:   exceptions:page_fault_user: user page fault, address=0x7fff94b73400 epc=0x55558632808e cause=0xd
-> perf     564 [000]   116.248558:   exceptions:page_fault_user: user page fault, address=0x7fff94af2400 epc=0x55558632808e cause=0xd
-> ---
->  arch/riscv/include/asm/trace/exceptions.h | 66 +++++++++++++++++++++++
->  arch/riscv/mm/fault.c                     | 15 ++++++
->  2 files changed, 81 insertions(+)
->  create mode 100644 arch/riscv/include/asm/trace/exceptions.h
-> 
-> diff --git a/arch/riscv/include/asm/trace/exceptions.h b/arch/riscv/include/asm/trace/exceptions.h
-> new file mode 100644
-> index 000000000000..ff258da2f45f
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/trace/exceptions.h
-> @@ -0,0 +1,66 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Tracepoints for RISC-V exceptions
-> + *
-> + * Copyright (C) 2024 ISCAS. All rights reserved
-> + *
-> + */
-> +
-> +#if !defined(_TRACE_PAGE_FAULT_H) || defined(TRACE_HEADER_MULTI_READ)
-> +#define _TRACE_PAGE_FAULT_H
-> +
-> +#include <linux/tracepoint.h>
-> +
-> +#undef TRACE_SYSTEM
-> +#define TRACE_SYSTEM exceptions
-> +
-> +TRACE_EVENT(page_fault_user,
-> +	TP_PROTO(struct pt_regs *regs),
-> +	TP_ARGS(regs),
-> +
-> +	TP_STRUCT__entry(
-> +		__field(unsigned long, address)
-> +		__field(unsigned long, epc)
-> +		__field(unsigned long, cause)
-> +	),
-> +
-> +	TP_fast_assign(
-> +		__entry->address	= regs->badaddr;
-> +		__entry->epc		= regs->epc;
-> +		__entry->cause		= regs->cause;
-> +	),
-> +
-> +	TP_printk("user page fault, address=%ps epc=%ps cause=0x%lx",
-> +			(void *)__entry->address, (void *)__entry->epc,
-> +			__entry->cause)
-> +);
-> +
-> +TRACE_EVENT(page_fault_kernel,
-> +	TP_PROTO(struct pt_regs *regs),
-> +	TP_ARGS(regs),
-> +
-> +	TP_STRUCT__entry(
-> +		__field(unsigned long, address)
-> +		__field(unsigned long, epc)
-> +		__field(unsigned long, cause)
-> +	),
-> +
-> +	TP_fast_assign(
-> +		__entry->address	= regs->badaddr;
-> +		__entry->epc		= regs->epc;
-> +		__entry->cause		= regs->cause;
-> +	),
-> +
-> +	TP_printk("kernel page fault, address=%ps epc=%ps cause=0x%lx",
-> +			(void *)__entry->address, (void *)__entry->epc,
-> +			__entry->cause)
-> +);
-> +
-> +#undef TRACE_INCLUDE_PATH
-> +#undef TRACE_INCLUDE_FILE
-> +#define TRACE_INCLUDE_PATH asm/trace/
-> +#define TRACE_INCLUDE_FILE exceptions
-> +#endif /*  _TRACE_PAGE_FAULT_H */
-> +
-> +/* This part must be outside protection */
-> +#include <trace/define_trace.h>
-> diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
-> index 5224f3733802..22874074c5bc 100644
-> --- a/arch/riscv/mm/fault.c
-> +++ b/arch/riscv/mm/fault.c
-> @@ -22,6 +22,10 @@
->  
->  #include "../kernel/head.h"
->  
-> +
-> +#define CREATE_TRACE_POINTS
-> +#include <asm/trace/exceptions.h>
-> +
->  static void die_kernel_fault(const char *msg, unsigned long addr,
->  		struct pt_regs *regs)
->  {
-> @@ -215,6 +219,15 @@ static inline bool access_error(unsigned long cause, struct vm_area_struct *vma)
->  	return false;
->  }
->  
-> +
-> +static inline void trace_page_fault(struct pt_regs *regs)
-> +{
-> +	if (user_mode(regs))
-> +		trace_page_fault_user(regs);
-> +	else
-> +		trace_page_fault_kernel(regs);
-> +}
-> +
->  /*
->   * This routine handles page faults.  It determines the address and the
->   * problem, and then passes it off to one of the appropriate routines.
-> @@ -235,6 +248,8 @@ void handle_page_fault(struct pt_regs *regs)
->  	tsk = current;
->  	mm = tsk->mm;
->  
-> +	trace_page_fault(regs);
-> +
->  	if (kprobe_page_fault(regs, cause))
->  		return;
->  
-> -- 
-> 2.34.1
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
