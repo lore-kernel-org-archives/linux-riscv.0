@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0985DC3DA5D
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jul 2024 07:05:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29E2FC3DA5D
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jul 2024 07:09:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=abKe0QIdnIkvrg795r5ajWIUaaTOjfd/maCMGj68ncg=; b=G4fHD3VaXdWX0v
-	I51B+0QAY5OLQHNiPect536poWsGL4V3afGdHm1fkt9GzvSM97X6Oxo2hQOUO6Q4OzoiIb7OXzhnK
-	zXzdqAOEcgUp6vFH2Y7lEsEMVzaCMGXqDB1BvKhAGc6ufzFn5I9qhcz/DkIbmpFWnGE/9rMnlFOJ9
-	nxo5JKH1DCW7rCuH8fN4Ijbkxq4t8qSBqgzV/YLg/CWBZeL52sXS6ewKcQwr046TV710buTrCGkW8
-	KpQ+oZ11zpqHA921E2xaHBzoPyJ73uWUiawdEjNSPQK5CL0yCwPisHSSbOqyio2agGbQvKE6Pu6lJ
-	3w1gw4oljaf7xsZOrCIQ==;
+	List-Owner; bh=iyn1vSaJYIpc3AyjxS5Cd5TDE18CAIVb7P0gSo25Vvs=; b=0jdPMVlAPN7dH7
+	C59n1oqvKLYutyu6qzctieJsQzt9tuwyOn9l+7brM03WmKnSNWsudkjcWemq3I82HOOLy6RETHIpj
+	yErfc8yTWMC8OoExOnt0WVc8MqiZCFmNvyLPoTlv8UqaAH+Zb1n1DRXVrwPKl4iIq9hPU8nHXB9UQ
+	kNPZn9hb4Ku/fc/d277m/+Pk6jEFTHxHjxOlw5LGxM7/Ugb1ZDA3NtSgLzzOr05JxIJCujX5jSnjP
+	AeCGGrSMZJlARZ5rkbscJusq+EHf6CcHQH6WVi31bcG4Y4fA6imgW6HUw24iMPNY3yTv2EQ8rgIJP
+	V8CBsXlMT23BFg6MUPkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sVn6i-00000008e6Z-2LOQ;
-	Mon, 22 Jul 2024 07:05:16 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1sVnAM-00000008ejf-3X3y;
+	Mon, 22 Jul 2024 07:09:02 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sVn6K-00000008dzK-0lqD;
-	Mon, 22 Jul 2024 07:04:54 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.48])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4WSB7M22WLzdjk9;
-	Mon, 22 Jul 2024 15:02:55 +0800 (CST)
+	id 1sVn9z-00000008eed-04Kn;
+	Mon, 22 Jul 2024 07:08:40 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.174])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4WSB860gDrzxTgY;
+	Mon, 22 Jul 2024 15:03:34 +0800 (CST)
 Received: from kwepemi100008.china.huawei.com (unknown [7.221.188.57])
-	by mail.maildlp.com (Postfix) with ESMTPS id 582A518009B;
-	Mon, 22 Jul 2024 15:04:41 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 63AF4140427;
+	Mon, 22 Jul 2024 15:08:32 +0800 (CST)
 Received: from [10.67.109.254] (10.67.109.254) by
  kwepemi100008.china.huawei.com (7.221.188.57) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Mon, 22 Jul 2024 15:04:40 +0800
-Message-ID: <32100260-53a3-cebc-9aaf-a94a6ac07793@huawei.com>
-Date: Mon, 22 Jul 2024 15:04:39 +0800
+ 15.1.2507.39; Mon, 22 Jul 2024 15:08:31 +0800
+Message-ID: <5816d4d5-e038-c90b-5ac2-1a3b3a8b9e46@huawei.com>
+Date: Mon, 22 Jul 2024 15:08:29 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
  Thunderbird/102.2.0
@@ -60,11 +60,11 @@ References: <20240722035701.696874-1-ruanjinjie@huawei.com>
 From: Jinjie Ruan <ruanjinjie@huawei.com>
 In-Reply-To: <Zp3-dZHhN7LbMggc@kernel.org>
 X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
+X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
  kwepemi100008.china.huawei.com (7.221.188.57)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240722_000452_433309_E4E982B6 
-X-CRM114-Status: GOOD (  17.16  )
+X-CRM114-CacheID: sfid-20240722_000839_431471_93E60452 
+X-CRM114-Status: GOOD (  17.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,15 +122,33 @@ On 2024/7/22 14:38, Mike Rapoport wrote:
 > 
 > What the point of adding three identical checks right after the call to
 > parse_crashkernel()?
-
-Maybe you are right, the original version checks in parse_crashkernel
-(), but there's a problem.
-
 > 
 > This check should be there and parse_crashkernel() should return error in
 > this case.
 
-Thank you very much, I'll fix it like this in v5.
+Hi, Mike
+
+How about the folling rough patch?
+
+--- a/kernel/crash_reserve.c
++++ b/kernel/crash_reserve.c
+@@ -313,7 +313,7 @@ int __init parse_crashkernel(char *cmdline,
+        if (high && ret == -ENOENT) {
+                ret = __parse_crashkernel(cmdline, 0, crash_size,
+                                crash_base, suffix_tbl[SUFFIX_HIGH]);
+-               if (ret || !*crash_size)
++               if (ret || !*crash_size || crash_size >= system_ram)
+                        return -EINVAL;
+
+                /*
+@@ -332,7 +332,7 @@ int __init parse_crashkernel(char *cmdline,
+                *high = true;
+        }
+ #endif
+-       if (!*crash_size)
++       if (!*crash_size || crash_size >= system_ram)
+                ret = -EINVAL;
+
 
 > 
 >>  	reserve_crashkernel_generic(cmdline, crash_size, crash_base,
