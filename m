@@ -4,73 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A58A2C3DA61
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jul 2024 03:26:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFCAEC3DA59
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jul 2024 03:52:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6bXaC+GzpZXr4LpZWn1WopOQK7zDiVh8NKsaNHpJrCc=; b=32m8mnTEbtUW2I
-	IrnmIzM3qlinXVcLLjrpwl2udTXptrdsac4f2jOsPYdeQoD/N2HYFIjZJDtlZKRn3OpV4QgCnpP5K
-	73IdjusZYIUmrIlU/UjB9CxK5jAaAEeOk0GW2e0epxQRm8PR6WUYO4MJ62z+gHcro9DbYwgJKq0Yn
-	0qcLawqj5Ez9bi8DHszh4wqa9rBJy7vpEik4bbqgQtndxThjZrNEapRwHl9Fp6vzfO74YBs4mKQn9
-	ORIMTAPjSqMjcibG5ke0SsZQIT80k5WC2y92h5dsJZZBd5gU+/BIxpTAq4YczJSQK0swdPJfssRrg
-	+lrGWwveHgdIpQLyCk+w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=DQTUMYww0IPXvqo1WSqm2oV9jL9bQc7Pif3z7dF36kQ=; b=HNruSwCefByQfQ
+	EULR7vyIZZRS4et5K9kv4SZKCx9KE1mXfdaF8knaDCeEdkp+82oBX8MA49nxDPbMMN9MWzaceEmd6
+	Z/h1wY+6TMr3fJcAP95xT093fB5jpq/tQJAaoi9BVto8HTQbTX/d7pMcmZx/Rc01bY1BOJr2mrIzO
+	yZ/APs/xdH0SX3w9+fr5VTwKzVgV5JH+FAaJmDO0Q9ResXwV56pOnRNno0VSjARESRpBKh9R7CXD5
+	0Sm2Y3CRhBJlYPplQwG+SOS20SiynfClM2pgqGLdYFlWgj6br4LUx7nIo+3lwzj4gEdyKJwelz2+O
+	3S3krT5+G2Dd7SYKrDgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sVjh0-00000008CGa-3hIj;
-	Mon, 22 Jul 2024 03:26:30 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1sVk6H-00000008Evw-0WYV;
+	Mon, 22 Jul 2024 03:52:37 +0000
+Received: from szxga07-in.huawei.com ([45.249.212.35])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sVjgx-00000008CFw-416k
-	for linux-riscv@lists.infradead.org;
-	Mon, 22 Jul 2024 03:26:29 +0000
-Received: from [198.18.0.1] (unknown [121.237.44.107])
-	by APP-05 (Coremail) with SMTP id zQCowAAnDzpU0Z1mZfpMAA--.21379S2;
-	Mon, 22 Jul 2024 11:26:12 +0800 (CST)
-Message-ID: <3a5b6047-3382-49a1-9419-1d493d6bdcab@iscas.ac.cn>
-Date: Mon, 22 Jul 2024 11:26:11 +0800
+	id 1sVk5t-00000008EnE-1aVL;
+	Mon, 22 Jul 2024 03:52:15 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.214])
+	by szxga07-in.huawei.com (SkyGuard) with ESMTP id 4WS5p80pm5z1X4Xv;
+	Mon, 22 Jul 2024 11:47:44 +0800 (CST)
+Received: from kwepemi100008.china.huawei.com (unknown [7.221.188.57])
+	by mail.maildlp.com (Postfix) with ESMTPS id 44DAD1A016C;
+	Mon, 22 Jul 2024 11:52:07 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by kwepemi100008.china.huawei.com
+ (7.221.188.57) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Mon, 22 Jul
+ 2024 11:52:06 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <linux@armlinux.org.uk>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
+	<aou@eecs.berkeley.edu>, <tglx@linutronix.de>, <mingo@redhat.com>,
+	<bp@alien8.de>, <dave.hansen@linux.intel.com>, <hpa@zytor.com>,
+	<arnd@arndb.de>, <gregkh@linuxfoundation.org>, <deller@gmx.de>,
+	<javierm@redhat.com>, <bhe@redhat.com>, <robh@kernel.org>,
+	<alexghiti@rivosinc.com>, <bjorn@rivosinc.com>, <akpm@linux-foundation.org>,
+	<namcao@linutronix.de>, <dawei.li@shingroup.cn>, <chenjiahao16@huawei.com>,
+	<rppt@kernel.org>, <julian.stecklina@cyberus-technology.de>,
+	<rafael.j.wysocki@intel.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: <ruanjinjie@huawei.com>
+Subject: [PATCH v4 0/3] crash: Fix crash memory reserve exceed system memory bug
+Date: Mon, 22 Jul 2024 11:56:58 +0800
+Message-ID: <20240722035701.696874-1-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] riscv: add tracepoints for page fault
-From: Zhu Hengbo <zhuhengbo@iscas.ac.cn>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Andrew Morton <akpm@linux-foundation.org>,
- Suren Baghdasaryan <surenb@google.com>,
- Alexandre Ghiti <alexghiti@rivosinc.com>,
- Kefeng Wang <wangkefeng.wang@huawei.com>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20240715101400.39103-1-zhuhengbo@iscas.ac.cn>
- <20240717082728.84401-1-zhuhengbo@iscas.ac.cn> <ZpuO7Du1L-m_I-GB@xhacker>
- <273e2040-859e-439e-8b3d-b777bbec691e@iscas.ac.cn>
-In-Reply-To: <273e2040-859e-439e-8b3d-b777bbec691e@iscas.ac.cn>
-X-CM-TRANSID: zQCowAAnDzpU0Z1mZfpMAA--.21379S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxuFW3uryDWF1ktF4DWrWfXwb_yoWxXryxpr
-	nrCFs8GF47Xr47Cw4IvwnFyF1Yka9YkrW2gr13C34ava9Fqry7ArsFg390kr17Arn5JF1I
-	9r4Ykry3ur15Za7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9qb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4
-	vEx4A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
-	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r
-	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xK
-	xwCY1x0262kKe7AKxVWUtVW8ZwCY02Avz4vE14v_Gr4l42xK82IYc2Ij64vIr41l4I8I3I
-	0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWU
-	GVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI
-	0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0
-	rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r
-	4UJbIYCTnIWIevJa73UjIFyTuYvjxUg6V1UUUUU
-X-Originating-IP: [121.237.44.107]
-X-CM-SenderInfo: x2kxxvpqje0q5lvft2wodfhubq/1tbiCRAGDGadsq9vwQAAsb
+X-Originating-IP: [10.90.53.73]
+X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
+ kwepemi100008.china.huawei.com (7.221.188.57)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240721_202628_388132_3A48540F 
-X-CRM114-Status: GOOD (  18.26  )
+X-CRM114-CacheID: sfid-20240721_205213_611283_13BCBBF7 
+X-CRM114-Status: UNSURE (   7.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,181 +76,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On x86_32, arm32 and riscv32, the crash memory reserve may exceed system
+memory and display "reserved ok", fix it.
 
-On 2024/7/22 11:21, Zhu Hengbo wrote:
-> On 2024/7/20 18:18, Jisheng Zhang wrote:
->> On Wed, Jul 17, 2024 at 08:27:19AM +0000, Zhu Hengbo wrote:
->>> Introduce page_fault_user and page_fault_kernel for riscv page fault.
->>> Help to get more detail information when page fault happen.
->> Just curious what's the expected usage? The mm subsystem has supported
->> page faults perf software event, is it enough?
->
-> I think there will still be situations where we need to use debugfs for debugging in cases where perf is not available.
->
-> In fact, I am working to achieve parity in functionality for RISC-V with x86 and ARM.
-> In x86, there are both perf software events and tracepoints.
->
+changes in v4:
+- Update the warn info to align with parse_crashkernel_mem().
+- Rebased on the "ARM: Use generic interface to simplify crashkernel
+  reservation" patch.
+- Also fix for riscv32.
+- Update the commit message.
 
-If this is not needed, that's fine too. Please let me know.
+changes in v3:
+- Handle the check in reserve_crashkernel() Baoquan suggested.
+- Split x86_32 and arm32.
+- Add Suggested-by.
+- Drop the wrong fix tag.
 
+changes in v2:
+- Also fix for x86_32.
+- Update the fix method.
+- Peel off the other two patches.
+- Update the commit message.
 
-Thanks for your attention.
+Jinjie Ruan (3):
+  x86/kexec: Fix crash memory reserve exceed system memory bug
+  ARM: Fix crash memory reserve exceed system memory bug
+  riscv: kdump: Fix crash memory reserve exceed system memory bug
 
+ arch/arm/kernel/setup.c | 5 +++++
+ arch/riscv/mm/init.c    | 5 +++++
+ arch/x86/kernel/setup.c | 5 +++++
+ 3 files changed, 15 insertions(+)
 
->>> Signed-off-by: Zhu Hengbo <zhuhengbo@iscas.ac.cn>
->>> ---
->>> Changes in v2:
->>> - Add print instruction point info
->>>
->>> Simple test go below:
->>>
->>> root@riscv-ubuntu2204 ~ # bin/perf list | grep exceptions
->>>   exceptions:page_fault_kernel                       [Tracepoint event]
->>>   exceptions:page_fault_user                         [Tracepoint event]
->>>
->>> root@riscv-ubuntu2204 ~ # bin/perf record -e exceptions:page_fault_kernel -e exceptions:page_fault_user
->>> [ perf record: Woken up 1 times to write data ]
->>> [ perf record: Captured and wrote 0.091 MB perf.data (19 samples) ]
->>>
->>> perf report tracepoint:
->>> perf     563 [007]   115.824363:   exceptions:page_fault_user: user page fault, address=0x7fff94cf6400 epc=0x55558632808e cause=0xd
->>> perf     563 [007]   115.824441:   exceptions:page_fault_user: user page fault, address=0x7fff94c75400 epc=0x55558632808e cause=0xd
->>> perf     563 [007]   115.824518:   exceptions:page_fault_user: user page fault, address=0x7fff94bf4400 epc=0x55558632808e cause=0xd
->>> perf     563 [007]   115.824907: exceptions:page_fault_kernel: kernel page fault, address=0x7fff94bf5000 epc=fault_in_readable cause=0xd
->>> perf     563 [007]   115.825238:   exceptions:page_fault_user: user page fault, address=0x7fff94bf4408 epc=0x5555863281bc cause=0xf
->>> perf     564 [000]   116.247999:   exceptions:page_fault_user: user page fault, address=0x7fff94b73400 epc=0x55558632808e cause=0xd
->>> perf     564 [000]   116.248558:   exceptions:page_fault_user: user page fault, address=0x7fff94af2400 epc=0x55558632808e cause=0xd
->>> ---
->>>  arch/riscv/include/asm/trace/exceptions.h | 66 +++++++++++++++++++++++
->>>  arch/riscv/mm/fault.c                     | 15 ++++++
->>>  2 files changed, 81 insertions(+)
->>>  create mode 100644 arch/riscv/include/asm/trace/exceptions.h
->>>
->>> diff --git a/arch/riscv/include/asm/trace/exceptions.h b/arch/riscv/include/asm/trace/exceptions.h
->>> new file mode 100644
->>> index 000000000000..ff258da2f45f
->>> --- /dev/null
->>> +++ b/arch/riscv/include/asm/trace/exceptions.h
->>> @@ -0,0 +1,66 @@
->>> +/* SPDX-License-Identifier: GPL-2.0 */
->>> +/*
->>> + * Tracepoints for RISC-V exceptions
->>> + *
->>> + * Copyright (C) 2024 ISCAS. All rights reserved
->>> + *
->>> + */
->>> +
->>> +#if !defined(_TRACE_PAGE_FAULT_H) || defined(TRACE_HEADER_MULTI_READ)
->>> +#define _TRACE_PAGE_FAULT_H
->>> +
->>> +#include <linux/tracepoint.h>
->>> +
->>> +#undef TRACE_SYSTEM
->>> +#define TRACE_SYSTEM exceptions
->>> +
->>> +TRACE_EVENT(page_fault_user,
->>> +	TP_PROTO(struct pt_regs *regs),
->>> +	TP_ARGS(regs),
->>> +
->>> +	TP_STRUCT__entry(
->>> +		__field(unsigned long, address)
->>> +		__field(unsigned long, epc)
->>> +		__field(unsigned long, cause)
->>> +	),
->>> +
->>> +	TP_fast_assign(
->>> +		__entry->address	= regs->badaddr;
->>> +		__entry->epc		= regs->epc;
->>> +		__entry->cause		= regs->cause;
->>> +	),
->>> +
->>> +	TP_printk("user page fault, address=%ps epc=%ps cause=0x%lx",
->>> +			(void *)__entry->address, (void *)__entry->epc,
->>> +			__entry->cause)
->>> +);
->>> +
->>> +TRACE_EVENT(page_fault_kernel,
->>> +	TP_PROTO(struct pt_regs *regs),
->>> +	TP_ARGS(regs),
->>> +
->>> +	TP_STRUCT__entry(
->>> +		__field(unsigned long, address)
->>> +		__field(unsigned long, epc)
->>> +		__field(unsigned long, cause)
->>> +	),
->>> +
->>> +	TP_fast_assign(
->>> +		__entry->address	= regs->badaddr;
->>> +		__entry->epc		= regs->epc;
->>> +		__entry->cause		= regs->cause;
->>> +	),
->>> +
->>> +	TP_printk("kernel page fault, address=%ps epc=%ps cause=0x%lx",
->>> +			(void *)__entry->address, (void *)__entry->epc,
->>> +			__entry->cause)
->>> +);
->>> +
->>> +#undef TRACE_INCLUDE_PATH
->>> +#undef TRACE_INCLUDE_FILE
->>> +#define TRACE_INCLUDE_PATH asm/trace/
->>> +#define TRACE_INCLUDE_FILE exceptions
->>> +#endif /*  _TRACE_PAGE_FAULT_H */
->>> +
->>> +/* This part must be outside protection */
->>> +#include <trace/define_trace.h>
->>> diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
->>> index 5224f3733802..22874074c5bc 100644
->>> --- a/arch/riscv/mm/fault.c
->>> +++ b/arch/riscv/mm/fault.c
->>> @@ -22,6 +22,10 @@
->>>  
->>>  #include "../kernel/head.h"
->>>  
->>> +
->>> +#define CREATE_TRACE_POINTS
->>> +#include <asm/trace/exceptions.h>
->>> +
->>>  static void die_kernel_fault(const char *msg, unsigned long addr,
->>>  		struct pt_regs *regs)
->>>  {
->>> @@ -215,6 +219,15 @@ static inline bool access_error(unsigned long cause, struct vm_area_struct *vma)
->>>  	return false;
->>>  }
->>>  
->>> +
->>> +static inline void trace_page_fault(struct pt_regs *regs)
->>> +{
->>> +	if (user_mode(regs))
->>> +		trace_page_fault_user(regs);
->>> +	else
->>> +		trace_page_fault_kernel(regs);
->>> +}
->>> +
->>>  /*
->>>   * This routine handles page faults.  It determines the address and the
->>>   * problem, and then passes it off to one of the appropriate routines.
->>> @@ -235,6 +248,8 @@ void handle_page_fault(struct pt_regs *regs)
->>>  	tsk = current;
->>>  	mm = tsk->mm;
->>>  
->>> +	trace_page_fault(regs);
->>> +
->>>  	if (kprobe_page_fault(regs, cause))
->>>  		return;
->>>  
->>> -- 
->>> 2.34.1
->>>
->>>
->>> _______________________________________________
->>> linux-riscv mailing list
->>> linux-riscv@lists.infradead.org
->>> http://lists.infradead.org/mailman/listinfo/linux-riscv
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+-- 
+2.34.1
 
 
 _______________________________________________
