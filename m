@@ -4,87 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33678C3DA59
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jul 2024 04:20:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E8B1C3DA59
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jul 2024 06:42:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Aa4IKbOCePb+k3sXvq0iaxkmEE5VfMSuxQXl2AVyE5M=; b=jcRHRLRisQAUX4
-	/EyzyUVQEVYfPFupfE6a7RJFraxMfrLRjXMLc/AIlNiEMSlUMPewbWcsQEZHzcJoJJeT+lBUUMfOS
-	gtW5uYgpCUD2cE6oIifN/42y9v69IRdixiCk1JXWN/4qWslPyO+lJ3UEVz1d6k17n1D4U75rxKpOS
-	sy8O+9CtZcbQaDmct71zcc5rr3LAfCLv2VR1jpOnKvQOCWQHmWcLBMZrGc54tCDNa33B8Z4YVqfPe
-	Fg/P8FnqafEkVga9paRGWWsL+hxn6dOhyMhj6Vb5EbedhTGZziPgH68s2aQQJMMPnXzVCMSDccXU6
-	JGnN1SedDUbrWaD/21Mw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=HeKNcMHKlrm9tLJ7C597pw0TlOrtL+7yy2Z53u6QqcM=; b=yaTvPBk+HJzX+E
+	PP0TvCxQWsfNBOjl9pZinAeMSGR5jz0hykuWriTuRPvJr4xH4Qpoc0GvcsWOSuTAFfJMrAiGZq28b
+	lSoAupvfkttffgKW76MZixdXcPwWGYdPyv5OXcUa6Xi6aCQUqbcDN7Rp/t64yDESYsKmb76On6Iy8
+	L/2S5CYEDFhQ8NG4ZKhVqenrEH9Ko2nx7/Cfve9C7kGIv7c23iC/N84HmNUurQeryOumKIYrat19r
+	AUO8/0ip4mOV5HMbOKdEhd1f8qXa6PIxq6zJrttKuJJ37lEWxhkWzBXLVbxO/DJ4jCxTeZHdustjV
+	9jfdjfXjzQUaw++FUDcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sVkXe-00000008Ivi-2rhd;
-	Mon, 22 Jul 2024 04:20:54 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1sVmkQ-00000008Y4f-3Aiw;
+	Mon, 22 Jul 2024 06:42:14 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sVkXb-00000008Iug-1q2j
-	for linux-riscv@lists.infradead.org;
-	Mon, 22 Jul 2024 04:20:53 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-70d1158d149so340090b3a.1
-        for <linux-riscv@lists.infradead.org>; Sun, 21 Jul 2024 21:20:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1721622050; x=1722226850; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=p54eG25IX4K7qH1am1LIVsFIDVdw1nNvCzAAhUWsgsw=;
-        b=c1/LoZoCl7bfI8fAZuR63x5tQx0CNiJocPec0Q01TWDB0WJYpuQsUgeG4k+evlrUUb
-         x3B114xiU5rCNO1cpGDZMyfQ/hu02ynAa/f1WVwFA0Xx+VF+s9xVDWNgVsjIueSg4IBV
-         AH0TxprT84jtgJFFOqv6M2fkhWkpuJZVk+Tinl/uwP7SGvsD4ZfnPVwVd/7lYqc/aBgP
-         Igj0NCGXY16bTQ878Bjn3zLrJMKM9NkvdZThrQQ7fmQls8vRIkfNsMXtRIvQmvR2vC72
-         m4pIiyi754f+zxiUnlteQMzk/PAY61GP0dye+sxbayYBi4pNP7W1ih0uOH/7iYptZRpo
-         GFSA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1721622050; x=1722226850;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=p54eG25IX4K7qH1am1LIVsFIDVdw1nNvCzAAhUWsgsw=;
-        b=lk+7DQU9MHMv+m2a4opaagWYW0zEMUgAKdxveI8xw4kOpg4mb/p699ipJERwn+Uq2f
-         KzPTaiClgWiLQ5JpUit8jY3XgGdgY184mB1QhRDpbWroVHoVxnGUvv/dsRY9I05DWDOB
-         /BO2Iwce3GkFUDwM4PYBAlgRdhhU7wiNVt9Qv9B5n/16m2X6sKT1Wtk+KtoRfKMXJnt5
-         Nu1YRD3Os9O6mIzPkRW9J2JGL30QgE5FKtYlh2Ox1qQj6ixxgsP6DIVz/CN5WgnNV41I
-         79qI0bsXaAHa0toZPm/GqeQ5eZi8qNnFz/gXmA8cujienfNqGmjnGoPf0dN9FStwvcWv
-         3Uzg==
-X-Forwarded-Encrypted: i=1; AJvYcCWHrz05/maVuaLRnqJ1WrlXfZz4CRzmfsEF/aOC9Ug+SRuXIoA6d4R8PUl9/1tPFGJf70fzIhi89tGg5Yy6W/PIOyhPFCtJ/bqkRrIDM8+j
-X-Gm-Message-State: AOJu0YwHpN4A6LRgIvYq/92byTzk3rXfnpWceM3NzeGHV37YKq2l6WZ+
-	GdVTUo0WwkkMZ1sublJKHtKohqWUAhndmpSUSeAkPA6OS+Tft1Xe/anFz8REStbCLJ5v4y/cc2p
-	PYno=
-X-Google-Smtp-Source: AGHT+IH8fTq3s2tWLINAZyA5rbZ0LM6s0MZ12d2PMJTOXBz/IbcNiG5imYLZzJZ18BdDsyJ9KnNiwA==
-X-Received: by 2002:a05:6a00:3cc2:b0:70d:2a4d:2edc with SMTP id d2e1a72fcca58-70d2a4d3191mr1296928b3a.20.1721622049629;
-        Sun, 21 Jul 2024 21:20:49 -0700 (PDT)
-Received: from L6YN4KR4K9.bytedance.net ([139.177.225.225])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-79f0f267834sm3225618a12.79.2024.07.21.21.20.45
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sun, 21 Jul 2024 21:20:49 -0700 (PDT)
-From: Yunhui Cui <cuiyunhui@bytedance.com>
-To: punit.agrawal@bytedance.com,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	akpm@linux-foundation.org,
-	surenb@google.com,
-	peterx@redhat.com,
-	alexghiti@rivosinc.com,
-	willy@infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Yunhui Cui <cuiyunhui@bytedance.com>
-Subject: [PATCH v2] riscv/mm/fault: add show_pte() before die()
-Date: Mon, 22 Jul 2024 12:20:37 +0800
-Message-Id: <20240722042037.27934-1-cuiyunhui@bytedance.com>
-X-Mailer: git-send-email 2.39.2 (Apple Git-143)
+	id 1sVmk4-00000008Y10-3cOh;
+	Mon, 22 Jul 2024 06:41:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 73B7760AB1;
+	Mon, 22 Jul 2024 06:41:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B928C116B1;
+	Mon, 22 Jul 2024 06:41:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1721630511;
+	bh=Uc2H8MzMbL0exp6NDBd0fqrLYZ7z9SrwjguOdZewCxQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=V4+ac8sOH29nEcY30v7JfwQUBbY10MKUUKQRDDkYsEHF3O2B5HPlFnFq63P+ndHri
+	 98hYHPANCcLLIXpfRCn+i0RQkBu08yu9XtKvj6OesNHMs89ZbXknaNe0ywTHriBSWT
+	 0Od7glk0EMv/qvnMPGg1iOZ8q8M+9CpUTDT0/SlQ1QKBRF985lbN2vQ0Xvn99b8nLe
+	 jwB/0ao/Y1b3RmhwAJusTDrD1C5/hDHFRK5WF5ehBhdkhp2819VDjK+cBpOVr/SuU6
+	 qDALwmz7Ot/QZLFEL4EYLp+VbntPOE9WX9A3k2HDhe1LMgcduwkTWSqoMJpFx60u+8
+	 GBUzk2gmHxqRg==
+Date: Mon, 22 Jul 2024 09:38:45 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: linux@armlinux.org.uk, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, tglx@linutronix.de, mingo@redhat.com,
+	bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com,
+	arnd@arndb.de, gregkh@linuxfoundation.org, deller@gmx.de,
+	javierm@redhat.com, bhe@redhat.com, robh@kernel.org,
+	alexghiti@rivosinc.com, bjorn@rivosinc.com,
+	akpm@linux-foundation.org, namcao@linutronix.de,
+	dawei.li@shingroup.cn, chenjiahao16@huawei.com,
+	julian.stecklina@cyberus-technology.de, rafael.j.wysocki@intel.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 3/3] riscv: kdump: Fix crash memory reserve exceed
+ system memory bug
+Message-ID: <Zp3-dZHhN7LbMggc@kernel.org>
+References: <20240722035701.696874-1-ruanjinjie@huawei.com>
+ <20240722035701.696874-4-ruanjinjie@huawei.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240722035701.696874-4-ruanjinjie@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240721_212051_832029_F3CA1725 
-X-CRM114-Status: UNSURE (   9.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240721_234152_986725_DCE7C065 
+X-CRM114-Status: GOOD (  20.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,90 +82,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When the kernel displays "Unable to handle kernel paging request at
-virtual address", we would like to confirm the status of the virtual
-address in the page table. So add show_pte() before die().
+Hi,
 
-Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
----
- arch/riscv/mm/fault.c | 53 +++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 53 insertions(+)
+On Mon, Jul 22, 2024 at 11:57:01AM +0800, Jinjie Ruan wrote:
+> Similar with x86_32, on Riscv32 Qemu "virt" machine with 1GB memory, the
+> crash kernel "crashkernel=4G" is ok as below:
+> 	crashkernel reserved: 0x00000000bf400000 - 0x00000001bf400000 (4096 MB)
+> 
+> The cause is that the crash_size is parsed and printed with "unsigned long
+> long" data type which is 8 bytes but allocated used with "phys_addr_t"
+> which is 4 bytes in memblock_phys_alloc_range().
+> 
+> Fix it by checking if the crash_size is greater than system RAM size and
+> warn out as parse_crashkernel_mem() do it if so.
+> 
+> After this patch, it fails and there is no above confusing reserve
+> success info.
+> 
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> ---
+>  arch/riscv/mm/init.c | 5 +++++
+>  1 file changed, 5 insertions(+)
+> 
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index bfa2dea95354..5d66a4937fcd 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -1381,6 +1381,11 @@ static void __init arch_reserve_crashkernel(void)
+>  	if (ret)
+>  		return;
+>  
+> +	if (crash_size >= memblock_phys_mem_size()) {
+> +		pr_warn("Crashkernel: invalid size.");
+> +		return;
+> +	}
+> +
 
-diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
-index 5224f3733802..666d282a8bf4 100644
---- a/arch/riscv/mm/fault.c
-+++ b/arch/riscv/mm/fault.c
-@@ -22,6 +22,58 @@
- 
- #include "../kernel/head.h"
- 
-+static void show_pte(unsigned long addr)
-+{
-+	pgd_t *pgdp, pgd;
-+	p4d_t *p4dp, p4d;
-+	pud_t *pudp, pud;
-+	pmd_t *pmdp, pmd;
-+	pte_t *ptep, pte;
-+	struct mm_struct *mm = current->mm;
-+
-+	if (!mm)
-+		mm = &init_mm;
-+
-+	pr_alert("Current %s pgtable: %luK pagesize, %d-bit VAs, pgdp=0x%016lx\n",
-+		 current->comm, PAGE_SIZE/SZ_1K, VA_BITS,
-+		 (mm == &init_mm ? __pa_symbol(mm->pgd) :
-+		 (unsigned long)virt_to_phys(mm->pgd)));
-+
-+	pgdp = pgd_offset(mm, addr);
-+	pgd = pgdp_get(pgdp);
-+	pr_alert("[%016lx] pgd=%016lx", addr, pgd_val(pgd));
-+	if (pgd_none(pgd) || pgd_bad(pgd) || pgd_leaf(pgd))
-+		goto out;
-+
-+	p4dp = p4d_offset(pgdp, addr);
-+	p4d = p4dp_get(p4dp);
-+	pr_cont(", p4d=%016lx", p4d_val(p4d));
-+	if (p4d_none(p4d) || p4d_bad(p4d) || p4d_leaf(p4d))
-+		goto out;
-+
-+	pudp = pud_offset(p4dp, addr);
-+	pud = pudp_get(pudp);
-+	pr_cont(", pud=%016lx", pud_val(pud));
-+	if (pud_none(pud) || pud_bad(pud) || pud_leaf(pud))
-+		goto out;
-+
-+	pmdp = pmd_offset(pudp, addr);
-+	pmd = pmdp_get(pmdp);
-+	pr_cont(", pmd=%016lx", pmd_val(pmd));
-+	if (pmd_none(pmd) || pmd_bad(pmd) || pmd_leaf(pmd))
-+		goto out;
-+
-+	ptep = pte_offset_map(pmdp, addr);
-+	if (!ptep)
-+		goto out;
-+
-+	pte = ptep_get(ptep);
-+	pr_cont(", pte=%016lx", pte_val(pte));
-+	pte_unmap(ptep);
-+out:
-+	pr_cont("\n");
-+}
-+
- static void die_kernel_fault(const char *msg, unsigned long addr,
- 		struct pt_regs *regs)
- {
-@@ -31,6 +83,7 @@ static void die_kernel_fault(const char *msg, unsigned long addr,
- 		addr);
- 
- 	bust_spinlocks(0);
-+	show_pte(addr);
- 	die(regs, "Oops");
- 	make_task_dead(SIGKILL);
- }
+What the point of adding three identical checks right after the call to
+parse_crashkernel()?
+
+This check should be there and parse_crashkernel() should return error in
+this case.
+
+>  	reserve_crashkernel_generic(cmdline, crash_size, crash_base,
+>  				    low_size, high);
+>  }
+> -- 
+> 2.34.1
+> 
+
 -- 
-2.39.2
-
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
