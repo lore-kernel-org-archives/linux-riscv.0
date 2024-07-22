@@ -4,67 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 963C7C3DA59
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jul 2024 16:51:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 531C5C3DA5D
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jul 2024 16:56:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FfMyDAhe+EMdXlYCSddhjVmevkaHZjjWZ9s78vvqHqM=; b=tw9eOsr+lSvcI6W2pwUKZxvo3r
-	alutRM4ejO3dhBOYcUjxA7bjlNAK42xQkz0SfsF2R7KqX5CS/8jdDzc2HB33uaLmFKv6Xy3YBBqsn
-	ZA08g3YZE0fT/KV9h4KSjZBfD05Qc7x64R33GG47RzCAhcpzoAh+DLbNSGDFhIkD9yKqL3YMBqFaq
-	Cz0uBEKjvfJf1sDO1jdu2J0RBpafGll5yPkZCwTr8hhQnheFSXEHGflUvQ5W87GZUSPtcdon/BI3p
-	gxmCo5hjw0T44Mq+CDoIQJQV3zfKEA6+bHFesExa9OJNwyXLbwPY75EeSH0qyLZbZmJhuRjVJ3VUn
-	JuXliavw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=YVWTw3ZZXTB93W/d1NMge2vG1VHn4ya6FxGrU8aCOKo=; b=2ffh40lkkxZTmU
+	1p+cs+jAX9J8TPc7exxCN+Ct5vmK4k29UojQCOCkCZA6YKlhOf9jzshypwU/V3ixbzAj+joxkfRUh
+	5S8ovhsL7mlvOanyk6VPLSGFtKGvfZ7jU2g3FIeWeE8U3/Q4kz3hXTEz0AdLgANIAVSbup1uiWrsQ
+	ZkX06wrV2D9qOOJoDDM0xLX/fmYa4tHSMmzJc+CoeR+nvn5/jO5OyCgPObircx1eQKWaUja42PawM
+	cdBVQ/hAUNhdAFp58egXA7SuCfVzqfgO47xAZMv3Cq4cVb8DCm6OL6sPQYiFOKNsch+vao1YSZE52
+	gSYJ2sD3opnYUAADdg4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sVwGM-0000000A7co-1cFy;
-	Mon, 22 Jul 2024 16:51:50 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1sVwKP-0000000A83P-0zSH;
+	Mon, 22 Jul 2024 16:56:01 +0000
+Received: from mail-io1-xd29.google.com ([2607:f8b0:4864:20::d29])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sVwGI-0000000A7c3-2cWZ;
-	Mon, 22 Jul 2024 16:51:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id CE1D7CE0B8E;
-	Mon, 22 Jul 2024 16:51:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30007C116B1;
-	Mon, 22 Jul 2024 16:51:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1721667103;
-	bh=JWfbQMZVlMkgBoxkVUfOEex3UFL5SXV6npk5rwEQY5Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RF13hYxOY22CChFt0RirGNMtTsHDyPBzPcVkUbHWS5dIuL3prCfcuYyUpPgu6TFms
-	 s30N8GzM7XmEyvBHJ8Ex2q9+/NbsnFoK6AYyMKg9g0Tpxf/xenQxTDVoH2K4QMgvoj
-	 c0nenUYZ9kC/4sgjjDQf8pucbJeq+XXw6ilM1vmdTSjd+hWt5iG4HTlRjKdlEdyisU
-	 XikVZMN5YrSNnNC9U3AIoQgnc3B2PMBuqo/lRyEEqIUndsQ8j05OmH0/9eZED6q+xZ
-	 G8s4kP9cNAXPTPCyXA2Is1C/Mkw7hxo9emWh3PLM6W7H4HRWqN3rB+3YH3j2DrirXD
-	 7qXP6RceUZRAg==
-Date: Mon, 22 Jul 2024 17:51:39 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-Cc: Samuel Holland <samuel.holland@sifive.com>, greentime.hu@sifive.com,
-	vincent.chen@sifive.com, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org
-Subject: Re: [PATCH v7 2/4] dt-bindings: riscv: Add Svade and Svadu Entries
-Message-ID: <20240722-seizing-mardi-5237466fcf83@spud>
-References: <20240712083850.4242-1-yongxuan.wang@sifive.com>
- <20240712083850.4242-3-yongxuan.wang@sifive.com>
- <727b966a-a8c4-4021-acf6-3c031ccd843a@sifive.com>
- <CAMWQL2g-peSYJQaxeJtyOzGdEmDQ6cnkRBdFQvLr2NQA1+mv2g@mail.gmail.com>
- <20240719-flatten-elixir-d4476977ab95@spud>
- <CAMWQL2iWsxLJZZ3H59csJ376Hdtq+ZKjD92BtM9zhdXm+fh2=A@mail.gmail.com>
+	id 1sVwKL-0000000A82U-3POQ
+	for linux-riscv@lists.infradead.org;
+	Mon, 22 Jul 2024 16:55:59 +0000
+Received: by mail-io1-xd29.google.com with SMTP id ca18e2360f4ac-7f684710ff5so131478839f.1
+        for <linux-riscv@lists.infradead.org>; Mon, 22 Jul 2024 09:55:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1721667356; x=1722272156; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=TJpVkFcz3oaAIdPa6wr9FjtOTD92km5BRGfQ47Tp1rg=;
+        b=IwTRnn99hRyd1YyHY5L+q0XMFAXsQR3BaxoZRbSArvUYhLjCVJ9l9X08STikVuMVdU
+         MXlKoB/tWNo0SSG9DTc7gxK5KBWXmsSpV2cieN3aTfNKdOsOItOf/KhMPhpCwgvUcPT8
+         W6ZkkgLz+t234zN7aQxN8KcOVqxiFa+c/0e4zRDl0u5v1QIrh8CFKaJicSLmGucLy/fD
+         DOV9mky4x/d6f+MXrdPqaXVp4+sTR5qgT0EULP/p7xTdWE+Cs/hxn+TJ2jf2tAMbUqiV
+         +872nFPRROWMOj0agb+WELOSeJT/jMReK9B2GCvUAxISNCEMLnaurN64nC55Vb0ZqbKA
+         IeHQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1721667356; x=1722272156;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TJpVkFcz3oaAIdPa6wr9FjtOTD92km5BRGfQ47Tp1rg=;
+        b=h5c36tEOC8OqzIF/tWenqNNrp44ytsaBYZTh2mk8W8eHyde6BezRr5XEDDAxofqhA4
+         DyyX3fLUFxp7O+bHin7DIH8nN8+QIxjSdmnyJYQ3q8eXnTI7RZicUdQleWQEDxMY5fIy
+         NnbTErd9JR7Y9nk0SVoBU43RI3KkDMXnBnol77OJeWIRGdmD/bA0ABUPt9iWSfS9PXxK
+         woVcUT+pf24l+SerGRBsFKLE8Nvqp/AJsPci0dcp75fJafWUp+Huayx2T7Hp46DcGHim
+         W1AN4vZyvMG+XRkA7A1mYxzp3dk9rLpTd/P4vSA2N+40ZojK576a4LbNI7LjqCaehvH5
+         kZIw==
+X-Forwarded-Encrypted: i=1; AJvYcCULgAz9KRK4VBZ5LKBCeWYFeJ7U9wyPKfzF3mUC5nr5pUDXZPqRIF01fUz5jiOivvTIgp4ZIDOvn3Dx6IM+ZX6x2HWbb4+zrU1a+HZbkM+t
+X-Gm-Message-State: AOJu0YwVi31m1nWde8Xci9Zq+VIO+dOyhFXUxn/hduWVyjDa2/tIDbue
+	Gzv6g1mz6uVUfQz+DuSWP61LvZrQiizruKsxhW0IMzm4CQrIRaisKo7wcYPVcJw=
+X-Google-Smtp-Source: AGHT+IF6DZcN4m8qC/kqVtmMb4RhqugcHjLxIwZZ8uE+ZCC+rM98YEmL0kMFn4CSRlFeKKenBvE4TQ==
+X-Received: by 2002:a05:6602:27d2:b0:7fa:244c:bfe9 with SMTP id ca18e2360f4ac-81ab6a10342mr675109439f.1.1721667355857;
+        Mon, 22 Jul 2024 09:55:55 -0700 (PDT)
+Received: from localhost ([140.82.166.162])
+        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-819aba10e3bsm253873339f.7.2024.07.22.09.55.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 22 Jul 2024 09:55:55 -0700 (PDT)
+Date: Mon, 22 Jul 2024 11:55:54 -0500
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Yunhui Cui <cuiyunhui@bytedance.com>
+Cc: punit.agrawal@bytedance.com, paul.walmsley@sifive.com, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, akpm@linux-foundation.org, 
+	surenb@google.com, peterx@redhat.com, alexghiti@rivosinc.com, willy@infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] riscv/mm/fault: add show_pte() before die()
+Message-ID: <20240722-a0d01590ba9ec0e0cc18ac74@orel>
+References: <20240722042037.27934-1-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
-In-Reply-To: <CAMWQL2iWsxLJZZ3H59csJ376Hdtq+ZKjD92BtM9zhdXm+fh2=A@mail.gmail.com>
+Content-Disposition: inline
+In-Reply-To: <20240722042037.27934-1-cuiyunhui@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240722_095146_856327_AA544737 
-X-CRM114-Status: GOOD (  17.73  )
+X-CRM114-CacheID: sfid-20240722_095557_874297_49AF7FA1 
+X-CRM114-Status: GOOD (  17.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,80 +89,107 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3903310433059127623=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jul 22, 2024 at 12:20:37PM GMT, Yunhui Cui wrote:
+> When the kernel displays "Unable to handle kernel paging request at
+> virtual address", we would like to confirm the status of the virtual
+> address in the page table. So add show_pte() before die().
+> 
+> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+> Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> ---
+>  arch/riscv/mm/fault.c | 53 +++++++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 53 insertions(+)
+> 
+> diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
+> index 5224f3733802..666d282a8bf4 100644
+> --- a/arch/riscv/mm/fault.c
+> +++ b/arch/riscv/mm/fault.c
+> @@ -22,6 +22,58 @@
+>  
+>  #include "../kernel/head.h"
+>  
+> +static void show_pte(unsigned long addr)
+> +{
+> +	pgd_t *pgdp, pgd;
+> +	p4d_t *p4dp, p4d;
+> +	pud_t *pudp, pud;
+> +	pmd_t *pmdp, pmd;
+> +	pte_t *ptep, pte;
+> +	struct mm_struct *mm = current->mm;
+> +
+> +	if (!mm)
+> +		mm = &init_mm;
+> +
+> +	pr_alert("Current %s pgtable: %luK pagesize, %d-bit VAs, pgdp=0x%016lx\n",
+> +		 current->comm, PAGE_SIZE/SZ_1K, VA_BITS,
+> +		 (mm == &init_mm ? __pa_symbol(mm->pgd) :
+> +		 (unsigned long)virt_to_phys(mm->pgd)));
 
---===============3903310433059127623==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="i7lBaJiME8pvvbi7"
-Content-Disposition: inline
+nit: unnecessary () around the ternary.
 
+> +
+> +	pgdp = pgd_offset(mm, addr);
+> +	pgd = pgdp_get(pgdp);
+> +	pr_alert("[%016lx] pgd=%016lx", addr, pgd_val(pgd));
+> +	if (pgd_none(pgd) || pgd_bad(pgd) || pgd_leaf(pgd))
+> +		goto out;
+> +
+> +	p4dp = p4d_offset(pgdp, addr);
+> +	p4d = p4dp_get(p4dp);
+> +	pr_cont(", p4d=%016lx", p4d_val(p4d));
+> +	if (p4d_none(p4d) || p4d_bad(p4d) || p4d_leaf(p4d))
+> +		goto out;
+> +
+> +	pudp = pud_offset(p4dp, addr);
+> +	pud = pudp_get(pudp);
+> +	pr_cont(", pud=%016lx", pud_val(pud));
+> +	if (pud_none(pud) || pud_bad(pud) || pud_leaf(pud))
+> +		goto out;
+> +
+> +	pmdp = pmd_offset(pudp, addr);
+> +	pmd = pmdp_get(pmdp);
+> +	pr_cont(", pmd=%016lx", pmd_val(pmd));
+> +	if (pmd_none(pmd) || pmd_bad(pmd) || pmd_leaf(pmd))
+> +		goto out;
+> +
+> +	ptep = pte_offset_map(pmdp, addr);
+> +	if (!ptep)
+> +		goto out;
+> +
+> +	pte = ptep_get(ptep);
+> +	pr_cont(", pte=%016lx", pte_val(pte));
+> +	pte_unmap(ptep);
+> +out:
+> +	pr_cont("\n");
+> +}
+> +
+>  static void die_kernel_fault(const char *msg, unsigned long addr,
+>  		struct pt_regs *regs)
+>  {
+> @@ -31,6 +83,7 @@ static void die_kernel_fault(const char *msg, unsigned long addr,
+>  		addr);
+>  
+>  	bust_spinlocks(0);
+> +	show_pte(addr);
+>  	die(regs, "Oops");
+>  	make_task_dead(SIGKILL);
+>  }
+> -- 
+> 2.39.2
+> 
+>
 
---i7lBaJiME8pvvbi7
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
-On Mon, Jul 22, 2024 at 10:14:11AM +0800, Yong-Xuan Wang wrote:
-
-> > > > > +        - const: svadu
-> > > > > +          description: |
-> > > > > +            The standard Svadu supervisor-level extension for ha=
-rdware updating
-> > > > > +            of PTE A/D bits as ratified at commit c1abccf ("Merg=
-e pull request
-> > > > > +            #25 from ved-rivos/ratified") of riscv-svadu. Please=
- refer to Svade
-> > > >
-> > > > Should we be referencing the archived riscv-svadu repository now th=
-at Svadu has
-> > > > been merged to the main privileged ISA manual? Either way:
-> > > >
-> > > > Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
-> > > >
-> > >
-> > > Yes, this commit is from the archived riscv-svadu repo. Or should I u=
-pdate it to
-> > > "commit c1abccf ("Merge pull request  #25 from ved-rivos/ratified") of
-> > > riscvarchive/riscv-svadu."?
-> >
-> > I think Samuel was saying that we should use the commit where it was
-> > merged into riscv-isa-manual instead.
->=20
-> Got it. I will update the description in the next version. Thank you!
-
-There's no need (IMO) to send a new version for this alone - but if you
-have to send another version for some other reason then do it.
-
-Cheers,
-Conor.
-
---i7lBaJiME8pvvbi7
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZp6OGgAKCRB4tDGHoIJi
-0md/AQCHwo+QPDHARtNDHNRq3twdF2e88mQDAlkAKW3vTkQzFQEAsTDuPgrPBZsr
-zb5qyXjkbHHdxOvbc4DuItNy5t9OPA0=
-=lVI/
------END PGP SIGNATURE-----
-
---i7lBaJiME8pvvbi7--
-
-
---===============3903310433059127623==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3903310433059127623==--
-
