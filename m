@@ -4,85 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7F2EC3DA59
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jul 2024 20:24:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76D1EC3DA59
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jul 2024 21:05:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=phy20ufArGWlmZwyki8yVcwkfBmm3HuSI/pgnuPrTy8=; b=YOyCTS65e+9szM
-	3dmeR9TVjmIgPvNjjy4zEivaPUJ8QB8ymSR4wrnKUi1YBNBuljeNY8zuVDhtiVMNCQ3qmswB2ybCA
-	pR7Dr/X+/M8E8HOMjNRDkheYFKuoKwAsVBsH/WKWTFc6euTIOM6yc66G2Mts4+18W4NMeqcFQlTb5
-	Lg563V4P3COwuminIoxq4HtdBJ9OjquzL5g/sk4n/Ys7YHZJ2aG9yGpEKrukiOvduV+AiMFj0biB9
-	lk4600DdFLSB4h00BFVEHVmbRGvsGUFw3G5Z4Y1HSj+lJdBcDJbA1fr1gTdjhnErY1O5nvlMU4Rqb
-	uM2KpLrOo6TgQTfiCgdA==;
+	List-Owner; bh=yaD+PnGpNuWIv1Miu/YVWPO7q3sBdKjWNR3UUEEh6QY=; b=THKpm4kbK0UecT
+	NNqRWvmp9ecTXE5oxGlXffc6sEegsQxwck+XuVkZydAiVf+hFt5ihRc2ZycU/RI93I2QP1D6A3wDS
+	m5S3Rk1pRV07aHoeyxQem1e/vqLuXvkfyKG2GF/hcLGmYB/v6OBeCU/cURmO48Mz3X9p5YzL8QAWT
+	gc9VSLlNSMnGgAwkcix2mTy+RhJS5ZWAN7oWsqV1Wfkt2O/g8/U29H0HSPcUbUK0efVMEB5Hd3QHl
+	oa1r8riIlIWP21UPQ3Z2I/ga9S3SG1onkwbwTHhCyumePOJM/8LCEkktgyASpT+i6L6p9Eed0s96S
+	iJG7/60OMhRt+bDPDPtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sVzZb-0000000ATqu-1cRC;
-	Mon, 22 Jul 2024 20:23:55 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1sW0Db-0000000AYRr-25QS;
+	Mon, 22 Jul 2024 21:05:15 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sVzZZ-0000000ATqH-0np4
+	id 1sW0DY-0000000AYQE-1r1G
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 Jul 2024 20:23:54 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1fc6ee64512so24503895ad.0
-        for <linux-riscv@lists.infradead.org>; Mon, 22 Jul 2024 13:23:52 -0700 (PDT)
+	Mon, 22 Jul 2024 21:05:14 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3686b285969so2098974f8f.0
+        for <linux-riscv@lists.infradead.org>; Mon, 22 Jul 2024 14:05:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1721679831; x=1722284631; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=vscSuJli/qMDZQkgqyASUQ/eXIf5VrS/DxNRtVVokMQ=;
-        b=dXvUvWCYjp5kvpOpmQFurqlmiyXjOxFtGDuciyCX9tYJjCm3tz0aDpowQdWngXjl9s
-         emsUNIgRbNpp09R7ql52JKkex7V+7UstDpIOVkmzGi/xtlOBOqxQbJbYBky0LM2EcCJT
-         fqLfd2+ibqLpn6JWczXbmrdUy84JObrHNvFDE5HcPdAmbWshaN5f7lxwvwwP1V+vIdDW
-         b5y74MwO1zN3BIPi9vnPxPSuNhVSKpmDt/QD1na4LQlGJ0hLaHDpfczmszTd9k/jX8R8
-         ZGINwgzUEvgFc9uZid3Zq3/oZxHC6PLWDaUU80visct5VGVP/5+GrSGkepMtbg6eIZOd
-         fqWQ==
+        d=bytedance.com; s=google; t=1721682307; x=1722287107; darn=lists.infradead.org;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=wJl+KODOtbQbJVQoLcgZraNukUc1AfpSiHvhjNN/EGA=;
+        b=Im/5q81vjrvxV6jQicNIzeR6WJH4bg6YNJJDEqp3GCuH38NT6Q7dEZUIQpkd4pXkLx
+         GWG0IzKZGW3/EuarzlULyN0PTbq6gs1drVedi8ePJDkAUQ4hsbX3pJR+oNCyvclxfDKT
+         dpahcNgpfBAfX37QgTiRG8oNmR5Qdjau2LwqrJMMRfyl1U2VurS9hVhfcYxUw+Vqc9np
+         Gqe5roSmVZHQlYMP/w95ei3VeYiNvzFkb8GRe5kkawzP60N7Bm1i1ziRbRcBa+uwKe90
+         Y1wfp4m2R0E1ueBmQhdD8SO29TL1nmQrPZXSUsauSjVpsET6Ekt695ukl79LQoposUoj
+         kBUA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1721679831; x=1722284631;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1721682307; x=1722287107;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=vscSuJli/qMDZQkgqyASUQ/eXIf5VrS/DxNRtVVokMQ=;
-        b=jv5baz1KtYiwTsxI+7ETwN4sjYyI9FRAcmWx3aV6lB+srYove1j9jc37v3wJCjYEdw
-         cRWicS6D3No7Ab11PEc1DnC/2xd1d+zMk9R3g+llGnGiM/VDvetJbh0gQG24HDbTDQmZ
-         GkZj4CaJWOcMs5Q+oHbCB42XXwHVI7hjZ4iMob/OXd0yH4c73WRd5Chhs4IMlOmwanKo
-         ntOciH6lME9cam7tcEOTKZClzuOPxFYi8HiZB3DYF3HZfUGAeW13N5UY7JkUfPHq+2vK
-         3GmBIxajw/L+1BMaLEEkv7vFFqIUWwGaLV70DSDCDuDH8J/PAQyJ50Y+yCTXJODdRqnL
-         uphA==
-X-Forwarded-Encrypted: i=1; AJvYcCWkkBYl6hPVJ5vW+NAliYdfFtm1QlDas62RWw4of2/mcT3XlYYZ3v1BAYJnJ3LV3KdzxzN1rP9MaC78WqHLPclkKv+EpnxuSOzvePUsg8/X
-X-Gm-Message-State: AOJu0YyIGVndQ1bWK/XIc58+an6jWAIb5S3CGpNY1uNPXfJ0chfyFTZV
-	yGykMWT7jHKhD6iqDJKTD0AY+pGCeGn6qG97yBmOL0/VzQjveHI7RNBlte9dpSc=
-X-Google-Smtp-Source: AGHT+IFu4KWg20WGwAtWgw+9RqpxdpwxYEZkFpTn/48CXCAEpuRBJHwGOerPWAQCjhEprtXFyI0Q9A==
-X-Received: by 2002:a17:903:22c9:b0:1fd:6f24:efb2 with SMTP id d9443c01a7336-1fd7459a2b6mr52786735ad.19.1721679831554;
-        Mon, 22 Jul 2024 13:23:51 -0700 (PDT)
-Received: from ghost ([50.145.13.30])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1fd6f2ab34dsm59204435ad.110.2024.07.22.13.23.50
+        bh=wJl+KODOtbQbJVQoLcgZraNukUc1AfpSiHvhjNN/EGA=;
+        b=Nxitg8tdutIYMYk4vWFAm6qsBatP3bn/6RIrwy94Su1XbnzehvIoGGKzhfLmE2CusA
+         Uw+P15+E6voaU/Vj+yxLTpnr6rC4yC9OjeQ8kX3PbeV561yoyjq8fu29wTGbuwBBetdl
+         51aQRcF5vL/oJKSifHnA/sBDNFltIeWabw5hk/43UzFHZ5+D8EH54nAPhtGAzadSfpW9
+         lu5B27k0mGvXNNhSFP+t1/c2KVFnwsFS0at6I84yOdMMgIQ7+srJ2M4egflwCWkKxiP9
+         Noe/R1gTLrLW3RQYUe9z3YWf69V1YmoGaAWwu2L8dDsZZ56600DGCfA960oQuM/GX/Eo
+         awSQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXRWL3WqtjevS5Lwk2sV9ANrX9Xvb0ASEnuX0ILm8oOvE15u9r9s4hdOeEHEKUhgPTTwaTrj0jnj23wUW4YTE7kYwXDJmIKeqt0zr/IS10q
+X-Gm-Message-State: AOJu0YwIalxrzf0h3omK99nEpV6FYTlMRBSHeP3DMp0cQ+u5SqCrEfaC
+	Bs7+hGyet1zMsX9p1m8A/EoEw25ws9KlEjt+nt/DidJDPOKHQ2CoGtwBL5gEc/g=
+X-Google-Smtp-Source: AGHT+IGmKiPLP6iZJ8231zq2ISbOWAeyGZtgOmCIid0gBb3g2mEMGCtiGof9hqlaCaNgxv7yS+/6Pw==
+X-Received: by 2002:a5d:6192:0:b0:368:3717:10b3 with SMTP id ffacd0b85a97d-369bae23a3bmr5618969f8f.8.1721682306665;
+        Mon, 22 Jul 2024 14:05:06 -0700 (PDT)
+Received: from localhost ([149.71.24.20])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-368787cedabsm9521320f8f.84.2024.07.22.14.05.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 22 Jul 2024 13:23:50 -0700 (PDT)
-Date: Mon, 22 Jul 2024 13:23:48 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Evan Green <evan@rivosinc.com>, Andy Chiu <andy.chiu@sifive.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Yu Chien Peter Lin <peterlin@andestech.com>
-Subject: Re: [PATCH v3 0/4] riscv: Separate vendor extensions from standard
- extensions
-Message-ID: <Zp6/1CzztAOT51yU@ghost>
-References: <20240719-support_vendor_extensions-v3-0-0af7587bbec0@rivosinc.com>
- <20240722-0c2488245ce33131693c6d34@orel>
+        Mon, 22 Jul 2024 14:05:06 -0700 (PDT)
+From: Punit Agrawal <punit.agrawal@bytedance.com>
+To: palmer@dabbelt.com, Palmer Dabbelt <palmer@rivosinc.com>
+Cc: paul.walmsley@sifive.com, costa.shul@redhat.com, aou@eecs.berkeley.edu,
+	samitolvanen@google.com,  corbet@lwn.net,
+	Anup Patel <anup@brainfault.org>,  linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,  jesse@rivosinc.com,
+	conor.dooley@microchip.com,  Yunhui Cui <cuiyunhui@bytedance.com>,
+	andy.chiu@sifive.com,  cleger@rivosinc.com,
+	linux-riscv@lists.infradead.org,  jrtc27@jrtc27.com,
+	evan@rivosinc.com, Punit Agrawal <punit.agrawal@bytedance.com>
+Subject: Re: [PATCH v4] RISC-V: Provide the frequency of time CSR via hwprobe
+In-Reply-To: <87jzhtmvqg.fsf@bytedance.com> (Punit Agrawal's message of "Wed,
+	10 Jul 2024 10:39:35 +0100")
+References: <20240702033731.71955-1-cuiyunhui@bytedance.com>
+	<20240702033731.71955-2-cuiyunhui@bytedance.com>
+	<87jzhtmvqg.fsf@bytedance.com>
+User-Agent: Gnus/5.13 (Gnus v5.13)
+Date: Mon, 22 Jul 2024 22:05:05 +0100
+Message-ID: <87bk2pkuim.fsf@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240722-0c2488245ce33131693c6d34@orel>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240722_132353_438787_1243EA74 
-X-CRM114-Status: GOOD (  21.34  )
+X-CRM114-CacheID: sfid-20240722_140512_830844_156473DF 
+X-CRM114-Status: GOOD (  15.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,64 +101,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 22, 2024 at 02:32:49PM -0500, Andrew Jones wrote:
-> On Fri, Jul 19, 2024 at 09:15:17AM GMT, Charlie Jenkins wrote:
-> > All extensions, both standard and vendor, live in one struct
-> > "riscv_isa_ext". There is currently one vendor extension, xandespmu, but
-> > it is likely that more vendor extensions will be added to the kernel in
-> > the future. As more vendor extensions (and standard extensions) are
-> > added, riscv_isa_ext will become more bloated with a mix of vendor and
-> > standard extensions.
-> 
-> But the mix doesn't hurt and with everything in one place it makes it easy
-> to know where to look.
-> 
-> > 
-> > This also allows each vendor to be conditionally enabled through
-> > Kconfig.
-> 
-> We can do that anyway by adding an extension menu for each vendor. If we
-> don't want a vendor's extensions bloating the array then we just need
-> some #ifdefs, e.g.
-> 
-> @@ -405,7 +405,9 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
->         __RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
->         __RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
->         __RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
-> +#ifdef RISCV_ISA_VENDOR_EXT_ANDES
->         __RISCV_ISA_EXT_DATA(xandespmu, RISCV_ISA_EXT_XANDESPMU),
-> +#endif
->  };
-> 
-> 
-> So, I'm not convinced we want the additional complexity of vendor
-> extension arrays, but maybe I'm missing something.
-> 
-> Thanks,
-> drew
+Punit Agrawal <punit.agrawal@bytedance.com> writes:
 
-Vendor extensions are non-standard behavior, so this is largely an
-organizational effort. A benefit this provides is to delegate
-maintainership of vendor extensions to the vendor. Additionally, this
-separation of vendor extensions prevents changes to vendor extensions
-from affecting standard extensions and vice versa. 
+> Hi,
+>
+> Yunhui Cui <cuiyunhui@bytedance.com> writes:
+>
+>> From: Palmer Dabbelt <palmer@rivosinc.com>
+>>
+>> The RISC-V architecture makes a real time counter CSR (via RDTIME
+>> instruction) available for applications in U-mode but there is no
+>> architected mechanism for an application to discover the frequency
+>> the counter is running at. Some applications (e.g., DPDK) use the
+>> time counter for basic performance analysis as well as fine grained
+>> time-keeping.
+>>
+>> Add support to the hwprobe system call to export the time CSR
+>> frequency to code running in U-mode.
+>>
+>> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+>> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+>> Reviewed-by: Evan Green <evan@rivosinc.com>
+>> Reviewed-by: Anup Patel <anup@brainfault.org>
+>> Acked-by: Punit Agrawal <punit.agrawal@bytedance.com>
+>> ---
+>>  Documentation/arch/riscv/hwprobe.rst  | 2 ++
+>>  arch/riscv/include/asm/hwprobe.h      | 2 +-
+>>  arch/riscv/include/uapi/asm/hwprobe.h | 1 +
+>>  arch/riscv/kernel/sys_hwprobe.c       | 5 +++++
+>>  4 files changed, 9 insertions(+), 1 deletion(-)
+>
+> The commit looks ready to be merged. Will this picked up for the 6.11
+> release?
+>
+> Once this is merged, we can send out the DPDK change relying on the
+> newly added key.
 
-Another motivation for this is that I expect vendor extensions to be
-temporary fixes in a lot of cases. A good example is xtheadvector where
-a previous version of the ratified vector spec was implemented. Another
-case is vendors creating vendor extensions while waiting for RVI
-ratification. This will cause these eventually-to-be-deprecated
-extensions to pollute the namespace and require shuffling around of the
-standard isa lists. When it's an internal structure it is less relevant,
-but it is a bigger risk when it comes to hwprobe. Allowing these kinds
-of vendor extensions into hwprobe runs the risk of causing a sparse key
-space. We may end up with many dead bits for deprecated vendor
-extensions that will never be able to be removed to maintain backward
-compatibility. Having the vendor extensions split across vendors
-streamlines the hwprobe implementation.
-
-- Charlie
-
+I see the first part of RISC-V patches got merged for 6.11. Any chance
+for this patch to still make it for this cycle?
 
 _______________________________________________
 linux-riscv mailing list
