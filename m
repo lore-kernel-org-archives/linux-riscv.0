@@ -4,75 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54592C3DA5D
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jul 2024 11:22:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA40DC3DA5D
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jul 2024 13:30:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rm+MzKrt7WQSstwRDv/hDkz0zJe4p2vumQuy7OfU570=; b=WYz7lsah0pDGYskDANaIxrpyPY
-	VOKcHz5egLB5dpoMgVqCL/PE/XPApCM+10ySFMvq7TgtUu4c2EZJDirHSZSmsu5IKEtybyUqtteSy
-	Ttb006/4hOy1uwPZjhk5oEan4IEbvJO9NWNT794UuEoH9Gq0C515zsQ6xs+P2qYRM7lmxUxcLxRqv
-	rAnqRv8+VWe+I78Jd4OgDO0s8SRn7HfiG/ubhN1HyeUKIoDRDW+b1NQvq+B7llZ9nieig98+cE4NH
-	91+SifUzHDPoc6sHB4b95q9ma0rFl0Q3nAQgXvdDhG/fwfft/tD/lqeSWkIWtKszA7ugken5fLS+x
-	9ZDnSfLA==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zsUP4rPtISsCrgqqhLxtMV/jV76QdIxz0GglJL7AP0A=; b=v8RIhMJ7X7Igvx
+	955Zk7NrkOkrzTY6empsRABrizrPvE771/PHJOWl1uZiQDygWzfm7/tnGym7L5aZ3B8v/fDgMFdij
+	Te88wXQNI8CX3UBy3jkBgYenKRycWMY1Kd/IAFCoXQNGX+/ZsdkInlER9H7nJl5ewz4TiFHTyOfd2
+	ztvMoPHsrKv6PI1XIHA2nqb/nLbOEPuM4fBpfYgXTda2FhQLhWS3cD5ac9v6u+i+YHQoI5XSvya84
+	kRKqT6lhgdrCv6atHWwNFw40XgHgrkLyliRdwlqGQ8bSHzG036EjfmpZfXlT2+/c+NnGTX4j0FsOk
+	e0xl5cSzxtrsyvw/Tzig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sVr7T-00000009Mb3-2D3b;
-	Mon, 22 Jul 2024 11:22:19 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1sVt6v-00000009eTf-1bA7;
+	Mon, 22 Jul 2024 13:29:53 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sVr7Q-00000009MaM-2lr1
+	id 1sVt6s-00000009eSZ-1Qbg
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 Jul 2024 11:22:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1721647337; x=1753183337;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=TSjluSvqQ3OxAtecfmW9t01oCs4V2LAnNclER/7fRvQ=;
-  b=vKAzMriR0pb5Dz7sDNg4/uTRezNvg5BuTWo/p+A6+1J4LchZ4IsLgC27
-   ESYNcvUsLOgs7pyeICFB4RKPgDYLCx4A5mqQTWcRMHjue6V8xYTuxMFMS
-   ujV3S5Vc3Q/+GpAdSUxX/M//Xqfq3i8q112w5NDhUJ/s0kcnEeRnKJ4j0
-   kbMByQfp1NsRT4L+LGq+8B93hsydHXWiCCiq2xAJ0PpIuHPOKMwFIssld
-   RMVe/FIS1oGVVyg9SufOU3jLnbnADJ8C9pgFd65YgICV6r2k34W81ZjAc
-   12G+TEvjPwqAMHh5iqLFb7pPMFbpLkYc44aSft+zTfyV4yqZO3m5QOGcN
-   A==;
-X-CSE-ConnectionGUID: 88n3YL8ETjOgZf2mQfcPfQ==
-X-CSE-MsgGUID: f0NRyWKWTPmVCxK0TqFeIA==
-X-IronPort-AV: E=Sophos;i="6.09,228,1716274800"; 
-   d="asc'?scan'208";a="260412435"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 22 Jul 2024 04:22:14 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Mon, 22 Jul 2024 04:21:33 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
- Transport; Mon, 22 Jul 2024 04:21:31 -0700
-Date: Mon, 22 Jul 2024 12:21:07 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-CC: Conor Dooley <conor@kernel.org>, <linux-riscv@lists.infradead.org>, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Lad Prabhakar
-	<prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	<linux-renesas-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v1] RISC-V: run savedefconfig for defconfig
-Message-ID: <20240722-unlovely-snowflake-75e44dfd22fa@wendy>
-References: <20240717-shrubs-concise-51600886babf@spud>
- <CAMuHMdXc_VPRLg1N_uCerXzzntJ23pq6m3Jb5eSPVZjxuXjHAg@mail.gmail.com>
+	Mon, 22 Jul 2024 13:29:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1721654989;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=hj0518Q+ag2Y9NZVcsCpncBBpD7wr8EEpXH9Btxb4Io=;
+	b=fLCwrejSGd8EwhkzncuiF35/KqnR0ZoEGsXcooJjWf5WqReaxZInyvko+EUbWp84GIF20a
+	BJKDv073G8lciS/AQBNKxLjcg/Ywc683jBcXpyBuAFr+sq0NzWXMSh3yHtUZkCpPVMPjBg
+	8MxlZGuAokjukKCMmd+zT6bFevsNbDM=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-610-71ihFButPuKJrkHq9I4Dyw-1; Mon, 22 Jul 2024 09:29:46 -0400
+X-MC-Unique: 71ihFButPuKJrkHq9I4Dyw-1
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-427d9e61ba8so20640995e9.3
+        for <linux-riscv@lists.infradead.org>; Mon, 22 Jul 2024 06:29:46 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1721654985; x=1722259785;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:from:references:cc:to:subject:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=hj0518Q+ag2Y9NZVcsCpncBBpD7wr8EEpXH9Btxb4Io=;
+        b=jo3Moz2cOZ7VPteKZhqVNZ1acq7teqntsaisM/p4Qdb/DccKyLcrsFntdTfuIUQZLC
+         thXz3jCthmhhB3TNybJ+ejNMaE8Ks1et4XbI2gG+U2sYdg5Ogh95LdquNB9Ht9oRKUF9
+         DqmQ8E6jbE+LpgjHRxbZWWxMlIvOXOoPRsU7XmG1Rv1Pj87Ylg79497rpjN93dJp3vUF
+         +/jG2TinrNAPdpgvn2diYDJGgKR2gQOjzppYESJqFZTu1PptVIZq7R1F1+HeGir0QoCB
+         4bZ7+NxRjt0U1LAuc+xosBe99zMeLKSmUsSxd1UDVYeN2vV1Gn71zPHpMNf/0NGWF0cB
+         /wSg==
+X-Forwarded-Encrypted: i=1; AJvYcCXsEVztvYPHjAAMJqqxT6zpQPA3LrVm7ZH2AraLgRs9Ot94Ef4ya1W6qsjCDhQR356Zv6xg08DyNIKGmjU/6QA0GAHzPSZF3+9PCBrlC/Ou
+X-Gm-Message-State: AOJu0YyUr5NQkS/MHXIrk+c7Xq9XSBueYSSF3g9ZpW8gv8ZIVExRd9Fy
+	wuPTdbV2a3DIo59DxrClmOndHhBEW9S/IQB/JwyH/IZY69CiPMMfHHdrqYK+T+bW/k67JpzdARu
+	x/UMa4esW6Shwp3EBJwapHZT6nlrjL5/5chiv9zXSKRGQBkX/K4wFItOAwO1NtkMPjQ==
+X-Received: by 2002:a05:600c:a4c:b0:426:6389:94c4 with SMTP id 5b1f17b1804b1-427ea1d5a2dmr9070945e9.37.1721654985328;
+        Mon, 22 Jul 2024 06:29:45 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGIyw9dA2YYXh0wR+3Pj025bxjyvTGi6gFSINBbowgn9GBPFQbhi8MNgjqnWB9eXV6rnCmpfg==
+X-Received: by 2002:a05:600c:a4c:b0:426:6389:94c4 with SMTP id 5b1f17b1804b1-427ea1d5a2dmr9070715e9.37.1721654984893;
+        Mon, 22 Jul 2024 06:29:44 -0700 (PDT)
+Received: from ?IPV6:2003:cb:c727:7000:c050:e303:f8a7:6ed9? (p200300cbc7277000c050e303f8a76ed9.dip0.t-ipconnect.de. [2003:cb:c727:7000:c050:e303:f8a7:6ed9])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-427d6900caasm126895385e9.11.2024.07.22.06.29.43
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 22 Jul 2024 06:29:44 -0700 (PDT)
+Message-ID: <cf36725d-c197-4c07-8998-d34711335fdb@redhat.com>
+Date: Mon, 22 Jul 2024 15:29:43 +0200
 MIME-Version: 1.0
-In-Reply-To: <CAMuHMdXc_VPRLg1N_uCerXzzntJ23pq6m3Jb5eSPVZjxuXjHAg@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 0/6] mm: THP-agnostic refactor on huge mappings
+To: Peter Xu <peterx@redhat.com>, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org
+Cc: Vlastimil Babka <vbabka@suse.cz>, Oscar Salvador <osalvador@suse.de>,
+ linux-s390@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+ Matthew Wilcox <willy@infradead.org>, Dan Williams
+ <dan.j.williams@intel.com>, Michal Hocko <mhocko@kernel.org>,
+ linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org,
+ Alex Williamson <alex.williamson@redhat.com>,
+ Jason Gunthorpe <jgg@nvidia.com>, x86@kernel.org,
+ Alistair Popple <apopple@nvidia.com>, linuxppc-dev@lists.ozlabs.org,
+ linux-arm-kernel@lists.infradead.org, Ryan Roberts <ryan.roberts@arm.com>,
+ Hugh Dickins <hughd@google.com>, Axel Rasmussen <axelrasmussen@google.com>
+References: <20240717220219.3743374-1-peterx@redhat.com>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ WNyWQQ==
+Organization: Red Hat
+In-Reply-To: <20240717220219.3743374-1-peterx@redhat.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240722_042216_723824_518AE8D6 
-X-CRM114-Status: GOOD (  18.01  )
+X-CRM114-CacheID: sfid-20240722_062950_491290_DAB3AA1E 
+X-CRM114-Status: GOOD (  26.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,73 +152,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6263067899035531124=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============6263067899035531124==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="zjetONaQtH1+epJ3"
-Content-Disposition: inline
+On 18.07.24 00:02, Peter Xu wrote:
+> This is an RFC series, so not yet for merging.  Please don't be scared by
+> the code changes: most of them are code movements only.
+> 
+> This series is based on the dax mprotect fix series here (while that one is
+> based on mm-unstable):
+> 
+>    [PATCH v3 0/8] mm/mprotect: Fix dax puds
+>    https://lore.kernel.org/r/20240715192142.3241557-1-peterx@redhat.com
+> 
+> Overview
+> ========
+> 
+> This series doesn't provide any feature change.  The only goal of this
+> series is to start decoupling two ideas: "THP" and "huge mapping".  We
+> already started with having PGTABLE_HAS_HUGE_LEAVES config option, and this
+> one extends that idea into the code.
+> 
+> The issue is that we have so many functions that only compile with
+> CONFIG_THP=on, even though they're about huge mappings, and huge mapping is
+> a pretty common concept, which can apply to many things besides THPs
+> nowadays.  The major THP file is mm/huge_memory.c as of now.
+> 
+> The first example of such huge mapping users will be hugetlb.  We lived
+> until now with no problem simply because Linux almost duplicated all the
+> logics there in the "THP" files into hugetlb APIs.  If we want to get rid
+> of hugetlb specific APIs and paths, this _might_ be the first thing we want
+> to do, because we want to be able to e.g., zapping a hugetlb pmd entry even
+> if !CONFIG_THP.
+> 
+> Then consider other things like dax / pfnmaps.  Dax can depend on THP, then
+> it'll naturally be able to use pmd/pud helpers, that's okay.  However is it
+> a must?  Do we also want to have every new pmd/pud mappings in the future
+> to depend on THP (like PFNMAP)?  My answer is no, but I'm open to opinions.
+> 
+> If anyone agrees with me that "huge mapping" (aka, PMD/PUD mappings that
+> are larger than PAGE_SIZE) is a more generic concept than THP, then I think
+> at some point we need to move the generic code out of THP code into a
+> common code base.
+> 
+> This is what this series does as a start.
 
---zjetONaQtH1+epJ3
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi Peter!
 
-On Fri, Jul 19, 2024 at 01:05:10PM +0200, Geert Uytterhoeven wrote:
-> Hi Conor,
->=20
-> On Wed, Jul 17, 2024 at 3:29=E2=80=AFPM Conor Dooley <conor@kernel.org> w=
-rote:
-> > From: Conor Dooley <conor.dooley@microchip.com>
-> >
-> > It's been a while since this was run, and there's a few things that have
-> > changed. Firstly, almost all of the Renesas stuff vanishes because the
-> > config for the RZ/Five is gated behind NONPORTABLE. Several options
-> > (like CONFIG_PM) are removed as they are the default values.
-> >
-> > To retain DEFVFREQ_THERMAL and BLK_DEV_THROTTLING, add PM_DEVFREQ and
-> > BLK_CGROUP respectively.
-> >
-> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
->=20
-> Thanks for your patch!
->=20
-> Perhaps we should add an rzfive_defconfig?
+ From a quick glimpse, patch #1-#4 do make sense independent of patch #5.
 
-I dunno, do we want (potentially a bunch of) platform specific
-defconfigs? I'd sooner delete the ones that we have than add more!
-I would suggest to just turn on NONPORTABLE, but that isn't a solution
-given that the RZ/Five support requires turning off Zicbom. Ultimately I
-think it is Palmer's decision whether we add a defconfig for the
-platform - it is a bit of a special case given the aforementioned
-incompatibility.
+I am not so sure about all of the code movement in patch #5. If large 
+folios are the future, then likely huge_memory.c should simply be the 
+home for all that logic.
 
---zjetONaQtH1+epJ3
-Content-Type: application/pgp-signature; name="signature.asc"
+Maybe the goal should better be to compile huge_memory.c not only for 
+THP, but also for other use cases that require that logic, and fence off 
+all THP specific stuff using #ifdef?
 
------BEGIN PGP SIGNATURE-----
+Not sure, though. But a lot of this code movements/churn might be avoidable.
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZp5AowAKCRB4tDGHoIJi
-0jaMAQDj/lao31dpASHfsg/s6LHzh/a6KomgsOZaKsJPBnapZwD+Jl94C1zmK7X7
-i36INAHW9SWtJmxl0iJFRZEYtv30zwo=
-=gdzg
------END PGP SIGNATURE-----
+-- 
+Cheers,
 
---zjetONaQtH1+epJ3--
+David / dhildenb
 
-
---===============6263067899035531124==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6263067899035531124==--
-
