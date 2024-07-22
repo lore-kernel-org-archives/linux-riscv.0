@@ -4,88 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05248C3DA5D
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jul 2024 07:37:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC6E3C3DA59
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jul 2024 07:38:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=offBFIDaJMHOPNX6gX+rxwIf2NfBcvGrJ8oXBe8dvhY=; b=Z1tt44kfKqm7+8
-	eflKhtR8QXS6XskFDkaBYXxz7JVe9W5qfBUEpFdyN6mrPW63jcsSme7CsNZvSdw8SQbk3kxp2YPbE
-	CNalyhwrkUPRW76PF30dRMb1irlnosUY7d37vtxcWKkBqsiRnHS7omaW9QF8ZoF9HJ9AD5yWtCPGd
-	kD5Eyoq4z46ppVUmT893AopTwCJaZC5s1M44uMxm9RjpPdNo2KmhYmD/l7HvNCZ27tAf3rhKDqCHg
-	r8xGfGm6ZLdBd5x/lehIFJSlT795hH9IhYadyX8p2BDSyA6PUF40KLQNm86KJg05wMFkZ9VNNUlLZ
-	OSCGP9FaOPRozTiujgVQ==;
+	List-Owner; bh=GFwsq5t7Zndp9sI6KNrNzRdKJnJj1KwPxG+WYGhpMI0=; b=DVAWmf4UBC51Qw
+	Wj21j0M6/8wrY4016hu5xKuA0byqrjRIZbqwKb7eSAYWLLyEteMs11NDMw7KrQC3pLSjPtCKmVLAx
+	Adt5lRxiFm/bgJvTeovo4LqP4HnGcKgrM+Yik7eI1sSloUpmZ9/5DJxUmUakJyWgXUKTwRddAxQHA
+	7S4YMKVWIs+eDfWwEnrPb3dXkM+qraWkeJXpDKnnFXPXMqaNvhAswMgDUvFd2yOOBzWClz0rwWdt9
+	QCBmiGym/FDcuzaTgCW8b1ifNSRYnuWD+fHmh2v+ZPueKbRWzgIz623Y3gcPgGpT3M1WMieXNNZcu
+	xZGq8w0/TFMQgANPe5sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sVnc9-00000008jPB-0aWR;
-	Mon, 22 Jul 2024 07:37:45 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1sVncK-00000008jS2-05kJ;
+	Mon, 22 Jul 2024 07:37:56 +0000
+Received: from asrmicro.com ([210.13.118.86] helo=spam.asrmicro.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sVnbj-00000008jEw-3h1a;
-	Mon, 22 Jul 2024 07:37:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 7105ECE0B0A;
-	Mon, 22 Jul 2024 07:37:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C14EC116B1;
-	Mon, 22 Jul 2024 07:37:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1721633837;
-	bh=Dxslf8J1nw2EoO1825aVEeJAxLrpHgQU1wjgg+XF/0U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=V5rEoxjJyp8Si4Ol1tKmDHfxujD1M6arK5yB3md41TgtMqzL7133QUbpMAiRqALI8
-	 zHqP2jnhANmIGx1K6HRYtObkAQqmVJ2vQFti7pCzHaOzz0dds7xFt2urt534cJHiXw
-	 CurmUQ1pi3n/TpSSCUqTSIn7TV/EpAfGuHiiiLk6U01osyb6JXJ0yznQ72y9r7YmE5
-	 p6fsNYiqRdEsZWZ4qQtfi/2IxHr6rbbdo6JlW+fM0tWjobtA9os1Uj3kz7eGY4SLEa
-	 ISuNDqsn9MvH468ghs8RFDYohLKYRIm2o5BjdJ/Ni63NJJU1x+XnEdyepZgDkMsXF7
-	 by+28UouvqBSA==
-Date: Mon, 22 Jul 2024 10:34:06 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Cc: David Hildenbrand <david@redhat.com>, linux-kernel@vger.kernel.org,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
-	linux-acpi@vger.kernel.org, linux-cxl@vger.kernel.org,
-	nvdimm@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH 02/17] MIPS: sgi-ip27: make NODE_DATA() the same as on
- all other architectures
-Message-ID: <Zp4Lbh20_IHZ2I5n@kernel.org>
-References: <20240716111346.3676969-1-rppt@kernel.org>
- <20240716111346.3676969-3-rppt@kernel.org>
- <e57eca18-b66d-4b5d-9e73-8ab22f6bc747@redhat.com>
- <20240719153852.00003f44@Huawei.com>
+	id 1sVncG-00000008jO3-1tiF
+	for linux-riscv@lists.infradead.org;
+	Mon, 22 Jul 2024 07:37:54 +0000
+Received: from exch02.asrmicro.com (exch02.asrmicro.com [10.1.24.122])
+	by spam.asrmicro.com with ESMTPS id 46M7arNH096942
+	(version=TLSv1 cipher=ECDHE-RSA-AES256-SHA bits=256 verify=FAIL);
+	Mon, 22 Jul 2024 15:36:53 +0800 (GMT-8)
+	(envelope-from zhengyan@asrmicro.com)
+Received: from exch03.asrmicro.com (10.1.24.118) by exch02.asrmicro.com
+ (10.1.24.122) with Microsoft SMTP Server (TLS) id 15.0.847.32; Mon, 22 Jul
+ 2024 15:36:56 +0800
+Received: from exch03.asrmicro.com ([::1]) by exch03.asrmicro.com ([::1]) with
+ mapi id 15.00.0847.030; Mon, 22 Jul 2024 15:36:56 +0800
+From: =?gb2312?B?WWFuIFpoZW5no6jRz9X+o6k=?= <zhengyan@asrmicro.com>
+To: Nam Cao <namcao@linutronix.de>
+CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+        "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+        "maz@kernel.org" <maz@kernel.org>,
+        "paul.walmsley@sifive.com"
+	<paul.walmsley@sifive.com>,
+        =?gb2312?B?WmhvdSBRaWFvKNbcx8gp?=
+	<qiaozhou@asrmicro.com>,
+        "samuel.holland@sifive.com"
+	<samuel.holland@sifive.com>,
+        "tglx@linutronix.de" <tglx@linutronix.de>,
+        "Drew Barbier" <drew@sifive.com>
+Subject: =?gb2312?B?tPC4tDogW1BBVENIIHYyXSBpcnFjaGlwL3NpZml2ZS1wbGljOiBlbnN1cmUg?=
+ =?gb2312?Q?interrupt_is_enable_before_EOI?=
+Thread-Topic: [PATCH v2] irqchip/sifive-plic: ensure interrupt is enable
+ before EOI
+Thread-Index: AQHaxiqeTa4u+1J7Xk6+X8mCqXW5JLHrJCOAgBdizUA=
+Date: Mon, 22 Jul 2024 07:36:55 +0000
+Message-ID: <b91a0f1223a44e2f8f6849585fa15756@exch03.asrmicro.com>
+References: <69174a28eff44ad1b069887aa514971e@exch03.asrmicro.com>
+ <20240624113523.23-1-zhengyan@asrmicro.com>
+ <20240707182715.L_REw7VC@linutronix.de>
+In-Reply-To: <20240707182715.L_REw7VC@linutronix.de>
+Accept-Language: zh-CN, en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.1.171.53]
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240719153852.00003f44@Huawei.com>
+X-DNSRBL: 
+X-MAIL: spam.asrmicro.com 46M7arNH096942
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240722_003720_305736_F39F9FD9 
-X-CRM114-Status: GOOD (  33.53  )
+X-CRM114-CacheID: sfid-20240722_003753_197259_485DA9D0 
+X-CRM114-Status: GOOD (  48.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,118 +88,187 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 19, 2024 at 03:38:52PM +0100, Jonathan Cameron wrote:
-> On Wed, 17 Jul 2024 16:32:59 +0200
-> David Hildenbrand <david@redhat.com> wrote:
+> On Mon, Jun 24, 2024 at 11:35:23AM +0000, zhengyan wrote:
+> > RISC-V PLIC cannot "end-of-interrupt" (EOI) disabled interrupts, as
+> > explained in the description of Interrupt Completion in the PLIC spec:
+> > "The PLIC signals it has completed executing an interrupt handler by
+> > writing the interrupt ID it received from the claim to the
+> > claim/complete  register. The PLIC does not check whether the
+> > completion ID is the same  as the last claim ID for that target. If
+> > the completion ID does not match  an interrupt source that *is
+> > currently enabled* for the target, the  completion is silently ignored."
+> >
+> >  Commit 9c92006b896c ("irqchip/sifive-plic: Enable interrupt if needed
+> > before EOI")  ensured that EOI is enable when irqd IRQD_IRQ_DISABLED
+> > is set, before  EOI
+> >
+> >  Commit 69ea463021be ("irqchip/sifive-plic: Fixup EOI failed when
+> > masked")  ensured that EOI is successful by enabling interrupt first, before
+> EOI.
+> >
+> >  Commit a1706a1c5062 ("irqchip/sifive-plic: Separate the enable and
+> > mask
+> >  operations") removed the interrupt enabling code from the previous
+> > commit, because it assumes that interrupt should already be enabled at
+> > the  point of EOI.
+> >
+> > However, here still miss a corner case that if SMP is enabled. When
+> > someone needs to set affinity from a cpu to another the original cpu
+> > when handle the EOI meanwhile the IE is disabled by plic_set_affinity
+> >
+> > For example, broadcast tick is working,
+> > cpu0 is about to response, cpu1 is the next.
+> > 1. cpu0 responses the timer irq, read the claim REG, do timer isr event.
+> > 2. during the timer isr it will set next event
+> > tick_broadcast_set_event -> irq_set_affinity->xxx-> plic_set_affinity
+> > -> plic_irq_enable 3. in plic_set_affinity disable cpu0's IE and
+> > enable cpu1'IE 4. cpu0 do the write claim to finish this irq, while
+> > cpu0's IE is disabled, left an active state in plic.
+> >
+> > So this patch ensure that won't happened
+> >
+> > Signed-off-by: zhengyan <zhengyan@asrmicro.com>
+> > ---
+> >  drivers/irqchip/irq-sifive-plic.c | 4 +++-
+> >  1 file changed, 3 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/irqchip/irq-sifive-plic.c
+> > b/drivers/irqchip/irq-sifive-plic.c
+> > index 9e22f7e378f5..815ce8aa28f1 100644
+> > --- a/drivers/irqchip/irq-sifive-plic.c
+> > +++ b/drivers/irqchip/irq-sifive-plic.c
+> > @@ -149,8 +149,10 @@ static void plic_irq_mask(struct irq_data *d)
+> > static void plic_irq_eoi(struct irq_data *d)  {
+> >  	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
+> > +	void __iomem *reg = handler->enable_base + (d->hwirq / 32) *
+> sizeof(u32);
+> > +	u32 hwirq_mask = 1 << (d->hwirq % 32);
+> >
+> > -	if (unlikely(irqd_irq_disabled(d))) {
+> > +	if (unlikely((readl(reg) & hwirq_mask) == 0)) {
+> >  		plic_toggle(handler, d->hwirq, 1);
+> >  		writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
+> >  		plic_toggle(handler, d->hwirq, 0);
 > 
-> > On 16.07.24 13:13, Mike Rapoport wrote:
-> > > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-> > > 
-> > > sgi-ip27 is the only system that defines NODE_DATA() differently than
-> > > the rest of NUMA machines.
-> > > 
-> > > Add node_data array of struct pglist pointers that will point to
-> > > __node_data[node]->pglist and redefine NODE_DATA() to use node_data
-> > > array.
-> > > 
-> > > This will allow pulling declaration of node_data to the generic mm code
-> > > in the next commit.
-> > > 
-> > > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> > > ---
-> > >   arch/mips/include/asm/mach-ip27/mmzone.h | 5 ++++-
-> > >   arch/mips/sgi-ip27/ip27-memory.c         | 5 ++++-
-> > >   2 files changed, 8 insertions(+), 2 deletions(-)
-> > > 
-> > > diff --git a/arch/mips/include/asm/mach-ip27/mmzone.h b/arch/mips/include/asm/mach-ip27/mmzone.h
-> > > index 08c36e50a860..629c3f290203 100644
-> > > --- a/arch/mips/include/asm/mach-ip27/mmzone.h
-> > > +++ b/arch/mips/include/asm/mach-ip27/mmzone.h
-> > > @@ -22,7 +22,10 @@ struct node_data {
-> > >   
-> > >   extern struct node_data *__node_data[];
-> > >   
-> > > -#define NODE_DATA(n)		(&__node_data[(n)]->pglist)
-> > >   #define hub_data(n)		(&__node_data[(n)]->hub)
-> > >   
-> > > +extern struct pglist_data *node_data[];
-> > > +
-> > > +#define NODE_DATA(nid)		(node_data[nid])
-> > > +
-> > >   #endif /* _ASM_MACH_MMZONE_H */
-> > > diff --git a/arch/mips/sgi-ip27/ip27-memory.c b/arch/mips/sgi-ip27/ip27-memory.c
-> > > index b8ca94cfb4fe..c30ef6958b97 100644
-> > > --- a/arch/mips/sgi-ip27/ip27-memory.c
-> > > +++ b/arch/mips/sgi-ip27/ip27-memory.c
-> > > @@ -34,8 +34,10 @@
-> > >   #define SLOT_PFNSHIFT		(SLOT_SHIFT - PAGE_SHIFT)
-> > >   #define PFN_NASIDSHFT		(NASID_SHFT - PAGE_SHIFT)
-> > >   
-> > > -struct node_data *__node_data[MAX_NUMNODES];
-> > > +struct pglist_data *node_data[MAX_NUMNODES];
-> > > +EXPORT_SYMBOL(node_data);
-> > >   
-> > > +struct node_data *__node_data[MAX_NUMNODES];
-> > >   EXPORT_SYMBOL(__node_data);
-> > >   
-> > >   static u64 gen_region_mask(void)
-> > > @@ -361,6 +363,7 @@ static void __init node_mem_init(nasid_t node)
-> > >   	 */
-> > >   	__node_data[node] = __va(slot_freepfn << PAGE_SHIFT);
-> > >   	memset(__node_data[node], 0, PAGE_SIZE);
-> > > +	node_data[node] = &__node_data[node]->pglist;
-> > >   
-> > >   	NODE_DATA(node)->node_start_pfn = start_pfn;
-> > >   	NODE_DATA(node)->node_spanned_pages = end_pfn - start_pfn;  
-> > 
-> > I was assuming we could get rid of __node_data->pglist.
-> > 
-> > But now I am confused where that is actually set.
+> I think this patch is fine.
 > 
-> It looks nasty... 
+> But, I don't like reading hardware registers in the interrupt hot path. It may
+> slow things down. Also this patch doesn't allow moving the if condition out of
+> this plic_irq_eoi() function into the enabling function (I have been thinking
+> about doing that for some time, but too lazy to get to it).
+> 
+> I *may* have something better.
+> 
+> From the specification:
+> "The PLIC signals it has completed executing an interrupt handler by writing
+> the interrupt ID it received from the claim to the claim/complete register.
+> The PLIC **does not check** whether the completion ID is the same as the
+> last claim ID for that target. If the completion ID does not match an interrupt
+> source that is currently enabled for the target, the completion is silently
+> ignored."
+> 
+> Note what I "highlighed": the irq number written back does not have to
+> match the irq number last claimed for the CPU. If I interpret this correctly,
+> this means *any* claim/complete register can be used to complete the
+> interrupt.
+> 
+> So, my idea: since irq affinity setting still leaves at least 1 CPU with the
+> interrupt enabled; the claim/complete register for that enabled CPU can be
+> used for completing interrupt (instead of the original one used for claiming).
+> This would avoid some hardware register access in the hot path.
+> Also allows another optimization of moving the if condition out of the EOI
+> function.
+> 
+> Something like the patch below. To apply this one cleanly, another patch
+> must be applied first:
+> https://lore.kernel.org/linux-riscv/20240703072659.1427616-1-
+> namcao@linutronix.de/
+> 
+> What I am still a bit unsure about is whether my interpretation of the
+> specification is correct. The patch works for my Visionfive 2 board, so the
+> question is whether this patch is relying on "undefined behavior", or this is
+> really what the spec means. Drew Barbier <drew@sifive.com> seems to be
+> the one who wrote that. Do you mind confirming my interpretation?
+> 
+> Best regards,
+> Nam
+> 
+I confirm it, It works good on my platform as well. 
+Looks like " *any* claim/complete register can be used to complete" is correct.
 
-Nasty indeed :)
-
-> Cast in arch_refresh_nodedata() takes incoming pg_data_t * and casts it
-> to the local version of struct node_data * which I think is this one
+> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+> index f30bdb94ceeb..117ff9f1c982 100644
+> --- a/drivers/irqchip/irq-sifive-plic.c
+> +++ b/drivers/irqchip/irq-sifive-plic.c
+> @@ -69,6 +69,7 @@ struct plic_priv {
+>  	void __iomem *regs;
+>  	unsigned long plic_quirks;
+>  	unsigned int nr_irqs;
+> +	void __iomem **complete;
+>  	unsigned long *prio_save;
+>  };
 > 
-> struct node_data {
-> 	struct pglist_data pglist; (which is pg_data_t pglist)
-> 	struct hub_data hub;
-> };
+> @@ -149,13 +150,14 @@ static void plic_irq_mask(struct irq_data *d)  static
+> void plic_irq_eoi(struct irq_data *d)  {
+>  	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
+> +	struct plic_priv *priv = irq_data_get_irq_chip_data(d);
 > 
-> https://elixir.bootlin.com/linux/v6.10/source/arch/mips/sgi-ip27/ip27-memory.c#L432
+>  	if (unlikely(irqd_irq_disabled(d))) {
+>  		plic_toggle(handler, d->hwirq, 1);
+> -		writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
+> +		writel(d->hwirq, priv->complete[d->hwirq]);
+>  		plic_toggle(handler, d->hwirq, 0);
+>  	} else {
+> -		writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
+> +		writel(d->hwirq, priv->complete[d->hwirq]);
+>  	}
+>  }
 > 
-> Now that pg_data_t is allocated by 
-> arch_alloc_nodedata() which might be fine (though types could be handled in a more
-> readable fashion via some container_of() magic.
-> https://elixir.bootlin.com/linux/v6.10/source/arch/mips/sgi-ip27/ip27-memory.c#L427
+> @@ -164,6 +166,7 @@ static int plic_set_affinity(struct irq_data *d,
+>  			     const struct cpumask *mask_val, bool force)  {
+>  	struct plic_priv *priv = irq_data_get_irq_chip_data(d);
+> +	struct plic_handler *handler;
+>  	struct cpumask new_mask;
 > 
-> However that call is:
-> pg_data_t * __init arch_alloc_nodedata(int nid)
-> {
-> 	return memblock_alloc(sizeof(pg_data_t), SMP_CACHE_BYTES);
-> }
+>  	cpumask_and(&new_mask, mask_val, &priv->lmask); @@ -180,6
+> +183,9 @@ static int plic_set_affinity(struct irq_data *d,
+>  	if (!irqd_irq_disabled(d))
+>  		plic_irq_enable(d);
 > 
-> So doesn't seem to allocate enough space to me as should be sizeof(struct node_data)
-
-Well, it's there to silence a compiler error (commit f8f9f21c7848 ("MIPS:
-Fix build error for loongson64 and sgi-ip27")), but this is not a proper
-fix :(
-Luckily nothing calls cpumask_of_node() for offline nodes...
- 
-> Worth cleaning up whilst here?  Proper handling of types would definitely
-> help.
-
-Worth cleanup indeed, but I'd rather drop arch_alloc_nodedata() on MIPS
-altogether.
- 
-> Jonathan
-
--- 
-Sincerely yours,
-Mike.
-
+> +	handler = per_cpu_ptr(&plic_handlers,
+> cpumask_first(&new_mask));
+> +	priv->complete[d->hwirq] = handler->hart_base + CONTEXT_CLAIM;
+> +
+>  	return IRQ_SET_MASK_OK_DONE;
+>  }
+>  #endif
+> @@ -516,6 +522,10 @@ static int plic_probe(struct platform_device *pdev)
+>  	priv->prio_save = devm_bitmap_zalloc(dev, nr_irqs, GFP_KERNEL);
+>  	if (!priv->prio_save)
+>  		return -ENOMEM;
+> +
+> +	priv->complete = devm_kcalloc(dev, 1 + nr_irqs, sizeof(*priv-
+> >complete), GFP_KERNEL);
+> +	if (!priv->complete)
+> +		return -ENOMEM;
+> 
+>  	for (i = 0; i < nr_contexts; i++) {
+>  		error = plic_parse_context_parent(pdev, i, &parent_hwirq,
+> &cpu); @@ -577,6 +587,12 @@ static int plic_probe(struct platform_device
+> *pdev)
+>  			writel(1, priv->regs + PRIORITY_BASE +
+>  				  hwirq * PRIORITY_PER_ID);
+>  		}
+> +
+> +		if (!nr_handlers) {
+> +			for (hwirq = 1; hwirq <= nr_irqs; hwirq++)
+> +				priv->complete[hwirq] = handler->hart_base
+> + CONTEXT_CLAIM;
+> +		}
+> +
+>  		nr_handlers++;
+>  	}
+> 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
