@@ -4,96 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2F98C3DA59
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jul 2024 22:14:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD3A1C3DA70
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jul 2024 23:45:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SnVAtGyeARSix0o8hGP8d3jPdnFoy067IcW6Im7v4r4=; b=G4bra7ewdhmYuI
-	5HzNS+puw7LXd2YieD2zFN7MkkF7qd2zrSCTC77uBbzbnz3C5WofvRgmP9Cxw806vT3DzBxCujzG8
-	ipAz1UKQ5GT8hqZmP4gVGSDMv4cYfjtaakhD3yOfIyA0VjQvL9CE9Jms4JzhjsKswS01GI6fpEPj4
-	KwI9l/ock0ZWqagjU+VE3Ixyq1+dvs50qLQ7+ewaANUEK2QsgmGXBf0Jk4EhbcEzSJezKCs6bJv5k
-	/5zJ+3oIc7B8+MnflNngYS+KqLediYao5KbYhUottLqEgyxP5hJ4eiiGvkB5uQMpfN3darYkBxZ5r
-	Ad3SqRNhIlynsllGIGdw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=dhrlmEkxK3MLyiimenwPuC3d0udOCD9y8VPdL1DU5aM=; b=qlrDbcLhyaEoYVefD99dByv85h
+	us2KwZHGatwim76iVxZ1/Trk1z0ro0HOVlnJatYd8YvcbcZYpi1cI6dA6IRDKlkixnRcmYRQ+Zk3m
+	ZlU/mlGDC382eBc9pzf2CcsYSic+Vbb5skl7BxgElqo3Ho9EVen5sx63cxDHNJYt4k6dyE8ovI4xR
+	3godfK96FXF+MDKBaW0Zojd88VvsjqlYh5C81foVXzabNuL0vqqGqe8A7Q0UWgQC4VPU1CI9jLCGN
+	4OJVBU6AU2L+H1RoxT9RpV2ncPWWmwRwRYjgF89BZbQnfCf5mzLvpv3FUHNKw1iNFg7nEFspEp0oo
+	q+uI8P3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sW1Id-0000000Aipq-2OHF;
-	Mon, 22 Jul 2024 22:14:31 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1sW2iW-0000000AtCF-43cO;
+	Mon, 22 Jul 2024 23:45:20 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sW1Ib-0000000Aip9-15BC
+	id 1sW2iK-0000000At9I-2Ibh
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 Jul 2024 22:14:31 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-2cb5243766dso2835769a91.0
-        for <linux-riscv@lists.infradead.org>; Mon, 22 Jul 2024 15:14:28 -0700 (PDT)
+	Mon, 22 Jul 2024 23:45:10 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-70cec4aa1e4so2381535b3a.1
+        for <linux-riscv@lists.infradead.org>; Mon, 22 Jul 2024 16:45:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1721686468; x=1722291268; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=rnI7oybV/HUbAbtJY8v1K+OhuBn76sevmv9uupEuIgE=;
-        b=DXF3y+50Pxzjqvm2lT/tpkz5q78vjvEWLO8IV+nNkU1JRV2f9L6l/x+xwtjQOVFtI5
-         InvfWh04+jDn3brgkce7Aj1WZjMwMLyA75WRIkcqcph/c3P2yzmtCiKeXHk8NU949HPn
-         SsHRIsiLTc1dB91kJ/SibfN++iIt/Ah8JMyyR1SL7BRMj0p8BmbgDQhWJs08sFZALNYs
-         2FgypVQol+7+5bOjS3WHtUZCGQfBBbxE1eQiwrof1pyr9yM0pk7aW5fA2CXPOVovgTGl
-         8QAciQ9H12KjJHQri6zk64DiHeE1pfDQoM91DZI8LZ6p8atWQGzLfpE7RHRA74SIcQ9q
-         8bbg==
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1721691906; x=1722296706; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=WS54cfGPwjnguy/LYntCPaN1wfikny/NE+IC80tzPG8=;
+        b=K6AJv1+qnp/c+G7XsB+yCs7fq4FHC9jxs1KAD+QnPg7n03j/f23AuOMMTaAZL/8NAL
+         VyQPxdNOomDG0VOgLrnMGRJJIT9oCswBbAoLEF5/Q3U2n2uSm2xwRZGpQk0HpgkUn5lT
+         DhR+ldKT8ZjclgT6iXAN0ZrT/mffOA/K3hoy79bDi0iclAe1GmvhsccMvmucUYbxdHvk
+         5wR8ybHY8njqpWUM6O/St9AZK4R2XihzKOrz36xte2F5cVpl+y8zYPY7HLkhIdhAloyt
+         Nkv8k1VR/cdBXMwbX2/fbvFUffJE5+gbD1+T3RMrGza006pmw0PvDHLrS4ZVwyW2OsYt
+         KJJA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1721686468; x=1722291268;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1721691906; x=1722296706;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=rnI7oybV/HUbAbtJY8v1K+OhuBn76sevmv9uupEuIgE=;
-        b=udFGExfNr0fF7K+4HYzlacAGWqf6G9A1ccJiILNykm4BBAUyZ1eREmftAybbBB/6yW
-         ChBUho51eswsU9lvWEJoa6HTuKUrhzXgW+CHQPcsdWsmza2BU5nEERx1Sh/HZac30Yh6
-         dFUPMBe0MfCbv+1E22WUmZ/iUKANjoOnqt8zboZbWZDHOa8lkhwkemNFKKV4oPudpxc2
-         0SOjRSdKSzveAk+7Lr4WSJidG/nwIBN6XFOeNVNQscWB4D9X4LlyMy80E23jKDCVvbD8
-         StDeETeb+xoMet0MS6ji9+rKzO47NESnHVhy0EOn+WurWaqpr3Lx+u7HD/2K/xr6fi3z
-         uVrA==
-X-Forwarded-Encrypted: i=1; AJvYcCWJHi87c0fGY1x+Wdo2yYbWb5+oBEYp6Vt+BssLZkDckaZ2m9O1GZHsDV58zQ3n/3hcMdfOay71xSCG2G0D8PHFL5thiDJSMBhxa5f5R4zq
-X-Gm-Message-State: AOJu0YyyBy+LSCgHDO9E9BAM0jPY6UXov9hEd459OvOan7gDhdZcN/vj
-	DtsFqEOPljHPJtEN19EKPcCt0C0xAJ64TiCClmqKqzoqPlld7ewnaWLpuyftv5c=
-X-Google-Smtp-Source: AGHT+IGbj7DZDu9xdtM7I7b4ely54D1XMYZd7nuHar0IVRmTLnQwyoFRYH9nBIDP0Zw2wpAFGDB+eA==
-X-Received: by 2002:a17:90a:d584:b0:2c9:8189:9cc1 with SMTP id 98e67ed59e1d1-2cd85d19266mr971305a91.21.1721686468300;
-        Mon, 22 Jul 2024 15:14:28 -0700 (PDT)
-Received: from ghost ([50.145.13.30])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1fd6f31bb49sm60018365ad.131.2024.07.22.15.14.26
+        bh=WS54cfGPwjnguy/LYntCPaN1wfikny/NE+IC80tzPG8=;
+        b=ZoLJoA4VDv8us/KdZerJ3XZgtnfQ5aIvpX3rqKhPf4aboXLZ2M7vHDL5EaA53PVyRW
+         4NrizSNUv6dDnnw+7IM+LZkMmYiyRkwlG7JFjKY/xLjh7p8Oa8QI3JNSvhRf4g26x0gT
+         Brox+J3fILP0xPTM42VQR/XnWXtlQSXwFkylpnyeL+BTUF+Uvi/FWHzlvg+wt+XISvh2
+         rAwRwHg/bXNPYMQkh5e1QZmZruxiVVK6sr8RaFJkaZskEtxMVxx6IisOLJp6PzOyE/f/
+         ImMQS0Xa7LcnJzlXmKsli8t4xGn5Jq6t8wYN83RoDYYzSdErjbMFswIdGT3YGzcGmSFR
+         7ELw==
+X-Forwarded-Encrypted: i=1; AJvYcCXCyO6mQtkk1OsN2SNnXgMVYSxqi9pv/3CHTfGUFPJrtozN/7/HSeSFJhdjj80DsnRpZGboYcYwM+JVSHaN/YlS6pzg8AHz87lRm3I9vKyQ
+X-Gm-Message-State: AOJu0Yw+nGPzQNSLYdBx1APdPY5Nf2gC0ispslT1GoNvbVZpFv0X+3ME
+	LYJo1sFUvU4zf/3Q+KF0E6kg/I9AgRkVLoZ6rd945n7DBRgOOmS3XOzugsYt7w0=
+X-Google-Smtp-Source: AGHT+IHnxLF4xLdZqey/laXc/DP9xei64k/97GkyJAteGm1AHYh2UY/F6zpbCncn+XJoIWUIKa4z1A==
+X-Received: by 2002:a05:6a20:7f8e:b0:1c3:b47d:d53f with SMTP id adf61e73a8af0-1c44f86b19cmr1622859637.25.1721691906539;
+        Mon, 22 Jul 2024 16:45:06 -0700 (PDT)
+Received: from localhost ([192.184.165.199])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1fd6f2958a0sm60893425ad.102.2024.07.22.16.45.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 22 Jul 2024 15:14:27 -0700 (PDT)
-Date: Mon, 22 Jul 2024 15:14:24 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jisheng Zhang <jszhang@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Guo Ren <guoren@kernel.org>, Evan Green <evan@rivosinc.com>,
-	Andy Chiu <andy.chiu@sifive.com>,
-	Jessica Clarke <jrtc27@jrtc27.com>, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-sunxi@lists.linux.dev, linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v5 12/13] selftests: riscv: Fix vector tests
-Message-ID: <Zp7ZwDzpFt7iJ6iT@ghost>
-References: <20240719-xtheadvector-v5-0-4b485fc7d55f@rivosinc.com>
- <20240719-xtheadvector-v5-12-4b485fc7d55f@rivosinc.com>
- <20240722-0940cd64c0d8bb03f2427022@orel>
- <Zp7LxAWkDQMQhVLq@ghost>
- <20240722-86a2b1fa474d71c4dbc557c7@orel>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240722-86a2b1fa474d71c4dbc557c7@orel>
+        Mon, 22 Jul 2024 16:45:05 -0700 (PDT)
+Date: Mon, 22 Jul 2024 16:45:05 -0700 (PDT)
+X-Google-Original-Date: Mon, 22 Jul 2024 16:45:03 PDT (-0700)
+Subject: Re: [PATCH v3 0/4] riscv: Separate vendor extensions from standard extensions
+In-Reply-To: <Zp6/1CzztAOT51yU@ghost>
+CC: ajones@ventanamicro.com, Paul Walmsley <paul.walmsley@sifive.com>,
+  aou@eecs.berkeley.edu, Conor Dooley <conor.dooley@microchip.com>, Evan Green <evan@rivosinc.com>,
+  andy.chiu@sifive.com, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+  peterlin@andestech.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Message-ID: <mhng-fa5b8aa8-375c-4780-a90d-64511f76ab07@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240722_151429_326501_D6510129 
-X-CRM114-Status: GOOD (  47.63  )
+X-CRM114-CacheID: sfid-20240722_164508_795298_ECDE01CE 
+X-CRM114-Status: GOOD (  27.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,187 +89,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 22, 2024 at 05:08:22PM -0500, Andrew Jones wrote:
-> On Mon, Jul 22, 2024 at 02:14:44PM GMT, Charlie Jenkins wrote:
-> > On Mon, Jul 22, 2024 at 01:47:29PM -0500, Andrew Jones wrote:
-> > > On Fri, Jul 19, 2024 at 09:19:07AM GMT, Charlie Jenkins wrote:
-> > > > Overhaul the riscv vector tests to use kselftest_harness to help the
-> > > > test cases correctly report the results and decouple the individual test
-> > > > cases from each other. With this refactoring, only run the test cases is
-> > > > vector is reported and properly report the test case as skipped
-> > > > otherwise. The v_initval_nolibc test was previously not checking if
-> > > > vector was supported and used a function (malloc) which invalidates
-> > > > the state of the vector registers.
-> > > > 
-> > > > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> > > > ---
-> > > >  tools/testing/selftests/riscv/abi/ptrace           | Bin 0 -> 759368 bytes
-> > > >  tools/testing/selftests/riscv/vector/.gitignore    |   3 +-
-> > > >  tools/testing/selftests/riscv/vector/Makefile      |  17 +-
-> > > >  .../selftests/riscv/vector/v_exec_initval_nolibc.c |  84 +++++++
-> > > >  tools/testing/selftests/riscv/vector/v_helpers.c   |  56 +++++
-> > > >  tools/testing/selftests/riscv/vector/v_helpers.h   |   5 +
-> > > >  tools/testing/selftests/riscv/vector/v_initval.c   |  16 ++
-> > > >  .../selftests/riscv/vector/v_initval_nolibc.c      |  68 ------
-> > > >  .../testing/selftests/riscv/vector/vstate_prctl.c  | 266 ++++++++++++---------
-> > > >  9 files changed, 324 insertions(+), 191 deletions(-)
-> > > > 
-> > > > diff --git a/tools/testing/selftests/riscv/abi/ptrace b/tools/testing/selftests/riscv/abi/ptrace
-> > > > new file mode 100755
-> > > > index 000000000000..2b03e77b4dcf
-> > > > Binary files /dev/null and b/tools/testing/selftests/riscv/abi/ptrace differ
-> > > > diff --git a/tools/testing/selftests/riscv/vector/.gitignore b/tools/testing/selftests/riscv/vector/.gitignore
-> > > > index 9ae7964491d5..7d9c87cd0649 100644
-> > > > --- a/tools/testing/selftests/riscv/vector/.gitignore
-> > > > +++ b/tools/testing/selftests/riscv/vector/.gitignore
-> > > > @@ -1,3 +1,4 @@
-> > > >  vstate_exec_nolibc
-> > > >  vstate_prctl
-> > > > -v_initval_nolibc
-> > > > +v_initval
-> > > > +v_exec_initval_nolibc
-> > > > diff --git a/tools/testing/selftests/riscv/vector/Makefile b/tools/testing/selftests/riscv/vector/Makefile
-> > > > index bfff0ff4f3be..995746359477 100644
-> > > > --- a/tools/testing/selftests/riscv/vector/Makefile
-> > > > +++ b/tools/testing/selftests/riscv/vector/Makefile
-> > > > @@ -2,18 +2,27 @@
-> > > >  # Copyright (C) 2021 ARM Limited
-> > > >  # Originally tools/testing/arm64/abi/Makefile
-> > > >  
-> > > > -TEST_GEN_PROGS := vstate_prctl v_initval_nolibc
-> > > > -TEST_GEN_PROGS_EXTENDED := vstate_exec_nolibc
-> > > > +TEST_GEN_PROGS := v_initval vstate_prctl
-> > > > +TEST_GEN_PROGS_EXTENDED := vstate_exec_nolibc v_exec_initval_nolibc sys_hwprobe.o v_helpers.o
-> > > >  
-> > > >  include ../../lib.mk
-> > > >  
-> > > > -$(OUTPUT)/vstate_prctl: vstate_prctl.c ../hwprobe/sys_hwprobe.S
-> > > > +$(OUTPUT)/sys_hwprobe.o: ../hwprobe/sys_hwprobe.S
-> > > > +	$(CC) -static -c -o$@ $(CFLAGS) $^
-> > > > +
-> > > > +$(OUTPUT)/v_helpers.o: v_helpers.c
-> > > > +	$(CC) -static -c -o$@ $(CFLAGS) $^
-> > > > +
-> > > > +$(OUTPUT)/vstate_prctl: vstate_prctl.c $(OUTPUT)/sys_hwprobe.o $(OUTPUT)/v_helpers.o
-> > > >  	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
-> > > >  
-> > > >  $(OUTPUT)/vstate_exec_nolibc: vstate_exec_nolibc.c
-> > > >  	$(CC) -nostdlib -static -include ../../../../include/nolibc/nolibc.h \
-> > > >  		-Wall $(CFLAGS) $(LDFLAGS) $^ -o $@ -lgcc
-> > > >  
-> > > > -$(OUTPUT)/v_initval_nolibc: v_initval_nolibc.c
-> > > > +$(OUTPUT)/v_initval: v_initval.c $(OUTPUT)/sys_hwprobe.o $(OUTPUT)/v_helpers.o
-> > > > +	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
-> > > > +
-> > > > +$(OUTPUT)/v_exec_initval_nolibc: v_exec_initval_nolibc.c
-> > > >  	$(CC) -nostdlib -static -include ../../../../include/nolibc/nolibc.h \
-> > > >  		-Wall $(CFLAGS) $(LDFLAGS) $^ -o $@ -lgcc
-> > > > diff --git a/tools/testing/selftests/riscv/vector/v_exec_initval_nolibc.c b/tools/testing/selftests/riscv/vector/v_exec_initval_nolibc.c
-> > > > new file mode 100644
-> > > > index 000000000000..74b13806baf0
-> > > > --- /dev/null
-> > > > +++ b/tools/testing/selftests/riscv/vector/v_exec_initval_nolibc.c
-> > > > @@ -0,0 +1,84 @@
-> > > > +// SPDX-License-Identifier: GPL-2.0-only
-> > > > +/*
-> > > > + * Get values of vector registers as soon as the program starts to test if
-> > > > + * is properly cleaning the values before starting a new program. Vector
-> > > > + * registers are caller saved, so no function calls may happen before reading
-> > > > + * the values. To further ensure consistency, this file is compiled without
-> > > > + * libc and without auto-vectorization.
-> > > > + *
-> > > > + * To be "clean" all values must be either all ones or all zeroes.
-> > > > + */
-> > > > +
-> > > > +#define __stringify_1(x...)	#x
-> > > > +#define __stringify(x...)	__stringify_1(x)
-> > > > +
-> > > > +int main(int argc, char **argv)
-> > > > +{
-> > > > +	char prev_value = 0, value;
-> > > > +	unsigned long vl;
-> > > > +	int first = 1;
-> > > > +
-> > > > +	asm volatile (
-> > > > +		".option push\n\t"
-> > > > +		".option arch, +v\n\t"
-> > > > +		"vsetvli	%[vl], x0, e8, m1, ta, ma\n\t"
-> > > > +		".option pop\n\t"
-> > > > +		: [vl] "=r" (vl)
-> > > > +	);
-> > > > +
-> > > > +#define CHECK_VECTOR_REGISTER(register) ({					\
-> > > > +	for (int i = 0; i < vl; i++) {						\
-> > > > +		asm volatile (							\
-> > > > +			".option push\n\t"					\
-> > > > +			".option arch, +v\n\t"					\
-> > > > +			"vmv.x.s %0, " __stringify(register) "\n\t"		\
-> > > > +			"vsrl.vi " __stringify(register) ", " __stringify(register) ", 8\n\t" \
-> > > > +			".option pop\n\t"					\
-> > > > +			: "=r" (value));					\
-> > > > +		if (first) {							\
-> > > > +			first = 0;						\
-> > > > +		} else if (value != prev_value || !(value == 0x00 || value == 0xff)) { \
-> > > > +			printf("Register " __stringify(register) " values not clean! value: %u\n", value);	\
-> > > > +			exit(-1);						\
-> > > 
-> > > I think we should ensure all tests in tools/testing/selftests/riscv/ use
-> > > TAP output, exiting with ksft_finished(), or at least exit with 0 for
-> > > success. For example, vstate_exec_nolibc exits with 2 for success since
-> > > it exits with the return value of prctl(PR_RISCV_V_GET_CONTROL). And
-> > > vstate_prctl.c exits with several different negative values, which means
-> > > it'll exit with several different values around 255. To figure what went
-> > > wrong, one will have to convert those exit codes to the original negative
-> > > values in order to look them up. Having these types of inconsistent exit
-> > > values complicates QA.
-> > > 
-> > > Thanks,
-> > > drew
-> > 
-> > I do not follow. I am using the kselftest_harness
-> > (tools/testing/selftests/kselftest_harness.h) that does output using the
-> > TAP format. vstate_exec_nolibc is not a test in itself but is a helper.
-> 
-> Ah, this was my misunderstanding, as I'm used to all files with main()
-> being independent tests and I only grepped exit codes. I'll have to look
-> to see how this all fits together.
-> 
-> > The Makefile for the vector tests describes this as:
-> > 
-> > TEST_GEN_PROGS := v_initval vstate_prctl
-> > 
-> > If you run the riscv collection of tests with:
-> > 
-> > $ ./run_kselftest.sh --collection riscv
-> 
-> I'll look later, but I hope those tests can also be run standalone and
-> still get TAP output.
-> 
-> Thanks,
-> drew
+On Mon, 22 Jul 2024 13:23:48 PDT (-0700), Charlie Jenkins wrote:
+> On Mon, Jul 22, 2024 at 02:32:49PM -0500, Andrew Jones wrote:
+>> On Fri, Jul 19, 2024 at 09:15:17AM GMT, Charlie Jenkins wrote:
+>> > All extensions, both standard and vendor, live in one struct
+>> > "riscv_isa_ext". There is currently one vendor extension, xandespmu, but
+>> > it is likely that more vendor extensions will be added to the kernel in
+>> > the future. As more vendor extensions (and standard extensions) are
+>> > added, riscv_isa_ext will become more bloated with a mix of vendor and
+>> > standard extensions.
+>>
+>> But the mix doesn't hurt and with everything in one place it makes it easy
+>> to know where to look.
+>>
+>> >
+>> > This also allows each vendor to be conditionally enabled through
+>> > Kconfig.
+>>
+>> We can do that anyway by adding an extension menu for each vendor. If we
+>> don't want a vendor's extensions bloating the array then we just need
+>> some #ifdefs, e.g.
+>>
+>> @@ -405,7 +405,9 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+>>         __RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
+>>         __RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
+>>         __RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
+>> +#ifdef RISCV_ISA_VENDOR_EXT_ANDES
+>>         __RISCV_ISA_EXT_DATA(xandespmu, RISCV_ISA_EXT_XANDESPMU),
+>> +#endif
+>>  };
+>>
+>>
+>> So, I'm not convinced we want the additional complexity of vendor
+>> extension arrays, but maybe I'm missing something.
+>>
+>> Thanks,
+>> drew
+>
+> Vendor extensions are non-standard behavior, so this is largely an
+> organizational effort. A benefit this provides is to delegate
+> maintainership of vendor extensions to the vendor. Additionally, this
+> separation of vendor extensions prevents changes to vendor extensions
+> from affecting standard extensions and vice versa.
+>
+> Another motivation for this is that I expect vendor extensions to be
+> temporary fixes in a lot of cases. A good example is xtheadvector where
+> a previous version of the ratified vector spec was implemented. Another
+> case is vendors creating vendor extensions while waiting for RVI
+> ratification. This will cause these eventually-to-be-deprecated
+> extensions to pollute the namespace and require shuffling around of the
+> standard isa lists. When it's an internal structure it is less relevant,
+> but it is a bigger risk when it comes to hwprobe. Allowing these kinds
+> of vendor extensions into hwprobe runs the risk of causing a sparse key
+> space. We may end up with many dead bits for deprecated vendor
+> extensions that will never be able to be removed to maintain backward
+> compatibility. Having the vendor extensions split across vendors
+> streamlines the hwprobe implementation.
 
-Yes, running v_initval and vstate_prctl standalone does provide TAP
-output.
+IIRC this came up a few times.  I think it's hard to tell which will end 
+up cleaner, but it's just an internal interface and it's already written 
+this way.  So I'm fine going with this as-is, if it gets clunky we can 
+always change later -- at a certain point trying to predict 
+endor-specific stuff just leads to insanity, I'm sure some vendor will 
+figure out something crazy enough regardless of what we do...
 
-- Charlie
+So I've got this on staging, assuming it builds it'll end up on for-next 
+soon.
 
-> 
-> > 
-> > You will see that the only vector test cases are v_initval and
-> > vstate_prctl, which both output as expected in TAP format.
-> > 
-> > I do see that I messed up the return type of the is_vector_supported()
-> > function, I had meant to change that to a bool from an int since
-> > RISCV_HWPROBE_EXT_ZVE32X is greater than 32 bits. I will send a new
-> > version.
-> > 
-> > - Charlie
-> > 
+Thanks!
+
+>
+> - Charlie
 
 _______________________________________________
 linux-riscv mailing list
