@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09991C3DA63
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jul 2024 06:48:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB884C3DA63
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jul 2024 06:49:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=I+CoJZLgIGv+9RfU5FLCVTAU9RXB5qq7xLhHL6vwPEE=; b=wDJjXxjTS89p84
-	rR19xMqV1gtx48BBm0Dw+ZsmoE3CFYGGdDT37H3E/GHS4ORPSmf+DKW0+O7KPakNtTGAMgFQCPIz/
-	t9O5S3PH+z7dIaVFZEJcIPmF+aR9n0hnSYvHxgZ3mDH7t/BbZnXjk3hS2UpucTNy+F6N9zAWsU1np
-	fAkFAyfklymkVMrP/Y+8bEgDFf7rCE8+xm6xbiNfwu60dkmOBQmPbOPZV0NbuGdYActWid1jNYhtQ
-	zCvSJ037hJ5KdjfgcYJBLyTY3gwNumbX0x750q5D1mZspYlf3wPMk+TwHLYatl/o/6l7tj3Hxp9pq
-	9V086or9OmCrHUoZ3h+w==;
+	List-Owner; bh=ARd/VmSYb4SrXIOhxJ9JO1Mez6IicZ3mqTPTVd4ljrA=; b=qXGxqpHgQD0mzO
+	reCr+aGIVlfBZSSOKZxhHRZ9bAYwoKp+JCfi8mwWkdZYqND/dMDPUg6n3fe+NoJP2T9zN6E4WiJwv
+	OW9fgzsmnG2/xBlYv4uYg0//qwaAcZJozbWjLbZinAGwEIlonaiT0M87VQ5Q8Ls1bZLOBjoTPzTJq
+	tMnOcJHINlEkRozmkQ1MtWjbk4cWX3bxXuvgEViB/IyZsuW/7hoY3I5hJ/uPraERbb3bOe07v2CDX
+	OeQqFi7RrI9ByvnqoDgW1DWE135WW6AHXedQPYDrQK1APSuEmNiBZj+oj7y6HGmCj59ZWOOSV7vLa
+	jqKZh1j6N6pgzVGO/m0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sW9Jb-0000000BZpC-0ccn;
-	Tue, 23 Jul 2024 06:48:03 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1sW9Ko-0000000BaU3-3owH;
+	Tue, 23 Jul 2024 06:49:18 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sW9GJ-0000000BXcH-1aVi;
-	Tue, 23 Jul 2024 06:44:41 +0000
+	id 1sW9GT-0000000BXkc-3ZnH;
+	Tue, 23 Jul 2024 06:44:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 9B68FCE0CF9;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0702460B90;
+	Tue, 23 Jul 2024 06:44:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75DE2C4AF0C;
 	Tue, 23 Jul 2024 06:44:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A897DC4AF11;
-	Tue, 23 Jul 2024 06:44:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1721717076;
-	bh=8rGMU6H0xpSW1PfNkpG5PW55rGb66bFUqmPdcr4x6rM=;
+	s=k20201202; t=1721717088;
+	bh=UMRR3QRNDoHU23r5jw2deXNa43lw6nj2o1uMl8WO5EY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=DMH+LIu7U+aon+ordBnOP9y/4e/JQcPrdrU4wjutvSLDDvXOc1ys6wuHbI4hKieQR
-	 /xgRhOakm6RQTdiw2VvUZ5E+G5+8InucFZSJ4L/WpYdF2KBpwnJhzL2X3blwUIsPHF
-	 BNsuUV6DrXa0kDav1NpSJD8RWtLixsQL95KrNLHU/bpdX+V8avSWLrtUxamv6XP6Ji
-	 Wy8f6yiSPuW67CGtqy45Wu7qsOcxty7IMCR7Ls2bWyZ9yB4JzsDY3BvA9clRGF07K6
-	 TvjJ9DmJQksoZos1626QbyJJRVE6drznFrXoiqAYFhoYqZXLw0uPhlOK3FS/vUJ5rC
-	 SWsVGk9Lql1nw==
+	b=j35xuHfuNJnQeqb7veAbB9mttyDh+negQYCVoPrqp5oqP0zJLv/BXespI7J//nCIr
+	 Sc5hLZUbxIz7818WwGcqoz5uRApIPm6FTsS8D2xgtV/3QhZq/vSHjbyYQFteCdX9J/
+	 Z0Q1q+EAiONG8IXS2KIYvn9ZTZrI3rN/ZDXZYtg5Ba0JDP5j1rydPiw07EDLRjnfzj
+	 pgm5ToFUGkUK44WCFFrLfRGFLEUz96+/NIboNOkbTCMEuxXkQqulA5vFQFBYRFoA+V
+	 bDUooind5lcDC0gKC+UTC2cNByUYBIjZr44sdbkDnMkyVdXJiz8oVeerB9hf/6EipM
+	 zivkL/l1N+MSA==
 From: Mike Rapoport <rppt@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
@@ -91,16 +91,16 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org,
 	Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Subject: [PATCH v2 12/25] x86/numa: move FAKE_NODE_* defines to numa_emu
-Date: Tue, 23 Jul 2024 09:41:43 +0300
-Message-ID: <20240723064156.4009477-13-rppt@kernel.org>
+Subject: [PATCH v2 13/25] x86/numa_emu: simplify allocation of phys_dist
+Date: Tue, 23 Jul 2024 09:41:44 +0300
+Message-ID: <20240723064156.4009477-14-rppt@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240723064156.4009477-1-rppt@kernel.org>
 References: <20240723064156.4009477-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240722_234439_882123_71E7C15E 
-X-CRM114-Status: GOOD (  12.58  )
+X-CRM114-CacheID: sfid-20240722_234450_053842_D10491F8 
+X-CRM114-Status: GOOD (  12.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,44 +119,40 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 
-The definitions of FAKE_NODE_MIN_SIZE and FAKE_NODE_MIN_HASH_MASK are
-only used by numa emulation code, make them local to
-arch/x86/mm/numa_emulation.c
+By the time numa_emulation() is called, all physical memory is already
+mapped in the direct map and there is no need to define limits for
+memblock allocation.
+
+Replace memblock_phys_alloc_range() with memblock_alloc().
 
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 ---
- arch/x86/include/asm/numa.h  | 2 --
- arch/x86/mm/numa_emulation.c | 3 +++
- 2 files changed, 3 insertions(+), 2 deletions(-)
+ arch/x86/mm/numa_emulation.c | 8 ++------
+ 1 file changed, 2 insertions(+), 6 deletions(-)
 
-diff --git a/arch/x86/include/asm/numa.h b/arch/x86/include/asm/numa.h
-index ef2844d69173..2dab1ada96cf 100644
---- a/arch/x86/include/asm/numa.h
-+++ b/arch/x86/include/asm/numa.h
-@@ -71,8 +71,6 @@ void debug_cpumask_set_cpu(int cpu, int node, bool enable);
- #endif
- 
- #ifdef CONFIG_NUMA_EMU
--#define FAKE_NODE_MIN_SIZE	((u64)32 << 20)
--#define FAKE_NODE_MIN_HASH_MASK	(~(FAKE_NODE_MIN_SIZE - 1UL))
- int numa_emu_cmdline(char *str);
- #else /* CONFIG_NUMA_EMU */
- static inline int numa_emu_cmdline(char *str)
 diff --git a/arch/x86/mm/numa_emulation.c b/arch/x86/mm/numa_emulation.c
-index 9a9305367fdd..1ce22e315b80 100644
+index 1ce22e315b80..439804e21962 100644
 --- a/arch/x86/mm/numa_emulation.c
 +++ b/arch/x86/mm/numa_emulation.c
-@@ -10,6 +10,9 @@
+@@ -448,15 +448,11 @@ void __init numa_emulation(struct numa_meminfo *numa_meminfo, int numa_dist_cnt)
  
- #include "numa_internal.h"
+ 	/* copy the physical distance table */
+ 	if (numa_dist_cnt) {
+-		u64 phys;
+-
+-		phys = memblock_phys_alloc_range(phys_size, PAGE_SIZE, 0,
+-						 PFN_PHYS(max_pfn_mapped));
+-		if (!phys) {
++		phys_dist = memblock_alloc(phys_size, PAGE_SIZE);
++		if (!phys_dist) {
+ 			pr_warn("NUMA: Warning: can't allocate copy of distance table, disabling emulation\n");
+ 			goto no_emu;
+ 		}
+-		phys_dist = __va(phys);
  
-+#define FAKE_NODE_MIN_SIZE	((u64)32 << 20)
-+#define FAKE_NODE_MIN_HASH_MASK	(~(FAKE_NODE_MIN_SIZE - 1UL))
-+
- static int emu_nid_to_phys[MAX_NUMNODES];
- static char *emu_cmdline __initdata;
- 
+ 		for (i = 0; i < numa_dist_cnt; i++)
+ 			for (j = 0; j < numa_dist_cnt; j++)
 -- 
 2.43.0
 
