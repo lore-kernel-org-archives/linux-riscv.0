@@ -4,80 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD3A1C3DA70
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jul 2024 23:45:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B012DC3DA70
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jul 2024 00:16:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=dhrlmEkxK3MLyiimenwPuC3d0udOCD9y8VPdL1DU5aM=; b=qlrDbcLhyaEoYVefD99dByv85h
-	us2KwZHGatwim76iVxZ1/Trk1z0ro0HOVlnJatYd8YvcbcZYpi1cI6dA6IRDKlkixnRcmYRQ+Zk3m
-	ZlU/mlGDC382eBc9pzf2CcsYSic+Vbb5skl7BxgElqo3Ho9EVen5sx63cxDHNJYt4k6dyE8ovI4xR
-	3godfK96FXF+MDKBaW0Zojd88VvsjqlYh5C81foVXzabNuL0vqqGqe8A7Q0UWgQC4VPU1CI9jLCGN
-	4OJVBU6AU2L+H1RoxT9RpV2ncPWWmwRwRYjgF89BZbQnfCf5mzLvpv3FUHNKw1iNFg7nEFspEp0oo
-	q+uI8P3g==;
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hRgqRyX2LO7MLcMLeoZI7RP/LFkrOH0h/2yUlgWxErs=; b=o0oYjicSqcX5kTbJErwgKYrScH
+	eQYJfkbak1JK7iJPzEw2f4pAhV0VYUPym/6k4c1aOyFlEl8TGGp5f60h2RIMfOUx04VocFiErZ0Q+
+	AAKWL5qaa2Y5oOszb85DPOUnvG9lZLYa7+op/dEU1zh7ih5QCCv2BxYW4fCfxy9oNR3u6RY2raf2d
+	Ea+OlZRnDyE7/HFPKOeaD33VGDHj8wENFlIOlgZe8XYq0REGsS+k8gkP5AOnjJcZxS5eB4vg7DFWt
+	6JJg0/xbwoh52hS92Kjd/eUeDU5w8ycOmnaOunkLPSLoASlDq7KQRKKWBOgdLqZLfdW44wAIDG61V
+	476l7Kdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sW2iW-0000000AtCF-43cO;
-	Mon, 22 Jul 2024 23:45:20 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1sW3CL-0000000AwJp-1l3g;
+	Tue, 23 Jul 2024 00:16:09 +0000
+Received: from giraffe.ash.relay.mailchannels.net ([23.83.222.69])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sW2iK-0000000At9I-2Ibh
-	for linux-riscv@lists.infradead.org;
-	Mon, 22 Jul 2024 23:45:10 +0000
-Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-70cec4aa1e4so2381535b3a.1
-        for <linux-riscv@lists.infradead.org>; Mon, 22 Jul 2024 16:45:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1721691906; x=1722296706; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=WS54cfGPwjnguy/LYntCPaN1wfikny/NE+IC80tzPG8=;
-        b=K6AJv1+qnp/c+G7XsB+yCs7fq4FHC9jxs1KAD+QnPg7n03j/f23AuOMMTaAZL/8NAL
-         VyQPxdNOomDG0VOgLrnMGRJJIT9oCswBbAoLEF5/Q3U2n2uSm2xwRZGpQk0HpgkUn5lT
-         DhR+ldKT8ZjclgT6iXAN0ZrT/mffOA/K3hoy79bDi0iclAe1GmvhsccMvmucUYbxdHvk
-         5wR8ybHY8njqpWUM6O/St9AZK4R2XihzKOrz36xte2F5cVpl+y8zYPY7HLkhIdhAloyt
-         Nkv8k1VR/cdBXMwbX2/fbvFUffJE5+gbD1+T3RMrGza006pmw0PvDHLrS4ZVwyW2OsYt
-         KJJA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1721691906; x=1722296706;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WS54cfGPwjnguy/LYntCPaN1wfikny/NE+IC80tzPG8=;
-        b=ZoLJoA4VDv8us/KdZerJ3XZgtnfQ5aIvpX3rqKhPf4aboXLZ2M7vHDL5EaA53PVyRW
-         4NrizSNUv6dDnnw+7IM+LZkMmYiyRkwlG7JFjKY/xLjh7p8Oa8QI3JNSvhRf4g26x0gT
-         Brox+J3fILP0xPTM42VQR/XnWXtlQSXwFkylpnyeL+BTUF+Uvi/FWHzlvg+wt+XISvh2
-         rAwRwHg/bXNPYMQkh5e1QZmZruxiVVK6sr8RaFJkaZskEtxMVxx6IisOLJp6PzOyE/f/
-         ImMQS0Xa7LcnJzlXmKsli8t4xGn5Jq6t8wYN83RoDYYzSdErjbMFswIdGT3YGzcGmSFR
-         7ELw==
-X-Forwarded-Encrypted: i=1; AJvYcCXCyO6mQtkk1OsN2SNnXgMVYSxqi9pv/3CHTfGUFPJrtozN/7/HSeSFJhdjj80DsnRpZGboYcYwM+JVSHaN/YlS6pzg8AHz87lRm3I9vKyQ
-X-Gm-Message-State: AOJu0Yw+nGPzQNSLYdBx1APdPY5Nf2gC0ispslT1GoNvbVZpFv0X+3ME
-	LYJo1sFUvU4zf/3Q+KF0E6kg/I9AgRkVLoZ6rd945n7DBRgOOmS3XOzugsYt7w0=
-X-Google-Smtp-Source: AGHT+IHnxLF4xLdZqey/laXc/DP9xei64k/97GkyJAteGm1AHYh2UY/F6zpbCncn+XJoIWUIKa4z1A==
-X-Received: by 2002:a05:6a20:7f8e:b0:1c3:b47d:d53f with SMTP id adf61e73a8af0-1c44f86b19cmr1622859637.25.1721691906539;
-        Mon, 22 Jul 2024 16:45:06 -0700 (PDT)
-Received: from localhost ([192.184.165.199])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1fd6f2958a0sm60893425ad.102.2024.07.22.16.45.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 22 Jul 2024 16:45:05 -0700 (PDT)
-Date: Mon, 22 Jul 2024 16:45:05 -0700 (PDT)
-X-Google-Original-Date: Mon, 22 Jul 2024 16:45:03 PDT (-0700)
-Subject: Re: [PATCH v3 0/4] riscv: Separate vendor extensions from standard extensions
-In-Reply-To: <Zp6/1CzztAOT51yU@ghost>
-CC: ajones@ventanamicro.com, Paul Walmsley <paul.walmsley@sifive.com>,
-  aou@eecs.berkeley.edu, Conor Dooley <conor.dooley@microchip.com>, Evan Green <evan@rivosinc.com>,
-  andy.chiu@sifive.com, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-  peterlin@andestech.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Message-ID: <mhng-fa5b8aa8-375c-4780-a90d-64511f76ab07@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+	id 1sW3Bw-0000000AwCu-1Pxu;
+	Tue, 23 Jul 2024 00:15:46 +0000
+X-Sender-Id: dreamhost|x-authsender|dave@stgolabs.net
+Received: from relay.mailchannels.net (localhost [127.0.0.1])
+	by relay.mailchannels.net (Postfix) with ESMTP id 1E086805A36;
+	Tue, 23 Jul 2024 00:15:39 +0000 (UTC)
+Received: from pdx1-sub0-mail-a214.dreamhost.com (unknown [127.0.0.6])
+	(Authenticated sender: dreamhost)
+	by relay.mailchannels.net (Postfix) with ESMTPA id 4A384806031;
+	Tue, 23 Jul 2024 00:15:38 +0000 (UTC)
+ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1721693738; a=rsa-sha256;
+	cv=none;
+	b=NT/VuLPGSsXIS+33VS9VsqvYIMvRYDDuKR7jGAo1uczzflAGxyy0dq8IzLuBXAUoCF/A5o
+	r0dUQSRQwV0cGgh5kT4NsYiRkj7qRJ3SUqjV+hVTET1wLEVqagAZ6BMufpiCU60vxhTIHG
+	UiwgbCQaussisE3yLEVZeHmpAtoBjdg07DpL8KGqH+amyJLjzn4SNXrWInTsHOVKK6O13a
+	qxlp8722ii2v/+YIvG9YRD1PYeR6ohGVzZyRhEjiUMQMePf7apiR9KsZSQf3oxZ8HamAIl
+	yqzyfnZ5cru80vvBbNejM9uPRTG9x53YJP47GMbYztpBrW0c20m4P3OkS6sdNQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mailchannels.net;
+	s=arc-2022; t=1721693738;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references:dkim-signature;
+	bh=BfrsTF3PjDyketH5sAvV75FgyXiYN8/JjDAq8vHafIY=;
+	b=E2ZM2eRjdopLhRqJ0qkfxrHZlZAsVY66TXjoXe6dr3bDm3AABn4cDR12NX7RXY0R1JoBVM
+	bCSZqgizyBERW3jZ/jul91PwZ5i20Q78rmORhjyNFw0OwG/VEQHwqYaMRLqg3pGqqDNWVk
+	NbiQv6TvMfq1yYQAmrCxYS8G09Tt7xc+74qJ6IArlOoMy/MD6C/lJGZLMEIgSj4PjS2uOy
+	1d1WKJzIHp9QF/4p/tI+9TqjK1jYZXXeDWqukjxduieiW7xDncLGKeQtO1tfLCd93aveOD
+	Cfg0m8teciQcZOjYG5n7Uhlgs1/fgszgOFydcfaGWi4oJJNm4ZsEh89c7a9j4g==
+ARC-Authentication-Results: i=1;
+	rspamd-587dc898b6-9fwgf;
+	auth=pass smtp.auth=dreamhost smtp.mailfrom=dave@stgolabs.net
+X-Sender-Id: dreamhost|x-authsender|dave@stgolabs.net
+X-MC-Relay: Neutral
+X-MailChannels-SenderId: dreamhost|x-authsender|dave@stgolabs.net
+X-MailChannels-Auth-Id: dreamhost
+X-Fearful-Macabre: 125d6dc84c6e5729_1721693738922_585174325
+X-MC-Loop-Signature: 1721693738922:3890902801
+X-MC-Ingress-Time: 1721693738922
+Received: from pdx1-sub0-mail-a214.dreamhost.com (pop.dreamhost.com
+ [64.90.62.162])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
+	by 100.121.241.7 (trex/7.0.2);
+	Tue, 23 Jul 2024 00:15:38 +0000
+Received: from offworld (ip72-199-50-187.sd.sd.cox.net [72.199.50.187])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dave@stgolabs.net)
+	by pdx1-sub0-mail-a214.dreamhost.com (Postfix) with ESMTPSA id 4WSd2v6Krhz2K;
+	Mon, 22 Jul 2024 17:15:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=stgolabs.net;
+	s=dreamhost; t=1721693738;
+	bh=BfrsTF3PjDyketH5sAvV75FgyXiYN8/JjDAq8vHafIY=;
+	h=Date:From:To:Cc:Subject:Content-Type;
+	b=FU5sqAqlnBAYPEJ1amDjGSFoog2KTuxMpl2bRre6zYepul8zS777HtjxiV/Ti470X
+	 7tTal7LNWT5qzdwm/Kgi3LJXNinfroiFwVnE6WJGEz2W/hH5jx9Nn61DcPRQ7jOeGJ
+	 QG2H/imfq2kX6wbJ1Wx+WC82p9fLQZ3CQU7UUqDOyiXQ8yVnFmdTaulAI/+6MeA0Ly
+	 TdXIhGuabrciys+H/4aPga+ApM7IEMPP6W7QeZajTtwkoraSNUOE2DuNdBwtLT8juH
+	 ND031tUJHkyvIA/KoaxhVv/myZsSqprEhkI80zrbBDsKfaVGCL4giJ+3VB8gTxKhgo
+	 bf18mBD7JAeog==
+Date: Mon, 22 Jul 2024 17:15:32 -0700
+From: Davidlohr Bueso <dave@stgolabs.net>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: linux-kernel@vger.kernel.org, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Andreas Larsson <andreas@gaisler.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
+	Dan Williams <dan.j.williams@intel.com>, Dave Hansen <dave.hansen@linux.intel.com>, 
+	David Hildenbrand <david@redhat.com>, "David S. Miller" <davem@davemloft.net>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Heiko Carstens <hca@linux.ibm.com>, 
+	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+	Jiaxun Yang <jiaxun.yang@flygoat.com>, John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
+	Jonathan Cameron <jonathan.cameron@huawei.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+	Thomas Gleixner <tglx@linutronix.de>, Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, linux-acpi@vger.kernel.org, 
+	linux-cxl@vger.kernel.org, nvdimm@lists.linux.dev, devicetree@vger.kernel.org, 
+	linux-arch@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
+Subject: Re: [PATCH 04/17] arch, mm: move definition of node_data to generic
+ code
+Message-ID: <vwofm2kcltxn4ysrf4lefe2zdqvo2upxdyntatmnh3sywcnjlq@4c6wlllurfn5>
+Mail-Followup-To: Mike Rapoport <rppt@kernel.org>, 
+	linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>, 
+	Andreas Larsson <andreas@gaisler.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
+	Dan Williams <dan.j.williams@intel.com>, Dave Hansen <dave.hansen@linux.intel.com>, 
+	David Hildenbrand <david@redhat.com>, "David S. Miller" <davem@davemloft.net>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Heiko Carstens <hca@linux.ibm.com>, 
+	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+	Jiaxun Yang <jiaxun.yang@flygoat.com>, John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
+	Jonathan Cameron <jonathan.cameron@huawei.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+	Thomas Gleixner <tglx@linutronix.de>, Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, linux-acpi@vger.kernel.org, 
+	linux-cxl@vger.kernel.org, nvdimm@lists.linux.dev, devicetree@vger.kernel.org, 
+	linux-arch@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
+References: <20240716111346.3676969-1-rppt@kernel.org>
+ <20240716111346.3676969-5-rppt@kernel.org>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240716111346.3676969-5-rppt@kernel.org>
+User-Agent: NeoMutt/20240425
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240722_164508_795298_ECDE01CE 
-X-CRM114-Status: GOOD (  27.88  )
+X-CRM114-CacheID: sfid-20240722_171544_602545_F3A70060 
+X-CRM114-Status: UNSURE (   7.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,77 +154,25 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 22 Jul 2024 13:23:48 PDT (-0700), Charlie Jenkins wrote:
-> On Mon, Jul 22, 2024 at 02:32:49PM -0500, Andrew Jones wrote:
->> On Fri, Jul 19, 2024 at 09:15:17AM GMT, Charlie Jenkins wrote:
->> > All extensions, both standard and vendor, live in one struct
->> > "riscv_isa_ext". There is currently one vendor extension, xandespmu, but
->> > it is likely that more vendor extensions will be added to the kernel in
->> > the future. As more vendor extensions (and standard extensions) are
->> > added, riscv_isa_ext will become more bloated with a mix of vendor and
->> > standard extensions.
->>
->> But the mix doesn't hurt and with everything in one place it makes it easy
->> to know where to look.
->>
->> >
->> > This also allows each vendor to be conditionally enabled through
->> > Kconfig.
->>
->> We can do that anyway by adding an extension menu for each vendor. If we
->> don't want a vendor's extensions bloating the array then we just need
->> some #ifdefs, e.g.
->>
->> @@ -405,7 +405,9 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
->>         __RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
->>         __RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
->>         __RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
->> +#ifdef RISCV_ISA_VENDOR_EXT_ANDES
->>         __RISCV_ISA_EXT_DATA(xandespmu, RISCV_ISA_EXT_XANDESPMU),
->> +#endif
->>  };
->>
->>
->> So, I'm not convinced we want the additional complexity of vendor
->> extension arrays, but maybe I'm missing something.
->>
->> Thanks,
->> drew
+On Tue, 16 Jul 2024, Mike Rapoport wrote:\n
+>From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 >
-> Vendor extensions are non-standard behavior, so this is largely an
-> organizational effort. A benefit this provides is to delegate
-> maintainership of vendor extensions to the vendor. Additionally, this
-> separation of vendor extensions prevents changes to vendor extensions
-> from affecting standard extensions and vice versa.
+>Every architecture that supports NUMA defines node_data in the same way:
 >
-> Another motivation for this is that I expect vendor extensions to be
-> temporary fixes in a lot of cases. A good example is xtheadvector where
-> a previous version of the ratified vector spec was implemented. Another
-> case is vendors creating vendor extensions while waiting for RVI
-> ratification. This will cause these eventually-to-be-deprecated
-> extensions to pollute the namespace and require shuffling around of the
-> standard isa lists. When it's an internal structure it is less relevant,
-> but it is a bigger risk when it comes to hwprobe. Allowing these kinds
-> of vendor extensions into hwprobe runs the risk of causing a sparse key
-> space. We may end up with many dead bits for deprecated vendor
-> extensions that will never be able to be removed to maintain backward
-> compatibility. Having the vendor extensions split across vendors
-> streamlines the hwprobe implementation.
-
-IIRC this came up a few times.  I think it's hard to tell which will end 
-up cleaner, but it's just an internal interface and it's already written 
-this way.  So I'm fine going with this as-is, if it gets clunky we can 
-always change later -- at a certain point trying to predict 
-endor-specific stuff just leads to insanity, I'm sure some vendor will 
-figure out something crazy enough regardless of what we do...
-
-So I've got this on staging, assuming it builds it'll end up on for-next 
-soon.
-
-Thanks!
-
+>	struct pglist_data *node_data[MAX_NUMNODES];
 >
-> - Charlie
+>No reason to keep multiple copies of this definition and its forward
+>declarations, especially when such forward declaration is the only thing
+>in include/asm/mmzone.h for many architectures.
+>
+>Add definition and declaration of node_data to generic code and drop
+>architecture-specific versions.
+>
+>Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+
+Nice cleanup.
+
+Acked-by: Davidlohr Bueso <dave@stgolabs.net>
 
 _______________________________________________
 linux-riscv mailing list
