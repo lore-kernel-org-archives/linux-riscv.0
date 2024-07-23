@@ -4,87 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1509BC3DA70
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jul 2024 02:18:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FC47C3DA70
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jul 2024 02:19:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=mTjSzd2VuOEjcOyo/RCcRWd4bW5ThyiyJbcTBBVuikA=; b=X1pZPe/k792DiB
-	IT7jDWYe1BLxMM7DgyYAneFjXoDctUphwlMHjxsBmjZkJLlZqqcONaI5I4TuOPX3XXPqOvUlIpSF/
-	0UyGJ0qBJuWAbKeiNYLwq3jGjBI6GcBm4ZVwxib6Q/XH9SEWWx3U5ixceaA+h6Gh8DR7Ss+6OmJL1
-	CYVe6D5ZafoDjlEWbDR4yG8sKLWkSuNLvcrJbvut9CTqU4u75syrpIz6sKfFLaIHKMtqcqbox00YY
-	yz52IXJ2rDMPtPaZh0oFrBGMNkv0YTfhpF825gd9CPz/guGUb7XH4bwL5KyJIiBBxyzrMdIdIEuSe
-	Tzr07TvApzXwyjSU4GyQ==;
+	List-Owner; bh=8eRcx8mziHZBhFmJowv++R4r9tOEaS4d2UZvpFRrRJk=; b=HFJhqLCPvZIA2G
+	wP1cWzQnHMQgphz1Vp20M6WfdKM6dUA9HlZ8MDAm8JlyKoEhhqiZuCI5RFFszCT8cqjwVi1UwI03g
+	Mp02NrLdGaTdVnWLGnXGQ8aF4SqAB8Sx06pteKQi8ArUeCDcntqcDe6h19T+GXMJZmfY5AQ197sj+
+	MA2pBOxyDFGRhD3g0snhzdTkoIDooPUSzxasYGDUpQ7AZ/TnAuuwYZRAPj/3PZxByBiBWMyCpIByC
+	9Skd41p5A8FA+jaZPQc2FDTPD2qQLJ6+4hRykMOK0K0jM/Tcw0KG3vj6RfjS2qiKM38/laN55JBM6
+	J0SdOaWJpg9fe/TYfFnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sW56l-0000000B7jQ-4C5B;
-	Tue, 23 Jul 2024 02:18:32 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1sW57c-0000000B7s2-3H8J;
+	Tue, 23 Jul 2024 02:19:24 +0000
+Received: from mail-bn8nam12olkn20827.outbound.protection.outlook.com ([2a01:111:f403:2c18::827] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sW56j-0000000B7ij-2lqJ
+	id 1sW57Z-0000000B7rK-3v3e
 	for linux-riscv@lists.infradead.org;
-	Tue, 23 Jul 2024 02:18:30 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-1fd9e70b592so2195165ad.3
-        for <linux-riscv@lists.infradead.org>; Mon, 22 Jul 2024 19:18:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1721701109; x=1722305909; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=jCOgQc9KD2XGZH574ODgjuwFya0AxvNADd4TgDpsqGY=;
-        b=AtOv+V83Sh8zOQ5WYMgbJKp0fjNSLDtEJuh0XbA4LQtEt32vF6MOgJkRNgScp1I5Bt
-         J0zKwkQDubtJt2Vp8tDKpEna5SEtQhtZ3PxEdRdcWzDKFIp7ZuIwGxKfCEXN7N19Cbow
-         SftLCJdC6lZzMWEjuM5yxoytjnIu8FnH1wgvBdCTZijpGZ48VmszhV9Yt9XVjJgXJgxm
-         7rqrEZ7oIxT0M4JFOq71thsLx0mgyQc9hebGSjAf/H/HdgLOT0BT/8k/7TRKR2HflQNj
-         aT2hVcCtDSwuHazOMJtSFHZHWea1TMHkQFBUt+4IeqzKi/uJsWHdsExQXafto2XCf62/
-         Xeew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1721701109; x=1722305909;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=jCOgQc9KD2XGZH574ODgjuwFya0AxvNADd4TgDpsqGY=;
-        b=F+4uHK9CqjylXTdLRHdPAQmJ9ZgDwSPV78BNF3vbb8ZjyVLuPzu+uxpsgVj9vW/SRu
-         Ar3Jvj0DuXRoSVIIjxHtxJh2J6TzzXIHWNgScWKBcxjirlc8Cvto0iCOnVJ7pMcCMhLK
-         Fqd+lKgsOzjUcextW6s0hckyXNB93pGZxKwM9Tz3MkJaGHDSMkg5nfLywiX3Uc8yuxZu
-         a5KKKXvKBr4tzankBkwgWMwxEzb7wZaT37Rgamtv2kIRPxf2IvSHcH3b1xMsEJByYxj9
-         7udoaCRx2J8OmY0OAVfi1AEG1GAFQFgiAFaxJIIrRjdcFZqsP9cFvkJkhUVjML2BQv0v
-         bxNg==
-X-Forwarded-Encrypted: i=1; AJvYcCX9MkhbRzfsHPYxmiL8jCWPH9+HeelLre3z4MzLXlPSeGowdczRSaHnNfaGqj6Py29hi+BB7WHNwoyA31Hv4QmiOMPXLZprNJMghfER8P99
-X-Gm-Message-State: AOJu0YxNTojIZsuPTLj4ZNYqtqxJN/Ebad0/GY6WLD7W8LwkkwS/HcDs
-	VP8Itz7LyRl6D4JBWRgcwW3uBTs0h1BMXf0ZkBk1Vv2rKs34tAz3/EnmEEvGong=
-X-Google-Smtp-Source: AGHT+IHLVAW18zN+0gBUE02az2jmDMGy7YkWcLa5yHJa8UE1dySgQEyZHI7Dqpt3Zk8tPEcJDeKN4g==
-X-Received: by 2002:a17:902:e885:b0:1fb:8e25:e631 with SMTP id d9443c01a7336-1fd74520f53mr68006945ad.8.1721701108701;
-        Mon, 22 Jul 2024 19:18:28 -0700 (PDT)
-Received: from L6YN4KR4K9.bytedance.net ([139.177.225.225])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1fd6f31a2d8sm62496825ad.121.2024.07.22.19.18.24
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 22 Jul 2024 19:18:28 -0700 (PDT)
-From: Yunhui Cui <cuiyunhui@bytedance.com>
-To: conor@kernel.org,
-	punit.agrawal@bytedance.com,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	akpm@linux-foundation.org,
-	surenb@google.com,
-	peterx@redhat.com,
-	alexghiti@rivosinc.com,
-	willy@infradead.org,
+	Tue, 23 Jul 2024 02:19:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QB2BIQFxVmGJVdEv431qq05x4YuHx+TO2mvXd2j7cCYUZrEGLNqJXBmULu2NPMOpAKIf1z4w2Ek8r+kDF+0zSeWZZWCSY+IqocLf1j1hRKCV81kKL0FkST1qo13nCXTEkWrVrKuQHTi09EjJeg7izVygofGY4WLgMZaGO2nrNtaMtdaXsDGtoC1TU5XGnH8dZAaGRfYM6x0/XvBxYUw1T0uwZOQaZRu3m99331nVLig7AtDTWp8vY4lT5kNPY7P4Ga9cZWHObnmlmP3c/VLcTIE+O6bzqIlB/0d+DdQYr1JQ7UkEy1+867A80gnrTKnvx9+2gufIZ3i4C0fgIAFrVg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DVqoP6N7yFGG1dbc+ozcjeci9fVNVSwhE93MqgISy24=;
+ b=B0WIrqw1wXJNEadDua6uHgPGZaldGQik/Pq5U/NeObMEVIwFfl0oMjbtrQob+13crg/IH7eUANsII5kn9B/aWBXFZ6WrSYXhqpqmj1o7/DTp/Ey9aoA5O5Y4QX7WyTyqnOnPv68FJfFi58xFlK6pSl3dZPAfGNNusBFibP+7+5E5UovVvWTA/ys4WWREPl0YvsN/qsOmNEhvkS0hQInr/zX19PMi8w8EDrJ0IvevyRW+Z7dlpT4a5F9vOf3YiEsqEIGmIjkYDPl+v8s2rhnIlrDhGo3gFULzizzbilV8FEv1uXLwY8k79Ty7sygOrQJmG2WPMEaySdifvp29wkwfcA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DVqoP6N7yFGG1dbc+ozcjeci9fVNVSwhE93MqgISy24=;
+ b=UjaBJFWG2XxNxrULV3jXr7W2JAIpolPgvfuf7omad70/Q1nfaJQq6/BM3/tXcXgkvxVsKCXPAwJveBIThrt/3ZaVOhn7eKeLBhWik/fMCc49wl3hlRb4OT0RQHIlDnG8dNzl2uIb6rcVq/7kslVCBobABHx9T0lsyLiLvXVQRVefGiTpRd6Pyo8ZpyKoLvZVQjnDuel5BRtcP/PtUmh90jshkym/xfiiurXJnXuZADxii6xC4uSanH/NvKNZ9M2A4J0qURlz7ZfGncZw2YkwwMXcHgRo3tE1wtsm6bfQ+GEJxgMPlPBLXxkF1qNdmEjEYNJGOACrxM0XuQtp4p3KQQ==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by PH7PR20MB7096.namprd20.prod.outlook.com (2603:10b6:510:305::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7784.17; Tue, 23 Jul
+ 2024 02:19:09 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::ab0b:c0d3:1f91:d149]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::ab0b:c0d3:1f91:d149%5]) with mapi id 15.20.7784.016; Tue, 23 Jul 2024
+ 02:19:09 +0000
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Jisheng Zhang <jszhang@kernel.org>
+Cc: devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Cc: Yunhui Cui <cuiyunhui@bytedance.com>,
-	Andrew Jones <ajones@ventanamicro.com>
-Subject: [PATCH v3] riscv/mm/fault: add show_pte() before die()
-Date: Tue, 23 Jul 2024 10:18:20 +0800
-Message-Id: <20240723021820.87718-1-cuiyunhui@bytedance.com>
-X-Mailer: git-send-email 2.39.2 (Apple Git-143)
+Subject: [PATCH] riscv: dts: sophgo: Add sdhci0 configuration for Huanshan Pi
+Date: Tue, 23 Jul 2024 10:18:49 +0800
+Message-ID: <IA1PR20MB49538AC83C5DB314D10F7186BBA92@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-Mailer: git-send-email 2.45.2
+X-TMN: [E5z/HCVyRP85ZYWvcajIW25oCMklz0L6DcTyN+bseTI=]
+X-ClientProxiedBy: SI2PR01CA0049.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:193::13) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <20240723021850.227272-1-inochiama@outlook.com>
 MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|PH7PR20MB7096:EE_
+X-MS-Office365-Filtering-Correlation-Id: 02427b8a-7f87-439d-ec9a-08dcaabdd610
+X-Microsoft-Antispam: BCL:0;ARA:14566002|8060799006|19110799003|461199028|3412199025|440099028|1710799026;
+X-Microsoft-Antispam-Message-Info: NCbyqctp7WnutumywhNBov83fJL7XiYpbYVzZU85u/K586gcu4R4DEBG7iDXXA9fPIYR5NXkMv+ysO+UXE81SUjQazECBTFE/6cddWFvuzEgdzOIkHnp+sMToBOA+ZYswPrl04Pu+hCkcV++Lt9xBqASzEht9q4WpYEq8hjzkhAUq6TrB26lAGjw7m7HI/s8w3iKo4NliWmyFEk5u3sV+gYI2ORF8K2fvBNzCd9TpHrpfb5iGMMs+q3Uge3Vdn+mV1y4SMwxWfw35EocurRgcc/zd5f19LowFn2rsizHdTQGMLIutnFv3oA3wbWXNWSHhk8kEG9GkWKZ0QkbP9HPNkmzsz6WxeC4PvIQgLlDOSmU0BzGO+Vo5ytboxGcloHfd209Fdqg2ZtbrUVLWcKLV3grbG+LuDnbTY91mscVlnFyd6oFWTHPYBuR+VatWU1lg2vRueLl1TRV/A5xyMyCM/tAiul180FBuV13wKKUEvpCSXafTULpEv3mgKWd//Q/5CgJPi/eo/pd53UdDEV5UdPntUqpod4QN9r2y/0TcEqZvosU/Uc0HyvWGlyxVyt64qLTxeNWcvoNN7ERXapUa/gZcY30whqeNm1+0VOn7ZlRht9m2CICPYTHbmJoUmh+3oIlIJh7HOsSHUSBmmw659lSAsI6/QMiXlbDq7SIlx2njMGMj72WsjlN9uP+BV+5
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?u/xsxRlJEoswd3tDvPABoZVHrYQgm/EI5m+mBVJLyIcG0IWHf5V0n7ASIwCq?=
+ =?us-ascii?Q?Jr48QXBNEPgMT2W6jQgwUzJopkaIcM4hm10rBV7J9+d881rCR7n4t8n/XyzW?=
+ =?us-ascii?Q?LTpmBGqtDQUq8V+M/7z8nqaqXNw1Z1apbu1z2vehK9KJ7LM7LEyoFBfWuhLZ?=
+ =?us-ascii?Q?sJD60YzhYNWmd9bD/cm7ppZp+EK2fXur4UVs+pT+JHghb90LaOZ4IjZVgmHF?=
+ =?us-ascii?Q?FUOUmFrUzWUpLL8ZOY0b3eA1nIg/odn6eUqKJxztK6n5jbi8tznuiEUTJIH7?=
+ =?us-ascii?Q?J/G39CR2fpcK/CXsqf4/pxDYp5E4JbiKlMW2fLRNG1/MpVOeuntQWZfnLa9n?=
+ =?us-ascii?Q?+SAkqo/GDcDmHABL2elMN6q8Z2ZVCmrs1kjY3W4xQhGoQlLpr++9D8zHUJck?=
+ =?us-ascii?Q?8XXHJNNMGVmWRdcWhncqKxeHKBO63F4gM+0jICCvpZio+fLZr5PGYR8dUhTD?=
+ =?us-ascii?Q?5T+MrIbQvqdv4BYOp2CTtZA+NDqo2JrLrqkFm7YsH0SUq9Bbq5uGGOT9Ns2F?=
+ =?us-ascii?Q?wLpvVMk5k5hJAgn4Ld+EUXY3F1GGGfaAOMJ4D+XVsWuP/agAJoyA7ZqvG34t?=
+ =?us-ascii?Q?LN1HJnB7/BfK2HMfr4anw+I/cBs7AQy1eaRwmYR7nn417m+2YBDNJIiFZz7s?=
+ =?us-ascii?Q?edTcsdQ0JCdiucEhWuiaggBL2JhmXG79AMkXBwBzNEncrV9S6MvUYDoS2faH?=
+ =?us-ascii?Q?XgnFUlZgznL3C/oxQFhezmg6vLgqYUmIoxGMnpyyQjS5xth2t6f/zHV4oQSQ?=
+ =?us-ascii?Q?zJhkaRxP3+gu9Zel7SMt5xKD9XlwRZ+yTpbFdkmhgRASoVbJgrJf9Szb47f6?=
+ =?us-ascii?Q?MffZV6hgMpLbtL/kn2o7HczuWb4S3Q8fWAJLcs7MuA2SBYxbxblf7YovQNeL?=
+ =?us-ascii?Q?aMDP9dEk9qOZbMQNUC1euPhRH4b9GKV3ZtW7hc5wi10PVinMPnQNLiUcrksz?=
+ =?us-ascii?Q?ymGFDjm2TkSyF13+It4nymyyKIRLuFXJNWFLRQS2dGEhYpWgPUtFPBl4gOjC?=
+ =?us-ascii?Q?KHkoKmfpHZJESBqesQvLC1pkT+L5+ncFoOrjv5l/9d1bv7VB94kQ/oxz4W2Z?=
+ =?us-ascii?Q?hoTpC78+lQJBU7rHFEQ226TR9x66kbvE33LypzefA4U7j5rN9LG+jEEjaIBK?=
+ =?us-ascii?Q?bgiyXKPsXMbV+GbvsTz0oHpL1UWYjgULdZuvZFsqQgqsCX8GCBge65h/QayF?=
+ =?us-ascii?Q?3D1MA/iAZSWbHDpPA7dY4bbwBrKkWTxekhKCW9jYVnN+HkdcRSqSp3fXniCW?=
+ =?us-ascii?Q?ZP5d3XB51qsospseDuoJ?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 02427b8a-7f87-439d-ec9a-08dcaabdd610
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2024 02:19:09.8628
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR20MB7096
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240722_191829_720752_63C90FB6 
-X-CRM114-Status: UNSURE (   9.44  )
+X-CRM114-CacheID: sfid-20240722_191922_006278_6BD7F355 
+X-CRM114-Status: UNSURE (   6.86  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,89 +132,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When the kernel displays "Unable to handle kernel paging request at
-virtual address", we would like to confirm the status of the virtual
-address in the page table. So add show_pte() before die().
+Add configuration for sdhci0 for Huanshan Pi to support sd card.
 
-Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
 ---
- arch/riscv/mm/fault.c | 52 +++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 52 insertions(+)
+ arch/riscv/boot/dts/sophgo/cv1812h-huashan-pi.dts | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
-index 5224f3733802..c72e6c7c09ef 100644
---- a/arch/riscv/mm/fault.c
-+++ b/arch/riscv/mm/fault.c
-@@ -22,6 +22,57 @@
- 
- #include "../kernel/head.h"
- 
-+static void show_pte(unsigned long addr)
-+{
-+	pgd_t *pgdp, pgd;
-+	p4d_t *p4dp, p4d;
-+	pud_t *pudp, pud;
-+	pmd_t *pmdp, pmd;
-+	pte_t *ptep, pte;
-+	struct mm_struct *mm = current->mm;
+diff --git a/arch/riscv/boot/dts/sophgo/cv1812h-huashan-pi.dts b/arch/riscv/boot/dts/sophgo/cv1812h-huashan-pi.dts
+index aa361f3a86bb..7b5f57853690 100644
+--- a/arch/riscv/boot/dts/sophgo/cv1812h-huashan-pi.dts
++++ b/arch/riscv/boot/dts/sophgo/cv1812h-huashan-pi.dts
+@@ -43,6 +43,15 @@ &osc {
+ 	clock-frequency = <25000000>;
+ };
+
++&sdhci0 {
++	status = "okay";
++	bus-width = <4>;
++	no-1-8-v;
++	no-mmc;
++	no-sdio;
++	disable-wp;
++};
 +
-+	if (!mm)
-+		mm = &init_mm;
-+
-+	pr_alert("Current %s pgtable: %luK pagesize, %d-bit VAs, pgdp=0x%016llx\n",
-+		 current->comm, PAGE_SIZE / SZ_1K, VA_BITS,
-+		 mm == &init_mm ? (u64)__pa_symbol(mm->pgd) : virt_to_phys(mm->pgd));
-+
-+	pgdp = pgd_offset(mm, addr);
-+	pgd = pgdp_get(pgdp);
-+	pr_alert("[%016lx] pgd=%016lx", addr, pgd_val(pgd));
-+	if (pgd_none(pgd) || pgd_bad(pgd) || pgd_leaf(pgd))
-+		goto out;
-+
-+	p4dp = p4d_offset(pgdp, addr);
-+	p4d = p4dp_get(p4dp);
-+	pr_cont(", p4d=%016lx", p4d_val(p4d));
-+	if (p4d_none(p4d) || p4d_bad(p4d) || p4d_leaf(p4d))
-+		goto out;
-+
-+	pudp = pud_offset(p4dp, addr);
-+	pud = pudp_get(pudp);
-+	pr_cont(", pud=%016lx", pud_val(pud));
-+	if (pud_none(pud) || pud_bad(pud) || pud_leaf(pud))
-+		goto out;
-+
-+	pmdp = pmd_offset(pudp, addr);
-+	pmd = pmdp_get(pmdp);
-+	pr_cont(", pmd=%016lx", pmd_val(pmd));
-+	if (pmd_none(pmd) || pmd_bad(pmd) || pmd_leaf(pmd))
-+		goto out;
-+
-+	ptep = pte_offset_map(pmdp, addr);
-+	if (!ptep)
-+		goto out;
-+
-+	pte = ptep_get(ptep);
-+	pr_cont(", pte=%016lx", pte_val(pte));
-+	pte_unmap(ptep);
-+out:
-+	pr_cont("\n");
-+}
-+
- static void die_kernel_fault(const char *msg, unsigned long addr,
- 		struct pt_regs *regs)
- {
-@@ -31,6 +82,7 @@ static void die_kernel_fault(const char *msg, unsigned long addr,
- 		addr);
- 
- 	bust_spinlocks(0);
-+	show_pte(addr);
- 	die(regs, "Oops");
- 	make_task_dead(SIGKILL);
- }
--- 
-2.39.2
+ &uart0 {
+ 	status = "okay";
+ };
+--
+2.45.2
 
 
 _______________________________________________
