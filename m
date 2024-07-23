@@ -4,86 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67FB7C3DA49
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jul 2024 03:54:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAA43C3DA63
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jul 2024 05:18:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date
-	:From:In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4IHWAx9APPaXYr/dfGTiKZ+qVVJdy6TpvmfpzKM+dQ8=; b=BD8nDb9Mr8XAH/
-	/99iTCv6WSj+Rk7NB1S7gyhck7Rd/mgdUlb5/Dfv0dy90XRA7mr2UJ6tCQrOIVBTTFJ2TyK1P+mUv
-	229acx2jOuuBWqyDThjnNyQnFR9BdPJ6ZOmseBVwQe3IixgOpbjiX18k+EAS8rAOArg4h4rriL5/s
-	UJaU3zlK5Ea1+Uzr8bAHdrhK6kjHrzTsR/GT6plAvvKzgB+kVAvKTj0O8aKDY6jkIVKUJCAv0AuoZ
-	CEbSoTr59PF1vEezNdjj/Wymc2zV4EOTLiwVO8sHDIcVlVBdBx+hLfUEvNfH86PuuwkbmMXIMjEPY
-	b1LCtD7247R86yDqklXg==;
+	List-Owner; bh=g4n0TLGOOSZr8qOKy4MMDJnI/xeCy515y36ZXLz+m9k=; b=p7Vw4sbdfOMqiM
+	nZz4ddECOYcBq6jdHZQ+uQFo8EAn/nV8Qnhg6aw9zNf55tdvsHXJ0JmSCmpPXyAYWsm+EiyLCCUab
+	d9XBcxj3VVAuKr+a/xEh8PfVepkGOq0AapamnkXPF9J7JnuQOTb/kgTTJkMsMLSvC/fG42XsDLmC1
+	jkFwWzg02CqvZXByxQRo9p/AzDdFaUOsz9r5y25i/Z6c3hfsJpzixxnOVq/zJXUrsPhIRsZ81GJuJ
+	GeeVi8a6jucEmwsvx1ykm9sdmL+G+lKMx8jo9zttId0L/XCXUYJPaRkBbhlfplEM9WyIorFhi12MI
+	IUbK/9pDOr57RlbzzMnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sW6bW-0000000BFaR-3w7l;
-	Tue, 23 Jul 2024 03:54:22 +0000
-Received: from mail-lf1-f45.google.com ([209.85.167.45])
+	id 1sW7us-0000000BMz0-1A78;
+	Tue, 23 Jul 2024 05:18:26 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sW6bT-0000000BFZg-1D29
+	id 1sW7uU-0000000BMuY-3DOU
 	for linux-riscv@lists.infradead.org;
-	Tue, 23 Jul 2024 03:54:21 +0000
-Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-52f04c29588so2190457e87.3
-        for <linux-riscv@lists.infradead.org>; Mon, 22 Jul 2024 20:54:18 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1721706856; x=1722311656;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=2mfBfGvPkaBeH2hLbWeN6l9L0QxXvLWhmVsi1nmC0QY=;
-        b=UOiv+qlUesNwdaRfvk6GvLUjDRQYR/GW/PHI7dS7C+5jY8pThNVyPI5MCbCew94hTC
-         x4QlSFoC8/+/s6/EW6SjnXm9LJWkEyJxB8RHTtf6raFutqZ8kCaIWu4wcxYPqeTF4ynT
-         3uVFMNbGtlPW8VR1p+JmOYBx1VfF+PGaT/RYrY+QiX5IniXFYyCJBPx26fAgOxmkI2l4
-         uh7x/966I7yQ6hy4lG6bhWra5NRV9WeFriayQRXre/ROH2qbtvZZ38BCg68U6L4qjQyT
-         I/WCyaXQD2LLnRHUesEAt3zUuiKvGd/qNmZrkKPUg08K5t3Lzt1vjMb8CUn8NjS3ZBBG
-         DxPg==
-X-Forwarded-Encrypted: i=1; AJvYcCVaTNs27dsHOrEirvllllFPGZg1Ja+3X/qNIWIb1Fx2M7wbgK/tnG3VvcsM3Gbq3V2MkKj/0/Imh8LNTrGqt28OZCYIaassxuOrjK7tPeXN
-X-Gm-Message-State: AOJu0YyvUyE5eFJN8sbDTtpYbdIAuLJZ17MDBXX+PaOdr8U1p84O3y8c
-	LzTlVyXbHj/Mmh8W5CxuvqljcAn5X8vAIKHwEhSb5+UtmaEztGp8KW2remwJ
-X-Google-Smtp-Source: AGHT+IFPUJK73pfIeFC6KNRWRQzRoo2xAdbbGUsEm512UrZvCY4sFwkJljZaI7qeWVSnFJfzXYcTzA==
-X-Received: by 2002:a05:6512:3d1a:b0:52e:be1f:bf7f with SMTP id 2adb3069b0e04-52efb7db70fmr5689099e87.27.1721706855493;
-        Mon, 22 Jul 2024 20:54:15 -0700 (PDT)
-Received: from mail-lj1-f182.google.com (mail-lj1-f182.google.com. [209.85.208.182])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-52f02255e1fsm752719e87.6.2024.07.22.20.54.15
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 22 Jul 2024 20:54:15 -0700 (PDT)
-Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-2ebe40673d8so61297221fa.3
-        for <linux-riscv@lists.infradead.org>; Mon, 22 Jul 2024 20:54:15 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWQCk/BjopoTFEENM42xl9UQu5LSTzDFRFbl7XtL2HeiRDKOb6fjOCJJzz2So1PKu2A92IOqpuB1OViPMMt6GtLC3/dISFcyQcPsYoPJLmh
-X-Received: by 2002:a2e:bc0f:0:b0:2ef:296d:1dda with SMTP id
- 38308e7fff4ca-2ef296d21bbmr48058911fa.1.1721706855131; Mon, 22 Jul 2024
- 20:54:15 -0700 (PDT)
+	Tue, 23 Jul 2024 05:18:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1721711879;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=wjPrxZzwd6kroJlcjWmsZZtN0tFwF+CbZxsLDbkBNxc=;
+	b=UwVRbWHvEHDMUwJNNgo7sSmt0U+7I0eaop8D6VCiTZzUxThuukpuPjq/mYnz0z0Ts6e8yk
+	HCGjubsJxrgHREZnTy+/TaNyJga3sFCQw+mj45V08dbocvQl1fJMcByH1YU0UkDGNCRYBE
+	6ulR49vIbf+qZbYgSic84OjtVk4jbBM=
+Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-136-E4vIq6S1NYCY2eEmzso2mw-1; Tue,
+ 23 Jul 2024 01:17:54 -0400
+X-MC-Unique: E4vIq6S1NYCY2eEmzso2mw-1
+Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id AC39A1955D55;
+	Tue, 23 Jul 2024 05:17:52 +0000 (UTC)
+Received: from localhost (unknown [10.72.112.85])
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 1CA7230001A0;
+	Tue, 23 Jul 2024 05:17:31 +0000 (UTC)
+Date: Tue, 23 Jul 2024 13:17:27 +0800
+From: Baoquan He <bhe@redhat.com>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: vgoyal@redhat.com, dyoung@redhat.com, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, rppt@kernel.org,
+	kexec@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v5] crash: Fix crash memory reserve exceed system memory
+ bug
+Message-ID: <Zp8859QW+YV1KqQ9@MiWiFi-R3L-srv>
+References: <20240723020746.3945016-1-ruanjinjie@huawei.com>
 MIME-Version: 1.0
-References: <20240722-xtheadvector-v6-0-c9af0130fa00@rivosinc.com> <20240722-xtheadvector-v6-3-c9af0130fa00@rivosinc.com>
-In-Reply-To: <20240722-xtheadvector-v6-3-c9af0130fa00@rivosinc.com>
-From: Chen-Yu Tsai <wens@csie.org>
-Date: Tue, 23 Jul 2024 11:54:02 +0800
-X-Gmail-Original-Message-ID: <CAGb2v65WLShdZLBcKBUviHMWFOM4oZmwVHWzVqCfz2rKdnoWyA@mail.gmail.com>
-Message-ID: <CAGb2v65WLShdZLBcKBUviHMWFOM4oZmwVHWzVqCfz2rKdnoWyA@mail.gmail.com>
-Subject: Re: [PATCH v6 03/13] riscv: dts: allwinner: Add xtheadvector to the
- D1/D1s devicetree
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Jisheng Zhang <jszhang@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Samuel Holland <samuel.holland@sifive.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, Guo Ren <guoren@kernel.org>, 
-	Evan Green <evan@rivosinc.com>, Andy Chiu <andy.chiu@sifive.com>, 
-	Jessica Clarke <jrtc27@jrtc27.com>, Andrew Jones <ajones@ventanamicro.com>, 
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev, 
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	Conor Dooley <conor.dooley@microchip.com>
+Content-Disposition: inline
+In-Reply-To: <20240723020746.3945016-1-ruanjinjie@huawei.com>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240722_205419_360826_1F1DF8F7 
-X-CRM114-Status: UNSURE (   8.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240722_221802_886629_50F21AEF 
+X-CRM114-Status: GOOD (  23.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,19 +81,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@csie.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBKdWwgMjMsIDIwMjQgYXQgNTo1OOKAr0FNIENoYXJsaWUgSmVua2lucyA8Y2hhcmxp
-ZUByaXZvc2luYy5jb20+IHdyb3RlOgo+Cj4gVGhlIEQxL0QxcyBTb0NzIHN1cHBvcnQgeHRoZWFk
-dmVjdG9yIHNvIGl0IGNhbiBiZSBpbmNsdWRlZCBpbiB0aGUKPiBkZXZpY2V0cmVlLiBBbHNvIGlu
-Y2x1ZGUgdmxlbmIgZm9yIHRoZSBjcHUuCj4KPiBTaWduZWQtb2ZmLWJ5OiBDaGFybGllIEplbmtp
-bnMgPGNoYXJsaWVAcml2b3NpbmMuY29tPgo+IFJldmlld2VkLWJ5OiBDb25vciBEb29sZXkgPGNv
-bm9yLmRvb2xleUBtaWNyb2NoaXAuY29tPgoKQWNrZWQtYnk6IENoZW4tWXUgVHNhaSA8d2Vuc0Bj
-c2llLm9yZz4KClBsZWFzZSB0YWtlIHRoaXMgd2l0aCBhbGwgdGhlIG90aGVyIHBhdGNoZXMuCgpf
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
-diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
-dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On 07/23/24 at 10:07am, Jinjie Ruan wrote:
+> On x86_32 Qemu machine with 1GB memory, the cmdline "crashkernel=4G" is ok
+> as below:
+> 	crashkernel reserved: 0x0000000020000000 - 0x0000000120000000 (4096 MB)
+> 
+> It's similar on other architectures, such as ARM32 and RISCV32.
+> 
+> The cause is that the crash_size is parsed and printed with "unsigned long
+> long" data type which is 8 bytes but allocated used with "phys_addr_t"
+> which is 4 bytes in memblock_phys_alloc_range().
+> 
+> Fix it by checking if crash_size is greater than system RAM size and
+> return error if so.
+> 
+> After this patch, there is no above confusing reserve success info.
+> 
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> Suggested-by: Baoquan He <bhe@redhat.com>
+> Suggested-by: Mike Rapoport <rppt@kernel.org>
+
+
+My Suggested-by can be taken off because I suggested to check the parsed
+value after parse_crashkernel(), Mike's suggestion is better.
+
+For this version,
+
+Acked-by: Baoquan He <bhe@redhat.com>
+
+> ---
+> v5:
+> - Fix it in common parse_crashkernel() instead of per-arch.
+> - Add suggested-by.
+> 
+> v4:
+> - Update the warn info to align with parse_crashkernel_mem().
+> - Rebased on the "ARM: Use generic interface to simplify crashkernel
+>   reservation" patch.
+> - Also fix for riscv32.
+> - Update the commit message.
+> 
+> v3:
+> - Handle the check in reserve_crashkernel() Baoquan suggested.
+> - Split x86_32 and arm32.
+> - Add Suggested-by.
+> - Drop the wrong fix tag.
+> 
+> v2:
+> - Also fix for x86_32.
+> - Update the fix method.
+> - Peel off the other two patches.
+> - Update the commit message.
+> ---
+>  kernel/crash_reserve.c | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/kernel/crash_reserve.c b/kernel/crash_reserve.c
+> index ad5b3f2c5487..5387269114f6 100644
+> --- a/kernel/crash_reserve.c
+> +++ b/kernel/crash_reserve.c
+> @@ -335,6 +335,9 @@ int __init parse_crashkernel(char *cmdline,
+>  	if (!*crash_size)
+>  		ret = -EINVAL;
+>  
+> +	if (*crash_size >= system_ram)
+> +		ret = -EINVAL;
+> +
+>  	return ret;
+>  }
+>  
+> -- 
+> 2.34.1
+> 
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
