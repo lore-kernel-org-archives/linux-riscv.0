@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E32B7C3DA63
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jul 2024 11:28:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD1FDC3DA49
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jul 2024 11:28:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=/rVWQt26Nk+fgR6E3MK66zRtAGDajdLgvGP4rDAcXO4=; b=RNsxo2r5VIFP1h
-	1MSSLq0qe+jy3uwqsrDBAJ4b1bXukHy1W17nzkd4hsy0RafGyuKWP833rB+pMfDs1P7ZnQx4epkW8
-	eQ4HDXypMT2hYKSQc1rGMJ+yIv+NWIgMcdVNmhfQ4I9NQBl0HHmnT7iQ+aEmMh1to8ALhcdjQf7UZ
-	rV3u8MgF+utX44qLmsOmqxpWM3DvuNAlyzFOVgXHpEklU2DjPFVJRLCFx/RGUmHtJnLf4zRxDka29
-	ML+KbGrAzTsBykZ/ND7mtN2NExt6AzfELR58cRwZbPPWIbniQVzr3+OtUO7kSt8/B1+rxUvVaGY+Z
-	9GiH4jynrmEnB+HXD6Lw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=t0MG5VrsFJdwf7tD+nA7yTlY0M2XkufDhJpboYnyC8A=; b=g1tLJHfJpZPFiD
+	XSTawA0VnkjzEPJ2HeKvDHzwbwvOj5hq/6W4cae0knnfZ6SkZSZzQuayhxRKfC1LK2BuwnY9V0czI
+	BkXLgmloWKt6qViS7gHHxtWeaoUWAfMWXQNBMaeRUL7lNrnaugZhlONWmilr/k8q2WtVc3U2vDAAx
+	BZdPWTzROiHxehFfsB/MpkjSnWtYfWHaprlB6yjLZUZNsCb8p0Jdx76fCnTC4oHZzENm9V8Xn01X8
+	D1rFCBdZb+55f2gmMTdcyJiQoEJdn+CXWr8fRwbIY62OOAiOQoJsHvM0QyrJAavITrzZ/ONjw50uo
+	6Ley7Orp0atM/UmObt7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sWDgu-0000000CGg2-3BtJ;
-	Tue, 23 Jul 2024 11:28:24 +0000
+	id 1sWDgy-0000000CGh0-22jN;
+	Tue, 23 Jul 2024 11:28:28 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sWDgq-0000000CGeE-3tWF
+	id 1sWDgs-0000000CGeE-47KA
 	for linux-riscv@lists.infradead.org;
-	Tue, 23 Jul 2024 11:28:22 +0000
+	Tue, 23 Jul 2024 11:28:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1721734101; x=1753270101;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=vp6Qm2xtofuMRY/ZHf1ElKLZgvlS6sgrB5W2isGgiGA=;
-  b=LHz07+BxZr1YrlHxjmCc+1gFB1WPMju5h8J9jKjJ9l4uNdPKkmpX2npu
-   ilcX7nx2qnDb3uAA5k2bmFINJekEXPBPzyaXdHj3Ml68RFsqxieiibTIX
-   FGt5Q2Njawsewcwa2kyHS55BIh3veMDOW7AVuoz7Pb2WGuH68ab6FPxr1
-   aRbDvpL2QX1lXPTrs+ERgtMgEacNnKgamPq2igl9ZM2sU3yXRTesMDSsE
-   HlklBcQjEeN6K72QkFwgtG73xt8H8tlN5th3pl9reiC5SaFrTTN8YegHA
-   1EurEJ1mnsL1xu+tiXLQKp7/37GISdGl4ujS++CN92ECC4rWZf36xZaoB
-   A==;
+  t=1721734103; x=1753270103;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=BY9RX9OmhdiwEixbfaIsfq/KameCCnfNFWrW+iwHgQc=;
+  b=gJQlAFSFj9oKlsYUJGhAHsiYtUwlQnIptQtXx6XMrR7keKMppC/BxjbP
+   n/ETSI5DT2oLVB8kkEH7x2+EocLxMlnJ5uu8ZF/Q5cYySyN9V6GDFPO1Y
+   L3KUyy3T7UAej2XROdYDpAGZNEGyyUFnkM83NEnCTyqh6FGpTdFLqPFIv
+   znlol2j3pQZdRhlqBaNr1VcovHGQzTfgNA93O2yPvLA6p5thB1eT0HwkI
+   zzJEAKR2UAtgD8/HFWSpBYU46ZnEC6O001UOh/S4KkB66sh4M5Hf5eJ5z
+   rYiXltpdfrbfB6eP4VOAw5ugwUBX5ozeyPjez2E2R+JPC2d7AAEOeyqnl
+   g==;
 X-CSE-ConnectionGUID: S6DrTYNTSQStcH62wvxgTw==
-X-CSE-MsgGUID: SDhomshkSKmseY4caTDADw==
+X-CSE-MsgGUID: jdFJGOP4SlSGNjM3ngZfIA==
 X-IronPort-AV: E=Sophos;i="6.09,230,1716274800"; 
-   d="scan'208";a="29574950"
+   d="scan'208";a="29574952"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
   by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 23 Jul 2024 04:28:19 -0700
 Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Tue, 23 Jul 2024 04:27:58 -0700
+ 15.1.2507.35; Tue, 23 Jul 2024 04:28:02 -0700
 Received: from wendy.microchip.com (10.10.85.11) by chn-vm-ex01.mchp-main.com
  (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
- Transport; Tue, 23 Jul 2024 04:27:56 -0700
+ Transport; Tue, 23 Jul 2024 04:28:00 -0700
 From: Conor Dooley <conor.dooley@microchip.com>
 To: <linux-kernel@vger.kernel.org>
 CC: <conor@kernel.org>, <conor.dooley@microchip.com>, Marc Zyngier
@@ -64,16 +64,18 @@ CC: <conor@kernel.org>, <conor.dooley@microchip.com>, Marc Zyngier
 	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
 	<linux-riscv@lists.infradead.org>, <linux-gpio@vger.kernel.org>,
 	<devicetree@vger.kernel.org>
-Subject: [RFC v7 0/6] PolarFire SoC GPIO support
-Date: Tue, 23 Jul 2024 12:27:09 +0100
-Message-ID: <20240723-supervise-drown-d5d3b303e7fd@wendy>
+Subject: [RFC v7 1/6] dt-bindings: gpio: fix microchip,mpfs-gpio interrupt descriptions
+Date: Tue, 23 Jul 2024 12:27:10 +0100
+Message-ID: <20240723-trash-issuing-e2bdd55b764e@wendy>
 X-Mailer: git-send-email 2.43.2
+In-Reply-To: <20240723-supervise-drown-d5d3b303e7fd@wendy>
+References: <20240723-supervise-drown-d5d3b303e7fd@wendy>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6834; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=vp6Qm2xtofuMRY/ZHf1ElKLZgvlS6sgrB5W2isGgiGA=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDGnzJ/fNCHQx9rnwhPFxbXTyg1PB1x4sKghIClc5zvpm3ZNH t5lmdJSyMIhxMMiKKbIk3u5rkVr/x2WHc89bmDmsTCBDGLg4BWAiSx4xMvx/y3RH1fzMlKNHzm30i6 nUf+rgv33Hz4QST0GLk8fuKLAyMiw+eyzW5GZxxYJ0q9rSG3dPrrpTebdQ1KN3yQ2Bz2sKpzMDAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3445; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=BY9RX9OmhdiwEixbfaIsfq/KameCCnfNFWrW+iwHgQc=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDGnzJ/cH1BazWMXpyim07n7hOkPoNHPk80lTHsj7HORz/Txn X3pfRykLgxgHg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACZydQ8jw5opU+9Y9M4u2LPv/8//zt 80r9z9cjhU3Vbv4iozjXpb8xsM//Qm2gm97fJ0+PxJ7UaT+zEJtsfXr+wySp17hnG/9710TSYA
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240723_042821_001876_2C06F3A6 
-X-CRM114-Status: GOOD (  33.56  )
+X-CRM114-CacheID: sfid-20240723_042823_057980_6D119581 
+X-CRM114-Status: GOOD (  12.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,139 +92,95 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hey all,
+The microchip,mpfs-gpio binding suffered greatly due to being written
+with a narrow minded view of the controller, and the interrupt bits
+ended up incorrect. It was mistakenly assumed that the interrupt
+configuration was set by platform firmware, based on the FPGA
+configuration, and that the GPIO DT nodes were the only way to really
+communicate interrupt configuration to software.
 
-Lewis is no longer at Microchip, so I've taken over the GPIO controller
-patchset that he had been working on prior to that:
-https://lore.kernel.org/linux-gpio/20220815120834.1562544-1-lewis.hanly@microchip.com/
+Instead, the mux should be a device in its own right, and the GPIO
+controllers should be connected to it, rather than to the PLIC.
+Now that a binding exists for that mux, try to fix the misconceptions
+in the GPIO controller binding.
 
-However, you'll note that I've got more than a GPIO controller patch in
-this series now. One thing that was wrong with Lewis' series was that it
-could only, depending on the iteration of the series, support GPIOs that
-had their interrupts muxed or GPIOs that had dedicated interrupts at the
-parent interrupt controller. I found that to be problematic, because the
-hardware itself always has a mix of muxed and dedicated interrupts and
-so there was always a controller rendered unusable for interrupts.
+Firstly, it's not possible for this controller to have fewer than 14
+GPIOs, and thus 14 interrupts also. There are three controllers, with
+14, 24 & 32 GPIOs each.
 
-I've attempted to fix this by remodelling how the interrupt hierarchy in
-the devicetree is described, with a mux added between the GPIO
-controllers and the platform's interrupt controller. This is a better
-match for the hardware, or more accurately *is* a match, and avoids the
-issues I pointed out here:
-https://lore.kernel.org/linux-gpio/23a69be6-96d3-1c28-f1aa-555e38ff991e@microchip.com/
+The example is wacky too - it follows from the incorrect understanding
+that the GPIO controllers are connected to the PLIC directly. They are
+not however, with a mux sitting in between. Update the example to use
+the mux as a parent, and the interrupt numbers at the mux for GPIO2 as
+the example - rather than the strange looking, repeated <53>.
 
-Stealing from the irqchip driver patch, here's some more information on
-the interrupt configuration on this SoC, for the 3 GPIO controllers:
-- GPIO controller 0 has 14 GPIOs
-- GPIO controller 1 has 24 GPIOs
-- GPIO controller 2 has 32 GPIOs
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ .../bindings/gpio/microchip,mpfs-gpio.yaml    | 28 +++++++++----------
+ 1 file changed, 14 insertions(+), 14 deletions(-)
 
-All GPIOs are capable of generating interrupts, for a total of 70.
-There are only 41 interrupts available however, so a configurable mux is
-used to ensure all GPIOs can be used for interrupt generation. 38 of the
-41 interrupts are in what the documentation calls "direct mode", as they
-provide an exclusive connection from a GPIO to the PLIC. The 3 remaining
-interrupts are used to mux the interrupts which do not have an exclusive
-connection, one for each GPIO controller. A register is used to set this
-configuration of this mux, depending on how the "MSS Configurator"
-(FPGA configuration tool) has set things up. This is done by the
-platform's firmware, so access from Linux is read-only.
-
-The mux has a single register, where bits 0 to 13 mux between GPIO
-controller 1's 14 GPIOs and GPIO controller 2's first 14 GPIOs. The
-remaining bits mux between the first 18 GPIOs of controller 1 and the
-last 18 GPIOS of controller 2. If a bit in the mux's control register is
-set, the corresponding interrupt line for GPIO controller 0 or 1 will be
-put in "non-direct" mode. If cleared, GPIO controller 2's will.
-
-I'm downgrading the series to RFC status, and have not implemented
-feedback received on the GPIO controller itself (which was mostly about
-using regmap), because I would really like to hear from people on the
-interrupt side of things, in case a significant re-write of the driver
-is required. I've split the changes I made to the interrupt handling
-portions of the GPIO driver into a patch of their own to make that more
-obvious. Clearly that would need to be squashed, and any feedback
-implemented, before the driver would be acceptable.
-
-I previously enquired, a year ago when I actually wrote the irqchip
-driver, about how to implement this mux and tried to follow Marc's
-suggestions about how I should ago about doing so:
-https://lore.kernel.org/all/87wn11oo5o.wl-maz@kernel.org/
-
-Marc, I know you're no longer maintaining irqchip drivers, but I'd
-appreciate if you in particular could take a look and see whether I
-implemented your suggestions correctly - in particular the
-irq_domain_disconnect_hierarchy() stuff.
-
-My main issue with what I've conjured up here are that the hwirq number
-that I get when calling irqd_to_hwirq() in the mask/unmask callbacks
-in the gpio driver runs as far as 95, but each GPIO controller only can
-have up 32 interrupts, so there are % 32 operations done in those
-drivers to make the number a valid GPIO. In my naivety, I had expected
-that the hwirqs seen by the irq_chip in the GPIO controller driver would
-run from 0 to 31, but instead the hwirq numbers are that of the GPIO
-controller irq_chip's parent (so my new mux).
-
-I'm not sure if this sort of knowledge about how the parent works is
-acceptable to have in the GPIO controller driver, but more pertinently
-it screams "fundamental mistake" to me, and that my implementation of
-the alloc irq_domain_ops callback is just broken. Unfortunately, I have
-been unable to figure out a way to avoid that, while also (what I think
-is) correctly using the irq_domain_disconnect_hierarchy() stuff in
-the alloc callback.
-
-So yeah, is doing something along these lines acceptable, or if not,
-pointers as to how to resolve the problem would be highly appreciated.
-
-And there's also a nastly looking of_iomap() in the irqchip driver. I
-know this is unacceptable, some regions were described entirely
-incorrectly in the original devicetree for this SoC, and I'm trying
-to work on my problems one by one! Please ignore that for now.
-
-Cheers,
-Conor.
-
-CC: Marc Zyngier <maz@kernel.org>
-CC: Conor Dooley <conor.dooley@microchip.com>
-CC: Daire McNamara <daire.mcnamara@microchip.com>
-CC: Linus Walleij <linus.walleij@linaro.org>
-CC: Bartosz Golaszewski <brgl@bgdev.pl>
-CC: Rob Herring <robh@kernel.org>
-CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
-CC: Thomas Gleixner <tglx@linutronix.de>
-CC: Paul Walmsley <paul.walmsley@sifive.com>
-CC: Palmer Dabbelt <palmer@dabbelt.com>
-CC: linux-riscv@lists.infradead.org
-CC: linux-gpio@vger.kernel.org
-CC: devicetree@vger.kernel.org
-CC: linux-kernel@vger.kernel.org
-
-Conor Dooley (5):
-  dt-bindings: gpio: fix microchip,mpfs-gpio interrupt descriptions
-  dt-bindings: interrupt-controller: document PolarFire SoC's gpio
-    interrupt mux
-  irqchip: add mpfs gpio interrupt mux
-  gpio: mpfs: pass gpio line number as irq data
-  riscv: dts: microchip: update gpio interrupts to better match the SoC
-
-Lewis Hanly (1):
-  gpio: mpfs: add polarfire soc gpio support
-
- .../bindings/gpio/microchip,mpfs-gpio.yaml    |  28 +-
- .../microchip,mpfs-gpio-irq-mux.yaml          |  79 ++++
- .../boot/dts/microchip/mpfs-icicle-kit.dts    |   8 -
- arch/riscv/boot/dts/microchip/mpfs.dtsi       |  50 ++-
- drivers/gpio/Kconfig                          |   7 +
- drivers/gpio/Makefile                         |   1 +
- drivers/gpio/gpio-mpfs.c                      | 349 ++++++++++++++++++
- drivers/irqchip/Kconfig                       |  11 +
- drivers/irqchip/Makefile                      |   1 +
- drivers/irqchip/irq-mpfs-mux.c                | 333 +++++++++++++++++
- 10 files changed, 840 insertions(+), 27 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/interrupt-controller/microchip,mpfs-gpio-irq-mux.yaml
- create mode 100644 drivers/gpio/gpio-mpfs.c
- create mode 100644 drivers/irqchip/irq-mpfs-mux.c
-
+diff --git a/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml b/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
+index d61569b3f15b2..eb7dbf1668285 100644
+--- a/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
++++ b/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
+@@ -22,7 +22,7 @@ properties:
+   interrupts:
+     description:
+       Interrupt mapping, one per GPIO. Maximum 32 GPIOs.
+-    minItems: 1
++    minItems: 14
+     maxItems: 32
+ 
+   interrupt-controller: true
+@@ -39,9 +39,7 @@ properties:
+   ngpios:
+     description:
+       The number of GPIOs available.
+-    minimum: 1
+-    maximum: 32
+-    default: 32
++    enum: [14, 24, 32]
+ 
+   gpio-controller: true
+   gpio-line-names: true
+@@ -81,6 +79,7 @@ required:
+   - reg
+   - "#gpio-cells"
+   - gpio-controller
++  - ngpios
+   - clocks
+ 
+ additionalProperties: false
+@@ -91,18 +90,19 @@ examples:
+         compatible = "microchip,mpfs-gpio";
+         reg = <0x20122000 0x1000>;
+         clocks = <&clkcfg 25>;
+-        interrupt-parent = <&plic>;
++        interrupt-parent = <&irqmux>;
+         gpio-controller;
+         #gpio-cells = <2>;
++        ngpios = <32>;
+         interrupt-controller;
+-        #interrupt-cells = <1>;
+-        interrupts = <53>, <53>, <53>, <53>,
+-                     <53>, <53>, <53>, <53>,
+-                     <53>, <53>, <53>, <53>,
+-                     <53>, <53>, <53>, <53>,
+-                     <53>, <53>, <53>, <53>,
+-                     <53>, <53>, <53>, <53>,
+-                     <53>, <53>, <53>, <53>,
+-                     <53>, <53>, <53>, <53>;
++        #interrupt-cells = <2>;
++        interrupts = <64>, <65>, <66>, <67>,
++                     <68>, <69>, <70>, <71>,
++                     <72>, <73>, <74>, <75>,
++                     <76>, <77>, <78>, <79>,
++                     <80>, <81>, <82>, <83>,
++                     <84>, <85>, <86>, <87>,
++                     <88>, <89>, <90>, <91>,
++                     <92>, <93>, <94>, <95>;
+     };
+ ...
 -- 
 2.43.2
 
