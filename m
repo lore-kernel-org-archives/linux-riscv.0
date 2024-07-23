@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C6C9C3DA64
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jul 2024 06:47:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09991C3DA63
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jul 2024 06:48:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1M9lzi9gZsdRoMOzisEj+oXHbbCNzE/LR1CELUBQilY=; b=VcXS+LmLyBTQ2W
-	Rpo0Id+DfGYdjwYMdnGdDYQO++7DbmJ7uU1mls6mpX1dXgMSfzPX0depdM7vhGmCIJBMIFpOpf063
-	2r37QA65ohZEkvhym74XN/e4dnElNo1NkrMWTrzBRHauQQVwc2Ws6V5wD9fXknuBbJ8ilrYEOhvlQ
-	C1Hv1IA+ByEkiaVL6Qe7bUR9xE8s6AS54jK+BAjN+n4olen8V2kH/cJkjfkjhZh/2g8z44aEKunJz
-	SXLJadMi7d6Laaif8439nceEhtQ2U37bDsOD5YxRJLaRXM+k9QlnRxBnYZNbLXuRZ8mTZQF0YICQd
-	ycXlR/IuI+hFxyhMBygQ==;
+	List-Owner; bh=I+CoJZLgIGv+9RfU5FLCVTAU9RXB5qq7xLhHL6vwPEE=; b=wDJjXxjTS89p84
+	rR19xMqV1gtx48BBm0Dw+ZsmoE3CFYGGdDT37H3E/GHS4ORPSmf+DKW0+O7KPakNtTGAMgFQCPIz/
+	t9O5S3PH+z7dIaVFZEJcIPmF+aR9n0hnSYvHxgZ3mDH7t/BbZnXjk3hS2UpucTNy+F6N9zAWsU1np
+	fAkFAyfklymkVMrP/Y+8bEgDFf7rCE8+xm6xbiNfwu60dkmOBQmPbOPZV0NbuGdYActWid1jNYhtQ
+	zCvSJ037hJ5KdjfgcYJBLyTY3gwNumbX0x750q5D1mZspYlf3wPMk+TwHLYatl/o/6l7tj3Hxp9pq
+	9V086or9OmCrHUoZ3h+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sW9JQ-0000000BZhH-0Qbq;
-	Tue, 23 Jul 2024 06:47:52 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sW9Jb-0000000BZpC-0ccn;
+	Tue, 23 Jul 2024 06:48:03 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sW9G6-0000000BXTK-0wFr;
-	Tue, 23 Jul 2024 06:44:28 +0000
+	id 1sW9GJ-0000000BXcH-1aVi;
+	Tue, 23 Jul 2024 06:44:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6D7D6601D7;
+	by sin.source.kernel.org (Postfix) with ESMTP id 9B68FCE0CF9;
+	Tue, 23 Jul 2024 06:44:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A897DC4AF11;
 	Tue, 23 Jul 2024 06:44:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F62DC4AF09;
-	Tue, 23 Jul 2024 06:44:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1721717065;
-	bh=c6DgXq0zS+r3QhZ5flAVfEs4FfALF1+j15wi2hevr+8=;
+	s=k20201202; t=1721717076;
+	bh=8rGMU6H0xpSW1PfNkpG5PW55rGb66bFUqmPdcr4x6rM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Za5JhcetTAfLRbJccTWeAUNIxgrg96br5y87BwWzZPLzZYM5IjOw4ndfZ4nIfWM9a
-	 0kYpHEGaCq6sHARpYneu6wGWScDkDxMY9UcV7dpRLzFycumSP2BoGDaLlTOqcZLXTy
-	 MhVwp5rCs8e2OGmBS9+/Gn4wMTzHhc60AFxKa0ONJzfcOahicEDT4gok1reEmHY3m/
-	 yJ8eHIgkq+6rm34FFaAF6eeeqrWyvK1zv4CjW5ghkagLShm8uJGUIM4w2FQQtbu2np
-	 +gfe1coXyBC8uzt0RQsU4ls3le21w36/2yCPFPHrBIKqMRwOZM2lnaFEnBfBxNNJvK
-	 Lhh8CDiwUIDtw==
+	b=DMH+LIu7U+aon+ordBnOP9y/4e/JQcPrdrU4wjutvSLDDvXOc1ys6wuHbI4hKieQR
+	 /xgRhOakm6RQTdiw2VvUZ5E+G5+8InucFZSJ4L/WpYdF2KBpwnJhzL2X3blwUIsPHF
+	 BNsuUV6DrXa0kDav1NpSJD8RWtLixsQL95KrNLHU/bpdX+V8avSWLrtUxamv6XP6Ji
+	 Wy8f6yiSPuW67CGtqy45Wu7qsOcxty7IMCR7Ls2bWyZ9yB4JzsDY3BvA9clRGF07K6
+	 TvjJ9DmJQksoZos1626QbyJJRVE6drznFrXoiqAYFhoYqZXLw0uPhlOK3FS/vUJ5rC
+	 SWsVGk9Lql1nw==
 From: Mike Rapoport <rppt@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
@@ -89,17 +89,18 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
 	loongarch@lists.linux.dev,
 	nvdimm@lists.linux.dev,
 	sparclinux@vger.kernel.org,
-	x86@kernel.org
-Subject: [PATCH v2 11/25] x86/numa: use get_pfn_range_for_nid to verify that node spans memory
-Date: Tue, 23 Jul 2024 09:41:42 +0300
-Message-ID: <20240723064156.4009477-12-rppt@kernel.org>
+	x86@kernel.org,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Subject: [PATCH v2 12/25] x86/numa: move FAKE_NODE_* defines to numa_emu
+Date: Tue, 23 Jul 2024 09:41:43 +0300
+Message-ID: <20240723064156.4009477-13-rppt@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240723064156.4009477-1-rppt@kernel.org>
 References: <20240723064156.4009477-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240722_234426_601635_F8B66935 
-X-CRM114-Status: GOOD (  13.85  )
+X-CRM114-CacheID: sfid-20240722_234439_882123_71E7C15E 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,41 +119,44 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 
-Instead of looping over numa_meminfo array to detect node's start and
-end addresses use get_pfn_range_for_init().
-
-This is shorter and make it easier to lift numa_memblks to generic code.
+The definitions of FAKE_NODE_MIN_SIZE and FAKE_NODE_MIN_HASH_MASK are
+only used by numa emulation code, make them local to
+arch/x86/mm/numa_emulation.c
 
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 ---
- arch/x86/mm/numa.c | 13 +++----------
- 1 file changed, 3 insertions(+), 10 deletions(-)
+ arch/x86/include/asm/numa.h  | 2 --
+ arch/x86/mm/numa_emulation.c | 3 +++
+ 2 files changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/arch/x86/mm/numa.c b/arch/x86/mm/numa.c
-index edfc38803779..cfe7e5477cf8 100644
---- a/arch/x86/mm/numa.c
-+++ b/arch/x86/mm/numa.c
-@@ -521,17 +521,10 @@ static int __init numa_register_memblks(struct numa_meminfo *mi)
+diff --git a/arch/x86/include/asm/numa.h b/arch/x86/include/asm/numa.h
+index ef2844d69173..2dab1ada96cf 100644
+--- a/arch/x86/include/asm/numa.h
++++ b/arch/x86/include/asm/numa.h
+@@ -71,8 +71,6 @@ void debug_cpumask_set_cpu(int cpu, int node, bool enable);
+ #endif
  
- 	/* Finally register nodes. */
- 	for_each_node_mask(nid, node_possible_map) {
--		u64 start = PFN_PHYS(max_pfn);
--		u64 end = 0;
-+		unsigned long start_pfn, end_pfn;
+ #ifdef CONFIG_NUMA_EMU
+-#define FAKE_NODE_MIN_SIZE	((u64)32 << 20)
+-#define FAKE_NODE_MIN_HASH_MASK	(~(FAKE_NODE_MIN_SIZE - 1UL))
+ int numa_emu_cmdline(char *str);
+ #else /* CONFIG_NUMA_EMU */
+ static inline int numa_emu_cmdline(char *str)
+diff --git a/arch/x86/mm/numa_emulation.c b/arch/x86/mm/numa_emulation.c
+index 9a9305367fdd..1ce22e315b80 100644
+--- a/arch/x86/mm/numa_emulation.c
++++ b/arch/x86/mm/numa_emulation.c
+@@ -10,6 +10,9 @@
  
--		for (i = 0; i < mi->nr_blks; i++) {
--			if (nid != mi->blk[i].nid)
--				continue;
--			start = min(mi->blk[i].start, start);
--			end = max(mi->blk[i].end, end);
--		}
--
--		if (start >= end)
-+		get_pfn_range_for_nid(nid, &start_pfn, &end_pfn);
-+		if (start_pfn >= end_pfn)
- 			continue;
+ #include "numa_internal.h"
  
- 		alloc_node_data(nid);
++#define FAKE_NODE_MIN_SIZE	((u64)32 << 20)
++#define FAKE_NODE_MIN_HASH_MASK	(~(FAKE_NODE_MIN_SIZE - 1UL))
++
+ static int emu_nid_to_phys[MAX_NUMNODES];
+ static char *emu_cmdline __initdata;
+ 
 -- 
 2.43.0
 
