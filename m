@@ -4,64 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAE59C3DA5D
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jul 2024 01:40:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D018C3DA70
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jul 2024 02:03:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hw8Fp5dal9I0rkOdbn9M1druYgudiFgcG8GhXFBSriI=; b=OrcuZq2NmTT+AY
-	iuJwVEnM44SiErMSqaYMiCy5EhQfqVYJROXX7+HZAq5w+sMbOOuzH+RVQCkOYUfoct0Tmox9dYFMg
-	wyNH9i0bpGO0Y70YFNzt4yEYlCtiwvNTHvr5A6zOkgZx3Ga8bm/cGUA865wJfyh3hofTu1Ku0c95e
-	QOW+JtBcwEgetQEIcnn/358OfwQliETdPu5DIin0rFE793Ks9lt8frPb2P20ktG8vLMr+54xprG1y
-	ssksst8tSkno/5tlvghGoDY1MTkKhkL6LJcUYpkOjy9oPJbHbW6TxnAZFuY4DwWLBAttR+OpaYnFV
-	xme7fp/zyycevhS57Uhw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=waLkRF4lLZEL+yeXu0OzXvJ84ILGl3qQzWLup8dpBIU=; b=2OH0oLIYxrjwFL
+	fGmwooivXYO9EVSXaiWdAOs05CUVSVGZFrx7fmJzHWxBZ5iG7JkX7UBU8QkVoG5898WjuUxzz1x+y
+	2tiupw1ZuW780fG8IrzODmXVAhg+J/W3qd2lAETeUz/ydybnaQK/itWFZRQjCU1iuH/yV2LGhqH/C
+	kcTqqQhrMTOkOgQ+3inR4Qr0CB9aueeO6CVVoiZ0drsw5bIfijZk4ex4YmUhSwc20/+j/zEBZAgCe
+	dJYU4zp16t+hkll1Ru6R0/dh/IK6AtmPWNtLA7E3kFilMpyAo14oGvtYCX9SPaVz/FLVyW93tNFLJ
+	DkLSHkhYXzVqK0Xda0Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sW4W5-0000000B3wt-08oJ;
-	Tue, 23 Jul 2024 01:40:37 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1sW4ru-0000000B6EQ-0d9v;
+	Tue, 23 Jul 2024 02:03:10 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sW4W1-0000000B3vp-23Qb
-	for linux-riscv@lists.infradead.org;
-	Tue, 23 Jul 2024 01:40:35 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.48])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4WSfth5z5rzdjqy;
-	Tue, 23 Jul 2024 09:38:36 +0800 (CST)
+	id 1sW4rU-0000000B694-43ZS;
+	Tue, 23 Jul 2024 02:02:46 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.105])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4WSgJn1PTbzyN3G;
+	Tue, 23 Jul 2024 09:57:45 +0800 (CST)
 Received: from kwepemi100008.china.huawei.com (unknown [7.221.188.57])
-	by mail.maildlp.com (Postfix) with ESMTPS id 46DA818005F;
-	Tue, 23 Jul 2024 09:40:23 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- kwepemi100008.china.huawei.com (7.221.188.57) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Tue, 23 Jul 2024 09:40:22 +0800
-Message-ID: <cff7274d-e423-9ac9-7d15-cedad7d85701@huawei.com>
-Date: Tue, 23 Jul 2024 09:40:21 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.0
-Subject: Re: [PATCH v3 2/2] riscv: stacktrace: Add USER_STACKTRACE support
-Content-Language: en-US
-To: <bjorn@kernel.org>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
-	<aou@eecs.berkeley.edu>, <peterz@infradead.org>, <mingo@redhat.com>,
-	<acme@kernel.org>, <namhyung@kernel.org>, <mark.rutland@arm.com>,
-	<alexander.shishkin@linux.intel.com>, <jolsa@kernel.org>,
-	<irogers@google.com>, <adrian.hunter@intel.com>, <kan.liang@linux.intel.com>,
-	<dev.mbstr@gmail.com>, <samuel.holland@sifive.com>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-perf-users@vger.kernel.org>
-References: <20240708032847.2998158-1-ruanjinjie@huawei.com>
- <20240708032847.2998158-3-ruanjinjie@huawei.com>
+	by mail.maildlp.com (Postfix) with ESMTPS id 4257914038F;
+	Tue, 23 Jul 2024 10:02:34 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by kwepemi100008.china.huawei.com
+ (7.221.188.57) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Tue, 23 Jul
+ 2024 10:02:33 +0800
 From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20240708032847.2998158-3-ruanjinjie@huawei.com>
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
+To: <bhe@redhat.com>, <vgoyal@redhat.com>, <dyoung@redhat.com>,
+	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<rppt@kernel.org>, <kexec@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <ruanjinjie@huawei.com>
+Subject: [PATCH v5] crash: Fix crash memory reserve exceed system memory bug
+Date: Tue, 23 Jul 2024 10:07:46 +0800
+Message-ID: <20240723020746.3945016-1-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
+X-Originating-IP: [10.90.53.73]
+X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
  kwepemi100008.china.huawei.com (7.221.188.57)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240722_184033_910463_815BEB24 
-X-CRM114-Status: GOOD (  22.43  )
+X-CRM114-CacheID: sfid-20240722_190245_190378_8D3F5D76 
+X-CRM114-Status: GOOD (  12.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,119 +65,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAyMDI0LzcvOCAxMToyOCwgSmluamllIFJ1YW4gd3JvdGU6Cj4gQ3VycmVudGx5LCB1c2Vy
-c3RhY2t0cmFjZSBpcyB1bnN1cHBvcnRlZCBmb3IgcmlzY3YuIFNvIHVzZSB0aGUKPiBwZXJmX2Nh
-bGxjaGFpbl91c2VyKCkgY29kZSBhcyBibHVlcHJpbnQgdG8gaW1wbGVtZW50IHRoZQo+IGFyY2hf
-c3RhY2tfd2Fsa191c2VyKCkgd2hpY2ggYWRkIHVzZXJzdGFja3RyYWNlIHN1cHBvcnQgb24gcmlz
-Y3YuCj4gTWVhbndoaWxlLCB3ZSBjYW4gdXNlIGFyY2hfc3RhY2tfd2Fsa191c2VyKCkgdG8gc2lt
-cGxpZnkgdGhlIGltcGxlbWVudGF0aW9uCj4gb2YgcGVyZl9jYWxsY2hhaW5fdXNlcigpLgo+IAo+
-IEEgZnRyYWNlIHRlc3QgY2FzZSBpcyBzaG93biBhcyBiZWxvdzoKPiAKPiAJIyBjZCAvc3lzL2tl
-cm5lbC9kZWJ1Zy90cmFjaW5nCj4gCSMgZWNobyAxID4gb3B0aW9ucy91c2Vyc3RhY2t0cmFjZQo+
-IAkjIGVjaG8gMSA+IG9wdGlvbnMvc3ltLXVzZXJvYmoKPiAJIyBlY2hvIDEgPiBldmVudHMvc2No
-ZWQvc2NoZWRfcHJvY2Vzc19mb3JrL2VuYWJsZQo+IAkjIGNhdCB0cmFjZQo+IAkuLi4uLi4KPiAJ
-ICAgICAgICAgICAgYmFzaC0xNzggICAgIFswMDBdIC4uLjEuICAgIDk3Ljk2ODM5NTogc2NoZWRf
-cHJvY2Vzc19mb3JrOiBjb21tPWJhc2ggcGlkPTE3OCBjaGlsZF9jb21tPWJhc2ggY2hpbGRfcGlk
-PTIzMQo+IAkgICAgICAgICAgICBiYXNoLTE3OCAgICAgWzAwMF0gLi4uMS4gICAgOTcuOTcwMDc1
-OiA8dXNlciBzdGFjayB0cmFjZT4KPiAJID0+IC9saWIvbGliYy5zby42WysweGI1MDkwXQo+IAo+
-IEFsc28gYSBzaW1wbGUgcGVyZiB0ZXN0IGlzIG9rIGFzIGJlbG93Ogo+IAo+IAkjIHBlcmYgcmVj
-b3JkIC1lIGNwdS1jbG9jayAtLWNhbGwtZ3JhcGggZnAgdG9wCj4gCSMgcGVyZiByZXBvcnQgLS1j
-YWxsLWdyYXBoCj4gCj4gCS4uLi4uCj4gCVtbMzFtICA2Ni41NCVbW20gICAgIDAuMDAlICB0b3Ag
-ICAgICBba2VybmVsLmthbGxzeW1zXSAgICAgICAgICAgIFtrXSByZXRfZnJvbV9leGNlcHRpb24K
-PiAgICAgICAgICAgICB8Cj4gICAgICAgICAgICAgLS0tcmV0X2Zyb21fZXhjZXB0aW9uCj4gICAg
-ICAgICAgICAgICAgfAo+ICAgICAgICAgICAgICAgIHwtLVtbMzFtNTguOTclW1ttLS1kb190cmFw
-X2VjYWxsX3UKPiAgICAgICAgICAgICAgICB8ICAgICAgICAgIHwKPiAgICAgICAgICAgICAgICB8
-ICAgICAgICAgIHwtLVtbMzFtMTcuMzQlW1ttLS1fX3Jpc2N2X3N5c19yZWFkCj4gICAgICAgICAg
-ICAgICAgfCAgICAgICAgICB8ICAgICAgICAgIGtzeXNfcmVhZAo+ICAgICAgICAgICAgICAgIHwg
-ICAgICAgICAgfCAgICAgICAgICB8Cj4gICAgICAgICAgICAgICAgfCAgICAgICAgICB8ICAgICAg
-ICAgICAtLVtbMzFtMTYuODglW1ttLS12ZnNfcmVhZAo+ICAgICAgICAgICAgICAgIHwgICAgICAg
-ICAgfCAgICAgICAgICAgICAgICAgICAgIHwKPiAgICAgICAgICAgICAgICB8ICAgICAgICAgIHwg
-ICAgICAgICAgICAgICAgICAgICB8LS1bWzMxbTEwLjkwJVtbbS0tc2VxX3JlYWQKCkdlbnRsZSBw
-aW5nLgoKPiAKPiBTaWduZWQtb2ZmLWJ5OiBKaW5qaWUgUnVhbiA8cnVhbmppbmppZUBodWF3ZWku
-Y29tPgo+IFRlc3RlZC1ieTogSmluamllIFJ1YW4gPHJ1YW5qaW5qaWVAaHVhd2VpLmNvbT4KPiBD
-YzogQmrDtnJuIFTDtnBlbCA8Ympvcm5Aa2VybmVsLm9yZz4KPiAtLS0KPiB2MzoKPiAtIFJlbW92
-ZSB0aGUgTFRQIG1lc3NhZ2UgYXMgQmrDtnJuIHN1Z2dlc3RlZC4KPiAtIEtlZXAgZnAgMTYtYnl0
-ZXMgYWxpZ25lZCBpbiBhcmNoX3N0YWNrX3dhbGtfdXNlcigpLgo+IC0gQWRkIHRoZSB0ZXN0IGlu
-Zm8uCj4gdjI6Cj4gLSBGaXggdGhlIGNvY2NpIHdhcm5pbmcsICFBIHx8IEEgJiYgQiBpcyBlcXVp
-dmFsZW50IHRvICFBIHx8IEIuCj4gLS0tCj4gLS0tCj4gIGFyY2gvcmlzY3YvS2NvbmZpZyAgICAg
-ICAgICAgICAgICAgfCAgMSArCj4gIGFyY2gvcmlzY3Yva2VybmVsL3BlcmZfY2FsbGNoYWluLmMg
-fCA0NiArKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KPiAgYXJjaC9yaXNjdi9rZXJuZWwv
-c3RhY2t0cmFjZS5jICAgICB8IDQzICsrKysrKysrKysrKysrKysrKysrKysrKysrKysKPiAgMyBm
-aWxlcyBjaGFuZ2VkLCA0NyBpbnNlcnRpb25zKCspLCA0MyBkZWxldGlvbnMoLSkKPiAKPiBkaWZm
-IC0tZ2l0IGEvYXJjaC9yaXNjdi9LY29uZmlnIGIvYXJjaC9yaXNjdi9LY29uZmlnCj4gaW5kZXgg
-M2I0NGU3YjUxNDM2Li40NjEyMWRiY2Y3NTAgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9LY29u
-ZmlnCj4gKysrIGIvYXJjaC9yaXNjdi9LY29uZmlnCj4gQEAgLTE5NCw2ICsxOTQsNyBAQCBjb25m
-aWcgUklTQ1YKPiAgCXNlbGVjdCBUSFJFQURfSU5GT19JTl9UQVNLCj4gIAlzZWxlY3QgVFJBQ0Vf
-SVJRRkxBR1NfU1VQUE9SVAo+ICAJc2VsZWN0IFVBQ0NFU1NfTUVNQ1BZIGlmICFNTVUKPiArCXNl
-bGVjdCBVU0VSX1NUQUNLVFJBQ0VfU1VQUE9SVAo+ICAJc2VsZWN0IFpPTkVfRE1BMzIgaWYgNjRC
-SVQKPiAgCj4gIGNvbmZpZyBDTEFOR19TVVBQT1JUU19EWU5BTUlDX0ZUUkFDRQo+IGRpZmYgLS1n
-aXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9wZXJmX2NhbGxjaGFpbi5jIGIvYXJjaC9yaXNjdi9rZXJu
-ZWwvcGVyZl9jYWxsY2hhaW4uYwo+IGluZGV4IDI5MzI3OTFlOTM4OC4uYzc0NjhhZjc3YzY2IDEw
-MDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL3BlcmZfY2FsbGNoYWluLmMKPiArKysgYi9h
-cmNoL3Jpc2N2L2tlcm5lbC9wZXJmX2NhbGxjaGFpbi5jCj4gQEAgLTYsMzcgKzYsOSBAQAo+ICAK
-PiAgI2luY2x1ZGUgPGFzbS9zdGFja3RyYWNlLmg+Cj4gIAo+IC0vKgo+IC0gKiBHZXQgdGhlIHJl
-dHVybiBhZGRyZXNzIGZvciBhIHNpbmdsZSBzdGFja2ZyYW1lIGFuZCByZXR1cm4gYSBwb2ludGVy
-IHRvIHRoZQo+IC0gKiBuZXh0IGZyYW1lIHRhaWwuCj4gLSAqLwo+IC1zdGF0aWMgdW5zaWduZWQg
-bG9uZyB1c2VyX2JhY2t0cmFjZShzdHJ1Y3QgcGVyZl9jYWxsY2hhaW5fZW50cnlfY3R4ICplbnRy
-eSwKPiAtCQkJCSAgICB1bnNpZ25lZCBsb25nIGZwLCB1bnNpZ25lZCBsb25nIHJlZ19yYSkKPiAr
-c3RhdGljIGJvb2wgZmlsbF9jYWxsY2hhaW4odm9pZCAqZW50cnksIHVuc2lnbmVkIGxvbmcgcGMp
-Cj4gIHsKPiAtCXN0cnVjdCBzdGFja2ZyYW1lIGJ1ZnRhaWw7Cj4gLQl1bnNpZ25lZCBsb25nIHJh
-ID0gMDsKPiAtCXVuc2lnbmVkIGxvbmcgX191c2VyICp1c2VyX2ZyYW1lX3RhaWwgPQo+IC0JCSh1
-bnNpZ25lZCBsb25nIF9fdXNlciAqKShmcCAtIHNpemVvZihzdHJ1Y3Qgc3RhY2tmcmFtZSkpOwo+
-IC0KPiAtCS8qIENoZWNrIGFjY2Vzc2liaWxpdHkgb2Ygb25lIHN0cnVjdCBmcmFtZV90YWlsIGJl
-eW9uZCAqLwo+IC0JaWYgKCFhY2Nlc3Nfb2sodXNlcl9mcmFtZV90YWlsLCBzaXplb2YoYnVmdGFp
-bCkpKQo+IC0JCXJldHVybiAwOwo+IC0JaWYgKF9fY29weV9mcm9tX3VzZXJfaW5hdG9taWMoJmJ1
-ZnRhaWwsIHVzZXJfZnJhbWVfdGFpbCwKPiAtCQkJCSAgICAgIHNpemVvZihidWZ0YWlsKSkpCj4g
-LQkJcmV0dXJuIDA7Cj4gLQo+IC0JaWYgKHJlZ19yYSAhPSAwKQo+IC0JCXJhID0gcmVnX3JhOwo+
-IC0JZWxzZQo+IC0JCXJhID0gYnVmdGFpbC5yYTsKPiAtCj4gLQlmcCA9IGJ1ZnRhaWwuZnA7Cj4g
-LQlpZiAocmEgIT0gMCkKPiAtCQlwZXJmX2NhbGxjaGFpbl9zdG9yZShlbnRyeSwgcmEpOwo+IC0J
-ZWxzZQo+IC0JCXJldHVybiAwOwo+IC0KPiAtCXJldHVybiBmcDsKPiArCXJldHVybiBwZXJmX2Nh
-bGxjaGFpbl9zdG9yZShlbnRyeSwgcGMpID09IDA7Cj4gIH0KPiAgCj4gIC8qCj4gQEAgLTU2LDE5
-ICsyOCw3IEBAIHN0YXRpYyB1bnNpZ25lZCBsb25nIHVzZXJfYmFja3RyYWNlKHN0cnVjdCBwZXJm
-X2NhbGxjaGFpbl9lbnRyeV9jdHggKmVudHJ5LAo+ICB2b2lkIHBlcmZfY2FsbGNoYWluX3VzZXIo
-c3RydWN0IHBlcmZfY2FsbGNoYWluX2VudHJ5X2N0eCAqZW50cnksCj4gIAkJCSBzdHJ1Y3QgcHRf
-cmVncyAqcmVncykKPiAgewo+IC0JdW5zaWduZWQgbG9uZyBmcCA9IDA7Cj4gLQo+IC0JZnAgPSBy
-ZWdzLT5zMDsKPiAtCXBlcmZfY2FsbGNoYWluX3N0b3JlKGVudHJ5LCByZWdzLT5lcGMpOwo+IC0K
-PiAtCWZwID0gdXNlcl9iYWNrdHJhY2UoZW50cnksIGZwLCByZWdzLT5yYSk7Cj4gLQl3aGlsZSAo
-ZnAgJiYgIShmcCAmIDB4NykgJiYgZW50cnktPm5yIDwgZW50cnktPm1heF9zdGFjaykKPiAtCQlm
-cCA9IHVzZXJfYmFja3RyYWNlKGVudHJ5LCBmcCwgMCk7Cj4gLX0KPiAtCj4gLXN0YXRpYyBib29s
-IGZpbGxfY2FsbGNoYWluKHZvaWQgKmVudHJ5LCB1bnNpZ25lZCBsb25nIHBjKQo+IC17Cj4gLQly
-ZXR1cm4gcGVyZl9jYWxsY2hhaW5fc3RvcmUoZW50cnksIHBjKSA9PSAwOwo+ICsJYXJjaF9zdGFj
-a193YWxrX3VzZXIoZmlsbF9jYWxsY2hhaW4sIGVudHJ5LCByZWdzKTsKPiAgfQo+ICAKPiAgdm9p
-ZCBwZXJmX2NhbGxjaGFpbl9rZXJuZWwoc3RydWN0IHBlcmZfY2FsbGNoYWluX2VudHJ5X2N0eCAq
-ZW50cnksCj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3N0YWNrdHJhY2UuYyBiL2Fy
-Y2gvcmlzY3Yva2VybmVsL3N0YWNrdHJhY2UuYwo+IGluZGV4IDBkM2YwMGViMGJhZS4uNTQ4MGNj
-MTFiNTIzIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL3N0YWNrdHJhY2UuYwo+ICsr
-KyBiL2FyY2gvcmlzY3Yva2VybmVsL3N0YWNrdHJhY2UuYwo+IEBAIC0xNjEsMyArMTYxLDQ2IEBA
-IG5vaW5saW5lIG5vaW5zdHIgdm9pZCBhcmNoX3N0YWNrX3dhbGsoc3RhY2tfdHJhY2VfY29uc3Vt
-ZV9mbiBjb25zdW1lX2VudHJ5LCB2b2lkCj4gIHsKPiAgCXdhbGtfc3RhY2tmcmFtZSh0YXNrLCBy
-ZWdzLCBjb25zdW1lX2VudHJ5LCBjb29raWUpOwo+ICB9Cj4gKwo+ICsvKgo+ICsgKiBHZXQgdGhl
-IHJldHVybiBhZGRyZXNzIGZvciBhIHNpbmdsZSBzdGFja2ZyYW1lIGFuZCByZXR1cm4gYSBwb2lu
-dGVyIHRvIHRoZQo+ICsgKiBuZXh0IGZyYW1lIHRhaWwuCj4gKyAqLwo+ICtzdGF0aWMgdW5zaWdu
-ZWQgbG9uZyB1bndpbmRfdXNlcl9mcmFtZShzdGFja190cmFjZV9jb25zdW1lX2ZuIGNvbnN1bWVf
-ZW50cnksCj4gKwkJCQkgICAgICAgdm9pZCAqY29va2llLCB1bnNpZ25lZCBsb25nIGZwLAo+ICsJ
-CQkJICAgICAgIHVuc2lnbmVkIGxvbmcgcmVnX3JhKQo+ICt7Cj4gKwlzdHJ1Y3Qgc3RhY2tmcmFt
-ZSBidWZ0YWlsOwo+ICsJdW5zaWduZWQgbG9uZyByYSA9IDA7Cj4gKwl1bnNpZ25lZCBsb25nIF9f
-dXNlciAqdXNlcl9mcmFtZV90YWlsID0KPiArCQkodW5zaWduZWQgbG9uZyBfX3VzZXIgKikoZnAg
-LSBzaXplb2Yoc3RydWN0IHN0YWNrZnJhbWUpKTsKPiArCj4gKwkvKiBDaGVjayBhY2Nlc3NpYmls
-aXR5IG9mIG9uZSBzdHJ1Y3QgZnJhbWVfdGFpbCBiZXlvbmQgKi8KPiArCWlmICghYWNjZXNzX29r
-KHVzZXJfZnJhbWVfdGFpbCwgc2l6ZW9mKGJ1ZnRhaWwpKSkKPiArCQlyZXR1cm4gMDsKPiArCWlm
-IChfX2NvcHlfZnJvbV91c2VyX2luYXRvbWljKCZidWZ0YWlsLCB1c2VyX2ZyYW1lX3RhaWwsCj4g
-KwkJCQkgICAgICBzaXplb2YoYnVmdGFpbCkpKQo+ICsJCXJldHVybiAwOwo+ICsKPiArCXJhID0g
-cmVnX3JhID8gOiBidWZ0YWlsLnJhOwo+ICsKPiArCWZwID0gYnVmdGFpbC5mcDsKPiArCWlmICgh
-cmEgfHwgIWNvbnN1bWVfZW50cnkoY29va2llLCByYSkpCj4gKwkJcmV0dXJuIDA7Cj4gKwo+ICsJ
-cmV0dXJuIGZwOwo+ICt9Cj4gKwo+ICt2b2lkIGFyY2hfc3RhY2tfd2Fsa191c2VyKHN0YWNrX3Ry
-YWNlX2NvbnN1bWVfZm4gY29uc3VtZV9lbnRyeSwgdm9pZCAqY29va2llLAo+ICsJCQkgIGNvbnN0
-IHN0cnVjdCBwdF9yZWdzICpyZWdzKQo+ICt7Cj4gKwl1bnNpZ25lZCBsb25nIGZwID0gMDsKPiAr
-Cj4gKwlmcCA9IHJlZ3MtPnMwOwo+ICsJaWYgKCFjb25zdW1lX2VudHJ5KGNvb2tpZSwgcmVncy0+
-ZXBjKSkKPiArCQlyZXR1cm47Cj4gKwo+ICsJZnAgPSB1bndpbmRfdXNlcl9mcmFtZShjb25zdW1l
-X2VudHJ5LCBjb29raWUsIGZwLCByZWdzLT5yYSk7Cj4gKwl3aGlsZSAoZnAgJiYgIShmcCAmIDB4
-NykpCj4gKwkJZnAgPSB1bndpbmRfdXNlcl9mcmFtZShjb25zdW1lX2VudHJ5LCBjb29raWUsIGZw
-LCAwKTsKPiArfQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
-cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
-dgo=
+On x86_32 Qemu machine with 1GB memory, the cmdline "crashkernel=4G" is ok
+as below:
+	crashkernel reserved: 0x0000000020000000 - 0x0000000120000000 (4096 MB)
+
+It's similar on other architectures, such as ARM32 and RISCV32.
+
+The cause is that the crash_size is parsed and printed with "unsigned long
+long" data type which is 8 bytes but allocated used with "phys_addr_t"
+which is 4 bytes in memblock_phys_alloc_range().
+
+Fix it by checking if crash_size is greater than system RAM size and
+return error if so.
+
+After this patch, there is no above confusing reserve success info.
+
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+Suggested-by: Baoquan He <bhe@redhat.com>
+Suggested-by: Mike Rapoport <rppt@kernel.org>
+---
+v5:
+- Fix it in common parse_crashkernel() instead of per-arch.
+- Add suggested-by.
+
+v4:
+- Update the warn info to align with parse_crashkernel_mem().
+- Rebased on the "ARM: Use generic interface to simplify crashkernel
+  reservation" patch.
+- Also fix for riscv32.
+- Update the commit message.
+
+v3:
+- Handle the check in reserve_crashkernel() Baoquan suggested.
+- Split x86_32 and arm32.
+- Add Suggested-by.
+- Drop the wrong fix tag.
+
+v2:
+- Also fix for x86_32.
+- Update the fix method.
+- Peel off the other two patches.
+- Update the commit message.
+---
+ kernel/crash_reserve.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/kernel/crash_reserve.c b/kernel/crash_reserve.c
+index ad5b3f2c5487..5387269114f6 100644
+--- a/kernel/crash_reserve.c
++++ b/kernel/crash_reserve.c
+@@ -335,6 +335,9 @@ int __init parse_crashkernel(char *cmdline,
+ 	if (!*crash_size)
+ 		ret = -EINVAL;
+ 
++	if (*crash_size >= system_ram)
++		ret = -EINVAL;
++
+ 	return ret;
+ }
+ 
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
