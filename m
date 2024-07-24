@@ -4,145 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A975C3DA63
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jul 2024 21:22:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C2EDC3DA49
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Jul 2024 00:22:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sDLkW12QmVLPHm5AjkKB4y3PqdEzQZXtCTt2Lro9U5A=; b=2l+1hZCnEWjdN2
-	RYUFiz8GeeHtmvJQtKsPgqrg/ucsrbK+1GatMuD35a4deVw95eXMq9MqSSYTxSxZD8qvaJW9jBPsB
-	U0gT6YD2qwxksn6cSC4TCfQiKV//ku0ykTQsycoUQOJiLugqS3Qlt3APllUljpp4BhWokxuH20CPh
-	TN9ZPXkDFEPA/u82zoe8Rxmh/I71ZQU1gRgapvIGNmzDnM1OD/+CnkyclM4tK+xunRWHJYhkpoA2a
-	O1YSAYKoDWJwVDE5yQITtztvzKiPzevI+UWJ4uanrukzzbGFqGc/s+g0yN6uKwG+C9kI7fPckHR0R
-	mrMEowlBY2SpaBDE8Thg==;
+	List-Owner; bh=GcN2QaaqPEvSmxlieSxSk/XJtf3IXqpmLC/ksnChD4E=; b=Qyk5jOqSdKO8qJ
+	LY2szfCNMOcQpDI65ECVY/roM05/0g2FHPyE4afgmS/I808xdsobvy6wlyHV9+mkCIQZUDgmPhKzd
+	hBiKf0KWOR1oN7+wwQv9qY7VdGGBfGQUEOPvqBGU5OmQcxiowTkXkfuVc0ahKZj/FIFa+tOkl75nv
+	e+CPoqVf9RnM1xyJUcFMqUS9V/dd8OY7xJHxFweunc0xbj1BLIF0hRTQgepzdlLl8GV3OlKZt5saE
+	LyjN0iMLz+FEyPxaNUiQAIf01aqyVUIkAjoMNHKajRiXX+83bYARU5UOxXpwUZ7f/SYw2VZTKH6jr
+	q42MYFbK2XvBnN0lhjJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sWMxv-0000000DYlD-3EKn;
-	Tue, 23 Jul 2024 21:22:35 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1sWPmH-0000000DsLl-3GL7;
+	Wed, 24 Jul 2024 00:22:45 +0000
+Received: from mail-mw2nam12olkn20829.outbound.protection.outlook.com ([2a01:111:f403:2805::829] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sWMxW-0000000DYeQ-3iiF
+	id 1sWPlb-0000000DsA6-2CrT
 	for linux-riscv@lists.infradead.org;
-	Tue, 23 Jul 2024 21:22:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1721769729;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=g2K985F+JisyaO1P/JvvQtZwZa+DhsuE69ZrR+fszhY=;
-	b=RxEVrInjnPlqWKgcb4dl7vCQLBrzFmkQ9XyvtGwUNWc+ipij+8sVg8l2o8VSv+XBb1TG/z
-	jwnkc1m4F0vkTfPY/u3Lp3WZ8XxRSYLAm1JWNNQRIuWX+EVpMiokeBoTswIIrRNUTEebVH
-	yumZNS4HPu4L3x6BSZjfXR0wThLWa0s=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-668-uMMx_9bHOOaq2ckls510zA-1; Tue, 23 Jul 2024 17:22:06 -0400
-X-MC-Unique: uMMx_9bHOOaq2ckls510zA-1
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-368374dc565so3347570f8f.2
-        for <linux-riscv@lists.infradead.org>; Tue, 23 Jul 2024 14:22:06 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1721769725; x=1722374525;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:from:references:cc:to:subject:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=g2K985F+JisyaO1P/JvvQtZwZa+DhsuE69ZrR+fszhY=;
-        b=eczOyvE80bGUjio6mLQ1rFdI6MfV9uKDEUFNomE1XaJOoDDZVv3qez7zAMTUJ10EY8
-         I+t1GcPzeIIAS8UIS+/OO9bpbLWX4Xq208mKDruUUi8Egnil32v/ZdgH0vco2HR9nGoE
-         VMLIwY0LdkgI0AkNM3uOGMOK41zshG+IMn/aknjmbLN/3uyOUYO78ncY3w5uO7mqSc4e
-         nJwo1yuVOgDuizHXAxxDje1oo8e8vd1Q6WDbZMzPx2s98m3YV4hxN+9j0J+0DAVIb8Uk
-         qDvMcOwe9Ea5EZd5DEEGd86Y6H0C9sD4q53h7w3BJ/ChHMSehj9rQXMkrzyYneKaoiTD
-         YoXw==
-X-Forwarded-Encrypted: i=1; AJvYcCX7jZvgH/iSX2/2pQH6FU6K6FPeYlER34funJlY6eL67dFF6uB0UBtNI4U/pFLbnm2ctS1G0iWPEytd2YcejDd9dT3vaxJycMPA2tYWx9Cf
-X-Gm-Message-State: AOJu0YzNKmJApSTBK2gVca6duKo/9MqNox8J9mHqv55b+kzL4+81HLrj
-	CEnU+To2PrcCAq8akMhAFlzVjCPIWo36wrz2geUyCb0AWvWC86xf68Ax0pUILVXqJUTlpQVZUIb
-	k24eSeCYfktd+3a0R+Rwj7fpCeKD0tIIxLkSABruBbHJ3KgNlKmj8zKB1/d9LMTTzXg==
-X-Received: by 2002:a5d:64a8:0:b0:367:94b8:1df1 with SMTP id ffacd0b85a97d-369bae97e75mr7352144f8f.55.1721769725084;
-        Tue, 23 Jul 2024 14:22:05 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEZpJY61ZWZsVtUXIZgPXhIWFxqPYeKoLxP8USF6rP/yxwg/LgUFS9ATMnvRHeV1H1e/zaoew==
-X-Received: by 2002:a5d:64a8:0:b0:367:94b8:1df1 with SMTP id ffacd0b85a97d-369bae97e75mr7352118f8f.55.1721769724633;
-        Tue, 23 Jul 2024 14:22:04 -0700 (PDT)
-Received: from ?IPV6:2003:cb:c72f:ed00:9dc2:1adb:d133:4434? (p200300cbc72fed009dc21adbd1334434.dip0.t-ipconnect.de. [2003:cb:c72f:ed00:9dc2:1adb:d133:4434])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-36878684839sm12529422f8f.22.2024.07.23.14.22.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 23 Jul 2024 14:22:04 -0700 (PDT)
-Message-ID: <263e4414-24c0-4245-9c6d-7799c7bb9f77@redhat.com>
-Date: Tue, 23 Jul 2024 23:22:02 +0200
+	Wed, 24 Jul 2024 00:22:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ybRGW/pDsuet5aXomwAEv/3wlAGJBeAtMupvqUdkJRbAMF9cqX79OeV5fg87FR7ZE4WyqXdAEnqzmWLTW1Mamrogd6PjX/fBbqUGtYbXs3ev06zGCvTR5k4A+PWoQI2KDfYoF/jHx5UbT+86CY4WYvF+w2f0tKKMhksLcb+kmf+td4VfqVhCRwO6vJ6RXR3JNyMCcgvDD0Ep1JRy2gJFcvqUgXlgTBfJgwxY+SZQMnHLfLFqkDM6i6uIOI7qtLNYalo48vvLOPCJQwMDC2Amd3Kyrc776bmCQuRTIjAT66YnNmeVSkQPhX+2odk0Ni39mjkAHHQJ6xyAfrcGNJ1Eiw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Qc98vI4Ex4oRO1gqTWC6VsELfEf7AHeYtmSAEKjzagA=;
+ b=HIXtoJ3rv/0gSg3iIVSk5UUAsakPLWDLPWNfJHkdHijkp3Al2vlgoHuRlh78FWTNw/t+S9Az3M6srDATXqQDjUKSYd6LjsyF7QGu4irAsBJnDgX+EzmBBe6fsXIL5abei7U67Q/2sp0geLoei8CPYrXSMGNAEBjHcRLeneKAzkIIiYLBQdtzAieN4nrJ+YPPMundPYqzcVvB1tFG/B2nce2K2LuGbFv3Dd4fICCzP8k0XD4nWiKOsHW1GHf5sfcbzv8jj2CKdP+viAYNJvfWrufHN/d3i1gxGgQV5SQh9n5wbOF2dCvINVmMTb+TBkU6LoRFpQuoafUgLzwvlVsHPg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Qc98vI4Ex4oRO1gqTWC6VsELfEf7AHeYtmSAEKjzagA=;
+ b=PLHaJHDLVUbhsq60boq3vsgqfE01Hxof5YqAllbU352sSznfcinecAgt6hBbqU3BFFzVEiqDKKhND8h/lbM2Z4RXMkou1bsvHm+so+teTuJn9dh7qzUXCWHrmjoJmo57VpDfZ7dAe+R9VhXzMNMhQQC7e8Yyo/1b50YkwSF5uBDT8RdUJ8EAJfQBhgvTh2h0nWYVT7LmFzKOvEkkxldh1R5YhMPz8vQK97QgNmCd72A6URlUFMStds5NwNiFr0o8leVLT2CPLGqmABY5j7/uBhndmrKNaHGpC4JLY5fGtEMNvAVgjBQ8BuH2AJxF6Ie/fn4urIDhvPUd7UhHxZBVHw==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by SA0PR20MB4559.namprd20.prod.outlook.com (2603:10b6:806:152::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7784.17; Wed, 24 Jul
+ 2024 00:21:51 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::ab0b:c0d3:1f91:d149]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::ab0b:c0d3:1f91:d149%5]) with mapi id 15.20.7784.016; Wed, 24 Jul 2024
+ 00:21:51 +0000
+Date: Wed, 24 Jul 2024 08:21:30 +0800
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Rob Herring <robh@kernel.org>, Inochi Amaoto <inochiama@outlook.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>, Haylen Chu <heylenay@outlook.com>, 
+	Drew Fustini <dfustini@baylibre.com>, Yixun Lan <dlan@gentoo.org>, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 1/7] dt-bindings: pinctrl: Add pinctrl for Sophgo
+ CV1800 series SoC.
+Message-ID: <IA1PR20MB4953E295A428B4064B5C83E2BBAA2@IA1PR20MB4953.namprd20.prod.outlook.com>
+References: <IA1PR20MB49535F9918829FA524BDB02ABBA82@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <IA1PR20MB4953E686117C52C2B4EF35C3BBA82@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <20240723193153.GA992922-robh@kernel.org>
+Content-Disposition: inline
+In-Reply-To: <20240723193153.GA992922-robh@kernel.org>
+X-TMN: [KQIzDK4BbAy2Ra9Mu6d4nNo3CExgFFxWTKSSzKCl3iE=]
+X-ClientProxiedBy: PS2PR01CA0001.apcprd01.prod.exchangelabs.com
+ (2603:1096:300:2d::13) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <hp4nuzkiujbx44v7cgofy34l3j4ayrnmtb5uhqjtp3afkblup6@ou5la5et54nu>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 0/6] mm: THP-agnostic refactor on huge mappings
-To: Peter Xu <peterx@redhat.com>
-Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- Vlastimil Babka <vbabka@suse.cz>, Oscar Salvador <osalvador@suse.de>,
- linux-s390@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
- Matthew Wilcox <willy@infradead.org>, Dan Williams
- <dan.j.williams@intel.com>, Michal Hocko <mhocko@kernel.org>,
- linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org,
- Alex Williamson <alex.williamson@redhat.com>,
- Jason Gunthorpe <jgg@nvidia.com>, x86@kernel.org,
- Alistair Popple <apopple@nvidia.com>, linuxppc-dev@lists.ozlabs.org,
- linux-arm-kernel@lists.infradead.org, Ryan Roberts <ryan.roberts@arm.com>,
- Hugh Dickins <hughd@google.com>, Axel Rasmussen <axelrasmussen@google.com>
-References: <20240717220219.3743374-1-peterx@redhat.com>
- <cf36725d-c197-4c07-8998-d34711335fdb@redhat.com> <Zp57ZLk2IQoHOI7u@x1n>
- <cfe94481-233a-421c-b607-08517588de6c@redhat.com> <ZqAayNSDf_6cfziw@x1n>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- WNyWQQ==
-Organization: Red Hat
-In-Reply-To: <ZqAayNSDf_6cfziw@x1n>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|SA0PR20MB4559:EE_
+X-MS-Office365-Filtering-Correlation-Id: b4594898-d014-4ef0-1cb6-08dcab769d37
+X-Microsoft-Antispam: BCL:0;ARA:14566002|8060799006|461199028|19110799003|1602099012|440099028|4302099013|3412199025|1710799026;
+X-Microsoft-Antispam-Message-Info: weZmQjX3eiXgl7uma+g1ATBwAoilYYGQXz+MxQgOM4eu51ixbRYO41JUpmY4x+VLy0NM2qIGSt9DB1ko1jkWbSnC4mn8IXv20DjnTjBWSvdVpsSHoockN1PraNoanHL9o1NbuwdBvqI8gKRKYlzNyh68/FyKTz/hUdmg8yS+CFdBr2YwYcdtopYvZPrYf1l8QaKcV6PNBYBdiAXj1kB7UCrJrlGq9gi7hoEuVS86VEu5+H1rtV+KZwfVn3Wce7Wn7HPPSE4IpzqGrHtZLWDxGACfFAaVzKabGcUBP5O6kZELUdkq4NrWIIHqnLZq/bnMBmuZURsbY3OZoVYYRKXXcUtoBtRZgAjxx45dJXbpVrwUirWRfxL4ESNTj+b3v1y//jwaqWKzzYaXxrFX8QkNypEcgYHnimGNWxagrBoa5lGGorvUXdt2hvVg6DbUpFL6LJKDNWn5ZIj/BKmRxtGYsN8LbYygPCtIiSvDSlqA+JJ4yT9tu9Dkv+ZPobcOrokHOD5VTmy9x//8MAJUAT5JNyHi+UeOkwMP/S9gio8WS2MvdevHcBwg00tG+0crqcdVPPoaDeczX7KbSoeqOdZFflYj2ldgaoH9JWWvk6b/bz/8gYu+5HxvoMcQ8X/s8n8vvVMGN1ye8uOMbGAj+FVLR2hRegexoMHKLPvzivXQLT8rD2zlEJGwj+70v1rBTftffD/96uEPF9j5d6r/vPpGjkCpiOq9eTaC3gddNU664ylNICd7aM6oMrIPxbM47czmbexy4uFRBlk2jViKs/YROHSs+sSoWp0CySWv+Tx7bC8=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?vOCbYuKUi3MOrAtpSabH+/C0OeuQOmIA54HjtBG1GL2BbjakAY7VJqq0lZm7?=
+ =?us-ascii?Q?Djlf+qwnw6x4F6uwn2YGIV0VCARm+7+XLQZ9tPbNlAP0yCLsdn1u04wSXjuV?=
+ =?us-ascii?Q?ZDobNCPOy+Wi/0fo+R9TINjaH+2kgoxNZecr7XqCBh+yzhYL+mC8p6U5n94J?=
+ =?us-ascii?Q?hWFTFAldM57GP4S2zjIlKtczTfm5iDUb5MzkihWklNcVA8UHhuLcjQFxM1y3?=
+ =?us-ascii?Q?41LNEJiC09LfEzfIOA5PjsQEqpqOsBKXbsfBsTt5lpZOJjZISl0/93O+JPZA?=
+ =?us-ascii?Q?9SrIei/QzmXFOZVHXJZuNXp1bVPpiVIgG/WBhJY9t/SgCCsp/0Io2JhTzNJh?=
+ =?us-ascii?Q?t8AQNNnpIikGx18IRcSAK97Enhohxp1oCOuR4Tc/10lnfabwD2Mu7D6+/Pvj?=
+ =?us-ascii?Q?yNd7FrY439FEg/515eleBSNdWDigLzkSulx2SCt2gtmSYLJ+cPlB3DDjMjF7?=
+ =?us-ascii?Q?Stu7agDewHHcQwd8rrs7qZejQH7lqw8Y0cMD/I8W19NHzUwxcUFZl6kQPmag?=
+ =?us-ascii?Q?6osjxfHhJSiMJQT8CXWXs4AB+GelhfnEjXb3rPxqc7Xb2LnUL/LGQ9pNCVrY?=
+ =?us-ascii?Q?CKH1Na9xaY18LpVYiZHM9OmTyT8IO4yHBBN0m34pzSku6jAFwM0JmvgHttYp?=
+ =?us-ascii?Q?YjWFhxbInx7w4Z2mYexbW+B5PC459vcbHHM3jg3n20SloujsbkTGU1JEMgT1?=
+ =?us-ascii?Q?unveEpa7wUmTczI1YKVVZO7KTEqLvO0E1rzGkQFByEqO9GCT+0jYJ1pfVPm0?=
+ =?us-ascii?Q?Ou6AB9osfuyBycZubQSKFv5FNlY9gYusVUo+E7luUhLInY1Hm8ur1Mnm3ggD?=
+ =?us-ascii?Q?zGxoW+HFp9BgJTV4zRwMTXe2An+nLgRAcLGJrgRXz4OMTqJXh+zzMOrTjE/E?=
+ =?us-ascii?Q?guoZ5TDXui6wWuAqoDJJBDPu+IXdeEc1mcIGkeHeaz0is0HegXnwIzM5H5Cn?=
+ =?us-ascii?Q?toGK259pbNPuwLbgHrjZ6KONXrvVZS8x/i7Qq97gjXH5EeU0gbjmukmFbe64?=
+ =?us-ascii?Q?6v5N4vDnYc9K8IBnllY8i911fJakBoIz3T2A6G1AiAlkQd3Nx7vcKk8wqb9D?=
+ =?us-ascii?Q?Dmq/EI/UQcjpZaGmQgQtH3VoVvIzF0UrsEP/n25wct4XVaOoUn2XG10VG0d/?=
+ =?us-ascii?Q?vjpmvMDQmnitusbTpY7TWKFEdCwsBlkfuH6f/ZyTWp7YgGHGTzfqDeRdOJ5W?=
+ =?us-ascii?Q?mDpRe60H0AvWZljFz7/owoNj4hkTWWviFE9q67N2tzMb7ACBbNazrQYMkx4h?=
+ =?us-ascii?Q?1ykN3fPv9q6IjjdiLGTl?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b4594898-d014-4ef0-1cb6-08dcab769d37
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2024 00:21:51.5183
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR20MB4559
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240723_142211_012468_703152A7 
-X-CRM114-Status: GOOD (  24.70  )
+X-CRM114-CacheID: sfid-20240723_172203_621859_053AE241 
+X-CRM114-Status: GOOD (  29.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,121 +127,190 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 23.07.24 23:04, Peter Xu wrote:
-> On Tue, Jul 23, 2024 at 10:18:37AM +0200, David Hildenbrand wrote:
->> On 22.07.24 17:31, Peter Xu wrote:
->>> On Mon, Jul 22, 2024 at 03:29:43PM +0200, David Hildenbrand wrote:
->>>> On 18.07.24 00:02, Peter Xu wrote:
->>>>> This is an RFC series, so not yet for merging.  Please don't be scared by
->>>>> the code changes: most of them are code movements only.
->>>>>
->>>>> This series is based on the dax mprotect fix series here (while that one is
->>>>> based on mm-unstable):
->>>>>
->>>>>      [PATCH v3 0/8] mm/mprotect: Fix dax puds
->>>>>      https://lore.kernel.org/r/20240715192142.3241557-1-peterx@redhat.com
->>>>>
->>>>> Overview
->>>>> ========
->>>>>
->>>>> This series doesn't provide any feature change.  The only goal of this
->>>>> series is to start decoupling two ideas: "THP" and "huge mapping".  We
->>>>> already started with having PGTABLE_HAS_HUGE_LEAVES config option, and this
->>>>> one extends that idea into the code.
->>>>>
->>>>> The issue is that we have so many functions that only compile with
->>>>> CONFIG_THP=on, even though they're about huge mappings, and huge mapping is
->>>>> a pretty common concept, which can apply to many things besides THPs
->>>>> nowadays.  The major THP file is mm/huge_memory.c as of now.
->>>>>
->>>>> The first example of such huge mapping users will be hugetlb.  We lived
->>>>> until now with no problem simply because Linux almost duplicated all the
->>>>> logics there in the "THP" files into hugetlb APIs.  If we want to get rid
->>>>> of hugetlb specific APIs and paths, this _might_ be the first thing we want
->>>>> to do, because we want to be able to e.g., zapping a hugetlb pmd entry even
->>>>> if !CONFIG_THP.
->>>>>
->>>>> Then consider other things like dax / pfnmaps.  Dax can depend on THP, then
->>>>> it'll naturally be able to use pmd/pud helpers, that's okay.  However is it
->>>>> a must?  Do we also want to have every new pmd/pud mappings in the future
->>>>> to depend on THP (like PFNMAP)?  My answer is no, but I'm open to opinions.
->>>>>
->>>>> If anyone agrees with me that "huge mapping" (aka, PMD/PUD mappings that
->>>>> are larger than PAGE_SIZE) is a more generic concept than THP, then I think
->>>>> at some point we need to move the generic code out of THP code into a
->>>>> common code base.
->>>>>
->>>>> This is what this series does as a start.
->>>>
->>>> Hi Peter!
->>>>
->>>>   From a quick glimpse, patch #1-#4 do make sense independent of patch #5.
->>>>
->>>> I am not so sure about all of the code movement in patch #5. If large folios
->>>> are the future, then likely huge_memory.c should simply be the home for all
->>>> that logic.
->>>>
->>>> Maybe the goal should better be to compile huge_memory.c not only for THP,
->>>> but also for other use cases that require that logic, and fence off all THP
->>>> specific stuff using #ifdef?
->>>>
->>>> Not sure, though. But a lot of this code movements/churn might be avoidable.
->>>
->>> I'm fine using ifdefs in the current fine, but IMHO it's a matter of
->>> whether we want to keep huge_memory.c growing into even larger file, and
->>> keep all large folio logics only in that file.  Currently it's ~4000 LOCs.
->>
->> Depends on "how much" for sure. huge_memory.c is currently on place 12 of
->> the biggest files in mm/. So there might not be immediate cause for action
->> ... just yet :) [guess which file is on #2 :) ]
+On Tue, Jul 23, 2024 at 01:31:53PM GMT, Rob Herring wrote:
+> On Mon, Jul 22, 2024 at 09:39:20AM +0800, Inochi Amaoto wrote:
+> > Add pinctrl support for Sophgo CV1800 series SoC.
+> > 
+> > Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+> > ---
+> >  .../pinctrl/sophgo,cv1800-pinctrl.yaml        | 129 ++++++++++++++++++
+> >  include/dt-bindings/pinctrl/pinctrl-cv1800b.h |  63 +++++++++
+> >  include/dt-bindings/pinctrl/pinctrl-cv1812h.h | 127 +++++++++++++++++
+> >  include/dt-bindings/pinctrl/pinctrl-cv18xx.h  |  19 +++
+> >  include/dt-bindings/pinctrl/pinctrl-sg2000.h  | 127 +++++++++++++++++
+> >  include/dt-bindings/pinctrl/pinctrl-sg2002.h  |  79 +++++++++++
+> >  6 files changed, 544 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/pinctrl/sophgo,cv1800-pinctrl.yaml
+> >  create mode 100644 include/dt-bindings/pinctrl/pinctrl-cv1800b.h
+> >  create mode 100644 include/dt-bindings/pinctrl/pinctrl-cv1812h.h
+> >  create mode 100644 include/dt-bindings/pinctrl/pinctrl-cv18xx.h
+> >  create mode 100644 include/dt-bindings/pinctrl/pinctrl-sg2000.h
+> >  create mode 100644 include/dt-bindings/pinctrl/pinctrl-sg2002.h
+> > 
+> > diff --git a/Documentation/devicetree/bindings/pinctrl/sophgo,cv1800-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/sophgo,cv1800-pinctrl.yaml
+> > new file mode 100644
+> > index 000000000000..e6bd271ad22d
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/pinctrl/sophgo,cv1800-pinctrl.yaml
+> > @@ -0,0 +1,129 @@
+> > +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/pinctrl/sophgo,cv1800-pinctrl.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: Sophgo CV1800 Pin Controller
+> > +
+> > +maintainers:
+> > +  - Inochi Amaoto <inochiama@outlook.com>
+> > +
+> > +properties:
+> > +  compatible:
+> > +    enum:
+> > +      - sophgo,cv1800b-pinctrl
+> > +      - sophgo,cv1812h-pinctrl
+> > +      - sophgo,sg2000-pinctrl
+> > +      - sophgo,sg2002-pinctrl
+> > +
+> > +  reg:
+> > +    items:
+> > +      - description: pinctrl for system domain
+> > +      - description: pinctrl for rtc domain
+> > +
+> > +  reg-names:
+> > +    items:
+> > +      - const: sys
+> > +      - const: rtc
+> > +
+> > +  resets:
+> > +    maxItems: 1
+> > +
+> > +patternProperties:
+> > +  '-cfg$':
+> > +    type: object
+> > +    description: |
 > 
-> 7821, hugetlb.c
-> 7602, vmscan.c
-> 7275, slub.c
-> 7072, page_alloc.c
-> 6673, memory.c
-> 5402, memcontrol.c
-> 5239, shmem.c
-> 5155, vmalloc.c
-> 4419, filemap.c
-> 4060, mmap.c
-> 3882, huge_memory.c
+> Don't need '|' if no formatting.
 > 
-> IMHO a split is normally better than keeping everything in one file, but
-> yeah I'd confess THP file isn't that bad comparing to others..  And I'm
-> definitely surprised it's even out of top ten.
+> > +      A pinctrl node should contain at least one subnode representing the
+> > +      pinctrl groups available on the machine.
+> > +
+> > +    additionalProperties: false
+> > +
+> > +    patternProperties:
+> > +      '-pins$':
+> > +        type: object
+> > +        description: |
+> > +          Each subnode will list the pins it needs, and how they should
+> > +          be configured, with regard to muxer configuration, bias, input
+> > +          enable/disable, input schmitt trigger, slew-rate, drive strength
+> > +          and bus hold state. In addition, all pins in the same subnode
+> > +          should have the same power domain. For configuration detail,
+> > +          refer to https://github.com/sophgo/sophgo-doc/.
+> > +        $ref: /schemas/pinctrl/pincfg-node.yaml
+> > +
+> > +        properties:
+> > +          pinmux:
+> > +            description: |
+> > +              The list of GPIOs and their mux settings that properties in the
+> > +              node apply to. This should be set using the GPIOMUX or GPIOMUX2
+> > +              macro.
+> > +            $ref: /schemas/pinctrl/pinmux-node.yaml#/properties/pinmux
+> 
+> You already referenced this above which is the right way. Drop this 
+> $ref.
+> 
+> > +
+> > +          bias-pull-up:
+> > +            type: boolean
+> > +
+> > +          bias-pull-down:
+> > +            type: boolean
+> > +
+> > +          drive-strength:
+> > +            description: typical current when output high level, but in mA.
+> > +            $ref: /schemas/types.yaml#/definitions/uint32
+> > +
+> > +          drive-strength-microamp:
+> > +            description: typical current when output high level.
+> 
+> New binding, why do you need both of these properties? Use the latter.
+> 
+> > +
+> > +          input-schmitt-microvolt:
+> > +            description: typical threshold for schmitt trigger.
+> 
+> No constraints?
+> 
 
-It's always interesting looking at the numbers here. For v6.10 we had:
+Since the value of the pin depends on the pin type and attribute
+"power-source", it is too hard to give accurate constraint for
+the binding. So I left the check in the driver. Although it is
+possible to give a maximum to fit all the pins, but I think
+it is kind of meaningless.
 
-     8521 mm/memcontrol.c
-     7813 mm/hugetlb.c
-     7550 mm/vmscan.c
-     7266 mm/slub.c
-     7018 mm/page_alloc.c
-     6468 mm/memory.c
-     5154 mm/vmalloc.c
-     5002 mm/shmem.c
-     4419 mm/filemap.c
-     4019 mm/mmap.c
-     3954 mm/ksm.c
-     3740 mm/swapfile.c
-     3730 mm/huge_memory.c
-     3689 mm/gup.c
-     3542 mm/mempolicy.c
-
-I suspect memcontrol.c shrunk because of the v1 split-off, leaving 
-hugetlb.c now at #1 :)
-
--- 
-Cheers,
-
-David / dhildenb
-
+> > +
+> > +          power-source:
+> > +            description: power supplies at X mV.
+> > +            enum: [ 1800, 3300 ]
+> > +
+> > +          slew-rate:
+> > +            description: slew rate for output buffer (0 is fast, 1 is slow)
+> > +            enum: [ 0, 1 ]
+> > +
+> > +          bias-bus-hold:
+> > +            type: boolean
+> > +
+> > +        required:
+> > +          - pinmux
+> > +          - power-source
+> > +
+> > +        additionalProperties: false
+> > +
+> > +required:
+> > +  - compatible
+> > +  - reg
+> > +  - reg-names
+> > +
+> > +additionalProperties: false
+> > +
+> > +examples:
+> > +  - |
+> > +    #include <dt-bindings/pinctrl/pinctrl-cv1800b.h>
+> > +
+> > +    soc {
+> > +        #address-cells = <1>;
+> > +        #size-cells = <1>;
+> 
+> You can remove 'soc' node from the example. 1 cell is the default for 
+> examples.
+> 
+> > +
+> > +        pinctrl@3001000 {
+> > +            compatible = "sophgo,cv1800b-pinctrl";
+> > +            reg = <0x03001000 0x1000>,
+> > +                  <0x05027000 0x1000>;
+> > +            reg-names = "sys", "rtc";
+> > +
+> > +            uart0_cfg: uart0-cfg {
+> > +                uart0-pins {
+> > +                    pinmux = <PINMUX(PIN_UART0_TX, 0)>,
+> > +                             <PINMUX(PIN_UART0_RX, 0)>;
+> > +                    bias-pull-up;
+> > +                    drive-strength = <2>;
+> > +                    power-source = <3300>;
+> > +                    slew-rate = <0>;
+> > +                };
+> > +            };
+> > +        };
+> > +    };
+> > +
+> > +...
 
 _______________________________________________
 linux-riscv mailing list
