@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 232F4C52CD9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99D11C3DA64
 	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jul 2024 13:30:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,67 +12,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=y8eDYS8OWvSoACHBh/+/1+N1dZM0mIiAcHORNptVNQo=; b=JVfPOLl2RgfpCA
-	5GGVxl8AbRd1txSWadb1qlFgxcBdTS7W45Poaqr+JLgH3H97XSMXzIh5oJvUQlSRyiZvLV58DUDL3
-	PGNEHUzQKbbzFEp87GJlqHXTXiMljpRJkG+PqPy6141d2MHYqdozMKFoauf4rGxKu297N5l4CDF4r
-	scReehFvW68R4rvePZqa9Z6oOBOzV9hL7Ikzzeh6N6+je5A93rd91weCOllcEn/ELBPhbIEcReOE6
-	eWS/h5CCA3G2nPSKjnF9gsa4hbej67RqQIJ1i77rETPWPC5U9nbbJAnPa796VSRL82al4dqlcUH0l
-	AXZC+Tp+qFcqpwm/I2Kg==;
+	List-Owner; bh=y9RTH5mxczgPYUQr/0+s2sxhuDSuZoIUPI0f1Njex1s=; b=Dz6c6jiB+GCu6Y
+	Gi0c7Kk9N1mrvTpPfV3UWqljOU9nxaCGKC+5DXEpga5Z8R8Zm8Za0kZJwsq22g20rmr0FABGTBvJg
+	Ruq/XUktDTXWufrujHWtJnl0MFo/njdTeGFCs0ODz9vn7vm0K4cxcE6zUyidJRMrk2ZWoOzeNWCjH
+	6yH4cZgEhsMC08fz2xjMfRgCHAqc0/5UhxOHyYOS1cKVwGD0Q3BgA9eaOnrXfa/Irvd1ZxUj4Wpzd
+	NujyW0AMWyUlxjtHloE2UMfp6F1fmAYod5ELPuAAidHGd6ArbrWLY1qIg5thPP6cRS61Slq+4snov
+	0Kv/jArJOEaJ/QEyVuVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sWyYW-000000015jI-1Iiq;
-	Thu, 25 Jul 2024 13:30:52 +0000
+	id 1sWyYX-000000015jv-0uAl;
+	Thu, 25 Jul 2024 13:30:53 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sWxOs-00000000sLd-3p8P
+	id 1sWxOv-00000000sLd-13m2
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Jul 2024 12:16:53 +0000
+	Thu, 25 Jul 2024 12:16:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1721909810; x=1753445810;
+  t=1721909813; x=1753445813;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=nLkCuTBPfpbqNBH1j3e2/aPI6MfTBWdislcAckUBGL0=;
-  b=LKMoy54LXZJp1IFic4pqbWz12qr+3BuFabkmEOFpvwN+oPx7nb5fYVy5
-   opL47YyYHiLQinp06GsfxLWgD8eE/9qipZjNlP4t/AfI9OXk+CBeC2wNq
-   +HKCeClcO6PkWyBAKPtz2sRbFdBQV0QU1CjsO82KQpqxoXh+vXUc8pkM7
-   aadWJEfurCCvm3n7bUmFOAdiEHVpubJdmyD8QLgRpZP/qcfpDz/psONmk
-   DeOJ9Uv8eSqU/+YOv7zhZIxDCaxylxq+gg4SL8Ww6nBW3Zs24uKA5v7jD
-   opNIr+1aprXIX07Dubp9BzItRmmMDgxE8ceFkINe3XL7RflcAsmYArtLd
-   A==;
+  bh=15hyDjA6CZyVRgtJnFulDkwlNePq5xuT1A/C4/KCaN0=;
+  b=SJ6R+nLiUQEctX9bHgugg9uK6zMoBqz9lLr+mYRYyUbQDqeqbYt9vXj+
+   p6wWl09tfusJU+D2ybU/TWdMu23lSsLpnsOCSnPTwIUyqNi266TdiGhmU
+   ask/7Jlo+M6k3UOY9oXskubQ5+DyyrS9jka9CXKnTvjwtvYE/v1gE2OlJ
+   xVD54XkT2duQZHnGTSZORwFxlC6jZmOeLS3i4k5/Oa2aTxkIeSo7JBAV3
+   PCQ8DC73uUIG4Bi1O0bsaaGQj6MlP65MVLyG5twKpuJCCtR6uzGXiOgIx
+   S4otEbAy2K4swf7Ff1ROnThbOOhBQ2aWpRBBgkY96zXz/1L3DhPTYy7PC
+   g==;
 X-CSE-ConnectionGUID: 7H0adE5mRmid6ymnvkB3VA==
-X-CSE-MsgGUID: QB6OQBHnTN+Wj2m9Fj8muA==
+X-CSE-MsgGUID: NS1Uot/LRn+ZUzEjPoqsLQ==
 X-IronPort-AV: E=Sophos;i="6.09,235,1716274800"; 
-   d="scan'208";a="197092682"
+   d="scan'208";a="197092683"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
   by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 25 Jul 2024 05:16:43 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Thu, 25 Jul 2024 05:16:40 -0700
+ 15.1.2507.35; Thu, 25 Jul 2024 05:16:43 -0700
 Received: from ph-emdalo.microchip.com (10.10.85.11) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Thu, 25 Jul 2024 05:16:37 -0700
+ 15.1.2507.35 via Frontend Transport; Thu, 25 Jul 2024 05:16:41 -0700
 From: <pierre-henry.moussay@microchip.com>
-To: Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Paul
- Walmsley" <paul.walmsley@sifive.com>, Samuel Holland
-	<samuel.holland@sifive.com>, Green Wan <green.wan@sifive.com>, Palmer Debbelt
-	<palmer@sifive.com>
+To: Conor Dooley <conor.dooley@microchip.com>, Daire McNamara
+	<daire.mcnamara@microchip.com>, Andi Shyti <andi.shyti@kernel.org>, "Rob
+ Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>
 CC: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>,
-	<dmaengine@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH 09/17] dt-bindings: dma: sifive pdma: Add PIC64GX to compatibles
-Date: Thu, 25 Jul 2024 13:16:01 +0100
-Message-ID: <20240725121609.13101-10-pierre-henry.moussay@microchip.com>
+	<linux-riscv@lists.infradead.org>, <linux-i2c@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH 10/17] dt-bindings: i2c: microchip: corei2c: Add PIC64GX as compatible with driver
+Date: Thu, 25 Jul 2024 13:16:02 +0100
+Message-ID: <20240725121609.13101-11-pierre-henry.moussay@microchip.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20240725121609.13101-1-pierre-henry.moussay@microchip.com>
 References: <20240725121609.13101-1-pierre-henry.moussay@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240725_051651_094506_3B1CE052 
-X-CRM114-Status: UNSURE (   8.45  )
+X-CRM114-CacheID: sfid-20240725_051653_429485_CA6E2D68 
+X-CRM114-Status: UNSURE (   7.63  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,40 +90,28 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
 
-PIC64GX is compatible as out of order DMA capable, just like the MPFS
-version, therefore we add it with microchip,mpfs-pdma as a fallback
+PIC64GX i2c is compatible with the MPFS driver
 
 Signed-off-by: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
 ---
- .../bindings/dma/sifive,fu540-c000-pdma.yaml      | 15 ++++++++++-----
- 1 file changed, 10 insertions(+), 5 deletions(-)
+ Documentation/devicetree/bindings/i2c/microchip,corei2c.yaml | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml b/Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml
-index 3b22183a1a37..609e38901434 100644
---- a/Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml
-+++ b/Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml
-@@ -27,11 +27,16 @@ allOf:
+diff --git a/Documentation/devicetree/bindings/i2c/microchip,corei2c.yaml b/Documentation/devicetree/bindings/i2c/microchip,corei2c.yaml
+index afa3db726229..4ba8a27eb8e5 100644
+--- a/Documentation/devicetree/bindings/i2c/microchip,corei2c.yaml
++++ b/Documentation/devicetree/bindings/i2c/microchip,corei2c.yaml
+@@ -18,6 +18,10 @@ properties:
+       - items:
+           - const: microchip,mpfs-i2c # Microchip PolarFire SoC compatible SoCs
+           - const: microchip,corei2c-rtl-v7 # Microchip Fabric based i2c IP core
++      - items:
++          - const: microchip,pic64gx-i2c
++          - const: microchip,mpfs-i2c # Microchip PolarFire SoC compatible SoCs
++          - const: microchip,corei2c-rtl-v7 # Microchip Fabric based i2c IP core
+       - const: microchip,corei2c-rtl-v7 # Microchip Fabric based i2c IP core
  
- properties:
-   compatible:
--    items:
--      - enum:
--          - microchip,mpfs-pdma
--          - sifive,fu540-c000-pdma
--      - const: sifive,pdma0
-+    oneOf:
-+      - items:
-+          - const: microchip,pic64gx-pdma
-+          - const: microchip,mpfs-pdma
-+          - const: sifive,pdma0
-+      - items:
-+          - enum:
-+              - microchip,mpfs-pdma
-+              - sifive,fu540-c000-pdma
-+          - const: sifive,pdma0
-     description:
-       Should be "sifive,<chip>-pdma" and "sifive,pdma<version>".
-       Supported compatible strings are -
+   reg:
 -- 
 2.30.2
 
