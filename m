@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D68F6C3DA5D
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jul 2024 13:20:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A9C1C3DA64
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jul 2024 13:20:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=702gytFQUMLp/TakJQyfpdhjzDmI3Ekqj0a6Sp19K3o=; b=06yzvR14hG1oOm
-	U+cB74zDwbTup9Oc3O3omAqL9P2pGRL7qjAdCOMu/JA6MFfBnBAgoISGkhFjlBujyyzqZpIAI67rS
-	TCOEoqs6JHrAuH7rNB1Hwxjo0+q9bBo39Xx/Cyl1F9tY3Esu8Nlux/5SbPA81KDERi6MlLW1A/Znr
-	CQAh2VczBWNQhNvajjCFoc1ClcH8k5t9FDLf0wV5NapyVMnngsSuBYwkpBwhYwCHcTaX+dNoZ+S/v
-	4obiM+GXnE0xRc2AlxeF8rwqlG0OBntygfmFMxr7m6kH0GPqMXLgSxh/GnUJvMGUbj3Q8YyTIPt/T
-	mALA+jMFuRPEjKjDzjMw==;
+	List-Owner; bh=j0ZkUdPqVM20tlEFT6spfodZ9BV8ATqEpAlXK4Jjtx0=; b=y9EWbGsUbBJZ5N
+	3+bTwmquhY+K8uyYmQftqCiT0yVEhTGTTcS4dQffZGHydsgz/YMk1cifDA69ChFVvc+ddIWpCIlZX
+	5Loax0EanHsISgPNJCVKFKoY/uuw4aXcbfmtZgGxGCITbxRnl8T371lAFUXIczA8cJOZvL3i+tyE/
+	PPdpev1bBx82mCoW2dRTnYIrueMMaeFr6WzPupImxMLgV/gj7pflH9fn+YDpFadu+dDYeUHD0fsd0
+	RDHZyY7G8RzyHstm9Ej/K1joNHQHXDNzy+TNVD19unBsC63+lWfI7CXyZKeUNnqcYp0aus8qEZ5+B
+	Cqg0n+R3Mp75mIymqGCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sWyOi-000000012lS-0mrJ;
-	Thu, 25 Jul 2024 13:20:44 +0000
+	id 1sWyOk-000000012ng-2vRh;
+	Thu, 25 Jul 2024 13:20:46 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sWyOe-000000012iL-3ueJ
+	id 1sWyOe-000000012iN-3unT
 	for linux-riscv@lists.infradead.org;
 	Thu, 25 Jul 2024 13:20:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 87F7A612FB;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9169B61305;
 	Thu, 25 Jul 2024 13:20:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 39002C4AF0E;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 3B5A4C116B1;
 	Thu, 25 Jul 2024 13:20:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1721913639;
-	bh=pFdXkjdGSDh8zJd7wdWGLRV6jOx/WG05Mm/gHD8rTs8=;
+	bh=hoQiJY9BOtutRnP8ZDMMRSTBIBRxgWMbA8kX5W35XC8=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=PCTiKvkMrxorbBHJyOMPP3nbCO8C0QvST4F8LSkAlfPRPxyRlWCGcucGMHi3QcF5K
-	 nwqnFej+PfHTsencpYTdZ0EUBU4swYfTxwWrB4QjyaZto5EUu9iA+6317ICEr/1AWd
-	 ceE/NN2GzcQqEcSSpzXP1xHTFNcQeA9yWXr1IOsgwHhVnBbr3iVYIWwZ/9oXkVrnDH
-	 nf18rr08iHrfqZNfSeyYrfmWP+lbMIIFlyqZFoVoDjJFSQc7wYFvNN9MXlWg2iHe88
-	 vdN3a1oJQflhcV44wwySOjj+4aDbUF7L39sIKZELlmGbMak9INugucwaWNmZOJzPwo
-	 EFc0FBU2CJVGQ==
+	b=OS8Ydb5DlSPEE9Y9icrNPqRCwLigh1hRBDg0V8XYTqZFmjqt/vZyZUTLpJny5GMxD
+	 p1pg3Vf6woqO3DMZPCiE2flqQTN3R0h7ly7z8kPAb8u16TigUW0+IXlF4B/IgiQYwu
+	 5LQ/l1VP6ilYKgLp6Ydbck0jmuOCKUUpgOQHlb3KyGfKqh03huwmkfD+D89J+DOZP4
+	 FNKLFnrwt9NoARtb2K0fnBQRB6vCJdAGP4DtBKOCLzjWH59LjiByDDFrhJx04FPWwD
+	 dTMIOLV9FUmC3nI6aPFyLNHtSdUeHCX5EK2y2KucYnOKk6ldmt42OgXREVvOfBvfaX
+	 0bsYGV6wsIgEw==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 2633CC4332C;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 2F023C54BB5;
 	Thu, 25 Jul 2024 13:20:39 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv: signal: Remove unlikely() from WARN_ON() condition
+Subject: Re: [PATCH] irqchip/riscv-intc: Remove asmlinkage
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <172191363915.6240.3728973029853294759.git-patchwork-notify@kernel.org>
+Message-Id: <172191363918.6240.8119408289460257884.git-patchwork-notify@kernel.org>
 Date: Thu, 25 Jul 2024 13:20:39 +0000
-References: <20240620033434.3778156-1-quic_zhonhan@quicinc.com>
-In-Reply-To: <20240620033434.3778156-1-quic_zhonhan@quicinc.com>
-To: Zhongqiu Han <quic_zhonhan@quicinc.com>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, andy.chiu@sifive.com,
- conor.dooley@microchip.com, ancientmodern4@gmail.com,
- ben.dooks@codethink.co.uk, bjorn@rivosinc.com, quic_bjorande@quicinc.com,
+References: <20240614151955.1949-1-jszhang@kernel.org>
+In-Reply-To: <20240614151955.1949-1-jszhang@kernel.org>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: linux-riscv@lists.infradead.org, anup@brainfault.org, tglx@linutronix.de,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
  linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240725_062041_104407_2DEADCF0 
-X-CRM114-Status: UNSURE (   8.65  )
+X-CRM114-CacheID: sfid-20240725_062041_103291_90AACC78 
+X-CRM114-Status: UNSURE (   7.67  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,19 +81,20 @@ Hello:
 This patch was applied to riscv/linux.git (for-next)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Thu, 20 Jun 2024 11:34:34 +0800 you wrote:
-> "WARN_ON(unlikely(x))" is excessive. WARN_ON() already uses unlikely()
-> internally.
+On Fri, 14 Jun 2024 23:19:55 +0800 you wrote:
+> The two functions riscv_intc_aia_irq() and riscv_intc_irq()
+> are only called by C functions.
 > 
-> Signed-off-by: Zhongqiu Han <quic_zhonhan@quicinc.com>
-> Reviewed-by: Bjorn Andersson <quic_bjorande@quicinc.com>
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 > ---
->  arch/riscv/kernel/signal.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> Hi riscv maintainers and all,
+> 
+> [...]
 
 Here is the summary with links:
-  - riscv: signal: Remove unlikely() from WARN_ON() condition
-    https://git.kernel.org/riscv/c/e1d96a07ba4b
+  - irqchip/riscv-intc: Remove asmlinkage
+    https://git.kernel.org/riscv/c/96333a020615
 
 You are awesome, thank you!
 -- 
