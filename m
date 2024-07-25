@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BFEFC3DA49
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jul 2024 04:16:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D98CC3DA7F
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jul 2024 04:16:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SuA7uy3m9WYIV9YUvrEzNM4aovJbnnfxWHBw80tjsEQ=; b=Nyt7L2OB4W9itm
-	KUuZEeBhFvso80mvP/6p/XLLNgbSJYSD/C1YrLq9lOcUhUq2Dvs5lqTe3OYMXuX44p6ksX3Wknf/8
-	1IQbEd5h6Ifj+q7uq3QcUw6jSDPAkxnoqCqRs+h6iWDWlErujhNWq1E37C2dnVXvsQChL1LatswlW
-	eDal9kExBm5Ml2cZX9/yOveaN15Fsi1YVN75fsZs4wDlVT6YclnrZV272IjLxbnq9NA3RmbHF59QL
-	cscFyeM0GTCxoVGYTWG/Kd00Z3UGWKqUEhxbjPhX0KLyrZidQjdqwnPH3Jtd8mLttxey0IFOX4NHK
-	eDTbIrvaV5MGaWS7wgTw==;
+	List-Owner; bh=alKt62dpOT1KD875EgnNayCq/Q7UHyMp6gqX/eipFkI=; b=B8ZblZ4hnRYAEe
+	lGRRpmXE0JUEAsnmNV/+/tdZYX+ymcBWP8xgUqVWCLms1yPrfM/iXfCniKMstrBjIyJ3bFhpVJL4T
+	BFevCw6lZEKqy5nS9ice4qAePAZ9SFYTa7xAGRuWsX7RLBsO2To/+TZnlVMzzJc2HRwPoxJDukmL3
+	2EKfMISfkdHsdPp7cUnaJ8gED/9jq9RPiL9vtyk3/8j5oInEwaLi16Xv+WaVsSpDerFCft3nbqVyZ
+	GykiwNJIXu8niHCbjb46wyy6ayL7yW7+72HOMQ+BOzmpwN8O7r1B2Zxgu1JiV6C8tyHWGCKsH5SoH
+	KoAdZeUAPeY/QJduYGrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sWpuH-0000000HILg-3Tcp;
+	id 1sWpuH-0000000HIKX-0cSf;
 	Thu, 25 Jul 2024 04:16:45 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sWpuE-0000000HIJB-2OaD
+	id 1sWpuC-0000000HIIZ-1s0g
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Jul 2024 04:16:43 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-70d162eef54so365807b3a.3
-        for <linux-riscv@lists.infradead.org>; Wed, 24 Jul 2024 21:16:42 -0700 (PDT)
+	Thu, 25 Jul 2024 04:16:41 +0000
+Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-7a1215dd114so359650a12.1
+        for <linux-riscv@lists.infradead.org>; Wed, 24 Jul 2024 21:16:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1721881001; x=1722485801; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1721880999; x=1722485799; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=0g1DxVy9Ij2OMsYu7oTE9l+cI+PV2f969LKgw+PL+a8=;
-        b=CsRGCuh21evYldWGcRA8XDn/wBIOVGL2YAcUBcmxMFMOOPNCPiDUmWouVFKiICvKd8
-         koVnM54SFoRQnH+fxs/sYnNj5VCn3ynod93XEOUqXYLnh/BItmu79ExQyJCUPXdKBt5y
-         D3fbrM+SfQkt8hf0iI7xLf1IGb1yMNxhU+YhRxWMhZnSUjO5f4608lKHqOoPn6NH20EB
-         GTI9n9ny7cW50uP4YrmbE2TIQgJS/uGRgiGUXq83lNfu/5C/VPaa9tFCpME8m4b/FOHT
-         1rq+PnFmL4cT2ADHoZ9kU14/JsAJkAiGvUofb/2mzc7OCL26ojBzMHuEH0lB6MVYY0fZ
-         Ge/w==
+        bh=0RiVgzby/fIL0Kxxx3Y50ysZFHbsEJYdDMqDhTheyzc=;
+        b=z/CfLpJxn4IyxhSJ9roAqycljvBpNVeay/SIMVO8+FxEAJl/U8tFYz4VIzDNv/AQDh
+         a52u47GxuXloIzr4bG8IvJFeCqggduyRJk62amKwFALHD99jA30jISSSfWwSbTSqMW6p
+         QSm0WjiUZvRqC0akfyQnn8dGhfaP4xr2o50xdg2AWWIwXdcEOMqbzpYQdhGynfgo8es4
+         Zwq8gWLeF/3RvB6JXddAuz6cqqEQLWVaCEszedEp4WwkgBlBoWIWCubUYuaCl68F3fPR
+         svQravrnkqOA7e6w6hL/RUXOpqwza+4YmQnQnCwb+sRxfdoP5bEbRIFpW/+aGKKT7T4+
+         KSYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1721881001; x=1722485801;
+        d=1e100.net; s=20230601; t=1721880999; x=1722485799;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=0g1DxVy9Ij2OMsYu7oTE9l+cI+PV2f969LKgw+PL+a8=;
-        b=Xitwa1LBRUsvcS1OO85/wOLwIpg0IvjKck9ecwlI/utXvdci2ovyYM8uI8wfx2XKH0
-         vuJkpTBUZDcbQUz3Nk1721eYKlOWDIgcmvpPEAC4987Ga1CtHTSMkUsxP7g45Ksrzagd
-         pOYlXZ3DeEz1V51BxBcLmo7Wvl0h2WoRJCMCl6o/FucMAJQ0o1YkX6nhwNR4dOpGlX5Q
-         K7GUbgioyXg/yBpel6pwAi70iiu0XaseRx2+fB90U8tm2lGDvGHZk62ZxEFuIgA3q2nQ
-         PIcUNyJwbNv6X1WZVuiOhc/ofHth3RthMjfWg5CDF6UmFV0EjeO9JkmHUSdDoe/04d84
-         CERg==
-X-Gm-Message-State: AOJu0YyH0iqurDfUJGwnt6EJJGaV52pyhGCbR10+Qb9pzBrasyQQ89kV
-	5ZU89kscuLK+0ojgfVY8Yv7n9ZxDEUJhtoTNJOGRi9gptMpH5wzykfvD6/Nd1kk=
-X-Google-Smtp-Source: AGHT+IFt1RkVFf2OjyTIVYWnNjXMMzXbPhYUj5yMkNfJ1obS1jdCLktWfogDenFlyhmNY0dxbGiqRA==
-X-Received: by 2002:a05:6a20:a113:b0:1c2:1ed4:4f90 with SMTP id adf61e73a8af0-1c472867d36mr2466930637.19.1721881001579;
-        Wed, 24 Jul 2024 21:16:41 -0700 (PDT)
+        bh=0RiVgzby/fIL0Kxxx3Y50ysZFHbsEJYdDMqDhTheyzc=;
+        b=IQWHkc+fCN28myNr6AzG36E4CImbK1UepPFG9d9/TqkDSxjT/mEReMQF04GYZb8BtW
+         BQdKu+f9Gc+iFzME/LyA+W4HDGGSgpK4ilieyo8o+2XRyngqapWQCfwghqiMs0w47Ymc
+         Aso7jzhFTdiurK5WzLsMXENJ5ZzT/0VP4Oj2mhESceAP6wm5cDrjWGqop+QAHwfd4d6D
+         vPmZoGGEOGlyV5RdHhE4XQq/MuWMLXtU+q5IUqLkoEkBA7bmLJ0q0y8L/JXOuvxiiFGA
+         M4qzY+LXX7Vpwddw1pZ5DDdvYNmKqZjS8X1AqlkewJUR4hNCj93H9feWypOfAT+dVO9P
+         iYBQ==
+X-Gm-Message-State: AOJu0YxNouZIeiFL8XXsxv0wP0dFcqt5byj5XiECGvH1S56IPaBX/jct
+	pg+KrdQzwbUTgwg4vN5ZRpFFBwOtqkPnjMUUTifHOwXnlc4rmlTk8sShcx0p1nU=
+X-Google-Smtp-Source: AGHT+IHBqouUd60StUuFY3y20z9rotElPmPvr8np0xp/cOd/5D5tZBs9q3oV3mBGdN2o0+1sfhUmuQ==
+X-Received: by 2002:a05:6a21:99a1:b0:1c4:231e:8ee5 with SMTP id adf61e73a8af0-1c47b229b19mr919358637.29.1721880999516;
+        Wed, 24 Jul 2024 21:16:39 -0700 (PDT)
 Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1fed7f2b80bsm3781825ad.205.2024.07.24.21.16.39
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1fed7f2b80bsm3781825ad.205.2024.07.24.21.16.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Jul 2024 21:16:40 -0700 (PDT)
+        Wed, 24 Jul 2024 21:16:38 -0700 (PDT)
 From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Wed, 24 Jul 2024 21:16:20 -0700
-Subject: [PATCH v8 03/13] riscv: dts: allwinner: Add xtheadvector to the
- D1/D1s devicetree
+Date: Wed, 24 Jul 2024 21:16:19 -0700
+Subject: [PATCH v8 02/13] dt-bindings: cpus: add a thead vlen register
+ length property
 MIME-Version: 1.0
-Message-Id: <20240724-xtheadvector-v8-3-cf043168e137@rivosinc.com>
+Message-Id: <20240724-xtheadvector-v8-2-cf043168e137@rivosinc.com>
 References: <20240724-xtheadvector-v8-0-cf043168e137@rivosinc.com>
 In-Reply-To: <20240724-xtheadvector-v8-0-cf043168e137@rivosinc.com>
 To: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -88,17 +88,16 @@ Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
  Charlie Jenkins <charlie@rivosinc.com>, 
  Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1721880992; l=960;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1721880992; l=1911;
  i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
- bh=I9BB6+DSsEot7edtm0hreUvYP0RvytEdbSv790C0uE4=;
- b=ZAWLZ9wwCs7KaqSUn9fZmYN47ZJqG0m0R/IdKknBruk76HGKRsw/EmJRczJ4ZOD/iVkMqcV03
- SI+sGJRP0kKDKii6PoLcAkWsqoy9XQ8AZNzUmpoWrTo5SJBRIMkCLI2
+ bh=lK25kSvuXBbjCsm1KOScKY69sa4rMHinL5Ye8aockR0=;
+ b=U6hkM0vK7Fw/IQIGJFsZnHJIDTo03z/90pw0ylmD8Hl1YapQisvOP8xIEUjrga2P3in7QNuEq
+ K4vTINX6W0gBsmwtfDrGgJt9ujpdnjnf1swACzykXFrMVEH2Gorza/1
 X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
  pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240724_211642_624692_30956AA5 
-X-CRM114-Status: UNSURE (   9.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240724_211640_498325_A1FAD394 
+X-CRM114-Status: GOOD (  10.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,29 +114,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The D1/D1s SoCs support xtheadvector so it can be included in the
-devicetree. Also include vlenb for the cpu.
+Add a property analogous to the vlenb CSR so that software can detect
+the vector length of each CPU prior to it being brought online.
+Currently software has to assume that the vector length read from the
+boot CPU applies to all possible CPUs. On T-Head CPUs implementing
+pre-ratification vector, reading the th.vlenb CSR may produce an illegal
+instruction trap, so this property is required on such systems.
 
 Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ Documentation/devicetree/bindings/riscv/cpus.yaml | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi b/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
-index 64c3c2e6cbe0..6367112e614a 100644
---- a/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
-+++ b/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
-@@ -27,7 +27,8 @@ cpu0: cpu@0 {
- 			riscv,isa = "rv64imafdc";
- 			riscv,isa-base = "rv64i";
- 			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
--					       "zifencei", "zihpm";
-+					       "zifencei", "zihpm", "xtheadvector";
-+			thead,vlenb = <128>;
- 			#cooling-cells = <2>;
+diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
+index 8edc8261241a..c0cf6cf56749 100644
+--- a/Documentation/devicetree/bindings/riscv/cpus.yaml
++++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+@@ -26,6 +26,18 @@ description: |
+ allOf:
+   - $ref: /schemas/cpu.yaml#
+   - $ref: extensions.yaml
++  - if:
++      not:
++        properties:
++          compatible:
++            contains:
++              enum:
++                - thead,c906
++                - thead,c910
++                - thead,c920
++    then:
++      properties:
++        thead,vlenb: false
  
- 			cpu0_intc: interrupt-controller {
+ properties:
+   compatible:
+@@ -95,6 +107,13 @@ properties:
+     description:
+       The blocksize in bytes for the Zicboz cache operations.
+ 
++  thead,vlenb:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description:
++      VLEN/8, the vector register length in bytes. This property is required on
++      thead systems where the vector register length is not identical on all harts, or
++      the vlenb CSR is not available.
++
+   # RISC-V has multiple properties for cache op block sizes as the sizes
+   # differ between individual CBO extensions
+   cache-op-block-size: false
 
 -- 
 2.44.0
