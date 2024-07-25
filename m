@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75761C52CD9
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jul 2024 13:20:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84EF1C3DA49
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jul 2024 13:20:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kTPZqM9w+EPZyxgYaIRsYcm9VvhhZ4q1Grft91MHe24=; b=EkRJH6vAC9VsuO
-	zmWGerxPLilftPUIaci3VS/EbxJJXvXXmlF1KoQM1FTTLefEAtc/yzPLOyVM4Y4J4nPxwTIHJ1N5d
-	uxnlZse7mASH6s/sbgcUN10estRX0IlnS6FWTwVoB2Gk++/GUSxUGcJCtT8H/hArFKp0VebBP+QoX
-	HbYV3RIfSxPoq36fnncn8yDttZc9km7XGNJ5CKrPbhedR8e//j80IgxRDAlnCKkpONQtzfxLZtGC8
-	QnhmQjTdRoLIXx7l2Tc+x5hWb04hn8nXnD3vmg3NAd+2SqFt2cS1IVryOBl1VzqQCMR4p2L0l5gbd
-	pnrNW+EHny3N2c0k6Y4Q==;
+	List-Owner; bh=Ly7t9D3x9QSChwRQkNCLvLesbkhfOiVkG8ixlnx4Xoo=; b=az8/AoUQvWOqkk
+	IatxWDDaW5XrVqe69AKjxmjazHvlPPFtAr5XjRgPPk+D8EageEaN2ofaz81RFBWI5vMwRk7u9s4Q/
+	sll18XJbMFAfyd4cbCBttpxJq2DAEtGZrY/H5jXnlGDdjhTD/vooEXHfCZtPUkw1dBWEO91J3JnCM
+	3w70nPPoJ5yVAxLp9kMGQS3xe1122B50fn61O0J7RVnVB6BEL2mxDFPnGq9MbbizXhZc8Z83VhB3u
+	zjQnVMQuLcdC8fvkZK0h9nmO4/Xr/afypgNHyUH0Q44bZzWJiWacgZodpndEFvzXFw7IDzKej6FH9
+	VHZFrJ3tYFycemcwWbFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sWyOo-000000012qN-25y1;
-	Thu, 25 Jul 2024 13:20:50 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1sWyOp-000000012rV-33s3;
+	Thu, 25 Jul 2024 13:20:51 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sWyOg-000000012iy-16SC
+	id 1sWyOh-000000012kX-1euM
 	for linux-riscv@lists.infradead.org;
 	Thu, 25 Jul 2024 13:20:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 695ADCE135C;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2757F6140C;
 	Thu, 25 Jul 2024 13:20:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 46BD9C4AF0F;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 7C346C4AF19;
 	Thu, 25 Jul 2024 13:20:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1721913639;
-	bh=NCWZaF607AaCtMMQUTzysFKr43p3JyTYHA2mzCn9qm8=;
+	bh=pv1EbBB+Diu8zt1u9Ud8mj6yeTOIaZMPy0uWO7Z+kM0=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=cV7owqwdoy9b4gB8ouBMUoMXi/mwjXvOd+XdZPNbbtncJnfno4eDiTANcALBKI8Q2
-	 2Q6s3QJADPkEz1pBYJtRy4YeE0/69ueCZHDiAWuSXQYl7H4c+AaTE92mZXqYLocNxB
-	 Ay6iQpRi7Ni1M3Rv3DoVmmRAJotJ+o6O/OR99cipbrZpn7EcCVw6gALU/Djp8rtqcm
-	 syDWXkuV3D0jRhvpwl2PuQj3HL+3I6QWaQvPb/VOjJuJYbI6cxPBkoJY62hkGeJBVC
-	 p8hEGFti9qQgmzHXznBFo0qfm7PnMpgVgIhCYirQZfOddfsL+C10FqD/r/Op9w83xj
-	 on5YRSEXfOp6Q==
+	b=N7sBpavN9QprHaBwp7OcgJA6SimgOaKnMGDjQoG/M3iXdc83uJMz0+lt69EayLkYo
+	 V3uLsHtVGp41mCiafbQbtwuBrxIjqxXRf6wV6tznTJ/9FshdecAi/+TbechdKoop1E
+	 piabRVX83H/s0z5ZQieqc6FEZRadq6xJ5dUmaX/GnKmRmQqY0E/O3p4V3YCpSJs6Qu
+	 x9JcZWSf9jc5OCwbVP8B6Qhte1xPPsychUqZWhVtQO0n7knVa9tS5o/fdHFWWk2vZI
+	 vhLrs+FNIIgzVTO+CkAJ93AYhd4+OdWj9UJYlvzEl78k80IlwdCONfUWjhCw7H6GDJ
+	 aDyb5+/HnpmFQ==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 37A39C54BB2;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 7063CC4333D;
 	Thu, 25 Jul 2024 13:20:39 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] trace: riscv: Remove deprecated kprobe on ftrace support
+Subject: Re: [PATCH v2] riscv: Improve exception and system call latency
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <172191363922.6240.436902680893546478.git-patchwork-notify@kernel.org>
+Message-Id: <172191363945.6240.15239605352830042623.git-patchwork-notify@kernel.org>
 Date: Thu, 25 Jul 2024 13:20:39 +0000
-References: <20240613111347.1745379-1-ruanjinjie@huawei.com>
-In-Reply-To: <20240613111347.1745379-1-ruanjinjie@huawei.com>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
+References: <20240607061335.2197383-1-cyrilbur@tenstorrent.com>
+In-Reply-To: <20240607061335.2197383-1-cyrilbur@tenstorrent.com>
+To: Cyril Bur <cyrilbur@tenstorrent.com>
 Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, rostedt@goodmis.org,
- mhiramat@kernel.org, mark.rutland@arm.com, linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org,
+ antonb@tenstorrent.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240725_062042_661073_ABA6520E 
-X-CRM114-Status: UNSURE (   9.60  )
+X-CRM114-CacheID: sfid-20240725_062043_625579_B381B4E2 
+X-CRM114-Status: UNSURE (   7.91  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,20 +81,19 @@ Hello:
 This patch was applied to riscv/linux.git (for-next)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Thu, 13 Jun 2024 19:13:47 +0800 you wrote:
-> Since commit 7caa9765465f60 ("ftrace: riscv: move from REGS to ARGS"),
-> kprobe on ftrace is not supported by riscv, because riscv's support for
-> FTRACE_WITH_REGS has been replaced with support for FTRACE_WITH_ARGS, and
-> KPROBES_ON_FTRACE will be supplanted by FPROBES. So remove the deprecated
-> kprobe on ftrace support, which is misunderstood.
+On Thu,  6 Jun 2024 23:13:35 -0700 you wrote:
+> From: Anton Blanchard <antonb@tenstorrent.com>
 > 
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> Many CPUs implement return address branch prediction as a stack. The
+> RISCV architecture refers to this as a return address stack (RAS). If
+> this gets corrupted then the CPU will mispredict at least one but
+> potentally many function returns.
 > 
 > [...]
 
 Here is the summary with links:
-  - trace: riscv: Remove deprecated kprobe on ftrace support
-    https://git.kernel.org/riscv/c/3308172276db
+  - [v2] riscv: Improve exception and system call latency
+    https://git.kernel.org/riscv/c/9eb7421003d3
 
 You are awesome, thank you!
 -- 
