@@ -4,89 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3F94C3DA64
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jul 2024 13:30:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8CC1C3DA5D
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jul 2024 13:31:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fnIrTrmxJ1Xn/Tr9IR8ZJ3fGGKjQvZx+cWwQRtSdCE0=; b=H9GQrk0gjjgLoo
-	GYjKh8V6gPm290TSUC8Xp56z7K7/bRCE+i+KVmbVRh+C3b4rFtB2VCIp5slQr4nSxa3djCZK57FXJ
-	4jqa3FmWvAXxJqiM6CP6yK1nsUdJ2k7y+m2U2M63kAPfw9kCKsY5+2khe2a4fUdelyBs5uunKcwh0
-	iUF8jgi5OvKXxqgRJSvu6hfImGKCDfbpGiUZyy4t7xXTI79AQdnDQp7Jv8p1Cdr9FvgjVJSFZ7LdW
-	AyCzosnBmalD76v6sB4DKq5xR0JNPxVeBXLdxenEfFarc9n63+mBSdzdgFD8myY5aADbGUedkAQvU
-	GIjv78tmd56U+M3xwcew==;
+	List-Owner; bh=m17uP35rbTujex5mhiAW32YegwzRnGXunVJ4emfUMDA=; b=0AXqFOwrQz4r6X
+	HetxH7ji5HriPx9g+uHUE76DbYMSlI4o6lJjgbbZclQcvsHfByC2L3ZUJAbdd94Or9HrjOJPqpyvk
+	u2lz850aLFpU0JTXjsu49s/LDbgvdK1whRkSMQ5bwW1eKewKQYV19vYu5zhqGhosGesWzYiu9iKvk
+	w3W/V/9ArOhSM8pE0nIaUObNikVDCewIzcIk6H+5a/39dvEbzHsWdj1Z4unl7On8NOnfblMpEdXf8
+	RTUYNyAW0q5fD/uJDONk5bnOzVh0xzdL3GPft4NjMiv5Ola47FsdvKYo8EZXG5+JSM4PvLAUUxSGc
+	VW41IFzMAdxrpxWOTsrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sWyYZ-000000015m0-3UuV;
-	Thu, 25 Jul 2024 13:30:55 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sWxOx-00000000sMt-04Qu
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 25 Jul 2024 12:16:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=nwMwB6olbuH56QA6PbvNJlQSpV4mps0KFxNUoR7uYss=; b=pFatf5LxKp5T+1xaPF2ZqPzFOJ
-	ropGPPlcCmr2nCeZ7IjbMwdh+Eoce/8fREBIqw1chCLbdCSsSzW+d51Hv2v6g80DWOS6IcXVnJ0rL
-	ubWcCUutD+wHR7cmnFTK6O+yMKe95+JIYfZztp8oBWQyKPQdYeZ/qtg0R4z2VhgD1Di/UGGN61Wqs
-	UhqIAUdwCoUK0eyYQ2vGwMKE5vO9oPdKbMfJbF5axUBvKcXOeRY/9NX5x1IgrPoD6z9DjuDmreoHI
-	DkVkdNqEraLZrPeVvesO6S0scnOTBJjHzKdzJHjs0U0GpY3f59al8mgMKSJqgTRYMr4QHEc43uE2a
-	LkZiPk8Q==;
+	id 1sWyYb-000000015nW-2TVE;
+	Thu, 25 Jul 2024 13:30:57 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sWxOs-00000003zzi-2X2r
+	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1sWxPS-00000000sU3-1Azn
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Jul 2024 12:16:53 +0000
+	Thu, 25 Jul 2024 12:17:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1721909811; x=1753445811;
+  t=1721909846; x=1753445846;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=/iFlJVgVNMjAyvZbdlWZH31ro/rYnKrZRjv+0TbNhEY=;
-  b=VFx6qUDf4Z/D8Yg+snD9dUQ9/sib3uZws1LQW3PgZyTfDsno4VaccoTV
-   ASi71jQEF60iAbZr/hVLx1dRqb00tpjBDfwkG976dEbz9NtgC7fNx6S0E
-   DOt9NlHUcTlS84Iw8bd3BSFifO2reTv/HvluTJCX0O8Jbs4MnQTy5Aqmc
-   /bR7Uy0xnoA1k1cgu7NgcvNtWflYuF8GLFyFq8f4pYTXnUqeEWMNhSaGW
-   R6LFNkrMZIaTblMwnUKucGT42SKX2pY2G0WBV7k9v2Q8vt8W2FXJq8zb4
-   t1N0vzfMOW5rYGp7wmGwhOt3oO+tlVkpuXG+MqAhwI8u/kINfy3KgbWe/
-   Q==;
-X-CSE-ConnectionGUID: 73d5wsqqRUGsXcUpyIWy1Q==
-X-CSE-MsgGUID: 6l13QotSQ0m9lhZr3PAqtA==
+  bh=mY+VBekkdvm3m8aKNmi+5EnKvkkTMNNxWaHfQKqjgA8=;
+  b=zqLlA4K1tFLQEgisVodY2CPx222rpNmlF4Yacx64TgLTXFZLccc8r7HI
+   +KMlbQkybl9fXrgsvbVtVs86PmGnG+SQxUxoBqueiui5K38qXALwkstPq
+   Ai5r6ZdIF1Mosq/9W0Yr/C7II+Ik5gWqEdByrZ0Kwub3v7NL/xDOt5MCe
+   Hx0HqEsoAho0UTgUxOmosDMNjZkfWWKAAwI0NkcCbL1cliwTT5egljzq9
+   vwRzXsstFRSEoDP0U/dGZlWOAkDg1Eqo+3xLgNr2fSd0VLuSLrgtzZbke
+   MDrTwat4qkvpnKREflAkXCrUQ4uBQXaSqe3CW8+nLWCWnpbqDZE5aL3rD
+   w==;
+X-CSE-ConnectionGUID: Ik2C1p0ARZK1eWHd58n+Yg==
+X-CSE-MsgGUID: 39dLW3JoSpiXV3qQ258VjQ==
 X-IronPort-AV: E=Sophos;i="6.09,235,1716274800"; 
-   d="scan'208";a="260575367"
+   d="scan'208";a="32460679"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 25 Jul 2024 05:16:46 -0700
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 25 Jul 2024 05:17:25 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Thu, 25 Jul 2024 05:16:28 -0700
+ 15.1.2507.35; Thu, 25 Jul 2024 05:16:54 -0700
 Received: from ph-emdalo.microchip.com (10.10.85.11) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Thu, 25 Jul 2024 05:16:26 -0700
+ 15.1.2507.35 via Frontend Transport; Thu, 25 Jul 2024 05:16:52 -0700
 From: <pierre-henry.moussay@microchip.com>
 To: Conor Dooley <conor.dooley@microchip.com>, Daire McNamara
-	<daire.mcnamara@microchip.com>, Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>
+	<daire.mcnamara@microchip.com>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>
 CC: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>,
-	<linux-riscv@lists.infradead.org>, <linux-gpio@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH 05/17] dt-bindings: gpio: mpfs-gpio: Add PIC64GX GPIO compatibility
-Date: Thu, 25 Jul 2024 13:15:57 +0100
-Message-ID: <20240725121609.13101-6-pierre-henry.moussay@microchip.com>
+	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: [PATCH 14/17] dt-bindings: soc: microchip: mpfs-sys-controller: Add PIC64GX compatibility
+Date: Thu, 25 Jul 2024 13:16:06 +0100
+Message-ID: <20240725121609.13101-15-pierre-henry.moussay@microchip.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20240725121609.13101-1-pierre-henry.moussay@microchip.com>
 References: <20240725121609.13101-1-pierre-henry.moussay@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240725_131651_874924_309A0E16 
-X-CRM114-Status: UNSURE (   8.61  )
+X-CRM114-CacheID: sfid-20240725_051726_354601_1F3D206B 
+X-CRM114-Status: UNSURE (   8.38  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,47 +90,31 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
 
-PIC64GX GPIO is compatible with mpfs-gpio driver
+PIC64GX is compatible with mpfs-sys-controller driver without additional
+feature
 
 Signed-off-by: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
 ---
- .../bindings/gpio/microchip,mpfs-gpio.yaml       | 16 +++++++++++-----
- 1 file changed, 11 insertions(+), 5 deletions(-)
+ .../soc/microchip/microchip,mpfs-sys-controller.yaml        | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml b/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
-index d61569b3f15b..fdce88374a91 100644
---- a/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
-+++ b/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
-@@ -11,10 +11,14 @@ maintainers:
+diff --git a/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-controller.yaml b/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-controller.yaml
+index a3fa04f3a1bd..af89d5959747 100644
+--- a/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-controller.yaml
++++ b/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-controller.yaml
+@@ -24,7 +24,11 @@ properties:
+     maxItems: 1
  
- properties:
    compatible:
--    items:
--      - enum:
--          - microchip,mpfs-gpio
--          - microchip,coregpio-rtl-v3
+-    const: microchip,mpfs-sys-controller
 +    oneOf:
 +      - items:
-+          - const: microchip,pic64gx-gpio
-+          - const: microchip,mpfs-gpio
-+      - items:
-+          - enum:
-+              - microchip,mpfs-gpio
-+              - microchip,coregpio-rtl-v3
++          - const: microchip,pic64gx-sys-controller
++          - const: microchip,mpfs-sys-controller
++      - const: microchip,mpfs-sys-controller
  
-   reg:
-     maxItems: 1
-@@ -69,7 +73,9 @@ allOf:
-       properties:
-         compatible:
-           contains:
--            const: microchip,mpfs-gpio
-+            enum:
-+              - microchip,mpfs-gpio
-+              - microchip,pic64gx-gpio
-     then:
-       required:
-         - interrupts
+   microchip,bitstream-flash:
+     $ref: /schemas/types.yaml#/definitions/phandle
 -- 
 2.30.2
 
