@@ -4,63 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2A94C3DA5D
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jul 2024 14:34:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58127C3DA49
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jul 2024 14:35:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hnVJTrjG3jgQ3zpGpKmuSFbHbcrqy7louG7En9y5Gms=; b=Fgtx2NFCuuUuRIIteSND+qMMgg
-	jmZ7myUoeZSakd9OweAEh8xIXHMf6SuZFBdFL5AHnyc8mLYhgLhzbb6Qx4mDoqu2oT2GI28FaKHQe
-	Wxj3bXEitMEI41nDv2fp4M1R9JXTVDXaLQVTb/BRpN7yxvogXSV2ibyb+hfsKcdOlIaih4ksc47qU
-	TCwSVD39LO4kxwf6EaIEqMXtUJYERECW9ojza9FtgcXvGPYMZ2SUz50BKatpNL6ct4gq2ZQQKivJU
-	MqgscFgyJLiJj1ZB3EY7ESDuEFhYa5/kXHHubCNIll3n8VOgdZI4kLko/INyH5sx5364kvwuvbQS0
-	hQ+61Y9A==;
+	bh=Rn/6arjMH8OMr/Qj+2yh5sbvYardzEz6+JEDk/qjL94=; b=0ZXhfOAP2PlwOxoDqt/PqilX39
+	14v6LYi7iMyBtcfpC6ciAIPG/gUTnjOCmosGndYtKblJ6FrcJDSM2eHHM6MTATZ7UVVakuTOwDfaL
+	TfGctEt+cNZ8gwLeysaP8R3/6PSsm0PueFhOGmFCCKXVd4F5TSJm8+xTGXYzMZeQ/Znma/aFyIiEN
+	P1afRVj2ngMCXPkAnDB+n+EvAqf7TrRUt2QA1wPkyKsIdYtJtLxLSHHFtkU5667XaV4ytSIwEpYo1
+	XksQroYvwnVHS15Aw4V/GqTvAi0kGJxWhKGmmkhDkcspinU06C2bmjSbrdDWs8DM7A9gylcKRp8G2
+	NocBPLGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sWzXm-00000001Hy8-3NuZ;
-	Thu, 25 Jul 2024 14:34:10 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1sWzZA-00000001IFR-2cPf;
+	Thu, 25 Jul 2024 14:35:36 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sWzXk-00000001HxO-1ja8
+	id 1sWzZ9-00000001IF1-07ON
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 25 Jul 2024 14:35:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=iMTcFDDXR5qTwo7QlDm6DG2DqRdahrxKM9Mlv6MhYmw=; b=kN0ULohgKAgcXSYkvbU1QZsW+L
+	FBjlPZxgr7xflWMsK1y2iwvHLoTIfoKs5npd85/ONFpyNpe9YctfpAoUqVo6+zazCeVGXMCT1Bf0M
+	2+w9Liznc7JSf0wA24WABtf/4+JxDBkxMtkSqLfuYjxhG2qzb7BoH8HUKVohHzIfiFrDppNJT0KRs
+	01ShxV2l5l51gvsZlQ9FIKlYARcxOuChGegMQezKCa+EbL6aHCEwAt7bJt97YZtjqtGY0iYdFeWjK
+	2YYXesE4uu7IifHBNj0b5X1oGsCCJzyjbaKhy0CO9rKwfDSqQqgWQlymA0gqhsHO/5UgHiD5NqXXf
+	UlcvegrQ==;
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1sWzZ5-000000042R1-0v7g
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Jul 2024 14:34:09 +0000
+	Thu, 25 Jul 2024 14:35:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 99178CE0FAE;
-	Thu, 25 Jul 2024 14:34:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05EFEC116B1;
-	Thu, 25 Jul 2024 14:34:03 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id AE18ECE0FAE;
+	Thu, 25 Jul 2024 14:35:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B6D9C32782;
+	Thu, 25 Jul 2024 14:35:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1721918045;
-	bh=lEZEpDvFTWSV2VSZIoUY/qg4sxnX6WaUiNUVms4Rh8s=;
+	s=k20201202; t=1721918126;
+	bh=dWHk/SHpnPTKCLsDctksze4Kfo/ASX42EotFciliEv4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=S/5cTZXm0W/giFyipn0WT+M7ObbIv4K+DDS+TbjlBs0Zi3ydeR+Pm5BVk29d/VMBx
-	 3AiT2q9mcnaEA/TXxinbxxGkJt0FYezj+ZZkw14GuYyAtPlR15xoWqgnPVNlqQJQdO
-	 vGrpAdNLcRCf9TKg9l8MgxA/7C7O42tt0Is6jZgzPs1xxc1JCKAze9k/NaFdfCn/UW
-	 C9QLYLpwgKMJ+OafwVf3bnl6bALPd4XKcmrH4wsIVIlqOGLTaooWXEkX+xJRtSf02d
-	 C2jtty14cua2ffVnzI2001wn3Ye0P40KxzwrFyKKl5zzXma87KHdEsvfhaE7Qcw2mU
-	 P4HHk5kyVTxrg==
-Date: Thu, 25 Jul 2024 15:34:01 +0100
+	b=hoZZuPm3i0aH3yLncV6e7FXvyD9dOK0856uFSu9h35JDDJ7jdWL7E/VKnuTpU9Wfr
+	 UHL+O88SASJ4OvrzVMx1G35NtbFmbBx8svvT6Fu/tc1dlrZdf8F46rLf2JjWvalXT/
+	 qwqo0jHvGvzMmWpH/0ooLxBF4W8NArOA/S9hcraQMSK1VX9CaAGzBtDPy3y/Cak2xP
+	 xmbp3nH4YEy95AUz/yi6bhwmVJIcGGabMYi9ou/IXmfXfqPTPlHeGRdHDHXV64NpiP
+	 /2j9tqIjDGzUKbYcrkNQOr/eY1iCWWOGYLINx51Po9ekkoIO+3erQ3bslr3OuM2pnW
+	 iwR4dqhvMv4qQ==
+Date: Thu, 25 Jul 2024 15:35:22 +0100
 From: Conor Dooley <conor@kernel.org>
 To: pierre-henry.moussay@microchip.com
 Cc: Conor Dooley <conor.dooley@microchip.com>,
 	Daire McNamara <daire.mcnamara@microchip.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Samuel Holland <samuel.holland@sifive.com>,
 	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 14/17] dt-bindings: soc: microchip: mpfs-sys-controller:
- Add PIC64GX compatibility
-Message-ID: <20240725-jackpot-tapping-fae83673a04d@spud>
+Subject: Re: [PATCH 17/17] riscv: dts: microchip: add PIC64GX Curiosity Kit
+ dts
+Message-ID: <20240725-taco-jailbreak-6630da00cda4@spud>
 References: <20240725121609.13101-1-pierre-henry.moussay@microchip.com>
- <20240725121609.13101-15-pierre-henry.moussay@microchip.com>
+ <20240725121609.13101-18-pierre-henry.moussay@microchip.com>
 MIME-Version: 1.0
-In-Reply-To: <20240725121609.13101-15-pierre-henry.moussay@microchip.com>
+In-Reply-To: <20240725121609.13101-18-pierre-henry.moussay@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240725_073408_648836_33BC03EA 
-X-CRM114-Status: GOOD (  16.50  )
+X-CRM114-CacheID: sfid-20240725_153531_736575_63B3057B 
+X-CRM114-Status: GOOD (  13.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,85 +91,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7326325171139558663=="
+Content-Type: multipart/mixed; boundary="===============7186389056405121962=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============7326325171139558663==
+--===============7186389056405121962==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="QgTWijV28ZC96G3W"
+	protocol="application/pgp-signature"; boundary="yPwJHk3tpKNwQYbJ"
 Content-Disposition: inline
 
 
---QgTWijV28ZC96G3W
+--yPwJHk3tpKNwQYbJ
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Jul 25, 2024 at 01:16:06PM +0100, pierre-henry.moussay@microchip.co=
+On Thu, Jul 25, 2024 at 01:16:09PM +0100, pierre-henry.moussay@microchip.co=
 m wrote:
 > From: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
 >=20
-> PIC64GX is compatible with mpfs-sys-controller driver without additional
-> feature
-
-Bindings are about hardware, not drivers. Are you sure a fallback is
-appropriate here? Does the system controller expose the same features as
-it does on PolarFire SoC? For example, FPGA reprogramming: the driver
-creates a platform device to which the auto update driver is bound - I
-don't think that that is appropriate on a pic64gx.
-
-Thanks,
-Conor.
-
+> The Curiosity-GX10000 (PIC64GX SoC Curiosity Kit) is a compact SoC
+> prototyping board featuring a Microchip PIC64GX SoC
+> PIC64GC-1000. Features include:
+> - 1 GB DDR4 SDRAM
+> - Gigabit Ethernet
+> - microSD-card slot
 >=20
 > Signed-off-by: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
 > ---
->  .../soc/microchip/microchip,mpfs-sys-controller.yaml        | 6 +++++-
->  1 file changed, 5 insertions(+), 1 deletion(-)
+>  arch/riscv/boot/dts/microchip/Makefile        |   1 +
+>  .../dts/microchip/pic64gx-curiosity-kit.dts   | 114 ++++
+>  arch/riscv/boot/dts/microchip/pic64gx.dtsi    | 616 ++++++++++++++++++
+>  3 files changed, 731 insertions(+)
+>  create mode 100644 arch/riscv/boot/dts/microchip/pic64gx-curiosity-kit.d=
+ts
+>  create mode 100644 arch/riscv/boot/dts/microchip/pic64gx.dtsi
 >=20
-> diff --git a/Documentation/devicetree/bindings/soc/microchip/microchip,mp=
-fs-sys-controller.yaml b/Documentation/devicetree/bindings/soc/microchip/mi=
-crochip,mpfs-sys-controller.yaml
-> index a3fa04f3a1bd..af89d5959747 100644
-> --- a/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-=
-controller.yaml
-> +++ b/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-=
-controller.yaml
-> @@ -24,7 +24,11 @@ properties:
->      maxItems: 1
-> =20
->    compatible:
-> -    const: microchip,mpfs-sys-controller
-> +    oneOf:
-> +      - items:
-> +          - const: microchip,pic64gx-sys-controller
-> +          - const: microchip,mpfs-sys-controller
-> +      - const: microchip,mpfs-sys-controller
-> =20
->    microchip,bitstream-flash:
->      $ref: /schemas/types.yaml#/definitions/phandle
-> --=20
-> 2.30.2
->=20
->=20
+> diff --git a/arch/riscv/boot/dts/microchip/Makefile b/arch/riscv/boot/dts=
+/microchip/Makefile
+> index e177815bf1a2..78ba2952a164 100644
+> --- a/arch/riscv/boot/dts/microchip/Makefile
+> +++ b/arch/riscv/boot/dts/microchip/Makefile
+> @@ -4,3 +4,4 @@ dtb-$(CONFIG_ARCH_MICROCHIP_POLARFIRE) +=3D mpfs-m100pfse=
+vp.dtb
+>  dtb-$(CONFIG_ARCH_MICROCHIP_POLARFIRE) +=3D mpfs-polarberry.dtb
+>  dtb-$(CONFIG_ARCH_MICROCHIP_POLARFIRE) +=3D mpfs-sev-kit.dtb
+>  dtb-$(CONFIG_ARCH_MICROCHIP_POLARFIRE) +=3D mpfs-tysom-m.dtb
+> +dtb-$(CONFIG_ARCH_MICROCHIP_POLARFIRE) +=3D pic64gx-curiosity-kit.dtb
 
---QgTWijV28ZC96G3W
+s/MICROCHIP_// please. And a patch renaming the others would be neat too
+;)
+
+--yPwJHk3tpKNwQYbJ
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZqJiWQAKCRB4tDGHoIJi
-0qO/AQDHS4tIeC40U53nkW2mvlvdDVc93b6zd9C2Ij8wPVc5XAD9FE5pgk2AkakY
-f2Zrj4sp+eYAE9LaRofUTAh3pniqgAo=
-=Ed3R
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZqJiqgAKCRB4tDGHoIJi
+0pNIAQDsNaXHT+ww+2ANltZ46PqzzFdkcKcI6MA0PVMYZzWjnQD8DY1vvjdvMqQf
+W3/o/h02Wbut5DXZqtSm+FHFS7ISLgI=
+=ZQmA
 -----END PGP SIGNATURE-----
 
---QgTWijV28ZC96G3W--
+--yPwJHk3tpKNwQYbJ--
 
 
---===============7326325171139558663==
+--===============7186389056405121962==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -161,5 +168,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============7326325171139558663==--
+--===============7186389056405121962==--
 
