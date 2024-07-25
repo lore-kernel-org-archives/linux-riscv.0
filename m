@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D98CC3DA7F
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jul 2024 04:16:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D78B1C3DA49
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jul 2024 04:16:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=alKt62dpOT1KD875EgnNayCq/Q7UHyMp6gqX/eipFkI=; b=B8ZblZ4hnRYAEe
-	lGRRpmXE0JUEAsnmNV/+/tdZYX+ymcBWP8xgUqVWCLms1yPrfM/iXfCniKMstrBjIyJ3bFhpVJL4T
-	BFevCw6lZEKqy5nS9ice4qAePAZ9SFYTa7xAGRuWsX7RLBsO2To/+TZnlVMzzJc2HRwPoxJDukmL3
-	2EKfMISfkdHsdPp7cUnaJ8gED/9jq9RPiL9vtyk3/8j5oInEwaLi16Xv+WaVsSpDerFCft3nbqVyZ
-	GykiwNJIXu8niHCbjb46wyy6ayL7yW7+72HOMQ+BOzmpwN8O7r1B2Zxgu1JiV6C8tyHWGCKsH5SoH
-	KoAdZeUAPeY/QJduYGrA==;
+	List-Owner; bh=8sLQszs8uvBMuM7q3YsznaxRjkr+k4U7AGQHcLo4/h0=; b=2RFeClLkOOGidw
+	lj3WEHuXaGV6Q2L980zHsufp6/V1uJy2vwRD7l8u4crnPhPkpxeMH4ziMiynHuO1PrZhclSpHzQkz
+	TAWdj5KdceEzUEVHLAo2UPqwavHYx0OjPyxfG/6BVfX6tayA1wN7ibhQS6l/DuexUgSIkmgpnXzSW
+	5UIFD1v50Exr1Qf4FUt7xGE9xbxPrA7ubkwWEzwe30U+vrt+Pp9iCOCO5y0hfjt7qOjxeN6O2Ei3N
+	4o1rtk8o837UADrkr3loMq5OsR5raPY8CVYFvXpsIZjaB9CU5Q0OhCQfJZKy4qF6rZSvZMnAeAaSU
+	FNTBkF3pBtZODENeD3Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sWpuH-0000000HIKX-0cSf;
-	Thu, 25 Jul 2024 04:16:45 +0000
-Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
+	id 1sWpuD-0000000HIJ7-4BNZ;
+	Thu, 25 Jul 2024 04:16:42 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sWpuC-0000000HIIZ-1s0g
+	id 1sWpuA-0000000HII6-1Ro0
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Jul 2024 04:16:41 +0000
-Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-7a1215dd114so359650a12.1
-        for <linux-riscv@lists.infradead.org>; Wed, 24 Jul 2024 21:16:40 -0700 (PDT)
+	Thu, 25 Jul 2024 04:16:39 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-1fc56fd4de1so3681985ad.0
+        for <linux-riscv@lists.infradead.org>; Wed, 24 Jul 2024 21:16:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1721880999; x=1722485799; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1721880997; x=1722485797; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=0RiVgzby/fIL0Kxxx3Y50ysZFHbsEJYdDMqDhTheyzc=;
-        b=z/CfLpJxn4IyxhSJ9roAqycljvBpNVeay/SIMVO8+FxEAJl/U8tFYz4VIzDNv/AQDh
-         a52u47GxuXloIzr4bG8IvJFeCqggduyRJk62amKwFALHD99jA30jISSSfWwSbTSqMW6p
-         QSm0WjiUZvRqC0akfyQnn8dGhfaP4xr2o50xdg2AWWIwXdcEOMqbzpYQdhGynfgo8es4
-         Zwq8gWLeF/3RvB6JXddAuz6cqqEQLWVaCEszedEp4WwkgBlBoWIWCubUYuaCl68F3fPR
-         svQravrnkqOA7e6w6hL/RUXOpqwza+4YmQnQnCwb+sRxfdoP5bEbRIFpW/+aGKKT7T4+
-         KSYw==
+        bh=GWtR9ZjYZiSKNZtqnpkUxp+qNZzbKrCzo+6HVfyCbsc=;
+        b=Ip5umt72Tt7xAt1FQkzZjc/6ekqAK9h+OnbvvPoj79l3wXkqlL7enio38+Xk/yG8aq
+         jFD7b10KAETcknOwTrs5UFilEElL3M0qJo38PirfSP1Kx1lbccZvE4prAbhFanBSxO+o
+         HHEct+dM3/2AQrtbYFmjK92uBfxwe7zsaeFWgg+QarJapB/4yOBxn6MtO184/wwDVcOq
+         4hgPwWLcxAu5VPZ7ZFtftDO3guL7CEwflxIYrGt0/d9kusl98qM+niK/9kuC4oRB/HyW
+         geoeGhDkJqDjOsy8EEvKXcRLnqQlFiZaBMFRIYWSJzRrevzoxmx2w5CQu2lp00bD0Oj4
+         b3dA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1721880999; x=1722485799;
+        d=1e100.net; s=20230601; t=1721880997; x=1722485797;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=0RiVgzby/fIL0Kxxx3Y50ysZFHbsEJYdDMqDhTheyzc=;
-        b=IQWHkc+fCN28myNr6AzG36E4CImbK1UepPFG9d9/TqkDSxjT/mEReMQF04GYZb8BtW
-         BQdKu+f9Gc+iFzME/LyA+W4HDGGSgpK4ilieyo8o+2XRyngqapWQCfwghqiMs0w47Ymc
-         Aso7jzhFTdiurK5WzLsMXENJ5ZzT/0VP4Oj2mhESceAP6wm5cDrjWGqop+QAHwfd4d6D
-         vPmZoGGEOGlyV5RdHhE4XQq/MuWMLXtU+q5IUqLkoEkBA7bmLJ0q0y8L/JXOuvxiiFGA
-         M4qzY+LXX7Vpwddw1pZ5DDdvYNmKqZjS8X1AqlkewJUR4hNCj93H9feWypOfAT+dVO9P
-         iYBQ==
-X-Gm-Message-State: AOJu0YxNouZIeiFL8XXsxv0wP0dFcqt5byj5XiECGvH1S56IPaBX/jct
-	pg+KrdQzwbUTgwg4vN5ZRpFFBwOtqkPnjMUUTifHOwXnlc4rmlTk8sShcx0p1nU=
-X-Google-Smtp-Source: AGHT+IHBqouUd60StUuFY3y20z9rotElPmPvr8np0xp/cOd/5D5tZBs9q3oV3mBGdN2o0+1sfhUmuQ==
-X-Received: by 2002:a05:6a21:99a1:b0:1c4:231e:8ee5 with SMTP id adf61e73a8af0-1c47b229b19mr919358637.29.1721880999516;
-        Wed, 24 Jul 2024 21:16:39 -0700 (PDT)
+        bh=GWtR9ZjYZiSKNZtqnpkUxp+qNZzbKrCzo+6HVfyCbsc=;
+        b=OthmMJ4LJdAcOXRNsW8wE7ARDlNW1QmtQK1tI0j5Xo93Y/qyQAZr1tV7odOq3XFeTe
+         9ORYSZDCLMOnmfx+NW5l/1m6BvUrRs3vGN0qTAbsTjvLaoubimoDJL8Jw7ggMbaEC/48
+         VjUn+Y+KxNd8f7Y+h9op4TNyNio+sp9jRdIgavkJCXJclaKs4Nl4kG6XtyaEUV8b0sXJ
+         MrtWR7989vRw12O0S138BiRfcY4rEBdWRIP5XYlZHPLDOcIsKcHoLvaRxduDVjAkBeAZ
+         znq3Qc3ytDqRymje76hKCy3vnlM6Wu04sHt8yK7dGsFtgwP69B5Eq77xlMb4fJb21bi9
+         RGSA==
+X-Gm-Message-State: AOJu0YzcZYczw6Sdp1pT9tINLcOcssVC0BpnM5cbB7XrEvVbaUi4/kNR
+	GsUSIz7v0UisAVcaqB1juS1nIz7kESS826iHtsy7dydu9KF2s9WS3EK/k/9+LBY=
+X-Google-Smtp-Source: AGHT+IHmvAI6Lep3+L+mKA+XJ6/VVS15lPSV2gXaJChB8H2XYNeKkgK+h5Qmr039zy2zDD7IhrItxA==
+X-Received: by 2002:a17:903:2308:b0:1fb:9b91:d7d9 with SMTP id d9443c01a7336-1fed2854b27mr28870745ad.26.1721880997435;
+        Wed, 24 Jul 2024 21:16:37 -0700 (PDT)
 Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1fed7f2b80bsm3781825ad.205.2024.07.24.21.16.37
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1fed7f2b80bsm3781825ad.205.2024.07.24.21.16.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Jul 2024 21:16:38 -0700 (PDT)
+        Wed, 24 Jul 2024 21:16:36 -0700 (PDT)
 From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Wed, 24 Jul 2024 21:16:19 -0700
-Subject: [PATCH v8 02/13] dt-bindings: cpus: add a thead vlen register
- length property
+Date: Wed, 24 Jul 2024 21:16:18 -0700
+Subject: [PATCH v8 01/13] dt-bindings: riscv: Add xtheadvector ISA
+ extension description
 MIME-Version: 1.0
-Message-Id: <20240724-xtheadvector-v8-2-cf043168e137@rivosinc.com>
+Message-Id: <20240724-xtheadvector-v8-1-cf043168e137@rivosinc.com>
 References: <20240724-xtheadvector-v8-0-cf043168e137@rivosinc.com>
 In-Reply-To: <20240724-xtheadvector-v8-0-cf043168e137@rivosinc.com>
 To: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -88,16 +88,17 @@ Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
  Charlie Jenkins <charlie@rivosinc.com>, 
  Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1721880992; l=1911;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1721880992; l=1788;
  i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
- bh=lK25kSvuXBbjCsm1KOScKY69sa4rMHinL5Ye8aockR0=;
- b=U6hkM0vK7Fw/IQIGJFsZnHJIDTo03z/90pw0ylmD8Hl1YapQisvOP8xIEUjrga2P3in7QNuEq
- K4vTINX6W0gBsmwtfDrGgJt9ujpdnjnf1swACzykXFrMVEH2Gorza/1
+ bh=ZzH0VgSdYutk/uKY2omj651o9v+E5HP1BijtgXJzAp0=;
+ b=1I8Xg3/phceAD3Z3MPvasZ4C+zAtCdGw1Jhx6djj1GpdJCKExpkFIElu4U3Bar1KmQK6zz0fs
+ H3tRahcXl4fAVPHfGejeNs1S+lB2PB2wyAthiWw+z2v42ttNPMIORxN
 X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
  pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240724_211640_498325_A1FAD394 
-X-CRM114-Status: GOOD (  10.88  )
+X-CRM114-CacheID: sfid-20240724_211638_393654_289C1886 
+X-CRM114-Status: UNSURE (   8.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,56 +115,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a property analogous to the vlenb CSR so that software can detect
-the vector length of each CPU prior to it being brought online.
-Currently software has to assume that the vector length read from the
-boot CPU applies to all possible CPUs. On T-Head CPUs implementing
-pre-ratification vector, reading the th.vlenb CSR may produce an illegal
-instruction trap, so this property is required on such systems.
+The xtheadvector ISA extension is described on the T-Head extension spec
+Github page [1] at commit 95358cb2cca9.
+
+Link: https://github.com/T-head-Semi/thead-extension-spec/blob/95358cb2cca9489361c61d335e03d3134b14133f/xtheadvector.adoc [1]
 
 Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- Documentation/devicetree/bindings/riscv/cpus.yaml | 19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
+ Documentation/devicetree/bindings/riscv/extensions.yaml | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
-index 8edc8261241a..c0cf6cf56749 100644
---- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-+++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-@@ -26,6 +26,18 @@ description: |
- allOf:
-   - $ref: /schemas/cpu.yaml#
-   - $ref: extensions.yaml
-+  - if:
-+      not:
-+        properties:
-+          compatible:
-+            contains:
-+              enum:
-+                - thead,c906
-+                - thead,c910
-+                - thead,c920
-+    then:
-+      properties:
-+        thead,vlenb: false
+diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
+index a06dbc6b4928..1a3d01aedde6 100644
+--- a/Documentation/devicetree/bindings/riscv/extensions.yaml
++++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+@@ -556,6 +556,10 @@ properties:
+             latency, as ratified in commit 56ed795 ("Update
+             riscv-crypto-spec-vector.adoc") of riscv-crypto.
  
- properties:
-   compatible:
-@@ -95,6 +107,13 @@ properties:
-     description:
-       The blocksize in bytes for the Zicboz cache operations.
- 
-+  thead,vlenb:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description:
-+      VLEN/8, the vector register length in bytes. This property is required on
-+      thead systems where the vector register length is not identical on all harts, or
-+      the vlenb CSR is not available.
++        # vendor extensions, each extension sorted alphanumerically under the
++        # vendor they belong to. Vendors are sorted alphanumerically as well.
 +
-   # RISC-V has multiple properties for cache op block sizes as the sizes
-   # differ between individual CBO extensions
-   cache-op-block-size: false
++        # Andes
+         - const: xandespmu
+           description:
+             The Andes Technology performance monitor extension for counter overflow
+@@ -563,6 +567,12 @@ properties:
+             Registers in the AX45MP datasheet.
+             https://www.andestech.com/wp-content/uploads/AX45MP-1C-Rev.-5.0.0-Datasheet.pdf
+ 
++        # T-HEAD
++        - const: xtheadvector
++          description:
++            The T-HEAD specific 0.7.1 vector implementation as written in
++            https://github.com/T-head-Semi/thead-extension-spec/blob/95358cb2cca9489361c61d335e03d3134b14133f/xtheadvector.adoc.
++
+     allOf:
+       # Zcb depends on Zca
+       - if:
 
 -- 
 2.44.0
