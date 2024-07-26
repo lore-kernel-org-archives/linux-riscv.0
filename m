@@ -4,86 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC43FC3DA49
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jul 2024 00:06:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26E1AC3DA7F
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jul 2024 00:06:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VEOHgyKHLkEVkPHVDIE+HJUvNwSzOMpATjkPyY6Atck=; b=hB0x0DjrOVIOfx
-	hzVsmxT7EPUugV9ErKE0ENP78KaqTV6kAgLvKnCZO2c2FSDBxFu5fxIpOy4encNs6TFveX3QCJfTE
-	f6jwBuJ69SA+2eSUj2i0xg6zyNDCwTKkFcsvRN3ZonSMFG0Rfse6SiuWyPLF0I6FQ58G6Enb0TbzC
-	zywKr+oFXWuFta0vjPbWU96K3Ms9LhCfNFOm4/1+eV2uvQk5xPJXrwiuR6VG5UGEpzgs+Z/jCQMSM
-	WzoLYXcl6RtO4Ql/Z9Sqw/UTq9jWtdcmVvp51cfkNy85sQv5Z3xm42x0XPOH5qOiNR9dP1KD91ToH
-	rpuNa7JmTLMC8kymiBDA==;
+	List-Owner; bh=dAaaOhz3C9n+ZKAgu7jHY27xC3ctnfpDNSq3m/Sqvwc=; b=A7Ne855WR2pI9C
+	tmw1rbcABNyYqQqPeAeDGn1q6xjT/KiNrl7p376/0y5EtgdGCOONSUVImzBSIw7Dd/MhI9+8lVjyi
+	9ouat4fjUrlRwTkTHlCzSj+/qo4EPrMpZpNSae+8wtGx0G7TSxwpU3/gd1CJJGzkols23cs2OtSNe
+	G6DmOEIcNoCWt9IbsnC6gfTk+6dgsVs3IpRcGTAN1ym00HWjotjQ28uyyIzofu+nvttEr5RrlQTNN
+	0efvrW1Wtd1FfaRvFG8UMPHHGGdXLCUvFQZ6xYKorkvDyJMBFKty2Y7OpBDSTHVEMTgOj9r4VvxZ6
+	F2Vup3hjeiMGammZIV7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sXUxL-00000005XHG-3maG;
-	Sat, 27 Jul 2024 00:06:39 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1sXUxN-00000005XIP-1WFP;
+	Sat, 27 Jul 2024 00:06:41 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sXUkw-00000005Q6C-1ykE
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 26 Jul 2024 23:53:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=bC28fbRseb42Ch2zMqBFWEix5TOk22ZdgToO+ip0K/0=; b=ktPzItXikVvlfhjUjDSfwA3ul5
-	78ILdk9RZyhg00a3So5kF/vFP17f4dYVxf3wg7+WsxuSev4pa+EzFPObXShPDvNUu3CL2TyLpaUJx
-	nlk4iU5wmfj53Juqh1mRKNeLomoBZMiO6SZUdVLmIqGZCPcGsS2R6NLoE5g1mJiVJA/fsyd2cHDck
-	mgVJy2Za5wyTq/y6CqWNKXmbguJytxBu6ja+dXdBDipfjsdV2gwdOMBtxgE4glHzQQX3LFq07KDaW
-	JtPoV0XhZSqYvV9ISK7wMV8mfU9WhTr+9ytgpDuAEIqRPp+j3oLu27pdN5N1Suy+kRVG7e3qsURqp
-	h+vHGliQ==;
-Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sXUkt-00000004JzZ-0vCB
+	id 1sXUku-00000005Q4N-3krc
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 Jul 2024 23:53:49 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-e0b2ca2952eso395238276.0
-        for <linux-riscv@lists.infradead.org>; Fri, 26 Jul 2024 16:53:45 -0700 (PDT)
+	Fri, 26 Jul 2024 23:53:51 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-1fee7c9e4a4so10496695ad.2
+        for <linux-riscv@lists.infradead.org>; Fri, 26 Jul 2024 16:53:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1722038024; x=1722642824; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1722038028; x=1722642828; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=bC28fbRseb42Ch2zMqBFWEix5TOk22ZdgToO+ip0K/0=;
-        b=wlhR9UHWbRCcQsCk7Qyniuas+4OWywK1BeSXLA4zE78tE6GChzNJdviYi1HSoc6ax+
-         d5InN80QZ7NVPje2u+/kGiRgzLMjqD1/uw3IT/pVfIDbPxxubwiIuaMwhEzhhZ1gm5ME
-         ADd7f7qw747nrFDjEnX4nRrpHj9GwWm6YegJe/3i7siQiydGWbUr1LRCjrix/y5dpmYP
-         WcS/UQHpztxSTruAEyOiyrTIxz6BGeITkWO/cPIRYxpTWSdAryT+ZkD81tYpAxlpUnN9
-         IxV6UFPt8AYBHzjxmOkSwTHuE2YVus3/UZPegFqoW6Y7Jmw4lERsEdBZXSVQDm5CTnyg
-         lkIw==
+        bh=f0UOaTihDpRJ7PP+Ej2doGcOk+AHWo0BkuOsHzozLVI=;
+        b=euoXExK9GWAFuMpIdFQ7q8HBipFFrXmajA3RSJ0IUws9NyIaLOSByOXhNl74zIRdvE
+         VSE/px8NDztYc0LeivyQjS8KKxIEKYMjKDpgGXeCdKensDYIUXnwhS3EoCWtoTrs8Ukr
+         yXI+wZ2PSQMVVgDD3HhXLkin7p13ft0zh6hWSGOVbkj6N1yQOP/h8LSIy11Hm69GTpp3
+         izYwkBJu2zF+H98+30h/NBmgLub4s4DLNPQso4Acl47SqXicQnUNZV0HSzCxp4jGzHn3
+         3q1GfmGJ/S/s8x3l8rpP4cQ5LKwGpy+gL0QZscNe3m3L2tHcSGLf7/7FtKrWLxSwo4GE
+         VmOQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722038024; x=1722642824;
+        d=1e100.net; s=20230601; t=1722038028; x=1722642828;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=bC28fbRseb42Ch2zMqBFWEix5TOk22ZdgToO+ip0K/0=;
-        b=Y/YWNleajhs9SUh2oVRHz6KQeQ9THMLZUUFVtVqFQYmewKf9HAq6+heGL8y+nM8k8Z
-         9MR1L6i5QMmGUb+eySLjGhiLv5pZJBKdRlwbgyncEkX+XILDLjIo+XD6V/bjz3yufQul
-         4X7t3RAB5LXNForzXMZ4v71DwRbXS790mM5llCvVnV0bh/Uk0ba/BcViTJjB+vliZuZc
-         sDYA3paFVb6VQ7ynwgckMBbo4OjCptRNp+yq9GsXfPdajBnHRFyy9i3MFj7Oa5osa/cz
-         j5STJWDmPLhlQqO3vwqeMOHBOyOfO/Dlc64qy6XRDc8XJ+5zmJap6DbzYAmHkOixLHfg
-         DnbQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVBjm9a4UGoJ8IZPBYD4lzczbF5OKbJJ3TvTACDDfYRqjyfKuCm5PPsuah725zT3vfb42EQg6WhcC9OFgvaGPX/eKduxXv6O/IMTPYcN0Fh
-X-Gm-Message-State: AOJu0YzUlWD+sfYhPbiJOk5hA2xER3+vaHsomgb8k5nNp0ZWyJ+bqG3j
-	xTC/u+bqLPTU7NErfP4yic3m/g1l0SqoIz90U0YVh0dKxd3Y8QqFC60XpGPD3vMD94r/RGoLDOu
-	Uvw==
-X-Google-Smtp-Source: AGHT+IFe6CawsiHghHJz6goDA5MI5OiaYSIvtgnV/oY+y/tLOOW/H4O66kyosfEcqs3UQ2nQeG3uHH/jimU=
+        bh=f0UOaTihDpRJ7PP+Ej2doGcOk+AHWo0BkuOsHzozLVI=;
+        b=cPJw9MMg/C6XkhlpxDC4mEb02stA/GxIvY6uHQkDmcyA9aBsYpZmhetWq3lMb+lNQR
+         kFQES3s/sLQguFQC1fQpiiqOGBWs78Q1kFQkDLiS8CvKe+rdFZOOUcj6O8sBFE/3z1Pk
+         ieprqJfyq53zMpVZqmtoDJZoqVUVStvaemgpMwbNUG/gbSXCuXp9RnTCxMZh9qXhCyMu
+         VKOdTboojuszW/mkbn7x9y24Ax76AUljceRcA9OXxBMfRQnk7hh1QcmvjVkhhcwVA7Ea
+         5L14poSutaVe51+7KiX7gdpvTz4O7trwTOhMu8+0G+VEDnjpTXry/rV6X9K73O3bpWe1
+         GFSA==
+X-Forwarded-Encrypted: i=1; AJvYcCWIYo3gUhe3VcCX8gtFnC/IKB9JgGpPm7H3bMVvsN1e3ewVB04B2Fa6z8tEbJV4mza1ESOG18T1Tm94iA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzym4gQlXz4ZuaK1zocFJOYhJM1DIdy3v60xnM60g3It59Q84LF
+	3dqgNt5d9zIjJDY/uzAYBSPO9IbiCJwuDEawcdqTBDAISUS00CHi3DlFG2XnM3AKgdGYLQf1bLb
+	bmA==
+X-Google-Smtp-Source: AGHT+IGYUMRc1uUxr912DKcgHH4gUUnvf0wLEKnF8dkY5ruUFOJLgoqFTBS1LD3evC3JUrfTD0ZWGbhz678=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a05:6902:181d:b0:e03:5144:1d48 with SMTP id
- 3f1490d57ef6-e0b5452490amr2050276.11.1722038023813; Fri, 26 Jul 2024 16:53:43
- -0700 (PDT)
-Date: Fri, 26 Jul 2024 16:51:41 -0700
+ (user=seanjc job=sendgmr) by 2002:a17:902:cecd:b0:1fd:6529:7443 with SMTP id
+ d9443c01a7336-1ff0486a65amr545105ad.11.1722038027663; Fri, 26 Jul 2024
+ 16:53:47 -0700 (PDT)
+Date: Fri, 26 Jul 2024 16:51:43 -0700
 In-Reply-To: <20240726235234.228822-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20240726235234.228822-1-seanjc@google.com>
 X-Mailer: git-send-email 2.46.0.rc1.232.g9752f9e123-goog
-Message-ID: <20240726235234.228822-33-seanjc@google.com>
-Subject: [PATCH v12 32/84] KVM: Get writable mapping for __kvm_vcpu_map() only
- when necessary
+Message-ID: <20240726235234.228822-35-seanjc@google.com>
+Subject: [PATCH v12 34/84] KVM: Add a helper to lookup a pfn without grabbing
+ a reference
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
@@ -99,8 +84,8 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	David Matlack <dmatlack@google.com>, David Stevens <stevensd@chromium.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240727_005347_445319_D4205761 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20240726_165349_094140_489D4E01 
+X-CRM114-Status: GOOD (  11.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,31 +103,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When creating a memory map for read, don't request a writable pfn from the
-primary MMU.  While creating read-only mappings can be theoretically slower,
-as they don't play nice with fast GUP due to the need to break CoW before
-mapping the underlying PFN, practically speaking, creating a mapping isn't
-a super hot path, and getting a writable mapping for reading is weird and
-confusing.
+Add a kvm_follow_pfn() wrapper, kvm_lookup_pfn(), to allow looking up a
+gfn=>pfn mapping without the caller getting a reference to any underlying
+page.  The API will be used in flows that want to know if a gfn points at
+a valid pfn, but don't actually need to do anything with the pfn.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- virt/kvm/kvm_main.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ include/linux/kvm_host.h |  2 ++
+ virt/kvm/kvm_main.c      | 16 ++++++++++++++++
+ 2 files changed, 18 insertions(+)
 
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index 82ca0971c156..5a572cef4adc 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -1212,6 +1212,8 @@ static inline void kvm_release_page_unused(struct page *page)
+ void kvm_release_page_clean(struct page *page);
+ void kvm_release_page_dirty(struct page *page);
+ 
++kvm_pfn_t kvm_lookup_pfn(struct kvm *kvm, gfn_t gfn);
++
+ kvm_pfn_t gfn_to_pfn(struct kvm *kvm, gfn_t gfn);
+ kvm_pfn_t gfn_to_pfn_prot(struct kvm *kvm, gfn_t gfn, bool write_fault,
+ 		      bool *writable);
 diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index a46c7bf1f902..a28479629488 100644
+index 0b3c0bddaa07..ad84dab8c5dc 100644
 --- a/virt/kvm/kvm_main.c
 +++ b/virt/kvm/kvm_main.c
-@@ -3142,7 +3142,7 @@ int __kvm_vcpu_map(struct kvm_vcpu *vcpu, gfn_t gfn, struct kvm_host_map *map,
- 	struct kvm_follow_pfn kfp = {
- 		.slot = gfn_to_memslot(vcpu->kvm, gfn),
- 		.gfn = gfn,
--		.flags = FOLL_WRITE,
-+		.flags = writable ? FOLL_WRITE : 0,
- 		.refcounted_page = &map->pinned_page,
- 		.pin = true,
- 	};
+@@ -3118,6 +3118,22 @@ kvm_pfn_t kvm_vcpu_gfn_to_pfn(struct kvm_vcpu *vcpu, gfn_t gfn)
+ }
+ EXPORT_SYMBOL_GPL(kvm_vcpu_gfn_to_pfn);
+ 
++kvm_pfn_t kvm_lookup_pfn(struct kvm *kvm, gfn_t gfn)
++{
++	struct page *refcounted_page = NULL;
++	struct kvm_follow_pfn kfp = {
++		.slot = gfn_to_memslot(kvm, gfn),
++		.gfn = gfn,
++		.flags = FOLL_WRITE,
++		.refcounted_page = &refcounted_page,
++	};
++	kvm_pfn_t pfn;
++
++	pfn = kvm_follow_pfn(&kfp);
++	kvm_release_page_unused(refcounted_page);
++	return pfn;
++}
++
+ int kvm_prefetch_pages(struct kvm_memory_slot *slot, gfn_t gfn,
+ 		       struct page **pages, int nr_pages)
+ {
 -- 
 2.46.0.rc1.232.g9752f9e123-goog
 
