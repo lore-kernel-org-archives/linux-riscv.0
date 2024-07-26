@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23816C3DA4A
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jul 2024 00:21:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ECADC3DA49
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jul 2024 00:22:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/EgRM656VuqrlQ/3vdH0xez3GE48BEZXR9hFIVENJFk=; b=jAD7W0isGyFYKa
-	lFkmB6hJVc5MxDLi5nCL4TJE/rxJgyQbkbk7k7bVSKgEMJssn+MO2byEw3J8a/tL2iHg5gDYFNaH6
-	90XT3QhozVo7sEkoxeuZ4Rp6xwNJ+acnJOq33/65jtbQeqmE2HZP6puJE3sxah8VzN9NqUAMIrMQ9
-	Q4kAOTH8JhITMt9cZO73avl0l/rBYM99zMoVZJmX6W7LBx9BqL+6SQVHQ4cKzT8toee/PY+hN2MhR
-	q+k1CpwHeJgrgQAvPzgiKZ7C8lZRM51n4YZn5tROb0Mjg7kF67pD/aJxry3+CdhJv8tJVtSkxVD5E
-	f/i7hZDaww5dtcM1eXfg==;
+	List-Owner; bh=Roa56V5+pAkRhMBwS1jy8DZwIcZtbD/yPd0or9BlBXo=; b=s79111rX4lf7Ie
+	KqefEuPlJag/1rYTxg3jD9GSKWIGxfLDKGLD1ikh0PRf1RyhtRNLp/a3HF/5hCteadIQYBUEy/G1I
+	QfItCl1DDapCi1GVxRwK11ftkL52b0xM4KvZNktF51GGKFFO8siJ6nkV96zy6zzqWc//yrtNML7fy
+	sZX6FFdK8pcuFmIp73/HTwHtH5OaFCvbb5f/wQScxBULZLuqLrQrbkTp9Ugla31WrZQVnM+RxnCTn
+	FKf1JPfeogo3aAFOM7unHLcZ63sSRs0YdS9HHVYwBddpn9hgR7nFrzPsHFpZEvf6Bmxnz9eEi6DTJ
+	CLBBmS1UrOkQ+PWxpiPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sXVBc-00000005eY4-13MC;
-	Sat, 27 Jul 2024 00:21:24 +0000
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	id 1sXVCU-00000005f3R-32jH;
+	Sat, 27 Jul 2024 00:22:18 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sXUlY-00000005Qc1-0Xar
+	id 1sXUle-00000005QiJ-1FiJ
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 26 Jul 2024 23:54:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Tp8vWxWuEfoTun4nd23rTIy8nVqGGlQS/g8lo8vNdQg=; b=bVcp5E7jSkWpvM9hcOIje5PGcn
+	xY+Cj3FPhxKnSkmpjJoqfPeCFMGqFuFEspu0YhEQqoeD8mCYrB6gxCV5colaXGwILzJCkpNggoZqt
+	SX2erYTFyg1TX3bY/FW6oM2Xi9zDj0tsYFzaCJHvMdFzmlmGMD4gItnZWqmFoCmkynuxPlLiqyihe
+	n0zzF1R4fCt7LWlT1etSReuDCwNqfBx+7rbKtpiw/7rwNHrhjeFm8etJpfI9H7AIft5EFkaNhQxhE
+	x30I52zb5mhrMonjDrDR69LgvsJmB2mDFwJ7qM/Yv1xIOJXbXqwVudZI2PTFS6G37ru+beIj2wWvz
+	RPctzcEA==;
+Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1sXUlb-00000004K2w-04PK
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 Jul 2024 23:54:32 +0000
-Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-70d1a9bad5dso1374483b3a.0
-        for <linux-riscv@lists.infradead.org>; Fri, 26 Jul 2024 16:54:27 -0700 (PDT)
+	Fri, 26 Jul 2024 23:54:33 +0000
+Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-70d14d11f42so1334294b3a.2
+        for <linux-riscv@lists.infradead.org>; Fri, 26 Jul 2024 16:54:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1722038067; x=1722642867; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1722038069; x=1722642869; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=zSr/S7cQW+jg6+5Yur5d69GSxQ0D+3E/XB18qDPP3eA=;
-        b=Yn2ggu6BQKcMFB9DloD1NFvFA9WT1o9AlWGknyXfGwG66zrtNAvRhYE2xZMC0UhBNd
-         Hfdz0YWI9rVcQXoycJxQmWwG8+QUP5MvwQTECGM0HuaAYE2ZWQ3cfgjV+iKj4NSwp4gc
-         ng2LYUanNE8VfqgI3cJkwp14zLswAmvuRvpupZkkZO463l8z5Fg0unzetH1RzAOe02rQ
-         H8rYQl9WExMEn+zdhXxOQTnIfBnpRBgm3HXmXSMNs7IECkK5jHNRv0hHamL+4SXPlYlc
-         AdV4NxIUVIpTd4NF5g+jOmVmzA8JYHkUWPQgQR/3GqZI6soPGtrozOd0sMWpRgvGm+6D
-         Ydlw==
+        bh=Tp8vWxWuEfoTun4nd23rTIy8nVqGGlQS/g8lo8vNdQg=;
+        b=a1Lhshv8scCGz4BW/AhCsEkLRsaRE03TXxu79ACYfTgekGUogBCvMSdGmgyhHZOtFV
+         M5/Y3F0oraYdEq2hipg7fJb6pX222KltgONMQcluQxaskkHxMb+TwImU+Z6cgCzipXUS
+         97v+5JEJlIEUh9/pPVsIw3GeKmbtcPutToCS4lgJVAzaPwm3JEArcedc4zy9dP7h1bDH
+         /hky0GMwSrc5viTH5liLZAWG7T+SY3RdN2B9mjqtDfIIrESwzQws6ZGsekrs2pT4cFmn
+         n2uZXIGgMJ2lcjAEfipWXqTDWdkYlaA+3KveekqQb7ZRlc+/knjrPxRFLKThdYPKjxny
+         wi2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722038067; x=1722642867;
+        d=1e100.net; s=20230601; t=1722038069; x=1722642869;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=zSr/S7cQW+jg6+5Yur5d69GSxQ0D+3E/XB18qDPP3eA=;
-        b=KnbFC2Dul7C4ai2uiCS3B9Tbld8afXfkYqcF1k2FvST1TdJ5bEWa+7CGAOW6iTEbKU
-         wkte37NbYkRrkpYUMNMkLC8uLrrytjBjzmnHibignix6Uk3pmdIg4GWEewh3VvMN/bRJ
-         gUfZCHhzPuIf1SAtNM1p6UgcO99hhajjNikHu3+9yApAOpEyWc9NZU7TXVdQajMopZmG
-         5PPY1ys7Aa1IcKu0SZMDjSTb92VUnPavRGCkgkFmxcA7YaTixE6tHMO6LInx9rb01S0w
-         nDH3lKi2kNFm1wd8/P6KPIzJ3zsWEfnP2IL8JIRAGQDnHcaZbMW0eTxX7STGj2VH6mQp
-         wdhg==
-X-Forwarded-Encrypted: i=1; AJvYcCUoBgQBu/ZPzC+fsuNv+5tx2QJu9lo4VzP7zplL+n/PZdgH9OCvOOsQWWW+uBUzgW+5v3sgQT1n9M7IO+gqhlvCBhX0HP/AmUZbkuQCtL7g
-X-Gm-Message-State: AOJu0YyAwXhWDH7Jw8xUZV0yiUc2hff3nh2aOu5qJNfSZi8Dt/OZ1p2F
-	qsa6X3o8htfIWt9w1zL3JlQdgNlIXN0g9evW7oDmV5EKNDPT/TfKJvqrcRFYulm/ZjvS1jhUR+o
-	fjA==
-X-Google-Smtp-Source: AGHT+IEvvOLEi17q5BnKGFU80vyNCkxL+K4ME2VW/zA0UgmW3Jn60esm+Gg/1wQhRB2++SmF9ZjJ4yJ/TXU=
+        bh=Tp8vWxWuEfoTun4nd23rTIy8nVqGGlQS/g8lo8vNdQg=;
+        b=Uhi+uehV225s1Pe5FSoHIYahkFPjLtWdYq8rbYaXBgp8tCFw1tys2Anv7PnoIQaddO
+         c6s/BJcHnCqINVgPPL12nS+igxH/KaootwIb3j7aPgzo5FbYBSiTcO9SB63jGdo1i2PB
+         f8BMNzpH1eJSCZaPCIRAga2iLPnMTNjXeFNW2BMlYwJByUBgfS4r/5Olmdi6UtxjIycS
+         x73l/PoIe0dLK7035dURJzPu9uXV/FM4KmM+HUCuPDBnUuOc9Q9Yn6bJ3UsHWMmMn3E2
+         rOJhP1+7MoRH30PGODdbjlmPAPsvB97nlmrUxymXCQJQ4joswTdASvmguq3ZuH8jV6ob
+         AZYg==
+X-Forwarded-Encrypted: i=1; AJvYcCXB8NixXBDD60Shi1mjSetzByN1cbnUoAYp4w6iJWSgYbru4qfi0v6/YhnxMRvK60b3cAdgpgpUdRRHubErezEeL5t0VGsS4nVDonPz0kKh
+X-Gm-Message-State: AOJu0Yzt+X1TanJ7/nmEVfZg9Qb0MzatRf5TPn+roR3v4ZAqxGgCufA8
+	uvH8ajTmPJrNUFeM9d53NmgGDnebenBbo7+8wPPzzPcCT7OSSLQLYv2ZI1TfPFrnlupzoMCjrBd
+	kvQ==
+X-Google-Smtp-Source: AGHT+IGdEcu09Hin88e0jkC1IJzP1gp2m8bzTdpaUdhQIiML2lxsNf415Y84GaeMaBcBrlwhHWl3MjBIRUQ=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a05:6a00:238d:b0:70e:98e2:fdae with SMTP id
- d2e1a72fcca58-70ecee6db73mr19809b3a.0.1722038066705; Fri, 26 Jul 2024
- 16:54:26 -0700 (PDT)
-Date: Fri, 26 Jul 2024 16:52:02 -0700
+ (user=seanjc job=sendgmr) by 2002:a05:6a00:6f1c:b0:706:71b3:d7cf with SMTP id
+ d2e1a72fcca58-70ece926b55mr9310b3a.0.1722038068878; Fri, 26 Jul 2024 16:54:28
+ -0700 (PDT)
+Date: Fri, 26 Jul 2024 16:52:03 -0700
 In-Reply-To: <20240726235234.228822-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20240726235234.228822-1-seanjc@google.com>
 X-Mailer: git-send-email 2.46.0.rc1.232.g9752f9e123-goog
-Message-ID: <20240726235234.228822-54-seanjc@google.com>
-Subject: [PATCH v12 53/84] KVM: PPC: e500: Use __kvm_faultin_pfn() to handle
- page faults
+Message-ID: <20240726235234.228822-55-seanjc@google.com>
+Subject: [PATCH v12 54/84] KVM: arm64: Mark "struct page" pfns accessed/dirty
+ before dropping mmu_lock
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
@@ -84,8 +99,8 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	David Matlack <dmatlack@google.com>, David Stevens <stevensd@chromium.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240726_165428_309118_7A9E6ACC 
-X-CRM114-Status: GOOD (  12.06  )
+X-CRM114-CacheID: sfid-20240727_005431_193153_0305D285 
+X-CRM114-Status: GOOD (  11.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,55 +118,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Convert PPC e500 to use __kvm_faultin_pfn()+kvm_release_faultin_page(),
-and continue the inexorable march towards the demise of
-kvm_pfn_to_refcounted_page().
+Mark pages/folios accessed+dirty prior to dropping mmu_lock, as marking a
+page/folio dirty after it has been written back can make some filesystems
+unhappy (backing KVM guests will such filesystem files is uncommon, and
+the race is minuscule, hence the lack of complaints).  See the link below
+for details.
 
+This will also allow converting arm64 to kvm_release_faultin_page(), which
+requires that mmu_lock be held (for the aforementioned reason).
+
+Link: https://lore.kernel.org/all/cover.1683044162.git.lstoakes@gmail.com
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/powerpc/kvm/e500_mmu_host.c | 8 +++-----
- 1 file changed, 3 insertions(+), 5 deletions(-)
+ arch/arm64/kvm/mmu.c | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
 
-diff --git a/arch/powerpc/kvm/e500_mmu_host.c b/arch/powerpc/kvm/e500_mmu_host.c
-index 334dd96f8081..e5a145b578a4 100644
---- a/arch/powerpc/kvm/e500_mmu_host.c
-+++ b/arch/powerpc/kvm/e500_mmu_host.c
-@@ -322,6 +322,7 @@ static inline int kvmppc_e500_shadow_map(struct kvmppc_vcpu_e500 *vcpu_e500,
- {
- 	struct kvm_memory_slot *slot;
- 	unsigned long pfn = 0; /* silence GCC warning */
-+	struct page *page = NULL;
- 	unsigned long hva;
- 	int pfnmap = 0;
- 	int tsize = BOOK3E_PAGESZ_4K;
-@@ -443,7 +444,7 @@ static inline int kvmppc_e500_shadow_map(struct kvmppc_vcpu_e500 *vcpu_e500,
- 
- 	if (likely(!pfnmap)) {
- 		tsize_pages = 1UL << (tsize + 10 - PAGE_SHIFT);
--		pfn = gfn_to_pfn_memslot(slot, gfn);
-+		pfn = __kvm_faultin_pfn(slot, gfn, FOLL_WRITE, NULL, &page);
- 		if (is_error_noslot_pfn(pfn)) {
- 			if (printk_ratelimit())
- 				pr_err("%s: real page not found for gfn %lx\n",
-@@ -488,8 +489,6 @@ static inline int kvmppc_e500_shadow_map(struct kvmppc_vcpu_e500 *vcpu_e500,
- 		}
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 22ee37360c4e..ce13c3d884d5 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -1685,15 +1685,17 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
  	}
- 	writable = kvmppc_e500_ref_setup(ref, gtlbe, pfn, wimg);
--	if (writable)
+ 
+ out_unlock:
++	if (writable && !ret)
++		kvm_set_pfn_dirty(pfn);
++	else
++		kvm_release_pfn_clean(pfn);
++
+ 	read_unlock(&kvm->mmu_lock);
+ 
+ 	/* Mark the page dirty only if the fault is handled successfully */
+-	if (writable && !ret) {
 -		kvm_set_pfn_dirty(pfn);
++	if (writable && !ret)
+ 		mark_page_dirty_in_slot(kvm, memslot, gfn);
+-	}
  
- 	kvmppc_e500_setup_stlbe(&vcpu_e500->vcpu, gtlbe, tsize,
- 				ref, gvaddr, stlbe);
-@@ -498,8 +497,7 @@ static inline int kvmppc_e500_shadow_map(struct kvmppc_vcpu_e500 *vcpu_e500,
- 	kvmppc_mmu_flush_icache(pfn);
- 
- out:
--	/* Drop refcount on page, so that mmu notifiers can clear it */
 -	kvm_release_pfn_clean(pfn);
-+	kvm_release_faultin_page(kvm, page, !!ret, writable);
- 	spin_unlock(&kvm->mmu_lock);
- 	return ret;
+ 	return ret != -EAGAIN ? ret : 0;
  }
+ 
 -- 
 2.46.0.rc1.232.g9752f9e123-goog
 
