@@ -4,86 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C7E6C3DA49
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jul 2024 00:32:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0A4AC3DA49
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jul 2024 00:32:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hFMCHOaES5l+IKYV1HMmEbwWJqLfe5ynJD68BnhlFt8=; b=n+DQggfyMk9uQF
-	/q1sGR9gU38mSPOqKPLKBonc2LvX0Qn2MFFj9Eeu6xo5fwKpF9cEzPJwWXdyvA4QCIoQ5ikS4G5Wl
-	0+GQhOJPUp4agP97vqLWcxA+BdIg4u2Dv0aPmbSKVSGzc14QesS2NI4HoPbSN6ri/qmGqUfnta5LC
-	rZuLja3RvSoapl8im0SZXKI10arBfaK7hvbqLP6e/OV+cnjThTC+DkOZEl7Z7tkDzcXLwMSgWwybD
-	ONeKKldyDT1ORF4shGVcuXVMsCgw7benP4eeu6vSH74lpIA2ghVzkq6q5ZxmsiOKSOBjFje0HoR9T
-	mTRHC1pBsAms4T/vi5UQ==;
+	List-Owner; bh=IKHrbmjMtfegx2SbHsrt6Uf6KYlmcZZy50jiGfej7+U=; b=vnNVZfpQaMi0bW
+	W7DMmVNUucZDEjnW/m/vGQAma7u6vYMF8PRyXS/X5Q7RaD1eD7nDBl8DaVKLzG+zNoEe584KE9Psg
+	Jt+s1gjH1+gXkd1wedLVEC/dC7NeJ6lKXVi//KX6qqJANBbVY9xUNWPiAe3sAIEOujVx1Px/Zkl8l
+	RA1NqexRvmEU2gkLus77by6pMl/ky0Vi22YhTA3juNjnF1ofKcTAPI+Pp++uM+xA6av5l5slmVYhH
+	Jpj/691RFB4BvoZ+o/uV/F6GwivijhA/KDk3pDbWB2wm/0qIJU+OQHAuA8geuAD+nu3abNTzEgaVl
+	gPK5x/k0hK1LlkvA7beA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sXVML-00000005jub-13A9;
-	Sat, 27 Jul 2024 00:32:29 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1sXVMm-00000005k9a-14Ov;
+	Sat, 27 Jul 2024 00:32:56 +0000
+Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sXUma-00000005RX2-2TTB
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 26 Jul 2024 23:55:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=4pm2gWEOx5QJNc32HyFmIStymfHzlyUTPI/gy9LPzsU=; b=FvCqdptg6h4+SNkpZi7Ta7htfD
-	d0F81n2s+WOHgKRpOp/QoX/445YCSExoX2u5OcJtSQIw5CScUApISfWHBJ6BI8Z6BJA/rKY1HQoFI
-	qHqXDCRhZATsBVPY+OPNQKzVpGAQJHIp8JxwDGfaXC5/PcaLTfIaHslMMyzhr111JcV8cLxMvdP+w
-	qEB1rlmKIxjA3IOYwniV0Tlnakdgquyr8SVOcnPF16gtDo2vO2E0jWDsypNigkZKiCKGDCeTV4FL5
-	K7hFk5jLh/fgIniw2VJaMXfPt9rSqmDbjpeldw6U5ge6F4Y9ASmRESVQ9fbcvOoQwePeAlV17kGqx
-	8W9n/B/g==;
-Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sXUmW-00000004K5H-4A4f
+	id 1sXUmY-00000005RUn-0kd5
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 Jul 2024 23:55:30 +0000
-Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-e0879957a99so418193276.1
-        for <linux-riscv@lists.infradead.org>; Fri, 26 Jul 2024 16:55:27 -0700 (PDT)
+	Fri, 26 Jul 2024 23:55:35 +0000
+Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-70eab26e146so1297929b3a.3
+        for <linux-riscv@lists.infradead.org>; Fri, 26 Jul 2024 16:55:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1722038126; x=1722642926; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1722038128; x=1722642928; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=4pm2gWEOx5QJNc32HyFmIStymfHzlyUTPI/gy9LPzsU=;
-        b=Kb97cyn3ZSPd1Kme2ztN+oJnnKW9PTfV51qVVmubcKxsXEVk/aCxJGVCCeijYAJci1
-         GIf4j1sGIh4t/D2ZK2r+amSALvGUoy5GiVgJJLFcOI3ZLDwBRfwBuJosYx82UUN8XHLb
-         ETwHs8ZNmHHn1r9imNoku+g9muOrSjqGrPrqI39ZnXFAXq5qarJczhwrz4IZJZX7dMaM
-         xXz4AzVdj1/pMm/WbTvIQerFErRbwOqzetGvjzygmFhGd/0ezXI8HEI0k9YiiLjCgady
-         LedNf0PdwU2KhxFyyA3dSirN1+OhY4DE82IJ1AQ3s5QwqptP7pnoVKUaOE+NSmydRASO
-         E9tw==
+        bh=Truk8wLwk4Y9wyHD0oQlYUKlIPfs2FyGYSCSiM9XszU=;
+        b=RNz0nDzIpxoTBUh4tdcsi4kFAHXeULeFBfBh4I4ytUquS1dSF7VyeKAdsORCpaXeT8
+         wFz5yyLM1Bx6PNr9q665YpoIjNaLksaBYn36blC6vJFWF9flc2CLT86+wXJn9DZ3tbam
+         fzwtsXq/i+bC+2iLKk3RsM8I3Et0AcDMCLiE4sJywkVU0PfgoIAE7RpLYZ7bjevGkdhm
+         6CA3QDtuwuZ100OzKDvkyDoJ1EIIRCI9f9UnpbBGufQZHV8+ZFeu1KPJj8G6wJLO56mW
+         bYBqw1FS/iE+EoievT8N2ZktbVtxbzw3hw2b8tuZwO3ZPDU3MSueEqb5dL3gBjULn4Am
+         IaYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722038126; x=1722642926;
+        d=1e100.net; s=20230601; t=1722038128; x=1722642928;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=4pm2gWEOx5QJNc32HyFmIStymfHzlyUTPI/gy9LPzsU=;
-        b=K7scXPZ7AY7KVhgm1Iq+ofTFuXl1hw1/6iTaiOvuj6hOF/lfgqiOFAx+hy8Zdp1lAZ
-         oltNOwjI9vKLkUOd1JO8WnDHnz7IU2OI30FxBntyvPN1AMopWXHhqkqMv6oc66LLrY4A
-         x1HCx95cF9H1HDB6r9GiO6c8W1rNBOxgE7GdYOSaJ02o6MnZtGeRVSf0b0Y2QJa7iV79
-         lJakkdcpUfw9PR6KTpBuk8Cd2qNsy4CYVA4gshmEgf28oKwDfUYjuvJNCd3LTPp20UvI
-         yC33E6F6sMq3JlH+PtGDlkqkvAmmUyoL4E/cMlQpzZtNjJgJxZdzSl+seyo1lJd+gRiM
-         AEYA==
-X-Forwarded-Encrypted: i=1; AJvYcCXhKSDbejxQCQc6t0jmghgyC95HI1OHkPFbHJ3WdejjLwf3WM7EQreFTBDPgZLXPXfOVBrRZowKgEjf7QgXcac5gwNuI11NFrz6DNPFqXQN
-X-Gm-Message-State: AOJu0YxH4YuMjziHjpCbeYBWQLwuBiE591PzUGc/aRPn1NsAu5HIe/Gd
-	8flY1Tn8HVHFltiw0YJ7PhG8rNaecinqJVemrIOFZpqnxtXe5kpmi47h7it4x1Rjw6KGOTcb3Rh
-	RLA==
-X-Google-Smtp-Source: AGHT+IGgyahrOCg0Ix+MrKo8QCm20LiC8Zd9dP6asKSX3o/8So/b0NT46HfwZKTclpC/RfFjW09NkNDMj3A=
+        bh=Truk8wLwk4Y9wyHD0oQlYUKlIPfs2FyGYSCSiM9XszU=;
+        b=lItkER1AVCDUuX59XKkBtEtOW0V+ORBzeNeBC94hKu3lHAYIx/O3PjDN7188PfhvtH
+         8DRgVIcgzRP8XEuDl+vrn6/yJHKGSiSblvWhrWdPtQIohz6jO8Yfc9Ah2NHwlcEU8ow6
+         qZOSGl7Z3fpm6iXZLgHvZG7t4Z2fwEglPwEIONLa3djZjHe4A38uTaM2iv0fNkKwQuRA
+         rbxzmRAL67S+69nng1SuCKDzEnpqJ2oUgdP4cTOHdex9HLJlNWxaivgJM3zf/jWrm9nD
+         VRzOiXnXfZfyXjF68aNc7+zf6OkUjl8NipGtLRzrOzzsf0Lm/9gM8S08/DPfZdy17Dld
+         4jNw==
+X-Forwarded-Encrypted: i=1; AJvYcCUD/UKICG4bJokbxkPn2DF7PJYCJ6IR/no+fyshAu+yByLF6nBOsXZle8ilneAVStZ5N5WpOhRzKfkY7TfRsNFzGBSMKmjOmDs6UxIxpzNL
+X-Gm-Message-State: AOJu0YywZ7nNpOEP5HYsZto6cRts6vPzfprPrxOTsJfYfy0tj2v+IBI5
+	kPgPeAaafQe+OG/lvbixXLOdbNwzBCil3OR5zgjRiJ6EHzszd09HOh0c7mZa6kCm7C1+vwv//hU
+	lgg==
+X-Google-Smtp-Source: AGHT+IESez/zxTWutjtLJAUJhIiTiAtRpWSvjJWmuvSpH774la09rZR91czqzlEpBwGUZ+0osFi4L0/wScE=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a05:6902:1029:b0:e0b:9b5:8647 with SMTP id
- 3f1490d57ef6-e0b544ec4ddmr2334276.8.1722038125883; Fri, 26 Jul 2024 16:55:25
- -0700 (PDT)
-Date: Fri, 26 Jul 2024 16:52:30 -0700
+ (user=seanjc job=sendgmr) by 2002:a05:6a00:8591:b0:704:3140:5a94 with SMTP id
+ d2e1a72fcca58-70ecea0e7ffmr15968b3a.2.1722038127870; Fri, 26 Jul 2024
+ 16:55:27 -0700 (PDT)
+Date: Fri, 26 Jul 2024 16:52:31 -0700
 In-Reply-To: <20240726235234.228822-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20240726235234.228822-1-seanjc@google.com>
 X-Mailer: git-send-email 2.46.0.rc1.232.g9752f9e123-goog
-Message-ID: <20240726235234.228822-82-seanjc@google.com>
-Subject: [PATCH v12 81/84] KVM: x86/mmu: Don't mark "struct page" accessed
- when zapping SPTEs
+Message-ID: <20240726235234.228822-83-seanjc@google.com>
+Subject: [PATCH v12 82/84] KVM: arm64: Don't mark "struct page" accessed when
+ making SPTE young
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
@@ -99,8 +84,8 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	David Matlack <dmatlack@google.com>, David Stevens <stevensd@chromium.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240727_005529_178908_A7497B23 
-X-CRM114-Status: GOOD (  13.47  )
+X-CRM114-CacheID: sfid-20240726_165530_668458_83C1D2DB 
+X-CRM114-Status: GOOD (  12.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,78 +103,88 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Don't mark pages/folios as accessed in the primary MMU when zapping SPTEs,
-as doing so relies on kvm_pfn_to_refcounted_page(), and generally speaking
-is unnecessary and wasteful.  KVM participates in page aging via
-mmu_notifiers, so there's no need to push "accessed" updates to the
-primary MMU.
+Don't mark pages/folios as accessed in the primary MMU when making a SPTE
+young in KVM's secondary MMU, as doing so relies on
+kvm_pfn_to_refcounted_page(), and generally speaking is unnecessary and
+wasteful.  KVM participates in page aging via mmu_notifiers, so there's no
+need to push "accessed" updates to the primary MMU.
 
-And if KVM zaps a SPTe in response to an mmu_notifier, marking it accessed
-_after_ the primary MMU has decided to zap the page is likely to go
-unnoticed, i.e. odds are good that, if the page is being zapped for
-reclaim, the page will be swapped out regardless of whether or not KVM
-marks the page accessed.
-
-Dropping x86's use of kvm_set_pfn_accessed() also paves the way for
-removing kvm_pfn_to_refcounted_page() and all its users.
+Dropping use of kvm_set_pfn_accessed() also paves the way for removing
+kvm_pfn_to_refcounted_page() and all its users.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/mmu/mmu.c     | 17 -----------------
- arch/x86/kvm/mmu/tdp_mmu.c |  3 ---
- 2 files changed, 20 deletions(-)
+ arch/arm64/include/asm/kvm_pgtable.h | 4 +---
+ arch/arm64/kvm/hyp/pgtable.c         | 7 ++-----
+ arch/arm64/kvm/mmu.c                 | 6 +-----
+ 3 files changed, 4 insertions(+), 13 deletions(-)
 
-diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
-index 2a0cfa225c8d..5979eeb916cd 100644
---- a/arch/x86/kvm/mmu/mmu.c
-+++ b/arch/x86/kvm/mmu/mmu.c
-@@ -546,10 +546,8 @@ static bool mmu_spte_update(u64 *sptep, u64 new_spte)
+diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+index 19278dfe7978..676d80723c38 100644
+--- a/arch/arm64/include/asm/kvm_pgtable.h
++++ b/arch/arm64/include/asm/kvm_pgtable.h
+@@ -632,10 +632,8 @@ int kvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size);
+  *
+  * If there is a valid, leaf page-table entry used to translate @addr, then
+  * set the access flag in that entry.
+- *
+- * Return: The old page-table entry prior to setting the flag, 0 on failure.
   */
- static u64 mmu_spte_clear_track_bits(struct kvm *kvm, u64 *sptep)
- {
--	kvm_pfn_t pfn;
- 	u64 old_spte = *sptep;
- 	int level = sptep_to_sp(sptep)->role.level;
--	struct page *page;
+-kvm_pte_t kvm_pgtable_stage2_mkyoung(struct kvm_pgtable *pgt, u64 addr);
++void kvm_pgtable_stage2_mkyoung(struct kvm_pgtable *pgt, u64 addr);
  
- 	if (!is_shadow_present_pte(old_spte) ||
- 	    !spte_has_volatile_bits(old_spte))
-@@ -561,21 +559,6 @@ static u64 mmu_spte_clear_track_bits(struct kvm *kvm, u64 *sptep)
- 		return old_spte;
- 
- 	kvm_update_page_stats(kvm, level, -1);
--
--	pfn = spte_to_pfn(old_spte);
--
--	/*
--	 * KVM doesn't hold a reference to any pages mapped into the guest, and
--	 * instead uses the mmu_notifier to ensure that KVM unmaps any pages
--	 * before they are reclaimed.  Sanity check that, if the pfn is backed
--	 * by a refcounted page, the refcount is elevated.
--	 */
--	page = kvm_pfn_to_refcounted_page(pfn);
--	WARN_ON_ONCE(page && !page_count(page));
--
--	if (is_accessed_spte(old_spte))
--		kvm_set_pfn_accessed(pfn);
--
- 	return old_spte;
+ /**
+  * kvm_pgtable_stage2_test_clear_young() - Test and optionally clear the access
+diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+index 9e2bbee77491..6679e02a02c4 100644
+--- a/arch/arm64/kvm/hyp/pgtable.c
++++ b/arch/arm64/kvm/hyp/pgtable.c
+@@ -1287,19 +1287,16 @@ int kvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
+ 					NULL, NULL, 0);
  }
  
-diff --git a/arch/x86/kvm/mmu/tdp_mmu.c b/arch/x86/kvm/mmu/tdp_mmu.c
-index d1de5f28c445..dc153cf92a40 100644
---- a/arch/x86/kvm/mmu/tdp_mmu.c
-+++ b/arch/x86/kvm/mmu/tdp_mmu.c
-@@ -861,9 +861,6 @@ static bool tdp_mmu_zap_leafs(struct kvm *kvm, struct kvm_mmu_page *root,
+-kvm_pte_t kvm_pgtable_stage2_mkyoung(struct kvm_pgtable *pgt, u64 addr)
++void kvm_pgtable_stage2_mkyoung(struct kvm_pgtable *pgt, u64 addr)
+ {
+-	kvm_pte_t pte = 0;
+ 	int ret;
  
- 		tdp_mmu_iter_set_spte(kvm, &iter, SHADOW_NONPRESENT_VALUE);
- 
--		if (is_accessed_spte(iter.old_spte))
--			kvm_set_pfn_accessed(spte_to_pfn(iter.old_spte));
+ 	ret = stage2_update_leaf_attrs(pgt, addr, 1, KVM_PTE_LEAF_ATTR_LO_S2_AF, 0,
+-				       &pte, NULL,
++				       NULL, NULL,
+ 				       KVM_PGTABLE_WALK_HANDLE_FAULT |
+ 				       KVM_PGTABLE_WALK_SHARED);
+ 	if (!ret)
+ 		dsb(ishst);
 -
- 		/*
- 		 * Zappings SPTEs in invalid roots doesn't require a TLB flush,
- 		 * see kvm_tdp_mmu_zap_invalidated_roots() for details.
+-	return pte;
+ }
+ 
+ struct stage2_age_data {
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 756fc856ab44..8fd8ea5b5795 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -1699,18 +1699,14 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ /* Resolve the access fault by making the page young again. */
+ static void handle_access_fault(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa)
+ {
+-	kvm_pte_t pte;
+ 	struct kvm_s2_mmu *mmu;
+ 
+ 	trace_kvm_access_fault(fault_ipa);
+ 
+ 	read_lock(&vcpu->kvm->mmu_lock);
+ 	mmu = vcpu->arch.hw_mmu;
+-	pte = kvm_pgtable_stage2_mkyoung(mmu->pgt, fault_ipa);
++	kvm_pgtable_stage2_mkyoung(mmu->pgt, fault_ipa);
+ 	read_unlock(&vcpu->kvm->mmu_lock);
+-
+-	if (kvm_pte_valid(pte))
+-		kvm_set_pfn_accessed(kvm_pte_to_pfn(pte));
+ }
+ 
+ /**
 -- 
 2.46.0.rc1.232.g9752f9e123-goog
 
