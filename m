@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11B42C3DA49
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jul 2024 23:59:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 412E1C3DA4A
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jul 2024 00:00:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tKBt3qYxLUxtmMmNqqKGUstq2woU4gJXkV1royTRH6w=; b=IIL02nz7cNadxa
-	b3qbzh67WDKuPWPwF20u1Capx5joSyrwpXUKKX6RrJnIrXez/uglvbsoJ0Hawfa+FX1sFJF41r0AT
-	EAdok63yeCVowqoK0822OSXj2bxr9OkmdwoJGIlc/5pFhDvgYYUW5dtXR1WgObXhU2HyBVIgtpLTs
-	B6rPhgTNDzPhSf9YGzKd/VHt8gQcvRDkJhhR0TYBIArBZopCJNDv5fwju4dDgLKNvIWyl1FXCFcPY
-	m7ij+4zXHXW8lGwQ+tsRkJft9bxOIYYDs6IUzPfgosmrIiqJ23RACIMrZSsndlA9FgxLW05MADU+K
-	NBRkCpbm1wAtUj4i03uQ==;
+	List-Owner; bh=PbwV20cGRl1C0RpEpmBFZbtHyua/VXwjWytZJoXHTTw=; b=hrvyj/YwE9crKE
+	ImMACTGC3DG5CGlz+wrWCwnABtgtzr4bJbU8fJ3Zrf2ou2bc3mk4jXa7lM/t9XN6vselc1Mnchubn
+	6Lvf9m5WOv3Ache5ol5eY7UQVmWUtUoF/o9MvRB5pyO58BUJ8yGiXjbZLU7gvFilRhvOTtfStlEcT
+	je1yjK4r9TmbbSfXqyJsZOBBgWhmkgiFC8eeOhZu0B5Uas0UV7/0glJi1G8HphBZSsp49XWicVFtf
+	XZy00clKGN/0fGAR6Rsq2yiUCndNunUY0cSkEb4k0f7nAdj5uuRuHG4ig8SSXKIYwC79sDCAPHm5L
+	CN5tLBw3pkBbwc6qtZng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sXUqc-00000005TlU-00OU;
-	Fri, 26 Jul 2024 23:59:42 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1sXUrl-00000005UOM-260k;
+	Sat, 27 Jul 2024 00:00:53 +0000
+Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sXUkN-00000005PZx-0C8x
+	id 1sXUkP-00000005PcQ-0Zjk
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 Jul 2024 23:53:16 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-1fc53227f21so12113335ad.2
-        for <linux-riscv@lists.infradead.org>; Fri, 26 Jul 2024 16:53:14 -0700 (PDT)
+	Fri, 26 Jul 2024 23:53:19 +0000
+Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-7a28f78c67aso1346208a12.1
+        for <linux-riscv@lists.infradead.org>; Fri, 26 Jul 2024 16:53:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1722037994; x=1722642794; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1722037996; x=1722642796; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=YtgPpIjPSqL3TzmlwlpLZvvahtPd8ef2dtbW1LnZzVw=;
-        b=rmiFYTIa0Wp21CB2IEf00DSh+K1YZulLvn8H57D/O8mMHWMWbbWLCe9uXzzXKAe1TR
-         fHz404vKjtaeQveK51TlrQvvC/Pgp/by/+Qtb4gFk52kpxc0SmBRavmX4ZuMgYiNc384
-         VbfTiPzIkWzqq/LehQzKEkFFKnVdkXXTtIOEj8nZCERuOnQavuUcKNOJmfaBW/cw2k/Z
-         tEe0vct9rVwAmukNXxbtaMUVZ+K0ntm11b1afQqc/kEALrmI+W6TVNOvCAo09I4CdE23
-         2E02eXHtbsI/yY4ohAO2hGuwqlBfgIdbUx935i6RliVG3hP0ZhB1rXIRJCFb9OZV4JDx
-         UAHg==
+        bh=oqsp5dWmLf1ceGtEyEpwn2+TSiYr9kgkgYyCIEXijOU=;
+        b=WU1l/bGUgOlXergvUUEZAmStGB6e2lkbKY6g92ISVXZNY42sPSvTXwyx4umZVR8Y5v
+         cdUylVL646oU9Igaur6rLaAq+m+GjE3yC0Yndyoif6kELo/pbSHKQBBfE9fMRmNeyzpN
+         2KZqn9K9lJrLjKDT8UKj9hEHZwih+bPlJAaF0VM+5J+p9R+s9kMswvBsVKQY+oni2/Eh
+         fV0P91Corujow+DoDd7B82IT0/FlkYHfcUHmGji4+X//an9dQmlz5VM32+N7NrVOYMYB
+         TVyZqNP50eEFVj7FNpwUg65FLJWOnTk2U4rKlABQmnwRVmSCebEzlM1kJbtiSGrQLfOM
+         ONAw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722037994; x=1722642794;
+        d=1e100.net; s=20230601; t=1722037996; x=1722642796;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=YtgPpIjPSqL3TzmlwlpLZvvahtPd8ef2dtbW1LnZzVw=;
-        b=bUmNKfkkZ7vqDPx9V0Rra6MUBiMexMj/A/ptTUCksrCwVSftTRn9ry1nOe2CnBYmOB
-         KpOtSV19odwrhGgDWIW79ajzE7WNvo9B/GbMdhPj/rBAdo6+405uqBEMzEoimqWzCDuS
-         ie3ygOE5TgkowRWZCMtirRwQ2lm1xrrTZDYT4POREG15MQeKX0PYW5cAtyB4D5hQAC6J
-         C8+1zdpNUsC5KQ6ftWEH7HiblAcTtgbL2kqEpCDoNOOevKkO7dJhI1zRS/qt2lw8s0DP
-         9ddydbZ5I2aYwSggivRgpOi0yURf/Ub5K1oz/id2djqsUFZbezo3ejlOVke44TwDgjVb
-         uykQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVXE3xq6wJ7b8cABJQAGmq8NRPAS8G7LQvBI0MFeJi8/q3PcDy753Rj6APHvDlOzfylEUh6JWx2qlE6uRilgQ5BUAYSJkIgxJ++uTaD1Bnf
-X-Gm-Message-State: AOJu0Yz52mZpjNNPTJHj2u+4JlLzzUWwPm+uwRzhxPIrQ32U+jQ7EJcT
-	mkK5yCPcqwnZu1miv4vWhbsyUmuqmO4jfp8l8C+MguntrVbkhqCrVo1hW9DwbZm+p1FIhK4YqvO
-	pkA==
-X-Google-Smtp-Source: AGHT+IHmoajaYWuB/CstqlwF+EMvaWyxqBn3H/lV1e3JQu2uS0IU9winjnCx9o/cN/zsyEDP3UE3pPbYXjw=
+        bh=oqsp5dWmLf1ceGtEyEpwn2+TSiYr9kgkgYyCIEXijOU=;
+        b=HapuWHzj5OICZ7gY3yC4vP1ksDdXyIWw+NI4rkDKcldrjDbyEQwAX03xZ1Q5MaaLW0
+         ciPR/WhepQ5Hotm4nYbadisDnjXnqo3k3zceHpMZ2uKmNpPDONt79la3rLEXTD93LF1V
+         olVOlh9sJq36pCDAmp05TpRbErEdpDD8gPIIt74RdWEFuCBjM3L6J55i9ufWbYj6q1uO
+         IPQjmqk7+o25J0ql+QIaVbUQhQnQ/ChCynh4eZPhwxJAD5tMfcE9LPp0OYyMGhi8zphq
+         b2slj0MYgEs8x17UkwwzlWdHbjNgSYJsK4VpzWevs/ovfb5yuoeYsH7fQau46CzCXqO/
+         RyNQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWqTOqlDjoocNVSYkPOV0M64NklPwg/5ig/uVxUNIpEn326ef5csibpIBkKwSxb8jILHKPycIQyiHKQ+GM6mudDFjnQiT8UKzVbqFshYJCI
+X-Gm-Message-State: AOJu0Yxm/sNXijoJLXvkAdbZ7NBEL8IOzgcgoG3Ls/gM1+JcFIbGYpSG
+	Uf7osbHOMQn08p2hEPUyA4dx3uZ6ok/inHjTyHjl53OAwYOT9CovUuY7xHfs5xvGraL6ktXSV9B
+	uKQ==
+X-Google-Smtp-Source: AGHT+IGPnVvSSR8GC4je1DUQj4K0eIO0wDIdrfABFjI4ae5Nt/lU6oCOfX0avnzwArksU/NKeR8FWd7ZKxM=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a17:902:e744:b0:1fe:d72d:13bc with SMTP id
- d9443c01a7336-1ff04822069mr906395ad.5.1722037993928; Fri, 26 Jul 2024
- 16:53:13 -0700 (PDT)
-Date: Fri, 26 Jul 2024 16:51:27 -0700
+ (user=seanjc job=sendgmr) by 2002:a05:6a02:5a9:b0:6be:8aa5:bffb with SMTP id
+ 41be03b00d2f7-7ac8e0bb8cdmr3560a12.4.1722037995764; Fri, 26 Jul 2024 16:53:15
+ -0700 (PDT)
+Date: Fri, 26 Jul 2024 16:51:28 -0700
 In-Reply-To: <20240726235234.228822-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20240726235234.228822-1-seanjc@google.com>
 X-Mailer: git-send-email 2.46.0.rc1.232.g9752f9e123-goog
-Message-ID: <20240726235234.228822-19-seanjc@google.com>
-Subject: [PATCH v12 18/84] KVM: Remove pointless sanity check on @map param to kvm_vcpu_(un)map()
+Message-ID: <20240726235234.228822-20-seanjc@google.com>
+Subject: [PATCH v12 19/84] KVM: Explicitly initialize all fields at the start
+ of kvm_vcpu_map()
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
@@ -83,8 +84,8 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	David Matlack <dmatlack@google.com>, David Stevens <stevensd@chromium.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240726_165315_235086_87D7A756 
-X-CRM114-Status: GOOD (  10.14  )
+X-CRM114-CacheID: sfid-20240726_165317_482806_D51071FA 
+X-CRM114-Status: GOOD (  11.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,40 +103,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Drop kvm_vcpu_{,un}map()'s useless checks on @map being non-NULL.  The map
-is 100% kernel controlled, any caller that passes a NULL pointer is broken
-and needs to be fixed, i.e. a crash due to a NULL pointer dereference is
-desirable (though obviously not as desirable as not having a bug in the
-first place).
+Explicitly initialize the entire kvm_host_map structure when mapping a
+pfn, as some callers declare their struct on the stack, i.e. don't
+zero-initialize the struct, which makes the map->hva in kvm_vcpu_unmap()
+*very* suspect.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- virt/kvm/kvm_main.c | 6 ------
- 1 file changed, 6 deletions(-)
+ virt/kvm/kvm_main.c | 40 ++++++++++++++++------------------------
+ 1 file changed, 16 insertions(+), 24 deletions(-)
 
 diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index 56c2d11761e0..21ff0f4fa02c 100644
+index 21ff0f4fa02c..67a50b87bb87 100644
 --- a/virt/kvm/kvm_main.c
 +++ b/virt/kvm/kvm_main.c
-@@ -3092,9 +3092,6 @@ int kvm_vcpu_map(struct kvm_vcpu *vcpu, gfn_t gfn, struct kvm_host_map *map)
- 	void *hva = NULL;
- 	struct page *page = KVM_UNMAPPED_PAGE;
+@@ -3088,32 +3088,24 @@ void kvm_release_pfn(kvm_pfn_t pfn, bool dirty)
  
--	if (!map)
+ int kvm_vcpu_map(struct kvm_vcpu *vcpu, gfn_t gfn, struct kvm_host_map *map)
+ {
+-	kvm_pfn_t pfn;
+-	void *hva = NULL;
+-	struct page *page = KVM_UNMAPPED_PAGE;
+-
+-	pfn = gfn_to_pfn(vcpu->kvm, gfn);
+-	if (is_error_noslot_pfn(pfn))
 -		return -EINVAL;
 -
- 	pfn = gfn_to_pfn(vcpu->kvm, gfn);
- 	if (is_error_noslot_pfn(pfn))
- 		return -EINVAL;
-@@ -3122,9 +3119,6 @@ EXPORT_SYMBOL_GPL(kvm_vcpu_map);
- 
- void kvm_vcpu_unmap(struct kvm_vcpu *vcpu, struct kvm_host_map *map, bool dirty)
- {
--	if (!map)
--		return;
+-	if (pfn_valid(pfn)) {
+-		page = pfn_to_page(pfn);
+-		hva = kmap(page);
+-#ifdef CONFIG_HAS_IOMEM
+-	} else {
+-		hva = memremap(pfn_to_hpa(pfn), PAGE_SIZE, MEMREMAP_WB);
+-#endif
+-	}
 -
- 	if (!map->hva)
- 		return;
+-	if (!hva)
+-		return -EFAULT;
+-
+-	map->page = page;
+-	map->hva = hva;
+-	map->pfn = pfn;
++	map->page = KVM_UNMAPPED_PAGE;
++	map->hva = NULL;
+ 	map->gfn = gfn;
+ 
+-	return 0;
++	map->pfn = gfn_to_pfn(vcpu->kvm, gfn);
++	if (is_error_noslot_pfn(map->pfn))
++		return -EINVAL;
++
++	if (pfn_valid(map->pfn)) {
++		map->page = pfn_to_page(map->pfn);
++		map->hva = kmap(map->page);
++#ifdef CONFIG_HAS_IOMEM
++	} else {
++		map->hva = memremap(pfn_to_hpa(map->pfn), PAGE_SIZE, MEMREMAP_WB);
++#endif
++	}
++
++	return map->hva ? 0 : -EFAULT;
+ }
+ EXPORT_SYMBOL_GPL(kvm_vcpu_map);
  
 -- 
 2.46.0.rc1.232.g9752f9e123-goog
