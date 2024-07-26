@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5BFDC3DA4A
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jul 2024 00:07:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFCD4C3DA4A
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jul 2024 00:07:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UxTjJ/EsGhSleSm72SVJuRIXQJ8NTCaKKkpvwt65YDU=; b=qnWn5t5Hc8Ufrd
-	s3Gd7lmrVrYQHJqztJZmJyPN0u2cJTwPsl6deLZCVmEVMdzu5S1BxQy5GUz7AaON5atM8CxgJaIBV
-	aKLO5sNaGrtdS5x/mp5wlnjO0mEKFxrYdiJbkxkhTuxaEThnFjFLV4kLOAChP+B86NIcnW4hCA+G/
-	oZoMdgTctd6etqjI9UshHeuTx0HrY/M7UpJh2l/BOa+GgYBKrVfU54FWR+dpIlb1CG1knsG/l7Cbg
-	yltDrUBYBKshK6EsZDZaBNFkcZcRJBJoJMcOglIGN8/BSfd8daFsMvKIOVQr1Qld6lyxEO22DPn0D
-	r6XL1aml2PbO26B6lt5g==;
+	List-Owner; bh=KI33+4dL0T6YBJstl0zuEegOkLq1HxPtdrEMiGKc+2c=; b=FPsQv+eOT5UDot
+	hPsYeMW1uqjK1E2q8lHbKODYrki4ldxX0INovLDvUeCrp7z9Avkt0qtzSY7harB57bLFKAcEulZ12
+	mU9vS0jjl7n9GPLDBgAzRgr4sm3PYQmcO6ozykDllsaHkzGsOCMICRc6mGejXCVEH6ELvDA1q31AC
+	4Qi18wbkBOoO9OUJOxmpxQ2HZOPc4Utnje6YOO1q/Dsu02EI55WK4eFHThUMOjJlW6tZBgX+3ZBHx
+	pk77GCromYf4UqM6a17QiBUgCpx3Vo+TO3adE8WFnhA5+rSxGckmfa92laekML3sxEwmShCunaJdK
+	3OIZB5wIXVrtj37E2nzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sXUxv-00000005Xf9-092u;
-	Sat, 27 Jul 2024 00:07:15 +0000
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	id 1sXUy5-00000005Xm3-1NEq;
+	Sat, 27 Jul 2024 00:07:25 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sXUkx-00000005Q6R-05sW
+	id 1sXUkz-00000005Q8h-06qa
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 Jul 2024 23:53:53 +0000
-Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-70d1df50db2so1368134b3a.0
-        for <linux-riscv@lists.infradead.org>; Fri, 26 Jul 2024 16:53:50 -0700 (PDT)
+	Fri, 26 Jul 2024 23:53:54 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2cb5847ff53so1672205a91.2
+        for <linux-riscv@lists.infradead.org>; Fri, 26 Jul 2024 16:53:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1722038030; x=1722642830; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1722038032; x=1722642832; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=Xse5B7AOfcqAOlY7bR5VB/olShqjuvoHnQg+aILML2Y=;
-        b=h7J9kfzruyv2/4kKVm58ZGH4y0IlNudqVeWE6/BepGyMXbF/2OSz2HQIaYFgzPANsE
-         xUcLEO9JpXjPzZzr74/E8L1Q7IEpvD6ANmdk5UbfbbWAlZLUCJTkYhWqczOc1RhQYJA9
-         PBi0olLVJERvd5wQ8y0FyJwNCQMU3T1+RQkknHc+nNwgu1eVXXzaqI6UhfcTzzULaelf
-         vaX+ktifoVrRrEM9eYyCjfvMpgch7a9lXURCHm1I3L40OJDTuBXOc3HroasjaJB0Cor6
-         PWJaGmwNbDAykEgtJcOhcLdg43TWWBCwmBxZ0xnKLx1lz/VB0XEzkiEasQyUFJ2b0VLx
-         p09g==
+        bh=4+b7zhduK4lVkLFwoy0UCXuK8f7LQragdXHyxQERLss=;
+        b=jOgmo1Kvu0Il2tltdTiW7hgTLp/6boECR2qoxz2C3M6DuqGqfEvD6rxMFJao7ANMJC
+         ZKDrQfZMIQpU+VtyB1uuiHiPTeSJoGwLLZ3sYBZPnn2CMsBXgYChW1xF71yGUKT3x1sR
+         Fdd309XxfMlP2vsu4SALW0c/gnZ/uCJTG9067EVKmbothMcXsC3ccHwB1HSqsl+XiWaD
+         02RZs8Qmc15ZgFoAjOhqo0V2ViMrHvq6ejrNIMpGm9hDxQUhJgl4YP2uWic+JAGlZTTh
+         0LtJe6rpMqLGG0UJVQPYcJCvjTAvAx6Dgtuiy2zlP8PLmN7eNM/QhAr/wS+gV0QkhpDB
+         JJRg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722038030; x=1722642830;
+        d=1e100.net; s=20230601; t=1722038032; x=1722642832;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Xse5B7AOfcqAOlY7bR5VB/olShqjuvoHnQg+aILML2Y=;
-        b=vSLDAMZoER6MHK1S6tB5lSM9kSoftE/NLqX7wwsyk3HpSrZWUD1nZjWbxyB9EkNmrg
-         9OoYVjtW30K0I3Yn4OyOES0dzQoTk1j069bnKmPDndLQaFMI3RodH7be+xMke7UILZkw
-         fLUIN3Gu7EjfkqekF0Hiv6PuU00EODR82jIb+UXhgDcOVB/Au0ahdFy/P+NFBFIjkrI7
-         scEWhA9jBMOUY666f+14thywhDUi738TH5eFBIqUchVZex/JPmPkR4w08k35lkhXuuxz
-         HaPZdp64nrs8QGs6aoANoBzx3uEZhv6WtGRfFTYRAdw0rVoqa03tODd9u9TB9cq4Ntlt
-         W4Fg==
-X-Forwarded-Encrypted: i=1; AJvYcCWkX1tbWB8NeCu+LE8nbspr1A0miNkPiJYDcnUdqvlQUddhAEGzsgkEnei7cRdexbAMt0GLWhn1ULVu2te+t+plrTQEfHwYz7+gro2hIJPW
-X-Gm-Message-State: AOJu0YylyVdB4luMcnljC+gPmh2JdejJsabKpOihH8Y6vbiUAONSQ2SV
-	DSAbfcble27xROh9Q12L6pYskwJRd+ITddi4tLI3MhpHcxnYlny4H+aIUO4b9vrQNNHwayCc5FA
-	BLw==
-X-Google-Smtp-Source: AGHT+IEFcNwoZPtxzQ32cLJ1vxa7gkQJVcgltXDXIuLlGv+WV+Ss10kIc9nwtzcNKm3zIIgT6vAGf5Ndk9o=
+        bh=4+b7zhduK4lVkLFwoy0UCXuK8f7LQragdXHyxQERLss=;
+        b=G/kf3+rqabDMaKBVEqHGXo+go1JtgW6rjJg7D6AhuI3k53xh8bMZLYGA985F4i1TPH
+         PjgoeP5K1WFW+n/wXvenn2EQAcgUb8oUJAxvQ0x9I6CTcxaEVY0bPnf5dQcUIeXbmsjX
+         IlHs0Ab8G/o3arRs0wAu1+1hYuw0Rg2YinODZMwbX400maWmho8snB90AB0tlxBdwFyA
+         s71kH+D+kjdQ4UPVv+d3gVu6qdYO25n+Z0sKSIXSYtDMiJYtn1meLFUiIXAylFZ7k2b2
+         iOR29Z26KumOJj5vTA0fsC96T6M6NaLviBWu9QQEXGnAbOKdjXP4NzR2iIijHzNjhB5N
+         q8Rg==
+X-Forwarded-Encrypted: i=1; AJvYcCX/ZZ8BEDBFj7aiOasIGH2ySe/0Db85ODeIketryAbNpsV/WIh5oFkHlM9oG0RErC/LFTV24e1tNWBmPP7Npp5BBMIwoaRyX4IHWyEovZDK
+X-Gm-Message-State: AOJu0Yz6pdTMpb1RYExuh1kuefCjbwiuR7GNzS5NWTfYF9FrcE1scayP
+	W0NB7i6UslhVRUdWa0xg+NHecpPW5DXZytYBRejSPF0wtt45dc6Tmpl9qCbJ1J99w46w50NYpMw
+	uTQ==
+X-Google-Smtp-Source: AGHT+IH83fBTCbgjCdiYRsrBHzQDSmPEXzxw/dBUECcFBZL6/864S5lAdfsy5Zb31ECaUXnMa239gb1WZDE=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a05:6a00:2e2a:b0:70d:9a0e:c13b with SMTP id
- d2e1a72fcca58-70ece7f0562mr55820b3a.3.1722038029490; Fri, 26 Jul 2024
- 16:53:49 -0700 (PDT)
-Date: Fri, 26 Jul 2024 16:51:44 -0700
+ (user=seanjc job=sendgmr) by 2002:a17:90b:4f8b:b0:2c9:759f:a47d with SMTP id
+ 98e67ed59e1d1-2cf7e84e558mr8570a91.4.1722038031713; Fri, 26 Jul 2024 16:53:51
+ -0700 (PDT)
+Date: Fri, 26 Jul 2024 16:51:45 -0700
 In-Reply-To: <20240726235234.228822-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20240726235234.228822-1-seanjc@google.com>
 X-Mailer: git-send-email 2.46.0.rc1.232.g9752f9e123-goog
-Message-ID: <20240726235234.228822-36-seanjc@google.com>
-Subject: [PATCH v12 35/84] KVM: x86: Use kvm_lookup_pfn() to check if retrying
- #PF is useful
+Message-ID: <20240726235234.228822-37-seanjc@google.com>
+Subject: [PATCH v12 36/84] KVM: x86: Use kvm_lookup_pfn() to check if APIC
+ access page was installed
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
@@ -84,8 +84,8 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	David Matlack <dmatlack@google.com>, David Stevens <stevensd@chromium.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240726_165351_320071_125191C5 
-X-CRM114-Status: GOOD (  14.72  )
+X-CRM114-CacheID: sfid-20240726_165353_130361_F1AFC9F2 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,66 +103,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use kvm_lookup_pfn() instead of an open coded equivalent when checking to
-see if KVM should exit to userspace or re-enter the guest after failed
-instruction emulation triggered by a guest page fault.
-
-Note, there is a small functional change as kvm_lookup_pfn() doesn't mark
-the page as accessed, whereas kvm_release_pfn_clean() does mark the page
-accessed (if the pfn is backed by a refcounted struct page).  Neither
-behavior is wrong per se, e.g. querying the gfn=>pfn mapping doesn't
-actually access the page, but the guest _did_ access the gfn, otherwise
-the fault wouldn't have occurred.
-
-That said, either KVM will exit to userspace and the guest will likely be
-terminated, or KVM will re-enter the guest and, barring weirdness in the
-guest, the guest will re-access the gfn, and KVM will fault-in the pfn and
-mark it accessed.
+Use kvm_lookup_pfn() to verify that the APIC access page was allocated and
+installed as expected.  The mapping is controlled by KVM, i.e. it's
+guaranteed to be backed by struct page, the purpose of the check is purely
+to ensure the page is allocated, i.e. that KVM doesn't point the guest at
+garbage.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/x86.c | 16 ++++------------
- 1 file changed, 4 insertions(+), 12 deletions(-)
+ arch/x86/kvm/lapic.c | 15 +++++++--------
+ 1 file changed, 7 insertions(+), 8 deletions(-)
 
-diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-index af6c8cf6a37a..59501ad6e7f5 100644
---- a/arch/x86/kvm/x86.c
-+++ b/arch/x86/kvm/x86.c
-@@ -8867,7 +8867,6 @@ static bool reexecute_instruction(struct kvm_vcpu *vcpu, gpa_t cr2_or_gpa,
- 				  int emulation_type)
- {
- 	gpa_t gpa = cr2_or_gpa;
--	kvm_pfn_t pfn;
+diff --git a/arch/x86/kvm/lapic.c b/arch/x86/kvm/lapic.c
+index 6d65b36fac29..88dc43660d23 100644
+--- a/arch/x86/kvm/lapic.c
++++ b/arch/x86/kvm/lapic.c
+@@ -2612,8 +2612,8 @@ void kvm_apic_update_apicv(struct kvm_vcpu *vcpu)
  
- 	if (!(emulation_type & EMULTYPE_ALLOW_RETRY_PF))
- 		return false;
-@@ -8892,22 +8891,15 @@ static bool reexecute_instruction(struct kvm_vcpu *vcpu, gpa_t cr2_or_gpa,
+ int kvm_alloc_apic_access_page(struct kvm *kvm)
+ {
+-	struct page *page;
+ 	void __user *hva;
++	kvm_pfn_t pfn;
+ 	int ret = 0;
+ 
+ 	mutex_lock(&kvm->slots_lock);
+@@ -2628,17 +2628,16 @@ int kvm_alloc_apic_access_page(struct kvm *kvm)
+ 		goto out;
  	}
  
+-	page = gfn_to_page(kvm, APIC_DEFAULT_PHYS_BASE >> PAGE_SHIFT);
+-	if (!page) {
+-		ret = -EFAULT;
+-		goto out;
+-	}
+-
  	/*
--	 * Do not retry the unhandleable instruction if it faults on the
--	 * readonly host memory, otherwise it will goto a infinite loop:
-+	 * Do not retry the unhandleable instruction if emulation was triggered
-+	 * for emulated MMIO, e.g. by a readonly memslot or lack of a memslot,
-+	 * otherwise KVM will send the vCPU into an infinite loop:
- 	 * retry instruction -> write #PF -> emulation fail -> retry
- 	 * instruction -> ...
+ 	 * Do not pin the page in memory, so that memory hot-unplug
+ 	 * is able to migrate it.
  	 */
--	pfn = gfn_to_pfn(vcpu->kvm, gpa_to_gfn(gpa));
--
--	/*
--	 * If the instruction failed on the error pfn, it can not be fixed,
--	 * report the error to userspace.
--	 */
--	if (is_error_noslot_pfn(pfn))
-+	if (is_error_noslot_pfn(kvm_lookup_pfn(vcpu->kvm, gpa_to_gfn(gpa))))
- 		return false;
- 
--	kvm_release_pfn_clean(pfn);
--
- 	/*
- 	 * If emulation may have been triggered by a write to a shadowed page
- 	 * table, unprotect the gfn (zap any relevant SPTEs) and re-enter the
+-	put_page(page);
++	pfn = kvm_lookup_pfn(kvm, APIC_DEFAULT_PHYS_BASE >> PAGE_SHIFT);
++	if (is_error_noslot_pfn(pfn)) {
++		ret = -EFAULT;
++		goto out;
++	}
++
+ 	kvm->arch.apic_access_memslot_enabled = true;
+ out:
+ 	mutex_unlock(&kvm->slots_lock);
 -- 
 2.46.0.rc1.232.g9752f9e123-goog
 
