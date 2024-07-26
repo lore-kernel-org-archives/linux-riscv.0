@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0520C3DA7F
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jul 2024 00:29:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD265C3DA4A
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jul 2024 00:31:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PJjwb3aMS+Xu13aTf0hwvMkx62hJLeIN8qzLeMQuFdQ=; b=DPA9KvUvT+4sUC
-	z14ihrgzA+kRutzHRWcFordM9f/hpONnaAm6oq79AkfL7zFC/eRBacav7Jz4hvp6pGyHmkL+9YWtB
-	YDR5vPmLjPDf9bhxB6/KphgHioCBtcHKdptg+UtU8+7WYQhVZozZR/rH2MftQPiuphSZ/PWFP3Xrj
-	ctJiSNRwgYL04x8TXSMFyRjpZ0ReDSkFTZGVpQ6bRYLsvQt5CLt25Yi4q/DTTpWB8jvne29LbBxtF
-	0H6GO6EB0EEtoEeruSPzuXGP1v/pBiWiBYqs71nThYElq+YlSUSIqe5IKmL9/2gqj5aL1VIFDra70
-	7qM34BcbKHz8GnR5ddWA==;
+	List-Owner; bh=/ssFCcOzQYME1Cgr6UYY2s7zG1rHVx1Q3ED5puV4p00=; b=RbKWaRPjKUIONw
+	W57wuYOa6pF92yu11LnBf7d2kkGaWoKHnKQAbikiRSwjdjANeMVGBThzScytl6sobLfe7/Qq/KkoU
+	J1m6MzFgc89ertLRTOkhkEWRF5z+VlIk4VlSBKfJ+be3iYMDmaTRSfo859Rw4INIFPOkDV8ExpoFj
+	OpWJVb1i+aGZLQIQPqqD+MkA0OEk5/DeJ8knZi28Khy4X98MJYuEAl+3S2ianvu4Njb8zDhnbOnAS
+	qt7yQYqASTEVwRXbd2zRgLSU7wUIpkrdhVNOijB8441FTC6BBfV+RjJTcoQifn9eoeUEFyFA7x5kw
+	n566rW4C8zDd1FWR47tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sXVJe-00000005iXl-3OYA;
-	Sat, 27 Jul 2024 00:29:42 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1sXVL3-00000005jE5-0QoU;
+	Sat, 27 Jul 2024 00:31:09 +0000
+Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sXUmD-00000005RBW-0ha7
+	id 1sXUmF-00000005RES-2M6L
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 Jul 2024 23:55:13 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-1fc4b03fe76so9985245ad.0
-        for <linux-riscv@lists.infradead.org>; Fri, 26 Jul 2024 16:55:08 -0700 (PDT)
+	Fri, 26 Jul 2024 23:55:16 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-665a6dd38c8so7231767b3.1
+        for <linux-riscv@lists.infradead.org>; Fri, 26 Jul 2024 16:55:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1722038107; x=1722642907; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1722038110; x=1722642910; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=Agw1NDopTbJHSwXqEMTAoK1oQKqohLcT4CyuwhV7hPY=;
-        b=e5nexWDcr74v5Ti+MHQB4qjptT5ei7vIlrzAr/Qats5fQWJ6muj6YMibrXTH1JuHLA
-         CilAF1jvFFBK601Uj17+v4Hop5RaH3v+5fezi1IDydkh6M40E6jAp9W7XW/37ify7Ku/
-         4vfnxbHPWWQcWE6gDXYEm8C/qAxl5N7AvN0JPkrjlDtT8LzFXm8uFQVXMYbR04g13rpB
-         QgHju7F254xreGdDdluFS2IotbeSJj2+usRAviI+RsPVGgBNQFgqxyolgp2blecAdpMO
-         qn7diiJtaqtUaUvskluWkfj9Cjzc4TBeas8RtEQ9OY/gXS1qPYFZ/mz404XrtnrLoB1r
-         DqbQ==
+        bh=FGNMZjC6zrq4QPk0aaY9W+lI1TKYWYG7APrsjifVvZM=;
+        b=ZLp5txfxYH6q2vmavmG997qwjBolQPC+YcsmUXhWlVmZ9Qtc9WeyBrgRwFoGpBRUqN
+         A51TRObFHCPZux/6+OeZWCDVR74M2+zX97YgUSY5HkSdJN2KuSCALfx/8uhLtIx/PNm9
+         04wdf3t/H+Py3bLaECsLQikDqOzFiE1n5NBElBNvSpgTHhmB5PLV2YB90pbSiLuRV0Db
+         Zi3NbkAr6GfD7asOEJBKfvQSCSYtpPypzvvq9sA0c/28R1q8DMrDhOBZjeFN3Fo8d9X+
+         wyKHVY785vOeY63wLXv+8EqRnORHy7maTE2XpetWWUFEi9IR5qooRG5IDZEIhugWtDQA
+         /Q4g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722038107; x=1722642907;
+        d=1e100.net; s=20230601; t=1722038110; x=1722642910;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Agw1NDopTbJHSwXqEMTAoK1oQKqohLcT4CyuwhV7hPY=;
-        b=SJJxmkW89GhAwrX0n+HEsw6iLUpYNRnG1mKWbnBYL0iy73Fj1R89NcH9TAMgtluezO
-         5XWLZ81fewJlTkHrz0hoK+3XpeMJ/Zq4t0gwot/vGjm9XLyZ93brFYfVfEkk6NWUMm5L
-         iTlL9LV9hMUytjY8uZlvxgtzV4k38U4rjDfZD6SZA5BQRwBMXVhk/WeK0eOI/xHAHNLw
-         9nwUr1Np4XMSqO2YtLrVdAuRi6EDY7V/uuZZ3blnWyMgIN5fJbFAid36Rm9kdJrFkbSi
-         K8A8UaZ97Xr7mEFaP8gIPBkm3v8ArQtONDjsUu43tPqxY78YCXs0HTvGpVH4qSMHp7SY
-         cvbA==
-X-Forwarded-Encrypted: i=1; AJvYcCUzFMBgLqpG8o8sPZUwm+JNOjbUGggBmGvPiJjGbW2fseiECdfotGAW99wxkY73+Co0cabeL8tXwrQyX2nhqlRYb+gjJqmznCaWF0AIvDhU
-X-Gm-Message-State: AOJu0YzKhy/fCCrsn5hk3X7iuAPfmJQUm5V3b/6uxgWTAMim7mp0rCFn
-	WhWt7hV5wAj9Eh7ezCC5tEsI8FcBkMXVOjShX7cB/H3N3NMpbI94pTErvslWs2+TH5+9c/ucjB3
-	a+Q==
-X-Google-Smtp-Source: AGHT+IHxZ9LAKt5vIHU7V05HDfJ12gC6skwH/WeW9XOXHpR7B1c0ubRWlOUtq2UiALskA4rClXraM4lFVDE=
+        bh=FGNMZjC6zrq4QPk0aaY9W+lI1TKYWYG7APrsjifVvZM=;
+        b=HyZ6rdwumb/WfIVAg+OkWpnb8VOqNVrg3IrTeX3CcrtplWx4QIwsqrl9DvRrM+HfNN
+         t5dM1R+CafeFXBB9//qmmnUQsn85Xw0+3S5swwSn2Dnpy5JkMRuSR/ZiZfwY2JX5O0MZ
+         hJbXAwvvppP/F/CRJKQlUVfUgP2MFdxgHalLhfkxBrvKsIp3GBbctvMpsI1TMFxqxwXN
+         SA/+rqU6bxxIFkM+BQ0rKhfxvw1g9jQ+G6eQyUAMBh/0ddq8+//c3elwvb89Lo5fKjde
+         uViKDz0qPqhDaylwc0ZyR/Q4RcPIct57plYjZw6dapC2dCAx5qVTNkzVU5sLxCYu5S7f
+         SkKA==
+X-Forwarded-Encrypted: i=1; AJvYcCVeiOT+Iuoxa06hJPB0hrDQsfVGN38SIg4JPRcqeQAJ1IKxPyQtPGU6Ug6JncUPZxd5u/PT2KRDj/I+7B3BARD71sRysJAlqoXK2EEhUzs6
+X-Gm-Message-State: AOJu0Ywjg0PWBLeSV+hbEiPV/AGIYqhyC1h0yiecLCDYGuCSlMgqmUR7
+	ItF0bpeubD13aNO1mkCivviFb4sx7kPwCEICn6auzWwTfKpdaKvlPyMp8mtP6aOBM4y0FcoZPuA
+	nEg==
+X-Google-Smtp-Source: AGHT+IFLZWO6XOpdLpjl0c1N0cYikN5d5kXLguU/WRS6HZfMhk4D9x8u+2tsxxP6CN0/8qHX8YjuuRQeC7A=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a17:902:b18d:b0:1fd:8ebf:672c with SMTP id
- d9443c01a7336-1ff047d8f61mr25415ad.3.1722038107293; Fri, 26 Jul 2024 16:55:07
+ (user=seanjc job=sendgmr) by 2002:a05:690c:830:b0:61b:e103:804d with SMTP id
+ 00721157ae682-67a004a2a4amr37877b3.0.1722038109325; Fri, 26 Jul 2024 16:55:09
  -0700 (PDT)
-Date: Fri, 26 Jul 2024 16:52:21 -0700
+Date: Fri, 26 Jul 2024 16:52:22 -0700
 In-Reply-To: <20240726235234.228822-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20240726235234.228822-1-seanjc@google.com>
 X-Mailer: git-send-email 2.46.0.rc1.232.g9752f9e123-goog
-Message-ID: <20240726235234.228822-73-seanjc@google.com>
-Subject: [PATCH v12 72/84] KVM: PPC: Remove extra get_page() to fix page
- refcount leak
+Message-ID: <20240726235234.228822-74-seanjc@google.com>
+Subject: [PATCH v12 73/84] KVM: PPC: Use kvm_vcpu_map() to map guest memory to
+ patch dcbz instructions
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
@@ -84,9 +84,8 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	David Matlack <dmatlack@google.com>, David Stevens <stevensd@chromium.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240726_165509_426701_73849B54 
-X-CRM114-Status: UNSURE (   8.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240726_165511_765572_AD293A4B 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,27 +103,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Don't manually do get_page() when patching dcbz, as gfn_to_page() gifts
-the caller a reference.  I.e. doing get_page() will leak the page due to
-not putting all references.
+Use kvm_vcpu_map() when patching dcbz in guest memory, as a regular GUP
+isn't technically sufficient when writing to data in the target pages.
+As per Documentation/core-api/pin_user_pages.rst:
+
+      Correct (uses FOLL_PIN calls):
+          pin_user_pages()
+          write to the data within the pages
+          unpin_user_pages()
+
+      INCORRECT (uses FOLL_GET calls):
+          get_user_pages()
+          write to the data within the pages
+          put_page()
+
+As a happy bonus, using kvm_vcpu_{,un}map() takes care of creating a
+mapping and marking the page dirty.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/powerpc/kvm/book3s_pr.c | 1 -
- 1 file changed, 1 deletion(-)
+ arch/powerpc/kvm/book3s_pr.c | 13 ++++++-------
+ 1 file changed, 6 insertions(+), 7 deletions(-)
 
 diff --git a/arch/powerpc/kvm/book3s_pr.c b/arch/powerpc/kvm/book3s_pr.c
-index 1bdcd4ee4813..ae4757ac0848 100644
+index ae4757ac0848..393c18958a5b 100644
 --- a/arch/powerpc/kvm/book3s_pr.c
 +++ b/arch/powerpc/kvm/book3s_pr.c
-@@ -652,7 +652,6 @@ static void kvmppc_patch_dcbz(struct kvm_vcpu *vcpu, struct kvmppc_pte *pte)
+@@ -639,28 +639,27 @@ static void kvmppc_set_pvr_pr(struct kvm_vcpu *vcpu, u32 pvr)
+  */
+ static void kvmppc_patch_dcbz(struct kvm_vcpu *vcpu, struct kvmppc_pte *pte)
+ {
+-	struct page *hpage;
++	struct kvm_host_map map;
+ 	u64 hpage_offset;
+ 	u32 *page;
+-	int i;
++	int i, r;
+ 
+-	hpage = gfn_to_page(vcpu->kvm, pte->raddr >> PAGE_SHIFT);
+-	if (!hpage)
++	r = kvm_vcpu_map(vcpu, pte->raddr >> PAGE_SHIFT, &map);
++	if (r)
+ 		return;
+ 
+ 	hpage_offset = pte->raddr & ~PAGE_MASK;
  	hpage_offset &= ~0xFFFULL;
  	hpage_offset /= 4;
  
--	get_page(hpage);
- 	page = kmap_atomic(hpage);
+-	page = kmap_atomic(hpage);
++	page = map.hva;
  
  	/* patch dcbz into reserved instruction, so we trap */
+ 	for (i=hpage_offset; i < hpage_offset + (HW_PAGE_SIZE / 4); i++)
+ 		if ((be32_to_cpu(page[i]) & 0xff0007ff) == INS_DCBZ)
+ 			page[i] &= cpu_to_be32(0xfffffff7);
+ 
+-	kunmap_atomic(page);
+-	put_page(hpage);
++	kvm_vcpu_unmap(vcpu, &map);
+ }
+ 
+ static bool kvmppc_visible_gpa(struct kvm_vcpu *vcpu, gpa_t gpa)
 -- 
 2.46.0.rc1.232.g9752f9e123-goog
 
