@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1DF9C3DA7F
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jul 2024 00:32:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DB3CC3DA4A
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jul 2024 00:32:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M+JAuUdO7w9d6ED89U2R1CpZ+mNSTWngCakiUhhqckk=; b=E9bbBWW6iR+tsu
-	yKShTYD+oGz5cItAX5WEr968M/ucvcW3qWJwUreY9TBMsWyFmyeNFM6ersBpW0Xw2MD1LQhiHQMjg
-	o6wMZhNmWI5nr9PcP6wNQnUkIWMLqcRU+BCQ8D3pbJcnVaMeOZKhh8VkAkYWztr+f1bUImVIzOrgy
-	BuZ47cqJDG1HBe4GvwmJKRcmeWaklh9e2wTh8Jue8hqQP17rZGiD09B4dPIu1JxeDV9uM7GTYvnJD
-	lirE0u4ccNkDjDY4aGWKjyw4WbM9W4YcjOmPAShA9td5EAzUoh8/wT2N6O0PNZu+gZW2UxhPU5F1+
-	9+9OIOMmnPDTuODicMDg==;
+	List-Owner; bh=TfkHExsxxgcYxbr7Hq5/NfLrQHmBJViVRqUjSFwOP0o=; b=pf6gU1/LAXM4Sm
+	KD3v8DygaSKNxGPEFoqNTRlGZ2seLi5LgzN1FA9EChbEGDBlaJ3Kzqz1xEjB2dkdraCqPF0SIeER/
+	ymF5V144Ew1948x/xXQEdKs/VViHQ/ynHXY/7zSXLJp04D+IAeCbfxfEPw9eVk6mZDX7Y+CZ+XNJb
+	5RbshYr7cP0axWcwR7xfcuuCVY2hS9RJTvA1KrCm0AkYNIJbrzrNRnITz9+cirQkoZoK9IeyOVqro
+	AH3HUCagkC/OXEezjYHP2px+djL1wBgWNHHt47rUh1cL9d2qpLhjn/TI6fAAQe0vx42OMYme81e2J
+	sYkGMdllTth6UhhgrX+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sXVLw-00000005jfA-10Kr;
-	Sat, 27 Jul 2024 00:32:04 +0000
-Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
+	id 1sXVMH-00000005jrj-2Ml5;
+	Sat, 27 Jul 2024 00:32:25 +0000
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sXUmP-00000005RNY-2OAu
+	id 1sXUmR-00000005RPv-2NOj
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 Jul 2024 23:55:25 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-e0b3742b30bso424595276.1
-        for <linux-riscv@lists.infradead.org>; Fri, 26 Jul 2024 16:55:20 -0700 (PDT)
+	Fri, 26 Jul 2024 23:55:28 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-650ab31aabdso5353397b3.3
+        for <linux-riscv@lists.infradead.org>; Fri, 26 Jul 2024 16:55:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1722038120; x=1722642920; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1722038122; x=1722642922; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=B5cS3fQCyroPznI2D76vYSWht1aEO90tb+OiOa938C4=;
-        b=IBsDS6Weschrfr/Y8bjtKGCfkJKvEgOR0klko/q5tcsUNRZEdF0j8jjHz0gSgRdeQX
-         EYVYT2ei2pPK+ar54+5intb3VhJfjDgfLPmLeg+ja3Sg73mIxnIGkwAhtxhFZAEAMwVQ
-         Tg+KhTBFyI0pJclVZHFg3yp/K1Ev6skm/7du92jK3tPFxOqhTtCb62P5U8LLxBBsENhz
-         46ZW6fbkKlGDiqls6wwB5gT6wR5w4bDosvoqDyoneDzLMfBpgd0gKdmE5N/iY21Er0FE
-         zNs7O8DElN2bzSBpPuT1dkf6aavBvaAeg0Bn14IJO9wV+VajhaQ1PZrNgr5LVP/EIjWA
-         Kodg==
+        bh=dTOlfH+mhloY9mYg+/p0IQai80b+6RXS/WhBEV7av3U=;
+        b=dlz2WeJdMDVSn0QF2JM5EqHFTTi3/lVh8XhLstjFhRRg6JglfIlf2kMFLDQ3AM9ewI
+         L8n3w4EA57DkccusDFhkxvp8TUOcV78Pw1oTScwprBhyluesmBvULgAhYXmS0mhd36Sg
+         pmJPVAta9EmSFUcaLAaRwvpPJPHuLkQCKpCQtFqnSux5gUyFQuiNdOfupZ4OAjDVlCoa
+         8WNK/eotizs3VYgMuNZEvubQiCB9+Eqa2zFZJ8euD0DHf189k2p3VPLTlGVIZnKdlhq5
+         XmG2zIRE3reeo5AcObRl/+eH61qd44wFO9H0k4letPuzhqqxrfy/ffO69JEddMWjZOYd
+         S0Fw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722038120; x=1722642920;
+        d=1e100.net; s=20230601; t=1722038122; x=1722642922;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=B5cS3fQCyroPznI2D76vYSWht1aEO90tb+OiOa938C4=;
-        b=byqKOq853eLMFjUuErZ8lTvtbR5Nb5BG2QEzhmps5CmeNB6ZxpuERmVzT4TxCZKPMN
-         4s0sPZjIdB21mnfNs653uVvV6XtAgEklA68VKNSTtef3+K4JHASPxxn65UninuWMgO4N
-         l2MefsM3qR8MTxvSZ7n4GS2+cJiefE1JZF58Uigg0FrpcNqxyHzUNjXM826AEoYILYWO
-         194jkeMb9FYXOJrDd9kQWOI/3NXMesgRIv1g2dzT0Vu1GIM/4yBo18MauzWF2qFVpW+o
-         vFpUdA3OE+MzLevQ3ci+VZoyw+ifJpuYYV7DujYSkS8qrxHgzILpFkgp+WyTlsMZUPif
-         vLhw==
-X-Forwarded-Encrypted: i=1; AJvYcCVfk7wJyZ5L7w6VE+XbWdQw4PehmY22NtuBEcnHT+aAB24h7N5BAUyHjidYax1CRN8SedimGRfmpoq4Ypm1aikNvhfiAtQBs9jtWWpmejKQ
-X-Gm-Message-State: AOJu0YwPFvq4TiHtTVrboBjmCjkK0JavluveVFacZysFn6jHrpRwLHwE
-	dXkvO1MEMZGaEGKvL9fuHjiHBwAJpOdGUqdyO93HL1/0PDsZrmZSmYI8obQ6nihLqsi0ZFcgWjK
-	Ffg==
-X-Google-Smtp-Source: AGHT+IFMnVGgr4kpL4f9GKaKFvGezuIshpJ8eZPypNhpoA7Mjxc5gf+mvj1jThnEcafAjrCOymr+lPlnWyQ=
+        bh=dTOlfH+mhloY9mYg+/p0IQai80b+6RXS/WhBEV7av3U=;
+        b=ALdxZh1WP25xUEJ0V2T5kVI8TJ0/ohPo0DNIW6C8yZ9tilx62VsAdJM0lyD2uenMRX
+         xpHtr9raqC3FVjOH9MoKCKf1LCtsyaMB3RnrqgOuBAd/UJIaHdLwR7JYDc2VhAPM0EsG
+         msmYMqjgMUjQ2i05zzktxNaEkB8js3vSYMcBD3RJ5yjLhKIVMvB3GHaBXVnffi0JcCDF
+         0DvMvjTlEloFnzvpCkMAQ0lmzPMCavmpYc+7tAxtZ9WRch0s+55ULGiI4AOXo44almeM
+         8splIWmAO8iEAtkzdVTonH2YpS9JpjA0ph5gxyt8oqJbEsQUwBPDChKJ2xWZk6ZkNe0t
+         4iEA==
+X-Forwarded-Encrypted: i=1; AJvYcCXEkZu2VEO2XwfwE9nWOjfv7YxQ3K2GwHtKNz4zafWe6ZeJwNeg50qRclAi4IgNnsn0Z2Z+H+BZS2VA/y34m+Up1xfJ5Q0aPGW24uHqOg/2
+X-Gm-Message-State: AOJu0YxRZHJobiYkQ4gM5XGqC5epfAT3oN0cll0+FJTqN2yq2kkoxCBu
+	KHc6bK7wWAUq74LJvP2nLVtahxqjvpqOuRc6+ECo8sIAxWLzMvdGKMPFoAQM41NluFR+qCiUb64
+	mDw==
+X-Google-Smtp-Source: AGHT+IGgifSFTGz9fVU5jdzVocA5wMp2MITnk/v5MkueXs++Udesz0kCsEkHm8VEDJpbtR+Hv7uv12YKgg8=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a5b:606:0:b0:e0b:3139:7ce5 with SMTP id
- 3f1490d57ef6-e0b55d079camr27265276.5.1722038119814; Fri, 26 Jul 2024 16:55:19
- -0700 (PDT)
-Date: Fri, 26 Jul 2024 16:52:27 -0700
+ (user=seanjc job=sendgmr) by 2002:a05:690c:f0a:b0:62f:1f63:ae4f with SMTP id
+ 00721157ae682-67a052e5dccmr429907b3.1.1722038121721; Fri, 26 Jul 2024
+ 16:55:21 -0700 (PDT)
+Date: Fri, 26 Jul 2024 16:52:28 -0700
 In-Reply-To: <20240726235234.228822-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20240726235234.228822-1-seanjc@google.com>
 X-Mailer: git-send-email 2.46.0.rc1.232.g9752f9e123-goog
-Message-ID: <20240726235234.228822-79-seanjc@google.com>
-Subject: [PATCH v12 78/84] KVM: Drop gfn_to_pfn() APIs now that all users are gone
+Message-ID: <20240726235234.228822-80-seanjc@google.com>
+Subject: [PATCH v12 79/84] KVM: s390: Use kvm_release_page_dirty() to unpin
+ "struct page" memory
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
@@ -83,9 +84,8 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	David Matlack <dmatlack@google.com>, David Stevens <stevensd@chromium.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240726_165521_860113_2EA61981 
-X-CRM114-Status: UNSURE (   8.21  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240726_165523_776933_E2757650 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,115 +103,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Drop gfn_to_pfn() and all its variants now that all users are gone.
-
-No functional change intended.
+Use kvm_release_page_dirty() when unpinning guest pages, as the pfn was
+retrieved via pin_guest_page(), i.e. is guaranteed to be backed by struct
+page memory.  This will allow dropping kvm_release_pfn_dirty() and
+friends.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- include/linux/kvm_host.h | 11 --------
- virt/kvm/kvm_main.c      | 59 ----------------------------------------
- 2 files changed, 70 deletions(-)
+ arch/s390/kvm/vsie.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index f2d3c3c436cc..34a1cadb1b80 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -1260,14 +1260,6 @@ static inline kvm_pfn_t kvm_faultin_pfn(struct kvm_vcpu *vcpu, gfn_t gfn,
- 				 write ? FOLL_WRITE : 0, writable, refcounted_page);
- }
- 
--kvm_pfn_t gfn_to_pfn(struct kvm *kvm, gfn_t gfn);
--kvm_pfn_t gfn_to_pfn_prot(struct kvm *kvm, gfn_t gfn, bool write_fault,
--		      bool *writable);
--kvm_pfn_t gfn_to_pfn_memslot(const struct kvm_memory_slot *slot, gfn_t gfn);
--kvm_pfn_t __gfn_to_pfn_memslot(const struct kvm_memory_slot *slot, gfn_t gfn,
--			       bool interruptible, bool no_wait,
--			       bool write_fault, bool *writable);
--
- void kvm_release_pfn_clean(kvm_pfn_t pfn);
- void kvm_release_pfn_dirty(kvm_pfn_t pfn);
- void kvm_set_pfn_dirty(kvm_pfn_t pfn);
-@@ -1342,9 +1334,6 @@ unsigned long kvm_host_page_size(struct kvm_vcpu *vcpu, gfn_t gfn);
- void mark_page_dirty_in_slot(struct kvm *kvm, const struct kvm_memory_slot *memslot, gfn_t gfn);
- void mark_page_dirty(struct kvm *kvm, gfn_t gfn);
- 
--
--kvm_pfn_t kvm_vcpu_gfn_to_pfn(struct kvm_vcpu *vcpu, gfn_t gfn);
--
- int __kvm_vcpu_map(struct kvm_vcpu *vcpu, gpa_t gpa, struct kvm_host_map *map,
- 		   bool writable);
- void kvm_vcpu_unmap(struct kvm_vcpu *vcpu, struct kvm_host_map *map);
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index 16bc3ac3ff84..5dcf3561b829 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -3059,65 +3059,6 @@ static kvm_pfn_t kvm_follow_pfn(struct kvm_follow_pfn *kfp)
- 	return hva_to_pfn(kfp);
- }
- 
--kvm_pfn_t __gfn_to_pfn_memslot(const struct kvm_memory_slot *slot, gfn_t gfn,
--			       bool interruptible, bool no_wait,
--			       bool write_fault, bool *writable)
--{
--	struct kvm_follow_pfn kfp = {
--		.slot = slot,
--		.gfn = gfn,
--		.map_writable = writable,
--	};
--
--	if (write_fault)
--		kfp.flags |= FOLL_WRITE;
--	if (no_wait)
--		kfp.flags |= FOLL_NOWAIT;
--	if (interruptible)
--		kfp.flags |= FOLL_INTERRUPTIBLE;
--
--	return kvm_follow_pfn(&kfp);
--}
--EXPORT_SYMBOL_GPL(__gfn_to_pfn_memslot);
--
--kvm_pfn_t gfn_to_pfn_prot(struct kvm *kvm, gfn_t gfn, bool write_fault,
--		      bool *writable)
--{
--	struct kvm_follow_pfn kfp = {
--		.slot = gfn_to_memslot(kvm, gfn),
--		.gfn = gfn,
--		.flags = write_fault ? FOLL_WRITE : 0,
--		.map_writable = writable,
--	};
--
--	return kvm_follow_pfn(&kfp);
--}
--EXPORT_SYMBOL_GPL(gfn_to_pfn_prot);
--
--kvm_pfn_t gfn_to_pfn_memslot(const struct kvm_memory_slot *slot, gfn_t gfn)
--{
--	struct kvm_follow_pfn kfp = {
--		.slot = slot,
--		.gfn = gfn,
--		.flags = FOLL_WRITE,
--	};
--
--	return kvm_follow_pfn(&kfp);
--}
--EXPORT_SYMBOL_GPL(gfn_to_pfn_memslot);
--
--kvm_pfn_t gfn_to_pfn(struct kvm *kvm, gfn_t gfn)
--{
--	return gfn_to_pfn_memslot(gfn_to_memslot(kvm, gfn), gfn);
--}
--EXPORT_SYMBOL_GPL(gfn_to_pfn);
--
--kvm_pfn_t kvm_vcpu_gfn_to_pfn(struct kvm_vcpu *vcpu, gfn_t gfn)
--{
--	return gfn_to_pfn_memslot(kvm_vcpu_gfn_to_memslot(vcpu, gfn), gfn);
--}
--EXPORT_SYMBOL_GPL(kvm_vcpu_gfn_to_pfn);
--
- kvm_pfn_t kvm_lookup_pfn(struct kvm *kvm, gfn_t gfn)
+diff --git a/arch/s390/kvm/vsie.c b/arch/s390/kvm/vsie.c
+index 566697ee37eb..f6f1569be1cc 100644
+--- a/arch/s390/kvm/vsie.c
++++ b/arch/s390/kvm/vsie.c
+@@ -670,7 +670,7 @@ static int pin_guest_page(struct kvm *kvm, gpa_t gpa, hpa_t *hpa)
+ /* Unpins a page previously pinned via pin_guest_page, marking it as dirty. */
+ static void unpin_guest_page(struct kvm *kvm, gpa_t gpa, hpa_t hpa)
  {
- 	struct page *refcounted_page = NULL;
+-	kvm_release_pfn_dirty(hpa >> PAGE_SHIFT);
++	kvm_release_page_dirty(pfn_to_page(hpa >> PAGE_SHIFT));
+ 	/* mark the page always as dirty for migration */
+ 	mark_page_dirty(kvm, gpa_to_gfn(gpa));
+ }
 -- 
 2.46.0.rc1.232.g9752f9e123-goog
 
