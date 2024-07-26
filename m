@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8B5BC3DA49
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jul 2024 00:03:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99A3AC3DA4A
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jul 2024 00:03:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ngtC+oTXYHye893M6ZXHUuXsZO0e4Wq95VzDsyvO6yI=; b=uReodTnI/jssSP
-	BR5jRVKFrxHgAcHKeGcxMnfDITSZIFuS59zK96/GQEHnV0QTU1KkQRnqgA+hOOPWpG5QJUJzMZBPH
-	7nUafKyK5MhhukreWyc/qNnJH35TgtpCssPVpsyJYXhoeWuS3P0jtWVUkFcKCriGnuTcvxBI2AlrR
-	5NS45GYCo2byRrXF6XE+xVCf/gv1p871b+dHpgPSTGF60vjhr4zs7IrBmliPUaySIx3J+ddroUIUJ
-	KPCikSjGAeYGLGV5VOPi1pOIJ39sLrrrf17s71SCcsf0iJqcjajpSLYcv/MVvI7i+lm50QFAGGGIy
-	vGDZ1C3E3jj1DkAyvXzg==;
+	List-Owner; bh=c4SAsqs62yNW/913Tgsua2i+bTCP676472NL9wwqVHM=; b=osvpDd+44zLVny
+	LN7N3oM/lEBY8drjZSOU/efgAkF9Kr+t6Hap29zftoy9lP4UG1NeewxPrJ65DF8WWmya39mswE48l
+	6mVsXktOkkIDP1yu8Qe5uy2o54o2HZPrOfBDdmDmvADc7hIciespxlIdDCbExFXg2hBm7kG2PWDs/
+	8zRYAVz6ZPikUqPucKGN4HrFKqN45zEQqKRyh1S0fNehYR4LeX+yDj8iQBZbsIe4q6YfiQLnIAUfX
+	yf+q5ZsUNi3rbRBPZUPex7C0jiaCmvfgPq/I6Y9lu6Jhkj9DOjd0z6+uVbI3G0uQLjPkrCSe7aAZ4
+	2DRSJXww2NX7Jx6MgltA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sXUu8-00000005VYa-2mMi;
-	Sat, 27 Jul 2024 00:03:20 +0000
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	id 1sXUu9-00000005VZ8-1xYO;
+	Sat, 27 Jul 2024 00:03:21 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sXUkd-00000005Pno-0olh
+	id 1sXUke-00000005PpE-2KSt
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 Jul 2024 23:53:32 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-70d1df50db2so1367926b3a.0
-        for <linux-riscv@lists.infradead.org>; Fri, 26 Jul 2024 16:53:30 -0700 (PDT)
+	Fri, 26 Jul 2024 23:53:34 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2cb51290896so1531689a91.0
+        for <linux-riscv@lists.infradead.org>; Fri, 26 Jul 2024 16:53:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1722038010; x=1722642810; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1722038011; x=1722642811; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=tUI1d5PvM6nQSFLRYt7w7bGZCStWjtac1YnX2jIYbCg=;
-        b=oIIsEW897Ml3oEqV1ukXS5s/BrFGFitpm7/uhyxWAtaNaqAOmNAa7L/mkMl5ljqKcj
-         b522IN0r6O0dTcmOkCOnYgd2qMoS2gwb/YWjfKu7JcfZMeBxefC8C/oVuZ4vDBhxnTj5
-         pUbZL0Dr2BUii5s3STiGXu0cx+4u4BCbUx19v//DJKz4747L1fWwdRPMorl4mIB4oTUW
-         egdGYsv5PqbeaV4toAebuKnW9qNx0b9kRxax2FNS0DS6xcRwBej4z6doDpxB+TtsW+BQ
-         rlJMlj0R1/B6mQ/b1NxZL8YOuQtLvhrF2rx4w+eGk/ZQuMKdlrLGvMY7PedROfNgZC7S
-         Rl4Q==
+        bh=R2I4/1amdIANY6ZAXPe7SG9ch9BlLbSqRy3xqYz3ZKo=;
+        b=usE+cDUWTYA9NxUNXAKflQvcZWMbnzlvgsbtIY9kIIPY14ngsjqdMlQgYrtrtZJMV3
+         3aAgew+dPMKRL+8GcVCwpYTwngmkHGC1A2XpvdUl8NjZwDq+zY56/QtUKZNAXboM7vV+
+         ZO4Y1FzHnsB4xrVD0PbLRCi+dBGtALRWIG4O1bcJU956l/gWIMs2VY3e6hnEtTvhy7gB
+         5PI8oUeat1ydranbOfGQlPCBhX3zfZ9mE8/6LxrFxCoAQMmDRrbWZc/pcCdLu8fK08pR
+         ifjP9ykxBtBzhO+fbDqQDTZm3Mzobt5Y5ihbHER8PuXRjsnW21d9CkCWK+Xauc+RGMdc
+         oJaA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722038010; x=1722642810;
+        d=1e100.net; s=20230601; t=1722038011; x=1722642811;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=tUI1d5PvM6nQSFLRYt7w7bGZCStWjtac1YnX2jIYbCg=;
-        b=u8V46AuSDsbjtO4uiaruDAk3buXBSmPWhM96DHok27nsUi9UPi6XCdcUow7fgDfr8Y
-         rxZ9UmqYCzHplUVwsys6HdGP12qxBEoExKw6+kJOjunebE5CFDooq/jbdDQrbQZJJ4Wa
-         1vKBlf8DUSEd1Y/QQf0zQOANQ/bM1ESltzNNcC7Vy37PR0prxLh1mc6HQgG9xM4wAg8K
-         MDjzAVDC3IjgbyBu6CzVLmw2fehlxC517YpcNW1VklOjDjJ+I4MNltNjsv4KETrLlxsO
-         ehhV3J0F+eegkK2XaURFBdXHGDlCU9CJiSp4hesrnChsznD9h7OMgFCTWmLAqh4d+30f
-         x+IQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXm8pDm9yDPNL7k5MmTcV/N+4VEY2WG4T3500AvIYNfRDBhDJXSUyNRmVHcUQSPLuZXFdtD6K7lvwGE8prS9RUiAHyg/mzGBZN2yDYMLQf2
-X-Gm-Message-State: AOJu0Yy7Z2UG+suK4vfHBb6Z9/G1I1HCDysu8BEj52XyuBKeVIMzbbKR
-	ttrJmfi+j8+yJyiTCPi87mQGIv+/J0t6XC2LwbLSJ9X43A9Ti08LZvIBm9OW2C42dAxc6OxOhpo
-	Zuw==
-X-Google-Smtp-Source: AGHT+IGIDN5ccGIB3cs8xyjoNBA33aBwY8OuaAQU+QnM7LAxDHF+KLZuhqGJARF7orYR9wXwPpBL0fgCScs=
+        bh=R2I4/1amdIANY6ZAXPe7SG9ch9BlLbSqRy3xqYz3ZKo=;
+        b=Q8Mu7Mp0OE4/w+yyl7gC38g1M5SwieDcmaTK5CbECsaM+S9oZxF5uihiRAaBIspguN
+         vmysbRvLcrTsk03HbArVvnoOV+DpRrC0Sp4oCgzHb7xHLfuTPDCMFXKjhb9gYEYn5fAf
+         NIlBhGF9yXS5TLvHR0wh8cr5txzo9wXsbjb5vbL67L8W8nJhYRd83Ltc82R9XvR3R2Ti
+         5WFCzbAIyfIJECHKqwvQHGoK9rQgilv1aaMfgQk47BYrzKETFhfK70YNKSzKnUNElG+/
+         8PojoRUEFwk5kKwqNi5S2UzFVXuT3a1FtRlzpqV7RYG0esWRRmprKqA0CjDIfcCpud3N
+         gSuQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWGDt+7VQvMQpsfi4ix1eI51BdJeheKhVRmZ5y/VuioFU+8RXzFhU8SeWox7nDJ7d0cWKbSNjGCinCcLaAQpGGha6W4IZiC+v/gB4BXOL2M
+X-Gm-Message-State: AOJu0YwfcWuwU+nX+stgp9XmctziCvoH3VKl1pmI0ijzm8EiuEGYtM+W
+	zM/VKIg16dzmHo68Y3VkGYvP3cD8/SlHb0OTYbQAerxBBQMUxQ17NDZF12HRnf1X2AK46fhXGkE
+	xng==
+X-Google-Smtp-Source: AGHT+IHKOaCbBS38DB3+XV8s1t7JOWc+aANKzUQK49zxzSlWFwYOsfXU8rtGTN4QUDwCdEEeB4LXs+kD0Xc=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a05:6a00:8593:b0:70d:3466:2f1a with SMTP id
- d2e1a72fcca58-70ece63fd2emr7784b3a.1.1722038009466; Fri, 26 Jul 2024 16:53:29
+ (user=seanjc job=sendgmr) by 2002:a17:90a:890d:b0:2c8:637:7390 with SMTP id
+ 98e67ed59e1d1-2cf7e97d380mr2244a91.6.1722038011380; Fri, 26 Jul 2024 16:53:31
  -0700 (PDT)
-Date: Fri, 26 Jul 2024 16:51:34 -0700
+Date: Fri, 26 Jul 2024 16:51:35 -0700
 In-Reply-To: <20240726235234.228822-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20240726235234.228822-1-seanjc@google.com>
 X-Mailer: git-send-email 2.46.0.rc1.232.g9752f9e123-goog
-Message-ID: <20240726235234.228822-26-seanjc@google.com>
-Subject: [PATCH v12 25/84] KVM: Provide refcounted page as output field in
- struct kvm_follow_pfn
+Message-ID: <20240726235234.228822-27-seanjc@google.com>
+Subject: [PATCH v12 26/84] KVM: Move kvm_{set,release}_page_{clean,dirty}()
+ helpers up in kvm_main.c
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
@@ -84,8 +84,8 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	David Matlack <dmatlack@google.com>, David Stevens <stevensd@chromium.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240726_165331_323127_E09D99FD 
-X-CRM114-Status: GOOD (  22.84  )
+X-CRM114-CacheID: sfid-20240726_165332_711321_BC793550 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,190 +103,123 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add kvm_follow_pfn.refcounted_page as an output for the "to pfn" APIs to
-"return" the struct page that is associated with the returned pfn (if KVM
-acquired a reference to the page).  This will eventually allow removing
-KVM's hacky kvm_pfn_to_refcounted_page() code, which is error prone and
-can't detect pfns that are valid, but aren't (currently) refcounted.
+Hoist the kvm_{set,release}_page_{clean,dirty}() APIs further up in
+kvm_main.c so that they can be used by the kvm_follow_pfn family of APIs.
+
+No functional change intended.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- virt/kvm/kvm_main.c | 100 +++++++++++++++++++++-----------------------
- virt/kvm/kvm_mm.h   |   9 ++++
- 2 files changed, 56 insertions(+), 53 deletions(-)
+ virt/kvm/kvm_main.c | 82 ++++++++++++++++++++++-----------------------
+ 1 file changed, 41 insertions(+), 41 deletions(-)
 
 diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index 8e83d3f043f1..31570c5627e3 100644
+index 31570c5627e3..48b626f1b5f3 100644
 --- a/virt/kvm/kvm_main.c
 +++ b/virt/kvm/kvm_main.c
-@@ -2756,6 +2756,46 @@ static inline int check_user_page_hwpoison(unsigned long addr)
- 	return rc == -EHWPOISON;
+@@ -2748,6 +2748,47 @@ unsigned long kvm_vcpu_gfn_to_hva_prot(struct kvm_vcpu *vcpu, gfn_t gfn, bool *w
+ 	return gfn_to_hva_memslot_prot(slot, gfn, writable);
  }
  
-+static kvm_pfn_t kvm_resolve_pfn(struct kvm_follow_pfn *kfp, struct page *page,
-+				 pte_t *pte, bool writable)
++static bool kvm_is_ad_tracked_page(struct page *page)
 +{
-+	kvm_pfn_t pfn;
-+
-+	WARN_ON_ONCE(!!page == !!pte);
-+
-+	if (kfp->map_writable)
-+		*kfp->map_writable = writable;
-+
 +	/*
-+	 * FIXME: Remove this once KVM no longer blindly calls put_page() on
-+	 *	  every pfn that points at a struct page.
-+	 *
-+	 * Get a reference for follow_pte() pfns if they happen to point at a
-+	 * struct page, as KVM will ultimately call kvm_release_pfn_clean() on
-+	 * the returned pfn, i.e. KVM expects to have a reference.
-+	 *
-+	 * Certain IO or PFNMAP mappings can be backed with valid struct pages,
-+	 * but be allocated without refcounting, e.g. tail pages of
-+	 * non-compound higher order allocations.  Grabbing and putting a
-+	 * reference to such pages would cause KVM to prematurely free a page
-+	 * it doesn't own (KVM gets and puts the one and only reference).
-+	 * Don't allow those pages until the FIXME is resolved.
++	 * Per page-flags.h, pages tagged PG_reserved "should in general not be
++	 * touched (e.g. set dirty) except by its owner".
 +	 */
-+	if (pte) {
-+		pfn = pte_pfn(*pte);
-+		page = kvm_pfn_to_refcounted_page(pfn);
-+		if (page && !get_page_unless_zero(page))
-+			return KVM_PFN_ERR_FAULT;
-+	} else {
-+		pfn = page_to_pfn(page);
-+	}
-+
-+	if (kfp->refcounted_page)
-+		*kfp->refcounted_page = page;
-+
-+	return pfn;
++	return !PageReserved(page);
 +}
 +
- /*
-  * The fast path to get the writable pfn which will be stored in @pfn,
-  * true indicates success, otherwise false is returned.  It's also the
-@@ -2774,9 +2814,7 @@ static bool hva_to_pfn_fast(struct kvm_follow_pfn *kfp, kvm_pfn_t *pfn)
- 		return false;
- 
- 	if (get_user_page_fast_only(kfp->hva, FOLL_WRITE, &page)) {
--		*pfn = page_to_pfn(page);
--		if (kfp->map_writable)
--			*kfp->map_writable = true;
-+		*pfn = kvm_resolve_pfn(kfp, page, NULL, true);
- 		return true;
- 	}
- 
-@@ -2808,23 +2846,15 @@ static int hva_to_pfn_slow(struct kvm_follow_pfn *kfp, kvm_pfn_t *pfn)
- 	if (npages != 1)
- 		return npages;
- 
--	if (!kfp->map_writable)
--		goto out;
--
--	if (kfp->flags & FOLL_WRITE) {
--		*kfp->map_writable = true;
--		goto out;
--	}
--
- 	/* map read fault as writable if possible */
--	if (get_user_page_fast_only(kfp->hva, FOLL_WRITE, &wpage)) {
--		*kfp->map_writable = true;
-+	if (!(flags & FOLL_WRITE) && kfp->map_writable &&
-+	    get_user_page_fast_only(kfp->hva, FOLL_WRITE, &wpage)) {
- 		put_page(page);
- 		page = wpage;
-+		flags |= FOLL_WRITE;
- 	}
- 
--out:
--	*pfn = page_to_pfn(page);
-+	*pfn = kvm_resolve_pfn(kfp, page, NULL, flags & FOLL_WRITE);
- 	return npages;
++static void kvm_set_page_dirty(struct page *page)
++{
++	if (kvm_is_ad_tracked_page(page))
++		SetPageDirty(page);
++}
++
++static void kvm_set_page_accessed(struct page *page)
++{
++	if (kvm_is_ad_tracked_page(page))
++		mark_page_accessed(page);
++}
++
++void kvm_release_page_clean(struct page *page)
++{
++	if (!page)
++		return;
++
++	kvm_set_page_accessed(page);
++	put_page(page);
++}
++EXPORT_SYMBOL_GPL(kvm_release_page_clean);
++
++void kvm_release_page_dirty(struct page *page)
++{
++	if (!page)
++		return;
++
++	kvm_set_page_dirty(page);
++	kvm_release_page_clean(page);
++}
++EXPORT_SYMBOL_GPL(kvm_release_page_dirty);
++
+ static inline int check_user_page_hwpoison(unsigned long addr)
+ {
+ 	int rc, flags = FOLL_HWPOISON | FOLL_WRITE;
+@@ -3125,37 +3166,6 @@ void kvm_vcpu_unmap(struct kvm_vcpu *vcpu, struct kvm_host_map *map, bool dirty)
  }
+ EXPORT_SYMBOL_GPL(kvm_vcpu_unmap);
  
-@@ -2839,20 +2869,9 @@ static bool vma_is_valid(struct vm_area_struct *vma, bool write_fault)
- 	return true;
- }
- 
--static int kvm_try_get_pfn(kvm_pfn_t pfn)
+-static bool kvm_is_ad_tracked_page(struct page *page)
 -{
--	struct page *page = kvm_pfn_to_refcounted_page(pfn);
--
--	if (!page)
--		return 1;
--
--	return get_page_unless_zero(page);
+-	/*
+-	 * Per page-flags.h, pages tagged PG_reserved "should in general not be
+-	 * touched (e.g. set dirty) except by its owner".
+-	 */
+-	return !PageReserved(page);
 -}
 -
- static int hva_to_pfn_remapped(struct vm_area_struct *vma,
- 			       struct kvm_follow_pfn *kfp, kvm_pfn_t *p_pfn)
+-static void kvm_set_page_dirty(struct page *page)
+-{
+-	if (kvm_is_ad_tracked_page(page))
+-		SetPageDirty(page);
+-}
+-
+-static void kvm_set_page_accessed(struct page *page)
+-{
+-	if (kvm_is_ad_tracked_page(page))
+-		mark_page_accessed(page);
+-}
+-
+-void kvm_release_page_clean(struct page *page)
+-{
+-	if (!page)
+-		return;
+-
+-	kvm_set_page_accessed(page);
+-	put_page(page);
+-}
+-EXPORT_SYMBOL_GPL(kvm_release_page_clean);
+-
+ void kvm_release_pfn_clean(kvm_pfn_t pfn)
  {
--	kvm_pfn_t pfn;
- 	pte_t *ptep;
- 	pte_t pte;
- 	spinlock_t *ptl;
-@@ -2882,38 +2901,13 @@ static int hva_to_pfn_remapped(struct vm_area_struct *vma,
- 	pte = ptep_get(ptep);
- 
- 	if (write_fault && !pte_write(pte)) {
--		pfn = KVM_PFN_ERR_RO_FAULT;
-+		*p_pfn = KVM_PFN_ERR_RO_FAULT;
- 		goto out;
- 	}
- 
--	if (kfp->map_writable)
--		*kfp->map_writable = pte_write(pte);
--	pfn = pte_pfn(pte);
--
--	/*
--	 * Get a reference here because callers of *hva_to_pfn* and
--	 * *gfn_to_pfn* ultimately call kvm_release_pfn_clean on the
--	 * returned pfn.  This is only needed if the VMA has VM_MIXEDMAP
--	 * set, but the kvm_try_get_pfn/kvm_release_pfn_clean pair will
--	 * simply do nothing for reserved pfns.
--	 *
--	 * Whoever called remap_pfn_range is also going to call e.g.
--	 * unmap_mapping_range before the underlying pages are freed,
--	 * causing a call to our MMU notifier.
--	 *
--	 * Certain IO or PFNMAP mappings can be backed with valid
--	 * struct pages, but be allocated without refcounting e.g.,
--	 * tail pages of non-compound higher order allocations, which
--	 * would then underflow the refcount when the caller does the
--	 * required put_page. Don't allow those pages here.
--	 */
--	if (!kvm_try_get_pfn(pfn))
--		r = -EFAULT;
--
-+	*p_pfn = kvm_resolve_pfn(kfp, NULL, &pte, pte_write(pte));
- out:
- 	pte_unmap_unlock(ptep, ptl);
--	*p_pfn = pfn;
--
- 	return r;
+ 	struct page *page;
+@@ -3171,16 +3181,6 @@ void kvm_release_pfn_clean(kvm_pfn_t pfn)
  }
+ EXPORT_SYMBOL_GPL(kvm_release_pfn_clean);
  
-diff --git a/virt/kvm/kvm_mm.h b/virt/kvm/kvm_mm.h
-index d5a215958f06..d3ac1ba8ba66 100644
---- a/virt/kvm/kvm_mm.h
-+++ b/virt/kvm/kvm_mm.h
-@@ -35,6 +35,15 @@ struct kvm_follow_pfn {
- 	 * Set to true if a writable mapping was obtained.
- 	 */
- 	bool *map_writable;
-+
-+	/*
-+	 * Optional output.  Set to a valid "struct page" if the returned pfn
-+	 * is for a refcounted or pinned struct page, NULL if the returned pfn
-+	 * has no struct page or if the struct page is not being refcounted
-+	 * (e.g. tail pages of non-compound higher order allocations from
-+	 * IO/PFNMAP mappings).
-+	 */
-+	struct page **refcounted_page;
- };
- 
- kvm_pfn_t hva_to_pfn(struct kvm_follow_pfn *kfp);
+-void kvm_release_page_dirty(struct page *page)
+-{
+-	if (!page)
+-		return;
+-
+-	kvm_set_page_dirty(page);
+-	kvm_release_page_clean(page);
+-}
+-EXPORT_SYMBOL_GPL(kvm_release_page_dirty);
+-
+ void kvm_release_pfn_dirty(kvm_pfn_t pfn)
+ {
+ 	struct page *page;
 -- 
 2.46.0.rc1.232.g9752f9e123-goog
 
