@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AA3BC3DA4A
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jul 2024 00:19:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BBDBC3DA49
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jul 2024 00:19:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FOk79nHJsQe50E3O6HW6adQP4QsAa3CJhll7ddtN/Ms=; b=VBJWVIREUpxD7W
-	/oIxH3f4FI6fqSyI8jW3VBmzTDhgK83sTAZ/r4jv5DAorEvqAIGmQ+hl/R2ZYiFwFBK4KRbQr2NN+
-	+sWOgAHXl3P180l2k0H2zbu8dPsE49E8RzwdOXDJYNmWOVBRO4fPywzR1+EuvYSd+4mnlLcP2HP1+
-	FtGkpjHLWjhCHeGw7e/GsIOHs4PIOEAcBN4n9jH2cfdR2rWFahzOvZJaywjtVa/yXTmozWM8fwKeu
-	dXACnSy28uDgtLyOIHE4RGmCgji8cyKw/8F4ckrg9jQd1TiOOv8CqnBmNpx7saghb/Jx8PlMkHZLy
-	bpScskSXsMTu033NWfoQ==;
+	List-Owner; bh=j4qNQG3wCPu0jzUJm0HzggdcqUFpNGgeHxHv3V5KhQI=; b=p4qcgRwNKSO+27
+	4fGN4069+yzGcKsLxA+5Q4HSle2R2PmHxwQSWc2xgMZESHwODnDj3biFomzEgBVb1WKNsQRcZ0fXV
+	4pkBNPI5wYJ7KGQYpr9bQ5MgM4DYg2yXFTOGMtKjNXrtHaSaY3IebpwGffhJ2pqaYlx5Q7FRGEp3S
+	Sfk/4amK5DLVn5Eoqbd/6fiTSKU7bxuz6WoW4prT6e8GbQuzI9KVwq67V+MDMB7Umnq7N/N7gz6Ma
+	y4RxHohSlRqMttIDIUbzhaKU10XK4Qo3woDqpOmLdC+1MYn80VQRvye5Qt6T1d1iSojqTtPFj+zBq
+	OOZNId7REnlf6LiaL8Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sXV9W-00000005dGp-200G;
-	Sat, 27 Jul 2024 00:19:14 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1sXV9x-00000005dVO-1yJc;
+	Sat, 27 Jul 2024 00:19:41 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sXUlO-00000005QTS-0zry
+	id 1sXUlQ-00000005QVF-05EC
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 Jul 2024 23:54:23 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-1fc6f3ac7beso10762485ad.1
-        for <linux-riscv@lists.infradead.org>; Fri, 26 Jul 2024 16:54:17 -0700 (PDT)
+	Fri, 26 Jul 2024 23:54:25 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2cb600e1169so1649951a91.1
+        for <linux-riscv@lists.infradead.org>; Fri, 26 Jul 2024 16:54:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1722038057; x=1722642857; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1722038059; x=1722642859; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=l9BW/dK5c/4ryaOpC0RxFiUBYVnD4MPO1UqGokFlyv8=;
-        b=rwltHS3Fz9Iauzuo3pJpgwu/pOrEGW1j/bhMwzhBdfd15DWg3bSOarD5elcMoJuls7
-         22FUF4qXnsJKLDFzOVNue7CQXZKpD6rmQdhGpDUrLe3GrM3gVgT7xEtPT9YteNuuJHNm
-         JkrYtNXVXnyyz5d6N9i+HrKT3lgZCVGQe1m1TzGHbbF5ZHEJAc6PqOHxoygAE55vRN6u
-         J27B/M8Ud30wFON9izgtx9XJWYSArcqVnx1hmzqg1pXhJKIr31hcDLcASguw4Ug1kiFZ
-         ynpWpOZ4QPREdiSsXVfQKMEvjuxWsWupPA0u5ceimx7eqkiNqCNn/Ze5UljiXjsg9Uyh
-         NgiQ==
+        bh=TqUPaGEc7V7k122pX7jZuWDsKBXmCX3Y3KCoLsEzljY=;
+        b=xqt6MwrjwiG6Jl+edJpYIKVxwh2eVe43CG086lQKI580H90HRUv0lj8vBbu5bbCCZq
+         9+vN4U5/5t+X5VCZMfImh5UwCCCOFP80XxNkXd9MD03+LfrM381W855UWTJ3ec7e5cNN
+         BpSVT8UXDflXmVB3dZm03eSmhFTrM7I8X9azctBc90W4TA/rFhkgsN1rNmBpFFAwujon
+         4PFXd63IAym6fyPKqbr6i/sBxeKjPJMxkwKNZw40fyl1EplZ/Uhh3SINAlG/StjMTt+c
+         sGE/IETuFarpv0/oVtyzkiFiGQyJCS3pgDXVPlYrHm0Gw/ZqUli1j4Bs+oAFx4FQvXpi
+         cATw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722038057; x=1722642857;
+        d=1e100.net; s=20230601; t=1722038059; x=1722642859;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=l9BW/dK5c/4ryaOpC0RxFiUBYVnD4MPO1UqGokFlyv8=;
-        b=W2hqLzjKeQcek6jluScc3PUBi9G8dvwcZx0lFQUQEZ7uiSIY455KQQ+EF/rfm8ebdZ
-         idjRvfBB0cTNTqrqGNzaAqcJWKL6+vzBXoNZmCMRz07oiIBPfMfyIsnovNzEqesPkGtL
-         wyRqHNd1ONe6wxQ9t+3yEcqMHs6F6eEVfPmDcCocWo3v7gf44HfVJeyJBDkb+rgGsQ/x
-         s+sDk9o8RfwXMRjbEAgUJlCmUQ5cfmMRjEcGzEcoJOrQyo1y9pVNFoP60AL0ByzlBfBm
-         qnjNv+R5Mk2h24EjeyeZIsSlXaNfmwwhKOKYV/3kVKwGf68slsl5drER99CnrdVxZaar
-         HKeA==
-X-Forwarded-Encrypted: i=1; AJvYcCUF3s0y+DkAFvUpaQ0TVwpFulHmOkO8TpL3Iu/5Da722iIksvjurHM0I8XucDqbVe9FaS99ZG1lMScWoXCSqlnxUEzo2Pgm47ivip6Swp7+
-X-Gm-Message-State: AOJu0YzW2vWLMAoNW9dRmSY08R0iAmnShJ+ZyAyEqyntEWjERGOmvWXk
-	Hi0dhoGySDajczRy37N0mYX1ExKi+aIX4oKUNLQRt8WWe7WM5jZcdMYABY91YO5tzI6wlSTbYr7
-	o8Q==
-X-Google-Smtp-Source: AGHT+IH3COIaUp2rXSDrmiVRXNOzjzCRiof8RV2PU1lQ3pUgA2jXVKIIsmrd9aJoYDTjtMdA3IOsVNqBhcc=
+        bh=TqUPaGEc7V7k122pX7jZuWDsKBXmCX3Y3KCoLsEzljY=;
+        b=ZiaWj97IuSTlvZqQXUVPc3OtKSBfvT8N5YMqK5yQVhqpk0ZDgG6sF59mTuSm1iqqXU
+         WSW3cUE29cGMaWJY8pHeYgqX+XGnPLUVVxXnFsdCSoWiuQUpWLSitTmAIo5kjDl7W+Iu
+         1Kfpcft3B6Nkh9EI9nayCx1iUk+24ypowxHszV78lfHXIChha8+lzZCgBt39Xw+M+dS/
+         Wa3Dk0RBwO2oEOETCuv79nVno7YLENnG8GTXsfDuc0gyguuOzDBfYxu/l9J0dUe++De8
+         dmnouJRJ7NimeTuSvCo+9dZ0zi1Y213PmSvOgZo3Qv8QgNzPfoRSQi3/2nbvbv6HdsjB
+         nypA==
+X-Forwarded-Encrypted: i=1; AJvYcCVfAVYD6paxqOete1y7x3q86UvnPISF2x4GlQsyabWibxeOVqxpKLs/F5G4WThmLGAgaRzDWqcfkdhF6iu2Z9PDru23kC18uMUYTk6nUJLJ
+X-Gm-Message-State: AOJu0YxEt4RyGFsRkiTKJjua/wbtGX2b1sjiWdUH6M7MsA7FHVBJb3l6
+	LmRuM2SiAhDsALxwWy6b87LAXjpnb5JvPKC4i9NXpA5FKWMvqZ8TJ0d7VepSoLId1oPw+hG87mc
+	WAg==
+X-Google-Smtp-Source: AGHT+IH7R2Sq6ws3raxo/M+HjUZh8HrSGcUFKZNBVKBew2cgXvpkeEwYajfUFO1jgdCm33mambqvR7vew2A=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a17:902:ea06:b0:1f9:cbe5:e422 with SMTP id
- d9443c01a7336-1ff0488dbf2mr744395ad.8.1722038056933; Fri, 26 Jul 2024
- 16:54:16 -0700 (PDT)
-Date: Fri, 26 Jul 2024 16:51:57 -0700
+ (user=seanjc job=sendgmr) by 2002:a17:90b:19c4:b0:2c8:8288:1f3c with SMTP id
+ 98e67ed59e1d1-2cf7e08defcmr21966a91.1.1722038058548; Fri, 26 Jul 2024
+ 16:54:18 -0700 (PDT)
+Date: Fri, 26 Jul 2024 16:51:58 -0700
 In-Reply-To: <20240726235234.228822-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20240726235234.228822-1-seanjc@google.com>
 X-Mailer: git-send-email 2.46.0.rc1.232.g9752f9e123-goog
-Message-ID: <20240726235234.228822-49-seanjc@google.com>
-Subject: [PATCH v12 48/84] KVM: Move x86's API to release a faultin page to
- common KVM
+Message-ID: <20240726235234.228822-50-seanjc@google.com>
+Subject: [PATCH v12 49/84] KVM: VMX: Hold mmu_lock until page is released when
+ updating APIC access page
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
@@ -84,8 +84,8 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	David Matlack <dmatlack@google.com>, David Stevens <stevensd@chromium.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240726_165418_427727_10EDB46D 
-X-CRM114-Status: GOOD (  15.30  )
+X-CRM114-CacheID: sfid-20240726_165420_218488_E8D27029 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,89 +103,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move KVM x86's helper that "finishes" the faultin process to common KVM
-so that the logic can be shared across all architectures.  Note, not all
-architectures implement a fast page fault path, but the gist of the
-comment applies to all architectures.
+Hold mmu_lock across kvm_release_pfn_clean() when refreshing the APIC
+access page address to ensure that KVM doesn't mark a page/folio as
+accessed after it has been unmapped.  Practically speaking marking a folio
+accesses is benign in this scenario, as KVM does hold a reference (it's
+really just marking folios dirty that is problematic), but there's no
+reason not to be paranoid (moving the APIC access page isn't a hot path),
+and no reason to be different from other mmu_notifier-protected flows in
+KVM.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/mmu/mmu.c   | 24 ++----------------------
- include/linux/kvm_host.h | 26 ++++++++++++++++++++++++++
- 2 files changed, 28 insertions(+), 22 deletions(-)
+ arch/x86/kvm/vmx/vmx.c | 21 +++++++++------------
+ 1 file changed, 9 insertions(+), 12 deletions(-)
 
-diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
-index 95beb50748fc..2a0cfa225c8d 100644
---- a/arch/x86/kvm/mmu/mmu.c
-+++ b/arch/x86/kvm/mmu/mmu.c
-@@ -4323,28 +4323,8 @@ static u8 kvm_max_private_mapping_level(struct kvm *kvm, kvm_pfn_t pfn,
- static void kvm_mmu_finish_page_fault(struct kvm_vcpu *vcpu,
- 				      struct kvm_page_fault *fault, int r)
- {
--	lockdep_assert_once(lockdep_is_held(&vcpu->kvm->mmu_lock) ||
--			    r == RET_PF_RETRY);
--
--	if (!fault->refcounted_page)
--		return;
+diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
+index f18c2d8c7476..30032585f7dc 100644
+--- a/arch/x86/kvm/vmx/vmx.c
++++ b/arch/x86/kvm/vmx/vmx.c
+@@ -6828,25 +6828,22 @@ void vmx_set_apic_access_page_addr(struct kvm_vcpu *vcpu)
+ 		return;
+ 
+ 	read_lock(&vcpu->kvm->mmu_lock);
+-	if (mmu_invalidate_retry_gfn(kvm, mmu_seq, gfn)) {
++	if (mmu_invalidate_retry_gfn(kvm, mmu_seq, gfn))
+ 		kvm_make_request(KVM_REQ_APIC_PAGE_RELOAD, vcpu);
+-		read_unlock(&vcpu->kvm->mmu_lock);
+-		goto out;
+-	}
++	else
++		vmcs_write64(APIC_ACCESS_ADDR, pfn_to_hpa(pfn));
+ 
+-	vmcs_write64(APIC_ACCESS_ADDR, pfn_to_hpa(pfn));
+-	read_unlock(&vcpu->kvm->mmu_lock);
 -
 -	/*
--	 * If the page that KVM got from the *primary MMU* is writable, and KVM
--	 * installed or reused a SPTE, mark the page/folio dirty.  Note, this
--	 * may mark a folio dirty even if KVM created a read-only SPTE, e.g. if
--	 * the GFN is write-protected.  Folios can't be safely marked dirty
--	 * outside of mmu_lock as doing so could race with writeback on the
--	 * folio.  As a result, KVM can't mark folios dirty in the fast page
--	 * fault handler, and so KVM must (somewhat) speculatively mark the
--	 * folio dirty if KVM could locklessly make the SPTE writable.
+-	 * No need for a manual TLB flush at this point, KVM has already done a
+-	 * flush if there were SPTEs pointing at the previous page.
 -	 */
--	if (r == RET_PF_RETRY)
--		kvm_release_page_unused(fault->refcounted_page);
--	else if (!fault->map_writable)
--		kvm_release_page_clean(fault->refcounted_page);
--	else
--		kvm_release_page_dirty(fault->refcounted_page);
-+	kvm_release_faultin_page(vcpu->kvm, fault->refcounted_page,
-+				 r == RET_PF_RETRY, fault->map_writable);
- }
- 
- static int kvm_mmu_faultin_pfn_private(struct kvm_vcpu *vcpu,
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index 9d2a97eb30e4..91341cdc6562 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -1216,6 +1216,32 @@ static inline void kvm_release_page_unused(struct page *page)
- void kvm_release_page_clean(struct page *page);
- void kvm_release_page_dirty(struct page *page);
- 
-+static inline void kvm_release_faultin_page(struct kvm *kvm, struct page *page,
-+					    bool unused, bool dirty)
-+{
-+	lockdep_assert_once(lockdep_is_held(&kvm->mmu_lock) || unused);
-+
-+	if (!page)
-+		return;
+-out:
+ 	/*
+ 	 * Do not pin apic access page in memory, the MMU notifier
+ 	 * will call us again if it is migrated or swapped out.
+ 	 */
+ 	kvm_release_pfn_clean(pfn);
 +
 +	/*
-+	 * If the page that KVM got from the *primary MMU* is writable, and KVM
-+	 * installed or reused a SPTE, mark the page/folio dirty.  Note, this
-+	 * may mark a folio dirty even if KVM created a read-only SPTE, e.g. if
-+	 * the GFN is write-protected.  Folios can't be safely marked dirty
-+	 * outside of mmu_lock as doing so could race with writeback on the
-+	 * folio.  As a result, KVM can't mark folios dirty in the fast page
-+	 * fault handler, and so KVM must (somewhat) speculatively mark the
-+	 * folio dirty if KVM could locklessly make the SPTE writable.
++	 * No need for a manual TLB flush at this point, KVM has already done a
++	 * flush if there were SPTEs pointing at the previous page.
 +	 */
-+	if (unused)
-+		kvm_release_page_unused(page);
-+	else if (dirty)
-+		kvm_release_page_dirty(page);
-+	else
-+		kvm_release_page_clean(page);
-+}
-+
- kvm_pfn_t kvm_lookup_pfn(struct kvm *kvm, gfn_t gfn);
- kvm_pfn_t __kvm_faultin_pfn(const struct kvm_memory_slot *slot, gfn_t gfn,
- 			    unsigned int foll, bool *writable,
++	read_unlock(&vcpu->kvm->mmu_lock);
+ }
+ 
+ void vmx_hwapic_isr_update(int max_isr)
 -- 
 2.46.0.rc1.232.g9752f9e123-goog
 
