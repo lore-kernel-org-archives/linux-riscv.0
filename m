@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F28BC3DA49
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jul 2024 00:29:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0520C3DA7F
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jul 2024 00:29:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tP7ndF5zQg9DYuPKDd93/VCp5s+0eoNzCgI26CxUICo=; b=TJ9eN/MSi6lhDp
-	y1o2q2ZWjvsaWOD1HeSRb4DfctsXVEYcVcuboN7DWuqe+CbPRg+vW/zANHRu9PwWftrjCNg+ZAt+s
-	B5hOOv8WSgr9KJrQMnGM9DVGqOM57LFEBlSyo1OfOm/nJuVtQXbTead5L1/Yd2Jq5NHFSUrJmuhr0
-	FuBb4KsIukrUt2KcI3iFqzWteg8GqxXa5LeHpf5yOYhKx6Awi1oB0lQAg0H1pv5uRWO4+wAfFIawS
-	81+NZyYwU39588Swa1rVguTM+EAvXXl65L7/tISEmXErt1egT81sapVR13aSqYcgdSYytc1b6RCzh
-	E/ewyKCZof/mBQvPhW0w==;
+	List-Owner; bh=PJjwb3aMS+Xu13aTf0hwvMkx62hJLeIN8qzLeMQuFdQ=; b=DPA9KvUvT+4sUC
+	z14ihrgzA+kRutzHRWcFordM9f/hpONnaAm6oq79AkfL7zFC/eRBacav7Jz4hvp6pGyHmkL+9YWtB
+	YDR5vPmLjPDf9bhxB6/KphgHioCBtcHKdptg+UtU8+7WYQhVZozZR/rH2MftQPiuphSZ/PWFP3Xrj
+	ctJiSNRwgYL04x8TXSMFyRjpZ0ReDSkFTZGVpQ6bRYLsvQt5CLt25Yi4q/DTTpWB8jvne29LbBxtF
+	0H6GO6EB0EEtoEeruSPzuXGP1v/pBiWiBYqs71nThYElq+YlSUSIqe5IKmL9/2gqj5aL1VIFDra70
+	7qM34BcbKHz8GnR5ddWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sXVJb-00000005iUv-3t0M;
-	Sat, 27 Jul 2024 00:29:39 +0000
-Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
+	id 1sXVJe-00000005iXl-3OYA;
+	Sat, 27 Jul 2024 00:29:42 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sXUmC-00000005RAv-1LR5
+	id 1sXUmD-00000005RBW-0ha7
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 Jul 2024 23:55:11 +0000
-Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-79d95667cfaso1456203a12.2
-        for <linux-riscv@lists.infradead.org>; Fri, 26 Jul 2024 16:55:07 -0700 (PDT)
+	Fri, 26 Jul 2024 23:55:13 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-1fc4b03fe76so9985245ad.0
+        for <linux-riscv@lists.infradead.org>; Fri, 26 Jul 2024 16:55:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1722038106; x=1722642906; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1722038107; x=1722642907; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=M9eYn37tam32k4Zpbs9VqSvLY6wlhZ916YFlgyF6peA=;
-        b=0mUCZzofIWQ65fvVtTZosKMgZWk4/RNi7hfuoCJW3vxaipoSXSvRE0nhYudZ6FZ8QC
-         rK5Lf8RgLE5lqa/kBRJBkx7XbVjIfdbueUkQ6iggjrocwvmjHl1NGt+NtCTLyVSeBD2u
-         bIyxWrH+X861laQp/x9BNB9+SiU0sRXisVl/zA5f37eRVqI0HUUDVECOzfgouSWjfNk9
-         5vEDFWbh+Uv3MeHEIkivHaaaZtNtCxyTSQuBpibX/6UrP0IgOMCMtdZalqjaDrps6AO1
-         OkzksdQf6wdlgfq1ni7X6GNITiRYLYTaKqPKrKZ7jYaBu9bJ9U25NnVmo1bd1L1DZjU8
-         QJgg==
+        bh=Agw1NDopTbJHSwXqEMTAoK1oQKqohLcT4CyuwhV7hPY=;
+        b=e5nexWDcr74v5Ti+MHQB4qjptT5ei7vIlrzAr/Qats5fQWJ6muj6YMibrXTH1JuHLA
+         CilAF1jvFFBK601Uj17+v4Hop5RaH3v+5fezi1IDydkh6M40E6jAp9W7XW/37ify7Ku/
+         4vfnxbHPWWQcWE6gDXYEm8C/qAxl5N7AvN0JPkrjlDtT8LzFXm8uFQVXMYbR04g13rpB
+         QgHju7F254xreGdDdluFS2IotbeSJj2+usRAviI+RsPVGgBNQFgqxyolgp2blecAdpMO
+         qn7diiJtaqtUaUvskluWkfj9Cjzc4TBeas8RtEQ9OY/gXS1qPYFZ/mz404XrtnrLoB1r
+         DqbQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722038106; x=1722642906;
+        d=1e100.net; s=20230601; t=1722038107; x=1722642907;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=M9eYn37tam32k4Zpbs9VqSvLY6wlhZ916YFlgyF6peA=;
-        b=B1oOE279wOy3TtaxMSlEoMEGaCsufCQ/rnTDmZkctER2uj0WcSYOVazrYd/sF5vNQh
-         SILXWLZw7QG1HbSO91MP8YAd5iA8WVfuMuPXUcUUwX13Ox9MB0oWY4seOQxOgqqP5nCN
-         Dp+Dp9LesNF8jRib0UEQfuNxzvePRAgj/w3ygZA3QdMtPfNM1eTm9wug0VjfBvCk1Iq1
-         e9EGQW6tGhwgiV501Qu68H5tCHKAmr3pPyOXGjtf8PHiLJOAZ4M1NxankMgWBpFjdRNa
-         07DCf+L8Crg0N0e2Z1M2SqtUUxBZpN6/1Gm5VZP5oUitpNPxqKRnlDhERVxs77llfIkK
-         J9fA==
-X-Forwarded-Encrypted: i=1; AJvYcCVXVRKxyTOeFKjynFF/2z+1bOUABG+JOL3sWTrmgzRYxljmMkmWZXC2OMwCBAjEuBkjiWfo48wHfcO36sQByRyF46QNI2d8AFNn1dmBDA8X
-X-Gm-Message-State: AOJu0YyN2L69s3iVvzI56HxEm3Wt65CZJq2bCCNk1rUpB3L01TAtrp+d
-	2bT+IDF0Kgoz/JnH6j/ixcQB6IbcAHr8KJNYl3w8CrE0eTLVbTRxvilpGzREr3wh7Vt3flam6Aj
-	W1w==
-X-Google-Smtp-Source: AGHT+IG8TH3qPrjAadwsmfbGVL51l5vDfwJrWL4CCM6knLIepOGyFeiwzAiBROJulbOiIHONd5UuXBO9hTI=
+        bh=Agw1NDopTbJHSwXqEMTAoK1oQKqohLcT4CyuwhV7hPY=;
+        b=SJJxmkW89GhAwrX0n+HEsw6iLUpYNRnG1mKWbnBYL0iy73Fj1R89NcH9TAMgtluezO
+         5XWLZ81fewJlTkHrz0hoK+3XpeMJ/Zq4t0gwot/vGjm9XLyZ93brFYfVfEkk6NWUMm5L
+         iTlL9LV9hMUytjY8uZlvxgtzV4k38U4rjDfZD6SZA5BQRwBMXVhk/WeK0eOI/xHAHNLw
+         9nwUr1Np4XMSqO2YtLrVdAuRi6EDY7V/uuZZ3blnWyMgIN5fJbFAid36Rm9kdJrFkbSi
+         K8A8UaZ97Xr7mEFaP8gIPBkm3v8ArQtONDjsUu43tPqxY78YCXs0HTvGpVH4qSMHp7SY
+         cvbA==
+X-Forwarded-Encrypted: i=1; AJvYcCUzFMBgLqpG8o8sPZUwm+JNOjbUGggBmGvPiJjGbW2fseiECdfotGAW99wxkY73+Co0cabeL8tXwrQyX2nhqlRYb+gjJqmznCaWF0AIvDhU
+X-Gm-Message-State: AOJu0YzKhy/fCCrsn5hk3X7iuAPfmJQUm5V3b/6uxgWTAMim7mp0rCFn
+	WhWt7hV5wAj9Eh7ezCC5tEsI8FcBkMXVOjShX7cB/H3N3NMpbI94pTErvslWs2+TH5+9c/ucjB3
+	a+Q==
+X-Google-Smtp-Source: AGHT+IHxZ9LAKt5vIHU7V05HDfJ12gC6skwH/WeW9XOXHpR7B1c0ubRWlOUtq2UiALskA4rClXraM4lFVDE=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a05:6a02:526:b0:6e3:e0bc:a332 with SMTP id
- 41be03b00d2f7-7ac8dbc497emr2439a12.2.1722038105187; Fri, 26 Jul 2024 16:55:05
+ (user=seanjc job=sendgmr) by 2002:a17:902:b18d:b0:1fd:8ebf:672c with SMTP id
+ d9443c01a7336-1ff047d8f61mr25415ad.3.1722038107293; Fri, 26 Jul 2024 16:55:07
  -0700 (PDT)
-Date: Fri, 26 Jul 2024 16:52:20 -0700
+Date: Fri, 26 Jul 2024 16:52:21 -0700
 In-Reply-To: <20240726235234.228822-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20240726235234.228822-1-seanjc@google.com>
 X-Mailer: git-send-email 2.46.0.rc1.232.g9752f9e123-goog
-Message-ID: <20240726235234.228822-72-seanjc@google.com>
-Subject: [PATCH v12 71/84] KVM: MIPS: Use kvm_faultin_pfn() to map pfns into
- the guest
+Message-ID: <20240726235234.228822-73-seanjc@google.com>
+Subject: [PATCH v12 72/84] KVM: PPC: Remove extra get_page() to fix page
+ refcount leak
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
@@ -84,8 +84,9 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	David Matlack <dmatlack@google.com>, David Stevens <stevensd@chromium.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240726_165508_737324_7AD07A2D 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20240726_165509_426701_73849B54 
+X-CRM114-Status: UNSURE (   8.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,70 +104,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Convert MIPS to kvm_faultin_pfn()+kvm_release_faultin_page(), which
-are new APIs to consolidate arch code and provide consistent behavior
-across all KVM architectures.
+Don't manually do get_page() when patching dcbz, as gfn_to_page() gifts
+the caller a reference.  I.e. doing get_page() will leak the page due to
+not putting all references.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/mips/kvm/mmu.c | 14 ++++++--------
- 1 file changed, 6 insertions(+), 8 deletions(-)
+ arch/powerpc/kvm/book3s_pr.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/arch/mips/kvm/mmu.c b/arch/mips/kvm/mmu.c
-index 69463ab24d97..d2c3b6b41f18 100644
---- a/arch/mips/kvm/mmu.c
-+++ b/arch/mips/kvm/mmu.c
-@@ -557,6 +557,7 @@ static int kvm_mips_map_page(struct kvm_vcpu *vcpu, unsigned long gpa,
- 	bool writeable;
- 	unsigned long prot_bits;
- 	unsigned long mmu_seq;
-+	struct page *page;
+diff --git a/arch/powerpc/kvm/book3s_pr.c b/arch/powerpc/kvm/book3s_pr.c
+index 1bdcd4ee4813..ae4757ac0848 100644
+--- a/arch/powerpc/kvm/book3s_pr.c
++++ b/arch/powerpc/kvm/book3s_pr.c
+@@ -652,7 +652,6 @@ static void kvmppc_patch_dcbz(struct kvm_vcpu *vcpu, struct kvmppc_pte *pte)
+ 	hpage_offset &= ~0xFFFULL;
+ 	hpage_offset /= 4;
  
- 	/* Try the fast path to handle old / clean pages */
- 	srcu_idx = srcu_read_lock(&kvm->srcu);
-@@ -578,7 +579,7 @@ static int kvm_mips_map_page(struct kvm_vcpu *vcpu, unsigned long gpa,
- 	mmu_seq = kvm->mmu_invalidate_seq;
- 	/*
- 	 * Ensure the read of mmu_invalidate_seq isn't reordered with PTE reads
--	 * in gfn_to_pfn_prot() (which calls get_user_pages()), so that we don't
-+	 * in kvm_faultin_pfn() (which calls get_user_pages()), so that we don't
- 	 * risk the page we get a reference to getting unmapped before we have a
- 	 * chance to grab the mmu_lock without mmu_invalidate_retry() noticing.
- 	 *
-@@ -590,7 +591,7 @@ static int kvm_mips_map_page(struct kvm_vcpu *vcpu, unsigned long gpa,
- 	smp_rmb();
+-	get_page(hpage);
+ 	page = kmap_atomic(hpage);
  
- 	/* Slow path - ask KVM core whether we can access this GPA */
--	pfn = gfn_to_pfn_prot(kvm, gfn, write_fault, &writeable);
-+	pfn = kvm_faultin_pfn(vcpu, gfn, write_fault, &writeable, &page);
- 	if (is_error_noslot_pfn(pfn)) {
- 		err = -EFAULT;
- 		goto out;
-@@ -602,10 +603,10 @@ static int kvm_mips_map_page(struct kvm_vcpu *vcpu, unsigned long gpa,
- 		/*
- 		 * This can happen when mappings are changed asynchronously, but
- 		 * also synchronously if a COW is triggered by
--		 * gfn_to_pfn_prot().
-+		 * kvm_faultin_pfn().
- 		 */
- 		spin_unlock(&kvm->mmu_lock);
--		kvm_release_pfn_clean(pfn);
-+		kvm_release_page_unused(page);
- 		goto retry;
- 	}
- 
-@@ -632,10 +633,7 @@ static int kvm_mips_map_page(struct kvm_vcpu *vcpu, unsigned long gpa,
- 	if (out_buddy)
- 		*out_buddy = *ptep_buddy(ptep);
- 
--	if (writeable)
--		kvm_set_pfn_dirty(pfn);
--	kvm_release_pfn_clean(pfn);
--
-+	kvm_release_faultin_page(kvm, page, false, writeable);
- 	spin_unlock(&kvm->mmu_lock);
- out:
- 	srcu_read_unlock(&kvm->srcu, srcu_idx);
+ 	/* patch dcbz into reserved instruction, so we trap */
 -- 
 2.46.0.rc1.232.g9752f9e123-goog
 
