@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 017BEC3DA4A
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jul 2024 00:01:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24182C3DA4A
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jul 2024 00:02:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/QoU7oDcTW5WVOC/t6HiSIPsmREpQcWqBCjWpPqqGb8=; b=3Pd9NQ8UaocLqy
-	yeatuQATsQK0+ZgUTzz3AuTqivkr3KIIL2yia2XFIYst5ss1uiUO5rfXti+flVvSMVoFjd/6cBMul
-	YXX6bSEAq+P+G+chPqVxNs6uQsLih6PTjtOxEYXs1XbfgoZ76qSEHxiGbkwyfccc7/rxg8Wr13Ex1
-	Ocl59lpdX4zdgQpGnmQX65NLzlAqMi7Uvu5/9Q6Tg75+05IY2pIk1TBV23WJMiDzqIzCNjXOKIEKd
-	6m80K8OX8uAjY77aU8NJfTuqkT3i48r0ZkuDWizwSVrAEUfl6gAYYvDU/uCuBcnn20ywXivQF30hZ
-	vqUkLEvTRFXP8E7NQ2fQ==;
+	List-Owner; bh=rwPvhL3kuVgGqOVgRS3CIsYPYp89ZVe3rI3CJdd5om4=; b=Tgqg1uKag4Brm/
+	TrTDpWw1C2cqlMm4cFltS55032iBXXcVYXQJaNkCQWpPcRiHN4wL8h6LhJDbebH+J3OUnddAU9Mx4
+	wPfNzVSoVH1MO5ZGxQO0mTQBHN1J0f6+YrVMQ7m5Jd3k3JHSNP8OF1lo9pcmWEgDKJnPgWViM8m2Z
+	NIqk/PuonX8YsiFKu/X/7P+6OOJeEkuaqajGF4Z9OtlFSvKAnUX5qSund2VK9L01C0+xh2q/ea9Fl
+	7Tt5y5si/GllkYZ2etr71ypqk6qtKE5bxZHzWNkKmzPF91WFbOjm3Dw9U1RlzcxELoIZdtRu7w0Oz
+	ZCL51rPV1Q4evBnHynfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sXUsX-00000005Unn-20lc;
-	Sat, 27 Jul 2024 00:01:41 +0000
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	id 1sXUtC-00000005V8n-0sbJ;
+	Sat, 27 Jul 2024 00:02:22 +0000
+Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sXUkV-00000005Pil-3xPM
+	id 1sXUkY-00000005Pki-1q6i
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 Jul 2024 23:53:26 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-70d1c6b7bb4so1137263b3a.1
-        for <linux-riscv@lists.infradead.org>; Fri, 26 Jul 2024 16:53:23 -0700 (PDT)
+	Fri, 26 Jul 2024 23:53:28 +0000
+Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-e0b39c429a1so451525276.0
+        for <linux-riscv@lists.infradead.org>; Fri, 26 Jul 2024 16:53:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1722038003; x=1722642803; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1722038005; x=1722642805; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=nY4qfmLxHYNbNwSwtMKIrsjqMbHvtDgV5qSHM3zuSO0=;
-        b=kveJCW1l0mmp/Bgr8Gb2pVY/cyIiAwxSIr8qnm9YSgFkrO7Fzm02WigGZNp32kkCYg
-         C/Y56HvNNypArMypHsOJezmPv90cju9lQ/UYZ0SvMvX61hHgjo+0wdhjqeG17cmjrCov
-         MZwDAuHNi+65tHsrFMQVhltotRAdUyBNWOS35xQa8cvPzaaH1MgdtajtG3mKcmfTocxv
-         jpL2vGtmBR989IDSyt6sZ960OVwbqryeXdEkuaU0sRWCwCSDW5asIKPa9WYlq+0NZmIY
-         eYYPq/gIY/XytnsRAv3kgdCJyeRqBl5DZGsKH5+oNQkaHDf5tSk77Aufzr+mOFrzE+K3
-         j6OQ==
+        bh=xlV4Qu7sFx9TmbqoV45yeLGjyM3cIO8KzptAxLEtfNk=;
+        b=E04bICl1HNMPH2Fal1W1r33/BM5sE8j6hp2FR6P9ZcLqCOca6v6PclinKzCE58peW4
+         EmHVgWfJIdltJOCsb7wcjMSi9x+q07JbSGCmbZJRwsPPHSQhmMOpur+7Bjgpuv7zJGYE
+         PDVji0dYews91RzvPzzeBya80B0yPkHxbIxHVfgsaY4obdtVglbfyOiML30UDilx9sMn
+         h/QxnamTx1JkNE1uyjEZg3uQuZtcnA8XqbH8fszqSj91mhxvBl3F/P9GfvPTg/nagapR
+         sPRZgFb4iP6z62XhsSnxpugQoBt5m/lZnv0ZVYJ2dbiDb4lZvV/AZAihcpX1zXU/OIlr
+         D+gA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722038003; x=1722642803;
+        d=1e100.net; s=20230601; t=1722038005; x=1722642805;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=nY4qfmLxHYNbNwSwtMKIrsjqMbHvtDgV5qSHM3zuSO0=;
-        b=kMPVEZvv81OuixwmwQflebdVu+mpIDXb2BHfE0b+sIenS16dH7e18gH7tSxoQvPB/I
-         Ohe8UmuTBx6j2w+ipe/p4dMUw2M7Ao0iZZqLT9m1konQgq7F5wMihfA5D3jU3x95JCxI
-         3HSEDHbCKGZVuaENGnLiH1DGqZy2lycqtqRpzV2QUUJbMLFElrQSWdFz/SXhBegExwLq
-         N3thtXCn6/p/b26tLd22J9MQqAID67Uvd8T7S/zwDJZRY60fZkhe5eoZ67uLfbTgwGm1
-         rmLja0CV+FnPnC0krUyb6euZVfun+vfPCFc83ldWbHE5t4t53VBvidbQcoDHzIQBJjrX
-         UA+Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXbmo5Ua6rkWBVhn2VfnhBsLCawJamn9wtcbSgszibYVQHUUdjmHVxAlwz3Qmq8iJ9zU/TRbCKnHXO8Ga0AyDvsoyKXdre6zcIaiLuQqn/e
-X-Gm-Message-State: AOJu0Yx7cGm5BMLCe9Z3jNQU6vAZgcB0v3UWx2e/LYj829pTDm3XZy0b
-	t7Z2Q9ox+1Qxg6TSbERqezbhxm9LTEvYS4BT5lIqaIqr9ARMRxvEU5bAZL2zB62sydub26KQ4Ad
-	J4w==
-X-Google-Smtp-Source: AGHT+IH3GR1gDSsaIiyxz/X29dplakZOpWNN6FppUWgXRDWsCZD6dFhJbJXFL2hO7f6rIpjA8QVwSQZzxjA=
+        bh=xlV4Qu7sFx9TmbqoV45yeLGjyM3cIO8KzptAxLEtfNk=;
+        b=qqKB7Lx4nk+tjL3WeAa6+418dR5Nw7mBlDAsLLzGpZuR+WToxYfzkfRCUoE5tRpjk7
+         IC6SBhabyR+F53LBz4q9CaEFFnNQ1/Bdd85SAJz+DzNk7OnddpTxMCeertxJ5NXNNU93
+         ziSXxDIV0PSxAs8lvsYpoK8k12d0Cp8pKn7wVBnhP3qsh61b1RFLjE48bNvfrU2CybVa
+         jD3QDyUppXodddgAlkqqisLVp0C3dFS6C0CFYXBx3S0fTVTEpCh36Y9tPuvXSnyVTVZw
+         VkQpce1exGMaPjs39Fjx51f1d+xeBd2LIt7eqojkOFrSENaKW/mZHq9qj6R6/3w7Jyzr
+         AhPA==
+X-Forwarded-Encrypted: i=1; AJvYcCXz4OCFLYh1t0RyeKj9aKtl7A9FHzG4bU4uiJrnDfdAGZCABb3eXOgQHj5JBx1JuqjfjfEQBRKab7kwEDnq8D1yw5TRH3i82gdCr8h8g92j
+X-Gm-Message-State: AOJu0YwHenO9uOe/yismfsJ3qkj9cWnFW3Cvqd0tQ88epGVC/lJYDdwl
+	e97+mLfuTxpnCHubSuisx0/xngaKvb7rjtAz+aP2b3U6dHlelMuJAfGtalH+NFPdapz8/ZkzGn+
+	IAA==
+X-Google-Smtp-Source: AGHT+IGzjee8SmO1Sa/b53YWKn3FsBJYizAY4tObHxd1ZNVi3RptE5IxRlqmItgGIGNjjqk15j+5giHmBC8=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a05:6a00:6f1c:b0:70d:138a:bee8 with SMTP id
- d2e1a72fcca58-70ece533146mr8919b3a.0.1722038002674; Fri, 26 Jul 2024 16:53:22
- -0700 (PDT)
-Date: Fri, 26 Jul 2024 16:51:31 -0700
+ (user=seanjc job=sendgmr) by 2002:a5b:8d2:0:b0:e03:53a4:1a7 with SMTP id
+ 3f1490d57ef6-e0b5454c840mr15153276.10.1722038004800; Fri, 26 Jul 2024
+ 16:53:24 -0700 (PDT)
+Date: Fri, 26 Jul 2024 16:51:32 -0700
 In-Reply-To: <20240726235234.228822-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20240726235234.228822-1-seanjc@google.com>
 X-Mailer: git-send-email 2.46.0.rc1.232.g9752f9e123-goog
-Message-ID: <20240726235234.228822-23-seanjc@google.com>
-Subject: [PATCH v12 22/84] KVM: nVMX: Drop pointless msr_bitmap_map field from
- struct nested_vmx
+Message-ID: <20240726235234.228822-24-seanjc@google.com>
+Subject: [PATCH v12 23/84] KVM: nVMX: Add helper to put (unmap) vmcs12 pages
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
@@ -84,8 +83,8 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	David Matlack <dmatlack@google.com>, David Stevens <stevensd@chromium.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240726_165324_004726_62B1A9B2 
-X-CRM114-Status: GOOD (  12.25  )
+X-CRM114-CacheID: sfid-20240726_165326_550793_6EADA2FF 
+X-CRM114-Status: GOOD (  12.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,63 +102,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Remove vcpu_vmx.msr_bitmap_map and instead use an on-stack structure in
-the one function that uses the map, nested_vmx_prepare_msr_bitmap().
+Add a helper to dedup unmapping the vmcs12 pages.  This will reduce the
+amount of churn when a future patch refactors the kvm_vcpu_unmap() API.
+
+No functional change intended.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/vmx/nested.c | 8 ++++----
- arch/x86/kvm/vmx/vmx.h    | 2 --
- 2 files changed, 4 insertions(+), 6 deletions(-)
+ arch/x86/kvm/vmx/nested.c | 32 ++++++++++++++++++--------------
+ 1 file changed, 18 insertions(+), 14 deletions(-)
 
 diff --git a/arch/x86/kvm/vmx/nested.c b/arch/x86/kvm/vmx/nested.c
-index a34b49ea64b5..372d005e09e7 100644
+index 372d005e09e7..8d05d1d9f544 100644
 --- a/arch/x86/kvm/vmx/nested.c
 +++ b/arch/x86/kvm/vmx/nested.c
-@@ -621,7 +621,7 @@ static inline bool nested_vmx_prepare_msr_bitmap(struct kvm_vcpu *vcpu,
- 	int msr;
- 	unsigned long *msr_bitmap_l1;
- 	unsigned long *msr_bitmap_l0 = vmx->nested.vmcs02.msr_bitmap;
--	struct kvm_host_map *map = &vmx->nested.msr_bitmap_map;
-+	struct kvm_host_map msr_bitmap_map;
+@@ -314,6 +314,21 @@ static void vmx_switch_vmcs(struct kvm_vcpu *vcpu, struct loaded_vmcs *vmcs)
+ 	vcpu->arch.regs_dirty = 0;
+ }
  
- 	/* Nothing to do if the MSR bitmap is not in use.  */
- 	if (!cpu_has_vmx_msr_bitmap() ||
-@@ -644,10 +644,10 @@ static inline bool nested_vmx_prepare_msr_bitmap(struct kvm_vcpu *vcpu,
- 			return true;
++static void nested_put_vmcs12_pages(struct kvm_vcpu *vcpu)
++{
++	struct vcpu_vmx *vmx = to_vmx(vcpu);
++
++	/*
++	 * Unpin physical memory we referred to in the vmcs02.  The APIC access
++	 * page's backing page (yeah, confusing) shouldn't actually be accessed,
++	 * and if it is written, the contents are irrelevant.
++	 */
++	kvm_vcpu_unmap(vcpu, &vmx->nested.apic_access_page_map, false);
++	kvm_vcpu_unmap(vcpu, &vmx->nested.virtual_apic_map, true);
++	kvm_vcpu_unmap(vcpu, &vmx->nested.pi_desc_map, true);
++	vmx->nested.pi_desc = NULL;
++}
++
+ /*
+  * Free whatever needs to be freed from vmx->nested when L1 goes down, or
+  * just stops using VMX.
+@@ -346,15 +361,8 @@ static void free_nested(struct kvm_vcpu *vcpu)
+ 	vmx->nested.cached_vmcs12 = NULL;
+ 	kfree(vmx->nested.cached_shadow_vmcs12);
+ 	vmx->nested.cached_shadow_vmcs12 = NULL;
+-	/*
+-	 * Unpin physical memory we referred to in the vmcs02.  The APIC access
+-	 * page's backing page (yeah, confusing) shouldn't actually be accessed,
+-	 * and if it is written, the contents are irrelevant.
+-	 */
+-	kvm_vcpu_unmap(vcpu, &vmx->nested.apic_access_page_map, false);
+-	kvm_vcpu_unmap(vcpu, &vmx->nested.virtual_apic_map, true);
+-	kvm_vcpu_unmap(vcpu, &vmx->nested.pi_desc_map, true);
+-	vmx->nested.pi_desc = NULL;
++
++	nested_put_vmcs12_pages(vcpu);
+ 
+ 	kvm_mmu_free_roots(vcpu->kvm, &vcpu->arch.guest_mmu, KVM_MMU_ROOTS_ALL);
+ 
+@@ -4942,11 +4950,7 @@ void nested_vmx_vmexit(struct kvm_vcpu *vcpu, u32 vm_exit_reason,
+ 		vmx_update_cpu_dirty_logging(vcpu);
  	}
  
--	if (kvm_vcpu_map(vcpu, gpa_to_gfn(vmcs12->msr_bitmap), map))
-+	if (kvm_vcpu_map(vcpu, gpa_to_gfn(vmcs12->msr_bitmap), &msr_bitmap_map))
- 		return false;
+-	/* Unpin physical memory we referred to in vmcs02 */
+-	kvm_vcpu_unmap(vcpu, &vmx->nested.apic_access_page_map, false);
+-	kvm_vcpu_unmap(vcpu, &vmx->nested.virtual_apic_map, true);
+-	kvm_vcpu_unmap(vcpu, &vmx->nested.pi_desc_map, true);
+-	vmx->nested.pi_desc = NULL;
++	nested_put_vmcs12_pages(vcpu);
  
--	msr_bitmap_l1 = (unsigned long *)map->hva;
-+	msr_bitmap_l1 = (unsigned long *)msr_bitmap_map.hva;
- 
- 	/*
- 	 * To keep the control flow simple, pay eight 8-byte writes (sixteen
-@@ -711,7 +711,7 @@ static inline bool nested_vmx_prepare_msr_bitmap(struct kvm_vcpu *vcpu,
- 	nested_vmx_set_intercept_for_msr(vmx, msr_bitmap_l1, msr_bitmap_l0,
- 					 MSR_IA32_FLUSH_CMD, MSR_TYPE_W);
- 
--	kvm_vcpu_unmap(vcpu, &vmx->nested.msr_bitmap_map, false);
-+	kvm_vcpu_unmap(vcpu, &msr_bitmap_map, false);
- 
- 	vmx->nested.force_msr_bitmap_recalc = false;
- 
-diff --git a/arch/x86/kvm/vmx/vmx.h b/arch/x86/kvm/vmx/vmx.h
-index 42498fa63abb..889c6c42ee27 100644
---- a/arch/x86/kvm/vmx/vmx.h
-+++ b/arch/x86/kvm/vmx/vmx.h
-@@ -204,8 +204,6 @@ struct nested_vmx {
- 	struct kvm_host_map virtual_apic_map;
- 	struct kvm_host_map pi_desc_map;
- 
--	struct kvm_host_map msr_bitmap_map;
--
- 	struct pi_desc *pi_desc;
- 	bool pi_pending;
- 	u16 posted_intr_nv;
+ 	if (vmx->nested.reload_vmcs01_apic_access_page) {
+ 		vmx->nested.reload_vmcs01_apic_access_page = false;
 -- 
 2.46.0.rc1.232.g9752f9e123-goog
 
