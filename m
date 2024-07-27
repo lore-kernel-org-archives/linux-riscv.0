@@ -4,88 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 268D1C3DA49
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jul 2024 01:01:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB0ACC3DA4A
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jul 2024 05:22:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
-	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=L27LOI+ySHqSrXMjIbIxoD9bOQi7nJOYjTD5i/ijUmQ=; b=hQS323hyg6NRSP
-	ze/11+PBPmcpcHaq7B/YAzjyLFK0hC66p3haVjjSS2hZL0gIbDufxJ2Lw1iibNZTOIhKRwa6O2aYt
-	9mUqrFbmlSG75eOWPrxF1ObNrvgigrwlM+NDsZLXV+b0i5mO4tL4T0lCizHj4eW032SdpATry++4G
-	6T/1JaRYqtkcRf0TiqLddJqC3FjFdrLvDGU6NymVhwGqr1WFzUWP2kBX+5S2FnQnHQVWMgOHpAi5D
-	k8zwegdE7Mpik/5+Safja7I0OU4/UNTF3eaTSFNguIqEuCmNGIlYhBew0rp7RzgJpm0k2HNhDgcQ+
-	vQx+5Gd13uVymP4fsoUg==;
+	List-Owner; bh=QFyGsbEbSMACB/FOQbG49z9Ps8qP7eoTwK0r2UVgKKM=; b=hwTBnBscKg8JiV
+	ghBB3JXTmDo8uQdTqYo/e9n4IWJQ6apX4VVxzbDqTMcQp7/fKhMnrNPW3JNQLOqvNbsbmlXx2FnRY
+	ZhliJ7ojZCqUQediapuSTeuYZb0M6AXv/skbfGWPBEybceBngH/84wPVrQMW37AEtpotiMcEoLxzh
+	X7ejV6PBrRBCJMPb08PSTWdRazd7TjUwZiymjo9z+sCp5ic95futMXHIzLS0b9/YspCTy3vFe0dfZ
+	i9FnM/2c+0U+bYJ38qfw7STMUZcMKxL5OWu/u3TnhFDCyf/j//wqYzXg5wzSpm7S8hCWlSf3lgco4
+	Yv7oc1k0GMCDnpo3J8ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sXVnw-00000005nOE-33T6;
-	Sat, 27 Jul 2024 01:01:00 +0000
-Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
+	id 1sXZsa-00000006720-0Zih;
+	Sat, 27 Jul 2024 05:22:04 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sXUjz-00000005PEn-1tjv
+	id 1sXZsW-0000000671J-44df
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 Jul 2024 23:52:53 +0000
-Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-66b8faa2a4aso7040127b3.0
-        for <linux-riscv@lists.infradead.org>; Fri, 26 Jul 2024 16:52:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1722037970; x=1722642770; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=VnEAHRC1zG591I39OowzIjQNXTqQsRDXyh/rUn6sicQ=;
-        b=Zv2y5TGBu4jNjYjDqYMpQ7ctqA0RMqIRWZC1+t8BWrFI4iRKunriZE25YMEHTn5JN6
-         3Mp1PzUU2/0hJSPDCCgx4sx6PhAFzeCrSkf3hvV4Zaq78s0DPV7TJv34rhVCVpaHb62M
-         r24KMJq7BXh0RbOeXcYCAAYdIwmgkOhouuTXfZM0vzugLZteTUFPOf1901Q17cSB2p+u
-         qjVxn5ZS2KnY3PjEw2/oqb4IXElFT84/rvXh3DKfIDh/bwbck2zqTepCGKgY7XB6BZgJ
-         pi85lCwbKL/Ajhlkj7OwnOyeCrqP10BMBchVSody8iZKmohVCSLhssfe9MTEC/YRdwor
-         /Y1w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722037970; x=1722642770;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=VnEAHRC1zG591I39OowzIjQNXTqQsRDXyh/rUn6sicQ=;
-        b=FY0hEJpn9HUc+cWSKfb0OkJIfweSUQ5ehiIJ5B9v4xL8HFLEVDmrBaVmiw3yOVczg8
-         prf1O0gUODjJotNqf3ZIbfmemOjFnr2zAIzvcQbnamcl1LuZzpxtp9HaoOZu12R8IGD1
-         D/OUmW68oCU2XTo0OKZSP8q6NbCYPJgLEU5cNWVQ/J7EeXl1fT/z+0o3Fh/kQC+QV8Jx
-         HPmh08EMxEZUMjfYeoyysugXLT9CLoBzIJfZ5ggFvU4N4zwToUuo5sgRYlwABtldcXZv
-         8A0VMPDpbWI57VaB5cC8uGBRVnbrBnBTw9u1HHBXpkawqu8f6qQUTvTrtN0Xe/wexEJJ
-         kRFg==
-X-Forwarded-Encrypted: i=1; AJvYcCXyJcSOJNP7qXC4MIxPl2l6WEY+O30VX67D54HzlRXYjt9K9qpe/9+tllxJnebNV51ykH7MFLLtEZeAMdkNCN4tHJLlgMA7N7fnlyE4sLFl
-X-Gm-Message-State: AOJu0YxZjAEZLo9qkKThYLLkWike5LX5gRkW6T6si/UgrP2/CH7B1oyw
-	iK6UsbATYSBEdiJl3sI3fBX0BcTwm/pRAUbxvDl/dQB1F9BiTV4leAeiXS73o1q6Uq9rtSzCeZT
-	hSg==
-X-Google-Smtp-Source: AGHT+IFPOoUYsYyJmRjA25F0UYC9yeYKs61mDA/QqS/vgTcAgpqjjzQfUfGqPl0MU2c7vZElDBuLLOtKUts=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a05:690c:fc9:b0:648:afcb:a7ce with SMTP id
- 00721157ae682-67a05a9d90bmr269367b3.3.1722037969718; Fri, 26 Jul 2024
- 16:52:49 -0700 (PDT)
-Date: Fri, 26 Jul 2024 16:51:15 -0700
-In-Reply-To: <20240726235234.228822-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20240726235234.228822-1-seanjc@google.com>
-X-Mailer: git-send-email 2.46.0.rc1.232.g9752f9e123-goog
-Message-ID: <20240726235234.228822-7-seanjc@google.com>
-Subject: [PATCH v12 06/84] KVM: x86/mmu: Skip the "try unsync" path iff the
- old SPTE was a leaf SPTE
-From: Sean Christopherson <seanjc@google.com>
-To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
-	Sean Christopherson <seanjc@google.com>
-Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	David Matlack <dmatlack@google.com>, David Stevens <stevensd@chromium.org>
+	Sat, 27 Jul 2024 05:22:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1722057708; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=aXi1zLnnjn1YLCOIyHDHWq+wPNACX16kzdArfXr6fGs71QPrbvINIpgRoIGoYuGcf5ElOvk27nyPb02iiL6VAjfCOHSO9jNyi1RHhGdIpPJxJl3sCLVoJcSieNm0CUJuexXknk1TwwjEyWN58LoP1EhBkwcjnupiXunky2+3usM=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1722057708; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=Mih095U9iXueDDnfQMixcmVN6Xd/74AO9SVU2wiAifk=; 
+	b=Q3WtiC2NUZR9yuI4zJTd9srWjqBAsHMh46WTLkSn9nn7xbBy0PBPyYYVJOkRC/6Iqb1LNcgDDwTQhrr5lG/VhraboN/98G2emClS9hujnkNH0tz52WdkllzY/MNwWZoevFxXmqHbhk28A55kcvv4ZBOuaqEhXTiJcgXizB+RkQo=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1722057708;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=Mih095U9iXueDDnfQMixcmVN6Xd/74AO9SVU2wiAifk=;
+	b=mE6x7AemEjphe0KxvGJGqSkAsC2aNPV6Dw8UVJc9uiwKXtzO3VDNzHKGrXhYp56K
+	KWDZ9uAbTn/pkxD5rjVuXR/s6kW4uAIlDk/K4CJKBpBkn1ql4YlMiFEluXdhXEioLNF
+	RCZOk29odxLzT6AGNplXtSMCTnHt07PELEEGcTOVyvclz3NfIoM7E82u9zEFEZ7qm/I
+	lQnVsLo3op+anS1sQoDTSZT1FAmK9LzqScMQbW6xkUOpkftdU5ho3edjlsCD47KjWRg
+	tVJTlUr3WZXUjsH41AmOywlT/tyhCNlpCkWVAB/LMKNtkrRSQwYi9ij6dWHIGJmawev
+	N/u+GM0q+w==
+Received: by mx.zohomail.com with SMTPS id 1722057705832303.64384928637764;
+	Fri, 26 Jul 2024 22:21:45 -0700 (PDT)
+Message-ID: <2375ff5fb664d8de9627e76788bd40b5d8eabf35.camel@icenowy.me>
+Subject: Re: [PATCH v2 1/7] dt-bindings: clock: Document T-Head TH1520
+ AP_SUBSYS controller
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Drew Fustini <drew@pdp7.com>, Emil Renner Berthing
+	 <emil.renner.berthing@canonical.com>
+Cc: Stephen Boyd <sboyd@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Conor Dooley <conor+dt@kernel.org>, Drew Fustini
+ <dfustini@tenstorrent.com>, Fu Wei <wefu@redhat.com>, Guo Ren
+ <guoren@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Michael Turquette
+ <mturquette@baylibre.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh@kernel.org>, Thomas
+ Bonnefille <thomas.bonnefille@bootlin.com>,  Yangtao Li
+ <frank.li@vivo.com>, linux-riscv@lists.infradead.org,
+ linux-clk@vger.kernel.org,  devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>
+Date: Sat, 27 Jul 2024 13:21:39 +0800
+In-Reply-To: <ZqPQ8X51S6PrzQxI@x1>
+References: <20240623-th1520-clk-v2-0-ad8d6432d9fb@tenstorrent.com>
+	 <20240623-th1520-clk-v2-1-ad8d6432d9fb@tenstorrent.com>
+	 <57ef2eef45f2de15e6607da266b37b2a.sboyd@kernel.org>
+	 <CAJM55Z8iF8yV5JK5v6ZtQqS5AaWwCZ7uwhSYb7hdxh0juDFdqg@mail.gmail.com>
+	 <ZqPQ8X51S6PrzQxI@x1>
+Organization: Anthon Open-Source Community
+User-Agent: Evolution 3.44.4 
+MIME-Version: 1.0
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240726_165251_524464_533B578E 
-X-CRM114-Status: GOOD (  12.93  )
+X-CRM114-CacheID: sfid-20240726_222201_091598_45F06572 
+X-CRM114-Status: GOOD (  20.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,68 +92,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Apply make_spte()'s optimization to skip trying to unsync shadow pages if
-and only if the old SPTE was a leaf SPTE, as non-leaf SPTEs in direct MMUs
-are always writable, i.e. could trigger a false positive and incorrectly
-lead to KVM creating a SPTE without write-protecting or marking shadow
-pages unsync.
-
-This bug only affects the TDP MMU, as the shadow MMU only overwrites a
-shadow-present SPTE when synchronizing SPTEs (and only 4KiB SPTEs can be
-unsync).  Specifically, mmu_set_spte() drops any non-leaf SPTEs *before*
-calling make_spte(), whereas the TDP MMU can do a direct replacement of a
-page table with the leaf SPTE.
-
-Opportunistically update the comment to explain why skipping the unsync
-stuff is safe, as opposed to simply saying "it's someone else's problem".
-
-Cc: stable@vger.kernel.org
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- arch/x86/kvm/mmu/spte.c | 18 +++++++++++++-----
- 1 file changed, 13 insertions(+), 5 deletions(-)
-
-diff --git a/arch/x86/kvm/mmu/spte.c b/arch/x86/kvm/mmu/spte.c
-index d4527965e48c..a3baf0cadbee 100644
---- a/arch/x86/kvm/mmu/spte.c
-+++ b/arch/x86/kvm/mmu/spte.c
-@@ -226,12 +226,20 @@ bool make_spte(struct kvm_vcpu *vcpu, struct kvm_mmu_page *sp,
- 		spte |= PT_WRITABLE_MASK | shadow_mmu_writable_mask;
- 
- 		/*
--		 * Optimization: for pte sync, if spte was writable the hash
--		 * lookup is unnecessary (and expensive). Write protection
--		 * is responsibility of kvm_mmu_get_page / kvm_mmu_sync_roots.
--		 * Same reasoning can be applied to dirty page accounting.
-+		 * When overwriting an existing leaf SPTE, and the old SPTE was
-+		 * writable, skip trying to unsync shadow pages as any relevant
-+		 * shadow pages must already be unsync, i.e. the hash lookup is
-+		 * unnecessary (and expensive).
-+		 *
-+		 * The same reasoning applies to dirty page/folio accounting;
-+		 * KVM will mark the folio dirty using the old SPTE, thus
-+		 * there's no need to immediately mark the new SPTE as dirty.
-+		 *
-+		 * Note, both cases rely on KVM not changing PFNs without first
-+		 * zapping the old SPTE, which is guaranteed by both the shadow
-+		 * MMU and the TDP MMU.
- 		 */
--		if (is_writable_pte(old_spte))
-+		if (is_last_spte(old_spte, level) && is_writable_pte(old_spte))
- 			goto out;
- 
- 		/*
--- 
-2.46.0.rc1.232.g9752f9e123-goog
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+5ZyoIDIwMjQtMDctMjbmmJ/mnJ/kupTnmoQgMDk6MzggLTA3MDDvvIxEcmV3IEZ1c3Rpbmnlhpnp
+gZPvvJoKPiBPbiBGcmksIEp1bCAyNiwgMjAyNCBhdCAwMzo0NTozNkFNIC0wNTAwLCBFbWlsIFJl
+bm5lciBCZXJ0aGluZyB3cm90ZToKPiA+IFN0ZXBoZW4gQm95ZCB3cm90ZToKPiA+ID4gUXVvdGlu
+ZyBEcmV3IEZ1c3RpbmkgKDIwMjQtMDYtMjMgMTk6MTI6MzEpCj4gPiA+ID4gRG9jdW1lbnQgYmlu
+ZGluZ3MgZm9yIHRoZSBULUhlYWQgVEgxNTIwIEFQIHN1Yi1zeXN0ZW0gY2xvY2sKPiA+ID4gPiBj
+b250cm9sbGVyLgo+ID4gPiA+IAo+ID4gPiA+IExpbms6Cj4gPiA+ID4gaHR0cHM6Ly9vcGVuYmVh
+Z2xlLm9yZy9iZWFnbGV2LWFoZWFkL2JlYWdsZXYtYWhlYWQvLS9ibG9iL21haW4vZG9jcy9USDE1
+MjAlMjBTeXN0ZW0lMjBVc2VyJTIwTWFudWFsLnBkZgo+ID4gPiA+IENvLWRldmVsb3BlZC1ieTog
+WWFuZ3RhbyBMaSA8ZnJhbmsubGlAdml2by5jb20+Cj4gPiA+ID4gU2lnbmVkLW9mZi1ieTogWWFu
+Z3RhbyBMaSA8ZnJhbmsubGlAdml2by5jb20+Cj4gPiA+ID4gUmV2aWV3ZWQtYnk6IENvbm9yIERv
+b2xleSA8Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5jb20+Cj4gPiA+ID4gU2lnbmVkLW9mZi1ieTog
+RHJldyBGdXN0aW5pIDxkZnVzdGluaUB0ZW5zdG9ycmVudC5jb20+Cj4gPiA+ID4gLS0tCj4gPiA+
+IAo+ID4gPiBBcHBsaWVkIHRvIGNsay1uZXh0Cj4gPiAKPiA+IFRoYW5rcywgYnV0IHRoaXMgZHJp
+dmVyIHNlZW1zIGEgYml0IGluY29tcGxldGUuIFdpdGggdGhpcyBhcHBsaWVkCj4gPiB0aGUgTGlj
+aGVlIFBpCj4gPiA0QSBubyBsb25nZXIgYm9vdHMgd2l0aG91dCB0aGUgY2xrX2lnbm9yZV91bnVz
+ZWQga2VybmVsIHBhcmFtZXRlci4KPiA+IAo+ID4gL0VtaWwKPiAKPiBJcyB0aGlzIHRoZSBjYXNl
+IHdoZW4geW91IGFwcGx5IHRoZSBkdHMgcGF0Y2hlcyBmcm9tIHRoaXMgc2VyaWVzPwo+IAo+IFRo
+ZSBkdHMgcGF0Y2hlcyB3b24ndCBnbyBpbiB1bnRpbCA2LjEyIHNvIEkgZG9uJ3QgdGhpbmsgdGhl
+IHByZXNlbmNlCj4gb2YKPiB0aGUgY2xrLXRoMTUyMC1hcC5jIGl0c2VsZiBpbiA2LjExIHdvdWxk
+IGJyZWFrIGV4aXN0aW5nIHN5c3RlbXMuCj4gCj4gVGhhdCBzYWlkLCBJIGhhdmUgYmVlbiB1c2lu
+ZyBjbGtfaWdub3JlX3VudXNlZC4gSSBoYWQgYmVlbiB0aGlua2luZwo+IHRoYXQKPiBtYWRlIHNl
+bnNlIGJlY2F1c2UgdGhlIGZ1bGwgc2V0IG9mIGNsb2NrIGNvbnRyb2xsZXIgZHJpdmVycyBsaWtl
+Cj4gQU9OX1NVQlNZUyAoYWx3YXlzIG9uKSwgQVVESU9fU1VCU1lTLCBEU1BfU1VCU1lTLCBldGMs
+IGFyZSBub3QKPiBwcmVzZW50Cj4geWV0IGluIG1haW5saW5lLiBIb3dldmVyLCB0aGUgVC1IZWFk
+IHZlbmRvciBrZXJuZWwgZG9lcyBoYXZlIGRyaXZlcnMKPiBmb3IKPiBhbGwgdGhvc2UgY2xvY2sg
+Y29udHJvbGxlcnMgYW5kIEkgd2FzIHN1cHJpc2VkIHRvIHNlZSB0aGF0IHRoZSB2ZW5kb3IKPiBr
+ZXJuZWwgZmFpbHMgdG8gYm9vdCB3aGVuIEkganVzdCB0ZXN0ZWQgcmVtb3ZpbmcgY2xrX2lnbm9y
+ZV91bnVzZWQuCj4gCj4gQXMgZm9yIGNsay10aDE1MjAtYXAuYyBpbiBtYWlubGluZSwgSSdsbCBp
+bnZlc3RpZ2F0ZSBmdXJ0aGVyIHdoaWNoCj4gY2xrCj4gZGlzYWJsZXMgc2VlbSB0byBjYXVzaW5n
+IHRoZSBib290IGZhaWx1cmUgd2hlbiB1c2luZyB0aGUgZHRzIGZyb20KPiB0aGlzCj4gc2VyaWVz
+LiBJIHN1c3BlY3QgSSBtYXkgbmVlZCB0byBhZGQgbm9kZXMgdGhhdCB3aWxsIGNhdXNlIHRoZQo+
+IG5lY2Vzc2FyeQo+IGNsa3MgdG8gYmUgZW5hYmxlZCBieSB0aGVpciByZXNwZWN0aXZlIGRyaXZl
+cnMuCgpJZiBkaXNhYmxpbmcgdGhlIGNsb2NrIGp1c3QgbGVhZHMgdG8gc3lzdGVtIGhhbmcsIHNl
+dHRpbmcKQ0xLX0lTX0NSSVRJQ0FMIHNob3VsZCBiZSB1c2VmdWwgKGFuZCBuZWVkZWQpIGhlcmUu
+Cgo+IAo+IFRoYW5rcywKPiBEcmV3Cj4gCj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX18KPiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKPiBsaW51eC1yaXNj
+dkBsaXN0cy5pbmZyYWRlYWQub3JnCj4gaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YK
