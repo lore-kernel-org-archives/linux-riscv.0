@@ -4,97 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FE12C3DA61
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jul 2024 18:19:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27F01C3DA61
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jul 2024 20:50:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=m37SnPoa52+BpJGNFFUoCyENtA6SLs1P8v+1HIerrME=; b=j8B92WHHGl0ecN
-	BckHCq6lMghZw/JGqnuUyTIh88ZYlUZabPu4RddHnuGyrrHZAEq4BGLuGEGaY9Nwg4W2GYI7FEB7E
-	ROS+L4ZE0owyV4WjAweLaGemzfKAF5nPUBaUwQH072n27YNQVPsnM1rsm/9uMeEnmElws2C8rJZds
-	ALI16+jv93ZEJNP7AyroysQTuq3ZYYa7sYofTg4hZonE83/LsGCocON5esMibcObpYCcFceK/f/Q1
-	iUS85JlgpdYDku+vOH8JLK1hfpy7GD9IghI0gLC3xsz/KKJFeMsENixMpHuTamCRriarMrwMJov2y
-	yn+8SdsYonSGQTrNn94A==;
+	List-Owner; bh=wkhAFkY3V2Uzd2vzm7zCu3otL0HoxdZQe0J4szX1pFk=; b=Eo043mvHC3EE9C
+	6fEyV8uDxRkXjTKQYRjW+KfWoSsZ6gH6gJ64cxh2L7BgECZG3MveGKPbMPt7wbMVXpLlhjM4azkll
+	7Zd52qOWfMSCJPc2qr3CgzDhrN4STPIOavDt8RN/qtEawiE9NwOeumnZG0k/Or21UuSxuy/DlTh5V
+	RcloVaPtYfP25rWcyRRArOEhjrdNuEicdbcOoLz8dkUBLfJaxfuIeYRmrAzZwxFHBzvrM4KOixVpB
+	/6/CATGBvPv6UB8TDzBOR2Bu/CewtqM+PcWefJAPwaROxpxTwTgJIssJPcwFW+o/IdCWVsdK8eOmT
+	6WlADMUOE8S7VzK8v2FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYUyP-0000000CKOD-1pfV;
-	Mon, 29 Jul 2024 18:19:53 +0000
-Received: from mail-il1-x130.google.com ([2607:f8b0:4864:20::130])
+	id 1sYXKU-0000000ChRm-1Is8;
+	Mon, 29 Jul 2024 20:50:50 +0000
+Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYUyL-0000000CKLt-1gfy
+	id 1sYXKQ-0000000ChQn-2moy
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Jul 2024 18:19:52 +0000
-Received: by mail-il1-x130.google.com with SMTP id e9e14a558f8ab-397c57e5f36so6746145ab.1
-        for <linux-riscv@lists.infradead.org>; Mon, 29 Jul 2024 11:19:48 -0700 (PDT)
+	Mon, 29 Jul 2024 20:50:47 +0000
+Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-7a1be7b7bb5so2760033a12.0
+        for <linux-riscv@lists.infradead.org>; Mon, 29 Jul 2024 13:50:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1722277188; x=1722881988; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NLZornX8WAGKa8yt077Nm/8QnebdQj4sROMMiTvI2j4=;
-        b=Pk1HZoxid8WbRXg4q3E+shRoY04+HeOJq+9j329mvQbmuVB4UadUF9wMQ6fIx8Im8Q
-         yz5YZGvJntJ1GrWu5OEWiR9eQAPsBBNjTpgjbGCQdhFsbdgjqL9hi/UommgpwZyZgueO
-         qhSVPb7cBtuNVMrQ3tJD2k7v96xXJehEhevSmph31bNoSlpIHzRYqykHQLvSR+OKhhQb
-         uGKaRlGQeL296Fttcz9U7wgc2orMJzXfZ+d8+1Khxnvp5t615hkxY2why5QpCYqKajkb
-         oMfvSLPEcg8L01ix7xVoTTYmVvDVMD3SkuGjICzm/m2yc/UCseNxBqHs7F5Km8mRg/F7
-         phng==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1722286245; x=1722891045; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=YALcHE45yFBd6B8M2GwV44w9Qj1q3iq9UvV9zldTY8s=;
+        b=chPkduMBKClW5y8KMW7bElB1OQr661Dl5gQqFC+SKTkX9wtj3ikwb6JZJR+e4J4HYv
+         sGsLujSIKlZKxRU7eEP283u+uLbPIprgtBTdm58ycNgt+r5gowxhLuLTMLqu7hj5H9+L
+         mOUJKnUZjoJR4pDlRBG/zF7oTrTvCLMMzJ4/BKPw3U046cgQleEIL2XGBeRivW1dvTyj
+         VWAp6wlaXG1rimujk7lrDHiTAHywEs+Si7I9cyYf1LTqzv0ER3I/uqN1ZOgpA5UzwKO5
+         mp95utn0xGU4gNVfiAemNi7/LWrmMrItJnehG6LpExGEV3vVQzCknTB4M7K6pkCjXtp+
+         xh3A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722277188; x=1722881988;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1722286245; x=1722891045;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=NLZornX8WAGKa8yt077Nm/8QnebdQj4sROMMiTvI2j4=;
-        b=OP8Gtj+lqqJg47LQur++wIomJioZLyeBvvi11YwBOxje6WVi8qpFAdafNaHxju2LCq
-         HY+R02EUGUfbaDJoO6mxdprLVLRZoV8n7lMJPP5CUtwl10FWGO8Vt52baBjt8+HLyuFV
-         XJJHffTQOrVjz2633BdJAb17HEbdL9c0GpSiFanku9G64S0nFvqhdUkK0zBF1TIWfDkt
-         hkbpr3nTDF83/3N5SAfNeVtTq6sUfohkPh0zD5UZqnxBDIfWltqBzZSRxvCwIueYzEUP
-         YG+8t1VI6ZcqIJJkVb86iH5WX8sw3eF3zHTZKYMmK5kAJMqsX3k4uIouODQ9u7SCdJXK
-         t+bw==
-X-Forwarded-Encrypted: i=1; AJvYcCX6jADtnP4lLqcrAtn66d2re7Us7FT14P+aOfTh/xbtrhSxuLwC/FMLdXUpWBwV5LuDrw+lTG3UTO9GOqT/lByWHt08KtyfD0hViFjx1u1A
-X-Gm-Message-State: AOJu0YwCXwR9Qz6q5zuIBlNiNvSFECIRyCGPL0qBbNi5NPmpqQh73vuC
-	uT25QafptZT2OimTpFGBVYw5a5zyxZM/Fq0vkxsUAQK5ig8WPPfCvJGh4DPAN58=
-X-Google-Smtp-Source: AGHT+IF4BTnbGjnQsdqxs/SVCkJGOF3dKX/SjJGZrcZt0TOaKi/Hz3g0YG9awyZqFcTslL1Na/jssQ==
-X-Received: by 2002:a05:6e02:1546:b0:374:983b:6ff2 with SMTP id e9e14a558f8ab-39aec410470mr103773605ab.20.1722277187784;
-        Mon, 29 Jul 2024 11:19:47 -0700 (PDT)
-Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7a9fa5a3760sm7377373a12.94.2024.07.29.11.19.46
+        bh=YALcHE45yFBd6B8M2GwV44w9Qj1q3iq9UvV9zldTY8s=;
+        b=wInBGpniQL16UnjNFnJcMY2izC2F7yj+V2/OKlgMuW979Q6BrZXbrFEgPWz0dKDHLB
+         dwYuJkjaIYKwWw0gG+bYXMajjOoAxnJpcBZBwdiF2gTVQP+cMe0Wu+hnKj0c+QyzEw0u
+         XgvRG1UGPQkin45RFkTBhzMd3afnaSC6Xm7zTACsO+fGMWu5eEwkGL/bYgVKntu5V2lE
+         L+7+CoMTdy8JSjAyHtYDQaoJ1GECXnsZIC37aEX2ompoMTiakRXLvmJQ0KLxvIRpp0vq
+         HZ2e6ZcudV8juu9KlWMk5YARPBLla7t/VdAfti+DKQXPFgIqy+Z252jmxLrL/u/NmfCX
+         vcmg==
+X-Forwarded-Encrypted: i=1; AJvYcCW4f4bqQMuaJ8KNgwA9eRv60OPR3v5pfM7buQ2/cD7AworlfGdJBHeAynQZBHYu4h1G6k2FG3i9me/ogmaUkBXBknregVjnCBE988+nupeP
+X-Gm-Message-State: AOJu0YxCLq72Tv0R7WZ8VPV2Dspr9A7SfXt+LlJVmLLlh/RnWi9vdkSc
+	0Bj9gV9uzBJMPMaLJoIfvrwLJp2WSdiW+WC6wNVDIxM/3PWYk6pw4kggxXLTQ7aAoQUW8G1NLcX
+	l
+X-Google-Smtp-Source: AGHT+IEDXOv0oX/69rDFZ/8mFt51Yof+gUeyqD/AVuJdZ/wo3n5UfYRR5ZPswAmeUMRaOEdviGizbA==
+X-Received: by 2002:a05:6a20:9f89:b0:1c4:d4b2:ffe5 with SMTP id adf61e73a8af0-1c4d4b30374mr3193080637.54.1722286244829;
+        Mon, 29 Jul 2024 13:50:44 -0700 (PDT)
+Received: from charlie.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-70ead72ba2csm7454541b3a.93.2024.07.29.13.50.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Jul 2024 11:19:47 -0700 (PDT)
-From: Atish Patra <atishp@rivosinc.com>
-To: eric.lin@sifive.com
-Cc: peterz@infradead.org,
-	mingo@redhat.com,
-	acme@kernel.org,
-	namhyung@kernel.org,
-	alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org,
-	irogers@google.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	peterlin@andestech.com,
-	dminus@andestech.com,
-	locus84@andestech.com,
-	jisheng.teoh@starfivetech.com,
-	inochiama@outlook.com,
-	n.shubin@yadro.com,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Atish Patra <atishp@rivosinc.com>
-Subject: Re: [v2] perf arch events: Fix duplicate RISC-V SBI firmware event name
-Date: Mon, 29 Jul 2024 11:19:27 -0700
-Message-Id: <20240729181927.1712841-1-atishp@rivosinc.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20240719115018.27356-1-eric.lin@sifive.com>
-References: 
+        Mon, 29 Jul 2024 13:50:43 -0700 (PDT)
+From: Charlie Jenkins <charlie@rivosinc.com>
+Date: Mon, 29 Jul 2024 13:50:36 -0700
+Subject: [PATCH 2/2] tools: Optimize ring buffer for riscv
 MIME-Version: 1.0
+Message-Id: <20240729-optimize_ring_buffer_read_riscv-v1-2-6bbc0f2434ee@rivosinc.com>
+References: <20240729-optimize_ring_buffer_read_riscv-v1-0-6bbc0f2434ee@rivosinc.com>
+In-Reply-To: <20240729-optimize_ring_buffer_read_riscv-v1-0-6bbc0f2434ee@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Andrea Parri <parri.andrea@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ Charlie Jenkins <charlie@rivosinc.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1722286240; l=920;
+ i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
+ bh=vkgW6uSkTrdq/a10IhVcXIlyy7ZpLz6+wi4VUooJ/G4=;
+ b=6aHzlAFODxv03rehQH+ihSsrMnz7sWZc1A11YVvX3P66jucVnPCsnJUrMqSjNfcAEEr1HsL4F
+ h1j5DqJJcehCOzZfRMxGWt+WNuh5aB190ykVgIfGSl6pAtDILpmMnaI
+X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
+ pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240729_111949_472317_D1594244 
-X-CRM114-Status: GOOD (  13.82  )
+X-CRM114-CacheID: sfid-20240729_135046_744673_1C7711C3 
+X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,131 +104,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> Currently, the RISC-V firmware JSON file has duplicate event name
-> "FW_SFENCE_VMA_RECEIVED". According to the RISC-V SBI PMU extension[1],
-> the event name should be "FW_SFENCE_VMA_ASID_SENT".
-> 
-> Before this patch:
-> $ perf list
-> 
-> firmware:
->   fw_access_load
->        [Load access trap event. Unit: cpu]
->   fw_access_store
->        [Store access trap event. Unit: cpu]
-> ....
->  fw_set_timer
->        [Set timer event. Unit: cpu]
->   fw_sfence_vma_asid_received
->        [Received SFENCE.VMA with ASID request from other HART event. Unit: cpu]
->   fw_sfence_vma_received
->        [Sent SFENCE.VMA with ASID request to other HART event. Unit: cpu]
-> 
-> After this patch:
-> $ perf list
-> 
-> firmware:
->   fw_access_load
->        [Load access trap event. Unit: cpu]
->   fw_access_store
->        [Store access trap event. Unit: cpu]
-> .....
->   fw_set_timer
->        [Set timer event. Unit: cpu]
->   fw_sfence_vma_asid_received
->        [Received SFENCE.VMA with ASID request from other HART event. Unit: cpu]
->   fw_sfence_vma_asid_sent
->        [Sent SFENCE.VMA with ASID request to other HART event. Unit: cpu]
->   fw_sfence_vma_received
->        [Received SFENCE.VMA request from other HART event. Unit: cpu]
-> 
-> Link: https://github.com/riscv-non-isa/riscv-sbi-doc/blob/master/src/ext-pmu.adoc#event-firmware-events-type-15 [1]
-> Fixes: 8f0dcb4e7364 ("perf arch events: riscv sbi firmware std event files")
-> Fixes: c4f769d4093d ("perf vendor events riscv: add Sifive U74 JSON file")
-> Fixes: acbf6de674ef ("perf vendor events riscv: Add StarFive Dubhe-80 JSON file")
-> Fixes: 7340c6df49df ("perf vendor events riscv: add T-HEAD C9xx JSON file")
-> Fixes: f5102e31c209 ("riscv: andes: Support specifying symbolic firmware and hardware raw event")
-> Signed-off-by: Eric Lin <eric.lin@sifive.com>
-> Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
-> Reviewed-by: Nikita Shubin <n.shubin@yadro.com>
-> ---
-> Changes since V1:
->  - Add "Fixes:" tag for every patch that copied firmware.json
-> ---
->  tools/perf/pmu-events/arch/riscv/andes/ax45/firmware.json       | 2 +-
->  tools/perf/pmu-events/arch/riscv/riscv-sbi-firmware.json        | 2 +-
->  tools/perf/pmu-events/arch/riscv/sifive/u74/firmware.json       | 2 +-
->  .../perf/pmu-events/arch/riscv/starfive/dubhe-80/firmware.json  | 2 +-
->  .../perf/pmu-events/arch/riscv/thead/c900-legacy/firmware.json  | 2 +-
->  5 files changed, 5 insertions(+), 5 deletions(-)
-> diff --git a/tools/perf/pmu-events/arch/riscv/andes/ax45/firmware.json b/tools/perf/pmu-events/arch/riscv/andes/ax45/firmware.json
-> index 9b4a032186a7..7149caec4f80 100644
-> --- a/tools/perf/pmu-events/arch/riscv/andes/ax45/firmware.json
-> +++ b/tools/perf/pmu-events/arch/riscv/andes/ax45/firmware.json
-> @@ -36,7 +36,7 @@
->      "ArchStdEvent": "FW_SFENCE_VMA_RECEIVED"
->    },
->    {
-> -    "ArchStdEvent": "FW_SFENCE_VMA_RECEIVED"
-> +    "ArchStdEvent": "FW_SFENCE_VMA_ASID_SENT"
->    },
->    {
->      "ArchStdEvent": "FW_SFENCE_VMA_ASID_RECEIVED"
-> diff --git a/tools/perf/pmu-events/arch/riscv/riscv-sbi-firmware.json b/tools/perf/pmu-events/arch/riscv/riscv-sbi-firmware.json
-> index a9939823b14b..0c9b9a2d2958 100644
-> --- a/tools/perf/pmu-events/arch/riscv/riscv-sbi-firmware.json
-> +++ b/tools/perf/pmu-events/arch/riscv/riscv-sbi-firmware.json
-> @@ -74,7 +74,7 @@
->    {
->      "PublicDescription": "Sent SFENCE.VMA with ASID request to other HART event",
->      "ConfigCode": "0x800000000000000c",
-> -    "EventName": "FW_SFENCE_VMA_RECEIVED",
-> +    "EventName": "FW_SFENCE_VMA_ASID_SENT",
->      "BriefDescription": "Sent SFENCE.VMA with ASID request to other HART event"
->    },
->    {
-> diff --git a/tools/perf/pmu-events/arch/riscv/sifive/u74/firmware.json b/tools/perf/pmu-events/arch/riscv/sifive/u74/firmware.json
-> index 9b4a032186a7..7149caec4f80 100644
-> --- a/tools/perf/pmu-events/arch/riscv/sifive/u74/firmware.json
-> +++ b/tools/perf/pmu-events/arch/riscv/sifive/u74/firmware.json
-> @@ -36,7 +36,7 @@
->      "ArchStdEvent": "FW_SFENCE_VMA_RECEIVED"
->    },
->    {
-> -    "ArchStdEvent": "FW_SFENCE_VMA_RECEIVED"
-> +    "ArchStdEvent": "FW_SFENCE_VMA_ASID_SENT"
->    },
->    {
->      "ArchStdEvent": "FW_SFENCE_VMA_ASID_RECEIVED"
-> diff --git a/tools/perf/pmu-events/arch/riscv/starfive/dubhe-80/firmware.json b/tools/perf/pmu-events/arch/riscv/starfive/dubhe-80/firmware.json
-> index 9b4a032186a7..7149caec4f80 100644
-> --- a/tools/perf/pmu-events/arch/riscv/starfive/dubhe-80/firmware.json
-> +++ b/tools/perf/pmu-events/arch/riscv/starfive/dubhe-80/firmware.json
-> @@ -36,7 +36,7 @@
->      "ArchStdEvent": "FW_SFENCE_VMA_RECEIVED"
->    },
->    {
-> -    "ArchStdEvent": "FW_SFENCE_VMA_RECEIVED"
-> +    "ArchStdEvent": "FW_SFENCE_VMA_ASID_SENT"
->    },
->    {
->      "ArchStdEvent": "FW_SFENCE_VMA_ASID_RECEIVED"
-> diff --git a/tools/perf/pmu-events/arch/riscv/thead/c900-legacy/firmware.json b/tools/perf/pmu-events/arch/riscv/thead/c900-legacy/firmware.json
-> index 9b4a032186a7..7149caec4f80 100644
-> --- a/tools/perf/pmu-events/arch/riscv/thead/c900-legacy/firmware.json
-> +++ b/tools/perf/pmu-events/arch/riscv/thead/c900-legacy/firmware.json
-> @@ -36,7 +36,7 @@
->      "ArchStdEvent": "FW_SFENCE_VMA_RECEIVED"
->    },
->    {
-> -    "ArchStdEvent": "FW_SFENCE_VMA_RECEIVED"
-> +    "ArchStdEvent": "FW_SFENCE_VMA_ASID_SENT"
->    },
->    {
->      "ArchStdEvent": "FW_SFENCE_VMA_ASID_RECEIVED"
-> 
+Now that riscv supports optimized barriers, use them in the ring buffer.
 
-Reviewed-by: Atish Patra <atishp@rivosinc.com>
+Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+---
+ tools/include/linux/ring_buffer.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tools/include/linux/ring_buffer.h b/tools/include/linux/ring_buffer.h
+index 6c02617377c2..a74c397359c7 100644
+--- a/tools/include/linux/ring_buffer.h
++++ b/tools/include/linux/ring_buffer.h
+@@ -55,7 +55,7 @@ static inline u64 ring_buffer_read_head(struct perf_event_mmap_page *base)
+  * READ_ONCE() + smp_mb() pair.
+  */
+ #if defined(__x86_64__) || defined(__aarch64__) || defined(__powerpc64__) || \
+-    defined(__ia64__) || defined(__sparc__) && defined(__arch64__)
++    defined(__ia64__) || defined(__sparc__) && defined(__arch64__) || defined(__riscv)
+ 	return smp_load_acquire(&base->data_head);
+ #else
+ 	u64 head = READ_ONCE(base->data_head);
+
+-- 
+2.44.0
+
 
 _______________________________________________
 linux-riscv mailing list
