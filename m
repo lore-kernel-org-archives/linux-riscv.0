@@ -4,54 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD9FBC3DA61
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jul 2024 14:42:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C100C3DA4A
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jul 2024 15:04:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MVZk4w69LDz9n05FKDJco/bOq/mAqFdHqpQ6ilMkqU4=; b=Cb1+VBeYWriu9z
-	Esd75oBti+nAlIHmS8vvjtBeSpwwTHzcoGmeUdARvGy4y6glvTNJO1d3wkZe+79enDWzPAe7wtxbe
-	4nmwg8BoKBa8SNT5vSPP9fov5ybld79wrZE/B03W9Z2AfBcEgbVfi0jfUobmA01XeWCWwn2b4/gcS
-	bVb3qeEQCcgRNg5+oHVik4XDHDGh5RA7MvP7gztF6DEr6ZjfzJOuoVKdLSWExreI9dlAYx4y15yGs
-	OAwwiggiPbC57Q6KCedGljbeyPGRl2dSLYUfwfCo9fneMSOxHf9yqAmZRBdOnSiYDVJtuUoJFTN7R
-	qPWMVPP7WLFlwjHOEdyg==;
+	List-Owner; bh=OQjLGEaG99/31Roj9KMFfYYAoCy6UiqyZJw9rvkFBbY=; b=Vae5Q7BOFe8Hju
+	XY+Ka7hV4+PcCKeLxFy8v2I3RGAbv+xxVzIm/M1oaSDRP2eesSySyBZjHPsaYmcsme848YN7HGst2
+	pY61bgD1mp5sp9OWn41k27wF3vxlGDDFtuU33cJb/jhmdFkb6+coL8f+5fsPIewkK8/eJ8ehAKoWb
+	JWt2ypONYir0nalAwrp6XBELvnBZrK9smQ8CGA8pq83FwQtWq9mimx1+rEKdk4Zo5XbwAUjnlCH7f
+	llab9EgNICMBrMBxDYHuUbL7aoYYEv9Qh4qWsHu+f4NN45kRluf6GWC7NVnfcAJ6i8S3uh98fYITU
+	1a23LNTlkQtfXFvgKS7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYRZo-0000000Bh72-1Oiv;
-	Mon, 29 Jul 2024 14:42:16 +0000
-Received: from relay2-d.mail.gandi.net ([217.70.183.194])
+	id 1sYRuu-0000000Bnf7-2iBq;
+	Mon, 29 Jul 2024 15:04:04 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYRO6-0000000BbWf-1k1d;
-	Mon, 29 Jul 2024 14:30:13 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 3CFFD40007;
-	Mon, 29 Jul 2024 14:30:01 +0000 (UTC)
-Message-ID: <51043fe4-297b-4f2e-9e67-669ea53cf273@ghiti.fr>
-Date: Mon, 29 Jul 2024 16:30:00 +0200
+	id 1sYRsy-0000000Bmt6-051p
+	for linux-riscv@lists.infradead.org;
+	Mon, 29 Jul 2024 15:02:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4646B61A40;
+	Mon, 29 Jul 2024 15:02:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD8DCC4AF0A;
+	Mon, 29 Jul 2024 15:02:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1722265323;
+	bh=Z3oEEBdSHgN0bkthRPf/JvesgDNuaiaeKjStAc4mw50=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=o6iGGnrtRtgbzF+GVoKbEna+hIBbGBcUCsSMuF5McoWT/DJ4yBe2042p+ul1uG3RU
+	 2f/r7rAnOKSv4zOlkVZnI9FYajrktdEVoxTm5yr4sVZDJqeYVSu13jfrsFipQmCoJi
+	 B5t3OAqmCNnacxvx4bVTt4+WAxFMNmswFHbvFfBrGsuCMlf/ZI/phWU86Z3gPce3Ua
+	 GIC9K8NmupfdOLfEUI5DbZMNT8nDEWtMLTotRUJiwVDw8J3Qux0QySHGHGMG7AoVvI
+	 FhsiHc300H7YJEHW1hMpXL3Z467J3QKSAKRk3U4JxDU3ZLT7h/MD+PYuk9WxzTIHhd
+	 BejSYQcZDgP4A==
+Date: Mon, 29 Jul 2024 10:02:01 -0500
+From: Rob Herring <robh@kernel.org>
+To: Inochi Amaoto <inochiama@outlook.com>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Albert Ou <aou@eecs.berkeley.edu>, devicetree@vger.kernel.org,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	dmaengine@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+	Liu Gui <kenneth.liu@sophgo.com>, linux-riscv@lists.infradead.org,
+	Chen Wang <unicorn_wang@outlook.com>, Vinod Koul <vkoul@kernel.org>
+Subject: Re: [PATCH v8 RESEND 1/3] dt-bindings: dmaengine: Add dma
+ multiplexer for CV18XX/SG200X series SoC
+Message-ID: <20240729150201.GA334758-robh@kernel.org>
+References: <IA1PR20MB49535EC188F8EE3F8FD0B68DBBB72@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <IA1PR20MB4953865775FA926B2BA4580CBBB72@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <172223050278.2763977.11180028101195359000.robh@kernel.org>
+ <IA1PR20MB4953E3AEACAC85765AE9442BBBB72@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <2e4b504c-6413-42fc-a544-472d4cc1a06b@linaro.org>
+ <IA1PR20MB4953343445D88F046E1D28EFBBB72@IA1PR20MB4953.namprd20.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/6] riscv: Add Zawrs support for spinlocks
-Content-Language: en-US
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, conor.dooley@microchip.com, anup@brainfault.org,
- atishp@atishpatra.org, robh@kernel.org, krzysztof.kozlowski+dt@linaro.org,
- conor+dt@kernel.org, christoph.muellner@vrull.eu, heiko@sntech.de,
- charlie@rivosinc.com, David.Laight@aculab.com, parri.andrea@gmail.com,
- luxu.kernel@bytedance.com
-References: <20240426100820.14762-8-ajones@ventanamicro.com>
- <20240426100820.14762-11-ajones@ventanamicro.com>
- <4de22b20-8a6a-47d0-a4e9-74343c45411c@ghiti.fr>
- <20240729-b6707d037c0546c2c2f8da25@orel>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20240729-b6707d037c0546c2c2f8da25@orel>
-X-GND-Sasl: alex@ghiti.fr
+Content-Disposition: inline
+In-Reply-To: <IA1PR20MB4953343445D88F046E1D28EFBBB72@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240729_073010_663007_9891BED7 
-X-CRM114-Status: GOOD (  11.57  )
+X-CRM114-CacheID: sfid-20240729_080204_217350_DF1F7BD2 
+X-CRM114-Status: GOOD (  21.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,83 +80,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 29/07/2024 16:01, Andrew Jones wrote:
-> On Mon, Jul 29, 2024 at 03:43:30PM GMT, Alexandre Ghiti wrote:
-> ...
->>> +static __always_inline void __cmpwait(volatile void *ptr,
->>> +				      unsigned long val,
->>> +				      int size)
->>> +{
->>> +	unsigned long tmp;
->>> +
->>> +	asm goto(ALTERNATIVE("j %l[no_zawrs]", "nop",
->>> +			     0, RISCV_ISA_EXT_ZAWRS, 1)
->>> +		 : : : : no_zawrs);
->>> +
->>> +	switch (size) {
->>> +	case 4:
->>> +		asm volatile(
->>> +		"	lr.w	%0, %1\n"
->>> +		"	xor	%0, %0, %2\n"
->>> +		"	bnez	%0, 1f\n"
->>> +			ZAWRS_WRS_NTO "\n"
->>> +		"1:"
->>> +		: "=&r" (tmp), "+A" (*(u32 *)ptr)
->>> +		: "r" (val));
->>> +		break;
->>> +#if __riscv_xlen == 64
->>> +	case 8:
->>> +		asm volatile(
->>> +		"	lr.d	%0, %1\n"
->>> +		"	xor	%0, %0, %2\n"
->>> +		"	bnez	%0, 1f\n"
->>> +			ZAWRS_WRS_NTO "\n"
->>> +		"1:"
->>> +		: "=&r" (tmp), "+A" (*(u64 *)ptr)
->>> +		: "r" (val));
->>> +		break;
->>> +#endif
->>> +	default:
->>> +		BUILD_BUG();
->>> +	}
->>> +
->>> +	return;
->>> +
->>> +no_zawrs:
->>> +	asm volatile(RISCV_PAUSE : : : "memory");
->>
->> Shouldn't we fallback to the previous implementation (cpu_relax()) here? Not
->> sure this is really important, but I want to make sure it was not an
->> oversight.
->>
-> Hi Alex,
->
-> It was intentional. We can't easily call cpu_relax() from here because
-> asm/vdso/processor.h includes asm/barrier.h which includes asm/cmpxchg.h.
-> We've mostly reproduced cpu_relax() here since we're only skipping the
-> div, and, as __cmpwait will be used in loops which load memory for the
-> comparison, I didn't think we needed the extra div stalls.
+On Mon, Jul 29, 2024 at 08:28:09PM +0800, Inochi Amaoto wrote:
+> On Mon, Jul 29, 2024 at 11:30:20AM GMT, Krzysztof Kozlowski wrote:
+> > On 29/07/2024 09:00, Inochi Amaoto wrote:
+> > >> yamllint warnings/errors:
+> > >>
+> > >> dtschema/dtc warnings/errors:
+> > >> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.example.dtb: dma-router@154: dma-masters: 4294967295 is not of type 'array'
+> > >> 	from schema $id: http://devicetree.org/schemas/dma/sophgo,cv1800-dmamux.yaml#
+> > >> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.example.dtb: dma-router@154: dma-masters: 4294967295 is not of type 'array'
+> > >> 	from schema $id: http://devicetree.org/schemas/dma/sophgo,cv1800-dmamux.yaml#
+> > >> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.example.dtb: dma-router@154: dma-masters: 4294967295 is not of type 'array'
+> > >> 	from schema $id: http://devicetree.org/schemas/dma/dma-router.yaml#
+> > >> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.example.dtb: dma-router@154: dma-masters: 4294967295 is not of type 'array'
+> > >> 	from schema $id: http://devicetree.org/schemas/dma/dma-router.yaml#
+> > >>
+> > > 
+> > > Hi Rob,
+> > > 
+> > > Could you share some suggestions? I can not reproduce this error with
+> > > latest dtschema. I think this is more like a misreporting.
+> > 
+> > You would need dtschema from the master branch, so newer than 2024.05.
+> > 
+> > Best regards,
+> > Krzysztof
+> > 
+> 
+> Is it a must for the type array to have more than 1 element?
+> I have tested the value "<&dmac 0>" and "<&dmac>, <&dmac>".
+> Both pass the check (These value are just for test, not the
+> real hardware).
+> 
+> Setting dma-masters to type "phandle" also has no change. 
+> It do not accept the value "<&dmac>", Is there any suggestion
+> for this? Thanks in advance.
+
+The issue is 'dma-masters' is also defined as a uint32 in the Spear 
+binding. Types aren't local to a binding, so when there's a 4 byte 
+value, is that a phandle or plain uint32? I'm working on a fix in 
+dtschema for this. It should be committed shortly.
 
 
-Ok thanks for your quick answer. Actually I'm asking because I fell onto 
-the issue with the headers and I managed to fix it by replacing 
-asm/barrier.h with linux/compiler.h, which is actually where is defined 
-barrier().
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
-But anyway, it makes sense.
-
-Thanks,
-
-Alex
-
-
-> Thanks,
-> drew
+Rob
 
 _______________________________________________
 linux-riscv mailing list
