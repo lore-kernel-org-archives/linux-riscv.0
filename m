@@ -4,66 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EEC3C3DA61
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jul 2024 05:21:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69001C3DA61
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jul 2024 06:17:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
-	In-Reply-To:Cc:To:From:MIME-Version:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=RjOQFnHAnu9JLs/0sZsJxlBv8O9h/Umhiah1rG6yNgk=; b=dBNpKeeKQPOOAsDb8zEL89y5fZ
-	01C2HwF/d+cgUdPtoTSYV8AbSiUpZ5TuGaYEZjkQ1v2NE4LJPSsTy+ira/onZUI/j1PkOQWwPZh3V
-	JocvyxdZYt5CX/xePlOHsQIXCMW8uhoROl572An8qOJbs4koYZqYy6rI1a2d3uRgxW0bFHio0A+Zb
-	EOSEtLtOh2/3YyNfS105+pJXbwn/bkc7Zu02eoHTxW54bIrljxSkn+v/FCxP7dCKJanWBKAK6BN8P
-	hsqXW6StWwH/lW2xHKFSeEjaCTdwcVnQ4F/Hd175jnJe0GuZbxr+SE49d2TMbQNAnaFjGFYCHQzKd
-	4uyJ+ETg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=NNpEciao8cO8cuggZ0xm5IFMt1GiGcjW2VxhDL83vFA=; b=Fe4JJhbBVvbuya
+	kLiU0d8pb/RqlMOBdKzhe7RILSLwoo/cPfYAbgYgj9dJ8d0ET8TxL4a0UPgRHdYVX8USWBb3l8HBX
+	aeuzLzUB2fdyMLUWpn3ql5pT9yUF1yyRWyxb6KDs+g4nWelsktmiVejIsQDnlebbn9uEtOkz+1Gwx
+	foFuUkXxpfaR46sbOE2e4NlsfeNoH/X714cOY9maSYWiRvqKCZMF5+Lv2OZXZvnbcMXg9+/TBFdqs
+	gMr24En9BzvDZzPMzSBgO/AdTBQd+uyrq3GPrVOlCDnLAz+aRfu0347dLCbgH2DV6Z6JRFudXks5o
+	LOE5CgXrWfSsDOXl9GqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYIpS-0000000A2Mc-49O1;
-	Mon, 29 Jul 2024 05:21:50 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
-	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYIpP-0000000A2M5-39UL
-	for linux-riscv@lists.infradead.org;
-	Mon, 29 Jul 2024 05:21:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 84847CE016A;
-	Mon, 29 Jul 2024 05:21:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07B1EC32786;
-	Mon, 29 Jul 2024 05:21:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1722230504;
-	bh=KruHvoHH42zwDU1xGJ3PkJoXwnikfd0WtTHCdlVyxtM=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=cXRsqslYpi8b2/pM30oSUMlqF+vLezHFJPViUlcz/TYJ0YmJSAOoKWYGEKYOQ5/Te
-	 nzaZ1t9jRXAcaNTDI2ld0oDP/Jl5juLPDIvluplad0WCiL4Ajhxte63YLpMqx/lWoa
-	 tfOLUFfqs2+nEpPpGX5lF6cUpaMTC1DfuPu8bJC/pT4pkDhmjQ7KXhiCQ2MIQ606OS
-	 mSWy3n0jENFeJJrrn+mhagS7LNx+cuKonx0U+VR8vTFduO2dp7M26R12SMTq4ok2Fv
-	 mib9WriSAVJWyI+k/JpUNTTMhH+R5HHvXjA425eEa7TbTRJelZdjCxtnQLRZVo60oZ
-	 9Mzc+wWcxdRWw==
-Date: Mon, 29 Jul 2024 00:21:42 -0500
+	id 1sYJha-0000000A8Dy-1PhK;
+	Mon, 29 Jul 2024 06:17:46 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1sYJh2-0000000A86C-1sxY;
+	Mon, 29 Jul 2024 06:17:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6E994FEC;
+	Sun, 28 Jul 2024 23:17:35 -0700 (PDT)
+Received: from [10.162.41.10] (a077893.blr.arm.com [10.162.41.10])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B2F7C3F64C;
+	Sun, 28 Jul 2024 23:17:03 -0700 (PDT)
+Message-ID: <34d81bcd-072b-4299-8791-f97a27872b55@arm.com>
+Date: Mon, 29 Jul 2024 11:46:59 +0530
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Inochi Amaoto <inochiama@outlook.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, devicetree@vger.kernel.org, 
- Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
- dmaengine@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
- Liu Gui <kenneth.liu@sophgo.com>, linux-riscv@lists.infradead.org, 
- Chen Wang <unicorn_wang@outlook.com>, Vinod Koul <vkoul@kernel.org>
-In-Reply-To: <IA1PR20MB4953865775FA926B2BA4580CBBB72@IA1PR20MB4953.namprd20.prod.outlook.com>
-References: <IA1PR20MB49535EC188F8EE3F8FD0B68DBBB72@IA1PR20MB4953.namprd20.prod.outlook.com>
- <IA1PR20MB4953865775FA926B2BA4580CBBB72@IA1PR20MB4953.namprd20.prod.outlook.com>
-Message-Id: <172223050278.2763977.11180028101195359000.robh@kernel.org>
-Subject: Re: [PATCH v8 RESEND 1/3] dt-bindings: dmaengine: Add dma
- multiplexer for CV18XX/SG200X series SoC
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ACPI: NUMA: initialize all values of acpi_early_node_map
+ to NUMA_NO_NODE
+To: Haibo Xu <haibo1.xu@intel.com>, sunilvl@ventanamicro.com
+Cc: xiaobo55x@gmail.com, ajones@ventanamicro.com,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Jonathan Cameron <Jonathan.Cameron@huawei.com>, Gavin Shan
+ <gshan@redhat.com>, "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ James Morse <james.morse@arm.com>, Hanjun Guo <guohanjun@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <20240729035958.1957185-1-haibo1.xu@intel.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20240729035958.1957185-1-haibo1.xu@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240728_222148_171491_0613B7F9 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20240728_231712_571816_A408FA1D 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,56 +72,48 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 29 Jul 2024 12:36:51 +0800, Inochi Amaoto wrote:
-> The DMA IP of Sophgo CV18XX/SG200X is based on a DW AXI CORE, with
-> an additional channel remap register located in the top system control
-> area. The DMA channel is exclusive to each core.
+
+On 7/29/24 09:29, Haibo Xu wrote:
+> Currently, only acpi_early_node_map[0] was initialized to NUMA_NO_NODE.
+> To ensure all the values were properly initialized, switch to initialize
+> all of them to NUMA_NO_NODE.
 > 
-> In addition, the DMA multiplexer is a subdevice of system controller,
-> so this binding only contains necessary properties for the multiplexer
-> itself.
-> 
-> Add the dmamux binding for CV18XX/SG200X series SoC.
-> 
-> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Suggested-by: Andrew Jones <ajones@ventanamicro.com>
+> Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
+
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com> (arm64 platform)
+
 > ---
->  .../bindings/dma/sophgo,cv1800-dmamux.yaml    | 51 +++++++++++++++++++
->  1 file changed, 51 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.yaml
+>  arch/arm64/kernel/acpi_numa.c | 2 +-
+>  arch/riscv/kernel/acpi_numa.c | 2 +-
+>  2 files changed, 2 insertions(+), 2 deletions(-)
 > 
-
-My bot found errors running 'make dt_binding_check' on your patch:
-
-yamllint warnings/errors:
-
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.example.dtb: dma-router@154: dma-masters: 4294967295 is not of type 'array'
-	from schema $id: http://devicetree.org/schemas/dma/sophgo,cv1800-dmamux.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.example.dtb: dma-router@154: dma-masters: 4294967295 is not of type 'array'
-	from schema $id: http://devicetree.org/schemas/dma/sophgo,cv1800-dmamux.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.example.dtb: dma-router@154: dma-masters: 4294967295 is not of type 'array'
-	from schema $id: http://devicetree.org/schemas/dma/dma-router.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.example.dtb: dma-router@154: dma-masters: 4294967295 is not of type 'array'
-	from schema $id: http://devicetree.org/schemas/dma/dma-router.yaml#
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/IA1PR20MB4953865775FA926B2BA4580CBBB72@IA1PR20MB4953.namprd20.prod.outlook.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+> diff --git a/arch/arm64/kernel/acpi_numa.c b/arch/arm64/kernel/acpi_numa.c
+> index 0c036a9a3c33..2465f291c7e1 100644
+> --- a/arch/arm64/kernel/acpi_numa.c
+> +++ b/arch/arm64/kernel/acpi_numa.c
+> @@ -27,7 +27,7 @@
+>  
+>  #include <asm/numa.h>
+>  
+> -static int acpi_early_node_map[NR_CPUS] __initdata = { NUMA_NO_NODE };
+> +static int acpi_early_node_map[NR_CPUS] __initdata = { [0 ... NR_CPUS - 1] = NUMA_NO_NODE };
+>  
+>  int __init acpi_numa_get_nid(unsigned int cpu)
+>  {
+> diff --git a/arch/riscv/kernel/acpi_numa.c b/arch/riscv/kernel/acpi_numa.c
+> index 0231482d6946..ff95aeebee3e 100644
+> --- a/arch/riscv/kernel/acpi_numa.c
+> +++ b/arch/riscv/kernel/acpi_numa.c
+> @@ -28,7 +28,7 @@
+>  
+>  #include <asm/numa.h>
+>  
+> -static int acpi_early_node_map[NR_CPUS] __initdata = { NUMA_NO_NODE };
+> +static int acpi_early_node_map[NR_CPUS] __initdata = { [0 ... NR_CPUS - 1] = NUMA_NO_NODE };
+>  
+>  int __init acpi_numa_get_nid(unsigned int cpu)
+>  {
 
 _______________________________________________
 linux-riscv mailing list
