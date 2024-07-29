@@ -4,70 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65130C3DA4A
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jul 2024 16:40:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5107DC3DA7F
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jul 2024 16:40:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=o+HFE9T7KZGq2x/BouuOza06HUsLCnw/0CMR2+Vg3I0=; b=WdBu72kCiM2KtI
-	sjnVT3t8Cp47lASl9rmGco13FlwjdJLUF5LrBPBnjGZWK0ZOMhj/krYY1J2C4foWp7xZXaGtXUbRB
-	W5NvvUoeJYn3s7jPZvoKL1C/O5972W1mRYKybXJOEYtAF8R8y36yHFGrctebLxy01Gt2bzO92YFyM
-	Thcw2qjEdKClREM0g2Pfu7jZMShIjbeGVty76Vkt8RtXo/hJB1KbLL0YNJhd17r8YsG6T131xDtzk
-	RKKCHi4KPNhEvhnu/rNWAZSwAkkPQgEZdyf9IVhBUbqYb3CQg+RF322czoV2JjEcxGxiGdpSEfXwe
-	uCBY9NXsvfSY2b37iq9w==;
+	List-Owner; bh=xd0GjHkwTtcN3A2fu0nOyCf9at+1Ygac2tK4fOzzPMg=; b=4+GV5M5XRTl8Ue
+	dFYYXEGlz9efGQsMC/oCtmzo7uNvKiuq/YXKPxgNkxlyLhyP35haJK3sjUFIX3q9MgnTXwl9CDGbS
+	HD0m6vj43/0Gl5SWa9XJecQza66v6PZz8kyPVNTl06seyRLXt3/xc/bQ9CWeR0Euvj5Lfr8NT9hbf
+	+W8mF9oEgmaY+PExtJH/NllCQ7E/olRFDmU7N1+vUyj4piTsqIJwU3TB8eFKGxxDGsSeEBUCK3FAW
+	Ztp1VdYSID6ABTSpooiWg9Val2emf+Qhad04IKChRlbcpWzR5+px0TCGO5F9zDoDOyV9vLpn1kE3+
+	JFyvW/aZmjbvl3DQERig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYTQM-0000000C551-05iE;
+	id 1sYTQM-0000000C55Z-3n2z;
 	Mon, 29 Jul 2024 16:40:38 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYTPR-0000000C4ho-0bL6;
-	Mon, 29 Jul 2024 16:39:43 +0000
+	id 1sYTPS-0000000C4i3-1pWR
+	for linux-riscv@lists.infradead.org;
+	Mon, 29 Jul 2024 16:39:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3915361B45;
+	by sin.source.kernel.org (Postfix) with ESMTP id A3A25CE0E0D;
 	Mon, 29 Jul 2024 16:39:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D5937C4AF0C;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E2731C4AF0A;
 	Mon, 29 Jul 2024 16:39:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1722271179;
-	bh=ACOFD4CnvNQvgxH3c3fJIkYLBWpRIGrdoWdi94w0LGY=;
+	bh=tV0WP6zuukv/K7rpCEKp9CjVyvve7l3T8OQ4RSahhJA=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=MxGffYremrlYV7IoL+PFdzTVghbhUmYE24NoiOXwot130hJR092fMDPljyjOFHVdc
-	 BwOk8pSOjwwKbEdqNqxYUxpql4UoUKiFJ2lsCDqaei8fiv2nLmq0phzDybvS4Ruc8d
-	 z/XfJg+CKgAclYeW7CbbQLEE7gLL/hM0xFPcU/zrpTnoN8mAo4/WHGmlPe/dDySyr4
-	 +P5sQueNRxv+PdBs1m2FMKXNsYAKLBJPpcrqn+AXFKcM9NOrWmX7bCZDnXiuc8wZZk
-	 cgjYyQYbzjQhie1m/6w7FgPL23bO3WKyoer9qNey5Cb3pqkqUfzFfvK9OYAA6SDF3G
-	 K/Q0xuxSAzaPQ==
+	b=WCzN9v2gTw/VXhcnzDeDSTwz3IOxts6+aG/u1k3IUN8HNNTS6E3qdvgkUB/vjLb2V
+	 wWGyJk/Im5VCJ/TfiAnj+rQ4oIXTVoUAggkZdUCLJW15u2uzcEvzRpX4ng97U59mMO
+	 mJ0llnZYgLLOXoQQrNFPe+CaAIZZRgw6ZRXoCXsYfP3Xrajf+uUlhxG3/b9yUSXApm
+	 qbDRNCExeu74cYZvak5zlSR3Tcish5YKTDh9kMUT2A5ldLGrtkmv6w3Dgief//IO9X
+	 GZxkEbHXTSJRulnR7M7gzmMXnfurpbMDoWMWXisooaga9+qr+Jjxa0O/Q7nsyRRxr0
+	 jflGvgmgnphrQ==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id BBA0BC43613;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id CB457C43443;
 	Mon, 29 Jul 2024 16:39:39 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [GIT PULL] sysctl constification changes for v6.11-rc1
+Subject: Re: [PATCH] riscv: Remove unnecessary int cast in variable_fls()
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <172227117976.3603.14526183264046270376.git-patchwork-notify@kernel.org>
+Message-Id: <172227117982.3603.14088911643823119013.git-patchwork-notify@kernel.org>
 Date: Mon, 29 Jul 2024 16:39:39 +0000
-References: <20240724210014.mc6nima6cekgiukx@joelS2.panther.com>
-In-Reply-To: <20240724210014.mc6nima6cekgiukx@joelS2.panther.com>
-To: Joel Granados <j.granados@samsung.com>
-Cc: linux-riscv@lists.infradead.org, torvalds@linux-foundation.org,
- linux@weissschuh.net, mcgrof@kernel.org, kees@kernel.org, kuba@kernel.org,
- david@fromorbit.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, netdev@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, linux-xfs@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
- linux-security-module@vger.kernel.org, netfilter-devel@vger.kernel.org,
- coreteam@netfilter.org, bpf@vger.kernel.org, kexec@lists.infradead.org,
- linux-hardening@vger.kernel.org, bridge@lists.linux.dev,
- mptcp@lists.linux.dev, lvs-devel@vger.kernel.org, linux-rdma@vger.kernel.org,
- rds-devel@oss.oracle.com, linux-sctp@vger.kernel.org,
- linux-nfs@vger.kernel.org, apparmor@lists.ubuntu.com
+References: <20240710202416.710880-3-thorsten.blum@toblux.com>
+In-Reply-To: <20240710202416.710880-3-thorsten.blum@toblux.com>
+To: Thorsten Blum <thorsten.blum@toblux.com>
+Cc: linux-riscv@lists.infradead.org, yury.norov@gmail.com,
+ linux@rasmusvillemoes.dk, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240729_093941_261720_CAD3514F 
-X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-CacheID: sfid-20240729_093942_795782_703AC979 
+X-CRM114-Status: UNSURE (   8.55  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,26 +78,21 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This pull request was applied to riscv/linux.git (fixes)
-by Linus Torvalds <torvalds@linux-foundation.org>:
+This patch was applied to riscv/linux.git (fixes)
+by Yury Norov <yury.norov@gmail.com>:
 
-On Wed, 24 Jul 2024 23:00:14 +0200 you wrote:
-> Linus
+On Wed, 10 Jul 2024 22:24:18 +0200 you wrote:
+> __builtin_clz() returns an int and casting the whole expression to int
+> is unnecessary. Remove it.
 > 
-> Constifying ctl_table structs will prevent the modification of
-> proc_handler function pointers as they would reside in .rodata. To get
-> there, the proc_handler arguments must first be const qualified which
-> requires this (fairly large) treewide PR. Sending it in the tail end of
-> of the merge window after a suggestion from Kees to avoid unneeded merge
-> conflicts. It has been rebased on top of 7a3fad30fd8b4b5e370906b3c554f64026f56c2f.
-> I can send it later if it makes more sense on your side; please tell me
-> what you prefer.
-> 
-> [...]
+> Signed-off-by: Thorsten Blum <thorsten.blum@toblux.com>
+> ---
+>  arch/riscv/include/asm/bitops.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 
 Here is the summary with links:
-  - [GIT,PULL] sysctl constification changes for v6.11-rc1
-    https://git.kernel.org/riscv/c/f8a8b94d0698
+  - riscv: Remove unnecessary int cast in variable_fls()
+    https://git.kernel.org/riscv/c/fb9086e95ad8
 
 You are awesome, thank you!
 -- 
