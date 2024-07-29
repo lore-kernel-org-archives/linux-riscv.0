@@ -4,73 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE947C3DA61
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jul 2024 11:15:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56FB4C3DA61
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jul 2024 11:29:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Nf1ipNTKcTMbelWYZ+qNHEvltlNI3BXWnArY3rd7DfU=; b=xYM+u7FvHDbzoc
-	rco4myensgKoGhh2I3U+0tYv6LDJAWtQ7CM0t+eDgxoOwbMV8tsRJlxYdx0ezrNUwHkpeY2NTJ0NV
-	doZU2ww+FJ3ESQPPVvHz3qkWLWMmMRXc9fKMVK/r2Rl2tEPMwN0QjoH4l5VYzXnK5qy+kKPkjq0OS
-	YhKqoC8/OYRFGTg1iUkq6WTtbxQEDMKaQBlhNJP52dJnq82NCdiqNVZkYBqsQrwOKkA7SmUPbTZrV
-	YL03wJYO1T7/mPW0Pvb4ss3npHEAke5KUeqLMqyRWhaYJUFmqrq110hnCx6wTIOZAy2FHFs8WNyM6
-	yvnKW/V+TKGel57n/gsg==;
+	List-Owner; bh=L9i9Azi4IK4AIR9LIWpzsHd//jsucIV+G9U1mQ2h0ag=; b=pt9f4hKxFuDEJr
+	h7ZXX1KKZPVhvaR0RAhtfccZ5l49QZZCB8inRq/ZzpJBvXNDDCDwyed2IbRTe5InKrgFgTcEswYI9
+	h3GWcH5Fm70TOMjQC3jI8pbOFa/aeLkeN7K9+a95IZ0DjtofAssIAB3M5xVPRykNdBpZmGtkgwA8Y
+	rBdv2SbZfFZ7uRTtQqyKsTbwDyQXDp1YhkMwMGJ9xaZtH3mj6my8lFo2MNOfO+IkvdArx+eTlMPvT
+	7qqO777vi5tvp9d2lrqQCvuCdVjkvBggCQWyj5tRdxbLebU3h8j6q2ekh8idklZfCRDOkOpcqBYpU
+	90ip38NrHyzEugbVsL/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYOLn-0000000B1BF-1Jmp;
-	Mon, 29 Jul 2024 11:15:35 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1sYOZE-0000000B45p-1w5s;
+	Mon, 29 Jul 2024 11:29:28 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYOLM-0000000B16w-1sFY;
-	Mon, 29 Jul 2024 11:15:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=hd5f5qnrIZWu7RKgPSX6OOXWMRFjvTGBPlhsF7CF4xU=; b=wpXzLqRcHVgMqa9bTFgUs+s9fo
-	7qTLLtiRecHWm4Q3FIDpErkilaSQ6qIfST1F5JYodi1CB6YiQrw3d03v6BBWdy7ukm0jFeo3tv+3o
-	IPTRcOUOn4zX3jbvbdOYVdNaDDVO4teviZP3Z46RWFCOek+yqL/vIAX4BwRw+TmcGh79WKiEKPVQV
-	asqUZxffJEzLCoW/cR55Y67yWvIewlPTS0H7AXwSfFiiF+YtsRa1gi6rs4BBh/GC3Pd4P//T8RiW7
-	JTdhCTpHJYi11CU2qXHdLYkkCBGPT+BeZvXN4iwPWy0TAC2bdgbbN0h7KneO6ukura2PYjQQpcPfX
-	/sNczz2A==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:60836)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1sYOKe-00040L-2h;
-	Mon, 29 Jul 2024 12:14:25 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1sYOKc-0004H1-VH; Mon, 29 Jul 2024 12:14:22 +0100
-Date: Mon, 29 Jul 2024 12:14:22 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, hpa@zytor.com, arnd@arndb.de,
-	gregkh@linuxfoundation.org, deller@gmx.de, javierm@redhat.com,
-	bhe@redhat.com, robh@kernel.org, alexghiti@rivosinc.com,
-	bjorn@rivosinc.com, akpm@linux-foundation.org, namcao@linutronix.de,
-	dawei.li@shingroup.cn, chenjiahao16@huawei.com, rppt@kernel.org,
-	julian.stecklina@cyberus-technology.de, rafael.j.wysocki@intel.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 2/3] ARM: Fix crash memory reserve exceed system
- memory bug
-Message-ID: <Zqd5joQ/hB8wfebg@shell.armlinux.org.uk>
-References: <20240722035701.696874-1-ruanjinjie@huawei.com>
- <20240722035701.696874-3-ruanjinjie@huawei.com>
+	id 1sYOYn-0000000B3uU-2esJ;
+	Mon, 29 Jul 2024 11:29:03 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.254])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4WXbgv5hxKznbLP;
+	Mon, 29 Jul 2024 19:27:55 +0800 (CST)
+Received: from kwepemi100008.china.huawei.com (unknown [7.221.188.57])
+	by mail.maildlp.com (Postfix) with ESMTPS id 3CF461800D0;
+	Mon, 29 Jul 2024 19:28:52 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ kwepemi100008.china.huawei.com (7.221.188.57) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.39; Mon, 29 Jul 2024 19:28:51 +0800
+Message-ID: <96aae430-1bbf-1274-d6d1-262e93b5fe7d@huawei.com>
+Date: Mon, 29 Jul 2024 19:28:50 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240722035701.696874-3-ruanjinjie@huawei.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.0
+Subject: Re: [PATCH v5] crash: Fix crash memory reserve exceed system memory
+ bug
+Content-Language: en-US
+To: Baoquan He <bhe@redhat.com>
+CC: <akpm@linux-foundation.org>, <vgoyal@redhat.com>, <dyoung@redhat.com>,
+	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<rppt@kernel.org>, <kexec@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>
+References: <20240723020746.3945016-1-ruanjinjie@huawei.com>
+ <Zp8859QW+YV1KqQ9@MiWiFi-R3L-srv>
+ <564e362d-5e8c-5d23-9c54-bfb811794169@huawei.com>
+ <ZqcMqsMo8SYVv4Tl@MiWiFi-R3L-srv>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <ZqcMqsMo8SYVv4Tl@MiWiFi-R3L-srv>
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ kwepemi100008.china.huawei.com (7.221.188.57)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240729_041508_511530_BA6495D8 
-X-CRM114-Status: GOOD (  12.24  )
+X-CRM114-CacheID: sfid-20240729_042901_879683_0F74FD3C 
+X-CRM114-Status: UNSURE (   7.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,31 +79,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 22, 2024 at 11:57:00AM +0800, Jinjie Ruan wrote:
-> Similar with x86_32, on Qemu vexpress-a9 with 1GB memory, the crash kernel
-> "crashkernel=4G" is ok as below:
-> 	Reserving 4096MB of memory at 2432MB for crashkernel (System RAM: 1024MB)
-> 
-> The cause is that the crash_size is parsed and printed with "unsigned long
-> long" data type which is 8 bytes but allocated used with "phys_addr_t"
-> which is 4 bytes in memblock_phys_alloc_range().
-> 
-> Fix it by checking if the crash_size is greater than system RAM size and
-> warn out as parse_crashkernel_mem() do it if so as Baoquan suggested.
-> 
-> After this patch, it fails and there is no above confusing reserve
-> success info.
-> 
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> Suggested-by: Baoquan He <bhe@redhat.com>
 
-Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-Thanks!
+On 2024/7/29 11:29, Baoquan He wrote:
+> On 07/29/24 at 11:24am, Jinjie Ruan wrote:
+>>
+>>
+>> On 2024/7/23 13:17, Baoquan He wrote:
+>>> On 07/23/24 at 10:07am, Jinjie Ruan wrote:
+>>>> On x86_32 Qemu machine with 1GB memory, the cmdline "crashkernel=4G" is ok
+>>>> as below:
+>>>> 	crashkernel reserved: 0x0000000020000000 - 0x0000000120000000 (4096 MB)
+>>>>
+>>>> It's similar on other architectures, such as ARM32 and RISCV32.
+>>>>
+>>>> The cause is that the crash_size is parsed and printed with "unsigned long
+>>>> long" data type which is 8 bytes but allocated used with "phys_addr_t"
+>>>> which is 4 bytes in memblock_phys_alloc_range().
+>>>>
+>>>> Fix it by checking if crash_size is greater than system RAM size and
+>>>> return error if so.
+>>>>
+>>>> After this patch, there is no above confusing reserve success info.
+>>>>
+>>>> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+>>>> Suggested-by: Baoquan He <bhe@redhat.com>
+>>>> Suggested-by: Mike Rapoport <rppt@kernel.org>
+>>>
+>>>
+>>> My Suggested-by can be taken off because I suggested to check the parsed
+>>> value after parse_crashkernel(), Mike's suggestion is better.
+>>
+>> Hi, Can the suggested-by be removed when this version is merged, or a
+>> new version needs to be sent?
+> 
+> You can send a new one and CC Andrew.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Thank you!
+
+> 
+> 
 
 _______________________________________________
 linux-riscv mailing list
