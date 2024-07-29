@@ -4,90 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41D96C3DA4A
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jul 2024 06:28:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 927A5C3DA61
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jul 2024 07:00:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=trNS5wEVCFEtqdyhWUOuQNeizh0BnyyYpIF23mIHLBw=; b=Q3iAsy8htuR4ZH
-	cwMNhiFK4UV5s00fefancG5sZa99A+m/fTN0jOlSQwrQTVyk8Nl2O4zsCJNcfOsI1yhWf/c5I4WU+
-	KxP/rwDHasJgkw6e6h5EgE0L0/axUlnNOgI3r6SbyXh/bVSj6KMD6pWQF9l+lqxDkA7/hUdwoaV4j
-	JLDi1xiofWLXlkbrdoueSsD5cpH9vKjnUW5LQMu31wAvoA0gvHzkdv58Gky5oOVjplh3rWgBz9M/M
-	NVD1u4oeiB09v/lOe5XAZXVeItvnssC2uQEfvBmy60Pispxzl3RAOuVywk+3TRUlCgNXteaIBXx2C
-	2Su0PEJNxPB9027Q7lpw==;
+	List-Owner; bh=PusWVyfc3qpsPAWKXyY9a2mQeJb/8sQe8oHgS4oM5nI=; b=elC1lrPKUTP96G
+	/mBCFRz0juhOEFV8w6xGB/03x9Y1BJMfPvNoogKjykJmkD0qR6r1X3PisPRqDA0iFr3L7K7cFGOWI
+	EbhOTJqIZr3UqQeEh0He21GDykAhPzZJDKmVPNw5hSXubeZuOggQR1pYBH8by6v7muRBnF/+GyQV3
+	h2LYJZaafjUlPZ7MxwmLe7VkTJfLla3eMY44y7Nj3sFrOFqDZVmhiGZWQkdNv/OWyjfEC1Vnw9LkX
+	ewPBttBip1WXq+RBd5073BcU9Lec9EqHs2hk6/0Lg/DT38gWRag5Guu69XuVJoknc3fsIaL5dmD8O
+	XyTEemSqVACIK2hd2bWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYJsA-0000000AAED-2WyK;
-	Mon, 29 Jul 2024 06:28:42 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1sYKN9-0000000AELN-0ggh;
+	Mon, 29 Jul 2024 07:00:43 +0000
+Received: from mail-dm6nam12olkn20801.outbound.protection.outlook.com ([2a01:111:f403:2c17::801] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYJrs-0000000AA5p-3HWH
+	id 1sYKN5-0000000AEJl-0Pzw
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Jul 2024 06:28:41 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-70ede9df528so581766b3a.2
-        for <linux-riscv@lists.infradead.org>; Sun, 28 Jul 2024 23:28:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1722234503; x=1722839303; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=9LhZsel+ZXOFBLouKmnPn+e0gC2RjgaR8JO/hzKLRAg=;
-        b=jDohomnwtaxYwCezln31Kwl99AtA4uaq09D+SwlLsqsBDOMBmz7i1brO+0z6q7sW2H
-         p85H9mN/9OCv498/j1s3iEuiy1C0nyv0EOiqkEvhKYIoQfoMZRZM/kFcK0OqT2C03vGA
-         52/P7YkBNwTHbZeE65lu0WI75oO0DQgac5eGLLaKwePObQW8Omn4iGGo3+iRufGn16hZ
-         c1ojw3dxtQpnmqsbSI5D3e5HZ1NYzA0DpCX1uwWhhI/XOgtIhQHeRMa75CkxTffV/DGW
-         nIDBGMZHbEZ/wCtw/ZClcHDTAgW7SlYWO4QYFSQmSe/otC0TaXGeZIFM45Xgn7quE8Ta
-         Cl8Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722234503; x=1722839303;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9LhZsel+ZXOFBLouKmnPn+e0gC2RjgaR8JO/hzKLRAg=;
-        b=nMisuVaozVIIR2RgyRTL1Nq8/pOzmNGrG8aLXAkG3ITNbAKHYQ8HllXguEFM5tp8zq
-         yBaL9ieKQlY+vSRXWBcsPs4MsQgnWI8nrDpYljdNkvPM5EbpDVNSDy5eKBenY5WdHbOL
-         tTnenInPJG63w5RfMBPPgs6ulE6K5KDEXDMJylFYfTgIrzWmy+K2zqtqjV19DJEClDf2
-         Y74V1+t7foNxw434yFNZiku1hWbTBbVUxqkYmmj2RA/kovF6owT0B4mJhp6UCTcd5PR2
-         J8XTHJ5UCGGYZnnDBG8LZn95V/rUaRQCHwi+bj4pIpcUCNnCeaJ69zgGELW0S5YY9YR1
-         Kstw==
-X-Forwarded-Encrypted: i=1; AJvYcCWVe6OSjCDanp1hy+VDxnksMeOO/htwiaw9PJ4BUbGI2TDWkLaLxi/6sMCHqFv12L0fb1o5yTfZ/ipvBm3GDoZlPQvYxyh2jBp4cYl75V4n
-X-Gm-Message-State: AOJu0YwVE4JdkCp5qX74VTcITG2GUq+HwFjNkI3e64u+Wti5z7KVCX9M
-	UOgcxeMIZzUNewcJCewh5gPg7H31xzxRZAA18TVqMVxi4aLUIEUapiUe2uLJgww=
-X-Google-Smtp-Source: AGHT+IFxLwq27q0Hdj/w8FwvESdnHQBwsPuqDTmOipebs/uzejoVKO14hWPOPPbb4dFbQ7eyO/Gv0w==
-X-Received: by 2002:a05:6a00:6f64:b0:706:6bdc:4de5 with SMTP id d2e1a72fcca58-70ecea1dd24mr4120390b3a.7.1722234502813;
-        Sun, 28 Jul 2024 23:28:22 -0700 (PDT)
-Received: from sunil-laptop ([106.51.198.16])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-70ead715540sm6132019b3a.45.2024.07.28.23.28.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 28 Jul 2024 23:28:22 -0700 (PDT)
-Date: Mon, 29 Jul 2024 11:58:13 +0530
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: Haibo Xu <haibo1.xu@intel.com>
-Cc: xiaobo55x@gmail.com, ajones@ventanamicro.com,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Gavin Shan <gshan@redhat.com>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	James Morse <james.morse@arm.com>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] ACPI: NUMA: initialize all values of acpi_early_node_map
- to NUMA_NO_NODE
-Message-ID: <Zqc2fQr4KJrJW9IB@sunil-laptop>
-References: <20240729035958.1957185-1-haibo1.xu@intel.com>
-MIME-Version: 1.0
+	Mon, 29 Jul 2024 07:00:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wQX6AsudfsOHT4yh4SVyjnpr29TlTO0giQgdFRFw/OU73QEnKMhW98h5+OciByNVfdCPqr3lfBdjf/cslEBEMYdR+YuIqROUgS1fm8EYtCC/R5RVlPaFk/vjnmkkJ2YBiTFipPwjoNzvo6ZZBRWArLpbTMDiYpSSsW8h5EFxP5DBJ+kDWYxbcYPg5P4wCZJWsVRLUJ7JX+Bbu7alHE6MgAo4jKSCEZqyKla5EyEcMJAoCqu+FiHq5LQIgTsIuv2Bwph5WHioQ2cFFzcxGg1cdWBmyiWHNBFXKL6VaY1fD01vVNm2xYNjPD277ow6yKZx167MLUlB30QCWDOR+RLR5Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fN+1yCZ+QNH+gRv4l7bg8Tn2fvkOGB55tsFCOU9vuX4=;
+ b=IV7I3202g+vm35xJ4sy95ZV9+cq4bCg/QpvqVqgAe8tKRb291t7HUnUFckRTp0D5KfA0tklI6TYszEWrg/k5Bomy0RAlOLEwynh/1hU8Th0fXuJbb2w0F7dHBjyZZ10NqpO/BuyRqUEEJrv4p1Vg4vzqf54Hb5IEMbEJtw/BNoeOrnjk1GlS97UIw0JidyNWg6RzeKyF0m74VSpDzwbw1ZzxVwsZ9v3ppUW+ZL/vrzg9wHIuP9E/aqj5ZyPujaW+2Ck864CNH/smJ/3MAb+gbA5HgdiiyYbJpI/BGGZ1ZVVRk8+1jpjfME8081VCeYp4ueL4Zy/F2coVYwqjiJPzRA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fN+1yCZ+QNH+gRv4l7bg8Tn2fvkOGB55tsFCOU9vuX4=;
+ b=NkDXW+293Nepf/E/KGLY+UVn0pfhQaqjVZxo0p3E945zIeDX9YUz65CFYwARC7p39tUiJeyF9noS2I9bEPZDUk1s2JfwtQWImSDpUmkIvPO8AzYbgDJ58i30S86X8HW7e/DzBOgBKGh4nVGbTkYNUmOtAx9IM+XpJfdJrQ0km3QRYRBlOloSmSKzfKq2FNqXcMIEVtzw3jMAd8Apvy064F5q8jbLD5HDYzRPXe5zJJEYCPucQeFqiuO+YsmaalSdRqPUF5qDLw+wzTmR34mwxndrVr14jYOQ3dLBgMnvoeT0tgsr+nQxstpPstqzNF9xv8ILbwVzXwGE4DClLMm4tQ==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by SA1PR20MB6122.namprd20.prod.outlook.com (2603:10b6:806:33c::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7807.27; Mon, 29 Jul
+ 2024 07:00:34 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::ab0b:c0d3:1f91:d149]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::ab0b:c0d3:1f91:d149%5]) with mapi id 15.20.7807.026; Mon, 29 Jul 2024
+ 07:00:34 +0000
+Date: Mon, 29 Jul 2024 15:00:08 +0800
+From: Inochi Amaoto <inochiama@outlook.com>
+To: "Rob Herring (Arm)" <robh@kernel.org>, 
+	Inochi Amaoto <inochiama@outlook.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, devicetree@vger.kernel.org, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, dmaengine@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
+	Liu Gui <kenneth.liu@sophgo.com>, linux-riscv@lists.infradead.org, 
+	Chen Wang <unicorn_wang@outlook.com>, Vinod Koul <vkoul@kernel.org>
+Subject: Re: [PATCH v8 RESEND 1/3] dt-bindings: dmaengine: Add dma
+ multiplexer for CV18XX/SG200X series SoC
+Message-ID: <IA1PR20MB4953E3AEACAC85765AE9442BBBB72@IA1PR20MB4953.namprd20.prod.outlook.com>
+References: <IA1PR20MB49535EC188F8EE3F8FD0B68DBBB72@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <IA1PR20MB4953865775FA926B2BA4580CBBB72@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <172223050278.2763977.11180028101195359000.robh@kernel.org>
 Content-Disposition: inline
-In-Reply-To: <20240729035958.1957185-1-haibo1.xu@intel.com>
+In-Reply-To: <172223050278.2763977.11180028101195359000.robh@kernel.org>
+X-TMN: [m2Fi3HpymJN3mW/ZibNT64M3kqP4n+K46CfWUfFwl9s=]
+X-ClientProxiedBy: OSBPR01CA0102.jpnprd01.prod.outlook.com
+ (2603:1096:604:71::18) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <i7vwif2wxsntz4bas5tef34atyucqu4fajbqksylndi7ydyomc@satsfrptm6rm>
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|SA1PR20MB6122:EE_
+X-MS-Office365-Filtering-Correlation-Id: eac6e5e1-646d-4e2d-0b36-08dcaf9c24cc
+X-Microsoft-Antispam: BCL:0;ARA:14566002|5072599006|19110799003|8060799006|461199028|1602099012|440099028|4302099013|3412199025|1710799026;
+X-Microsoft-Antispam-Message-Info: leVOA0GwIgR50yxD+zNw2nG5JPbVzfs50onfEVGcnmCCDWph+SwB3Y+mkUt86dbsJWF3WTG0qbphF7m2VZdS7ZoYQDUPRetpvFAPf/FxsuWgry9FUL/rNRy73IQ2OVNM/3CCctcrpa3xsZhLF+a+Zbwsw9ZH70HGyTC4Wup9y8DcVjrdu9Ivd5zp3ntmO2P8nELYWbqR7dhosP4knEXsGfiWSAynJD2wkKJ4IAbfb4lsyZYjwaDJV85rrvOnoG87+dqeYepxqEEnuydKQtkTVr6/wfe+hCqnATLUxDn8i9Pj/N3WryJ08r7xR2p3GBPWABbwOxTxKRjhbNtf+XAJd+LFmx0Xgwy0yQ8jZNJPmsCzU2ifnDjFcHiFUsGe/TVGt95kNNU5RxeDH8OHYCmZT/iyfDX5U6Kb6nTkoSlJDJnabtJQeKRIp3oT78WT/fG2gfN9AIg2IN0ca6i9tZn49zlVDfjy0T+ePtaIiuDa3QLh8nVqX+hUC7UiwseKmo3R7CaPHLlrRgRIGK4jDkAFG3+/H1eXLhSVKWWoQnbZ0EHG2du8ku0cXRUfQsYVrQedeqwi/ge7Si8Jf0z76Ui2/EeNHnGWdOFhIcl3YqHnD77ObOPhETXW82PAYzHJ9nbh6kduclZCKiMk//qPotdBsOspXGa/eXxqOZlzL4x+bJ+xcgCXLa2oLpd8m6MMtwI2GQKN/qFndISLvEbrU8CjCN4aDMd9Dos8TmbQJkparZEpas7aBKzwLI7WqSMTgdgIvpXr80KQIWapKInC7kPzsoqBEJKsaEJHOy7U02tmwfH0+q6iXtELxgByKgknRpM1
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?e1EGD4uhoLGImgy/jVMYT69Gu08B+rCrbDI+JP75xN3tBs8gMn5slOWqCKjF?=
+ =?us-ascii?Q?t119nMmaj0ILmZTz4XTi+Hd4O+FLG0Z7vepXLFD2XKMbmLEaWGXiZ7SV3nQ8?=
+ =?us-ascii?Q?xQSmScH9fz5dvstBAipn0llteRsDYhn16agS+sgawdjSmekgdWDrtmif1iE3?=
+ =?us-ascii?Q?J65+ZGem5G+Uuwj4SWMeRw6DMiImCjDIHkSngh0MQ1K241on2py0h451b6LN?=
+ =?us-ascii?Q?l127P1tN1ILwCeQDsZcKMXMXqlyGuP5uRnd4S6NM+n0xKE1zpkMKeI7OPrg1?=
+ =?us-ascii?Q?9U2rGALcylonNhicNvL/UlN+5jlrsn/ERAh6bv1QHDaTy2S70Mh6QvZ3ncSG?=
+ =?us-ascii?Q?EFFMRI4AlvNWiEPfQXUiiL2v2M/4753Rkrixv+wrZsBNNhP8o69C0aHLEb62?=
+ =?us-ascii?Q?0UOr8mlv70RgJ1SVwKFMn/1BFu3ihgppSrPtKZmzao6MROyZM4djb/Fbl6PV?=
+ =?us-ascii?Q?vnKugKVstLpQKKzIwsjPlYKhxTat57R/zMSPlfRmqItgWcWq6/czPRYjPL87?=
+ =?us-ascii?Q?6Ikp3VpqFImTqKyFYUWajQnuCv6c9rezhXJ3HFb7CtGYWVI6aR2WC773kITe?=
+ =?us-ascii?Q?kPgbJnb6Sn+aGgnQJEgvyuOH5qAhvNfXK5itdboZ3tesCyu/KZTtWvIAN8iQ?=
+ =?us-ascii?Q?/oMBWamIBBT3dNdO81d01hAUyE5GWYhKpEtrDELbTKD69Ou5RGCKOz0syItX?=
+ =?us-ascii?Q?4BS0fv7tVbka4Pny6W1qIQVsSQSyICEgKlM2jUTfBxwus5F5XWTHTfdIUXyI?=
+ =?us-ascii?Q?dKEzQWrXcX2B9LDCqCBUay04jEkucmS95Xm4Akszi0Od/tmzidydaMFQ0Dns?=
+ =?us-ascii?Q?UFuDRfC059Pxb4AbN60h5W4vhZEuHITxtQBc4wsGLt/Z+KlWJO4LyurZIegt?=
+ =?us-ascii?Q?PgCTCzd53xLG1eZYErfaUR0Qa9A3/AdMf2tVy9h9jcAsFNLyA2qkfnvyDFQv?=
+ =?us-ascii?Q?nfeZjqcs9vOubWCOUSfzr4WYgBUEWlHGpKRINiw51+/gUAc0ZEnL48A5C/mz?=
+ =?us-ascii?Q?U663KUvn7pjejdQWNYLXOd8mNEE++nWYqNErjI3KLO2IknYxjGqyWKVaXBJO?=
+ =?us-ascii?Q?02WxSR4RvKrwqJmIs8W5SvsbFNVPWDwYSSvWEjMVphMuX7/I9XL2Rm2Dl4Xk?=
+ =?us-ascii?Q?Jiu1KXhbfXmC7BkFasn837Cf7SytGP56KvhY7ja58PDCTvog21GX/e2tOXli?=
+ =?us-ascii?Q?PYj2UUJxd/dcuRP38Z1I/aFhAnHh4QIS8uJNuW1E1LKTlFGQrv69S5rOuCCk?=
+ =?us-ascii?Q?RcDaFZQPpuACTi8vDt9U?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: eac6e5e1-646d-4e2d-0b36-08dcaf9c24cc
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jul 2024 07:00:34.9080
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR20MB6122
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240728_232824_863409_DAE6475D 
-X-CRM114-Status: GOOD (  17.08  )
+X-CRM114-CacheID: sfid-20240729_000039_171310_3A3BE8D3 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,56 +132,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 29, 2024 at 11:59:55AM +0800, Haibo Xu wrote:
-> Currently, only acpi_early_node_map[0] was initialized to NUMA_NO_NODE.
-> To ensure all the values were properly initialized, switch to initialize
-> all of them to NUMA_NO_NODE.
+On Mon, Jul 29, 2024 at 12:21:42AM GMT, Rob Herring (Arm) wrote:
 > 
-> Suggested-by: Andrew Jones <ajones@ventanamicro.com>
-> Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
-> ---
->  arch/arm64/kernel/acpi_numa.c | 2 +-
->  arch/riscv/kernel/acpi_numa.c | 2 +-
->  2 files changed, 2 insertions(+), 2 deletions(-)
+> On Mon, 29 Jul 2024 12:36:51 +0800, Inochi Amaoto wrote:
+> > The DMA IP of Sophgo CV18XX/SG200X is based on a DW AXI CORE, with
+> > an additional channel remap register located in the top system control
+> > area. The DMA channel is exclusive to each core.
+> > 
+> > In addition, the DMA multiplexer is a subdevice of system controller,
+> > so this binding only contains necessary properties for the multiplexer
+> > itself.
+> > 
+> > Add the dmamux binding for CV18XX/SG200X series SoC.
+> > 
+> > Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+> > Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> > ---
+> >  .../bindings/dma/sophgo,cv1800-dmamux.yaml    | 51 +++++++++++++++++++
+> >  1 file changed, 51 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.yaml
+> > 
 > 
-> diff --git a/arch/arm64/kernel/acpi_numa.c b/arch/arm64/kernel/acpi_numa.c
-> index 0c036a9a3c33..2465f291c7e1 100644
-> --- a/arch/arm64/kernel/acpi_numa.c
-> +++ b/arch/arm64/kernel/acpi_numa.c
-> @@ -27,7 +27,7 @@
->  
->  #include <asm/numa.h>
->  
-> -static int acpi_early_node_map[NR_CPUS] __initdata = { NUMA_NO_NODE };
-> +static int acpi_early_node_map[NR_CPUS] __initdata = { [0 ... NR_CPUS - 1] = NUMA_NO_NODE };
->  
->  int __init acpi_numa_get_nid(unsigned int cpu)
->  {
-> diff --git a/arch/riscv/kernel/acpi_numa.c b/arch/riscv/kernel/acpi_numa.c
-> index 0231482d6946..ff95aeebee3e 100644
-> --- a/arch/riscv/kernel/acpi_numa.c
-> +++ b/arch/riscv/kernel/acpi_numa.c
-> @@ -28,7 +28,7 @@
->  
->  #include <asm/numa.h>
->  
-> -static int acpi_early_node_map[NR_CPUS] __initdata = { NUMA_NO_NODE };
-> +static int acpi_early_node_map[NR_CPUS] __initdata = { [0 ... NR_CPUS - 1] = NUMA_NO_NODE };
->  
-The change looks good to me. However, I was wondering whether it needs
-"Fixes" tag in which case I think you will have to split this patch into
-two.
+> My bot found errors running 'make dt_binding_check' on your patch:
+> 
+> yamllint warnings/errors:
+> 
+> dtschema/dtc warnings/errors:
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.example.dtb: dma-router@154: dma-masters: 4294967295 is not of type 'array'
+> 	from schema $id: http://devicetree.org/schemas/dma/sophgo,cv1800-dmamux.yaml#
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.example.dtb: dma-router@154: dma-masters: 4294967295 is not of type 'array'
+> 	from schema $id: http://devicetree.org/schemas/dma/sophgo,cv1800-dmamux.yaml#
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.example.dtb: dma-router@154: dma-masters: 4294967295 is not of type 'array'
+> 	from schema $id: http://devicetree.org/schemas/dma/dma-router.yaml#
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.example.dtb: dma-router@154: dma-masters: 4294967295 is not of type 'array'
+> 	from schema $id: http://devicetree.org/schemas/dma/dma-router.yaml#
+> 
 
-Otherwise,
-Reviewed-by: Sunil V L <sunilvl@ventanamicro.com>
+Hi Rob,
 
-Thanks!
-Sunil
->  int __init acpi_numa_get_nid(unsigned int cpu)
->  {
-> -- 
-> 2.34.1
-> 
+Could you share some suggestions? I can not reproduce this error with
+latest dtschema. I think this is more like a misreporting.
+
+Regards,
+Inochi.
+
 
 _______________________________________________
 linux-riscv mailing list
