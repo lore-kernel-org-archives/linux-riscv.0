@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22756C3DA61
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jul 2024 07:23:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85EC2C3DA49
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jul 2024 07:24:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2+WD4obSJr0MimLsV8ZUk3WS4YreuXojvzWE+N+lERE=; b=j0sbgm2CzGFogm
-	RhxOnj3ATHPqEQ7SfmNhr7Yz+N74edOrvp1R49MUBaZQFsrsuU0F/dSLT99+d8Sas/VxdUegzhtre
-	Wn0cfRvsHo81mGuhUkigR0YG4gsFSE53RutC851lj8yyJvJ8Hc3N/x0/t5G8YMO8Y6b8FsMgjJV4+
-	IdEVzzVUjhFi6bTh8ZDryKlrsuetwQWFnmSl/6nxW8bl9WsjlBALJtceG+UKwfPOWzD6d2idKobon
-	c6bGJfOnrWWs7GX5TGxtn6GhSOtOPWz/2MUYCyyQ2Cko7z8aZ3OPet5sZdrfIgcu3XFTMdX1RrR1s
-	hNQpR197SRPveIaZMYmg==;
+	List-Owner; bh=rbsR8rX0ckfarLZ/tHTKWBRhgIcwBCBuKwDhIfClDCY=; b=wAIWBf54G9doGs
+	MCjpcXs1s6O1WuVcnLpjdnPvC5gPsunVsveBsX0kQRfCT3gDWh3ORZA5nA81PKWTQKEpVFqxUeW9b
+	nIJSuJ+tvJy3RWC0Yw/YmtdBAQ7JQYdmm5ZuN8H9u4oM97rZlhzyUBF95Ovoxijah/b6k0XVu/uDr
+	tPE1sWBuRKpqujLm5j9VZ4h3b4BDbMQ72RASxxBu3YZAkelIi8+ZlI6ejQGY57cMuI7ySCooEOKp2
+	1Cbh6qa0sRNs6yoYUCfY9WNUSkP8vnP2hkDjcXbSLZsWkMwrS2jvZM9EwkzI/H+/7n7nEzjZDdZhi
+	FuGNuNwUij35ga4fizbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYhD6-0000000E0P3-2LVZ;
-	Tue, 30 Jul 2024 07:23:52 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1sYhDJ-0000000E0WH-2Qh8;
+	Tue, 30 Jul 2024 07:24:05 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYhD0-0000000E0K8-2zB0;
-	Tue, 30 Jul 2024 07:23:48 +0000
+	id 1sYhDD-0000000E0SM-31DL;
+	Tue, 30 Jul 2024 07:24:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 919D4CE0EC5;
+	by dfw.source.kernel.org (Postfix) with ESMTP id EE2E161E00;
+	Tue, 30 Jul 2024 07:23:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B0D5C4AF0F;
 	Tue, 30 Jul 2024 07:23:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8986AC32782;
-	Tue, 30 Jul 2024 07:23:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1722324223;
-	bh=MBumahwIovMrLM2xijUGbqbzC8eqefcbVCDPjO9VQdE=;
+	s=k20201202; t=1722324238;
+	bh=hohz5++xhGxNDKVPZKJqUhh7A1cYUT79OYxYo7u11yY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=VS2i0h4StkfC64c/JDyScKsNP0M1q1w3AGB7FpchDWYE3z1M10NJVKgdKsS8NCbiy
-	 d2uHvMiSRGm1FVHaBK8eFwUvEtY7QsciTEUxncVwivItvrAAyaZKX/UrzKXDsx80fB
-	 hdVzmcvfXZq0cq838KL/IIOuw5o6htAm35hjuefbFnaeXbpXlVepWunB9D2y1XoH/P
-	 DOr/E3Jc/8HLWb1qhmvVZLFWhR2A9Ugp62gjlZlG+ibYdl1NrFjQKylKux8BJ7W6+i
-	 nRKNxS68jjsmSHjYUvwPjztBhfwuSyjjuZuFnGp5UzkRLxjYlH9kVNt7n3/xt5EXtO
-	 i4Za4M6sm1W+Q==
+	b=Umdw1n/4ZRW6vj4XY31OqgNYPiPhAbZlbgkm463jfeKHwogT02Y63bxfSFWNs6V7i
+	 IbJVXhKCJIDwUUeMqi8R0XrMXUHiugWfyCxKZqI770IZLjiuICkEJnn+DmK0S0wtXg
+	 wUCiuEnqytXfwcqqtWz5fOkHF+luguzZyWaFMoJ4rhle5cDdQdyE5uQaHGo1ueEOcb
+	 h/0PAa/PMRqHVn0XqkQbLbFosheXAJ2bz8RLIDCtPfwms57k82sGo6pfGja5YC1oQa
+	 kpLBBVhBZpJMpUdVnsCBJv3mecb+/z0M1D++yUjl5E3rrcM36nTFGIo1ZUq4uLWm+B
+	 aAD8huEqWxnFw==
 From: alexs@kernel.org
 To: Will Deacon <will@kernel.org>,
 	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
@@ -110,17 +110,17 @@ Cc: Guo Ren <guoren@kernel.org>,
 	"Naveen N . Rao" <naveen.n.rao@linux.ibm.com>,
 	linux-fsdevel@vger.kernel.org,
 	Andrew Morton <akpm@linux-foundation.org>
-Subject: [RFC PATCH 16/18] mm/pgtable: pass ptdesc to pmd_install
-Date: Tue, 30 Jul 2024 15:27:17 +0800
-Message-ID: <20240730072719.3715016-6-alexs@kernel.org>
+Subject: [RFC PATCH 17/18] mm: convert vmf.prealloc_pte to struct ptdesc pointer
+Date: Tue, 30 Jul 2024 15:27:18 +0800
+Message-ID: <20240730072719.3715016-7-alexs@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240730072719.3715016-1-alexs@kernel.org>
 References: <20240730064712.3714387-1-alexs@kernel.org>
  <20240730072719.3715016-1-alexs@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240730_002347_138196_4A46C21B 
-X-CRM114-Status: GOOD (  13.42  )
+X-CRM114-CacheID: sfid-20240730_002359_898224_CA08F43E 
+X-CRM114-Status: GOOD (  15.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,87 +139,105 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Alex Shi <alexs@kernel.org>
 
-A new step to replace pgtable_t by ptdesc, also a preparation to change
-vmf.prealloc_pte to ptdesc too.
+vmfs.prealloc_pte is a pointer to page table memory, so converter it to
+struct ptdesc pointer.
 
 Signed-off-by: Alex Shi <alexs@kernel.org>
+Cc: linux-fsdevel@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org
 Cc: linux-mm@kvack.org
-Cc: linux-fsdevel@vger.kernel.org
-Cc: Andrew Morton <akpm@linux-foundation.org>
 Cc: Matthew Wilcox  <willy@infradead.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>
 ---
- mm/filemap.c  | 2 +-
- mm/internal.h | 2 +-
- mm/memory.c   | 8 ++++----
- 3 files changed, 6 insertions(+), 6 deletions(-)
+ include/linux/mm.h |  2 +-
+ mm/filemap.c       |  2 +-
+ mm/memory.c        | 12 ++++++------
+ 3 files changed, 8 insertions(+), 8 deletions(-)
 
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index 7424f964dff3..749d6dd311fa 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -567,7 +567,7 @@ struct vm_fault {
+ 					 * Protects pte page table if 'pte'
+ 					 * is not NULL, otherwise pmd.
+ 					 */
+-	pgtable_t prealloc_pte;		/* Pre-allocated pte page table.
++	struct ptdesc *prealloc_pte;	/* Pre-allocated pte page table.
+ 					 * vm_ops->map_pages() sets up a page
+ 					 * table from atomic context.
+ 					 * do_fault_around() pre-allocates
 diff --git a/mm/filemap.c b/mm/filemap.c
-index d62150418b91..3708ef71182e 100644
+index 3708ef71182e..d62150418b91 100644
 --- a/mm/filemap.c
 +++ b/mm/filemap.c
 @@ -3453,7 +3453,7 @@ static bool filemap_map_pmd(struct vm_fault *vmf, struct folio *folio,
  	}
  
  	if (pmd_none(*vmf->pmd) && vmf->prealloc_pte)
--		pmd_install(mm, vmf->pmd, &vmf->prealloc_pte);
-+		pmd_install(mm, vmf->pmd, (struct ptdesc **)&vmf->prealloc_pte);
+-		pmd_install(mm, vmf->pmd, (struct ptdesc **)&vmf->prealloc_pte);
++		pmd_install(mm, vmf->pmd, &vmf->prealloc_pte);
  
  	return false;
  }
-diff --git a/mm/internal.h b/mm/internal.h
-index 7a3bcc6d95e7..e4bc64d5176a 100644
---- a/mm/internal.h
-+++ b/mm/internal.h
-@@ -320,7 +320,7 @@ void folio_activate(struct folio *folio);
- void free_pgtables(struct mmu_gather *tlb, struct ma_state *mas,
- 		   struct vm_area_struct *start_vma, unsigned long floor,
- 		   unsigned long ceiling, bool mm_wr_locked);
--void pmd_install(struct mm_struct *mm, pmd_t *pmd, pgtable_t *pte);
-+void pmd_install(struct mm_struct *mm, pmd_t *pmd, struct ptdesc **pte);
- 
- struct zap_details;
- void unmap_page_range(struct mmu_gather *tlb,
 diff --git a/mm/memory.c b/mm/memory.c
-index cbed8824059f..79685600d23f 100644
+index 79685600d23f..1a5fb17ab045 100644
 --- a/mm/memory.c
 +++ b/mm/memory.c
-@@ -418,7 +418,7 @@ void free_pgtables(struct mmu_gather *tlb, struct ma_state *mas,
- 	} while (vma);
- }
- 
--void pmd_install(struct mm_struct *mm, pmd_t *pmd, pgtable_t *pte)
-+void pmd_install(struct mm_struct *mm, pmd_t *pmd, struct ptdesc **pte)
- {
- 	spinlock_t *ptl = pmd_lock(mm, pmd);
- 
-@@ -438,7 +438,7 @@ void pmd_install(struct mm_struct *mm, pmd_t *pmd, pgtable_t *pte)
- 		 * smp_rmb() barriers in page table walking code.
- 		 */
- 		smp_wmb(); /* Could be smp_wmb__xxx(before|after)_spin_lock */
--		pmd_populate(mm, pmd, (struct ptdesc *)(*pte));
-+		pmd_populate(mm, pmd, *pte);
- 		*pte = NULL;
+@@ -4648,7 +4648,7 @@ static vm_fault_t __do_fault(struct vm_fault *vmf)
+ 	 *				# flush A, B to clear the writeback
+ 	 */
+ 	if (pmd_none(*vmf->pmd) && !vmf->prealloc_pte) {
+-		vmf->prealloc_pte = ptdesc_page(pte_alloc_one(vma->vm_mm));
++		vmf->prealloc_pte = pte_alloc_one(vma->vm_mm);
+ 		if (!vmf->prealloc_pte)
+ 			return VM_FAULT_OOM;
  	}
- 	spin_unlock(ptl);
-@@ -450,7 +450,7 @@ int __pte_alloc(struct mm_struct *mm, pmd_t *pmd)
- 	if (!ptdesc)
- 		return -ENOMEM;
+@@ -4687,7 +4687,7 @@ static void deposit_prealloc_pte(struct vm_fault *vmf)
+ {
+ 	struct vm_area_struct *vma = vmf->vma;
  
--	pmd_install(mm, pmd, (pgtable_t *)&ptdesc);
-+	pmd_install(mm, pmd, &ptdesc);
- 	if (ptdesc)
- 		pte_free(mm, ptdesc);
- 	return 0;
+-	pgtable_trans_huge_deposit(vma->vm_mm, vmf->pmd, page_ptdesc(vmf->prealloc_pte));
++	pgtable_trans_huge_deposit(vma->vm_mm, vmf->pmd, vmf->prealloc_pte);
+ 	/*
+ 	 * We are going to consume the prealloc table,
+ 	 * count that as nr_ptes.
+@@ -4726,7 +4726,7 @@ vm_fault_t do_set_pmd(struct vm_fault *vmf, struct page *page)
+ 	 * related to pte entry. Use the preallocated table for that.
+ 	 */
+ 	if (arch_needs_pgtable_deposit() && !vmf->prealloc_pte) {
+-		vmf->prealloc_pte = ptdesc_page(pte_alloc_one(vma->vm_mm));
++		vmf->prealloc_pte = pte_alloc_one(vma->vm_mm);
+ 		if (!vmf->prealloc_pte)
+ 			return VM_FAULT_OOM;
+ 	}
 @@ -4868,7 +4868,7 @@ vm_fault_t finish_fault(struct vm_fault *vmf)
  		}
  
  		if (vmf->prealloc_pte)
--			pmd_install(vma->vm_mm, vmf->pmd, &vmf->prealloc_pte);
-+			pmd_install(vma->vm_mm, vmf->pmd, (struct ptdesc **)&vmf->prealloc_pte);
+-			pmd_install(vma->vm_mm, vmf->pmd, (struct ptdesc **)&vmf->prealloc_pte);
++			pmd_install(vma->vm_mm, vmf->pmd, &vmf->prealloc_pte);
  		else if (unlikely(pte_alloc(vma->vm_mm, vmf->pmd)))
  			return VM_FAULT_OOM;
  	}
+@@ -5011,7 +5011,7 @@ static vm_fault_t do_fault_around(struct vm_fault *vmf)
+ 		      pte_off + vma_pages(vmf->vma) - vma_off) - 1;
+ 
+ 	if (pmd_none(*vmf->pmd)) {
+-		vmf->prealloc_pte = ptdesc_page(pte_alloc_one(vmf->vma->vm_mm));
++		vmf->prealloc_pte = pte_alloc_one(vmf->vma->vm_mm);
+ 		if (!vmf->prealloc_pte)
+ 			return VM_FAULT_OOM;
+ 	}
+@@ -5197,7 +5197,7 @@ static vm_fault_t do_fault(struct vm_fault *vmf)
+ 
+ 	/* preallocated pagetable is unused: free it */
+ 	if (vmf->prealloc_pte) {
+-		pte_free(vm_mm, page_ptdesc(vmf->prealloc_pte));
++		pte_free(vm_mm, vmf->prealloc_pte);
+ 		vmf->prealloc_pte = NULL;
+ 	}
+ 	return ret;
 -- 
 2.43.0
 
