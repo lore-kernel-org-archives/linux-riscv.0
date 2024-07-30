@@ -4,60 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A7E9C3DA49
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jul 2024 15:37:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FC3AC3DA7E
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jul 2024 15:45:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=gr9zwKXn0t28ptvRN3ONnQHj1HhdOPHNUbb02QxWuis=; b=lJ/14ktHYuchtZ
-	WBQkpXcBwSwv8AHl+15z8+k4WE2sIMKeK2ID2KDE7s1CBxpPxLIT62yYyYOEG4fJJ+16lePkSdvyV
-	TZGh9R0lEq/GJZG9ceyMpOLYg1nT/RXC+dUWfyRyErybuK+ffv41nwcldAYDRqo2+CjsafBFdHa4o
-	2VjYuN9EcbwF4XBSwei67xsSfaPZRzukBH9SeMjQbQOAg9fcQzfT6kK3B2ZxdKD8/+jGJE8G4jqhf
-	STFnG/R3AlBd4iuV9fiQapCIoPrFprhFj2oSztBEXdRhKDtr5APsmUr8/dtx5UOy55r0+Szv+JcAh
-	69PXdKMZD+8bI86fFV1Q==;
+	List-Owner; bh=vh3IUe9gQE638wpQhGiG6uB2kqcmU8qcyiBe5tPH1RY=; b=uvNfGQr497mryr
+	SES0hW+FFjEArKMdk/wGTJZAw2+liKoWJRIFEsXJkDrJNAGKAh/BtqBaTrAVbe1DxkbKAt4ILTZgD
+	Mu7NObr03TssmMm0IGs/uKmyaOD5Lb4YtF+W2XC1P/WrQlyVsEiUzlm6yHPsSHr665irjYZbZRupH
+	1Nizg2cADTmD2OplwykG9LEyHt4JBKnsaq9hEvVi4+n3gpyIWoCCRlwzNKSThFzE/LgtoTVH7OEpQ
+	gNEKJbNtF6dd/aHEGkKzdN5d+bGR6S4w5Ko+XLDOpNEH3psfBXgelq/rE0d7o4H3cV9pURmAcJOJu
+	hSPI3PCX7bsMjawlR+EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYoux-0000000FgZX-3LIs;
-	Tue, 30 Jul 2024 15:37:39 +0000
-Received: from baptiste.telenet-ops.be ([2a02:1800:120:4::f00:13])
+	id 1sYp2Q-0000000FhvB-3bUD;
+	Tue, 30 Jul 2024 15:45:22 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYouv-0000000FgZ4-0mcD
+	id 1sYp2N-0000000Fhu9-2aho
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Jul 2024 15:37:38 +0000
-Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed80:520d:93ad:ff6d:335e])
-	by baptiste.telenet-ops.be with bizsmtp
-	id trdV2C00H30Ayot01rdV72; Tue, 30 Jul 2024 17:37:31 +0200
-Received: from rox.of.borg ([192.168.97.57])
-	by ramsan.of.borg with esmtp (Exim 4.95)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1sYouQ-004BM5-AP;
-	Tue, 30 Jul 2024 17:37:29 +0200
-Received: from geert by rox.of.borg with local (Exim 4.95)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1sYoun-00EZBM-BX;
-	Tue, 30 Jul 2024 17:37:29 +0200
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Tue, 30 Jul 2024 15:45:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id BD4B2CE10D7;
+	Tue, 30 Jul 2024 15:45:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EA7FC32782;
+	Tue, 30 Jul 2024 15:45:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1722354317;
+	bh=nJ11jqt4kbADJb/lh6ehcVySsKlovodsRd6q1QQ61UU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Y498xCwB+edKx6vBTJBE4pdVSrC8AgicpE9Gk6/Tr14THpD+ONc6UiOz93KDvt2NO
+	 +wouLlUN0PwZcaTOeow+waEgT3Cb7+iMtJesXltyxHGl5s2EY+KCzrRImYJExzJvl2
+	 HjXzON4b5vU097XkkTkkHR+poLiMbHZAePzx25reRDnuxGeoY9WYFbsgV5nrUqoE4g
+	 h5vzSs5V9i0Tw4VOR7VHpwrrMkcTA7hqJjWcHVrWZUVh1LHSNdxFvu6l3kD45C5qmo
+	 bqTA1IuDQJXJY6CB6H0GicwmIKkNAjr0InmOKHMXYZ91fCmNmN6Mh8dUJ3jUc/BNoX
+	 Xe7dPlG1FOk+Q==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Andy Lutomirski <luto@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	Arnd Bergmann <arnd@arndb.de>,
+	Jiri Olsa <jolsa@kernel.org>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>,
+	"H. Peter Anvin" <hpa@zytor.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Conor Dooley <conor.dooley@microchip.com>
-Cc: linux-riscv@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
+	Guo Ren <guoren@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>,
+	Kees Cook <kees@kernel.org>,
+	"peterz@infradead.org" <peterz@infradead.org>,
+	"H.J. Lu" <hjl.tools@gmail.com>,
+	Sohil Mehta <sohil.mehta@intel.com>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
 	linux-kernel@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH/RFC] riscv: defconfig: Disable RZ/Five peripheral support
-Date: Tue, 30 Jul 2024 17:37:26 +0200
-Message-Id: <89ad70c7d6e8078208fecfd41dc03f6028531729.1722353710.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.34.1
+	linux-arch@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [RFC] uretprobe: change syscall number, again
+Date: Tue, 30 Jul 2024 17:43:36 +0200
+Message-Id: <20240730154500.3155437-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240730_083737_387300_FBE2AECC 
-X-CRM114-Status: UNSURE (   9.02  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240730_084520_237597_4A2082B0 
+X-CRM114-Status: GOOD (  20.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,123 +90,100 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There is not much point in keeping support for RZ/Five peripherals
-enabled, as the RZ/Five platform option (ARCH_R9A07G043) is gated behind
-NONPORTABLE.  Hence drop all config options that enable built-in or
-modular support for peripherals found on RZ/Five SoCs.
+From: Arnd Bergmann <arnd@arndb.de>
 
-Disable USB_XHCI_RCAR explicitly, as its value defaults to the value of
-ARCH_RENESAS, which is still enabled.
+Despite multiple attempts to get the syscall number assignment right
+for the newly added uretprobe syscall, we ended up with a bit of a mess:
 
-Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+ - The number is defined as 467 based on the assumption that the
+   xattrat family of syscalls would use 463 through 466, but those
+   did not make it into 6.11.
+
+ - The include/uapi/asm-generic/unistd.h file still lists the number
+   463, but the new scripts/syscall.tbl that was supposed to have the
+   same data lists 467 instead as the number for arc, arm64, csky,
+   hexagon, loongarch, nios2, openrisc and riscv. None of these
+   architectures actually provide a uretprobe syscall.
+
+ - All the other architectures (powerpc, arm, mips, ...) don't list
+   this syscall at all.
+
+There are two ways to make it consistent again: either list it with
+the same syscall number on all architectures, or only list it on x86
+but not in scripts/syscall.tbl and asm-generic/unistd.h.
+
+Based on the most recent discussion, it seems like we won't need it
+anywhere else, so just remove the inconsistent assignment and instead
+move the x86 number to the next available one in the architecture
+specific range, which is 335.
+
+Fixes: 5c28424e9a34 ("syscalls: Fix to add sys_uretprobe to syscall.tbl")
+Fixes: 190fec72df4a ("uprobe: Wire up uretprobe system call")
+Fixes: 63ded110979b ("uprobe: Change uretprobe syscall scope and number")
+Cc: Linus Torvalds <torvalds@linux-foundation.org>
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
-Questions:
-  1. Perhaps the intention is to keep all RZ/Five peripheral support
-     enabled, so RZ/Five users can start from the defconfig, and
-     "just"[1] enable NONPORTABLE and ARCH_R9A07G043?
+I think we should fix this as soon as possible. Please let me know if
+you agree on this approach, or prefer one of the alternatives.
 
-     [1] Nope, need to disable RISCV_ISA_ZICBOM and ERRATA_THEAD_CMO
-	 (and whatever else in the future?), too.
+I've queued up this version in the asm-generic tree so I can send a
+pull request in the next few days, but I'm fine with doing this a
+differently if someone has a stronger opinion on what numbers to
+assign for it on earch architecture.
 
-  2. Perhaps CONFIG_ARCH_RENESAS=y should be dropped, too?
-     In addition to USB_XHCI_RCAR, that would get rid of SOC_BUS,
-     PINCTRL_RENESAS, CLK_RENESAS, and SOC_RENESAS.
----
- arch/riscv/configs/defconfig | 12 +-----------
- 1 file changed, 1 insertion(+), 11 deletions(-)
+ arch/x86/entry/syscalls/syscall_64.tbl | 2 +-
+ include/uapi/asm-generic/unistd.h      | 5 +----
+ scripts/syscall.tbl                    | 1 -
+ 3 files changed, 2 insertions(+), 6 deletions(-)
 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index 0d678325444fccdc..b51ef6cd1e3986ed 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -137,12 +137,10 @@ CONFIG_VIRTIO_NET=y
- CONFIG_MACB=y
- CONFIG_E1000E=y
- CONFIG_R8169=y
--CONFIG_RAVB=y
- CONFIG_STMMAC_ETH=m
- CONFIG_MICREL_PHY=y
- CONFIG_MICROSEMI_PHY=y
- CONFIG_MOTORCOMM_PHY=y
--CONFIG_CAN_RCAR_CANFD=m
- CONFIG_INPUT_MOUSEDEV=y
- CONFIG_KEYBOARD_SUN4I_LRADC=m
- CONFIG_SERIAL_8250=y
-@@ -150,7 +148,6 @@ CONFIG_SERIAL_8250_CONSOLE=y
- CONFIG_SERIAL_8250_DW=y
- CONFIG_SERIAL_OF_PLATFORM=y
- CONFIG_SERIAL_EARLYCON_RISCV_SBI=y
--CONFIG_SERIAL_SH_SCI=y
- CONFIG_VIRTIO_CONSOLE=y
- CONFIG_HW_RANDOM=y
- CONFIG_HW_RANDOM_VIRTIO=y
-@@ -159,11 +156,9 @@ CONFIG_I2C=y
- CONFIG_I2C_CHARDEV=m
- CONFIG_I2C_DESIGNWARE_PLATFORM=y
- CONFIG_I2C_MV64XXX=m
--CONFIG_I2C_RIIC=y
- CONFIG_SPI=y
- CONFIG_SPI_CADENCE_QUADSPI=m
- CONFIG_SPI_PL022=m
--CONFIG_SPI_RSPI=m
- CONFIG_SPI_SIFIVE=y
- CONFIG_SPI_SUN6I=y
- # CONFIG_PTP_1588_CLOCK is not set
-@@ -172,7 +167,6 @@ CONFIG_POWER_RESET_GPIO_RESTART=y
- CONFIG_SENSORS_SFCTEMP=m
- CONFIG_CPU_THERMAL=y
- CONFIG_DEVFREQ_THERMAL=y
--CONFIG_RZG2L_THERMAL=y
- CONFIG_WATCHDOG=y
- CONFIG_SUNXI_WATCHDOG=y
- CONFIG_MFD_AXP20X_I2C=y
-@@ -201,11 +195,11 @@ CONFIG_USB=y
- CONFIG_USB_OTG=y
- CONFIG_USB_XHCI_HCD=y
- CONFIG_USB_XHCI_PLATFORM=y
-+# CONFIG_USB_XHCI_RCAR is not set
- CONFIG_USB_EHCI_HCD=y
- CONFIG_USB_EHCI_HCD_PLATFORM=y
- CONFIG_USB_OHCI_HCD=y
- CONFIG_USB_OHCI_HCD_PLATFORM=y
--CONFIG_USB_RENESAS_USBHS=m
- CONFIG_USB_STORAGE=y
- CONFIG_USB_UAS=y
- CONFIG_USB_CDNS_SUPPORT=m
-@@ -217,7 +211,6 @@ CONFIG_USB_MUSB_HDRC=m
- CONFIG_USB_MUSB_SUNXI=m
- CONFIG_NOP_USB_XCEIV=m
- CONFIG_USB_GADGET=y
--CONFIG_USB_RENESAS_USBHS_UDC=m
- CONFIG_USB_CONFIGFS=m
- CONFIG_USB_CONFIGFS_SERIAL=y
- CONFIG_USB_CONFIGFS_ACM=y
-@@ -235,7 +228,6 @@ CONFIG_MMC_SDHCI_PLTFM=y
- CONFIG_MMC_SDHCI_OF_DWCMSHC=y
- CONFIG_MMC_SDHCI_CADENCE=y
- CONFIG_MMC_SPI=y
--CONFIG_MMC_SDHI=y
- CONFIG_MMC_DW=y
- CONFIG_MMC_DW_STARFIVE=y
- CONFIG_MMC_SUNXI=y
-@@ -250,7 +242,6 @@ CONFIG_VIRTIO_INPUT=y
- CONFIG_VIRTIO_MMIO=y
- CONFIG_CLK_SOPHGO_CV1800=y
- CONFIG_SUN8I_DE2_CCU=m
--CONFIG_RENESAS_OSTM=y
- CONFIG_SUN50I_IOMMU=y
- CONFIG_RPMSG_CHAR=y
- CONFIG_RPMSG_CTRL=y
-@@ -258,7 +249,6 @@ CONFIG_RPMSG_VIRTIO=y
- CONFIG_PM_DEVFREQ=y
- CONFIG_IIO=y
- CONFIG_PHY_SUN4I_USB=m
--CONFIG_PHY_RCAR_GEN3_USB2=y
- CONFIG_PHY_STARFIVE_JH7110_DPHY_RX=m
- CONFIG_PHY_STARFIVE_JH7110_PCIE=m
- CONFIG_PHY_STARFIVE_JH7110_USB=m
+diff --git a/arch/x86/entry/syscalls/syscall_64.tbl b/arch/x86/entry/syscalls/syscall_64.tbl
+index 83073fa3c989..7093ee21c0d1 100644
+--- a/arch/x86/entry/syscalls/syscall_64.tbl
++++ b/arch/x86/entry/syscalls/syscall_64.tbl
+@@ -344,6 +344,7 @@
+ 332	common	statx			sys_statx
+ 333	common	io_pgetevents		sys_io_pgetevents
+ 334	common	rseq			sys_rseq
++335	common	uretprobe		sys_uretprobe
+ # don't use numbers 387 through 423, add new calls after the last
+ # 'common' entry
+ 424	common	pidfd_send_signal	sys_pidfd_send_signal
+@@ -385,7 +386,6 @@
+ 460	common	lsm_set_self_attr	sys_lsm_set_self_attr
+ 461	common	lsm_list_modules	sys_lsm_list_modules
+ 462 	common  mseal			sys_mseal
+-467	common	uretprobe		sys_uretprobe
+ 
+ #
+ # Due to a historical design error, certain syscalls are numbered differently
+diff --git a/include/uapi/asm-generic/unistd.h b/include/uapi/asm-generic/unistd.h
+index 985a262d0f9e..5bf6148cac2b 100644
+--- a/include/uapi/asm-generic/unistd.h
++++ b/include/uapi/asm-generic/unistd.h
+@@ -841,11 +841,8 @@ __SYSCALL(__NR_lsm_list_modules, sys_lsm_list_modules)
+ #define __NR_mseal 462
+ __SYSCALL(__NR_mseal, sys_mseal)
+ 
+-#define __NR_uretprobe 463
+-__SYSCALL(__NR_uretprobe, sys_uretprobe)
+-
+ #undef __NR_syscalls
+-#define __NR_syscalls 464
++#define __NR_syscalls 463
+ 
+ /*
+  * 32 bit systems traditionally used different
+diff --git a/scripts/syscall.tbl b/scripts/syscall.tbl
+index 591d85e8ca7e..797e20ea99a2 100644
+--- a/scripts/syscall.tbl
++++ b/scripts/syscall.tbl
+@@ -402,4 +402,3 @@
+ 460	common	lsm_set_self_attr		sys_lsm_set_self_attr
+ 461	common	lsm_list_modules		sys_lsm_list_modules
+ 462	common	mseal				sys_mseal
+-467	common	uretprobe			sys_uretprobe
 -- 
-2.34.1
+2.39.2
 
 
 _______________________________________________
