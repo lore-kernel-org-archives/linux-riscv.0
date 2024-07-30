@@ -4,83 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 287BEC3DA49
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jul 2024 13:14:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56F52C3DA70
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jul 2024 13:48:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=B/IR/Wq6qM2N0ni1X2GRXSQOyvDxJARqU4JznUps+Jo=; b=ccnL9AhdWXc61Q
-	gOKbBQVXbGLcuqUVcmh+jubRVbUngLpjeFN3jEiFMeL9QX+jQWd6/IOldhNVxdEGjvkkMdkdSxV7H
-	7CcdZRcmxlX72M1bYrQ5NUvH8upda8b1JD9k2uODiR1uHH7BzjARi6H+PC8EeIZpMGzedpqiEk7BM
-	KQGcyz2Bw/4f6x6YGqyFNXt10g87YBzAFH+WheT8/NG+44BO9+YIBwbsjx45ymtAfNGov5uLOfVfT
-	vY/4nOmretJlZ2oxmwtR4hQ9RjH9yt72q9dgMW1CjDAHj6KJpUn8/sBYKPSzTpMtr7xTypz9yqexC
-	++aophhe0tqCU/NHl5gQ==;
+	List-Owner; bh=LQPwHDL3HF6Hj6lV/gcMLXl9M68KfaVwpfqlhrR1iFY=; b=w+i06ruAP/3Jg3
+	Of/LYNczgGJdUvmDqlWBJ0uIw3Wni9WD/TdeLKaUC3fkDut/AjBG1ZEq/Als2gmVo0arpMpDUqte1
+	Dqk0KkBJj1mAS70TrqcvDfnTqDvnINyeJrOo45BFlH4qRKadnLc5URlUI7tk9LEuAe+UpIQiz9Ndg
+	kAsdwNEYeXFogImitmgrqJstTfnxyWTHE+zdvPBVx0RQUwCsLT7NOYfrfJA3j+KKmr4MNEhEBrJcY
+	VlFxMZFQ988ND/GtNq+YZh4L/7cKcA4gQIumB0ZCk1z0rj/HybUldqlmlWMOTVd/AYYMrOtZUltr9
+	gKyZwJpdfeXjN1v+OvXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYmgg-0000000FE8M-3otZ;
-	Tue, 30 Jul 2024 13:14:46 +0000
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
-	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYmge-0000000FE6q-23D3
+	id 1sYnDQ-0000000FL7P-2bcC;
+	Tue, 30 Jul 2024 13:48:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1sYnDN-0000000FL68-2DL0
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Jul 2024 13:14:46 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-52efe4c7c16so6675532e87.0
-        for <linux-riscv@lists.infradead.org>; Tue, 30 Jul 2024 06:14:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1722345281; x=1722950081; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=bqUkSHzFI9u1ItIMDQJtXdjFjc/hDvkrDt0pAiq7h38=;
-        b=kVpAQpuhOf4/VGJ6iDQ2VToMAElM0k5q2eJBABE9ZztTrXZI9YMGgAZdG58ERaPsOj
-         uVIv1VfouyA4xjSGLWLCf1XPEJRVboQ4k/WFZ+5fe+FdzO/gcsq2wxprb5L3NAaHL53c
-         OWh3LXJk0RYhtqy1dbFeV/TDQg5W0W4uOYUXSUY6qq6g1LV263lcBHj1+mROLHGplQSa
-         NAZ9RgjJjy9RgOJh/mNnQZ5KUc+7dPlIByJPaXFSFSBVGdxsJamcXYusuzJUnaS8c2AD
-         5+St+WgYk74IFsvZWAdezgxGkDU9OUW73tfvBt43CWcWdEagV7NbQGq+iQnbGt7ZZ6Jh
-         JyRw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722345281; x=1722950081;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bqUkSHzFI9u1ItIMDQJtXdjFjc/hDvkrDt0pAiq7h38=;
-        b=jFYKxQ7tq+tWSnIaHBh0/rDZUbw5t+othiy/QUIEvoDJ+V5va0kioXuqtmkzJGIRYY
-         IC2XTkFiCtK014/i6UXe493O753h3bUsI+soYxtTXXK6vVIJUgBN1EcT4jfEisudGNJp
-         LuF5wad6GSGQE3QfOxbZo3ISRDpHVgF6J0AISzpvrh3FV/q7j1Bq3DlA7drEHyy0/AoC
-         YYbQNtHzAktphysYL6Bvq14jUHYDDa4jst6b/KIRcF1RRA3GXgTyk+nguRqZQfWxtz3y
-         XeiDxdL5yO1nUBq0tr3cR+VMWjgAkze9JWMYys8Xw42EC4SWOIrXmN4Ok8pnjR18825E
-         L2XQ==
-X-Gm-Message-State: AOJu0Yy6tlKMMinQNw1mzhRqcPtkVjTiLpJHUvVjNuHRiWW9fwGJI1mN
-	fAytSxBa0iMStz2zWnNHoWsFY9LJhJu0GWnLdPphbaJcg2jeiDynDZeCgXnUcjwfwn6Yh1n1+/F
-	1RgU=
-X-Google-Smtp-Source: AGHT+IHNJWcUOulc6WgdzX0iUHJzXhXjentRKxTTzPDjEDBjfsWSHeEc3IfYSOi/xqL+E5sFGk2siw==
-X-Received: by 2002:a05:6512:340b:b0:530:ab31:5683 with SMTP id 2adb3069b0e04-530ab315a3bmr1176480e87.14.1722345280686;
-        Tue, 30 Jul 2024 06:14:40 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a7acab53704sm645196066b.86.2024.07.30.06.14.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 30 Jul 2024 06:14:40 -0700 (PDT)
-Date: Tue, 30 Jul 2024 15:14:39 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Andy Chiu <andy.chiu@sifive.com>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, 
-	greentime.hu@sifive.com, guoren@linux.alibaba.com, bjorn@kernel.org, debug@rivosinc.com, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Conor Dooley <conor@kernel.org>, =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>, 
-	Evan Green <evan@rivosinc.com>, Charlie Jenkins <charlie@rivosinc.com>, 
-	samuel.holland@sifive.com
-Subject: Re: [PATCH] riscv: fix isa validation for virtual [ms]envcfg
- extension
-Message-ID: <20240730-bcf30b29609f33dae538f26d@orel>
-References: <20240730073847.1999420-1-andy.chiu@sifive.com>
+	Tue, 30 Jul 2024 13:48:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 668071007;
+	Tue, 30 Jul 2024 06:48:56 -0700 (PDT)
+Received: from [10.1.196.40] (e121345-lin.cambridge.arm.com [10.1.196.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F13E83F5A1;
+	Tue, 30 Jul 2024 06:48:27 -0700 (PDT)
+Message-ID: <dc2a28b6-566c-4c17-9834-874513f1d4f1@arm.com>
+Date: Tue, 30 Jul 2024 14:48:21 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240730073847.1999420-1-andy.chiu@sifive.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v3 24/37] kvx: Add memory management
+To: Christoph Hellwig <hch@infradead.org>, ysionneau@kalrayinc.com
+Cc: linux-kernel@vger.kernel.org, Will Deacon <will@kernel.org>,
+ "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>, Nick Piggin <npiggin@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Jonathan Borne <jborne@kalrayinc.com>, Julian Vetter
+ <jvetter@kalrayinc.com>, Clement Leger <clement@clement-leger.fr>,
+ Guillaume Thouvenin <thouveng@gmail.com>,
+ Jean-Christophe Pince <jcpince@gmail.com>,
+ Jules Maselbas <jmaselbas@zdiv.net>, Julien Hascoet
+ <jhascoet@kalrayinc.com>, Louis Morhet <lmorhet@kalrayinc.com>,
+ =?UTF-8?Q?Marc_Poulhi=C3=A8s?= <dkm@kataplop.net>,
+ Marius Gligor <mgligor@kalrayinc.com>,
+ Vincent Chardon <vincent.chardon@elsys-design.com>,
+ linux-arch@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org
+References: <20240722094226.21602-1-ysionneau@kalrayinc.com>
+ <20240722094226.21602-25-ysionneau@kalrayinc.com>
+ <Zp5zrkwyagnkoY7F@infradead.org>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <Zp5zrkwyagnkoY7F@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240730_061444_553836_08E86329 
-X-CRM114-Status: GOOD (  23.09  )
+X-CRM114-CacheID: sfid-20240730_064833_652718_19DAAB9B 
+X-CRM114-Status: GOOD (  16.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,75 +76,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 30, 2024 at 03:38:45PM GMT, Andy Chiu wrote:
-> The exntension RISCV_ISA_EXT_XLINUXENVCFG was accidentally turned off
-> after introducing ISA validation. The reason is that this extension is
-> not in the riscv_isa_ext[] list, causing riscv_get_isa_ext_data() fail
-> to find a corresponding riscv_isa_ext_data pointer. As a result, the
-> kernel skipped setting resolved_isa bitmask. To fix this, we proceed
-> with the bit information obtained from source_isa bitmask. This means
-> that the bit in resolved_isa is set unconditionally, regardless of
-> whether we find an entry from riscv_isa_ext[] list. This should be safe
-> as the kernel already parse isa string before writing into source_isa.
+On 22/07/2024 3:58 pm, Christoph Hellwig wrote:
+>> +#include "../../../drivers/iommu/dma-iommu.h"
 > 
-> Fixes: 625034abd52a ("riscv: add ISA extensions validation callback")
-> Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
-> ---
->  arch/riscv/kernel/cpufeature.c | 13 +++++--------
->  1 file changed, 5 insertions(+), 8 deletions(-)
+> This is not a public header as you can guess from the file path.
 > 
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index 8f20607adb40..3f91a1f39a50 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -432,10 +432,7 @@ static void __init riscv_resolve_isa(unsigned long *source_isa,
->  		bitmap_copy(prev_resolved_isa, resolved_isa, RISCV_ISA_EXT_MAX);
->  		for_each_set_bit(bit, source_isa, RISCV_ISA_EXT_MAX) {
->  			ext = riscv_get_isa_ext_data(bit);
-> -			if (!ext)
-> -				continue;
-> -
-> -			if (ext->validate) {
-> +			if (ext && ext->validate) {
->  				ret = ext->validate(ext, resolved_isa);
->  				if (ret == -EPROBE_DEFER) {
->  					loop = true;
-> @@ -447,13 +444,13 @@ static void __init riscv_resolve_isa(unsigned long *source_isa,
->  				}
->  			}
->  
-> -			set_bit(ext->id, resolved_isa);
-> +			set_bit(bit, resolved_isa);
->  			/* No need to keep it in source isa now that it is enabled */
-> -			clear_bit(ext->id, source_isa);
-> +			clear_bit(bit, source_isa);
->  
->  			/* Single letter extensions get set in hwcap */
-> -			if (ext->id < RISCV_ISA_EXT_BASE)
-> -				*this_hwcap |= isa2hwcap[ext->id];
-> +			if (bit < RISCV_ISA_EXT_BASE)
-> +				*this_hwcap |= isa2hwcap[bit];
->  		}
->  	} while (loop && memcmp(prev_resolved_isa, resolved_isa, sizeof(prev_resolved_isa)));
->  }
-> -- 
-> 2.43.0
->
+>> +	switch (dir) {
+>> +	case DMA_TO_DEVICE:
+>> +		break;
+>> +	case DMA_FROM_DEVICE:
+>> +		break;
+>> +
+>> +	case DMA_BIDIRECTIONAL:
+>> +		inval_dcache_range(paddr, size);
+> 
+> Doing this just for bidirectional is weird unless your architecture
+> never does any speculative prefetching.  Other architectures
+> include DMA_FROM_DEVICE here.
+> 
+>> +#ifdef CONFIG_IOMMU_DMA
+>> +void arch_teardown_dma_ops(struct device *dev)
+>> +{
+>> +	dev->dma_ops = NULL;
+>> +}
+>> +#endif /* CONFIG_IOMMU_DMA*/
+> 
+> This should not be needed right now.
 
-Hi Andy,
+More than that, per 8b80549f1bc6, it's now actually a latent bug.
 
-This looks like the same solution that Samuel sent which is currently
-under discussion[1].
+>  And will be completley
+> useless once we do the direct calls to dma-iommu which we plan
+> to do for Linux 6.12.
+> 
+>> +void arch_setup_dma_ops(struct device *dev, bool coherent)
+>> +{
+>> +	dev->dma_coherent = coherent;
+>> +	if (device_iommu_mapped(dev))
+>> +		iommu_setup_dma_ops(dev);
+>> +}
+> 
+> And this seems odd, as iommu_setup_dma_ops is called from the iommu
+> code and you shouldn't need it here.
 
-[1] https://lore.kernel.org/all/20240718213011.2600150-1-samuel.holland@sifive.com/
+Yeah, this smells like it was based on the old arm64 code, but then 
+rebased without reference to the equivalent arm64 changes, hence the 
+#include hack. Enabling iommu-dma for an architecture should now be a 
+one-liner in drivers/iommu/Kconfig, however I don't see an IOMMU driver 
+being added in this series so it's not clear it's actually necessary (yet).
 
 Thanks,
-drew
+Robin.
 
 _______________________________________________
 linux-riscv mailing list
