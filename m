@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FD51C3DA49
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jul 2024 09:00:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2743FC3DA49
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jul 2024 09:06:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kSI/NTvdYRGabVnhp7kj9VYjIqWAoLeJJ45qPM/weqQ=; b=cPdOo3rR0UUuYt
-	W5IBtqIAmKn3pwEgBxgNQtSMg7WtcacIvn+iiGYL7U/7C3x/nFulGC0Eu9bPjpOe2YTY0zC5Y4Qlz
-	8mo952w6AVTgefk9Ne1dNaej8CcEzc1DBw2FKeUGl9stgCVEeI5mbylYv3Qkwc/AjbnMhRYXe6jFX
-	EA4+LKPwIJxAu2wVAkeRng309pK009tAAMaMbTjnvwwPCgcBrcpLq+0mm/gdr88Vpk82Jj39n77Yu
-	o/UX2pScu4bFGQi8kCCU7AlnLw9gX7iMd3Z0z4OhWZguTWz0g48sjuZqz2/qKxQHmRla1QkBWT1Gy
-	jU3QBXGjMFhGRL9Ncm9Q==;
+	List-Owner; bh=Mx3GXeLw02OgeFw6aiwZmOKgw3BKDY2vI2gzWz2Wkcc=; b=13qf/rZ5CUPayP
+	b7gPyLtGxbrifN5Ad/eOmzVGgS4xccN+1KbZ/9qaGCu/XRoTkytvA0kzEK+SBgYLN6W4rk0cU64gp
+	hdeina8VDSsC1IcfwE7aVbeMnstJY7C8rom3JWfneeOMAMbbES0ZO9jB31Lw1KZROZVqDU1fQUwWe
+	V8rulhb3EW83xQ7OzanyYjgo8oZ9zdNIEGkZ0PsGGbRj9fJYOEdrHaPjbvwHejfgOe+E0MXR9uvDI
+	FTRhxjuDvjNXHLIPweoiLOpTaEWRrHEFzRX8aCZJuqb0xsV64RBJipSvIrJGd9jNUJQPCjS0gRz03
+	id6si45yqaX7deZhG3Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYiiY-0000000EPuh-0W4S;
-	Tue, 30 Jul 2024 09:00:29 +0000
+	id 1sYioA-0000000ERPH-0Yn5;
+	Tue, 30 Jul 2024 09:06:14 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYiiB-0000000EPgu-3Sx2
+	id 1sYini-0000000ERI0-0Ati
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Jul 2024 09:00:06 +0000
+	Tue, 30 Jul 2024 09:05:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1722330003;
+	s=mimecast20190719; t=1722330344;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=3Vq57YbceZaPKW/jag25INSUT9w3HBYWgm/2iS/lmgI=;
-	b=Sslyd9/VDS93Nbkh5FbqukpEpRz1aE3Q13iTdBMxqNDOZt7i+OCcZZ/9SXSGxE9p+RzTy+
-	/Gl6UJTzpSJlKk9bh18U0XM8N6c2SNJl7/rMY7NefwJCAWAoGAK315ZPvGCyT5Cq6idE3x
-	x12oCQ+VPEChopU3O8MExwbKxk27u+o=
-Received: from mail-lf1-f69.google.com (mail-lf1-f69.google.com
- [209.85.167.69]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=y8G0Rsvl2ZfKQVim3WYEu/ULpMdQ5SB3TZr8FpmD1gs=;
+	b=LF7byxQPSh4tpVGk/8dOl4m1YawPMCp/IgX+IJvWLVgwmkeR0JVejiqQbF/nOxkQ/dpnzQ
+	/5cmEXty/6TPSiAM6A59cbhMdjYUbvAOIvD6Cf8lN8lr0KfeXA1TEHzZGAu6VdDCf3/wCg
+	l0TTxmfxW4xXmn9qmREzb8aPaOFCCsM=
+Received: from mail-ej1-f72.google.com (mail-ej1-f72.google.com
+ [209.85.218.72]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-108-rrRXEHSWPjaNc8GYO5oVLw-1; Tue, 30 Jul 2024 05:00:01 -0400
-X-MC-Unique: rrRXEHSWPjaNc8GYO5oVLw-1
-Received: by mail-lf1-f69.google.com with SMTP id 2adb3069b0e04-52fcb0f226bso5419704e87.0
-        for <linux-riscv@lists.infradead.org>; Tue, 30 Jul 2024 02:00:01 -0700 (PDT)
+ us-mta-128-pfHhb_WBPhK8uZ7DL_tYLQ-1; Tue, 30 Jul 2024 05:05:39 -0400
+X-MC-Unique: pfHhb_WBPhK8uZ7DL_tYLQ-1
+Received: by mail-ej1-f72.google.com with SMTP id a640c23a62f3a-a77f0eca75bso415440566b.1
+        for <linux-riscv@lists.infradead.org>; Tue, 30 Jul 2024 02:05:39 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722330000; x=1722934800;
+        d=1e100.net; s=20230601; t=1722330338; x=1722935138;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=3Vq57YbceZaPKW/jag25INSUT9w3HBYWgm/2iS/lmgI=;
-        b=lt5EoB1Lqf8UOeO3pLxDepJpguwCNFfVmy5A0JNRhwI4gpABqmY/w7gZrZftSBFugY
-         I2dxOATxNSb3S0kSV/RF/BuKeTqf2NYbchm68IGUgHRau01Sc4lI+dZmDhvy/YebVob7
-         bQgFdh9lyee4vKeXR2Yvm+fuLcFfnmUrQ6hZFJzgbVaNlIPsT8WL+WuecM3XNmFtpYcl
-         L03zpjTyLjwjObIqWVPmIqdBOBOClJKcllAQXSa2Pf2Z9m8Fd5Cx24xXO1eW32FQ1SW1
-         wJpV7oq8LCFoBbH1/beeIpMiH3QAVTJeCCxaR03OzjidiR6CEBlcm2ITGgU3WW/l4qIH
-         hYBA==
-X-Forwarded-Encrypted: i=1; AJvYcCXW8uK02piXqtZV1a/Uf/iqByZ3ijgqrMWPebsFqz82i33BgM9qor/jK9+gzU4MIrVvceRfT27jPjML99EzXDEIrrrTpkiQ++/40n233Y5B
-X-Gm-Message-State: AOJu0YzHm4BlMIXmR9sSDH+LxohGTUma1MDKylZVdwib3GsT/J1UcnIn
-	G+kNce7AvubOite/wwXCnc8luiCvEsTWRnlPt7z/S1AjJZrRth1NRizBsMOCD8OJQ8NmAGFE2Gr
-	2U8KOMBJEUBQl5mQnaNRBX6VvVooYtJ7x2mZMXlmc3F5yBQcuxWD+X88+7uY8OlsWYw==
-X-Received: by 2002:ac2:4bd4:0:b0:530:ac41:4ee with SMTP id 2adb3069b0e04-530ac410772mr853130e87.24.1722329999868;
-        Tue, 30 Jul 2024 01:59:59 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IF1CX9fuid97Fo9k/P7XEAx/O03KlRJUJxp6LS6LdYujPfua6G8Lket79YT5PUqIa4JM4vZ8g==
-X-Received: by 2002:ac2:4bd4:0:b0:530:ac41:4ee with SMTP id 2adb3069b0e04-530ac410772mr853087e87.24.1722329999379;
-        Tue, 30 Jul 2024 01:59:59 -0700 (PDT)
+        bh=y8G0Rsvl2ZfKQVim3WYEu/ULpMdQ5SB3TZr8FpmD1gs=;
+        b=a3R1cSz7wPNGB6vl6nCL5vKmJhkvNvo7F88MP5q6iezDVm+KjdGKELUbRDeAPpW8+3
+         hoWgA9QryvYxbjMxkMRh3ffvJf/OysdF32L/Maqzee+GN377QVoejqNdBVAHWzsTsDt8
+         yh+5zB21drA6CPzW2P9lT1vW2ZzTNtqgl41mtrHL2UvFxH6SsaRSu5SpLD6YtKKWLFmd
+         o/WPIbvXK2sEkJ91bFGgHqD708TSrCxsiPP0OLTYJn1b8KFyt7KnWb9qGoAeyN4wWgWE
+         3v3uk8nE84ImpFMA7TxD0GK2aJQOQ79uehFgUtM5bAEmI+vNsUrf0w3KzBK0UyOCq2X4
+         DZ7g==
+X-Forwarded-Encrypted: i=1; AJvYcCXCRUav70u4afaSwDk2ZWmEFrGD2PDNlRJy8jg2gDMDm6uOT0tYlEuJvsh/A4BmDcsFuRQbZTMHkWWNFBtv3mBfHf1QBoGz5J2B8RKUF0gu
+X-Gm-Message-State: AOJu0Yx95rxRipkByyFyNFgaBmMoRoskdMfqwmVRO3PTt9FRtwHWQ8+w
+	q5LD+JO5CqHyVg/8tMtVRVSN8ol6/2in/d/iqlcFwlnK5LkgtOOtsnjONPMCmdD2y62eJSz5n42
+	CA6Mhvl8sfAPJg+XsC6jVJJBTBSFayfgI++beavbAIJ2DW/txuhIC0o7Jj3E+1AQc8g==
+X-Received: by 2002:a17:907:9803:b0:a6f:4f2c:1936 with SMTP id a640c23a62f3a-a7d4011446bmr605767366b.44.1722330338313;
+        Tue, 30 Jul 2024 02:05:38 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGyHe4aJyS1Uxr4GJW4wjt2WBKjxS53+1D2JV4zXUtkqi7IDeNByS7dwef5YTgCXCGFtY96FA==
+X-Received: by 2002:a17:907:9803:b0:a6f:4f2c:1936 with SMTP id a640c23a62f3a-a7d4011446bmr605763366b.44.1722330337702;
+        Tue, 30 Jul 2024 02:05:37 -0700 (PDT)
 Received: from [192.168.10.47] ([151.95.101.29])
-        by smtp.googlemail.com with ESMTPSA id 4fb4d7f45d1cf-5ac63590d76sm7021589a12.24.2024.07.30.01.59.57
+        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-a7acab23157sm617304466b.33.2024.07.30.02.05.36
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 30 Jul 2024 01:59:58 -0700 (PDT)
-Message-ID: <bb2d52e8-ceff-46e8-83a1-4db535754aa0@redhat.com>
-Date: Tue, 30 Jul 2024 10:59:57 +0200
+        Tue, 30 Jul 2024 02:05:37 -0700 (PDT)
+Message-ID: <2da6b57e-d5c2-4016-b89b-d51700eeb845@redhat.com>
+Date: Tue, 30 Jul 2024 11:05:35 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 50/84] KVM: VMX: Use __kvm_faultin_page() to get APIC
- access page/pfn
+Subject: Re: [PATCH v12 45/84] KVM: guest_memfd: Provide "struct page" as
+ output from kvm_gmem_get_pfn()
 To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
  Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao
  <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
@@ -92,7 +92,7 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>,
  David Stevens <stevensd@chromium.org>
 References: <20240726235234.228822-1-seanjc@google.com>
- <20240726235234.228822-51-seanjc@google.com>
+ <20240726235234.228822-46-seanjc@google.com>
 From: Paolo Bonzini <pbonzini@redhat.com>
 Autocrypt: addr=pbonzini@redhat.com; keydata=
  xsEhBFRCcBIBDqDGsz4K0zZun3jh+U6Z9wNGLKQ0kSFyjN38gMqU1SfP+TUNQepFHb/Gc0E2
@@ -129,13 +129,13 @@ Autocrypt: addr=pbonzini@redhat.com; keydata=
  JBrdmNZSQDz0iKmSrx8xkoXYfA3bgtFN8WJH2xgFL28XnqY4M6dLhJwV3z08tPSRqYFm4NMP
  dRsn0/7oymhneL8RthIvjDDQ5ktUjMe8LtHr70OZE/TT88qvEdhiIVUogHdo4qBrk41+gGQh
  b906Dudw5YhTJFU3nC6bbF2nrLlB4C/XSiH76ZvqzV0Z/cAMBo5NF/w=
-In-Reply-To: <20240726235234.228822-51-seanjc@google.com>
+In-Reply-To: <20240726235234.228822-46-seanjc@google.com>
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240730_020004_028756_845A2F27 
-X-CRM114-Status: GOOD (  21.65  )
+X-CRM114-CacheID: sfid-20240730_020546_184330_8CF3E403 
+X-CRM114-Status: GOOD (  16.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,63 +153,133 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 7/27/24 01:51, Sean Christopherson wrote:
-> Use __kvm_faultin_page() get the APIC access page so that KVM can
-> precisely release the refcounted page, i.e. to remove yet another user
-> of kvm_pfn_to_refcounted_page().  While the path isn't handling a guest
-> page fault, the semantics are effectively the same; KVM just happens to
-> be mapping the pfn into a VMCS field instead of a secondary MMU.
-> 
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->   arch/x86/kvm/vmx/vmx.c | 13 +++++++++----
->   1 file changed, 9 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-> index 30032585f7dc..b109bd282a52 100644
-> --- a/arch/x86/kvm/vmx/vmx.c
-> +++ b/arch/x86/kvm/vmx/vmx.c
-> @@ -6786,8 +6786,10 @@ void vmx_set_apic_access_page_addr(struct kvm_vcpu *vcpu)
->   	struct kvm *kvm = vcpu->kvm;
->   	struct kvm_memslots *slots = kvm_memslots(kvm);
->   	struct kvm_memory_slot *slot;
-> +	struct page *refcounted_page;
->   	unsigned long mmu_seq;
->   	kvm_pfn_t pfn;
-> +	bool ign;
+> Provide the "struct page" associated with a guest_memfd pfn as an output
+> from __kvm_gmem_get_pfn() so that KVM guest page fault handlers can
+        ^^^^^^^^^^^^^^^^^^^^
 
-Even if you don't use it, call the out argument "writable".
+Just "kvm_gmem_get_pfn()".
+
+> directly put the page instead of having to rely on
+> kvm_pfn_to_refcounted_page().
+
+This will conflict with my series, where I'm introducing
+folio_file_pfn() and using it here:
+> -	page = folio_file_page(folio, index);
+> +	*page = folio_file_page(folio, index);
+>   
+> -	*pfn = page_to_pfn(page);
+> +	*pfn = page_to_pfn(*page);
+>   	if (max_order)
+>   		*max_order = 0;
+
+That said, I think it's better to turn kvm_gmem_get_pfn() into
+kvm_gmem_get_page() here, and pull the page_to_pfn() or page_to_phys()
+to the caller as applicable.  This highlights that the caller always
+gets a refcounted page with guest_memfd.
+
+diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
+index 901be9e420a4..bcc4a4c594ef 100644
+--- a/arch/x86/kvm/mmu/mmu.c
++++ b/arch/x86/kvm/mmu/mmu.c
+@@ -4348,13 +4348,14 @@ static int kvm_faultin_pfn_private(struct kvm_vcpu *vcpu,
+  		return -EFAULT;
+  	}
+  
+-	r = kvm_gmem_get_pfn(vcpu->kvm, fault->slot, fault->gfn, &fault->pfn,
++	r = kvm_gmem_get_page(vcpu->kvm, fault->slot, fault->gfn, &fault->refcounted_page,
+  			     &max_order);
+  	if (r) {
+  		kvm_mmu_prepare_memory_fault_exit(vcpu, fault);
+  		return r;
+  	}
+  
++	fault->pfn = page_to_pfn(page);
+  	fault->map_writable = !(fault->slot->flags & KVM_MEM_READONLY);
+  	fault->max_level = kvm_max_private_mapping_level(vcpu->kvm, fault->pfn,
+  							 fault->max_level, max_order);
+diff --git a/arch/x86/kvm/svm/sev.c b/arch/x86/kvm/svm/sev.c
+index a16c873b3232..db4181d11f2e 100644
+--- a/arch/x86/kvm/svm/sev.c
++++ b/arch/x86/kvm/svm/sev.c
+@@ -3847,7 +3847,7 @@ static int __sev_snp_update_protected_guest_state(struct kvm_vcpu *vcpu)
+  	if (VALID_PAGE(svm->sev_es.snp_vmsa_gpa)) {
+  		gfn_t gfn = gpa_to_gfn(svm->sev_es.snp_vmsa_gpa);
+  		struct kvm_memory_slot *slot;
+-		kvm_pfn_t pfn;
++		struct page *page;
+  
+  		slot = gfn_to_memslot(vcpu->kvm, gfn);
+  		if (!slot)
+@@ -3857,7 +3857,7 @@ static int __sev_snp_update_protected_guest_state(struct kvm_vcpu *vcpu)
+  		 * The new VMSA will be private memory guest memory, so
+  		 * retrieve the PFN from the gmem backend.
+  		 */
+-		if (kvm_gmem_get_pfn(vcpu->kvm, slot, gfn, &pfn, NULL))
++		if (kvm_gmem_get_page(vcpu->kvm, slot, gfn, &page, NULL))
+  			return -EINVAL;
+  
+  		/*
+@@ -3873,7 +3873,7 @@ static int __sev_snp_update_protected_guest_state(struct kvm_vcpu *vcpu)
+  		svm->sev_es.snp_has_guest_vmsa = true;
+  
+  		/* Use the new VMSA */
+-		svm->vmcb->control.vmsa_pa = pfn_to_hpa(pfn);
++		svm->vmcb->control.vmsa_pa = page_to_phys(page);
+  
+  		/* Mark the vCPU as runnable */
+  		vcpu->arch.pv.pv_unhalted = false;
+@@ -3886,7 +3886,7 @@ static int __sev_snp_update_protected_guest_state(struct kvm_vcpu *vcpu)
+  		 * changes then care should be taken to ensure
+  		 * svm->sev_es.vmsa is pinned through some other means.
+  		 */
+-		kvm_release_pfn_clean(pfn);
++		kvm_release_page_clean(page);
+  	}
+  
+  	/*
+@@ -4687,6 +4687,7 @@ void sev_handle_rmp_fault(struct kvm_vcpu *vcpu, gpa_t gpa, u64 error_code)
+  	struct kvm *kvm = vcpu->kvm;
+  	int order, rmp_level, ret;
+  	bool assigned;
++	struct page *page;
+  	kvm_pfn_t pfn;
+  	gfn_t gfn;
+  
+@@ -4712,13 +4713,14 @@ void sev_handle_rmp_fault(struct kvm_vcpu *vcpu, gpa_t gpa, u64 error_code)
+  		return;
+  	}
+  
+-	ret = kvm_gmem_get_pfn(kvm, slot, gfn, &pfn, &order);
++	ret = kvm_gmem_get_page(kvm, slot, gfn, &page, &order);
+  	if (ret) {
+  		pr_warn_ratelimited("SEV: Unexpected RMP fault, no backing page for private GPA 0x%llx\n",
+  				    gpa);
+  		return;
+  	}
+  
++	pfn = page_to_pfn(page);
+  	ret = snp_lookup_rmpentry(pfn, &assigned, &rmp_level);
+  	if (ret || !assigned) {
+  		pr_warn_ratelimited("SEV: Unexpected RMP fault, no assigned RMP entry found for GPA 0x%llx PFN 0x%llx error %d\n",
+@@ -4770,7 +4772,7 @@ void sev_handle_rmp_fault(struct kvm_vcpu *vcpu, gpa_t gpa, u64 error_code)
+  out:
+  	trace_kvm_rmp_fault(vcpu, gpa, pfn, error_code, rmp_level, ret);
+  out_no_trace:
+-	put_page(pfn_to_page(pfn));
++	kvm_release_page_unused(page);
+  }
+  
+  static bool is_pfn_range_shared(kvm_pfn_t start, kvm_pfn_t end)
+
+
+And the change in virt/kvm/guest_memfd.c then is just as trivial, apart
+from all the renaming:
+
+-	*pfn = folio_file_pfn(folio, index);
++	*page = folio_file_page(folio, index);
+
 
 Paolo
-
->   
->   	/* Defer reload until vmcs01 is the current VMCS. */
->   	if (is_guest_mode(vcpu)) {
-> @@ -6823,7 +6825,7 @@ void vmx_set_apic_access_page_addr(struct kvm_vcpu *vcpu)
->   	 * controls the APIC-access page memslot, and only deletes the memslot
->   	 * if APICv is permanently inhibited, i.e. the memslot won't reappear.
->   	 */
-> -	pfn = gfn_to_pfn_memslot(slot, gfn);
-> +	pfn = __kvm_faultin_pfn(slot, gfn, FOLL_WRITE, &ign, &refcounted_page);
->   	if (is_error_noslot_pfn(pfn))
->   		return;
->   
-> @@ -6834,10 +6836,13 @@ void vmx_set_apic_access_page_addr(struct kvm_vcpu *vcpu)
->   		vmcs_write64(APIC_ACCESS_ADDR, pfn_to_hpa(pfn));
->   
->   	/*
-> -	 * Do not pin apic access page in memory, the MMU notifier
-> -	 * will call us again if it is migrated or swapped out.
-> +	 * Do not pin the APIC access page in memory so that it can be freely
-> +	 * migrated, the MMU notifier will call us again if it is migrated or
-> +	 * swapped out.  KVM backs the memslot with anonymous memory, the pfn
-> +	 * should always point at a refcounted page (if the pfn is valid).
->   	 */
-> -	kvm_release_pfn_clean(pfn);
-> +	if (!WARN_ON_ONCE(!refcounted_page))
-> +		kvm_release_page_clean(refcounted_page);
->   
->   	/*
->   	 * No need for a manual TLB flush at this point, KVM has already done a
 
 
 _______________________________________________
