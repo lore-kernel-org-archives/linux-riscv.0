@@ -4,81 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41208C3DA49
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jul 2024 09:19:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81AB6C3DA49
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jul 2024 09:37:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2Q0HyxO9y3sKGfGSTAczU3OJziNhkykMPLwg3PVysKk=; b=P25+qSwD5TWgQL
-	BksgEH5AhJPdsWeUDb6gpGvKD4ZQvEGR598iqXiSicfW4izVN6bc9KCY27uwlfb/FB/yfx0f1bsQL
-	XntmTdlpBFPexDLOpbFXH+YMZci1dwTLsn8FC4+FsyZXudxKtJF+Q24Y7w2CtFt/KR+BSYyXEM6Gg
-	gExlXdDghyeK167NpuywJBzMVP8rMdY2eiUPdyO+JyIEpZyjEFJu3hJDm0eJ0F3adY9zofzpEW5Wh
-	Dl6dRq62CKOlb71SKgQvaTCymfSFzmGpIdZfFHt6qOKe8PrchAt3Z60X2Oei70ODosXLsDeLu6PyG
-	uSgPUUKQcBBxTp4Pa+6w==;
+	List-Owner; bh=YUQCB+zTY9Rz42sSMTStkDdKtRKikd8gxQasE7wKB/E=; b=OxODZqyk9O/1zc
+	la5HBVJN+VmW8Nv41GtGu2dY9wORU49hIQ0lcJJuxP3Sko1WXyYQq6zCC+SnSMdjlc6OXrcm2Vop/
+	r6XGAIbtVXZE+I4MHmI4j2NdQuQe4B/hgRyCXZvWcKSzH8Sdlaa2BChM6twFx5Xm8BF0pIkjZ+636
+	3r6SQ80qwTyCZkpXhRPYSW3UWfnGHZSfhfw4v/k0l2JII/m89m68P76c8tZkPOVI/jqcz30njJ5D3
+	rbgBVY5NNYFxsF7dIUWETb5jYSjlLqfPFGpEXC4earRWo/d77jTof6pPC8r923gYGfFJoO8hmx+hy
+	Kl+Vdha2e3fRXs2/iWGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYj13-0000000EU5c-2CBb;
-	Tue, 30 Jul 2024 09:19:33 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1sYjIb-0000000EYs0-3oIt;
+	Tue, 30 Jul 2024 09:37:42 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYj0J-0000000ETrM-0XJx
+	id 1sYjIY-0000000EYqh-1coS
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Jul 2024 09:18:48 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-5af6a1afa7bso4170779a12.1
-        for <linux-riscv@lists.infradead.org>; Tue, 30 Jul 2024 02:18:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1722331125; x=1722935925; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=jctJvtv+1IaigDF/1bjmDqE3F2Ur/iKYxs0PGsWgibI=;
-        b=IJJM2iAmeNd9g8X5Ba3mhJnWj0s6n6bdt1bPW+8+g2KNkjZa8RwPm6CF537Hv3sL1J
-         FQBSmJotcQ9hTr0SPqJ3TjnqiDQttwe0BVIzifEdx/0zL35tUzfn9MPWgNCSjmNvpffj
-         9lI7ES6zO1UTQg0X5pQ+SVYhEWLhGV93i8oacx8BpdQE8PBtVBbbeLnGFN2BRxDWbnKt
-         wYdnPPjO5IrwqOCU7gIV90hRWCl36d8cOhuWH8pMF+7kDO/tGQIa/zGQ36nJ5DJ/Nb16
-         Jti9zJ2InlUbkxcKOztEU08Pv+WcgSQphqnOro26abrdZydEqpPKjDqSaKvc1KolxD2o
-         aGzA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722331125; x=1722935925;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jctJvtv+1IaigDF/1bjmDqE3F2Ur/iKYxs0PGsWgibI=;
-        b=eGMWZa+ibow2hddy2A1hrD1R2N5v3PPqoarsTJoJLw1ZadeWSlBnhAnK5rM5nQqABS
-         4FRqmzF/IIGAtCz2GYNTIgv3lI+5iPV2QUKbwlQHAFvpgoiV7B6hERD4/wam4uxSHTmz
-         Pl9UEWeIN+oey4aDKqWw2bQBYu2r179xOBMixMfR4Nmiw5FFONUzRBS+wFRqxFdnx833
-         jI0IsQSiYXfe+JfVs+TNgK5ZmT4HaJyqVJDYhJ4NbBodvK2+wZiRz8U/ivzwlHfGv+Ur
-         6dFH0oLOgLRGmCkiqg2QEtV06iOMIUi4MxK6ziYw7GQzHfCr+FyIyxkkqxGR5EX0wZT2
-         abAQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXVkEWmX7nabAc5VEs5K7dveKk9pwIjX5BKu8Is3s414NSGVHN0+Q+8PHAPhShN7s4gaXfk04hXfE5i6KBuxKt6LB/6NaL1aB8MPFmVYnwT
-X-Gm-Message-State: AOJu0Ywwh9g2X55Va1SIkSJ9bFR08et1XM7uDFjI/56rmLiJMhoo7w+x
-	YjEAbPENXj3xILLTghUILB7Nr0xFm5ba52LKW3hklC31q6uTyYjGTbELr/OM
-X-Google-Smtp-Source: AGHT+IFZf1pqfFnaNvhVBcURD1HU8uxwWAd/zV+FPQ+Eo1Fl1XkihsI1ZDPmE3muZ7BSaujFltAOng==
-X-Received: by 2002:a50:cd05:0:b0:5a2:efe4:262d with SMTP id 4fb4d7f45d1cf-5b020bbddbemr5384188a12.21.1722331124360;
-        Tue, 30 Jul 2024 02:18:44 -0700 (PDT)
-Received: from andrea ([151.76.3.213])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5af959990c9sm5495745a12.47.2024.07.30.02.18.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 30 Jul 2024 02:18:43 -0700 (PDT)
-Date: Tue, 30 Jul 2024 11:18:40 +0200
-From: Andrea Parri <parri.andrea@gmail.com>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Tue, 30 Jul 2024 09:37:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1722332258; x=1753868258;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=eQ4F1x/lpLxGO5KX65v21lz8EB6jaKNod2yiaHWTOHU=;
+  b=cEzvEq5DkQ87r30AgKq3O9OyvCYfdIfc8jruVRYjDKnWi0CsRNr2PBWg
+   8bHokSwVDwdVizHWHKJpOvMl3HSIrovK8M+UULfSDasHo0zKlKyceOlvh
+   F7RdDy+LJ7ZpalEJKNqtHdRfwVb/r4wGpjkBcuWLGS4WyL5Tg3MhZ2Avk
+   a9S5d03HzDN+sVfwMzahj6dNtugYGM0wYZ0sr0dGdGUFMI2tqsspYexvx
+   qc5o6FyK6H3mYPa2vR9ATC6pfd/Hm/oH1Ok1by21SkWTEtJdM4Sr+ZG8Q
+   6mdceAyLkE0kwTz/eYMSTFKWiCgLMSCfmcuQLoCKJpSrducwjZuInWuJZ
+   w==;
+X-CSE-ConnectionGUID: JRkOp6MZQviEdkTLnBzLPw==
+X-CSE-MsgGUID: scylY1zrSnS6JG91cl1z9A==
+X-IronPort-AV: E=McAfee;i="6700,10204,11148"; a="37609130"
+X-IronPort-AV: E=Sophos;i="6.09,248,1716274800"; 
+   d="scan'208";a="37609130"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jul 2024 02:37:36 -0700
+X-CSE-ConnectionGUID: LKz+kXhGS6K4pP63RiYLZQ==
+X-CSE-MsgGUID: CH0h1jCyQo+6eb2XHzFn6Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.09,248,1716274800"; 
+   d="scan'208";a="58605605"
+Received: from lkp-server01.sh.intel.com (HELO 68891e0c336b) ([10.239.97.150])
+  by fmviesa005.fm.intel.com with ESMTP; 30 Jul 2024 02:37:33 -0700
+Received: from kbuild by 68891e0c336b with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1sYjIQ-000sjU-11;
+	Tue, 30 Jul 2024 09:37:30 +0000
+Date: Tue, 30 Jul 2024 17:36:47 +0800
+From: kernel test robot <lkp@intel.com>
+To: Inochi Amaoto <inochiama@outlook.com>, Jean Delvare <jdelvare@suse.com>,
+	Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 0/2] tools: Add barrier implementations for riscv
-Message-ID: <Zqiv8EEKYr5lnlHl@andrea>
-References: <20240729-optimize_ring_buffer_read_riscv-v1-0-6bbc0f2434ee@rivosinc.com>
+	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
+	Chao Wei <chao.wei@sophgo.com>,
+	Hal Feng <hal.feng@starfivetech.com>,
+	Jinyu Tang <tangjinyu@tinylab.org>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Cc: oe-kbuild-all@lists.linux.dev, linux-hwmon@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v8 3/4] riscv: dts: sophgo: Add mcu device for Milk-V
+ Pioneer
+Message-ID: <202407301749.K0pFCNLU-lkp@intel.com>
+References: <IA1PR20MB4953826DECDCC141A7CDE634BBB02@IA1PR20MB4953.namprd20.prod.outlook.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240729-optimize_ring_buffer_read_riscv-v1-0-6bbc0f2434ee@rivosinc.com>
+In-Reply-To: <IA1PR20MB4953826DECDCC141A7CDE634BBB02@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240730_021847_185521_0FD8DA6C 
-X-CRM114-Status: UNSURE (   9.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240730_023738_496717_618F47AC 
+X-CRM114-Status: GOOD (  10.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,21 +102,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 29, 2024 at 01:50:34PM -0700, Charlie Jenkins wrote:
-> Add support for riscv specific barrier implementations to the tools
-> tree, so that fence instructions can be emitted for synchronization.
-> 
-> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> ---
-> Charlie Jenkins (2):
->       tools: Add riscv barrier implementation
->       tools: Optimize ring buffer for riscv
+Hi Inochi,
 
-LGTM.  For the series,
+kernel test robot noticed the following build errors:
 
-Reviewed-by: Andrea Parri <parri.andrea@gmail.com>
+[auto build test ERROR on groeck-staging/hwmon-next]
+[also build test ERROR on robh/for-next linus/master v6.11-rc1 next-20240730]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-  Andrea
+url:    https://github.com/intel-lab-lkp/linux/commits/Inochi-Amaoto/dt-bindings-hwmon-Add-Sophgo-SG2042-external-hardware-monitor-support/20240730-160416
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/groeck/linux-staging.git hwmon-next
+patch link:    https://lore.kernel.org/r/IA1PR20MB4953826DECDCC141A7CDE634BBB02%40IA1PR20MB4953.namprd20.prod.outlook.com
+patch subject: [PATCH v8 3/4] riscv: dts: sophgo: Add mcu device for Milk-V Pioneer
+config: riscv-randconfig-051-20240730 (https://download.01.org/0day-ci/archive/20240730/202407301749.K0pFCNLU-lkp@intel.com/config)
+compiler: riscv64-linux-gcc (GCC) 14.1.0
+dtschema version: 2024.6.dev4+g23441a4
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20240730/202407301749.K0pFCNLU-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202407301749.K0pFCNLU-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> Error: arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts:29.1-6 Label or path i2c1 not found
+   FATAL ERROR: Syntax error parsing input tree
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
