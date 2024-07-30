@@ -4,76 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FC3AC3DA7E
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jul 2024 15:45:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C6E8C3DA49
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jul 2024 16:43:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=vh3IUe9gQE638wpQhGiG6uB2kqcmU8qcyiBe5tPH1RY=; b=uvNfGQr497mryr
-	SES0hW+FFjEArKMdk/wGTJZAw2+liKoWJRIFEsXJkDrJNAGKAh/BtqBaTrAVbe1DxkbKAt4ILTZgD
-	Mu7NObr03TssmMm0IGs/uKmyaOD5Lb4YtF+W2XC1P/WrQlyVsEiUzlm6yHPsSHr665irjYZbZRupH
-	1Nizg2cADTmD2OplwykG9LEyHt4JBKnsaq9hEvVi4+n3gpyIWoCCRlwzNKSThFzE/LgtoTVH7OEpQ
-	gNEKJbNtF6dd/aHEGkKzdN5d+bGR6S4w5Ko+XLDOpNEH3psfBXgelq/rE0d7o4H3cV9pURmAcJOJu
-	hSPI3PCX7bsMjawlR+EA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=t7P2423kwxMHHaeGwamwN/J16eeCEuvaTPZ/k2/5PUE=; b=n3efkrAlt9UVkq
+	mg6ikT4nXcFOCmJE2GJmoGMYuYxsn23ZzkkaDeEzM23IGUmxmb1roPlzFtSYuJUu7Em8QluxySf4Y
+	0tTU6XB+cNCle6Qqj745GELXpgXVtqho+ZD08RoOC9O2uZCldJy+erEui4etFZTgq729uNihtjBo8
+	aeppah3A3oDc75bih50U6QGHsF/1nxNNL/VG69j63Y/OdFstW3ZGN/VOXvYtcOxSDOKMifHtSXJ7Y
+	MEoX7EiFiKHxBC21RE7CfxYKevOhXX1GT2KzNdfrDcYs9HI/9xXeB6bx6uLBvbvWXlYR8hNi6rhRM
+	t3boLiYvCku9A3AWqYug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYp2Q-0000000FhvB-3bUD;
-	Tue, 30 Jul 2024 15:45:22 +0000
+	id 1sYpws-0000000FuX9-3qFb;
+	Tue, 30 Jul 2024 16:43:42 +0000
 Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYp2N-0000000Fhu9-2aho
+	id 1sYpwq-0000000FuWC-15Jn
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Jul 2024 15:45:21 +0000
+	Tue, 30 Jul 2024 16:43:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id BD4B2CE10D7;
-	Tue, 30 Jul 2024 15:45:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EA7FC32782;
-	Tue, 30 Jul 2024 15:45:11 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 58D39CE112C;
+	Tue, 30 Jul 2024 16:43:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A552AC32782;
+	Tue, 30 Jul 2024 16:43:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1722354317;
-	bh=nJ11jqt4kbADJb/lh6ehcVySsKlovodsRd6q1QQ61UU=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Y498xCwB+edKx6vBTJBE4pdVSrC8AgicpE9Gk6/Tr14THpD+ONc6UiOz93KDvt2NO
-	 +wouLlUN0PwZcaTOeow+waEgT3Cb7+iMtJesXltyxHGl5s2EY+KCzrRImYJExzJvl2
-	 HjXzON4b5vU097XkkTkkHR+poLiMbHZAePzx25reRDnuxGeoY9WYFbsgV5nrUqoE4g
-	 h5vzSs5V9i0Tw4VOR7VHpwrrMkcTA7hqJjWcHVrWZUVh1LHSNdxFvu6l3kD45C5qmo
-	 bqTA1IuDQJXJY6CB6H0GicwmIKkNAjr0InmOKHMXYZ91fCmNmN6Mh8dUJ3jUc/BNoX
-	 Xe7dPlG1FOk+Q==
-From: Arnd Bergmann <arnd@kernel.org>
-To: Andy Lutomirski <luto@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Jiri Olsa <jolsa@kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
-	"H. Peter Anvin" <hpa@zytor.com>,
+	s=k20201202; t=1722357813;
+	bh=rM6iSBoLqvdC9i7j/uLVUpFr+05gFmWXkBFCh8kha7s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rKI6qJkX/lXCuCu2TSLnOMaoIDsXR54jK5DEM2wqQHohfBFcM59fY263xIPMMgX0d
+	 dvIVbeO/bxqe6CWTqpAY2u0Z7h42JMpWSuHEJCL3Hf3b6YeJgqfzHOA+/AoBWpzm1L
+	 S8FV3PKtG07d5q5ETsBWUb4DcDKqxx7kzsMX7hJk7vy2tpaZ1T9/V44Y5lY5T/Qmyp
+	 x09v7iuXPIzyCIPkX/5XmIEkpaJ8M2/1dzysGN2hrIYcvlmU1Sq1WMnMb2J+Nofcar
+	 EX8z3McX6hbJwuDHjnqtNaVVUZRqUSFpHNcwQPlKdE0vD57u2gNAndJM4WDBoS1FxB
+	 3RScm4quK+J+Q==
+Date: Tue, 30 Jul 2024 10:43:32 -0600
+From: Rob Herring <robh@kernel.org>
+To: Inochi Amaoto <inochiama@outlook.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Guo Ren <guoren@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>,
-	Kees Cook <kees@kernel.org>,
-	"peterz@infradead.org" <peterz@infradead.org>,
-	"H.J. Lu" <hjl.tools@gmail.com>,
-	Sohil Mehta <sohil.mehta@intel.com>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [RFC] uretprobe: change syscall number, again
-Date: Tue, 30 Jul 2024 17:43:36 +0200
-Message-Id: <20240730154500.3155437-1-arnd@kernel.org>
-X-Mailer: git-send-email 2.39.2
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Drew Fustini <dfustini@baylibre.com>,
+	Haylen Chu <heylenay@outlook.com>, Yixun Lan <dlan@gentoo.org>,
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 1/7] dt-bindings: pinctrl: Add pinctrl for Sophgo
+ CV1800 series SoC.
+Message-ID: <20240730164332.GA1501290-robh@kernel.org>
+References: <IA1PR20MB4953B8B0014FA82A8E141CB0BBB72@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <IA1PR20MB4953C9FF856D6076FB1F8641BBB72@IA1PR20MB4953.namprd20.prod.outlook.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <IA1PR20MB4953C9FF856D6076FB1F8641BBB72@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240730_084520_237597_4A2082B0 
-X-CRM114-Status: GOOD (  20.32  )
+X-CRM114-CacheID: sfid-20240730_094340_694941_49FFE95B 
+X-CRM114-Status: GOOD (  19.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,101 +84,161 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+On Mon, Jul 29, 2024 at 09:02:27AM +0800, Inochi Amaoto wrote:
+> Add pinctrl support for Sophgo CV1800 series SoC.
+> 
+> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+> ---
+>  .../pinctrl/sophgo,cv1800-pinctrl.yaml        | 120 +++++++++++++++++
+>  include/dt-bindings/pinctrl/pinctrl-cv1800b.h |  63 +++++++++
+>  include/dt-bindings/pinctrl/pinctrl-cv1812h.h | 127 ++++++++++++++++++
+>  include/dt-bindings/pinctrl/pinctrl-cv18xx.h  |  19 +++
+>  include/dt-bindings/pinctrl/pinctrl-sg2000.h  | 127 ++++++++++++++++++
+>  include/dt-bindings/pinctrl/pinctrl-sg2002.h  |  79 +++++++++++
+>  6 files changed, 535 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pinctrl/sophgo,cv1800-pinctrl.yaml
+>  create mode 100644 include/dt-bindings/pinctrl/pinctrl-cv1800b.h
+>  create mode 100644 include/dt-bindings/pinctrl/pinctrl-cv1812h.h
+>  create mode 100644 include/dt-bindings/pinctrl/pinctrl-cv18xx.h
+>  create mode 100644 include/dt-bindings/pinctrl/pinctrl-sg2000.h
+>  create mode 100644 include/dt-bindings/pinctrl/pinctrl-sg2002.h
+> 
+> diff --git a/Documentation/devicetree/bindings/pinctrl/sophgo,cv1800-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/sophgo,cv1800-pinctrl.yaml
+> new file mode 100644
+> index 000000000000..a94ff6fb785e
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pinctrl/sophgo,cv1800-pinctrl.yaml
+> @@ -0,0 +1,120 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pinctrl/sophgo,cv1800-pinctrl.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Sophgo CV1800 Pin Controller
+> +
+> +maintainers:
+> +  - Inochi Amaoto <inochiama@outlook.com>
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - sophgo,cv1800b-pinctrl
+> +      - sophgo,cv1812h-pinctrl
+> +      - sophgo,sg2000-pinctrl
+> +      - sophgo,sg2002-pinctrl
+> +
+> +  reg:
+> +    items:
+> +      - description: pinctrl for system domain
+> +      - description: pinctrl for rtc domain
+> +
+> +  reg-names:
+> +    items:
+> +      - const: sys
+> +      - const: rtc
+> +
+> +  resets:
+> +    maxItems: 1
+> +
+> +patternProperties:
+> +  '-cfg$':
+> +    type: object
+> +    description:
+> +      A pinctrl node should contain at least one subnode representing the
+> +      pinctrl groups available on the machine.
+> +
+> +    additionalProperties: false
+> +
+> +    patternProperties:
+> +      '-pins$':
+> +        type: object
+> +        description: |
+> +          Each subnode will list the pins it needs, and how they should
+> +          be configured, with regard to muxer configuration, bias, input
+> +          enable/disable, input schmitt trigger, slew-rate, drive strength
+> +          and bus hold state. In addition, all pins in the same subnode
+> +          should have the same power domain. For configuration detail,
+> +          refer to https://github.com/sophgo/sophgo-doc/.
+> +        $ref: /schemas/pinctrl/pincfg-node.yaml
+> +
+> +        properties:
+> +          pinmux:
+> +            description: |
+> +              The list of GPIOs and their mux settings that properties in the
+> +              node apply to. This should be set using the GPIOMUX or GPIOMUX2
+> +              macro.
+> +
+> +          bias-pull-up:
+> +            type: boolean
+> +
+> +          bias-pull-down:
+> +            type: boolean
+> +
+> +          drive-strength-microamp:
+> +            description: typical current when output high level.
+> +
+> +          input-schmitt-microvolt:
+> +            description: typical threshold for schmitt trigger.
+> +
+> +          power-source:
+> +            description: power supplies at X mV.
+> +            enum: [ 1800, 3300 ]
+> +
+> +          slew-rate:
+> +            description: slew rate for output buffer (0 is fast, 1 is slow)
+> +            enum: [ 0, 1 ]
+> +
+> +          bias-bus-hold:
+> +            type: boolean
 
-Despite multiple attempts to get the syscall number assignment right
-for the newly added uretprobe syscall, we ended up with a bit of a mess:
+Drop 'type'. It already has one defined.
 
- - The number is defined as 467 based on the assumption that the
-   xattrat family of syscalls would use 463 through 466, but those
-   did not make it into 6.11.
+> +
+> +        required:
+> +          - pinmux
+> +          - power-source
+> +
+> +        additionalProperties: false
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - reg-names
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/pinctrl/pinctrl-cv1800b.h>
+> +
+> +    pinctrl@3001000 {
+> +        compatible = "sophgo,cv1800b-pinctrl";
+> +        reg = <0x03001000 0x1000>,
+> +              <0x05027000 0x1000>;
+> +        reg-names = "sys", "rtc";
+> +
+> +        uart0_cfg: uart0-cfg {
+> +            uart0-pins {
+> +                pinmux = <PINMUX(PIN_UART0_TX, 0)>,
+> +                         <PINMUX(PIN_UART0_RX, 0)>;
+> +                bias-pull-up;
+> +          			drive-strength-microamp = <10800>;
 
- - The include/uapi/asm-generic/unistd.h file still lists the number
-   463, but the new scripts/syscall.tbl that was supposed to have the
-   same data lists 467 instead as the number for arc, arm64, csky,
-   hexagon, loongarch, nios2, openrisc and riscv. None of these
-   architectures actually provide a uretprobe syscall.
+Mixed spaces and tabs.
 
- - All the other architectures (powerpc, arm, mips, ...) don't list
-   this syscall at all.
+With those fixed,
 
-There are two ways to make it consistent again: either list it with
-the same syscall number on all architectures, or only list it on x86
-but not in scripts/syscall.tbl and asm-generic/unistd.h.
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
-Based on the most recent discussion, it seems like we won't need it
-anywhere else, so just remove the inconsistent assignment and instead
-move the x86 number to the next available one in the architecture
-specific range, which is 335.
-
-Fixes: 5c28424e9a34 ("syscalls: Fix to add sys_uretprobe to syscall.tbl")
-Fixes: 190fec72df4a ("uprobe: Wire up uretprobe system call")
-Fixes: 63ded110979b ("uprobe: Change uretprobe syscall scope and number")
-Cc: Linus Torvalds <torvalds@linux-foundation.org>
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
-I think we should fix this as soon as possible. Please let me know if
-you agree on this approach, or prefer one of the alternatives.
-
-I've queued up this version in the asm-generic tree so I can send a
-pull request in the next few days, but I'm fine with doing this a
-differently if someone has a stronger opinion on what numbers to
-assign for it on earch architecture.
-
- arch/x86/entry/syscalls/syscall_64.tbl | 2 +-
- include/uapi/asm-generic/unistd.h      | 5 +----
- scripts/syscall.tbl                    | 1 -
- 3 files changed, 2 insertions(+), 6 deletions(-)
-
-diff --git a/arch/x86/entry/syscalls/syscall_64.tbl b/arch/x86/entry/syscalls/syscall_64.tbl
-index 83073fa3c989..7093ee21c0d1 100644
---- a/arch/x86/entry/syscalls/syscall_64.tbl
-+++ b/arch/x86/entry/syscalls/syscall_64.tbl
-@@ -344,6 +344,7 @@
- 332	common	statx			sys_statx
- 333	common	io_pgetevents		sys_io_pgetevents
- 334	common	rseq			sys_rseq
-+335	common	uretprobe		sys_uretprobe
- # don't use numbers 387 through 423, add new calls after the last
- # 'common' entry
- 424	common	pidfd_send_signal	sys_pidfd_send_signal
-@@ -385,7 +386,6 @@
- 460	common	lsm_set_self_attr	sys_lsm_set_self_attr
- 461	common	lsm_list_modules	sys_lsm_list_modules
- 462 	common  mseal			sys_mseal
--467	common	uretprobe		sys_uretprobe
- 
- #
- # Due to a historical design error, certain syscalls are numbered differently
-diff --git a/include/uapi/asm-generic/unistd.h b/include/uapi/asm-generic/unistd.h
-index 985a262d0f9e..5bf6148cac2b 100644
---- a/include/uapi/asm-generic/unistd.h
-+++ b/include/uapi/asm-generic/unistd.h
-@@ -841,11 +841,8 @@ __SYSCALL(__NR_lsm_list_modules, sys_lsm_list_modules)
- #define __NR_mseal 462
- __SYSCALL(__NR_mseal, sys_mseal)
- 
--#define __NR_uretprobe 463
--__SYSCALL(__NR_uretprobe, sys_uretprobe)
--
- #undef __NR_syscalls
--#define __NR_syscalls 464
-+#define __NR_syscalls 463
- 
- /*
-  * 32 bit systems traditionally used different
-diff --git a/scripts/syscall.tbl b/scripts/syscall.tbl
-index 591d85e8ca7e..797e20ea99a2 100644
---- a/scripts/syscall.tbl
-+++ b/scripts/syscall.tbl
-@@ -402,4 +402,3 @@
- 460	common	lsm_set_self_attr		sys_lsm_set_self_attr
- 461	common	lsm_list_modules		sys_lsm_list_modules
- 462	common	mseal				sys_mseal
--467	common	uretprobe			sys_uretprobe
--- 
-2.39.2
-
+> +                input-schmitt-microvolt = <0>;
+> +                power-source = <3300>;
+> +                slew-rate = <0>;
+> +            };
+> +        };
+> +    };
+> +
+> +...
 
 _______________________________________________
 linux-riscv mailing list
