@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 931FDC3DA61
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jul 2024 00:29:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33C6DC3DA7F
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jul 2024 00:29:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Message-Id:
 	MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gb5Wnt7yWXLkUtdDrKUQz5rnHimm9+7Mi8bDbXHSUA0=; b=Q+ihM+2PUgDIP+
-	x6dC5mDBvEzna2GQIwkzV1Hg08+aC4mYz5a4NYRYAGZwbbEJ5YKe4cn+0+6auKk4tPjg6uGq9YPi8
-	qHe+5K+flHjJW/yAV38oHxBed+romCTjigyhKhk3f3jgcrBQ1q7FKiF6QaG9drgnrE5K1XbX6gW5L
-	6IkCKP3tyYYGF3DkIRa+yVz7LKyLAXnSUr7gvfSDZYmvxDELgpoXP8v7j+5MgzmqcE1i/EU6jg6tI
-	rZBD0fkQjOR8xR1dZtMBIusLTTpj8wW1GqIhUsxmYudRM1Vqj7f4Ygz9rKgKoprdTxCXNcsQw/Lky
-	qCiSGG6wvplrmQ1Flnug==;
+	List-Owner; bh=8mfY/mgIqO/sdDjpmdkBjNFYyNnTrnR9rq38k7j/KYQ=; b=oK10hNTA02E4Nn
+	jy6jGhz4mKt8BnxewPMPZzpdxxu/xptDemFHhhSq4NoHH0sNII7Fk5uZhT9s3gzaWz72Yp0KpH1d5
+	BqHRF2N2rgQeixpda7Y1F7qRvtl5RKXX6q3/bzD0wUAJmm5kQr0QmWRQ8y7kZVq4NH3tAon/6veim
+	knuMJkfI7erEOPPKweySWYPkTF5nhxqBf65tf/GFm8RDESrbjqhjaHOSkzh9RL/MqeJc5dwRwwxqo
+	M0GEXyQ+FbvKbBfQWtlcDWPbhwryRfj5uKAuNktc+yAcEvvzPNu5C9BTjJKe+UUIc85vDnXsGfZ0B
+	3XPMOxHSXYFacfSXLc/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYajk-0000000D5iE-46n2;
-	Tue, 30 Jul 2024 00:29:08 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1sYajc-0000000D5dl-1yQe;
+	Tue, 30 Jul 2024 00:29:00 +0000
+Received: from mail.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYajh-0000000D5gW-3b4a
+	id 1sYajZ-0000000D5dA-0yLQ
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Jul 2024 00:29:07 +0000
+	Tue, 30 Jul 2024 00:28:58 +0000
 From: Yixun Lan <dlan@gentoo.org>
-Date: Tue, 30 Jul 2024 00:28:06 +0000
-Subject: [PATCH v5 03/10] dt-bindings: riscv: add SpacemiT K1 bindings
+Date: Tue, 30 Jul 2024 00:28:04 +0000
+Subject: [PATCH v5 01/10] dt-bindings: vendor-prefixes: add spacemit
 MIME-Version: 1.0
-Message-Id: <20240730-k1-01-basic-dt-v5-3-98263aae83be@gentoo.org>
+Message-Id: <20240730-k1-01-basic-dt-v5-1-98263aae83be@gentoo.org>
 References: <20240730-k1-01-basic-dt-v5-0-98263aae83be@gentoo.org>
 In-Reply-To: <20240730-k1-01-basic-dt-v5-0-98263aae83be@gentoo.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -46,26 +46,26 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
  Jiri Slaby <jirislaby@kernel.org>, Lubomir Rintel <lkundrak@v3.sk>
 X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1434; i=dlan@gentoo.org;
- h=from:subject:message-id; bh=eh3cgKtPldxaM4wTA1wLvLcQHYcPOLfKDPjLj7ob40k=;
- b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBmqDOkRooYNpIMy+fzKp4BO/bbbSBxvjlongWc9
- wu1V9FknL2JApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCZqgzpF8UgAAAAAAuAChp
+X-Developer-Signature: v=1; a=openpgp-sha256; l=971; i=dlan@gentoo.org;
+ h=from:subject:message-id; bh=nHwvYdywHpy9Ex1SC+u0mjF5PBlfctSYARSdCiel5hQ=;
+ b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBmqDOeACQkmqNz8RccLujgUX0H3zYx9CMmaCSK5
+ edxiUR0V/mJApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCZqgznl8UgAAAAAAuAChp
  c3N1ZXItZnByQG5vdGF0aW9ucy5vcGVucGdwLmZpZnRoaG9yc2VtYW4ubmV0QjVCQUI4QzlDMzF
- CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277TGkD/9A/byF6YK3FGkaSd
- ekdv+gI6rdUm2DRoKDLpz95EsYV0VEi6fN778jw0QI6VozcmbzEqd42uiw5hwC2Sgig0RRAuAw6
- eCKo7xrfiJzGyUXBEuTxVCHl+z2nsk2JJbVJR7chCCrWf5EP2lBOK5SoBDodNOxDJzLVghe98Sc
- D5k3FLykwCTE8OQIVGGWcfSJdIfFgaczyKx3RQBtNh+rL8pe9SEGlWpc0sOgfsdijj5RABVrv0O
- 9PRj+gWgQbFNEJg4//AumkRgiuSOmHjxF8+fjovyof5O++dBchisqRe6pzM3Ses4wRVFVNBUJVh
- LtFApsSEymBbNNBGBLhEODtYlovsEdFbMlexr3Pt2EQ9S2eI2szV6eaPLBdR2kQ6NV1Jr/wU7Fb
- cukMqfvaLCQcyE8f+kCQdo13YLWvpw5WiG08MBFRtH/N6pHCVhz3Jq1Syq+ekImKYHf3ehQfWXz
- 2VF1yJBoGhPgmN2hCiJuuNEm1C6b/oOyd+RwcqJ+uaNLsB//KxYAabpROIZLRAZkRlmrZfQr90m
- fz7k4SN4YqsiYQlCnLMqg/n3/QO3Kggc+tOKv019aAOeCoQNoZcixloZNmmwYvAssr0EUmTUYQl
- 6vYlQFWv5B2DrxlKeRchKY8GGnxxCDlCw0wbgCaUasOVYlCGdcE394G6odg6yDD3ICXA==
+ CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277QaMEACIVaYkJ/6ugxM3Mc
+ IRux6DVrB8QxxjZhp8P4LIpJTDL/M9P7yAdTGl8RmHntSFrL/rEvjjGrTLsSIi19ee0WwltRXXG
+ 7z0O+gUJPsF5QzhTxd9h9neFjHqHVVLxcPiNdSDAZ1ibVw8z8klQ7hGq3oxstJN7bYWD9Q4z4gG
+ 5GwxHGpm4aA9YsXHr/GFvk/cwuJ411ndWEAzxbzSVs7mDG+v6JDSJQjbKIUldSVe732JZkL/tVS
+ 3LlO8J0Z/djnvAb7WDo4GWBho4hJHr0pJhHQsOKgSaA+vzfAcTyCtENLKAjrBH5+hLnwoOv7KnR
+ WUf4zZV/lIWXvqlg6NTchNvxB8vYoN/PaGrGCmuJPraHdsYJAfhX3ZKuBwQApAGaI/Y6Ja70e0Y
+ XbO5lwiepa3ihDwMEpHlEmvnNiOgbzzD/Pyu9/26MK8nmHWLPZDmSFBoyMAbFKDTrs3wGlJAf6X
+ AK+bn2CHEeyh9b1RF+Fy6iMYMXdUFscCDg+l7/7ML1MiWpMlZ96gQ7q3joJVAUM6MB7yP7joczg
+ uD/Yvsi+N1ODPFAZ8V6hrDQGf1dj1QPmYPYXsthvH0RXrVTLtCW3T6thGmcQ2pBm77gwtErS9lY
+ ZvAmmw4tB5aIS3sPaK4ul+MvTLIGb2QTz15wqN1iAmVHyw6uGCLBmpKsIQO7gFcch0kA==
 X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
  fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240729_172905_963680_54181A2F 
-X-CRM114-Status: UNSURE (   8.79  )
+X-CRM114-CacheID: sfid-20240729_172857_344895_50160CDD 
+X-CRM114-Status: UNSURE (   7.10  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,7 +78,7 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org, Jesse Taube <jesse@rivosinc.com>, Inochi Amaoto <inochiama@outlook.com>, Meng Zhang <zhangmeng.kevin@spacemit.com>, Jisheng Zhang <jszhang@kernel.org>, Matthias Brugger <matthias.bgg@kernel.org>, Meng Zhang <kevin.z.m@hotmail.com>, linux-riscv@lists.infradead.org
+Cc: devicetree@vger.kernel.org, linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org, Jesse Taube <jesse@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>, Inochi Amaoto <inochiama@outlook.com>, Meng Zhang <zhangmeng.kevin@spacemit.com>, Jisheng Zhang <jszhang@kernel.org>, Meng Zhang <kevin.z.m@hotmail.com>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
@@ -86,53 +86,29 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Yangyu Chen <cyy@cyyself.name>
 
-Add DT binding documentation for the SpacemiT K1 SoC[1] and the Banana
-Pi BPi-F3 board[2] which used it.
+Add new vendor strings to dt bindings for SpacemiT K1 SoC.
 
-Link: https://www.spacemit.com/en/spacemit-key-stone-2/ [1]
-Link: https://docs.banana-pi.org/en/BPI-F3/BananaPi_BPI-F3 [2]
+Link: https://www.spacemit.com/en/spacemit-key-stone-2/
 Signed-off-by: Yangyu Chen <cyy@cyyself.name>
-Reviewed-by: Matthias Brugger <matthias.bgg@kernel.org>
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Yixun Lan <dlan@gentoo.org>
 ---
- .../devicetree/bindings/riscv/spacemit.yaml        | 28 ++++++++++++++++++++++
- 1 file changed, 28 insertions(+)
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/riscv/spacemit.yaml b/Documentation/devicetree/bindings/riscv/spacemit.yaml
-new file mode 100644
-index 0000000000000..52e55077af1ae
---- /dev/null
-+++ b/Documentation/devicetree/bindings/riscv/spacemit.yaml
-@@ -0,0 +1,28 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/riscv/spacemit.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: SpacemiT SoC-based boards
-+
-+maintainers:
-+  - Yangyu Chen <cyy@cyyself.name>
-+  - Yixun Lan <dlan@gentoo.org>
-+
-+description:
-+  SpacemiT SoC-based boards
-+
-+properties:
-+  $nodename:
-+    const: '/'
-+  compatible:
-+    oneOf:
-+      - items:
-+          - enum:
-+              - bananapi,bpi-f3
-+          - const: spacemit,k1
-+
-+additionalProperties: true
-+
-+...
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index a70ce43b3dc03..30043488328b8 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -1382,6 +1382,8 @@ patternProperties:
+     description: Sophgo Technology Inc.
+   "^sourceparts,.*":
+     description: Source Parts Inc.
++  "^spacemit,.*":
++    description: SpacemiT (Hangzhou) Technology Co. Ltd
+   "^spansion,.*":
+     description: Spansion Inc.
+   "^sparkfun,.*":
 
 -- 
 2.45.2
