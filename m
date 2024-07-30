@@ -4,168 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 540B1C3DA61
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jul 2024 10:20:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 668EAC3DA7F
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jul 2024 10:42:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=K8ImHvisJtjvxBXuLhPruPJ3wQbZZHdK+RAJqpJ7eGI=; b=Vzd2zCLAvKVQE/
-	wS8ZQUxXRENilSO61xPKutcp4qVJ5T/wmZI4/fYWyqIQxDGIRk+CqXHlqluCaEXBoVd21r8+pb2Ej
-	wHiLyU3WYSfNO6jYJKrKxC/Do5SirrTLueT0L5vqbyGr/cSRu8YudLBxDKun9Hk/Y0uwf1VxsDFuh
-	8fa86OHett1/CmYKL6RyxNIf/Pcl+67Z9DqXOi81biLCvv6tPObgtYW9vgxW6uqBUrxbPcXM/RlaH
-	bGaA9o4FKKD6RgAgWwYjXx8y4LGhUZxgQgEExtYUlMpS/9yK9YATfSklc6awrnkjzap1cmtEIpuwY
-	Iu30Xvs+BdlgSWy6yH2g==;
+	List-Owner; bh=Udkbbc6o0+qgTtiJ6r60JcZOig0bHgHzpPZ6OQtJF8k=; b=kKVFlgRSAFRrfi
+	mo32DJcBcSlzceTGpfVIYVtGh5Ja24WB5ZIfIsPNmsdmamBqRvxPRe/tzzExtrD2NbitBoym0qzst
+	yZWQlh5bw117Twev+GLZCpyTGXZUN9S4UqboF34VLF5nMfC338os8RfXbzv4m1yLFXFXBl2+YM5ci
+	XnggTCjrwKKd1OaXBb/bDfbEJzPECMKlE9hb2LynEA5tUKLgRYEYjGjLx0dmONL1NUdLsXYU0TYKb
+	zn3bbx5scGgmlZCW8Fa/Voj69KCfqSOwbzdPM1uLmM/vgVvFnwbtdsHS7IAxCn87jNtLlCpEeIH4Q
+	g0UYuCdW1CCmtph0rstA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYjyA-0000000EhP6-1R9q;
-	Tue, 30 Jul 2024 10:20:38 +0000
-Received: from mail-cwxgbr01on20701.outbound.protection.outlook.com ([2a01:111:f403:261b::701] helo=GBR01-CWX-obe.outbound.protection.outlook.com)
+	id 1sYkJ5-0000000EmPV-3QRZ;
+	Tue, 30 Jul 2024 10:42:15 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYjxv-0000000EhKP-3L26;
-	Tue, 30 Jul 2024 10:20:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=H15IKT4X4gpjBH0ZtjQEraW+3QLG1g5joOzVUjQq9Sm64V+ypIwqyqIdrp3wmnoJh1gaK0U11KkxTGLeT8SlEMA7axaUHl8wm4AHyJVraHVSQYCSSHrRWCcilAVK0dGI3a+ET7FqBREvFtVlLevxsdtUsqNkBA7yE4j2oiU7eEGalicy4EfwniCJpbIaoMBzlo3E5N+MpRMnlkUuBi/z/cHo/onGHi3BLmNShZ+O52pHSwrg9koN0VVacHG3iXa6/LvXzSugwDGeDHUS0ps+/DUVVaYle964ArDq9KBNHtd8PjF5Gc3OWeq/05Jtk1SC2jbgyKpuugYn5tTvxoxCog==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gFZ82QBk/r0tIiq+WrT1tcKo2VV8NOsNSkcij4YS1pg=;
- b=Ggft1D4oulvbyEWNZMDfApoFwK+ToPgN389N+OcMbSTX2xGJ6qchY97kyAJ2pY4jCsOgSkLa7fEoe00sS2lPquryAICgA8CyDUEj7Pb/UuZPjnVYnHzdouHM+4ZkL1H69/uaFGtUkklB1LpSjNNKZhuNKpDbE5pCnG4Wpso+H71shnMToAit24LwTs9a3J2VbBfv+YkhZ5CblIuy7rkgOpTN4nB8Rjg0L6Rav/V69nO0RtWzWMuOYVfBeITxXI59caAgtsHR05Jp70Nrq7ooqk/EWD2B22Eh4EbMWb3685KX2cLtE70X0fRjlkE9HsEU5SYuKJUCqLq0X2UnIp56EQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
- dkim=pass header.d=garyguo.net; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gFZ82QBk/r0tIiq+WrT1tcKo2VV8NOsNSkcij4YS1pg=;
- b=RJlGkIxR8mQmOnjSLUu9nwNd32BFSnZxcDREeSrA+bZuqDBWqiKrVbt9fe9JI/vo8OhyGmpTaQeO3DoLmmXWXSUwnmwIVXqN0KfWfVq6zVAGmL6y7ZMuBuEhUg2kjj5FrjhlxtKBxW9p8PW1/SmxNkRxJvSy/iY98gnG9gqHpTo=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=garyguo.net;
-Received: from LO2P265MB5183.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:253::10)
- by LO2P265MB3481.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:1a2::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7807.28; Tue, 30 Jul
- 2024 10:20:17 +0000
-Received: from LO2P265MB5183.GBRP265.PROD.OUTLOOK.COM
- ([fe80::1818:a2bf:38a7:a1e7]) by LO2P265MB5183.GBRP265.PROD.OUTLOOK.COM
- ([fe80::1818:a2bf:38a7:a1e7%7]) with mapi id 15.20.7807.026; Tue, 30 Jul 2024
- 10:20:17 +0000
-Date: Tue, 30 Jul 2024 11:20:13 +0100
-From: Gary Guo <gary@garyguo.net>
-To: Alice Ryhl <aliceryhl@google.com>
-Cc: Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu
- <mhiramat@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Peter Zijlstra <peterz@infradead.org>, Josh Poimboeuf
- <jpoimboe@kernel.org>, Jason Baron <jbaron@akamai.com>, Ard Biesheuvel
- <ardb@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor
- <alex.gaynor@gmail.com>, Wedson Almeida Filho <wedsonaf@gmail.com>, Boqun
- Feng <boqun.feng@gmail.com>, "=?UTF-8?B?QmrDtnJu?= Roy Baron"
- <bjorn3_gh@protonmail.com>, Benno Lossin <benno.lossin@proton.me>, Andreas
- Hindborg <a.hindborg@samsung.com>, linux-trace-kernel@vger.kernel.org,
- rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org, Arnd Bergmann
- <arnd@arndb.de>, linux-arch@vger.kernel.org, Thomas Gleixner
- <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
- <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, "Peter Zijlstra (Intel)"
- <peterz@infradaed.org>, Sean Christopherson <seanjc@google.com>, Uros
- Bizjak <ubizjak@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, Will
- Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton
- <oliver.upton@linux.dev>, Mark Rutland <mark.rutland@arm.com>, Ryan Roberts
- <ryan.roberts@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-arm-kernel@lists.infradead.org, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Anup Patel <apatel@ventanamicro.com>, Andrew Jones
- <ajones@ventanamicro.com>, Alexandre Ghiti <alexghiti@rivosinc.com>, Conor
- Dooley <conor.dooley@microchip.com>, Samuel Holland
- <samuel.holland@sifive.com>, linux-riscv@lists.infradead.org, Huacai Chen
- <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, Bibo Mao
- <maobibo@loongson.cn>, Tiezhu Yang <yangtiezhu@loongson.cn>, Andrew Morton
- <akpm@linux-foundation.org>, Tianrui Zhao <zhaotianrui@loongson.cn>,
- loongarch@lists.linux.dev
-Subject: Re: [PATCH v4 1/2] rust: add static_key_false
-Message-ID: <20240730112013.4d0cd624@eugeo>
-In-Reply-To: <20240628-tracepoint-v4-1-353d523a9c15@google.com>
-References: <20240628-tracepoint-v4-0-353d523a9c15@google.com>
-	<20240628-tracepoint-v4-1-353d523a9c15@google.com>
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.42; x86_64-pc-linux-gnu)
-X-ClientProxiedBy: AM9P250CA0024.EURP250.PROD.OUTLOOK.COM
- (2603:10a6:20b:21c::29) To LO2P265MB5183.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:253::10)
+	id 1sYkIT-0000000EmAE-3gES
+	for linux-riscv@lists.infradead.org;
+	Tue, 30 Jul 2024 10:41:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1722336096;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=8g9eu69hY+tFcVns2hzHdTrw7hODbFfcDdVx3JGaNxs=;
+	b=B7w4uLEw7TtOLa2Hj39vW+sRgDu0gFuDb1pI4B+a87Up4gu9YzLiy6RVMLcm2EzWYRx8Xa
+	l+Wge+1pfBCyZdLX09WbyYsY+ScnWVXRGldMJFQSR16lz/9QAZxwdMD5sKTeI8hU17oGiD
+	FN7yQ6a2ckcYiF5T13D5DKqKwM0Exr4=
+Received: from mail-ed1-f71.google.com (mail-ed1-f71.google.com
+ [209.85.208.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-527-FFQKf0mWOjO6kpR8kBY3Gg-1; Tue, 30 Jul 2024 06:41:35 -0400
+X-MC-Unique: FFQKf0mWOjO6kpR8kBY3Gg-1
+Received: by mail-ed1-f71.google.com with SMTP id 4fb4d7f45d1cf-57c93227bbeso4348297a12.3
+        for <linux-riscv@lists.infradead.org>; Tue, 30 Jul 2024 03:41:35 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1722336094; x=1722940894;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=8g9eu69hY+tFcVns2hzHdTrw7hODbFfcDdVx3JGaNxs=;
+        b=RdiXXcO/i5RpTLpRs8c+k1kHgg797xiycs8pmajSj0TdCkRI3Fz51gIk0ezsKM2sLT
+         JP0PkQDGYAjVwb7MkmDP5Aivc3rSf35kByrpaPR+eZzipjidAfa9psiNkD0t1sCB3OvD
+         kFT5PSb8bte001WvXQBMefm0CZlw7bHvndrbUB6UbuugXTLNx4lsiA1/zlcpe9rqSpev
+         FKVVf3wpKHkQVfxqMpFemexhEuNtkeRtmBS1xdkqJqunBVSddnQpkafL7x065aEFG9Y0
+         4XXdlknu01guN5eBNyzRoRCO1Qs4Ru+xgPc7EwkKOyVwyAhYBTCIF3XQdTiOUWWoc3ie
+         BbJA==
+X-Forwarded-Encrypted: i=1; AJvYcCWsu5WL17JqL8dx+FvjnbubJ9BdvU22WTplo3Ly9p8YLFkL4S4jVU+GcufoAECbI/Sgl8KgVjys2BQ5FHsv49eXCxc9F/6nP8YTzkI3xtDW
+X-Gm-Message-State: AOJu0Ywv4zqSyT4LqzcXXPAmI/f04Dk4L32YaWHRV9N1EW+lAri5dcO7
+	ow2wvh+l9IAaGqljQUH5LBHKpSxmeYnC5K8E9Iv7ioMEo3OLZQpe8MOww7BHmYcvRU19rXqYdY/
+	4F0lQLuEBi4gc9pNk+xeQFF4swsjpLv0Wp48EMYKFUAa9DzXYGAvAlaGJK5BPijak6Q==
+X-Received: by 2002:a50:a411:0:b0:5a1:7d68:62d8 with SMTP id 4fb4d7f45d1cf-5b022c81f43mr6159515a12.38.1722336094339;
+        Tue, 30 Jul 2024 03:41:34 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEDPyYZQ8rptYaeG/QLRVtJLyqTXdGIvl8oYe7Os3i41TwtBzRWbRKhmb66UoorwOaLwZdqjQ==
+X-Received: by 2002:a50:a411:0:b0:5a1:7d68:62d8 with SMTP id 4fb4d7f45d1cf-5b022c81f43mr6159475a12.38.1722336093853;
+        Tue, 30 Jul 2024 03:41:33 -0700 (PDT)
+Received: from [192.168.10.47] ([151.95.101.29])
+        by smtp.googlemail.com with ESMTPSA id 4fb4d7f45d1cf-5ac6377e06fsm7118734a12.28.2024.07.30.03.41.32
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 30 Jul 2024 03:41:33 -0700 (PDT)
+Message-ID: <63c41e25-2523-4397-96b4-557394281443@redhat.com>
+Date: Tue, 30 Jul 2024 12:41:31 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LO2P265MB5183:EE_|LO2P265MB3481:EE_
-X-MS-Office365-Filtering-Correlation-Id: 08349b05-4d70-48aa-6913-08dcb081352b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?6InyZ1pyPdlryjPSoDsqa3qc5xecLwKH2pZ2dSBXOiS7gY1uEP6ohU1xMUYh?=
- =?us-ascii?Q?j/9TTKBsuucGStJUqNwSzzaJAjQCDGAlbgIKz+7E0BxCwkOBHX45Wxv5aGSM?=
- =?us-ascii?Q?GwvkxhZVToGtOgEENkx8rJvLNP3DTBSzYKYYcQYpXLLO6JrKXbFVzIJK4MES?=
- =?us-ascii?Q?RixYG5RvXPKNUZKYd0WxkbYLSQBFs43CAGpMNfSmRFDdN+N6Do0jmnLjAwhI?=
- =?us-ascii?Q?StU019DdXLpsw3YVcTpKr0I+FERrCXZ1TxQc6hIB8h7mOB/SmQ1rCzyiK3r3?=
- =?us-ascii?Q?gMnlUF+ps8d7/twrbOJB4KGxrW/CkOJRKuC0ixHi5WqF0Pm4yJDavsBaDiMe?=
- =?us-ascii?Q?wghIJRhQuUhqDyaLx/wF38Ff7kyCEXzOGwz69R6iYQEL0Y2opRmJnzhpl3Yi?=
- =?us-ascii?Q?h5n+GGsk9h3gtBWdOw34/ZbOGYCaz2bFetVSPCgnPYsFdsWoZZJ7pvI/Om5g?=
- =?us-ascii?Q?Of18hllFtQCoQDfeBe4PVtmZ9tqQ2tNu5TY/m04/c1ulvyLliiHRM5jmW7Ro?=
- =?us-ascii?Q?GRnKq7sBmdluFdPd8ISFbFYC47KYM6WhEqXS4om2lqRNWo4ZSK5Ejcx/e7lE?=
- =?us-ascii?Q?sJFSNtYDwIyxKT8fFvqVYWTDTIozymMx9G+Axv6PegMLstw911ZfiKh13Uyn?=
- =?us-ascii?Q?B7Rt/cY3elLC0dunxvucu06d3MtMLFO5m91UNuu+e4UnfCq6413CoyFPjptc?=
- =?us-ascii?Q?vAr1zanRmmzMxy4hxezOl8JLZVhZxuz0tSuSYprV6EE43rfGVzd+lUfhEy30?=
- =?us-ascii?Q?Pc/8epaUHzn7KPRj3xXs/aStFmrEv45/pPCDuGUFJ1Jft1U4ZSxzCbXvDt2Z?=
- =?us-ascii?Q?G8nRDd4RcPDebMGpYZv6r7qTvJhq9nEhIB8hnAXc+7bAiXBUx/74xlddiul/?=
- =?us-ascii?Q?SYSPN/vpMEkYz9u3HV+Q6uxGts/1+Mcmbhx8AW0gjY906jJefzi2z0pNnbhi?=
- =?us-ascii?Q?BNPaL3IsWumqmLSrhtJoODAIOvYrZmKRneQVpWcjjDZOd3UZxTY6zykqN/LO?=
- =?us-ascii?Q?WDmH9bAPaa29mjnJwK36uTyjswh+sMyqJl/rOhx/hEsVayjF539WR3MwUvUA?=
- =?us-ascii?Q?/Iyf9cKlPwOsr/6iaiDzekENyVSIKRVBokmrWLJrAfpLz4PF21w/n3C4lTAb?=
- =?us-ascii?Q?L+XJ8jWv/hnRBZIvs4wZW237hTuuagJ31NtN9WNorZy09Kao++w1QB+UMZxw?=
- =?us-ascii?Q?OqMR+HZ1Mq8A1O3P5oYxTeORLx6BmjjVfpaDveWdUZ3tzTNLExq6foCSYn9T?=
- =?us-ascii?Q?akguO5NylAQ3P0DEUAMEd0GtM7VPu6Cy1jqCNM+CEooyH7kpZwnvUm+sarJU?=
- =?us-ascii?Q?/Gc48ri2j0kr0a4pkb91sBnqjMMdapkskMFwN+VP7bdIww=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LO2P265MB5183.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?l7gP54bxgXn652BZq7K1Jc4ll7qzkjUERp2b+Q0uQfl2xJo+tiXAl5iOAGNa?=
- =?us-ascii?Q?zoKD8cGxRWhzX0uHtc3AcVTtDZU/9hsJPWRUowT5BRirCpilGE/Gc+itwT82?=
- =?us-ascii?Q?3wExkpg8qGE+yClKj5sK+V4rNTaKlDxIPFRkw+YSGuBM7cHSWgW+2/cSwxKj?=
- =?us-ascii?Q?dW6NuU7HFTfVETg2+5jSAX96vUjMAYNH9p32vnxs22YZY/fYpkRry+py5Np5?=
- =?us-ascii?Q?DZzUJ6JHDQ7LSVFsdrXFDJIcu4IIdaCiSlLjlU08eDr12qcnsXq/MWkGv9UQ?=
- =?us-ascii?Q?+u0iEFe2oEySGJACspIDMSZeudqkp54X2czbpEOSudoIzE4DM1hakv57wgCw?=
- =?us-ascii?Q?RRzZPEvBALdESNfqDPLiZ/ATq0HUInTzp+mYqXCFkNzsDolJRNcEhps6JUQx?=
- =?us-ascii?Q?EdFic9U5nePg6eV1FraDWRUfVuy8WypNRn0Y3qV9SlP8mPv4P/K7XTYpAMfO?=
- =?us-ascii?Q?r0qge7PAOcvi/JHfmaUlUxg4RKliRVXlED209vX+G2RlRA7QCZwSnxm0EyUg?=
- =?us-ascii?Q?KS+aE12UzHocwhCrl4V7wI434Sn9CYG2zEF4QaVztgY3gsG7HA1iTUlcZOAV?=
- =?us-ascii?Q?6OiFG1XGmGW2R1zhjjxc+Zhnwh/LTjIqW0E66KMCpNyDGxyw8O+0sm6FEzT7?=
- =?us-ascii?Q?fAKyta0Rds7XbIttVMEXhCmj7LqyE7O+R6Zk9Fu7siZ73SyvERt1QwYcy+G1?=
- =?us-ascii?Q?LiCI8Y5aIfzsaW02lFwiiZsujH4PX4JaMXbO/F8D2fYHVlXhnbwONvAsXbQ/?=
- =?us-ascii?Q?AeshYtEFeD0Y4fvupGlt8mbm1N8n+hEowHMZsgqokxm7U5IFJhCWggy+YilY?=
- =?us-ascii?Q?laNi8MnL3omjlnqde30movfFH+GA1ArJXBjEOSsBsomYC1w8mPKi6od8uAxO?=
- =?us-ascii?Q?rOJGEdUnwBO2kmK1WKRL/I0xwycwGW6S9bfqzuH/zQaBfD6RYSh53Zh20Hj7?=
- =?us-ascii?Q?L9t5Avd0Qb8B+ZlRHf9X5wZHad4af05ZtLQxddZp2w1QA8GDn979c8tePATr?=
- =?us-ascii?Q?zJdKYMFEWcwdXIUI73IUuwzAaG9Nq5f+EaBTY2Ofm6CcoplXZ0zeRSFUeJ1H?=
- =?us-ascii?Q?jSMhoaHmnNmtJRu2xxOkDmdTxj1ovTHJL/fdoaFzAUWTIDEL8qcuygQk0Ygr?=
- =?us-ascii?Q?0Sh7XKpWrok7fzMB5StLEA/uKe8hN9YFvliG8ligyUhkduu5i0dMAZwr+kRA?=
- =?us-ascii?Q?foJN7vO8h2ZvapQJUNSwjALglrIfrtc35oDzzlwx4k0C6m/X89rAc434Xc4+?=
- =?us-ascii?Q?khh7W5OsAw0Bg/+mNla+qeannP9XQsP/WYk2lvviUGK+xElo+KYa+AMVo0H3?=
- =?us-ascii?Q?Ac2IvOUxXOktIbuT68KYxLrMInLIccVpetC7N36gjqlyim40kCZGpEclTr+i?=
- =?us-ascii?Q?gJb7umNn7q3eg+cnSqKhciuSzhLxglovY5IWFjSzeZSOZ/YSpsvfconxugvq?=
- =?us-ascii?Q?Zldr1UdfeLiMI8WJY6zRqEA1OIChbamcvcQOKKhMBcQMzL7vs2YGVk2gNF28?=
- =?us-ascii?Q?/FSMVPI/dxUzZ8n1ZEGXHKcRGMtdS6i0vCtKEsfa3nElluK1j7lGfVNcpZfq?=
- =?us-ascii?Q?f8BIX/+ZPk6I4/gYAl1R7EQkKXA2aZ30Yy4AP7By?=
-X-OriginatorOrg: garyguo.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: 08349b05-4d70-48aa-6913-08dcb081352b
-X-MS-Exchange-CrossTenant-AuthSource: LO2P265MB5183.GBRP265.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jul 2024 10:20:17.0874
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: BnqH9N/yzHb61y5doCAdlqbsaLVkwmp33gdB7v1mqY05HviLF/DyVb/0pEGRnsjzIl8bwhE133VXVGzle7l0Tw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO2P265MB3481
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v12 34/84] KVM: Add a helper to lookup a pfn without
+ grabbing a reference
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao
+ <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
+ Huacai Chen <chenhuacai@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
+ Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Janosch Frank <frankja@linux.ibm.com>,
+ Claudio Imbrenda <imbrenda@linux.ibm.com>
+Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>,
+ David Stevens <stevensd@chromium.org>
+References: <20240726235234.228822-1-seanjc@google.com>
+ <20240726235234.228822-35-seanjc@google.com>
+From: Paolo Bonzini <pbonzini@redhat.com>
+Autocrypt: addr=pbonzini@redhat.com; keydata=
+ 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
+In-Reply-To: <20240726235234.228822-35-seanjc@google.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240730_032023_879406_98C22255 
-X-CRM114-Status: GOOD (  16.76  )
+X-CRM114-CacheID: sfid-20240730_034138_124837_0C09E265 
+X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,38 +148,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 28 Jun 2024 13:23:31 +0000
-Alice Ryhl <aliceryhl@google.com> wrote:
+On 7/27/24 01:51, Sean Christopherson wrote:
+> Add a kvm_follow_pfn() wrapper, kvm_lookup_pfn(), to allow looking up a
+> gfn=>pfn mapping without the caller getting a reference to any underlying
+> page.  The API will be used in flows that want to know if a gfn points at
+> a valid pfn, but don't actually need to do anything with the pfn.
 
-> Add just enough support for static key so that we can use it from
-> tracepoints. Tracepoints rely on `static_key_false` even though it is
-> deprecated, so we add the same functionality to Rust.
-> 
-> It is not possible to use the existing C implementation of
-> arch_static_branch because it passes the argument `key` to inline
-> assembly as an 'i' parameter, so any attempt to add a C helper for this
-> function will fail to compile because the value of `key` must be known
-> at compile-time.
-> 
-> Signed-off-by: Alice Ryhl <aliceryhl@google.com>
+Can you rename the function kvm_gfn_has_pfn(), or 
+kvm_gfn_can_be_mapped(), and make it return a bool?
 
-Reviewed-by: Gary Guo <gary@garyguo.net>
+(As an aside, I wonder if reexecute_instruction() could just use 
+kvm_is_error_hva(kvm_vcpu_gfn_to_hva(vcpu, gpa_to_gfn(gpa)) instead of 
+going all the way to a pfn.  But it's ok to be more restrictive).
 
-> ---
->  rust/kernel/arch/arm64/jump_label.rs     | 34 ++++++++++++++++++++++++++++
->  rust/kernel/arch/loongarch/jump_label.rs | 35 +++++++++++++++++++++++++++++
->  rust/kernel/arch/mod.rs                  | 24 ++++++++++++++++++++
->  rust/kernel/arch/riscv/jump_label.rs     | 38 ++++++++++++++++++++++++++++++++
->  rust/kernel/arch/x86/jump_label.rs       | 35 +++++++++++++++++++++++++++++
->  rust/kernel/lib.rs                       |  2 ++
->  rust/kernel/static_key.rs                | 32 +++++++++++++++++++++++++++
->  scripts/Makefile.build                   |  2 +-
->  8 files changed, 201 insertions(+), 1 deletion(-)
+Paolo
+
 
 _______________________________________________
 linux-riscv mailing list
