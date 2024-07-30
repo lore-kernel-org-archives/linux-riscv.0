@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 668EAC3DA7F
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jul 2024 10:42:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21D69C3DA7E
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jul 2024 11:39:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Udkbbc6o0+qgTtiJ6r60JcZOig0bHgHzpPZ6OQtJF8k=; b=kKVFlgRSAFRrfi
-	mo32DJcBcSlzceTGpfVIYVtGh5Ja24WB5ZIfIsPNmsdmamBqRvxPRe/tzzExtrD2NbitBoym0qzst
-	yZWQlh5bw117Twev+GLZCpyTGXZUN9S4UqboF34VLF5nMfC338os8RfXbzv4m1yLFXFXBl2+YM5ci
-	XnggTCjrwKKd1OaXBb/bDfbEJzPECMKlE9hb2LynEA5tUKLgRYEYjGjLx0dmONL1NUdLsXYU0TYKb
-	zn3bbx5scGgmlZCW8Fa/Voj69KCfqSOwbzdPM1uLmM/vgVvFnwbtdsHS7IAxCn87jNtLlCpEeIH4Q
-	g0UYuCdW1CCmtph0rstA==;
+	List-Owner; bh=yiCNIBxOLqu9XOS/0zorReIE1Y0FZlq7A0FL7I9QGKE=; b=GbEIPiuZRiV+9z
+	Ed58IkdQjBIzwfuEHevQpSTPFdAqJ1aLj9Nlh48DT7jqZ3m2pn5LIrlWZKSDHQ51t29p+UpiABxBj
+	eb9the9QM74wAEBuzWLRRSnMCw5pPnOz5Q5wVZ7EGXOnmfsfaPYEinC8oujEhPqxtNNRMJYe6dryl
+	NFrcapHbGZXriHGkImCMpSmgJcW1Cegiez5TqTcfqyenQa5R2QREp51rknWF/PJU3O6R1JyDN2rLz
+	A6nhU8yI8NRG90P6OJg+jRxPx5NzhKrB8Zkez7oy7k7I45vTxCgU/p23HcFexryCrZ2ol2JfWNYHV
+	+s1vN1I5Cn3U9ybYWe6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYkJ5-0000000EmPV-3QRZ;
-	Tue, 30 Jul 2024 10:42:15 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1sYlCJ-0000000EwAY-4BkX;
+	Tue, 30 Jul 2024 11:39:20 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYkIT-0000000EmAE-3gES
+	id 1sYlBR-0000000Evrv-10QD
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Jul 2024 10:41:39 +0000
+	Tue, 30 Jul 2024 11:38:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1722336096;
+	s=mimecast20190719; t=1722339503;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=8g9eu69hY+tFcVns2hzHdTrw7hODbFfcDdVx3JGaNxs=;
-	b=B7w4uLEw7TtOLa2Hj39vW+sRgDu0gFuDb1pI4B+a87Up4gu9YzLiy6RVMLcm2EzWYRx8Xa
-	l+Wge+1pfBCyZdLX09WbyYsY+ScnWVXRGldMJFQSR16lz/9QAZxwdMD5sKTeI8hU17oGiD
-	FN7yQ6a2ckcYiF5T13D5DKqKwM0Exr4=
-Received: from mail-ed1-f71.google.com (mail-ed1-f71.google.com
- [209.85.208.71]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=ERqvjmTEXa43pGz7pfJyJekKhPX7hTshV7jfkEYTbUI=;
+	b=ibH9nKZTkOTb/oNYtIL9rjXX2aED3hkVNA8bb8j7pXOaQBxKXAL8R2yjZ1EvYv3yGQpNdR
+	08kC/Sk8E0/RbJO2o5f3ZUi/+N0MT7FR8J/gq/FKIX37YmJ8Ugiqdvma+js5elVimQcvDs
+	jvfxREomdQiserjHemZoU18+8ILDVXY=
+Received: from mail-ed1-f72.google.com (mail-ed1-f72.google.com
+ [209.85.208.72]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-527-FFQKf0mWOjO6kpR8kBY3Gg-1; Tue, 30 Jul 2024 06:41:35 -0400
-X-MC-Unique: FFQKf0mWOjO6kpR8kBY3Gg-1
-Received: by mail-ed1-f71.google.com with SMTP id 4fb4d7f45d1cf-57c93227bbeso4348297a12.3
-        for <linux-riscv@lists.infradead.org>; Tue, 30 Jul 2024 03:41:35 -0700 (PDT)
+ us-mta-90-Gc8n4hNhMHiy_hEEOU9cBg-1; Tue, 30 Jul 2024 07:38:22 -0400
+X-MC-Unique: Gc8n4hNhMHiy_hEEOU9cBg-1
+Received: by mail-ed1-f72.google.com with SMTP id 4fb4d7f45d1cf-5a8b0832defso8345447a12.1
+        for <linux-riscv@lists.infradead.org>; Tue, 30 Jul 2024 04:38:22 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722336094; x=1722940894;
+        d=1e100.net; s=20230601; t=1722339501; x=1722944301;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=8g9eu69hY+tFcVns2hzHdTrw7hODbFfcDdVx3JGaNxs=;
-        b=RdiXXcO/i5RpTLpRs8c+k1kHgg797xiycs8pmajSj0TdCkRI3Fz51gIk0ezsKM2sLT
-         JP0PkQDGYAjVwb7MkmDP5Aivc3rSf35kByrpaPR+eZzipjidAfa9psiNkD0t1sCB3OvD
-         kFT5PSb8bte001WvXQBMefm0CZlw7bHvndrbUB6UbuugXTLNx4lsiA1/zlcpe9rqSpev
-         FKVVf3wpKHkQVfxqMpFemexhEuNtkeRtmBS1xdkqJqunBVSddnQpkafL7x065aEFG9Y0
-         4XXdlknu01guN5eBNyzRoRCO1Qs4Ru+xgPc7EwkKOyVwyAhYBTCIF3XQdTiOUWWoc3ie
-         BbJA==
-X-Forwarded-Encrypted: i=1; AJvYcCWsu5WL17JqL8dx+FvjnbubJ9BdvU22WTplo3Ly9p8YLFkL4S4jVU+GcufoAECbI/Sgl8KgVjys2BQ5FHsv49eXCxc9F/6nP8YTzkI3xtDW
-X-Gm-Message-State: AOJu0Ywv4zqSyT4LqzcXXPAmI/f04Dk4L32YaWHRV9N1EW+lAri5dcO7
-	ow2wvh+l9IAaGqljQUH5LBHKpSxmeYnC5K8E9Iv7ioMEo3OLZQpe8MOww7BHmYcvRU19rXqYdY/
-	4F0lQLuEBi4gc9pNk+xeQFF4swsjpLv0Wp48EMYKFUAa9DzXYGAvAlaGJK5BPijak6Q==
-X-Received: by 2002:a50:a411:0:b0:5a1:7d68:62d8 with SMTP id 4fb4d7f45d1cf-5b022c81f43mr6159515a12.38.1722336094339;
-        Tue, 30 Jul 2024 03:41:34 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEDPyYZQ8rptYaeG/QLRVtJLyqTXdGIvl8oYe7Os3i41TwtBzRWbRKhmb66UoorwOaLwZdqjQ==
-X-Received: by 2002:a50:a411:0:b0:5a1:7d68:62d8 with SMTP id 4fb4d7f45d1cf-5b022c81f43mr6159475a12.38.1722336093853;
-        Tue, 30 Jul 2024 03:41:33 -0700 (PDT)
+        bh=ERqvjmTEXa43pGz7pfJyJekKhPX7hTshV7jfkEYTbUI=;
+        b=elyMLIPkqFxKiuiYy+4BH+sR0RyIoxwHhrkyalKcCmf9O7ae9zLCyJDlM54hawE31w
+         fDk3AvI7/dBG3VrueDmp3CNmMtXfOVQ1aR4R83trWTeK4TCKQcIu3tJpDdFgvtqrTALf
+         1rMdTpLlMwpX57daLlp53QzUy3/AKCQ3J/H888JIvJ+6RQ2MKWLiVUDC/r3ZeRe0806t
+         4AOKxOovhjkAqOqIjxuNRWNaxdpivEBPujqMwwnpdBHw7pr6ndL68wWzF2CjX4x1HAge
+         gK6mH4SEna8ud4EThI3MLLwh4ZMgBNeicwS7oOzDwXjM+zC7tdrxBoepOTZJjVVxR7gi
+         wRBw==
+X-Forwarded-Encrypted: i=1; AJvYcCUNBgqnhEiOH9fEX8rb9bOkkaTcCtHbZtnEsKyr3PXv5EioRzlAqfgNOSRThIYJb09MMD8Zmr620J6rrQgCDb4n3adxzy63QXYzgvIhCUXA
+X-Gm-Message-State: AOJu0Yx6bK7J6W7A664eZqelkp5g3ifG7K6Kvy9j5K/9/j3LvCpLHCp4
+	Ry8uKuW6J4FPhy/yZ+U7sP4meSFuFxNPiWY8JwOdbrgOLruNCLffn/jl271NXDJS+jiuKWngq4F
+	Ne/eX+DF48PzllPADTBHzIgydOStMXkckx3mB/35Qi5PsTYZp95FIDe52utPycWPkQA==
+X-Received: by 2002:a50:8a97:0:b0:58a:f14f:4d6d with SMTP id 4fb4d7f45d1cf-5b46dcc63bemr1603242a12.19.1722339500912;
+        Tue, 30 Jul 2024 04:38:20 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IH5mXget4GcehKSHwg1m9swHhHUWQVbVnzHoQE7CArjlMaR1EOy+GWFyRYZ9RZxu1lu8WCBeQ==
+X-Received: by 2002:a50:8a97:0:b0:58a:f14f:4d6d with SMTP id 4fb4d7f45d1cf-5b46dcc63bemr1603198a12.19.1722339500323;
+        Tue, 30 Jul 2024 04:38:20 -0700 (PDT)
 Received: from [192.168.10.47] ([151.95.101.29])
-        by smtp.googlemail.com with ESMTPSA id 4fb4d7f45d1cf-5ac6377e06fsm7118734a12.28.2024.07.30.03.41.32
+        by smtp.googlemail.com with ESMTPSA id 4fb4d7f45d1cf-5ac63b59c86sm7201458a12.42.2024.07.30.04.38.18
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 30 Jul 2024 03:41:33 -0700 (PDT)
-Message-ID: <63c41e25-2523-4397-96b4-557394281443@redhat.com>
-Date: Tue, 30 Jul 2024 12:41:31 +0200
+        Tue, 30 Jul 2024 04:38:19 -0700 (PDT)
+Message-ID: <992c4a07-fb84-42d8-93b3-96fb3a12c8e0@redhat.com>
+Date: Tue, 30 Jul 2024 13:38:18 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 34/84] KVM: Add a helper to lookup a pfn without
- grabbing a reference
+Subject: Re: [PATCH v12 84/84] KVM: Don't grab reference on VM_MIXEDMAP pfns
+ that have a "struct page"
 To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
  Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao
  <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
@@ -92,7 +92,7 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>,
  David Stevens <stevensd@chromium.org>
 References: <20240726235234.228822-1-seanjc@google.com>
- <20240726235234.228822-35-seanjc@google.com>
+ <20240726235234.228822-85-seanjc@google.com>
 From: Paolo Bonzini <pbonzini@redhat.com>
 Autocrypt: addr=pbonzini@redhat.com; keydata=
  xsEhBFRCcBIBDqDGsz4K0zZun3jh+U6Z9wNGLKQ0kSFyjN38gMqU1SfP+TUNQepFHb/Gc0E2
@@ -129,14 +129,13 @@ Autocrypt: addr=pbonzini@redhat.com; keydata=
  JBrdmNZSQDz0iKmSrx8xkoXYfA3bgtFN8WJH2xgFL28XnqY4M6dLhJwV3z08tPSRqYFm4NMP
  dRsn0/7oymhneL8RthIvjDDQ5ktUjMe8LtHr70OZE/TT88qvEdhiIVUogHdo4qBrk41+gGQh
  b906Dudw5YhTJFU3nC6bbF2nrLlB4C/XSiH76ZvqzV0Z/cAMBo5NF/w=
-In-Reply-To: <20240726235234.228822-35-seanjc@google.com>
+In-Reply-To: <20240726235234.228822-85-seanjc@google.com>
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240730_034138_124837_0C09E265 
-X-CRM114-Status: UNSURE (   9.21  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240730_043825_530082_F7378E2A 
+X-CRM114-Status: GOOD (  21.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,18 +152,201 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 7/27/24 01:51, Sean Christopherson wrote:
-> Add a kvm_follow_pfn() wrapper, kvm_lookup_pfn(), to allow looking up a
-> gfn=>pfn mapping without the caller getting a reference to any underlying
-> page.  The API will be used in flows that want to know if a gfn points at
-> a valid pfn, but don't actually need to do anything with the pfn.
+On 7/27/24 01:52, Sean Christopherson wrote:
+> Now that KVM no longer relies on an ugly heuristic to find its struct page
+> references, i.e. now that KVM can't get false positives on VM_MIXEDMAP
+> pfns, remove KVM's hack to elevate the refcount for pfns that happen to
+> have a valid struct page.  In addition to removing a long-standing wart
+> in KVM, this allows KVM to map non-refcounted struct page memory into the
+> guest, e.g. for exposing GPU TTM buffers to KVM guests.
 
-Can you rename the function kvm_gfn_has_pfn(), or 
-kvm_gfn_can_be_mapped(), and make it return a bool?
+Feel free to leave it to me for later, but there are more cleanups that
+can be made, given how simple kvm_resolve_pfn() is now:
 
-(As an aside, I wonder if reexecute_instruction() could just use 
-kvm_is_error_hva(kvm_vcpu_gfn_to_hva(vcpu, gpa_to_gfn(gpa)) instead of 
-going all the way to a pfn.  But it's ok to be more restrictive).
+> @@ -2814,35 +2768,10 @@ static kvm_pfn_t kvm_resolve_pfn(struct kvm_follow_pfn *kfp, struct page *page,
+>   	if (kfp->map_writable)
+>   		*kfp->map_writable = writable;
+>   
+> 	if (pte)
+>   		pfn = pte_pfn(*pte);
+> 	else
+>   		pfn = page_to_pfn(page);
+>   
+>   	*kfp->refcounted_page = page;
+>   
+
+Something like (untested/uncompiled):
+
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -2758,32 +2758,12 @@ static inline int check_user_page_hwpois
+  	return rc == -EHWPOISON;
+  }
+  
+-static kvm_pfn_t kvm_resolve_pfn(struct kvm_follow_pfn *kfp, struct page *page,
+-				 pte_t *pte, bool writable)
+-{
+-	kvm_pfn_t pfn;
+-
+-	WARN_ON_ONCE(!!page == !!pte);
+-
+-	if (kfp->map_writable)
+-		*kfp->map_writable = writable;
+-
+-	if (pte)
+-		pfn = pte_pfn(*pte);
+-	else
+-		pfn = page_to_pfn(page);
+-
+-	*kfp->refcounted_page = page;
+-
+-	return pfn;
+-}
+-
+  /*
+   * The fast path to get the writable pfn which will be stored in @pfn,
+   * true indicates success, otherwise false is returned.  It's also the
+   * only part that runs if we can in atomic context.
+   */
+-static bool hva_to_pfn_fast(struct kvm_follow_pfn *kfp, kvm_pfn_t *pfn)
++static bool hva_to_page_fast(struct kvm_follow_pfn *kfp)
+  {
+  	struct page *page;
+  	bool r;
+@@ -2799,23 +2779,21 @@ static bool hva_to_pfn_fast(struct kvm_f
+  		return false;
+  
+  	if (kfp->pin)
+-		r = pin_user_pages_fast(kfp->hva, 1, FOLL_WRITE, &page) == 1;
++		r = pin_user_pages_fast(kfp->hva, 1, FOLL_WRITE, kfp->refcounted_page) == 1;
+  	else
+-		r = get_user_page_fast_only(kfp->hva, FOLL_WRITE, &page);
++		r = get_user_page_fast_only(kfp->hva, FOLL_WRITE, kfp->refcounted_page);
+  
+-	if (r) {
+-		*pfn = kvm_resolve_pfn(kfp, page, NULL, true);
+-		return true;
+-	}
++	if (r)
++		kfp->flags |= FOLL_WRITE;
+  
+-	return false;
++	return r;
+  }
+  
+  /*
+   * The slow path to get the pfn of the specified host virtual address,
+   * 1 indicates success, -errno is returned if error is detected.
+   */
+-static int hva_to_pfn_slow(struct kvm_follow_pfn *kfp, kvm_pfn_t *pfn)
++static int hva_to_page(struct kvm_follow_pfn *kfp)
+  {
+  	/*
+  	 * When a VCPU accesses a page that is not mapped into the secondary
+@@ -2829,34 +2807,32 @@ static int hva_to_pfn_slow(struct kvm_fo
+  	 * implicitly honor NUMA hinting faults and don't need this flag.
+  	 */
+  	unsigned int flags = FOLL_HWPOISON | FOLL_HONOR_NUMA_FAULT | kfp->flags;
+-	struct page *page, *wpage;
++	struct page *wpage;
+  	int npages;
+  
++	if (hva_to_page_fast(kfp))
++		return 1;
++
+  	if (kfp->pin)
+-		npages = pin_user_pages_unlocked(kfp->hva, 1, &page, flags);
++		npages = pin_user_pages_unlocked(kfp->hva, 1, kfp->refcounted_page, flags);
+  	else
+-		npages = get_user_pages_unlocked(kfp->hva, 1, &page, flags);
+-	if (npages != 1)
+-		return npages;
++		npages = get_user_pages_unlocked(kfp->hva, 1, kfp->refcounted_page, flags);
+  
+  	/*
+-	 * Pinning is mutually exclusive with opportunistically mapping a read
+-	 * fault as writable, as KVM should never pin pages when mapping memory
+-	 * into the guest (pinning is only for direct accesses from KVM).
++	 * Map read fault as writable if possible; pinning is mutually exclusive
++	 * with opportunistically mapping a read fault as writable, as KVM should
++	 * should never pin pages when mapping memory into the guest (pinning is
++	 * only for direct accesses from KVM).
+  	 */
+-	if (WARN_ON_ONCE(kfp->map_writable && kfp->pin))
+-		goto out;
+-
+-	/* map read fault as writable if possible */
+-	if (!(flags & FOLL_WRITE) && kfp->map_writable &&
++	if (npages == 1 &&
++	    kfp->map_writable && !WARN_ON_ONCE(kfp->pin) &&
++	    !(flags & FOLL_WRITE) &&
+  	    get_user_page_fast_only(kfp->hva, FOLL_WRITE, &wpage)) {
+-		put_page(page);
+-		page = wpage;
+-		flags |= FOLL_WRITE;
++		put_page(kfp->refcounted_page);
++		kfp->refcounted_page = wpage;
++		kfp->flags |= FOLL_WRITE;
+  	}
+  
+-out:
+-	*pfn = kvm_resolve_pfn(kfp, page, NULL, flags & FOLL_WRITE);
+  	return npages;
+  }
+  
+@@ -2915,7 +2891,9 @@ static int hva_to_pfn_remapped(struct vm
+  		goto out;
+  	}
+  
+-	*p_pfn = kvm_resolve_pfn(kfp, NULL, &pte, pte_write(pte));
++	if (kfp->map_writable)
++		*kfp->map_writable = pte_write(pte);
++	*p_pfn = pte_pfn(pte);
+  out:
+  	pte_unmap_unlock(ptep, ptl);
+  	return r;
+@@ -2932,12 +2910,13 @@ kvm_pfn_t hva_to_pfn(struct kvm_follow_p
+  	if (WARN_ON_ONCE(!kfp->refcounted_page))
+  		return KVM_PFN_ERR_FAULT;
+  
+-	if (hva_to_pfn_fast(kfp, &pfn))
+-		return pfn;
++	npages = hva_to_page(kfp);
++	if (npages == 1) {
++		if (kfp->map_writable)
++			*kfp->map_writable = kfp->flags & FOLL_WRITE;
++		return page_to_pfn(kfp->refcounted_page);
++	}
+  
+-	npages = hva_to_pfn_slow(kfp, &pfn);
+-	if (npages == 1)
+-		return pfn;
+  	if (npages == -EINTR)
+  		return KVM_PFN_ERR_SIGPENDING;
+  
+
+
+Also, check_user_page_hwpoison() should not be needed anymore, probably
+not since commit 234b239bea39 ("kvm: Faults which trigger IO release the
+mmap_sem", 2014-09-24) removed get_user_pages_fast() from hva_to_pfn_slow().
+
+The only way that you could get a poisoned page without returning -EHWPOISON,
+is if FOLL_HWPOISON was not passed.  But even without these patches,
+the cases are:
+- npages == 0, then you must have FOLL_NOWAIT and you'd not use
+   check_user_page_hwpoison()
+- npages == 1 or npages == -EHWPOISON, all good
+- npages == -EAGAIN from mmap_read_lock_killable() - should handle that like -EINTR
+- everything else including -EFAULT can go downt the vma_lookup() path, because
+npages < 0 means we went through hva_to_pfn_slow() which uses FOLL_HWPOISON
+
+This means that you can simply have
+
+	if (npages == -EHWPOISON)
+		return KVM_PFN_ERR_HWPOISON;
+
+before the mmap_read_lock() line.  You may either sneak this at the beginning
+of the series or leave it for later.
 
 Paolo
 
