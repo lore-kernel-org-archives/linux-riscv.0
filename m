@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8260C3DA49
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jul 2024 06:43:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26D61C3DA61
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jul 2024 06:43:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jgj9+tbAyjYUa0UkBXlhHOQkbZoSPIGKNIYk7iXCSWM=; b=UEmjt/RQ91P48r
-	8nnBkXqUS2fbif9xPi6M6WTsvoClpdbeUGR/4+wLEkm5OXR+Pxa3kcLEVXkLX9LBGp+hohmHS749+
-	XONhD1D+LWzz9TPdQXAXiPoJ0UVYv2ltwOLbAs/uEM77kYCivyVSYxdwfQ9fLTgnMryyY5L5Sqx1e
-	pKmYeguzlmc7ZUKtim3wKV9EmTsNFXG2X/kSxm3rMCpUfuZj4z63BfxjARvPdd6OmpHsgoMULZfav
-	Mh3GTsbHoeujmM8GVFLDzBnWnHdjBUCnK0RsetzRDyLe3LT9/7uxjdjeYSGQT8zyaesd1WD2YXJy+
-	eLlBaTnjaFBxAvMOGb2Q==;
+	List-Owner; bh=OuvEk2lX9KJzbyQjsUY6NtevbLTkNGcvyU/S5HbQ8Vg=; b=RxgN3yllaCdYqQ
+	CL79QvXfHgDmgH+ytbKlWdKI+Exgq4IT/hr+XEUw+c4pW84ohTENyr2rQrZGZvzxwNw+iqTg/j1tF
+	qJTBfMRowMoRBAQdQnDF1czZwvXyhXd6FA57mzxEiCHVS2+gaJ1tUryspXNrLA8nm05iKwqBNfnc7
+	iet0Z1E6bvbUIsMKCdHAFCAvtQlWIdCVTjYZmI08FPp1pmOv9XucZ9nZFJ0QMqcfd8vtzKB94eqJ2
+	TBl9dwZCiq1D1KLLLWMd+0YQa0i7suy3qFrZL6WoBcnogY3eF2sJsnhmBsl1bWx+PpqKuqgdwF93X
+	3xzyGiW0YB39PciFJREQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYgZt-0000000Ds9P-2wGH;
-	Tue, 30 Jul 2024 06:43:21 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1sYga6-0000000DsFu-1hvF;
+	Tue, 30 Jul 2024 06:43:34 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYgZp-0000000Ds5M-0Jfl;
-	Tue, 30 Jul 2024 06:43:18 +0000
+	id 1sYga1-0000000DsCU-34ne;
+	Tue, 30 Jul 2024 06:43:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id B8E46CE0EA6;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 88F4661D65;
+	Tue, 30 Jul 2024 06:43:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50D8BC4AF10;
 	Tue, 30 Jul 2024 06:43:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 469FBC32782;
-	Tue, 30 Jul 2024 06:43:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1722321793;
-	bh=9NZb0rrKQqKYXT4j44hct+A4v/K9XblH1QcI1NJ86wY=;
+	s=k20201202; t=1722321808;
+	bh=zlev6U+OoFjkfoKmEXM32LjGGbg3IzN8MVfe5YQ2ABk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=uXb4byD4QEB/pykGQSUxfRgInQG2nhMHKXm5xZNegBtn3rrGWMaLewVYiqUNRYDtJ
-	 aQ+opzP1rC4aJUxCXkL2wAnqAIW3nIQYdRxHYnksJ0PJsaNlzE/MV3jYxsY7CWC6i6
-	 A55O5dfE29WFwTXyQHh6asj1EX4qez2hBgWChYq1nW9wZhzPJt7adzM3dujj4fTqjW
-	 GPMlZQsWyciJ/EykTgqqAmIjcZelbGlK8I8ok7QSAhrcTaitTlPHXoD4wXFz71j46R
-	 BpZv8MZ6nqA/BUfQ66+uiCN6lG0xAGpqKsFp7FzaM7qSm50/Hdt7uFpAhZjkPrnNQ4
-	 JZOzjdQ+jlf0A==
+	b=WjS+HiBAB8GnrP16+FWhPBhBioxJ8kmlN6GNWX0t7MoSEgpFt9udUClAwzyOYEIxt
+	 GLWwkGU4O6zyc/VGIYKFle6KtAV0AVQ6WLPz1ptPTAt/cK1x1zSGjLfSPVGHaFL7Aw
+	 Y4AKOOT2SpoOjc/Wbh1+/cP2W5ZkFPUFKciWkTsqP4dtf5muBEfTCKVF7OjlDaXXFP
+	 Mk1LMgQy97vcUdIahsxWds+dQ+j5TRS6Lhw6QAeYu9XrrqZGdvSMQyXycNkwaPempx
+	 E3DYobdwtOelveqsy4Y98Iq66A3nNqzOwW6shcZICnV51PmNjmCB9mjEsRRSoolbPG
+	 qB3gp0EMlnwSw==
 From: alexs@kernel.org
 To: Will Deacon <will@kernel.org>,
 	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
@@ -107,20 +107,22 @@ Cc: Guo Ren <guoren@kernel.org>,
 	Ryan Roberts <ryan.roberts@arm.com>,
 	Matthew Wilcox <willy@infradead.org>,
 	Alex Shi <alexs@kernel.org>,
-	sparclinux@vger.kernel.org,
-	Andreas Larsson <andreas@gaisler.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Zi Yan <ziy@nvidia.com>
-Subject: [RFC PATCH 02/18] mm/pgtable: convert ptdesc.pmd_huge_pte to ptdesc pointer
-Date: Tue, 30 Jul 2024 14:46:56 +0800
-Message-ID: <20240730064712.3714387-3-alexs@kernel.org>
+	nvdimm@lists.linux.dev,
+	linux-fsdevel@vger.kernel.org,
+	Christian Brauner <brauner@kernel.org>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Jan Kara <jack@suse.cz>,
+	Dan Williams <dan.j.williams@intel.com>
+Subject: [RFC PATCH 03/18] fs/dax: use ptdesc in dax_pmd_load_hole
+Date: Tue, 30 Jul 2024 14:46:57 +0800
+Message-ID: <20240730064712.3714387-4-alexs@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240730064712.3714387-1-alexs@kernel.org>
 References: <20240730064712.3714387-1-alexs@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240729_234317_527504_A48D3703 
-X-CRM114-Status: GOOD (  16.00  )
+X-CRM114-CacheID: sfid-20240729_234329_909498_7A7A6066 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,157 +141,70 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Alex Shi <alexs@kernel.org>
 
-folio/page.pmd_huge_pte is a pointer to pagetable descriptor: pgtable_t.
-In most arch, it is a typedef of 'struct page *'. But we have ptdesc now,
-tt's better to convert it to right one: struct ptdesc pointer.
-
-Different from others, s390/sparc use typedef 'pte_t *' as pgtable_t, so
-they need different cost in their arch.
-
-Thanks for lkp found the build issue for s390/sparc, it fixed now.
+Since we have ptdesc struct now, better to use replace pgtable_t, aka
+'struct page *'.
+It's a prepare for return ptdesc pointer in pte_alloc_one series
+function.
 
 Signed-off-by: Alex Shi <alexs@kernel.org>
-Cc: linux-mm@kvack.org
-Cc: sparclinux@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org
-Cc: linux-s390@vger.kernel.org
-Cc: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Andreas Larsson <andreas@gaisler.com>
-Cc: David S. Miller <davem@davemloft.net>
-Cc: Sven Schnelle <svens@linux.ibm.com>
-Cc: Christian Borntraeger <borntraeger@linux.ibm.com>
-Cc: Vasily Gorbik <gor@linux.ibm.com>
-Cc: Heiko Carstens <hca@linux.ibm.com>
-Cc: Gerald Schaefer <gerald.schaefer@linux.ibm.com>
-Cc: Alexander Gordeev <agordeev@linux.ibm.com>
-Cc: Zi Yan <ziy@nvidia.com>
-Cc: Matthew Wilcox  <willy@infradead.org>
-Cc: Mike Rapoport  <rppt@kernel.org>
-Cc: David Hildenbrand <david@redhat.com>
+Cc: nvdimm@lists.linux.dev
+Cc: linux-fsdevel@vger.kernel.org
+Cc: Christian Brauner <brauner@kernel.org>
+Cc: Alexander Viro <viro@zeniv.linux.org.uk>
+Cc: Jan Kara <jack@suse.cz>
+Cc: Matthew Wilcox <willy@infradead.org>
+Cc: Dan Williams <dan.j.williams@intel.com>
 ---
- arch/s390/mm/pgtable.c   |  6 +++---
- arch/sparc/mm/tlb.c      |  6 +++---
- include/linux/mm_types.h |  4 ++--
- mm/pgtable-generic.c     | 16 ++++++++--------
- 4 files changed, 16 insertions(+), 16 deletions(-)
+ fs/dax.c | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
 
-diff --git a/arch/s390/mm/pgtable.c b/arch/s390/mm/pgtable.c
-index 2c944bafb030..201d350abd1e 100644
---- a/arch/s390/mm/pgtable.c
-+++ b/arch/s390/mm/pgtable.c
-@@ -574,7 +574,7 @@ void pgtable_trans_huge_deposit(struct mm_struct *mm, pmd_t *pmdp,
- 		INIT_LIST_HEAD(lh);
- 	else
- 		list_add(lh, (struct list_head *) pmd_huge_pte(mm, pmdp));
--	pmd_huge_pte(mm, pmdp) = pgtable;
-+	pmd_huge_pte(mm, pmdp) = (struct ptdesc *)pgtable;
- }
+diff --git a/fs/dax.c b/fs/dax.c
+index becb4a6920c6..6f7cea248206 100644
+--- a/fs/dax.c
++++ b/fs/dax.c
+@@ -1206,7 +1206,7 @@ static vm_fault_t dax_pmd_load_hole(struct xa_state *xas, struct vm_fault *vmf,
+ 	unsigned long pmd_addr = vmf->address & PMD_MASK;
+ 	struct vm_area_struct *vma = vmf->vma;
+ 	struct inode *inode = mapping->host;
+-	pgtable_t pgtable = NULL;
++	struct ptdesc *ptdesc = NULL;
+ 	struct folio *zero_folio;
+ 	spinlock_t *ptl;
+ 	pmd_t pmd_entry;
+@@ -1222,8 +1222,8 @@ static vm_fault_t dax_pmd_load_hole(struct xa_state *xas, struct vm_fault *vmf,
+ 				  DAX_PMD | DAX_ZERO_PAGE);
  
- pgtable_t pgtable_trans_huge_withdraw(struct mm_struct *mm, pmd_t *pmdp)
-@@ -586,12 +586,12 @@ pgtable_t pgtable_trans_huge_withdraw(struct mm_struct *mm, pmd_t *pmdp)
- 	assert_spin_locked(pmd_lockptr(mm, pmdp));
- 
- 	/* FIFO */
--	pgtable = pmd_huge_pte(mm, pmdp);
-+	pgtable = (pte_t *)pmd_huge_pte(mm, pmdp);
- 	lh = (struct list_head *) pgtable;
- 	if (list_empty(lh))
- 		pmd_huge_pte(mm, pmdp) = NULL;
- 	else {
--		pmd_huge_pte(mm, pmdp) = (pgtable_t) lh->next;
-+		pmd_huge_pte(mm, pmdp) = (struct ptdesc *) lh->next;
- 		list_del(lh);
+ 	if (arch_needs_pgtable_deposit()) {
+-		pgtable = pte_alloc_one(vma->vm_mm);
+-		if (!pgtable)
++		ptdesc = page_ptdesc(pte_alloc_one(vma->vm_mm));
++		if (!ptdesc)
+ 			return VM_FAULT_OOM;
  	}
- 	ptep = (pte_t *) pgtable;
-diff --git a/arch/sparc/mm/tlb.c b/arch/sparc/mm/tlb.c
-index 8648a50afe88..903825b4c997 100644
---- a/arch/sparc/mm/tlb.c
-+++ b/arch/sparc/mm/tlb.c
-@@ -278,7 +278,7 @@ void pgtable_trans_huge_deposit(struct mm_struct *mm, pmd_t *pmdp,
- 		INIT_LIST_HEAD(lh);
- 	else
- 		list_add(lh, (struct list_head *) pmd_huge_pte(mm, pmdp));
--	pmd_huge_pte(mm, pmdp) = pgtable;
-+	pmd_huge_pte(mm, pmdp) = (struct ptdesc *)pgtable;
- }
  
- pgtable_t pgtable_trans_huge_withdraw(struct mm_struct *mm, pmd_t *pmdp)
-@@ -289,12 +289,12 @@ pgtable_t pgtable_trans_huge_withdraw(struct mm_struct *mm, pmd_t *pmdp)
- 	assert_spin_locked(&mm->page_table_lock);
- 
- 	/* FIFO */
--	pgtable = pmd_huge_pte(mm, pmdp);
-+	pgtable = (pte_t *)pmd_huge_pte(mm, pmdp);
- 	lh = (struct list_head *) pgtable;
- 	if (list_empty(lh))
- 		pmd_huge_pte(mm, pmdp) = NULL;
- 	else {
--		pmd_huge_pte(mm, pmdp) = (pgtable_t) lh->next;
-+		pmd_huge_pte(mm, pmdp) = (struct ptdesc *) lh->next;
- 		list_del(lh);
+@@ -1233,8 +1233,8 @@ static vm_fault_t dax_pmd_load_hole(struct xa_state *xas, struct vm_fault *vmf,
+ 		goto fallback;
  	}
- 	pte_val(pgtable[0]) = 0;
-diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
-index 485424979254..2e3eddf6edc9 100644
---- a/include/linux/mm_types.h
-+++ b/include/linux/mm_types.h
-@@ -462,7 +462,7 @@ struct ptdesc {
- 		struct list_head pt_list;
- 		struct {
- 			unsigned long _pt_pad_1;
--			pgtable_t pmd_huge_pte;
-+			struct ptdesc *pmd_huge_pte;
- 		};
- 	};
- 	unsigned long __page_mapping;
-@@ -948,7 +948,7 @@ struct mm_struct {
- 		struct mmu_notifier_subscriptions *notifier_subscriptions;
- #endif
- #if defined(CONFIG_TRANSPARENT_HUGEPAGE) && !USE_SPLIT_PMD_PTLOCKS
--		pgtable_t pmd_huge_pte; /* protected by page_table_lock */
-+		struct ptdesc *pmd_huge_pte; /* protected by page_table_lock */
- #endif
- #ifdef CONFIG_NUMA_BALANCING
- 		/*
-diff --git a/mm/pgtable-generic.c b/mm/pgtable-generic.c
-index 2ce714f1dd15..f34a8d115f5b 100644
---- a/mm/pgtable-generic.c
-+++ b/mm/pgtable-generic.c
-@@ -171,8 +171,8 @@ void pgtable_trans_huge_deposit(struct mm_struct *mm, pmd_t *pmdp,
- 	if (!pmd_huge_pte(mm, pmdp))
- 		INIT_LIST_HEAD(&pgtable->lru);
- 	else
--		list_add(&pgtable->lru, &pmd_huge_pte(mm, pmdp)->lru);
--	pmd_huge_pte(mm, pmdp) = pgtable;
-+		list_add(&pgtable->lru, &pmd_huge_pte(mm, pmdp)->pt_list);
-+	pmd_huge_pte(mm, pmdp) = page_ptdesc(pgtable);
+ 
+-	if (pgtable) {
+-		pgtable_trans_huge_deposit(vma->vm_mm, vmf->pmd, pgtable);
++	if (ptdesc) {
++		pgtable_trans_huge_deposit(vma->vm_mm, vmf->pmd, ptdesc_page(ptdesc));
+ 		mm_inc_nr_ptes(vma->vm_mm);
+ 	}
+ 	pmd_entry = mk_pmd(&zero_folio->page, vmf->vma->vm_page_prot);
+@@ -1245,8 +1245,8 @@ static vm_fault_t dax_pmd_load_hole(struct xa_state *xas, struct vm_fault *vmf,
+ 	return VM_FAULT_NOPAGE;
+ 
+ fallback:
+-	if (pgtable)
+-		pte_free(vma->vm_mm, pgtable);
++	if (ptdesc)
++		pte_free(vma->vm_mm, ptdesc_page(ptdesc));
+ 	trace_dax_pmd_load_hole_fallback(inode, vmf, zero_folio, *entry);
+ 	return VM_FAULT_FALLBACK;
  }
- #endif
- 
-@@ -180,17 +180,17 @@ void pgtable_trans_huge_deposit(struct mm_struct *mm, pmd_t *pmdp,
- /* no "address" argument so destroys page coloring of some arch */
- pgtable_t pgtable_trans_huge_withdraw(struct mm_struct *mm, pmd_t *pmdp)
- {
--	pgtable_t pgtable;
-+	struct ptdesc *ptdesc;
- 
- 	assert_spin_locked(pmd_lockptr(mm, pmdp));
- 
- 	/* FIFO */
--	pgtable = pmd_huge_pte(mm, pmdp);
--	pmd_huge_pte(mm, pmdp) = list_first_entry_or_null(&pgtable->lru,
--							  struct page, lru);
-+	ptdesc = pmd_huge_pte(mm, pmdp);
-+	pmd_huge_pte(mm, pmdp) = list_first_entry_or_null(&ptdesc->pt_list,
-+							  struct ptdesc, pt_list);
- 	if (pmd_huge_pte(mm, pmdp))
--		list_del(&pgtable->lru);
--	return pgtable;
-+		list_del(&ptdesc->pt_list);
-+	return ptdesc_page(ptdesc);
- }
- #endif
- 
 -- 
 2.43.0
 
