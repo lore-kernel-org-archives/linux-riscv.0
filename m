@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C49A1C3DA70
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jul 2024 06:42:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49B90C3DA61
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jul 2024 06:43:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=rhQUj8Sem8h4DJTPq9U8XuSsC2jDQti0jRhStqJcJ0g=; b=W64TUZmyHgLhjV
-	w8TTKZtbHKKyVDvtZhBneveAeXcWn6pr3LEqMZo9O3Q53ZfJOcC/gNQLNZLdjWqmgETwQPy4kexQE
-	81kYxhx5Bvh7FbPgzaDIWnW1DIHp3F7AEZ0zxah4tAhSSjiVxdQFhhECfajpgLTsISEk6j5oyWE24
-	sfUKZzVCfkNOEAXCseWl7tIj0qagHjK626dNq3Hm5/w7A3wypO/nCkbws1/aWjdBIpqK26m9vm6HG
-	NUHTx4GDJkCCr5L85y0Jds5yJl1Zy6VIwmnFgNaO0zvZlYXbU/joUXkwBRCW14bzbmtVe83qreQZZ
-	Ts0XJqOc+L946efsmUKg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=NbqOH0yrT4uztFf6D2Sp0Xp/JgtDnAeC4c73u8gppko=; b=XHhV4WyFW7et1A
+	r6gvLsJrKsQiWUnR+3thUq0inTF4Acov86lVVeQuSnP6+9hlFxZALe303A1jV6gJVYzqXDlbHmp0A
+	oAaB9hC6OoUgSsNInL96eeBbNqv83SHYo3aXmsmFWKwYWupfx35gzm5Xxz4KidxgL2WV/ZZSnZoC9
+	HuAzYh/MW85pCtVhrI+s6AzSPFXl8VTsIrb+qi3rdbcNJpxnLqFbCSDlFu+33hYaB7kjYhXZ4BnrG
+	l3fDiXKS9gHLfKli/VELKtMWKzo+JWw+kN+Hm2Qu0SBZBeuG4VB4C+QogkJlgry94XunmCHX2n6cy
+	ABvzeIVn2sCxO8dopQVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYgZR-0000000DrwC-2aBx;
-	Tue, 30 Jul 2024 06:42:53 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1sYgZf-0000000Ds2J-2A96;
+	Tue, 30 Jul 2024 06:43:07 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sYgZN-0000000Drv4-2IYg;
-	Tue, 30 Jul 2024 06:42:51 +0000
+	id 1sYgZa-0000000Drzy-3RSi;
+	Tue, 30 Jul 2024 06:43:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 42FDACE0B2F;
-	Tue, 30 Jul 2024 06:42:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B562C32782;
-	Tue, 30 Jul 2024 06:42:33 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 87D5DCE0E11;
+	Tue, 30 Jul 2024 06:43:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD7E2C4AF10;
+	Tue, 30 Jul 2024 06:42:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1722321766;
-	bh=9fMo0SqZ7mOf+MpuDKzR6wBE4n9v1usaMOUOV+GRiz8=;
-	h=From:To:Cc:Subject:Date:From;
-	b=odNyHSwOlBtV2oqVtExlin1GDO7kYlIOx8pVUXrIJUKZbGYwA4WqDas0/GxrcEr55
-	 U96WNS8VFoK93eKlrMoYeKy3Hx5hYk7u0MHfPCvnoc4pMqeCyLihL2sOgCRB2BK0LQ
-	 L8992A0T1NOO7inaUSioa2w4g0sAStq/hkXExqTSsAXodpT6mGb0xRWKuDd+nH2N+A
-	 BTsDqxMoTTjSETReBcCKjEeWWC7pCscYpqZJszwilu2vcMmxr/pCQlNwRRubPXHBaB
-	 JADt14YJLrGWRmg/Gsmy3mjRBjVlp6DBpI92v1G7zStat5RwD14Iv/xZapDPo4c7xq
-	 lwWpWj2GOPung==
+	s=k20201202; t=1722321779;
+	bh=gTArplwlUTbTCuHNeuVct9T0SiQYRSRnIpLhqPQ+rcE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=EMNS+x8HI+8Q08E7NcZ4WD5BkiWh9xAxJgNUSeEC7wUsbadoC1FFu91tQMZE7Hy2S
+	 IUmoRLjOcThG09j1Sqjri8IS5v5L/GqTmjdQarB0bmky4bNiqAj/NZnJ7JFHJeD8eM
+	 xp4GUDXu8Pgl+WLlnMHA4AQrs4fRuuLAioV9xJyUj3Qfg+O5uVNHyjdnKujlXeeMze
+	 y4pE/ENss3Y27SBqOaPJvTM3lQjwDoA5fmkCORb6Q7jSG49BTJJjCdSyOBxPURAgT7
+	 N7ujc9Lmfynti/YNZ3I4QClP7CXUI+TSJh/h+u7SmrhYbHOtbMTzdHI4QxlG3cF9IU
+	 WbYLxc+yhe31Q==
 From: alexs@kernel.org
 To: Will Deacon <will@kernel.org>,
 	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
@@ -106,15 +106,18 @@ Cc: Guo Ren <guoren@kernel.org>,
 	David Hildenbrand <david@redhat.com>,
 	Ryan Roberts <ryan.roberts@arm.com>,
 	Matthew Wilcox <willy@infradead.org>,
-	Alex Shi <alexs@kernel.org>
-Subject: [RFC PATCH 00/18] use struct ptdesc to replace pgtable_t 
-Date: Tue, 30 Jul 2024 14:46:54 +0800
-Message-ID: <20240730064712.3714387-1-alexs@kernel.org>
+	Alex Shi <alexs@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>
+Subject: [RFC PATCH 01/18] mm/pgtable: use ptdesc in pte_free_now/pte_free_defer
+Date: Tue, 30 Jul 2024 14:46:55 +0800
+Message-ID: <20240730064712.3714387-2-alexs@kernel.org>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20240730064712.3714387-1-alexs@kernel.org>
+References: <20240730064712.3714387-1-alexs@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240729_234249_965496_9D9BF1E9 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20240729_234303_238511_B24CCBE4 
+X-CRM114-Status: GOOD (  14.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,110 +136,56 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Alex Shi <alexs@kernel.org>
 
-We have struct ptdesc for page table descriptor a year ago, but it
-has no much usages in kernel, while pgtable_t is used widely.
+page table descriptor is splited from struct page, use it to replace struct
+page in right place.
 
-The pgtable_t is typedefed as 'pte_t *' in sparc, s390, powerpc and m68k
-except SUN3, others archs are all same as 'struct page *'.
+Signed-off-by: Alex Shi <alexs@kernel.org>
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-mm@kvack.org
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Matthew Wilcox  <willy@infradead.org>
+Cc: David Hildenbrand <david@redhat.com>
+---
+ mm/pgtable-generic.c | 13 ++++++-------
+ 1 file changed, 6 insertions(+), 7 deletions(-)
 
-These blocks the conception and code update for page table descriptor to
-struct ptdesc.
-
-So, the simple idea to push the ptdesc conception forward is to update
-all pgtable_t by ptdesc or pte_t pointer. But this needs widely
-knowledges for most all of different archs. Common code change is easy
-for include/ and mm/ directory, but it's hard in all archs.
-
-Thanks for intel LKP framework, I fixed most all of build issues except
-a bug on powerpc which reports a "struct ptdesc *" incompatible with 
-struct ptdesc *' pointer issue...
-
-Another trouble is pmd_pgtable() conversion in the last patch.
-Maybe some of arch need define theirself own pmd_ptdesc()?
-
-This patchset is immature, even except above 2 issues, I just tested
-virutal machine booting and kselftest mm on x86 and arm64.
-
-Anyway any input are appreciated!
-
-Thanks
-Alex
-
-Alex Shi (18):
-  mm/pgtable: use ptdesc in pte_free_now/pte_free_defer
-  mm/pgtable: convert ptdesc.pmd_huge_pte to ptdesc pointer
-  fs/dax: use ptdesc in dax_pmd_load_hole
-  mm/thp: use ptdesc pointer in __do_huge_pmd_anonymous_page
-  mm/thp: use ptdesc in do_huge_pmd_anonymous_page
-  mm/thp: convert insert_pfn_pmd and its caller to use ptdesc
-  mm/thp: use ptdesc in copy_huge_pmd
-  mm/memory: use ptdesc in __pte_alloc
-  mm/pgtable: fully use ptdesc in pte_alloc_one series functions
-  mm/pgtable: pass ptdesc to pte_free()
-  mm/pgtable: introduce ptdesc_pfn and use ptdesc in free_pte_range()
-  mm/thp: pass ptdesc to set_huge_zero_folio function
-  mm/pgtable: return ptdesc pointer in pgtable_trans_huge_withdraw
-  mm/pgtable: use ptdesc in pgtable_trans_huge_deposit
-  mm/pgtable: pass ptdesc to pmd_populate
-  mm/pgtable: pass ptdesc to pmd_install
-  mm: convert vmf.prealloc_pte to struct ptdesc pointer
-  mm/pgtable: pass ptdesc in pte_free_defer
-
- arch/alpha/include/asm/pgalloc.h              |   4 +-
- arch/arc/include/asm/pgalloc.h                |   4 +-
- arch/arm/include/asm/pgalloc.h                |  13 +--
- arch/arm/include/asm/tlb.h                    |   4 +-
- arch/arm/mm/pgd.c                             |   2 +-
- arch/arm64/include/asm/pgalloc.h              |   4 +-
- arch/arm64/include/asm/tlb.h                  |   4 +-
- arch/csky/include/asm/pgalloc.h               |   4 +-
- arch/hexagon/include/asm/pgalloc.h            |   8 +-
- arch/loongarch/include/asm/pgalloc.h          |   8 +-
- arch/m68k/include/asm/motorola_pgalloc.h      |  12 +-
- arch/m68k/include/asm/sun3_pgalloc.h          |   4 +-
- arch/microblaze/include/asm/pgalloc.h         |   2 +-
- arch/mips/include/asm/pgalloc.h               |   4 +-
- arch/nios2/include/asm/pgalloc.h              |   4 +-
- arch/openrisc/include/asm/pgalloc.h           |   8 +-
- arch/parisc/include/asm/pgalloc.h             |   2 +-
- arch/powerpc/include/asm/book3s/32/pgalloc.h  |   4 +-
- arch/powerpc/include/asm/book3s/64/hash-4k.h  |   4 +-
- arch/powerpc/include/asm/book3s/64/hash-64k.h |   4 +-
- arch/powerpc/include/asm/book3s/64/pgalloc.h  |   4 +-
- arch/powerpc/include/asm/book3s/64/pgtable.h  |   8 +-
- arch/powerpc/include/asm/book3s/64/radix.h    |   4 +-
- arch/powerpc/include/asm/pgalloc.h            |   8 +-
- arch/powerpc/mm/book3s64/hash_pgtable.c       |  10 +-
- arch/powerpc/mm/book3s64/radix_pgtable.c      |  10 +-
- arch/riscv/include/asm/pgalloc.h              |   8 +-
- arch/s390/include/asm/pgalloc.h               |   4 +-
- arch/s390/include/asm/pgtable.h               |   4 +-
- arch/s390/mm/pgalloc.c                        |   2 +-
- arch/s390/mm/pgtable.c                        |  14 +--
- arch/sh/include/asm/pgalloc.h                 |   4 +-
- arch/sparc/include/asm/pgalloc_32.h           |   6 +-
- arch/sparc/include/asm/pgalloc_64.h           |   2 +-
- arch/sparc/include/asm/pgtable_64.h           |   4 +-
- arch/sparc/mm/init_64.c                       |   2 +-
- arch/sparc/mm/srmmu.c                         |   6 +-
- arch/sparc/mm/tlb.c                           |  14 +--
- arch/x86/include/asm/pgalloc.h                |  10 +-
- arch/x86/mm/pgtable.c                         |   8 +-
- arch/xtensa/include/asm/pgalloc.h             |  12 +-
- fs/dax.c                                      |  14 +--
- include/asm-generic/pgalloc.h                 |  10 +-
- include/linux/mm.h                            |  16 ++-
- include/linux/mm_types.h                      |   4 +-
- include/linux/pgtable.h                       |   6 +-
- mm/debug_vm_pgtable.c                         |   6 +-
- mm/huge_memory.c                              | 103 +++++++++---------
- mm/internal.h                                 |   2 +-
- mm/khugepaged.c                               |  14 +--
- mm/memory.c                                   |  15 +--
- mm/mremap.c                                   |   2 +-
- mm/pgtable-generic.c                          |  37 +++----
- 53 files changed, 240 insertions(+), 236 deletions(-)
-
+diff --git a/mm/pgtable-generic.c b/mm/pgtable-generic.c
+index 13a7705df3f8..2ce714f1dd15 100644
+--- a/mm/pgtable-generic.c
++++ b/mm/pgtable-generic.c
+@@ -238,18 +238,17 @@ pmd_t pmdp_collapse_flush(struct vm_area_struct *vma, unsigned long address,
+ #ifndef pte_free_defer
+ static void pte_free_now(struct rcu_head *head)
+ {
+-	struct page *page;
++	struct ptdesc *ptdesc;
+ 
+-	page = container_of(head, struct page, rcu_head);
+-	pte_free(NULL /* mm not passed and not used */, (pgtable_t)page);
++	ptdesc = container_of(head, struct ptdesc, pt_rcu_head);
++	pte_free(NULL /* mm not passed and not used */, (pgtable_t)ptdesc);
+ }
+ 
+ void pte_free_defer(struct mm_struct *mm, pgtable_t pgtable)
+ {
+-	struct page *page;
++	struct ptdesc *ptdesc = page_ptdesc(pgtable);
+ 
+-	page = pgtable;
+-	call_rcu(&page->rcu_head, pte_free_now);
++	call_rcu(&ptdesc->pt_rcu_head, pte_free_now);
+ }
+ #endif /* pte_free_defer */
+ #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
+@@ -330,7 +329,7 @@ pte_t *pte_offset_map_nolock(struct mm_struct *mm, pmd_t *pmd,
+  * kmapped if necessary (when CONFIG_HIGHPTE), and locked against concurrent
+  * modification by software, with a pointer to that spinlock in ptlp (in some
+  * configs mm->page_table_lock, in SPLIT_PTLOCK configs a spinlock in table's
+- * struct page).  pte_unmap_unlock(pte, ptl) to unlock and unmap afterwards.
++ * struct ptdesc).  pte_unmap_unlock(pte, ptl) to unlock and unmap afterwards.
+  *
+  * But it is unsuccessful, returning NULL with *ptlp unchanged, if there is no
+  * page table at *pmd: if, for example, the page table has just been removed,
 -- 
 2.43.0
 
