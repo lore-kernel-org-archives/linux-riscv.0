@@ -4,95 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83778C3DA64
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jul 2024 17:05:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2530CC3DA64
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jul 2024 18:00:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s8vFEL/iBsc4fouB78PEwwJ5fBSnd9GPuLtRlcHFyIQ=; b=RDyF93CU1EMNb2
-	Znw4qGplvEtoe8KvNeo51DTaUuoSN4Av91w4UbDHrM7un63ldH1uVHbv7csRA1OQh+RC0b9zgVXcp
-	wf9n0pvQr96rTxxkM+eAPfPnvIFsMZObtpEu0ZSDxx86HaKNPjkMvprtBkNLb5q8O+woVqkp0PZlT
-	nlFVCcTQSjSRtwPnJ/MipoH9KzNvZFN6x9xOs1ltu0TKcS6NK+S2GNUlufCVbxDVr9Ch2JW6X+IbI
-	QsJ+VG1XizQJInPTWmYHcSJRxn/9m/pxg6grq2F4pz0WUUJhFcWtqS1ppmqG9eAMU9Dfllx3xx2L6
-	fxNaBGq9RUgB3frfV/kA==;
+	List-Owner; bh=+NZjm3f+yjeRSvHjK/ZrdJk5C8fsxlhfn4PUd6aSiMY=; b=TfTncdvooIRPbu
+	PFtHSqK7DiYwTvzxVtF6+2qSJqYCHsrK0ljZyYZawmSXe0V3lonqPGqCGLiX2ZXKJ2DZe5Gon8Mom
+	ks47EFQTehKATPn2ayT8PJ93ZgSQpCeoAf7OvOFoQjLPhxrhwSIzNR4phwkuTR4j63AOm2YtqGPJ9
+	+TcQflEM10bXgGumdhc+2nKqQG9M64MoDLaglLVg0JQrZwb1tiNqkUx5rnfQwkWYsMO88BpYepCgA
+	Vko6NJkDjSDz++UXgnkut0xaP4yBM8+qhbH5Za+h1f/853l3WlhO1Rd4X/5OpMLh3uf8OVjPiPBW2
+	+wzkuYFhTpJhyL9r2XEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZClP-00000001xiJ-3jt6;
-	Wed, 31 Jul 2024 17:05:23 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1sZDcp-000000024rf-2KHO;
+	Wed, 31 Jul 2024 18:00:35 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZClM-00000001xha-32xC;
-	Wed, 31 Jul 2024 17:05:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=loxjFiVI2FUEfLt+uJa/RoAUGOvN0EDyWPzOQRMKPYM=; b=URmAXo4vciLmD8RF26rtYBhhPA
-	G31cEdVvEozLEj+TiA4d2wRtMbewzkqNphoc2s1IzH1fwbGdgUMbQNYsKuTX+GtkdZ8pEsRGMt9Wn
-	tZQSzzAqb3x2Uk9yvAISY4PyRWfI4rIeUhfqY+XHg229yLUoAWWG6EtbDAEJOBSVAIZeFSjmu/2V8
-	Pe2mEvZC+zNGXJ1eBrKKrLSpn1gYZQVD7rVJktSOYg7A9wFPxSPVGGsY8mXuYJcnjrATmgmr+YrWG
-	DAC751NQGurBuTOXhxDSNHxQTCs/XNPevta1qUx7LxS11QH1clIvk+t7MXDQ5uCJXdDON6+G+Q0Gx
-	vGpwi0oA==;
-Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZClB-0000000GMnQ-09lX;
-	Wed, 31 Jul 2024 17:05:09 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 3BB5F300820; Wed, 31 Jul 2024 19:05:08 +0200 (CEST)
-Date: Wed, 31 Jul 2024 19:05:08 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Alice Ryhl <aliceryhl@google.com>
-Cc: Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Jason Baron <jbaron@akamai.com>, Ard Biesheuvel <ardb@kernel.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Alex Gaynor <alex.gaynor@gmail.com>,
-	Wedson Almeida Filho <wedsonaf@gmail.com>,
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <benno.lossin@proton.me>,
-	Andreas Hindborg <a.hindborg@samsung.com>,
-	linux-trace-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
-	linux-arch@vger.kernel.org, Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	"Peter Zijlstra (Intel)" <peterz@infradaed.org>,
-	Sean Christopherson <seanjc@google.com>,
-	Uros Bizjak <ubizjak@gmail.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>, Fuad Tabba <tabba@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	linux-riscv@lists.infradead.org,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>, Bibo Mao <maobibo@loongson.cn>,
-	Tiezhu Yang <yangtiezhu@loongson.cn>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Tianrui Zhao <zhaotianrui@loongson.cn>, loongarch@lists.linux.dev
-Subject: Re: [PATCH v4 1/2] rust: add static_key_false
-Message-ID: <20240731170508.GJ33588@noisy.programming.kicks-ass.net>
-References: <20240628-tracepoint-v4-0-353d523a9c15@google.com>
- <20240628-tracepoint-v4-1-353d523a9c15@google.com>
+	id 1sZDcn-000000024qp-0zXx
+	for linux-riscv@lists.infradead.org;
+	Wed, 31 Jul 2024 18:00:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 620D962576;
+	Wed, 31 Jul 2024 18:00:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0C347C4AF09;
+	Wed, 31 Jul 2024 18:00:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1722448832;
+	bh=QlnmxtwAARTZlkJz+Yt/175l065sJ6S1HGtyh0yi5yA=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=Nn9jpnbpXSa6uOd5lzxbOqS22J8i017YYLVR6zp7IM1INroQ70xe3KRwbZXIuV+xx
+	 HxlQQQWWG1wt9NG2BLaDbrg4RycPvdVfyR1eMZpEiLs0QkIw9LULbo1WDCwzji2Lg8
+	 06NPTJayVe1vXo0dlUACGVkY07TWzdiatSmvoGLXSV3Qg4KB7nx0L5UDdmuwjEBggU
+	 ZsNfkLJLaHkfLPIQey2J2Sd2ZOHGbpGm9TTEZ1TUfV+nR6+bL7V3/sb3PJnpKwkNIP
+	 atV5SQc+vt6b98pNhA6/6QWkPHahyItcbLsnDQBSSUfAFEshW8AlpsGJkkyYtIKZkh
+	 McgBPaFrfh7vA==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id EF4B1C6E398;
+	Wed, 31 Jul 2024 18:00:31 +0000 (UTC)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240628-tracepoint-v4-1-353d523a9c15@google.com>
+Subject: Re: [PATCH -fixes] riscv: cpufeature: Do not drop Linux-internal
+ extensions
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <172244883197.728.4079912694148388299.git-patchwork-notify@kernel.org>
+Date: Wed, 31 Jul 2024 18:00:31 +0000
+References: <20240718213011.2600150-1-samuel.holland@sifive.com>
+In-Reply-To: <20240718213011.2600150-1-samuel.holland@sifive.com>
+To: Samuel Holland <samuel.holland@sifive.com>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, ajones@ventanamicro.com, andy.chiu@sifive.com,
+ charlie@rivosinc.com, cleger@rivosinc.com, conor@kernel.org,
+ evan@rivosinc.com, paul.walmsley@sifive.com, linux-kernel@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20240731_110033_341215_8504E164 
+X-CRM114-Status: UNSURE (   7.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,67 +78,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 28, 2024 at 01:23:31PM +0000, Alice Ryhl wrote:
+Hello:
 
->  rust/kernel/arch/arm64/jump_label.rs     | 34 ++++++++++++++++++++++++++++
->  rust/kernel/arch/loongarch/jump_label.rs | 35 +++++++++++++++++++++++++++++
->  rust/kernel/arch/mod.rs                  | 24 ++++++++++++++++++++
->  rust/kernel/arch/riscv/jump_label.rs     | 38 ++++++++++++++++++++++++++++++++
->  rust/kernel/arch/x86/jump_label.rs       | 35 +++++++++++++++++++++++++++++
->  rust/kernel/lib.rs                       |  2 ++
->  rust/kernel/static_key.rs                | 32 +++++++++++++++++++++++++++
->  scripts/Makefile.build                   |  2 +-
->  8 files changed, 201 insertions(+), 1 deletion(-)
+This patch was applied to riscv/linux.git (fixes)
+by Palmer Dabbelt <palmer@rivosinc.com>:
 
-So I really find the amount of duplicated asm offensive. Is is far too
-easy for any of this to get out of sync.
+On Thu, 18 Jul 2024 14:29:59 -0700 you wrote:
+> The Linux-internal Xlinuxenvcfg ISA extension is omitted from the
+> riscv_isa_ext array because it has no DT binding and should not appear
+> in /proc/cpuinfo. The logic added in commit 625034abd52a ("riscv: add
+> ISA extensions validation callback") assumes all extensions are included
+> in riscv_isa_ext, and so riscv_resolve_isa() wrongly drops Xlinuxenvcfg
+> from the final ISA string. Instead, accept such Linux-internal ISA
+> extensions as if they have no validation callback.
+> 
+> [...]
 
-> diff --git a/rust/kernel/arch/x86/jump_label.rs b/rust/kernel/arch/x86/jump_label.rs
-> new file mode 100644
-> index 000000000000..383bed273c50
-> --- /dev/null
-> +++ b/rust/kernel/arch/x86/jump_label.rs
-> @@ -0,0 +1,35 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +
-> +// Copyright (C) 2024 Google LLC.
-> +
-> +//! X86 Rust implementation of jump_label.h
-> +
-> +/// x86 implementation of arch_static_branch
-> +#[macro_export]
-> +#[cfg(target_arch = "x86_64")]
-> +macro_rules! arch_static_branch {
-> +    ($key:path, $keytyp:ty, $field:ident, $branch:expr) => {'my_label: {
-> +        core::arch::asm!(
-> +            r#"
-> +            1: .byte 0x0f,0x1f,0x44,0x00,0x00
-> +
-> +            .pushsection __jump_table,  "aw"
-> +            .balign 8
-> +            .long 1b - .
-> +            .long {0} - .
-> +            .quad {1} + {2} + {3} - .
-> +            .popsection
-> +            "#,
-> +            label {
-> +                break 'my_label true;
-> +            },
-> +            sym $key,
-> +            const ::core::mem::offset_of!($keytyp, $field),
-> +            const $crate::arch::bool_to_int($branch),
-> +        );
-> +
-> +        break 'my_label false;
-> +    }};
-> +}
+Here is the summary with links:
+  - [-fixes] riscv: cpufeature: Do not drop Linux-internal extensions
+    https://git.kernel.org/riscv/c/b75a22e7d4f2
 
-Note that this uses the forced 5 byte version, and not the dynamic sized
-one. On top of that it hard-codes the nop5 string :/
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-Please work harder to not have to duplicate stuff like this.
-
-NAK.
 
 
 _______________________________________________
