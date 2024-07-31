@@ -4,75 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5569C3DA64
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jul 2024 16:22:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72AA8C3DA7F
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jul 2024 16:23:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-ID:Date
-	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=UA/muhV6oOwiESEWj3gKoAsRJcZALXFOISm7iLeF+BM=; b=cGr+Y9hmoaol/h
-	gyX/F5nawBTM7PVY3Mu4fx4Gk9r/FI82qdbi/x3LygW4vKw+tpG3J8W0Zv4vLI8ccQIiml6Tgy8sI
-	Z5tqUGYpECCqvbo47QGyXLsZ59FlthEtBTqxrgZHM8PlivVBc694KZ1CRQGmlRbKkZ08b44ZLodej
-	yBVFDHZtmJmL9shILhSx0h/esrDBgVBpt24+c9xTwgJlQLhxxADafs2mFaAjRu+hU+h2Tm6FG8hM6
-	ET41I85ksE1wjIMEqlQZLMjBwG7uNSP6TQEqAeb8P7rkh88ylre5U4+fPganQ6i9albfLcaggEoZd
-	mZ65BvEh+cfN/eKWNJng==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=JY0rjm7M2MzfAr8TzqDECs+K77v3mJ5ueVhOucBFnv0=; b=rrUHG9jrOwy/Gm
+	1XGjAT3iM3KL8TRh894M1myRoROochr2iK/1seyK2SDZUax2i1GLZlYU7evyHiUYxfrYoJgJI1zbc
+	2G52ZI8X3nt28/kPLbmnZW1Fx+zuWfcGhnmlC0J+koAMJtxPAKl9w9PoStd2tfzfA766hWRm6Qtx/
+	7d6u5tHgx39Dcp17LZq26GAe+k4M+FkCDIvBCLOGaxcoYqU/rPaK3ig3p6iuYnSvm09IWFuWfbS3D
+	dcnd7ukf7yFbjlIpkGD0/ATDNR7Lx7WZEj8TgX13DfvD4s3jhz2tLSIE23PsbdgPgIwogUQ7NE9Jl
+	qPWkN8s5L0svgkHg96hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZC6G-00000001qk1-39Hv;
-	Wed, 31 Jul 2024 16:22:52 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1sZC74-00000001qsr-0bL8;
+	Wed, 31 Jul 2024 16:23:42 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZC5y-00000001qgE-420f
+	id 1sZC70-00000001qr6-0Xti
 	for linux-riscv@lists.infradead.org;
-	Wed, 31 Jul 2024 16:22:36 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1fd69e44596so8952405ad.1
-        for <linux-riscv@lists.infradead.org>; Wed, 31 Jul 2024 09:22:33 -0700 (PDT)
+	Wed, 31 Jul 2024 16:23:39 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-a7a8553db90so813460666b.2
+        for <linux-riscv@lists.infradead.org>; Wed, 31 Jul 2024 09:23:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1722442953; x=1723047753; darn=lists.infradead.org;
-        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:to:cc:subject:date:message-id:reply-to;
-        bh=5unxTmmxDtuJ6oKS3unsyO/BbIx/hjNzeG+OSpNJFyQ=;
-        b=vt+TF++UwabS/QhPLWptO+RlXEv9IjRDhYgzU5onKWfBx2YxG9Du908jqjWSP2CyL6
-         ejhmCHijqQQRFsn9GMcCCtaGvdjXA/zjZkjQDmiO16aBH/u4wCPkGP2QOyca/H3Zekli
-         7fXEgIvGr4TXO3iIRh9RuqpY63clNOgndterLuAgLPF59uQUFpyuCFkUTXXoEeTnKV9/
-         tqvbGUAQtZa38mNNOrPeeNLBDarx1HxUMvbXQJuJTUXy1/Z4CfrdMsBlzrEvlon1xJP9
-         N8J7J99dRvFgZWGvtJ10tPmdiryTrqle2cTOwCwLK4dto6cUIcydvoi8w9jOVCt4rmkx
-         QczQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722442953; x=1723047753;
-        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
-         :subject:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=linaro.org; s=google; t=1722443016; x=1723047816; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:references
+         :in-reply-to:subject:cc:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=5unxTmmxDtuJ6oKS3unsyO/BbIx/hjNzeG+OSpNJFyQ=;
-        b=j5DJP0rY7GuhERsNaES4/p+So1R8gkeous5hEqi4YUn15DMEpb660AvOyY2rsOisAg
-         /W6Nvc746aWBooIUk0FKMhdIo0ns1lfwAcNPnA8qW/Zmsik4PGgHl8X53afjgg580/7W
-         d20YBBU79yQodhDWggFIT2m9/G2Q9z4YwM7PcLDGdzRtlyL8MAyh+VU9kAeT0YuYG0un
-         Z36IoW9YJdI5AmJgMgWBxioUYSNlGk0nZkJK2AgrW4uO3Gz/+OtsbasZ1kJ6JADocnlD
-         YWP+WHXcNO7ygNsw57RQX7IhMRVuLtuJ/0gFslAJt1dGiUzB4na7g1Wa07zBXUHXSgKj
-         Muqg==
-X-Gm-Message-State: AOJu0Yz03HBl/NlY5xLJoEaFX7REEUk9rg6Ny+4J3auG5JxBrTn8LCso
-	gAJUTmnXKjJxBmiOEepWbSeLsOrYxeM09BtolyTWHNLXcCb5xZrHhm9NrtKfWakkPkmzMw/Vs/t
-	z
-X-Google-Smtp-Source: AGHT+IEVR3KtFKoVUokiDdLzkcXnzyiqYuHTKbhKTn2tdhGOJEuWOcd0riKhSWwUYwk+cxujbyeJGw==
-X-Received: by 2002:a17:902:d590:b0:1fb:7e12:ee41 with SMTP id d9443c01a7336-1ff37c1ff84mr90779795ad.22.1722442953105;
-        Wed, 31 Jul 2024 09:22:33 -0700 (PDT)
-Received: from localhost ([192.184.165.199])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1ff23ff5997sm60831245ad.267.2024.07.31.09.22.31
+        bh=/Jy3Eo6Gu+vhJFsd2nEOfkihTm91GOS2uDXcn/bR1Cs=;
+        b=R9QSnkSqUXizd4+/F+zQQ7u+Q0IWE6VAvs4lEN1cIUZpaCf7c2Z2fjD4azVTUg7Gtw
+         jGiVkicIKvtbxLIyFeQ3AFhWVXXpLam8K1iVwNUq2ahSyUPCAmtQvImleV3OEcROC8+J
+         +CgyGTqk2RMgM1rbfilxXlgAwq+QwOUsLTQ7YcF0oYaM4BJHzbfebH9ceotBedPH0Dlu
+         fNLgc/i4hA9ywcppOdUBi4FAAiqvWbotnV/StlVMdSL8bATwrY6T7k03m9GVawq5RZp5
+         7oXyJZBDODmFJVy0ZhmG4e1/7TrcZbkRzHuMZoPFBPfoKExipohN+x0IE91hLof4A61X
+         qwUQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1722443016; x=1723047816;
+        h=content-transfer-encoding:mime-version:message-id:date:references
+         :in-reply-to:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/Jy3Eo6Gu+vhJFsd2nEOfkihTm91GOS2uDXcn/bR1Cs=;
+        b=qPUoPxzy6wEj4t+Z9iyIxitveSQLUi23JoYlYC+Ec5E6Jr9fpgxnbdl2m8de8iW0to
+         44tvRaJfsrSDQECs+qs+EVtFsAuq7HUSAD2Tb29/NB+mRz8QQbDSLha6sDLxD3eDXrDs
+         OZY9yC3GZka1twMwMgTyHL0vQa7T9d7Sw703TqGwtAUcG1YDnzvaEQ2cs12wI/JqW4ji
+         gj/ZYJWe4Q3MaswnMoNqsrrRdyGrxqh8GzC6X6YF/Dypi1Zd0YUH76KPkCM9kOsxvtFY
+         mdO6Y3/uDzAO248/jARKhIYbSlQ00rc/LyUJLRzsJTa0tkrDeWXfGDY0hujpLZd57cGo
+         MM0Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVUhHk1IVDTQNNqfapxW+lswyFXohZhnqkezYsUyXcBts1PgQQZJ/KDaT99nMJ3TRsN1eC/0rEiVkzR+JsdPO2GG6Z/difSmsGjAOZRy1io
+X-Gm-Message-State: AOJu0Yz6JqtZ5nE7wdNqzbWP7Ifzw9mKKGKcA5ihA6qULTHXqdsKeT77
+	TMVSrbCvanWD4TNjgoi4QyCRQxOHsHrLnPKmEHgna8P1aXNcgByveM98NZB7O5A=
+X-Google-Smtp-Source: AGHT+IFaeuLsqXvHIvwNkMOmXQ/kk95KnaHAVzfZZFY2rJSwrdZANzuSfUeE19U50MBeGB1J/TbUHg==
+X-Received: by 2002:a17:907:a0d5:b0:a7a:b070:92c6 with SMTP id a640c23a62f3a-a7d40116a4bmr801926666b.50.1722443015967;
+        Wed, 31 Jul 2024 09:23:35 -0700 (PDT)
+Received: from draig.lan ([85.9.250.243])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a7acad416basm784769266b.104.2024.07.31.09.23.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 31 Jul 2024 09:22:31 -0700 (PDT)
-Subject: [PATCH] RISC-V: Don't have MAX_PHYSMEM_BITS exceed phys_addr_t
-Date: Wed, 31 Jul 2024 09:22:00 -0700
-Message-ID: <20240731162159.9235-2-palmer@rivosinc.com>
-X-Mailer: git-send-email 2.45.2
+        Wed, 31 Jul 2024 09:23:35 -0700 (PDT)
+Received: from draig (localhost [IPv6:::1])
+	by draig.lan (Postfix) with ESMTP id 614DC5F8CB;
+	Wed, 31 Jul 2024 17:23:34 +0100 (BST)
+From: =?utf-8?Q?Alex_Benn=C3=A9e?= <alex.bennee@linaro.org>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>,  Marc Zyngier <maz@kernel.org>,
+  Oliver Upton <oliver.upton@linux.dev>,  Tianrui Zhao
+ <zhaotianrui@loongson.cn>,  Bibo Mao <maobibo@loongson.cn>,  Huacai Chen
+ <chenhuacai@kernel.org>,  Michael Ellerman <mpe@ellerman.id.au>,  Anup
+ Patel <anup@brainfault.org>,  Paul Walmsley <paul.walmsley@sifive.com>,
+  Palmer Dabbelt <palmer@dabbelt.com>,  Albert Ou <aou@eecs.berkeley.edu>,
+  Christian Borntraeger <borntraeger@linux.ibm.com>,  Janosch Frank
+ <frankja@linux.ibm.com>,  Claudio Imbrenda <imbrenda@linux.ibm.com>,
+  kvm@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
+  kvmarm@lists.linux.dev,  loongarch@lists.linux.dev,
+  linux-mips@vger.kernel.org,  linuxppc-dev@lists.ozlabs.org,
+  kvm-riscv@lists.infradead.org,  linux-riscv@lists.infradead.org,
+  linux-kernel@vger.kernel.org,  David Matlack <dmatlack@google.com>,
+  David Stevens <stevensd@chromium.org>
+Subject: Re: [PATCH v12 01/84] KVM: arm64: Release pfn, i.e. put page, if
+ copying MTE tags hits ZONE_DEVICE
+In-Reply-To: <20240726235234.228822-2-seanjc@google.com> (Sean
+	Christopherson's message of "Fri, 26 Jul 2024 16:51:10 -0700")
+References: <20240726235234.228822-1-seanjc@google.com>
+	<20240726235234.228822-2-seanjc@google.com>
+Date: Wed, 31 Jul 2024 17:23:34 +0100
+Message-ID: <87a5hxfs3d.fsf@draig.linaro.org>
 MIME-Version: 1.0
-Cc: Palmer Dabbelt <palmer@rivosinc.com>
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240731_092235_038706_718B06BF 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20240731_092338_207288_F2CB4DA7 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,74 +105,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-I recently ended up with a warning on some compilers along the lines of
-
-      CC      kernel/resource.o
-    In file included from include/linux/ioport.h:16,
-                     from kernel/resource.c:15:
-    kernel/resource.c: In function 'gfr_start':
-    include/linux/minmax.h:49:37: error: conversion from 'long long unsigned int' to 'resource_size_t' {aka 'unsigned int'} changes value from '17179869183' to '4294967295' [-Werror=overflow]
-       49 |         ({ type ux = (x); type uy = (y); __cmp(op, ux, uy); })
-          |                                     ^
-    include/linux/minmax.h:52:9: note: in expansion of macro '__cmp_once_unique'
-       52 |         __cmp_once_unique(op, type, x, y, __UNIQUE_ID(x_), __UNIQUE_ID(y_))
-          |         ^~~~~~~~~~~~~~~~~
-    include/linux/minmax.h:161:27: note: in expansion of macro '__cmp_once'
-      161 | #define min_t(type, x, y) __cmp_once(min, type, x, y)
-          |                           ^~~~~~~~~~
-    kernel/resource.c:1829:23: note: in expansion of macro 'min_t'
-     1829 |                 end = min_t(resource_size_t, base->end,
-          |                       ^~~~~
-    kernel/resource.c: In function 'gfr_continue':
-    include/linux/minmax.h:49:37: error: conversion from 'long long unsigned int' to 'resource_size_t' {aka 'unsigned int'} changes value from '17179869183' to '4294967295' [-Werror=overflow]
-       49 |         ({ type ux = (x); type uy = (y); __cmp(op, ux, uy); })
-          |                                     ^
-    include/linux/minmax.h:52:9: note: in expansion of macro '__cmp_once_unique'
-       52 |         __cmp_once_unique(op, type, x, y, __UNIQUE_ID(x_), __UNIQUE_ID(y_))
-          |         ^~~~~~~~~~~~~~~~~
-    include/linux/minmax.h:161:27: note: in expansion of macro '__cmp_once'
-      161 | #define min_t(type, x, y) __cmp_once(min, type, x, y)
-          |                           ^~~~~~~~~~
-    kernel/resource.c:1847:24: note: in expansion of macro 'min_t'
-     1847 |                addr <= min_t(resource_size_t, base->end,
-          |                        ^~~~~
-    cc1: all warnings being treated as errors
-
-which looks like a real problem: our phys_addr_t is only 32 bits now, so
-having 34-bit masks is just going to result in overflows.
-
-Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
----
-This is sort of a v2 of
-https://lore.kernel.org/r/20240729151652.15063-2-palmer@rivosinc.com,
-but I think that was just bogus.
----
- arch/riscv/include/asm/sparsemem.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/riscv/include/asm/sparsemem.h b/arch/riscv/include/asm/sparsemem.h
-index 63acaecc3374..2f901a410586 100644
---- a/arch/riscv/include/asm/sparsemem.h
-+++ b/arch/riscv/include/asm/sparsemem.h
-@@ -7,7 +7,7 @@
- #ifdef CONFIG_64BIT
- #define MAX_PHYSMEM_BITS	56
- #else
--#define MAX_PHYSMEM_BITS	34
-+#define MAX_PHYSMEM_BITS	32
- #endif /* CONFIG_64BIT */
- #define SECTION_SIZE_BITS	27
- #endif /* CONFIG_SPARSEMEM */
--- 
-2.45.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+U2VhbiBDaHJpc3RvcGhlcnNvbiA8c2VhbmpjQGdvb2dsZS5jb20+IHdyaXRlczoKCj4gUHV0IHRo
+ZSBwYWdlIHJlZmVyZW5jZSBhY3F1aXJlZCBieSBnZm5fdG9fcGZuX3Byb3QoKSBpZgo+IGt2bV92
+bV9pb2N0bF9tdGVfY29weV90YWdzKCkgcnVucyBpbnRvIFpPTkVfREVWSUNFIG1lbW9yeS4gIEtW
+TSdzIGxlc3MtCj4gdGhhbi1zdGVsbGFyIGhldXJpc3RpY3MgZm9yIGRlYWxpbmcgd2l0aCBwZm4t
+bWFwcGVkIG1lbW9yeSBtZWFucyB0aGF0IEtWTQo+IGNhbiBnZXQgYSBwYWdlIHJlZmVyZW5jZSB0
+byBaT05FX0RFVklDRSBtZW1vcnkuCj4KPiBGaXhlczogZjAzNzZlZGIxZGRjICgiS1ZNOiBhcm02
+NDogQWRkIGlvY3RsIHRvIGZldGNoL3N0b3JlIHRhZ3MgaW4gYSBndWVzdCIpCj4gU2lnbmVkLW9m
+Zi1ieTogU2VhbiBDaHJpc3RvcGhlcnNvbiA8c2VhbmpjQGdvb2dsZS5jb20+Cj4gLS0tCj4gIGFy
+Y2gvYXJtNjQva3ZtL2d1ZXN0LmMgfCAxICsKPiAgMSBmaWxlIGNoYW5nZWQsIDEgaW5zZXJ0aW9u
+KCspCj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9hcm02NC9rdm0vZ3Vlc3QuYyBiL2FyY2gvYXJtNjQv
+a3ZtL2d1ZXN0LmMKPiBpbmRleCAxMTA5OGViN2ViNDQuLmUxZjBmZjA4ODM2YSAxMDA2NDQKPiAt
+LS0gYS9hcmNoL2FybTY0L2t2bS9ndWVzdC5jCj4gKysrIGIvYXJjaC9hcm02NC9rdm0vZ3Vlc3Qu
+Ywo+IEBAIC0xMDU5LDYgKzEwNTksNyBAQCBpbnQga3ZtX3ZtX2lvY3RsX210ZV9jb3B5X3RhZ3Mo
+c3RydWN0IGt2bSAqa3ZtLAo+ICAJCXBhZ2UgPSBwZm5fdG9fb25saW5lX3BhZ2UocGZuKTsKPiAg
+CQlpZiAoIXBhZ2UpIHsKPiAgCQkJLyogUmVqZWN0IFpPTkVfREVWSUNFIG1lbW9yeSAqLwo+ICsJ
+CQlrdm1fcmVsZWFzZV9wZm5fY2xlYW4ocGZuKTsKCkkgZ3Vlc3MgdGhpcyBnZXRzIHJlbmFtZWQg
+bGF0ZXIgaW4gdGhlIHNlcmllcy4KCkhvd2V2ZXIgbXkgbWFpbiBjb21tZW50IGlzIGRvZXMgbGFj
+ayBvZiBwYWdlIGFsd2F5cyBtZWFuIGEgWk9ORV9ERVZJQ0U/Ckxvb2tpbmcgYXQgcGZuX3RvX29u
+bGluZV9wYWdlKCkgSSBzZWUgYSBidW5jaCBvZiBvdGhlciBjaGVja3MgZmlyc3QuIFdoeQppc24n
+dCBpdCB0aGF0IGZ1bmN0aW9ucyByZXNwb25zaWJpbGl0eSB0byBjbGVhbiB1cCBhZnRlciBpdHNl
+bGYgaWYgaXRzCnJldHVybmluZyBOVUxMcz8KCj4gIAkJCXJldCA9IC1FRkFVTFQ7Cj4gIAkJCWdv
+dG8gb3V0Owo+ICAJCX0KCi0tIApBbGV4IEJlbm7DqWUKVmlydHVhbGlzYXRpb24gVGVjaCBMZWFk
+IEAgTGluYXJvCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
+ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
+Cg==
