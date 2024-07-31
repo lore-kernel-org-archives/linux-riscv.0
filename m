@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6463C3DA7F
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jul 2024 07:28:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D524C3DA64
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jul 2024 07:29:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YWgGWE/mdvxpgjPEx0VfvrMQc9QpT6mNU7WT9tXWuWM=; b=OiGAsKXW2cwEaU
-	XsXU3vYOihVuQPaqWn+jum0LS+n3Lhi9CQG3cX8HTvraf0kJPn7BGYQ78sk4JW8mn4ST1fvd4Wzoy
-	Fx/f6heEs68GK/akR6aW+1sRjhdOJsygjLU36Or5F2iM36JtiYUoT3VXdhv96p1/IXDel27/AKJi2
-	/QQ63q4foRuCEMxz2IlsDmc1zQ645kQ63jlshxDeCc6GpSeDPJ5g7WY7+vxDyYkYOB2fsyMtNQpvq
-	a4WhSOrZmIaeCV4sJlu7nG2N7VT+KNq008fTUTe7zwpyvBjBAptj3UL1/YSvPbHo6D2nbF3HBEUf1
-	ODIy3X3bkFlfio5pZXeA==;
+	List-Owner; bh=6WciRtr21cpSepoFkJ37sg0K5gj/vwXNNOiKDiQrL74=; b=Whi8IuXe7T6jsF
+	Dn5AAgpfVOwtH+ly5yqqQr10Ij2DQRgOc2QtJB6NvBKQu/+3QRJGPPC+mT8b1Q5vKOijn48ZpJO9S
+	+8HqcmHBpoJF694srSqEagw69MHXN49obmsQDFXcKjo+gx0oPuEKEYXjh15lIiF7QsBJ1Ku4b/bsQ
+	KlkxBpTZ1CCHKj1FFn1C1P32sRKy/FOiAe6ZZMpkvmv0Bko+ZdfhCqRqrzcw/1bKL9Le9JAOwko/g
+	jGNq6XqdNr1Low5qVjCliDqePkUHNEi2TCcDvDgncmjepI4V1y4aadYgjnfHYUenRjM67hdrtxoxf
+	rl4+8u+ICNkZSjHsTk4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZ3kx-000000007t6-0N6A;
-	Wed, 31 Jul 2024 07:28:19 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	id 1sZ3lv-0000000088P-1cIZ;
+	Wed, 31 Jul 2024 07:29:19 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZ3kt-000000007q2-3R0F
+	id 1sZ3ls-0000000087Q-1Imk
 	for linux-riscv@lists.infradead.org;
-	Wed, 31 Jul 2024 07:28:17 +0000
-Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-530ad969360so1330502e87.0
-        for <linux-riscv@lists.infradead.org>; Wed, 31 Jul 2024 00:28:15 -0700 (PDT)
+	Wed, 31 Jul 2024 07:29:17 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-3685a564bafso2581426f8f.3
+        for <linux-riscv@lists.infradead.org>; Wed, 31 Jul 2024 00:29:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1722410893; x=1723015693; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1722410954; x=1723015754; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ttjywx6Mo1/3X2D9jge6HvTlgUDsJ3yzsugn6JInGgA=;
-        b=MI7+URP4Mm46KBbDdyazDorMMY3XLKQ3jeQHYorJApwDfcRUcygY5q6UiCevpPNtiS
-         DQmFb0CcFMJl6ZcYbabbpcWI+462heWUeybxLMKeWrNft4aYnCUalNXCSZYKtXuxQqFq
-         xt1Ep/Z0EwEg0qTHkzZxloDbEjy7gadAjB7Ty+KFxAj+Xyh90f2eHzQuCuqufN/eeuB+
-         qV0JvsQ35j/mZne23XDfoBi0s/n9auTwIk6ypThmMA4tcdahVOhXgq9InYCPXDfOlF67
-         OoFg+WGkEG2IBcBQQYABBtXh3GciQ/bQMO0M3PdM2rFcQNjO91h8js6yMdYziCH4AiUT
-         iVXw==
+        bh=bTv3dCV8uOmdi0okEMo3U0BHPIZT88r4+7MFI/VgzDo=;
+        b=YPtMYtagryO67AFh0QnHKffBKcp3UVrAfB1Errf3GN15VF92g5YXiNK95/qUP158s0
+         OENuMnw37HZ2N/2qFfzwh2wSnYYNb0EGXNTaV7yWnDQl448Xnx2VWZ+c3fOv9bLWisbG
+         ++XGHMMDtq9+IJJDRKXSmlkdnE6w3QyMAIYOxeWs4MgyBlnOwiWd7crtRb2bHR61o1R8
+         eDmqzfs3Fy2nPMSA2lxSpAIr0zgNUHr+dRBz1uuv+aO8OLV19l7oUX2hHgVOrKkDQsIn
+         SaMugw0Z9hpAGe2bmqsABgkMMc7n6apMkyQ6ORdCpT7js5Y5YHSPFhSxBSA1JsKWgTZq
+         7GMw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722410893; x=1723015693;
+        d=1e100.net; s=20230601; t=1722410954; x=1723015754;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ttjywx6Mo1/3X2D9jge6HvTlgUDsJ3yzsugn6JInGgA=;
-        b=atDXQKQyNjvAkNFwR/tANqk3E8Lw5gW47S5fQfYjM/8J9qtRF6xnSFECa6m5ZtxLAO
-         tnEAbME8PhzKuAGh3raNQwTvz5nltifDbxbq2ORKBthDLzwHSqM6Pm5Iml8uwI4PegYa
-         OYlYayO3KfXolJXrPBb3jGqxkB9gwpjYIlpKMErhUUn+rOXD7fDzM5W6f73V/Q060Bu1
-         VoNzKVZ4Jza6Xpne+0hToVOckNY82tD7G8ntCLbTNFNLAWEKwt3aLbNSaKksoWX794vF
-         RiVILvJmg4YR/J4RtmNklFKA30kjZgAXMf6SWGFILLXQW33OtUHYnLjIvAEe4M4LCASu
-         ueiA==
-X-Forwarded-Encrypted: i=1; AJvYcCXTEt2kd1Bg+vvOUawQ7UViYiZi4BXh9RsgrnsxKL9qLUjb2Bp0G2S9+d9qNSUPWkWRKr6vgmRIbacNoP5VRYyYSMOyMpi1xaZSbiPxYSx3
-X-Gm-Message-State: AOJu0YyFa1IQQ3OGZ5RTygyWb+w4rGQog0d1ZEVjkDjZ72zQZhU07IxV
-	leRJOOrwLT7WNpCSt8Qv6t2we7ZJGS5yMRQyVyqlat/hwUMbIoJg750rsm2+DghYGGdQ/qTzGfc
-	y
-X-Google-Smtp-Source: AGHT+IGwuD5WOsjtT2bfQ2zXne4CrgHWP6AcnVi1hE62VKVHJr7T6wk/7agmQ1tHhyxNcI20/8ivqg==
-X-Received: by 2002:ac2:5690:0:b0:52c:ebd0:609 with SMTP id 2adb3069b0e04-5309b259bb9mr12112105e87.7.1722410892990;
-        Wed, 31 Jul 2024 00:28:12 -0700 (PDT)
+        bh=bTv3dCV8uOmdi0okEMo3U0BHPIZT88r4+7MFI/VgzDo=;
+        b=wBv/+P8b2HM8rLi+b88uelY8nLkDXyBWIeeMDrUyMJBZA7Hl6tPn0+wU50XnuPaqRS
+         EPHXog9EpImsxN/dGMVALgW8b152EyeVbg9qkFTunZRgL+it97Ru+2okeJs15Gl85yRV
+         7PQ5trRVAl06w/QEkvx9MTimVOwbbbLuyTqjWitcerSD/G01Hrupim21hZqEHt4hd53S
+         CG6HDRDQ4Izgi3sJu8hOoQhpEjrFjWHywmr42XRpEfNFlIaKyGHHQyzz7Yz8NPxARNLW
+         o4KLcdPVTlro9pNI2l2fSzhEE1GLXXnX4acEH7XyZd4GkZFQBORjJM6NvITVqBVvUG0s
+         SkmA==
+X-Forwarded-Encrypted: i=1; AJvYcCV771PjYzZjgz8ws/xczlD3GDfAxYY8M+Zdm6qr+Bbu6dpFycjEdC5CywOxJ2jHE8tU4+jEHn5zPGKdcvCrWbPmoQsQtB7U63EvdB79bjG8
+X-Gm-Message-State: AOJu0YwnKgHkQGe0A8Kd5jWxTWj8Oi8fur+06ghG1vGVbUbRv29ZhWhs
+	NlhCFCrFlku0Yo4bByFlm/bc6y45+mJVUY7Xo8FMeCkI39REcTiQMz7/ZRMy8+o=
+X-Google-Smtp-Source: AGHT+IGdWI7pNX76CY5MDuyu7lWxBLphPJYSwh1U+oglkHzUOKa2xmfRAJ3FI2utc6jCiAfVd04UpA==
+X-Received: by 2002:a5d:440f:0:b0:367:f056:24ac with SMTP id ffacd0b85a97d-36b5ceff66emr7868257f8f.28.1722410954255;
+        Wed, 31 Jul 2024 00:29:14 -0700 (PDT)
 Received: from alex-rivos.home (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4282babaab3sm10562035e9.28.2024.07.31.00.28.12
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-36b36862271sm16319776f8f.98.2024.07.31.00.29.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 31 Jul 2024 00:28:12 -0700 (PDT)
+        Wed, 31 Jul 2024 00:29:13 -0700 (PDT)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Jonathan Corbet <corbet@lwn.net>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
@@ -88,17 +87,16 @@ To: Jonathan Corbet <corbet@lwn.net>,
 	linux-riscv@lists.infradead.org,
 	linux-arch@vger.kernel.org
 Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH v4 04/13] dt-bindings: riscv: Add Zabha ISA extension description
-Date: Wed, 31 Jul 2024 09:23:56 +0200
-Message-Id: <20240731072405.197046-5-alexghiti@rivosinc.com>
+Subject: [PATCH v4 05/13] riscv: Implement cmpxchg8/16() using Zabha
+Date: Wed, 31 Jul 2024 09:23:57 +0200
+Message-Id: <20240731072405.197046-6-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20240731072405.197046-1-alexghiti@rivosinc.com>
 References: <20240731072405.197046-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240731_002815_869271_8AE27ADB 
-X-CRM114-Status: UNSURE (   9.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240731_002916_382289_5F1AC37B 
+X-CRM114-Status: GOOD (  16.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,32 +113,184 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add description for the Zabha ISA extension which was ratified in April
-2024.
+This adds runtime support for Zabha in cmpxchg8/16() operations.
+
+Note that in the absence of Zacas support in the toolchain, CAS
+instructions from Zabha won't be used.
 
 Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-Reviewed-by: Guo Ren <guoren@kernel.org>
 ---
- Documentation/devicetree/bindings/riscv/extensions.yaml | 6 ++++++
- 1 file changed, 6 insertions(+)
+ arch/riscv/Kconfig               | 18 ++++++++
+ arch/riscv/Makefile              |  3 ++
+ arch/riscv/include/asm/cmpxchg.h | 78 ++++++++++++++++++++------------
+ arch/riscv/include/asm/hwcap.h   |  1 +
+ arch/riscv/kernel/cpufeature.c   |  1 +
+ 5 files changed, 72 insertions(+), 29 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
-index a06dbc6b4928..a63578b95c4a 100644
---- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-+++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-@@ -171,6 +171,12 @@ properties:
-             memory types as ratified in the 20191213 version of the privileged
-             ISA specification.
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index d955c64d50c2..212ec2aab389 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -613,6 +613,24 @@ config RISCV_ISA_ZAWRS
+ 	  use of these instructions in the kernel when the Zawrs extension is
+ 	  detected at boot.
  
-+        - const: zabha
-+          description: |
-+            The Zabha extension for Byte and Halfword Atomic Memory Operations
-+            as ratified at commit 49f49c842ff9 ("Update to Rafified state") of
-+            riscv-zabha.
++config TOOLCHAIN_HAS_ZABHA
++	bool
++	default y
++	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zabha)
++	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zabha)
++	depends on AS_HAS_OPTION_ARCH
 +
-         - const: zacas
-           description: |
-             The Zacas extension for Atomic Compare-and-Swap (CAS) instructions
++config RISCV_ISA_ZABHA
++	bool "Zabha extension support for atomic byte/halfword operations"
++	depends on TOOLCHAIN_HAS_ZABHA
++	depends on RISCV_ALTERNATIVE
++	default y
++	help
++	  Enable the use of the Zabha ISA-extension to implement kernel
++	  byte/halfword atomic memory operations when it is detected at boot.
++
++	  If you don't know what to do here, say Y.
++
+ config TOOLCHAIN_HAS_ZACAS
+ 	bool
+ 	default y
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index f1788131d5fe..f6dc5ba7c526 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -85,6 +85,9 @@ endif
+ # Check if the toolchain supports Zacas
+ riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZACAS) := $(riscv-march-y)_zacas
+ 
++# Check if the toolchain supports Zabha
++riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZABHA) := $(riscv-march-y)_zabha
++
+ # Remove F,D,V from isa string for all. Keep extensions between "fd" and "v" by
+ # matching non-v and non-multi-letter extensions out with the filter ([^v_]*)
+ KBUILD_CFLAGS += -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64ima)fd([^v_]*)v?/\1\2/')
+diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
+index c626fe0d08ae..ebcd4a30ae60 100644
+--- a/arch/riscv/include/asm/cmpxchg.h
++++ b/arch/riscv/include/asm/cmpxchg.h
+@@ -108,34 +108,49 @@
+  * indicated by comparing RETURN with OLD.
+  */
+ 
+-#define __arch_cmpxchg_masked(sc_sfx, prepend, append, r, p, o, n)	\
+-({									\
+-	u32 *__ptr32b = (u32 *)((ulong)(p) & ~0x3);			\
+-	ulong __s = ((ulong)(p) & (0x4 - sizeof(*p))) * BITS_PER_BYTE;	\
+-	ulong __mask = GENMASK(((sizeof(*p)) * BITS_PER_BYTE) - 1, 0)	\
+-			<< __s;						\
+-	ulong __newx = (ulong)(n) << __s;				\
+-	ulong __oldx = (ulong)(o) << __s;				\
+-	ulong __retx;							\
+-	ulong __rc;							\
+-									\
+-	__asm__ __volatile__ (						\
+-		prepend							\
+-		"0:	lr.w %0, %2\n"					\
+-		"	and  %1, %0, %z5\n"				\
+-		"	bne  %1, %z3, 1f\n"				\
+-		"	and  %1, %0, %z6\n"				\
+-		"	or   %1, %1, %z4\n"				\
+-		"	sc.w" sc_sfx " %1, %1, %2\n"			\
+-		"	bnez %1, 0b\n"					\
+-		append							\
+-		"1:\n"							\
+-		: "=&r" (__retx), "=&r" (__rc), "+A" (*(__ptr32b))	\
+-		: "rJ" ((long)__oldx), "rJ" (__newx),			\
+-		  "rJ" (__mask), "rJ" (~__mask)				\
+-		: "memory");						\
+-									\
+-	r = (__typeof__(*(p)))((__retx & __mask) >> __s);		\
++#define __arch_cmpxchg_masked(sc_sfx, cas_sfx, prepend, append, r, p, o, n)	\
++({										\
++	if (IS_ENABLED(CONFIG_RISCV_ISA_ZABHA) &&				\
++	    IS_ENABLED(CONFIG_RISCV_ISA_ZACAS) &&				\
++	    riscv_has_extension_unlikely(RISCV_ISA_EXT_ZABHA) &&		\
++	    riscv_has_extension_unlikely(RISCV_ISA_EXT_ZACAS)) {		\
++		r = o;								\
++										\
++		__asm__ __volatile__ (						\
++			prepend							\
++			"	amocas" cas_sfx " %0, %z2, %1\n"		\
++			append							\
++			: "+&r" (r), "+A" (*(p))				\
++			: "rJ" (n)						\
++			: "memory");						\
++	} else {								\
++		u32 *__ptr32b = (u32 *)((ulong)(p) & ~0x3);			\
++		ulong __s = ((ulong)(p) & (0x4 - sizeof(*p))) * BITS_PER_BYTE;	\
++		ulong __mask = GENMASK(((sizeof(*p)) * BITS_PER_BYTE) - 1, 0)	\
++			       << __s;						\
++		ulong __newx = (ulong)(n) << __s;				\
++		ulong __oldx = (ulong)(o) << __s;				\
++		ulong __retx;							\
++		ulong __rc;							\
++										\
++		__asm__ __volatile__ (						\
++			prepend							\
++			"0:	lr.w %0, %2\n"					\
++			"	and  %1, %0, %z5\n"				\
++			"	bne  %1, %z3, 1f\n"				\
++			"	and  %1, %0, %z6\n"				\
++			"	or   %1, %1, %z4\n"				\
++			"	sc.w" sc_sfx " %1, %1, %2\n"			\
++			"	bnez %1, 0b\n"					\
++			append							\
++			"1:\n"							\
++			: "=&r" (__retx), "=&r" (__rc), "+A" (*(__ptr32b))	\
++			: "rJ" ((long)__oldx), "rJ" (__newx),			\
++			  "rJ" (__mask), "rJ" (~__mask)				\
++			: "memory");						\
++										\
++		r = (__typeof__(*(p)))((__retx & __mask) >> __s);		\
++	}									\
+ })
+ 
+ #define __arch_cmpxchg(lr_sfx, sc_cas_sfx, prepend, append, r, p, co, o, n)	\
+@@ -177,8 +192,13 @@
+ 									\
+ 	switch (sizeof(*__ptr)) {					\
+ 	case 1:								\
++		__arch_cmpxchg_masked(sc_cas_sfx, ".b" sc_cas_sfx,	\
++					prepend, append,		\
++					__ret, __ptr, __old, __new);    \
++		break;							\
+ 	case 2:								\
+-		__arch_cmpxchg_masked(sc_cas_sfx, prepend, append,	\
++		__arch_cmpxchg_masked(sc_cas_sfx, ".h" sc_cas_sfx,	\
++					prepend, append,		\
+ 					__ret, __ptr, __old, __new);	\
+ 		break;							\
+ 	case 4:								\
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index 5a0bd27fd11a..f5d53251c947 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -92,6 +92,7 @@
+ #define RISCV_ISA_EXT_ZCF		83
+ #define RISCV_ISA_EXT_ZCMOP		84
+ #define RISCV_ISA_EXT_ZAWRS		85
++#define RISCV_ISA_EXT_ZABHA		86
+ 
+ #define RISCV_ISA_EXT_XLINUXENVCFG	127
+ 
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 8f20607adb40..2a608056c89c 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -322,6 +322,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+ 	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
+ 	__RISCV_ISA_EXT_DATA(zihpm, RISCV_ISA_EXT_ZIHPM),
+ 	__RISCV_ISA_EXT_DATA(zimop, RISCV_ISA_EXT_ZIMOP),
++	__RISCV_ISA_EXT_DATA(zabha, RISCV_ISA_EXT_ZABHA),
+ 	__RISCV_ISA_EXT_DATA(zacas, RISCV_ISA_EXT_ZACAS),
+ 	__RISCV_ISA_EXT_DATA(zawrs, RISCV_ISA_EXT_ZAWRS),
+ 	__RISCV_ISA_EXT_DATA(zfa, RISCV_ISA_EXT_ZFA),
 -- 
 2.39.2
 
