@@ -4,87 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25BD4C3DA7F
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jul 2024 09:27:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88EAEC3DA64
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jul 2024 09:51:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=g95T2mAKZoeSP79kkFyBQsUrzStsiEVj+9cCnVHXYCM=; b=nzUo04QobLVMMP
-	1JxHRjxM3WbFfAXGrJGXE++Oih/sEM7mSMf0Y0eXdx5ymeD1D9QjjqGOFE02AxzoVdPNdCvkbTq1g
-	vJxUS/77TUygklr+TJLFIII7OW+JbFbMJBzVKVhLQc2h271PBGb4yYD+QzyBuDf7+ltLXYu0E2PHw
-	W6bY901zUYiDlG9FuYqAdHTNtdFyuCRXs91A9rP0pp3adePa1vaXbmqXkk+Pm4QX5K07XgzfPrz0k
-	jK5bW+aMGbzsKybwKFLJoMviftdgISbvq9O+HBDxHPCZrf0HxbIw2kTiDM8ZuqB2Fehoz27Drz7Iv
-	1HD47yJrdny+uh0ZpZZw==;
+	List-Owner; bh=v+VcgxGQgHwW/E/lmeicR3+bjMyM06fOS2nnToQzSZo=; b=ekuxoVLnwjymeW
+	JLgDK8omlOr/J6sgpMTswNIdiDlGB4UHC2rx0iwauMqgV2FPIhhjd0WlXdQdm6MfcgHDBgI0GBjP6
+	5NScQ6OF4iX4I/L/mmhOpJI+1HpbVYjsk908we2WkLLjRc9v7ZWIE8eafsxZqGzB68qtEOXc0y62B
+	4O3VWv87pmRfEyYGLkThkHfZqZW1xDM4aITRHX2mLmaq007I4421A4onCN5n5pr1EhqzglFZXo9q0
+	JERfMEzmP43uSoHIJ2A6xxZfmclnxOTjut7WP6dMVHV3W4QPRhLt2mwGAyEr6xLV0mublbi1NWs83
+	NymMEStg7mduQyOrOQNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZ5by-00000000UeI-3q8d;
-	Wed, 31 Jul 2024 09:27:10 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1sZ5z3-00000000cKw-1WeB;
+	Wed, 31 Jul 2024 09:51:01 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZ5bv-00000000UdN-3XMp
+	id 1sZ5yq-00000000cGz-01ul
 	for linux-riscv@lists.infradead.org;
-	Wed, 31 Jul 2024 09:27:09 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-52fc4388a64so9323396e87.1
-        for <linux-riscv@lists.infradead.org>; Wed, 31 Jul 2024 02:27:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1722418026; x=1723022826; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=p7SJK2WN3L6uZyaEdLNNOcGfMCG9Ym2ay5t0xgYijf0=;
-        b=OQy3pF/7aEDrOT1LIKQ7uJqFaQTM+qurX2qepLE4bSVff8+ASsjZyT+HCzPcIB5uxG
-         cAX+Srep56KENJ3VOJdG/HyNmi4WKjY8LMRsEX0RalCqUjslQcR4JV1WfKcYNF9+GZL2
-         WYx1F8MJlmPCdmJ2vHRhEBWJYAZodnxCvQ+U0vvm4ID/zereYAR/BSwMT+06qvP/w+MW
-         KjUnFUv55I+V5q3MTqRlFOG7u5Z4fJuQuSTtGD04U9NMiE1Jfht1JK+jETLc4vhGKLg7
-         BiAeGIHJ84rMx2AjOh6I/JJLa4a+p37MbT9hj6Cns4fmdy/0Rm1OXtQu/2hd9FSFaWBP
-         Wxbw==
+	Wed, 31 Jul 2024 09:50:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1722419445;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=kF8YsGqLWNT4+a8R4w4P9MUEGEAYWYiYSABna27uXpU=;
+	b=Dn9sN+xK/9kb1KlEyll9wIL7D8CDK+qVdUmD7CDfGK1eS01n5lGZRKIuKeXkBzNiP50FEF
+	B1ZvTRWefeVdCaNexmXIIq33F2K5fG0Teg1MK+QZHdxCUtA/YddJmZhR/RPB07l0on8Lf/
+	prR2eTGPSJyxOlmo7xNoWa6L2gw1aI0=
+Received: from mail-ej1-f69.google.com (mail-ej1-f69.google.com
+ [209.85.218.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-518-5B2UMvwiNKWjnpKxUQCkMQ-1; Wed, 31 Jul 2024 05:50:41 -0400
+X-MC-Unique: 5B2UMvwiNKWjnpKxUQCkMQ-1
+Received: by mail-ej1-f69.google.com with SMTP id a640c23a62f3a-a7abee2b4b0so505337966b.1
+        for <linux-riscv@lists.infradead.org>; Wed, 31 Jul 2024 02:50:41 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722418026; x=1723022826;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=p7SJK2WN3L6uZyaEdLNNOcGfMCG9Ym2ay5t0xgYijf0=;
-        b=so6sCKbHtK07Tg3/qtzkAl3ZomqkVsasKqUmuuuEZpkA47kWWH3R1mVoWqznry+dtY
-         kpIJ23HoJVUxJh91Cs4sTXN3ZO3JDedM4mzgH6KFeERGk83tEy3qID5+Fm/2wYKQdZQ/
-         7W5vx9rAvk/Yo6dQB4MI8m7UfAMUoz90hKjBXpgJwZh4eqUXPrtf4uPt/RVOn5JJ+Mix
-         Wah6uGN3vjrUZXLw7yhZ2lKzcyEGtVb4/qKPIkAuxeDYaQdg/T7JNoj7nPFgSvOl7Vev
-         N2ModPtJoC5o0IOa1KopTg7c6WujrPaek3J9jkp+4/Xmy8PH0+ACFNDJa1C7esEWc4ET
-         5LWw==
-X-Forwarded-Encrypted: i=1; AJvYcCUUM/w2uMDDfis1RfQ3gTtySWO0g/B6Tdtpcn8kvywnB13TnTpbpPU7nWKMDMxCGXqS73aTjgN2Im4PiENsqqTTOe+gVcKCJ+vPzwxQGYFj
-X-Gm-Message-State: AOJu0YyPO9063ic8CXn+GxQEDcZG/r3GEv5hoU3Rnxkz/TwkhPVRNOit
-	co2KQ7MGoT684xT6KMj+njWHU4Vt+7usvxyS5wXBEI9ML8BCsliB+NwjsaRT7GY=
-X-Google-Smtp-Source: AGHT+IG3JIOtJ24DzWq2AbHse04McdP7VjBbSLZOo3eV9EeDpYpgjlKyfa2GCIpAnxuCqpt5LCi3OQ==
-X-Received: by 2002:a05:6512:292:b0:52f:c13f:23d2 with SMTP id 2adb3069b0e04-5309b2803e4mr8247308e87.25.1722418025413;
-        Wed, 31 Jul 2024 02:27:05 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5ac64eb3c1esm8451687a12.78.2024.07.31.02.27.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 31 Jul 2024 02:27:04 -0700 (PDT)
-Date: Wed, 31 Jul 2024 11:27:04 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Andrea Parri <parri.andrea@gmail.com>, 
-	Nathan Chancellor <nathan@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>, Waiman Long <longman@redhat.com>, 
-	Boqun Feng <boqun.feng@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Leonardo Bras <leobras@redhat.com>, Guo Ren <guoren@kernel.org>, linux-doc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-arch@vger.kernel.org
-Subject: Re: [PATCH v4 05/13] riscv: Implement cmpxchg8/16() using Zabha
-Message-ID: <20240731-da4a7d7790e88a6b8960ad3e@orel>
-References: <20240731072405.197046-1-alexghiti@rivosinc.com>
- <20240731072405.197046-6-alexghiti@rivosinc.com>
+        d=1e100.net; s=20230601; t=1722419440; x=1723024240;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=kF8YsGqLWNT4+a8R4w4P9MUEGEAYWYiYSABna27uXpU=;
+        b=twX63wgmpduAy00aHHoIrx0BDUSPB0Olf6y2QAH+llexICt8gKYtbYKffrS76oyARv
+         4Ov5pM40YA0VBYVCqslAMLnkQ6WSaElQWv7/ozfC5SYiwo3iN9nJ1aSILl83A0LRQSzN
+         Q5sIYAglmDdyGBAHp1ZshBtNHgiOXKhZc5MKo4AbNMuFJI2qbRk/WmKXueJbLT1jitVH
+         GUw8WL32tSe/qb3cZj8Zf3aBABVub0ImkDr0SeCjSSFXyemwhU90Mj6X979d/xCQQDzk
+         QuQTfGJUlJEME6m7FfqNmzSC3AowuiMQpBAfOg9O0SqPrELoDtkRmQ281C3bWd3SR6cI
+         1xQg==
+X-Forwarded-Encrypted: i=1; AJvYcCUt0bghC1cmWn6sEdaXHuW0YJIC8d/PUuNCLg1Euinkwhu3XY80FyHF37ElhK0bUq2pmxHPY1RrB1/XgjYVkQ26MaR4Mv800MIVxqG3nubI
+X-Gm-Message-State: AOJu0YztiBg9T2b3bI+nAhb2dZic+0hlGdhPu+wfDnB3jxRyVBOV4G9c
+	RqE0Ya0zNNzLUiKBriXTVvUIKvPntGKJBB6ElOaDC0k+AT3FPt0AEwNmApm8G50CF0HDJagv3vT
+	HXsq9MV6Nqckfmvb/m9bwa1GPvRrCcmraADlepzB/Byx4v4YZd2Kae3dIsxPIXGej5g==
+X-Received: by 2002:a17:907:94cb:b0:a7a:bece:6223 with SMTP id a640c23a62f3a-a7d3ff7b8e4mr1064732066b.6.1722419440621;
+        Wed, 31 Jul 2024 02:50:40 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHm0sw2f7Q/hSxPLtTI3KYQw5uCrmW/NKDuI5rQ7HlgfsjazxGbnWK3KS2H8Xhx5SNKvtVQug==
+X-Received: by 2002:a17:907:94cb:b0:a7a:bece:6223 with SMTP id a640c23a62f3a-a7d3ff7b8e4mr1064728266b.6.1722419440130;
+        Wed, 31 Jul 2024 02:50:40 -0700 (PDT)
+Received: from [192.168.10.81] ([151.95.101.29])
+        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-a7acad93105sm746255566b.167.2024.07.31.02.50.38
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 31 Jul 2024 02:50:39 -0700 (PDT)
+Message-ID: <57ba7e1d-0121-4d71-89b8-c61c476ca724@redhat.com>
+Date: Wed, 31 Jul 2024 11:50:38 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240731072405.197046-6-alexghiti@rivosinc.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v12 84/84] KVM: Don't grab reference on VM_MIXEDMAP pfns
+ that have a "struct page"
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
+ Huacai Chen <chenhuacai@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
+ Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Janosch Frank <frankja@linux.ibm.com>,
+ Claudio Imbrenda <imbrenda@linux.ibm.com>, kvm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ David Matlack <dmatlack@google.com>, David Stevens <stevensd@chromium.org>
+References: <20240726235234.228822-1-seanjc@google.com>
+ <20240726235234.228822-85-seanjc@google.com>
+ <992c4a07-fb84-42d8-93b3-96fb3a12c8e0@redhat.com>
+ <ZqlLWl0R1p41CS0O@google.com>
+From: Paolo Bonzini <pbonzini@redhat.com>
+Autocrypt: addr=pbonzini@redhat.com; keydata=
+ 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
+In-Reply-To: <ZqlLWl0R1p41CS0O@google.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240731_022707_906912_A86B55E5 
-X-CRM114-Status: GOOD (  12.69  )
+X-CRM114-CacheID: sfid-20240731_025048_309084_4F907D40 
+X-CRM114-Status: GOOD (  10.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,28 +148,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 31, 2024 at 09:23:57AM GMT, Alexandre Ghiti wrote:
-> This adds runtime support for Zabha in cmpxchg8/16() operations.
+On 7/30/24 22:21, Sean Christopherson wrote:
+> On Tue, Jul 30, 2024, Paolo Bonzini wrote:
+>> On 7/27/24 01:52, Sean Christopherson wrote:
+>>> Now that KVM no longer relies on an ugly heuristic to find its struct page
+>>> references, i.e. now that KVM can't get false positives on VM_MIXEDMAP
+>>> pfns, remove KVM's hack to elevate the refcount for pfns that happen to
+>>> have a valid struct page.  In addition to removing a long-standing wart
+>>> in KVM, this allows KVM to map non-refcounted struct page memory into the
+>>> guest, e.g. for exposing GPU TTM buffers to KVM guests.
+>>
+>> Feel free to leave it to me for later, but there are more cleanups that
+>> can be made, given how simple kvm_resolve_pfn() is now:
 > 
-> Note that in the absence of Zacas support in the toolchain, CAS
-> instructions from Zabha won't be used.
-> 
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> ---
->  arch/riscv/Kconfig               | 18 ++++++++
->  arch/riscv/Makefile              |  3 ++
->  arch/riscv/include/asm/cmpxchg.h | 78 ++++++++++++++++++++------------
->  arch/riscv/include/asm/hwcap.h   |  1 +
->  arch/riscv/kernel/cpufeature.c   |  1 +
->  5 files changed, 72 insertions(+), 29 deletions(-)
->
+> I'll revisit kvm_resolve_pfn(), Maxim also wasn't a fan of a similar helper that
+> existed in v11.
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+FWIW kvm_resolve_pfn() is totally fine as an intermediate step.  Just 
+food for thought for possible follow-ups.
+
+>> Also, check_user_page_hwpoison() should not be needed anymore, probably
+>> not since commit 234b239bea39 ("kvm: Faults which trigger IO release the
+>> mmap_sem", 2014-09-24) removed get_user_pages_fast() from hva_to_pfn_slow().
+> 
+> Ha, I *knew* this sounded familiar.  Past me apparently came to the same
+> conclusion[*], though I wrongly suspected a memory leak and promptly forgot to
+> ever send a patch.  I'll tack one on this time around.
+
+As you prefer.
+
+Paolo
+
 
 _______________________________________________
 linux-riscv mailing list
