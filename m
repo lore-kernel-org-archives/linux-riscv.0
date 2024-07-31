@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B514C3DA64
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jul 2024 04:06:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02B0DC3DA7F
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jul 2024 04:06:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PMDLtb1H08M6fJcg27H9S2LaEb7d5pox+IHeGa9lO28=; b=KSGM2FuynXC7aH
-	QJiuONQMIdhgM1G3mggjx0ijz86/fAFQiaXTf0zO8vZzYLrkfhODFkqg89A5BBr2XOUPuj09sQG08
-	fzhfan4WciAfyO6oxg1N8hmY1Oy96LO/D9rfHrMHlKeWCiLNsQn2sSQhDJyAQlFYWdypgJX+n8cof
-	HMtFSLm+UGoeVNwdIFo4nFPjv90BFccZiScff7sKxC5yVMO24ZntWP3HIbe1RKB4PkmfMmul3/3/o
-	1FoMrwNWVz8xFca15UYfpe1Whv959vjqP62Uw2rukWzWKMOBefUiZ2A2Lu6Wr7hTMchyhzY9c4xAj
-	98V2ZDWF2o70A7Ah3sQA==;
+	List-Owner; bh=cRfMFoPdwrHnB5t4hKLDZCL/IlnH/qvxAomtU23vbk4=; b=g3bi9tSktGqmnw
+	qfQQ0wBEGAVau/EkWh8Drf7rBHWM16Fh5iV0bmDJNworX6KHNsY8BeEAJhzvq8u8iY4to86OCjY02
+	90NbrSL76D8ktHtQidgFe4g0xFZr5tU50CsDnOcxBzl+qDYi2ZeHOZuATg/S3my8Z+2seDs57EhQA
+	wNJBh0cS13y5pemwNVy0Y0SaY/c2PSjadu6PE3blYkctfDelK4ejsS55WWm4HWlxNSHo4eBPAFFRU
+	+v9sWUS8TQSZF/Ilf1F0I2GgCKCIeiOsWIDoMpYGJq6zQI9BYD2GRBe58yReb9iR1qiLbzYVLhP18
+	DJjdfOCtS2SbxGexhumA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZ0bW-0000000HEL9-15oz;
-	Wed, 31 Jul 2024 04:06:22 +0000
+	id 1sZ0bV-0000000HEKr-2X1C;
+	Wed, 31 Jul 2024 04:06:21 +0000
 Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZ0bQ-0000000HEJV-1y6U
+	id 1sZ0bO-0000000HEIt-2sB8
 	for linux-riscv@lists.infradead.org;
-	Wed, 31 Jul 2024 04:06:18 +0000
+	Wed, 31 Jul 2024 04:06:16 +0000
 Received: from ubt.. (unknown [210.73.53.31])
-	by APP-01 (Coremail) with SMTP id qwCowAAnL0spuKlmWXZdAg--.7845S5;
-	Wed, 31 Jul 2024 12:06:11 +0800 (CST)
+	by APP-01 (Coremail) with SMTP id qwCowAAnL0spuKlmWXZdAg--.7845S4;
+	Wed, 31 Jul 2024 12:06:09 +0800 (CST)
 From: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -39,20 +39,20 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Chunyan Zhang <zhang.lyra@gmail.com>
-Subject: [PATCH V2 3/3] riscv: mm: Add uffd write-protect support
-Date: Wed, 31 Jul 2024 12:04:44 +0800
-Message-Id: <20240731040444.3384790-4-zhangchunyan@iscas.ac.cn>
+Subject: [PATCH V2 2/3] riscv: mm: Add soft-dirty page tracking support
+Date: Wed, 31 Jul 2024 12:04:43 +0800
+Message-Id: <20240731040444.3384790-3-zhangchunyan@iscas.ac.cn>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20240731040444.3384790-1-zhangchunyan@iscas.ac.cn>
 References: <20240731040444.3384790-1-zhangchunyan@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowAAnL0spuKlmWXZdAg--.7845S5
-X-Coremail-Antispam: 1UD129KBjvJXoWxWF1UurWUCr4DXry8Aw1DZFb_yoWrWrW3pF
-	s5Ga1rurWDJFn7KayfGrW8Kr4rZw45W34DXr9xua1kJFWUKrWDXF95Kw1aqryrXFWvv34x
-	JrWrKr4rCr47AF7anT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPab7Iv0xC_Zr1lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
+X-CM-TRANSID: qwCowAAnL0spuKlmWXZdAg--.7845S4
+X-Coremail-Antispam: 1UD129KBjvJXoWxtFW5GF4UKr45WF18JF4DCFg_yoW7WFyUpF
+	Z5GF1rZFWFyFn3KayftrsFgrWYywn3Way5Xry3Ca1DJayUGrWUWFZ0gr1aq3y5XFykAa4f
+	ZrZ5tay5CrsrJr7anT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPab7Iv0xC_tr1lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
 	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
-	8067AKxVWUWwA2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF
+	8067AKxVWUXwA2048vs2IY020Ec7CjxVAFwI0_Gr0_Xr1l8cAvFVAK0II2c7xJM28CjxkF
 	64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0cI8IcV
 	CY1x0267AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2
 	jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4
@@ -63,12 +63,12 @@ X-Coremail-Antispam: 1UD129KBjvJXoWxWF1UurWUCr4DXry8Aw1DZFb_yoWrWrW3pF
 	43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF
 	7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxV
 	WUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxU
-	xeT5DUUUU
+	spVbDUUUU
 X-Originating-IP: [210.73.53.31]
-X-CM-SenderInfo: x2kd0wxfkx051dq6x2xfdvhtffof0/1tbiBwoPB2apggyjiAABsu
+X-CM-SenderInfo: x2kd0wxfkx051dq6x2xfdvhtffof0/1tbiBwoPB2apggyjiAAAsv
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240730_210616_930484_6F9765BA 
-X-CRM114-Status: GOOD (  10.88  )
+X-CRM114-CacheID: sfid-20240730_210615_144725_45E87A9F 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,143 +85,181 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Reuse PTE bit(9) for uffd-wp tracking and make it mutually exclusive
-with soft-dirty and DEVMAP which all use this PTE bit.
+The PTE bit(9) is reserved for software, now used by DEVMAP,
+this patch reuse bit(9) for soft-dirty which is enabled only
+if !CONFIG_ARCH_HAS_PTE_DEVMAP, in other words, soft-dirty
+and devmap will be mutually exclusive on RISC-V.
 
-Additionally for tracking the uffd-wp state as a pte swp bit,
-we use swap entry pte bit(4) which is also used by swp
-soft-dirty tracking.
+To add swap PTE soft-dirty tracking, we borrow bit (4) which is
+available for swap PTEs on RISC-V systems.
 
 Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
 ---
- arch/riscv/Kconfig                    |  7 +++
- arch/riscv/include/asm/pgtable-bits.h | 13 ++++++
- arch/riscv/include/asm/pgtable.h      | 64 +++++++++++++++++++++++++++
- 3 files changed, 84 insertions(+)
+ arch/riscv/Kconfig                    | 27 ++++++++++-
+ arch/riscv/include/asm/pgtable-bits.h | 12 +++++
+ arch/riscv/include/asm/pgtable.h      | 68 ++++++++++++++++++++++++++-
+ 3 files changed, 105 insertions(+), 2 deletions(-)
 
 diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index d6ac55794c5f..e8aed24197c5 100644
+index 0f3cd7c3a436..d6ac55794c5f 100644
 --- a/arch/riscv/Kconfig
 +++ b/arch/riscv/Kconfig
-@@ -971,6 +971,13 @@ config RISCV_HAS_SOFT_DIRTY
- 	help
- 	  The PTE bit(9) is used for soft-dirty tracking.
+@@ -39,7 +39,6 @@ config RISCV
+ 	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
+ 	select ARCH_HAS_PMEM_API
+ 	select ARCH_HAS_PREPARE_SYNC_CORE_CMD
+-	select ARCH_HAS_PTE_DEVMAP if 64BIT && MMU
+ 	select ARCH_HAS_PTE_SPECIAL
+ 	select ARCH_HAS_SET_DIRECT_MAP if MMU
+ 	select ARCH_HAS_SET_MEMORY if MMU
+@@ -948,6 +947,32 @@ config RANDOMIZE_BASE
  
-+config RISCV_HAS_USERFAULTFD_WP
-+	bool "userfaultfd write protection"
-+	select HAVE_ARCH_USERFAULTFD_WP
-+	depends on USERFAULTFD
+           If unsure, say N.
+ 
++choice
++	prompt "PET RSW Bit(9) used for"
++	default RISCV_HAS_PTE_DEVMEP
 +	help
-+	  The PTE bit(9) is used for userfaultfd write-protected
-+	  tracking.
- endchoice
- 
++	  RISC-V PTE bit(9) is reserved for software, and used by more than
++	  one kernel features which cannot be supported at the same time.
++	  So we have to select one for it.
++
++config RISCV_HAS_PTE_DEVMEP
++	bool "DEVMAP mark"
++	select ARCH_HAS_PTE_DEVMAP
++	depends on MMU && 64BIT
++	help
++	  The PTE bit(9) is used for DEVMAP mark. ZONE_DEVICE pages need DEVMAP
++	  PTEs support to function.
++
++	  So if you want to use ZONE_DEVICE, select this.
++
++config RISCV_HAS_SOFT_DIRTY
++	bool "soft dirty"
++	select HAVE_ARCH_SOFT_DIRTY
++	help
++	  The PTE bit(9) is used for soft-dirty tracking.
++
++endchoice
++
  endmenu # "Kernel features"
+ 
+ menu "Boot options"
 diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
-index c6d51fe9fc6f..53b3fd12e8fa 100644
+index 5bcc73430829..c6d51fe9fc6f 100644
 --- a/arch/riscv/include/asm/pgtable-bits.h
 +++ b/arch/riscv/include/asm/pgtable-bits.h
-@@ -38,6 +38,19 @@
- #define _PAGE_SWP_SOFT_DIRTY	0
- #endif /* CONFIG_MEM_SOFT_DIRTY */
+@@ -26,6 +26,18 @@
+ #define _PAGE_DEVMAP	0
+ #endif /* CONFIG_ARCH_HAS_PTE_DEVMAP */
  
-+#ifdef CONFIG_HAVE_ARCH_USERFAULTFD_WP
++#ifdef CONFIG_MEM_SOFT_DIRTY
++#define _PAGE_SOFT_DIRTY	(1 << 9)    /* RSW: 0x2 for software dirty tracking */
 +/*
-+ * CONFIG_HAVE_ARCH_USERFAULTFD_WP is mutually exclusive with
-+ * HAVE_ARCH_SOFT_DIRTY so we can use the same bit for uffd-wp
-+ * and soft-dirty tracking.
++ * BIT 4 is not involved into swap entry computation, so we
++ * can borrow it for swap page soft-dirty tracking.
 + */
-+#define _PAGE_UFFD_WP		(1 << 9) /* RSW: 0x2 for uffd-wp tracking */
-+#define _PAGE_SWP_UFFD_WP	_PAGE_USER
++#define _PAGE_SWP_SOFT_DIRTY	_PAGE_USER
 +#else
-+#define _PAGE_UFFD_WP           0
-+#define _PAGE_SWP_UFFD_WP	0
-+#endif
++#define _PAGE_SOFT_DIRTY	0
++#define _PAGE_SWP_SOFT_DIRTY	0
++#endif /* CONFIG_MEM_SOFT_DIRTY */
 +
  #define _PAGE_TABLE     _PAGE_PRESENT
  
  /*
 diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index ddf6e4f44252..c6e790e75309 100644
+index 089f3c9f56a3..ddf6e4f44252 100644
 --- a/arch/riscv/include/asm/pgtable.h
 +++ b/arch/riscv/include/asm/pgtable.h
-@@ -417,6 +417,38 @@ static inline pte_t pte_wrprotect(pte_t pte)
- 	return __pte(pte_val(pte) & ~(_PAGE_WRITE));
+@@ -428,7 +428,7 @@ static inline pte_t pte_mkwrite_novma(pte_t pte)
+ 
+ static inline pte_t pte_mkdirty(pte_t pte)
+ {
+-	return __pte(pte_val(pte) | _PAGE_DIRTY);
++	return __pte(pte_val(pte) | _PAGE_DIRTY | _PAGE_SOFT_DIRTY);
  }
  
-+#ifdef CONFIG_HAVE_ARCH_USERFAULTFD_WP
-+static inline int pte_uffd_wp(pte_t pte)
-+{
-+	return pte_val(pte) & _PAGE_UFFD_WP;
-+}
-+
-+static inline pte_t pte_mkuffd_wp(pte_t pte)
-+{
-+	return pte_wrprotect(__pte(pte_val(pte) | _PAGE_UFFD_WP));
-+}
-+
-+static inline pte_t pte_clear_uffd_wp(pte_t pte)
-+{
-+	return __pte(pte_val(pte) & ~(_PAGE_UFFD_WP));
-+}
-+
-+static inline int pte_swp_uffd_wp(pte_t pte)
-+{
-+	return pte_val(pte) & _PAGE_SWP_UFFD_WP;
-+}
-+
-+static inline pte_t pte_swp_mkuffd_wp(pte_t pte)
-+{
-+	return pte_wrprotect(__pte(pte_val(pte) | _PAGE_SWP_UFFD_WP));
-+}
-+
-+static inline pte_t pte_swp_clear_uffd_wp(pte_t pte)
-+{
-+	return __pte(pte_val(pte) & ~(_PAGE_SWP_UFFD_WP));
-+}
-+#endif /* CONFIG_HAVE_ARCH_USERFAULTFD_WP */
-+
- /* static inline pte_t pte_mkread(pte_t pte) */
+ static inline pte_t pte_mkclean(pte_t pte)
+@@ -461,6 +461,38 @@ static inline pte_t pte_mkhuge(pte_t pte)
+ 	return pte;
+ }
  
- static inline pte_t pte_mkwrite_novma(pte_t pte)
-@@ -783,6 +815,38 @@ static inline pmd_t pmd_mkdevmap(pmd_t pmd)
++#ifdef CONFIG_HAVE_ARCH_SOFT_DIRTY
++static inline int pte_soft_dirty(pte_t pte)
++{
++	return pte_val(pte) & _PAGE_SOFT_DIRTY;
++}
++
++static inline pte_t pte_mksoft_dirty(pte_t pte)
++{
++	return __pte(pte_val(pte) | _PAGE_SOFT_DIRTY);
++}
++
++static inline pte_t pte_clear_soft_dirty(pte_t pte)
++{
++	return __pte(pte_val(pte) & ~(_PAGE_SOFT_DIRTY));
++}
++
++static inline int pte_swp_soft_dirty(pte_t pte)
++{
++	return pte_val(pte) & _PAGE_SWP_SOFT_DIRTY;
++}
++
++static inline pte_t pte_swp_mksoft_dirty(pte_t pte)
++{
++	return __pte(pte_val(pte) | _PAGE_SWP_SOFT_DIRTY);
++}
++
++static inline pte_t pte_swp_clear_soft_dirty(pte_t pte)
++{
++	return __pte(pte_val(pte) & ~(_PAGE_SWP_SOFT_DIRTY));
++}
++#endif /* CONFIG_HAVE_ARCH_SOFT_DIRTY */
++
+ #ifdef CONFIG_RISCV_ISA_SVNAPOT
+ #define pte_leaf_size(pte)	(pte_napot(pte) ?				\
+ 					napot_cont_size(napot_cont_order(pte)) :\
+@@ -751,6 +783,40 @@ static inline pmd_t pmd_mkdevmap(pmd_t pmd)
  	return pte_pmd(pte_mkdevmap(pmd_pte(pmd)));
  }
  
-+#ifdef CONFIG_HAVE_ARCH_USERFAULTFD_WP
-+static inline int pmd_uffd_wp(pmd_t pmd)
++#ifdef CONFIG_HAVE_ARCH_SOFT_DIRTY
++static inline int pmd_soft_dirty(pmd_t pmd)
 +{
-+	return pte_uffd_wp(pmd_pte(pmd));
++	return pte_soft_dirty(pmd_pte(pmd));
 +}
 +
-+static inline pmd_t pmd_mkuffd_wp(pmd_t pmd)
++static inline pmd_t pmd_mksoft_dirty(pmd_t pmd)
 +{
-+	return pte_pmd(pte_mkuffd_wp(pmd_pte(pmd)));
++	return pte_pmd(pte_mksoft_dirty(pmd_pte(pmd)));
 +}
 +
-+static inline pmd_t pmd_clear_uffd_wp(pmd_t pmd)
++static inline pmd_t pmd_clear_soft_dirty(pmd_t pmd)
 +{
-+	return pte_pmd(pte_clear_uffd_wp(pmd_pte(pmd)));
++	return pte_pmd(pte_clear_soft_dirty(pmd_pte(pmd)));
 +}
 +
-+static inline int pmd_swp_uffd_wp(pmd_t pmd)
++#ifdef CONFIG_ARCH_ENABLE_THP_MIGRATION
++static inline int pmd_swp_soft_dirty(pmd_t pmd)
 +{
-+	return pte_swp_uffd_wp(pmd_pte(pmd));
++	return pte_swp_soft_dirty(pmd_pte(pmd));
 +}
 +
-+static inline pmd_t pmd_swp_mkuffd_wp(pmd_t pmd)
++static inline pmd_t pmd_swp_mksoft_dirty(pmd_t pmd)
 +{
-+	return pte_pmd(pte_swp_mkuffd_wp(pmd_pte(pmd)));
++	return pte_pmd(pte_swp_mksoft_dirty(pmd_pte(pmd)));
 +}
 +
-+static inline pmd_t pmd_swp_clear_uffd_wp(pmd_t pmd)
++static inline pmd_t pmd_swp_clear_soft_dirty(pmd_t pmd)
 +{
-+	return pte_pmd(pte_swp_clear_uffd_wp(pmd_pte(pmd)));
++	return pte_pmd(pte_swp_clear_soft_dirty(pmd_pte(pmd)));
 +}
-+#endif /* CONFIG_HAVE_ARCH_USERFAULTFD_WP */
++#endif /* CONFIG_ARCH_ENABLE_THP_MIGRATION */
++#endif /* CONFIG_HAVE_ARCH_SOFT_DIRTY */
 +
- #ifdef CONFIG_HAVE_ARCH_SOFT_DIRTY
- static inline int pmd_soft_dirty(pmd_t pmd)
+ static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
+ 				pmd_t *pmdp, pmd_t pmd)
  {
 -- 
 2.34.1
