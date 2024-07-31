@@ -4,86 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16AC5C52D1D
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jul 2024 06:15:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FD0FC3DA7F
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jul 2024 06:17:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=XBN7Al4i1JElRlILcgaH0PoFZOxWwIdk9G58uhyMBIU=; b=a9zcn9gzk9KLyp
-	43B7nEal979N+FH2/T8PNBPZ5EFMkF2tugmGBTAJVZyFwScRwuWtReIqIKRldPYZ6w8nojYuwqTZA
-	T29sPHnChQQhnXNaGXGUzZUsVTyvZ87MMJLLfbPr3WazI/3FEqiqaRS3rYgMj7oBHXZE6l/FN8YPm
-	FPpFRQ1x6olGEJIsvW4B48E4XwUQ+vEbcLCQCgb46jqlNvI7uVpdRODvZSVwcdLgUgbYy3pRfGqiR
-	vr0C3FmBFWoGVxs9YcWWTChajFrehjdxZqZc33VTuP/EyGhc72wvmSdUVIt+a6OJP4hJy2XY5nv2D
-	eKaKUJ8gNY6o5uzN2b8g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BcAF0fB2Wz4xaTDL1KYtOfjUzI8tb3Ok1Gdw7HJIIt0=; b=KDvk5QZ+JsBPiMq9LE3abJIiZp
+	uq+/1BJy9xmupRnT6rGpSkCKl0er3crFxhs31VxdwKyBlIszkK6S68JMKjc3v5etYLe4d9gnhC7fm
+	2u3yFzztjDY8uznGbR5GMJfFMPoowjLDLyVL6grUqp9ckUSfM/IWCT+bdGWDX9hTizL6IEpqEZPzU
+	VdOLu2dx37Z+dDB2Zq4oO2t5U9xO0xCIjIYUUJ+RVMExbYf20Ld3qtvrA2h92D6U8PgHVuyfzIPss
+	nMiWfyex8TiIW8UrRkUgnpahW7FfV2+ojkZhHhzJGLs6Z5fZzvlc+i0ofgAFV6C/nDpaC8Jp/2SOq
+	RdBLjEXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZ2cX-0000000HUSx-2V4V;
-	Wed, 31 Jul 2024 06:15:33 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1sZ2eL-0000000HUxq-1EWm;
+	Wed, 31 Jul 2024 06:17:25 +0000
+Received: from mail-maxind01olkn20801.outbound.protection.outlook.com ([2a01:111:f403:281b::801] helo=IND01-MAX-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZ2c2-0000000HUH7-0m0s
+	id 1sZ2eI-0000000HUwC-1fv3
 	for linux-riscv@lists.infradead.org;
-	Wed, 31 Jul 2024 06:15:03 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-1fd9e70b592so35933865ad.3
-        for <linux-riscv@lists.infradead.org>; Tue, 30 Jul 2024 23:15:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1722406501; x=1723011301; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=mC3tXuwifMCr47H/ReF2rBsHBnKM2KWjJi3hvYggrH8=;
-        b=fTvsrTzNwIaRV2lN39Ek+YRuRM3fV9bkGgzsSOGTI+DAJCI3ZsmQDKRo7jdOV7RhxH
-         SgURKdwrdGu2Op/xwFs6TCoR5bBEjah1sx3yhtIgXX4eyKun6smyIqSm2YPcvbkDzFHy
-         8dMb3eUVYxvUr4uCpkGmgYc2kbTjmOe5KwPZKYgjHhPw5Pyasn8VoeF4dFK36Ya5WPPc
-         YD2P/5rxB4OlHzSNDcsz4IgZhrn3IivFsi3LVS2eY5viLeQIKa0v4H7UvlRL2dojd2H1
-         AzBAvR5Ft2rbwrsIqVqpy37lcjE4RqETtjDUfDQbQZSlZZ1LPlffuziu/yek3TfqkYLj
-         RAWw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722406501; x=1723011301;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=mC3tXuwifMCr47H/ReF2rBsHBnKM2KWjJi3hvYggrH8=;
-        b=gzNRowr7mS0socFvkAY3Z3qqJ63aekbj3LMVOBdzY/if/T13rakyPx7v+vCzBQAL/V
-         AheHdXes/pnabydiMnU2ZX+dXPyu89hzwggKb+0mPhEXKDyfqriE95yMVrtpROjXneDL
-         46G3sIyeC3j+bz8eYMKHyK2Xzstn7ctJ6YWD5MdHtJhw7ZnctgJonIscYM+BrWPZsJX6
-         athuk8zdlyuBuFzfxaT7WdYVA5+SPQU6Y8FozGovFrxQy3yi7a2VWEB0nHijdrSUqoES
-         Na9qjA9QgQKe4b8pLx25Wr3s6p3l3cdS3+4Os20xQownKSOk0RINrzIEpQY1WZ6RetY6
-         UA+g==
-X-Forwarded-Encrypted: i=1; AJvYcCWbGF+odZxtRqIYnaQ6uC6U5+lMp2NH2lxpOsg9NkqBdwW9hlFvoC5WdqVksQBdZ3ISj+gaewrv4OyqDCqcw8XL1ZnAU5BuWKTI0Ww6u3oa
-X-Gm-Message-State: AOJu0Yy2h5P3tx2KJaXE70zCMtbe5rLNiY/v2gy+qMxcApRqvy9mzMiO
-	T8IOtziSjRKVP5ykO4HBXQLkORqwdSoyWAo7wEiUF7RP+hbhQVJVGnGGWlZw1SXyE5lbTIJSOxY
-	h
-X-Google-Smtp-Source: AGHT+IHAm8yRTbqgNkd3W/umYT9moh5/2wBAdYnIzsqz4npYm9ETZcWZ1wL+JK+URtWlkoJNxI+00w==
-X-Received: by 2002:a17:902:ce0d:b0:1fd:a360:446f with SMTP id d9443c01a7336-1ff048afb6dmr108366915ad.65.1722406501309;
-        Tue, 30 Jul 2024 23:15:01 -0700 (PDT)
-Received: from x1.hsd1.or.comcast.net ([2601:1c2:1802:170:4520:8165:b9e7:a203])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1fed7c7fff8sm112384435ad.53.2024.07.30.23.15.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 30 Jul 2024 23:15:00 -0700 (PDT)
-From: Drew Fustini <drew@pdp7.com>
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Icenowy Zheng <uwu@icenowy.me>,
-	Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	linux-riscv@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Drew Fustini <drew@pdp7.com>
-Subject: [PATCH] clk: thead: fix dependency on clk_ignore_unused
-Date: Tue, 30 Jul 2024 23:14:40 -0700
-Message-Id: <20240731061439.3807172-1-drew@pdp7.com>
-X-Mailer: git-send-email 2.34.1
+	Wed, 31 Jul 2024 06:17:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Q6SSiEBRbpA0ihBIfRxeAhi3liWh/3HJojX22Fbe/NBgoZbICaf45juvOLIPULKUWGjtBAszDLkef7OcaQBxvLmb2T9tnEk4vkk4uFSSMk9GhiKG9bthFECCWRtiAToGwgNy08/JcPCEvtQhAiXkI1mtWGYAzh+JpAA0B66gegbjDpluPVX8y3LNnwZCm1iAb1LLGpdPy9I0/9PoIZeNrpE80jbXVL+uhzXKGXfLanI9S7LXyUYM5kX5rHfjX/bLr7xENx/oxcj2KOhcgamfVLg7EWfNqmWj+DpkB8UuRwJkjGPVaRk05ps0akB7eK6f4eqHG8K5AwTNwSXi5U3s3g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ag85/mo16wjY0D1996KU/GIcFArNPIU+Py79d0HALTA=;
+ b=MyoaUy15dVn3prMwyqV/4Kwt54pHoXo3+Dpkmp9qzh8vLybtpPT8I/ZsxULLdcqgB4ExFLeHDUKGFcM3zbP+sFYWuJ+o0/w70Q+chxH28TbiLu2BqbIZKWSTH+cl5od3COgZMNxbPheIw75+3i2F7DW7HSGFZxU9GT3MbN196rd/QFCuz+vmC133tHVvE1CeWYdJXg8V1E6PZ3b2MSoOB3IZc3YhHMBNCMbgHtd1wlsC+JJJlgg3e3a54xx2X14kG1a3z5lcGCZGDqPzB01T5Znwdk3Rrw6o5gkkKO+lM8ehXUkvCVjsQP01XVNRUhpnSHj9UkBQ+zdg7wAR+tlCOg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ag85/mo16wjY0D1996KU/GIcFArNPIU+Py79d0HALTA=;
+ b=MXYS9aCZD3wrTfG2DyNbhMIPwBh69tW8svvebkbL5hsvKl2LF52qc8i4nb6wX54Qj048mJsnLdOIvAZiszpKAL+1CNGoYLdEI54chuvpNdhuVyM7A57d2u9tms+Tic7WrXhaJWzTiUbbxrOS3IxSVLJkegICa4J5s092A1SpGK0JHCheotL95YNvXCIPIHSnobJl4o0DG/Xi2ur1P7ILyibMZCgm0RRC8hUZ8pZi4GKngQLQkwy33DMYLn3XadkZxsq5VQE0tOYF2k6PkzP9FaOP77mt6QI+WDahDGLickoKriXOZRWuquH1289CviJq/3o9AInXRKzIR6ed0ZXuQQ==
+Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:138::5)
+ by MA0P287MB1790.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:f5::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7828.21; Wed, 31 Jul
+ 2024 06:17:13 +0000
+Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ ([fe80::a94:ad0a:9071:806c]) by MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ ([fe80::a94:ad0a:9071:806c%6]) with mapi id 15.20.7828.016; Wed, 31 Jul 2024
+ 06:17:13 +0000
+Message-ID: <MA0P287MB282211CF334C521A1BFD717DFEB12@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
+Date: Wed, 31 Jul 2024 14:17:08 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 0/4] riscv: sophgo: Add SG2042 external hardware
+ monitor support
+To: Inochi Amaoto <inochiama@outlook.com>, Jean Delvare <jdelvare@suse.com>,
+ Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Guo Ren <guoren@kernel.org>, Chao Wei <chao.wei@sophgo.com>,
+ Hal Feng <hal.feng@starfivetech.com>, Jinyu Tang <tangjinyu@tinylab.org>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Cc: linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <IA1PR20MB49538C09E94D90F07B7B2562BBB02@IA1PR20MB4953.namprd20.prod.outlook.com>
+From: Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <IA1PR20MB49538C09E94D90F07B7B2562BBB02@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-TMN: [p3VAc2Do3eBR1MObLuDaQJVqYvP+nlgd]
+X-ClientProxiedBy: SI2PR02CA0049.apcprd02.prod.outlook.com
+ (2603:1096:4:196::7) To MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:138::5)
+X-Microsoft-Original-Message-ID: <5d7e4088-b9f0-442d-9668-2896820120ad@outlook.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1597; i=drew@pdp7.com; h=from:subject; bh=3qhd4SE6YoyKmVa0gQyG4Is1h6oEVGw8BykU91343Uw=; b=owGbwMvMwCF2+43O4ZsaG3kYT6slMaStvOZ/XWZz2cX5vivMZj5qWLAguf/bGbbNAdUbj0otr lFsVJN/31HKwiDGwSArpsiy6UPehSVeoV8XzH+xDWYOKxPIEAYuTgGYiNprhn/K3J2smRu/PufJ OrJz25NFps82VTE6uLhX/Evbd53357dKRoaLzjcCUovLf6TmbpuoMcP+pAvTlonTri6+GDuZL7R e7DIPAA==
-X-Developer-Key: i=drew@pdp7.com; a=openpgp; fpr=1B6F948213EA489734F3997035D5CD577C1E6010
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MA0P287MB2822:EE_|MA0P287MB1790:EE_
+X-MS-Office365-Filtering-Correlation-Id: 15cca108-5771-4857-225b-08dcb1286b04
+X-Microsoft-Antispam: BCL:0;ARA:14566002|461199028|19110799003|8060799006|5072599009|3412199025|4302099013|440099028|1602099012;
+X-Microsoft-Antispam-Message-Info: dFyEuEaFVL3KOobaCweoyxl/nGAbvAmBwjeYykq04zgpm+QyZ/sfOP4sdEMrrAWM7utTNuKwFYNlLYFup6B2Beg6psTDEyr7RYaguDW74TitCW424Z4wzBKf0x3uJjAyS/7iZQaundoypMZBTyF8hrMiDegIF/NaY0zSCguL10FpRTU7ij66tPzgHM2v/e1WL734RKd8kQEjo2xVngQs4Vhywlg4EmNPsbW/wfJkkGzfwKZP02rJd+YoXHG6kfFWbPF5CnkllrhzGMYX+mAEnX4v2iuNWeC/fsRMH7ZUyX6dHobQEvWn7yHdwFDvZNJ69UKYT89M6dydxL9RFCfMkwRGtwd67F6B5Cbz3ddSy7S18IhDVW54m6cvZGNzZqYlSueiaYm3TKlED/iMA6xUN4ySv++vcJnS+6jnBuBkIw//CcMBD/YRquTusX4myYgg3UUckVrszWhvBKTJ42nGcLkOQ1s8vcYUXx7r5vawlmMPhaRaU/nG8tly1c0jmzR1NUlbLKvHQivi8eR8d0+aJ/WyQa7KwED6V+rqYVGW76IIDJAtYJ+MtiWVIGnCt5eCjH6EkWB0oW+E6c+bzybspk1KU8ZaCIsVounla2Mq8J4xsaJuigwVEpsRsc2merS1gF5kHg4c4XDxK7p76BC/FKr+Zhh8gKhx/lfUPCIJz5crm0ZJKv67A0wPD7wadZ04JliCWGZb7PlrkAHz4vBbyLEBHvxfvJlGISZK8be9qpxXOQ+VZi0t5+Goy+G/pzZtIjyOiwwTpoLrd5JtNt8vkA==
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TlRzUTZEZEJVdzJtdnF2alpNcFExSnFtQWZGSFZyb2p4eC9XV2dBakVFY0lM?=
+ =?utf-8?B?ekZNQnR0K2Nnb3cyZEpkdm16cWwyd2JhNlFwdUdpa2pSaUpGRFhwVnRTYnlP?=
+ =?utf-8?B?QUNGY0hwbEh5cWN0UitvT3lUalNhelZubFlrbWk1YVpjMWNjc1p2WFBJRzFG?=
+ =?utf-8?B?R3NlUTA3bXNBNTBoMnJxRXVRMVUxaENjTXgyNDJORWJwNlVUTEtCMGFiODRX?=
+ =?utf-8?B?YXlOdXZXeGtJcjZKeklmL0YyVkYrc25PL1F0dURYMndqcTRCejV4RUN6TGJo?=
+ =?utf-8?B?Rkc0MWpzMDl2NmJpZ01qK3dIUCszeXA1aHl3TGVhZGVEd2tDYlBFZHlwOTha?=
+ =?utf-8?B?R1lxQks5SUtlaTlOUFA1WFpKOGQ0NXQrNkc0ekIvWS9UUzhSRCtUZW9nOTk3?=
+ =?utf-8?B?S0E1S2huVGc5K1M3eUdoZ1JEV0FOcGc2SmlhOW1kQ3Fhc0srbXhPblRwRHlh?=
+ =?utf-8?B?MHZBb2JEYnp3a3MvNm40WHhRU1ZxaUpyWmNicUVQb0hQTmRPSU9DbldiMm4v?=
+ =?utf-8?B?Ny9PWVF5ejF5K1QyYWhObDlNYytEbzlBdUNHRkJXdnFWWVdSNWUrblRxVE5D?=
+ =?utf-8?B?SXd4b1FPRXkxbkx3dGZxc2kvVEd0L3kvMzdKTXNrMDlROURmVFpnZHVEVmFz?=
+ =?utf-8?B?MzVCVFg0NTlNOXh3NmQ1blVtVkxibGRVR29yMWpFOU1Qalh6cGJsV3drSzZX?=
+ =?utf-8?B?aHVrWFFyTXRhakxVbFNjTWtwZFZFMi9IdGJrcXNCdFhUcUhBcENEazI4cnlo?=
+ =?utf-8?B?SUtXNFh2bjV3OGdhaUh0cXNxcHZUaTZHekhZV1pBcXdlR1RZVmVNQzdkeU1P?=
+ =?utf-8?B?ZDZpZTZyaVFuVlJET0pLZUJIMHFPOE9qbHloV3ZRc3QyWVlpN3FBWGRmUXRJ?=
+ =?utf-8?B?THRhZWIvQzFBTHFIbjZUUDJKTFNGRU9ZQ3V3SnFSdU1zV05ZZkVKWEMvWlE3?=
+ =?utf-8?B?ZUNWUnJVKzZkK0F1bldibkhxNHZxcUUvRHN3dTRrYmNXNVpjRnpRcTU5YUNj?=
+ =?utf-8?B?Uk5sS1NZRldpeGlucVVWZ3pvYzhkTW52OWlvajRFTVRXSGhmcHNqRmtOeXhx?=
+ =?utf-8?B?UWV5REI4REphcDlUVS9JRXJ4ck85ZHYzSVVKT0tDc1VjMmxXSE9vWldaUUwx?=
+ =?utf-8?B?aS9xUFl1UktTWTJScTNtTkVlc2hWN3M5LzB1SDEvV2ltWFVITmtobWpObnAr?=
+ =?utf-8?B?Rjg1QlpmdTlrWExxWllSTjFUUnA4SEI1RVlxVi9xMEdMZEtLV21DWW9XK0pJ?=
+ =?utf-8?B?MlBhanIwbzh6ZEZJQ2tGa1J5RHpyL3BEUlpoNkdDK3RJbnJRdGVlcTJjSVU3?=
+ =?utf-8?B?S00ya2FQQncxN1MyQUJmU2ZhUUUxYmlVWjJST0FUcENtSXd1L214NHVzMmRJ?=
+ =?utf-8?B?cXl6akVsTXFXa3pMNmhGVmdDN0l2RkZ4VE04QjZmcFI2VVBjOFF1dlJPbnc4?=
+ =?utf-8?B?TG9waHBrd0RuaVBaUjA1R3RyMHZ2QlBDOTcvN3dRbmdkajNUbTFhRVpwYzJD?=
+ =?utf-8?B?bjEyYUkveHVVNW4yVGtubFNoQjhDbm9vRVR0ZzhVWnNnTzJsYkZJWDI3VW5O?=
+ =?utf-8?B?UGZtaDloWXRaNmluM2RRK3RseCtRdExkZFhiUjJObytLZkhKTWMxcnN6MFp1?=
+ =?utf-8?B?VkE4eTFNbW53S2hhcTU4NWhnVU5SSk84SVRldCtQdFNOY2NwZWpJaHQ2NXFX?=
+ =?utf-8?Q?Dxax7v9lqO7wcejqtGUu?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 15cca108-5771-4857-225b-08dcb1286b04
+X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Jul 2024 06:17:13.4448
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MA0P287MB1790
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240730_231502_480895_6A541FD3 
-X-CRM114-Status: GOOD (  13.42  )
+X-CRM114-CacheID: sfid-20240730_231722_657396_27A5438F 
+X-CRM114-Status: UNSURE (   7.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,52 +137,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the CLK_IGNORE_UNUSED flag to the vp-axi clock (CLK_VP_AXI) to avoid
-depending on clk_ignore_unused in the cmdline. Without this fix, the
-emmc-sdio clock (CLK_EMMC_SDIO) fails to work after vp-axi is disabled.
 
-Signed-off-by: Drew Fustini <drew@pdp7.com>
----
-base-commit: 8400291e289ee6b2bf9779ff1c83a291501f017b 
+On 2024/7/30 15:49, Inochi Amaoto wrote:
+> Add support for the onboard hardware monitor for SG2042.
+> Can be tested with OpenSBI v1.5.
+>
+> The patch require the following i2c patch:
+> https://lore.kernel.org/all/IA1PR20MB4953DB82FB7D75BF8409FFF4BBB72@IA1PR20MB4953.namprd20.prod.outlook.com/
 
-This is based on v6.11-rc1. I've been reviewing the TH1520 System User
-Manual [1] and I am uncertain why "vp-axi" affects "emmc-sdio":
+Please check my comments on patch 2 of this serials.
 
- - EMMC_SDIO_REF_CLK_EN is bit 30 in PERI_CLK_CFG (offset 0x204)
- - VPSYS_AXI_ACLK_EN is bit 15 in VPSYS_CLK_CFG (offsset 0x1e0)
+Others are LGTM.
 
-I don't see any linkage between them in the public documentation.
-However, the addition of the CLK_IGNORE_UNUSED flag to "vp-axi" does fix
-the boot failure when clk_ignore_unused is not used.
+Tested-by: Chen Wang <unicorn_wang@outlook.com>
 
-I've pushed a branch that has the dts branches on top of this patch [2].
+Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
 
-[1] https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf
-[2] https://github.com/pdp7/linux/tree/th1520-fix-clk_ignore_unused
-
- drivers/clk/thead/clk-th1520-ap.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/clk/thead/clk-th1520-ap.c b/drivers/clk/thead/clk-th1520-ap.c
-index cbc176b27c09..17e32ae08720 100644
---- a/drivers/clk/thead/clk-th1520-ap.c
-+++ b/drivers/clk/thead/clk-th1520-ap.c
-@@ -738,7 +738,7 @@ static struct ccu_div vp_axi_clk = {
- 		.hw.init	= CLK_HW_INIT_PARENTS_HW("vp-axi",
- 					      video_pll_clk_parent,
- 					      &ccu_div_ops,
--					      0),
-+					      CLK_IGNORE_UNUSED),
- 	},
- };
- 
--- 
-2.34.1
+[......]
 
 
 _______________________________________________
