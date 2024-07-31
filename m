@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5306C3DA7F
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jul 2024 04:06:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B514C3DA64
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jul 2024 04:06:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=VHiSmzzjv6eckw6XS/gVNJKZNBTKvQfLUGSEQcrWaKk=; b=mYuEXq5i5DwDbe
-	JgOVOo2Nw7seqJ7eHBA9/Kpvk4hrO35zGVr0VOFMQXqq91jQB9UsVLesy2eeiyyJLQYL5R8LSI+JX
-	u2R0kOaz/law+oUcFakCsGJiq0WnKX87mKu96S1vSvJnLvzMecE3l6PIoKveVUm3LZSH01IOSu8S2
-	472bEkkEjXASHdc6VqsN/1E5nbSzznPG+bAnghxeudrdP3k7z1apT/WDYQ9aw9msw/YX5XyVBRKJU
-	w+STIt0BDfap9VmlYOCX24XZ9N0qinB2HZRj4AtqPvPqc4bQIhSNpC9HqpkC8p+E3sLx/nrhkJvoN
-	uBTa3hEtgx1x+rHW5y0w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=PMDLtb1H08M6fJcg27H9S2LaEb7d5pox+IHeGa9lO28=; b=KSGM2FuynXC7aH
+	QJiuONQMIdhgM1G3mggjx0ijz86/fAFQiaXTf0zO8vZzYLrkfhODFkqg89A5BBr2XOUPuj09sQG08
+	fzhfan4WciAfyO6oxg1N8hmY1Oy96LO/D9rfHrMHlKeWCiLNsQn2sSQhDJyAQlFYWdypgJX+n8cof
+	HMtFSLm+UGoeVNwdIFo4nFPjv90BFccZiScff7sKxC5yVMO24ZntWP3HIbe1RKB4PkmfMmul3/3/o
+	1FoMrwNWVz8xFca15UYfpe1Whv959vjqP62Uw2rukWzWKMOBefUiZ2A2Lu6Wr7hTMchyhzY9c4xAj
+	98V2ZDWF2o70A7Ah3sQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZ0bP-0000000HEJe-16NB;
-	Wed, 31 Jul 2024 04:06:15 +0000
+	id 1sZ0bW-0000000HEL9-15oz;
+	Wed, 31 Jul 2024 04:06:22 +0000
 Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZ0bL-0000000HEIM-3SJl
+	id 1sZ0bQ-0000000HEJV-1y6U
 	for linux-riscv@lists.infradead.org;
-	Wed, 31 Jul 2024 04:06:13 +0000
+	Wed, 31 Jul 2024 04:06:18 +0000
 Received: from ubt.. (unknown [210.73.53.31])
-	by APP-01 (Coremail) with SMTP id qwCowAAnL0spuKlmWXZdAg--.7845S2;
-	Wed, 31 Jul 2024 12:06:04 +0800 (CST)
+	by APP-01 (Coremail) with SMTP id qwCowAAnL0spuKlmWXZdAg--.7845S5;
+	Wed, 31 Jul 2024 12:06:11 +0800 (CST)
 From: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -39,34 +39,36 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Chunyan Zhang <zhang.lyra@gmail.com>
-Subject: [PATCH V2 0/3] riscv: mm: Add soft-dirty and uffd-wp support
-Date: Wed, 31 Jul 2024 12:04:41 +0800
-Message-Id: <20240731040444.3384790-1-zhangchunyan@iscas.ac.cn>
+Subject: [PATCH V2 3/3] riscv: mm: Add uffd write-protect support
+Date: Wed, 31 Jul 2024 12:04:44 +0800
+Message-Id: <20240731040444.3384790-4-zhangchunyan@iscas.ac.cn>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20240731040444.3384790-1-zhangchunyan@iscas.ac.cn>
+References: <20240731040444.3384790-1-zhangchunyan@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowAAnL0spuKlmWXZdAg--.7845S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Aw17trWDGF1fZryUCr4Uurg_yoW8JFykpa
-	9xCw15tryYkr1IyrsxAr1qgw15X3WfG3s0yry3X34ktw45WF4UZr9Yk3W8Jw18Ja42vr90
-	ka1UGry5Cw4kZaUanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvSb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjc
-	xK6I8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVAC
-	Y4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVW8JV
-	WxJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lc7CjxVAaw2AFwI0_Jw0_
-	GFylc2xSY4AK67AK6r45MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI
-	8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AK
-	xVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI
-	8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280
-	aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43
-	ZEXa7IU8u6wtUUUUU==
+X-CM-TRANSID: qwCowAAnL0spuKlmWXZdAg--.7845S5
+X-Coremail-Antispam: 1UD129KBjvJXoWxWF1UurWUCr4DXry8Aw1DZFb_yoWrWrW3pF
+	s5Ga1rurWDJFn7KayfGrW8Kr4rZw45W34DXr9xua1kJFWUKrWDXF95Kw1aqryrXFWvv34x
+	JrWrKr4rCr47AF7anT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPab7Iv0xC_Zr1lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
+	8067AKxVWUWwA2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF
+	64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0cI8IcV
+	CY1x0267AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2
+	jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4
+	CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r4j6F4UMcvj
+	eVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwCY1x0262kKe7AKxVWUtVW8ZwCY02
+	Avz4vE14v_Gryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAq
+	x4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r
+	43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF
+	7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxV
+	WUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxU
+	xeT5DUUUU
 X-Originating-IP: [210.73.53.31]
-X-CM-SenderInfo: x2kd0wxfkx051dq6x2xfdvhtffof0/1tbiBwwPB2apggyjfAAAsd
+X-CM-SenderInfo: x2kd0wxfkx051dq6x2xfdvhtffof0/1tbiBwoPB2apggyjiAABsu
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240730_210612_288607_7E5151C4 
-X-CRM114-Status: UNSURE (   8.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240730_210616_930484_6F9765BA 
+X-CRM114-Status: GOOD (  10.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,39 +85,144 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset adds soft dirty and userfaultfd write protect tracking support
-for RISC-V.
+Reuse PTE bit(9) for uffd-wp tracking and make it mutually exclusive
+with soft-dirty and DEVMAP which all use this PTE bit.
 
-As described in the patches, we are trying to utilize only one free PTE bit to
-support three kernel features (devmap, soft-dirty,uffd-wp). Users cannot have
-them supported at the same time (have to select one when building the kernel).
+Additionally for tracking the uffd-wp state as a pte swp bit,
+we use swap entry pte bit(4) which is also used by swp
+soft-dirty tracking.
 
-This patchset has been tested with:
-1) The kselftest mm suite in which soft-dirty, madv_populate, test_unmerge_uffd_wp,
-and uffd-unit-tests run and pass, and no regressions are observed in any of the
-other tests.
+Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+---
+ arch/riscv/Kconfig                    |  7 +++
+ arch/riscv/include/asm/pgtable-bits.h | 13 ++++++
+ arch/riscv/include/asm/pgtable.h      | 64 +++++++++++++++++++++++++++
+ 3 files changed, 84 insertions(+)
 
-2) CRIU:
-- 'criu check --feature mem_dirty_track' returns supported
-- incremental_dumps works fine
-- zdtm test suite can run under host mode
-
-V1 -> V2:
-- Add uffd-wp supported;
-- Make soft-dirty uffd-wp and devmap mutually exclusive which all use the same PTE bit;
-- Add test results of CRIU in the cover-letter.
-
-Chunyan Zhang (3):
-  riscv: mm: Prepare for reuse PTE RSW bit(9)
-  riscv: mm: Add soft-dirty page tracking support
-  riscv: mm: Add uffd write-protect support
-
- arch/riscv/Kconfig                    |  34 ++++++-
- arch/riscv/include/asm/pgtable-64.h   |   2 +-
- arch/riscv/include/asm/pgtable-bits.h |  31 ++++++
- arch/riscv/include/asm/pgtable.h      | 132 +++++++++++++++++++++++++-
- 4 files changed, 196 insertions(+), 3 deletions(-)
-
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index d6ac55794c5f..e8aed24197c5 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -971,6 +971,13 @@ config RISCV_HAS_SOFT_DIRTY
+ 	help
+ 	  The PTE bit(9) is used for soft-dirty tracking.
+ 
++config RISCV_HAS_USERFAULTFD_WP
++	bool "userfaultfd write protection"
++	select HAVE_ARCH_USERFAULTFD_WP
++	depends on USERFAULTFD
++	help
++	  The PTE bit(9) is used for userfaultfd write-protected
++	  tracking.
+ endchoice
+ 
+ endmenu # "Kernel features"
+diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
+index c6d51fe9fc6f..53b3fd12e8fa 100644
+--- a/arch/riscv/include/asm/pgtable-bits.h
++++ b/arch/riscv/include/asm/pgtable-bits.h
+@@ -38,6 +38,19 @@
+ #define _PAGE_SWP_SOFT_DIRTY	0
+ #endif /* CONFIG_MEM_SOFT_DIRTY */
+ 
++#ifdef CONFIG_HAVE_ARCH_USERFAULTFD_WP
++/*
++ * CONFIG_HAVE_ARCH_USERFAULTFD_WP is mutually exclusive with
++ * HAVE_ARCH_SOFT_DIRTY so we can use the same bit for uffd-wp
++ * and soft-dirty tracking.
++ */
++#define _PAGE_UFFD_WP		(1 << 9) /* RSW: 0x2 for uffd-wp tracking */
++#define _PAGE_SWP_UFFD_WP	_PAGE_USER
++#else
++#define _PAGE_UFFD_WP           0
++#define _PAGE_SWP_UFFD_WP	0
++#endif
++
+ #define _PAGE_TABLE     _PAGE_PRESENT
+ 
+ /*
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index ddf6e4f44252..c6e790e75309 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -417,6 +417,38 @@ static inline pte_t pte_wrprotect(pte_t pte)
+ 	return __pte(pte_val(pte) & ~(_PAGE_WRITE));
+ }
+ 
++#ifdef CONFIG_HAVE_ARCH_USERFAULTFD_WP
++static inline int pte_uffd_wp(pte_t pte)
++{
++	return pte_val(pte) & _PAGE_UFFD_WP;
++}
++
++static inline pte_t pte_mkuffd_wp(pte_t pte)
++{
++	return pte_wrprotect(__pte(pte_val(pte) | _PAGE_UFFD_WP));
++}
++
++static inline pte_t pte_clear_uffd_wp(pte_t pte)
++{
++	return __pte(pte_val(pte) & ~(_PAGE_UFFD_WP));
++}
++
++static inline int pte_swp_uffd_wp(pte_t pte)
++{
++	return pte_val(pte) & _PAGE_SWP_UFFD_WP;
++}
++
++static inline pte_t pte_swp_mkuffd_wp(pte_t pte)
++{
++	return pte_wrprotect(__pte(pte_val(pte) | _PAGE_SWP_UFFD_WP));
++}
++
++static inline pte_t pte_swp_clear_uffd_wp(pte_t pte)
++{
++	return __pte(pte_val(pte) & ~(_PAGE_SWP_UFFD_WP));
++}
++#endif /* CONFIG_HAVE_ARCH_USERFAULTFD_WP */
++
+ /* static inline pte_t pte_mkread(pte_t pte) */
+ 
+ static inline pte_t pte_mkwrite_novma(pte_t pte)
+@@ -783,6 +815,38 @@ static inline pmd_t pmd_mkdevmap(pmd_t pmd)
+ 	return pte_pmd(pte_mkdevmap(pmd_pte(pmd)));
+ }
+ 
++#ifdef CONFIG_HAVE_ARCH_USERFAULTFD_WP
++static inline int pmd_uffd_wp(pmd_t pmd)
++{
++	return pte_uffd_wp(pmd_pte(pmd));
++}
++
++static inline pmd_t pmd_mkuffd_wp(pmd_t pmd)
++{
++	return pte_pmd(pte_mkuffd_wp(pmd_pte(pmd)));
++}
++
++static inline pmd_t pmd_clear_uffd_wp(pmd_t pmd)
++{
++	return pte_pmd(pte_clear_uffd_wp(pmd_pte(pmd)));
++}
++
++static inline int pmd_swp_uffd_wp(pmd_t pmd)
++{
++	return pte_swp_uffd_wp(pmd_pte(pmd));
++}
++
++static inline pmd_t pmd_swp_mkuffd_wp(pmd_t pmd)
++{
++	return pte_pmd(pte_swp_mkuffd_wp(pmd_pte(pmd)));
++}
++
++static inline pmd_t pmd_swp_clear_uffd_wp(pmd_t pmd)
++{
++	return pte_pmd(pte_swp_clear_uffd_wp(pmd_pte(pmd)));
++}
++#endif /* CONFIG_HAVE_ARCH_USERFAULTFD_WP */
++
+ #ifdef CONFIG_HAVE_ARCH_SOFT_DIRTY
+ static inline int pmd_soft_dirty(pmd_t pmd)
+ {
 -- 
 2.34.1
 
