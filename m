@@ -4,115 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B7FEC3DA64
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jul 2024 08:00:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45194C3DA64
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jul 2024 08:11:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KPxp965qzhuXekbXrwBMrgjygm4iVGuLuH+AJAvuNvs=; b=VC4IffA/9AhrTD
-	AwKSKMZPg/oW+LkPDM+BbPtlMcPXiY/k08dCl1Pvra9QjYBGPvM5FU/Tnah2FDkLvZCyQVVf5Iq/w
-	DHiYqxuVXYjYbIdkARydRc7/37wvF4c0SgNrRT3XFPQf3Z4uhWPWLiuF224feuInOzHoO0uk9dQBz
-	wUI4lZYecaqrRTeZP7qoLs30uCsaHW5/O85WOIImt3scyguKtxNefFuscM1oKYJ69XJxb3599zaZW
-	4RyLIloJSuF2SXEE0GcyN5V2Tof88R9ukn1cfNUVLfSZemO1BArKM5at/skhXOR0qmFzQYmtipSYU
-	AywHSHLL42BkQq/Y6Eaw==;
+	List-Owner; bh=NYUeLhDkAilVZn4U0epFUMYC6CbGmDZI7pEBOtJuBvE=; b=CmJAxrcPwu3FvN
+	a+93OWqSOnapJ+JiEX+x0OEWRN401z87PkrWepHaYBiuHrVfL45dxsyfr7cS/rCaYpsD8mLNxW4Me
+	4CgvUgtWfBea/q3qcUo1gK0gUXlx7DfAP6e0VRbzpeLVSnmQ/DcOKpEy4pnyB9yi10w9Zob7v+YHx
+	P5v0dtcsVbyGjutMZj7a1CxtkhnULDGBHBOOA7qEVOdwzOSyaW7TUHyAvgHvgX7APFnParxcBR+Z+
+	cfHRPomzNSVPC5f5x7jwl7FtGI8K6isb61oxmiHn1UGhWUyPtFldhI0yauLXSnYeG4sR2PAqJmVfU
+	oHQvvAIvjYKldanEMgDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZ4GS-00000000DpC-2sJh;
-	Wed, 31 Jul 2024 08:00:52 +0000
-Received: from mail-bn8nam12olkn2081c.outbound.protection.outlook.com ([2a01:111:f403:2c18::81c] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1sZ4R1-00000000GPa-2LXe;
+	Wed, 31 Jul 2024 08:11:48 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZ4GP-00000000Doe-3ipI
+	id 1sZ4QY-00000000GHa-0f2H
 	for linux-riscv@lists.infradead.org;
-	Wed, 31 Jul 2024 08:00:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=G+CKEqNSSlgie8UV+Ddlz+5FVF6Ha4ufMuG2lPHxEDpKZPVKkebvwhAFBUQCeazGyZfG08W8uZ04SSeP78j4N0KTHfmAlbiNujQZsjIj9uy/dhl6fXxkruk/cUw43joT2+/tEGj9eRQVCqO0gTPZbiXryqPe+E/74D/jkABe9cyttK+zo2yq54LIxLAg6Ge7U0yuLBufgq+jP5D6Re6oUpm6oS6feqAFGRBKLMjj5cnDHPaPzaBUGI+LimuggHyr5ct6GzAdkCsPZqwiFVsaxipdvAcec3OYZCywMyxWdt4nRswrv8KkLi0MgVAbk29lRs5b0kWZYUhRHiagZwumsA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=14E4mJUMdh2edbqXXonlNXbiBxXgTYFvdR8YA3kr9a0=;
- b=UMmBk+3Dl8sZ1+UMUMTecf8AqCbbRj1AdxlLUMKiMa0Yj2vkTE2djLaW+esjepCQ1bCZOHi96QR+5uaIkf1BaEt1S0f8hKRYFNLCe2/xuaKslUTETykmfyu58OEK0jYrUuq20mAj3FihKwjj6zyxHdrLNFRmP8GsFKNvqGx1WV+CSxzgZdiE5NOQg7yMXTYTFL/z5bsyAja0TgSTNFt/704JEIsmbMvKNI0mKOhCRpFPXoTfU9c1M5vMSbq8ik8FORkiVlWNtKzDzZhRI9GDDDyvGQUgRQwQ0Wi8AG8SGsWxX8PFSS5fKg6dx0V8UhCklPVif5etJmmANUw4it8J3Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=14E4mJUMdh2edbqXXonlNXbiBxXgTYFvdR8YA3kr9a0=;
- b=kATbARDcqywFc6eeGvPAnwDbivfXXJxp6VgMl5Yfh1soUeqEPLYaGlSYkp6mc5IJOJwU26YNzk4YhLxFn6JT7h9Wbkv/wbSiBsjmmWhn7sl5qdzeVobEgh/hjOLfgHX3aPt51OkRFEvnzDrMFT/iMxXIfFsr9nYCSp1XJxM1eKw1i52/1yUU1sVkWdVzzhsIlnK8naWgWwnCiAvHkC9W/95J4a8VgCP4byTSRi3x0TOszAm3YG123tj76bd2YXBtExg4Fc+bnpk8lnwry2zGQ8AaXiDKTvXQNDFy7WokA1HlLq6RLYoSuo5eBWmdZMRPMgMd1iQdF07gFLc7NjrBZA==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by LV3PR20MB7123.namprd20.prod.outlook.com (2603:10b6:408:1b6::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7807.27; Wed, 31 Jul
- 2024 08:00:44 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::ab0b:c0d3:1f91:d149]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::ab0b:c0d3:1f91:d149%5]) with mapi id 15.20.7807.026; Wed, 31 Jul 2024
- 08:00:44 +0000
-Date: Wed, 31 Jul 2024 16:00:13 +0800
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Chen Wang <unicornxw@gmail.com>, adrian.hunter@intel.com, 
-	aou@eecs.berkeley.edu, conor+dt@kernel.org, guoren@kernel.org, inochiama@outlook.com, 
-	jszhang@kernel.org, krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com, 
-	paul.walmsley@sifive.com, robh@kernel.org, ulf.hansson@linaro.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, chao.wei@sophgo.com, haijiao.liu@sophgo.com, 
-	xiaoguang.xing@sophgo.com, tingzhu.wang@sophgo.com
-Cc: Chen Wang <unicorn_wang@outlook.com>
-Subject: Re: [PATCH v5 0/8] mmc: sdhci-of-dwcmshc: Add Sophgo SG2042 support
-Message-ID: <IA1PR20MB49539C30076AB6D14B20BD57BBB12@IA1PR20MB4953.namprd20.prod.outlook.com>
-References: <cover.1721377374.git.unicorn_wang@outlook.com>
-Content-Disposition: inline
-In-Reply-To: <cover.1721377374.git.unicorn_wang@outlook.com>
-X-TMN: [mY44jRH/hZm8Zkl/DnPdqz2GV+ZOXfQ9u3x7dfA7G34=]
-X-ClientProxiedBy: PS2PR02CA0010.apcprd02.prod.outlook.com
- (2603:1096:300:41::22) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <d76gtjvcgqqk4v5lbjxappq5ii7c32vk5fxtgoplyy7qbwlike@z63fvzr2fdat>
+	Wed, 31 Jul 2024 08:11:19 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-a7a8553db90so747374766b.2
+        for <linux-riscv@lists.infradead.org>; Wed, 31 Jul 2024 01:11:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1722413476; x=1723018276; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=/6o5eOKMgYVhFfCfAX4KZTyTvIb4CeiZ7EcRemTMKgE=;
+        b=UKM1np1Xtr0UZbhstDAticSBESWpx0Ym7dKGddjLJZ0A+vaC1JVxlSXP6SpAYPE+ym
+         iJSYGR6yrtBdUb496Sj7onw46+LSY8b63cwm9kr0Az2EKvWkb5KHMu8YoZ7uvO2bD+kG
+         nrKr07g9TOCYlsz8N2j0hD9xo6mQeupHfqcU/091Ne6X9S/j3UGHGluDNU0xl2M6kqaJ
+         C4YVz0bxI8sbj3iyLd8pXcHUSFkSYeO81xp8oozJ398uyomB049i3ZwwKomzfsJZSA8l
+         60Z7BRxhn3jZoN8kVzAe7kXQ/tJNGQ47TNy3g6RgntLck5WA5MiOJgKc3Ag1VxOoMirL
+         tqIw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1722413476; x=1723018276;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/6o5eOKMgYVhFfCfAX4KZTyTvIb4CeiZ7EcRemTMKgE=;
+        b=v2MC1X/Bhi3NoCU24kPmilys2+0xNiqWlb4lCdUhpQY9tYx7BljiWkDmW6a3mUh9aH
+         0Zg3L+tpcN1UTKVP59EaaNlDY2P1utK5zNNLQlt2kFLQEqre9ncpQS9lmYYt4yg2YVwr
+         Fve40fvcX7LPnhliwDRFyryZdrhPVpeZdQoPX8g7vKblUPJ7Iey6MDrl3hNVgEUBbLkI
+         ajGCSM2o8MVZgplTc9iKmmYb1vTUa1bf+rLfCStcxuLUsko6czT2vnlDxjCdQISBOYcf
+         kNbi+RyR+U9ZfsRhyaAmbX+8ggWhR0Hyuy6SFuhEKiQwy4zy9k7DQ+yjSOhcR1Pmjgok
+         t8AA==
+X-Forwarded-Encrypted: i=1; AJvYcCVBx1YuGp57ahoTk5hGJ7bK9QoX5u6lml9xcG241rNcsK7yTTVVwoLJximFvFtMwy8qeVtn74YnRoQ6uqwK0dHIAldv4kVlC95q8Y4DgEH3
+X-Gm-Message-State: AOJu0YzFe75pcBF0x/cwV1xS1IoYysi9dZKeab7klvr6rnyLdEgTaeKA
+	hY5iys+vhD5sdafmGWt8acMwRYoepoEhH1Z/vwHBrz1zw13AQP8RVKzn/TTh/aE=
+X-Google-Smtp-Source: AGHT+IF8KtMuBT/lx87J71F/lRrgIXThKYLKm0Q9zh/TR0QeaI4sQXL1DHSiINUT/9ZA+lMCzDpL5Q==
+X-Received: by 2002:a17:907:1b26:b0:a7a:af5d:f312 with SMTP id a640c23a62f3a-a7d4011442emr913154866b.46.1722413475678;
+        Wed, 31 Jul 2024 01:11:15 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a7acad414e2sm738525466b.127.2024.07.31.01.11.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 31 Jul 2024 01:11:15 -0700 (PDT)
+Date: Wed, 31 Jul 2024 10:11:14 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, loongarch@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	David Matlack <dmatlack@google.com>, David Stevens <stevensd@chromium.org>
+Subject: Re: [PATCH v12 58/84] KVM: RISC-V: Use kvm_faultin_pfn() when
+ mapping pfns into the guest
+Message-ID: <20240731-a5f8928d385945f049e5f96e@orel>
+References: <20240726235234.228822-1-seanjc@google.com>
+ <20240726235234.228822-59-seanjc@google.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|LV3PR20MB7123:EE_
-X-MS-Office365-Filtering-Correlation-Id: ccae09bd-0fde-47e4-cc6f-08dcb136e0f6
-X-Microsoft-Antispam: BCL:0;ARA:14566002|461199028|8060799006|5072599009|19110799003|440099028|3412199025|4302099013|56899033|1602099012|1710799026;
-X-Microsoft-Antispam-Message-Info: JC5moDJkMIbWkUFr72jmWtmbogk5B2FyCEwFGD62GvmGbR7COItp1YTtvdwSWsdqKNN1GptIUZ8kO0O9PKHuzDVBmJ8Rj+l4EB/937eb90T8zlxRgDPUsCHPfW/bYYqLYWmuKlF6CQuDQLrPhFeT8D5tD7/wv1AKhe7mV5r/feoYmvSkXQ+fDjauPU8OoS9dYkoo3vTMgyLm/HkHQ9D4RSDtscCcqe5ZHnXseCA9MSoWmSbOcHvlpJoUkL2zrjHpLjBkW0gQSLHSE06Pj9bS1eAi7h0NL4TLm/Dr9LHK4O+GvyQVUHGq/YC4u5d1ic8cwvwpsJmPNMS8I5yzjDpMiGsvniuwttOpknTl1K8QudvEexSCRdderHLueW6Wx4DKxpmD5f07aPXcTT44O7rqhCv0GW46adZUkL1kY09YwSr5BDjanQvH0kTnG8zPsMp7IpKmxAwdKi5KvsnbmUWUOfpeDSCVaAPClwmsD8GVxep4wxsTozHNIQCZG6maLrN7cAZPwBDuGlgJyDRxhzxWmeeC9VXaxuPR94K59WFgMdAaMHb2LI+/8T/xUtjDUZ1n/XlkWS4dbhLx9my+V88kNelGsMAj7SK2D0DI2jn6UJuOBYdokLDFg2JWJy54mMqPL9weEq+/UaW6kJyTE9LejKfXWycBVdMZCUX6ngZpPWntAtSoiFZ+GTnG7+48zLzXfsoV20JTA7vCkBdl0ONjtQZmKmlxCUo/fj7UfNrckttXddvc4NbUYQ99ro1EMMl4lMI8QotiHcVPtQUj1TdSaXWnvNGrRWUWevKyymALf0boVOTj78d9VklXLFZ66w4J
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?UAEeMTxE+okO+bsBWQZ/iFzSldY3jHDUTDnBc6scW5+S7GEpXnMvnXozmnr9?=
- =?us-ascii?Q?kK/ZsZ58nppUHvOdCdopqGxnLZeAKmQ23PWZa4lunU7yq1OaCbm8QrE3TynN?=
- =?us-ascii?Q?ZmwjnHhmir/9m1Xce8KJEw7iGfolJf2rbbeWEjPjLPTMwFUxoZb8hOesVZ1s?=
- =?us-ascii?Q?Hy6GXjS0C0Z54OGOwALR0zmWfYcPjGom1dX8Ow652KRYKYmGEij+7lQFKjmC?=
- =?us-ascii?Q?fvVliHAvlXHNsgFi3jw/XqZu9GZPW3ru3PP6PeTKxQszBRpieOgz3ntnIU8L?=
- =?us-ascii?Q?fjAZIfJ9Jo6v4wmztOt7OMxevwuet+lrrbwFygzGbzVh40oJCI+B61oIJAP8?=
- =?us-ascii?Q?BhclRCG6qu6MWiIQjdhQopG8KCurnM0NePkxCol2k4JRHZ3FYyr9YOP7Oyni?=
- =?us-ascii?Q?Ol25fACAo12XH26/AaUWUy1sKLHjLEe8FZqI/aDcmeGbpmIyBDFZ59I1RXhI?=
- =?us-ascii?Q?knb1wb85UBAdtk62hZBOQGSRxoPKKRHnHmxaCfLx44aXLTfWuRRLxwJ/yT32?=
- =?us-ascii?Q?5Vqvq9Utgs/YTMOwptzjzUcBlPCAeBszsDsVMsOjSZgHwbwd2HCPUXWgFqty?=
- =?us-ascii?Q?eVtqTsHV9ch+IteLE0sakYD1eybdKU1MOpAPEv0RWfUJgZYRAEk3ki7pHZSi?=
- =?us-ascii?Q?7n8LECNxEM0mvF6IjgaW7cvZapgwth9ddm8QsMX02i3qBJ6vFGmyq5QdDP3B?=
- =?us-ascii?Q?zr4YbhG7U3FuDW3ZQO42Zh1Un8tPYXJLpMFp0FMfL12TSlyuathyWbTrv4yk?=
- =?us-ascii?Q?MSzOXY+Th9TuovQ1/SfJ5cu2BzM3GP8lGxSee5T656dXUak8lQFw0Q0I0OMT?=
- =?us-ascii?Q?QsIFMe4jgWl8uK4tctv29lofqlLZIlwf34sWrxeArBngabs6MBZto0VsNFLU?=
- =?us-ascii?Q?cTREPPSHE+2fl/+FejMrrsGC/FODU4Lx+BTYRN3gEMDd9laHzT27S+fimCXT?=
- =?us-ascii?Q?RlUMON1lODFjG6SHhj3Uqzhbqusa+2c4cJPBH0Zo0TUolXhasxHV2RaPgX5K?=
- =?us-ascii?Q?5vvZlOOkAvaF/1g0wzmVxfuMIeKUNMsPq5quiYfqBYyWu4IYwaDzvJruSjeU?=
- =?us-ascii?Q?ryMnxyHJ8NyQSt4hDrn0mvLCxmjM+CIEg6OfusEWeYvRyY6ciSz+aeG1V5z1?=
- =?us-ascii?Q?VFuqDpFJDs1SniyZVkwwzlwf5+j4kgHSdKgpCQtdGW+SXh6qWqWcyZSd8US+?=
- =?us-ascii?Q?QHxn1stPcySF421T3s1JulhBKVGYLG3SazFpUudXpZ0O4OQjmkgNdUlT3l5t?=
- =?us-ascii?Q?/6TY5TVQy4lnFibN9go1?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ccae09bd-0fde-47e4-cc6f-08dcb136e0f6
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Jul 2024 08:00:44.2193
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR20MB7123
+Content-Disposition: inline
+In-Reply-To: <20240726235234.228822-59-seanjc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240731_010049_954986_D4A681AF 
-X-CRM114-Status: GOOD (  30.36  )
+X-CRM114-CacheID: sfid-20240731_011118_206571_6DF389EF 
+X-CRM114-Status: GOOD (  18.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,116 +103,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 19, 2024 at 04:44:38PM GMT, Chen Wang wrote:
-> From: Chen Wang <unicorn_wang@outlook.com>
+On Fri, Jul 26, 2024 at 04:52:07PM GMT, Sean Christopherson wrote:
+> Convert RISC-V to __kvm_faultin_pfn()+kvm_release_faultin_page(), which
+> are new APIs to consolidate arch code and provide consistent behavior
+> across all KVM architectures.
 > 
-> This patchset is composed of two parts:
-> - one is the improvement of the sdhci-of-dwcmshc framework,
-> - the other is the support for sg2042 based on the improvement of the
->   framework.
-> The reason for merging the two parts into one patchset is mainly to
-> facilitate review, especially to facilitate viewing why we need to
-> improve the framework and what benefits it will bring to us.
-> 
-> When I tried to add a new soc(SG2042) to sdhci-of-dwcmshc, I found
-> that the existing driver code could be optimized to facilitate expansion
-> for the new soc. Patch 1 ~ Patch 5 is for this.
-> 
-> Patch 6 ~ 7 are adding support for the mmc controller for Sophgo SG2042.
-> Adding corresponding new compatible strings, and implement
-> custom callbacks for SG2042 based on new framework.
-> 
-> Patch 8 is the change for DTS.
-> 
-> By the way, although I believe this patch only optimizes the framework
-> of the code and does not change the specific logic, simple verification
-> is certainly better. Since I don't have rk35xx/th1520 related hardware,
-> it would be greatly appreciated if someone could help verify it.
-> Note, the DTS change has dependency on clock changes for SG2042, which
-> has not been merged in master/upstream, so if you want to test this
-> new sdhci-of-dwcmshc driver for other hardware except SG2042, don't
-> pick patch 8.
-> 
-> Clocks changes for SG2042 are expected to be in 6.11-rc1 soon, I will
-> do catch up with that when it is relased and provide a new revision,
-> but anyway please feel free review this version and welcome your comments.
-> 
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
 > ---
+>  arch/riscv/kvm/mmu.c | 11 ++++-------
+>  1 file changed, 4 insertions(+), 7 deletions(-)
 > 
-> Changes in v5:
-> 
->   The patch series is based on latest 'next' branch of [mmc-git].
-> 
->   - Based on Adrian's suggestion, split the first part of the patch into 5.
->   - Updated bindings and DTS as per suggestion from Krzysztof, Jisheng and Conor.
-> 
-> Changes in v4:
-> 
->   The patch series is based on latest 'next' branch of [mmc-git]. You can simply
->   review or test the patches at the link [4].
-> 
->   Improved the dirvier code as per comments from Adrian Hunter, drop moving
->   position and renaming for some helper functions.
-> 
->   Put the sg2042 support as part of this series, improve the bindings and code
->   as per comments from last review.
-> 
-> Changes in v3:
->   
->   The patch series is based on latest 'next' branch of [mmc-git]. You can simply
->   review or test the patches at the link [3].
-> 
->   Improved the dirvier code as per comments from Adrian Hunter.
->   Define new structure for dwcmshc platform data/ops. In addition, I organized
->   the code and classified the helper functions.
-> 
->   Since the file changes were relatively large (though the functional logic did
->   not change much), I split the original patch into four for the convenience of
->   review.
-> 
-> Changes in v2:
-> 
->   Rebased on latest 'next' branch of [mmc-git]. You can simply review or test the
->   patches at the link [2].
-> 
-> Changes in v1:
-> 
->   The patch series is based on v6.9-rc1. You can simply review or test the
->   patches at the link [1].
-> 
-> Link: git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/mmc.git [mmc-git]
-> Link: https://lore.kernel.org/linux-mmc/cover.1713257181.git.unicorn_wang@outlook.com/ [1]
-> Link: https://lore.kernel.org/linux-mmc/cover.1714270290.git.unicorn_wang@outlook.com/ [2]
-> Link: https://lore.kernel.org/linux-mmc/cover.1718241495.git.unicorn_wang@outlook.com/ [3]
-> Link: https://lore.kernel.org/linux-mmc/cover.1718697954.git.unicorn_wang@outlook.com/ [4]
-> 
-> ---
-> 
-> Chen Wang (8):
->   mmc: sdhci-of-dwcmshc: add common bulk optional clocks support
->   mmc: sdhci-of-dwcmshc: move two rk35xx functions
->   mmc: sdhci-of-dwcmshc: factor out code for th1520_init()
->   mmc: sdhci-of-dwcmshc: factor out code into dwcmshc_rk35xx_init
->   mmc: sdhci-of-dwcmshc: add dwcmshc_pltfm_data
->   dt-bindings: mmc: sdhci-of-dwcmhsc: Add Sophgo SG2042 support
->   mmc: sdhci-of-dwcmshc: Add support for Sophgo SG2042
->   riscv: sophgo: dts: add mmc controllers for SG2042 SoC
-> 
->  .../bindings/mmc/snps,dwcmshc-sdhci.yaml      |  60 ++-
->  .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  |  17 +
->  arch/riscv/boot/dts/sophgo/sg2042.dtsi        |  28 ++
->  drivers/mmc/host/sdhci-of-dwcmshc.c           | 459 ++++++++++++------
->  4 files changed, 391 insertions(+), 173 deletions(-)
-> 
-> 
-> base-commit: b85e021853976aaebd3788e7e721020570754199
+> diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+> index 806f68e70642..f73d6a79a78c 100644
+> --- a/arch/riscv/kvm/mmu.c
+> +++ b/arch/riscv/kvm/mmu.c
+> @@ -601,6 +601,7 @@ int kvm_riscv_gstage_map(struct kvm_vcpu *vcpu,
+>  	bool logging = (memslot->dirty_bitmap &&
+>  			!(memslot->flags & KVM_MEM_READONLY)) ? true : false;
+>  	unsigned long vma_pagesize, mmu_seq;
+> +	struct page *page;
+>  
+>  	/* We need minimum second+third level pages */
+>  	ret = kvm_mmu_topup_memory_cache(pcache, gstage_pgd_levels);
+> @@ -631,7 +632,7 @@ int kvm_riscv_gstage_map(struct kvm_vcpu *vcpu,
+>  
+>  	/*
+>  	 * Read mmu_invalidate_seq so that KVM can detect if the results of
+> -	 * vma_lookup() or gfn_to_pfn_prot() become stale priort to acquiring
+> +	 * vma_lookup() or __kvm_faultin_pfn() become stale priort to acquiring
+                                                            ^ while here
+						could fix this typo
+
+>  	 * kvm->mmu_lock.
+>  	 *
+>  	 * Rely on mmap_read_unlock() for an implicit smp_rmb(), which pairs
+> @@ -647,7 +648,7 @@ int kvm_riscv_gstage_map(struct kvm_vcpu *vcpu,
+>  		return -EFAULT;
+>  	}
+>  
+> -	hfn = gfn_to_pfn_prot(kvm, gfn, is_write, &writable);
+> +	hfn = kvm_faultin_pfn(vcpu, gfn, is_write, &writable, &page);
+>  	if (hfn == KVM_PFN_ERR_HWPOISON) {
+>  		send_sig_mceerr(BUS_MCEERR_AR, (void __user *)hva,
+>  				vma_pageshift, current);
+> @@ -681,11 +682,7 @@ int kvm_riscv_gstage_map(struct kvm_vcpu *vcpu,
+>  		kvm_err("Failed to map in G-stage\n");
+>  
+>  out_unlock:
+> -	if ((!ret || ret == -EEXIST) && writable)
+> -		kvm_set_pfn_dirty(hfn);
+> -	else
+> -		kvm_release_pfn_clean(hfn);
+> -
+> +	kvm_release_faultin_page(kvm, page, ret && ret != -EEXIST, writable);
+>  	spin_unlock(&kvm->mmu_lock);
+>  	return ret;
+>  }
 > -- 
-> 2.34.1
+> 2.46.0.rc1.232.g9752f9e123-goog
 > 
+>
 
-Work on both Duo and Huashan Pi. Both sd and emmc are fine.
-
-Tested-by: Inochi Amaoto <inochiama@outlook.com>
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 _______________________________________________
 linux-riscv mailing list
