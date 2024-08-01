@@ -4,49 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1666BC3DA64
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 13:05:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADB6EC3DA64
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 13:05:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qlcD/gzQtfzqtxsIbN9k6lxYekrcpTedn4jYErG6eOs=; b=KMFSorv8VyFlPM
-	XohikBFWuLcWqe51JfMc9WWs3yq7nFrty0N7ewWUk1FJK7uW4kPvHjLUQdWb1HWo4GdH2FKCrnGce
-	2sK51HRaWPk2SQ9BpvaKpwxt5lyAIjst1zk+9qQxMrYWhyxNSJAq37ERu1UG8uDRPmU6eKArVzGSe
-	q0HlLbQa6UO/bMhTSbfcvAIp0Kj2zbcMy5vLzi6YgDs9zBfyloW70qMQDmZe+QSTFXsPefrXaGlCS
-	cB7JQqP3aJtAOwrGvlMv37THr8ezhQEzreVbeNTLzIR7BDA3s6h3IWoki+r7Q5nJmDriWZPs98ZEV
-	LfyOTeEmegRvwRUevI9w==;
+	List-Owner; bh=BKk1WPi8eBjuBEKVrCAhW0y7Xc7r0AsKK6epBvsul3Y=; b=pWWgWmBeC2Di58
+	66cQHD+6p8YqAzTJbWC0xisNgvuo0uiHBTaL530gQGtHkH5LJAHxfiP2OAaHMil0txrC+NB7LfS9q
+	ZlAqcg8KjupeNb84dGCTgI2G+FJsJkV9rkle8/RjU6uZXSrBjKg3TkP/9Czeqg9x/RjPoinoMuVYs
+	zyPjHFKs2JCiCtSowRIBnd53fEeNxY+L27ReHyfSRMltZKzTeVy2cvbCXVgTEG04IKwAavlXsRrcC
+	6GflUudUccn2t6Rjs6klqtuwmEaf4BxsBunrO6p3POpMvh8bsgJgg8e9Jq/NPB/AQIXrCGcoBEXAg
+	1BBWZP+fGniB7Al3iPXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZVUQ-00000005MOY-35GF;
-	Thu, 01 Aug 2024 13:05:06 +0000
+	id 1sZVUx-00000005Mhp-2p3z;
+	Thu, 01 Aug 2024 13:05:39 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZVOE-00000005ITs-3FBs;
-	Thu, 01 Aug 2024 12:58:44 +0000
+	id 1sZVOL-00000005IYS-2xie;
+	Thu, 01 Aug 2024 12:58:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3BD716288E;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 33B4B6289F;
+	Thu,  1 Aug 2024 12:58:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CF41C4AF0B;
 	Thu,  1 Aug 2024 12:58:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AC6DC32786;
-	Thu,  1 Aug 2024 12:58:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1722517121;
-	bh=yrclwp0293yC9GB/YqBAfQERM0nqbhUl6FyE+eoviK4=;
+	s=k20201202; t=1722517128;
+	bh=iKC2Iasck77jV+Uk+oAXshC4xI2+EzWFpjmjkamUboo=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=OMtPH0QQtyjuzyGFLmvxodnUhI1RcowGJgcVcqpXjp4OIMCKEYXxKeS0Zloiu6ACe
-	 7Y0zfhO07G3VFrL/o+SIq6MmOl0CJLDz3Wt6U0/2E55zxehJVMzg68p8qQVBCwdKiZ
-	 anTd5o27Tlj8IjZenRvzKlL3K8DnhbnStCp2mm7Aj+m14jz3gCWAaY0P1ghrYK8ThN
-	 sZ0TjouWrlUahzC6QOq8d3RjUdUdVoo6Dt9TxzB077E65bzGk5bzRo6b5CF553uAV/
-	 6ys2f9aLFBLXha2iCi5+SRM03qQNBGQHs4Y6nVLW37PCjew/gusoTL2CruWyy1GzK8
-	 6+IyQV6Ac1uTQ==
+	b=dyQayV0fQPSZH8iBt3r920gWMR8PRqUKHxVxDgPQjyeJut555M3l4cDwsz+/L5qQS
+	 As1Fxhi/6bCXuwjr9NdjvBX6wDqf/Fxi3a8wGAE/qWUiZL5LYBhtTcPbxCWz/QML29
+	 60npbjduYtAn0JzFHAUE8zwm6Q1kOxEoiKce7sC4wvjTflnDQ0DF9MalXGTrLYgS8F
+	 gXhhRz+nBXf6sqzaCfAlsMkL7do3RzBVthp97yDax4qvCcZ3OHQ8g2VY2PSqMAZLNd
+	 IxRDzjVoRVEX+F42dHQhDdgLvph86KDdI1LnkW1mniZkz3+zak2yx9Ro6Xt7xlGQRb
+	 XzXuKvipxoNHQ==
 From: Mark Brown <broonie@kernel.org>
-Date: Thu, 01 Aug 2024 13:06:39 +0100
-Subject: [PATCH v10 12/40] mm: Define VM_SHADOW_STACK for arm64 when we
- support GCS
+Date: Thu, 01 Aug 2024 13:06:40 +0100
+Subject: [PATCH v10 13/40] arm64/mm: Map pages for guarded control stack
 MIME-Version: 1.0
-Message-Id: <20240801-arm64-gcs-v10-12-699e2bd2190b@kernel.org>
+Message-Id: <20240801-arm64-gcs-v10-13-699e2bd2190b@kernel.org>
 References: <20240801-arm64-gcs-v10-0-699e2bd2190b@kernel.org>
 In-Reply-To: <20240801-arm64-gcs-v10-0-699e2bd2190b@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -71,20 +70,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
  Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-37811
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1520; i=broonie@kernel.org;
- h=from:subject:message-id; bh=yrclwp0293yC9GB/YqBAfQERM0nqbhUl6FyE+eoviK4=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBmq4YPVQ6/NKZ2FgJD9BDBgenwO3uVt2vwx+JEk7wS
- a+dSp5eJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZquGDwAKCRAk1otyXVSH0PO9B/
- 9FjPI6PZJke3DvcVt+TVF5+jjcO2FhunyyoZQBXwVwx0e14Z0TzTQv+M+eqDtAdVaXxEw+nVpGUhKj
- Rzyuud84uh5DfziIcGXe0HGokGGysRLk9OSG+dbJcWvI929qOFL/U5T2T/nCAnz61Mop8929qqKQFV
- W6vCejrk+xyxch2pG67qESCQw8vVyb6VAx2Z4PRuLxokX1bbhCX6+vRKt8Fv1dw01bV0RUfa8/6NsL
- vrLpbU65aCMhK4yG3IA5211146YV98aCoLl9L2ka2dgkMxupbf+n9aISI9eXd5SlWhJZBx2craAReK
- S2fhv2FZ2s1iixEVEAAABxmUNJ0aCK
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1838; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=iKC2Iasck77jV+Uk+oAXshC4xI2+EzWFpjmjkamUboo=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBmq4YQi3D2wTTUJjuQQY3F7F1CBBVgw8rRNdzwjqNE
+ tB9JpyaJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZquGEAAKCRAk1otyXVSH0LglB/
+ 9TWv0MHUp/MwJEjSWgKUaa9AI9T9ei3Yo/iBGwhTkm2lo8TZTWMdtH0ztI+7/sV7Bv2+cOXKDxO8Wn
+ xdLbDBsr/gw3zkkssfqjmj3brMAAxPZsleH+Lznr+NV+/0NRHmSZxbVAVa0JsJVu2db+gWre42Wu2T
+ lPKPmT9WC8gLVXsjaY6dzYqMNV662wcZ41nyv8oPea28bIjpwZZNSJspMdUGqpSQdGnjZp/yxu68w5
+ Y//Qbhz9rxsr1xOKKwh14tKc+nbFMdl2zKPVWbv5yGUS5EZEVUxqENG9eNNKup/HT0n8dZcq3Yep9V
+ Z6RDFNJfx4fCy4UAAQiNxjCf+kO5rX
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240801_055842_954558_99FC28FC 
-X-CRM114-Status: GOOD (  10.50  )
+X-CRM114-CacheID: sfid-20240801_055849_940923_2CC47957 
+X-CRM114-Status: GOOD (  14.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,50 +100,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use VM_HIGH_ARCH_5 for guarded control stack pages.
+Map pages flagged as being part of a GCS as such rather than using the
+full set of generic VM flags.
+
+This is done using a conditional rather than extending the size of
+protection_map since that would make for a very sparse array.
 
 Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- Documentation/filesystems/proc.rst |  2 +-
- include/linux/mm.h                 | 12 +++++++++++-
- 2 files changed, 12 insertions(+), 2 deletions(-)
+ arch/arm64/include/asm/mman.h |  9 +++++++++
+ arch/arm64/mm/mmap.c          | 10 +++++++++-
+ 2 files changed, 18 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/filesystems/proc.rst b/Documentation/filesystems/proc.rst
-index e834779d9611..6a882c57a7e7 100644
---- a/Documentation/filesystems/proc.rst
-+++ b/Documentation/filesystems/proc.rst
-@@ -579,7 +579,7 @@ encoded manner. The codes are the following:
-     mt    arm64 MTE allocation tags are enabled
-     um    userfaultfd missing tracking
-     uw    userfaultfd wr-protect tracking
--    ss    shadow stack page
-+    ss    shadow/guarded control stack page
-     sl    sealed
-     ==    =======================================
+diff --git a/arch/arm64/include/asm/mman.h b/arch/arm64/include/asm/mman.h
+index c21849ffdd88..6d3fe6433a62 100644
+--- a/arch/arm64/include/asm/mman.h
++++ b/arch/arm64/include/asm/mman.h
+@@ -61,6 +61,15 @@ static inline bool arch_validate_flags(unsigned long vm_flags)
+ 			return false;
+ 	}
  
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 96faf26b6083..c6c7454ce4e0 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -353,7 +353,17 @@ extern unsigned int kobjsize(const void *objp);
-  * for more details on the guard size.
-  */
- # define VM_SHADOW_STACK	VM_HIGH_ARCH_5
--#else
-+#endif
++	if (system_supports_gcs() && (vm_flags & VM_SHADOW_STACK)) {
++		/*
++		 * An executable GCS isn't a good idea, and the mm
++		 * core can't cope with a shared GCS.
++		 */
++		if (vm_flags & (VM_EXEC | VM_ARM64_BTI | VM_SHARED))
++			return false;
++	}
 +
-+#if defined(CONFIG_ARM64_GCS)
-+/*
-+ * arm64's Guarded Control Stack implements similar functionality and
-+ * has similar constraints to shadow stacks.
-+ */
-+# define VM_SHADOW_STACK	VM_HIGH_ARCH_5
-+#endif
+ 	return true;
+ 
+ }
+diff --git a/arch/arm64/mm/mmap.c b/arch/arm64/mm/mmap.c
+index 642bdf908b22..3ed63fc8cd0a 100644
+--- a/arch/arm64/mm/mmap.c
++++ b/arch/arm64/mm/mmap.c
+@@ -83,9 +83,17 @@ arch_initcall(adjust_protection_map);
+ 
+ pgprot_t vm_get_page_prot(unsigned long vm_flags)
+ {
+-	pteval_t prot = pgprot_val(protection_map[vm_flags &
++	pteval_t prot;
 +
-+#ifndef VM_SHADOW_STACK
- # define VM_SHADOW_STACK	VM_NONE
- #endif
++	/* Short circuit GCS to avoid bloating the table. */
++	if (system_supports_gcs() && (vm_flags & VM_SHADOW_STACK)) {
++		prot = _PAGE_GCS_RO;
++	} else {
++		prot = pgprot_val(protection_map[vm_flags &
+ 				   (VM_READ|VM_WRITE|VM_EXEC|VM_SHARED)]);
++	}
+ 
++	/* VM_ARM64_BTI on a GCS is rejected in arch_validate_flags() */
+ 	if (vm_flags & VM_ARM64_BTI)
+ 		prot |= PTE_GP;
  
 
 -- 
