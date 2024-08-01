@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B5AEC3DA4A
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 06:19:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7CE2C3DA64
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 06:20:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UphIfFaEt+7mpDTsVHqvF1psXwdNm5KdfJ0GINhSM6I=; b=F0fyFMIs5QgUC1
-	E0Atuw+yWxjTvSOhIY/HGefdQCCfNHTBKOR+D/fW7cjSbFSWpqHTNy6HH2dKtwd6YuJfDIhgYSK4Q
-	jNTeXDZTJgU+10f6Y2C66pxug9DaqjanfK2xnnNvExJ2teJYqgOom18Mq/vHXhH+eNomO9Ll0840L
-	GNKZb2q5XDk3lBZBzoPulP1rUeTbvmuYNKmiE4rmmLP9Wub0wWi7vLScX1Jn+it0CPtSZV2N5QjiC
-	SBTj10w8dPPMIcmgw/ymOBe6xPyMu++Vv4Tn97WNK1xlGyA4II3leTynRIjoxIY2ESlH0+vK46cDh
-	UXDJdAZmH7GB103J7ADQ==;
+	List-Owner; bh=UFtgImN9rQLFflQffx6AyxIGfnrFd67hhWiSOo+m7jc=; b=Kb/1WzGxxIkAut
+	oleGTTsoOYtGR4znJk1bt1uDuFnNnfEPxieGAn2i3TyGXjQE10jM9jiocVTUHq8lnpp17GU2kPHgZ
+	IthGe0n2fVS3ReIQE3vS5cDPHTuXzgsrJgvIfrESnh6IIyknBW7a1shJoUdSZvaTfzMup7yc6tXMN
+	UC7IDRxRl2O2rlY4WacCi5HpohOOQjjDo/42/E9GGUk+yqBOAyrkhxbPcJgUgof+pKnnA3OEo7MrU
+	Nqe4qFb4DcN0lsfDxWkEwjnhD0V/a6xP++cMYc1M1HxuUNJ4GbPyyiSHPsEQvjYHmcqJLv0vncmBn
+	6LjSaRudz5UkByWbF2VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZP9b-00000003wtB-1b60;
-	Thu, 01 Aug 2024 06:19:11 +0000
+	id 1sZPAX-00000003xGt-3Rhx;
+	Thu, 01 Aug 2024 06:20:09 +0000
 Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZP39-00000003tV1-0y1U;
-	Thu, 01 Aug 2024 06:12:35 +0000
+	id 1sZP3M-00000003te2-18Tx;
+	Thu, 01 Aug 2024 06:12:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 6731CCE1805;
-	Thu,  1 Aug 2024 06:12:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFFDBC4AF0E;
-	Thu,  1 Aug 2024 06:12:06 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id EC673CE1802;
+	Thu,  1 Aug 2024 06:12:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AED7C4AF09;
+	Thu,  1 Aug 2024 06:12:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1722492737;
-	bh=6A0wIF55cySeIy8NiLF4qmp7wlH9rgdcaWMh1AJbYRs=;
+	s=k20201202; t=1722492761;
+	bh=B9e+Vd7n2gq8wb2Fh7KBYHmuFxFa1foqgAS054Jbgm8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=hc6uVGpecAI1zFcYZyBHCN2s/v1sSFhd1thfLQmuesBa3xOXeuBfexTBcgntspCRH
-	 dXB1SchKNuC8bKQlbAwfjDcR/i/R9FYc5TJ5kLWs9fy5hJuglptCZXHz4KfwCqVMn/
-	 D3z5FascdFszO7vt9JCmOzaNHDE9uQHhAt2CzNYc06cq0vf5j/lF1yhV/JfQo9cJa5
-	 snhcqRtI22STgHPejW0r2nk5E2leCyeVNpvm4LKvCrY9mJm5mDm1kOwSvp/LHnuPQB
-	 MnCCd+ENB07aC4pEeiqaTkovNCpkidgZsG8teItIZxO7yw7vhFSvMA+BXQz9dveoyT
-	 3yq60hFkjkr8A==
+	b=cM+9PrKx9YzehJ5LjHBDoW2YtM/B15bwu3McVI62IfdyXscxPeo0HrtLEBaWMjQ5p
+	 HIQOodTGXKYIB4eQ5R1NoHMMvwzOP97BZTThg3CMbUj5vQ6cFIyj6EMGhDUFNgOvKu
+	 oTOZqCnfajcH/aPpC10wLy4Qc6v2xhpsLDiB3lXsjiVPx9njslGver0boDogOuHWWm
+	 d2AaXAMfINeqUYABkdOTthBNZpsQWO6gprMUXNlIQQf/YDvcT8CsvZITx/LyC+F6Xy
+	 umjL3iUOG1zg+qLbCCc9lk1wpSl6KSHpF3ZosnJOIR8SqsgJuRBIPE4+tl8qB4n0pc
+	 EfT3heZmT2ucg==
 From: Mike Rapoport <rppt@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
@@ -90,16 +90,16 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
 	nvdimm@lists.linux.dev,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org
-Subject: [PATCH v3 18/26] mm: move numa_distance and related code from x86 to numa_memblks
-Date: Thu,  1 Aug 2024 09:08:18 +0300
-Message-ID: <20240801060826.559858-19-rppt@kernel.org>
+Subject: [PATCH v3 20/26] mm: numa_memblks: introduce numa_memblks_init
+Date: Thu,  1 Aug 2024 09:08:20 +0300
+Message-ID: <20240801060826.559858-21-rppt@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240801060826.559858-1-rppt@kernel.org>
 References: <20240801060826.559858-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240731_231231_753194_8BFC73E1 
-X-CRM114-Status: GOOD (  26.04  )
+X-CRM114-CacheID: sfid-20240731_231244_729306_F2FF1A6D 
+X-CRM114-Status: GOOD (  19.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,306 +118,148 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 
-Move code dealing with numa_distance array from arch/x86 to
-mm/numa_memblks.c
+Move most of x86::numa_init() to numa_memblks so that the latter will be
+more self-contained.
 
-This code will be later reused by arch_numa.
-
-No functional changes.
+With this numa_memblk data structures should not be exposed to the
+architecture specific code.
 
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 Tested-by: Zi Yan <ziy@nvidia.com> # for x86_64 and arm64
 ---
- arch/x86/include/asm/numa.h  |   2 -
- arch/x86/mm/numa.c           | 104 -----------------------------------
- arch/x86/mm/numa_internal.h  |   2 -
- include/linux/numa_memblks.h |   4 ++
- mm/numa_memblks.c            | 104 +++++++++++++++++++++++++++++++++++
- 5 files changed, 108 insertions(+), 108 deletions(-)
+ arch/x86/mm/numa.c           | 40 ++++-------------------------------
+ include/linux/numa_memblks.h |  3 +++
+ mm/numa_memblks.c            | 41 ++++++++++++++++++++++++++++++++++++
+ 3 files changed, 48 insertions(+), 36 deletions(-)
 
-diff --git a/arch/x86/include/asm/numa.h b/arch/x86/include/asm/numa.h
-index 6e9a50bf03d4..203100500f24 100644
---- a/arch/x86/include/asm/numa.h
-+++ b/arch/x86/include/asm/numa.h
-@@ -23,8 +23,6 @@ extern int numa_off;
- extern s16 __apicid_to_node[MAX_LOCAL_APIC];
- extern nodemask_t numa_nodes_parsed __initdata;
- 
--extern void __init numa_set_distance(int from, int to, int distance);
--
- static inline void set_apicid_to_node(int apicid, s16 node)
- {
- 	__apicid_to_node[apicid] = node;
 diff --git a/arch/x86/mm/numa.c b/arch/x86/mm/numa.c
-index 6874d5650b4d..8eb15578625e 100644
+index 8eb15578625e..16bc703c9272 100644
 --- a/arch/x86/mm/numa.c
 +++ b/arch/x86/mm/numa.c
-@@ -24,9 +24,6 @@
- 
- int numa_off;
- 
--static int numa_distance_cnt;
--static u8 *numa_distance;
--
- static __init int numa_setup(char *opt)
- {
- 	if (!opt)
-@@ -118,107 +115,6 @@ void __init setup_node_to_cpumask_map(void)
+@@ -115,13 +115,9 @@ void __init setup_node_to_cpumask_map(void)
  	pr_debug("Node to cpumask map for %u nodes\n", nr_node_ids);
  }
  
--/**
-- * numa_reset_distance - Reset NUMA distance table
-- *
-- * The current table is freed.  The next numa_set_distance() call will
-- * create a new one.
-- */
--void __init numa_reset_distance(void)
--{
--	size_t size = numa_distance_cnt * numa_distance_cnt * sizeof(numa_distance[0]);
--
--	/* numa_distance could be 1LU marking allocation failure, test cnt */
--	if (numa_distance_cnt)
--		memblock_free(numa_distance, size);
--	numa_distance_cnt = 0;
--	numa_distance = NULL;	/* enable table creation */
--}
--
--static int __init numa_alloc_distance(void)
--{
--	nodemask_t nodes_parsed;
--	size_t size;
--	int i, j, cnt = 0;
--
--	/* size the new table and allocate it */
--	nodes_parsed = numa_nodes_parsed;
--	numa_nodemask_from_meminfo(&nodes_parsed, &numa_meminfo);
--
--	for_each_node_mask(i, nodes_parsed)
--		cnt = i;
--	cnt++;
--	size = cnt * cnt * sizeof(numa_distance[0]);
--
--	numa_distance = memblock_alloc(size, PAGE_SIZE);
--	if (!numa_distance) {
--		pr_warn("Warning: can't allocate distance table!\n");
--		/* don't retry until explicitly reset */
--		numa_distance = (void *)1LU;
--		return -ENOMEM;
--	}
--
--	numa_distance_cnt = cnt;
--
--	/* fill with the default distances */
--	for (i = 0; i < cnt; i++)
--		for (j = 0; j < cnt; j++)
--			numa_distance[i * cnt + j] = i == j ?
--				LOCAL_DISTANCE : REMOTE_DISTANCE;
--	printk(KERN_DEBUG "NUMA: Initialized distance table, cnt=%d\n", cnt);
--
--	return 0;
--}
--
--/**
-- * numa_set_distance - Set NUMA distance from one NUMA to another
-- * @from: the 'from' node to set distance
-- * @to: the 'to'  node to set distance
-- * @distance: NUMA distance
-- *
-- * Set the distance from node @from to @to to @distance.  If distance table
-- * doesn't exist, one which is large enough to accommodate all the currently
-- * known nodes will be created.
-- *
-- * If such table cannot be allocated, a warning is printed and further
-- * calls are ignored until the distance table is reset with
-- * numa_reset_distance().
-- *
-- * If @from or @to is higher than the highest known node or lower than zero
-- * at the time of table creation or @distance doesn't make sense, the call
-- * is ignored.
-- * This is to allow simplification of specific NUMA config implementations.
-- */
--void __init numa_set_distance(int from, int to, int distance)
--{
--	if (!numa_distance && numa_alloc_distance() < 0)
--		return;
--
--	if (from >= numa_distance_cnt || to >= numa_distance_cnt ||
--			from < 0 || to < 0) {
--		pr_warn_once("Warning: node ids are out of bound, from=%d to=%d distance=%d\n",
--			     from, to, distance);
--		return;
--	}
--
--	if ((u8)distance != distance ||
--	    (from == to && distance != LOCAL_DISTANCE)) {
--		pr_warn_once("Warning: invalid distance parameter, from=%d to=%d distance=%d\n",
--			     from, to, distance);
--		return;
--	}
--
--	numa_distance[from * numa_distance_cnt + to] = distance;
--}
--
--int __node_distance(int from, int to)
--{
--	if (from >= numa_distance_cnt || to >= numa_distance_cnt)
--		return from == to ? LOCAL_DISTANCE : REMOTE_DISTANCE;
--	return numa_distance[from * numa_distance_cnt + to];
--}
--EXPORT_SYMBOL(__node_distance);
--
- static int __init numa_register_memblks(struct numa_meminfo *mi)
+-static int __init numa_register_memblks(struct numa_meminfo *mi)
++static int __init numa_register_nodes(void)
  {
- 	int nid, err;
-diff --git a/arch/x86/mm/numa_internal.h b/arch/x86/mm/numa_internal.h
-index a51229a2f5af..249e3aaeadce 100644
---- a/arch/x86/mm/numa_internal.h
-+++ b/arch/x86/mm/numa_internal.h
-@@ -5,8 +5,6 @@
- #include <linux/types.h>
- #include <asm/numa.h>
- 
--void __init numa_reset_distance(void);
+-	int nid, err;
 -
- void __init x86_numa_init(void);
+-	err = numa_register_meminfo(mi);
+-	if (err)
+-		return err;
++	int nid;
  
- struct numa_meminfo;
+ 	if (!memblock_validate_numa_coverage(SZ_1M))
+ 		return -EINVAL;
+@@ -171,39 +167,11 @@ static int __init numa_init(int (*init_func)(void))
+ 	for (i = 0; i < MAX_LOCAL_APIC; i++)
+ 		set_apicid_to_node(i, NUMA_NO_NODE);
+ 
+-	nodes_clear(numa_nodes_parsed);
+-	nodes_clear(node_possible_map);
+-	nodes_clear(node_online_map);
+-	memset(&numa_meminfo, 0, sizeof(numa_meminfo));
+-	WARN_ON(memblock_set_node(0, ULLONG_MAX, &memblock.memory,
+-				  NUMA_NO_NODE));
+-	WARN_ON(memblock_set_node(0, ULLONG_MAX, &memblock.reserved,
+-				  NUMA_NO_NODE));
+-	/* In case that parsing SRAT failed. */
+-	WARN_ON(memblock_clear_hotplug(0, ULLONG_MAX));
+-	numa_reset_distance();
+-
+-	ret = init_func();
++	ret = numa_memblks_init(init_func, /* memblock_force_top_down */ true);
+ 	if (ret < 0)
+ 		return ret;
+ 
+-	/*
+-	 * We reset memblock back to the top-down direction
+-	 * here because if we configured ACPI_NUMA, we have
+-	 * parsed SRAT in init_func(). It is ok to have the
+-	 * reset here even if we did't configure ACPI_NUMA
+-	 * or acpi numa init fails and fallbacks to dummy
+-	 * numa init.
+-	 */
+-	memblock_set_bottom_up(false);
+-
+-	ret = numa_cleanup_meminfo(&numa_meminfo);
+-	if (ret < 0)
+-		return ret;
+-
+-	numa_emulation(&numa_meminfo, numa_distance_cnt);
+-
+-	ret = numa_register_memblks(&numa_meminfo);
++	ret = numa_register_nodes();
+ 	if (ret < 0)
+ 		return ret;
+ 
 diff --git a/include/linux/numa_memblks.h b/include/linux/numa_memblks.h
-index 6981cf97d2c9..968a590535ac 100644
+index f81f98678074..07381320848f 100644
 --- a/include/linux/numa_memblks.h
 +++ b/include/linux/numa_memblks.h
-@@ -7,6 +7,10 @@
+@@ -34,6 +34,9 @@ int __init numa_register_meminfo(struct numa_meminfo *mi);
+ void __init numa_nodemask_from_meminfo(nodemask_t *nodemask,
+ 				       const struct numa_meminfo *mi);
  
- #define NR_NODE_MEMBLKS		(MAX_NUMNODES * 2)
- 
-+extern int numa_distance_cnt;
-+void __init numa_set_distance(int from, int to, int distance);
-+void __init numa_reset_distance(void);
++int __init numa_memblks_init(int (*init_func)(void),
++			     bool memblock_force_top_down);
 +
- struct numa_memblk {
- 	u64			start;
- 	u64			end;
+ #ifdef CONFIG_NUMA_EMU
+ int numa_emu_cmdline(char *str);
+ void __init numa_emu_update_cpu_to_node(int *emu_nid_to_phys,
 diff --git a/mm/numa_memblks.c b/mm/numa_memblks.c
-index 72f191a94c66..e3c3519725d4 100644
+index e3c3519725d4..7749b6f6b250 100644
 --- a/mm/numa_memblks.c
 +++ b/mm/numa_memblks.c
-@@ -7,11 +7,115 @@
- #include <linux/numa.h>
- #include <linux/numa_memblks.h>
+@@ -415,6 +415,47 @@ int __init numa_register_meminfo(struct numa_meminfo *mi)
+ 	return 0;
+ }
  
-+int numa_distance_cnt;
-+static u8 *numa_distance;
-+
- nodemask_t numa_nodes_parsed __initdata;
- 
- struct numa_meminfo numa_meminfo __initdata_or_meminfo;
- struct numa_meminfo numa_reserved_meminfo __initdata_or_meminfo;
- 
-+/**
-+ * numa_reset_distance - Reset NUMA distance table
-+ *
-+ * The current table is freed.  The next numa_set_distance() call will
-+ * create a new one.
-+ */
-+void __init numa_reset_distance(void)
++int __init numa_memblks_init(int (*init_func)(void),
++			     bool memblock_force_top_down)
 +{
-+	size_t size = numa_distance_cnt * numa_distance_cnt * sizeof(numa_distance[0]);
++	int ret;
 +
-+	/* numa_distance could be 1LU marking allocation failure, test cnt */
-+	if (numa_distance_cnt)
-+		memblock_free(numa_distance, size);
-+	numa_distance_cnt = 0;
-+	numa_distance = NULL;	/* enable table creation */
++	nodes_clear(numa_nodes_parsed);
++	nodes_clear(node_possible_map);
++	nodes_clear(node_online_map);
++	memset(&numa_meminfo, 0, sizeof(numa_meminfo));
++	WARN_ON(memblock_set_node(0, ULLONG_MAX, &memblock.memory,
++				  NUMA_NO_NODE));
++	WARN_ON(memblock_set_node(0, ULLONG_MAX, &memblock.reserved,
++				  NUMA_NO_NODE));
++	/* In case that parsing SRAT failed. */
++	WARN_ON(memblock_clear_hotplug(0, ULLONG_MAX));
++	numa_reset_distance();
++
++	ret = init_func();
++	if (ret < 0)
++		return ret;
++
++	/*
++	 * We reset memblock back to the top-down direction
++	 * here because if we configured ACPI_NUMA, we have
++	 * parsed SRAT in init_func(). It is ok to have the
++	 * reset here even if we did't configure ACPI_NUMA
++	 * or acpi numa init fails and fallbacks to dummy
++	 * numa init.
++	 */
++	if (memblock_force_top_down)
++		memblock_set_bottom_up(false);
++
++	ret = numa_cleanup_meminfo(&numa_meminfo);
++	if (ret < 0)
++		return ret;
++
++	numa_emulation(&numa_meminfo, numa_distance_cnt);
++
++	return numa_register_meminfo(&numa_meminfo);
 +}
 +
-+static int __init numa_alloc_distance(void)
-+{
-+	nodemask_t nodes_parsed;
-+	size_t size;
-+	int i, j, cnt = 0;
-+
-+	/* size the new table and allocate it */
-+	nodes_parsed = numa_nodes_parsed;
-+	numa_nodemask_from_meminfo(&nodes_parsed, &numa_meminfo);
-+
-+	for_each_node_mask(i, nodes_parsed)
-+		cnt = i;
-+	cnt++;
-+	size = cnt * cnt * sizeof(numa_distance[0]);
-+
-+	numa_distance = memblock_alloc(size, PAGE_SIZE);
-+	if (!numa_distance) {
-+		pr_warn("Warning: can't allocate distance table!\n");
-+		/* don't retry until explicitly reset */
-+		numa_distance = (void *)1LU;
-+		return -ENOMEM;
-+	}
-+
-+	numa_distance_cnt = cnt;
-+
-+	/* fill with the default distances */
-+	for (i = 0; i < cnt; i++)
-+		for (j = 0; j < cnt; j++)
-+			numa_distance[i * cnt + j] = i == j ?
-+				LOCAL_DISTANCE : REMOTE_DISTANCE;
-+	printk(KERN_DEBUG "NUMA: Initialized distance table, cnt=%d\n", cnt);
-+
-+	return 0;
-+}
-+
-+/**
-+ * numa_set_distance - Set NUMA distance from one NUMA to another
-+ * @from: the 'from' node to set distance
-+ * @to: the 'to'  node to set distance
-+ * @distance: NUMA distance
-+ *
-+ * Set the distance from node @from to @to to @distance.  If distance table
-+ * doesn't exist, one which is large enough to accommodate all the currently
-+ * known nodes will be created.
-+ *
-+ * If such table cannot be allocated, a warning is printed and further
-+ * calls are ignored until the distance table is reset with
-+ * numa_reset_distance().
-+ *
-+ * If @from or @to is higher than the highest known node or lower than zero
-+ * at the time of table creation or @distance doesn't make sense, the call
-+ * is ignored.
-+ * This is to allow simplification of specific NUMA config implementations.
-+ */
-+void __init numa_set_distance(int from, int to, int distance)
-+{
-+	if (!numa_distance && numa_alloc_distance() < 0)
-+		return;
-+
-+	if (from >= numa_distance_cnt || to >= numa_distance_cnt ||
-+			from < 0 || to < 0) {
-+		pr_warn_once("Warning: node ids are out of bound, from=%d to=%d distance=%d\n",
-+			     from, to, distance);
-+		return;
-+	}
-+
-+	if ((u8)distance != distance ||
-+	    (from == to && distance != LOCAL_DISTANCE)) {
-+		pr_warn_once("Warning: invalid distance parameter, from=%d to=%d distance=%d\n",
-+			     from, to, distance);
-+		return;
-+	}
-+
-+	numa_distance[from * numa_distance_cnt + to] = distance;
-+}
-+
-+int __node_distance(int from, int to)
-+{
-+	if (from >= numa_distance_cnt || to >= numa_distance_cnt)
-+		return from == to ? LOCAL_DISTANCE : REMOTE_DISTANCE;
-+	return numa_distance[from * numa_distance_cnt + to];
-+}
-+EXPORT_SYMBOL(__node_distance);
-+
- static int __init numa_add_memblk_to(int nid, u64 start, u64 end,
- 				     struct numa_meminfo *mi)
+ static int __init cmp_memblk(const void *a, const void *b)
  {
+ 	const struct numa_memblk *ma = *(const struct numa_memblk **)a;
 -- 
 2.43.0
 
