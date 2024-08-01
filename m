@@ -4,89 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 636DCC3DA4A
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 10:15:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79741C3DA64
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 10:27:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Xk8BXCfqjW3PAplapzXjLG4ZW4lbVXV4qallwd5bIQ4=; b=KfcuPmWNtSikvi
-	n67JvYfB0W7BrlQo8gIOZtMkEm8VfqNqkQFsMYlCZ0IqKzv3eN+OskbeFYAl1ELwft9POQdFG7G8o
-	6YHuDjgiVXMSAT/pR9KHjybGBcYlxPBq12omYLe/Z6aVj0qFjLx7mTPxWFRXC5j+a9pkmCrq/pm5C
-	fOXNRO2E1BjxUJJqdzwe1By6Gt3iW6kkTnvyuNzbKBwb20I7zXJifQHTTatR1zOpVimHoY+atBvKE
-	ea1DCXqzIFwp1mEsHAdlTTrhqt5L6kLvmrmyY0kWOEBSqIzKfQnTwgsWquwPEG7KQA5tleA66icyF
-	E/YECSYqITzKqz7V2yUQ==;
+	List-Owner; bh=osQO7tgtjaM4Fpo2O3z5k7nJ1OVwDHZ1j2Pc8TrKwJY=; b=nxlyNbkXIcEA5w
+	AnZsfP1vUed7tBjTaBDpnUF9pbkatpH/u4+yVPTV5Akr7of0LqB0WPKh8H/S1SF8N1/bXecLuRprq
+	qfqYo15rnVi0eZBZL8L4QDM52F3ofmoGsag1GX3DBQnMaJJqYAAQfzLmMw++qza7cmcqFmeDLAoU7
+	OxMkOTanH6YcMJ//mfnFH4oBEUDAQbaEUWpW45iMHV+dEZUPgj6sNfatqTbWTv3bnt0wmccP9G6eg
+	xFVSwN5xwZRCTd2hFQkKT+ovDKE4ZL+kkT5UrXN+ZE6qOh7UCpTJa9rBzdcXE2iLoNHd5CuG69qY4
+	fQkuE8lwfIVawX36nzyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZSq0-00000004iUg-1eb9;
-	Thu, 01 Aug 2024 10:15:12 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1sZT1J-00000004jq9-3zwF;
+	Thu, 01 Aug 2024 10:26:53 +0000
+Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZSpx-00000004iTu-4BCE
+	id 1sZT1G-00000004jp6-0bAk
 	for linux-riscv@lists.infradead.org;
-	Thu, 01 Aug 2024 10:15:11 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-a7ab5fc975dso609549266b.1
-        for <linux-riscv@lists.infradead.org>; Thu, 01 Aug 2024 03:15:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1722507308; x=1723112108; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=lWBquabnZ6kcEWp0IKOcbEM+16+nIy0kpShVIFZJXnM=;
-        b=SkTotlepEaeSw3kkz0z+5/RDOwy6X4IpWaPnDUsSr83qavv4JjPlIC9rhXPfNPxxUk
-         MclgsV8rvI2OId77IsUXAIz2wlXZTeR+ZRTq02aNp/6jjvgd43vPBGHi37gjNwmf2s8a
-         1gbgstenuvDHkWRdKBHHW2M1eT+eJ9JDfJkmV5B2R+P23NWmN4lbiAIaaZP2awLHd5Lq
-         nYjULb60kajkpD8WwZpX+BrSCp03QlVIbeUAo6KQY5IZeC19Y0kN1C8t5zFza+nPBbT3
-         2ci+ehJLfaOuqrcMW0onpbdEKkh/U07XpQH51r9nhB0hvjGB3/osGSpIHuKwIkC2ssRS
-         /5UQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722507308; x=1723112108;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lWBquabnZ6kcEWp0IKOcbEM+16+nIy0kpShVIFZJXnM=;
-        b=XQNHIntbzJO/UddwZa4zEC8tSHEM9nCNbLMBDhOeamfSwSheGmnqRlkz08q5MOwme1
-         V8i4OKWNyxMrXxIvs3ZiswBvipTyfH25g1WVonwHuT10xe85HCLi+Xv3Sg2xsAQX247d
-         JhZsgUyHfN4GWmHaGg7Zb4oIk2NHr7dS5dUpNnJIqR47BuCWSTGI7noFoyzfmid1fTH0
-         cS+z8M/90UTnRs7ROb9nsBsyUTpgJ+1IdCZu5LXgpw9HKwZ9yW0A1FCdTrNfHaepdnOb
-         t1m/rZ1IcpD7PmgSs9PRswtJRn/ayev30l30VoLlCMDv0X3/BmnHhqhGoZuMaHiz0cyS
-         vEeQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWUfXLNUMxhbQ8Kgxvne5RPrBeoBoRKKeAVnI5B1Q7mP/YPLKnh251waZV7ZLWqzUM3jPj9ePuolCniRY+n+g4Uyk5clj9NhLbUChv31gn2
-X-Gm-Message-State: AOJu0YxovyxfW27wjpeC4KWWYkgGyrmXFFkLN2FcnoPgD3MAoSfY3KUM
-	+nqa2d8ufVXF1LKdUzhaqDcJCdvCm+BRCvNZXgZ+t17bZl6UXepeUaGwmMXfusw=
-X-Google-Smtp-Source: AGHT+IEeTCuavVhswNVgEm2olLofx/pt8cE9Bumon3z0afUonWZ842xMiwTVqZcy8FZzQmEJxlyJMw==
-X-Received: by 2002:a17:907:7da0:b0:a7a:8876:4429 with SMTP id a640c23a62f3a-a7daf65d495mr148745866b.45.1722507307311;
-        Thu, 01 Aug 2024 03:15:07 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a7acad4348bsm875471766b.118.2024.08.01.03.15.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Aug 2024 03:15:06 -0700 (PDT)
-Date: Thu, 1 Aug 2024 12:15:00 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Andrea Parri <parri.andrea@gmail.com>, 
-	Nathan Chancellor <nathan@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>, Waiman Long <longman@redhat.com>, 
-	Boqun Feng <boqun.feng@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Leonardo Bras <leobras@redhat.com>, Guo Ren <guoren@kernel.org>, linux-doc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-arch@vger.kernel.org
-Subject: Re: [PATCH v4 13/13] riscv: Add qspinlock support
-Message-ID: <20240801-e773d3752fe8b5484405d404@orel>
-References: <20240731072405.197046-1-alexghiti@rivosinc.com>
- <20240731072405.197046-14-alexghiti@rivosinc.com>
- <20240731-ce25dcdc5ce9ccc6c82912c0@orel>
- <CAHVXubhQefQ6i3Vow_p-uSACQyPcMJNC2UwB99xt_=jDtRUDFw@mail.gmail.com>
+	Thu, 01 Aug 2024 10:26:52 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id CA3EB1BF209;
+	Thu,  1 Aug 2024 10:26:45 +0000 (UTC)
+Message-ID: <e935d5a3-1754-422c-aa92-08977ab9c929@ghiti.fr>
+Date: Thu, 1 Aug 2024 12:26:44 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAHVXubhQefQ6i3Vow_p-uSACQyPcMJNC2UwB99xt_=jDtRUDFw@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] riscv: Omit optimized string routines when using
+ KASAN
+Content-Language: en-US
+To: Samuel Holland <samuel.holland@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org
+Cc: Yury Norov <yury.norov@gmail.com>,
+ Rasmus Villemoes <linux@rasmusvillemoes.dk>, linux-kernel@vger.kernel.org
+References: <20240801033725.28816-1-samuel.holland@sifive.com>
+ <20240801033725.28816-2-samuel.holland@sifive.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20240801033725.28816-2-samuel.holland@sifive.com>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240801_031510_065302_445FB252 
-X-CRM114-Status: GOOD (  19.72  )
+X-CRM114-CacheID: sfid-20240801_032650_516438_ADBBDA99 
+X-CRM114-Status: GOOD (  17.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,48 +59,143 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 01, 2024 at 10:43:03AM GMT, Alexandre Ghiti wrote:
-...
-> > > diff --git a/include/asm-generic/qspinlock.h b/include/asm-generic/qspinlock.h
-> > > index 0655aa5b57b2..bf47cca2c375 100644
-> > > --- a/include/asm-generic/qspinlock.h
-> > > +++ b/include/asm-generic/qspinlock.h
-> > > @@ -136,6 +136,7 @@ static __always_inline bool virt_spin_lock(struct qspinlock *lock)
-> > >  }
-> > >  #endif
-> > >
-> > > +#ifndef __no_arch_spinlock_redefine
-> >
-> > I'm not sure what's better/worse, but instead of inventing this
-> > __no_arch_spinlock_redefine thing we could just name all the functions
-> > something like __arch_spin* and then add defines for both to asm/spinlock.h,
-> > i.e.
-> >
-> > #define queued_spin_lock(l) __arch_spin_lock(l)
-> > ...
-> >
-> > #define ticket_spin_lock(l) __arch_spin_lock(l)
-> > ...
-> 
-> __arch_spin_lock() would use queued_spin_lock() so that would make an
-> "infinite recursive definition" right? And that would override the
-> "real" queued_spin_lock() implementation too.
-> 
-> But maybe I missed something!
->
+Hi Samuel,
 
-It depends on where the definition is done. It should work if the
-preprocessor expands the implementation of __arch_spin_* before
-evaluating the #define of queued_spin_*. IOW, we just need to put
-the defines after the static inline constructions.
+On 01/08/2024 05:36, Samuel Holland wrote:
+> The optimized string routines are implemented in assembly, so they are
+> not instrumented for use with KASAN. Fall back to the C version of the
+> routines in order to improve KASAN coverage. This fixes the
+> kasan_strings() unit test.
+>
+> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+> ---
+>
+>   arch/riscv/include/asm/string.h | 2 ++
+>   arch/riscv/kernel/riscv_ksyms.c | 3 ---
+>   arch/riscv/lib/Makefile         | 2 ++
+>   arch/riscv/lib/strcmp.S         | 1 +
+>   arch/riscv/lib/strlen.S         | 1 +
+>   arch/riscv/lib/strncmp.S        | 1 +
+>   arch/riscv/purgatory/Makefile   | 2 ++
+>   7 files changed, 9 insertions(+), 3 deletions(-)
+>
+> diff --git a/arch/riscv/include/asm/string.h b/arch/riscv/include/asm/string.h
+> index a96b1fea24fe..5ba77f60bf0b 100644
+> --- a/arch/riscv/include/asm/string.h
+> +++ b/arch/riscv/include/asm/string.h
+> @@ -19,6 +19,7 @@ extern asmlinkage void *__memcpy(void *, const void *, size_t);
+>   extern asmlinkage void *memmove(void *, const void *, size_t);
+>   extern asmlinkage void *__memmove(void *, const void *, size_t);
+>   
+> +#if !(defined(CONFIG_KASAN_GENERIC) || defined(CONFIG_KASAN_SW_TAGS))
+
+
+We do not support KASAN_SW_TAGS so there is no need for this #ifdef.
+
+
+>   #define __HAVE_ARCH_STRCMP
+>   extern asmlinkage int strcmp(const char *cs, const char *ct);
+>   
+> @@ -27,6 +28,7 @@ extern asmlinkage __kernel_size_t strlen(const char *);
+>   
+>   #define __HAVE_ARCH_STRNCMP
+>   extern asmlinkage int strncmp(const char *cs, const char *ct, size_t count);
+> +#endif
+>   
+>   /* For those files which don't want to check by kasan. */
+>   #if defined(CONFIG_KASAN) && !defined(__SANITIZE_ADDRESS__)
+> diff --git a/arch/riscv/kernel/riscv_ksyms.c b/arch/riscv/kernel/riscv_ksyms.c
+> index a72879b4249a..5ab1c7e1a6ed 100644
+> --- a/arch/riscv/kernel/riscv_ksyms.c
+> +++ b/arch/riscv/kernel/riscv_ksyms.c
+> @@ -12,9 +12,6 @@
+>   EXPORT_SYMBOL(memset);
+>   EXPORT_SYMBOL(memcpy);
+>   EXPORT_SYMBOL(memmove);
+> -EXPORT_SYMBOL(strcmp);
+> -EXPORT_SYMBOL(strlen);
+> -EXPORT_SYMBOL(strncmp);
+>   EXPORT_SYMBOL(__memset);
+>   EXPORT_SYMBOL(__memcpy);
+>   EXPORT_SYMBOL(__memmove);
+> diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+> index 2b369f51b0a5..8eec6b69a875 100644
+> --- a/arch/riscv/lib/Makefile
+> +++ b/arch/riscv/lib/Makefile
+> @@ -3,9 +3,11 @@ lib-y			+= delay.o
+>   lib-y			+= memcpy.o
+>   lib-y			+= memset.o
+>   lib-y			+= memmove.o
+> +ifeq ($(CONFIG_KASAN_GENERIC)$(CONFIG_KASAN_SW_TAGS),)
+>   lib-y			+= strcmp.o
+>   lib-y			+= strlen.o
+>   lib-y			+= strncmp.o
+> +endif
+>   lib-y			+= csum.o
+>   ifeq ($(CONFIG_MMU), y)
+>   lib-$(CONFIG_RISCV_ISA_V)	+= uaccess_vector.o
+> diff --git a/arch/riscv/lib/strcmp.S b/arch/riscv/lib/strcmp.S
+> index 687b2bea5c43..542301a67a2f 100644
+> --- a/arch/riscv/lib/strcmp.S
+> +++ b/arch/riscv/lib/strcmp.S
+> @@ -120,3 +120,4 @@ strcmp_zbb:
+>   .option pop
+>   #endif
+>   SYM_FUNC_END(strcmp)
+> +EXPORT_SYMBOL(strcmp)
+> diff --git a/arch/riscv/lib/strlen.S b/arch/riscv/lib/strlen.S
+> index 8ae3064e45ff..962983b73251 100644
+> --- a/arch/riscv/lib/strlen.S
+> +++ b/arch/riscv/lib/strlen.S
+> @@ -131,3 +131,4 @@ strlen_zbb:
+>   #endif
+>   SYM_FUNC_END(strlen)
+>   SYM_FUNC_ALIAS(__pi_strlen, strlen)
+> +EXPORT_SYMBOL(strlen)
+> diff --git a/arch/riscv/lib/strncmp.S b/arch/riscv/lib/strncmp.S
+> index aba5b3148621..0f359ea2f55b 100644
+> --- a/arch/riscv/lib/strncmp.S
+> +++ b/arch/riscv/lib/strncmp.S
+> @@ -136,3 +136,4 @@ strncmp_zbb:
+>   .option pop
+>   #endif
+>   SYM_FUNC_END(strncmp)
+> +EXPORT_SYMBOL(strncmp)
+> diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makefile
+> index f11945ee2490..fb9c917c9b45 100644
+> --- a/arch/riscv/purgatory/Makefile
+> +++ b/arch/riscv/purgatory/Makefile
+> @@ -1,7 +1,9 @@
+>   # SPDX-License-Identifier: GPL-2.0
+>   
+>   purgatory-y := purgatory.o sha256.o entry.o string.o ctype.o memcpy.o memset.o
+> +ifeq ($(CONFIG_KASAN_GENERIC)$(CONFIG_KASAN_SW_TAGS),)
+>   purgatory-y += strcmp.o strlen.o strncmp.o
+> +endif
+>   
+>   targets += $(purgatory-y)
+>   PURGATORY_OBJS = $(addprefix $(obj)/,$(purgatory-y))
+
+
+With the removal of KASAN_SW_TAGS, you can add:
+
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+
+And since I have this testsuite in my CI, I gave it a try and it works so:
+
+Tested-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 
 Thanks,
-drew
+
+Alex
+
+
+
 
 _______________________________________________
 linux-riscv mailing list
