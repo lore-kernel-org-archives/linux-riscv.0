@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEAAEC3DA4A
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 16:41:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11420C52D70
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 16:41:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=og7jELpbfC0SH2p3J0EY9UN7VFQmw3SGJV2cu3h1fP0=; b=2JFnxh83A0lYK/
-	VHWhWt9LCzY+Qq9uKK4xiCH+EHkvB8kCTVvPTbQVT5APMdwPnOveppbhgzHiyaVM+Py2xUYdrr7wG
-	o173/NXNTznJkZoWMY4y07jlwQtrfSG2gaZbJpAjyBZXWc3q65fO+B4ad37ahFwqeWJ4QANKyjSoN
-	gUZ6UMG2trYjuXaDVBgQbyF8r4K5XQOIxSn/7BEm2QyFGEKr/TV1XGUrOkXe3y8TTSy7TJu52QrDq
-	3iLssbMTVoUXid0PNqVMsvoOYJiySV2EyAusqa75Jdvr6KsomwN16fbPN6DJZxmvoBYgNTIEFjpSb
-	8gpxSaVKOGOMinKRSzUQ==;
+	List-Owner; bh=jtAezStBosHvp5cd16sap9S6YBfHEeddBWEGIIGB0bM=; b=dfmwZeAmAid7Fr
+	I2eruSD2dzLdNMqrA0WuoFhBzVUpBOka7pQ7vzymOOGmjqihr1HkMdZjZNauklp38xGoUFbHs5gLm
+	ZkvqLSvrLkktmJkJusKePHVw0jdhdrRYt/oho1I1+DGskSaLvxnpygm3n2JNnhYpU0t39VYltdjOJ
+	Hmcsx2f2PFCG/phtPDgGTqZB7IIsZn2F+GdEnGoaxqvTwoTRAzOmrkWrHpfFTVZoRkW34Y+ezBzPg
+	x4qVErEWflPKhCRTlzvVqgzmiFe3quGyzBGs5klTmEbO3yAZqP3gr/MQFeaRcRLeerJmj6OR7Laa9
+	LmPlhnTLMojed3QU/DRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZYs1-000000067WI-0unQ;
-	Thu, 01 Aug 2024 16:41:41 +0000
+	id 1sZYs4-000000067YV-2eDQ;
+	Thu, 01 Aug 2024 16:41:44 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZYr1-000000067AF-0gM7;
-	Thu, 01 Aug 2024 16:40:41 +0000
+	id 1sZYr3-000000067Cc-27HU
+	for linux-riscv@lists.infradead.org;
+	Thu, 01 Aug 2024 16:40:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 91A3F6285D;
-	Thu,  1 Aug 2024 16:40:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id C8548C4AF14;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 169FF62929;
+	Thu,  1 Aug 2024 16:40:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E3824C32786;
 	Thu,  1 Aug 2024 16:40:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1722530437;
-	bh=c2FO/XwZs3Khz94ER4bhUWQv+QFkKk0f7Rg9kF93AO4=;
+	s=k20201202; t=1722530438;
+	bh=Qf7CsUZ7Mp3HUtb2ngmsj4kwcF27UTC845pBKzaaids=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=cG0R6guXz6WO3xwIFGUTP5Fj3oWN7D9oJnkbelpgpsjJBCblesZe4Cf/swTrJ3w1o
-	 1i0uZ48Mw6+5GpCoF1gtF3Hnd0baiP0IrmrOvrBcDor7kIYG45vA7K/bUUA/P7v/GU
-	 aUGzzClFr0Y2Ifq0P/sFaH5W6+2va7KQICSuJoZqT6wlrW5KtVmBksBBlv3Btioy/c
-	 XNdW9oYS2h4nAjj85X3CT8Z9GNfX5PPJmN23rYZLBA5LT15PgPnNFwG2HaBFg361S6
-	 lnhbr/c8huwb+A6Kb7E1877NBNCaFvBTtKVaqio68HBkl0QqeKnkDOAGE+heLL9M7D
-	 4BUJyB/0Sdb5w==
+	b=VGIHvkW9pm4tSmx6J5sp7tQHJlJVPsD1h3vPy5N/Nja9Va9NQZbPXUbS/SmN3oQ1/
+	 52v+14H02XzrEEK3jYk84UGohxTLTG3wZVdee4cd3KREyJh4iEM2LAy5PpH4PewKTg
+	 m3iCvKTkpTN5mYmnuwhGpsX0S3hG1BT5ob9sYm20wNJ+DQW6AMsPUf+GRCFHpdMBmr
+	 sUOFJrsjDROJQQMeOHkmtoyufG2H9+eGptiT8QNH+GyURI2SCZvvem+o0GjbPrg6yu
+	 wU2Ik0fnfzpv/qp+aFxUPFWq/6Nvz/hGlh0lJnc4nfYjkMIGBbPGxqW23o8i7m2B02
+	 UsJDIGQ9gn49Q==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id B30CEE8877D;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id D7E05E8877A;
 	Thu,  1 Aug 2024 16:40:37 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] perf: riscv: Fix selecting counters in legacy mode
+Subject: Re: [PATCH v2] RISC-V: Enable the IPI before workqueue_online_cpu()
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <172253043772.13740.4519514649255072983.git-patchwork-notify@kernel.org>
+Message-Id: <172253043788.13740.11553891732223082482.git-patchwork-notify@kernel.org>
 Date: Thu, 01 Aug 2024 16:40:37 +0000
-References: <20240729125858.630653-1-dmitry.shifrin@syntacore.com>
-In-Reply-To: <20240729125858.630653-1-dmitry.shifrin@syntacore.com>
-To: Dmitry Shifrin <dmitry.shifrin@syntacore.com>
-Cc: linux-riscv@lists.infradead.org, atishp@atishpatra.org,
- anup@brainfault.org, will@kernel.org, mark.rutland@arm.com,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- alexghiti@rivosinc.com
+References: <20240717031714.1946036-1-nick.hu@sifive.com>
+In-Reply-To: <20240717031714.1946036-1-nick.hu@sifive.com>
+To: Nick Hu <nick.hu@sifive.com>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, tglx@linutronix.de,
+ peterz@infradead.org, anup@brainfault.org, samuel.holland@sifive.com,
+ tj@kernel.org, alexghiti@rivosinc.com, linux-kernel@vger.kernel.org,
+ greentime.hu@sifive.com, zong.li@sifive.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240801_094039_316814_CBEEEFA1 
-X-CRM114-Status: GOOD (  10.01  )
+X-CRM114-CacheID: sfid-20240801_094041_779095_1DF751B6 
+X-CRM114-Status: GOOD (  10.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,21 +82,21 @@ Hello:
 This patch was applied to riscv/linux.git (fixes)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Mon, 29 Jul 2024 15:58:58 +0300 you wrote:
-> It is required to check event type before checking event config.
-> Events with the different types can have the same config.
-> This check is missed for legacy mode code
+On Wed, 17 Jul 2024 11:17:14 +0800 you wrote:
+> Sometimes the hotplug cpu stalls at the arch_cpu_idle() for a while after
+> workqueue_online_cpu(). When cpu stalls at the idle loop, the reschedule
+> IPI is pending. However the enable bit is not enabled yet so the cpu stalls
+> at WFI until watchdog timeout. Therefore enable the IPI before the
+> workqueue_online_cpu() to fix the issue.
 > 
-> For such perf usage:
->     sysctl -w kernel.perf_user_access=2
->     perf stat -e cycles,L1-dcache-loads --
-> driver will try to force both events to CYCLE counter.
+> Fixes: 63c5484e7495 ("workqueue: Add multiple affinity scopes and interface to select them")
+> Signed-off-by: Nick Hu <nick.hu@sifive.com>
 > 
 > [...]
 
 Here is the summary with links:
-  - perf: riscv: Fix selecting counters in legacy mode
-    https://git.kernel.org/riscv/c/941a8e9b7a86
+  - [v2] RISC-V: Enable the IPI before workqueue_online_cpu()
+    https://git.kernel.org/riscv/c/3908ba2e0b24
 
 You are awesome, thank you!
 -- 
