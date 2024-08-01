@@ -4,97 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CD69C3DA4A
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 10:28:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 982AEC3DA64
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 10:32:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Vx4T5i0uPFDEsx8F7lPOuqP100EbQhBcHpPEerY0tSM=; b=AiZaj8FHiIFKl/
-	nHyucpGwro+YsFktSfuegtyfZopGwhZpkiJ/UAdEsSIg/rXrrqiB0XpTwwfVzRA9BYly5pSpvuR++
-	PUJkdWN6lcA2Q6xQs0KukRbrSm9Yh9G4yfivfZSO0iPzLybDFRoGn/nPNmAQAiwsiUTn/LIwD5ReR
-	s2sB2nqgh+2q1KhP/TyqJl4aWbv1SB1o6mquFAkYr+KIT5/VkyoCm4j8p6gcoITxiP+M3Zpbpf9Rw
-	cvT4VTvi1xRuQJNwHuPistPMLpGU34zrXFC675Z7J73OuSNcqCNcAX31nylwtLAwLmbcTrsy3BP5u
-	i1eOe5fL//gQUEIK8oFg==;
+	List-Owner; bh=xufi01qsxPSYJICmQ5Ds9Y4Np0Zk7FofMcpTWiqvChs=; b=FxzVHMN9JSIxQd
+	9ALg4X7/N7pFBhFWYSK38ickF0X5N5YLIcsQt4fRbXspwdKv/kyaecUo9GCuV+eOTA5d4xuAIbjrh
+	cknqLIYRh5DiOIjbOqQ9VyYZ7Bdpt7cuE6G6eH866PIL8Y7Kac0nwzke66SzRXhcV0pyfX3zr1Phn
+	EjiRLt4CQ/JQ5vcb6vc1mSjIwBLgFMy6Pg4R880fMLPyln/F9sigMIepjLZCqdjBvxaBF3YoP3+/t
+	6eunyQM+h9lKTcrE7drkeOBfmI3bpCwSA8wyt+5y40wGuCKOnXkFOlRntodfqeZPvwkYZGodkUGJK
+	KjcqyC7HOXRIg711tfLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZT2k-00000004kB2-3xV0;
-	Thu, 01 Aug 2024 10:28:22 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1sZT6K-00000004lBf-1N8A;
+	Thu, 01 Aug 2024 10:32:04 +0000
+Received: from relay3-d.mail.gandi.net ([217.70.183.195])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZT2h-00000004k9b-3UZy;
-	Thu, 01 Aug 2024 10:28:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=v1s+5Bi9d041LGdTeseO3YDdAQzIcr7DZg2LK0/Pvu0=; b=qLqxu/A7f3yE8trlCtn2zwr4Sr
-	HsLHcEDK9/3J6tw7LUc6f6UbjMMG4sOJfSifCTcBNiwZSAV/P3ODLWlG7yA2knS7LCa0qhRE4PlrQ
-	ylZjSUWBL9DxVjhdQzws15gwx0gi0lDvz7cXdxLOsjy7w+Ib4IOHWMokdPVtwpOChpjjVn+ye1Uld
-	GFG+rsmUPvDikDI9xHGuE71rzQkSd89IUW183/BHQCmgpPHLpOyMsudNwch8jn/2BqO15VJiimQxp
-	xtAjbcKmLuxcKg2Ku/JMxVsbtgiI4S+inNFNHpfHD9Z1+dwbMwwNH7EbzTp55VBxzAL5Gb3OZJgjQ
-	lwCLoQBw==;
-Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZT2T-00000005RW8-1u0R;
-	Thu, 01 Aug 2024 10:28:06 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 8B25A30074E; Thu,  1 Aug 2024 12:28:04 +0200 (CEST)
-Date: Thu, 1 Aug 2024 12:28:04 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Alice Ryhl <aliceryhl@google.com>
-Cc: Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Jason Baron <jbaron@akamai.com>, Ard Biesheuvel <ardb@kernel.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Alex Gaynor <alex.gaynor@gmail.com>,
-	Wedson Almeida Filho <wedsonaf@gmail.com>,
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <benno.lossin@proton.me>,
-	Andreas Hindborg <a.hindborg@samsung.com>,
-	linux-trace-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
-	linux-arch@vger.kernel.org, Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	"Peter Zijlstra (Intel)" <peterz@infradaed.org>,
-	Sean Christopherson <seanjc@google.com>,
-	Uros Bizjak <ubizjak@gmail.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>, Fuad Tabba <tabba@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	linux-riscv@lists.infradead.org,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>, Bibo Mao <maobibo@loongson.cn>,
-	Tiezhu Yang <yangtiezhu@loongson.cn>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Tianrui Zhao <zhaotianrui@loongson.cn>, loongarch@lists.linux.dev
-Subject: Re: [PATCH v4 1/2] rust: add static_key_false
-Message-ID: <20240801102804.GQ33588@noisy.programming.kicks-ass.net>
-References: <20240628-tracepoint-v4-0-353d523a9c15@google.com>
- <20240628-tracepoint-v4-1-353d523a9c15@google.com>
- <20240731170508.GJ33588@noisy.programming.kicks-ass.net>
- <CAH5fLghYodekhH-1A0BWZVwgbqkWbP3WP70-us2FtHqvOqD_Hw@mail.gmail.com>
+	id 1sZT6G-00000004lAs-2CNF
+	for linux-riscv@lists.infradead.org;
+	Thu, 01 Aug 2024 10:32:02 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 9B9C760003;
+	Thu,  1 Aug 2024 10:31:56 +0000 (UTC)
+Message-ID: <0473d5ad-1d52-43e0-ade6-34c94212a220@ghiti.fr>
+Date: Thu, 1 Aug 2024 12:31:56 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAH5fLghYodekhH-1A0BWZVwgbqkWbP3WP70-us2FtHqvOqD_Hw@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] riscv: Enable bitops instrumentation
+Content-Language: en-US
+To: Samuel Holland <samuel.holland@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org
+Cc: Yury Norov <yury.norov@gmail.com>,
+ Rasmus Villemoes <linux@rasmusvillemoes.dk>, linux-kernel@vger.kernel.org
+References: <20240801033725.28816-1-samuel.holland@sifive.com>
+ <20240801033725.28816-3-samuel.holland@sifive.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20240801033725.28816-3-samuel.holland@sifive.com>
+X-GND-Sasl: alex@ghiti.fr
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20240801_033200_865387_519F1029 
+X-CRM114-Status: GOOD (  19.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,106 +58,196 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 31, 2024 at 11:34:13PM +0200, Alice Ryhl wrote:
 
-> > Please work harder to not have to duplicate stuff like this.
-> 
-> I really didn't want to duplicate it, but it's very hard to find a
-> performant alternative. Is there any way we could accept duplication
-> only in the cases where an 'i' parameter is used? I don't have the
-> choice of using a Rust helper for 'i' parameters.
-> 
-> Perhaps one option could be to put the Rust code inside jump_label.h
-> and have the header file evaluate to either C or Rust depending on the
-> value of some #ifdefs?
-> 
-> #ifndef RUST_ASM
-> /* existing C code goes here */
-> #endif
-> #ifdef RUST_ASM
-> // rust code goes here
-> #endif
-> 
-> That way the duplication is all in a single file. It would also avoid
-> the need for duplicating the nop5 string, as the Rust case is still
-> going through the C preprocessor and can use the existing #define.
+On 01/08/2024 05:37, Samuel Holland wrote:
+> Instead of implementing the bitops functions directly in assembly,
+> provide the arch_-prefixed versions and use the wrappers from
+> asm-generic to add instrumentation. This improves KASAN coverage and
+> fixes the kasan_bitops_generic() unit test.
+>
+> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+> ---
+>
+>   arch/riscv/include/asm/bitops.h | 43 ++++++++++++++++++---------------
+>   1 file changed, 23 insertions(+), 20 deletions(-)
+>
+> diff --git a/arch/riscv/include/asm/bitops.h b/arch/riscv/include/asm/bitops.h
+> index 71af9ecfcfcb..fae152ea0508 100644
+> --- a/arch/riscv/include/asm/bitops.h
+> +++ b/arch/riscv/include/asm/bitops.h
+> @@ -222,44 +222,44 @@ static __always_inline int variable_fls(unsigned int x)
+>   #define __NOT(x)	(~(x))
+>   
+>   /**
+> - * test_and_set_bit - Set a bit and return its old value
+> + * arch_test_and_set_bit - Set a bit and return its old value
+>    * @nr: Bit to set
+>    * @addr: Address to count from
+>    *
+>    * This operation may be reordered on other architectures than x86.
+>    */
+> -static inline int test_and_set_bit(int nr, volatile unsigned long *addr)
+> +static inline int arch_test_and_set_bit(int nr, volatile unsigned long *addr)
+>   {
+>   	return __test_and_op_bit(or, __NOP, nr, addr);
+>   }
+>   
+>   /**
+> - * test_and_clear_bit - Clear a bit and return its old value
+> + * arch_test_and_clear_bit - Clear a bit and return its old value
+>    * @nr: Bit to clear
+>    * @addr: Address to count from
+>    *
+>    * This operation can be reordered on other architectures other than x86.
+>    */
+> -static inline int test_and_clear_bit(int nr, volatile unsigned long *addr)
+> +static inline int arch_test_and_clear_bit(int nr, volatile unsigned long *addr)
+>   {
+>   	return __test_and_op_bit(and, __NOT, nr, addr);
+>   }
+>   
+>   /**
+> - * test_and_change_bit - Change a bit and return its old value
+> + * arch_test_and_change_bit - Change a bit and return its old value
+>    * @nr: Bit to change
+>    * @addr: Address to count from
+>    *
+>    * This operation is atomic and cannot be reordered.
+>    * It also implies a memory barrier.
+>    */
+> -static inline int test_and_change_bit(int nr, volatile unsigned long *addr)
+> +static inline int arch_test_and_change_bit(int nr, volatile unsigned long *addr)
+>   {
+>   	return __test_and_op_bit(xor, __NOP, nr, addr);
+>   }
+>   
+>   /**
+> - * set_bit - Atomically set a bit in memory
+> + * arch_set_bit - Atomically set a bit in memory
+>    * @nr: the bit to set
+>    * @addr: the address to start counting from
+>    *
+> @@ -270,13 +270,13 @@ static inline int test_and_change_bit(int nr, volatile unsigned long *addr)
+>    * Note that @nr may be almost arbitrarily large; this function is not
+>    * restricted to acting on a single-word quantity.
+>    */
+> -static inline void set_bit(int nr, volatile unsigned long *addr)
+> +static inline void arch_set_bit(int nr, volatile unsigned long *addr)
+>   {
+>   	__op_bit(or, __NOP, nr, addr);
+>   }
+>   
+>   /**
+> - * clear_bit - Clears a bit in memory
+> + * arch_clear_bit - Clears a bit in memory
+>    * @nr: Bit to clear
+>    * @addr: Address to start counting from
+>    *
+> @@ -284,13 +284,13 @@ static inline void set_bit(int nr, volatile unsigned long *addr)
+>    * on non x86 architectures, so if you are writing portable code,
+>    * make sure not to rely on its reordering guarantees.
+>    */
+> -static inline void clear_bit(int nr, volatile unsigned long *addr)
+> +static inline void arch_clear_bit(int nr, volatile unsigned long *addr)
+>   {
+>   	__op_bit(and, __NOT, nr, addr);
+>   }
+>   
+>   /**
+> - * change_bit - Toggle a bit in memory
+> + * arch_change_bit - Toggle a bit in memory
+>    * @nr: Bit to change
+>    * @addr: Address to start counting from
+>    *
+> @@ -298,40 +298,40 @@ static inline void clear_bit(int nr, volatile unsigned long *addr)
+>    * Note that @nr may be almost arbitrarily large; this function is not
+>    * restricted to acting on a single-word quantity.
+>    */
+> -static inline void change_bit(int nr, volatile unsigned long *addr)
+> +static inline void arch_change_bit(int nr, volatile unsigned long *addr)
+>   {
+>   	__op_bit(xor, __NOP, nr, addr);
+>   }
+>   
+>   /**
+> - * test_and_set_bit_lock - Set a bit and return its old value, for lock
+> + * arch_test_and_set_bit_lock - Set a bit and return its old value, for lock
+>    * @nr: Bit to set
+>    * @addr: Address to count from
+>    *
+>    * This operation is atomic and provides acquire barrier semantics.
+>    * It can be used to implement bit locks.
+>    */
+> -static inline int test_and_set_bit_lock(
+> +static inline int arch_test_and_set_bit_lock(
+>   	unsigned long nr, volatile unsigned long *addr)
+>   {
+>   	return __test_and_op_bit_ord(or, __NOP, nr, addr, .aq);
+>   }
+>   
+>   /**
+> - * clear_bit_unlock - Clear a bit in memory, for unlock
+> + * arch_clear_bit_unlock - Clear a bit in memory, for unlock
+>    * @nr: the bit to set
+>    * @addr: the address to start counting from
+>    *
+>    * This operation is atomic and provides release barrier semantics.
+>    */
+> -static inline void clear_bit_unlock(
+> +static inline void arch_clear_bit_unlock(
+>   	unsigned long nr, volatile unsigned long *addr)
+>   {
+>   	__op_bit_ord(and, __NOT, nr, addr, .rl);
+>   }
+>   
+>   /**
+> - * __clear_bit_unlock - Clear a bit in memory, for unlock
+> + * arch___clear_bit_unlock - Clear a bit in memory, for unlock
+>    * @nr: the bit to set
+>    * @addr: the address to start counting from
+>    *
 
-I suppose that is slightly better, but ideally you generate the whole of
-the Rust thing from the C version. After all, Clang can already parse
-this.
 
-That said, with the below patch, I think you should be able to reuse the
-JUMP_TABLE_ENTRY macro like:
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Tested-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 
-	JUMP_TABLE_ENTRY({0}, {1}, {2} + {3})
+Thanks,
 
-> I'm also open to other alternatives. But I don't have infinite
-> resources to drive major language changes.
-
-Yes, well, you all picked this terrible language full well knowing it
-hated C/C++ and had not a single effort put into integration with
-existing code bases.
-
-I find it very hard to care for the problems you've created for
-yourself.
+Alex
 
 
----
-diff --git a/arch/x86/include/asm/jump_label.h b/arch/x86/include/asm/jump_label.h
-index cbbef32517f0..6cff7bf5e779 100644
---- a/arch/x86/include/asm/jump_label.h
-+++ b/arch/x86/include/asm/jump_label.h
-@@ -12,12 +12,12 @@
- #include <linux/stringify.h>
- #include <linux/types.h>
- 
--#define JUMP_TABLE_ENTRY				\
--	".pushsection __jump_table,  \"aw\" \n\t"	\
--	_ASM_ALIGN "\n\t"				\
--	".long 1b - . \n\t"				\
--	".long %l[l_yes] - . \n\t"			\
--	_ASM_PTR "%c0 + %c1 - .\n\t"			\
-+#define JUMP_TABLE_ENTRY(l_yes, key, branch)				\
-+	".pushsection __jump_table,  \"aw\" \n\t"			\
-+	_ASM_ALIGN "\n\t"						\
-+	".long 1b - . \n\t"						\
-+	".long " __stringify(l_yes) "- . \n\t"				\
-+	_ASM_PTR " " __stringify(key) " + " __stringify(branch) " - . \n\t" \
- 	".popsection \n\t"
- 
- #ifdef CONFIG_HAVE_JUMP_LABEL_HACK
-@@ -26,7 +26,7 @@ static __always_inline bool arch_static_branch(struct static_key *key, bool bran
- {
- 	asm goto("1:"
- 		"jmp %l[l_yes] # objtool NOPs this \n\t"
--		JUMP_TABLE_ENTRY
-+		JUMP_TABLE_ENTRY(%[l_yes], %c0, %c1)
- 		: :  "i" (key), "i" (2 | branch) : : l_yes);
- 
- 	return false;
-@@ -40,7 +40,7 @@ static __always_inline bool arch_static_branch(struct static_key * const key, co
- {
- 	asm goto("1:"
- 		".byte " __stringify(BYTES_NOP5) "\n\t"
--		JUMP_TABLE_ENTRY
-+		JUMP_TABLE_ENTRY(%[l_yes], %c0, %c1)
- 		: :  "i" (key), "i" (branch) : : l_yes);
- 
- 	return false;
-@@ -54,7 +54,7 @@ static __always_inline bool arch_static_branch_jump(struct static_key * const ke
- {
- 	asm goto("1:"
- 		"jmp %l[l_yes]\n\t"
--		JUMP_TABLE_ENTRY
-+		JUMP_TABLE_ENTRY(%[l_yes], %c0, %c1)
- 		: :  "i" (key), "i" (branch) : : l_yes);
- 
- 	return false;
+> @@ -345,13 +345,13 @@ static inline void clear_bit_unlock(
+>    * non-atomic property here: it's a lot more instructions and we still have to
+>    * provide release semantics anyway.
+>    */
+> -static inline void __clear_bit_unlock(
+> +static inline void arch___clear_bit_unlock(
+>   	unsigned long nr, volatile unsigned long *addr)
+>   {
+> -	clear_bit_unlock(nr, addr);
+> +	arch_clear_bit_unlock(nr, addr);
+>   }
+>   
+> -static inline bool xor_unlock_is_negative_byte(unsigned long mask,
+> +static inline bool arch_xor_unlock_is_negative_byte(unsigned long mask,
+>   		volatile unsigned long *addr)
+>   {
+>   	unsigned long res;
+> @@ -369,6 +369,9 @@ static inline bool xor_unlock_is_negative_byte(unsigned long mask,
+>   #undef __NOT
+>   #undef __AMO
+>   
+> +#include <asm-generic/bitops/instrumented-atomic.h>
+> +#include <asm-generic/bitops/instrumented-lock.h>
+> +
+>   #include <asm-generic/bitops/non-atomic.h>
+>   #include <asm-generic/bitops/le.h>
+>   #include <asm-generic/bitops/ext2-atomic.h>
 
 _______________________________________________
 linux-riscv mailing list
