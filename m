@@ -4,126 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28FD8C3DA7F
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jul 2024 23:58:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E7EEC3DA7F
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 00:17:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8JJO/dxzYd/H5VeUNmbjYMhA22/jgzIvD273Xcp9F1c=; b=4N0nYo6iB7XDuRuKMwGsRmaeZ7
-	cpSsGxoCNK12FEWRobizDh86XA+Wl6rkOqdposBIX7h9vBMU0Ma4nA3lUzgyD4MvMPjwoFwMEWgPX
-	IM4Xcr63LnntOqP5qoq7O5M66F7IVhebUyVQPig+ZLGMYGcwb1aX7/zK70PSCaUI/YthHiyP94PUT
-	XE199D226qln4Wh30/MPpjc2a6uOftAS7vAzgG8cljSoE0TfEjsWdUPEF819VKE2NYmBvWYzHBohm
-	wwnGkb+RyE3Ld36S6B8ylpGxQFkP/N57Ep0/TnfrLVNX9hBBgMOpCffoKrVi0nuF+WZu2KxVPvZCg
-	al5vDzZA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2sPKn0uitJth9vTDaM29UwyU3MJJTsgl0jDtq0NYkx4=; b=QIaRJ0GFalY6qV
+	q5oDEeYImOFPcr0kFF6ksmFJkCWiNLsWW499G1XPJfNz3ptF30DraV+LMf/SjkS6aCqY1W00KHnXW
+	HPIDRqhtaZEAdFzDA8i3JJExJ8k3BzxTHR9en6pCbpgyFLhZYy5VV6r9gMciiwa/VpbPmGwk4mNQE
+	6zY9CVM2fUA+NIupsIPVxoVZfjiJPEUcCtZNXfLsK/jjI4cgD13NvB+IwjPV1it+34pAljfqo4oIW
+	j5yhVS8t4kY2KbAz1V308ttMvz/OKRBVVgjhBUDsjRRN75tyClERa8OyaJCbzY6HR1qzN4MkWRTHl
+	ufUKAFSb6CCVmTa19k8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZJCk-00000002rkF-1vMp;
-	Wed, 31 Jul 2024 23:58:02 +0000
-Received: from mail-maxind01olkn20801.outbound.protection.outlook.com ([2a01:111:f403:281b::801] helo=IND01-MAX-obe.outbound.protection.outlook.com)
+	id 1sZJVg-00000002wVl-3BeB;
+	Thu, 01 Aug 2024 00:17:36 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZJCZ-00000002rh6-3Qzq
+	id 1sZJVF-00000002wNW-44il
 	for linux-riscv@lists.infradead.org;
-	Wed, 31 Jul 2024 23:58:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dbg8MUsPD8PH/CBMbesaFLExIyi4Nk6pKrgCKOQeInp8U/NjHIHt40b4j+EKfM0j7yUZCMP6Uc9FS1FiWH/e+Pg7cBddalkDps3LQaw+vUpeQsQNkdS7kajibvNKOR0ghw5+EVK96f7kStDSGLkehveFWHDC4629UKH6XKOravCO0AS7zdUGJ1HBS+553gK6YmgHkkWIAZ9cqh/LVKJL7QggZc0js7kRgLeP8nvfxe4h6oktu/W5cANuxfVUEODOJgioN0uRO8fmrPFCkoiGoE50PsvdwMMK5VfDi9YtGgjOiKrLEOVJedhRZC/8wN7pdrrsmpQby5hE8KtbTDp0hw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lqAwMZ6sF+S/VCYryeumLgFJAAgBUNYz8vYiR7O8iOU=;
- b=wtaY6WN9SP0OSPPkJ4YhC2qc9IehXk0s/XRgPOB0l5KDNtB0rAk3zMWrzFkI0cxyRssbNYFG+2mfYzJ6lx7gveLGd5+NMe4musm/2o/psQFkKhP3PU2yRpKA2WNepBrsGp5k1sUEbGaXbYBmis9oaKOIohJ7+yZyaFBngPnSIknF9aEhdqs0k+V5ARRXc8Y0lrd8stXm/EZh+dc3GN8Fvdo4tgStj5Ea7ROawPO7DcsC6HdfZsXzSxHVmGKSoUM9w7p2h4PgkLG0eCdgm9ea7dqSXs3L6YfTlTBE6sgOnpgtgMsuZcJ20+VOUxpRPF475azwesech+mnzSFHvarpgQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lqAwMZ6sF+S/VCYryeumLgFJAAgBUNYz8vYiR7O8iOU=;
- b=sQoIv5i84HcJvkwWYgt+jmjKL3FBd5aIlXfkI1Dar/tw5pUI8R2nE/GGQfnvH4QdJ4V7OKOMvoJInm5kawjUZuJw+YzuX+3HO6x1oqU+KC0TAP2SEgrV7csv2/+Z+KuBT7IvhZHSGbjmkyR0AwfviILMNb+jUeh4ks/P7apYLAAJaaPFyn4yRTviEjuEEC6VLpkXRI92TOl1K1b0Kh+UdVDo/vvlIIliAiA50kRCP1D1nmuQstilOCUVfqFBv33o/awf6DrQ0nYAFeA0UN2aexxlEHmWHOhU5fiyCsIAJIBOvr2Uxz5us9l0E0E9iSG9PcMFeP5scf2GCaLEqp8bIw==
-Received: from PN1P287MB2818.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:214::7)
- by PN0P287MB0462.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:122::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7828.22; Wed, 31 Jul
- 2024 23:57:37 +0000
-Received: from PN1P287MB2818.INDP287.PROD.OUTLOOK.COM
- ([fe80::5a8a:9e40:a4e8:3e2d]) by PN1P287MB2818.INDP287.PROD.OUTLOOK.COM
- ([fe80::5a8a:9e40:a4e8:3e2d%3]) with mapi id 15.20.7828.021; Wed, 31 Jul 2024
- 23:57:37 +0000
-Message-ID: <PN0P287MB28300F19F9D5F85F3EED942EFEB12@PN0P287MB2830.INDP287.PROD.OUTLOOK.COM>
-Date: Thu, 1 Aug 2024 07:57:21 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/3] iio: adc: sophgo-saradc: Add driver for Sophgo
- SARADC
-To: Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
- Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Inochi Amaoto <inochiama@outlook.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- =?UTF-8?Q?Miqu=C3=A8l_Raynal?= <miquel.raynal@bootlin.com>,
- linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <20240731-sg2002-adc-v3-0-5ac40a518c0a@bootlin.com>
- <20240731-sg2002-adc-v3-2-5ac40a518c0a@bootlin.com>
-From: Chen Wang <unicorn_wang@outlook.com>
-In-Reply-To: <20240731-sg2002-adc-v3-2-5ac40a518c0a@bootlin.com>
-X-TMN: [ncl/nbYVv6jzGTS9htexqRT2CD+RDygs]
-X-ClientProxiedBy: SI2PR02CA0012.apcprd02.prod.outlook.com
- (2603:1096:4:194::7) To PN0P287MB2830.INDP287.PROD.OUTLOOK.COM
- (2603:1096:c01:204::14)
-X-Microsoft-Original-Message-ID: <640bc146-5c63-48da-b3dd-e3fd2be4b555@outlook.com>
+	Thu, 01 Aug 2024 00:17:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5F15C6173C;
+	Thu,  1 Aug 2024 00:17:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 597FEC32786;
+	Thu,  1 Aug 2024 00:17:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1722471429;
+	bh=BvkC1kCVClVzmp9N9tEVoKyMTepRgzaH/KBwijVY7Mg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=OH0AJr4h3tomIAkHztclF7osCoGXyxL5x4KzpnZpbyNqOV84RQljQCL75TikxB9Se
+	 aaR9aIvOiSedScRdhfs9Hj1I7ZBueeuFIh+flmjWYHzOyQY5rnIi0ETLjcbNwVnGrH
+	 n4T4kUfDSdhHVSgzP2STvHhZkRWi1Sw0/nxDV76sl0wIluSxPaaQEZTNO6iJZ1Z2+4
+	 ve18LEo+Wwk3R66DDUjZrIBL4NPN5w3f1zJG5HmH+21SQnSMfvk2PgjhGJOAnJlEcg
+	 ijBn3BFa45n2ayW8z89icrBO4UdpKt6+tb3r1OvwkYapkCj6j1fDW763D3S8HgCrTD
+	 wmvWvb0dMiSeg==
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
+	David Hildenbrand <david@redhat.com>,
+	Oscar Salvador <osalvador@suse.de>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	Sasha Levin <sashal@kernel.org>,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alexghiti@rivosinc.com,
+	peterlin@andestech.com,
+	christophe.leroy@csgroup.eu,
+	akpm@linux-foundation.org,
+	suagrfillet@gmail.com,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.10 095/121] riscv: mm: Take memory hotplug read-lock during kernel page table dump
+Date: Wed, 31 Jul 2024 20:00:33 -0400
+Message-ID: <20240801000834.3930818-95-sashal@kernel.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20240801000834.3930818-1-sashal@kernel.org>
+References: <20240801000834.3930818-1-sashal@kernel.org>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PN1P287MB2818:EE_|PN0P287MB0462:EE_
-X-MS-Office365-Filtering-Correlation-Id: fc5d7b9d-ce49-4713-76e8-08dcb1bc8c22
-X-Microsoft-Antispam: BCL:0;ARA:14566002|19110799003|5072599009|8060799006|461199028|3412199025|440099028;
-X-Microsoft-Antispam-Message-Info: 0JuTws2j7iK5CCg7KFhuhEQql8+44qOT+C2fJYN6SoHHBYUJT8JAoCZ7P6SEWvWD0kAbHyQzJxDGQznVeodwhjoOOlM2qseN0Dkabpsz7ake5esxpy5dIQBl5YtEsJ2iSK5YbcIflJ2nqjdi9zFdy0awEP7JaJUqIYhoBVol7fH+0tQbjRsEOV+2cRF/iIgyFPotGSz5nXu5dAbuBlO0FY4KRKTfKeOyon2uctOnLXVMH6Wo61K6npFPlBQlfgdJZmgHoJyQR5C32OkDCiWOr3rUJnFKZzFDU6pke14jekramu23xBo1DBMeIVTnPKSdhWiruZonu5pXhm2xCu9T0jGNnycEscilOart3iCWvY6cga1UrtH3+hrR4l18d2zvq3q2tXqWVMCFJiUGNn0pcDUJjFpx65JaRkaliFE0N2JJKaK04p6KZyIrWsUEQdZiTjVtlWujfPTvR7KYYYa99yV7kW594dr+MsUoRfC8YHKEdCd2lKHfEE3vdQU4Sh860gv30anAwD3vyXdzateL9TeeQjEmZiIBcBVtEPyybg9HjgVNBePwI9ZKnzxPR6KEoinb0ViQJdbS2Yzr22/vySn1gSd2ddyZNSQ/GZKm2XEY4MLVA14GxK77oX/09Dx8K5VKACxPJuvrVYf3LSDobinx+25vtLBNaaKnYTB9GGiPxHA6lf405Qc/+gKfZRb/
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NnR2c1RZOTdjUE5mLzEvUjVHUVBsRHBRdVVrTEE5WEwyZjNtWHZpelhtcm1B?=
- =?utf-8?B?ZDF4eHpFNkJ3dHp6ckxxOERiLzhPSVdlZnp2djlmL3c4aUZnczRaYXFHTENP?=
- =?utf-8?B?ZUNqL3RRaGYvTjhrSStiQXlXNEhncmVhQ1RxTzc4MEpRdzZLbFc3c1duZi8v?=
- =?utf-8?B?dzJVNlZwRUZsVTZoT1kwcEVEVU8xVnpET0piL053d1cybXRHWHdza05XdVVv?=
- =?utf-8?B?ZEtvcGRwMGlyWUJIaWlHancrOThoTUVGOGwxeHFoQ3NvYlc4QzN4MjFPUVc1?=
- =?utf-8?B?L0ZUd2Yyb2FVb0RNbGRrM0pPL1ZlZ3JRVVJsYXphcEZiZzEwVmVnODVYLzhz?=
- =?utf-8?B?M2YrdnJYV3dlSU94clZpdHBSSGVXcDhWVnBSVTM1ei9hWXlHcld1OUpKYTRk?=
- =?utf-8?B?M0xqRzZPZ0RvUG5yZTNHWjBBdkt2RGZDYUZUTWdvay9MTHB1aGhGV2JVa25q?=
- =?utf-8?B?TEtFcGh4WXBhVzVubW9kZWxzZUlJQTZwOFlsc3BkRnd4VnRIUUI1L1JGY09X?=
- =?utf-8?B?NW90UVJJU0FqSEYwRFVMT3BwNFFHejE3UHdVODFNd1E3MEhjaGxWZmJ1Uy9H?=
- =?utf-8?B?WElCblpIZGprSjUwSGhweWZ4VkJQQmUvWlpYcWJNM3E0TXE4bEtlQ1U0VEtT?=
- =?utf-8?B?WTRSajgzTm9SWis3K3I2SE5xK0ExSWRvRzJvMTJDb0k1NTNQbi8wSVdSL1gx?=
- =?utf-8?B?aXVFdnhMZFdDbktKMlN1SUhpUVpWY2tSYzhRVENVVXFFelV6UFdDMFI3WitJ?=
- =?utf-8?B?bklVcWhhTEpDS3d4NWViWm1XK016ZGtNUjBHeW1ITVRHTGVyU2NjYjAyMjZI?=
- =?utf-8?B?TFZ1NnRhdEZocFp3OXJJVEd4N0lXY0hHcGVUUVBGVjlHRm5XS05lalA1RUtz?=
- =?utf-8?B?cE5abzNnem1xb3loOWtzdzkzMnpWZlRkaTBLUXI5NTRvUlVSTW1TTWlVT09j?=
- =?utf-8?B?RC9MWXJIRE4xcEhYaHV5eEszOXhvWUNHUUVOVmlEbDJKYU1IYW9MRWxqMkZx?=
- =?utf-8?B?K0pmb3NkdzRobGdQT0QwZk8wZWZHRDBHR2FGdE12RUphcjE3elFKeGxmZ3dy?=
- =?utf-8?B?c2NjeWEyc3NpcXdPQ2hRSWRFYTdESGRxbFdRZi9IeGovcFFjRkxxNWpKcTJK?=
- =?utf-8?B?bVJFZjhGQ0pvbWFuTmdoKzhvMm0ycGd2cUF1RU5FYytoU2wwZDdhSW4zUzV1?=
- =?utf-8?B?cG91WUw3QWFETlNLWWtacmE5K1JmcDBPNGJyVHFweE9DYmhOREpNaSszNklC?=
- =?utf-8?B?Y0xLenNsdnUzZWkyL0R6ZE43bzRwb0NGWjY5Zm5yZUFQM1VRanhSWXhuazZr?=
- =?utf-8?B?K0FOQldyTEhUd2lFK251cjB0UEJ3SDdCakRXb21TYWlkVGx3QUovMlE2Yk1H?=
- =?utf-8?B?UU5VNDNlK09ZMm1wOXBPeDlhRCtMelF3cUpIS0kxeXJibjhJNEZDZjNNWnBK?=
- =?utf-8?B?SVNwUk1yM3ZNR3RIR08vZVZiS0VPcFczWGRCMG5hMG1FSDY2OXhFbmtVRjZV?=
- =?utf-8?B?UCtNYzlMVTBPL0pRRUlIQjE5OVhyR1dIMVF0RnhubnJEVmtvZCtnc1BOY3h1?=
- =?utf-8?B?WjlPRG05NW9lODQxWEoxTzBOZUhJbEFER2g5NDdIQ3FMMDJSU1h2amNvcTcx?=
- =?utf-8?B?QTRmUHdJWlhEdHR4WHlnZHRXRnhtZHd0TXJNWUNBRDhNNWxhZzBRc2lnUjVy?=
- =?utf-8?Q?tEyT2bgRJyjt7GFTduUJ?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fc5d7b9d-ce49-4713-76e8-08dcb1bc8c22
-X-MS-Exchange-CrossTenant-AuthSource: PN0P287MB2830.INDP287.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Jul 2024 23:57:37.2574
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN0P287MB0462
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.10.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240731_165752_053829_044E3DDF 
-X-CRM114-Status: GOOD (  20.47  )
+X-CRM114-CacheID: sfid-20240731_171710_086104_041F1D9A 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,90 +84,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On 2024/7/31 20:24, Thomas Bonnefille wrote:
-> This adds a driver for the common Sophgo SARADC.
->
-> Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-> ---
->   drivers/iio/adc/Kconfig             |  10 ++
->   drivers/iio/adc/Makefile            |   1 +
->   drivers/iio/adc/sophgo-cv18xx-adc.c | 206 ++++++++++++++++++++++++++++++++++++
->   3 files changed, 217 insertions(+)
->
-> diff --git a/drivers/iio/adc/Kconfig b/drivers/iio/adc/Kconfig
-> index f60fe85a30d5..10d6570233f5 100644
-> --- a/drivers/iio/adc/Kconfig
-> +++ b/drivers/iio/adc/Kconfig
-> @@ -1156,6 +1156,16 @@ config SC27XX_ADC
->   	  This driver can also be built as a module. If so, the module
->   	  will be called sc27xx_adc.
->   
-> +config SOPHGO_CV18XX_ADC
-> +	tristate "Sophgo CV18XX series SARADC"
-> +	depends on ARCH_SOPHGO || COMPILE_TEST
-> +	help
-> +	  Say yes here to build support for the SARADC integrated inside
-> +	  the Sophgo CV18XX series SoCs.
-> +
-> +	  This driver can also be built as a module. If so, the module
-> +	  will be called sophgo_adc.
-
-"sophgo_adc"? or "sophgo-cv18xx-adc"
-
-> +
->   config SPEAR_ADC
->   	tristate "ST SPEAr ADC"
->   	depends on PLAT_SPEAR || COMPILE_TEST
-> diff --git a/drivers/iio/adc/Makefile b/drivers/iio/adc/Makefile
-> index d370e066544e..24c241b12ef0 100644
-> --- a/drivers/iio/adc/Makefile
-> +++ b/drivers/iio/adc/Makefile
-> @@ -105,6 +105,7 @@ obj-$(CONFIG_ROCKCHIP_SARADC) += rockchip_saradc.o
->   obj-$(CONFIG_RZG2L_ADC) += rzg2l_adc.o
->   obj-$(CONFIG_SC27XX_ADC) += sc27xx_adc.o
->   obj-$(CONFIG_SD_ADC_MODULATOR) += sd_adc_modulator.o
-> +obj-$(CONFIG_SOPHGO_CV18XX_ADC) += sophgo-cv18xx-adc.o
->   obj-$(CONFIG_SPEAR_ADC) += spear_adc.o
->   obj-$(CONFIG_STM32_ADC_CORE) += stm32-adc-core.o
->   obj-$(CONFIG_STM32_ADC) += stm32-adc.o
-> diff --git a/drivers/iio/adc/sophgo-cv18xx-adc.c b/drivers/iio/adc/sophgo-cv18xx-adc.c
-> new file mode 100644
-> index 000000000000..27e1aac9560f
-> --- /dev/null
-> +++ b/drivers/iio/adc/sophgo-cv18xx-adc.c
-> @@ -0,0 +1,206 @@
-> [......]
-> +
-> +static const struct of_device_id cv18xx_adc_match[] = {
-> +	{ .compatible = "sophgo,cv1800b-saradc", },
-> +	{ }
-> +};
-> +MODULE_DEVICE_TABLE(of, cv18xx_adc_match);
-> +
-> +static struct platform_driver cv18xx_adc_driver = {
-> +	.driver	= {
-> +		.name		= "sophgo-saradc",
-Add product name to differ other sogho soc. You can refer to 
-drivers/iio/adc/ti_am335x_adc.c.
-> +		.of_match_table	= cv18xx_adc_match,
-> +	},
-> +	.probe = cv18xx_adc_probe,
-> +};
-> +module_platform_driver(cv18xx_adc_driver);
-> +
-> +MODULE_AUTHOR("Thomas Bonnefille <thomas.bonnefille@bootlin.com>");
-> +MODULE_DESCRIPTION("Sophgo SARADC driver");
-Add product name to differ, don't use general name.
-> +MODULE_LICENSE("GPL");
->
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgoKWyBVcHN0cmVhbSBjb21t
+aXQgMzc5OTJiN2YxMDk3YmE3OWNhNzViYTVhMjZkZGNmMGY1NGY5MWEwOCBdCgpEdXJpbmcgbWVt
+b3J5IGhvdCByZW1vdmUsIHRoZSBwdGR1bXAgZnVuY3Rpb25hbGl0eSBjYW4gZW5kIHVwIHRvdWNo
+aW5nCnN0YWxlIGRhdGEuIEF2b2lkIGFueSBwb3RlbnRpYWwgY3Jhc2hlcyAob3Igd29yc2UpLCBi
+eSBob2xkaW5nIHRoZQptZW1vcnkgaG90cGx1ZyByZWFkLWxvY2sgd2hpbGUgdHJhdmVyc2luZyB0
+aGUgcGFnZSB0YWJsZS4KClRoaXMgY2hhbmdlIGlzIGFuYWxvZ291cyB0byBhcm02NCdzIGNvbW1p
+dCBiZjJiNTlmNjBlZTEgKCJhcm02NC9tbToKSG9sZCBtZW1vcnkgaG90cGx1ZyBsb2NrIHdoaWxl
+IHdhbGtpbmcgZm9yIGtlcm5lbCBwYWdlIHRhYmxlIGR1bXAiKS4KClJldmlld2VkLWJ5OiBEYXZp
+ZCBIaWxkZW5icmFuZCA8ZGF2aWRAcmVkaGF0LmNvbT4KUmV2aWV3ZWQtYnk6IE9zY2FyIFNhbHZh
+ZG9yIDxvc2FsdmFkb3JAc3VzZS5kZT4KU2lnbmVkLW9mZi1ieTogQmrDtnJuIFTDtnBlbCA8Ympv
+cm5Acml2b3NpbmMuY29tPgpMaW5rOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9yLzIwMjQwNjA1
+MTE0MTAwLjMxNTkxOC04LWJqb3JuQGtlcm5lbC5vcmcKU2lnbmVkLW9mZi1ieTogUGFsbWVyIERh
+YmJlbHQgPHBhbG1lckByaXZvc2luYy5jb20+ClNpZ25lZC1vZmYtYnk6IFNhc2hhIExldmluIDxz
+YXNoYWxAa2VybmVsLm9yZz4KLS0tCiBhcmNoL3Jpc2N2L21tL3B0ZHVtcC5jIHwgMyArKysKIDEg
+ZmlsZSBjaGFuZ2VkLCAzIGluc2VydGlvbnMoKykKCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L21t
+L3B0ZHVtcC5jIGIvYXJjaC9yaXNjdi9tbS9wdGR1bXAuYwppbmRleCAxMjg5Y2M2ZDM3MDBjLi45
+ZDVmNjU3YTI1MWIzIDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L21tL3B0ZHVtcC5jCisrKyBiL2Fy
+Y2gvcmlzY3YvbW0vcHRkdW1wLmMKQEAgLTYsNiArNiw3IEBACiAjaW5jbHVkZSA8bGludXgvZWZp
+Lmg+CiAjaW5jbHVkZSA8bGludXgvaW5pdC5oPgogI2luY2x1ZGUgPGxpbnV4L2RlYnVnZnMuaD4K
+KyNpbmNsdWRlIDxsaW51eC9tZW1vcnlfaG90cGx1Zy5oPgogI2luY2x1ZGUgPGxpbnV4L3NlcV9m
+aWxlLmg+CiAjaW5jbHVkZSA8bGludXgvcHRkdW1wLmg+CiAKQEAgLTM3MCw3ICszNzEsOSBAQCBi
+b29sIHB0ZHVtcF9jaGVja193eCh2b2lkKQogCiBzdGF0aWMgaW50IHB0ZHVtcF9zaG93KHN0cnVj
+dCBzZXFfZmlsZSAqbSwgdm9pZCAqdikKIHsKKwlnZXRfb25saW5lX21lbXMoKTsKIAlwdGR1bXBf
+d2FsayhtLCBtLT5wcml2YXRlKTsKKwlwdXRfb25saW5lX21lbXMoKTsKIAogCXJldHVybiAwOwog
+fQotLSAKMi40My4wCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
+ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
+aXNjdgo=
