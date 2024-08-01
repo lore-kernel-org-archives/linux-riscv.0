@@ -4,67 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEDAFC3DA64
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 15:10:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E98ACC3DA64
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 15:26:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VpIvqZ5dVI5oLPH3M5JtvR+6yXVXlysxkRyckZ8UyqM=; b=VcRgAEIGPa7IPr0Kt4GBMnI+4w
-	aiRwYWMlymL1qGIb6lhgjQU8guRhgxohM9YWfiKl24peQXxjx0og0A4sOotvTf9ghE6H1hZ7yGpP4
-	mVuUfmwgKLAdo1Qtl7f8XrvLdEoAooXIGgt9ghOv6ILtOsuhIky1YI1zwL7gNaAaj/kawjagYw/bT
-	/kz7J6y6k8lwWSlUF/tyd57OviFGFowi3VC5OjOZDYHhIk/+x6YgJfDUD10SOWuWYklVFuNiXSfAx
-	mO6AqT4p7lNAeo69h2eDQNUU7ecagVMIZqzQ3n0P7iMcTNSfAXUFM32loeXPVfkaGX8KKqgzZEO4i
-	s+MlDesg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=I6ujXM34kwbmJxkT7lX0u5GyKZdAySF/VShSrJYxi6Q=; b=VeA06tZFD9jR4+
+	U8xhG63GBEE8EKRFT7D+3F6E0aJLciTdU316w9MIxxIQF3+CtGI7HkuS+sq5vAZ+hnS8jftBx0u+c
+	7QbVloIe+RMgwgtb/hE5auO6YY2DPWT1KBk/+BZlX1Top7e1vvFtZTD5CTgPabkelA/W29mAlz3A4
+	akWdJDkjFHCUdYmKlVgoXB448duEQBbAupbkaIvShd2BdRsuhuwn0nezfynxzraaqcGlhN7j8+YVM
+	Agk/Hi5h8jF88G6EWoikyZt7rsRjaSVkev2i+N8AOjQ8xNLsPDlR/6DhC+2AwMx+PoetJdByLXHPU
+	EU2HUzWGawa0KYfvVWcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZXRI-00000005nke-1qB8;
-	Thu, 01 Aug 2024 15:10:00 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1sZXhQ-00000005rKM-0Ngl;
+	Thu, 01 Aug 2024 15:26:40 +0000
+Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZXRF-00000005nk7-03Kz
+	id 1sZXhO-00000005rJD-0zD0
 	for linux-riscv@lists.infradead.org;
-	Thu, 01 Aug 2024 15:09:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 4F217CE0B55;
-	Thu,  1 Aug 2024 15:09:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8095C32786;
-	Thu,  1 Aug 2024 15:09:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1722524994;
-	bh=kbvV4AlvhMw0jKJGpx/bRqh4DWyE7ZqZruWEjEQ6LL4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HdY7X/tFmCpcXLqCSIZGKkUOsNwAms3dfdCuzutVEYV21FG9OekVPWjti7ryadq8y
-	 SyR+NUgifiWNearG3mufdQdbV/YT0W3ngrOBL8yoziKgZCRh6d8aSzXqw63TgvrXo7
-	 4hJ+4wPVPp2Ct+B49GFQVFgGSvt2ihNr2sQxXPk0TjERG8VdtBerrehCFA8aK8Gok6
-	 15DhSVzsrv6tCELNnL+6bR0SbQO9F9Pf3kjZ8mINK3ze0Qobr/eyApZ3hWj+WOGxNS
-	 ZpVIkR9J0yKI7kBVtYlrjrU/BBCTAqMPNF6tss46OGuonqfTKcSmyKxZsvbwZF/SgU
-	 b5GyxIZpx58zQ==
-Date: Thu, 1 Aug 2024 16:09:49 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: Conor Dooley <conor.dooley@microchip.com>, linux-kernel@vger.kernel.org,
-	Marc Zyngier <maz@kernel.org>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [RFC v7 3/6] irqchip: add mpfs gpio interrupt mux
-Message-ID: <20240801-palpitate-swinger-7bc8ae8deaaf@spud>
-References: <20240723-supervise-drown-d5d3b303e7fd@wendy>
- <20240723-flatworm-cornflake-8023212f6584@wendy>
- <87le1k8oq2.ffs@tglx>
+	Thu, 01 Aug 2024 15:26:39 +0000
+Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-44fe76fa0b8so721421cf.0
+        for <linux-riscv@lists.infradead.org>; Thu, 01 Aug 2024 08:26:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1722525996; x=1723130796; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kJsisVlXsYheO37snVaNoupjzpA6f699hMvkHk44PW0=;
+        b=TWc1VWJhGZgY9/F8r7B4lMF5WvHgWPouYkT415R8e11u0j/6ifoYrfK8oBTHzaiWp8
+         dRe91N7sOEP/5EX8BkCVVtKsgMe+Ry0TYVv2EUQiLJXvsbMUKa8UdCkoZQpasizM31lm
+         Atcu7tYsBJDzkwyHg2JC1CNDSIe6QifykiTMheJu609ee1IT4ILmYEiANJnAO5ZCnp6P
+         jmbfsQDQAnrEpsCi6xTcHAOXd8mZZqt3AB4A+FHfNEZzGm21tDBH1iRzc1fzO3E+w8Mr
+         zG8+5KyJNmtsQyqcjHkvqrb0OJRpGpadWZGDN0NbRVSQXS2f88LtvlJaIGvW+q53dwp0
+         Jk4g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1722525996; x=1723130796;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=kJsisVlXsYheO37snVaNoupjzpA6f699hMvkHk44PW0=;
+        b=RoNLB/MLmB5sYbbiyAh0GRAOiiA5Wh4osvLqtxbE1+4tTdmF3glkK0Ro7Jw2Iey+9j
+         37XBBhiFgi4tU936jfFIWpEGwfIi9yU/oE+1eCqwKz8vs//HP/7W9ZZNifYcBQrSvwIo
+         EnBgRx2r0KR+Py0uSUyFNM3N3dPcZBYF4wxKnt7cn4z0fZ6+7FNeBKX8WEGjucYAXoyo
+         6bcv/MOLilWnVyWZ/yenl1naM8VzRWYWe8KyHS83FIKlRdGepD2EysWAT2MS3gJPlatg
+         038o7NLdgLvfhu40ESZ0wejLmZRV39Z2JpPetY4Ha1TvjkYnqtiSnhypT6NjH5ggfjfP
+         oF8g==
+X-Forwarded-Encrypted: i=1; AJvYcCUjMFuFq7XjK/guVmqm19tFRpM8SUDgQ0PQ0mxn4PiejVkVaIG+KIF4D9/eRcDGNEeHompjZomSMTKZS7qZ/8ad8a5vadkEIICKPRBKGpuo
+X-Gm-Message-State: AOJu0Yzo2gEyG1kfEwhUGL1lA1B+/SPi7iTmSN57IrPpyYPFq32SXJ+T
+	IoYxlVqW2kfPuKE1QlZmPi6/H9Fa7YZhOCwY2INPfexKDNhuI25zBy1gmyIaYi4079cfY6wDVBR
+	oVfFCgfxhoMtgSZKUrfPqm8Y8oTyxvBKZBxTf
+X-Google-Smtp-Source: AGHT+IFMASjGXKSuF0FnLFzbAgMwMf9+e1XvKKegyCNSTZDeHUACfQPHE9S5FaA15pCyPsL9NbtKplB7rSftZhJoQzg=
+X-Received: by 2002:ac8:7d8c:0:b0:447:d7ff:961d with SMTP id
+ d75a77b69052e-45181e6e4f1mr2046151cf.9.1722525996159; Thu, 01 Aug 2024
+ 08:26:36 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <87le1k8oq2.ffs@tglx>
+References: <20240719115018.27356-1-eric.lin@sifive.com> <20240729181927.1712841-1-atishp@rivosinc.com>
+In-Reply-To: <20240729181927.1712841-1-atishp@rivosinc.com>
+From: Ian Rogers <irogers@google.com>
+Date: Thu, 1 Aug 2024 08:26:24 -0700
+Message-ID: <CAP-5=fUJh6zzpiFcYwxMjxk7O3eOZWTVvzOB_zt+twcbnZMYXA@mail.gmail.com>
+Subject: Re: [v2] perf arch events: Fix duplicate RISC-V SBI firmware event name
+To: Atish Patra <atishp@rivosinc.com>
+Cc: eric.lin@sifive.com, peterz@infradead.org, mingo@redhat.com, 
+	acme@kernel.org, namhyung@kernel.org, alexander.shishkin@linux.intel.com, 
+	jolsa@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	peterlin@andestech.com, dminus@andestech.com, locus84@andestech.com, 
+	jisheng.teoh@starfivetech.com, inochiama@outlook.com, n.shubin@yadro.com, 
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, Samuel Holland <samuel.holland@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240801_080957_423573_D83F3BC4 
-X-CRM114-Status: GOOD (  25.56  )
+X-CRM114-CacheID: sfid-20240801_082638_282202_4E59BA32 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,150 +90,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5902705488622322453=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============5902705488622322453==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="11AmpaTIfaZfcutl"
-Content-Disposition: inline
-
-
---11AmpaTIfaZfcutl
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Mon, Jul 29, 2024 at 12:41:25PM +0200, Thomas Gleixner wrote:
-> On Tue, Jul 23 2024 at 12:27, Conor Dooley wrote:
-> > +
-> > +struct mpfs_irq_mux_bank_config {
-> > +	u32 mask;
-> > +	u8 shift;
-> > +};
->=20
-> Please see:
->=20
->   https://www.kernel.org/doc/html/latest/process/maintainer-tip.html
->=20
-> vs. coding style.
->=20
-> > +/*
-> > + * Returns an unsigned long, where a set bit indicates the correspondi=
-ng
-> > + * interrupt is in non-direct/muxed mode for that bank/GPIO controller.
-> > + */
-> > +static inline unsigned long mpfs_irq_mux_get_muxed_irqs(struct mpfs_ir=
-q_mux *priv,
-> > +							unsigned int bank)
-> > +{
-> > +	unsigned long mux_config =3D priv->mux_config, muxed_irqs =3D -1;
-> > +	struct mpfs_irq_mux_bank_config bank_config =3D mpfs_irq_mux_bank_con=
-figs[bank];
-> > +
-> > +	/*
-> > +	 * If a bit is set in the mux, GPIO the corresponding interrupt from
-> > +	 * controller 2 is direct and that controllers 0 or 1 is muxed.
->=20
-> This is not a coherent sentence.
-
-It should read "controller 0 or 1;s interrupt is muxed". Does that make
-more sense to you?
-
-> > +	 * Invert the bits in the configuration register, so that set bits
-> > +	 * equate to non-direct mode, for GPIO controller 2.
-> > +	 */
-> > +	if (bank =3D=3D 2u)
-> > +		mux_config =3D ~mux_config;
-> > +
->=20
-> > +static int mpfs_irq_mux_nondirect_alloc(struct irq_domain *d, unsigned=
- int virq,
-> > +					struct irq_fwspec *fwspec, struct mpfs_irq_mux *priv)
-> > +{
-> > +	unsigned int bank =3D fwspec->param[0] / MPFS_MAX_IRQS_PER_GPIO;
-> > +
-> > +	if (bank > 2)
-> > +		return -EINVAL;
-> > +
-> > +	priv->nondirect_irqchips[bank].domain =3D d;
-> > +
-> > +	irq_domain_set_hwirq_and_chip(d, virq, fwspec->param[0],
-> > +				      &mpfs_irq_mux_nondirect_irq_chip, priv);
-> > +	irq_set_chained_handler_and_data(virq, handle_untracked_irq,
->=20
-> Why does this use handle_untracked_irq()?
-
-I'll have to go and dig back in my notes as to why it is untracked. It
-was probably something like irqd_set() in handle_irq_event() blowing up
-on the irq_data being invalid (which I figure could relate back to my
-questions in the cover letter about issues with irqd_to_hwirq()) - but
-I'll double check what exactly prompted it when I get back from my
-holidays, but...
-
-> This sets up a chained handler
-> but handle_untracked_irq() is a regular interrupt handler.
-
-=2E..what I was likely using before was handle_simple_irq() which isn't
-chained either. You're expecting to see mpfs_irq_mux_nondirect_handler()
-here I suppose?
-
->+static void mpfs_irq_mux_nondirect_handler(struct irq_desc *desc)
->+{
->+	struct mpfs_irq_mux_irqchip *irqchip_data =3D irq_desc_get_handler_data(=
-desc);
->+	struct mpfs_irq_mux *priv =3D container_of(irqchip_data, struct mpfs_irq=
-_mux,
->+						 nondirect_irqchips[irqchip_data->bank]);
->+	unsigned long muxed_irqs;
->+	int pos;
->+
->+	chained_irq_enter(irq_desc_get_chip(desc), desc);
->+
->+	muxed_irqs =3D mpfs_irq_mux_get_muxed_irqs(priv, irqchip_data->bank);
->+
->+	for_each_set_bit(pos, &muxed_irqs, MPFS_MAX_IRQS_PER_GPIO)
->+		generic_handle_domain_irq(irqchip_data->domain, irqchip_data->offset + =
-pos);
->+
->+	chained_irq_exit(irq_desc_get_chip(desc), desc);
->+}
-
-Given you've only commented on one significant issue and two minor items,
-is it safe to conclude that the overall approach doesn't have you
-screaming and running for the hills?
-
-Cheers,
-Conor.
-
-> > +					 &priv->nondirect_irqchips[bank]);
-
---11AmpaTIfaZfcutl
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZqulPQAKCRB4tDGHoIJi
-0sKFAP9oHaSYPhW8FIkf4ssGaWWv0SILb0BeDNlL+8x69V02NwEAiitNydpF/yk7
-SFtK2kbzZYCnFccFMEDAeC8qRGJpQQ0=
-=MaNi
------END PGP SIGNATURE-----
-
---11AmpaTIfaZfcutl--
-
-
---===============5902705488622322453==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5902705488622322453==--
-
+T24gTW9uLCBKdWwgMjksIDIwMjQgYXQgMTE6MTnigK9BTSBBdGlzaCBQYXRyYSA8YXRpc2hwQHJp
+dm9zaW5jLmNvbT4gd3JvdGU6Cj4KPiA+IEN1cnJlbnRseSwgdGhlIFJJU0MtViBmaXJtd2FyZSBK
+U09OIGZpbGUgaGFzIGR1cGxpY2F0ZSBldmVudCBuYW1lCj4gPiAiRldfU0ZFTkNFX1ZNQV9SRUNF
+SVZFRCIuIEFjY29yZGluZyB0byB0aGUgUklTQy1WIFNCSSBQTVUgZXh0ZW5zaW9uWzFdLAo+ID4g
+dGhlIGV2ZW50IG5hbWUgc2hvdWxkIGJlICJGV19TRkVOQ0VfVk1BX0FTSURfU0VOVCIuCj4gPgo+
+ID4gQmVmb3JlIHRoaXMgcGF0Y2g6Cj4gPiAkIHBlcmYgbGlzdAo+ID4KPiA+IGZpcm13YXJlOgo+
+ID4gICBmd19hY2Nlc3NfbG9hZAo+ID4gICAgICAgIFtMb2FkIGFjY2VzcyB0cmFwIGV2ZW50LiBV
+bml0OiBjcHVdCj4gPiAgIGZ3X2FjY2Vzc19zdG9yZQo+ID4gICAgICAgIFtTdG9yZSBhY2Nlc3Mg
+dHJhcCBldmVudC4gVW5pdDogY3B1XQo+ID4gLi4uLgo+ID4gIGZ3X3NldF90aW1lcgo+ID4gICAg
+ICAgIFtTZXQgdGltZXIgZXZlbnQuIFVuaXQ6IGNwdV0KPiA+ICAgZndfc2ZlbmNlX3ZtYV9hc2lk
+X3JlY2VpdmVkCj4gPiAgICAgICAgW1JlY2VpdmVkIFNGRU5DRS5WTUEgd2l0aCBBU0lEIHJlcXVl
+c3QgZnJvbSBvdGhlciBIQVJUIGV2ZW50LiBVbml0OiBjcHVdCj4gPiAgIGZ3X3NmZW5jZV92bWFf
+cmVjZWl2ZWQKPiA+ICAgICAgICBbU2VudCBTRkVOQ0UuVk1BIHdpdGggQVNJRCByZXF1ZXN0IHRv
+IG90aGVyIEhBUlQgZXZlbnQuIFVuaXQ6IGNwdV0KPiA+Cj4gPiBBZnRlciB0aGlzIHBhdGNoOgo+
+ID4gJCBwZXJmIGxpc3QKPiA+Cj4gPiBmaXJtd2FyZToKPiA+ICAgZndfYWNjZXNzX2xvYWQKPiA+
+ICAgICAgICBbTG9hZCBhY2Nlc3MgdHJhcCBldmVudC4gVW5pdDogY3B1XQo+ID4gICBmd19hY2Nl
+c3Nfc3RvcmUKPiA+ICAgICAgICBbU3RvcmUgYWNjZXNzIHRyYXAgZXZlbnQuIFVuaXQ6IGNwdV0K
+PiA+IC4uLi4uCj4gPiAgIGZ3X3NldF90aW1lcgo+ID4gICAgICAgIFtTZXQgdGltZXIgZXZlbnQu
+IFVuaXQ6IGNwdV0KPiA+ICAgZndfc2ZlbmNlX3ZtYV9hc2lkX3JlY2VpdmVkCj4gPiAgICAgICAg
+W1JlY2VpdmVkIFNGRU5DRS5WTUEgd2l0aCBBU0lEIHJlcXVlc3QgZnJvbSBvdGhlciBIQVJUIGV2
+ZW50LiBVbml0OiBjcHVdCj4gPiAgIGZ3X3NmZW5jZV92bWFfYXNpZF9zZW50Cj4gPiAgICAgICAg
+W1NlbnQgU0ZFTkNFLlZNQSB3aXRoIEFTSUQgcmVxdWVzdCB0byBvdGhlciBIQVJUIGV2ZW50LiBV
+bml0OiBjcHVdCj4gPiAgIGZ3X3NmZW5jZV92bWFfcmVjZWl2ZWQKPiA+ICAgICAgICBbUmVjZWl2
+ZWQgU0ZFTkNFLlZNQSByZXF1ZXN0IGZyb20gb3RoZXIgSEFSVCBldmVudC4gVW5pdDogY3B1XQo+
+ID4KPiA+IExpbms6IGh0dHBzOi8vZ2l0aHViLmNvbS9yaXNjdi1ub24taXNhL3Jpc2N2LXNiaS1k
+b2MvYmxvYi9tYXN0ZXIvc3JjL2V4dC1wbXUuYWRvYyNldmVudC1maXJtd2FyZS1ldmVudHMtdHlw
+ZS0xNSBbMV0KPiA+IEZpeGVzOiA4ZjBkY2I0ZTczNjQgKCJwZXJmIGFyY2ggZXZlbnRzOiByaXNj
+diBzYmkgZmlybXdhcmUgc3RkIGV2ZW50IGZpbGVzIikKPiA+IEZpeGVzOiBjNGY3NjlkNDA5M2Qg
+KCJwZXJmIHZlbmRvciBldmVudHMgcmlzY3Y6IGFkZCBTaWZpdmUgVTc0IEpTT04gZmlsZSIpCj4g
+PiBGaXhlczogYWNiZjZkZTY3NGVmICgicGVyZiB2ZW5kb3IgZXZlbnRzIHJpc2N2OiBBZGQgU3Rh
+ckZpdmUgRHViaGUtODAgSlNPTiBmaWxlIikKPiA+IEZpeGVzOiA3MzQwYzZkZjQ5ZGYgKCJwZXJm
+IHZlbmRvciBldmVudHMgcmlzY3Y6IGFkZCBULUhFQUQgQzl4eCBKU09OIGZpbGUiKQo+ID4gRml4
+ZXM6IGY1MTAyZTMxYzIwOSAoInJpc2N2OiBhbmRlczogU3VwcG9ydCBzcGVjaWZ5aW5nIHN5bWJv
+bGljIGZpcm13YXJlIGFuZCBoYXJkd2FyZSByYXcgZXZlbnQiKQo+ID4gU2lnbmVkLW9mZi1ieTog
+RXJpYyBMaW4gPGVyaWMubGluQHNpZml2ZS5jb20+Cj4gPiBSZXZpZXdlZC1ieTogU2FtdWVsIEhv
+bGxhbmQgPHNhbXVlbC5ob2xsYW5kQHNpZml2ZS5jb20+Cj4gPiBSZXZpZXdlZC1ieTogTmlraXRh
+IFNodWJpbiA8bi5zaHViaW5AeWFkcm8uY29tPgo+ID4gLS0tCj4gPiBDaGFuZ2VzIHNpbmNlIFYx
+Ogo+ID4gIC0gQWRkICJGaXhlczoiIHRhZyBmb3IgZXZlcnkgcGF0Y2ggdGhhdCBjb3BpZWQgZmly
+bXdhcmUuanNvbgo+IFJldmlld2VkLWJ5OiBBdGlzaCBQYXRyYSA8YXRpc2hwQHJpdm9zaW5jLmNv
+bT4KClJldmlld2VkLWJ5OiBJYW4gUm9nZXJzIDxpcm9nZXJzQGdvb2dsZS5jb20+CgpUaGFua3Ms
+CklhbgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
+dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
+cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
