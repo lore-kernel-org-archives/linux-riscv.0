@@ -4,69 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCB88C3DA4A
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 18:49:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96A92C3DA4A
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 19:01:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5Qi5vbk31sSC+Q5Cj1Q657VsH9xjlmrxeUc1SiQgUek=; b=2M6icvxwc+wzyD
-	6jmkfZx6QSWUN5kO/fS2vRfu7DDfpwu6kFLx48/ZCJgo3nQXdJN2dhTOISExCy+i7g39AYnbkIzCg
-	vAW2hU9Klgb+gBoHS/ZyVxTDYi8oofValt0N3IkRWiR+eofRkbC4uI4e34YNSJFKi3oWOgXiOjTTm
-	SUCb/eJQsoGaLvNb9S/jkR6zrheMJ8nw+LIGSfbr/ArXMeiIKlrJ7Ok5qg7KhHsS70A8/LKDrRbkP
-	nLwwgmT9gBMuLB3OwXF0ermeaIur8NInmzXMgBnDxPODUpPQCHDaW7Jmm4UHAiCTjiUsngRJa+nCw
-	MC02/xI3gUWS+YCmJSBQ==;
+	List-Owner; bh=cJ5k/xSsVJW4lI5FjCzTMJoAct4vGiU1DwWrAeONhi4=; b=Bq1NqpEwAEtzrz
+	EOvtxbWbmDZsncHLDJiRkNhGmZXr4dGTNZ5mBBE9KvyMl9UU50aHuD/FicONipW0cBq1CtTNjWy8M
+	STFtedHiF1KWir0kMlzvnJd+WtHEARv82vIgrQLp9Rx016CPshHbPJfAZ0zfVBN0tPSv553sckvkG
+	gqf24JbZsBsVV/BytADEskJetKN1Yk2qTJjrtM57JsZ81srEcwJ+C7E3qdGRYIDGaYxM+WCUzF/Oe
+	FTr3qXRvCR3pcYBXdtxNefdn1nzE6/OEbRYMPxkZN8QQ5tkGhG6h7gxNuvnu+heOMeDLRbwDDweCi
+	zlWMJ/rblSG95wSxCZfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZarV-00000006RuG-2xys;
-	Thu, 01 Aug 2024 18:49:17 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1sZb39-00000006TUc-20JH;
+	Thu, 01 Aug 2024 19:01:19 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZarQ-00000006Rse-4BIs
-	for linux-riscv@lists.infradead.org;
-	Thu, 01 Aug 2024 18:49:16 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1722538149;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zy4QAbBchws8wpEd632QvvKsWpoM4onCh56dsKjIHlQ=;
-	b=V/R18hQLq+jyQoLBzyEA/jn4Fzajd35TRSiGYLRaN/IJiictIcX6L3AmjSn/d3co88iSHu
-	bubzfHPnaZfsdZV+n9L6x0BH+0IDUzw4uWIiBLHtgmyyZRkKUc3z2lbAE7MFUFieOJQtr6
-	/K2h2pJ1GL5UKwSIn6qNY7EqGmRnc7NfuLvUYsEbgz315JLujAFOuyuCsxlfhcCkjCj1rw
-	9DAtO6VQGNm9NaCdKm+7p8mHC22oedrL3kc89L3/FE/HF+TkVc/1a8BEn4v4VvUc8p9cZd
-	F33M1ajTN9rT2zJyvvJgW1OyXO6NdrO66oFuFxLBUtr01FKDFp6spDwVwNwiBA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1722538149;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zy4QAbBchws8wpEd632QvvKsWpoM4onCh56dsKjIHlQ=;
-	b=TB16bH+7FY9c5h6o6aIywattKgBHBOAnvaRdWLpcsYODy3h8ds9MT5TvjCSdJWS3Y5wMeK
-	KUR0S+I/dHQsuzAw==
-To: Conor Dooley <conor@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>, linux-kernel@vger.kernel.org,
- Marc Zyngier <maz@kernel.org>, Daire McNamara
- <daire.mcnamara@microchip.com>, Linus Walleij <linus.walleij@linaro.org>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org
-Subject: Re: [RFC v7 3/6] irqchip: add mpfs gpio interrupt mux
-In-Reply-To: <20240801-palpitate-swinger-7bc8ae8deaaf@spud>
-References: <20240723-supervise-drown-d5d3b303e7fd@wendy>
- <20240723-flatworm-cornflake-8023212f6584@wendy> <87le1k8oq2.ffs@tglx>
- <20240801-palpitate-swinger-7bc8ae8deaaf@spud>
-Date: Thu, 01 Aug 2024 20:49:08 +0200
-Message-ID: <87r0b82i57.ffs@tglx>
+	id 1sZZu0-00000006I6O-2Tp9;
+	Thu, 01 Aug 2024 17:47:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=A/pGB8CPFMxkatBosLBj4Yyq2m9GZhAMAQ3JjJn7/ng=; b=HvI3wCc8bLBWrS2R+QxQpRjGnS
+	PvCMIuMeQ413mtcuQ2/PftmkcTjqqZNI/x6noE8JdPaBnnaCLM38mHOqKrZFdhh1hl766jT41AvLe
+	Nt7U1rDCJeD27h6A1V8DmooofHe/CDw8G/bn4UDBXoh+7YTfJzDhVd6dyMiT/Vb2hd3iHaZOtfp13
+	89tr/tFm67j0QdngLmZ+iXw7u6dd2YXgSSj1p8a4zIfQhhqZ25sItqe2UdlCYf9lV4DrxSLZljTkT
+	nmurmpNXAEAYq71Iq01EjYIjBM8tJgPleHyBjuvDTwT+bmO6AMeFjffn3F41Tb53jNzch5/sDkmh9
+	VjpoGfew==;
+Received: from frasgout.his.huawei.com ([185.176.79.56])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1sZZtx-00000005XkO-1qOU;
+	Thu, 01 Aug 2024 17:47:47 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4WZbvg4GP6z6K91N;
+	Fri,  2 Aug 2024 01:45:03 +0800 (CST)
+Received: from lhrpeml500005.china.huawei.com (unknown [7.191.163.240])
+	by mail.maildlp.com (Postfix) with ESMTPS id DD56C140B55;
+	Fri,  2 Aug 2024 01:47:39 +0800 (CST)
+Received: from localhost (10.203.177.66) by lhrpeml500005.china.huawei.com
+ (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Thu, 1 Aug
+ 2024 18:47:38 +0100
+Date: Thu, 1 Aug 2024 18:47:38 +0100
+From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
+To: Mike Rapoport <rppt@kernel.org>
+CC: <linux-kernel@vger.kernel.org>, Alexander Gordeev
+	<agordeev@linux.ibm.com>, Andreas Larsson <andreas@gaisler.com>, "Andrew
+ Morton" <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>, "Borislav
+ Petkov" <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>, Christophe
+ Leroy <christophe.leroy@csgroup.eu>, Dan Williams <dan.j.williams@intel.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>, David Hildenbrand
+	<david@redhat.com>, "David S. Miller" <davem@davemloft.net>, Davidlohr Bueso
+	<dave@stgolabs.net>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>, Heiko
+ Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>, Ingo
+ Molnar <mingo@redhat.com>, Jiaxun Yang <jiaxun.yang@flygoat.com>, "John Paul
+ Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>, Jonathan Corbet
+	<corbet@lwn.net>, Michael Ellerman <mpe@ellerman.id.au>, Palmer Dabbelt
+	<palmer@dabbelt.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Rob Herring
+	<robh@kernel.org>, Samuel Holland <samuel.holland@sifive.com>, Thomas
+ Bogendoerfer <tsbogend@alpha.franken.de>, Thomas Gleixner
+	<tglx@linutronix.de>, "Vasily Gorbik" <gor@linux.ibm.com>, Will Deacon
+	<will@kernel.org>, Zi Yan <ziy@nvidia.com>, <devicetree@vger.kernel.org>,
+	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-cxl@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>, <linux-mips@vger.kernel.org>,
+	<linux-mm@kvack.org>, <linux-riscv@lists.infradead.org>,
+	<linux-s390@vger.kernel.org>, <linux-sh@vger.kernel.org>,
+	<linuxppc-dev@lists.ozlabs.org>, <loongarch@lists.linux.dev>,
+	<nvdimm@lists.linux.dev>, <sparclinux@vger.kernel.org>, <x86@kernel.org>
+Subject: Re: [PATCH v3 06/26] MIPS: loongson64: drop
+ HAVE_ARCH_NODEDATA_EXTENSION
+Message-ID: <20240801184738.00003e6e@Huawei.com>
+In-Reply-To: <20240801060826.559858-7-rppt@kernel.org>
+References: <20240801060826.559858-1-rppt@kernel.org>
+	<20240801060826.559858-7-rppt@kernel.org>
+Organization: Huawei Technologies Research and Development (UK) Ltd.
+X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
 MIME-Version: 1.0
+X-Originating-IP: [10.203.177.66]
+X-ClientProxiedBy: lhrpeml500001.china.huawei.com (7.191.163.213) To
+ lhrpeml500005.china.huawei.com (7.191.163.240)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240801_114913_201565_46D8CA61 
-X-CRM114-Status: GOOD (  20.67  )
+X-CRM114-CacheID: sfid-20240801_184745_610378_A4005FFE 
+X-CRM114-Status: GOOD (  17.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,50 +108,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 01 2024 at 16:09, Conor Dooley wrote:
-> On Mon, Jul 29, 2024 at 12:41:25PM +0200, Thomas Gleixner wrote:
->> > +	/*
->> > +	 * If a bit is set in the mux, GPIO the corresponding interrupt from
->> > +	 * controller 2 is direct and that controllers 0 or 1 is muxed.
->> 
->> This is not a coherent sentence.
->
-> It should read "controller 0 or 1;s interrupt is muxed". Does that make
-> more sense to you?
+On Thu,  1 Aug 2024 09:08:06 +0300
+Mike Rapoport <rppt@kernel.org> wrote:
 
-No: If a bit is set in the mux, GPIO the corresponding...
+> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+> 
+> Commit f8f9f21c7848 ("MIPS: Fix build error for loongson64 and
+> sgi-ip27") added HAVE_ARCH_NODEDATA_EXTENSION to loongson64 to silence a
+> compilation error that happened because loongson64 didn't define array
+> of pg_data_t as node_data like most other architectures did.
+> 
+> After rename of __node_data to node_data arch_alloc_nodedata() and
+> HAVE_ARCH_NODEDATA_EXTENSION can be dropped from loongson64.
+> 
+> Since it was the only user of HAVE_ARCH_NODEDATA_EXTENSION config option
+> also remove this option from arch/mips/Kconfig.
+> 
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 
-I'm already failing at 'GPIO'. My parser expects a verb there :)
+These are as you say now identical to the generic form, so
+don't need a special version for any reason I can see.
 
->> > +	irq_set_chained_handler_and_data(virq, handle_untracked_irq,
->> 
->> Why does this use handle_untracked_irq()?
->
-> I'll have to go and dig back in my notes as to why it is untracked. It
-> was probably something like irqd_set() in handle_irq_event() blowing up
-> on the irq_data being invalid (which I figure could relate back to my
-> questions in the cover letter about issues with irqd_to_hwirq()) - but
-> I'll double check what exactly prompted it when I get back from my
-> holidays, but...
->
->> This sets up a chained handler
->> but handle_untracked_irq() is a regular interrupt handler.
->
-> ...what I was likely using before was handle_simple_irq() which isn't
-> chained either. You're expecting to see mpfs_irq_mux_nondirect_handler()
-> here I suppose?
+Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 
-Yes or some other proper chained handler.
 
-> Given you've only commented on one significant issue and two minor items,
-> is it safe to conclude that the overall approach doesn't have you
-> screaming and running for the hills?
+> ---
+>  arch/mips/Kconfig           |  4 ----
+>  arch/mips/loongson64/numa.c | 10 ----------
+>  2 files changed, 14 deletions(-)
+> 
+> diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
+> index ea5f3c3c31f6..43da6d596e2b 100644
+> --- a/arch/mips/Kconfig
+> +++ b/arch/mips/Kconfig
+> @@ -502,7 +502,6 @@ config MACH_LOONGSON64
+>  	select USE_OF
+>  	select BUILTIN_DTB
+>  	select PCI_HOST_GENERIC
+> -	select HAVE_ARCH_NODEDATA_EXTENSION if NUMA
+>  	help
+>  	  This enables the support of Loongson-2/3 family of machines.
+>  
+> @@ -2612,9 +2611,6 @@ config NUMA
+>  config SYS_SUPPORTS_NUMA
+>  	bool
+>  
+> -config HAVE_ARCH_NODEDATA_EXTENSION
+> -	bool
+> -
+>  config RELOCATABLE
+>  	bool "Relocatable kernel"
+>  	depends on SYS_SUPPORTS_RELOCATABLE
+> diff --git a/arch/mips/loongson64/numa.c b/arch/mips/loongson64/numa.c
+> index b50ce28d2741..64fcfaa885b6 100644
+> --- a/arch/mips/loongson64/numa.c
+> +++ b/arch/mips/loongson64/numa.c
+> @@ -198,13 +198,3 @@ void __init prom_init_numa_memory(void)
+>  	pr_info("CP0_PageGrain: CP0 5.1 (0x%x)\n", read_c0_pagegrain());
+>  	prom_meminit();
+>  }
+> -
+> -pg_data_t * __init arch_alloc_nodedata(int nid)
+> -{
+> -	return memblock_alloc(sizeof(pg_data_t), SMP_CACHE_BYTES);
+> -}
+> -
+> -void arch_refresh_nodedata(int nid, pg_data_t *pgdat)
+> -{
+> -	node_data[nid] = pgdat;
+> -}
 
-I don't love it, but I don't have a better approach to deal with this.
-
-Thanks,
-
-        tglx
 
 _______________________________________________
 linux-riscv mailing list
