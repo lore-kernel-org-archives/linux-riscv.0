@@ -4,97 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10786C3DA4A
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 18:38:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A374C3DA4A
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 18:46:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=r+jj6EAdy+v17OFhwpqOt3QzxrLlts4xjgg8eRuIGjY=; b=LRopivwxuWL54E
-	+kyyvn5vxfmgx7jhCIcqvKOYNjSHPdZmiv/aYKhVeUHbTc5ik2OB7Zjus8lWzz32rh4XqyhLe33Ed
-	XCa1m/P71tjQrMpacCiQt0FAkGxUZHAbsqcfZLibgJEx2PuB1+ft6m43xYwwrPDTlJUxGBltcN9Nr
-	UYx4ezu68UMTwbMGXzqBU+4FQ47NTazFbw67mYCTEBu2b+kZuTaFilJppgsDKt8e3u0EL7rhvei2c
-	t6XIELxXOjilyAuDSpJ6/w0qZp+JZsFWNr0+YZcLbPgqyE05SIA+Zmn0Fs8jt6xk2z5DBlNLmx0u7
-	9a07t5fl8vYZg0VPr72Q==;
+	List-Owner; bh=zj1Bp8HZtZ5KUy0+7cQznjc3uaD0Raq+wAkr36iTln8=; b=usrgnpEFyq8oYg
+	6cBRY3X7uW7tidCU42NakWO8Z7r6dFOq59v9kYjHzUGLQvYz04lHeA9moXf0KTYaCYQ2FBMq0713x
+	xA2OKzT0uGz/HSOztDbOIRJuVPW0IGTI89QrJFfIeoQaasgad4bf2KxcD3rIkCYh938ezsRfSr4ZM
+	osG0plW30zOxn1gzPQHT+4zfGJ0sKk/xChekEEKZDpsygLZnmNcs11k9Xc6LnMaprgV8GXV+WR8mC
+	+smSKm6bA5f2Xk5Ii25XOSWrKEKa7lY0fLLrNfQndmpaFJ3It07YIZ/I5+YyH1ihZvnN/1onQhqPu
+	MX9xghiA/LKr146a64VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZah0-00000006PYL-36F2;
-	Thu, 01 Aug 2024 18:38:26 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1sZaoc-00000006RDF-440R;
+	Thu, 01 Aug 2024 18:46:18 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZagx-00000006PW2-0BYR
-	for linux-riscv@lists.infradead.org;
-	Thu, 01 Aug 2024 18:38:24 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-2cf98ba0559so3753188a91.2
-        for <linux-riscv@lists.infradead.org>; Thu, 01 Aug 2024 11:38:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1722537502; x=1723142302; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Tk3fdWOrHxhGe/z2L68pKaBMmRMZIgpiOTECkCtz9Bg=;
-        b=Vv6QDrCzcNRRYt229wbrXDd4QeSzQI91Lu7RcbivpzU0cTGtxdEySbCZhbhvZRYY/z
-         lT3YXnf1lEzz7YjMO7chUw0YAE7cC9/Det2PjuZ+IeBa0KZNXys/3cC/L+ZZnF5O1gft
-         R6b6pBJcRs+Eb7Ixb2OpAWlwiaC7DjaKh6h5p/GyPwILdZcuDs/QhcIGs3yGrOiVtsab
-         RP81Q76fylVNnCsvjmDySyXqHm/vkBCU1m3SZr8hFnoE/4fx+SZ9JeekmzPzniBD4Gqz
-         kFXNay/INlsi2yszyXbT6Sx+7uda60M/ctbBwdUwhkgE7yR+P6h67TK/roI7HCHAQoWz
-         kn9A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722537502; x=1723142302;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Tk3fdWOrHxhGe/z2L68pKaBMmRMZIgpiOTECkCtz9Bg=;
-        b=o1hHp4C/P3nq5wtOksHFVuDEdznfz5YSwudwGPWDTuqunbM5lkc+RsQni9TRPJjfWe
-         a2hcr10gKqGCmVOwty44pRZjszbIKDkTcjUVBZTq98ZOPQghoDBASdr9Aw6EyN+pPZdx
-         RmaUT84HXIj8PHgdolajKP5sBG8s53dPLdhWlKtWroFFtME5Su6HBBYClEACwXi+MGMy
-         m/RD15IAHGgKwIWzr+ADvTXmqYhwL1F8Xg1qMh6nXcnlFePb5mBWo7RwYGASrHlzL4Ex
-         5uzuD0sYnLVg35631cbsYSk2mR6e7GpSj7J/TTO1qpqK0dFl0TKrXBTM1wA3TnK2o1ua
-         /HRA==
-X-Gm-Message-State: AOJu0YzIUjTOONMYt+s4YG4gJ9zg5yV/bdDxTW16JkBQltyOOP9zfhHt
-	jmVfPCerMW5KgQFEF5nds9Vg3WEOuNAxVVQHDtO5J+iKPCN7U08Q3OGcQeMJYKs=
-X-Google-Smtp-Source: AGHT+IEivcdDbgQ5UTdJZvwjjzFBFMbO3AfwipXdPpcaMO6VuyrFNirJJMGYJHlNvMzav90dOHGVZA==
-X-Received: by 2002:a17:90b:33ca:b0:2cb:f9e:3bfb with SMTP id 98e67ed59e1d1-2cff952bdf1mr1296175a91.32.1722537501642;
-        Thu, 01 Aug 2024 11:38:21 -0700 (PDT)
-Received: from [127.0.1.1] ([2601:1c2:1802:170:dfa1:41a7:9478:9d47])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2cffaf69d54sm279728a91.12.2024.08.01.11.38.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Aug 2024 11:38:21 -0700 (PDT)
-From: Drew Fustini <drew@pdp7.com>
-Date: Thu, 01 Aug 2024 11:38:05 -0700
-Subject: [PATCH 1/6] riscv: dts: thead: Add TH1520 AP_SUBSYS clock
- controller
+	id 1sZZqt-00000006HVX-3kkM;
+	Thu, 01 Aug 2024 17:44:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=LXnybphf572bwJQi7c32ZGhQObLEFsQQQZzWOfMLtks=; b=fc3/JXegpm5HZrzoF78l/pRszb
+	+7Jk9YqMPpc8ar+uFDT3Tudzw8WpVqrHrmWqPsPssrInSt4BvMiF963XqhXFmS4xZapLMwC/rWv5b
+	dkO1ByT8WGD0wipIOhLH2osk8kWTmqVaRelsoP6uKhFEoahsIfTt7uLKYm6jA/ihUxMk6KLfs6+3k
+	Wx9KJf1FxKjHBTBiPg+iW8qcvOuzUOiTnGG+Mqwg+SqYN/7a7D4F6h6ljYXoVWJL8q1PWgU/UrxS4
+	JqayMwIQSShzRvCj6rlTNAQr5+35LUGT+EmFUtkNFcOX6wU9XxfEKfA35Q/uMl0Hc+2xYwpwoIEhd
+	KMrh8Xhg==;
+Received: from frasgout.his.huawei.com ([185.176.79.56])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1sZZqo-00000005XAI-3u1J;
+	Thu, 01 Aug 2024 17:44:33 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.31])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4WZbqf2c9cz6K6MB;
+	Fri,  2 Aug 2024 01:41:34 +0800 (CST)
+Received: from lhrpeml500005.china.huawei.com (unknown [7.191.163.240])
+	by mail.maildlp.com (Postfix) with ESMTPS id 6C75C1400F4;
+	Fri,  2 Aug 2024 01:44:10 +0800 (CST)
+Received: from localhost (10.203.177.66) by lhrpeml500005.china.huawei.com
+ (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Thu, 1 Aug
+ 2024 18:44:09 +0100
+Date: Thu, 1 Aug 2024 18:44:08 +0100
+From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
+To: Mike Rapoport <rppt@kernel.org>
+CC: <linux-kernel@vger.kernel.org>, Alexander Gordeev
+	<agordeev@linux.ibm.com>, Andreas Larsson <andreas@gaisler.com>, "Andrew
+ Morton" <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>, "Borislav
+ Petkov" <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>, Christophe
+ Leroy <christophe.leroy@csgroup.eu>, Dan Williams <dan.j.williams@intel.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>, David Hildenbrand
+	<david@redhat.com>, "David S. Miller" <davem@davemloft.net>, Davidlohr Bueso
+	<dave@stgolabs.net>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>, Heiko
+ Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>, Ingo
+ Molnar <mingo@redhat.com>, Jiaxun Yang <jiaxun.yang@flygoat.com>, "John Paul
+ Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>, Jonathan Corbet
+	<corbet@lwn.net>, Michael Ellerman <mpe@ellerman.id.au>, Palmer Dabbelt
+	<palmer@dabbelt.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Rob Herring
+	<robh@kernel.org>, Samuel Holland <samuel.holland@sifive.com>, Thomas
+ Bogendoerfer <tsbogend@alpha.franken.de>, Thomas Gleixner
+	<tglx@linutronix.de>, "Vasily Gorbik" <gor@linux.ibm.com>, Will Deacon
+	<will@kernel.org>, Zi Yan <ziy@nvidia.com>, <devicetree@vger.kernel.org>,
+	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-cxl@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>, <linux-mips@vger.kernel.org>,
+	<linux-mm@kvack.org>, <linux-riscv@lists.infradead.org>,
+	<linux-s390@vger.kernel.org>, <linux-sh@vger.kernel.org>,
+	<linuxppc-dev@lists.ozlabs.org>, <loongarch@lists.linux.dev>,
+	<nvdimm@lists.linux.dev>, <sparclinux@vger.kernel.org>, <x86@kernel.org>
+Subject: Re: [PATCH v3 02/26] MIPS: sgi-ip27: make NODE_DATA() the same as
+ on all other architectures
+Message-ID: <20240801184408.00002e8b@Huawei.com>
+In-Reply-To: <20240801060826.559858-3-rppt@kernel.org>
+References: <20240801060826.559858-1-rppt@kernel.org>
+	<20240801060826.559858-3-rppt@kernel.org>
+Organization: Huawei Technologies Research and Development (UK) Ltd.
+X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Message-Id: <20240801-th1520-clk-dts-v1-1-71077a0614b8@pdp7.com>
-References: <20240801-th1520-clk-dts-v1-0-71077a0614b8@pdp7.com>
-In-Reply-To: <20240801-th1520-clk-dts-v1-0-71077a0614b8@pdp7.com>
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
- Thomas Bonnefille <thomas.bonnefille@bootlin.com>, 
- Kanak Shilledar <kanakshilledar@gmail.com>, 
- Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>, 
- Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Drew Fustini <drew@pdp7.com>, 
- Drew Fustini <dfustini@tenstorrent.com>
-X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1207; i=drew@pdp7.com;
- h=from:subject:message-id; bh=dnuRibn2g+ZT0aI5L/Shjy6/+JXvi/iMXiSHhCZO6jY=;
- b=owGbwMvMwCF2+43O4ZsaG3kYT6slMaStviZpuPSdaMu/gLKy9YEPtD2nyP28OvGDp5lh7YPPt
- 3Xc66YFdJSyMIhxMMiKKbJs+pB3YYlX6NcF819sg5nDygQyhIGLUwAmovqB4b9rZgiLlrCdhK3t
- i7JXq7bERMjc+rL7vuG1pyWcj7gSW+UZGe71um+5bRAbdfweq36mrm65VU/aNF7mZiWhJEthFct
- FzAA=
-X-Developer-Key: i=drew@pdp7.com; a=openpgp;
- fpr=1B6F948213EA489734F3997035D5CD577C1E6010
+X-Originating-IP: [10.203.177.66]
+X-ClientProxiedBy: lhrpeml500001.china.huawei.com (7.191.163.213) To
+ lhrpeml500005.china.huawei.com (7.191.163.240)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240801_113823_285719_47213D90 
-X-CRM114-Status: UNSURE (   9.15  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240801_184431_331467_1F29F1AD 
+X-CRM114-Status: GOOD (  23.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,46 +108,89 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Drew Fustini <dfustini@tenstorrent.com>
+On Thu,  1 Aug 2024 09:08:02 +0300
+Mike Rapoport <rppt@kernel.org> wrote:
 
-Add node for the AP_SUBSYS clock controller on the T-Head TH1520 SoC.
+> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+> 
+> sgi-ip27 is the only system that defines NODE_DATA() differently than
+> the rest of NUMA machines.
+> 
+> Add node_data array of struct pglist pointers that will point to
+> __node_data[node]->pglist and redefine NODE_DATA() to use node_data
+> array.
+> 
+> This will allow pulling declaration of node_data to the generic mm code
+> in the next commit.
+> 
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+After staring for a while at the use made of the other part
+of the __node_data I think what you have in this an the next
+two patches is fine.
 
-Link: https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf
-Link: https://git.beagleboard.org/beaglev-ahead/beaglev-ahead/-/tree/main/docs
-Signed-off-by: Drew Fustini <dfustini@tenstorrent.com>
----
- arch/riscv/boot/dts/thead/th1520.dtsi | 8 ++++++++
- 1 file changed, 8 insertions(+)
+I'm far from convinced it was correct before though as
+arch_refresh_node_data() called on offline nodes in free_area_init()
+would have replaced __node_data with an allocation of
+size pg_data_t but the hub_data(), visible below, is after that.
+Maybe hub_data() as never called for offline nodes, but
+I couldn't establish that.
 
-diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-index aa703da30fc3..25ef5ee729e6 100644
---- a/arch/riscv/boot/dts/thead/th1520.dtsi
-+++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-@@ -5,6 +5,7 @@
-  */
- 
- #include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/clock/thead,th1520-clk-ap.h>
- 
- / {
- 	compatible = "thead,th1520";
-@@ -419,6 +420,13 @@ uart2: serial@ffec010000 {
- 			status = "disabled";
- 		};
- 
-+		clk: clock-controller@ffef010000 {
-+			compatible = "thead,th1520-clk-ap";
-+			reg = <0xff 0xef010000 0x0 0x1000>;
-+			clocks = <&osc>;
-+			#clock-cells = <1>;
-+		};
-+
- 		dmac0: dma-controller@ffefc00000 {
- 			compatible = "snps,axi-dma-1.01a";
- 			reg = <0xff 0xefc00000 0x0 0x1000>;
+After these patches the arch_refresh_node_data() generic
+version will only be replacing the pointer in node_data
+leaving the hub_data where it was in the first place and
+thus is fine.
 
--- 
-2.34.1
+So with that in mind (and it could be completely wrong ;)
+
+Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+
+
+
+> ---
+>  arch/mips/include/asm/mach-ip27/mmzone.h | 5 ++++-
+>  arch/mips/sgi-ip27/ip27-memory.c         | 5 ++++-
+>  2 files changed, 8 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/mips/include/asm/mach-ip27/mmzone.h b/arch/mips/include/asm/mach-ip27/mmzone.h
+> index 08c36e50a860..629c3f290203 100644
+> --- a/arch/mips/include/asm/mach-ip27/mmzone.h
+> +++ b/arch/mips/include/asm/mach-ip27/mmzone.h
+> @@ -22,7 +22,10 @@ struct node_data {
+>  
+>  extern struct node_data *__node_data[];
+>  
+> -#define NODE_DATA(n)		(&__node_data[(n)]->pglist)
+>  #define hub_data(n)		(&__node_data[(n)]->hub)
+>  
+> +extern struct pglist_data *node_data[];
+> +
+> +#define NODE_DATA(nid)		(node_data[nid])
+> +
+>  #endif /* _ASM_MACH_MMZONE_H */
+> diff --git a/arch/mips/sgi-ip27/ip27-memory.c b/arch/mips/sgi-ip27/ip27-memory.c
+> index b8ca94cfb4fe..c30ef6958b97 100644
+> --- a/arch/mips/sgi-ip27/ip27-memory.c
+> +++ b/arch/mips/sgi-ip27/ip27-memory.c
+> @@ -34,8 +34,10 @@
+>  #define SLOT_PFNSHIFT		(SLOT_SHIFT - PAGE_SHIFT)
+>  #define PFN_NASIDSHFT		(NASID_SHFT - PAGE_SHIFT)
+>  
+> -struct node_data *__node_data[MAX_NUMNODES];
+> +struct pglist_data *node_data[MAX_NUMNODES];
+> +EXPORT_SYMBOL(node_data);
+>  
+> +struct node_data *__node_data[MAX_NUMNODES];
+>  EXPORT_SYMBOL(__node_data);
+>  
+>  static u64 gen_region_mask(void)
+> @@ -361,6 +363,7 @@ static void __init node_mem_init(nasid_t node)
+>  	 */
+>  	__node_data[node] = __va(slot_freepfn << PAGE_SHIFT);
+>  	memset(__node_data[node], 0, PAGE_SIZE);
+> +	node_data[node] = &__node_data[node]->pglist;
+>  
+>  	NODE_DATA(node)->node_start_pfn = start_pfn;
+>  	NODE_DATA(node)->node_spanned_pages = end_pfn - start_pfn;
 
 
 _______________________________________________
