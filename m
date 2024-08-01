@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 938C4C3DA64
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 06:12:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 147C0C3DA4A
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 06:12:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1bDWk0xamFHqNesRxa6Snik9Kr43QFTU5aTsdP8PnXo=; b=Imk13zlVYL+BXm
-	dM0iHOFSd1k/rrapZDWmPg36AUjD9POPCCz7vAYk/zfUBp2RUKOhFz+qqvflhu0SjM/y5K51q3xay
-	68Reg0UhfGlj3lk+7bacVmREjH9hdf5XcX7cMHPEkAU/Tb0+KswmkvfntGi9iV66uriK45JzvTB2a
-	wE7wAcZcTNz6Gf5BPLL9i+HnV573j0qLE48iFDUEG5jbIpee1zsw0PsiPUBfn/0gvH40lnSOpnPpa
-	d0YV0GuE7QFZIGPdvXnW3KoJzWL6P1VRIyi2vQKcbw82ttG/yVku4rQw+usP6tqF4GPgfFG4SNsPd
-	dwZw/R0V1kySm0TONiNg==;
+	List-Owner; bh=zb5wROekNd1hBXVit/ZYqPjZ/0nYqXe4Dx1XXMBzx58=; b=tuK0FmApsknCze
+	/SJOeS5t8HgKWxmbkjDgEVqqkz77gZQCzZNv1gNngbX9HD8QWf9UYbaN9wuiO1D+TOZPO+dToWM3I
+	PZ2wxiUWm/G5YBfEfxQDV31MDJgq53nVg4isZn482QlqRUKRMLsqPg24mRdZJ9q2vu7Qb0jSB2e3q
+	zBXXon3fSSJyoLgPNJpxRJoQ4oCNAbgmx4TAfnQDCE+K8Sq4ks4lpytsgh6567ZcuhQnHuxK4ivbM
+	nQVfmGKmVrs9RAlXYQnjehFjMTOlwTZWbKYuHG7L0Hj3hG4UzHtekovJRyhcea4sMa+1xpabrG8JV
+	wS5EqNEparhs3xvPGx0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZP2j-00000003tGf-3O2r;
-	Thu, 01 Aug 2024 06:12:05 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sZP3P-00000003tgg-2TM4;
+	Thu, 01 Aug 2024 06:12:47 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZP0V-00000003rqi-0YI8;
-	Thu, 01 Aug 2024 06:09:50 +0000
+	id 1sZP0g-00000003ryk-20dK;
+	Thu, 01 Aug 2024 06:10:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 237266263A;
+	by dfw.source.kernel.org (Postfix) with ESMTP id A149B61B43;
+	Thu,  1 Aug 2024 06:09:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55FA4C4AF0D;
 	Thu,  1 Aug 2024 06:09:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 881CCC4AF0C;
-	Thu,  1 Aug 2024 06:09:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1722492585;
-	bh=jUiExhtxbXLJEeICWPE63efzW6eqLaOxDv+h7X1UR1I=;
+	s=k20201202; t=1722492597;
+	bh=r+zUcEDoxtqvT8BU/VmlycxtHktOTZUPU96MGvM/m8c=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fyJjwiWO5WHG4X2BzzIkyEGTY5gXOCD+ocNhSqlvP1OilB9J7rnYOnJABy+hGNW7D
-	 xyTV54Pg3gqNh0EPbnqoG/ks9lFNNaRt68ghnwEBkGMQaZxTf+nA+LyP19RicBy5Mn
-	 oBAhzFwgqXTg+F2KNHfJxuZAc+N3bPm43YahnhzEpn1k2PvuuM8oXAE1AEsUYxJerR
-	 tX/VcdeduKO5ZFtg7MixgD6k3bqZICLB50wXo+SmGeSCjFOLiA5DXhtHAdrjSd6Fih
-	 OPSoIR83ckKg/rW0fTB91OmvxgfNNKKtMbwyRz9u7AFU5KUSVbJZsnfwxQI4xSQrNV
-	 +9nKM8amxI9NA==
+	b=jS8CwM2HVacHd88SFDPtwS0+oYW3iYC3FGtk8UqItF2w5da1ERg0blF0k9sJIq5gO
+	 j+49LhbnKA5MHqV4Fgt2ytbHPvmsT/0zZqHsz/HcWK7tqRzK7FnDQWR65QvIGxzpV6
+	 IgOZkkRBg6DhUMfwbNJ/Kpf+yEo/Uq9WJtCbSDiQBMnlyq0A8Zzjp1qrR3NlDQfr++
+	 AKmQzG7nVd2IbIbt/+lnbQ9V4sB35D21NuC4UdRz8suodH6nNMsYTL+jbG3gGXHsfj
+	 1TulkgepHvXzaSOM7uuBbCwqnItrZwuJ2WR603WAEBN9R5dOB6tCA2yzZTE3wfWcrf
+	 jOWVtDodBbVmw==
 From: Mike Rapoport <rppt@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
@@ -89,18 +89,17 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
 	loongarch@lists.linux.dev,
 	nvdimm@lists.linux.dev,
 	sparclinux@vger.kernel.org,
-	x86@kernel.org,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Subject: [PATCH v3 05/26] MIPS: loongson64: rename __node_data to node_data
-Date: Thu,  1 Aug 2024 09:08:05 +0300
-Message-ID: <20240801060826.559858-6-rppt@kernel.org>
+	x86@kernel.org
+Subject: [PATCH v3 06/26] MIPS: loongson64: drop HAVE_ARCH_NODEDATA_EXTENSION
+Date: Thu,  1 Aug 2024 09:08:06 +0300
+Message-ID: <20240801060826.559858-7-rppt@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240801060826.559858-1-rppt@kernel.org>
 References: <20240801060826.559858-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240731_230947_369981_FA82CC06 
-X-CRM114-Status: GOOD (  15.02  )
+X-CRM114-CacheID: sfid-20240731_230958_803888_721AFC8D 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,66 +118,63 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 
-Make definition of node_data match other architectures.
-This will allow pulling declaration of node_data to the generic mm code in
-the following commit.
+Commit f8f9f21c7848 ("MIPS: Fix build error for loongson64 and
+sgi-ip27") added HAVE_ARCH_NODEDATA_EXTENSION to loongson64 to silence a
+compilation error that happened because loongson64 didn't define array
+of pg_data_t as node_data like most other architectures did.
+
+After rename of __node_data to node_data arch_alloc_nodedata() and
+HAVE_ARCH_NODEDATA_EXTENSION can be dropped from loongson64.
+
+Since it was the only user of HAVE_ARCH_NODEDATA_EXTENSION config option
+also remove this option from arch/mips/Kconfig.
 
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-Reviewed-by: Jiaxun Yang <jiaxun.yang@flygoat.com>
-Reviewed-by: David Hildenbrand <david@redhat.com>
-Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 ---
- arch/mips/include/asm/mach-loongson64/mmzone.h | 4 ++--
- arch/mips/loongson64/numa.c                    | 8 ++++----
- 2 files changed, 6 insertions(+), 6 deletions(-)
+ arch/mips/Kconfig           |  4 ----
+ arch/mips/loongson64/numa.c | 10 ----------
+ 2 files changed, 14 deletions(-)
 
-diff --git a/arch/mips/include/asm/mach-loongson64/mmzone.h b/arch/mips/include/asm/mach-loongson64/mmzone.h
-index a3d65d37b8b5..2effd5f8ed62 100644
---- a/arch/mips/include/asm/mach-loongson64/mmzone.h
-+++ b/arch/mips/include/asm/mach-loongson64/mmzone.h
-@@ -14,9 +14,9 @@
- #define pa_to_nid(addr)  (((addr) & 0xf00000000000) >> NODE_ADDRSPACE_SHIFT)
- #define nid_to_addrbase(nid) ((unsigned long)(nid) << NODE_ADDRSPACE_SHIFT)
+diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
+index ea5f3c3c31f6..43da6d596e2b 100644
+--- a/arch/mips/Kconfig
++++ b/arch/mips/Kconfig
+@@ -502,7 +502,6 @@ config MACH_LOONGSON64
+ 	select USE_OF
+ 	select BUILTIN_DTB
+ 	select PCI_HOST_GENERIC
+-	select HAVE_ARCH_NODEDATA_EXTENSION if NUMA
+ 	help
+ 	  This enables the support of Loongson-2/3 family of machines.
  
--extern struct pglist_data *__node_data[];
-+extern struct pglist_data *node_data[];
+@@ -2612,9 +2611,6 @@ config NUMA
+ config SYS_SUPPORTS_NUMA
+ 	bool
  
--#define NODE_DATA(n)		(__node_data[n])
-+#define NODE_DATA(n)		(node_data[n])
- 
- extern void __init prom_init_numa_memory(void);
- 
+-config HAVE_ARCH_NODEDATA_EXTENSION
+-	bool
+-
+ config RELOCATABLE
+ 	bool "Relocatable kernel"
+ 	depends on SYS_SUPPORTS_RELOCATABLE
 diff --git a/arch/mips/loongson64/numa.c b/arch/mips/loongson64/numa.c
-index 68dafd6d3e25..b50ce28d2741 100644
+index b50ce28d2741..64fcfaa885b6 100644
 --- a/arch/mips/loongson64/numa.c
 +++ b/arch/mips/loongson64/numa.c
-@@ -29,8 +29,8 @@
- 
- unsigned char __node_distances[MAX_NUMNODES][MAX_NUMNODES];
- EXPORT_SYMBOL(__node_distances);
--struct pglist_data *__node_data[MAX_NUMNODES];
--EXPORT_SYMBOL(__node_data);
-+struct pglist_data *node_data[MAX_NUMNODES];
-+EXPORT_SYMBOL(node_data);
- 
- cpumask_t __node_cpumask[MAX_NUMNODES];
- EXPORT_SYMBOL(__node_cpumask);
-@@ -107,7 +107,7 @@ static void __init node_mem_init(unsigned int node)
- 	tnid = early_pfn_to_nid(nd_pa >> PAGE_SHIFT);
- 	if (tnid != node)
- 		pr_info("NODE_DATA(%d) on node %d\n", node, tnid);
--	__node_data[node] = nd;
-+	node_data[node] = nd;
- 	NODE_DATA(node)->node_start_pfn = start_pfn;
- 	NODE_DATA(node)->node_spanned_pages = end_pfn - start_pfn;
- 
-@@ -206,5 +206,5 @@ pg_data_t * __init arch_alloc_nodedata(int nid)
- 
- void arch_refresh_nodedata(int nid, pg_data_t *pgdat)
- {
--	__node_data[nid] = pgdat;
-+	node_data[nid] = pgdat;
+@@ -198,13 +198,3 @@ void __init prom_init_numa_memory(void)
+ 	pr_info("CP0_PageGrain: CP0 5.1 (0x%x)\n", read_c0_pagegrain());
+ 	prom_meminit();
  }
+-
+-pg_data_t * __init arch_alloc_nodedata(int nid)
+-{
+-	return memblock_alloc(sizeof(pg_data_t), SMP_CACHE_BYTES);
+-}
+-
+-void arch_refresh_nodedata(int nid, pg_data_t *pgdat)
+-{
+-	node_data[nid] = pgdat;
+-}
 -- 
 2.43.0
 
