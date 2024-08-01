@@ -4,94 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFE1BC3DA4A
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 17:45:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFAE8C3DA4A
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 18:01:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0GgtFJHgldxtO80z2IWLypc4gHctpQNpVOw0MbTivs8=; b=q1QGiGv0Ur2m43
-	43RLO8BoMqr244efg8UZ+ot87PbG14LiKX+2Ir6CE6J77n6tQYk6fyMoDODLn0ihM0oR3pHGbHsuO
-	8usDs2f/Hbx0sr/AaxaXOpZH/qxrYOMFy8LVIvSjT9Li1Pqi9UChfUJytJghOhH+liueMzST9pcdh
-	4iKbE71IyJ/FN0OR5h2+zO1DgFy42cqLy8BxMsWL2fePkZD7jSymIkzaMkoJWEQ0MRwKTJ899gAQg
-	v1FUOtmrQg7ZUyOe5bM6GF+fpw/dufKimPYFsoXVwdtfvXpWhY/yWn5K5aF1v/UynuqpbGCkvMfuz
-	C6ihuCP7aUbamwl0zX/A==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=P56eaWav/yNlQ9XmS+dZ6ztqkei1RNxva1ZrRwRAqTg=; b=wxmL8Ripa4Zm5+vvM2OQqkwASI
+	1EEiYR8zYzhDrEWARHnGpPEc6jNgHPp+ZHJdjWyWDibeawFJhzazz6m0Jiz8u5QXboN64+TF6p8hp
+	Ek2BPb8oTRoZdKotHotlrp3An1pZJe8H//tqxxFqigtwOLDrKy4eK2XmP5m9ud6z/LrMpR2t3yTai
+	WqI2GM+RpCuMILI3H6MaTzPKm68XB+LX4hMlqVx6fuSXzrJmIheiFIGFDFk1h/6jid2LbcaWOt6Ky
+	dM1HoWu+yy2hDduMAjsNIqFUH61uMuaMo0gVU9PHrR/vcXLQUPduMsOjHIetwC1f3XIrJKZX4m/zZ
+	kzC6FTSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZZrp-00000006Hfy-0WcL;
-	Thu, 01 Aug 2024 17:45:33 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1sZa7M-00000006Kww-08dL;
+	Thu, 01 Aug 2024 18:01:36 +0000
+Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZZrH-00000006HZ4-1ZLB;
-	Thu, 01 Aug 2024 17:44:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=IdOVn5l+it30RRbFjFMhBnC4dWdN82ycxsYyW3WBHHM=; b=j7ES3NYeUB/qpKUZBgsBtVHLYd
-	mCs262mP0aJkhGzyEIz48yNzb4TNcz6o8Jj8JA2YfwvpThmKds9BFBkbDVKCfaqqyncqY9/cIu49h
-	Blwif9gi7JuAaMappA+bnRnIXG/1XTPI35F+HR4ZIQsIV3nGu0R4U8qn5JRi4lpmmrA3qr413cEXq
-	OEkJVioYsc/s+9E3v9n1KAFxmINCP6A+CgysA0vxdf8fI532+HqG9TKI3qEYZhbAVv4WwSFW1x3E8
-	rAZ/zBi9ikItVPVw+zF9Udt22x7BfDsgDgnOC4G0Z3+u7UFd1nCQ3IQHf24B4L4GKOhDHEjklmAvj
-	w8mUCEyg==;
-Received: from frasgout.his.huawei.com ([185.176.79.56])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZZrD-00000005XHo-26q8;
-	Thu, 01 Aug 2024 17:44:58 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4WZbrV0TrPz67WPF;
-	Fri,  2 Aug 2024 01:42:18 +0800 (CST)
-Received: from lhrpeml500005.china.huawei.com (unknown [7.191.163.240])
-	by mail.maildlp.com (Postfix) with ESMTPS id 22E93140B55;
-	Fri,  2 Aug 2024 01:44:54 +0800 (CST)
-Received: from localhost (10.203.177.66) by lhrpeml500005.china.huawei.com
- (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Thu, 1 Aug
- 2024 18:44:53 +0100
-Date: Thu, 1 Aug 2024 18:44:52 +0100
-From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
-To: Mike Rapoport <rppt@kernel.org>
-CC: <linux-kernel@vger.kernel.org>, Alexander Gordeev
-	<agordeev@linux.ibm.com>, Andreas Larsson <andreas@gaisler.com>, "Andrew
- Morton" <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>, "Borislav
- Petkov" <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>, Christophe
- Leroy <christophe.leroy@csgroup.eu>, Dan Williams <dan.j.williams@intel.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>, David Hildenbrand
-	<david@redhat.com>, "David S. Miller" <davem@davemloft.net>, Davidlohr Bueso
-	<dave@stgolabs.net>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>, Heiko
- Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>, Ingo
- Molnar <mingo@redhat.com>, Jiaxun Yang <jiaxun.yang@flygoat.com>, "John Paul
- Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>, Jonathan Corbet
-	<corbet@lwn.net>, Michael Ellerman <mpe@ellerman.id.au>, Palmer Dabbelt
-	<palmer@dabbelt.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Rob Herring
-	<robh@kernel.org>, Samuel Holland <samuel.holland@sifive.com>, Thomas
- Bogendoerfer <tsbogend@alpha.franken.de>, Thomas Gleixner
-	<tglx@linutronix.de>, "Vasily Gorbik" <gor@linux.ibm.com>, Will Deacon
-	<will@kernel.org>, Zi Yan <ziy@nvidia.com>, <devicetree@vger.kernel.org>,
-	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-cxl@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <linux-mips@vger.kernel.org>,
-	<linux-mm@kvack.org>, <linux-riscv@lists.infradead.org>,
-	<linux-s390@vger.kernel.org>, <linux-sh@vger.kernel.org>,
-	<linuxppc-dev@lists.ozlabs.org>, <loongarch@lists.linux.dev>,
-	<nvdimm@lists.linux.dev>, <sparclinux@vger.kernel.org>, <x86@kernel.org>
-Subject: Re: [PATCH v3 03/26] MIPS: sgi-ip27: ensure node_possible_map only
- contains valid nodes
-Message-ID: <20240801184452.00007d30@Huawei.com>
-In-Reply-To: <20240801060826.559858-4-rppt@kernel.org>
-References: <20240801060826.559858-1-rppt@kernel.org>
-	<20240801060826.559858-4-rppt@kernel.org>
-Organization: Huawei Technologies Research and Development (UK) Ltd.
-X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
-MIME-Version: 1.0
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml500001.china.huawei.com (7.191.163.213) To
- lhrpeml500005.china.huawei.com (7.191.163.240)
+	id 1sZa7J-00000006Kvf-0MpA
+	for linux-riscv@lists.infradead.org;
+	Thu, 01 Aug 2024 18:01:34 +0000
+Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-7163489149fso7121678a12.3
+        for <linux-riscv@lists.infradead.org>; Thu, 01 Aug 2024 11:01:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1722535292; x=1723140092; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=xl2Pju3NY9Fnm1xajnPNr4ZOFDET+sfv7XV8JXyIerc=;
+        b=aQu0+UwbG8BXEUc8XDf29o2aZ0+j4j3tTNEO1v5CDh+5j6VpC+LqyVnVLKjCyGvf42
+         yfTHyoMEW+m4JV4vj+GNm2/j5BVY+mQJQM7jN2C1LS0W9BjsdOGRlmPuvvc7G4393qL+
+         Kuch1GO2hcl2XdT3KDMiH4a96WrLnsgvlz297gYxYgyShOauiFgJkTTQHY03/zf5+Edw
+         ghEOwVHu4Y0qC1q8UEXQkJ2TY1Ze6U4k000u3aMjKg1T3AJ3jIWIX5qAJhAVoNl/Xfq5
+         3vbOSlKK4jjUeY5F6ThfbJGOCCcsr0WwlIhZqXc555eGK+c6E+mrXaHexQ6hfHuxGDL1
+         VZ2Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1722535292; x=1723140092;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=xl2Pju3NY9Fnm1xajnPNr4ZOFDET+sfv7XV8JXyIerc=;
+        b=Bs787peVyBz9tbxZSsd0GF/Ygcn4sHezapaU+NlWrG8SQ34Ao6uj+Y3ci2/OjRJQ6u
+         TG1pVYYrMArNJTk8XQsP7aC1//QXxo7oG+sm1niUBP3Idqk5AqDjh5nVTcEnb6zqG+FZ
+         ii/ISCGSF/plIXsc0Fq2Cop0uq8jYjQskDJwAtOB1IK/G4Z5+LG9ZRfL9dh74Ww/7m37
+         FCHzvBm8jv3iAga148od7lk3T1KAojNggG63BJX6yqGZf8n7ypPeoYl9X67kjkCEZ/LO
+         n5wRoeHAK4GNlz5AKW1sLeJs4/PpInzaEKkATLVc02oJyLaFrn/3DQtpgkDinA0ewX/+
+         qYJQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVIEkvTzGrwqj2teEiNEZc7p7IVGGCcapjQkW7B12qaRtZ2POrQJzmEoDPH0EhprqkIugDw/JejxogTnxr9VIa6jBKu9sSRY00SC+KniGPk
+X-Gm-Message-State: AOJu0YyMhUPob4Nos/BqwJBDy23nCCssLk0RBlvL0f+1J8eTAe2VzZB5
+	+xxEQ4ZV85xBBeuAPkgcaI164gC6Jc+27tnaLW2hutMyIt4e81kfpdJ8GngXVEo5yTpVA0WCPrA
+	jtA==
+X-Google-Smtp-Source: AGHT+IF64U8Ib+bNIe3iPxoSzJOvvilQGXPjPZq7Y/8acNPwlcg0hACHnvmYPGnFv3dx9aufX4l27GJDySU=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a65:6252:0:b0:75a:b299:85b6 with SMTP id
+ 41be03b00d2f7-7b74669c7b3mr1534a12.2.1722535291408; Thu, 01 Aug 2024 11:01:31
+ -0700 (PDT)
+Date: Thu, 1 Aug 2024 11:01:30 -0700
+In-Reply-To: <yq5aikwku25o.fsf@kernel.org>
+Mime-Version: 1.0
+References: <20240726235234.228822-1-seanjc@google.com> <20240726235234.228822-3-seanjc@google.com>
+ <yq5aikwku25o.fsf@kernel.org>
+Message-ID: <ZqvNekQAjs-SN-se@google.com>
+Subject: Re: [PATCH v12 02/84] KVM: arm64: Disallow copying MTE to guest
+ memory while KVM is dirty logging
+From: Sean Christopherson <seanjc@google.com>
+To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	David Matlack <dmatlack@google.com>, David Stevens <stevensd@chromium.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240801_184455_703285_530142B5 
-X-CRM114-Status: GOOD (  16.26  )
+X-CRM114-CacheID: sfid-20240801_110133_149652_F022DEDE 
+X-CRM114-Status: GOOD (  19.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,43 +102,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu,  1 Aug 2024 09:08:03 +0300
-Mike Rapoport <rppt@kernel.org> wrote:
-
-> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+On Thu, Aug 01, 2024, Aneesh Kumar K.V wrote:
+> Sean Christopherson <seanjc@google.com> writes:
 > 
-> For SGI IP27 machines node_possible_map is statically set to
-> NODE_MASK_ALL and it is not updated during NUMA initialization.
+> > Disallow copying MTE tags to guest memory while KVM is dirty logging, as
+> > writing guest memory without marking the gfn as dirty in the memslot could
+> > result in userspace failing to migrate the updated page.  Ideally (maybe?),
+> > KVM would simply mark the gfn as dirty, but there is no vCPU to work with,
+> > and presumably the only use case for copy MTE tags _to_ the guest is when
+> > restoring state on the target.
+> >
+> > Fixes: f0376edb1ddc ("KVM: arm64: Add ioctl to fetch/store tags in a guest")
+> > Signed-off-by: Sean Christopherson <seanjc@google.com>
+> > ---
+> >  arch/arm64/kvm/guest.c | 5 +++++
+> >  1 file changed, 5 insertions(+)
+> >
+> > diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
+> > index e1f0ff08836a..962f985977c2 100644
+> > --- a/arch/arm64/kvm/guest.c
+> > +++ b/arch/arm64/kvm/guest.c
+> > @@ -1045,6 +1045,11 @@ int kvm_vm_ioctl_mte_copy_tags(struct kvm *kvm,
+> >  
+> >  	mutex_lock(&kvm->slots_lock);
+> >  
+> > +	if (write && atomic_read(&kvm->nr_memslots_dirty_logging)) {
+> > +		ret = -EBUSY;
+> > +		goto out;
+> > +	}
+> > +
+> >
 > 
-> Ensure that it only contains nodes present in the system.
-> 
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> is this equivalent to kvm_follow_pfn() with kfp->pin = 1 ?
 
-Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+No, gfn_to_pfn_prot() == FOLL_GET, kfp->pin == FOLL_PIN.  But that's not really
+relevant.
 
-> ---
->  arch/mips/sgi-ip27/ip27-smp.c | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/arch/mips/sgi-ip27/ip27-smp.c b/arch/mips/sgi-ip27/ip27-smp.c
-> index 5d2652a1d35a..62733e049570 100644
-> --- a/arch/mips/sgi-ip27/ip27-smp.c
-> +++ b/arch/mips/sgi-ip27/ip27-smp.c
-> @@ -70,11 +70,13 @@ void cpu_node_probe(void)
->  	gda_t *gdap = GDA;
->  
->  	nodes_clear(node_online_map);
-> +	nodes_clear(node_possible_map);
->  	for (i = 0; i < MAX_NUMNODES; i++) {
->  		nasid_t nasid = gdap->g_nasidtable[i];
->  		if (nasid == INVALID_NASID)
->  			break;
->  		node_set_online(nasid);
-> +		node_set(nasid, node_possible_map);
->  		highest = node_scan_cpus(nasid, highest);
->  	}
->  
+> Should all those pin request fail if kvm->nr_memslots_dirty_logging != 0? 
 
+No, the conflict with dirty logging is specifically that this code doesn't invoke
+mark_page_dirty().  And it can't easily do that, because there's no loaded ("running")
+vCPU, i.e. doing so would trip this WARN:
+
+#ifdef CONFIG_HAVE_KVM_DIRTY_RING
+	if (WARN_ON_ONCE(vcpu && vcpu->kvm != kvm))
+		return;
+
+	WARN_ON_ONCE(!vcpu && !kvm_arch_allow_write_without_running_vcpu(kvm)); <====
+#endif
 
 _______________________________________________
 linux-riscv mailing list
