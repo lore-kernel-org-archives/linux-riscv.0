@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23D21C3DA64
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 13:19:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C56FFC52D54
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 13:19:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FAtKRCo4A7EYY9uTeWuoL6uEBHMckbjqodJPgbN2beU=; b=mso3DREx3glyag
-	D+XSMgR/96IsO/GSIEjkY9NsV9j9kguQxh/hZtJB/CUJ0lfODaK0xZgX2MXGt94kapDTYibE3LZxT
-	2HALBIPzZ07S2PNNpYH0WXqgJzbpqNe5J6FKUEa3g9Le5rqUCKRQ13OP+EQ4CG6ZNFteQ+yvD1z1v
-	h0uuIg5XDBbnLH+vGST2ztPaPAXsZHC1xJ7pVlLuTRur/6hdKpHR1JaZ9mc1SODpa6I7lnXtG0lYF
-	alZdXaIyj8FQwqMY6mKlTWC0upDOLAu0CTjX02KZTPKRKyzfVluJ5a4FCF7rCWkMrfnerWgEgOIWl
-	VGUGjZcFqXoQoGLqb1kg==;
+	List-Owner; bh=1IJrVRF4SRsz1KHcqe4L82UFIG69Zi8Zy4g5LkG2huc=; b=3kfUoIsPByRs7G
+	XG0/9bfA+s9Lnqws5cf3U77sUEylobnLDY3Vp7GKwjbZ0PWMlEwvlcGRYxavrE6lT1heKgLjVeDVG
+	tl9FDLQWeIhfLO5UpZjLrdFZkNmBPyATaWJB9qRktAkeeo1dKf3k5oQLYe4h4VyPchJGiZh0SWOUt
+	8m7j+DmH6XG3vq0iETlcDavbhXFMhzLEIfvl+iR9X95l456d1uNTsj20m7JWRs/cAutTjfZVRTKWq
+	ttX03BEFp9wC0I8MlKUF/KCPGqqGca2BPT7Av77VMz2La/7oirKytSg+plurRhFQ1gMFcEFJDxLZU
+	aPWzF/Q0Q25he8aQLUcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZViE-00000005TjS-1E5Z;
-	Thu, 01 Aug 2024 13:19:22 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1sZVih-00000005TvS-2Qzy;
+	Thu, 01 Aug 2024 13:19:51 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZVRM-00000005KbL-26yc;
-	Thu, 01 Aug 2024 13:01:58 +0000
+	id 1sZVRS-00000005KfG-05Hh;
+	Thu, 01 Aug 2024 13:02:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 9B98FCE19AC;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 663806287C;
+	Thu,  1 Aug 2024 13:02:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4528C4AF0A;
 	Thu,  1 Aug 2024 13:01:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D64E5C32786;
-	Thu,  1 Aug 2024 13:01:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1722517314;
-	bh=YYz6vJzvFivBjzQl/oYVfPbzMadH/24Qr7CyuKANnYA=;
+	s=k20201202; t=1722517321;
+	bh=2o7H97U54cEmD5Tv71kF1eEpEycy3n5iAga6TGpYn58=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=vGH+nzw9stnDTdcaftUMZ0RSrgKf7OteE0TbDxGrYkVLsG+cDPLHLN65Kv1/N4j/q
-	 KkwToUJ8Xg7dKAusreA/2dsthDLf+JuDgtaZ0natBK+eHTXNKOuOihBQfyIBJYCSP8
-	 MhXRdrrJQAJTb4kKrWIhoaaJs1RsdEx6bKTZOcfJgwwublrWEtufqEI09N6a5yI7x8
-	 02keFtwbxiMdw1K8xQwg+xthHk09VaeAUKwjJLry/undGymRfhuJ0YpJIDtZxhC9SC
-	 lCJ1JJcsHj6fTKJ9B9nuH7gwaqaGHB8btfldLKKuRK/aDia5C1GRrYerJJ4vMHCs5U
-	 JriKtF9UMfzXA==
+	b=EOypttz1iUC6Oqt2kwkwmd4hYK/iYBJyUlsSGBCxML2MrAMFnoFqWmEE8yplv/Zf2
+	 g8lM4YlFhj9+fdD1LFcVHcxhbj4wVXGv9AFclgyBJJdQI8TN26iUHLke/PjeQJ6pha
+	 qtzIUteV2oxLMg4GPFfIUSHThfXVm5pvBCWlc0/TXAbN+PB65tYEWVsOkGR0/ooeu3
+	 wR3cCoXFofGIvrX3WiieIBTXZzDojnzLlQJTv+YC7WLr+WhDa3+nuZN0FbZnNlAel4
+	 HYAP0fEe7Pdb1UGWHxPOw1/2ocSKJhL8rPBXlAIPbaw2nrLP0p+9aBvD0dE10tKzcX
+	 caaPVWssBnNAw==
 From: Mark Brown <broonie@kernel.org>
-Date: Thu, 01 Aug 2024 13:07:06 +0100
-Subject: [PATCH v10 39/40] kselftest/arm64: Enable GCS for the FP stress
- tests
+Date: Thu, 01 Aug 2024 13:07:07 +0100
+Subject: [PATCH v10 40/40] KVM: selftests: arm64: Add GCS registers to
+ get-reg-list
 MIME-Version: 1.0
-Message-Id: <20240801-arm64-gcs-v10-39-699e2bd2190b@kernel.org>
+Message-Id: <20240801-arm64-gcs-v10-40-699e2bd2190b@kernel.org>
 References: <20240801-arm64-gcs-v10-0-699e2bd2190b@kernel.org>
 In-Reply-To: <20240801-arm64-gcs-v10-0-699e2bd2190b@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -71,21 +71,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
  Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-37811
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3151; i=broonie@kernel.org;
- h=from:subject:message-id; bh=YYz6vJzvFivBjzQl/oYVfPbzMadH/24Qr7CyuKANnYA=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBmq4Yk7gWmnGFkGrMdlCnUH3lfdRyPQ26ry/+pIlvh
- D9NfY9qJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZquGJAAKCRAk1otyXVSH0J8tB/
- 40xcfumCAXaBAwsmdgdRL95dbspFwaxEzgXyO64AaG/C8o9hNZefmAMaq/PxFo0Ni6FHz3yipgiRx6
- yrerq119lFtUvd+7lHrcyWo/mdoKZ4cwOzV9Whr1IvDJPZ06uozmIEdF/iyDtvTyAZNvzVO84gBj2M
- q85Qzze6VxUhpdwJVrF4Yx0EkNNKZ+7qdqNU7EtXNTwNeLIU4xWnyxl8bF0jTJjrO/4QvQKjEjZZUi
- S4QK5iXMXEUIxq7osw0xYVXGusBdQwBFmxsz0HrOCM0GE2ACUOAJS3pR6gHoJfRsq8XHFUDwdtPwXP
- t2DXyibXI765vRiG1dNK7vTS4V7Yot
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2352; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=2o7H97U54cEmD5Tv71kF1eEpEycy3n5iAga6TGpYn58=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBmq4Yl2GIZXXyTb/zmM1+n2z4UQxnV39+pL7mDiQag
+ cFTi6HGJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZquGJQAKCRAk1otyXVSH0PXDB/
+ 4j5qGQGsGNdUNY04r8BP8DhGZFseiQkyBLks8Be56HfC2p51Bs37kAiCN7vw5o6FNjV7nHuKordgf8
+ yw8h5xIw20SOGbtSiJzK+Ytmcij7dKixG3lRNnjLjqaDdEBHYQd36UkkNAQgXrVYEHb3uGUdeSe4Pf
+ bVg2h3X4uA2HXpmx1Re6duBQnFxQkT9rwDaPrUVUJ8O1yGDA6GES8iwokMeuWIm1IuG8kk4/ryxjLS
+ MQuOjZLd4+rfnA99YvtwSC6d7LH3XTe6kZlg8lx4hPJ/2a1XoSi//5g2fntfcaHvPuz/xHErMA3FRH
+ FgQKeE4l1SWZJYN8U5tIpu0CgGk3wq
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240801_060157_058203_8CFF7BCA 
-X-CRM114-Status: UNSURE (   8.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240801_060202_185276_041D0BF5 
+X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,98 +101,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-While it's a bit off topic for them the floating point stress tests do give
-us some coverage of context thrashing cases, and also of active signal
-delivery separate to the relatively complicated framework in the actual
-signals tests. Have the tests enable GCS on startup, ignoring failures so
-they continue to work as before on systems without GCS.
+GCS adds new registers GCSCR_EL1, GCSCRE0_EL1, GCSPR_EL1 and GCSPR_EL0. Add
+these to those validated by get-reg-list.
 
-Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- tools/testing/selftests/arm64/fp/assembler.h   | 15 +++++++++++++++
- tools/testing/selftests/arm64/fp/fpsimd-test.S |  2 ++
- tools/testing/selftests/arm64/fp/sve-test.S    |  2 ++
- tools/testing/selftests/arm64/fp/za-test.S     |  2 ++
- tools/testing/selftests/arm64/fp/zt-test.S     |  2 ++
- 5 files changed, 23 insertions(+)
+ tools/testing/selftests/kvm/aarch64/get-reg-list.c | 28 ++++++++++++++++++++++
+ 1 file changed, 28 insertions(+)
 
-diff --git a/tools/testing/selftests/arm64/fp/assembler.h b/tools/testing/selftests/arm64/fp/assembler.h
-index 9b38a0da407d..1fc46a5642c2 100644
---- a/tools/testing/selftests/arm64/fp/assembler.h
-+++ b/tools/testing/selftests/arm64/fp/assembler.h
-@@ -65,4 +65,19 @@ endfunction
- 	bl	puts
- .endm
+diff --git a/tools/testing/selftests/kvm/aarch64/get-reg-list.c b/tools/testing/selftests/kvm/aarch64/get-reg-list.c
+index 709d7d721760..9785f41e6042 100644
+--- a/tools/testing/selftests/kvm/aarch64/get-reg-list.c
++++ b/tools/testing/selftests/kvm/aarch64/get-reg-list.c
+@@ -29,6 +29,24 @@ static struct feature_id_reg feat_id_regs[] = {
+ 		0,
+ 		1
+ 	},
++	{
++		ARM64_SYS_REG(3, 0, 2, 5, 0),	/* GCSCR_EL1 */
++		ARM64_SYS_REG(3, 0, 0, 4, 1),	/* ID_AA64PFR1_EL1 */
++		44,
++		1
++	},
++	{
++		ARM64_SYS_REG(3, 0, 2, 5, 1),	/* GCSPR_EL1 */
++		ARM64_SYS_REG(3, 0, 0, 4, 1),	/* ID_AA64PFR1_EL1 */
++		44,
++		1
++	},
++	{
++		ARM64_SYS_REG(3, 0, 2, 5, 2),	/* GCSCRE0_EL1 */
++		ARM64_SYS_REG(3, 0, 0, 4, 1),	/* ID_AA64PFR1_EL1 */
++		44,
++		1
++	},
+ 	{
+ 		ARM64_SYS_REG(3, 0, 10, 2, 2),	/* PIRE0_EL1 */
+ 		ARM64_SYS_REG(3, 0, 0, 7, 3),	/* ID_AA64MMFR3_EL1 */
+@@ -40,6 +58,12 @@ static struct feature_id_reg feat_id_regs[] = {
+ 		ARM64_SYS_REG(3, 0, 0, 7, 3),	/* ID_AA64MMFR3_EL1 */
+ 		4,
+ 		1
++	},
++	{
++		ARM64_SYS_REG(3, 3, 2, 5, 1),	/* GCSPR_EL0 */
++		ARM64_SYS_REG(3, 0, 0, 4, 1),	/* ID_AA64PFR1_EL1 */
++		44,
++		1
+ 	}
+ };
  
-+#define PR_SET_SHADOW_STACK_STATUS      75
-+# define PR_SHADOW_STACK_ENABLE         (1UL << 0)
-+
-+.macro enable_gcs
-+	// Run with GCS
-+	mov	x0, PR_SET_SHADOW_STACK_STATUS
-+	mov	x1, PR_SHADOW_STACK_ENABLE
-+	mov	x2, xzr
-+	mov	x3, xzr
-+	mov	x4, xzr
-+	mov	x5, xzr
-+	mov	x8, #__NR_prctl
-+	svc	#0
-+.endm
-+
- #endif /* ! ASSEMBLER_H */
-diff --git a/tools/testing/selftests/arm64/fp/fpsimd-test.S b/tools/testing/selftests/arm64/fp/fpsimd-test.S
-index 8b960d01ed2e..b16fb7f42e3e 100644
---- a/tools/testing/selftests/arm64/fp/fpsimd-test.S
-+++ b/tools/testing/selftests/arm64/fp/fpsimd-test.S
-@@ -215,6 +215,8 @@ endfunction
- // Main program entry point
- .globl _start
- function _start
-+	enable_gcs
-+
- 	mov	x23, #0		// signal count
- 
- 	mov	w0, #SIGINT
-diff --git a/tools/testing/selftests/arm64/fp/sve-test.S b/tools/testing/selftests/arm64/fp/sve-test.S
-index fff60e2a25ad..2fb4f0b84476 100644
---- a/tools/testing/selftests/arm64/fp/sve-test.S
-+++ b/tools/testing/selftests/arm64/fp/sve-test.S
-@@ -378,6 +378,8 @@ endfunction
- // Main program entry point
- .globl _start
- function _start
-+	enable_gcs
-+
- 	mov	x23, #0		// Irritation signal count
- 
- 	mov	w0, #SIGINT
-diff --git a/tools/testing/selftests/arm64/fp/za-test.S b/tools/testing/selftests/arm64/fp/za-test.S
-index 095b45531640..b2603aba99de 100644
---- a/tools/testing/selftests/arm64/fp/za-test.S
-+++ b/tools/testing/selftests/arm64/fp/za-test.S
-@@ -231,6 +231,8 @@ endfunction
- // Main program entry point
- .globl _start
- function _start
-+	enable_gcs
-+
- 	mov	x23, #0		// signal count
- 
- 	mov	w0, #SIGINT
-diff --git a/tools/testing/selftests/arm64/fp/zt-test.S b/tools/testing/selftests/arm64/fp/zt-test.S
-index b5c81e81a379..8d9609a49008 100644
---- a/tools/testing/selftests/arm64/fp/zt-test.S
-+++ b/tools/testing/selftests/arm64/fp/zt-test.S
-@@ -200,6 +200,8 @@ endfunction
- // Main program entry point
- .globl _start
- function _start
-+	enable_gcs
-+
- 	mov	x23, #0		// signal count
- 
- 	mov	w0, #SIGINT
+@@ -460,6 +484,9 @@ static __u64 base_regs[] = {
+ 	ARM64_SYS_REG(3, 0, 2, 0, 1),	/* TTBR1_EL1 */
+ 	ARM64_SYS_REG(3, 0, 2, 0, 2),	/* TCR_EL1 */
+ 	ARM64_SYS_REG(3, 0, 2, 0, 3),	/* TCR2_EL1 */
++	ARM64_SYS_REG(3, 0, 2, 5, 0),	/* GCSCR_EL1 */
++	ARM64_SYS_REG(3, 0, 2, 5, 1),	/* GCSPR_EL1 */
++	ARM64_SYS_REG(3, 0, 2, 5, 2),	/* GCSCRE0_EL1 */
+ 	ARM64_SYS_REG(3, 0, 5, 1, 0),	/* AFSR0_EL1 */
+ 	ARM64_SYS_REG(3, 0, 5, 1, 1),	/* AFSR1_EL1 */
+ 	ARM64_SYS_REG(3, 0, 5, 2, 0),	/* ESR_EL1 */
+@@ -475,6 +502,7 @@ static __u64 base_regs[] = {
+ 	ARM64_SYS_REG(3, 0, 13, 0, 4),	/* TPIDR_EL1 */
+ 	ARM64_SYS_REG(3, 0, 14, 1, 0),	/* CNTKCTL_EL1 */
+ 	ARM64_SYS_REG(3, 2, 0, 0, 0),	/* CSSELR_EL1 */
++	ARM64_SYS_REG(3, 3, 2, 5, 1),	/* GCSPR_EL0 */
+ 	ARM64_SYS_REG(3, 3, 13, 0, 2),	/* TPIDR_EL0 */
+ 	ARM64_SYS_REG(3, 3, 13, 0, 3),	/* TPIDRRO_EL0 */
+ 	ARM64_SYS_REG(3, 3, 14, 0, 1),	/* CNTPCT_EL0 */
 
 -- 
 2.39.2
