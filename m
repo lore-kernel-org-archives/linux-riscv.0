@@ -4,50 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79741C3DA64
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 10:27:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CD69C3DA4A
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 10:28:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=osQO7tgtjaM4Fpo2O3z5k7nJ1OVwDHZ1j2Pc8TrKwJY=; b=nxlyNbkXIcEA5w
-	AnZsfP1vUed7tBjTaBDpnUF9pbkatpH/u4+yVPTV5Akr7of0LqB0WPKh8H/S1SF8N1/bXecLuRprq
-	qfqYo15rnVi0eZBZL8L4QDM52F3ofmoGsag1GX3DBQnMaJJqYAAQfzLmMw++qza7cmcqFmeDLAoU7
-	OxMkOTanH6YcMJ//mfnFH4oBEUDAQbaEUWpW45iMHV+dEZUPgj6sNfatqTbWTv3bnt0wmccP9G6eg
-	xFVSwN5xwZRCTd2hFQkKT+ovDKE4ZL+kkT5UrXN+ZE6qOh7UCpTJa9rBzdcXE2iLoNHd5CuG69qY4
-	fQkuE8lwfIVawX36nzyw==;
+	List-Owner; bh=Vx4T5i0uPFDEsx8F7lPOuqP100EbQhBcHpPEerY0tSM=; b=AiZaj8FHiIFKl/
+	nHyucpGwro+YsFktSfuegtyfZopGwhZpkiJ/UAdEsSIg/rXrrqiB0XpTwwfVzRA9BYly5pSpvuR++
+	PUJkdWN6lcA2Q6xQs0KukRbrSm9Yh9G4yfivfZSO0iPzLybDFRoGn/nPNmAQAiwsiUTn/LIwD5ReR
+	s2sB2nqgh+2q1KhP/TyqJl4aWbv1SB1o6mquFAkYr+KIT5/VkyoCm4j8p6gcoITxiP+M3Zpbpf9Rw
+	cvT4VTvi1xRuQJNwHuPistPMLpGU34zrXFC675Z7J73OuSNcqCNcAX31nylwtLAwLmbcTrsy3BP5u
+	i1eOe5fL//gQUEIK8oFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZT1J-00000004jq9-3zwF;
-	Thu, 01 Aug 2024 10:26:53 +0000
-Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
+	id 1sZT2k-00000004kB2-3xV0;
+	Thu, 01 Aug 2024 10:28:22 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZT1G-00000004jp6-0bAk
-	for linux-riscv@lists.infradead.org;
-	Thu, 01 Aug 2024 10:26:52 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id CA3EB1BF209;
-	Thu,  1 Aug 2024 10:26:45 +0000 (UTC)
-Message-ID: <e935d5a3-1754-422c-aa92-08977ab9c929@ghiti.fr>
-Date: Thu, 1 Aug 2024 12:26:44 +0200
+	id 1sZT2h-00000004k9b-3UZy;
+	Thu, 01 Aug 2024 10:28:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=v1s+5Bi9d041LGdTeseO3YDdAQzIcr7DZg2LK0/Pvu0=; b=qLqxu/A7f3yE8trlCtn2zwr4Sr
+	HsLHcEDK9/3J6tw7LUc6f6UbjMMG4sOJfSifCTcBNiwZSAV/P3ODLWlG7yA2knS7LCa0qhRE4PlrQ
+	ylZjSUWBL9DxVjhdQzws15gwx0gi0lDvz7cXdxLOsjy7w+Ib4IOHWMokdPVtwpOChpjjVn+ye1Uld
+	GFG+rsmUPvDikDI9xHGuE71rzQkSd89IUW183/BHQCmgpPHLpOyMsudNwch8jn/2BqO15VJiimQxp
+	xtAjbcKmLuxcKg2Ku/JMxVsbtgiI4S+inNFNHpfHD9Z1+dwbMwwNH7EbzTp55VBxzAL5Gb3OZJgjQ
+	lwCLoQBw==;
+Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1sZT2T-00000005RW8-1u0R;
+	Thu, 01 Aug 2024 10:28:06 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 8B25A30074E; Thu,  1 Aug 2024 12:28:04 +0200 (CEST)
+Date: Thu, 1 Aug 2024 12:28:04 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Alice Ryhl <aliceryhl@google.com>
+Cc: Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Jason Baron <jbaron@akamai.com>, Ard Biesheuvel <ardb@kernel.org>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Alex Gaynor <alex.gaynor@gmail.com>,
+	Wedson Almeida Filho <wedsonaf@gmail.com>,
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <benno.lossin@proton.me>,
+	Andreas Hindborg <a.hindborg@samsung.com>,
+	linux-trace-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
+	linux-arch@vger.kernel.org, Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	"Peter Zijlstra (Intel)" <peterz@infradaed.org>,
+	Sean Christopherson <seanjc@google.com>,
+	Uros Bizjak <ubizjak@gmail.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>, Fuad Tabba <tabba@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	linux-riscv@lists.infradead.org,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>, Bibo Mao <maobibo@loongson.cn>,
+	Tiezhu Yang <yangtiezhu@loongson.cn>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>, loongarch@lists.linux.dev
+Subject: Re: [PATCH v4 1/2] rust: add static_key_false
+Message-ID: <20240801102804.GQ33588@noisy.programming.kicks-ass.net>
+References: <20240628-tracepoint-v4-0-353d523a9c15@google.com>
+ <20240628-tracepoint-v4-1-353d523a9c15@google.com>
+ <20240731170508.GJ33588@noisy.programming.kicks-ass.net>
+ <CAH5fLghYodekhH-1A0BWZVwgbqkWbP3WP70-us2FtHqvOqD_Hw@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] riscv: Omit optimized string routines when using
- KASAN
-Content-Language: en-US
-To: Samuel Holland <samuel.holland@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org
-Cc: Yury Norov <yury.norov@gmail.com>,
- Rasmus Villemoes <linux@rasmusvillemoes.dk>, linux-kernel@vger.kernel.org
-References: <20240801033725.28816-1-samuel.holland@sifive.com>
- <20240801033725.28816-2-samuel.holland@sifive.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20240801033725.28816-2-samuel.holland@sifive.com>
-X-GND-Sasl: alex@ghiti.fr
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240801_032650_516438_ADBBDA99 
-X-CRM114-Status: GOOD (  17.52  )
+Content-Disposition: inline
+In-Reply-To: <CAH5fLghYodekhH-1A0BWZVwgbqkWbP3WP70-us2FtHqvOqD_Hw@mail.gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,143 +106,106 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Samuel,
+On Wed, Jul 31, 2024 at 11:34:13PM +0200, Alice Ryhl wrote:
 
-On 01/08/2024 05:36, Samuel Holland wrote:
-> The optimized string routines are implemented in assembly, so they are
-> not instrumented for use with KASAN. Fall back to the C version of the
-> routines in order to improve KASAN coverage. This fixes the
-> kasan_strings() unit test.
->
-> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
-> ---
->
->   arch/riscv/include/asm/string.h | 2 ++
->   arch/riscv/kernel/riscv_ksyms.c | 3 ---
->   arch/riscv/lib/Makefile         | 2 ++
->   arch/riscv/lib/strcmp.S         | 1 +
->   arch/riscv/lib/strlen.S         | 1 +
->   arch/riscv/lib/strncmp.S        | 1 +
->   arch/riscv/purgatory/Makefile   | 2 ++
->   7 files changed, 9 insertions(+), 3 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/string.h b/arch/riscv/include/asm/string.h
-> index a96b1fea24fe..5ba77f60bf0b 100644
-> --- a/arch/riscv/include/asm/string.h
-> +++ b/arch/riscv/include/asm/string.h
-> @@ -19,6 +19,7 @@ extern asmlinkage void *__memcpy(void *, const void *, size_t);
->   extern asmlinkage void *memmove(void *, const void *, size_t);
->   extern asmlinkage void *__memmove(void *, const void *, size_t);
->   
-> +#if !(defined(CONFIG_KASAN_GENERIC) || defined(CONFIG_KASAN_SW_TAGS))
+> > Please work harder to not have to duplicate stuff like this.
+> 
+> I really didn't want to duplicate it, but it's very hard to find a
+> performant alternative. Is there any way we could accept duplication
+> only in the cases where an 'i' parameter is used? I don't have the
+> choice of using a Rust helper for 'i' parameters.
+> 
+> Perhaps one option could be to put the Rust code inside jump_label.h
+> and have the header file evaluate to either C or Rust depending on the
+> value of some #ifdefs?
+> 
+> #ifndef RUST_ASM
+> /* existing C code goes here */
+> #endif
+> #ifdef RUST_ASM
+> // rust code goes here
+> #endif
+> 
+> That way the duplication is all in a single file. It would also avoid
+> the need for duplicating the nop5 string, as the Rust case is still
+> going through the C preprocessor and can use the existing #define.
 
+I suppose that is slightly better, but ideally you generate the whole of
+the Rust thing from the C version. After all, Clang can already parse
+this.
 
-We do not support KASAN_SW_TAGS so there is no need for this #ifdef.
+That said, with the below patch, I think you should be able to reuse the
+JUMP_TABLE_ENTRY macro like:
 
+	JUMP_TABLE_ENTRY({0}, {1}, {2} + {3})
 
->   #define __HAVE_ARCH_STRCMP
->   extern asmlinkage int strcmp(const char *cs, const char *ct);
->   
-> @@ -27,6 +28,7 @@ extern asmlinkage __kernel_size_t strlen(const char *);
->   
->   #define __HAVE_ARCH_STRNCMP
->   extern asmlinkage int strncmp(const char *cs, const char *ct, size_t count);
-> +#endif
->   
->   /* For those files which don't want to check by kasan. */
->   #if defined(CONFIG_KASAN) && !defined(__SANITIZE_ADDRESS__)
-> diff --git a/arch/riscv/kernel/riscv_ksyms.c b/arch/riscv/kernel/riscv_ksyms.c
-> index a72879b4249a..5ab1c7e1a6ed 100644
-> --- a/arch/riscv/kernel/riscv_ksyms.c
-> +++ b/arch/riscv/kernel/riscv_ksyms.c
-> @@ -12,9 +12,6 @@
->   EXPORT_SYMBOL(memset);
->   EXPORT_SYMBOL(memcpy);
->   EXPORT_SYMBOL(memmove);
-> -EXPORT_SYMBOL(strcmp);
-> -EXPORT_SYMBOL(strlen);
-> -EXPORT_SYMBOL(strncmp);
->   EXPORT_SYMBOL(__memset);
->   EXPORT_SYMBOL(__memcpy);
->   EXPORT_SYMBOL(__memmove);
-> diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-> index 2b369f51b0a5..8eec6b69a875 100644
-> --- a/arch/riscv/lib/Makefile
-> +++ b/arch/riscv/lib/Makefile
-> @@ -3,9 +3,11 @@ lib-y			+= delay.o
->   lib-y			+= memcpy.o
->   lib-y			+= memset.o
->   lib-y			+= memmove.o
-> +ifeq ($(CONFIG_KASAN_GENERIC)$(CONFIG_KASAN_SW_TAGS),)
->   lib-y			+= strcmp.o
->   lib-y			+= strlen.o
->   lib-y			+= strncmp.o
-> +endif
->   lib-y			+= csum.o
->   ifeq ($(CONFIG_MMU), y)
->   lib-$(CONFIG_RISCV_ISA_V)	+= uaccess_vector.o
-> diff --git a/arch/riscv/lib/strcmp.S b/arch/riscv/lib/strcmp.S
-> index 687b2bea5c43..542301a67a2f 100644
-> --- a/arch/riscv/lib/strcmp.S
-> +++ b/arch/riscv/lib/strcmp.S
-> @@ -120,3 +120,4 @@ strcmp_zbb:
->   .option pop
->   #endif
->   SYM_FUNC_END(strcmp)
-> +EXPORT_SYMBOL(strcmp)
-> diff --git a/arch/riscv/lib/strlen.S b/arch/riscv/lib/strlen.S
-> index 8ae3064e45ff..962983b73251 100644
-> --- a/arch/riscv/lib/strlen.S
-> +++ b/arch/riscv/lib/strlen.S
-> @@ -131,3 +131,4 @@ strlen_zbb:
->   #endif
->   SYM_FUNC_END(strlen)
->   SYM_FUNC_ALIAS(__pi_strlen, strlen)
-> +EXPORT_SYMBOL(strlen)
-> diff --git a/arch/riscv/lib/strncmp.S b/arch/riscv/lib/strncmp.S
-> index aba5b3148621..0f359ea2f55b 100644
-> --- a/arch/riscv/lib/strncmp.S
-> +++ b/arch/riscv/lib/strncmp.S
-> @@ -136,3 +136,4 @@ strncmp_zbb:
->   .option pop
->   #endif
->   SYM_FUNC_END(strncmp)
-> +EXPORT_SYMBOL(strncmp)
-> diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makefile
-> index f11945ee2490..fb9c917c9b45 100644
-> --- a/arch/riscv/purgatory/Makefile
-> +++ b/arch/riscv/purgatory/Makefile
-> @@ -1,7 +1,9 @@
->   # SPDX-License-Identifier: GPL-2.0
->   
->   purgatory-y := purgatory.o sha256.o entry.o string.o ctype.o memcpy.o memset.o
-> +ifeq ($(CONFIG_KASAN_GENERIC)$(CONFIG_KASAN_SW_TAGS),)
->   purgatory-y += strcmp.o strlen.o strncmp.o
-> +endif
->   
->   targets += $(purgatory-y)
->   PURGATORY_OBJS = $(addprefix $(obj)/,$(purgatory-y))
+> I'm also open to other alternatives. But I don't have infinite
+> resources to drive major language changes.
+
+Yes, well, you all picked this terrible language full well knowing it
+hated C/C++ and had not a single effort put into integration with
+existing code bases.
+
+I find it very hard to care for the problems you've created for
+yourself.
 
 
-With the removal of KASAN_SW_TAGS, you can add:
-
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-
-And since I have this testsuite in my CI, I gave it a try and it works so:
-
-Tested-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-
-Thanks,
-
-Alex
-
-
-
+---
+diff --git a/arch/x86/include/asm/jump_label.h b/arch/x86/include/asm/jump_label.h
+index cbbef32517f0..6cff7bf5e779 100644
+--- a/arch/x86/include/asm/jump_label.h
++++ b/arch/x86/include/asm/jump_label.h
+@@ -12,12 +12,12 @@
+ #include <linux/stringify.h>
+ #include <linux/types.h>
+ 
+-#define JUMP_TABLE_ENTRY				\
+-	".pushsection __jump_table,  \"aw\" \n\t"	\
+-	_ASM_ALIGN "\n\t"				\
+-	".long 1b - . \n\t"				\
+-	".long %l[l_yes] - . \n\t"			\
+-	_ASM_PTR "%c0 + %c1 - .\n\t"			\
++#define JUMP_TABLE_ENTRY(l_yes, key, branch)				\
++	".pushsection __jump_table,  \"aw\" \n\t"			\
++	_ASM_ALIGN "\n\t"						\
++	".long 1b - . \n\t"						\
++	".long " __stringify(l_yes) "- . \n\t"				\
++	_ASM_PTR " " __stringify(key) " + " __stringify(branch) " - . \n\t" \
+ 	".popsection \n\t"
+ 
+ #ifdef CONFIG_HAVE_JUMP_LABEL_HACK
+@@ -26,7 +26,7 @@ static __always_inline bool arch_static_branch(struct static_key *key, bool bran
+ {
+ 	asm goto("1:"
+ 		"jmp %l[l_yes] # objtool NOPs this \n\t"
+-		JUMP_TABLE_ENTRY
++		JUMP_TABLE_ENTRY(%[l_yes], %c0, %c1)
+ 		: :  "i" (key), "i" (2 | branch) : : l_yes);
+ 
+ 	return false;
+@@ -40,7 +40,7 @@ static __always_inline bool arch_static_branch(struct static_key * const key, co
+ {
+ 	asm goto("1:"
+ 		".byte " __stringify(BYTES_NOP5) "\n\t"
+-		JUMP_TABLE_ENTRY
++		JUMP_TABLE_ENTRY(%[l_yes], %c0, %c1)
+ 		: :  "i" (key), "i" (branch) : : l_yes);
+ 
+ 	return false;
+@@ -54,7 +54,7 @@ static __always_inline bool arch_static_branch_jump(struct static_key * const ke
+ {
+ 	asm goto("1:"
+ 		"jmp %l[l_yes]\n\t"
+-		JUMP_TABLE_ENTRY
++		JUMP_TABLE_ENTRY(%[l_yes], %c0, %c1)
+ 		: :  "i" (key), "i" (branch) : : l_yes);
+ 
+ 	return false;
 
 _______________________________________________
 linux-riscv mailing list
