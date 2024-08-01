@@ -4,71 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37B63C3DA4A
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 14:53:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEDAFC3DA64
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 15:10:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LXeA9Pz+Mm56DLBoTm9tO3t5i1meXKMUNmxEBEO/PMk=; b=QRH48pEYbVflUbbqOSy1XvxfPc
-	fYhWyl/H7KKQsQJHvBbFgtQOmZqNQ2Ev58zPm3dcJh5OciJjqKPz0npz6RQcejB+UX01OC2FLv7F2
-	ZqQ3WT58PBMvnl+o+I4OPsSa6J3PKyGEerZTzitmmM3Vaq5mLxtDMnq7kYThgkOpq5AMVJaZH+eaJ
-	oPf593MifkEdOmUns/CydbIue0wFx1F1CNCacSCAX2AJUgTGXHg9vs+Xrtcq2SmWOuqxyxCpyJCgp
-	QnRe+9A2WYmcK5+dPhoGUTjAdxCGCegPNhJzIhHu8IUL+N8HH1AQo1K2nozYjyt7cPHKKKBbpAATZ
-	Cav5q96Q==;
+	bh=VpIvqZ5dVI5oLPH3M5JtvR+6yXVXlysxkRyckZ8UyqM=; b=VcRgAEIGPa7IPr0Kt4GBMnI+4w
+	aiRwYWMlymL1qGIb6lhgjQU8guRhgxohM9YWfiKl24peQXxjx0og0A4sOotvTf9ghE6H1hZ7yGpP4
+	mVuUfmwgKLAdo1Qtl7f8XrvLdEoAooXIGgt9ghOv6ILtOsuhIky1YI1zwL7gNaAaj/kawjagYw/bT
+	/kz7J6y6k8lwWSlUF/tyd57OviFGFowi3VC5OjOZDYHhIk/+x6YgJfDUD10SOWuWYklVFuNiXSfAx
+	mO6AqT4p7lNAeo69h2eDQNUU7ecagVMIZqzQ3n0P7iMcTNSfAXUFM32loeXPVfkaGX8KKqgzZEO4i
+	s+MlDesg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZXBH-00000005knt-2LJ7;
-	Thu, 01 Aug 2024 14:53:27 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1sZXRI-00000005nke-1qB8;
+	Thu, 01 Aug 2024 15:10:00 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZXBE-00000005knB-2FAU
+	id 1sZXRF-00000005nk7-03Kz
 	for linux-riscv@lists.infradead.org;
-	Thu, 01 Aug 2024 14:53:25 +0000
+	Thu, 01 Aug 2024 15:09:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id F11E0628A6;
-	Thu,  1 Aug 2024 14:53:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CA45C32786;
-	Thu,  1 Aug 2024 14:53:19 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 4F217CE0B55;
+	Thu,  1 Aug 2024 15:09:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8095C32786;
+	Thu,  1 Aug 2024 15:09:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1722524003;
-	bh=pihbMVCA3QLJMolaC1JlUKs2kdaJDmWc7g29tWCaf1Q=;
+	s=k20201202; t=1722524994;
+	bh=kbvV4AlvhMw0jKJGpx/bRqh4DWyE7ZqZruWEjEQ6LL4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tFnl2k4v+sPK5hUTLtjsm02gby1FH7+7nTBXOrq9SFFhvoOy6W31Vm0ulS3N+hwo6
-	 0LJmE1boYr7t6A/zDghoKxHoRDEOfOW/JSzPf9sKxJaO0Kvj9g7dbagQVpRgGXUlJb
-	 JH4emFWM5qtq38pSNidhjU6gMLpz9/Sb4dI9fC15Gl33qFDAqAxehCOnspqgSZAFJ8
-	 M+mc9E9+g4ls4hTrOQ3H9tJBq65Ii/9YfIwjPUMdo3KKjytWSRzY9GuWwVF+bzTCxc
-	 YQgZ2QtHDdDa9kqZujkqAeC4OBr/dt4gO1CRqahW1bUlodcIFhRs2XvcYyBYgR1w+g
-	 edesfaRakfPvQ==
-Date: Thu, 1 Aug 2024 15:53:17 +0100
+	b=HdY7X/tFmCpcXLqCSIZGKkUOsNwAms3dfdCuzutVEYV21FG9OekVPWjti7ryadq8y
+	 SyR+NUgifiWNearG3mufdQdbV/YT0W3ngrOBL8yoziKgZCRh6d8aSzXqw63TgvrXo7
+	 4hJ+4wPVPp2Ct+B49GFQVFgGSvt2ihNr2sQxXPk0TjERG8VdtBerrehCFA8aK8Gok6
+	 15DhSVzsrv6tCELNnL+6bR0SbQO9F9Pf3kjZ8mINK3ze0Qobr/eyApZ3hWj+WOGxNS
+	 ZpVIkR9J0yKI7kBVtYlrjrU/BBCTAqMPNF6tss46OGuonqfTKcSmyKxZsvbwZF/SgU
+	 b5GyxIZpx58zQ==
+Date: Thu, 1 Aug 2024 16:09:49 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Jonathan Corbet <corbet@lwn.net>,
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: Conor Dooley <conor.dooley@microchip.com>, linux-kernel@vger.kernel.org,
+	Marc Zyngier <maz@kernel.org>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Andrea Parri <parri.andrea@gmail.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>,
-	Waiman Long <longman@redhat.com>, Boqun Feng <boqun.feng@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>, Leonardo Bras <leobras@redhat.com>,
-	Guo Ren <guoren@kernel.org>, linux-doc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org
-Subject: Re: [PATCH v4 04/13] dt-bindings: riscv: Add Zabha ISA extension
- description
-Message-ID: <20240801-outmatch-handwash-8622a4972faa@spud>
-References: <20240731072405.197046-1-alexghiti@rivosinc.com>
- <20240731072405.197046-5-alexghiti@rivosinc.com>
+	linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [RFC v7 3/6] irqchip: add mpfs gpio interrupt mux
+Message-ID: <20240801-palpitate-swinger-7bc8ae8deaaf@spud>
+References: <20240723-supervise-drown-d5d3b303e7fd@wendy>
+ <20240723-flatworm-cornflake-8023212f6584@wendy>
+ <87le1k8oq2.ffs@tglx>
 MIME-Version: 1.0
-In-Reply-To: <20240731072405.197046-5-alexghiti@rivosinc.com>
+In-Reply-To: <87le1k8oq2.ffs@tglx>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240801_075324_638553_0D18693F 
-X-CRM114-Status: GOOD (  15.76  )
+X-CRM114-CacheID: sfid-20240801_080957_423573_D83F3BC4 
+X-CRM114-Status: GOOD (  25.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,68 +76,141 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7030559773351777081=="
+Content-Type: multipart/mixed; boundary="===============5902705488622322453=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============7030559773351777081==
+--===============5902705488622322453==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="ChwbiayH3N33d2aF"
+	protocol="application/pgp-signature"; boundary="11AmpaTIfaZfcutl"
 Content-Disposition: inline
 
 
---ChwbiayH3N33d2aF
+--11AmpaTIfaZfcutl
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Wed, Jul 31, 2024 at 09:23:56AM +0200, Alexandre Ghiti wrote:
-> Add description for the Zabha ISA extension which was ratified in April
-> 2024.
+On Mon, Jul 29, 2024 at 12:41:25PM +0200, Thomas Gleixner wrote:
+> On Tue, Jul 23 2024 at 12:27, Conor Dooley wrote:
+> > +
+> > +struct mpfs_irq_mux_bank_config {
+> > +	u32 mask;
+> > +	u8 shift;
+> > +};
 >=20
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> Reviewed-by: Guo Ren <guoren@kernel.org>
-> ---
->  Documentation/devicetree/bindings/riscv/extensions.yaml | 6 ++++++
->  1 file changed, 6 insertions(+)
+> Please see:
 >=20
-> diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Do=
-cumentation/devicetree/bindings/riscv/extensions.yaml
-> index a06dbc6b4928..a63578b95c4a 100644
-> --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-> +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-> @@ -171,6 +171,12 @@ properties:
->              memory types as ratified in the 20191213 version of the priv=
-ileged
->              ISA specification.
-> =20
-> +        - const: zabha
-> +          description: |
-> +            The Zabha extension for Byte and Halfword Atomic Memory Oper=
-ations
-> +            as ratified at commit 49f49c842ff9 ("Update to Rafified stat=
-e") of
-> +            riscv-zabha.
+>   https://www.kernel.org/doc/html/latest/process/maintainer-tip.html
+>=20
+> vs. coding style.
+>=20
+> > +/*
+> > + * Returns an unsigned long, where a set bit indicates the correspondi=
+ng
+> > + * interrupt is in non-direct/muxed mode for that bank/GPIO controller.
+> > + */
+> > +static inline unsigned long mpfs_irq_mux_get_muxed_irqs(struct mpfs_ir=
+q_mux *priv,
+> > +							unsigned int bank)
+> > +{
+> > +	unsigned long mux_config =3D priv->mux_config, muxed_irqs =3D -1;
+> > +	struct mpfs_irq_mux_bank_config bank_config =3D mpfs_irq_mux_bank_con=
+figs[bank];
+> > +
+> > +	/*
+> > +	 * If a bit is set in the mux, GPIO the corresponding interrupt from
+> > +	 * controller 2 is direct and that controllers 0 or 1 is muxed.
+>=20
+> This is not a coherent sentence.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+It should read "controller 0 or 1;s interrupt is muxed". Does that make
+more sense to you?
 
+> > +	 * Invert the bits in the configuration register, so that set bits
+> > +	 * equate to non-direct mode, for GPIO controller 2.
+> > +	 */
+> > +	if (bank =3D=3D 2u)
+> > +		mux_config =3D ~mux_config;
+> > +
+>=20
+> > +static int mpfs_irq_mux_nondirect_alloc(struct irq_domain *d, unsigned=
+ int virq,
+> > +					struct irq_fwspec *fwspec, struct mpfs_irq_mux *priv)
+> > +{
+> > +	unsigned int bank =3D fwspec->param[0] / MPFS_MAX_IRQS_PER_GPIO;
+> > +
+> > +	if (bank > 2)
+> > +		return -EINVAL;
+> > +
+> > +	priv->nondirect_irqchips[bank].domain =3D d;
+> > +
+> > +	irq_domain_set_hwirq_and_chip(d, virq, fwspec->param[0],
+> > +				      &mpfs_irq_mux_nondirect_irq_chip, priv);
+> > +	irq_set_chained_handler_and_data(virq, handle_untracked_irq,
+>=20
+> Why does this use handle_untracked_irq()?
 
---ChwbiayH3N33d2aF
+I'll have to go and dig back in my notes as to why it is untracked. It
+was probably something like irqd_set() in handle_irq_event() blowing up
+on the irq_data being invalid (which I figure could relate back to my
+questions in the cover letter about issues with irqd_to_hwirq()) - but
+I'll double check what exactly prompted it when I get back from my
+holidays, but...
+
+> This sets up a chained handler
+> but handle_untracked_irq() is a regular interrupt handler.
+
+=2E..what I was likely using before was handle_simple_irq() which isn't
+chained either. You're expecting to see mpfs_irq_mux_nondirect_handler()
+here I suppose?
+
+>+static void mpfs_irq_mux_nondirect_handler(struct irq_desc *desc)
+>+{
+>+	struct mpfs_irq_mux_irqchip *irqchip_data =3D irq_desc_get_handler_data(=
+desc);
+>+	struct mpfs_irq_mux *priv =3D container_of(irqchip_data, struct mpfs_irq=
+_mux,
+>+						 nondirect_irqchips[irqchip_data->bank]);
+>+	unsigned long muxed_irqs;
+>+	int pos;
+>+
+>+	chained_irq_enter(irq_desc_get_chip(desc), desc);
+>+
+>+	muxed_irqs =3D mpfs_irq_mux_get_muxed_irqs(priv, irqchip_data->bank);
+>+
+>+	for_each_set_bit(pos, &muxed_irqs, MPFS_MAX_IRQS_PER_GPIO)
+>+		generic_handle_domain_irq(irqchip_data->domain, irqchip_data->offset + =
+pos);
+>+
+>+	chained_irq_exit(irq_desc_get_chip(desc), desc);
+>+}
+
+Given you've only commented on one significant issue and two minor items,
+is it safe to conclude that the overall approach doesn't have you
+screaming and running for the hills?
+
+Cheers,
+Conor.
+
+> > +					 &priv->nondirect_irqchips[bank]);
+
+--11AmpaTIfaZfcutl
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZquhXQAKCRB4tDGHoIJi
-0q0gAP4w29iDC4m6l/qSPS+MMlI/WiH69/4G+fcBBKIq7aRTCwD/W8P7PX8RBqjX
-vFrgiE5bcGwtx7wKqCuveDiYrxM2qAo=
-=FU44
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZqulPQAKCRB4tDGHoIJi
+0sKFAP9oHaSYPhW8FIkf4ssGaWWv0SILb0BeDNlL+8x69V02NwEAiitNydpF/yk7
+SFtK2kbzZYCnFccFMEDAeC8qRGJpQQ0=
+=MaNi
 -----END PGP SIGNATURE-----
 
---ChwbiayH3N33d2aF--
+--11AmpaTIfaZfcutl--
 
 
---===============7030559773351777081==
+--===============5902705488622322453==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -152,5 +221,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============7030559773351777081==--
+--===============5902705488622322453==--
 
