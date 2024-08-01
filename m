@@ -4,80 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7076C3DA64
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 03:37:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F30F6C3DA64
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 06:09:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=XKCPg0yJK7qlPigmNpSJYh2F1kNlzJjKVPto5XhFfYo=; b=AJK5kR/uzN+vhk
-	80M/groAI2fkKBQa85iiiX/dSee2yw4mWNC2CBGWsnJDU0t2n6ReLiIeAZ3CUn7LCcKsbKqQysUeO
-	2b2umGwcBnng48PHl2Oe8m5KgT+NiRpIiP7sgnrhgSZnBmc2jkkilrySPyWVS2PxIXLsrK2uy8roA
-	f9lSI2/vyKRiptjpJRqjQeZGiRg7tu7+sig3q93rn/VmzJKISoChGCjFVIh/0fHCbnIJyvJlOWP2r
-	IaOFdU0WPuEzR9Rjxf97CCVlw0q/RkVuIsj5mEaX8h2ulTfFInnVoE4SL83qf+lgcXmmsFsmT2ngB
-	OvW/ZE/d6OiRdD7OODmg==;
+	List-Owner; bh=FCLAG6okMTV8VNIA1PllYS0b+BFp5Yw9XyAaOPdGf/c=; b=mMKZzkR8jyNJnc
+	/dI3PXHPn36d8IgyBPto76DeqzPv1xb7GSvnlLwuafAiq+dey1zioQ8U+2i3/EC8ac9gOMxvw7AmF
+	t/t0qmFjHCJrnxWQDlbPOo4YWToL4+X/KDgXAfoB/KdBTrVPcJpXSI1So2vS4yKTTtUs/qNwS7H5w
+	9fFjuMmNN3kE6i2SIqLRc/nJ1grS2mPYYxoL1rKeNSH6vv1pMNLrIr6ADnUzhALJWoYr32cNmhiJN
+	rMc5+z5az+tkJpQs4K8WFyXiSAzeALA/8w9ns6aW42vjBtIxrfoMFCAAavcP6Q6oxRbcyESthz9HQ
+	4Itk2IDwldXFt/cTFhxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZMdA-00000003auN-3cH2;
-	Thu, 01 Aug 2024 03:37:32 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1sZP08-00000003rg8-2M0J;
+	Thu, 01 Aug 2024 06:09:24 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZMd7-00000003at9-2nsu
-	for linux-riscv@lists.infradead.org;
-	Thu, 01 Aug 2024 03:37:31 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-70d18112b60so1351655b3a.1
-        for <linux-riscv@lists.infradead.org>; Wed, 31 Jul 2024 20:37:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1722483448; x=1723088248; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=9k9VIOXjwuqNS+/YcMmWUWuyVFM+OX2w1xgp26aZK9k=;
-        b=eFicjOnQ4AmWrLUXRzQM+wKtHbz9myh1qRAvQiFT8USw+nCC1lnwECWdWcdMkCmikv
-         1zT3BSvXg9CODxrXeOdo6vdEKb2vsKrx8a4M+Oxf6CRek2hQi7uuAKkKU0XxqF7YypKj
-         MESjCMjoa864eu9KTO9rADpGRzW7ULwCPv7X5wJ/F2JH2dPE/hMyzkpojaH7M3Kj82kt
-         R/bRHJslgJwuoVeYZt4vKj6okJsB0Ix6DVwRGqUh39lsxPiG1mNZTfE1TNdKRUUO6t0n
-         t5S43nYbdn64usP3vaT7+I0Q9oDuxgaySfOW/rgLnk3sbwir9T5jJQU2Ut5TA9leeXmY
-         xf0g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722483448; x=1723088248;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=9k9VIOXjwuqNS+/YcMmWUWuyVFM+OX2w1xgp26aZK9k=;
-        b=omIEa3nI+VywhT4sHQ37pddob+xoUL0VKBgXuOA2ggn/JBo0b0Psx4ytGtIqjuRykK
-         fUA7nQ/2BYMn9Bqnh9vuZFGynoNgeK3ExqdxCpKsRPPOv1Svw7RTntjE6RfgY75vyXJ4
-         IzCBAbno9oLy/mJ1zLS6vhix5Gpf7oC73Ilc9rrFdxZT6C5N9gRhCs1JKvjxFdFT/7zP
-         /KXuwGEW3rwKOAKbObxmJ8briZ+RDa5GxW0ShqpskRx/2XL5Af2wbvCaeSDZ2QWDs0Ck
-         YfI21Np83ByIFFK2MaDJbkXSABGBpPbNZIHXFbVBNKUH558uvQYTgPJ0rJYBXeqqYbY9
-         ToDw==
-X-Forwarded-Encrypted: i=1; AJvYcCWLiIyRtkxz6IpCc2QEVuvJ4jrtcOuBqvTqGbJHd1evSwl+idF3bMSaNWXl8XqvoIHjY5txxo+wLGVTMd4GkBddvqA4jMJF3yc6+Cnd2DSf
-X-Gm-Message-State: AOJu0Yz2oPFtotXzMyPKzm87OyWz/U8a3mL5v81TTcEM4onaJClyhk9d
-	/PvUHn3Z0wwcRYIufFY39Oz3DPvhk9FC0MFtZ3WBp+ILYIaOnfGlewgCZkvmGg4=
-X-Google-Smtp-Source: AGHT+IHFOBC47p4CpLPq6v4nWD7xk3dw+GUeSZ7shUYfUzrVEJsAf/D+jq7FoEQeTYk7sxpWstWV2Q==
-X-Received: by 2002:aa7:9184:0:b0:70d:2e89:de2b with SMTP id d2e1a72fcca58-70efe426bc4mr10438408b3a.4.1722483447727;
-        Wed, 31 Jul 2024 20:37:27 -0700 (PDT)
-Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-70ead72ae3asm10954457b3a.91.2024.07.31.20.37.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 31 Jul 2024 20:37:27 -0700 (PDT)
-From: Samuel Holland <samuel.holland@sifive.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	linux-riscv@lists.infradead.org
-Cc: Yury Norov <yury.norov@gmail.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	linux-kernel@vger.kernel.org,
-	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH 0/2] riscv: Improve KASAN coverage to fix unit tests
-Date: Wed, 31 Jul 2024 20:36:58 -0700
-Message-ID: <20240801033725.28816-1-samuel.holland@sifive.com>
-X-Mailer: git-send-email 2.45.1
+	id 1sZOzb-00000003rSc-15l1;
+	Thu, 01 Aug 2024 06:08:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 688FACE17D8;
+	Thu,  1 Aug 2024 06:08:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74391C4AF09;
+	Thu,  1 Aug 2024 06:08:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1722492527;
+	bh=6bV01Igo0vm/teHus5SOoAdpI2cX0Ttgy2pDh5oYhjA=;
+	h=From:To:Cc:Subject:Date:From;
+	b=CXNEbP2sCuXXcLtnU1Im8vcEfX+Ba8ImoGoJdTPy/rvEsaLwu/okVVXfnTfcw0E+a
+	 PF48mhukFNpdGHFhOqECuqmjQ74t4U7aKFKEvu0lcDvSAbpjnR/B9ZHdgw7k5qDuPc
+	 wkQrwpVW7zg/p6lChP7ihXepuCzenZCOoest9ZwagSbXBigbYbJAyWmJe70AnEdjNa
+	 cr7WYs6+/WXHjo/hTxyS0i3eDMwd6vLTE3k8SyVxwoMktV05+0OSUo/WvZ8+iP8sgf
+	 RoxwYNVF97lhLo9ZKc7tIO8VPxnb5Ho7v9vk12s6dVADrW2eNFcO9bHenCRQWgPx0E
+	 SXclvNFKP+YJQ==
+From: Mike Rapoport <rppt@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Hildenbrand <david@redhat.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Mike Rapoport <rppt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Will Deacon <will@kernel.org>,
+	Zi Yan <ziy@nvidia.com>,
+	devicetree@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-cxl@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev,
+	nvdimm@lists.linux.dev,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org
+Subject: [PATCH v3 00/26] mm: introduce numa_memblks
+Date: Thu,  1 Aug 2024 09:08:00 +0300
+Message-ID: <20240801060826.559858-1-rppt@kernel.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240731_203729_762662_2161A7B6 
-X-CRM114-Status: UNSURE (   7.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240731_230851_656861_CA6D2FE4 
+X-CRM114-Status: GOOD (  20.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,53 +114,165 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series fixes two areas where uninstrumented assembly routines
-caused gaps in KASAN coverage on RISC-V, which were caught by KUnit
-tests. The KASAN KUnit test suite passes after applying this series.
+From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 
-This series fixes the following test failures:
-  # kasan_strings: EXPECTATION FAILED at mm/kasan/kasan_test.c:1520
-  KASAN failure expected in "kasan_int_result = strcmp(ptr, "2")", but none occurred
-  # kasan_strings: EXPECTATION FAILED at mm/kasan/kasan_test.c:1524
-  KASAN failure expected in "kasan_int_result = strlen(ptr)", but none occurred
-  not ok 60 kasan_strings
-  # kasan_bitops_generic: EXPECTATION FAILED at mm/kasan/kasan_test.c:1531
-  KASAN failure expected in "set_bit(nr, addr)", but none occurred
-  # kasan_bitops_generic: EXPECTATION FAILED at mm/kasan/kasan_test.c:1533
-  KASAN failure expected in "clear_bit(nr, addr)", but none occurred
-  # kasan_bitops_generic: EXPECTATION FAILED at mm/kasan/kasan_test.c:1535
-  KASAN failure expected in "clear_bit_unlock(nr, addr)", but none occurred
-  # kasan_bitops_generic: EXPECTATION FAILED at mm/kasan/kasan_test.c:1536
-  KASAN failure expected in "__clear_bit_unlock(nr, addr)", but none occurred
-  # kasan_bitops_generic: EXPECTATION FAILED at mm/kasan/kasan_test.c:1537
-  KASAN failure expected in "change_bit(nr, addr)", but none occurred
-  # kasan_bitops_generic: EXPECTATION FAILED at mm/kasan/kasan_test.c:1543
-  KASAN failure expected in "test_and_set_bit(nr, addr)", but none occurred
-  # kasan_bitops_generic: EXPECTATION FAILED at mm/kasan/kasan_test.c:1545
-  KASAN failure expected in "test_and_set_bit_lock(nr, addr)", but none occurred
-  # kasan_bitops_generic: EXPECTATION FAILED at mm/kasan/kasan_test.c:1546
-  KASAN failure expected in "test_and_clear_bit(nr, addr)", but none occurred
-  # kasan_bitops_generic: EXPECTATION FAILED at mm/kasan/kasan_test.c:1548
-  KASAN failure expected in "test_and_change_bit(nr, addr)", but none occurred
-  not ok 61 kasan_bitops_generic
+Hi,
+
+Following the discussion about handling of CXL fixed memory windows on
+arm64 [1] I decided to bite the bullet and move numa_memblks from x86 to
+the generic code so they will be available on arm64/riscv and maybe on
+loongarch sometime later.
+
+While it could be possible to use memblock to describe CXL memory windows,
+it currently lacks notion of unpopulated memory ranges and numa_memblks
+does implement this.
+
+Another reason to make numa_memblks generic is that both arch_numa (arm64
+and riscv) and loongarch use trimmed copy of x86 code although there is no
+fundamental reason why the same code cannot be used on all these platforms.
+Having numa_memblks in mm/ will make it's interaction with ACPI and FDT
+more consistent and I believe will reduce maintenance burden.
+
+And with generic numa_memblks it is (almost) straightforward to enable NUMA
+emulation on arm64 and riscv.
+
+The first 9 commits in this series are cleanups that are not strictly
+related to numa_memblks.
+Commits 10-16 slightly reorder code in x86 to allow extracting numa_memblks
+and NUMA emulation to the generic code.
+Commits 17-19 actually move the code from arch/x86/ to mm/ and commits 20-22
+does some aftermath cleanups.
+Commit 23 updates of_numa_init() to return error of no NUMA nodes were
+found in the device tree.
+Commit 24 switches arch_numa to numa_memblks.
+Commit 25 enables usage of phys_to_target_node() and
+memory_add_physaddr_to_nid() with numa_memblks.
+Commit 26 moves the description for numa=fake from x86 to admin-guide.
+
+[1] https://lore.kernel.org/all/20240529171236.32002-1-Jonathan.Cameron@huawei.com/
+
+v2: https://lore.kernel.org/all/20240723064156.4009477-1-rppt@kernel.org
+* rebase on v6.11-rc1
+* fix dummy_numa_init() in arch_numa, thanks Zi Yan
+* update of_numa_init() to return error of no NUMA nodes were
+* add Tested-by, thanks Zi Yan
+
+v1: https://lore.kernel.org/all/20240716111346.3676969-1-rppt@kernel.org
+* add cleanup for arch_alloc_nodedata and HAVE_ARCH_NODEDATA_EXTENSION
+* add patch that moves description of numa=fake kernel parameter from
+  x86 to admin-guide
+* reduce rounding up of node_data allocations from PAGE_SIZE to
+  SMP_CACHE_BYTES
+* restore single allocation attempt of numa_distance
+* fix several comments
+* added review tags
+
+Mike Rapoport (Microsoft) (26):
+  mm: move kernel/numa.c to mm/
+  MIPS: sgi-ip27: make NODE_DATA() the same as on all other architectures
+  MIPS: sgi-ip27: ensure node_possible_map only contains valid nodes
+  MIPS: sgi-ip27: drop HAVE_ARCH_NODEDATA_EXTENSION
+  MIPS: loongson64: rename __node_data to node_data
+  MIPS: loongson64: drop HAVE_ARCH_NODEDATA_EXTENSION
+  mm: drop CONFIG_HAVE_ARCH_NODEDATA_EXTENSION
+  arch, mm: move definition of node_data to generic code
+  arch, mm: pull out allocation of NODE_DATA to generic code
+  x86/numa: simplify numa_distance allocation
+  x86/numa: use get_pfn_range_for_nid to verify that node spans memory
+  x86/numa: move FAKE_NODE_* defines to numa_emu
+  x86/numa_emu: simplify allocation of phys_dist
+  x86/numa_emu: split __apicid_to_node update to a helper function
+  x86/numa_emu: use a helper function to get MAX_DMA32_PFN
+  x86/numa: numa_{add,remove}_cpu: make cpu parameter unsigned
+  mm: introduce numa_memblks
+  mm: move numa_distance and related code from x86 to numa_memblks
+  mm: introduce numa_emulation
+  mm: numa_memblks: introduce numa_memblks_init
+  mm: numa_memblks: make several functions and variables static
+  mm: numa_memblks: use memblock_{start,end}_of_DRAM() when sanitizing
+    meminfo
+  of, numa: return -EINVAL when no numa-node-id is found
+  arch_numa: switch over to numa_memblks
+  mm: make range-to-target_node lookup facility a part of numa_memblks
+  docs: move numa=fake description to kernel-parameters.txt
+
+ .../admin-guide/kernel-parameters.txt         |  15 +
+ .../arch/x86/x86_64/boot-options.rst          |  12 -
+ arch/arm64/include/asm/Kbuild                 |   1 +
+ arch/arm64/include/asm/mmzone.h               |  13 -
+ arch/arm64/include/asm/topology.h             |   1 +
+ arch/loongarch/include/asm/Kbuild             |   1 +
+ arch/loongarch/include/asm/mmzone.h           |  16 -
+ arch/loongarch/include/asm/topology.h         |   1 +
+ arch/loongarch/kernel/numa.c                  |  21 -
+ arch/mips/Kconfig                             |   5 -
+ arch/mips/include/asm/mach-ip27/mmzone.h      |   1 -
+ .../mips/include/asm/mach-loongson64/mmzone.h |   4 -
+ arch/mips/loongson64/numa.c                   |  28 +-
+ arch/mips/sgi-ip27/ip27-memory.c              |  12 +-
+ arch/mips/sgi-ip27/ip27-smp.c                 |   2 +
+ arch/powerpc/include/asm/mmzone.h             |   6 -
+ arch/powerpc/mm/numa.c                        |  26 +-
+ arch/riscv/include/asm/Kbuild                 |   1 +
+ arch/riscv/include/asm/mmzone.h               |  13 -
+ arch/riscv/include/asm/topology.h             |   4 +
+ arch/s390/include/asm/Kbuild                  |   1 +
+ arch/s390/include/asm/mmzone.h                |  17 -
+ arch/s390/kernel/numa.c                       |   3 -
+ arch/sh/include/asm/mmzone.h                  |   3 -
+ arch/sh/mm/init.c                             |   7 +-
+ arch/sh/mm/numa.c                             |   3 -
+ arch/sparc/include/asm/mmzone.h               |   4 -
+ arch/sparc/mm/init_64.c                       |  11 +-
+ arch/x86/Kconfig                              |   9 +-
+ arch/x86/include/asm/Kbuild                   |   1 +
+ arch/x86/include/asm/mmzone.h                 |   6 -
+ arch/x86/include/asm/mmzone_32.h              |  17 -
+ arch/x86/include/asm/mmzone_64.h              |  18 -
+ arch/x86/include/asm/numa.h                   |  26 +-
+ arch/x86/include/asm/sparsemem.h              |   9 -
+ arch/x86/mm/Makefile                          |   1 -
+ arch/x86/mm/amdtopology.c                     |   1 +
+ arch/x86/mm/numa.c                            | 618 +-----------------
+ arch/x86/mm/numa_internal.h                   |  24 -
+ drivers/acpi/numa/srat.c                      |   1 +
+ drivers/base/Kconfig                          |   1 +
+ drivers/base/arch_numa.c                      | 224 ++-----
+ drivers/cxl/Kconfig                           |   2 +-
+ drivers/dax/Kconfig                           |   2 +-
+ drivers/of/of_numa.c                          |   5 +-
+ include/asm-generic/mmzone.h                  |   5 +
+ include/asm-generic/numa.h                    |   6 +-
+ include/linux/memory_hotplug.h                |  48 --
+ include/linux/numa.h                          |   5 +
+ include/linux/numa_memblks.h                  |  58 ++
+ kernel/Makefile                               |   1 -
+ kernel/numa.c                                 |  26 -
+ mm/Kconfig                                    |  11 +
+ mm/Makefile                                   |   3 +
+ mm/mm_init.c                                  |   3 +-
+ mm/numa.c                                     |  57 ++
+ {arch/x86/mm => mm}/numa_emulation.c          |  42 +-
+ mm/numa_memblks.c                             | 568 ++++++++++++++++
+ 58 files changed, 870 insertions(+), 1160 deletions(-)
+ delete mode 100644 arch/arm64/include/asm/mmzone.h
+ delete mode 100644 arch/loongarch/include/asm/mmzone.h
+ delete mode 100644 arch/riscv/include/asm/mmzone.h
+ delete mode 100644 arch/s390/include/asm/mmzone.h
+ delete mode 100644 arch/x86/include/asm/mmzone.h
+ delete mode 100644 arch/x86/include/asm/mmzone_32.h
+ delete mode 100644 arch/x86/include/asm/mmzone_64.h
+ create mode 100644 include/asm-generic/mmzone.h
+ create mode 100644 include/linux/numa_memblks.h
+ delete mode 100644 kernel/numa.c
+ create mode 100644 mm/numa.c
+ rename {arch/x86/mm => mm}/numa_emulation.c (94%)
+ create mode 100644 mm/numa_memblks.c
 
 
-Samuel Holland (2):
-  riscv: Omit optimized string routines when using KASAN
-  riscv: Enable bitops instrumentation
-
- arch/riscv/include/asm/bitops.h | 43 ++++++++++++++++++---------------
- arch/riscv/include/asm/string.h |  2 ++
- arch/riscv/kernel/riscv_ksyms.c |  3 ---
- arch/riscv/lib/Makefile         |  2 ++
- arch/riscv/lib/strcmp.S         |  1 +
- arch/riscv/lib/strlen.S         |  1 +
- arch/riscv/lib/strncmp.S        |  1 +
- arch/riscv/purgatory/Makefile   |  2 ++
- 8 files changed, 32 insertions(+), 23 deletions(-)
-
+base-commit: 8400291e289ee6b2bf9779ff1c83a291501f017b
 -- 
-2.45.1
+2.43.0
 
 
 _______________________________________________
