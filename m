@@ -4,88 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFAE8C3DA4A
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 18:01:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D93BC3DA4A
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 18:27:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=P56eaWav/yNlQ9XmS+dZ6ztqkei1RNxva1ZrRwRAqTg=; b=wxmL8Ripa4Zm5+vvM2OQqkwASI
-	1EEiYR8zYzhDrEWARHnGpPEc6jNgHPp+ZHJdjWyWDibeawFJhzazz6m0Jiz8u5QXboN64+TF6p8hp
-	Ek2BPb8oTRoZdKotHotlrp3An1pZJe8H//tqxxFqigtwOLDrKy4eK2XmP5m9ud6z/LrMpR2t3yTai
-	WqI2GM+RpCuMILI3H6MaTzPKm68XB+LX4hMlqVx6fuSXzrJmIheiFIGFDFk1h/6jid2LbcaWOt6Ky
-	dM1HoWu+yy2hDduMAjsNIqFUH61uMuaMo0gVU9PHrR/vcXLQUPduMsOjHIetwC1f3XIrJKZX4m/zZ
-	kzC6FTSw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=vC8lljDkKXj5t3tmG5+zTz6gtYtiK5fuSAXQdov7oCM=; b=JE2lUSGIMfI41h
+	PPmaqRgIkyzCVkGanqIIVqC2Q7t3BLEsRAFC4EUs62hjNNyyH/3QxYciFHT4EeeiPsRdtkW7OsFv5
+	MCDlZ1+nBPuutJUKEm0H+BFg/onZbS9DppcKarBwlSKD74xPnNnPKqV1VqC6u+rq4UdU+zVX2AXUJ
+	JaE7AXMs/DF0HXDxzsYYxap9WVkxILrUKOXJFEnslmSOf62w2sclgmVKubQv6Zor9ST4QGu6uh+1l
+	mXoSbny+t9I5t67nvuUxPGUZgrmiYDfmKNpGOtVqSPAN3zjyWs5Qif+tgXz72wX3YYLkxbWaDVJog
+	P4jMs/fuhe0V0A+M9JNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZa7M-00000006Kww-08dL;
-	Thu, 01 Aug 2024 18:01:36 +0000
-Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
+	id 1sZaVw-00000006No1-0caV;
+	Thu, 01 Aug 2024 18:27:00 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZa7J-00000006Kvf-0MpA
+	id 1sZaVs-00000006Nmq-3UYf
 	for linux-riscv@lists.infradead.org;
-	Thu, 01 Aug 2024 18:01:34 +0000
-Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-7163489149fso7121678a12.3
-        for <linux-riscv@lists.infradead.org>; Thu, 01 Aug 2024 11:01:32 -0700 (PDT)
+	Thu, 01 Aug 2024 18:26:58 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3684407b2deso3681211f8f.1
+        for <linux-riscv@lists.infradead.org>; Thu, 01 Aug 2024 11:26:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1722535292; x=1723140092; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=xl2Pju3NY9Fnm1xajnPNr4ZOFDET+sfv7XV8JXyIerc=;
-        b=aQu0+UwbG8BXEUc8XDf29o2aZ0+j4j3tTNEO1v5CDh+5j6VpC+LqyVnVLKjCyGvf42
-         yfTHyoMEW+m4JV4vj+GNm2/j5BVY+mQJQM7jN2C1LS0W9BjsdOGRlmPuvvc7G4393qL+
-         Kuch1GO2hcl2XdT3KDMiH4a96WrLnsgvlz297gYxYgyShOauiFgJkTTQHY03/zf5+Edw
-         ghEOwVHu4Y0qC1q8UEXQkJ2TY1Ze6U4k000u3aMjKg1T3AJ3jIWIX5qAJhAVoNl/Xfq5
-         3vbOSlKK4jjUeY5F6ThfbJGOCCcsr0WwlIhZqXc555eGK+c6E+mrXaHexQ6hfHuxGDL1
-         VZ2Q==
+        d=google.com; s=20230601; t=1722536815; x=1723141615; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2GkfD0g8hTHOTE05py9mAwmf1QYzZu9yR2OS6+zzI80=;
+        b=ppZwe+iBR44RX2zhQbq8wrB+37m6SksThbYi8aGI4oh91afH64347QeQPdMM5wUKcI
+         m3V2I54a+mFPdsEX2B9oJbpwnUu+Ue3KgyiuMzyW9KzYVh4mgIZJCkuJ5RWsgfLruKuC
+         fkw5WETZ56SIoQcPiePPo6l6SJJHahrvOHemsgMo/LdzAPJ+UwBhcQLzGm76PRHO0SHd
+         syFG9ilS7ug5J+yyHUxzL7c1L6OyYspqP533KYQCIBmo7fZXCJ1A2B3Y6PS5IsCsqwWL
+         y1TTK/8iXAb1AkaY7VMOSO8zvL+3HGno/p6oKKMODyDu746io5g0hiD4aa4laHQ2Z7rD
+         ce8Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722535292; x=1723140092;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=xl2Pju3NY9Fnm1xajnPNr4ZOFDET+sfv7XV8JXyIerc=;
-        b=Bs787peVyBz9tbxZSsd0GF/Ygcn4sHezapaU+NlWrG8SQ34Ao6uj+Y3ci2/OjRJQ6u
-         TG1pVYYrMArNJTk8XQsP7aC1//QXxo7oG+sm1niUBP3Idqk5AqDjh5nVTcEnb6zqG+FZ
-         ii/ISCGSF/plIXsc0Fq2Cop0uq8jYjQskDJwAtOB1IK/G4Z5+LG9ZRfL9dh74Ww/7m37
-         FCHzvBm8jv3iAga148od7lk3T1KAojNggG63BJX6yqGZf8n7ypPeoYl9X67kjkCEZ/LO
-         n5wRoeHAK4GNlz5AKW1sLeJs4/PpInzaEKkATLVc02oJyLaFrn/3DQtpgkDinA0ewX/+
-         qYJQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVIEkvTzGrwqj2teEiNEZc7p7IVGGCcapjQkW7B12qaRtZ2POrQJzmEoDPH0EhprqkIugDw/JejxogTnxr9VIa6jBKu9sSRY00SC+KniGPk
-X-Gm-Message-State: AOJu0YyMhUPob4Nos/BqwJBDy23nCCssLk0RBlvL0f+1J8eTAe2VzZB5
-	+xxEQ4ZV85xBBeuAPkgcaI164gC6Jc+27tnaLW2hutMyIt4e81kfpdJ8GngXVEo5yTpVA0WCPrA
-	jtA==
-X-Google-Smtp-Source: AGHT+IF64U8Ib+bNIe3iPxoSzJOvvilQGXPjPZq7Y/8acNPwlcg0hACHnvmYPGnFv3dx9aufX4l27GJDySU=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a65:6252:0:b0:75a:b299:85b6 with SMTP id
- 41be03b00d2f7-7b74669c7b3mr1534a12.2.1722535291408; Thu, 01 Aug 2024 11:01:31
- -0700 (PDT)
-Date: Thu, 1 Aug 2024 11:01:30 -0700
-In-Reply-To: <yq5aikwku25o.fsf@kernel.org>
-Mime-Version: 1.0
-References: <20240726235234.228822-1-seanjc@google.com> <20240726235234.228822-3-seanjc@google.com>
- <yq5aikwku25o.fsf@kernel.org>
-Message-ID: <ZqvNekQAjs-SN-se@google.com>
-Subject: Re: [PATCH v12 02/84] KVM: arm64: Disallow copying MTE to guest
- memory while KVM is dirty logging
-From: Sean Christopherson <seanjc@google.com>
-To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
+        d=1e100.net; s=20230601; t=1722536815; x=1723141615;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2GkfD0g8hTHOTE05py9mAwmf1QYzZu9yR2OS6+zzI80=;
+        b=bokFBCfLfNURzgrQvrvD3xDKjBK1xfJEJej4euqBEpUDRr2888hDhgnVeoFiSxgSmU
+         71ZKI6rm+mBQ0eQRuLspQ5uFRlFXVFDt3Ui2O/mVzXVNF8Ch7sSQYVEZzYnq9eAnjqQf
+         44TRgdyD8QSewvn3vfN3OHzBV0CNcYp6D5doRYSfquJVOXtd8/TCjFJlS6cdt/MuRNie
+         EQNZcAaZiWu0QlZgxOQudZyn9Urjn1CXSHg6o3CF7zyc9GZDm8bE3QOH+WZOye4Rbs+1
+         yvITObLKM2JUaprAYpV/svOAAwszkq3WzU082ISYHBjOFPPT9Fd82BKpW9XpeXwW7+Am
+         q2Jg==
+X-Forwarded-Encrypted: i=1; AJvYcCWNUDewK1yRaqNH0pnrYJPzHd34AUGljlAlYj+cZRgADGG9ceA/BppU5lbEMttOD63/Pu4ynwnGVNsJr23pF2uIZ4ZTiIwkhd9//B67y/Ek
+X-Gm-Message-State: AOJu0YyGt5zYN4hPnSIByvCfULKdX3riHJLj3m0JMLR2WUoGPqCrYkTf
+	frHN9AoNRJgTTwrMeYkU9J65PyJAvpk3s01mkGW8oNFfUV/n2nqPCtdaZPOz/C9K9tztzXaC9NU
+	p8Xponhn59fPGnspGMopWXqf2LEE9Wu7jQVmT
+X-Google-Smtp-Source: AGHT+IGwaGkw42I/amAH0IQd6LdSV/vkI/phXZAUV/1lm1vKxK6jNhFtpwWWcpoa+ZqQDQpJUtDs/GFofzfYgLUeu2Q=
+X-Received: by 2002:adf:a356:0:b0:368:3895:67d6 with SMTP id
+ ffacd0b85a97d-36bbc0cbe69mr533475f8f.20.1722536814320; Thu, 01 Aug 2024
+ 11:26:54 -0700 (PDT)
+MIME-Version: 1.0
+References: <20240628-tracepoint-v4-0-353d523a9c15@google.com>
+ <20240628-tracepoint-v4-1-353d523a9c15@google.com> <20240731170508.GJ33588@noisy.programming.kicks-ass.net>
+ <CAH5fLghYodekhH-1A0BWZVwgbqkWbP3WP70-us2FtHqvOqD_Hw@mail.gmail.com> <20240801102804.GQ33588@noisy.programming.kicks-ass.net>
+In-Reply-To: <20240801102804.GQ33588@noisy.programming.kicks-ass.net>
+From: Alice Ryhl <aliceryhl@google.com>
+Date: Thu, 1 Aug 2024 20:26:42 +0200
+Message-ID: <CAH5fLgiOe1ECCwE1cwczsT13iPyymdUTbV-9ZHeDrp_OGq5FgQ@mail.gmail.com>
+Subject: Re: [PATCH v4 1/2] rust: add static_key_false
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, 
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Josh Poimboeuf <jpoimboe@kernel.org>, 
+	Jason Baron <jbaron@akamai.com>, Ard Biesheuvel <ardb@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
+	Alex Gaynor <alex.gaynor@gmail.com>, Wedson Almeida Filho <wedsonaf@gmail.com>, 
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+	Benno Lossin <benno.lossin@proton.me>, Andreas Hindborg <a.hindborg@samsung.com>, 
+	linux-trace-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, linux-arch@vger.kernel.org, 
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, "Peter Zijlstra (Intel)" <peterz@infradaed.org>, 
+	Sean Christopherson <seanjc@google.com>, Uros Bizjak <ubizjak@gmail.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Mark Rutland <mark.rutland@arm.com>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Fuad Tabba <tabba@google.com>, 
+	linux-arm-kernel@lists.infradead.org, 
 	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	David Matlack <dmatlack@google.com>, David Stevens <stevensd@chromium.org>
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <apatel@ventanamicro.com>, 
+	Andrew Jones <ajones@ventanamicro.com>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
+	Conor Dooley <conor.dooley@microchip.com>, Samuel Holland <samuel.holland@sifive.com>, 
+	linux-riscv@lists.infradead.org, Huacai Chen <chenhuacai@kernel.org>, 
+	WANG Xuerui <kernel@xen0n.name>, Bibo Mao <maobibo@loongson.cn>, 
+	Tiezhu Yang <yangtiezhu@loongson.cn>, Andrew Morton <akpm@linux-foundation.org>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, loongarch@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240801_110133_149652_F022DEDE 
-X-CRM114-Status: GOOD (  19.79  )
+X-CRM114-CacheID: sfid-20240801_112656_898468_4DCAE018 
+X-CRM114-Status: GOOD (  24.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,61 +110,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 01, 2024, Aneesh Kumar K.V wrote:
-> Sean Christopherson <seanjc@google.com> writes:
-> 
-> > Disallow copying MTE tags to guest memory while KVM is dirty logging, as
-> > writing guest memory without marking the gfn as dirty in the memslot could
-> > result in userspace failing to migrate the updated page.  Ideally (maybe?),
-> > KVM would simply mark the gfn as dirty, but there is no vCPU to work with,
-> > and presumably the only use case for copy MTE tags _to_ the guest is when
-> > restoring state on the target.
-> >
-> > Fixes: f0376edb1ddc ("KVM: arm64: Add ioctl to fetch/store tags in a guest")
-> > Signed-off-by: Sean Christopherson <seanjc@google.com>
-> > ---
-> >  arch/arm64/kvm/guest.c | 5 +++++
-> >  1 file changed, 5 insertions(+)
-> >
-> > diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-> > index e1f0ff08836a..962f985977c2 100644
-> > --- a/arch/arm64/kvm/guest.c
-> > +++ b/arch/arm64/kvm/guest.c
-> > @@ -1045,6 +1045,11 @@ int kvm_vm_ioctl_mte_copy_tags(struct kvm *kvm,
-> >  
-> >  	mutex_lock(&kvm->slots_lock);
-> >  
-> > +	if (write && atomic_read(&kvm->nr_memslots_dirty_logging)) {
-> > +		ret = -EBUSY;
-> > +		goto out;
-> > +	}
-> > +
-> >
-> 
-> is this equivalent to kvm_follow_pfn() with kfp->pin = 1 ?
-
-No, gfn_to_pfn_prot() == FOLL_GET, kfp->pin == FOLL_PIN.  But that's not really
-relevant.
-
-> Should all those pin request fail if kvm->nr_memslots_dirty_logging != 0? 
-
-No, the conflict with dirty logging is specifically that this code doesn't invoke
-mark_page_dirty().  And it can't easily do that, because there's no loaded ("running")
-vCPU, i.e. doing so would trip this WARN:
-
-#ifdef CONFIG_HAVE_KVM_DIRTY_RING
-	if (WARN_ON_ONCE(vcpu && vcpu->kvm != kvm))
-		return;
-
-	WARN_ON_ONCE(!vcpu && !kvm_arch_allow_write_without_running_vcpu(kvm)); <====
-#endif
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBBdWcgMSwgMjAyNCBhdCAxMjoyOOKAr1BNIFBldGVyIFppamxzdHJhIDxwZXRlcnpA
+aW5mcmFkZWFkLm9yZz4gd3JvdGU6Cj4KPiBPbiBXZWQsIEp1bCAzMSwgMjAyNCBhdCAxMTozNDox
+M1BNICswMjAwLCBBbGljZSBSeWhsIHdyb3RlOgo+Cj4gPiA+IFBsZWFzZSB3b3JrIGhhcmRlciB0
+byBub3QgaGF2ZSB0byBkdXBsaWNhdGUgc3R1ZmYgbGlrZSB0aGlzLgo+ID4KPiA+IEkgcmVhbGx5
+IGRpZG4ndCB3YW50IHRvIGR1cGxpY2F0ZSBpdCwgYnV0IGl0J3MgdmVyeSBoYXJkIHRvIGZpbmQg
+YQo+ID4gcGVyZm9ybWFudCBhbHRlcm5hdGl2ZS4gSXMgdGhlcmUgYW55IHdheSB3ZSBjb3VsZCBh
+Y2NlcHQgZHVwbGljYXRpb24KPiA+IG9ubHkgaW4gdGhlIGNhc2VzIHdoZXJlIGFuICdpJyBwYXJh
+bWV0ZXIgaXMgdXNlZD8gSSBkb24ndCBoYXZlIHRoZQo+ID4gY2hvaWNlIG9mIHVzaW5nIGEgUnVz
+dCBoZWxwZXIgZm9yICdpJyBwYXJhbWV0ZXJzLgo+ID4KPiA+IFBlcmhhcHMgb25lIG9wdGlvbiBj
+b3VsZCBiZSB0byBwdXQgdGhlIFJ1c3QgY29kZSBpbnNpZGUganVtcF9sYWJlbC5oCj4gPiBhbmQg
+aGF2ZSB0aGUgaGVhZGVyIGZpbGUgZXZhbHVhdGUgdG8gZWl0aGVyIEMgb3IgUnVzdCBkZXBlbmRp
+bmcgb24gdGhlCj4gPiB2YWx1ZSBvZiBzb21lICNpZmRlZnM/Cj4gPgo+ID4gI2lmbmRlZiBSVVNU
+X0FTTQo+ID4gLyogZXhpc3RpbmcgQyBjb2RlIGdvZXMgaGVyZSAqLwo+ID4gI2VuZGlmCj4gPiAj
+aWZkZWYgUlVTVF9BU00KPiA+IC8vIHJ1c3QgY29kZSBnb2VzIGhlcmUKPiA+ICNlbmRpZgo+ID4K
+PiA+IFRoYXQgd2F5IHRoZSBkdXBsaWNhdGlvbiBpcyBhbGwgaW4gYSBzaW5nbGUgZmlsZS4gSXQg
+d291bGQgYWxzbyBhdm9pZAo+ID4gdGhlIG5lZWQgZm9yIGR1cGxpY2F0aW5nIHRoZSBub3A1IHN0
+cmluZywgYXMgdGhlIFJ1c3QgY2FzZSBpcyBzdGlsbAo+ID4gZ29pbmcgdGhyb3VnaCB0aGUgQyBw
+cmVwcm9jZXNzb3IgYW5kIGNhbiB1c2UgdGhlIGV4aXN0aW5nICNkZWZpbmUuCj4KPiBJIHN1cHBv
+c2UgdGhhdCBpcyBzbGlnaHRseSBiZXR0ZXIsIGJ1dCBpZGVhbGx5IHlvdSBnZW5lcmF0ZSB0aGUg
+d2hvbGUgb2YKPiB0aGUgUnVzdCB0aGluZyBmcm9tIHRoZSBDIHZlcnNpb24uIEFmdGVyIGFsbCwg
+Q2xhbmcgY2FuIGFscmVhZHkgcGFyc2UKPiB0aGlzLgo+Cj4gVGhhdCBzYWlkLCB3aXRoIHRoZSBi
+ZWxvdyBwYXRjaCwgSSB0aGluayB5b3Ugc2hvdWxkIGJlIGFibGUgdG8gcmV1c2UgdGhlCj4gSlVN
+UF9UQUJMRV9FTlRSWSBtYWNybyBsaWtlOgo+Cj4gICAgICAgICBKVU1QX1RBQkxFX0VOVFJZKHsw
+fSwgezF9LCB7Mn0gKyB7M30pCgpZZWFoLCBJIHRoaW5rIHRoaXMgY2FuIHdvcmsuIEkgd2lsbCBz
+dWJtaXQgYSBmb2xsb3ctdXAgcGF0Y2ggdGhhdApyZW1vdmVzIHRoZSBkdXBsaWNhdGlvbiBzb29u
+LgoKQWxpY2UKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
+Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
