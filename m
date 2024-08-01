@@ -4,75 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7984AC3DA7F
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 00:38:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ADEEC3DA7F
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 01:11:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Wz5PQtxdEQ0wcsiVTmndjjQtVx2/r4H41ieDKvzN8Js=; b=mmx05/E0l3FI5/
-	2ohIWhF5nX0aKhAl0AwojQtpnaad9GVtvtQcX3JECCD/A0mCErLuAYbQ2oAX+yFSaBt+YpoDP7T62
-	PAxDLYvNuuj/e/QwWwMC22HhcPrE5P6Jb6cC+rR0fdeeMR+fw6zJcv/YxYj5Z81lqZ7mGalpzl6xZ
-	bCbEIC6Q7/EtN1ysRsdeVreX7HqzebMTy+VPEEp/Dvjv3QqerMhob2upvtHkSWVETSk4eEBaLOWuG
-	EFok65PaWFX8BCQCt4d7zLbTzYA9RH6wYOX6jXIRnHF99/yJ/ouxgZc+ego41sSFIELRLA3tRnRZi
-	4pW6u830yJX+gHFg/kJg==;
+	List-Owner; bh=29WDA2+6WsK/GMks1haz19/CEHi804Z/b8hk8wO7rLk=; b=xtYtfrVU1UmTbq
+	Po5tKNAAgk94DKet5YCb1jSkVMF070fvvJ2jppt7pKDWyLF/YcAsuP799NEZVS8NKibQo6IslVlyt
+	4Z4voqHv199u2HbqX/mJ4606OO2QfaC9gPy3yKt1qsbqGPGpHwMDl1b2i6XVPepSPmgv9bk07akQs
+	v2mqdrkUKFgRv5lMRhZ8n7X4t2EsdgILLcXFmkKQ/jsXknQpMTiaHQJ13P9JFg+qTwW+sV2lmTCLL
+	qr4sTWmesqZwUPeKaLlTvFdZKgMrYSBid2pj5AOXoQSnWtgrALoX4451Nm79eh908DFWqKv+hZFHh
+	Jyn72AVexBtYb8K++S8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZJq1-000000033nh-03eL;
-	Thu, 01 Aug 2024 00:38:37 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1sZKLQ-00000003B5N-0jiv;
+	Thu, 01 Aug 2024 01:11:04 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZJpx-000000033mu-3YyD
+	id 1sZKLM-00000003B3I-1z7Q
 	for linux-riscv@lists.infradead.org;
-	Thu, 01 Aug 2024 00:38:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5D37461741;
-	Thu,  1 Aug 2024 00:38:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D8EBC116B1;
-	Thu,  1 Aug 2024 00:38:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1722472713;
-	bh=NbqnkNm54YARazMoAHscVDuOCUJdGW2n3rExvuwRPpM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Bwy5o7fgJZbuSM6MAhlcqQrqGL+XpFQyn7M4N43uRW25KcfeKnDJ7uA0UQkPOr8DC
-	 oIDFHobQrxe1CGlsm4yDl6hLt8pPOCxz2uluYeC7af9uDEapKi7IIV76JcPjk3Y6o7
-	 01vjb+BONB6dlep83L3lJBIg7OMNO7FJWLgSYLo+cyetCO8qX6WJoK15/QykynOphj
-	 bzYxPMU86vBXplgtnm1gKyBjDmT82bGP7InC5UOA++1FjDbfvk/W3RXRtzIVhzVXlm
-	 gK3hASo1V1OKEh5ompV3CV6yr0aZxaNavKIBQruzVnxxO5xiFgDTU144ocK/DNmBE2
-	 tbDELVB46Tazw==
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	David Hildenbrand <david@redhat.com>,
-	Oscar Salvador <osalvador@suse.de>,
-	Palmer Dabbelt <palmer@rivosinc.com>,
-	Sasha Levin <sashal@kernel.org>,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alexghiti@rivosinc.com,
-	peterlin@andestech.com,
-	akpm@linux-foundation.org,
-	christophe.leroy@csgroup.eu,
-	suagrfillet@gmail.com,
+	Thu, 01 Aug 2024 01:11:02 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-70b703eda27so4081702b3a.3
+        for <linux-riscv@lists.infradead.org>; Wed, 31 Jul 2024 18:10:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1722474659; x=1723079459; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=SF8gnKEAE9EljJtXDymf4/VYu2nTWcOfe4LLsbP9AN0=;
+        b=tWc6A58C+H/4e6UsGy93ROSA3/CALD48H3be1+Tmt/PoDaWA9nFu4HzTyNVXXApg9P
+         WaVkjVdu84hlXdjgk+/rlzhOpnhyIWQCVPLrWwKTP56XvLvx62zjPbN13tqM9lPKMYiz
+         dpc1mkHYFlo6+4Hz+RoFg5e7pg/PtGOPgSVmKunSgY/f/WyhyGd0q1mKr/tdH+3S7Nzx
+         T3qx67cNDOG2h+vKrsM3dxdy6ndNcJOSPZHi3t7IqxO6f6Wu6tjQ0wvcBKubwDz/dUP6
+         +Z32Brv2UkhXiD03i0kS5fDI1WYjlvKuxWkxHRAXl+zscQBm+LYxJl6QDamlu/d1+j7Z
+         1gmg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1722474659; x=1723079459;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=SF8gnKEAE9EljJtXDymf4/VYu2nTWcOfe4LLsbP9AN0=;
+        b=f5g/fNK62Pe2Ilfayto+pSJqEDtYPqB6o0f6f8QGTrnkzyDHZzMc1IFCMw1H3vnOWo
+         EUmXpbxoZE+CQVnoFd5M8nuQ6rXskwteLSv4qF1ei7V0VERGyphSUmPFDWGkwTW7oXzQ
+         7Klm/JPdlSGDpgY2GKcu8/r5RRZStOVkKePtmUcE9YkHjDEc7eYBzhMB+Ptgdqcp9R9W
+         hbWptGJ5DL5xOvdfGsFzyowrjXrORM06Eg5XhroWd4NzfXqxwdPRv/eqig0UGQNp7sIg
+         vdIO4zdXbY4EnIr8t6fFmJ7+GZ+n/SItje0h3pJ6UoYDTdHZxAq7DS/r3ZizGOgdnQLu
+         ErlA==
+X-Forwarded-Encrypted: i=1; AJvYcCWjA+HN4WxT1un3H122vota6k5EBy8AMT59PSXKEK5JJg5ZkTnL+P+SOCy2GheVKNksHMh+Nw3UA+FW8USdXFX2mwWqCx6ee/j7YeL4uMMQ
+X-Gm-Message-State: AOJu0YyLexrjcla1h8OT+Dq9k184JAgvefh5S5BDW9cqbI1lwRnzj2fI
+	mGXgNO8xt8M9Y9uLj5buaI+wu7Chr+zoKZSI5HInde6ZlAH/1lwIV99h/NZ7M/ZtYtZoSJ6Q9E+
+	V
+X-Google-Smtp-Source: AGHT+IE+vBz7tRhC45aToQfMe1oJ8ucMo/aEKZneCwxPpUJhH86CJPQIsx+yfuNixrLgHrwhOoplIA==
+X-Received: by 2002:a05:6a00:acd:b0:70e:98e3:1aef with SMTP id d2e1a72fcca58-7105d7e6eb5mr1179532b3a.29.1722474658867;
+        Wed, 31 Jul 2024 18:10:58 -0700 (PDT)
+Received: from ghost ([50.145.13.30])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-70ead8a3aa8sm10522229b3a.210.2024.07.31.18.10.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 31 Jul 2024 18:10:58 -0700 (PDT)
+Date: Wed, 31 Jul 2024 18:10:55 -0700
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andrea Parri <parri.andrea@gmail.com>, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.10 29/38] riscv: mm: Take memory hotplug read-lock during kernel page table dump
-Date: Wed, 31 Jul 2024 20:35:35 -0400
-Message-ID: <20240801003643.3938534-29-sashal@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240801003643.3938534-1-sashal@kernel.org>
-References: <20240801003643.3938534-1-sashal@kernel.org>
+Subject: Re: [PATCH 1/2] tools: Add riscv barrier implementation
+Message-ID: <Zqrgn04zEmEpv5+m@ghost>
+References: <20240729-optimize_ring_buffer_read_riscv-v1-0-6bbc0f2434ee@rivosinc.com>
+ <20240729-optimize_ring_buffer_read_riscv-v1-1-6bbc0f2434ee@rivosinc.com>
+ <28d780da-4f43-4db5-8e1b-c66bb9973cd1@rivosinc.com>
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 5.10.223
+Content-Disposition: inline
+In-Reply-To: <28d780da-4f43-4db5-8e1b-c66bb9973cd1@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240731_173833_953953_4E0CEEC1 
-X-CRM114-Status: UNSURE (   9.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240731_181100_787133_5D1DE5BA 
+X-CRM114-Status: GOOD (  22.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,36 +94,139 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgoKWyBVcHN0cmVhbSBjb21t
-aXQgMzc5OTJiN2YxMDk3YmE3OWNhNzViYTVhMjZkZGNmMGY1NGY5MWEwOCBdCgpEdXJpbmcgbWVt
-b3J5IGhvdCByZW1vdmUsIHRoZSBwdGR1bXAgZnVuY3Rpb25hbGl0eSBjYW4gZW5kIHVwIHRvdWNo
-aW5nCnN0YWxlIGRhdGEuIEF2b2lkIGFueSBwb3RlbnRpYWwgY3Jhc2hlcyAob3Igd29yc2UpLCBi
-eSBob2xkaW5nIHRoZQptZW1vcnkgaG90cGx1ZyByZWFkLWxvY2sgd2hpbGUgdHJhdmVyc2luZyB0
-aGUgcGFnZSB0YWJsZS4KClRoaXMgY2hhbmdlIGlzIGFuYWxvZ291cyB0byBhcm02NCdzIGNvbW1p
-dCBiZjJiNTlmNjBlZTEgKCJhcm02NC9tbToKSG9sZCBtZW1vcnkgaG90cGx1ZyBsb2NrIHdoaWxl
-IHdhbGtpbmcgZm9yIGtlcm5lbCBwYWdlIHRhYmxlIGR1bXAiKS4KClJldmlld2VkLWJ5OiBEYXZp
-ZCBIaWxkZW5icmFuZCA8ZGF2aWRAcmVkaGF0LmNvbT4KUmV2aWV3ZWQtYnk6IE9zY2FyIFNhbHZh
-ZG9yIDxvc2FsdmFkb3JAc3VzZS5kZT4KU2lnbmVkLW9mZi1ieTogQmrDtnJuIFTDtnBlbCA8Ympv
-cm5Acml2b3NpbmMuY29tPgpMaW5rOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9yLzIwMjQwNjA1
-MTE0MTAwLjMxNTkxOC04LWJqb3JuQGtlcm5lbC5vcmcKU2lnbmVkLW9mZi1ieTogUGFsbWVyIERh
-YmJlbHQgPHBhbG1lckByaXZvc2luYy5jb20+ClNpZ25lZC1vZmYtYnk6IFNhc2hhIExldmluIDxz
-YXNoYWxAa2VybmVsLm9yZz4KLS0tCiBhcmNoL3Jpc2N2L21tL3B0ZHVtcC5jIHwgMyArKysKIDEg
-ZmlsZSBjaGFuZ2VkLCAzIGluc2VydGlvbnMoKykKCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L21t
-L3B0ZHVtcC5jIGIvYXJjaC9yaXNjdi9tbS9wdGR1bXAuYwppbmRleCBhY2U3NGRlYzc0OTJjLi5i
-NWE4YzdjMjBkMTIwIDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L21tL3B0ZHVtcC5jCisrKyBiL2Fy
-Y2gvcmlzY3YvbW0vcHRkdW1wLmMKQEAgLTYsNiArNiw3IEBACiAjaW5jbHVkZSA8bGludXgvZWZp
-Lmg+CiAjaW5jbHVkZSA8bGludXgvaW5pdC5oPgogI2luY2x1ZGUgPGxpbnV4L2RlYnVnZnMuaD4K
-KyNpbmNsdWRlIDxsaW51eC9tZW1vcnlfaG90cGx1Zy5oPgogI2luY2x1ZGUgPGxpbnV4L3NlcV9m
-aWxlLmg+CiAjaW5jbHVkZSA8bGludXgvcHRkdW1wLmg+CiAKQEAgLTMyNCw3ICszMjUsOSBAQCB2
-b2lkIHB0ZHVtcF9jaGVja193eCh2b2lkKQogCiBzdGF0aWMgaW50IHB0ZHVtcF9zaG93KHN0cnVj
-dCBzZXFfZmlsZSAqbSwgdm9pZCAqdikKIHsKKwlnZXRfb25saW5lX21lbXMoKTsKIAlwdGR1bXBf
-d2FsayhtLCBtLT5wcml2YXRlKTsKKwlwdXRfb25saW5lX21lbXMoKTsKIAogCXJldHVybiAwOwog
-fQotLSAKMi40My4wCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+On Tue, Jul 30, 2024 at 10:59:52AM +0200, Cl=E9ment L=E9ger wrote:
+> =
+
+> =
+
+> On 29/07/2024 22:50, Charlie Jenkins wrote:
+> > Many of the other architectures use their custom barrier implmentations.
+> =
+
+> Hi Charlie,
+> =
+
+> Typo: implmentations -> implementations
+
+Thank you! I will fix that.
+
+- Charlie
+
+> =
+
+> > Use the barrier code from the kernel sources to optimize barriers in
+> > tools.
+> > =
+
+> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> > ---
+> >  tools/arch/riscv/include/asm/barrier.h | 39 ++++++++++++++++++++++++++=
+++++++++
+> >  tools/arch/riscv/include/asm/fence.h   | 13 ++++++++++++
+> >  tools/include/asm/barrier.h            |  2 ++
+> >  3 files changed, 54 insertions(+)
+> > =
+
+> > diff --git a/tools/arch/riscv/include/asm/barrier.h b/tools/arch/riscv/=
+include/asm/barrier.h
+> > new file mode 100644
+> > index 000000000000..6997f197086d
+> > --- /dev/null
+> > +++ b/tools/arch/riscv/include/asm/barrier.h
+> > @@ -0,0 +1,39 @@
+> > +/* SPDX-License-Identifier: GPL-2.0-only */
+> > +/*
+> > + * Copied from the kernel sources to tools/arch/riscv:
+> > + *
+> > + * Copyright (C) 2012 ARM Ltd.
+> > + * Copyright (C) 2013 Regents of the University of California
+> > + * Copyright (C) 2017 SiFive
+> > + */
+> > +
+> > +#ifndef _TOOLS_LINUX_ASM_RISCV_BARRIER_H
+> > +#define _TOOLS_LINUX_ASM_RISCV_BARRIER_H
+> > +
+> > +#include <asm/fence.h>
+> > +#include <linux/compiler.h>
+> > +
+> > +/* These barriers need to enforce ordering on both devices and memory.=
+ */
+> > +#define mb()		RISCV_FENCE(iorw, iorw)
+> > +#define rmb()		RISCV_FENCE(ir, ir)
+> > +#define wmb()		RISCV_FENCE(ow, ow)
+> > +
+> > +/* These barriers do not need to enforce ordering on devices, just mem=
+ory. */
+> > +#define smp_mb()	RISCV_FENCE(rw, rw)
+> > +#define smp_rmb()	RISCV_FENCE(r, r)
+> > +#define smp_wmb()	RISCV_FENCE(w, w)
+> > +
+> > +#define smp_store_release(p, v)						\
+> > +do {									\
+> > +	RISCV_FENCE(rw, w);						\
+> > +	WRITE_ONCE(*p, v);						\
+> > +} while (0)
+> > +
+> > +#define smp_load_acquire(p)						\
+> > +({									\
+> > +	typeof(*p) ___p1 =3D READ_ONCE(*p);				\
+> > +	RISCV_FENCE(r, rw);						\
+> > +	___p1;								\
+> > +})
+> > +
+> > +#endif /* _TOOLS_LINUX_ASM_RISCV_BARRIER_H */
+> > diff --git a/tools/arch/riscv/include/asm/fence.h b/tools/arch/riscv/in=
+clude/asm/fence.h
+> > new file mode 100644
+> > index 000000000000..37860e86771d
+> > --- /dev/null
+> > +++ b/tools/arch/riscv/include/asm/fence.h
+> > @@ -0,0 +1,13 @@
+> > +/* SPDX-License-Identifier: GPL-2.0-only */
+> > +/*
+> > + * Copied from the kernel sources to tools/arch/riscv:
+> > + */
+> > +
+> > +#ifndef _ASM_RISCV_FENCE_H
+> > +#define _ASM_RISCV_FENCE_H
+> > +
+> > +#define RISCV_FENCE_ASM(p, s)		"\tfence " #p "," #s "\n"
+> > +#define RISCV_FENCE(p, s) \
+> > +	({ __asm__ __volatile__ (RISCV_FENCE_ASM(p, s) : : : "memory"); })
+> > +
+> > +#endif	/* _ASM_RISCV_FENCE_H */
+> > diff --git a/tools/include/asm/barrier.h b/tools/include/asm/barrier.h
+> > index 8d378c57cb01..0c21678ac5e6 100644
+> > --- a/tools/include/asm/barrier.h
+> > +++ b/tools/include/asm/barrier.h
+> > @@ -8,6 +8,8 @@
+> >  #include "../../arch/arm64/include/asm/barrier.h"
+> >  #elif defined(__powerpc__)
+> >  #include "../../arch/powerpc/include/asm/barrier.h"
+> > +#elif defined(__riscv)
+> > +#include "../../arch/riscv/include/asm/barrier.h"
+> >  #elif defined(__s390__)
+> >  #include "../../arch/s390/include/asm/barrier.h"
+> >  #elif defined(__sh__)
+> > =
+
+> =
+
+> Can not really tell for that part except it seems ok to me as well.
+> Andrea might be a better candidate to add its Rb.
+> =
+
+> Thanks,
+> =
+
+> Cl=E9ment
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
