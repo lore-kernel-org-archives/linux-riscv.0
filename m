@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98C1BC3DA64
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 00:31:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71C83C3DA7F
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 00:35:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jEWz4eMQzx+z9nzAlz6RtDDKloM/U9cM6Z75jInH4Y8=; b=u2c1D2wDzbWXbJ
-	OhmMWYPlGYXqgRMWKcJHwcImwyRuSdtwZuW4fqyILXC6OX9QHGuay4Qy35D0HTdsbnHn4WrrB/ixi
-	3Z0ECk6Q0uwm0kT2G0aFJ+vzHPiKaa8DDloRLtXP2sdwxZ4ReBaFjdhpZMkwGe7YpR7lq1x9aJuPF
-	V0Zuh8KkK/pgDCrSC7fiuWq4AfV2BULHiZvXytStz1+Uld/mG+UIkHtimpkXkLJAZrU+bXpJgP516
-	CLhawlRKV5wOeKFdBMuoHfNhniGjo7NgJuDUm8lq0nowZn9Qr5+D/zkHogqs1TQeaHcBFBpujHgeU
-	o+wSvJsxDwpxv6impEUg==;
+	List-Owner; bh=Wqe8JaTl6b7ba5uSuqwuylCFm/iPBc6D9XA5UG6/FN4=; b=Mr6w71trmBCJav
+	EOWDY0UtyZQ8aVYaJEAKKwYf6JClWHR/YylOsjbcmpPth6p8jLXLQIn3ltrpoLpJ0pPPYhRbfBf9/
+	/UxMYhi+UK28qm2boi0qldb7Gspd6vDOCiDEY+AcmnaRIuM3YI8pGvfhSQ8uIugzyTgSKCN5GUvSg
+	mZ1XR8VTFwoPVfhi0sqoVDeBNxXfxkn6tx/Fq990gAJ2oWn8ELh/gySMj7ZXGE8PQGKaQx+V0k4Aj
+	2PI1b2uyqNqvYFDzUN8mHTiAW/yy7ESLXuTcooaZ9jxeb67xxJjG0VfFRYboiI1mL8pVetFbxGgms
+	zjbP3OBcZ94w4MEPv3xQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZJio-000000031Ni-03VM;
-	Thu, 01 Aug 2024 00:31:10 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1sZJmp-000000032lR-0jtc;
+	Thu, 01 Aug 2024 00:35:19 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZJih-000000031LB-1RlI
+	id 1sZJmm-000000032kR-2Kc4
 	for linux-riscv@lists.infradead.org;
-	Thu, 01 Aug 2024 00:31:04 +0000
+	Thu, 01 Aug 2024 00:35:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id A67F4CE17A6;
-	Thu,  1 Aug 2024 00:31:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11AB2C116B1;
-	Thu,  1 Aug 2024 00:30:58 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 003196246A;
+	Thu,  1 Aug 2024 00:35:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E00D7C4AF0F;
+	Thu,  1 Aug 2024 00:35:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1722472260;
-	bh=9fXbwdzhwFMnniC7O2MzvI1C74jiNEkZl50KxhJ9O8E=;
+	s=k20201202; t=1722472515;
+	bh=LK6zTajtoTZQV6EezgVVoyRpxqbqn/pTlxwoTFwONDo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=jtOU0QYZ1e3kL/z8HCJCT+YFP4aAmoaoC+0w8xNgIcSWJ7bkexqMEXYO9U3NOOdPS
-	 wti8g/8e2qJ2QVCyw6d5IDmZmkdIcor3BKa09uzeBgjwb4cBiVswVrD4mE7W3CbOQF
-	 mLh5aOA8ZbrCB7VrnLBbD2upMqPOfVsjrps6VhSeA+Mit/SbjEoji4yjrdnHmk0tDq
-	 7tFC4LJ5shTgIujEFo49j88vmbfHaVzQ2JpgwHISVacfwodw0QCQ9XbBrv7OrOoPIE
-	 bx9ESntw4WsSJ5secOYE8p0ps/u+lqBumrDTj+XE4QhAwkYaxm/GH0VaffgA6bO5Pe
-	 oPR0i0ZAZP16w==
+	b=aaANe/huHjUmtZlpF49Wt67OPEQTL47O9H58bQx8DMCVEfsEBOGm2jaqX0qHYlsdA
+	 hBCgW9JRS597vby7Y16dlPZxzYk1OhaOBd3/qddhHDdzSC4gsGyh4HqZOfQvgXQyky
+	 VoKXmITLuWjlZcVy/efiVYCxeNQjT6YcoDjZSUBQzy504IcWx2Qj97BxpUWF2Fgio9
+	 knJPB2a/FFC6GrxWW1uMfOhRXpZLd9cXkZL3WWrsmO/w6m1czBodhTvM8fJyTSgxrS
+	 aXl3v6gcS3oFb8HDQnq31JapIob0cUZxzw1Cp5RTrxhDfaz9ZfkOvSaY3anNhTBzZB
+	 p2QlrrpV/rTfA==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -55,22 +55,22 @@ Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
 	aou@eecs.berkeley.edu,
 	alexghiti@rivosinc.com,
 	peterlin@andestech.com,
-	christophe.leroy@csgroup.eu,
 	akpm@linux-foundation.org,
+	christophe.leroy@csgroup.eu,
 	suagrfillet@gmail.com,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.1 47/61] riscv: mm: Take memory hotplug read-lock during kernel page table dump
-Date: Wed, 31 Jul 2024 20:26:05 -0400
-Message-ID: <20240801002803.3935985-47-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.15 36/47] riscv: mm: Take memory hotplug read-lock during kernel page table dump
+Date: Wed, 31 Jul 2024 20:31:26 -0400
+Message-ID: <20240801003256.3937416-36-sashal@kernel.org>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240801002803.3935985-1-sashal@kernel.org>
-References: <20240801002803.3935985-1-sashal@kernel.org>
+In-Reply-To: <20240801003256.3937416-1-sashal@kernel.org>
+References: <20240801003256.3937416-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.1.102
+X-stable-base: Linux 5.15.164
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240731_173103_566121_EE9D5400 
+X-CRM114-CacheID: sfid-20240731_173516_671797_09DAE61E 
 X-CRM114-Status: UNSURE (   9.98  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -104,8 +104,8 @@ MTE0MTAwLjMxNTkxOC04LWJqb3JuQGtlcm5lbC5vcmcKU2lnbmVkLW9mZi1ieTogUGFsbWVyIERh
 YmJlbHQgPHBhbG1lckByaXZvc2luYy5jb20+ClNpZ25lZC1vZmYtYnk6IFNhc2hhIExldmluIDxz
 YXNoYWxAa2VybmVsLm9yZz4KLS0tCiBhcmNoL3Jpc2N2L21tL3B0ZHVtcC5jIHwgMyArKysKIDEg
 ZmlsZSBjaGFuZ2VkLCAzIGluc2VydGlvbnMoKykKCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L21t
-L3B0ZHVtcC5jIGIvYXJjaC9yaXNjdi9tbS9wdGR1bXAuYwppbmRleCBlOTA5MGIzOGY4MTE3Li5k
-YmMyYmFhOTVlYWRlIDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L21tL3B0ZHVtcC5jCisrKyBiL2Fy
+L3B0ZHVtcC5jIGIvYXJjaC9yaXNjdi9tbS9wdGR1bXAuYwppbmRleCA4MzBlN2RlNjVlM2EzLi4x
+NTRjYzQyN2Y0OTU3IDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L21tL3B0ZHVtcC5jCisrKyBiL2Fy
 Y2gvcmlzY3YvbW0vcHRkdW1wLmMKQEAgLTYsNiArNiw3IEBACiAjaW5jbHVkZSA8bGludXgvZWZp
 Lmg+CiAjaW5jbHVkZSA8bGludXgvaW5pdC5oPgogI2luY2x1ZGUgPGxpbnV4L2RlYnVnZnMuaD4K
 KyNpbmNsdWRlIDxsaW51eC9tZW1vcnlfaG90cGx1Zy5oPgogI2luY2x1ZGUgPGxpbnV4L3NlcV9m
