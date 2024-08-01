@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FE1AC3DA4A
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 06:17:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66D1AC3DA4A
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 06:17:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fMeafIZ2WEFrUWK+3BgzmvsNK4M5pGypMGgYfjuV5RE=; b=IUCzdHH7ij7Klm
-	Rduztw1wQtI2ERSUwEoVpEL06IpD8bEhDnfV54P6dh1/lQI6AFBurN6Yp/uNqeWpYgNmrdn8uXKOM
-	7bHQt/yyJWwtR4qOUR9WGxmWVayULrIXNkwB7Bf/V1TyjSL/Z2rtVLTbSJFuw18zWv5XL9Nolocd+
-	uIgX0JVsaHdqnRp9t+TRLSV+/s1E/IWB6dA+ROtyQnjsuPTTE+MiMkiuvRB3dRIY6YwTvPl34HRAP
-	wEZkXLkbIki4NTErftC8D/qNzL65aBq5hS3zQj0jmo/cG+pQ1ABt4FGxkD52916p8fhhNnAHOVh+I
-	ZrOIBFfQajPFTwwWPbmg==;
+	List-Owner; bh=9IVcP49C2NFpTx+dZ8FtYsMR+pK6OAyPr6IwD2jxbj0=; b=RnJMFNbbSQJl1t
+	HZxdBmKBHRKIKPfbTIZa++IImKUxeuCpPHLaOLlFUCOLjQy5kun9HudE0PlxoOkR0RzaZUoyx0mP5
+	0Rt9ffEcE1OplUBFNmv9wBs5hbvsslCXX+O7dBgWpX3BLeJFG6SswYihxvjLK0Zf7AVKbQ6IYAlqe
+	qlzl7cNKKIYUm0AxzhNVHtRmnPiryeTXZZSe/W8OOM2H165MK+pK9sx6RcXBSnwVNEpZk/rkjtW3/
+	LjgC5vDDdS6Qdi0xax3QmxiTa2hkpaGZVIGe6pYBgwzzl2hk9USSHu3B4JerNU6t9D/KUE+egprkf
+	a8VzQOUcr4SyPZDq/E3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZP7S-00000003vne-3jsg;
-	Thu, 01 Aug 2024 06:16:58 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sZP7y-00000003w4G-3Edx;
+	Thu, 01 Aug 2024 06:17:30 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZP2B-00000003svj-477G;
-	Thu, 01 Aug 2024 06:11:33 +0000
+	id 1sZP2N-00000003t3x-2S8C;
+	Thu, 01 Aug 2024 06:11:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4A73A6140C;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 18C616263A;
+	Thu,  1 Aug 2024 06:11:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83720C4AF09;
 	Thu,  1 Aug 2024 06:11:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7173C4AF0C;
-	Thu,  1 Aug 2024 06:11:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1722492691;
-	bh=Hwkl2fYIk7TOliTb70qL/9b9HRfQD7yZz25kkbJxzwg=;
+	s=k20201202; t=1722492702;
+	bh=a5wWvXp5sZfTjfQzLNJ+a5bJ5ZJPXICMVCqsCnclVEE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=sggkX9UXhxZlNsIU8Cl5aBh0kTbihmyOr+rKh8PUi6HpNbM0T6FIQKsN6mrcRHsf+
-	 /SHE74zS057DN4assx4nJNhHkYwGmMqA+89c3GAN3GWW1EkySpM/jKp7djIHsHmlQ5
-	 J+Rv/xUy1WL2p4zN9YP1XUUreurEUzXm4yz/xIU+P7O+cVStnX8B/b0U7trY1kXI3V
-	 hD82NTGJiywRlimIOVt1MLB+ZyReKPZdsG0bD+xetL7gw2D1t4eztwZAnWKJPPnk54
-	 vnKaRI5ocC0Nw9z/8HV7kFU7UWYinD8YhScEarF8oyOHxHwNgCdMiLoia/TVqvYCnm
-	 Y30JzCKYd6e+A==
+	b=cc4WvpYSk2IgT7M8f19PtLCANZs9ejYsgNz/cO/n9jZN8qc0EaFo0hFRtACL2ndu9
+	 6mQNevH4Cv97QgSeWny58SoJTelXG7+q/yupDHNjypMc9KfJSvH9dJkMYoPTVHXTFt
+	 qOV8qLNBVKP+KQ0TDEb4IxRQJnulZa3OTDwTCKv2ZaDrPMf/7n9eMwLrQ+9DBTKaQ2
+	 CscX8zJ0BsTHTjThMBHjRi6ejLjZ0Khv97xgxfXs5HKaUT5vo9NA59YW7rniE33hCD
+	 LqVJKeLyrOjDdwbfYs2UANWDOREYQ7kpVO/8B3QyCKE+mrBu4NqR3hacT/uObjnyRS
+	 Fd/de2lMyOA4Q==
 From: Mike Rapoport <rppt@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
@@ -91,16 +91,16 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org,
 	Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Subject: [PATCH v3 14/26] x86/numa_emu: split __apicid_to_node update to a helper function
-Date: Thu,  1 Aug 2024 09:08:14 +0300
-Message-ID: <20240801060826.559858-15-rppt@kernel.org>
+Subject: [PATCH v3 15/26] x86/numa_emu: use a helper function to get MAX_DMA32_PFN
+Date: Thu,  1 Aug 2024 09:08:15 +0300
+Message-ID: <20240801060826.559858-16-rppt@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240801060826.559858-1-rppt@kernel.org>
 References: <20240801060826.559858-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240731_231132_179159_41ED66EA 
-X-CRM114-Status: GOOD (  17.83  )
+X-CRM114-CacheID: sfid-20240731_231143_763576_8165DCAB 
+X-CRM114-Status: GOOD (  16.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,82 +126,61 @@ Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 Tested-by: Zi Yan <ziy@nvidia.com> # for x86_64 and arm64
 ---
- arch/x86/include/asm/numa.h  |  2 ++
- arch/x86/mm/numa.c           | 22 ++++++++++++++++++++++
- arch/x86/mm/numa_emulation.c | 14 +-------------
- 3 files changed, 25 insertions(+), 13 deletions(-)
+ arch/x86/include/asm/numa.h  | 1 +
+ arch/x86/mm/numa.c           | 5 +++++
+ arch/x86/mm/numa_emulation.c | 4 ++--
+ 3 files changed, 8 insertions(+), 2 deletions(-)
 
 diff --git a/arch/x86/include/asm/numa.h b/arch/x86/include/asm/numa.h
-index 2dab1ada96cf..7017d540894a 100644
+index 7017d540894a..b22c85c1ef18 100644
 --- a/arch/x86/include/asm/numa.h
 +++ b/arch/x86/include/asm/numa.h
-@@ -72,6 +72,8 @@ void debug_cpumask_set_cpu(int cpu, int node, bool enable);
- 
- #ifdef CONFIG_NUMA_EMU
+@@ -74,6 +74,7 @@ void debug_cpumask_set_cpu(int cpu, int node, bool enable);
  int numa_emu_cmdline(char *str);
-+void __init numa_emu_update_cpu_to_node(int *emu_nid_to_phys,
-+					unsigned int nr_emu_nids);
+ void __init numa_emu_update_cpu_to_node(int *emu_nid_to_phys,
+ 					unsigned int nr_emu_nids);
++u64 __init numa_emu_dma_end(void);
  #else /* CONFIG_NUMA_EMU */
  static inline int numa_emu_cmdline(char *str)
  {
 diff --git a/arch/x86/mm/numa.c b/arch/x86/mm/numa.c
-index cfe7e5477cf8..9180d524cfe4 100644
+index 9180d524cfe4..8b7c6580d268 100644
 --- a/arch/x86/mm/numa.c
 +++ b/arch/x86/mm/numa.c
-@@ -848,6 +848,28 @@ EXPORT_SYMBOL(cpumask_of_node);
- 
- #endif	/* !CONFIG_DEBUG_PER_CPU_MAPS */
- 
-+#ifdef CONFIG_NUMA_EMU
-+void __init numa_emu_update_cpu_to_node(int *emu_nid_to_phys,
-+					unsigned int nr_emu_nids)
+@@ -868,6 +868,11 @@ void __init numa_emu_update_cpu_to_node(int *emu_nid_to_phys,
+ 		__apicid_to_node[i] = j < nr_emu_nids ? j : 0;
+ 	}
+ }
++
++u64 __init numa_emu_dma_end(void)
 +{
-+	int i, j;
-+
-+	/*
-+	 * Transform __apicid_to_node table to use emulated nids by
-+	 * reverse-mapping phys_nid.  The maps should always exist but fall
-+	 * back to zero just in case.
-+	 */
-+	for (i = 0; i < ARRAY_SIZE(__apicid_to_node); i++) {
-+		if (__apicid_to_node[i] == NUMA_NO_NODE)
-+			continue;
-+		for (j = 0; j < nr_emu_nids; j++)
-+			if (__apicid_to_node[i] == emu_nid_to_phys[j])
-+				break;
-+		__apicid_to_node[i] = j < nr_emu_nids ? j : 0;
-+	}
++	return PFN_PHYS(MAX_DMA32_PFN);
 +}
-+#endif /* CONFIG_NUMA_EMU */
-+
+ #endif /* CONFIG_NUMA_EMU */
+ 
  #ifdef CONFIG_NUMA_KEEP_MEMINFO
- static int meminfo_to_nid(struct numa_meminfo *mi, u64 start)
- {
 diff --git a/arch/x86/mm/numa_emulation.c b/arch/x86/mm/numa_emulation.c
-index 439804e21962..f2746e52ab93 100644
+index f2746e52ab93..fb4814497446 100644
 --- a/arch/x86/mm/numa_emulation.c
 +++ b/arch/x86/mm/numa_emulation.c
-@@ -476,19 +476,7 @@ void __init numa_emulation(struct numa_meminfo *numa_meminfo, int numa_dist_cnt)
- 		    ei.blk[i].nid != NUMA_NO_NODE)
- 			node_set(ei.blk[i].nid, numa_nodes_parsed);
+@@ -128,7 +128,7 @@ static int __init split_nodes_interleave(struct numa_meminfo *ei,
+ 	 */
+ 	while (!nodes_empty(physnode_mask)) {
+ 		for_each_node_mask(i, physnode_mask) {
+-			u64 dma32_end = PFN_PHYS(MAX_DMA32_PFN);
++			u64 dma32_end = numa_emu_dma_end();
+ 			u64 start, limit, end;
+ 			int phys_blk;
  
--	/*
--	 * Transform __apicid_to_node table to use emulated nids by
--	 * reverse-mapping phys_nid.  The maps should always exist but fall
--	 * back to zero just in case.
--	 */
--	for (i = 0; i < ARRAY_SIZE(__apicid_to_node); i++) {
--		if (__apicid_to_node[i] == NUMA_NO_NODE)
--			continue;
--		for (j = 0; j < ARRAY_SIZE(emu_nid_to_phys); j++)
--			if (__apicid_to_node[i] == emu_nid_to_phys[j])
--				break;
--		__apicid_to_node[i] = j < ARRAY_SIZE(emu_nid_to_phys) ? j : 0;
--	}
-+	numa_emu_update_cpu_to_node(emu_nid_to_phys, ARRAY_SIZE(emu_nid_to_phys));
+@@ -275,7 +275,7 @@ static int __init split_nodes_size_interleave_uniform(struct numa_meminfo *ei,
+ 	 */
+ 	while (!nodes_empty(physnode_mask)) {
+ 		for_each_node_mask(i, physnode_mask) {
+-			u64 dma32_end = PFN_PHYS(MAX_DMA32_PFN);
++			u64 dma32_end = numa_emu_dma_end();
+ 			u64 start, limit, end;
+ 			int phys_blk;
  
- 	/* make sure all emulated nodes are mapped to a physical node */
- 	for (i = 0; i < ARRAY_SIZE(emu_nid_to_phys); i++)
 -- 
 2.43.0
 
