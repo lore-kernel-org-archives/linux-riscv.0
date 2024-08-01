@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DDE5C3DA64
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 13:15:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDABBC3DA64
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 13:15:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XYwL2cPviY8OFkZFj/zzYdODmAMxwyrJTS4PuWPGimY=; b=PQ0pm7QMBN5hOp
-	R+aE9Y43/02Q0Vezt8156UMNJpIqQdoarzrWvG0rE37s3ahpGD50PhauuOwD5IHz/s11o0voLCTVe
-	zYXpDP3WyrsbGITXBAYhDc/9TTrJoj6geX46JCbACU94gN4rJickhXYKjEqWi8DODAAkriC4urDHw
-	I54bd6qlsY6vg8tAOApO3ptwn8B1BOHJa2a4qgFYj4BdjgJlLYA3/C2pLlmDrftxYmMW1LC19rOjp
-	OD4qsL3yDTsAksk4+gwiHM7K4iIbLioNOsxUZXd5vnBzw591Bp6Wzh89uNyO1TJ7urgiSjWWJhcw5
-	P+7rBjoB8/W/RWyiPImw==;
+	List-Owner; bh=dCjG2BJYp7VlkYvLL/Vml6wrkVMygYencx7DEnV7K00=; b=Nc8Uuclgr+BPcU
+	+PSG76SD5XydGx/rtM2Yy+1ts3E6jAH2be7Crm/9aPWdLOT3AHPpk1elCCKNIwZpEU3o55abFwHFu
+	VfdLFBPqWj+/WG7CX/asibk7cnnOO3e8Bv05QhjIU5y9sldJCUSE51MIh8grs7v5MYXZj7NVFph7r
+	LaBaKvHUhyygYZT+QSd4SG/BYpUk6y5U5r6jcb7dV7SRHwoFZ82+W1cDyn3zN6lGM1ZNDd/N/BEIv
+	ic7XndczZ2uBlYvFvNU6lqzGqyCMZ4NDt6iGFDea+yWk+KIgsGc91BYOw1jnjAvQx1dhTOHOlbeyH
+	VX0oLzUckFbEWRo+L8Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZVeI-00000005RqP-3P7h;
-	Thu, 01 Aug 2024 13:15:18 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sZVeo-00000005S8F-48Vk;
+	Thu, 01 Aug 2024 13:15:50 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZVQQ-00000005Jyi-0epZ;
-	Thu, 01 Aug 2024 13:01:00 +0000
+	id 1sZVQf-00000005K84-18MQ;
+	Thu, 01 Aug 2024 13:01:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7346E62850;
-	Thu,  1 Aug 2024 13:00:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C837AC4AF0A;
-	Thu,  1 Aug 2024 13:00:50 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id BB67E62862;
+	Thu,  1 Aug 2024 13:01:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 760D5C4AF09;
+	Thu,  1 Aug 2024 13:01:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1722517257;
-	bh=sPSz542BQgC8GDr8WCulUI2iE6roG4Js5HwD3OcoqCo=;
+	s=k20201202; t=1722517272;
+	bh=LmUMQLV4QzyWbEviejJtcrr2Je4DeKbVGxPr/Gcjy80=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ZAUnG7gymw3ama46N4/FSDxSkR6dolweB/eurjLYlAnm9DLowUGKqcj7YqINGC+uj
-	 8HTwVpyNStWp08+y3E2ISQEhbnaEsEDOOsMyJDIMovAiFVpgrUVzjTc6Fzff1xAo6P
-	 NsmhUz3gsA3y+FnV4UnLlGhUyOzmRgpnZtLqrP78J8DCfwokXMbOzvXajVyn/14NjF
-	 ExlFSy68rqNsm05R8bNTJfpJwPwchXZNvHkOxwVGR3TaweNxzlMfILcTC5tAnFHizm
-	 F2vIDbFxuDuPBfG0wHbwGaUjWnz6X/l+Se/Es9JGGP0GW3nCRoB7wv14Fm8VG2uM7B
-	 cSyLTYYRcdj4g==
+	b=eiQC9tfEj2yzbkQUVXuEHA5FOCUQHlZsCNGDpYBeDhIZahyslRfPpjWdlSGLz6loU
+	 S4s88Lq5J29Pt50M3T98bU6+aWK7vhZwQgr3yZ3Y7UsrlpN5arpGSPNb5Rk99niNo/
+	 TgsAQutH5c759cE6VN50T/zDAEZwjnkXlQWXW6N8AZRTv1i0lVUaPYG7bnMjaD/AXJ
+	 0dv7guXmbq8WvESmD5D3celWtH45rjAsGVMPjiHlxN/IJUvQKYAQsJrv/XWHTRNgNH
+	 Kw3X9fCFajCuE/P7ul7zOiyesfJYpFAl3j/nUk4Ji/lEVLP+EYu+9URKrgefd5yVn6
+	 Ui0PXtb0gB6gQ==
 From: Mark Brown <broonie@kernel.org>
-Date: Thu, 01 Aug 2024 13:06:58 +0100
-Subject: [PATCH v10 31/40] kselftest/arm64: Add framework support for GCS
- to signal handling tests
+Date: Thu, 01 Aug 2024 13:07:00 +0100
+Subject: [PATCH v10 33/40] kselftest/arm64: Always run signals tests with
+ GCS enabled
 MIME-Version: 1.0
-Message-Id: <20240801-arm64-gcs-v10-31-699e2bd2190b@kernel.org>
+Message-Id: <20240801-arm64-gcs-v10-33-699e2bd2190b@kernel.org>
 References: <20240801-arm64-gcs-v10-0-699e2bd2190b@kernel.org>
 In-Reply-To: <20240801-arm64-gcs-v10-0-699e2bd2190b@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -71,20 +71,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
  Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-37811
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1664; i=broonie@kernel.org;
- h=from:subject:message-id; bh=sPSz542BQgC8GDr8WCulUI2iE6roG4Js5HwD3OcoqCo=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBmq4YehzAb9JAu3bcFU1tOhATrFl7Jobwqpz0k6Kx0
- 4Nt/ApiJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZquGHgAKCRAk1otyXVSH0HeQB/
- 4r2nNmyla5byu5l9a+dzkSs2P7VDc57ojHjMgUHaxYSGDO5UZe7asC3ePZ0AjtK1zU/AepiUi5IEvT
- ZG3t5pco4RLuWa6DfFqJyzCiXyhzRq3ydh+yaptLtFfdBWMp0mMp+uXLHNRFjsu55OHXS6bt2eP3am
- ajrJDyiATeO/DeDHObUcHTJX+aFIk+V7urQv6jeJaZdyB0mL0wEFHuwQ0RA2No44U72IFcrjY5U+Wt
- bhYy+0SykeTjQc+Q7ob9QIwQqnnd9KxRv2qi482zdXbC1wc3F6P7b3PHZHGywBZdDNS2ptnfL22Ed+
- wtDYRLVKGjK9pDzEgdKczzr6s1FElI
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3656; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=LmUMQLV4QzyWbEviejJtcrr2Je4DeKbVGxPr/Gcjy80=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBmq4YfZHSTRLe1W0pE6ZV+ChRvx8M1mI3slzwhZw3O
+ nR/3G/6JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZquGHwAKCRAk1otyXVSH0Da/B/
+ kBN10pM9iQ0M7RJ7DnXB/XtakgurlZID9xXfbmSA521fi6o3bzBiw7Aib7wVwjLCx7C7kZevZNYB0D
+ gUkpZv4ysXJ78OKkGw3ePtUD+gbK/YXk+qfsu6aqiNBo/6kIPlInroTz76OU30v5XYBRtv0qGjr8z4
+ HKl65vUzC/F7YW5uYWYbJg5qIroL3CNndMIbnKDTDBg/YYNpY993oea/y8Y3HxOCrMESy0p4Yhv+hi
+ o4cUmtfZidJsNsh8Eu7WMIaoGJosFAcaEAgp/x6nFlkooNF89WsuySwLaR+t2/ZDSMyAcbBL8OKKR1
+ /7etPpNbJS7ZWvNxQ6rNYNZ2bSQUvo
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240801_060058_406335_3B54B943 
-X-CRM114-Status: GOOD (  10.64  )
+X-CRM114-CacheID: sfid-20240801_060113_451356_F306F7C5 
+X-CRM114-Status: GOOD (  19.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,46 +101,101 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Teach the framework about the GCS signal context, avoiding warnings on
-the unknown context.
+Since it is not possible to return from the function that enabled GCS
+without disabling GCS it is very inconvenient to use the signal handling
+tests to cover GCS when GCS is not enabled by the toolchain and runtime,
+something that no current distribution does. Since none of the testcases
+do anything with stacks that would cause problems with GCS we can sidestep
+this issue by unconditionally enabling GCS on startup and exiting with a
+call to exit() rather than a return from main().
 
 Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- tools/testing/selftests/arm64/signal/testcases/testcases.c | 7 +++++++
- tools/testing/selftests/arm64/signal/testcases/testcases.h | 1 +
- 2 files changed, 8 insertions(+)
+ .../testing/selftests/arm64/signal/test_signals.c  | 17 ++++++++++++-
+ .../selftests/arm64/signal/test_signals_utils.h    | 29 ++++++++++++++++++++++
+ 2 files changed, 45 insertions(+), 1 deletion(-)
 
-diff --git a/tools/testing/selftests/arm64/signal/testcases/testcases.c b/tools/testing/selftests/arm64/signal/testcases/testcases.c
-index 674b88cc8c39..49d036e97996 100644
---- a/tools/testing/selftests/arm64/signal/testcases/testcases.c
-+++ b/tools/testing/selftests/arm64/signal/testcases/testcases.c
-@@ -217,6 +217,13 @@ bool validate_reserved(ucontext_t *uc, size_t resv_sz, char **err)
- 				*err = "Bad size for fpmr_context";
- 			new_flags |= FPMR_CTX;
- 			break;
-+		case GCS_MAGIC:
-+			if (flags & GCS_CTX)
-+				*err = "Multiple GCS_MAGIC";
-+			if (head->size != sizeof(struct gcs_context))
-+				*err = "Bad size for gcs_context";
-+			new_flags |= GCS_CTX;
-+			break;
- 		case EXTRA_MAGIC:
- 			if (flags & EXTRA_CTX)
- 				*err = "Multiple EXTRA_MAGIC";
-diff --git a/tools/testing/selftests/arm64/signal/testcases/testcases.h b/tools/testing/selftests/arm64/signal/testcases/testcases.h
-index 7727126347e0..dc3cf777dafe 100644
---- a/tools/testing/selftests/arm64/signal/testcases/testcases.h
-+++ b/tools/testing/selftests/arm64/signal/testcases/testcases.h
-@@ -20,6 +20,7 @@
- #define EXTRA_CTX	(1 << 3)
- #define ZT_CTX		(1 << 4)
- #define FPMR_CTX	(1 << 5)
-+#define GCS_CTX		(1 << 6)
+diff --git a/tools/testing/selftests/arm64/signal/test_signals.c b/tools/testing/selftests/arm64/signal/test_signals.c
+index 00051b40d71e..30e95f50db19 100644
+--- a/tools/testing/selftests/arm64/signal/test_signals.c
++++ b/tools/testing/selftests/arm64/signal/test_signals.c
+@@ -7,6 +7,10 @@
+  * Each test provides its own tde struct tdescr descriptor to link with
+  * this wrapper. Framework provides common helpers.
+  */
++
++#include <sys/auxv.h>
++#include <sys/prctl.h>
++
+ #include <kselftest.h>
  
- #define KSFT_BAD_MAGIC	0xdeadbeef
+ #include "test_signals.h"
+@@ -16,6 +20,16 @@ struct tdescr *current = &tde;
  
+ int main(int argc, char *argv[])
+ {
++	/*
++	 * Ensure GCS is at least enabled throughout the tests if
++	 * supported, otherwise the inability to return from the
++	 * function that enabled GCS makes it very inconvenient to set
++	 * up test cases.  The prctl() may fail if GCS was locked by
++	 * libc setup code.
++	 */
++	if (getauxval(AT_HWCAP2) & HWCAP2_GCS)
++		gcs_set_state(PR_SHADOW_STACK_ENABLE);
++
+ 	ksft_print_msg("%s :: %s\n", current->name, current->descr);
+ 	if (test_setup(current) && test_init(current)) {
+ 		test_run(current);
+@@ -23,5 +37,6 @@ int main(int argc, char *argv[])
+ 	}
+ 	test_result(current);
+ 
+-	return current->result;
++	/* Do not return in case GCS was enabled */
++	exit(current->result);
+ }
+diff --git a/tools/testing/selftests/arm64/signal/test_signals_utils.h b/tools/testing/selftests/arm64/signal/test_signals_utils.h
+index 762c8fe9c54a..1e80808ee105 100644
+--- a/tools/testing/selftests/arm64/signal/test_signals_utils.h
++++ b/tools/testing/selftests/arm64/signal/test_signals_utils.h
+@@ -18,6 +18,35 @@ void test_cleanup(struct tdescr *td);
+ int test_run(struct tdescr *td);
+ void test_result(struct tdescr *td);
+ 
++#ifndef __NR_prctl
++#define __NR_prctl 167
++#endif
++
++/*
++ * The prctl takes 1 argument but we need to ensure that the other
++ * values passed in registers to the syscall are zero since the kernel
++ * validates them.
++ */
++#define gcs_set_state(state)					\
++	({								\
++		register long _num  __asm__ ("x8") = __NR_prctl;	\
++		register long _arg1 __asm__ ("x0") =  PR_SET_SHADOW_STACK_STATUS; \
++		register long _arg2 __asm__ ("x1") = (long)(state);	\
++		register long _arg3 __asm__ ("x2") = 0;			\
++		register long _arg4 __asm__ ("x3") = 0;			\
++		register long _arg5 __asm__ ("x4") = 0;			\
++	                                                                      \
++		__asm__  volatile (					\
++			"svc #0\n"					\
++			: "=r"(_arg1)					\
++			: "r"(_arg1), "r"(_arg2),			\
++			  "r"(_arg3), "r"(_arg4),			\
++			  "r"(_arg5), "r"(_num)				\
++			: "memory", "cc"				\
++			);						\
++		_arg1;							\
++	})
++
+ static inline bool feats_ok(struct tdescr *td)
+ {
+ 	if (td->feats_incompatible & td->feats_supported)
 
 -- 
 2.39.2
