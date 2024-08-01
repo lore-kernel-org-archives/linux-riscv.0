@@ -4,97 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ABE3C3DA64
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 09:56:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8C43C3DA64
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2024 10:08:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tQGW23FfG1lWAaSs1norILXAuI00dIID3nB3GbAEyfk=; b=Ag9S2voh3319qH
-	zhvL7D/SQcmDnwLbuNihb1AKZ2HHzeZygciTPxanAIMXa6yyBqeUP5uDC5R5cCq+IFOouZgVjpeFx
-	22PztXDnih4v0nvg2w6S7xE6jJYFPMWRHlAt6Bu1xgV00m9vv1gjXhCxjF1y6ESmAWc1WinE9FKxr
-	X0UVGwkl+IE0ACh0Bp/on/46RkI64sUGdpMqVKpk8PYPgFFUXdnPTBDX6KQCMQQuorzmyu/GosNO/
-	t9p3FBNnTHo6k2mKEi7+jJJxV7qiwQpWUQmrz+F94EO8urIxbPH/SNHaQ5/m4n4/xNiHAGLTBU6y8
-	6RoOnvfGvl730CW7ofZQ==;
+	List-Owner; bh=k8slIKSGSE5if0MbDWyfS72lhE1HUzB2xBmMFV1/o5k=; b=MBTh5MWDXt6z88
+	ITTJrafq1fN2uxgDiZm4ISID2/l4EX8bCKP36B6U3YTuUAf0pNoVYJAW2VOLux6LuugP1Fhu6iv3F
+	KTvrmRRQPhHR3sQxCp8/tawbgnR7W6PHW3FJKgPdGKdKWd1WwcgOzKb6c5pQS6NsL8ATC4fadQQGo
+	mCsyezcxpvTyqy/cjfmpuBXCAfCi/9Y1s5VKSeV1nUxGc9l699ZkD/CR7tF+psHdWYKw/lrO5N8+E
+	Mq5qrTB25hXEfPtrwkmyt5tVJF3QxIXw3meYMTzYODb6Lcikcd0y2PDJBlVEHIJw+8pDKR3OT0ysd
+	kzumEGNTkQK0hdZThLpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZSXZ-00000004fTQ-2W8d;
-	Thu, 01 Aug 2024 09:56:09 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1sZSjc-00000004hQz-1ZMg;
+	Thu, 01 Aug 2024 10:08:36 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZSX4-00000004fHv-0OCs
-	for linux-riscv@lists.infradead.org;
-	Thu, 01 Aug 2024 09:55:40 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-59f9f59b827so9984733a12.1
-        for <linux-riscv@lists.infradead.org>; Thu, 01 Aug 2024 02:55:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1722506136; x=1723110936; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:references
-         :in-reply-to:subject:cc:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=CfWoHfDxpbd/BrLn4R6OTlWdsgX7K0q/kTBzQqeOmF4=;
-        b=YFDgj3TfrwYya2KWsxwhjsWiWnyyZpexhOgmf6tc5kWn0Na8+OX8lXS1fCLfMqZ32N
-         H9OKyndRTCzP3ICLM5Vyqfd3IIUBkizvZi85cpgAsiPbfA3k87FeDIg51b1Z3fz/rbKR
-         2rgPlPw9ui5cKwDvPU+8PTcZMFNVpRgWHlQsfN+EABqYE/0qKyy3ByYp8CQrT8R3Z4vZ
-         yKTs9qhxUsDDpFDECCz+vSmEnfqr2gQEYwacqPmkw1cNvg4fXqrr8AIzYnh9hPViLsKg
-         g1VDYxVcwVi7mHNA26zkU3mXnVavGMODh3kdmiPdc/R/gJbLtiBk4xoEHSOZtCR8ubnE
-         QZtw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722506136; x=1723110936;
-        h=content-transfer-encoding:mime-version:message-id:date:references
-         :in-reply-to:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=CfWoHfDxpbd/BrLn4R6OTlWdsgX7K0q/kTBzQqeOmF4=;
-        b=dySfgK2n5aW4pIsGbYN6pADBR6MhMZPImEi7oLbdw1N/mgQ/ONcF3KEIbyHj9XeaEh
-         y/5EXNg6ApFRZ1mT1zF5/EGNaA7ekYu9WsvmHUPHK6ZLd2IeJ6nU62Thu3U1c3An9GFo
-         PfPxZGYNc5Q++zqsKSJ2FzifumZuvhS7d47Hih+mzSvcemlCMWDMLW/8Tb87j70wPjf9
-         5J9+ViRw0c43wA/UX9buDuJhUZOdIQ+QHsTeTSzrzBHacQJOtY6jDz3MlQXj6gWFnVqz
-         epfKKX6aen0K8wdHuNqQKTrvKQcVU504apF3aHj4lJ548Qjss8R6/H4bMqrMnnRCUHya
-         RcPg==
-X-Forwarded-Encrypted: i=1; AJvYcCXEx9edgFpJOnUxhgHkYN5k7ip/wbFA8PGOa+LDmfySYxuZ09VQ+F64z/pmWdXTemrIm6DV1Et1xbO7WXaXHRwMQSGpa6eoUhn/il+O7rQf
-X-Gm-Message-State: AOJu0YzJd1emZsu1tSRQVXeqoFSgPvtbKr4qpYs+466kTV6akU4Hh1B+
-	7lU0hOVt7nslP9KcAR5sYyMUQ579eREnyCaYSI49/1RRF1QUKnu79Ys2x1fbpSA=
-X-Google-Smtp-Source: AGHT+IGb/nSGVf7NWCnHjhhrhlGi5SRtFpH69is58qT222M0oYGxJthjaOlCxTOcuwDzU1FyViVsdw==
-X-Received: by 2002:a05:6402:b32:b0:5a3:5218:5d80 with SMTP id 4fb4d7f45d1cf-5b6ff4e0399mr1182829a12.21.1722506135641;
-        Thu, 01 Aug 2024 02:55:35 -0700 (PDT)
-Received: from draig.lan ([85.9.250.243])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5ac6377d005sm9858902a12.38.2024.08.01.02.55.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Aug 2024 02:55:33 -0700 (PDT)
-Received: from draig (localhost [IPv6:::1])
-	by draig.lan (Postfix) with ESMTP id 2329A5F80C;
-	Thu,  1 Aug 2024 10:55:32 +0100 (BST)
-From: =?utf-8?Q?Alex_Benn=C3=A9e?= <alex.bennee@linaro.org>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>,  Marc Zyngier <maz@kernel.org>,
-  Oliver Upton <oliver.upton@linux.dev>,  Tianrui Zhao
- <zhaotianrui@loongson.cn>,  Bibo Mao <maobibo@loongson.cn>,  Huacai Chen
- <chenhuacai@kernel.org>,  Michael Ellerman <mpe@ellerman.id.au>,  Anup
- Patel <anup@brainfault.org>,  Paul Walmsley <paul.walmsley@sifive.com>,
-  Palmer Dabbelt <palmer@dabbelt.com>,  Albert Ou <aou@eecs.berkeley.edu>,
-  Christian Borntraeger <borntraeger@linux.ibm.com>,  Janosch Frank
- <frankja@linux.ibm.com>,  Claudio Imbrenda <imbrenda@linux.ibm.com>,
-  kvm@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
-  kvmarm@lists.linux.dev,  loongarch@lists.linux.dev,
-  linux-mips@vger.kernel.org,  linuxppc-dev@lists.ozlabs.org,
-  kvm-riscv@lists.infradead.org,  linux-riscv@lists.infradead.org,
-  linux-kernel@vger.kernel.org,  David Matlack <dmatlack@google.com>,
-  David Stevens <stevensd@chromium.org>
-Subject: Re: [PATCH v12 26/84] KVM: Move
- kvm_{set,release}_page_{clean,dirty}() helpers up in kvm_main.c
-In-Reply-To: <20240726235234.228822-27-seanjc@google.com> (Sean
-	Christopherson's message of "Fri, 26 Jul 2024 16:51:35 -0700")
+	id 1sZSiy-00000004hBw-2Y3S;
+	Thu, 01 Aug 2024 10:07:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id B5CCA62781;
+	Thu,  1 Aug 2024 10:07:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F19EC32786;
+	Thu,  1 Aug 2024 10:07:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1722506875;
+	bh=1omcIl0ySlr8+5216FhuGPRNQkd7nfMr+PkPp6A7HmE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=dXl6XfVwOB9GlSLpifm4SQnLN1SxN9WD5f/MTtx+7gzr1ecINtOADxIOmr8sjVBL0
+	 DVMXHY/qfYmEhNan55mGOmG6D7THyLOPd70VPVKIpK/4MAQ5E5HS45NyBgeC5R48+X
+	 z9v7rywzNiMJ0Y3pLiLCJmKABr+FNbRPJFAyTyruso3jShF040qqp9MpwrWDsAtHKt
+	 fWTz+yRtpK8TbmWmQV9Ovzo1U3O3+yf5d0a9Gg2dNbSlY68eZRNVapCcFH1FcVxKAs
+	 Ludh8f3lr4RMdR6f7qJHOWB6bVOFl8ZRUulSkXqf7CV6Gn2MFS6IIw7ZvAl4rbJ8vr
+	 zHK3gmvw2IfAQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1sZSiv-00HLX2-08;
+	Thu, 01 Aug 2024 11:07:53 +0100
+Date: Thu, 01 Aug 2024 11:07:52 +0100
+Message-ID: <86plqs1rpj.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sean Christopherson <seanjc@google.com>,
+    Steven Price <steven.price@arm.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Bibo Mao <maobibo@loongson.cn>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	David Matlack <dmatlack@google.com>,
+	David Stevens <stevensd@chromium.org>
+Subject: Re: [PATCH v12 01/84] KVM: arm64: Release pfn, i.e. put page, if copying MTE tags hits ZONE_DEVICE
+In-Reply-To: <20240726235234.228822-2-seanjc@google.com>
 References: <20240726235234.228822-1-seanjc@google.com>
-	<20240726235234.228822-27-seanjc@google.com>
-Date: Thu, 01 Aug 2024 10:55:32 +0100
-Message-ID: <87h6c4efe3.fsf@draig.linaro.org>
-MIME-Version: 1.0
+	<20240726235234.228822-2-seanjc@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.3
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: seanjc@google.com, steven.price@arm.com, pbonzini@redhat.com, oliver.upton@linux.dev, zhaotianrui@loongson.cn, maobibo@loongson.cn, chenhuacai@kernel.org, mpe@ellerman.id.au, anup@brainfault.org, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, borntraeger@linux.ibm.com, frankja@linux.ibm.com, imbrenda@linux.ibm.com, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, dmatlack@google.com, stevensd@chromium.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240801_025538_168056_04E000F3 
-X-CRM114-Status: UNSURE (   6.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240801_030756_831906_ADEF9624 
+X-CRM114-Status: GOOD (  17.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,18 +102,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-U2VhbiBDaHJpc3RvcGhlcnNvbiA8c2VhbmpjQGdvb2dsZS5jb20+IHdyaXRlczoKCj4gSG9pc3Qg
-dGhlIGt2bV97c2V0LHJlbGVhc2V9X3BhZ2Vfe2NsZWFuLGRpcnR5fSgpIEFQSXMgZnVydGhlciB1
-cCBpbgo+IGt2bV9tYWluLmMgc28gdGhhdCB0aGV5IGNhbiBiZSB1c2VkIGJ5IHRoZSBrdm1fZm9s
-bG93X3BmbiBmYW1pbHkgb2YgQVBJcy4KPgo+IE5vIGZ1bmN0aW9uYWwgY2hhbmdlIGludGVuZGVk
-Lgo+Cj4gU2lnbmVkLW9mZi1ieTogU2VhbiBDaHJpc3RvcGhlcnNvbiA8c2VhbmpjQGdvb2dsZS5j
-b20+CgpSZXZpZXdlZC1ieTogQWxleCBCZW5uw6llIDxhbGV4LmJlbm5lZUBsaW5hcm8ub3JnPgoK
-LS0gCkFsZXggQmVubsOpZQpWaXJ0dWFsaXNhdGlvbiBUZWNoIExlYWQgQCBMaW5hcm8KCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
++ Steven Price for this patch (and the following one), as this really
+is his turf.
+
+On Sat, 27 Jul 2024 00:51:10 +0100,
+Sean Christopherson <seanjc@google.com> wrote:
+> 
+> Put the page reference acquired by gfn_to_pfn_prot() if
+> kvm_vm_ioctl_mte_copy_tags() runs into ZONE_DEVICE memory.  KVM's less-
+> than-stellar heuristics for dealing with pfn-mapped memory means that KVM
+> can get a page reference to ZONE_DEVICE memory.
+> 
+> Fixes: f0376edb1ddc ("KVM: arm64: Add ioctl to fetch/store tags in a guest")
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  arch/arm64/kvm/guest.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
+> index 11098eb7eb44..e1f0ff08836a 100644
+> --- a/arch/arm64/kvm/guest.c
+> +++ b/arch/arm64/kvm/guest.c
+> @@ -1059,6 +1059,7 @@ int kvm_vm_ioctl_mte_copy_tags(struct kvm *kvm,
+>  		page = pfn_to_online_page(pfn);
+>  		if (!page) {
+>  			/* Reject ZONE_DEVICE memory */
+> +			kvm_release_pfn_clean(pfn);
+>  			ret = -EFAULT;
+>  			goto out;
+>  		}
+> -- 
+> 2.46.0.rc1.232.g9752f9e123-goog
+> 
+> 
+
+-- 
+Without deviation from the norm, progress is not possible.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
