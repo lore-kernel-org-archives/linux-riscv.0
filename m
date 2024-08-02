@@ -4,94 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 806D5C3DA4A
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Aug 2024 11:52:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FD9FC52D6D
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Aug 2024 12:16:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x+pZjlhHZQrRgE/jWANBxZHeQN6ILXf7biEoRa/KPyA=; b=uQA9rJYhPHLKJX
-	TnSKjH1Ix8tTENA+IJnPSRmRkGKkQEAD1Odd3pE7H9uQyStdW0Xhvt9Y3PHl1bL7eiwzjO6DFJGmB
-	weYJvMIL0fU/ie0lRU0R8K6uv6O74vpZ1UcXdG14xJ1zQOK8XR31m+nhmmPmnea4th++nTzyX8Mt4
-	uWbfyP8rgUkj5zsj+LOOE21R4yus2BqedRT+3cCyQyNhLT6z5M7aqMr28ehrkrL2iCH1Y51GlQ6EF
-	PdxQiHfiF2rr/xGq7tt1Kt1InTHn6Wyug53YtI69vytqyTfXQSQsLnpFer1JO40Ih1syaCNkkdUEi
-	O0t/+177xIW34JTCJpWw==;
+	List-Owner; bh=6qfu3VcVVkdyFTelNPgqe+UjfcrK3WDPuF2QVZYB0TI=; b=xC7YeU/nNaPkz+
+	lOvQ5Vyb2n4AvQQDTRIipSAJrpmmQiCe7dfz4LAahmYFKvAE0FhLu/4l8vTEmufBbqkOqWzQhmPxK
+	7426NFFTYOA+pYP5+w2IZf7q2nsccPiVGF4mMgeRlEvLtKhLEGcCYpBZzklKKLPTZPmiCmnVVgxGK
+	U0e8Qy+f8+puWs7gYe3ycBCMx6hAnj2fCXckOhIigUewY9oP8ZTCJLResHAJ/ZegZUPUTE+9KI+Ag
+	oQ6AxLeTyIBeJEYkO87CQgroAyZuArdmUHmpQ0ZNQrhSLFVxjQBgj/Y6ht1Ui7h6tEocAhAI/XcT5
+	CfS8/0qvPKUnt13Mr3zQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZqpa-00000008jOJ-0Gyp;
-	Fri, 02 Aug 2024 11:52:22 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1sZrCu-00000008mbH-2HFz;
+	Fri, 02 Aug 2024 12:16:28 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZqpX-00000008jNQ-0AP6
-	for linux-riscv@lists.infradead.org;
-	Fri, 02 Aug 2024 11:52:20 +0000
-Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-5a156556fb4so11707864a12.3
-        for <linux-riscv@lists.infradead.org>; Fri, 02 Aug 2024 04:52:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1722599537; x=1723204337; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=46L6nTfwlpEOKrJbpXIYVmIVoshBQpihOVyTwQcqTFE=;
-        b=dTlh3knC39mjvvOaOuOOn19JM7Tr+dIDZsc8s9SBYug15h0FEsLA9n+gdRsGsF7shd
-         cWnnLNU83Vo0mnMi5G1bHRtUdPkoiuJhBNQwS2awE489CYly5Fz5PmoAgFyB8FfnTGGQ
-         K1LeJg8Qawl0uX5uDozoKy/j5bd5ppQpMA7gXxAG+E01SjLpcEr+4phrWM21pZDeI/qM
-         wVuAk9BHHNc2xctAR7esaBceGdzTVFn1IYwnOEdOrX3O94UVYh2fxNe84RL+M7HwFkFv
-         sJGOZ+5w66Zq5PhhNpQu1cOjgPQKsprJ88+5QhfiTIx/fqYFrikO3eQDS5rXUySCJzF4
-         Xiew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722599537; x=1723204337;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=46L6nTfwlpEOKrJbpXIYVmIVoshBQpihOVyTwQcqTFE=;
-        b=BFyrvrcoCHFOfeXSEq0FH0RiUQ0EvTYlxMQjQKhj6I2CRnWint7LEC26sYKrZrGhao
-         mfAqa16L5vGjKGSv1ZshJ5/OQM3QPu3TqVUpFqwaMWUzW76+ydykUFTYHqkBKok+LzP/
-         GrwOCoGFuHGxZ8ZhqN35MEG/CmeVBPVXY/U85zcf6dV2nn8/icEnXp1MfyR1X/i+iKeU
-         Lfp+DMbjdt3ZhLAPqrAah696j+MFjUr3dWvCxazgCwpWaMY5nsBb9brqcMCvQAmi5F86
-         omcoVmmofPMGuW3A4MbbYKYQ9cbhroHMfDu6zCiPnPu5iV9G9TArfvBrdFqKipmxlzm+
-         sDxQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWkL/vAu3l+MXvmLnF/36PJDpyUoBG2D2o2Db0DSnxzTNcW8qM7bEwi9DTIQt323jD2MhRdYggYUeqNRpTLmGPvAlC5Y5WOEhie55GC/lPD
-X-Gm-Message-State: AOJu0YxMKCPKrIqtcaHSqOnR5t6JiRIgvkNI5C/VcdXlOdRf3JrvsnDx
-	0/qyuEoxtzsEAxHbmKEcztGs6I1dFobyk5BFRpXV4P3Gabcdvsji
-X-Google-Smtp-Source: AGHT+IHufQNlGzmcrJffDFBWsb/bmgsJq/VLohwdwIe5kh6bRAB1LAYhwpPtXYIzKtv8V3TcSCECmA==
-X-Received: by 2002:aa7:c406:0:b0:5a0:f0c4:aa7b with SMTP id 4fb4d7f45d1cf-5b7f5129461mr2068504a12.27.1722599536954;
-        Fri, 02 Aug 2024 04:52:16 -0700 (PDT)
-Received: from krava (2001-1ae9-1c2-4c00-726e-c10f-8833-ff22.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:726e:c10f:8833:ff22])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5b839b2b0f0sm1009301a12.28.2024.08.02.04.52.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Aug 2024 04:52:16 -0700 (PDT)
-From: Jiri Olsa <olsajiri@gmail.com>
-X-Google-Original-From: Jiri Olsa <jolsa@kernel.org>
-Date: Fri, 2 Aug 2024 13:52:13 +0200
-To: Masami Hiramatsu <mhiramat@kernel.org>
-Cc: Arnd Bergmann <arnd@kernel.org>, Andy Lutomirski <luto@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Guo Ren <guoren@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Kees Cook <kees@kernel.org>,
-	"peterz@infradead.org" <peterz@infradead.org>,
-	"H.J. Lu" <hjl.tools@gmail.com>,
-	Sohil Mehta <sohil.mehta@intel.com>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Andrii Nakryiko <andrii@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [RFC] uretprobe: change syscall number, again
-Message-ID: <ZqzIbU_T6sN01o5B@krava>
-References: <20240730154500.3155437-1-arnd@kernel.org>
- <20240802181437.29b439e26608561f1289892a@kernel.org>
+	id 1sZq99-00000008d7a-49xc;
+	Fri, 02 Aug 2024 11:08:33 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4Wb30V2qmDz6K69d;
+	Fri,  2 Aug 2024 19:05:46 +0800 (CST)
+Received: from lhrpeml500005.china.huawei.com (unknown [7.191.163.240])
+	by mail.maildlp.com (Postfix) with ESMTPS id C3E0C140A08;
+	Fri,  2 Aug 2024 19:08:24 +0800 (CST)
+Received: from localhost (10.203.177.66) by lhrpeml500005.china.huawei.com
+ (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 2 Aug
+ 2024 12:08:23 +0100
+Date: Fri, 2 Aug 2024 12:08:22 +0100
+From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
+To: Mike Rapoport <rppt@kernel.org>
+CC: <linux-kernel@vger.kernel.org>, Alexander Gordeev
+	<agordeev@linux.ibm.com>, Andreas Larsson <andreas@gaisler.com>, "Andrew
+ Morton" <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>, "Borislav
+ Petkov" <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>, Christophe
+ Leroy <christophe.leroy@csgroup.eu>, Dan Williams <dan.j.williams@intel.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>, David Hildenbrand
+	<david@redhat.com>, "David S. Miller" <davem@davemloft.net>, Davidlohr Bueso
+	<dave@stgolabs.net>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>, Heiko
+ Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>, Ingo
+ Molnar <mingo@redhat.com>, Jiaxun Yang <jiaxun.yang@flygoat.com>, "John Paul
+ Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>, Jonathan Corbet
+	<corbet@lwn.net>, Michael Ellerman <mpe@ellerman.id.au>, Palmer Dabbelt
+	<palmer@dabbelt.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Rob Herring
+	<robh@kernel.org>, Samuel Holland <samuel.holland@sifive.com>, Thomas
+ Bogendoerfer <tsbogend@alpha.franken.de>, Thomas Gleixner
+	<tglx@linutronix.de>, "Vasily Gorbik" <gor@linux.ibm.com>, Will Deacon
+	<will@kernel.org>, Zi Yan <ziy@nvidia.com>, <devicetree@vger.kernel.org>,
+	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-cxl@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>, <linux-mips@vger.kernel.org>,
+	<linux-mm@kvack.org>, <linux-riscv@lists.infradead.org>,
+	<linux-s390@vger.kernel.org>, <linux-sh@vger.kernel.org>,
+	<linuxppc-dev@lists.ozlabs.org>, <loongarch@lists.linux.dev>,
+	<nvdimm@lists.linux.dev>, <sparclinux@vger.kernel.org>, <x86@kernel.org>
+Subject: Re: [PATCH v3 20/26] mm: numa_memblks: introduce numa_memblks_init
+Message-ID: <20240802120822.0000214d@Huawei.com>
+In-Reply-To: <20240801060826.559858-21-rppt@kernel.org>
+References: <20240801060826.559858-1-rppt@kernel.org>
+	<20240801060826.559858-21-rppt@kernel.org>
+Organization: Huawei Technologies Research and Development (UK) Ltd.
+X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240802181437.29b439e26608561f1289892a@kernel.org>
+X-Originating-IP: [10.203.177.66]
+X-ClientProxiedBy: lhrpeml500003.china.huawei.com (7.191.162.67) To
+ lhrpeml500005.china.huawei.com (7.191.163.240)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240802_045219_107398_40525182 
-X-CRM114-Status: GOOD (  37.40  )
+X-CRM114-CacheID: sfid-20240802_040832_180499_CC86FB0E 
+X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,89 +94,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 02, 2024 at 06:14:37PM +0900, Masami Hiramatsu wrote:
-> On Tue, 30 Jul 2024 17:43:36 +0200
-> Arnd Bergmann <arnd@kernel.org> wrote:
-> 
-> > From: Arnd Bergmann <arnd@arndb.de>
-> > 
-> > Despite multiple attempts to get the syscall number assignment right
-> > for the newly added uretprobe syscall, we ended up with a bit of a mess:
-> > 
-> >  - The number is defined as 467 based on the assumption that the
-> >    xattrat family of syscalls would use 463 through 466, but those
-> >    did not make it into 6.11.
-> 
-> OK... that was not expected.
-> 
-> > 
-> >  - The include/uapi/asm-generic/unistd.h file still lists the number
-> >    463, but the new scripts/syscall.tbl that was supposed to have the
-> >    same data lists 467 instead as the number for arc, arm64, csky,
-> >    hexagon, loongarch, nios2, openrisc and riscv. None of these
-> >    architectures actually provide a uretprobe syscall.
-> 
-> Oops, thanks for finding.
-> 
-> > 
-> >  - All the other architectures (powerpc, arm, mips, ...) don't list
-> >    this syscall at all.
-> 
-> OK, so even if it is not supported on those, we need to put it as a
-> placeholder.
-> 
-> > 
-> > There are two ways to make it consistent again: either list it with
-> > the same syscall number on all architectures, or only list it on x86
-> > but not in scripts/syscall.tbl and asm-generic/unistd.h.
-> > 
-> > Based on the most recent discussion, it seems like we won't need it
-> > anywhere else, so just remove the inconsistent assignment and instead
-> > move the x86 number to the next available one in the architecture
-> > specific range, which is 335.
-> > 
-> > Fixes: 5c28424e9a34 ("syscalls: Fix to add sys_uretprobe to syscall.tbl")
-> > Fixes: 190fec72df4a ("uprobe: Wire up uretprobe system call")
-> > Fixes: 63ded110979b ("uprobe: Change uretprobe syscall scope and number")
-> > Cc: Linus Torvalds <torvalds@linux-foundation.org>
-> > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> > ---
-> > I think we should fix this as soon as possible. Please let me know if
-> > you agree on this approach, or prefer one of the alternatives.
-> 
-> OK, I think it is good. But you missed to fix a selftest code which
-> also needs to be updated.
-> 
-> Could you revert commit 3e301b431b91 ("selftests/bpf: Change uretprobe
->  syscall number in uprobe_syscall test") too?
-> 
-> Acked-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-> 
-> Thank you,
+On Thu,  1 Aug 2024 09:08:20 +0300
+Mike Rapoport <rppt@kernel.org> wrote:
 
-yes, it still needs the selftest change like below
-otherwise if that new number works for you then lgtm
+> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+> 
+> Move most of x86::numa_init() to numa_memblks so that the latter will be
+> more self-contained.
+> 
+> With this numa_memblk data structures should not be exposed to the
+> architecture specific code.
+> 
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> Tested-by: Zi Yan <ziy@nvidia.com> # for x86_64 and arm64
 
-Reviewed-by: Jiri Olsa <jolsa@kernel.org>
+Just code motion as expected.
 
-thanks,
-jirka
-
-
----
-diff --git a/tools/testing/selftests/bpf/prog_tests/uprobe_syscall.c b/tools/testing/selftests/bpf/prog_tests/uprobe_syscall.c
-index bd8c75b620c2..5f78edca6540 100644
---- a/tools/testing/selftests/bpf/prog_tests/uprobe_syscall.c
-+++ b/tools/testing/selftests/bpf/prog_tests/uprobe_syscall.c
-@@ -216,7 +216,7 @@ static void test_uretprobe_regs_change(void)
- }
- 
- #ifndef __NR_uretprobe
--#define __NR_uretprobe 467
-+#define __NR_uretprobe 335
- #endif
- 
- __naked unsigned long uretprobe_syscall_call_1(void)
+Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 
 _______________________________________________
 linux-riscv mailing list
