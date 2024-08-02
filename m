@@ -4,111 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CB77C3DA4A
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Aug 2024 11:16:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A5D6C52D6D
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Aug 2024 11:42:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X89T1PGMmozjyhEsI9lRhklNkiMcmfDauznUqxz4eZk=; b=t6YbOBdl6qdr/0
-	M6t+TRXm1NBsNQLkQxgZTmPjFXYyIr+GvOECzinlY5MwplEDAxF4y1AJyPzirZbucJowHP01WoGeV
-	tnEpKdDM9caoRxfKlLn/5p2lh4PZy1zBG6TKuNaenzo1ykSsZB/ykuPB0NobyNZxMXkA2WnBuA+BG
-	pOCYciHT44xM6T4Gb51Ra0fAoXBUhnKPpui1rNAsQ5WbvEJUdk7syrBaFNAU7hhoPU6+JaKeIw0CN
-	XtVQzy+Q8Be6Yoho4pMlUohm6D/q3vErxF3sMCzMc/vypSj6r4uTbonA/THMUdc8+WUVX3RQRDxFH
-	UE4ANUkVI7a7yIHmG3gw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=L5aqzYUsngc5dW5swYlEh9URNigaC8uFgixoBBI6keI=; b=k8cMyImfRmLjJS
+	azUPfyhgiq97Qm5/X18pOcx2m+poGjd+42RCg2a47fjNNYkJ7mV6OxwX3AyJjdRZAYfHjFUnwJMKY
+	OEkt9m1F2PQyJBJ2nRQ1YjxWv8iIxBGVUYVgSvH9rlqGvXivpqknOQ8tZ/8FA9uSw3obzP+YeTsOb
+	bwurtYy5KTiKzhinQh8kJrOHIHGb5Xa4ZMnL7GqnnHjLzHwKy+Thds0mJLYeQhvKnKnWA+kxu58ZJ
+	RvvDjoQ2E1laOJo+eqGz60CssfgBLGFNeAcRA3oGy9gHE3jMKB6biKHQ+5GtHcDw+Hp+nTcALKCCT
+	TzsC7IabMhJmaXmQiaww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZqHA-00000008epx-2nnq;
-	Fri, 02 Aug 2024 11:16:48 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1sZqfv-00000008i4K-2DoX;
+	Fri, 02 Aug 2024 11:42:23 +0000
+Received: from mail-il1-x130.google.com ([2607:f8b0:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZqGk-00000008em2-2Ftd
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 02 Aug 2024 11:16:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=h+a+YbUYnYp2O9o3vDX++ZHVr+zNy81A/L7Ak8HFY0M=; b=dioBbhPv3vYx9xVd+Rdii9bsmT
-	KswL30jixcsF8uAie0mfO+VhfMHn0I5aecG/XQsgmzPMfgrPf9fDvZb5R0nW1zwucnjpYItfFkSBP
-	KfkDgXzJi+x+tIADcuIVQwL0y5kkWhMyf1YsopdaWLWk2Q/rfhQCBsUXtG0o4x1S7vLqK8laKbrGq
-	ZX5GSEpPj087LEHKF7s8kWD+CCkE7fnKlIfr0BMEe4U9Tq9VMQf2TsQf4wuccgmayUkQauPfwQvVD
-	ZxV1mJDGd0FKACSlipeAThfuHQvJYkmv3TLtydQ0K2+yocyI+7KNCtluf9q9BSqZWhs9fyIGgZkpt
-	IwhERx4A==;
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZqGe-00000005hFn-0JGK
+	id 1sZqfs-00000008i3b-2TdP
 	for linux-riscv@lists.infradead.org;
-	Fri, 02 Aug 2024 11:16:19 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-5af326eddb2so5439390a12.1
-        for <linux-riscv@lists.infradead.org>; Fri, 02 Aug 2024 04:16:14 -0700 (PDT)
+	Fri, 02 Aug 2024 11:42:22 +0000
+Received: by mail-il1-x130.google.com with SMTP id e9e14a558f8ab-389ccd2f0abso36878615ab.2
+        for <linux-riscv@lists.infradead.org>; Fri, 02 Aug 2024 04:42:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1722597373; x=1723202173; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:references
-         :in-reply-to:subject:cc:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=h+a+YbUYnYp2O9o3vDX++ZHVr+zNy81A/L7Ak8HFY0M=;
-        b=VDoRNTOKWDq+Gm0pGh7aomfJAtwZ4TdRCphgFD5P4W/qHC3nOB4N/dHdl++v5dwcwz
-         5mIisTL2szL5Bhf2A4Yx2qYb8QOCkFwoRO0jYijQqmY1MyJM5XxAnMvn+Cw+Hp9/Sn3M
-         TvkKNeZ6cvpC1knc2FCaxYwbwZ1PPb9VclNZucZWDA0w3rkPsspLrZFToAapmK/lq/io
-         bTz+6eQV7xBHSRjDOg81C2T6E0epJ0IBRVYA4kNmpZpuVKLa+lBJ1WcUG/mEbsX6JHl+
-         3hTiJE5EFsnoTrMW3iianX2P9bALRn7/NOApV9DhKoa+1oicl9Pc2CxaqSm7ePflRr/J
-         4lpQ==
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1722598939; x=1723203739; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=a5H3AeCfNpJSz2g2+5Oi/AktIYfYVa7hff+1WjAceu4=;
+        b=AY5m4JftF0qEACflr1RBnGBlqCWtie629xVImOGYejRkMQCPztfximirRBjUb76q26
+         DHBraDXNN7ThOGo9gEhbHlcRtDEdc7LM1COWelU8M9zB9YDNFl32IXu8DCzMPZHYzZGT
+         U9SU3nV6ABfkd5fOfrsqtudK+XebrASdvar/eWuq0U2OsFxUUajwh8nDYDoux51Gu0k9
+         N0QjrIYRqwYFAsBtknuDBABhvUfTfz7BvJBYApOHtr2h3bENLxz9CpbUusuIntFCJCeL
+         qRzDdn0vEs/s+CBiA9vGbiINAjqy231SprGSYZIjcDbu4pjIgVd0leLWAaXjIWisSTaK
+         QSog==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722597373; x=1723202173;
-        h=content-transfer-encoding:mime-version:message-id:date:references
-         :in-reply-to:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=h+a+YbUYnYp2O9o3vDX++ZHVr+zNy81A/L7Ak8HFY0M=;
-        b=G7ud+4HKkZP6XkP7m007HrNNa1GIQNE60JPhUxdCOwN3rFTJ/3gsTZPNEdGkXoCtyP
-         WuDx6uolpjZuVQQ76ZfOPwSIwNRtx32scRmsgGBXtvfYlMqpBfSsYGMcfG9yuzTawGQM
-         9oKi6njOtfmWg0uaIU/j0TwVYAd0ViLgeboNRVkCRH8WIBWVnFh5QFSbCoxIgd4RPFJu
-         PAcIO9h7594vLt9akThmZmFZ9frSh2krrjFqzU0XkPSWxKU/fLlo2+DIRCJHdFzhX9kO
-         02HbsM0Lz80pKc+bQeborDBsZaAFYPu8Yy9DwhWiK0zSUwoEd0AumHPkcNPaNF9XKzLJ
-         A1Hw==
-X-Forwarded-Encrypted: i=1; AJvYcCUdnZdRRgRAi25w5vsNSPY4VvPP02aJPYeDCpnenDxd+DDQAIymZ2MSGybwk8/uyQ8PBx7FILBbVnnuqm7RCCfaxOvnlRVvBUGLi50IyCnR
-X-Gm-Message-State: AOJu0Yw5B1IxI26ILnWbxk2G2JLhsiwFGvgN7rI3cUuSCdW/zba37Up0
-	cwGXHE6g/2XVL90ErVEjXoFBempThqnLnt6jjXh/oTL8TS4HaRNbwnX9d73Jko8=
-X-Google-Smtp-Source: AGHT+IHUr2+eigMQMyKiFV2SC/+LcUpbtIeuSXGg+vhEQqD67tJuIK6amWVCFT4RRO+CzEGYIGxtXA==
-X-Received: by 2002:a17:907:25c5:b0:a7a:acae:340b with SMTP id a640c23a62f3a-a7dc628bf8fmr256404766b.31.1722597372903;
-        Fri, 02 Aug 2024 04:16:12 -0700 (PDT)
-Received: from draig.lan ([85.9.250.243])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a7dc9bcb19csm87224666b.42.2024.08.02.04.16.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Aug 2024 04:16:08 -0700 (PDT)
-Received: from draig (localhost [IPv6:::1])
-	by draig.lan (Postfix) with ESMTP id 91DEE5F8A9;
-	Fri,  2 Aug 2024 12:16:04 +0100 (BST)
-From: =?utf-8?Q?Alex_Benn=C3=A9e?= <alex.bennee@linaro.org>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>,  Marc Zyngier <maz@kernel.org>,
-  Oliver Upton <oliver.upton@linux.dev>,  Tianrui Zhao
- <zhaotianrui@loongson.cn>,  Bibo Mao <maobibo@loongson.cn>,  Huacai Chen
- <chenhuacai@kernel.org>,  Michael Ellerman <mpe@ellerman.id.au>,  Anup
- Patel <anup@brainfault.org>,  Paul Walmsley <paul.walmsley@sifive.com>,
-  Palmer Dabbelt <palmer@dabbelt.com>,  Albert Ou <aou@eecs.berkeley.edu>,
-  Christian Borntraeger <borntraeger@linux.ibm.com>,  Janosch Frank
- <frankja@linux.ibm.com>,  Claudio Imbrenda <imbrenda@linux.ibm.com>,
-  kvm@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
-  kvmarm@lists.linux.dev,  loongarch@lists.linux.dev,
-  linux-mips@vger.kernel.org,  linuxppc-dev@lists.ozlabs.org,
-  kvm-riscv@lists.infradead.org,  linux-riscv@lists.infradead.org,
-  linux-kernel@vger.kernel.org,  David Matlack <dmatlack@google.com>,
-  David Stevens <stevensd@chromium.org>
-Subject: Re: [PATCH v12 11/84] KVM: Rename gfn_to_page_many_atomic() to
- kvm_prefetch_pages()
-In-Reply-To: <20240726235234.228822-12-seanjc@google.com> (Sean
-	Christopherson's message of "Fri, 26 Jul 2024 16:51:20 -0700")
-References: <20240726235234.228822-1-seanjc@google.com>
-	<20240726235234.228822-12-seanjc@google.com>
-Date: Fri, 02 Aug 2024 12:16:04 +0100
-Message-ID: <87frrncgzv.fsf@draig.linaro.org>
+        d=1e100.net; s=20230601; t=1722598939; x=1723203739;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=a5H3AeCfNpJSz2g2+5Oi/AktIYfYVa7hff+1WjAceu4=;
+        b=eZFLOG+mmOq5lWCu4gDd9Il5UrfY7/Mm/LbhprOytBL+AzXQlpaucfsX7nz6xXOlVW
+         vV+X7JRhylcdWelpP2fgP+vO3k4MhhvVh5ZChf96bWnHQ2rVUePIeSArjHZIP5Kd1YVI
+         nvngi5pUZPxYAras3ozoC1nP821rbB7pHq/9wxHEhX4/5Rt8vh16wQAgUKfdMSYxAGHT
+         sUB4tQuPv7J25rrn76xsZPGwUyJmEdR+3BE6IxJASrc0EQHuDSBiIv7JMWffzE+ncj+Q
+         iIu7qyP4Vf0GVBqb4hUm2a/cOtt7eVKwmoU3JqUT0pXre0EnFt7cFDzsLVczB2fAbH5G
+         sdIw==
+X-Forwarded-Encrypted: i=1; AJvYcCXtZxOAyoQjWxsiBaSrZe3Piv2xexQ58988osZOKAR8veMN6v7+ZEGJWO2ytz6F/JjU9Mc2quYoZyzl9vj/LnoNGkVIa8pU/7ZO2Qt/2WJI
+X-Gm-Message-State: AOJu0YxkYjQ3S+O+YiyHIKgQQpQugD3XOlTB47D6yi73CdOYBPpgVlH4
+	2PAcYY8InmKnsyGTvadlVFv0stu3nCGwRi6HGSX8mn2EAlGWkhcN3oxJ7ZobblEVQNfejoyTDJ+
+	xqZdFg0VFFmZs9CQ9wXrQjRWuGjrIjUd2Q/C1AVPq6fHup1pa6Vk=
+X-Google-Smtp-Source: AGHT+IF+ejI/SVKE/t4Uk/W5P56djcwV8NhCicI1Lcde8YBa3WL3gElptRwgVZ5UcXVXfBkSVFxk28Ev5Le4Snmg7pI=
+X-Received: by 2002:a92:d7cd:0:b0:381:2571:ca7d with SMTP id
+ e9e14a558f8ab-39b1f79e0famr38010815ab.0.1722598939359; Fri, 02 Aug 2024
+ 04:42:19 -0700 (PDT)
 MIME-Version: 1.0
+From: Anup Patel <anup@brainfault.org>
+Date: Fri, 2 Aug 2024 17:12:07 +0530
+Message-ID: <CAAhSdy3ZhXmbDFrWneA9aA8ALYy+SgMpyopd_9MPzYgWksMLBQ@mail.gmail.com>
+Subject: [GIT PULL] KVM/riscv fixes for 6.11 take #1
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Palmer Dabbelt <palmer@rivosinc.com>, 
+	Atish Patra <atishp@atishpatra.org>, Atish Patra <atishp@rivosinc.com>, 
+	Andrew Jones <ajones@ventanamicro.com>, 
+	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, KVM General <kvm@vger.kernel.org>, 
+	linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240802_121617_510967_84FF0887 
-X-CRM114-Status: GOOD (  12.64  )
+X-CRM114-CacheID: sfid-20240802_044220_652082_EFD86D11 
+X-CRM114-Status: UNSURE (   5.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,41 +85,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-U2VhbiBDaHJpc3RvcGhlcnNvbiA8c2VhbmpjQGdvb2dsZS5jb20+IHdyaXRlczoKCj4gUmVuYW1l
-IGdmbl90b19wYWdlX21hbnlfYXRvbWljKCkgdG8ga3ZtX3ByZWZldGNoX3BhZ2VzKCkgdG8gdHJ5
-IGFuZAo+IGNvbW11bmljYXRlIGl0cyB0cnVlIHB1cnBvc2UsIGFzIHRoZSAiYXRvbWljIiBhc3Bl
-Y3QgaXMgZXNzZW50aWFsbHkgYQo+IHNpZGUgZWZmZWN0IG9mIHRoZSBmYWN0IHRoYXQgeDg2IHVz
-ZXMgdGhlIEFQSSB3aGlsZSBob2xkaW5nIG1tdV9sb2NrLgoKSXQncyBuZXZlciB0b28gbGF0ZSB0
-byBzdGFydCBhZGRpbmcgc29tZSBrZG9jIGFubm90YXRpb25zIHRvIGEgZnVuY3Rpb24KYW5kIHJl
-bmFtaW5nIGEga3ZtX2hvc3QgQVBJIGNhbGwgc2VlbXMgbGlrZSBhIGdvb2QgdGltZSB0byBkbyBp
-dC4KCj4gRS5nLiBldmVuIGlmIG1tdV9sb2NrIHdlcmVuJ3QgaGVsZCwgS1ZNIHdvdWxkbid0IHdh
-bnQgdG8gZmF1bHQtaW4gcGFnZXMsCj4gYXMgdGhlIGdvYWwgaXMgdG8gb3Bwb3J0dW5pc3RpY2Fs
-bHkgZ3JhYiBzdXJyb3VuZGluZyBwYWdlcyB0aGF0IGhhdmUKPiBhbHJlYWR5IGJlZW4gYWNjZXNz
-ZWQgYW5kL29yIGRpcnRpZWQgYnkgdGhlIGhvc3QsIGFuZCB0byBkbyBzbyBxdWlja2x5Lgo+Cj4g
-U2lnbmVkLW9mZi1ieTogU2VhbiBDaHJpc3RvcGhlcnNvbiA8c2VhbmpjQGdvb2dsZS5jb20+Cj4g
-LS0tCjxzbmlwPgoKLyoqCiAqIGt2bV9wcmVmZXRjaF9wYWdlcygpIC0gb3Bwb3J0dW5pc3RpY2Fs
-bHkgZ3JhYiBwcmV2aW91c2x5IGFjY2Vzc2VkIHBhZ2VzCiAqIEBzbG90OiB3aGljaCBAa3ZtX21l
-bW9yeV9zbG90IHRoZSBwYWdlcyBhcmUgaW4KICogQGdmbjogZ3Vlc3QgZnJhbWUKICogQHBhZ2Vz
-OiBhcnJheSB0byByZWNlaXZlcyBwYWdlIHBvaW50ZXJzCiAqIEBucl9wYWdlczogbnVtYmVyIG9m
-IHBhZ2VzCiAqCiAqIFJldHVybnMgdGhlIG51bWJlciBvZiBwYWdlcyBhY3R1YWxseSBtYXBwZWQu
-CiAqLwoKPwoKPiAgCj4gLWludCBnZm5fdG9fcGFnZV9tYW55X2F0b21pYyhzdHJ1Y3Qga3ZtX21l
-bW9yeV9zbG90ICpzbG90LCBnZm5fdCBnZm4sCj4gLQkJCSAgICBzdHJ1Y3QgcGFnZSAqKnBhZ2Vz
-LCBpbnQgbnJfcGFnZXMpCj4gK2ludCBrdm1fcHJlZmV0Y2hfcGFnZXMoc3RydWN0IGt2bV9tZW1v
-cnlfc2xvdCAqc2xvdCwgZ2ZuX3QgZ2ZuLAo+ICsJCSAgICAgICBzdHJ1Y3QgcGFnZSAqKnBhZ2Vz
-LCBpbnQgbnJfcGFnZXMpCj4gIHsKPiAgCXVuc2lnbmVkIGxvbmcgYWRkcjsKPiAgCWdmbl90IGVu
-dHJ5ID0gMDsKPiBAQCAtMzA3NSw3ICszMDc1LDcgQEAgaW50IGdmbl90b19wYWdlX21hbnlfYXRv
-bWljKHN0cnVjdCBrdm1fbWVtb3J5X3Nsb3QgKnNsb3QsIGdmbl90IGdmbiwKPiAgCj4gIAlyZXR1
-cm4gZ2V0X3VzZXJfcGFnZXNfZmFzdF9vbmx5KGFkZHIsIG5yX3BhZ2VzLCBGT0xMX1dSSVRFLCBw
-YWdlcyk7Cj4gIH0KPiAtRVhQT1JUX1NZTUJPTF9HUEwoZ2ZuX3RvX3BhZ2VfbWFueV9hdG9taWMp
-Owo+ICtFWFBPUlRfU1lNQk9MX0dQTChrdm1fcHJlZmV0Y2hfcGFnZXMpOwo+ICAKPiAgLyoKPiAg
-ICogRG8gbm90IHVzZSB0aGlzIGhlbHBlciB1bmxlc3MgeW91IGFyZSBhYnNvbHV0ZWx5IGNlcnRh
-aW4gdGhlIGdmbiBfbXVzdF8gYmUKCi0tIApBbGV4IEJlbm7DqWUKVmlydHVhbGlzYXRpb24gVGVj
-aCBMZWFkIEAgTGluYXJvCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cg==
+Hi Paolo,
+
+We have one compilation fix for get-reg-list selftests
+in the 6.11 kernel.
+
+Please pull.
+
+Regards,
+Anup
+
+The following changes since commit 8400291e289ee6b2bf9779ff1c83a291501f017b:
+
+  Linux 6.11-rc1 (2024-07-28 14:19:55 -0700)
+
+are available in the Git repository at:
+
+  https://github.com/kvm-riscv/linux.git tags/kvm-riscv-fixes-6.11-1
+
+for you to fetch changes up to dd4a799bcc13992dd8be9708e5c585f55226b567:
+
+  KVM: riscv: selftests: Fix compile error (2024-07-29 10:10:56 +0530)
+
+----------------------------------------------------------------
+KVM/riscv fixes for 6.11, take #1
+
+- Fix compile error in get-reg-list selftests
+
+----------------------------------------------------------------
+Yong-Xuan Wang (1):
+      KVM: riscv: selftests: Fix compile error
+
+ tools/testing/selftests/kvm/riscv/get-reg-list.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
