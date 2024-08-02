@@ -4,80 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FD9FC52D6D
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Aug 2024 12:16:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB436C3DA4A
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Aug 2024 12:24:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6qfu3VcVVkdyFTelNPgqe+UjfcrK3WDPuF2QVZYB0TI=; b=xC7YeU/nNaPkz+
-	lOvQ5Vyb2n4AvQQDTRIipSAJrpmmQiCe7dfz4LAahmYFKvAE0FhLu/4l8vTEmufBbqkOqWzQhmPxK
-	7426NFFTYOA+pYP5+w2IZf7q2nsccPiVGF4mMgeRlEvLtKhLEGcCYpBZzklKKLPTZPmiCmnVVgxGK
-	U0e8Qy+f8+puWs7gYe3ycBCMx6hAnj2fCXckOhIigUewY9oP8ZTCJLResHAJ/ZegZUPUTE+9KI+Ag
-	oQ6AxLeTyIBeJEYkO87CQgroAyZuArdmUHmpQ0ZNQrhSLFVxjQBgj/Y6ht1Ui7h6tEocAhAI/XcT5
-	CfS8/0qvPKUnt13Mr3zQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
+	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MU2A3pvcD92RPMepmALPW2rhLyx0HsJmVsrrzuRvnno=; b=1SVxQj4vBNap6sS/OXHCeonV74
+	21N6iG/aZrbW/WL1/W6RQeXwKQ9EWBVGCG4I/yiUj/415wybi/SosRWDAxPdgVfwf1U8uNhgQYQSu
+	ww68tt4/Q4z96+1Oy8CQI7Hdod8t/+jkNkDnRBfrZf91MmdcG3c40oqGsFA/ZOHjDcsPgBlBFBM5x
+	EyBWMew/wSHUbETiZx2IYtCL8HrYndRaYouhCIcbeTswh+aZfP1CmLvpBdTTH4ymrIawOhmnqVvoG
+	1AOq1v/DZknNYlc32OiKGsar3NOt5Zh4WIH5veYbZ/YYtNbaAmVQs3P3ZPsq0p7BtmW2K3LpKE//H
+	HC0ZTIgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZrCu-00000008mbH-2HFz;
-	Fri, 02 Aug 2024 12:16:28 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1sZrKf-00000008nUo-2xM4;
+	Fri, 02 Aug 2024 12:24:29 +0000
+Received: from relay1-d.mail.gandi.net ([217.70.183.193])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZq99-00000008d7a-49xc;
-	Fri, 02 Aug 2024 11:08:33 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4Wb30V2qmDz6K69d;
-	Fri,  2 Aug 2024 19:05:46 +0800 (CST)
-Received: from lhrpeml500005.china.huawei.com (unknown [7.191.163.240])
-	by mail.maildlp.com (Postfix) with ESMTPS id C3E0C140A08;
-	Fri,  2 Aug 2024 19:08:24 +0800 (CST)
-Received: from localhost (10.203.177.66) by lhrpeml500005.china.huawei.com
- (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 2 Aug
- 2024 12:08:23 +0100
-Date: Fri, 2 Aug 2024 12:08:22 +0100
-From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
-To: Mike Rapoport <rppt@kernel.org>
-CC: <linux-kernel@vger.kernel.org>, Alexander Gordeev
-	<agordeev@linux.ibm.com>, Andreas Larsson <andreas@gaisler.com>, "Andrew
- Morton" <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>, "Borislav
- Petkov" <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>, Christophe
- Leroy <christophe.leroy@csgroup.eu>, Dan Williams <dan.j.williams@intel.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>, David Hildenbrand
-	<david@redhat.com>, "David S. Miller" <davem@davemloft.net>, Davidlohr Bueso
-	<dave@stgolabs.net>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>, Heiko
- Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>, Ingo
- Molnar <mingo@redhat.com>, Jiaxun Yang <jiaxun.yang@flygoat.com>, "John Paul
- Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>, Jonathan Corbet
-	<corbet@lwn.net>, Michael Ellerman <mpe@ellerman.id.au>, Palmer Dabbelt
-	<palmer@dabbelt.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Rob Herring
-	<robh@kernel.org>, Samuel Holland <samuel.holland@sifive.com>, Thomas
- Bogendoerfer <tsbogend@alpha.franken.de>, Thomas Gleixner
-	<tglx@linutronix.de>, "Vasily Gorbik" <gor@linux.ibm.com>, Will Deacon
-	<will@kernel.org>, Zi Yan <ziy@nvidia.com>, <devicetree@vger.kernel.org>,
-	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-cxl@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <linux-mips@vger.kernel.org>,
-	<linux-mm@kvack.org>, <linux-riscv@lists.infradead.org>,
-	<linux-s390@vger.kernel.org>, <linux-sh@vger.kernel.org>,
-	<linuxppc-dev@lists.ozlabs.org>, <loongarch@lists.linux.dev>,
-	<nvdimm@lists.linux.dev>, <sparclinux@vger.kernel.org>, <x86@kernel.org>
-Subject: Re: [PATCH v3 20/26] mm: numa_memblks: introduce numa_memblks_init
-Message-ID: <20240802120822.0000214d@Huawei.com>
-In-Reply-To: <20240801060826.559858-21-rppt@kernel.org>
-References: <20240801060826.559858-1-rppt@kernel.org>
-	<20240801060826.559858-21-rppt@kernel.org>
-Organization: Huawei Technologies Research and Development (UK) Ltd.
-X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
+	id 1sZrKa-00000008nSH-2gHj;
+	Fri, 02 Aug 2024 12:24:27 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 6FA4124000B;
+	Fri,  2 Aug 2024 12:24:20 +0000 (UTC)
+Message-ID: <ce86ad6b-5f56-4856-9756-fa8867d0d1df@ghiti.fr>
+Date: Fri, 2 Aug 2024 14:24:19 +0200
 MIME-Version: 1.0
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml500003.china.huawei.com (7.191.162.67) To
- lhrpeml500005.china.huawei.com (7.191.163.240)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH -next] crash: Fix riscv64 crash memory reserve dead loop
+Content-Language: en-US
+To: Jinjie Ruan <ruanjinjie@huawei.com>, bhe@redhat.com, vgoyal@redhat.com,
+ dyoung@redhat.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, chenjiahao16@huawei.com, akpm@linux-foundation.org,
+ kexec@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <20240802090105.3871929-1-ruanjinjie@huawei.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20240802090105.3871929-1-ruanjinjie@huawei.com>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240802_040832_180499_CC86FB0E 
-X-CRM114-Status: UNSURE (   8.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240802_052424_848551_CD20A4F6 
+X-CRM114-Status: GOOD (  23.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,28 +57,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu,  1 Aug 2024 09:08:20 +0300
-Mike Rapoport <rppt@kernel.org> wrote:
+Hi Jinjie,
 
-> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-> 
-> Move most of x86::numa_init() to numa_memblks so that the latter will be
-> more self-contained.
-> 
-> With this numa_memblk data structures should not be exposed to the
-> architecture specific code.
-> 
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> Tested-by: Zi Yan <ziy@nvidia.com> # for x86_64 and arm64
+On 02/08/2024 11:01, Jinjie Ruan wrote:
+> On RISCV64 Qemu machine with 512MB memory, cmdline "crashkernel=500M,high"
+> will cause system stall as below:
+>
+> 	 Zone ranges:
+> 	   DMA32    [mem 0x0000000080000000-0x000000009fffffff]
+> 	   Normal   empty
+> 	 Movable zone start for each node
+> 	 Early memory node ranges
+> 	   node   0: [mem 0x0000000080000000-0x000000008005ffff]
+> 	   node   0: [mem 0x0000000080060000-0x000000009fffffff]
+> 	 Initmem setup node 0 [mem 0x0000000080000000-0x000000009fffffff]
+> 	(stall here)
+>
+> commit 5d99cadf1568 ("crash: fix x86_32 crash memory reserve dead loop
 
-Just code motion as expected.
 
-Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+I can't find this revision, was this patch merged in 6.11?
+
+
+> bug") fix this on 32-bit architecture. However, the problem is not
+> completely solved. If `CRASH_ADDR_LOW_MAX = CRASH_ADDR_HIGH_MAX` on 64-bit
+> architecture, for example, when system memory is equal to
+> CRASH_ADDR_LOW_MAX on RISCV64, the following infinite loop will also occur:
+>
+> 	-> reserve_crashkernel_generic() and high is true
+> 	   -> alloc at [CRASH_ADDR_LOW_MAX, CRASH_ADDR_HIGH_MAX] fail
+> 	      -> alloc at [0, CRASH_ADDR_LOW_MAX] fail and repeatedly
+> 	         (because CRASH_ADDR_LOW_MAX = CRASH_ADDR_HIGH_MAX).
+>
+> Before refactor in commit 9c08a2a139fe ("x86: kdump: use generic interface
+> to simplify crashkernel reservation code"), x86 do not try to reserve crash
+> memory at low if it fails to alloc above high 4G. However before refator in
+> commit fdc268232dbba ("arm64: kdump: use generic interface to simplify
+> crashkernel reservation"), arm64 try to reserve crash memory at low if it
+> fails above high 4G. For 64-bit systems, this attempt is less beneficial
+> than the opposite, remove it to fix this bug and align with native x86
+> implementation.
+>
+> After this patch, it print:
+> 	cannot allocate crashkernel (size:0x1f400000)
+>
+> Fixes: 39365395046f ("riscv: kdump: use generic interface to simplify crashkernel reservation")
+
+
+Your patch subject indicates "-next" but I see this commit ^ landed in 
+6.7, so I think we should merge it now, let me know if I missed something.
+
+Thanks,
+
+Alex
+
+
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> ---
+>   kernel/crash_reserve.c | 9 ---------
+>   1 file changed, 9 deletions(-)
+>
+> diff --git a/kernel/crash_reserve.c b/kernel/crash_reserve.c
+> index 5387269114f6..69e4b8b7b969 100644
+> --- a/kernel/crash_reserve.c
+> +++ b/kernel/crash_reserve.c
+> @@ -420,15 +420,6 @@ void __init reserve_crashkernel_generic(char *cmdline,
+>   				goto retry;
+>   		}
+>   
+> -		/*
+> -		 * For crashkernel=size[KMG],high, if the first attempt was
+> -		 * for high memory, fall back to low memory.
+> -		 */
+> -		if (high && search_end == CRASH_ADDR_HIGH_MAX) {
+> -			search_end = CRASH_ADDR_LOW_MAX;
+> -			search_base = 0;
+> -			goto retry;
+> -		}
+>   		pr_warn("cannot allocate crashkernel (size:0x%llx)\n",
+>   			crash_size);
+>   		return;
 
 _______________________________________________
 linux-riscv mailing list
