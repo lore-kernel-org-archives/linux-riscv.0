@@ -4,62 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D84BC3DA4A
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Aug 2024 08:59:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E80F2C3DA4A
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Aug 2024 09:14:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TGHoxL84PF9NB3wGb9/5D+BMwhLs0XZZKZtybZqy0Uo=; b=3rzp89uB1xE76W
-	TWhAdU0A3lWxI2tJ2bc/9OGO3Q68z9wGb2JchLXiRoC6cBXnKulvmg3f0DBAzXWJ+1g0SpgnzAXcJ
-	l1K8LCUX582Kmz8wZxbA43PAyG4l8qOsoXTkmW/VLYKuIpxpOj3Y0hxUjOGR0ukg1Fk6sVX/Yi6Tc
-	spGUUfxm8YOJ/rpcvzG2zRAq5T2BgWlkZVga9fudCOSkB58ElS5m8zDEEjKeOhymkyzOOoQ767Vhg
-	LNAcM+lsXT26Qpgr5+4wGvvwRTwLlnQBQhL/Luspp4bBi4TSlYkp1Lau1upHZdmxgjVwAbixkFYIE
-	/QDtexa/0lcNwP1V6fBA==;
+	List-Owner; bh=7czy4M+F0Wadbjgq3f2DwsEZtQ1SlozwSzAhkPUm8Is=; b=byzHfHMua6rik5
+	lIR5js8Rtyp8n1nwAYHgNhThPecB4qMzTl75guJKJVpzFUYTgefPSZ0ZwO/Vc0YcruXgYAFTUAXZS
+	IKSPDtkZ8wo4TYshT+4mANo6pWse2xIuuLC35dDV1M3SWblgpaGxIyB8tfZBcXK7dpqFrWtJs0iCb
+	fSMcEZwnfzRXf+E0BbdoIGVrBl4lFLtqCL2G0T9hsOyUpKmWvRpti2DuSkZPOMtQFL4LKSKaFlqbM
+	eeJ4VRxWbpwscgh0hJHaEyoA4yvn9pEALUOqrhuMYwP2xOc2LjJCWJf61A9FTTD5tCNX6nZ6GKq3x
+	FDB49+/vTl55bcgag/MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZo7p-00000008AzH-2Sb2;
-	Fri, 02 Aug 2024 08:59:01 +0000
-Received: from relay5-d.mail.gandi.net ([217.70.183.197])
+	id 1sZoN7-00000008EIJ-0DB9;
+	Fri, 02 Aug 2024 09:14:49 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZo7m-00000008AyK-2TQl
+	id 1sZoN3-00000008EGq-3lTX
 	for linux-riscv@lists.infradead.org;
-	Fri, 02 Aug 2024 08:59:00 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 281D91C000E;
-	Fri,  2 Aug 2024 08:58:51 +0000 (UTC)
-Message-ID: <0abc375c-61a1-4b8c-bac5-a5dc170c5fb6@ghiti.fr>
-Date: Fri, 2 Aug 2024 10:58:51 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 13/13] riscv: Add qspinlock support
-Content-Language: en-US
-To: Andrew Jones <ajones@ventanamicro.com>,
- Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Andrea Parri <parri.andrea@gmail.com>, Nathan Chancellor
- <nathan@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>,
- Waiman Long <longman@redhat.com>, Boqun Feng <boqun.feng@gmail.com>,
- Arnd Bergmann <arnd@arndb.de>, Leonardo Bras <leobras@redhat.com>,
- Guo Ren <guoren@kernel.org>, linux-doc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org
-References: <20240731072405.197046-1-alexghiti@rivosinc.com>
- <20240731072405.197046-14-alexghiti@rivosinc.com>
- <20240731-ce25dcdc5ce9ccc6c82912c0@orel>
- <CAHVXubhQefQ6i3Vow_p-uSACQyPcMJNC2UwB99xt_=jDtRUDFw@mail.gmail.com>
- <20240801-e773d3752fe8b5484405d404@orel>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20240801-e773d3752fe8b5484405d404@orel>
-X-GND-Sasl: alex@ghiti.fr
+	Fri, 02 Aug 2024 09:14:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 05099627D5;
+	Fri,  2 Aug 2024 09:14:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0A92C32782;
+	Fri,  2 Aug 2024 09:14:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1722590084;
+	bh=NtQgUIIaE/hqf9ZTyjTigeg1fDW8BSWir7Rbxa7onBM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=bbGgmTrxzQuS5tpbP9+9wboqMGAMhPhZxnIf7/wgIM1HfEZsdkvoOSZVzK6P9e32M
+	 lMD2hyN+pM35SRh/ImRDfjqNugGhL7WfQYPU4aeJtxn6UhCioWMYMaeAtFc8TDGKF7
+	 Gw1dgnn76w9678hmQ0dgbjflCp26qZIbs5XN6Q2d7cwg0TLPE66V3pZVcoHADS0qUi
+	 V+mFXGTAJpF16uUhRlnTobySNCRf9enDuEef0rMrYIFgGoZ0K2aBYayOPV6tEX/IvY
+	 BycB/v3LvDzb3ZKqzy0+ZGb+jk9UN+hXzBqPx2JJQdU+QNIeUKbTH9NiXb/jkt+mgj
+	 sWYG+HG8RjSnw==
+Date: Fri, 2 Aug 2024 18:14:37 +0900
+From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+ <dave.hansen@linux.intel.com>, x86@kernel.org, Arnd Bergmann
+ <arnd@arndb.de>, Jiri Olsa <jolsa@kernel.org>, Linus Torvalds
+ <torvalds@linux-foundation.org>, "H. Peter Anvin" <hpa@zytor.com>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Guo Ren <guoren@kernel.org>, Geert
+ Uytterhoeven <geert@linux-m68k.org>, "Masami Hiramatsu (Google)"
+ <mhiramat@kernel.org>, Kees Cook <kees@kernel.org>, "peterz@infradead.org"
+ <peterz@infradead.org>, "H.J. Lu" <hjl.tools@gmail.com>, Sohil Mehta
+ <sohil.mehta@intel.com>, Oleg Nesterov <oleg@redhat.com>, Andrii Nakryiko
+ <andrii@kernel.org>, linux-kernel@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [RFC] uretprobe: change syscall number, again
+Message-Id: <20240802181437.29b439e26608561f1289892a@kernel.org>
+In-Reply-To: <20240730154500.3155437-1-arnd@kernel.org>
+References: <20240730154500.3155437-1-arnd@kernel.org>
+X-Mailer: Sylpheed 3.7.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240802_015858_782957_1DCC396B 
-X-CRM114-Status: GOOD (  17.05  )
+X-CRM114-CacheID: sfid-20240802_021446_078067_D9A4852C 
+X-CRM114-Status: GOOD (  38.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,46 +77,136 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ck9uIDAxLzA4LzIwMjQgMTI6MTUsIEFuZHJldyBKb25lcyB3cm90ZToKPiBPbiBUaHUsIEF1ZyAw
-MSwgMjAyNCBhdCAxMDo0MzowM0FNIEdNVCwgQWxleGFuZHJlIEdoaXRpIHdyb3RlOgo+IC4uLgo+
-Pj4+IGRpZmYgLS1naXQgYS9pbmNsdWRlL2FzbS1nZW5lcmljL3FzcGlubG9jay5oIGIvaW5jbHVk
-ZS9hc20tZ2VuZXJpYy9xc3BpbmxvY2suaAo+Pj4+IGluZGV4IDA2NTVhYTViNTdiMi4uYmY0N2Nj
-YTJjMzc1IDEwMDY0NAo+Pj4+IC0tLSBhL2luY2x1ZGUvYXNtLWdlbmVyaWMvcXNwaW5sb2NrLmgK
-Pj4+PiArKysgYi9pbmNsdWRlL2FzbS1nZW5lcmljL3FzcGlubG9jay5oCj4+Pj4gQEAgLTEzNiw2
-ICsxMzYsNyBAQCBzdGF0aWMgX19hbHdheXNfaW5saW5lIGJvb2wgdmlydF9zcGluX2xvY2soc3Ry
-dWN0IHFzcGlubG9jayAqbG9jaykKPj4+PiAgIH0KPj4+PiAgICNlbmRpZgo+Pj4+Cj4+Pj4gKyNp
-Zm5kZWYgX19ub19hcmNoX3NwaW5sb2NrX3JlZGVmaW5lCj4+PiBJJ20gbm90IHN1cmUgd2hhdCdz
-IGJldHRlci93b3JzZSwgYnV0IGluc3RlYWQgb2YgaW52ZW50aW5nIHRoaXMKPj4+IF9fbm9fYXJj
-aF9zcGlubG9ja19yZWRlZmluZSB0aGluZyB3ZSBjb3VsZCBqdXN0IG5hbWUgYWxsIHRoZSBmdW5j
-dGlvbnMKPj4+IHNvbWV0aGluZyBsaWtlIF9fYXJjaF9zcGluKiBhbmQgdGhlbiBhZGQgZGVmaW5l
-cyBmb3IgYm90aCB0byBhc20vc3BpbmxvY2suaCwKPj4+IGkuZS4KPj4+Cj4+PiAjZGVmaW5lIHF1
-ZXVlZF9zcGluX2xvY2sobCkgX19hcmNoX3NwaW5fbG9jayhsKQo+Pj4gLi4uCj4+Pgo+Pj4gI2Rl
-ZmluZSB0aWNrZXRfc3Bpbl9sb2NrKGwpIF9fYXJjaF9zcGluX2xvY2sobCkKPj4+IC4uLgo+PiBf
-X2FyY2hfc3Bpbl9sb2NrKCkgd291bGQgdXNlIHF1ZXVlZF9zcGluX2xvY2soKSBzbyB0aGF0IHdv
-dWxkIG1ha2UgYW4KPj4gImluZmluaXRlIHJlY3Vyc2l2ZSBkZWZpbml0aW9uIiByaWdodD8gQW5k
-IHRoYXQgd291bGQgb3ZlcnJpZGUgdGhlCj4+ICJyZWFsIiBxdWV1ZWRfc3Bpbl9sb2NrKCkgaW1w
-bGVtZW50YXRpb24gdG9vLgo+Pgo+PiBCdXQgbWF5YmUgSSBtaXNzZWQgc29tZXRoaW5nIQo+Pgo+
-IEl0IGRlcGVuZHMgb24gd2hlcmUgdGhlIGRlZmluaXRpb24gaXMgZG9uZS4gSXQgc2hvdWxkIHdv
-cmsgaWYgdGhlCj4gcHJlcHJvY2Vzc29yIGV4cGFuZHMgdGhlIGltcGxlbWVudGF0aW9uIG9mIF9f
-YXJjaF9zcGluXyogYmVmb3JlCj4gZXZhbHVhdGluZyB0aGUgI2RlZmluZSBvZiBxdWV1ZWRfc3Bp
-bl8qLiBJT1csIHdlIGp1c3QgbmVlZCB0byBwdXQKPiB0aGUgZGVmaW5lcyBhZnRlciB0aGUgc3Rh
-dGljIGlubGluZSBjb25zdHJ1Y3Rpb25zLgoKClNvIEkgaGF2ZSBqdXN0IGdpdmVuIGl0IGEgdHJ5
-LCBib3RoIHFzcGlubG9jay5oIGFuZCB0aWNrZXRfc3BpbmxvY2suaCAKZGVmaW5lIGFyY2hfc3Bp
-bl9YWFhYKCkuIFRoYXQgdHJpZ2dlcnMgYSBidW5jaCBvZiB3YXJuaW5ncy4KCkknbGwgZHJvcCB0
-aGlzIHN1Z2dlc3Rpb24gYXMgSSBmaW5kIGl0IGhhcmRlciB0byB1bmRlcnN0YW5kIGFuZCBiZWNh
-dXNlIApvZiB0aGUgd2FybmluZ3MgdGhhdCB3b3VsZCBuZWVkIHRoZSBpbnRyb2R1Y3Rpb24gb2Yg
-YSBuZXcgcHJlcHJvY2Vzc29yIAp2YXJpYWJsZSAob3Igc29tZXRoaW5nIGVsc2U/KS7CoCBBbmQg
-dGhlIHNvbHV0aW9uIHdpdGggCl9fbm9fYXJjaF9zcGlubG9ja19yZWRlZmluZSBpcyByZWFsbHkg
-c3RyYWlnaHRmb3J3YXJkIGFuZCBsaWdodHdlaWdodC4KClRoYW5rcywKCkFsZXgKCgo+Cj4gVGhh
-bmtzLAo+IGRyZXcKPgo+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCj4gbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cj4gbGludXgtcmlzY3ZAbGlzdHMuaW5m
-cmFkZWFkLm9yZwo+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
-bGludXgtcmlzY3YKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
-b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YK
+On Tue, 30 Jul 2024 17:43:36 +0200
+Arnd Bergmann <arnd@kernel.org> wrote:
+
+> From: Arnd Bergmann <arnd@arndb.de>
+> 
+> Despite multiple attempts to get the syscall number assignment right
+> for the newly added uretprobe syscall, we ended up with a bit of a mess:
+> 
+>  - The number is defined as 467 based on the assumption that the
+>    xattrat family of syscalls would use 463 through 466, but those
+>    did not make it into 6.11.
+
+OK... that was not expected.
+
+> 
+>  - The include/uapi/asm-generic/unistd.h file still lists the number
+>    463, but the new scripts/syscall.tbl that was supposed to have the
+>    same data lists 467 instead as the number for arc, arm64, csky,
+>    hexagon, loongarch, nios2, openrisc and riscv. None of these
+>    architectures actually provide a uretprobe syscall.
+
+Oops, thanks for finding.
+
+> 
+>  - All the other architectures (powerpc, arm, mips, ...) don't list
+>    this syscall at all.
+
+OK, so even if it is not supported on those, we need to put it as a
+placeholder.
+
+> 
+> There are two ways to make it consistent again: either list it with
+> the same syscall number on all architectures, or only list it on x86
+> but not in scripts/syscall.tbl and asm-generic/unistd.h.
+> 
+> Based on the most recent discussion, it seems like we won't need it
+> anywhere else, so just remove the inconsistent assignment and instead
+> move the x86 number to the next available one in the architecture
+> specific range, which is 335.
+> 
+> Fixes: 5c28424e9a34 ("syscalls: Fix to add sys_uretprobe to syscall.tbl")
+> Fixes: 190fec72df4a ("uprobe: Wire up uretprobe system call")
+> Fixes: 63ded110979b ("uprobe: Change uretprobe syscall scope and number")
+> Cc: Linus Torvalds <torvalds@linux-foundation.org>
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
+> I think we should fix this as soon as possible. Please let me know if
+> you agree on this approach, or prefer one of the alternatives.
+
+OK, I think it is good. But you missed to fix a selftest code which
+also needs to be updated.
+
+Could you revert commit 3e301b431b91 ("selftests/bpf: Change uretprobe
+ syscall number in uprobe_syscall test") too?
+
+Acked-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+
+Thank you,
+
+> 
+> I've queued up this version in the asm-generic tree so I can send a
+> pull request in the next few days, but I'm fine with doing this a
+> differently if someone has a stronger opinion on what numbers to
+> assign for it on earch architecture.
+> 
+>  arch/x86/entry/syscalls/syscall_64.tbl | 2 +-
+>  include/uapi/asm-generic/unistd.h      | 5 +----
+>  scripts/syscall.tbl                    | 1 -
+>  3 files changed, 2 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/x86/entry/syscalls/syscall_64.tbl b/arch/x86/entry/syscalls/syscall_64.tbl
+> index 83073fa3c989..7093ee21c0d1 100644
+> --- a/arch/x86/entry/syscalls/syscall_64.tbl
+> +++ b/arch/x86/entry/syscalls/syscall_64.tbl
+> @@ -344,6 +344,7 @@
+>  332	common	statx			sys_statx
+>  333	common	io_pgetevents		sys_io_pgetevents
+>  334	common	rseq			sys_rseq
+> +335	common	uretprobe		sys_uretprobe
+>  # don't use numbers 387 through 423, add new calls after the last
+>  # 'common' entry
+>  424	common	pidfd_send_signal	sys_pidfd_send_signal
+> @@ -385,7 +386,6 @@
+>  460	common	lsm_set_self_attr	sys_lsm_set_self_attr
+>  461	common	lsm_list_modules	sys_lsm_list_modules
+>  462 	common  mseal			sys_mseal
+> -467	common	uretprobe		sys_uretprobe
+>  
+>  #
+>  # Due to a historical design error, certain syscalls are numbered differently
+> diff --git a/include/uapi/asm-generic/unistd.h b/include/uapi/asm-generic/unistd.h
+> index 985a262d0f9e..5bf6148cac2b 100644
+> --- a/include/uapi/asm-generic/unistd.h
+> +++ b/include/uapi/asm-generic/unistd.h
+> @@ -841,11 +841,8 @@ __SYSCALL(__NR_lsm_list_modules, sys_lsm_list_modules)
+>  #define __NR_mseal 462
+>  __SYSCALL(__NR_mseal, sys_mseal)
+>  
+> -#define __NR_uretprobe 463
+> -__SYSCALL(__NR_uretprobe, sys_uretprobe)
+> -
+>  #undef __NR_syscalls
+> -#define __NR_syscalls 464
+> +#define __NR_syscalls 463
+>  
+>  /*
+>   * 32 bit systems traditionally used different
+> diff --git a/scripts/syscall.tbl b/scripts/syscall.tbl
+> index 591d85e8ca7e..797e20ea99a2 100644
+> --- a/scripts/syscall.tbl
+> +++ b/scripts/syscall.tbl
+> @@ -402,4 +402,3 @@
+>  460	common	lsm_set_self_attr		sys_lsm_set_self_attr
+>  461	common	lsm_list_modules		sys_lsm_list_modules
+>  462	common	mseal				sys_mseal
+> -467	common	uretprobe			sys_uretprobe
+> -- 
+> 2.39.2
+> 
+
+
+-- 
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
