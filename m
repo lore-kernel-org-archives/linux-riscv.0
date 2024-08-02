@@ -4,80 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24C05C52D6D
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Aug 2024 11:13:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CB77C3DA4A
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Aug 2024 11:16:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=q0h5j3Y+5vqMBbfCBxvp5l16s5wKDM2M2wfnI87ycTA=; b=vVmeJBkoIi6zRM
-	IW7rprk6q+lyeDYRCuPaZF160jx9dhF1RROrzfxqX4A5Hj4GYlEzcH6QiKy7CDaWSSbO8KCF2eNor
-	hpAxpbcXR+QApCdb/ha3EUtNOBx9Lt4FGksxjiIezrBuHCAAY4gsS7SsJhWKOQEd1kRVbCLn7orL+
-	jlMRJi4ksCzgaq/zJXReLPT4l8X3QljahuEHJWwNWiRLVwXjU3+KP4gqhxFMl4ppeXtB/8P7Zd2fr
-	W6/Rc0hLBlSnWyUvZWpZf/xMQEjRi0bEqgBLWCl2i6pNs2CkWryiJDf8AvYd0iAJZ9uh+SxqdLPti
-	SKl5P5K6gjGWinxPDVNQ==;
+	List-Owner; bh=X89T1PGMmozjyhEsI9lRhklNkiMcmfDauznUqxz4eZk=; b=t6YbOBdl6qdr/0
+	M6t+TRXm1NBsNQLkQxgZTmPjFXYyIr+GvOECzinlY5MwplEDAxF4y1AJyPzirZbucJowHP01WoGeV
+	tnEpKdDM9caoRxfKlLn/5p2lh4PZy1zBG6TKuNaenzo1ykSsZB/ykuPB0NobyNZxMXkA2WnBuA+BG
+	pOCYciHT44xM6T4Gb51Ra0fAoXBUhnKPpui1rNAsQ5WbvEJUdk7syrBaFNAU7hhoPU6+JaKeIw0CN
+	XtVQzy+Q8Be6Yoho4pMlUohm6D/q3vErxF3sMCzMc/vypSj6r4uTbonA/THMUdc8+WUVX3RQRDxFH
+	UE4ANUkVI7a7yIHmG3gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZqDe-00000008eIe-1eLp;
-	Fri, 02 Aug 2024 11:13:10 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1sZqHA-00000008epx-2nnq;
+	Fri, 02 Aug 2024 11:16:48 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZqD6-00000008e45-2paA;
-	Fri, 02 Aug 2024 11:12:38 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4Wb35J7183z6K9Db;
-	Fri,  2 Aug 2024 19:09:56 +0800 (CST)
-Received: from lhrpeml500005.china.huawei.com (unknown [7.191.163.240])
-	by mail.maildlp.com (Postfix) with ESMTPS id 5BD1D140A08;
-	Fri,  2 Aug 2024 19:12:34 +0800 (CST)
-Received: from localhost (10.203.177.66) by lhrpeml500005.china.huawei.com
- (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 2 Aug
- 2024 12:12:33 +0100
-Date: Fri, 2 Aug 2024 12:12:32 +0100
-From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
-To: Mike Rapoport <rppt@kernel.org>
-CC: <linux-kernel@vger.kernel.org>, Alexander Gordeev
-	<agordeev@linux.ibm.com>, Andreas Larsson <andreas@gaisler.com>, "Andrew
- Morton" <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>, "Borislav
- Petkov" <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>, Christophe
- Leroy <christophe.leroy@csgroup.eu>, Dan Williams <dan.j.williams@intel.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>, David Hildenbrand
-	<david@redhat.com>, "David S. Miller" <davem@davemloft.net>, Davidlohr Bueso
-	<dave@stgolabs.net>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>, Heiko
- Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>, Ingo
- Molnar <mingo@redhat.com>, Jiaxun Yang <jiaxun.yang@flygoat.com>, "John Paul
- Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>, Jonathan Corbet
-	<corbet@lwn.net>, Michael Ellerman <mpe@ellerman.id.au>, Palmer Dabbelt
-	<palmer@dabbelt.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Rob Herring
-	<robh@kernel.org>, Samuel Holland <samuel.holland@sifive.com>, Thomas
- Bogendoerfer <tsbogend@alpha.franken.de>, Thomas Gleixner
-	<tglx@linutronix.de>, "Vasily Gorbik" <gor@linux.ibm.com>, Will Deacon
-	<will@kernel.org>, Zi Yan <ziy@nvidia.com>, <devicetree@vger.kernel.org>,
-	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-cxl@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <linux-mips@vger.kernel.org>,
-	<linux-mm@kvack.org>, <linux-riscv@lists.infradead.org>,
-	<linux-s390@vger.kernel.org>, <linux-sh@vger.kernel.org>,
-	<linuxppc-dev@lists.ozlabs.org>, <loongarch@lists.linux.dev>,
-	<nvdimm@lists.linux.dev>, <sparclinux@vger.kernel.org>, <x86@kernel.org>
-Subject: Re: [PATCH v3 22/26] mm: numa_memblks: use
- memblock_{start,end}_of_DRAM() when sanitizing meminfo
-Message-ID: <20240802121232.00005b2c@Huawei.com>
-In-Reply-To: <20240801060826.559858-23-rppt@kernel.org>
-References: <20240801060826.559858-1-rppt@kernel.org>
-	<20240801060826.559858-23-rppt@kernel.org>
-Organization: Huawei Technologies Research and Development (UK) Ltd.
-X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
+	id 1sZqGk-00000008em2-2Ftd
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 02 Aug 2024 11:16:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=h+a+YbUYnYp2O9o3vDX++ZHVr+zNy81A/L7Ak8HFY0M=; b=dioBbhPv3vYx9xVd+Rdii9bsmT
+	KswL30jixcsF8uAie0mfO+VhfMHn0I5aecG/XQsgmzPMfgrPf9fDvZb5R0nW1zwucnjpYItfFkSBP
+	KfkDgXzJi+x+tIADcuIVQwL0y5kkWhMyf1YsopdaWLWk2Q/rfhQCBsUXtG0o4x1S7vLqK8laKbrGq
+	ZX5GSEpPj087LEHKF7s8kWD+CCkE7fnKlIfr0BMEe4U9Tq9VMQf2TsQf4wuccgmayUkQauPfwQvVD
+	ZxV1mJDGd0FKACSlipeAThfuHQvJYkmv3TLtydQ0K2+yocyI+7KNCtluf9q9BSqZWhs9fyIGgZkpt
+	IwhERx4A==;
+Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1sZqGe-00000005hFn-0JGK
+	for linux-riscv@lists.infradead.org;
+	Fri, 02 Aug 2024 11:16:19 +0000
+Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-5af326eddb2so5439390a12.1
+        for <linux-riscv@lists.infradead.org>; Fri, 02 Aug 2024 04:16:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1722597373; x=1723202173; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:references
+         :in-reply-to:subject:cc:to:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=h+a+YbUYnYp2O9o3vDX++ZHVr+zNy81A/L7Ak8HFY0M=;
+        b=VDoRNTOKWDq+Gm0pGh7aomfJAtwZ4TdRCphgFD5P4W/qHC3nOB4N/dHdl++v5dwcwz
+         5mIisTL2szL5Bhf2A4Yx2qYb8QOCkFwoRO0jYijQqmY1MyJM5XxAnMvn+Cw+Hp9/Sn3M
+         TvkKNeZ6cvpC1knc2FCaxYwbwZ1PPb9VclNZucZWDA0w3rkPsspLrZFToAapmK/lq/io
+         bTz+6eQV7xBHSRjDOg81C2T6E0epJ0IBRVYA4kNmpZpuVKLa+lBJ1WcUG/mEbsX6JHl+
+         3hTiJE5EFsnoTrMW3iianX2P9bALRn7/NOApV9DhKoa+1oicl9Pc2CxaqSm7ePflRr/J
+         4lpQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1722597373; x=1723202173;
+        h=content-transfer-encoding:mime-version:message-id:date:references
+         :in-reply-to:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=h+a+YbUYnYp2O9o3vDX++ZHVr+zNy81A/L7Ak8HFY0M=;
+        b=G7ud+4HKkZP6XkP7m007HrNNa1GIQNE60JPhUxdCOwN3rFTJ/3gsTZPNEdGkXoCtyP
+         WuDx6uolpjZuVQQ76ZfOPwSIwNRtx32scRmsgGBXtvfYlMqpBfSsYGMcfG9yuzTawGQM
+         9oKi6njOtfmWg0uaIU/j0TwVYAd0ViLgeboNRVkCRH8WIBWVnFh5QFSbCoxIgd4RPFJu
+         PAcIO9h7594vLt9akThmZmFZ9frSh2krrjFqzU0XkPSWxKU/fLlo2+DIRCJHdFzhX9kO
+         02HbsM0Lz80pKc+bQeborDBsZaAFYPu8Yy9DwhWiK0zSUwoEd0AumHPkcNPaNF9XKzLJ
+         A1Hw==
+X-Forwarded-Encrypted: i=1; AJvYcCUdnZdRRgRAi25w5vsNSPY4VvPP02aJPYeDCpnenDxd+DDQAIymZ2MSGybwk8/uyQ8PBx7FILBbVnnuqm7RCCfaxOvnlRVvBUGLi50IyCnR
+X-Gm-Message-State: AOJu0Yw5B1IxI26ILnWbxk2G2JLhsiwFGvgN7rI3cUuSCdW/zba37Up0
+	cwGXHE6g/2XVL90ErVEjXoFBempThqnLnt6jjXh/oTL8TS4HaRNbwnX9d73Jko8=
+X-Google-Smtp-Source: AGHT+IHUr2+eigMQMyKiFV2SC/+LcUpbtIeuSXGg+vhEQqD67tJuIK6amWVCFT4RRO+CzEGYIGxtXA==
+X-Received: by 2002:a17:907:25c5:b0:a7a:acae:340b with SMTP id a640c23a62f3a-a7dc628bf8fmr256404766b.31.1722597372903;
+        Fri, 02 Aug 2024 04:16:12 -0700 (PDT)
+Received: from draig.lan ([85.9.250.243])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a7dc9bcb19csm87224666b.42.2024.08.02.04.16.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 02 Aug 2024 04:16:08 -0700 (PDT)
+Received: from draig (localhost [IPv6:::1])
+	by draig.lan (Postfix) with ESMTP id 91DEE5F8A9;
+	Fri,  2 Aug 2024 12:16:04 +0100 (BST)
+From: =?utf-8?Q?Alex_Benn=C3=A9e?= <alex.bennee@linaro.org>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>,  Marc Zyngier <maz@kernel.org>,
+  Oliver Upton <oliver.upton@linux.dev>,  Tianrui Zhao
+ <zhaotianrui@loongson.cn>,  Bibo Mao <maobibo@loongson.cn>,  Huacai Chen
+ <chenhuacai@kernel.org>,  Michael Ellerman <mpe@ellerman.id.au>,  Anup
+ Patel <anup@brainfault.org>,  Paul Walmsley <paul.walmsley@sifive.com>,
+  Palmer Dabbelt <palmer@dabbelt.com>,  Albert Ou <aou@eecs.berkeley.edu>,
+  Christian Borntraeger <borntraeger@linux.ibm.com>,  Janosch Frank
+ <frankja@linux.ibm.com>,  Claudio Imbrenda <imbrenda@linux.ibm.com>,
+  kvm@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
+  kvmarm@lists.linux.dev,  loongarch@lists.linux.dev,
+  linux-mips@vger.kernel.org,  linuxppc-dev@lists.ozlabs.org,
+  kvm-riscv@lists.infradead.org,  linux-riscv@lists.infradead.org,
+  linux-kernel@vger.kernel.org,  David Matlack <dmatlack@google.com>,
+  David Stevens <stevensd@chromium.org>
+Subject: Re: [PATCH v12 11/84] KVM: Rename gfn_to_page_many_atomic() to
+ kvm_prefetch_pages()
+In-Reply-To: <20240726235234.228822-12-seanjc@google.com> (Sean
+	Christopherson's message of "Fri, 26 Jul 2024 16:51:20 -0700")
+References: <20240726235234.228822-1-seanjc@google.com>
+	<20240726235234.228822-12-seanjc@google.com>
+Date: Fri, 02 Aug 2024 12:16:04 +0100
+Message-ID: <87frrncgzv.fsf@draig.linaro.org>
 MIME-Version: 1.0
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml500003.china.huawei.com (7.191.162.67) To
- lhrpeml500005.china.huawei.com (7.191.163.240)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240802_041237_037896_2C5975B8 
-X-CRM114-Status: GOOD (  15.43  )
+X-CRM114-CacheID: sfid-20240802_121617_510967_84FF0887 
+X-CRM114-Status: GOOD (  12.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,50 +120,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu,  1 Aug 2024 09:08:22 +0300
-Mike Rapoport <rppt@kernel.org> wrote:
-
-> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-> 
-> numa_cleanup_meminfo() moves blocks outside system RAM to
-> numa_reserved_meminfo and it uses 0 and PFN_PHYS(max_pfn) to determine
-> the memory boundaries.
-> 
-> Replace the memory range boundaries with more portable
-> memblock_start_of_DRAM() and memblock_end_of_DRAM().
-> 
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> Tested-by: Zi Yan <ziy@nvidia.com> # for x86_64 and arm64
-Makes sense
-Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-
-> ---
->  mm/numa_memblks.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/mm/numa_memblks.c b/mm/numa_memblks.c
-> index e97665a5e8ce..e4358ad92233 100644
-> --- a/mm/numa_memblks.c
-> +++ b/mm/numa_memblks.c
-> @@ -212,8 +212,8 @@ int __init numa_add_memblk(int nid, u64 start, u64 end)
->   */
->  int __init numa_cleanup_meminfo(struct numa_meminfo *mi)
->  {
-> -	const u64 low = 0;
-> -	const u64 high = PFN_PHYS(max_pfn);
-> +	const u64 low = memblock_start_of_DRAM();
-> +	const u64 high = memblock_end_of_DRAM();
->  	int i, j, k;
->  
->  	/* first, trim all entries */
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+U2VhbiBDaHJpc3RvcGhlcnNvbiA8c2VhbmpjQGdvb2dsZS5jb20+IHdyaXRlczoKCj4gUmVuYW1l
+IGdmbl90b19wYWdlX21hbnlfYXRvbWljKCkgdG8ga3ZtX3ByZWZldGNoX3BhZ2VzKCkgdG8gdHJ5
+IGFuZAo+IGNvbW11bmljYXRlIGl0cyB0cnVlIHB1cnBvc2UsIGFzIHRoZSAiYXRvbWljIiBhc3Bl
+Y3QgaXMgZXNzZW50aWFsbHkgYQo+IHNpZGUgZWZmZWN0IG9mIHRoZSBmYWN0IHRoYXQgeDg2IHVz
+ZXMgdGhlIEFQSSB3aGlsZSBob2xkaW5nIG1tdV9sb2NrLgoKSXQncyBuZXZlciB0b28gbGF0ZSB0
+byBzdGFydCBhZGRpbmcgc29tZSBrZG9jIGFubm90YXRpb25zIHRvIGEgZnVuY3Rpb24KYW5kIHJl
+bmFtaW5nIGEga3ZtX2hvc3QgQVBJIGNhbGwgc2VlbXMgbGlrZSBhIGdvb2QgdGltZSB0byBkbyBp
+dC4KCj4gRS5nLiBldmVuIGlmIG1tdV9sb2NrIHdlcmVuJ3QgaGVsZCwgS1ZNIHdvdWxkbid0IHdh
+bnQgdG8gZmF1bHQtaW4gcGFnZXMsCj4gYXMgdGhlIGdvYWwgaXMgdG8gb3Bwb3J0dW5pc3RpY2Fs
+bHkgZ3JhYiBzdXJyb3VuZGluZyBwYWdlcyB0aGF0IGhhdmUKPiBhbHJlYWR5IGJlZW4gYWNjZXNz
+ZWQgYW5kL29yIGRpcnRpZWQgYnkgdGhlIGhvc3QsIGFuZCB0byBkbyBzbyBxdWlja2x5Lgo+Cj4g
+U2lnbmVkLW9mZi1ieTogU2VhbiBDaHJpc3RvcGhlcnNvbiA8c2VhbmpjQGdvb2dsZS5jb20+Cj4g
+LS0tCjxzbmlwPgoKLyoqCiAqIGt2bV9wcmVmZXRjaF9wYWdlcygpIC0gb3Bwb3J0dW5pc3RpY2Fs
+bHkgZ3JhYiBwcmV2aW91c2x5IGFjY2Vzc2VkIHBhZ2VzCiAqIEBzbG90OiB3aGljaCBAa3ZtX21l
+bW9yeV9zbG90IHRoZSBwYWdlcyBhcmUgaW4KICogQGdmbjogZ3Vlc3QgZnJhbWUKICogQHBhZ2Vz
+OiBhcnJheSB0byByZWNlaXZlcyBwYWdlIHBvaW50ZXJzCiAqIEBucl9wYWdlczogbnVtYmVyIG9m
+IHBhZ2VzCiAqCiAqIFJldHVybnMgdGhlIG51bWJlciBvZiBwYWdlcyBhY3R1YWxseSBtYXBwZWQu
+CiAqLwoKPwoKPiAgCj4gLWludCBnZm5fdG9fcGFnZV9tYW55X2F0b21pYyhzdHJ1Y3Qga3ZtX21l
+bW9yeV9zbG90ICpzbG90LCBnZm5fdCBnZm4sCj4gLQkJCSAgICBzdHJ1Y3QgcGFnZSAqKnBhZ2Vz
+LCBpbnQgbnJfcGFnZXMpCj4gK2ludCBrdm1fcHJlZmV0Y2hfcGFnZXMoc3RydWN0IGt2bV9tZW1v
+cnlfc2xvdCAqc2xvdCwgZ2ZuX3QgZ2ZuLAo+ICsJCSAgICAgICBzdHJ1Y3QgcGFnZSAqKnBhZ2Vz
+LCBpbnQgbnJfcGFnZXMpCj4gIHsKPiAgCXVuc2lnbmVkIGxvbmcgYWRkcjsKPiAgCWdmbl90IGVu
+dHJ5ID0gMDsKPiBAQCAtMzA3NSw3ICszMDc1LDcgQEAgaW50IGdmbl90b19wYWdlX21hbnlfYXRv
+bWljKHN0cnVjdCBrdm1fbWVtb3J5X3Nsb3QgKnNsb3QsIGdmbl90IGdmbiwKPiAgCj4gIAlyZXR1
+cm4gZ2V0X3VzZXJfcGFnZXNfZmFzdF9vbmx5KGFkZHIsIG5yX3BhZ2VzLCBGT0xMX1dSSVRFLCBw
+YWdlcyk7Cj4gIH0KPiAtRVhQT1JUX1NZTUJPTF9HUEwoZ2ZuX3RvX3BhZ2VfbWFueV9hdG9taWMp
+Owo+ICtFWFBPUlRfU1lNQk9MX0dQTChrdm1fcHJlZmV0Y2hfcGFnZXMpOwo+ICAKPiAgLyoKPiAg
+ICogRG8gbm90IHVzZSB0aGlzIGhlbHBlciB1bmxlc3MgeW91IGFyZSBhYnNvbHV0ZWx5IGNlcnRh
+aW4gdGhlIGdmbiBfbXVzdF8gYmUKCi0tIApBbGV4IEJlbm7DqWUKVmlydHVhbGlzYXRpb24gVGVj
+aCBMZWFkIEAgTGluYXJvCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
+ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LXJpc2N2Cg==
