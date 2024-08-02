@@ -4,56 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B451C3DA4A
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Aug 2024 08:55:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D84BC3DA4A
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Aug 2024 08:59:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=WTjNZ5oJoyUvrwaA4pn/Q5UJJQlCxJ5ot6+Uj0+JVV4=; b=2YXm/AR0fMLs64
-	ajAWQbb+1KMfT1r1nCU8Rk5vSnzE1Wohol1evEK3tjHvPKEW4FMmU121ThEB4zGWVC0M5/w7BejjH
-	zyNcKGnYb9Rnik7Sxq5XjD5FyP9KB9xXjRLOoFBngzD5bD3RRg8rjDulZOGUcCQElNwrWwJIKuvgf
-	vK1SdJVfkHwZO3DnUJHVg1oOIVAnIs+m87Fk7gUAxQTE2HDENByB8egOIY0z2THCu5Za78t1e8E6A
-	tTcI5/wFOXwhOD2lIAfdWTsxhfUvb6Ep4zie6YfzeipIpKNPXyaFK1d1jhX/SA/guDQXKl0Om6Gly
-	MFn39OlGxOWG+8r5TlOw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=TGHoxL84PF9NB3wGb9/5D+BMwhLs0XZZKZtybZqy0Uo=; b=3rzp89uB1xE76W
+	TWhAdU0A3lWxI2tJ2bc/9OGO3Q68z9wGb2JchLXiRoC6cBXnKulvmg3f0DBAzXWJ+1g0SpgnzAXcJ
+	l1K8LCUX582Kmz8wZxbA43PAyG4l8qOsoXTkmW/VLYKuIpxpOj3Y0hxUjOGR0ukg1Fk6sVX/Yi6Tc
+	spGUUfxm8YOJ/rpcvzG2zRAq5T2BgWlkZVga9fudCOSkB58ElS5m8zDEEjKeOhymkyzOOoQ767Vhg
+	LNAcM+lsXT26Qpgr5+4wGvvwRTwLlnQBQhL/Luspp4bBi4TSlYkp1Lau1upHZdmxgjVwAbixkFYIE
+	/QDtexa/0lcNwP1V6fBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZo4H-00000008AW3-42Cc;
-	Fri, 02 Aug 2024 08:55:21 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1sZo7p-00000008AzH-2Sb2;
+	Fri, 02 Aug 2024 08:59:01 +0000
+Received: from relay5-d.mail.gandi.net ([217.70.183.197])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZo4D-00000008AUy-3gyB;
-	Fri, 02 Aug 2024 08:55:20 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.44])
-	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4Wb00X2n0wz1j6NP;
-	Fri,  2 Aug 2024 16:50:36 +0800 (CST)
-Received: from kwepemi100008.china.huawei.com (unknown [7.221.188.57])
-	by mail.maildlp.com (Postfix) with ESMTPS id 9F8A31400DC;
-	Fri,  2 Aug 2024 16:55:12 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by kwepemi100008.china.huawei.com
- (7.221.188.57) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 2 Aug
- 2024 16:55:12 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <bhe@redhat.com>, <vgoyal@redhat.com>, <dyoung@redhat.com>,
-	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<chenjiahao16@huawei.com>, <akpm@linux-foundation.org>,
-	<kexec@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>
-CC: <ruanjinjie@huawei.com>
-Subject: [PATCH -next] crash: Fix riscv64 crash memory reserve dead loop
-Date: Fri, 2 Aug 2024 17:01:05 +0800
-Message-ID: <20240802090105.3871929-1-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
+	id 1sZo7m-00000008AyK-2TQl
+	for linux-riscv@lists.infradead.org;
+	Fri, 02 Aug 2024 08:59:00 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 281D91C000E;
+	Fri,  2 Aug 2024 08:58:51 +0000 (UTC)
+Message-ID: <0abc375c-61a1-4b8c-bac5-a5dc170c5fb6@ghiti.fr>
+Date: Fri, 2 Aug 2024 10:58:51 +0200
 MIME-Version: 1.0
-X-Originating-IP: [10.90.53.73]
-X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
- kwepemi100008.china.huawei.com (7.221.188.57)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 13/13] riscv: Add qspinlock support
+Content-Language: en-US
+To: Andrew Jones <ajones@ventanamicro.com>,
+ Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Andrea Parri <parri.andrea@gmail.com>, Nathan Chancellor
+ <nathan@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>,
+ Waiman Long <longman@redhat.com>, Boqun Feng <boqun.feng@gmail.com>,
+ Arnd Bergmann <arnd@arndb.de>, Leonardo Bras <leobras@redhat.com>,
+ Guo Ren <guoren@kernel.org>, linux-doc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org
+References: <20240731072405.197046-1-alexghiti@rivosinc.com>
+ <20240731072405.197046-14-alexghiti@rivosinc.com>
+ <20240731-ce25dcdc5ce9ccc6c82912c0@orel>
+ <CAHVXubhQefQ6i3Vow_p-uSACQyPcMJNC2UwB99xt_=jDtRUDFw@mail.gmail.com>
+ <20240801-e773d3752fe8b5484405d404@orel>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20240801-e773d3752fe8b5484405d404@orel>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240802_015518_130328_271451AE 
-X-CRM114-Status: GOOD (  11.98  )
+X-CRM114-CacheID: sfid-20240802_015858_782957_1DCC396B 
+X-CRM114-Status: GOOD (  17.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,78 +71,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On RISCV64 Qemu machine with 512MB memory, cmdline "crashkernel=500M,high"
-will cause system stall as below:
-
-	 Zone ranges:
-	   DMA32    [mem 0x0000000080000000-0x000000009fffffff]
-	   Normal   empty
-	 Movable zone start for each node
-	 Early memory node ranges
-	   node   0: [mem 0x0000000080000000-0x000000008005ffff]
-	   node   0: [mem 0x0000000080060000-0x000000009fffffff]
-	 Initmem setup node 0 [mem 0x0000000080000000-0x000000009fffffff]
-	(stall here)
-
-commit 5d99cadf1568 ("crash: fix x86_32 crash memory reserve dead loop
-bug") fix this on 32-bit architecture. However, the problem is not
-completely solved. If `CRASH_ADDR_LOW_MAX = CRASH_ADDR_HIGH_MAX` on 64-bit
-architecture, for example, when system memory is equal to
-CRASH_ADDR_LOW_MAX on RISCV64, the following infinite loop will also occur:
-
-	-> reserve_crashkernel_generic() and high is true
-	   -> alloc at [CRASH_ADDR_LOW_MAX, CRASH_ADDR_HIGH_MAX] fail
-	      -> alloc at [0, CRASH_ADDR_LOW_MAX] fail and repeatedly
-	         (because CRASH_ADDR_LOW_MAX = CRASH_ADDR_HIGH_MAX).
-
-Before refactor in commit 9c08a2a139fe ("x86: kdump: use generic interface
-to simplify crashkernel reservation code"), x86 do not try to reserve crash
-memory at low if it fails to alloc above high 4G. However before refator in
-commit fdc268232dbba ("arm64: kdump: use generic interface to simplify
-crashkernel reservation"), arm64 try to reserve crash memory at low if it
-fails above high 4G. For 64-bit systems, this attempt is less beneficial
-than the opposite, remove it to fix this bug and align with native x86
-implementation.
-
-After this patch, it print:
-	cannot allocate crashkernel (size:0x1f400000)
-
-Fixes: 39365395046f ("riscv: kdump: use generic interface to simplify crashkernel reservation")
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
----
- kernel/crash_reserve.c | 9 ---------
- 1 file changed, 9 deletions(-)
-
-diff --git a/kernel/crash_reserve.c b/kernel/crash_reserve.c
-index 5387269114f6..69e4b8b7b969 100644
---- a/kernel/crash_reserve.c
-+++ b/kernel/crash_reserve.c
-@@ -420,15 +420,6 @@ void __init reserve_crashkernel_generic(char *cmdline,
- 				goto retry;
- 		}
- 
--		/*
--		 * For crashkernel=size[KMG],high, if the first attempt was
--		 * for high memory, fall back to low memory.
--		 */
--		if (high && search_end == CRASH_ADDR_HIGH_MAX) {
--			search_end = CRASH_ADDR_LOW_MAX;
--			search_base = 0;
--			goto retry;
--		}
- 		pr_warn("cannot allocate crashkernel (size:0x%llx)\n",
- 			crash_size);
- 		return;
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Ck9uIDAxLzA4LzIwMjQgMTI6MTUsIEFuZHJldyBKb25lcyB3cm90ZToKPiBPbiBUaHUsIEF1ZyAw
+MSwgMjAyNCBhdCAxMDo0MzowM0FNIEdNVCwgQWxleGFuZHJlIEdoaXRpIHdyb3RlOgo+IC4uLgo+
+Pj4+IGRpZmYgLS1naXQgYS9pbmNsdWRlL2FzbS1nZW5lcmljL3FzcGlubG9jay5oIGIvaW5jbHVk
+ZS9hc20tZ2VuZXJpYy9xc3BpbmxvY2suaAo+Pj4+IGluZGV4IDA2NTVhYTViNTdiMi4uYmY0N2Nj
+YTJjMzc1IDEwMDY0NAo+Pj4+IC0tLSBhL2luY2x1ZGUvYXNtLWdlbmVyaWMvcXNwaW5sb2NrLmgK
+Pj4+PiArKysgYi9pbmNsdWRlL2FzbS1nZW5lcmljL3FzcGlubG9jay5oCj4+Pj4gQEAgLTEzNiw2
+ICsxMzYsNyBAQCBzdGF0aWMgX19hbHdheXNfaW5saW5lIGJvb2wgdmlydF9zcGluX2xvY2soc3Ry
+dWN0IHFzcGlubG9jayAqbG9jaykKPj4+PiAgIH0KPj4+PiAgICNlbmRpZgo+Pj4+Cj4+Pj4gKyNp
+Zm5kZWYgX19ub19hcmNoX3NwaW5sb2NrX3JlZGVmaW5lCj4+PiBJJ20gbm90IHN1cmUgd2hhdCdz
+IGJldHRlci93b3JzZSwgYnV0IGluc3RlYWQgb2YgaW52ZW50aW5nIHRoaXMKPj4+IF9fbm9fYXJj
+aF9zcGlubG9ja19yZWRlZmluZSB0aGluZyB3ZSBjb3VsZCBqdXN0IG5hbWUgYWxsIHRoZSBmdW5j
+dGlvbnMKPj4+IHNvbWV0aGluZyBsaWtlIF9fYXJjaF9zcGluKiBhbmQgdGhlbiBhZGQgZGVmaW5l
+cyBmb3IgYm90aCB0byBhc20vc3BpbmxvY2suaCwKPj4+IGkuZS4KPj4+Cj4+PiAjZGVmaW5lIHF1
+ZXVlZF9zcGluX2xvY2sobCkgX19hcmNoX3NwaW5fbG9jayhsKQo+Pj4gLi4uCj4+Pgo+Pj4gI2Rl
+ZmluZSB0aWNrZXRfc3Bpbl9sb2NrKGwpIF9fYXJjaF9zcGluX2xvY2sobCkKPj4+IC4uLgo+PiBf
+X2FyY2hfc3Bpbl9sb2NrKCkgd291bGQgdXNlIHF1ZXVlZF9zcGluX2xvY2soKSBzbyB0aGF0IHdv
+dWxkIG1ha2UgYW4KPj4gImluZmluaXRlIHJlY3Vyc2l2ZSBkZWZpbml0aW9uIiByaWdodD8gQW5k
+IHRoYXQgd291bGQgb3ZlcnJpZGUgdGhlCj4+ICJyZWFsIiBxdWV1ZWRfc3Bpbl9sb2NrKCkgaW1w
+bGVtZW50YXRpb24gdG9vLgo+Pgo+PiBCdXQgbWF5YmUgSSBtaXNzZWQgc29tZXRoaW5nIQo+Pgo+
+IEl0IGRlcGVuZHMgb24gd2hlcmUgdGhlIGRlZmluaXRpb24gaXMgZG9uZS4gSXQgc2hvdWxkIHdv
+cmsgaWYgdGhlCj4gcHJlcHJvY2Vzc29yIGV4cGFuZHMgdGhlIGltcGxlbWVudGF0aW9uIG9mIF9f
+YXJjaF9zcGluXyogYmVmb3JlCj4gZXZhbHVhdGluZyB0aGUgI2RlZmluZSBvZiBxdWV1ZWRfc3Bp
+bl8qLiBJT1csIHdlIGp1c3QgbmVlZCB0byBwdXQKPiB0aGUgZGVmaW5lcyBhZnRlciB0aGUgc3Rh
+dGljIGlubGluZSBjb25zdHJ1Y3Rpb25zLgoKClNvIEkgaGF2ZSBqdXN0IGdpdmVuIGl0IGEgdHJ5
+LCBib3RoIHFzcGlubG9jay5oIGFuZCB0aWNrZXRfc3BpbmxvY2suaCAKZGVmaW5lIGFyY2hfc3Bp
+bl9YWFhYKCkuIFRoYXQgdHJpZ2dlcnMgYSBidW5jaCBvZiB3YXJuaW5ncy4KCkknbGwgZHJvcCB0
+aGlzIHN1Z2dlc3Rpb24gYXMgSSBmaW5kIGl0IGhhcmRlciB0byB1bmRlcnN0YW5kIGFuZCBiZWNh
+dXNlIApvZiB0aGUgd2FybmluZ3MgdGhhdCB3b3VsZCBuZWVkIHRoZSBpbnRyb2R1Y3Rpb24gb2Yg
+YSBuZXcgcHJlcHJvY2Vzc29yIAp2YXJpYWJsZSAob3Igc29tZXRoaW5nIGVsc2U/KS7CoCBBbmQg
+dGhlIHNvbHV0aW9uIHdpdGggCl9fbm9fYXJjaF9zcGlubG9ja19yZWRlZmluZSBpcyByZWFsbHkg
+c3RyYWlnaHRmb3J3YXJkIGFuZCBsaWdodHdlaWdodC4KClRoYW5rcywKCkFsZXgKCgo+Cj4gVGhh
+bmtzLAo+IGRyZXcKPgo+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCj4gbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cj4gbGludXgtcmlzY3ZAbGlzdHMuaW5m
+cmFkZWFkLm9yZwo+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
+b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
+Y3YK
