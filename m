@@ -4,64 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D24AC3DA49
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Aug 2024 08:10:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E34DDC3DA4A
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Aug 2024 08:14:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W/qPNX/JBWwyaOBXjz3RwQ3a9iVFkcxO5ldKD3b1Iwg=; b=awB/MC36Zx4+WvJnQZMuAQfVOA
-	WB4Ywd1mQKGl3I5A9Po9VIVISmwZjpBvVmGK4gmjz1pCCjhFwZQexOqfK8MMCr7sS0i6pPbPs6DnB
-	CipcTOFvyOkPM0Wr9IAFk6zFIyp9HQ/feaaEFy2WlLPek1g0rvSJdq6LFdTzoW6QAmqoSH3Eus2wi
-	3Nser0f+161KGDOW/nQjq97l/+t6cK469DcqlZ5Q3mZsu6+ED6aCz9g0zmy6zviZhgS7suAw3svNa
-	ku774ojYSAZM0/MUpzZNaTewuaeKFxBtPU12EusTtq1zEBe73enJ+TkCmmwWWRpcj2M237H7waDbl
-	gvuWFdGg==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=b2cdGCR9WHCBrNUcckV1dlggjKOmXJ4B6FgQDpw+mTU=; b=nf9dxLH5TZkG+N
+	m7UaPI/wKUJBJz2ppkD/Ldeev3PJ+x9OhkTS/UmIpPKWkNLMZRUfZl8yZzOA59FViTlpEMTl1v74E
+	sN5pWsaXzpACzfvqZ75MzAbOt5DX9OPJ8BXvLYiefPNbTd9N2Tvk+SXH4CI6i9fZumJPzuDy70+Br
+	jQdW5nJehE88YERXY31wV1ZWQvEt/A+VLFVA7yEDqidzI++oEjtPOmBsVX2FhT/b9vNw8C5aUf+mx
+	zvkAaDdLZZQEz1ErfvUjzsv0q7+QcL9S4pzu1NHVdsO9Tbo/cSkclB76nfHwtxlqXO7DVfCL4a9pK
+	3scB4CUbD4EOXnXMOrNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZnMz-0000000846O-2O80;
-	Fri, 02 Aug 2024 08:10:37 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sZnQn-000000084bd-3PUx;
+	Fri, 02 Aug 2024 08:14:33 +0000
+Received: from relay4-d.mail.gandi.net ([217.70.183.196])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZnMw-0000000845u-3px4
+	id 1sZnQk-000000084aX-2Bol
 	for linux-riscv@lists.infradead.org;
-	Fri, 02 Aug 2024 08:10:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2E9E762952;
-	Fri,  2 Aug 2024 08:10:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D69B6C32782;
-	Fri,  2 Aug 2024 08:10:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1722586233;
-	bh=b3da8a47roN/8v56A+q+bWCYVlxmLmnqVAMz16h0mho=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fNViO4vIMbLv2dEIASvpAvSodp+9Jn2znTiyROAbAoqhbOLuIwVa8SLD2qA2Vr0xt
-	 RabLRwu9RWRHDK1PP0vQMlitEukABpKOqwPxlB+rQ81rljw54pcwLi6VZhI8bwua6P
-	 aHO9CbChmxmf74n+yz+E/r9byZ2o39p/ufWn8pqS7uUe7lnFwBoZTZDfdYan7nBIsY
-	 VrU/Pl5avi3ouPvqm1nljHU33c5d7z9YLoC8TKoYvdzVaOGdKmRLxowuvya187/NeA
-	 m7LgAjbljbTpchzru+Drmhm5r5dgdRNFTBpu74UqQ/rPQ0QzxIASFSwJNsjR9hzXBz
-	 k4r2vVonllGvQ==
-Date: Fri, 2 Aug 2024 09:10:29 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: Qingfang Deng <dqfext@gmail.com>, Yury Norov <yury.norov@gmail.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	Qingfang Deng <qingfang.deng@siflower.com.cn>
-Subject: Re: [PATCH] riscv: support KASAN instrumentation of bitops
-Message-ID: <20240802-showpiece-uneaten-7920dbf75aa8@spud>
-References: <20240802040506.712-1-dqfext@gmail.com>
- <16be871d-a52e-4b1d-b579-71ec03a0c81d@ghiti.fr>
+	Fri, 02 Aug 2024 08:14:32 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 1FA65E0004;
+	Fri,  2 Aug 2024 08:14:21 +0000 (UTC)
+Message-ID: <4b890910-ed3b-47e1-a895-48ae3d47e958@ghiti.fr>
+Date: Fri, 2 Aug 2024 10:14:21 +0200
 MIME-Version: 1.0
-In-Reply-To: <16be871d-a52e-4b1d-b579-71ec03a0c81d@ghiti.fr>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 12/13] dt-bindings: riscv: Add Ziccrse ISA extension
+ description
+Content-Language: en-US
+To: Conor Dooley <conor@kernel.org>, Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Andrea Parri <parri.andrea@gmail.com>, Nathan Chancellor
+ <nathan@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>,
+ Waiman Long <longman@redhat.com>, Boqun Feng <boqun.feng@gmail.com>,
+ Arnd Bergmann <arnd@arndb.de>, Leonardo Bras <leobras@redhat.com>,
+ Guo Ren <guoren@kernel.org>, linux-doc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org
+References: <20240731072405.197046-1-alexghiti@rivosinc.com>
+ <20240731072405.197046-13-alexghiti@rivosinc.com>
+ <20240801-unlighted-senator-cc60d021fe28@spud>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20240801-unlighted-senator-cc60d021fe28@spud>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240802_011035_045420_43001612 
-X-CRM114-Status: GOOD (  14.50  )
+X-CRM114-CacheID: sfid-20240802_011430_741886_3199BE34 
+X-CRM114-Status: GOOD (  17.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,74 +69,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8028978230227195109=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Cono
 
---===============8028978230227195109==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="N/dkjSIa5W7jBqLZ"
-Content-Disposition: inline
-
-
---N/dkjSIa5W7jBqLZ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Aug 02, 2024 at 07:45:38AM +0200, Alexandre Ghiti wrote:
-> Hi Qingfang,
->=20
-> On 02/08/2024 06:05, Qingfang Deng wrote:
-> > From: Qingfang Deng <qingfang.deng@siflower.com.cn>
-> >=20
-> > The arch-specific bitops are not being picked up by the KASAN test
-> > suite.
-> >=20
-> > Instrumentation is done via the bitops/instrumented-{atomic,lock}.h
-> > headers. They require that arch-specific versions of bitop functions
-> > are renamed to arch_*. Do this renaming.
-> >=20
-> > As most comments are identical to the ones in the instrumented headers,
-> > remove them.
-> >=20
-> > Signed-off-by: Qingfang Deng <qingfang.deng@siflower.com.cn>
-
-> Samuel has just posted a similar patch here https://lore.kernel.org/linux=
--riscv/20240801033725.28816-1-samuel.holland@sifive.com/T/#t
-
-Additionally Samuel's patch has the advantage of compiling :)
-
-This one errors with:
-include/asm-generic/bitops/instrumented-lock.h:80:16: error: implicit decla=
-ration of function 'arch_xor_unlock_is_negative_byte'; did you mean 'xor_un=
-lock_is_negative_byte'? [-Werror=3Dimplicit-function-declaration]
-
---N/dkjSIa5W7jBqLZ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZqyUdQAKCRB4tDGHoIJi
-0lS/AP0dN95j4sYFCbhJuqhsXwejhUpB8X3RfrpkwX8DZ2W5VAEA34wRBfnGo0Hs
-Td1o6RjF9h/BP7ghwMllDf714Spo4Ag=
-=+vA2
------END PGP SIGNATURE-----
-
---N/dkjSIa5W7jBqLZ--
+On 01/08/2024 16:44, Conor Dooley wrote:
+> On Wed, Jul 31, 2024 at 09:24:04AM +0200, Alexandre Ghiti wrote:
+>> Add description for the Ziccrse ISA extension which was introduced in
+>> the riscv profiles specification v0.9.2.
+>>
+>> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+>> Reviewed-by: Guo Ren <guoren@kernel.org>
+>> ---
+>>   Documentation/devicetree/bindings/riscv/extensions.yaml | 6 ++++++
+>>   1 file changed, 6 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
+>> index a63578b95c4a..22824dd30175 100644
+>> --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
+>> +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+>> @@ -289,6 +289,12 @@ properties:
+>>               in commit 64074bc ("Update version numbers for Zfh/Zfinx") of
+>>               riscv-isa-manual.
+>>   
+>> +        - const: ziccrse
+>> +          description:
+>> +            The standard Ziccrse extension which provides forward progress
+>> +            guarantee on LR/SC sequences, as introduced in the riscv profiles
+>> +            specification v0.9.2.
+> Do we have a commit hash for this? Also v0.9.2? The profiles spec is a
+> crock and the version depends on the specific profile - for example
+> there's new tags as of last week with 0.5 in them... The original profiles
+> are ratified, so if this definition is in there, please cite that
+> instead of a "random" version.
 
 
---===============8028978230227195109==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+That's not a "random" version, please refer to the existing tag v0.9.2 
+where this was first introduced 
+(https://github.com/riscv/riscv-profiles/releases/tag/v0.9.2).
+
+But I'll change that to the profiles specification v1.0.
+
+Thanks,
+
+Alex
+
+
+>
+> Cheers,
+> Conor.
+>
+>> +
+>>           - const: zk
+>>             description:
+>>               The standard Zk Standard Scalar cryptography extension as ratified
+>> -- 
+>> 2.39.2
+>>
+>>
+>> _______________________________________________
+>> linux-riscv mailing list
+>> linux-riscv@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8028978230227195109==--
-
