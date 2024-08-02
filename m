@@ -4,120 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EB30C3DA49
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Aug 2024 10:46:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CC7FC3DA49
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Aug 2024 10:46:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aaMm9CjcZabGvzV7EUf4zo+4sP0C8pm4NMgN/7DDN54=; b=20vtVPwrYeMxzD
-	742VODJPbmOp2f5yykBcsQnzl4g+AvEcTH3k5U1BDdGf9/nWXAsmtJUQO3rS0A51rkSgZc9dhY/zl
-	FzVKoQX79yTOzfgA/PHr8lUB7BaJQrswW5+LcFRMypbbjWzWyG1G36T2uzrsfkZ+dtCs8kPOPvFMx
-	pSw1aY9jfHaPfhDTx5l6bRSs1sQufmpvM5ssftKbloE+UJQeN52zlZmq/heVQHoeTuDeuiqrqy8/i
-	KWLzcONh4TzbVySJCVdhvTY590f+G+Zf0VgXST5wzKVgTMDFfsh3vIcI/90Su6jpigOuAnWKTjie4
-	wHOjZq7fsWwH2P9qQMvw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=x9G6nsY+8s1NV7lK9R0/ztx2otk3MlgoA1LAWFLL3GU=; b=z30XW4kPShR0zNgymd3APADax8
+	cMyQbrVVcnT1S4GJKqOgr/9tq3FrCrHmEOg6jQHqTt35po+iZ9XjGqEKRedEcdZs/fx08umEY95j6
+	dAVwZdqPseEkwN1ESt/OhTN72HyUMLrXXsvrrs9snLLAXcSv7YtP/eC/uFEz1d6PcgeE4mYCusUuR
+	kzAdxBLNMqgr+ylun9rR+Bbqws6q5NpdzGbAi2h+oDJxDtuVCIi0mPszTq3ldXW662uHJrdiguers
+	/Fe2kBEyRMtp+4mLTZx2QtuWai9fd1xhNRZY0d6srLDWiEQh4tSBbTNemYkMZQ9c/HIKxIJKpmhJ+
+	u+bY9TGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZpnd-00000008WrY-3GQD;
-	Fri, 02 Aug 2024 10:46:17 +0000
-Received: from mail-bjschn02on20708.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::708] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
+	id 1sZpnn-00000008Wua-2CGI;
+	Fri, 02 Aug 2024 10:46:27 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZpnA-00000008Wlg-3ESk;
-	Fri, 02 Aug 2024 10:45:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=ZUlAAkw+imckZBknabpQC9ycK+ws4l7Jx9WYw9cJqHty31F3u77SX60lBZ8h2X7gpgQ6y+f6B009720ESrekAnayrmaMF6FLJkK/Rt7K9xSqbkVlrfzj6FwKyXvxW2hLzq4e+Bfi81J+CrLTkgnObnKU49zGdFf0PDqVPipTdXVXpNocnWWHK8cl1XteCnN2RnlZHDNf9C4C3PbsF5bwl/SGcZJj2LC9vbEo/3uedQJJ3dKGN51WpYDKJqEwtNEd3FYZiUdhqV6ImyXtTtdNHrf+Xd8J2pZc3Kim1sEihSHqHI4YJn6e2gRS9BdNALv9I46PFvMsDYbaKgbb2+EWtg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xHL10LLLXWiRdF0hzWiED6n6yxEuw89N+osOUzCN40U=;
- b=QO83toeYGjQliLGzZtfIWjdrDZpBZE5XFfqInqIkc2uEy9knrE+l7SJd70y7Eo4BQvEaUrqjE2GAFq8u9pEXfPHklBW3ZdqnGk4kQBZ5+D+zjCaXpE2VvqV117XQwid3ILw+gXW41viuO1/L/kaZu+hXbfWiESA2IvSuspw1m4vlziQTlLpHlRrTh9iro0QES1QHnK+Een7o6I/7D6FzRCc8bOp0/JkizjiDeuhNFwlns77B0OJe62FKn5Na1WlPXlhmMUpb42U7Skvds8C7g7sdMzytIOGiFuxeyKCoL3O9mRAQIK0SbqMZKDdjvhOf5lIgdcKiPW7DaYw+yCPuwg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c311:25::15) by SHXPR01MB0816.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c311:27::13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7762.36; Fri, 2 Aug
- 2024 10:45:27 +0000
-Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
- ([fe80::bd9e:fb57:ebf7:9d71]) by
- SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn ([fe80::bd9e:fb57:ebf7:9d71%4])
- with mapi id 15.20.7762.035; Fri, 2 Aug 2024 10:45:26 +0000
-From: Minda Chen <minda.chen@starfivetech.com>
-To: Jan Kiszka <jan.kiszka@siemens.com>, Vinod Koul <vkoul@kernel.org>, Kishon
- Vijay Abraham I <kishon@kernel.org>
-CC: "linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 3/3] phy: starfive: jh7110-usb: Fix link configuration to
- controller
-Thread-Topic: [PATCH 3/3] phy: starfive: jh7110-usb: Fix link configuration to
- controller
-Thread-Index: AQHa44beFBe0N3E+hkqRZPdRqPN1srITyxyg
-Date: Fri, 2 Aug 2024 10:45:26 +0000
-Message-ID: <SHXPR01MB086373887A29C696747FB365E6B32@SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn>
-References: <cover.1722457123.git.jan.kiszka@siemens.com>
- <cd7b125c8c797f9d63440944df7121f9db0a49ad.1722457123.git.jan.kiszka@siemens.com>
-In-Reply-To: <cd7b125c8c797f9d63440944df7121f9db0a49ad.1722457123.git.jan.kiszka@siemens.com>
-Accept-Language: en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SHXPR01MB0863:EE_|SHXPR01MB0816:EE_
-x-ms-office365-filtering-correlation-id: 47a68594-9609-4331-9676-08dcb2e03844
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;ARA:13230040|41320700013|366016|1800799024|38070700018;
-x-microsoft-antispam-message-info: Jq6paCtcyWPSUJV0MzRAF9ylkv9DcQfB5JlYjbm+AhQIJ/NdTQO5wgXv8eJ4yvGFRmHzY5eXkef5cTG63Y2KrmO+4nW8OHkTeTae4GFQGvg4QkjNE+5+w+6asl/d3xvT1NADce+LimEY8iO2WB5TxwJ51wFzTSk6VqkKyeSryxgB7KeWs8HTBk0f6YlUz+DI3X1dVn5tdHIDrwI/nmfPoIFKGsx20DF7Mr15Qqdo4qnAGj/TsukA18S29bPU8SCtegyNF08i27xwLieV6CFpHJyMR07uD8RdkTeBBy3ZR0CKJ5NPWBPiskHnyv3FCady/ufJZh6qpFdY4JjPlc/DDr71fTnYZx023brNSAlaMoHZTxzD31uLjDlNl71yGA9012MrIoLZpStHB8iQCtOfUk323oAfzjmIyV4n8/wMiSkcbRPD5x5F+ZnHOCr1djxz/QQvbcZdzpOSE6AX6ygqlXg26hDLbK3d2dMLtxcBgZsq8UtC3MJ1SJUm5mog16Xz4tRdkWmuMGSgoJLGnk3Bw+dcPCpsI+AGLeAx7RKJYTSWUWJ4mBrqxAYb0s8TC6Zjj4dC+pH26USW1FhxIR+IdWLkWTVpVnkPWZxKv5XL/+W2uWGZI8PSFeeBkYSWBkHN
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(41320700013)(366016)(1800799024)(38070700018);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?0BgDyyiTO1EjdL2gauF+36+gbzpjDzuYOi4be1GhKqhk3ew3btE+TnX0AjsX?=
- =?us-ascii?Q?bdrCZD+4vHxvvw++oLWO41VCPJ5LaeqdyGkvGQASamPe6bdLyxjfkCo9bQ3/?=
- =?us-ascii?Q?e0imPFz0KHcNdg4x4kbMloRdFb5jUj3VaigLAPEw/IeUwY3VYqG2gqjQ5/Wa?=
- =?us-ascii?Q?HAcRP26rb0CHrAFqHlrsvhdWot8ok7Op8igN76LWpPciQrOsj/y0esEliZPQ?=
- =?us-ascii?Q?8NAOPuXv7W8ZvAlrruoiwv2bWBQH3yqpqWsWVu751at882pSJBJ9iq+LdMQg?=
- =?us-ascii?Q?fljVLZvD6w91Z25NSIQ+nEXpvTTeIshxG8M3BGjeBULNuJbfochgHSsRF3tk?=
- =?us-ascii?Q?t8h1MAXdU+xtv6PYRQ0Aw4HWpmgh2Y0ndn46pybnUnrTO29RoSvG90HEynlR?=
- =?us-ascii?Q?3rgamYxx6uNi6GNI3fHtZ/Byy21SLi2ie5C0+IJxRmhOXet8VJLvtRN2EdTQ?=
- =?us-ascii?Q?n+9+eC3b0Yhj5hMex6xLQ34cCawj8agb3EcxAcepCH7xoiFj+Ch+bpKzt2sI?=
- =?us-ascii?Q?db06AOtuNDAAjOZ1csYChOaPh1pX0t0/RyivKVMs/ejyaphgtM4GJZVhY6hw?=
- =?us-ascii?Q?uK05GqwsI6N57K0WQAVY6Inky4z0b0WsAzO7mWEDa89ex4Sw6TTx7Jq/lQ+4?=
- =?us-ascii?Q?zZAUxCkkF78n1Lny9qi3HmB9RCr/szmxifqzk+DaOEPESAtPfTYMsYXnKdqo?=
- =?us-ascii?Q?y28MeLbflJDUPqCKUg0me8pXigBoAhWrNVnkPWhpg9ULdZzAFrF2oTs0o/DM?=
- =?us-ascii?Q?WpP7QrCBPUhZJwuvXxo/J9ic31EQbJQ1OjSkHxS/LvDGCf+d9efr8hg4alje?=
- =?us-ascii?Q?IKb360BSWj39zLbfyb/wpm3Wd2mNXcN3UV7xpuKGGQfZyVk60xCbysNlgoy8?=
- =?us-ascii?Q?idvNF5QInydYP8PvUwWezka4qIqwXiPLgF0nsTrnBUaOrkzrK7Ltvs7FhNfn?=
- =?us-ascii?Q?M5ljAFT8TeA7/KPlPsrC5Q4611LHkHBwRLScE61Dc6xG7rSEUKGhmfzVvHQ6?=
- =?us-ascii?Q?hViAqvYziDJkTcb61gmcG+pWbHYzwS+hU/FflfZe59KD6YHk8VXbX/tRYN/B?=
- =?us-ascii?Q?As1aJnTU7S8KGwWyvzCutdIBepfcqeo6bWFJtiMrj4fkxMzIj6t9TDdkcYFB?=
- =?us-ascii?Q?kijwq7QQMixbetr+VGLO5BwXdOXl4qAQaAht35QD10Jh0Pa239RXK6tRbroe?=
- =?us-ascii?Q?nK/Qk2OcbcrYvURaUu7NNeW/3L56+wyNbcu97Dyw0ZxsE8bMbFweIurhstP/?=
- =?us-ascii?Q?XqyqB0vM1xBl2P06SvqLvFZiKx60qA9DS4P3lZnVjXfzPy52/l321v5/vqyA?=
- =?us-ascii?Q?BG3v6ljsDZbHqiNRdRWXrk0yExY1pKtsyV0gYzkbPjHonZYwlhI+GVoy8v79?=
- =?us-ascii?Q?VeSQ3FJ4Dh2xFuECHFI1p6VnqXGQTSyII1JH3TaIIriYcyaYp/9eA7TIQP+5?=
- =?us-ascii?Q?IAnuSNPz+zXn8pDrZKuT+YXVAwopWZvvjDr+S5nU0eIUVoqjZpvBBETX+O0f?=
- =?us-ascii?Q?byWJlbIEAj/ocGNhlxknmI8YdlFMGYP+/qaj1OMp+MvUphNbkDe8m9j6M18+?=
- =?us-ascii?Q?1eziTi5U3hI3e1ES6nLWGt+hZiGMUYU9usjNNjx0?=
-MIME-Version: 1.0
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-Network-Message-Id: 47a68594-9609-4331-9676-08dcb2e03844
-X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Aug 2024 10:45:26.5608
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 0jQoqXdmDKjsWgTQf04yO0KeJMsi/gFJnOqrEuDFbdjGhfjKt5lKCC57ANlTXlC+hpryNq3RHz9CR+prN2eP3BU/TdQROt+ZHNmqoHjPQbg=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SHXPR01MB0816
+	id 1sZodi-00000008Hz6-106P
+	for linux-riscv@lists.infradead.org;
+	Fri, 02 Aug 2024 09:32:54 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4281b7196bbso44324925e9.0
+        for <linux-riscv@lists.infradead.org>; Fri, 02 Aug 2024 02:31:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1722591116; x=1723195916; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=zM3m99O4n2Twerz/pRePjo08eZkhu0+8AKwEfgAtGt4=;
+        b=4eHp3O7XmXRO+GZo9qXOFHQ4xjxGJ2wX58vjhAOY2UoYRz5IIHgihmjO/e81+7x4Jn
+         sfXhaZ2VBDOxcFC6cmia8QwKgovz8PmUjsTDdocTk/fy0xTPKqLTmlYt4nnHW0s/2dFW
+         CirM00VSuXGkVa5jn++iIhu3HoRtZW+zt8Idr1jaFJchrrEOiYnvv8UMWl7m6Ngff8p2
+         exVVgoRVW0BC9AvOBj+KMozuDEtqr4HoXHH3yYuzkAzVEnzspRpsDShtEtBi8Hj31jQu
+         yBWUYR6oSXx9PAIpkjrTfVdU7n6eS2h+4zQvr6EUefxP6kJqb/Pb+AY+PaoG4D7pAXBH
+         BkZA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1722591116; x=1723195916;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=zM3m99O4n2Twerz/pRePjo08eZkhu0+8AKwEfgAtGt4=;
+        b=IoqrY3Ats1bPMY4n+WXd52Yv0rAYIgaqrOedv5QWGHOBXXsG4/oS8DplAelOsdle/Z
+         NbxL+W/qaJHF6AT1KPnaZGXVsKRim3h+S4mFjCXWWZsLTBV2hjQq7oCG6R4HsvmqiW2L
+         Nh2f0o0KlpwHlzrPBz+h18piWbIK0PyJMxsUJe+HsNeGEr7iAewfBuFrqKuJ8bVjCjEC
+         3yPXFd8P5mUqBqFaQHUAHRwQDyvyRbJOoJ/el+QhX+RQtuJsuNi93SCc3znqWx6mE/Q7
+         +WOGS248VaeXjxcmsAIbxyJmdEbJLg5JQcrRyixcfLEgr8jdOr0Kv0W1Uk4BbOMY3ujZ
+         9mtA==
+X-Forwarded-Encrypted: i=1; AJvYcCX2zYElZYbYkajKRznOaNDAoQP7lyMgG7xvXyzcMwLU0BMqepRmpA9QrUPaMI8atU/47rF+0nCogJtCSPhAklBDO7Coqcg1Skw3eofw4CNQ
+X-Gm-Message-State: AOJu0Yw+UJt//ZSOnMp+YZHD9LKmt5lnvejw95nxZVgNj+UDbCnpILUO
+	NGK+fyN/oxpRprE+Tot2LjdUZcfj+VeJhaMZ/NZDeHtclVA0RA+gRgq7qI+mYWzhrW8uvjHOaWl
+	1FM24gAPy1URnGw==
+X-Google-Smtp-Source: AGHT+IGMwI2YnvVh4aGkdHdRdkDWhv9czkPaDnRb/Uza5JtnVfSJQ4udLbGj6xPxnvjb20c9CZd5v/WeuhtigQo=
+X-Received: from aliceryhl.c.googlers.com ([fda3:e722:ac3:cc00:28:9cb1:c0a8:35bd])
+ (user=aliceryhl job=sendgmr) by 2002:a05:600c:35d5:b0:427:f3e7:74b3 with SMTP
+ id 5b1f17b1804b1-428e6bd2627mr143685e9.8.1722591115777; Fri, 02 Aug 2024
+ 02:31:55 -0700 (PDT)
+Date: Fri, 02 Aug 2024 09:31:27 +0000
+In-Reply-To: <20240802-tracepoint-v5-0-faa164494dcb@google.com>
+Mime-Version: 1.0
+References: <20240802-tracepoint-v5-0-faa164494dcb@google.com>
+X-Developer-Key: i=aliceryhl@google.com; a=openpgp; fpr=49F6C1FAA74960F43A5B86A1EE7A392FDE96209F
+X-Developer-Signature: v=1; a=openpgp-sha256; l=12299; i=aliceryhl@google.com;
+ h=from:subject:message-id; bh=7zro+hPhl5wrxpTL44cbCe4yhTwxThOX6UYpA0jGmoA=;
+ b=owEBbQKS/ZANAwAKAQRYvu5YxjlGAcsmYgBmrKeFDK4q+HH+F1GSMYL//MT9vvFarwSK1yZp/
+ rgxD45Fb+6JAjMEAAEKAB0WIQSDkqKUTWQHCvFIvbIEWL7uWMY5RgUCZqynhQAKCRAEWL7uWMY5
+ RtwpEACbosVh3ZJ9Iia3xEGZYklzxgaB9+kJC7YAaEsNZjbxiLet9o1tpFzfLiZ5T/0O57Ilajc
+ XQbCAi54t8z0X+pEVVGWSfwcm3QFQilL5/pb4XKQYqAKQodPbgMcZqGM/X74EJvnDgD+A2oxgNp
+ ivz++i4G1o1Dv7tB/tqfVRSxJB8H1N4GthNDizDWyZUEIOKAvMp69+obVCOjY999bj7rjZAKVjL
+ TbQ61vK5ymEEp0GiKUAqz+HxRo0cNvnyUwS0DIAgFAzmqSc6VxcyhqxyA7YpRFhcnPAcLG/ypS3
+ in0ja2tT/dJtfldbOBD4dnoy8h8CFxlDSAeVhD4m9SWmDoXkzR4HlBD/ulKNP4FVLFzCFCgAmop
+ /q8XxkXp2MFv9waE2fzp4lq+nWPK4CG5GZ0aY7FlKb/v8feK34QvscdQn4ueN8gNXZKyvPdmLF8
+ 9fU+tD0DX1c4FqI59DFlWqes0oo6YBKzu22nhyvVGF9CPBSXueplzNQMrLKOLEC2rgm4A7Q6155
+ 4orIOtdfBvN2DhPyTxTpiSIUWjKy4l7Whncg930/yqIjhuyOLXuVG148GK+NUaYtDvAKaxXEEig
+ CwWlFOu4xY0joOMJLCGfrraHtdHYIoYCuN2sIGOVsvAFjsjzlDDkQimsEJfBFLAyrDMQPi88Ck4 dckxc98uVp0g72Q==
+X-Mailer: b4 0.13.0
+Message-ID: <20240802-tracepoint-v5-1-faa164494dcb@google.com>
+Subject: [PATCH v5 1/2] rust: add static_key_false
+From: Alice Ryhl <aliceryhl@google.com>
+To: Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, 
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Josh Poimboeuf <jpoimboe@kernel.org>, Jason Baron <jbaron@akamai.com>, 
+	Ard Biesheuvel <ardb@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
+	Wedson Almeida Filho <wedsonaf@gmail.com>, Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+	"=?utf-8?q?Bj=C3=B6rn_Roy_Baron?=" <bjorn3_gh@protonmail.com>, Benno Lossin <benno.lossin@proton.me>, 
+	Andreas Hindborg <a.hindborg@samsung.com>
+Cc: linux-trace-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, linux-arch@vger.kernel.org, 
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Sean Christopherson <seanjc@google.com>, Uros Bizjak <ubizjak@gmail.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Mark Rutland <mark.rutland@arm.com>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Fuad Tabba <tabba@google.com>, 
+	linux-arm-kernel@lists.infradead.org, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <apatel@ventanamicro.com>, 
+	Andrew Jones <ajones@ventanamicro.com>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
+	Conor Dooley <conor.dooley@microchip.com>, Samuel Holland <samuel.holland@sifive.com>, 
+	linux-riscv@lists.infradead.org, Huacai Chen <chenhuacai@kernel.org>, 
+	WANG Xuerui <kernel@xen0n.name>, Bibo Mao <maobibo@loongson.cn>, 
+	Tiezhu Yang <yangtiezhu@loongson.cn>, Andrew Morton <akpm@linux-foundation.org>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, loongarch@lists.linux.dev, 
+	Alice Ryhl <aliceryhl@google.com>, WANG Rui <wangrui@loongson.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240802_034548_833756_17E336AD 
-X-CRM114-Status: GOOD (  17.05  )
+X-CRM114-CacheID: sfid-20240802_023158_312271_0C450732 
+X-CRM114-Status: GOOD (  24.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,94 +127,368 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Add just enough support for static key so that we can use it from
+tracepoints. Tracepoints rely on `static_key_false` even though it is
+deprecated, so we add the same functionality to Rust.
 
+It is not possible to use the existing C implementation of
+arch_static_branch because it passes the argument `key` to inline
+assembly as an 'i' parameter, so any attempt to add a C helper for this
+function will fail to compile because the value of `key` must be known
+at compile-time.
 
-> 
-> From: Jan Kiszka <jan.kiszka@siemens.com>
-> 
-> In order to connect the USB 2.0 PHY to its controller, we also need to set
-> "u0_pdrstn_split_sw_usbpipe_plugen" [1]. Some downstream U-Boot versions
-> did that, but upstream firmware does not, and the kernel must not rely on such
-> behavior anyway. Failing to set this left the USB gadget port invisible to
-> connected hosts behind.
-> 
-> Link:
-> https://doc-en.rvspace.org/JH7110/TRM/JH7110_TRM/sys_syscon.html#sys_sys
-> con__section_b3l_fqs_wsb [1]
-> Fixes: 16d3a71c20cf ("phy: starfive: Add JH7110 USB 2.0 PHY driver")
-> Signed-off-by: Jan Kiszka <jan.kiszka@siemens.com>
-> ---
->  drivers/phy/starfive/phy-jh7110-usb.c | 20 ++++++++++++++++++++
->  1 file changed, 20 insertions(+)
-> 
-> diff --git a/drivers/phy/starfive/phy-jh7110-usb.c
-> b/drivers/phy/starfive/phy-jh7110-usb.c
-> index 633912f8a05d..67882bc4cebc 100644
-> --- a/drivers/phy/starfive/phy-jh7110-usb.c
-> +++ b/drivers/phy/starfive/phy-jh7110-usb.c
-> @@ -10,18 +10,24 @@
->  #include <linux/clk.h>
->  #include <linux/err.h>
->  #include <linux/io.h>
-> +#include <linux/mfd/syscon.h>
->  #include <linux/module.h>
->  #include <linux/phy/phy.h>
->  #include <linux/platform_device.h>
-> +#include <linux/regmap.h>
->  #include <linux/usb/of.h>
-> 
->  #define USB_125M_CLK_RATE		125000000
->  #define USB_LS_KEEPALIVE_OFF		0x4
->  #define USB_LS_KEEPALIVE_ENABLE		BIT(4)
-> 
-> +#define USB_PDRSTN_SPLIT		BIT(17)
-> +
->  struct jh7110_usb2_phy {
->  	struct phy *phy;
->  	void __iomem *regs;
-> +	struct regmap *sys_syscon;
-> +	u32 sys_phy_connect;
->  	struct clk *usb_125m_clk;
->  	struct clk *app_125m;
->  	enum phy_mode mode;
-> @@ -61,6 +67,10 @@ static int usb2_phy_set_mode(struct phy *_phy,
->  		usb2_set_ls_keepalive(phy, (mode != PHY_MODE_USB_DEVICE));
->  	}
-> 
-> +	/* Connect usb 2.0 phy mode */
-> +	regmap_update_bits(phy->sys_syscon, phy->sys_phy_connect,
-> +			   USB_PDRSTN_SPLIT, USB_PDRSTN_SPLIT);
-> +
->  	return 0;
->  }
-> 
-> @@ -101,6 +111,7 @@ static int jh7110_usb_phy_probe(struct
-> platform_device *pdev)
->  	struct jh7110_usb2_phy *phy;
->  	struct device *dev = &pdev->dev;
->  	struct phy_provider *phy_provider;
-> +	u32 args[1];
-> 
->  	phy = devm_kzalloc(dev, sizeof(*phy), GFP_KERNEL);
->  	if (!phy)
-> @@ -129,6 +140,15 @@ static int jh7110_usb_phy_probe(struct
-> platform_device *pdev)
->  	phy_set_drvdata(phy->phy, phy);
->  	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
-> 
-> +	phy->sys_syscon =
-> +		syscon_regmap_lookup_by_phandle_args(pdev->dev.of_node,
-> +						     "starfive,sys-syscon",
-> +						     1, args);
-> +	if (IS_ERR(phy->sys_syscon))
-> +		return dev_err_probe(dev, PTR_ERR(phy->phy),
-> +			"Failed to get sys-syscon\n");
-> +	phy->sys_phy_connect = args[0];
-> +
->  	return PTR_ERR_OR_ZERO(phy_provider);
->  }
-> 
-Reviewed-by: Minda Chen <minda.chen@starfivetech.com>
+One disadvantage of this patch is that it introduces a fair amount of
+duplicated inline assembly. However, this is a limited and temporary
+situation:
+
+1. Most inline assembly has no reason to be duplicated like this. It is
+   only needed here due to the use of 'i' parameters.
+
+2. Alice will submit a patch along the lines of [1] that removes the
+   duplication. This will happen as a follow-up to this patch series.
+
+Comments are added to the C side as a reminder to change the asm on the
+Rust side in case the C side is changed. For simplicity, the x86 asm
+uses the forced 5 byte version. This will be fixed together with the
+upcoming removal of the duplication.
+
+Reviewed-by: Gary Guo <gary@garyguo.net>
+Tested-by: WANG Rui <wangrui@loongson.cn>
+Link: https://lore.kernel.org/rust-for-linux/20240801102804.GQ33588@noisy.programming.kicks-ass.net/ [1]
+Signed-off-by: Alice Ryhl <aliceryhl@google.com>
+---
+ arch/arm64/include/asm/jump_label.h      |  1 +
+ arch/loongarch/include/asm/jump_label.h  |  1 +
+ arch/riscv/include/asm/jump_label.h      |  1 +
+ arch/x86/include/asm/jump_label.h        |  1 +
+ rust/kernel/arch/arm64/jump_label.rs     | 34 ++++++++++++++++++++++++++++
+ rust/kernel/arch/loongarch/jump_label.rs | 35 +++++++++++++++++++++++++++++
+ rust/kernel/arch/mod.rs                  | 24 ++++++++++++++++++++
+ rust/kernel/arch/riscv/jump_label.rs     | 38 ++++++++++++++++++++++++++++++++
+ rust/kernel/arch/x86/jump_label.rs       | 35 +++++++++++++++++++++++++++++
+ rust/kernel/lib.rs                       |  2 ++
+ rust/kernel/static_key.rs                | 32 +++++++++++++++++++++++++++
+ scripts/Makefile.build                   |  2 +-
+ 12 files changed, 205 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/include/asm/jump_label.h b/arch/arm64/include/asm/jump_label.h
+index 4e753908b801..56c106669f99 100644
+--- a/arch/arm64/include/asm/jump_label.h
++++ b/arch/arm64/include/asm/jump_label.h
+@@ -15,6 +15,7 @@
+ 
+ #define JUMP_LABEL_NOP_SIZE		AARCH64_INSN_SIZE
+ 
++/* Changes to this asm must be reflected in `rust/kernel/arch/arm64/jump_label.rs` */
+ #define JUMP_TABLE_ENTRY(key, label)			\
+ 	".pushsection	__jump_table, \"aw\"\n\t"	\
+ 	".align		3\n\t"				\
+diff --git a/arch/loongarch/include/asm/jump_label.h b/arch/loongarch/include/asm/jump_label.h
+index 29acfe3de3fa..3bdf0d834e8c 100644
+--- a/arch/loongarch/include/asm/jump_label.h
++++ b/arch/loongarch/include/asm/jump_label.h
+@@ -13,6 +13,7 @@
+ 
+ #define JUMP_LABEL_NOP_SIZE	4
+ 
++/* Changes to this asm must be reflected in `rust/kernel/arch/loongarch/jump_label.rs` */
+ #define JUMP_TABLE_ENTRY				\
+ 	 ".pushsection	__jump_table, \"aw\"	\n\t"	\
+ 	 ".align	3			\n\t"	\
+diff --git a/arch/riscv/include/asm/jump_label.h b/arch/riscv/include/asm/jump_label.h
+index 1c768d02bd0c..8ed63f588243 100644
+--- a/arch/riscv/include/asm/jump_label.h
++++ b/arch/riscv/include/asm/jump_label.h
+@@ -16,6 +16,7 @@
+ 
+ #define JUMP_LABEL_NOP_SIZE 4
+ 
++/* Changes to this asm must be reflected in `rust/kernel/arch/riscv/jump_label.rs` */
+ static __always_inline bool arch_static_branch(struct static_key * const key,
+ 					       const bool branch)
+ {
+diff --git a/arch/x86/include/asm/jump_label.h b/arch/x86/include/asm/jump_label.h
+index cbbef32517f0..687fff131afe 100644
+--- a/arch/x86/include/asm/jump_label.h
++++ b/arch/x86/include/asm/jump_label.h
+@@ -12,6 +12,7 @@
+ #include <linux/stringify.h>
+ #include <linux/types.h>
+ 
++/* Changes to this asm must be reflected in `rust/kernel/arch/x86/jump_label.rs` */
+ #define JUMP_TABLE_ENTRY				\
+ 	".pushsection __jump_table,  \"aw\" \n\t"	\
+ 	_ASM_ALIGN "\n\t"				\
+diff --git a/rust/kernel/arch/arm64/jump_label.rs b/rust/kernel/arch/arm64/jump_label.rs
+new file mode 100644
+index 000000000000..5eede2245718
+--- /dev/null
++++ b/rust/kernel/arch/arm64/jump_label.rs
+@@ -0,0 +1,34 @@
++// SPDX-License-Identifier: GPL-2.0
++
++// Copyright (C) 2024 Google LLC.
++
++//! Arm64 Rust implementation of jump_label.h
++
++/// arm64 implementation of arch_static_branch
++#[macro_export]
++#[cfg(target_arch = "aarch64")]
++macro_rules! arch_static_branch {
++    ($key:path, $keytyp:ty, $field:ident, $branch:expr) => {'my_label: {
++        core::arch::asm!(
++            r#"
++            1: nop
++
++            .pushsection __jump_table,  "aw"
++            .align 3
++            .long 1b - ., {0} - .
++            .quad {1} + {2} + {3} - .
++            .popsection
++            "#,
++            label {
++                break 'my_label true;
++            },
++            sym $key,
++            const ::core::mem::offset_of!($keytyp, $field),
++            const $crate::arch::bool_to_int($branch),
++        );
++
++        break 'my_label false;
++    }};
++}
++
++pub use arch_static_branch;
+diff --git a/rust/kernel/arch/loongarch/jump_label.rs b/rust/kernel/arch/loongarch/jump_label.rs
+new file mode 100644
+index 000000000000..8d31318aeb11
+--- /dev/null
++++ b/rust/kernel/arch/loongarch/jump_label.rs
+@@ -0,0 +1,35 @@
++// SPDX-License-Identifier: GPL-2.0
++
++// Copyright (C) 2024 Google LLC.
++
++//! Loongarch Rust implementation of jump_label.h
++
++/// loongarch implementation of arch_static_branch
++#[doc(hidden)]
++#[macro_export]
++#[cfg(target_arch = "loongarch64")]
++macro_rules! arch_static_branch {
++    ($key:path, $keytyp:ty, $field:ident, $branch:expr) => {'my_label: {
++        core::arch::asm!(
++            r#"
++            1: nop
++
++            .pushsection __jump_table,  "aw"
++            .align 3
++            .long 1b - ., {0} - .
++            .quad {1} + {2} + {3} - .
++            .popsection
++            "#,
++            label {
++                break 'my_label true;
++            },
++            sym $key,
++            const ::core::mem::offset_of!($keytyp, $field),
++            const $crate::arch::bool_to_int($branch),
++        );
++
++        break 'my_label false;
++    }};
++}
++
++pub use arch_static_branch;
+diff --git a/rust/kernel/arch/mod.rs b/rust/kernel/arch/mod.rs
+new file mode 100644
+index 000000000000..14271d2530e9
+--- /dev/null
++++ b/rust/kernel/arch/mod.rs
+@@ -0,0 +1,24 @@
++// SPDX-License-Identifier: GPL-2.0
++
++// Copyright (C) 2024 Google LLC.
++
++//! Architecture specific code.
++
++#[cfg_attr(target_arch = "aarch64", path = "arm64")]
++#[cfg_attr(target_arch = "x86_64", path = "x86")]
++#[cfg_attr(target_arch = "loongarch64", path = "loongarch")]
++#[cfg_attr(target_arch = "riscv64", path = "riscv")]
++mod inner {
++    pub mod jump_label;
++}
++
++pub use self::inner::*;
++
++/// A helper used by inline assembly to pass a boolean to as a `const` parameter.
++///
++/// Using this function instead of a cast lets you assert that the input is a boolean, rather than
++/// some other type that can be cast to an integer.
++#[doc(hidden)]
++pub const fn bool_to_int(b: bool) -> i32 {
++    b as i32
++}
+diff --git a/rust/kernel/arch/riscv/jump_label.rs b/rust/kernel/arch/riscv/jump_label.rs
+new file mode 100644
+index 000000000000..2672e0c6f033
+--- /dev/null
++++ b/rust/kernel/arch/riscv/jump_label.rs
+@@ -0,0 +1,38 @@
++// SPDX-License-Identifier: GPL-2.0
++
++// Copyright (C) 2024 Google LLC.
++
++//! RiscV Rust implementation of jump_label.h
++
++/// riscv implementation of arch_static_branch
++#[macro_export]
++#[cfg(target_arch = "riscv64")]
++macro_rules! arch_static_branch {
++    ($key:path, $keytyp:ty, $field:ident, $branch:expr) => {'my_label: {
++        core::arch::asm!(
++            r#"
++            .align  2
++            .option push
++            .option norelax
++            .option norvc
++            1: nop
++            .option pop
++            .pushsection __jump_table,  "aw"
++            .align 3
++            .long 1b - ., {0} - .
++            .dword {1} + {2} + {3} - .
++            .popsection
++            "#,
++            label {
++                break 'my_label true;
++            },
++            sym $key,
++            const ::core::mem::offset_of!($keytyp, $field),
++            const $crate::arch::bool_to_int($branch),
++        );
++
++        break 'my_label false;
++    }};
++}
++
++pub use arch_static_branch;
+diff --git a/rust/kernel/arch/x86/jump_label.rs b/rust/kernel/arch/x86/jump_label.rs
+new file mode 100644
+index 000000000000..383bed273c50
+--- /dev/null
++++ b/rust/kernel/arch/x86/jump_label.rs
+@@ -0,0 +1,35 @@
++// SPDX-License-Identifier: GPL-2.0
++
++// Copyright (C) 2024 Google LLC.
++
++//! X86 Rust implementation of jump_label.h
++
++/// x86 implementation of arch_static_branch
++#[macro_export]
++#[cfg(target_arch = "x86_64")]
++macro_rules! arch_static_branch {
++    ($key:path, $keytyp:ty, $field:ident, $branch:expr) => {'my_label: {
++        core::arch::asm!(
++            r#"
++            1: .byte 0x0f,0x1f,0x44,0x00,0x00
++
++            .pushsection __jump_table,  "aw"
++            .balign 8
++            .long 1b - .
++            .long {0} - .
++            .quad {1} + {2} + {3} - .
++            .popsection
++            "#,
++            label {
++                break 'my_label true;
++            },
++            sym $key,
++            const ::core::mem::offset_of!($keytyp, $field),
++            const $crate::arch::bool_to_int($branch),
++        );
++
++        break 'my_label false;
++    }};
++}
++
++pub use arch_static_branch;
+diff --git a/rust/kernel/lib.rs b/rust/kernel/lib.rs
+index 274bdc1b0a82..da1f69868d0d 100644
+--- a/rust/kernel/lib.rs
++++ b/rust/kernel/lib.rs
+@@ -27,6 +27,7 @@
+ extern crate self as kernel;
+ 
+ pub mod alloc;
++pub mod arch;
+ #[cfg(CONFIG_BLOCK)]
+ pub mod block;
+ mod build_assert;
+@@ -44,6 +45,7 @@
+ pub mod prelude;
+ pub mod print;
+ mod static_assert;
++pub mod static_key;
+ #[doc(hidden)]
+ pub mod std_vendor;
+ pub mod str;
+diff --git a/rust/kernel/static_key.rs b/rust/kernel/static_key.rs
+new file mode 100644
+index 000000000000..32cf027ef091
+--- /dev/null
++++ b/rust/kernel/static_key.rs
+@@ -0,0 +1,32 @@
++// SPDX-License-Identifier: GPL-2.0
++
++// Copyright (C) 2024 Google LLC.
++
++//! Logic for static keys.
++
++use crate::bindings::*;
++
++/// Branch based on a static key.
++///
++/// Takes three arguments:
++///
++/// * `key` - the path to the static variable containing the `static_key`.
++/// * `keytyp` - the type of `key`.
++/// * `field` - the name of the field of `key` that contains the `static_key`.
++#[macro_export]
++macro_rules! static_key_false {
++    ($key:path, $keytyp:ty, $field:ident) => {{
++        // Assert that `$key` has type `$keytyp` and that `$key.$field` has type `static_key`.
++        //
++        // SAFETY: We know that `$key` is a static because otherwise the inline assembly will not
++        // compile. The raw pointers created in this block are in-bounds of `$key`.
++        static _TY_ASSERT: () = unsafe {
++            let key: *const $keytyp = ::core::ptr::addr_of!($key);
++            let _: *const $crate::bindings::static_key = ::core::ptr::addr_of!((*key).$field);
++        };
++
++        $crate::arch::jump_label::arch_static_branch! { $key, $keytyp, $field, false }
++    }};
++}
++
++pub use static_key_false;
+diff --git a/scripts/Makefile.build b/scripts/Makefile.build
+index efacca63c897..60197c1c063f 100644
+--- a/scripts/Makefile.build
++++ b/scripts/Makefile.build
+@@ -263,7 +263,7 @@ $(obj)/%.lst: $(obj)/%.c FORCE
+ # Compile Rust sources (.rs)
+ # ---------------------------------------------------------------------------
+ 
+-rust_allowed_features := new_uninit
++rust_allowed_features := asm_const,asm_goto,new_uninit
+ 
+ # `--out-dir` is required to avoid temporaries being created by `rustc` in the
+ # current working directory, which may be not accessible in the out-of-tree
+
+-- 
+2.46.0.rc2.264.g509ed76dc8-goog
 
 
 _______________________________________________
