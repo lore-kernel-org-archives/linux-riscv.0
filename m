@@ -4,78 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07EB2C3DA4A
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Aug 2024 16:45:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5717C3DA4A
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Aug 2024 16:53:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bbwnn51imNzvLYs2jV4x2u8oo5vMrVLndpMm5Sq6qFw=; b=oiM2JI477lnhyT
-	/x8geDLVhu9L9X+0zhk2gUy3x0N9a0PWn87uRwc3J+cFHI6/bQTdZHL7Y+j7+6LPiXNsY8uoayvXq
-	//7kqMDWvCNC3YyqhdpeBbjpQjemAByrUX827XGk3Pa9aB98CloJ0U9/7kAP1Ens2LR134Kbu1psD
-	T0UIgVmtWWjBeU7OaMAFy1tNmcJJDndFAfCCC199TK9sYvK7oRL2d4fUwDcWSGVkQBlFNeQedGcJ2
-	v7BwHifDqKWZnSSsxjVjPEnyN9/ibzG2IMsx+pZDTrATjNm4fDRdI4Kc0a6TQSqdmGh2OTN1HNHpZ
-	grdYR289ciG0nFrWtTuQ==;
+	List-Owner; bh=Od4kyF1JkL5rLonEAE4vkAezHAOM0/0wKwR5q4Doo8s=; b=3TiAJeD0lxlLCk
+	poII/xnmGU8swyUZzkyEf0qoQUPyZ/Z0alwavlzRRjyyy7AJ+dhZB+GxS6WuHIGgGf4ftQ5X5YQ18
+	H/Qb133myBNvHOc3TbYYyWAXrqkZ+vyOHviZief07XV9UUv8V52UFl0g52zl41G0wakVQSaMxvzm8
+	O5sdGmd3K4A8lNwa71MigIsskYFsK5aWURcEpfYxwON3JG0Qsx+d3hzGOmgDbkSBnIrmIJ1qBqKL1
+	kuTAxcJi7o6eXToRL3mvVVkzZYMEf6vQfg+ESi5Mdo5kGO0XiVVi8X/vVsuLciCEO1/gu6eaR3U85
+	b81lDI0a5g70i84UQHOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZvPB-00000009VhS-42jG;
-	Fri, 02 Aug 2024 16:45:25 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1sZvWk-00000009XDW-0WUe;
+	Fri, 02 Aug 2024 16:53:14 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZvOf-00000009VYN-0sVR;
-	Fri, 02 Aug 2024 16:44:55 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4WbBTD2kfFz6K5YZ;
-	Sat,  3 Aug 2024 00:42:40 +0800 (CST)
-Received: from lhrpeml500005.china.huawei.com (unknown [7.191.163.240])
-	by mail.maildlp.com (Postfix) with ESMTPS id A6A811404F5;
-	Sat,  3 Aug 2024 00:44:44 +0800 (CST)
-Received: from localhost (10.203.177.66) by lhrpeml500005.china.huawei.com
- (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 2 Aug
- 2024 17:44:43 +0100
-Date: Fri, 2 Aug 2024 17:44:43 +0100
-From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
-To: Mike Rapoport <rppt@kernel.org>
-CC: <linux-kernel@vger.kernel.org>, Alexander Gordeev
-	<agordeev@linux.ibm.com>, Andreas Larsson <andreas@gaisler.com>, "Andrew
- Morton" <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>, "Borislav
- Petkov" <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>, Christophe
- Leroy <christophe.leroy@csgroup.eu>, Dan Williams <dan.j.williams@intel.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>, David Hildenbrand
-	<david@redhat.com>, "David S. Miller" <davem@davemloft.net>, Davidlohr Bueso
-	<dave@stgolabs.net>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>, Heiko
- Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>, Ingo
- Molnar <mingo@redhat.com>, Jiaxun Yang <jiaxun.yang@flygoat.com>, "John Paul
- Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>, Jonathan Corbet
-	<corbet@lwn.net>, Michael Ellerman <mpe@ellerman.id.au>, Palmer Dabbelt
-	<palmer@dabbelt.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Rob Herring
-	<robh@kernel.org>, Samuel Holland <samuel.holland@sifive.com>, Thomas
- Bogendoerfer <tsbogend@alpha.franken.de>, Thomas Gleixner
-	<tglx@linutronix.de>, "Vasily Gorbik" <gor@linux.ibm.com>, Will Deacon
-	<will@kernel.org>, Zi Yan <ziy@nvidia.com>, <devicetree@vger.kernel.org>,
-	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-cxl@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <linux-mips@vger.kernel.org>,
-	<linux-mm@kvack.org>, <linux-riscv@lists.infradead.org>,
-	<linux-s390@vger.kernel.org>, <linux-sh@vger.kernel.org>,
-	<linuxppc-dev@lists.ozlabs.org>, <loongarch@lists.linux.dev>,
-	<nvdimm@lists.linux.dev>, <sparclinux@vger.kernel.org>, <x86@kernel.org>
-Subject: Re: [PATCH v3 00/26] mm: introduce numa_memblks
-Message-ID: <20240802174443.0000710c@Huawei.com>
-In-Reply-To: <20240801060826.559858-1-rppt@kernel.org>
-References: <20240801060826.559858-1-rppt@kernel.org>
-Organization: Huawei Technologies Research and Development (UK) Ltd.
-X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
-MIME-Version: 1.0
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml500004.china.huawei.com (7.191.163.9) To
- lhrpeml500005.china.huawei.com (7.191.163.240)
+	id 1sZvWh-00000009XBh-1lvM
+	for linux-riscv@lists.infradead.org;
+	Fri, 02 Aug 2024 16:53:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 41E5662AF2;
+	Fri,  2 Aug 2024 16:53:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id EB26BC4AF0A;
+	Fri,  2 Aug 2024 16:53:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1722617590;
+	bh=3NR2A6uZxVOxwjNvyWhjmTfIEJK7m9xETjsES+XsRN4=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=PqAlUpenx+6Xy46jOvIAOHOSZZIbfzgqbaJc+PcFYrRY7LUjbvRPJkxpvY3WqsNp3
+	 QRYxCjAvUw/DqQEEH0VdMyILFzSx4XIqXXIyDFctweBTlueFW33aUODjnF+/JOPds3
+	 Ale5dXzIWakgr8J2VM4vQ+mwJyYJ2iMN+W5jHIkPuIQChkgvNnPSP9QbL4hLmIUKdF
+	 XMudbG3lZT+r3H3zn9tely53U64Lx/l1u8i79yysBz6PSxJkfznrVAbu4A2Al/ptYb
+	 JBPB/pJdn1wUDlx1CMMedNIAPV/GbNphoNW4DgMc+/mBRPzZXXYY7UiBF0jsxPd6sR
+	 knVj+sRcnSimg==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id E174AD0C60C;
+	Fri,  2 Aug 2024 16:53:09 +0000 (UTC)
+Subject: Re: [GIT PULL] RISC-V Fixes for 6.11-rc2
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <mhng-43770bb1-d5ee-499f-8925-ade7d59c6f38@palmer-ri-x1c9>
+References: <mhng-43770bb1-d5ee-499f-8925-ade7d59c6f38@palmer-ri-x1c9>
+X-PR-Tracked-List-Id: <linux-riscv.lists.infradead.org>
+X-PR-Tracked-Message-Id: <mhng-43770bb1-d5ee-499f-8925-ade7d59c6f38@palmer-ri-x1c9>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.11-rc2
+X-PR-Tracked-Commit-Id: 3b6564427aea83b7a35a15ca278291d50a1edcfc
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 948752d2e010e11b56a877975e7e9158d6d31823
+Message-Id: <172261758991.28369.15960104277345307627.pr-tracker-bot@kernel.org>
+Date: Fri, 02 Aug 2024 16:53:09 +0000
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240802_094453_545766_9998E66B 
-X-CRM114-Status: GOOD (  14.01  )
+X-CRM114-CacheID: sfid-20240802_095311_548393_126EBE36 
+X-CRM114-Status: UNSURE (   2.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,44 +75,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu,  1 Aug 2024 09:08:00 +0300
-Mike Rapoport <rppt@kernel.org> wrote:
+The pull request you sent on Fri, 02 Aug 2024 08:44:50 -0700 (PDT):
 
-> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-> 
-> Hi,
-> 
-> Following the discussion about handling of CXL fixed memory windows on
-> arm64 [1] I decided to bite the bullet and move numa_memblks from x86 to
-> the generic code so they will be available on arm64/riscv and maybe on
-> loongarch sometime later.
-> 
-> While it could be possible to use memblock to describe CXL memory windows,
-> it currently lacks notion of unpopulated memory ranges and numa_memblks
-> does implement this.
-> 
-> Another reason to make numa_memblks generic is that both arch_numa (arm64
-> and riscv) and loongarch use trimmed copy of x86 code although there is no
-> fundamental reason why the same code cannot be used on all these platforms.
-> Having numa_memblks in mm/ will make it's interaction with ACPI and FDT
-> more consistent and I believe will reduce maintenance burden.
-> 
-> And with generic numa_memblks it is (almost) straightforward to enable NUMA
-> emulation on arm64 and riscv.
+> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.11-rc2
 
-Tested-by: Jonathan Cameron <Jonathan.Cameron@huawei.com> #arm64 + CXL via QEMU
-With that one fix in patch 7.
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/948752d2e010e11b56a877975e7e9158d6d31823
 
-Feel free to figure out which patches actually got tested by that
-(or tag them all - I'll pretend I tested ip27 :)
+Thank you!
 
-Jonathan
-
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
 _______________________________________________
 linux-riscv mailing list
