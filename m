@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 591BCC3DA4A
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Aug 2024 15:20:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D95EDC3DA4A
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Aug 2024 15:26:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2VuXcIXWrhjL98Acn6PkvriuNtsBxV1grm930wOacmw=; b=201wQxSAv7LEdl
-	KMw2rLTRzQSGqi/s+j1t5YO4KLBpAs1Ly8ywAgrzdSNf/0YXLq3MWYhRrgTRIjKdDfg95e6++wBNo
-	CGjJJ29xdTh6hkLED3Odw2AnWeaQvcP8IgIgW1k0kaeU4RCVRbE+QBWFUSJlxy3b305nGZWcCkW3h
-	/DQ3RadF+LdY0y+bnmpx98S7dsMVuB+BxdwBdttfRrOMtuLwjWc98HX55n8RmJUXcTa5rOR/kUJKS
-	p1oz55w0CMuEeCiyg7vZu5v77hyN9HQtTBdGjU+wzrg8ZKcVxASP4OcX2lcPafiNu69b2j4982jv/
-	92MURWyD6xj7aaWj/dAw==;
+	List-Owner; bh=s8nehsw/xbgokP97bttEbOsl89yy07zBo9S8Ol6Qb+Q=; b=CS6WxbbwMzQnS1
+	PtgV6wHnDs9MZm442r0pZ/dMeIb4hQVi/oRXwZ4jzu9enbIo3mtRDUCOx+++OQPkoJOZpHznAnzP3
+	pz7mqgphn4Ba/RE/XLlTSlR9zYZZZm020VwLthoz6AvjtakWL0nHU+Qf5cQyVEhXw+XPtUfmlioD0
+	BTGmjgfPCQgGFa4orXOpOwN2DlDolcNa71QlrVeNiOajh/M0xaRYRNJ55TevAOiApRw3IzKQFmNCv
+	w4uktjmFm003M7SVNcHt1WGpu7sPbzVg853rpSLBjxYNhfZ2kYbXuceYDrtjUhG3W7sbI1N7wVKxy
+	Sl9HrIYd3Ti/euU3CvnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZu5J-00000009ExT-1cLt;
-	Fri, 02 Aug 2024 15:20:49 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1sZuAa-00000009H1x-2MEF;
+	Fri, 02 Aug 2024 15:26:16 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZu5E-00000009Etj-22QV
+	id 1sZu6E-00000009FNW-18JD
 	for linux-riscv@lists.infradead.org;
-	Fri, 02 Aug 2024 15:20:45 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3686b554cfcso4187945f8f.1
-        for <linux-riscv@lists.infradead.org>; Fri, 02 Aug 2024 08:20:44 -0700 (PDT)
+	Fri, 02 Aug 2024 15:21:47 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-42809d6e719so56360925e9.3
+        for <linux-riscv@lists.infradead.org>; Fri, 02 Aug 2024 08:21:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1722612043; x=1723216843; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1722612104; x=1723216904; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=fMaYL2MnyzMLNeppKABE7xd1gAuHqwYBgzfb7XbILdY=;
-        b=b9YGC0ZYvl2F/xBYyswZgcda0Jp2HdX7fgMUOkcFuA7YNae9O7cobUaHak2QceZEVm
-         J9K9aJbqohuSrsM+6IwonPdnwKfHc7zAi+onAuUguNCkJGxRQLmb4WyCqOWDrNMxr6CP
-         QmcBWILmD9TWbK+hm78SLrbGOdrxwRAg3EnW49G0c7tJaM2DITdcLec5Hq2cLdZE9K7d
-         51xb6FDSgelIAs/2fCyB35tsdYnQs2uk23pv+AnYzN/AR+cvwNNTsxX/B/dDfD0nBWDm
-         ay1UPjXbrQ38hcpt5QiImleaMkZIrsc4IX8AYBEjmABtGfoidC9GqUwtjYt4hOHZjgWV
-         jxrw==
+        bh=dJwxj4Q/epTCsuuoDx5TluW633PRo5bWcwGJkWSnI+E=;
+        b=mK2LMcrGEiElyCzQR1fVk7TfekTuWSTRu5uhEkxN/kI46RTF78iUpPjK4HaoyUbIMq
+         Cvbfp2U6BUTmccCdwwzdH4WFt8bMNsA9rt0kcUPE9WljEFqYkkFlYxzoMeHX801u/iGi
+         zytdohRhtMN9ZUSycMSNyLsjMqhh4PW0oxAeoY/5ybRvc7hrRO9nusVTXD6Sr9SGBHwA
+         qp+X5YVuYx4d9ozeAAeaUkVu7fWwpeGLcdHNuP3bqrpPNiNhbpQxIWU0b4sGsP/lU/RD
+         dMof3pGdOMt1XksMdVprxauV6y6kKE4jAeKIXiXSgyLCSplDTXM5pcKy49nZ0PplPZjE
+         35oQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722612043; x=1723216843;
+        d=1e100.net; s=20230601; t=1722612104; x=1723216904;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=fMaYL2MnyzMLNeppKABE7xd1gAuHqwYBgzfb7XbILdY=;
-        b=gU+sReTbWHQAd+wj33VOGT/haRXTBPxPiDKHpNLWOQAdwash1SB4hQDldJJgh/5UJT
-         VbS5HWhvoUZ5N/vKJSyF2e3XXfG3iNPTofq3Bnk7DITiA2R0P1vjIQf8+2aZFY6H4zkH
-         3XuwKNpio0F+Ns8AhvMeFqKvDsFUDLyCXOhDvwyBx/JNv6s9EqnFGc0es/mUJJk3uMyz
-         TzB1zU/28ncN9VeNweB0Zop6GH5AAaF4zRAF1iV31PfnYsq3y88kp0cj10M4PckFo87Y
-         0154WBzOmHq6mpHyQrzp+6QtVm6sDc9JGmEng87iwrlEdTblbRCzNNW7ORvRrjED8zhn
-         vrhg==
-X-Forwarded-Encrypted: i=1; AJvYcCW1Pj5xvCavzTUBh6RT3ikTodO8qlUAvICE/rqmTLYsU6Blp8TbGhzGXtqDd6xflJotL1Y90x7PW+Xau4rn7rtSOXoAn6sHFKGyRO9MoLlV
-X-Gm-Message-State: AOJu0YxG001/xMSB8mQjLyXdo6ItifP/g/PTZ7a0akGbMznwGDy7gVis
-	7D3FZDBDJSNbZO/LBOu6tmqkF1n0o/E4geRafvDAanvftS99N5EhsacZaDEYupw=
-X-Google-Smtp-Source: AGHT+IGTa0t3MKbLVg4kZPwSxPiJXdJvhDxgkhF/gxXss7ykdb1ycHNk2hMqIUX7HnfDufjyI9Oq4w==
-X-Received: by 2002:adf:fc03:0:b0:368:37ac:3f95 with SMTP id ffacd0b85a97d-36bbc11bb28mr2076124f8f.31.1722612042502;
-        Fri, 02 Aug 2024 08:20:42 -0700 (PDT)
+        bh=dJwxj4Q/epTCsuuoDx5TluW633PRo5bWcwGJkWSnI+E=;
+        b=ptSaqsJyIwzQDz1dL/rdmJL2/5D+dHK2NlDG2S4sWYgqJ7hxhyz0KOkB7UU2XRKGYa
+         9MOjC50wor3C8BLnQ339+R2fID7b/taD6oVA9KektY2iKotUHBbyFr5RkBO3lIeU+Yvr
+         q/roa4u/2z30tMW6EMFoAT6T4pZOadOAhM6n+qsEwH7YHriFuXEJV/3N9Mz826zA3V2D
+         ZDcwnXulHwDU0UNcsQK8WeB/lDo9mvURRDV8LxGrZVP4nnEoPsfdV8m2VcuD2eH/IJVp
+         umyulp4Z5LUX5ugMT1dR35f0CfWGw0RjCUMS1KTO6+loWd2EOIxT5vgBBjXEkk/YHZ/K
+         uCeA==
+X-Forwarded-Encrypted: i=1; AJvYcCXxK2VC1ehHTfvuDVJ0dLinf0MlkOl5St2v6T8RmrHGSHbhCFagTT/gYwh2Nzr5TmtQHyYgKm4XLaz+k7rJ42r5Ktal0sH6vJMOBIY6d5tb
+X-Gm-Message-State: AOJu0Yxu+108mcRHbUIH3AFlFjQSn4JnsYCHSH85xGGAlYBvgQ6kVf4f
+	2Irg7u4l9HiWx1svRoUlga6RXpW20QjxZL+cZA0w/q+T9uoPwcFlZweWrXPee+k=
+X-Google-Smtp-Source: AGHT+IHs8c35/MVJPJWHbhThNLdZDWmclnMPyTlHp9e2Mj7pB+l3jgAdGFRRGTJ474zJ6huZaRujOg==
+X-Received: by 2002:a05:600c:a45:b0:428:1694:bd8c with SMTP id 5b1f17b1804b1-428e6b938dcmr22007775e9.37.1722612103839;
+        Fri, 02 Aug 2024 08:21:43 -0700 (PDT)
 Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-36bbd06d078sm2177020f8f.94.2024.08.02.08.20.41
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4282bb9d464sm98619985e9.42.2024.08.02.08.21.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Aug 2024 08:20:42 -0700 (PDT)
+        Fri, 02 Aug 2024 08:21:43 -0700 (PDT)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -77,16 +77,16 @@ To: Catalin Marinas <catalin.marinas@arm.com>,
 	linux-riscv@lists.infradead.org,
 	linux-mm@kvack.org
 Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH v3 6/9] mm: Use common huge_ptep_get_and_clear() function for riscv/arm64
-Date: Fri,  2 Aug 2024 17:14:27 +0200
-Message-Id: <20240802151430.99114-7-alexghiti@rivosinc.com>
+Subject: [PATCH v3 7/9] mm: Use common huge_ptep_set_access_flags() function for riscv/arm64
+Date: Fri,  2 Aug 2024 17:14:28 +0200
+Message-Id: <20240802151430.99114-8-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20240802151430.99114-1-alexghiti@rivosinc.com>
 References: <20240802151430.99114-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240802_082044_553979_F4DA715E 
-X-CRM114-Status: GOOD (  20.29  )
+X-CRM114-CacheID: sfid-20240802_082146_357442_D796E138 
+X-CRM114-Status: GOOD (  22.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,285 +103,324 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-After some adjustments, both architectures have the same implementation
-so move it to the generic code.
+Both architectures have almost the same implementation:
+__cont_access_flags_changed() is also correct on riscv and brings the
+same benefits (ie don't do anything if the flags are unchanged).
 
-Note that get_clear_contig() function is duplicated in the generic and
-the arm64 code because it is still used by some arm64 functions that
-will, in the next commits, be moved to the generic code. Once all have
-been moved, the arm64 version will be removed.
+As in the previous commit, get_clear_contig_flush() is duplicated in both
+the arch and the generic codes, it will be removed from the arch code when
+the last reference there gets moved to the generic code.
 
 Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 ---
- arch/arm64/include/asm/hugetlb.h |  3 --
- arch/arm64/include/asm/pgtable.h | 15 ++++++++--
- arch/arm64/mm/hugetlbpage.c      | 19 ++-----------
- arch/riscv/include/asm/hugetlb.h |  4 ---
- arch/riscv/include/asm/pgtable.h |  4 ++-
- arch/riscv/mm/hugetlbpage.c      | 23 ++++-----------
- include/linux/hugetlb_contpte.h  |  4 +++
- mm/hugetlb_contpte.c             | 48 ++++++++++++++++++++++++++++++--
- 8 files changed, 72 insertions(+), 48 deletions(-)
+ arch/arm64/include/asm/hugetlb.h |  4 --
+ arch/arm64/mm/hugetlbpage.c      | 65 ---------------------------
+ arch/riscv/include/asm/hugetlb.h |  5 ---
+ arch/riscv/include/asm/pgtable.h |  7 +--
+ arch/riscv/mm/hugetlbpage.c      | 28 ------------
+ arch/riscv/mm/pgtable.c          |  6 +--
+ include/linux/hugetlb_contpte.h  |  5 +++
+ mm/hugetlb_contpte.c             | 75 ++++++++++++++++++++++++++++++++
+ 8 files changed, 87 insertions(+), 108 deletions(-)
 
 diff --git a/arch/arm64/include/asm/hugetlb.h b/arch/arm64/include/asm/hugetlb.h
-index fab0afbe4eea..04117a84dc04 100644
+index 04117a84dc04..6b84e287b72d 100644
 --- a/arch/arm64/include/asm/hugetlb.h
 +++ b/arch/arm64/include/asm/hugetlb.h
-@@ -31,9 +31,6 @@ pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t flags);
- extern int huge_ptep_set_access_flags(struct vm_area_struct *vma,
- 				      unsigned long addr, pte_t *ptep,
- 				      pte_t pte, int dirty);
--#define __HAVE_ARCH_HUGE_PTEP_GET_AND_CLEAR
--extern pte_t huge_ptep_get_and_clear(struct mm_struct *mm,
--				     unsigned long addr, pte_t *ptep);
+@@ -27,10 +27,6 @@ static inline void arch_clear_hugetlb_flags(struct folio *folio)
+ 
+ pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t flags);
+ #define arch_make_huge_pte arch_make_huge_pte
+-#define __HAVE_ARCH_HUGE_PTEP_SET_ACCESS_FLAGS
+-extern int huge_ptep_set_access_flags(struct vm_area_struct *vma,
+-				      unsigned long addr, pte_t *ptep,
+-				      pte_t pte, int dirty);
  #define __HAVE_ARCH_HUGE_PTEP_SET_WRPROTECT
  extern void huge_ptep_set_wrprotect(struct mm_struct *mm,
  				    unsigned long addr, pte_t *ptep);
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 2a6a01b447df..4b277ff9810d 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -1766,12 +1766,23 @@ static inline void clear_young_dirty_ptes(struct vm_area_struct *vma,
- 
- #endif /* CONFIG_ARM64_CONTPTE */
- 
--static inline int arch_contpte_get_num_contig(pte_t *ptep,
--					      unsigned long size,
-+extern int find_num_contig(struct mm_struct *mm, unsigned long addr,
-+			   pte_t *ptep, size_t *pgsize);
-+
-+static inline int arch_contpte_get_num_contig(struct mm_struct *mm,
-+					      unsigned long addr,
-+					      pte_t *ptep, unsigned long size,
- 					      size_t *pgsize)
- {
- 	int contig_ptes = 0;
- 
-+	/*
-+	 * If the size is not passed, we need to go through the page table to
-+	 * find out the number of contiguous ptes.
-+	 */
-+	if (size == 0)
-+		return find_num_contig(mm, addr, ptep, pgsize);
-+
- 	if (pgsize)
- 		*pgsize = size;
- 
 diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
-index 495f706e0170..2f3753c10c1f 100644
+index 2f3753c10c1f..658635022e4d 100644
 --- a/arch/arm64/mm/hugetlbpage.c
 +++ b/arch/arm64/mm/hugetlbpage.c
-@@ -79,8 +79,8 @@ bool arch_hugetlb_migration_supported(struct hstate *h)
- }
- #endif
- 
--static int find_num_contig(struct mm_struct *mm, unsigned long addr,
--			   pte_t *ptep, size_t *pgsize)
-+int find_num_contig(struct mm_struct *mm, unsigned long addr,
-+		    pte_t *ptep, size_t *pgsize)
- {
- 	pgd_t *pgdp = pgd_offset(mm, addr);
- 	p4d_t *p4dp;
-@@ -266,21 +266,6 @@ pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t flags)
+@@ -266,71 +266,6 @@ pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t flags)
  	return entry;
  }
  
--pte_t huge_ptep_get_and_clear(struct mm_struct *mm,
--			      unsigned long addr, pte_t *ptep)
+-/*
+- * huge_ptep_set_access_flags will update access flags (dirty, accesssed)
+- * and write permission.
+- *
+- * For a contiguous huge pte range we need to check whether or not write
+- * permission has to change only on the first pte in the set. Then for
+- * all the contiguous ptes we need to check whether or not there is a
+- * discrepancy between dirty or young.
+- */
+-static int __cont_access_flags_changed(pte_t *ptep, pte_t pte, int ncontig)
 -{
--	int ncontig;
--	size_t pgsize;
--	pte_t orig_pte = __ptep_get(ptep);
+-	int i;
 -
--	if (!pte_cont(orig_pte))
--		return __ptep_get_and_clear(mm, addr, ptep);
+-	if (pte_write(pte) != pte_write(__ptep_get(ptep)))
+-		return 1;
 -
--	ncontig = find_num_contig(mm, addr, ptep, &pgsize);
+-	for (i = 0; i < ncontig; i++) {
+-		pte_t orig_pte = __ptep_get(ptep + i);
 -
--	return get_clear_contig(mm, addr, ptep, pgsize, ncontig);
+-		if (pte_dirty(pte) != pte_dirty(orig_pte))
+-			return 1;
+-
+-		if (pte_young(pte) != pte_young(orig_pte))
+-			return 1;
+-	}
+-
+-	return 0;
 -}
 -
- /*
-  * huge_ptep_set_access_flags will update access flags (dirty, accesssed)
-  * and write permission.
+-int huge_ptep_set_access_flags(struct vm_area_struct *vma,
+-			       unsigned long addr, pte_t *ptep,
+-			       pte_t pte, int dirty)
+-{
+-	int ncontig, i;
+-	size_t pgsize = 0;
+-	unsigned long pfn = pte_pfn(pte), dpfn;
+-	struct mm_struct *mm = vma->vm_mm;
+-	pgprot_t hugeprot;
+-	pte_t orig_pte;
+-
+-	if (!pte_cont(pte))
+-		return __ptep_set_access_flags(vma, addr, ptep, pte, dirty);
+-
+-	ncontig = find_num_contig(mm, addr, ptep, &pgsize);
+-	dpfn = pgsize >> PAGE_SHIFT;
+-
+-	if (!__cont_access_flags_changed(ptep, pte, ncontig))
+-		return 0;
+-
+-	orig_pte = get_clear_contig_flush(mm, addr, ptep, pgsize, ncontig);
+-
+-	/* Make sure we don't lose the dirty or young state */
+-	if (pte_dirty(orig_pte))
+-		pte = pte_mkdirty(pte);
+-
+-	if (pte_young(orig_pte))
+-		pte = pte_mkyoung(pte);
+-
+-	hugeprot = pte_pgprot(pte);
+-	for (i = 0; i < ncontig; i++, ptep++, addr += pgsize, pfn += dpfn)
+-		__set_ptes(mm, addr, ptep, pfn_pte(pfn, hugeprot), 1);
+-
+-	return 1;
+-}
+-
+ void huge_ptep_set_wrprotect(struct mm_struct *mm,
+ 			     unsigned long addr, pte_t *ptep)
+ {
 diff --git a/arch/riscv/include/asm/hugetlb.h b/arch/riscv/include/asm/hugetlb.h
-index ca9930cdf2e6..0fbb6b19df79 100644
+index 0fbb6b19df79..bf533c2cef84 100644
 --- a/arch/riscv/include/asm/hugetlb.h
 +++ b/arch/riscv/include/asm/hugetlb.h
-@@ -20,10 +20,6 @@ bool arch_hugetlb_migration_supported(struct hstate *h);
- #endif
+@@ -28,11 +28,6 @@ pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
+ void huge_ptep_set_wrprotect(struct mm_struct *mm,
+ 			     unsigned long addr, pte_t *ptep);
  
- #ifdef CONFIG_RISCV_ISA_SVNAPOT
--#define __HAVE_ARCH_HUGE_PTEP_GET_AND_CLEAR
--pte_t huge_ptep_get_and_clear(struct mm_struct *mm,
--			      unsigned long addr, pte_t *ptep);
+-#define __HAVE_ARCH_HUGE_PTEP_SET_ACCESS_FLAGS
+-int huge_ptep_set_access_flags(struct vm_area_struct *vma,
+-			       unsigned long addr, pte_t *ptep,
+-			       pte_t pte, int dirty);
 -
- #define __HAVE_ARCH_HUGE_PTEP_CLEAR_FLUSH
- pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
- 			    unsigned long addr, pte_t *ptep);
+ pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t flags);
+ #define arch_make_huge_pte arch_make_huge_pte
+ 
 diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 5ab0559b0bd2..13e89348a46a 100644
+index 13e89348a46a..5d9b051ac51c 100644
 --- a/arch/riscv/include/asm/pgtable.h
 +++ b/arch/riscv/include/asm/pgtable.h
-@@ -584,7 +584,9 @@ static inline void __set_ptes(struct mm_struct *mm, unsigned long addr,
+@@ -623,9 +623,8 @@ static inline void __pte_clear(struct mm_struct *mm,
+ 	__set_pte_at(mm, ptep, __pte(0));
  }
  
- #ifdef CONFIG_RISCV_ISA_SVNAPOT
--static inline int arch_contpte_get_num_contig(pte_t *ptep, unsigned long size,
-+static inline int arch_contpte_get_num_contig(struct mm_struct *mm,
-+					      unsigned long addr,
-+					      pte_t *ptep, unsigned long size,
- 					      size_t *pgsize)
- {
- 	unsigned long hugepage_shift;
+-#define __HAVE_ARCH_PTEP_SET_ACCESS_FLAGS	/* defined in mm/pgtable.c */
+-extern int ptep_set_access_flags(struct vm_area_struct *vma, unsigned long address,
+-				 pte_t *ptep, pte_t entry, int dirty);
++extern int __ptep_set_access_flags(struct vm_area_struct *vma, unsigned long address,
++				   pte_t *ptep, pte_t entry, int dirty);
+ #define __HAVE_ARCH_PTEP_TEST_AND_CLEAR_YOUNG	/* defined in mm/pgtable.c */
+ extern int ptep_test_and_clear_young(struct vm_area_struct *vma, unsigned long address,
+ 				     pte_t *ptep);
+@@ -734,6 +733,8 @@ static inline pte_t ptep_get(pte_t *ptep)
+ #define __HAVE_ARCH_PTEP_GET_AND_CLEAR
+ #define ptep_get_and_clear	__ptep_get_and_clear
+ #define pte_clear		__pte_clear
++#define __HAVE_ARCH_PTEP_SET_ACCESS_FLAGS
++#define ptep_set_access_flags	__ptep_set_access_flags
+ 
+ #define pgprot_nx pgprot_nx
+ static inline pgprot_t pgprot_nx(pgprot_t _prot)
 diff --git a/arch/riscv/mm/hugetlbpage.c b/arch/riscv/mm/hugetlbpage.c
-index e2093e7266a5..b44023336fd9 100644
+index b44023336fd9..0e2ca7327479 100644
 --- a/arch/riscv/mm/hugetlbpage.c
 +++ b/arch/riscv/mm/hugetlbpage.c
-@@ -186,7 +186,8 @@ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
- 	if (!pte_napot(pte))
- 		return ptep_set_access_flags(vma, addr, ptep, pte, dirty);
- 
--	pte_num = arch_contpte_get_num_contig(ptep, 0, NULL);
-+	pte_num = arch_contpte_get_num_contig(vma->vm_mm, addr, ptep, 0, NULL);
-+
- 	orig_pte = get_clear_contig_flush(mm, addr, ptep, pte_num);
- 
- 	if (pte_dirty(orig_pte))
-@@ -200,21 +201,6 @@ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
- 	return true;
+@@ -173,34 +173,6 @@ pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t flags)
+ 	return entry;
  }
  
--pte_t huge_ptep_get_and_clear(struct mm_struct *mm,
--			      unsigned long addr,
--			      pte_t *ptep)
+-int huge_ptep_set_access_flags(struct vm_area_struct *vma,
+-			       unsigned long addr,
+-			       pte_t *ptep,
+-			       pte_t pte,
+-			       int dirty)
 -{
--	pte_t orig_pte = ptep_get(ptep);
+-	struct mm_struct *mm = vma->vm_mm;
+-	pte_t orig_pte;
 -	int pte_num;
 -
--	if (!pte_napot(orig_pte))
--		return ptep_get_and_clear(mm, addr, ptep);
+-	if (!pte_napot(pte))
+-		return ptep_set_access_flags(vma, addr, ptep, pte, dirty);
 -
--	pte_num = arch_contpte_get_num_contig(ptep, 0, NULL);
+-	pte_num = arch_contpte_get_num_contig(vma->vm_mm, addr, ptep, 0, NULL);
 -
--	return get_clear_contig(mm, addr, ptep, pte_num);
+-	orig_pte = get_clear_contig_flush(mm, addr, ptep, pte_num);
+-
+-	if (pte_dirty(orig_pte))
+-		pte = pte_mkdirty(pte);
+-
+-	if (pte_young(orig_pte))
+-		pte = pte_mkyoung(pte);
+-
+-	set_ptes(mm, addr, ptep, pte, pte_num);
+-
+-	return true;
 -}
 -
  void huge_ptep_set_wrprotect(struct mm_struct *mm,
  			     unsigned long addr,
  			     pte_t *ptep)
-@@ -228,7 +214,8 @@ void huge_ptep_set_wrprotect(struct mm_struct *mm,
- 		return;
- 	}
+diff --git a/arch/riscv/mm/pgtable.c b/arch/riscv/mm/pgtable.c
+index 533ec9055fa0..e86df7ef193c 100644
+--- a/arch/riscv/mm/pgtable.c
++++ b/arch/riscv/mm/pgtable.c
+@@ -5,9 +5,9 @@
+ #include <linux/kernel.h>
+ #include <linux/pgtable.h>
  
--	pte_num = arch_contpte_get_num_contig(ptep, 0, NULL);
-+	pte_num = arch_contpte_get_num_contig(mm, addr, ptep, 0, NULL);
-+
- 	orig_pte = get_clear_contig_flush(mm, addr, ptep, pte_num);
- 
- 	orig_pte = pte_wrprotect(orig_pte);
-@@ -246,7 +233,7 @@ pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
- 	if (!pte_napot(pte))
- 		return ptep_clear_flush(vma, addr, ptep);
- 
--	pte_num = arch_contpte_get_num_contig(ptep, 0, NULL);
-+	pte_num = arch_contpte_get_num_contig(vma->vm_mm, addr, ptep, 0, NULL);
- 
- 	return get_clear_contig_flush(vma->vm_mm, addr, ptep, pte_num);
- }
+-int ptep_set_access_flags(struct vm_area_struct *vma,
+-			  unsigned long address, pte_t *ptep,
+-			  pte_t entry, int dirty)
++int __ptep_set_access_flags(struct vm_area_struct *vma,
++			    unsigned long address, pte_t *ptep,
++			    pte_t entry, int dirty)
+ {
+ 	if (!pte_same(ptep_get(ptep), entry))
+ 		__set_pte_at(vma->vm_mm, ptep, entry);
 diff --git a/include/linux/hugetlb_contpte.h b/include/linux/hugetlb_contpte.h
-index d9892a047b2b..20d3a3e14e14 100644
+index 20d3a3e14e14..fea47035ac38 100644
 --- a/include/linux/hugetlb_contpte.h
 +++ b/include/linux/hugetlb_contpte.h
-@@ -18,4 +18,8 @@ extern void set_huge_pte_at(struct mm_struct *mm,
- extern void huge_pte_clear(struct mm_struct *mm, unsigned long addr,
- 			   pte_t *ptep, unsigned long sz);
+@@ -22,4 +22,9 @@ extern void huge_pte_clear(struct mm_struct *mm, unsigned long addr,
+ extern pte_t huge_ptep_get_and_clear(struct mm_struct *mm,
+ 				     unsigned long addr, pte_t *ptep);
  
-+#define __HAVE_ARCH_HUGE_PTEP_GET_AND_CLEAR
-+extern pte_t huge_ptep_get_and_clear(struct mm_struct *mm,
-+				     unsigned long addr, pte_t *ptep);
++#define __HAVE_ARCH_HUGE_PTEP_SET_ACCESS_FLAGS
++extern int huge_ptep_set_access_flags(struct vm_area_struct *vma,
++				      unsigned long addr, pte_t *ptep,
++				      pte_t pte, int dirty);
 +
  #endif /* _LINUX_HUGETLB_CONTPTE_H */
 diff --git a/mm/hugetlb_contpte.c b/mm/hugetlb_contpte.c
-index b9634ffa1bad..9df98d1a59a1 100644
+index 9df98d1a59a1..21f5c89daa6b 100644
 --- a/mm/hugetlb_contpte.c
 +++ b/mm/hugetlb_contpte.c
-@@ -22,6 +22,7 @@
-  *   - huge_ptep_get()
+@@ -13,6 +13,7 @@
+  *   - __set_ptes()
+  *   - __ptep_get_and_clear()
+  *   - __pte_clear()
++ *   - __ptep_set_access_flags()
+  *   - pte_cont()
+  *   - arch_contpte_get_num_contig()
+  */
+@@ -23,6 +24,7 @@
   *   - set_huge_pte_at()
   *   - huge_pte_clear()
-+ *   - huge_ptep_get_and_clear()
+  *   - huge_ptep_get_and_clear()
++ *   - huge_ptep_set_access_flags()
   */
  
  pte_t huge_ptep_get(struct mm_struct *mm, unsigned long addr, pte_t *ptep)
-@@ -32,7 +33,7 @@ pte_t huge_ptep_get(struct mm_struct *mm, unsigned long addr, pte_t *ptep)
- 	if (!pte_present(orig_pte) || !pte_cont(orig_pte))
- 		return orig_pte;
+@@ -157,3 +159,76 @@ pte_t huge_ptep_get_and_clear(struct mm_struct *mm,
  
--	ncontig = arch_contpte_get_num_contig(ptep,
-+	ncontig = arch_contpte_get_num_contig(mm, addr, ptep,
- 					      page_size(pte_page(orig_pte)),
- 					      NULL);
- 
-@@ -86,7 +87,7 @@ void set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
- 	int i;
- 	int ncontig;
- 
--	ncontig = arch_contpte_get_num_contig(ptep, sz, &pgsize);
-+	ncontig = arch_contpte_get_num_contig(mm, addr, ptep, sz, &pgsize);
- 
- 	if (!pte_present(pte)) {
- 		for (i = 0; i < ncontig; i++, ptep++, addr += pgsize)
-@@ -110,8 +111,49 @@ void huge_pte_clear(struct mm_struct *mm, unsigned long addr,
- 	int i, ncontig;
- 	size_t pgsize;
- 
--	ncontig = arch_contpte_get_num_contig(ptep, sz, &pgsize);
-+	ncontig = arch_contpte_get_num_contig(mm, addr, ptep, sz, &pgsize);
- 
- 	for (i = 0; i < ncontig; i++, addr += pgsize, ptep++)
- 		__pte_clear(mm, addr, ptep);
+ 	return get_clear_contig(mm, addr, ptep, pgsize, ncontig);
  }
 +
-+static pte_t get_clear_contig(struct mm_struct *mm,
-+			      unsigned long addr,
-+			      pte_t *ptep,
-+			      unsigned long pgsize,
-+			      unsigned long ncontig)
++/*
++ * huge_ptep_set_access_flags will update access flags (dirty, accesssed)
++ * and write permission.
++ *
++ * For a contiguous huge pte range we need to check whether or not write
++ * permission has to change only on the first pte in the set. Then for
++ * all the contiguous ptes we need to check whether or not there is a
++ * discrepancy between dirty or young.
++ */
++static int __cont_access_flags_changed(pte_t *ptep, pte_t pte, int ncontig)
 +{
-+	pte_t orig_pte = __ptep_get(ptep);
-+	unsigned long i;
++	int i;
 +
-+	for (i = 0; i < ncontig; i++, addr += pgsize, ptep++) {
-+		pte_t pte = __ptep_get_and_clear(mm, addr, ptep);
++	if (pte_write(pte) != pte_write(__ptep_get(ptep)))
++		return 1;
 +
-+		/*
-+		 * If HW_AFDBM (arm64) or Svadu (riscv) is enabled, then the HW
-+		 * could turn on the dirty or accessed bit for any page in the
-+		 * set, so check them all.
-+		 */
-+		if (pte_dirty(pte))
-+			orig_pte = pte_mkdirty(orig_pte);
++	for (i = 0; i < ncontig; i++) {
++		pte_t orig_pte = __ptep_get(ptep + i);
 +
-+		if (pte_young(pte))
-+			orig_pte = pte_mkyoung(orig_pte);
++		if (pte_dirty(pte) != pte_dirty(orig_pte))
++			return 1;
++
++		if (pte_young(pte) != pte_young(orig_pte))
++			return 1;
 +	}
++
++	return 0;
++}
++
++static pte_t get_clear_contig_flush(struct mm_struct *mm,
++				    unsigned long addr,
++				    pte_t *ptep,
++				    unsigned long pgsize,
++				    unsigned long ncontig)
++{
++	pte_t orig_pte = get_clear_contig(mm, addr, ptep, pgsize, ncontig);
++	struct vm_area_struct vma = TLB_FLUSH_VMA(mm, 0);
++
++	flush_tlb_range(&vma, addr, addr + (pgsize * ncontig));
 +	return orig_pte;
 +}
 +
-+pte_t huge_ptep_get_and_clear(struct mm_struct *mm,
-+			      unsigned long addr, pte_t *ptep)
++int huge_ptep_set_access_flags(struct vm_area_struct *vma,
++			       unsigned long addr, pte_t *ptep,
++			       pte_t pte, int dirty)
 +{
 +	int ncontig;
-+	size_t pgsize;
-+	pte_t orig_pte = __ptep_get(ptep);
++	size_t pgsize = 0;
++	struct mm_struct *mm = vma->vm_mm;
++	pte_t orig_pte;
 +
-+	if (!pte_cont(orig_pte))
-+		return __ptep_get_and_clear(mm, addr, ptep);
++	if (!pte_cont(pte))
++		return __ptep_set_access_flags(vma, addr, ptep, pte, dirty);
 +
-+	ncontig = arch_contpte_get_num_contig(mm, addr, ptep, 0, &pgsize);
++	ncontig = arch_contpte_get_num_contig(vma->vm_mm, addr, ptep, 0, &pgsize);
 +
-+	return get_clear_contig(mm, addr, ptep, pgsize, ncontig);
++	if (!__cont_access_flags_changed(ptep, pte, ncontig))
++		return 0;
++
++	orig_pte = get_clear_contig_flush(mm, addr, ptep, pgsize, ncontig);
++
++	/* Make sure we don't lose the dirty or young state */
++	if (pte_dirty(orig_pte))
++		pte = pte_mkdirty(pte);
++
++	if (pte_young(orig_pte))
++		pte = pte_mkyoung(pte);
++
++	set_contptes(mm, addr, ptep, pte, ncontig, pgsize);
++
++	return 1;
 +}
 -- 
 2.39.2
