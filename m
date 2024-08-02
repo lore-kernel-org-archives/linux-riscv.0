@@ -4,74 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 193B7C3DA4A
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Aug 2024 15:45:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59102C3DA4A
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Aug 2024 16:04:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
-	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=SgM0IeQDz+F2MP7aRdMLVs8LfVW6qUGhXI7MPG6CLhU=; b=p4imc9dvr3gk4K
-	Q5LDCbJy9uUiYxdz0dVwYIsjr6G/kSiJK0ALf6sMI0gGa7lnZZiksSgexPUqlF5NyQcqVxnxfHyzC
-	uILzh+hAAtfAns/23dqbB1RL/ORMxai/mqqOgZOAhdLC2QiV/6SsSrurmIlKwCH1niv05/lsm0bcn
-	SgJTYB7YMiDbLMWn3gBF38VL6vvdhQjRKWq7hkA1X+2EoiC7Wo53IdWT6LNVq1Sd7QmZlg+sdr3GK
-	/CG9hLJyLhF77gY3kChZRXjhOBKJukJ88lLMZTBZY7qS2EgIcjs60FZhT9ti7GXTdW1isIK3JAQBy
-	POmKrk3fu8i1Lmb38b9w==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=degiYc9nWV4zi77PwhlMniJgCFtHDMtmPt3bgXr1wOM=; b=1pGXWUgapGc0l7
+	wwn0A/qrIWN33UHpdy/SQznqAFa0EP8N9ONJhzIK9E8rvlXiacpbwd8KtJVyo29NFlhBeHKNGtAKF
+	R7ehjfCJo3UfQTdI/lChtkdth0NssqCOOTFsaInCtAJEz4r74MM3vKcchzP2VWz5k33v2hGry1ha+
+	llHoDeQJf7H+PCEwpDj5YcegtMLHSvhjYeDuegkkcv6un/ju7CspSMX47gdPNYmNYxZr0e+MLh9c7
+	AbDraLqUI+Anh46oGelfGbSN6uvlUdJ1i0kILkk2CkR1FjxKq34fbU2Hq7taWSzqtqyl95OyHqS0D
+	1Ux8JZVc3i0TnDhJlctg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZuSg-00000009KTM-1WxW;
-	Fri, 02 Aug 2024 15:44:58 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1sZul8-00000009OXo-3OkF;
+	Fri, 02 Aug 2024 16:04:02 +0000
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sZuSa-00000009KRV-3UHj
+	id 1sZul5-00000009OWO-2ujw
 	for linux-riscv@lists.infradead.org;
-	Fri, 02 Aug 2024 15:44:54 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-1fd9e6189d5so67676115ad.3
-        for <linux-riscv@lists.infradead.org>; Fri, 02 Aug 2024 08:44:51 -0700 (PDT)
+	Fri, 02 Aug 2024 16:04:01 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-52efd8807aaso12304079e87.3
+        for <linux-riscv@lists.infradead.org>; Fri, 02 Aug 2024 09:03:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1722613491; x=1723218291; darn=lists.infradead.org;
-        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
+        d=linaro.org; s=google; t=1722614634; x=1723219434; darn=lists.infradead.org;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=C0U1KOccehzmg9c81F1T02tHdqMUqqEFdlWexUs39Wg=;
-        b=iW+6NSpF1ZmWoDVGK1qM/na9KkB3qIId/okSAidmMTj6kDScBTJRWJ8N10rAUrsPKt
-         lbg0K9RLhsOoNfs+v5JuL/QipRXsNBbvpyeUal9IepyPmbrocUfEuJe6yCn2SOHgTSdm
-         xvd/ZUYsNTvI2s1iyXJQeeTjumckWIHwx2AkvOPUUyoEpxhMARf1q/CztqHGzEdfWNaJ
-         jHVli4xEPBNjr0rSM9AEd8MNiBFcdsbsKSXS1eCbMJ6Wfk6d6AQm7/YaSW5jfjCJjerB
-         dTOv9NoG8D/tgDBVvEsYUt/ORMcblCjE7+jHL3k8LgWcDzt2H5PmWbO3gsEXSnaXpOjq
-         p0PQ==
+        bh=jaYp+4ySrYqox0C2LwNhC4Vws80twAVdjJbOgnZz/S0=;
+        b=kOwPMhVr/RPkVVqOX/CqOByJ9agPIBYovivXu2mYoRlnrPIhfLGj9xBkJAatsz5h0u
+         YBHRD93p8migoZPDJxw4vicUGi+ZMf+joXl97lSbtvBgXmFEyp9NKosxvedw5wH05VcN
+         vIhbivd5ZwRxGdnCWNIlVcDWUq1//BZ6+7VA10PCKoGYuQYGJhZHhL91nBeylgmoHDOj
+         nkLcPw0gn3fXyrQSqcCNRzxE+dM71cLiXz4s2awA3vzZPMTSTdrB/fflI8VEAHNHRFy5
+         VARpXMzvQRwG6u623ktOJl2uReZT6bpJB2bi+zwZvvXfa3aeTCrdmgIqdLKpASZqylvZ
+         zSrA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722613491; x=1723218291;
-        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1722614634; x=1723219434;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=C0U1KOccehzmg9c81F1T02tHdqMUqqEFdlWexUs39Wg=;
-        b=vS2JMI1tqjVZV1jh7TkCbCx8UgDWr9B3BTCltpiYfSVpERKsZlZ5oeMq9hyRMHSqin
-         Sc+tXTtijAocn/IcAekzwo8BdeWoGKMhPgkbGPWKo1/8FULV5tDce1T1rsTODExwMJOS
-         Fbvn34gvPy3XIHhq0f/A4lQIQFXIv0f6iOUT1l8iKpuOumBz6BF5oP/LAFnOXqK8USW6
-         a01jemCTsN2yjxxJrhk/ZRsowBQPKCXnl6xra3Wa6fXRREBHOiEFt9G1XS5m17bSpPVo
-         ZXKe4pK/ucQzl1Mk9RLuOEjx25d9+1vaiAvaBjFqIrcZOa7WY8fnjZ1MQVTvJVxHv3qO
-         2IVw==
-X-Gm-Message-State: AOJu0YzJKzX9JSBAhgBEF1qtsAfTaNGPI5+vNAhFRdFAmvGKp+AliMIk
-	N171YBPNI9BDIV5WhE0NkQ0mvoh6m22apf+mhDEG0G3XL0KM2/JVx31vq2Zo6DIdFVqlSfJr3ue
-	5
-X-Google-Smtp-Source: AGHT+IFctPtOfBeOT+7DbRwz3VPOEeBuaua5STZcnvm6v4ibpnesppc5XHD7NFFzRv80ZWXrE5jXvw==
-X-Received: by 2002:a17:902:ceca:b0:1ff:629e:221a with SMTP id d9443c01a7336-1ff629e24f2mr14018755ad.4.1722613490688;
-        Fri, 02 Aug 2024 08:44:50 -0700 (PDT)
-Received: from localhost ([192.184.165.199])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1ff58f19d0csm18750255ad.2.2024.08.02.08.44.50
+        bh=jaYp+4ySrYqox0C2LwNhC4Vws80twAVdjJbOgnZz/S0=;
+        b=QiuC/Cuvj157csySL3upQzZk+SRHyJ54jAvzl557TDTIX8Hp0GQuC47BXo1umlwpsL
+         APfy7l5bk20WvTTIUfAeex3flUgifHCdP6l1qEMoCy3OEkP/K0YgysgXFHKxqYRqv6a5
+         NR2+HN6IZixdoa8vyUrpTw/CbIdCkVig8Amx1LgD8wjc106CG/cxwPw0R6dOqYJRzKAd
+         2cGRZ8mXvesL65HC8xvvtvI/JgJ7VUPx9l28R5uTtr+99iVCriC0Rf5Dpn8ZbyvlTm7Q
+         yyJ9zOS9Ohx+HFvljs3hmDv51mcHp7/iaRqmi5Lv2ffjA6TQ0DMxFNDAv2Px9i5e6Z61
+         /07A==
+X-Forwarded-Encrypted: i=1; AJvYcCWp0ntteGdd/oynBETt/94Z8PHw0m98KjrsNxt3nctLROyJT+lcOS7fvVu2gdPSnuuAmA+kf/fJe99bNaq7/6j9KNrHI5OHcsBeIZlbNwHV
+X-Gm-Message-State: AOJu0YxIfIG3/gcd2UsfopJuYsMETCcxsxvgudUWaYJlY7Ub1yGp8c0N
+	mx1H2781Ai+2Q31lqKxUu5P572iq52lQbZAUnQP3XmJGUveYDtydPQEpeTER4XY=
+X-Google-Smtp-Source: AGHT+IHar+PPGcrxDNcjSr1um3g+3xRCfTrmLOXPeIhwAHJBP67s3XLeWwHx6hWOKLC6el1844qAfg==
+X-Received: by 2002:a05:6512:3ba0:b0:52f:c14e:2533 with SMTP id 2adb3069b0e04-530bb3c79e9mr2525031e87.48.1722614633808;
+        Fri, 02 Aug 2024 09:03:53 -0700 (PDT)
+Received: from mutt (c-9b0ee555.07-21-73746f28.bbcust.telenor.se. [85.229.14.155])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-530bba07dc7sm266293e87.16.2024.08.02.09.03.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Aug 2024 08:44:50 -0700 (PDT)
-Date: Fri, 02 Aug 2024 08:44:50 -0700 (PDT)
-X-Google-Original-Date: Fri, 02 Aug 2024 08:44:38 PDT (-0700)
-Subject: [GIT PULL] RISC-V Fixes for 6.11-rc2
-CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Message-ID: <mhng-43770bb1-d5ee-499f-8925-ade7d59c6f38@palmer-ri-x1c9>
+        Fri, 02 Aug 2024 09:03:44 -0700 (PDT)
+Date: Fri, 2 Aug 2024 18:03:27 +0200
+From: Anders Roxell <anders.roxell@linaro.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Shuah Khan <shuah@kernel.org>,
+	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
+	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
+	Szabolcs Nagy <Szabolcs.Nagy@arm.com>, Kees Cook <kees@kernel.org>,
+	"H.J. Lu" <hjl.tools@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Florian Weimer <fweimer@redhat.com>,
+	Christian Brauner <brauner@kernel.org>,
+	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
+	Ross Burton <ross.burton@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v10 00/40] arm64/gcs: Provide support for GCS in userspace
+Message-ID: <20240802160326.GA36502@mutt>
+References: <20240801-arm64-gcs-v10-0-699e2bd2190b@kernel.org>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240801-arm64-gcs-v10-0-699e2bd2190b@kernel.org>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240802_084452_899114_C35D74C9 
-X-CRM114-Status: UNSURE (   9.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240802_090359_767948_D19D30BE 
+X-CRM114-Status: GOOD (  36.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,84 +113,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 8400291e289ee6b2bf9779ff1c83a291501f017b:
+On 2024-08-01 13:06, Mark Brown wrote:
+> The arm64 Guarded Control Stack (GCS) feature provides support for
+> hardware protected stacks of return addresses, intended to provide
+> hardening against return oriented programming (ROP) attacks and to make
+> it easier to gather call stacks for applications such as profiling.
+> 
+> When GCS is active a secondary stack called the Guarded Control Stack is
+> maintained, protected with a memory attribute which means that it can
+> only be written with specific GCS operations.  The current GCS pointer
+> can not be directly written to by userspace.  When a BL is executed the
+> value stored in LR is also pushed onto the GCS, and when a RET is
+> executed the top of the GCS is popped and compared to LR with a fault
+> being raised if the values do not match.  GCS operations may only be
+> performed on GCS pages, a data abort is generated if they are not.
+> 
+> The combination of hardware enforcement and lack of extra instructions
+> in the function entry and exit paths should result in something which
+> has less overhead and is more difficult to attack than a purely software
+> implementation like clang's shadow stacks.
+> 
+> This series implements support for use of GCS by userspace, along with
+> support for use of GCS within KVM guests.  It does not enable use of GCS
+> by either EL1 or EL2, this will be implemented separately.  Executables
+> are started without GCS and must use a prctl() to enable it, it is
+> expected that this will be done very early in application execution by
+> the dynamic linker or other startup code.  For dynamic linking this will
+> be done by checking that everything in the executable is marked as GCS
+> compatible.
+> 
+> x86 has an equivalent feature called shadow stacks, this series depends
+> on the x86 patches for generic memory management support for the new
+> guarded/shadow stack page type and shares APIs as much as possible.  As
+> there has been extensive discussion with the wider community around the
+> ABI for shadow stacks I have as far as practical kept implementation
+> decisions close to those for x86, anticipating that review would lead to
+> similar conclusions in the absence of strong reasoning for divergence.
+> 
+> The main divergence I am concious of is that x86 allows shadow stack to
+> be enabled and disabled repeatedly, freeing the shadow stack for the
+> thread whenever disabled, while this implementation keeps the GCS
+> allocated after disable but refuses to reenable it.  This is to avoid
+> races with things actively walking the GCS during a disable, we do
+> anticipate that some systems will wish to disable GCS at runtime but are
+> not aware of any demand for subsequently reenabling it.
+> 
+> x86 uses an arch_prctl() to manage enable and disable, since only x86
+> and S/390 use arch_prctl() a generic prctl() was proposed[1] as part of a
+> patch set for the equivalent RISC-V Zicfiss feature which I initially
+> adopted fairly directly but following review feedback has been revised
+> quite a bit.
+> 
+> We currently maintain the x86 pattern of implicitly allocating a shadow
+> stack for threads started with shadow stack enabled, there has been some
+> discussion of removing this support and requiring the use of clone3()
+> with explicit allocation of shadow stacks instead.  I have no strong
+> feelings either way, implicit allocation is not really consistent with
+> anything else we do and creates the potential for errors around thread
+> exit but on the other hand it is existing ABI on x86 and minimises the
+> changes needed in userspace code.
+> 
+> glibc and bionic changes using this ABI have been implemented and
+> tested.  Headless Android systems have been validated and Ross Burton
+> has used this code has been used to bring up a Yocto system with GCS
+> enabed as standard, a test implementation of V8 support has also been
+> done.
+> 
+> There is an open issue with support for CRIU, on x86 this required the
+> ability to set the GCS mode via ptrace.  This series supports
+> configuring mode bits other than enable/disable via ptrace but it needs
+> to be confirmed if this is sufficient.
+> 
+> The series depends on support for shadow stacks in clone3(), that series
+> includes the addition of ARCH_HAS_USER_SHADOW_STACK.
+> 
+>    https://lore.kernel.org/r/20240731-clone3-shadow-stack-v7-0-a9532eebfb1d@kernel.org
+> 
 
-  Linux 6.11-rc1 (2024-07-28 14:19:55 -0700)
+Verified this patchset on a FVP.
 
-are available in the Git repository at:
+Tested-by: Linux Kernel Functional Testing <lkft@linaro.org>
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.11-rc2
 
-for you to fetch changes up to 3b6564427aea83b7a35a15ca278291d50a1edcfc:
-
-  riscv: Fix linear mapping checks for non-contiguous memory regions (2024-08-01 11:46:09 -0700)
-
-----------------------------------------------------------------
-RISC-V Fixes for 6.11-rc2
-
-* A fix to avoid dropping some of the internal pseudo-extensions, which
-  breaks *envcfg dependency parsing.
-* The kernel entry address is now aligned in purgatory, which avoids a
-  misaligned load that can lead to crash on systems that don't support
-  misaligned accesses early in boot.
-* The FW_SFENCE_VMA_RECEIVED perf event was duplicated in a handful of
-  perf JSON configurations, one of them been updated to
-  FW_SFENCE_VMA_ASID_SENT.
-* The starfive cache driver is now restricted to 64-bit systems, as it
-  isn't 32-bit clean.
-* A fix for to avoid aliasing legacy-mode perf counters with software
-  perf counters.
-* VM_FAULT_SIGSEGV is now handled in the page fault code.
-* A fix for stalls during CPU hotplug due to IPIs being disabled.
-* A fix for memblock bounds checking.  This manifests as a crash on
-  systems with discontinuous memory maps that have regions that don't
-  fit in the linear map.
-
-----------------------------------------------------------------
-Daniel Maslowski (1):
-      riscv/purgatory: align riscv_kernel_entry
-
-Eric Lin (1):
-      perf arch events: Fix duplicate RISC-V SBI firmware event name
-
-Nick Hu (1):
-      RISC-V: Enable the IPI before workqueue_online_cpu()
-
-Palmer Dabbelt (1):
-      cache: StarFive: Require a 64-bit system
-
-Samuel Holland (1):
-      riscv: cpufeature: Do not drop Linux-internal extensions
-
-Shifrin Dmitry (1):
-      perf: riscv: Fix selecting counters in legacy mode
-
-Stuart Menefy (1):
-      riscv: Fix linear mapping checks for non-contiguous memory regions
-
-Zhe Qiao (1):
-      riscv/mm: Add handling for VM_FAULT_SIGSEGV in mm_fault_error()
-
- arch/riscv/kernel/cpufeature.c                          | 14 ++++++--------
- arch/riscv/kernel/sbi-ipi.c                             |  2 +-
- arch/riscv/mm/fault.c                                   | 17 +++++++++--------
- arch/riscv/mm/init.c                                    | 15 +++++++++++----
- arch/riscv/purgatory/entry.S                            |  2 ++
- drivers/cache/Kconfig                                   |  1 +
- drivers/perf/riscv_pmu_sbi.c                            |  2 +-
- include/linux/cpuhotplug.h                              |  1 +
- .../perf/pmu-events/arch/riscv/andes/ax45/firmware.json |  2 +-
- .../perf/pmu-events/arch/riscv/riscv-sbi-firmware.json  |  2 +-
- .../perf/pmu-events/arch/riscv/sifive/u74/firmware.json |  2 +-
- .../arch/riscv/starfive/dubhe-80/firmware.json          |  2 +-
- .../arch/riscv/thead/c900-legacy/firmware.json          |  2 +-
- 13 files changed, 37 insertions(+), 27 deletions(-)
+Cheers,
+Anders
 
 _______________________________________________
 linux-riscv mailing list
