@@ -4,121 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FF13C49EA1
-	for <linux-riscv@archiver.kernel.org>; Sat,  3 Aug 2024 03:57:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CF13C3DA4A
+	for <linux-riscv@archiver.kernel.org>; Sat,  3 Aug 2024 05:15:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fym+EgJYpAMmPzrHyGl/eqkCXPwgzAnowgA0MekXiII=; b=mr7VoAMQhjdCzV
-	+F/nvi6MlFka4I2IGOjfUxurFnvMVqrFb7xEGisc711PFS29Lm83Ijz4te9MsZrk0f38RzqCENORN
-	KQK1kyIRedqzwLuBo84r6un5FLFq4zKqyZ/nh1UVL/VHgrSUSqtzhIZkm7VVz9Ajt7qYTnJeqsP2p
-	SBuS5N96E9RsZqtwQqhzjEFlHQN05VX9eeka+SneZjT+8Xg7dYqLOITPhpqyJ4rf4VKDrFWOyHvtU
-	FJY7rz6VhhU9KHAYs83dwwS2Eh1zSXCIRhC8+TmDUgiMbZrlYI0LwI8yJhgfsB20KdxUGXmv2nwaP
-	qhUhr540MRlFP/vKPqbg==;
+	List-Owner; bh=JCDhubSRRsVqw6mQk8LeUl+oeowrSdf4/dyova8zzns=; b=NPJIki2jXpNqeS
+	jzjHJ3E4ChlH8KTX4evfxnGThGu7YVDS2QEdeNaXKSWqmVO6/p1tDMR0atMdW3Fn81dxwEbmYpfkj
+	pxckNgCRBLzKEPOVC/pCMFw6m5gSkERuKllvyJkMNaRMW82QhrpAiTvJr4UMCBGnHeB5gZxU0d7U6
+	lUikSy2Fj2utjLspjH0AMvswrKe1Ew5Ym+CQTSf3tF5Mt9dPOESHeHS4qMYM3zQidt5nbTSjUKsNb
+	y7MoCJwBiSzbRhqLkvHRPmolg1WInkQWXTIE6Q9VDycoEdyzhHB0Ex1r8ht6DoMkgB2ikTI1DZuCl
+	73om4Zohe4nFkih+hDtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sa5tG-0000000AhXl-28pz;
-	Sat, 03 Aug 2024 03:57:10 +0000
-Received: from mail-bn8nam12olkn2080b.outbound.protection.outlook.com ([2a01:111:f403:2c18::80b] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1sa76V-0000000An5e-2qSD;
+	Sat, 03 Aug 2024 05:14:55 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sa5tD-0000000AhWI-14lq
+	id 1sa76S-0000000An4q-1ZzL
 	for linux-riscv@lists.infradead.org;
-	Sat, 03 Aug 2024 03:57:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iNR4REJmZ6MGlHVdn8wndophvaFJ7kYdskpaKsB5gpGJ3rfQfQM3JFfnWpMV/KHlNTbD0XLMdynSo759xuLCuINQSCyOxXtBV6kiMEDdvWbMXxpAiFOVJpJWZncvn4biW9unvVJhQ4K0JOf30Id3dfyQykon26MjJEhcb9GNlerrwum4PsPHt9kL/WeMWEHNfQxPx+M82JoSFYqA8kk6ygDixxCECWoArA+PwBlltfzmbqJVfyzKkU0/KkoHqvw8LmqQmbaZLogVGZ/Vogqkg8qU18yM2Mu53XwbYTIkgLY3QzYV/sY+6tdKuCC0yU3j4Ix8ZuT5tYYxsRg+4sDI9A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=r1HJVouGs04P304TVs8dgWWYzRsGZKOEkuNexk5JEy8=;
- b=wXk+4SCQjjIAMMsDdmo0Ysd6KAxPO2rRoIzrc/FMewH2XQpbqlU7YTE6BwNTwye93YFea7m5DX8PwTYCZz2QzsXoklHoIPQwT3Jr3v6fP1bbvB5pcZYcyUCdnEnePbRpLBj2r8nxE4B5si5zZKpnoz34/PY15WGMLgGejEPmlnqk3IPqvUXGG7llkXSws3O5V8HnhMxkWB0wX9EMK06n28KdvNp1ddkFm3qg3vfSXC2+7N3ddcC2plbw95qVI2eLfMdokPfxdE+HQHz954Mr03aqzoYl8gMayO9M6VHr+ZNgZ1tA8+fux7TNU6g771xymTEQi7mK3baqAEXHGWGDuA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=r1HJVouGs04P304TVs8dgWWYzRsGZKOEkuNexk5JEy8=;
- b=ZUIe2H6C+09UNpps4sBBWXUbXEqYcBN9wU2muuNVQHujEfSRsRTjKqx70VB8jfWBQsSmO+NuMkrFG6VGBvte7dTjAKQlP6aka2VzyUhrCClzaqZOhk/AVZ8JIJGb7gnTO8kuP9/GYytnvBNGeSI2eUx4UzxCdAXVmHoRONtSapWlN3ox7s3FJAdQfuWu/k3d/NiAu0rHDGkETzwrCBUlvLQjcSpbLrE3E30RM0+v/yHgmsrLTAWatc3vSDHeDTQGEXldNwqXCzlaiovRET0EAUwfQ0h8tpCJJb6nGytqCG2z+rtr2ZlrWeP+fc+R9CesksNNiiGVliP8tzNT3oHFig==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by MN0PR20MB7271.namprd20.prod.outlook.com (2603:10b6:208:4a6::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7828.23; Sat, 3 Aug
- 2024 03:56:59 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::ab0b:c0d3:1f91:d149]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::ab0b:c0d3:1f91:d149%4]) with mapi id 15.20.7828.023; Sat, 3 Aug 2024
- 03:56:59 +0000
-Date: Sat, 3 Aug 2024 11:56:24 +0800
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Guenter Roeck <linux@roeck-us.net>, 
-	Inochi Amaoto <inochiama@outlook.com>, Jean Delvare <jdelvare@suse.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>, Chao Wei <chao.wei@sophgo.com>, 
-	Jinyu Tang <tangjinyu@tinylab.org>, Hal Feng <hal.feng@starfivetech.com>, 
-	Yangyu Chen <cyy@cyyself.name>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Cc: linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v9 2/4] drivers: hwmon: sophgo: Add SG2042 external
- hardware monitor support
-Message-ID: <IA1PR20MB4953A31C50A63CA370082030BBBC2@IA1PR20MB4953.namprd20.prod.outlook.com>
-References: <IA1PR20MB495337877FFC8D787A045C15BBB32@IA1PR20MB4953.namprd20.prod.outlook.com>
- <IA1PR20MB4953032E1B5D58D2F6C7393DBBB32@IA1PR20MB4953.namprd20.prod.outlook.com>
- <c165cc19-d324-47aa-94a4-2d2db79afb0f@roeck-us.net>
- <IA1PR20MB4953DFA5607E92D16E1B31FABBB32@IA1PR20MB4953.namprd20.prod.outlook.com>
- <87ec50bb-7040-451c-832b-27b93923d5cf@roeck-us.net>
-Content-Disposition: inline
-In-Reply-To: <87ec50bb-7040-451c-832b-27b93923d5cf@roeck-us.net>
-X-TMN: [dZDJ3vUbDuC4AUgURT70iA9v9Kfq7WxBF7epo7C67J4=]
-X-ClientProxiedBy: SG3P274CA0002.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:be::14)
- To IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <hxev5yxbq4cild2o4eeskamav7xwvwrm5h2qmyxaehg2ldm5n2@obxqnjjc2p6i>
+	Sat, 03 Aug 2024 05:14:54 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-70d23caf8ddso7625281b3a.0
+        for <linux-riscv@lists.infradead.org>; Fri, 02 Aug 2024 22:14:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=heitbaum.com; s=google; t=1722662090; x=1723266890; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=BmvtDB3s2cR8UrreA9la38N0r8HdMO9IViXvEFHt/Nw=;
+        b=RiV5KEkZ7JvBZ/2FaXXzgtrlMdIPCc1andykf8LEizg1LoMyIaTThGgYM1CimK4WLD
+         bg/ct8w2WHmvlGx/j5HJvRn/FL/JneWCykw0lyN/pkG0sp62Op4iXQW5XmXFE7IejpCz
+         dHoMJ6OWh9P4weMxKPCokrrLyiSsIk49KhyVU=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1722662090; x=1723266890;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BmvtDB3s2cR8UrreA9la38N0r8HdMO9IViXvEFHt/Nw=;
+        b=h85T6aeC/IvMHvJnF63kIxnLJt9JKTXQxysSu+N5cgXYOVnbbo4ZzBcCYGrN6QXTmA
+         /yyEt7ACLEOB8lZgq3op71h7Fm5JbKvRKNnaW8DAagmlNEIJf4MNT6CnmpWWY3pddA77
+         m2H5B4MFXFbMYmd7QCIzG9aUWU8MOI1vm8ZUgi2m1p9uUGJAW/ymaB29ErUcmRhIUe4m
+         pbpA+yAB6TDnDwPLPXhWxro+oC06HWz9qfaihWqCROCEeMKlJKlGzsp1j47g1QN3qEOp
+         R9PwXqcf00tJ1x8ZQ0uOQ0gEnvLO7UOaM+NCTkOlO9g1LL+fBk70YM3U7gPzJrv0wdGL
+         cL3A==
+X-Forwarded-Encrypted: i=1; AJvYcCWaMLIHTn5lu06YFs3KnCtd92MQiB+7xRD2YCqeImC/2OBE05/hfDs0poxRIzNEP5GqG/8n6188dcffsdDUS0+C9rMUqPo18k+cX4+VJLmX
+X-Gm-Message-State: AOJu0Yyqc+O4r9zZH1b0vtaUdVdtKMZep07iF8zheogEBJpkWgCExceO
+	fn4x7jz08iyGzByB4mi7wRnIwLmn7aFYgKRQv53vFHuSSEj8+d7GMt0ylVVc6rY=
+X-Google-Smtp-Source: AGHT+IFtk7L8k8Q3OP5IS2+A9RpjMYCUcoWx/gWA5UpNjio/ITBkqtqn6ebqg37Slew3B08+KAqPog==
+X-Received: by 2002:a05:6a20:a11f:b0:1c4:944c:41e2 with SMTP id adf61e73a8af0-1c699683bdbmr8888959637.51.1722662089837;
+        Fri, 02 Aug 2024 22:14:49 -0700 (PDT)
+Received: from faede8dcc269 ([122.199.11.121])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1ff58f57176sm26262095ad.80.2024.08.02.22.14.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 02 Aug 2024 22:14:49 -0700 (PDT)
+Date: Sat, 3 Aug 2024 05:14:41 +0000
+From: Rudi Heitbaum <rudi@heitbaum.com>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Andreas Schwab <schwab@suse.de>,
+	Florian Weimer <fweimer@redhat.com>,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-api@vger.kernel.org,
+	Arnd Bergmann <arnd@arndb.de>, WANG Xuerui <kernel@xen0n.name>,
+	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>,
+	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev
+Subject: Re: [PATCH] syscalls: fix syscall macros for newfstat/newfstatat
+Message-ID: <Zq28wejX3U9J1_JV@faede8dcc269>
+References: <20240801123305.2392874-1-arnd@kernel.org>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|MN0PR20MB7271:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4687bce2-cee8-466a-4d24-08dcb37052e5
-X-Microsoft-Antispam: BCL:0;ARA:14566002|461199028|5072599009|19110799003|8060799006|3412199025|440099028|1710799026;
-X-Microsoft-Antispam-Message-Info: x7kxJZDNFf6WLNnmMuKijUAA7LorKL17644846NkfxqFWRcF2cmd4j47Mpuhg1WWpl/XrzdP1P2Wx+Sm7CiAYojiFdspvbzqYJQcc3IRSGV6tq7IQMY/yZKBxX95Y7V9PbEDqAeTTuBqX8b2+Ba5zrk6aB9dr0Vrgj5J5/v/UzU0UGepeoxeHcMwDQgwPfgYsUi5gsRMLFTMMstnoshOiWFKTBpapIEHNUJyJoMrejck/bcWwk3U49WeelxcB80RvliQtfviPMeIgEwBpfLt78zqL1pKRkYqVehJoa1RF6gpjluD6fPCBchVuFaHcy3VGbjWBXgT5EL8k7a0ekeAKEE0VCBdU6xcvbfzs/Qt+JwAlOiokyoZJPZ6iVcpu3eyQ8oCsRkFVwIehCIkUDDwRVY+lPkFXKrKeA2ngerJiGb06fe8jLYGa0WIfjsVndh3csANa/6JoqkrKBO7xZIeU/1d3agezHcRqVYVlVUGVS7eywxqAq9ZKYVU+/II/r5S29Y/Vk8+tlgUceLocf8qR2j3zD8nsGX5o4bO304DU7ZjHfLscfn8s8idLtV0wqy3TJFCwVrSQ0IQbYTaSzFvanQ0xowy5oNQfxxESu82Xxim3HG59NrHQ+q/LOKlOBs44wBnt2xkUtXyCItJOR7hvysnGIbyky7xNrjkbRaa1l5lf2cPTYrNMKOY/nP4EeHuPhPWeX/JaSYIQdTADu365g==
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?F+YBAh+m/9FmjgNW49ESJFGuL6IYUikG8Z/RvhUk5h8BoQmpj8CW/vR0amLD?=
- =?us-ascii?Q?D+ODHVH4pEmQHNN757uFS99vt2rmDtUvo0xK0NUggfujmtgrNlIoTh8Bvls/?=
- =?us-ascii?Q?ou6EtPqP6jIhPy5YIgahaTFVOOKzGSmtHpdXM1j0ASsKZeemOihSybGe+ZLV?=
- =?us-ascii?Q?mrv+rJjRDjYWRPrm3XrmgrUpBqXlqz1H3bfcHKjkl/pH9aZulyIxP7GRWnOz?=
- =?us-ascii?Q?YrT9KinZQLMZH3+7SNN/jibMFJP/PezZ8/wtCVRSYr2VgXT5n1oBcuuLh7OA?=
- =?us-ascii?Q?EDOSblfRxMdouFiVRDWUGXCYxXainfin3Hf/Jg/lfdKfSH6YFuWqXpMB79Ro?=
- =?us-ascii?Q?v2wylY9KzAfZtoXDcADyeHF0lpMIrTxJ6y+SIcKJlp1qQ9zbewDNFDoee68o?=
- =?us-ascii?Q?JFehScNJIfFr3tO6kIjl8s33xCX0xVF8SUY5ZZoMsjduHS9Iz10kU3BAQZl6?=
- =?us-ascii?Q?sGCY0FdmKwFaq5gv2FgMDuOPfpiHSZoHR57lWKRUM1j0SrDJ+Xl5A8EY+URh?=
- =?us-ascii?Q?Gd8wJcjjZ6NbHW9lx3FWyhy8O5prFOfQWbn1cqFGiyrHKRxyvdG78jdT5ErO?=
- =?us-ascii?Q?zgRUaUJM91YSVda+MMyX94s0rVTN+O1sgcDDj0NqTKW+A3zixEDbzY7bH6d7?=
- =?us-ascii?Q?czg1Ach4qxk//6Ct/b72B3dF8JmfsCcTSnf98zrP60BWfuGY0+06t3/bYyGt?=
- =?us-ascii?Q?Ojmhc2JiCV6F65oLu7jJrRYzbcbEXz5zomb04g+BI9MuhyiP9IZqWFtC2OJ4?=
- =?us-ascii?Q?VcZTBtcqKpe2LmZFCG+SHx2WVb9727YtugTVvuWuE+2QHOavQnVFYBCBB5SF?=
- =?us-ascii?Q?6okLA/4AytWx2FUEOONz6nNwZUeX4qnq1/1i4hN+qa+YhLmr3gkCHll9lKTl?=
- =?us-ascii?Q?FzY7EOjDVknODvTj5aU9j1wC5rdLl3Ulajvtn0T2QNQIM0YiJRJ8+mZRzx7n?=
- =?us-ascii?Q?zhT4koL/W9CkgUMznx1wtAj1AATonDu8Ao+qA3nDNBUDurK1flm8d/ECjYwD?=
- =?us-ascii?Q?VahYaPuPlBPd6YfH/oT/vbcZTzq4xiMWl0y73NWZzPM+dLeRR6CS87PKItXH?=
- =?us-ascii?Q?35QcKjo6E67+D6p32wmll1tnAt8lxbXvFAFZKr/jZnRWSZ1Q8X5VaahqWvFJ?=
- =?us-ascii?Q?nzSU6QtEBAVw3bTuEOljgqQPEKt/SCmvCmeRxRFi2RQyYmIlJEqSfvj+76b4?=
- =?us-ascii?Q?vCZSk1E0RhOL9AslwetfOSJ7PEMoSo5lWRMoOIsTFUJ4eqMLYTwWX6uoPh2A?=
- =?us-ascii?Q?B3o6jftJ8XqBh+wos/ji?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4687bce2-cee8-466a-4d24-08dcb37052e5
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Aug 2024 03:56:59.2872
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR20MB7271
+Content-Disposition: inline
+In-Reply-To: <20240801123305.2392874-1-arnd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240802_205707_428175_D768987E 
-X-CRM114-Status: GOOD (  29.95  )
+X-CRM114-CacheID: sfid-20240802_221452_500066_F76447B0 
+X-CRM114-Status: GOOD (  13.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,580 +98,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 02, 2024 at 08:47:10PM GMT, Guenter Roeck wrote:
-> On 8/2/24 16:28, Inochi Amaoto wrote:
-> > On Fri, Aug 02, 2024 at 06:59:22AM GMT, Guenter Roeck wrote:
-> > > On 8/2/24 05:38, Inochi Amaoto wrote:
-> > > > SG2042 use an external MCU to provide basic hardware information
-> > > > and thermal sensors.
-> > > > 
-> > > > Add driver support for the onboard MCU of SG2042.
-> > > > 
-> > > > Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
-> > > > Tested-by: Chen Wang <unicorn_wang@outlook.com>
-> > > > Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
-> > > > ---
-> > > >    Documentation/hwmon/index.rst      |   1 +
-> > > >    Documentation/hwmon/sg2042-mcu.rst |  39 +++
-> > > >    drivers/hwmon/Kconfig              |  11 +
-> > > >    drivers/hwmon/Makefile             |   1 +
-> > > >    drivers/hwmon/sg2042-mcu.c         | 394 +++++++++++++++++++++++++++++
-> > > >    5 files changed, 446 insertions(+)
-> > > >    create mode 100644 Documentation/hwmon/sg2042-mcu.rst
-> > > >    create mode 100644 drivers/hwmon/sg2042-mcu.c
-> > > > 
-> > > > diff --git a/Documentation/hwmon/index.rst b/Documentation/hwmon/index.rst
-> > > > index 913c11390a45..ea3b5be8fe4f 100644
-> > > > --- a/Documentation/hwmon/index.rst
-> > > > +++ b/Documentation/hwmon/index.rst
-> > > > @@ -206,6 +206,7 @@ Hardware Monitoring Kernel Drivers
-> > > >       sch5636
-> > > >       scpi-hwmon
-> > > >       sfctemp
-> > > > +   sg2042-mcu
-> > > >       sht15
-> > > >       sht21
-> > > >       sht3x
-> > > > diff --git a/Documentation/hwmon/sg2042-mcu.rst b/Documentation/hwmon/sg2042-mcu.rst
-> > > > new file mode 100644
-> > > > index 000000000000..250016b47dd1
-> > > > --- /dev/null
-> > > > +++ b/Documentation/hwmon/sg2042-mcu.rst
-> > > > @@ -0,0 +1,39 @@
-> > > > +.. SPDX-License-Identifier: GPL-2.0
-> > > > +
-> > > > +Kernel driver sg2042-mcu
-> > > > +=====================
-> > > > +
-> > > > +Supported chips:
-> > > > +
-> > > > +  * Onboard MCU for sg2042
-> > > > +
-> > > > +    Addresses scanned: -
-> > > > +
-> > > > +    Prefix: 'sg2042-mcu'
-> > > > +
-> > > > +Authors:
-> > > > +
-> > > > +  - Inochi Amaoto <inochiama@outlook.com>
-> > > > +
-> > > > +Description
-> > > > +-----------
-> > > > +
-> > > > +This driver supprts hardware monitoring for onboard MCU with
-> > > > +i2c interface.
-> > > > +
-> > > > +Usage Notes
-> > > > +-----------
-> > > > +
-> > > > +This driver does not auto-detect devices. You will have to instantiate
-> > > > +the devices explicitly.
-> > > > +Please see Documentation/i2c/instantiating-devices.rst for details.
-> > > > +
-> > > > +Sysfs Attributes
-> > > > +----------------
-> > > > +
-> > > > +================= =============================================
-> > > > +temp1_input       Measured temperature of SoC
-> > > > +temp1_crit        Critical high temperature
-> > > > +temp1_crit_hyst   hysteresis temperature restore from Critical
-> > > > +temp2_input       Measured temperature of the base board
-> > > > +================= =============================================
-> > > > diff --git a/drivers/hwmon/Kconfig b/drivers/hwmon/Kconfig
-> > > > index b60fe2e58ad6..7aa6c3f322e5 100644
-> > > > --- a/drivers/hwmon/Kconfig
-> > > > +++ b/drivers/hwmon/Kconfig
-> > > > @@ -2066,6 +2066,17 @@ config SENSORS_SFCTEMP
-> > > >    	  This driver can also be built as a module.  If so, the module
-> > > >    	  will be called sfctemp.
-> > > > +config SENSORS_SG2042_MCU
-> > > > +	tristate "Sophgo onboard MCU support"
-> > > > +	depends on I2C
-> > > > +	depends on ARCH_SOPHGO || COMPILE_TEST
-> > > > +	help
-> > > > +	  Support for onboard MCU of Sophgo SG2042 SoCs. This mcu provides
-> > > > +	  power control and some basic information.
-> > > > +
-> > > > +	  This driver can be built as a module. If so, the module
-> > > > +	  will be called sg2042-mcu.
-> > > > +
-> > > >    config SENSORS_SURFACE_FAN
-> > > >    	tristate "Surface Fan Driver"
-> > > >    	depends on SURFACE_AGGREGATOR
-> > > > diff --git a/drivers/hwmon/Makefile b/drivers/hwmon/Makefile
-> > > > index b1c7056c37db..0bbe812a67ae 100644
-> > > > --- a/drivers/hwmon/Makefile
-> > > > +++ b/drivers/hwmon/Makefile
-> > > > @@ -194,6 +194,7 @@ obj-$(CONFIG_SENSORS_SCH56XX_COMMON)+= sch56xx-common.o
-> > > >    obj-$(CONFIG_SENSORS_SCH5627)	+= sch5627.o
-> > > >    obj-$(CONFIG_SENSORS_SCH5636)	+= sch5636.o
-> > > >    obj-$(CONFIG_SENSORS_SFCTEMP)	+= sfctemp.o
-> > > > +obj-$(CONFIG_SENSORS_SG2042_MCU) += sg2042-mcu.o
-> > > >    obj-$(CONFIG_SENSORS_SL28CPLD)	+= sl28cpld-hwmon.o
-> > > >    obj-$(CONFIG_SENSORS_SHT15)	+= sht15.o
-> > > >    obj-$(CONFIG_SENSORS_SHT21)	+= sht21.o
-> > > > diff --git a/drivers/hwmon/sg2042-mcu.c b/drivers/hwmon/sg2042-mcu.c
-> > > > new file mode 100644
-> > > > index 000000000000..6d8d677f86f3
-> > > > --- /dev/null
-> > > > +++ b/drivers/hwmon/sg2042-mcu.c
-> > > > @@ -0,0 +1,394 @@
-> > > > +// SPDX-License-Identifier: GPL-2.0-only
-> > > > +/*
-> > > > + * Copyright (c) 2024 Inochi Amaoto <inochiama@outlook.com>
-> > > > + *
-> > > > + * Sophgo power control mcu for SG2042
-> > > > + */
-> > > > +
-> > > > +#include <linux/cleanup.h>
-> > > > +#include <linux/debugfs.h>
-> > > > +#include <linux/err.h>
-> > > > +#include <linux/hwmon.h>
-> > > > +#include <linux/i2c.h>
-> > > > +#include <linux/kernel.h>
-> > > > +#include <linux/module.h>
-> > > > +#include <linux/mutex.h>
-> > > > +
-> > > > +/* fixed MCU registers */
-> > > > +#define REG_BOARD_TYPE				0x00
-> > > > +#define REG_MCU_FIRMWARE_VERSION		0x01
-> > > > +#define REG_PCB_VERSION				0x02
-> > > > +#define REG_PWR_CTRL				0x03
-> > > > +#define REG_SOC_TEMP				0x04
-> > > > +#define REG_BOARD_TEMP				0x05
-> > > > +#define REG_RST_COUNT				0x0a
-> > > > +#define REG_UPTIME				0x0b
-> > > > +#define REG_RESET_REASON			0x0d
-> > > > +#define REG_MCU_TYPE				0x18
-> > > > +#define REG_REPOWER_ACTION			0x65
-> > > > +#define REG_CRITICAL_TEMP			0x66
-> > > > +#define REG_REPOWER_TEMP			0x67
-> > > > +
-> > > > +#define REPOWER_ACTION_REBOOT			1
-> > > > +#define REPOWER_ACTION_POWEROFF			2
-> > > > +
-> > > > +#define MCU_POWER_MAX				0xff
-> > > > +
-> > > > +#define DEFINE_MCU_DEBUG_ATTR(_name, _reg, _format)			\
-> > > > +	static int _name##_show(struct seq_file *seqf,			\
-> > > > +				    void *unused)			\
-> > > > +	{								\
-> > > > +		struct sg2042_mcu_data *mcu = seqf->private;		\
-> > > > +		int ret;						\
-> > > > +		ret = i2c_smbus_read_byte_data(mcu->client, (_reg));	\
-> > > > +		if (ret < 0)						\
-> > > > +			return ret;					\
-> > > > +		seq_printf(seqf, _format "\n", ret);			\
-> > > > +		return 0;						\
-> > > > +	}								\
-> > > > +	DEFINE_SHOW_ATTRIBUTE(_name)					\
-> > > > +
-> > > > +struct sg2042_mcu_data {
-> > > > +	struct i2c_client	*client;
-> > > > +	struct dentry		*debugfs;
-> > > > +	struct mutex		mutex;
-> > > > +};
-> > > > +
-> > > > +static struct dentry *sgmcu_debugfs;
-> > > > +
-> > > > +static ssize_t reset_count_show(struct device *dev,
-> > > > +				struct device_attribute *attr,
-> > > > +				char *buf)
-> > > > +{
-> > > > +	struct sg2042_mcu_data *mcu = dev_get_drvdata(dev);
-> > > > +	int ret;
-> > > > +
-> > > > +	ret = i2c_smbus_read_byte_data(mcu->client, REG_RST_COUNT);
-> > > > +	if (ret < 0)
-> > > > +		return ret;
-> > > > +
-> > > > +	return sprintf(buf, "%d\n", ret);
-> > > > +}
-> > > > +
-> > > > +static ssize_t uptime_show(struct device *dev,
-> > > > +			   struct device_attribute *attr,
-> > > > +			   char *buf)
-> > > > +{
-> > > > +	struct sg2042_mcu_data *mcu = dev_get_drvdata(dev);
-> > > > +	u8 time_val[2];
-> > > > +	int ret;
-> > > > +
-> > > > +	ret = i2c_smbus_read_i2c_block_data(mcu->client, REG_UPTIME,
-> > > > +					    sizeof(time_val), time_val);
-> > > > +	if (ret < 0)
-> > > > +		return ret;
-> > > > +
-> > > > +	return sprintf(buf, "%d\n",
-> > > > +		       (int)(time_val[0]) + (int)(time_val[1] << 8));
-> > > 
-> > > Pointless type casts
-> > > 
-> > > > +}
-> > > > +
-> > > > +static ssize_t reset_reason_show(struct device *dev,
-> > > > +				 struct device_attribute *attr,
-> > > > +				 char *buf)
-> > > > +{
-> > > > +	struct sg2042_mcu_data *mcu = dev_get_drvdata(dev);
-> > > > +	int ret;
-> > > > +
-> > > > +	ret = i2c_smbus_read_byte_data(mcu->client, REG_RESET_REASON);
-> > > > +	if (ret < 0)
-> > > > +		return ret;
-> > > > +
-> > > > +	return sprintf(buf, "0x%02x\n", ret);
-> > > > +}
-> > > > +
-> > > > +static ssize_t repower_action_show(struct device *dev,
-> > > > +				   struct device_attribute *attr,
-> > > > +				   char *buf)
-> > > > +{
-> > > > +	struct sg2042_mcu_data *mcu = dev_get_drvdata(dev);
-> > > > +	int ret;
-> > > > +	const char *action;
-> > > > +
-> > > > +	ret = i2c_smbus_read_byte_data(mcu->client, REG_REPOWER_ACTION);
-> > > > +	if (ret < 0)
-> > > > +		return ret;
-> > > > +
-> > > > +	if (ret == REPOWER_ACTION_REBOOT)
-> > > > +		action = "reboot";
-> > > > +	else if (ret == REPOWER_ACTION_POWEROFF)
-> > > > +		action = "poweroff";
-> > > > +	else
-> > > > +		action = "unknown";
-> > > > +
-> > > > +	return sprintf(buf, "%s\n", action);
-> > > > +}
-> > > > +
-> > > > +static ssize_t repower_action_store(struct device *dev,
-> > > > +				    struct device_attribute *attr,
-> > > > +				    const char *buf, size_t count)
-> > > > +{
-> > > > +	struct sg2042_mcu_data *mcu = dev_get_drvdata(dev);
-> > > > +	u8 value;
-> > > > +	int ret;
-> > > > +
-> > > > +	if (sysfs_streq("reboot", buf))
-> > > > +		value = REPOWER_ACTION_REBOOT;
-> > > > +	else if (sysfs_streq("poweroff", buf))
-> > > > +		value = REPOWER_ACTION_POWEROFF;
-> > > > +	else
-> > > > +		return -EINVAL;
-> > > > +
-> > > > +	guard(mutex)(&mcu->mutex);
-> > > > +
-> > > Pointless mutex protection.
-> > > 
-> > 
-> > OK, I have seen the protection in the i2c bus. I will remove this.
-> > 
-> > > > +	ret = i2c_smbus_write_byte_data(mcu->client,
-> > > > +					REG_REPOWER_ACTION, value);
-> > > > +	if (ret < 0)
-> > > > +		return ret;
-> > > > +
-> > > > +	return count;
-> > > > +}
-> > > > +
-> > > > +static DEVICE_ATTR_RO(reset_count);
-> > > > +static DEVICE_ATTR_RO(uptime);
-> > > > +static DEVICE_ATTR_RO(reset_reason);
-> > > > +static DEVICE_ATTR_RW(repower_action);
-> > > > +
-> > > > +DEFINE_MCU_DEBUG_ATTR(firmware_version, REG_MCU_FIRMWARE_VERSION, "0x%02x");
-> > > > +DEFINE_MCU_DEBUG_ATTR(pcb_version, REG_PCB_VERSION, "0x%02x");
-> > > > +DEFINE_MCU_DEBUG_ATTR(board_type, REG_BOARD_TYPE, "0x%02x");
-> > > > +DEFINE_MCU_DEBUG_ATTR(mcu_type, REG_MCU_TYPE, "%d");
-> > > > +
-> > > > +static struct attribute *sg2042_mcu_attrs[] = {
-> > > > +	&dev_attr_reset_count.attr,
-> > > > +	&dev_attr_uptime.attr,
-> > > > +	&dev_attr_reset_reason.attr,
-> > > > +	&dev_attr_repower_action.attr,
-> > > > +	NULL
-> > > > +};
-> > > > +
-> > > > +static const struct attribute_group sg2042_mcu_attr_group = {
-> > > > +	.attrs	= sg2042_mcu_attrs,
-> > > > +};
-> > > > +
-> > > > +static const struct attribute_group *sg2042_mcu_groups[] = {
-> > > > +	&sg2042_mcu_attr_group,
-> > > > +	NULL
-> > > > +};
-> > > > +
-> > > > +static const struct hwmon_channel_info * const sg2042_mcu_info[] = {
-> > > > +	HWMON_CHANNEL_INFO(chip, HWMON_C_REGISTER_TZ),
-> > > > +	HWMON_CHANNEL_INFO(temp, HWMON_T_INPUT | HWMON_T_CRIT |
-> > > > +					HWMON_T_CRIT_HYST,
-> > > > +				 HWMON_T_INPUT),
-> > > > +	NULL
-> > > > +};
-> > > > +
-> > > > +static int sg2042_mcu_read(struct device *dev,
-> > > > +			   enum hwmon_sensor_types type,
-> > > > +			   u32 attr, int channel, long *val)
-> > > > +{
-> > > > +	struct sg2042_mcu_data *mcu = dev_get_drvdata(dev);
-> > > > +	int tmp;
-> > > > +	u8 reg;
-> > > > +
-> > > > +	switch (attr) {
-> > > > +	case hwmon_temp_input:
-> > > > +		reg = channel ? REG_BOARD_TEMP : REG_SOC_TEMP;
-> > > > +		break;
-> > > > +	case hwmon_temp_crit:
-> > > > +		reg = REG_CRITICAL_TEMP;
-> > > > +		break;
-> > > > +	case hwmon_temp_crit_hyst:
-> > > > +		reg = REG_REPOWER_TEMP;
-> > > > +		break;
-> > > > +	default:
-> > > > +		return -EOPNOTSUPP;
-> > > > +	}
-> > > > +
-> > > > +	tmp = i2c_smbus_read_byte_data(mcu->client, reg);
-> > > > +	if (tmp < 0)
-> > > > +		return tmp;
-> > > > +	*val = tmp * 1000;
-> > > > +
-> > > > +	return 0;
-> > > > +}
-> > > > +
-> > > > +static int sg2042_mcu_write(struct device *dev,
-> > > > +			    enum hwmon_sensor_types type,
-> > > > +			    u32 attr, int channel, long val)
-> > > > +{
-> > > > +	struct sg2042_mcu_data *mcu = dev_get_drvdata(dev);
-> > > > +	int temp = val / 1000;
-> > > > +	int hyst_temp, crit_temp;
-> > > > +	u8 reg;
-> > > > +
-> > > > +	if (temp > MCU_POWER_MAX)
-> > > > +		temp = MCU_POWER_MAX;
-> > > > +	else if (temp < 0)
-> > > > +		temp = 0;
-> > > > +
-> > > 	temp = clamp_val(temp, 0, MCU_POWER_MAX);
-> > > 
-> > > > +	guard(mutex)(&mcu->mutex);
-> > > > +
-> > > > +	switch (attr) {
-> > > > +	case hwmon_temp_crit:
-> > > > +		hyst_temp = i2c_smbus_read_byte_data(mcu->client,
-> > > > +						     REG_REPOWER_TEMP);
-> > > > +		if (hyst_temp < 0)
-> > > > +			return hyst_temp;
-> > > > +
-> > > > +		crit_temp = temp;
-> > > > +		reg = REG_CRITICAL_TEMP;
-> > > > +		break;
-> > > > +	case hwmon_temp_crit_hyst:
-> > > > +		crit_temp = i2c_smbus_read_byte_data(mcu->client,
-> > > > +						     REG_CRITICAL_TEMP);
-> > > > +		if (crit_temp < 0)
-> > > > +			return crit_temp;
-> > > > +
-> > > > +		hyst_temp = temp;
-> > > > +		reg = REG_REPOWER_TEMP;
-> > > > +		break;
-> > > > +	default:
-> > > > +		return -EOPNOTSUPP;
-> > > > +	}
-> > > > +
-> > > > +	/*
-> > > > +	 * ensure hyst_temp is smaller to avoid MCU from
-> > > > +	 * keeping triggering repower event.
-> > > > +	 */
-> > > > +	if (crit_temp < hyst_temp)
-> > > > +		return -EINVAL;
-> > > > +
-> > > > +	return i2c_smbus_write_byte_data(mcu->client, reg, temp);
-> > > > +}
-> > > > +
-> > > > +static umode_t sg2042_mcu_is_visible(const void *_data,
-> > > > +				     enum hwmon_sensor_types type,
-> > > > +				     u32 attr, int channel)
-> > > > +{
-> > > > +	switch (type) {
-> > > > +	case hwmon_temp:
-> > > > +		switch (attr) {
-> > > > +		case hwmon_temp_input:
-> > > > +			return 0444;
-> > > > +		case hwmon_temp_crit:
-> > > > +		case hwmon_temp_crit_hyst:
-> > > > +			if (channel == 0)
-> > > > +				return 0664;
-> > > > +			break;
-> > > 
-> > > In practice this is the only break; in this nested switch sequence,
-> > > making the return 0; at the end necessary.
-> > > 
-> > > Please either use break; always when returning 0, or return 0 here
-> > > as well and drop the final return 0;
-> > > 
-> > 
-> > Thanks, but I have a question: as this break can be fallthrough to the
-> > default, is it better to use break;/return 0;, or just remove this
-> > break; and let it fallthrough?
-> > 
+On Thu, Aug 01, 2024 at 02:32:33PM +0200, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
 > 
-> Either always use break; when returning 0 or always use "return 0;".
-> Please don't rely on fallthrough; it doesn't improve anything since you'd
-> have to tag it as fallthrough and you might then as well use break;
-> or return 0; directly.
+> The __NR_newfstat and __NR_newfstatat macros accidentally got renamed
+> in the conversion to the syscall.tbl format, dropping the 'new' portion
+> of the name.
 > 
-> Guenter
+> In an unrelated change, the two syscalls are no longer architecture
+> specific but are once more defined on all 64-bit architectures, so the
+> 'newstat' ABI keyword can be dropped from the table as a simplification.
 > 
+> Fixes: Fixes: 4fe53bf2ba0a ("syscalls: add generic scripts/syscall.tbl")
+> Closes: https://lore.kernel.org/lkml/838053e0-b186-4e9f-9668-9a3384a71f23@app.fastmail.com/T/#t
+> Reported-by: Florian Weimer <fweimer@redhat.com>
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 
-Thanks.
+Hi Arnd,
 
-Regards,
-Inochi.
+With this patch to kernel 6.11-rc1 the error whilst compiling gcc-14.2 for
+aarch64 with libsanitizer has changed from '__NR_newfstatat' to
+'__NR_fstat', so some change, but still fail8ng.
 
-> > > > +		default:
-> > > > +			return 0;
-> > > > +		}
-> > > > +		break;
-> > > > +	default:
-> > > > +		return 0;
-> > > > +	}
-> > > > +	return 0;
-> > > > +}
-> > > > +
-> > > > +static const struct hwmon_ops sg2042_mcu_ops = {
-> > > > +	.is_visible = sg2042_mcu_is_visible,
-> > > > +	.read = sg2042_mcu_read,
-> > > > +	.write = sg2042_mcu_write,
-> > > > +};
-> > > > +
-> > > > +static const struct hwmon_chip_info sg2042_mcu_chip_info = {
-> > > > +	.ops = &sg2042_mcu_ops,
-> > > > +	.info = sg2042_mcu_info,
-> > > > +};
-> > > > +
-> > > > +static void sg2042_mcu_debugfs_init(struct sg2042_mcu_data *mcu,
-> > > > +				    struct device *dev)
-> > > > +{
-> > > > +	mcu->debugfs = debugfs_create_dir(dev_name(dev), sgmcu_debugfs);
-> > > > +	if (mcu->debugfs) {
-> > > 
-> > > debugfs_create_dir() returns an ERR_PTR(), which is checked in debugfs_create_file().
-> > > This if() is pointless.
-> > > 
-> > 
-> > Thanks.
-> > 
-> > > > +		debugfs_create_file("firmware_version", 0444, mcu->debugfs,
-> > > > +				    mcu, &firmware_version_fops);
-> > > > +		debugfs_create_file("pcb_version", 0444, mcu->debugfs, mcu,
-> > > > +				    &pcb_version_fops);
-> > > > +		debugfs_create_file("mcu_type", 0444, mcu->debugfs, mcu,
-> > > > +				    &mcu_type_fops);
-> > > > +		debugfs_create_file("board_type", 0444, mcu->debugfs, mcu,
-> > > > +				    &board_type_fops);
-> > > > +	}
-> > > > +}
-> > > > +
-> > > > +static int sg2042_mcu_i2c_probe(struct i2c_client *client)
-> > > > +{
-> > > > +	struct device *dev = &client->dev;
-> > > > +	struct sg2042_mcu_data *mcu;
-> > > > +	struct device *hwmon_dev;
-> > > > +
-> > > > +	if (!i2c_check_functionality(client->adapter, I2C_FUNC_SMBUS_BYTE_DATA |
-> > > > +						I2C_FUNC_SMBUS_BLOCK_DATA))
-> > > > +		return -EIO;
-> > > > +
-> > > 		return -ENODEV;
-> > > 
-> > > > +	mcu = devm_kmalloc(dev, sizeof(*mcu), GFP_KERNEL);
-> > > > +	if (!mcu)
-> > > > +		return -ENOMEM;
-> > > > +
-> > > > +	mutex_init(&mcu->mutex);
-> > > > +	mcu->client = client;
-> > > > +
-> > > > +	i2c_set_clientdata(client, mcu);
-> > > > +
-> > > > +	hwmon_dev = devm_hwmon_device_register_with_info(dev, "sg2042_mcu",
-> > > > +							 mcu,
-> > > > +							 &sg2042_mcu_chip_info,
-> > > > +							 NULL);
-> > > > +	if (IS_ERR_OR_NULL(hwmon_dev))
-> > > > +		return -EFAULT;
-> > > 
-> > > devm_hwmon_device_register_with_info() returns an ERR_PTR(), and
-> > > returning -EFAULT instead of it is more than wrong (this does not indicate
-> > > a "bad address"). This needs to be
-> > > 
-> > > 	if (IS_ERR(hwmon_dev))
-> > > 		return PTR_ERR(hwmon_dev);
-> > > 
-> > > I am sure I asked before not to overwrite error codes.
-> > 
-> > Yes, you have asked, it seems that I have missed this code when I
-> > check the driver. I apology for this mistake and thanks for your
-> > reminder.
-> > 
-> > > 
-> > > > +
-> > > > +	sg2042_mcu_debugfs_init(mcu, dev);
-> > > > +
-> > > > +	return 0;
-> > > > +}
-> > > > +
-> > > > +static void sg2042_mcu_i2c_remove(struct i2c_client *client)
-> > > > +{
-> > > > +	struct sg2042_mcu_data *mcu = i2c_get_clientdata(client);
-> > > > +
-> > > > +	debugfs_remove_recursive(mcu->debugfs);
-> > > > +}
-> > > > +
-> > > > +static const struct i2c_device_id sg2042_mcu_id[] = {
-> > > > +	{ "sg2042-hwmon-mcu", 0 },
-> > > > +	{},
-> > > > +};
-> > > > +MODULE_DEVICE_TABLE(i2c, sg2042_mcu_id);
-> > > > +
-> > > > +static const struct of_device_id sg2042_mcu_of_id[] = {
-> > > > +	{ .compatible = "sophgo,sg2042-hwmon-mcu" },
-> > > > +	{},
-> > > > +};
-> > > > +MODULE_DEVICE_TABLE(of, sg2042_mcu_of_id);
-> > > > +
-> > > > +static struct i2c_driver sg2042_mcu_driver = {
-> > > > +	.driver = {
-> > > > +		.name = "sg2042-mcu",
-> > > > +		.of_match_table = sg2042_mcu_of_id,
-> > > > +		.dev_groups = sg2042_mcu_groups,
-> > > > +	},
-> > > > +	.probe = sg2042_mcu_i2c_probe,
-> > > > +	.remove = sg2042_mcu_i2c_remove,
-> > > > +	.id_table = sg2042_mcu_id,
-> > > > +};
-> > > > +
-> > > > +static int __init sg2042_mcu_init(void)
-> > > > +{
-> > > > +	sgmcu_debugfs = debugfs_create_dir("sg2042-mcu", NULL);
-> > > > +	return i2c_add_driver(&sg2042_mcu_driver);
-> > > > +}
-> > > > +
-> > > > +static void __exit sg2042_mcu_exit(void)
-> > > > +{
-> > > > +	debugfs_remove_recursive(sgmcu_debugfs);
-> > > > +	i2c_del_driver(&sg2042_mcu_driver);
-> > > > +}
-> > > > +
-> > > > +module_init(sg2042_mcu_init);
-> > > > +module_exit(sg2042_mcu_exit);
-> > > > +
-> > > > +MODULE_AUTHOR("Inochi Amaoto <inochiama@outlook.com>");
-> > > > +MODULE_DESCRIPTION("MCU I2C driver for SG2042 soc platform");
-> > > > +MODULE_LICENSE("GPL");
-> > > 
-> 
+sanitizer_syscall_linux_aarch64.inc:13:23: error: '__NR_newfstatat' was not declared in this scope
+   13 | #define SYSCALL(name) __NR_ ## name
+      |                       ^~~~~
+
+sanitizer_syscall_linux_aarch64.inc:13:23: error: '__NR_fstat' was not declared in this scope
+   13 | #define SYSCALL(name) __NR_ ## name
+      |                       ^~~~~
+
+Regards
+Rudi
 
 _______________________________________________
 linux-riscv mailing list
