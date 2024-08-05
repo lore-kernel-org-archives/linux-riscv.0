@@ -4,93 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 345A0C3DA7F
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Aug 2024 14:42:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1665C3DA4A
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Aug 2024 14:46:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R10UXnMa501F71FeWRVvjqiirL0NoJyuS4KZfw0J6wo=; b=i/4sIPVGKRz71l
-	Rg6RS3c0jpOGt4RKGvkSWnhYKc50m8FEU7fGRVBYuZAJ0Oz0TW0xKDxP1YXF7U45m18taDU2jmC8Z
-	h2qkWx8y11Z8jWqCur2rQyTd/VBHnZG0gQaYSpW4Hxnhwm1uLioUf8kWAJoLauL3p1o6Tsl+ACFHp
-	U2TzdGwF5LD97OVS9nN9CEYN0JRfTJlgfHWAm4oEE1avjuXeqVSg1qrFm+hL09tZM6JbgwqYOPxxP
-	fmWInR+G6zD8cr7gG0Bv/W49jbMiHr4q/K7ZUWkJyMWx8x6gwT2TOBiPX18dx6AwjQihkYqodGqII
-	5wRgm+9m0OEg2XYKvzWQ==;
+	List-Owner; bh=0iOAlhs+974A5MpprSFfsKoF5dg3HeTr/w6si+095oM=; b=EM9Px62HvM6DFr
+	t/r3CO6nu3ZjcvWKZo1HjN1z88skD9WVC2c9TUh9IfXjq4k+aKfBhMlm8Aem3s9pSRxHkC1MM1L6n
+	W8SFiHOPZ52KrI4VaZJtLjUrIaTzXt5JEJriMJ05INNEMliagLsflbeQD6vq/Gqyu8p4RP0nQP63/
+	6pO9lwc+vDqRsxjEb8B98J7sP5v+yKz9Inw+vgmWokaL09+zaacnD+AIw9P/8awvDmJ2GxBB6det/
+	lt+FPNhkKxvy8GfOE4HZGSSVTYwDNhlgKyuHRMBNuulZzD7iysiOjNa/cOU+x5cQJidhRu0GluP35
+	g1edueGDY0J6VghC+x3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sayuy-0000000GBIg-0Z1S;
-	Mon, 05 Aug 2024 14:42:36 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1sayyo-0000000GBzx-1wRp;
+	Mon, 05 Aug 2024 14:46:34 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sayuR-0000000GB9w-16uv;
-	Mon, 05 Aug 2024 14:42:04 +0000
+	id 1sayyk-0000000GBzD-3xbU
+	for linux-riscv@lists.infradead.org;
+	Mon, 05 Aug 2024 14:46:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0C63B60C5E;
-	Mon,  5 Aug 2024 14:42:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F5ADC4AF0C;
-	Mon,  5 Aug 2024 14:41:46 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 7EDEECE0B07;
+	Mon,  5 Aug 2024 14:46:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 610F5C32782;
+	Mon,  5 Aug 2024 14:46:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1722868921;
-	bh=KAAzyiSgI5VUznoplq6rpjnO/fNKSFt30uf+NxUGEms=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QeZVbyPBXcN5TPefvaZdSJjjdX4y6Cq/DxczfJ+Znju3yHvNTlO4aXvamUiVWCNfm
-	 dJFw3BUgSadYOQ78s/G2NFZdYqOSMyUBf2zL4pLaMFZ2EewzmNmJ9Rhn37EaPRg84N
-	 9/e8uP7RFruygWPGM1gHiLdkGIBlGPcbSW51E1iNan8BRdokqw6NeOBGxu0KFh/Qks
-	 mRAvGlnoK48IZtmY+61J7iNsk0pg1002E708O3v+oVXriGyhI/7ytWZoPV2JtIBVsT
-	 FjMUFjm01xX837WqtfHRuVUblGy21ffay5yDOackY6gR8nnfP4nTbw6GxA72f9QZSb
-	 FucTO3UZRmE+A==
-Date: Mon, 5 Aug 2024 17:39:41 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, linux-kernel@vger.kernel.org,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Hildenbrand <david@redhat.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Davidlohr Bueso <dave@stgolabs.net>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-	Zi Yan <ziy@nvidia.com>, devicetree@vger.kernel.org,
-	linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-cxl@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-mips@vger.kernel.org,
-	linux-mm@kvack.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	nvdimm@lists.linux.dev, sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v3 07/26] mm: drop CONFIG_HAVE_ARCH_NODEDATA_EXTENSION
-Message-ID: <ZrDkLeLxQAVvZcBn@kernel.org>
-References: <20240801060826.559858-1-rppt@kernel.org>
- <20240801060826.559858-8-rppt@kernel.org>
- <20240802104922.000051a0@Huawei.com>
- <20240803115813.809f808f1afbe9f9feaae129@linux-foundation.org>
- <Zq8sn5iD1iOmYrss@kernel.org>
- <20240804161119.00003a02@Huawei.com>
+	s=k20201202; t=1722869187;
+	bh=94RXyxSLGcwjU1R2qw3Uebsb4WrWwGJbW2oeNed/Zkg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=rBMwIb578KOJ8y8fazgn0wUuM+IOsZMWTkLgKsxUHOaOFgKdYHx4W4O7q00Kgja2F
+	 KAtgq+aQWFdwgVYFX2k8PemaY3q56vAdzdPY3Rl11XETgfLa4cxO9Bqhxzre1AnzAb
+	 NNJH+i9NsKoHkzdINRCbEqzOoJu/MpVu2qjgHVP3few2gi7pp3n6/9tqNw7bOetOsL
+	 LtyJSigv1CuPKJG8AXeNK4DHJP5mD8CIRRMjKcEgvOJj/jOUOByrx/EOxZQGHVkNty
+	 HVA4KXUSedNmBJCW4f/11vbb1aHUdZrMikaLltC8DtWxWJfTj7DbrBoKw5Ycs59AII
+	 A69Bznry8HBJQ==
+Message-ID: <4dc17f0c-557b-443b-a6cf-840b1b848b6f@kernel.org>
+Date: Mon, 5 Aug 2024 16:46:21 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240804161119.00003a02@Huawei.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/3] dt-bindings: iio: adc: sophgo,cv18xx-saradc.yaml:
+ Add Sophgo SARADC binding documentation
+To: Jonathan Cameron <jic23@kernel.org>
+Cc: Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
+ Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
+ Inochi Amaoto <inochiama@outlook.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ =?UTF-8?Q?Miqu=C3=A8l_Raynal?= <miquel.raynal@bootlin.com>,
+ linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <20240731-sg2002-adc-v3-0-5ac40a518c0a@bootlin.com>
+ <20240731-sg2002-adc-v3-1-5ac40a518c0a@bootlin.com>
+ <368cc5a8-3ec1-4e91-ae1d-59068f25d8e0@kernel.org>
+ <20240803113959.12aa0c4a@jic23-huawei>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20240803113959.12aa0c4a@jic23-huawei>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240805_074203_413433_01E287E1 
-X-CRM114-Status: GOOD (  41.43  )
+X-CRM114-CacheID: sfid-20240805_074631_652469_708FBFE2 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,157 +129,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 04, 2024 at 04:11:19PM +0100, Jonathan Cameron wrote:
-> On Sun, 4 Aug 2024 10:24:15 +0300
-> Mike Rapoport <rppt@kernel.org> wrote:
+On 03/08/2024 12:39, Jonathan Cameron wrote:
+>>
+>>> +
+>>> +unevaluatedProperties: false  
+>>
+>> I don't see any other $ref. Don't you miss adc.yaml? Or channels? Or
+>> some more properties? This looks incomplete for ADC.
 > 
-> > On Sat, Aug 03, 2024 at 11:58:13AM -0700, Andrew Morton wrote:
-> > > On Fri, 2 Aug 2024 10:49:22 +0100 Jonathan Cameron <Jonathan.Cameron@Huawei.com> wrote:
-> > >   
-> > > > > --- a/mm/mm_init.c
-> > > > > +++ b/mm/mm_init.c
-> > > > > @@ -1838,11 +1838,10 @@ void __init free_area_init(unsigned long *max_zone_pfn)
-> > > > >  
-> > > > >  		if (!node_online(nid)) {
-> > > > >  			/* Allocator not initialized yet */
-> > > > > -			pgdat = arch_alloc_nodedata(nid);
-> > > > > +			pgdat = memblock_alloc(sizeof(*pgdat), SMP_CACHE_BYTES);
-> > > > >  			if (!pgdat)
-> > > > >  				panic("Cannot allocate %zuB for node %d.\n",
-> > > > >  				       sizeof(*pgdat), nid);
-> > > > > -			arch_refresh_nodedata(nid, pgdat);  
-> > > > 
-> > > > This allocates pgdat but never sets node_data[nid] to it
-> > > > and promptly leaks it on the line below. 
-> > > > 
-> > > > Just to sanity check this I spun up a qemu machine with no memory
-> > > > initially present on some nodes and it went boom as you'd expect.
-> > > > 
-> > > > I tested with addition of
-> > > > 			NODE_DATA(nid) = pgdat;
-> > > > and it all seems to work as expected.  
-> > > 
-> > > Thanks, I added that.  It blew up on x86_64 allnoconfig because
-> > > node_data[] (and hence NODE_DATA()) isn't an lvalue when CONFIG_NUMA=n.
-> > > 
-> > > I'll put some #ifdef CONFIG_NUMAs in there for now but
-> > > 
-> > > a) NODE_DATA() is upper-case. Implies "constant".  Shouldn't be assigned to.
-> > > 
-> > > b) NODE_DATA() should be non-lvalue when CONFIG_NUMA=y also.  But no,
-> > >    we insist on implementing things in cpp instead of in C.  
-> > 
-> > This looks like a candidate for a separate tree-wide cleanup.
-> >  
-> > > c) In fact assigning to anything which ends in "()" is nuts.  Please
-> > >    clean up my tempfix.
-> > > 
-> > > c) Mike, generally I'm wondering if there's a bunch of code here
-> > >    which isn't needed on CONFIG_NUMA=n.  Please check all of this for
-> > >    unneeded bloatiness.  
-> > 
-> > I believe the patch addresses your concerns, just with this the commit log
-> > needs update. Instead of 
-> > 
-> >     Replace the call to arch_alloc_nodedata() in free_area_init() with
-> >     memblock_alloc(), remove arch_refresh_nodedata() and cleanup
-> >     include/linux/memory_hotplug.h from the associated ifdefery.
-> > 
-> > it should be
-> > 
-> >     Replace the call to arch_alloc_nodedata() in free_area_init() with a
-> >     new helper alloc_offline_node_data(), remove arch_refresh_nodedata()
-> >     and cleanup include/linux/memory_hotplug.h from the associated
-> >     ifdefery.
-> > 
-> > I can send an updated patch if you prefer.
-> This solution looks good to me - except for a Freudian typo that means it won't
-> compile :)
+> It's acceptable on ADCs in particular (but more generally)
+> to just assume all channels are exposed.  They may all be wired
+> to internal power lines anyway, in which case what is there is
+> a chip feature.  This only works if their isn't any channel specific
+> configuration, then not providing the channels child nodes is fine.
+> 
+> However, that requires us to be fairly sure there won't ever be
+> a per channel thing that needs configuring from DT.
+> That's generally only the case in simple devices.
+> 
+> So might be better to put the channels nodes in there and deal with
+> dynamic channel configuration (so don't present any without
+> a channel node) from the start as it's more future proof.
 
-Right :)
+OK. Then anyway this should be additionalProperties: false (unless I
+missed somewhere $ref?).
 
-I'll post v4 after kbuild confirms it compiles :)
- 
-> Jonathan
-> 
-> > 
-> > diff --git a/include/linux/numa.h b/include/linux/numa.h
-> > index 3b12d8ca0afd..5a749fd67f39 100644
-> > --- a/include/linux/numa.h
-> > +++ b/include/linux/numa.h
-> > @@ -34,6 +34,7 @@ extern struct pglist_data *node_data[];
-> >  #define NODE_DATA(nid)	(node_data[nid])
-> >  
-> >  void __init alloc_node_data(int nid);
-> > +void __init alloc_offline_node_data(int nit);
-> >  
-> >  /* Generic implementation available */
-> >  int numa_nearest_node(int node, unsigned int state);
-> > @@ -62,6 +63,8 @@ static inline int phys_to_target_node(u64 start)
-> >  {
-> >  	return 0;
-> >  }
-> > +
-> > +static inline void alloc_offline_node_data(int nit) {}
-> nid
-> >  #endif
-> >  
-> >  #define numa_map_to_online_node(node) numa_nearest_node(node, N_ONLINE)
-> > diff --git a/mm/mm_init.c b/mm/mm_init.c
-> > index bcc2f2dd8021..2785be04e7bb 100644
-> > --- a/mm/mm_init.c
-> > +++ b/mm/mm_init.c
-> > @@ -1836,13 +1836,8 @@ void __init free_area_init(unsigned long *max_zone_pfn)
-> >  	for_each_node(nid) {
-> >  		pg_data_t *pgdat;
-> >  
-> > -		if (!node_online(nid)) {
-> > -			/* Allocator not initialized yet */
-> > -			pgdat = memblock_alloc(sizeof(*pgdat), SMP_CACHE_BYTES);
-> > -			if (!pgdat)
-> > -				panic("Cannot allocate %zuB for node %d.\n",
-> > -				       sizeof(*pgdat), nid);
-> > -		}
-> > +		if (!node_online(nid))
-> > +			alloc_offline_node_data(nid);
-> >  
-> >  		pgdat = NODE_DATA(nid);
-> >  		free_area_init_node(nid);
-> > diff --git a/mm/numa.c b/mm/numa.c
-> > index da27eb151dc5..07e486a977c7 100644
-> > --- a/mm/numa.c
-> > +++ b/mm/numa.c
-> > @@ -34,6 +34,18 @@ void __init alloc_node_data(int nid)
-> >  	memset(NODE_DATA(nid), 0, sizeof(pg_data_t));
-> >  }
-> >  
-> > +void __init alloc_offline_node_data(int nit)
-> 
-> nid
-> 
-> > +{
-> > +	pg_data_t *pgdat;
-> > +
-> > +	pgdat = memblock_alloc(sizeof(*pgdat), SMP_CACHE_BYTES);
-> > +	if (!pgdat)
-> > +		panic("Cannot allocate %zuB for node %d.\n",
-> > +		      sizeof(*pgdat), nid);
-> > +
-> > +	node_data[nid] = pgdat;
-> > +}
-> > +
-> >  /* Stub functions: */
-> >  
-> >  #ifndef memory_add_physaddr_to_nid
-> > 
-> >  
-> > 
-> 
-> 
+Best regards,
+Krzysztof
 
--- 
-Sincerely yours,
-Mike.
 
 _______________________________________________
 linux-riscv mailing list
