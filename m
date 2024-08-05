@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 253F6C3DA4A
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Aug 2024 19:46:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAF8FC3DA7F
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Aug 2024 19:46:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:References:Mime-Version
 	:Message-Id:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HPSwOT50HvIOeo9koBHLF2JU/WntXKy/GlY2y9EeaoM=; b=UW1bLlrRTEsQ3t
-	GeLRmZWMrEeDY3lOvpfVzr6x5vVRtMn9zQlfigELZg7AfdG+lf+A3kPI2cpxC5Ftv66RrlX/mUFoG
-	ioR+nwRART6PJFfE3Wc0Rn9n2O4mxBojH8Vm2rQmUMJbyW1oTNiMrRQewsfhYcodxfh+zLEx7Dtg/
-	zQT1awYTDXYc8E0cQcnMwMKcCtUEV1vus0hMngO8kSBwjsm0pUPaKkstLnPzmpstxUkZkw4X+P3Qo
-	pWSm4OBFmZFP5dqE3HOqEcY9Qi7SPcEJ39o7jEO/wl8GbStBcRaBPQ5BQnUcG0oFAbyjON5mySJB8
-	Ynx64aPWmcqR+4U5GcFA==;
+	List-Owner; bh=tkkuCFOCRS1WUkF/+shlPEuQkWAhB9Yh1KqoBSLHA6k=; b=tHX0UP2sU4R0ao
+	dlfotGj5FnYSXSynvo2hdMRIEYOrbhZxX9fjnuKn7LynfyMLVqcKI0uhlPuwFZV3VTP1Kdq23PmDf
+	uhHjE+HN6mTAtV9uhy4Qz+nbmZ7qHpe2+b6JqQknz9ejP0L0rcMLokv4ChvJUdLH6BvYdq65dDfpG
+	XSnhdnYDSu5EvgXg4Qk1mdAMbX3Eg1PkHC2VCOk7JgvllYhbTOVcFnEBaWf4h+Y7WRZtKwTBz2702
+	V2nu/d483zjPC1V+l/Nss1xTcXaBpBFyGY17+Q2UTJMS2wK0jmXb1aw0YTRzBK36Qh3yEHEaKwNFG
+	AWLJZXndVeeyqq3C9KRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sb3eq-0000000H48x-2QEn;
-	Mon, 05 Aug 2024 19:46:16 +0000
-Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
+	id 1sb3fL-0000000H4IS-0S40;
+	Mon, 05 Aug 2024 19:46:47 +0000
+Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sb3dI-0000000H3Xj-2Wde
+	id 1sb3dK-0000000H3Yo-44ix
 	for linux-riscv@lists.infradead.org;
-	Mon, 05 Aug 2024 19:44:42 +0000
-Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-e0b3742b309so16577024276.1
-        for <linux-riscv@lists.infradead.org>; Mon, 05 Aug 2024 12:44:40 -0700 (PDT)
+	Mon, 05 Aug 2024 19:44:44 +0000
+Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-e0bb206570aso12019678276.3
+        for <linux-riscv@lists.infradead.org>; Mon, 05 Aug 2024 12:44:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1722887079; x=1723491879; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1722887081; x=1723491881; darn=lists.infradead.org;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=Lfe4gxEvYKxDxRwW2qESsqEIUodbK6p7qv/mhdEEZFQ=;
-        b=th8ctGH/tvOeVkICXtC9iF71jrbKdZfrRCz82faohW+rJ/MIQzfU7f56Jjf+OEcQ4s
-         xZcvjtPE8JktgLbeoZaxzqjJ1kYe+KQ/nO5bJAitHAAG9syDuj5gDYdmVHg3K+Spn4o5
-         lE0OaYsvBuD7nBZMYhHkCGmd7DVbIFHYf65BZi6atg2J5Q1fiOPlTp8rB4pR8yYzs17/
-         rvTPOakUxmRY0TWQR5r/RDXN0X9AKs6aeM2FymMySHrF7g98DmaLTBhIX+av3G89J/LN
-         OUO/ufDzUXt4EPCgvgqNkPSx1xRngM6nQu3cbLT9htz41yPpKapX4dMY/J8mt72+B654
-         BbBw==
+        bh=NGlP+W+E1rzo+Hc23sUegbyHJcwAQCTmYUNWikKKi2I=;
+        b=NqNH6Hw1V3A5ATM7MO3K2Kzrc6MQU6fzH9epH0FNQDJJIwT0ImNfbnXYYGzOZ3coxQ
+         zE6Jb4MQ/E/g1AIgFbz7Sy4DIGHoCm9ikJ5I8clm4NI8Y2QzEZ79mA05KqVkvXxWmGe/
+         WzVr+Glm9IUM36g3RF0ZRjTIyk26DrJkiD/4cwKUP0FD2MSKzhWJcm6LhU8+GkSuofWF
+         Qszor6fg2s7ZBshHuRS4A6QshimtiG+g00QJ5D3VPwn0m3B1g7r5sXRLXUnQGk2v7o42
+         uJZRK5OPuvJ8CTvIZfaXPlqnyVKFf6UNQcfL7UPH1u32DpHkuvYFgpjaCR7hWiZwek1K
+         sj7g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722887079; x=1723491879;
+        d=1e100.net; s=20230601; t=1722887081; x=1723491881;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Lfe4gxEvYKxDxRwW2qESsqEIUodbK6p7qv/mhdEEZFQ=;
-        b=FrWgfeAmBtVnhe4s0w7UTttaPGvKAmnmVy6Rlyfc4Rxr68Smo6T77IR044Sl09g49U
-         LNdNtqefcYbKfNHG9N4MOJN9FkTh7LER+kQt7LFcDcLueFiHy3Md/zfJH7UaXCkMfqVp
-         jN1vEkpB5mfs/s3BETLfItonfsI2iGR109Ygh8w94T2n7vqw4uyrBaF960c+yIsOvAto
-         SNGc1ySywPdRLE79QAKEpS2wpwHvnTcuPXCne6J8z9/3W7bNHTgAv40I/99tFNz8dWOg
-         RTZ7xG6DkYMxn2KQU1CtovYLb2GSPRYf+F/xgZx1qivQQimACYYX/F2+vKFM/yltBXTl
-         aVNQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVXmhTuEvXwUvXFUcS17O7kh0iz6vMObVf/CAJoWqxusfLz21ejXSojBUtXErV2WORo59jEENXcDcaJr2zxZ8cfQq5yUJr4MYGOiAwaCCoJ
-X-Gm-Message-State: AOJu0Yyi1C0T95LXeK90/MivDyqsfHVZy2vZZ0rwcKsxUPAt5rb9UI5B
-	k83Gqmb9TxjD/h5GdowRqRxqUkBX2aGA3ZPVEQK1BdPU1jzDEQ51IQ+hN162K6tFO6SmRA4A1Tf
-	vN2qZ7Q==
-X-Google-Smtp-Source: AGHT+IGrmti4jOH/kazGkyLVxy/soVqkMo0+E8STQu6tXr+6jrpf9QaL4kxNGpeU3MiUA4lgzpOT4h7CHrFx
+        bh=NGlP+W+E1rzo+Hc23sUegbyHJcwAQCTmYUNWikKKi2I=;
+        b=skxI88F+1cgIS8TGt7QY5ZhmPwNE6Y9FnCyWZZMCFNBNLECKROgoTxDAE11nul2Dpk
+         ZGJdTizm0fVAYJrdbP4Byxb/4hrANVnZNFCHUlopaWaMRFFtDYe+QIdcPJd/9c6tpPgn
+         8clDnxtr86Wv2S3al3bnd0QJD/al1rVSpb5Boe/I2Ufv0XqtXAXqjE3JP/kVSk0waFeh
+         BsnBjnkRs/0KShLyQWP19imUhr8vyXKhtrZoUJQmX9KieeU8ZGYZ1nw4V29A+f2AxyxL
+         CiUz2UP2U6GNAV72c/Byk1ZISyrV+O9giqxbgZLyUEwcLx8Mq6iOnctZijINlUHWLxgD
+         XMuA==
+X-Forwarded-Encrypted: i=1; AJvYcCVtYj7uwVqD0DsiSBc8aTBxHhFflyARfpSkhbLVHXuvVd9o0/E3+tB3R9zBpDsb2CIAOlfvkc0jbQo+UOvDWPaVRr73jNHQCrnlteNgjnn0
+X-Gm-Message-State: AOJu0YyxqLl635VtzwaDneDXurxIrKDeVpM7BXo+kzUWIe0LzDd8+FoO
+	c1NJXb1rNVBVGV3pdwH91toqtNHys136KD6A2B+V0pdOJ6vDHT4kKR5me4hCUvJmdzOHDK+ppRU
+	o9QwN3g==
+X-Google-Smtp-Source: AGHT+IE+AeucgMIyAO3Z0FES/ae0JgHq8LbXGHTnVeU3bAh9HD4a6vZXuMVuSJRiYYFv5skWk5Mgq+Gnxr3N
 X-Received: from irogers.svl.corp.google.com ([2620:15c:2a3:200:1f65:8dc8:61d0:4b08])
- (user=irogers job=sendgmr) by 2002:a05:6902:2311:b0:e0b:6bb1:fac with SMTP id
- 3f1490d57ef6-e0bde421a34mr35840276.9.1722887079301; Mon, 05 Aug 2024 12:44:39
- -0700 (PDT)
-Date: Mon,  5 Aug 2024 12:44:23 -0700
+ (user=irogers job=sendgmr) by 2002:a05:6902:705:b0:e0e:3f14:c29d with SMTP id
+ 3f1490d57ef6-e0e3f14cae8mr166124276.4.1722887081584; Mon, 05 Aug 2024
+ 12:44:41 -0700 (PDT)
+Date: Mon,  5 Aug 2024 12:44:24 -0700
 In-Reply-To: <20240805194424.597244-1-irogers@google.com>
-Message-Id: <20240805194424.597244-4-irogers@google.com>
+Message-Id: <20240805194424.597244-5-irogers@google.com>
 Mime-Version: 1.0
 References: <20240805194424.597244-1-irogers@google.com>
 X-Mailer: git-send-email 2.46.0.rc2.264.g509ed76dc8-goog
-Subject: [PATCH v1 4/5] perf pmu-events: Remove duplicated riscv firmware event
+Subject: [PATCH v1 5/5] perf jevents.py: Ensure event names aren't duplicated
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -88,8 +88,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	vincent.chen@sifive.com, greentime.hu@sifive.com, 
 	Eric Lin <eric.lin@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240805_124440_664097_3F087494 
-X-CRM114-Status: UNSURE (   9.72  )
+X-CRM114-CacheID: sfid-20240805_124443_120543_B6EC55F9 
+X-CRM114-Status: UNSURE (   9.87  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -107,74 +107,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-FW_SFENCE_VMA_RECEIVED is repeated twice in the file which will break
-invariants in perf list as discussed in this thread:
-https://lore.kernel.org/linux-perf-users/20240719081651.24853-1-eric.lin@sifive.com/
+Duplicate event names break invariants in perf list. Assert that an
+event name isn't duplicated so that broken json won't build.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/pmu-events/arch/riscv/andes/ax45/firmware.json      | 3 ---
- tools/perf/pmu-events/arch/riscv/sifive/u74/firmware.json      | 3 ---
- .../perf/pmu-events/arch/riscv/starfive/dubhe-80/firmware.json | 3 ---
- .../perf/pmu-events/arch/riscv/thead/c900-legacy/firmware.json | 3 ---
- 4 files changed, 12 deletions(-)
+ tools/perf/pmu-events/jevents.py | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/tools/perf/pmu-events/arch/riscv/andes/ax45/firmware.json b/tools/perf/pmu-events/arch/riscv/andes/ax45/firmware.json
-index 9b4a032186a7..5a996fa4b837 100644
---- a/tools/perf/pmu-events/arch/riscv/andes/ax45/firmware.json
-+++ b/tools/perf/pmu-events/arch/riscv/andes/ax45/firmware.json
-@@ -35,9 +35,6 @@
-   {
-     "ArchStdEvent": "FW_SFENCE_VMA_RECEIVED"
-   },
--  {
--    "ArchStdEvent": "FW_SFENCE_VMA_RECEIVED"
--  },
-   {
-     "ArchStdEvent": "FW_SFENCE_VMA_ASID_RECEIVED"
-   },
-diff --git a/tools/perf/pmu-events/arch/riscv/sifive/u74/firmware.json b/tools/perf/pmu-events/arch/riscv/sifive/u74/firmware.json
-index 9b4a032186a7..5a996fa4b837 100644
---- a/tools/perf/pmu-events/arch/riscv/sifive/u74/firmware.json
-+++ b/tools/perf/pmu-events/arch/riscv/sifive/u74/firmware.json
-@@ -35,9 +35,6 @@
-   {
-     "ArchStdEvent": "FW_SFENCE_VMA_RECEIVED"
-   },
--  {
--    "ArchStdEvent": "FW_SFENCE_VMA_RECEIVED"
--  },
-   {
-     "ArchStdEvent": "FW_SFENCE_VMA_ASID_RECEIVED"
-   },
-diff --git a/tools/perf/pmu-events/arch/riscv/starfive/dubhe-80/firmware.json b/tools/perf/pmu-events/arch/riscv/starfive/dubhe-80/firmware.json
-index 9b4a032186a7..5a996fa4b837 100644
---- a/tools/perf/pmu-events/arch/riscv/starfive/dubhe-80/firmware.json
-+++ b/tools/perf/pmu-events/arch/riscv/starfive/dubhe-80/firmware.json
-@@ -35,9 +35,6 @@
-   {
-     "ArchStdEvent": "FW_SFENCE_VMA_RECEIVED"
-   },
--  {
--    "ArchStdEvent": "FW_SFENCE_VMA_RECEIVED"
--  },
-   {
-     "ArchStdEvent": "FW_SFENCE_VMA_ASID_RECEIVED"
-   },
-diff --git a/tools/perf/pmu-events/arch/riscv/thead/c900-legacy/firmware.json b/tools/perf/pmu-events/arch/riscv/thead/c900-legacy/firmware.json
-index 9b4a032186a7..5a996fa4b837 100644
---- a/tools/perf/pmu-events/arch/riscv/thead/c900-legacy/firmware.json
-+++ b/tools/perf/pmu-events/arch/riscv/thead/c900-legacy/firmware.json
-@@ -35,9 +35,6 @@
-   {
-     "ArchStdEvent": "FW_SFENCE_VMA_RECEIVED"
-   },
--  {
--    "ArchStdEvent": "FW_SFENCE_VMA_RECEIVED"
--  },
-   {
-     "ArchStdEvent": "FW_SFENCE_VMA_ASID_RECEIVED"
-   },
+diff --git a/tools/perf/pmu-events/jevents.py b/tools/perf/pmu-events/jevents.py
+index fcf0158438b5..1d96b2204e52 100755
+--- a/tools/perf/pmu-events/jevents.py
++++ b/tools/perf/pmu-events/jevents.py
+@@ -503,8 +503,11 @@ def print_pending_events() -> None:
+ 
+   first = True
+   last_pmu = None
++  last_name = None
+   pmus = set()
+   for event in sorted(_pending_events, key=event_cmp_key):
++    if last_pmu and last_pmu == event.pmu:
++      assert event.name != last_name, f"Duplicate event: {last_pmu}/{last_name}/ in {_pending_events_tblname}"
+     if event.pmu != last_pmu:
+       if not first:
+         _args.output_file.write('};\n')
+@@ -516,6 +519,7 @@ def print_pending_events() -> None:
+       pmus.add((event.pmu, pmu_name))
+ 
+     _args.output_file.write(event.to_c_string(metric=False))
++    last_name = event.name
+   _pending_events = []
+ 
+   _args.output_file.write(f"""
 -- 
 2.46.0.rc2.264.g509ed76dc8-goog
 
