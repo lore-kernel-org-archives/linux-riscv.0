@@ -4,82 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8142AC3DA64
-	for <linux-riscv@archiver.kernel.org>; Sun,  4 Aug 2024 15:12:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5145CC3DA7F
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Aug 2024 01:32:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GQh4d5T6fI/s6GHZXKwudoflgjYKr0AOYtmXSbOJYQU=; b=ENYoMBBqDIoHsI
-	NaewTV96mS99HQ0+OBoDkeGcmEMzJ32CfTDPWKLmS26A3agorHzsJgYeWVwerooCApnkDaM7C5P9q
-	unPyPHUa8/9d3Z3oo60YshPzE2IGdWv2+pMrt9yMjn3xrQwFZ1MoaOXxxk+Wta9kPACarYhqotFMh
-	uHBVr6/5/7T7Iblbo3j0m9G7ErOzprEzTueL6zNBQbaBoSUitVdU7W/3G43VpY3TlOXestD55aRQI
-	toEhY9JEbZl7+OSp8UepbwUrFNRIpKXI9T7lJ33vTy/ty5CXu6p/pulaVRQkHk0QKMpL6oxgA3DQb
-	X7FSHd0ZOytr4sXmn+Vw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8dgIRZvX/4nmcKScglpsDL4sBqDV7LAGPKrRLjdqHEc=; b=Uj4Jtw/uZJyPnsVIwdbkEJXRMQ
+	LFXpvJdZ2p47f+Lx2MPjYh49jwyWEdUVNK+XLkhR+YVZnyvFusDf/jkwo4diqjlHHyf2p0M3scwoQ
+	NMXltZmRAoZnyWuz2jRxd51A7gWDWAGC+t/ATm5haOl8wYKhYC6sAyV65EBbsaszws3CdW0xlJZjO
+	2TA8nNtzfPBESCep3ss5tE2JVkDBUlkZmChhnaVwT9Z3bhmnw/ZCJ8xirWi9hWwnm5LG9EX514p/A
+	dJMY1jHj50Ug/ICcU/kZ/+XLiimt7SrSA6UGE801t1t6OcyO3ocVkkHn75rUZXChzSMu3OKLRtdqX
+	MEzHkcwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sactq-0000000DTks-3WPE;
-	Sun, 04 Aug 2024 15:11:58 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1samZv-0000000EIht-0RCm;
+	Mon, 05 Aug 2024 01:32:03 +0000
+Received: from mail-maxind01olkn20801.outbound.protection.outlook.com ([2a01:111:f403:281b::801] helo=IND01-MAX-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sactG-0000000DTbO-0j6j;
-	Sun, 04 Aug 2024 15:11:24 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4WcNJB6tQWz6K5Vy;
-	Sun,  4 Aug 2024 23:08:58 +0800 (CST)
-Received: from lhrpeml500005.china.huawei.com (unknown [7.191.163.240])
-	by mail.maildlp.com (Postfix) with ESMTPS id B33CF140A35;
-	Sun,  4 Aug 2024 23:11:09 +0800 (CST)
-Received: from localhost (10.195.244.131) by lhrpeml500005.china.huawei.com
- (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Sun, 4 Aug
- 2024 16:11:08 +0100
-Date: Sun, 4 Aug 2024 16:11:19 +0100
-From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
-To: Mike Rapoport <rppt@kernel.org>
-CC: Andrew Morton <akpm@linux-foundation.org>, <linux-kernel@vger.kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>, Andreas Larsson
-	<andreas@gaisler.com>, Arnd Bergmann <arnd@arndb.de>, Borislav Petkov
-	<bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>, Christophe Leroy
-	<christophe.leroy@csgroup.eu>, Dan Williams <dan.j.williams@intel.com>, Dave
- Hansen <dave.hansen@linux.intel.com>, David Hildenbrand <david@redhat.com>,
-	"David S. Miller" <davem@davemloft.net>, "Davidlohr Bueso"
-	<dave@stgolabs.net>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Heiko
- Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>, Ingo
- Molnar <mingo@redhat.com>, Jiaxun Yang <jiaxun.yang@flygoat.com>, "John Paul
- Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>, Jonathan Corbet
-	<corbet@lwn.net>, Michael Ellerman <mpe@ellerman.id.au>, Palmer Dabbelt
-	<palmer@dabbelt.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Rob Herring
-	<robh@kernel.org>, Samuel Holland <samuel.holland@sifive.com>, "Thomas
- Bogendoerfer" <tsbogend@alpha.franken.de>, Thomas Gleixner
-	<tglx@linutronix.de>, Vasily Gorbik <gor@linux.ibm.com>, Will Deacon
-	<will@kernel.org>, Zi Yan <ziy@nvidia.com>, <devicetree@vger.kernel.org>,
-	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-cxl@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <linux-mips@vger.kernel.org>,
-	<linux-mm@kvack.org>, <linux-riscv@lists.infradead.org>,
-	<linux-s390@vger.kernel.org>, <linux-sh@vger.kernel.org>,
-	<linuxppc-dev@lists.ozlabs.org>, <loongarch@lists.linux.dev>,
-	<nvdimm@lists.linux.dev>, <sparclinux@vger.kernel.org>, <x86@kernel.org>
-Subject: Re: [PATCH v3 07/26] mm: drop CONFIG_HAVE_ARCH_NODEDATA_EXTENSION
-Message-ID: <20240804161119.00003a02@Huawei.com>
-In-Reply-To: <Zq8sn5iD1iOmYrss@kernel.org>
-References: <20240801060826.559858-1-rppt@kernel.org>
-	<20240801060826.559858-8-rppt@kernel.org>
-	<20240802104922.000051a0@Huawei.com>
-	<20240803115813.809f808f1afbe9f9feaae129@linux-foundation.org>
-	<Zq8sn5iD1iOmYrss@kernel.org>
-Organization: Huawei Technologies Research and Development (UK) Ltd.
-X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
+	id 1samZr-0000000EIfi-34KV
+	for linux-riscv@lists.infradead.org;
+	Mon, 05 Aug 2024 01:32:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CWJWiG31I36PFQSCCVc6W4rYI8m8GWH5aNEA3dX/kEE98w3UDATgIw7+PAPrqhL/RCmsbqOQXnnChXS6kWA3iTtxyYmX5FScLAVr4gevAONhpgdSnb4ASF7hDEAgFFnOEGD7ftnyi0P870GGJERlG67S9sa0ed/HDYfzpQ7iWNP9jkiFXqzM+uhaSBZBclGj2dQzw6pzxWksI2P1y9z/cmjuSHutDCvEFKy5+/UVIh/YUal55//VZNbUE2XAUyAi/HTNXPZ6iC4M5hQERZRKW+SFpDji3Q+T7MABdEYY1bsNNLGC26BZTZXSAe0InZ5cwD1RO10/FZHU4T9o6LY74A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=SyjFHsYIt8gMibD+yMn4dHE3jI4nHIYAYeYf3KCbPoc=;
+ b=wEs7q6Iy3Q/moSOYBMoIadNTUiwxxdIvs1VxrdqwA0RObUy0krhPEdFmR7Ab5Yea6+upxeiEPiGU06g73k0/0m/T4QJdf4vU6n7Cowfn0oSH1KbecMAMNqgPxrqtfTe6/Y6K67DtVyIsJdO74NxKi9vhFoOicHEn7/YYDRcNVve//BfcEBAiyLJ0JhdiqV0FcMXs+1EkR5ZxO/TfJRpLD7JziNYx+gpD6ayKjUs9DmUpp8V70g+d5oBZ559r+54IPYtxPqydSngeoPQAwpjnjApKrk5wkLZgtrD+D1A520ZAWlU1L3kYctWdHC6rBflS1f1d/4LY8XywngWE52w84w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=SyjFHsYIt8gMibD+yMn4dHE3jI4nHIYAYeYf3KCbPoc=;
+ b=aZ60pDsbgoqXE19UpFbf6cE6g8KaA/0WZDFNR5jgrJyUtUrcAze+mHu1Luwvx/e5F4GOCwRCT8j7ywPqVqOtxnwF3kF6ykDh3AVC89D002fQqAuHhfSNXyr1ANaCAx0+IJfdi386+Td+ywxZZiPaoe5ecGPrC8tlTjJ7hu6I+3QYeZABf7SVnda+ZOXvQHn6gtX2DUOLLOHTSMmtnn7uFzCXTuvJVNWyMsptxuip3bdgOub/AoJJvEroFnWFPPAEgEAQWl72qYfJ6Nbhb+5x6+2PeJGtYj3ldnOLh6KwCCMPinmF31REDUAj1OoZ6E5DqMVrfTTYj+xvuvIG83PL/g==
+Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:138::5)
+ by PN2P287MB1137.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:135::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7828.26; Mon, 5 Aug
+ 2024 01:31:39 +0000
+Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ ([fe80::a94:ad0a:9071:806c]) by MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ ([fe80::a94:ad0a:9071:806c%6]) with mapi id 15.20.7828.023; Mon, 5 Aug 2024
+ 01:31:39 +0000
+Message-ID: <MA0P287MB2822C3C5AC61D2A91542C33EFEBE2@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
+Date: Mon, 5 Aug 2024 09:31:24 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 4/4] riscv: defconfig: Enable MCU support for SG2042
+To: Inochi Amaoto <inochiama@outlook.com>, Jean Delvare <jdelvare@suse.com>,
+ Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Guo Ren <guoren@kernel.org>, Chao Wei <chao.wei@sophgo.com>,
+ Jinyu Tang <tangjinyu@tinylab.org>, Hal Feng <hal.feng@starfivetech.com>,
+ Yangyu Chen <cyy@cyyself.name>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Cc: linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <IA1PR20MB495337877FFC8D787A045C15BBB32@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <IA1PR20MB49530E505BAEC8F92B19F37FBBB32@IA1PR20MB4953.namprd20.prod.outlook.com>
+From: Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <IA1PR20MB49530E505BAEC8F92B19F37FBBB32@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-TMN: [kaUUtZue337fUwQvBFZOHyEpFLSZbalU]
+X-ClientProxiedBy: SG2PR01CA0155.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:8f::35) To MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:138::5)
+X-Microsoft-Original-Message-ID: <8fc25005-f9fb-4d03-a516-da590047f105@outlook.com>
 MIME-Version: 1.0
-X-Originating-IP: [10.195.244.131]
-X-ClientProxiedBy: lhrpeml500003.china.huawei.com (7.191.162.67) To
- lhrpeml500005.china.huawei.com (7.191.163.240)
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MA0P287MB2822:EE_|PN2P287MB1137:EE_
+X-MS-Office365-Filtering-Correlation-Id: e93f3df2-f9c0-423c-5145-08dcb4ee593d
+X-Microsoft-Antispam: BCL:0;ARA:14566002|461199028|8060799006|5072599009|19110799003|440099028|3412199025;
+X-Microsoft-Antispam-Message-Info: wCyIAOE3Kc2lf3MHiBxveRdEAODZixKh+2XDgAUf0sswXnlCYywMuxSpVuTAZcJqmQ8NuA0uUio9ztrnoU9inuksIHTQtet4p8JwZQ3ESGCurmkobp/fx5FsJdBiAnyuf1GAHDGbY3p2E/+q2dQ95GzI8FV1iK4PeZ6qLM5bPtHwc8ZLOstgvHRX+iI3nEzpXsQK1fV201E66NuVQuWkdbTg11nf7KzhjLALdaw760PiM8TFp0xwFnTixhnd4R03NA3qSL/hkbtze6sEtW9Z4hesdcfbJHSUw/dMBMjQnDXvLpCE/Si9QU17CzzFqzjL8d+Q3HRFGvVonyLcudD17lDsVFwRNLm1xFNFVIA/O7yNMgHmdR+y/0VAaY1Odc7cPpLB0oZPwUwITyV0AxJ3bCOHn5kghvMxVXKQA+aZEoCAjFmseFZ2vXhTydom1CNDGVwOJNO6CeNG147KcEtpqX4Xh4H5W1E1J5f6YWh6AiXa8Lcv9L3WALoZpL9HOq/Pe+kBK52vPcdBpug585gJunVl4EmiP12Hef4pTSn355tZQF5dUgcyAMdMFFBZUrpXsBG3G0W2BAv4nNld7uGHFyrcEMFikUbV8wHgM8Y7f96BwnYJZ5GsAjcLvmU1CKb44Wh9cmspYh+taM28oQGvetkqrroLivTlFjiv4vH4ujNC+Y8VDydwdN9J9od3nywK
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WFZWMm9FSGZKOGo1Z05TRGsyYVlSalp5UVRrbS9FTVdQTU52RUlKUGUyK3p0?=
+ =?utf-8?B?Ujc3VHRDdDZqU0xTQ25HNWdmSitDUGxJRlo2a3d2M1ZySENxWlRFNzhqSTFU?=
+ =?utf-8?B?emxGU3U4Wkt0RXdBTUkyNTZTOVFEaDBka2Z4NXdLWk5tSWVvYm1NazhwaTlp?=
+ =?utf-8?B?U3hGSnJWc2xoRmVZWDBydmRMa1JPN2dUWjJpOXZURTFvT1BVWEdNeDh2NmJL?=
+ =?utf-8?B?ZEF4K2x0STEwV2xtM3o0NS85QXpFL0ZiUUV0SndMSmZCQkg4RnREc01Ja2I2?=
+ =?utf-8?B?SDRLU1FZcnV1YzIvY2I4MXl1dW52NWN5REVoSlBtbHhHYlhtK2VBKzdIVGtx?=
+ =?utf-8?B?Z09TQnNYcVhlSm5WS0lSKzliQ2tSaXRJdFI1ZnRVTCtiR05OekdiUHVldnBY?=
+ =?utf-8?B?R3YxQWkzOHpyYkNGUkFOSkVqaHlGVmZuSlhMVWRia0o4d3F4OUY0MzlWRnpz?=
+ =?utf-8?B?NnhNMTBaZXovb1JHazFUU2twU01sV0pVYkl2eFVuSlNEc2J1STNzYlQ2SXV1?=
+ =?utf-8?B?T1NocVcwaGltcWh0L1VTcUpiQlZWSE83KzQyZ2VnUVJyczhGNXVNblJqSGYv?=
+ =?utf-8?B?WkhiTWY2T0RSaE1WRWhoRGg0M2k3L0l4L0ZtTmhzSGR5OXU1OGtNeXNFODZE?=
+ =?utf-8?B?dlgzWUQ4V3RHRzlXV28wTFBEMjZBc1BtMS9rQzl1Rm85dDIyaExUQVFENUtu?=
+ =?utf-8?B?TTVHenhaYzhPc1p2ZlR1bVh3a0JzN1VsbHUwMU0wNWRBWGhjSWhlNGp4TU44?=
+ =?utf-8?B?TzljNkRxUlI0TU5BdEV4L3VPM1FUQVpPaTNxQVlGaGgyOUR0NlhXYUI0QkpP?=
+ =?utf-8?B?a1l0eHBUb1FrS0J4ZWpKSGVBU1hLcWQra1V2ZEZUWU0wdkJxT1RURGMxVjNx?=
+ =?utf-8?B?d0VDVE9qNkhDVnB2dUI3SGw5N0hEaloraUVrVTg4Q3Zhd2F0dDlsUXJRQitx?=
+ =?utf-8?B?TzMxVHN5TVkrb1pxY014UEhkYUNETmlkVFR5b0Y2NjVOc3lhRmtlZG1WZndr?=
+ =?utf-8?B?dmVvRUl1aWNOTTc0dGxpN2h3WVF3YWNEUy9iZFgrYm1nT1hwdnNJaVBGS1hS?=
+ =?utf-8?B?M2VtY25xcEdxVkpERlMvRGdrMjBPaVIydjZoZjVhZ29BZUhUTkhHRUw4UGU2?=
+ =?utf-8?B?RmlHZE9aNkhyNHg1T1d0emlMTGdmbE14b25SSTEzeXJTdkVlbm80T2dIZFNN?=
+ =?utf-8?B?Wmdybk14Z3NWb0pWZ3JMWFNEaWlONXplUnI5WXFERFBFaXNHZzh6Z0tRcXlD?=
+ =?utf-8?B?cFNPUTZBMzE0UldlYTZUWmI0VndXb3hQMEphM2ZwM2ZyWVlqNm9kbm5FYnFk?=
+ =?utf-8?B?TDR5aVBob2M1TFU1MG9HbytLL3MydVY2WWxYRThjczN6NVpiQUNDTzZNWDJJ?=
+ =?utf-8?B?RnJEdDVTZzAzTzE1MlBtSnIyZFlYNVU1STRlcGliOGY5OHpQK1FySU93akpE?=
+ =?utf-8?B?VTJ5NTNDN0FxVFY5UGJmeXlCME4rRWp5TzZuK0lpVkZuMWVGTmVvaXhLSVAw?=
+ =?utf-8?B?MVFMOTN5K2xwY2dzZm9ZSDhxSTBwTWZqSllNS05nOFlRWUJ0cFVxeEdqNnNO?=
+ =?utf-8?B?ZWRheXlicDJhaUVpTDlnNFN3NFZIaGtybnVrRW95dGpuQU0ybDhzME85STNS?=
+ =?utf-8?B?ZklPZE1wQ0thL2hRRThPQVFxNjE5eDY5cTdwbC9PUEpaMktNUXhaZ0JiVmJI?=
+ =?utf-8?Q?cJAQIRUTgc6WfjixxCFN?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e93f3df2-f9c0-423c-5145-08dcb4ee593d
+X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Aug 2024 01:31:39.0509
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN2P287MB1137
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240804_081122_508233_E4DC0521 
-X-CRM114-Status: GOOD (  38.59  )
+X-CRM114-CacheID: sfid-20240804_183159_816602_CA1E6B56 
+X-CRM114-Status: GOOD (  13.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,152 +137,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 4 Aug 2024 10:24:15 +0300
-Mike Rapoport <rppt@kernel.org> wrote:
+Why this patch change the dts?
 
-> On Sat, Aug 03, 2024 at 11:58:13AM -0700, Andrew Morton wrote:
-> > On Fri, 2 Aug 2024 10:49:22 +0100 Jonathan Cameron <Jonathan.Cameron@Huawei.com> wrote:
-> >   
-> > > > --- a/mm/mm_init.c
-> > > > +++ b/mm/mm_init.c
-> > > > @@ -1838,11 +1838,10 @@ void __init free_area_init(unsigned long *max_zone_pfn)
-> > > >  
-> > > >  		if (!node_online(nid)) {
-> > > >  			/* Allocator not initialized yet */
-> > > > -			pgdat = arch_alloc_nodedata(nid);
-> > > > +			pgdat = memblock_alloc(sizeof(*pgdat), SMP_CACHE_BYTES);
-> > > >  			if (!pgdat)
-> > > >  				panic("Cannot allocate %zuB for node %d.\n",
-> > > >  				       sizeof(*pgdat), nid);
-> > > > -			arch_refresh_nodedata(nid, pgdat);  
-> > > 
-> > > This allocates pgdat but never sets node_data[nid] to it
-> > > and promptly leaks it on the line below. 
-> > > 
-> > > Just to sanity check this I spun up a qemu machine with no memory
-> > > initially present on some nodes and it went boom as you'd expect.
-> > > 
-> > > I tested with addition of
-> > > 			NODE_DATA(nid) = pgdat;
-> > > and it all seems to work as expected.  
-> > 
-> > Thanks, I added that.  It blew up on x86_64 allnoconfig because
-> > node_data[] (and hence NODE_DATA()) isn't an lvalue when CONFIG_NUMA=n.
-> > 
-> > I'll put some #ifdef CONFIG_NUMAs in there for now but
-> > 
-> > a) NODE_DATA() is upper-case. Implies "constant".  Shouldn't be assigned to.
-> > 
-> > b) NODE_DATA() should be non-lvalue when CONFIG_NUMA=y also.  But no,
-> >    we insist on implementing things in cpp instead of in C.  
-> 
-> This looks like a candidate for a separate tree-wide cleanup.
->  
-> > c) In fact assigning to anything which ends in "()" is nuts.  Please
-> >    clean up my tempfix.
-> > 
-> > c) Mike, generally I'm wondering if there's a bunch of code here
-> >    which isn't needed on CONFIG_NUMA=n.  Please check all of this for
-> >    unneeded bloatiness.  
-> 
-> I believe the patch addresses your concerns, just with this the commit log
-> needs update. Instead of 
-> 
->     Replace the call to arch_alloc_nodedata() in free_area_init() with
->     memblock_alloc(), remove arch_refresh_nodedata() and cleanup
->     include/linux/memory_hotplug.h from the associated ifdefery.
-> 
-> it should be
-> 
->     Replace the call to arch_alloc_nodedata() in free_area_init() with a
->     new helper alloc_offline_node_data(), remove arch_refresh_nodedata()
->     and cleanup include/linux/memory_hotplug.h from the associated
->     ifdefery.
-> 
-> I can send an updated patch if you prefer.
-This solution looks good to me - except for a Freudian typo that means it won't
-compile :)
-
-Jonathan
-
-> 
-> diff --git a/include/linux/numa.h b/include/linux/numa.h
-> index 3b12d8ca0afd..5a749fd67f39 100644
-> --- a/include/linux/numa.h
-> +++ b/include/linux/numa.h
-> @@ -34,6 +34,7 @@ extern struct pglist_data *node_data[];
->  #define NODE_DATA(nid)	(node_data[nid])
->  
->  void __init alloc_node_data(int nid);
-> +void __init alloc_offline_node_data(int nit);
->  
->  /* Generic implementation available */
->  int numa_nearest_node(int node, unsigned int state);
-> @@ -62,6 +63,8 @@ static inline int phys_to_target_node(u64 start)
->  {
->  	return 0;
->  }
-> +
-> +static inline void alloc_offline_node_data(int nit) {}
-nid
->  #endif
->  
->  #define numa_map_to_online_node(node) numa_nearest_node(node, N_ONLINE)
-> diff --git a/mm/mm_init.c b/mm/mm_init.c
-> index bcc2f2dd8021..2785be04e7bb 100644
-> --- a/mm/mm_init.c
-> +++ b/mm/mm_init.c
-> @@ -1836,13 +1836,8 @@ void __init free_area_init(unsigned long *max_zone_pfn)
->  	for_each_node(nid) {
->  		pg_data_t *pgdat;
->  
-> -		if (!node_online(nid)) {
-> -			/* Allocator not initialized yet */
-> -			pgdat = memblock_alloc(sizeof(*pgdat), SMP_CACHE_BYTES);
-> -			if (!pgdat)
-> -				panic("Cannot allocate %zuB for node %d.\n",
-> -				       sizeof(*pgdat), nid);
-> -		}
-> +		if (!node_online(nid))
-> +			alloc_offline_node_data(nid);
->  
->  		pgdat = NODE_DATA(nid);
->  		free_area_init_node(nid);
-> diff --git a/mm/numa.c b/mm/numa.c
-> index da27eb151dc5..07e486a977c7 100644
-> --- a/mm/numa.c
-> +++ b/mm/numa.c
-> @@ -34,6 +34,18 @@ void __init alloc_node_data(int nid)
->  	memset(NODE_DATA(nid), 0, sizeof(pg_data_t));
->  }
->  
-> +void __init alloc_offline_node_data(int nit)
-
-nid
-
-> +{
-> +	pg_data_t *pgdat;
-> +
-> +	pgdat = memblock_alloc(sizeof(*pgdat), SMP_CACHE_BYTES);
-> +	if (!pgdat)
-> +		panic("Cannot allocate %zuB for node %d.\n",
-> +		      sizeof(*pgdat), nid);
-> +
-> +	node_data[nid] = pgdat;
-> +}
-> +
->  /* Stub functions: */
->  
->  #ifndef memory_add_physaddr_to_nid
-> 
->  
-> 
-
+On 2024/8/2 20:38, Inochi Amaoto wrote:
+> Enable MCU driver for SG2042 to provide thermal and reboot support.
+>
+> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+> Tested-by: Chen Wang <unicorn_wang@outlook.com>
+> Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
+> ---
+>   arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts | 2 +-
+>   arch/riscv/configs/defconfig                        | 1 +
+>   2 files changed, 2 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+> index 8b8fdf6243d4..76375e25a495 100644
+> --- a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+> +++ b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+> @@ -67,7 +67,7 @@ soc_active3: soc-active3 {
+>   				};
+>   
+>   				soc_hot: soc-hot {
+> -					temperature = <85000>;
+> +					temperature = <80000>;
+>   					hysteresis = <5000>;
+>   					type = "hot";
+>   				};
+> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+> index 0d678325444f..a0f346301df6 100644
+> --- a/arch/riscv/configs/defconfig
+> +++ b/arch/riscv/configs/defconfig
+> @@ -170,6 +170,7 @@ CONFIG_SPI_SUN6I=y
+>   CONFIG_GPIO_SIFIVE=y
+>   CONFIG_POWER_RESET_GPIO_RESTART=y
+>   CONFIG_SENSORS_SFCTEMP=m
+> +CONFIG_SENSORS_SG2042_MCU=y
+>   CONFIG_CPU_THERMAL=y
+>   CONFIG_DEVFREQ_THERMAL=y
+>   CONFIG_RZG2L_THERMAL=y
 
 _______________________________________________
 linux-riscv mailing list
