@@ -4,96 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1546C3DA4A
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Aug 2024 09:19:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA67BC3DA7F
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Aug 2024 09:54:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=td6gc8prLkvx/+7e8J36rpceWFoPFDGtvUXa3wjBmas=; b=wN/mtLqcdKa8gZ
-	WiaXTuFZGYrVQ1qcBzMsxjp9Q0Pnf5849MAcVarZWisSXKIP18WBak8OQ6wfkjeBSYjiaAsF+wdE+
-	YxChvAXp/UgvVjxPPUHA8v3naLHDyN+vtLkEV2knqAxX1NocO78LXlWvtKbtWs5/AytP3fHH0CYm0
-	gxdDpXW6hBn8ILfIvpSCE+0strTRNuGvZNL0ELk1s43RizVybG0HHcGbtpcij3MRIea5Dedv0wnPX
-	ze2/TJaUOdU5kb41RBsqP7skT/u5LN5yPfmEVL0Vnio7UwTGfqSUA3rklru4z1XZ3Z/J7XWnfPXDJ
-	CDQSbX2tKwYUZEvCq8GA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=GndouvrXbGLF/NMVev+Qhs1Za79+t8MZcDgFIgGcbc8=; b=bOhFDUbs3ozcbq
+	DS6heJGR3figYR4vikr5U/U7SgPOE044p4c3iKGY+HnYPQ4BYWWSNn9h8UATYfBGezJzxS0e4euw+
+	tvPD4BmkN5ko6xwGa6qOIQmHSd8Y+vId5zanJZtWvRw1LR0hQDDBWTjFmXjPDRDp+UIfYiCPviWs+
+	XrrKUqzf4qTvMkMuMGNkxrGQ9owoYOteI1tivbZ91A/X79LmFLVEJHvml2klnyg52bBH4VU1LAIQD
+	MLfD72OcRHCk6CNqTkbaOZkTPen6a6TBUQoaOEA44klBswfCUO1kaocdCOf/n3xVBOMIAGXb207gl
+	d9xeXTywsRdyB0E5EBww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1satsg-0000000FGKQ-38Hr;
-	Mon, 05 Aug 2024 09:19:54 +0000
-Received: from mail-oi1-x233.google.com ([2607:f8b0:4864:20::233])
+	id 1sauPl-0000000FOMI-3RE8;
+	Mon, 05 Aug 2024 09:54:05 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1satsd-0000000FGIv-4BDc
+	id 1sauPg-0000000FOJP-3mhT
 	for linux-riscv@lists.infradead.org;
-	Mon, 05 Aug 2024 09:19:53 +0000
-Received: by mail-oi1-x233.google.com with SMTP id 5614622812f47-3db1bc36bc2so2553736b6e.0
-        for <linux-riscv@lists.infradead.org>; Mon, 05 Aug 2024 02:19:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1722849591; x=1723454391; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wTqIbxxugoDxIZS+wlCgd6QZms9qOuPLg9XDgZyFHpw=;
-        b=LscWM81Bf8icZiFjijDMk/92rK4is0vOp5Ts6xP3Nq6oX70U6Ng7CbtCJ3ovzY1mN/
-         RWTQlqFH58GcEGDtg8ZUe2elguzEtQrPYTwX3Ek8G1WoahJNDPB8vb2cnTO9tYsmKLRf
-         tgcoriFQoYrfuutfYoqxE1zayvI6jr+XF0CXKSNnB8oZOlWw0CZbahIFIykEbzd9Gizw
-         YJI6J9GdsiTqEcw3fr9YLbjIG64LVf+xveLs9hRTG1FPMnG5GgP1Ezn0B2Lb1kHt6yVv
-         Aozg0/z9zWA+A4txhO+Kxrrbx/zmSiz7DYY/F0/2k6vNhcNhX5raQlQTqGfhRFhg+iAN
-         /4ng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722849591; x=1723454391;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=wTqIbxxugoDxIZS+wlCgd6QZms9qOuPLg9XDgZyFHpw=;
-        b=KkQ+1vkkrfFGth/3P7teSGJpfhD7FtupSuV4wnWozb//kTX8OuT8lsrl73C7Lz4zPf
-         1dg12a5eEb0hWEE+Q65A/CE2V7xkatwi26oITGUqcGEFuQwcstsKOSTjjEVTb2mFvp4J
-         4g+2GhxWllVScEYO5BOtT0dfOIRybYjsuW0Bgg+akzrLHFb5Nzhee6B0DhyVEltG5PLm
-         lAjod53a6U/n+c6PZ3ItsatmgXav2C1wqi2kLeQsqSXSZD7RpzUk8xypw5nLqcK8OQAe
-         INaoHylGnRblCTVF/QaUDy8eeGfCtaBnH5jrtfN+1lGuIIbBT2s46WcwM6HYxoTedqqU
-         JvLQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVfJRgVT/asqoMOYestvu4I1a6YevUSkl8xMQY/1Oq6bPE702/PtkOAUvfSVAUmQeRPYv7w+VOL/SA+ikr/nM4afdO/AngwB2K+j8kltBBT
-X-Gm-Message-State: AOJu0YzsOikTqN0DRZPK1a+Mnmxb2R9gkO6CWB9uWSqBeArxZ6cNgBzt
-	npqcNu46/HSJlCLSmpnVJLW6eA5qKJicekS+x8zcCP4WcFZ+T1Ap
-X-Google-Smtp-Source: AGHT+IGQn28apZPLjY/cEqCd5i6fKpWv0taDd9wpuFCfINNuy5KX2wH7As+1leEZiltafu5WJpLcAA==
-X-Received: by 2002:a05:6808:f0a:b0:3d2:95f:da8c with SMTP id 5614622812f47-3db5381638dmr5222260b6e.18.1722849590714;
-        Mon, 05 Aug 2024 02:19:50 -0700 (PDT)
-Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-70a31d9dd1asm2875838a34.9.2024.08.05.02.19.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Aug 2024 02:19:50 -0700 (PDT)
-From: Chen Wang <unicornxw@gmail.com>
-To: adrian.hunter@intel.com,
-	aou@eecs.berkeley.edu,
-	conor+dt@kernel.org,
-	guoren@kernel.org,
-	inochiama@outlook.com,
-	jszhang@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	robh@kernel.org,
-	ulf.hansson@linaro.org,
-	devicetree@vger.kernel.org,
+	Mon, 05 Aug 2024 09:54:04 +0000
+Received: from ubt.. (unknown [210.73.53.31])
+	by APP-03 (Coremail) with SMTP id rQCowACHjvoJobBmMT6cAw--.14790S2;
+	Mon, 05 Aug 2024 17:53:14 +0800 (CST)
+From: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-mmc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	chao.wei@sophgo.com,
-	haijiao.liu@sophgo.com,
-	xiaoguang.xing@sophgo.com,
-	tingzhu.wang@sophgo.com
-Cc: Chen Wang <unicorn_wang@outlook.com>
-Subject: [PATCH v6 8/8] riscv: sophgo: dts: add mmc controllers for SG2042 SoC
-Date: Mon,  5 Aug 2024 17:19:43 +0800
-Message-Id: <03ac9ec9c23bbe4c3b30271e76537bdbe5638665.1722847198.git.unicorn_wang@outlook.com>
+	Chunyan Zhang <zhang.lyra@gmail.com>
+Subject: [PATCH V3 0/3] riscv: mm: Add soft-dirty and uffd-wp support
+Date: Mon,  5 Aug 2024 17:52:40 +0800
+Message-Id: <20240805095243.44809-1-zhangchunyan@iscas.ac.cn>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1722847198.git.unicorn_wang@outlook.com>
-References: <cover.1722847198.git.unicorn_wang@outlook.com>
 MIME-Version: 1.0
+X-CM-TRANSID: rQCowACHjvoJobBmMT6cAw--.14790S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Aw17trWrtr4xKryUZF4UXFb_yoW8XF15pa
+	ySkwn8try5CryIyr4fCr1qgr15X3Wft3s8Cryft34vyw4rWFWUZrnYk3WfJw18X3W29r9Y
+	93W5Gry5u3ykZaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvSb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
+	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVAC
+	Y4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJV
+	W8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lc7CjxVAaw2AFwI0_JF0_
+	Jw1lc2xSY4AK67AK6r4fMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI
+	8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AK
+	xVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI
+	8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280
+	aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43
+	ZEXa7IU8KFAPUUUUU==
+X-Originating-IP: [210.73.53.31]
+X-CM-SenderInfo: x2kd0wxfkx051dq6x2xfdvhtffof0/1tbiDAgAB2awjLg3zAAAsa
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240805_021952_066709_B429B772 
-X-CRM114-Status: UNSURE (   9.09  )
+X-CRM114-CacheID: sfid-20240805_025401_379274_F1C826B0 
+X-CRM114-Status: UNSURE (   9.26  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,82 +83,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Chen Wang <unicorn_wang@outlook.com>
+This patchset adds soft dirty and userfaultfd write protect tracking support
+for RISC-V.
 
-SG2042 has two MMC controller, one for emmc, another for sd-card.
+As described in the patches, we are trying to utilize only one free PTE
+bit(9) to support three kernel features (devmap, soft-dirty, uffd-wp).
+Users cannot have them supported at the same time (have to select
+one when building the kernel).
 
-Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
----
- .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  | 17 +++++++++++
- arch/riscv/boot/dts/sophgo/sg2042.dtsi        | 28 +++++++++++++++++++
- 2 files changed, 45 insertions(+)
+This patchset has been tested with:
+1) The kselftest mm suite in which soft-dirty, madv_populate, test_unmerge_uffd_wp,
+and uffd-unit-tests run and pass, and no regressions are observed in any of the
+other tests.
 
-diff --git a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
-index 80cb017974d8..da6596e9192e 100644
---- a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
-+++ b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
-@@ -26,6 +26,23 @@ &cgi_dpll1 {
- 	clock-frequency = <25000000>;
- };
- 
-+&emmc {
-+	bus-width = <4>;
-+	no-sdio;
-+	no-sd;
-+	non-removable;
-+	wp-inverted;
-+	status = "okay";
-+};
-+
-+&sd {
-+	bus-width = <4>;
-+	no-sdio;
-+	no-mmc;
-+	wp-inverted;
-+	status = "okay";
-+};
-+
- &uart0 {
- 	status = "okay";
- };
-diff --git a/arch/riscv/boot/dts/sophgo/sg2042.dtsi b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-index 34c802bd3f9b..f0ccefecc9c3 100644
---- a/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-+++ b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-@@ -399,5 +399,33 @@ uart0: serial@7040000000 {
- 			resets = <&rstgen RST_UART0>;
- 			status = "disabled";
- 		};
-+
-+		emmc: mmc@704002a000 {
-+			compatible = "sophgo,sg2042-dwcmshc";
-+			reg = <0x70 0x4002a000 0x0 0x1000>;
-+			interrupt-parent = <&intc>;
-+			interrupts = <134 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clkgen GATE_CLK_EMMC_100M>,
-+				 <&clkgen GATE_CLK_AXI_EMMC>,
-+				 <&clkgen GATE_CLK_100K_EMMC>;
-+			clock-names = "core",
-+				      "bus",
-+				      "timer";
-+			status = "disabled";
-+		};
-+
-+		sd: mmc@704002b000 {
-+			compatible = "sophgo,sg2042-dwcmshc";
-+			reg = <0x70 0x4002b000 0x0 0x1000>;
-+			interrupt-parent = <&intc>;
-+			interrupts = <136 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clkgen GATE_CLK_SD_100M>,
-+				 <&clkgen GATE_CLK_AXI_SD>,
-+				 <&clkgen GATE_CLK_100K_SD>;
-+			clock-names = "core",
-+				      "bus",
-+				      "timer";
-+			status = "disabled";
-+		};
- 	};
- };
+2) CRIU:
+- 'criu check --feature mem_dirty_track' returns supported;
+- incremental_dumps[1] and simple_loop [2] dump and restores work fine;
+- zdtm test suite can run under host mode.
+
+V3:
+- Fixed the issue reported by kernel test irobot <lkp@intel.com>.
+
+V1 -> V2:
+- Add uffd-wp supported;
+- Make soft-dirty uffd-wp and devmap mutually exclusive which all use the same PTE bit;
+- Add test results of CRIU in the cover-letter.
+
+[1] https://www.criu.org/Incremental_dumps
+[2] https://asciinema.org/a/232445
+
+Chunyan Zhang (3):
+  riscv: mm: Prepare for reuse PTE RSW bit(9)
+  riscv: mm: Add soft-dirty page tracking support
+  riscv: mm: Add uffd write-protect support
+
+ arch/riscv/Kconfig                    |  34 ++++++-
+ arch/riscv/include/asm/pgtable-64.h   |   2 +-
+ arch/riscv/include/asm/pgtable-bits.h |  31 ++++++
+ arch/riscv/include/asm/pgtable.h      | 132 +++++++++++++++++++++++++-
+ 4 files changed, 196 insertions(+), 3 deletions(-)
+
 -- 
 2.34.1
 
