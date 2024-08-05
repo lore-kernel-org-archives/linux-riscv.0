@@ -4,110 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B224BC3DA7F
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Aug 2024 17:38:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C27EC3DA7F
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Aug 2024 18:39:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zPQA0Su8PScRypllarmQKVfE5O5Da4Ik7DRwXjxAx2Q=; b=zQBuLfhUTWlg7B
-	gb1/JMiJpNX1ESm+6HRoY43EwV396qNSbG1l/rUel/faPd3dahmbN2HlF/YqONvvE5QwBvvJS7TKX
-	m3Tm1uBRv+JGXOZVerYMcVY8trmAwIaItiY0641XrMeSBkv3WYO3ycnN1w9M/lPkA7RhU3uSuU7al
-	L5Y8Z+QDGz9BKnq5aSbd+7L7lxzvzKP+Jk6dSydJWvmgwKm0L/pC6hl3ssThaMO+Ta5g76i6jcd0l
-	2glRTqKpfz9nT9dj345r+cIa/DLEMFgGvl7qvNHmzXiygr7C1F/OUKHMqj/aKnMEoNrBXq3ThfQF7
-	Cue6GgpKpIUhq1KdWaWw==;
+	List-Owner; bh=sw08uhxVbvfjgf3vE3w74ljkOPn7Oc0KBGh5K4namjw=; b=NtKvENyII0HdDM
+	vLHKk+wctKDXMDrtNyrMRoSyyPeW53eCsNFCOKoiFquqUV97xF1iOey30WvCOz2cTtwChqkuh4oky
+	sKg1tu6iHXaOndIWwr65dS5VxnzT0pRC0IlynwZIDhQMm/P/UmZM4PYGsj7UUpbfywawEa6M9K1KD
+	Uol/Svjdpx2H1St9CFCD7J0At1yCON+o+Q6go1h2G/Rd/u51x/DFuWa8pZYgOAv4UcdhgEIpGleRh
+	dg4aiiwnKAKm5LgKM64IZmbiSrsV5DEJ/PDKdwSWFBFqxQKqU4nwdhqOCuvkdtplIg5kyCZh0tvuQ
+	c6lY2Wy4miDhfWLnHLPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sb1fE-0000000GihU-3O8V;
-	Mon, 05 Aug 2024 17:38:33 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1sb2bp-0000000GtcT-2cgL;
+	Mon, 05 Aug 2024 18:39:05 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sb1f9-0000000Gid3-2Rm2
+	id 1sb2bm-0000000Gtbf-2zcL
 	for linux-riscv@lists.infradead.org;
-	Mon, 05 Aug 2024 17:38:30 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-1fc66fc35f2so41595055ad.0
-        for <linux-riscv@lists.infradead.org>; Mon, 05 Aug 2024 10:38:26 -0700 (PDT)
+	Mon, 05 Aug 2024 18:39:04 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5b01af9b0c9so9968741a12.3
+        for <linux-riscv@lists.infradead.org>; Mon, 05 Aug 2024 11:39:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1722879506; x=1723484306; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1722883140; x=1723487940; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=VZkU76SoGtSfmnwPfEEw88qwH45x7O9KVsPVc+U7f04=;
-        b=EDneOA6zDGY0s4qY34fVv0qDop8vj0f4Vy6gGxKNtR0QCh3sS2t7jgUU06zqzUqeVk
-         PwVGax7f1SrnRDMLOUxI3rxhhjYDLyGb1Y2BNDw3hAc7lWCo5erFhkDANahaoEHyNnRr
-         ctBR971Uu1XXqXnnbIWg0zvbYikE+q3RT9t8t6tfd2nsL6wipC2vpdaiWcdaPnMoBmP7
-         peYufAwpvXAuhZXGO1JoXaQH5IUyitH1d1pBFJAuUp2rV8XeCTvlUvxj0uZkMRurEI2y
-         MWFSZvipMJhXr8TtfN15B7vhKeDsJSq2OZ/Yth88t9QJg9P37HrF/gVx+qqKRzLJ/I/9
-         o4uw==
+        bh=Z0fHi9KsdL/dhg3Iq7FZic1Ag2yGSv3KBsY4wPIKoXc=;
+        b=uTibUDUvZrqbVgHKLe1MwXJugrXZTne1T/PVCxws318TB8wMqaPaZTJND7ioYAgRcK
+         zhh21qp71ylz4GMaJJNT0zgFTuinFrF9icydDMipTL4xPy2ShO+3eIiisf1TsWHawAFU
+         /cSDGtXW+lHxpzZtQmamG7XLbOVxkUfn1dZtRsHvZrZA9ZzQXXaQmDb82Y94GewS/u8Z
+         j4akZJFI6jLhQOEvUksInhjrsA2saua1hQKFNiXRuCPzrE1/LdMcW8sQN6F78qce8eTW
+         Yvp2ElSog+0wDF3YuA7zDCjOiycSEy5QKWEvlppCKW0Apau/cCpxRmXfUu39rXCqNCkR
+         7kQQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722879506; x=1723484306;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1722883140; x=1723487940;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=VZkU76SoGtSfmnwPfEEw88qwH45x7O9KVsPVc+U7f04=;
-        b=YgU5RwucfvbDcHabzCgNCOQ4xypxWTANPR20hvn/Ab7YPWMQmZRQ89BfOsH/kXIkr8
-         0J5dko5xrF7rMk9ClI/2ruh05cR6VAAPK3+x0fK9P/xzoDDr+UZ9CTzST+tU3gYnpQDw
-         NV5AMFLvd/Wt5OGLDd4L7u7USmbEMQWwlTEByX5iwjXHbC1Wbayv6bxVlBcOFaNiLLXI
-         Zc6GBt0fkEauMuT50g3OTLGhInfjw3ntjYLbu86ax46HySlhLwb969tlsHf7Cpw9n6Un
-         fjyCUM6PNqSi6MB0STo8sJvH8gDINLWThhqnpUMWVyuXbwX80ZvXRQmRDAlV+7bleuHu
-         h+Mw==
-X-Gm-Message-State: AOJu0Yzm/uoVv7RcgyTuwUzztoKeUIwAQ/SbjVH11wCz14/uX9LNNOxi
-	oxW/BDc3uME2kjuGhQ93ItEjpB1pAZsK/yETPrk2rS4GaL32B3RJwY5wPBeyzt7iZaUOhUy/z9G
-	p
-X-Google-Smtp-Source: AGHT+IHhD7ZA5U9zNGbfmuHz6Kc73fLM0dyk7QDOl15u9J4kpVy9BxqJMA6+3ZrOnp9i0Fr8cg59Bg==
-X-Received: by 2002:a17:902:d48f:b0:1fb:9cbf:b4e3 with SMTP id d9443c01a7336-1ff57ea1a8bmr218560665ad.22.1722879505996;
-        Mon, 05 Aug 2024 10:38:25 -0700 (PDT)
-Received: from jesse-desktop.ba.rivosinc.com (pool-108-26-179-17.bstnma.fios.verizon.net. [108.26.179.17])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1ff5929407asm71128435ad.242.2024.08.05.10.38.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Aug 2024 10:38:25 -0700 (PDT)
-From: Jesse Taube <jesse@rivosinc.com>
-To: linux-riscv@lists.infradead.org
-Cc: Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Conor Dooley <conor@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
-	Evan Green <evan@rivosinc.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Jesse Taube <jesse@rivosinc.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Xiao Wang <xiao.w.wang@intel.com>,
-	Andy Chiu <andy.chiu@sifive.com>,
-	Eric Biggers <ebiggers@google.com>,
-	Greentime Hu <greentime.hu@sifive.com>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Costa Shulyupin <costa.shul@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Baoquan He <bhe@redhat.com>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Zong Li <zong.li@sifive.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Ben Dooks <ben.dooks@codethink.co.uk>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Erick Archer <erick.archer@gmx.com>,
-	Joel Granados <j.granados@samsung.com>,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH 0/1] RISC-V: kernel parameter for unaligned access speed
-Date: Mon,  5 Aug 2024 13:38:16 -0400
-Message-ID: <20240805173816.3722002-2-jesse@rivosinc.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20240805173816.3722002-1-jesse@rivosinc.com>
-References: <20240805173816.3722002-1-jesse@rivosinc.com>
+        bh=Z0fHi9KsdL/dhg3Iq7FZic1Ag2yGSv3KBsY4wPIKoXc=;
+        b=VET4JNAALIUMZ8sPLZoUbzHHNGDJlR2eqR9CFm40CAyEwGodT+TR6hd4gEGN0JGtE7
+         QvOt4WquXD4NncDUGsewRA0G2ERcFpO8sd4oDGzGdnQzXrfv/JEVmjaeGJQdjDJx8mQk
+         0hQr9Bm/2FEyEnE7Y3DL1g+mZ7IGLedSg252ru3bH222e/1b31SrT22RkjkkXJXcbCon
+         bc1WA0Zlyza50p1rpglCqlLT4Gv/37MfJfkslWFXU8lL579/iIqwDKYoqW6DjUAqr51z
+         WTwUXV44W0KjP13sShJqOWnDMNXPpZqFekHLoES+UyvBm+rKy69DjBlAkzLj14VvG0Xi
+         +HBw==
+X-Gm-Message-State: AOJu0YypRyQybQnES4p/ODrDYB3WLCXNYSxZ6Vp4XrASHlAk7MG4l1uS
+	f+dXFumr+jCfllWBRXDXv1ytgJNDVCL/X11Ez+aPA9SJWF9eGuyOsKlwpsGe8TdPKSAl2FcvpJ+
+	9WO6lqE58XioW9O8j+PUe0FgfaGF4njcUanmXXA==
+X-Google-Smtp-Source: AGHT+IHGDWiYA4gxxfNGX16WDAPwnIZq8VLG/7+YcSFFrHFbrxAB9lU1euM5kVqthhxJ26B5ZI3RZy5fWZ0Q/yhpQmQ=
+X-Received: by 2002:a17:907:7204:b0:a7a:b070:92d1 with SMTP id
+ a640c23a62f3a-a7dc517b48dmr937619966b.46.1722883139711; Mon, 05 Aug 2024
+ 11:38:59 -0700 (PDT)
 MIME-Version: 1.0
+References: <20240805173816.3722002-1-jesse@rivosinc.com>
+In-Reply-To: <20240805173816.3722002-1-jesse@rivosinc.com>
+From: Evan Green <evan@rivosinc.com>
+Date: Mon, 5 Aug 2024 11:38:23 -0700
+Message-ID: <CALs-HstYwwgPAOP22V1A6iTX85eRqRp4b4039pewsDHus_dLgQ@mail.gmail.com>
+Subject: Re: [PATCH 1/1] RISC-V: Add parameter to unaligned access speed
+To: Jesse Taube <jesse@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, Jonathan Corbet <corbet@lwn.net>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>, 
+	Andrew Jones <ajones@ventanamicro.com>, Charlie Jenkins <charlie@rivosinc.com>, 
+	Xiao Wang <xiao.w.wang@intel.com>, Andy Chiu <andy.chiu@sifive.com>, 
+	Eric Biggers <ebiggers@google.com>, Greentime Hu <greentime.hu@sifive.com>, 
+	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
+	Heiko Stuebner <heiko@sntech.de>, Costa Shulyupin <costa.shul@redhat.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Baoquan He <bhe@redhat.com>, 
+	Anup Patel <apatel@ventanamicro.com>, Zong Li <zong.li@sifive.com>, 
+	Sami Tolvanen <samitolvanen@google.com>, Ben Dooks <ben.dooks@codethink.co.uk>, 
+	Alexandre Ghiti <alexghiti@rivosinc.com>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
+	Erick Archer <erick.archer@gmx.com>, Joel Granados <j.granados@samsung.com>, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240805_103827_822979_AB9218E1 
-X-CRM114-Status: UNSURE (   8.15  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240805_113902_922881_97A7CF93 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,31 +97,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a kernel parameter to the unaligned access speed. This allows
-skiping of the speed tests for unaligned accesses, which often is very
-slow.
-
-This patch requires (RISC-V: Detect and report speed of unaligned vector
-accesses) to be applied first.
-
-https://lore.kernel.org/all/20240726163719.1667923-1-jesse@rivosinc.com/
-
-Jesse Taube (1):
-  RISC-V: Add parameter to unaligned access speed
-
- arch/riscv/kernel/unaligned_access_speed.c | 81 ++++++++++++++++++++++
- 1 file changed, 81 insertions(+)
-
--- 
-2.45.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBBdWcgNSwgMjAyNCBhdCAxMDozOOKAr0FNIEplc3NlIFRhdWJlIDxqZXNzZUByaXZv
+c2luYy5jb20+IHdyb3RlOgo+Cj4gQWRkIGEga2VybmVsIHBhcmFtZXRlciB0byB0aGUgdW5hbGln
+bmVkIGFjY2VzcyBzcGVlZC4gVGhpcyBhbGxvd3MKPiBza2lwaW5nIG9mIHRoZSBzcGVlZCB0ZXN0
+cyBmb3IgdW5hbGlnbmVkIGFjY2Vzc2VzLCB3aGljaCBvZnRlbiBpcyB2ZXJ5Cj4gc2xvdy4KPgo+
+IFNpZ25lZC1vZmYtYnk6IEplc3NlIFRhdWJlIDxqZXNzZUByaXZvc2luYy5jb20+CgpIb3cgY29t
+ZSB0aGlzIGlzIGEgY29tbWFuZCBsaW5lIHBhcmFtZXRlciByYXRoZXIgdGhhbiBhIEtjb25maWcK
+b3B0aW9uPyBJIGNvdWxkIGJlIHdyb25nLCBzbyBJJ2xsIGxheSBvdXQgbXkgcmF0aW9uYWxlIGFu
+ZCBwZW9wbGUgY2FuCnBpY2sgaXQgYXBhcnQgaWYgSSd2ZSBnb3QgYSBiYWQgYXNzdW1wdGlvbi4K
+CkkgdGhpbmsgb2YgY29tbWFuZGxpbmUgcGFyYW1ldGVycyBhcyAobW9zdGx5KSBzb21ldGhpbmcg
+ZW5kIHVzZXJzCnR3aWRkbGUgd2l0aCwgdmVyc3VzIGtjb25maWcgb3B0aW9ucyBhcyBzb21ldGhp
+bmcgc3lzdGVtIGJ1aWxkZXJzIHNldAp1cC4gSSdkIGxhcmdlbHkgZXhwZWN0IGVuZCB1c2VycyBu
+b3QgdG8gbm90aWNlIHR3byB0aWNrcyBhdCBib290IHRpbWUuCkknZCBleHBlY3QgaXRzIHN5c3Rl
+bSBidWlsZGVycyBhbmQgZmxlZXQgbWFuYWdlcnMsIHdobyBrbm93IHRoZWlyCmhhcmR3YXJlIGFu
+ZCBidWlsZCB0aGVpciBrZXJuZWxzIG9wdGltaXplZCBmb3IgaXQsIGFyZSB0aGUgb25lcyB3aG8K
+d291bGQgd2FudCB0byBzaGF2ZSBvZmYgdGhpcyB0aW1lIGFuZCBnbyBzdHJhaWdodCB0byB0aGUg
+a25vd24gYW5zd2VyLgpBbmVjZG90YWxseSwgYXQgQ2hyb21lT1Mgd2UgaGFkIGEgc3Ryb25nIHBy
+ZWZlcmVuY2UgZm9yIEtjb25maWcKb3B0aW9ucywgYXMgdGhleSB3ZXJlIGVhc2llciB0byBjb21w
+b3NlIGFuZCBtYWludGFpbiB0aGFuIGEgbG9vc2UgcGlsZQpvZiBjb21tYW5kbGluZSBhcmd1bWVu
+dHMuCgpUaGUgY29tbWl0IHRleHQgZG9lc24ndCBnbyBpbnRvIHRoZSByYXRpb25hbGUsIGludGVu
+ZGVkIGF1ZGllbmNlLCBvcgpleHBlY3RlZCB1c2FnZSwgc28gbWF5YmUgbXkgZ3Vlc3NlcyBtaXNz
+IHRoZSBtYXJrIG9uIHdoYXQgeW91J3JlCnRoaW5raW5nLgotRXZhbgoKX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
+CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
+cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
