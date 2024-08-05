@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11984C3DA4A
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Aug 2024 20:36:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D188FC3DA7F
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Aug 2024 20:38:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lJgneDDrteNELRUGOWAWBSl5eaZJNl0lOYQzd4mVy68=; b=w7Mrdr3+Y/e3As
-	VDHTVskyfQt93lrFu3Xk5gvrQqP1RE9uDQ5/gndbpNfFd+H2GKYxFGaD+xZgnKYdbGc4YvGIAjjmx
-	5z4t1nBAj86RJeI3FAkLEw43eMXW1E+jCmi6plwemVooGbjl1DAS7PS4kNHahiu5VKbCI/SOGqyLo
-	sJCd1A4VjgccQ8goNeceCJaLpsZrLU20kmcibWY98CqyawyS2L2YpP2/ZJTULauyMDq/4naJQ6Ewx
-	J8A+AqXeahR2H2gWqn+Tc3v96OdauD48h7O5kR/SV2QP5ZoCejwIsgKycgiqaRhp9RkzVcKF3/WCT
-	1Fe1tpI6VomyCEWJqgeA==;
+	List-Owner; bh=g88SwNQSqNmprQLxFADQDwZsEAGrJP39M/r4XUjncEI=; b=XmzU92eWpE+e4E
+	tgl5cvW5eGTenblsbUblwdo4XHVn8eQT7M/nAiZ9f07T5mS3K3JJX+/9TTBezUfa92sIwt0OJ5OVb
+	7ek1SZ0hxgZE+aUDP8EtTe9vSsfeQGolzU40feYGiFgW1+EpQ93j0oAowoFW2/M4/z4lrLqPdXvU+
+	5S/wC4vYh1JsILMkQT9w3TubucxNK1/BeWgOSkhTzaEgOUM4lQv5EBwsFk5XyhzmykcxEUvQgW/ss
+	74Z9+7PMnhBqyWM8bDu+XytZO2/OprxN1yepnUmymeu33wUR6/NtwP6XbL6b62HeTazWyga5121Rv
+	XXKfFaI3ivAucseFwaRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sb4RV-0000000HDer-26K4;
-	Mon, 05 Aug 2024 20:36:33 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1sb4TA-0000000HE2j-1Rqg;
+	Mon, 05 Aug 2024 20:38:16 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sb4Qy-0000000HDVQ-3PLw;
-	Mon, 05 Aug 2024 20:36:02 +0000
+	id 1sb4Sc-0000000HDse-22kq;
+	Mon, 05 Aug 2024 20:37:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id CBB4BCE0B42;
-	Mon,  5 Aug 2024 20:35:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A51B2C32782;
-	Mon,  5 Aug 2024 20:35:43 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id AD1AD60DD2;
+	Mon,  5 Aug 2024 20:37:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 087EBC4AF0E;
+	Mon,  5 Aug 2024 20:37:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1722890158;
-	bh=wRagKm6MS39NDYLBbcdNfb/zxQJOwJqmtNN36cxhWNE=;
+	s=k20201202; t=1722890261;
+	bh=qdRuOti9XNlLltkR78ltAp8iub7ZiaEGkve5ZQKgRXs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=g0ifEE+/fQd9VQyFJiGF6eqG5LkKWn0QoytIRLG6RGNO3Qz+ixAqBqBhJXWXYzJE8
-	 0lFaNo21LgP2mbO565lm6BtVRnS7fXNHEJVy8zEtHsy8Uw8u/a5v19B4OkrZVUS3fx
-	 ix+vSxthkk0vtjORnJgV3NWtYxBAy3BhlS8nwLVfIFfPyq5ww4vSd2FHKgUzoj06Iv
-	 Vb4ByzZFa5e2puJlKIa3k2+AazNy3wMipT1Qok9eH8nBZ24hNYG5OjUnktHHi7xdO4
-	 HdW3CuSUf4iLi1uAYROJiEHzYtewSLvIDZn8z4DY92o6CWtrXY1hYgkOWg3WUTpR8E
-	 O3fqMHFNWnE8A==
-Date: Mon, 5 Aug 2024 23:33:39 +0300
+	b=bF0xgt419GbxyCGFRj0fNjByi1OtMInAxUy0fO7kuEExoo6r6jeZMXGjN5ikPGLYH
+	 /M1nzHizackmgautp/VnDSLRxQXCurMyrYVEwg5Yf+PdgGkwhSt7ZiA1a6tEsPe3+w
+	 oJPfE55fHB91q50vVv1vV9hAXYemhAyhr6OpNgWOOvXUx9/9Vw4S7evidbf87YcNj+
+	 pEPIiDW05PYUn8lRlujrJ1DKbY3WIHytjXuNelSTWpy7nXBiYR1lO2v9ZQh4g3aHrR
+	 PgFXkbijAdUJ0BywpuS1YJGB4AvPiLFgG1t0OrXdtLJEh5IFQJb88z75ZKH8cfv8oU
+	 ALk7ATW/rOneA==
+Date: Mon, 5 Aug 2024 23:35:22 +0300
 From: Mike Rapoport <rppt@kernel.org>
 To: Dan Williams <dan.j.williams@intel.com>
 Cc: linux-kernel@vger.kernel.org,
@@ -78,18 +78,18 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
 	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
 	nvdimm@lists.linux.dev, sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v3 22/26] mm: numa_memblks: use
- memblock_{start,end}_of_DRAM() when sanitizing meminfo
-Message-ID: <ZrE3I6qCdfHPa3FB@kernel.org>
+Subject: Re: [PATCH v3 11/26] x86/numa: use get_pfn_range_for_nid to verify
+ that node spans memory
+Message-ID: <ZrE3ijXA3efepKcH@kernel.org>
 References: <20240801060826.559858-1-rppt@kernel.org>
- <20240801060826.559858-23-rppt@kernel.org>
- <66b1342e8af7f_c1448294af@dwillia2-xfh.jf.intel.com.notmuch>
+ <20240801060826.559858-12-rppt@kernel.org>
+ <66b1302ce5fd3_c1448294d3@dwillia2-xfh.jf.intel.com.notmuch>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <66b1342e8af7f_c1448294af@dwillia2-xfh.jf.intel.com.notmuch>
+In-Reply-To: <66b1302ce5fd3_c1448294d3@dwillia2-xfh.jf.intel.com.notmuch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240805_133601_032139_7F175A47 
-X-CRM114-Status: GOOD (  14.39  )
+X-CRM114-CacheID: sfid-20240805_133742_679900_3EEB7207 
+X-CRM114-Status: GOOD (  24.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,23 +106,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 05, 2024 at 01:21:02PM -0700, Dan Williams wrote:
+On Mon, Aug 05, 2024 at 01:03:56PM -0700, Dan Williams wrote:
 > Mike Rapoport wrote:
 > > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 > > 
-> > numa_cleanup_meminfo() moves blocks outside system RAM to
-> > numa_reserved_meminfo and it uses 0 and PFN_PHYS(max_pfn) to determine
-> > the memory boundaries.
+> > Instead of looping over numa_meminfo array to detect node's start and
+> > end addresses use get_pfn_range_for_init().
 > > 
-> > Replace the memory range boundaries with more portable
-> > memblock_start_of_DRAM() and memblock_end_of_DRAM().
+> > This is shorter and make it easier to lift numa_memblks to generic code.
+> > 
+> > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> > Tested-by: Zi Yan <ziy@nvidia.com> # for x86_64 and arm64
+> > ---
+> >  arch/x86/mm/numa.c | 13 +++----------
+> >  1 file changed, 3 insertions(+), 10 deletions(-)
+> > 
+> > diff --git a/arch/x86/mm/numa.c b/arch/x86/mm/numa.c
+> > index edfc38803779..cfe7e5477cf8 100644
+> > --- a/arch/x86/mm/numa.c
+> > +++ b/arch/x86/mm/numa.c
+> > @@ -521,17 +521,10 @@ static int __init numa_register_memblks(struct numa_meminfo *mi)
+> >  
+> >  	/* Finally register nodes. */
+> >  	for_each_node_mask(nid, node_possible_map) {
+> > -		u64 start = PFN_PHYS(max_pfn);
+> > -		u64 end = 0;
+> > +		unsigned long start_pfn, end_pfn;
+> >  
+> > -		for (i = 0; i < mi->nr_blks; i++) {
+> > -			if (nid != mi->blk[i].nid)
+> > -				continue;
+> > -			start = min(mi->blk[i].start, start);
+> > -			end = max(mi->blk[i].end, end);
+> > -		}
+> > -
+> > -		if (start >= end)
+> > +		get_pfn_range_for_nid(nid, &start_pfn, &end_pfn);
+> > +		if (start_pfn >= end_pfn)
 > 
-> Can you say a bit more about why this is more portable? Is there any
-> scenario for which (0, max_pfn) does the wrong thing?
+> Assuming I understand why this works, would it be worth a comment like:
+> 
+> "Note, get_pfn_range_for_nid() depends on memblock_set_node() having
+>  already happened"
 
-arm64 may have DRAM starting at addresses other than 0.
-And max_pfn seems to me a redundant global variable that I'd love to see
-gone.
+Will add a comment, sure.
+ 
+> ...at least that context was not part of the diff so took me second to
+> figure out how this works.
+> 
 
 -- 
 Sincerely yours,
