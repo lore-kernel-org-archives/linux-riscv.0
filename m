@@ -4,123 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A75EC3DA7F
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Aug 2024 02:54:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14834C3DA64
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Aug 2024 03:11:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:To:Subject:
-	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bkBHLTz89TSkp5RVISqfqfMbI+nTnCngTdLvFURyK6o=; b=wzD0a/zF1nwrV2j7GWOxc+7TIh
-	7GkiOiLE/0t2cRjHcuJxK83d6EdcIVw/nLO0DtodK4khwKSfV24szQ+mqTIZXBzljaHa5z8a+fllH
-	K4WbtGOaICOlXQ4eKSex40yCsQ4MxUblW7cNy2BWVGRvr/m7iyrd8F24e7HfpfkRzYyhtOid5arpH
-	C50F4HubMqhr5rWqz5vyMY5JVH75fc6YJr9AbtSo9ZrTkR5cm0rEHwwkyzU70cOEGtAf0wRDC0wWc
-	wlg91KvNeNZFUyQ6dPWloFf9P76G12sFxSanQ0cMBnmA2Fgn5fBcaCwgNlCReP86H5rssQdJ12xRu
-	KBfrV+Vg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ef0z5OEAgpQIAqWPTGmCbXcSZA0iOFWfGlUyVMBqWQI=; b=NQayHlWQKKPiEk
+	T93usk+WUqu8JXyjTal9syvN9WrrWkOBXq/jAOZ0KqS2e+CLpcsQMG/3Qnp1dOP6xI3dXeqLIVtSy
+	nRmXaoJy4/x4WjRsL1MZS5XZ3ELsRWxK8uL1xgT7PrabKMgRyjPxfynWw/zQM3ogCB3MpzD6Hrx4V
+	nyyrgdFGmaviiGw3s0OsjCYXsKtINr5hvPCBxc2Kva2iANl29W2X4Hz6Scgm1/hHyNFxgw3y+Vytw
+	hsG+rARL65L+FodINPLI0UmKi9HeraM13FzH/Eimmgwzdag6HaeehOFq8hetgYoaMH5TD+SFtlRvl
+	NO3Bgfzpd7Amrze881Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sanrK-0000000EQAZ-2vtI;
-	Mon, 05 Aug 2024 02:54:06 +0000
-Received: from mail-maxind01olkn20801.outbound.protection.outlook.com ([2a01:111:f403:281b::801] helo=IND01-MAX-obe.outbound.protection.outlook.com)
+	id 1sao7q-0000000ET6y-03Im;
+	Mon, 05 Aug 2024 03:11:10 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sanrH-0000000EQ9q-2X7G
-	for linux-riscv@lists.infradead.org;
-	Mon, 05 Aug 2024 02:54:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iGNNoC1imts+HhYNmSY8VQT2Ir9CH6aLqhJ3MbXHnDA4GUgKuL71WNmZZb2gMT6dFlUvf6jzDqvaKTM514Q1cOuJrCxX8X26MUX9CQzq1fWMIudfw+iUCox/06j+XROfVSDALtNJrr/lDyxlwAIJQJzllcfK4AcAN7r48Ar5DkZ/OcMw49kl0Qhf18a4eHWhArlNzg12BJh2sbwJpfXrtaJ3tMX3MfjP5yDGWxtZ0qFL+wLwfR5lifTJNlvgd0fbRCMD1YbbjJze88x9QWYgSUALesqCCVGBYBb0Fbvx/tsbw78kHt1ttmaeZ1CdyI8zG9/RrYGSN14Wm3bld7puBQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AHgECP8hWEFZ61d8LTTK4XCLUZID+fssB4xbIjb+ImM=;
- b=S2llFy4xND37duHieviPbn4sBkyHK6b9jHmkUnEqDivi52cFYuTFQKc/shdornJrOLnGNn0M/cQsdrViu2C3+cRg6gDlpLkxFtM+FOdvSVq8o+QpjfCOzFcdUXJC88QFYe35NCu5K9XhKFfQ2wV06UxAa6B44yeWsS3B97DZNWJhXv0JuA5X4OsDvDjIb8l4+iv4dY3hh7PTFD/KJ6qtBhC9DRk7vcTGUJeb8AYuduYB/7wxh3NpHltLJz4b2MWB857g8IyCOmzenYUtQ0QzfEaFv/S9bzSvQmTKFaclemB8ieoVNaQF7R9lTQROdXdjfe1xwkU8JNbkc2IgSYGjFw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AHgECP8hWEFZ61d8LTTK4XCLUZID+fssB4xbIjb+ImM=;
- b=ergNx+btQOm8uyaDhBEU5W2RNTo8YRcf6Pt+4zSo+qLYSFszRHK7OeRl8CyegJVylwHRA0JOZupxhh//4dDNelqG1gdmL6X1bZ8DDuNWVDXg3l+vIuz1XnW2Sbl9ekIZfl4usPuMEre2RqxeC+gnGZ+Z8Ho77gT3/kRawIbIm9jI9J4/bPbC+UTH++lesjWs5pG5ClUgol5+5Yn5LS9lzSQMvvj/Hy6yvvCmaKRBXUVhWAsHQF+Rdvysh0vdCo9fxNSP6dxoc7LLpKIfunEkg1hjTTdX8QynB3hP4puw73qB1Z6r3poCZScE3mlGs62km/RHGEp7v3nX03qJaYe3yg==
-Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:138::5)
- by PN0P287MB1476.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:183::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7828.24; Mon, 5 Aug
- 2024 02:53:50 +0000
-Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- ([fe80::a94:ad0a:9071:806c]) by MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- ([fe80::a94:ad0a:9071:806c%6]) with mapi id 15.20.7828.023; Mon, 5 Aug 2024
- 02:53:50 +0000
-Message-ID: <MA0P287MB28220B7C6CF3DD77D8278A53FEBE2@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
-Date: Mon, 5 Aug 2024 10:53:47 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/8] mmc: sdhci-of-dwcmshc: Add Sophgo SG2042 support
-To: Inochi Amaoto <inochiama@outlook.com>, Chen Wang <unicornxw@gmail.com>,
- adrian.hunter@intel.com, aou@eecs.berkeley.edu, conor+dt@kernel.org,
- guoren@kernel.org, jszhang@kernel.org, krzysztof.kozlowski+dt@linaro.org,
- palmer@dabbelt.com, paul.walmsley@sifive.com, robh@kernel.org,
- ulf.hansson@linaro.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org,
- linux-riscv@lists.infradead.org, chao.wei@sophgo.com,
- haijiao.liu@sophgo.com, xiaoguang.xing@sophgo.com, tingzhu.wang@sophgo.com
-References: <cover.1721377374.git.unicorn_wang@outlook.com>
- <IA1PR20MB49539C30076AB6D14B20BD57BBB12@IA1PR20MB4953.namprd20.prod.outlook.com>
-From: Chen Wang <unicorn_wang@outlook.com>
-In-Reply-To: <IA1PR20MB49539C30076AB6D14B20BD57BBB12@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-TMN: [ElKF3ttqQhrN9VQAjUo394Dh78ifzwiH]
-X-ClientProxiedBy: SI1PR02CA0035.apcprd02.prod.outlook.com
- (2603:1096:4:1f6::8) To MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:138::5)
-X-Microsoft-Original-Message-ID: <69283ee7-508f-40a2-9a5d-858b21ff9c93@outlook.com>
+	id 1sao7I-0000000ET0L-0qKp;
+	Mon, 05 Aug 2024 03:10:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1722827436; x=1754363436;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=sjJi4ci8CSMJ3+1aGEpOmPLYmSgD57qXbtIeGqxxXps=;
+  b=J4ykFWsl/VLqAaIRIilKcEeguLV/xpEYnNyzw2n2OPLmvZlzQ/Uzg01G
+   o3io+Uiivvu/tZQpUnZouVNM5lMEdXWMo6Dszz1ZpUp5sJUqhmagG1Uwl
+   +WILuSye8YQ5zHlOlzfE9rB0ABezO7v6RcT1jrtNZsA2nTuyXLAeD9+BK
+   saXheQ0wm6wRw+71guLZg3XJJu0NhJMBjTC2zZDBM9/kVjtegaQZm3EQ/
+   1sqVROT6/kFObJ88DXJ/UTTvC1a1rYWP5iBrVc2BoIbYWQtmrpzfZd6Wt
+   DAexN9Gzkl4ig8leDiMboSmyI7m1n5OaHTyVbWpKSWdkpM0iGwxhT41pf
+   w==;
+X-CSE-ConnectionGUID: lxxV8INERVO2ueYH0a87dw==
+X-CSE-MsgGUID: 3tWy9spVQSSUsOA4W16cAw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11154"; a="20650825"
+X-IronPort-AV: E=Sophos;i="6.09,263,1716274800"; 
+   d="scan'208";a="20650825"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Aug 2024 20:10:30 -0700
+X-CSE-ConnectionGUID: QjZcPaedR0+3m/2U2W4tEg==
+X-CSE-MsgGUID: /nt6f/pBQuum6h4f8E10Lg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.09,263,1716274800"; 
+   d="scan'208";a="86587459"
+Received: from haibo-optiplex-7090.sh.intel.com ([10.239.153.94])
+  by orviesa002.jf.intel.com with ESMTP; 04 Aug 2024 20:10:24 -0700
+From: Haibo Xu <haibo1.xu@intel.com>
+To: ajones@ventanamicro.com,
+	sunilvl@ventanamicro.com
+Cc: xiaobo55x@gmail.com,
+	Haibo Xu <haibo1.xu@intel.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Gavin Shan <gshan@redhat.com>,
+	James Morse <james.morse@arm.com>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v2 1/2] RISC-V: ACPI: NUMA: initialize all values of acpi_early_node_map to NUMA_NO_NODE
+Date: Mon,  5 Aug 2024 11:30:23 +0800
+Message-Id: <0d362a8ae50558b95685da4c821b2ae9e8cf78be.1722828421.git.haibo1.xu@intel.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MA0P287MB2822:EE_|PN0P287MB1476:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3583e230-8bc1-4006-de06-08dcb4f9d5d1
-X-Microsoft-Antispam: BCL:0;ARA:14566002|461199028|5072599009|19110799003|8060799006|4302099013|440099028|3412199025|56899033|1602099012;
-X-Microsoft-Antispam-Message-Info: FVhpRT3H5/8oLJiqdURJsfSeTar65EAKz74QPy03RdPSLd0GsCZK63+ovmxr111IYStg3kchkmJMBKQcbeqig8At1v4FgpUMY1GTQ/V19YBPM/kmpwoQ32r/jg0qjp8hTmS3X9FxmQXTTfTzdSlriwYj4h4ubLBhKZ+YX8+3wjY8ZdZmvumyKjAhmwOmHKBMlWRFWfh4gKK5cBILWJKS2RqYAoqed+3UrEN0z4bgg+41C7B2XvMNLSYCQRPpwv4ldFfOHkgmqx+yyXsTJxoa8PTz/SoE/qvLYoklYm6QAQxGtdsg9mCCQsZYM3dUg8bqBGSEzXLUzZdlnSHeDunHbC61qg9kzq4kXWZqWEff7Ch/0XnZkC+13mXbuVPxwqx9DwTzgUrkJvIFT8rB9WHNSUKKRSF7SPNGN4dOsdW6HUjbjaszEoKtpv064YlCq6lyubyAlZF/OIqmhE/y50LRzXNGJ8MAvCGO/xbpnq9O8Got2F+lW40WUCFyeVXMxPipbgCAhM666Gds6DbWF5ylADF5tPP3mTlNX1yfZjKbGgp8ToURxBHThwXC3WN+ERQup+49pGuKOHxLBgPABnX/YI41ZPhyE/xuvPeQS3tmixQA/oIL0TWtmKNEz541ERd5l1iCVpR2Cg3/o8nLpZOgsNJVWUAgwYXgchSofE+we2JxcVHfIVjHIWuyIGHwjSWZicjAWHZZ3ryc85O+IqzVig5eKOrB6/xMVFr//xUrV+IWw08SanallC5blYjyZgf+TdEjN1VgSJVTAkvvpUPUO8yucyCopwtglkuV7i8gBbw=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RnU2dU51VzJZbjZzd2JFeXh3bXBXTWdvRHJGc242YXdxdHZPdllIdm9JMGJC?=
- =?utf-8?B?c2pIQ3Vxa1FuNDFJU1BxVHBmbXlPSlpjTlBPTXBPM2VSb05hK3ZTNUhjNnM5?=
- =?utf-8?B?S1VidllpRXhKNWFuemVmZkxocWx3STdsUUVmcmdHRTlkKzZWY0Z0c0lYSTM3?=
- =?utf-8?B?WG9INTRobk9kQzZickNYZEYrRXhPNjVwU0FTclVEQnc2bk04THE1Nkk0SHhY?=
- =?utf-8?B?Q1pzRjJXVU5Gd2Y3Z1FGNGpleXpwUW1tODNSVkxXMUtrcU8reDFKUWdzcVMr?=
- =?utf-8?B?ZkF2bzdNd2F5RW8vdGJwR2dLMEtDV1FpeDJ3bVFHNm43TTJYRlk5dEMzMXkw?=
- =?utf-8?B?VE9mYXU2MEN0R1ovdjhBYTY5cVBWcHZ0NWVuQ2FGaFlBK2hCQmdLZFFiUXdS?=
- =?utf-8?B?N3hFczVCb1FKL2lGZFJnaW1HUVhuMVJIRk5hZHE0MHBPTFNCM1ZqeFNTa0hC?=
- =?utf-8?B?V0JMY3Jkbktqc3Y4TDNhSW8zbGtqMTNqOE8wOFNPMy9RYWFYT05UbmlZRFdS?=
- =?utf-8?B?TUduWTNLQ2ZBU2tNK0xOYzdNR3BaZng0TGdaSVlpK3FLS3haWEx4Ym5kS3Zv?=
- =?utf-8?B?NCtyU1hkSjZKdXlMSURqdUtudWRubEI1S3dqdjRVQUk5NmxVbFJNdGFLMlRs?=
- =?utf-8?B?TkN4VE11TkhyYTJYTXJJR1l2YnpobFRIb2pxdUxvQS9sZVp1ZldQNnA3V0hN?=
- =?utf-8?B?TVgrZDBsRkZUS2Jpc1FHTmc5MlFFQzFtNzV1RG1TV2ZYMCtjbUpVWGl4anlT?=
- =?utf-8?B?N0crMkFOM0xDUVNvN2NlK2lZVm5WUVZ1enp5YW8vZlVzb2thZEtFMTlCbDls?=
- =?utf-8?B?OHltaVkxbjFKOWpHRGE4MGRwM2VZeXRsYmRxbHAyR21ydi9odUNqM0xnY0Z0?=
- =?utf-8?B?WUxEcnBEMDJidDZEb011RWtHeSt3N3hSVUpEQ0JwOUNaMis0NHg0dmZOWTNJ?=
- =?utf-8?B?cVU3aWNPVEN4ZkpzMXgrSEJtbWZGYWpMTlFGRFp0YmNOVmFzaFlxRGh4K3Z5?=
- =?utf-8?B?UU9XSU53ZEJGdmF2SUVIRlJsM2FYMUsxMDZGRmd3SlZoMHVINjVVM3RFeUpm?=
- =?utf-8?B?L2huT0NmczVXd0hZdG1Td256L3l1QWpjOUJIMEd3cW5JZUFES25JQzJDMHBz?=
- =?utf-8?B?Q1BIR1hRdXdxQlM0Qzd3TzkxbDc2a0hIRW9JTnpHR2Npd2JlV3pmZmhqTmFy?=
- =?utf-8?B?Qy9WeUJHUGZzbDliTU9BMHJ0SVhSYWh1cjFrZVNER2VjRjRPT2dIdUFyN05y?=
- =?utf-8?B?Q2J6UlI5Z0xHQjQ2VGprWnZDZGk4S25OOEtCK3pKUXBmcS9PNjFSS1VaS2ZB?=
- =?utf-8?B?RUtRWXFScDZ5cU1IdWRjYjFSYTMvalFDTytuMGVBYk9PbUdUZ2hVTExhWVdV?=
- =?utf-8?B?SjhCc0dqaSsxWUNRaDlhOWt4N0d5aVBWeVhVdDNFSml4b0I0bHorbytGMWdn?=
- =?utf-8?B?cDVJeXBReHBobWdhVUo5cjNFc0xZZ21YWTN3bE02ditUeUt1Snc3a0lKK2hX?=
- =?utf-8?B?UEY5ODcxa3NLZUptM3paMzIwSGdkaTRmS1gxMGlPZUhoQXlBUjRremdTa0Rp?=
- =?utf-8?B?V2M2N0ZBRjI3WVJBQkhQN0x3Z0NXZTY5N0QyUSsxTXMxd1gzcU5Hbktpbnlz?=
- =?utf-8?B?aGpVWU0zakE2T2xpTHBoTnJqMUZ3RFJONVgweW9jeFNvcGg5UXZYaHhDZWZz?=
- =?utf-8?Q?hgtjaA66MgVzta6MBucf?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3583e230-8bc1-4006-de06-08dcb4f9d5d1
-X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Aug 2024 02:53:50.8649
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN0P287MB1476
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240804_195403_687758_AD1E30DC 
-X-CRM114-Status: GOOD (  22.45  )
+X-CRM114-CacheID: sfid-20240804_201036_277352_BB5073E0 
+X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,128 +91,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Currently, only acpi_early_node_map[0] was initialized to NUMA_NO_NODE.
+To ensure all the values were properly initialized, switch to initialize
+all of them to NUMA_NO_NODE.
 
-On 2024/7/31 16:00, Inochi Amaoto wrote:
-> On Fri, Jul 19, 2024 at 04:44:38PM GMT, Chen Wang wrote:
->> From: Chen Wang <unicorn_wang@outlook.com>
->>
->> This patchset is composed of two parts:
->> - one is the improvement of the sdhci-of-dwcmshc framework,
->> - the other is the support for sg2042 based on the improvement of the
->>    framework.
->> The reason for merging the two parts into one patchset is mainly to
->> facilitate review, especially to facilitate viewing why we need to
->> improve the framework and what benefits it will bring to us.
->>
->> When I tried to add a new soc(SG2042) to sdhci-of-dwcmshc, I found
->> that the existing driver code could be optimized to facilitate expansion
->> for the new soc. Patch 1 ~ Patch 5 is for this.
->>
->> Patch 6 ~ 7 are adding support for the mmc controller for Sophgo SG2042.
->> Adding corresponding new compatible strings, and implement
->> custom callbacks for SG2042 based on new framework.
->>
->> Patch 8 is the change for DTS.
->>
->> By the way, although I believe this patch only optimizes the framework
->> of the code and does not change the specific logic, simple verification
->> is certainly better. Since I don't have rk35xx/th1520 related hardware,
->> it would be greatly appreciated if someone could help verify it.
->> Note, the DTS change has dependency on clock changes for SG2042, which
->> has not been merged in master/upstream, so if you want to test this
->> new sdhci-of-dwcmshc driver for other hardware except SG2042, don't
->> pick patch 8.
->>
->> Clocks changes for SG2042 are expected to be in 6.11-rc1 soon, I will
->> do catch up with that when it is relased and provide a new revision,
->> but anyway please feel free review this version and welcome your comments.
->>
->> ---
->>
->> Changes in v5:
->>
->>    The patch series is based on latest 'next' branch of [mmc-git].
->>
->>    - Based on Adrian's suggestion, split the first part of the patch into 5.
->>    - Updated bindings and DTS as per suggestion from Krzysztof, Jisheng and Conor.
->>
->> Changes in v4:
->>
->>    The patch series is based on latest 'next' branch of [mmc-git]. You can simply
->>    review or test the patches at the link [4].
->>
->>    Improved the dirvier code as per comments from Adrian Hunter, drop moving
->>    position and renaming for some helper functions.
->>
->>    Put the sg2042 support as part of this series, improve the bindings and code
->>    as per comments from last review.
->>
->> Changes in v3:
->>    
->>    The patch series is based on latest 'next' branch of [mmc-git]. You can simply
->>    review or test the patches at the link [3].
->>
->>    Improved the dirvier code as per comments from Adrian Hunter.
->>    Define new structure for dwcmshc platform data/ops. In addition, I organized
->>    the code and classified the helper functions.
->>
->>    Since the file changes were relatively large (though the functional logic did
->>    not change much), I split the original patch into four for the convenience of
->>    review.
->>
->> Changes in v2:
->>
->>    Rebased on latest 'next' branch of [mmc-git]. You can simply review or test the
->>    patches at the link [2].
->>
->> Changes in v1:
->>
->>    The patch series is based on v6.9-rc1. You can simply review or test the
->>    patches at the link [1].
->>
->> Link: git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/mmc.git [mmc-git]
->> Link: https://lore.kernel.org/linux-mmc/cover.1713257181.git.unicorn_wang@outlook.com/ [1]
->> Link: https://lore.kernel.org/linux-mmc/cover.1714270290.git.unicorn_wang@outlook.com/ [2]
->> Link: https://lore.kernel.org/linux-mmc/cover.1718241495.git.unicorn_wang@outlook.com/ [3]
->> Link: https://lore.kernel.org/linux-mmc/cover.1718697954.git.unicorn_wang@outlook.com/ [4]
->>
->> ---
->>
->> Chen Wang (8):
->>    mmc: sdhci-of-dwcmshc: add common bulk optional clocks support
->>    mmc: sdhci-of-dwcmshc: move two rk35xx functions
->>    mmc: sdhci-of-dwcmshc: factor out code for th1520_init()
->>    mmc: sdhci-of-dwcmshc: factor out code into dwcmshc_rk35xx_init
->>    mmc: sdhci-of-dwcmshc: add dwcmshc_pltfm_data
->>    dt-bindings: mmc: sdhci-of-dwcmhsc: Add Sophgo SG2042 support
->>    mmc: sdhci-of-dwcmshc: Add support for Sophgo SG2042
->>    riscv: sophgo: dts: add mmc controllers for SG2042 SoC
->>
->>   .../bindings/mmc/snps,dwcmshc-sdhci.yaml      |  60 ++-
->>   .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  |  17 +
->>   arch/riscv/boot/dts/sophgo/sg2042.dtsi        |  28 ++
->>   drivers/mmc/host/sdhci-of-dwcmshc.c           | 459 ++++++++++++------
->>   4 files changed, 391 insertions(+), 173 deletions(-)
->>
->>
->> base-commit: b85e021853976aaebd3788e7e721020570754199
->> -- 
->> 2.34.1
->>
-> Work on both Duo and Huashan Pi. Both sd and emmc are fine.
->
-> Tested-by: Inochi Amaoto <inochiama@outlook.com>
+Fixes: eabd9db64ea8 ("ACPI: RISCV: Add NUMA support based on SRAT and SLIT")
+Reported-by: Andrew Jones <ajones@ventanamicro.com>
+Suggested-by: Andrew Jones <ajones@ventanamicro.com>
+Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
+Reviewed-by: Sunil V L <sunilvl@ventanamicro.com>
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+---
+ arch/riscv/kernel/acpi_numa.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Thanks a lot.
-
-Regards,
-
-Chen.
+diff --git a/arch/riscv/kernel/acpi_numa.c b/arch/riscv/kernel/acpi_numa.c
+index 0231482d6946..ff95aeebee3e 100644
+--- a/arch/riscv/kernel/acpi_numa.c
++++ b/arch/riscv/kernel/acpi_numa.c
+@@ -28,7 +28,7 @@
+ 
+ #include <asm/numa.h>
+ 
+-static int acpi_early_node_map[NR_CPUS] __initdata = { NUMA_NO_NODE };
++static int acpi_early_node_map[NR_CPUS] __initdata = { [0 ... NR_CPUS - 1] = NUMA_NO_NODE };
+ 
+ int __init acpi_numa_get_nid(unsigned int cpu)
+ {
+-- 
+2.34.1
 
 
 _______________________________________________
