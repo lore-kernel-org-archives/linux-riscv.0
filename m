@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0502FC3DA7F
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Aug 2024 09:15:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0925C3DA4A
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Aug 2024 09:17:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ZnuTpFsCb2aepTBY6cwMZys2nPY2RK78zEYXNpt88c4=; b=R9KmnixE1vpm5L
-	Bl1JJz2o64VKOKY4zB1WEIz6j6B+H2TwWdA3cjmW/LZ6oL9T6FWy0y3j7eT9nxfFaFkYG6ghjU9jm
-	UPVIkgOA1HKmQjAoVaP+26c8TeQKgf8cjt1jBqeXw5C1mKKzblI1cjn+XNJ8XLMXql/kuY/NGaNyM
-	GaOSpNogCi04NDtbDPcGnd2jmmETyPlJ+rUuz+GX7muR24+VC4LuZQj4yRoo6jAIrIPzBPVo7odO4
-	xqFBERxH5MdwI4BLXmb6DjXoDd9lQ4mLwTCIIHo0XMFnUYiQieNoW7unDqFTzQaQ6ne8gSlRAXE3E
-	cU/I38w/4k/dce7Sfomw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=oEXaNJuKWJI4zfRReUgJr9ZMQroht0A27L79mv91XLg=; b=giCwpGJsJNU6bS
+	x2uegSkYgWCjjkzcVdhpa/WRUnMHfwFm1Q5yFVfzorFZR+8QC/ThenYq8ZSxxwfo1MZNZN6ECxk7j
+	C2CC3yHDjKW6HK3NHFLjG4ovP6CV7dLXxIKqIe85RAKJMSEQfJxCBDOJ7qCoJKA/gK5xCIsvt55zO
+	+X3RPri+Rmu2lzGsH+3A98PY6dHVxmq3qmIMI44+V9MOsptSr5QEexMQXnkFIdhk/JclzmSsSuU3Z
+	c9dIVJeqSNnda6xrd/vzaCY6lA++bm0hbpzAoFyb5RrsX5Tvz+tNi5N6ltD1hoDKl9CmLQ8lNP2CP
+	IiKzy9NfcXSS8NX4L6Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1satoT-0000000FF9K-0Z3l;
-	Mon, 05 Aug 2024 09:15:33 +0000
-Received: from mail-ot1-x330.google.com ([2607:f8b0:4864:20::330])
+	id 1satqO-0000000FFRS-3rEu;
+	Mon, 05 Aug 2024 09:17:32 +0000
+Received: from mail-oo1-xc2d.google.com ([2607:f8b0:4864:20::c2d])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1satoP-0000000FF8a-0FZy
+	id 1satqM-0000000FFR1-2Q5q
 	for linux-riscv@lists.infradead.org;
-	Mon, 05 Aug 2024 09:15:31 +0000
-Received: by mail-ot1-x330.google.com with SMTP id 46e09a7af769-7093abb12edso7678506a34.3
-        for <linux-riscv@lists.infradead.org>; Mon, 05 Aug 2024 02:15:27 -0700 (PDT)
+	Mon, 05 Aug 2024 09:17:32 +0000
+Received: by mail-oo1-xc2d.google.com with SMTP id 006d021491bc7-5d5bb2ac2ddso2577674eaf.0
+        for <linux-riscv@lists.infradead.org>; Mon, 05 Aug 2024 02:17:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1722849327; x=1723454127; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=/3+rIztQE6WRU9ZBeY+g9kfmjd9A7zQwu+i8aRi8HSU=;
-        b=jAx5XLxhgRGCUUW/caPudh5pferuco+12k6XQj4x9pqpIUin8cNqAnH2D2GL/Adzpv
-         0CR2Y6FlXKV/PqxDrhKzizxhSD1Etk+vUJ1CAWSosFtgtWMHySSELefnkS/xEovhyXuJ
-         a0xPe1CDBGfjNR4IEc3fdygjcl0jzJHql7Fxfpq8KI92V+pgPcBJEOuNDlbDaoOZIWpZ
-         Az4Bu3stfwQWi2RnDbJ6XKUwZDRxtGXn0br6wu4xP9uJhWtGjUJeoT3RgM8QvoBH0KtM
-         +Lodv794yG1NbW61zYk6XdcFpfyxx3ogF7y2zd4H+3LfK88S2C6LXPZZiNV2lHfTUVQQ
-         mi7w==
+        d=gmail.com; s=20230601; t=1722849449; x=1723454249; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mQqYFrR1LoRoAq9WMHUyKnpA+f/vebxojh36F6qI1pQ=;
+        b=Jc6sHkYRLh2qKpcZaagbgLa9tXxjw/daQolqkZb3vrrWR0r4jfllGPKOjqC2tuYyi8
+         fRoxl32Hk93jZNYUExajcwKZLt+H00OMLaNsv7PFOBM9+lG/3R8wlYQhTOwE6a1U/8Gv
+         jwCMvlb1EUemA6mBZ1FhCyOsxafkXkqGUn6dGyDmodrNLaBjcjqjRMVpvev71SrFG6Z4
+         8aFzCLdH/9DI85PSAiDKraLA13+8GTjP41BETNeIVX8Gmrl10tTyaUnYCkCiEy6cv3xN
+         ugG5PHnamwxQmg1CV8zQdS4I/lTZZQYKL9jViwQV79OQKHAfMNKUoQQ8lKwxAYM5F3u3
+         BAfA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722849327; x=1723454127;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/3+rIztQE6WRU9ZBeY+g9kfmjd9A7zQwu+i8aRi8HSU=;
-        b=lCHtbDydr6vvOts0vQuCG/5piWrAmsf4eIX5xryQHzSEOMzY2G7M7TsNzeRnD/Glui
-         pxYxBnO/MV+PG+bgLbfRwa/lodpp+wQau/q8BdCv5ja+gpUN1XCrdKex0Tncr2pA8f3C
-         AwtV1W1+tUKG49VGss+ECAIKPF6l2Zo1H1Rue8Uku4n4yArY1PMWAO5c0SXeYYp0bXVs
-         H0niQ6zz9Qj7MqWJ0qlQoXYmfjsCl64WFTlGvbhG5+WTeHqPQSIAwvDIyaSqLPwT1J+o
-         93j9yYuVr7knY4DTF7narh99vR/yf2EADldBeNcKAVJ6VPAzqqDrSJXGwdFZ6fQfZwS6
-         aLiA==
-X-Forwarded-Encrypted: i=1; AJvYcCV02DnyQgxZuIMOrFBJF7pe1oNYXxX8p3IUzPk/+kvZX1UwCF9RqANQPVHYfymPn1exRr6pY3tlU9Cfb21gzUnF0ie19SAXvTYY1RHt73NI
-X-Gm-Message-State: AOJu0YyqLHQxeEQ5hYYcqKp+MEMAIwNBc8k09u9yKDaa34ZqdQY87N89
-	JsTJUp2IV1g3I4GLP9UZNBi4P3ExqDrtCaD4us3NYFjCYhCuMeE/
-X-Google-Smtp-Source: AGHT+IEhCrVhi6RjKsMaNG35hoJ2syJpEEnWGuaWja14l87nxPCwfBClsO+7Fw8Kz2q8MRArLRT/mw==
-X-Received: by 2002:a05:6830:3509:b0:70a:9876:b76b with SMTP id 46e09a7af769-70a9876b930mr11856521a34.2.1722849327046;
-        Mon, 05 Aug 2024 02:15:27 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1722849449; x=1723454249;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=mQqYFrR1LoRoAq9WMHUyKnpA+f/vebxojh36F6qI1pQ=;
+        b=sBu40Oe/N4vgPYucPRkaKVjY50CqqORJQqDKv+VD3eJidr4hyWUg4G3P9+oxhKjcDO
+         qAoisNxOJqwUGUq5BGRu+ytndKn/n0E7fKdCo5QXipCJZaD+EILTN9VaekTxda8yOIHJ
+         5qpWT60ixnqrV8/8zBrm8YfRkl5Enh9t2dDzJZvlcNB2yzgYE3BkAZ9L27cTUhBYnvRJ
+         hI29/f1RyRS56apQFUn1PA0KnFFej8AWVVd19/NSN41iHOyc1/2WijjTbcUqOWeun9H1
+         4wlRmc6SG0fUUDSZidvPX6Zc3SgAOBr+d6eSdJJ7Jwk0OCEqwjiaEpi2AyDl94db+Woq
+         BuQQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWT/hlJ/uiS8MquTfGs8F/xhD3bZalUD7OrB6b4YTwTOsWeTrUx5D/JAZgM5evOFvlNJx1Di0J/yzmZY4G1tJRkeZeU4eo4rErkBXVci7gx
+X-Gm-Message-State: AOJu0Yx787zdzHe69UVSyIGIPmKrmZAZtQzzLbAUo7La31g75S684rqn
+	2nqiHWvsndRY2ctlDqwn0ZJ32xf1f5LGdfpcyA2kl/BMedDsUx+4
+X-Google-Smtp-Source: AGHT+IGCy+jdlK/J3lqkGlGo1ErX2mOA09jw089OryMpR/Vo8xZDbSFHm7BN15u6pLFZnwVwM21NYQ==
+X-Received: by 2002:a4a:e609:0:b0:5d8:a13:f99d with SMTP id 006d021491bc7-5d80a1411c3mr2590865eaf.1.1722849449035;
+        Mon, 05 Aug 2024 02:17:29 -0700 (PDT)
 Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-70a3a76ef7fsm2899595a34.74.2024.08.05.02.15.25
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-70a31ec3713sm2973075a34.44.2024.08.05.02.17.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Aug 2024 02:15:26 -0700 (PDT)
+        Mon, 05 Aug 2024 02:17:28 -0700 (PDT)
 From: Chen Wang <unicornxw@gmail.com>
 To: adrian.hunter@intel.com,
 	aou@eecs.berkeley.edu,
@@ -82,15 +83,18 @@ To: adrian.hunter@intel.com,
 	haijiao.liu@sophgo.com,
 	xiaoguang.xing@sophgo.com,
 	tingzhu.wang@sophgo.com
-Cc: Chen Wang <unicorn_wang@outlook.com>
-Subject: [PATCH v6 0/8] mmc: sdhci-of-dwcmshc: Add Sophgo SG2042 support
-Date: Mon,  5 Aug 2024 17:15:18 +0800
-Message-Id: <cover.1722847198.git.unicorn_wang@outlook.com>
+Cc: Chen Wang <unicorn_wang@outlook.com>,
+	Drew Fustini <drew@pdp7.com>
+Subject: [PATCH v6 1/8] mmc: sdhci-of-dwcmshc: add common bulk optional clocks support
+Date: Mon,  5 Aug 2024 17:17:21 +0800
+Message-Id: <e57e8c51da81f176b49608269a884f840903e78e.1722847198.git.unicorn_wang@outlook.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <cover.1722847198.git.unicorn_wang@outlook.com>
+References: <cover.1722847198.git.unicorn_wang@outlook.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240805_021529_503998_5F5C8D4D 
-X-CRM114-Status: GOOD (  16.29  )
+X-CRM114-CacheID: sfid-20240805_021730_649533_F53596E7 
+X-CRM114-Status: GOOD (  18.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,107 +113,219 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Chen Wang <unicorn_wang@outlook.com>
 
-This patchset is composed of two parts:
-- one is the improvement of the sdhci-of-dwcmshc framework,
-- the other is the support for sg2042 based on the improvement of the
-  framework.
-The reason for merging the two parts into one patchset is mainly to
-facilitate review, especially to facilitate viewing why we need to
-improve the framework and what benefits it will bring to us.
+In addition to the required core clock and optional
+bus clock, the soc will expand its own clocks, so
+the bulk clock mechanism is abstracted.
 
-When I tried to add a new soc(SG2042) to sdhci-of-dwcmshc, I found
-that the existing driver code could be optimized to facilitate expansion
-for the new soc. Patch 1 ~ Patch 5 is for this.
+Note, I call the bulk clocks as "other clocks" due
+to the bus clock has been called as "optional".
 
-Patch 6 ~ 7 are adding support for the mmc controller for Sophgo SG2042.
-Adding corresponding new compatible strings, and implement
-custom callbacks for SG2042 based on new framework.
-
-Patch 8 is the change for DTS.
-
-By the way, although I believe this patch only optimizes the framework
-of the code and does not change the specific logic, simple verification
-is certainly better. Since I don't have rk35xx/th1520 related hardware,
-it would be greatly appreciated if someone could help verify it.
-
+Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
+Tested-by: Drew Fustini <drew@pdp7.com> # TH1520
+Tested-by: Inochi Amaoto <inochiama@outlook.com> # Duo and Huashan Pi
 ---
+ drivers/mmc/host/sdhci-of-dwcmshc.c | 90 +++++++++++++++--------------
+ 1 file changed, 48 insertions(+), 42 deletions(-)
 
-Changes in v6:
-
-  The patch series is based on latest 'next' branch of [mmc-git].
-
-  - Some minor improvements based on Adrian's review suggestions.
-  - Added Reviewed-by and Tested-by signatures from Conor/Drew/Inochi.
-
-Changes in v5:
-
-  The patch series is based on latest 'next' branch of [mmc-git]. You can simply
-  review or test the patches at the link [5].
-
-  - Based on Adrian's suggestion, split the first part of the patch into 5.
-  - Updated bindings and DTS as per suggestion from Krzysztof, Jisheng and Conor.
-
-Changes in v4:
-
-  The patch series is based on latest 'next' branch of [mmc-git]. You can simply
-  review or test the patches at the link [4].
-
-  Improved the dirvier code as per comments from Adrian Hunter, drop moving
-  position and renaming for some helper functions.
-
-  Put the sg2042 support as part of this series, improve the bindings and code
-  as per comments from last review.
-
-Changes in v3:
-  
-  The patch series is based on latest 'next' branch of [mmc-git]. You can simply
-  review or test the patches at the link [3].
-
-  Improved the dirvier code as per comments from Adrian Hunter.
-  Define new structure for dwcmshc platform data/ops. In addition, I organized
-  the code and classified the helper functions.
-
-  Since the file changes were relatively large (though the functional logic did
-  not change much), I split the original patch into four for the convenience of
-  review.
-
-Changes in v2:
-
-  Rebased on latest 'next' branch of [mmc-git]. You can simply review or test the
-  patches at the link [2].
-
-Changes in v1:
-
-  The patch series is based on v6.9-rc1. You can simply review or test the
-  patches at the link [1].
-
-Link: git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/mmc.git [mmc-git]
-Link: https://lore.kernel.org/linux-mmc/cover.1713257181.git.unicorn_wang@outlook.com/ [1]
-Link: https://lore.kernel.org/linux-mmc/cover.1714270290.git.unicorn_wang@outlook.com/ [2]
-Link: https://lore.kernel.org/linux-mmc/cover.1718241495.git.unicorn_wang@outlook.com/ [3]
-Link: https://lore.kernel.org/linux-mmc/cover.1718697954.git.unicorn_wang@outlook.com/ [4]
-Link: https://lore.kernel.org/linux-mmc/cover.1721377374.git.unicorn_wang@outlook.com/ [5]
-
----
-
-Chen Wang (8):
-  mmc: sdhci-of-dwcmshc: add common bulk optional clocks support
-  mmc: sdhci-of-dwcmshc: move two rk35xx functions
-  mmc: sdhci-of-dwcmshc: factor out code for th1520_init()
-  mmc: sdhci-of-dwcmshc: factor out code into dwcmshc_rk35xx_init
-  mmc: sdhci-of-dwcmshc: add dwcmshc_pltfm_data
-  dt-bindings: mmc: sdhci-of-dwcmhsc: Add Sophgo SG2042 support
-  mmc: sdhci-of-dwcmshc: Add support for Sophgo SG2042
-  riscv: sophgo: dts: add mmc controllers for SG2042 SoC
-
- .../bindings/mmc/snps,dwcmshc-sdhci.yaml      |  60 ++-
- .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  |  17 +
- arch/riscv/boot/dts/sophgo/sg2042.dtsi        |  28 ++
- drivers/mmc/host/sdhci-of-dwcmshc.c           | 451 ++++++++++++------
- 4 files changed, 383 insertions(+), 173 deletions(-)
-
-
-base-commit: 538076ce6b8dfe5e8e8d9d250298030f165d8457
+diff --git a/drivers/mmc/host/sdhci-of-dwcmshc.c b/drivers/mmc/host/sdhci-of-dwcmshc.c
+index e79aa4b3b6c3..35401616fb2e 100644
+--- a/drivers/mmc/host/sdhci-of-dwcmshc.c
++++ b/drivers/mmc/host/sdhci-of-dwcmshc.c
+@@ -108,7 +108,6 @@
+ #define DLL_LOCK_WO_TMOUT(x) \
+ 	((((x) & DWCMSHC_EMMC_DLL_LOCKED) == DWCMSHC_EMMC_DLL_LOCKED) && \
+ 	(((x) & DWCMSHC_EMMC_DLL_TIMEOUT) == 0))
+-#define RK35xx_MAX_CLKS 3
+ 
+ /* PHY register area pointer */
+ #define DWC_MSHC_PTR_PHY_R	0x300
+@@ -199,23 +198,54 @@ enum dwcmshc_rk_type {
+ };
+ 
+ struct rk35xx_priv {
+-	/* Rockchip specified optional clocks */
+-	struct clk_bulk_data rockchip_clks[RK35xx_MAX_CLKS];
+ 	struct reset_control *reset;
+ 	enum dwcmshc_rk_type devtype;
+ 	u8 txclk_tapnum;
+ };
+ 
++#define DWCMSHC_MAX_OTHER_CLKS 3
++
+ struct dwcmshc_priv {
+ 	struct clk	*bus_clk;
+ 	int vendor_specific_area1; /* P_VENDOR_SPECIFIC_AREA1 reg */
+ 	int vendor_specific_area2; /* P_VENDOR_SPECIFIC_AREA2 reg */
+ 
++	int num_other_clks;
++	struct clk_bulk_data other_clks[DWCMSHC_MAX_OTHER_CLKS];
++
+ 	void *priv; /* pointer to SoC private stuff */
+ 	u16 delay_line;
+ 	u16 flags;
+ };
+ 
++static int dwcmshc_get_enable_other_clks(struct device *dev,
++					 struct dwcmshc_priv *priv,
++					 int num_clks,
++					 const char * const clk_ids[])
++{
++	int err;
++
++	if (num_clks > DWCMSHC_MAX_OTHER_CLKS)
++		return -EINVAL;
++
++	for (int i = 0; i < num_clks; i++)
++		priv->other_clks[i].id = clk_ids[i];
++
++	err = devm_clk_bulk_get_optional(dev, num_clks, priv->other_clks);
++	if (err) {
++		dev_err(dev, "failed to get clocks %d\n", err);
++		return err;
++	}
++
++	err = clk_bulk_prepare_enable(num_clks, priv->other_clks);
++	if (err)
++		dev_err(dev, "failed to enable clocks %d\n", err);
++
++	priv->num_other_clks = num_clks;
++
++	return err;
++}
++
+ /*
+  * If DMA addr spans 128MB boundary, we split the DMA transfer into two
+  * so that each DMA transfer doesn't exceed the boundary.
+@@ -1036,8 +1066,9 @@ static void dwcmshc_cqhci_init(struct sdhci_host *host, struct platform_device *
+ 
+ static int dwcmshc_rk35xx_init(struct sdhci_host *host, struct dwcmshc_priv *dwc_priv)
+ {
+-	int err;
++	static const char * const clk_ids[] = {"axi", "block", "timer"};
+ 	struct rk35xx_priv *priv = dwc_priv->priv;
++	int err;
+ 
+ 	priv->reset = devm_reset_control_array_get_optional_exclusive(mmc_dev(host->mmc));
+ 	if (IS_ERR(priv->reset)) {
+@@ -1046,21 +1077,10 @@ static int dwcmshc_rk35xx_init(struct sdhci_host *host, struct dwcmshc_priv *dwc
+ 		return err;
+ 	}
+ 
+-	priv->rockchip_clks[0].id = "axi";
+-	priv->rockchip_clks[1].id = "block";
+-	priv->rockchip_clks[2].id = "timer";
+-	err = devm_clk_bulk_get_optional(mmc_dev(host->mmc), RK35xx_MAX_CLKS,
+-					 priv->rockchip_clks);
+-	if (err) {
+-		dev_err(mmc_dev(host->mmc), "failed to get clocks %d\n", err);
+-		return err;
+-	}
+-
+-	err = clk_bulk_prepare_enable(RK35xx_MAX_CLKS, priv->rockchip_clks);
+-	if (err) {
+-		dev_err(mmc_dev(host->mmc), "failed to enable clocks %d\n", err);
++	err = dwcmshc_get_enable_other_clks(mmc_dev(host->mmc), dwc_priv,
++					    ARRAY_SIZE(clk_ids), clk_ids);
++	if (err)
+ 		return err;
+-	}
+ 
+ 	if (of_property_read_u8(mmc_dev(host->mmc)->of_node, "rockchip,txclk-tapnum",
+ 				&priv->txclk_tapnum))
+@@ -1280,9 +1300,7 @@ static int dwcmshc_probe(struct platform_device *pdev)
+ err_clk:
+ 	clk_disable_unprepare(pltfm_host->clk);
+ 	clk_disable_unprepare(priv->bus_clk);
+-	if (rk_priv)
+-		clk_bulk_disable_unprepare(RK35xx_MAX_CLKS,
+-					   rk_priv->rockchip_clks);
++	clk_bulk_disable_unprepare(priv->num_other_clks, priv->other_clks);
+ free_pltfm:
+ 	sdhci_pltfm_free(pdev);
+ 	return err;
+@@ -1304,7 +1322,6 @@ static void dwcmshc_remove(struct platform_device *pdev)
+ 	struct sdhci_host *host = platform_get_drvdata(pdev);
+ 	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
+ 	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
+-	struct rk35xx_priv *rk_priv = priv->priv;
+ 
+ 	pm_runtime_get_sync(&pdev->dev);
+ 	pm_runtime_disable(&pdev->dev);
+@@ -1316,9 +1333,7 @@ static void dwcmshc_remove(struct platform_device *pdev)
+ 
+ 	clk_disable_unprepare(pltfm_host->clk);
+ 	clk_disable_unprepare(priv->bus_clk);
+-	if (rk_priv)
+-		clk_bulk_disable_unprepare(RK35xx_MAX_CLKS,
+-					   rk_priv->rockchip_clks);
++	clk_bulk_disable_unprepare(priv->num_other_clks, priv->other_clks);
+ 	sdhci_pltfm_free(pdev);
+ }
+ 
+@@ -1328,7 +1343,6 @@ static int dwcmshc_suspend(struct device *dev)
+ 	struct sdhci_host *host = dev_get_drvdata(dev);
+ 	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
+ 	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
+-	struct rk35xx_priv *rk_priv = priv->priv;
+ 	int ret;
+ 
+ 	pm_runtime_resume(dev);
+@@ -1347,9 +1361,7 @@ static int dwcmshc_suspend(struct device *dev)
+ 	if (!IS_ERR(priv->bus_clk))
+ 		clk_disable_unprepare(priv->bus_clk);
+ 
+-	if (rk_priv)
+-		clk_bulk_disable_unprepare(RK35xx_MAX_CLKS,
+-					   rk_priv->rockchip_clks);
++	clk_bulk_disable_unprepare(priv->num_other_clks, priv->other_clks);
+ 
+ 	return ret;
+ }
+@@ -1359,7 +1371,6 @@ static int dwcmshc_resume(struct device *dev)
+ 	struct sdhci_host *host = dev_get_drvdata(dev);
+ 	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
+ 	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
+-	struct rk35xx_priv *rk_priv = priv->priv;
+ 	int ret;
+ 
+ 	ret = clk_prepare_enable(pltfm_host->clk);
+@@ -1372,29 +1383,24 @@ static int dwcmshc_resume(struct device *dev)
+ 			goto disable_clk;
+ 	}
+ 
+-	if (rk_priv) {
+-		ret = clk_bulk_prepare_enable(RK35xx_MAX_CLKS,
+-					      rk_priv->rockchip_clks);
+-		if (ret)
+-			goto disable_bus_clk;
+-	}
++	ret = clk_bulk_prepare_enable(priv->num_other_clks, priv->other_clks);
++	if (ret)
++		goto disable_bus_clk;
+ 
+ 	ret = sdhci_resume_host(host);
+ 	if (ret)
+-		goto disable_rockchip_clks;
++		goto disable_other_clks;
+ 
+ 	if (host->mmc->caps2 & MMC_CAP2_CQE) {
+ 		ret = cqhci_resume(host->mmc);
+ 		if (ret)
+-			goto disable_rockchip_clks;
++			goto disable_other_clks;
+ 	}
+ 
+ 	return 0;
+ 
+-disable_rockchip_clks:
+-	if (rk_priv)
+-		clk_bulk_disable_unprepare(RK35xx_MAX_CLKS,
+-					   rk_priv->rockchip_clks);
++disable_other_clks:
++	clk_bulk_disable_unprepare(priv->num_other_clks, priv->other_clks);
+ disable_bus_clk:
+ 	if (!IS_ERR(priv->bus_clk))
+ 		clk_disable_unprepare(priv->bus_clk);
 -- 
 2.34.1
 
