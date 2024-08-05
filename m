@@ -4,204 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B1CCC3DA7F
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Aug 2024 20:26:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11984C3DA4A
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Aug 2024 20:36:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MdWN82m7oy2z6hcNSoeo+rxZNFwgyI+X8V34eJwUElA=; b=S/m/2zgeskBBca
-	zyprczEyCWOLNLfVUYkkHYy0v4Fdf+sxX8QEYcS59T2kmdc1wdqxAdFtpVZ5wB8Fjl2KoZGoVO2Db
-	0WsA8IZLF/glevBen/tZrX86HGrNIhaaMrnS4glECFeBOEjZnOlLKw/I/kTuS3dlZLH8wUwrRbb6C
-	yhpNcB+ieErvZpZgya2QiarmB2pvQysV6GGXhGZzayDrBQPkCTGcBVOFt5u3T+elrk9eZQVtwv4Oc
-	/TTbGhChDRgIvDiaaImqfRODazctlBi87/81AicC/80I8iuNyfDP1U7biT3mMaldrQxccd2HsgMon
-	3j8hygVJDwWkMYoVv0iQ==;
+	List-Owner; bh=lJgneDDrteNELRUGOWAWBSl5eaZJNl0lOYQzd4mVy68=; b=w7Mrdr3+Y/e3As
+	VDHTVskyfQt93lrFu3Xk5gvrQqP1RE9uDQ5/gndbpNfFd+H2GKYxFGaD+xZgnKYdbGc4YvGIAjjmx
+	5z4t1nBAj86RJeI3FAkLEw43eMXW1E+jCmi6plwemVooGbjl1DAS7PS4kNHahiu5VKbCI/SOGqyLo
+	sJCd1A4VjgccQ8goNeceCJaLpsZrLU20kmcibWY98CqyawyS2L2YpP2/ZJTULauyMDq/4naJQ6Ewx
+	J8A+AqXeahR2H2gWqn+Tc3v96OdauD48h7O5kR/SV2QP5ZoCejwIsgKycgiqaRhp9RkzVcKF3/WCT
+	1Fe1tpI6VomyCEWJqgeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sb4Hl-0000000HBjD-0dud;
-	Mon, 05 Aug 2024 20:26:29 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1sb4RV-0000000HDer-26K4;
+	Mon, 05 Aug 2024 20:36:33 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sb4Hg-0000000HBiJ-40CU;
-	Mon, 05 Aug 2024 20:26:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1722889585; x=1754425585;
-  h=date:from:to:cc:subject:message-id:references:
-   in-reply-to:mime-version;
-  bh=NPalB0dL4Gm3cP8Ax/Da+Dk/ksh/LGkkgSWDud5FFMg=;
-  b=fUUOjNQ5GgmSLo96V5a2qXCr8HqhcPLiYLAuQ8Zcjs11ns5aIJjvmMJO
-   Q46Nbp9cYlfxvZy4AhITybmJe5YSNFEpT/keCFiwy4u/yGqdhhO89yi0/
-   6ZFImaM4m/0tk9pxbYVLSnzUJRjuxtuMKHDUf64eUiAGYX1fNpuQ5Hj4g
-   rI85E+AWoq96H55okarFpGS+09Rijj2mN3UpyIh+nnsoiTyPsCRJtRCCm
-   uW5jflUw0QhNTA+ejaZtAvv+LtR+Y7PLbLBzlNO5QkRPrXVj7mxBr699G
-   XjnMIm16+nQv8OTaIJgVa1OunOjh6jcTwhvDi+hCLJ+MagpWxJx/L/h0C
-   w==;
-X-CSE-ConnectionGUID: 4cQFtfPHRJ6Xg419t4qfeQ==
-X-CSE-MsgGUID: hNTPZK9vRK+vmklYir44Nw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11155"; a="23789576"
-X-IronPort-AV: E=Sophos;i="6.09,265,1716274800"; 
-   d="scan'208";a="23789576"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Aug 2024 13:26:24 -0700
-X-CSE-ConnectionGUID: nqiOt7XhS7CPFtskWU1i7w==
-X-CSE-MsgGUID: BUZ7RhCxTBuDQiTjXeuoYQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.09,265,1716274800"; 
-   d="scan'208";a="61094202"
-Received: from orsmsx603.amr.corp.intel.com ([10.22.229.16])
-  by orviesa003.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 05 Aug 2024 13:26:24 -0700
-Received: from orsmsx611.amr.corp.intel.com (10.22.229.24) by
- ORSMSX603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39; Mon, 5 Aug 2024 13:26:23 -0700
-Received: from orsmsx610.amr.corp.intel.com (10.22.229.23) by
- ORSMSX611.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39; Mon, 5 Aug 2024 13:26:22 -0700
-Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
- orsmsx610.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39 via Frontend Transport; Mon, 5 Aug 2024 13:26:22 -0700
-Received: from NAM10-BN7-obe.outbound.protection.outlook.com (104.47.70.47) by
- edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Mon, 5 Aug 2024 13:26:22 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VY8kq/VPIDFkn2epkAHy43BjLUD9/jiF/y2xMXL/UQ5DzqzUejFFIlGSIO1DVZZvvhpZ32CLUchI0dD2TK3yjHNva6Qc+7uQKJAEDHhMhgzZF2YEcjJL1xanUxDbZbf7dh4B7iVeS2k2XIXMwaJOk0WfGfQkjnThI9DWHLz8mEw9UsXUiVV8FYNKnprYOsYDHPkPZzx4oi4rBGDKzYa3U1+6NzwmO+lMHu+nyJmRKRXezvNJVOjMMlIrE/pw241DinUtD/I7olYV5ViV7y84AoAcIx81OksGBsu4/hItgzkOhv/vUK79iPF7TY4ChFpfMqklZIGSHcWx2+H2D427Sw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=JP9A5FmudYehYnHl82tb4FTAOigIeMbpmD/vInFfAP0=;
- b=s7bFWfs8SA4bGCzPrSovPYwldWF618vqTEKrUTM1DgkCDDHeDQvWHtDkmyVvaoITkOcchcMzngSEAzsHN6IX6p5+YwWvhmS1jHURXGi/hZpoA68jiX3/qCt+DUoEp31tfkzkdFiWd9ZlK4Slbjw+3fCe1kAEDAO2JZq45GC+7nUGyIHTenim2cGrFFHtLvRB0/aFIYA9iKkesLwR3bxh8qhM9eaaPZO5XkopdzOporVowp8GfuZ6faovarmYf8vNEQH3uQ3A1+yLSUEaFvnaorAHpMnLb5289vi13lMYyFbO8rmX70S/DM8ZnEbKWfhDlYw3sQNxhVCaqCz9nhotew==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from PH8PR11MB8107.namprd11.prod.outlook.com (2603:10b6:510:256::6)
- by LV8PR11MB8772.namprd11.prod.outlook.com (2603:10b6:408:200::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7828.27; Mon, 5 Aug
- 2024 20:26:19 +0000
-Received: from PH8PR11MB8107.namprd11.prod.outlook.com
- ([fe80::6b05:74cf:a304:ecd8]) by PH8PR11MB8107.namprd11.prod.outlook.com
- ([fe80::6b05:74cf:a304:ecd8%4]) with mapi id 15.20.7828.021; Mon, 5 Aug 2024
- 20:26:19 +0000
-Date: Mon, 5 Aug 2024 13:26:13 -0700
-From: Dan Williams <dan.j.williams@intel.com>
-To: Dan Williams <dan.j.williams@intel.com>, Mike Rapoport <rppt@kernel.org>,
-	<linux-kernel@vger.kernel.org>
-CC: Alexander Gordeev <agordeev@linux.ibm.com>, Andreas Larsson
-	<andreas@gaisler.com>, Andrew Morton <akpm@linux-foundation.org>, "Arnd
- Bergmann" <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>, Catalin Marinas
-	<catalin.marinas@arm.com>, Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Dan Williams <dan.j.williams@intel.com>, Dave Hansen
-	<dave.hansen@linux.intel.com>, David Hildenbrand <david@redhat.com>, "David
- S. Miller" <davem@davemloft.net>, Davidlohr Bueso <dave@stgolabs.net>, "Greg
- Kroah-Hartman" <gregkh@linuxfoundation.org>, Heiko Carstens
-	<hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar
-	<mingo@redhat.com>, Jiaxun Yang <jiaxun.yang@flygoat.com>, "John Paul Adrian
- Glaubitz" <glaubitz@physik.fu-berlin.de>, Jonathan Cameron
-	<jonathan.cameron@huawei.com>, Jonathan Corbet <corbet@lwn.net>, "Michael
- Ellerman" <mpe@ellerman.id.au>, Mike Rapoport <rppt@kernel.org>, "Palmer
- Dabbelt" <palmer@dabbelt.com>, "Rafael J. Wysocki" <rafael@kernel.org>, "Rob
- Herring" <robh@kernel.org>, Samuel Holland <samuel.holland@sifive.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Thomas Gleixner
-	<tglx@linutronix.de>, Vasily Gorbik <gor@linux.ibm.com>, Will Deacon
-	<will@kernel.org>, Zi Yan <ziy@nvidia.com>, <devicetree@vger.kernel.org>,
-	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-cxl@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <linux-mips@vger.kernel.org>,
-	<linux-mm@kvack.org>, <linux-riscv@lists.infradead.org>,
-	<linux-s390@vger.kernel.org>, <linux-sh@vger.kernel.org>,
-	<linuxppc-dev@lists.ozlabs.org>, <loongarch@lists.linux.dev>,
-	<nvdimm@lists.linux.dev>, <sparclinux@vger.kernel.org>, <x86@kernel.org>
-Subject: Re: [PATCH v3 00/26] mm: introduce numa_memblks
-Message-ID: <66b135659ad15_c14482941a@dwillia2-xfh.jf.intel.com.notmuch>
+	id 1sb4Qy-0000000HDVQ-3PLw;
+	Mon, 05 Aug 2024 20:36:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id CBB4BCE0B42;
+	Mon,  5 Aug 2024 20:35:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A51B2C32782;
+	Mon,  5 Aug 2024 20:35:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1722890158;
+	bh=wRagKm6MS39NDYLBbcdNfb/zxQJOwJqmtNN36cxhWNE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=g0ifEE+/fQd9VQyFJiGF6eqG5LkKWn0QoytIRLG6RGNO3Qz+ixAqBqBhJXWXYzJE8
+	 0lFaNo21LgP2mbO565lm6BtVRnS7fXNHEJVy8zEtHsy8Uw8u/a5v19B4OkrZVUS3fx
+	 ix+vSxthkk0vtjORnJgV3NWtYxBAy3BhlS8nwLVfIFfPyq5ww4vSd2FHKgUzoj06Iv
+	 Vb4ByzZFa5e2puJlKIa3k2+AazNy3wMipT1Qok9eH8nBZ24hNYG5OjUnktHHi7xdO4
+	 HdW3CuSUf4iLi1uAYROJiEHzYtewSLvIDZn8z4DY92o6CWtrXY1hYgkOWg3WUTpR8E
+	 O3fqMHFNWnE8A==
+Date: Mon, 5 Aug 2024 23:33:39 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Dan Williams <dan.j.williams@intel.com>
+Cc: linux-kernel@vger.kernel.org,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Hildenbrand <david@redhat.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+	Zi Yan <ziy@nvidia.com>, devicetree@vger.kernel.org,
+	linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-cxl@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-mm@kvack.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
+	nvdimm@lists.linux.dev, sparclinux@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH v3 22/26] mm: numa_memblks: use
+ memblock_{start,end}_of_DRAM() when sanitizing meminfo
+Message-ID: <ZrE3I6qCdfHPa3FB@kernel.org>
 References: <20240801060826.559858-1-rppt@kernel.org>
- <66b12ad232a7_c14482943e@dwillia2-xfh.jf.intel.com.notmuch>
-Content-Disposition: inline
-In-Reply-To: <66b12ad232a7_c14482943e@dwillia2-xfh.jf.intel.com.notmuch>
-X-ClientProxiedBy: MW4PR04CA0062.namprd04.prod.outlook.com
- (2603:10b6:303:6b::7) To PH8PR11MB8107.namprd11.prod.outlook.com
- (2603:10b6:510:256::6)
+ <20240801060826.559858-23-rppt@kernel.org>
+ <66b1342e8af7f_c1448294af@dwillia2-xfh.jf.intel.com.notmuch>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH8PR11MB8107:EE_|LV8PR11MB8772:EE_
-X-MS-Office365-Filtering-Correlation-Id: 94b0f811-4971-4af2-8b5e-08dcb58cdd17
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?YERVX2wVlYt+ysS2EoF4EsZHqd+7xH/7VzDgDIHF3JQxgOK+urMQZvDZ2HMm?=
- =?us-ascii?Q?h/krpIz524sjPumhxFf7RZGKqgcYDyEkdxfsdu8Ypw0DH3ADukZoM8//glei?=
- =?us-ascii?Q?/hKcb6o6uSI+uqshYYdtdq199zdUQJYnabTQmP9uh+uvRBr5RsKpgK83nSft?=
- =?us-ascii?Q?tSYu0a5wtSZavhFeOYARRl6xcNUltMn5lKJlgDs5FWuydL/4VtM71k+BeQ5d?=
- =?us-ascii?Q?bXhIc0EKyIxQQPADwvl6B3c9bxxw0n56T441PIvI9lIqmoh1n9wZpEXjxEmt?=
- =?us-ascii?Q?mYkNd1+HLSQCmAPRkd9+R9CiC3e2xrj0NSLfjKqwJGN58RxPX18Nf910RdWM?=
- =?us-ascii?Q?ih0jSLyRfoXhUo8hZGlASsS03YfWmymU6Rc5SICUnUez/UsAB93LX676s75a?=
- =?us-ascii?Q?SoI3Y2R35F5Yt2ScaGTvFLTwjERBIArlYeYTILXnmCsFspbYYIsay6rdRvGu?=
- =?us-ascii?Q?Z8OfriDY3DdkRJ7KN01cuIcOINPhmLYm82JfRbJCLYkLYnWzzHNirf3p6QF8?=
- =?us-ascii?Q?Q6QqaOWGhBwffYg/aaSa5CsjuT+IgJYxKFLT4PuvXV3T/+AcYo5vfO/vsnov?=
- =?us-ascii?Q?1XuAW0JjO1AvZGLhaXQznLPxid2rQP0ApIuHTwQaJw+PdKgo1bO9izq/4sO5?=
- =?us-ascii?Q?Z7dNeKmoVENgwgW2VCM9zHHhRRQwNJtxUa4Wpb/tVxoM0V1IxBZ0dfpdQ8bQ?=
- =?us-ascii?Q?XxNw+boMrdDhD97zBQF+kgxy1BdoCxsZj6oTztGtW2erzCj9eWuXbj9HK11Z?=
- =?us-ascii?Q?5Gh/+KoNtUZzVl+GgokypNLnJVfAzPmIqgH2CqzgMMX+1Ci+PyOod16mjB+h?=
- =?us-ascii?Q?KmV7XTeJ2FaxzhzdwAH2irlEFyfSG2sHJFCwGIpnW1X+UzB7q+KMAUEDyP4v?=
- =?us-ascii?Q?EUm7qOXXSawBs3+H2bgAnm6xTYcfRI7GA9YYUl2OEExKmfXcOdEkkTWyjDfa?=
- =?us-ascii?Q?TwuxjwpTG1/NC/4a9M8sUaFjlIdjQ9H3YnpdUt/grEb8bewUAjew0lfBZ5H/?=
- =?us-ascii?Q?Q3h+9L2csShM1yOZd/ko8ze2CRCCgdOwEGyLq4SHbpKU1WOKZTsP6f/iLXkH?=
- =?us-ascii?Q?0SQfFLaMDdXnYmXN3/rq6GfhoEfZz2x4dBZLZxGrHUsPpJw1vK9L2ANDiqes?=
- =?us-ascii?Q?0LF62DzlzQnf8Rm7cXLDucT0/Yl6E9qemDB505pMjK0kojz3BsADY1QYbr0c?=
- =?us-ascii?Q?nt9B911GDUunqfy4wiuVpL2AIKssITuaCje+7oOqq4a1ax2x0SdRH8zKONC7?=
- =?us-ascii?Q?O5fYkrxJBkr8N0ruYfgermP4y1fsh7IhQlSt5G+sHWzBBntJWtqyNGRUnu9T?=
- =?us-ascii?Q?YoQxWlmAasdzbguDDo0z+olS/sLdAQch22wV9qIrMW7mnw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH8PR11MB8107.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?VfSolK1oQra9tIDD1NEdQw+q+Xxf1iqUpZqG6D5Asxa6rVCS65jt61NbWXgv?=
- =?us-ascii?Q?eYvwRnE6m8+1AM2kvNrhyPPhknV/U3H3LRsAWKIigYzhX9vP2GLI7iH4sNDy?=
- =?us-ascii?Q?EdkWSeliPs2xPOLgr7EJz2OoAHGUSb6D0x23nv9X+WhV3tRoNpEct6NPd7VJ?=
- =?us-ascii?Q?ldk2AQUcF5D7o0eU8fxNNO4EmNyj4C+KGyh9yBc5zSXyD44GQI5aRwzPnWpm?=
- =?us-ascii?Q?cVOVTC3vGHQrrWyneYyiyuYbbeORNTM7ztOlMVx16KoUUJwQplBnIiBQGKTX?=
- =?us-ascii?Q?3XK8u7Hs2Ef9WHo73r/yLFgpMDPV4Jwx0ypg/3DIMnCVLPtPZdO1uIqfEPMZ?=
- =?us-ascii?Q?Cc4bhoAWPginMW8r+qJwnFHiqXYbhI4j6V6RZbQ3k75DGC97U7u4ANi2NBOj?=
- =?us-ascii?Q?wDSv7eE92Gnx2Zty+NyR5WEDfNMqqLWTAtu3Y1aQIt1aN8WrU1QFuvW9DNp3?=
- =?us-ascii?Q?PhQwcpai5DWakCL2oPG+pnuHzALSwfgA/gnkoVArtlGTfxaQsW5vyS6CCZvV?=
- =?us-ascii?Q?TF0GVRnRffdIV9Qx0GpdMp58LhjFOCmKyNqXjL96hegTOI+3VvUUuszCIF27?=
- =?us-ascii?Q?cOSEq1s+qeSxuLBOReYjXZy/TAS6VQfmwBQxgYSFSixfflgEshfBsQF+k52B?=
- =?us-ascii?Q?1BNAGX11HsV0GGRQp05jffzMsgzi14UfE4c41XxxVyJOyeZ0dKiY4DsGz//U?=
- =?us-ascii?Q?5jfrtCEIoYQstmURfu1JoJFCgU6yNnpVnkp7VfqU/JUvhXpZEgZdlroOehIZ?=
- =?us-ascii?Q?+Oretl5ZUzgR9Z+ZdNLBmatqxBK+mhVEnr3xp6gtBGE3+4MOe6jCgU69ps/V?=
- =?us-ascii?Q?KujNoMVu4vAV2BsOL8+/cCWP6dpX/XBbDtgsbRnxN+YnYJbUtc80JygYztME?=
- =?us-ascii?Q?JLqpnggrJiMwuY2ZUcvXYEU8PEAsbgvUc8Jkz1cWpEbrBq7qAUqazKWopCiJ?=
- =?us-ascii?Q?vffSomSCkCLPIudATbfWdEg0D/z+4Q1h3CCdCUKeR/kCg6WaTXrN7RhEcK9j?=
- =?us-ascii?Q?Vgr/Skjib5YxTnecjlG+0vffls5VwZvvlwHiLuZovfriZw7/jmKTjxs6CRDL?=
- =?us-ascii?Q?Vz1C+wJyYv5DoQNtNiL3ZWW/D/OiJZENpQPpWCAlPABxQLfPkgo8QFd5kGpj?=
- =?us-ascii?Q?dvD+cIXcCRjwOOJLDdX/c85ssCD8/3jaxCgNkPOb3cGYOGn2btyuKzPIeo9+?=
- =?us-ascii?Q?IZuLSKOMxoT6kiQYlPXbPsKoJQ0U8T2QhBjMsRA3TnnMmjdB2MyM7cQkGyjh?=
- =?us-ascii?Q?tEfcHiVstgu6wExS471cpGZ3AfJJH948ZhTMinUqGetmraoe0bzQkWXpSEyv?=
- =?us-ascii?Q?sRk42DwBk24Unt52myINGfJDhBbc1RxSi+uKXI2k6pa6/v2N5Ff9+H97aa3a?=
- =?us-ascii?Q?zTmafi4ZIZcNMwpMKxCoDOulDUpSeDuRDDD2xGzMy969vXBrmCkYXz/JApTu?=
- =?us-ascii?Q?7LIe58d6DGwmKUC+4gPNkA48yT3qlN0Imj6gtVeJVG13LoXKs5SWg603ltSQ?=
- =?us-ascii?Q?InNOb8CH0EbJUsLKyYwGOYHsLE0U4o0bb6L8HD31Y1lOiNKx2HUxBEn4njUV?=
- =?us-ascii?Q?xW6JyCESP9fp8OBmwy+O0goqZ/+RhNwpYloZH4pKntIXNJRuX70ZD5E3OQQG?=
- =?us-ascii?Q?tQ=3D=3D?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 94b0f811-4971-4af2-8b5e-08dcb58cdd17
-X-MS-Exchange-CrossTenant-AuthSource: PH8PR11MB8107.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Aug 2024 20:26:19.0701
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: PfToQGCd3Q5fNawrKolrB4LBs88jgJxexZ24u2ypnw0dJkyvJMsY+zfDDNrw067Jri1Xyn1O5U960fBkm+5QrkPP1Vo/xZj3ECFVSpbTK+Q=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR11MB8772
-X-OriginatorOrg: intel.com
+Content-Disposition: inline
+In-Reply-To: <66b1342e8af7f_c1448294af@dwillia2-xfh.jf.intel.com.notmuch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240805_132625_034631_77A8A7B0 
-X-CRM114-Status: GOOD (  17.76  )
+X-CRM114-CacheID: sfid-20240805_133601_032139_7F175A47 
+X-CRM114-Status: GOOD (  14.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -218,41 +106,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Dan Williams wrote:
+On Mon, Aug 05, 2024 at 01:21:02PM -0700, Dan Williams wrote:
 > Mike Rapoport wrote:
 > > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 > > 
-> > Hi,
+> > numa_cleanup_meminfo() moves blocks outside system RAM to
+> > numa_reserved_meminfo and it uses 0 and PFN_PHYS(max_pfn) to determine
+> > the memory boundaries.
 > > 
-> > Following the discussion about handling of CXL fixed memory windows on
-> > arm64 [1] I decided to bite the bullet and move numa_memblks from x86 to
-> > the generic code so they will be available on arm64/riscv and maybe on
-> > loongarch sometime later.
-> > 
-> > While it could be possible to use memblock to describe CXL memory windows,
-> > it currently lacks notion of unpopulated memory ranges and numa_memblks
-> > does implement this.
-> > 
-> > Another reason to make numa_memblks generic is that both arch_numa (arm64
-> > and riscv) and loongarch use trimmed copy of x86 code although there is no
-> > fundamental reason why the same code cannot be used on all these platforms.
-> > Having numa_memblks in mm/ will make it's interaction with ACPI and FDT
-> > more consistent and I believe will reduce maintenance burden.
-> > 
-> > And with generic numa_memblks it is (almost) straightforward to enable NUMA
-> > emulation on arm64 and riscv.
+> > Replace the memory range boundaries with more portable
+> > memblock_start_of_DRAM() and memblock_end_of_DRAM().
 > 
-> Hey Mike,
-> 
-> So interesting to see this come full circle and instead of moving
-> numa_memblks to memblock, just uplevel numa_memblks. From the
-> perspective of having numa_memblks enhancements work for more
-> architectures this gets an enthusiastic thumbs up from me. Let me go
-> look at the details...
+> Can you say a bit more about why this is more portable? Is there any
+> scenario for which (0, max_pfn) does the wrong thing?
 
-For the series you can add:
+arm64 may have DRAM starting at addresses other than 0.
+And max_pfn seems to me a redundant global variable that I'd love to see
+gone.
 
-Acked-by: Dan Williams <dan.j.williams@intel.com>
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
