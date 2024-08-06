@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55B39C49EA1
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Aug 2024 13:23:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D378AC3DA64
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Aug 2024 13:24:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=A+boINcneJAnB1nTf65W8x2l6eVxKXLVurrYlzl/Hbs=; b=ewh4y4PFvMEa4K
-	j0L9YgF5VzjAgFKedpTPv6oOv3RgC/t0+507YoXmWPdPD1sZn43QgoT7EpJbdBj07jC2Nt+CHFlX2
-	ea068j0/51qF8zp5OPP491qB+pzRFd4mEVOxk1NZ8Vu5gYEJbwuEVsWVSyInunhkHj11IjwYS/Vv4
-	bE0sOvsIiXp95XF/GOIZuZZvEF/DnOnh9sQVxnHwCLen3ZI2Yl6pJ7K6BcY5oOHrAQMYOErjyqifh
-	eWKgJMs43OEjwu/0j0vaPA1AqI2SLXOTDc8famwG8J+JeI82lBDjddOfLGttCxkWGUXkr+/EkEoOT
-	R6eWhYLKSDpi6Rd32JRg==;
+	List-Owner; bh=JIlERJSzPDd2nsC8b8XmsOOM28wxqMnbrwiEhci7LxE=; b=H7DTKlxoXmwkNZ
+	L3heOlgm7TsjJFO/GPVo99tMc3xGTOgozzMoS9e4WZTxc7hYYGj7gWPExFr3fo5oRg5U0gObVkvId
+	u0miz9EKf4AN466C86Zt+/mmJiz2+1XlX1N4za8Q4P7dLpD0eWaz+t+zubChH6MMTYMjUQo52Uadp
+	ZDtEiqPyaB3SHPGICP1GhmZJ4BTgA/8OfqwKEW5lfbZcSS+iZ749hjLmk/ZGNjbHSqGexyPm6iM0G
+	b+QnPaJ7vFjoLsN85CnwVVlt4JkhjMyuwpABHsbJ5kRpmOto3hizvJNiPDFS5GZDtVGNeV0JWKiJs
+	ooXHNw+JOglmKFrzDy/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbK9h-00000001jpn-23eX;
-	Tue, 06 Aug 2024 13:23:13 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1sbKAQ-00000001k9B-410b;
+	Tue, 06 Aug 2024 13:23:58 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbK9A-00000001jaN-20wh
+	id 1sbK9r-00000001jvF-29eL
 	for linux-riscv@lists.infradead.org;
-	Tue, 06 Aug 2024 13:22:41 +0000
+	Tue, 06 Aug 2024 13:23:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1722950559;
+	s=mimecast20190719; t=1722950602;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=aUPI5Z9XiSx+9SiMnINjfle2D1fEt5tFfjywP/Y3Qhk=;
-	b=Nv/CrLRI4NsqUM+n/nADEZj1d2z14Banl26uLnJuTXR6R3yPipWI+hpHMRRI5exPNSkslo
-	wTCvBuaQtSH2ssQ+VvyJOgBROfRAk71S4y9Tebaj5nSQFhQ2t9KPoC8jnK5+YJU7jLLC9v
-	6oyS2Pb//wZ9DvAFchuo8t8Fcr1+cus=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=ZB/Nz+T68lcjdmx6jQYY05PBs50un9o0yFuZF5Y14W0=;
+	b=cBa2HyqDKfgmQznJbYsoIsNCGoQWJCS8w7qDDLxYQ9UvRGP7hXhffrSvXklzfNZSpcPAgm
+	9yL5C//elBgE8TH1sWq/ImHgBo6FrBY6uQCY2dJLXM+/iqCa7aEphyHjHv3O3+rPEI8mRP
+	bh06CFwmUG8B8/k4Rk/cUE6RNK4qIP4=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-439-W3PK7l9MNhOaDIRCnIZeyg-1; Tue, 06 Aug 2024 09:22:36 -0400
-X-MC-Unique: W3PK7l9MNhOaDIRCnIZeyg-1
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-3684ea1537fso438661f8f.1
-        for <linux-riscv@lists.infradead.org>; Tue, 06 Aug 2024 06:22:36 -0700 (PDT)
+ us-mta-482-RjYU8xEwNpe76y48TcxGCw-1; Tue, 06 Aug 2024 09:23:21 -0400
+X-MC-Unique: RjYU8xEwNpe76y48TcxGCw-1
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4281310bf7aso5030275e9.1
+        for <linux-riscv@lists.infradead.org>; Tue, 06 Aug 2024 06:23:21 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722950555; x=1723555355;
+        d=1e100.net; s=20230601; t=1722950600; x=1723555400;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:from:references:cc:to:subject:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=aUPI5Z9XiSx+9SiMnINjfle2D1fEt5tFfjywP/Y3Qhk=;
-        b=GftgadQBi7fNms24YAn8Qzhb0QOURt+B7Z7v5edj93zeWotlst2KhDysknHr0WK3/d
-         PvJ2x954CmlCXrvlV4tryxfsgey+60hyW5LN+Z6ne1hoqJL+xXF0szM6gyyMB831zFTY
-         NKsfjFhYq00SERmhDjq/yvXJ+R3EuxH/ueHWC0+DMde6zOk682StvzkLGqIMpACu/oms
-         NY74H01VOpsIUGRpDyaDDYY6xOEsRw6z3CxzH0SpFrQzvt090QRwn5QjWflU9V7/aIXm
-         thLHFbUJQSyacPM5SvFAGMTqsQF2b5+JbZvfT3MX7SLNRnHRSE5/eUAmnUYAUtlB9hNT
-         bnzQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVzZ//K15u3im1CkrCRcgvlVZk7+NQ4E3C4rV15udVhcCxb48cRUHfehtZK94A51k7LNEE7xKASHNfxd+sm1W0vE+RvBnFf66q1dOFyIUxj
-X-Gm-Message-State: AOJu0YwAVvKb159D/Lrzpy1FP672Sudczp5bgsuiOL2MAifg4ewQl2a8
-	JrCSr9weKT60krzn9SlZ8yRpBoH2e3tYu8AYn+BaoWEPYR/TpCVHQb39fvLiKdKZ6P6I3jUns5e
-	sYMj0XDUtIAZRGbMIIlxrBkvnPeIAjG59TFVH9Esria11T+s92ZmaQ+s0F1hz9V9Glg==
-X-Received: by 2002:a05:6000:1c6:b0:35f:cd7:5ba1 with SMTP id ffacd0b85a97d-36bbc1c2390mr9820192f8f.60.1722950555077;
-        Tue, 06 Aug 2024 06:22:35 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHv//6jPDUe4crSuXPshdQ5kLXizB2Ben7qczAJn6l9IDqh84P49LgZsou2hMuD1GL16UWNvQ==
-X-Received: by 2002:a05:6000:1c6:b0:35f:cd7:5ba1 with SMTP id ffacd0b85a97d-36bbc1c2390mr9820153f8f.60.1722950554541;
-        Tue, 06 Aug 2024 06:22:34 -0700 (PDT)
+        bh=ZB/Nz+T68lcjdmx6jQYY05PBs50un9o0yFuZF5Y14W0=;
+        b=dAzx4YTrxqbCMvkuX7LnzvMdV00KY1FVGLsAwSN9TG0M2tjpGk2K2L5+Ic6k1yWPwz
+         1kLHqHl2WdZwo3o8Veh/RM7y+BUh05xx/lUgmhUMIBWLG/MJ42muXusi/X0ShJfXPND6
+         9eAVyg5RjHTvFXB+B/taQuKsZ/nl1OXAHj/xXrPU0ZTHmbhuENPRElIzgWVNX4YRNbL6
+         sXWHbAnTazhfyLT4PoppQozkefazfpr8EsIRZJmsnLJQfcs204HQur7gQyrmYl49VYTO
+         D8hxVuBmWDZrZ755xwQNRRd14NFmsZMc0o8LWiH5OIxCyTwxHiat5bdziwgajVCneZeG
+         uS/A==
+X-Forwarded-Encrypted: i=1; AJvYcCU8Bm/dfFoIfC+0/6K8cJt4Ij9vEpH4q4oiNAOxHqp2V0fjt5kD/yQIMejeoawq+ZBV03/6KUHEr+ALU916Cl7+9iCEDq123fC3JAaijs4m
+X-Gm-Message-State: AOJu0YyeXrCFuury/hKRqk0X/Wn/LypXG1nQWljv3yP4OYR1Tas95Uwb
+	SdOLabl8Q52naIZzMDU+nXbMelleXPvriMbfQ+V+nNb0Fj8P/wcckeIr36OJAaV5JayCfGY0MAr
+	IHn3XZDfutTLr1JgC4FvE3OcdhDqDxmIwckOfRa1WIrivWrGXrGjx0QD6fAxPUuCz7g==
+X-Received: by 2002:a05:600c:1906:b0:426:686f:cb4c with SMTP id 5b1f17b1804b1-428e6b96b3bmr118640175e9.32.1722950600095;
+        Tue, 06 Aug 2024 06:23:20 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHGnLFmt3qZaTRVeNpAWHRxvq5JQmQg7WtAtzN+rNgpMvX+m7w9zDhJGl/mp8SOyNMjpKdqIw==
+X-Received: by 2002:a05:600c:1906:b0:426:686f:cb4c with SMTP id 5b1f17b1804b1-428e6b96b3bmr118639805e9.32.1722950599607;
+        Tue, 06 Aug 2024 06:23:19 -0700 (PDT)
 Received: from ?IPV6:2003:cb:c73f:8500:f83c:3602:5300:88af? (p200300cbc73f8500f83c3602530088af.dip0.t-ipconnect.de. [2003:cb:c73f:8500:f83c:3602:5300:88af])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-36bbd02b15csm13167951f8f.65.2024.08.06.06.22.32
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4282bba3249sm242378295e9.48.2024.08.06.06.23.17
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 06 Aug 2024 06:22:34 -0700 (PDT)
-Message-ID: <ad34babe-9dc3-4aa5-96a3-88349e510a54@redhat.com>
-Date: Tue, 6 Aug 2024 15:22:31 +0200
+        Tue, 06 Aug 2024 06:23:19 -0700 (PDT)
+Message-ID: <14bf500e-e0a0-4217-9c50-7676543adc33@redhat.com>
+Date: Tue, 6 Aug 2024 15:23:16 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 22/26] mm: numa_memblks: use
- memblock_{start,end}_of_DRAM() when sanitizing meminfo
+Subject: Re: [PATCH v3 23/26] of, numa: return -EINVAL when no numa-node-id is
+ found
 To: Mike Rapoport <rppt@kernel.org>, linux-kernel@vger.kernel.org
 Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
  Andreas Larsson <andreas@gaisler.com>,
@@ -106,7 +106,7 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
  loongarch@lists.linux.dev, nvdimm@lists.linux.dev,
  sparclinux@vger.kernel.org, x86@kernel.org
 References: <20240801060826.559858-1-rppt@kernel.org>
- <20240801060826.559858-23-rppt@kernel.org>
+ <20240801060826.559858-24-rppt@kernel.org>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -153,14 +153,13 @@ Autocrypt: addr=david@redhat.com; keydata=
  jPrnvUsUUsjRoRNJjKKA/REq+sAnhkNPPZ/NNMjaZ5b8Tovi8C0tmxiCHaQYqj7G2rgnT0kt
  WNyWQQ==
 Organization: Red Hat
-In-Reply-To: <20240801060826.559858-23-rppt@kernel.org>
+In-Reply-To: <20240801060826.559858-24-rppt@kernel.org>
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240806_062240_606346_3137294E 
-X-CRM114-Status: UNSURE (   9.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240806_062323_673492_A5C0B836 
+X-CRM114-Status: GOOD (  12.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,15 +179,21 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On 01.08.24 08:08, Mike Rapoport wrote:
 > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 > 
-> numa_cleanup_meminfo() moves blocks outside system RAM to
-> numa_reserved_meminfo and it uses 0 and PFN_PHYS(max_pfn) to determine
-> the memory boundaries.
+> Currently of_numa_parse_memory_nodes() returns 0 if no "memory" node in
+> device tree contains "numa-node-id" property. This makes of_numa_init()
+> to return "success" despite no NUMA nodes were actually parsed and set
+> up.
 > 
-> Replace the memory range boundaries with more portable
-> memblock_start_of_DRAM() and memblock_end_of_DRAM().
+> arch_numa workarounds this by returning an error if numa_nodes_parsed is
+> empty.
+> 
+> numa_memblks however would WARN() in such case and since it will be used
+> by arch_numa shortly, such warning is not desirable.
+> 
+> Make sure of_numa_init() returns -EINVAL when no NUMA node information
+> was found in the device tree.
 > 
 > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> Tested-by: Zi Yan <ziy@nvidia.com> # for x86_64 and arm64
 > ---
 
 Acked-by: David Hildenbrand <david@redhat.com>
