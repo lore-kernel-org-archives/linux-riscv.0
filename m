@@ -4,89 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 098D9C52D70
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Aug 2024 17:05:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01A58C52D71
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Aug 2024 17:07:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0qx4n9aWMDaHKbyRsQprwaLBCWSRS6ZqQP+JonJoddk=; b=gy6/aiqrgtl4r5
-	iW0I7SGzgILm/T0yqLtSbXtLzWmLLYG0En+Qvzq9YSuHV2ZOqw72RNJYA/3QwO34EbqNs4HSmt2xz
-	NE31TrODL/7GSNF81sGO20HcdmBFFZtPNeoOg2xJLSouw3tbLs7hADBpOo6rnKR+n81XoDuiCcTWD
-	V19xceXr2jNLRp3ezN4/o/VYiMRuM0o5B1t6QPBm+ragK6CCvJnDnBAkzt5gqe6I38fogB2u+EobO
-	NXPP9A1tu2z/Fx45EA7BLD1zVKg8Pu96VhSDg+iIB1VzfSB3KUgOnK6L3/ao/FEYuR8aAy+ieqANU
-	+fvkUPxJlXZ64LUQgS7A==;
+	List-Owner; bh=Raqrr+FmykHQOMkjGOCBaYLbvBhKHFqjwRRPRpssH3Q=; b=hmIAXvQmQDQxxT
+	3uGD3GkBx4YQtezTwqnQLdVOdYSxXVBAo4wKfj/M4M7yzM3PaVIjAdwcCzG4HMfYskYxqO9/P0IbJ
+	AJCCXg5X/cUMr+8A3CquRjtTmdpp/KKzeYw/EVNV2UiKMtNVGkpVp8s2Ju7NTt3dP4qeOqVU9AfuE
+	jD3k9qHnrznhlPpsgvDUBi4Q3QepAdeNHKclwgTgRYusVBjWRD3gXLwFovId0wYhSggty3U3hxOZa
+	sjDWZ7JT5NVGx2VkCv394UBtP+8nLSJum/PigEZYAhT76e3A+kjJ0PymOkvdVHa/iviCG1v+xIrPB
+	XAwOPMyJxMacrxdIUZbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbNcy-00000002RCh-1P2Q;
-	Tue, 06 Aug 2024 17:05:40 +0000
+	id 1sbNf3-00000002RiK-2MbI;
+	Tue, 06 Aug 2024 17:07:49 +0000
 Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbNcP-00000002R7J-3qku;
-	Tue, 06 Aug 2024 17:05:07 +0000
+	id 1sbNf0-00000002RhP-1OAP;
+	Tue, 06 Aug 2024 17:07:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 4B787CE0EF2;
-	Tue,  6 Aug 2024 17:05:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7285CC4AF0C;
-	Tue,  6 Aug 2024 17:05:01 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 52B11CE0F1C;
+	Tue,  6 Aug 2024 17:07:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63975C32786;
+	Tue,  6 Aug 2024 17:07:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1722963902;
-	bh=J89hljmcuXHDqlr6QTmQWGz1fYUSlBmB823jfyPm0RQ=;
+	s=k20201202; t=1722964063;
+	bh=HvEeTOUhv0C5pYu4c2PjUH50AMGhSOMbB8EnQ1HMeqg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ciRFEKNnEB8G5GUHNKoJYeSGPaKcRyHKOW3nFgp7mdUV6WPk3M/ghy8UeaG8QyVlf
-	 jgaIP2g9IDNnBuCWswHyZGp6bc7blRpoDS70Kgif/eNGBqGfNz9xtwm6qT7f6RBk0R
-	 Pcj3v9B+9BAoI2yF8k+1WbsVVanH4RNzIzMdNxIMiXi7ezN4b5CQSlCphz+oKzew39
-	 aXCuG9wryXyfjhvX2062B7xpXTYwKhAc7T/oQb4+6iOKT268JDyi3pM5vkzT+B++cQ
-	 PefPwLKN7EJqWnxNxt5PveUNpFFoZPmbY/Su4gz8hvYs+JW4jpLSeP+y5/PvIr7/u6
-	 svQxKvuIhAw9A==
-Date: Tue, 6 Aug 2024 14:04:58 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Eric Lin <eric.lin@sifive.com>
-Cc: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Charles Ci-Jyun Wu <dminus@andestech.com>,
-	Locus Wei-Han Chen <locus84@andestech.com>,
-	Atish Patra <atishp@rivosinc.com>,
-	Ji Sheng Teoh <jisheng.teoh@starfivetech.com>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Jing Zhang <renyu.zj@linux.alibaba.com>,
-	Xu Yang <xu.yang_2@nxp.com>, Sandipan Das <sandipan.das@amd.com>,
-	Guilherme Amadio <amadio@gentoo.org>,
-	Changbin Du <changbin.du@huawei.com>,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, vincent.chen@sifive.com,
-	greentime.hu@sifive.com
-Subject: Re: [PATCH v1 4/5] perf pmu-events: Remove duplicated riscv firmware
- event
-Message-ID: <ZrJXunNsGiZVVtpE@x1>
-References: <20240805194424.597244-1-irogers@google.com>
- <20240805194424.597244-4-irogers@google.com>
- <CAPqJEFpiy307B4OBHK4WJGjgbVm_woUrdZ+Vy_LSdQ=ECqZX-Q@mail.gmail.com>
- <CAP-5=fWDmdAkJSoncedZTaSgFwG+p3--jywDj9krnXSfkhh6dQ@mail.gmail.com>
- <ZrInOywRKzRmjtKF@x1>
- <ZrIqR07cYJnhcTq8@x1>
- <CAPqJEFoFfCG0_fqkVqakUK7CWs_8WREpmAd+f3H26UasGRPz2Q@mail.gmail.com>
+	b=CwIxAO33u0yFzM+dF0iUSmlKMQsZXTwp8VI7ArfEHq0VvmnDx6cYZLVP1UxWLUfWw
+	 GF/uA5Wcsds4bRYB1J98jF2OlYsy1vLLnSZwo0+uUFj5DbOsxC4UbIZ5zDYOsATlGP
+	 uLcn7/1lIZ1ef5eTnSzqbAGyf9dTIaX/m0Z40gJRHLURctanhzWe+IBC1oFwnVcsNK
+	 M7AXV/D9ruxMGaRGoCrW3IW9MgVQqiophBMn+rxsBN8L0xgm/yY7AUHqMtrzgG4Z9o
+	 ac0deMWGdNHxZ+hn9HJgD9wQyc5excsl/0T/9TVWAb+H7IQz5KU90IpSo2oEp9w/f1
+	 70sCB3rJtPuTw==
+Date: Tue, 6 Aug 2024 11:07:42 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Jan Kiszka <jan.kiszka@siemens.com>
+Cc: linux-phy@lists.infradead.org, linux-riscv@lists.infradead.org,
+	Minda Chen <minda.chen@starfivetech.com>,
+	Vinod Koul <vkoul@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>
+Subject: Re: [PATCH 1/3] dt-bindings: phy: jh7110-usb-phy: Add sys-syscon
+ property
+Message-ID: <172296406163.1706072.1585378061823817206.robh@kernel.org>
+References: <cover.1722457123.git.jan.kiszka@siemens.com>
+ <ebcfe039b13097e53b3721f56a45d99807f2925b.1722457123.git.jan.kiszka@siemens.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAPqJEFoFfCG0_fqkVqakUK7CWs_8WREpmAd+f3H26UasGRPz2Q@mail.gmail.com>
+In-Reply-To: <ebcfe039b13097e53b3721f56a45d99807f2925b.1722457123.git.jan.kiszka@siemens.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240806_100506_164078_95F0D8A4 
-X-CRM114-Status: GOOD (  13.35  )
+X-CRM114-CacheID: sfid-20240806_100746_571248_1DFC3D40 
+X-CRM114-Status: UNSURE (   9.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,26 +73,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBBdWcgMDYsIDIwMjQgYXQgMTE6NTA6MDFQTSArMDgwMCwgRXJpYyBMaW4gd3JvdGU6
-Cj4gT24gVHVlLCBBdWcgNiwgMjAyNCBhdCA5OjUx4oCvUE0gQXJuYWxkbyBDYXJ2YWxobyBkZSBN
-ZWxvIDxhY21lQGtlcm5lbC5vcmc+IHdyb3RlOgoKPiA+IE9uIFR1ZSwgQXVnIDA2LCAyMDI0IGF0
-IDEwOjM4OjA3QU0gLTAzMDAsIEFybmFsZG8gQ2FydmFsaG8gZGUgTWVsbyB3cm90ZToKPiA+ID4g
-T24gTW9uLCBBdWcgMDUsIDIwMjQgYXQgMDk6MDU6MjZQTSAtMDcwMCwgSWFuIFJvZ2VycyB3cm90
-ZToKPiA+ID4gPiBPbiBNb24sIEF1ZyA1LCAyMDI0IGF0IDg6NTTigK9QTSBFcmljIExpbiA8ZXJp
-Yy5saW5Ac2lmaXZlLmNvbT4gd3JvdGU6Cgo+ID4gPiA+ID4gSSd2ZSBzZW50IGEgcGF0Y2ggdG8g
-Zml4IGl0IGFuZCB0aGUgcGF0Y2ggYWxyZWFkeSBtZXJnZWQuIFRoYW5rcy4KCj4gPiBBbHNvLCBh
-bHJlYWR5IG1lcmdlZCB3aGVyZT8gVXBzdHJlYW0/IEluIHRoZSByaXNjdiBrZXJuZWwgdHJlZT8g
-d2hlcmU/Cgo+IFRoZSBwYXRjaCBhbHJlYWR5IG1lcmdlZCB0byBMaW51eCB1cHN0cmVhbToKPiBo
-dHRwczovL2dpdC5rZXJuZWwub3JnL3B1Yi9zY20vbGludXgva2VybmVsL2dpdC90b3J2YWxkcy9s
-aW51eC5naXQvY29tbWl0Lz9pZD02M2JhNWIwZmI0ZjU0ZGIyNTZlYzQzYjMwNjJiMjYwNmIzODMw
-NTVkCgpPaywgSSdtIHJlc29sdmluZyB0aGlzIHdpdGggcmVtb3ZpbmcgSWFuJ3MgcGF0Y2ggYW5k
-IGRvaW5nIGEgbWVyZ2Ugd2l0aAp1cHN0cmVhbSB0byBwaWNrIHRoaXMgcGF0Y2ggYW5kIGtlZXAg
-cGVyZi10b29scy1uZXh0IGJ1aWxkaW5nLgoKLSBBcm5hbGRvCgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+On Wed, 31 Jul 2024 22:18:41 +0200, Jan Kiszka wrote:
+> From: Jan Kiszka <jan.kiszka@siemens.com>
+> 
+> Analogously to the PCI PHY, access to sys_syscon is needed to connect
+> the USB PHY to its controller.
+> 
+> Signed-off-by: Jan Kiszka <jan.kiszka@siemens.com>
+> ---
+> CC: Rob Herring <robh@kernel.org>
+> CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> CC: Conor Dooley <conor+dt@kernel.org>
+> ---
+>  .../bindings/phy/starfive,jh7110-usb-phy.yaml         | 11 +++++++++++
+>  1 file changed, 11 insertions(+)
+> 
+
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
