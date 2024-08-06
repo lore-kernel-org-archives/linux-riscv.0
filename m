@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF92DC3DA64
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Aug 2024 13:15:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42D57C3DA64
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Aug 2024 13:17:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gPR+pKR1qXkAIOpimZaXyovoo7cIcLtMmWrB0qSM3R0=; b=AMg5h66l/XV9Gj
-	RXawIsc0FUzDrcz9jYQc4oAU92I0QHQ4L04UHOvWc7MbPrDuvStLLqTgPgn//chJdODIe+98Zsiq6
-	CH/yj1DbQQgveDPQ84/UVTZsoJxzkQLWYRqo6YgBPX9OY+JTNyMoV8GELiUpAATuwq6fCWfD5QmVG
-	G0Tuoarr5uNCfeMCP0FI0ZFJ+A8t71eFKlE4JbGo0sm6BTMQ8wrXWVZCpi3wd6Atf1yjCvuUdm/+r
-	8xxB2pozaNO8K/0sZM5YskSGL82dsDVamtNUZmBIiEDpeUm/rGaRXyZRX13qutAm9/FXJotRBZtsJ
-	jacIX8yuWhItPTmELDEw==;
+	List-Owner; bh=UfPSU2E6miu7L/1yt+Rn9LlocsxbAa35A/Uv7nvY6Rg=; b=4lGnWNGLfW8qpj
+	vKxWWHVawLgPW6HF0qYhVc1NPTF+EYlDdnXtdvgpN8NLJUYpY5mOXkx0sbcs1IPc37tcPr29quFIl
+	01Zva5+JzE/cW6kdKBWo6RCemXh7EsY5UGpajz/LSDO/F2CASqKwZMpLk7Wdi1KOxWujo29gAlo9A
+	Rs52cY9slh5QKdNBRncJtu8RbjRkngeH4U0ij9xU1ER1Uu50ZmlAg1cBsqN5hVZUKM+T4qPp+Jwoy
+	J0l3t/5pqBG/y4FefNkb41lumdt7u8i9HjZEHCmfMOlekzIk3NSs+DQHDS6RI1esXiOGEClfiLGjt
+	LOD39Hf+bpPE2RiNAuAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbK2E-00000001geI-2wUI;
-	Tue, 06 Aug 2024 13:15:30 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1sbK3m-00000001hJH-2mxz;
+	Tue, 06 Aug 2024 13:17:06 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbK1C-00000001gA7-2ivx
+	id 1sbK1k-00000001gQt-3G90
 	for linux-riscv@lists.infradead.org;
-	Tue, 06 Aug 2024 13:14:28 +0000
+	Tue, 06 Aug 2024 13:15:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1722950065;
+	s=mimecast20190719; t=1722950099;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=vXB9n6PIcxQrCckz5y40n2q02jNpo3OBG3jBfQzye5E=;
-	b=Kk73J05PZAqwSavs1JcDJhaiOLBDCrhqDYbc8gD67M3/ZyL1Ibl1WfqP1VYuCKd8J5HzXS
-	BL/Bj167gHWO9TI80rke71R/fizaeml0se+Qlln9EZKsmS6OKeOkn8+rASfmWB1BAYgrjY
-	tXsfBDU4tL2BhHkciI1pwXoOsj8z1D8=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=gav+WgTfYsxeeh1+Er9Vd3yZJQcnmu7WI7/O0+JeoYw=;
+	b=R+yNeu4hX/fyXdS7elSulMCnswGK2pMDioKyCX8g5+7PAhn5sjyF0BBIZKnqQ3WO+Dpp5F
+	PeotO3roxIQfqK/Y2BjILLo6BpJVJ+krN6s6T2AP1ohj0PAYPIwTG6l3UL6/KLUcOye6vN
+	0z1T0yzl7gvgaJg6r7ZGGlC+qZ+aq9g=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-465-TuN53zkFOZuGlOUcePTPYg-1; Tue, 06 Aug 2024 09:14:24 -0400
-X-MC-Unique: TuN53zkFOZuGlOUcePTPYg-1
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-36831948d94so530444f8f.0
-        for <linux-riscv@lists.infradead.org>; Tue, 06 Aug 2024 06:14:24 -0700 (PDT)
+ us-mta-662-PazR4-1EOp6VKRv_NhzwYQ-1; Tue, 06 Aug 2024 09:14:57 -0400
+X-MC-Unique: PazR4-1EOp6VKRv_NhzwYQ-1
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4281f8994adso4842815e9.0
+        for <linux-riscv@lists.infradead.org>; Tue, 06 Aug 2024 06:14:57 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722950063; x=1723554863;
+        d=1e100.net; s=20230601; t=1722950096; x=1723554896;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:from:references:cc:to:subject:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=vXB9n6PIcxQrCckz5y40n2q02jNpo3OBG3jBfQzye5E=;
-        b=Z/TUVuNYtOjD14w6paIfqp/Kb72O/HQuGTxzb5lGuF/IwyqCCrAkyuA6NzGDoeTbIL
-         n9gUhz36ZHkly8ek05dMxusvYgCtR64bR09hAjooFJyJ1DHJezY+IRks/wsK08qdWaTf
-         4oRL3HqnrHy79sjwSHZmdRoh1dIyWy6DWAQDQZeWucnCmrYLkZOq6Lo7Ci5rK4HAMdSn
-         eEqjAmUHLPLcksLJI6RDA0ceU7eKr0ysQsZKU6nBI++PX8Kp4b3xPcf1znx7/8JG9non
-         HfbcgJrDdAUQGYOCep05Wkfs0j39Dwh4wcScptY4D510whvT7+vUUeemmPSBfrDtFrem
-         KxhQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVF2igEZ55sBV1PMdE/Eh5oV0HIQoA/QswNUz5nSks8Uu/jvkSd2BOHPzV8Rnz64XdimCFvPBSoiU5qTQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzY+7nm6zxdvTrLIR9qFUNoGpLC/NQtfXQrsTY+++oNDGSd6KYy
-	6KUu7sLACibbzYR6tKtvhlo4bm7tNVdNSyEVgUZZtLTJ4yx8wjxuI2boMcLmyK05DvwGTOyEOjh
-	BfRxDENvtWJ1vqmF8KxMOxRpwOF7n50XE+CIcB7sUb1cHde2E3OVoWkB3QsmPMen4qg==
-X-Received: by 2002:adf:a3d7:0:b0:368:4bc0:9210 with SMTP id ffacd0b85a97d-36bbc0ca7a6mr8742097f8f.25.1722950063184;
-        Tue, 06 Aug 2024 06:14:23 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IE2kT3/Xi0cEGU+HkQRL1WChzAHxB3PhEUEr4okI+OvO3nyCFXV5GtBuMTDD0u+LHyFMqdaiQ==
-X-Received: by 2002:adf:a3d7:0:b0:368:4bc0:9210 with SMTP id ffacd0b85a97d-36bbc0ca7a6mr8742068f8f.25.1722950062633;
-        Tue, 06 Aug 2024 06:14:22 -0700 (PDT)
+        bh=gav+WgTfYsxeeh1+Er9Vd3yZJQcnmu7WI7/O0+JeoYw=;
+        b=hs1PawWTy64N2okLHjc43XttCvFrl/W6q+g+JyUZ2QiI6t3mI/1wtyrABWcIIGL+NG
+         6ACMmGeBoMdf4E8aoPV6fJStvXeeyBS0N3YxLK1WnRL+lxh4dSrbYf35XdCo2FSbOyqc
+         k0qKFQa13az1XgMMOPq6q/Otset71Q0CCm99s4NbdMoEe1iKux8KU4TB4dNpeULxba/f
+         /AXJ3PSaaszH1eogkwebJ56QcPcc5iK3EHnuaP2SYnaTk+QVh5RSNqGHSy1MEQbHb69v
+         c5eEyL1gyspk5/PJPq/VfaJ3dI8s7w5UZDR81XZPglm/zrkhWkp+R8YZ9n9CjEWbIs4S
+         HF5w==
+X-Forwarded-Encrypted: i=1; AJvYcCUHsBn3DtG7mPO1svnXVo44BJD9jbkqpTEBRN2NHfcYE68cjLc9/CuTrfT2tUQ8ULPTwJQ6AP8hZ7cjIDDtltybTyKNdp1+54MQLXbtvxSd
+X-Gm-Message-State: AOJu0YzzbZOJUPnBvdXM4Kj+OvHj8ZQx2T+g59PvTwbtpjCjwGrmylaa
+	zBLCIVgBF6+yhr2ImUoEa+UkXFYbp5ETQuaP2g/HJL+7oS8ugVEQh1Jvy7xRLdM3Nhvt08FHtYD
+	zF5CXXlkcpIKNlD3rFwwQyGUsjOHV05/HqK0eIyELU3XbwVMaZkvFtrnGl5+MOOWhVg==
+X-Received: by 2002:a05:600c:4fcb:b0:427:9a8f:9717 with SMTP id 5b1f17b1804b1-428e6a5afc3mr126859805e9.0.1722950096315;
+        Tue, 06 Aug 2024 06:14:56 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IF6jHrb53H6IDJztgeIGS31y125eDKjP789FcxpVkwCrI28w6A/fVody5PYRBfVSpT6cV7Inw==
+X-Received: by 2002:a05:600c:4fcb:b0:427:9a8f:9717 with SMTP id 5b1f17b1804b1-428e6a5afc3mr126859115e9.0.1722950095740;
+        Tue, 06 Aug 2024 06:14:55 -0700 (PDT)
 Received: from ?IPV6:2003:cb:c73f:8500:f83c:3602:5300:88af? (p200300cbc73f8500f83c3602530088af.dip0.t-ipconnect.de. [2003:cb:c73f:8500:f83c:3602:5300:88af])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-36bbcf0c314sm12822253f8f.12.2024.08.06.06.14.20
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-36bbd26f9c2sm12920846f8f.116.2024.08.06.06.14.53
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 06 Aug 2024 06:14:22 -0700 (PDT)
-Message-ID: <492667ab-81ad-468c-a615-babc4aea4131@redhat.com>
-Date: Tue, 6 Aug 2024 15:14:19 +0200
+        Tue, 06 Aug 2024 06:14:55 -0700 (PDT)
+Message-ID: <8f9afa5b-0a89-4adf-b532-3fb7a5f5f681@redhat.com>
+Date: Tue, 6 Aug 2024 15:14:52 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 15/26] x86/numa_emu: use a helper function to get
- MAX_DMA32_PFN
+Subject: Re: [PATCH v3 16/26] x86/numa: numa_{add,remove}_cpu: make cpu
+ parameter unsigned
 To: Mike Rapoport <rppt@kernel.org>, linux-kernel@vger.kernel.org
 Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
  Andreas Larsson <andreas@gaisler.com>,
@@ -106,7 +106,7 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
  loongarch@lists.linux.dev, nvdimm@lists.linux.dev,
  sparclinux@vger.kernel.org, x86@kernel.org
 References: <20240801060826.559858-1-rppt@kernel.org>
- <20240801060826.559858-16-rppt@kernel.org>
+ <20240801060826.559858-17-rppt@kernel.org>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -153,13 +153,14 @@ Autocrypt: addr=david@redhat.com; keydata=
  jPrnvUsUUsjRoRNJjKKA/REq+sAnhkNPPZ/NNMjaZ5b8Tovi8C0tmxiCHaQYqj7G2rgnT0kt
  WNyWQQ==
 Organization: Red Hat
-In-Reply-To: <20240801060826.559858-16-rppt@kernel.org>
+In-Reply-To: <20240801060826.559858-17-rppt@kernel.org>
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240806_061426_905807_88F9D87D 
-X-CRM114-Status: GOOD (  19.32  )
+X-CRM114-CacheID: sfid-20240806_061500_900127_96AF9A6C 
+X-CRM114-Status: UNSURE (   9.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,45 +180,16 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On 01.08.24 08:08, Mike Rapoport wrote:
 > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 > 
-> This is required to make numa emulation code architecture independent so
-> that it can be moved to generic code in following commits.
+> CPU id cannot be negative.
+> 
+> Making it unsigned also aligns with declarations in
+> include/asm-generic/numa.h used by arm64 and riscv and allows sharing
+> numa emulation code with these architectures.
 > 
 > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 > Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 > Tested-by: Zi Yan <ziy@nvidia.com> # for x86_64 and arm64
 > ---
->   arch/x86/include/asm/numa.h  | 1 +
->   arch/x86/mm/numa.c           | 5 +++++
->   arch/x86/mm/numa_emulation.c | 4 ++--
->   3 files changed, 8 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/x86/include/asm/numa.h b/arch/x86/include/asm/numa.h
-> index 7017d540894a..b22c85c1ef18 100644
-> --- a/arch/x86/include/asm/numa.h
-> +++ b/arch/x86/include/asm/numa.h
-> @@ -74,6 +74,7 @@ void debug_cpumask_set_cpu(int cpu, int node, bool enable);
->   int numa_emu_cmdline(char *str);
->   void __init numa_emu_update_cpu_to_node(int *emu_nid_to_phys,
->   					unsigned int nr_emu_nids);
-> +u64 __init numa_emu_dma_end(void);
->   #else /* CONFIG_NUMA_EMU */
->   static inline int numa_emu_cmdline(char *str)
->   {
-> diff --git a/arch/x86/mm/numa.c b/arch/x86/mm/numa.c
-> index 9180d524cfe4..8b7c6580d268 100644
-> --- a/arch/x86/mm/numa.c
-> +++ b/arch/x86/mm/numa.c
-> @@ -868,6 +868,11 @@ void __init numa_emu_update_cpu_to_node(int *emu_nid_to_phys,
->   		__apicid_to_node[i] = j < nr_emu_nids ? j : 0;
->   	}
->   }
-> +
-> +u64 __init numa_emu_dma_end(void)
-> +{
-> +	return PFN_PHYS(MAX_DMA32_PFN);
-> +}
-
-Inline function in header?
 
 Acked-by: David Hildenbrand <david@redhat.com>
 
