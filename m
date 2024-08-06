@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 642EDC49EA1
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Aug 2024 13:26:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CE90C3DA64
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Aug 2024 13:27:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/ctWAjtZU91QJz+dBMQjtIt6eHHtm72yLPBVWGq8JEw=; b=Ysxbn1ybXBy9K2
-	ik7kn6PCXVoEK/73ghVexfwAU2RNGK/YbKgPBkTQuvBgq9wec+vt30Ki9gaxNYlvzYhBvabL9KEx/
-	tQ5wpAGpHWbBa1NmF0DPqEeonwdqAUKNp4lw4+FyEwp1mKXc31mwC6RPykLwhFezi0qgkU2hiVpIx
-	VrpFd32ciCawyfmhr7aYmtFBDsfxlogiuSu12TSLXiF5Am1TNX45/Y05JI80N6taD46CHzS5kbFDT
-	jQ7Zrl7v7k0nWXzeqUe56G5kdKRsEWkU721FJtIwWigs0btbq5QkYuwrj3LFayb/BYLRHiPwy+H3j
-	RYy1IQAd41k/wBzAt3Tg==;
+	List-Owner; bh=jDNQGVZbFNQJCDzfiTAZOHstO+d6q8YCn4ZKF+unph8=; b=AJrUR4ieijTdsN
+	APlGzdcIOTKmslhiQklKeLcYknttIdoz6NSavYqQN6NwDtncIM49Iy8hYqneg6427LirVkXyYai+D
+	Y/8Ts9wSrfFwFbhNskBXarlmX9fAJyNu/zrINnogCSuw60ZcG9CRdqPo6qnvnRlwL848wBxutUi1+
+	VNbfkPvgrALiHprevt0q8ChkXv7WLi5Aze/kOIvPyGWurfRRYYiZjXCoqv2MNGZbG4wnLOiGB4uyf
+	dwbQk+F4X/pbQbLl4BAmwiJmd/03VrMk4GJqHzjT6pTOxUG6pjAkOY6OPlUgeA1+nkx2CqR/EUFPT
+	rj+IUHtMln5xx1BX0tDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbKCu-00000001l51-41dy;
-	Tue, 06 Aug 2024 13:26:32 +0000
+	id 1sbKDd-00000001lPR-1XAv;
+	Tue, 06 Aug 2024 13:27:17 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbKCM-00000001kuC-3YA4
+	id 1sbKDa-00000001lNh-2gMv
 	for linux-riscv@lists.infradead.org;
-	Tue, 06 Aug 2024 13:26:00 +0000
+	Tue, 06 Aug 2024 13:27:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1722950758;
+	s=mimecast20190719; t=1722950833;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=pF8uHUMHBNfUDA+9I9tRvo5HNJv/wuc5dxLCD4CDtKc=;
-	b=Tj6a/Ypt8z6tDisVat9jgwd64t+EUpz17lwWu5ux04x71LaxiTxVNrDiKF80Ag3ij3RA7q
-	Xso2b681rb1X75G7N16f/sA2NBhz0aQoPeDihQeDsjUihTWOv13gRDvbU2aVqO+gPc+1yv
-	SxhyLCxLCtZLgKQX2UDVXO7rHYOa1h8=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=SSnsJGK5e/RD7WKVJpFp0oyVHCZW2szWv3z2EdgZ6mE=;
+	b=GFjz11dC0el+RZn+yQaXzEN4n86iVXVFFpK2Q0hXdLDTtOumlmSD6KMcXzlsc178qP5hR0
+	8ZWyfRZScFHJj272xAhKT5+Ugwi6EBwPZ3O6rT9RxL1OUhBpZuqaVRSAV5azxcbEnEFS6T
+	ddGwVo+tngGPrVbq4BGAi1PorxBTvqs=
+Received: from mail-ej1-f69.google.com (mail-ej1-f69.google.com
+ [209.85.218.69]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-168-rXfByMwPPP2VZk304Dd7zA-1; Tue, 06 Aug 2024 09:25:56 -0400
-X-MC-Unique: rXfByMwPPP2VZk304Dd7zA-1
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4280d8e685eso5446415e9.1
-        for <linux-riscv@lists.infradead.org>; Tue, 06 Aug 2024 06:25:56 -0700 (PDT)
+ us-mta-638-eOjxdXclPV6zr5fvewHq-w-1; Tue, 06 Aug 2024 09:27:10 -0400
+X-MC-Unique: eOjxdXclPV6zr5fvewHq-w-1
+Received: by mail-ej1-f69.google.com with SMTP id a640c23a62f3a-a79c35c28f1so56729966b.3
+        for <linux-riscv@lists.infradead.org>; Tue, 06 Aug 2024 06:27:10 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722950755; x=1723555555;
+        d=1e100.net; s=20230601; t=1722950829; x=1723555629;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:from:references:cc:to:subject:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=pF8uHUMHBNfUDA+9I9tRvo5HNJv/wuc5dxLCD4CDtKc=;
-        b=tihIYWrE2SgPlTTfpTA3UZkr67vdJvCzszJ6km1X7H0zLq9Lsqjt3u7DgRB7kNyaZm
-         H+V2q2q6XV8FdbTE0w9o6Yo3RQ+Um89NKyz9WZT4t6H5KJtOtPpuD5QsQD9WrBb8GHKL
-         mi3VMUTsUC5mgkPNZGU1JBlJcHnvG3F6Ed6f22UDEKsJ8Nvz6ihKEyWwNpfTtR2T3L/o
-         MbWOt7fIFGEffr0MRDhYbiqp3uDEnCFgMbjt5hnr4sBRWZ1GLdTNhm393aEURpDqw+en
-         hocQKmz2ybO/mzUublSdWW9R7w7+B3GfyFeCmLZiDnq8HdqJWyWfV85WvnL4e+RD7MGi
-         DwdQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU/2OzQ5168XPQwPhTJ6ZAQ1RK9Uz9VIYchcSTIfstEQsBmw9IO2h/s/J8DCMLRvEjk4RT0yJy9HY7VCs+n+1igw1V7ryaKDGmo6b43ITvh
-X-Gm-Message-State: AOJu0YxlJC9XICMSJNwe/Lt46dGO3Whzai8YdKdR5oOalyCkH0g86F84
-	F+8TYRYntxK47CJ8NvdnDB9pQe+wnBAoE80C8IRlqbdMooMSryahTvoqrR/sghOetpcufJwQye8
-	OsajhAWmecWBinaC/GvcTr7fUmD9J0huLZQC+hWck5i8ResuJIgngmJn2bmPkvXB/vg==
-X-Received: by 2002:a05:600c:3b94:b0:427:faa6:5648 with SMTP id 5b1f17b1804b1-428e6af2e25mr94846925e9.3.1722950755091;
-        Tue, 06 Aug 2024 06:25:55 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFNicxQNAIFnhFoQty5AnCcwYPv82kz7iXVfDMdFvChF8NCbe19NPNw13uxS0THgFhGrZjuSg==
-X-Received: by 2002:a05:600c:3b94:b0:427:faa6:5648 with SMTP id 5b1f17b1804b1-428e6af2e25mr94846675e9.3.1722950754633;
-        Tue, 06 Aug 2024 06:25:54 -0700 (PDT)
+        bh=SSnsJGK5e/RD7WKVJpFp0oyVHCZW2szWv3z2EdgZ6mE=;
+        b=YxYIz3K7bq2Tc9s2mgxCD6xRcr+rM2BF8wLLEP/qkwWr2pjqa+xm2SDRsJyJdxzK19
+         eweatjevsCHxb5WxsBYEw5uDr6oPieOUAlleQQ4DfFRZuz+vG3FC8F56LZbkcOS/mZIR
+         Me4bQXwDRzvZ23ysEZTyDBOejyA1e6KO4msrDWNEcf5d28wBxUmvIZ0eflrwGPgcA9eK
+         Ivy3lnObgSrUexLti7YdaH3bgyyv1h//ly85wXKXRRB8aV9BY34ZlQf/1RtMBcDQzzK3
+         YPkVIbCF3iYqCT6yIHD2gRqsNiBRWophxhAjGzS6kwj+QeFkhO1vEWY+cbokC7zqQJY1
+         xDRQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUlx03f9dqevXBuimMGzgPiee9VhlnavMPJCTacIiFa6NMni6qY/6D9+90bplM0RRdFOsGjuhIYUqdBh39a0leUx2es6zoyCUq1ZFA4xzZ0
+X-Gm-Message-State: AOJu0Ywb7AEuoGCkpPJwh7JUSTYxwY54UiBAU5/D5V8bu8f64MwIxGLm
+	exWAbMoHroBMKsWowRGPg8mQ6eoIii9tBzLYM1fgaNray+EQFLTgrZRQMmhdLdyhOMq6qoHBN6z
+	wwLPVhJT7qedJQfHH9EXRSRZZJ7Dn4hkTT/ASXaCz2uB9ThZYDmdAf36lttI95l+QGw==
+X-Received: by 2002:a17:907:7ea8:b0:a7a:83f8:cfd2 with SMTP id a640c23a62f3a-a7dc4de30e9mr1049745766b.17.1722950828984;
+        Tue, 06 Aug 2024 06:27:08 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IG3mwjGBol8sKlqJB4dXFJMJMmwCDD4JjZwmSrFe2PdXUT5bpKAB3DIQEgrH8Nj33vJR1tztw==
+X-Received: by 2002:a17:907:7ea8:b0:a7a:83f8:cfd2 with SMTP id a640c23a62f3a-a7dc4de30e9mr1049741066b.17.1722950828351;
+        Tue, 06 Aug 2024 06:27:08 -0700 (PDT)
 Received: from ?IPV6:2003:cb:c73f:8500:f83c:3602:5300:88af? (p200300cbc73f8500f83c3602530088af.dip0.t-ipconnect.de. [2003:cb:c73f:8500:f83c:3602:5300:88af])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-36bbd022ce0sm12994332f8f.55.2024.08.06.06.25.52
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a7dc9d88650sm544288366b.152.2024.08.06.06.27.05
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 06 Aug 2024 06:25:54 -0700 (PDT)
-Message-ID: <6c4760f0-e999-4d32-b674-4d881795eedc@redhat.com>
-Date: Tue, 6 Aug 2024 15:25:51 +0200
+        Tue, 06 Aug 2024 06:27:07 -0700 (PDT)
+Message-ID: <82f0afba-7c0e-4a02-8be1-66c8b9d56a5c@redhat.com>
+Date: Tue, 6 Aug 2024 15:27:04 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 26/26] docs: move numa=fake description to
- kernel-parameters.txt
+Subject: Re: [PATCH v3 25/26] mm: make range-to-target_node lookup facility a
+ part of numa_memblks
 To: Mike Rapoport <rppt@kernel.org>, linux-kernel@vger.kernel.org
 Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
  Andreas Larsson <andreas@gaisler.com>,
@@ -106,7 +106,7 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
  loongarch@lists.linux.dev, nvdimm@lists.linux.dev,
  sparclinux@vger.kernel.org, x86@kernel.org
 References: <20240801060826.559858-1-rppt@kernel.org>
- <20240801060826.559858-27-rppt@kernel.org>
+ <20240801060826.559858-26-rppt@kernel.org>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -153,13 +153,13 @@ Autocrypt: addr=david@redhat.com; keydata=
  jPrnvUsUUsjRoRNJjKKA/REq+sAnhkNPPZ/NNMjaZ5b8Tovi8C0tmxiCHaQYqj7G2rgnT0kt
  WNyWQQ==
 Organization: Red Hat
-In-Reply-To: <20240801060826.559858-27-rppt@kernel.org>
+In-Reply-To: <20240801060826.559858-26-rppt@kernel.org>
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240806_062558_962700_66E034FA 
-X-CRM114-Status: UNSURE (   8.96  )
+X-CRM114-CacheID: sfid-20240806_062714_757942_9ADD014A 
+X-CRM114-Status: UNSURE (   9.82  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -180,14 +180,20 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On 01.08.24 08:08, Mike Rapoport wrote:
 > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 > 
-> NUMA emulation can be now enabled on arm64 and riscv in addition to x86.
+> The x86 implementation of range-to-target_node lookup (i.e.
+> phys_to_target_node() and memory_add_physaddr_to_nid()) relies on
+> numa_memblks.
 > 
-> Move description of numa=fake parameters from x86 documentation of
-> admin-guide/kernel-parameters.txt
+> Since numa_memblks are now part of the generic code, move these
+> functions from x86 to mm/numa_memblks.c and select
+> CONFIG_NUMA_KEEP_MEMINFO when CONFIG_NUMA_MEMBLKS=y for dax and cxl.
 > 
-> Suggested-by: Zi Yan <ziy@nvidia.com>
 > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+> Tested-by: Zi Yan <ziy@nvidia.com> # for x86_64 and arm64
 > ---
+
+Nice
 
 Acked-by: David Hildenbrand <david@redhat.com>
 
