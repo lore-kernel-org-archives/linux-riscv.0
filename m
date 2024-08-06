@@ -4,78 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8DB0C3DA64
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Aug 2024 13:07:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76D2FC3DA64
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Aug 2024 13:09:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/NBw2ceIm9y8IHfcovra/IWtSO4N8806e6AWe+YTL8g=; b=0NbSDGPq2CjePX
-	MfLxjKehnkjwV+pU5MhMqgxvFuLjcV6hJgQolZznHZzyrZnKeqFlPHCSYKcfDOh7gQCL9hh7Yl5hW
-	g2sTWdpWVXko5fnJT+SEe16VwXlU13NQ1aH7Rpp6BgvI2PWdr19gX2UItFZ6bUuMC6TTi1ZkeKAuE
-	LCwAFqKQ0jCcLKXkB4z8k6s+BY/oHEux85qSwgmjO+TfRm0LtgkGgNasBvw3oFNK8HiyhBNiwdZ2/
-	aur7eYl8KxTzXtt1GjJLGJumSsN1lkvveryKlUwUqtYQU2Fdsu03DLPCtTH4csCG9FtaFx/QokZhp
-	mGyCuSXF6MYzqHY3YfGw==;
+	List-Owner; bh=5LBc1W2pUld5m+Y8gSm2JznQfhOQpdyj1qsrXn81mnk=; b=f98YARg7j6pkKU
+	HxMqA3wikJYfQXX4MPVdMsrKnI7TFbbO5WeNx3x20S3NtGBdYaL3TXh7/RvQthOoJYLVABhZW4S6P
+	6/Cbeny3tgk1fT6BYpWxBS48I+4HZtNR9Xwle4VhzlbRv3TvqYtwnUAgtofcO2zkm/Ahe2l4LfWo+
+	FVIM5XpekowQoz+Y/S4mLGKrWVRui7p67vu3jfNYIMywXhgbknDe0NlZkA7CBUPkDA20+nv4dPMw8
+	5L5ywLFrBjq6tckd/kUU3bpY3muYe2gxd25zrd/S0b+TL+W3InJxUaFJu71JbqpQjPuyn8qykueb3
+	LWowMrUn/qs5wpqZcJOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbJuL-00000001dWM-3syO;
-	Tue, 06 Aug 2024 13:07:21 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1sbJwV-00000001e9i-3Jgn;
+	Tue, 06 Aug 2024 13:09:35 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbJuB-00000001dRU-3nh1
+	id 1sbJvz-00000001e0d-0OJW
 	for linux-riscv@lists.infradead.org;
-	Tue, 06 Aug 2024 13:07:13 +0000
+	Tue, 06 Aug 2024 13:09:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1722949630;
+	s=mimecast20190719; t=1722949742;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=TIyQLvWnyqqMtiLKFFzAu2zlk32GezvKg83XuQ8tLc0=;
-	b=aK3u9PRlJV1wkREJ8PHAR9tt41wu3+a353OweueThdeaUEUObNbJR2+1NlUldG57ynPWfa
-	4QziCTzgLGxCvMbqyfmjigs5OF0C4YCOxykEzn7N37TD9UPVhHYGHTeRXoaX0orlXQr0W1
-	o9GeAxPYQTV75pKmn2iKsDKAUHnJBsU=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=Ymyg7I71Fs0sg8CtsGSIaycwpz8ew411IQLDdoaQsT0=;
+	b=I6eMxfaWaSYuSrA1OtJQeprX1uzOkyAnn2yUM5QkRgdwHHnB6Sr0pTqXPNwW/W1Ie7GYfb
+	Rn6cUqPn0HgjC/Gr9T1Me9+IjIIdsNgIdv06hHzp/wldU5ULHF7RBoqiHXZO1A4zGsMWMR
+	vwWRqxrpq9ubFZ+gELoFt1zvGE9p0CM=
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-371-7RZncEjkOEaRmpGUi2j6xQ-1; Tue, 06 Aug 2024 09:07:09 -0400
-X-MC-Unique: 7RZncEjkOEaRmpGUi2j6xQ-1
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-42817980766so4611105e9.3
-        for <linux-riscv@lists.infradead.org>; Tue, 06 Aug 2024 06:07:09 -0700 (PDT)
+ us-mta-372-fHJCiuL3N-OGVq0RyfY18Q-1; Tue, 06 Aug 2024 09:08:59 -0400
+X-MC-Unique: fHJCiuL3N-OGVq0RyfY18Q-1
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-36bbcecebb4so495273f8f.0
+        for <linux-riscv@lists.infradead.org>; Tue, 06 Aug 2024 06:08:58 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722949628; x=1723554428;
+        d=1e100.net; s=20230601; t=1722949738; x=1723554538;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:from:references:cc:to:subject:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=TIyQLvWnyqqMtiLKFFzAu2zlk32GezvKg83XuQ8tLc0=;
-        b=W72i8S1CAOTzDM//graC/XSzt8Mz9yjXgSJzXfNyFLUy4BEPDW2qkyrbwJmLnI2OSn
-         JBZUo7Q8wy3AXLgkhjsJWoSAwHg/GOpdvvsUimpBMc2DPIdOrWsjG/HQFbr1OHWuDszy
-         4WKff0mfoFP5/j2CJKDLsvAlJ6DBa2/YObOP+zqcB5vGoQ4n7CJAplHxxVOUwQloJH7Z
-         LuWMWyCYysNLXH7awU+aACOW8oyys/vIdsm6VHbEbnHj1MF1/IlIfcLFR5cabE2/g6lt
-         A0sCvE+xqBb67fXPvrFWr5bZCUPAc3cBBgrpzCnGrAAL5bk8Xzr6ps1kv1b0cPJNTjmQ
-         qqCA==
-X-Forwarded-Encrypted: i=1; AJvYcCW3UWaE0K+hiiNwMYlguqFlAgoOAxFkC4Knoh7mW8LBz/ATi6Ut8+SQqtFvD8ATdb4GCELeXfwoaMlvz8I/GtjNtLnd5kGrq+i+KhKf23Da
-X-Gm-Message-State: AOJu0YwU2CQFCe4lAVIAiSgIWnJMq2ZwkCzoBo5cnhM0FtWpIS+DDy/y
-	9Qagqkx+8/rtEDu/83GykBIOZclQrv7vgkk+Ru6moKqv2OYDXk+JVRNt7wtBosXAEew6A9BaYrN
-	9hD75jcVb6raQJGPJGZ/UVvbGCwhb2VaST+Z91D+xm7dpvHVzRppMqL2bd2bZRvprIw==
-X-Received: by 2002:adf:fc8e:0:b0:367:8a3b:2098 with SMTP id ffacd0b85a97d-36bbc0cd4f4mr9122622f8f.3.1722949628128;
-        Tue, 06 Aug 2024 06:07:08 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IG5hu4Yl048YBcD0iUaoL+L6g8sWN82xUft0hO7GbEEUwPYqCeeCeFFMLPGzwr84CCZLQ21jQ==
-X-Received: by 2002:adf:fc8e:0:b0:367:8a3b:2098 with SMTP id ffacd0b85a97d-36bbc0cd4f4mr9122568f8f.3.1722949627565;
-        Tue, 06 Aug 2024 06:07:07 -0700 (PDT)
+        bh=Ymyg7I71Fs0sg8CtsGSIaycwpz8ew411IQLDdoaQsT0=;
+        b=AN9fewA7Esi+OCAEJa5fhMrln0ICAWbFVMKza0xhdCLuA90NfJa2s5Ft3fw2+yjl/T
+         RbOyp8BRQQG7jos9/e2pjjAeTVj8DcTn2TQSP02SwnxY3Gzqca9hNewk2TIEpYUbDiCS
+         I3CRRVH1L83CxLVyDNXSUVVEgOC6TbfjXcXtQJgRDDXwzTJ+u1Q+XDE2jxM2/pAsReiG
+         awV9Nr9BrFJWSaWgcElU7TiiPPk2fv29qEsHVxNAtysi6wGA/EozqHHxiPQeeHxJ39+Z
+         qegOoMj+y8hGJE4GA3tls7tgglaD5Nqgjmyd/P5yt2VKL4HXwVtKbbbRCoicxr4T5H7V
+         nf+g==
+X-Forwarded-Encrypted: i=1; AJvYcCUmaGqwGMW+wpab2rAokiJaB83r0n6TeVp+9VVjZlvhekS8utNnUXkpFG5FBTZGK0xz2sfCF5NY3+aqcWiXnglGJiyAlkhociHMIbG5Si7n
+X-Gm-Message-State: AOJu0YwzGYa6dWXsk3koPLUmHPs1IKbOICbjux+wDN4qs7Mr1Crjb+tx
+	0Y8eqAog7XTkzR4cnRIEyGTn0p/xSCsSECppJ1hCM34+1bJcs+erkWlMZcYeJXSCd+QtjoJrXW2
+	auE/q4FOba0BmU02zPuvCigfAwf7Vr7bjPBE/zdKNeEfKKLWILsRz4R6NEjw/yGVMEQ==
+X-Received: by 2002:a5d:4e90:0:b0:368:4def:921a with SMTP id ffacd0b85a97d-36bbc1a5169mr12334813f8f.48.1722949737777;
+        Tue, 06 Aug 2024 06:08:57 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IG1N4uFeqi+NWe1f9fVl3miIHQqaq6Q/tnxLvqhbktACP+7KSLG3iV3Mu3CZuQJ+hwF3W+LMw==
+X-Received: by 2002:a5d:4e90:0:b0:368:4def:921a with SMTP id ffacd0b85a97d-36bbc1a5169mr12334748f8f.48.1722949737235;
+        Tue, 06 Aug 2024 06:08:57 -0700 (PDT)
 Received: from ?IPV6:2003:cb:c73f:8500:f83c:3602:5300:88af? (p200300cbc73f8500f83c3602530088af.dip0.t-ipconnect.de. [2003:cb:c73f:8500:f83c:3602:5300:88af])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-36bbd01ee30sm12949582f8f.50.2024.08.06.06.07.05
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4290171e822sm7108145e9.47.2024.08.06.06.08.54
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 06 Aug 2024 06:07:06 -0700 (PDT)
-Message-ID: <d2ee3f9a-f2b0-4c8b-9623-20bbca03cf50@redhat.com>
-Date: Tue, 6 Aug 2024 15:07:04 +0200
+        Tue, 06 Aug 2024 06:08:56 -0700 (PDT)
+Message-ID: <3073b605-8019-4f69-b35c-b5099e32d204@redhat.com>
+Date: Tue, 6 Aug 2024 15:08:53 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 06/26] MIPS: loongson64: drop
- HAVE_ARCH_NODEDATA_EXTENSION
+Subject: Re: [PATCH v3 10/26] x86/numa: simplify numa_distance allocation
 To: Mike Rapoport <rppt@kernel.org>, linux-kernel@vger.kernel.org
 Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
  Andreas Larsson <andreas@gaisler.com>,
@@ -106,7 +105,7 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
  loongarch@lists.linux.dev, nvdimm@lists.linux.dev,
  sparclinux@vger.kernel.org, x86@kernel.org
 References: <20240801060826.559858-1-rppt@kernel.org>
- <20240801060826.559858-7-rppt@kernel.org>
+ <20240801060826.559858-11-rppt@kernel.org>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -153,13 +152,13 @@ Autocrypt: addr=david@redhat.com; keydata=
  jPrnvUsUUsjRoRNJjKKA/REq+sAnhkNPPZ/NNMjaZ5b8Tovi8C0tmxiCHaQYqj7G2rgnT0kt
  WNyWQQ==
 Organization: Red Hat
-In-Reply-To: <20240801060826.559858-7-rppt@kernel.org>
+In-Reply-To: <20240801060826.559858-11-rppt@kernel.org>
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240806_060712_051516_390021D0 
-X-CRM114-Status: GOOD (  10.46  )
+X-CRM114-CacheID: sfid-20240806_060903_215523_7EFC69BB 
+X-CRM114-Status: GOOD (  11.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,18 +178,17 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On 01.08.24 08:08, Mike Rapoport wrote:
 > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 > 
-> Commit f8f9f21c7848 ("MIPS: Fix build error for loongson64 and
-> sgi-ip27") added HAVE_ARCH_NODEDATA_EXTENSION to loongson64 to silence a
-> compilation error that happened because loongson64 didn't define array
-> of pg_data_t as node_data like most other architectures did.
+> Allocation of numa_distance uses memblock_phys_alloc_range() to limit
+> allocation to be below the last mapped page.
 > 
-> After rename of __node_data to node_data arch_alloc_nodedata() and
-> HAVE_ARCH_NODEDATA_EXTENSION can be dropped from loongson64.
+> But NUMA initializaition runs after the direct map is populated and
+> there is also code in setup_arch() that adjusts memblock limit to
+> reflect how much memory is already mapped in the direct map.
 > 
-> Since it was the only user of HAVE_ARCH_NODEDATA_EXTENSION config option
-> also remove this option from arch/mips/Kconfig.
+> Simplify the allocation of numa_distance and use plain memblock_alloc().
 > 
 > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> Tested-by: Zi Yan <ziy@nvidia.com> # for x86_64 and arm64
 > ---
 
 Acked-by: David Hildenbrand <david@redhat.com>
