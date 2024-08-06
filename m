@@ -4,95 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5CA3C52D70
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Aug 2024 08:56:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D90DAC52D6F
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Aug 2024 09:31:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k6o+8g111zKZyC6bX85wqkq2/z7HEWuHG5UHi+isJlc=; b=U+o7dDgd3OMn+7
-	KV3Oxvp3JhYFMwolBuQW+o4eBuLevRbHCWt4Vq1oR5uSbd+iZVisi7XSMKNx1E0djX1EhEbzJ9ywA
-	rQi/epy+KbbkghGk/MprJlQ6EL6CC1cN6Jx8xNGLHmKltqYkguSzGPT/7Enny+Sex1IgNpzleuJFY
-	OwB4SQTghVnFPi5eUp/lomW3SG0CxD91GzN+YtYCmldN2+riBvYJ7QzkbwiNO4CpO1afrKOQrxLfb
-	55DkirGB3pIfLrXY2BTEEbRX/ruX25Vn0fKPQ4CayC61n9kQDzyyzvMtkEBAOxYS7uZO2NayD5pNQ
-	OAK5b+i1cSG1iv/JaTVg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=JS01uBPKCc4q2H/A1KkKAHPdZqUPS//XoKnok9kZVNs=; b=DYeczYDidAoYD1zzdF1pU6gtoc
+	sODfn30OrllJ87qKg0w6iDNh+Y0ISJ/6xtmBCnB9Oc/P610ftOmMMStBsHRzVfxEW3yvAZPW4remh
+	2nYtxvn8BgsvG1mjim1rHKfQQPooZwOIOahGqtoZZo5kKlCEgtg6sQFbuQtgoDsP6y8bbd5V4COYh
+	i7ovKkuEFH5SaObpRbFGImLnHvqQpcmsKO37NM9d7s1nzC6zbbF/pC7f5K3lHeOdz836P/t+f70hU
+	4N3mneUODpjShx29AoNK0vOcfDY7H+cZhDdYJfBc3BhBxA1Khn9bNfIrqen535h/AFQdLGRiLsfB3
+	3i+2untQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbFz7-000000011Am-48T2;
-	Tue, 06 Aug 2024 08:56:01 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1sbGWw-000000016yY-2xCl;
+	Tue, 06 Aug 2024 09:30:58 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbFya-0000000111C-1CKG;
-	Tue, 06 Aug 2024 08:55:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 7AB70CE0DA2;
-	Tue,  6 Aug 2024 08:55:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AADD4C32786;
-	Tue,  6 Aug 2024 08:55:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1722934525;
-	bh=fNf9KpbqDQ65Rk4oRZ3GXyFRT5bkqehalm3Q1gthkSc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=TvyE56tYK3MKji+0edYs5FwYHls/3UPSKwVbaoXysQtem6W2x+AET4eygFoJ270tI
-	 6is1jeOuW5z+PbS7fnA27BMCC3phJInVGslO8AhaKB9ivP5S2ZBEhteFvegf0sNC07
-	 YuYNAYg3Ep0MduJiROIWjoOmIH55ccwgUfSuNAPNx6hoXS8jgGo2ML5Y+EbSKa//H6
-	 qXIOM/QqJNB7uUWkG7Of8+R8HbDap7Dq1ryl/W6Vm+HeJRqfR1e4JB09R8xYefspTt
-	 olHjIDWbI3frln7WrTDqsLUJrFNhb1Dd1/4PSD3AIjdlmZxoljfb5rTBMMtrJ7t0uu
-	 cPa7Eq2CqB8qw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1sbFyV-001J7s-7B;
-	Tue, 06 Aug 2024 09:55:23 +0100
-Date: Tue, 06 Aug 2024 09:55:22 +0100
-Message-ID: <86ikwe2fph.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: Sean Christopherson <seanjc@google.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Tianrui Zhao <zhaotianrui@loongson.cn>,
-	Bibo Mao <maobibo@loongson.cn>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	David Matlack <dmatlack@google.com>,
-	David Stevens <stevensd@chromium.org>,
-	Fuad Tabba <tabba@google.com>
-Subject: Re: [PATCH v12 54/84] KVM: arm64: Mark "struct page" pfns accessed/dirty before dropping mmu_lock
-In-Reply-To: <ZrFfvjy_-Tyx4xUV@linux.dev>
-References: <20240726235234.228822-1-seanjc@google.com>
-	<20240726235234.228822-55-seanjc@google.com>
-	<ZrFfgzRbiqT-Zi2O@linux.dev>
-	<ZrFfvjy_-Tyx4xUV@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.3
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, seanjc@google.com, pbonzini@redhat.com, zhaotianrui@loongson.cn, maobibo@loongson.cn, chenhuacai@kernel.org, mpe@ellerman.id.au, anup@brainfault.org, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, borntraeger@linux.ibm.com, frankja@linux.ibm.com, imbrenda@linux.ibm.com, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, dmatlack@google.com, stevensd@chromium.org, tabba@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1sbGWt-000000016wy-1QEp
+	for linux-riscv@lists.infradead.org;
+	Tue, 06 Aug 2024 09:30:57 +0000
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 81A363FA52
+	for <linux-riscv@lists.infradead.org>; Tue,  6 Aug 2024 09:30:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1722936650;
+	bh=xwD+Ys2LZNp5yQhdRMErgecrdX9WjVd2du/1YLfTqdY=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=aihYQ5QJz/setCWN2Gf0wipG7GFZ4243XjEzkLasb00kQ2xwzpBnbD5PStxVLstRo
+	 I06LzJbuqDYtWcTQ7c3jFopWXovmuj4a6GpZiLrlqD/DYqn6Esmdlakf49HeZ0N9y2
+	 /QTYBG5QVUXEwGTSYwJUjJb/PL6lnHRLVYWa7dOxT9/gUTeetuj1jteXd1DR5PEknq
+	 T+kQlW5G756ukoHIjEVM12hCuWcaReKSt4f72iIEVQ0dTzeZVfmLsIzrOz07TVnrB/
+	 rvhs0QeJVu1Y+IIgbadrO0VPGw8YXK190HyFdEOC+DHmyUWJH6/YgkaLklu9Xyjk49
+	 JKutQZHQyWMEQ==
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-44fe49fa389so5223461cf.1
+        for <linux-riscv@lists.infradead.org>; Tue, 06 Aug 2024 02:30:50 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1722936649; x=1723541449;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=xwD+Ys2LZNp5yQhdRMErgecrdX9WjVd2du/1YLfTqdY=;
+        b=hWu2ux0wwrj5x07sNWg9jTISebZJAkVvseucVPng965lQi7n1EdeGLhPYJOIcqs4i1
+         RWWzwxEMnwkaV4zIGYQ2FmtDYUpG6yA5XnllUWgohSsXdlJiPRmH3g2keEW7ZOExyN4e
+         JHt/wK2tdwP8TrSbSkuEaClsRwTwN/KD6v3gSi6iSBHK46Xm5K1MAzUp56IAkeO2K8Nt
+         SlAVCCl0Zy58GBXAQEbxy1hEZnLe4RtFQBD3S3M63OOEaWv9lK4g6Pu7TNCLWE3xApcs
+         puC9pOHQBENGslQJL0S38nyzoZMMF3tED8w8Och519SX+FDQuY6g0l585LIGK0dPJRKl
+         F3Ag==
+X-Forwarded-Encrypted: i=1; AJvYcCXITTElr4B0yEl10SpmX9Ntj1lixohWPR/THXIbJPav9QqYB5j/2B8QrZb2tNQ+968TPUJOlKySaG74RNjQmlCsnf9wnIGFqv5GnPhYGUv6
+X-Gm-Message-State: AOJu0YzGpM+P6N8P4rJ3Wy0LW42/fhDIm4nKZsMR7ct0Hh6NCJN/+eLw
+	SOMwdi5OM//dpz+PmuWL2UI5nJ58irwcM7FCIE8HAoa5h5GN2TpemgIl4g71nJoqDG+knM5+Rui
+	O6QvKVUWZDMtk+BS+aOtBjvH1Khdo4T1+3cnjtiyQKIkp427m0xZ6keodIktqX0V4youm8JKFm3
+	l93DjD9skFI0HwtG+BmWz2TrfuMUGAuR3fWEbsyrcw/tFaHUZKHX2kkbch
+X-Received: by 2002:a05:622a:1914:b0:450:4788:ac94 with SMTP id d75a77b69052e-45189288104mr192145041cf.16.1722936649457;
+        Tue, 06 Aug 2024 02:30:49 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEHCqUjdnFHutaVI39WTNoHNqS3Lby2GXNCQz+gEOH6cNBzePyFMzSaeUFOKPFqist830dSYJL1tqS7fnzHPFI=
+X-Received: by 2002:a05:622a:1914:b0:450:4788:ac94 with SMTP id
+ d75a77b69052e-45189288104mr192144701cf.16.1722936648976; Tue, 06 Aug 2024
+ 02:30:48 -0700 (PDT)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 6 Aug 2024 05:30:48 -0400
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <20240805023320.1287061-1-unicornxw@gmail.com>
+References: <20240805023320.1287061-1-unicornxw@gmail.com>
+Mime-Version: 1.0
+Date: Tue, 6 Aug 2024 05:30:48 -0400
+Message-ID: <CAJM55Z9_sDT2wUy-GMT=mi4FcWth-O_LUbmVtbdZRipQrUzh4A@mail.gmail.com>
+Subject: Re: [PATCH] riscv: defconfig: sophgo: enable clks for sg2042
+To: Chen Wang <unicornxw@gmail.com>, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu, inochiama@outlook.com, conor.dooley@microchip.com, 
+	guoren@kernel.org, emil.renner.berthing@canonical.com, 
+	apatel@ventanamicro.com, hal.feng@starfivetech.com, dfustini@baylibre.com, 
+	prabhakar.mahadev-lad.rj@bp.renesas.com, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, haijiao.liu@sophgo.com, 
+	xiaoguang.xing@sophgo.com
+Cc: Chen Wang <unicorn_wang@outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240806_015528_692118_A88C6324 
-X-CRM114-Status: GOOD (  15.82  )
+X-CRM114-CacheID: sfid-20240806_023055_724966_32154053 
+X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,37 +105,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 06 Aug 2024 00:26:54 +0100,
-Oliver Upton <oliver.upton@linux.dev> wrote:
-> 
-> On Mon, Aug 05, 2024 at 11:26:03PM +0000, Oliver Upton wrote:
-> > [+cc Fuad]
-> 
-> Take 2!
-> 
-> > Fuad, you mentioned in commit 9c30fc615daa ("KVM: arm64: Move setting
-> > the page as dirty out of the critical section") that restructuring
-> > around the MMU lock was helpful for reuse (presumably for pKVM), but I
-> > lack the context there.
-> > 
-> > On Fri, Jul 26, 2024 at 04:52:03PM -0700, Sean Christopherson wrote:
-> > > Mark pages/folios accessed+dirty prior to dropping mmu_lock, as marking a
-> > > page/folio dirty after it has been written back can make some filesystems
-> > > unhappy (backing KVM guests will such filesystem files is uncommon, and
-> > 
-> > typo: s/will/with/
-> > 
-> > > the race is minuscule, hence the lack of complaints).  See the link below
-> > > for details.
+Chen Wang wrote:
+> From: Chen Wang <unicorn_wang@outlook.com>
+>
+> Enable clk generators for sg2042 due to many peripherals rely on
+> these clocks.
+>
+> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
+> ---
+>  arch/riscv/configs/defconfig | 3 +++
+>  1 file changed, 3 insertions(+)
+>
+> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+> index 0d678325444f..d43a028909e5 100644
+> --- a/arch/riscv/configs/defconfig
+> +++ b/arch/riscv/configs/defconfig
+> @@ -249,6 +249,9 @@ CONFIG_VIRTIO_BALLOON=y
+>  CONFIG_VIRTIO_INPUT=y
+>  CONFIG_VIRTIO_MMIO=y
+>  CONFIG_CLK_SOPHGO_CV1800=y
+> +CONFIG_CLK_SOPHGO_SG2042_PLL=y
+> +CONFIG_CLK_SOPHGO_SG2042_CLKGEN=y
+> +CONFIG_CLK_SOPHGO_SG2042_RPGATE=y
+>  CONFIG_SUN8I_DE2_CCU=m
+>  CONFIG_RENESAS_OSTM=y
+>  CONFIG_SUN50I_IOMMU=y
 
-Should we consider reverting 9c30fc615daa then?
+Are these all critical to boot or could they be modules?
 
-Thanks,
+/Emil
 
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+>
+> base-commit: de9c2c66ad8e787abec7c9d7eff4f8c3cdd28aed
+> --
+> 2.34.1
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
