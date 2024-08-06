@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C549C49EA1
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Aug 2024 13:06:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8DB0C3DA64
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Aug 2024 13:07:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6ymsLacs7rPtTbZcIPkbdCVrCWhZVDXOleR0iKxo5do=; b=2Mbzs9skin/+Co
-	cx87WYYgO8bTZ9yq8oCpCzF0FGDVJBRC9G9MBQr1AlGS/BUUkDYP/4cPHTMyjsJopyDOloM1NbQ0u
-	7ufDnPOzrEoeyCXxYcDC6JdJ084AB39BTUl/4sfuqkNhPJ/zzTJy8M2wAZHRDp+5yYy03OfbQXVPf
-	RbtutjNhzWa+Icnh/WX8HsQEm9gZmZv/QwhECbmNItVinOxQFv7bJ7rZYfUYKev5mxgHeWjqGZkHM
-	JKYBcffqCMFRwt/xI/f63cVoZN4mGGINJsO2dKvhhoAztygdUDeEHYbB4n/40+U3v1/Dk+GPV/TDQ
-	7xrBD7XGcC47O4jLj/lA==;
+	List-Owner; bh=/NBw2ceIm9y8IHfcovra/IWtSO4N8806e6AWe+YTL8g=; b=0NbSDGPq2CjePX
+	MfLxjKehnkjwV+pU5MhMqgxvFuLjcV6hJgQolZznHZzyrZnKeqFlPHCSYKcfDOh7gQCL9hh7Yl5hW
+	g2sTWdpWVXko5fnJT+SEe16VwXlU13NQ1aH7Rpp6BgvI2PWdr19gX2UItFZ6bUuMC6TTi1ZkeKAuE
+	LCwAFqKQ0jCcLKXkB4z8k6s+BY/oHEux85qSwgmjO+TfRm0LtgkGgNasBvw3oFNK8HiyhBNiwdZ2/
+	aur7eYl8KxTzXtt1GjJLGJumSsN1lkvveryKlUwUqtYQU2Fdsu03DLPCtTH4csCG9FtaFx/QokZhp
+	mGyCuSXF6MYzqHY3YfGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbJtn-00000001dFb-4BWz;
-	Tue, 06 Aug 2024 13:06:48 +0000
+	id 1sbJuL-00000001dWM-3syO;
+	Tue, 06 Aug 2024 13:07:21 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbJtl-00000001dED-1BIr
+	id 1sbJuB-00000001dRU-3nh1
 	for linux-riscv@lists.infradead.org;
-	Tue, 06 Aug 2024 13:06:46 +0000
+	Tue, 06 Aug 2024 13:07:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1722949604;
+	s=mimecast20190719; t=1722949630;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=sr/WFAiUbxLmydRkUjae4zjVw5l6VDeDJFLPLU0IVgE=;
-	b=LCXQ6/fC4KsZvoy8M+FEt68Jd/KKi24SLtV2bQc+EHANMSrTp77ovzUEhNZXuQFaH+4bw2
-	+xkWxNkshnZBlCkiuI0HPm6NmyBbyLsIYyuILFYB1AY1LO0cvMqQpgiM5BrrWobCz7O1hf
-	VrHVuZFyLbYR11Ps+MaVD2KIEHlkasA=
-Received: from mail-lf1-f70.google.com (mail-lf1-f70.google.com
- [209.85.167.70]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=TIyQLvWnyqqMtiLKFFzAu2zlk32GezvKg83XuQ8tLc0=;
+	b=aK3u9PRlJV1wkREJ8PHAR9tt41wu3+a353OweueThdeaUEUObNbJR2+1NlUldG57ynPWfa
+	4QziCTzgLGxCvMbqyfmjigs5OF0C4YCOxykEzn7N37TD9UPVhHYGHTeRXoaX0orlXQr0W1
+	o9GeAxPYQTV75pKmn2iKsDKAUHnJBsU=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-283-spCOWqEjOGysAHuwAA8eiA-1; Tue, 06 Aug 2024 09:06:42 -0400
-X-MC-Unique: spCOWqEjOGysAHuwAA8eiA-1
-Received: by mail-lf1-f70.google.com with SMTP id 2adb3069b0e04-530ad977bccso1069552e87.0
-        for <linux-riscv@lists.infradead.org>; Tue, 06 Aug 2024 06:06:42 -0700 (PDT)
+ us-mta-371-7RZncEjkOEaRmpGUi2j6xQ-1; Tue, 06 Aug 2024 09:07:09 -0400
+X-MC-Unique: 7RZncEjkOEaRmpGUi2j6xQ-1
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-42817980766so4611105e9.3
+        for <linux-riscv@lists.infradead.org>; Tue, 06 Aug 2024 06:07:09 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722949601; x=1723554401;
+        d=1e100.net; s=20230601; t=1722949628; x=1723554428;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:from:references:cc:to:subject:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=sr/WFAiUbxLmydRkUjae4zjVw5l6VDeDJFLPLU0IVgE=;
-        b=ooSWX38KtsdXKDiFeSqeB2pyV33+2mETRYK+//U6IjrzwrScFDbECdl6Et8upgN+xX
-         bbG//pFaQi4bW7c2Ib8WzVfuZpYT0OGhJEtpZ4hmfmUU1x/M90JpU7kokwOroQmEc1c9
-         2cfkT6KnhSSypf9qgSipzwvvlYsz6uKGTR1HEsTJBslyoZDWxKM4xJvVHHfigjz2M38V
-         Ps3U8JyYXi/T7BZooGqHC+OcDfme9fXCmPcMyMhb+47hp/k8MdjNj7Xm5I1l4r4AOEZ6
-         EOi8k0iiNBPinmszqb0T9oQt25zlsnST/XIC2wWDMOgInddobf2H7qR3hkOaRqUBAEP3
-         6k7g==
-X-Forwarded-Encrypted: i=1; AJvYcCXR5y3kpbvmOdG342idywOYmsGJN7zst30XlqtE+wrdm+tyN7hbExtNwo5e9RcvIbpaZHkbEtXOfYmztv/HSrWDTD6SHMStz/as14z01IAU
-X-Gm-Message-State: AOJu0YwLSTuFuH2lXh2LxiJG634/AEiwXCAlegjKBFleSUUsGxkvAnIw
-	andpTTWA//Ol5WrIjFQW3R5er2STaS6qb61FSLdpQS5eMRxbSvOBqvYU+grsveji8mMYr1lMcfN
-	k+UwtaerIWJpi3GhPKNRZgc41PQ6oTFIkDcKmN9Bdc1x0EYlJi6n7P2hzXVyUat1KUQ==
-X-Received: by 2002:a05:6512:6c8:b0:52c:dc6f:75a3 with SMTP id 2adb3069b0e04-530bb3d42d4mr11417714e87.40.1722949600607;
-        Tue, 06 Aug 2024 06:06:40 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IE8szkegVXe2o6JYrSp0ZSt3b1gbAeQlMRaoLLvTVivyK3zg1sVVyjw+3RLDIMZyOqUdDajMA==
-X-Received: by 2002:a05:6512:6c8:b0:52c:dc6f:75a3 with SMTP id 2adb3069b0e04-530bb3d42d4mr11417650e87.40.1722949600041;
-        Tue, 06 Aug 2024 06:06:40 -0700 (PDT)
+        bh=TIyQLvWnyqqMtiLKFFzAu2zlk32GezvKg83XuQ8tLc0=;
+        b=W72i8S1CAOTzDM//graC/XSzt8Mz9yjXgSJzXfNyFLUy4BEPDW2qkyrbwJmLnI2OSn
+         JBZUo7Q8wy3AXLgkhjsJWoSAwHg/GOpdvvsUimpBMc2DPIdOrWsjG/HQFbr1OHWuDszy
+         4WKff0mfoFP5/j2CJKDLsvAlJ6DBa2/YObOP+zqcB5vGoQ4n7CJAplHxxVOUwQloJH7Z
+         LuWMWyCYysNLXH7awU+aACOW8oyys/vIdsm6VHbEbnHj1MF1/IlIfcLFR5cabE2/g6lt
+         A0sCvE+xqBb67fXPvrFWr5bZCUPAc3cBBgrpzCnGrAAL5bk8Xzr6ps1kv1b0cPJNTjmQ
+         qqCA==
+X-Forwarded-Encrypted: i=1; AJvYcCW3UWaE0K+hiiNwMYlguqFlAgoOAxFkC4Knoh7mW8LBz/ATi6Ut8+SQqtFvD8ATdb4GCELeXfwoaMlvz8I/GtjNtLnd5kGrq+i+KhKf23Da
+X-Gm-Message-State: AOJu0YwU2CQFCe4lAVIAiSgIWnJMq2ZwkCzoBo5cnhM0FtWpIS+DDy/y
+	9Qagqkx+8/rtEDu/83GykBIOZclQrv7vgkk+Ru6moKqv2OYDXk+JVRNt7wtBosXAEew6A9BaYrN
+	9hD75jcVb6raQJGPJGZ/UVvbGCwhb2VaST+Z91D+xm7dpvHVzRppMqL2bd2bZRvprIw==
+X-Received: by 2002:adf:fc8e:0:b0:367:8a3b:2098 with SMTP id ffacd0b85a97d-36bbc0cd4f4mr9122622f8f.3.1722949628128;
+        Tue, 06 Aug 2024 06:07:08 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IG5hu4Yl048YBcD0iUaoL+L6g8sWN82xUft0hO7GbEEUwPYqCeeCeFFMLPGzwr84CCZLQ21jQ==
+X-Received: by 2002:adf:fc8e:0:b0:367:8a3b:2098 with SMTP id ffacd0b85a97d-36bbc0cd4f4mr9122568f8f.3.1722949627565;
+        Tue, 06 Aug 2024 06:07:07 -0700 (PDT)
 Received: from ?IPV6:2003:cb:c73f:8500:f83c:3602:5300:88af? (p200300cbc73f8500f83c3602530088af.dip0.t-ipconnect.de. [2003:cb:c73f:8500:f83c:3602:5300:88af])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a7dc9ec886esm547190766b.203.2024.08.06.06.06.37
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-36bbd01ee30sm12949582f8f.50.2024.08.06.06.07.05
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 06 Aug 2024 06:06:39 -0700 (PDT)
-Message-ID: <c4ff4ce2-f28e-48cc-9260-bf3440da82e0@redhat.com>
-Date: Tue, 6 Aug 2024 15:06:36 +0200
+        Tue, 06 Aug 2024 06:07:06 -0700 (PDT)
+Message-ID: <d2ee3f9a-f2b0-4c8b-9623-20bbca03cf50@redhat.com>
+Date: Tue, 6 Aug 2024 15:07:04 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 04/26] MIPS: sgi-ip27: drop
+Subject: Re: [PATCH v3 06/26] MIPS: loongson64: drop
  HAVE_ARCH_NODEDATA_EXTENSION
 To: Mike Rapoport <rppt@kernel.org>, linux-kernel@vger.kernel.org
 Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
@@ -106,7 +106,7 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
  loongarch@lists.linux.dev, nvdimm@lists.linux.dev,
  sparclinux@vger.kernel.org, x86@kernel.org
 References: <20240801060826.559858-1-rppt@kernel.org>
- <20240801060826.559858-5-rppt@kernel.org>
+ <20240801060826.559858-7-rppt@kernel.org>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -153,13 +153,13 @@ Autocrypt: addr=david@redhat.com; keydata=
  jPrnvUsUUsjRoRNJjKKA/REq+sAnhkNPPZ/NNMjaZ5b8Tovi8C0tmxiCHaQYqj7G2rgnT0kt
  WNyWQQ==
 Organization: Red Hat
-In-Reply-To: <20240801060826.559858-5-rppt@kernel.org>
+In-Reply-To: <20240801060826.559858-7-rppt@kernel.org>
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240806_060645_442638_809F9790 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20240806_060712_051516_390021D0 
+X-CRM114-Status: GOOD (  10.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,14 +180,15 @@ On 01.08.24 08:08, Mike Rapoport wrote:
 > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 > 
 > Commit f8f9f21c7848 ("MIPS: Fix build error for loongson64 and
-> sgi-ip27") added HAVE_ARCH_NODEDATA_EXTENSION to sgi-ip27 to silence a
-> compilation error that happened because sgi-ip27 didn't define array of
-> pg_data_t as node_data like most other architectures did.
+> sgi-ip27") added HAVE_ARCH_NODEDATA_EXTENSION to loongson64 to silence a
+> compilation error that happened because loongson64 didn't define array
+> of pg_data_t as node_data like most other architectures did.
 > 
-> After addition of node_data array that matches other architectures and
-> after ensuring that offline nodes do not appear on node_possible_map, it
-> is safe to drop arch_alloc_nodedata() and HAVE_ARCH_NODEDATA_EXTENSION
-> from sgi-ip27.
+> After rename of __node_data to node_data arch_alloc_nodedata() and
+> HAVE_ARCH_NODEDATA_EXTENSION can be dropped from loongson64.
+> 
+> Since it was the only user of HAVE_ARCH_NODEDATA_EXTENSION config option
+> also remove this option from arch/mips/Kconfig.
 > 
 > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 > ---
