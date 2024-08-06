@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FC4CC3DA64
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Aug 2024 13:14:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF92DC3DA64
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Aug 2024 13:15:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BtzOz1zHeTIXW+Jxpom5mtoQs/b4A81frI0dsFpscXc=; b=FWkmdqBeTWY/Hc
-	kVI5yjnYTbutJ7KF/itq8ZrvJLvU3rCnCqUaLt6c2sUqLFNql/Fs+ofUS+KGwTq76iTK1LeIKnUSP
-	ajWXdsWpiOS0enksbcB/w9x7oPgWQLcouhAnYCmyS3RP+Teshv2Dq2vOZNrnwL/nAD2K188JCLPUu
-	Hcl3azIoF9yKS5vzjCbZIPUlTRzFWsVGJEiDcuCUBRT4z/J4lSr9r9mhRJDQH5qFNy3wB70T3WUTd
-	d7ypsvKINpgWomqqjOd44k+30amjsghyzhRO11VYFOG4rdV7zOqgTBtbQEntx5HEma5disy/TYJZ3
-	PjUAA/tzWnK2tdfGsGSQ==;
+	List-Owner; bh=gPR+pKR1qXkAIOpimZaXyovoo7cIcLtMmWrB0qSM3R0=; b=AMg5h66l/XV9Gj
+	RXawIsc0FUzDrcz9jYQc4oAU92I0QHQ4L04UHOvWc7MbPrDuvStLLqTgPgn//chJdODIe+98Zsiq6
+	CH/yj1DbQQgveDPQ84/UVTZsoJxzkQLWYRqo6YgBPX9OY+JTNyMoV8GELiUpAATuwq6fCWfD5QmVG
+	G0Tuoarr5uNCfeMCP0FI0ZFJ+A8t71eFKlE4JbGo0sm6BTMQ8wrXWVZCpi3wd6Atf1yjCvuUdm/+r
+	8xxB2pozaNO8K/0sZM5YskSGL82dsDVamtNUZmBIiEDpeUm/rGaRXyZRX13qutAm9/FXJotRBZtsJ
+	jacIX8yuWhItPTmELDEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbK1f-00000001gNK-0rXM;
-	Tue, 06 Aug 2024 13:14:55 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1sbK2E-00000001geI-2wUI;
+	Tue, 06 Aug 2024 13:15:30 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbK0M-00000001fns-33MA
+	id 1sbK1C-00000001gA7-2ivx
 	for linux-riscv@lists.infradead.org;
-	Tue, 06 Aug 2024 13:13:36 +0000
+	Tue, 06 Aug 2024 13:14:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1722950012;
+	s=mimecast20190719; t=1722950065;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=CX93JSbK7Pt3VPEHfr/84GDzen/2bUt2rVV+q6Y4LYg=;
-	b=P4hJmpuEb7axNa+2txxYhhEqnUmJTbM2K/LfhjmhfCnpwUJmQh+/8kc21Flwpr6XQmXpcL
-	8MUmMC+xf2S+i9VMBs4r28aWf34Tt3PqOAQlZDAzySIuD4h3+zJEZEHnM0cqOvnOj8RJIN
-	WikWeF3K7Mfn5x+O0c2FdqKfgpb3ZyM=
-Received: from mail-lj1-f198.google.com (mail-lj1-f198.google.com
- [209.85.208.198]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=vXB9n6PIcxQrCckz5y40n2q02jNpo3OBG3jBfQzye5E=;
+	b=Kk73J05PZAqwSavs1JcDJhaiOLBDCrhqDYbc8gD67M3/ZyL1Ibl1WfqP1VYuCKd8J5HzXS
+	BL/Bj167gHWO9TI80rke71R/fizaeml0se+Qlln9EZKsmS6OKeOkn8+rASfmWB1BAYgrjY
+	tXsfBDU4tL2BhHkciI1pwXoOsj8z1D8=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-502-tIq5woqeOACkmSHJQhXakw-1; Tue, 06 Aug 2024 09:13:29 -0400
-X-MC-Unique: tIq5woqeOACkmSHJQhXakw-1
-Received: by mail-lj1-f198.google.com with SMTP id 38308e7fff4ca-2ef23ec8dceso6546281fa.0
-        for <linux-riscv@lists.infradead.org>; Tue, 06 Aug 2024 06:13:29 -0700 (PDT)
+ us-mta-465-TuN53zkFOZuGlOUcePTPYg-1; Tue, 06 Aug 2024 09:14:24 -0400
+X-MC-Unique: TuN53zkFOZuGlOUcePTPYg-1
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-36831948d94so530444f8f.0
+        for <linux-riscv@lists.infradead.org>; Tue, 06 Aug 2024 06:14:24 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722950008; x=1723554808;
+        d=1e100.net; s=20230601; t=1722950063; x=1723554863;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:from:references:cc:to:subject:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=CX93JSbK7Pt3VPEHfr/84GDzen/2bUt2rVV+q6Y4LYg=;
-        b=Kx67fGUOn3bnX/jzkgYtGzmwSl0eatnCMrW3rFylVEd9QiiuLfPZ8x60KHauZsjKPY
-         8reaAeyPgRXs59vca940OnCUXyGiE5LzwgX0wmae3SXiKfxAHNouDYraBxJrF4GN0oXW
-         czAVx65A3KPKuEnjGWRdVXRB90l6XzOSJDJ0TVTIlCGMVIFta/kRF9cvTW584DacMVA8
-         IBbqU6OSYmd/o0lr46tY2222q9VIh6q0Vf2Fv/zY5OnArSCoe3kEEmfDvQKWkIhsYKYe
-         wNa4RxeVHMd38StnxxsWh2asHoQCOicSPVhzGbUy8ShVbgVCc8GQRH3WaDLdhpOUvOOQ
-         Xqyw==
-X-Forwarded-Encrypted: i=1; AJvYcCWkENjW+wDwFpaEOwy/rBkkAPFStfwDluXHLmZpKlf5vm5jM0wYwbpdFSuw81lmd+uCIgdMfN5YJkedsHsLByI0Bic5Z8NiQ1DQ3usrOLmM
-X-Gm-Message-State: AOJu0Yypu8HzLap+uIiawMkSdgG5JuawGUXCbEHXVyupGdydpk+mKROM
-	FMZWUJiWbGPM3P4omA4aaMq6F7wtq35dPOpNyjKA5L5gJPhA35cAWmfQRVg/xm7qDmoQmYRQiYH
-	7mkNXP14OJ+TBdj603yRwwjbG9HjpRF0mTT4WcUQcLeKi0WpG7tO0TrinXauOqYn9jQ==
-X-Received: by 2002:a2e:9c4e:0:b0:2f1:59b4:7bf4 with SMTP id 38308e7fff4ca-2f15ab0bf5bmr96836651fa.36.1722950008003;
-        Tue, 06 Aug 2024 06:13:28 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IG/eM5i/l/7TSQi5VSm/jOPtHy83i7TlM/0sSakzUV+IibRjaRex7TQ6T9QA/M+48fr/QPMkQ==
-X-Received: by 2002:a2e:9c4e:0:b0:2f1:59b4:7bf4 with SMTP id 38308e7fff4ca-2f15ab0bf5bmr96835901fa.36.1722950007281;
-        Tue, 06 Aug 2024 06:13:27 -0700 (PDT)
+        bh=vXB9n6PIcxQrCckz5y40n2q02jNpo3OBG3jBfQzye5E=;
+        b=Z/TUVuNYtOjD14w6paIfqp/Kb72O/HQuGTxzb5lGuF/IwyqCCrAkyuA6NzGDoeTbIL
+         n9gUhz36ZHkly8ek05dMxusvYgCtR64bR09hAjooFJyJ1DHJezY+IRks/wsK08qdWaTf
+         4oRL3HqnrHy79sjwSHZmdRoh1dIyWy6DWAQDQZeWucnCmrYLkZOq6Lo7Ci5rK4HAMdSn
+         eEqjAmUHLPLcksLJI6RDA0ceU7eKr0ysQsZKU6nBI++PX8Kp4b3xPcf1znx7/8JG9non
+         HfbcgJrDdAUQGYOCep05Wkfs0j39Dwh4wcScptY4D510whvT7+vUUeemmPSBfrDtFrem
+         KxhQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVF2igEZ55sBV1PMdE/Eh5oV0HIQoA/QswNUz5nSks8Uu/jvkSd2BOHPzV8Rnz64XdimCFvPBSoiU5qTQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzY+7nm6zxdvTrLIR9qFUNoGpLC/NQtfXQrsTY+++oNDGSd6KYy
+	6KUu7sLACibbzYR6tKtvhlo4bm7tNVdNSyEVgUZZtLTJ4yx8wjxuI2boMcLmyK05DvwGTOyEOjh
+	BfRxDENvtWJ1vqmF8KxMOxRpwOF7n50XE+CIcB7sUb1cHde2E3OVoWkB3QsmPMen4qg==
+X-Received: by 2002:adf:a3d7:0:b0:368:4bc0:9210 with SMTP id ffacd0b85a97d-36bbc0ca7a6mr8742097f8f.25.1722950063184;
+        Tue, 06 Aug 2024 06:14:23 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IE2kT3/Xi0cEGU+HkQRL1WChzAHxB3PhEUEr4okI+OvO3nyCFXV5GtBuMTDD0u+LHyFMqdaiQ==
+X-Received: by 2002:adf:a3d7:0:b0:368:4bc0:9210 with SMTP id ffacd0b85a97d-36bbc0ca7a6mr8742068f8f.25.1722950062633;
+        Tue, 06 Aug 2024 06:14:22 -0700 (PDT)
 Received: from ?IPV6:2003:cb:c73f:8500:f83c:3602:5300:88af? (p200300cbc73f8500f83c3602530088af.dip0.t-ipconnect.de. [2003:cb:c73f:8500:f83c:3602:5300:88af])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-36bbd059948sm12925335f8f.87.2024.08.06.06.13.24
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-36bbcf0c314sm12822253f8f.12.2024.08.06.06.14.20
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 06 Aug 2024 06:13:26 -0700 (PDT)
-Message-ID: <e9cfe69b-8470-4e94-bf0b-513c9f893f60@redhat.com>
-Date: Tue, 6 Aug 2024 15:13:23 +0200
+        Tue, 06 Aug 2024 06:14:22 -0700 (PDT)
+Message-ID: <492667ab-81ad-468c-a615-babc4aea4131@redhat.com>
+Date: Tue, 6 Aug 2024 15:14:19 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 14/26] x86/numa_emu: split __apicid_to_node update to a
- helper function
+Subject: Re: [PATCH v3 15/26] x86/numa_emu: use a helper function to get
+ MAX_DMA32_PFN
 To: Mike Rapoport <rppt@kernel.org>, linux-kernel@vger.kernel.org
 Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
  Andreas Larsson <andreas@gaisler.com>,
@@ -106,7 +106,7 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
  loongarch@lists.linux.dev, nvdimm@lists.linux.dev,
  sparclinux@vger.kernel.org, x86@kernel.org
 References: <20240801060826.559858-1-rppt@kernel.org>
- <20240801060826.559858-15-rppt@kernel.org>
+ <20240801060826.559858-16-rppt@kernel.org>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -153,13 +153,13 @@ Autocrypt: addr=david@redhat.com; keydata=
  jPrnvUsUUsjRoRNJjKKA/REq+sAnhkNPPZ/NNMjaZ5b8Tovi8C0tmxiCHaQYqj7G2rgnT0kt
  WNyWQQ==
 Organization: Red Hat
-In-Reply-To: <20240801060826.559858-15-rppt@kernel.org>
+In-Reply-To: <20240801060826.559858-16-rppt@kernel.org>
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240806_061334_864422_EF730FDA 
-X-CRM114-Status: GOOD (  10.20  )
+X-CRM114-CacheID: sfid-20240806_061426_905807_88F9D87D 
+X-CRM114-Status: GOOD (  19.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,6 +186,38 @@ On 01.08.24 08:08, Mike Rapoport wrote:
 > Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 > Tested-by: Zi Yan <ziy@nvidia.com> # for x86_64 and arm64
 > ---
+>   arch/x86/include/asm/numa.h  | 1 +
+>   arch/x86/mm/numa.c           | 5 +++++
+>   arch/x86/mm/numa_emulation.c | 4 ++--
+>   3 files changed, 8 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/x86/include/asm/numa.h b/arch/x86/include/asm/numa.h
+> index 7017d540894a..b22c85c1ef18 100644
+> --- a/arch/x86/include/asm/numa.h
+> +++ b/arch/x86/include/asm/numa.h
+> @@ -74,6 +74,7 @@ void debug_cpumask_set_cpu(int cpu, int node, bool enable);
+>   int numa_emu_cmdline(char *str);
+>   void __init numa_emu_update_cpu_to_node(int *emu_nid_to_phys,
+>   					unsigned int nr_emu_nids);
+> +u64 __init numa_emu_dma_end(void);
+>   #else /* CONFIG_NUMA_EMU */
+>   static inline int numa_emu_cmdline(char *str)
+>   {
+> diff --git a/arch/x86/mm/numa.c b/arch/x86/mm/numa.c
+> index 9180d524cfe4..8b7c6580d268 100644
+> --- a/arch/x86/mm/numa.c
+> +++ b/arch/x86/mm/numa.c
+> @@ -868,6 +868,11 @@ void __init numa_emu_update_cpu_to_node(int *emu_nid_to_phys,
+>   		__apicid_to_node[i] = j < nr_emu_nids ? j : 0;
+>   	}
+>   }
+> +
+> +u64 __init numa_emu_dma_end(void)
+> +{
+> +	return PFN_PHYS(MAX_DMA32_PFN);
+> +}
+
+Inline function in header?
 
 Acked-by: David Hildenbrand <david@redhat.com>
 
