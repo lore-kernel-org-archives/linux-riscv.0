@@ -4,99 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74F26C52D6F
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Aug 2024 00:32:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6458BC49EA1
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Aug 2024 00:45:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KFF8HTDp8XdU0qGUruwB+WRHacODtSnbhQAB+sGZsg4=; b=oy6vCkHpgyYki7
-	vxEzBxJQ6iI2eECoV1fV9h2x17nT8NJ9yCKZaHhGoHEnhhIIRj+4/kSvFu2P+O1++vYap6aLNNyza
-	6h7XRr8wq22fXsGTb6N2dOiCbZal+bf4O3Q2uNG3raO/Fqc3wdKAKUGXXcTXzHIRsEw8MYm+dZko4
-	fAUDetePqck1veKye0tApufc3sweWL2DO1+3aUNgAbQk8BtVbom/NiidFfjUg3KjlPaMt5DfFMJbQ
-	icFotadsWTDru9Pg9jGq2aiqAX4YV6oxeIsovG2Q4ap/B/iCDpd0OflsQSpTgdUa92iXyiuwuImbs
-	QTbOg94a2xvlnV8NoeBw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:To:Subject:
+	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w1S+kp5GWJEtqgoNHkGHabwuBF6HOTgf3+Y6OwLQe4o=; b=hJEBjvppLXZdyipTLQAzNhT18j
+	VuJBRDResyEHf37+Rzgi7MMqG/YLMnEapsQSuy6bFMY1YvUtE3sf8RJqryYNE5+f7iOxXzV+ocyAu
+	zdwsTo4cUoA0T0wX5r1z7KCRuB62qpyBZBbUG8ryz8NsgaCKx0gxZ5d+mKZaTdl4kqnxhdpT8VsZJ
+	ptMFots4RFEFpScfKgPkLG0iowpRhFB/JT6yKcPAG0kHCi7WASUvDdeThD993DkN3uLon9Qs3igCL
+	0sD1g7PGPENDSlbc1e+9Tv7VnLc1Ih5zqT7XAMeCFlJ6hDY/rK2fmRFs2ex5rywSWIq8IqtYixz/Y
+	UffPvw3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbUbL-00000003RIe-3lK9;
-	Wed, 07 Aug 2024 00:32:27 +0000
-Received: from mail-oi1-x234.google.com ([2607:f8b0:4864:20::234])
+	id 1sbUo8-00000003TRc-14Py;
+	Wed, 07 Aug 2024 00:45:40 +0000
+Received: from mail-bmxind01olkn2082c.outbound.protection.outlook.com ([2a01:111:f403:281c::82c] helo=IND01-BMX-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbUb7-00000003R4b-0qM7
+	id 1sbUo5-00000003TPU-1gb5
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Aug 2024 00:32:23 +0000
-Received: by mail-oi1-x234.google.com with SMTP id 5614622812f47-3db1e4219f8so730019b6e.3
-        for <linux-riscv@lists.infradead.org>; Tue, 06 Aug 2024 17:32:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1722990732; x=1723595532; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Rl8hTq3snwrtlchQoxOGzkM3W0TMCzfAHv0H42fdImw=;
-        b=J0XJ1vD2g4fqQFXWB93IzUevO+sDx9Muij+5sSB1wl2TxIo38/JWm4Y/4MYsNrEbs+
-         nnxNqoZUb602s3lD+P5xw22p+62SJvoxFxRLOrSeBbbhiqEoS/gwLfGf1b+iMeGzlRgs
-         GHwX0d7TENRDjq3SmWpYoNI2yb89u517vAHbGgI4CTreT/PmDi9OfmZFFTInAZCLywTA
-         5QGyCVPpIwTk5avMnRVTiHySegd99/O7AyeNEGfxDwV95WbkpKKa1OE1xXFL+ygve9Gb
-         rGXO//et7xdbLiUIeRksD4CfPOtnGrIrKWdlurQQ3DX2XPY5LBQUr+1/ZBGCHZA9HpKX
-         XQIw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722990732; x=1723595532;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Rl8hTq3snwrtlchQoxOGzkM3W0TMCzfAHv0H42fdImw=;
-        b=AiFS3DR/aCZP4bBMCUzXi+zgTBY/REou18GZlJpAevysxZJ9hhmOmpk0TSrNLhI9eN
-         /DeA09CGJ91cJ4m68+5hr4k2EkeSCKrjboZB2539WX0ouh8hS+ez7aZyj4kyWaFMB786
-         OJmoq36OQjJwZ0Rc+83m08ximwG+yxCkVG/hKb5v7umWJ09ACgBBVcQMXCWsO6mpirkI
-         WYGC54Y/Aic49OoLaaQvY/dL47rRIlLsNVakHuWlAx9jTcnJLltoi6/aWIO1pFs/plP3
-         iTrpVVLj1O6sgQY5xL0RqOx+kM99jzW/Zjxbr5XaDDxwpynKv8scR7wmy31cEjqXKJIf
-         V7lQ==
-X-Gm-Message-State: AOJu0YyDhyrp6hAdGNclGq1Ms3NkyiQe0478mRjYVgJndO7s6oVrthMl
-	kYGN8Ro+ZlBWlOMYXNnwmvqAzzzNvGKM0pB6+qKk8Uzu2aZtYeUtpD6+FYSSlpU=
-X-Google-Smtp-Source: AGHT+IGcthIh4u6gyrmOAL4ejxspwt3Y2ihZRuJEVZ1kgjpHfMeXcyxUvEevQkNjz+nxl7BTMG8NOg==
-X-Received: by 2002:a05:6870:8182:b0:264:8ff7:fb27 with SMTP id 586e51a60fabf-26891af6ffdmr18494269fac.18.1722990731636;
-        Tue, 06 Aug 2024 17:32:11 -0700 (PDT)
-Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7b762e9f5aasm7476174a12.6.2024.08.06.17.32.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 Aug 2024 17:32:10 -0700 (PDT)
-From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Tue, 06 Aug 2024 17:31:49 -0700
-Subject: [PATCH v9 13/13] selftests: riscv: Support xtheadvector in vector
- tests
+	Wed, 07 Aug 2024 00:45:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JQDHakEqk6ZJEQHTaJfkEGKQMIg6Sc87m7+cfb1lwEqbGTURzRE0wytq7GP8qyk0C2lID0cFgI8/RZXm6bGJoblWcukKGzyDEru7qNjZ2zI3xoIqE0EwzbcJqlKK20CpwRTM573Jko5GPVb2+QYk2YjPo96cWuhvD2vwUCiFt2iw2QT11HKB84oXE9+BUIr1mVrczIitog2fpUZ2jVSA5879ufEugP+uMk7GvWf+lJFTDY6PdR0XyCgyurlegWo1P70GfMTTLOgXVI9RAzMiUSAa4YKuKKM4EkCIv7ePmxv/nj3aNEFTWKtSSY1w/bxnV+ovXy3SHlMA/UcArtIYXw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NiF21TtNb86REmVZZwB5Vak5VKFYFPcRNcTcbHECtFs=;
+ b=rl4JoGEPg3J/ntYy/E3UikVHUS/AolI4IBLcvRXJMRNZkVvewpjzfNCpo8sOEeihoO7nKw6Bc03Ahj3/R7HcxFQ8hKAjZMp3/qX8g01zAiFItaDTiG8Jr7bvtjhid6dMiDdo71cult6pmyUN199T8YXcCvXIaDgXchfuTNdsRWSk51Q0sOWhtAsV+wS3Jd6bE2yjtpeP9pTBf5Yf90XhbyiGAfwnu+BmI7kQUhv1CfPUbHxtoXc2veo/d6ZCvlMKeegHXbbSGr8yv2YySAXqhWPSghWAjrPkh0zcDJqrK7BOUofKbcj9AMHPAnmm0WSS13dcxoCa571B0aAsCUXOwA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NiF21TtNb86REmVZZwB5Vak5VKFYFPcRNcTcbHECtFs=;
+ b=lQsCVtmlL1S+FJq1Xs3QeTojWxkHp7b+c0StqpoyGXwWSiL31T2U6IQzpYUsneH+Q1ZdFTxCPXmHDn7CBLZz/b4iDvUYcrbDX71HoROVUnQWlkFgKQjDemUFJJI26fC0ZPwGNOpOHQFLAa0eERf2MVOVagKphcxgjWPoF1lpNdQAXp+l09PcYr1XI6qHO1NP/S2kDBL/ZVupflgvoPeQ85Cusrb9E7qdx5rPJLvTrJE2HHjZBhbn7Lj0Sszy5cmyeDAQ9yI7LxwoF4+miRbe16P9BxcArjLT1ea4FYfoKRl9UG8JGRu0HXIBL9gee1hY/y9O0fYYVOlHJabKMQkPwg==
+Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:138::5)
+ by MA0P287MB1009.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:108::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7849.11; Wed, 7 Aug
+ 2024 00:45:16 +0000
+Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ ([fe80::a94:ad0a:9071:806c]) by MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ ([fe80::a94:ad0a:9071:806c%6]) with mapi id 15.20.7849.008; Wed, 7 Aug 2024
+ 00:45:16 +0000
+Message-ID: <MA0P287MB2822764331021A4A67266115FEB82@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
+Date: Wed, 7 Aug 2024 08:45:06 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv: defconfig: sophgo: enable clks for sg2042
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ inochiama@outlook.com, conor.dooley@microchip.com, guoren@kernel.org,
+ apatel@ventanamicro.com, hal.feng@starfivetech.com, dfustini@baylibre.com,
+ prabhakar.mahadev-lad.rj@bp.renesas.com, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, haijiao.liu@sophgo.com,
+ xiaoguang.xing@sophgo.com
+References: <20240805023320.1287061-1-unicornxw@gmail.com>
+ <CAJM55Z9_sDT2wUy-GMT=mi4FcWth-O_LUbmVtbdZRipQrUzh4A@mail.gmail.com>
+From: Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <CAJM55Z9_sDT2wUy-GMT=mi4FcWth-O_LUbmVtbdZRipQrUzh4A@mail.gmail.com>
+X-TMN: [6A4W7iPgy7+LZAqHk5oUA0K+HppLmHEz]
+X-ClientProxiedBy: TYCPR01CA0178.jpnprd01.prod.outlook.com
+ (2603:1096:400:2b2::19) To MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:138::5)
+X-Microsoft-Original-Message-ID: <0a96616c-4114-4435-9c22-679031b464d1@outlook.com>
 MIME-Version: 1.0
-Message-Id: <20240806-xtheadvector-v9-13-62a56d2da5d0@rivosinc.com>
-References: <20240806-xtheadvector-v9-0-62a56d2da5d0@rivosinc.com>
-In-Reply-To: <20240806-xtheadvector-v9-0-62a56d2da5d0@rivosinc.com>
-To: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Jisheng Zhang <jszhang@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, 
- Samuel Holland <samuel.holland@sifive.com>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, 
- Guo Ren <guoren@kernel.org>, Evan Green <evan@rivosinc.com>, 
- Andy Chiu <andy.chiu@sifive.com>, Jessica Clarke <jrtc27@jrtc27.com>, 
- Andrew Jones <ajones@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev, 
- linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- Charlie Jenkins <charlie@rivosinc.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1722990701; l=12867;
- i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
- bh=r5q5Nx9ziC3kMn5UCdprb8sC68/F7tS+KE0AR3MsHAI=;
- b=hPLW7rRhcg9qc9qORQBvgcbgnoIqMqHQhfnLwORHNCT3JclhAXdszjxcVZ5I0goTkISZxkPP7
- NAR8NTEHdClAx+9DHHGf8KFXlzBvAe+/SQ9fSkz/SbFHqT+3QGsBsNB
-X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
- pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MA0P287MB2822:EE_|MA0P287MB1009:EE_
+X-MS-Office365-Filtering-Correlation-Id: 93fa3511-0628-40d0-8418-08dcb67a339f
+X-Microsoft-Antispam: BCL:0;ARA:14566002|8060799006|461199028|19110799003|5072599009|3412199025|4302099013|440099028|1602099012;
+X-Microsoft-Antispam-Message-Info: dKfx3cp5k92Ocsi7o3cik6WdAzOA3vk8jlHQdWri8j5fQz93Ad1YGVUFrJqnWf1qHh8QseaDPA0O6cwoeGyULP6Ktc0dcya6u3XEAE5R2rjzm7FT/lBZj8eG47jbWCtwkSmj4i715sQN7CwoGVZjSZAXQf9by7efNsQveENb6M+RG1o3oQNVR1JSnMRIWVYwPq749yvN3ChHkToOXSSHD0yrMFtNEAEMVMHHNqip3SYuvVmEVxAP1nlTjffGU/55V7VOyQYrG06eh3a78RwurAVpxJ6fd8EK+VYXEA4Icn81hFuDBJm4NbGBK4w7Q8RvF4eZM0SF91yu/V7kg65yzZPA3c4Eb5YFO4TAjUW0Oupgnj/DGACLXhiSYcsEkH8oL9j1zb/nhGKIh1iPfXja6rZ8n7iWzEVL0uyg6PojHMWdWN5qL2pMKpqXZT2+SBZo4+WJfkbmR7Y6qJ3qzsi0nQ+SUOX8BrDBH7u1cGCCkZo4TYECmlavIzot2WvSENHDUCUk2l7kPEnqutHfswdWtIvbsTWJfCJJge42/B71q7z6zkq+zB2D4ZQXxNW9B5w8O68zQHhxnJBvQQEscRCWbcLvbwQtewK4iH8ExZjiCa18cnzgVwwNAqInZIlBzDaA7KSqIZ8LEJYnZgCSnMSp34GdQhehlwNkRX8GrYRGWpR13NJ5hHQYAjWfx7fAc7mE1wmuzEvSMrkgCzSPAh+IF5T7fzLBX2WAjPaKFlMj8k7J6pTsirpG7gFbMlVOGiiw5pkNKahsFNavSHBKmPr/uc59CPLZGxk4HDgSjbx5UVo=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?b0NwNml6elZGQThxTTJWUmJsV3RHNnoyUVgrbDdRSCttZWRXKzEwaVFSY3k0?=
+ =?utf-8?B?OW9IMEdBZUoyb3EwaXFuY1JuWkNGRTJnaXhjTVl6YWpvcVQ4UUZaczd3WkFq?=
+ =?utf-8?B?dkRCZW1jNm9SRFhIZFAzV25wRU8vSXRFZi9KUytwRWgvYXlpK1FYTUFRcHZG?=
+ =?utf-8?B?OU0yQ2txZ2xvTXdFQUZTSDI5UmlYVERaRnd4bnpwWm53dndzRXozZi9mNjNJ?=
+ =?utf-8?B?UGFkSFBiV3VEVlNIQWJFQUkreWRuTmoxRzJTL2hpeGV1WU54R2xER2locWFH?=
+ =?utf-8?B?RnphTGtHamtSVUtoK1BjRGpZOTUzTjZxVlNjN09zdzR3aGZJZ1VVeEtRNGxv?=
+ =?utf-8?B?ZHltb2EvOGxjTmYyaW5td2gxSVIvcmtlc1RwWXVVK0NqVlBySDRkR0M1eFVs?=
+ =?utf-8?B?bHpxUXlzV2VFQVhIZ1RyVDUyQlhBSXBPVnhmTk5ISGJpWW5tYjRVTEN2dW45?=
+ =?utf-8?B?N2V1dVljQ2U3dXJBc3UwRm50TDA5QjF0ZXZaZzFnMWFqODRJQ2djZmh4WFNW?=
+ =?utf-8?B?b1F6ZDNZN3d4eFJPM2hrTHVjTlhOL1RHYXVTRXB3MUUvZER3NE1jenZ6aVdm?=
+ =?utf-8?B?SDhTaFlneVNYMDZQS1dKTjJ2OWtFdjNaeERVZndHby9MODduZG9lQXg5Vjk0?=
+ =?utf-8?B?OHJNV0tlMEN4RUcwU1RIbVNOSExCMXlsZDd2M0UxTHp0bUt0UkVXY09MVlgr?=
+ =?utf-8?B?Z2wybFdmbi9MaEtacW5kSnF4bmFmRENUTFA1cENyTWtTZTh0WXFMTXBUeGx6?=
+ =?utf-8?B?NlZzcWVwcmNzUjJwaWdBUHlHWm5RYmRocWpkV2lDTGlSMktNUXArMXZ3dFdN?=
+ =?utf-8?B?ekJwM2gwaVRKZUt6R3VxaVV1cndTWGJIbElyRm1pb0xBMTVzY2FEMmpma1gx?=
+ =?utf-8?B?TUpObzg4K29XTDBwb2ZlQUIwK0hOV2FMRmhrQzMvMVl5bThRNUNTMmdkWHIy?=
+ =?utf-8?B?VjhlMmRwRlJNV3h6M3VHZSs0MzJPaWZpdkdNcElzSGpRU0RtN0g1eENiL3Nz?=
+ =?utf-8?B?RFRKMWg3THpHMmhUU2F1eFlVazVhZHcySTB5YmlaQ3N3aW1QVGhBYXN2VlNH?=
+ =?utf-8?B?bFhuWk5WWEpYZlQ2VkFBaU0yU1Exc1p5Y0VNQmQzZUpwOXhYN2xsS1lqNExw?=
+ =?utf-8?B?OFhhVlBhL2JMYzVFL05uMUFwZVJ4YjNmZGx2VndZR0tLM0xGeitsRG9NMldX?=
+ =?utf-8?B?RmhJbCs5NUJYRWFMWEhEOG0rbkp3eUlsWENvVlpJNUhIY1Znc2plOEl1OTlq?=
+ =?utf-8?B?Q0YrY2M5L1hyaTZmWjNnRy8ybnoyay9QWUErMVJILzNvWkVXSGp4UnYvYzRz?=
+ =?utf-8?B?WkxFbkozS3RERSsxZkwyWnJGVEs0UGRmT0k0TFB4bHhDUHdYczQ3TWRTeFFv?=
+ =?utf-8?B?bUJ2b0p5V1h6QitsUHpPa3hwSjlwY1EySC8yWTJ0YVVkZXBUL251WWRxRnRt?=
+ =?utf-8?B?bmJ2Q21zbGFvUS94VjdtZ3NHVGtITU1CRTBwUkdJUk5nank3UDk2dUVhbVJO?=
+ =?utf-8?B?WjB4d0xCWVE1OEFtZVhCeEtieEtYVnZUR0NUMkg3VkxDcTRwNU94elltYlBJ?=
+ =?utf-8?B?VUYwWE14elZGcXhpMU0wcVVhL2x0cjVOVHF6VnJkcWZNbzdvMzgzd3hQd0ZO?=
+ =?utf-8?B?am1SUWczS2hwRTBVc2ZJTFg5bGRXUzQrRHVFbStOVVZ0Z1E4cnRBa09FS1JQ?=
+ =?utf-8?Q?qU1uHYwY3TwrV+dqHcVk?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 93fa3511-0628-40d0-8418-08dcb67a339f
+X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Aug 2024 00:45:16.6944
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MA0P287MB1009
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240806_173213_532919_EB3F7CBB 
-X-CRM114-Status: GOOD (  19.50  )
+X-CRM114-CacheID: sfid-20240806_174537_467181_1080B32E 
+X-CRM114-Status: UNSURE (   8.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,421 +132,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Extend existing vector tests to be compatible with the xtheadvector
-instructions.
 
-Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
----
- .../selftests/riscv/vector/v_exec_initval_nolibc.c | 23 ++++--
- tools/testing/selftests/riscv/vector/v_helpers.c   | 17 ++++-
- tools/testing/selftests/riscv/vector/v_helpers.h   |  4 +-
- tools/testing/selftests/riscv/vector/v_initval.c   | 12 ++-
- .../selftests/riscv/vector/vstate_exec_nolibc.c    | 20 +++--
- .../testing/selftests/riscv/vector/vstate_prctl.c  | 89 ++++++++++++++--------
- 6 files changed, 113 insertions(+), 52 deletions(-)
+On 2024/8/6 17:30, Emil Renner Berthing wrote:
+> Chen Wang wrote:
+>> From: Chen Wang <unicorn_wang@outlook.com>
+>>
+>> Enable clk generators for sg2042 due to many peripherals rely on
+>> these clocks.
+>>
+>> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
+>> ---
+>>   arch/riscv/configs/defconfig | 3 +++
+>>   1 file changed, 3 insertions(+)
+>>
+>> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+>> index 0d678325444f..d43a028909e5 100644
+>> --- a/arch/riscv/configs/defconfig
+>> +++ b/arch/riscv/configs/defconfig
+>> @@ -249,6 +249,9 @@ CONFIG_VIRTIO_BALLOON=y
+>>   CONFIG_VIRTIO_INPUT=y
+>>   CONFIG_VIRTIO_MMIO=y
+>>   CONFIG_CLK_SOPHGO_CV1800=y
+>> +CONFIG_CLK_SOPHGO_SG2042_PLL=y
+>> +CONFIG_CLK_SOPHGO_SG2042_CLKGEN=y
+>> +CONFIG_CLK_SOPHGO_SG2042_RPGATE=y
+>>   CONFIG_SUN8I_DE2_CCU=m
+>>   CONFIG_RENESAS_OSTM=y
+>>   CONFIG_SUN50I_IOMMU=y
+> Are these all critical to boot or could they be modules?
+>
+> /Emil
 
-diff --git a/tools/testing/selftests/riscv/vector/v_exec_initval_nolibc.c b/tools/testing/selftests/riscv/vector/v_exec_initval_nolibc.c
-index 4a39cab29c34..35c0812e32de 100644
---- a/tools/testing/selftests/riscv/vector/v_exec_initval_nolibc.c
-+++ b/tools/testing/selftests/riscv/vector/v_exec_initval_nolibc.c
-@@ -18,13 +18,22 @@ int main(int argc, char **argv)
- 	unsigned long vl;
- 	int first = 1;
- 
--	asm volatile (
--		".option push\n\t"
--		".option arch, +v\n\t"
--		"vsetvli	%[vl], x0, e8, m1, ta, ma\n\t"
--		".option pop\n\t"
--		: [vl] "=r" (vl)
--	);
-+	if (argc > 2 && strcmp(argv[2], "x"))
-+		asm volatile (
-+			// 0 | zimm[10:0] | rs1 | 1 1 1 | rd |1010111| vsetvli
-+			// vsetvli	t4, x0, e8, m1, d1
-+			".4byte		0b00000000000000000111111011010111\n\t"
-+			"mv		%[vl], t4\n\t"
-+			: [vl] "=r" (vl) : : "t4"
-+		);
-+	else
-+		asm volatile (
-+			".option push\n\t"
-+			".option arch, +v\n\t"
-+			"vsetvli	%[vl], x0, e8, m1, ta, ma\n\t"
-+			".option pop\n\t"
-+			: [vl] "=r" (vl)
-+		);
- 
- #define CHECK_VECTOR_REGISTER(register) ({					\
- 	for (int i = 0; i < vl; i++) {						\
-diff --git a/tools/testing/selftests/riscv/vector/v_helpers.c b/tools/testing/selftests/riscv/vector/v_helpers.c
-index d50f4dfbf9e5..01a8799dcb78 100644
---- a/tools/testing/selftests/riscv/vector/v_helpers.c
-+++ b/tools/testing/selftests/riscv/vector/v_helpers.c
-@@ -1,12 +1,22 @@
- // SPDX-License-Identifier: GPL-2.0-only
- 
- #include "../hwprobe/hwprobe.h"
-+#include <asm/vendor/thead.h>
- #include <stdbool.h>
- #include <stdlib.h>
- #include <stdio.h>
- #include <unistd.h>
- #include <sys/wait.h>
- 
-+bool is_xtheadvector_supported(void)
-+{
-+	struct riscv_hwprobe pair;
-+
-+	pair.key = RISCV_HWPROBE_KEY_VENDOR_EXT_THEAD_0;
-+	riscv_hwprobe(&pair, 1, 0, NULL, 0);
-+	return pair.value & RISCV_HWPROBE_VENDOR_EXT_XTHEADVECTOR;
-+}
-+
- bool is_vector_supported(void)
- {
- 	struct riscv_hwprobe pair;
-@@ -16,9 +26,9 @@ bool is_vector_supported(void)
- 	return pair.value & RISCV_HWPROBE_EXT_ZVE32X;
- }
- 
--int launch_test(char *next_program, int test_inherit)
-+int launch_test(char *next_program, int test_inherit, int xtheadvector)
- {
--	char *exec_argv[3], *exec_envp[1];
-+	char *exec_argv[4], *exec_envp[1];
- 	int rc, pid, status;
- 
- 	pid = fork();
-@@ -30,7 +40,8 @@ int launch_test(char *next_program, int test_inherit)
- 	if (!pid) {
- 		exec_argv[0] = next_program;
- 		exec_argv[1] = test_inherit != 0 ? "x" : NULL;
--		exec_argv[2] = NULL;
-+		exec_argv[2] = xtheadvector != 0 ? "x" : NULL;
-+		exec_argv[3] = NULL;
- 		exec_envp[0] = NULL;
- 		/* launch the program again to check inherit */
- 		rc = execve(next_program, exec_argv, exec_envp);
-diff --git a/tools/testing/selftests/riscv/vector/v_helpers.h b/tools/testing/selftests/riscv/vector/v_helpers.h
-index faeeeb625b6e..763cddfe26da 100644
---- a/tools/testing/selftests/riscv/vector/v_helpers.h
-+++ b/tools/testing/selftests/riscv/vector/v_helpers.h
-@@ -1,6 +1,8 @@
- /* SPDX-License-Identifier: GPL-2.0-only */
- #include <stdbool.h>
- 
-+bool is_xtheadvector_supported(void);
-+
- bool is_vector_supported(void);
- 
--int launch_test(char *next_program, int test_inherit);
-+int launch_test(char *next_program, int test_inherit, int xtheadvector);
-diff --git a/tools/testing/selftests/riscv/vector/v_initval.c b/tools/testing/selftests/riscv/vector/v_initval.c
-index f38b5797fa31..be9e1d18ad29 100644
---- a/tools/testing/selftests/riscv/vector/v_initval.c
-+++ b/tools/testing/selftests/riscv/vector/v_initval.c
-@@ -7,10 +7,16 @@
- 
- TEST(v_initval)
- {
--	if (!is_vector_supported())
--		SKIP(return, "Vector not supported");
-+	int xtheadvector = 0;
- 
--	ASSERT_EQ(0, launch_test(NEXT_PROGRAM, 0));
-+	if (!is_vector_supported()) {
-+		if (is_xtheadvector_supported())
-+			xtheadvector = 1;
-+		else
-+			SKIP(return, "Vector not supported");
-+	}
-+
-+	ASSERT_EQ(0, launch_test(NEXT_PROGRAM, 0, xtheadvector));
- }
- 
- TEST_HARNESS_MAIN
-diff --git a/tools/testing/selftests/riscv/vector/vstate_exec_nolibc.c b/tools/testing/selftests/riscv/vector/vstate_exec_nolibc.c
-index 1f9969bed235..7b7d6f21acb4 100644
---- a/tools/testing/selftests/riscv/vector/vstate_exec_nolibc.c
-+++ b/tools/testing/selftests/riscv/vector/vstate_exec_nolibc.c
-@@ -6,13 +6,16 @@
- 
- int main(int argc, char **argv)
- {
--	int rc, pid, status, test_inherit = 0;
-+	int rc, pid, status, test_inherit = 0, xtheadvector = 0;
- 	long ctrl, ctrl_c;
- 	char *exec_argv[2], *exec_envp[2];
- 
--	if (argc > 1)
-+	if (argc > 1 && strcmp(argv[1], "x"))
- 		test_inherit = 1;
- 
-+	if (argc > 2 && strcmp(argv[2], "x"))
-+		xtheadvector = 1;
-+
- 	ctrl = my_syscall1(__NR_prctl, PR_RISCV_V_GET_CONTROL);
- 	if (ctrl < 0) {
- 		puts("PR_RISCV_V_GET_CONTROL is not supported\n");
-@@ -53,11 +56,14 @@ int main(int argc, char **argv)
- 				puts("child's vstate_ctrl not equal to parent's\n");
- 				exit(-1);
- 			}
--			asm volatile (".option push\n\t"
--				      ".option arch, +v\n\t"
--				      "vsetvli x0, x0, e32, m8, ta, ma\n\t"
--				      ".option pop\n\t"
--				      );
-+			if (xtheadvector)
-+				asm volatile (".4byte	0x00007ed7");
-+			else
-+				asm volatile (".option push\n\t"
-+					".option arch, +v\n\t"
-+					"vsetvli x0, x0, e32, m8, ta, ma\n\t"
-+					".option pop\n\t"
-+					);
- 			exit(ctrl);
- 		}
- 	}
-diff --git a/tools/testing/selftests/riscv/vector/vstate_prctl.c b/tools/testing/selftests/riscv/vector/vstate_prctl.c
-index 2fc86924bf42..62fbb17a0556 100644
---- a/tools/testing/selftests/riscv/vector/vstate_prctl.c
-+++ b/tools/testing/selftests/riscv/vector/vstate_prctl.c
-@@ -11,7 +11,7 @@
- 
- #define NEXT_PROGRAM "./vstate_exec_nolibc"
- 
--int test_and_compare_child(long provided, long expected, int inherit)
-+int test_and_compare_child(long provided, long expected, int inherit, int xtheadvector)
- {
- 	int rc;
- 
-@@ -21,7 +21,7 @@ int test_and_compare_child(long provided, long expected, int inherit)
- 		       provided, rc);
- 		return -1;
- 	}
--	rc = launch_test(NEXT_PROGRAM, inherit);
-+	rc = launch_test(NEXT_PROGRAM, inherit, xtheadvector);
- 	if (rc != expected) {
- 		printf("Test failed, check %d != %ld\n", rc, expected);
- 		return -2;
-@@ -36,7 +36,7 @@ TEST(get_control_no_v)
- {
- 	long rc;
- 
--	if (is_vector_supported())
-+	if (is_vector_supported() || is_xtheadvector_supported())
- 		SKIP(return, "Test expects vector to be not supported");
- 
- 	rc = prctl(PR_RISCV_V_GET_CONTROL);
-@@ -50,7 +50,7 @@ TEST(set_control_no_v)
- {
- 	long rc;
- 
--	if (is_vector_supported())
-+	if (is_vector_supported() || is_xtheadvector_supported())
- 		SKIP(return, "Test expects vector to be not supported");
- 
- 	rc = prctl(PR_RISCV_V_SET_CONTROL, PR_RISCV_V_VSTATE_CTRL_ON);
-@@ -65,12 +65,12 @@ TEST(vstate_on_current)
- 	long flag;
- 	long rc;
- 
--	if (!is_vector_supported())
-+	if (!is_vector_supported() && !is_xtheadvector_supported())
- 		SKIP(return, "Vector not supported");
- 
- 	flag = PR_RISCV_V_VSTATE_CTRL_ON;
- 	rc = prctl(PR_RISCV_V_SET_CONTROL, flag);
--	EXPECT_EQ(0, rc) TH_LOG("Enabling V for current should always success");
-+	EXPECT_EQ(0, rc) TH_LOG("Enabling V for current should always succeed");
- }
- 
- TEST(vstate_off_eperm)
-@@ -78,7 +78,7 @@ TEST(vstate_off_eperm)
- 	long flag;
- 	long rc;
- 
--	if (!is_vector_supported())
-+	if (!is_vector_supported() && !is_xtheadvector_supported())
- 		SKIP(return, "Vector not supported");
- 
- 	flag = PR_RISCV_V_VSTATE_CTRL_OFF;
-@@ -92,89 +92,116 @@ TEST(vstate_off_eperm)
- TEST(vstate_on_no_nesting)
- {
- 	long flag;
-+	int xtheadvector = 0;
- 
--	if (!is_vector_supported())
--		SKIP(return, "Vector not supported");
-+	if (!is_vector_supported()) {
-+		if (is_xtheadvector_supported())
-+			xtheadvector = 1;
-+		else
-+			SKIP(return, "Vector not supported");
-+	}
- 
- 	/* Turn on next's vector explicitly and test */
- 	flag = PR_RISCV_V_VSTATE_CTRL_ON << PR_RISCV_V_VSTATE_CTRL_NEXT_SHIFT;
- 
--	EXPECT_EQ(0,
--		  test_and_compare_child(flag, PR_RISCV_V_VSTATE_CTRL_ON, 0));
-+	EXPECT_EQ(0, test_and_compare_child(flag, PR_RISCV_V_VSTATE_CTRL_ON, 0, xtheadvector));
- }
- 
- TEST(vstate_off_nesting)
- {
- 	long flag;
-+	int xtheadvector = 0;
- 
--	if (!is_vector_supported())
--		SKIP(return, "Vector not supported");
-+	if (!is_vector_supported()) {
-+		if (is_xtheadvector_supported())
-+			xtheadvector = 1;
-+		else
-+			SKIP(return, "Vector not supported");
-+	}
- 
- 	/* Turn off next's vector explicitly and test */
- 	flag = PR_RISCV_V_VSTATE_CTRL_OFF << PR_RISCV_V_VSTATE_CTRL_NEXT_SHIFT;
- 
--	EXPECT_EQ(0,
--		  test_and_compare_child(flag, PR_RISCV_V_VSTATE_CTRL_OFF, 1));
-+	EXPECT_EQ(0, test_and_compare_child(flag, PR_RISCV_V_VSTATE_CTRL_OFF, 1, xtheadvector));
- }
- 
- TEST(vstate_on_inherit_no_nesting)
- {
- 	long flag, expected;
-+	int xtheadvector = 0;
- 
--	if (!is_vector_supported())
--		SKIP(return, "Vector not supported");
-+	if (!is_vector_supported()) {
-+		if (is_xtheadvector_supported())
-+			xtheadvector = 1;
-+		else
-+			SKIP(return, "Vector not supported");
-+	}
- 
- 	/* Turn on next's vector explicitly and test no inherit */
- 	flag = PR_RISCV_V_VSTATE_CTRL_ON << PR_RISCV_V_VSTATE_CTRL_NEXT_SHIFT;
- 	flag |= PR_RISCV_V_VSTATE_CTRL_INHERIT;
- 	expected = flag | PR_RISCV_V_VSTATE_CTRL_ON;
- 
--	EXPECT_EQ(0, test_and_compare_child(flag, expected, 0));
-+	EXPECT_EQ(0, test_and_compare_child(flag, expected, 0, xtheadvector));
- }
- 
- TEST(vstate_on_inherit)
- {
- 	long flag, expected;
-+	int xtheadvector = 0;
- 
--	if (!is_vector_supported())
--		SKIP(return, "Vector not supported");
-+	if (!is_vector_supported()) {
-+		if (is_xtheadvector_supported())
-+			xtheadvector = 1;
-+		else
-+			SKIP(return, "Vector not supported");
-+	}
- 
- 	/* Turn on next's vector explicitly and test inherit */
- 	flag = PR_RISCV_V_VSTATE_CTRL_ON << PR_RISCV_V_VSTATE_CTRL_NEXT_SHIFT;
- 	flag |= PR_RISCV_V_VSTATE_CTRL_INHERIT;
- 	expected = flag | PR_RISCV_V_VSTATE_CTRL_ON;
- 
--	EXPECT_EQ(0, test_and_compare_child(flag, expected, 1));
-+	EXPECT_EQ(0, test_and_compare_child(flag, expected, 1, xtheadvector));
- }
- 
- TEST(vstate_off_inherit_no_nesting)
- {
- 	long flag, expected;
-+	int xtheadvector = 0;
- 
--	if (!is_vector_supported())
--		SKIP(return, "Vector not supported");
--
-+	if (!is_vector_supported()) {
-+		if (is_xtheadvector_supported())
-+			xtheadvector = 1;
-+		else
-+			SKIP(return, "Vector not supported");
-+	}
- 	/* Turn off next's vector explicitly and test no inherit */
- 	flag = PR_RISCV_V_VSTATE_CTRL_OFF << PR_RISCV_V_VSTATE_CTRL_NEXT_SHIFT;
- 	flag |= PR_RISCV_V_VSTATE_CTRL_INHERIT;
- 	expected = flag | PR_RISCV_V_VSTATE_CTRL_OFF;
- 
--	EXPECT_EQ(0, test_and_compare_child(flag, expected, 0));
-+	EXPECT_EQ(0, test_and_compare_child(flag, expected, 0, xtheadvector));
- }
- 
- TEST(vstate_off_inherit)
- {
- 	long flag, expected;
-+	int xtheadvector = 0;
- 
--	if (!is_vector_supported())
--		SKIP(return, "Vector not supported");
-+	if (!is_vector_supported()) {
-+		if (is_xtheadvector_supported())
-+			xtheadvector = 1;
-+		else
-+			SKIP(return, "Vector not supported");
-+	}
- 
- 	/* Turn off next's vector explicitly and test inherit */
- 	flag = PR_RISCV_V_VSTATE_CTRL_OFF << PR_RISCV_V_VSTATE_CTRL_NEXT_SHIFT;
- 	flag |= PR_RISCV_V_VSTATE_CTRL_INHERIT;
- 	expected = flag | PR_RISCV_V_VSTATE_CTRL_OFF;
- 
--	EXPECT_EQ(0, test_and_compare_child(flag, expected, 1));
-+	EXPECT_EQ(0, test_and_compare_child(flag, expected, 1, xtheadvector));
- }
- 
- /* arguments should fail with EINVAL */
-@@ -182,7 +209,7 @@ TEST(inval_set_control_1)
- {
- 	int rc;
- 
--	if (!is_vector_supported())
-+	if (!is_vector_supported() && !is_xtheadvector_supported())
- 		SKIP(return, "Vector not supported");
- 
- 	rc = prctl(PR_RISCV_V_SET_CONTROL, 0xff0);
-@@ -195,7 +222,7 @@ TEST(inval_set_control_2)
- {
- 	int rc;
- 
--	if (!is_vector_supported())
-+	if (!is_vector_supported() && !is_xtheadvector_supported())
- 		SKIP(return, "Vector not supported");
- 
- 	rc = prctl(PR_RISCV_V_SET_CONTROL, 0x3);
-@@ -208,7 +235,7 @@ TEST(inval_set_control_3)
- {
- 	int rc;
- 
--	if (!is_vector_supported())
-+	if (!is_vector_supported() && !is_xtheadvector_supported())
- 		SKIP(return, "Vector not supported");
- 
- 	rc = prctl(PR_RISCV_V_SET_CONTROL, 0xc);
+Since 6.11, sg2042.dtsi has been changed and uart now has dependency on 
+clocks and boot into minimal console will fail without this.
 
--- 
-2.45.0
+The sg2042 clock is configured as builtin to facilitate bootup in 
+initramfs with defconfig build.
 
+Regards.
+
+Chen
+
+>> base-commit: de9c2c66ad8e787abec7c9d7eff4f8c3cdd28aed
+>> --
+>> 2.34.1
+>>
+>>
+>> _______________________________________________
+>> linux-riscv mailing list
+>> linux-riscv@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
