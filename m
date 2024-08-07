@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFB5FC3DA7F
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Aug 2024 06:48:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6560FC52D6F
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Aug 2024 06:49:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AIB534yKn2hUi5ch91JdMKGLFhapWCcVSTFQ2OPBedg=; b=lbUW7oXGPUMGL/
-	4JHE6ms7fBvzyDB/4E0lTFCcdMBSbdM+uesAICvmFiTIzDv0sojzuuRGM7JCMlb0Zaij8FhxDv9Zl
-	hkL8L7n7dizQn/zLjnM3P+Cj9bfPo+dutsHEHpf4/eOoBT09LjZhViGFKraFmNygGNtQj2HDexXGC
-	pFiphTJ9jAZqHgaPSqUVkj9ubBhK+YudFIIgVw+xWzHlLwri8DpAxDdfuKhpa2ZgvAQ6Hi9CzNLR1
-	i65DXWrGryqFb1RnHX/mPjsh9fCJtCtGdLExylpEyxHuVMa73yvEb2PZNMJuy7ythjMNmcX1nxU5m
-	sMuJ1BhQksqrTEMsuaGw==;
+	List-Owner; bh=ilbSFhoAfbQngpPfhjT84oMs035nSoYInwi8oaZf39w=; b=14uIXyN5lcqQWT
+	FGM7ArmPtmD7x3GYg4hVl9Qxa9hc9VpnKuw6Jok8FbT0hc9AOJSgG0DXG2Vnyf+zK634NuQgxYlHW
+	Xrlhf1jb84165gLk2UokvxH7BDvDEk+G52s6i/ci688f8AdpJw9n2vSRJZbSwDYtGNHEArwTATKOt
+	2aFq0ZltitlgBC4FQamaOqxakgLs2tD6ZQCsj7oIBgfAf1ZhzCo+w+mS0SiHYw35OoRwWMqbL/ZMM
+	WzcyKg7W2tHU0JNDPFf3JZEEm9wdzsFIbQElkxx2/uE0e4/VhXd6PiGIVVhE7X6sX/9pkGYCUGKtV
+	acKzquEvLtrW3teRXlHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbaTg-000000044NM-14gd;
-	Wed, 07 Aug 2024 06:48:56 +0000
+	id 1sbaUH-000000044f8-3KeX;
+	Wed, 07 Aug 2024 06:49:33 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbaOS-000000041f9-3PAL;
-	Wed, 07 Aug 2024 06:43:34 +0000
+	id 1sbaOe-000000041my-2frs;
+	Wed, 07 Aug 2024 06:43:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3975061175;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1DE9961053;
+	Wed,  7 Aug 2024 06:43:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F386C4AF11;
 	Wed,  7 Aug 2024 06:43:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90229C32782;
-	Wed,  7 Aug 2024 06:43:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1723013011;
-	bh=oI0PgIj2KycFldDjpn7t4up1B9CyY8k+mV9pmYYqhIc=;
+	s=k20201202; t=1723013023;
+	bh=z1tvzLwVQupdd5YP18LBkr+zFWp2hYL/iiPQUBBfufQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=MwQbjBVKjQqb4wvlUKk+TvUzuSfMVWniCHu/HcU7BSTWqSXo3UJM+bVzPh8FcFdBv
-	 DeWCt2T4+0qdL3hz9ZqqW0dE9SlBcxOVVmyabru0iOG0hiJtyM79loZFzgQu3qtlbF
-	 KZym6bNAkjulkyU4p59qFVDEB+pr4p26qJiPpd4RrPwnjO81rPE1gcFUvs52RA7xwX
-	 cAR47FIRG3ACzj84LkbB2Pg0I15b0pRDvImCww1cL/G+YFJmmgyNLKFRPtoHZ1OsRg
-	 Xkr1cXHPofbicNDYDN0/AGjV8FFB0naD0WJzlbdduxBKy3u7qdN/nSDGtG3ua8xHE8
-	 azsdImVG7Eu1g==
+	b=hDRdDA/lxS8VfK8wC5yb3tmPmjl50wFcKmVgBjGxgDk8HQLmwl3SGvoUvu+EM/Tpp
+	 XjgG/j3wZA4DBURcT5ewqCF84ynMGOEVNLo6TxlzqK8oXnuSwYW16iv9GzfnNqadL3
+	 +DCvuXfy/Byf+dUmwQR49oIDqfouiICjdE+T3uT/kExCSmPnx7zfCIW72pVCLB2Of3
+	 /JCB4fvmP/jngYxGhKNDzi0s3hShAvTAqgd4TJftIewmUIDhXFRbTD+I5i1B/Eiixu
+	 ZC9+RBPsYGbT3VNXgXZzFawEZu/9YdgGypGIXfno6EQ11MOITsFb/HtNhBzW6kQWnL
+	 13te2YZcY92nQ==
 From: Mike Rapoport <rppt@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
@@ -91,16 +91,16 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org,
 	Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Subject: [PATCH v4 10/26] x86/numa: simplify numa_distance allocation
-Date: Wed,  7 Aug 2024 09:40:54 +0300
-Message-ID: <20240807064110.1003856-11-rppt@kernel.org>
+Subject: [PATCH v4 11/26] x86/numa: use get_pfn_range_for_nid to verify that node spans memory
+Date: Wed,  7 Aug 2024 09:40:55 +0300
+Message-ID: <20240807064110.1003856-12-rppt@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240807064110.1003856-1-rppt@kernel.org>
 References: <20240807064110.1003856-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240806_234332_989203_1390B5F8 
-X-CRM114-Status: GOOD (  15.29  )
+X-CRM114-CacheID: sfid-20240806_234344_817214_6CB183ED 
+X-CRM114-Status: GOOD (  13.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,14 +119,10 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 
-Allocation of numa_distance uses memblock_phys_alloc_range() to limit
-allocation to be below the last mapped page.
+Instead of looping over numa_meminfo array to detect node's start and
+end addresses use get_pfn_range_for_init().
 
-But NUMA initializaition runs after the direct map is populated and
-there is also code in setup_arch() that adjusts memblock limit to
-reflect how much memory is already mapped in the direct map.
-
-Simplify the allocation of numa_distance and use plain memblock_alloc().
+This is shorter and make it easier to lift numa_memblks to generic code.
 
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 Tested-by: Zi Yan <ziy@nvidia.com> # for x86_64 and arm64
@@ -135,40 +131,38 @@ Tested-by: Jonathan Cameron <Jonathan.Cameron@huawei.com> [arm64 + CXL via QEMU]
 Acked-by: Dan Williams <dan.j.williams@intel.com>
 Acked-by: David Hildenbrand <david@redhat.com>
 ---
- arch/x86/mm/numa.c | 7 ++-----
- 1 file changed, 2 insertions(+), 5 deletions(-)
+ arch/x86/mm/numa.c | 17 +++++++----------
+ 1 file changed, 7 insertions(+), 10 deletions(-)
 
 diff --git a/arch/x86/mm/numa.c b/arch/x86/mm/numa.c
-index 5e1dde26674b..edfc38803779 100644
+index edfc38803779..30b0ec801b02 100644
 --- a/arch/x86/mm/numa.c
 +++ b/arch/x86/mm/numa.c
-@@ -331,7 +331,6 @@ static int __init numa_alloc_distance(void)
- 	nodemask_t nodes_parsed;
- 	size_t size;
- 	int i, j, cnt = 0;
--	u64 phys;
+@@ -521,17 +521,14 @@ static int __init numa_register_memblks(struct numa_meminfo *mi)
  
- 	/* size the new table and allocate it */
- 	nodes_parsed = numa_nodes_parsed;
-@@ -342,16 +341,14 @@ static int __init numa_alloc_distance(void)
- 	cnt++;
- 	size = cnt * cnt * sizeof(numa_distance[0]);
+ 	/* Finally register nodes. */
+ 	for_each_node_mask(nid, node_possible_map) {
+-		u64 start = PFN_PHYS(max_pfn);
+-		u64 end = 0;
++		unsigned long start_pfn, end_pfn;
  
--	phys = memblock_phys_alloc_range(size, PAGE_SIZE, 0,
--					 PFN_PHYS(max_pfn_mapped));
--	if (!phys) {
-+	numa_distance = memblock_alloc(size, PAGE_SIZE);
-+	if (!numa_distance) {
- 		pr_warn("Warning: can't allocate distance table!\n");
- 		/* don't retry until explicitly reset */
- 		numa_distance = (void *)1LU;
- 		return -ENOMEM;
- 	}
+-		for (i = 0; i < mi->nr_blks; i++) {
+-			if (nid != mi->blk[i].nid)
+-				continue;
+-			start = min(mi->blk[i].start, start);
+-			end = max(mi->blk[i].end, end);
+-		}
+-
+-		if (start >= end)
++		/*
++		 * Note, get_pfn_range_for_nid() depends on
++		 * memblock_set_node() having already happened
++		 */
++		get_pfn_range_for_nid(nid, &start_pfn, &end_pfn);
++		if (start_pfn >= end_pfn)
+ 			continue;
  
--	numa_distance = __va(phys);
- 	numa_distance_cnt = cnt;
- 
- 	/* fill with the default distances */
+ 		alloc_node_data(nid);
 -- 
 2.43.0
 
