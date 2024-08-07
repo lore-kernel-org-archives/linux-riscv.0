@@ -4,80 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4DC0C3DA7F
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Aug 2024 15:49:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A1BCC3DA7F
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Aug 2024 16:22:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=KMYcczahZfziXn1Ks0zos8zbPH3OnKs2HA/on0eUCb0=; b=rm6005Ko6T7imE
-	ay1VlEaj4grmC7gLXUQAiAjuS6rPejlGhYOIDHYNBlBdY21P81pm+X1DqfeZCVBW3t9MNN6cWOn7L
-	TgvpSYHOTlfiKBReWlkHZ1w2mFWQgynhBkj85OtoagLtJDL6Tb2RNKcziinjq1hzb1HjikemgADOc
-	3697fl0xjZfVzdJiqO6MNnpOYVF2F4JYl7HD0k1SP20TQYdxqIX3nTTnRd1MTclMC6v5dt91b8pfs
-	QniUTMpVD72ypNoM+bGZdRthpwtuCbQ+aj0CprUn3dY3CsGI5XMEXTva2SMXusLcqlAtfg3vZDXIk
-	YQBTqCfrV4dFDdMYqFvQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=H04dMefjBPyQyuCU7Ydnq79PyPDXF2hLNviZTbwlth0=; b=HnH5SYtLEtSghj
+	ejKdeORpZ6hIy5rt2kP9zHaa5zSdsDMUHXh/f2cpGbwktoaZkAW/NDj/AxBsByPaF0HlVOZl76hDz
+	QuR2yaGtcET6LAfKR/aqGmGnbuQsSv2jTSwxuTtAKtnKgZEEfa5ayaOI3tZo2eRXHDhs77yT4oQ5F
+	jFOGxpTYRcDjKDguPfs4igRszOlf0HY6LIPVPp2Wd6ABn+TJNdUUOUVk2sCJac2W2eswuDTvi+hCu
+	SmjkUoWDaySy73zSkgsFUYhgN5PiPvACOsZjK1WDyzvEgBEtnvJ6diodxdx5DXmo6ZNmu2C+B8riQ
+	wMFLJH/RmEBpcXlReTDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbivA-00000005ZrS-2P1p;
-	Wed, 07 Aug 2024 15:49:52 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1sbjQX-00000005ejm-22ah;
+	Wed, 07 Aug 2024 16:22:17 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbiv7-00000005Zpk-0PKU
-	for linux-riscv@lists.infradead.org;
-	Wed, 07 Aug 2024 15:49:50 +0000
-Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-52efbb55d24so3738177e87.1
-        for <linux-riscv@lists.infradead.org>; Wed, 07 Aug 2024 08:49:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1723045786; x=1723650586; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=RYvpj69+AWcct2kjGgzqVMRUV32rPbq2i4gj3uwAY8M=;
-        b=oewG2wlvcsNeJztZAMkHHkWWdAH5cKN74cmWCX/KXEEt1xJhVzBnCFtt2sEU5Gfh7G
-         VvLmZ37GfO+YaUnDmGJsZYkHN6iKgR1IReH7iuyIIqgzZjCoU/d2MolOFU7RgTFAmcmc
-         FbYfQR0xO4w74U44GvqPWLXicZ8ldf29MLWP3v/eqJVblpNkV6kFbpPiN95Vtkrl+9Fc
-         1+ndSlCABrAa8YF+NLt2OeATgcRiXQTA3JyDQ/qJwPmIugWqiQeDKtkExGBgbNPCMmLZ
-         OvfUyhySsLsBMqh1XwH2630UA14FREG6kstsvCTosuQuiwusN6k9nwzGS0rMjhOAGt/b
-         OFTg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1723045786; x=1723650586;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=RYvpj69+AWcct2kjGgzqVMRUV32rPbq2i4gj3uwAY8M=;
-        b=inHMqF1H5QBXDMByisyEki1PfQKVvRHwwMCyS22UKk6g78+qKAv+ATDEH55EcffO82
-         IUNNk02LRjo2hBqM5Bwg57kI94GDB1LIz+ycYeCIZB5V4eqo87Tf2h9XcDdvv1i07UMc
-         qF7qcBhGY+2dpEXjpgDkez2V/vg6adz/HU0PobK6dZ3AqS1cjPdEd8S5lgUZIXoANSd8
-         05l0ZyPH7UWE916JUsaINNZwZG5y9TaV1zIQjdf/CNP9uPP/xb3tGcwPM3lbg70OQO0V
-         xxENQRDo8K85ZkXqFTee1NwJMB60vgcHpoV0V7FBcEb2/UEQyvWvAGgQwzyG23uqiYDK
-         kb+Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVEcnFJQiEi9THbDTkUBm5ShWKPMWM2+ow6ItYeWjCNgT4bBOBgUXPaN+cG04rLAdNPniegPBIkAJ4Y0Wl1mKJ+5Ped9cXqC/CIEzuqfq6C
-X-Gm-Message-State: AOJu0YxXVutkwopvvPJgJTSUJ9fXS9meGN3/seSmsVSezDZyS82Y5CqY
-	kUlQrsxLrtR+bqPtv5h5IgczyxAKiMHsBzvi/ej30Wy9QmSpkWU3yMiPNLucHZA=
-X-Google-Smtp-Source: AGHT+IG/0qTiu3D4l4sc2pZF393ojWtcrWrltEaCHTsPfg6qHZ7oxPP+gwhZxN/GnQhjbENhLsFuKw==
-X-Received: by 2002:a05:6512:398a:b0:52c:df83:a740 with SMTP id 2adb3069b0e04-530bb38cfc7mr15457604e87.30.1723045785551;
-        Wed, 07 Aug 2024 08:49:45 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a7dc9bc3c9asm649751966b.37.2024.08.07.08.49.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 Aug 2024 08:49:44 -0700 (PDT)
-From: Andrew Jones <ajones@ventanamicro.com>
-To: kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org
-Cc: anup@brainfault.org,
-	atishp@atishpatra.org,
-	cade.richard@berkeley.edu,
-	jamestiotio@gmail.com
-Subject: [PATCH] RISC-V: KVM: Fix sbiret init before forwarding to userspace
-Date: Wed,  7 Aug 2024 17:49:44 +0200
-Message-ID: <20240807154943.150540-2-ajones@ventanamicro.com>
-X-Mailer: git-send-email 2.45.2
+	id 1sbjPu-00000005eTl-2d2e;
+	Wed, 07 Aug 2024 16:21:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 88FCBCE0C56;
+	Wed,  7 Aug 2024 16:21:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D649C32781;
+	Wed,  7 Aug 2024 16:21:29 +0000 (UTC)
+Date: Wed, 7 Aug 2024 17:21:27 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	David Matlack <dmatlack@google.com>,
+	David Stevens <stevensd@chromium.org>
+Subject: Re: [PATCH v12 02/84] KVM: arm64: Disallow copying MTE to guest
+ memory while KVM is dirty logging
+Message-ID: <ZrOfB8bOdSJVcWFr@arm.com>
+References: <20240726235234.228822-1-seanjc@google.com>
+ <20240726235234.228822-3-seanjc@google.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240726235234.228822-3-seanjc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240807_084949_156772_81464DE7 
-X-CRM114-Status: GOOD (  12.28  )
+X-CRM114-CacheID: sfid-20240807_092138_900127_F301929D 
+X-CRM114-Status: GOOD (  17.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,42 +79,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When forwarding SBI calls to userspace ensure sbiret.error is
-initialized to SBI_ERR_NOT_SUPPORTED first, in case userspace
-neglects to set it to anything. If userspace neglects it then we
-can't be sure it did anything else either, so we just report it
-didn't do or try anything. Just init sbiret.value to zero, which is
-the preferred value to return when nothing special is specified.
+On Fri, Jul 26, 2024 at 04:51:11PM -0700, Sean Christopherson wrote:
+> Disallow copying MTE tags to guest memory while KVM is dirty logging, as
+> writing guest memory without marking the gfn as dirty in the memslot could
+> result in userspace failing to migrate the updated page.  Ideally (maybe?),
+> KVM would simply mark the gfn as dirty, but there is no vCPU to work with,
+> and presumably the only use case for copy MTE tags _to_ the guest is when
+> restoring state on the target.
+> 
+> Fixes: f0376edb1ddc ("KVM: arm64: Add ioctl to fetch/store tags in a guest")
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  arch/arm64/kvm/guest.c | 5 +++++
+>  1 file changed, 5 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
+> index e1f0ff08836a..962f985977c2 100644
+> --- a/arch/arm64/kvm/guest.c
+> +++ b/arch/arm64/kvm/guest.c
+> @@ -1045,6 +1045,11 @@ int kvm_vm_ioctl_mte_copy_tags(struct kvm *kvm,
+>  
+>  	mutex_lock(&kvm->slots_lock);
+>  
+> +	if (write && atomic_read(&kvm->nr_memslots_dirty_logging)) {
+> +		ret = -EBUSY;
+> +		goto out;
+> +	}
 
-KVM was already initializing both sbiret.error and sbiret.value, but
-the values used appear to come from a copy+paste of the __sbi_ecall()
-implementation, i.e. a0 and a1, which don't apply prior to the call
-being executed, nor at all when forwarding to userspace.
+There are ways to actually log the page dirtying but I don't think
+it's worth it. AFAICT, reading the tags still works and that's what's
+used during migration (on the VM where dirty tracking takes place).
 
-Fixes: dea8ee31a039 ("RISC-V: KVM: Add SBI v0.1 support")
-Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
----
- arch/riscv/kvm/vcpu_sbi.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/arch/riscv/kvm/vcpu_sbi.c b/arch/riscv/kvm/vcpu_sbi.c
-index 62f409d4176e..7de128be8db9 100644
---- a/arch/riscv/kvm/vcpu_sbi.c
-+++ b/arch/riscv/kvm/vcpu_sbi.c
-@@ -127,8 +127,8 @@ void kvm_riscv_vcpu_sbi_forward(struct kvm_vcpu *vcpu, struct kvm_run *run)
- 	run->riscv_sbi.args[3] = cp->a3;
- 	run->riscv_sbi.args[4] = cp->a4;
- 	run->riscv_sbi.args[5] = cp->a5;
--	run->riscv_sbi.ret[0] = cp->a0;
--	run->riscv_sbi.ret[1] = cp->a1;
-+	run->riscv_sbi.ret[0] = SBI_ERR_NOT_SUPPORTED;
-+	run->riscv_sbi.ret[1] = 0;
- }
- 
- void kvm_riscv_vcpu_sbi_system_reset(struct kvm_vcpu *vcpu,
--- 
-2.45.2
-
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
 _______________________________________________
 linux-riscv mailing list
