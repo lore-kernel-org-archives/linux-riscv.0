@@ -4,132 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 439BFC49EA1
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Aug 2024 22:15:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B710C52D6F
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Aug 2024 00:31:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0+v1DBt8XhCCPDFXo9yquQGao7eYEOWAcxmDDSKRJHc=; b=sUi/4jIgsR0wLf
-	1PQThotLeO7FJJw9Zs77SlDrNxrLTbGweK09yWMVQi0PsxO6qGpAW3scnTVAZFZirEk4+8q6Cy330
-	KhQ8L+xd1KRp+2UU1lT8AM9CwDiePPs3MgTpcjzCCRWl54dL/WP8SWGU0ukMJg0swgSFP53zvnzwI
-	4hfY1xxhTVnNv3yV4/uqBOAgT2/QEUgHt9h9SjeKjM9uZbl0COKWPkQqIXeXtte9QnyvCbv4PtGGJ
-	D8vrfyd131Ym5PKRfIXsbMustXACRimWAMHxnVetXZrOFYWhHnG1/b9JxO+xdNJUYNbddyTeQ0olP
-	0AkNEh78F0P9pZ9tKIbg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=A84CCY5BGJnR083WWt84DfCQJev6xU2I6yid20D6FZE=; b=fjZWKJkbJ/tUW9
+	qtjC167bnmeJpmfHRSPoc8nmXR0YaW2/sZb3Kn3E2bxJ68P49qCA8V0AW4x3gbAd1NIPlSrV2n68P
+	WHLj7v4D/8317iOHeWSqTfX3OqZ1/qB9BJwQ76MVlgDEjJZCoSFyyW3Gu7Av5DXdLym5jwlJBG5kw
+	H/ldzDAh9avJ8wkscRe03Xl+s53ieUZhDI77dW9Rkc0c6x3KNzbvEQeO5v09oORcPFYIiq87Lo/DX
+	45DfapkG+KFGqppE6MfnyjAQ7u+0N8FCUuJ74HXM2eem4Xfiu80oJ+BVLu2fIiXc3BCbM+CpK7Rou
+	mwcGcvIgiur6tTmzAHsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbSSy-000000038Cm-1AzW;
-	Tue, 06 Aug 2024 22:15:40 +0000
-Received: from mail-yw1-x1136.google.com ([2607:f8b0:4864:20::1136])
+	id 1sbUai-00000003Qky-2jd0;
+	Wed, 07 Aug 2024 00:31:48 +0000
+Received: from mail-il1-x131.google.com ([2607:f8b0:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbSSL-000000037wH-1YY8
+	id 1sbUae-00000003QkJ-4BWU
 	for linux-riscv@lists.infradead.org;
-	Tue, 06 Aug 2024 22:15:06 +0000
-Received: by mail-yw1-x1136.google.com with SMTP id 00721157ae682-66493332ebfso9142027b3.3
-        for <linux-riscv@lists.infradead.org>; Tue, 06 Aug 2024 15:15:00 -0700 (PDT)
+	Wed, 07 Aug 2024 00:31:46 +0000
+Received: by mail-il1-x131.google.com with SMTP id e9e14a558f8ab-39b4eadbaa7so3414815ab.2
+        for <linux-riscv@lists.infradead.org>; Tue, 06 Aug 2024 17:31:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=soleen-com.20230601.gappssmtp.com; s=20230601; t=1722982499; x=1723587299; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Y7m8AXjGIE//n/y8EnZvRZBr5S07q4MZ8rZJ4WK1cCs=;
-        b=fMstQS6iqSvycKz/K9a860ZA1tepPzmXs2s/tbxSmFlXVnXg6s9ZcMxO2ODRHUCToT
-         tKGQDbM5SzorVTcq8HDKZl4ZERrYMquzGKFL7nzoA0BebplmtfQgFOO5/bOmi+m1Jtbx
-         y725Tq+WaIDQpx85CWdPSsOtYQRkstJ9xOw1F+pA2l1WfoKXhG7Z0XHDFIYw1khWc3eq
-         p175eRxTI9tQZSLZ9KUlgh2GIJsHnh4kHOjaqLh4/vumRlBuuEnS6RVj+la05c+JBK5h
-         CP2ciUDqFUvFZqv49hIqtB76eUEnDbgyyHr9BYUJ11pCT1k9FOZglCtamGroAlVDQseB
-         yx1g==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1722990704; x=1723595504; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=qmFKXoGZwfZnYgj1DayB62f8TZphYzJ75TSkCe5doRI=;
+        b=LT/WZVm6wqYh7rlP3M59XMsdYMYAdSmDZKAtahNYE8yV3/NMOWtHP8HUai+noOD3oU
+         Hhvd9rzyql7GmxzaefoHe/upoMpl2nCHw+uJTStdPETmrVkq9ZHyIWoUS2svS+a7F0/5
+         227og7BJgmOV10FToyMQeWEOAEVdHAJ5XYmGTQCJPXaCgqFDw3etArT44qUEMgs/fEfk
+         guMkBZUaueibFfs35qi1KvUM3WJvW2xq6wJLWe6CpL7guCUaNAEL046hPYBfCe8G1CEx
+         fx3bxlo1EkEch6cLXYCwGDhtfQkainvDX9bgJvXi1ogzhIw83s7lYZAL4w34rRmc77bY
+         xZUw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722982499; x=1723587299;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Y7m8AXjGIE//n/y8EnZvRZBr5S07q4MZ8rZJ4WK1cCs=;
-        b=qFLHkjFHxEVTpqAaozCliIpYDBIFTBhWQUV/G0pmZaFEB5j58KL2m1IlOHK4hU5NbX
-         iTOTOvlLThwUdAHN85KyZVkfFwU/YBB0+pYzjTAdqJPBmRpq6PL3447JXYYPKDuYyCaK
-         F+bO9NrNi6E9a+H4BFxDoVUJp+enpgQz+Uz8BwapQpQROcCM/DjOo1CMTSWgLFq19K4j
-         iYx4+gdpb8tDXqDQ1FDptUC5SW67kMhqUsAJnygM6m5Zmc1kZgzOOnpXqNklxrFRxkxS
-         T3I5oevL9xpDilAAvXA2IqIC1HoK5KFSWgwSgBIrVJoNJL9lFJb0f0GpveLaLBi6ddYE
-         2X0g==
-X-Forwarded-Encrypted: i=1; AJvYcCVc1YaeOy2j90eFznxyVxNjFGW9ACjRfSnyw0R8l2BRmt8w7FmIbaumMAb1YyeFKkupN6XL/Y/yF5DT8WVjAK0N77zbv2cyAH1lQOMeMyRP
-X-Gm-Message-State: AOJu0Ywmb1x2If3k/1lPcESwaPgwbqfnSNq2xnHsa/L6TP/JEUnEZIv/
-	lhjIDRU7FlvVGoNz6FqroTJdh+bn83YEKQ2V5SGUlBSPou5HBgUSA8H0Z7hDulY=
-X-Google-Smtp-Source: AGHT+IGIO0sFXsBF1eTQ0icc4IIEsdk0oMud/A0qVs+YtT55Cl3ZtQ5CEJPlkw6JzrdTl3cVtoHafQ==
-X-Received: by 2002:a05:690c:701:b0:64a:d9a1:db3f with SMTP id 00721157ae682-6904c8c2bbcmr129440177b3.7.1722982499048;
-        Tue, 06 Aug 2024 15:14:59 -0700 (PDT)
-Received: from soleen.c.googlers.com.com (118.239.150.34.bc.googleusercontent.com. [34.150.239.118])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6bb9c8778e1sm50584506d6.128.2024.08.06.15.14.57
+        d=1e100.net; s=20230601; t=1722990704; x=1723595504;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=qmFKXoGZwfZnYgj1DayB62f8TZphYzJ75TSkCe5doRI=;
+        b=Zn3HzdjnNQ0dkI1v8/mVPksP11VrvE4AcptBM+Y2HtVrK2jDfFuLEAXMhfw8ZpejeT
+         1NYoQp13jRnG2Ev/ZiWrg7AeMDlunL9JwagKo/36BF5t/PWtloDeTYF+4ZcuiNu9tdOd
+         yEY4jlprdggPs4kN4qGxOC+GBmeuc+wsxt2vdTXzMysarTdtoai78s98kCeYpk/wVcX6
+         GUDxlNK9RpHqYuf/OzUocCZXDl8wI2dVo8NgfGFFBTvE7il4Xcq9//A9urtZsghp2OBN
+         UEag41BtXl6uhuIptBhqaS7LOAS28delrUj9SDIWOKK1jDDvpIBEXrM4BRN2Nfb70KOd
+         L5vQ==
+X-Gm-Message-State: AOJu0Yz7SPsPeHuBrygBUrdx2y0ykxHxQmqyc1y260670wDgiIKhw6+k
+	b03Qd9IjmxgkDF17gB6Pv7PvJbOUJY4j8bJkxyDGeJeolisKxXJikD/oCqgBrh8=
+X-Google-Smtp-Source: AGHT+IGwwyszG0CNT0JAFMndi0eaSYc/oFh0VHN9tlAF+a5IcvBOCM39f9Fn28nQRfIlK5+QN9fOxw==
+X-Received: by 2002:a05:6e02:1d95:b0:380:f340:ad66 with SMTP id e9e14a558f8ab-39b1fc1348dmr227275905ab.26.1722990703557;
+        Tue, 06 Aug 2024 17:31:43 -0700 (PDT)
+Received: from charlie.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7b762e9f5aasm7476174a12.6.2024.08.06.17.31.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 Aug 2024 15:14:58 -0700 (PDT)
-From: Pasha Tatashin <pasha.tatashin@soleen.com>
-To: agordeev@linux.ibm.com,
-	akpm@linux-foundation.org,
-	alexghiti@rivosinc.com,
-	aou@eecs.berkeley.edu,
-	ardb@kernel.org,
-	arnd@arndb.de,
-	bhe@redhat.com,
-	bjorn@rivosinc.com,
-	borntraeger@linux.ibm.com,
-	bp@alien8.de,
-	catalin.marinas@arm.com,
-	chenhuacai@kernel.org,
-	chenjiahao16@huawei.com,
-	christophe.leroy@csgroup.eu,
-	dave.hansen@linux.intel.com,
-	david@redhat.com,
-	dawei.li@shingroup.cn,
-	gerald.schaefer@linux.ibm.com,
-	gor@linux.ibm.com,
-	hca@linux.ibm.com,
-	hpa@zytor.com,
-	kent.overstreet@linux.dev,
-	kernel@xen0n.name,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	luto@kernel.org,
-	maobibo@loongson.cn,
-	mark.rutland@arm.com,
-	mcgrof@kernel.org,
-	mingo@redhat.com,
-	mpe@ellerman.id.au,
-	muchun.song@linux.dev,
-	namcao@linutronix.de,
-	naveen@kernel.org,
-	npiggin@gmail.com,
-	osalvador@suse.de,
-	palmer@dabbelt.com,
-	pasha.tatashin@soleen.com,
-	paul.walmsley@sifive.com,
-	peterz@infradead.org,
-	philmd@linaro.org,
-	rdunlap@infradead.org,
-	rientjes@google.com,
-	rppt@kernel.org,
-	ryan.roberts@arm.com,
-	souravpanda@google.com,
-	svens@linux.ibm.com,
-	tglx@linutronix.de,
-	tzimmermann@suse.de,
-	will@kernel.org,
-	x86@kernel.org
-Subject: [PATCH 2/2] mm: keep nid around during hot-remove
-Date: Tue,  6 Aug 2024 22:14:54 +0000
-Message-ID: <20240806221454.1971755-2-pasha.tatashin@soleen.com>
-X-Mailer: git-send-email 2.46.0.76.ge559c4bf1a-goog
-In-Reply-To: <20240806221454.1971755-1-pasha.tatashin@soleen.com>
-References: <20240806221454.1971755-1-pasha.tatashin@soleen.com>
+        Tue, 06 Aug 2024 17:31:42 -0700 (PDT)
+From: Charlie Jenkins <charlie@rivosinc.com>
+Subject: [PATCH v9 00/13] riscv: Add support for xtheadvector
+Date: Tue, 06 Aug 2024 17:31:36 -0700
+Message-Id: <20240806-xtheadvector-v9-0-62a56d2da5d0@rivosinc.com>
 MIME-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIAGjAsmYC/33Qu07EMBAF0F9ZuSZoxuMnFf+BKPwkLtigZGUtW
+ uXfcZaCYCLKsXzu9fjGljSXtLCn043NqZalTOc22IcTC6M7v6WhxDYzDlyAJBiulzG5WFO4TPN
+ giCJF1F5wYo18zCmX6z3u5bXNY1natc97esXt9DtIgf0dVHGAgXKSFqPOCPZ5LnVayjk8humdb
+ VmV7zx2D6m8eaudMArJRSUOPO1930/N+5zJJm+VMunAix+vgXdeNM99azYcokc88HLn//TL5oU
+ XRuago5T5wKud532/aj5YlwEJsgM48HrvRef1tr8WaBFcdHS0v/nPm60/gyBsn4ekO7+u6xcBr
+ rZ2awIAAA==
+To: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Jisheng Zhang <jszhang@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Samuel Holland <samuel.holland@sifive.com>, 
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, 
+ Guo Ren <guoren@kernel.org>, Evan Green <evan@rivosinc.com>, 
+ Andy Chiu <andy.chiu@sifive.com>, Jessica Clarke <jrtc27@jrtc27.com>, 
+ Andrew Jones <ajones@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev, 
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ Charlie Jenkins <charlie@rivosinc.com>, 
+ Conor Dooley <conor.dooley@microchip.com>, Heiko Stuebner <heiko@sntech.de>, 
+ Heiko Stuebner <heiko@sntech.de>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1722990701; l=7570;
+ i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
+ bh=hacy5mno4SE477aLGkms4pcURrshsIYaghRvD/Vlia0=;
+ b=mmnaEmpUee/f4Zf0LA0h354GYefY/89ORkPfp6B4DMo6T3hYWyAIF/pw7KmSeXh5yT8xKbSbV
+ 8QG+nKQVY5MD8/770ix9gLM9OCS/0STHcw/61Gavj1L9vA8AG6oE7Q6
+X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
+ pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240806_151501_649926_95C462DE 
-X-CRM114-Status: GOOD (  16.65  )
+X-CRM114-CacheID: sfid-20240806_173145_335299_DF9C79C9 
+X-CRM114-Status: GOOD (  22.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,396 +117,157 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-nid is needed during memory hot-remove in order to account the
-information about the memmap overhead that is being removed.
+xtheadvector is a custom extension that is based upon riscv vector
+version 0.7.1 [1]. All of the vector routines have been modified to
+support this alternative vector version based upon whether xtheadvector
+was determined to be supported at boot.
 
-In addition, we cannot use page_pgdat(pfn_to_page(pfn)) during
-hotremove after remove_pfn_range_from_zone().
+vlenb is not supported on the existing xtheadvector hardware, so a
+devicetree property thead,vlenb is added to provide the vlenb to Linux.
 
-We also cannot determine nid from walking through memblocks after
-remove_memory_block_devices() is called.
+There is a new hwprobe key RISCV_HWPROBE_KEY_VENDOR_EXT_THEAD_0 that is
+used to request which thead vendor extensions are supported on the
+current platform. This allows future vendors to allocate hwprobe keys
+for their vendor.
 
-Therefore, pass nid down from the beginning of hotremove to where
-it is used for the accounting purposes.
+Support for xtheadvector is also added to the vector kselftests.
 
-Reported-by: Yi Zhang <yi.zhang@redhat.com>
-Closes: https://lore.kernel.org/linux-cxl/CAHj4cs9Ax1=CoJkgBGP_+sNu6-6=6v=_L-ZBZY0bVLD3wUWZQg@mail.gmail.com
-Reported-by: Alison Schofield <alison.schofield@intel.com>
-Closes: https://lore.kernel.org/linux-mm/Zq0tPd2h6alFz8XF@aschofie-mobl2/#t
+Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
 
-Fixes: 15995a352474 ("mm: report per-page metadata information")
-Signed-off-by: Pasha Tatashin <pasha.tatashin@soleen.com>
+[1] https://github.com/T-head-Semi/thead-extension-spec/blob/95358cb2cca9489361c61d335e03d3134b14133f/xtheadvector.adoc
+
 ---
- arch/arm64/mm/mmu.c            |  5 +++--
- arch/loongarch/mm/init.c       |  5 +++--
- arch/powerpc/mm/mem.c          |  5 +++--
- arch/riscv/mm/init.c           |  5 +++--
- arch/s390/mm/init.c            |  5 +++--
- arch/x86/mm/init_64.c          |  5 +++--
- include/linux/memory_hotplug.h |  7 ++++---
- mm/memory_hotplug.c            | 18 +++++++++---------
- mm/memremap.c                  |  6 ++++--
- mm/sparse-vmemmap.c            | 14 ++++++++------
- mm/sparse.c                    | 20 +++++++++++---------
- 11 files changed, 54 insertions(+), 41 deletions(-)
+This series is a continuation of a different series that was fragmented
+into two other series in an attempt to get part of it merged in the 6.10
+merge window. The split-off series did not get merged due to a NAK on
+the series that added the generic riscv,vlenb devicetree entry. This
+series has converted riscv,vlenb to thead,vlenb to remedy this issue.
 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 353ea5dc32b8..cd0808d05551 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -1363,12 +1363,13 @@ int arch_add_memory(int nid, u64 start, u64 size,
- 	return ret;
- }
- 
--void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap)
-+void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap,
-+			int nid)
- {
- 	unsigned long start_pfn = start >> PAGE_SHIFT;
- 	unsigned long nr_pages = size >> PAGE_SHIFT;
- 
--	__remove_pages(start_pfn, nr_pages, altmap);
-+	__remove_pages(start_pfn, nr_pages, altmap, nid);
- 	__remove_pgd_mapping(swapper_pg_dir, __phys_to_virt(start), size);
- }
- 
-diff --git a/arch/loongarch/mm/init.c b/arch/loongarch/mm/init.c
-index bf789d114c2d..64cfbfb75c15 100644
---- a/arch/loongarch/mm/init.c
-+++ b/arch/loongarch/mm/init.c
-@@ -106,7 +106,8 @@ int arch_add_memory(int nid, u64 start, u64 size, struct mhp_params *params)
- 	return ret;
- }
- 
--void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap)
-+void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap,
-+			int nid)
- {
- 	unsigned long start_pfn = start >> PAGE_SHIFT;
- 	unsigned long nr_pages = size >> PAGE_SHIFT;
-@@ -115,7 +116,7 @@ void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap)
- 	/* With altmap the first mapped page is offset from @start */
- 	if (altmap)
- 		page += vmem_altmap_offset(altmap);
--	__remove_pages(start_pfn, nr_pages, altmap);
-+	__remove_pages(start_pfn, nr_pages, altmap, nid);
- }
- 
- #ifdef CONFIG_NUMA
-diff --git a/arch/powerpc/mm/mem.c b/arch/powerpc/mm/mem.c
-index d325217ab201..74c0213f995a 100644
---- a/arch/powerpc/mm/mem.c
-+++ b/arch/powerpc/mm/mem.c
-@@ -157,12 +157,13 @@ int __ref arch_add_memory(int nid, u64 start, u64 size,
- 	return rc;
- }
- 
--void __ref arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap)
-+void __ref arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap,
-+			      int nid)
- {
- 	unsigned long start_pfn = start >> PAGE_SHIFT;
- 	unsigned long nr_pages = size >> PAGE_SHIFT;
- 
--	__remove_pages(start_pfn, nr_pages, altmap);
-+	__remove_pages(start_pfn, nr_pages, altmap, nid);
- 	arch_remove_linear_mapping(start, size);
- }
- #endif
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 8b698d9609e7..bf1be25cc513 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -1796,9 +1796,10 @@ int __ref arch_add_memory(int nid, u64 start, u64 size, struct mhp_params *param
- 	return ret;
- }
- 
--void __ref arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap)
-+void __ref arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap,
-+			      int nid)
- {
--	__remove_pages(start >> PAGE_SHIFT, size >> PAGE_SHIFT, altmap);
-+	__remove_pages(start >> PAGE_SHIFT, size >> PAGE_SHIFT, altmap, nid);
- 	remove_linear_mapping(start, size);
- 	flush_tlb_all();
- }
-diff --git a/arch/s390/mm/init.c b/arch/s390/mm/init.c
-index e3d258f9e726..bf596d87543a 100644
---- a/arch/s390/mm/init.c
-+++ b/arch/s390/mm/init.c
-@@ -290,12 +290,13 @@ int arch_add_memory(int nid, u64 start, u64 size,
- 	return rc;
- }
- 
--void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap)
-+void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap,
-+			int nid)
- {
- 	unsigned long start_pfn = start >> PAGE_SHIFT;
- 	unsigned long nr_pages = size >> PAGE_SHIFT;
- 
--	__remove_pages(start_pfn, nr_pages, altmap);
-+	__remove_pages(start_pfn, nr_pages, altmap, nid);
- 	vmem_remove_mapping(start, size);
- }
- #endif /* CONFIG_MEMORY_HOTPLUG */
-diff --git a/arch/x86/mm/init_64.c b/arch/x86/mm/init_64.c
-index d8dbeac8b206..5bb82fbb7c2c 100644
---- a/arch/x86/mm/init_64.c
-+++ b/arch/x86/mm/init_64.c
-@@ -1262,12 +1262,13 @@ kernel_physical_mapping_remove(unsigned long start, unsigned long end)
- 	remove_pagetable(start, end, true, NULL);
- }
- 
--void __ref arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap)
-+void __ref arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap,
-+			      int nid)
- {
- 	unsigned long start_pfn = start >> PAGE_SHIFT;
- 	unsigned long nr_pages = size >> PAGE_SHIFT;
- 
--	__remove_pages(start_pfn, nr_pages, altmap);
-+	__remove_pages(start_pfn, nr_pages, altmap, nid);
- 	kernel_physical_mapping_remove(start, start + size);
- }
- #endif /* CONFIG_MEMORY_HOTPLUG */
-diff --git a/include/linux/memory_hotplug.h b/include/linux/memory_hotplug.h
-index ebe876930e78..47c9af202884 100644
---- a/include/linux/memory_hotplug.h
-+++ b/include/linux/memory_hotplug.h
-@@ -201,9 +201,10 @@ static inline bool movable_node_is_enabled(void)
- 	return movable_node_enabled;
- }
- 
--extern void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap);
-+extern void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap,
-+			       int nid);
- extern void __remove_pages(unsigned long start_pfn, unsigned long nr_pages,
--			   struct vmem_altmap *altmap);
-+			   struct vmem_altmap *altmap, int nid);
- 
- /* reasonably generic interface to expand the physical pages */
- extern int __add_pages(int nid, unsigned long start_pfn, unsigned long nr_pages,
-@@ -369,7 +370,7 @@ extern int sparse_add_section(int nid, unsigned long pfn,
- 		unsigned long nr_pages, struct vmem_altmap *altmap,
- 		struct dev_pagemap *pgmap);
- extern void sparse_remove_section(unsigned long pfn, unsigned long nr_pages,
--				  struct vmem_altmap *altmap);
-+				  struct vmem_altmap *altmap, int nid);
- extern struct page *sparse_decode_mem_map(unsigned long coded_mem_map,
- 					  unsigned long pnum);
- extern struct zone *zone_for_pfn_range(int online_type, int nid,
-diff --git a/mm/memory_hotplug.c b/mm/memory_hotplug.c
-index 66267c26ca1b..c66148049fa6 100644
---- a/mm/memory_hotplug.c
-+++ b/mm/memory_hotplug.c
-@@ -571,7 +571,7 @@ void __ref remove_pfn_range_from_zone(struct zone *zone,
-  * calling offline_pages().
-  */
- void __remove_pages(unsigned long pfn, unsigned long nr_pages,
--		    struct vmem_altmap *altmap)
-+		    struct vmem_altmap *altmap, int nid)
- {
- 	const unsigned long end_pfn = pfn + nr_pages;
- 	unsigned long cur_nr_pages;
-@@ -586,7 +586,7 @@ void __remove_pages(unsigned long pfn, unsigned long nr_pages,
- 		/* Select all remaining pages up to the next section boundary */
- 		cur_nr_pages = min(end_pfn - pfn,
- 				   SECTION_ALIGN_UP(pfn + 1) - pfn);
--		sparse_remove_section(pfn, cur_nr_pages, altmap);
-+		sparse_remove_section(pfn, cur_nr_pages, altmap, nid);
- 	}
- }
- 
-@@ -1386,7 +1386,7 @@ bool mhp_supports_memmap_on_memory(void)
- }
- EXPORT_SYMBOL_GPL(mhp_supports_memmap_on_memory);
- 
--static void __ref remove_memory_blocks_and_altmaps(u64 start, u64 size)
-+static void __ref remove_memory_blocks_and_altmaps(u64 start, u64 size, int nid)
- {
- 	unsigned long memblock_size = memory_block_size_bytes();
- 	u64 cur_start;
-@@ -1409,7 +1409,7 @@ static void __ref remove_memory_blocks_and_altmaps(u64 start, u64 size)
- 
- 		remove_memory_block_devices(cur_start, memblock_size);
- 
--		arch_remove_memory(cur_start, memblock_size, altmap);
-+		arch_remove_memory(cur_start, memblock_size, altmap, nid);
- 
- 		/* Verify that all vmemmap pages have actually been freed. */
- 		WARN(altmap->alloc, "Altmap not fully unmapped");
-@@ -1454,7 +1454,7 @@ static int create_altmaps_and_memory_blocks(int nid, struct memory_group *group,
- 		ret = create_memory_block_devices(cur_start, memblock_size,
- 						  params.altmap, group);
- 		if (ret) {
--			arch_remove_memory(cur_start, memblock_size, NULL);
-+			arch_remove_memory(cur_start, memblock_size, NULL, nid);
- 			kfree(params.altmap);
- 			goto out;
- 		}
-@@ -1463,7 +1463,7 @@ static int create_altmaps_and_memory_blocks(int nid, struct memory_group *group,
- 	return 0;
- out:
- 	if (ret && cur_start != start)
--		remove_memory_blocks_and_altmaps(start, cur_start - start);
-+		remove_memory_blocks_and_altmaps(start, cur_start - start, nid);
- 	return ret;
- }
- 
-@@ -1532,7 +1532,7 @@ int __ref add_memory_resource(int nid, struct resource *res, mhp_t mhp_flags)
- 		/* create memory block devices after memory was added */
- 		ret = create_memory_block_devices(start, size, NULL, group);
- 		if (ret) {
--			arch_remove_memory(start, size, params.altmap);
-+			arch_remove_memory(start, size, params.altmap, nid);
- 			goto error;
- 		}
- 	}
-@@ -2275,10 +2275,10 @@ static int __ref try_remove_memory(u64 start, u64 size)
- 		 * No altmaps present, do the removal directly
- 		 */
- 		remove_memory_block_devices(start, size);
--		arch_remove_memory(start, size, NULL);
-+		arch_remove_memory(start, size, NULL, nid);
- 	} else {
- 		/* all memblocks in the range have altmaps */
--		remove_memory_blocks_and_altmaps(start, size);
-+		remove_memory_blocks_and_altmaps(start, size, nid);
- 	}
- 
- 	if (IS_ENABLED(CONFIG_ARCH_KEEP_MEMBLOCK))
-diff --git a/mm/memremap.c b/mm/memremap.c
-index 40d4547ce514..08e72959eb48 100644
---- a/mm/memremap.c
-+++ b/mm/memremap.c
-@@ -112,9 +112,11 @@ static void pageunmap_range(struct dev_pagemap *pgmap, int range_id)
- {
- 	struct range *range = &pgmap->ranges[range_id];
- 	struct page *first_page;
-+	int nid;
- 
- 	/* make sure to access a memmap that was actually initialized */
- 	first_page = pfn_to_page(pfn_first(pgmap, range_id));
-+	nid = page_to_nid(first_page);
- 
- 	/* pages are dead and unused, undo the arch mapping */
- 	mem_hotplug_begin();
-@@ -122,10 +124,10 @@ static void pageunmap_range(struct dev_pagemap *pgmap, int range_id)
- 				   PHYS_PFN(range_len(range)));
- 	if (pgmap->type == MEMORY_DEVICE_PRIVATE) {
- 		__remove_pages(PHYS_PFN(range->start),
--			       PHYS_PFN(range_len(range)), NULL);
-+			       PHYS_PFN(range_len(range)), NULL, nid);
- 	} else {
- 		arch_remove_memory(range->start, range_len(range),
--				pgmap_altmap(pgmap));
-+				   pgmap_altmap(pgmap), nid);
- 		kasan_remove_zero_shadow(__va(range->start), range_len(range));
- 	}
- 	mem_hotplug_done();
-diff --git a/mm/sparse-vmemmap.c b/mm/sparse-vmemmap.c
-index 1dda6c53370b..0dafad626ab8 100644
---- a/mm/sparse-vmemmap.c
-+++ b/mm/sparse-vmemmap.c
-@@ -469,12 +469,14 @@ struct page * __meminit __populate_section_memmap(unsigned long pfn,
- 	if (r < 0)
- 		return NULL;
- 
--	if (system_state == SYSTEM_BOOTING) {
--		mod_node_early_perpage_metadata(nid, DIV_ROUND_UP(end - start,
--								  PAGE_SIZE));
--	} else {
--		mod_node_page_state(NODE_DATA(nid), NR_MEMMAP,
--				    DIV_ROUND_UP(end - start, PAGE_SIZE));
-+	if (nid != NUMA_NO_NODE) {
-+		if (system_state == SYSTEM_BOOTING) {
-+			mod_node_early_perpage_metadata(nid, DIV_ROUND_UP(end - start,
-+									  PAGE_SIZE));
-+		} else {
-+			mod_node_page_state(NODE_DATA(nid), NR_MEMMAP,
-+					    DIV_ROUND_UP(end - start, PAGE_SIZE));
-+		}
- 	}
- 
- 	return pfn_to_page(pfn);
-diff --git a/mm/sparse.c b/mm/sparse.c
-index e4b830091d13..fc01bc5f0f1d 100644
---- a/mm/sparse.c
-+++ b/mm/sparse.c
-@@ -638,13 +638,15 @@ static struct page * __meminit populate_section_memmap(unsigned long pfn,
- }
- 
- static void depopulate_section_memmap(unsigned long pfn, unsigned long nr_pages,
--		struct vmem_altmap *altmap)
-+		struct vmem_altmap *altmap, int nid)
- {
- 	unsigned long start = (unsigned long) pfn_to_page(pfn);
- 	unsigned long end = start + nr_pages * sizeof(struct page);
- 
--	mod_node_page_state(page_pgdat(pfn_to_page(pfn)), NR_MEMMAP,
--			    -1L * (DIV_ROUND_UP(end - start, PAGE_SIZE)));
-+	if (nid != NUMA_NO_NODE) {
-+		mod_node_page_state(NODE_DATA(nid), NR_MEMMAP,
-+				    -1L * (DIV_ROUND_UP(end - start, PAGE_SIZE)));
-+	}
- 	vmemmap_free(start, end, altmap);
- }
- static void free_map_bootmem(struct page *memmap)
-@@ -713,7 +715,7 @@ static struct page * __meminit populate_section_memmap(unsigned long pfn,
- }
- 
- static void depopulate_section_memmap(unsigned long pfn, unsigned long nr_pages,
--		struct vmem_altmap *altmap)
-+		struct vmem_altmap *altmap, int nid)
- {
- 	kvfree(pfn_to_page(pfn));
- }
-@@ -781,7 +783,7 @@ static int fill_subsection_map(unsigned long pfn, unsigned long nr_pages)
-  * For 2 and 3, the SPARSEMEM_VMEMMAP={y,n} cases are unified
-  */
- static void section_deactivate(unsigned long pfn, unsigned long nr_pages,
--		struct vmem_altmap *altmap)
-+		struct vmem_altmap *altmap, int nid)
- {
- 	struct mem_section *ms = __pfn_to_section(pfn);
- 	bool section_is_early = early_section(ms);
-@@ -821,7 +823,7 @@ static void section_deactivate(unsigned long pfn, unsigned long nr_pages,
- 	 * section_activate() and pfn_valid() .
- 	 */
- 	if (!section_is_early)
--		depopulate_section_memmap(pfn, nr_pages, altmap);
-+		depopulate_section_memmap(pfn, nr_pages, altmap, nid);
- 	else if (memmap)
- 		free_map_bootmem(memmap);
- 
-@@ -865,7 +867,7 @@ static struct page * __meminit section_activate(int nid, unsigned long pfn,
- 
- 	memmap = populate_section_memmap(pfn, nr_pages, nid, altmap, pgmap);
- 	if (!memmap) {
--		section_deactivate(pfn, nr_pages, altmap);
-+		section_deactivate(pfn, nr_pages, altmap, nid);
- 		return ERR_PTR(-ENOMEM);
- 	}
- 
-@@ -928,13 +930,13 @@ int __meminit sparse_add_section(int nid, unsigned long start_pfn,
- }
- 
- void sparse_remove_section(unsigned long pfn, unsigned long nr_pages,
--			   struct vmem_altmap *altmap)
-+			   struct vmem_altmap *altmap, int nid)
- {
- 	struct mem_section *ms = __pfn_to_section(pfn);
- 
- 	if (WARN_ON_ONCE(!valid_section(ms)))
- 		return;
- 
--	section_deactivate(pfn, nr_pages, altmap);
-+	section_deactivate(pfn, nr_pages, altmap, nid);
- }
- #endif /* CONFIG_MEMORY_HOTPLUG */
+The original series is titled "riscv: Support vendor extensions and
+xtheadvector" [3].
+
+The series titled "riscv: Extend cpufeature.c to detect vendor
+extensions" is still under development and this series is based on that
+series! [4]
+
+I have tested this with an Allwinner Nezha board. I ran into issues
+booting the board after 6.9-rc1 so I applied these patches to 6.8. There
+are a couple of minor merge conflicts that do arrise when doing that, so
+please let me know if you have been able to boot this board with a 6.9
+kernel. I used SkiffOS [1] to manage building the image, but upgraded
+the U-Boot version to Samuel Holland's more up-to-date version [2] and
+changed out the device tree used by U-Boot with the device trees that
+are present in upstream linux and this series. Thank you Samuel for all
+of the work you did to make this task possible.
+
+[1] https://github.com/skiffos/SkiffOS/tree/master/configs/allwinner/nezha
+[2] https://github.com/smaeul/u-boot/commit/2e89b706f5c956a70c989cd31665f1429e9a0b48
+[3] https://lore.kernel.org/all/20240503-dev-charlie-support_thead_vector_6_9-v6-0-cb7624e65d82@rivosinc.com/
+[4] https://lore.kernel.org/lkml/20240719-support_vendor_extensions-v3-4-0af7587bbec0@rivosinc.com/T/
+
+---
+Changes in v9:
+- Rebase onto palmer's for-next
+- Fix sparse error in arch/riscv/kernel/vendor_extensions/thead.c
+- Fix maybe-uninitialized warning in arch/riscv/include/asm/vendor_extensions/vendor_hwprobe.h
+- Wrap some long lines
+- Link to v8: https://lore.kernel.org/r/20240724-xtheadvector-v8-0-cf043168e137@rivosinc.com
+
+Changes in v8:
+- Rebase onto palmer's for-next
+- Link to v7: https://lore.kernel.org/r/20240724-xtheadvector-v7-0-b741910ada3e@rivosinc.com
+
+Changes in v7:
+- Add defs for has_xtheadvector_no_alternatives() and has_xtheadvector()
+  when vector disabled. (Palmer)
+- Link to v6: https://lore.kernel.org/r/20240722-xtheadvector-v6-0-c9af0130fa00@rivosinc.com
+
+Changes in v6:
+- Fix return type of is_vector_supported()/is_xthead_supported() to be bool
+- Link to v5: https://lore.kernel.org/r/20240719-xtheadvector-v5-0-4b485fc7d55f@rivosinc.com
+
+Changes in v5:
+- Rebase on for-next
+- Link to v4: https://lore.kernel.org/r/20240702-xtheadvector-v4-0-2bad6820db11@rivosinc.com
+
+Changes in v4:
+- Replace inline asm with C (Samuel)
+- Rename VCSRs to CSRs (Samuel)
+- Replace .insn directives with .4byte directives
+- Link to v3: https://lore.kernel.org/r/20240619-xtheadvector-v3-0-bff39eb9668e@rivosinc.com
+
+Changes in v3:
+- Add back Heiko's signed-off-by (Conor)
+- Mark RISCV_HWPROBE_KEY_VENDOR_EXT_THEAD_0 as a bitmask
+- Link to v2: https://lore.kernel.org/r/20240610-xtheadvector-v2-0-97a48613ad64@rivosinc.com
+
+Changes in v2:
+- Removed extraneous references to "riscv,vlenb" (Jess)
+- Moved declaration of "thead,vlenb" into cpus.yaml and added
+  restriction that it's only applicable to thead cores (Conor)
+- Check CONFIG_RISCV_ISA_XTHEADVECTOR instead of CONFIG_RISCV_ISA_V for
+  thead,vlenb (Jess)
+- Fix naming of hwprobe variables (Evan)
+- Link to v1: https://lore.kernel.org/r/20240609-xtheadvector-v1-0-3fe591d7f109@rivosinc.com
+
+---
+Charlie Jenkins (12):
+      dt-bindings: riscv: Add xtheadvector ISA extension description
+      dt-bindings: cpus: add a thead vlen register length property
+      riscv: dts: allwinner: Add xtheadvector to the D1/D1s devicetree
+      riscv: Add thead and xtheadvector as a vendor extension
+      riscv: vector: Use vlenb from DT for thead
+      riscv: csr: Add CSR encodings for CSR_VXRM/CSR_VXSAT
+      riscv: Add xtheadvector instruction definitions
+      riscv: vector: Support xtheadvector save/restore
+      riscv: hwprobe: Add thead vendor extension probing
+      riscv: hwprobe: Document thead vendor extensions and xtheadvector extension
+      selftests: riscv: Fix vector tests
+      selftests: riscv: Support xtheadvector in vector tests
+
+Heiko Stuebner (1):
+      RISC-V: define the elements of the VCSR vector CSR
+
+ Documentation/arch/riscv/hwprobe.rst               |  10 +
+ Documentation/devicetree/bindings/riscv/cpus.yaml  |  19 ++
+ .../devicetree/bindings/riscv/extensions.yaml      |  10 +
+ arch/riscv/Kconfig.vendor                          |  26 ++
+ arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi      |   3 +-
+ arch/riscv/include/asm/cpufeature.h                |   2 +
+ arch/riscv/include/asm/csr.h                       |  15 +
+ arch/riscv/include/asm/hwprobe.h                   |   3 +-
+ arch/riscv/include/asm/switch_to.h                 |   2 +-
+ arch/riscv/include/asm/vector.h                    | 225 +++++++++++----
+ arch/riscv/include/asm/vendor_extensions/thead.h   |  42 +++
+ .../include/asm/vendor_extensions/thead_hwprobe.h  |  19 ++
+ .../include/asm/vendor_extensions/vendor_hwprobe.h |  37 +++
+ arch/riscv/include/uapi/asm/hwprobe.h              |   3 +-
+ arch/riscv/include/uapi/asm/vendor/thead.h         |   3 +
+ arch/riscv/kernel/cpufeature.c                     |  52 +++-
+ arch/riscv/kernel/kernel_mode_vector.c             |   8 +-
+ arch/riscv/kernel/process.c                        |   4 +-
+ arch/riscv/kernel/signal.c                         |   6 +-
+ arch/riscv/kernel/sys_hwprobe.c                    |   5 +
+ arch/riscv/kernel/vector.c                         |  24 +-
+ arch/riscv/kernel/vendor_extensions.c              |  10 +
+ arch/riscv/kernel/vendor_extensions/Makefile       |   2 +
+ arch/riscv/kernel/vendor_extensions/thead.c        |  18 ++
+ .../riscv/kernel/vendor_extensions/thead_hwprobe.c |  19 ++
+ tools/testing/selftests/riscv/vector/.gitignore    |   3 +-
+ tools/testing/selftests/riscv/vector/Makefile      |  17 +-
+ .../selftests/riscv/vector/v_exec_initval_nolibc.c |  94 +++++++
+ tools/testing/selftests/riscv/vector/v_helpers.c   |  68 +++++
+ tools/testing/selftests/riscv/vector/v_helpers.h   |   8 +
+ tools/testing/selftests/riscv/vector/v_initval.c   |  22 ++
+ .../selftests/riscv/vector/v_initval_nolibc.c      |  68 -----
+ .../selftests/riscv/vector/vstate_exec_nolibc.c    |  20 +-
+ .../testing/selftests/riscv/vector/vstate_prctl.c  | 305 +++++++++++++--------
+ 34 files changed, 901 insertions(+), 271 deletions(-)
+---
+base-commit: 7c08a2615f149f64fb1bb4660997e152fb3a11a7
+change-id: 20240530-xtheadvector-833d3d17b423
 -- 
-2.46.0.76.ge559c4bf1a-goog
+- Charlie
 
 
 _______________________________________________
