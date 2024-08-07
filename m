@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64842C3DA7F
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Aug 2024 06:43:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E1E3C52D6F
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Aug 2024 06:44:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hrwt6T6QSLzbtsljPV7rUD9/dh1hMZKjxCqjG8jKSok=; b=H+6XLhOovm+5Xo
-	mJWrDVq2vcNv36Enx2DgWSnUaf1UtPYjWRk2r/9cNEnNobsk2HQaIM9TalLsPym20tJfaUlyo8QQs
-	UKyRDRseqn8eADB4NjXMQAL8b4nym5nVoN8UC7Cf2PLDGzyY6gNgGozZsfjVKMPhLBsd2lzB4y9oj
-	/HSsrxmmjloDww07f6fdSb8os+8IgJa44tOFQ766uk6aWMH22maHnAnB2y6bC6nNLs4DvCnaGuN62
-	MPRpSFf9WRvkZ5I4mL4Riu1OkMvoK4EbZmOKZ3JpyEs6IUFTRcXEVEvhovFpsO7fbK3gkxd2DT03i
-	ycrTJuKmdD6kxBLowCgg==;
+	List-Owner; bh=UzbiD/vcQYcPj+k4qoOfe4Npm8kLtJ5Y1nWEBrU7A8o=; b=CjmTrkdnLOq+/w
+	iJ7VUf4BFMeyynm//UaYCGEvyCIX5WLEN/fNQ1GcYzX1y7iqhxZ/fAlv3U5FgjvcC6VN+pEbGF1Ce
+	Oq4eUXdNhb4SCEQ7nnf6yaJFHGE9Kvr56TVFNpR93VJ/RXiP02oph8yySrPzpNa9d7qFFLgSRmYes
+	4i2sZYsSULKtLuES8HcQCt1rzyM3ypnLFN24EPiM3dR27uifWJcCC6N0eJ+AuNBY8FC+lKS9ErUzx
+	zhSOePReupu64AASDSA8Lo4Pfk9/UiDUuk6DD8k2hBrftf4vjVzfrl7c8DPZIsm6s2/GFs95hTte6
+	ZweCtDDEtOi/QWeAO6OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbaOq-000000041tG-38Ms;
-	Wed, 07 Aug 2024 06:43:56 +0000
+	id 1sbaPQ-000000042CC-0aik;
+	Wed, 07 Aug 2024 06:44:32 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbaN6-000000040zO-3dQz;
-	Wed, 07 Aug 2024 06:42:10 +0000
+	id 1sbaNJ-0000000414d-2wLd;
+	Wed, 07 Aug 2024 06:42:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4996761170;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 20AEC61053;
+	Wed,  7 Aug 2024 06:42:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8230DC4AF0D;
 	Wed,  7 Aug 2024 06:42:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BA56C4AF13;
-	Wed,  7 Aug 2024 06:41:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1723012928;
-	bh=LVBztKoD4Oos/dRCyJv8IyacBKgi/uP7EFt5SSfn4a0=;
+	s=k20201202; t=1723012940;
+	bh=idsHhwKxCydMIEYW67Mi8IEYDtCQDaQ99uA3YpCABEE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=I2jRjveass/Sr4fsPaQDnFtXj2z4gevpdNEgzGdEseIlHAxuwSuQYPiQfPhhgBWhM
-	 rAduvcPbLcK+jxYfsD/mcBzf5Luuu8dvffnfcCgG2muccVvtiPUexZAjpWVgigBcuE
-	 1yAEMGDIP5Meo4LzO8aCmhz2kP1X0lNaqqjxLBXfDE4oajhxFMDhUAuuLhXSbK54Nf
-	 dGnqC4Z3C4OlwnZoF3cb/FNUSDigkIDjNp17lKazgjaiA8NYGs2rf/3tlMddZhKxC3
-	 i5KL8CSmnaYpGL5fSOhpGmNIThyVqRBqjLup++iZAKfZ/eYLpDN28xTOKN3oYQpemE
-	 pk3ekebZv23tA==
+	b=hQ4mZ12NkBXSfE0hhYdc5i9KQJBCyI1M5WrRev+NtKWDGPSaE8Wmtl2i3VESVG2xg
+	 Y5Ub1jLCzE5idKc6FUYwbselD+u4diobwITTAK4bvtOm6qBXHMP1Fz0Znf6+iTCyYi
+	 JJBg28lFO4lVodBcKj9T7Hv2b5Jp95ie+eYfBxVstxofJSZnKI6t4VaskYxv36YHbQ
+	 ASshRfDYXdY494etcdP22k2YkiYKeg1nR38nXmBhnfAtenk55tcm9BCU4MpzZuxjbD
+	 WTtoemNkM82xpYaKODYIpaWEWe/5z8KX706XNAEWvXVCFYljiiswPwrriIJruk9IHn
+	 36hliCUlm3ZWw==
 From: Mike Rapoport <rppt@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
@@ -91,16 +91,16 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org,
 	Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Subject: [PATCH v4 03/26] MIPS: sgi-ip27: ensure node_possible_map only contains valid nodes
-Date: Wed,  7 Aug 2024 09:40:47 +0300
-Message-ID: <20240807064110.1003856-4-rppt@kernel.org>
+Subject: [PATCH v4 04/26] MIPS: sgi-ip27: drop HAVE_ARCH_NODEDATA_EXTENSION
+Date: Wed,  7 Aug 2024 09:40:48 +0300
+Message-ID: <20240807064110.1003856-5-rppt@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240807064110.1003856-1-rppt@kernel.org>
 References: <20240807064110.1003856-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240806_234209_039531_4043D7B5 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20240806_234221_855905_8CA92451 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,10 +119,15 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 
-For SGI IP27 machines node_possible_map is statically set to
-NODE_MASK_ALL and it is not updated during NUMA initialization.
+Commit f8f9f21c7848 ("MIPS: Fix build error for loongson64 and
+sgi-ip27") added HAVE_ARCH_NODEDATA_EXTENSION to sgi-ip27 to silence a
+compilation error that happened because sgi-ip27 didn't define array of
+pg_data_t as node_data like most other architectures did.
 
-Ensure that it only contains nodes present in the system.
+After addition of node_data array that matches other architectures and
+after ensuring that offline nodes do not appear on node_possible_map, it
+is safe to drop arch_alloc_nodedata() and HAVE_ARCH_NODEDATA_EXTENSION
+from sgi-ip27.
 
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
@@ -130,27 +135,40 @@ Tested-by: Jonathan Cameron <Jonathan.Cameron@huawei.com> [arm64 + CXL via QEMU]
 Acked-by: Dan Williams <dan.j.williams@intel.com>
 Acked-by: David Hildenbrand <david@redhat.com>
 ---
- arch/mips/sgi-ip27/ip27-smp.c | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/mips/Kconfig                |  1 -
+ arch/mips/sgi-ip27/ip27-memory.c | 10 ----------
+ 2 files changed, 11 deletions(-)
 
-diff --git a/arch/mips/sgi-ip27/ip27-smp.c b/arch/mips/sgi-ip27/ip27-smp.c
-index 5d2652a1d35a..62733e049570 100644
---- a/arch/mips/sgi-ip27/ip27-smp.c
-+++ b/arch/mips/sgi-ip27/ip27-smp.c
-@@ -70,11 +70,13 @@ void cpu_node_probe(void)
- 	gda_t *gdap = GDA;
- 
- 	nodes_clear(node_online_map);
-+	nodes_clear(node_possible_map);
- 	for (i = 0; i < MAX_NUMNODES; i++) {
- 		nasid_t nasid = gdap->g_nasidtable[i];
- 		if (nasid == INVALID_NASID)
- 			break;
- 		node_set_online(nasid);
-+		node_set(nasid, node_possible_map);
- 		highest = node_scan_cpus(nasid, highest);
- 	}
- 
+diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
+index 60077e576935..ea5f3c3c31f6 100644
+--- a/arch/mips/Kconfig
++++ b/arch/mips/Kconfig
+@@ -735,7 +735,6 @@ config SGI_IP27
+ 	select WAR_R10000_LLSC
+ 	select MIPS_L1_CACHE_SHIFT_7
+ 	select NUMA
+-	select HAVE_ARCH_NODEDATA_EXTENSION
+ 	help
+ 	  This are the SGI Origin 200, Origin 2000 and Onyx 2 Graphics
+ 	  workstations.  To compile a Linux kernel that runs on these, say Y
+diff --git a/arch/mips/sgi-ip27/ip27-memory.c b/arch/mips/sgi-ip27/ip27-memory.c
+index c30ef6958b97..eb6d2fa41a8a 100644
+--- a/arch/mips/sgi-ip27/ip27-memory.c
++++ b/arch/mips/sgi-ip27/ip27-memory.c
+@@ -426,13 +426,3 @@ void __init mem_init(void)
+ 	memblock_free_all();
+ 	setup_zero_pages();	/* This comes from node 0 */
+ }
+-
+-pg_data_t * __init arch_alloc_nodedata(int nid)
+-{
+-	return memblock_alloc(sizeof(pg_data_t), SMP_CACHE_BYTES);
+-}
+-
+-void arch_refresh_nodedata(int nid, pg_data_t *pgdat)
+-{
+-	__node_data[nid] = (struct node_data *)pgdat;
+-}
 -- 
 2.43.0
 
