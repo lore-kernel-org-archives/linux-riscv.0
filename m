@@ -4,92 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69B02C3DA7F
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Aug 2024 17:56:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16EC9C52D73
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Aug 2024 18:21:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=K3Ew39RbQoZB4apZyRGwpxgev3aBY6OJA40B4nZxGTk=; b=eBF5ThPgLmw6ip
-	20D24cOPSmPazu28koJScwwLii2e2TM0hj71eHyezM0Y7GWukvCVzMhHY2VA6smzEnK4Pg+r/Zok+
-	vU4ZbGsM3QO+UkDvXYXssjy8OqKhzqKcYQWIiMo7myyBIjUMcFMEh7drILvkM5U3PFi0W9xageNNQ
-	MMsFxeU4wU0Ax2U4ujf5faqX0DDFFA9HIIlKtbtyQWcidJO4OX4zHHN3TogpTmWrnJzwXwLzkSeQJ
-	q1PL7mAH+SXxk2+UjoMYoj57Emqc2NeJSx6eJVg1jRabn6O35BM9mfaKcBqoP2NNd9LD9kSWki7Wr
-	cDOIKwF4+ZyRW++fmwZw==;
+	List-Owner; bh=fPOnzBnO6dWw5lk+qJuhSys0uUR9aCIW9xU8BgOWyLI=; b=rXV/y04TPbTi/c
+	z8416BmE/3eOHQso4+Hm5R5f7LnH46URWqcUvVxwCWOMbhrJSNsoqP4JlHILEBsblRQpYj0AkyrUY
+	jVpM3ViwiHBnV53hG1Pyq/Z+cE95+z6XxgLfETV4mhgfrKoXGP21dzx/kWcuSN431gyh1zwsIenVt
+	VJfADwRcFaA3AQx724mIyoOzRfsK1+BELFJgmgXykBkWx9QqJVbQ444WeeqO49klZnjPJf9zwS6nN
+	AJ15lxINv9+ZFbv3qABITQqWPWHJpsXf2iJCesCANBU5ToNN9qwBwMbbN/XwtzXrJ8CZfqmd4b373
+	2ICLYDOOEjDw12Tq4x/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbktQ-00000005sgJ-0vOK;
-	Wed, 07 Aug 2024 17:56:12 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1sblHs-00000005vnx-3lRK;
+	Wed, 07 Aug 2024 18:21:28 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbktN-00000005sfR-0Jt6
-	for linux-riscv@lists.infradead.org;
-	Wed, 07 Aug 2024 17:56:10 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1fd9e70b592so1548705ad.3
-        for <linux-riscv@lists.infradead.org>; Wed, 07 Aug 2024 10:56:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1723053368; x=1723658168; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=CIsLECqYOdZrI8qSJNosdOQy1k7IMWa6VZp48zwfYak=;
-        b=uucCpZx0dBbn4gEeR7+PH1HF0gz4GdFwTseCo9MOSRpTWiACgi9qBU1gnnEJQ+YdRE
-         8RSjVKoYTIZ59SnLdbTgFD2eNaQQKpnpWetA/1OOnP0BxDHWtzYlLOavRPumNoPY5wT8
-         HM45d87EWctL4gwCsy3X/OiH7crcdlH8ACnsJIquj7T7TKtjyms0khWudRWWwOxKGA/a
-         a4KEeaOmAHp/TWBpYVixzzqxJHKNwM/B2jysR0qcSYqJzJbi1pBIQRkNiWmgaMsrXOst
-         Xd5EAGDaFx9CCTzjvOAMHHw45mtqGNOsq8SbbRUKoPMTu/in74ZwLNIBY8uqKIdE2omm
-         TkJQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1723053368; x=1723658168;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CIsLECqYOdZrI8qSJNosdOQy1k7IMWa6VZp48zwfYak=;
-        b=GWemiaT8dZFqEK6guD/ZsqB4YXM4nQlc7s8GbtqLSsOhFUAz2QUK2W0Sj7WMD+/y4H
-         ZRb5jqKeGc4RJk2Ik82kqGCvb1uloSitCpXof7cbAIYFhe0T39cJeOO3dG304xFgJnJR
-         iDyJmSb9n72Lkg9CiGRvSFaeDiAnrDDQvMDV5Fq2csJVNl4OzYXCN4hjXfXH8PYpQu/S
-         qYmBJ0X1aqk4ay000ECPPYXPwrHZ9qVifexCuVVO2Y4d6lQkS9d7vdXjB46FaFYCtcw9
-         azV/O0BVl72BqCg8YdCFwAOATLtHBEAayefdIYmHefdKpctoNViju6L3/AAtnc0fedh3
-         MSDw==
-X-Forwarded-Encrypted: i=1; AJvYcCUEKboF2KkZAKizZ+Ennz8hQAavZV/4WO7wtAI8FiRyFDuFEuQbQ8ohLMTjFKZ8FlnHf6wtQUqkERisw0OrEVBEweIbUALMZyEagOKcxUeA
-X-Gm-Message-State: AOJu0YxdZuA/B2wPjAb8AdeldtMVGoerb5U9yDsi0NUrOPYLDxO8LEMy
-	IZdFfFqjg3jYENX/OxZZJl7JxHqZqD1aJs4mq2gcrnJChhxInkpxQf/LT8Ydu78=
-X-Google-Smtp-Source: AGHT+IFTv/8yrRoRq9RQ9HsBX7+9iJcN5jG9mmxStROSH6/8TM+4bgNqOr4C+BCMrwK30KYYVM/3kQ==
-X-Received: by 2002:a17:902:fac4:b0:1fc:5ed5:ff51 with SMTP id d9443c01a7336-1ff57421a7emr138490255ad.43.1723053367593;
-        Wed, 07 Aug 2024 10:56:07 -0700 (PDT)
-Received: from ghost ([2601:647:6700:64d0:b4d6:3d2:4f2e:547])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1ff58f19d17sm109547075ad.42.2024.08.07.10.56.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 Aug 2024 10:56:06 -0700 (PDT)
-Date: Wed, 7 Aug 2024 10:56:03 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Evan Green <evan@rivosinc.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Yangyu Chen <cyy@cyyself.name>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Andy Chiu <andy.chiu@sifive.com>,
-	Ben Dooks <ben.dooks@codethink.co.uk>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Costa Shulyupin <costa.shul@redhat.com>,
-	Erick Archer <erick.archer@gmx.com>,
+	id 1sblHH-00000005vcl-3SVd;
+	Wed, 07 Aug 2024 18:20:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id C181ACE1196;
+	Wed,  7 Aug 2024 18:20:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF468C32781;
+	Wed,  7 Aug 2024 18:20:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1723054848;
+	bh=iPtiZxg9mYFfVaMP/wI1h2AEAZxcZhi354BsRK7OzkQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fs+rYBQUVp7T/qbPiJP5M3yDB/6MQZbtGhaQKvRjA1Mevvpi2N6URXoVm6Iu+rs/H
+	 5E96EIlDL0oiovI1UalP4pGMxvee6uDYhAHWeNICYCTEurK07w5XNnYjIp7hBBtH+o
+	 BuYSL8/k1GjAORViJw9J27QcUbojhI3Ae/34xWNzZpQoCHqR1I22VHBnMk5CVvZxw6
+	 SS54CnDP9bArj1yivpeOI0pLAxkinjxlqbL5z/NWC2FfzasiBT9xJGfZMh2KPtgniu
+	 UwqU0smfhLaXdoDIRZ0Xs8jOb5KYUUdKDjJmyRdFpd/cLCPX7dVpAIbbnapWdyqlxn
+	 +oDN4u6kRqxgA==
+Date: Wed, 7 Aug 2024 21:18:24 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-kernel@vger.kernel.org,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Hildenbrand <david@redhat.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
 	Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 2/2] RISC-V: hwprobe: Add SCALAR to misaligned perf
- defines
-Message-ID: <ZrO1MxZH+GwC5FQS@ghost>
-References: <20240627172238.2460840-1-evan@rivosinc.com>
- <20240627172238.2460840-3-evan@rivosinc.com>
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+	Zi Yan <ziy@nvidia.com>, devicetree@vger.kernel.org,
+	linux-acpi@vger.kernel.org, Linux-Arch <linux-arch@vger.kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-cxl@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-mm@kvack.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
+	nvdimm@lists.linux.dev, sparclinux@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH v4 24/26] arch_numa: switch over to numa_memblks
+Message-ID: <ZrO6cExVz1He_yPn@kernel.org>
+References: <20240807064110.1003856-1-rppt@kernel.org>
+ <20240807064110.1003856-25-rppt@kernel.org>
+ <1befc540-8904-4c23-b0e6-e2c556fe22b9@app.fastmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240627172238.2460840-3-evan@rivosinc.com>
+In-Reply-To: <1befc540-8904-4c23-b0e6-e2c556fe22b9@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240807_105609_151199_46DCE1E8 
-X-CRM114-Status: GOOD (  33.82  )
+X-CRM114-CacheID: sfid-20240807_112052_402589_2844BA24 
+X-CRM114-Status: GOOD (  22.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,214 +106,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 27, 2024 at 10:22:38AM -0700, Evan Green wrote:
-> In preparation for misaligned vector performance hwprobe keys, rename
-> the hwprobe key values associated with misaligned scalar accesses to
-> include the term SCALAR. Leave the old defines in place to maintain
-> source compatibility.
+On Wed, Aug 07, 2024 at 08:58:37AM +0200, Arnd Bergmann wrote:
+> On Wed, Aug 7, 2024, at 08:41, Mike Rapoport wrote:
+> > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+> >
+> > Until now arch_numa was directly translating firmware NUMA information
+> > to memblock.
 > 
-> This change is intended to be a functional no-op.
+> I get a link time warning from this:
 > 
-> Signed-off-by: Evan Green <evan@rivosinc.com>
-> Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
-> 
-> ---
-> 
-> Changes in v3:
->  - Leave the old defines in place (Conor, Palmer)
-> 
-> Changes in v2:
->  - Added patch to rename misaligned perf key values (Palmer)
-> 
->  Documentation/arch/riscv/hwprobe.rst       | 14 +++++++-------
->  arch/riscv/include/uapi/asm/hwprobe.h      |  5 +++++
->  arch/riscv/kernel/sys_hwprobe.c            | 10 +++++-----
->  arch/riscv/kernel/traps_misaligned.c       |  6 +++---
->  arch/riscv/kernel/unaligned_access_speed.c | 12 ++++++------
->  5 files changed, 26 insertions(+), 21 deletions(-)
-> 
-> diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
-> index 7121a00a8464..0d14e9d83a78 100644
-> --- a/Documentation/arch/riscv/hwprobe.rst
-> +++ b/Documentation/arch/riscv/hwprobe.rst
-> @@ -243,23 +243,23 @@ The following keys are defined:
->    the performance of misaligned scalar native word accesses on the selected set
->    of processors.
->  
-> -  * :c:macro:`RISCV_HWPROBE_MISALIGNED_UNKNOWN`: The performance of misaligned
-> -    accesses is unknown.
-> +  * :c:macro:`RISCV_HWPROBE_MISALIGNED_SCALAR_UNKNOWN`: The performance of
-> +    misaligned accesses is unknown.
+>     WARNING: modpost: vmlinux: section mismatch in reference: numa_set_cpumask+0x24 (section: .text.unlikely) -> early_cpu_to_node (section: .init.text)
 
-Hey Evan,
-
-This series hasn't landed yet, can you rebase and resend? There is a
-patch [1] that changes the wording of this description to "misaligned
-scalar" instead of "misaligned". Can you apply that wording change to
-these new keys?
-
-- Charlie
-
-Link: https://lore.kernel.org/linux-riscv/CAJgzZorn5anPH8dVPqvjVWmLKqTi5bkLDR=FH-ZAcdXFnNe8Eg@mail.gmail.com/
-
->  
-> -  * :c:macro:`RISCV_HWPROBE_MISALIGNED_EMULATED`: Misaligned accesses are
-> +  * :c:macro:`RISCV_HWPROBE_MISALIGNED_SCALAR_EMULATED`: Misaligned accesses are
->      emulated via software, either in or below the kernel.  These accesses are
->      always extremely slow.
->  
-> -  * :c:macro:`RISCV_HWPROBE_MISALIGNED_SLOW`: Misaligned native word
-> +  * :c:macro:`RISCV_HWPROBE_MISALIGNED_SCALAR_SLOW`: Misaligned native word
->      sized accesses are slower than the equivalent quantity of byte accesses.
->      Misaligned accesses may be supported directly in hardware, or trapped and
->      emulated by software.
->  
-> -  * :c:macro:`RISCV_HWPROBE_MISALIGNED_FAST`: Misaligned native word
-> +  * :c:macro:`RISCV_HWPROBE_MISALIGNED_SCALAR_FAST`: Misaligned native word
->      sized accesses are faster than the equivalent quantity of byte accesses.
->  
-> -  * :c:macro:`RISCV_HWPROBE_MISALIGNED_UNSUPPORTED`: Misaligned accesses are
-> -    not supported at all and will generate a misaligned address fault.
-> +  * :c:macro:`RISCV_HWPROBE_MISALIGNED_SCALAR_UNSUPPORTED`: Misaligned accesses
-> +    are not supported at all and will generate a misaligned address fault.
->  
->  * :c:macro:`RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE`: An unsigned int which
->    represents the size of the Zicboz block in bytes.
-> diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
-> index 7ebb2f2cc4cf..bcb2d91241d5 100644
-> --- a/arch/riscv/include/uapi/asm/hwprobe.h
-> +++ b/arch/riscv/include/uapi/asm/hwprobe.h
-> @@ -80,6 +80,11 @@ struct riscv_hwprobe {
->  #define		RISCV_HWPROBE_MISALIGNED_MASK		(7 << 0)
->  #define RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE	6
->  #define RISCV_HWPROBE_KEY_MISALIGNED_SCALAR_PERF	7
-> +#define		RISCV_HWPROBE_MISALIGNED_SCALAR_UNKNOWN		0
-> +#define		RISCV_HWPROBE_MISALIGNED_SCALAR_EMULATED	1
-> +#define		RISCV_HWPROBE_MISALIGNED_SCALAR_SLOW		2
-> +#define		RISCV_HWPROBE_MISALIGNED_SCALAR_FAST		3
-> +#define		RISCV_HWPROBE_MISALIGNED_SCALAR_UNSUPPORTED	4
->  /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
->  
->  /* Flags */
-> diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
-> index b18639020c61..d5541f6c843e 100644
-> --- a/arch/riscv/kernel/sys_hwprobe.c
-> +++ b/arch/riscv/kernel/sys_hwprobe.c
-> @@ -176,13 +176,13 @@ static u64 hwprobe_misaligned(const struct cpumask *cpus)
->  			perf = this_perf;
->  
->  		if (perf != this_perf) {
-> -			perf = RISCV_HWPROBE_MISALIGNED_UNKNOWN;
-> +			perf = RISCV_HWPROBE_MISALIGNED_SCALAR_UNKNOWN;
->  			break;
->  		}
->  	}
->  
->  	if (perf == -1ULL)
-> -		return RISCV_HWPROBE_MISALIGNED_UNKNOWN;
-> +		return RISCV_HWPROBE_MISALIGNED_SCALAR_UNKNOWN;
->  
->  	return perf;
->  }
-> @@ -190,12 +190,12 @@ static u64 hwprobe_misaligned(const struct cpumask *cpus)
->  static u64 hwprobe_misaligned(const struct cpumask *cpus)
->  {
->  	if (IS_ENABLED(CONFIG_RISCV_EFFICIENT_UNALIGNED_ACCESS))
-> -		return RISCV_HWPROBE_MISALIGNED_FAST;
-> +		return RISCV_HWPROBE_MISALIGNED_SCALAR_FAST;
->  
->  	if (IS_ENABLED(CONFIG_RISCV_EMULATED_UNALIGNED_ACCESS) && unaligned_ctl_available())
-> -		return RISCV_HWPROBE_MISALIGNED_EMULATED;
-> +		return RISCV_HWPROBE_MISALIGNED_SCALAR_EMULATED;
->  
-> -	return RISCV_HWPROBE_MISALIGNED_SLOW;
-> +	return RISCV_HWPROBE_MISALIGNED_SCALAR_SLOW;
->  }
->  #endif
->  
-> diff --git a/arch/riscv/kernel/traps_misaligned.c b/arch/riscv/kernel/traps_misaligned.c
-> index b62d5a2f4541..192cd5603e95 100644
-> --- a/arch/riscv/kernel/traps_misaligned.c
-> +++ b/arch/riscv/kernel/traps_misaligned.c
-> @@ -338,7 +338,7 @@ int handle_misaligned_load(struct pt_regs *regs)
->  	perf_sw_event(PERF_COUNT_SW_ALIGNMENT_FAULTS, 1, regs, addr);
->  
->  #ifdef CONFIG_RISCV_PROBE_UNALIGNED_ACCESS
-> -	*this_cpu_ptr(&misaligned_access_speed) = RISCV_HWPROBE_MISALIGNED_EMULATED;
-> +	*this_cpu_ptr(&misaligned_access_speed) = RISCV_HWPROBE_MISALIGNED_SCALAR_EMULATED;
->  #endif
->  
->  	if (!unaligned_enabled)
-> @@ -532,13 +532,13 @@ static bool check_unaligned_access_emulated(int cpu)
->  	unsigned long tmp_var, tmp_val;
->  	bool misaligned_emu_detected;
->  
-> -	*mas_ptr = RISCV_HWPROBE_MISALIGNED_UNKNOWN;
-> +	*mas_ptr = RISCV_HWPROBE_MISALIGNED_SCALAR_UNKNOWN;
->  
->  	__asm__ __volatile__ (
->  		"       "REG_L" %[tmp], 1(%[ptr])\n"
->  		: [tmp] "=r" (tmp_val) : [ptr] "r" (&tmp_var) : "memory");
->  
-> -	misaligned_emu_detected = (*mas_ptr == RISCV_HWPROBE_MISALIGNED_EMULATED);
-> +	misaligned_emu_detected = (*mas_ptr == RISCV_HWPROBE_MISALIGNED_SCALAR_EMULATED);
->  	/*
->  	 * If unaligned_ctl is already set, this means that we detected that all
->  	 * CPUS uses emulated misaligned access at boot time. If that changed
-> diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kernel/unaligned_access_speed.c
-> index a9a6bcb02acf..160628a2116d 100644
-> --- a/arch/riscv/kernel/unaligned_access_speed.c
-> +++ b/arch/riscv/kernel/unaligned_access_speed.c
-> @@ -34,9 +34,9 @@ static int check_unaligned_access(void *param)
->  	struct page *page = param;
->  	void *dst;
->  	void *src;
-> -	long speed = RISCV_HWPROBE_MISALIGNED_SLOW;
-> +	long speed = RISCV_HWPROBE_MISALIGNED_SCALAR_SLOW;
->  
-> -	if (per_cpu(misaligned_access_speed, cpu) != RISCV_HWPROBE_MISALIGNED_UNKNOWN)
-> +	if (per_cpu(misaligned_access_speed, cpu) != RISCV_HWPROBE_MISALIGNED_SCALAR_UNKNOWN)
->  		return 0;
->  
->  	/* Make an unaligned destination buffer. */
-> @@ -95,14 +95,14 @@ static int check_unaligned_access(void *param)
->  	}
->  
->  	if (word_cycles < byte_cycles)
-> -		speed = RISCV_HWPROBE_MISALIGNED_FAST;
-> +		speed = RISCV_HWPROBE_MISALIGNED_SCALAR_FAST;
->  
->  	ratio = div_u64((byte_cycles * 100), word_cycles);
->  	pr_info("cpu%d: Ratio of byte access time to unaligned word access is %d.%02d, unaligned accesses are %s\n",
->  		cpu,
->  		ratio / 100,
->  		ratio % 100,
-> -		(speed == RISCV_HWPROBE_MISALIGNED_FAST) ? "fast" : "slow");
-> +		(speed == RISCV_HWPROBE_MISALIGNED_SCALAR_FAST) ? "fast" : "slow");
->  
->  	per_cpu(misaligned_access_speed, cpu) = speed;
->  
-> @@ -110,7 +110,7 @@ static int check_unaligned_access(void *param)
->  	 * Set the value of fast_misaligned_access of a CPU. These operations
->  	 * are atomic to avoid race conditions.
->  	 */
-> -	if (speed == RISCV_HWPROBE_MISALIGNED_FAST)
-> +	if (speed == RISCV_HWPROBE_MISALIGNED_SCALAR_FAST)
->  		cpumask_set_cpu(cpu, &fast_misaligned_access);
->  	else
->  		cpumask_clear_cpu(cpu, &fast_misaligned_access);
-> @@ -188,7 +188,7 @@ static int riscv_online_cpu(unsigned int cpu)
->  	static struct page *buf;
->  
->  	/* We are already set since the last check */
-> -	if (per_cpu(misaligned_access_speed, cpu) != RISCV_HWPROBE_MISALIGNED_UNKNOWN)
-> +	if (per_cpu(misaligned_access_speed, cpu) != RISCV_HWPROBE_MISALIGNED_SCALAR_UNKNOWN)
->  		goto exit;
->  
->  	buf = alloc_pages(GFP_KERNEL, MISALIGNED_BUFFER_ORDER);
-> -- 
-> 2.34.1
+I didn't see this neither in my build tests nor in kbuild reports :/
+ 
+> > @@ -142,7 +144,7 @@ void __init early_map_cpu_to_node(unsigned int cpu, int nid)
+> >  unsigned long __per_cpu_offset[NR_CPUS] __read_mostly;
+> >  EXPORT_SYMBOL(__per_cpu_offset);
+> > 
+> > -int __init early_cpu_to_node(int cpu)
+> > +int early_cpu_to_node(int cpu)
+> >  {
+> >  	return cpu_to_node_map[cpu];
+> >  }
 > 
+> early_cpu_to_node() can no longer be __init here
+> 
+> > +#endif /* CONFIG_NUMA_EMU */
+> > diff --git a/include/asm-generic/numa.h b/include/asm-generic/numa.h
+> > index c32e0cf23c90..c2b046d1fd82 100644
+> > --- a/include/asm-generic/numa.h
+> > +++ b/include/asm-generic/numa.h
+> > @@ -32,8 +32,6 @@ static inline const struct cpumask *cpumask_of_node(int node)
+> > 
+> >  void __init arch_numa_init(void);
+> >  int __init numa_add_memblk(int nodeid, u64 start, u64 end);
+> > -void __init numa_set_distance(int from, int to, int distance);
+> > -void __init numa_free_distance(void);
+> >  void __init early_map_cpu_to_node(unsigned int cpu, int nid);
+> >  int __init early_cpu_to_node(int cpu);
+> >  void numa_store_cpu_info(unsigned int cpu);
+> 
+> but is still declared as __init in the header, so it is
+> still put in that section and discarded after boot.
+
+I believe this should fix it
+
+diff --git a/include/asm-generic/numa.h b/include/asm-generic/numa.h
+index c2b046d1fd82..e063d6487f66 100644
+--- a/include/asm-generic/numa.h
++++ b/include/asm-generic/numa.h
+@@ -33,7 +33,7 @@ static inline const struct cpumask *cpumask_of_node(int node)
+ void __init arch_numa_init(void);
+ int __init numa_add_memblk(int nodeid, u64 start, u64 end);
+ void __init early_map_cpu_to_node(unsigned int cpu, int nid);
+-int __init early_cpu_to_node(int cpu);
++int early_cpu_to_node(int cpu);
+ void numa_store_cpu_info(unsigned int cpu);
+ void numa_add_cpu(unsigned int cpu);
+ void numa_remove_cpu(unsigned int cpu);
+ 
+> I was confused by this at first, since the 'early' name
+> seems to imply that you shouldn't call it once the system
+> is up, but now you do.
+
+I agree that this is confusing, but that's what x86 does and numa_emulation
+uses.
+ 
+>      Arnd
+> 
+
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
