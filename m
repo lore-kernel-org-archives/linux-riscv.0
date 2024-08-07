@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C8EFC3DA7F
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Aug 2024 06:43:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64842C3DA7F
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Aug 2024 06:43:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tiKmMiS2jjRxJL1Uq6PKa6RwYpn1jVmU5Mthq8rUnns=; b=Pe4s0kSswmtm56
-	Ijux8n8fvzTYkh2Rj0fR2MFjKsKnjLbGPSitNHc4kIwk0Ef/QgS74Vl/4LDNHyMtpBQSlSj2GMd/h
-	RhUH94/dWliJUpqmwqPrhXn1v61Ger0fHNaoBLckywsd+Y2PP1C+XzfTtTfTElPdYOiFLiXVomecb
-	wtMo6DU2b6HCpgBCdcZRQub6NjzMUeysK6Q3GUmvkoZb3Z1ApIut4KTopNM++wmwGKyFveYJTeBlu
-	khRwBx79oYREo1dn5tV3fQHkTG93QtAJF/n55j/XX6k9lEbXBFemJQZMAYfd8niZgOp5kUSmFaQ1e
-	DGrqUiVyu4YCEvzen5+Q==;
+	List-Owner; bh=hrwt6T6QSLzbtsljPV7rUD9/dh1hMZKjxCqjG8jKSok=; b=H+6XLhOovm+5Xo
+	mJWrDVq2vcNv36Enx2DgWSnUaf1UtPYjWRk2r/9cNEnNobsk2HQaIM9TalLsPym20tJfaUlyo8QQs
+	UKyRDRseqn8eADB4NjXMQAL8b4nym5nVoN8UC7Cf2PLDGzyY6gNgGozZsfjVKMPhLBsd2lzB4y9oj
+	/HSsrxmmjloDww07f6fdSb8os+8IgJa44tOFQ766uk6aWMH22maHnAnB2y6bC6nNLs4DvCnaGuN62
+	MPRpSFf9WRvkZ5I4mL4Riu1OkMvoK4EbZmOKZ3JpyEs6IUFTRcXEVEvhovFpsO7fbK3gkxd2DT03i
+	ycrTJuKmdD6kxBLowCgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbaOE-000000041VC-1rTy;
-	Wed, 07 Aug 2024 06:43:18 +0000
+	id 1sbaOq-000000041tG-38Ms;
+	Wed, 07 Aug 2024 06:43:56 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbaMv-000000040v8-05Ep;
-	Wed, 07 Aug 2024 06:41:58 +0000
+	id 1sbaN6-000000040zO-3dQz;
+	Wed, 07 Aug 2024 06:42:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6437661053;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4996761170;
+	Wed,  7 Aug 2024 06:42:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BA56C4AF13;
 	Wed,  7 Aug 2024 06:41:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3518C32782;
-	Wed,  7 Aug 2024 06:41:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1723012916;
-	bh=MnJNRzTir4c4kkideYaF9K0DolOoIZtSsJtHw0oKjF4=;
+	s=k20201202; t=1723012928;
+	bh=LVBztKoD4Oos/dRCyJv8IyacBKgi/uP7EFt5SSfn4a0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=u/6HTsXbawFBe7Hl72eb3Fv4OkQcMobrOhl99riEcgs4wiGHwDDTkdDSTH17vApOV
-	 9lZhZhCJiXDKThYkfu1t3tCthjob4fEkdPm4FHQUz8kzZVdDCjhwCcMgLP6oR0ZyuV
-	 v4sMPQXcYUWjuwyvthF4ey4dyPEEm7JdeyTd9lgRrRjOYF+0uNiLrs+QoHNbhSj05m
-	 PvtayYhdMjtXKolIrQaQ2u+nD3K2x3Nq8c+EmuWgNK1XviMNK/G4VRa+teOpPpf35C
-	 e5n12nCa9Q58u6pMb7WUgu9llXT9kIqqGvWCa08d5O4ny9Z4aJ6c+Xxw+JT0MY3Xe9
-	 vcfhOfEy5oraA==
+	b=I2jRjveass/Sr4fsPaQDnFtXj2z4gevpdNEgzGdEseIlHAxuwSuQYPiQfPhhgBWhM
+	 rAduvcPbLcK+jxYfsD/mcBzf5Luuu8dvffnfcCgG2muccVvtiPUexZAjpWVgigBcuE
+	 1yAEMGDIP5Meo4LzO8aCmhz2kP1X0lNaqqjxLBXfDE4oajhxFMDhUAuuLhXSbK54Nf
+	 dGnqC4Z3C4OlwnZoF3cb/FNUSDigkIDjNp17lKazgjaiA8NYGs2rf/3tlMddZhKxC3
+	 i5KL8CSmnaYpGL5fSOhpGmNIThyVqRBqjLup++iZAKfZ/eYLpDN28xTOKN3oYQpemE
+	 pk3ekebZv23tA==
 From: Mike Rapoport <rppt@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
@@ -91,16 +91,16 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org,
 	Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Subject: [PATCH v4 02/26] MIPS: sgi-ip27: make NODE_DATA() the same as on all other architectures
-Date: Wed,  7 Aug 2024 09:40:46 +0300
-Message-ID: <20240807064110.1003856-3-rppt@kernel.org>
+Subject: [PATCH v4 03/26] MIPS: sgi-ip27: ensure node_possible_map only contains valid nodes
+Date: Wed,  7 Aug 2024 09:40:47 +0300
+Message-ID: <20240807064110.1003856-4-rppt@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240807064110.1003856-1-rppt@kernel.org>
 References: <20240807064110.1003856-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240806_234157_174904_A9E67154 
-X-CRM114-Status: GOOD (  14.51  )
+X-CRM114-CacheID: sfid-20240806_234209_039531_4043D7B5 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,15 +119,10 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 
-sgi-ip27 is the only system that defines NODE_DATA() differently than
-the rest of NUMA machines.
+For SGI IP27 machines node_possible_map is statically set to
+NODE_MASK_ALL and it is not updated during NUMA initialization.
 
-Add node_data array of struct pglist pointers that will point to
-__node_data[node]->pglist and redefine NODE_DATA() to use node_data
-array.
-
-This will allow pulling declaration of node_data to the generic mm code
-in the next commit.
+Ensure that it only contains nodes present in the system.
 
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
@@ -135,50 +130,27 @@ Tested-by: Jonathan Cameron <Jonathan.Cameron@huawei.com> [arm64 + CXL via QEMU]
 Acked-by: Dan Williams <dan.j.williams@intel.com>
 Acked-by: David Hildenbrand <david@redhat.com>
 ---
- arch/mips/include/asm/mach-ip27/mmzone.h | 5 ++++-
- arch/mips/sgi-ip27/ip27-memory.c         | 5 ++++-
- 2 files changed, 8 insertions(+), 2 deletions(-)
+ arch/mips/sgi-ip27/ip27-smp.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/mips/include/asm/mach-ip27/mmzone.h b/arch/mips/include/asm/mach-ip27/mmzone.h
-index 08c36e50a860..629c3f290203 100644
---- a/arch/mips/include/asm/mach-ip27/mmzone.h
-+++ b/arch/mips/include/asm/mach-ip27/mmzone.h
-@@ -22,7 +22,10 @@ struct node_data {
+diff --git a/arch/mips/sgi-ip27/ip27-smp.c b/arch/mips/sgi-ip27/ip27-smp.c
+index 5d2652a1d35a..62733e049570 100644
+--- a/arch/mips/sgi-ip27/ip27-smp.c
++++ b/arch/mips/sgi-ip27/ip27-smp.c
+@@ -70,11 +70,13 @@ void cpu_node_probe(void)
+ 	gda_t *gdap = GDA;
  
- extern struct node_data *__node_data[];
+ 	nodes_clear(node_online_map);
++	nodes_clear(node_possible_map);
+ 	for (i = 0; i < MAX_NUMNODES; i++) {
+ 		nasid_t nasid = gdap->g_nasidtable[i];
+ 		if (nasid == INVALID_NASID)
+ 			break;
+ 		node_set_online(nasid);
++		node_set(nasid, node_possible_map);
+ 		highest = node_scan_cpus(nasid, highest);
+ 	}
  
--#define NODE_DATA(n)		(&__node_data[(n)]->pglist)
- #define hub_data(n)		(&__node_data[(n)]->hub)
- 
-+extern struct pglist_data *node_data[];
-+
-+#define NODE_DATA(nid)		(node_data[nid])
-+
- #endif /* _ASM_MACH_MMZONE_H */
-diff --git a/arch/mips/sgi-ip27/ip27-memory.c b/arch/mips/sgi-ip27/ip27-memory.c
-index b8ca94cfb4fe..c30ef6958b97 100644
---- a/arch/mips/sgi-ip27/ip27-memory.c
-+++ b/arch/mips/sgi-ip27/ip27-memory.c
-@@ -34,8 +34,10 @@
- #define SLOT_PFNSHIFT		(SLOT_SHIFT - PAGE_SHIFT)
- #define PFN_NASIDSHFT		(NASID_SHFT - PAGE_SHIFT)
- 
--struct node_data *__node_data[MAX_NUMNODES];
-+struct pglist_data *node_data[MAX_NUMNODES];
-+EXPORT_SYMBOL(node_data);
- 
-+struct node_data *__node_data[MAX_NUMNODES];
- EXPORT_SYMBOL(__node_data);
- 
- static u64 gen_region_mask(void)
-@@ -361,6 +363,7 @@ static void __init node_mem_init(nasid_t node)
- 	 */
- 	__node_data[node] = __va(slot_freepfn << PAGE_SHIFT);
- 	memset(__node_data[node], 0, PAGE_SIZE);
-+	node_data[node] = &__node_data[node]->pglist;
- 
- 	NODE_DATA(node)->node_start_pfn = start_pfn;
- 	NODE_DATA(node)->node_spanned_pages = end_pfn - start_pfn;
 -- 
 2.43.0
 
