@@ -4,103 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0E4FC52D6F
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Aug 2024 06:57:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF879C3DA7F
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Aug 2024 07:00:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i6hu4/qbOdFuTgNVAa9pjYEGVVXibZWLPFdhqtYh/is=; b=qk44PTynToZFCw
-	iD3t5VW8RjB1aLo7vBe74NimSCZSd8+ogy5AGCp5n2oK3BtUwQVbgaDXmHUar041J2vJ9vq+jYNHQ
-	dCotRKH3LI8pn8ekCEbQsEkHFxq9GnFaJHtWjaDv/61DsoItOh6agyntSPcXoHiQbruAgTd/3lFN4
-	z0Bqrej9s3PUccSAQI+BNrO+m37Ey1thMvZNb0maM2mrAgqYhfsHKwVpPlfRamVi9HXel8PAi04RM
-	npqx2AX3W9gPr6wLDwzHjsXsRhPm35dQZvsaD6+Sf0CAEecdKZD4lZVKZNjhl7fucxtYXK5Nygo3E
-	ucajaZ99J7WSfXejoIHw==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
+	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=LY4W3b1mPf1R9sasjqannIXtTfjwK+uQ7dlRjUch3go=; b=pDy2x3O8ccjZ+lXPCTsu8YUXsY
+	mQPqwNMbXLVNZYh8oKh/QUr148ygDSRweJQG6dtBtiwTPI+z1g2ewdyrkrAxuInescpARPSRG77OB
+	SF3Qq+1Sq0l71Cuh3zPbEm8DNYwNwN+RS+ug850RrL0Ni0/teFwti4SL1F/d05QuvSbEYVmh2zDHg
+	jHbCaX4wn8h+VhPri/haHXpNPBennFpofRKBGaiwdiyFzggSz/iabReO9NJRju/AinFXkD8qte33o
+	sVLBZGcljO6LfmQjq+yQFzdHMmCG6n8FtoZTH3REF+p4JdYmxb0bMsvW4eGmU8xMi8GEYcWEmoV3O
+	YEXx716A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbac3-000000048D5-0OWo;
-	Wed, 07 Aug 2024 06:57:35 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sbaea-0000000493H-3pCG;
+	Wed, 07 Aug 2024 07:00:12 +0000
+Received: from flow8-smtp.messagingengine.com ([103.168.172.143])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbaRX-000000043O6-2oEP;
-	Wed, 07 Aug 2024 06:46:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D0F8B61159;
-	Wed,  7 Aug 2024 06:46:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DF8AC32782;
-	Wed,  7 Aug 2024 06:46:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1723013202;
-	bh=mSVpkyrRlmc8gB/6cofdu7bK0SP2SFlikATxtCiu+1M=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IN10SVfP1ekyZrWQRi9UxJMep+tmuEWFmv5b8/EQkN2D/blJP8VDf2x14svnDTZPL
-	 o8kAnGxStd/1zLKk4F1PH0VzY4pDSS/4dQY7Vxur783cRbUwO618mIeFJMNOi+4j/v
-	 rZHa9+AOwuemUocpGbUEIASRGMQ4U2lEyMK8w9MoPuWsM9VMktGWNMVkWyanO8yAF7
-	 lqxMob7NGVsEgyNaaDriMRMZIoJJHtaeYqcFkeOqMGnvq7l+Vxj8UOH/qXBNJhl7iT
-	 f/DtdjeDNGa5SC0m1U2ZtlRAbaUYx14tdgmGqQRe+Lwqm6aOgi1JKpbYbsIb2zB2Gb
-	 IYC7joAJCNuyA==
-From: Mike Rapoport <rppt@kernel.org>
-To: linux-kernel@vger.kernel.org
-Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Hildenbrand <david@redhat.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Davidlohr Bueso <dave@stgolabs.net>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Mike Rapoport <rppt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Will Deacon <will@kernel.org>,
-	Zi Yan <ziy@nvidia.com>,
-	devicetree@vger.kernel.org,
-	linux-acpi@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-cxl@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev,
-	nvdimm@lists.linux.dev,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Subject: [PATCH v4 26/26] docs: move numa=fake description to kernel-parameters.txt
-Date: Wed,  7 Aug 2024 09:41:10 +0300
-Message-ID: <20240807064110.1003856-27-rppt@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240807064110.1003856-1-rppt@kernel.org>
-References: <20240807064110.1003856-1-rppt@kernel.org>
+	id 1sbadp-000000048k0-17qw;
+	Wed, 07 Aug 2024 06:59:27 +0000
+Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
+	by mailflow.nyi.internal (Postfix) with ESMTP id 52279201084;
+	Wed,  7 Aug 2024 02:59:23 -0400 (EDT)
+Received: from imap51 ([10.202.2.101])
+  by compute4.internal (MEProxy); Wed, 07 Aug 2024 02:59:23 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1723013963;
+	 x=1723021163; bh=FeNTTWWA5ehqGUK/ykoVQRn5aOHJYvmKcULV7Bb3w+o=; b=
+	kPhH75tfZYNQZZn5b4ZTyTUJkEwDswZvtVxsA4I1kYYHJT9hm6Y1VWq1tWoRdBr2
+	5gcBvejk5u6w6xKKbpBKwnhLRlsLhO9eQUqJWCA+btbwX9ngh+x0EMbsvrrTdurE
+	xpzX7LS9Lhl1ZeTCcGI88lLtBUG3WdAQOw0MkNqzmyryl38Rfs0Hxm5tgzSKr4jP
+	FndM/8x4bIHcTFdnwjdTaScHkNMTMQT6UWqmZgTXDn+FulQ3eTrzHm2J2m2zT0hd
+	lWadi0s/oUZYjUbYUYH3dBNHYNH5Hgd9tJnC9YxtPeG49Jb50z1u1bvmjUjO5Rw1
+	0pmH62zjtpVTK4nq8eJMFA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1723013963; x=
+	1723021163; bh=FeNTTWWA5ehqGUK/ykoVQRn5aOHJYvmKcULV7Bb3w+o=; b=D
+	JX1D3Qss3Ge1TnNidK/zkvKY/8JNrKtEIApToVgGiC42kGtqI8ow6AGVUOAMbazW
+	itBUjWk7aqA8yzNfj892AZR3IHGTb9zwLEgUzS+hIBK5Li2OvlE3ONpYl/0zE/5z
+	h3soTk1czdmBNxcV5RI4Do6avSG2cQvjSpC45gT6FmO3Qj+xS+dn/cKTfw+I2rct
+	z4jv6Eo5QqHEbksHHHuWMRpE/t4bFAn3fb2+Ygv0oUrdld/RpBq9urHfN3Vqc9tJ
+	gfZUDZDJt0uvrtjpGSdhW8XAeAu6OeyUi0Jj4EJz55jsk1Of/gddMR0clliKyyiD
+	Dz/tJMxY0o+kqe5Jqh2CQ==
+X-ME-Sender: <xms:SRuzZpFLEGrL01CvOzZ7NicPwEvIcv3ZOSAEwfT0KIc13xEWibFx_g>
+    <xme:SRuzZuWOdnwVN62CY7TMMAVOQnMMo0UnpkJQhkqGvrgUGWhp1vAWaBOYOG7_0rIRv
+    GBMBRlfs0GZCyqUvYc>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddrkeelgdduudekucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    cujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehr
+    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
+    htvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefh
+    vdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
+    hrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtoheptd
+X-ME-Proxy: <xmx:SRuzZrLtWMsNgz7w87FJP8TbwXCRbvNB3tiVt8c9qWjaR5ujVwWSEg>
+    <xmx:SRuzZvGMZjtlTl2iioVuNelCvksPQt_NUQQ8oxahwjUInjv5odRUjA>
+    <xmx:SRuzZvVMupVgHTmvlEfTDZFTFuqoKesigKTc9co5c2CZoJ90OcfE1g>
+    <xmx:SRuzZqN-OQqNrinlJf78x4O8VL12d16J4HsptuQe5s0rO9OiA3XUXg>
+    <xmx:SxuzZpwYl7eOyL1UyDIm9UU-ZJT7YdfL_32mlOGPjpZKCsOuYKvqpDmx>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id 97D26B6008D; Wed,  7 Aug 2024 02:59:21 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
+Date: Wed, 07 Aug 2024 08:58:37 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Mike Rapoport" <rppt@kernel.org>, linux-kernel@vger.kernel.org
+Cc: "Alexander Gordeev" <agordeev@linux.ibm.com>,
+ "Andreas Larsson" <andreas@gaisler.com>,
+ "Andrew Morton" <akpm@linux-foundation.org>,
+ "Borislav Petkov" <bp@alien8.de>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Christophe Leroy" <christophe.leroy@csgroup.eu>,
+ "Dan Williams" <dan.j.williams@intel.com>,
+ "Dave Hansen" <dave.hansen@linux.intel.com>,
+ "David Hildenbrand" <david@redhat.com>,
+ "David S . Miller" <davem@davemloft.net>,
+ "Davidlohr Bueso" <dave@stgolabs.net>,
+ "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ "Heiko Carstens" <hca@linux.ibm.com>,
+ "Huacai Chen" <chenhuacai@kernel.org>, "Ingo Molnar" <mingo@redhat.com>,
+ "Jiaxun Yang" <jiaxun.yang@flygoat.com>,
+ "John Paul Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>,
+ "Jonathan Cameron" <jonathan.cameron@huawei.com>,
+ "Jonathan Corbet" <corbet@lwn.net>,
+ "Michael Ellerman" <mpe@ellerman.id.au>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>,
+ "Rafael J . Wysocki" <rafael@kernel.org>,
+ "Rob Herring" <robh@kernel.org>,
+ "Samuel Holland" <samuel.holland@sifive.com>,
+ "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
+ "Thomas Gleixner" <tglx@linutronix.de>,
+ "Vasily Gorbik" <gor@linux.ibm.com>, "Will Deacon" <will@kernel.org>,
+ "Zi Yan" <ziy@nvidia.com>, devicetree@vger.kernel.org,
+ linux-acpi@vger.kernel.org, Linux-Arch <linux-arch@vger.kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-cxl@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-mips@vger.kernel.org,
+ linux-mm@kvack.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
+ nvdimm@lists.linux.dev, sparclinux@vger.kernel.org, x86@kernel.org
+Message-Id: <1befc540-8904-4c23-b0e6-e2c556fe22b9@app.fastmail.com>
+In-Reply-To: <20240807064110.1003856-25-rppt@kernel.org>
+References: <20240807064110.1003856-1-rppt@kernel.org>
+ <20240807064110.1003856-25-rppt@kernel.org>
+Subject: Re: [PATCH v4 24/26] arch_numa: switch over to numa_memblks
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240806_234643_933359_3EDE1DCD 
-X-CRM114-Status: GOOD (  11.52  )
+X-CRM114-CacheID: sfid-20240806_235925_818115_82D5E358 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,76 +138,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+On Wed, Aug 7, 2024, at 08:41, Mike Rapoport wrote:
+> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+>
+> Until now arch_numa was directly translating firmware NUMA information
+> to memblock.
 
-NUMA emulation can be now enabled on arm64 and riscv in addition to x86.
+I get a link time warning from this:
 
-Move description of numa=fake parameters from x86 documentation of
-admin-guide/kernel-parameters.txt
+    WARNING: modpost: vmlinux: section mismatch in reference: numa_set_cpumask+0x24 (section: .text.unlikely) -> early_cpu_to_node (section: .init.text)
 
-Suggested-by: Zi Yan <ziy@nvidia.com>
-Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Tested-by: Jonathan Cameron <Jonathan.Cameron@huawei.com> [arm64 + CXL via QEMU]
-Acked-by: Dan Williams <dan.j.williams@intel.com>
-Acked-by: David Hildenbrand <david@redhat.com>
----
- Documentation/admin-guide/kernel-parameters.txt | 15 +++++++++++++++
- Documentation/arch/x86/x86_64/boot-options.rst  | 12 ------------
- 2 files changed, 15 insertions(+), 12 deletions(-)
+> @@ -142,7 +144,7 @@ void __init early_map_cpu_to_node(unsigned int cpu, int nid)
+>  unsigned long __per_cpu_offset[NR_CPUS] __read_mostly;
+>  EXPORT_SYMBOL(__per_cpu_offset);
+> 
+> -int __init early_cpu_to_node(int cpu)
+> +int early_cpu_to_node(int cpu)
+>  {
+>  	return cpu_to_node_map[cpu];
+>  }
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index f1384c7b59c9..bcdee8984e1f 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -4123,6 +4123,21 @@
- 			Disable NUMA, Only set up a single NUMA node
- 			spanning all memory.
- 
-+	numa=fake=<size>[MG]
-+			[KNL, ARM64, RISCV, X86, EARLY]
-+			If given as a memory unit, fills all system RAM with
-+			nodes of size interleaved over physical nodes.
-+
-+	numa=fake=<N>
-+			[KNL, ARM64, RISCV, X86, EARLY]
-+			If given as an integer, fills all system RAM with N
-+			fake nodes interleaved over physical nodes.
-+
-+	numa=fake=<N>U
-+			[KNL, ARM64, RISCV, X86, EARLY]
-+			If given as an integer followed by 'U', it will
-+			divide each physical node into N emulated nodes.
-+
- 	numa_balancing=	[KNL,ARM64,PPC,RISCV,S390,X86] Enable or disable automatic
- 			NUMA balancing.
- 			Allowed values are enable and disable
-diff --git a/Documentation/arch/x86/x86_64/boot-options.rst b/Documentation/arch/x86/x86_64/boot-options.rst
-index 137432d34109..98d4805f0823 100644
---- a/Documentation/arch/x86/x86_64/boot-options.rst
-+++ b/Documentation/arch/x86/x86_64/boot-options.rst
-@@ -170,18 +170,6 @@ NUMA
-     Don't parse the HMAT table for NUMA setup, or soft-reserved memory
-     partitioning.
- 
--  numa=fake=<size>[MG]
--    If given as a memory unit, fills all system RAM with nodes of
--    size interleaved over physical nodes.
--
--  numa=fake=<N>
--    If given as an integer, fills all system RAM with N fake nodes
--    interleaved over physical nodes.
--
--  numa=fake=<N>U
--    If given as an integer followed by 'U', it will divide each
--    physical node into N emulated nodes.
--
- ACPI
- ====
- 
--- 
-2.43.0
+early_cpu_to_node() can no longer be __init here
 
+> +#endif /* CONFIG_NUMA_EMU */
+> diff --git a/include/asm-generic/numa.h b/include/asm-generic/numa.h
+> index c32e0cf23c90..c2b046d1fd82 100644
+> --- a/include/asm-generic/numa.h
+> +++ b/include/asm-generic/numa.h
+> @@ -32,8 +32,6 @@ static inline const struct cpumask *cpumask_of_node(int node)
+> 
+>  void __init arch_numa_init(void);
+>  int __init numa_add_memblk(int nodeid, u64 start, u64 end);
+> -void __init numa_set_distance(int from, int to, int distance);
+> -void __init numa_free_distance(void);
+>  void __init early_map_cpu_to_node(unsigned int cpu, int nid);
+>  int __init early_cpu_to_node(int cpu);
+>  void numa_store_cpu_info(unsigned int cpu);
+
+but is still declared as __init in the header, so it is
+still put in that section and discarded after boot.
+
+I was confused by this at first, since the 'early' name
+seems to imply that you shouldn't call it once the system
+is up, but now you do.
+
+     Arnd
 
 _______________________________________________
 linux-riscv mailing list
