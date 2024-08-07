@@ -4,123 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6458BC49EA1
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Aug 2024 00:45:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75E1BC52D6F
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Aug 2024 01:41:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:To:Subject:
-	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w1S+kp5GWJEtqgoNHkGHabwuBF6HOTgf3+Y6OwLQe4o=; b=hJEBjvppLXZdyipTLQAzNhT18j
-	VuJBRDResyEHf37+Rzgi7MMqG/YLMnEapsQSuy6bFMY1YvUtE3sf8RJqryYNE5+f7iOxXzV+ocyAu
-	zdwsTo4cUoA0T0wX5r1z7KCRuB62qpyBZBbUG8ryz8NsgaCKx0gxZ5d+mKZaTdl4kqnxhdpT8VsZJ
-	ptMFots4RFEFpScfKgPkLG0iowpRhFB/JT6yKcPAG0kHCi7WASUvDdeThD993DkN3uLon9Qs3igCL
-	0sD1g7PGPENDSlbc1e+9Tv7VnLc1Ih5zqT7XAMeCFlJ6hDY/rK2fmRFs2ex5rywSWIq8IqtYixz/Y
-	UffPvw3Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=e7rak5t8jhigIaW777/CE9M/dSmFhan9lNY/gTSiwzM=; b=GpRGswSfEwqGqC
+	HjWmRkZnQa+/b7WaKxL/exymxBtgjSAscddrkb3ncMqPD57UOHUY4KHOe8WqqWUxXXr0gA2BwurOE
+	7ELPycXvhr2LM5KIw4QLnR5OgwRhXnpCFB9rzoanB1hAxHifIBWX0XBCilsWVIS27WOE0alPLNF7g
+	gTpfh2fwz10MbzxofC8fMHwL3F2v4wZzwo+GjvsFdG84Kut1Hy1BrWxtAICZu3gwODZCQZIffMIBI
+	ee95pOeAeoUIoFq16iwlJC3H30KnfQRu5BW4IjfCTPfm1QpbpiXIQJtzWu5U3Uly9G3/iVHcatJul
+	dpFrto35JSDF7WpywY/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbUo8-00000003TRc-14Py;
-	Wed, 07 Aug 2024 00:45:40 +0000
-Received: from mail-bmxind01olkn2082c.outbound.protection.outlook.com ([2a01:111:f403:281c::82c] helo=IND01-BMX-obe.outbound.protection.outlook.com)
+	id 1sbVgD-00000003YB4-26kH;
+	Wed, 07 Aug 2024 01:41:33 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbUo5-00000003TPU-1gb5
-	for linux-riscv@lists.infradead.org;
-	Wed, 07 Aug 2024 00:45:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JQDHakEqk6ZJEQHTaJfkEGKQMIg6Sc87m7+cfb1lwEqbGTURzRE0wytq7GP8qyk0C2lID0cFgI8/RZXm6bGJoblWcukKGzyDEru7qNjZ2zI3xoIqE0EwzbcJqlKK20CpwRTM573Jko5GPVb2+QYk2YjPo96cWuhvD2vwUCiFt2iw2QT11HKB84oXE9+BUIr1mVrczIitog2fpUZ2jVSA5879ufEugP+uMk7GvWf+lJFTDY6PdR0XyCgyurlegWo1P70GfMTTLOgXVI9RAzMiUSAa4YKuKKM4EkCIv7ePmxv/nj3aNEFTWKtSSY1w/bxnV+ovXy3SHlMA/UcArtIYXw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NiF21TtNb86REmVZZwB5Vak5VKFYFPcRNcTcbHECtFs=;
- b=rl4JoGEPg3J/ntYy/E3UikVHUS/AolI4IBLcvRXJMRNZkVvewpjzfNCpo8sOEeihoO7nKw6Bc03Ahj3/R7HcxFQ8hKAjZMp3/qX8g01zAiFItaDTiG8Jr7bvtjhid6dMiDdo71cult6pmyUN199T8YXcCvXIaDgXchfuTNdsRWSk51Q0sOWhtAsV+wS3Jd6bE2yjtpeP9pTBf5Yf90XhbyiGAfwnu+BmI7kQUhv1CfPUbHxtoXc2veo/d6ZCvlMKeegHXbbSGr8yv2YySAXqhWPSghWAjrPkh0zcDJqrK7BOUofKbcj9AMHPAnmm0WSS13dcxoCa571B0aAsCUXOwA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NiF21TtNb86REmVZZwB5Vak5VKFYFPcRNcTcbHECtFs=;
- b=lQsCVtmlL1S+FJq1Xs3QeTojWxkHp7b+c0StqpoyGXwWSiL31T2U6IQzpYUsneH+Q1ZdFTxCPXmHDn7CBLZz/b4iDvUYcrbDX71HoROVUnQWlkFgKQjDemUFJJI26fC0ZPwGNOpOHQFLAa0eERf2MVOVagKphcxgjWPoF1lpNdQAXp+l09PcYr1XI6qHO1NP/S2kDBL/ZVupflgvoPeQ85Cusrb9E7qdx5rPJLvTrJE2HHjZBhbn7Lj0Sszy5cmyeDAQ9yI7LxwoF4+miRbe16P9BxcArjLT1ea4FYfoKRl9UG8JGRu0HXIBL9gee1hY/y9O0fYYVOlHJabKMQkPwg==
-Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:138::5)
- by MA0P287MB1009.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:108::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7849.11; Wed, 7 Aug
- 2024 00:45:16 +0000
-Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- ([fe80::a94:ad0a:9071:806c]) by MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- ([fe80::a94:ad0a:9071:806c%6]) with mapi id 15.20.7849.008; Wed, 7 Aug 2024
- 00:45:16 +0000
-Message-ID: <MA0P287MB2822764331021A4A67266115FEB82@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
-Date: Wed, 7 Aug 2024 08:45:06 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: defconfig: sophgo: enable clks for sg2042
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- inochiama@outlook.com, conor.dooley@microchip.com, guoren@kernel.org,
- apatel@ventanamicro.com, hal.feng@starfivetech.com, dfustini@baylibre.com,
- prabhakar.mahadev-lad.rj@bp.renesas.com, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, haijiao.liu@sophgo.com,
- xiaoguang.xing@sophgo.com
-References: <20240805023320.1287061-1-unicornxw@gmail.com>
- <CAJM55Z9_sDT2wUy-GMT=mi4FcWth-O_LUbmVtbdZRipQrUzh4A@mail.gmail.com>
-From: Chen Wang <unicorn_wang@outlook.com>
-In-Reply-To: <CAJM55Z9_sDT2wUy-GMT=mi4FcWth-O_LUbmVtbdZRipQrUzh4A@mail.gmail.com>
-X-TMN: [6A4W7iPgy7+LZAqHk5oUA0K+HppLmHEz]
-X-ClientProxiedBy: TYCPR01CA0178.jpnprd01.prod.outlook.com
- (2603:1096:400:2b2::19) To MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:138::5)
-X-Microsoft-Original-Message-ID: <0a96616c-4114-4435-9c22-679031b464d1@outlook.com>
+	id 1sbVfe-00000003Y60-2UqW;
+	Wed, 07 Aug 2024 01:41:00 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.252])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4WdtC11RfszpSxC;
+	Wed,  7 Aug 2024 09:39:41 +0800 (CST)
+Received: from kwepemi100008.china.huawei.com (unknown [7.221.188.57])
+	by mail.maildlp.com (Postfix) with ESMTPS id B0B41180AE6;
+	Wed,  7 Aug 2024 09:40:50 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ kwepemi100008.china.huawei.com (7.221.188.57) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.39; Wed, 7 Aug 2024 09:40:49 +0800
+Message-ID: <795d228c-eec5-d3ff-698e-61d93338cb42@huawei.com>
+Date: Wed, 7 Aug 2024 09:40:48 +0800
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MA0P287MB2822:EE_|MA0P287MB1009:EE_
-X-MS-Office365-Filtering-Correlation-Id: 93fa3511-0628-40d0-8418-08dcb67a339f
-X-Microsoft-Antispam: BCL:0;ARA:14566002|8060799006|461199028|19110799003|5072599009|3412199025|4302099013|440099028|1602099012;
-X-Microsoft-Antispam-Message-Info: dKfx3cp5k92Ocsi7o3cik6WdAzOA3vk8jlHQdWri8j5fQz93Ad1YGVUFrJqnWf1qHh8QseaDPA0O6cwoeGyULP6Ktc0dcya6u3XEAE5R2rjzm7FT/lBZj8eG47jbWCtwkSmj4i715sQN7CwoGVZjSZAXQf9by7efNsQveENb6M+RG1o3oQNVR1JSnMRIWVYwPq749yvN3ChHkToOXSSHD0yrMFtNEAEMVMHHNqip3SYuvVmEVxAP1nlTjffGU/55V7VOyQYrG06eh3a78RwurAVpxJ6fd8EK+VYXEA4Icn81hFuDBJm4NbGBK4w7Q8RvF4eZM0SF91yu/V7kg65yzZPA3c4Eb5YFO4TAjUW0Oupgnj/DGACLXhiSYcsEkH8oL9j1zb/nhGKIh1iPfXja6rZ8n7iWzEVL0uyg6PojHMWdWN5qL2pMKpqXZT2+SBZo4+WJfkbmR7Y6qJ3qzsi0nQ+SUOX8BrDBH7u1cGCCkZo4TYECmlavIzot2WvSENHDUCUk2l7kPEnqutHfswdWtIvbsTWJfCJJge42/B71q7z6zkq+zB2D4ZQXxNW9B5w8O68zQHhxnJBvQQEscRCWbcLvbwQtewK4iH8ExZjiCa18cnzgVwwNAqInZIlBzDaA7KSqIZ8LEJYnZgCSnMSp34GdQhehlwNkRX8GrYRGWpR13NJ5hHQYAjWfx7fAc7mE1wmuzEvSMrkgCzSPAh+IF5T7fzLBX2WAjPaKFlMj8k7J6pTsirpG7gFbMlVOGiiw5pkNKahsFNavSHBKmPr/uc59CPLZGxk4HDgSjbx5UVo=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?b0NwNml6elZGQThxTTJWUmJsV3RHNnoyUVgrbDdRSCttZWRXKzEwaVFSY3k0?=
- =?utf-8?B?OW9IMEdBZUoyb3EwaXFuY1JuWkNGRTJnaXhjTVl6YWpvcVQ4UUZaczd3WkFq?=
- =?utf-8?B?dkRCZW1jNm9SRFhIZFAzV25wRU8vSXRFZi9KUytwRWgvYXlpK1FYTUFRcHZG?=
- =?utf-8?B?OU0yQ2txZ2xvTXdFQUZTSDI5UmlYVERaRnd4bnpwWm53dndzRXozZi9mNjNJ?=
- =?utf-8?B?UGFkSFBiV3VEVlNIQWJFQUkreWRuTmoxRzJTL2hpeGV1WU54R2xER2locWFH?=
- =?utf-8?B?RnphTGtHamtSVUtoK1BjRGpZOTUzTjZxVlNjN09zdzR3aGZJZ1VVeEtRNGxv?=
- =?utf-8?B?ZHltb2EvOGxjTmYyaW5td2gxSVIvcmtlc1RwWXVVK0NqVlBySDRkR0M1eFVs?=
- =?utf-8?B?bHpxUXlzV2VFQVhIZ1RyVDUyQlhBSXBPVnhmTk5ISGJpWW5tYjRVTEN2dW45?=
- =?utf-8?B?N2V1dVljQ2U3dXJBc3UwRm50TDA5QjF0ZXZaZzFnMWFqODRJQ2djZmh4WFNW?=
- =?utf-8?B?b1F6ZDNZN3d4eFJPM2hrTHVjTlhOL1RHYXVTRXB3MUUvZER3NE1jenZ6aVdm?=
- =?utf-8?B?SDhTaFlneVNYMDZQS1dKTjJ2OWtFdjNaeERVZndHby9MODduZG9lQXg5Vjk0?=
- =?utf-8?B?OHJNV0tlMEN4RUcwU1RIbVNOSExCMXlsZDd2M0UxTHp0bUt0UkVXY09MVlgr?=
- =?utf-8?B?Z2wybFdmbi9MaEtacW5kSnF4bmFmRENUTFA1cENyTWtTZTh0WXFMTXBUeGx6?=
- =?utf-8?B?NlZzcWVwcmNzUjJwaWdBUHlHWm5RYmRocWpkV2lDTGlSMktNUXArMXZ3dFdN?=
- =?utf-8?B?ekJwM2gwaVRKZUt6R3VxaVV1cndTWGJIbElyRm1pb0xBMTVzY2FEMmpma1gx?=
- =?utf-8?B?TUpObzg4K29XTDBwb2ZlQUIwK0hOV2FMRmhrQzMvMVl5bThRNUNTMmdkWHIy?=
- =?utf-8?B?VjhlMmRwRlJNV3h6M3VHZSs0MzJPaWZpdkdNcElzSGpRU0RtN0g1eENiL3Nz?=
- =?utf-8?B?RFRKMWg3THpHMmhUU2F1eFlVazVhZHcySTB5YmlaQ3N3aW1QVGhBYXN2VlNH?=
- =?utf-8?B?bFhuWk5WWEpYZlQ2VkFBaU0yU1Exc1p5Y0VNQmQzZUpwOXhYN2xsS1lqNExw?=
- =?utf-8?B?OFhhVlBhL2JMYzVFL05uMUFwZVJ4YjNmZGx2VndZR0tLM0xGeitsRG9NMldX?=
- =?utf-8?B?RmhJbCs5NUJYRWFMWEhEOG0rbkp3eUlsWENvVlpJNUhIY1Znc2plOEl1OTlq?=
- =?utf-8?B?Q0YrY2M5L1hyaTZmWjNnRy8ybnoyay9QWUErMVJILzNvWkVXSGp4UnYvYzRz?=
- =?utf-8?B?WkxFbkozS3RERSsxZkwyWnJGVEs0UGRmT0k0TFB4bHhDUHdYczQ3TWRTeFFv?=
- =?utf-8?B?bUJ2b0p5V1h6QitsUHpPa3hwSjlwY1EySC8yWTJ0YVVkZXBUL251WWRxRnRt?=
- =?utf-8?B?bmJ2Q21zbGFvUS94VjdtZ3NHVGtITU1CRTBwUkdJUk5nank3UDk2dUVhbVJO?=
- =?utf-8?B?WjB4d0xCWVE1OEFtZVhCeEtieEtYVnZUR0NUMkg3VkxDcTRwNU94elltYlBJ?=
- =?utf-8?B?VUYwWE14elZGcXhpMU0wcVVhL2x0cjVOVHF6VnJkcWZNbzdvMzgzd3hQd0ZO?=
- =?utf-8?B?am1SUWczS2hwRTBVc2ZJTFg5bGRXUzQrRHVFbStOVVZ0Z1E4cnRBa09FS1JQ?=
- =?utf-8?Q?qU1uHYwY3TwrV+dqHcVk?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 93fa3511-0628-40d0-8418-08dcb67a339f
-X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Aug 2024 00:45:16.6944
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MA0P287MB1009
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.0
+Subject: Re: [PATCH -next] crash: Fix riscv64 crash memory reserve dead loop
+Content-Language: en-US
+To: Catalin Marinas <catalin.marinas@arm.com>, Baoquan He <bhe@redhat.com>
+CC: <vgoyal@redhat.com>, <dyoung@redhat.com>, <paul.walmsley@sifive.com>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <chenjiahao16@huawei.com>,
+	<akpm@linux-foundation.org>, <kexec@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, Will Deacon <will@kernel.org>
+References: <20240802090105.3871929-1-ruanjinjie@huawei.com>
+ <ZqywtegyIS/YXOVv@MiWiFi-R3L-srv> <ZrJ1JkyDVpRRB_9e@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <ZrJ1JkyDVpRRB_9e@arm.com>
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
+ kwepemi100008.china.huawei.com (7.221.188.57)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240806_174537_467181_1080B32E 
-X-CRM114-Status: UNSURE (   8.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240806_184058_986153_8C09F2A6 
+X-CRM114-Status: GOOD (  25.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,61 +70,94 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On 2024/8/6 17:30, Emil Renner Berthing wrote:
-> Chen Wang wrote:
->> From: Chen Wang <unicorn_wang@outlook.com>
->>
->> Enable clk generators for sg2042 due to many peripherals rely on
->> these clocks.
->>
->> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
->> ---
->>   arch/riscv/configs/defconfig | 3 +++
->>   1 file changed, 3 insertions(+)
->>
->> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
->> index 0d678325444f..d43a028909e5 100644
->> --- a/arch/riscv/configs/defconfig
->> +++ b/arch/riscv/configs/defconfig
->> @@ -249,6 +249,9 @@ CONFIG_VIRTIO_BALLOON=y
->>   CONFIG_VIRTIO_INPUT=y
->>   CONFIG_VIRTIO_MMIO=y
->>   CONFIG_CLK_SOPHGO_CV1800=y
->> +CONFIG_CLK_SOPHGO_SG2042_PLL=y
->> +CONFIG_CLK_SOPHGO_SG2042_CLKGEN=y
->> +CONFIG_CLK_SOPHGO_SG2042_RPGATE=y
->>   CONFIG_SUN8I_DE2_CCU=m
->>   CONFIG_RENESAS_OSTM=y
->>   CONFIG_SUN50I_IOMMU=y
-> Are these all critical to boot or could they be modules?
->
-> /Emil
 
-Since 6.11, sg2042.dtsi has been changed and uart now has dependency on 
-clocks and boot into minimal console will fail without this.
+On 2024/8/7 3:10, Catalin Marinas wrote:
+> To Jinjie, if you make generic changes that affect other architectures,
+> please either cc the individual lists/maintainers or at least cross-post
+> to linux-arch. I don't follow lkml, there's just too much traffic there.
 
-The sg2042 clock is configured as builtin to facilitate bootup in 
-initramfs with defconfig build.
+Sorry, I forgot to Cc to the other architectures.
 
-Regards.
-
-Chen
-
->> base-commit: de9c2c66ad8e787abec7c9d7eff4f8c3cdd28aed
->> --
->> 2.34.1
+> 
+> On Fri, Aug 02, 2024 at 06:11:01PM +0800, Baoquan He wrote:
+>> On 08/02/24 at 05:01pm, Jinjie Ruan wrote:
+>>> On RISCV64 Qemu machine with 512MB memory, cmdline "crashkernel=500M,high"
+>>> will cause system stall as below:
+>>>
+>>> 	 Zone ranges:
+>>> 	   DMA32    [mem 0x0000000080000000-0x000000009fffffff]
+>>> 	   Normal   empty
+>>> 	 Movable zone start for each node
+>>> 	 Early memory node ranges
+>>> 	   node   0: [mem 0x0000000080000000-0x000000008005ffff]
+>>> 	   node   0: [mem 0x0000000080060000-0x000000009fffffff]
+>>> 	 Initmem setup node 0 [mem 0x0000000080000000-0x000000009fffffff]
+>>> 	(stall here)
+>>>
+>>> commit 5d99cadf1568 ("crash: fix x86_32 crash memory reserve dead loop
+>>> bug") fix this on 32-bit architecture. However, the problem is not
+>>> completely solved. If `CRASH_ADDR_LOW_MAX = CRASH_ADDR_HIGH_MAX` on 64-bit
+>>> architecture, for example, when system memory is equal to
+>>> CRASH_ADDR_LOW_MAX on RISCV64, the following infinite loop will also occur:
 >>
+>> Interesting, I didn't expect risc-v defining them like these.
 >>
->> _______________________________________________
->> linux-riscv mailing list
->> linux-riscv@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-riscv
+>> #define CRASH_ADDR_LOW_MAX              dma32_phys_limit
+>> #define CRASH_ADDR_HIGH_MAX             memblock_end_of_DRAM()
+> 
+> arm64 defines the high limit as PHYS_MASK+1, it doesn't need to be
+> dynamic and x86 does something similar (SZ_64T). Not sure why the
+> generic code and riscv define it like this.
+> 
+>>> 	-> reserve_crashkernel_generic() and high is true
+>>> 	   -> alloc at [CRASH_ADDR_LOW_MAX, CRASH_ADDR_HIGH_MAX] fail
+>>> 	      -> alloc at [0, CRASH_ADDR_LOW_MAX] fail and repeatedly
+>>> 	         (because CRASH_ADDR_LOW_MAX = CRASH_ADDR_HIGH_MAX).
+>>>
+>>> Before refactor in commit 9c08a2a139fe ("x86: kdump: use generic interface
+>>> to simplify crashkernel reservation code"), x86 do not try to reserve crash
+>>> memory at low if it fails to alloc above high 4G. However before refator in
+>>> commit fdc268232dbba ("arm64: kdump: use generic interface to simplify
+>>> crashkernel reservation"), arm64 try to reserve crash memory at low if it
+>>> fails above high 4G. For 64-bit systems, this attempt is less beneficial
+>>> than the opposite, remove it to fix this bug and align with native x86
+>>> implementation.
+>>
+>> And I don't like the idea crashkernel=,high failure will fallback to
+>> attempt in low area, so this looks good to me.
+> 
+> Well, I kind of liked this behaviour. One can specify ,high as a
+> preference rather than forcing a range. The arm64 land has different
+> platforms with some constrained memory layouts. Such fallback works well
+> as a default command line option shipped with distros without having to
+> guess the SoC memory layout.
+> 
+> Something like below should fix the issue as well (untested):
+
+I tested it on QEMU and it is good to fix this dead loop problem.
+
+> 
+> diff --git a/kernel/crash_reserve.c b/kernel/crash_reserve.c
+> index d3b4cd12bdd1..ae92d6745ef4 100644
+> --- a/kernel/crash_reserve.c
+> +++ b/kernel/crash_reserve.c
+> @@ -420,7 +420,8 @@ void __init reserve_crashkernel_generic(char *cmdline,
+>  		 * For crashkernel=size[KMG],high, if the first attempt was
+>  		 * for high memory, fall back to low memory.
+>  		 */
+> -		if (high && search_end == CRASH_ADDR_HIGH_MAX) {
+> +		if (high && search_end == CRASH_ADDR_HIGH_MAX &&
+> +		    CRASH_ADDR_LOW_MAX < CRASH_ADDR_HIGH_MAX) {
+>  			search_end = CRASH_ADDR_LOW_MAX;
+>  			search_base = 0;
+>  			goto retry;
+> 
 
 _______________________________________________
 linux-riscv mailing list
