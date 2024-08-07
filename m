@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BB75C52D6F
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Aug 2024 22:27:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96AE8C3DA7F
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Aug 2024 22:34:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
 	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZVGfzOcbF+799gHY861DB01ZICHUW3a3DNmEXKb+fjU=; b=PyalBzPitpS5+Z
-	/NK0ZC6UPYrbqTcJCms65CznlJ3utxBya8wKLiMrL/Vp8FDMEDPq5wkszs9XvkN+ZEqJPlBVZ8wWD
-	MIeIuJWQ82jsZPGqu5wLvNayPwtMe8ABvt8oXiUHvPszwB1Qoqh1NLeuaSZN0igGgR3t0H+/spo5S
-	fecpFSClw05xAsfYO7roSljWFRQCt9T6ivakZ9KR0gQNKhCmvpVd2YD8Lztt19Gc1e9zMW0T+J/pG
-	xTcaLRWCueC1s2pgP7vU3nCwmjGRi5XsknDp8mWs30dV6z/HuDM4PmCb91zu0ai5MW3ih8JuX3RUQ
-	ns1tgkrdwSrbrfAmcxWQ==;
+	List-Owner; bh=u+AOlwkljPSBY8fzaZyp5sFJZsUdedtwuC4PZtmoNuA=; b=diqzUw7ONLGAD+
+	G6G0DYCVES5A9yMJIBb3RF0m6kbUnL/I4RI4I/xQ7sRTYxCTke03s0Au7nSwRD/2PxOYBEW16e3ac
+	qbcpYiwA1+6vQ/wUGkA4m3OeI2tAhN6LsXZpRDa928LKOHktgtIWAtQe3pZRywVIiXh3A2lVY00qh
+	WJ8SABilRs+id5womqYHAj/+E78gtmSIJhzAEcmp64x6K6lKgOrB+GPLXUu5xUyf9pDom4m7arRes
+	h/t5bRVU//drl55Fue2E8qlNZrWcw2lZnOEjvNgbSXhOx6VinXFvvJOHuEQ807QA1KuoUx6LKKcR2
+	O5A06fcSH2QxMCjUVYPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbp80-00000006RQk-3Jnu;
-	Wed, 07 Aug 2024 22:27:32 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1sbpED-00000006SOm-07Xr;
+	Wed, 07 Aug 2024 22:33:57 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbp7G-00000006RFy-2y34
+	id 1sbpCD-00000006S8T-1AUs
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Aug 2024 22:26:57 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-2cb5243766dso345859a91.0
-        for <linux-riscv@lists.infradead.org>; Wed, 07 Aug 2024 15:26:46 -0700 (PDT)
+	Wed, 07 Aug 2024 22:33:12 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-1fed72d23a7so3908865ad.1
+        for <linux-riscv@lists.infradead.org>; Wed, 07 Aug 2024 15:31:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1723069605; x=1723674405; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1723069912; x=1723674712; darn=lists.infradead.org;
         h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
          :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=kBIy/YIYmaABmQA3j9o1k99kZxl3FitdDB149roFRGk=;
-        b=ettM+fa5ynk2hPDGVln2lELUhXJYbxQDM/wkaNF0/6+te0Meo9FZRKoIdwLa2V7FJx
-         CZ/ctxFDXFm5absZ6MUwJq/+24M7KQoxXCTc66LdVKF2DXlysdIkkOBApywa07+KUI0H
-         fsvyOfl5XLpHOEAXag5wg0+lEAcGTw7lIVcxVy/k4tWs1NGKGdMy5jUq4gzdNMqueUss
-         H+YUCYCrzDx1uB6IPo6CtyTlFKu0hXhYv+qsTZzjIFA/m/j0hHmip0IsfeXsl/CQMFf4
-         BnBPP5/Em4FRPo6SGTsAI7QbWI9fZlbA1DyLXRVAPDHNlJcpw42Xxa2emmOKjrAaoJHe
-         9+Bw==
+        bh=Eqn3LooEfKQSn1SPZrgXd7kK5ryU/WoLiCmXsEwtkWo=;
+        b=pzleMLRPQfg6ZNapAvXQ1/9uqMCwh/MriafuR0yeKCmBA666DWkeK5E9XSDaeDzIHt
+         79K7ckZgwxKhW/PoRGfCRI24/Rr7x+irSXm4uKT6XlUVAnpoBF9Ih3t2gcnGwk82K97B
+         YAamQ8e1Sg0M4qYpHHdwrh6sv/7I2h3w5IV1w0DWPxwixspG7zu7nlfJTXOqoiDJmOdZ
+         vj1acNjcFi+AJnh76E7iFAo84GBsHHttkODw6EpvzYFiVcxICybmUaYmuLTGqYhnpdCf
+         87i5I4cOVWlgK13hna2x7a3Ymzj6RgU9Xj9jb1TSl4SXmbuWbnPphUXQS0s1L/bHCN7o
+         +Xmg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1723069606; x=1723674406;
+        d=1e100.net; s=20230601; t=1723069912; x=1723674712;
         h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
          :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=kBIy/YIYmaABmQA3j9o1k99kZxl3FitdDB149roFRGk=;
-        b=uDc2Q9y3FYZVXLv6crB4ZNwDFop7ND2Ca2Yvp3WTxiy8LSGOACV7ZuJnvs1nSFIbUE
-         olbizyNtATFRpPLxUPvPWjPc31pjrNynfR71Xkep5/grNpItOXvQwsRJqelUASUjqd1W
-         1hwgI8qL1q6gk7k5OCsZ6Yp3UW5iyNbzFL+N3kDyh+TN+l3+wZH+pFY/b6yeWj4I0giB
-         MfnrRUOLEZpSPosuzISY5Q/9WbgAutUnO+i57KJAHj7Iklk3/XTi7Aa6R3zb+2IkmBqa
-         EW7EmptX/885FxRQcWOM8HGZ+g9wu7OK9sqv2DCvwqO2FE27U6b20Mgjcpnadw44r5sK
-         LSBQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX5d+GWtPGS5rigT7X/QwkwO4Oj+wjSYGJ7rFzsyst6JjxhmUiqv9Hy3NMXRkAREhN9uq5QE+6D7dtmcCC7NpX9WlGiO10MF9+W/KHW1pa3
-X-Gm-Message-State: AOJu0YzhMrKrbrIbDi+XaykU0LE6Z4WUa0QtsbDc9l1mPi1s1Z/2MTkd
-	L8xp72+VNpMdN92Ah9iQqMshhvrl5WmTmAPP4JruZz4aSEzEciLTrsGOk05mSO0=
-X-Google-Smtp-Source: AGHT+IGd6zBFgLdZrc5fpXn4Fk0DlJIehtL2v1U5+1wFJBUpqiMspCMgOYDP5uaNavgy/IJn72zPoA==
-X-Received: by 2002:a17:90b:2350:b0:2c9:7aa6:e15d with SMTP id 98e67ed59e1d1-2d1c33d4a01mr27917a91.20.1723069605605;
-        Wed, 07 Aug 2024 15:26:45 -0700 (PDT)
+        bh=Eqn3LooEfKQSn1SPZrgXd7kK5ryU/WoLiCmXsEwtkWo=;
+        b=I2xI1KRMrhVNocCyx5FpBQer7MhKMvR7uRBnwCNQHPNzihJGrgGvePknsLbl61noO6
+         70q75jIv0SRPCsCuOgBlZp3IRieA1anS/3R9ET39WFdMsz2VeGLrudq2FEcYGh3u5ut3
+         rgFMxDuLBU7Ck0wS8yLF3etwam5HUcuGtfTS+5RZ5+Ga82DmlFj8EoxFZWbgTzv7oqFO
+         97d+CjZqE3yqbKoAiCeVTgLN3m87/Q6LEQUtqSdh/2+JmjuCkGHlGTuSJLMOmsxy/yER
+         JcLxFCKnSh1+0JPzxkiR3Z8GLoUPW/wAeDtgqX/Up098zxOZsepLg+RV0wO4mLjhkSgt
+         z0HA==
+X-Forwarded-Encrypted: i=1; AJvYcCVyzvSjUL2ADiSmcw/2mYMLdGdCyUYasDRlhNiWIE6ZP3Whvjy1ah4Ajvvfr3+tzuLfnoXYPsN/s/hMIYodfL2gY/WjqtuMYRUchPbTf9+1
+X-Gm-Message-State: AOJu0Yw8OLFqD8r8qdSvb3se41oD1phZZulx9fmOQ3IKV2zysIvUFjqo
+	XDOe/qufkKgDMkqdO2FU1M74RS+CHrEQpRKcgIAHZneTupiS79mPiAH4yCFZyb8=
+X-Google-Smtp-Source: AGHT+IHHjhsk2z4q9vmLjR7LsBMy2oppwwN+j14R3XW5fxPpM7oxaFufcdUW3gDCZ50Rjxk+EmoCcA==
+X-Received: by 2002:a17:902:d2cc:b0:1fd:6a00:582e with SMTP id d9443c01a7336-200952641bemr1402985ad.30.1723069911749;
+        Wed, 07 Aug 2024 15:31:51 -0700 (PDT)
 Received: from localhost ([2804:14c:87d5:5261:6c30:472f:18a6:cae1])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2d1b3b59ff2sm2100472a91.49.2024.08.07.15.26.44
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1ff5917767fsm111712115ad.183.2024.08.07.15.31.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 Aug 2024 15:26:45 -0700 (PDT)
+        Wed, 07 Aug 2024 15:31:51 -0700 (PDT)
 From: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
 To: Mark Brown <broonie@kernel.org>
 Cc: Catalin Marinas <catalin.marinas@arm.com>,  Will Deacon
@@ -81,18 +81,17 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,  Will Deacon
   linux-fsdevel@vger.kernel.org,  linux-arch@vger.kernel.org,
   linux-mm@kvack.org,  linux-kselftest@vger.kernel.org,
   linux-kernel@vger.kernel.org,  linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v10 29/40] selftests/clone3: Enable arm64 shadow stack
- testing
-In-Reply-To: <20240801-arm64-gcs-v10-29-699e2bd2190b@kernel.org> (Mark Brown's
-	message of "Thu, 01 Aug 2024 13:06:56 +0100")
+Subject: Re: [PATCH v10 34/40] kselftest/arm64: Add very basic GCS test program
+In-Reply-To: <20240801-arm64-gcs-v10-34-699e2bd2190b@kernel.org> (Mark Brown's
+	message of "Thu, 01 Aug 2024 13:07:01 +0100")
 References: <20240801-arm64-gcs-v10-0-699e2bd2190b@kernel.org>
-	<20240801-arm64-gcs-v10-29-699e2bd2190b@kernel.org>
-Date: Wed, 07 Aug 2024 19:26:42 -0300
-Message-ID: <87sevgdl5p.fsf@linaro.org>
+	<20240801-arm64-gcs-v10-34-699e2bd2190b@kernel.org>
+Date: Wed, 07 Aug 2024 19:31:49 -0300
+Message-ID: <87o764dkx6.fsf@linaro.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240807_152646_772270_1C423274 
-X-CRM114-Status: UNSURE (   8.57  )
+X-CRM114-CacheID: sfid-20240807_153153_344736_B6ACBA7F 
+X-CRM114-Status: UNSURE (   9.03  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -112,17 +111,20 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Mark Brown <broonie@kernel.org> writes:
 
-> In order to test shadow stack support in clone3() the clone3() selftests
-> need to have a fully inline clone3() call, provide one for arm64.
+> This test program just covers the basic GCS ABI, covering aspects of the
+> ABI as standalone features without attempting to integrate things.
 >
+> Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
 > Signed-off-by: Mark Brown <broonie@kernel.org>
 > ---
->  tools/testing/selftests/clone3/clone3_selftests.h | 26 +++++++++++++++++++++++
->  1 file changed, 26 insertions(+)
+>  tools/testing/selftests/arm64/Makefile        |   2 +-
+>  tools/testing/selftests/arm64/gcs/.gitignore  |   1 +
+>  tools/testing/selftests/arm64/gcs/Makefile    |  18 ++
+>  tools/testing/selftests/arm64/gcs/basic-gcs.c | 357 ++++++++++++++++++++++++++
+>  tools/testing/selftests/arm64/gcs/gcs-util.h  |  90 +++++++
+>  5 files changed, 467 insertions(+), 1 deletion(-)
 
-Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
-
-The clone3 test passes on my FVP setup:
+The basic-gcs test passes on my FVP setup:
 
 Tested-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
 
