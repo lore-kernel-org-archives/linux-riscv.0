@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A778C52D6F
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Aug 2024 06:42:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C8EFC3DA7F
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Aug 2024 06:43:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8TFGMAh8Jcnk7qCFXugQyfHTfxcby83J1KReiec2q4U=; b=TSuaxTT2yhiAAR
-	c0K17HLqoe5xyypEYZMyTjkP6S8/BqK7ab1hAoWRHNTVliCvZDXIpUwFJoJcby3Vc0j/X5WjvtQ05
-	iR2JC0cn7JXX7EBY2aRN3JS2GBtG98AgHdIpRVbXiw9nZgweE2OgdmFKdGEZ6BQSbHtTL4A1JEjsx
-	nhxFTnadRTewt1uiUR9ElQaBjlmHosjqvR+fXKMa+x7va+XfcuxpatzLTaqFLrAPjyO9urb2OQQ+s
-	mPI6t2jljhv0eaijhDVexwrInyIvjofBuuoRkGMnMCKKQr4wgA7eX2gNfGrYHWV+l8E7sj8jA/wxQ
-	oQ/3BYu/K2g9Ts9ynaFg==;
+	List-Owner; bh=tiKmMiS2jjRxJL1Uq6PKa6RwYpn1jVmU5Mthq8rUnns=; b=Pe4s0kSswmtm56
+	Ijux8n8fvzTYkh2Rj0fR2MFjKsKnjLbGPSitNHc4kIwk0Ef/QgS74Vl/4LDNHyMtpBQSlSj2GMd/h
+	RhUH94/dWliJUpqmwqPrhXn1v61Ger0fHNaoBLckywsd+Y2PP1C+XzfTtTfTElPdYOiFLiXVomecb
+	wtMo6DU2b6HCpgBCdcZRQub6NjzMUeysK6Q3GUmvkoZb3Z1ApIut4KTopNM++wmwGKyFveYJTeBlu
+	khRwBx79oYREo1dn5tV3fQHkTG93QtAJF/n55j/XX6k9lEbXBFemJQZMAYfd8niZgOp5kUSmFaQ1e
+	DGrqUiVyu4YCEvzen5+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbaNg-000000041Db-3wRz;
-	Wed, 07 Aug 2024 06:42:44 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sbaOE-000000041VC-1rTy;
+	Wed, 07 Aug 2024 06:43:18 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbaMj-000000040pM-2oLx;
-	Wed, 07 Aug 2024 06:41:47 +0000
+	id 1sbaMv-000000040v8-05Ep;
+	Wed, 07 Aug 2024 06:41:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7939D61173;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6437661053;
+	Wed,  7 Aug 2024 06:41:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3518C32782;
 	Wed,  7 Aug 2024 06:41:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8850C4AF0E;
-	Wed,  7 Aug 2024 06:41:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1723012904;
-	bh=Ro4h4mVQei8J5f+RCcbMpXp6v7lFwiyMR6hOS+jVJgg=;
+	s=k20201202; t=1723012916;
+	bh=MnJNRzTir4c4kkideYaF9K0DolOoIZtSsJtHw0oKjF4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kAX7njmdIInN9OYhdiwTEKZKM4XpPB19gMzXHMIsVyrBSy27oRzvn8IYIyDs6x/p0
-	 LydtmKd0iODi+ICghqDjw5dn6UnFgajp+f6WTPnMji73Gt02VJaX8Rbqu7BQxse0w1
-	 h9udtMa/Nbd0FWqC1kdAyi2IW2WMAAKkrSWhPmv0noTc2dnK1NbPJq4wGcHlWkA6br
-	 MHj3rtTHWu4JGJZNvxaFInreOgwS+Tjzau53JDSSLgV+0yXmsdxaTZiBM3R1tQoV53
-	 7qBfv2A7Huq6yA44R39OKEmG9G/6WXdrg2ykB9g6RbhFwxIDOJRQjTLJq3KvgvKtTm
-	 fYOVaut3ySOVg==
+	b=u/6HTsXbawFBe7Hl72eb3Fv4OkQcMobrOhl99riEcgs4wiGHwDDTkdDSTH17vApOV
+	 9lZhZhCJiXDKThYkfu1t3tCthjob4fEkdPm4FHQUz8kzZVdDCjhwCcMgLP6oR0ZyuV
+	 v4sMPQXcYUWjuwyvthF4ey4dyPEEm7JdeyTd9lgRrRjOYF+0uNiLrs+QoHNbhSj05m
+	 PvtayYhdMjtXKolIrQaQ2u+nD3K2x3Nq8c+EmuWgNK1XviMNK/G4VRa+teOpPpf35C
+	 e5n12nCa9Q58u6pMb7WUgu9llXT9kIqqGvWCa08d5O4ny9Z4aJ6c+Xxw+JT0MY3Xe9
+	 vcfhOfEy5oraA==
 From: Mike Rapoport <rppt@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
@@ -91,16 +91,16 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org,
 	Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Subject: [PATCH v4 01/26] mm: move kernel/numa.c to mm/
-Date: Wed,  7 Aug 2024 09:40:45 +0300
-Message-ID: <20240807064110.1003856-2-rppt@kernel.org>
+Subject: [PATCH v4 02/26] MIPS: sgi-ip27: make NODE_DATA() the same as on all other architectures
+Date: Wed,  7 Aug 2024 09:40:46 +0300
+Message-ID: <20240807064110.1003856-3-rppt@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240807064110.1003856-1-rppt@kernel.org>
 References: <20240807064110.1003856-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240806_234145_867793_E2310FCC 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20240806_234157_174904_A9E67154 
+X-CRM114-Status: GOOD (  14.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,46 +119,66 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 
-The stub functions in kernel/numa.c belong to mm/ rather than to kernel/
+sgi-ip27 is the only system that defines NODE_DATA() differently than
+the rest of NUMA machines.
+
+Add node_data array of struct pglist pointers that will point to
+__node_data[node]->pglist and redefine NODE_DATA() to use node_data
+array.
+
+This will allow pulling declaration of node_data to the generic mm code
+in the next commit.
 
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-Acked-by: David Hildenbrand <david@redhat.com>
 Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Tested-by: Zi Yan <ziy@nvidia.com> # for x86_64 and arm64
 Tested-by: Jonathan Cameron <Jonathan.Cameron@huawei.com> [arm64 + CXL via QEMU]
 Acked-by: Dan Williams <dan.j.williams@intel.com>
+Acked-by: David Hildenbrand <david@redhat.com>
 ---
- kernel/Makefile       | 1 -
- mm/Makefile           | 1 +
- {kernel => mm}/numa.c | 0
- 3 files changed, 1 insertion(+), 1 deletion(-)
- rename {kernel => mm}/numa.c (100%)
+ arch/mips/include/asm/mach-ip27/mmzone.h | 5 ++++-
+ arch/mips/sgi-ip27/ip27-memory.c         | 5 ++++-
+ 2 files changed, 8 insertions(+), 2 deletions(-)
 
-diff --git a/kernel/Makefile b/kernel/Makefile
-index 3c13240dfc9f..87866b037fbe 100644
---- a/kernel/Makefile
-+++ b/kernel/Makefile
-@@ -116,7 +116,6 @@ obj-$(CONFIG_SHADOW_CALL_STACK) += scs.o
- obj-$(CONFIG_HAVE_STATIC_CALL) += static_call.o
- obj-$(CONFIG_HAVE_STATIC_CALL_INLINE) += static_call_inline.o
- obj-$(CONFIG_CFI_CLANG) += cfi.o
--obj-$(CONFIG_NUMA) += numa.o
+diff --git a/arch/mips/include/asm/mach-ip27/mmzone.h b/arch/mips/include/asm/mach-ip27/mmzone.h
+index 08c36e50a860..629c3f290203 100644
+--- a/arch/mips/include/asm/mach-ip27/mmzone.h
++++ b/arch/mips/include/asm/mach-ip27/mmzone.h
+@@ -22,7 +22,10 @@ struct node_data {
  
- obj-$(CONFIG_PERF_EVENTS) += events/
+ extern struct node_data *__node_data[];
  
-diff --git a/mm/Makefile b/mm/Makefile
-index d2915f8c9dc0..4e668be85f0b 100644
---- a/mm/Makefile
-+++ b/mm/Makefile
-@@ -141,3 +141,4 @@ obj-$(CONFIG_HAVE_BOOTMEM_INFO_NODE) += bootmem_info.o
- obj-$(CONFIG_GENERIC_IOREMAP) += ioremap.o
- obj-$(CONFIG_SHRINKER_DEBUG) += shrinker_debug.o
- obj-$(CONFIG_EXECMEM) += execmem.o
-+obj-$(CONFIG_NUMA) += numa.o
-diff --git a/kernel/numa.c b/mm/numa.c
-similarity index 100%
-rename from kernel/numa.c
-rename to mm/numa.c
+-#define NODE_DATA(n)		(&__node_data[(n)]->pglist)
+ #define hub_data(n)		(&__node_data[(n)]->hub)
+ 
++extern struct pglist_data *node_data[];
++
++#define NODE_DATA(nid)		(node_data[nid])
++
+ #endif /* _ASM_MACH_MMZONE_H */
+diff --git a/arch/mips/sgi-ip27/ip27-memory.c b/arch/mips/sgi-ip27/ip27-memory.c
+index b8ca94cfb4fe..c30ef6958b97 100644
+--- a/arch/mips/sgi-ip27/ip27-memory.c
++++ b/arch/mips/sgi-ip27/ip27-memory.c
+@@ -34,8 +34,10 @@
+ #define SLOT_PFNSHIFT		(SLOT_SHIFT - PAGE_SHIFT)
+ #define PFN_NASIDSHFT		(NASID_SHFT - PAGE_SHIFT)
+ 
+-struct node_data *__node_data[MAX_NUMNODES];
++struct pglist_data *node_data[MAX_NUMNODES];
++EXPORT_SYMBOL(node_data);
+ 
++struct node_data *__node_data[MAX_NUMNODES];
+ EXPORT_SYMBOL(__node_data);
+ 
+ static u64 gen_region_mask(void)
+@@ -361,6 +363,7 @@ static void __init node_mem_init(nasid_t node)
+ 	 */
+ 	__node_data[node] = __va(slot_freepfn << PAGE_SHIFT);
+ 	memset(__node_data[node], 0, PAGE_SIZE);
++	node_data[node] = &__node_data[node]->pglist;
+ 
+ 	NODE_DATA(node)->node_start_pfn = start_pfn;
+ 	NODE_DATA(node)->node_spanned_pages = end_pfn - start_pfn;
 -- 
 2.43.0
 
