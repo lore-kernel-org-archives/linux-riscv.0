@@ -4,127 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A5D0C3DA7F
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Aug 2024 18:54:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1AF3C52D6F
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Aug 2024 19:52:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
-	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=vHNB1OHCK5SRSZ2/uBC940ymOVynntmTZktKHcUEGhk=; b=ZhTb6aTufLaNE+Gi2d7ibTV8vH
-	C+7ribwsXBcAgUab85T3K3f4sPMCKdm68QzxG8vKs2JVJkaufVfPKO3D9yF66EeaIlSHYIy2F1BV1
-	hZcPWOkoxqrC3nQLlqUtLoZc9yduCRZ4Iu1CT4FgQ86KJttkVNVYjBBEmT4wJlVfxNcnSfp1xrj32
-	YwYeJc4uk6HrdGHaAMX9q8ISCA66drPErMseKSxR2TmtHITkwmWtLkAH3MbofFcbSFVBxf+yRFmfg
-	/Oe8NdKqh0gGKnVkVwiAm66RZp679Wykfq1xos0YjvifIVX0ZjxbUtbBFoWdcw1MMmnUfAFH+VLHd
-	wHfV999A==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=kEfjxMHHkCxpkxqYn6f4f5OuJ1WyUQGPtI+cmftVqXM=; b=eWRu9kO/73h4UK
+	tBReNSHbnisDLHIPz2M3xON7F2pxnH6zbPAdbSAS0zicFwiP+cE1FlzZak191bP8cZsNjHC10Oq7P
+	BzrVmalBTEnGnjCw9ITNoroAiawgN2BvmyFAZoxldHUknDqk0p7nlbMsIAE6Ufp7VRmbU85tvCGse
+	/TKMRTNkgKxuD7bogR5tA83tjtqWerZvnpwl7Ujq08GuRfuM4fTD2wuD67ldyOaKbPUCPEKQqsWs+
+	ZTI9NcA7vTQHNxEiQPzveafL+azpHc2D58KPEwfopv/B+Eb/40Dh9t6Keo0qKbQKm+Y3oLFmXxbfM
+	7DxBdGdmv7MloY8SLNrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sblnQ-000000060Ek-3qGL;
-	Wed, 07 Aug 2024 18:54:04 +0000
-Received: from flow7-smtp.messagingengine.com ([103.168.172.142])
+	id 1sbmi7-000000067BR-15jt;
+	Wed, 07 Aug 2024 19:52:39 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sblmq-0000000603I-28GI;
-	Wed, 07 Aug 2024 18:53:30 +0000
-Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
-	by mailflow.nyi.internal (Postfix) with ESMTP id B9FE8200F9C;
-	Wed,  7 Aug 2024 14:53:26 -0400 (EDT)
-Received: from imap51 ([10.202.2.101])
-  by compute4.internal (MEProxy); Wed, 07 Aug 2024 14:53:26 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1723056806;
-	 x=1723064006; bh=dN92Yy3XFjXTxBQ/NKAZMCYVQAegkihc+8DVkcaUGXw=; b=
-	M+AgFKcnD/Nuugw9QWMdK0TNIorx7c9kz4u4kWeEtoBkeDVxq1i8AfEINi28F8pD
-	mqxXrgNc0hd7DLIVn8ZdgKKw1WixvvvthvoPlB32dikpdRyZeayfzxol4TWH5zV/
-	sctoPTqK+Gpjs6mQSC5g5LuM5+hqde8Awr3BiE9VBetstqH9G+Y73dGI251beJG0
-	KD/S9aRYjMWru5ducc9JFCJqHqrV4tG/Fb2biX0pP/55/wPz4yqBj2Cwo3Jic+yq
-	Ts4ZD1s3I/J9I7pooC8Z3JaExlDJaha/uLa/IoywBt1Fj2dxnikSyGwL/537oKvz
-	3Ga11kSBaDC1us7TovA9WQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1723056806; x=
-	1723064006; bh=dN92Yy3XFjXTxBQ/NKAZMCYVQAegkihc+8DVkcaUGXw=; b=C
-	bd0u4JXHiwM85jQmCceR5thBnLlVROGCSHq6uqUQH7EES4yd9w+rGDAsQiWGz/KE
-	Tx9ieCb+syV32NMwTs+deNuAAbSSJe2g2WC6Q1eWWQa6JXLDL+jX7+woQX4AVmls
-	7LKrhVy6yJsezqFhMNl/XzM0DJIJdjB2cO6q+5fT/oDBlh0O4crlMEUa9nDaj5+w
-	8Li1kDK8ZNJzdI09O84Vv3hC186LsTWkCUiEZ2/yFGg3ilPlXUGqR2TZ+rh7pN7b
-	zrQN9qvczGLLR6LFQdfP+t0gWYdb1IFiN8QXdil4RtN7+rEubC/YANNF+1Cs12kw
-	Bcw5FrUO4Qwt7abMjpS7w==
-X-ME-Sender: <xms:pcKzZnopk042s10_adxzzpGQqjjj1zN1aqGfzwY9vdXxA-HcaMU7yw>
-    <xme:pcKzZhphWvwWMwSmYbDYPH1KAUK7_qukQL58dPLkKZwJ6qZO-PD0mTILf37wC-VkJ
-    yuGeXAZyjmZouRsKac>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddrledtgddufedtucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehr
-    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
-    htvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefh
-    vdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
-    hrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtoheptd
-X-ME-Proxy: <xmx:pcKzZkMMEa1QCyx9DYya--xGnOf_SSr3_VdEDtu9hV8xSe9yXZqVCw>
-    <xmx:pcKzZq7W7a2W3QiuibYT4n87PxFgIhVytpph5nF0kYnO4gUYERaGxQ>
-    <xmx:pcKzZm6A0MWzdmDLhHIywLO77HSPGI_SIwlTXUWpWoknLUo6ctrjwg>
-    <xmx:pcKzZigfeNcP1X2tQ3rm8J0r0mNkRKSh21gYx64IauzFFFTIOJUQRw>
-    <xmx:psKzZuEqNacnXDRDYO1s0FZVTS1ct0wiplIuRye5vQU_o20dyn1ygN6I>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id ED628B6008D; Wed,  7 Aug 2024 14:53:24 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1sbmi3-000000067Ao-21vp
+	for linux-riscv@lists.infradead.org;
+	Wed, 07 Aug 2024 19:52:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 75B206120C;
+	Wed,  7 Aug 2024 19:52:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29113C32781;
+	Wed,  7 Aug 2024 19:52:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1723060354;
+	bh=90hg2w0DIVjtDmSndjGo+vZRCd48QERRtZw9Ixqi3aw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=J2IB9ZMriyNqe+LfPaLpCetP9AUeViGneQdhlgXzghgFsNT6WcP3LyRvNO1FFgjDz
+	 L+c1sQcv+T+fkpVmLPNYJdOCYob8QMHF3Aw6T4ge5D0OOMX2lUHBJ1nFFJGdj0+rfV
+	 QnyeqMXf/C+Gt6nX5HduM7PyhIM0QL51/quL2IyBuvQVIgYIHKo66xRLgEeUgyqQVf
+	 BffivUb40DnrXkX2ph96A6fzcYgUkGP+Cy6axuIC1xPGcX7Ig+k+Fu7sPJHFHDlwvO
+	 AZTFW1Lho7suUagD00eIZ2T9E1jDA+Ap9izWGfjdeMEYVinAjUJJCd3omLsJGkSTef
+	 RSszIwlfhKldw==
+Date: Wed, 7 Aug 2024 12:52:33 -0700
+From: Kees Cook <kees@kernel.org>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: alex@ghiti.fr, sorear@fastmail.com, linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org, ebiederm@xmission.com,
+	damien.lemoal@wdc.com, gerg@linux-m68k.org, wbx@openadk.org
+Subject: Re: [PATCH] binfmt_flat: Fix corruption when not offsetting data
+ start
+Message-ID: <202408071251.655A07AC@keescook>
+References: <3659aee7-8baf-442f-aa81-22bb6fd1a11d@ghiti.fr>
+ <mhng-60ec65b8-04ef-4535-94b9-843386bd8922@palmer-ri-x1c9>
 MIME-Version: 1.0
-Date: Wed, 07 Aug 2024 20:53:04 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Mike Rapoport" <rppt@kernel.org>
-Cc: linux-kernel@vger.kernel.org,
- "Alexander Gordeev" <agordeev@linux.ibm.com>,
- "Andreas Larsson" <andreas@gaisler.com>,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "Borislav Petkov" <bp@alien8.de>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Christophe Leroy" <christophe.leroy@csgroup.eu>,
- "Dan Williams" <dan.j.williams@intel.com>,
- "Dave Hansen" <dave.hansen@linux.intel.com>,
- "David Hildenbrand" <david@redhat.com>,
- "David S . Miller" <davem@davemloft.net>,
- "Davidlohr Bueso" <dave@stgolabs.net>,
- "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
- "Heiko Carstens" <hca@linux.ibm.com>,
- "Huacai Chen" <chenhuacai@kernel.org>, "Ingo Molnar" <mingo@redhat.com>,
- "Jiaxun Yang" <jiaxun.yang@flygoat.com>,
- "John Paul Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>,
- "Jonathan Cameron" <jonathan.cameron@huawei.com>,
- "Jonathan Corbet" <corbet@lwn.net>,
- "Michael Ellerman" <mpe@ellerman.id.au>,
- "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Rafael J . Wysocki" <rafael@kernel.org>,
- "Rob Herring" <robh@kernel.org>,
- "Samuel Holland" <samuel.holland@sifive.com>,
- "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
- "Thomas Gleixner" <tglx@linutronix.de>,
- "Vasily Gorbik" <gor@linux.ibm.com>, "Will Deacon" <will@kernel.org>,
- "Zi Yan" <ziy@nvidia.com>, devicetree@vger.kernel.org,
- linux-acpi@vger.kernel.org, Linux-Arch <linux-arch@vger.kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-cxl@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-mips@vger.kernel.org,
- linux-mm@kvack.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
- nvdimm@lists.linux.dev, sparclinux@vger.kernel.org, x86@kernel.org
-Message-Id: <19f7ccec-db2a-4176-b6d9-12abe0586d07@app.fastmail.com>
-In-Reply-To: <ZrO6cExVz1He_yPn@kernel.org>
-References: <20240807064110.1003856-1-rppt@kernel.org>
- <20240807064110.1003856-25-rppt@kernel.org>
- <1befc540-8904-4c23-b0e6-e2c556fe22b9@app.fastmail.com>
- <ZrO6cExVz1He_yPn@kernel.org>
-Subject: Re: [PATCH v4 24/26] arch_numa: switch over to numa_memblks
+Content-Disposition: inline
+In-Reply-To: <mhng-60ec65b8-04ef-4535-94b9-843386bd8922@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240807_115328_851041_B6AB8B35 
-X-CRM114-Status: GOOD (  12.15  )
+X-CRM114-CacheID: sfid-20240807_125235_591686_5A07F671 
+X-CRM114-Status: GOOD (  25.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,27 +75,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 7, 2024, at 20:18, Mike Rapoport wrote:
-> On Wed, Aug 07, 2024 at 08:58:37AM +0200, Arnd Bergmann wrote:
->> On Wed, Aug 7, 2024, at 08:41, Mike Rapoport wrote:
->> > 
->> >  void __init arch_numa_init(void);
->> >  int __init numa_add_memblk(int nodeid, u64 start, u64 end);
->> > -void __init numa_set_distance(int from, int to, int distance);
->> > -void __init numa_free_distance(void);
->> >  void __init early_map_cpu_to_node(unsigned int cpu, int nid);
->> >  int __init early_cpu_to_node(int cpu);
->> >  void numa_store_cpu_info(unsigned int cpu);
->> 
->> but is still declared as __init in the header, so it is
->> still put in that section and discarded after boot.
->
-> I believe this should fix it
+On Wed, Aug 07, 2024 at 07:05:11AM -0700, Palmer Dabbelt wrote:
+> On Wed, 24 Apr 2024 13:44:31 PDT (-0700), alex@ghiti.fr wrote:
+> > Hi Stefan,
+> > 
+> > On 26/03/2024 04:20, Stefan O'Rear wrote:
+> > > Commit 04d82a6d0881 ("binfmt_flat: allow not offsetting data start")
+> > > introduced a RISC-V specific variant of the FLAT format which does not
+> > > allocate any space for the (obsolescent) array of shared library
+> > > pointers. However, it did not disable the code which initializes the
+> > > array, resulting in the corruption of sizeof(long) bytes before the DATA
+> > > segment, generally the end of the TEXT segment.
+> > > 
+> > > Use CONFIG_BINFMT_FLAT_NO_DATA_START_OFFSET to guard initialization the
+> > > shared library pointer region so that it will only be initialized if
+> > > space is reserved for it.
+> > > 
+> > > Fixes: 04d82a6d0881 ("binfmt_flat: allow not offsetting data start")
+> > > Signed-off-by: Stefan O'Rear <sorear@fastmail.com>
+> > > Tested-by: Waldemar Brodkorb <wbx@openadk.org>
+> > > ---
+> > >   fs/binfmt_flat.c | 2 ++
+> > >   1 file changed, 2 insertions(+)
+> > > 
+> > > diff --git a/fs/binfmt_flat.c b/fs/binfmt_flat.c
+> > > index c26545d71d39..70c2b68988f4 100644
+> > > --- a/fs/binfmt_flat.c
+> > > +++ b/fs/binfmt_flat.c
+> > > @@ -879,6 +879,7 @@ static int load_flat_binary(struct linux_binprm *bprm)
+> > >   	if (res < 0)
+> > >   		return res;
+> > > 
+> > > +#ifndef CONFIG_BINFMT_FLAT_NO_DATA_START_OFFSET
+> > >   	/* Update data segment pointers for all libraries */
+> > >   	for (i = 0; i < MAX_SHARED_LIBS; i++) {
+> > >   		if (!libinfo.lib_list[i].loaded)
+> > > @@ -893,6 +894,7 @@ static int load_flat_binary(struct linux_binprm *bprm)
+> > >   				return -EFAULT;
+> > >   		}
+> > >   	}
+> > > +#endif
+> > > 
+> > >   	set_binfmt(&flat_format);
+> > > 
+> > 
+> > I have this fix on my list for quite some time, will you respin a new
+> > version for 6.9?
+> 
+> IIRC we asked on IRC and Sorear wasn't going to respin the patch, so unless
+> someone else wants to pick it up I think it's just going to get lost.
 
-Yes, sorry I should have posted the patch as well, this is
-what I tested with locally.
+I took a look at this and sent a v2 just now.
 
-     Arnd
+-- 
+Kees Cook
 
 _______________________________________________
 linux-riscv mailing list
