@@ -4,95 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44524C52D73
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Aug 2024 06:25:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90729C3DA4A
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Aug 2024 07:33:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Vz8I2O2wTuHL8GOrQsY99V63xnqn6IuaE2zjgdNh/yM=; b=X9DJKuHC1SBpmF
-	8QrdnFGKi/xGvIymaTjA+YsDTzGbVwMXqZFz8uh4W7Ad0/5TFHXQFMwUz9Fu/L2DVv0UvySoICQtK
-	xSakHzCOpMSYHiKWCqP8zdzHVQiTDtNBoaEpFwrL9XKI5EXRzi19f028sV8bGg02w/dNOjIxNXuKl
-	0rT3vsRtaNrZciFM2b3dfV1oJE/oilqvU8q4inNDw0YT2tbr/0IkLypqV0iIpLEqE5IrJdtEPPh+e
-	sBT8Boc5l6HjWOZMNe9aJHRhOj9PiVxnq2QLU8gBKbZBJ4E3Ij7yat9cg1gUBFmFBBrLMW0tFii5v
-	GTRWAvIBKZY2m2QNcIaQ==;
+	List-Owner; bh=zyeRiEr6W7ukeXH7/a3deAdW/t8Shm9eIgaCTHhfYKc=; b=36gNk9neEsecjB
+	8z7JZ0CxPIQIyth4B2W83NwyeOhNmxPJWcYb0OCS4New/FRrpk6TyYXSECNFUzNizZ7E5FhPq7Flq
+	TwvknooFJy7D1LGe0UzdgLXDHvjD4+BxEXaktuX1rVOgl/4vguSVMhR14193VQd9RDxXHDGZfLif1
+	gQmw5ZZpUN3UlEpHh3FF/1A2iJD7PWDGQBy0ri8gACmvTdOm+zbaw0eQxdJcP1QCeLcAn36VMudOX
+	GxPws6eWv6w1X3/HR3b2+eRcX9/4grbzkG9QGVwDGQYW8YaCMHNf7D6JBgbNCLmQJzG1wDDo48M/K
+	xmgV429IZfT63d3Z8BBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbwaY-00000007E47-1gqn;
-	Thu, 08 Aug 2024 06:25:30 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1sbxeE-00000007R0y-2h5y;
+	Thu, 08 Aug 2024 07:33:22 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbwaV-00000007E34-20ga
+	id 1sbxQi-00000007Mz3-48AB
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 Aug 2024 06:25:28 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-2cb4c4de4cbso506556a91.1
-        for <linux-riscv@lists.infradead.org>; Wed, 07 Aug 2024 23:25:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1723098326; x=1723703126; darn=lists.infradead.org;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=sJzbBpFNwwY6e+GIMU5iIyI4LLoSSqWXmhkhActO1pM=;
-        b=ieQW3Z+4RHlTWMnhTE5XsdSwUGRPws408HVqpZnGnkaEqFuIunSAZhgxkvQLEt0MN4
-         HsuRUlxlbAzKHx3Pj40SgVTG8QnjZ2j13N/SF2eWcUEGbt+gFAmsxnOO/FmO1F2nVhuv
-         aCfHxiR97c7bm+mo0xYzdqhVcftPCwmg9p+61UadPh7Q+hiETBMJAVPQBTe/qNVa+1On
-         evYsqk5ZjhJmgvf5k0OlAfzHGfA7EKwWPGoD9FHLnuyPsC8dIQ3bFmjSAvx5apvE3M48
-         h1rgFXHtjnPV5l/D9gMITO5L3Y18tBStU4do9Bf0dDMFQlLDJKmWNAVhIC9VEPwAa6EF
-         bCCA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1723098326; x=1723703126;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=sJzbBpFNwwY6e+GIMU5iIyI4LLoSSqWXmhkhActO1pM=;
-        b=rhc60zzrNWdIsFhtJn1/ARivJWbEg0bQ37ocoW+w0u67DIRQ7atJwHsaJS8GartBmO
-         h7NwOtx4DUZtUOF2fF6dpJZuILVVLa6NhJWjF6RFNakK9aGx5JChjewXPMY16AYd64GH
-         iaBEUZ9eueQLmtXDeoOBIEQ1/m1jysC/69eupmt9a9rNYh+NajYDwCcuX3uCcakRanO2
-         4TeG3t1DTDNp3NrI+/csk3QS7nOqicAMn5etbst/j+PgjeH+JRaEpsKkHGu0mFVX/1n5
-         qujT91Z41dYicun1YtkGNjXu3HJfNHCyKTQo0xm8OVHZObqHUrtyPUsLIPTdq/y93FmD
-         4Ibg==
-X-Forwarded-Encrypted: i=1; AJvYcCUyzXVp8NxV4E6c1QdDa25BwKx75fLnPdpjPGlcopK/L/KIBB1psBqkqR/uaAw7MSIG889tZLch+spr4A/XjZMwYDMxFqnEUkqSoMDwLMR1
-X-Gm-Message-State: AOJu0Yzqqts9ggBGvE7pugcbwpY9FW/GKp5NR+luk2QQsPG8FVvpeQIr
-	fIpUcCxCDRoEC/2VJYknf7d5VrOTGCc/i10ZuoEbwHLmeZeDirxmc3KjwZJ5vJQ=
-X-Google-Smtp-Source: AGHT+IG5Sh4RPZDFGIdFKwM0iRTPb/2nHrMhAgBHSqeUq3wn62Dbr5Jen5m7Eo7OeNMhWJA7SfHwfg==
-X-Received: by 2002:a17:90b:4ac9:b0:2c4:dc63:96d7 with SMTP id 98e67ed59e1d1-2d1c349446emr921727a91.41.1723098326578;
-        Wed, 07 Aug 2024 23:25:26 -0700 (PDT)
-Received: from localhost ([2804:14c:87d5:5261:ed46:7c69:6cee:3c20])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2d1c9db74a0sm328001a91.47.2024.08.07.23.25.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 Aug 2024 23:25:26 -0700 (PDT)
-From: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,  Will Deacon
- <will@kernel.org>,  Jonathan Corbet <corbet@lwn.net>,  Andrew Morton
- <akpm@linux-foundation.org>,  Marc Zyngier <maz@kernel.org>,  Oliver Upton
- <oliver.upton@linux.dev>,  James Morse <james.morse@arm.com>,  Suzuki K
- Poulose <suzuki.poulose@arm.com>,  Arnd Bergmann <arnd@arndb.de>,  Oleg
- Nesterov <oleg@redhat.com>,  Eric Biederman <ebiederm@xmission.com>,
-  Shuah Khan <shuah@kernel.org>,  "Rick P. Edgecombe"
- <rick.p.edgecombe@intel.com>,  Deepak Gupta <debug@rivosinc.com>,  Ard
- Biesheuvel <ardb@kernel.org>,  Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
-  Kees Cook <kees@kernel.org>,  "H.J. Lu" <hjl.tools@gmail.com>,  Paul
- Walmsley <paul.walmsley@sifive.com>,  Palmer Dabbelt <palmer@dabbelt.com>,
-  Albert Ou <aou@eecs.berkeley.edu>,  Florian Weimer <fweimer@redhat.com>,
-  Christian Brauner <brauner@kernel.org>,  Ross Burton
- <ross.burton@arm.com>,  linux-arm-kernel@lists.infradead.org,
-  linux-doc@vger.kernel.org,  kvmarm@lists.linux.dev,
-  linux-fsdevel@vger.kernel.org,  linux-arch@vger.kernel.org,
-  linux-mm@kvack.org,  linux-kselftest@vger.kernel.org,
-  linux-kernel@vger.kernel.org,  linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v10 39/40] kselftest/arm64: Enable GCS for the FP stress
- tests
-In-Reply-To: <20240801-arm64-gcs-v10-39-699e2bd2190b@kernel.org> (Mark Brown's
-	message of "Thu, 01 Aug 2024 13:07:06 +0100")
-References: <20240801-arm64-gcs-v10-0-699e2bd2190b@kernel.org>
-	<20240801-arm64-gcs-v10-39-699e2bd2190b@kernel.org>
-Date: Thu, 08 Aug 2024 03:25:23 -0300
-Message-ID: <87v80bcyzw.fsf@linaro.org>
+	Thu, 08 Aug 2024 07:19:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1723101566; x=1754637566;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=9Nbhk6CfRrxq7qd08hKcyo0cO/UojxpBoqL9e0BRuqo=;
+  b=fbOmeOlybPZqMYs5s24xKSqo95XJGd8ZNk1oCeRZXGwWTXOw7YpIqQKp
+   F5twH9Ey2O1BVSdWmkax73S4xp0Ul+WxH844Qj8z9WmnpbOktEHsgqQkg
+   VV5gmNINvz62Sazl1OXB81+dys3PBAut0hw7JVnagB+RRr9SVGc4HwGTs
+   GXQa8zHCM1+e17+qxEqwPJYRBJiwPyECvkZkyYCOJLO2xz8CTTxvxsZtK
+   ZchQIfFF6CKDTHG7qHPepCcAQGhF2N+kCagQHS0pbGXGxLFh9VzMTFSTa
+   omNKzj11Ai8NcxnPFFsyD/V4i4LdxBhhD3E1miLpqF5jTHCsaNekd/8tC
+   A==;
+X-CSE-ConnectionGUID: TRh3ssO1S2S44ANkgwrXUw==
+X-CSE-MsgGUID: zD0mctMtSzCi1iu2a9mBGA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11157"; a="21352344"
+X-IronPort-AV: E=Sophos;i="6.09,272,1716274800"; 
+   d="scan'208";a="21352344"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Aug 2024 00:19:25 -0700
+X-CSE-ConnectionGUID: CmF79l6JRrC3hhHl10QrTQ==
+X-CSE-MsgGUID: LKuBe3YdQCGqBCxG5kIgLA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.09,272,1716274800"; 
+   d="scan'208";a="80357473"
+Received: from ahunter6-mobl1.ger.corp.intel.com (HELO [10.0.2.15]) ([10.245.150.149])
+  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Aug 2024 00:19:17 -0700
+Message-ID: <b87fb5fe-63e1-4f4e-bc7c-92a91becf61e@intel.com>
+Date: Thu, 8 Aug 2024 10:19:10 +0300
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 4/8] mmc: sdhci-of-dwcmshc: factor out code into
+ dwcmshc_rk35xx_init
+To: Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu,
+ conor+dt@kernel.org, guoren@kernel.org, inochiama@outlook.com,
+ jszhang@kernel.org, krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, robh@kernel.org, ulf.hansson@linaro.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-mmc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ chao.wei@sophgo.com, haijiao.liu@sophgo.com, xiaoguang.xing@sophgo.com,
+ tingzhu.wang@sophgo.com
+Cc: Chen Wang <unicorn_wang@outlook.com>, Drew Fustini <drew@pdp7.com>
+References: <cover.1722847198.git.unicorn_wang@outlook.com>
+ <4f1f2fa403ce7f0b4d79afb7d7e8a1690cde5d6c.1722847198.git.unicorn_wang@outlook.com>
+Content-Language: en-US
+From: Adrian Hunter <adrian.hunter@intel.com>
+Organization: Intel Finland Oy, Registered Address: PL 281, 00181 Helsinki,
+ Business Identity Code: 0357606 - 4, Domiciled in Helsinki
+In-Reply-To: <4f1f2fa403ce7f0b4d79afb7d7e8a1690cde5d6c.1722847198.git.unicorn_wang@outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240807_232527_553528_2B299D30 
-X-CRM114-Status: GOOD (  10.02  )
+X-CRM114-CacheID: sfid-20240808_001925_117314_35331ACE 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,31 +95,99 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Mark Brown <broonie@kernel.org> writes:
+On 5/08/24 12:18, Chen Wang wrote:
+> From: Chen Wang <unicorn_wang@outlook.com>
+> 
+> Continue factor out code fron probe into dwcmshc_rk35xx_init.
+> 
+> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
+> Tested-by: Drew Fustini <drew@pdp7.com> # TH1520
+> Tested-by: Inochi Amaoto <inochiama@outlook.com> # Duo and Huashan Pi
 
-> While it's a bit off topic for them the floating point stress tests do give
-> us some coverage of context thrashing cases, and also of active signal
-> delivery separate to the relatively complicated framework in the actual
-> signals tests. Have the tests enable GCS on startup, ignoring failures so
-> they continue to work as before on systems without GCS.
->
-> Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
-> Signed-off-by: Mark Brown <broonie@kernel.org>
+Acked-by: Adrian Hunter <adrian.hunter@intel.com>
+
 > ---
->  tools/testing/selftests/arm64/fp/assembler.h   | 15 +++++++++++++++
->  tools/testing/selftests/arm64/fp/fpsimd-test.S |  2 ++
->  tools/testing/selftests/arm64/fp/sve-test.S    |  2 ++
->  tools/testing/selftests/arm64/fp/za-test.S     |  2 ++
->  tools/testing/selftests/arm64/fp/zt-test.S     |  2 ++
->  5 files changed, 23 insertions(+)
+>  drivers/mmc/host/sdhci-of-dwcmshc.c | 34 ++++++++++++++---------------
+>  1 file changed, 16 insertions(+), 18 deletions(-)
+> 
+> diff --git a/drivers/mmc/host/sdhci-of-dwcmshc.c b/drivers/mmc/host/sdhci-of-dwcmshc.c
+> index b272ec2ab232..55fba5ef37ba 100644
+> --- a/drivers/mmc/host/sdhci-of-dwcmshc.c
+> +++ b/drivers/mmc/host/sdhci-of-dwcmshc.c
+> @@ -711,12 +711,22 @@ static void rk35xx_sdhci_reset(struct sdhci_host *host, u8 mask)
+>  	sdhci_reset(host, mask);
+>  }
+>  
+> -static int dwcmshc_rk35xx_init(struct sdhci_host *host, struct dwcmshc_priv *dwc_priv)
+> +static int dwcmshc_rk35xx_init(struct device *dev, struct sdhci_host *host,
+> +			       struct dwcmshc_priv *dwc_priv)
+>  {
+>  	static const char * const clk_ids[] = {"axi", "block", "timer"};
+> -	struct rk35xx_priv *priv = dwc_priv->priv;
+> +	struct rk35xx_priv *priv;
+>  	int err;
+>  
+> +	priv = devm_kzalloc(dev, sizeof(struct rk35xx_priv), GFP_KERNEL);
+> +	if (!priv)
+> +		return -ENOMEM;
+> +
+> +	if (of_device_is_compatible(dev->of_node, "rockchip,rk3588-dwcmshc"))
+> +		priv->devtype = DWCMSHC_RK3588;
+> +	else
+> +		priv->devtype = DWCMSHC_RK3568;
+> +
+>  	priv->reset = devm_reset_control_array_get_optional_exclusive(mmc_dev(host->mmc));
+>  	if (IS_ERR(priv->reset)) {
+>  		err = PTR_ERR(priv->reset);
+> @@ -739,6 +749,8 @@ static int dwcmshc_rk35xx_init(struct sdhci_host *host, struct dwcmshc_priv *dwc
+>  	sdhci_writel(host, 0, DWCMSHC_EMMC_DLL_TXCLK);
+>  	sdhci_writel(host, 0, DWCMSHC_EMMC_DLL_STRBIN);
+>  
+> +	dwc_priv->priv = priv;
+> +
+>  	return 0;
+>  }
+>  
+> @@ -1184,7 +1196,6 @@ static int dwcmshc_probe(struct platform_device *pdev)
+>  	struct sdhci_pltfm_host *pltfm_host;
+>  	struct sdhci_host *host;
+>  	struct dwcmshc_priv *priv;
+> -	struct rk35xx_priv *rk_priv = NULL;
+>  	const struct sdhci_pltfm_data *pltfm_data;
+>  	int err;
+>  	u32 extra, caps;
+> @@ -1241,20 +1252,7 @@ static int dwcmshc_probe(struct platform_device *pdev)
+>  	host->mmc_host_ops.execute_tuning = dwcmshc_execute_tuning;
+>  
+>  	if (pltfm_data == &sdhci_dwcmshc_rk35xx_pdata) {
+> -		rk_priv = devm_kzalloc(&pdev->dev, sizeof(struct rk35xx_priv), GFP_KERNEL);
+> -		if (!rk_priv) {
+> -			err = -ENOMEM;
+> -			goto err_clk;
+> -		}
+> -
+> -		if (of_device_is_compatible(pdev->dev.of_node, "rockchip,rk3588-dwcmshc"))
+> -			rk_priv->devtype = DWCMSHC_RK3588;
+> -		else
+> -			rk_priv->devtype = DWCMSHC_RK3568;
+> -
+> -		priv->priv = rk_priv;
+> -
+> -		err = dwcmshc_rk35xx_init(host, priv);
+> +		err = dwcmshc_rk35xx_init(dev, host, priv);
+>  		if (err)
+>  			goto err_clk;
+>  	}
+> @@ -1290,7 +1288,7 @@ static int dwcmshc_probe(struct platform_device *pdev)
+>  		dwcmshc_cqhci_init(host, pdev);
+>  	}
+>  
+> -	if (rk_priv)
+> +	if (pltfm_data == &sdhci_dwcmshc_rk35xx_pdata)
+>  		dwcmshc_rk35xx_postinit(host, priv);
+>  
+>  	err = __sdhci_add_host(host);
 
-The fpsimd, sve, za and zt tests don't find any errors on my FVP setup
-when left running for a while:
-
-Tested-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
-
--- 
-Thiago
 
 _______________________________________________
 linux-riscv mailing list
