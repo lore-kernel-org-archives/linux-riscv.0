@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9046C3DA4A
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Aug 2024 09:55:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 916D5C3DA4A
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Aug 2024 09:55:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=m+7pkwhn8wwMfV+aRICcdMsdhSCcfEsRq9HkIcq5Rb4=; b=KjXNHCK/iV6Cd2
-	F/rj/0u1yFFCATgzT1dwxC3NLLQfPdMwa5D52K2qBGu+uIjoz5m7pdte7jOt61XvQMkLV0l1aRZTT
-	4ALj9x2toyH0lmNdYlfuA7Ag0xwMrd08rvQ2sC4BAuvsWNWutEFbYRfLPBsPG/72m+R06xdbC3OP3
-	RklXCgzpqcNEsNpAs4g5ZGiOcSeh5QBpgb/LZd7lha6ZJR7msfCOPvfZzq2HrlYwQyOOBJ2yGB7u9
-	2Ay8+3l4vJb3PDQojByq3V8g3t1F8/C7u8ilMfA8yEQJ11x6o0I8RNzDfFs4dWNq7QqwWMj9sWrws
-	ogoxQ3benaxuDa6pJ3hA==;
+	List-Owner; bh=Em+YnfKKiT0ny3X+14TEPwkxyrfFd+dAncajULwXBXo=; b=jGiHcoVaBkxuda
+	Cg9SBVMkuSWnnlgWtuk4xYReAqJKiSe/i/8TF3Sn5Ba/aKj+2Dx9Hpv79KxIXM3H1U6B6U7rhKTo8
+	bcUlGxxWxSiPt9PdHzdKAWJG9tlr5VwwpnlbAQ1o9cRGKamdZfT5EctRLn5DxBW85sh7anIwLfL36
+	QtEP+4yWUiGj+kaOyo2yPlTTE9IIAzPXAXj8dNtQwMxAEhUmzkFIkscNJQGoJoe7gHLUo8E1X32mp
+	TmcXPzN1maOYqfGLdDXv5UnbUhtBGuzQ/pOwiwkkw31cFTY56yqn9e3CxsblmMh6x3hXDt7jyDEWt
+	n7GKMO21mlflCd8xGxPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbzrQ-00000007n3u-4ATf;
-	Thu, 08 Aug 2024 09:55:09 +0000
+	id 1sbzry-00000007nEi-2l5W;
+	Thu, 08 Aug 2024 09:55:42 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbzqq-00000007mue-159J;
-	Thu, 08 Aug 2024 09:54:33 +0000
+	id 1sbzqu-00000007mvY-1yAt;
+	Thu, 08 Aug 2024 09:54:37 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0E8C0DA7;
-	Thu,  8 Aug 2024 02:54:55 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AA0441042;
+	Thu,  8 Aug 2024 02:55:01 -0700 (PDT)
 Received: from [10.1.26.21] (e122027.cambridge.arm.com [10.1.26.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 632F73F6A8;
-	Thu,  8 Aug 2024 02:54:23 -0700 (PDT)
-Message-ID: <34468ff8-2159-4adb-b680-c6048eecee80@arm.com>
-Date: Thu, 8 Aug 2024 10:54:20 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A95173F6A8;
+	Thu,  8 Aug 2024 02:54:29 -0700 (PDT)
+Message-ID: <fbcbd4da-cab5-420e-b8b6-bf04e27bf69c@arm.com>
+Date: Thu, 8 Aug 2024 10:54:24 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 01/84] KVM: arm64: Release pfn, i.e. put page, if
- copying MTE tags hits ZONE_DEVICE
+Subject: Re: [PATCH v12 02/84] KVM: arm64: Disallow copying MTE to guest
+ memory while KVM is dirty logging
 To: Catalin Marinas <catalin.marinas@arm.com>,
  Sean Christopherson <seanjc@google.com>
 Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
@@ -55,13 +55,13 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  David Matlack <dmatlack@google.com>, David Stevens <stevensd@chromium.org>
 References: <20240726235234.228822-1-seanjc@google.com>
- <20240726235234.228822-2-seanjc@google.com> <ZrOBg70pCnv7PHyK@arm.com>
+ <20240726235234.228822-3-seanjc@google.com> <ZrOfB8bOdSJVcWFr@arm.com>
 From: Steven Price <steven.price@arm.com>
 Content-Language: en-GB
-In-Reply-To: <ZrOBg70pCnv7PHyK@arm.com>
+In-Reply-To: <ZrOfB8bOdSJVcWFr@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240808_025432_390574_B041E79D 
-X-CRM114-Status: GOOD (  14.05  )
+X-CRM114-CacheID: sfid-20240808_025436_590233_177625F0 
+X-CRM114-Status: GOOD (  17.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,44 +78,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 07/08/2024 15:15, Catalin Marinas wrote:
-> On Fri, Jul 26, 2024 at 04:51:10PM -0700, Sean Christopherson wrote:
->> Put the page reference acquired by gfn_to_pfn_prot() if
->> kvm_vm_ioctl_mte_copy_tags() runs into ZONE_DEVICE memory.  KVM's less-
->> than-stellar heuristics for dealing with pfn-mapped memory means that KVM
->> can get a page reference to ZONE_DEVICE memory.
+On 07/08/2024 17:21, Catalin Marinas wrote:
+> On Fri, Jul 26, 2024 at 04:51:11PM -0700, Sean Christopherson wrote:
+>> Disallow copying MTE tags to guest memory while KVM is dirty logging, as
+>> writing guest memory without marking the gfn as dirty in the memslot could
+>> result in userspace failing to migrate the updated page.  Ideally (maybe?),
+>> KVM would simply mark the gfn as dirty, but there is no vCPU to work with,
+>> and presumably the only use case for copy MTE tags _to_ the guest is when
+>> restoring state on the target.
 >>
 >> Fixes: f0376edb1ddc ("KVM: arm64: Add ioctl to fetch/store tags in a guest")
 >> Signed-off-by: Sean Christopherson <seanjc@google.com>
 >> ---
->>  arch/arm64/kvm/guest.c | 1 +
->>  1 file changed, 1 insertion(+)
+>>  arch/arm64/kvm/guest.c | 5 +++++
+>>  1 file changed, 5 insertions(+)
 >>
 >> diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
->> index 11098eb7eb44..e1f0ff08836a 100644
+>> index e1f0ff08836a..962f985977c2 100644
 >> --- a/arch/arm64/kvm/guest.c
 >> +++ b/arch/arm64/kvm/guest.c
->> @@ -1059,6 +1059,7 @@ int kvm_vm_ioctl_mte_copy_tags(struct kvm *kvm,
->>  		page = pfn_to_online_page(pfn);
->>  		if (!page) {
->>  			/* Reject ZONE_DEVICE memory */
->> +			kvm_release_pfn_clean(pfn);
->>  			ret = -EFAULT;
->>  			goto out;
->>  		}
+>> @@ -1045,6 +1045,11 @@ int kvm_vm_ioctl_mte_copy_tags(struct kvm *kvm,
+>>  
+>>  	mutex_lock(&kvm->slots_lock);
+>>  
+>> +	if (write && atomic_read(&kvm->nr_memslots_dirty_logging)) {
+>> +		ret = -EBUSY;
+>> +		goto out;
+>> +	}
 > 
-> This patch makes sense irrespective of whether the above pfn is a
-> ZONE_DEVICE or not. gfn_to_pfn_prot() increased the page refcount via
-> GUP, so it must be released before bailing out of this loop.
+> There are ways to actually log the page dirtying but I don't think
+> it's worth it. AFAICT, reading the tags still works and that's what's
+> used during migration (on the VM where dirty tracking takes place).
 > 
 > Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 > 
 
-Yep, as Catalin says, this is an 'obviously' correct fix - the reference
-needs releasing before bailing out. The comment there is perhaps
-misleading - it's not just ZONE_DEVICE memory that will be rejected, but
-this is the case that was in my mind when I wrote it. Although clearly I
-wasn't thinking hard enough when writing the code in the first place... ;)
+Looks sensible to me - my initial thought was "why would a VMM do
+that?". But it would make sense to actually return a failure rather than
+letting the VMM shoot itself in the foot.
+
+If there's actually a use-case then we could look at making the dirty
+tracking work, but I'm not convinced there is a good reason.
 
 Reviewed-by: Steven Price <steven.price@arm.com>
 
