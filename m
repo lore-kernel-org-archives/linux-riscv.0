@@ -4,62 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3782C52D73
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Aug 2024 07:57:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41904C52D73
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Aug 2024 08:21:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CaWpq2dX6sPThdW9i5XhVnryAQdH8mveU70R52ztZtE=; b=27Z9P1BKE1DPAF
-	hUtT1j6Xg9phwDYtKcEnZbhg65Q+Dv9mik/2BpvWJal92WzIfx/d7u2z4FwWnsIGYogBi/zS+UBPs
-	DXodg/XeBtygs/1n2Ln7A9qWGC04Cuy0DU1/WPrMBX+9ChhlHjj07Nrx8OKF/Gx8/t3pccnNUCe4t
-	7hjzSfw0dZqoinq8qM3w5s0hUAjFEXJg5rmTQSR0OdUrPso0oCB+fCky0nNT2sOvHkt6X8wX7gvy9
-	xVLLf275eoSLRxGyQ5ErkfayYfU3BxVWfiDEtYIl8awJ3y2DPwYPi6D7BPO55PazN3TzroOXfd4+R
-	Td2isyJES23Bq0uhsD6w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2fHrbEwbhlFYB1ghtXju53UtcTCsAidhG4vJwJmvfiU=; b=QVzZI/TFc4sCbZxQOClLAFL2aa
+	HVEKtKfP2m80bDkcmGrNzB6yyHOfqTUI//GXzUjeX3GTdefv/nF/B3lHP9uAY3uwXond7TtMgIEtZ
+	luo+7YNXP/9phGrxfd/Kami1kWHBQ26+A6HN0atKPv58d5ZPjsPwms6a3inQ5GDHhSYHZKavpvEXx
+	LgdoT+huph3WS/4fr4cR4Fnp3jgd+cBS84CndeMKUI3mYzbN8BqDWpQcgZiAiXH+puuY9YjOo4Db1
+	DVTD8PlXA18h+bEHxqihFeZPbhaXHkKWf3HRl04iBBSHPXAXP9B3pwBdHGkUfoWtPXa2i0oaz0wIi
+	by/IQUgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sby1N-00000007VBi-1KUL;
-	Thu, 08 Aug 2024 07:57:17 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1sbyOg-00000007ZDH-09Uz;
+	Thu, 08 Aug 2024 08:21:22 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sby0n-00000007V5D-3AWc;
-	Thu, 08 Aug 2024 07:56:43 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.194])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4WffV54tM4zpTDg;
-	Thu,  8 Aug 2024 15:55:25 +0800 (CST)
-Received: from kwepemi100008.china.huawei.com (unknown [7.221.188.57])
-	by mail.maildlp.com (Postfix) with ESMTPS id 20577140604;
-	Thu,  8 Aug 2024 15:56:37 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- kwepemi100008.china.huawei.com (7.221.188.57) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Thu, 8 Aug 2024 15:56:36 +0800
-Message-ID: <e01df216-0225-ef49-8eb3-2ccdcb424785@huawei.com>
-Date: Thu, 8 Aug 2024 15:56:35 +0800
+	id 1sbyM9-00000007Yuk-0p9b;
+	Thu, 08 Aug 2024 08:20:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id EB2A5CE131F;
+	Thu,  8 Aug 2024 08:18:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F67FC32782;
+	Thu,  8 Aug 2024 08:18:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1723105122;
+	bh=BR4CYQvHKo7S4XehLC4CADBELA11Nm62X+WdUtFf9n4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jc1TkavT0yEwNQChojDNn6AzGcsiESQp68rBPCuDzS3h7cmm5mLAyY/voHLXit3ob
+	 YkYUfwcDxzH57mFobw6RuiTbcQDB7A/Dj18LPpDs/7TM+IzPBk1iMMJa8aGs8NIabQ
+	 rLTZBdmlTgnZinuKZ6W70lM90r+vHQruMzAhCDUOcQPyLqDx4HgggSMUhP/irHTGzK
+	 XLQkATMF3M9dx/Iw7RIjCYaaU8Opo84nZlHK4TCSxzmpVukJESm7/IP13d0V+6AyDb
+	 xJw618pEuua6MmBDeXs0tcK8qgBBc2CVlYuyDwUg1htX4TnGHXSl1aUscA1F2nWxgC
+	 BiJGXD7RqbUwQ==
+Date: Thu, 8 Aug 2024 09:18:37 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Shuah Khan <shuah@kernel.org>,
+	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
+	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
+	Szabolcs Nagy <Szabolcs.Nagy@arm.com>, Kees Cook <kees@kernel.org>,
+	"H.J. Lu" <hjl.tools@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Florian Weimer <fweimer@redhat.com>,
+	Christian Brauner <brauner@kernel.org>,
+	Ross Burton <ross.burton@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v10 38/40] kselftest/arm64: Add a GCS stress test
+Message-ID: <ZrR_XZ3JCCIrZUIo@finisterre.sirena.org.uk>
+References: <20240801-arm64-gcs-v10-0-699e2bd2190b@kernel.org>
+ <20240801-arm64-gcs-v10-38-699e2bd2190b@kernel.org>
+ <877ccsdkjp.fsf@linaro.org>
+ <ZrP-9gHsvVHr2Y5B@finisterre.sirena.org.uk>
+ <87y157cz2h.fsf@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.0
-Subject: Re: [PATCH -next] crash: Fix riscv64 crash memory reserve dead loop
-Content-Language: en-US
-To: Catalin Marinas <catalin.marinas@arm.com>, Baoquan He <bhe@redhat.com>
-CC: <vgoyal@redhat.com>, <dyoung@redhat.com>, <paul.walmsley@sifive.com>,
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <chenjiahao16@huawei.com>,
-	<akpm@linux-foundation.org>, <kexec@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, Will Deacon <will@kernel.org>
-References: <20240802090105.3871929-1-ruanjinjie@huawei.com>
- <ZqywtegyIS/YXOVv@MiWiFi-R3L-srv> <ZrJ1JkyDVpRRB_9e@arm.com>
- <ZrJ60vopeGDXFZyK@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <ZrJ60vopeGDXFZyK@arm.com>
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- kwepemi100008.china.huawei.com (7.221.188.57)
+In-Reply-To: <87y157cz2h.fsf@linaro.org>
+X-Cookie: Your love life will be... interesting.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240808_005642_144313_4AE8B7D9 
-X-CRM114-Status: GOOD (  18.02  )
+X-CRM114-CacheID: sfid-20240808_011845_599655_23D4BD66 
+X-CRM114-Status: GOOD (  12.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,85 +93,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1695976984573667154=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
+--===============1695976984573667154==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="2xjwlae8dVoFu1hA"
+Content-Disposition: inline
 
-On 2024/8/7 3:34, Catalin Marinas wrote:
-> On Tue, Aug 06, 2024 at 08:10:30PM +0100, Catalin Marinas wrote:
->> On Fri, Aug 02, 2024 at 06:11:01PM +0800, Baoquan He wrote:
->>> On 08/02/24 at 05:01pm, Jinjie Ruan wrote:
->>>> On RISCV64 Qemu machine with 512MB memory, cmdline "crashkernel=500M,high"
->>>> will cause system stall as below:
->>>>
->>>> 	 Zone ranges:
->>>> 	   DMA32    [mem 0x0000000080000000-0x000000009fffffff]
->>>> 	   Normal   empty
->>>> 	 Movable zone start for each node
->>>> 	 Early memory node ranges
->>>> 	   node   0: [mem 0x0000000080000000-0x000000008005ffff]
->>>> 	   node   0: [mem 0x0000000080060000-0x000000009fffffff]
->>>> 	 Initmem setup node 0 [mem 0x0000000080000000-0x000000009fffffff]
->>>> 	(stall here)
->>>>
->>>> commit 5d99cadf1568 ("crash: fix x86_32 crash memory reserve dead loop
->>>> bug") fix this on 32-bit architecture. However, the problem is not
->>>> completely solved. If `CRASH_ADDR_LOW_MAX = CRASH_ADDR_HIGH_MAX` on 64-bit
->>>> architecture, for example, when system memory is equal to
->>>> CRASH_ADDR_LOW_MAX on RISCV64, the following infinite loop will also occur:
->>>
->>> Interesting, I didn't expect risc-v defining them like these.
->>>
->>> #define CRASH_ADDR_LOW_MAX              dma32_phys_limit
->>> #define CRASH_ADDR_HIGH_MAX             memblock_end_of_DRAM()
->>
->> arm64 defines the high limit as PHYS_MASK+1, it doesn't need to be
->> dynamic and x86 does something similar (SZ_64T). Not sure why the
->> generic code and riscv define it like this.
->>
->>>> 	-> reserve_crashkernel_generic() and high is true
->>>> 	   -> alloc at [CRASH_ADDR_LOW_MAX, CRASH_ADDR_HIGH_MAX] fail
->>>> 	      -> alloc at [0, CRASH_ADDR_LOW_MAX] fail and repeatedly
->>>> 	         (because CRASH_ADDR_LOW_MAX = CRASH_ADDR_HIGH_MAX).
->>>>
->>>> Before refactor in commit 9c08a2a139fe ("x86: kdump: use generic interface
->>>> to simplify crashkernel reservation code"), x86 do not try to reserve crash
->>>> memory at low if it fails to alloc above high 4G. However before refator in
->>>> commit fdc268232dbba ("arm64: kdump: use generic interface to simplify
->>>> crashkernel reservation"), arm64 try to reserve crash memory at low if it
->>>> fails above high 4G. For 64-bit systems, this attempt is less beneficial
->>>> than the opposite, remove it to fix this bug and align with native x86
->>>> implementation.
->>>
->>> And I don't like the idea crashkernel=,high failure will fallback to
->>> attempt in low area, so this looks good to me.
->>
->> Well, I kind of liked this behaviour. One can specify ,high as a
->> preference rather than forcing a range. The arm64 land has different
->> platforms with some constrained memory layouts. Such fallback works well
->> as a default command line option shipped with distros without having to
->> guess the SoC memory layout.
-> 
-> I haven't tried but it's possible that this patch also breaks those
-> arm64 platforms with all RAM above 4GB when CRASH_ADDR_LOW_MAX is
-> memblock_end_of_DRAM(). Here all memory would be low and in the absence
-> of no fallback, it fails to allocate.
-> 
-> So, my strong preference would be to re-instate the current behaviour
-> and work around the infinite loop in a different way.
 
-Hi, baoquan, What's your opinion?
+--2xjwlae8dVoFu1hA
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Only this patch should be re-instate or all the 3 dead loop fix patch?
+On Thu, Aug 08, 2024 at 03:23:50AM -0300, Thiago Jung Bauermann wrote:
 
-> 
-> Thanks.
-> 
+> Thank you for the pointer. It turned out that I accidentally ran the
+> selftests binaries from the v9 version instead of the v10 version, and
+> the gcs-stress-thread binary failed because it was using the old value
+> for PR_SET_SHADOW_STACK_STATUS.
+>=20
+> Using the v10 version of the selftests the gcs-stress test passes. Sorry
+> for the false alarm.
+>=20
+> Tested-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
+
+Ah, that's a relief thanks!
+
+--2xjwlae8dVoFu1hA
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEyBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAma0f1wACgkQJNaLcl1U
+h9AAlAf3QAXjvC2gygXbsaueHos4q0nKMAX2bdp+mK3zjoJgg9+GqHPoEFx3Efja
+cj5Ct4enLdN36SwqP5OU/agevzvPdKsT2CstNckW/VhAbkgbEi4F8w62q9q2NBO2
+gyXPx0aWtgmzptzEPgrEl8+PeL/kyPB9DVnbYGfMI5X2xeMgn4XRyZYjLYuuBWAR
+2BlS1DNybUyfO+005zhZnrjlbTN56woklGF9gOfbNT8HoKpWh/VcX9giGP9v/EFi
+e+Qpos4Bb9+b3JKeJo2EFjdgvborCnQQJxvGSEMp7QB9wrOs0QsrrhD+Jvs6rmcg
+J0pHE5R3OyGMXNNpg2MHtg9o1FPh
+=uK/+
+-----END PGP SIGNATURE-----
+
+--2xjwlae8dVoFu1hA--
+
+
+--===============1695976984573667154==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1695976984573667154==--
+
