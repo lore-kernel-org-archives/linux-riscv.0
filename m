@@ -4,81 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8042C52D73
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Aug 2024 07:33:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3782C52D73
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Aug 2024 07:57:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SzGq3dkHVET8mYCOajFUvxrffnc8PyybjJ3HaFowuv4=; b=pFIU2aHzOEv4sa
-	mcP9+uwOpu0z/5VTttel9hSoXOEWrO2/u1Wbl9W2kyIpbzHmFtVyeFKHV1HnqyTbyWgpzifMRUQ4P
-	du6XTovDBQ/EyRzPTDg56qIT8nhKuZev+c3CnzLw024aBG2dY/k8xC51eTfuV1aDIq3PV4lxOpZ7c
-	z41U/tM15e2ATduUuWAu+20nh5xo5N8vF+KQNBCXGHzMWB9aBcwkAZlN+PoksbcjewXLh7iIiBlRC
-	MZ+NZXpY/vaRfdyu6mZ6OiAr9Tmm7QLOVLeIoBttVX0uewKFDKXh/Q478HHUwUG/vpTkJTtV2fHjE
-	ctUTokCeSt+HZxFBnobQ==;
+	List-Owner; bh=CaWpq2dX6sPThdW9i5XhVnryAQdH8mveU70R52ztZtE=; b=27Z9P1BKE1DPAF
+	hUtT1j6Xg9phwDYtKcEnZbhg65Q+Dv9mik/2BpvWJal92WzIfx/d7u2z4FwWnsIGYogBi/zS+UBPs
+	DXodg/XeBtygs/1n2Ln7A9qWGC04Cuy0DU1/WPrMBX+9ChhlHjj07Nrx8OKF/Gx8/t3pccnNUCe4t
+	7hjzSfw0dZqoinq8qM3w5s0hUAjFEXJg5rmTQSR0OdUrPso0oCB+fCky0nNT2sOvHkt6X8wX7gvy9
+	xVLLf275eoSLRxGyQ5ErkfayYfU3BxVWfiDEtYIl8awJ3y2DPwYPi6D7BPO55PazN3TzroOXfd4+R
+	Td2isyJES23Bq0uhsD6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbxeE-00000007R0l-05UU;
-	Thu, 08 Aug 2024 07:33:22 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1sby1N-00000007VBi-1KUL;
+	Thu, 08 Aug 2024 07:57:17 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbxQH-00000007Mnu-24Tl
-	for linux-riscv@lists.infradead.org;
-	Thu, 08 Aug 2024 07:18:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1723101538; x=1754637538;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=O9EZaWrR7lNuaqrZDuypfiO/KHWaclbwiwKXa26AQEs=;
-  b=dK8luZ64b2543lp+uJJX7mq4r7sno8SGgPmkCsLt4psVke1wZ4w2cEnh
-   CIRE7F+C4ZtNtjkLwTTAgifgIjaNilDsf3y+tgpstAM0ZAhGeZqIS4yoR
-   zBRN5P3hgzNH+8DeqG9/tsbCLMtmpuwojBJujASbVT34M7cPsW4cmyPg/
-   npd1x/h/TZPQsa+RAYciduE/mkfHrau5cpRpBXLdEMahllG6gQow1e9gH
-   Kg67Z9dWfwI3nFpZCHvEFftB3XkAHrMfmuQ/R4vJQbrIbXvtCRTSZxYqP
-   n9J8CHFVXHSEUsZTtXDDcGVK5ZxK3XjFEulY39WdufdNBGPY8fTjLlM7b
-   Q==;
-X-CSE-ConnectionGUID: tJQiOLokQaedP+GenBdfcA==
-X-CSE-MsgGUID: 15IJbATURQeW7fnKZdQ0DQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11157"; a="21352191"
-X-IronPort-AV: E=Sophos;i="6.09,272,1716274800"; 
-   d="scan'208";a="21352191"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Aug 2024 00:18:57 -0700
-X-CSE-ConnectionGUID: 0qYkdXa/TDaj7eKCGJDHow==
-X-CSE-MsgGUID: ipnaZQBPQ26KZpo/IBK4DA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.09,272,1716274800"; 
-   d="scan'208";a="80357202"
-Received: from ahunter6-mobl1.ger.corp.intel.com (HELO [10.0.2.15]) ([10.245.150.149])
-  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Aug 2024 00:18:48 -0700
-Message-ID: <bb92e3b0-302f-4e43-9905-2d9fa709ab25@intel.com>
-Date: Thu, 8 Aug 2024 10:18:42 +0300
+	id 1sby0n-00000007V5D-3AWc;
+	Thu, 08 Aug 2024 07:56:43 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.194])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4WffV54tM4zpTDg;
+	Thu,  8 Aug 2024 15:55:25 +0800 (CST)
+Received: from kwepemi100008.china.huawei.com (unknown [7.221.188.57])
+	by mail.maildlp.com (Postfix) with ESMTPS id 20577140604;
+	Thu,  8 Aug 2024 15:56:37 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ kwepemi100008.china.huawei.com (7.221.188.57) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.39; Thu, 8 Aug 2024 15:56:36 +0800
+Message-ID: <e01df216-0225-ef49-8eb3-2ccdcb424785@huawei.com>
+Date: Thu, 8 Aug 2024 15:56:35 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 3/8] mmc: sdhci-of-dwcmshc: factor out code for
- th1520_init()
-To: Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu,
- conor+dt@kernel.org, guoren@kernel.org, inochiama@outlook.com,
- jszhang@kernel.org, krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com,
- paul.walmsley@sifive.com, robh@kernel.org, ulf.hansson@linaro.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-mmc@vger.kernel.org, linux-riscv@lists.infradead.org,
- chao.wei@sophgo.com, haijiao.liu@sophgo.com, xiaoguang.xing@sophgo.com,
- tingzhu.wang@sophgo.com
-Cc: Chen Wang <unicorn_wang@outlook.com>, Drew Fustini <drew@pdp7.com>
-References: <cover.1722847198.git.unicorn_wang@outlook.com>
- <23c6a81052a6dd3660d60348731229d60a209b32.1722847198.git.unicorn_wang@outlook.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.0
+Subject: Re: [PATCH -next] crash: Fix riscv64 crash memory reserve dead loop
 Content-Language: en-US
-From: Adrian Hunter <adrian.hunter@intel.com>
-Organization: Intel Finland Oy, Registered Address: PL 281, 00181 Helsinki,
- Business Identity Code: 0357606 - 4, Domiciled in Helsinki
-In-Reply-To: <23c6a81052a6dd3660d60348731229d60a209b32.1722847198.git.unicorn_wang@outlook.com>
+To: Catalin Marinas <catalin.marinas@arm.com>, Baoquan He <bhe@redhat.com>
+CC: <vgoyal@redhat.com>, <dyoung@redhat.com>, <paul.walmsley@sifive.com>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <chenjiahao16@huawei.com>,
+	<akpm@linux-foundation.org>, <kexec@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, Will Deacon <will@kernel.org>
+References: <20240802090105.3871929-1-ruanjinjie@huawei.com>
+ <ZqywtegyIS/YXOVv@MiWiFi-R3L-srv> <ZrJ1JkyDVpRRB_9e@arm.com>
+ <ZrJ60vopeGDXFZyK@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <ZrJ60vopeGDXFZyK@arm.com>
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
+ kwepemi100008.china.huawei.com (7.221.188.57)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240808_001857_619561_E4EE8517 
-X-CRM114-Status: GOOD (  19.61  )
+X-CRM114-CacheID: sfid-20240808_005642_144313_4AE8B7D9 
+X-CRM114-Status: GOOD (  18.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,95 +76,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 5/08/24 12:17, Chen Wang wrote:
-> From: Chen Wang <unicorn_wang@outlook.com>
-> 
-> Different socs have initialization operations in
-> the probe process, which are summarized as functions.
-> 
-> This patch first factor out init function for th1520.
-> 
-> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
-> Reviewed-by: Drew Fustini <drew@pdp7.com>
-> Tested-by: Drew Fustini <drew@pdp7.com> # TH1520
-> Tested-by: Inochi Amaoto <inochiama@outlook.com> # Duo and Huashan Pi
 
-Acked-by: Adrian Hunter <adrian.hunter@intel.com>
 
-> ---
->  drivers/mmc/host/sdhci-of-dwcmshc.c | 51 +++++++++++++++++------------
->  1 file changed, 30 insertions(+), 21 deletions(-)
+On 2024/8/7 3:34, Catalin Marinas wrote:
+> On Tue, Aug 06, 2024 at 08:10:30PM +0100, Catalin Marinas wrote:
+>> On Fri, Aug 02, 2024 at 06:11:01PM +0800, Baoquan He wrote:
+>>> On 08/02/24 at 05:01pm, Jinjie Ruan wrote:
+>>>> On RISCV64 Qemu machine with 512MB memory, cmdline "crashkernel=500M,high"
+>>>> will cause system stall as below:
+>>>>
+>>>> 	 Zone ranges:
+>>>> 	   DMA32    [mem 0x0000000080000000-0x000000009fffffff]
+>>>> 	   Normal   empty
+>>>> 	 Movable zone start for each node
+>>>> 	 Early memory node ranges
+>>>> 	   node   0: [mem 0x0000000080000000-0x000000008005ffff]
+>>>> 	   node   0: [mem 0x0000000080060000-0x000000009fffffff]
+>>>> 	 Initmem setup node 0 [mem 0x0000000080000000-0x000000009fffffff]
+>>>> 	(stall here)
+>>>>
+>>>> commit 5d99cadf1568 ("crash: fix x86_32 crash memory reserve dead loop
+>>>> bug") fix this on 32-bit architecture. However, the problem is not
+>>>> completely solved. If `CRASH_ADDR_LOW_MAX = CRASH_ADDR_HIGH_MAX` on 64-bit
+>>>> architecture, for example, when system memory is equal to
+>>>> CRASH_ADDR_LOW_MAX on RISCV64, the following infinite loop will also occur:
+>>>
+>>> Interesting, I didn't expect risc-v defining them like these.
+>>>
+>>> #define CRASH_ADDR_LOW_MAX              dma32_phys_limit
+>>> #define CRASH_ADDR_HIGH_MAX             memblock_end_of_DRAM()
+>>
+>> arm64 defines the high limit as PHYS_MASK+1, it doesn't need to be
+>> dynamic and x86 does something similar (SZ_64T). Not sure why the
+>> generic code and riscv define it like this.
+>>
+>>>> 	-> reserve_crashkernel_generic() and high is true
+>>>> 	   -> alloc at [CRASH_ADDR_LOW_MAX, CRASH_ADDR_HIGH_MAX] fail
+>>>> 	      -> alloc at [0, CRASH_ADDR_LOW_MAX] fail and repeatedly
+>>>> 	         (because CRASH_ADDR_LOW_MAX = CRASH_ADDR_HIGH_MAX).
+>>>>
+>>>> Before refactor in commit 9c08a2a139fe ("x86: kdump: use generic interface
+>>>> to simplify crashkernel reservation code"), x86 do not try to reserve crash
+>>>> memory at low if it fails to alloc above high 4G. However before refator in
+>>>> commit fdc268232dbba ("arm64: kdump: use generic interface to simplify
+>>>> crashkernel reservation"), arm64 try to reserve crash memory at low if it
+>>>> fails above high 4G. For 64-bit systems, this attempt is less beneficial
+>>>> than the opposite, remove it to fix this bug and align with native x86
+>>>> implementation.
+>>>
+>>> And I don't like the idea crashkernel=,high failure will fallback to
+>>> attempt in low area, so this looks good to me.
+>>
+>> Well, I kind of liked this behaviour. One can specify ,high as a
+>> preference rather than forcing a range. The arm64 land has different
+>> platforms with some constrained memory layouts. Such fallback works well
+>> as a default command line option shipped with distros without having to
+>> guess the SoC memory layout.
 > 
-> diff --git a/drivers/mmc/host/sdhci-of-dwcmshc.c b/drivers/mmc/host/sdhci-of-dwcmshc.c
-> index a002636d51fd..b272ec2ab232 100644
-> --- a/drivers/mmc/host/sdhci-of-dwcmshc.c
-> +++ b/drivers/mmc/host/sdhci-of-dwcmshc.c
-> @@ -830,6 +830,35 @@ static void th1520_sdhci_reset(struct sdhci_host *host, u8 mask)
->  	}
->  }
->  
-> +static int th1520_init(struct device *dev,
-> +		       struct sdhci_host *host,
-> +		       struct dwcmshc_priv *dwc_priv)
-> +{
-> +	dwc_priv->delay_line = PHY_SDCLKDL_DC_DEFAULT;
-> +
-> +	if (device_property_read_bool(dev, "mmc-ddr-1_8v") ||
-> +	    device_property_read_bool(dev, "mmc-hs200-1_8v") ||
-> +	    device_property_read_bool(dev, "mmc-hs400-1_8v"))
-> +		dwc_priv->flags |= FLAG_IO_FIXED_1V8;
-> +	else
-> +		dwc_priv->flags &= ~FLAG_IO_FIXED_1V8;
-> +
-> +	/*
-> +	 * start_signal_voltage_switch() will try 3.3V first
-> +	 * then 1.8V. Use SDHCI_SIGNALING_180 rather than
-> +	 * SDHCI_SIGNALING_330 to avoid setting voltage to 3.3V
-> +	 * in sdhci_start_signal_voltage_switch().
-> +	 */
-> +	if (dwc_priv->flags & FLAG_IO_FIXED_1V8) {
-> +		host->flags &= ~SDHCI_SIGNALING_330;
-> +		host->flags |=  SDHCI_SIGNALING_180;
-> +	}
-> +
-> +	sdhci_enable_v4_mode(host);
-> +
-> +	return 0;
-> +}
-> +
->  static void cv18xx_sdhci_reset(struct sdhci_host *host, u8 mask)
->  {
->  	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> @@ -1231,27 +1260,7 @@ static int dwcmshc_probe(struct platform_device *pdev)
->  	}
->  
->  	if (pltfm_data == &sdhci_dwcmshc_th1520_pdata) {
-> -		priv->delay_line = PHY_SDCLKDL_DC_DEFAULT;
-> -
-> -		if (device_property_read_bool(dev, "mmc-ddr-1_8v") ||
-> -		    device_property_read_bool(dev, "mmc-hs200-1_8v") ||
-> -		    device_property_read_bool(dev, "mmc-hs400-1_8v"))
-> -			priv->flags |= FLAG_IO_FIXED_1V8;
-> -		else
-> -			priv->flags &= ~FLAG_IO_FIXED_1V8;
-> -
-> -		/*
-> -		 * start_signal_voltage_switch() will try 3.3V first
-> -		 * then 1.8V. Use SDHCI_SIGNALING_180 rather than
-> -		 * SDHCI_SIGNALING_330 to avoid setting voltage to 3.3V
-> -		 * in sdhci_start_signal_voltage_switch().
-> -		 */
-> -		if (priv->flags & FLAG_IO_FIXED_1V8) {
-> -			host->flags &= ~SDHCI_SIGNALING_330;
-> -			host->flags |=  SDHCI_SIGNALING_180;
-> -		}
-> -
-> -		sdhci_enable_v4_mode(host);
-> +		th1520_init(dev, host, priv);
->  	}
->  
->  #ifdef CONFIG_ACPI
+> I haven't tried but it's possible that this patch also breaks those
+> arm64 platforms with all RAM above 4GB when CRASH_ADDR_LOW_MAX is
+> memblock_end_of_DRAM(). Here all memory would be low and in the absence
+> of no fallback, it fails to allocate.
+> 
+> So, my strong preference would be to re-instate the current behaviour
+> and work around the infinite loop in a different way.
 
+Hi, baoquan, What's your opinion?
+
+Only this patch should be re-instate or all the 3 dead loop fix patch?
+
+> 
+> Thanks.
+> 
 
 _______________________________________________
 linux-riscv mailing list
