@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5254C3DA4A
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Aug 2024 06:24:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44524C52D73
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Aug 2024 06:25:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
 	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bD67Oasq7plfSrYBTwJGwH1/Fo+s+X1318bC4gOyDkU=; b=ZQrB9MKr1p3MC4
-	FhG4Iobr2VHWvzon2kXIEAHfSqsVI3HDBYwz7Rpxiso/y9IIcsgvV9eVecQkEKGC/DeB/F1Gz8Ft/
-	o0kVMrOqZ8rziwNqntA427yEsNaugGy/lVfS+yOsgiZ96jvMQlOubHNqRQSrpnI7nAdCmG+bnxRvX
-	AF2Ivr+m28+im3+0l2FykFfzODuWmNy2sB0YKwis1FAjEJaGzx2L7ZBLsMe1WmjAa3ujynPpf7QR6
-	KiGRDaNsR7TFyEKmrN3M/xAQ0Cnbm7KsgP7/bcBtfDdn2y877gQuPmox1gWAB1uH6q7LcDlFUd8eh
-	McrJhnkgRxppRFVmaAGg==;
+	List-Owner; bh=Vz8I2O2wTuHL8GOrQsY99V63xnqn6IuaE2zjgdNh/yM=; b=X9DJKuHC1SBpmF
+	8QrdnFGKi/xGvIymaTjA+YsDTzGbVwMXqZFz8uh4W7Ad0/5TFHXQFMwUz9Fu/L2DVv0UvySoICQtK
+	xSakHzCOpMSYHiKWCqP8zdzHVQiTDtNBoaEpFwrL9XKI5EXRzi19f028sV8bGg02w/dNOjIxNXuKl
+	0rT3vsRtaNrZciFM2b3dfV1oJE/oilqvU8q4inNDw0YT2tbr/0IkLypqV0iIpLEqE5IrJdtEPPh+e
+	sBT8Boc5l6HjWOZMNe9aJHRhOj9PiVxnq2QLU8gBKbZBJ4E3Ij7yat9cg1gUBFmFBBrLMW0tFii5v
+	GTRWAvIBKZY2m2QNcIaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbwZc-00000007Dvb-07Rd;
-	Thu, 08 Aug 2024 06:24:32 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1sbwaY-00000007E47-1gqn;
+	Thu, 08 Aug 2024 06:25:30 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sbwZ1-00000007DnI-17FY
+	id 1sbwaV-00000007E34-20ga
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 Aug 2024 06:23:57 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-70d399da0b5so549884b3a.3
-        for <linux-riscv@lists.infradead.org>; Wed, 07 Aug 2024 23:23:54 -0700 (PDT)
+	Thu, 08 Aug 2024 06:25:28 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-2cb4c4de4cbso506556a91.1
+        for <linux-riscv@lists.infradead.org>; Wed, 07 Aug 2024 23:25:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1723098234; x=1723703034; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1723098326; x=1723703126; darn=lists.infradead.org;
         h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
          :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=WK8rtcyRr8ddH6sUXU5fxnXTw/gvxfa7lKvESZemSbI=;
-        b=SWlouRuV/05rstbdUqAgxVOK8L4IsXib8yC8MPtvN3++VoMdVBtYRfkP4ZkNJE2Vcd
-         ww8kCWPvRIF0Py7FVsfHbSV1FnvqK01yX6SdZ8OhepyNmzeAzLRu8weNbcb3thLZilNk
-         UeSzu5NeJtFSIqK3EU3Y5a1Ip+wnsCG2YNRXU92Oq0XuyL3B+0LFNx/bv2SOgDLRTgmJ
-         jCp3MXYRe2BdgHLdq1XNdSgq7LgezewvmHNitjbubSvZkvimt1NVziE6tIYyImwyVKHd
-         EvZuzDQ1tgJS8dmc4r8lIBaj3MgzOhoz4cZDnW3iS2v2n0d0GonjH9c4Vx1sp3ls69wX
-         OpfQ==
+        bh=sJzbBpFNwwY6e+GIMU5iIyI4LLoSSqWXmhkhActO1pM=;
+        b=ieQW3Z+4RHlTWMnhTE5XsdSwUGRPws408HVqpZnGnkaEqFuIunSAZhgxkvQLEt0MN4
+         HsuRUlxlbAzKHx3Pj40SgVTG8QnjZ2j13N/SF2eWcUEGbt+gFAmsxnOO/FmO1F2nVhuv
+         aCfHxiR97c7bm+mo0xYzdqhVcftPCwmg9p+61UadPh7Q+hiETBMJAVPQBTe/qNVa+1On
+         evYsqk5ZjhJmgvf5k0OlAfzHGfA7EKwWPGoD9FHLnuyPsC8dIQ3bFmjSAvx5apvE3M48
+         h1rgFXHtjnPV5l/D9gMITO5L3Y18tBStU4do9Bf0dDMFQlLDJKmWNAVhIC9VEPwAa6EF
+         bCCA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1723098234; x=1723703034;
+        d=1e100.net; s=20230601; t=1723098326; x=1723703126;
         h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
          :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=WK8rtcyRr8ddH6sUXU5fxnXTw/gvxfa7lKvESZemSbI=;
-        b=agV1kBChHSgdrVMjwPEh9K4hRbke3PGWK3Skt0635MjdPVf6RxMdTELG4IkHJwK/Mp
-         t/PrMXGNmgHyCZ0tEYYQGsDIO0rwtiZVRbs+GQOoY/cYqYreqG+9w7zm9WYBynU/Zf2o
-         qwE+xAyImknvJSlpAniqFCqcy2DZKXFCsvcYNHSITLuizbYE2JkgPVszDi4Ajv6Aq/86
-         WFSM/EjrqqAeI9d47inzswyJduZzyu4aiQmB2/gh4X0vu7b2/6aOAQsIwKTuzy1g8vpc
-         3R1sfUoG/48GHaq/s4RcpDtNultzuVvvoTeDZTz0pDhM7H3J9tR2LnGkUUX+u2DolT+b
-         XOAw==
-X-Forwarded-Encrypted: i=1; AJvYcCVY7bE1W33vcwrrESPugGeqdvhKku0r0MJMKxYoLiVv7DHNsZZTPDYRlhB/s9sdPkBRPrJqtjPfcETzyrmOdomA+PY8DNuDs0Pd553W+EBA
-X-Gm-Message-State: AOJu0YwWl+YxYpLR5o9uyHTy47fp2E4xG2hCqpeDVwOXEN/ygHvQMv9S
-	4vlTk4NOLzj78rB/rXOq5lkpZNhnnPgNoV2Rbhk6mSvA8iGF5lXxRGT/x+KlD1I=
-X-Google-Smtp-Source: AGHT+IFYw3pObWR57BLXtwXu43FaZ7f39AGJpk9DJobImXbFcvJMmOT0vZh2bJKK6Qf6HCB4wbBa5w==
-X-Received: by 2002:a05:6a20:7f8a:b0:1c3:ce0f:bfb2 with SMTP id adf61e73a8af0-1c6fcec8890mr851553637.23.1723098234214;
-        Wed, 07 Aug 2024 23:23:54 -0700 (PDT)
+        bh=sJzbBpFNwwY6e+GIMU5iIyI4LLoSSqWXmhkhActO1pM=;
+        b=rhc60zzrNWdIsFhtJn1/ARivJWbEg0bQ37ocoW+w0u67DIRQ7atJwHsaJS8GartBmO
+         h7NwOtx4DUZtUOF2fF6dpJZuILVVLa6NhJWjF6RFNakK9aGx5JChjewXPMY16AYd64GH
+         iaBEUZ9eueQLmtXDeoOBIEQ1/m1jysC/69eupmt9a9rNYh+NajYDwCcuX3uCcakRanO2
+         4TeG3t1DTDNp3NrI+/csk3QS7nOqicAMn5etbst/j+PgjeH+JRaEpsKkHGu0mFVX/1n5
+         qujT91Z41dYicun1YtkGNjXu3HJfNHCyKTQo0xm8OVHZObqHUrtyPUsLIPTdq/y93FmD
+         4Ibg==
+X-Forwarded-Encrypted: i=1; AJvYcCUyzXVp8NxV4E6c1QdDa25BwKx75fLnPdpjPGlcopK/L/KIBB1psBqkqR/uaAw7MSIG889tZLch+spr4A/XjZMwYDMxFqnEUkqSoMDwLMR1
+X-Gm-Message-State: AOJu0Yzqqts9ggBGvE7pugcbwpY9FW/GKp5NR+luk2QQsPG8FVvpeQIr
+	fIpUcCxCDRoEC/2VJYknf7d5VrOTGCc/i10ZuoEbwHLmeZeDirxmc3KjwZJ5vJQ=
+X-Google-Smtp-Source: AGHT+IG5Sh4RPZDFGIdFKwM0iRTPb/2nHrMhAgBHSqeUq3wn62Dbr5Jen5m7Eo7OeNMhWJA7SfHwfg==
+X-Received: by 2002:a17:90b:4ac9:b0:2c4:dc63:96d7 with SMTP id 98e67ed59e1d1-2d1c349446emr921727a91.41.1723098326578;
+        Wed, 07 Aug 2024 23:25:26 -0700 (PDT)
 Received: from localhost ([2804:14c:87d5:5261:ed46:7c69:6cee:3c20])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-710cb2e89ffsm480393b3a.180.2024.08.07.23.23.52
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2d1c9db74a0sm328001a91.47.2024.08.07.23.25.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 Aug 2024 23:23:53 -0700 (PDT)
+        Wed, 07 Aug 2024 23:25:26 -0700 (PDT)
 From: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
 To: Mark Brown <broonie@kernel.org>
 Cc: Catalin Marinas <catalin.marinas@arm.com>,  Will Deacon
@@ -81,19 +81,18 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,  Will Deacon
   linux-fsdevel@vger.kernel.org,  linux-arch@vger.kernel.org,
   linux-mm@kvack.org,  linux-kselftest@vger.kernel.org,
   linux-kernel@vger.kernel.org,  linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v10 38/40] kselftest/arm64: Add a GCS stress test
-In-Reply-To: <ZrP-9gHsvVHr2Y5B@finisterre.sirena.org.uk> (Mark Brown's message
-	of "Thu, 8 Aug 2024 00:10:46 +0100")
+Subject: Re: [PATCH v10 39/40] kselftest/arm64: Enable GCS for the FP stress
+ tests
+In-Reply-To: <20240801-arm64-gcs-v10-39-699e2bd2190b@kernel.org> (Mark Brown's
+	message of "Thu, 01 Aug 2024 13:07:06 +0100")
 References: <20240801-arm64-gcs-v10-0-699e2bd2190b@kernel.org>
-	<20240801-arm64-gcs-v10-38-699e2bd2190b@kernel.org>
-	<877ccsdkjp.fsf@linaro.org>
-	<ZrP-9gHsvVHr2Y5B@finisterre.sirena.org.uk>
-Date: Thu, 08 Aug 2024 03:23:50 -0300
-Message-ID: <87y157cz2h.fsf@linaro.org>
+	<20240801-arm64-gcs-v10-39-699e2bd2190b@kernel.org>
+Date: Thu, 08 Aug 2024 03:25:23 -0300
+Message-ID: <87v80bcyzw.fsf@linaro.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240807_232355_333280_CF3C81A6 
-X-CRM114-Status: GOOD (  13.87  )
+X-CRM114-CacheID: sfid-20240807_232527_553528_2B299D30 
+X-CRM114-Status: GOOD (  10.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,40 +111,24 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Mark Brown <broonie@kernel.org> writes:
 
-> On Wed, Aug 07, 2024 at 07:39:54PM -0300, Thiago Jung Bauermann wrote:
-> 
->> # # Thread-4870: Failed to enable GCS
+> While it's a bit off topic for them the floating point stress tests do give
+> us some coverage of context thrashing cases, and also of active signal
+> delivery separate to the relatively complicated framework in the actual
+> signals tests. Have the tests enable GCS on startup, ignoring failures so
+> they continue to work as before on systems without GCS.
 >
-> which is printed if a basic PR_SET_SHADOW_STACK_STATUS fails immediately
-> the program starts executing:
->
-> function _start
->         // Run with GCS
->         mov     x0, PR_SET_SHADOW_STACK_STATUS
->         mov     x1, PR_SHADOW_STACK_ENABLE
->         mov     x2, xzr
->         mov     x3, xzr
->         mov     x4, xzr
->         mov     x5, xzr
->         mov     x8, #__NR_prctl
->         svc     #0
->         cbz     x0, 1f
->         puts    "Failed to enable GCS\n"
->         b       abort
->
-> the defines for which all seem up to date (and unlikely to fail in
-> system or config specific fashions).  What happens if you try to execute
-> the gcs-stress-thread binary directly, does strace show anything
-> interesting?  If you instrument arch_set_shadow_stack_status() in the
-> kernel does it show anything?
+> Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> ---
+>  tools/testing/selftests/arm64/fp/assembler.h   | 15 +++++++++++++++
+>  tools/testing/selftests/arm64/fp/fpsimd-test.S |  2 ++
+>  tools/testing/selftests/arm64/fp/sve-test.S    |  2 ++
+>  tools/testing/selftests/arm64/fp/za-test.S     |  2 ++
+>  tools/testing/selftests/arm64/fp/zt-test.S     |  2 ++
+>  5 files changed, 23 insertions(+)
 
-Thank you for the pointer. It turned out that I accidentally ran the
-selftests binaries from the v9 version instead of the v10 version, and
-the gcs-stress-thread binary failed because it was using the old value
-for PR_SET_SHADOW_STACK_STATUS.
-
-Using the v10 version of the selftests the gcs-stress test passes. Sorry
-for the false alarm.
+The fpsimd, sve, za and zt tests don't find any errors on my FVP setup
+when left running for a while:
 
 Tested-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
 
