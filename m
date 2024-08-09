@@ -4,76 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69B94C52D7B
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Aug 2024 01:57:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81136C52D71
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Aug 2024 06:06:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hWfvfv0f17frkaKZJiE2NtA2vsxd3ITwZTmrtDf0MXY=; b=XiWjTeq6fAA+1v
-	tkO6/wnT4mVS8jV50rsw3i/qrPHG673po2dIwfeUm3yAPCBQSsXs/ug4qvD2vVrNwcRczECFul4wB
-	MVqpMdZTCA3bx6Gd5FXEiPvC5KBKUkKSBOVtc/lokRKrVOSFSOVyXlXCMHX9YPvlxed+sLEQSgu30
-	6oRMxp92GnaahSkhoaj2SG8Sbd1IZ3ZIsayzpPQrtZOP0PvfByRgLYhgSoVDW6jk6pT3uAWS7FLtm
-	32GwTziYw7wzOTHLIiGjg/YVf57YRspmrQzH2ZJmqmFxSAndzpwLZNo0FhTcHbZM7eiRS9cC7yA49
-	u1GgmyecN0BgB74w27rw==;
+	List-Owner; bh=PzdhHnzum33p55DNQOhQ0I4ozF/yhl12931r/RZxdDQ=; b=Gmv7vk7wTxHjuw
+	zTNERjz1kt3u3VatPa5/gUen5yeWjVL2TbiiFzfYs3wh4N52FM1zbHo3ASzy9XinPzZ3cVOtnYmsF
+	WaW7EPmZmykvl6Iu8Cei3m+qNa7VOvij77yLCfNuzSFcV6PzUPxPuhik5eJPJ8k3TePh4KdUzPRkb
+	hP0ttlszQIhRW2kIpsLVyEdCwqAgTFs2ezfLyfFMVAkzdEO6JekQV5RDtyCf0TMwHZYIXiol80i6o
+	XZlMBQFtK5MIytLIr3yfrmkC5IpIZawIdESRIDQjddrdglj/Ksu/imwr+iUWd7Zz+d8dg2owqjb6M
+	yEdP/Y5Nr/UIFwGUdKGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1scEsW-00000009zeZ-0Iig;
-	Fri, 09 Aug 2024 01:57:16 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1scIl9-0000000ANQP-2IC6;
+	Fri, 09 Aug 2024 06:05:55 +0000
+Received: from mail-oi1-x22d.google.com ([2607:f8b0:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1scErx-00000009zWO-028a
+	id 1scIl6-0000000ANPy-3fR4
 	for linux-riscv@lists.infradead.org;
-	Fri, 09 Aug 2024 01:56:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1723168600;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=eyrDIWJ+gklz3sPzX8cNbptE71/BtV5PAo33v+52O2s=;
-	b=OPK3ALKUzLSTrTVcA0H0G08vO67EtJ2HNo7BSTpSfnP7fR0njvpFSYZcnA5dsP8+nE9JPC
-	+OjAUjQLmbYT4yTE4OJepUZ6wrvdueQHkcgRuWebE2gVVnrhkhEgwcpd0wFcN6tNnrmaP4
-	LgCBnBMcV9c5ghucYW3idkceCUybntw=
-Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-184-lLrDmAUfPZKPUWNQa4x6NQ-1; Thu,
- 08 Aug 2024 21:56:36 -0400
-X-MC-Unique: lLrDmAUfPZKPUWNQa4x6NQ-1
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A01801944CCC;
-	Fri,  9 Aug 2024 01:56:33 +0000 (UTC)
-Received: from localhost (unknown [10.72.112.129])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id E10BC300018D;
-	Fri,  9 Aug 2024 01:56:30 +0000 (UTC)
-Date: Fri, 9 Aug 2024 09:56:25 +0800
-From: Baoquan He <bhe@redhat.com>
-To: Jinjie Ruan <ruanjinjie@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>
-Cc: vgoyal@redhat.com, dyoung@redhat.com, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, chenjiahao16@huawei.com,
-	akpm@linux-foundation.org, kexec@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>
-Subject: Re: [PATCH -next] crash: Fix riscv64 crash memory reserve dead loop
-Message-ID: <ZrV3SQZ43mgymxcr@MiWiFi-R3L-srv>
-References: <20240802090105.3871929-1-ruanjinjie@huawei.com>
- <ZqywtegyIS/YXOVv@MiWiFi-R3L-srv>
- <ZrJ1JkyDVpRRB_9e@arm.com>
- <ZrJ60vopeGDXFZyK@arm.com>
- <e01df216-0225-ef49-8eb3-2ccdcb424785@huawei.com>
+	Fri, 09 Aug 2024 06:05:54 +0000
+Received: by mail-oi1-x22d.google.com with SMTP id 5614622812f47-3db50abf929so1249593b6e.2
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Aug 2024 23:05:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1723183551; x=1723788351; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fx3FfVfdiP9K1YQ4WlF6JZNFpHKhTks7LWEP0de0u1U=;
+        b=nv+2e/GlGjyNovpIZDJpsm3gFQ9Kddfqunmx+ayfBTNuqUjJiXZPZ/DoWvqQFJTrh0
+         CvgPpMg0Hfmz8dP/UVa0epIjb4LdF4itGKSz+a8I+ez/2pasNrxU5jSaucbfdiJkRgUZ
+         yGusF+YWgt871Hv0Fovgncb8OCo2IIoO3XwUx9fr45SFURLP8uRrIdUxO8rFymhdYjq6
+         HUQJnn31m4lzyfZE4/zic/lNa8vMfHowanVE3fbW4uOcti/Xw0uHunFVUG0UeT07h4Mt
+         PHC7kcvlqPKQyuogQ0si27w8U1Fm6Z0J81FYIFXoL0jHE+RW8T0k4pfAtezc1rlfDjRb
+         2zpA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1723183551; x=1723788351;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=fx3FfVfdiP9K1YQ4WlF6JZNFpHKhTks7LWEP0de0u1U=;
+        b=b/J1QUATU7QbdM4YEGDQ52I8Hw8MX4nfwKsgHeSmIlbhC7l6O+ONIhQpXfwilRonCm
+         WxG656m3gQQEdyyWVmRw1QzSUMfBvGbirMrtB6si3kKTnCE5yj3Iz2GlXCTmNy8aJBAJ
+         5r6Y12Dgo8JDMbM4mOCoZDpSWf3lXFtqWYKAZ1niegDQSM+lTHsyFuYKlB1r17Febf99
+         /Bc++a9SzHYAoMhaVNiHoinHHH+o8ukDfkw+is9SYB+XyGjOE/fvYPX0b62a4FbGt+M7
+         PIIeQIGXPzSXamYcGM3J1Dqt6P6L1FoErcs009+ztFuj7mvNOwPJAnW0GeiHc7nxKzTK
+         fHeA==
+X-Forwarded-Encrypted: i=1; AJvYcCVxQU59kyC2PbqrO+WjGfFVnqQyZCXWzZlm7garK08ULoHVNWvpO+tkhE2N1DceovKaJwLnwsAtXoRuTXORo1iXijLbEYD0p8D3Iw4nhOYC
+X-Gm-Message-State: AOJu0YzfCyxItkK7BqLR4sZHj46w+nu3pavWhbVoH8clmmIJRD+BIfyz
+	4WGNce4Cjv1037D2Ndmcr/Z71vnSGojwFENG8wlrVfxeSIfoHIvrLjW/R00cZSQQ+RkC/DlEBXU
+	D6wn+/6l4KyR0nBdN5OIHt3JbnGZincVi2Yg5mw==
+X-Google-Smtp-Source: AGHT+IHaUR/BZOF1mE4d26qoLAX0jJ1FBSRJZVz2DTf4hfAj2tLEfjd+PkHRvYZNcY/6s0Eg4S0/m0G8spS1t23ZWKQ=
+X-Received: by 2002:a05:6871:691:b0:261:1c5e:29d3 with SMTP id
+ 586e51a60fabf-26c62c5637emr647903fac.12.1723183551453; Thu, 08 Aug 2024
+ 23:05:51 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <e01df216-0225-ef49-8eb3-2ccdcb424785@huawei.com>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+References: <20240808081412.24553-1-yongxuan.wang@sifive.com>
+ <CAAhSdy3VKMngwHxOg5+z6pK3QgZnLv=3+hpZBeUm87L_e62aUQ@mail.gmail.com> <87ikwbytfz.ffs@tglx>
+In-Reply-To: <87ikwbytfz.ffs@tglx>
+From: Yong-Xuan Wang <yongxuan.wang@sifive.com>
+Date: Fri, 9 Aug 2024 14:05:39 +0800
+Message-ID: <CAMWQL2h94Sk5N6BkTe0aNcPd7QR2Q2s3-632K5aRdCh5hPYSew@mail.gmail.com>
+Subject: Re: [PATCH 1/1] riscv-aplic: manually set pending for the
+ pre-existing interrupts
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, greentime.hu@sifive.com, 
+	vincent.chen@sifive.com, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240808_185641_123695_07787149 
-X-CRM114-Status: GOOD (  29.11  )
+X-CRM114-CacheID: sfid-20240808_230552_951856_AD78F4C9 
+X-CRM114-Status: GOOD (  27.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,93 +89,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 08/08/24 at 03:56pm, Jinjie Ruan wrote:
-> 
-> 
-> On 2024/8/7 3:34, Catalin Marinas wrote:
-> > On Tue, Aug 06, 2024 at 08:10:30PM +0100, Catalin Marinas wrote:
-> >> On Fri, Aug 02, 2024 at 06:11:01PM +0800, Baoquan He wrote:
-> >>> On 08/02/24 at 05:01pm, Jinjie Ruan wrote:
-> >>>> On RISCV64 Qemu machine with 512MB memory, cmdline "crashkernel=500M,high"
-> >>>> will cause system stall as below:
-> >>>>
-> >>>> 	 Zone ranges:
-> >>>> 	   DMA32    [mem 0x0000000080000000-0x000000009fffffff]
-> >>>> 	   Normal   empty
-> >>>> 	 Movable zone start for each node
-> >>>> 	 Early memory node ranges
-> >>>> 	   node   0: [mem 0x0000000080000000-0x000000008005ffff]
-> >>>> 	   node   0: [mem 0x0000000080060000-0x000000009fffffff]
-> >>>> 	 Initmem setup node 0 [mem 0x0000000080000000-0x000000009fffffff]
-> >>>> 	(stall here)
-> >>>>
-> >>>> commit 5d99cadf1568 ("crash: fix x86_32 crash memory reserve dead loop
-> >>>> bug") fix this on 32-bit architecture. However, the problem is not
-> >>>> completely solved. If `CRASH_ADDR_LOW_MAX = CRASH_ADDR_HIGH_MAX` on 64-bit
-> >>>> architecture, for example, when system memory is equal to
-> >>>> CRASH_ADDR_LOW_MAX on RISCV64, the following infinite loop will also occur:
-> >>>
-> >>> Interesting, I didn't expect risc-v defining them like these.
-> >>>
-> >>> #define CRASH_ADDR_LOW_MAX              dma32_phys_limit
-> >>> #define CRASH_ADDR_HIGH_MAX             memblock_end_of_DRAM()
-> >>
-> >> arm64 defines the high limit as PHYS_MASK+1, it doesn't need to be
-> >> dynamic and x86 does something similar (SZ_64T). Not sure why the
-> >> generic code and riscv define it like this.
-> >>
-> >>>> 	-> reserve_crashkernel_generic() and high is true
-> >>>> 	   -> alloc at [CRASH_ADDR_LOW_MAX, CRASH_ADDR_HIGH_MAX] fail
-> >>>> 	      -> alloc at [0, CRASH_ADDR_LOW_MAX] fail and repeatedly
-> >>>> 	         (because CRASH_ADDR_LOW_MAX = CRASH_ADDR_HIGH_MAX).
-> >>>>
-> >>>> Before refactor in commit 9c08a2a139fe ("x86: kdump: use generic interface
-> >>>> to simplify crashkernel reservation code"), x86 do not try to reserve crash
-> >>>> memory at low if it fails to alloc above high 4G. However before refator in
-> >>>> commit fdc268232dbba ("arm64: kdump: use generic interface to simplify
-> >>>> crashkernel reservation"), arm64 try to reserve crash memory at low if it
-> >>>> fails above high 4G. For 64-bit systems, this attempt is less beneficial
-> >>>> than the opposite, remove it to fix this bug and align with native x86
-> >>>> implementation.
-> >>>
-> >>> And I don't like the idea crashkernel=,high failure will fallback to
-> >>> attempt in low area, so this looks good to me.
-> >>
-> >> Well, I kind of liked this behaviour. One can specify ,high as a
-> >> preference rather than forcing a range. The arm64 land has different
-> >> platforms with some constrained memory layouts. Such fallback works well
-> >> as a default command line option shipped with distros without having to
-> >> guess the SoC memory layout.
-> > 
-> > I haven't tried but it's possible that this patch also breaks those
-> > arm64 platforms with all RAM above 4GB when CRASH_ADDR_LOW_MAX is
-> > memblock_end_of_DRAM(). Here all memory would be low and in the absence
-> > of no fallback, it fails to allocate.
-> > 
-> > So, my strong preference would be to re-instate the current behaviour
-> > and work around the infinite loop in a different way.
-> 
-> Hi, baoquan, What's your opinion?
-> 
-> Only this patch should be re-instate or all the 3 dead loop fix patch?
-
-I am not sure which way Catalin suggested to take. 
-
-Hi Catalin,
-
-Could you say more words about your preference so that Jinjie can
-proceed accordingly?
-
-Thanks
-Baoquan
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQW51cCBhbmQgVGhvbWFzLAoKT24gVGh1LCBBdWcgOCwgMjAyNCBhdCAxMDozNOKAr1BNIFRo
+b21hcyBHbGVpeG5lciA8dGdseEBsaW51dHJvbml4LmRlPiB3cm90ZToKPgo+IE9uIFRodSwgQXVn
+IDA4IDIwMjQgYXQgMTg6NTYsIEFudXAgUGF0ZWwgd3JvdGU6Cj4gPiBNb3JlIGFwcHJvcHJpYXRl
+IHBhdGNoIHN1YmplY3Qgc2hvdWxkIGJlOgo+ID4KPiA+IGlycWNoaXA6IHJpc2N2LWFwbGljOiBy
+ZXRyaWdnZXIgaW50ZXJydXB0IGluIE1TSSBtb2RlIHVwb24gd3JpdGUgdG8KPiA+IHNvdXJjZWNm
+ZyByZWdpc3Rlcgo+Cj4gQW5kIHRoZSBjb3JyZWN0IG9uZSB3b3VsZCBiZToKPgo+ICAgICBpcnFj
+aGlwL3Jpc2N2LWFwbGljOiBSZXRyaWdnZXIgTVNJIGludGVycnVwdCBvbiBzb3VyY2UgY29uZmln
+dXJhdGlvbgo+Cj4gMSkgVGhlIHByZWZpeCBpcyBjb3JyZWN0Cj4KPiAyKSBTZW50ZW5jZSBzdGFy
+dHMgd2l0aCBhIHVwcGVyY2FzZSBsZXR0ZXIKPgo+IDMpIEl0IHVzZXMgdW5kZXJzdGFuZGFibGUg
+d29yZHMuIHNvdXJjZWNmZyBpcyBhIGltcGxlbWVudGF0aW9uIGRldGFpbAo+ICAgIHdoaWNoIGlz
+IGlycmVsZXZhbnQgZm9yIHRoZSBoaWdoIGxldmVsIG92ZXJ2aWV3IG9mIGEgY2hhbmdlbG9nCj4g
+ICAgc3ViamVjdCwgd2hpY2ggaXMgdmlzaWJsZSBpbiB0aGUgc2hvcnQgbG9nLgo+Cj4gPiBPbiBU
+aHUsIEF1ZyA4LCAyMDI0IGF0IDE6NDTigK9QTSBZb25nLVh1YW4gV2FuZyA8eW9uZ3h1YW4ud2Fu
+Z0BzaWZpdmUuY29tPiB3cm90ZToKPiA+Pgo+ID4+IFRoZSBzZWN0aW9uIDQuNS4yIG9mIHRoZSBS
+SVNDLVYgQUlBIHNwZWNpZmljYXRpb24gc2F5cyB0aGF0IGFueSB3cml0ZQo+ID4+IHRvIGEgc291
+cmNlY2ZnIHJlZ2lzdGVyIG9mIGFuIEFQTElDIG1pZ2h0IChvciBtaWdodCBub3QpIGNhdXNlIHRo
+ZQo+ID4+IGNvcnJlc3BvbmRpbmcgaW50ZXJydXB0LXBlbmRpbmcgYml0IHRvIGJlIHNldCB0byBv
+bmUgaWYgdGhlIHJlY3RpZmllZAo+ID4+IGlucHV0IHZhbHVlIGlzIGhpZ2ggKD0gMSkgdW5kZXIg
+dGhlIG5ldyBzb3VyY2UgbW9kZS4KPiA+Cj4gPiBBZGQgcXVvdGVzIGFyb3VuZCB0aGUgdGV4dCBm
+cm9tIFJJU0MtViBBSUEgc3BlY2lmaWNhdGlvbi4KPiA+Cj4gPj4KPiA+PiBJZiBhbiBpbnRlcnJ1
+cHQgaXMgYXNzZXJ0ZWQgYmVmb3JlIHRoZSBkcml2ZXIgY29uZmlncyBpdHMgaW50ZXJydXB0Cj4g
+Pj4gdHlwZSB0byBBUExJQywgaXQncyBwZW5kaW5nIGJpdCB3aWxsIG5vdCBiZSBzZXQgZXhjZXB0
+IGEgcmVsZXZhbnQKPiA+PiB3cml0ZSB0byBhIHNldGlwIG9yIHNldGlwbnVtIHJlZ2lzdGVyLiBX
+aGVuIHdlIHdyaXRlIHRoZSBpbnRlcnJ1cHQKPiA+PiB0eXBlIHRvIHNvdXJjZWNmZyByZWdpc3Rl
+ciwgaWYgdGhlIEFQTElDIGRldmljZSBkb2Vzbid0IGNoZWNrIGFuZAo+ID4+IHVwZGF0ZSB0aGUg
+cGVuZGluZyBiaXQsIHRoZSBpbnRlcnJ1cHQgbWlnaHQgbmV2ZXIgYmVjb21lcyBwZW5kaW5nLgo+
+ID4KPiA+IFRoZSBzZWNvbmQgc2VudGVuY2UgYWJvdmUgY2FuIGJlIHJlLXdyaXR0ZW4gYXMgZm9s
+bG93czoKPiA+Cj4gPiBXaGVuIGludGVycnVwdCB0eXBlIGlzIGNoYW5nZWQgaW4gc291cmNlY2Zn
+IHJlZ2lzdGVyLCB0aGUgQVBMSUMKPgo+IHRoZSBpbnRlcnJ1cHQgdHlwZSAuLi4gaW4gdGhlIHNv
+dXJjZS4uLi4KPgo+ID4gZGV2aWNlIG1pZ2h0IG5vdCBzZXQgdGhlIGNvcnJlc3BvbmRpbmcgcGVu
+ZGluZyBiaXQsIHRoZSBpbnRlcnJ1cHQKPgo+IGJpdCAsIHNvIHRoZSAuLi4KPgo+ID4gbWlnaHQg
+bmV2ZXIgYmVjb21lIHBlbmRpbmcuCj4KPiA+Cj4gPiBEZWZpbmUgQVBMSUMgTVNJIG1vZGUgc3Bl
+Y2lmaWMgaXJxX3NldF90eXBlKCkgbGlrZSBiZWxvdzoKPiA+Cj4gPiBpbnQgYXBsaWNfbXNpX2ly
+cV9zZXRfdHlwZShzdHJ1Y3QgaXJxX2RhdGEgKmQsIHVuc2lnbmVkIGludCB0eXBlKQo+Cj4gc3Rh
+dGljIDopCj4KPiA+IHsKPiA+ICAgICAgICBpbnQgcmM7Cj4gPgo+ID4gICAgICAgIHJjID0gYXBs
+aWNfaXJxX3NldF90eXBlKGQsIHR5cGUpOwo+Cj4gICAgICAgICAgaW50IHJjID0gYXBsaWMuLi4K
+Pgo+ID4gICAgICAgIGlmIChyYykKPiA+ICAgICAgICAgICAgICAgcmV0dXJuIHJjOwo+ID4KPiA+
+ICAgICAgICAvKgo+ID4gICAgICAgICAqIFVwZGF0aW5nIHNvdXJjZWNmZyByZWdpc3RlciBmb3Ig
+bGV2ZWwtdHJpZ2dlcmVkIGludGVycnVwdHMKPiA+ICAgICAgICAgKiByZXF1aXJlcyBpbnRlcnJ1
+cHQgcmV0cmlnZ2VyaW5nIHdoZW4gQVBMSUMgaW4gTVNJIG1vZGUuCj4KPiBBUExJQyBpcyBpbiAu
+Li4uCj4KPiA+ICAgICAgICAgKi8KPiA+ICAgICAgICBhcGxpY19tc2lfaXJxX3JldHJpZ2dlcl9s
+ZXZlbChkKTsKPgo+IFRoYW5rcywKPgo+ICAgICAgICAgdGdseAoKVGhhbmtzIGEgbG90ISBJIHdp
+bGwgZml4IHRoZW0gaW4gdGhlIG5leHQgdmVyc2lvbi4KClJlZ2FyZHMsCllvbmctWHVhbgoKX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3Yg
+bWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3Rz
+LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
