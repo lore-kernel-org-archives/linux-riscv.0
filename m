@@ -4,91 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94E99C531DA
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Aug 2024 21:45:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69FAAC3DA4A
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Aug 2024 21:45:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kbArEly3r8LXheM9gRRkIz8dFqHfaGTPZsBpLvEtTGw=; b=ngPNq7KxT2gli0
-	kPrJEGACngdJzNWwz0yCP30YGWH5ss/yhoHR1RAUzvtad7qFdsRMGJLf4LpgMN4PDKYPDyPAlTK3L
-	74mf3qteIi7mN5jEeee1GCwfV39TxbT2RGytNBmxVOLRyYrlr0zGd8IPSgtkhH2MUp8iXZDUt6TQ9
-	owrznso7PgVCeiow0nBI/vwJYQX19LafFNC3oGTiBLP58EDAYbwavHW4CNmmwF3GwO3PmFO6UEuuR
-	SY8MqsA/YnOlusTbUiMFQqoXokP2xROlaoBSQxhm07CPJtTsHV4m1UAW5D7lu7k0/Fgw1GCaPdAmH
-	lxZEii4oB/OVAG9E7ZKw==;
+	List-Owner; bh=jfLgZe4xOtETLROrfFOSMKoiGeHq1uDPnoLRsjUP8W4=; b=u4+Q+gj/iTzMWl
+	oLveiyF6Zdqkp+uXLLjh0CFBl7jnz6AYpNtjoXKEVN0TZ38pxQk5FPosibJyEdzUNvwh6C2SlXrKA
+	UsFOxv2HqxZ7Akzf3ygAkxZ4lWlo4R6qfRSY3IMO6Z4ZIzKtk9dlJXyljkc9OkC0aXSz4hCgLMGFJ
+	KwKYF/rY8MJbZjTUORtn9yjiZ+ki2017K5lt8EhPxxl8Zxlr1mKUBGH1jNViLZY0BX6h6Ugohfbj4
+	+zlnn3wpsoafGOII3Xd5On2jXm37OHmWqyV0LusppE/mrk5VhQUvweMGDL3STtymlJezIsuSy4opc
+	aeMxdMVJ6NoUiV1v/Ong==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1scXPw-0000000CcGp-0CnQ;
-	Fri, 09 Aug 2024 21:45:00 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1scXQ1-0000000CcJ8-3kBJ;
+	Fri, 09 Aug 2024 21:45:05 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1scXPu-0000000CcFz-08HW
+	id 1scXPz-0000000CcHj-2Jjg
 	for linux-riscv@lists.infradead.org;
-	Fri, 09 Aug 2024 21:44:59 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-70d199fb3dfso2004714b3a.3
-        for <linux-riscv@lists.infradead.org>; Fri, 09 Aug 2024 14:44:57 -0700 (PDT)
+	Fri, 09 Aug 2024 21:45:04 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-1fc692abba4so22413705ad.2
+        for <linux-riscv@lists.infradead.org>; Fri, 09 Aug 2024 14:45:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1723239897; x=1723844697; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1723239902; x=1723844702; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ZAMfKx1oQo8YE2iR6NozF/j3f+Ura3BBtPQS5J8as2Q=;
-        b=LkY37pvoqzIN9zHCyJaJr7L41FzGQjcfvXzVS+BY9Nl2VjRmau09undzJ/Yd/mljy/
-         mSVixSKmkSZCsopiiWB28klhdYzyOssGTJl8oI+OqRiuz08PUFLN58gkiTS4HnnbT6BQ
-         3Ajj462yhjWZpuHsvoIjB7M/JH94H9u705TmLwWZeSIpJ72CNDnv+wO/FI4lHuv4anto
-         ss6Lg4TLXaWyNh8FtOjW0vZdnNkGZD7vypsZaeMbaiohDD82J2qnrAqUNTNlQI91vQky
-         h0cM/YBmOVQheNLTRfxAxJ8k1RQHtDpKEhS20ChCVrh0QGR8CU13adsu0KrC+NHGo9rX
-         +g0A==
+        bh=2Py63dN9Cyk4F4VNdUn5bUyFD7ir6dWa470OTbK+T4Q=;
+        b=Lg/0XmGoYIjqVyRqOkfynffumuj68oQH0YiWefbMFcGKqd3Z1dd6IG1oeM5Z2a5IuV
+         HbiQsg3O2hWU0dFJ1KO0s78W5+G/O1swjS6nciZYh/G3vEy3tSSR0wkzzGBUsUyJcIvd
+         eFke6peAosHs99v/Eagnb4sWlxXqBqZW2B/krstnfls4FTZ8QgRDcb9j2L3m6tbWmGE4
+         JCHCmrTyzjp3rErgcepXGUBdUvTBkCqJTS/6cThp+FulDzky8E01szUUOFs3iZOo3pJC
+         2L86/Hc5KpFthTAQiM8MeAgiHR1idVdnat7/pIKe4ddOAJjscN1k/QF3yTCeQut12TcC
+         2+5w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1723239897; x=1723844697;
+        d=1e100.net; s=20230601; t=1723239902; x=1723844702;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ZAMfKx1oQo8YE2iR6NozF/j3f+Ura3BBtPQS5J8as2Q=;
-        b=TuxlqX1/EmJcXJLAb7CIrq6qQEIxHyJao9lOXoU2MrV4+KJbJfUnS2bBBT3Ctq/A/b
-         wb2AUovGrMH4cvZ4YfMWaLobUthhwQ7MIRRPeRNuODgUf7z6CzFKVuxxZFQSAkjD/bCm
-         MadNUHGDgJTxnRIyM73YoxLpYc2gtHAYIt4O9gg/VzUsHMiu1ZWRKqRmS3/F5S7tw0ze
-         DSIbhUDlfjdAnWloT5V+67n8JgU9prJEzEiM0COBRDAcw2GAJUqayaO5ce1AU8c+RPzs
-         Igq+hPB8jac9KmDmdfxruqXx+YpeK+7/FHbZ9N9MUA2I13lX+uMegfQfG5U22ljoQEr7
-         YSPw==
-X-Forwarded-Encrypted: i=1; AJvYcCVL3iLUPZ+pNuXjRWsGWMgiIded7DqUyBXslV6T5CySm8LEQBZM+wy91KdSx8lyAViG92Be7kUdQiHenQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyTsTsafYnypgLPvknZLswKcpXa7gUOa6VLyrc2wW5QTyJqm+qZ
-	gN6o7oiqaWLGNXErboebMbj/oeIVA/BPBVUpKvHVECX3noWJJqYFmdmmQ3H5ZK4=
-X-Google-Smtp-Source: AGHT+IETL5ADV1/Vr6Ds8AZje2vtkmmfFXXh7EZ78E33vbBCrTLO+WnE2if/EUwAUCYEUfaHJXsEXw==
-X-Received: by 2002:a17:902:e5c1:b0:1fd:acd1:b642 with SMTP id d9443c01a7336-200ae633590mr41893135ad.64.1723239896920;
-        Fri, 09 Aug 2024 14:44:56 -0700 (PDT)
+        bh=2Py63dN9Cyk4F4VNdUn5bUyFD7ir6dWa470OTbK+T4Q=;
+        b=dZrjtKfOdjSSrHrGjCQmFdNUbuFl/+7HmXtYNMu+xDK44ugvGTE3Uj0YLoK7t1jMch
+         nn/OampqCAaBQT+1XDc+BROJ+RWbc8YUtpoyY8SQYo6RgmAz3oux0j8/sR8ftKlSpRha
+         6qQqJ243rPdflOX5Y8amNFNyZPW2Xlxoc35QwJG/Rwskbujx06FpUgEoPQMeiKDAljaY
+         b3A+EAVMpOqGs6rwLFUVj+VrYlhJzWe+JR5J129Axw4E/DT07cNDVrd0Cc61ZPRmJOfB
+         3bqgRWsI9O13SwsUAjTuNeeTh5+W3AD3EXqYTrWdEWqmqXoqt8R1EQp9DsS45+qeoG8+
+         bZ0w==
+X-Forwarded-Encrypted: i=1; AJvYcCWQWApLXR6pt3PUR44jUPBLbcMRLG0IbJ/r7plVmEqMZSMpJGNSc6yrVm9wdw6SvddjnZy79Gnfps4ewA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyqyuaFZn4FJokVHWhafMm7nA2/aLLSMyNpbL8oeDypVsE8BjF9
+	9t6cVx+Jb58TKQQgV/ODaYAkmEGdU0qMbTNJwAiL+sRb9GJ5mXd2opWRNyeoYwo=
+X-Google-Smtp-Source: AGHT+IFjDZgbJQsKw0eK2fTkldjulQaz92a71XFZ9dmavytbJZRanoXcfYvEgZjb23iSdRpUxDXggQ==
+X-Received: by 2002:a17:902:d48c:b0:1fc:5462:7eb7 with SMTP id d9443c01a7336-200ae5dd1c1mr37420745ad.58.1723239902113;
+        Fri, 09 Aug 2024 14:45:02 -0700 (PDT)
 Received: from evan.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-200bb7e93fesm2073905ad.43.2024.08.09.14.44.55
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-200bb7e93fesm2073905ad.43.2024.08.09.14.45.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 Aug 2024 14:44:56 -0700 (PDT)
+        Fri, 09 Aug 2024 14:45:01 -0700 (PDT)
 From: Evan Green <evan@rivosinc.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>
 Cc: Yangyu Chen <cyy@cyyself.name>,
 	Evan Green <evan@rivosinc.com>,
 	Charlie Jenkins <charlie@rivosinc.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
 	Andy Chiu <andy.chiu@sifive.com>,
-	Anup Patel <anup@brainfault.org>,
+	Ben Dooks <ben.dooks@codethink.co.uk>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
 	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
 	Costa Shulyupin <costa.shul@redhat.com>,
+	Erick Archer <erick.archer@gmx.com>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
 	Jonathan Corbet <corbet@lwn.net>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v4 1/2] RISC-V: hwprobe: Add MISALIGNED_PERF key
-Date: Fri,  9 Aug 2024 14:44:43 -0700
-Message-Id: <20240809214444.3257596-2-evan@rivosinc.com>
+Subject: [PATCH v4 2/2] RISC-V: hwprobe: Add SCALAR to misaligned perf defines
+Date: Fri,  9 Aug 2024 14:44:44 -0700
+Message-Id: <20240809214444.3257596-3-evan@rivosinc.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20240809214444.3257596-1-evan@rivosinc.com>
 References: <20240809214444.3257596-1-evan@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240809_144458_097839_3D23378B 
-X-CRM114-Status: GOOD (  18.65  )
+X-CRM114-CacheID: sfid-20240809_144503_624199_26206BA9 
+X-CRM114-Status: GOOD (  22.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,125 +110,209 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RISCV_HWPROBE_KEY_CPUPERF_0 was mistakenly flagged as a bitmask in
-hwprobe_key_is_bitmask(), when in reality it was an enum value. This
-causes problems when used in conjunction with RISCV_HWPROBE_WHICH_CPUS,
-since SLOW, FAST, and EMULATED have values whose bits overlap with
-each other. If the caller asked for the set of CPUs that was SLOW or
-EMULATED, the returned set would also include CPUs that were FAST.
+In preparation for misaligned vector performance hwprobe keys, rename
+the hwprobe key values associated with misaligned scalar accesses to
+include the term SCALAR. Leave the old defines in place to maintain
+source compatibility.
 
-Introduce a new hwprobe key, RISCV_HWPROBE_KEY_MISALIGNED_PERF, which
-returns the same values in response to a direct query (with no flags),
-but is properly handled as an enumerated value. As a result, SLOW,
-FAST, and EMULATED are all correctly treated as distinct values under
-the new key when queried with the WHICH_CPUS flag.
+This change is intended to be a functional no-op.
 
-Leave the old key in place to avoid disturbing applications which may
-have already come to rely on the key, with or without its broken
-behavior with respect to the WHICH_CPUS flag.
-
-Fixes: e178bf146e4b ("RISC-V: hwprobe: Introduce which-cpus flag")
 Signed-off-by: Evan Green <evan@rivosinc.com>
 Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 ---
 
 Changes in v4:
- - Rebased
+ - Add the word scalar (Charlie)
 
 Changes in v3:
- - Further documentation wordsmithing (Conor)
+ - Leave the old defines in place (Conor, Palmer)
 
 Changes in v2:
- - Clarified the distinction of slow and fast refers to misaligned word
-   accesses. Previously it just said misaligned accesses, leaving it
-   ambiguous as to which type of access was measured.
- - Removed shifts in values (Andrew)
- - Renamed key to RISCV_HWPROBE_KEY_MISALIGNED_SCALAR_PERF (Palmer)
+ - Added patch to rename misaligned perf key values (Palmer)
 
- Documentation/arch/riscv/hwprobe.rst  | 20 +++++++++++++-------
- arch/riscv/include/asm/hwprobe.h      |  2 +-
- arch/riscv/include/uapi/asm/hwprobe.h |  1 +
- arch/riscv/kernel/sys_hwprobe.c       |  1 +
- 4 files changed, 16 insertions(+), 8 deletions(-)
+ Documentation/arch/riscv/hwprobe.rst       | 28 ++++++++++++----------
+ arch/riscv/include/uapi/asm/hwprobe.h      |  5 ++++
+ arch/riscv/kernel/sys_hwprobe.c            | 10 ++++----
+ arch/riscv/kernel/traps_misaligned.c       |  6 ++---
+ arch/riscv/kernel/unaligned_access_speed.c | 12 +++++-----
+ 5 files changed, 34 insertions(+), 27 deletions(-)
 
 diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
-index 3db60a0911df..a994eed75bde 100644
+index a994eed75bde..85b709257918 100644
 --- a/Documentation/arch/riscv/hwprobe.rst
 +++ b/Documentation/arch/riscv/hwprobe.rst
-@@ -239,8 +239,13 @@ The following keys are defined:
-        ratified in commit 98918c844281 ("Merge pull request #1217 from
-        riscv/zawrs") of riscv-isa-manual.
+@@ -247,23 +247,25 @@ The following keys are defined:
+   the performance of misaligned scalar native word accesses on the selected set
+   of processors.
  
--* :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: A bitmask that contains performance
--  information about the selected set of processors.
-+* :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: Deprecated.  Returns similar values to
-+     :c:macro:`RISCV_HWPROBE_KEY_MISALIGNED_SCALAR_PERF`, but the key was
-+     mistakenly classified as a bitmask rather than a value.
-+
-+* :c:macro:`RISCV_HWPROBE_KEY_MISALIGNED_SCALAR_PERF`: An enum value describing
-+  the performance of misaligned scalar native word accesses on the selected set
-+  of processors.
+-  * :c:macro:`RISCV_HWPROBE_MISALIGNED_UNKNOWN`: The performance of misaligned
+-    accesses is unknown.
++  * :c:macro:`RISCV_HWPROBE_MISALIGNED_SCALAR_UNKNOWN`: The performance of
++    misaligned scalar accesses is unknown.
  
-   * :c:macro:`RISCV_HWPROBE_MISALIGNED_UNKNOWN`: The performance of misaligned
-     accesses is unknown.
-@@ -249,12 +254,13 @@ The following keys are defined:
-     emulated via software, either in or below the kernel.  These accesses are
-     always extremely slow.
+-  * :c:macro:`RISCV_HWPROBE_MISALIGNED_EMULATED`: Misaligned accesses are
+-    emulated via software, either in or below the kernel.  These accesses are
+-    always extremely slow.
++  * :c:macro:`RISCV_HWPROBE_MISALIGNED_SCALAR_EMULATED`: Misaligned scalar
++    accesses are emulated via software, either in or below the kernel.  These
++    accesses are always extremely slow.
  
--  * :c:macro:`RISCV_HWPROBE_MISALIGNED_SLOW`: Misaligned accesses are slower
--    than equivalent byte accesses.  Misaligned accesses may be supported
--    directly in hardware, or trapped and emulated by software.
-+  * :c:macro:`RISCV_HWPROBE_MISALIGNED_SLOW`: Misaligned native word
-+    sized accesses are slower than the equivalent quantity of byte accesses.
-+    Misaligned accesses may be supported directly in hardware, or trapped and
-+    emulated by software.
+-  * :c:macro:`RISCV_HWPROBE_MISALIGNED_SLOW`: Misaligned native word
+-    sized accesses are slower than the equivalent quantity of byte accesses.
+-    Misaligned accesses may be supported directly in hardware, or trapped and
+-    emulated by software.
++  * :c:macro:`RISCV_HWPROBE_MISALIGNED_SCALAR_SLOW`: Misaligned scalar native
++    word sized accesses are slower than the equivalent quantity of byte
++    accesses. Misaligned accesses may be supported directly in hardware, or
++    trapped and emulated by software.
  
--  * :c:macro:`RISCV_HWPROBE_MISALIGNED_FAST`: Misaligned accesses are faster
--    than equivalent byte accesses.
-+  * :c:macro:`RISCV_HWPROBE_MISALIGNED_FAST`: Misaligned native word
-+    sized accesses are faster than the equivalent quantity of byte accesses.
+-  * :c:macro:`RISCV_HWPROBE_MISALIGNED_FAST`: Misaligned native word
+-    sized accesses are faster than the equivalent quantity of byte accesses.
++  * :c:macro:`RISCV_HWPROBE_MISALIGNED_SCALAR_FAST`: Misaligned scalar native
++    word sized accesses are faster than the equivalent quantity of byte
++    accesses.
  
-   * :c:macro:`RISCV_HWPROBE_MISALIGNED_UNSUPPORTED`: Misaligned accesses are
-     not supported at all and will generate a misaligned address fault.
-diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
-index ef01c182af2b..ffb9484531af 100644
---- a/arch/riscv/include/asm/hwprobe.h
-+++ b/arch/riscv/include/asm/hwprobe.h
-@@ -8,7 +8,7 @@
+-  * :c:macro:`RISCV_HWPROBE_MISALIGNED_UNSUPPORTED`: Misaligned accesses are
+-    not supported at all and will generate a misaligned address fault.
++  * :c:macro:`RISCV_HWPROBE_MISALIGNED_SCALAR_UNSUPPORTED`: Misaligned scalar
++    accesses are not supported at all and will generate a misaligned address
++    fault.
  
- #include <uapi/asm/hwprobe.h>
- 
--#define RISCV_HWPROBE_MAX_KEY 8
-+#define RISCV_HWPROBE_MAX_KEY 9
- 
- static inline bool riscv_hwprobe_key_is_valid(__s64 key)
- {
+ * :c:macro:`RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE`: An unsigned int which
+   represents the size of the Zicboz block in bytes.
 diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
-index b706c8e47b02..635753084275 100644
+index 635753084275..1e153cda57db 100644
 --- a/arch/riscv/include/uapi/asm/hwprobe.h
 +++ b/arch/riscv/include/uapi/asm/hwprobe.h
-@@ -82,6 +82,7 @@ struct riscv_hwprobe {
- #define RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE	6
+@@ -83,6 +83,11 @@ struct riscv_hwprobe {
  #define RISCV_HWPROBE_KEY_HIGHEST_VIRT_ADDRESS	7
  #define RISCV_HWPROBE_KEY_TIME_CSR_FREQ	8
-+#define RISCV_HWPROBE_KEY_MISALIGNED_SCALAR_PERF	9
+ #define RISCV_HWPROBE_KEY_MISALIGNED_SCALAR_PERF	9
++#define		RISCV_HWPROBE_MISALIGNED_SCALAR_UNKNOWN		0
++#define		RISCV_HWPROBE_MISALIGNED_SCALAR_EMULATED	1
++#define		RISCV_HWPROBE_MISALIGNED_SCALAR_SLOW		2
++#define		RISCV_HWPROBE_MISALIGNED_SCALAR_FAST		3
++#define		RISCV_HWPROBE_MISALIGNED_SCALAR_UNSUPPORTED	4
  /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
  
  /* Flags */
 diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
-index 8d1b5c35d2a7..2d0f4f6a32c3 100644
+index 2d0f4f6a32c3..cea0ca2bf2a2 100644
 --- a/arch/riscv/kernel/sys_hwprobe.c
 +++ b/arch/riscv/kernel/sys_hwprobe.c
-@@ -225,6 +225,7 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
- 		break;
+@@ -178,13 +178,13 @@ static u64 hwprobe_misaligned(const struct cpumask *cpus)
+ 			perf = this_perf;
  
- 	case RISCV_HWPROBE_KEY_CPUPERF_0:
-+	case RISCV_HWPROBE_KEY_MISALIGNED_SCALAR_PERF:
- 		pair->value = hwprobe_misaligned(cpus);
- 		break;
+ 		if (perf != this_perf) {
+-			perf = RISCV_HWPROBE_MISALIGNED_UNKNOWN;
++			perf = RISCV_HWPROBE_MISALIGNED_SCALAR_UNKNOWN;
+ 			break;
+ 		}
+ 	}
  
+ 	if (perf == -1ULL)
+-		return RISCV_HWPROBE_MISALIGNED_UNKNOWN;
++		return RISCV_HWPROBE_MISALIGNED_SCALAR_UNKNOWN;
+ 
+ 	return perf;
+ }
+@@ -192,12 +192,12 @@ static u64 hwprobe_misaligned(const struct cpumask *cpus)
+ static u64 hwprobe_misaligned(const struct cpumask *cpus)
+ {
+ 	if (IS_ENABLED(CONFIG_RISCV_EFFICIENT_UNALIGNED_ACCESS))
+-		return RISCV_HWPROBE_MISALIGNED_FAST;
++		return RISCV_HWPROBE_MISALIGNED_SCALAR_FAST;
+ 
+ 	if (IS_ENABLED(CONFIG_RISCV_EMULATED_UNALIGNED_ACCESS) && unaligned_ctl_available())
+-		return RISCV_HWPROBE_MISALIGNED_EMULATED;
++		return RISCV_HWPROBE_MISALIGNED_SCALAR_EMULATED;
+ 
+-	return RISCV_HWPROBE_MISALIGNED_SLOW;
++	return RISCV_HWPROBE_MISALIGNED_SCALAR_SLOW;
+ }
+ #endif
+ 
+diff --git a/arch/riscv/kernel/traps_misaligned.c b/arch/riscv/kernel/traps_misaligned.c
+index b62d5a2f4541..192cd5603e95 100644
+--- a/arch/riscv/kernel/traps_misaligned.c
++++ b/arch/riscv/kernel/traps_misaligned.c
+@@ -338,7 +338,7 @@ int handle_misaligned_load(struct pt_regs *regs)
+ 	perf_sw_event(PERF_COUNT_SW_ALIGNMENT_FAULTS, 1, regs, addr);
+ 
+ #ifdef CONFIG_RISCV_PROBE_UNALIGNED_ACCESS
+-	*this_cpu_ptr(&misaligned_access_speed) = RISCV_HWPROBE_MISALIGNED_EMULATED;
++	*this_cpu_ptr(&misaligned_access_speed) = RISCV_HWPROBE_MISALIGNED_SCALAR_EMULATED;
+ #endif
+ 
+ 	if (!unaligned_enabled)
+@@ -532,13 +532,13 @@ static bool check_unaligned_access_emulated(int cpu)
+ 	unsigned long tmp_var, tmp_val;
+ 	bool misaligned_emu_detected;
+ 
+-	*mas_ptr = RISCV_HWPROBE_MISALIGNED_UNKNOWN;
++	*mas_ptr = RISCV_HWPROBE_MISALIGNED_SCALAR_UNKNOWN;
+ 
+ 	__asm__ __volatile__ (
+ 		"       "REG_L" %[tmp], 1(%[ptr])\n"
+ 		: [tmp] "=r" (tmp_val) : [ptr] "r" (&tmp_var) : "memory");
+ 
+-	misaligned_emu_detected = (*mas_ptr == RISCV_HWPROBE_MISALIGNED_EMULATED);
++	misaligned_emu_detected = (*mas_ptr == RISCV_HWPROBE_MISALIGNED_SCALAR_EMULATED);
+ 	/*
+ 	 * If unaligned_ctl is already set, this means that we detected that all
+ 	 * CPUS uses emulated misaligned access at boot time. If that changed
+diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kernel/unaligned_access_speed.c
+index a9a6bcb02acf..160628a2116d 100644
+--- a/arch/riscv/kernel/unaligned_access_speed.c
++++ b/arch/riscv/kernel/unaligned_access_speed.c
+@@ -34,9 +34,9 @@ static int check_unaligned_access(void *param)
+ 	struct page *page = param;
+ 	void *dst;
+ 	void *src;
+-	long speed = RISCV_HWPROBE_MISALIGNED_SLOW;
++	long speed = RISCV_HWPROBE_MISALIGNED_SCALAR_SLOW;
+ 
+-	if (per_cpu(misaligned_access_speed, cpu) != RISCV_HWPROBE_MISALIGNED_UNKNOWN)
++	if (per_cpu(misaligned_access_speed, cpu) != RISCV_HWPROBE_MISALIGNED_SCALAR_UNKNOWN)
+ 		return 0;
+ 
+ 	/* Make an unaligned destination buffer. */
+@@ -95,14 +95,14 @@ static int check_unaligned_access(void *param)
+ 	}
+ 
+ 	if (word_cycles < byte_cycles)
+-		speed = RISCV_HWPROBE_MISALIGNED_FAST;
++		speed = RISCV_HWPROBE_MISALIGNED_SCALAR_FAST;
+ 
+ 	ratio = div_u64((byte_cycles * 100), word_cycles);
+ 	pr_info("cpu%d: Ratio of byte access time to unaligned word access is %d.%02d, unaligned accesses are %s\n",
+ 		cpu,
+ 		ratio / 100,
+ 		ratio % 100,
+-		(speed == RISCV_HWPROBE_MISALIGNED_FAST) ? "fast" : "slow");
++		(speed == RISCV_HWPROBE_MISALIGNED_SCALAR_FAST) ? "fast" : "slow");
+ 
+ 	per_cpu(misaligned_access_speed, cpu) = speed;
+ 
+@@ -110,7 +110,7 @@ static int check_unaligned_access(void *param)
+ 	 * Set the value of fast_misaligned_access of a CPU. These operations
+ 	 * are atomic to avoid race conditions.
+ 	 */
+-	if (speed == RISCV_HWPROBE_MISALIGNED_FAST)
++	if (speed == RISCV_HWPROBE_MISALIGNED_SCALAR_FAST)
+ 		cpumask_set_cpu(cpu, &fast_misaligned_access);
+ 	else
+ 		cpumask_clear_cpu(cpu, &fast_misaligned_access);
+@@ -188,7 +188,7 @@ static int riscv_online_cpu(unsigned int cpu)
+ 	static struct page *buf;
+ 
+ 	/* We are already set since the last check */
+-	if (per_cpu(misaligned_access_speed, cpu) != RISCV_HWPROBE_MISALIGNED_UNKNOWN)
++	if (per_cpu(misaligned_access_speed, cpu) != RISCV_HWPROBE_MISALIGNED_SCALAR_UNKNOWN)
+ 		goto exit;
+ 
+ 	buf = alloc_pages(GFP_KERNEL, MISALIGNED_BUFFER_ORDER);
 -- 
 2.34.1
 
