@@ -4,73 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52A12C52D7C
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Aug 2024 22:31:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E623C3DA4A
+	for <linux-riscv@archiver.kernel.org>; Sat, 10 Aug 2024 07:23:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V7iUEmbSKIdrRJ56KHvQD2EVdBhJgnV2TGbGN2CPBsM=; b=x5bEzEnbx0QH+m9OB52PEMF0QA
-	mU671LAAmgV6vskfw4gYPaWwR9wf+rOgJ33RUhHZEmsZNm/YXYLkhqtAWdblxCQjmzzv4f3alcCjJ
-	+WU1/2dUKlAfIc+Eog9DETe7Cp23I3QRlrVU5x3+dw5ufgjDdWdvxd/jS0kRJUKJ7Xj39Rf6Wggs7
-	Jq8uraTro6rHJmzeqzgnsPsR53Ze22IBzL47PYWibnTox3fHUUX1+iD/2sYObz1PmaTBCJZCIfGq6
-	ELVxffooDY5+CW4mUgShoGV+apQwEmO17UzCkfl8aNm4WpCsXRZIm5mJZl0HFf24iil0FbZGCMWQp
-	IYXJkFvw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rBmpMpLoRYEKbCVRONG2qoGZ2xtYO+wPeJj97GXMIBM=; b=GWrK0ymMeF7Acc
+	SWzNUijX5ere5251JQa8a1DHgKmhaIUc4d0AKNLvOr9/1YVqfwCl76B858Ffvf4MOdwb4t52ZUtxs
+	VBLDbNmEjN4DUPWfvxtNLm5LwV8yGsHbB3dr5Rr98mT4Of/R5ePAnjP71lerFGtQBoHp7urcn3mEe
+	QgRzEWTeK7AdZMwq13G4OjC+8SNhcwRocPsjV17z2hFRMf/4loAsPuNJRy0wtNkG99lx6lx6t3exs
+	r91b8v8UHGS3vxKKZM9xI0HROXIshgYAUqmORzZKAk2CN+2K5dC5MR7Bt+ZzQecaxzcoF0cjufbwi
+	1r2+a7Pkjg53q9BsgtjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1scY8u-0000000Cg1q-2G6x;
-	Fri, 09 Aug 2024 22:31:28 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1scgS4-0000000DMbG-2zRq;
+	Sat, 10 Aug 2024 07:23:48 +0000
+Received: from mail-mw2nam04olkn20825.outbound.protection.outlook.com ([2a01:111:f403:2c0a::825] helo=NAM04-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1scY8p-0000000Cg19-2v82
+	id 1scgS1-0000000DMYe-2hhL
 	for linux-riscv@lists.infradead.org;
-	Fri, 09 Aug 2024 22:31:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A3B6061758;
-	Fri,  9 Aug 2024 22:31:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7583BC32782;
-	Fri,  9 Aug 2024 22:31:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1723242682;
-	bh=ST2yZJ1z3NPLh4z1Z9oZd5wDiM05Ls+yHvSmTrATXTA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IdfNHUFSCvgO3CKBq6FBAR2WeVIHxj1nhcVXFpM90cS4e3R4lvmJlY0jAlCdyiao7
-	 bTvJg/0lzSHLV2vMiVmamYiBijYQA7Pk2WZwG1Oz99TlRYq9G0qi36ZCnWiBELc8Yk
-	 GfwK3agTSeyPYjBV0GypsBfN0gzSVGty7jXfSJzACMBD9gTH0M3QegApEtBVPfkeux
-	 ELsWhY/ZLNszj9JXhqp/fWzZ4s8WZOi84U2YqzhC8CkAd4vT5rzdhPbDvI2X1azdyS
-	 PC+9Lmwr28VwuRYElgTjS2Anp0/hkhMnQK7CtWsea9xdVT0ZwIV1fR9oepAD0hYJq3
-	 lvy0RwPbyqe6w==
-Date: Fri, 9 Aug 2024 23:31:15 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jisheng Zhang <jszhang@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Guo Ren <guoren@kernel.org>, Evan Green <evan@rivosinc.com>,
-	Andy Chiu <andy.chiu@sifive.com>,
-	Jessica Clarke <jrtc27@jrtc27.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Heiko Stuebner <heiko@sntech.de>
-Subject: Re: [PATCH v9 00/13] riscv: Add support for xtheadvector
-Message-ID: <20240809-slapping-graph-461287bac506@spud>
-References: <20240806-xtheadvector-v9-0-62a56d2da5d0@rivosinc.com>
+	Sat, 10 Aug 2024 07:23:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QylvjV+lRUWlecPCgR4GPNilyxKTTTNL16ggaGaMBz5uMJP8gw7tCFZw7HKg4ZB6eW77/v2Jcyb/XIUYmMpF+pOEPeLVmj2gCuvSbQCpsTNqL5qvpPLxDrBwFcDZZ8O90dViCg5qe8CjCmxSq+cWNbUeptINBKRqqqEyE65DqSEIpMJim3uKqxsMM0nIddsQfKSCHvkWFBb9ukiR2SWqadPLacSDgFGmKkAR2rhl8c25oHdqa8YYHvl7zMytwtdC3Gsc0r7rK6R9PlEESL1WXQ0A1tja45lzAYAN0hVjxQY+frLFrL2gnNLOybjvhKcx5k6YG6ADOGtMHn2TQ3DmGg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DHqXPXCZQ63SybLg4IunguvOhnh5gyFGvndKBsx8YIo=;
+ b=RxgFyEhPxUixBGfiiC8JdGtAIIESJnLVMKmgVkSewEUJBVyozyWYlvudWe0ahrBV3QCgWetUFVstxeNhO/qN+xWYLf63ftlVYqmgRxtN3jI5z4YxdXath4haJ/3w4iuJm1eFa55/OaWSeQvv4QHB0m1HXnID72eurb8IRtPz2jI2secRVZv3eaRiOSZRArv9fKjSkB2coax7GOAY7zkH254tjwNHgqoPpUlryXTiGFXtd2is9ULrKq5p3DglglwcfAXYC+IspPNJQ2MS/lOrEfPs0fKkYz+S1gY4nD/uZqkgz4hnGKiaAbw3sX9F1HpyGYssS4x8hnysy8Ui8t3MMQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DHqXPXCZQ63SybLg4IunguvOhnh5gyFGvndKBsx8YIo=;
+ b=mhpkTQc6pqiLHvErddCiD3u2N5aupod5EDwDMh0hcBkhNamMTvGfSQdXUJFa22vMzlBft3uU7iey/bRxU2CU00LhjkaCaq3xTqGqZwPaTbr4DhFyFQEnueNYF4XUxIs+hSFGcC42OKWsvMhP0EnsckugKMyRbVdW+O8KMSdc0F/W7aqMolQNgrzTZdfsQ0FTaZSOmuS9Omdc0qll3goqwshncOiu2QBgJq/HUJOTRIKa+QbM2+BAHPRxju0dI642T05MS0HAcabVDzoxSf9ioI+jc++KrfstA49WHe7knUGp2trZ9vVL8ZWReH9LujjQkGNgeMDEUwFxIu/ancr94A==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by SJ2PR20MB7133.namprd20.prod.outlook.com (2603:10b6:a03:577::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7849.15; Sat, 10 Aug
+ 2024 07:23:24 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::ab0b:c0d3:1f91:d149]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::ab0b:c0d3:1f91:d149%4]) with mapi id 15.20.7849.015; Sat, 10 Aug 2024
+ 07:23:24 +0000
+Date: Sat, 10 Aug 2024 15:22:42 +0800
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Chen Wang <unicorn_wang@outlook.com>, 
+	Inochi Amaoto <inochiama@outlook.com>, Jean Delvare <jdelvare@suse.com>, 
+	Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>, 
+	Chao Wei <chao.wei@sophgo.com>, Jinyu Tang <tangjinyu@tinylab.org>, 
+	Hal Feng <hal.feng@starfivetech.com>, Yangyu Chen <cyy@cyyself.name>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Cc: linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v9 2/4] drivers: hwmon: sophgo: Add SG2042 external
+ hardware monitor support
+Message-ID: <IA1PR20MB49533C4D8296FA2E9B386CEBBBBB2@IA1PR20MB4953.namprd20.prod.outlook.com>
+References: <IA1PR20MB495337877FFC8D787A045C15BBB32@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <IA1PR20MB4953032E1B5D58D2F6C7393DBBB32@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <MA0P287MB2822B30C0665F36B08C8611BFEBE2@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
+Content-Disposition: inline
+In-Reply-To: <MA0P287MB2822B30C0665F36B08C8611BFEBE2@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
+X-TMN: [kG7/Wb+Z8K545rLASa+AAXKB4lmFZJLR309MJ/EGNTg=]
+X-ClientProxiedBy: TYCP286CA0116.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:29c::8) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <h32jdmutgxabk72okta3bdn2tgjvt5g6dp5ky3rxvuqkxdt2nv@quvcbjp5mdbe>
 MIME-Version: 1.0
-In-Reply-To: <20240806-xtheadvector-v9-0-62a56d2da5d0@rivosinc.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|SJ2PR20MB7133:EE_
+X-MS-Office365-Filtering-Correlation-Id: 02a9f6a1-01a1-4b57-94be-08dcb90d51f3
+X-Microsoft-Antispam: BCL:0;ARA:14566002|8060799006|461199028|15080799003|5072599009|19110799003|3412199025|440099028|1710799026;
+X-Microsoft-Antispam-Message-Info: CukdaCtBonW594/VfZWo85J0aTq8wyNJ2Aj/0z8DtWsQYke7vqRCesJmNbrCmSrUn7nQVZ9FIkcS4f+1b/Vx3Kr1fqRzJFYtetxbnCxD1eNzJUyjFWwhWI+SoH1Q+CIMwiJTdTN7m78IJR0WaRcop/IocKPlCn+9MgCQGEG872ZF0zawsXmONUgUNeTOWSTG4msXg2+0+GcqBDGBSrFxnFJW7rS16Uid7kz9enDZ96lnY91KaNevLPX4TU/J3S3k8T0gJys0WD6pCO+Ie/RhgEh3Evwr4QWlxVvIfewFVdemn9Ic/UtoV5k7z5iPqOiUTUi6M7uzgfnuCz8DvlfBP3w8ZgQ1jbK4oCc/MtR0RjpiueBAALIwQ3JZuNBfw1EOC9Eh5hTKld4yhvtgjCEsIwGfHogZSFSRKBvDbc/ftvPd2CUfrowfVKUJGNbLavTdprAiASUDicxUnoVLVfYMbTV9bCQMvnEvmYaKPXRnobK9fGfDe72mXtg+Uwuueerm0wmphaJCkrOnQOguU1n1Vtsedj8EIWo9wTSgVtTh/z0w47Ph3xOJ6jThNmgXhoIcTsFz8kvx1ZKeA9p59sI8k8nbs8LhQaA5fsuSltGuAOMuCo97dio5emz70nM3J5iPmZqrLwjdyuTUUYiGt2ij4dTBUkyH/551c0dRl1k00MQWOqq1q2d9j8sqytaglitrdrx3oP2YqGrRudO+s+x6ukdp3tR+aO1hVgi7JPO9wIs=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?BJpGGFhde7j6eFm8YvlEdDb56oGWdWC72mL0iH2wdThVw9imyW+aeaZdFUqR?=
+ =?us-ascii?Q?K0zOXry2ndKkeUTkJx1SPmEQy4aHBmu3doMzB25J2xdyPZueY/2Uef9fJk+h?=
+ =?us-ascii?Q?yiA3kZHG8e9wM8DiuSmQu3oGg5UN6SWLoKHsGLDZPQgfAsW9rk8TJwm8VJTQ?=
+ =?us-ascii?Q?lAv65x9Us0ZNiYVzSzKKVTNlZCzX8AxeX1lwTVKEp//w6uk50IiSRV8dmxyi?=
+ =?us-ascii?Q?+gfZiXcv9QS2Wv5kgjmTqFRo53u6jF3diAsMHMrgyLwpXt7JzIlgXoROmdae?=
+ =?us-ascii?Q?qBKqZ9JIyJxehq3b3T4DVNBvjaT8ns9CZKC1JS2skiD6a+aqmCqGDImfdzcW?=
+ =?us-ascii?Q?S1AR/gSgO5X0fj1FZgr1PEwfAW9KNQFCah2oLWMGxsMRGm6WSOTHGFn6LSWi?=
+ =?us-ascii?Q?WvxbKGCEtNjRb76vg8dXsznD9uvowLr4X3di2AuHhp/qfqr4jeiqoDVxaggT?=
+ =?us-ascii?Q?pVoFcijFhejxWAFwBHXP/nw8mRuneyqG4QJJihkZRDbxTyO2/k8/XSX3qkEW?=
+ =?us-ascii?Q?ktkEGWS3zDN/YOwkpp2nFkWkELHKYc+YHnWQi+euAAiSWzJ2v9xGC6oqEuPc?=
+ =?us-ascii?Q?Ct8SQI6enuNNCLofbwUqjX6KzzvdlgE+upqBoY5eARykLswRM42Q08nNdHve?=
+ =?us-ascii?Q?34wXPeHf4XgL6NId/kjdYjwPs4TZhREDfiqIUMR43ZbY7GaqfBcWx5dJ6CYl?=
+ =?us-ascii?Q?4dnOd/5WugcDibcFZto5CD112iVTn71HjwwByTLWA8wS22hEsVHKOHyqJ0cx?=
+ =?us-ascii?Q?Fmxa07LDwO53ahvs7akDJXxNKUDKK50CNO01tLhMXiNuB+uVKtm77sskWLVi?=
+ =?us-ascii?Q?ZsZ5rPyRz0buY+7dv72JxAbnmiXk5wZxKtuboELtCcbUYBn7DiTnVtkmH1kc?=
+ =?us-ascii?Q?DyHL+EesB5ylF8Ba6DWZotsTGyRIooHMD//01/fNIvdxNnO9T+2V6MPMws8K?=
+ =?us-ascii?Q?IRljXMGFB0wnSXIfh64CeKg1gyAtVBq2l3akzpxMLZgljVZoeV60KK0QWMbO?=
+ =?us-ascii?Q?gWWBKU1He5n6RQLXQJigyGYLEMsL4DuHp6f3qhuVLxTExtRtunUhzu3xGjaM?=
+ =?us-ascii?Q?LgnzoTLAbSKpad8fiSSHbiOVAJWN4afiq+HN1pZfZ81iQkyCnxKfTPCy8D2s?=
+ =?us-ascii?Q?Dzh4Vo7SLHgcE9OfdJz8YdbD6X4Ko6NBfvI3fTbH2569ZFJImzlMV0tmbxz9?=
+ =?us-ascii?Q?h2W9WRd12mlKdD9Y4IvLh2yNgxXStEFIhjLBGB8WE4kPaLam2ss5Anjif9te?=
+ =?us-ascii?Q?XBPR2VCHo14voBbt/kRU?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 02a9f6a1-01a1-4b57-94be-08dcb90d51f3
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Aug 2024 07:23:24.4987
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR20MB7133
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240809_153123_825511_E0BA58A8 
-X-CRM114-Status: GOOD (  15.17  )
+X-CRM114-CacheID: sfid-20240810_002345_716326_C7128A89 
+X-CRM114-Status: GOOD (  29.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,66 +130,171 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1100864033261606263=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, Aug 05, 2024 at 09:38:03AM GMT, Chen Wang wrote:
+> 
+> On 2024/8/2 20:38, Inochi Amaoto wrote:
+> > SG2042 use an external MCU to provide basic hardware information
+> > and thermal sensors.
+> > 
+> > Add driver support for the onboard MCU of SG2042.
+> > 
+> > Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+> > Tested-by: Chen Wang <unicorn_wang@outlook.com>
+> > Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
+> > ---
+> >   Documentation/hwmon/index.rst      |   1 +
+> >   Documentation/hwmon/sg2042-mcu.rst |  39 +++
+> >   drivers/hwmon/Kconfig              |  11 +
+> >   drivers/hwmon/Makefile             |   1 +
+> >   drivers/hwmon/sg2042-mcu.c         | 394 +++++++++++++++++++++++++++++
+> >   5 files changed, 446 insertions(+)
+> >   create mode 100644 Documentation/hwmon/sg2042-mcu.rst
+> >   create mode 100644 drivers/hwmon/sg2042-mcu.c
+> > 
+> > diff --git a/Documentation/hwmon/index.rst b/Documentation/hwmon/index.rst
+> > index 913c11390a45..ea3b5be8fe4f 100644
+> > --- a/Documentation/hwmon/index.rst
+> > +++ b/Documentation/hwmon/index.rst
+> > @@ -206,6 +206,7 @@ Hardware Monitoring Kernel Drivers
+> >      sch5636
+> >      scpi-hwmon
+> >      sfctemp
+> > +   sg2042-mcu
+> >      sht15
+> >      sht21
+> >      sht3x
+> > diff --git a/Documentation/hwmon/sg2042-mcu.rst b/Documentation/hwmon/sg2042-mcu.rst
+> > new file mode 100644
+> > index 000000000000..250016b47dd1
+> > --- /dev/null
+> > +++ b/Documentation/hwmon/sg2042-mcu.rst
+> > @@ -0,0 +1,39 @@
+> > +.. SPDX-License-Identifier: GPL-2.0
+> > +
+> > +Kernel driver sg2042-mcu
+> > +=====================
+> > +
+> > +Supported chips:
+> > +
+> > +  * Onboard MCU for sg2042
+> > +
+> > +    Addresses scanned: -
+> > +
+> > +    Prefix: 'sg2042-mcu'
+> > +
+> > +Authors:
+> > +
+> > +  - Inochi Amaoto <inochiama@outlook.com>
+> > +
+> > +Description
+> > +-----------
+> > +
+> > +This driver supprts hardware monitoring for onboard MCU with
+> > +i2c interface.
+> > +
+> > +Usage Notes
+> > +-----------
+> > +
+> > +This driver does not auto-detect devices. You will have to instantiate
+> > +the devices explicitly.
+> > +Please see Documentation/i2c/instantiating-devices.rst for details.
+> > +
+> > +Sysfs Attributes
+> > +----------------
+> > +
+> > +================= =============================================
+> > +temp1_input       Measured temperature of SoC
+> > +temp1_crit        Critical high temperature
+> > +temp1_crit_hyst   hysteresis temperature restore from Critical
+> > +temp2_input       Measured temperature of the base board
+> > +================= =============================================
+> > diff --git a/drivers/hwmon/Kconfig b/drivers/hwmon/Kconfig
+> > index b60fe2e58ad6..7aa6c3f322e5 100644
+> > --- a/drivers/hwmon/Kconfig
+> > +++ b/drivers/hwmon/Kconfig
+> > @@ -2066,6 +2066,17 @@ config SENSORS_SFCTEMP
+> >   	  This driver can also be built as a module.  If so, the module
+> >   	  will be called sfctemp.
+> > +config SENSORS_SG2042_MCU
+> > +	tristate "Sophgo onboard MCU support"
+> > +	depends on I2C
+> > +	depends on ARCH_SOPHGO || COMPILE_TEST
+> > +	help
+> > +	  Support for onboard MCU of Sophgo SG2042 SoCs. This mcu provides
+> > +	  power control and some basic information.
+> > +
+> > +	  This driver can be built as a module. If so, the module
+> > +	  will be called sg2042-mcu.
+> > +
+> >   config SENSORS_SURFACE_FAN
+> >   	tristate "Surface Fan Driver"
+> >   	depends on SURFACE_AGGREGATOR
+> > diff --git a/drivers/hwmon/Makefile b/drivers/hwmon/Makefile
+> > index b1c7056c37db..0bbe812a67ae 100644
+> > --- a/drivers/hwmon/Makefile
+> > +++ b/drivers/hwmon/Makefile
+> > @@ -194,6 +194,7 @@ obj-$(CONFIG_SENSORS_SCH56XX_COMMON)+= sch56xx-common.o
+> >   obj-$(CONFIG_SENSORS_SCH5627)	+= sch5627.o
+> >   obj-$(CONFIG_SENSORS_SCH5636)	+= sch5636.o
+> >   obj-$(CONFIG_SENSORS_SFCTEMP)	+= sfctemp.o
+> > +obj-$(CONFIG_SENSORS_SG2042_MCU) += sg2042-mcu.o
+> >   obj-$(CONFIG_SENSORS_SL28CPLD)	+= sl28cpld-hwmon.o
+> >   obj-$(CONFIG_SENSORS_SHT15)	+= sht15.o
+> >   obj-$(CONFIG_SENSORS_SHT21)	+= sht21.o
+> > diff --git a/drivers/hwmon/sg2042-mcu.c b/drivers/hwmon/sg2042-mcu.c
+> > new file mode 100644
+> > index 000000000000..6d8d677f86f3
+> > --- /dev/null
+> > +++ b/drivers/hwmon/sg2042-mcu.c
+> > @@ -0,0 +1,394 @@
+> > +// SPDX-License-Identifier: GPL-2.0-only
+> > +/*
+> > + * Copyright (c) 2024 Inochi Amaoto <inochiama@outlook.com>
+> > + *
+> > + * Sophgo power control mcu for SG2042
+> > + */
+> > +
+> > +#include <linux/cleanup.h>
+> > +#include <linux/debugfs.h>
+> > +#include <linux/err.h>
+> > +#include <linux/hwmon.h>
+> > +#include <linux/i2c.h>
+> > +#include <linux/kernel.h>
+> > +#include <linux/module.h>
+> > +#include <linux/mutex.h>
+> > +
+> > +/* fixed MCU registers */
+> > +#define REG_BOARD_TYPE				0x00
+> > +#define REG_MCU_FIRMWARE_VERSION		0x01
+> > +#define REG_PCB_VERSION				0x02
+> > +#define REG_PWR_CTRL				0x03
+> > +#define REG_SOC_TEMP				0x04
+> > +#define REG_BOARD_TEMP				0x05
+> > +#define REG_RST_COUNT				0x0a
+> > +#define REG_UPTIME				0x0b
+> > +#define REG_RESET_REASON			0x0d
+> > +#define REG_MCU_TYPE				0x18
+> > +#define REG_REPOWER_ACTION			0x65
+> > +#define REG_CRITICAL_TEMP			0x66
+> > +#define REG_REPOWER_TEMP			0x67
+> As I mentioend in last review, suggest to add some clarification for
+> CRITICAL and REPOWER. Due to no document from sophgo, I hope some comments
+> in code for memo.
 
---===============1100864033261606263==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="UxYzrmqfRoz1zos6"
-Content-Disposition: inline
+After some struggle, I find it is hard to add some comments here. 
+It is useless and the code should be self-explained. Instead, I 
+add the comment in the document and rename this reg to "repower 
+policy" to make it clear. See it in the next version.
 
-
---UxYzrmqfRoz1zos6
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Aug 06, 2024 at 05:31:36PM -0700, Charlie Jenkins wrote:
-> xtheadvector is a custom extension that is based upon riscv vector
-> version 0.7.1 [1]. All of the vector routines have been modified to
-> support this alternative vector version based upon whether xtheadvector
-> was determined to be supported at boot.
->=20
-> vlenb is not supported on the existing xtheadvector hardware, so a
-> devicetree property thead,vlenb is added to provide the vlenb to Linux.
->=20
-> There is a new hwprobe key RISCV_HWPROBE_KEY_VENDOR_EXT_THEAD_0 that is
-> used to request which thead vendor extensions are supported on the
-> current platform. This allows future vendors to allocate hwprobe keys
-> for their vendor.
->=20
-> Support for xtheadvector is also added to the vector kselftests.
-
-So uh, since noone seems to have brought it up, in the light of the issues
-with thead's vector implementation, (https://ghostwriteattack.com/) do we
-want to enable it at all?
-
---UxYzrmqfRoz1zos6
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZraYswAKCRB4tDGHoIJi
-0tonAQDXX0xZWgDaeNkL+G/im0IoleTzmXCNVYAibHmhnDOBLQEAu5Jwr4Jh84y8
-So09QD8P3MlYkua1tqt96HA8i7/76ws=
-=PJBU
------END PGP SIGNATURE-----
-
---UxYzrmqfRoz1zos6--
-
-
---===============1100864033261606263==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Regards,
+Inochi
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1100864033261606263==--
-
