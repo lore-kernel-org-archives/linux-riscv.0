@@ -4,96 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 101A1C3DA7F
-	for <linux-riscv@archiver.kernel.org>; Sat, 10 Aug 2024 21:57:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3767AC3DA4A
+	for <linux-riscv@archiver.kernel.org>; Sun, 11 Aug 2024 03:18:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Atqy2XOj5KwtcBw8AwbT0qzvb8daSfneqK4HDvbRlA0=; b=3/FYJHKftV+Lzo
-	IBGHHkDni89ur/iC/lDJCyk+SYiJ/KB2D3HrNZR1QhhwR3GPb7YestWTlzT0h1CyKZa108ueFlD5c
-	f2Ln7It9ONW92/1pzGRbclfIeS9RTQGvdFum1iUxL0e/eI5386oqnmi2Gi0w68a7Z+CYgVaUqS1DL
-	1dkYaV36TYbywBX0w445AJO5gC8farEzKvDQXg4cJnIXEY8lK65kZhFTQExf0mqYFKdwDpNwCA9dd
-	t2AaR0SLE29do/ehxUxv8gjMpn1AZ7SkyOguK0CCNi9fnorqGssFm30oH6FJf5uldgdzHnBAHvDll
-	OM3sjcvrVbsG4M5REZvg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=UjUO/MeGMJtW2F32MJ4nz+Mbh3Ip5QdjemsBJ5W94ow=; b=2abK45LRWWpz+T
+	yCfyUal0ipqpT1u6L6I2SGHi4g2PoLts/xdNT3IDsZAgI9lc1JOw2uUWS8O1iWSCQAd8DjRRb+J/Q
+	s4jaoC5JyPoaouUCLgPE9A+eh3KLsN3SlB/OAs76+WXqpD5hj6Jaysp820q5PnGHU04HcAul3tszX
+	avRfIbXRYxtsLJB8mTNbvpR9OkFnr6PZa7eYivpvSuZ5f+35xa21ulhlQKWO9YKgq3Js+IOJhLqeZ
+	ruPvOHxS9y/vLU7lWqVqLSYEk5L9347aEeEaS84qRZbQJX/VYOU/0duzRhOLS888Zn4p9jXryDf/J
+	O01O0lq5YPZtT6/csTHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1scu5n-0000000Eepi-0EUv;
-	Sat, 10 Aug 2024 21:57:43 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1scz6N-0000000Ewoo-3wMr;
+	Sun, 11 Aug 2024 03:18:39 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1scu5k-0000000EepX-0YWa;
-	Sat, 10 Aug 2024 21:57:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=nv4fvDJIpIyu7ak6kOoHUmIFrheca8Dy1SaM5jKCQBw=; b=CchIcJEStTW3QCkJIHj3lmbQSu
-	xf8QRZuNWJlB+wiL4FjeZvZPIThB4Ijc0mM3hrLuBpq04UhU0FgjYhY5g+dpNedWesJl/kIsq8PhD
-	46rKuujxcgXCnAxFBmMNymWw/hO2A3FCudxNbjaD4fCOmNlJstMjZd+q8S0/9M/yadBGQNda4Jgez
-	AnAKJfcys04AoLltQB+0vwatNC0cvDq9lezZgRPkWapjL8nHIgOTMB5dzFqmOAZy9gk7CO+vhkM/3
-	LQvyL68QUnRLtiufKuwckn1MBeRo8wa1YS/BpFT0AvfTq64ilA7JxP2ll5q6O3H3ZmH4w9JN6bmlN
-	134UCeEQ==;
-Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1scu5R-00000007G0f-2ye9;
-	Sat, 10 Aug 2024 21:57:22 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 6FDB5300729; Sat, 10 Aug 2024 23:57:20 +0200 (CEST)
-Date: Sat, 10 Aug 2024 23:57:20 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Alice Ryhl <aliceryhl@google.com>
-Cc: Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Jason Baron <jbaron@akamai.com>, Ard Biesheuvel <ardb@kernel.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Alex Gaynor <alex.gaynor@gmail.com>,
-	Wedson Almeida Filho <wedsonaf@gmail.com>,
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <benno.lossin@proton.me>,
-	Andreas Hindborg <a.hindborg@samsung.com>,
-	linux-trace-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
-	linux-arch@vger.kernel.org, Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Uros Bizjak <ubizjak@gmail.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>, Fuad Tabba <tabba@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	linux-riscv@lists.infradead.org,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>, Bibo Mao <maobibo@loongson.cn>,
-	Tiezhu Yang <yangtiezhu@loongson.cn>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Tianrui Zhao <zhaotianrui@loongson.cn>, loongarch@lists.linux.dev
-Subject: Re: [PATCH v6 5/5] rust: add arch_static_branch
-Message-ID: <20240810215720.GH11646@noisy.programming.kicks-ass.net>
-References: <20240808-tracepoint-v6-0-a23f800f1189@google.com>
- <20240808-tracepoint-v6-5-a23f800f1189@google.com>
- <20240810210359.GD11646@noisy.programming.kicks-ass.net>
- <CAH5fLggwLOhP_6b==dc73uJCUBcu2fNQ7SCnqovv2hVXFtUHEQ@mail.gmail.com>
+	id 1scz6K-0000000Ewm7-0yoy
+	for linux-riscv@lists.infradead.org;
+	Sun, 11 Aug 2024 03:18:38 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.105])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4WhN9Y1wFhzpTKR;
+	Sun, 11 Aug 2024 11:17:05 +0800 (CST)
+Received: from dggpemf500002.china.huawei.com (unknown [7.185.36.57])
+	by mail.maildlp.com (Postfix) with ESMTPS id 003B61400D8;
+	Sun, 11 Aug 2024 11:18:20 +0800 (CST)
+Received: from localhost.localdomain (10.175.112.125) by
+ dggpemf500002.china.huawei.com (7.185.36.57) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Sun, 11 Aug 2024 11:18:20 +0800
+From: Hanjun Guo <guohanjun@huawei.com>
+To: Sunil V L <sunilvl@ventanamicro.com>, Haibo Xu <haibo1.xu@intel.com>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+CC: Sudeep Holla <sudeep.holla@arm.com>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>,
+	<linux-acpi@vger.kernel.org>, <linux-riscv@lists.infradead.org>, Hanjun Guo
+	<guohanjun@huawei.com>
+Subject: [PATCH] ACPI: RISCV: Make acpi_numa_get_nid() to be static
+Date: Sun, 11 Aug 2024 11:18:04 +0800
+Message-ID: <20240811031804.3347298-1-guohanjun@huawei.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAH5fLggwLOhP_6b==dc73uJCUBcu2fNQ7SCnqovv2hVXFtUHEQ@mail.gmail.com>
+X-Originating-IP: [10.175.112.125]
+X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
+ dggpemf500002.china.huawei.com (7.185.36.57)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20240810_201836_814303_28C4F095 
+X-CRM114-Status: GOOD (  10.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,32 +67,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCBBdWcgMTAsIDIwMjQgYXQgMTE6NDQ6MTNQTSArMDIwMCwgQWxpY2UgUnlobCB3cm90
-ZToKPiBPbiBTYXQsIEF1ZyAxMCwgMjAyNCBhdCAxMTowNOKAr1BNIFBldGVyIFppamxzdHJhIDxw
-ZXRlcnpAaW5mcmFkZWFkLm9yZz4gd3JvdGU6Cj4gPgo+ID4gT24gVGh1LCBBdWcgMDgsIDIwMjQg
-YXQgMDU6MjM6NDFQTSArMDAwMCwgQWxpY2UgUnlobCB3cm90ZToKPiA+Cj4gPiA+ICsvLy8gV3Jh
-cHBlciBhcm91bmQgYGFzbSFgIHRoYXQgdXNlcyBhdCZ0IHN5bnRheCBvbiB4ODYuCj4gPiA+ICsv
-LyBVc2VzIGEgc2VtaWNvbG9uIHRvIGF2b2lkIHBhcnNpbmcgYW1iaWd1aXRpZXMsIGV2ZW4gdGhv
-dWdoIHRoaXMgZG9lcyBub3QgbWF0Y2ggbmF0aXZlIGBhc20hYAo+ID4gPiArLy8gc3ludGF4Lgo+
-ID4gPiArI1tjZmcodGFyZ2V0X2FyY2ggPSAieDg2XzY0IildCj4gPiA+ICsjW21hY3JvX2V4cG9y
-dF0KPiA+ID4gK21hY3JvX3J1bGVzISBhc20gewo+ID4gPiArICAgICgkKCRhc206ZXhwciksKiA7
-ICQoJHJlc3Q6dHQpKikgPT4gewo+ID4gPiArICAgICAgICA6OmNvcmU6OmFyY2g6OmFzbSEoICQo
-JGFzbSkqLCBvcHRpb25zKGF0dF9zeW50YXgpLCAkKCRyZXN0KSogKQo+ID4gPiArICAgIH07Cj4g
-PiA+ICt9Cj4gPiA+ICsKPiA+ID4gKy8vLyBXcmFwcGVyIGFyb3VuZCBgYXNtIWAgdGhhdCB1c2Vz
-IGF0JnQgc3ludGF4IG9uIHg4Ni4KPiA+Cj4gPiBeIHRoZSBhYm92ZSBsaW5lIHNlZW1zIG91dCBv
-ZiBwbGFjZSBnaXZlbiB0aGUgJ25vdCcgYmVsb3cuCj4gCj4gQ29tbWVudHMgd2l0aCB0aHJlZSBz
-bGFzaGVzIGFyZSB3aGF0IGdldHMgcmVuZGVyZWQgaW4gdGhlIGh0bWwgdmVyc2lvbgo+IG9mIHRo
-ZSBkb2NzIFsxXS4gVGhpcyB3YXksIHRoZSByZW5kZXJlZCBkb2NzIHdpbGwgc2F5IHRoYXQgdGhl
-IGBhc20hYAo+IG1hY3JvIGlzIGEgd3JhcHBlciBhcm91bmQgdGhlIGJ1aWx0LWluIGBhc20hYCB0
-aGF0IHVzZXMgYXQmdCBzeW50YXggb24KPiB4ODYgcmVnYXJkbGVzcyBvZiB3aGljaCBwbGF0Zm9y
-bSB5b3UgYnVpbGQgdGhlIGRvY3Mgb24uCj4gCgpVcmdoLCB0aGF0J3Mgbm90IGhhbGYtd2F5IGNv
-bmZ1c2luZy4gQWxzbywgd2hvZXZlciB3YW50cyB0byByZWFkIEhUTUwKd2hlbiB5b3UgYWxyZWFk
-eSBoYXZlIHRoZSBjb2RlIG9wZW4gaW4geW91ciB0ZXh0LWVkaXRvcj8KCl9fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
-dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
-b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+acpi_numa_get_nid() is only called in acpi_numa.c for riscv,
+no need to add it in head file, so make it static and remove
+related functions in the asm/acpi.h.
+
+Spotted by doing some cleanup for arm64 ACPI.
+
+Signed-off-by: Hanjun Guo <guohanjun@huawei.com>
+---
+ arch/riscv/include/asm/acpi.h | 2 --
+ arch/riscv/kernel/acpi_numa.c | 2 +-
+ 2 files changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
+index e0a1f84404f3..6e13695120bc 100644
+--- a/arch/riscv/include/asm/acpi.h
++++ b/arch/riscv/include/asm/acpi.h
+@@ -91,10 +91,8 @@ static inline void acpi_get_cbo_block_size(struct acpi_table_header *table,
+ #endif /* CONFIG_ACPI */
+ 
+ #ifdef CONFIG_ACPI_NUMA
+-int acpi_numa_get_nid(unsigned int cpu);
+ void acpi_map_cpus_to_nodes(void);
+ #else
+-static inline int acpi_numa_get_nid(unsigned int cpu) { return NUMA_NO_NODE; }
+ static inline void acpi_map_cpus_to_nodes(void) { }
+ #endif /* CONFIG_ACPI_NUMA */
+ 
+diff --git a/arch/riscv/kernel/acpi_numa.c b/arch/riscv/kernel/acpi_numa.c
+index 0231482d6946..a93c773b60e6 100644
+--- a/arch/riscv/kernel/acpi_numa.c
++++ b/arch/riscv/kernel/acpi_numa.c
+@@ -30,7 +30,7 @@
+ 
+ static int acpi_early_node_map[NR_CPUS] __initdata = { NUMA_NO_NODE };
+ 
+-int __init acpi_numa_get_nid(unsigned int cpu)
++static int __init acpi_numa_get_nid(unsigned int cpu)
+ {
+ 	return acpi_early_node_map[cpu];
+ }
+-- 
+2.25.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
