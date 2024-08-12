@@ -4,68 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B62A1C52D7D
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Aug 2024 15:01:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30B4FC3DA7F
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Aug 2024 15:17:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=OuFz4h8LPEwnUUg5AJVgPvKKqkZlWzukmTfVRojy8og=; b=eOxMDKOha6vs7n
-	vGI6T5BSwWMrO/7/iKuA/jVbYMG5QnfoeyCOGHEi0S/tKh9ynPD6x16gCqFnjobuQmxa4nDKut2So
-	Q9zF6JOMWKXNwj8c7uZSeeAQXfw2WdOzXHllQtXrlnsXYXeCkUNeSIotWPhiw5DsJc5lFnirx869n
-	m0h/aBDYBitZQg5JOPixlLopO19QhkiqdIYhDIl0FNMcXTuuIxpOaF66iPaCnHopf37UeOkN8C+lb
-	MfOyDxy43XVu/XRnY5X9BydONyW2aVoESKh5+0seH0wt3NChIl7GGZVwpouyey1alkEbLMi2h5z+h
-	+tQ01gZy8EuBHKQ/mfhA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kkrm329ZyP0iJoKtI0ODac2v/8lAY1sfQmM3ee57rtw=; b=bHri9br2/WYxU2Gxv6UvKc5zxa
+	CgRex3J/Ekb+jvR7Oqkf0274uRCBYD3oYdFX7f4GMIP3VLdNLy0VOmtYSnnZ/bd+KMZyOj9awNIt6
+	Y0O2ExKX9hb9WwPU+1th9mZs40YGxnHmoPBybI4MtWiP7JoM5fjw4ZbLpex6tyuqGj1UcpC/Zgw1H
+	4efwwfy0QU1jpiRBPD8E3dS8q632R0JoIjPg7BCG8ZhCY7sI10pbc4TqPwvO6XQrqYqmt87xZEbbU
+	Mr5BKzwO1b+8fxGhjEdjmDpmNolgEgw/gBhu8ypct0aOcYrGxgeq0vsmhhRCKSQXrI9xTCwWkWKaA
+	cjY5GwYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sdWXu-00000000fWQ-0PLY;
-	Mon, 12 Aug 2024 15:01:18 +0000
-Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
+	id 1sdWn3-00000000i1h-2aOR;
+	Mon, 12 Aug 2024 15:16:57 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sdWXn-00000000fQo-3Vcg
+	id 1sdWn0-00000000i1I-3Zz9
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 Aug 2024 15:01:15 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 23BD8FF804;
-	Mon, 12 Aug 2024 15:01:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1723474866;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=zrkbsHf98jdzwc61NfnGUE1oZTZ8EfUZY7Ktf9hQoNU=;
-	b=l8ekYPfhWJdnIxZH+oQ1nPhqOT0NRFtgyw1sKdDEXKY7wRNnsxnaBwfJ1t9ZOO1oOQU6Pr
-	/Jdu5VRbE5RLEWR1kjfQwUupWiRC1VnWo3gDfPHREarJQHXR50+/dXISHo/Y37gor8e+BG
-	SGmaG2jUwnQCHzLaDCTnhsvs5wYx2NwvDEG6NqRlrPFX2oGp7l8GgUlkPx01pAjjH4tGuo
-	Skd+oL/o71KVdeiyh4QEqkviSTRyqkb436Sqhiicix+RgMl/XdzTazv5HrnySPzSDlGJoZ
-	Igjk5xyKi+hPWsu3UzycKUeFEnRlplbiIFSeRJ8EueEnI9/kNiUrpch0+Llfyw==
-From: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-Subject: [PATCH v4 0/3] Add SARADC support on Sophgo CV18XX series
-Date: Mon, 12 Aug 2024 17:00:54 +0200
-Message-Id: <20240812-sg2002-adc-v4-0-599bdb67592f@bootlin.com>
+	Mon, 12 Aug 2024 15:16:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 502ADCE0F1E;
+	Mon, 12 Aug 2024 15:16:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DCD05C32782;
+	Mon, 12 Aug 2024 15:16:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1723475811;
+	bh=pD/+4um3c3Lin4UbxwH5WoHOz/QB/EzM+2JywSi/0O4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hrx0T1UG9Gy0x2bYxreE1pQjveabFgsSd4/dkUk8Hsis0iiedw+KrCVZEUqQdVnNG
+	 hY7EK+UtyXvdL5hhqvz6wMXbUp4e/ftkliw8SgsfF9Ne63owqyOlrsN4NqG/i+ji4g
+	 qWLG2r2rsCQhHDoQbGrTaz7QjpZ9Zj35tJEop1rhF0zDVb6C1OxHKESk3hNNjjBFRY
+	 BfVGBWM6Qd8AHkrIjxRekO3aikIhWyLfHRYPgG+6tkD0E3f+z/is6S9i82Kt5FNr/M
+	 GlVY5GUIRLH9cczKo+E9Lk/KgKfyTmU9n8I1Soa/lytr2e7oekC+SxmJxzXqu6Meog
+	 bIMwgUFxCyopg==
+Date: Mon, 12 Aug 2024 16:16:47 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Andy Chiu <andy.chiu@sifive.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH -fixes] riscv: Fix out-of-bounds when accessing Andes per
+ hart vendor extension array
+Message-ID: <20240812-viper-handed-b5fd421c73f9@spud>
+References: <20240811150229.82321-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAKYjumYC/2XMSw6CMBSF4a2Qjq25vX1QHLkP46CUAk2UmpYQD
- WHvFpxAHJ6TfP9MkoveJXIpZhLd5JMPQx7iVBDbm6Fz1Dd5EwQUILGkqUMApKaxtEJRa4W24S2
- SDF7Rtf69xW73vHufxhA/W3ti6/vLlNnvMhOjQI1VykGpTCnVtQ5hfPjhbMOTrKEJ91geMGasu
- UBtEUxV4z/mO8zZAfOMpbECjGTagjniZVm+NPaMMSABAAA=
-To: Jonathan Cameron <jic23@kernel.org>, 
- Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>, 
- Inochi Amaoto <inochiama@outlook.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- =?utf-8?q?Miqu=C3=A8l_Raynal?= <miquel.raynal@bootlin.com>, 
- linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-X-Mailer: b4 0.14.1
-X-GND-Sasl: thomas.bonnefille@bootlin.com
+In-Reply-To: <20240811150229.82321-1-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240812_080112_742853_0595F162 
-X-CRM114-Status: GOOD (  12.80  )
+X-CRM114-CacheID: sfid-20240812_081655_093821_265079D5 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,79 +69,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8974072539186710712=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset adds initial ADC support for Sophgo SoC. This driver can
-work with or without interrupt and in "Active" and "No-Die" domains
-depending on if a clock is provided.
 
-Link: https://github.com/sophgo/sophgo-doc/releases/download/sg2002-trm-v1.0/sg2002_trm_en.pdf
+--===============8974072539186710712==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="et7i5P6lqCWValIK"
+Content-Disposition: inline
 
-Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
----
-Changes in v4:
-- Lowercase register hexadecimal value in dts
-- Reorder properties in dts
-- Use only a const in the compatible property of the device tree bindings
-- Specify the series of SoC in the driver to avoid confusing with other
-  Sophgo SoCs
-- Add channel description in the bindings
-- Use FIELD_PREP in the default configuration
-- Index channels from 0
-- Return PTR_ERR instead of IS_ERR
-- Link to v3: https://lore.kernel.org/r/20240731-sg2002-adc-v3-0-5ac40a518c0a@bootlin.com
 
-Changes in v3:
-- Subdivide default cycle configuration into multiple elementary
-  configurations
-- Fix formatting in the driver
-- Use devm_mutex_init
-- Use devm_clk_get_enabled now because the clock is no more optional
-- Remove handling of Saradc in No-Die Domain as RTC isn't implemented yet
-- Use cv1800-saradc as default compatible instead of a wildcard
-- Link to v2: https://lore.kernel.org/r/20240705-sg2002-adc-v2-0-83428c20a9b2@bootlin.com
+--et7i5P6lqCWValIK
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Changes in v2:
-- Drop modifications in MAINTAINERS file
-- Rename the ADC from "sophgo-adc" to "sophgo-cv18xx-adc" to avoid
-  conflict with ADCs available in future Sophgo SoCs.
-- Reorder nodes in DT to match DTS coding style
-- Switch from including <linux/of.h> to <linux/mod_devicetable.h>
-- Use scoped_guard instead of mutex_lock/unlock
-- Check IRQ Status in the handler
-- Change IIO device name
-- Use devm_clk_get_optional_enabled instead of a clock variable
-- Init completion before the IRQ request
-- Removed unnecessary iio_info structure in the private data of the
-  driver
-- Use SoC specific compatible in the bindings and device trees
-- Link to v1: https://lore.kernel.org/r/20240702-sg2002-adc-v1-0-ac66e076a756@bootlin.com
+On Sun, Aug 11, 2024 at 05:02:29PM +0200, Alexandre Ghiti wrote:
+> The out-of-bounds access is reported by UBSAN:
+>=20
+> [    0.000000] UBSAN: array-index-out-of-bounds in ../arch/riscv/kernel/v=
+endor_extensions.c:41:66
+> [    0.000000] index -1 is out of range for type 'riscv_isavendorinfo [32=
+]'
+> [    0.000000] CPU: 0 UID: 0 PID: 0 Comm: swapper Not tainted 6.11.0-rc2u=
+buntu-defconfig #2
+> [    0.000000] Hardware name: riscv-virtio,qemu (DT)
+> [    0.000000] Call Trace:
+> [    0.000000] [<ffffffff94e078ba>] dump_backtrace+0x32/0x40
+> [    0.000000] [<ffffffff95c83c1a>] show_stack+0x38/0x44
+> [    0.000000] [<ffffffff95c94614>] dump_stack_lvl+0x70/0x9c
+> [    0.000000] [<ffffffff95c94658>] dump_stack+0x18/0x20
+> [    0.000000] [<ffffffff95c8bbb2>] ubsan_epilogue+0x10/0x46
+> [    0.000000] [<ffffffff95485a82>] __ubsan_handle_out_of_bounds+0x94/0x9c
+> [    0.000000] [<ffffffff94e09442>] __riscv_isa_vendor_extension_availabl=
+e+0x90/0x92
+> [    0.000000] [<ffffffff94e043b6>] riscv_cpufeature_patch_func+0xc4/0x148
+> [    0.000000] [<ffffffff94e035f8>] _apply_alternatives+0x42/0x50
+> [    0.000000] [<ffffffff95e04196>] apply_boot_alternatives+0x3c/0x100
+> [    0.000000] [<ffffffff95e05b52>] setup_arch+0x85a/0x8bc
+> [    0.000000] [<ffffffff95e00ca0>] start_kernel+0xa4/0xfb6
+>=20
+> This happens because we unconditionally use the cpu parameter to access
+> this array. But if -1 is passed, that means we should not and we don't
+> need to access this array, so simply prevent accessing the array in that =
+case.
+>=20
+> Fixes: 23c996fc2bc1 ("riscv: Extend cpufeature.c to detect vendor extensi=
+ons")
+> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 
----
-Thomas Bonnefille (3):
-      dt-bindings: iio: adc: sophgo,cv18xx-saradc.yaml: Add Sophgo CV18XX SARADC binding
-      iio: adc: sophgo-saradc: Add driver for Sophgo CV18XX series SARADC
-      riscv: dts: sophgo: Add SARADC description for Sophgo CV18XX
+Tested-by: Conor Dooley <conor.dooley@microchip.com>
 
- .../bindings/iio/adc/sophgo,cv18xx-saradc.yaml     |  85 +++++++++
- arch/riscv/boot/dts/sophgo/cv18xx.dtsi             |  20 ++
- drivers/iio/adc/Kconfig                            |  10 +
- drivers/iio/adc/Makefile                           |   1 +
- drivers/iio/adc/sophgo-cv18xx-adc.c                | 208 +++++++++++++++++++++
- 5 files changed, 324 insertions(+)
----
-base-commit: 7c626ce4bae1ac14f60076d00eafe71af30450ba
-change-id: 20240527-sg2002-adc-924b862cd3f2
+--et7i5P6lqCWValIK
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Best regards,
--- 
-Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZronXwAKCRB4tDGHoIJi
+0lzsAPwNYLkTFWkih6zFUZ1EtUByB/vgeCagFVu8E3p4AS71owEA0kudo8htC+3f
+slCc/+K8Uw9hUBE21ADtJJRt3133Cgs=
+=avO9
+-----END PGP SIGNATURE-----
+
+--et7i5P6lqCWValIK--
+
+
+--===============8974072539186710712==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8974072539186710712==--
+
