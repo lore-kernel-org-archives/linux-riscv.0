@@ -4,79 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3729EC3DA7F
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Aug 2024 15:30:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50317C3DA7F
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Aug 2024 15:53:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=3CQFJBwMFJw7Fzk+M0QOhXX81CVWXRCv0qnC4xx6iZc=; b=I6kPSEdpDjxSJt
-	aTqc4mHG2zYzBvPo565dHaCXw/RBAwJTf9tT44redi+sb3GGhhNrhyi92hMZRI3aiXGGidGcD4vNu
-	izW/t2Hhg4XOvOzTyp75qPZ1LplIj1vOoETfr2AlJEoB56D+dF1v8psVQCb4Z01Etkle+2VpRp0La
-	Tn+PdhCs2qRyDof5gWF7L7zG7dof5mYYgY0gWiCOex8UUkg8EXBoLzVOJCSDbpTk3meoEwMkHlO6y
-	yS275NVBjQbQfRDsGtx/k5AAYJk3nODxNWn3CgCP3eKtJHohWBRqmzkhpdT+3PGyyYAkpUeORW6Ne
-	xrTYP3ygmgDy7JstINSQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Hb6iWcz+tmPXd/FKIgt+dtITLTT3XmBm0TbMtSRsunU=; b=jPu4mnE8YbUTmgVGVh6Yw5Rb+u
+	5bhwlbC0gv8rKnA4lUDQDy2qIA/FrYUZjVMPXP0x4k5tkRrWQn8jdOyFRtkcfaLGaAWl1P9wSnH8g
+	EXWWY70Zbkfvqss2A9qTbeNPRRCIp/A14G+GbzB3PEw6HvNLCmIDwRwpU7vI53/1cQHAITYsjASjy
+	vfy1jhG8SWJXA4c0XNz1yh9Fy1viqOpilcK5fDd/iN30BP3xKYb13lela/YpLbwKoznWgtd1Bt3qv
+	QLyKnoWq36lrHQIkVLbjBPIiPK+O6AesVPjotnyzqO54J2dta8piHMfdla2veFSCtOqL13yEFrRv9
+	wAMxpkzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sdX08-00000000jqc-1Jb7;
-	Mon, 12 Aug 2024 15:30:28 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1sdXMG-00000000o7N-3qPD;
+	Mon, 12 Aug 2024 15:53:20 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sdVq9-00000000YHn-465p
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 12 Aug 2024 14:16:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=pd/VpIRV516pqsgMsPuysNVtHzsHKVyjXVwp6LAdEi8=; b=JroDSEtxy0u2gdVpfUUVcSYgKQ
-	neETp5k5XVZgr2z3my2Xa95V88+iC9z1ARQUUtnsHnjNpx4yOG6L3xcil8ZunM+V//RLTTKfmg7l6
-	nzXX5Is8E8UBqbok1t5k+CdQXGJ4+uPSqem9UuPaBi/5FtXm8C2QOgMsgt3ud7QEsVtWLRdM3vAXO
-	9O6Hk55UJFz+sr2qz5H1J7+frYyseReHUZg6IhWHjymJLBuLrNv7ukGLTofXW7JY9TwJS0+jOinhD
-	mM0JEMFD3sYoPpckrAPAsgk5A/Co3RsfC8VaD3csRT3pCsYQftq6y1+XXuZ7xhJ0zUduBZPGwRLgZ
-	1Ps2B6vA==;
-Received: from mta-65-225.siemens.flowmailer.net ([185.136.65.225])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sdVq4-00000007aLv-2W8m
+	id 1sdXMD-00000000o6s-15hU
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 Aug 2024 14:16:04 +0000
-Received: by mta-65-225.siemens.flowmailer.net with ESMTPSA id 20240812141554103695d090e5b6af2f
-        for <linux-riscv@lists.infradead.org>;
-        Mon, 12 Aug 2024 16:15:54 +0200
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; s=fm1;
- d=siemens.com; i=jan.kiszka@siemens.com;
- h=Date:From:Subject:To:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Cc;
- bh=pd/VpIRV516pqsgMsPuysNVtHzsHKVyjXVwp6LAdEi8=;
- b=hLKWZiAse5JNnpzONR2N3Qr9k8QD8eToGyE3sS7yIaom9QuW26iJLSAEPUN9l4vChF14QR
- dz+JHQEAFK9bAgoTPOmcPAuIdkxfoLYUnCyeGt5AQ5yfpA9Hz7xHleTa83DWuKniD4N8Xglf
- 2dHWVqUfhK+aX689K19w3COLiqcwp4/0qVTUotmoYy5q4vgzIVp2b6tVKF78ZRgwb4RJuKH1
- WyEzRMC9bagza537JMGkVnCoL6EYw09geoQJn68qwqw8lrYbmOY5F1QCUpkca7OtrJbfZ8Jf
- Dl0XkV+BGZmyTK3sQTHI63gpUtiFu47ah+9OYuKw0If2nW6JX+QqRDwg==;
-From: Jan Kiszka <jan.kiszka@siemens.com>
-To: Minda Chen <minda.chen@starfivetech.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>
-Cc: linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
+	Mon, 12 Aug 2024 15:53:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 54D78CE0FBE;
+	Mon, 12 Aug 2024 15:53:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 433E9C32782;
+	Mon, 12 Aug 2024 15:53:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1723477994;
+	bh=HlRdvFKn4iFjzvom5J0DF55x13AYDpUEmQpaLh1Gggw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=HNvjyIvYcUWCRotT7GQXgqUlrr5FSbUa41bF+C4Q8O9FFRsQi7TpfwO2qfPILOHLI
+	 MF+lE2hpeNWcwGvlQSDyLXmIQgwb+YpXMz3VNQLUeGM71j8iMBfuYVcqFGZ+i3Y5wB
+	 Va17H2VYVmfqjGUXSSc3oH4h7MJVVFEC6rm1ygQaF82Iwrre9WyHkpF42zFPXvkF2t
+	 1Eehgat9ol63Z0l6MIrYBwGYslWQzKLWmZIK2TcfQIbJktRs56XmmZgaSa4JYrPb09
+	 pw774D/pCJUrirfRHRn6YHv4Lm6g9p9J51Y5UpqLV9jXTrGhyDYiLT0JLszaRzrIi2
+	 vNiqYIrH2WBTQ==
+Date: Mon, 12 Aug 2024 16:53:09 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>
-Subject: [PATCH v2 0/3] riscv: jh7110: Fix configuration for on-chip USB 2.0 support
-Date: Mon, 12 Aug 2024 16:15:50 +0200
-Message-ID: <cover.1723472153.git.jan.kiszka@siemens.com>
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	=?iso-8859-1?Q?Miqu=E8l?= Raynal <miquel.raynal@bootlin.com>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 1/3] dt-bindings: iio: adc: sophgo,cv18xx-saradc.yaml:
+ Add Sophgo CV18XX SARADC binding
+Message-ID: <20240812-unwary-mongrel-9f6758bf624c@spud>
+References: <20240812-sg2002-adc-v4-0-599bdb67592f@bootlin.com>
+ <20240812-sg2002-adc-v4-1-599bdb67592f@bootlin.com>
 MIME-Version: 1.0
-X-Flowmailer-Platform: Siemens
-Feedback-ID: 519:519-294854:519-21489:flowmailer
+In-Reply-To: <20240812-sg2002-adc-v4-1-599bdb67592f@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240812_151600_944666_8E8F6D0F 
-X-CRM114-Status: UNSURE (   7.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240812_085317_678080_AFADB282 
+X-CRM114-Status: GOOD (  19.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,42 +79,171 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4217318486826477057=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-While mainline has support for the USB controller of the JH7110 since 6.5,
-this never really worked, even not with latest downstream kernels by Starfive -
-unless you were also using an old downstream U-Boot version. The reason for
-that was a missing syscon setting that prevented the connection between USB
-2.0 PHY and the controller. This series finally fixes the issue.
 
-Changes in v2:
- - fix copy&paste mistake in error patch found by kernel test robot and Dan Carpenter
+--===============4217318486826477057==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="IXMbfodZVYjINFLf"
+Content-Disposition: inline
 
-Jan
 
-CC: Conor Dooley <conor+dt@kernel.org>
-CC: Emil Renner Berthing <kernel@esmil.dk>
-CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
-CC: Rob Herring <robh@kernel.org>
+--IXMbfodZVYjINFLf
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Jan Kiszka (3):
-  dt-bindings: phy: jh7110-usb-phy: Add sys-syscon property
-  riscv: dts: starfive: jh7110: Add sys-syscon property to usbphy0
-  phy: starfive: jh7110-usb: Fix link configuration to controller
+On Mon, Aug 12, 2024 at 05:00:55PM +0200, Thomas Bonnefille wrote:
+> The Sophgo SARADC is a Successive Approximation ADC that can be found in
+> the Sophgo SoC.
+>=20
+> Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+> ---
+>  .../bindings/iio/adc/sophgo,cv18xx-saradc.yaml     | 85 ++++++++++++++++=
+++++++
+>  1 file changed, 85 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/iio/adc/sophgo,cv18xx-sara=
+dc.yaml b/Documentation/devicetree/bindings/iio/adc/sophgo,cv18xx-saradc.ya=
+ml
+> new file mode 100644
+> index 000000000000..846590808e5f
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/iio/adc/sophgo,cv18xx-saradc.yaml
+> @@ -0,0 +1,85 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/iio/adc/sophgo,cv18xx-saradc.yaml#
 
- .../bindings/phy/starfive,jh7110-usb-phy.yaml | 11 ++++++++++
- arch/riscv/boot/dts/starfive/jh7110.dtsi      |  1 +
- drivers/phy/starfive/phy-jh7110-usb.c         | 20 +++++++++++++++++++
- 3 files changed, 32 insertions(+)
+Filename matching the compatible please.
 
--- 
-2.43.0
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title:
+> +  Sophgo CV18XX SoC series 3 channels Successive Approximation Analog to
+> +  Digital Converters
+> +
+> +maintainers:
+> +  - Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+> +
+> +description:
+> +  Datasheet at https://github.com/sophgo/sophgo-doc/releases
+> +
+> +properties:
+> +  compatible:
+> +    const: sophgo,cv1800b-saradc
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  '#address-cells':
+> +    const: 1
+> +
+> +  '#size-cells':
+> +    const: 0
+> +
+> +patternProperties:
+> +  "^channel@[0-3]+$":
+> +    $ref: adc.yaml
+> +
+> +    description: |
 
+This | is not required.
+
+> +      Represents the channels of the ADC.
+> +
+> +    properties:
+> +      reg:
+> +        description: |
+> +          The channel number. It can have up to 3 channels numbered from=
+ 0 to 2.
+> +        items:
+> +          - minimum: 0
+> +            maximum: 2
+
+Is this sufficient to limit the number of channels to 3? Aren't you relying
+on the unique unit addresses warning in dtc to limit it, rather than
+actually limiting with min/maxItems?
+
+Otherwise, looks fine to me.
+
+Cheers,
+Conor.
+
+> +
+> +    required:
+> +      - reg
+> +
+> +    additionalProperties: false
+> +
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/sophgo,cv1800.h>
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +    adc@30f0000 {
+> +        compatible =3D "sophgo,cv1800b-saradc";
+> +        reg =3D <0x030f0000 0x1000>;
+> +        clocks =3D <&clk CLK_SARADC>;
+> +        interrupts =3D <100 IRQ_TYPE_LEVEL_HIGH>;
+> +        #address-cells =3D <1>;
+> +        #size-cells =3D <0>;
+> +
+> +        channel@0 {
+> +            reg =3D <0>;
+> +        };
+> +        channel@1 {
+> +            reg =3D <1>;
+> +        };
+> +        channel@2 {
+> +            reg =3D <2>;
+> +        };
+> +    };
+>=20
+> --=20
+> 2.46.0
+>=20
+
+--IXMbfodZVYjINFLf
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZrov5QAKCRB4tDGHoIJi
+0oaoAQDMe6NoYEYFRjr7uYTIB7DeEAi2qvZXnWVWHzFxwkkH8QEAw36aA0k+SIZe
+JdTW3mWW5ZLezGEIrXTpuMaHzqoqWwQ=
+=K9Up
+-----END PGP SIGNATURE-----
+
+--IXMbfodZVYjINFLf--
+
+
+--===============4217318486826477057==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4217318486826477057==--
+
