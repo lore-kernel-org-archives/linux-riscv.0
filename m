@@ -4,86 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66B51C52D7B
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Aug 2024 08:13:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A5D1C52D7B
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Aug 2024 08:42:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=hAKYzKo0BlTWRJK+8rxIfNamfeBCicdY8EWgezw4E0o=; b=p1Cv5h+AAD/pNz
-	LxM0h6BAf+AfI0RC/tik6kJGzzXKHKTIP+7adM25tttATvaBfBORKq2KzWgfAc4Vn3lAheSJwTpiP
-	hKxoSm6bY5ygQLE6pIrAvnb9O59pC9P8gkX9yHQ/LvMOtB9X5r1Dfz0gkgKf7ntRpJk2Jzzq9EmUu
-	RQ5N+ypK9FaxRaE8hthU3xmrXHHq6qPlmCFX9ljoE71QxChWn0cjucoFU5DSWdvOLcbZW2B/LtOpu
-	24cMIubF5yfszuJoQvlOsBhW6R8263Ky9nm0JymAJtDKeOjRZFTGu5C6SiPpFeq+F7U3tH71+7Eg9
-	KywCUvRsbypOJetUrT9w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=e7HlMYPXeJPSIUE8bWxwc8fSf7a36enwPFAUxM76fPU=; b=RFH7AyAhUyGzE1
+	2MhLfKYm+43HjXwjxHHbx/eqnUVb/O6aCcRXm2LmTgPirW20u2qBXfFGjAgIcM+m254lBDTZ3pO5s
+	rCz5fizX6fIrmCfq6tv3jDc47csL/GVM6h9cW7PiguESgd48MlFzfi8BVx/X4EssoWkKCpj2xRFBe
+	9f1ang0IDFfaNybXj7tuWNO9D/uPuyEUDbyrzIj8qR1KteJ6sS0vQ4pBUBNc+6lylXWA22J2gfYFz
+	DBCWl0jw08g+TNV098XZn5FLZolVDi3A2rbPdtQwpqd3vNxSGd/CKAVBv5El2zJAV9pZ6G1wy248r
+	EYKJTKx59yHqZsFca08w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sdmf0-00000002qmF-0llc;
-	Tue, 13 Aug 2024 08:13:42 +0000
-Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
+	id 1sdn7A-00000002yVg-2zPx;
+	Tue, 13 Aug 2024 08:42:48 +0000
+Received: from bee.tesarici.cz ([2a03:3b40:fe:2d4::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sdmep-00000002qke-17MO
-	for linux-riscv@lists.infradead.org;
-	Tue, 13 Aug 2024 08:13:32 +0000
-Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-7a0b2924e52so2557996a12.2
-        for <linux-riscv@lists.infradead.org>; Tue, 13 Aug 2024 01:13:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1723536810; x=1724141610; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=MPwCQlZV6XnO0rlNbX/WsNAZ1kHHhsOKatz4Qfacl5c=;
-        b=Ms+JdZ0aIcomdg0s5F/xY62B2dE7jCTyMgtgKL1MvkdLBJDUjVwoWpuj+myWA7xw5w
-         +x+iO02OFZMJdxQ9oCNAHZiTjDfGXB9CJDCwOCopN06tskI1eSNBiEMbnvbgA5U+qx4I
-         rkExWEzH3W6sa65BUdtZ1jY3bbAqh12JbowIFFzP2+fI1KHWZl31xMVXXt3r+0zO2EnL
-         F1lRGKH10hCr11f1PiWZkJ1wFhF2rhSmahmipV2/m4ZI/4wpXyh/EUH19MkwQpYxC8QV
-         /njQ3sDhh38jtgqBVQz2tEnBl8QNrkVLMMmdL4wsTm5bkk8s1PAAM9ATL3+SpPK5MZzl
-         CB9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1723536810; x=1724141610;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=MPwCQlZV6XnO0rlNbX/WsNAZ1kHHhsOKatz4Qfacl5c=;
-        b=CovxaOSqzNmbpxtTmOnTOIr0UydIwxD0aRIRq6j29zNp1evr+GKFWjsLYQvS6W9fuq
-         0AhTX4/9oUllTRWOqVwIxSPHqub9o67Rleoyf9VjPo9AMw+vL1Jbkp2R/XJzdVW11FaS
-         1ycnVyIUcOMTi0DYNS+YV+FHJcS9Tj3XzB9qz1ImmVbXT8Zc51lYzmmBHr/pcOELKDoq
-         E9XqtyQNKu0fmAWyi18RxXqEjXd4N9Mamp+2r4ATW+lDNtcdyouSXiEgGDEdJyu08lR1
-         9FVtQzB9NK2lP7OjzfhY/kWE7KRQTXy8Bva82679mDYp29EIjZmT6BYRqxlLHST6wLhR
-         vVsA==
-X-Forwarded-Encrypted: i=1; AJvYcCWnLFUebooqE5JmSuBAed8QEa0O+DZoU0/euJsD6QjuB91j2uS6ARSme6HbecTjlvqPADCoEIRRrCUpvv11jovPYnOKz3soPXtenH8Xn+yR
-X-Gm-Message-State: AOJu0YxG0JvqWWABYt8Rs8G4padJqEJSFHNy2AM4PMro5PtoTakQ9Dl3
-	Li2qtLHcpAHb5AhpJwlB4jqAZoW8Gw2QaUqSyKt/rgYMGfWh0Aq1bS1QyZBKbOw=
-X-Google-Smtp-Source: AGHT+IFGyOzsELsbEN5dq5CT9Zf/5PMWDUy7RodzkZu3Mk7cSMnkmo/3cHgdPDhbNHigLjznXjqnXw==
-X-Received: by 2002:a17:902:d487:b0:1ff:39d7:a1b0 with SMTP id d9443c01a7336-201ca1ca41bmr30756345ad.50.1723536809857;
-        Tue, 13 Aug 2024 01:13:29 -0700 (PDT)
-Received: from hsinchu35-syssw01.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-201cd1e29afsm8289885ad.309.2024.08.13.01.13.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Aug 2024 01:13:29 -0700 (PDT)
-From: Nick Hu <nick.hu@sifive.com>
-To: anup@brainfault.org,
-	rafael@kernel.org,
-	daniel.lezcano@linaro.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	linux-pm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	greentime.hu@sifive.com,
-	zong.li@sifive.com
-Cc: Nick Hu <nick.hu@sifive.com>,
-	Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH] cpuidle: riscv-sbi: Allow cpuidle pd used by other devices
-Date: Tue, 13 Aug 2024 16:13:24 +0800
-Message-Id: <20240813081324.3205944-1-nick.hu@sifive.com>
-X-Mailer: git-send-email 2.34.1
+	id 1sdn4s-00000002wsV-3Qm4;
+	Tue, 13 Aug 2024 08:40:30 +0000
+Received: from mordecai.tesarici.cz (unknown [193.86.92.181])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by bee.tesarici.cz (Postfix) with ESMTPSA id AA57D1DD8F4;
+	Tue, 13 Aug 2024 10:40:17 +0200 (CEST)
+Authentication-Results: mail.tesarici.cz; dmarc=fail (p=quarantine dis=none) header.from=tesarici.cz
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tesarici.cz; s=mail;
+	t=1723538417; bh=+CB3AGdZxpN1qDzpfCmR2fXPuhWenCYU98WPyCmPcbE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=gSKoHX1ynpXgGo54H/X1Op9pUo2k4TFLAcNL2THOGJ88fcL0FRZ6VY12qmRaM6BXW
+	 10omo4GDISaZakiQcFXihpyemDW3E3Ht3YCHwCyIK+D8q+hqhUMyE1wwLZOVKxwYDd
+	 0QyROvxzJLWewl6aob6mx9bMqOuqZcNG7M4BU09s8mzIqfu0vDEN9Gr9GqnTSeFp2d
+	 AKgQk7frb92oqwICB00izD/6IMNT55WkatoppaiNT6LFjhOr3DprcAKd6+qL/+KFxe
+	 NnHKIPj1hfwchX4wKh27babIEzyJ66CmNzTCrQ8DNR2I8jSHXNxwLmK1jTyw4jqwcj
+	 nnLBdotkEtigA==
+Date: Tue, 13 Aug 2024 10:40:06 +0200
+From: Petr =?UTF-8?B?VGVzYcWZw61r?= <petr@tesarici.cz>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Baoquan He <bhe@redhat.com>, Jinjie Ruan <ruanjinjie@huawei.com>,
+ vgoyal@redhat.com, dyoung@redhat.com, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, chenjiahao16@huawei.com,
+ akpm@linux-foundation.org, kexec@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>
+Subject: Re: [PATCH -next] crash: Fix riscv64 crash memory reserve dead loop
+Message-ID: <20240813104006.520bf42d@mordecai.tesarici.cz>
+In-Reply-To: <ZrJ60vopeGDXFZyK@arm.com>
+References: <20240802090105.3871929-1-ruanjinjie@huawei.com>
+	<ZqywtegyIS/YXOVv@MiWiFi-R3L-srv>
+	<ZrJ1JkyDVpRRB_9e@arm.com>
+	<ZrJ60vopeGDXFZyK@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-suse-linux-gnu)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240813_011331_345897_FE09EC16 
-X-CRM114-Status: GOOD (  16.81  )
+X-CRM114-CacheID: sfid-20240813_014027_550294_3ED746BE 
+X-CRM114-Status: GOOD (  32.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,128 +79,86 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-To prevent the probe of consumer devices being deferred, create the
-platform devices for each pd node under '/cpus/power-domains' and move the
-driver initailization to the arch_initcall.
-The consumer devices that inside the cpu/cluster power domain may register
-the genpd notifier where their power domains are point to the pd nodes
-under '/cpus/power-domains'. If the cpuidle.off==1, the genpd notifier
-will fail due to sbi_cpuidle_pd_allow_domain_state is not set. We also
-need the sbi_cpuidle_cpuhp_up/down to invoke the callbacks. Therefore,
-add a cpuidle_disabled() check before registering the cpuidle driver to
-address the issue.
+Hi Catalin,
 
-Signed-off-by: Nick Hu <nick.hu@sifive.com>
-Link: https://lore.kernel.org/lkml/20240226065113.1690534-1-nick.hu@sifive.com/
-Suggested-by: Anup Patel <apatel@ventanamicro.com>
----
- drivers/cpuidle/cpuidle-riscv-sbi.c | 24 +++++++++++++++++++++---
- 1 file changed, 21 insertions(+), 3 deletions(-)
+On Tue, 6 Aug 2024 20:34:42 +0100
+Catalin Marinas <catalin.marinas@arm.com> wrote:
 
-diff --git a/drivers/cpuidle/cpuidle-riscv-sbi.c b/drivers/cpuidle/cpuidle-riscv-sbi.c
-index a6e123dfe394..d6b01fc64f94 100644
---- a/drivers/cpuidle/cpuidle-riscv-sbi.c
-+++ b/drivers/cpuidle/cpuidle-riscv-sbi.c
-@@ -16,6 +16,7 @@
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/of.h>
-+#include <linux/of_platform.h>
- #include <linux/slab.h>
- #include <linux/platform_device.h>
- #include <linux/pm_domain.h>
-@@ -25,6 +26,7 @@
- #include <asm/smp.h>
- #include <asm/suspend.h>
- 
-+#include "cpuidle.h"
- #include "dt_idle_states.h"
- #include "dt_idle_genpd.h"
- 
-@@ -336,6 +338,9 @@ static int sbi_cpuidle_init_cpu(struct device *dev, int cpu)
- 		return ret;
- 	}
- 
-+	if (cpuidle_disabled())
-+		return 0;
-+
- 	ret = cpuidle_register(drv, NULL);
- 	if (ret)
- 		goto deinit;
-@@ -380,20 +385,26 @@ static int sbi_cpuidle_pd_power_off(struct generic_pm_domain *pd)
- struct sbi_pd_provider {
- 	struct list_head link;
- 	struct device_node *node;
-+	struct platform_device *pdev;
- };
- 
- static LIST_HEAD(sbi_pd_providers);
- 
- static int sbi_pd_init(struct device_node *np)
- {
-+	struct platform_device *pdev;
- 	struct generic_pm_domain *pd;
- 	struct sbi_pd_provider *pd_provider;
- 	struct dev_power_governor *pd_gov;
- 	int ret = -ENOMEM;
- 
-+	pdev = of_platform_device_create(np, np->name, NULL);
-+	if (!pdev)
-+		goto out;
-+
- 	pd = dt_idle_pd_alloc(np, sbi_dt_parse_state_node);
- 	if (!pd)
--		goto out;
-+		goto free_pdev;
- 
- 	pd_provider = kzalloc(sizeof(*pd_provider), GFP_KERNEL);
- 	if (!pd_provider)
-@@ -419,6 +430,7 @@ static int sbi_pd_init(struct device_node *np)
- 		goto remove_pd;
- 
- 	pd_provider->node = of_node_get(np);
-+	pd_provider->pdev = pdev;
- 	list_add(&pd_provider->link, &sbi_pd_providers);
- 
- 	pr_debug("init PM domain %s\n", pd->name);
-@@ -430,6 +442,8 @@ static int sbi_pd_init(struct device_node *np)
- 	kfree(pd_provider);
- free_pd:
- 	dt_idle_pd_free(pd);
-+free_pdev:
-+	of_platform_device_destroy(&pdev->dev, NULL);
- out:
- 	pr_err("failed to init PM domain ret=%d %pOF\n", ret, np);
- 	return ret;
-@@ -447,6 +461,7 @@ static void sbi_pd_remove(void)
- 		if (!IS_ERR(genpd))
- 			kfree(genpd);
- 
-+		of_platform_device_destroy(&pd_provider->pdev->dev, NULL);
- 		of_node_put(pd_provider->node);
- 		list_del(&pd_provider->link);
- 		kfree(pd_provider);
-@@ -548,7 +563,10 @@ static int sbi_cpuidle_probe(struct platform_device *pdev)
- 	/* Setup CPU hotplut notifiers */
- 	sbi_idle_init_cpuhp();
- 
--	pr_info("idle driver registered for all CPUs\n");
-+	if (cpuidle_disabled())
-+		pr_info("cpuidle is disabled\n");
-+	else
-+		pr_info("idle driver registered for all CPUs\n");
- 
- 	return 0;
- 
-@@ -592,4 +610,4 @@ static int __init sbi_cpuidle_init(void)
- 
- 	return 0;
- }
--device_initcall(sbi_cpuidle_init);
-+arch_initcall(sbi_cpuidle_init);
--- 
-2.34.1
+> On Tue, Aug 06, 2024 at 08:10:30PM +0100, Catalin Marinas wrote:
+> > On Fri, Aug 02, 2024 at 06:11:01PM +0800, Baoquan He wrote:  
+> > > On 08/02/24 at 05:01pm, Jinjie Ruan wrote:  
+> > > > On RISCV64 Qemu machine with 512MB memory, cmdline "crashkernel=500M,high"
+> > > > will cause system stall as below:
+> > > > 
+> > > > 	 Zone ranges:
+> > > > 	   DMA32    [mem 0x0000000080000000-0x000000009fffffff]
+> > > > 	   Normal   empty
+> > > > 	 Movable zone start for each node
+> > > > 	 Early memory node ranges
+> > > > 	   node   0: [mem 0x0000000080000000-0x000000008005ffff]
+> > > > 	   node   0: [mem 0x0000000080060000-0x000000009fffffff]
+> > > > 	 Initmem setup node 0 [mem 0x0000000080000000-0x000000009fffffff]
+> > > > 	(stall here)
+> > > > 
+> > > > commit 5d99cadf1568 ("crash: fix x86_32 crash memory reserve dead loop
+> > > > bug") fix this on 32-bit architecture. However, the problem is not
+> > > > completely solved. If `CRASH_ADDR_LOW_MAX = CRASH_ADDR_HIGH_MAX` on 64-bit
+> > > > architecture, for example, when system memory is equal to
+> > > > CRASH_ADDR_LOW_MAX on RISCV64, the following infinite loop will also occur:  
+> > > 
+> > > Interesting, I didn't expect risc-v defining them like these.
+> > > 
+> > > #define CRASH_ADDR_LOW_MAX              dma32_phys_limit
+> > > #define CRASH_ADDR_HIGH_MAX             memblock_end_of_DRAM()  
+> > 
+> > arm64 defines the high limit as PHYS_MASK+1, it doesn't need to be
+> > dynamic and x86 does something similar (SZ_64T). Not sure why the
+> > generic code and riscv define it like this.
+> >   
+> > > > 	-> reserve_crashkernel_generic() and high is true
+> > > > 	   -> alloc at [CRASH_ADDR_LOW_MAX, CRASH_ADDR_HIGH_MAX] fail
+> > > > 	      -> alloc at [0, CRASH_ADDR_LOW_MAX] fail and repeatedly  
+> > > > 	         (because CRASH_ADDR_LOW_MAX = CRASH_ADDR_HIGH_MAX).
+> > > > 
+> > > > Before refactor in commit 9c08a2a139fe ("x86: kdump: use generic interface
+> > > > to simplify crashkernel reservation code"), x86 do not try to reserve crash
+> > > > memory at low if it fails to alloc above high 4G. However before refator in
+> > > > commit fdc268232dbba ("arm64: kdump: use generic interface to simplify
+> > > > crashkernel reservation"), arm64 try to reserve crash memory at low if it
+> > > > fails above high 4G. For 64-bit systems, this attempt is less beneficial
+> > > > than the opposite, remove it to fix this bug and align with native x86
+> > > > implementation.  
+> > > 
+> > > And I don't like the idea crashkernel=,high failure will fallback to
+> > > attempt in low area, so this looks good to me.  
+> > 
+> > Well, I kind of liked this behaviour. One can specify ,high as a
+> > preference rather than forcing a range. The arm64 land has different
+> > platforms with some constrained memory layouts. Such fallback works well
+> > as a default command line option shipped with distros without having to
+> > guess the SoC memory layout.  
+> 
+> I haven't tried but it's possible that this patch also breaks those
+> arm64 platforms with all RAM above 4GB when CRASH_ADDR_LOW_MAX is
+> memblock_end_of_DRAM(). Here all memory would be low and in the absence
+> of no fallback, it fails to allocate.
 
+I'm afraid you've just opened a Pandora box... ;-)
+
+Another (unrelated) patch series made us aware of a platforms where RAM
+starts at 32G, but IIUC the host bridge maps 32G-33G to bus addresses
+0-1G, and there is a device on that bus which can produce only 30-bit
+addresses.
+
+Now, what was the idea behind allocating some crash memory "low"?
+Right, it should allow the crash kernel to access devices with
+addressing constraints. So, on the above-mentioned platform, allocating
+"low" would in fact mean allocating between 32G and 33G (in host address
+domain).
+
+Should we rethink the whole concept of high/low?
+
+Petr T
 
 _______________________________________________
 linux-riscv mailing list
