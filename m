@@ -4,130 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05862C52D7D
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Aug 2024 02:06:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83D7CC3DA7F
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Aug 2024 03:32:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nd1BS1++yEx+F2SlkweLyhCtmg4bHIs22BlJWXfuE8g=; b=ESjKEcjIpmzOk3tUDqymkw4O4L
-	N8OtJdWWcT8Gdkrl9nz0p4QYV4Dp7n4RStakr2s7FD+eV7i5QhaQGVYtfShNjunOO5PXdKi3ngqcv
-	dsKPomHTUqDrYQvuM71lPBAZ/8Ore10iOUCXOnhNpXx4qyd/oljC8yRwJWA4S1j5XP3ekO7wdvZGa
-	JqLc1TJoeHo7aioZXu3TRZ6eKXjbwYEbaDzp3bm0Iur8DsZb3TM0bIR9oUy5WUsAdDsm5bHuAdtc0
-	rmhpNSKYDywbYb4H1L5S1+Cpk5oI3aeVbL00D4nzf75H4HFnGoK8/wgyIpt+dRP20ykeWtJiltM0B
-	lzdMvudg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=RoPyjxzwJyABZ/8EBjBL0/ovTTGjaf+zNJfauOYnAVs=; b=wMSBboJIJjDZPe
+	hYxsPEynmdo5GFUuVBeJaMo8ue0lOCen2XyxxDo0oFZlxtyllUXCHO335eIBbvUBOzAwQVU3MkLLN
+	CSXC/q487YWptAY7Ipc3zpXp3Jfo3wNRAEFDCQyxitxOeGd3t4cd5lUEDWyRxLNmBKxXf942HZWQf
+	wG9ev88r2Vmsy2yFmp1c4mrBV8ooZSghhkIBSyYr/yg1FnMJ3q1qSyD8hRRvsXGqQKjRo66vtFuXP
+	kOBgp5GGLanHgSX7QmK+UaocC9sNhq0DQUqAy6APmCpNB+dazgDwdwYDxN1afrz2QDUNWhohRT9zz
+	ZG6pPEv884WBZAaWNOhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sdgvy-0000000246o-2zl4;
-	Tue, 13 Aug 2024 02:06:50 +0000
-Received: from mail-maxind01olkn20801.outbound.protection.outlook.com ([2a01:111:f403:281b::801] helo=IND01-MAX-obe.outbound.protection.outlook.com)
+	id 1sdiH8-00000002DF3-1O50;
+	Tue, 13 Aug 2024 03:32:46 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sdgvv-0000000245Z-1sSx
+	id 1sdiGV-00000002D2Z-0wxU
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Aug 2024 02:06:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lalqCXccyZa//5qmRophO4Oh0/ym5XDp1mv7EoJQKdwfk1Mi/1msY4mQMi/BlqVQEeZP0lvhlYmBMWHkNMrJ479aWMRuAOsqgcIwPFBDCc3zYH9qsnCEN7W4T9qIaY6tnsMxSgC8nSkdeq7XFTl4WHstMGwWcb2t46tVKjWxVqCdLwO8M0mx+S7ZrdMg5RgAiCXgJCuP9zvNstwlMmMO3aDNDd8GpU4dKwqenjl87B8ZErZ27X4WXqD+Hjmm9iFETpwK8NYyQQEqKoTz1Knno6F+N8ixmIrQWREZ+Cm18xR/+RaW3ScMxEDxy6oom1MedN5XF9GqVH33ASTpqJYvew==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=C7s7c/pebQ8ocSGeKGlPs3x459ETMexD+GZeDjB+l08=;
- b=F43l2VUSH0HXQRHrhwctqzwl8QEH5dJz4lDTurVDZ4/0GWCFUKbruL3yAY4Y28MsI61yMDiFBieV5waoBH7BeqV3viXMk9WF/rsT8imX4dvnayiJlPcpc1nTELiv8iVzuJ3n9Q0uGcrFXtRy5NKJQrHWSkcm1dM1ommX3fxAcmzchXKNzkz5LEnsrYF2rBsXwkr/WA2xNi/l8bWUxqlcsDHi918bidJSb5d2NYs1hsir5B8FHQBjCREkNSP9CPp+NfLyY2dXuDokPKiaJD2X52BrUIFVRq1R0uqQ3/RT5+yyvRQerFtU2eA3eSh2rBCCJ59oNmWDghWvlus8pqg6Aw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=C7s7c/pebQ8ocSGeKGlPs3x459ETMexD+GZeDjB+l08=;
- b=h9j5UHd9g8sDNDL35w2Il+2STQLM++SFVSbxeki9BoHg9b15xp7bWf8GHg7orYv6suN0Xj/QtinDhFZ90RCtB1lufO6BXGdLZhKSgEWhSkJtb4/Ajry7ClMMskeN4gBFUQqs3JFzzSQv6WFlZBfxpDl/U9nDvjPwhY8DNQ5pBZET4yNupY+cVEp8lQunN1Nyn9LRGDMqLoJwGamDLyyrng3mtgpKBfZHNf8OO4+OJngj/gloDaDxZp+hZtvpin7bDMyPQaoE40/6HtWx2BErk5MSzi/xuZIxNK2wNaXLylVjxb0WpHvFCrEpQe/PCFd3/SB7T7btLVfVPdYHEOl7NA==
-Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:138::5)
- by PN2P287MB0285.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:ec::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7849.20; Tue, 13 Aug
- 2024 02:05:59 +0000
-Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- ([fe80::a94:ad0a:9071:806c]) by MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- ([fe80::a94:ad0a:9071:806c%6]) with mapi id 15.20.7849.021; Tue, 13 Aug 2024
- 02:05:58 +0000
-Message-ID: <MA0P287MB282298A609327CDA62F5D43AFE862@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
-Date: Tue, 13 Aug 2024 10:05:52 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 0/4] riscv: sophgo: Add SG2042 external hardware
- monitor support
-To: Inochi Amaoto <inochiama@outlook.com>, Jean Delvare <jdelvare@suse.com>,
- Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Guo Ren <guoren@kernel.org>, Chao Wei <chao.wei@sophgo.com>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- Drew Fustini <dfustini@baylibre.com>, Sunil V L <sunilvl@ventanamicro.com>,
- Hal Feng <hal.feng@starfivetech.com>
-Cc: linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-riscv@lists.infradead.org
-References: <IA1PR20MB4953C5DB4AC5DF01236CE785BBBB2@IA1PR20MB4953.namprd20.prod.outlook.com>
- <PN0P287MB283050511BECD88076E8252EFE862@PN0P287MB2830.INDP287.PROD.OUTLOOK.COM>
- <IA1PR20MB4953751ABC2CBB8747A3ABDCBB862@IA1PR20MB4953.namprd20.prod.outlook.com>
-From: Chen Wang <unicorn_wang@outlook.com>
-In-Reply-To: <IA1PR20MB4953751ABC2CBB8747A3ABDCBB862@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-TMN: [GHzQ/5e72Kyrf9YPAfJii2R8NfgkGl4D]
-X-ClientProxiedBy: SI2PR02CA0025.apcprd02.prod.outlook.com
- (2603:1096:4:195::21) To MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:138::5)
-X-Microsoft-Original-Message-ID: <607cca3a-f345-4cce-a928-ea84ffb92515@outlook.com>
+	Tue, 13 Aug 2024 03:32:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1723519926;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ImjO3P8y5HQjjz6vvHUXt04IUaXtaxVKMc6ROVHnaII=;
+	b=WfLaYphW6ljptdTwBlZG8wX1gHvvSmtug9mdbgMsm/SNter0+t78InTaYicrkF2TZ6T/Mu
+	tj7H78bteZmvVvWfnwpi0eeL72z0ZUwxPzRUlyQAkRbVKkyxUAut+hukTWSaEsocGVXQPs
+	aLYiQ8dNdTPSGJYMF1r3QbwaUYKHtcg=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-587-9qR12zzKML6SmeAHm7fOZg-1; Mon,
+ 12 Aug 2024 23:32:00 -0400
+X-MC-Unique: 9qR12zzKML6SmeAHm7fOZg-1
+Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id C3657195420C;
+	Tue, 13 Aug 2024 03:31:57 +0000 (UTC)
+Received: from localhost (unknown [10.72.112.25])
+	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 49669196BE80;
+	Tue, 13 Aug 2024 03:31:54 +0000 (UTC)
+Date: Tue, 13 Aug 2024 11:31:50 +0800
+From: Baoquan He <bhe@redhat.com>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: catalin.marinas@arm.com, vgoyal@redhat.com, dyoung@redhat.com,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	akpm@linux-foundation.org, linux-kernel@vger.kernel.org,
+	kexec@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org
+Subject: Re: [PATCH -next v2] crash: Fix riscv64 crash memory reserve dead
+ loop
+Message-ID: <ZrrTpgvC/buAY/OV@MiWiFi-R3L-srv>
+References: <20240812062017.2674441-1-ruanjinjie@huawei.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MA0P287MB2822:EE_|PN2P287MB0285:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9f11c24b-0436-472f-f700-08dcbb3c78bc
-X-Microsoft-Antispam: BCL:0;ARA:14566002|5072599009|15080799003|19110799003|461199028|8060799006|1602099012|3412199025|4302099013|440099028;
-X-Microsoft-Antispam-Message-Info: aOX4SgaqpkGJOYuekxZejLU/pgwJ89LR86kjJoDBQt4X0yLEfgB4qgdB2cQLfEeD/CVMAKrSeqfLZ0C40xeV0LdYB9NGLlDXCHKhwJo1B8UCvnr1peybCi57vDZioYW0Pt4cOy2sJhlMgz/aXoHqwt4jBTyoiONW3Y7rn6Bc5dVvjE6q4AbrEW+/ta80WyDPscEz7s/hO27nLpm2dflXFtgHclwl3BcdjTRZDPiBEx3JuwC4GW3d0gGwD1CyRZo3SzB45vNoQ9gjVGbRsL0FSCEP2+A5zPGzvm3H5gdrHqPrqAr8AWeK00XpHM2ug/gr0HYh33uNyqRBjfi6FX+jBRu8ba5Q7QYEsWUMAnhLmwUek5AZjmiff+o5T28dkY7+UHnMTeqHQC6dDeoRV7zPf4o8kU/ARmQRsWJVxIlVh2j9DYSd4WRDz+dMqNKZ2voIcVzt2XtqYHuYZVutGEmznYO4BGxaanZER8M7HDvPsWchQlqD2jy+m0Fa67rSQGhaXi+Y0f7uVtX3FWTYYLQvnT16DKXNHUAVlSiAYbZ3Gp5VO0hR+nqzqZH4T5/57ln1noQOCIgQL1s+ovkxOhPoGF09Fwlre38Q1RrS/ntH1Wmq6mCCA9ruxSDnS6xD2VqFdI4S3QhfA08kNr6B7XshFsn5tF7323IAu/1JFZtdorZE4oneJ8vsXzC1NatWfsr5XI5Fljd3Yn/VP7VRG/vsaYKEBoQqlfqvYCkbP+LR92ZByerMMNsQeNWu8FZ70YpVQhuckF2BiDekJEzGpKWll2iX0+IEwMUtooSSpfalXR0B7mohOVAPMFgOlD68H97+
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?L3hkQVloNU1HOG4rVGd0eGh6QTVReXRZUVF2STR6OEpKRzhHTHlodml1M251?=
- =?utf-8?B?cUx4d0M1MVNTSW1waWkyYjdrT0h6UlJwaEZKNUUrNVM4OXhIZUNQMzZDZy82?=
- =?utf-8?B?NkhkT3lYQi9nNjJkQUNPd3QxVXJnL2MzSFNnYStrb0UxZ01NTjBtY0xGMG9r?=
- =?utf-8?B?TVRMaWhURDlSNmZEOU9VVnJhTjVrZGpZckduNVRUMFN1TVFRSmN2eklESis5?=
- =?utf-8?B?RERNVWtwcEF6eGFoL09QMGJZUThNNW54SUNuOTU5akxHbnJicDY5djczWDVK?=
- =?utf-8?B?NVVaL2hnbll6eG9DYUlIbVhkUVFmTEhtQzdrdEdqekVxSlh1czEwa2hvbVRS?=
- =?utf-8?B?cG1BZzR0VW0yOWx0SDVBTC9rUHFmMjduLzJEbktpak16enhjVXRKR0Y4akdD?=
- =?utf-8?B?SzBqZlM5dkhUMTY5a0VZZ0VSQXhpb2Y4b2VuMWE5SUpNWUY5TmFSemsxaXdL?=
- =?utf-8?B?MlhGZGhKMm5Ya3JwNXY1eEhaYU5vdUhBdzFRZXJuL1o0TnduOFhtZ1FGcHpO?=
- =?utf-8?B?OHJIby8xS3FGV0plOE51b2pSTXJ4bHRnOTFvYzZ0dU51K0pwc3g3RVdWUG5l?=
- =?utf-8?B?YmVlM2VNblZBTHFKenZ1T05TbG92WlNUbUQwUHMvOHM0a2FFQm8vVFoxcWsx?=
- =?utf-8?B?R0dJanFVVlpieVIvOXp1NWVXNEpiVTVkMkMwd21QU2g5ck9HVnVyUVJIWGZR?=
- =?utf-8?B?NlRhd0JrZzBLbHBBTmcvekFQTHN5UUJoUHFKaFgyRDVIelpINVVmM2hILzhv?=
- =?utf-8?B?MEJmeVFTUzhscXZIak9iZGpwRFFVWDFJQkZjOWd5Q2x2MHZBdTFMU1ZkT0RE?=
- =?utf-8?B?UGFWTWlzVXMwaTFSQzJHR1BFY1hhZi9JazdBWnQ1Z0NRdzZ3UTlYT3I4UG5M?=
- =?utf-8?B?cXVQV1JMcnVlZFJHWTRmQ1czSjRKWXVSMTNLR0JBemFEWXM3TFl4R0Yybjdx?=
- =?utf-8?B?TWh6QzJ5enJOU0dnamo1TmtJbThBM0ozdy9XTGViNWp2dWtsMUNFdUhPRWFX?=
- =?utf-8?B?ekxHV0l4R2JDeDJ6QmE3L1lUUmYxZEErdDdKRkx4MU1KZ01zRlN2UTVLWVhs?=
- =?utf-8?B?dUV2NFVPNG5wK0xrbVFURzlWdzdZaEg5ZFZPR29iQk51R2RScGF6cG5aUFQ3?=
- =?utf-8?B?NzRmalNPdHZ0RlpDMml3QzRvYnFNWjJ1YmtRbzZHeTJRWWN0dU9GNGw1QUNq?=
- =?utf-8?B?Uk5WVTZFN1FiL211Z3RnbU9vWFBSUlZwU2t5cEtualAzTjNuRk9qSEozaFhJ?=
- =?utf-8?B?bk9IYllKVGhDSUNQWlVwbkNJajJ1NUtRKytMaUZhZGorMFBaR1JFQ1F4anJa?=
- =?utf-8?B?NWVCNVNSTTB4TGJrMDJqRGFPa2FlL2VVSGNpZldGRzdnWTl0MjN2dFl4Rngz?=
- =?utf-8?B?N3VtczBpRlQvc1ZaVzRER3pibjJjUnhqUy9KSVUrV1d0OVIwM1JPRTdRSmtS?=
- =?utf-8?B?VUdiMmh6RVNOSUFoby9aWjc5WlFaUEYzZ2xDWEpmVlV6ODdoYU9FVFdWUC9r?=
- =?utf-8?B?QmlNTUJCeC9kSGV1c3I0a0ZhYUQ5NU9YS1FxaDJvQnE4NWdmUkUxa1cvK2JX?=
- =?utf-8?B?emNJdUJmU1NJSHg2ZjVpMG9OcTdmNndhZENTeHhFV1c2dEVqYzVITWoyTXMw?=
- =?utf-8?B?S2YwNit4clNwcnJlS3hkN3lJWVVFNG1mdDhDTjNaQjRrRUVzR2tMT1N2ZEhl?=
- =?utf-8?Q?pwXShB/cioH/rZ8xPsZj?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9f11c24b-0436-472f-f700-08dcbb3c78bc
-X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Aug 2024 02:05:57.9616
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN2P287MB0285
+Content-Disposition: inline
+In-Reply-To: <20240812062017.2674441-1-ruanjinjie@huawei.com>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240812_190647_540886_3C9902C4 
-X-CRM114-Status: GOOD (  18.87  )
+X-CRM114-CacheID: sfid-20240812_203207_379630_C3497036 
+X-CRM114-Status: GOOD (  22.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,95 +81,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 08/12/24 at 02:20pm, Jinjie Ruan wrote:
+> On RISCV64 Qemu machine with 512MB memory, cmdline "crashkernel=500M,high"
+> will cause system stall as below:
+> 
+> 	 Zone ranges:
+> 	   DMA32    [mem 0x0000000080000000-0x000000009fffffff]
+> 	   Normal   empty
+> 	 Movable zone start for each node
+> 	 Early memory node ranges
+> 	   node   0: [mem 0x0000000080000000-0x000000008005ffff]
+> 	   node   0: [mem 0x0000000080060000-0x000000009fffffff]
+> 	 Initmem setup node 0 [mem 0x0000000080000000-0x000000009fffffff]
+> 	(stall here)
+> 
+> commit 5d99cadf1568 ("crash: fix x86_32 crash memory reserve dead loop
+> bug") fix this on 32-bit architecture. However, the problem is not
+> completely solved. If `CRASH_ADDR_LOW_MAX = CRASH_ADDR_HIGH_MAX` on 64-bit
+> architecture, for example, when system memory is equal to
+> CRASH_ADDR_LOW_MAX on RISCV64, the following infinite loop will also occur:
+> 
+> 	-> reserve_crashkernel_generic() and high is true
+> 	   -> alloc at [CRASH_ADDR_LOW_MAX, CRASH_ADDR_HIGH_MAX] fail
+> 	      -> alloc at [0, CRASH_ADDR_LOW_MAX] fail and repeatedly
+> 	         (because CRASH_ADDR_LOW_MAX = CRASH_ADDR_HIGH_MAX).
+> 
+> As Catalin suggested, do not remove the ",high" reservation fallback to
+> ",low" logic which will change arm64's kdump behavior, but fix it by
+> skipping the above situation similar to commit d2f32f23190b ("crash: fix
+> x86_32 crash memory reserve dead loop").
+> 
+> After this patch, it print:
+> 	cannot allocate crashkernel (size:0x1f400000)
+> 
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> Suggested-by: Catalin Marinas <catalin.marinas@arm.com>
+> ---
+> v2:
+> - Fix it in another way suggested by Catalin.
+> - Add Suggested-by.
+> ---
+>  kernel/crash_reserve.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
 
-On 2024/8/13 9:53, Inochi Amaoto wrote:
-> On Tue, Aug 13, 2024 at 09:24:19AM GMT, Chen Wang wrote:
->> On 2024/8/10 16:03, Inochi Amaoto wrote:
->>> Add support for the onboard hardware monitor for SG2042.
->>> Can be tested with OpenSBI v1.5.
->>>
->>> The patch require the following i2c patch:
->>> https://lore.kernel.org/all/IA1PR20MB4953DB82FB7D75BF8409FFF4BBB72@IA1PR20MB4953.namprd20.prod.outlook.com/
->>>
->>> Changed from v9:
->>> 1. remove missed wrong return value.
->>> 2. add documentation for the other interface of the driver.
->>> 3. rename repower_action to repower_policy.
->>> 4. use break to unify "return 0" in is_visible function.
->>>
->>> Changed from v8:
->>> 1. rename critical_action to repower_action, and add some comment
->>> 2. remove unnecessary wrap function
->>> 3. use guard macro to simplify mutex process.
->>>
->>> Changed from v7:
->>> 1. add mutex protected and fix the return value when writing
->>> "critical_action"
->>>
->>> Changed from v6:
->>> 1. restore the driver name to sg2042-mcu
->>> 2. remove unnecessary wrap function and check in the driver.
->>> 3. add dts and config entry.
->>>
->>> Changed from v5:
->>> 1. rename driver name to sgmcu as it will support more sophgo chip.
->>> 2. move some attr to debugfs.
->>> 3. add standard crit_hyst support
->>> 4. add documentation
->>>
->>> Changed from v4:
->>> 1. use fix patch for binding ref.
->>> 2. use unevaluatedProperties instead of additionalProperties for binding
->>>
->>> Changed from v3:
->>> 1. add thermal-sensor check.
->>> 2. change node type from syscon to hwmon
->>>
->>> Changed from v2:
->>> 1. fix bindings id path.
->>>
->>> Changed from v1:
->>> 1. Move patch from soc to hwmon.
->>> 2. Fix typo.
->>>
->>> Inochi Amaoto (4):
->>>     dt-bindings: hwmon: Add Sophgo SG2042 external hardware monitor
->>>       support
->>>     drivers: hwmon: sophgo: Add SG2042 external hardware monitor support
->>>     riscv: dts: sophgo: Add mcu device for Milk-V Pioneer
->>>     riscv: defconfig: Enable MCU support for SG2042
->>>
->>>    .../hwmon/sophgo,sg2042-hwmon-mcu.yaml        |  43 ++
->>>    Documentation/hwmon/index.rst                 |   1 +
->>>    Documentation/hwmon/sg2042-mcu.rst            |  77 ++++
->>>    .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  |  60 +++
->>>    arch/riscv/configs/defconfig                  |   1 +
->>>    drivers/hwmon/Kconfig                         |  11 +
->>>    drivers/hwmon/Makefile                        |   1 +
->>>    drivers/hwmon/sg2042-mcu.c                    | 388 ++++++++++++++++++
->>>    8 files changed, 582 insertions(+)
->>>    create mode 100644 Documentation/devicetree/bindings/hwmon/sophgo,sg2042-hwmon-mcu.yaml
->>>    create mode 100644 Documentation/hwmon/sg2042-mcu.rst
->>>    create mode 100644 drivers/hwmon/sg2042-mcu.c
->>>
->>>
->>> base-commit: d2d190621b60d77496d36659e1621b20c897b25d
->>> prerequisite-patch-id: 5e7221ed1c63bb4d68e4a2a0141440e32d29e397
->> In fact, I did not find these two commit ids on master or sophgo/for-next.
->> When testing, I applied this patchset based on the latest sophgo/for-next.
-> This two id comes from my tree, not the sophgo one. But I
-> think it should be recognized by the git. For testing, you
-> can just pick the sophgo/for-next tree and test it.
-Don't use commit id from your local git, use public git so other people 
-can find your base. Generally we use official label, such as 6.11-rc1.
->
-> Regards,
-> Inochi.
+Acked-by: Baoquan He <bhe@redhat.com>
+
+> 
+> diff --git a/kernel/crash_reserve.c b/kernel/crash_reserve.c
+> index 5387269114f6..aae4a9e998d1 100644
+> --- a/kernel/crash_reserve.c
+> +++ b/kernel/crash_reserve.c
+> @@ -427,7 +427,8 @@ void __init reserve_crashkernel_generic(char *cmdline,
+>  		if (high && search_end == CRASH_ADDR_HIGH_MAX) {
+>  			search_end = CRASH_ADDR_LOW_MAX;
+>  			search_base = 0;
+> -			goto retry;
+> +			if (search_end != CRASH_ADDR_HIGH_MAX)
+> +				goto retry;
+>  		}
+>  		pr_warn("cannot allocate crashkernel (size:0x%llx)\n",
+>  			crash_size);
+> -- 
+> 2.34.1
+> 
+
 
 _______________________________________________
 linux-riscv mailing list
