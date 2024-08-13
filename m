@@ -4,65 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A5D1C52D7B
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Aug 2024 08:42:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94401C52D7C
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Aug 2024 08:59:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=e7HlMYPXeJPSIUE8bWxwc8fSf7a36enwPFAUxM76fPU=; b=RFH7AyAhUyGzE1
-	2MhLfKYm+43HjXwjxHHbx/eqnUVb/O6aCcRXm2LmTgPirW20u2qBXfFGjAgIcM+m254lBDTZ3pO5s
-	rCz5fizX6fIrmCfq6tv3jDc47csL/GVM6h9cW7PiguESgd48MlFzfi8BVx/X4EssoWkKCpj2xRFBe
-	9f1ang0IDFfaNybXj7tuWNO9D/uPuyEUDbyrzIj8qR1KteJ6sS0vQ4pBUBNc+6lylXWA22J2gfYFz
-	DBCWl0jw08g+TNV098XZn5FLZolVDi3A2rbPdtQwpqd3vNxSGd/CKAVBv5El2zJAV9pZ6G1wy248r
-	EYKJTKx59yHqZsFca08w==;
+	List-Owner; bh=zv9rwq7yaZ1N8ZgRiD3HZaL0vg1z7RZw1nXLVpcRK5I=; b=Ib3rkLCk3uLps2
+	s5qEja3ItNu5x2sw89ASz8ljyv7p/fk6LM+lb0m6wImAibC7Aw+9kiqQveIhBxVN4gCIyP9pdCSdh
+	LzhfB4U7QeK5z2761rfHZV0+tO3mEq+2gDOJU1kDwnTpCF1qknNR9qwnLR68Zc02+wWfjve8cj9Gg
+	H7NsNgkeNG5WINWB5+SGGhBZ+gsFi7NZeTi/d8lK/nOgQhHlmMOUAtI01/ARllxJlN+8jOatAnh+F
+	w8WxXHDkqgOQlG3EUxcCqXMrQINI/KefjEQIpqfqHGx8hgdQM9jc59IjbvKxBbr+QYxuJXixiFzX5
+	AEGuot3FZQ3nwX2ALYzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sdn7A-00000002yVg-2zPx;
-	Tue, 13 Aug 2024 08:42:48 +0000
-Received: from bee.tesarici.cz ([2a03:3b40:fe:2d4::1])
+	id 1sdnNi-0000000339q-2B3O;
+	Tue, 13 Aug 2024 08:59:54 +0000
+Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sdn4s-00000002wsV-3Qm4;
-	Tue, 13 Aug 2024 08:40:30 +0000
-Received: from mordecai.tesarici.cz (unknown [193.86.92.181])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by bee.tesarici.cz (Postfix) with ESMTPSA id AA57D1DD8F4;
-	Tue, 13 Aug 2024 10:40:17 +0200 (CEST)
-Authentication-Results: mail.tesarici.cz; dmarc=fail (p=quarantine dis=none) header.from=tesarici.cz
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tesarici.cz; s=mail;
-	t=1723538417; bh=+CB3AGdZxpN1qDzpfCmR2fXPuhWenCYU98WPyCmPcbE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=gSKoHX1ynpXgGo54H/X1Op9pUo2k4TFLAcNL2THOGJ88fcL0FRZ6VY12qmRaM6BXW
-	 10omo4GDISaZakiQcFXihpyemDW3E3Ht3YCHwCyIK+D8q+hqhUMyE1wwLZOVKxwYDd
-	 0QyROvxzJLWewl6aob6mx9bMqOuqZcNG7M4BU09s8mzIqfu0vDEN9Gr9GqnTSeFp2d
-	 AKgQk7frb92oqwICB00izD/6IMNT55WkatoppaiNT6LFjhOr3DprcAKd6+qL/+KFxe
-	 NnHKIPj1hfwchX4wKh27babIEzyJ66CmNzTCrQ8DNR2I8jSHXNxwLmK1jTyw4jqwcj
-	 nnLBdotkEtigA==
-Date: Tue, 13 Aug 2024 10:40:06 +0200
-From: Petr =?UTF-8?B?VGVzYcWZw61r?= <petr@tesarici.cz>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Baoquan He <bhe@redhat.com>, Jinjie Ruan <ruanjinjie@huawei.com>,
- vgoyal@redhat.com, dyoung@redhat.com, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, chenjiahao16@huawei.com,
- akpm@linux-foundation.org, kexec@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>
-Subject: Re: [PATCH -next] crash: Fix riscv64 crash memory reserve dead loop
-Message-ID: <20240813104006.520bf42d@mordecai.tesarici.cz>
-In-Reply-To: <ZrJ60vopeGDXFZyK@arm.com>
-References: <20240802090105.3871929-1-ruanjinjie@huawei.com>
-	<ZqywtegyIS/YXOVv@MiWiFi-R3L-srv>
-	<ZrJ1JkyDVpRRB_9e@arm.com>
-	<ZrJ60vopeGDXFZyK@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-suse-linux-gnu)
+	id 1sdnMu-000000032wx-0Ln7
+	for linux-riscv@lists.infradead.org;
+	Tue, 13 Aug 2024 08:59:06 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id A192E1BF207;
+	Tue, 13 Aug 2024 08:58:56 +0000 (UTC)
+Message-ID: <440ca2a7-9dfb-45cd-8331-a8d0afff47d0@ghiti.fr>
+Date: Tue, 13 Aug 2024 10:58:55 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 04/10] riscv: Add support for userspace pointer masking
+Content-Language: en-US
+To: Samuel Holland <samuel.holland@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org
+Cc: devicetree@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
+ linux-kernel@vger.kernel.org, Anup Patel <anup@brainfault.org>,
+ Conor Dooley <conor@kernel.org>, kasan-dev@googlegroups.com,
+ Atish Patra <atishp@atishpatra.org>, Evgenii Stepanov <eugenis@google.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Rob Herring <robh+dt@kernel.org>,
+ "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+References: <20240625210933.1620802-1-samuel.holland@sifive.com>
+ <20240625210933.1620802-5-samuel.holland@sifive.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20240625210933.1620802-5-samuel.holland@sifive.com>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240813_014027_550294_3ED746BE 
-X-CRM114-Status: GOOD (  32.40  )
+X-CRM114-CacheID: sfid-20240813_015904_451606_CD258567 
+X-CRM114-Status: GOOD (  37.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,91 +63,273 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Catalin,
+Hi Samuel,
 
-On Tue, 6 Aug 2024 20:34:42 +0100
-Catalin Marinas <catalin.marinas@arm.com> wrote:
+On 25/06/2024 23:09, Samuel Holland wrote:
+> RISC-V supports pointer masking with a variable number of tag bits
+> (which is called "PMLEN" in the specification) and which is configured
+> at the next higher privilege level.
+>
+> Wire up the PR_SET_TAGGED_ADDR_CTRL and PR_GET_TAGGED_ADDR_CTRL prctls
+> so userspace can request a lower bound on the  number of tag bits and
+> determine the actual number of tag bits. As with arm64's
+> PR_TAGGED_ADDR_ENABLE, the pointer masking configuration is
+> thread-scoped, inherited on clone() and fork() and cleared on execve().
+>
+> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+> ---
+>
+> Changes in v2:
+>   - Rebase on riscv/linux.git for-next
+>   - Add and use the envcfg_update_bits() helper function
+>   - Inline flush_tagged_addr_state()
+>
+>   arch/riscv/Kconfig                 | 11 ++++
+>   arch/riscv/include/asm/processor.h |  8 +++
+>   arch/riscv/include/asm/switch_to.h | 11 ++++
+>   arch/riscv/kernel/process.c        | 99 ++++++++++++++++++++++++++++++
+>   include/uapi/linux/prctl.h         |  3 +
+>   5 files changed, 132 insertions(+)
+>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index b94176e25be1..8f9980f81ea5 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -505,6 +505,17 @@ config RISCV_ISA_C
+>   
+>   	  If you don't know what to do here, say Y.
+>   
+> +config RISCV_ISA_POINTER_MASKING
+> +	bool "Smmpm, Smnpm, and Ssnpm extensions for pointer masking"
+> +	depends on 64BIT
+> +	default y
+> +	help
+> +	  Add support for the pointer masking extensions (Smmpm, Smnpm,
+> +	  and Ssnpm) when they are detected at boot.
+> +
+> +	  If this option is disabled, userspace will be unable to use
+> +	  the prctl(PR_{SET,GET}_TAGGED_ADDR_CTRL) API.
+> +
+>   config RISCV_ISA_SVNAPOT
+>   	bool "Svnapot extension support for supervisor mode NAPOT pages"
+>   	depends on 64BIT && MMU
+> diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+> index 0838922bd1c8..4f99c85d29ae 100644
+> --- a/arch/riscv/include/asm/processor.h
+> +++ b/arch/riscv/include/asm/processor.h
+> @@ -194,6 +194,14 @@ extern int set_unalign_ctl(struct task_struct *tsk, unsigned int val);
+>   #define RISCV_SET_ICACHE_FLUSH_CTX(arg1, arg2)	riscv_set_icache_flush_ctx(arg1, arg2)
+>   extern int riscv_set_icache_flush_ctx(unsigned long ctx, unsigned long per_thread);
+>   
+> +#ifdef CONFIG_RISCV_ISA_POINTER_MASKING
+> +/* PR_{SET,GET}_TAGGED_ADDR_CTRL prctl */
+> +long set_tagged_addr_ctrl(struct task_struct *task, unsigned long arg);
+> +long get_tagged_addr_ctrl(struct task_struct *task);
+> +#define SET_TAGGED_ADDR_CTRL(arg)	set_tagged_addr_ctrl(current, arg)
+> +#define GET_TAGGED_ADDR_CTRL()		get_tagged_addr_ctrl(current)
+> +#endif
+> +
+>   #endif /* __ASSEMBLY__ */
+>   
+>   #endif /* _ASM_RISCV_PROCESSOR_H */
+> diff --git a/arch/riscv/include/asm/switch_to.h b/arch/riscv/include/asm/switch_to.h
+> index 9685cd85e57c..94e33216b2d9 100644
+> --- a/arch/riscv/include/asm/switch_to.h
+> +++ b/arch/riscv/include/asm/switch_to.h
+> @@ -70,6 +70,17 @@ static __always_inline bool has_fpu(void) { return false; }
+>   #define __switch_to_fpu(__prev, __next) do { } while (0)
+>   #endif
+>   
+> +static inline void envcfg_update_bits(struct task_struct *task,
+> +				      unsigned long mask, unsigned long val)
+> +{
+> +	unsigned long envcfg;
+> +
+> +	envcfg = (task->thread.envcfg & ~mask) | val;
+> +	task->thread.envcfg = envcfg;
+> +	if (task == current)
+> +		csr_write(CSR_ENVCFG, envcfg);
+> +}
+> +
+>   static inline void __switch_to_envcfg(struct task_struct *next)
+>   {
+>   	asm volatile (ALTERNATIVE("nop", "csrw " __stringify(CSR_ENVCFG) ", %0",
+> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+> index e4bc61c4e58a..dec5ccc44697 100644
+> --- a/arch/riscv/kernel/process.c
+> +++ b/arch/riscv/kernel/process.c
+> @@ -7,6 +7,7 @@
+>    * Copyright (C) 2017 SiFive
+>    */
+>   
+> +#include <linux/bitfield.h>
+>   #include <linux/cpu.h>
+>   #include <linux/kernel.h>
+>   #include <linux/sched.h>
+> @@ -171,6 +172,10 @@ void flush_thread(void)
+>   	memset(&current->thread.vstate, 0, sizeof(struct __riscv_v_ext_state));
+>   	clear_tsk_thread_flag(current, TIF_RISCV_V_DEFER_RESTORE);
+>   #endif
+> +#ifdef CONFIG_RISCV_ISA_POINTER_MASKING
+> +	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SUPM))
+> +		envcfg_update_bits(current, ENVCFG_PMM, ENVCFG_PMM_PMLEN_0);
+> +#endif
 
-> On Tue, Aug 06, 2024 at 08:10:30PM +0100, Catalin Marinas wrote:
-> > On Fri, Aug 02, 2024 at 06:11:01PM +0800, Baoquan He wrote:  
-> > > On 08/02/24 at 05:01pm, Jinjie Ruan wrote:  
-> > > > On RISCV64 Qemu machine with 512MB memory, cmdline "crashkernel=500M,high"
-> > > > will cause system stall as below:
-> > > > 
-> > > > 	 Zone ranges:
-> > > > 	   DMA32    [mem 0x0000000080000000-0x000000009fffffff]
-> > > > 	   Normal   empty
-> > > > 	 Movable zone start for each node
-> > > > 	 Early memory node ranges
-> > > > 	   node   0: [mem 0x0000000080000000-0x000000008005ffff]
-> > > > 	   node   0: [mem 0x0000000080060000-0x000000009fffffff]
-> > > > 	 Initmem setup node 0 [mem 0x0000000080000000-0x000000009fffffff]
-> > > > 	(stall here)
-> > > > 
-> > > > commit 5d99cadf1568 ("crash: fix x86_32 crash memory reserve dead loop
-> > > > bug") fix this on 32-bit architecture. However, the problem is not
-> > > > completely solved. If `CRASH_ADDR_LOW_MAX = CRASH_ADDR_HIGH_MAX` on 64-bit
-> > > > architecture, for example, when system memory is equal to
-> > > > CRASH_ADDR_LOW_MAX on RISCV64, the following infinite loop will also occur:  
-> > > 
-> > > Interesting, I didn't expect risc-v defining them like these.
-> > > 
-> > > #define CRASH_ADDR_LOW_MAX              dma32_phys_limit
-> > > #define CRASH_ADDR_HIGH_MAX             memblock_end_of_DRAM()  
-> > 
-> > arm64 defines the high limit as PHYS_MASK+1, it doesn't need to be
-> > dynamic and x86 does something similar (SZ_64T). Not sure why the
-> > generic code and riscv define it like this.
-> >   
-> > > > 	-> reserve_crashkernel_generic() and high is true
-> > > > 	   -> alloc at [CRASH_ADDR_LOW_MAX, CRASH_ADDR_HIGH_MAX] fail
-> > > > 	      -> alloc at [0, CRASH_ADDR_LOW_MAX] fail and repeatedly  
-> > > > 	         (because CRASH_ADDR_LOW_MAX = CRASH_ADDR_HIGH_MAX).
-> > > > 
-> > > > Before refactor in commit 9c08a2a139fe ("x86: kdump: use generic interface
-> > > > to simplify crashkernel reservation code"), x86 do not try to reserve crash
-> > > > memory at low if it fails to alloc above high 4G. However before refator in
-> > > > commit fdc268232dbba ("arm64: kdump: use generic interface to simplify
-> > > > crashkernel reservation"), arm64 try to reserve crash memory at low if it
-> > > > fails above high 4G. For 64-bit systems, this attempt is less beneficial
-> > > > than the opposite, remove it to fix this bug and align with native x86
-> > > > implementation.  
-> > > 
-> > > And I don't like the idea crashkernel=,high failure will fallback to
-> > > attempt in low area, so this looks good to me.  
-> > 
-> > Well, I kind of liked this behaviour. One can specify ,high as a
-> > preference rather than forcing a range. The arm64 land has different
-> > platforms with some constrained memory layouts. Such fallback works well
-> > as a default command line option shipped with distros without having to
-> > guess the SoC memory layout.  
-> 
-> I haven't tried but it's possible that this patch also breaks those
-> arm64 platforms with all RAM above 4GB when CRASH_ADDR_LOW_MAX is
-> memblock_end_of_DRAM(). Here all memory would be low and in the absence
-> of no fallback, it fails to allocate.
+if (IS_ENABLED(CONFIG_RISCV_ISA_POINTER_MASKING) && 
+riscv_has_extension_unlikely(RISCV_ISA_EXT_SUPM))
 
-I'm afraid you've just opened a Pandora box... ;-)
 
-Another (unrelated) patch series made us aware of a platforms where RAM
-starts at 32G, but IIUC the host bridge maps 32G-33G to bus addresses
-0-1G, and there is a device on that bus which can produce only 30-bit
-addresses.
+>   }
+>   
+>   void arch_release_task_struct(struct task_struct *tsk)
+> @@ -233,3 +238,97 @@ void __init arch_task_cache_init(void)
+>   {
+>   	riscv_v_setup_ctx_cache();
+>   }
+> +
+> +#ifdef CONFIG_RISCV_ISA_POINTER_MASKING
+> +static bool have_user_pmlen_7;
+> +static bool have_user_pmlen_16;
+> +
+> +long set_tagged_addr_ctrl(struct task_struct *task, unsigned long arg)
+> +{
+> +	unsigned long valid_mask = PR_PMLEN_MASK;
+> +	struct thread_info *ti = task_thread_info(task);
+> +	unsigned long pmm;
+> +	u8 pmlen;
+> +
+> +	if (is_compat_thread(ti))
+> +		return -EINVAL;
+> +
+> +	if (arg & ~valid_mask)
+> +		return -EINVAL;
+> +
+> +	pmlen = FIELD_GET(PR_PMLEN_MASK, arg);
+> +	if (pmlen > 16) {
+> +		return -EINVAL;
+> +	} else if (pmlen > 7) {
+> +		if (have_user_pmlen_16)
+> +			pmlen = 16;
+> +		else
+> +			return -EINVAL;
+> +	} else if (pmlen > 0) {
+> +		/*
+> +		 * Prefer the smallest PMLEN that satisfies the user's request,
+> +		 * in case choosing a larger PMLEN has a performance impact.
+> +		 */
+> +		if (have_user_pmlen_7)
+> +			pmlen = 7;
+> +		else if (have_user_pmlen_16)
+> +			pmlen = 16;
+> +		else
+> +			return -EINVAL;
+> +	}
+> +
+> +	if (pmlen == 7)
+> +		pmm = ENVCFG_PMM_PMLEN_7;
+> +	else if (pmlen == 16)
+> +		pmm = ENVCFG_PMM_PMLEN_16;
+> +	else
+> +		pmm = ENVCFG_PMM_PMLEN_0;
+> +
+> +	envcfg_update_bits(task, ENVCFG_PMM, pmm);
+> +
+> +	return 0;
+> +}
+> +
+> +long get_tagged_addr_ctrl(struct task_struct *task)
+> +{
+> +	struct thread_info *ti = task_thread_info(task);
+> +	long ret = 0;
+> +
+> +	if (is_compat_thread(ti))
+> +		return -EINVAL;
+> +
+> +	switch (task->thread.envcfg & ENVCFG_PMM) {
+> +	case ENVCFG_PMM_PMLEN_7:
+> +		ret |= FIELD_PREP(PR_PMLEN_MASK, 7);
+> +		break;
+> +	case ENVCFG_PMM_PMLEN_16:
+> +		ret |= FIELD_PREP(PR_PMLEN_MASK, 16);
+> +		break;
+> +	}
 
-Now, what was the idea behind allocating some crash memory "low"?
-Right, it should allow the crash kernel to access devices with
-addressing constraints. So, on the above-mentioned platform, allocating
-"low" would in fact mean allocating between 32G and 33G (in host address
-domain).
 
-Should we rethink the whole concept of high/low?
+No need for the |=
 
-Petr T
+
+> +
+> +	return ret;
+> +}
+
+
+In all the code above, I'd use a macro for 7 and 16, something like 
+PMLEN[7|16]?
+
+
+> +
+> +static bool try_to_set_pmm(unsigned long value)
+> +{
+> +	csr_set(CSR_ENVCFG, value);
+> +	return (csr_read_clear(CSR_ENVCFG, ENVCFG_PMM) & ENVCFG_PMM) == value;
+> +}
+> +
+> +static int __init tagged_addr_init(void)
+> +{
+> +	if (!riscv_has_extension_unlikely(RISCV_ISA_EXT_SUPM))
+> +		return 0;
+> +
+> +	/*
+> +	 * envcfg.PMM is a WARL field. Detect which values are supported.
+> +	 * Assume the supported PMLEN values are the same on all harts.
+> +	 */
+> +	csr_clear(CSR_ENVCFG, ENVCFG_PMM);
+> +	have_user_pmlen_7 = try_to_set_pmm(ENVCFG_PMM_PMLEN_7);
+> +	have_user_pmlen_16 = try_to_set_pmm(ENVCFG_PMM_PMLEN_16);
+
+
+Shouldn't this depend on the satp mode? sv57 does not allow 16bits for 
+the tag.
+
+
+> +
+> +	return 0;
+> +}
+> +core_initcall(tagged_addr_init);
+
+
+Any reason it's not called from setup_arch()? I see the vector extension 
+does the same; just wondering if we should not centralize all this early 
+extensions decisions in setup_arch() (in my Zacas series, I choose the 
+spinlock implementation in setup_arch()).
+
+
+> +#endif	/* CONFIG_RISCV_ISA_POINTER_MASKING */
+> diff --git a/include/uapi/linux/prctl.h b/include/uapi/linux/prctl.h
+> index 35791791a879..6e84c827869b 100644
+> --- a/include/uapi/linux/prctl.h
+> +++ b/include/uapi/linux/prctl.h
+> @@ -244,6 +244,9 @@ struct prctl_mm_map {
+>   # define PR_MTE_TAG_MASK		(0xffffUL << PR_MTE_TAG_SHIFT)
+>   /* Unused; kept only for source compatibility */
+>   # define PR_MTE_TCF_SHIFT		1
+> +/* RISC-V pointer masking tag length */
+> +# define PR_PMLEN_SHIFT			24
+> +# define PR_PMLEN_MASK			(0x7fUL << PR_PMLEN_SHIFT)
+
+
+I don't understand the need for this shift, can't userspace pass the 
+pmlen value directly without worrying about this?
+
+
+>   
+>   /* Control reclaim behavior when allocating memory */
+>   #define PR_SET_IO_FLUSHER		57
 
 _______________________________________________
 linux-riscv mailing list
