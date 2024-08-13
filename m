@@ -4,54 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94401C52D7C
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Aug 2024 08:59:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F323C52D7C
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Aug 2024 09:51:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zv9rwq7yaZ1N8ZgRiD3HZaL0vg1z7RZw1nXLVpcRK5I=; b=Ib3rkLCk3uLps2
-	s5qEja3ItNu5x2sw89ASz8ljyv7p/fk6LM+lb0m6wImAibC7Aw+9kiqQveIhBxVN4gCIyP9pdCSdh
-	LzhfB4U7QeK5z2761rfHZV0+tO3mEq+2gDOJU1kDwnTpCF1qknNR9qwnLR68Zc02+wWfjve8cj9Gg
-	H7NsNgkeNG5WINWB5+SGGhBZ+gsFi7NZeTi/d8lK/nOgQhHlmMOUAtI01/ARllxJlN+8jOatAnh+F
-	w8WxXHDkqgOQlG3EUxcCqXMrQINI/KefjEQIpqfqHGx8hgdQM9jc59IjbvKxBbr+QYxuJXixiFzX5
-	AEGuot3FZQ3nwX2ALYzQ==;
+	List-Owner; bh=uDuXwpTK0bZpr3WN/yySJmw61os94YUn2ZObSUJ2vD4=; b=U7pBZwiVbAKIFu
+	X3G+hbGlSxve0hWykGUZ+erY7LmneQBu0PqcIXhov58tbVjQ+G2votERcl/xF61NObzUHPPVvVhEe
+	NmaYE2ui6VQAvdHVahYvmjB940fC3FkofNRGtNMTmEtJMvZkiUii2pXPhke36UNhWsTn/Fdl4JrZg
+	OEU3w3CPwyd4qFlMT6rvW6yfOBUalRq6R2kdtsg7b97ySi2e9F5BFxJjYgNqGrsbdO55+HnZ92kFQ
+	o6vLp63pkndgI27w9+nbZj7thiI3o75tRrI1JAkiLznfgcXo0BowXDV4lgEqATksU6zlySwTG/FSQ
+	P9wL6bn5r0dImHkjkgkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sdnNi-0000000339q-2B3O;
-	Tue, 13 Aug 2024 08:59:54 +0000
-Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
+	id 1sdoBO-00000003CdM-0GJz;
+	Tue, 13 Aug 2024 09:51:14 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sdnMu-000000032wx-0Ln7
+	id 1sdoBK-00000003Cc2-0XOa
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Aug 2024 08:59:06 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id A192E1BF207;
-	Tue, 13 Aug 2024 08:58:56 +0000 (UTC)
-Message-ID: <440ca2a7-9dfb-45cd-8331-a8d0afff47d0@ghiti.fr>
-Date: Tue, 13 Aug 2024 10:58:55 +0200
+	Tue, 13 Aug 2024 09:51:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 10385CE1256;
+	Tue, 13 Aug 2024 09:51:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA01EC4AF0B;
+	Tue, 13 Aug 2024 09:51:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1723542667;
+	bh=u4GVLmL56p9bLDLAYbw4kFxsRLgytFR0Ld25rKYzcX0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jC6zNycOPiCv0OiyxJKR4pVZlBuaCiBBFyCJorRk0XPAGIKgWEEvIbzMiluOruoPv
+	 pMxZL05D8S+uAVmLh6Q9Csa89MK1DU2pXFPi1gBd9TnM5LP7u9v8rReNdVMXxpf0RH
+	 xUYWaUw6NMYNPmfi1gUtvkFomhv6SoaEzIrZ2QdRt5T6LbED5AmERbqfWS/otjd1gz
+	 hZ0V2cN56UDJCrJR0r5v80tJFiUuHJ0Swnw+GA5QuKTz09PJDy9sQFGAEust6PKtQP
+	 i6MIx3x/HQTA9lfGIeiZ4Odsk0bXdAdZ8t40o+gXRL/Tnrt6UCfAnCGUj2RhWOs1iA
+	 Hh4aNuP6OFuFg==
+Message-ID: <f868dee1-0007-44a1-9fbf-d6a0fdcf4837@kernel.org>
+Date: Tue, 13 Aug 2024 11:50:59 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 04/10] riscv: Add support for userspace pointer masking
+Subject: Re: [PATCH v4 1/3] dt-bindings: iio: adc: sophgo,cv18xx-saradc.yaml:
+ Add Sophgo CV18XX SARADC binding
+To: Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
+ Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
+ Inochi Amaoto <inochiama@outlook.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ =?UTF-8?Q?Miqu=C3=A8l_Raynal?= <miquel.raynal@bootlin.com>,
+ linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <20240812-sg2002-adc-v4-0-599bdb67592f@bootlin.com>
+ <20240812-sg2002-adc-v4-1-599bdb67592f@bootlin.com>
 Content-Language: en-US
-To: Samuel Holland <samuel.holland@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org
-Cc: devicetree@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
- linux-kernel@vger.kernel.org, Anup Patel <anup@brainfault.org>,
- Conor Dooley <conor@kernel.org>, kasan-dev@googlegroups.com,
- Atish Patra <atishp@atishpatra.org>, Evgenii Stepanov <eugenis@google.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Rob Herring <robh+dt@kernel.org>,
- "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
-References: <20240625210933.1620802-1-samuel.holland@sifive.com>
- <20240625210933.1620802-5-samuel.holland@sifive.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20240625210933.1620802-5-samuel.holland@sifive.com>
-X-GND-Sasl: alex@ghiti.fr
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20240812-sg2002-adc-v4-1-599bdb67592f@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240813_015904_451606_CD258567 
-X-CRM114-Status: GOOD (  37.88  )
+X-CRM114-CacheID: sfid-20240813_025110_572604_A4A68990 
+X-CRM114-Status: GOOD (  16.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,273 +121,125 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Samuel,
+On 12/08/2024 17:00, Thomas Bonnefille wrote:
+> The Sophgo SARADC is a Successive Approximation ADC that can be found in
+> the Sophgo SoC.
+> 
+> Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
 
-On 25/06/2024 23:09, Samuel Holland wrote:
-> RISC-V supports pointer masking with a variable number of tag bits
-> (which is called "PMLEN" in the specification) and which is configured
-> at the next higher privilege level.
->
-> Wire up the PR_SET_TAGGED_ADDR_CTRL and PR_GET_TAGGED_ADDR_CTRL prctls
-> so userspace can request a lower bound on the  number of tag bits and
-> determine the actual number of tag bits. As with arm64's
-> PR_TAGGED_ADDR_ENABLE, the pointer masking configuration is
-> thread-scoped, inherited on clone() and fork() and cleared on execve().
->
-> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+
+<form letter>
+This is a friendly reminder during the review process.
+
+It seems my or other reviewer's previous comments were not fully
+addressed. Maybe the feedback got lost between the quotes, maybe you
+just forgot to apply it. Please go back to the previous discussion and
+either implement all requested changes or keep discussing them.
+
+Thank you.
+</form letter>
+
+.. and more ignored comments further.
+
 > ---
->
-> Changes in v2:
->   - Rebase on riscv/linux.git for-next
->   - Add and use the envcfg_update_bits() helper function
->   - Inline flush_tagged_addr_state()
->
->   arch/riscv/Kconfig                 | 11 ++++
->   arch/riscv/include/asm/processor.h |  8 +++
->   arch/riscv/include/asm/switch_to.h | 11 ++++
->   arch/riscv/kernel/process.c        | 99 ++++++++++++++++++++++++++++++
->   include/uapi/linux/prctl.h         |  3 +
->   5 files changed, 132 insertions(+)
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index b94176e25be1..8f9980f81ea5 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -505,6 +505,17 @@ config RISCV_ISA_C
->   
->   	  If you don't know what to do here, say Y.
->   
-> +config RISCV_ISA_POINTER_MASKING
-> +	bool "Smmpm, Smnpm, and Ssnpm extensions for pointer masking"
-> +	depends on 64BIT
-> +	default y
-> +	help
-> +	  Add support for the pointer masking extensions (Smmpm, Smnpm,
-> +	  and Ssnpm) when they are detected at boot.
+>  .../bindings/iio/adc/sophgo,cv18xx-saradc.yaml     | 85 ++++++++++++++++++++++
+>  1 file changed, 85 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/iio/adc/sophgo,cv18xx-saradc.yaml b/Documentation/devicetree/bindings/iio/adc/sophgo,cv18xx-saradc.yaml
+> new file mode 100644
+> index 000000000000..846590808e5f
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/iio/adc/sophgo,cv18xx-saradc.yaml
+> @@ -0,0 +1,85 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/iio/adc/sophgo,cv18xx-saradc.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +	  If this option is disabled, userspace will be unable to use
-> +	  the prctl(PR_{SET,GET}_TAGGED_ADDR_CTRL) API.
+> +title:
+> +  Sophgo CV18XX SoC series 3 channels Successive Approximation Analog to
+> +  Digital Converters
 > +
->   config RISCV_ISA_SVNAPOT
->   	bool "Svnapot extension support for supervisor mode NAPOT pages"
->   	depends on 64BIT && MMU
-> diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-> index 0838922bd1c8..4f99c85d29ae 100644
-> --- a/arch/riscv/include/asm/processor.h
-> +++ b/arch/riscv/include/asm/processor.h
-> @@ -194,6 +194,14 @@ extern int set_unalign_ctl(struct task_struct *tsk, unsigned int val);
->   #define RISCV_SET_ICACHE_FLUSH_CTX(arg1, arg2)	riscv_set_icache_flush_ctx(arg1, arg2)
->   extern int riscv_set_icache_flush_ctx(unsigned long ctx, unsigned long per_thread);
->   
-> +#ifdef CONFIG_RISCV_ISA_POINTER_MASKING
-> +/* PR_{SET,GET}_TAGGED_ADDR_CTRL prctl */
-> +long set_tagged_addr_ctrl(struct task_struct *task, unsigned long arg);
-> +long get_tagged_addr_ctrl(struct task_struct *task);
-> +#define SET_TAGGED_ADDR_CTRL(arg)	set_tagged_addr_ctrl(current, arg)
-> +#define GET_TAGGED_ADDR_CTRL()		get_tagged_addr_ctrl(current)
-> +#endif
+> +maintainers:
+> +  - Thomas Bonnefille <thomas.bonnefille@bootlin.com>
 > +
->   #endif /* __ASSEMBLY__ */
->   
->   #endif /* _ASM_RISCV_PROCESSOR_H */
-> diff --git a/arch/riscv/include/asm/switch_to.h b/arch/riscv/include/asm/switch_to.h
-> index 9685cd85e57c..94e33216b2d9 100644
-> --- a/arch/riscv/include/asm/switch_to.h
-> +++ b/arch/riscv/include/asm/switch_to.h
-> @@ -70,6 +70,17 @@ static __always_inline bool has_fpu(void) { return false; }
->   #define __switch_to_fpu(__prev, __next) do { } while (0)
->   #endif
->   
-> +static inline void envcfg_update_bits(struct task_struct *task,
-> +				      unsigned long mask, unsigned long val)
-> +{
-> +	unsigned long envcfg;
+> +description:
+> +  Datasheet at https://github.com/sophgo/sophgo-doc/releases
 > +
-> +	envcfg = (task->thread.envcfg & ~mask) | val;
-> +	task->thread.envcfg = envcfg;
-> +	if (task == current)
-> +		csr_write(CSR_ENVCFG, envcfg);
-> +}
+> +properties:
+> +  compatible:
+> +    const: sophgo,cv1800b-saradc
 > +
->   static inline void __switch_to_envcfg(struct task_struct *next)
->   {
->   	asm volatile (ALTERNATIVE("nop", "csrw " __stringify(CSR_ENVCFG) ", %0",
-> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-> index e4bc61c4e58a..dec5ccc44697 100644
-> --- a/arch/riscv/kernel/process.c
-> +++ b/arch/riscv/kernel/process.c
-> @@ -7,6 +7,7 @@
->    * Copyright (C) 2017 SiFive
->    */
->   
-> +#include <linux/bitfield.h>
->   #include <linux/cpu.h>
->   #include <linux/kernel.h>
->   #include <linux/sched.h>
-> @@ -171,6 +172,10 @@ void flush_thread(void)
->   	memset(&current->thread.vstate, 0, sizeof(struct __riscv_v_ext_state));
->   	clear_tsk_thread_flag(current, TIF_RISCV_V_DEFER_RESTORE);
->   #endif
-> +#ifdef CONFIG_RISCV_ISA_POINTER_MASKING
-> +	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SUPM))
-> +		envcfg_update_bits(current, ENVCFG_PMM, ENVCFG_PMM_PMLEN_0);
-> +#endif
-
-if (IS_ENABLED(CONFIG_RISCV_ISA_POINTER_MASKING) && 
-riscv_has_extension_unlikely(RISCV_ISA_EXT_SUPM))
-
-
->   }
->   
->   void arch_release_task_struct(struct task_struct *tsk)
-> @@ -233,3 +238,97 @@ void __init arch_task_cache_init(void)
->   {
->   	riscv_v_setup_ctx_cache();
->   }
+> +  reg:
+> +    maxItems: 1
 > +
-> +#ifdef CONFIG_RISCV_ISA_POINTER_MASKING
-> +static bool have_user_pmlen_7;
-> +static bool have_user_pmlen_16;
+> +  interrupts:
+> +    maxItems: 1
 > +
-> +long set_tagged_addr_ctrl(struct task_struct *task, unsigned long arg)
-> +{
-> +	unsigned long valid_mask = PR_PMLEN_MASK;
-> +	struct thread_info *ti = task_thread_info(task);
-> +	unsigned long pmm;
-> +	u8 pmlen;
+> +  clocks:
+> +    maxItems: 1
 > +
-> +	if (is_compat_thread(ti))
-> +		return -EINVAL;
+> +  '#address-cells':
+> +    const: 1
 > +
-> +	if (arg & ~valid_mask)
-> +		return -EINVAL;
+> +  '#size-cells':
+> +    const: 0
 > +
-> +	pmlen = FIELD_GET(PR_PMLEN_MASK, arg);
-> +	if (pmlen > 16) {
-> +		return -EINVAL;
-> +	} else if (pmlen > 7) {
-> +		if (have_user_pmlen_16)
-> +			pmlen = 16;
-> +		else
-> +			return -EINVAL;
-> +	} else if (pmlen > 0) {
-> +		/*
-> +		 * Prefer the smallest PMLEN that satisfies the user's request,
-> +		 * in case choosing a larger PMLEN has a performance impact.
-> +		 */
-> +		if (have_user_pmlen_7)
-> +			pmlen = 7;
-> +		else if (have_user_pmlen_16)
-> +			pmlen = 16;
-> +		else
-> +			return -EINVAL;
-> +	}
+> +patternProperties:
+> +  "^channel@[0-3]+$":
+> +    $ref: adc.yaml
 > +
-> +	if (pmlen == 7)
-> +		pmm = ENVCFG_PMM_PMLEN_7;
-> +	else if (pmlen == 16)
-> +		pmm = ENVCFG_PMM_PMLEN_16;
-> +	else
-> +		pmm = ENVCFG_PMM_PMLEN_0;
+> +    description: |
+> +      Represents the channels of the ADC.
 > +
-> +	envcfg_update_bits(task, ENVCFG_PMM, pmm);
+> +    properties:
+> +      reg:
+> +        description: |
+> +          The channel number. It can have up to 3 channels numbered from 0 to 2.
+> +        items:
+> +          - minimum: 0
+> +            maximum: 2
 > +
-> +	return 0;
-> +}
+> +    required:
+> +      - reg
 > +
-> +long get_tagged_addr_ctrl(struct task_struct *task)
-> +{
-> +	struct thread_info *ti = task_thread_info(task);
-> +	long ret = 0;
+> +    additionalProperties: false
 > +
-> +	if (is_compat_thread(ti))
-> +		return -EINVAL;
 > +
-> +	switch (task->thread.envcfg & ENVCFG_PMM) {
-> +	case ENVCFG_PMM_PMLEN_7:
-> +		ret |= FIELD_PREP(PR_PMLEN_MASK, 7);
-> +		break;
-> +	case ENVCFG_PMM_PMLEN_16:
-> +		ret |= FIELD_PREP(PR_PMLEN_MASK, 16);
-> +		break;
-> +	}
 
+Just one blank line.
 
-No need for the |=
-
-
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
 > +
-> +	return ret;
-> +}
+> +unevaluatedProperties: false
 
+No, how did this appear here? This must be additionalProperties.
 
-In all the code above, I'd use a macro for 7 and 16, something like 
-PMLEN[7|16]?
+I already commented on this.
 
+<form letter>
+This is a friendly reminder during the review process.
 
-> +
-> +static bool try_to_set_pmm(unsigned long value)
-> +{
-> +	csr_set(CSR_ENVCFG, value);
-> +	return (csr_read_clear(CSR_ENVCFG, ENVCFG_PMM) & ENVCFG_PMM) == value;
-> +}
-> +
-> +static int __init tagged_addr_init(void)
-> +{
-> +	if (!riscv_has_extension_unlikely(RISCV_ISA_EXT_SUPM))
-> +		return 0;
-> +
-> +	/*
-> +	 * envcfg.PMM is a WARL field. Detect which values are supported.
-> +	 * Assume the supported PMLEN values are the same on all harts.
-> +	 */
-> +	csr_clear(CSR_ENVCFG, ENVCFG_PMM);
-> +	have_user_pmlen_7 = try_to_set_pmm(ENVCFG_PMM_PMLEN_7);
-> +	have_user_pmlen_16 = try_to_set_pmm(ENVCFG_PMM_PMLEN_16);
+It seems my or other reviewer's previous comments were not fully
+addressed. Maybe the feedback got lost between the quotes, maybe you
+just forgot to apply it. Please go back to the previous discussion and
+either implement all requested changes or keep discussing them.
 
+Thank you.
+</form letter>
 
-Shouldn't this depend on the satp mode? sv57 does not allow 16bits for 
-the tag.
+Best regards,
+Krzysztof
 
-
-> +
-> +	return 0;
-> +}
-> +core_initcall(tagged_addr_init);
-
-
-Any reason it's not called from setup_arch()? I see the vector extension 
-does the same; just wondering if we should not centralize all this early 
-extensions decisions in setup_arch() (in my Zacas series, I choose the 
-spinlock implementation in setup_arch()).
-
-
-> +#endif	/* CONFIG_RISCV_ISA_POINTER_MASKING */
-> diff --git a/include/uapi/linux/prctl.h b/include/uapi/linux/prctl.h
-> index 35791791a879..6e84c827869b 100644
-> --- a/include/uapi/linux/prctl.h
-> +++ b/include/uapi/linux/prctl.h
-> @@ -244,6 +244,9 @@ struct prctl_mm_map {
->   # define PR_MTE_TAG_MASK		(0xffffUL << PR_MTE_TAG_SHIFT)
->   /* Unused; kept only for source compatibility */
->   # define PR_MTE_TCF_SHIFT		1
-> +/* RISC-V pointer masking tag length */
-> +# define PR_PMLEN_SHIFT			24
-> +# define PR_PMLEN_MASK			(0x7fUL << PR_PMLEN_SHIFT)
-
-
-I don't understand the need for this shift, can't userspace pass the 
-pmlen value directly without worrying about this?
-
-
->   
->   /* Control reclaim behavior when allocating memory */
->   #define PR_SET_IO_FLUSHER		57
 
 _______________________________________________
 linux-riscv mailing list
