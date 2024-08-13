@@ -4,75 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55090C52D7B
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Aug 2024 15:55:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24143C52D7C
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Aug 2024 17:45:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=USaQ/e3VV2wa3VHdiA7FwngECeH0TKQivW4stXRBPpk=; b=Tw8Hp7507qgF1T9kr53ecuqyH6
-	ZSYkK0Ks20g8Mh1frIOcRJEikh6evzkiZI058Qju81vjX7GvcBRCyrEy2RWq9JW1agNtUMjq6sHpi
-	+FqLgdEErRD4ECLSds1oRbJY2iLh7eSl2crF571JPLxXU7n2deo/bTH2uZc5fw+AbxYTUEurIARI1
-	tXUBhk+VeJRemFp0N9hMJZp3n4D0GNYcbKEyxQkPQi0jMxSxWy5LSUFLXRNydSTegyvOKFxTfbvlX
-	pZa1WhB2YU+2tLF3mbztQfHYwWAxRL/Ks39/TFNql0qsi/+XVcBQymPdODnFwT3FNtyqPg44De4df
-	A7Z+ZUIg==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=ddv8qpTFOeXQyesa+uhVdwnYZ5mj5ri1jpzWvG1L5Us=; b=tHVyBiKc7rGXvcSVfEOK+n6gaL
+	JUsTIFxRTGGRHXA27zXZWXkuSMeTM/zZw54m+6qMrOOQrWWWDq5GxAdqrY3aHhRSOoc8iR+GsU5bM
+	cfXKksJEqTzeDf0koXzHLptyBckUSaeZ1wIh/EIeQiAWKWnvpofpe7HD8oC0VxNQHZ5EOdBYQAjpd
+	XLoRnDzx1GFEy1uR5dL0V5G7qC/eHqMjjSM1s4tvpav+t4prsbusQTJ7pYRf+UBhFEdc6PmkrSUd5
+	NlMPmUyl6d9N5RxtkK6ZWYY2ntrR3V1BeO+5BtlJ9JoOkNlzcCZXfoZphcwXxywIWsZVcLbvUGNCT
+	CQyP+DCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sdts2-00000004Gy9-0wpt;
-	Tue, 13 Aug 2024 15:55:38 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1sdvaX-00000004X3O-1BmT;
+	Tue, 13 Aug 2024 17:45:41 +0000
+Received: from mail-oa1-x32.google.com ([2001:4860:4864:20::32])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sdtrz-00000004GwE-24mm
+	id 1sdvaU-00000004X2E-0L8Q
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Aug 2024 15:55:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BEF576174C;
-	Tue, 13 Aug 2024 15:55:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B120C4AF09;
-	Tue, 13 Aug 2024 15:55:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1723564534;
-	bh=2qbznLVAWa/HOCkibpwEKuFx9BRG0jfLiyGPm/O5D0U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TdDaa/og08j0LYWxMjIfmT62Kse6nlmDNAqFUWXRmeAOd4L8HUcdtoNGpFIKZ2ovK
-	 Wo8eroMPA7ljNcvycCtAJoCPSOW0sL4ez8CU0njPbAl5s4w3e1pL1xt0z/5bkAsd3W
-	 AyI8VSs3BZHOYosptDMzpeCBZYGxHn2H8y8LbYAnhcsMLr91GM20TL0ixceE9tPfzb
-	 Vx1zlFj6nEUair4k8rdOYdoG4DTk8CIJwZHafLxB8o8P/RrW8+9bZFSBxfXNpqDFNr
-	 VwMB5tfnO4Fx23eAhjULiqlqOWHy4r2C5DEKNZSBu0vrreLkayROtBxCfuvWvflTI4
-	 xxXxYgEv0gapw==
-Date: Tue, 13 Aug 2024 16:55:27 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jisheng Zhang <jszhang@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Guo Ren <guoren@kernel.org>, Evan Green <evan@rivosinc.com>,
-	Andy Chiu <andy.chiu@sifive.com>,
-	Jessica Clarke <jrtc27@jrtc27.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Heiko Stuebner <heiko@sntech.de>
-Subject: Re: [PATCH v9 00/13] riscv: Add support for xtheadvector
-Message-ID: <20240813-strode-revival-07b8556a8bfe@spud>
-References: <20240806-xtheadvector-v9-0-62a56d2da5d0@rivosinc.com>
- <20240809-slapping-graph-461287bac506@spud>
- <ZrqsqsCtKwfG4Q5B@ghost>
-MIME-Version: 1.0
-In-Reply-To: <ZrqsqsCtKwfG4Q5B@ghost>
+	Tue, 13 Aug 2024 17:45:40 +0000
+Received: by mail-oa1-x32.google.com with SMTP id 586e51a60fabf-260f057aa9bso3575977fac.2
+        for <linux-riscv@lists.infradead.org>; Tue, 13 Aug 2024 10:45:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1723571136; x=1724175936; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=MubgzmTkGoLk6Sy+ubAhLb2lJQ+c10dRYN9KCEZDVvQ=;
+        b=MJaci5axKOBZHnybjrtuLP8wpXb4oSSMqLRL5PzjqCEKWC+yzpaULguRiYC2w3vEN0
+         8Fnb19ZlvvZcB631wfQU4ujtVoqZf73SunTgwjHzLYgJjJEBe2XAoMj35SnY45t+n++3
+         VcBfeQrnfoCmYKO0cuBLlc+xz43i8eBF6mTGpKfrfu3iZKXrgdvgYtD1MGyntFbMkS5R
+         V/XOZjtdUrzAyNGyfx/s5qZu/svmM37n9lK4aqKipZGju3N+CVp8r+lXGtQigW8M9L7/
+         XDtuex/+0MQx0h+8EuPRfOxKmdhhLMv0dxtV7LupVgO9Y7PW0gO5vC2jptG3K0u3WdKa
+         JI8A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1723571136; x=1724175936;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MubgzmTkGoLk6Sy+ubAhLb2lJQ+c10dRYN9KCEZDVvQ=;
+        b=t6LL0mZC7hmFNv/bwzFvfkn624rxOd9nhBgx14PKASUlxWCGdANY3RO7i7fpKfzGAe
+         +OodG9ezXm0BhcMequ3Mf3S4J7WTE3O4QZokMIZ+d7lJi2OiUM54PaLdg0tg23j0CLdQ
+         ENgCULbYTgDB4PrGcrBW5WcCIBL1tNkv5L2ei7DmLT47Wf/SMSpiS2YaW+Cybzh/lREf
+         51hIPDNoWVJb4mSuaVetrimNEV1wJ8pw1JNgBwsXnXARYeK1XFLUvnVPsKNMGDFnALxr
+         EFo56Do5fXGLPPgou3YEM6G80WWY/q8GNYTfXd+hxebEohYkISaaAoQTJA1Zjg3tKo+Z
+         6LgA==
+X-Forwarded-Encrypted: i=1; AJvYcCWSoPcXFm/5Cj/rcaAnp4o3IoiYRcMnahVcTIhPd99t/VFvM2h3zHXGqk9zpvQDhiFVxpDopJbysUuPJtG8iNdoipL2iU0Uzw7/0HTCFIcc
+X-Gm-Message-State: AOJu0YzUmGstAvCzPXZc/nZLb2w6wTnthAue0D+IIYoPD/irZ2Y87qcL
+	4xITR/MuByvspEoNE/5EEuYNda+/Yrtzk6JXgzL3BKFiD04LZeCxAdsZ4trtSmk=
+X-Google-Smtp-Source: AGHT+IE3uqwNiNxWMS0aZLT9JubHN+Eh10Kr02K6qabc5dhWWvlSu3SRh9RQgttofqo3VUev7YFzlQ==
+X-Received: by 2002:a05:6870:1612:b0:261:1eb4:dd8e with SMTP id 586e51a60fabf-26fe5a04303mr455099fac.2.1723571135449;
+        Tue, 13 Aug 2024 10:45:35 -0700 (PDT)
+Received: from localhost ([192.184.165.199])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7c6979d3d58sm1755063a12.18.2024.08.13.10.45.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 13 Aug 2024 10:45:34 -0700 (PDT)
+Date: Tue, 13 Aug 2024 10:45:34 -0700 (PDT)
+X-Google-Original-Date: Tue, 13 Aug 2024 10:45:21 PDT (-0700)
+Subject: Re: [RFC PATCH] riscv: Enable generic CPU vulnerabilites support
+In-Reply-To: <20240703022732.2068316-1-ruanjinjie@huawei.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+  samuel.holland@sifive.com, tglx@linutronix.de, linux-riscv@lists.infradead.org,
+  linux-kernel@vger.kernel.org, ruanjinjie@huawei.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: ruanjinjie@huawei.com
+Message-ID: <mhng-8bda3a10-9d6d-4aac-acdf-1287278e7e82@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240813_085535_644669_8D55E83A 
-X-CRM114-Status: GOOD (  23.91  )
+X-CRM114-CacheID: sfid-20240813_104538_395213_3E96DCF8 
+X-CRM114-Status: GOOD (  18.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,79 +88,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1832788651176568277=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Tue, 02 Jul 2024 19:27:32 PDT (-0700), ruanjinjie@huawei.com wrote:
+> Currently x86, ARM and ARM64 support generic CPU vulnerabilites, but
+> RISC-V not, such as:
+>
+> 	# cd /sys/devices/system/cpu/vulnerabilities/
+> x86:
+> 	# cat spec_store_bypass
+> 		Mitigation: Speculative Store Bypass disabled via prctl and seccomp
+> 	# cat meltdown
+> 		Not affected
+>
+> ARM64:
+>
+> 	# cat spec_store_bypass
+> 		Mitigation: Speculative Store Bypass disabled via prctl and seccomp
+> 	# cat meltdown
+> 		Mitigation: PTI
+>
+> RISC-V:
+>
+> 	# cat /sys/devices/system/cpu/vulnerabilities
+> 	# ... No such file or directory
+>
+> As SiFive RISC-V Core IP offerings are not affected by Meltdown and
+> Spectre, it can use the default weak function as below:
+>
+> 	# cat spec_store_bypass
+> 		Not affected
+> 	# cat meltdown
+> 		Not affected
+>
+> Link: https://www.sifive.cn/blog/sifive-statement-on-meltdown-and-spectre
+>
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> ---
+>  arch/riscv/Kconfig | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 0525ee2d63c7..3b44e7b51436 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -85,6 +85,7 @@ config RISCV
+>  	select GENERIC_ATOMIC64 if !64BIT
+>  	select GENERIC_CLOCKEVENTS_BROADCAST if SMP
+>  	select GENERIC_CPU_DEVICES
+> +	select GENERIC_CPU_VULNERABILITIES
+>  	select GENERIC_EARLY_IOREMAP
+>  	select GENERIC_ENTRY
+>  	select GENERIC_GETTIMEOFDAY if HAVE_GENERIC_VDSO
 
---===============1832788651176568277==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="wVALGEdsN5/GZu0E"
-Content-Disposition: inline
+Thanks.  This is an RFC, but I'm just going to pick it up on for-next: 
+we had a recent round of RISC-V vulnerabilities crop up, so it's time to 
+start tracking those for users.
 
+It's queued up for now, it'll show up on for-next proper assumin it 
+passes the tests.
 
---wVALGEdsN5/GZu0E
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Mon, Aug 12, 2024 at 05:45:30PM -0700, Charlie Jenkins wrote:
-> On Fri, Aug 09, 2024 at 11:31:15PM +0100, Conor Dooley wrote:
-> > On Tue, Aug 06, 2024 at 05:31:36PM -0700, Charlie Jenkins wrote:
-> > > xtheadvector is a custom extension that is based upon riscv vector
-> > > version 0.7.1 [1]. All of the vector routines have been modified to
-> > > support this alternative vector version based upon whether xtheadvect=
-or
-> > > was determined to be supported at boot.
-> > >=20
-> > > vlenb is not supported on the existing xtheadvector hardware, so a
-> > > devicetree property thead,vlenb is added to provide the vlenb to Linu=
-x.
-> > >=20
-> > > There is a new hwprobe key RISCV_HWPROBE_KEY_VENDOR_EXT_THEAD_0 that =
-is
-> > > used to request which thead vendor extensions are supported on the
-> > > current platform. This allows future vendors to allocate hwprobe keys
-> > > for their vendor.
-> > >=20
-> > > Support for xtheadvector is also added to the vector kselftests.
-> >=20
-> > So uh, since noone seems to have brought it up, in the light of the iss=
-ues
-> > with thead's vector implementation, (https://ghostwriteattack.com/) do =
-we
-> > want to enable it at all?
->=20
-> I can make it clear in the kconfig that xtheadvector is succeptible to
-> this attack and that it should be enabled with caution. I think we
-> should let people that understand the risk to enable it.
-
-I think the clearest way might be "depends on BROKEN"?
-
---wVALGEdsN5/GZu0E
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZruB7wAKCRB4tDGHoIJi
-0tDJAQCrAAwyJAAGcGaB0lSjHQowc1+M+60A33xWLVpFubDEggD+PdA/5VviAMYd
-FtjIx2BGIAbBB5DLVfsxw4duVA3eAQc=
-=/cR1
------END PGP SIGNATURE-----
-
---wVALGEdsN5/GZu0E--
-
-
---===============1832788651176568277==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks!
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1832788651176568277==--
-
