@@ -4,128 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9DB7C3DA7F
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Aug 2024 01:24:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E030C3DA7F
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Aug 2024 01:40:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
 	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mPk6M6JfzAZ+7Q0ZiB8NL7b3ffIzjq80A0M4tInApps=; b=iF9D9ZE73f0VoX9Aq6crUnixVn
-	FhigtlUVPiVJvFPJ4xa6fiFe5TzV8fD/LV2oVrDLu9RC25XPb2kaA5VNzvxU0/sD5yPnnwAQmOCN2
-	gbPt4k4I+NFsLo++xtSjhwytR6Fv467q8DrK8cT8HW51Nn/h5kU6yrLPTiI+Dmf+soWu5hAmkpt4h
-	lQt2Q9FXVvMMM07zBgP3NjXDcqJ2FwHrwt8N9zE9UuA9L8BEKkMrlDXYMt8XQkn6ZRx7K2ryrMDKm
-	pNzEbWuq1W3NOKXrMQ+cQEOGsrvN9aOWomrkeCLEG0AKhXNX22+1zAQnnOUbfJgrlfiALFfnNcP6v
-	v9R0qjKg==;
+	bh=3hBRALqiIqUYvbjMUMnydulUiK0ZqllWIQFOoLu2cG0=; b=UN8XF1bbc59wqfNMnsePs0acag
+	O/Yi4kbYxuhFYGYrPG42SywHVR6ii6cvMGsSQ2A9r9i8FnL5tCbuMbntoKfZamG3kYU74sdVaEHdL
+	v/p0SfO8+PtAcueLFNSzfL2cLAjcrPjAieDUJRSpZNdi4/X84sg9yzX+8GT61cSWN+MpPoD1HZtQC
+	Itf6lcBS2AtaKMvvLbrwMYyo1xPS8BMloOy9mjCI9rAszNp+za4CHsEcplIsYidR1/bD4MTShgMWt
+	u2pKg/eU1x6eJYZk0RosHqAmFczk8J3TrKTUJh4GTbrrIT22NdxUax9XnISt99coi4NYqkqW0US1O
+	f/bDglSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sdgHL-00000001ybt-1aOX;
-	Tue, 13 Aug 2024 01:24:51 +0000
-Received: from mail-bmxind01olkn20808.outbound.protection.outlook.com ([2a01:111:f403:281c::808] helo=IND01-BMX-obe.outbound.protection.outlook.com)
+	id 1sdgW5-000000020Mv-2Wce;
+	Tue, 13 Aug 2024 01:40:05 +0000
+Received: from mail-bmxind01olkn2082d.outbound.protection.outlook.com ([2a01:111:f403:281c::82d] helo=IND01-BMX-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sdgHI-00000001yb8-3mgy
+	id 1sdgW1-000000020Ls-3SJw
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Aug 2024 01:24:50 +0000
+	Tue, 13 Aug 2024 01:40:04 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Yde0QwGR37lEgiX8p2go4X8FsvZ2gouyUvZdwT2tv8jj05feSVHGqWWZKu4oX8uJ05/Hu3UPQzPzZX55EdrNHCopndS+8qcVY7lcunKOJ6yUpO0KFvlN3wXm9NzT/YAZZ0ZKsoUhJ7tQoQSIksCH1SfI2+kb5a59fAf2AN7m5QbC/HS9aUjSGOUyxC/HC1xAlvN7xX3jqi1FJNyws510kFW0qjcKDxXKDYshtlEhf9p6gtju8NFU3G+06ouZHUUishVEPag/KMUF3Jn9TqIpK4XoH+m0p9XtugSiJvZfEKMVgqg2fhMXlSYAB49R9UAlA9uiWYuIoalsGY736SoPBQ==
+ b=oQvlFx9/vT5US3Xowvz+kbgfaeCUu1blqyy0Y5hF4yVzwtf5Y9Mr//4OIoVvMv34nBQc0eVgmFQJtr4DhhgWKpZbvvg9fsegbpNotacp8fwo8bbLXhF2mLUYJRHZvdzlsksSmp784QaZ8PoDRPF3rJGVL1flWR/QCPY2FchDpSx4i8fu2YLvZ8GvBRw1/O8pBORgW7neUB+mWpT81QQwrth6csIE8MvUX17cLLI+UltWaa90XiakYaZPjgo3tBnCwzzf0Z3jTFBefTvA3A+j59qwy1xQhrk/1Ji6sJA4Prz3G272qRQ9mfgZqxaFkAcFaJiZyAFUL6w3jIG2f9q61A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=723lOPQPJySS7SCFD8ENEMMvaoVySP3svWsooKdiYwk=;
- b=WRZ16OaFl/3ppJEYoL8ZhudPukwzDJy1oJTkNLfo9GPr7WT7q54Sl5tHYMHY+WjLZY4sS5QurnxHV0ISxjv9HBW6tkIaICE07+8uiePpEEDBheEbicaaTvKrA0DfTLegMlGs9aTGQ+b2+xNTppk29PzwV4Ekcd8FgVHirTRJKEcBsf55yV4y7IbeDM5V9r8NrVAEe82QDPexORsJ2cUWkgOGAg9TeNVXGdzgI41ScMJjj0G2zouffOtqKiG43T5qXzReoi3IAmdEFf35ck6AcnN/SRhCEmYuebOUpW6TquE1J755AqpmLB6vQzrmAv4m1mQZlT3fG0ihhQtnbvaRSA==
+ bh=ev1YlFY2BE3lrTx30Ikty9TQ4lDzkl1yjJIWeAcuqlo=;
+ b=ONPH/bozBnSPLOmmCcbaF375W+9eckZSFuKk1XTfEjMnw1THa0l7xRz9zn3vm+t4PDg2uKUflmHcesFJpeqFSsdascSqcj+sCNyBYPV57N9F33tB//TkfexOu/arxFPVxFubh8Xkzx7KAgqeh3kFtJU/qJO1WoIsvErwuVYwU5Mw6anqb0/1gyeRxbT/mCe/rfmcy/dqk9V/kCIljdvmFiGnjCqTtPjccQolCox/ZD9hw/ZPkvEKFbKk2GLQjb9eY0lopWwYuEYXatGf6r2gaQJosjMjKb7M3iAbU1WmF1oTbT7GVibJViylN0YQ+6taEiRSV0GZCQdlymjWlRgYUg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
  dkim=none; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=723lOPQPJySS7SCFD8ENEMMvaoVySP3svWsooKdiYwk=;
- b=j7aPn1Xy1ibisVIRKVj1+rn1oc03AGhyNBRnQ6WZ2+VCUHj+aYzeoWiYobF4xw1CkN8KS9MuS3QgXT5cywYdWu2QxtPyq1tgMVqdvjTk3sCMYAmoOTV3WMSxJwtSyErN/nKocngJ5sdtWEc1vqPhBG7phHliZP9/3UEn2dKifjAu+rbxnJftZveLZdrebYbl0necwG5Ma/gT3Gokwyx/JqqnGgtxmRVadXZj/VYlyeJ2nNcBRHX7+y/iQZIKIPldGTkYqPhRVUra/HMrDR5yzC+jupEUtSUjkX5rhCbnyAvBBel5qy5Zx3kFC38QZt+nX97EAY9cFIVGY8z3IIcjNw==
+ bh=ev1YlFY2BE3lrTx30Ikty9TQ4lDzkl1yjJIWeAcuqlo=;
+ b=RDodrsRDj3sbMoyz0uM7+IlJQIfgUdPodD8oewtdnlglggttThWAkoV3jG/7XJQD7F2T0mIQNYfgoYjC0w67jK/bTiy0RlO2QcPEEsUw7Esp+PJKa1hJcddkc872op6mjHeQp8WjRrgfQ/84QtozGQTe5QKIhmIgJsQEkspqHh28PSjx+qTokshWYNsEx/am9g8P/EpPevZt7vY2bmra19A9t5gd9nunRSJhNfm1WcnVOb268sWCb6l/foct9B1Y02XtWZgntunlyCGamzADy6eKafR76do122ZTczDVCHMzdTeR6yCfK+nSpHIEOR+doL+I8K4yG8uB8FErDU2kNA==
 Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:138::5)
- by MA0P287MB2040.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:11f::14) with
+ by PN2P287MB0320.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:dd::5) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7849.22; Tue, 13 Aug
- 2024 01:24:37 +0000
+ 2024 01:39:48 +0000
 Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
  ([fe80::a94:ad0a:9071:806c]) by MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
  ([fe80::a94:ad0a:9071:806c%6]) with mapi id 15.20.7849.021; Tue, 13 Aug 2024
- 01:24:37 +0000
-Message-ID: <PN0P287MB283050511BECD88076E8252EFE862@PN0P287MB2830.INDP287.PROD.OUTLOOK.COM>
-Date: Tue, 13 Aug 2024 09:24:19 +0800
+ 01:39:48 +0000
+Message-ID: <MA0P287MB28221B0A8EF6F853D8B871E2FE862@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
+Date: Tue, 13 Aug 2024 09:39:42 +0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 0/4] riscv: sophgo: Add SG2042 external hardware
- monitor support
-To: Inochi Amaoto <inochiama@outlook.com>, Jean Delvare <jdelvare@suse.com>,
- Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+Subject: Re: [PATCH v4 2/3] iio: adc: sophgo-saradc: Add driver for Sophgo
+ CV18XX series SARADC
+To: Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
+ Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Inochi Amaoto <inochiama@outlook.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Guo Ren <guoren@kernel.org>, Chao Wei <chao.wei@sophgo.com>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- Drew Fustini <dfustini@baylibre.com>, Sunil V L <sunilvl@ventanamicro.com>,
- Hal Feng <hal.feng@starfivetech.com>
-Cc: linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-riscv@lists.infradead.org
-References: <IA1PR20MB4953C5DB4AC5DF01236CE785BBBB2@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ =?UTF-8?Q?Miqu=C3=A8l_Raynal?= <miquel.raynal@bootlin.com>,
+ linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <20240812-sg2002-adc-v4-0-599bdb67592f@bootlin.com>
+ <20240812-sg2002-adc-v4-2-599bdb67592f@bootlin.com>
 From: Chen Wang <unicorn_wang@outlook.com>
-In-Reply-To: <IA1PR20MB4953C5DB4AC5DF01236CE785BBBB2@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-TMN: [MEnZ3+vf+SZDw9zo5DZ2oMUawvjMNna3]
-X-ClientProxiedBy: SI2PR02CA0015.apcprd02.prod.outlook.com
- (2603:1096:4:194::16) To PN0P287MB2830.INDP287.PROD.OUTLOOK.COM
- (2603:1096:c01:204::14)
-X-Microsoft-Original-Message-ID: <6f2d1f30-010d-44fb-9a41-65265d1d66f2@outlook.com>
+In-Reply-To: <20240812-sg2002-adc-v4-2-599bdb67592f@bootlin.com>
+X-TMN: [6ovH3cxrmcK0X9HnqwMZllyzIwFY9SN1]
+X-ClientProxiedBy: SI2PR02CA0046.apcprd02.prod.outlook.com
+ (2603:1096:4:196::15) To MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:138::5)
+X-Microsoft-Original-Message-ID: <3a92f13e-b8c7-4579-a13f-159451dce2d3@outlook.com>
 MIME-Version: 1.0
 X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MA0P287MB2822:EE_|MA0P287MB2040:EE_
-X-MS-Office365-Filtering-Correlation-Id: 67c82138-1812-4153-b0a2-08dcbb36afaa
-X-Microsoft-Antispam: BCL:0;ARA:14566002|5072599009|19110799003|15080799003|8060799006|461199028|1602099012|4302099013|3412199025|440099028;
-X-Microsoft-Antispam-Message-Info: 2KAaJzKdiXOin98S9IpaOa3TRQefHzqDkwEpVuvtFOs2OKbL+vgHYQtu6v0SCSH1jRnSR5L1to5ikse+zTobHCboIMMeJYfj7CJGhCrC3mpFo7okpyV4YnG2gaG94p8OOo5/pYqYD3o510GMFDXpzKYeFOaOQ7wu2WqPmgwGzJFwFLRA3XVxmmkiU3d8doLqXk0GLR+9EUgWKliMEJw/PTDj3+ERcvnjVS2dSCUMIdaZfkLyVECFg2aH8i1JjIbX6o/BHAkaCQQJqCW4YolMi+p/jLRXZwzQSqA4VLDsocjWu8U3L6ks8t+fvsrFmyLt+kzqau1LLV5ACq//nXWDBaujv9qCZr+Wk3UpuEdwt5a5El80r9LaYdwcQyO2lzmkFcStPz2qFwI+SUB+ABF2/wqMtWrjWi6JtZjg/h8i99WlUGk/snL9NqZ1M68+sNtDj5xdGM1E5SRrfwqL38R0c/HRcVUizTge5hB9ua2c+OuGDswdA72TiT3lw7LLQQo5BD3erCufmXVbq2jIaKlXYG8cBKcw+1QHhkTFM4W/qDPD5+21IZpGGyQegp9a3auAWv9gF+f8pJOQ1MUgK27yG1ofe8esqfqCG7HvLfkuIe6StFvi+T4UMLOlW1T6zdJbRiPE7gfN0Djm/7SSn2UPpuBgg1SuqEoxhO9ajGOOe4+xwZtKhpT8avWnpTP5erQULFpPFJ4Pq/ZqUQ6j59MBMPkVOA/QaGC9cBpFerd9uCnFrLLB/fMVTiw5YoZF3436kHXzjRNS6Jp2dFiTNskG1n6fx7rcwMzSnPMGfktqa9gYBveL5ZWQ9ivRoz2TxP/H
+X-MS-TrafficTypeDiagnostic: MA0P287MB2822:EE_|PN2P287MB0320:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4ef7c4b4-2e25-4b95-91a9-08dcbb38d0e9
+X-Microsoft-Antispam: BCL:0;ARA:14566002|461199028|15080799003|5072599009|8060799006|19110799003|3412199025|440099028;
+X-Microsoft-Antispam-Message-Info: 8EXPbWpu7w3CRsl4BJK3jUC0GPjA6TpYglY90LYNKxHVdBweNqmQ3te4FffRy7dSQeXPcWpZmEYVN4wltDyMCXl0ulbRa1niEW6YHBeYCWoVVzctwuHdA73q5Exzskodi7Rn1JuXAR0sXbh58zwWsazxgNG/sEAiwyCwftpWm4synpUhXrM7rtgJ+N6lcp9qrhQOqMP+eAEYD+HpSjV/Ygx+RzGeQK1UxKUx+75sgCOn3ksFsNGFPlhNdT1NN1fcBp0RalkFyJ0HF1o+MJFUAjIu1p75L5j+bCBmSDXzUQoqA3vPsz9+Fg1+bkP6mIDvlQf6VfBeAQFCq6L0hzWR53KDVCdPU3QSgVpV3e3UksvEpeRsN4AHMhEqJWiNvZGckiOybsr5SGLYyYcyoNNX61xAqUEQJ8nogYx6zLH5tENwHZ5BA082RBfySsDAlOY1k/mD1q68AUVp8t1jjyP07lDHn2Pjj+9BYX79JFsh7PqwMHrdNPwIDxNl7LKyR8AlNsSrGnD3fsW8miMpF9GHD7YE7qV4VeSx3wteUPx1qrofCS6M8XuWyB/dYMD0g1V6ZVKADlyFc+kbduxDiStSmqzYZBCifRCrcehVzGW/rIlj3qkU6BkynuIBa43WB8C6ALGh7wq4ROPw0Pt68sLyLN4HHtYC95ey7XhuYdtcNsXOwFmYvXOEAgVbNmPLExYyIPLHq3i97lqC+plrgZJ+aA==
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dVVxb2lXcUtDYjM4Rk5lUjUxa21Vczk3T1BIbXZZWUFvNm5pVUl3Y2l4UjJi?=
- =?utf-8?B?WFpVeWtZRnhoN0k3WHNGbmZxb3ZOQmFJWXFLMzByaEhRK1VCb0xUSFVOR1BF?=
- =?utf-8?B?aTJtckF4ZUtIMHBYZVplNGtCWWE5Mk5WemIxcXpNN3BnbTQvRUFZL2dvMGhk?=
- =?utf-8?B?YTFFcWVjTFlJUEFad2YzNTYzZUZyUjFNTCs4WWp4Slg5a2twVmgybmNFOWJk?=
- =?utf-8?B?Mmt5SENiT0VTZXRsajQ2T3Z5NWo4N3lYcEtKcXhvbVFBaFRRNStrZUxwbHM3?=
- =?utf-8?B?Qm1OVy9KMkRRc29KMHZnQjhudHFvaEtWUXBEZFJEOWk0Q3cyZGtyandnTm1G?=
- =?utf-8?B?STc1NEhXZDdsZXVvdVlJdXl4NURiWDUwRy9oSXlMbXk5SUsxZ3lRTU1YUW9t?=
- =?utf-8?B?VlhPaDZBeTk2aUp6ckpCYktmbWd5dVlGTGNobHM3ekpxQXhSOGsweU05TDlw?=
- =?utf-8?B?cGhHZUV6d0pYSnFOYS93WEFzV0VvVDdmdTNZOXRNZWtlR0U1RldnVElVUHNC?=
- =?utf-8?B?QXgxWWh4eU9zcDhmUVJ3WEdyTWpZQXJveEJkbjNkbjJMb1FjN2EyTFo5KzdX?=
- =?utf-8?B?K3NaVENrcGxldzJ0cU55VXdHQlgzZkdRakdLeGdvUk45Zm5vZ3JpSjRhTmNu?=
- =?utf-8?B?d3lmY0ZFaGFNSDRkeG9MM254cXBmc0hYdlBWcll3VWhsMjFCVmVGVmZoOEtG?=
- =?utf-8?B?eUpDTUFvck4zMEFWTk5aQjZZVUNqQXA5YWxLb0JXeU5UKzIwVWhqOGQzT29R?=
- =?utf-8?B?TnRkVXo1elJtd090V1hqeTBqSDk5QVdzaGJSRlA2QnBPekZHdXRSZG1GVUMy?=
- =?utf-8?B?RTRiM2FRb2VzUSt3MWkydzBaRW5hUjBvcVlybFhWblhrc1VNNTRreXAveHBV?=
- =?utf-8?B?UStZMk5tNnlINnZ1T2RpRE9aUnNNYnZ2MzA4MDluT0U0SVIrSC91eElRbDg4?=
- =?utf-8?B?NFNoRUZ0Q2ZSVkJWY3VOSmIwL3FnVy9OU3NxdzVXa2VzNmJWQnZHRmtXZ2xC?=
- =?utf-8?B?eWZmUzdTY0huNTd3VllGdERZOHJuWEVTLzA1Ky80TWZpN1I3bXh3ZG8rTFI0?=
- =?utf-8?B?YTZPUmNMNVhVUXpBR0hFemRvTnVKSi9MMzBYVmE4Uy9GN1RPOVlEd1VPTGtw?=
- =?utf-8?B?MVR2eW5xMWhHUzczNm9sZmxFYzBVU0RrWjhQNjBxOFFDb0RVUkMvSEVKTjlr?=
- =?utf-8?B?VTEycEw5ZHRiV3RzbEhtRXlvTmd3YXdXc1grT200VXVIZEtQWDRBRzVxcEVq?=
- =?utf-8?B?TXZOMHVhOXhOeFhvcDZOMHJHSE1zVUcwUWluazFPSE9OK0VPTzUwNlhRMEli?=
- =?utf-8?B?TzEvT2Z4eUo0QnVrSWd6K1J3R0owU21CTG9JUTZNWmpUYUV3ZTRxOXlmNGF3?=
- =?utf-8?B?YUF1emcrOFhPd0RPWTBOTU53NXNjVmFicW54b2NOdWVKRU5SQnloaEwxSlVk?=
- =?utf-8?B?c3pjQVRKNURpby9PcjVGQ2prV2RSdVhPTXRtRzhOWkkxUWZZVXRSTUVCUStH?=
- =?utf-8?B?SGxsMzcxQmFUUTBRZVE3UytRbjJQTWF6ai93c05FYVh2VWdHdkt2bW5DU242?=
- =?utf-8?B?bWFaejdXRzdhSVpvQTJWNjdxRHNPcU9Bdk9xMXVSNkdwTjc1QmhlcjhoQWdP?=
- =?utf-8?B?VWNLbzRHNnQ1cm9reWZYdFEyUjRIKzBwWnd3Nk1tUkxRWHRRTUZBNU9obTBk?=
- =?utf-8?Q?cRzHmdJJOVUL3M5ui58f?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dXhMVnpaT1A5Unh1TUpERXF6ekhCZUlUSUthREs1ai9NaEMvQkNlMUs0WmYy?=
+ =?utf-8?B?R1BrUzUra2NzZWxHazBWZzVkZFRpejJJU0FHbXFPem00bXNteEFKc0Z1WTUv?=
+ =?utf-8?B?RHpVWURJbUsvRnM0VDRnbXdNRHFUbFMvZkZCdlJ2VUFSb1MzZkpkOXRMUlBv?=
+ =?utf-8?B?TUNrSFVSbDRxaGV3KzVidW91UEZZdVJydVY0UFQ0MDNyTlZ1OU0yNnhXVzAz?=
+ =?utf-8?B?aURZZTRDQVphV1kwWFFFTDV4NHNsRmdoMlNpUXBsYUkrcnZFeEJKVzFMR2NZ?=
+ =?utf-8?B?U0tKT0kyRVlDZDJIbWRZL1Zwbm4ySFprdjMrQ1JDbkhsOVNDZXJzZTFxR29X?=
+ =?utf-8?B?VWJkdDhvNmxRRDNCZXhLdkJJQ2FlTCtIdmJJVTVmdEJ0alhHS2hMNkFKbE15?=
+ =?utf-8?B?WmlBMTlLdFJNZVB1dGF3OXRIa0orUGxQL29TbnZabUlJNGV1UDdWZUJzSlF6?=
+ =?utf-8?B?Z1hhL09ubUpFYU1GUk9TU1hFUXVOeWpDNjh3cXJjZ3ZIMWVsQXFDY1RwaDRZ?=
+ =?utf-8?B?NXR2YTJ6YWE3ZHhhNWNUTVdVWDlrVGFlVEZ2UlJCOXVBc3dNc25NMkI3dzRm?=
+ =?utf-8?B?SW0vN1ZPVXphU2JTejJMYmVFaFJJa0E4QUtTRDVzR09MQ21CZzlSNkhHTklm?=
+ =?utf-8?B?L1cydVVSQVlSWWFoSFRrc3BWL21WK1dmRVhjY0V5aVhGa3hiMUNSMWlLbyt6?=
+ =?utf-8?B?MWw4K3lIN0xlODBURDhvamJTOHROVEdmZEFpcml0bDBmU2ZkcnZWbHMzT1Bo?=
+ =?utf-8?B?Z2Z5TWZVcVBaVFhQSFAra3h1eGpQUzV6QkJYT0daWjhQaTF5SjNZL3J0c1pN?=
+ =?utf-8?B?a0RGTUoxbkNlbmdpS3BFb010TDNTN1JyWmtMWDVDOW1XU2JuS3crUHBTNVlB?=
+ =?utf-8?B?QXF0TFFxbzBKSVpNMmhhdWJSMHdzcnVXS1RtdU5hUW1qM2dIbGFwOUk5ZFhI?=
+ =?utf-8?B?Sm9XS1FBSXBMSUk4Vy9ZSy91cXo3S2ZNeGx3VHlELzM1SWI3N0ZZSnJ3VGNO?=
+ =?utf-8?B?K25yMlpWRnZaazRJbEdJSEJDUUJBL0dud093SWRSNm4xelYvV3Bib29CVFlZ?=
+ =?utf-8?B?MkZ3ZDJYRVlVL3JPRDRhZ0Zhd0Y5YzlRUzRpYldvQXd6MzczQk8zMHMwcC8w?=
+ =?utf-8?B?dG53ZGFsTFpRMjl0NWt3ZTFqcU83YzdJOS9lak5kWlVUUFlFRFJZejVLR1V0?=
+ =?utf-8?B?UFZjVWx6VTQvazEyS1BzSFhwNVl3ZE81U214RnM3QURrMGRmOGF1WnB3ajN6?=
+ =?utf-8?B?eVU2ZnhIc0NFZnllTU5qYndYeFZBTkw1a3BUK09IclBhUG9wdDlHRmdFNDhL?=
+ =?utf-8?B?Qy9qem5USk9EbUc5dllaR09weW1oSFBacmUzOTF3MFRKa2JyVFU3OTZHVlQr?=
+ =?utf-8?B?VGNMSTBwUXBZVUh4eThrUXMzKzd5TmliK0U0cmRSRVp3OGFMSWJKRjcwN28z?=
+ =?utf-8?B?ZGdyV0I1a3d5VnF2N0Rma2R5enEwTERycUJWZ1RJVUtmL1hkMUNGK24wcnBC?=
+ =?utf-8?B?RmttZEgzdGNvMlprdXBjbUpsTUVxUjJpM0hiWmZ6aSt6QUxTSjIzQUgyZ00v?=
+ =?utf-8?B?UGppUEs4bTJLKzBFT0tQOGZ6cFVLWExjTlVEaVNIckgxTUNvNWpmOUFZN0k5?=
+ =?utf-8?B?SkJtWU5lZDkvT25oczJPVFVRVjExeTNqZEdCSWNSSGsyWFFHU2xZeVQ0REd0?=
+ =?utf-8?Q?oRFlsmqSCXx569E0PjJZ?=
 X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 67c82138-1812-4153-b0a2-08dcbb36afaa
-X-MS-Exchange-CrossTenant-AuthSource: PN0P287MB2830.INDP287.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4ef7c4b4-2e25-4b95-91a9-08dcbb38d0e9
+X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Aug 2024 01:24:36.9703
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Aug 2024 01:39:47.9893
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MA0P287MB2040
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN2P287MB0320
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240812_182448_983621_D1AF8F9F 
-X-CRM114-Status: GOOD (  21.09  )
+X-CRM114-CacheID: sfid-20240812_184002_141342_3AE901E8 
+X-CRM114-Status: GOOD (  28.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,81 +141,272 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On 2024/8/10 16:03, Inochi Amaoto wrote:
-> Add support for the onboard hardware monitor for SG2042.
-> Can be tested with OpenSBI v1.5.
+On 2024/8/12 23:00, Thomas Bonnefille wrote:
+> This adds a driver for the common Sophgo SARADC.
+Not common. Please double check the whole patchset.
 >
-> The patch require the following i2c patch:
-> https://lore.kernel.org/all/IA1PR20MB4953DB82FB7D75BF8409FFF4BBB72@IA1PR20MB4953.namprd20.prod.outlook.com/
+> Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+> ---
+>   drivers/iio/adc/Kconfig             |  10 ++
+>   drivers/iio/adc/Makefile            |   1 +
+>   drivers/iio/adc/sophgo-cv18xx-adc.c | 208 ++++++++++++++++++++++++++++++++++++
+>   3 files changed, 219 insertions(+)
 >
-> Changed from v9:
-> 1. remove missed wrong return value.
-> 2. add documentation for the other interface of the driver.
-> 3. rename repower_action to repower_policy.
-> 4. use break to unify "return 0" in is_visible function.
->
-> Changed from v8:
-> 1. rename critical_action to repower_action, and add some comment
-> 2. remove unnecessary wrap function
-> 3. use guard macro to simplify mutex process.
->
-> Changed from v7:
-> 1. add mutex protected and fix the return value when writing
-> "critical_action"
->
-> Changed from v6:
-> 1. restore the driver name to sg2042-mcu
-> 2. remove unnecessary wrap function and check in the driver.
-> 3. add dts and config entry.
->
-> Changed from v5:
-> 1. rename driver name to sgmcu as it will support more sophgo chip.
-> 2. move some attr to debugfs.
-> 3. add standard crit_hyst support
-> 4. add documentation
->
-> Changed from v4:
-> 1. use fix patch for binding ref.
-> 2. use unevaluatedProperties instead of additionalProperties for binding
->
-> Changed from v3:
-> 1. add thermal-sensor check.
-> 2. change node type from syscon to hwmon
->
-> Changed from v2:
-> 1. fix bindings id path.
->
-> Changed from v1:
-> 1. Move patch from soc to hwmon.
-> 2. Fix typo.
->
-> Inochi Amaoto (4):
->    dt-bindings: hwmon: Add Sophgo SG2042 external hardware monitor
->      support
->    drivers: hwmon: sophgo: Add SG2042 external hardware monitor support
->    riscv: dts: sophgo: Add mcu device for Milk-V Pioneer
->    riscv: defconfig: Enable MCU support for SG2042
->
->   .../hwmon/sophgo,sg2042-hwmon-mcu.yaml        |  43 ++
->   Documentation/hwmon/index.rst                 |   1 +
->   Documentation/hwmon/sg2042-mcu.rst            |  77 ++++
->   .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  |  60 +++
->   arch/riscv/configs/defconfig                  |   1 +
->   drivers/hwmon/Kconfig                         |  11 +
->   drivers/hwmon/Makefile                        |   1 +
->   drivers/hwmon/sg2042-mcu.c                    | 388 ++++++++++++++++++
->   8 files changed, 582 insertions(+)
->   create mode 100644 Documentation/devicetree/bindings/hwmon/sophgo,sg2042-hwmon-mcu.yaml
->   create mode 100644 Documentation/hwmon/sg2042-mcu.rst
->   create mode 100644 drivers/hwmon/sg2042-mcu.c
->
->
-> base-commit: d2d190621b60d77496d36659e1621b20c897b25d
-> prerequisite-patch-id: 5e7221ed1c63bb4d68e4a2a0141440e32d29e397
-In fact, I did not find these two commit ids on master or sophgo/for-next.
-When testing, I applied this patchset based on the latest sophgo/for-next.
-> --
-> 2.46.0
+> diff --git a/drivers/iio/adc/Kconfig b/drivers/iio/adc/Kconfig
+> index f60fe85a30d5..b10bf26d8e86 100644
+> --- a/drivers/iio/adc/Kconfig
+> +++ b/drivers/iio/adc/Kconfig
+> @@ -1156,6 +1156,16 @@ config SC27XX_ADC
+>   	  This driver can also be built as a module. If so, the module
+>   	  will be called sc27xx_adc.
+>   
+> +config SOPHGO_CV18XX_ADC
+> +	tristate "Sophgo CV18XX series SARADC"
+> +	depends on ARCH_SOPHGO || COMPILE_TEST
+> +	help
+> +	  Say yes here to build support for the SARADC integrated inside
+> +	  the Sophgo CV18XX series SoCs.
+> +
+> +	  This driver can also be built as a module. If so, the module
+> +	  will be called sophgo_cv18xx_adc.
+> +
+>   config SPEAR_ADC
+>   	tristate "ST SPEAr ADC"
+>   	depends on PLAT_SPEAR || COMPILE_TEST
+> diff --git a/drivers/iio/adc/Makefile b/drivers/iio/adc/Makefile
+> index d370e066544e..24c241b12ef0 100644
+> --- a/drivers/iio/adc/Makefile
+> +++ b/drivers/iio/adc/Makefile
+> @@ -105,6 +105,7 @@ obj-$(CONFIG_ROCKCHIP_SARADC) += rockchip_saradc.o
+>   obj-$(CONFIG_RZG2L_ADC) += rzg2l_adc.o
+>   obj-$(CONFIG_SC27XX_ADC) += sc27xx_adc.o
+>   obj-$(CONFIG_SD_ADC_MODULATOR) += sd_adc_modulator.o
+> +obj-$(CONFIG_SOPHGO_CV18XX_ADC) += sophgo-cv18xx-adc.o
+>   obj-$(CONFIG_SPEAR_ADC) += spear_adc.o
+>   obj-$(CONFIG_STM32_ADC_CORE) += stm32-adc-core.o
+>   obj-$(CONFIG_STM32_ADC) += stm32-adc.o
+> diff --git a/drivers/iio/adc/sophgo-cv18xx-adc.c b/drivers/iio/adc/sophgo-cv18xx-adc.c
+> new file mode 100644
+> index 000000000000..ab7ee0f482cc
+> --- /dev/null
+> +++ b/drivers/iio/adc/sophgo-cv18xx-adc.c
+> @@ -0,0 +1,208 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/*
+> + *  Sophgo CV18XX series SARADC Driver
+> + *
+> + *  Copyright (C) Bootlin 2024
+> + *  Author: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+> + */
+> +
+> +#include "linux/err.h"
+<linux/err.h> ? And please sort with the file name alphabeta.
+> +#include <linux/bitfield.h>
+> +#include <linux/clk.h>
+> +#include <linux/completion.h>
+> +#include <linux/dev_printk.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/iio/iio.h>
+> +#include <linux/iopoll.h>
+> +#include <linux/mod_devicetable.h>
+> +#include <linux/module.h>
+> +#include <linux/mutex.h>
+> +#include <linux/platform_device.h>
+> +
+> +#define CV18XX_ADC_CTRL_REG				0x04
+> +#define		CV18XX_ADC_EN				BIT(0)
+
+Should be one space between "#define" and macro-name. Please check this 
+for the whole file.
+
+Run "./scripts/checkpatch.pl --strict" if it can help you check this 
+format error?
+
+> +#define		CV18XX_ADC_SEL(x)			BIT((x) + 5)
+> +#define CV18XX_ADC_STATUS_REG				0x08
+> +#define		CV18XX_ADC_BUSY				BIT(0)
+> +#define CV18XX_ADC_CYC_SET_REG				0x0C
+> +/* The default cycle configuration is set to maximize the accuracy */
+> +#define		CV18XX_ADC_DEF_STARTUP_CYCLE_MASK	0x1F
+> +#define		CV18XX_ADC_DEF_SAMPLE_WINDOW_MASK	0xF00
+> +#define		CV18XX_ADC_DEF_CLOCK_DIVIDER_MASK	0xF000
+> +#define		CV18XX_ADC_DEF_COMPARE_CYCLE_MASK	0xF0000
+> +#define CV18XX_ADC_CH_RESULT_REG(x)			(0x14 + 4 * (x))
+> +#define		CV18XX_ADC_CH_RESULT			GENMASK(11, 0)
+> +#define		CV18XX_ADC_CH_VALID			BIT(15)
+> +#define CV18XX_ADC_INTR_EN_REG				0x20
+> +#define CV18XX_ADC_INTR_CLR_REG				0x24
+> +#define		CV18XX_ADC_INTR_CLR_BIT			BIT(0)
+> +#define CV18XX_ADC_INTR_STA_REG				0x28
+> +#define		CV18XX_ADC_INTR_STA_BIT			BIT(0)
+> +
+> +#define CV18XX_ADC_CHANNEL(index)					\
+> +	{								\
+> +		.type = IIO_VOLTAGE,					\
+> +		.indexed = 1,						\
+> +		.channel = index,					\
+> +		.info_mask_separate = BIT(IIO_CHAN_INFO_RAW),		\
+> +		.info_mask_shared_by_type = BIT(IIO_CHAN_INFO_SCALE),	\
+> +		.scan_index = index,					\
+> +	}
+> +
+> +struct cv18xx_adc {
+> +	struct completion completion;
+> +	void __iomem *regs;
+> +	struct mutex lock; /* ADC Control and Result register */
+> +	int irq;
+> +};
+> +
+> +static const struct iio_chan_spec sophgo_channels[] = {
+> +	CV18XX_ADC_CHANNEL(0),
+> +	CV18XX_ADC_CHANNEL(1),
+> +	CV18XX_ADC_CHANNEL(2),
+> +};
+> +
+> +static void cv18xx_adc_start_measurement(struct cv18xx_adc *saradc,
+> +					    int channel)
+> +{
+> +	writel(0, saradc->regs + CV18XX_ADC_CTRL_REG);
+> +	writel(CV18XX_ADC_SEL(channel) | CV18XX_ADC_EN,
+> +	       saradc->regs + CV18XX_ADC_CTRL_REG);
+> +}
+> +
+> +static int cv18xx_adc_wait(struct cv18xx_adc *saradc)
+> +{
+> +	if (saradc->irq < 0) {
+> +		u32 reg;
+> +
+> +		return readl_poll_timeout(saradc->regs + CV18XX_ADC_STATUS_REG,
+> +					  reg, !(reg & CV18XX_ADC_BUSY),
+> +					  500, 1000000);
+> +	}
+> +	return wait_for_completion_timeout(&saradc->completion,
+> +					  msecs_to_jiffies(1000)) > 0
+> +					  ? 0 : -ETIMEDOUT;
+> +}
+> +
+> +static int cv18xx_adc_read_raw(struct iio_dev *indio_dev,
+> +				  struct iio_chan_spec const *chan,
+> +				  int *val, int *val2, long mask)
+> +{
+> +
+> +	switch (mask) {
+> +	case IIO_CHAN_INFO_RAW:{
+> +		struct cv18xx_adc *saradc = iio_priv(indio_dev);
+> +		u32 sample;
+> +
+> +		scoped_guard(mutex, &saradc->lock) {
+> +			int ret;
+> +
+> +			cv18xx_adc_start_measurement(saradc, chan->scan_index);
+> +			ret = cv18xx_adc_wait(saradc);
+> +			if (ret < 0)
+> +				return ret;
+> +
+> +			sample = readl(saradc->regs + CV18XX_ADC_CH_RESULT_REG(chan->scan_index));
+> +		}
+> +		if (!(sample & CV18XX_ADC_CH_VALID))
+> +			return -ENODATA;
+> +
+> +		*val = sample & CV18XX_ADC_CH_RESULT;
+> +		return IIO_VAL_INT;
+> +		}
+> +	case IIO_CHAN_INFO_SCALE:
+> +		*val = 3300;
+> +		*val2 = 12;
+> +		return IIO_VAL_FRACTIONAL_LOG2;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +}
+> +
+> +static irqreturn_t cv18xx_adc_interrupt_handler(int irq, void *private)
+> +{
+> +	struct cv18xx_adc *saradc = private;
+> +
+> +	if (!(FIELD_GET(CV18XX_ADC_INTR_STA_BIT,
+> +			readl(saradc->regs + CV18XX_ADC_INTR_STA_REG))))
+> +		return IRQ_NONE;
+> +
+> +	writel(CV18XX_ADC_INTR_CLR_BIT, saradc->regs + CV18XX_ADC_INTR_CLR_REG);
+> +	complete(&saradc->completion);
+> +	return IRQ_HANDLED;
+> +}
+> +
+> +static const struct iio_info cv18xx_adc_info = {
+> +	.read_raw = &cv18xx_adc_read_raw,
+> +};
+> +
+> +static int cv18xx_adc_probe(struct platform_device *pdev)
+> +{
+> +	struct cv18xx_adc *saradc;
+> +	struct iio_dev *indio_dev;
+> +	struct clk *clk;
+> +	int ret;
+> +
+> +	indio_dev = devm_iio_device_alloc(&pdev->dev, sizeof(*saradc));
+> +	if (!indio_dev)
+> +		return -ENOMEM;
+> +
+> +	saradc = iio_priv(indio_dev);
+> +	indio_dev->name = "sophgo-cv18xx-adc";
+> +	indio_dev->modes = INDIO_DIRECT_MODE;
+> +	indio_dev->info = &cv18xx_adc_info;
+> +	indio_dev->num_channels = ARRAY_SIZE(sophgo_channels);
+> +	indio_dev->channels = sophgo_channels;
+> +
+> +	clk = devm_clk_get_enabled(&pdev->dev, NULL);
+> +	if (IS_ERR(clk))
+> +		return PTR_ERR(clk);
+> +
+> +	saradc->regs = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(saradc->regs))
+> +		return PTR_ERR(saradc->regs);
+> +
+> +	saradc->irq = platform_get_irq_optional(pdev, 0);
+> +	if (saradc->irq >= 0) {
+> +		init_completion(&saradc->completion);
+> +		ret = devm_request_irq(&pdev->dev, saradc->irq,
+> +				       cv18xx_adc_interrupt_handler, 0,
+> +				       dev_name(&pdev->dev), saradc);
+> +		if (ret)
+> +			return ret;
+> +
+> +		writel(1, saradc->regs + CV18XX_ADC_INTR_EN_REG);
+> +	}
+> +
+> +	ret = devm_mutex_init(&pdev->dev, &saradc->lock);
+> +	if (ret)
+> +		return ret;
+> +
+> +	platform_set_drvdata(pdev, indio_dev);
+> +	writel(FIELD_PREP(CV18XX_ADC_DEF_STARTUP_CYCLE_MASK, 0xF) |
+> +	       FIELD_PREP(CV18XX_ADC_DEF_SAMPLE_WINDOW_MASK, 0xF) |
+> +	       FIELD_PREP(CV18XX_ADC_DEF_CLOCK_DIVIDER_MASK, 0x1) |
+> +	       FIELD_PREP(CV18XX_ADC_DEF_COMPARE_CYCLE_MASK, 0xF),
+> +	       saradc->regs + CV18XX_ADC_CYC_SET_REG);
+> +
+> +	return devm_iio_device_register(&pdev->dev, indio_dev);
+> +}
+> +
+> +static const struct of_device_id cv18xx_adc_match[] = {
+> +	{ .compatible = "sophgo,cv1800b-saradc", },
+> +	{ }
+> +};
+> +MODULE_DEVICE_TABLE(of, cv18xx_adc_match);
+> +
+> +static struct platform_driver cv18xx_adc_driver = {
+> +	.driver	= {
+> +		.name		= "sophgo-cv18xx-saradc",
+> +		.of_match_table	= cv18xx_adc_match,
+> +	},
+> +	.probe = cv18xx_adc_probe,
+> +};
+> +module_platform_driver(cv18xx_adc_driver);
+> +
+> +MODULE_AUTHOR("Thomas Bonnefille <thomas.bonnefille@bootlin.com>");
+> +MODULE_DESCRIPTION("Sophgo CV18XX series SARADC driver");
+> +MODULE_LICENSE("GPL");
 >
 
 _______________________________________________
