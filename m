@@ -4,55 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6617C52D7C
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Aug 2024 12:05:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBE98C52D7C
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Aug 2024 12:18:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zjzej2Oo9DGy7KQOLSLVcphwYLLpLwHWxCj3vN12jcM=; b=SIQjyhGl+VSjvz
-	CHeJjJnVS9ghehhyum2GlX6tsttFYcFhd1UvdypjXaD03aj2eVt+VtDwGYtIAooU4L+rfhitrX6xo
-	St9pEjZWNTdqweul3SK+k2QRzPQhsLWAguQJ95slTsGydTnDziPSBYKkpDiKNOQAsHb1lwbGLrIKU
-	QrIM3t5fBjPOcVVes2cUvVU/IreYlZpvwSHj2g8BbscQx0pqj6j8n3mY5chiSUEmOb47A0WTcU4f4
-	sPEHJqbp1Ch33CkK00pV03s1iCCnK4BL33jP/HRIv1a40WMA4t6Li/MDeuQt/oItkyOERe4HBHH3h
-	Jd6PcEzZmgVS6AeqhrwQ==;
+	List-Owner; bh=oj7579p0ZJ5v8LGiV0RHyQmAUstGVaKG1vdKv3M1qSg=; b=WwUgjIoAi4tCJQ
+	j5ku+CL+DnvWKMQ9+VfAY53jlY3Az6e1otexUIKiPwIS1tIfUzHrEeFeLciL2oUc1QvYVgCPb7yE2
+	BqRgoiEyoyDlVKf5AGb7WWtInF0GqPQt9lOIu0Wy6IkudnSgmszLO+72PLFYnRJ3qWfzt9TTtMyzc
+	1rxmf1V4bgjR/vSMILQ3fwEslkOkCVQ64bE6UwwG+rZDWCUTZJ8xMrw5sSjO43rVDaROVtAqYyBUR
+	f3ynSdy7MOT+a2bo2qNMRpMo/fflz7ymElrr9Kn885WhAVCtGBKsaen9PidyovUbeQ04bkE2h8I6t
+	qEPspekyvsZ9bMav2bHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sdqH9-00000003cAl-103C;
-	Tue, 13 Aug 2024 12:05:19 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1sdqTg-00000003fOY-0AbT;
+	Tue, 13 Aug 2024 12:18:16 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sdqGV-00000003bxf-1mCS;
-	Tue, 13 Aug 2024 12:04:41 +0000
+	id 1sdqR7-00000003eZF-35Br
+	for linux-riscv@lists.infradead.org;
+	Tue, 13 Aug 2024 12:15:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 20BD3CE0FC9;
-	Tue, 13 Aug 2024 12:04:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B67DCC4AF0B;
-	Tue, 13 Aug 2024 12:04:33 +0000 (UTC)
-Date: Tue, 13 Aug 2024 13:04:31 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Petr =?utf-8?B?VGVzYcWZw61r?= <petr@tesarici.cz>
-Cc: Baoquan He <bhe@redhat.com>, Jinjie Ruan <ruanjinjie@huawei.com>,
-	vgoyal@redhat.com, dyoung@redhat.com, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, chenjiahao16@huawei.com,
-	akpm@linux-foundation.org, kexec@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>
-Subject: Re: [PATCH -next] crash: Fix riscv64 crash memory reserve dead loop
-Message-ID: <ZrtLz8VHzZIULbOT@arm.com>
-References: <20240802090105.3871929-1-ruanjinjie@huawei.com>
- <ZqywtegyIS/YXOVv@MiWiFi-R3L-srv>
- <ZrJ1JkyDVpRRB_9e@arm.com>
- <ZrJ60vopeGDXFZyK@arm.com>
- <20240813104006.520bf42d@mordecai.tesarici.cz>
+	by dfw.source.kernel.org (Postfix) with ESMTP id A0BEB61544;
+	Tue, 13 Aug 2024 12:15:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 966D0C4AF0B;
+	Tue, 13 Aug 2024 12:15:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1723551336;
+	bh=hbeRrVh/SiaMC4JFosNc7lEIzxH+ImnQOcMEmvgeTkI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eSR9/3rGXfW52UDhzO1W5hWS+KUisEfOSJxYQCWCfmFM05OJYrn1QlhUhHsAQHSxx
+	 2zVaKHhOyr0dlrY+LIKNZPgjYMuGVovGtrSR1iYEGDsXwgIKMFcSsMnIf2tVYgo4T1
+	 J8HgbGtWNfzAD6vc3RXO/oLApc6iQrZfdFeWUz6TjBW3Zzx9KZsMgtAwc+YhRSH6Y+
+	 NuXxL0uWmUCfVI0PLJlOFKET14ttb4n8Utg+eBybpVVMezKsQ/A6BbMm1LVUEE4DC1
+	 ryVtG3uxS7Ju6aQsISU73psZZifirUeNwoAP4sh0gVEzXvhYq4f0gtmND7QTsWWpeR
+	 dbdOu0Kjv5p8A==
+Date: Tue, 13 Aug 2024 17:45:32 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: Inochi Amaoto <inochiama@outlook.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, dmaengine@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v11 2/3] soc/sophgo: add top sysctrl layout file for
+ CV18XX/SG200X
+Message-ID: <ZrtOZIwszhJ9s8J2@matsya>
+References: <IA1PR20MB495324F3EF7517562CB4CACFBB842@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <IA1PR20MB495384C4A2F64AE100350BE7BB842@IA1PR20MB4953.namprd20.prod.outlook.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240813104006.520bf42d@mordecai.tesarici.cz>
+In-Reply-To: <IA1PR20MB495384C4A2F64AE100350BE7BB842@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240813_050439_677537_C2108ACB 
-X-CRM114-Status: GOOD (  21.30  )
+X-CRM114-CacheID: sfid-20240813_051537_861291_D851C5EE 
+X-CRM114-Status: UNSURE (   6.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,44 +76,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgUGV0ciwKCk9uIFR1ZSwgQXVnIDEzLCAyMDI0IGF0IDEwOjQwOjA2QU0gKzAyMDAsIFBldHIg
-VGVzYcWZw61rIHdyb3RlOgo+IE9uIFR1ZSwgNiBBdWcgMjAyNCAyMDozNDo0MiArMDEwMAo+IENh
-dGFsaW4gTWFyaW5hcyA8Y2F0YWxpbi5tYXJpbmFzQGFybS5jb20+IHdyb3RlOgo+ID4gSSBoYXZl
-bid0IHRyaWVkIGJ1dCBpdCdzIHBvc3NpYmxlIHRoYXQgdGhpcyBwYXRjaCBhbHNvIGJyZWFrcyB0
-aG9zZQo+ID4gYXJtNjQgcGxhdGZvcm1zIHdpdGggYWxsIFJBTSBhYm92ZSA0R0Igd2hlbiBDUkFT
-SF9BRERSX0xPV19NQVggaXMKPiA+IG1lbWJsb2NrX2VuZF9vZl9EUkFNKCkuIEhlcmUgYWxsIG1l
-bW9yeSB3b3VsZCBiZSBsb3cgYW5kIGluIHRoZSBhYnNlbmNlCj4gPiBvZiBubyBmYWxsYmFjaywg
-aXQgZmFpbHMgdG8gYWxsb2NhdGUuCj4gCj4gSSdtIGFmcmFpZCB5b3UndmUganVzdCBvcGVuZWQg
-YSBQYW5kb3JhIGJveC4uLiA7LSkKCk5vdCB0aGF0IGJhZCA7KSBidXQsIHllYWgsIHRoaXMgcGF0
-Y2ggd2FzIGRyb3BwZWQgaW4gZmF2b3VyIG9mIHRoaXM6CgpodHRwczovL2xvcmUua2VybmVsLm9y
-Zy9yLzIwMjQwODEyMDYyMDE3LjI2NzQ0NDEtMS1ydWFuamluamllQGh1YXdlaS5jb20vCgo+IEFu
-b3RoZXIgKHVucmVsYXRlZCkgcGF0Y2ggc2VyaWVzIG1hZGUgdXMgYXdhcmUgb2YgYSBwbGF0Zm9y
-bXMgd2hlcmUgUkFNCj4gc3RhcnRzIGF0IDMyRywgYnV0IElJVUMgdGhlIGhvc3QgYnJpZGdlIG1h
-cHMgMzJHLTMzRyB0byBidXMgYWRkcmVzc2VzCj4gMC0xRywgYW5kIHRoZXJlIGlzIGEgZGV2aWNl
-IG9uIHRoYXQgYnVzIHdoaWNoIGNhbiBwcm9kdWNlIG9ubHkgMzAtYml0Cj4gYWRkcmVzc2VzLgo+
-IAo+IE5vdywgd2hhdCB3YXMgdGhlIGlkZWEgYmVoaW5kIGFsbG9jYXRpbmcgc29tZSBjcmFzaCBt
-ZW1vcnkgImxvdyI/Cj4gUmlnaHQsIGl0IHNob3VsZCBhbGxvdyB0aGUgY3Jhc2gga2VybmVsIHRv
-IGFjY2VzcyBkZXZpY2VzIHdpdGgKPiBhZGRyZXNzaW5nIGNvbnN0cmFpbnRzLiBTbywgb24gdGhl
-IGFib3ZlLW1lbnRpb25lZCBwbGF0Zm9ybSwgYWxsb2NhdGluZwo+ICJsb3ciIHdvdWxkIGluIGZh
-Y3QgbWVhbiBhbGxvY2F0aW5nIGJldHdlZW4gMzJHIGFuZCAzM0cgKGluIGhvc3QgYWRkcmVzcwo+
-IGRvbWFpbikuCgpJbmRlZWQuIElmIHRoYXQncyBub3QgYXZhaWxhYmxlLCB0aGUgY3Jhc2gga2Vy
-bmVsIHdvbid0IGJlIGFibGUgdG8gYm9vdAoodW5sZXNzIHRoZSBjb3JyZXNwb25kaW5nIGRldmlj
-ZSBpcyByZW1vdmVkIGZyb20gRFQgb3IgQUNQSSB0YWJsZXMpLgoKPiBTaG91bGQgd2UgcmV0aGlu
-ayB0aGUgd2hvbGUgY29uY2VwdCBvZiBoaWdoL2xvdz8KClllYWgsIGl0IHdvdWxkIGJlIGdvb2Qg
-dG8gcmV2aXNpdCB0aG9zZSBhdCBzb21lIHBvaW50LiBGb3IgdGhlIHRpbWUKYmVpbmcsICdsb3cn
-IGluIHRoaXMgY29udGV4dCBvbiBhcm02NCBtZWFucyBaT05FX0RNQSBtZW1vcnksIGJhc2ljYWxs
-eQp0aGUgY29tbW9uIGRlbm9taW5hdG9yIGFkZHJlc3MgcmFuZ2UgdGhhdCBzdXBwb3J0cyBhbGwg
-ZGV2aWNlcyBvbiBhbgpTb0MuIEZvciBvdGhlcnMgbGlrZSB4ODZfMzIsIHRoaXMgbWVhbnMgdGhl
-IG1lbW9yeSB0aGF0IHRoZSBrZXJuZWwgY2FuCmFjdHVhbGx5IG1hcCAobm90IG5lY2Vzc2FyaWx5
-IGRldmljZS9ETUEgcmVsYXRlZCkuCgpTbywgaXQncyBub3QgYWx3YXlzIGFib3V0IHRoZSBETUEg
-Y2FwYWJpbGl0aWVzIGJ1dCBhbHNvIHdoYXQgdGhlIGNyYXNoCmtlcm5lbCBjYW4gbWFwIChzbyBz
-b21ld2hhdCBkaWZmZXJlbnQgZnJvbSB0aGUgem9uZSBhbGxvY2F0b3IgY2FzZSB3ZSd2ZQpiZWVu
-IGRpc2N1c3NpbmcgaW4gb3RoZXIgdGhyZWFkcykuCgotLSAKQ2F0YWxpbgoKX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
-aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
-ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On 11-08-24, 13:16, Inochi Amaoto wrote:
+> The "top" system controller of CV18XX/SG200X exposes control
+> register access for various devices. Add soc header file to
+> describe it.
+
+why define the full map and not just dma router offsets in a local dma
+header?
+
+-- 
+~Vinod
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
