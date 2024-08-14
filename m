@@ -4,113 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF6C3C52D7C
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Aug 2024 01:07:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A8D4C52D7C
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Aug 2024 01:29:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=30bSWrC9O5eVKKIl4Da+Xb1RKOL7lFPUmHzorwDU7/4=; b=eRbNORcAexLvLa
-	e+2xCOsv8Nc5DZkF7HqHDR4flTk+rkQ3XOC20LkRBEZ4pWhcZ/XYMc9/JKb7e0hyhI7XJFiujSH8r
-	dk+diL/zOs+QbFvJ/xz9CwnWWC5iducgfGmzO64zcFC0goEyqQ1X1GWed62qpMNn1uO5iUNRzGiaP
-	4H7Qgs2MZXA592z/dbdx+XilNGixulcN433J7QJYa0kaVbbbCCA3/7aPbfNL1aDp6mwc/c/3omc1x
-	jJoxwCsbdThkzJAypRJwvrVd30/Sf/WUNwwxTuRJbV109I2iX2uDwAB11+pQhzIGOydMOsn11YAKQ
-	cCitFnYL4I++qAjVtPIg==;
+	List-Owner; bh=Gh3qZJOIeHMUv61ZBje/T5i5LW4h7X4cmQkCcWv7foo=; b=JuN7yE33CkeIWv
+	rwIHafmQBG/J4QThlrJMcbdlZN1k3q9aHrpnJOja4fcZtUK2KknEho72fance8QKGr/ovGzLWhU0u
+	CQ151BS+NYv1yzwmcu+XrcuCKaBHAqxpQlx6u1Lzo0GijVuuNCDrZw4d0dYG4TMktfihAoB2UfqpF
+	a2iStAzAR1z2qscJfQtTXHTBBzzJrJNl9v/VRfSslAJhNsgGGlhbz8cwoEg/m55bYiomM90FEAb1A
+	Cmo1IoPomoMtzq2hCcepFjUisKJvULkdz5/Iq4SD3FiXSQ/L2+4EWiIVfX8FV8dby7h0pzhD7Cr3E
+	G2pxAyWcf74C/zh/zuxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1se2UM-00000005Kn1-3F9M;
-	Wed, 14 Aug 2024 01:07:46 +0000
-Received: from mail-bn1nam02olkn20806.outbound.protection.outlook.com ([2a01:111:f403:2c07::806] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
+	id 1se2pf-00000005NLm-0Vvi;
+	Wed, 14 Aug 2024 01:29:47 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1se2UJ-00000005Kkt-152V
+	id 1se2pZ-00000005NKT-3rLo
 	for linux-riscv@lists.infradead.org;
-	Wed, 14 Aug 2024 01:07:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZLNtHd2Fr7YvQvXFC/jJ4ISTh8vZ/xXY2hKvZkBqs5gLKjYANVl8XS5iBhDLGMYRGwmDG6T8y1r5lnlLrIyEWLiA2HKSuoVYSv/dXmQ5d3iZhXZI/TwulUvny7ONXz04jkTw422hakKKUEuQvxTeUqWWaxWju4J/ofeV3c+jLdA4YQjY3uCScKdylUrB/lvKl7e7/iSQ+EP1jm6esy30k3tlXCB9Y1MR0lO9WXIh8OLTz3XzrHNDjqFuVJ5Ds5LflJjxrEz9dr/WikGYgulMz3OjmTdKlOTds+oZwl5zjsVFgqVJNvtPNDdRL49pXPdgCtU8gWnPHl3qtBC3HCWD3A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=f/CCAq4mtsaMmxBErVkkmFuQZwi+gHD26Yxjbvy+rbc=;
- b=Po07KjoDczPMN78X2BDvWGqvfmrkC8fuqO72UOafMJyMktr0DjX9odN+GZYpyK9uVzIa33BRHuQuo18mHa6uFU4iDzFE9C14CJ7exRlb0z4NS3EZlmtB+fQ1E0x9BhwMbslG+n+K/TI2RQUXMIi2/JBLj2AMjSMbMUCPj9cGWLvPh57BKg4VPFfApNzyjChTIFLfCY7kUW/HM6tHrFz4PaWNqRMy4Tcl7dMgPUNTeBNtP94K1kAWFJbGNZHxEYkA2zgzYUuDP8Yo9SDCDmTqsDTGu1cAF4yWi7RB6I1wGUrDQ+Vt967solFQjQhBqBnTZsEy9qwCHPeS8lNMuNoKrw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=f/CCAq4mtsaMmxBErVkkmFuQZwi+gHD26Yxjbvy+rbc=;
- b=Z+K83t1lMo3gWaZbz8d84SMrxWUtyWnyDKINjnWQguG/wE9HJJyDH/JmUhoub9u97wp0d/vLZ8m2I+17AkqHN5W8WqWncWpkHAdcPSqv8VQryEiMPDE7gN6PZTeo/oMsMgjmQen5GLOE7Nxt9Uh7ICwEn5PHys30P/Fwwzs+W+YusRTeJf1vnjDUjJqJVJraW1VVd2ZgKyTenf4mOydznrkzqUQbcQmSgezraUGDlNk5WFUUnIz+FotWVxGyAsSewyk9bZMAeJggdrby4zA0kv1434JzAvtg6x2Ae8mZ1MELmudnMXUF7uT2T0U7n1geMIRn+EuI/64lqLzUBETqfw==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by SJ0PR20MB4535.namprd20.prod.outlook.com (2603:10b6:a03:3ee::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7849.22; Wed, 14 Aug
- 2024 01:07:27 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::ab0b:c0d3:1f91:d149]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::ab0b:c0d3:1f91:d149%4]) with mapi id 15.20.7849.021; Wed, 14 Aug 2024
- 01:07:27 +0000
-Date: Wed, 14 Aug 2024 09:06:41 +0800
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Guenter Roeck <linux@roeck-us.net>, 
-	Inochi Amaoto <inochiama@outlook.com>
-Subject: Re: [PATCH v10 2/4] drivers: hwmon: sophgo: Add SG2042 external
- hardware monitor support
-Message-ID: <IA1PR20MB49536A2A4E6F881059461905BB872@IA1PR20MB4953.namprd20.prod.outlook.com>
-References: <IA1PR20MB4953C5DB4AC5DF01236CE785BBBB2@IA1PR20MB4953.namprd20.prod.outlook.com>
- <IA1PR20MB4953936E4916334E1A234962BBBB2@IA1PR20MB4953.namprd20.prod.outlook.com>
- <0e30eab7-e202-4639-863d-85ce28525714@roeck-us.net>
- <IA1PR20MB495356094952242D9CD8A249BB872@IA1PR20MB4953.namprd20.prod.outlook.com>
- <d501bed8-ed06-41aa-b628-37ccd1bbb802@roeck-us.net>
-Content-Disposition: inline
-In-Reply-To: <d501bed8-ed06-41aa-b628-37ccd1bbb802@roeck-us.net>
-X-TMN: [2LYm5BSi3x3/W0ekZ+HeYtlNuJWACdKbZbBWse5ThbE=]
-X-ClientProxiedBy: TY1PR01CA0200.jpnprd01.prod.outlook.com (2603:1096:403::30)
- To IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <lnoayu6mix7cxyam4bmvivqocmhd4bqbk6l2w4gimjzaosb5n4@a62atv24yrfh>
+	Wed, 14 Aug 2024 01:29:44 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-710ffaf921fso290498b3a.1
+        for <linux-riscv@lists.infradead.org>; Tue, 13 Aug 2024 18:29:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1723598979; x=1724203779; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=hODmjSl6QW+3X/s9NClws+oOQIw7sZ/BkvPvK41RAqM=;
+        b=EPBADmmukceATCQXSRApiBif4eI2Miieb4wENM1mq7B7ZhITp5bkhUtNtkPf3bjcKy
+         iiNcY5BV3DwjLzWANAARDCQQ57mQ3V+gdKCzz9m3iIQch5vraua+ViXDXjdoHfbHkKgV
+         V5tx1gTnY0FwTIkq4YtvGcuBVeWVcvUh0P7BV/GlmJD31Vp56/31JW2VemFIwVY2muiK
+         zOuucpsvD/+XH+ae1fnBq4JucTuZ05TjmtgUPbggAE/HQn4Iul8CKKzNAt1RFWluntgs
+         9JRUnFioYJaHUKEXN2MhE+aEu5hsiCIcfIczBdqpu5MNtQnHiMsUqEEf1Kkx0qLvEAt1
+         bH9g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1723598979; x=1724203779;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hODmjSl6QW+3X/s9NClws+oOQIw7sZ/BkvPvK41RAqM=;
+        b=bppp5KPe4GSEBSYugHxboHecjqa3l8SbDcX56ukmfSbKCI899PrRC3zo6DDsemFJzc
+         xsQKv0PKbebTNDRF6KrE/P8HvC35mDxXJHkAI3+tedN1rzRzCxUCjJuOS0Or62AHKUAU
+         9OQIgNJMMBkGkZEEmB1CU4iwaDJ7oLeVGrU4Iid+D4rHYTr7Fh5SrEWPaAOXGeXMvGhb
+         vrKsNnQ8/MpydkfnBFna4wgdCE0UOvXInRY0Lem29Orce7Tk4wIIyxsLknzynAzXyQTS
+         IKgvBfYmMcFmmn4HN/2hcP3wLI+/cNlKccG0AGBq5eSqzq7U5pWmvfqmxZx6fRiRt19V
+         ta3Q==
+X-Forwarded-Encrypted: i=1; AJvYcCU5NeFhj4zqFgbkBxR96xk4RnOEvdDz5E2Lyj4ymo0iSZ/yrJvnPOO1qpbPObmL9IFNPrYz3+S5eeKCW8Ahs6FgIMwAWmcKc/ZL3SgOrLcp
+X-Gm-Message-State: AOJu0Yyy3vyWWTSLQpiBsndpR+yfaXGIlav8pt46RQ3L28cOT55s1RWf
+	uGewqatAlhAi9+BB+T5XJLVT+TCfhXqUZM5gSOhLp0/a0Hc7QuQRgX78ilnDeP0=
+X-Google-Smtp-Source: AGHT+IEPcSEP7pmct3KvaMtw086pxINGCJd4rsCyrnC2QnEPyOF6Zdez6aYPylv/RSBLuTSk7D2X1Q==
+X-Received: by 2002:a05:6a00:2d18:b0:70b:5368:a212 with SMTP id d2e1a72fcca58-7126a528997mr642990b3a.15.1723598978864;
+        Tue, 13 Aug 2024 18:29:38 -0700 (PDT)
+Received: from ghost ([50.145.13.30])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7126c274c69sm83502b3a.42.2024.08.13.18.29.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 13 Aug 2024 18:29:38 -0700 (PDT)
+Date: Tue, 13 Aug 2024 18:29:35 -0700
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Andy Chiu <andy.chiu@sifive.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH -fixes] riscv: Fix out-of-bounds when accessing Andes per
+ hart vendor extension array
+Message-ID: <ZrwIf8nwte43+274@ghost>
+References: <20240811150229.82321-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|SJ0PR20MB4535:EE_
-X-MS-Office365-Filtering-Correlation-Id: 925feb53-02a3-437c-04a2-08dcbbfd768c
-X-Microsoft-Antispam: BCL:0;ARA:14566002|5072599009|15080799003|19110799003|8060799006|461199028|3412199025|440099028|1710799026;
-X-Microsoft-Antispam-Message-Info: gp97T4VsyyVdYnXZSqOk+/SL9SAMejIaWVFXcHXnUz9xtREyRAt97Zk+Amax1YOAxeMzw4lsiU+KeTe6GJGSc2OfYNUNJORIoNEkypLAE5turIz7Ag84YF2xF/rSa6HNvftLx4ZR5FhxdVZolz3OSfR9X+6v8oN9kFi9Adbu5IbvhQhGtL16ght/z2yze0QX6NqT0dfUK7bTIDpGs6f04QPocvihBAo+kfA2WRmsQbywexjPl/R9zQ68mnFbwX7cHAq3HheAid2cM842XQNkvG2LLyClUtoj72LyfyWY9d8sTH4sjEt2MHzvXoMRRAzpn+xdkqWZubWi9jhEbzypgW+D7CXMMk2pZlBRe/z1eZQzq15pxHg9tErmDf8N82+0URC8WlcDA+94Cxo9oK5/0qOX7oJbuNoc0jsEwc+2IjEXKeNZFkK0xGH8K2VTXeK37pOz1D4OZbObASsQYBhyG4szIDeqZ1HNOnq6j93j72bvk3WPa4t1B+0jIWnm2teT30/ZQNWNbeXUOW85qIxHLRjNCq3twgPvhaswduENtMTVCPVODRXLl8c0jCt2RFHP4AW1UMdRNe3lAT4YG6qwfT25eYktpqZvEdXWohTuVXi7/fCuMuYGVYnvBnVPJ/OCrRrr60nSjvs8XOfAOt+u0iHW2ovLcC/ZfTSRLMMwOv6jZ/M4kWw4uGSbeuGcxrrR5jUgiYUjfc5wzfkNdxqCllq1NB8Zz4sFW9GFai9qaw4=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ErhbJG30zUVcaqQVZwF8Bsz4nw0CYYsfjKsVxb6b37zOqFYC5ga84vSKpgh4?=
- =?us-ascii?Q?ZaVwYDqksODlASxUS7KCpytmvip1GEvX/8F8p/3R4p+/2hqgXA54g1IveqbN?=
- =?us-ascii?Q?hdgnce7AcbYTiu47KSWjZjbzwQc2pCoqcCye04PcQ0xrWSUfP9yUkVQz84wF?=
- =?us-ascii?Q?Gin/xRustp2SqNAIzJHLtWR9OaBtkJmp9rwSAhVL9JbfI5Bru/z9nU7yJaHa?=
- =?us-ascii?Q?FH0G4TzF76Ldcxdhd8p/xZFsuBK+5mOFXwbO0nEYSU82c2x4WOMi9pKmRXPV?=
- =?us-ascii?Q?RpqSAYyBsrmWE2y6/dhij2wVTffzdUh5vW9/2n1dShODmh447GOKlOOZdb5S?=
- =?us-ascii?Q?8xa0y77QVN8F3X07i0iiu2gFsWzgBi95Z5s4TMsFHNQl+n9JWwaAk1ggob5R?=
- =?us-ascii?Q?lruHeaha2XLFi3536iEvzXL31S3YUqcq9xrKRyLv17o56CTZMks3bG+SxzXu?=
- =?us-ascii?Q?3V70ynORk4W6BtqD+tRuNF8FyCaa+Lst2kE+4z9LpBy603TRQMXOhM+BDWUp?=
- =?us-ascii?Q?/De/Jhs/8C3qIOtxFjCD/sNAR0mXzYa1djBV2C+fFVFfK98czTxTVgZd+Qye?=
- =?us-ascii?Q?Ny1bZN+4/IxE2qqauuzhsmZ0sS7sZpv65g6FXu8uLtt33T2Dv6/yM5VUoAAn?=
- =?us-ascii?Q?2TOKy7oFrpB7EV1EXhPjmyVK/WruzmQGcPekFrtQ8BJ7L1pXtvYlwZa+ZCzV?=
- =?us-ascii?Q?gUY7JY+zbKR/fw0rGR9ISqpg/ctJ1CyKOZYe5zF302/WRWY7FElCTgVZWf9f?=
- =?us-ascii?Q?qZTeXjkVJQIKppG2bh2STZKFRhC+CipSoNj1Y6uXHkxVZ8RF3t5cJLXppgU3?=
- =?us-ascii?Q?occcs9vET5VPCsxT29U66BkXhTYPqBIUFUJkig57BvZFEnb+ZtBXABMH0PNH?=
- =?us-ascii?Q?F6ZnLzEMd1W527Vdo31qJayVKsYvZ3R2/Ab5QT/Y5twU1QrzaDmDCX8IAVv+?=
- =?us-ascii?Q?JR0tIGd6eP5qOBe8galY6l/1D6rJepsBAl6W4OqTiWXtYg85AZiHwhsZ4W5y?=
- =?us-ascii?Q?/r9uD8EzVtpfSHdS1IQWutOjlIQE2ygEwSb6T+Ms9RTLsvVOK6TmH8mXpq5d?=
- =?us-ascii?Q?twKYv5sG1Tw6+pU3dL/Mb1hTqtC2T7M5fCLcGYqr4AYO9XGdMSVL8JSsmEoS?=
- =?us-ascii?Q?BTWDmtHb5NgekboARS+jMoSvqeTvvWnHFim4mVpRUKTgd8QHgkrnKbrd9ZLP?=
- =?us-ascii?Q?LkkJBFS41blXzBAWYAbo9ODPPu6sf9PvwUmCA8UH3dAENBNQxd9LWCbmrSVl?=
- =?us-ascii?Q?VOCs+YWgh22tYmUka3fC?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 925feb53-02a3-437c-04a2-08dcbbfd768c
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2024 01:07:27.5995
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR20MB4535
+Content-Disposition: inline
+In-Reply-To: <20240811150229.82321-1-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240813_180744_103251_284B0188 
-X-CRM114-Status: GOOD (  23.60  )
+X-CRM114-CacheID: sfid-20240813_182942_606616_9CB175FA 
+X-CRM114-Status: GOOD (  25.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,114 +90,93 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-hwmon@vger.kernel.org, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Jean Delvare <jdelvare@suse.com>, Drew Fustini <dfustini@baylibre.com>, Jonathan Corbet <corbet@lwn.net>, linux-kernel@vger.kernel.org, Chen Wang <unicorn_wang@outlook.com>, linux-doc@vger.kernel.org, Chao Wei <chao.wei@sophgo.com>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, Hal Feng <hal.feng@starfivetech.com>, devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Guo Ren <guoren@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 13, 2024 at 05:51:05PM GMT, Guenter Roeck wrote:
-> On 8/13/24 17:40, Inochi Amaoto wrote:
-> > On Tue, Aug 13, 2024 at 11:27:11AM GMT, Guenter Roeck wrote:
-> > > On Sat, Aug 10, 2024 at 04:03:51PM +0800, Inochi Amaoto wrote:
-> > > > SG2042 use an external MCU to provide basic hardware information
-> > > > and thermal sensors.
-> > > > 
-> > > > Add driver support for the onboard MCU of SG2042.
-> > > > 
-> > > > Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
-> > > > Tested-by: Chen Wang <unicorn_wang@outlook.com>
-> > > > Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
-> > > > ---
-> > > >   Documentation/hwmon/index.rst      |   1 +
-> > > >   Documentation/hwmon/sg2042-mcu.rst |  77 ++++++
-> > > >   drivers/hwmon/Kconfig              |  11 +
-> > > >   drivers/hwmon/Makefile             |   1 +
-> > > >   drivers/hwmon/sg2042-mcu.c         | 388 +++++++++++++++++++++++++++++
-> > > >   5 files changed, 478 insertions(+)
-> > > >   create mode 100644 Documentation/hwmon/sg2042-mcu.rst
-> > > >   create mode 100644 drivers/hwmon/sg2042-mcu.c
-> > > > 
-> > > > diff --git a/Documentation/hwmon/index.rst b/Documentation/hwmon/index.rst
-> > > > index 913c11390a45..ea3b5be8fe4f 100644
-> > > > --- a/Documentation/hwmon/index.rst
-> > > > +++ b/Documentation/hwmon/index.rst
-> > > > @@ -206,6 +206,7 @@ Hardware Monitoring Kernel Drivers
-> > > >      sch5636
-> > > >      scpi-hwmon
-> > > >      sfctemp
-> > > > +   sg2042-mcu
-> > > >      sht15
-> > > >      sht21
-> > > >      sht3x
-> > > > diff --git a/Documentation/hwmon/sg2042-mcu.rst b/Documentation/hwmon/sg2042-mcu.rst
-> > > > new file mode 100644
-> > > > index 000000000000..18a3578ac213
-> > > > --- /dev/null
-> > > > +++ b/Documentation/hwmon/sg2042-mcu.rst
-> > > > @@ -0,0 +1,77 @@
-> > > > +.. SPDX-License-Identifier: GPL-2.0
-> > > > +
-> > > > +Kernel driver sg2042-mcu
-> > > > +========================
-> > > > +
-> > > > +Supported chips:
-> > > > +
-> > > > +  * Onboard MCU for sg2042
-> > > > +
-> > > > +    Addresses scanned: -
-> > > > +
-> > > > +    Prefix: 'sg2042-mcu'
-> > > > +
-> > > > +Authors:
-> > > > +
-> > > > +  - Inochi Amaoto <inochiama@outlook.com>
-> > > > +
-> > > > +Description
-> > > > +-----------
-> > > > +
-> > > > +This driver supprts hardware monitoring for onboard MCU with
-> > > > +i2c interface.
-> > > > +
-> > > > +Usage Notes
-> > > > +-----------
-> > > > +
-> > > > +This driver does not auto-detect devices. You will have to instantiate
-> > > > +the devices explicitly.
-> > > > +Please see Documentation/i2c/instantiating-devices.rst for details.
-> > > > +
-> > > > +Sysfs Attributes
-> > > > +----------------
-> > > > +
-> > > > +The following table shows the standard entries support by the driver:
-> > > > +
-> > > > +================= =====================================================
-> > > > +Name              Description
-> > > > +================= =====================================================
-> > > > +temp1_input       Measured temperature of SoC
-> > > > +temp1_crit        Critical high temperature
-> > > > +temp1_crit_hyst   hysteresis temperature restore from Critical
-> > > > +temp2_input       Measured temperature of the base board
-> > > > +================= =====================================================
-> > > > +
-> > > > +The following table shows the extra entries support by the platform:
-> > > > +
-> > > 
-> > > Those are attached to the i2c device, which should be mentioned.
-> > 
-> > I have mentioned this in the Description. Does this need to be
-> > mentioned here again?
-> > 
+On Sun, Aug 11, 2024 at 05:02:29PM +0200, Alexandre Ghiti wrote:
+> The out-of-bounds access is reported by UBSAN:
 > 
-> Here is where it is needed.
+> [    0.000000] UBSAN: array-index-out-of-bounds in ../arch/riscv/kernel/vendor_extensions.c:41:66
+> [    0.000000] index -1 is out of range for type 'riscv_isavendorinfo [32]'
+> [    0.000000] CPU: 0 UID: 0 PID: 0 Comm: swapper Not tainted 6.11.0-rc2ubuntu-defconfig #2
+> [    0.000000] Hardware name: riscv-virtio,qemu (DT)
+> [    0.000000] Call Trace:
+> [    0.000000] [<ffffffff94e078ba>] dump_backtrace+0x32/0x40
+> [    0.000000] [<ffffffff95c83c1a>] show_stack+0x38/0x44
+> [    0.000000] [<ffffffff95c94614>] dump_stack_lvl+0x70/0x9c
+> [    0.000000] [<ffffffff95c94658>] dump_stack+0x18/0x20
+> [    0.000000] [<ffffffff95c8bbb2>] ubsan_epilogue+0x10/0x46
+> [    0.000000] [<ffffffff95485a82>] __ubsan_handle_out_of_bounds+0x94/0x9c
+> [    0.000000] [<ffffffff94e09442>] __riscv_isa_vendor_extension_available+0x90/0x92
+> [    0.000000] [<ffffffff94e043b6>] riscv_cpufeature_patch_func+0xc4/0x148
+> [    0.000000] [<ffffffff94e035f8>] _apply_alternatives+0x42/0x50
+> [    0.000000] [<ffffffff95e04196>] apply_boot_alternatives+0x3c/0x100
+> [    0.000000] [<ffffffff95e05b52>] setup_arch+0x85a/0x8bc
+> [    0.000000] [<ffffffff95e00ca0>] start_kernel+0xa4/0xfb6
 > 
-> Guenter
+> This happens because we unconditionally use the cpu parameter to access
+> this array. But if -1 is passed, that means we should not and we don't
+> need to access this array, so simply prevent accessing the array in that case.
 > 
+> Fixes: 23c996fc2bc1 ("riscv: Extend cpufeature.c to detect vendor extensions")
+> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> ---
+>  arch/riscv/kernel/vendor_extensions.c | 7 ++++---
+>  1 file changed, 4 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/riscv/kernel/vendor_extensions.c b/arch/riscv/kernel/vendor_extensions.c
+> index b6c1e7b5d34b..01dc79b1d17b 100644
+> --- a/arch/riscv/kernel/vendor_extensions.c
+> +++ b/arch/riscv/kernel/vendor_extensions.c
+> @@ -27,7 +27,7 @@ const size_t riscv_isa_vendor_ext_list_size = ARRAY_SIZE(riscv_isa_vendor_ext_li
+>   * @bit: bit position of the desired extension
+>   * Return: true or false
+>   *
+> - * NOTE: When cpu is -1, will check if extension is available on all cpus
+> + * NOTE: When cpu is VENDOR_EXT_ALL_CPUS, will check if extension is available on all cpus
+>   */
+>  bool __riscv_isa_vendor_extension_available(int cpu, unsigned long vendor, unsigned int bit)
+>  {
+> @@ -38,14 +38,15 @@ bool __riscv_isa_vendor_extension_available(int cpu, unsigned long vendor, unsig
+>  	#ifdef CONFIG_RISCV_ISA_VENDOR_EXT_ANDES
+>  	case ANDES_VENDOR_ID:
+>  		bmap = &riscv_isa_vendor_ext_list_andes.all_harts_isa_bitmap;
+> -		cpu_bmap = &riscv_isa_vendor_ext_list_andes.per_hart_isa_bitmap[cpu];
+> +		if (cpu != VENDOR_EXT_ALL_CPUS)
+> +			cpu_bmap = &riscv_isa_vendor_ext_list_andes.per_hart_isa_bitmap[cpu];
+>  		break;
+>  	#endif
+>  	default:
+>  		return false;
+>  	}
+>  
+> -	if (cpu != -1)
+> +	if (cpu != VENDOR_EXT_ALL_CPUS)
+>  		bmap = &cpu_bmap[cpu];
+>  
+>  	if (bit >= RISCV_ISA_VENDOR_EXT_MAX)
+> -- 
+> 2.39.2
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
-OK, thanks.
+The line that is setting the cpu_bmap shouldn't be indexing into it at
+all. It is supposed to be:
 
-Regard,
-Inochi
+cpu_bmap = &riscv_isa_vendor_ext_list_andes.per_hart_isa_bitmap;
+
+The indexing is handled later on by the if-statement.
+
+Thank you for looking into this.
+
+- Charlie
+
 
 _______________________________________________
 linux-riscv mailing list
