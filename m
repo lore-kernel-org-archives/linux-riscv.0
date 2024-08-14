@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7974C531DC
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Aug 2024 08:14:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E53D1C3DA4A
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Aug 2024 08:14:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Fy9OdlpsNbSsgBkVN9d0UT9qRvMskxT7FtQXKIB8Qvw=; b=3Vi2XWup1re+s+
-	uxyVY0eWxZh4bgxFg1IRVGuzddsiYk2FXTPV8ghBRsuAPNaCYciPHjot9KeN+A8ti0HG82O7JvY6n
-	Ug+FKPmJxZhOZNmwkS+uGoCl50rtgs6A2cA5b570khYYPSurDXrQuYgNgFEdIwKS7KMOCLfdOJEpI
-	4+61dULGZh0UC0Nm0GCGmfsy13YdPJgIXMPVS8EiCD+QZM90mZvUJxFgsYBu0W8C0dI93GQ3yq6mP
-	z6PYvZkjx+7qzKlCrtMPKLFDZbyfyfd8+NB2nSSsMqitW2IdyPOX9FTN0miZ629a+BWmg3vpVBrw4
-	astrwB77QZEsGWhAEC3Q==;
+	List-Owner; bh=v7UHBHxRek7jzSOKr4meqC9MX5+D3sYFLzdSZaeWxs8=; b=JJ0edgRDDtS00E
+	3/7m1TJ8BBl6qemIvejzc3TA0UF1R7QCUxupn28KHdO9grZDpDE7QoH3NN1xCglaZ0WIeS2smxyOL
+	qkjFfCOtg4rRY5PyGPDcxgw0EdfwxR9jMzBo2PfIfBQ5IFk1tkqMs/+NIqgWl/hYnI0aVs6hhzzXA
+	x+FPa6b2LD2/6z5Xm2m1QNUhNNvqvG39VNjlExIARkfkzBhCTBBOxL6wuy29J9ydP/IXV/6iN+cyw
+	gy9ZDwgxyxPWyRCXuE05/w7B+LLn/DrQMtuJibRBUwu8H6OffupM/Dg1ZoYIFwtzqvCo6FX0s418D
+	XXWinxdBDZ7cwvumWCOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1se99d-00000006Cbz-0fXG;
-	Wed, 14 Aug 2024 08:14:49 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1se99e-00000006CcS-01bA;
+	Wed, 14 Aug 2024 08:14:50 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1se99Z-00000006Ca3-0Qm5
+	id 1se99a-00000006Cam-2lcO
 	for linux-riscv@lists.infradead.org;
-	Wed, 14 Aug 2024 08:14:46 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-1fc65329979so58091645ad.0
-        for <linux-riscv@lists.infradead.org>; Wed, 14 Aug 2024 01:14:44 -0700 (PDT)
+	Wed, 14 Aug 2024 08:14:48 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-1fc47abc040so42379445ad.0
+        for <linux-riscv@lists.infradead.org>; Wed, 14 Aug 2024 01:14:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1723623284; x=1724228084; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1723623286; x=1724228086; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ZSgZOujLUXDH9o1etb/5haehfTStX4t+faWX1F0nYt8=;
-        b=do+XJKs+CbPThZ+80YtrXGGCcBPyQ4fChY/P1ROoWz6sR/9DAHwjSby4NSiJh/xozN
-         8a15JPb10mDIt9Pr549rlIZ8k0EK4iC2n8yrYP89HzDXV/7PblqhRHnOhXChpu+6h0ZJ
-         YKvgv9oIh7EZfaY1N9O2TT4U5epY51L0OQUFZwGacdR0de0+s+CRqEfDqPqnViqc8Vr3
-         wki7fsGPVrlteoZrHNHPcziZ7qtc4iEPvnBozr/FFX3ui5R70CqNwikEGaI9dG6X2FGu
-         I9p5/Y4fwm7VfaDVNWDlPB0oeTBrQekcZcPs6msac+c+dadaMSQmC+OOkoMDWSB8KTyz
-         5e6w==
+        bh=FGFNLFqSjlWe1rFESyvT8Bv10SEVbMi3uLZQLxiHpKM=;
+        b=DDbHDTQRbyvfU37eqBMGRQwGcwLDYdHpSKTJiwr0Qm8wzbko7dd1muzu5CSSeQELW4
+         USDD0zErnEylpBJ9a2cFtaPWliwhDkOohSgeLdL8qk8LkehLhbx3u2cUrvNM/0bvFPqW
+         gAdLtsVEDNHmC4XqkN7RcTazs+4962iOKGWvSPF1MR4SMIqhKuN20KXHjWKfeNsEpfCp
+         7fQzewXNc26ZAlih9y5C4hfs2fCR+c/izK4WzdoeYkVGPIoTbCSzOfDHFaGep4fk12kO
+         hfbm3ja9FrlHds4K8ZM7GFTfHig8RsEFM4Y+OiRQZW8o76gYmC3p6bv+IaevuumXCApX
+         9dAA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1723623284; x=1724228084;
+        d=1e100.net; s=20230601; t=1723623286; x=1724228086;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ZSgZOujLUXDH9o1etb/5haehfTStX4t+faWX1F0nYt8=;
-        b=alf68yBZ7pPcnYYTk8nY7CNWcUeRb7d8H6fg5Ff0D7VaYrMkHz49s8K3+Cy6lodQfw
-         5qMGTlzK1jC9jIt0RZsPNn5Yl2QaeK6H+EoUZjcpi2FlohPTZrcIOONY0FpBhD1bFcR/
-         0wz32MjSI6DJXeJBy3aH2bQmmje6ZY6EUsuWvm8KrdDaf7mJPRc21pCaMyXb+/OKR6yG
-         T+G6Iloh20GgXChpdfU2DEdyou7rptmaY/VOLIwfyTh6RfD2XUy0nYvtAwjyrf1AlI+S
-         8xyYUDR1cjIJh7cIulOi9s1nh+8h5bfNcEsjb3v8/aiQFg7skMO9LFV6LR5SBojiZ3cX
-         mAnA==
-X-Forwarded-Encrypted: i=1; AJvYcCW+lhMmEPSSsGCbOGD5FbV0MfN63rHQp7QuKu9SzMAfaoxUJxkD3JsYcztHoBP7aV5myawtGH5u7KbsXNqPpOZGmPcxp9K3v1M27Mc37T4j
-X-Gm-Message-State: AOJu0YyGUp3ZWqiG5gqDW9SJQgpq8uBjtTw8JOy1fH9KsciEbr9Cv6Pj
-	dTDnycsSPIlM3CfZuIgyEwzNgjsN4H3iZSPJEk4RtLHN6hTV3s++JcAJXtsfsNY=
-X-Google-Smtp-Source: AGHT+IG+a2m+/9sMeNFVsmOPDs6cpFe3Chf10rX/9ctWB1qlB00BUSlmUsaT4HBT1vf9N63Oh33I5A==
-X-Received: by 2002:a17:902:ecd1:b0:201:de37:349d with SMTP id d9443c01a7336-201de373639mr4868195ad.54.1723623284293;
-        Wed, 14 Aug 2024 01:14:44 -0700 (PDT)
+        bh=FGFNLFqSjlWe1rFESyvT8Bv10SEVbMi3uLZQLxiHpKM=;
+        b=SxRpOshsmkc/l0OFsD/rA7Qh8GkJDyQsqoICIIGum/z/Ea2+oWAgzaDqMZLPqST5Ng
+         Qv9+qx0dhOaY4LcJvbwyoA/RvQf3OZq4qSk5sqfG8vEkwB09pd3e0XmrkpVa9hkmi680
+         GaC4/64pjL0vfrH8N5h4b6zWBlgip0WVT4UHBUMHgZfyY5j2KbZmQtxrxTh6vKEaJWVp
+         +Aq4UsX9Ot6NG5dVAU7yvP1BTgS+/LSFqsk7SPnYo2WT29hygZvMRkhpJJPESXHZsiF+
+         +GUaGChWLH5yJTrOxrtL7IFgmjpVuX5uoY3X3zRU8lYjOGT8VPIJHY+qABc2NCawHNK6
+         Q9Mw==
+X-Forwarded-Encrypted: i=1; AJvYcCW4N6wNz2k47NVUIUgn0MXzOJ/vLGyb4tTq8BHpTtJkNfPwdeDn5Ve++06pVnD82i/G/fJVP4ZqAUDBJg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzIGTJb492aH54P6ZIjE7lZbgo7MkIfTsRraiIlMWMHZ/qR38tS
+	j0uU6kk2Dx6mjYR/wXPpefx1ZV0Hh3Q7WKUNytTtZYQ7rFMilmSehmSVyqJZlwFFOS54kxtmxSV
+	0
+X-Google-Smtp-Source: AGHT+IEuCRpXnMypEEg9Ag8jZzl2QUywU8kyMp8G6oY+9ojSV+wDf0uO/E2kB9x+MF9du1eUQrd4eg==
+X-Received: by 2002:a17:902:e5ce:b0:1fd:a769:fcaf with SMTP id d9443c01a7336-201d6592fcdmr22165255ad.61.1723623285971;
+        Wed, 14 Aug 2024 01:14:45 -0700 (PDT)
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-201cd147ec4sm24868335ad.85.2024.08.14.01.14.43
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-201cd147ec4sm24868335ad.85.2024.08.14.01.14.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Aug 2024 01:14:43 -0700 (PDT)
+        Wed, 14 Aug 2024 01:14:45 -0700 (PDT)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	linux-riscv@lists.infradead.org
@@ -78,16 +79,16 @@ Cc: devicetree@vger.kernel.org,
 	Rob Herring <robh+dt@kernel.org>,
 	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>,
 	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH v3 03/10] riscv: Add CSR definitions for pointer masking
-Date: Wed, 14 Aug 2024 01:13:30 -0700
-Message-ID: <20240814081437.956855-4-samuel.holland@sifive.com>
+Subject: [PATCH v3 04/10] riscv: Add support for userspace pointer masking
+Date: Wed, 14 Aug 2024 01:13:31 -0700
+Message-ID: <20240814081437.956855-5-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.45.1
 In-Reply-To: <20240814081437.956855-1-samuel.holland@sifive.com>
 References: <20240814081437.956855-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240814_011445_166081_8B702D13 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20240814_011446_895871_4241EBFF 
+X-CRM114-Status: GOOD (  23.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,72 +105,227 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Pointer masking is controlled via a two-bit PMM field, which appears in
-various CSRs depending on which extensions are implemented. Smmpm adds
-the field to mseccfg; Smnpm adds the field to menvcfg; Ssnpm adds the
-field to senvcfg. If the H extension is implemented, Ssnpm also defines
-henvcfg.PMM and hstatus.HUPMM.
+RISC-V supports pointer masking with a variable number of tag bits
+(which is called "PMLEN" in the specification) and which is configured
+at the next higher privilege level.
+
+Wire up the PR_SET_TAGGED_ADDR_CTRL and PR_GET_TAGGED_ADDR_CTRL prctls
+so userspace can request a lower bound on the number of tag bits and
+determine the actual number of tag bits. As with arm64's
+PR_TAGGED_ADDR_ENABLE, the pointer masking configuration is
+thread-scoped, inherited on clone() and fork() and cleared on execve().
 
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
 
 Changes in v3:
- - Use shifts instead of large numbers in ENVCFG_PMM* macro definitions
+ - Rename CONFIG_RISCV_ISA_POINTER_MASKING to CONFIG_RISCV_ISA_SUPM,
+   since it only controls the userspace part of pointer masking
+ - Use IS_ENABLED instead of #ifdef when possible
+ - Use an enum for the supported PMLEN values
+ - Simplify the logic in set_tagged_addr_ctrl()
 
 Changes in v2:
- - Use the correct name for the hstatus.HUPMM field
+ - Rebase on riscv/linux.git for-next
+ - Add and use the envcfg_update_bits() helper function
+ - Inline flush_tagged_addr_state()
 
- arch/riscv/include/asm/csr.h | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ arch/riscv/Kconfig                 | 11 ++++
+ arch/riscv/include/asm/processor.h |  8 +++
+ arch/riscv/include/asm/switch_to.h | 11 ++++
+ arch/riscv/kernel/process.c        | 90 ++++++++++++++++++++++++++++++
+ include/uapi/linux/prctl.h         |  3 +
+ 5 files changed, 123 insertions(+)
 
-diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-index 25966995da04..fe5d4eb9adea 100644
---- a/arch/riscv/include/asm/csr.h
-+++ b/arch/riscv/include/asm/csr.h
-@@ -119,6 +119,10 @@
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 0f3cd7c3a436..817437157138 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -512,6 +512,17 @@ config RISCV_ISA_C
  
- /* HSTATUS flags */
- #ifdef CONFIG_64BIT
-+#define HSTATUS_HUPMM		_AC(0x3000000000000, UL)
-+#define HSTATUS_HUPMM_PMLEN_0	_AC(0x0000000000000, UL)
-+#define HSTATUS_HUPMM_PMLEN_7	_AC(0x2000000000000, UL)
-+#define HSTATUS_HUPMM_PMLEN_16	_AC(0x3000000000000, UL)
- #define HSTATUS_VSXL		_AC(0x300000000, UL)
- #define HSTATUS_VSXL_SHIFT	32
- #endif
-@@ -195,6 +199,10 @@
- /* xENVCFG flags */
- #define ENVCFG_STCE			(_AC(1, ULL) << 63)
- #define ENVCFG_PBMTE			(_AC(1, ULL) << 62)
-+#define ENVCFG_PMM			(_AC(0x3, ULL) << 32)
-+#define ENVCFG_PMM_PMLEN_0		(_AC(0x0, ULL) << 32)
-+#define ENVCFG_PMM_PMLEN_7		(_AC(0x2, ULL) << 32)
-+#define ENVCFG_PMM_PMLEN_16		(_AC(0x3, ULL) << 32)
- #define ENVCFG_CBZE			(_AC(1, UL) << 7)
- #define ENVCFG_CBCFE			(_AC(1, UL) << 6)
- #define ENVCFG_CBIE_SHIFT		4
-@@ -216,6 +224,12 @@
- #define SMSTATEEN0_SSTATEEN0_SHIFT	63
- #define SMSTATEEN0_SSTATEEN0		(_ULL(1) << SMSTATEEN0_SSTATEEN0_SHIFT)
+ 	  If you don't know what to do here, say Y.
  
-+/* mseccfg bits */
-+#define MSECCFG_PMM			ENVCFG_PMM
-+#define MSECCFG_PMM_PMLEN_0		ENVCFG_PMM_PMLEN_0
-+#define MSECCFG_PMM_PMLEN_7		ENVCFG_PMM_PMLEN_7
-+#define MSECCFG_PMM_PMLEN_16		ENVCFG_PMM_PMLEN_16
++config RISCV_ISA_SUPM
++	bool "Supm extension for userspace pointer masking"
++	depends on 64BIT
++	default y
++	help
++	  Add support for pointer masking in userspace (Supm) when the
++	  underlying hardware extension (Smnpm or Ssnpm) is detected at boot.
 +
- /* symbolic CSR names: */
- #define CSR_CYCLE		0xc00
- #define CSR_TIME		0xc01
-@@ -382,6 +396,8 @@
- #define CSR_MIP			0x344
- #define CSR_PMPCFG0		0x3a0
- #define CSR_PMPADDR0		0x3b0
-+#define CSR_MSECCFG		0x747
-+#define CSR_MSECCFGH		0x757
- #define CSR_MVENDORID		0xf11
- #define CSR_MARCHID		0xf12
- #define CSR_MIMPID		0xf13
++	  If this option is disabled, userspace will be unable to use
++	  the prctl(PR_{SET,GET}_TAGGED_ADDR_CTRL) API.
++
+ config RISCV_ISA_SVNAPOT
+ 	bool "Svnapot extension support for supervisor mode NAPOT pages"
+ 	depends on 64BIT && MMU
+diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+index 586e4ab701c4..5c4d4fb97314 100644
+--- a/arch/riscv/include/asm/processor.h
++++ b/arch/riscv/include/asm/processor.h
+@@ -200,6 +200,14 @@ extern int set_unalign_ctl(struct task_struct *tsk, unsigned int val);
+ #define RISCV_SET_ICACHE_FLUSH_CTX(arg1, arg2)	riscv_set_icache_flush_ctx(arg1, arg2)
+ extern int riscv_set_icache_flush_ctx(unsigned long ctx, unsigned long per_thread);
+ 
++#ifdef CONFIG_RISCV_ISA_SUPM
++/* PR_{SET,GET}_TAGGED_ADDR_CTRL prctl */
++long set_tagged_addr_ctrl(struct task_struct *task, unsigned long arg);
++long get_tagged_addr_ctrl(struct task_struct *task);
++#define SET_TAGGED_ADDR_CTRL(arg)	set_tagged_addr_ctrl(current, arg)
++#define GET_TAGGED_ADDR_CTRL()		get_tagged_addr_ctrl(current)
++#endif
++
+ #endif /* __ASSEMBLY__ */
+ 
+ #endif /* _ASM_RISCV_PROCESSOR_H */
+diff --git a/arch/riscv/include/asm/switch_to.h b/arch/riscv/include/asm/switch_to.h
+index 9685cd85e57c..94e33216b2d9 100644
+--- a/arch/riscv/include/asm/switch_to.h
++++ b/arch/riscv/include/asm/switch_to.h
+@@ -70,6 +70,17 @@ static __always_inline bool has_fpu(void) { return false; }
+ #define __switch_to_fpu(__prev, __next) do { } while (0)
+ #endif
+ 
++static inline void envcfg_update_bits(struct task_struct *task,
++				      unsigned long mask, unsigned long val)
++{
++	unsigned long envcfg;
++
++	envcfg = (task->thread.envcfg & ~mask) | val;
++	task->thread.envcfg = envcfg;
++	if (task == current)
++		csr_write(CSR_ENVCFG, envcfg);
++}
++
+ static inline void __switch_to_envcfg(struct task_struct *next)
+ {
+ 	asm volatile (ALTERNATIVE("nop", "csrw " __stringify(CSR_ENVCFG) ", %0",
+diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+index e4bc61c4e58a..1280a7c4a412 100644
+--- a/arch/riscv/kernel/process.c
++++ b/arch/riscv/kernel/process.c
+@@ -7,6 +7,7 @@
+  * Copyright (C) 2017 SiFive
+  */
+ 
++#include <linux/bitfield.h>
+ #include <linux/cpu.h>
+ #include <linux/kernel.h>
+ #include <linux/sched.h>
+@@ -171,6 +172,9 @@ void flush_thread(void)
+ 	memset(&current->thread.vstate, 0, sizeof(struct __riscv_v_ext_state));
+ 	clear_tsk_thread_flag(current, TIF_RISCV_V_DEFER_RESTORE);
+ #endif
++	if (IS_ENABLED(CONFIG_RISCV_ISA_SUPM) &&
++	    riscv_has_extension_unlikely(RISCV_ISA_EXT_SUPM))
++		envcfg_update_bits(current, ENVCFG_PMM, ENVCFG_PMM_PMLEN_0);
+ }
+ 
+ void arch_release_task_struct(struct task_struct *tsk)
+@@ -233,3 +237,89 @@ void __init arch_task_cache_init(void)
+ {
+ 	riscv_v_setup_ctx_cache();
+ }
++
++#ifdef CONFIG_RISCV_ISA_SUPM
++enum {
++	PMLEN_0 = 0,
++	PMLEN_7 = 7,
++	PMLEN_16 = 16,
++};
++
++static bool have_user_pmlen_7;
++static bool have_user_pmlen_16;
++
++long set_tagged_addr_ctrl(struct task_struct *task, unsigned long arg)
++{
++	unsigned long valid_mask = PR_PMLEN_MASK;
++	struct thread_info *ti = task_thread_info(task);
++	unsigned long pmm;
++	u8 pmlen;
++
++	if (is_compat_thread(ti))
++		return -EINVAL;
++
++	if (arg & ~valid_mask)
++		return -EINVAL;
++
++	/*
++	 * Prefer the smallest PMLEN that satisfies the user's request,
++	 * in case choosing a larger PMLEN has a performance impact.
++	 */
++	pmlen = FIELD_GET(PR_PMLEN_MASK, arg);
++	if (pmlen == PMLEN_0)
++		pmm = ENVCFG_PMM_PMLEN_0;
++	else if (pmlen <= PMLEN_7 && have_user_pmlen_7)
++		pmm = ENVCFG_PMM_PMLEN_7;
++	else if (pmlen <= PMLEN_16 && have_user_pmlen_16)
++		pmm = ENVCFG_PMM_PMLEN_16;
++	else
++		return -EINVAL;
++
++	envcfg_update_bits(task, ENVCFG_PMM, pmm);
++
++	return 0;
++}
++
++long get_tagged_addr_ctrl(struct task_struct *task)
++{
++	struct thread_info *ti = task_thread_info(task);
++	long ret = 0;
++
++	if (is_compat_thread(ti))
++		return -EINVAL;
++
++	switch (task->thread.envcfg & ENVCFG_PMM) {
++	case ENVCFG_PMM_PMLEN_7:
++		ret = FIELD_PREP(PR_PMLEN_MASK, PMLEN_7);
++		break;
++	case ENVCFG_PMM_PMLEN_16:
++		ret = FIELD_PREP(PR_PMLEN_MASK, PMLEN_16);
++		break;
++	}
++
++	return ret;
++}
++
++static bool try_to_set_pmm(unsigned long value)
++{
++	csr_set(CSR_ENVCFG, value);
++	return (csr_read_clear(CSR_ENVCFG, ENVCFG_PMM) & ENVCFG_PMM) == value;
++}
++
++static int __init tagged_addr_init(void)
++{
++	if (!riscv_has_extension_unlikely(RISCV_ISA_EXT_SUPM))
++		return 0;
++
++	/*
++	 * envcfg.PMM is a WARL field. Detect which values are supported.
++	 * Assume the supported PMLEN values are the same on all harts.
++	 */
++	csr_clear(CSR_ENVCFG, ENVCFG_PMM);
++	have_user_pmlen_7 = try_to_set_pmm(ENVCFG_PMM_PMLEN_7);
++	have_user_pmlen_16 = try_to_set_pmm(ENVCFG_PMM_PMLEN_16);
++
++	return 0;
++}
++core_initcall(tagged_addr_init);
++#endif	/* CONFIG_RISCV_ISA_SUPM */
+diff --git a/include/uapi/linux/prctl.h b/include/uapi/linux/prctl.h
+index 35791791a879..6e84c827869b 100644
+--- a/include/uapi/linux/prctl.h
++++ b/include/uapi/linux/prctl.h
+@@ -244,6 +244,9 @@ struct prctl_mm_map {
+ # define PR_MTE_TAG_MASK		(0xffffUL << PR_MTE_TAG_SHIFT)
+ /* Unused; kept only for source compatibility */
+ # define PR_MTE_TCF_SHIFT		1
++/* RISC-V pointer masking tag length */
++# define PR_PMLEN_SHIFT			24
++# define PR_PMLEN_MASK			(0x7fUL << PR_PMLEN_SHIFT)
+ 
+ /* Control reclaim behavior when allocating memory */
+ #define PR_SET_IO_FLUSHER		57
 -- 
 2.45.1
 
