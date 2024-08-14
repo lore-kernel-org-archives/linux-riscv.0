@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FB7CC52D7F
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Aug 2024 08:09:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EA0AC3DA4A
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Aug 2024 08:09:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=0gMAYhxiaZninTloMPd6NkvRrni4A8u75AW0oiwdGx0=; b=Rsn0smHarMP3O1
-	gDxe4W+GEu8G3vY7OfDnKilaV+ZeWEP+Osm36Dv1gzsKHb8pvmebBZH9LvoiKkU51SGYJkEwvXrJG
-	zBs2s8QxS7lOOKkJ1LtpIAi49ESnRqG6b1IT1gzc1jwl/8pN0KWyf4ORBk+OT1FTUoAS86YQMwQ25
-	XQMEDXZesCvVqwbRsdhpTzL2bA5V+Py/hPsTZra6R+fT1lHSwBDUb/H7aAVlo4nDr95SxVgcq0wzw
-	KjvS6O0qnmw3d02SoOx7kXoia5MBdjEgv1koE3C6RyvCuV/s3LJXxT5Ew3aXlPYfgCxdhbzRf4UaW
-	e6AEmCJZacRO77jZakJQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=UZ4n+DfGblZn5F1tR1CQOuzjzNMMRUZOEYTs0CIzrR8=; b=WGKklOFtPMP55g
+	nbH7N4GtWRCxcduX2Jwpd7+FcY7jE9H5FfyVBdrijaxxeozmNQUqVTtsv/vFU9EvHAAgCv+aoqFYz
+	Fc3f1pgfDzK9A/mLyyxQ/67YVj2CtjCudL+gJjDLkCcGyxcMsC9zBVAobTcRGNUBxjSd+C6Lxs4dT
+	TnZa/5Cpm0PBOUmdueK2vpxlrW+MwBRA+2BO1id+X26vZ1ZlyaoPRqZEuJYhOQWyLcP/kljxrevOZ
+	TB0UczAKzVhnMVCay/TVHch6lZ1OSJ/DdTzR3rjRWbm4nbUq7bk9AP6EIFDbHrIqjJer+AV1M2O+Y
+	VzKXX84ssXbhIW+gd+fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1se94N-00000006B7i-0W8p;
-	Wed, 14 Aug 2024 08:09:23 +0000
+	id 1se94W-00000006BBw-15sw;
+	Wed, 14 Aug 2024 08:09:32 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1se94J-00000006B6q-3sAb
+	id 1se94S-00000006BAV-3ThA
 	for linux-riscv@lists.infradead.org;
-	Wed, 14 Aug 2024 08:09:21 +0000
+	Wed, 14 Aug 2024 08:09:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6996461920;
-	Wed, 14 Aug 2024 08:09:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8663EC32786;
-	Wed, 14 Aug 2024 08:09:16 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3521761920;
+	Wed, 14 Aug 2024 08:09:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3246FC32786;
+	Wed, 14 Aug 2024 08:09:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1723622959;
-	bh=+tqs6o2jIS/Xoflq9ps38miVMDp8z82qkSyMMzRu+wk=;
-	h=From:To:Cc:Subject:Date:From;
-	b=XL5FPnVS0XG3jZaQ2fxN9roq8cXM1UZgQsp4125Lpwj5Y5tDS5bEvyGFzF9HRtgAv
-	 46UuzBbbcl6yWZnUtB5Bp5JOpnXtZ1bcXFVgulp6aLOc0+9grH0pJ/43jyGJgjqP7C
-	 RZohY78Pe3SaTukhlMn/ULK/71mWywZhFFQvR2Ot28qzxSSi3EOxyMxZ0IgANaIajF
-	 rtZu2myiysFS/Yn8qtrOCzVJHoyVdindo+OOwZ7YMsj55609AVXBMRKtFXl/vVnk9P
-	 w8oxVH1ZY4x12KiZkzkkneveTB4XO0iSVeE7qeWdGd9/up9lOwv0xAmfewwwffIFWm
-	 fkrPeqS2v+yyA==
+	s=k20201202; t=1723622967;
+	bh=xUgTT4UZQWZno0q4oA9LXLY4axIXca9/bjeBODZgaLg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=eSJao8xkJPBsnJNoz9yAArnUASYrqoVeA8Qsdnc4aOMYlWPP7rlL3h7FYn/yy1Q/N
+	 4SDYIHfpfvc4cowDFWRLX+mggVM8lyil4fNOt9UMUFxMjka7pTzQFAmYnjbVRbDLMf
+	 y1/UuMGZsbsW3dVdoFUbv5KLX1hKlYetJ4yB4ApDOddFnGxLekGY+sqttBnxwh6DAl
+	 7VU6wbsY4nSr85yTREi+Dhl89NHQCdgSUBhITioY/cDzz4q1EK3J3TqYk17HDKv5oj
+	 cmeYvVtTfZbRq5W82aWDeQuDL4xSF5E41GTDynlLi0+i0pOv/xovDLINZfuPWsxDpr
+	 kyqHVd4YZFdpA==
 From: Conor Dooley <conor@kernel.org>
 To: linux-pci@vger.kernel.org
 Cc: conor@kernel.org,
@@ -55,18 +55,20 @@ Cc: conor@kernel.org,
 	Conor Dooley <conor+dt@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v5 0/2] PCI: microchip: support using either instance 1 or 2
-Date: Wed, 14 Aug 2024 09:08:40 +0100
-Message-ID: <20240814-setback-rumbling-c6393c8f1a91@spud>
+	linux-riscv@lists.infradead.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v5 1/2] dt-bindings: PCI: microchip,pcie-host: fix reg properties
+Date: Wed, 14 Aug 2024 09:08:41 +0100
+Message-ID: <20240814-confront-race-a72c0c91db56@spud>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20240814-setback-rumbling-c6393c8f1a91@spud>
+References: <20240814-setback-rumbling-c6393c8f1a91@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2047; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=oenr9RCh/D6LfU/4KK35V3BOr+N0Qxe0IOLLSKy4LD8=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDGl70jg+RjA47pJwV3uk0HOPS0k6de0TVcO1UZ+0/O78q hfMu9rVUcrCIMbBICumyJJ4u69Fav0flx3OPW9h5rAygQxh4OIUgInU7Gf473jEo1uzcPbRvStF WDV9Cgyf2yXp67kq1MslvV3+1nX6YkaG/VrHH8iy/toZ+EleuublDx1WXkE9fW+Hojcav5c4yuz nAAA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3754; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=36Qs8DsS42oBryO2V1EoOkd8WWqDLIunp3TI9Trqzac=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDGl70jg4A+NkD5wJDH3s1u6qyP2G60pfj0LCz18sCeXP7 Wb1i6p3lLIwiHEwyIopsiTe7muRWv/HZYdzz1uYOaxMIEMYuDgFYCJ3vjIyNAjN4jXU2dGq9nGp jOcG9tmcf9vXMC7gNOCuyHN6/PeQKiPDB4XjxeJWS/1ZJlnpuLtuL0raVt68VCPPslhc3j/IXIU TAA==
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240814_010920_071820_84E4F130 
-X-CRM114-Status: UNSURE (   9.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240814_010929_003800_79466463 
+X-CRM114-Status: GOOD (  11.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,47 +80,115 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogQ29ub3IgRG9vbGV5IDxjb25vci5kb29sZXlAbWljcm9jaGlwLmNvbT4KClRoZSBjdXJy
-ZW50IGRyaXZlciBhbmQgYmluZGluZyBmb3IgUG9sYXJGaXJlIFNvQydzIFBDSSBjb250cm9sbGVy
-IGFzc3VtZQp0aGF0IHRoZSByb290IHBvcnQgaW5zdGFuY2UgaW4gdXNlIGlzIGluc3RhbmNlIDEu
-IFRoZSBzZWNvbmQgcmVnCnByb3BlcnR5IGNvbnN0aXR1dGVzIHRoZSByZWdpb24gZW5jb21wYXNz
-aW5nIGJvdGggImNvbnRyb2wiIGFuZCAiYnJpZGdlIgpyZWdpc3RlcnMgZm9yIGJvdGggaW5zdGFu
-Y2VzLiBJbiB0aGUgZHJpdmVyLCBhIGZpeGVkIG9mZnNldCBpcyBhcHBsaWVkIHRvCmZpbmQgdGhl
-IGJhc2UgYWRkcmVzc2VzIGZvciBpbnN0YW5jZSAxJ3MgImNvbnRyb2wiIGFuZCAiYnJpZGdlIgpy
-ZWdpc3RlcnMuIFRoZSBCZWFnbGVWIEZpcmUgdXNlcyByb290IHBvcnQgaW5zdGFuY2UgMiwgc28g
-c29tZXRoaW5nIG11c3QKYmUgZG9uZSBzbyB0aGF0IHNvZnR3YXJlIGNhbiBkaWZmZXJlbnRpYXRl
-LiBUaGlzIHNlcmllcyBzcGxpdHMgdGhlCnNlY29uZCByZWcgcHJvcGVydHkgaW4gdHdvLCB3aXRo
-IGRlZGljYXRlZCAiY29udHJvbCIgYW5kICJicmlkZ2UiCmVudHJpZXMgc28gdGhhdCBlaXRoZXIg
-aW5zdGFuY2UgY2FuIGJlIHVzZWQuCgpDaGVlcnMsCkNvbm9yLgoKdjU6Ci0gcmViYXNlIG9uIHRv
-cCBvZiA2LjExLXJjMSwgd2hpY2ggYnJvdWdodCBhYm91dCBhIGxvdCBvZiBkcml2ZXIgY2hhbmdl
-CiAgZHVlIHRvIHRoZSBwbGRhIGNvbW1vbiBkcml2ZXIgY3JlYXRpb24gLSBhbHRob3VnaCBsaXR0
-bGUgYWN0dWFsbHkKICBjaGFuZ2VkIGluIHRlcm1zIG9mIHRoZSBsaW5lcyBlZGl0ZWQgaW4gdGhp
-cyBwYXRjaC4KCnY0OgotIGZpeCBhIGNvY2NpIHdhcm5pbmcgcmVwb3J0ZWQgb2ZmIGxpc3QgYWJv
-dXQgYW4gaW5jb25zaXN0ZW50IHZhcmlhYmxlCiAgdXNlZCBiZXR3ZWVuIElTX0VSUigpIGFuZCBQ
-VFJfRVJSKCkgY2FsbHMuCgp2MzoKLSByZW5hbWUgYSB2YXJpYWJsZSBpbiBwcm9iZSBzL2F4aS9h
-cGIvCgp2MjoKLSB0cnkgdGhlIG5ldyByZWcgZm9ybWF0IGJlZm9yZSB0aGUgb2xkIG9uZSB0byBh
-dm9pZCB3YXJuaW5ncyBpbiB0aGUKICBnb29kIGNhc2UKLSByZXdvcmQgJHN1YmplY3QgZm9yIDIv
-MgoKQ0M6IERhaXJlIE1jTmFtYXJhIDxkYWlyZS5tY25hbWFyYUBtaWNyb2NoaXAuY29tPgpDQzog
-TG9yZW56byBQaWVyYWxpc2kgPGxwaWVyYWxpc2lAa2VybmVsLm9yZz4KQ0M6IEtyenlzenRvZiBX
-aWxjennFhHNraSA8a3dAbGludXguY29tPgpDQzogUm9iIEhlcnJpbmcgPHJvYmhAa2VybmVsLm9y
-Zz4KQ0M6IEJqb3JuIEhlbGdhYXMgPGJoZWxnYWFzQGdvb2dsZS5jb20+CkNDOiBLcnp5c3p0b2Yg
-S296bG93c2tpIDxrcnprK2R0QGtlcm5lbC5vcmc+CkNDOiBDb25vciBEb29sZXkgPGNvbm9yK2R0
-QGtlcm5lbC5vcmc+CkNDOiBsaW51eC1wY2lAdmdlci5rZXJuZWwub3JnCkNDOiBkZXZpY2V0cmVl
-QHZnZXIua2VybmVsLm9yZwpDQzogbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZwpDQzogbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwoKQ29ub3IgRG9vbGV5ICgyKToKICBkdC1iaW5k
-aW5nczogUENJOiBtaWNyb2NoaXAscGNpZS1ob3N0OiBmaXggcmVnIHByb3BlcnRpZXMKICBQQ0k6
-IG1pY3JvY2hpcDogcmV3b3JrIHJlZyByZWdpb24gaGFuZGluZyB0byBzdXBwb3J0IHVzaW5nIGVp
-dGhlcgogICAgaW5zdGFuY2UgMSBvciAyCgogLi4uL2JpbmRpbmdzL3BjaS9taWNyb2NoaXAscGNp
-ZS1ob3N0LnlhbWwgICAgIHwgIDExICstCiAuLi4vcGNpL3BsZGEseHByZXNzcmljaDMtYXhpLWNv
-bW1vbi55YW1sICAgICAgfCAgMTQgKystCiAuLi4vYmluZGluZ3MvcGNpL3N0YXJmaXZlLGpoNzEx
-MC1wY2llLnlhbWwgICAgfCAgIDcgKysKIC4uLi9wY2kvY29udHJvbGxlci9wbGRhL3BjaWUtbWlj
-cm9jaGlwLWhvc3QuYyB8IDExNiArKysrKysrKystLS0tLS0tLS0KIDQgZmlsZXMgY2hhbmdlZCwg
-ODcgaW5zZXJ0aW9ucygrKSwgNjEgZGVsZXRpb25zKC0pCgotLSAKMi40My4wCgoKX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGlu
-ZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJh
-ZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+From: Conor Dooley <conor.dooley@microchip.com>
+
+The PCI host controller on PolarFire SoC has multiple "instances", each
+with their own bridge and ctrl address spaces. The original binding has
+an "apb" register region, and it is expected to be set to the base
+address of the host controllers register space. Some defines in the
+Linux driver were used to compute the addresses of the bridge and ctrl
+address ranges corresponding to instance1. Some customers want to use
+instance2 however and that requires changing the defines in the driver,
+which is clearly not a portable solution.
+
+Remove this "apb" register region from the binding and add "bridge" &
+"ctrl" regions instead, that will directly communicate the address of
+these regions
+
+Fixes: 6ee6c89aac35 ("dt-bindings: PCI: microchip: Add Microchip PolarFire host binding")
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Acked-by: Daire McNamara <daire.mcnamara@microchip.com>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ .../bindings/pci/microchip,pcie-host.yaml          | 11 +++++++++--
+ .../bindings/pci/plda,xpressrich3-axi-common.yaml  | 14 ++++++++++----
+ .../bindings/pci/starfive,jh7110-pcie.yaml         |  7 +++++++
+ 3 files changed, 26 insertions(+), 6 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml b/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
+index 612633ba59e2..2e1547569702 100644
+--- a/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
++++ b/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
+@@ -17,6 +17,12 @@ properties:
+   compatible:
+     const: microchip,pcie-host-1.0 # PolarFire
+ 
++  reg:
++    minItems: 3
++
++  reg-names:
++    minItems: 3
++
+   clocks:
+     description:
+       Fabric Interface Controllers, FICs, are the interface between the FPGA
+@@ -62,8 +68,9 @@ examples:
+             pcie0: pcie@2030000000 {
+                     compatible = "microchip,pcie-host-1.0";
+                     reg = <0x0 0x70000000 0x0 0x08000000>,
+-                          <0x0 0x43000000 0x0 0x00010000>;
+-                    reg-names = "cfg", "apb";
++                          <0x0 0x43008000 0x0 0x00002000>,
++                          <0x0 0x4300a000 0x0 0x00002000>;
++                    reg-names = "cfg", "bridge", "ctrl";
+                     device_type = "pci";
+                     #address-cells = <3>;
+                     #size-cells = <2>;
+diff --git a/Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml b/Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml
+index 7a57a80052a0..039eecdbd6aa 100644
+--- a/Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml
++++ b/Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml
+@@ -18,12 +18,18 @@ allOf:
+ 
+ properties:
+   reg:
+-    maxItems: 2
++    maxItems: 3
++    minItems: 2
+ 
+   reg-names:
+-    items:
+-      - const: cfg
+-      - const: apb
++    oneOf:
++      - items:
++          - const: cfg
++          - const: apb
++      - items:
++          - const: cfg
++          - const: bridge
++          - const: ctrl
+ 
+   interrupts:
+     minItems: 1
+diff --git a/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml b/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
+index 67151aaa3948..5f432452c815 100644
+--- a/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
++++ b/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
+@@ -16,6 +16,13 @@ properties:
+   compatible:
+     const: starfive,jh7110-pcie
+ 
++
++  reg:
++    maxItems: 2
++
++  reg-names:
++    maxItems: 2
++
+   clocks:
+     items:
+       - description: NOC bus clock
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
