@@ -4,93 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E581C3DA4A
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Aug 2024 14:58:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF137C52D7B
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Aug 2024 15:12:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QOH8QatUQRVVMzzmtOt3VXnyduG082SUQD/LaWMZCJs=; b=YhQKGdfWfHRBOc
-	x+nLQi2rS0/U/67ZOZsL6bskPhBYx68S6tIDSt3ALtGHR6PZ9eyYanJczw8jN2d4xa/wN+Ehgfmai
-	Ovx+0PQTPVzv5yea/DAYPGizTALwQKu4jc+5AyvqluwouqQT9sywWd0dzTnMEFp86jubtwFbtHmh0
-	Yj02JfzfbNqNB0fGQAIN9L3QsCte5iSWIiVFIgVqlytbsW3VON3LiqSjdksvtH3Hynin/e1ZxzUwI
-	6eZ5SvFqM/rNyF8gbhKzCZfazRnQhayHa+Tv5MND/TAPGv0g2drEgRHegrEUgIhA/bitzIapWmDeJ
-	Jd9Bms3rzOs1kyCwDVIw==;
+	List-Owner; bh=suy6bTmMwQx7ImEeOzfPYoWCP7EeGCkveQYs+rPhd9g=; b=WcobCawC1vmEMC
+	R9uty2Xwx9LzIHxKsdN89UKfznRx3twdjz75oxn3uOGCA3dgeLSmDNt5DGl9A+e4dQ7Mvkjxj2/tf
+	FmY6CUuY9P3LBXFN5IK6TuXz2NJ+SI3YgvtTCUajjf53Eqy2K9vJ39QHD+snj7njirVI34kj1+//W
+	HRfEWiWbCPh5IFouK61wEOzc9leS1khgZ8Em43PVYXi9S3bQMDZu9FR70o2fUy7porIppFwoQ7LvY
+	DxwlpD+KwPo6p46T1KP4bABI+NYlwSP9d27mQfs/RWov7fPnA44ir0hWZDxsfxCMQYjy5KWHbxQJV
+	KOF5nOus92K3i71WNfsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1seFRy-00000007OVo-0nG5;
-	Wed, 14 Aug 2024 14:58:10 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1seFfY-00000007RNL-1uVv;
+	Wed, 14 Aug 2024 15:12:12 +0000
+Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1seFQq-00000007O6Z-3QRE
+	id 1seFdZ-00000007R11-2az2
 	for linux-riscv@lists.infradead.org;
-	Wed, 14 Aug 2024 14:57:03 +0000
-Received: from mail-ej1-f69.google.com (mail-ej1-f69.google.com [209.85.218.69])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 81D2F4597C
-	for <linux-riscv@lists.infradead.org>; Wed, 14 Aug 2024 14:56:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1723647417;
-	bh=yjCwWNcb2RwBz1G+TBCUPH+94PCiJ1raP+HTH6kWRGU=;
-	h=From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version;
-	b=qWKTCIXzF5FbcTl5TErntFpJRRt0vupjKJKQPx5CtjG6ItCDKQ2WueyyleigL+IWv
-	 MF6pWbd2+zNfjKlDZ3iHqe/ZCQLLZm9WN6BfcJ++JvyQlVICjuKdbP5FYFIYrTEMfz
-	 Houn23KiigVW27DEMEKpQo0VVsHjoKKa5LjUSZ99oAwZv+Ulc+ykfGaD1rFzPVCh3U
-	 MaL5NzZ7PJLJMIO2Lyq5+JirYCzOURCZDL1nSPEDnwaz6qf8JTBSvQlWmbo9+aJco9
-	 M3tzYCEIXE1ttHeHlMeO2n/Yy5lWywZZd1LyjfHBSR8bBpv30vVUhN0k8EwpqMJglQ
-	 l8LlIBACmKIgQ==
-Received: by mail-ej1-f69.google.com with SMTP id a640c23a62f3a-a7a8281dba5so558814366b.3
-        for <linux-riscv@lists.infradead.org>; Wed, 14 Aug 2024 07:56:57 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1723647413; x=1724252213;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=yjCwWNcb2RwBz1G+TBCUPH+94PCiJ1raP+HTH6kWRGU=;
-        b=PGhVtrTejz/+1RgcmYoSiocNRBQepS9UPNr9iDt2JnSk8rAduR52LuldxkQBanbcBf
-         +TMaYiD6Ogz4Cgn1EJmcUOGmXF7RFU+8NOqRo8T2EVb46YQQuX/1dKswZFtp6stSa0SP
-         pMpdkkIJeGxCOeq54Y2d0AaempgasEeB4ndJD/1E04D8TH1zl6iK9I7hsaaRAJDZBHvZ
-         alFncJ6NA3WkbOGcCRVhSXcOgo14MVcavrGgntkEGc3Y3zVpJZomrsJhfbsPp8Mzp8Ej
-         e+jwabmrBnhDqyr3Qm5SA0PocT80ZDYefntfB4nvW1Wyv/eK8hKTPYU20VNBd5e+J52p
-         SG7Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXGSnyUHgo73HmHLCU4GADGH5fJBX6rHE3GLwDMIoB5k23JzblSM9bXr/Ioh6/XqE8PhhItxm0tm8e66wWhsf5EMC4GA4n7hYGOeI2nTzpP
-X-Gm-Message-State: AOJu0Ywee9tUWz/90dtWlU1Igc0VxAd13pzEOEjaNHD2LE7Na3vI8e9/
-	0ozoQbhe/DWqSCGL/GXNA+4HNAe2Xj7Stn/lmrUQy9R75aliRTcAdbgAMA/dZms2XfFsXCmykei
-	L7mF+oq5QrpxqWNYHSDnrFPKTLqFme+IH6W3WvPeXP8ylMVyA58begeFnuUfcXtsn2QtjjyE4qv
-	wnU6vsEPSSkVcVEA==
-X-Received: by 2002:a17:906:d24f:b0:a7a:ae85:f24d with SMTP id a640c23a62f3a-a83670156afmr183670066b.51.1723647412768;
-        Wed, 14 Aug 2024 07:56:52 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHHaDsSWoa2KsGlc6OyPJgRDW+q0rWS6QSZ3gIEWLEGWbf/cNuU3Zj/MyvRCW2i/aNyUts1xw==
-X-Received: by 2002:a17:906:d24f:b0:a7a:ae85:f24d with SMTP id a640c23a62f3a-a83670156afmr183667066b.51.1723647412019;
-        Wed, 14 Aug 2024 07:56:52 -0700 (PDT)
-Received: from stitch.. ([2a01:4262:1ab:c:bbf4:eba3:898f:7501])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a80f411bdcbsm182316866b.105.2024.08.14.07.56.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Aug 2024 07:56:51 -0700 (PDT)
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-To: linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Anup Patel <apatel@ventanamicro.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Subject: [PATCH v1 9/9] Revert "irqchip/sifive-plic: Convert PLIC driver into a platform driver"
-Date: Wed, 14 Aug 2024 16:56:41 +0200
-Message-ID: <20240814145642.344485-10-emil.renner.berthing@canonical.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240814145642.344485-1-emil.renner.berthing@canonical.com>
-References: <20240814145642.344485-1-emil.renner.berthing@canonical.com>
+	Wed, 14 Aug 2024 15:10:12 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 069D6E000B;
+	Wed, 14 Aug 2024 15:10:02 +0000 (UTC)
+Message-ID: <35e8386f-854a-48d5-8c03-7a53f8ca3292@ghiti.fr>
+Date: Wed, 14 Aug 2024 17:10:02 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 05/10] riscv: Add support for the tagged address ABI
+Content-Language: en-US
+To: Samuel Holland <samuel.holland@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org
+Cc: devicetree@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
+ linux-kernel@vger.kernel.org, Anup Patel <anup@brainfault.org>,
+ Conor Dooley <conor@kernel.org>, kasan-dev@googlegroups.com,
+ Atish Patra <atishp@atishpatra.org>, Evgenii Stepanov <eugenis@google.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Rob Herring <robh+dt@kernel.org>,
+ "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+References: <20240814081437.956855-1-samuel.holland@sifive.com>
+ <20240814081437.956855-6-samuel.holland@sifive.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20240814081437.956855-6-samuel.holland@sifive.com>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240814_075701_020423_D1C7B30B 
-X-CRM114-Status: GOOD (  19.46  )
+X-CRM114-CacheID: sfid-20240814_081010_006368_FF63DE27 
+X-CRM114-Status: GOOD (  38.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,202 +63,351 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This reverts commit 8ec99b033147ef3bb8f0a560c24eb1baec3bc0be.
+On 14/08/2024 10:13, Samuel Holland wrote:
+> When pointer masking is enabled for userspace, the kernel can accept
+> tagged pointers as arguments to some system calls. Allow this by
+> untagging the pointers in access_ok() and the uaccess routines. The
+> uaccess routines must peform untagging in software because U-mode and
+> S-mode have entirely separate pointer masking configurations. In fact,
+> hardware may not even implement pointer masking for S-mode.
+>
+> Since the number of tag bits is variable, untagged_addr_remote() needs
+> to know what PMLEN to use for the remote mm. Therefore, the pointer
+> masking mode must be the same for all threads sharing an mm. Enforce
+> this with a lock flag in the mm context, as x86 does for LAM. The flag
+> gets reset in init_new_context() during fork(), as the new mm is no
+> longer multithreaded.
+>
+> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+> ---
+>
+> Changes in v3:
+>   - Use IS_ENABLED instead of #ifdef when possible
+>   - Implement mm_untag_mask()
+>   - Remove pmlen from struct thread_info (now only in mm_context_t)
+>
+> Changes in v2:
+>   - Implement untagged_addr_remote()
+>   - Restrict PMLEN changes once a process is multithreaded
+>
+>   arch/riscv/include/asm/mmu.h         |  7 +++
+>   arch/riscv/include/asm/mmu_context.h | 13 +++++
+>   arch/riscv/include/asm/uaccess.h     | 58 ++++++++++++++++++++--
+>   arch/riscv/kernel/process.c          | 73 ++++++++++++++++++++++++++--
+>   4 files changed, 141 insertions(+), 10 deletions(-)
+>
+> diff --git a/arch/riscv/include/asm/mmu.h b/arch/riscv/include/asm/mmu.h
+> index c9e03e9da3dc..1cc90465d75b 100644
+> --- a/arch/riscv/include/asm/mmu.h
+> +++ b/arch/riscv/include/asm/mmu.h
+> @@ -25,9 +25,16 @@ typedef struct {
+>   #ifdef CONFIG_BINFMT_ELF_FDPIC
+>   	unsigned long exec_fdpic_loadmap;
+>   	unsigned long interp_fdpic_loadmap;
+> +#endif
+> +	unsigned long flags;
+> +#ifdef CONFIG_RISCV_ISA_SUPM
+> +	u8 pmlen;
+>   #endif
+>   } mm_context_t;
+>   
+> +/* Lock the pointer masking mode because this mm is multithreaded */
+> +#define MM_CONTEXT_LOCK_PMLEN	0
+> +
+>   #define cntx2asid(cntx)		((cntx) & SATP_ASID_MASK)
+>   #define cntx2version(cntx)	((cntx) & ~SATP_ASID_MASK)
+>   
+> diff --git a/arch/riscv/include/asm/mmu_context.h b/arch/riscv/include/asm/mmu_context.h
+> index 7030837adc1a..8c4bc49a3a0f 100644
+> --- a/arch/riscv/include/asm/mmu_context.h
+> +++ b/arch/riscv/include/asm/mmu_context.h
+> @@ -20,6 +20,9 @@ void switch_mm(struct mm_struct *prev, struct mm_struct *next,
+>   static inline void activate_mm(struct mm_struct *prev,
+>   			       struct mm_struct *next)
+>   {
+> +#ifdef CONFIG_RISCV_ISA_SUPM
+> +	next->context.pmlen = 0;
+> +#endif
+>   	switch_mm(prev, next, NULL);
+>   }
+>   
+> @@ -30,11 +33,21 @@ static inline int init_new_context(struct task_struct *tsk,
+>   #ifdef CONFIG_MMU
+>   	atomic_long_set(&mm->context.id, 0);
+>   #endif
+> +	if (IS_ENABLED(CONFIG_RISCV_ISA_SUPM))
+> +		clear_bit(MM_CONTEXT_LOCK_PMLEN, &mm->context.flags);
+>   	return 0;
+>   }
+>   
+>   DECLARE_STATIC_KEY_FALSE(use_asid_allocator);
+>   
+> +#ifdef CONFIG_RISCV_ISA_SUPM
+> +#define mm_untag_mask mm_untag_mask
+> +static inline unsigned long mm_untag_mask(struct mm_struct *mm)
+> +{
+> +	return -1UL >> mm->context.pmlen;
+> +}
+> +#endif
+> +
+>   #include <asm-generic/mmu_context.h>
+>   
+>   #endif /* _ASM_RISCV_MMU_CONTEXT_H */
+> diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
+> index 72ec1d9bd3f3..6416559232a2 100644
+> --- a/arch/riscv/include/asm/uaccess.h
+> +++ b/arch/riscv/include/asm/uaccess.h
+> @@ -9,8 +9,56 @@
+>   #define _ASM_RISCV_UACCESS_H
+>   
+>   #include <asm/asm-extable.h>
+> +#include <asm/cpufeature.h>
+>   #include <asm/pgtable.h>		/* for TASK_SIZE */
+>   
+> +#ifdef CONFIG_RISCV_ISA_SUPM
+> +static inline unsigned long __untagged_addr(unsigned long addr)
+> +{
+> +	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SUPM)) {
+> +		u8 pmlen = current->mm->context.pmlen;
+> +
+> +		/* Virtual addresses are sign-extended; physical addresses are zero-extended. */
+> +		if (IS_ENABLED(CONFIG_MMU))
+> +			return (long)(addr << pmlen) >> pmlen;
+> +		else
+> +			return (addr << pmlen) >> pmlen;
+> +	}
+> +
+> +	return addr;
+> +}
+> +
+> +#define untagged_addr(addr) ({						\
+> +	unsigned long __addr = (__force unsigned long)(addr);		\
+> +	(__force __typeof__(addr))__untagged_addr(__addr);		\
+> +})
+> +
+> +static inline unsigned long __untagged_addr_remote(struct mm_struct *mm, unsigned long addr)
+> +{
+> +	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SUPM)) {
+> +		u8 pmlen = mm->context.pmlen;
+> +
+> +		/* Virtual addresses are sign-extended; physical addresses are zero-extended. */
+> +		if (IS_ENABLED(CONFIG_MMU))
+> +			return (long)(addr << pmlen) >> pmlen;
+> +		else
+> +			return (addr << pmlen) >> pmlen;
+> +	}
+> +
+> +	return addr;
+> +}
 
-This change makes the Allwinner D1 SoC lock up at boot as described in
-the thread below.
 
-Link: https://lore.kernel.org/linux-riscv/CAJM55Z9hGKo4784N3s3DhWw=nMRKZKcmvZ58x7uVBghExhoc9A@mail.gmail.com/
-Fixes: 8ec99b033147 ("irqchip/sifive-plic: Convert PLIC driver into a platform driver")
-Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
----
- drivers/irqchip/irq-sifive-plic.c | 103 ++++++++++++------------------
- 1 file changed, 41 insertions(+), 62 deletions(-)
+I should have mentioned that in v2: now that you removed the thread_info 
+pmlen field, __untagged_addr_remote() and __untagged_addr() are almost 
+the same, can you merge them?
 
-diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index ac274e1166c3..bf0b40b0fad4 100644
---- a/drivers/irqchip/irq-sifive-plic.c
-+++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -64,7 +64,6 @@
- #define PLIC_QUIRK_EDGE_INTERRUPT	0
- 
- struct plic_priv {
--	struct device *dev;
- 	struct cpumask lmask;
- 	struct irq_domain *irqdomain;
- 	void __iomem *regs;
-@@ -413,50 +412,30 @@ static int plic_starting_cpu(unsigned int cpu)
- 	return 0;
- }
- 
--static const struct of_device_id plic_match[] = {
--	{ .compatible = "sifive,plic-1.0.0" },
--	{ .compatible = "riscv,plic0" },
--	{ .compatible = "andestech,nceplic100",
--	  .data = (const void *)BIT(PLIC_QUIRK_EDGE_INTERRUPT) },
--	{ .compatible = "thead,c900-plic",
--	  .data = (const void *)BIT(PLIC_QUIRK_EDGE_INTERRUPT) },
--	{}
--};
--
--static int plic_probe(struct platform_device *pdev)
-+static int __init __plic_init(struct device_node *node,
-+			      struct device_node *parent,
-+			      unsigned long plic_quirks)
- {
- 	int error = 0, nr_contexts, nr_handlers = 0, i;
--	struct device *dev = &pdev->dev;
--	unsigned long plic_quirks = 0;
--	struct plic_handler *handler;
--	struct plic_priv *priv;
--	bool cpuhp_setup;
--	unsigned int cpu;
- 	u32 nr_irqs;
--
--	if (is_of_node(dev->fwnode)) {
--		const struct of_device_id *id;
--
--		id = of_match_node(plic_match, to_of_node(dev->fwnode));
--		if (id)
--			plic_quirks = (unsigned long)id->data;
--	}
-+	struct plic_priv *priv;
-+	struct plic_handler *handler;
-+	unsigned int cpu;
- 
- 	priv = kzalloc(sizeof(*priv), GFP_KERNEL);
- 	if (!priv)
- 		return -ENOMEM;
- 
--	priv->dev = dev;
- 	priv->plic_quirks = plic_quirks;
- 
--	priv->regs = of_iomap(to_of_node(dev->fwnode), 0);
-+	priv->regs = of_iomap(node, 0);
- 	if (WARN_ON(!priv->regs)) {
- 		error = -EIO;
- 		goto out_free_priv;
- 	}
- 
- 	error = -EINVAL;
--	of_property_read_u32(to_of_node(dev->fwnode), "riscv,ndev", &nr_irqs);
-+	of_property_read_u32(node, "riscv,ndev", &nr_irqs);
- 	if (WARN_ON(!nr_irqs))
- 		goto out_iounmap;
- 
-@@ -466,13 +445,13 @@ static int plic_probe(struct platform_device *pdev)
- 	if (!priv->prio_save)
- 		goto out_free_priority_reg;
- 
--	nr_contexts = of_irq_count(to_of_node(dev->fwnode));
-+	nr_contexts = of_irq_count(node);
- 	if (WARN_ON(!nr_contexts))
- 		goto out_free_priority_reg;
- 
- 	error = -ENOMEM;
--	priv->irqdomain = irq_domain_add_linear(to_of_node(dev->fwnode), nr_irqs + 1,
--						&plic_irqdomain_ops, priv);
-+	priv->irqdomain = irq_domain_add_linear(node, nr_irqs + 1,
-+			&plic_irqdomain_ops, priv);
- 	if (WARN_ON(!priv->irqdomain))
- 		goto out_free_priority_reg;
- 
-@@ -482,7 +461,7 @@ static int plic_probe(struct platform_device *pdev)
- 		int cpu;
- 		unsigned long hartid;
- 
--		if (of_irq_parse_one(to_of_node(dev->fwnode), i, &parent)) {
-+		if (of_irq_parse_one(node, i, &parent)) {
- 			pr_err("failed to parse parent for context %d.\n", i);
- 			continue;
- 		}
-@@ -518,7 +497,7 @@ static int plic_probe(struct platform_device *pdev)
- 
- 		/* Find parent domain and register chained handler */
- 		if (!plic_parent_irq && irq_find_host(parent.np)) {
--			plic_parent_irq = irq_of_parse_and_map(to_of_node(dev->fwnode), i);
-+			plic_parent_irq = irq_of_parse_and_map(node, i);
- 			if (plic_parent_irq)
- 				irq_set_chained_handler(plic_parent_irq,
- 							plic_handle_irq);
-@@ -560,29 +539,20 @@ static int plic_probe(struct platform_device *pdev)
- 
- 	/*
- 	 * We can have multiple PLIC instances so setup cpuhp state
--	 * and register syscore operations only once after context
--	 * handlers of all online CPUs are initialized.
-+	 * and register syscore operations only when context handler
-+	 * for current/boot CPU is present.
- 	 */
--	if (!plic_cpuhp_setup_done) {
--		cpuhp_setup = true;
--		for_each_online_cpu(cpu) {
--			handler = per_cpu_ptr(&plic_handlers, cpu);
--			if (!handler->present) {
--				cpuhp_setup = false;
--				break;
--			}
--		}
--		if (cpuhp_setup) {
--			cpuhp_setup_state(CPUHP_AP_IRQ_SIFIVE_PLIC_STARTING,
--					  "irqchip/sifive/plic:starting",
--					  plic_starting_cpu, plic_dying_cpu);
--			register_syscore_ops(&plic_irq_syscore_ops);
--			plic_cpuhp_setup_done = true;
--		}
-+	handler = this_cpu_ptr(&plic_handlers);
-+	if (handler->present && !plic_cpuhp_setup_done) {
-+		cpuhp_setup_state(CPUHP_AP_IRQ_SIFIVE_PLIC_STARTING,
-+				  "irqchip/sifive/plic:starting",
-+				  plic_starting_cpu, plic_dying_cpu);
-+		register_syscore_ops(&plic_irq_syscore_ops);
-+		plic_cpuhp_setup_done = true;
- 	}
- 
--	pr_info("%pOFP: mapped %d interrupts with %d handlers for %d contexts.\n",
--		to_of_node(dev->fwnode), nr_irqs, nr_handlers, nr_contexts);
-+	pr_info("%pOFP: mapped %d interrupts with %d handlers for"
-+		" %d contexts.\n", node, nr_irqs, nr_handlers, nr_contexts);
- 	return 0;
- 
- out_free_enable_reg:
-@@ -599,11 +569,20 @@ static int plic_probe(struct platform_device *pdev)
- 	return error;
- }
- 
--static struct platform_driver plic_driver = {
--	.driver = {
--		.name		= "riscv-plic",
--		.of_match_table	= plic_match,
--	},
--	.probe = plic_probe,
--};
--builtin_platform_driver(plic_driver);
-+static int __init plic_init(struct device_node *node,
-+			    struct device_node *parent)
-+{
-+	return __plic_init(node, parent, 0);
-+}
-+
-+IRQCHIP_DECLARE(sifive_plic, "sifive,plic-1.0.0", plic_init);
-+IRQCHIP_DECLARE(riscv_plic0, "riscv,plic0", plic_init); /* for legacy systems */
-+
-+static int __init plic_edge_init(struct device_node *node,
-+				 struct device_node *parent)
-+{
-+	return __plic_init(node, parent, BIT(PLIC_QUIRK_EDGE_INTERRUPT));
-+}
-+
-+IRQCHIP_DECLARE(andestech_nceplic100, "andestech,nceplic100", plic_edge_init);
-+IRQCHIP_DECLARE(thead_c900_plic, "thead,c900-plic", plic_edge_init);
--- 
-2.43.0
+Thanks!
 
+Alex
+
+
+> +
+> +#define untagged_addr_remote(mm, addr) ({				\
+> +	unsigned long __addr = (__force unsigned long)(addr);		\
+> +	mmap_assert_locked(mm);						\
+> +	(__force __typeof__(addr))__untagged_addr_remote(mm, __addr);	\
+> +})
+> +
+> +#define access_ok(addr, size) likely(__access_ok(untagged_addr(addr), size))
+> +#else
+> +#define untagged_addr(addr) (addr)
+> +#endif
+> +
+>   /*
+>    * User space memory access functions
+>    */
+> @@ -130,7 +178,7 @@ do {								\
+>    */
+>   #define __get_user(x, ptr)					\
+>   ({								\
+> -	const __typeof__(*(ptr)) __user *__gu_ptr = (ptr);	\
+> +	const __typeof__(*(ptr)) __user *__gu_ptr = untagged_addr(ptr); \
+>   	long __gu_err = 0;					\
+>   								\
+>   	__chk_user_ptr(__gu_ptr);				\
+> @@ -246,7 +294,7 @@ do {								\
+>    */
+>   #define __put_user(x, ptr)					\
+>   ({								\
+> -	__typeof__(*(ptr)) __user *__gu_ptr = (ptr);		\
+> +	__typeof__(*(ptr)) __user *__gu_ptr = untagged_addr(ptr); \
+>   	__typeof__(*__gu_ptr) __val = (x);			\
+>   	long __pu_err = 0;					\
+>   								\
+> @@ -293,13 +341,13 @@ unsigned long __must_check __asm_copy_from_user(void *to,
+>   static inline unsigned long
+>   raw_copy_from_user(void *to, const void __user *from, unsigned long n)
+>   {
+> -	return __asm_copy_from_user(to, from, n);
+> +	return __asm_copy_from_user(to, untagged_addr(from), n);
+>   }
+>   
+>   static inline unsigned long
+>   raw_copy_to_user(void __user *to, const void *from, unsigned long n)
+>   {
+> -	return __asm_copy_to_user(to, from, n);
+> +	return __asm_copy_to_user(untagged_addr(to), from, n);
+>   }
+>   
+>   extern long strncpy_from_user(char *dest, const char __user *src, long count);
+> @@ -314,7 +362,7 @@ unsigned long __must_check clear_user(void __user *to, unsigned long n)
+>   {
+>   	might_fault();
+>   	return access_ok(to, n) ?
+> -		__clear_user(to, n) : n;
+> +		__clear_user(untagged_addr(to), n) : n;
+>   }
+>   
+>   #define __get_kernel_nofault(dst, src, type, err_label)			\
+> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+> index 1280a7c4a412..f4d8e5c3bb84 100644
+> --- a/arch/riscv/kernel/process.c
+> +++ b/arch/riscv/kernel/process.c
+> @@ -203,6 +203,10 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+>   	unsigned long tls = args->tls;
+>   	struct pt_regs *childregs = task_pt_regs(p);
+>   
+> +	/* Ensure all threads in this mm have the same pointer masking mode. */
+> +	if (IS_ENABLED(CONFIG_RISCV_ISA_SUPM) && p->mm && (clone_flags & CLONE_VM))
+> +		set_bit(MM_CONTEXT_LOCK_PMLEN, &p->mm->context.flags);
+> +
+>   	memset(&p->thread.s, 0, sizeof(p->thread.s));
+>   
+>   	/* p->thread holds context to be restored by __switch_to() */
+> @@ -248,10 +252,16 @@ enum {
+>   static bool have_user_pmlen_7;
+>   static bool have_user_pmlen_16;
+>   
+> +/*
+> + * Control the relaxed ABI allowing tagged user addresses into the kernel.
+> + */
+> +static unsigned int tagged_addr_disabled;
+> +
+>   long set_tagged_addr_ctrl(struct task_struct *task, unsigned long arg)
+>   {
+> -	unsigned long valid_mask = PR_PMLEN_MASK;
+> +	unsigned long valid_mask = PR_PMLEN_MASK | PR_TAGGED_ADDR_ENABLE;
+>   	struct thread_info *ti = task_thread_info(task);
+> +	struct mm_struct *mm = task->mm;
+>   	unsigned long pmm;
+>   	u8 pmlen;
+>   
+> @@ -266,16 +276,41 @@ long set_tagged_addr_ctrl(struct task_struct *task, unsigned long arg)
+>   	 * in case choosing a larger PMLEN has a performance impact.
+>   	 */
+>   	pmlen = FIELD_GET(PR_PMLEN_MASK, arg);
+> -	if (pmlen == PMLEN_0)
+> +	if (pmlen == PMLEN_0) {
+>   		pmm = ENVCFG_PMM_PMLEN_0;
+> -	else if (pmlen <= PMLEN_7 && have_user_pmlen_7)
+> +	} else if (pmlen <= PMLEN_7 && have_user_pmlen_7) {
+> +		pmlen = PMLEN_7;
+>   		pmm = ENVCFG_PMM_PMLEN_7;
+> -	else if (pmlen <= PMLEN_16 && have_user_pmlen_16)
+> +	} else if (pmlen <= PMLEN_16 && have_user_pmlen_16) {
+> +		pmlen = PMLEN_16;
+>   		pmm = ENVCFG_PMM_PMLEN_16;
+> -	else
+> +	} else {
+>   		return -EINVAL;
+> +	}
+> +
+> +	/*
+> +	 * Do not allow the enabling of the tagged address ABI if globally
+> +	 * disabled via sysctl abi.tagged_addr_disabled, if pointer masking
+> +	 * is disabled for userspace.
+> +	 */
+> +	if (arg & PR_TAGGED_ADDR_ENABLE && (tagged_addr_disabled || !pmlen))
+> +		return -EINVAL;
+> +
+> +	if (!(arg & PR_TAGGED_ADDR_ENABLE))
+> +		pmlen = PMLEN_0;
+> +
+> +	if (mmap_write_lock_killable(mm))
+> +		return -EINTR;
+> +
+> +	if (test_bit(MM_CONTEXT_LOCK_PMLEN, &mm->context.flags) && mm->context.pmlen != pmlen) {
+> +		mmap_write_unlock(mm);
+> +		return -EBUSY;
+> +	}
+>   
+>   	envcfg_update_bits(task, ENVCFG_PMM, pmm);
+> +	mm->context.pmlen = pmlen;
+> +
+> +	mmap_write_unlock(mm);
+>   
+>   	return 0;
+>   }
+> @@ -288,6 +323,10 @@ long get_tagged_addr_ctrl(struct task_struct *task)
+>   	if (is_compat_thread(ti))
+>   		return -EINVAL;
+>   
+> +	/*
+> +	 * The mm context's pmlen is set only when the tagged address ABI is
+> +	 * enabled, so the effective PMLEN must be extracted from envcfg.PMM.
+> +	 */
+>   	switch (task->thread.envcfg & ENVCFG_PMM) {
+>   	case ENVCFG_PMM_PMLEN_7:
+>   		ret = FIELD_PREP(PR_PMLEN_MASK, PMLEN_7);
+> @@ -297,6 +336,9 @@ long get_tagged_addr_ctrl(struct task_struct *task)
+>   		break;
+>   	}
+>   
+> +	if (task->mm->context.pmlen)
+> +		ret |= PR_TAGGED_ADDR_ENABLE;
+> +
+>   	return ret;
+>   }
+>   
+> @@ -306,6 +348,24 @@ static bool try_to_set_pmm(unsigned long value)
+>   	return (csr_read_clear(CSR_ENVCFG, ENVCFG_PMM) & ENVCFG_PMM) == value;
+>   }
+>   
+> +/*
+> + * Global sysctl to disable the tagged user addresses support. This control
+> + * only prevents the tagged address ABI enabling via prctl() and does not
+> + * disable it for tasks that already opted in to the relaxed ABI.
+> + */
+> +
+> +static struct ctl_table tagged_addr_sysctl_table[] = {
+> +	{
+> +		.procname	= "tagged_addr_disabled",
+> +		.mode		= 0644,
+> +		.data		= &tagged_addr_disabled,
+> +		.maxlen		= sizeof(int),
+> +		.proc_handler	= proc_dointvec_minmax,
+> +		.extra1		= SYSCTL_ZERO,
+> +		.extra2		= SYSCTL_ONE,
+> +	},
+> +};
+> +
+>   static int __init tagged_addr_init(void)
+>   {
+>   	if (!riscv_has_extension_unlikely(RISCV_ISA_EXT_SUPM))
+> @@ -319,6 +379,9 @@ static int __init tagged_addr_init(void)
+>   	have_user_pmlen_7 = try_to_set_pmm(ENVCFG_PMM_PMLEN_7);
+>   	have_user_pmlen_16 = try_to_set_pmm(ENVCFG_PMM_PMLEN_16);
+>   
+> +	if (!register_sysctl("abi", tagged_addr_sysctl_table))
+> +		return -EINVAL;
+> +
+>   	return 0;
+>   }
+>   core_initcall(tagged_addr_init);
 
 _______________________________________________
 linux-riscv mailing list
