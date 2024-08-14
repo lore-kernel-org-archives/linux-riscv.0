@@ -4,126 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55C20C52D7C
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Aug 2024 00:51:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF6C3C52D7C
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Aug 2024 01:07:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6dGsNgehvriY/3sES0ZNnEh8rplCeGYE8vy6yzUU3OE=; b=tWPDByvLo6PYwrcrZ5jLBmj71N
-	PyHW4af96sxUU8Q9pML2RdKea86RowZK2oC9cVaoQvi2Rq2r7Bxo7n2dsLqCPudywyyypEAsp0fdz
-	k2HBmOXyPDUqixsjwQBAZoSXE33SR3H3YimbcRXveKYo7diXocV5xoj4flydvSWlduiHWS+Pt0D0I
-	sNyMIwem5diXLQt9vSzCUSXMGf+jYET/uy2aDgXLS/Njz48hw0p02N5D4IMZ6FaNG2nPaBz0l5KVy
-	13tQLD+am4eSfuxu8VavIp1MXLc5ZKBE/9FCljp6oETcV5SifRdxQ4rDHMKt3vU7ztxIdkT7CTUwm
-	HVzHyBlA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=30bSWrC9O5eVKKIl4Da+Xb1RKOL7lFPUmHzorwDU7/4=; b=eRbNORcAexLvLa
+	e+2xCOsv8Nc5DZkF7HqHDR4flTk+rkQ3XOC20LkRBEZ4pWhcZ/XYMc9/JKb7e0hyhI7XJFiujSH8r
+	dk+diL/zOs+QbFvJ/xz9CwnWWC5iducgfGmzO64zcFC0goEyqQ1X1GWed62qpMNn1uO5iUNRzGiaP
+	4H7Qgs2MZXA592z/dbdx+XilNGixulcN433J7QJYa0kaVbbbCCA3/7aPbfNL1aDp6mwc/c/3omc1x
+	jJoxwCsbdThkzJAypRJwvrVd30/Sf/WUNwwxTuRJbV109I2iX2uDwAB11+pQhzIGOydMOsn11YAKQ
+	cCitFnYL4I++qAjVtPIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1se2EL-00000005Ipl-1icV;
-	Wed, 14 Aug 2024 00:51:13 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1se2UM-00000005Kn1-3F9M;
+	Wed, 14 Aug 2024 01:07:46 +0000
+Received: from mail-bn1nam02olkn20806.outbound.protection.outlook.com ([2a01:111:f403:2c07::806] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1se2EI-00000005IpL-2rki
+	id 1se2UJ-00000005Kkt-152V
 	for linux-riscv@lists.infradead.org;
-	Wed, 14 Aug 2024 00:51:12 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-1fd90c2fc68so42432555ad.1
-        for <linux-riscv@lists.infradead.org>; Tue, 13 Aug 2024 17:51:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1723596670; x=1724201470; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=MqokAGWtlIdjeh5J6al0inMtByeR+m22lAwSRmhFIP4=;
-        b=OdTFf/OHrxKZ/Gkz0GfJwN/jjvFaYA/+F0ZIRy9vkRFMMwqjnnlk9XPLA/RJKgIhnS
-         4g6dm+GtH+f9D7tSIfdIt8cUR2elupC9OuHAwsbZB5YYY+FQaGPhIbCK4qFbqFLQWrBc
-         94EQwD1XU+tLUUig0SBf7UJ6QUsEUma+PtgCPte1ymg/aWGPsON7/icRfZjR4rXosePq
-         OSgXjQrWxrpZ0iroMYhby9zWr27Jk4UbYPYFqZ34ZL2Yb5jx3gZS8EltpDbf6h8a6Sfh
-         ckQCffSHaDI6ZKBBhrNq/sL1yfp5/2bf+3JNg8Hlxcm46v+iSTCA2TmZbzqeGZHqDW2x
-         LRmQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1723596670; x=1724201470;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MqokAGWtlIdjeh5J6al0inMtByeR+m22lAwSRmhFIP4=;
-        b=OmwCUNCZBCFyy6o+TbHjwkX+2puWd5/+TxwO2XEFrysx5ker1CyHDPLUmMfmvhHiw3
-         agUnyDibptP4QYGJ8WZr/ovyD5vbGNDh70Xfizk8t91IraB+/pq9cBLK8iFgp8yF7/aZ
-         g9pxb71fn1tWRQz+n2+MIXZPghW2MQen6HuAGGv7cUrvyfu2vYkSa93uBOloY+fxgF9P
-         7QvUCvlWNyWN2Dr+doE6wy2MhxKwbwvAaIBvVItQ80il4OnfwXL9nQBMQBHh0QYrhtjO
-         bQpEK3mZcJ3wK3GGXwFE7bqaD9NVp/hBJ9ddYOLC/83mYiJv88IUap8x7aC/HyAYBXS6
-         6wkg==
-X-Forwarded-Encrypted: i=1; AJvYcCVytL/nCcBCgo07uM9bwAIoNMwszjfkiKwCR/o/y2uj5yq/FoniRyp127L06TgKkzEUTDG5EMSN/CPgWd6NI/+t9IH/w6AXfaihIwdzZONN
-X-Gm-Message-State: AOJu0YweOGU40cU35ovWX27EuqjIJX+31reEuiIv23pYkwrQDEz7PkiX
-	WOWE1KA/AQWZN1RhsGwRp9aZoSjeTL1D2EAN68937M9r2K5oV4FbilVO2A==
-X-Google-Smtp-Source: AGHT+IEjcEusNP2EwTHeMIM7dAvVS+Itgk1tZJzCE9EhuGxRLmWxxHPSkb9YZXf4uztTeRPKTYmuQA==
-X-Received: by 2002:a17:902:c943:b0:1fd:9269:72f0 with SMTP id d9443c01a7336-201d64a5b41mr14997205ad.47.1723596669478;
-        Tue, 13 Aug 2024 17:51:09 -0700 (PDT)
-Received: from ?IPV6:2600:1700:e321:62f0:329c:23ff:fee3:9d7c? ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-201cd1d0b4esm19159665ad.288.2024.08.13.17.51.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 13 Aug 2024 17:51:08 -0700 (PDT)
-Message-ID: <d501bed8-ed06-41aa-b628-37ccd1bbb802@roeck-us.net>
-Date: Tue, 13 Aug 2024 17:51:05 -0700
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
+	Wed, 14 Aug 2024 01:07:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZLNtHd2Fr7YvQvXFC/jJ4ISTh8vZ/xXY2hKvZkBqs5gLKjYANVl8XS5iBhDLGMYRGwmDG6T8y1r5lnlLrIyEWLiA2HKSuoVYSv/dXmQ5d3iZhXZI/TwulUvny7ONXz04jkTw422hakKKUEuQvxTeUqWWaxWju4J/ofeV3c+jLdA4YQjY3uCScKdylUrB/lvKl7e7/iSQ+EP1jm6esy30k3tlXCB9Y1MR0lO9WXIh8OLTz3XzrHNDjqFuVJ5Ds5LflJjxrEz9dr/WikGYgulMz3OjmTdKlOTds+oZwl5zjsVFgqVJNvtPNDdRL49pXPdgCtU8gWnPHl3qtBC3HCWD3A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=f/CCAq4mtsaMmxBErVkkmFuQZwi+gHD26Yxjbvy+rbc=;
+ b=Po07KjoDczPMN78X2BDvWGqvfmrkC8fuqO72UOafMJyMktr0DjX9odN+GZYpyK9uVzIa33BRHuQuo18mHa6uFU4iDzFE9C14CJ7exRlb0z4NS3EZlmtB+fQ1E0x9BhwMbslG+n+K/TI2RQUXMIi2/JBLj2AMjSMbMUCPj9cGWLvPh57BKg4VPFfApNzyjChTIFLfCY7kUW/HM6tHrFz4PaWNqRMy4Tcl7dMgPUNTeBNtP94K1kAWFJbGNZHxEYkA2zgzYUuDP8Yo9SDCDmTqsDTGu1cAF4yWi7RB6I1wGUrDQ+Vt967solFQjQhBqBnTZsEy9qwCHPeS8lNMuNoKrw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=f/CCAq4mtsaMmxBErVkkmFuQZwi+gHD26Yxjbvy+rbc=;
+ b=Z+K83t1lMo3gWaZbz8d84SMrxWUtyWnyDKINjnWQguG/wE9HJJyDH/JmUhoub9u97wp0d/vLZ8m2I+17AkqHN5W8WqWncWpkHAdcPSqv8VQryEiMPDE7gN6PZTeo/oMsMgjmQen5GLOE7Nxt9Uh7ICwEn5PHys30P/Fwwzs+W+YusRTeJf1vnjDUjJqJVJraW1VVd2ZgKyTenf4mOydznrkzqUQbcQmSgezraUGDlNk5WFUUnIz+FotWVxGyAsSewyk9bZMAeJggdrby4zA0kv1434JzAvtg6x2Ae8mZ1MELmudnMXUF7uT2T0U7n1geMIRn+EuI/64lqLzUBETqfw==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by SJ0PR20MB4535.namprd20.prod.outlook.com (2603:10b6:a03:3ee::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7849.22; Wed, 14 Aug
+ 2024 01:07:27 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::ab0b:c0d3:1f91:d149]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::ab0b:c0d3:1f91:d149%4]) with mapi id 15.20.7849.021; Wed, 14 Aug 2024
+ 01:07:27 +0000
+Date: Wed, 14 Aug 2024 09:06:41 +0800
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Guenter Roeck <linux@roeck-us.net>, 
+	Inochi Amaoto <inochiama@outlook.com>
 Subject: Re: [PATCH v10 2/4] drivers: hwmon: sophgo: Add SG2042 external
  hardware monitor support
-To: Inochi Amaoto <inochiama@outlook.com>
+Message-ID: <IA1PR20MB49536A2A4E6F881059461905BB872@IA1PR20MB4953.namprd20.prod.outlook.com>
 References: <IA1PR20MB4953C5DB4AC5DF01236CE785BBBB2@IA1PR20MB4953.namprd20.prod.outlook.com>
  <IA1PR20MB4953936E4916334E1A234962BBBB2@IA1PR20MB4953.namprd20.prod.outlook.com>
  <0e30eab7-e202-4639-863d-85ce28525714@roeck-us.net>
  <IA1PR20MB495356094952242D9CD8A249BB872@IA1PR20MB4953.namprd20.prod.outlook.com>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
-In-Reply-To: <IA1PR20MB495356094952242D9CD8A249BB872@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <d501bed8-ed06-41aa-b628-37ccd1bbb802@roeck-us.net>
+Content-Disposition: inline
+In-Reply-To: <d501bed8-ed06-41aa-b628-37ccd1bbb802@roeck-us.net>
+X-TMN: [2LYm5BSi3x3/W0ekZ+HeYtlNuJWACdKbZbBWse5ThbE=]
+X-ClientProxiedBy: TY1PR01CA0200.jpnprd01.prod.outlook.com (2603:1096:403::30)
+ To IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <lnoayu6mix7cxyam4bmvivqocmhd4bqbk6l2w4gimjzaosb5n4@a62atv24yrfh>
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|SJ0PR20MB4535:EE_
+X-MS-Office365-Filtering-Correlation-Id: 925feb53-02a3-437c-04a2-08dcbbfd768c
+X-Microsoft-Antispam: BCL:0;ARA:14566002|5072599009|15080799003|19110799003|8060799006|461199028|3412199025|440099028|1710799026;
+X-Microsoft-Antispam-Message-Info: gp97T4VsyyVdYnXZSqOk+/SL9SAMejIaWVFXcHXnUz9xtREyRAt97Zk+Amax1YOAxeMzw4lsiU+KeTe6GJGSc2OfYNUNJORIoNEkypLAE5turIz7Ag84YF2xF/rSa6HNvftLx4ZR5FhxdVZolz3OSfR9X+6v8oN9kFi9Adbu5IbvhQhGtL16ght/z2yze0QX6NqT0dfUK7bTIDpGs6f04QPocvihBAo+kfA2WRmsQbywexjPl/R9zQ68mnFbwX7cHAq3HheAid2cM842XQNkvG2LLyClUtoj72LyfyWY9d8sTH4sjEt2MHzvXoMRRAzpn+xdkqWZubWi9jhEbzypgW+D7CXMMk2pZlBRe/z1eZQzq15pxHg9tErmDf8N82+0URC8WlcDA+94Cxo9oK5/0qOX7oJbuNoc0jsEwc+2IjEXKeNZFkK0xGH8K2VTXeK37pOz1D4OZbObASsQYBhyG4szIDeqZ1HNOnq6j93j72bvk3WPa4t1B+0jIWnm2teT30/ZQNWNbeXUOW85qIxHLRjNCq3twgPvhaswduENtMTVCPVODRXLl8c0jCt2RFHP4AW1UMdRNe3lAT4YG6qwfT25eYktpqZvEdXWohTuVXi7/fCuMuYGVYnvBnVPJ/OCrRrr60nSjvs8XOfAOt+u0iHW2ovLcC/ZfTSRLMMwOv6jZ/M4kWw4uGSbeuGcxrrR5jUgiYUjfc5wzfkNdxqCllq1NB8Zz4sFW9GFai9qaw4=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ErhbJG30zUVcaqQVZwF8Bsz4nw0CYYsfjKsVxb6b37zOqFYC5ga84vSKpgh4?=
+ =?us-ascii?Q?ZaVwYDqksODlASxUS7KCpytmvip1GEvX/8F8p/3R4p+/2hqgXA54g1IveqbN?=
+ =?us-ascii?Q?hdgnce7AcbYTiu47KSWjZjbzwQc2pCoqcCye04PcQ0xrWSUfP9yUkVQz84wF?=
+ =?us-ascii?Q?Gin/xRustp2SqNAIzJHLtWR9OaBtkJmp9rwSAhVL9JbfI5Bru/z9nU7yJaHa?=
+ =?us-ascii?Q?FH0G4TzF76Ldcxdhd8p/xZFsuBK+5mOFXwbO0nEYSU82c2x4WOMi9pKmRXPV?=
+ =?us-ascii?Q?RpqSAYyBsrmWE2y6/dhij2wVTffzdUh5vW9/2n1dShODmh447GOKlOOZdb5S?=
+ =?us-ascii?Q?8xa0y77QVN8F3X07i0iiu2gFsWzgBi95Z5s4TMsFHNQl+n9JWwaAk1ggob5R?=
+ =?us-ascii?Q?lruHeaha2XLFi3536iEvzXL31S3YUqcq9xrKRyLv17o56CTZMks3bG+SxzXu?=
+ =?us-ascii?Q?3V70ynORk4W6BtqD+tRuNF8FyCaa+Lst2kE+4z9LpBy603TRQMXOhM+BDWUp?=
+ =?us-ascii?Q?/De/Jhs/8C3qIOtxFjCD/sNAR0mXzYa1djBV2C+fFVFfK98czTxTVgZd+Qye?=
+ =?us-ascii?Q?Ny1bZN+4/IxE2qqauuzhsmZ0sS7sZpv65g6FXu8uLtt33T2Dv6/yM5VUoAAn?=
+ =?us-ascii?Q?2TOKy7oFrpB7EV1EXhPjmyVK/WruzmQGcPekFrtQ8BJ7L1pXtvYlwZa+ZCzV?=
+ =?us-ascii?Q?gUY7JY+zbKR/fw0rGR9ISqpg/ctJ1CyKOZYe5zF302/WRWY7FElCTgVZWf9f?=
+ =?us-ascii?Q?qZTeXjkVJQIKppG2bh2STZKFRhC+CipSoNj1Y6uXHkxVZ8RF3t5cJLXppgU3?=
+ =?us-ascii?Q?occcs9vET5VPCsxT29U66BkXhTYPqBIUFUJkig57BvZFEnb+ZtBXABMH0PNH?=
+ =?us-ascii?Q?F6ZnLzEMd1W527Vdo31qJayVKsYvZ3R2/Ab5QT/Y5twU1QrzaDmDCX8IAVv+?=
+ =?us-ascii?Q?JR0tIGd6eP5qOBe8galY6l/1D6rJepsBAl6W4OqTiWXtYg85AZiHwhsZ4W5y?=
+ =?us-ascii?Q?/r9uD8EzVtpfSHdS1IQWutOjlIQE2ygEwSb6T+Ms9RTLsvVOK6TmH8mXpq5d?=
+ =?us-ascii?Q?twKYv5sG1Tw6+pU3dL/Mb1hTqtC2T7M5fCLcGYqr4AYO9XGdMSVL8JSsmEoS?=
+ =?us-ascii?Q?BTWDmtHb5NgekboARS+jMoSvqeTvvWnHFim4mVpRUKTgd8QHgkrnKbrd9ZLP?=
+ =?us-ascii?Q?LkkJBFS41blXzBAWYAbo9ODPPu6sf9PvwUmCA8UH3dAENBNQxd9LWCbmrSVl?=
+ =?us-ascii?Q?VOCs+YWgh22tYmUka3fC?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 925feb53-02a3-437c-04a2-08dcbbfd768c
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2024 01:07:27.5995
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR20MB4535
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240813_175110_767200_1754BE16 
-X-CRM114-Status: GOOD (  14.93  )
+X-CRM114-CacheID: sfid-20240813_180744_103251_284B0188 
+X-CRM114-Status: GOOD (  23.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,107 +123,113 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: linux-hwmon@vger.kernel.org, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Jean Delvare <jdelvare@suse.com>, Drew Fustini <dfustini@baylibre.com>, Jonathan Corbet <corbet@lwn.net>, linux-kernel@vger.kernel.org, Chen Wang <unicorn_wang@outlook.com>, linux-doc@vger.kernel.org, Chao Wei <chao.wei@sophgo.com>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, Hal Feng <hal.feng@starfivetech.com>, devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Guo Ren <guoren@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 8/13/24 17:40, Inochi Amaoto wrote:
-> On Tue, Aug 13, 2024 at 11:27:11AM GMT, Guenter Roeck wrote:
->> On Sat, Aug 10, 2024 at 04:03:51PM +0800, Inochi Amaoto wrote:
->>> SG2042 use an external MCU to provide basic hardware information
->>> and thermal sensors.
->>>
->>> Add driver support for the onboard MCU of SG2042.
->>>
->>> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
->>> Tested-by: Chen Wang <unicorn_wang@outlook.com>
->>> Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
->>> ---
->>>   Documentation/hwmon/index.rst      |   1 +
->>>   Documentation/hwmon/sg2042-mcu.rst |  77 ++++++
->>>   drivers/hwmon/Kconfig              |  11 +
->>>   drivers/hwmon/Makefile             |   1 +
->>>   drivers/hwmon/sg2042-mcu.c         | 388 +++++++++++++++++++++++++++++
->>>   5 files changed, 478 insertions(+)
->>>   create mode 100644 Documentation/hwmon/sg2042-mcu.rst
->>>   create mode 100644 drivers/hwmon/sg2042-mcu.c
->>>
->>> diff --git a/Documentation/hwmon/index.rst b/Documentation/hwmon/index.rst
->>> index 913c11390a45..ea3b5be8fe4f 100644
->>> --- a/Documentation/hwmon/index.rst
->>> +++ b/Documentation/hwmon/index.rst
->>> @@ -206,6 +206,7 @@ Hardware Monitoring Kernel Drivers
->>>      sch5636
->>>      scpi-hwmon
->>>      sfctemp
->>> +   sg2042-mcu
->>>      sht15
->>>      sht21
->>>      sht3x
->>> diff --git a/Documentation/hwmon/sg2042-mcu.rst b/Documentation/hwmon/sg2042-mcu.rst
->>> new file mode 100644
->>> index 000000000000..18a3578ac213
->>> --- /dev/null
->>> +++ b/Documentation/hwmon/sg2042-mcu.rst
->>> @@ -0,0 +1,77 @@
->>> +.. SPDX-License-Identifier: GPL-2.0
->>> +
->>> +Kernel driver sg2042-mcu
->>> +========================
->>> +
->>> +Supported chips:
->>> +
->>> +  * Onboard MCU for sg2042
->>> +
->>> +    Addresses scanned: -
->>> +
->>> +    Prefix: 'sg2042-mcu'
->>> +
->>> +Authors:
->>> +
->>> +  - Inochi Amaoto <inochiama@outlook.com>
->>> +
->>> +Description
->>> +-----------
->>> +
->>> +This driver supprts hardware monitoring for onboard MCU with
->>> +i2c interface.
->>> +
->>> +Usage Notes
->>> +-----------
->>> +
->>> +This driver does not auto-detect devices. You will have to instantiate
->>> +the devices explicitly.
->>> +Please see Documentation/i2c/instantiating-devices.rst for details.
->>> +
->>> +Sysfs Attributes
->>> +----------------
->>> +
->>> +The following table shows the standard entries support by the driver:
->>> +
->>> +================= =====================================================
->>> +Name              Description
->>> +================= =====================================================
->>> +temp1_input       Measured temperature of SoC
->>> +temp1_crit        Critical high temperature
->>> +temp1_crit_hyst   hysteresis temperature restore from Critical
->>> +temp2_input       Measured temperature of the base board
->>> +================= =====================================================
->>> +
->>> +The following table shows the extra entries support by the platform:
->>> +
->>
->> Those are attached to the i2c device, which should be mentioned.
+On Tue, Aug 13, 2024 at 05:51:05PM GMT, Guenter Roeck wrote:
+> On 8/13/24 17:40, Inochi Amaoto wrote:
+> > On Tue, Aug 13, 2024 at 11:27:11AM GMT, Guenter Roeck wrote:
+> > > On Sat, Aug 10, 2024 at 04:03:51PM +0800, Inochi Amaoto wrote:
+> > > > SG2042 use an external MCU to provide basic hardware information
+> > > > and thermal sensors.
+> > > > 
+> > > > Add driver support for the onboard MCU of SG2042.
+> > > > 
+> > > > Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+> > > > Tested-by: Chen Wang <unicorn_wang@outlook.com>
+> > > > Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
+> > > > ---
+> > > >   Documentation/hwmon/index.rst      |   1 +
+> > > >   Documentation/hwmon/sg2042-mcu.rst |  77 ++++++
+> > > >   drivers/hwmon/Kconfig              |  11 +
+> > > >   drivers/hwmon/Makefile             |   1 +
+> > > >   drivers/hwmon/sg2042-mcu.c         | 388 +++++++++++++++++++++++++++++
+> > > >   5 files changed, 478 insertions(+)
+> > > >   create mode 100644 Documentation/hwmon/sg2042-mcu.rst
+> > > >   create mode 100644 drivers/hwmon/sg2042-mcu.c
+> > > > 
+> > > > diff --git a/Documentation/hwmon/index.rst b/Documentation/hwmon/index.rst
+> > > > index 913c11390a45..ea3b5be8fe4f 100644
+> > > > --- a/Documentation/hwmon/index.rst
+> > > > +++ b/Documentation/hwmon/index.rst
+> > > > @@ -206,6 +206,7 @@ Hardware Monitoring Kernel Drivers
+> > > >      sch5636
+> > > >      scpi-hwmon
+> > > >      sfctemp
+> > > > +   sg2042-mcu
+> > > >      sht15
+> > > >      sht21
+> > > >      sht3x
+> > > > diff --git a/Documentation/hwmon/sg2042-mcu.rst b/Documentation/hwmon/sg2042-mcu.rst
+> > > > new file mode 100644
+> > > > index 000000000000..18a3578ac213
+> > > > --- /dev/null
+> > > > +++ b/Documentation/hwmon/sg2042-mcu.rst
+> > > > @@ -0,0 +1,77 @@
+> > > > +.. SPDX-License-Identifier: GPL-2.0
+> > > > +
+> > > > +Kernel driver sg2042-mcu
+> > > > +========================
+> > > > +
+> > > > +Supported chips:
+> > > > +
+> > > > +  * Onboard MCU for sg2042
+> > > > +
+> > > > +    Addresses scanned: -
+> > > > +
+> > > > +    Prefix: 'sg2042-mcu'
+> > > > +
+> > > > +Authors:
+> > > > +
+> > > > +  - Inochi Amaoto <inochiama@outlook.com>
+> > > > +
+> > > > +Description
+> > > > +-----------
+> > > > +
+> > > > +This driver supprts hardware monitoring for onboard MCU with
+> > > > +i2c interface.
+> > > > +
+> > > > +Usage Notes
+> > > > +-----------
+> > > > +
+> > > > +This driver does not auto-detect devices. You will have to instantiate
+> > > > +the devices explicitly.
+> > > > +Please see Documentation/i2c/instantiating-devices.rst for details.
+> > > > +
+> > > > +Sysfs Attributes
+> > > > +----------------
+> > > > +
+> > > > +The following table shows the standard entries support by the driver:
+> > > > +
+> > > > +================= =====================================================
+> > > > +Name              Description
+> > > > +================= =====================================================
+> > > > +temp1_input       Measured temperature of SoC
+> > > > +temp1_crit        Critical high temperature
+> > > > +temp1_crit_hyst   hysteresis temperature restore from Critical
+> > > > +temp2_input       Measured temperature of the base board
+> > > > +================= =====================================================
+> > > > +
+> > > > +The following table shows the extra entries support by the platform:
+> > > > +
+> > > 
+> > > Those are attached to the i2c device, which should be mentioned.
+> > 
+> > I have mentioned this in the Description. Does this need to be
+> > mentioned here again?
+> > 
 > 
-> I have mentioned this in the Description. Does this need to be
-> mentioned here again?
+> Here is where it is needed.
+> 
+> Guenter
 > 
 
-Here is where it is needed.
+OK, thanks.
 
-Guenter
-
+Regard,
+Inochi
 
 _______________________________________________
 linux-riscv mailing list
