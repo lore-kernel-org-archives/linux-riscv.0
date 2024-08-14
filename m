@@ -4,64 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31AB4C52D7B
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Aug 2024 14:10:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8F55C531DD
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Aug 2024 14:10:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lYzZ6+9SedsbSzkHC6MiHpYuOuneVMiJwuPpd2UM0Mc=; b=LxjBKIgIMfDqeK
-	MrtjwCUCKI0nwVxMSrGjykNs3s8ABAhBTrIAdRUE2zF5Nafbnt0drWyFwwcFfOvuowGx8nSHb6oue
-	HvFCZ6UBAnXFsV65kcjrL5XVEJLSggapM5+d8KlLV7Wwh98fOlP+2HXM72F9gILa8QA2EA8qzljcp
-	lFDyUMAVwwoH/FRLG/n8xuk1kGNSlca2Hgudt+Q8PJJJNr/m0gRgXL1ar4hE1X8R6U8imIHw1D6+l
-	fKloocPU1XtoM9GU/Z9iOt+exmFsn3C+0fgzd+BDKiOK4Z87yPfQfP5b8WuFHEMhdxCpNRWy2WCL2
-	VKL+cAO44pT2Rk4Bwyuw==;
+	List-Owner; bh=1zlYMJGl0mezTFCjiuGeLauMk8K1GY3oOI6DBD+a21k=; b=bbUfmw3YGxB9T8
+	VgSYVwRaHZFhlR4i5EAh+m2g1FY+M+H2mpy5XufZUxM/X4ZQ3B8NzSmDzkuYl5IoncnAb5KC+g54R
+	hI1W9+iSOlfoCaIoyzu7JXFmDx2r3015PEadECyip6To8MWDDS+x430/Mlkng7ZpL10HQ7kw3jQ4e
+	ZK2cI59rJlYEWCjC3oFcod3QxdXqa2OqBjPAuk9ISyCg8xK8w+mk/8+t3mIBZAee8+ZJpPnsFYkpe
+	WJRxOnpCXQg0py7cV61Y7qsaz8SdYKhMRDSac7JIKxvKH1d8xUowp1o7dtQI4LnwBtux0AqcmXCfV
+	0yVotvxI56sJudXVatjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1seEi1-00000007DjS-2g9D;
-	Wed, 14 Aug 2024 14:10:41 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1seEi3-00000007DkA-1Yx5;
+	Wed, 14 Aug 2024 14:10:43 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1seEhw-00000007Dgh-2F1y
+	id 1seEhy-00000007DhM-2HZw
 	for linux-riscv@lists.infradead.org;
-	Wed, 14 Aug 2024 14:10:38 +0000
+	Wed, 14 Aug 2024 14:10:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0243561A9C;
-	Wed, 14 Aug 2024 14:10:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7960C4AF09;
-	Wed, 14 Aug 2024 14:10:35 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 767F261AA8;
+	Wed, 14 Aug 2024 14:10:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A7E3C4AF11;
+	Wed, 14 Aug 2024 14:10:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1723644635;
-	bh=4Trc9cKH0+hfthZTt1kzAJCq/T3A8YA1Frl1jUvaClw=;
+	s=k20201202; t=1723644637;
+	bh=YwGJUc3Z94a2A/QpganPxW/sR2FdyfIWklhxVLiY1pc=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=j7uswLlwb36kFUHgwH29C3zVPjw7WrCaKZCJRmmfzDtTNpHAvjxlqhW/Z7JKglJgd
-	 wXZtcsrCbNNQLaAe1hK4ivvtmOATrJxFunuv5UAAAxEw5naadKlkqD5TbjLsnKP14H
-	 zO/9bq3xyDDs54t13nXRdtp9PpIXNipsjBqgTArvnSnDB3UQek025yVZ9+3xSCoeM1
-	 HM9g7mle8TML8v0J+WB0iY0ydQfMboTsDMvDKy7t4cN1HCIcnwLc/YeK/+o43WqaGd
-	 /R0S9q2NlwAkOwwI6qhs1EXL6HTkizOe0Gw9NhPp42a+X9EwhrlgOuih8ACZMcfW8W
-	 2+z9cFirDGh+Q==
+	b=MjmJ2jaLU84+pDD5IquIjGIfwNDdEU8xQNthDY2vnRfi24oF1gp+NukNp8OoXfuDV
+	 jD4dcWuqouGxtetTgAtDRqHWkXrIHiWK3mj20cSttAKzc+QEanUl9RASmAaSU4j5cm
+	 /rPXK5XUc+mZZWxM9QK9nwsYxlq9BZQqu2OfESgcYfu+ZlLuRqYGG59EzHClrHTUL9
+	 KfH2EEFnQv8S3uRtDTkSICuDAUHSTtsdlUOrlXUTahgxNWDH1wYlg7QDvpbBYU1JPW
+	 tvmyjna3P1J7jY0wsOJtm7cdt0tVw3HkSzBQb2p5zra/2Vhq6O++y51raBEco1Tz59
+	 WaAcp1FoDYP+Q==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33E8938232A8;
-	Wed, 14 Aug 2024 14:10:36 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADEF338232A8;
+	Wed, 14 Aug 2024 14:10:37 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2] RISC-V: Enable IPI CPU Backtrace
+Subject: Re: [RFC PATCH] riscv: Enable generic CPU vulnerabilites support
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <172364463499.2278280.12370674777574036166.git-patchwork-notify@kernel.org>
-Date: Wed, 14 Aug 2024 14:10:34 +0000
-References: <20240718093659.158912-1-takakura@valinux.co.jp>
-In-Reply-To: <20240718093659.158912-1-takakura@valinux.co.jp>
-To: None <takakura@valinux.co.jp>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, bjorn@kernel.org,
- paul.walmsley@sifive.com, akpm@linux-foundation.org, aou@eecs.berkeley.edu,
- apatel@ventanamicro.com, arnd@arndb.de, atishp@rivosinc.com,
- bmeng.cn@gmail.com, conor.dooley@microchip.com, daniel.thompson@linaro.org,
- samuel.holland@sifive.com, sfr@canb.auug.org.au,
- linux-kernel@vger.kernel.org, taka@valinux.co.jp
+Message-Id: <172364463625.2278280.12786224959163993278.git-patchwork-notify@kernel.org>
+Date: Wed, 14 Aug 2024 14:10:36 +0000
+References: <20240703022732.2068316-1-ruanjinjie@huawei.com>
+In-Reply-To: <20240703022732.2068316-1-ruanjinjie@huawei.com>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, samuel.holland@sifive.com,
+ tglx@linutronix.de, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240814_071036_701641_028FB299 
-X-CRM114-Status: UNSURE (   8.16  )
+X-CRM114-CacheID: sfid-20240814_071038_794288_861E6A79 
+X-CRM114-Status: UNSURE (   6.13  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,20 +81,22 @@ Hello:
 This patch was applied to riscv/linux.git (for-next)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Thu, 18 Jul 2024 18:36:59 +0900 you wrote:
-> From: Ryo Takakura <takakura@valinux.co.jp>
+On Wed, 3 Jul 2024 10:27:32 +0800 you wrote:
+> Currently x86, ARM and ARM64 support generic CPU vulnerabilites, but
+> RISC-V not, such as:
 > 
-> Add arch_trigger_cpumask_backtrace() which is a generic infrastructure
-> for sampling other CPUs' backtrace using IPI.
-> 
-> The feature is used when lockups are detected or in case of oops/panic
-> if parameters are set accordingly.
+> 	# cd /sys/devices/system/cpu/vulnerabilities/
+> x86:
+> 	# cat spec_store_bypass
+> 		Mitigation: Speculative Store Bypass disabled via prctl and seccomp
+> 	# cat meltdown
+> 		Not affected
 > 
 > [...]
 
 Here is the summary with links:
-  - [v2] RISC-V: Enable IPI CPU Backtrace
-    https://git.kernel.org/riscv/c/f15c21a3de1b
+  - [RFC] riscv: Enable generic CPU vulnerabilites support
+    https://git.kernel.org/riscv/c/63dd775cc050
 
 You are awesome, thank you!
 -- 
