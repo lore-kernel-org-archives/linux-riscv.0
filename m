@@ -4,66 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5FF8C52D7D
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Aug 2024 14:10:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31AB4C52D7B
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Aug 2024 14:10:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ACzkipAsGcTAy37VDQy17dT0pGjvmNACjlRcXeAQBe8=; b=GP3Oo7oPkTcMUG
-	WdtaF0KuAoW+O4DK6b6IMBCTLVVfKMzi7gpahzXirQwo6irxE0/jjsVkhD0+w4VQu6k6GhAN1X/n+
-	WCB9IXLWDHp++2UgNW9z4q5re2YfhQT1ec1cAPqrsQp3I6TQF+VfpXdfDjim4VALiWzf36Z8mFFS0
-	/az4plWcLtVGCgKemzCkiFgOKfa7mASjFkEchIxwufPxl++d4c8rwbf1GumTOTo13yRflBYiJPI3E
-	2FBQQlp1b4pjfF1AT3ouOGmeK9kHtKLbwf+st2xe9nOaX7mYxBi9BgVWo0PgBg6If1v36wyW7q79H
-	jXYcwslPaN1CnytKvb5w==;
+	List-Owner; bh=lYzZ6+9SedsbSzkHC6MiHpYuOuneVMiJwuPpd2UM0Mc=; b=LxjBKIgIMfDqeK
+	MrtjwCUCKI0nwVxMSrGjykNs3s8ABAhBTrIAdRUE2zF5Nafbnt0drWyFwwcFfOvuowGx8nSHb6oue
+	HvFCZ6UBAnXFsV65kcjrL5XVEJLSggapM5+d8KlLV7Wwh98fOlP+2HXM72F9gILa8QA2EA8qzljcp
+	lFDyUMAVwwoH/FRLG/n8xuk1kGNSlca2Hgudt+Q8PJJJNr/m0gRgXL1ar4hE1X8R6U8imIHw1D6+l
+	fKloocPU1XtoM9GU/Z9iOt+exmFsn3C+0fgzd+BDKiOK4Z87yPfQfP5b8WuFHEMhdxCpNRWy2WCL2
+	VKL+cAO44pT2Rk4Bwyuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1seEhx-00000007DhL-35HV;
-	Wed, 14 Aug 2024 14:10:37 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1seEi1-00000007DjS-2g9D;
+	Wed, 14 Aug 2024 14:10:41 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1seEhu-00000007DfK-1UC0
+	id 1seEhw-00000007Dgh-2F1y
 	for linux-riscv@lists.infradead.org;
-	Wed, 14 Aug 2024 14:10:36 +0000
+	Wed, 14 Aug 2024 14:10:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 47A1361A9D;
-	Wed, 14 Aug 2024 14:10:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1472DC4AF11;
-	Wed, 14 Aug 2024 14:10:33 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0243561A9C;
+	Wed, 14 Aug 2024 14:10:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7960C4AF09;
+	Wed, 14 Aug 2024 14:10:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1723644633;
-	bh=KdgwpVZN4uMBbr71j9vE0petOsSpXyckYOOAL7K8sQ4=;
+	s=k20201202; t=1723644635;
+	bh=4Trc9cKH0+hfthZTt1kzAJCq/T3A8YA1Frl1jUvaClw=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=exksjn/Enaqn+WwSi1BZlTscDfpk98P3YHgxVXlHEQa83TlfoYkiYsdAHid2XdVVA
-	 QIgEGMuoySCw69KG+0LfeZCem8NspAHXtUw6G4S3F9s6BeEA+xOPgWf0XMhfrgX3Zb
-	 dSbPiituiEm127KRnrdO2JhJPMPoEgcP6l4cGItVJCbroNVD3ASDTNPkCO7TZVk7AC
-	 MenuL1z2ndl5AKRGeg0+TMNnrY4U60ocblER3+OojkFAa02v6QHrBv99Y0ux0N7HvX
-	 Dgeoqb5ZFzlTxgRnnyBxDBXZI3mWxGMeaeIlwXnimAqU3LbcPcyxQu4p6KFkTueof7
-	 J7YIjOSnOpanQ==
+	b=j7uswLlwb36kFUHgwH29C3zVPjw7WrCaKZCJRmmfzDtTNpHAvjxlqhW/Z7JKglJgd
+	 wXZtcsrCbNNQLaAe1hK4ivvtmOATrJxFunuv5UAAAxEw5naadKlkqD5TbjLsnKP14H
+	 zO/9bq3xyDDs54t13nXRdtp9PpIXNipsjBqgTArvnSnDB3UQek025yVZ9+3xSCoeM1
+	 HM9g7mle8TML8v0J+WB0iY0ydQfMboTsDMvDKy7t4cN1HCIcnwLc/YeK/+o43WqaGd
+	 /R0S9q2NlwAkOwwI6qhs1EXL6HTkizOe0Gw9NhPp42a+X9EwhrlgOuih8ACZMcfW8W
+	 2+z9cFirDGh+Q==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70EB138232A8;
-	Wed, 14 Aug 2024 14:10:33 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33E8938232A8;
+	Wed, 14 Aug 2024 14:10:36 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v4 0/4] RISC-V: Parse DT for Zkr to seed KASLR
+Subject: Re: [PATCH v2] RISC-V: Enable IPI CPU Backtrace
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <172364463227.2278280.4833968885789479932.git-patchwork-notify@kernel.org>
-Date: Wed, 14 Aug 2024 14:10:32 +0000
-References: <20240709173937.510084-1-jesse@rivosinc.com>
-In-Reply-To: <20240709173937.510084-1-jesse@rivosinc.com>
-To: Jesse Taube <jesse@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, ardb@kernel.org,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- nathan@kernel.org, ndesaulniers@google.com, morbo@google.com,
- justinstitt@google.com, alexghiti@rivosinc.com, conor.dooley@microchip.com,
- masahiroy@kernel.org, twd2.me@gmail.com, christophe.jaillet@wanadoo.fr,
- samitolvanen@google.com, akpm@linux-foundation.org, bhe@redhat.com,
- rppt@kernel.org, vishal.moola@gmail.com, linux-kernel@vger.kernel.org,
- llvm@lists.linux.dev
+Message-Id: <172364463499.2278280.12370674777574036166.git-patchwork-notify@kernel.org>
+Date: Wed, 14 Aug 2024 14:10:34 +0000
+References: <20240718093659.158912-1-takakura@valinux.co.jp>
+In-Reply-To: <20240718093659.158912-1-takakura@valinux.co.jp>
+To: None <takakura@valinux.co.jp>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, bjorn@kernel.org,
+ paul.walmsley@sifive.com, akpm@linux-foundation.org, aou@eecs.berkeley.edu,
+ apatel@ventanamicro.com, arnd@arndb.de, atishp@rivosinc.com,
+ bmeng.cn@gmail.com, conor.dooley@microchip.com, daniel.thompson@linaro.org,
+ samuel.holland@sifive.com, sfr@canb.auug.org.au,
+ linux-kernel@vger.kernel.org, taka@valinux.co.jp
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240814_071034_509422_0F0D3DAF 
-X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-CacheID: sfid-20240814_071036_701641_028FB299 
+X-CRM114-Status: UNSURE (   8.16  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,35 +81,23 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to riscv/linux.git (for-next)
+This patch was applied to riscv/linux.git (for-next)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Tue,  9 Jul 2024 13:39:33 -0400 you wrote:
-> Add functions to pi/fdt_early.c to help parse the FDT to check if
-> the isa string has the Zkr extension. Then use the Zkr extension to
-> seed the KASLR base address.
+On Thu, 18 Jul 2024 18:36:59 +0900 you wrote:
+> From: Ryo Takakura <takakura@valinux.co.jp>
 > 
-> The first two patches fix the visibility of symbols.
+> Add arch_trigger_cpumask_backtrace() which is a generic infrastructure
+> for sampling other CPUs' backtrace using IPI.
 > 
-> V1 -> V2:
->  - Add RISC-V: pi: Force hidden visibility for all symbol references
->  - Add RISC-V: pi: Add kernel/pi/pi.h
->  - Rewrite archrandom_early.c to parse DT over checking the csr
-> V2 -> V3:
->  - Add RISC-V: lib: Add pi aliases for string functions
->  - Rewrite isa_string_contains in third patch
+> The feature is used when lockups are detected or in case of oops/panic
+> if parameters are set accordingly.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v4,1/4] RISC-V: pi: Force hidden visibility for all symbol references
-    https://git.kernel.org/riscv/c/14c3ec67236b
-  - [v4,2/4] RISC-V: lib: Add pi aliases for string functions
-    https://git.kernel.org/riscv/c/d57e19fcbf3f
-  - [v4,3/4] RISC-V: pi: Add kernel/pi/pi.h
-    https://git.kernel.org/riscv/c/b3311827155a
-  - [v4,4/4] RISC-V: Use Zkr to seed KASLR base address
-    https://git.kernel.org/riscv/c/945302df3de1
+  - [v2] RISC-V: Enable IPI CPU Backtrace
+    https://git.kernel.org/riscv/c/f15c21a3de1b
 
 You are awesome, thank you!
 -- 
