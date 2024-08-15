@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C149C3DA7F
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Aug 2024 17:01:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB82FC52D7C
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Aug 2024 17:01:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Qyj704btkSqdm/TpDRloM9k/mnxswWAAe6rcEBlkUYA=; b=Ok4KHKYlTygDKq
-	dBcJ3ho9jEBo8GQQDNwNTlvkpzZs+wKBuFnmo+ljW3mULjML45jsR42xljMWzW+5alNVuxdo2ndxi
-	K+EMSORqSHWcPdvEajsevTasoY3qmZ+1sTnzZmS4ICIeCkTagdvCtb4Unxnjz0ri40Wl39HS8YOAR
-	YyuBYCeuVN7CesC1oHqVSHUjaof80Rq4YIZSdGZtXUVGVCuq4OPxYfGTPES3ClBf0o+xIcjH7tE+6
-	hiOIR6h1ZHDEtJIJCyKe+lp9bbPlqNdZoHDcDpmpfYJ6Vp+8iY1RSmuDmOlC+49nql5N2cRiGUBDg
-	y6AGHr24yJHFoJWqDXvw==;
+	List-Owner; bh=sTixcWak3LLKOqGDxrW2JZvvk8r+fKk5ZwJu4vxbmm0=; b=oRwbQV6jphQNCI
+	QyHNUQXOpMR4J+FLWr+R0w4WTrKBTPsqRlAo9Mx0SOQQ9FmbdXjlExdMY8fNcVUMVGzc83iJLbCJp
+	ha9lJaF+1Gp6eonBWxrB5mlaYZTMr8FNKgwFZoS6Xux3oxf8X8yJx6Oxjs7ToFIQ8JigxiIFkMc46
+	4RVSXAqCrkC5znvr2HtNfx9u0Fc5qq3UTgzepJxY+aQn+CjNqeOYQaMTrEn9/qFY+1mFKP34DVpdk
+	Xaz2nOdHhYvZR60/9mN0QZAfx0TtExWf/NCoFvdgd7WUApy6ubH0mnJ27JaBandwvM50zbic5GHEQ
+	qkRot9rTVmV4P3/6XFjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sedqQ-0000000AaMn-1pmd;
-	Thu, 15 Aug 2024 17:01:02 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sedqW-0000000AaOj-2KKj;
+	Thu, 15 Aug 2024 17:01:08 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1secfo-0000000AQNC-0kza;
-	Thu, 15 Aug 2024 15:46:08 +0000
+	id 1sedpr-0000000AaG7-0W2m;
+	Thu, 15 Aug 2024 17:00:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 45AB661E65;
-	Thu, 15 Aug 2024 15:45:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74432C4AF09;
-	Thu, 15 Aug 2024 15:45:53 +0000 (UTC)
-Date: Thu, 15 Aug 2024 16:45:51 +0100
+	by sin.source.kernel.org (Postfix) with ESMTP id 0D0D8CE1D1D;
+	Thu, 15 Aug 2024 17:00:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7AED9C32786;
+	Thu, 15 Aug 2024 17:00:17 +0000 (UTC)
+Date: Thu, 15 Aug 2024 18:00:15 +0100
 From: Catalin Marinas <catalin.marinas@arm.com>
 To: Mark Brown <broonie@kernel.org>
 Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
@@ -59,16 +59,17 @@ Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
 	linux-arch@vger.kernel.org, linux-mm@kvack.org,
 	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v10 03/40] mman: Add map_shadow_stack() flags
-Message-ID: <Zr4ir5YUxPdwqdkp@arm.com>
+Subject: Re: [PATCH v10 04/40] arm64: Document boot requirements for Guarded
+ Control Stacks
+Message-ID: <Zr40H4xAb00MdMlX@arm.com>
 References: <20240801-arm64-gcs-v10-0-699e2bd2190b@kernel.org>
- <20240801-arm64-gcs-v10-3-699e2bd2190b@kernel.org>
+ <20240801-arm64-gcs-v10-4-699e2bd2190b@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240801-arm64-gcs-v10-3-699e2bd2190b@kernel.org>
+In-Reply-To: <20240801-arm64-gcs-v10-4-699e2bd2190b@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240815_084600_316006_21A688C9 
-X-CRM114-Status: GOOD (  13.24  )
+X-CRM114-CacheID: sfid-20240815_100027_360513_37D01926 
+X-CRM114-Status: GOOD (  12.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,29 +86,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 01, 2024 at 01:06:30PM +0100, Mark Brown wrote:
-> In preparation for adding arm64 GCS support make the map_shadow_stack()
-> SHADOW_STACK_SET_TOKEN flag generic and add _SET_MARKER. The existing
-> flag indicats that a token usable for stack switch should be added to
+On Thu, Aug 01, 2024 at 01:06:31PM +0100, Mark Brown wrote:
+> +  - If EL2 is present:
+> +
+> +    - GCSCR_EL2 must be initialised to 0.
+> +
+> + - If the kernel is entered at EL1 and EL2 is present:
+> +
+> +    - GCSCR_EL1 must be initialised to 0.
+> +
+> +    - GCSCRE0_EL1 must be initialised to 0.
 
-Nit: indicates
+Currently booting.rst doesn't list *_EL1 registers to be initialised
+when the kernel is entered at EL1, that would usually be the
+responsibility of EL1. The exception is some bits in SCTLR_EL1 around
+not entering with the MMU and caches enabled. But here I think it makes
+sense to add these GCS registers since if some random bits are set, they
+can affect kernels (and user apps) that don't have GCS support.
 
-> diff --git a/include/uapi/asm-generic/mman.h b/include/uapi/asm-generic/mman.h
-> index 57e8195d0b53..d6a282687af5 100644
-> --- a/include/uapi/asm-generic/mman.h
-> +++ b/include/uapi/asm-generic/mman.h
-> @@ -19,4 +19,8 @@
->  #define MCL_FUTURE	2		/* lock all future mappings */
->  #define MCL_ONFAULT	4		/* lock all pages that are faulted in */
->  
-> +#define SHADOW_STACK_SET_TOKEN (1ULL << 0)     /* Set up a restore token in the shadow stack */
-> +#define SHADOW_STACK_SET_MARKER (1ULL << 1)     /* Set up a top of stack merker in the shadow stack */
+Don't we need HCRX_EL2.GCSEn to be set when entered at EL1?
 
-s/merker/marker/
-
-Otherwise:
-
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+-- 
+Catalin
 
 _______________________________________________
 linux-riscv mailing list
