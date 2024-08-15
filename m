@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94D23C3DA7F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CEFFC531DD
 	for <linux-riscv@archiver.kernel.org>; Thu, 15 Aug 2024 17:50:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,55 +12,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aRy4KJUw7f71j0ZKbt05BMWk0DBDqdGnPHwfJFWXtrs=; b=LFIiB8JQi6uy/9
-	A+M6OXeEwylPxdxWTkQ4cwRL3I3KhykdNw82+CbwGaIL3n09J/yqipJ8fdx8JNNrhWrBv/iJVlOA1
-	xN9AuG/JyAcMgAN5QRatrEe2noGPn3QhoNsHZD/tNTl/0H6z++SyG7ilRvuU6whafyXslWforWo7p
-	flZslGqBPWnt6fBS1pIUg9BvN1I6JI2MuhCAGHvv0oQQc81F5JlmW9UuI+7GYlxeI0rcosvmjLlp3
-	C7dxr3NpOOtyUHCTWtNvBjd/wqRsyHNnVXqk7EIXAMhY8RfAyNpJEGNewdmZ79dr5jWNrnX+h2v4M
-	Mf8HZUJabh0cTn4s3Qqw==;
+	List-Owner; bh=I1wDPp+uLEufM2SbEbw+bBeCqNoM2eguQGggsCPFEk0=; b=UkT7J4FqLpI92t
+	GZXrMgl6JkW35JcZy48JB05Dwm7E/TUewBL6KwLw8QHn/4VleP3HI1EvP4b8e9QN7p7/CzBb+jPLl
+	C1uD+vxa4cAPqrnLYbOjeQG4995wlL+86hNZYTQf7E0skxDLmciysNgodA5tubdWBY9iEs/UTrF/D
+	Y5NhwPJDzq51XxMHUOOt36ku1Qm9+wQWDavU+IHgkmeg5LFS2ctQfAq32aKUIYUEe6ROJtjFwt+S+
+	iAci/cs3/gzLZ8midBBp65CuymPttAlRxX1ccqGylQfJCkiRx8Fgl9Vbrma1gaVMO8U6LyuMMy8oq
+	V64RcmIotVjh3JLx4/9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1seecS-0000000AhAp-27Ml;
-	Thu, 15 Aug 2024 17:50:40 +0000
+	id 1seecV-0000000AhBm-0tVu;
+	Thu, 15 Aug 2024 17:50:43 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1seecP-0000000Ah9f-1KHi
+	id 1seecQ-0000000Ah9x-2HJo
 	for linux-riscv@lists.infradead.org;
 	Thu, 15 Aug 2024 17:50:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 496CA61F4E;
-	Thu, 15 Aug 2024 17:50:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3F87C4AF11;
-	Thu, 15 Aug 2024 17:50:35 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 136EB61F63;
+	Thu, 15 Aug 2024 17:50:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF50FC4AF13;
+	Thu, 15 Aug 2024 17:50:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1723744236;
-	bh=mPwQMWmaE58h5WbJPFCinD0DF0R538hkvKeIfgExaZo=;
+	s=k20201202; t=1723744237;
+	bh=yh77SP+oACYrB3sXOB80npZ0M/G33RPegdX00oDB2kc=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=be3LTV+m4+TrThyeg+AMlMFa2Sr5e6aO9C+yrL4O4bfNBD1fyCdo0GdKsHhnTu64m
-	 Deh6qT5QIsOp7WOU6LGg92EN3BiP4ho9w9wDfvl10Q5WGnXmS3lyKfmVVdlR9Dp34l
-	 FB8T0a2mCYWKo25HY4A8pUrRZERwuk48mYttECbGsfI+HInbL2/Sc1ddh+iHnOogWu
-	 ywATzc/BdVo/em4amKowAXtEyzdtnkvIE7/yoSKx+ksZIS7l6gCo/lIMHXRDaGn4h8
-	 ++wM7hoNLlpqSPUEi3agVcKBg25V7W+7vxyKff4i5c9WQWZeySPRU63vWh/pD4vDUX
-	 Ye9Tzwgy+czJw==
+	b=DJZyXac1dPBN1Z9PStXS0ak451BFCQbSNn7zYomPtk6i5HrTjoANn6Ubpki++v6lp
+	 MiSUIUfzc6kbVPsqB8Orp3yYJuQlJmOC4hZTkG3gajzg4mPz7sIqTQyFRSbukaxKp5
+	 4/ShCFk1anxwlj2n9nNVJjd0Mz4wXETxlJfukvqbf+q5bC55nMuyOSqCvoGy6IpSYg
+	 LZX+L+F89exIIpjKGBEZN6FV5nMgalUZO+SkOc44lXyjg6gVB+DpcXEh4QgS4jCrul
+	 vROWLbW8SMm7mcqtSynUwxZ2oFNtvdM6GW2gGNylLaGFaoqOiLPjuGPLyi/lMcrSlT
+	 Q3309HuX6MSpA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 643B0382327A;
-	Thu, 15 Aug 2024 17:50:36 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAE03382327A;
+	Thu, 15 Aug 2024 17:50:37 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2] riscv: entry: always initialize regs->a0 to -ENOSYS
+Subject: Re: [PATCH v4 0/2] RISC-V: hwprobe: Misaligned scalar perf fix and rename
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <172374423527.2967007.4867324910866661414.git-patchwork-notify@kernel.org>
-Date: Thu, 15 Aug 2024 17:50:35 +0000
-References: <20240627142338.5114-2-CoelacanthusHex@gmail.com>
-In-Reply-To: <20240627142338.5114-2-CoelacanthusHex@gmail.com>
-To: Celeste Liu <coelacanthushex@gmail.com>
-Cc: linux-riscv@lists.infradead.org, bjorn@rivosinc.com,
- linux-kernel@vger.kernel.org, ldv@strace.io, guoren@kernel.org,
- palmer@rivosinc.com, emil.renner.berthing@canonical.com,
- felixonmars@archlinux.org, c141028@gmail.com, CoelacanthusHex@gmail.com,
- stable@vger.kernel.org
+Message-Id: <172374423644.2967007.14196195556000349824.git-patchwork-notify@kernel.org>
+Date: Thu, 15 Aug 2024 17:50:36 +0000
+References: <20240809214444.3257596-1-evan@rivosinc.com>
+In-Reply-To: <20240809214444.3257596-1-evan@rivosinc.com>
+To: Evan Green <evan@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, cyy@cyyself.name,
+ aou@eecs.berkeley.edu, alexghiti@rivosinc.com, ajones@ventanamicro.com,
+ andy.chiu@sifive.com, anup@brainfault.org, ben.dooks@codethink.co.uk,
+ bjorn@rivosinc.com, charlie@rivosinc.com, cleger@rivosinc.com,
+ conor.dooley@microchip.com, costa.shul@redhat.com, erick.archer@gmx.com,
+ gustavoars@kernel.org, corbet@lwn.net, paul.walmsley@sifive.com,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240815_105037_419181_257962B3 
-X-CRM114-Status: GOOD (  10.58  )
+X-CRM114-CacheID: sfid-20240815_105038_645397_CB064EA8 
+X-CRM114-Status: GOOD (  12.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,28 +74,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGVsbG86CgpUaGlzIHBhdGNoIHdhcyBhcHBsaWVkIHRvIHJpc2N2L2xpbnV4LmdpdCAoZml4ZXMp
-CmJ5IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAcml2b3NpbmMuY29tPjoKCk9uIFRodSwgMjcgSnVu
-IDIwMjQgMjI6MjM6MzkgKzA4MDAgeW91IHdyb3RlOgo+IE90aGVyd2lzZSB3aGVuIHRoZSB0cmFj
-ZXIgY2hhbmdlcyBzeXNjYWxsIG51bWJlciB0byAtMSwgdGhlIGtlcm5lbCBmYWlscwo+IHRvIGlu
-aXRpYWxpemUgYTAgd2l0aCAtRU5PU1lTIGFuZCBzdWJzZXF1ZW50bHkgZmFpbHMgdG8gcmV0dXJu
-IHRoZSBlcnJvcgo+IGNvZGUgb2YgdGhlIGZhaWxlZCBzeXNjYWxsIHRvIHVzZXJzcGFjZS4gRm9y
-IGV4YW1wbGUsIGl0IHdpbGwgYnJlYWsKPiBzdHJhY2Ugc3lzY2FsbCB0YW1wZXJpbmcuCj4gCj4g
-Rml4ZXM6IDUyNDQ5YzE3YmRkMSAoInJpc2N2OiBlbnRyeTogc2V0IGEwID0gLUVOT1NZUyBvbmx5
-IHdoZW4gc3lzY2FsbCAhPSAtMSIpCj4gUmVwb3J0ZWQtYnk6ICJEbWl0cnkgVi4gTGV2aW4iIDxs
-ZHZAc3RyYWNlLmlvPgo+IFJldmlld2VkLWJ5OiBCasO2cm4gVMO2cGVsIDxiam9ybkByaXZvc2lu
-Yy5jb20+Cj4gQ2M6IHN0YWJsZUB2Z2VyLmtlcm5lbC5vcmcKPiBTaWduZWQtb2ZmLWJ5OiBDZWxl
-c3RlIExpdSA8Q29lbGFjYW50aHVzSGV4QGdtYWlsLmNvbT4KPiAKPiBbLi4uXQoKSGVyZSBpcyB0
-aGUgc3VtbWFyeSB3aXRoIGxpbmtzOgogIC0gW3YyXSByaXNjdjogZW50cnk6IGFsd2F5cyBpbml0
-aWFsaXplIHJlZ3MtPmEwIHRvIC1FTk9TWVMKICAgIGh0dHBzOi8vZ2l0Lmtlcm5lbC5vcmcvcmlz
-Y3YvYy82MTExOTM5NDYzMWYKCllvdSBhcmUgYXdlc29tZSwgdGhhbmsgeW91IQotLSAKRGVldC1k
-b290LWRvdCwgSSBhbSBhIGJvdC4KaHR0cHM6Ly9rb3JnLmRvY3Mua2VybmVsLm9yZy9wYXRjaHdv
-cmsvcHdib3QuaHRtbAoKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cg==
+Hello:
+
+This series was applied to riscv/linux.git (fixes)
+by Palmer Dabbelt <palmer@rivosinc.com>:
+
+On Fri,  9 Aug 2024 14:44:42 -0700 you wrote:
+> The CPUPERF0 hwprobe key was documented and identified in code as
+> a bitmask value, but its contents were an enum. This produced
+> incorrect behavior in conjunction with the WHICH_CPUS hwprobe flag.
+> The first patch in this series fixes the bitmask/enum problem by
+> creating a new hwprobe key that returns the same data, but is
+> properly described as a value instead of a bitmask. The second patch
+> renames the value definitions in preparation for adding vector misaligned
+> access info. As of this version, the old defines are kept in place to
+> maintain source compatibility with older userspace programs.
+> 
+> [...]
+
+Here is the summary with links:
+  - [v4,1/2] RISC-V: hwprobe: Add MISALIGNED_PERF key
+    https://git.kernel.org/riscv/c/c42e2f076769
+  - [v4,2/2] RISC-V: hwprobe: Add SCALAR to misaligned perf defines
+    https://git.kernel.org/riscv/c/1f5288874de7
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
