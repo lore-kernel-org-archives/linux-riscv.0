@@ -4,60 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B41EFC3DA7F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C07C9C52D7F
 	for <linux-riscv@archiver.kernel.org>; Thu, 15 Aug 2024 19:01:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Date:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rJxMLhoVU3Rr7gQiX31RwRmCobr9xbTdTRiqUcSYsw4=; b=qApyhTyiGQRaLi
-	6GlDkE4y4ZbRtHzC7yO3sYRfLPgT9KPto0wOSt4lLzpskvOYstuIyIJ23Iv6x9V0bsrOqJlQZGfQC
-	se3uXwIBAnR6DqccTUaYbrtAJI85T0jwVDJytQSC6sLOSG+cp9/70F+pcQ7EMwVFv2Rig5ZW7tofT
-	1qkLqHb07CqhKz+uqracY7i3ECrzoSfhFWFf9LoA73DOjyLXkrBozNeLl9HInqX/HNt+xSb1O2fvX
-	tnb2jpK5liPXDWchWzlO4R61oT8RTXTtF8+7JzpZ6GWjG9AMQew1b+8cPMZmGpuM1/4zDYG4+i4Dc
-	JRnmGN5Rb7k+ooGiu8Vw==;
+	List-Owner; bh=vup5ZX1hmyyuJZH5hlEiBjwOAOTs9UTieW9x7ziaTIM=; b=pBqpHoHpXHhC9q
+	b2F7ZiH3ZdYGXp6neyGdW/FkpDCqiKokGIuDk9upXIqH20Gp1NY8uaqZgDSO5JYmZMA7erWkOCLpM
+	HNWynZk4wXQk6fgoSi4cytMOTxfnzupwY77MKLFBNmBrFsVoo8TmMcO1/Ecvz1PPD17R7nLV3GenK
+	dQdTAeAAkX9dusc9ESm7SCoBCytaqwjddwU8QKdalkJsTSBovdOe+Ih2NqiCnMK+Kpojmm95tfDbl
+	HrHG3VNqyJO1ZDQwzxyfuLk9oIFzYUXN35CIZf8NGu64ri8eJBkPskfdAf61jY4sjdf9epQWV0LjN
+	yU8VXC/IoR7FLXSdVrBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sefie-0000000ApyB-24cF;
-	Thu, 15 Aug 2024 19:01:08 +0000
+	id 1sefif-0000000ApyI-1MFr;
+	Thu, 15 Aug 2024 19:01:09 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1seecS-0000000AhAq-2s9l;
-	Thu, 15 Aug 2024 17:50:42 +0000
+	id 1seecT-0000000AhAH-3eQf
+	for linux-riscv@lists.infradead.org;
+	Thu, 15 Aug 2024 17:50:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2574C61F7A;
-	Thu, 15 Aug 2024 17:50:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6460C4AF10;
-	Thu, 15 Aug 2024 17:50:39 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 84C1961F85;
+	Thu, 15 Aug 2024 17:50:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54805C4AF0D;
+	Thu, 15 Aug 2024 17:50:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1723744239;
-	bh=M7g4AOWgcoM+Mxwn7Ms0klZO17PB9AXv4lAQo5UV8+4=;
+	s=k20201202; t=1723744241;
+	bh=zAxfP5/czEKKMzAKvyihgPXxRvPBFRr7sKK/n0cERzA=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=EunRdICVSRyrNtKdY5GCdUi/0YRYT2C2KEXBfkK6aEQ1SF192EU8AGh1VbhCky+O6
-	 9oiuNzRmy/Blz/zvE1DxT3+3Ufgp0TfP4YvKk7eqvM/znCy7Zr8s9fsZMn+lrahw5A
-	 omNDl3P9ZbfLmqXKp+3YTCAy/e2qDxOkS4tzB2LaryIN2/YRe2yzDAbSItfSwVi0oq
-	 /jfYIi5yINeXb8UcXjVzS29ykxi/5VC7gaeY9zVMNZ9CjiYOM336zHusNuxql7yJp6
-	 hZfl4P2ZPefEDsFUoDXP7VatgNiLl1EwIKs64eBEE7InAYHz1xBwksGFvdmEjJZw6y
-	 rEE+wBy+1WVjQ==
+	b=chxMhja65j84IpXDszL6AXblCnXwHnVZUr6DFDxeUuXuDyBDQVadzFcCzIYNedpb4
+	 hrY0tvWGZtYUOmQsnvP5r8oOevwymqARWuZiHl91mh7GvtWTqKqWttLYO3D20Hyde9
+	 B6N3SoIqrcytnRFWa6mGj7LFy2+blYyv8W7/Qafq/pzV0IAkg3O354wn3YdCZoLhz9
+	 l9ryAqUEUGRRIUaTqjiqI2xsU9M/CtxET9UG6jOEgc3dXS4nMqK9pvbYW4c5jToz9n
+	 5xQsSKunB7DE/XQr7vdBzjf8VpYrxUCAAYtOcBO7UqxcxDhXIByhsyYbkJ2m+sVAO+
+	 QurCGkkCfct3g==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 5C65E382327A;
-	Thu, 15 Aug 2024 17:50:40 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id BC4C8382327A;
+	Thu, 15 Aug 2024 17:50:41 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 1/2] RISC-V: ACPI: NUMA: initialize all values of
- acpi_early_node_map to NUMA_NO_NODE
+Subject: Re: [PATCH] riscv: change XIP's kernel_map.size to be size of the entire
+ kernel
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <172374423926.2967007.4687839335755873720.git-patchwork-notify@kernel.org>
-Date: Thu, 15 Aug 2024 17:50:39 +0000
-References: <0d362a8ae50558b95685da4c821b2ae9e8cf78be.1722828421.git.haibo1.xu@intel.com>
-In-Reply-To: <0d362a8ae50558b95685da4c821b2ae9e8cf78be.1722828421.git.haibo1.xu@intel.com>
-To: Xu@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org,
-	Haibo1 <haibo1.xu@intel.com>
+Message-Id: <172374424043.2967007.9731794002045827088.git-patchwork-notify@kernel.org>
+Date: Thu, 15 Aug 2024 17:50:40 +0000
+References: <20240508191917.2892064-1-namcao@linutronix.de>
+In-Reply-To: <20240508191917.2892064-1-namcao@linutronix.de>
+To: Nam Cao <namcao@linutronix.de>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alexghiti@rivosinc.com,
+ linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240815_105040_803578_C790FF60 
-X-CRM114-Status: UNSURE (   8.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240815_105041_981294_7D92811C 
+X-CRM114-Status: GOOD (  12.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,7 +71,6 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, gshan@redhat.com, catalin.marinas@arm.com, lpieralisi@kernel.org, Jonathan.Cameron@huawei.com, guohanjun@huawei.com, linux-kernel@vger.kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com, james.morse@arm.com, linux-riscv@lists.infradead.org, will@kernel.org, xiaobo55x@gmail.com, linux-arm-kernel@lists.infradead.org, ajones@ventanamicro.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
@@ -77,28 +78,24 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to riscv/linux.git (fixes)
+This patch was applied to riscv/linux.git (fixes)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Mon,  5 Aug 2024 11:30:23 +0800 you wrote:
-> Currently, only acpi_early_node_map[0] was initialized to NUMA_NO_NODE.
-> To ensure all the values were properly initialized, switch to initialize
-> all of them to NUMA_NO_NODE.
+On Wed,  8 May 2024 21:19:17 +0200 you wrote:
+> With XIP kernel, kernel_map.size is set to be only the size of data part of
+> the kernel. This is inconsistent with "normal" kernel, who sets it to be
+> the size of the entire kernel.
 > 
-> Fixes: eabd9db64ea8 ("ACPI: RISCV: Add NUMA support based on SRAT and SLIT")
-> Reported-by: Andrew Jones <ajones@ventanamicro.com>
-> Suggested-by: Andrew Jones <ajones@ventanamicro.com>
-> Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
-> Reviewed-by: Sunil V L <sunilvl@ventanamicro.com>
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> More importantly, XIP kernel fails to boot if CONFIG_DEBUG_VIRTUAL is
+> enabled, because there are checks on virtual addresses with the assumption
+> that kernel_map.size is the size of the entire kernel (these checks are in
+> arch/riscv/mm/physaddr.c).
 > 
 > [...]
 
 Here is the summary with links:
-  - [v2,1/2] RISC-V: ACPI: NUMA: initialize all values of acpi_early_node_map to NUMA_NO_NODE
-    https://git.kernel.org/riscv/c/a445699879f9
-  - [v2,2/2] arm64: ACPI: NUMA: initialize all values of acpi_early_node_map to NUMA_NO_NODE
-    https://git.kernel.org/riscv/c/b8c09eb34465
+  - riscv: change XIP's kernel_map.size to be size of the entire kernel
+    https://git.kernel.org/riscv/c/57d76bc51fd8
 
 You are awesome, thank you!
 -- 
