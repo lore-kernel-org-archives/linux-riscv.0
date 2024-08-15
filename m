@@ -4,75 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6BD2C531DD
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Aug 2024 14:02:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5832AC3DA7F
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Aug 2024 14:11:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EPZCg2hV7hyHlKzbBbaVAahrkYseAxpyvm4LjT1H8HA=; b=frDMFZTxpvYsTQ
-	6SFQPVjdOvI3Z/bcs6TsYubPE4m/j4T3cbEgEb1y/srOq/XTj0hVhysp86bWW4hmKjqfxcSL5UEVm
-	hb3MsbBjr12UAEASQxfno0rMRioS9kLOAQK/h8wxIAElmUs7khgx8xstpiH3oY8WAqk+H3o/iLVjB
-	stkmgpdvImsubI+6qYgWa8ihSnvOeuaBFg19SVK17/eCr/hwNVNTiH29zLOMlf5vj61R7BUrf2oJt
-	EtIWK67tGu0tD7JP9ek5IjiDbATMz/vn5gAuTEIYPq4lr6dbDdqqGMzu+XSnG4bnHJuieOJVAvveA
-	wQc4X6DoNNT8LEMRqGXA==;
+	List-Owner; bh=o3iXLfsr34kTyKVWJHO6dyJtQwyyFH2RDOlns/VxdYI=; b=zSSceo4hBDpDXo
+	1wMaP+R0ouq24IywnrBQupt4LnI/LDUR51vyaSxsRrCJMFhpeBR43fYSz/7zj1zRpqn1j7BVT1ysS
+	Fs2uvkZSTplPNv9XIjrxQ2/fJy1DTjr0FCM4ARjDmr78MT1noPXBOn3iSQOkIAjn9SLTUO9L+bWUx
+	R7TyFEHNo6CXVnioJEGM5Ux6g2m46CmTdKf+K1fDIkqfdbbP8LHNfZ1calkc2dWdKFjkk7eScKpYv
+	l6Y+nvLdxOv06CyWaSI3hBKqWOa9T42dJCCGWVI6Ga+wInX6zQ+qREm+6SePBrUb8dd0qP/E5Y44U
+	uV+wjfLEl6VK2k7jtKLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1seb3L-0000000A8Ac-1M6v;
-	Thu, 15 Aug 2024 14:02:11 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1seb2f-0000000A7yS-3ZcJ;
-	Thu, 15 Aug 2024 14:01:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9830414BF;
-	Thu, 15 Aug 2024 07:01:54 -0700 (PDT)
-Received: from e133380.arm.com (e133380.arm.com [10.1.197.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0410C3F73B;
-	Thu, 15 Aug 2024 07:01:23 -0700 (PDT)
-Date: Thu, 15 Aug 2024 15:01:21 +0100
-From: Dave Martin <Dave.Martin@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Shuah Khan <shuah@kernel.org>,
-	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
-	Szabolcs Nagy <Szabolcs.Nagy@arm.com>, Kees Cook <kees@kernel.org>,
-	"H.J. Lu" <hjl.tools@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Florian Weimer <fweimer@redhat.com>,
-	Christian Brauner <brauner@kernel.org>,
-	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
-	Ross Burton <ross.burton@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v10 24/40] arm64/signal: Expose GCS state in signal frames
-Message-ID: <Zr4KMaBv4JXx8uBz@e133380.arm.com>
-References: <20240801-arm64-gcs-v10-0-699e2bd2190b@kernel.org>
- <20240801-arm64-gcs-v10-24-699e2bd2190b@kernel.org>
- <ZrzIv3FWNgJizDc2@e133380.arm.com>
- <7433e3d2-996a-45a0-b917-666a340ad109@sirena.org.uk>
+	id 1sebCF-0000000AAAN-0irp;
+	Thu, 15 Aug 2024 14:11:23 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1sebC9-0000000AA7r-2ooE
+	for linux-riscv@lists.infradead.org;
+	Thu, 15 Aug 2024 14:11:21 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1723731075;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MYjvollJesTtLslkUYJNxH63AP1fPwf99+zNcpu4LzI=;
+	b=AVZ6dA8zbr8yWSpoLeCRJQ0yENWLGxaOIgkvFE5/HwbHqg4psAUugYyCC0uzYX8Cue4/s2
+	jJp2E59k8QTNhFSdO+EU/t7A6WDYteD7wT1eE+ARj2GwtaBDA0tJeqFcfoGoBEZkw5nzSy
+	AdK0HQAbuzwWlb6L9LMh5LFnKY1B5Xp5Y4zCLYzSrHPCKnhcKLzvioZsO19237yPGXVHwG
+	Jv2xMJ1u7YvQN8rFbHf1yRMbHhxf3AxW+40G6aklxCXErIcY88uxIFN/91Aw5Db4qjlPwG
+	i1shN4TXa/v6x5SwWPlJeMzLmgeTaOIfJLmaWz7suGjhZFTg14qCXEAmaIGcHg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1723731075;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MYjvollJesTtLslkUYJNxH63AP1fPwf99+zNcpu4LzI=;
+	b=EwKkpvFcNgcVqMSLQHel5aNWHCit5L2msYI4Pn3qHFBhlJpWGd6cDU26O09+fjTNXAVWp0
+	dwpIM0JVYLkdFgCQ==
+To: Samuel Holland <samuel.holland@sifive.com>, Emil Renner Berthing
+ <emil.renner.berthing@canonical.com>, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Anup Patel <apatel@ventanamicro.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Daniel Lezcano
+ <daniel.lezcano@linaro.org>
+Subject: Re: [PATCH v1 0/9] Fix Allwinner D1 boot regression
+In-Reply-To: <686d61c4-e7ac-4dca-a7fd-decdd72e84d9@sifive.com>
+References: <20240814145642.344485-1-emil.renner.berthing@canonical.com>
+ <87jzgjnh9z.ffs@tglx>
+ <CAJM55Z8WERQgs=QMyFGWvAHOpwcnOAudBqovaEuDudPSXCvL5Q@mail.gmail.com>
+ <87ttfmm2ns.ffs@tglx>
+ <CAJM55Z88H635Crc-Aeq+K0qcAk7NC89WVTAFdXDd2aQKQ7QmEg@mail.gmail.com>
+ <CAJM55Z_qQX7n8tAeOFqrAH1BFjA9vaWA8rtsPG2BcKmiO88m=Q@mail.gmail.com>
+ <87plqalyd4.ffs@tglx> <686d61c4-e7ac-4dca-a7fd-decdd72e84d9@sifive.com>
+Date: Thu, 15 Aug 2024 16:11:14 +0200
+Message-ID: <87h6blnaf1.ffs@tglx>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <7433e3d2-996a-45a0-b917-666a340ad109@sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240815_070130_055272_D9EE233B 
-X-CRM114-Status: GOOD (  34.24  )
+X-CRM114-CacheID: sfid-20240815_071117_881594_979CB2DB 
+X-CRM114-Status: GOOD (  17.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,88 +84,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 14, 2024 at 05:21:44PM +0100, Mark Brown wrote:
-> On Wed, Aug 14, 2024 at 04:09:51PM +0100, Dave Martin wrote:
-> > On Thu, Aug 01, 2024 at 01:06:51PM +0100, Mark Brown wrote:
-> 
-> > > +	if (add_all || task_gcs_el0_enabled(current)) {
-> > > +		err = sigframe_alloc(user, &user->gcs_offset,
-> > > +				     sizeof(struct gcs_context));
-> > > +		if (err)
-> > > +			return err;
-> > > +	}
-> 
-> > Who turns on GCS?  I have a concern that if libc is new enough to be
-> > built for GCS then the libc startup code will to turn it on, even if
-> > the binary stack running on top of libc is old.
-> 
-> It should normally be the dynamic linker which should be looking for
-> annotatations in the binaries it's loading before it decides if it's
-> going to turn on GCS (and libc doing something similar if it's going to
-> dlopen() things in a process with GCS enabled).
+On Thu, Aug 15 2024 at 08:32, Samuel Holland wrote:
+> On 2024-08-15 8:16 AM, Thomas Gleixner wrote:
+>> Yes. So the riscv timer is not working on this thing or it stops
+>> somehow.
+>
+> That's correct. With the (firmware) devicetree that Emil is using, the OpenSBI
+> firmware does not have a timer device, so it does not expose the (optional[1])
+> SBI time extension, and sbi_set_timer() does nothing.
 
-My thought was that if libc knows about shadow stacks, it is probably
-going to be built to use them too and so would enable shadow stack
-during startup to protect its own code.
+Sigh. Does RISCV really have to repeat all mistakes which have been made
+by x86, ARM and others before? It's known for decades that the kernel
+relies on a working timer...
 
-(Technically those would be independent decisions, but it seems a good
-idea to use a hardening feature if you know about and it is present.)
+> I wrote a patch (not submitted) to skip registering riscv_clock_event when the
+> SBI time extension is unavailable, but this doesn't fully solve the issue
+> either, because then we have no clockevent at all when
+> check_unaligned_access_all_cpus() is called.
 
+check_unaligned_access_all_cpus() is irrelevant.
 
-If so, shadow stacks might always get turned on before the main program
-gets a look-in.
+> How early in the boot process are we "required" to have a functional clockevent?
+> Do we need to refactor check_unaligned_access_all_cpus() so it works on systems
+> where the only clockevent is provided by a platform device?
 
-Or is that not the expectation?
+Right after init/main::late_time_init() everything can depend on a
+working timer and on jiffies increasing.
 
-> 
-> > Is there any scenario where it is legitimate for the signal handler to
-> > change the shadow stack mode or to return with an altered GCSPR_EL0?
-> 
-> If userspace can rewrite the stack pointer on return (eg, to return to a
-> different context as part of userspace threading) then it will need to
+I'm actually surprised that the boot process gets that far. That's just
+by pure luck, really.
 
-Do we know if code that actually does that?  IIUC, trying to do this is
-totally broken on most arches nowadays; making it work requires a
-reentrant C library and/or logic to defer signals around critical
-sections in userspace.
+Thanks,
 
-"Real" threading makes this pretty pointless for the most part.
-
-
-Related question: does shadow stack work with ucontext-based coroutines?
-Per-context stacks need to be allocated by the program for that.
-
-
-> be able to also update GCSPR_EL0 to something consistent otherwise
-> attempting to return from the interrupted context isn't going to go
-> well.  Changing the mode is a bit more exotic, as it is in general.
-> It's as much to provide information to the signal handler as anything
-> else.
-
-I'm not sure that we should always put information in the signal frame
-that the signal handler can't obtain directly.
-
-I guess it's harmless to include this, though.
-
-> > Is the guarded stack considered necessary (or at least beneficial) for
-> > backtracing, or is the regular stack sufficient?
-> 
-> It's potentially beneficial, being less vulnerable to corruption and
-> simpler to parse if all you're interested in is return addresses.
-> Profiling in particular was mentioned, grabbing a linear block of memory
-> will hopefully be less overhead than chasing down the stack.  The
-> regular stack should generally be sufficient though.
-
-I guess we can't really argue that the shadow stack pointer is
-redundant here though.  The whole point of shadow stacks is to make
-things more robust...
-
-Just kicking the tyres on the question of whether we need it here, but
-I guess it's hard to make a good case for saying "no".
-
-Cheers
----Dave
-
+        tglx
 
 _______________________________________________
 linux-riscv mailing list
