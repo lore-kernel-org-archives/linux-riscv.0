@@ -4,46 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FFE5C3DA7F
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Aug 2024 15:07:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26AAAC3DA7F
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Aug 2024 15:13:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dAWjD/m1JF1QRooFtyFn1vAw1THIDuSwi/Mllub05zI=; b=3ozo8MClyAYPgeTRTmFMmvQ0AL
-	pltABiqdeWgSq4ykRqaGmY0GFucqzh2JmO29wQUA0ezsNswsfQAXNOCUspJ2kWOk6kLx1m6MTo7TA
-	rTeQl/Jj+A+IpAY6b1QhcLTeTWypnfnQccGQ51Sw1PO60slrdxDA/UgFP1/p+ckqoC8QdOS7EwUT5
-	DaX1ifBZVF+/gPPNjSG//JBb3gBegx8VL6T+ywaTcqIJQZb3EtkpODYWq5VWJAwBhHpGlr1qF4uQ+
-	7vVy++fZ+6HJbnpikkWjnzSaOBmK+KiUuiLuJyZauciX/RzoTdYn2ZpKgze7UAidgEctuw9Rt5I6P
-	leLVW9/Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=UxD38hvJIq+ktHYBh0WrqPxeIj6wNMd01Lc9jLU0jtk=; b=Mm9ii3dqSjTapP
+	mD4pOpBVZvGHrndzBZ95r85mNffMJWn3x6CFOXq4uIXvlrLZ4PQgIj652lu/RxEaEIb1uTHVxynT8
+	zmKLkaFciwWpJoxCMkRNB6PddtJrSdYQr4bnfsglDxD8ZaZwU3mk4RF9uNDZjdcYcJiFS8oXj6kWW
+	k4TSvAlG0bWwtFqYt97KHRwxvUvw4sLOpsIEAry+PslBzpfNaJMM51wW/mYwvIsbVzltfwkEp0dNq
+	vGv+D3dy3QnwC59len4naNUW7RYo1Oi1KxleI0N+vn0K1Ucer4HFm0Jf/H6E4lHSW0OZMA/v+Tlr0
+	B/RPiUZG8geSi1flYTjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sec40-0000000AJsm-3zBe;
-	Thu, 15 Aug 2024 15:06:56 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
-	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sec2r-0000000AJeU-329l;
-	Thu, 15 Aug 2024 15:05:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id D3535CE1CB1;
-	Thu, 15 Aug 2024 15:05:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56C21C4AF0D;
-	Thu, 15 Aug 2024 15:05:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1723734342;
-	bh=VaZmCxGBF8KztnlsWWYHsWkxQ+nObQmzwcHV6fkRBCE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AKZYerGHcjQDpXEtvnruAGu5zXDe7awbHeen5Mm3saiTtNbcwHPI2BNFcpGWaKLl7
-	 YIKg6KnEFRVGaNPCZCbWvEPBvhVlfqikdVQyxH311a84xo7K2q0lWx4/oPE4spK+Gc
-	 uVkrd2SL+XZHxyR1/oBYNkBNcNnPIsk4aho61+F4Aysl+0A3Wz95fLmEsodqnvYA90
-	 Y0JvpH7+0yNt6fPPLf1ogR/SXjp7qymrN/8ccZueeoHvawyYsYLYsLW2g+4m0kriSI
-	 6xvFXlUgNCrp4sQx0OnVpPiV7ujihcrQde8PFl5rQyVaq2FkjbGlnZNsTfDFw1A+GF
-	 wKIh9mENd/rRg==
-Date: Thu, 15 Aug 2024 16:05:32 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Dave Martin <Dave.Martin@arm.com>
+	id 1sec9m-0000000AKsp-3x9M;
+	Thu, 15 Aug 2024 15:12:55 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1sec90-0000000AKcH-30hI;
+	Thu, 15 Aug 2024 15:12:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5AAE414BF;
+	Thu, 15 Aug 2024 08:12:31 -0700 (PDT)
+Received: from e133380.arm.com (e133380.arm.com [10.1.197.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3A5563F58B;
+	Thu, 15 Aug 2024 08:11:59 -0700 (PDT)
+Date: Thu, 15 Aug 2024 16:11:56 +0100
+From: Dave Martin <Dave.Martin@arm.com>
+To: Mark Brown <broonie@kernel.org>
 Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
 	Andrew Morton <akpm@linux-foundation.org>,
@@ -70,19 +61,21 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	linux-arch@vger.kernel.org, linux-mm@kvack.org,
 	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v10 24/40] arm64/signal: Expose GCS state in signal frames
-Message-ID: <efe1d936-011d-49e3-a0ff-8f6276e4d782@sirena.org.uk>
+Subject: Re: [PATCH v10 23/40] arm64/signal: Set up and restore the GCS
+ context for signal handlers
+Message-ID: <Zr4avB6+U4tLDy8E@e133380.arm.com>
 References: <20240801-arm64-gcs-v10-0-699e2bd2190b@kernel.org>
- <20240801-arm64-gcs-v10-24-699e2bd2190b@kernel.org>
- <ZrzIv3FWNgJizDc2@e133380.arm.com>
- <7433e3d2-996a-45a0-b917-666a340ad109@sirena.org.uk>
- <Zr4KMaBv4JXx8uBz@e133380.arm.com>
+ <20240801-arm64-gcs-v10-23-699e2bd2190b@kernel.org>
+ <ZrzEfg5LqdAzgJ6+@e133380.arm.com>
+ <08932f6d-01ef-40e8-97d2-08f0d2016191@sirena.org.uk>
+ <Zr4EkmtUKop9o9wu@e133380.arm.com>
+ <c56fa974-88f7-4c1f-83bd-8c481fe0045d@sirena.org.uk>
 MIME-Version: 1.0
-In-Reply-To: <Zr4KMaBv4JXx8uBz@e133380.arm.com>
-X-Cookie: -- Owen Meredith
+Content-Disposition: inline
+In-Reply-To: <c56fa974-88f7-4c1f-83bd-8c481fe0045d@sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240815_080546_136959_195D92B0 
-X-CRM114-Status: GOOD (  36.72  )
+X-CRM114-CacheID: sfid-20240815_081206_817795_E42379FD 
+X-CRM114-Status: GOOD (  14.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,123 +87,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4714014909632042980=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Aug 15, 2024 at 03:45:45PM +0100, Mark Brown wrote:
+> On Thu, Aug 15, 2024 at 02:37:22PM +0100, Dave Martin wrote:
+> 
+> > Is there a test for taking and returning from a signal on an alternate
+> > (main) stack, when a shadow stack is in use?  Sounds like something
+> > that would be good to check if not.
+> 
+> Not specifically for any of the architectures.
 
---===============4714014909632042980==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="SmjZxCFLN11graeJ"
-Content-Disposition: inline
+Can you see any reason why this shouldn't work?
 
+Maybe I'll hacking up a test if I get around to it, but don't take this
+as a promise!
 
---SmjZxCFLN11graeJ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Aug 15, 2024 at 03:01:21PM +0100, Dave Martin wrote:
-
-> My thought was that if libc knows about shadow stacks, it is probably
-> going to be built to use them too and so would enable shadow stack
-> during startup to protect its own code.
-
-> (Technically those would be independent decisions, but it seems a good
-> idea to use a hardening feature if you know about and it is present.)
-
-> If so, shadow stacks might always get turned on before the main program
-> gets a look-in.
-
-> Or is that not the expectation?
-
-The expectation (at least for arm64) is that the main program will only
-have shadow stacks if everything says it can support them.  If the
-dynamic linker turns them on during startup prior to parsing the main
-executables this means that it should turn them off before actually
-starting the executable, taking care to consider any locking of features.
-
-> > > Is there any scenario where it is legitimate for the signal handler to
-> > > change the shadow stack mode or to return with an altered GCSPR_EL0?
-
-> > If userspace can rewrite the stack pointer on return (eg, to return to a
-> > different context as part of userspace threading) then it will need to
-
-> Do we know if code that actually does that?  IIUC, trying to do this is
-> totally broken on most arches nowadays; making it work requires a
-> reentrant C library and/or logic to defer signals around critical
-> sections in userspace.
-
-> "Real" threading makes this pretty pointless for the most part.
-
-> Related question: does shadow stack work with ucontext-based coroutines?
-> Per-context stacks need to be allocated by the program for that.
-
-Yes, ucontext based coroutines are the sort of thing I meant when I was
-talking about returning to a different context? =20
-
-> > be able to also update GCSPR_EL0 to something consistent otherwise
-> > attempting to return from the interrupted context isn't going to go
-> > well.  Changing the mode is a bit more exotic, as it is in general.
-> > It's as much to provide information to the signal handler as anything
-> > else.
-
-> I'm not sure that we should always put information in the signal frame
-> that the signal handler can't obtain directly.
-
-> I guess it's harmless to include this, though.
-
-If we don't include it then if different ucontexts have different GCS
-features enabled we run into trouble on context switch.
-
-> > > Is the guarded stack considered necessary (or at least beneficial) for
-> > > backtracing, or is the regular stack sufficient?
-
-> > It's potentially beneficial, being less vulnerable to corruption and
-> > simpler to parse if all you're interested in is return addresses.
-> > Profiling in particular was mentioned, grabbing a linear block of memory
-> > will hopefully be less overhead than chasing down the stack.  The
-> > regular stack should generally be sufficient though.
-
-> I guess we can't really argue that the shadow stack pointer is
-> redundant here though.  The whole point of shadow stacks is to make
-> things more robust...
-
-> Just kicking the tyres on the question of whether we need it here, but
-> I guess it's hard to make a good case for saying "no".
-
-Indeed.  The general model here is that we don't break userspace that
-relies on parses the normal stack (so the GCS is never *necessary*) but
-clearly you want to have it.
-
---SmjZxCFLN11graeJ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAma+GTsACgkQJNaLcl1U
-h9Cb8wf/XCjGckqPDQqfMA0CTLZ811XV2dX1kqvju9JAXl44DN3khpUuEAkktoKg
-KbrTL623QOjWbXYNgob5OLdQY42g++1RsuH62wKmX2kr080OWTmKFnRRROJzBftx
-t9l70dd63SnOG7orRLDAACk/Api5Gr9PnCVZ/wc5DvzpD8Oiu8JxTTYgBlYkE/AH
-7ypTKtVlPzjfwNV95yhvqPFkoOPSsnSaQPBgZSthZf6LL6iT2IymUV01zdLYCuCL
-YyeXxml1r7AkEjF2dAncCRH1A9ZwpmjpMiF/GsjJBzX4hvu2cS+LUiYodWA2fO1Q
-6+/7fZ2S/ywynEbWYd2kLO2E/zQWMg==
-=78We
------END PGP SIGNATURE-----
-
---SmjZxCFLN11graeJ--
-
-
---===============4714014909632042980==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Cheers
+---Dave
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4714014909632042980==--
-
