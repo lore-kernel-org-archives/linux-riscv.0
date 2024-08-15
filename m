@@ -4,96 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67580C3DA7F
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Aug 2024 16:16:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A3F3C3DA7F
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Aug 2024 16:32:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=b0jvNHUCrSKDBGrYhzvXPZj9+S64VpAWmOWkKSqOsqE=; b=csDTeiseA3hsu7dBMNWLsv67ET
-	LtzI69EmDOnpIAw/55C20mpPcGTpvIunoVkghzjVW0E6BvR9mnawj7mOGWReVQqTHjSKh9ou5NSu1
-	L3XI9GmBUuPqt4yrrHI6w8IJuc5504pv6WyDpdt79t1t2lmFcBaO3uvt5e1xqWthZKV5E2vTcetUl
-	XPE6NClwnMWgKESaJRx+C5/RKqZmHM5C+3A1O5ys6mDSjACNEk6JocFrPawVyibRF2K3TACbJY4sj
-	nYT7xNif4l0AqqnePPSsAe994pAPAe07MQ/OMlK1HBgH/b1GCMivRptfIOvPaznKxUMVDO53u/s4d
-	IPkVCNfA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ZOaCVqsYmYv+vNBdOub6MUcoPXuDyVjBn8fl0xKpdUs=; b=x60CDmJNm4+Vuc
+	K5XV7lphiTE4zukwC+0/32CSBB62QyfnZcCuMcAW1W4ONJVd+g1kQ4yluVY9UPC9UwjzT1jSvtXtP
+	ojmlsAiflJADm4Z5aQsLFc4KCM45nC5mYsZ1S4oqR3buv09fKw4QB6OUNO6nACUDjWcOwxaEzJrz8
+	r+7GkXid0fh7JdCeIenL64FuAXsic9xo+ZCJiYRsdrGatXIZyFF2uwyhHN3iXhgdBgeONrVuFExug
+	MV6MXDyXwsc0EjWwI2AnVomnZcATlwqCzOYFbTNZaTuE2d3+5OTBybs9xEX3Z98rPQi0Vr1cjZanv
+	qVcEtbtT4psQfOoYjsCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sed8v-0000000AU9P-1ezl;
-	Thu, 15 Aug 2024 16:16:05 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
-	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sec51-0000000AK3l-1r1f
-	for linux-riscv@lists.infradead.org;
-	Thu, 15 Aug 2024 15:08:05 +0000
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 4F92A3F366
-	for <linux-riscv@lists.infradead.org>; Thu, 15 Aug 2024 15:07:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1723734475;
-	bh=O7Gj4FPw3G7uLAU4MEGR/F0KrwTcd+1Rxuwc21U9P1U=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=wQJT5lrqEKK7bwMEepHVYnOfk/d2rpGQAxTYcpCkwpmAaiwiVXmeg0Jl7HZO6THoj
-	 g7dTKEFT4Kqh01TKDvIYtlg9lRgq7O32xHc4g6vPM/7T3esp5cVQbTu/zRybZLXxVS
-	 g4/RsK56vUYmEF7jDPFQxrUpGErEV9E4is1t5KAuKaF6AWxuF68UOgIDKfu0wCE+kk
-	 nq0EPQANskYGQmUqem7LcvayssRfLR2InhEYxutVI9lT3Xma4Ts9eKV6UKPcGar2oE
-	 7HPXaE2wHrYaEOQv+sTR8cnqVToBltU4PV6BFtH9MwceFaOEeXem3taKr2k/ZiQeTJ
-	 c5JKZuszJf+xQ==
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-44fe49fa389so11149051cf.1
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Aug 2024 08:07:55 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1723734474; x=1724339274;
-        h=content-transfer-encoding:cc:to:subject:message-id:date
-         :mime-version:references:in-reply-to:from:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=O7Gj4FPw3G7uLAU4MEGR/F0KrwTcd+1Rxuwc21U9P1U=;
-        b=uNvSiN9c/8WQDV4wzY5ObLvtUdzXX5CtNZIOd33gN14K5DLBDZH5su1Z4VnlK9vm5l
-         YCxYaZAmmunS5ockcgU2FqBFJqBMgM2y4FOHfkkii99SfkVQQjs9NvXub0K9OlykFi93
-         LRIwH5VXzpOdmqZG6S9luZj8elmh291pnkHL++ZzEcGDWTCTVxHJ4YQ1q8D7UkB6n67u
-         mDu6sNbuE7V0itBRuBgBZuzhU6cW0iYOctNupzT76ZPDyUMXtebMczXTqFccR4f/MowF
-         oZmyPrl3xrwagSStOtydX+R+/3UbTNMjNzSjAx8j7koGU2R4pa1ucCYOO0EGpY5S/5TX
-         IZdQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWnmaf3i11paOUcKk4LPfHvkGlrIIqjDMC+cqLwuV8UcKl4CImrYZp6ts3vEccUtkmja9VHfkMRELHdtUfI7wofBBPbyaw7cVVCbDtt3G3r
-X-Gm-Message-State: AOJu0YyxEnpdx9NKM0qCu1uslvtLR8EekTGQ72aEFczt3nZckrcFlgoZ
-	VtOG1JY0d74z4NkaDQ0HxHh+dv58p++ab/H+dXyL8WANVEY5z3NquxKIKgp9/Gh94DoSIG0k4L1
-	HeZ+zXU5z4FhmaQ4qajbYHaKH/vRXQ6NpocYmJS4WYd1uhF2cDiGzJjlZ0gyTff37bA9yLsTYKd
-	DVVPD/VOreIYC5GYpzLny+pMgo+XSZHigk1ybkb5BHX30yXHbmwA3teVVNwKbjUjoy
-X-Received: by 2002:ac8:1199:0:b0:453:6c9f:ec5a with SMTP id d75a77b69052e-4536c9fef86mr16626281cf.22.1723734474059;
-        Thu, 15 Aug 2024 08:07:54 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGEQrMUB6uwmlpoSPzE4Q46pTqZ42Lh5kb+mFo2U+8h2TWgZ0fwtNPmKmP2B+Kwln77U5qhE7GkLX7KM8FZ/xk=
-X-Received: by 2002:ac8:1199:0:b0:453:6c9f:ec5a with SMTP id
- d75a77b69052e-4536c9fef86mr16625871cf.22.1723734473624; Thu, 15 Aug 2024
- 08:07:53 -0700 (PDT)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 15 Aug 2024 11:07:53 -0400
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <be1db8f5-af55-48a4-be7a-5e8a1a5e25c4@sifive.com>
-References: <20240814145642.344485-1-emil.renner.berthing@canonical.com>
- <87jzgjnh9z.ffs@tglx> <CAJM55Z8WERQgs=QMyFGWvAHOpwcnOAudBqovaEuDudPSXCvL5Q@mail.gmail.com>
- <87ttfmm2ns.ffs@tglx> <CAJM55Z88H635Crc-Aeq+K0qcAk7NC89WVTAFdXDd2aQKQ7QmEg@mail.gmail.com>
- <CAJM55Z_qQX7n8tAeOFqrAH1BFjA9vaWA8rtsPG2BcKmiO88m=Q@mail.gmail.com>
- <87plqalyd4.ffs@tglx> <686d61c4-e7ac-4dca-a7fd-decdd72e84d9@sifive.com>
- <87h6blnaf1.ffs@tglx> <CAK9=C2V7oL023=u6nodJs76k_0yHZ8PTJs=n1QFqDWCcCnG9kw@mail.gmail.com>
- <be1db8f5-af55-48a4-be7a-5e8a1a5e25c4@sifive.com>
-Mime-Version: 1.0
-Date: Thu, 15 Aug 2024 11:07:53 -0400
-Message-ID: <CAJM55Z9kKqs-kMubsGsRkS6E2Y4ur1MmwD+1XFvGP=UVNrJvRg@mail.gmail.com>
-Subject: Re: [PATCH v1 0/9] Fix Allwinner D1 boot regression
-To: Samuel Holland <samuel.holland@sifive.com>, Anup Patel <apatel@ventanamicro.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, 
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Daniel Lezcano <daniel.lezcano@linaro.org>
+	id 1sedP5-0000000AWgT-3rZZ;
+	Thu, 15 Aug 2024 16:32:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1sedOL-0000000AWYO-3H8i;
+	Thu, 15 Aug 2024 16:32:07 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 47EB014BF;
+	Thu, 15 Aug 2024 09:32:24 -0700 (PDT)
+Received: from e133380.arm.com (e133380.arm.com [10.1.197.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 94A073F6A8;
+	Thu, 15 Aug 2024 09:31:52 -0700 (PDT)
+Date: Thu, 15 Aug 2024 17:31:49 +0100
+From: Dave Martin <Dave.Martin@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Shuah Khan <shuah@kernel.org>,
+	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
+	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
+	Szabolcs Nagy <Szabolcs.Nagy@arm.com>, Kees Cook <kees@kernel.org>,
+	"H.J. Lu" <hjl.tools@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Florian Weimer <fweimer@redhat.com>,
+	Christian Brauner <brauner@kernel.org>,
+	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
+	Ross Burton <ross.burton@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v10 23/40] arm64/signal: Set up and restore the GCS
+ context for signal handlers
+Message-ID: <Zr4tdcj8DF92GzVS@e133380.arm.com>
+References: <20240801-arm64-gcs-v10-0-699e2bd2190b@kernel.org>
+ <20240801-arm64-gcs-v10-23-699e2bd2190b@kernel.org>
+ <ZrzEfg5LqdAzgJ6+@e133380.arm.com>
+ <08932f6d-01ef-40e8-97d2-08f0d2016191@sirena.org.uk>
+ <Zr4EkmtUKop9o9wu@e133380.arm.com>
+ <c56fa974-88f7-4c1f-83bd-8c481fe0045d@sirena.org.uk>
+ <Zr4avB6+U4tLDy8E@e133380.arm.com>
+ <7fa96f26-5bf6-490f-8986-258033fbfe0e@sirena.org.uk>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <7fa96f26-5bf6-490f-8986-258033fbfe0e@sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240815_080759_823955_50C5786F 
-X-CRM114-Status: GOOD (  18.71  )
+X-CRM114-CacheID: sfid-20240815_093201_893272_6796256E 
+X-CRM114-Status: GOOD (  21.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,36 +89,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-U2FtdWVsIEhvbGxhbmQgd3JvdGU6Cj4gT24gMjAyNC0wOC0xNSA5OjE2IEFNLCBBbnVwIFBhdGVs
-IHdyb3RlOgo+ID4gT24gVGh1LCBBdWcgMTUsIDIwMjQgYXQgNzo0MeKAr1BNIFRob21hcyBHbGVp
-eG5lciA8dGdseEBsaW51dHJvbml4LmRlPiB3cm90ZToKPiA+Pgo+ID4+IE9uIFRodSwgQXVnIDE1
-IDIwMjQgYXQgMDg6MzIsIFNhbXVlbCBIb2xsYW5kIHdyb3RlOgo+ID4+PiBPbiAyMDI0LTA4LTE1
-IDg6MTYgQU0sIFRob21hcyBHbGVpeG5lciB3cm90ZToKPiA+Pj4+IFllcy4gU28gdGhlIHJpc2N2
-IHRpbWVyIGlzIG5vdCB3b3JraW5nIG9uIHRoaXMgdGhpbmcgb3IgaXQgc3RvcHMKPiA+Pj4+IHNv
-bWVob3cuCj4gPj4+Cj4gPj4+IFRoYXQncyBjb3JyZWN0LiBXaXRoIHRoZSAoZmlybXdhcmUpIGRl
-dmljZXRyZWUgdGhhdCBFbWlsIGlzIHVzaW5nLCB0aGUgT3BlblNCSQo+ID4+PiBmaXJtd2FyZSBk
-b2VzIG5vdCBoYXZlIGEgdGltZXIgZGV2aWNlLCBzbyBpdCBkb2VzIG5vdCBleHBvc2UgdGhlIChv
-cHRpb25hbFsxXSkKPiA+Pj4gU0JJIHRpbWUgZXh0ZW5zaW9uLCBhbmQgc2JpX3NldF90aW1lcigp
-IGRvZXMgbm90aGluZy4KPiA+Pgo+ID4+IFNpZ2guIERvZXMgUklTQ1YgcmVhbGx5IGhhdmUgdG8g
-cmVwZWF0IGFsbCBtaXN0YWtlcyB3aGljaCBoYXZlIGJlZW4gbWFkZQo+ID4+IGJ5IHg4NiwgQVJN
-IGFuZCBvdGhlcnMgYmVmb3JlPyBJdCdzIGtub3duIGZvciBkZWNhZGVzIHRoYXQgdGhlIGtlcm5l
-bAo+ID4+IHJlbGllcyBvbiBhIHdvcmtpbmcgdGltZXIuLi4KPiA+Cj4gPiBNeSBhcG9sb2dpZXMg
-Zm9yIHRoZSBkZWxheSBpbiBmaW5kaW5nIGEgZml4IGZvciB0aGlzIGlzc3VlLgo+ID4KPiA+IEFs
-bW9zdCBhbGwgUklTQy1WIHBsYXRmb3JtcyAoZXhjZXB0IHRoaXMgb25lKSBoYXZlIFNCSSBUaW1l
-ciBhbHdheXMKPiA+IGF2YWlsYWJsZSBhbmQgTGludXggdXNlcyBhIGJldHRlciB0aW1lciBvciBT
-c3RjIGV4dGVuc2lvbiB3aGVuZXZlcgo+ID4gaXQgaXMgYXZhaWxhYmxlLgo+Cj4gU28gdGhpcyBp
-cyB0aGUgaW1tZWRpYXRlIHNvbHV0aW9uOiBhZGQgdGhlIENMSU5UIHRvIHRoZSBmaXJtd2FyZSBk
-ZXZpY2V0cmVlIHNvCj4gdGhhdCB0aGUgU0JJIHRpbWUgZXh0ZW5zaW9uIHdvcmtzLCBhbmQgTGlu
-dXggd2lsbCBib290IHdpdGhvdXQgYW55IGNvZGUgY2hhbmdlcywKPiBhbGJlaXQgd2l0aCBhIGhp
-Z2hlci1vdmVyaGVhZCBjbG9ja2V2ZW50IGRldmljZS4KCkJ1dCB0aGlzIHdpbGwgbWVhbiB0aGF0
-IHlvdSBjYW4ndCB1cGRhdGUgeW91ciBrZXJuZWwgdG8gdjYuOSBvciBuZXdlciB3aXRob3V0CnJl
-Zmxhc2hpbmcgT3BlblNCSSBhbmQgdS1ib290LiBUaGF0J3Mgc3RpbGwgYSByZWdyZXNzaW9uIHJp
-Z2h0PwoKL0VtaWwKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
-b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YK
+On Thu, Aug 15, 2024 at 04:29:54PM +0100, Mark Brown wrote:
+> On Thu, Aug 15, 2024 at 04:11:56PM +0100, Dave Martin wrote:
+> > On Thu, Aug 15, 2024 at 03:45:45PM +0100, Mark Brown wrote:
+> > > On Thu, Aug 15, 2024 at 02:37:22PM +0100, Dave Martin wrote:
+> 
+> > > > Is there a test for taking and returning from a signal on an alternate
+> > > > (main) stack, when a shadow stack is in use?  Sounds like something
+> > > > that would be good to check if not.
+> 
+> > > Not specifically for any of the architectures.
+> 
+> > Can you see any reason why this shouldn't work?
+> 
+> No, it's expected to work - I'm just not specifically aware of an
+> explicit test for it.  Possibly some of the userspace bringup work
+> might've covered it?  Any libc tests for altstack support should've
+> exercised it for example.
+
+That's true; if libc is built to use shadow stack, generic API tests
+ought to cover this.
+
+> > Maybe I'll hacking up a test if I get around to it, but don't take this
+> > as a promise!
+> 
+> Thanks for your firm commitment!  :P
+
+No problem...
+
+Cheers
+---Dave
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
