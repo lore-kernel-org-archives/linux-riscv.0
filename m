@@ -4,50 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D41BC3DA7F
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Aug 2024 11:01:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FA6EC52D7C
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Aug 2024 11:44:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k3Pb7oLefcM5znrtd2FavIKagZWA1qOJs+sNRRkIpGQ=; b=jjP6iKQgvSzBc0ue58wvXzLYAK
-	IdiRIFv/+gM4bZRnazn94JaOzjFF5ZDm7Cqp3BYUS0l2HnexW0aMCppaTMC7kriDHSJPt7X+nWfVs
-	cLOCJO8s8W46/PtdYfIdEij8Sa8YPnOZe3thktAcD6nrVVVZhMr47Dr5BWMWjcWgJuaEW67tDcKns
-	2Li3LSLhRK0OYkDIHKY+aWL8EAG/W+csFXz5clLIJen7zz/xkdhLkkpNSIdW1J/YfclIcu6NLGcWi
-	HhnxYkIl0MWz7aYxW8RYGoY262xbzmp8bCbQRQmmsjA0fqONugx5a4Q3PUZqA8XJGqkDoMi7fOaNa
-	gqRH1lsg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8X8Ytkv21CHUB2NdGQ5Takmt/bnucgnyZ4UsIxqSTSY=; b=AOPXlQEsi+0YaK
+	CUNDdW0FJLH0nmSPbjSgnM9jU5/YbDipFH9Nz9cmhBcFp1o02CiJTHB25QYSJc+mkC+TmG6ENvHU2
+	SsJ06HxNQO/fE6+YcHI1sGYfedBuvri3uYxstEpQuiLjIFH2w3sEgfgLB4dvZxItYLPQQQ5sTC4ng
+	5Rort/hJFTAyNjp9NuMDDm3o02jVxUK7JMvhUDXGmptD3KFZRofcl8U+icPZ/WA4vxkLFOVkQPI3a
+	TYEvLhpomZ9uuUr6SSNnTVgIKx8dCdVbO0MJ4flUI3ivX92kisdPc/g1/9XvM1xSKPa5vRDDvIFqe
+	YVhZHchYQ5BrLJTgxSNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1seYEm-00000009jdZ-0bfY;
-	Thu, 15 Aug 2024 11:01:48 +0000
-Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
+	id 1seYtq-00000009obP-2gRx;
+	Thu, 15 Aug 2024 11:44:14 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1seYEj-00000009jcb-3lMa
+	id 1seYtm-00000009oaO-0T0j
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Aug 2024 11:01:47 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 986191C0002;
-	Thu, 15 Aug 2024 11:01:38 +0000 (UTC)
-Message-ID: <afaa4192-da08-4180-a09b-2b953293ba76@ghiti.fr>
-Date: Thu, 15 Aug 2024 13:01:37 +0200
+	Thu, 15 Aug 2024 11:44:13 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1723722247;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QqUsbSq2R+8U72AfUd3SQ6tENIkj+ufWopC5V72X18k=;
+	b=t+XoJRf3L9lVbi8e14cbrqRYKPnQlndmlZxwJStKwWpyEeOVHZ/IXPgN8AU6X6b60ty2cF
+	c1nLatrNtjk+gcj+nr2zoLBEgxGyhkKUFeBaow9/YI5D3dgS57sFPai14ujNjOLePMBYER
+	IJf4W97IkeLLesRT+3txmsL9zQCHPmwZzw4cJCekYUyL4AK0VBND0dgCewxci9N2wk4DoK
+	/ZdDbADTvnKooJjw2t28lQMSK4gBhqNXouBijtfwxmVnangSJO1BoFddeus7PLkkGFuP1P
+	q0VSQjDAbKQbVBq7qd1WTaXVUl8tgsVlQYObUTarCZf2uvvfM/ITqRdg+U2Yqg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1723722247;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QqUsbSq2R+8U72AfUd3SQ6tENIkj+ufWopC5V72X18k=;
+	b=17/VBa7gEEyquNhFgRqvepRm1Y15NrPBQaltTU9nrKhdO4jrXKV204Z/bfEF3VimsvaaD3
+	ikOoDu9+rxzSWjCQ==
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>, Emil Renner
+ Berthing <emil.renner.berthing@canonical.com>,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Anup Patel
+ <apatel@ventanamicro.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Samuel Holland
+ <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert
+ Ou <aou@eecs.berkeley.edu>, Daniel Lezcano <daniel.lezcano@linaro.org>
+Subject: Re: [PATCH v1 0/9] Fix Allwinner D1 boot regression
+In-Reply-To: <CAJM55Z8WERQgs=QMyFGWvAHOpwcnOAudBqovaEuDudPSXCvL5Q@mail.gmail.com>
+References: <20240814145642.344485-1-emil.renner.berthing@canonical.com>
+ <87jzgjnh9z.ffs@tglx>
+ <CAJM55Z8WERQgs=QMyFGWvAHOpwcnOAudBqovaEuDudPSXCvL5Q@mail.gmail.com>
+Date: Thu, 15 Aug 2024 13:44:07 +0200
+Message-ID: <87ttfmm2ns.ffs@tglx>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: add a warning when physical memory address
- overflows
-Content-Language: en-US
-To: Yunhui Cui <cuiyunhui@bytedance.com>, punit.agrawal@bytedance.com,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- alexghiti@rivosinc.com, chenjiahao16@huawei.com, guoren@kernel.org,
- vishal.moola@gmail.com, stuart.menefy@codasip.com,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20240814062625.19794-1-cuiyunhui@bytedance.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20240814062625.19794-1-cuiyunhui@bytedance.com>
-X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240815_040146_117735_E3AF7ECC 
-X-CRM114-Status: GOOD (  14.76  )
+X-CRM114-CacheID: sfid-20240815_044410_314868_B101CF3D 
+X-CRM114-Status: GOOD (  10.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,55 +76,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Yunhui,
-
-On 14/08/2024 08:26, Yunhui Cui wrote:
-> The part of physical memory that exceeds the size of the linear mapping
-> will be discarded. When the system starts up normally, a warning message
-> will be printed to prevent confusion caused by the mismatch between the
-> system memory and the actual physical memory.
+On Thu, Aug 15 2024 at 03:29, Emil Renner Berthing wrote:
+> Thomas Gleixner wrote:
+> Thanks for looking at this! Unfortunately the above patch isn't enough to fix
+> the issue:
 >
-> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
-> ---
->   arch/riscv/mm/init.c | 8 ++++++--
->   1 file changed, 6 insertions(+), 2 deletions(-)
+> https://termbin.com/7sgc
 >
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 52290c9bd04bd..c93164dc51658 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -236,8 +236,12 @@ static void __init setup_bootmem(void)
->   	 */
->   	if (IS_ENABLED(CONFIG_64BIT)) {
->   		max_mapped_addr = __pa(PAGE_OFFSET) + KERN_VIRT_SIZE;
-> -		memblock_cap_memory_range(phys_ram_base,
-> -					  max_mapped_addr - phys_ram_base);
-> +		if (memblock_end_of_DRAM() > max_mapped_addr) {
-> +			memblock_cap_memory_range(phys_ram_base,
-> +						  max_mapped_addr - phys_ram_base);
-> +			pr_warn("Physical memory overflows the linear mapping size: region above 0x%llx removed",
-> +				max_mapped_addr);
-> +		}
->   	}
->   
->   
+> It still hangs after the "[    0.176451] cpuidle: using governor teo" message
+> until the watchdog reboots the systems.
 
+So what's puzzling is that there is a timer installed early on:
 
-A bit weird to review and test my own patch, but here it is anyway :)
+[    0.000000] clocksource: riscv_clocksource: ....
 
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+That same init function installs the per cpu riscv clockevent, so there
+should be a timer available.
 
-Tested-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+The deffered probing of the PLIC driver delays obviously the probing of
+the sun4i timer, but that should not matter when another timer is
+available. So the sun4i driver might be a red herring.
+
+Can you please add "ignore_loglevel initcall_debug" to the command line
+and provide the output of a booting and a failing kernel?
+
+And on the booting kernel please provide the output from:
+
+# cat /sys/devices/system/clockevents/clockevent0/current_device
+# cat /sys/devices/system/clockevents/broadcast/current_device
+# cat /sys/devices/system/clocksource/clocksource0/current_clocksource
 
 Thanks,
 
-Alex
-
+        tglx
 
 _______________________________________________
 linux-riscv mailing list
