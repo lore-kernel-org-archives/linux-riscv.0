@@ -4,89 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC799C3DA7F
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Aug 2024 10:30:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81C3EC52D7D
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Aug 2024 10:34:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=h1ERqHgU9sE6xLQyT/eLEaD1b4zBn5WPhdBfoNAO4v0=; b=kdufUhS8xOtO9O11SG3K3zy3vT
-	DWzohzlGo0vB5yAJ+sfhl5jQ1uajvyrBvT/f7Rhr6xPU2AYnCOEdWYFHVqjP/YaFRCa/xhu27Y7pQ
-	dFwy/d3biyLbzYu6wts+VsEnw6oQgV0dt3e+FX0nZG2UE2cSShw+TosLuPbnVNLpEe3JXuBIPJTa4
-	zmziol7bu2mdxo373b9eKhRm6WGTgAlyvQB5JGKclkvcTVJLhwkYFCnIVUEazgymhtjM/j1yq9sWD
-	yxnrfT40C5qilvejwfim1l7raRFTAmTLJ3f7jePHUAMYYIU+zex9pK8/RHtf36Bf3ynIsFo2ji0E4
-	wjw5PJeg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=33BZqCGQGAUolb5p/bWJ4iNXVy8cOO5BehJNz/ybWHw=; b=XvdItmAPf5Atyi
+	1VuRUmL1vquhVGsodHRtGXJzhAQVi4O2sFZlKfM11V5V5KWZeWpChTLMJkmln9QAej8VsC02wWZTY
+	8/YvBemcI05DNkeXyEqYj6aOG9SUQJ5EzPT++oD5mqB7kzLXnSzS3hday+SA7y4No1qgleONrB6yl
+	SPxP5VxhMML4fj70YphpiWPtbYrr1Mv1gKiraQQUr5QjbaXXP4Wogu2nbOTFaeR+Um+XvpnslLzr/
+	W6CTUUsdhvBhwkXNoFbumj0FA/nmObGS+YurcsJh633h5kkPBRCji1M6KcScVNttXuZF1xqH17Zrp
+	GqUkh21rdNZk/gpRStxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1seXk4-00000009bvL-0zwN;
-	Thu, 15 Aug 2024 10:30:04 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1seXo7-00000009dB4-0NBN;
+	Thu, 15 Aug 2024 10:34:15 +0000
+Received: from mail-bjschn02on20711.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::711] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1seXk0-00000009bsn-27bL
-	for linux-riscv@lists.infradead.org;
-	Thu, 15 Aug 2024 10:30:03 +0000
-Received: from mail-vk1-f197.google.com (mail-vk1-f197.google.com [209.85.221.197])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id DAFC33F1F4
-	for <linux-riscv@lists.infradead.org>; Thu, 15 Aug 2024 10:29:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1723717797;
-	bh=3xaxNhe1FqV8WHQsaw+Wa818Bwsy57jjLMJR4J0o3wQ=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=rU0Z6WXsl1HCUwKhybLUkcoe69KMjaB6uHJtm8xcQZL+6RHS5GORTwCa+KZvsDoBP
-	 d3DOUN120tTam+oF3qBVDOid9cQglbiYZCVhPli+rcZ69gJwMLgdh/ssut4/cTsj5Z
-	 PtiATyaRZkWQBcgmaV05yGaMVX6G8FYV5YyPEg5fAyZQQ4PvPvDZUzsKmIVXI3eCyf
-	 GTsX177iHMs6Gwrhnw3RUDKtefpNeraTEmQPw3Eivs2UyLl+Xo16czPW76I1htusN5
-	 mm8EJQswV4QLKA/EoJbTiYwl7+SgH/Z3xSeqgH/xB+UOcnzB+je1MSls0veOkgZShQ
-	 V1XEe2ZkJZB6Q==
-Received: by mail-vk1-f197.google.com with SMTP id 71dfb90a1353d-4f513e1d1e2so270336e0c.1
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Aug 2024 03:29:57 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1723717797; x=1724322597;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=3xaxNhe1FqV8WHQsaw+Wa818Bwsy57jjLMJR4J0o3wQ=;
-        b=rkvgPUGHV8ErxIws601IiFY4ggxA8p+t8hJnhtmAsKH2+FOYW14MWYXJHNudYhEz7w
-         Y56TK23C5C+3hQzBcMFYpixq3qK1xb9jBRKYS4nyDj3keR4yh5RNexTR5SvhBouyXYm2
-         wnzXP5QVBiaXClI9znVp0Z1gS97eoqLNA7l1hcg3YC+8SQElU/RHsFvbiX9SAUeOKV/5
-         pG3lrC4jVZrIjaTZQl4KxQkXP1RXIDkUQj2b9rASbgFvqOG7IEkK4nw93nIKm8eEn8mZ
-         XVpFUbck7BvJcnNVdFaW485hI7FJ2C8bFsaWpo9HElOIIoZTh2mxJ5s19L3rSrcitD17
-         HyUg==
-X-Forwarded-Encrypted: i=1; AJvYcCVdLQwYF0cB8xr1LoTVSPx9Xfcq+9F3x9xw5QJ1jkySu1ZdQTnH0bVaRaqF/tjR0qW/7fmY98gDIIKCWhOfpQqsXd2gkt7ys6u9pfcCIiGe
-X-Gm-Message-State: AOJu0YxqMM7YmQ4uUuhSGghY8VAmuB4ikLogp0QssBp3BTvlfq2K7FbX
-	hg/8yTSEwCr/QYIrYjCm1mTgMEKm3LZORusqWDgWzky8J0b+HDwYa1C+Mrhl6OrbajdrH46U60J
-	KE5x9u8f+X37PhgWTAEEoi+9lH6VlfWso0+Ko2NnjkzwwRn7qyHO8Db5Mc07Uvub1Cg3FMiZUP9
-	PLs+NpdA/eMvZXM/0K+C0q8DA8pR4MgapoFLogYRYiqd01BbDnxWSHcZb5
-X-Received: by 2002:a05:6122:2a42:b0:4f5:26df:690c with SMTP id 71dfb90a1353d-4fad2337764mr6784887e0c.12.1723717796809;
-        Thu, 15 Aug 2024 03:29:56 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFGbkgj1Ik7pHRKdoLY3IN9m4oes3YiWU6MuLMMuW/zMuvzd5NfyPIy7S7pQruSLB4yXpDd+rhID9Ek2/6S04k=
-X-Received: by 2002:a05:6122:2a42:b0:4f5:26df:690c with SMTP id
- 71dfb90a1353d-4fad2337764mr6784856e0c.12.1723717796323; Thu, 15 Aug 2024
- 03:29:56 -0700 (PDT)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 15 Aug 2024 03:29:55 -0700
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <87jzgjnh9z.ffs@tglx>
-References: <20240814145642.344485-1-emil.renner.berthing@canonical.com> <87jzgjnh9z.ffs@tglx>
-Mime-Version: 1.0
-Date: Thu, 15 Aug 2024 03:29:55 -0700
-Message-ID: <CAJM55Z8WERQgs=QMyFGWvAHOpwcnOAudBqovaEuDudPSXCvL5Q@mail.gmail.com>
-Subject: Re: [PATCH v1 0/9] Fix Allwinner D1 boot regression
-To: Thomas Gleixner <tglx@linutronix.de>, 
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, Anup Patel <apatel@ventanamicro.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Samuel Holland <samuel.holland@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Daniel Lezcano <daniel.lezcano@linaro.org>
+	id 1seXo2-00000009d93-3iu6;
+	Thu, 15 Aug 2024 10:34:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=K3H9ascx/5pCw72JXZDtDzE8iGGh8zoPgS1cE1mKQkeYwKG1FbLdzrCSSH4vYEHVlybjHiTX9ZVnL78DVRd3baBlqb55wwzUdEKkY7zQefI4Y7tX86rgb6x5ZiXBis29l+AymExhCFXCIR37vRnqTDNLEYZU50LLwX/irZr7k+yOCMH8zmljkWN4ITXgPaJD3bXdTH8j80TDk39lwp77T/Y1l+qiFs8PHmX7CduLf2xM+e3vP469GU1VN9/3Pl+b0/8rot8qFktVyC2jP53e1x9CsC5LvrXLzWekHcNOuVL/GCvslyez6AHnzzJeuZmA7msL632eJ7B32wSX+d/RQQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qDo5SrZ/4pywN3nG4oxF3giT4t7+xTbQGbK4wFKcEBI=;
+ b=I3ScJNOdHxbNvrOV9Loou043SdY7SRBdz2wByAW4CSQWULQv6jwWx8FyqomQbwNJdqyP5vDsYFeoHVrJC5bh10pb9tErtg+dtJkqrZqwdkVX4bqn+y3ScdrR5ejaV/dH2Xe2/NBjxDlWGMkjrUjxh2GN6NpbaOux14wTLdQ8l8lGah2ppoJd1MGWe3D1v3bEiq7/7IxARjeUgj2HxbZFXhKltEpY0/smQJjieQK/c691iZ/RnMmG2SqTv2lqYEhqtCyKR4C+lEqU/ycU/z7lix4yBijoMqP4hdV4CuOgir3LE8DOllpCQcqpqYqecRO9Yx45UFgH0y++B9rU6A0kmg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:25::15) by SHXPR01MB0864.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:24::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7828.33; Thu, 15 Aug
+ 2024 10:33:55 +0000
+Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+ ([fe80::9c31:a452:dc3b:7273]) by
+ SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn ([fe80::9c31:a452:dc3b:7273%3])
+ with mapi id 15.20.7828.031; Thu, 15 Aug 2024 10:33:55 +0000
+From: Minda Chen <minda.chen@starfivetech.com>
+To: Conor Dooley <conor.dooley@microchip.com>, Jan Kiszka
+	<jan.kiszka@siemens.com>
+CC: Conor Dooley <conor@kernel.org>, Vinod Koul <vkoul@kernel.org>, Kishon
+ Vijay Abraham I <kishon@kernel.org>, "linux-phy@lists.infradead.org"
+	<linux-phy@lists.infradead.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Dan Carpenter <dan.carpenter@linaro.org>, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>
+Subject: =?gb2312?B?u9i4tDogW1BBVENIIHYyIDEvM10gZHQtYmluZGluZ3M6IHBoeTogamg3MTEw?=
+ =?gb2312?Q?-usb-phy:_Add_sys-syscon_property?=
+Thread-Topic: [PATCH v2 1/3] dt-bindings: phy: jh7110-usb-phy: Add sys-syscon
+ property
+Thread-Index: AQHa7MIqi3fKeaFdgUCkV8gwHQ6DdLIjxqIAgADkCwCAACqYgIADTTAQ
+Date: Thu, 15 Aug 2024 10:33:55 +0000
+Message-ID: <SHXPR01MB08633B523DA1F6C5632F6D9DE6802@SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn>
+References: <cover.1723472153.git.jan.kiszka@siemens.com>
+ <30f3ca9f6bd788e16767b36aa22c0e9dc4d1c6a4.1723472153.git.jan.kiszka@siemens.com>
+ <20240812-overstuff-skirt-7a8aabbcdc6f@spud>
+ <8cdba8b0-7364-4c09-b18a-f3f59da1eae2@siemens.com>
+ <20240813-haiku-pusher-f2fb037a2f49@wendy>
+In-Reply-To: <20240813-haiku-pusher-f2fb037a2f49@wendy>
+Accept-Language: en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SHXPR01MB0863:EE_|SHXPR01MB0864:EE_
+x-ms-office365-filtering-correlation-id: 43711e8d-88d4-4375-dc59-08dcbd15c372
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|41320700013|366016|38070700018;
+x-microsoft-antispam-message-info: dzGRQBuEJVAahcmvEqPP4Q/1N7+J64hmgyPaf5P492i7veJDiJt4EFJTOQvZBzBRnu0jPIQUEqjcTZmT9fLuM8Nj0m1I1ifHQYr+Yh3tfT9FBxfeDPv9gX5mWe29mrQ9qBw8PPnxtvw0ruTHk3RCRB/Qimy0g4AGAMSMQLIE8/g1gDsSvG+n65Dt2tpxfs4WIAaNxi/w4CEIjJwBKX98tJzOka5MReGiHbgISwThjuPf4mWPEPe8NfgYz1BR9Thx2RkBZ0DhVsixNMnZ+I0KdOb8S92b+97mHJH1KDrTxLKhcTKP0MvvwsgDUkngtDQEbBqzJ3mcFEqFZBeAB5s6mg7QFu93ZFG0Kcn5lRyVJLnJGxAy7SHw6V269lzAzNAqwAf2rgPoRd/0GFtqqyiR9i6jP4PSwsdFisALcJp0AiUoCrrPLQmBGOd8tG7VgQyLJleZYeAg2Ni4cEsfJbgR5kv6BZq4WZfTtEP7NxBqwe2NbTAtOk8eDE8Ds3slOEq9LQ75QTpDYKbEO8tffgeSWMRuhisvXOZyINiL1wkFdnB24xMgfSjsnbyXbG70LqLPRuZY/c2nn3W11Ci1gJ/rIQgaO5TemBH90rYaXaqFrpVFEqS/EyFveM2OPzKXLO6i
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(41320700013)(366016)(38070700018);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?gb2312?B?WndoaExqcks3bjR0L205alF5WlJIWjRBbXF3b0g0Q3FvU2pRdk1RQSt5OTZY?=
+ =?gb2312?B?OVFxVUtEd2E3LzBDV0NBbWVob1pqa1p0Y1VCVENnT2Y5K24yT1V1MWhvbUdw?=
+ =?gb2312?B?dGx0aWc1aG5OMWF1SG9zTUMyV25qUnhLdUZXRmtmRkx0YVFRb0pnL1VJY3A1?=
+ =?gb2312?B?NmV4dzRDMkRwemJMZmhwTmoxMEhvQXBTUGxiTzVocmVFL3YrL3Q5aUtGcTJF?=
+ =?gb2312?B?MUpJNnZkOUcwUkRSTHhmTWJvQnI1a29Xb2p3UVZqTWlvcExPb29VQlk3R0pX?=
+ =?gb2312?B?ZkRNZ1dXeldqSHgyaXRPS3BFOTc5dmM0Q1RuY0s4SE1CR2hyN1NhY0lPVVFr?=
+ =?gb2312?B?ZVFSSjZvQzlzaGkrRERCMmN5VjNLejBtMUV3NktONmIxTnlLcjQyc3NKdHNQ?=
+ =?gb2312?B?WG5oZ2NSclZlVUM2aUtRbjI1cnBTQmZiUmQvbFlndEhQVzJrSlVrVm1IZEMz?=
+ =?gb2312?B?UnhnR1JQTXlPaExXS3Jyd2pQS0s0a05YWnZWYng0WUxXa2hxdkpNcFZ4Y0dM?=
+ =?gb2312?B?UnU2bVNBT09GTHdjQVpFaXVPbTFsTEpEMzRhNStibTNQbEF2dXZQd2l3SXRK?=
+ =?gb2312?B?VHczc2s4UGNaVGtwQTREQVIvaERRWmwyb2ZwZ29EU0R1SUdyVVl3VGRDQUt4?=
+ =?gb2312?B?dE9ESk1UcXZDeTRqUlR6M2YyMzlUeC9vN1llUDhiai96NWNkd21aZDN6Rng2?=
+ =?gb2312?B?TC94YXlFQjNuUzJ4RkNEWWJqdUltQ1pVS2hQYnBTcWVKVFRmSGc3Y0JEVTll?=
+ =?gb2312?B?SkVWdHNaUFZvc1QzcW5rNlpCSndEamNmRHBwOHBVdGlDS1JKRnRwMzJnVXhj?=
+ =?gb2312?B?T3hEd01Xc0hLTW5TL0tDRlVwNk0rNDMyTk1iM2ZhWnprU0x3K0NMaThXdXdZ?=
+ =?gb2312?B?TEhpdS94NWVaWjhuS2t0MnBZOXc0YkxSSHNSOGlhZjNkbDViSkhrK3NZSUtF?=
+ =?gb2312?B?T2tCb3JPVzhBOWVZQTJkSkJJU3JsRkdFUzljbTBsdUpzTFVHS2hESVplVlRT?=
+ =?gb2312?B?QVFhSHNHT3hQam1CWTZDS2FTOEtpR2FrZGk5SkQ1OXAvSi9TMVl0WHA3VTly?=
+ =?gb2312?B?bVh1WDk3NjNldm45N3RUSGFRaVN0enp5OUh4aUlaMmNVQ1Q2QzdxbHk2TzZZ?=
+ =?gb2312?B?eXJuTmJTRmpXU0RPYld1Ny9mRFdtaXZCdGh2aEpYcFoyZWdGem1tTTVBL3Zy?=
+ =?gb2312?B?OVpMUldSZU55OU1CdXhjM1NzdFZjRXpVaTBZVW5RMDlpSWV5dkdxL2liMlMz?=
+ =?gb2312?B?cGNjTUg0aTNRamJpR092RXZqZnJQZDlsZW1OdnFMdHFXR2MrSTNmNUszZk1h?=
+ =?gb2312?B?NjRGMGc1WjJWREJJQ0JVUXp1ZU5EV0p6M3JmL2NaZmkwS1REb1YxZ2FFUHht?=
+ =?gb2312?B?ZjI4cFc0VzNLSDRQcm96WHN3cWxHL01DWGpvckVrRHltbTVYWk1EUytEcXd2?=
+ =?gb2312?B?MDVBMmJHSjI0N2Y2Q3QydU9taUwvd2JpT1BCbmhxOUpIUkhmekh4ajk3TC81?=
+ =?gb2312?B?cWg5TjhueWpKTXRvQk9iQmRxbUwxOVhmRDdHdGxiU1RtUmlEWUlyR0V1Z2FF?=
+ =?gb2312?B?N3IrTEd4K0ozdkFYUytielV3SHRGM2JVNzVwVitlOEFmdzE4a3pTejdRQ2Ew?=
+ =?gb2312?B?Sk5qaDlOUlc4UVJQTjlYenJtVHRnUTQ0VXJXMXZ0Q2hyUnRpMkRsL0xtVWdp?=
+ =?gb2312?B?aWt2NFdCZzNkZi9UVGJYZVNtNm5qcHNiNkNtQWVmRVFXckkyWDNpckVyWGJU?=
+ =?gb2312?B?YnlsQzFhTGcvRDhrZ1pBV1pTd3N4YXhVRVl6RjFJVm5kSVhDL1owMlBVcjFy?=
+ =?gb2312?B?TjdxY3hOc2l3ODYwNDBNS0RUMHl6cEdYbnNBOGxlOHVsMmkwTERwZitzL1Bo?=
+ =?gb2312?B?UU00R1RrNnZnVDR4QjdyeC8wNVZvTHduK1JWSFAyY1hVa1ovb2FRSTJyNXho?=
+ =?gb2312?B?QUNaWDVWVWRWeGZDQi93NnlHMUZVbEVvUDFKMkluRnA1RU9yL2NJL3ZhaWxj?=
+ =?gb2312?B?M2JBSlcya1BmZTBEQVpOWnJSLzUrcGdqb3NFRWJQQzZLRFQxcFAwQk1OaVF0?=
+ =?gb2312?B?L0I5VUJnQWhvdkkvbmwyakYvNHUwWDNpYnE5V2VRN21qajNkTzZySGlabmo1?=
+ =?gb2312?Q?fBdA=3D?=
+MIME-Version: 1.0
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: 43711e8d-88d4-4375-dc59-08dcbd15c372
+X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Aug 2024 10:33:55.0446
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: Z7spdvmdBOS/xtX5gV4jzZ4sZd3HSNm9HIVo2vLBvkj2fkw5UKsgJsyXfAhW4GQnnKEFaHqrG8h/fhrDl2b+X1gSw5+G9oiqBYJwmkJT/s0=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SHXPR01MB0864
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240815_033000_695807_A4218EA3 
-X-CRM114-Status: GOOD (  29.41  )
+X-CRM114-CacheID: sfid-20240815_033410_951819_AB66F84F 
+X-CRM114-Status: GOOD (  29.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,76 +150,100 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Thomas Gleixner wrote:
-> On Wed, Aug 14 2024 at 16:56, Emil Renner Berthing wrote:
-> > As described in the thread below[1] I haven't been able to boot my
-> > boards based on the Allwinner D1 SoC since 6.9 where you converted the
-> > SiFive PLIC driver to a platform driver.
+
+
+> 
+> On Tue, Aug 13, 2024 at 07:31:50AM +0200, Jan Kiszka wrote:
+> > On 12.08.24 17:55, Conor Dooley wrote:
+> > > On Mon, Aug 12, 2024 at 04:15:51PM +0200, Jan Kiszka wrote:
+> > >> From: Jan Kiszka <jan.kiszka@siemens.com>
+> > >>
+> > >> Analogously to the PCI PHY, access to sys_syscon is needed to
+> > >> connect the USB PHY to its controller.
+> > >>
+> > >> Signed-off-by: Jan Kiszka <jan.kiszka@siemens.com>
+> > >> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> > >> ---
+> > >> CC: Rob Herring <robh@kernel.org>
+> > >> CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> > >> CC: Conor Dooley <conor+dt@kernel.org>
+> > >> ---
+> > >>  .../bindings/phy/starfive,jh7110-usb-phy.yaml         | 11
+> +++++++++++
+> > >>  1 file changed, 11 insertions(+)
+> > >>
+> > >> diff --git
+> > >> a/Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yam
+> > >> l
+> > >> b/Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yam
+> > >> l index 269e9f9f12b6..eaf0050c6f17 100644
+> > >> ---
+> > >> a/Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yam
+> > >> l
+> > >> +++ b/Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy
+> > >> +++ .yaml
+> > >> @@ -19,6 +19,16 @@ properties:
+> > >>    "#phy-cells":
+> > >>      const: 0
+> > >>
+> > >> +  starfive,sys-syscon:
+> > >> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> > >> +    items:
+> > >> +      - items:
+> > >> +          - description: phandle to System Register Controller
+> sys_syscon node.
+> > >> +          - description: PHY connect offset of
+> SYS_SYSCONSAIF__SYSCFG register for USB PHY.
+> > >
+> > > Why is having a new property for this required? The devicetree only
+> > > has a single usb phy, so isn't it sufficient to look up the syscon
+> > > by compatible, rather than via phandle + offset?
+> > >
 > >
-> > This is clearly a regression and there haven't really been much progress
-> > on fixing the issue since then, so here is the revert that fixes it.
+> > I didn't design this, I just copied it from
+> > starfive,jh7110-pcie-phy.yaml. As that already exists, I'm neither
+> > sure we want to change that anymore nor deviate in the pattern here.
+> 
+> To be honest, I think some of the other users of phandle + offset on this soc were
+> just copy-pasted without thinking about whether or not they were required too.
+> This one seems like it should just be a lookup by compatible in the driver instead
+> of by phandle. As a bonus, it will work with existing devicetrees - whereas your
+> current implementation will fail to probe on systems that have the old
+> devicetree, a regression for systems running with that devicetree and
+> downstream firmware.
+> 
+> Cheers,
+> Conor.
+> 
+Hi Conor
+I know you would like to put the offset value to the code, Just set syscon in dts.
+Just like pcie-starfive.c. right?
+
+> > Jan
 > >
-> > If no other fix is found before 6.11 I suggest we apply this.
->
-> So this mess has been ignored for two month now?
->
-> From the pastebin in the initial report:
->
-> [    0.000000] irq: no irq domain found for interrupt-controller@10000000 !
-> [    0.000000] Failed to map interrupt for /soc/timer@2050000
-> [    0.000000] Failed to initialize '/soc/timer@2050000': -22
->
-> This comes back with -EINVAL. So the timer cannot find an interrupt,
-> which makes it pretty obvious why the system stops to boot, unless there
-> is some other timer available.
->
-> This is obviously related to the SUN4I_TIMER because that message went
-> away when it was disabled according to the next pastebin.
->
-> Obviously that can't work because the SUN4I timer driver is using
-> timer_of_init() which cannot handle deferred probing.
->
-> Daniel: There was a partial fix for the sun4i driver, which you said you
-> applied:
->
->   https://lore.kernel.org/all/20240312192519.1602493-1-samuel.holland@sifive.com
->
-> But that thing never materialized in a pull request.
->
-> And of course everyone involved ignored the problem since March 13th
-> 2024, i.e. almost half a year.
->
-> Seriously?
->
-> Can you RISCV folks get your act together and ensure to fix things you
-> broke on the way? Especially when Emil reported this nobody pointed him
-> to this patch and nobody noticed that it's still not merged?
->
-> It took me less than 15 minutes to find that patch and the correlation,
-> but this is absolutely not my job.
->
-> I'm seriously grumpy about that. This is not how it works. If you break
-> stuff, then you take care to fix it before you shove more changes into
-> the tree and waste my time.
->
-> I'm very much inclined to take the reverts right now, send them to Linus
-> for -rc5 tagged with cc: stable and ignore/nak any irqchip related riscv
-> patches until the next merge window is over.
->
-> Emil, can you give that sun4i fix a test ride please?
-
-Hi Thomas,
-
-Thanks for looking at this! Unfortunately the above patch isn't enough to fix
-the issue:
-
-https://termbin.com/7sgc
-
-It still hangs after the "[    0.176451] cpuidle: using governor teo" message
-until the watchdog reboots the systems.
-
-/Emil
-
+> > >> +    description:
+> > >> +      The phandle to System Register Controller syscon node and the
+> PHY connect offset
+> > >> +      of SYS_SYSCONSAIF__SYSCFG register. Connect PHY to USB
+> controller.
+> > >> +
+> > >>    clocks:
+> > >>      items:
+> > >>        - description: PHY 125m
+> > >> @@ -47,4 +57,5 @@ examples:
+> > >>                   <&stgcrg 6>;
+> > >>          clock-names = "125m", "app_125m";
+> > >>          #phy-cells = <0>;
+> > >> +        starfive,sys-syscon = <&sys_syscon 0x18>;
+> > >>      };
+> > >> --
+> > >> 2.43.0
+> > >>
+> >
+> > --
+> > Siemens AG, Technology
+> > Linux Expert Center
+> >
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
