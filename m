@@ -4,92 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5620CC52D7C
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Aug 2024 13:36:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E243C3DA7F
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Aug 2024 13:38:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=H5tJOeu9ROdo1MrfaCbdnxrwyR5YbD08NlRmUNnPKoU=; b=YqdwB189eVmiIzSTPoEClvnpy1
-	zrKS1eBns3vxYZkp+Qz8LjLHEesOyeEvavp1xLLEtaqoh7UI878B6UD2rLxNjypENmEhMU1g4cTVe
-	636i5tqgZybA62K9qeO1sqaBLjTBzHG8TQv7FosNBnjy/OpqBCfK/P01q11t7IipSCGWt2GiJZOTH
-	k8nQ2TbeL5cRy4e2GzEVXnyzeKkTL9EYKA+V+eohDu+1HzO+Y8Fh+TVrcKhubwe8v74jisdJujD24
-	QI/9935n9OpRL7gG1qFmIo58KnOJhGdYWk48QL/mhBIdYO8Q43K3UY4ggPk5etvL1NByXS+yigSyR
-	qdXJrXyg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=UWMPWoLTJCSDv4XDZ2P6jsgUPh8WIiA8HAvbUhL+C3c=; b=koksNny75WxtFs
+	PdASnt8TJyWgmVnT58APzbNX8prZNcOXnhc+ecj6OkQIAzeCsT0k51QyB+YIbMnbDzQu7jbsL8Ovb
+	TcgThwrf8wy62TRgV8aQLFKddCokwqCh1qkOg+8tsUhGDQOmN1WaECVqk8VhHSBqrwMrFh1tW6SVi
+	YNxqC8kvsr8kvchhdXPDHOe77eFhRpW/Ol8WSXEL5vLQtynELvTY5Y3Lsjh/MpykOmnChEkhmXyQV
+	7xBucmsTzeWqZVPJnGjaUQXqoy09DQrTHfPzXtUj9aSLkYZAVTZ1ANEQTYrG+gGDmB3GxLr/PTAMW
+	f1G/sC+6PdzCv8o8i+gA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1seadz-0000000A3uE-0rno;
-	Thu, 15 Aug 2024 13:35:59 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
-	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1seadu-0000000A3tM-3lHA
-	for linux-riscv@lists.infradead.org;
-	Thu, 15 Aug 2024 13:35:57 +0000
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 154E43F670
-	for <linux-riscv@lists.infradead.org>; Thu, 15 Aug 2024 13:35:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1723728953;
-	bh=Z5UFM6jCql770Z7anv34dNUzaqaODcHWZimSfHmsQlA=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=d5CiWCqU9iXQ+p6QwgluHa+tBT080OgSVDxwfecUWB33YcLLRha0rw58BOnC0Ch21
-	 Jd2Grc4K+20lWR1cVx4GpSpIIi72n4aWv/Tx6OQA416NvtDMutcXRkladaVtbVZw9m
-	 6Dodd7vb9k4aTsCxJEzWbboudY5dPUQqd20wlQqb4gfLrx9gCjE9+62tlTlFB1zKkZ
-	 EfQod9cHXahIia9V2vYeiJvK8x2/WJl9cIyG4cwitY14ePUTzKwt1Cx7lvrJOtj1OL
-	 NGCpNe7E1KFDPJNkwHyCvxtwjvKdV9fSBbgJn2TQK0zBjj/ay77l0HoPcQHj47AW+z
-	 HDU9uFtjEHpgQ==
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-44ffb762db6so11491011cf.2
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Aug 2024 06:35:53 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1723728952; x=1724333752;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Z5UFM6jCql770Z7anv34dNUzaqaODcHWZimSfHmsQlA=;
-        b=sTPBj+49ixarJcZ55O/XzvZ9OPpmFKLLjlz/a4fi5Lm0lsoxwyFLBb1EHF9d2bcE4x
-         WBNUIRaFk6TnuQGdQgTHmkcXcNtwqfhsEMXEzF9fv7PD9qC1qll1Z/M2Tv60p0izvne1
-         dnkv0PJfJdaQSb7XdaVCejaBdyHM2QsHU98lu99IduepicfEPDPrqBVa6dVvyhOUpK+V
-         f3jNPzgF+l7amwHh4RbmpZ0C0O6jrsYTTnVFLrXiYCcCGc6AwLvYmjJIMdahuxSNPDto
-         Y0q0SBPE+nuG3T2JuLe4uxHfDb4PHh5lBpNHWQ4JQbuTG8N2rYqFSrdYvL4MYFDGGAod
-         x8wg==
-X-Forwarded-Encrypted: i=1; AJvYcCU75WbXBJFmj9nYVtTAxkVDudvPgbpQ4OpQIV+EVJuK1oebg9Wopmk3lMiV+EuhMsubw9lF2UWT26dhLd0C1lm6XW0LCgO1X4ZFsqz++RSI
-X-Gm-Message-State: AOJu0YxT7Zz9cUp3svEwdPBZ9V2yefC2Ae54t1kbtmR4D53wifaVxXgh
-	x2ZX/kuxMfG1L4J6apA39+WG89bxDTeeFJKZdShTlu/ovTgHRSJK809fvBAuy1qr/d6XJWk23V2
-	K//5vn9X+fKPJLa999+OgGYHoQ44sWnp4VGYjT4jGAYxKQ64iK3p74CgxUEFv+QfsLsRtwqH3UJ
-	U9EFbHbihHDnsXIH6cSRt4TazU1rtU/XO1S3unU/gg6j4y9SYNzmCq6gvT
-X-Received: by 2002:a05:622a:2486:b0:451:8d59:9c2b with SMTP id d75a77b69052e-4535baaaf2amr69274891cf.19.1723728951862;
-        Thu, 15 Aug 2024 06:35:51 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFqiC54ur7so/hBdoMSAGpHK9JEALQBpn2eQz5+W592+eOzqpSFskWCFTHKjQ66+ydxlIf9iWgPRpkKAp1k+eE=
-X-Received: by 2002:a05:622a:2486:b0:451:8d59:9c2b with SMTP id
- d75a77b69052e-4535baaaf2amr69274601cf.19.1723728951484; Thu, 15 Aug 2024
- 06:35:51 -0700 (PDT)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 15 Aug 2024 06:35:51 -0700
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <87plqalyd4.ffs@tglx>
-References: <20240814145642.344485-1-emil.renner.berthing@canonical.com>
- <87jzgjnh9z.ffs@tglx> <CAJM55Z8WERQgs=QMyFGWvAHOpwcnOAudBqovaEuDudPSXCvL5Q@mail.gmail.com>
- <87ttfmm2ns.ffs@tglx> <CAJM55Z88H635Crc-Aeq+K0qcAk7NC89WVTAFdXDd2aQKQ7QmEg@mail.gmail.com>
- <CAJM55Z_qQX7n8tAeOFqrAH1BFjA9vaWA8rtsPG2BcKmiO88m=Q@mail.gmail.com> <87plqalyd4.ffs@tglx>
-Mime-Version: 1.0
-Date: Thu, 15 Aug 2024 06:35:51 -0700
-Message-ID: <CAJM55Z_R6MaOwxSrBwnT8-1ZvMuUjiwhT3CuwMLYVd2qoGG-Yg@mail.gmail.com>
-Subject: Re: [PATCH v1 0/9] Fix Allwinner D1 boot regression
-To: Thomas Gleixner <tglx@linutronix.de>, 
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, Anup Patel <apatel@ventanamicro.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Samuel Holland <samuel.holland@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Daniel Lezcano <daniel.lezcano@linaro.org>
+	id 1seagC-0000000A4Kc-0lYd;
+	Thu, 15 Aug 2024 13:38:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1seafX-0000000A4Cg-2nAs;
+	Thu, 15 Aug 2024 13:37:37 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D46EC14BF;
+	Thu, 15 Aug 2024 06:37:58 -0700 (PDT)
+Received: from e133380.arm.com (e133380.arm.com [10.1.197.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3AA023F6A8;
+	Thu, 15 Aug 2024 06:37:28 -0700 (PDT)
+Date: Thu, 15 Aug 2024 14:37:22 +0100
+From: Dave Martin <Dave.Martin@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Shuah Khan <shuah@kernel.org>,
+	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
+	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
+	Szabolcs Nagy <Szabolcs.Nagy@arm.com>, Kees Cook <kees@kernel.org>,
+	"H.J. Lu" <hjl.tools@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Florian Weimer <fweimer@redhat.com>,
+	Christian Brauner <brauner@kernel.org>,
+	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
+	Ross Burton <ross.burton@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v10 23/40] arm64/signal: Set up and restore the GCS
+ context for signal handlers
+Message-ID: <Zr4EkmtUKop9o9wu@e133380.arm.com>
+References: <20240801-arm64-gcs-v10-0-699e2bd2190b@kernel.org>
+ <20240801-arm64-gcs-v10-23-699e2bd2190b@kernel.org>
+ <ZrzEfg5LqdAzgJ6+@e133380.arm.com>
+ <08932f6d-01ef-40e8-97d2-08f0d2016191@sirena.org.uk>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <08932f6d-01ef-40e8-97d2-08f0d2016191@sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240815_063555_420079_68AD4AEC 
-X-CRM114-Status: GOOD (  10.32  )
+X-CRM114-CacheID: sfid-20240815_063735_817904_08448F4A 
+X-CRM114-Status: GOOD (  34.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,25 +90,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Thomas Gleixner wrote:
-> On Thu, Aug 15 2024 at 05:14, Emil Renner Berthing wrote:
-> > Emil Renner Berthing wrote:
-> >> 6.11-rc3 + these reverts:  https://termbin.com/q6wk
-> >> 6.11-rc3 + Samuel's patch: https://termbin.com/7cgs
-> >
-> > I think this confirms what Charlie found here:
-> > https://lore.kernel.org/linux-riscv/ZoydV7vad5JWIcZb@ghost/
->
-> Yes. So the riscv timer is not working on this thing or it stops
-> somehow.
->
-> Can you apply the debug patch below and check whether you see the
-> 'J: ....' output at all and if so whether it stops at some point.
+On Wed, Aug 14, 2024 at 05:00:23PM +0100, Mark Brown wrote:
+> On Wed, Aug 14, 2024 at 03:51:42PM +0100, Dave Martin wrote:
+> > On Thu, Aug 01, 2024 at 01:06:50PM +0100, Mark Brown wrote:
+> 
+> > > +	put_user_gcs((unsigned long)sigtramp, gcspr_el0 - 2, &ret);
+> > > +	put_user_gcs(GCS_SIGNAL_CAP(gcspr_el0 - 1), gcspr_el0 - 1, &ret);
+> > > +	if (ret != 0)
+> > > +		return ret;
+> 
+> > What happens if we went wrong here, or if the signal we are delivering
+> > was caused by a GCS overrun or bad GCSPR_EL0 in the first place?
+> 
+> > It feels like a program has no way to rescue itself from excessive
+> > recursion in some thread.  Is there something equivalent to
+> > sigaltstack()?
+> 
+> > Or is the shadow stack always supposed to be big enough to cope with
+> > recursion that exhausts the main stack and alternate signal stack (and
+> > if so, how is this ensured)?
+> 
+> There's no sigaltstack() for GCS, this is also the ABI with the existing
+> shadow stack on x86 and should be addressed in a cross architecture
+> fashion.  There have been some discussions about providing a shadow alt
+> stack but they've generally been circular and inconclusive, there were a
+> bunch of tradeoffs for corner cases and nobody had a clear sense as to
+> what a good solution should be.  It was a bit unclear that actively
+> doing anything was worthwhile.  The issues were IIRC around unwinders
+> and disjoint shadow stacks, compatibility with non-shadow stacks and
+> behaviour when we overflow the shadow stack.  I think there were also
+> some applications trying to be very clever with alt stacks that needed
+> to be interacted with and complicated everything but I could be
+> misremembering there.
+> 
+> Practically speaking since we're only storing return addresses the
+> default GCS should be extremely large so it's unlikely to come up
+> without first encountering and handling issues on the normal stack.
+> Users allocating their own shadow stacks should be careful.  This isn't
+> really satisfying but is probably fine in practice, there's certainly
+> not been any pressure yet from the existing x86 deployments (though at
+> present nobody can explicitly select their own shadow stack size,
+> perhaps it'll become more of an issue when the clone3() stuff is in).
 
-No, I don't see the J: ... debug output anywhere:
-https://termbin.com/3vez
+Ack, if this is a known limitation then I guess it makes sense just to
+follow other arches.
 
-/Emil
+I see that we default the shadow stack size to half the main stack size,
+which should indeed count as "huge".  I guess this makes shadow stack
+overrun unlikely at least (at least, not before the main stack
+overruns).
+
+
+Hopping to an alternate (main) stack while continuing to push on the
+same shadow stack doesn't sound broken in principle.
+
+Is there a test for taking and returning from a signal on an alternate
+(main) stack, when a shadow stack is in use?  Sounds like something
+that would be good to check if not.
+
+Cheers
+---Dave
 
 _______________________________________________
 linux-riscv mailing list
