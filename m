@@ -4,123 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE6AEC3DA4A
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Aug 2024 00:10:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69BCFC531DE
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Aug 2024 00:34:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:Cc:To:From:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BFb0uVrnseHS3nzqhhADEfiK4WMabASNgvV/5fyBNzs=; b=GVax4jUw+ayBwq/iCB1PcYBxwt
-	vNHh4rBpJCxYnLIHynF+wX3kcXvBfpa2k9HSoJKLIuJ/QMWf0eAZStloySy3shc+3aAV1ZBcFFWmz
-	RWAvP0J6xS0eci3eew/TxOmAaQBg8A9gv5O7WTGv4BTUq4B1VtrdkLLBsIhT13JfninvNdwdjy2JI
-	Ft8D63xocSEggROssbOtWNW+sgoAkSvXz+/A/IKbG3I23kYQQEJIe+1H2RxeiDOrVAlWmimJ8HWsR
-	7RHwEK+Bl3J1vKt/USCQ2sXjncIeftvOyrssg3jxTSRIWiqLxSCad+YZpB79UDQpgivZ0c05gvzGl
-	q2jLgpmg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=oemIRTF49tlFLYjQO3CRhjvR9o7AP5/gGFnsJ/rGk3E=; b=yMuFTWpqeZUrwF
+	bVt3FBzZ5YRAe8Y/krcviqTw1j/NxW3H3H0pFbWTDpRp0bi5jV00DUmMlNsAuvGCSkYm6204yjtOL
+	UN0VJayVI/5PvLKKWIAWwD3WufYeSaeRhqovKIT1iJ6BDpZqmzAgbN2NjuBFSgRoLXdqgiiiN8eQc
+	PtdFGb3AobhpWPVR4AAiVdwNDIKCpkgGayHC7n6bjcSt/m63+g2NfKK8MQRCOr0swKQXATS4lCaJb
+	BbuR01qdl8nE8DGlzFgiH0cTHCWCYgmezD6VRlxRnZqOWgLVgkVR9mLXnh5NCSmaC2CG0eGC2C+L2
+	FBAOjk7hf27VgY6SCxBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1seO4J-00000008bO7-3U6v;
-	Thu, 15 Aug 2024 00:10:19 +0000
-Received: from mail-maxind01olkn20801.outbound.protection.outlook.com ([2a01:111:f403:281b::801] helo=IND01-MAX-obe.outbound.protection.outlook.com)
+	id 1seORi-00000008eZz-1KWO;
+	Thu, 15 Aug 2024 00:34:30 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1seO4G-00000008bMI-0Bk6
+	id 1seORf-00000008eYu-1bDk
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Aug 2024 00:10:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jqeV3zNuZGjEbl9mMl6edkMl3zkr4kh/LyScvbKtw7mm8l5iakN2rUZYPDg6wVawc77J2AXBrzNN6z3nfvLhALwIIBoQlKliaaLhsBVZhn02zW9/o0VOooTxCNI8ccqKx7eyCsq6ILXW6yhkTZwlcgIlS60xUWiTahCOrwqFZtj8SpiHgc8fEhK2F9fX1HIoYkv1ZNu1hr6lt3dMDZQbNpDtJGBUVxnZwJ5iYZAfKGj2gYXCK1kp1RbSZ7/sfuTnx+hyusw+XI3P26f6/Bo3yTtif2ovCV9sZfj6KfDHAyUwXD1mpFOYj16vPLzyxR7pcRRDs+uwUagkI/2UPYJ3Ow==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NTDXUA/mAedWXhR5N/JhEyxOXhEDKKJa2nqY2tONm88=;
- b=w/L1a0gCI8krQplvNY3v5GcEVU9JAoXIJAZ/fUbrKUzlbfPKtlSkwO3nOgWIocEzULwt9ywtT19P46zREJDQIflznen7kMOZqLv3BQfl0YXAnolWxof+WJYGQTrJ2utkdgEHnNLUObwIo0N+I0GCfGPvacmidi89UjKlTc8UM4N3tnS7WPlZetvI71eHebAOCwg3B7uMd/PTtjKHi/0FKk8ZiJJOKFhWc4YpNlSknxoZD+Ce0nG7liSx+3yX07XRpcCBZcKrRXPVlWO3y1eHZoDtnBSHdIOzEt5dx46mGiDruNdVajatPaNNHGkeT18l18Hr+SMkdZptnAuBPQNdGw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NTDXUA/mAedWXhR5N/JhEyxOXhEDKKJa2nqY2tONm88=;
- b=l+QyjyW8Vo5hI3fAyyAW0DL0Ci2y0skJoyiU+A4gAkpZc0hFIhWUmhdGthnofE69bGyw/pQh9LH2+DNdO0EKJjJCZyouZyD6LNcpJpGFqJ9xC+H5GdVXONr+DoFrSA13BTZ4lzKeRCJVBcQS8lvNCG2m5fbjeNV0BuF0b9zl2B0/wkw1TWf0cOeurERCGxF0d6xQuVs7RntUfDWjdkuzeBuIi8cSENjyCnGmi2hqol29PKMZXQNDmtxjKhoUvUf7dibCL3oKL9Fs8DsJMxNS1pS1yvGBbJIV4mBh8/cx4tj8EfWjAWxEzhaj87tOXAKe3kBM3KMsxlkC0AejbEi5Xw==
-Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:138::5)
- by MA0P287MB1739.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:f9::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7849.22; Thu, 15 Aug
- 2024 00:09:53 +0000
-Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- ([fe80::a94:ad0a:9071:806c]) by MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- ([fe80::a94:ad0a:9071:806c%6]) with mapi id 15.20.7875.016; Thu, 15 Aug 2024
- 00:09:53 +0000
-Message-ID: <MA0P287MB28220A185F2EC2E4E86479ABFE802@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
-Date: Thu, 15 Aug 2024 08:09:48 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: defconfig: sophgo: enable clks for sg2042
-From: Chen Wang <unicorn_wang@outlook.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Chen Wang <unicornxw@gmail.com>, paul.walmsley@sifive.com,
- aou@eecs.berkeley.edu, inochiama@outlook.com, conor.dooley@microchip.com,
- guoren@kernel.org, emil.renner.berthing@canonical.com,
- apatel@ventanamicro.com, hal.feng@starfivetech.com, dfustini@baylibre.com,
- prabhakar.mahadev-lad.rj@bp.renesas.com, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, haijiao.liu@sophgo.com,
- xiaoguang.xing@sophgo.com
-References: <20240805023320.1287061-1-unicornxw@gmail.com>
- <MA0P287MB28229593FA53BF75C625B468FEBA2@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
-In-Reply-To: <MA0P287MB28229593FA53BF75C625B468FEBA2@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
-X-TMN: [l98F+scGuG9+dVuar1Kxm4LHNVU/T99F]
-X-ClientProxiedBy: SI2PR01CA0032.apcprd01.prod.exchangelabs.com
- (2603:1096:4:192::18) To MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:138::5)
-X-Microsoft-Original-Message-ID: <0f93bcac-8126-4de9-9913-93909c5d45ea@outlook.com>
+	Thu, 15 Aug 2024 00:34:28 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4280ca0791bso2117925e9.1
+        for <linux-riscv@lists.infradead.org>; Wed, 14 Aug 2024 17:34:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1723682065; x=1724286865; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=GYBBp8MdgJpDzmzKWf0FPivxU2t9lT+77YiFk2ooOxQ=;
+        b=hiDT2bciELcl+ftuFmPJ2sNLIM6FhPcTg5aodSmqo4IuqLqns+VwUp107bgr1rrkDs
+         6SNYg/bSTYCRfeRepAzUjhV4+wU+ddXM9/EzOsKbEQHL2EAF+Ota3+/7pyW+tJ9CH4yz
+         3EhSzi8gIox6U/UzMidDQcSUXU9S7n3+bWQsic+yJ6fH+vWoweIUqo6WW5tq0i+yO8ia
+         avttt9fuXNNgeOg3c/mjKrNtm/BZoZUsxF2lxDrEtgpqcOrwOaLZhP72Sy0Spa1mgUZF
+         aBM8iQj4NA7FIuM0qVdsFvo4lyahf/k+lRrqWnIVEu2PFfozQAtaLeKHrhp/eIF5XeMl
+         rMpQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1723682065; x=1724286865;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GYBBp8MdgJpDzmzKWf0FPivxU2t9lT+77YiFk2ooOxQ=;
+        b=vYZhaRVGJB8tuZiz/USNYvwb+qf/gIOXR/pgCRYNGMAVspJw8SLaTYqkduto2jY0cJ
+         7pgcXz2SuU1UyR9CcoDV+3XsmtGcbgNKG3XgUBCswxD+PJMBIaKGXnZwQhRKmuZ6Mxrs
+         0sc8K02TvVdoL2sEQ/92fPlKAeaHT8GNbcEjVkfW4LcjJbbN7sJxTNnJ2mX63sZorXFD
+         inMlyjvbcDldxdBX0bX5P5mGydI5hvBMkCc2BsNgumBnWlDrRvbO8WBHVjY10gw77+n9
+         H5O0MKW0RIXW9UhB0HoU9twnZoNIIL7a9HjJEOI7p+Z2+Q3QsWzBY+f7Y6CFOaTCOocA
+         6I/g==
+X-Forwarded-Encrypted: i=1; AJvYcCWxg7bTEHqmRxtBmzqrFwkeUw9HZvWH/PzrL6IQm+UGt9lRXN1a925anayQ2QRtlQ7xLmmlOdd8u+4PCx888jxMuEum7qFLTdQGLW+1aBTN
+X-Gm-Message-State: AOJu0YwwD5lxpkZY4XsatyytzFyTvgs7/l0rSrdPLmjl7O2fG/TLhABh
+	RDrbkZyH9GMdp8l98xtdxN9Ma9JwLzjIUfTJ0pbxgZAZe+SkxY8R
+X-Google-Smtp-Source: AGHT+IElhjGJFHAjb3pDkCKnDLfu6WM/NR0TgZhQutcTk8dyPGJvZ5qmOb2PW6YXLSFWnrJpHzgUMA==
+X-Received: by 2002:a05:600c:4f45:b0:428:2502:75b5 with SMTP id 5b1f17b1804b1-429dd238160mr26205455e9.11.1723682064361;
+        Wed, 14 Aug 2024 17:34:24 -0700 (PDT)
+Received: from andrea ([151.76.20.39])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-429ded19670sm33932685e9.9.2024.08.14.17.34.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 Aug 2024 17:34:23 -0700 (PDT)
+Date: Thu, 15 Aug 2024 02:34:19 +0200
+From: Andrea Parri <parri.andrea@gmail.com>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Atish Patra <atishp@rivosinc.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] riscv: Eagerly flush in flush_icache_deferred()
+Message-ID: <Zr1NC7GBQHfqqplf@andrea>
+References: <20240813-fix_fencei_optimization-v1-0-2aadc2cdde95@rivosinc.com>
+ <20240813-fix_fencei_optimization-v1-2-2aadc2cdde95@rivosinc.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MA0P287MB2822:EE_|MA0P287MB1739:EE_
-X-MS-Office365-Filtering-Correlation-Id: cbc071fc-7224-4cde-1dcb-08dcbcbe9664
-X-Microsoft-Antispam: BCL:0;ARA:14566002|461199028|15080799003|5072599009|19110799003|8060799006|440099028|3412199025|4302099013|1602099012;
-X-Microsoft-Antispam-Message-Info: r00DrKNbiWnNNIEvXiJUo4vZFrrkFJyydpmmIPtnLiOTvEEa+isXwTDV3savODSaCYuzZYmeZYInFS3fYstRmMfVCRowb+KPjmyonMmlMYOkX6IzA5gsb0FmCNFnOfvhO9RbDhnncT2CKia05RLVxTFTIgpSzBChtYM94qocfwPdG/n53bx9CMFXfwWBQ9ByWDuCXKlOBvvG0xTYYAc2//eP88e6htQ0Z8U8XilVwF4xX9mCEbacUe9wQsw/teX5CefTeYLXmc/3rjMbuKMqGJ5Z8AbXOsx/bz6D2X1kOQ7zzMcpt7aNklie+bsutkX92OKSfE3xB24GuDgiroRTEJiOgQ14jkgea/pRyJwS5d1/D9RDaARMXm4+KrRGxUI24s7BERzu70zT6q8mqZFuyq8hDtUugP8sLKQdLrslheGN5Tyb++BKf3gIjx6EtUE6+o5dQSqEk+ToeRpfC/I3WD591cqt9t4HRq5NHt/FoZ9F3UB0/K2D59HaHRoSLZSry17byZueEcL/vLmgK68KDrfEjW0y8Z2YfSPz4omFB/Ma4sqR9Dv58myGXPQmD+UGDLo5WvecsOE6I+vmRZlMXXWL72lsaVoPTLNMLcaTOpQ+Fc0o2wg6NnvT7oByCDGAVl3SkoxaJ5kg4k3UxkyNjHiQCZooNMLUw8H0ZrUEHnQMnJdohGW9wLC4pQ2u3IQ/a15h3qx4F8pfbRCkixA0V1MvuKOtz3ZdJZ47XB4f+z3+v7VeL3t/nQjAJYn/2EJpulvTMTn+OwtfDGRC1nH35JRLtHWyxXjnhWPszad5liqgBZ/CTvKKTYmOx6HBgqeG/tAnGWvAT4ZVsfXcv5Jg6/lJI09RVPWX7ITenRFbwqfJoE/Sbgy7v588DjkInHlJ
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZDJOQ1hrK2VESW5kLzF2TWZFc0RxZTMzMHIzMDhmS3E4NXIvcm9LN2hnMUNE?=
- =?utf-8?B?ei9OUkRZMTF4ZUF6M3pxYVlJOU1XNWljY3R0TTNnYk9WRjBMVXlyTUs0c09m?=
- =?utf-8?B?NU5PenhMUWsxdk9MWXhzUzh1TzRDT0hwemZHWVJEemhqR1FDRkd2QW9nT3ov?=
- =?utf-8?B?UkhZTk1QOU1xTWdZNm1Qa2l0YXhQM0VtVEFIWkdUKzZETjVoVlZKN1lTbTY3?=
- =?utf-8?B?M3puMDkrbjZTUHhaRERRWVl0VHVjMkpVdHN3OHJIL0JZaVVqRHJzZjIwYkVK?=
- =?utf-8?B?czZyNWNVVm1BV1NaRkNabkFmdEl5Q3VLOXBUNzhldm8yUXF2WlJsV0J0VmxW?=
- =?utf-8?B?bWJtcXNFbThNODA0TFg4NHduSjBTbVoxQjcyTEo0TkdFM2VmMWNaUTJZa3kw?=
- =?utf-8?B?eEpHRFFWM0x0V2pGdmFWQUJ2M1JZaTZhRUlGaldWWFMzM2lLdVZJb0ZTNkE0?=
- =?utf-8?B?QXlqZUR5Q2dMemFucEFMMGVRaDhnMUM0OUg0b1RnMkUxc1JaMzlLOTBXSmpu?=
- =?utf-8?B?UUczRXZPZnN1VjlYdm5rTis4eHBJbUkwRklSMWVRZ2NxV2pNT2s2WVRzc2xE?=
- =?utf-8?B?aHNzZm9zVUIrZGhCUEpxUXdBRjdpSUtnSXk0OEZGU2Qvcm9TcTBWa2Q2cjg2?=
- =?utf-8?B?c2h4OUFDNC9BUlRXWmJ3R054MXNmejlXTnRaMlM4VjhKM0o5ZkpsZVRTcGRR?=
- =?utf-8?B?b1h0K3pvNzlWT0U3b05vVDNJZkNub0xJbEdETlEvME1yZ0NjNnh2dXNVdHZ3?=
- =?utf-8?B?ak4zYmdKcm11Zk9RVDh6dERGZEVFMDljOEQzR3VDSGVBL3BHNkpVWENCakRG?=
- =?utf-8?B?YWVESGMybyswcm9lcjJqenRMMkgybHBZYUN5ZERlSzdjaytPcjJNVVQwZWRG?=
- =?utf-8?B?U2ZmNVIrekhVN2RGUW1uSWUzYkVRbnhveXpWeG9aN3M1ZVh0dEJTTFhmbVFu?=
- =?utf-8?B?Q2pPYzZhMGFha05HVEd6dm8xdk5lUDlQbmg2M09qek9xTmRsazZGd1JIQWJT?=
- =?utf-8?B?Q2NqT0ZQVjlVR2ZRS2J1THhNVUR4NzVJNUVRNkF3N2N3Qi9uNndBZVJ1VHMw?=
- =?utf-8?B?b0NrT1VJaE10ZC9SSnlubGRET2tLdlhSZVdPaFBTN1puTFlRZXA4WEFSYlVL?=
- =?utf-8?B?ZkhhVGw2TmtyaFpHUmNtSWhlcFBzMGM4aFNKN0Q4bUVWZ2JUaHUrUkFPY0o1?=
- =?utf-8?B?Z2ZnVmtHSWk0U05xYXdMMVBVTFVBbzAvQVZtS2JENmRjWDVrQTNIWHh0OENZ?=
- =?utf-8?B?RVFPdFBmUkdROEFaL2xaaXlFTXA2V2N4NFh3SnJhUDhYeEV5eUlEekJLY0pT?=
- =?utf-8?B?dVFjcUEvRzJQWXNzYjZWNUFJRytOQytLSDkzZGhmRk9PMTVEcEYrb0NmRitx?=
- =?utf-8?B?NnBZOHlMdEhQZ05xamZncUJNaml2N3JrRzQ4YjFGSTZ4VENLNEtVT1JpQnR2?=
- =?utf-8?B?OE1yczEyYnhRdVVSU3dMSjRPRzVVNklGNHBpc2dLa1R5ZUtxSE9CRWhNZXNR?=
- =?utf-8?B?d3ZxRVZ4NlljZ1dUYUhTRllTVVhuT25zQzZlMGdySVhuN1NaUEI5bW4ydEZ6?=
- =?utf-8?B?Um8vZWM3OHk1enZQYVNnajVxYkVSZDFVMEpQN2pDR3lHWFJaYm1YL0F5d2c2?=
- =?utf-8?B?cjNmK05CeCtFSHozTGZKMkxhK1VhNjFSaVh2ZHpxSmpUclBCRG81cWJNR1hm?=
- =?utf-8?Q?+nZG5Vwy17jQeth78nou?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cbc071fc-7224-4cde-1dcb-08dcbcbe9664
-X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Aug 2024 00:09:53.6015
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MA0P287MB1739
+Content-Disposition: inline
+In-Reply-To: <20240813-fix_fencei_optimization-v1-2-2aadc2cdde95@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240814_171016_139612_EEBA675E 
-X-CRM114-Status: GOOD (  12.64  )
+X-CRM114-CacheID: sfid-20240814_173427_443006_C91A4C40 
+X-CRM114-Status: GOOD (  20.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,36 +94,127 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGksIFBhbG1lciwKCkNvdWxkIHlvdSBwbGVhc2UgcGljayB0aGlzIGludG8gcmlzY3YvZm9yLW5l
-eHQ/CgpUaGFua3MsCgpDaGVuCgpPbiAyMDI0LzgvOSAxNDoyNiwgQ2hlbiBXYW5nIHdyb3RlOgo+
-Cj4gT24gMjAyNC84LzUgMTA6MzMsIENoZW4gV2FuZyB3cm90ZToKPj4gRnJvbTogQ2hlbiBXYW5n
-IDx1bmljb3JuX3dhbmdAb3V0bG9vay5jb20+Cj4+Cj4+IEVuYWJsZSBjbGsgZ2VuZXJhdG9ycyBm
-b3Igc2cyMDQyIGR1ZSB0byBtYW55IHBlcmlwaGVyYWxzIHJlbHkgb24KPj4gdGhlc2UgY2xvY2tz
-Lgo+Pgo+PiBTaWduZWQtb2ZmLWJ5OiBDaGVuIFdhbmcgPHVuaWNvcm5fd2FuZ0BvdXRsb29rLmNv
-bT4KPj4gLS0tCj4+IMKgIGFyY2gvcmlzY3YvY29uZmlncy9kZWZjb25maWcgfCAzICsrKwo+PiDC
-oCAxIGZpbGUgY2hhbmdlZCwgMyBpbnNlcnRpb25zKCspCj4+Cj4+IGRpZmYgLS1naXQgYS9hcmNo
-L3Jpc2N2L2NvbmZpZ3MvZGVmY29uZmlnIGIvYXJjaC9yaXNjdi9jb25maWdzL2RlZmNvbmZpZwo+
-PiBpbmRleCAwZDY3ODMyNTQ0NGYuLmQ0M2EwMjg5MDllNSAxMDA2NDQKPj4gLS0tIGEvYXJjaC9y
-aXNjdi9jb25maWdzL2RlZmNvbmZpZwo+PiArKysgYi9hcmNoL3Jpc2N2L2NvbmZpZ3MvZGVmY29u
-ZmlnCj4+IEBAIC0yNDksNiArMjQ5LDkgQEAgQ09ORklHX1ZJUlRJT19CQUxMT09OPXkKPj4gwqAg
-Q09ORklHX1ZJUlRJT19JTlBVVD15Cj4+IMKgIENPTkZJR19WSVJUSU9fTU1JTz15Cj4+IMKgIENP
-TkZJR19DTEtfU09QSEdPX0NWMTgwMD15Cj4+ICtDT05GSUdfQ0xLX1NPUEhHT19TRzIwNDJfUExM
-PXkKPj4gK0NPTkZJR19DTEtfU09QSEdPX1NHMjA0Ml9DTEtHRU49eQo+PiArQ09ORklHX0NMS19T
-T1BIR09fU0cyMDQyX1JQR0FURT15Cj4+IMKgIENPTkZJR19TVU44SV9ERTJfQ0NVPW0KPj4gwqAg
-Q09ORklHX1JFTkVTQVNfT1NUTT15Cj4+IMKgIENPTkZJR19TVU41MElfSU9NTVU9eQo+Pgo+PiBi
-YXNlLWNvbW1pdDogZGU5YzJjNjZhZDhlNzg3YWJlYzdjOWQ3ZWZmNGY4YzNjZGQyOGFlZAo+Cj4g
-SGnvvIxQYWxtZXIsCj4KPiBDb3VsZCB5b3UgcGxlYXNlIGhhdmUgYSBsb29rIG9uIHRoaXMgcGF0
-Y2ggYW5kIHBpY2sgaXQgZm9yIG5leHQgdHJlZT8gCj4gVGhlc2UgY2xrIGRyaXZlcnMgYXJlIHJl
-cXVpcmVkIGZvciBzZzIwNDIgdG8gYm9vdCBpbnRvIG1pbmltYWwgY29uc29sZS4KPgo+IFRoYW5r
-cywKPgo+IENoZW4KPgo+Cj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX18KPiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKPiBsaW51eC1yaXNjdkBsaXN0cy5p
-bmZyYWRlYWQub3JnCj4gaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
-by9saW51eC1yaXNjdgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+> <---- Thread 1 starts running here on CPU1
+> 
+> <---- Thread 2 starts running here with same mm
+> 
+> T2: prctl(PR_RISCV_SET_ICACHE_FLUSH_CTX, PR_RISCV_CTX_SW_FENCEI_ON, PR_RISCV_SCOPE_PER_PROCESS);
+> T2: <-- kernel sets current->mm->context.force_icache_flush to true
+
+Mmh, TBH, I'm not sure how this patch is supposed to fix the race in
+question:
+
+For once, AFAIU, the operation
+
+T2: cpumask_setall(&current->mm->context.icache_stale_mask)
+
+(on CPU2?) you've added with this patch...
+
+
+> T2: <modification of instructions>
+> T2: fence.i
+> 
+> T1: fence.i (to synchronize with other thread, has some logic to
+>              determine when to do this)
+> T1: <-- thread 1 is preempted
+> T1: <-- thread 1 is placed onto CPU3 and starts context switch sequence
+> T1 (kernel): flush_icache_deferred() -> skips flush because switch_to_should_flush_icache() returns true
+
+... does _not_ ensure that T1: flush_icache_deferred() on CPU3 will
+observe/read from that operation: IOW,
+
+T1: cpumask_test_and_clear_cpu(cpu, &mm->context.icache_stale_mask)
+
+may still evaluate to FALSE, thus preventing the FENCE.I execution.
+
+Moreover, AFAIU, ...
+
+
+> 				     -> thread has migrated and task->mm->context.force_icache_flush is true
+> 
+> T2: prctl(PR_RISCV_SET_ICACHE_FLUSH_CTX, PR_RISCV_CTX_SW_FENCEI_OFF, PR_RISCV_SCOPE_PER_PROCESS);
+
+... moving the operation(s)
+
+T2: set_icache_stale_mask()
+	T2: cpumask_setall(&current->mm->context.icache_stale_mask)
+
+before the following operation...  (per patch #1)
+
+
+> T2 (kernel): kernel sets current->mm->context.force_icache_flush = false
+> 
+> T1 (kernel): switch_to() calls switch_to_should_flush_icache() which now
+> 	     returns false because task->mm->context.force_icache_flush
+> 	     is false due to the other thread emitting
+> 	     PR_RISCV_CTX_SW_FENCEI_OFF.
+
+... does not ensure that T1: switch_to_should_flush_icache() on CPU3
+will observe
+
+T1: cpumask_test_cpu(<cpu3>, &task->mm->context.icache_stale_mask) == true
+
+in fact, T1 may evaluate the latter expression to FALSE while still
+being able to observe the "later" operation, i.e.
+
+T1: task->mm->context.force_icache_flush == false
+
+
+Perhaps a simplified but useful way to look at such scenarios is as
+follows:
+
+  - CPUs are just like nodes of a distributed system, and
+
+  - store are like messages to be exchanged (by the memory subsystem)
+    between CPUs: without some (explicit) synchronization/constraints,
+    messages originating from a given CPU can propagate/be visible to
+    other CPUs at any time and in any order.
+
+
+IAC, can you elaborate on the solution proposed here (maybe by adding
+some inline comments), keeping the above considerations in mind? what
+am I missing?
+
+
+> T1 (back in userspace): Instruction cache was never flushed on context
+> 			switch to CPU3, and thus may execute incorrect
+> 			instructions.
+
+Mmh, flushing the I$ (or, as meant here, executing a FENCE.I) seems
+to be only half of the solution: IIUC, we'd like to ensure that the
+store operation
+
+T2: <modification of instructions>
+
+originated from CPU2 is _visible_ to CPU3 by the time that FENCE.I
+instruction is executed, cf.
+
+[from Zifencei - emphasis mine]
+
+A FENCE.I instruction ensures that a subsequent instruction fetch on
+a RISC-V hart will see any previous data stores _already visible_ to
+the same RISC-V hart.
+
+
+IOW (but assuming code is in coherent main memory), imagine that the
+(putative) FENCE.I on CPU3 is replaced by some
+
+T1: LOAD reg,0(insts_addr)
+
+question is: would such a load be guaranteed to observe the store
+
+T2: <modification of instructions>  #  STORE new_insts,0(insts_addr)
+
+originated from CPU2? can you elaborate?
+
+  Andrea
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
