@@ -4,84 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01656C531DC
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Aug 2024 07:09:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 710CAC531DC
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Aug 2024 09:43:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=s+5JJlIti0F4lCcU4CNdSHjcN3ngjqP+lmrBZJZYPMs=; b=bKmgt6pmYhYXbM
-	eHlfFq29iSjFRBR1zNUOkkBXSBaGxtAFIQ91SyOogdnE6AMPinMDdGZdj81KTz9LMrlV+Kr0MiZ1X
-	6V8/hUJ4ZNZPxuUe77N561AixaQjbWCZZ/nKenV3RdbzOoF9V0f7bkHEDpb6SxRtK1txsNX50IzYY
-	q9dBkNxpljaAVS++KrwWfCcYK3aWvIbJuC/01b3/f5CUqW7FnKYtllpvuOI71xE2+MtOGu0nwxi2w
-	y6oqBZmCebRSt/T4a8x174PuQvq4tzllMpCnYybYf3fxsaQmyY8Z3HVqchWDI2WDsV3Du3fOPnjPR
-	xkM1Cf/WHi2IZw8PndaA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1FvHA8y/VkQXwBiwf+tf5BmGKCsU0o6GhRbNEvG3w5g=; b=Te0A4zYiIuhvNY
+	zi08Pi8GSWLEQzWIy+8o2Cc4VBPaUDADAcldxuo1nrF61ArznGakJyWR1QdVdEEk2X/ZB3nR5YhZC
+	5t9IHzCkKnONm8+T5bQbiVe3WL2t7p2ljJc669jyJeWW55XzGCCAFvNh8uXllzywSS8cnm6VWHJBJ
+	0z/dWu/+TGrSMNdxJhc2qVR4dVCtSscQRErQ66Pq8USk1BNNx1U199IMoM2HxQjN01Mv2jDX1Qr3h
+	DJajP4jBeGbQPNJsOEMRdp9C/4NQoiM3+rIpo+X4K3BksHDmBVdQNBNVbHS3VMMcXSc/KRNFe5ZCh
+	qkIvb1r2ujs9C7XCyn9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ser5I-0000000C2OQ-0Jos;
-	Fri, 16 Aug 2024 07:09:16 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1setUQ-0000000CSYL-2i3o;
+	Fri, 16 Aug 2024 09:43:22 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ser4m-0000000C2DD-2oCv
+	id 1setFc-0000000CPet-1zvZ
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 16 Aug 2024 09:28:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=7ezHfPbQtKZ/Nw2mLq7nbBPF6a7L0xlFdhWHwqipVgg=; b=EzLhdn3p0ZLDY2/0xPs9OtNCMU
+	FbH10HKgWRtrWLdgiY+H8c0GpuTUhJQFyOemJRokVOto3VnvEihSOJU49yCvS6jbojqP7UOdBa+dg
+	1wGUiUqIqcM3q9bpk+qBPk27cdI/5lR/Nfiu05C3Ke3lEeRPldZ8Vc76mA1/aEqz7xWwhafSIsnIW
+	S5Pd2wu8FmacyjV0MuOteebNd+kcKMbNHrLeKf66kjcL3eXOS6Ud7owNzdab9uKDx6eeDRbdwbc1C
+	KQR0rQrZ3lbfJPLMAKvP1tuyMxDkBL3LZjFTqIlUX2LWEsSpx8k+u0xd6qh37DQtmXTHKWq7YH3JI
+	Ws217htQ==;
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1setFV-00000008awS-19Oh
 	for linux-riscv@lists.infradead.org;
-	Fri, 16 Aug 2024 07:08:50 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-7a1be7b5d70so1081970a12.0
-        for <linux-riscv@lists.infradead.org>; Fri, 16 Aug 2024 00:08:43 -0700 (PDT)
+	Fri, 16 Aug 2024 09:28:00 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-52efd08e6d9so2169610e87.1
+        for <linux-riscv@lists.infradead.org>; Fri, 16 Aug 2024 02:27:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1723792123; x=1724396923; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=6Vqa4H3pvrihbzfusj/3lrV2Ez3LbOAxuSneAwjr3tQ=;
-        b=a21w9c3cGmJ4hS6bdx2fQVTlO1Y2884/BmxZVmCHcnVhmUgrzwTV2oaNQX3tK/EQD8
-         Pc96uuUKyRRANT23ikDd50kqBixdQAPx74jI11lx9WjJJzhc5mY7BDktSpZ+k9YSRqmH
-         BeMy6o52NfmEAbwY4oz+AqKfgPVxyMlLkN2X6m1li+0dha1yr6X4YsEPcHgYmOZLfnzF
-         YWfqfoEg/zmWOIbctuIMv6KX8na1wUhk1VrkY7aLXq3vw/lwigYdg9BPu4Ihuyr7E8F8
-         VNRo6oECN9sqJxaw+dzdpvIpX4cdxcnxNM+/cYhLY8k+46nyd5e0nMIQrJdR6sp7KJ0N
-         yUQQ==
+        d=gmail.com; s=20230601; t=1723800473; x=1724405273; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=7ezHfPbQtKZ/Nw2mLq7nbBPF6a7L0xlFdhWHwqipVgg=;
+        b=D3S9Oj3LQNygDn7orkmza8P93KuKAeVzfu+h1QJ4wyK/dbJBuGF5TdHXMy11K4q6RC
+         WDaBGiMfOzVa8wFCtW3PlFLgqcarE2eOU30Izn9aMwlkG46qECsLGlvre2Cb2FWdPWds
+         TCXFeJ7vH0xZ58atc7Wc2jbEp/WC10p19pPNZ8lD1HxVp0pbwGIZtbH2oaLsQyY9E708
+         RoGquwLLF/coZEehuYzdQPGO3EUZQ0bYTumeClv8f7JYMwxVDrjqFzRsDZzqNR5ePHOE
+         yaUOV6SHo9BU5kMyBXrkI0HtWy+h8w5QdRnyzrNLEMv1IQtjp1ALrDMeBavMq+yl1/Vz
+         jIuw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1723792123; x=1724396923;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=6Vqa4H3pvrihbzfusj/3lrV2Ez3LbOAxuSneAwjr3tQ=;
-        b=VjqM8298YlonEodLek7q9KDwzZGkFgBGzxz9PxKd2Py+5xZxbPsK98VO+hGVva6RM8
-         LOv+8W+y6gREV/+ARG7ZlTT4JNPYyycRMHu9I8cwLRwoFv86Xc9NJyikGgChhIWjUSwj
-         6+cEb8VDC426pi3EXndaciujWxdEvrna3OlqooV91/0Bt7KdX7aB/+yrQiHbb6uM49yv
-         ew1k3GNJK0twTqubdJ023ywJOayfKxVOte+ygauknVerNM9TIFQFBeJ3I1RRTgG61LJ4
-         vxBs3TsGpGp4rpSwvjFNTFDdkpKi3QS0QYpgnvGMiDkRj5y9Djna46659cKoxvPHfUxd
-         ElWA==
-X-Forwarded-Encrypted: i=1; AJvYcCU808KEkdGT/vvxvc5O5ORoeissuWQJCoO4VeLGdvaA9kd9EVVwKVAUl3nIf/+Oueo69ryobQAfs4oNe7tXwJPAfpFEyAQa5mpb3V7w8Vzr
-X-Gm-Message-State: AOJu0YyjEu9oM+DJ5mgtia0RWenCHCdVeeOyeWTG0x/vFHozeW6tWK3v
-	3Cla2qk/nfoeTQt+Opw1aLMRRgdDHvdXlOjO4tCmtY0ekyETNale+l1mGE+Q2GM=
-X-Google-Smtp-Source: AGHT+IHuF3rytZSdgjc6a/3GK/MB0ehKK5Zvbzf8Akserc/e1RWHlzoIrY6wFrSMS6kbKYCi1UimYg==
-X-Received: by 2002:a05:6a21:9996:b0:1c6:b0cc:c44b with SMTP id adf61e73a8af0-1c8f86dff79mr7925906637.19.1723792122792;
-        Fri, 16 Aug 2024 00:08:42 -0700 (PDT)
-Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7c6b636bcabsm2293792a12.90.2024.08.16.00.08.41
+        d=1e100.net; s=20230601; t=1723800473; x=1724405273;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7ezHfPbQtKZ/Nw2mLq7nbBPF6a7L0xlFdhWHwqipVgg=;
+        b=gsqFyrwWGIGyNm6AaMGf/8XJWwqo+mMOpPPQGjaV6A2FlZarv2O4ggi6zoOfid4zrA
+         GcHF70JjQ5nz/vCoE4oD5oUz3fCdym1iRvFvBCSKu2q/OkfFepioYcR9QaMw2WPZ66Xy
+         xoG0elHM5f63Vd1LVflFrd7v/rzkXkEwWkPNXdHVnNUjK0hJXstkgcXke0mjLUBWEFdA
+         ky5by286AWA8GDX/BCMZR4GiIYLqiB+2a5sYyWyrOPachV66MaCwVL7vjCdO6eCF/cNB
+         B+RCfZvbfnwY3rMaKgLwAJevIw3tCr1SjmjxWEoUzeeANRDLo9aDjMzZqRMEE4zMWKCU
+         IfAA==
+X-Forwarded-Encrypted: i=1; AJvYcCWLxhhHqD6oBq8HfGptsIaB02MA/p9TWautp/nVdHIsrq+iYHbEDd5Q3jb/hXAeuORLJGqb7E1ndw5rDA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyItIEr/d1LsTKMQYhu4Uol/qKt/NT4r1j7y+ijkpw8jwkAkIyT
+	em+J/hogw/pM1hatJW0K6YpHcyFnpecWQoPEDHnlL0l07uArliiM
+X-Google-Smtp-Source: AGHT+IHtIobWpDyR/wNfIlTck6cEiVCePFpUoJf2/QSPMUvcyXdOt66tyYIYXM5IChI9qAvRRZJ/sw==
+X-Received: by 2002:a05:6512:158b:b0:530:9d86:6322 with SMTP id 2adb3069b0e04-5331c6d9db4mr1616048e87.41.1723800472213;
+        Fri, 16 Aug 2024 02:27:52 -0700 (PDT)
+Received: from andrea ([151.76.20.39])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-429ded7dae0sm71435195e9.44.2024.08.16.02.27.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 16 Aug 2024 00:08:42 -0700 (PDT)
-From: Atish Patra <atishp@rivosinc.com>
-Subject: [PATCH 0/2] Fixes for KVM PMU trap/emulation
-Date: Fri, 16 Aug 2024 00:08:07 -0700
-Message-Id: <20240816-kvm_pmu_fixes-v1-0-cdfce386dd93@rivosinc.com>
+        Fri, 16 Aug 2024 02:27:51 -0700 (PDT)
+Date: Fri, 16 Aug 2024 11:27:47 +0200
+From: Andrea Parri <parri.andrea@gmail.com>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Atish Patra <atishp@rivosinc.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] riscv: Eagerly flush in flush_icache_deferred()
+Message-ID: <Zr8bk4WR24XHt5jp@andrea>
+References: <20240813-fix_fencei_optimization-v1-0-2aadc2cdde95@rivosinc.com>
+ <20240813-fix_fencei_optimization-v1-2-2aadc2cdde95@rivosinc.com>
+ <Zr1NC7GBQHfqqplf@andrea>
+ <Zr6MjWLD5VQAQHAV@ghost>
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIANf6vmYC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIxMDcyNL3eyy3PiC3NL4tMyK1GJdIzNzU5MUo0QDc/MUJaCegqJUsARQS3R
- sbS0A5sIugl8AAAA=
-To: Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Andrew Jones <ajones@ventanamicro.com>
-Cc: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Atish Patra <atishp@rivosinc.com>
-X-Mailer: b4 0.15-dev-13183
+Content-Disposition: inline
+In-Reply-To: <Zr6MjWLD5VQAQHAV@ghost>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240816_000844_817370_5EC32973 
-X-CRM114-Status: UNSURE (   6.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240816_102757_880661_0817C9EF 
+X-CRM114-Status: GOOD (  15.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,25 +116,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series contains two small fixes to improve the KVM PMU trap/emulation
-code. The issue can be observed if SBI PMU is disabled or forced the kvm
-to use hpmcounter31.
+> I should have added some memory barriers. I want to have the stores to
+> task->mm->context.force_icache_flush and
+> task->mm->context.icache_stale_mask in riscv_set_icache_flush_ctx() from
+> one hart to be visible by another hart that is observing the values in
+> flush_icache_deferred() and switch_to_should_flush_icache(). Then also
+> for the changes to those variables in flush_icache_deferred() and
+> switch_to_should_flush_icache() to be visible in future invocations of
+> those functions.
 
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
----
-Atish Patra (2):
-      RISC-V: KVM: Allow legacy PMU access from guest
-      RISC-V: KVM: Fix to allow hpmcounter31 from the guest
+[...]
 
- arch/riscv/include/asm/kvm_vcpu_pmu.h | 21 +++++++++++++++++----
- 1 file changed, 17 insertions(+), 4 deletions(-)
----
-base-commit: 8400291e289ee6b2bf9779ff1c83a291501f017b
-change-id: 20240729-kvm_pmu_fixes-26754d2a077d
---
-Regards,
-Atish patra
 
+> Oh okay so we will need to do a memory barrier before the fence.i in the
+> userspace program. I don't believe a memory barrier will be necessary in
+> the kernel though while this prctl is active, will the kernel ensure
+> memory coherence upon migration?
+
+Yes, the kernel enforces coherence upon migration:(*) in the example
+at stake, this means that T1 will have a coherent view of memory when
+migrating from CPU1 to CPU3.
+
+To leverage this property, we (or the user application) would need to
+provide some synchronization between T2 (that modifies the code) and
+T1.  This typically involves some form of barrier pairing.
+
+Feel free to reach out, here on the list or in private chats, for any
+related memory-barrier doubts I might be able to clarify.
+
+  Andrea
+
+(*) A malicious/buggy hypervisor could migrate (virtual)CPU X, and all
+its threads, at any time and way allowed by Murphy's law.  :-) I take
+it as that goes beyond the scope of this series...
 
 _______________________________________________
 linux-riscv mailing list
