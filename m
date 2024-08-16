@@ -4,102 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 710CAC531DC
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Aug 2024 09:43:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D60CEC3DA4A
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Aug 2024 09:56:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1FvHA8y/VkQXwBiwf+tf5BmGKCsU0o6GhRbNEvG3w5g=; b=Te0A4zYiIuhvNY
-	zi08Pi8GSWLEQzWIy+8o2Cc4VBPaUDADAcldxuo1nrF61ArznGakJyWR1QdVdEEk2X/ZB3nR5YhZC
-	5t9IHzCkKnONm8+T5bQbiVe3WL2t7p2ljJc669jyJeWW55XzGCCAFvNh8uXllzywSS8cnm6VWHJBJ
-	0z/dWu/+TGrSMNdxJhc2qVR4dVCtSscQRErQ66Pq8USk1BNNx1U199IMoM2HxQjN01Mv2jDX1Qr3h
-	DJajP4jBeGbQPNJsOEMRdp9C/4NQoiM3+rIpo+X4K3BksHDmBVdQNBNVbHS3VMMcXSc/KRNFe5ZCh
-	qkIvb1r2ujs9C7XCyn9Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=HIbNFhd+CPEZkHkTiLWH4dC7K7ZIGzXZu2gdC+mQvD8=; b=PihubVjgftBqxh
+	TmwJ6U8NIcMPUQ7mdFX4Yqhp4zaaA7uyWUP23isZJauOReOQbb1aO0qWNSQ9AsPW4MRCSazxU3DSM
+	ko3Na04ifDcdojO+NjbP/qjdBimxHwaPOZiYJ8DWlyVm533i4+jAnSnog3R9aB33ESh5cn2pa61yO
+	G7S8QxO0chwt82VQOQjS33ecPW6mm8V3FwrJdRlfSW/PRkWpXSR3yK7HZa6K6jxRJlwCVPbCypjGS
+	KkwzZUUnM4ujArvBNMpnhKTkWeBKFG00XUE3fwSwTa7BvaEepbysKDI6HKI2UGkoUzDaA0BxmAzCm
+	Quavjb1PPwvX9JK0RwIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1setUQ-0000000CSYL-2i3o;
-	Fri, 16 Aug 2024 09:43:22 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1sethC-0000000CVlb-0rB4;
+	Fri, 16 Aug 2024 09:56:34 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1setFc-0000000CPet-1zvZ
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 16 Aug 2024 09:28:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=7ezHfPbQtKZ/Nw2mLq7nbBPF6a7L0xlFdhWHwqipVgg=; b=EzLhdn3p0ZLDY2/0xPs9OtNCMU
-	FbH10HKgWRtrWLdgiY+H8c0GpuTUhJQFyOemJRokVOto3VnvEihSOJU49yCvS6jbojqP7UOdBa+dg
-	1wGUiUqIqcM3q9bpk+qBPk27cdI/5lR/Nfiu05C3Ke3lEeRPldZ8Vc76mA1/aEqz7xWwhafSIsnIW
-	S5Pd2wu8FmacyjV0MuOteebNd+kcKMbNHrLeKf66kjcL3eXOS6Ud7owNzdab9uKDx6eeDRbdwbc1C
-	KQR0rQrZ3lbfJPLMAKvP1tuyMxDkBL3LZjFTqIlUX2LWEsSpx8k+u0xd6qh37DQtmXTHKWq7YH3JI
-	Ws217htQ==;
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1setFV-00000008awS-19Oh
+	id 1setg4-0000000CVSB-2WIE
 	for linux-riscv@lists.infradead.org;
-	Fri, 16 Aug 2024 09:28:00 +0000
-Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-52efd08e6d9so2169610e87.1
-        for <linux-riscv@lists.infradead.org>; Fri, 16 Aug 2024 02:27:54 -0700 (PDT)
+	Fri, 16 Aug 2024 09:55:26 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-a7ab5fc975dso194105166b.1
+        for <linux-riscv@lists.infradead.org>; Fri, 16 Aug 2024 02:55:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1723800473; x=1724405273; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=7ezHfPbQtKZ/Nw2mLq7nbBPF6a7L0xlFdhWHwqipVgg=;
-        b=D3S9Oj3LQNygDn7orkmza8P93KuKAeVzfu+h1QJ4wyK/dbJBuGF5TdHXMy11K4q6RC
-         WDaBGiMfOzVa8wFCtW3PlFLgqcarE2eOU30Izn9aMwlkG46qECsLGlvre2Cb2FWdPWds
-         TCXFeJ7vH0xZ58atc7Wc2jbEp/WC10p19pPNZ8lD1HxVp0pbwGIZtbH2oaLsQyY9E708
-         RoGquwLLF/coZEehuYzdQPGO3EUZQ0bYTumeClv8f7JYMwxVDrjqFzRsDZzqNR5ePHOE
-         yaUOV6SHo9BU5kMyBXrkI0HtWy+h8w5QdRnyzrNLEMv1IQtjp1ALrDMeBavMq+yl1/Vz
-         jIuw==
+        d=ventanamicro.com; s=google; t=1723802123; x=1724406923; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=RoIvLUfwtlErHQHB2ji6smKiDqBoIASWBt1x369LS4I=;
+        b=DCApBluywUozYXVvDgGTzIlkpgaSHv6YtM3OHIwet9aoKcGD1h81xQNDhSiv/Z5abJ
+         u4UIMHD/uGByzYRNTnLV3xbIY+4h24pAaVDTkDl9TqLhFwNqpppURH3PsU0YzUQZkZmL
+         FZD041UFBZJ5qS3GqiQrvQf5OLOHdQWZSyl6C5ySO0taS85GcQnZjIWRbZTWwNIqX86Y
+         m8foD3as7zjoB4RuUfYTTY4LiY+W2nsKH9n9Qg3Q/Sl+gz72ndo/hX5V0bYSrY7lKlxD
+         9oI0jwQtimlHIT1VEX20X/Fvyc3HSCFBxuSE43FHvOB3tSGS7UL74LP3XnTnAei35h9O
+         CRPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1723800473; x=1724405273;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7ezHfPbQtKZ/Nw2mLq7nbBPF6a7L0xlFdhWHwqipVgg=;
-        b=gsqFyrwWGIGyNm6AaMGf/8XJWwqo+mMOpPPQGjaV6A2FlZarv2O4ggi6zoOfid4zrA
-         GcHF70JjQ5nz/vCoE4oD5oUz3fCdym1iRvFvBCSKu2q/OkfFepioYcR9QaMw2WPZ66Xy
-         xoG0elHM5f63Vd1LVflFrd7v/rzkXkEwWkPNXdHVnNUjK0hJXstkgcXke0mjLUBWEFdA
-         ky5by286AWA8GDX/BCMZR4GiIYLqiB+2a5sYyWyrOPachV66MaCwVL7vjCdO6eCF/cNB
-         B+RCfZvbfnwY3rMaKgLwAJevIw3tCr1SjmjxWEoUzeeANRDLo9aDjMzZqRMEE4zMWKCU
-         IfAA==
-X-Forwarded-Encrypted: i=1; AJvYcCWLxhhHqD6oBq8HfGptsIaB02MA/p9TWautp/nVdHIsrq+iYHbEDd5Q3jb/hXAeuORLJGqb7E1ndw5rDA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyItIEr/d1LsTKMQYhu4Uol/qKt/NT4r1j7y+ijkpw8jwkAkIyT
-	em+J/hogw/pM1hatJW0K6YpHcyFnpecWQoPEDHnlL0l07uArliiM
-X-Google-Smtp-Source: AGHT+IHtIobWpDyR/wNfIlTck6cEiVCePFpUoJf2/QSPMUvcyXdOt66tyYIYXM5IChI9qAvRRZJ/sw==
-X-Received: by 2002:a05:6512:158b:b0:530:9d86:6322 with SMTP id 2adb3069b0e04-5331c6d9db4mr1616048e87.41.1723800472213;
-        Fri, 16 Aug 2024 02:27:52 -0700 (PDT)
-Received: from andrea ([151.76.20.39])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-429ded7dae0sm71435195e9.44.2024.08.16.02.27.50
+        d=1e100.net; s=20230601; t=1723802123; x=1724406923;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=RoIvLUfwtlErHQHB2ji6smKiDqBoIASWBt1x369LS4I=;
+        b=YKtNhRA24ksFJKKKJt3361lh7hSiHykyWArvKhYnt7HGSjdswYoQFrKoqzWa4IdNYh
+         Q9JSKwcX709wME5gkzTGuayRKscikOG5yVcrpYMUgV4DUysg5iez4R3JDCiX43KICmav
+         OTgZFOQA9JbFMSoOfPPFWHBzGoYFhtahW+zPuIfySrct8St0i+/TzputAaZTe+HYRqsR
+         JVknzIzyTPJYPIjkaELlnA6mv3xldJ1mdddll/4n/ZzwbXBowaxXEZnReG8RKDTd2QW9
+         XHcxQ24bF+ksycr1nUTRtwNczI+QcoUjJF/Hrhu+cQZWsIwfgft8dhTEOqbZxxn3AHgT
+         DmFg==
+X-Forwarded-Encrypted: i=1; AJvYcCVI71OqU73oNrbYf9B/xdFLC7oNycdHqen6rYg6ai5MY6uMYqn1fjMnlGudkZZU5/gqU3L1ppGCqMdkRw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzs9LYpzbmhovS55620jmN0uzLHN/ZtS/Nfoq0XYd7MdHx/PPOj
+	w1R4/om0e6nKcEO4x8iGrJOhgTH786SFD7pUWfUeun+QbRTiqN4FMpgK7mqmIkI=
+X-Google-Smtp-Source: AGHT+IEWEn1buqzvrPyI+YLyXqKvY0yYQVZ2BQACp/XQgrDhUOxKmz7wrTINSfs3M48T6a9DY2iabw==
+X-Received: by 2002:a17:907:2d10:b0:a7a:a3f7:389f with SMTP id a640c23a62f3a-a8392a49534mr149316266b.66.1723802122185;
+        Fri, 16 Aug 2024 02:55:22 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a8383935807sm228603466b.134.2024.08.16.02.55.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 16 Aug 2024 02:27:51 -0700 (PDT)
-Date: Fri, 16 Aug 2024 11:27:47 +0200
-From: Andrea Parri <parri.andrea@gmail.com>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Atish Patra <atishp@rivosinc.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Palmer Dabbelt <palmer@rivosinc.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] riscv: Eagerly flush in flush_icache_deferred()
-Message-ID: <Zr8bk4WR24XHt5jp@andrea>
-References: <20240813-fix_fencei_optimization-v1-0-2aadc2cdde95@rivosinc.com>
- <20240813-fix_fencei_optimization-v1-2-2aadc2cdde95@rivosinc.com>
- <Zr1NC7GBQHfqqplf@andrea>
- <Zr6MjWLD5VQAQHAV@ghost>
+        Fri, 16 Aug 2024 02:55:21 -0700 (PDT)
+From: Andrew Jones <ajones@ventanamicro.com>
+To: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org
+Cc: maz@kernel.org,
+	mark.rutland@arm.com,
+	robh@kernel.org,
+	saravanak@google.com,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	Anup Patel <apatel@ventanamicro.com>
+Subject: [PATCH] of/irq: Support #msi-cells=<0> in of_msi_get_domain
+Date: Fri, 16 Aug 2024 11:55:21 +0200
+Message-ID: <20240816095520.96348-2-ajones@ventanamicro.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Zr6MjWLD5VQAQHAV@ghost>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240816_102757_880661_0817C9EF 
-X-CRM114-Status: GOOD (  15.64  )
+X-CRM114-CacheID: sfid-20240816_025524_657335_2F9233C3 
+X-CRM114-Status: GOOD (  17.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,39 +101,101 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> I should have added some memory barriers. I want to have the stores to
-> task->mm->context.force_icache_flush and
-> task->mm->context.icache_stale_mask in riscv_set_icache_flush_ctx() from
-> one hart to be visible by another hart that is observing the values in
-> flush_icache_deferred() and switch_to_should_flush_icache(). Then also
-> for the changes to those variables in flush_icache_deferred() and
-> switch_to_should_flush_icache() to be visible in future invocations of
-> those functions.
+An 'msi-parent' property with a single entry and no accompanying
+'#msi-cells' property is considered the legacy definition as opposed
+to its definition after being expanded with commit 126b16e2ad98
+("Docs: dt: add generic MSI bindings"). However, the legacy
+definition is completely compatible with the current definition and,
+since of_phandle_iterator_next() tolerates missing and present-but-
+zero *cells properties since commit e42ee61017f5 ("of: Let
+of_for_each_phandle fallback to non-negative cell_count"), there's no
+need anymore to special case the legacy definition in
+of_msi_get_domain().
 
-[...]
+Indeed, special casing has turned out to be harmful, because, as of
+commit 7c025238b47a ("dt-bindings: irqchip: Describe the IMX MU block
+as a MSI controller"), MSI controller DT bindings have started
+specifying '#msi-cells' as a required property (even when the value
+must be zero) as an effort to make the bindings more explicit. But,
+since the special casing of 'msi-parent' only uses the existence of
+'#msi-cells' for its heuristic, and not whether or not it's also
+nonzero, the legacy path is not taken. Furthermore, the path to
+support the new, broader definition isn't taken either since that
+path has been restricted to the platform-msi bus.
 
+But, neither the definition of 'msi-parent' nor the definition of
+'#msi-cells' is platform-msi-specific (the platform-msi bus was just
+the first bus that needed '#msi-cells'), so remove both the special
+casing and the restriction. This not only simplifies the code but
+also resolves an issue with PCI devices finding their MSI controllers
+on riscv, as the riscv,imsics binding requires '#msi-cells=<0>'.
 
-> Oh okay so we will need to do a memory barrier before the fence.i in the
-> userspace program. I don't believe a memory barrier will be necessary in
-> the kernel though while this prctl is active, will the kernel ensure
-> memory coherence upon migration?
+Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+---
+ drivers/of/irq.c | 37 +++++++++++--------------------------
+ 1 file changed, 11 insertions(+), 26 deletions(-)
 
-Yes, the kernel enforces coherence upon migration:(*) in the example
-at stake, this means that T1 will have a coherent view of memory when
-migrating from CPU1 to CPU3.
+diff --git a/drivers/of/irq.c b/drivers/of/irq.c
+index c94203ce65bb..026b52c8ee63 100644
+--- a/drivers/of/irq.c
++++ b/drivers/of/irq.c
+@@ -709,8 +709,7 @@ struct irq_domain *of_msi_map_get_device_domain(struct device *dev, u32 id,
+  * @np: device node for @dev
+  * @token: bus type for this domain
+  *
+- * Parse the msi-parent property (both the simple and the complex
+- * versions), and returns the corresponding MSI domain.
++ * Parse the msi-parent property and returns the corresponding MSI domain.
+  *
+  * Returns: the MSI domain for this device (or NULL on failure).
+  */
+@@ -718,33 +717,19 @@ struct irq_domain *of_msi_get_domain(struct device *dev,
+ 				     struct device_node *np,
+ 				     enum irq_domain_bus_token token)
+ {
+-	struct device_node *msi_np;
++	struct of_phandle_args args;
+ 	struct irq_domain *d;
++	int index = 0;
+ 
+-	/* Check for a single msi-parent property */
+-	msi_np = of_parse_phandle(np, "msi-parent", 0);
+-	if (msi_np && !of_property_read_bool(msi_np, "#msi-cells")) {
+-		d = irq_find_matching_host(msi_np, token);
+-		if (!d)
+-			of_node_put(msi_np);
+-		return d;
+-	}
+-
+-	if (token == DOMAIN_BUS_PLATFORM_MSI) {
+-		/* Check for the complex msi-parent version */
+-		struct of_phandle_args args;
+-		int index = 0;
++	while (!of_parse_phandle_with_args(np, "msi-parent",
++					   "#msi-cells",
++					   index, &args)) {
++		d = irq_find_matching_host(args.np, token);
++		if (d)
++			return d;
+ 
+-		while (!of_parse_phandle_with_args(np, "msi-parent",
+-						   "#msi-cells",
+-						   index, &args)) {
+-			d = irq_find_matching_host(args.np, token);
+-			if (d)
+-				return d;
+-
+-			of_node_put(args.np);
+-			index++;
+-		}
++		of_node_put(args.np);
++		index++;
+ 	}
+ 
+ 	return NULL;
+-- 
+2.45.2
 
-To leverage this property, we (or the user application) would need to
-provide some synchronization between T2 (that modifies the code) and
-T1.  This typically involves some form of barrier pairing.
-
-Feel free to reach out, here on the list or in private chats, for any
-related memory-barrier doubts I might be able to clarify.
-
-  Andrea
-
-(*) A malicious/buggy hypervisor could migrate (virtual)CPU X, and all
-its threads, at any time and way allowed by Murphy's law.  :-) I take
-it as that goes beyond the scope of this series...
 
 _______________________________________________
 linux-riscv mailing list
