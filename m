@@ -4,104 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C64BC531DC
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Aug 2024 14:52:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87CCCC531DC
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Aug 2024 15:10:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1px4fb8FKOkvydhG1BdFLdZTQZZgWebZItKunjRj2aU=; b=G4IYelfyDTOw0b
-	Mbo9m65ITQiAF4Hl3osYIYqUdgdLo7SQg919h7cqP8Ey+x/2ZGg0ZLejFefL7CxkEjnlFv6FHLsNh
-	H3ctp3VebBpGMUMoEjCCkZykG6KprTHdOSKbCDi+w/cZ+6HXDO+l5EbYwhIGhZpmU+lZ9WCBvjbRQ
-	Tbfx5OLWhhUnh/usWs9UNiSHbbvEX0dBAv4R+BmFvwiCSiPQ9eg5gHdAkpmB1Y9TIx57OzcPkGGOD
-	Ci4hCS76ZGSn8mWngnRAWoRcDwOMWupEKWPJA7B1V19+OLLBgMf5Hmw5WTIl7qq7HWvB6uDTzDytj
-	h2BLv+J5F68zlw8cRAog==;
+	List-Owner; bh=5TAQM0hW2bNBkD2lgk22e75OdHulXzNEOe5pXvipUww=; b=dEkole2398fw0b
+	5uovGvUSPP9U9O1jAoIaFyMMFcLNpLJkFes5XgxFHIAfRdRiqhAFwGEJJtd18r4lM3BPF4wFs0wIV
+	mPtnko8iq+m40JAn13JAX9M3GdUOfj/7pIWGzVk18/HINLnVTq/Q3jQA/rhKQZ4bSB5k94IHg5sE3
+	75ZKPaHPbS4HK4tbq3diblGrgT/K81X0Nq8tXAmI4sDND8nR2cd1/zPa3UtpSFqHPxn/VW/Snwcq7
+	fdCrgaEVRD1VwsVubhyxny+A7ng93KX5QSY81/hKfF/w+FZIQOwacq4EgrnaPZiH/tFWIV6DCMyC4
+	agTnnInGHA5nm9mquAAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1seyJt-0000000DHgf-1kK8;
-	Fri, 16 Aug 2024 14:52:49 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1seyb8-0000000DKND-2PVm;
+	Fri, 16 Aug 2024 15:10:38 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1seyJB-0000000DHSX-18uO;
-	Fri, 16 Aug 2024 14:52:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3C06462220;
-	Fri, 16 Aug 2024 14:52:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D69DBC32782;
-	Fri, 16 Aug 2024 14:52:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1723819923;
-	bh=aCsAMYNwuNLSPVHVux3H7Fr1gU8Y/2OHAz58FNdjFh4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=BeF+YsDnIob191w0ZGxINOu0jYhGxn63hEvhpdwFa5jW6Ni9L1j5zNVOpziP8Me0j
-	 VdJs4rtfVWtbONAJ2r0/x3uS1uJZc2XPYoBcdPMqJrUCV+x88lcdwCaKqSzjILyxCl
-	 pPqLCIIfO0T4TVHG0cB1VAhMSqMnUKLz0cQF1rYeVUgRmF3ySFmVl5HH9P3APi/JdA
-	 OGvydVVsY9YgrNN5+mf6fbDIFAeE2+9CGNMViKsCCCrgA8yjKVqwuBgIuodAtGnMB+
-	 bJ1HDN0++jB7l7MXDZDd5l+5rR7YSeKr9kXUadrtaZSXP/sile1fdjzQVOwoK02sNK
-	 pOQwo0zbUdYjg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1seyJ7-004JCN-Lr;
-	Fri, 16 Aug 2024 15:52:01 +0100
-Date: Fri, 16 Aug 2024 15:52:00 +0100
-Message-ID: <86frr4zfjj.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Shuah Khan <shuah@kernel.org>,
-	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Deepak Gupta <debug@rivosinc.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
-	Kees Cook <kees@kernel.org>,
-	"H.J. Lu" <hjl.tools@gmail.com>,
+	id 1seyaA-0000000DK5s-3dmT
+	for linux-riscv@lists.infradead.org;
+	Fri, 16 Aug 2024 15:09:40 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-428243f928cso15258495e9.3
+        for <linux-riscv@lists.infradead.org>; Fri, 16 Aug 2024 08:09:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1723820977; x=1724425777; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ycsrSNVghYJYo7Kq/sAqp6MnjeFyaL9nJFuFS/dh9Nk=;
+        b=xyvCllSfHZolJ6UK7A0KEJHusyFJaiyglwNdTbFk1xr6z80ASDmPs4GC5Z//AQnfta
+         PYEw/qwjPXC5oA9OgtlifHQZGFC+iOpwVUqKWm61TdtXpb7p49ko4EIxbQof16npGE7b
+         mcKOG42OVnHbYv/R8GDorfMvbSHhjpliimkGd3NWImhvOaSrV/0xPUxbOatfdpmAAbCK
+         mlOc3khO0B/SILf0fmr1SyXZPIi4Y0FTaB86XG0onH525Mbs1aUAKWwX29JXEoUPBmy+
+         9TgLjneT25fhcb6b/VNYnlliBELTgAO/SLCMLKawKU+XZgeAlgKhQW3qoORopRaczcLv
+         xdaw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1723820977; x=1724425777;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ycsrSNVghYJYo7Kq/sAqp6MnjeFyaL9nJFuFS/dh9Nk=;
+        b=jMnNPZJpgpmKh0Ez1YOgVyZ/TEhY+D9BK5rCmKrbwPJf5I3KeSAM669Je8vHrYawWW
+         cvfq+IuFExZpCGTToYNJcmgRCAFjRhmz1YDGjrypxmGHSDOJDEKQZ31qrTYh2L5k20UB
+         KcSj4xP41MrNEy35ybG2Uvb/DX9emA0AEAhnIBFfZXxyVPfcfsvpdlwba4TZ7wD0tI5y
+         RNSQixMk2OY1YTSpAF8kaO7mzFu/AE0blPyz7ABGwT0+hT4KzaF7EYtHm+3oIdVvebe7
+         OZYWBnFKeA6P/wGYfUfjskAiWg07LPgmqs5MUv4a1Sf3BJsPvA8oJTHf8tTLq2orBgSb
+         eZTw==
+X-Forwarded-Encrypted: i=1; AJvYcCXLsTt/qmfU+PtinjNqJWaG4bXl1WjlLg2r/JYvDW+B2tleDG5ezxW+OTQ/YA0Lf0uziknprULZEVlu3VscdMeUvOCOiT7YFJ5GnJucQU9l
+X-Gm-Message-State: AOJu0YwfLBpHt+PXDLcb7McKD8atH5/LlSExLNCgnwk/v1WcSJcMSbrG
+	gN+qcFxw7t/XsAztl19/nM4JpUF90GKVS9d1X3zpXGxAVDz63K2u6sss9E4i6Z8=
+X-Google-Smtp-Source: AGHT+IFDGX+GfHixPCgcFALGkNattnCz9fLq1GjkO92ZX/36nvryecE+9MvCeLg53L+RFEWex0FMuw==
+X-Received: by 2002:a5d:5442:0:b0:371:8c79:73c1 with SMTP id ffacd0b85a97d-37194317aa2mr2276336f8f.2.1723820976767;
+        Fri, 16 Aug 2024 08:09:36 -0700 (PDT)
+Received: from krzk-bin.. ([178.197.215.209])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3718984993fsm3808758f8f.31.2024.08.16.08.09.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 16 Aug 2024 08:09:36 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Ulf Hansson <ulf.hansson@linaro.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Anup Patel <anup@brainfault.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Florian Weimer <fweimer@redhat.com>,
-	Christian Brauner <brauner@kernel.org>,
-	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
-	Ross Burton <ross.burton@arm.com>,
+	linux-pm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	joey.gouly@arm.com
-Subject: Re: [PATCH v10 14/40] KVM: arm64: Manage GCS access and registers for guests
-In-Reply-To: <8c1e8fb6-0152-42f7-ab6d-93f6fe70b4aa@sirena.org.uk>
-References: <20240801-arm64-gcs-v10-0-699e2bd2190b@kernel.org>
-	<20240801-arm64-gcs-v10-14-699e2bd2190b@kernel.org>
-	<86h6bkzh8o.wl-maz@kernel.org>
-	<8c1e8fb6-0152-42f7-ab6d-93f6fe70b4aa@sirena.org.uk>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: broonie@kernel.org, catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net, akpm@linux-foundation.org, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, arnd@arndb.de, oleg@redhat.com, ebiederm@xmission.com, shuah@kernel.org, rick.p.edgecombe@intel.com, debug@rivosinc.com, ardb@kernel.org, Szabolcs.Nagy@arm.com, kees@kernel.org, hjl.tools@gmail.com, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, fweimer@redhat.com, brauner@kernel.org, thiago.bauermann@linaro.org, ross.burton@arm.com, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org, linux-arch@vger.kernel.org, linux-mm@kvack.org, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, joey.gouly@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-riscv@lists.infradead.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH 2/4] cpuidle: riscv-sbi: Use scoped device node handling to simplify error paths
+Date: Fri, 16 Aug 2024 17:09:29 +0200
+Message-ID: <20240816150931.142208-2-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20240816150931.142208-1-krzysztof.kozlowski@linaro.org>
+References: <20240816150931.142208-1-krzysztof.kozlowski@linaro.org>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240816_075205_564424_C8A08D48 
-X-CRM114-Status: GOOD (  23.62  )
+X-CRM114-CacheID: sfid-20240816_080938_942694_3A386DDB 
+X-CRM114-Status: GOOD (  14.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,53 +102,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 16 Aug 2024 15:40:33 +0100,
-Mark Brown <broonie@kernel.org> wrote:
-> 
-> [1  <text/plain; us-ascii (7bit)>]
-> On Fri, Aug 16, 2024 at 03:15:19PM +0100, Marc Zyngier wrote:
-> > Mark Brown <broonie@kernel.org> wrote:
-> 
-> > > +	{ SYS_DESC(SYS_GCSCR_EL1), NULL, reset_val, GCSCR_EL1, 0 },
-> > > +	{ SYS_DESC(SYS_GCSPR_EL1), NULL, reset_unknown, GCSPR_EL1 },
-> > > +	{ SYS_DESC(SYS_GCSCRE0_EL1), NULL, reset_val, GCSCRE0_EL1, 0 },
-> 
-> > Global visibility for these registers? Why should we expose them to
-> > userspace if the feature is neither present nor configured?
-> 
-> ...
-> 
-> > > +	if (!kvm_has_feat(kvm, ID_AA64PFR1_EL1, GCS, IMP))
-> > > +		kvm->arch.fgu[HFGxTR_GROUP] |= (HFGxTR_EL2_nGCS_EL0 |
-> > > +						HFGxTR_EL2_nGCS_EL1);
-> 
-> > How can this work if you don't handle ID_AA64PFR_EL1 being written to?
-> > You are exposing GCS to all guests without giving the VMM an
-> > opportunity to turn it off. This breaks A->B->A migration, which is
-> > not acceptable.
-> 
-> This was done based on your positive review of the POE series which
-> follows the same pattern:
-> 
->    https://lore.kernel.org/linux-arm-kernel/20240503130147.1154804-8-joey.gouly@arm.com/
->    https://lore.kernel.org/linux-arm-kernel/864jagmxn7.wl-maz@kernel.org/
-> 
-> in which you didn't note any concerns about the handling for the
-> sysregs.
-> 
-> If your decisions have changed then you'll need to withdraw your review
-> there, I'd figured that given the current incompleteness of the
-> writability conversions and there being a bunch of existing registers
-> exposed unconditionally you'd decided to defer until some more general
-> cleanup of the situation.
+Obtain the device node reference with scoped/cleanup.h to reduce error
+handling and make the code a bit simpler.
 
-Thanks for pointing out that I missed this crucial detail in the POE
-series. I'll immediately go and point that out.
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+---
+ drivers/cpuidle/cpuidle-riscv-sbi.c | 21 +++++++--------------
+ 1 file changed, 7 insertions(+), 14 deletions(-)
 
-	M.
-
+diff --git a/drivers/cpuidle/cpuidle-riscv-sbi.c b/drivers/cpuidle/cpuidle-riscv-sbi.c
+index a6e123dfe394..5bb3401220d2 100644
+--- a/drivers/cpuidle/cpuidle-riscv-sbi.c
++++ b/drivers/cpuidle/cpuidle-riscv-sbi.c
+@@ -8,6 +8,7 @@
+ 
+ #define pr_fmt(fmt) "cpuidle-riscv-sbi: " fmt
+ 
++#include <linux/cleanup.h>
+ #include <linux/cpuhotplug.h>
+ #include <linux/cpuidle.h>
+ #include <linux/cpumask.h>
+@@ -236,19 +237,16 @@ static int sbi_cpuidle_dt_init_states(struct device *dev,
+ {
+ 	struct sbi_cpuidle_data *data = per_cpu_ptr(&sbi_cpuidle_data, cpu);
+ 	struct device_node *state_node;
+-	struct device_node *cpu_node;
+ 	u32 *states;
+ 	int i, ret;
+ 
+-	cpu_node = of_cpu_device_node_get(cpu);
++	struct device_node *cpu_node __free(device_node) = of_cpu_device_node_get(cpu);
+ 	if (!cpu_node)
+ 		return -ENODEV;
+ 
+ 	states = devm_kcalloc(dev, state_count, sizeof(*states), GFP_KERNEL);
+-	if (!states) {
+-		ret = -ENOMEM;
+-		goto fail;
+-	}
++	if (!states)
++		return -ENOMEM;
+ 
+ 	/* Parse SBI specific details from state DT nodes */
+ 	for (i = 1; i < state_count; i++) {
+@@ -264,10 +262,8 @@ static int sbi_cpuidle_dt_init_states(struct device *dev,
+ 
+ 		pr_debug("sbi-state %#x index %d\n", states[i], i);
+ 	}
+-	if (i != state_count) {
+-		ret = -ENODEV;
+-		goto fail;
+-	}
++	if (i != state_count)
++		return -ENODEV;
+ 
+ 	/* Initialize optional data, used for the hierarchical topology. */
+ 	ret = sbi_dt_cpu_init_topology(drv, data, state_count, cpu);
+@@ -277,10 +273,7 @@ static int sbi_cpuidle_dt_init_states(struct device *dev,
+ 	/* Store states in the per-cpu struct. */
+ 	data->states = states;
+ 
+-fail:
+-	of_node_put(cpu_node);
+-
+-	return ret;
++	return 0;
+ }
+ 
+ static void sbi_cpuidle_deinit_cpu(int cpu)
 -- 
-Without deviation from the norm, progress is not possible.
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
