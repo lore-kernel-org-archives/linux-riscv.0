@@ -4,72 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EE45C3DA4A
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Aug 2024 15:21:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1620C531DC
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Aug 2024 15:50:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bZXykNQpBar0umWx46lK6NZ+sWSkBtamPbOYvI3avpA=; b=4tb1g8C4tKrpip
-	tU+p7ctUMeJ75kCwKY5VK1mNdwK2YPoceLVGWX+8JVRAHSuBs/R0jbexNVKHb8cSYlGuFjgn9jhXu
-	cQ+xpJo/fJ7JdzWiyrw4pkAn1gil5r42QXh3FQ8DllsKQWB3y6JOVvWd7jE6CKu5mIhEdYJFaNwht
-	sWjeimsh+HJmK8XzJa1/TlVptbadfcfZvbnmoSMZxaUIQfJRMGGLHCakx7WPEV6Ca/LM7H9xIMPV/
-	JQloZMUI5nJGIN8ml92g4bxHAUV5IZGEgOi5pLCcyZFQ0+uprkirZIyml2bOjPDqKdHQjLWLSE3r1
-	aLDK5s37emArYbEDu/Vw==;
+	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Message-ID:Date:
+	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=rgp3H71hjzoaWv27PkeRx2O7MiHD1BxQGRefymZQSo0=; b=4VG
+	PJ1VJwxHgWFIuifN71iL605/FdwkvJK21EbVdJRTlzF06OXso2MkUMQqdykBf4VpzHGvwynpsyl0t
+	+dJRi9L/4+X2QyTmTk7OvgYhylA/FnzvDw8h7qGNWCTzTu8SpRLftfo5CttQUJw8hjhcjOaqRL2Ga
+	OCuujl7JPsLnj+qb86WGzN5s9Y3PUK76nqt/agq1Jj4AcrgG3pQ5nMaHLoirG3vkHWJFeaMT27oKM
+	qMxf8J17JicAkeH7oz1bN6eG1g2m4zCy6fzYzLmggzdEVrOS0J8LqeQDwPX6M10i283eQJM/gZBi6
+	ZYs5EhcgF0c8c1hWd/61f94yFleV7zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1seyla-0000000DMhO-3JFA;
-	Fri, 16 Aug 2024 15:21:26 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1sezDy-0000000DT57-06gi;
+	Fri, 16 Aug 2024 15:50:46 +0000
+Received: from mail-il1-f199.google.com ([209.85.166.199])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1seygp-0000000DLWk-0ODR;
-	Fri, 16 Aug 2024 15:16:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 78D72CE1F03;
-	Fri, 16 Aug 2024 15:16:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 499C2C4AF11;
-	Fri, 16 Aug 2024 15:16:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1723821388;
-	bh=M3aXYfvZtOSP1Cm45umkLlCrgyuN8YBKot+wHksTLeY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=eVh4w6IU4BSTS3EEym+oVd0Mq9Ouw3SmOallmWODUWdGVf9OugK7otEfi9BoLeKAz
-	 J5PZ0UXn8RIKzwhJiOzTplTw64PmFk4gvwywbayvCdJHI6LOtYkWBRf+zu0DYADo3y
-	 Wv+WRh172doczIcxyUdWBblmE3+v07vGSj62NNA6QDtVypTduqILY+dGQyfiCoLcrz
-	 SgtrXpwq6g7+r6aC1XGenCfs44AUf9TEDQ16aQita6pLU3g8YPLZ1yoUN3u6iQ23q8
-	 JOJ1yZ9+/cOktFvkJcoTH4g0sFhsGf3DUBX04Xyb9tnfC65Ful/vkdLm6VX8LmO4Wr
-	 Y+/55HnIpEV5g==
-From: Will Deacon <will@kernel.org>
-To: sunilvl@ventanamicro.com,
-	Haibo Xu <haibo1.xu@intel.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	xiaobo55x@gmail.com,
-	ajones@ventanamicro.com,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Gavin Shan <gshan@redhat.com>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	James Morse <james.morse@arm.com>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] ACPI: NUMA: initialize all values of acpi_early_node_map to NUMA_NO_NODE
-Date: Fri, 16 Aug 2024 16:15:57 +0100
-Message-Id: <172380817082.2918676.9519520229609793025.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20240729035958.1957185-1-haibo1.xu@intel.com>
-References: <20240729035958.1957185-1-haibo1.xu@intel.com>
+	id 1sez2y-0000000DQf8-20QN
+	for linux-riscv@lists.infradead.org;
+	Fri, 16 Aug 2024 15:39:26 +0000
+Received: by mail-il1-f199.google.com with SMTP id e9e14a558f8ab-39d10b6da2dso20007715ab.0
+        for <linux-riscv@lists.infradead.org>; Fri, 16 Aug 2024 08:39:22 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1723822762; x=1724427562;
+        h=to:from:subject:message-id:date:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=N8JJez+0p2S8btQve7w0Pep7EZa2y6dLItyWBelrZsk=;
+        b=TtA5jDByFxoRFfrqDIUsIDf+YSaNCCg9sv3biGQ8I9fkdpZkOKAaQXCQYX3EfaxOcC
+         qLE4CicORLb4AcQeDsxC7PezOF6pG5UGVzeJ2eb9UbnR2M81NwSoKZJzslC9engjrj6H
+         IwuXTqhkK/AYpjRIfQtaIV2aY00jhYTg8lOhFEYM4ItnQZrX35GELT3wJi/pCI+Dz6H4
+         yMyoIzEVRMlaPFovjydp5ylhgcOtafS3qvztB/vyXvIrOtfiMHYmNkzCg2pHPZoa7Bp0
+         eaj9L8TTt3sqDqm+SlGiOY5FPmYUOSIP5QdBsyh3G1hGcxHyNl0ThNU/P3mIsl0iXMx9
+         KS4Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXkXlRUTvXH9LShgEUcksmVlmtHPvxDAtZRpNNnJJunzW7KvfvP/IJ01iWOtdVDIegy1wyB+WEzi6lIISB15laaLFEr/wbPAlTWUi9OeThK
+X-Gm-Message-State: AOJu0YwXhmX/p8oiwpIxKjnsbUVFdKRzYSA5tozE8C/YhpdgYgfDMK25
+	5PIS4mtOpvsuJWo6l9T9tZFbFdlSQICA1ObSixjd3s2vEH0PuhGAvs2Rt3MPjDFtwrm5q2RVrt7
+	G9XK9gvRZ9DkhBv6+R/rqkqPQSo7hbxWz8tXGUflhSi9quYUjGCz07CQ=
+X-Google-Smtp-Source: AGHT+IH+DNxcyVYu22+wS8Im7fRACul9MEEKcf/DaaIOWxOiPuPbKbPyVxVJwl69AVkF5DZTBZA4g3tZks/5IibMJpW6Uxz9Tdtz
 MIME-Version: 1.0
+X-Received: by 2002:a05:6e02:170e:b0:39a:eb4d:23c5 with SMTP id
+ e9e14a558f8ab-39d26c36cfamr3092675ab.0.1723822762159; Fri, 16 Aug 2024
+ 08:39:22 -0700 (PDT)
+Date: Fri, 16 Aug 2024 08:39:22 -0700
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <00000000000065062c061fcec37b@google.com>
+Subject: [syzbot] riscv/fixes test error: can't ssh into the instance
+From: syzbot <syzbot+cfbcb82adf6d7279fd35@syzkaller.appspotmail.com>
+To: aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, palmer@dabbelt.com, paul.walmsley@sifive.com, 
+	syzkaller-bugs@googlegroups.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240816_081631_326438_A62167A6 
-X-CRM114-Status: UNSURE (   6.31  )
+X-CRM114-CacheID: sfid-20240816_083924_551859_094EF636 
+X-CRM114-Status: UNSURE (   4.61  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,25 +78,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 29 Jul 2024 11:59:55 +0800, Haibo Xu wrote:
-> Currently, only acpi_early_node_map[0] was initialized to NUMA_NO_NODE.
-> To ensure all the values were properly initialized, switch to initialize
-> all of them to NUMA_NO_NODE.
-> 
-> 
+Hello,
 
-Applied arm64 hunk to arm64 (for-next/acpi), thanks!
+syzbot found the following issue on:
 
-[1/1] ACPI: NUMA: initialize all values of acpi_early_node_map to NUMA_NO_NODE
-      https://git.kernel.org/arm64/c/8bb0376fe082
+HEAD commit:    32d5f7add080 Merge patch series "RISC-V: hwprobe: Misalign..
+git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git fixes
+console output: https://syzkaller.appspot.com/x/log.txt?x=10e639f3980000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=e12019db89cebcd1
+dashboard link: https://syzkaller.appspot.com/bug?extid=cfbcb82adf6d7279fd35
+compiler:       riscv64-linux-gnu-gcc (Debian 12.2.0-13) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40
+userspace arch: riscv64
 
-Cheers,
--- 
-Will
+Downloadable assets:
+disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/a741b348759c/non_bootable_disk-32d5f7ad.raw.xz
+vmlinux: https://storage.googleapis.com/syzbot-assets/360b3f269693/vmlinux-32d5f7ad.xz
+kernel image: https://storage.googleapis.com/syzbot-assets/c6ef680b5e89/Image-32d5f7ad.xz
 
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
+IMPORTANT: if you fix the issue, please add the following tag to the commit:
+Reported-by: syzbot+cfbcb82adf6d7279fd35@syzkaller.appspotmail.com
+
+
+
+---
+This report is generated by a bot. It may contain errors.
+See https://goo.gl/tpsmEJ for more information about syzbot.
+syzbot engineers can be reached at syzkaller@googlegroups.com.
+
+syzbot will keep track of this issue. See:
+https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+
+If the report is already addressed, let syzbot know by replying with:
+#syz fix: exact-commit-title
+
+If you want to overwrite report's subsystems, reply with:
+#syz set subsystems: new-subsystem
+(See the list of subsystem names on the web dashboard)
+
+If the report is a duplicate of another one, reply with:
+#syz dup: exact-subject-of-another-report
+
+If you want to undo deduplication, reply with:
+#syz undup
 
 _______________________________________________
 linux-riscv mailing list
