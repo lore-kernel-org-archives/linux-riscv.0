@@ -4,60 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E035CC3DA4A
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Aug 2024 12:03:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B28BDC3DA4A
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Aug 2024 12:16:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q52S5CfOw54zIsqqEnYFIZXmmUEGM3n+NrlHynLiBRY=; b=pWLqvdcqt3s4nvoQPI2uZs3IXi
-	JerN5XbjyhkXzKsLYApwT/LuzYQDV4C3Mgl9R9ffDa5hGKf5M1s3iKTHEvjjlM771MZzCAJrW5OZX
-	pWk8lOR/+kxuVEII2Ur4B9pT3HdAAoFlog4PlQiKJRJ9BIGs7ehTm/yzoZNCUM59Mm/H5tx26PPG2
-	I1IO7wh5Dy+FDAnhJM6hE89jwYi5T1iweesI/uIHye3Qi3vjGUHe97NDM8lsWy0pBqOiargwoZ89T
-	H0MD/bJh1krHuCR2p/BvRcuAcsCT0T/TeLjBHYfX2jEXvf52+hoh7PlFONjm1K1tBo75rbl/GDtMv
-	0FDELSTQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=DcRpvQmTk8jGGo3qKo5FJot5kVzRVnyfqCR6ofvq3Ac=; b=r5yPA9zezR8Qf7
+	T+WSgqWYuKnhx+fH/0C6aUKMZCBlOjjnTkL1Ml00c0QGsdWBj3LTLKaaY3CoxMW3QmpQCIHvrqtMg
+	Lyi6JeEEkx+PE1EtrEA6KgfFO2gJ7XujCPzfM43ZiwhY4MQF4sR5H9a1I41cde7XOoT2cyaM3AIHz
+	F/NRAbxO4T1ylsdxs+YyPMW0p98H5zHxjP5Gt8LyZ1sEsT3AUfGgSs4YyI5HRS31S4f6wl07woLtm
+	ShSnHMLNP7675MpMDdxWfotzwPeBbj3qcsIN7I54WRgbASM13qnUE9AI1Bwz7FgOqBFniZLsr27LG
+	dqQ7EIIwRZVQOJ+zlSTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sevfu-0000000CpIJ-0oTS;
-	Fri, 16 Aug 2024 12:03:22 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1sevsM-0000000CqK8-0L31;
+	Fri, 16 Aug 2024 12:16:14 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sevfF-0000000CpBc-3x3z;
-	Fri, 16 Aug 2024 12:02:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Hndb++5g10Ky2yeNlo2IhKOPctUnOkjSU49TPVxG73c=; b=KaJLbYKp7V+RK2RoKhUoqDpuz0
-	MQysq1C6rzn9DHUpYqB7/91wpWYQekvLY0HG1oR0SzFtajtPkE9cZAEAXvYDUtEsEAWWvfsmhgiFs
-	9GSF+pFUYDJvxgX2nOm5rU5Zy6BWsze65J9hXkZ3FAqRdms7giPNFUUitYR5iMpOFeDwFy7lXGFu6
-	TKszadYAbapkSH47uaiwUVwtFWpJd/t//l/nntgjZa2Kftr83E81j/6hkfYonR0Yy7UuKPPEQ9d4u
-	Bd2KBqLJ0qLOcgNjVAzEskkuiYqUAhvezsIgdnftgIog1FVMNa1B48XGwHClmr5Z+tE19QA6phcWp
-	F44sPGBg==;
-Received: from sin.source.kernel.org ([145.40.73.55])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sevfA-00000008dwF-3qU0;
-	Fri, 16 Aug 2024 12:02:40 +0000
+	id 1seupS-0000000Chqa-0d5Q;
+	Fri, 16 Aug 2024 11:09:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 06DFDCE1177;
-	Fri, 16 Aug 2024 12:02:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D3A6C32782;
-	Fri, 16 Aug 2024 12:02:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1723809752;
-	bh=oPeCvIbifLel6Ow5IZxAJAB7Vu3RJACPj3rWPilHCSM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lammGcz+t6OGLNs0WJ0Ion4Wo4GhurUkVu9VWiP20uUI84FAGr99BGSEVKLI3fz0A
-	 fdGUkReozzGf4aWRVUznXu1+ekkxTAXKX9asXpNuaMQ1tYN4asJdK2ScKq+YtJngv9
-	 eBTUzZ6sgM4PJfqhUUEouo3q1afG4J2UT9kK9sHh3i6JTPG7VScNqDMPYJjMiJ/yEb
-	 aDHpqxKNlUXj5jxTAw9xe58I5LaYxqrSdwd8JLqUkMgLqODMxadE/yFK1sG8NLIRrS
-	 rF0cmj1k6ZNEaPvijrCCoPuA1yH2NQ+PEC7/6R5P2m1BKIliB/yCGa8WCxE1omVOJe
-	 vrEUxH6ID2hnA==
-Date: Fri, 16 Aug 2024 13:02:22 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7325B620AD;
+	Fri, 16 Aug 2024 11:09:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB36CC32782;
+	Fri, 16 Aug 2024 11:09:03 +0000 (UTC)
+Date: Fri, 16 Aug 2024 12:09:01 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Mark Brown <broonie@kernel.org>
 Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	Marc Zyngier <maz@kernel.org>,
@@ -85,16 +61,15 @@ Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
 	linux-riscv@lists.infradead.org
 Subject: Re: [PATCH v10 05/40] arm64/gcs: Document the ABI for Guarded
  Control Stacks
-Message-ID: <7c17b28e-a5d1-4113-9580-9501692af513@sirena.org.uk>
+Message-ID: <Zr8zTTrJ6M0SCvCV@arm.com>
 References: <20240801-arm64-gcs-v10-0-699e2bd2190b@kernel.org>
  <20240801-arm64-gcs-v10-5-699e2bd2190b@kernel.org>
- <Zr8zTTrJ6M0SCvCV@arm.com>
 MIME-Version: 1.0
-In-Reply-To: <Zr8zTTrJ6M0SCvCV@arm.com>
-X-Cookie: A Smith & Wesson beats four aces.
+Content-Disposition: inline
+In-Reply-To: <20240801-arm64-gcs-v10-5-699e2bd2190b@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240816_130238_785689_7504B2A6 
-X-CRM114-Status: GOOD (  23.64  )
+X-CRM114-CacheID: sfid-20240816_040910_668739_C46FDAA9 
+X-CRM114-Status: GOOD (  23.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,87 +81,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1430018490188852185=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Aug 01, 2024 at 01:06:32PM +0100, Mark Brown wrote:
+> +1.  General
+> +-----------
+[...]
+> +* EL0 GCS entries with bit 63 set are reserved for use, one such use is defined
 
---===============1430018490188852185==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="p6v+ZIr+kcIsmhYm"
-Content-Disposition: inline
+Maybe "reserved for specific uses". The proposed sentenced feels like
+it's missing something.
 
+> +  below for signals and should be ignored when parsing the stack if not
+> +  understood.
+[...]
+> +3.  Allocation of Guarded Control Stacks
+> +----------------------------------------
+> +
+> +* When GCS is enabled for a thread a new Guarded Control Stack will be
+> +  allocated for it of size RLIMIT_STACK or 2 gigabytes, whichever is
+> +  smaller.
+> +
+> +* When a new thread is created by a thread which has GCS enabled then a
+> +  new Guarded Control Stack will be allocated for the new thread with
+> +  half the size of the standard stack.
 
---p6v+ZIr+kcIsmhYm
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Is the half size still the case? It also seems a bit inconsistent to
+have RLIMIT_STACK when GCS is enabled and half the stack size when a new
+thread is created.
 
-On Fri, Aug 16, 2024 at 12:09:01PM +0100, Catalin Marinas wrote:
-> On Thu, Aug 01, 2024 at 01:06:32PM +0100, Mark Brown wrote:
+[...]
+> +* When a thread is freed the Guarded Control Stack initially allocated for
+> +  that thread will be freed.  Note carefully that if the stack has been
+> +  switched this may not be the stack currently in use by the thread.
 
-> > +* EL0 GCS entries with bit 63 set are reserved for use, one such use is defined
+Is this true for shadow stacks explicitly allocated by the user with
+map_shadow_stack()?
 
-> Maybe "reserved for specific uses". The proposed sentenced feels like
-> it's missing something.
+> +4.  Signal handling
+> +--------------------
+> +
+> +* A new signal frame record gcs_context encodes the current GCS mode and
+> +  pointer for the interrupted context on signal delivery.  This will always
+> +  be present on systems that support GCS.
+> +
+> +* The record contains a flag field which reports the current GCS configuration
+> +  for the interrupted context as PR_GET_SHADOW_STACK_STATUS would.
+> +
+> +* The signal handler is run with the same GCS configuration as the interrupted
+> +  context.
+> +
+> +* When GCS is enabled for the interrupted thread a signal handling specific
+> +  GCS cap token will be written to the GCS, this is an architectural GCS cap
+> +  token with bit 63 set and the token type (bits 0..11) all clear.  The
+> +  GCSPR_EL0 reported in the signal frame will point to this cap token.
+> +
+> +* The signal handler will use the same GCS as the interrupted context.
 
-Actually we removed the usage of bit 63 so I'll just drop this.
+I assume this is true even with sigaltstack. Not easy to have
+alternative shadow stack without additional ABI.
 
-> > +* When a new thread is created by a thread which has GCS enabled then a
-> > +  new Guarded Control Stack will be allocated for the new thread with
-> > +  half the size of the standard stack.
-
-> Is the half size still the case? It also seems a bit inconsistent to
-> have RLIMIT_STACK when GCS is enabled and half the stack size when a new
-> thread is created.
-
-Yes, this predates the rebase onto clone3() - I'll update.
-
-> [...]
-> > +* When a thread is freed the Guarded Control Stack initially allocated for
-> > +  that thread will be freed.  Note carefully that if the stack has been
-> > +  switched this may not be the stack currently in use by the thread.
-
-> Is this true for shadow stacks explicitly allocated by the user with
-> map_shadow_stack()?
-
-It is only true for the stacks allocaeted by the kernel, if we didn't
-allocate a stack we don't free it.
-
-> > +* The signal handler will use the same GCS as the interrupted context.
-
-> I assume this is true even with sigaltstack. Not easy to have
-> alternative shadow stack without additional ABI.
-
-Yes.
-
---p6v+ZIr+kcIsmhYm
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAma/P80ACgkQJNaLcl1U
-h9Dfgwf9EHMFRik1mUwmgRytVPWYPFLCBG8YZtDuO0Wxbs78KN6zc8ji2vFJ8lIJ
-B1hNUxCH6BOhm+AfFVF3zkoXZn+wjlPnLRGOPJUodgh27zecCwTCrwayO8ncECyf
-bIeq0XnjssL7P2A2wNVK0cFXU9W+Gw3OjVUAPUQmdC7lk6w4GwIMnpgQs1Vrueko
-IO1qBTeiV0rySxm/x0E14lq3kpX7eAcrBERnR+wfA17R4CtVClV2S1lT8YyUdYl7
-n81clFcHhylhTBz7napWIOchWjXqicUT7zqHLPKHMVxutUuuT1Mc+obOdDSUsdcl
-8qUKqX887cAFNJNPd+6Nlq+t+MtUZA==
-=6lHH
------END PGP SIGNATURE-----
-
---p6v+ZIr+kcIsmhYm--
-
-
---===============1430018490188852185==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Catalin
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1430018490188852185==--
-
