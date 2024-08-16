@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E09BC3DA4A
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Aug 2024 15:10:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAE08C3DA4A
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Aug 2024 15:11:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=kk006x1lSGgPVkf1N7wD/490C6uhzyHz0WF4+fDguIk=; b=mNbgf1wO4rgiAi
-	8nZHeGgSoZNqQZliut9UgKWsu4qqT+q85O07COovp+GD7sSjdqNdFCyBHP1VYCps6nrLoHK/h62to
-	5CJxZ1LxP8WwVQAWk1+t5CcNhxAXJGDicDXjNwPHemFgvWAjMUlqvkl1ir9C+uZqzrXYmM+zjJVEK
-	e6/tFwy5Ii7u6Dwp0AFct4mAjXMA1K7YlOmBLkNO5M/pm4m7dzQ5xVvuaVL0TSiwV404RZOVTrY5W
-	m240zhNgVKF6bax1pAEHnsXGFEL7YpdMcnH+YDATqaIgAO8fsaJq1Z5jep8kTvhuCgSyfkoCVFGRb
-	2kvy3aesHA4xn9cQU57Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=A+VMRg3cXIV9aFBDJc85rTWaMDgityMDS19W/OcHaoU=; b=K7NlDO4Tqv3vP3
+	LvUDuDgLiEDqaUu5fSVhurY+tphDQJ5+BQtkXI07GtrvLCF+2Lk6ZCdAl5rwPZzH1Hb1760J6Nl1l
+	I2IvgHFxKUNSEpODPP0iZwkdZTnKKf21FBHQPur60urryDXdz930KxuOU5z/zinScf/z6ddWKiGgm
+	AvIjQgphfmpcOAPqek6HX08sTMNSu8XNBRi1TupFove77Bdu3JodRKNC0kxEQrPf3lyff0czR5Hlv
+	dQ+JL5a8Kh5vV3alDifJLDZszv7l42ktuTs+5+up3d3Eq/DAsh6ofkgHJTeRs49u0DEyRmkQS1Zof
+	GLoTMquLNQWLN5MPhcqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1seyb7-0000000DKN2-3R2A;
-	Fri, 16 Aug 2024 15:10:37 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1seycO-0000000DKhy-12Kb;
+	Fri, 16 Aug 2024 15:11:56 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1seya9-0000000DK5d-2K8t
+	id 1seyaC-0000000DK6m-3z8w
 	for linux-riscv@lists.infradead.org;
-	Fri, 16 Aug 2024 15:09:38 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-429c4a4c6a8so15556555e9.0
-        for <linux-riscv@lists.infradead.org>; Fri, 16 Aug 2024 08:09:36 -0700 (PDT)
+	Fri, 16 Aug 2024 15:09:42 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-530e2287825so2092042e87.1
+        for <linux-riscv@lists.infradead.org>; Fri, 16 Aug 2024 08:09:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1723820975; x=1724425775; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=q0sK0ufc7qEbd/mn2fdq4hcobz3MRQ2PN+HK1BuFHRw=;
-        b=HwgTQNFTjjprQHEdW+d7wIFDTOP2IkgXFE6kvf5rk2JAbPulL9GaS858kmmfFS6k1A
-         0/C5sGC2wujv3H9qVpta5SrymbDckXXmQ0FVxMparxad1DgsdIyasJGmvLZlH4wFzzzV
-         9AYyy9bCELWmZvB7uAH3Cl02h0xuhc2tkwGIkKKBuBEBU459lbcCGcG6JEJqW1Iet5ne
-         rjl0KoTk26FdqZU+JegTP/P7Nzmu2PlZbVAR5mymjirMVwxL1LYmfQj0FdghPuS7SjaT
-         dBotEQIh0e1wnufmrXbAVtH0RPvBvdj+PSfiNQVgbSeuQkeHnroY6aoGedNHFHY6ukpA
-         yLzg==
+        d=linaro.org; s=google; t=1723820979; x=1724425779; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=td2rg5GyKlqce51WO+zvnPs34jMkYsAdv+WksjCyFsM=;
+        b=bNfNsL9V2FrInMEeMggdtLpO9JhTYBrK4l80P+Jyiowx/byws7KmTXL7V5oNoeO0XR
+         MjpcfiiVZO50ItZ0pEMChBPaKiYQx1PjBs3F3MZRJUIY2pS5Zg7VKnwZjBj1+6AJHGuE
+         WjTbXiANasVieYb0RYT8mCK38FioT1UuC3B/pJ6aeiul7j93QzUhlLOxFKGgSatrIkob
+         J3IjWs7xk/RZZ8DdONVR5Pb7ukEe2Jrg/hL52ANAmoHcZWCQG9D9KjlfxLmQ1aG4VD4C
+         pkJGHN7pgiB5r5WRGHqoPTGekDG/Puy7dSnJc6jaGuUWP4n5l2FeQE996ngTBlMjeC1O
+         lLzg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1723820975; x=1724425775;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=q0sK0ufc7qEbd/mn2fdq4hcobz3MRQ2PN+HK1BuFHRw=;
-        b=BU+1A01wxTbEiFoMDpHzjbMro6hFqv1DQ6B7Z2UTjDdSVrn9m9yGK6+UMuPPgeid+k
-         hZsjURIQ2+SvPfaQ8MP4WDJJoFveintuGc1u/q3kR3BnGTcqYORpjBOC5uBaW29HlL+D
-         6uAxpqSjTioPRu133DkGzGc7atcHpFxE73JZoHXdGEvEjIT0Z/N45ByDjBel9YanJyyw
-         rd6ffVdqCMyhFrklgRP9HWBtCrhJbtUNkCNZ6Kxm0UUMkSGMvYP4tzEfU5LhqqrFeWp3
-         dOF11R+sayWUKRQdF17vs75TprICFxuO+S+gcsJCOR07df76SSAr9KFvDoRF+QjVlt78
-         hsGA==
-X-Forwarded-Encrypted: i=1; AJvYcCVNjtIef+kO/jGCmNk+64VxNZdAalNINHAjMCwgsfG1RoN/nIHDsDVdt/YJw0L6gGTbV6jtXI1BVMY+igNbNncn4cLUANpW+dWh/Dd7aFT3
-X-Gm-Message-State: AOJu0YzboDDK7rOHwvFT3bVqhYkgxfV2MMdZBY9SDPag3bFEbMAIjYwG
-	JjHfV4eQCNk8KSrqgNr2rpNSyWFumxhNsHsmSDNB65CwYAuOd9iAyShGdWXQBvw=
-X-Google-Smtp-Source: AGHT+IFhP/NIsW9PWfnEcWLqi7chpg87KWhwfD8tKVYrnOj6sJddsAiBh6dq11WCBuqo717hp+HeUw==
-X-Received: by 2002:a05:600c:444b:b0:426:6320:7ddf with SMTP id 5b1f17b1804b1-429ed7f944bmr19485875e9.35.1723820975298;
-        Fri, 16 Aug 2024 08:09:35 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1723820979; x=1724425779;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=td2rg5GyKlqce51WO+zvnPs34jMkYsAdv+WksjCyFsM=;
+        b=q7ZJ5igsyqW/OFR+PcV5flL1PsSvslS7ngNzogBNN95ENnDFpujliQlJelGkY8UIT+
+         j0K/tvM6mPVt6Rbj+BSK115lnD8RtFqiXJFvhB7Ngbg0Ysx/BB8vvMcgSZb4Uq5+voaj
+         syA+/jrzPreWHHsnqQEuFL+CWVvm5iMbsHwBMYdw801twmTIkbGosLrpWr9tctQVx+8c
+         VBrl84HV0cqXOuVnMst6as3MxClm7SocnEr2h8JeBd0prhe1BG++JlBpl+hBWn5N107J
+         3P0edctNOyRD5GuOnccSfphLYHL0V+Lc3FwPzi6lWShml29slNueZWBZVnyQntYGMkWY
+         ZUdA==
+X-Forwarded-Encrypted: i=1; AJvYcCVidyBY4VuRN488gOb1U5mBYzKzsSgQOPFKInUpuYzIfgFvDL6frPBqQZ7N8B2mXv65wL5a8yJOXKT65tUaZXR0Qg4eyxdvkiaORjAH8pTZ
+X-Gm-Message-State: AOJu0Yy/cPMlKx2StDGU74QAVCisGXTVbtZ5f3Se42MRYHlslkGer97X
+	G35if/HuFJkk37lT0wmLjRkY8pCpu9/eTmR5SBrJ07kNeLuQ+7uzfumlEoASs/I=
+X-Google-Smtp-Source: AGHT+IHaJrVe+YG7WrIsIhySz+TrI0z8q1N6+97MbyrpU5ReE7HuOkmva7Y8+xgV05N9m9+gUaX3EQ==
+X-Received: by 2002:a05:6512:10c2:b0:530:da95:b54c with SMTP id 2adb3069b0e04-5331c6acec2mr2537162e87.23.1723820978496;
+        Fri, 16 Aug 2024 08:09:38 -0700 (PDT)
 Received: from krzk-bin.. ([178.197.215.209])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3718984993fsm3808758f8f.31.2024.08.16.08.09.34
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3718984993fsm3808758f8f.31.2024.08.16.08.09.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 16 Aug 2024 08:09:34 -0700 (PDT)
+        Fri, 16 Aug 2024 08:09:37 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 To: Ulf Hansson <ulf.hansson@linaro.org>,
 	"Rafael J. Wysocki" <rafael@kernel.org>,
@@ -75,14 +76,16 @@ To: Ulf Hansson <ulf.hansson@linaro.org>,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH 1/4] cpuidle: psci: Simplify with scoped for each OF child loop
-Date: Fri, 16 Aug 2024 17:09:28 +0200
-Message-ID: <20240816150931.142208-1-krzysztof.kozlowski@linaro.org>
+Subject: [PATCH 3/4] cpuidle: riscv-sbi: Simplify with scoped for each OF child loop
+Date: Fri, 16 Aug 2024 17:09:30 +0200
+Message-ID: <20240816150931.142208-3-krzysztof.kozlowski@linaro.org>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20240816150931.142208-1-krzysztof.kozlowski@linaro.org>
+References: <20240816150931.142208-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240816_080937_598547_302DCBC6 
-X-CRM114-Status: GOOD (  12.78  )
+X-CRM114-CacheID: sfid-20240816_080941_007227_28E081F8 
+X-CRM114-Status: GOOD (  11.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,22 +107,22 @@ nodes to make code a bit simpler.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- drivers/cpuidle/cpuidle-psci-domain.c | 7 ++-----
+ drivers/cpuidle/cpuidle-riscv-sbi.c | 7 ++-----
  1 file changed, 2 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/cpuidle/cpuidle-psci-domain.c b/drivers/cpuidle/cpuidle-psci-domain.c
-index ea28b73ef3fb..146f97068022 100644
---- a/drivers/cpuidle/cpuidle-psci-domain.c
-+++ b/drivers/cpuidle/cpuidle-psci-domain.c
-@@ -142,7 +142,6 @@ static const struct of_device_id psci_of_match[] = {
- static int psci_cpuidle_domain_probe(struct platform_device *pdev)
+diff --git a/drivers/cpuidle/cpuidle-riscv-sbi.c b/drivers/cpuidle/cpuidle-riscv-sbi.c
+index 5bb3401220d2..d228b4d18d56 100644
+--- a/drivers/cpuidle/cpuidle-riscv-sbi.c
++++ b/drivers/cpuidle/cpuidle-riscv-sbi.c
+@@ -448,7 +448,6 @@ static void sbi_pd_remove(void)
+ 
+ static int sbi_genpd_probe(struct device_node *np)
  {
- 	struct device_node *np = pdev->dev.of_node;
 -	struct device_node *node;
- 	bool use_osi = psci_has_osi_support();
  	int ret = 0, pd_count = 0;
  
-@@ -153,15 +152,13 @@ static int psci_cpuidle_domain_probe(struct platform_device *pdev)
+ 	if (!np)
+@@ -458,13 +457,13 @@ static int sbi_genpd_probe(struct device_node *np)
  	 * Parse child nodes for the "#power-domain-cells" property and
  	 * initialize a genpd/genpd-of-provider pair when it's found.
  	 */
@@ -128,15 +131,22 @@ index ea28b73ef3fb..146f97068022 100644
  		if (!of_property_present(node, "#power-domain-cells"))
  			continue;
  
- 		ret = psci_pd_init(node, use_osi);
--		if (ret) {
--			of_node_put(node);
-+		if (ret)
- 			goto exit;
--		}
+ 		ret = sbi_pd_init(node);
+ 		if (ret)
+-			goto put_node;
++			goto remove_pd;
  
  		pd_count++;
  	}
+@@ -480,8 +479,6 @@ static int sbi_genpd_probe(struct device_node *np)
+ 
+ 	return 0;
+ 
+-put_node:
+-	of_node_put(node);
+ remove_pd:
+ 	sbi_pd_remove();
+ 	pr_err("failed to create CPU PM domains ret=%d\n", ret);
 -- 
 2.43.0
 
