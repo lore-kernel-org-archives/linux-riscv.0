@@ -4,89 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70FC7C531DC
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Aug 2024 16:06:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE484C3DA4A
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Aug 2024 16:18:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yRvpN+/Oh4/T3qAlrJ4mn1KX78CA821MAUa5O2UjnJ4=; b=In5mFfKwG5/eh1
-	m6moDVUP0pT6TfJjKyTdGOn/W7XvrRVBnr6XgtzNKYzvj1/1qKfdrmejQVSN5QI+9TFXVIAsUi1/A
-	jmig8kDVWI8oBHogHOs3YBlQEw4Il+yBpW7wqPQ3mYSBnoanILckpoMASCowL6biz9TSUiGVACzzM
-	MIOyc4gdVupW31VMfpFWrnmyh7wUQ8jn6jhGgJAPKmWti4iRTHwSftmp3ZxHITlGGzVHYk/k4HWmB
-	m7PFpW9DtfyaDllFouHUzVOv9RoIZpPU5IozYupZSjIA9MRtPgQWmR+aEquLGD/9QTu3TmUL2SkaA
-	xPehFwM3GezMPvcb7PNQ==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=UfZSc6ek8lUCNdXTGPL/MEVkpRsH+ScTSGFAQn+DWkw=; b=KQ6thVZnVGkEE8
+	SQNyaPNmktLalWezKHsOm8EDWlsKgvt8NjzPBSC1dUotB696RxbUhwV8CPvJXHJb1LoPAVMjK89PN
+	qaQHFSCVuGyjDpIUJ0DW1OUErPkqIMo5FBZVGVzwcwVslk/SA6+lHf/NI54fM3xqeEaOUTeAnF/12
+	JFBFaaPW8uoXgfrjIW3KrDiBI75OXiLIxNdr/50nokpXODBo5paqba4XRvf38gYI/AgRgmvE8ts0w
+	0ix3RiHMfQSP4CwY2FD/SOtJHinOlKbAcwMmGLKWtOxq/P2egFEfLXf1UxxF7ldI1sdrmcClZcHz5
+	5IK60Tn7ZukfTeNLAOrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sezSh-0000000DWEs-2Pnf;
-	Fri, 16 Aug 2024 16:05:59 +0000
-Received: from mail-io1-xd36.google.com ([2607:f8b0:4864:20::d36])
+	id 1sezfA-0000000DYJM-3YoZ;
+	Fri, 16 Aug 2024 16:18:52 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sezSe-0000000DWEW-0hWn
+	id 1sezf7-0000000DYHI-0IJj
 	for linux-riscv@lists.infradead.org;
-	Fri, 16 Aug 2024 16:05:57 +0000
-Received: by mail-io1-xd36.google.com with SMTP id ca18e2360f4ac-81f861f369aso102859639f.0
-        for <linux-riscv@lists.infradead.org>; Fri, 16 Aug 2024 09:05:54 -0700 (PDT)
+	Fri, 16 Aug 2024 16:18:51 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-7106e2d0ec1so1780295b3a.2
+        for <linux-riscv@lists.infradead.org>; Fri, 16 Aug 2024 09:18:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1723824354; x=1724429154; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=o84N4ouk6Dkhcje+6ztzZIHY0vWe2YxL+gh1TxT0Vmk=;
-        b=DmZD+hlN4bwH0TvUBmc5fEaVVKhZHYOA6xx/7jMotcXNUsp+ME9B0WEZXR2fKH1Pr6
-         rysZAIqWti0ucK1LcsbuHic5EeAa8eF3aStyHPAG5sadoJvsliT1S0v/c5hGfsC0Os/Y
-         wRvqdhvb67cViNvKK3hSE3dnvKZKTC8woxSvZr/0LKlzEEMVK7YGFYGCg0tLkyDgI+E6
-         qdxAckgYQovrtGIOk6Mj/cz91KLKWeKTI6WWlvcVvGCXwVAIhDEEYS+nRPLeMeBtNT/8
-         dPOgf7emCZgUY1imoD5RVK+NA1uOGg9hKRqzu2N4iVqyecfGjphYgabUN6Bp4IN4vFGE
-         nnIQ==
+        d=ventanamicro.com; s=google; t=1723825127; x=1724429927; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=kZZikUWcFIiur6KRWSBUsNZWuDMMUD3k6uVLXjwK8fA=;
+        b=JZarg1Gmg9+jtk++VvYx1jSmv3DuAiBeFE8P7w4n/3ZiW5D2dec99yXNo7Ae02FePQ
+         gfLoFNZParV+Gem2IRM+Tnk42albcc4KmyJqKh6Et1el0f/6gjD+VLlS2oJfGarsbeHz
+         zYhTUXb9HRHftC2DMPfjpuODXRjXsviDIO3X9gXhwScVnH8fReT3/FcyyZ6/0KURPK7R
+         /eeCUMLk/leHKU8KJlEOUvfiz4KU9uG6qOgPAwDYcxrU7Mmtai5nY2uNnsodG2xLkRB/
+         Vfe6UoJRZGHAE6+Xti/pbikLfIHTuuHBjzYJxtL4m1Qk5GxmOnE5iJLm8f6STJorE5MK
+         4qGA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1723824354; x=1724429154;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=o84N4ouk6Dkhcje+6ztzZIHY0vWe2YxL+gh1TxT0Vmk=;
-        b=VkDZ7qP+RmLjY4Nz0HOHz5hkqnPrAOEkL3aV3G4APa6RmVf+lK7znyXBicagRfC0BI
-         NDoUcVWlru3R5HQsKtvCAUx5EQ2BdClPvwzWzyNQ2iFec24xcY+XbokahQhbeE2hMN7/
-         bnayXxDDxLP+0U8FGeVBxVvzvspx/kHk/TAc0wzOP38W/3NewJXI1lEyqm++1tGKUHD/
-         11FTppnikL52xfmHnPwduAa9SxsnRWfZ32/hekRi8BdWRm+o2HAsBRgJWsAN49wNcDV2
-         f2XUyIehcNIdpnP75tfV+/lMJWKrw710NEc56glQX/IEwWxOpP8k4plwWNwSf5rEep8Z
-         3K4w==
-X-Forwarded-Encrypted: i=1; AJvYcCX8DXIJ4kTJxYUPryqTzuwLsnT79GUCJzRHuCWiIqxDi25dCgsqcNAzah+0xjY3ZkAGYo8Iml9qNdVG52YDFXZ6/xrBJAxHXn9D2I2yuxpQ
-X-Gm-Message-State: AOJu0YyP+qFsOLZTK8f+fKYqD6QAqQ2+Z7Txng/3lLj4J5ma+S3W5KOi
-	pKCa2uqwOeN+75UDwxIlvvcVmDPhVnTLlDpLAJgdBndfeeHdy7owfJBERbcBhIJiPzi+U3f/Thc
-	H
-X-Google-Smtp-Source: AGHT+IG4laNFDhHnrQVOSwBV9czZ1pZoYL3nYxxmHeLOYJCIUBgZ9DJquHb1GQnoxRC0uU+qj0Q7Hg==
-X-Received: by 2002:a05:6e02:1c49:b0:39a:e9b8:cdae with SMTP id e9e14a558f8ab-39d1bc97b4emr73110195ab.0.1723824353392;
-        Fri, 16 Aug 2024 09:05:53 -0700 (PDT)
-Received: from [100.64.0.1] ([147.124.94.167])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-39d247324afsm11366425ab.13.2024.08.16.09.05.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 16 Aug 2024 09:05:52 -0700 (PDT)
-Message-ID: <7d741701-8966-45f1-8404-4b3618d44ea4@sifive.com>
-Date: Fri, 16 Aug 2024 11:05:50 -0500
+        d=1e100.net; s=20230601; t=1723825127; x=1724429927;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=kZZikUWcFIiur6KRWSBUsNZWuDMMUD3k6uVLXjwK8fA=;
+        b=UCvC1icNqdZJNAfh0hmeIhTntb+ZVMxM9v7WB6wFUHN+YwW6uUFD4Q9me5IlooUX0d
+         +ibmfReVAOSYErAMDQGEf8RRd/H7/kctgGjudTBmGsbKy4H3thDF2JrFc5poVtUzkRlX
+         GVkDWVn+jubHavuzm+ldq+nDuz9zcql3tWhjl7MJnpUL/qQyzDUHxzDCHzNDy3PT/SF+
+         sNwSEvlOrGmjTw5e2P5rrNNx1O7TJz1hK/2MBszofKmRaiXaEtzwILwtBJPnUs0fifmE
+         CPiKQYHkrKNhExfXBnCbklwPLubA8lJ9Er/wk3Ev1xMDkkcDw6RbW+zq2iaMUDvSBBfB
+         kD0Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVhngh8k9H4QhOw2qcmV4Cu1ykaW3z3U/IjuzsqarwmxbwpaArpjfDsdqFanoMQX0w4yIuc0TCWs02h/g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyTSFQq4NKmSAz3dPDZHWnm51DELYJl5B7L/ZzsXnI8Hrz2oPOM
+	4iWaay3nbKtR45SDpwjdDxk0t30wS8zE+OtSVS5ud2sCqq7YH3cu07CPXDuRc7A=
+X-Google-Smtp-Source: AGHT+IH8kyrRAevxD7wRd50Blo1eYBO43zB6e13vqwyAxMBP6us+Hyy10y0H/uPPVpd0e8gy5gfN3Q==
+X-Received: by 2002:a05:6a21:8ccb:b0:1c4:87b9:7ef9 with SMTP id adf61e73a8af0-1c905027f73mr3893015637.42.1723825126559;
+        Fri, 16 Aug 2024 09:18:46 -0700 (PDT)
+Received: from anup-ubuntu-vm.localdomain ([103.97.165.210])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7127add6e6bsm2896982b3a.18.2024.08.16.09.18.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 16 Aug 2024 09:18:46 -0700 (PDT)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Thomas Gleixner <tglx@linutronix.de>
+Subject: [PATCH] irqchip/sifive-plic: Probe plic driver early for Allwinner D1 platform
+Date: Fri, 16 Aug 2024 21:48:28 +0530
+Message-Id: <20240816161828.2979143-1-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 04/10] riscv: Add support for userspace pointer masking
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
- linux-kernel@vger.kernel.org, Anup Patel <anup@brainfault.org>,
- Conor Dooley <conor@kernel.org>, kasan-dev@googlegroups.com,
- Atish Patra <atishp@atishpatra.org>, Evgenii Stepanov <eugenis@google.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Rob Herring <robh+dt@kernel.org>,
- "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
-References: <20240814081437.956855-1-samuel.holland@sifive.com>
- <20240814081437.956855-5-samuel.holland@sifive.com>
- <CAK9=C2XOktu5kPXEWKMY4Wsf0D9kwh3rZNXricWqLQaiaqWnnQ@mail.gmail.com>
-From: Samuel Holland <samuel.holland@sifive.com>
-Content-Language: en-US
-In-Reply-To: <CAK9=C2XOktu5kPXEWKMY4Wsf0D9kwh3rZNXricWqLQaiaqWnnQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240816_090556_394584_2C552495 
-X-CRM114-Status: GOOD (  23.88  )
+X-CRM114-CacheID: sfid-20240816_091849_137540_AD9B5A06 
+X-CRM114-Status: GOOD (  26.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,114 +83,330 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Anup Patel <apatel@ventanamicro.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org, Emil Renner Berthing <emil.renner.berthing@canonical.com>, Andrew Jones <ajones@ventanamicro.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQW51cCwKCk9uIDIwMjQtMDgtMTYgODoyMSBBTSwgQW51cCBQYXRlbCB3cm90ZToKPiBPbiBX
-ZWQsIEF1ZyAxNCwgMjAyNCBhdCAxOjQ14oCvUE0gU2FtdWVsIEhvbGxhbmQKPiA8c2FtdWVsLmhv
-bGxhbmRAc2lmaXZlLmNvbT4gd3JvdGU6Cj4+Cj4+IFJJU0MtViBzdXBwb3J0cyBwb2ludGVyIG1h
-c2tpbmcgd2l0aCBhIHZhcmlhYmxlIG51bWJlciBvZiB0YWcgYml0cwo+PiAod2hpY2ggaXMgY2Fs
-bGVkICJQTUxFTiIgaW4gdGhlIHNwZWNpZmljYXRpb24pIGFuZCB3aGljaCBpcyBjb25maWd1cmVk
-Cj4+IGF0IHRoZSBuZXh0IGhpZ2hlciBwcml2aWxlZ2UgbGV2ZWwuCj4+Cj4+IFdpcmUgdXAgdGhl
-IFBSX1NFVF9UQUdHRURfQUREUl9DVFJMIGFuZCBQUl9HRVRfVEFHR0VEX0FERFJfQ1RSTCBwcmN0
-bHMKPj4gc28gdXNlcnNwYWNlIGNhbiByZXF1ZXN0IGEgbG93ZXIgYm91bmQgb24gdGhlIG51bWJl
-ciBvZiB0YWcgYml0cyBhbmQKPj4gZGV0ZXJtaW5lIHRoZSBhY3R1YWwgbnVtYmVyIG9mIHRhZyBi
-aXRzLiBBcyB3aXRoIGFybTY0J3MKPj4gUFJfVEFHR0VEX0FERFJfRU5BQkxFLCB0aGUgcG9pbnRl
-ciBtYXNraW5nIGNvbmZpZ3VyYXRpb24gaXMKPj4gdGhyZWFkLXNjb3BlZCwgaW5oZXJpdGVkIG9u
-IGNsb25lKCkgYW5kIGZvcmsoKSBhbmQgY2xlYXJlZCBvbiBleGVjdmUoKS4KPj4KPj4gU2lnbmVk
-LW9mZi1ieTogU2FtdWVsIEhvbGxhbmQgPHNhbXVlbC5ob2xsYW5kQHNpZml2ZS5jb20+Cj4+IC0t
-LQo+Pgo+PiBDaGFuZ2VzIGluIHYzOgo+PiAgLSBSZW5hbWUgQ09ORklHX1JJU0NWX0lTQV9QT0lO
-VEVSX01BU0tJTkcgdG8gQ09ORklHX1JJU0NWX0lTQV9TVVBNLAo+PiAgICBzaW5jZSBpdCBvbmx5
-IGNvbnRyb2xzIHRoZSB1c2Vyc3BhY2UgcGFydCBvZiBwb2ludGVyIG1hc2tpbmcKPj4gIC0gVXNl
-IElTX0VOQUJMRUQgaW5zdGVhZCBvZiAjaWZkZWYgd2hlbiBwb3NzaWJsZQo+PiAgLSBVc2UgYW4g
-ZW51bSBmb3IgdGhlIHN1cHBvcnRlZCBQTUxFTiB2YWx1ZXMKPj4gIC0gU2ltcGxpZnkgdGhlIGxv
-Z2ljIGluIHNldF90YWdnZWRfYWRkcl9jdHJsKCkKPj4KPj4gQ2hhbmdlcyBpbiB2MjoKPj4gIC0g
-UmViYXNlIG9uIHJpc2N2L2xpbnV4LmdpdCBmb3ItbmV4dAo+PiAgLSBBZGQgYW5kIHVzZSB0aGUg
-ZW52Y2ZnX3VwZGF0ZV9iaXRzKCkgaGVscGVyIGZ1bmN0aW9uCj4+ICAtIElubGluZSBmbHVzaF90
-YWdnZWRfYWRkcl9zdGF0ZSgpCj4+Cj4+ICBhcmNoL3Jpc2N2L0tjb25maWcgICAgICAgICAgICAg
-ICAgIHwgMTEgKysrKwo+PiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wcm9jZXNzb3IuaCB8ICA4
-ICsrKwo+PiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zd2l0Y2hfdG8uaCB8IDExICsrKysKPj4g
-IGFyY2gvcmlzY3Yva2VybmVsL3Byb2Nlc3MuYyAgICAgICAgfCA5MCArKysrKysrKysrKysrKysr
-KysrKysrKysrKysrKysKPj4gIGluY2x1ZGUvdWFwaS9saW51eC9wcmN0bC5oICAgICAgICAgfCAg
-MyArCj4+ICA1IGZpbGVzIGNoYW5nZWQsIDEyMyBpbnNlcnRpb25zKCspCj4+Cj4+IGRpZmYgLS1n
-aXQgYS9hcmNoL3Jpc2N2L0tjb25maWcgYi9hcmNoL3Jpc2N2L0tjb25maWcKPj4gaW5kZXggMGYz
-Y2Q3YzNhNDM2Li44MTc0MzcxNTcxMzggMTAwNjQ0Cj4+IC0tLSBhL2FyY2gvcmlzY3YvS2NvbmZp
-Zwo+PiArKysgYi9hcmNoL3Jpc2N2L0tjb25maWcKPj4gQEAgLTUxMiw2ICs1MTIsMTcgQEAgY29u
-ZmlnIFJJU0NWX0lTQV9DCj4+Cj4+ICAgICAgICAgICBJZiB5b3UgZG9uJ3Qga25vdyB3aGF0IHRv
-IGRvIGhlcmUsIHNheSBZLgo+Pgo+PiArY29uZmlnIFJJU0NWX0lTQV9TVVBNCj4+ICsgICAgICAg
-Ym9vbCAiU3VwbSBleHRlbnNpb24gZm9yIHVzZXJzcGFjZSBwb2ludGVyIG1hc2tpbmciCj4+ICsg
-ICAgICAgZGVwZW5kcyBvbiA2NEJJVAo+PiArICAgICAgIGRlZmF1bHQgeQo+PiArICAgICAgIGhl
-bHAKPj4gKyAgICAgICAgIEFkZCBzdXBwb3J0IGZvciBwb2ludGVyIG1hc2tpbmcgaW4gdXNlcnNw
-YWNlIChTdXBtKSB3aGVuIHRoZQo+PiArICAgICAgICAgdW5kZXJseWluZyBoYXJkd2FyZSBleHRl
-bnNpb24gKFNtbnBtIG9yIFNzbnBtKSBpcyBkZXRlY3RlZCBhdCBib290Lgo+PiArCj4+ICsgICAg
-ICAgICBJZiB0aGlzIG9wdGlvbiBpcyBkaXNhYmxlZCwgdXNlcnNwYWNlIHdpbGwgYmUgdW5hYmxl
-IHRvIHVzZQo+PiArICAgICAgICAgdGhlIHByY3RsKFBSX3tTRVQsR0VUfV9UQUdHRURfQUREUl9D
-VFJMKSBBUEkuCj4+ICsKPj4gIGNvbmZpZyBSSVNDVl9JU0FfU1ZOQVBPVAo+PiAgICAgICAgIGJv
-b2wgIlN2bmFwb3QgZXh0ZW5zaW9uIHN1cHBvcnQgZm9yIHN1cGVydmlzb3IgbW9kZSBOQVBPVCBw
-YWdlcyIKPj4gICAgICAgICBkZXBlbmRzIG9uIDY0QklUICYmIE1NVQo+PiBkaWZmIC0tZ2l0IGEv
-YXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wcm9jZXNzb3IuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9h
-c20vcHJvY2Vzc29yLmgKPj4gaW5kZXggNTg2ZTRhYjcwMWM0Li41YzRkNGZiOTczMTQgMTAwNjQ0
-Cj4+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcHJvY2Vzc29yLmgKPj4gKysrIGIvYXJj
-aC9yaXNjdi9pbmNsdWRlL2FzbS9wcm9jZXNzb3IuaAo+PiBAQCAtMjAwLDYgKzIwMCwxNCBAQCBl
-eHRlcm4gaW50IHNldF91bmFsaWduX2N0bChzdHJ1Y3QgdGFza19zdHJ1Y3QgKnRzaywgdW5zaWdu
-ZWQgaW50IHZhbCk7Cj4+ICAjZGVmaW5lIFJJU0NWX1NFVF9JQ0FDSEVfRkxVU0hfQ1RYKGFyZzEs
-IGFyZzIpIHJpc2N2X3NldF9pY2FjaGVfZmx1c2hfY3R4KGFyZzEsIGFyZzIpCj4+ICBleHRlcm4g
-aW50IHJpc2N2X3NldF9pY2FjaGVfZmx1c2hfY3R4KHVuc2lnbmVkIGxvbmcgY3R4LCB1bnNpZ25l
-ZCBsb25nIHBlcl90aHJlYWQpOwo+Pgo+PiArI2lmZGVmIENPTkZJR19SSVNDVl9JU0FfU1VQTQo+
-PiArLyogUFJfe1NFVCxHRVR9X1RBR0dFRF9BRERSX0NUUkwgcHJjdGwgKi8KPj4gK2xvbmcgc2V0
-X3RhZ2dlZF9hZGRyX2N0cmwoc3RydWN0IHRhc2tfc3RydWN0ICp0YXNrLCB1bnNpZ25lZCBsb25n
-IGFyZyk7Cj4+ICtsb25nIGdldF90YWdnZWRfYWRkcl9jdHJsKHN0cnVjdCB0YXNrX3N0cnVjdCAq
-dGFzayk7Cj4+ICsjZGVmaW5lIFNFVF9UQUdHRURfQUREUl9DVFJMKGFyZykgICAgICBzZXRfdGFn
-Z2VkX2FkZHJfY3RybChjdXJyZW50LCBhcmcpCj4+ICsjZGVmaW5lIEdFVF9UQUdHRURfQUREUl9D
-VFJMKCkgICAgICAgICBnZXRfdGFnZ2VkX2FkZHJfY3RybChjdXJyZW50KQo+PiArI2VuZGlmCj4+
-ICsKPj4gICNlbmRpZiAvKiBfX0FTU0VNQkxZX18gKi8KPj4KPj4gICNlbmRpZiAvKiBfQVNNX1JJ
-U0NWX1BST0NFU1NPUl9IICovCj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNt
-L3N3aXRjaF90by5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zd2l0Y2hfdG8uaAo+PiBpbmRl
-eCA5Njg1Y2Q4NWU1N2MuLjk0ZTMzMjE2YjJkOSAxMDA2NDQKPj4gLS0tIGEvYXJjaC9yaXNjdi9p
-bmNsdWRlL2FzbS9zd2l0Y2hfdG8uaAo+PiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3N3
-aXRjaF90by5oCj4+IEBAIC03MCw2ICs3MCwxNyBAQCBzdGF0aWMgX19hbHdheXNfaW5saW5lIGJv
-b2wgaGFzX2ZwdSh2b2lkKSB7IHJldHVybiBmYWxzZTsgfQo+PiAgI2RlZmluZSBfX3N3aXRjaF90
-b19mcHUoX19wcmV2LCBfX25leHQpIGRvIHsgfSB3aGlsZSAoMCkKPj4gICNlbmRpZgo+Pgo+PiAr
-c3RhdGljIGlubGluZSB2b2lkIGVudmNmZ191cGRhdGVfYml0cyhzdHJ1Y3QgdGFza19zdHJ1Y3Qg
-KnRhc2ssCj4+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdW5zaWduZWQg
-bG9uZyBtYXNrLCB1bnNpZ25lZCBsb25nIHZhbCkKPj4gK3sKPj4gKyAgICAgICB1bnNpZ25lZCBs
-b25nIGVudmNmZzsKPj4gKwo+PiArICAgICAgIGVudmNmZyA9ICh0YXNrLT50aHJlYWQuZW52Y2Zn
-ICYgfm1hc2spIHwgdmFsOwo+PiArICAgICAgIHRhc2stPnRocmVhZC5lbnZjZmcgPSBlbnZjZmc7
-Cj4+ICsgICAgICAgaWYgKHRhc2sgPT0gY3VycmVudCkKPj4gKyAgICAgICAgICAgICAgIGNzcl93
-cml0ZShDU1JfRU5WQ0ZHLCBlbnZjZmcpOwo+PiArfQo+PiArCj4+ICBzdGF0aWMgaW5saW5lIHZv
-aWQgX19zd2l0Y2hfdG9fZW52Y2ZnKHN0cnVjdCB0YXNrX3N0cnVjdCAqbmV4dCkKPj4gIHsKPj4g
-ICAgICAgICBhc20gdm9sYXRpbGUgKEFMVEVSTkFUSVZFKCJub3AiLCAiY3NydyAiIF9fc3RyaW5n
-aWZ5KENTUl9FTlZDRkcpICIsICUwIiwKPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVs
-L3Byb2Nlc3MuYyBiL2FyY2gvcmlzY3Yva2VybmVsL3Byb2Nlc3MuYwo+PiBpbmRleCBlNGJjNjFj
-NGU1OGEuLjEyODBhN2M0YTQxMiAxMDA2NDQKPj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvcHJv
-Y2Vzcy5jCj4+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3Byb2Nlc3MuYwo+PiBAQCAtNyw2ICs3
-LDcgQEAKPj4gICAqIENvcHlyaWdodCAoQykgMjAxNyBTaUZpdmUKPj4gICAqLwo+Pgo+PiArI2lu
-Y2x1ZGUgPGxpbnV4L2JpdGZpZWxkLmg+Cj4+ICAjaW5jbHVkZSA8bGludXgvY3B1Lmg+Cj4+ICAj
-aW5jbHVkZSA8bGludXgva2VybmVsLmg+Cj4+ICAjaW5jbHVkZSA8bGludXgvc2NoZWQuaD4KPj4g
-QEAgLTE3MSw2ICsxNzIsOSBAQCB2b2lkIGZsdXNoX3RocmVhZCh2b2lkKQo+PiAgICAgICAgIG1l
-bXNldCgmY3VycmVudC0+dGhyZWFkLnZzdGF0ZSwgMCwgc2l6ZW9mKHN0cnVjdCBfX3Jpc2N2X3Zf
-ZXh0X3N0YXRlKSk7Cj4+ICAgICAgICAgY2xlYXJfdHNrX3RocmVhZF9mbGFnKGN1cnJlbnQsIFRJ
-Rl9SSVNDVl9WX0RFRkVSX1JFU1RPUkUpOwo+PiAgI2VuZGlmCj4+ICsgICAgICAgaWYgKElTX0VO
-QUJMRUQoQ09ORklHX1JJU0NWX0lTQV9TVVBNKSAmJgo+PiArICAgICAgICAgICByaXNjdl9oYXNf
-ZXh0ZW5zaW9uX3VubGlrZWx5KFJJU0NWX0lTQV9FWFRfU1VQTSkpCj4+ICsgICAgICAgICAgICAg
-ICBlbnZjZmdfdXBkYXRlX2JpdHMoY3VycmVudCwgRU5WQ0ZHX1BNTSwgRU5WQ0ZHX1BNTV9QTUxF
-Tl8wKTsKPiAKPiBTZWVpbmcgYSBjb21waWxlIHdhcm5pbmcgd2l0aCB0aGlzIHBhdGNoIG9uIFJW
-MzIuCj4gCj4gbGludXgvYXJjaC9yaXNjdi9rZXJuZWwvcHJvY2Vzcy5jOiBJbiBmdW5jdGlvbiAn
-Zmx1c2hfdGhyZWFkJzoKPiBsaW51eC9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2Nzci5oOjIwMjo0
-MTogd2FybmluZzogY29udmVyc2lvbiBmcm9tCj4gJ2xvbmcgbG9uZyB1bnNpZ25lZCBpbnQnIHRv
-ICdsb25nIHVuc2lnbmVkIGludCcgY2hhbmdlcyB2YWx1ZSBmcm9tCj4gJzEyODg0OTAxODg4JyB0
-byAnMCcgWy1Xb3ZlcmZsb3ddCj4gICAyMDIgfCAjZGVmaW5lIEVOVkNGR19QTU0gICAgICAgICAg
-ICAgICAgICAgICAgKF9BQygweDMsIFVMTCkgPDwgMzIpCj4gICAgICAgfCAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgXn5+fn5+fn5+fn5+fn5+fn5+fn5+Cj4gbGludXgv
-YXJjaC9yaXNjdi9rZXJuZWwvcHJvY2Vzcy5jOjE3OTo0NTogbm90ZTogaW4gZXhwYW5zaW9uIG9m
-IG1hY3JvCj4gJ0VOVkNGR19QTU0nCj4gICAxNzkgfCAgICAgICAgICAgICAgICAgZW52Y2ZnX3Vw
-ZGF0ZV9iaXRzKGN1cnJlbnQsIEVOVkNGR19QTU0sCj4gRU5WQ0ZHX1BNTV9QTUxFTl8wKTsKPiAg
-ICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXn5+fn5+
-fn5+fgoKUmlnaHQsIHRoYW5rcywgdGhhdCdzIHdoeSBJIG5lZWRlZCB0byB1c2UgI2lmZGVmIGhl
-cmUgYmVmb3JlLiBJJ2xsIHN3aXRjaCB0aGlzCmluc3RhbmNlIGJhY2sgZm9yIHY0LgoKUmVnYXJk
-cywKU2FtdWVsCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
-cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
-dgo=
+The latest Linux RISC-V no longer boots on the Allwinner D1 platform
+because the sun4i_timer driver fails to get an interrupt from PLIC.
+
+The real fix requires enabling the SBI time extension in the platform
+firmware (OpenSBI) and convert sun4i_timer into platform driver.
+Unfortunately, the real fix involves changing multiple places and
+can't be achieved in a short duration.
+
+As a work-around, retrofit plic probing such that plic is probed
+early only for the Allwinner D1 platform and probed as a regular
+platform driver for rest of the RISC-V platforms. In the process,
+partially revert some of the previous patches because PLIC device
+pointer is not available in all probing paths.
+
+More detailed discussion can found here:
+https://lore.kernel.org/lkml/20240814145642.344485-1-emil.renner.berthing@canonical.com/
+
+Fixes: e306a894bd51 ("irqchip/sifive-plic: Chain to parent IRQ after handlers are ready")
+Fixes: 8ec99b033147 ("irqchip/sifive-plic: Convert PLIC driver into a platform driver")
+Suggested-by: Thomas Gleixner <tglx@linutronix.de>
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+---
+ drivers/irqchip/irq-sifive-plic.c | 128 +++++++++++++++++++-----------
+ 1 file changed, 80 insertions(+), 48 deletions(-)
+
+diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+index 9e22f7e378f5..357d25662718 100644
+--- a/drivers/irqchip/irq-sifive-plic.c
++++ b/drivers/irqchip/irq-sifive-plic.c
+@@ -3,6 +3,7 @@
+  * Copyright (C) 2017 SiFive
+  * Copyright (C) 2018 Christoph Hellwig
+  */
++#define pr_fmt(fmt) "riscv-plic: " fmt
+ #include <linux/cpu.h>
+ #include <linux/interrupt.h>
+ #include <linux/io.h>
+@@ -63,7 +64,7 @@
+ #define PLIC_QUIRK_EDGE_INTERRUPT	0
+ 
+ struct plic_priv {
+-	struct device *dev;
++	struct fwnode_handle *fwnode;
+ 	struct cpumask lmask;
+ 	struct irq_domain *irqdomain;
+ 	void __iomem *regs;
+@@ -378,8 +379,8 @@ static void plic_handle_irq(struct irq_desc *desc)
+ 		int err = generic_handle_domain_irq(handler->priv->irqdomain,
+ 						    hwirq);
+ 		if (unlikely(err)) {
+-			dev_warn_ratelimited(handler->priv->dev,
+-					     "can't find mapping for hwirq %lu\n", hwirq);
++			pr_warn_ratelimited("%pfwP: can't find mapping for hwirq %lu\n",
++					    handler->priv->fwnode, hwirq);
+ 		}
+ 	}
+ 
+@@ -408,15 +409,14 @@ static int plic_starting_cpu(unsigned int cpu)
+ 		enable_percpu_irq(plic_parent_irq,
+ 				  irq_get_trigger_type(plic_parent_irq));
+ 	else
+-		dev_warn(handler->priv->dev, "cpu%d: parent irq not available\n", cpu);
++		pr_warn("%pfwP: cpu%d: parent irq not available\n",
++			handler->priv->fwnode, cpu);
+ 	plic_set_threshold(handler, PLIC_ENABLE_THRESHOLD);
+ 
+ 	return 0;
+ }
+ 
+-static const struct of_device_id plic_match[] = {
+-	{ .compatible = "sifive,plic-1.0.0" },
+-	{ .compatible = "riscv,plic0" },
++static const struct of_device_id plic_quirks_match[] = {
+ 	{ .compatible = "andestech,nceplic100",
+ 	  .data = (const void *)BIT(PLIC_QUIRK_EDGE_INTERRUPT) },
+ 	{ .compatible = "thead,c900-plic",
+@@ -424,38 +424,36 @@ static const struct of_device_id plic_match[] = {
+ 	{}
+ };
+ 
+-static int plic_parse_nr_irqs_and_contexts(struct platform_device *pdev,
++static int plic_parse_nr_irqs_and_contexts(struct fwnode_handle *fwnode,
+ 					   u32 *nr_irqs, u32 *nr_contexts)
+ {
+-	struct device *dev = &pdev->dev;
+ 	int rc;
+ 
+ 	/*
+ 	 * Currently, only OF fwnode is supported so extend this
+ 	 * function for ACPI support.
+ 	 */
+-	if (!is_of_node(dev->fwnode))
++	if (!is_of_node(fwnode))
+ 		return -EINVAL;
+ 
+-	rc = of_property_read_u32(to_of_node(dev->fwnode), "riscv,ndev", nr_irqs);
++	rc = of_property_read_u32(to_of_node(fwnode), "riscv,ndev", nr_irqs);
+ 	if (rc) {
+-		dev_err(dev, "riscv,ndev property not available\n");
++		pr_err("%pfwP: riscv,ndev property not available\n", fwnode);
+ 		return rc;
+ 	}
+ 
+-	*nr_contexts = of_irq_count(to_of_node(dev->fwnode));
++	*nr_contexts = of_irq_count(to_of_node(fwnode));
+ 	if (WARN_ON(!(*nr_contexts))) {
+-		dev_err(dev, "no PLIC context available\n");
++		pr_err("%pfwP: no PLIC context available\n", fwnode);
+ 		return -EINVAL;
+ 	}
+ 
+ 	return 0;
+ }
+ 
+-static int plic_parse_context_parent(struct platform_device *pdev, u32 context,
++static int plic_parse_context_parent(struct fwnode_handle *fwnode, u32 context,
+ 				     u32 *parent_hwirq, int *parent_cpu)
+ {
+-	struct device *dev = &pdev->dev;
+ 	struct of_phandle_args parent;
+ 	unsigned long hartid;
+ 	int rc;
+@@ -464,10 +462,10 @@ static int plic_parse_context_parent(struct platform_device *pdev, u32 context,
+ 	 * Currently, only OF fwnode is supported so extend this
+ 	 * function for ACPI support.
+ 	 */
+-	if (!is_of_node(dev->fwnode))
++	if (!is_of_node(fwnode))
+ 		return -EINVAL;
+ 
+-	rc = of_irq_parse_one(to_of_node(dev->fwnode), context, &parent);
++	rc = of_irq_parse_one(to_of_node(fwnode), context, &parent);
+ 	if (rc)
+ 		return rc;
+ 
+@@ -480,48 +478,55 @@ static int plic_parse_context_parent(struct platform_device *pdev, u32 context,
+ 	return 0;
+ }
+ 
+-static int plic_probe(struct platform_device *pdev)
++static int plic_probe(struct fwnode_handle *fwnode)
+ {
+ 	int error = 0, nr_contexts, nr_handlers = 0, cpu, i;
+-	struct device *dev = &pdev->dev;
+ 	unsigned long plic_quirks = 0;
+ 	struct plic_handler *handler;
+ 	u32 nr_irqs, parent_hwirq;
+ 	struct plic_priv *priv;
+ 	irq_hw_number_t hwirq;
++	void __iomem *regs;
+ 
+-	if (is_of_node(dev->fwnode)) {
++	if (is_of_node(fwnode)) {
+ 		const struct of_device_id *id;
+ 
+-		id = of_match_node(plic_match, to_of_node(dev->fwnode));
++		id = of_match_node(plic_quirks_match, to_of_node(fwnode));
+ 		if (id)
+ 			plic_quirks = (unsigned long)id->data;
++
++		regs = of_iomap(to_of_node(fwnode), 0);
++		if (!regs)
++			return -ENOMEM;
++	} else {
++		return -ENODEV;
+ 	}
+ 
+-	error = plic_parse_nr_irqs_and_contexts(pdev, &nr_irqs, &nr_contexts);
++	error = plic_parse_nr_irqs_and_contexts(fwnode, &nr_irqs, &nr_contexts);
+ 	if (error)
+-		return error;
++		goto fail_free_regs;
+ 
+-	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+-	if (!priv)
+-		return -ENOMEM;
++	priv = kzalloc(sizeof(*priv), GFP_KERNEL);
++	if (!priv) {
++		error = -ENOMEM;
++		goto fail_free_regs;
++	}
+ 
+-	priv->dev = dev;
++	priv->fwnode = fwnode;
+ 	priv->plic_quirks = plic_quirks;
+ 	priv->nr_irqs = nr_irqs;
++	priv->regs = regs;
+ 
+-	priv->regs = devm_platform_ioremap_resource(pdev, 0);
+-	if (WARN_ON(!priv->regs))
+-		return -EIO;
+-
+-	priv->prio_save = devm_bitmap_zalloc(dev, nr_irqs, GFP_KERNEL);
+-	if (!priv->prio_save)
+-		return -ENOMEM;
++	priv->prio_save = bitmap_zalloc(nr_irqs, GFP_KERNEL);
++	if (!priv->prio_save) {
++		error = -ENOMEM;
++		goto fail_free_priv;
++	}
+ 
+ 	for (i = 0; i < nr_contexts; i++) {
+-		error = plic_parse_context_parent(pdev, i, &parent_hwirq, &cpu);
++		error = plic_parse_context_parent(fwnode, i, &parent_hwirq, &cpu);
+ 		if (error) {
+-			dev_warn(dev, "hwirq for context%d not found\n", i);
++			pr_warn("%pfwP: hwirq for context%d not found\n", fwnode, i);
+ 			continue;
+ 		}
+ 
+@@ -543,7 +548,7 @@ static int plic_probe(struct platform_device *pdev)
+ 		}
+ 
+ 		if (cpu < 0) {
+-			dev_warn(dev, "Invalid cpuid for context %d\n", i);
++			pr_warn("%pfwP: Invalid cpuid for context %d\n", fwnode, i);
+ 			continue;
+ 		}
+ 
+@@ -554,7 +559,8 @@ static int plic_probe(struct platform_device *pdev)
+ 		 */
+ 		handler = per_cpu_ptr(&plic_handlers, cpu);
+ 		if (handler->present) {
+-			dev_warn(dev, "handler already present for context %d.\n", i);
++			pr_warn("%pfwP: handler already present for context %d.\n",
++				fwnode, i);
+ 			plic_set_threshold(handler, PLIC_DISABLE_THRESHOLD);
+ 			goto done;
+ 		}
+@@ -568,8 +574,8 @@ static int plic_probe(struct platform_device *pdev)
+ 			i * CONTEXT_ENABLE_SIZE;
+ 		handler->priv = priv;
+ 
+-		handler->enable_save = devm_kcalloc(dev, DIV_ROUND_UP(nr_irqs, 32),
+-						    sizeof(*handler->enable_save), GFP_KERNEL);
++		handler->enable_save = kcalloc(DIV_ROUND_UP(nr_irqs, 32),
++					       sizeof(*handler->enable_save), GFP_KERNEL);
+ 		if (!handler->enable_save)
+ 			goto fail_cleanup_contexts;
+ done:
+@@ -581,7 +587,7 @@ static int plic_probe(struct platform_device *pdev)
+ 		nr_handlers++;
+ 	}
+ 
+-	priv->irqdomain = irq_domain_add_linear(to_of_node(dev->fwnode), nr_irqs + 1,
++	priv->irqdomain = irq_domain_add_linear(to_of_node(fwnode), nr_irqs + 1,
+ 						&plic_irqdomain_ops, priv);
+ 	if (WARN_ON(!priv->irqdomain))
+ 		goto fail_cleanup_contexts;
+@@ -619,13 +625,13 @@ static int plic_probe(struct platform_device *pdev)
+ 		}
+ 	}
+ 
+-	dev_info(dev, "mapped %d interrupts with %d handlers for %d contexts.\n",
+-		 nr_irqs, nr_handlers, nr_contexts);
++	pr_info("%pfwP: mapped %d interrupts with %d handlers for %d contexts.\n",
++		fwnode, nr_irqs, nr_handlers, nr_contexts);
+ 	return 0;
+ 
+ fail_cleanup_contexts:
+ 	for (i = 0; i < nr_contexts; i++) {
+-		if (plic_parse_context_parent(pdev, i, &parent_hwirq, &cpu))
++		if (plic_parse_context_parent(fwnode, i, &parent_hwirq, &cpu))
+ 			continue;
+ 		if (parent_hwirq != RV_IRQ_EXT || cpu < 0)
+ 			continue;
+@@ -634,17 +640,43 @@ static int plic_probe(struct platform_device *pdev)
+ 		handler->present = false;
+ 		handler->hart_base = NULL;
+ 		handler->enable_base = NULL;
++		kfree(handler->enable_save);
+ 		handler->enable_save = NULL;
+ 		handler->priv = NULL;
+ 	}
+-	return -ENOMEM;
++	bitmap_free(priv->prio_save);
++fail_free_priv:
++	kfree(priv);
++fail_free_regs:
++	iounmap(regs);
++	return error;
++}
++
++static int plic_platform_probe(struct platform_device *pdev)
++{
++	return plic_probe(pdev->dev.fwnode);
+ }
+ 
++static const struct of_device_id plic_platform_match[] = {
++	{ .compatible = "sifive,plic-1.0.0" },
++	{ .compatible = "riscv,plic0" },
++	{ .compatible = "andestech,nceplic100" },
++	{}
++};
++
+ static struct platform_driver plic_driver = {
+ 	.driver = {
+ 		.name		= "riscv-plic",
+-		.of_match_table	= plic_match,
++		.of_match_table	= plic_platform_match,
+ 	},
+-	.probe = plic_probe,
++	.probe = plic_platform_probe,
+ };
+ builtin_platform_driver(plic_driver);
++
++static int __init plic_early_probe(struct device_node *node,
++				   struct device_node *parent)
++{
++	return plic_probe(&node->fwnode);
++}
++
++IRQCHIP_DECLARE(riscv, "thead,c900-plic", plic_early_probe);
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
