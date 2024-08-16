@@ -4,80 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3009C3DA4A
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Aug 2024 10:45:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCC7CC3DA4A
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Aug 2024 11:08:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dITc5F0lhIZZT3rGHx7M8z+JM0iSInHLqQb983SuYSQ=; b=4Rru+xr5bBXgSg
-	eW/2fZqHQsJJFRwUFj+cqluAhs8b24MXQ9w9Yc6bKVoDEGCdgP7o8VaIyViedCns9poxz5UgWtlC3
-	91cs7aXu20PTmeOGPQYGQCNazVlYa3CbFwZ7m5zHwHn+UhhOg6y4l1+JlJbohFefxX/kVxQzhqG1C
-	3pkEUk+dQh/A06d01z9DvQ+XWZ9r5krZimqbsWZssTzwnHkzCsO1fl4fOQNBhZgcCyDb8bUs99q7e
-	XwY997NKfzGP+2BV2KRhuvH6yd0LP3eI0aSsoRWwmF6yyKQRZmGnlsBMGBfdslt6FlSNHQqDfoqSZ
-	ec6P4gkRwH0Eiyza7pow==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	Mime-Version:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=NDVI1nA29hTlVB5spNWT6A+ZqS+7Dqo73gQVnSPR8Ig=; b=SY6
+	zlxujzHxqyRBQjfKc07BYY3m2apOux6Cgi6LUHuiii8Y9MaOmZOkH+/X48uUxSktdxODY2mf9t3qa
+	RUHKmttNBEqs/ZVg0nzMHAcSDyKtkMYfaxJWTb5Kgdtvj4+DqM3d4MQBo9deRSakMKvkyp/GwBkH9
+	5/xbHuV4kJlPm06qHV5eNoXaeBA3MXmK5BZTARmCJb8zfh1xOhA0txL5ZDdY5/DjnGj5XHWPqp/1B
+	AE93E2EdgqN9HBc6LXPxC4QVstEymOWueVHQqB5pe+5riav+YF2SpZVfeoLAgu+uF2IrQXRuOSOso
+	zC4sqhsrO9gAKXDyx9p5RRFP9UytBAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1seuSD-0000000Cca9-0Hik;
-	Fri, 16 Aug 2024 10:45:09 +0000
-Received: from mail-il1-x135.google.com ([2607:f8b0:4864:20::135])
+	id 1seuoj-0000000ChOD-1peE;
+	Fri, 16 Aug 2024 11:08:25 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1seuSA-0000000CcZO-0xcA
+	id 1seuoe-0000000ChML-2z8W
 	for linux-riscv@lists.infradead.org;
-	Fri, 16 Aug 2024 10:45:07 +0000
-Received: by mail-il1-x135.google.com with SMTP id e9e14a558f8ab-39834949e42so6967805ab.1
-        for <linux-riscv@lists.infradead.org>; Fri, 16 Aug 2024 03:45:05 -0700 (PDT)
+	Fri, 16 Aug 2024 11:08:22 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-e02a4de4f4eso3181926276.1
+        for <linux-riscv@lists.infradead.org>; Fri, 16 Aug 2024 04:08:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1723805105; x=1724409905; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BQ76OrJ+D6EglboDmRkksAWPF9+ReWU1C7wwydHo8w8=;
-        b=vZDgOzVOFKGsYkQFlZI+qMm1jb0LUz8IcTFpk0LBKg8+mfznoqgVv7EeU5wyrP0rWx
-         JgeHPneRwladLq8HWq7HeT5D2NlYmij5r6K3rs6E75sDAZxjSUJYSLyfL9yfh8XDDclt
-         QVFG17dMt4/5SPu4mROEKPReNECwZQh7lbM9DbIrWaN+zoUA258AhX3vDtVZlGZApUsu
-         kA5NC/k8TOLLp8SpW24AIGlUlR+RLe+r/PpnOJ8LKTMDCO8kWoOLZg3bamKXVW5KZsvy
-         Rk2i8vi8YVaPDbqfRuJtbO+GQSH2kFL3KTQQelBfg3yAUukJShJFtO4KsQC76hKrW0EK
-         9znw==
+        d=google.com; s=20230601; t=1723806498; x=1724411298; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=GBSVjeF7/vjpC1dXeVG0LVGAvDGvE8sdoN+9xc5O6HU=;
+        b=ksphJW+tSE5/8hZ85MUSzxrfCQ0cImPFKyb/fmPZIYzb2K5dILbQYEHDbkJ03g3ajM
+         v3OlgxE2aLato/oifRVhw3+UjnJJVknClcsvd0UcycMmu2ZPPFwoSykVYDxt4j8IHrD8
+         x50FIv/JHKrLhZPCZPIsNc1TRGhI1DTUIq+FrLwXicKsCs2DAPUJge7gHvHwjBY6xeF9
+         +3k/cdM17+ybEB4RCmVJ3XYy/CTTtSv5IZqE5i0z9QLTDF7uadje99IW5qtgVF0IM8g+
+         qQm08SjPEN30o75xPN2sikcPdEkgawTiupAmf4wrThfKB8iWOFvHDv+yRa2aR72/5Do3
+         NAuQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1723805105; x=1724409905;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=BQ76OrJ+D6EglboDmRkksAWPF9+ReWU1C7wwydHo8w8=;
-        b=eU+dhjT7o0mhLAc2PwnXyGZqwqZkYdWUYhkABRUPvIEnMR5F2PsS2EKDVrSLZtzbkX
-         G3X0OXZgH9Auii4aCoMNOqCieDqn5NfLB4Nqy6mpC1jWuk9WTSG+lkedxp3WWESx7nym
-         dAKdn3Q2FP/CG938mnX+nxqiF94/v5ycKUqJiwOQCCQh8WfC7u+05UrHc4ivtDy135d8
-         yfmPO1hkIvrb/LvKfjTDTSQylWu/YiBRSxPiTivIK3XU+1fz72Io1eE0EjIeoAfOFIB6
-         myUJQEahxvsSYEojU41yFCTZM51h/J3MbgM60X/KbF9HK31EaXlO9GCRbbocOtY5Ev77
-         bJ8A==
-X-Forwarded-Encrypted: i=1; AJvYcCVFOTJPndVSVkymhgJvqROVEEUOVsrB+FiFpBwPfx1OIVaho0TzoiYJNHTFh94yI51gESUa3YyaZ/P/dQyCqIGATAGz4mfZ4dQlPx8waTx1
-X-Gm-Message-State: AOJu0Yxqn+qR//wu76yZnYTyPKPivXHtcLG51mnn82njAH7EfrXNJeFw
-	86wTPX6Fh5IOSfuJskOBuz634GQCAqKU11Z28USAN0Gu7UJYifKJ8GAlKy9XoQ2lc2cGwUVvcar
-	bAOFXQgYxzRnzbmIXhv/rDVmOkY9Kwfk6S9PK6g==
-X-Google-Smtp-Source: AGHT+IGOY2wZxg3oQyKstZDxzeAo3jAK3M41BK/FipMiQ0FhdiHyS6sxut/JjEf5JetJ4eJZeTSIb18KGPl1+eyfyBU=
-X-Received: by 2002:a05:6e02:13a6:b0:39a:ea20:bf7f with SMTP id
- e9e14a558f8ab-39d26d791ccmr34640735ab.25.1723805104686; Fri, 16 Aug 2024
- 03:45:04 -0700 (PDT)
-MIME-Version: 1.0
-References: <20240816095520.96348-2-ajones@ventanamicro.com>
-In-Reply-To: <20240816095520.96348-2-ajones@ventanamicro.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Fri, 16 Aug 2024 16:14:52 +0530
-Message-ID: <CAAhSdy0wxpDXoUmGyuQOeMfNCubdp9_iYdBOSN=EcweG1nkwwg@mail.gmail.com>
-Subject: Re: [PATCH] of/irq: Support #msi-cells=<0> in of_msi_get_domain
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org, maz@kernel.org, 
-	mark.rutland@arm.com, robh@kernel.org, saravanak@google.com, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	Anup Patel <apatel@ventanamicro.com>
+        d=1e100.net; s=20230601; t=1723806498; x=1724411298;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=GBSVjeF7/vjpC1dXeVG0LVGAvDGvE8sdoN+9xc5O6HU=;
+        b=DWgSySRcwlxRjpICieKaSMO0ztGVfTB7tpmyhCqUuqHzoFhpeRonmFARHI3ysI/QEI
+         v2jhTYIOoV4/oevwhrqfsQBacP/KzbTAy6iBAirPNLL3HZuoYoPYw3sccgws8V7eqkXG
+         fRkUz8bc3o+hukj0ygLvjG/KLcinpmRXf+WOxdVO+64fOxT42wPbJPS3BRKtfd5R6aR1
+         UsqiXhh6e3baR721nWHXjJvl6pp0gYxDrufXy/xX0WHq4beAFyHaGG7uk092tvPzg1fi
+         ZiWkrwg+NAe5s/3TXcDedm3TkJY/R/rO9hmEH9cksXK9bxL0QVLGbrPvShyIVovbuzBQ
+         0JcQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWnJJeWmiu6Q+zGAESc7ZlSImt39kXTCqcG3I7v0fUHExYwYgT/lK6XZo/yK/AAwJkVLtQ/Wa8N6aX2qMYxnsonEhVtFjlvNwsjLnd+ZO3T
+X-Gm-Message-State: AOJu0YxY4GVZPD81p0A+1cF9IYQ6xB+L5iUMh5I+VxoxS1mRLfdqu376
+	faQW/YcVc4vSMWMqbqTxpcS85R/F2ldVqWqY5YmltKieikrDEQhKYOY/VDGiwJ9IyS8v/puibZH
+	jSah/dWOV7C448Q==
+X-Google-Smtp-Source: AGHT+IHxFvy1KqAYn0MvS6oUKrhauQESgORV1h/F83xZuq+N5sGLBg0AYPrvpVQZa7Oof89hGa3nC7SROwJGVts=
+X-Received: from aliceryhl.c.googlers.com ([fda3:e722:ac3:cc00:28:9cb1:c0a8:35bd])
+ (user=aliceryhl job=sendgmr) by 2002:a5b:c44:0:b0:e0b:cce3:45c7 with SMTP id
+ 3f1490d57ef6-e1180f5614dmr4437276.9.1723806498310; Fri, 16 Aug 2024 04:08:18
+ -0700 (PDT)
+Date: Fri, 16 Aug 2024 11:07:37 +0000
+Mime-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIAPkyv2YC/23PQW7EIAwF0KuMWJcKAyZkVr1H1QUQk0Fqw4hEU
+ atR7l4mmwaly2/pfdsPNlNJNLPr5cEKrWlOeaqhe7mwcHPTSDwNNTMppBZGGL4UF+ie07RwBQT
+ oe0G6A1bBvVBM33vZ+0fNtzQvufzs3Ss8p//WrMAFN4hgZOcjgn8bcx4/6TXkL/bsWeXBgmisr
+ DY68m6w4BXiyaqDldBYVW1PWhORk96erT5a21hdrUI1oFSuD3C2+GetkI3F/WYHRuteD+H8rzn adq+p1kkVrRARwPaN3bbtFzZxMCLRAQAA
+X-Developer-Key: i=aliceryhl@google.com; a=openpgp; fpr=49F6C1FAA74960F43A5B86A1EE7A392FDE96209F
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6427; i=aliceryhl@google.com;
+ h=from:subject:message-id; bh=4pZVFpJRO3MHz/DoPuIAKSdqaAhQNfTKgM2dcrTjI3I=;
+ b=owEBbQKS/ZANAwAKAQRYvu5YxjlGAcsmYgBmvzMAqI6madHbK+l0LjW2ZBvrusxLNCk6x5EZ7
+ WANKcWB+32JAjMEAAEKAB0WIQSDkqKUTWQHCvFIvbIEWL7uWMY5RgUCZr8zAAAKCRAEWL7uWMY5
+ Rqn6EACyr/SU1Cs0JgS1mWu3IE4tKJlLJ7t8RzY9m/fnuo+2ZYJ6uHwfQgOsBGxb2JzzwZil4z7
+ jO3XGovFP0HdmRKVeByL3LsRh9S97IsqWkqDNK2TIODg1iYw/6CNSEfetZeAdUihQeKi7iIQdhs
+ 2DGQsWFhgwNsVPCuZOMwM1Gmmw5oFN/KVNyAaNKrVJM7X7qwqUVD8odlBtgfxpFKkoHk6N35L5x
+ Ocp3Z6taLtD/DugADvFcAR+MasYiF1AJIkqkaxobWlO8wcPV6eY4BDjtHJoIP+7O/lRitkUlvBP
+ qciD6i59r8k9Zc5+BdVGadx8kHWQ74LrdVQTSXgw9VfSCsGmTwew1Zbkh7zqI/oqTjVpHpBee4c
+ 6WIXRSHmJKmYpdqQbqpfJdpzQNjr6V6eXgHjA1iAQlaLPUXXL7ri3zXOH/t9m9iQ2dtzpMQpiuA
+ y37vprsoWs75OBHsiO+uiqdDImGQnvJswCk8ZZpHXqtBMGwIfZkNCy85wKpkavMnXqjOqFvnU8E
+ wKcsDU6bbKOdkHJTDs0DDAdCzpB8eFi+wpzSmkh+PK8AQOec7WWRMyvkvfGnFgdj32mwlAsIqQ7
+ hmbIzTMzBWI2WzBM5Zxr5jtwcGokL6zADXDbs6N+MXML9wAakwurMhv7SWG9+eB47zHgIcXNm83 Ry8aemcFhD4M8Ug==
+X-Mailer: b4 0.13.0
+Message-ID: <20240816-tracepoint-v7-0-d609b916b819@google.com>
+Subject: [PATCH v7 0/5] Tracepoints and static branch in Rust
+From: Alice Ryhl <aliceryhl@google.com>
+To: Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, 
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Josh Poimboeuf <jpoimboe@kernel.org>, Jason Baron <jbaron@akamai.com>, 
+	Ard Biesheuvel <ardb@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
+	Wedson Almeida Filho <wedsonaf@gmail.com>, Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+	"=?utf-8?q?Bj=C3=B6rn_Roy_Baron?=" <bjorn3_gh@protonmail.com>, Benno Lossin <benno.lossin@proton.me>, 
+	Andreas Hindborg <a.hindborg@samsung.com>
+Cc: linux-trace-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, linux-arch@vger.kernel.org, 
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Sean Christopherson <seanjc@google.com>, Uros Bizjak <ubizjak@gmail.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Mark Rutland <mark.rutland@arm.com>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Fuad Tabba <tabba@google.com>, 
+	linux-arm-kernel@lists.infradead.org, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <apatel@ventanamicro.com>, 
+	Andrew Jones <ajones@ventanamicro.com>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
+	Conor Dooley <conor.dooley@microchip.com>, Samuel Holland <samuel.holland@sifive.com>, 
+	linux-riscv@lists.infradead.org, Huacai Chen <chenhuacai@kernel.org>, 
+	WANG Xuerui <kernel@xen0n.name>, Bibo Mao <maobibo@loongson.cn>, 
+	Tiezhu Yang <yangtiezhu@loongson.cn>, Andrew Morton <akpm@linux-foundation.org>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, loongarch@lists.linux.dev, 
+	Alice Ryhl <aliceryhl@google.com>, Carlos Llamas <cmllamas@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240816_034506_418940_EFBA49EB 
-X-CRM114-Status: GOOD (  26.62  )
+X-CRM114-CacheID: sfid-20240816_040820_762673_8E92F1FC 
+X-CRM114-Status: GOOD (  27.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,92 +123,173 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBBdWcgMTYsIDIwMjQgYXQgMzoyNeKAr1BNIEFuZHJldyBKb25lcyA8YWpvbmVzQHZl
-bnRhbmFtaWNyby5jb20+IHdyb3RlOgo+Cj4gQW4gJ21zaS1wYXJlbnQnIHByb3BlcnR5IHdpdGgg
-YSBzaW5nbGUgZW50cnkgYW5kIG5vIGFjY29tcGFueWluZwo+ICcjbXNpLWNlbGxzJyBwcm9wZXJ0
-eSBpcyBjb25zaWRlcmVkIHRoZSBsZWdhY3kgZGVmaW5pdGlvbiBhcyBvcHBvc2VkCj4gdG8gaXRz
-IGRlZmluaXRpb24gYWZ0ZXIgYmVpbmcgZXhwYW5kZWQgd2l0aCBjb21taXQgMTI2YjE2ZTJhZDk4
-Cj4gKCJEb2NzOiBkdDogYWRkIGdlbmVyaWMgTVNJIGJpbmRpbmdzIikuIEhvd2V2ZXIsIHRoZSBs
-ZWdhY3kKPiBkZWZpbml0aW9uIGlzIGNvbXBsZXRlbHkgY29tcGF0aWJsZSB3aXRoIHRoZSBjdXJy
-ZW50IGRlZmluaXRpb24gYW5kLAo+IHNpbmNlIG9mX3BoYW5kbGVfaXRlcmF0b3JfbmV4dCgpIHRv
-bGVyYXRlcyBtaXNzaW5nIGFuZCBwcmVzZW50LWJ1dC0KPiB6ZXJvICpjZWxscyBwcm9wZXJ0aWVz
-IHNpbmNlIGNvbW1pdCBlNDJlZTYxMDE3ZjUgKCJvZjogTGV0Cj4gb2ZfZm9yX2VhY2hfcGhhbmRs
-ZSBmYWxsYmFjayB0byBub24tbmVnYXRpdmUgY2VsbF9jb3VudCIpLCB0aGVyZSdzIG5vCj4gbmVl
-ZCBhbnltb3JlIHRvIHNwZWNpYWwgY2FzZSB0aGUgbGVnYWN5IGRlZmluaXRpb24gaW4KPiBvZl9t
-c2lfZ2V0X2RvbWFpbigpLgo+Cj4gSW5kZWVkLCBzcGVjaWFsIGNhc2luZyBoYXMgdHVybmVkIG91
-dCB0byBiZSBoYXJtZnVsLCBiZWNhdXNlLCBhcyBvZgo+IGNvbW1pdCA3YzAyNTIzOGI0N2EgKCJk
-dC1iaW5kaW5nczogaXJxY2hpcDogRGVzY3JpYmUgdGhlIElNWCBNVSBibG9jawo+IGFzIGEgTVNJ
-IGNvbnRyb2xsZXIiKSwgTVNJIGNvbnRyb2xsZXIgRFQgYmluZGluZ3MgaGF2ZSBzdGFydGVkCj4g
-c3BlY2lmeWluZyAnI21zaS1jZWxscycgYXMgYSByZXF1aXJlZCBwcm9wZXJ0eSAoZXZlbiB3aGVu
-IHRoZSB2YWx1ZQo+IG11c3QgYmUgemVybykgYXMgYW4gZWZmb3J0IHRvIG1ha2UgdGhlIGJpbmRp
-bmdzIG1vcmUgZXhwbGljaXQuIEJ1dCwKPiBzaW5jZSB0aGUgc3BlY2lhbCBjYXNpbmcgb2YgJ21z
-aS1wYXJlbnQnIG9ubHkgdXNlcyB0aGUgZXhpc3RlbmNlIG9mCj4gJyNtc2ktY2VsbHMnIGZvciBp
-dHMgaGV1cmlzdGljLCBhbmQgbm90IHdoZXRoZXIgb3Igbm90IGl0J3MgYWxzbwo+IG5vbnplcm8s
-IHRoZSBsZWdhY3kgcGF0aCBpcyBub3QgdGFrZW4uIEZ1cnRoZXJtb3JlLCB0aGUgcGF0aCB0bwo+
-IHN1cHBvcnQgdGhlIG5ldywgYnJvYWRlciBkZWZpbml0aW9uIGlzbid0IHRha2VuIGVpdGhlciBz
-aW5jZSB0aGF0Cj4gcGF0aCBoYXMgYmVlbiByZXN0cmljdGVkIHRvIHRoZSBwbGF0Zm9ybS1tc2kg
-YnVzLgo+Cj4gQnV0LCBuZWl0aGVyIHRoZSBkZWZpbml0aW9uIG9mICdtc2ktcGFyZW50JyBub3Ig
-dGhlIGRlZmluaXRpb24gb2YKPiAnI21zaS1jZWxscycgaXMgcGxhdGZvcm0tbXNpLXNwZWNpZmlj
-ICh0aGUgcGxhdGZvcm0tbXNpIGJ1cyB3YXMganVzdAo+IHRoZSBmaXJzdCBidXMgdGhhdCBuZWVk
-ZWQgJyNtc2ktY2VsbHMnKSwgc28gcmVtb3ZlIGJvdGggdGhlIHNwZWNpYWwKPiBjYXNpbmcgYW5k
-IHRoZSByZXN0cmljdGlvbi4gVGhpcyBub3Qgb25seSBzaW1wbGlmaWVzIHRoZSBjb2RlIGJ1dAo+
-IGFsc28gcmVzb2x2ZXMgYW4gaXNzdWUgd2l0aCBQQ0kgZGV2aWNlcyBmaW5kaW5nIHRoZWlyIE1T
-SSBjb250cm9sbGVycwo+IG9uIHJpc2N2LCBhcyB0aGUgcmlzY3YsaW1zaWNzIGJpbmRpbmcgcmVx
-dWlyZXMgJyNtc2ktY2VsbHM9PDA+Jy4KPgo+IFNpZ25lZC1vZmYtYnk6IEFuZHJldyBKb25lcyA8
-YWpvbmVzQHZlbnRhbmFtaWNyby5jb20+Cj4gLS0tCj4gIGRyaXZlcnMvb2YvaXJxLmMgfCAzNyAr
-KysrKysrKysrKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCj4gIDEgZmlsZSBjaGFuZ2VkLCAx
-MSBpbnNlcnRpb25zKCspLCAyNiBkZWxldGlvbnMoLSkKPgo+IGRpZmYgLS1naXQgYS9kcml2ZXJz
-L29mL2lycS5jIGIvZHJpdmVycy9vZi9pcnEuYwo+IGluZGV4IGM5NDIwM2NlNjViYi4uMDI2YjUy
-YzhlZTYzIDEwMDY0NAo+IC0tLSBhL2RyaXZlcnMvb2YvaXJxLmMKPiArKysgYi9kcml2ZXJzL29m
-L2lycS5jCj4gQEAgLTcwOSw4ICs3MDksNyBAQCBzdHJ1Y3QgaXJxX2RvbWFpbiAqb2ZfbXNpX21h
-cF9nZXRfZGV2aWNlX2RvbWFpbihzdHJ1Y3QgZGV2aWNlICpkZXYsIHUzMiBpZCwKPiAgICogQG5w
-OiBkZXZpY2Ugbm9kZSBmb3IgQGRldgo+ICAgKiBAdG9rZW46IGJ1cyB0eXBlIGZvciB0aGlzIGRv
-bWFpbgo+ICAgKgo+IC0gKiBQYXJzZSB0aGUgbXNpLXBhcmVudCBwcm9wZXJ0eSAoYm90aCB0aGUg
-c2ltcGxlIGFuZCB0aGUgY29tcGxleAo+IC0gKiB2ZXJzaW9ucyksIGFuZCByZXR1cm5zIHRoZSBj
-b3JyZXNwb25kaW5nIE1TSSBkb21haW4uCj4gKyAqIFBhcnNlIHRoZSBtc2ktcGFyZW50IHByb3Bl
-cnR5IGFuZCByZXR1cm5zIHRoZSBjb3JyZXNwb25kaW5nIE1TSSBkb21haW4uCj4gICAqCj4gICAq
-IFJldHVybnM6IHRoZSBNU0kgZG9tYWluIGZvciB0aGlzIGRldmljZSAob3IgTlVMTCBvbiBmYWls
-dXJlKS4KPiAgICovCj4gQEAgLTcxOCwzMyArNzE3LDE5IEBAIHN0cnVjdCBpcnFfZG9tYWluICpv
-Zl9tc2lfZ2V0X2RvbWFpbihzdHJ1Y3QgZGV2aWNlICpkZXYsCj4gICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgIHN0cnVjdCBkZXZpY2Vfbm9kZSAqbnAsCj4gICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgIGVudW0gaXJxX2RvbWFpbl9idXNfdG9rZW4gdG9rZW4p
-Cj4gIHsKPiAtICAgICAgIHN0cnVjdCBkZXZpY2Vfbm9kZSAqbXNpX25wOwo+ICsgICAgICAgc3Ry
-dWN0IG9mX3BoYW5kbGVfYXJncyBhcmdzOwo+ICAgICAgICAgc3RydWN0IGlycV9kb21haW4gKmQ7
-Cj4gKyAgICAgICBpbnQgaW5kZXggPSAwOwo+Cj4gLSAgICAgICAvKiBDaGVjayBmb3IgYSBzaW5n
-bGUgbXNpLXBhcmVudCBwcm9wZXJ0eSAqLwo+IC0gICAgICAgbXNpX25wID0gb2ZfcGFyc2VfcGhh
-bmRsZShucCwgIm1zaS1wYXJlbnQiLCAwKTsKPiAtICAgICAgIGlmIChtc2lfbnAgJiYgIW9mX3By
-b3BlcnR5X3JlYWRfYm9vbChtc2lfbnAsICIjbXNpLWNlbGxzIikpIHsKPiAtICAgICAgICAgICAg
-ICAgZCA9IGlycV9maW5kX21hdGNoaW5nX2hvc3QobXNpX25wLCB0b2tlbik7Cj4gLSAgICAgICAg
-ICAgICAgIGlmICghZCkKPiAtICAgICAgICAgICAgICAgICAgICAgICBvZl9ub2RlX3B1dChtc2lf
-bnApOwo+IC0gICAgICAgICAgICAgICByZXR1cm4gZDsKPiAtICAgICAgIH0KCkRyb3BwaW5nIHRo
-aXMgc3BlY2lhbCBjYXNlIG9mIHNpbmdsZSBtc2ktcGFyZW50IHByb3BlcnR5IGJyZWFrcwpSSVND
-LVYgS1ZNIGd1ZXN0IGNyZWF0ZWQgdXNpbmcgS1ZNVE9PbCB3aXRoIEFJQSBhdmFpbGFibGUKb24g
-dGhlIGhvc3QuCgpMZXQncyBub3QgZHJvcCB0aGlzIHNwZWNpYWwgY2FzZS4KCj4gLQo+IC0gICAg
-ICAgaWYgKHRva2VuID09IERPTUFJTl9CVVNfUExBVEZPUk1fTVNJKSB7Cj4gLSAgICAgICAgICAg
-ICAgIC8qIENoZWNrIGZvciB0aGUgY29tcGxleCBtc2ktcGFyZW50IHZlcnNpb24gKi8KPiAtICAg
-ICAgICAgICAgICAgc3RydWN0IG9mX3BoYW5kbGVfYXJncyBhcmdzOwo+IC0gICAgICAgICAgICAg
-ICBpbnQgaW5kZXggPSAwOwo+ICsgICAgICAgd2hpbGUgKCFvZl9wYXJzZV9waGFuZGxlX3dpdGhf
-YXJncyhucCwgIm1zaS1wYXJlbnQiLAo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAiI21zaS1jZWxscyIsCj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgIGluZGV4LCAmYXJncykpIHsKPiArICAgICAgICAgICAgICAgZCA9IGlycV9m
-aW5kX21hdGNoaW5nX2hvc3QoYXJncy5ucCwgdG9rZW4pOwo+ICsgICAgICAgICAgICAgICBpZiAo
-ZCkKPiArICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gZDsKPgo+IC0gICAgICAgICAgICAg
-ICB3aGlsZSAoIW9mX3BhcnNlX3BoYW5kbGVfd2l0aF9hcmdzKG5wLCAibXNpLXBhcmVudCIsCj4g
-LSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIiNtc2kt
-Y2VsbHMiLAo+IC0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgIGluZGV4LCAmYXJncykpIHsKPiAtICAgICAgICAgICAgICAgICAgICAgICBkID0gaXJxX2Zp
-bmRfbWF0Y2hpbmdfaG9zdChhcmdzLm5wLCB0b2tlbik7Cj4gLSAgICAgICAgICAgICAgICAgICAg
-ICAgaWYgKGQpCj4gLSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gZDsKPiAt
-Cj4gLSAgICAgICAgICAgICAgICAgICAgICAgb2Zfbm9kZV9wdXQoYXJncy5ucCk7Cj4gLSAgICAg
-ICAgICAgICAgICAgICAgICAgaW5kZXgrKzsKPiAtICAgICAgICAgICAgICAgfQo+ICsgICAgICAg
-ICAgICAgICBvZl9ub2RlX3B1dChhcmdzLm5wKTsKPiArICAgICAgICAgICAgICAgaW5kZXgrKzsK
-PiAgICAgICAgIH0KPgo+ICAgICAgICAgcmV0dXJuIE5VTEw7Cj4gLS0KPiAyLjQ1LjIKPgo+CgpS
-ZWdhcmRzLApBbnVwCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
-Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
-c2N2Cg==
+An important part of a production ready Linux kernel driver is
+tracepoints. So to write production ready Linux kernel drivers in Rust,
+we must be able to call tracepoints from Rust code. This patch series
+adds support for calling tracepoints declared in C from Rust.
+
+To use the tracepoint support, you must:
+
+1. Declare the tracepoint in a C header file as usual.
+
+2. Add #define CREATE_RUST_TRACE_POINTS next to your
+   #define CREATE_TRACE_POINTS.
+
+3. Make sure that the header file is visible to bindgen.
+
+4. Use the declare_trace! macro in your Rust code to generate Rust
+   functions that call into the tracepoint.
+
+For example, the kernel has a tracepoint called `sched_kthread_stop`. It
+is declared like this:
+
+	TRACE_EVENT(sched_kthread_stop,
+		TP_PROTO(struct task_struct *t),
+		TP_ARGS(t),
+		TP_STRUCT__entry(
+			__array(	char,	comm,	TASK_COMM_LEN	)
+			__field(	pid_t,	pid			)
+		),
+		TP_fast_assign(
+			memcpy(__entry->comm, t->comm, TASK_COMM_LEN);
+			__entry->pid	= t->pid;
+		),
+		TP_printk("comm=%s pid=%d", __entry->comm, __entry->pid)
+	);
+
+To call the above tracepoint from Rust code, you must first ensure that
+the Rust helper for the tracepoint is generated. To do this, you would
+modify kernel/sched/core.c by adding #define CREATE_RUST_TRACE_POINTS.
+
+Next, you would include include/trace/events/sched.h in
+rust/bindings/bindings_helper.h so that the exported C functions are
+visible to Rust, and then you would declare the tracepoint in Rust:
+
+	declare_trace! {
+	    fn sched_kthread_stop(task: *mut task_struct);
+	}
+
+This will define an inline Rust function that checks the static key,
+calling into rust_do_trace_##name if the tracepoint is active. Since
+these tracepoints often take raw pointers as arguments, it may be
+convenient to wrap it in a safe wrapper:
+
+	mod raw {
+	    declare_trace! {
+	    	/// # Safety
+		/// `task` must point at a valid task for the duration
+		/// of this call.
+	        fn sched_kthread_stop(task: *mut task_struct);
+	    }
+	}
+	
+	#[inline]
+	pub fn trace_sched_kthread_stop(task: &Task) {
+	    // SAFETY: The pointer to `task` is valid.
+	    unsafe { raw::sched_kthread_stop(task.as_raw()) }
+	}
+
+A future expansion of the tracepoint support could generate these safe
+versions automatically, but that is left as future work for now.
+
+This is intended for use in the Rust Binder driver, which was originally
+sent as an RFC [1]. The RFC did not include tracepoint support, but you
+can see how it will be used in Rust Binder at [2]. The author has
+verified that the tracepoint support works on Android devices.
+
+This implementation implements support for static keys in Rust so that
+the actual static branch happens in the Rust object file. However, the
+__DO_TRACE body remains in C code. See v1 for an implementation where
+__DO_TRACE is also implemented in Rust.
+
+Link: https://lore.kernel.org/rust-for-linux/20231101-rust-binder-v1-0-08ba9197f637@google.com/ [1]
+Link: https://r.android.com/3119993 [2]
+Signed-off-by: Alice Ryhl <aliceryhl@google.com>
+---
+Changes in v7:
+- Fix spurious file included in first patch.
+- Fix issue with riscv asm.
+- Fix tags on fourth patch to match fifth patch.
+- Add Reviewed-by/Acked-by tags where appropriate.
+- Link to v6: https://lore.kernel.org/r/20240808-tracepoint-v6-0-a23f800f1189@google.com
+
+Changes in v6:
+- Add support for !CONFIG_JUMP_LABEL.
+- Add tracepoint to rust_print sample.
+- Deduplicate inline asm.
+- Require unsafe inside `declare_trace!`.
+- Fix bug on x86 due to use of intel syntax.
+- Link to v5: https://lore.kernel.org/r/20240802-tracepoint-v5-0-faa164494dcb@google.com
+
+Changes in v5:
+- Update first patch regarding inline asm duplication.
+- Add __rust_do_trace helper to support conditions.
+- Rename DEFINE_RUST_DO_TRACE_REAL to __DEFINE_RUST_DO_TRACE.
+- Get rid of glob-import in tracepoint macro.
+- Address safety requirements on tracepoints in docs.
+- Link to v4: https://lore.kernel.org/rust-for-linux/20240628-tracepoint-v4-0-353d523a9c15@google.com
+
+Changes in v4:
+- Move arch-specific code into rust/kernel/arch.
+- Restore DEFINE_RUST_DO_TRACE at end of define_trace.h
+- Link to v3: https://lore.kernel.org/r/20240621-tracepoint-v3-0-9e44eeea2b85@google.com
+
+Changes in v3:
+- Support for Rust static_key on loongarch64 and riscv64.
+- Avoid failing compilation on architectures that are missing Rust
+  static_key support when the archtectures does not actually use it.
+- Link to v2: https://lore.kernel.org/r/20240610-tracepoint-v2-0-faebad81b355@google.com
+
+Changes in v2:
+- Call into C code for __DO_TRACE.
+- Drop static_call patch, as it is no longer needed.
+- Link to v1: https://lore.kernel.org/r/20240606-tracepoint-v1-0-6551627bf51b@google.com
+
+---
+Alice Ryhl (5):
+      rust: add generic static_key_false
+      rust: add tracepoint support
+      rust: samples: add tracepoint to Rust sample
+      jump_label: adjust inline asm to be consistent
+      rust: add arch_static_branch
+
+ MAINTAINERS                             |  1 +
+ arch/arm/include/asm/jump_label.h       | 14 +++--
+ arch/arm64/include/asm/jump_label.h     | 20 +++++---
+ arch/loongarch/include/asm/jump_label.h | 16 +++---
+ arch/riscv/include/asm/jump_label.h     | 50 ++++++++++--------
+ arch/x86/include/asm/jump_label.h       | 38 ++++++--------
+ include/linux/tracepoint.h              | 22 +++++++-
+ include/trace/define_trace.h            | 12 +++++
+ include/trace/events/rust_sample.h      | 31 +++++++++++
+ rust/Makefile                           |  5 +-
+ rust/bindings/bindings_helper.h         |  3 ++
+ rust/helpers.c                          |  9 ++++
+ rust/kernel/.gitignore                  |  3 ++
+ rust/kernel/arch_static_branch_asm.rs.S |  7 +++
+ rust/kernel/jump_label.rs               | 91 +++++++++++++++++++++++++++++++++
+ rust/kernel/lib.rs                      | 32 ++++++++++++
+ rust/kernel/tracepoint.rs               | 49 ++++++++++++++++++
+ samples/rust/Makefile                   |  3 +-
+ samples/rust/rust_print.rs              | 18 +++++++
+ samples/rust/rust_print_events.c        |  8 +++
+ scripts/Makefile.build                  |  9 +++-
+ 21 files changed, 374 insertions(+), 67 deletions(-)
+---
+base-commit: 65ae9c6348cc15f77e2ce2ff41c2bb14de9460d6
+change-id: 20240606-tracepoint-31e15b90e471
+
+Best regards,
+-- 
+Alice Ryhl <aliceryhl@google.com>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
