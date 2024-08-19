@@ -4,77 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 956B4C52D6F
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Aug 2024 16:28:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A83EC3DA4A
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Aug 2024 16:34:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3DjhDWzLvLoiIimDqp2Rzr1pmkcYcRkDNcl2x/+yfz8=; b=nLu/x3Q8VXAZ1S
-	N43LzFrcUQ5euyjJwVxWwHi5KH0/p7CpCKWri+62wve6HFgSSWtigqnoFbyBwF1566RPzpRvkhAt+
-	OArHmTeJG7SK5tx9YXRJDti+Wgi1Xp1OOGWT7vfyZS5SxEU9+fVqmVxpFe2D+VpioG5gYmLYbcF3R
-	WlETrcy3rIrFa14Y+tKT0JqCTDrWvjVE1tWGeS0bZWZSEX53u1Sd9sPx8cLYJvRPmoUc9cl0guhfe
-	y3oMl0iRvYC68Z+eT4hBi0hX7PKqByf9zpxh2T9BCggcINMGkcU3AmcXuTm7bgpqhx4Gr2zYCgR3y
-	dEilQ7WHKxlNYfwoxLsw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6EUrMLwEWCDOjeUxCAATmF9QJHlaK9xTeWjU2C98ZzI=; b=zG0Svoc89C09QdNgV/GpyiOaDO
+	pivfa0ANVCfDY4V5cPOyI/Dsn9FdDqY6iyy07Lz/Sqqn9qk6GlHITrgkExSf6q+VjQhfgT+lvDKOP
+	8bTPs2uzFXdKSdZ6ODwFHScfNXDUgnm5onY4ftF8VY7GSYqI6VGZjenwh4yJ98OVD4TPU0qtwXKYG
+	ejZZcGNLWhvcUxG1IAJFvNh7xMCBP3Sv2eOP7QZ7bWl35jUoUn/ucXDZBBoQLBeN5mdgTa1O/Qx8o
+	/mwT4EZOXF+YT9EV/sII5OtqCT4oQEXeH8kS8kDEL/mEu2aq8SdZpdkNcCLKTYN56LnsNQcV9HkdL
+	PsBVEl3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sg5FB-00000002AH3-2edS;
-	Mon, 19 Aug 2024 16:28:33 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1sg5Kl-00000002BzO-31kH;
+	Mon, 19 Aug 2024 16:34:19 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sg5DM-000000029cp-16cb;
-	Mon, 19 Aug 2024 16:26:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=IGJaMG9qiozX2LdaUFuc0UpSRy3yDcaGi1eBuhF0YSc=; b=cXP2iQMx437m8oZpWC/v8UF0J4
-	bxiFoALVEA2h6RkyUq2Cm1RIsU09EKTd7E73X38Urg5LMJLUzksqVY7JGqGcHEIl7Qo/vVBI2620r
-	0AXIGQFuI9x5fp/oKS3Z1xj6YaFr1nRJYQx38zuLMFP5A8fQH49eYgJbglYPrLqLkQIKkQI0tJRR1
-	4HjW7tOMVKopaV/vTF+ZnWUAUwjo6jg04UUtfXG/Gm/6tIG+PwPN5gwkCDLTOMQ0J/yp/+fdgwNgr
-	Gtrd3j3S64VB2F68CNEMVpNRiR96GFm3Ru87Hi+Aj8Oe1rxI9U1DR2tT49hrTBArBlgpyQygteqx3
-	V31bu42A==;
-Received: from frasgout.his.huawei.com ([185.176.79.56])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sg5DJ-00000009Aca-142L;
-	Mon, 19 Aug 2024 16:26:39 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4WndFC5njvz6K5mr;
-	Tue, 20 Aug 2024 00:23:27 +0800 (CST)
-Received: from lhrpeml500005.china.huawei.com (unknown [7.191.163.240])
-	by mail.maildlp.com (Postfix) with ESMTPS id 609F8140A46;
-	Tue, 20 Aug 2024 00:26:21 +0800 (CST)
-Received: from localhost (10.203.177.66) by lhrpeml500005.china.huawei.com
- (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Mon, 19 Aug
- 2024 17:26:20 +0100
-Date: Mon, 19 Aug 2024 17:26:19 +0100
-From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-CC: Ulf Hansson <ulf.hansson@linaro.org>, "Rafael J. Wysocki"
-	<rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, Anup Patel
-	<anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, "Palmer
- Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	<linux-pm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH 4/4] cpuidle: dt_idle_genpd: Simplify with scoped for
- each OF child loop
-Message-ID: <20240819172619.0000670a@Huawei.com>
-In-Reply-To: <20240816150931.142208-4-krzysztof.kozlowski@linaro.org>
-References: <20240816150931.142208-1-krzysztof.kozlowski@linaro.org>
-	<20240816150931.142208-4-krzysztof.kozlowski@linaro.org>
-Organization: Huawei Technologies Research and Development (UK) Ltd.
-X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
+	id 1sg5K4-00000002BqS-3XN8;
+	Mon, 19 Aug 2024 16:33:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id EB5AACE09EC;
+	Mon, 19 Aug 2024 16:33:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B21E0C32782;
+	Mon, 19 Aug 2024 16:33:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1724085214;
+	bh=evii6L2sZLuBZsDeVmQaiukOZYaMAFg0RqLOntPinT8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=p/Xaqf57XaWAVesDIXzLwFNmcsGpxCWxCiEl8e7wqsfX6gbZTVZaibIjtofHP+HQy
+	 mNkfUOElC8Ed0VjXXvNq9aoGwmAtJUoqRfPxjW6pG4WzPvDPwk2E/ohMtDCdY0XuRP
+	 7k9QW/RaYwIiYXeuG0zIRmMObdLvwZzA0wsODoXlGTOLMwINsKdtHKc+TgwAqr4ZO9
+	 DbshXmifSQvXAnQSw7yxsDdm+PnnWXUw62cMAbR8DWLupzNOAJI8jMLgI1UYKzU84R
+	 zNfPjPPoV8e0rLVIwnBnTaZ7upD0UC+dpiqjmwOqR5FFGfmA4YvEC6JEHoxtzdMqKk
+	 RiCeykpYkKbQA==
+Date: Mon, 19 Aug 2024 17:33:24 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Shuah Khan <shuah@kernel.org>,
+	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
+	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
+	Szabolcs Nagy <Szabolcs.Nagy@arm.com>, Kees Cook <kees@kernel.org>,
+	"H.J. Lu" <hjl.tools@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Florian Weimer <fweimer@redhat.com>,
+	Christian Brauner <brauner@kernel.org>,
+	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
+	Ross Burton <ross.burton@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v10 13/40] arm64/mm: Map pages for guarded control stack
+Message-ID: <d43f8036-cc06-430c-9e9e-b938037fc64c@sirena.org.uk>
+References: <20240801-arm64-gcs-v10-0-699e2bd2190b@kernel.org>
+ <20240801-arm64-gcs-v10-13-699e2bd2190b@kernel.org>
+ <ZsMMDNIp6Pkfbg1e@arm.com>
 MIME-Version: 1.0
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml500004.china.huawei.com (7.191.163.9) To
- lhrpeml500005.china.huawei.com (7.191.163.240)
+In-Reply-To: <ZsMMDNIp6Pkfbg1e@arm.com>
+X-Cookie: Interchangeable parts won't.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240819_172637_439106_F358390E 
-X-CRM114-Status: UNSURE (   5.21  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240819_093337_255433_E32859A5 
+X-CRM114-Status: GOOD (  26.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,22 +91,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3350928018690150350=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 16 Aug 2024 17:09:31 +0200
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org> wrote:
 
-> Use scoped for_each_child_of_node_scoped() when iterating over device
-> nodes to make code a bit simpler.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-LGTM
-Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+--===============3350928018690150350==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="eyTciqf51C2CbNXu"
+Content-Disposition: inline
+
+
+--eyTciqf51C2CbNXu
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Mon, Aug 19, 2024 at 10:10:36AM +0100, Catalin Marinas wrote:
+> On Thu, Aug 01, 2024 at 01:06:40PM +0100, Mark Brown wrote:
+
+> > +	if (system_supports_gcs() && (vm_flags & VM_SHADOW_STACK)) {
+> > +		/*
+> > +		 * An executable GCS isn't a good idea, and the mm
+> > +		 * core can't cope with a shared GCS.
+> > +		 */
+> > +		if (vm_flags & (VM_EXEC | VM_ARM64_BTI | VM_SHARED))
+> > +			return false;
+> > +	}
+
+> I wonder whether we should clear VM_MAYEXEC early on during the vma
+> creation. This way the mprotect() case will be handled in the core code.
+> At a quick look, do_mmap() seems to always set VM_MAYEXEC but discard it
+> for non-executable file mmap. Last time I looked (when doing MTE) there
+> wasn't a way for the arch code to clear specific VM_* flags, only to
+> validate them. But I think we should just clear VM_MAYEXEC and also
+> return an error for VM_EXEC in the core do_mmap() if VM_SHADOW_STACK. It
+> would cover the other architectures doing shadow stacks.
+
+Yes, I think adding something generic would make sense here.  That feels
+like a cleanup which could be split out?
+
+> Regarding VM_SHARED, how do we even end up with this via the
+> map_shadow_stack() syscall? I can't see how one can pass MAP_SHARED to
+> do_mmap() on this path. I'm fine with a VM_WARN_ON() if you want the
+> check (and there's no way a user can trigger it).
+
+It's just a defenesive programming thing, I'm not aware of any way in
+which it should be possible to trigger this.
+
+> Is there any arch restriction with setting BTI and GCS? It doesn't make
+> sense but curious if it matters. We block the exec permission anyway
+> (unless the BTI pages moved to PIE as well, I don't remember).
+
+As you say BTI should be meaningless for a non-executable page like GCS,
+I'm not aware of any way in which it matters.  BTI is separate to PIE.
+
+--eyTciqf51C2CbNXu
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmbDc9MACgkQJNaLcl1U
+h9DcCAf/aZF31au2O5tCW1iS32zwyPysrbia2QSwmoMPN4cH+zZF6jGKfJP53y/G
+CNgaoXcyBX2iypaZnICHU23amdDQeA311XwIhP3tEc32tH2i0LgSO39EGLdA4dqe
+j9An/W7fAj/0GD9s5qxLjEUDr8DKmihD4s/yemH3g2xwf/NF2Ya/tFXJWfAcJPNr
+rg55UlkNM+WG6bZ21EKnqi/ykDJhHVBdmTEYE7vfyMDjneyhO5oMG6ESXUJFBTd6
+JrYRPZb0Cr7QlXE2JRP2yZQG9TzS0WMvsi3TN5T17PRy8WpwtCyfLi3Drj5popSF
+K/uduuEHbCFXxkFNmqeaOTGvnX2ozA==
+=Qsdz
+-----END PGP SIGNATURE-----
+
+--eyTciqf51C2CbNXu--
+
+
+--===============3350928018690150350==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3350928018690150350==--
+
