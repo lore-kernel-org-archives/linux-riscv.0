@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0DA2C3DA4A
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Aug 2024 21:26:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EEF7C5320E
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Aug 2024 21:26:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bsyPXKa/Uu9dA8nQjw/Tg+CnyuLq0bYQp5N0B2C7lcA=; b=UwZGqZq1mL+b/a
-	3HgB3wW9+s+i5N993j+Vug0bgWsz6VFSHuougc/b/Z8i6RoduhaAZaqMVt0Av0fU6yXowVlqSatHI
-	YmYzaI4min6fgJ3ox7AdC7EkrCfOMS4hj32bPHdKArhvBflVD/x+eAzz9U31sbJdyOCrDzSQLrVT0
-	1lOlp1Koj7Yv5VuIjimdJcEMEjMP/623dBscrug7dF1AZ4cTFOaLcKWZI9COp0ctVmM9Z8mX3Acj1
-	Szb5GC3oGxh0Sa9P42UMq+fHy0+eBycdX16W0DSm2OaLvJrNnu2rPXxT4u1w4C5o2zRu+UnbB74k/
-	osO6MzxnKlNQ+qly6lQw==;
+	List-Owner; bh=FjzoYMAsW3I5xQDm0SgmieFMJYcFURf7TojyiN0zpmI=; b=1VAKhciKniZlBV
+	H/10ziaS8829faRT1soHKocQ5Gsp43XFBwdmG16oaOht+9DmN9a3P+AoWECwgaOEcwS7d1XnFnpt+
+	ODZPU5KkW0jFk2XTagBwOQMqo+Hq+XGRxN2msmEwICmvYe1ACaKh78odGVKCXTsgculyR4WG/Zmwu
+	KkyudPGyBlp7S0nt0VHvG3OeqLG0dw76gvzlNRG4I4cpZj8DdnLCRUhg8KKqjnz3ZnNZ6fkowKJ/K
+	yFuyEI6BmB84ZQ3WTwbBxaFtrjeqaZDm0Q4CC2OxqvICVsAcxCbS2ZTTq81Yn0HtRqs9AS1epOkXG
+	lGJ4GCQuAjxG1kF/4Sqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sg9tL-00000002ynX-00By;
-	Mon, 19 Aug 2024 21:26:19 +0000
-Received: from mail-oi1-x22c.google.com ([2607:f8b0:4864:20::22c])
+	id 1sg9tP-00000002ypl-3APa;
+	Mon, 19 Aug 2024 21:26:23 +0000
+Received: from mail-oi1-x22b.google.com ([2607:f8b0:4864:20::22b])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sg9tI-00000002ymz-40pD
+	id 1sg9tN-00000002yoi-01wm
 	for linux-riscv@lists.infradead.org;
-	Mon, 19 Aug 2024 21:26:18 +0000
-Received: by mail-oi1-x22c.google.com with SMTP id 5614622812f47-3dab336717fso3130349b6e.0
-        for <linux-riscv@lists.infradead.org>; Mon, 19 Aug 2024 14:26:16 -0700 (PDT)
+	Mon, 19 Aug 2024 21:26:22 +0000
+Received: by mail-oi1-x22b.google.com with SMTP id 5614622812f47-3db18c4927bso2777371b6e.1
+        for <linux-riscv@lists.infradead.org>; Mon, 19 Aug 2024 14:26:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1724102776; x=1724707576; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1724102780; x=1724707580; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Q20/OdSbvq9LUkG8U4wYOyihF5a7GCW9DX/TvPp6rr0=;
-        b=m63LQJN3FnHuAp0reRLLXpvEhjxHJOGz0yPMStF7OJC+CvKanKa05ngAfcLuXyAKyd
-         wzPEWJbfy73GBHv9AHNaTzWC3caKSj8UvvQVxh+IxYU1G9YzSFTRhkC08fbQMIkBxEeI
-         fNjTWvwQUHpc0d5mjErYQiOQs8JonzW7BWL08TGiBHx8Z7ZNVIRqZemMSIN1LAAV934T
-         vKiKV4oQebAZ7vYDGSr/C9hwzJz8g+zRH/w1Vs6a5IbGwIWVZZVS30hpmE+Tv1ewqDE9
-         7uCnVMSunz3MRtGKShtn9YWOB5Du5KbY+UYJF+GT4655jfOiXELkK70qQMSDYDF+Vlx3
-         I4SA==
+        bh=TztiC5/1gr619POh5DAGrJTvEg+G+L5Qf1B2P2doR1Y=;
+        b=tF7OXIbVZp9E3Bi07Ph2EICcpTUE+qcWoAeLElChAqT9MdkKKWDVdfOPwHjeQXkFnd
+         i7y1OZ8hKaoF0QPjUfumObnREXjFgXaQVVNDB28GBNDlahOCQN1niJ4/5t9BnmLvKP/Q
+         OtjgUKeJUgdmx6N+ZHuh6DIaax7RArKUqOgkmXdhtfYxn1CN2O1+U/xqTprZ1rI27l4n
+         vE+zmq1QsAbFe6+03JP8pA0ZCpgMFyIBNX9fuK4snWbDaSQwc0C3GoQyvcwWEnzRllbw
+         Y93SD3S48dZLnzMAVya+EthbcpH/m5GqdIzyeDtpT8h71O3fFC+rdvD037BVCorB/rwH
+         BupQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1724102776; x=1724707576;
+        d=1e100.net; s=20230601; t=1724102780; x=1724707580;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Q20/OdSbvq9LUkG8U4wYOyihF5a7GCW9DX/TvPp6rr0=;
-        b=S7b5xAnPLXL5fc4pGJXr12RlDU2iIYgzyJiNA3TOvGxtSsj6C1zkPzHy4bmnfErLBC
-         6aAxQm9rD6ZqeHxMcWI0hLw3HZkwHkudkus6Cu2zidjfOwAJt6vIAAdfKe9ygBd0nUNa
-         vtZZdOnUQkS14FvJTSSc6quf9YiMCi6yB9hROCGs7ZUEbX0M7n8PxwiiNbIChj0aKtFn
-         ykMOLhMMzXl4p0JsxyfV+tOXdh3YCEwVzhTeSLMJGOJNdJmGMpZq/3kRmhzaf4CjvpB1
-         4CaSqghz9trZsIeLIds8yWWK/yYGGbcZjhxtibp2KGNg5T6cWmMtG8Xgod5DnwoH6aFo
-         qJqw==
-X-Gm-Message-State: AOJu0Yz+knZthAiKZaK0sz3v7GhQG8uoM1iQHkOLydKV3Qhuhk+HDhhW
-	65HNmueHP4fapwq6a1zbUIyelgkX/xwtcJZh82hR8VQw+DF603JwlePn5DyEdT6SGA36k7bq0iV
-	V
-X-Google-Smtp-Source: AGHT+IGrOZgeSDndGKUvKoiCnKCFkQKTbYExlczlQ+uWZR6QQ0bCtLXdpQoy3WHfWNSC/eNU6Ilr+g==
-X-Received: by 2002:a05:6808:13d6:b0:3db:215d:71f2 with SMTP id 5614622812f47-3dd3ae5535bmr12653199b6e.35.1724102775685;
-        Mon, 19 Aug 2024 14:26:15 -0700 (PDT)
+        bh=TztiC5/1gr619POh5DAGrJTvEg+G+L5Qf1B2P2doR1Y=;
+        b=TCax+zqg/AnSsdYb3ixliVg3Q49QBgMSPXmRWA5WVugzdJfal7WLF6Syd5e9RsANFA
+         drKJ/nzUQooKCuqPA8UdSOGtW/tt32RCDuC6aKjA7IEWYEUKC9Xd3NXXY86298xZms2A
+         aoXwo7COi+riZmXu13NqnBHYlbmhCvRq2+n1HEuG5Tu07KUWsxNR3LG9lmgQJskQ5RxO
+         B60XH/zifwAm2f3JV0mM36kHvPVfXD3wp2K6fKZ2Y5Dt5IlIE4z8TZadYxbKA18q+H3U
+         hAY6mkgsMnDQzFC3cDm2FglKzZEvbK3NOyyNVK4znWfPWYMVJn5LQwprT8lJH3mJg1Px
+         hOGQ==
+X-Gm-Message-State: AOJu0YwABZUqNMVbc0BcHnO9skalBViRCEvOYEwQPCLTMqmzGcpIRqOH
+	0jCgj1BBiivvzWxc7XlVC6MtOHQXseMrQ3EGztyzGnhG7uNZpqg7g7/xx9K+q7WyvdSdYF5vboV
+	E
+X-Google-Smtp-Source: AGHT+IF5Ka5oo/Vsh95TOhJMsuxd1ErCS0kjAYsG9ayHXx5iEO+Eih/UfW0kpteVOEYBtV7XpNogrQ==
+X-Received: by 2002:a05:6808:2e88:b0:3db:3102:adc6 with SMTP id 5614622812f47-3dd3ae1ec10mr15635770b6e.41.1724102779911;
+        Mon, 19 Aug 2024 14:26:19 -0700 (PDT)
 Received: from jesse-desktop.ba.rivosinc.com (pool-108-26-179-17.bstnma.fios.verizon.net. [108.26.179.17])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7c6b61e7bd1sm7004694a12.53.2024.08.19.14.26.11
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7c6b61e7bd1sm7004694a12.53.2024.08.19.14.26.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Aug 2024 14:26:15 -0700 (PDT)
+        Mon, 19 Aug 2024 14:26:19 -0700 (PDT)
 From: Jesse Taube <jesse@rivosinc.com>
 To: linux-riscv@lists.infradead.org
 Cc: Jonathan Corbet <corbet@lwn.net>,
@@ -98,16 +98,16 @@ Cc: Jonathan Corbet <corbet@lwn.net>,
 	linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	stable@vger.kernel.org
-Subject: [PATCH v8 1/6] RISC-V: Check scalar unaligned access on all CPUs
-Date: Mon, 19 Aug 2024 17:26:00 -0400
-Message-ID: <20240819212605.1837175-2-jesse@rivosinc.com>
+Subject: [PATCH v8 2/6] RISC-V: Scalar unaligned access emulated on hotplug CPUs
+Date: Mon, 19 Aug 2024 17:26:01 -0400
+Message-ID: <20240819212605.1837175-3-jesse@rivosinc.com>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20240819212605.1837175-1-jesse@rivosinc.com>
 References: <20240819212605.1837175-1-jesse@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240819_142617_021615_729B6DA9 
-X-CRM114-Status: GOOD (  16.12  )
+X-CRM114-CacheID: sfid-20240819_142621_066815_23305D63 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,109 +124,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Originally, the check_unaligned_access_emulated_all_cpus function
-only checked the boot hart. This fixes the function to check all
-harts.
+The check_unaligned_access_emulated() function should have been called
+during CPU hotplug to ensure that if all CPUs had emulated unaligned
+accesses, the new CPU also does.
 
-Fixes: 71c54b3d169d ("riscv: report misaligned accesses emulation to hwprobe")
+This patch adds the call to check_unaligned_access_emulated() in
+the hotplug path.
+
+Fixes: 55e0bf49a0d0 ("RISC-V: Probe misaligned access speed in parallel")
 Signed-off-by: Jesse Taube <jesse@rivosinc.com>
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
 Reviewed-by: Evan Green <evan@rivosinc.com>
 Cc: stable@vger.kernel.org
 ---
-V1 -> V2:
- - New patch
-V2 -> V3:
- - Split patch
-V3 -> V4:
- - Re-add check for a system where a heterogeneous
-    CPU is hotplugged into a previously homogenous
-    system.
-V4 -> V5:
- - Change work_struct *unused to work_struct *work __always_unused
 V5 -> V6:
- - Change check_unaligned_access_emulated to extern
+ - New patch
 V6 -> V7:
  - No changes
 V7 -> V8:
  - Rebase onto fixes
 ---
- arch/riscv/include/asm/cpufeature.h  |  2 ++
- arch/riscv/kernel/traps_misaligned.c | 14 +++++++-------
- 2 files changed, 9 insertions(+), 7 deletions(-)
+ arch/riscv/kernel/unaligned_access_speed.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
-index 45f9c1171a48..dfa5cdddd367 100644
---- a/arch/riscv/include/asm/cpufeature.h
-+++ b/arch/riscv/include/asm/cpufeature.h
-@@ -8,6 +8,7 @@
+diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kernel/unaligned_access_speed.c
+index 160628a2116d..f3508cc54f91 100644
+--- a/arch/riscv/kernel/unaligned_access_speed.c
++++ b/arch/riscv/kernel/unaligned_access_speed.c
+@@ -191,6 +191,7 @@ static int riscv_online_cpu(unsigned int cpu)
+ 	if (per_cpu(misaligned_access_speed, cpu) != RISCV_HWPROBE_MISALIGNED_SCALAR_UNKNOWN)
+ 		goto exit;
  
- #include <linux/bitmap.h>
- #include <linux/jump_label.h>
-+#include <linux/workqueue.h>
- #include <asm/hwcap.h>
- #include <asm/alternative-macros.h>
- #include <asm/errno.h>
-@@ -60,6 +61,7 @@ void riscv_user_isa_enable(void);
- 
- #if defined(CONFIG_RISCV_MISALIGNED)
- bool check_unaligned_access_emulated_all_cpus(void);
-+void check_unaligned_access_emulated(struct work_struct *work __always_unused);
- void unaligned_emulation_finish(void);
- bool unaligned_ctl_available(void);
- DECLARE_PER_CPU(long, misaligned_access_speed);
-diff --git a/arch/riscv/kernel/traps_misaligned.c b/arch/riscv/kernel/traps_misaligned.c
-index 192cd5603e95..1ad981b2c7a3 100644
---- a/arch/riscv/kernel/traps_misaligned.c
-+++ b/arch/riscv/kernel/traps_misaligned.c
-@@ -526,11 +526,11 @@ int handle_misaligned_store(struct pt_regs *regs)
- 	return 0;
- }
- 
--static bool check_unaligned_access_emulated(int cpu)
-+void check_unaligned_access_emulated(struct work_struct *work __always_unused)
- {
-+	int cpu = smp_processor_id();
- 	long *mas_ptr = per_cpu_ptr(&misaligned_access_speed, cpu);
- 	unsigned long tmp_var, tmp_val;
--	bool misaligned_emu_detected;
- 
- 	*mas_ptr = RISCV_HWPROBE_MISALIGNED_SCALAR_UNKNOWN;
- 
-@@ -538,19 +538,16 @@ static bool check_unaligned_access_emulated(int cpu)
- 		"       "REG_L" %[tmp], 1(%[ptr])\n"
- 		: [tmp] "=r" (tmp_val) : [ptr] "r" (&tmp_var) : "memory");
- 
--	misaligned_emu_detected = (*mas_ptr == RISCV_HWPROBE_MISALIGNED_SCALAR_EMULATED);
- 	/*
- 	 * If unaligned_ctl is already set, this means that we detected that all
- 	 * CPUS uses emulated misaligned access at boot time. If that changed
- 	 * when hotplugging the new cpu, this is something we don't handle.
- 	 */
--	if (unlikely(unaligned_ctl && !misaligned_emu_detected)) {
-+	if (unlikely(unaligned_ctl && (*mas_ptr != RISCV_HWPROBE_MISALIGNED_SCALAR_EMULATED))) {
- 		pr_crit("CPU misaligned accesses non homogeneous (expected all emulated)\n");
- 		while (true)
- 			cpu_relax();
- 	}
--
--	return misaligned_emu_detected;
- }
- 
- bool check_unaligned_access_emulated_all_cpus(void)
-@@ -562,8 +559,11 @@ bool check_unaligned_access_emulated_all_cpus(void)
- 	 * accesses emulated since tasks requesting such control can run on any
- 	 * CPU.
- 	 */
-+	schedule_on_each_cpu(check_unaligned_access_emulated);
-+
- 	for_each_online_cpu(cpu)
--		if (!check_unaligned_access_emulated(cpu))
-+		if (per_cpu(misaligned_access_speed, cpu)
-+		    != RISCV_HWPROBE_MISALIGNED_SCALAR_EMULATED)
- 			return false;
- 
- 	unaligned_ctl = true;
++	check_unaligned_access_emulated(NULL);
+ 	buf = alloc_pages(GFP_KERNEL, MISALIGNED_BUFFER_ORDER);
+ 	if (!buf) {
+ 		pr_warn("Allocation failure, not measuring misaligned performance\n");
 -- 
 2.45.2
 
