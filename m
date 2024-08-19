@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1ED5C3DA4A
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Aug 2024 09:13:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 904BDC5321D
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Aug 2024 09:13:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6iPYzY5Uz1n/MOm1Cu2DRbLmhac2lSjxuSUXfweIiCg=; b=pZxeNrrveY6+Id
-	KRehqs+Ho/F1Mo99ZVS5kITa90VpcJMZQ2VAHuVjfHWUYHNMnKK1Q7YnglFl4+9tFo62I0GowtK9O
-	Rg/BXO6ilXn03V58Y43/7fOxURlIScejWmTU1M7/d80HbVUneEx23+t5d1xPpxZ6hCEo8IazwDWSf
-	WfOlbyUCYXgBnHZT68UdwLb+Gh6n5RluHmI1vPKP2jAtonk8WHV0bcZEoVWY9QM7N64lftaSbLb4X
-	ZapLO5kH4gM0sGnvAiVXuRBxdkWnUQ9DV786mbzwBiG4C066EUvKP7EY8pCCNPhg39G7vWvVLkdal
-	1M1m8zSQZs/dG7X9qBtA==;
+	List-Owner; bh=i0VCETbPomwgu9BR/84fBpHykjQ3ohn5UeYAfdmX2N8=; b=SNnV0P1zO23AA0
+	7698T8rQMJ4fBxKIf/aZpiSwrrZbgrhnroOzjfrhOKrknpiZcjFiKQASuAl9PP1gLC0roqXgcdMWx
+	cqtPf1SvBF77uKknBge+mAb9kciHG0GuX1ZoMK0DRj3+1/unhSN0KLabJDKtiTr+yYhKpPNJoqKOv
+	tnC8RGJNtMVGrDhHUC7eGzBswA96BHSNWwbi2MhOLEEaD6pRfoca69sKMFUeNgSA+/dIXG/z3ffXx
+	YZBg+l+KVu+j+WFxVwnvQZKLp5pub3x2zmLpnD/l5A8tuUj9LiPPeoQ9n6Ba0XdTC9ZgXxYZ+jV7M
+	i2pdBCE1pVWgGpThrEIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sfyRu-00000000uN5-01Rr;
-	Mon, 19 Aug 2024 09:13:14 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1sfySY-00000000ueo-2vxH;
+	Mon, 19 Aug 2024 09:13:54 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sfyR8-00000000u4N-1jEY;
-	Mon, 19 Aug 2024 09:12:28 +0000
+	id 1sfyRZ-00000000uGO-3LFP;
+	Mon, 19 Aug 2024 09:12:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id AA18DCE0924;
-	Mon, 19 Aug 2024 09:12:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8031AC32782;
-	Mon, 19 Aug 2024 09:12:18 +0000 (UTC)
-Date: Mon, 19 Aug 2024 10:12:16 +0100
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3853E601CD;
+	Mon, 19 Aug 2024 09:12:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FB2BC4AF09;
+	Mon, 19 Aug 2024 09:12:47 +0000 (UTC)
+Date: Mon, 19 Aug 2024 10:12:45 +0100
 From: Catalin Marinas <catalin.marinas@arm.com>
 To: Mark Brown <broonie@kernel.org>
 Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
@@ -59,17 +59,17 @@ Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
 	linux-arch@vger.kernel.org, linux-mm@kvack.org,
 	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v10 16/40] arm64/hwcap: Add hwcap for GCS
-Message-ID: <ZsMMcImUfZ6X5hBw@arm.com>
+Subject: Re: [PATCH v10 17/40] arm64/traps: Handle GCS exceptions
+Message-ID: <ZsMMjcvdf3IZditO@arm.com>
 References: <20240801-arm64-gcs-v10-0-699e2bd2190b@kernel.org>
- <20240801-arm64-gcs-v10-16-699e2bd2190b@kernel.org>
+ <20240801-arm64-gcs-v10-17-699e2bd2190b@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240801-arm64-gcs-v10-16-699e2bd2190b@kernel.org>
-X-TUID: ar7/7KcGpDoJ
+In-Reply-To: <20240801-arm64-gcs-v10-17-699e2bd2190b@kernel.org>
+X-TUID: yZN9oqNLB5Zt
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240819_021226_645671_CF12AA6D 
-X-CRM114-Status: GOOD (  10.36  )
+X-CRM114-CacheID: sfid-20240819_021253_895368_752FA812 
+X-CRM114-Status: GOOD (  13.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,19 +86,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 01, 2024 at 01:06:43PM +0100, Mark Brown wrote:
-> diff --git a/arch/arm64/include/uapi/asm/hwcap.h b/arch/arm64/include/uapi/asm/hwcap.h
-> index 285610e626f5..328fb7843e2f 100644
-> --- a/arch/arm64/include/uapi/asm/hwcap.h
-> +++ b/arch/arm64/include/uapi/asm/hwcap.h
-> @@ -122,5 +122,6 @@
->  #define HWCAP2_SME_SF8FMA	(1UL << 60)
->  #define HWCAP2_SME_SF8DP4	(1UL << 61)
->  #define HWCAP2_SME_SF8DP2	(1UL << 62)
-> +#define HWCAP2_GCS		(1UL << 63)
-
-You'll be fighting with Joey over the last bit here ;) (we do have
-HWCAP3 though).
+On Thu, Aug 01, 2024 at 01:06:44PM +0100, Mark Brown wrote:
+> A new exception code is defined for GCS specific faults other than
+> standard load/store faults, for example GCS token validation failures,
+> add handling for this. These faults are reported to userspace as
+> segfaults with code SEGV_CPERR (protection error), mirroring the
+> reporting for x86 shadow stack errors.
+> 
+> GCS faults due to memory load/store operations generate data aborts with
+> a flag set, these will be handled separately as part of the data abort
+> handling.
+> 
+> Since we do not currently enable GCS for EL1 we should not get any faults
+> there but while we're at it we wire things up there, treating any GCS
+> fault as fatal.
+> 
+> Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
+> Signed-off-by: Mark Brown <broonie@kernel.org>
 
 Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
