@@ -4,71 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 177C4C52D7C
-	for <linux-riscv@archiver.kernel.org>; Sun, 18 Aug 2024 22:40:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 090ABC52D7C
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Aug 2024 00:12:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qkefpQFpJU+bWQhnEmsAMvhyNzO04aC/hp6nh4h83Uk=; b=TvmNuBeRXQqZuJgG3tE0CZgjOY
-	vIs5euAY5vvE1t6CsQHwK61DhtZFaJ/wJ8kLNULC+rapa5IVBx0js5wVzRTO0FHCeHUHMaVsrueyK
-	YlCJceP2vNrtWn5GxYT+3FdeE3q7zNnDzYxMrCvkqX0qGBYHdJOZZ1GPUCjfSFTT8gkCaPRv772+q
-	A4C7DYlFCu339Xrgnyr5vraHGZPnk+hmACthEQ+DkETpxK1ImZc0JI3cpwYrdSH0Z8W5tYsnsXHHh
-	bcMKGyel33CjWw5itA8j+TM8EbE28GYkgk1neNkZ2A21tOkZ5qg+MA9thHF29LH2DXbXV9dpruVz2
-	xo21gT3w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=KoJknBWLp3IS4/6az2Q//HMGpCBxNRuJ9SwP9FBtJ24=; b=17aBi4fQSAL+nz
+	O65GNUfhkNdemW29KafNGrsHRFFqwxMED/jPThCj2K40CjjfAwYGu/LK3bHuSpCKDKh+jqUm5FZue
+	+D81dX+hdZ+CBkHXV0mAgfOnPU3jOvaHo+ztv4TNa9GGzrbdJpJnz9Y7chtIGBD5d7v/PLZRvWpJL
+	ChxhI+rhO/qMdLzH+0642LPDV/XnEVtYXCq5hoHrPyFKowM3UQ9QQX8q7ro8TDd5QAat2LheMN5j6
+	JsNnmy8JQx7usOmOVQsgxY1Wa+/vuXMHbJl2ZckL0oeHVE79z/B4extmt2iansdeoYKBkAtDorOL9
+	krJEp50Giz9p4S14Erjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sfoZe-0000000HSZg-19iR;
-	Sun, 18 Aug 2024 22:40:34 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1sfq0M-0000000Ha37-0DXN;
+	Mon, 19 Aug 2024 00:12:14 +0000
+Received: from mail-vs1-xe35.google.com ([2607:f8b0:4864:20::e35])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sfoZb-0000000HSZ0-1ICk
+	id 1sfq0J-0000000Ha2h-42tH
 	for linux-riscv@lists.infradead.org;
-	Sun, 18 Aug 2024 22:40:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 06A47CE0490;
-	Sun, 18 Aug 2024 22:40:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22AB6C32786;
-	Sun, 18 Aug 2024 22:40:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1724020828;
-	bh=nvPIW8MrNDLXJBVY8SG6ZctzKzWx2f6RqLPxk4qnoUc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ezhA/uFsNcmRYc1rtMUFEV7Ow3YdA1VbP5uMKK/30TkFlwen1hAZvK9xsDcimmi92
-	 8mUkNTOZwST0HGSh4vM4DnbCHm6a++ZaxgVo4RbUvVFM8m9OWTbcvm6YRKek+t6V+b
-	 tvMtFKlZWup0UsrsaXKSoVKj5NF5XtXpfcDBydD6D+jJ2t8ih4KJZ9cLzA7S07qGk0
-	 vq+sKIxr8X2LKC31TVsBfWO9WSod6mP+qklBNC9MJntvh1ZJ3i0Eg1xUj7sGc6nvuI
-	 XvJNhd2SOrp4A0BzyoSOroeJlm60WSx1l8CHZK2GihFb8k+RZovDlStUMU9Oy8F5WZ
-	 stjafl0rbJBZQ==
-Date: Sun, 18 Aug 2024 23:40:22 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Jonathan Corbet <corbet@lwn.net>,
+	Mon, 19 Aug 2024 00:12:13 +0000
+Received: by mail-vs1-xe35.google.com with SMTP id ada2fe7eead31-49297ff2594so1349123137.1
+        for <linux-riscv@lists.infradead.org>; Sun, 18 Aug 2024 17:12:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tenstorrent.com; s=google; t=1724026330; x=1724631130; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=XkS98moYkgQs8n0Vsl0Kteo3XEop/tJMuQlKicdiPAI=;
+        b=M22PHKS43QeSCQyVYW88gitroFOfT4G3l6VAUtNdbe1kO3tDnJypBXs7DbMWolF9+q
+         GIH7yiz+HAp3Ex25i+w9/Qc6ZFJVEi7dpEiwCJF6WJqc6x5jZYb2zmrjtlVal9gBXnzq
+         JYbiD+98lJEFg08HTl/sQkf2yQ1limbkYDqfopDuj8QpuLFIXgjVIrXrBZO5iSeNztqO
+         BXwGUEO+EFOsv/ImZ6IaxldsoqUB9gompUR2m3F5BxdEzIMZGeM1A2bKikl6IZ64zJ7A
+         iB6Q1HzyCwOExQHNNxVClgKYU1xl4r7IXMVaeQK9KOYyDVS+hST8BCCJF4Xf2nlZAjOt
+         a8IQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1724026330; x=1724631130;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=XkS98moYkgQs8n0Vsl0Kteo3XEop/tJMuQlKicdiPAI=;
+        b=cdbUp+F31FbjsrZjc4HlCUpQqFX9/Og3Ade4jNkuGUT+wA0kMIaFQRaUffNHH+Rkh8
+         LM9f+c3JqAYMJE/OTMkvuvI91IKyNZz+2BR7OSsatKxJp8pNxLPTvK/cWwB7Q6SEkFzM
+         D3XW8lS3JJ4XxnpozCIW75dCnOP1ed3zXOq6kYELZvg1l+J9nYJ/qtvgSqfyqpbjdn6S
+         9OWz279B4scSy0s41E5WQ7FYkx15TQ9KgFEaP5kVO7HnEfEdBQr3uCHHYeSORij5NVev
+         SGmIgSyw2Wlkb0JYEej3ZQWXrO6tH/Qpna1OxiA/C+qLSBbOQLIQThayAS4ni5PdEZ1D
+         ZnKw==
+X-Gm-Message-State: AOJu0YwDvb0Poj3aSHPFSWgUJRKyMCuGi2rJYsJqNx0ZIDXVkHkIfXto
+	J5g8xxut/p0BU1Y+JxbN7SUMmm+v9voFqP7Li+lcA7Itq3/xG3LbJ0gBYmtRPNEv0RWH2cAzZR0
+	BYLI=
+X-Google-Smtp-Source: AGHT+IFNwqE0FRDwqV4ZC/3rm2t54kHlJ65+y7J2QjdvQY70UkSDeWgraa6RRshDx6EHOAFF4wlMfA==
+X-Received: by 2002:a05:6102:dce:b0:48f:95aa:ae2b with SMTP id ada2fe7eead31-4978859e54cmr8133396137.28.1724026329844;
+        Sun, 18 Aug 2024 17:12:09 -0700 (PDT)
+Received: from ausc-rvsw-c-01-anton.local.tenstorrent.com ([38.104.49.66])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7a4ff02c888sm387055685a.20.2024.08.18.17.12.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 18 Aug 2024 17:12:09 -0700 (PDT)
+From: Anton Blanchard <antonb@tenstorrent.com>
+To: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Anton Blanchard <antonb@tenstorrent.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Andrea Parri <parri.andrea@gmail.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>,
-	Waiman Long <longman@redhat.com>, Boqun Feng <boqun.feng@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>, Leonardo Bras <leobras@redhat.com>,
-	Guo Ren <guoren@kernel.org>, linux-doc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org
-Subject: Re: [PATCH v5 12/13] dt-bindings: riscv: Add Ziccrse ISA extension
- description
-Message-ID: <20240818-dinner-legume-9c73c5145898@spud>
-References: <20240818063538.6651-1-alexghiti@rivosinc.com>
- <20240818063538.6651-13-alexghiti@rivosinc.com>
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: [PATCH] riscv: Fix toolchain vector detection
+Date: Mon, 19 Aug 2024 00:11:31 +0000
+Message-Id: <20240819001131.1738806-1-antonb@tenstorrent.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-In-Reply-To: <20240818063538.6651-13-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240818_154031_547061_AAA0B149 
-X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-CacheID: sfid-20240818_171212_034770_9C93AC1D 
+X-CRM114-Status: UNSURE (   9.40  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,55 +89,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0642101006010723177=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+A recent change to gcc flags rv64iv as no longer valid:
 
---===============0642101006010723177==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="MdjlHmg67ept7cTJ"
-Content-Disposition: inline
+   cc1: sorry, unimplemented: Currently the 'V' implementation
+   requires the 'M' extension
 
+and as a result vector support is disabled. Fix this by adding m
+to our toolchain vector detection code.
 
---MdjlHmg67ept7cTJ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Signed-off-by: Anton Blanchard <antonb@tenstorrent.com>
+---
+ arch/riscv/Kconfig | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-On Sun, Aug 18, 2024 at 08:35:37AM +0200, Alexandre Ghiti wrote:
-> Add description for the Ziccrse ISA extension which was ratified in
-> the riscv profiles specification v1.0.
->=20
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> Reviewed-by: Guo Ren <guoren@kernel.org>
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 0f3cd7c3a436..939ea7f6a228 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -552,8 +552,8 @@ config RISCV_ISA_SVPBMT
+ config TOOLCHAIN_HAS_V
+ 	bool
+ 	default y
+-	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64iv)
+-	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32iv)
++	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64imv)
++	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32imv)
+ 	depends on LLD_VERSION >= 140000 || LD_VERSION >= 23800
+ 	depends on AS_HAS_OPTION_ARCH
+ 
+-- 
+2.34.1
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
---MdjlHmg67ept7cTJ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZsJ4VQAKCRB4tDGHoIJi
-0q1TAQC/3Y3ikmFCM9JkfyYBjvVDU7doIlqoBTwix2edEFt+cgD/e8U9gPTWeUR9
-iKo8EiUwOQ2/3YOG6uwaJ7IPl8oZCQo=
-=15P4
------END PGP SIGNATURE-----
-
---MdjlHmg67ept7cTJ--
-
-
---===============0642101006010723177==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0642101006010723177==--
-
