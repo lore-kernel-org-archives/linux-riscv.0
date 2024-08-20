@@ -4,84 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AEF7C531DF
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2024 15:31:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CE0FC3DA4A
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2024 16:21:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pn6ofwWGvT71vVx+NMr+qfGoSBKcPcqCD8OxixtPAwc=; b=PuGVc1kxq3zaC/JK99rr5A3rCi
-	Z8T0as8CLx6ELHR/J52PHBeoqztC4Vi4vYQ38q5PXgKJBl1UCNHSG9deAr+SqmMVJsh8SH8KMpdhb
-	7+7YDokHH/Nd/qzZsSnfffRNJl26KOcMcUPynt7qppiNvRhVkilPgymc+fbCv/td0SqPT9dVLZYMl
-	Fbfij7NHvCZzak7NUYCr0sdG/yIQhpMFSDpWyAdXL8GGllS0R72hAkPZW/+05N79WIRDMWBi8SJQe
-	P3VNf7dg1pycvoavXpxJK3z3BfiXmYEtIWcclNSbsMnW+3zRgOFAv2tueHvJUWne9fU1dd7ZgFW0D
-	X8SgTDrA==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=T6IbvQ7tG8vUp8pQmYMCAsQ2ZtcX5JYZhR+tSZU2qvE=; b=HmFwAs9ZxZFFgz
+	waX8xC0SxZ1WDxUoUzbt9ELDvqrdntYgxU/c0/R8NQkQ9s5Q+o+70qKpngRclNYwbeIS5P4VG/CLO
+	WB7IyO2J314Fs7BmKItYtMsckyr3wT1m4m0FtikELIx/uAjZ+GcdcYg+yQIz8lsDaldCzb19zYB7+
+	J7T0Lupy2bupt4krNWmb/iCLpU0+Gu+P9kEn6GW4tfWh2a+E0/JeiMAWwEpOxn8bUZQ80FknmZYjJ
+	Kb3oTHhkDqjAtJQSJNp2hF7FrlWvvfCDJC1JUxZnkkk2LDRmcmAu7PmNlARIrVHAT8NMbXoYdy0OW
+	Mhc+ev+5hws9JDUj8V2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgQp9-00000005qIE-0FHc;
-	Tue, 20 Aug 2024 15:31:07 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1sgRbi-00000005ywJ-1ejF;
+	Tue, 20 Aug 2024 16:21:18 +0000
+Received: from relay6-d.mail.gandi.net ([217.70.183.198])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgQmj-00000005pRR-03vT;
-	Tue, 20 Aug 2024 15:28:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 9A90BCE0B61;
-	Tue, 20 Aug 2024 15:28:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04A68C4AF15;
-	Tue, 20 Aug 2024 15:28:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1724167711;
-	bh=xOjQogCtboiaDEhhAKTxRH8bKSHT1uounx3l9TGETkQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eUHjXyZ2cuMRwBZU5drzIzAGHafYcOZVbd1dCQIvRqjL+mp8tIA7XyiFy2cCb1lAg
-	 shLO3+WN20Pzstfw7TIY2Fm2/7O7P4rPMgRslOFF8FRrg5Tw2W6K9hg6CDeDyr8s2Z
-	 dKLgO9QioVdce5HjIPnrHbA9CcZr9rhwfYiWAECOhm3Baxn+aET9P9N/7KW01x8G0S
-	 /YxbQ0SJf9JMPYzBsRG29MU+0Jcbf2gF1OwWZVEZ7C4nAiUP1XjAknZZ1nqJiNVWhj
-	 kyX3Qc98DJ/Vu/F5kkqrEn7yAsqfSZ1u+3FxpVBchfgoZTJgonBtBTHqFWeoKMXyEt
-	 2C+GLM3zIUHtg==
-Date: Tue, 20 Aug 2024 16:28:21 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Shuah Khan <shuah@kernel.org>,
-	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
-	Szabolcs Nagy <Szabolcs.Nagy@arm.com>, Kees Cook <kees@kernel.org>,
-	"H.J. Lu" <hjl.tools@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Florian Weimer <fweimer@redhat.com>,
-	Christian Brauner <brauner@kernel.org>,
-	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
-	Ross Burton <ross.burton@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v10 13/40] arm64/mm: Map pages for guarded control stack
-Message-ID: <ec999bf5-6273-4a3c-b1df-f8594d7bb228@sirena.org.uk>
-References: <20240801-arm64-gcs-v10-0-699e2bd2190b@kernel.org>
- <20240801-arm64-gcs-v10-13-699e2bd2190b@kernel.org>
- <ZsMMDNIp6Pkfbg1e@arm.com>
- <d43f8036-cc06-430c-9e9e-b938037fc64c@sirena.org.uk>
- <ZsSvSeE303LGtk4b@arm.com>
+	id 1sgRbe-00000005ytq-3VRd
+	for linux-riscv@lists.infradead.org;
+	Tue, 20 Aug 2024 16:21:17 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id B0F0FC0009;
+	Tue, 20 Aug 2024 16:21:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1724170869;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=uKCyGXB2y2Cdc43x8y99O9EX9a/Mff/KPXgIgmFwkX4=;
+	b=Izyxd3JlQY3bI7qjYRGGRzXKzEjqIXWUTA8SwOGLeXBsWJ9bflw1XafR+AC3k8ODhhiI1O
+	ZagoBAbsc0ixWaEUayWT4rJJrL0oHuggwExnbhpVXF5mVtampLNhrjhGX2SZTj59cz+GUa
+	I87ta0Cp5NVMQrmcKglNF2zoyzlwITAyYkrDMlO4V6CD/d0nMFbKGtLklNrgYwZqxud+gJ
+	zJTHLC2mVHl7iV4sKUHjsSSAGbrpSfcvDeKxK1FVkCJa6HcseWP5cRvbzM+Du+JqiGCjQg
+	aBm/VIg+Fu89whSIm4a3whCGPxh4nszuZamznzowxyQefb+pDGOEtvBDjkGZrw==
+Message-ID: <89aabfbe-79bf-4da7-be44-b6cbd92b72a9@bootlin.com>
+Date: Tue, 20 Aug 2024 18:21:07 +0200
 MIME-Version: 1.0
-In-Reply-To: <ZsSvSeE303LGtk4b@arm.com>
-X-Cookie: You are false data.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/3] dt-bindings: iio: adc: sophgo,cv18xx-saradc.yaml:
+ Add Sophgo CV18XX SARADC binding
+To: Conor Dooley <conor@kernel.org>
+Cc: Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen
+ <lars@metafoo.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
+ Inochi Amaoto <inochiama@outlook.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ =?UTF-8?Q?Miqu=C3=A8l_Raynal?= <miquel.raynal@bootlin.com>,
+ linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <20240812-sg2002-adc-v4-0-599bdb67592f@bootlin.com>
+ <20240812-sg2002-adc-v4-1-599bdb67592f@bootlin.com>
+ <20240812-unwary-mongrel-9f6758bf624c@spud>
+Content-Language: en-US
+From: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+In-Reply-To: <20240812-unwary-mongrel-9f6758bf624c@spud>
+X-GND-Sasl: thomas.bonnefille@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240820_082837_455984_04DE1704 
-X-CRM114-Status: GOOD (  28.05  )
+X-CRM114-CacheID: sfid-20240820_092115_794296_2179E572 
+X-CRM114-Status: GOOD (  22.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,86 +80,134 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1833478511862531087=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hello Conor,
 
---===============1833478511862531087==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="RmO2vT/CXaa26vbH"
-Content-Disposition: inline
+On 8/12/24 5:53 PM, Conor Dooley wrote:
+> On Mon, Aug 12, 2024 at 05:00:55PM +0200, Thomas Bonnefille wrote:
+>> The Sophgo SARADC is a Successive Approximation ADC that can be found in
+>> the Sophgo SoC.
+>>
+>> Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+>> ---
+>>   .../bindings/iio/adc/sophgo,cv18xx-saradc.yaml     | 85 ++++++++++++++++++++++
+>>   1 file changed, 85 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/iio/adc/sophgo,cv18xx-saradc.yaml b/Documentation/devicetree/bindings/iio/adc/sophgo,cv18xx-saradc.yaml
+>> new file mode 100644
+>> index 000000000000..846590808e5f
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/iio/adc/sophgo,cv18xx-saradc.yaml
+>> @@ -0,0 +1,85 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/iio/adc/sophgo,cv18xx-saradc.yaml#
+> 
+> Filename matching the compatible please.
+> 
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title:
+>> +  Sophgo CV18XX SoC series 3 channels Successive Approximation Analog to
+>> +  Digital Converters
+>> +
+>> +maintainers:
+>> +  - Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+>> +
+>> +description:
+>> +  Datasheet at https://github.com/sophgo/sophgo-doc/releases
+>> +
+>> +properties:
+>> +  compatible:
+>> +    const: sophgo,cv1800b-saradc
+>> +
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  interrupts:
+>> +    maxItems: 1
+>> +
+>> +  clocks:
+>> +    maxItems: 1
+>> +
+>> +  '#address-cells':
+>> +    const: 1
+>> +
+>> +  '#size-cells':
+>> +    const: 0
+>> +
+>> +patternProperties:
+>> +  "^channel@[0-3]+$":
+>> +    $ref: adc.yaml
+>> +
+>> +    description: |
+> 
+> This | is not required.
+> 
+>> +      Represents the channels of the ADC.
+>> +
+>> +    properties:
+>> +      reg:
+>> +        description: |
+>> +          The channel number. It can have up to 3 channels numbered from 0 to 2.
+>> +        items:
+>> +          - minimum: 0
+>> +            maximum: 2
+> 
+> Is this sufficient to limit the number of channels to 3? Aren't you relying
+> on the unique unit addresses warning in dtc to limit it, rather than
+> actually limiting with min/maxItems?
+> 
+It seems like I can't use min/maxItems on this property. I think that it 
+is using size-cells + address-cells to deduce that the number of items 
+should be equal to 1.
+Looking at the dtschema repository it seems to be the case in reg.yaml 
+with address-cells/size-cells = 2/2, 1/1 and 2/1.
+If I try to use maxItems here :
 
+     properties:
+       reg:
+         maxItems: 1
+         items:
+           - minimum: 0
+             maximum: 2
 
---RmO2vT/CXaa26vbH
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+I get this strange error message from `make dt_binding_check`:
 
-On Tue, Aug 20, 2024 at 03:59:21PM +0100, Catalin Marinas wrote:
-> On Mon, Aug 19, 2024 at 05:33:24PM +0100, Mark Brown wrote:
-> > On Mon, Aug 19, 2024 at 10:10:36AM +0100, Catalin Marinas wrote:
+DTEX 
+Documentation/devicetree/bindings/iio/adc/sophgo,cv1800b-saradc.example.dts
+/home/thomas/linux/Documentation/devicetree/bindings/iio/adc/sophgo,cv1800b-saradc.yaml: 
+patternProperties:^channel@[0-2]+$:properties:reg: {'maxItems': 1, 
+'items': [{'minimum': 0, 'maximum': 2}]} should not be valid under 
+{'required': ['maxItems']}
+	hint: "maxItems" is not needed with an "items" list
+	from schema $id: http://devicetree.org/meta-schemas/items.yaml#
+/home/thomas/linux/Documentation/devicetree/bindings/iio/adc/sophgo,cv1800b-saradc.yaml: 
+patternProperties:^channel@[0-2]+$:properties:reg: 'anyOf' conditional 
+failed, one must be fixed:
+	'items' is not one of ['maxItems', 'description', 'deprecated']
+		hint: Only "maxItems" is required for a single entry if there are no 
+constraints defined for the values.
+	'maxItems' is not one of ['description', 'deprecated', 'const', 'enum', 
+'minimum', 'maximum', 'multipleOf', 'default', '$ref', 'oneOf']
+	'items' is not one of ['description', 'deprecated', 'const', 'enum', 
+'minimum', 'maximum', 'multipleOf', 'default', '$ref', 'oneOf']
+	1 is less than the minimum of 2
+		hint: Arrays must be described with a combination of 
+minItems/maxItems/items
+	hint: cell array properties must define how many entries and what the 
+entries are when there is more than one entry.
+	from schema $id: http://devicetree.org/meta-schemas/core.yaml#
 
-> > > At a quick look, do_mmap() seems to always set VM_MAYEXEC but discard it
-> > > for non-executable file mmap. Last time I looked (when doing MTE) there
-> > > wasn't a way for the arch code to clear specific VM_* flags, only to
-> > > validate them. But I think we should just clear VM_MAYEXEC and also
-> > > return an error for VM_EXEC in the core do_mmap() if VM_SHADOW_STACK. It
-> > > would cover the other architectures doing shadow stacks.
-
-> > Yes, I think adding something generic would make sense here.  That feels
-> > like a cleanup which could be split out?
-
-> It can be done separately. It doesn't look like x86 has such checks.
-> Adding it generically would be a slight ABI tightening but I doubt it
-> matters, no sane software would use an executable shadow stack.
-
-OK.
-
-> > > Is there any arch restriction with setting BTI and GCS? It doesn't make
-> > > sense but curious if it matters. We block the exec permission anyway
-> > > (unless the BTI pages moved to PIE as well, I don't remember).
-
-> > As you say BTI should be meaningless for a non-executable page like GCS,
-> > I'm not aware of any way in which it matters.  BTI is separate to PIE.
-
-> My thoughts were whether we can get rid of this hunk entirely by
-> handling it in the core code. We'd allow BTI if one wants such useless
-> combination but clear VM_MAYEXEC in the core code (and ignore VM_SHARED
-> since you can't set it anyway).
-
-I have to admit that the BTI because I was shoving _EXEC in there rather
-than because it specifically needed to be blocked.  So change the check
-for VM_SHARED to a VM_WARN_ON(), and leave the _EXEC check for now
-pending the above core change?
-
---RmO2vT/CXaa26vbH
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmbEthQACgkQJNaLcl1U
-h9C1gwf+L79Si923x11LZKfwuy0dQkE7LpTPSafOEhNGVDQZTOrYQW9x1homrSt5
-28vBitZZV/TtBmLO+HSzt1fq5JM76Q0BaPH3ngunEJ0umUMkZwC3r59YzFHNXhQL
-THzCh+B05luDGr58Ay6K29M/I8JVGiXNBd+Ag+/LYQTq2HXOPC7lJimbZAU0aS+Q
-mV43kq/p+Ipazr6Bymd4tGQI5HjdMgMp2dhKT0bLH06aGJhif8691f8t9ZTp4lGX
-1PqWpOuyg0qYDA8JAraUHsc+4FaMyygUqV1ZRC+aTjL/EVsIFwhvqeZzESS+C+/p
-C9zocGnFLEdepXWg3jQHODDOF+LxiQ==
-=8nDO
------END PGP SIGNATURE-----
-
---RmO2vT/CXaa26vbH--
-
-
---===============1833478511862531087==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Isn't it okay to just use minimum and maximum and rely on 
+address-cells/size-cells for the number of items allowed ?
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1833478511862531087==--
-
