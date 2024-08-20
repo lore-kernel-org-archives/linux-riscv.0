@@ -4,109 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E232CC531DC
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2024 15:28:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AEF7C531DF
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2024 15:31:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/18CpQkcctCvLd12FXrk0mIzuSvNUdNJySGBM7B2+a4=; b=RQOpjncNmchvtB
-	mmeRJE2IBjPny2R1DoyV/ys8cJrMHYg6w3Jb/hxyXeAqVSnE7ajaanYWxwqOqP5NCMfAhTKo8sz7z
-	by64S0yyB/S7Nh9tVo7tvjVP8KDH2ZXDCc8fQezIbGA5601P7QUY4ZKSsIWb6PQogiXfkwvQgtUfA
-	82q6OsVrwC/M5llTFmBFKHnwPBZNUNDMUaUrp9QerR/Qu1gcX7d4xhYQGfLHQpj0QtYe1DQtX0a7s
-	kv/INYRrceQxNQCgbCsuVDYnNN8yItpZvIqIRTB15lHH/gE/k04vD7UYrn7jtPC49e/A207eUXYs6
-	iUsIyuRWOilbtn7whg1A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pn6ofwWGvT71vVx+NMr+qfGoSBKcPcqCD8OxixtPAwc=; b=PuGVc1kxq3zaC/JK99rr5A3rCi
+	Z8T0as8CLx6ELHR/J52PHBeoqztC4Vi4vYQ38q5PXgKJBl1UCNHSG9deAr+SqmMVJsh8SH8KMpdhb
+	7+7YDokHH/Nd/qzZsSnfffRNJl26KOcMcUPynt7qppiNvRhVkilPgymc+fbCv/td0SqPT9dVLZYMl
+	Fbfij7NHvCZzak7NUYCr0sdG/yIQhpMFSDpWyAdXL8GGllS0R72hAkPZW/+05N79WIRDMWBi8SJQe
+	P3VNf7dg1pycvoavXpxJK3z3BfiXmYEtIWcclNSbsMnW+3zRgOFAv2tueHvJUWne9fU1dd7ZgFW0D
+	X8SgTDrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgQmp-00000005pVs-2PQX;
-	Tue, 20 Aug 2024 15:28:43 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1sgQp9-00000005qIE-0FHc;
+	Tue, 20 Aug 2024 15:31:07 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgQjB-00000005nP2-016o
-	for linux-riscv@lists.infradead.org;
-	Tue, 20 Aug 2024 15:24:58 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-2d3c071d276so3932691a91.1
-        for <linux-riscv@lists.infradead.org>; Tue, 20 Aug 2024 08:24:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1724167496; x=1724772296; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=K9yIy6nc3JckPfgq1SVS1dt/ubbPwao76sjUpFJbUU0=;
-        b=vtuWoe0Ybjw0emVyuKvxBcJzCEzXnMEAadsCNe8GIVBFzFcDFQBzxo5XlSQCt6T1z8
-         f/ogRylEcV5i9WAFA66xcD5HeId93TAwpXhScIsel/g5UO+W+CnSKO0NZmoLDFLEnH7H
-         LWSULLxNBZjyFTPWfsSgSfxOFParQS86Mu7SA5jwduXA1OXy8tqCoy+S36IQB+rmHi/O
-         lfWR+d83x3j495KiVey4rWc4weuL6uqoZEEgqpbdZ7tdZNAip3EZzYqbUD6QtEO6A3FU
-         ouHMnBO/IN66MJzOzw7G2zXoN2N8MCUXc8Sz7b3ABRETPFIZqo1KT3qDa8p+G5ydh8VU
-         TSvg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1724167496; x=1724772296;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=K9yIy6nc3JckPfgq1SVS1dt/ubbPwao76sjUpFJbUU0=;
-        b=LlaWwuLr7oewTe5xozqyS/N7zZ7O/PGRBG0jINJBzs/bqSz6d03FWlNr5Q4dL4luvA
-         yRGFgqVFNClxOT44qEFFIXDzAKFiBy9nNGdznN0EN83zig0hf1L2fdjAii0+3J95/l86
-         o71IecYIVsXfXDsqx0+rj4GnefMwF75VT4zyw6rohM5ZLTTBx7lVGMj/GSKSGJNI0dMZ
-         k7f2A6qb7I+/Tm0mRqtFMwiN+eOVwIEn9dClhoysdXaSW65Wot3K2OPwybQheBidCr2w
-         ugMfWtlFAMeSdxIQg/ltj+D/mNIB+gHWM2nWYV7liIYFnAvTobNiKqrmZUcWFv1fSmZ1
-         PBWQ==
-X-Gm-Message-State: AOJu0Yw9YIsLbDTNb4MK+GbUyjx49Sao0RLssuW2s8vFwGAhXZfyHFfq
-	/GHF7E/IgpbYd8AYLzt/kU33+AlIHG4FcQP4TARwahFyW6euI6Dw5/rLXpPSaNwtHU0OrVnYPT7
-	+
-X-Google-Smtp-Source: AGHT+IFjpFHeANOi3RNiE4tvCPPb8ENoVMI5hfDn6rIWfrZrc5je7gBHKyKa1cngmecZurzkCscwrA==
-X-Received: by 2002:a17:90a:1bcf:b0:2ca:f39c:8d76 with SMTP id 98e67ed59e1d1-2d3e03e8cb9mr14580242a91.39.1724167495634;
-        Tue, 20 Aug 2024 08:24:55 -0700 (PDT)
-Received: from jesse-desktop.ba.rivosinc.com (pool-108-26-179-17.bstnma.fios.verizon.net. [108.26.179.17])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2d40bea7cb3sm7258157a91.25.2024.08.20.08.24.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Aug 2024 08:24:55 -0700 (PDT)
-From: Jesse Taube <jesse@rivosinc.com>
-To: linux-riscv@lists.infradead.org
-Cc: Jonathan Corbet <corbet@lwn.net>,
+	id 1sgQmj-00000005pRR-03vT;
+	Tue, 20 Aug 2024 15:28:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 9A90BCE0B61;
+	Tue, 20 Aug 2024 15:28:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04A68C4AF15;
+	Tue, 20 Aug 2024 15:28:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1724167711;
+	bh=xOjQogCtboiaDEhhAKTxRH8bKSHT1uounx3l9TGETkQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eUHjXyZ2cuMRwBZU5drzIzAGHafYcOZVbd1dCQIvRqjL+mp8tIA7XyiFy2cCb1lAg
+	 shLO3+WN20Pzstfw7TIY2Fm2/7O7P4rPMgRslOFF8FRrg5Tw2W6K9hg6CDeDyr8s2Z
+	 dKLgO9QioVdce5HjIPnrHbA9CcZr9rhwfYiWAECOhm3Baxn+aET9P9N/7KW01x8G0S
+	 /YxbQ0SJf9JMPYzBsRG29MU+0Jcbf2gF1OwWZVEZ7C4nAiUP1XjAknZZ1nqJiNVWhj
+	 kyX3Qc98DJ/Vu/F5kkqrEn7yAsqfSZ1u+3FxpVBchfgoZTJgonBtBTHqFWeoKMXyEt
+	 2C+GLM3zIUHtg==
+Date: Tue, 20 Aug 2024 16:28:21 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Shuah Khan <shuah@kernel.org>,
+	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
+	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
+	Szabolcs Nagy <Szabolcs.Nagy@arm.com>, Kees Cook <kees@kernel.org>,
+	"H.J. Lu" <hjl.tools@gmail.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Conor Dooley <conor@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
-	Evan Green <evan@rivosinc.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Jesse Taube <jesse@rivosinc.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Xiao Wang <xiao.w.wang@intel.com>,
-	Andy Chiu <andy.chiu@sifive.com>,
-	Eric Biggers <ebiggers@google.com>,
-	Greentime Hu <greentime.hu@sifive.com>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Costa Shulyupin <costa.shul@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Baoquan He <bhe@redhat.com>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Zong Li <zong.li@sifive.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Ben Dooks <ben.dooks@codethink.co.uk>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Erick Archer <erick.archer@gmx.com>,
-	Joel Granados <j.granados@samsung.com>,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH v9 6/6] RISC-V: hwprobe: Document unaligned vector perf key
-Date: Tue, 20 Aug 2024 11:24:24 -0400
-Message-ID: <20240820152424.1973078-7-jesse@rivosinc.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20240820152424.1973078-1-jesse@rivosinc.com>
-References: <20240820152424.1973078-1-jesse@rivosinc.com>
+	Florian Weimer <fweimer@redhat.com>,
+	Christian Brauner <brauner@kernel.org>,
+	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
+	Ross Burton <ross.burton@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v10 13/40] arm64/mm: Map pages for guarded control stack
+Message-ID: <ec999bf5-6273-4a3c-b1df-f8594d7bb228@sirena.org.uk>
+References: <20240801-arm64-gcs-v10-0-699e2bd2190b@kernel.org>
+ <20240801-arm64-gcs-v10-13-699e2bd2190b@kernel.org>
+ <ZsMMDNIp6Pkfbg1e@arm.com>
+ <d43f8036-cc06-430c-9e9e-b938037fc64c@sirena.org.uk>
+ <ZsSvSeE303LGtk4b@arm.com>
 MIME-Version: 1.0
+In-Reply-To: <ZsSvSeE303LGtk4b@arm.com>
+X-Cookie: You are false data.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240820_082457_067872_8228B585 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20240820_082837_455984_04DE1704 
+X-CRM114-Status: GOOD (  28.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,68 +93,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1833478511862531087=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Document key for reporting the speed of unaligned vector accesses.
-The descriptions are the same as the scalar equivalent values.
 
-Signed-off-by: Jesse Taube <jesse@rivosinc.com>
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
----
-V1 -> V2:
-  - New patch
-V2 -> V3:
- - Specify access width
-V3 -> V4:
- - Clarify we're talking about byte accesses using vector registers
- - Spell out _VECTOR_ in macros
-V4 -> V5:
- - No changes
-V5 -> V6:
- - No changes
-V6 -> V7:
- - No changes
-V7 -> V8:
- - Rebase onto fixes
- - s/RISCV_HWPROBE_VECTOR_MISALIGNED/RISCV_HWPROBE_MISALIGNED_VECTOR/g
-V8 -> V9:
- - No changes
----
- Documentation/arch/riscv/hwprobe.rst | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+--===============1833478511862531087==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="RmO2vT/CXaa26vbH"
+Content-Disposition: inline
 
-diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
-index 85b709257918..ea4e0b9c73e7 100644
---- a/Documentation/arch/riscv/hwprobe.rst
-+++ b/Documentation/arch/riscv/hwprobe.rst
-@@ -274,3 +274,19 @@ The following keys are defined:
-   represent the highest userspace virtual address usable.
- 
- * :c:macro:`RISCV_HWPROBE_KEY_TIME_CSR_FREQ`: Frequency (in Hz) of `time CSR`.
-+
-+* :c:macro:`RISCV_HWPROBE_KEY_MISALIGNED_VECTOR_PERF`: An enum value describing the
-+     performance of misaligned vector accesses on the selected set of processors.
-+
-+  * :c:macro:`RISCV_HWPROBE_MISALIGNED_VECTOR_UNKNOWN`: The performance of misaligned
-+    vector accesses is unknown.
-+
-+  * :c:macro:`RISCV_HWPROBE_MISALIGNED_VECTOR_SLOW`: 32-bit misaligned accesses using vector
-+    registers are slower than the equivalent quantity of byte accesses via vector registers.
-+    Misaligned accesses may be supported directly in hardware, or trapped and emulated by software.
-+
-+  * :c:macro:`RISCV_HWPROBE_MISALIGNED_VECTOR_FAST`: 32-bit misaligned accesses using vector
-+    registers are faster than the equivalent quantity of byte accesses via vector registers.
-+
-+  * :c:macro:`RISCV_HWPROBE_MISALIGNED_VECTOR_UNSUPPORTED`: Misaligned vector accesses are
-+    not supported at all and will generate a misaligned address fault.
--- 
-2.45.2
 
+--RmO2vT/CXaa26vbH
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Tue, Aug 20, 2024 at 03:59:21PM +0100, Catalin Marinas wrote:
+> On Mon, Aug 19, 2024 at 05:33:24PM +0100, Mark Brown wrote:
+> > On Mon, Aug 19, 2024 at 10:10:36AM +0100, Catalin Marinas wrote:
+
+> > > At a quick look, do_mmap() seems to always set VM_MAYEXEC but discard it
+> > > for non-executable file mmap. Last time I looked (when doing MTE) there
+> > > wasn't a way for the arch code to clear specific VM_* flags, only to
+> > > validate them. But I think we should just clear VM_MAYEXEC and also
+> > > return an error for VM_EXEC in the core do_mmap() if VM_SHADOW_STACK. It
+> > > would cover the other architectures doing shadow stacks.
+
+> > Yes, I think adding something generic would make sense here.  That feels
+> > like a cleanup which could be split out?
+
+> It can be done separately. It doesn't look like x86 has such checks.
+> Adding it generically would be a slight ABI tightening but I doubt it
+> matters, no sane software would use an executable shadow stack.
+
+OK.
+
+> > > Is there any arch restriction with setting BTI and GCS? It doesn't make
+> > > sense but curious if it matters. We block the exec permission anyway
+> > > (unless the BTI pages moved to PIE as well, I don't remember).
+
+> > As you say BTI should be meaningless for a non-executable page like GCS,
+> > I'm not aware of any way in which it matters.  BTI is separate to PIE.
+
+> My thoughts were whether we can get rid of this hunk entirely by
+> handling it in the core code. We'd allow BTI if one wants such useless
+> combination but clear VM_MAYEXEC in the core code (and ignore VM_SHARED
+> since you can't set it anyway).
+
+I have to admit that the BTI because I was shoving _EXEC in there rather
+than because it specifically needed to be blocked.  So change the check
+for VM_SHARED to a VM_WARN_ON(), and leave the _EXEC check for now
+pending the above core change?
+
+--RmO2vT/CXaa26vbH
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmbEthQACgkQJNaLcl1U
+h9C1gwf+L79Si923x11LZKfwuy0dQkE7LpTPSafOEhNGVDQZTOrYQW9x1homrSt5
+28vBitZZV/TtBmLO+HSzt1fq5JM76Q0BaPH3ngunEJ0umUMkZwC3r59YzFHNXhQL
+THzCh+B05luDGr58Ay6K29M/I8JVGiXNBd+Ag+/LYQTq2HXOPC7lJimbZAU0aS+Q
+mV43kq/p+Ipazr6Bymd4tGQI5HjdMgMp2dhKT0bLH06aGJhif8691f8t9ZTp4lGX
+1PqWpOuyg0qYDA8JAraUHsc+4FaMyygUqV1ZRC+aTjL/EVsIFwhvqeZzESS+C+/p
+C9zocGnFLEdepXWg3jQHODDOF+LxiQ==
+=8nDO
+-----END PGP SIGNATURE-----
+
+--RmO2vT/CXaa26vbH--
+
+
+--===============1833478511862531087==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1833478511862531087==--
+
