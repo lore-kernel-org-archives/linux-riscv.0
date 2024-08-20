@@ -4,62 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4879EC5320E
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2024 07:49:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 565FEC5320E
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2024 08:03:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=GtSgJvSdYm2emgOldYtpw2AUhV7/VttiCacR2LGccr8=; b=eJZ9wJDb5H17zj
-	6xr9b7KmXAiuhuv4tmq4vZXMqGvlJn2hVhugcQhP0QE9E2HRW9OvmFiNGhKFNWNRcae6xRwvnrziu
-	mVZ1UeqHOwJpnMoiBD7lQ+WzvV8C4rzpflJKTwziKSijelyT95SAg3Esu93BN1nMLzO/wZ1Aizsl3
-	p1m6rZEqUZwN6tuODMta8Gy6mgJjCdgxb4eT8Ig8hdVUcAJ5qIGsxJ6k5TFNgqbNTxx9JGjvXaNkQ
-	U+5GF7nmg2KL6RU5mPpOYreMqaEJZjpPh4ApYTlOhQ12c8PEAOZw0GK79z6lS5d6Sm4KdXiys0cXI
-	+TfBCoVFWRoRaxl79N6A==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=6RvZ6lRGuY9X8fuKIs+5dcOeEuM0Yjg24lItCte1sYY=; b=UkDEBYGXraLUDG
+	UeDtybt2mB00DyqWqv+kkvDOgb5JWlJf+gww9J473W13K4yCpSwPkQRX9OUyEissuiUUOcnrM4oKy
+	yXY+/3+yMtXuBAOx/E0+/h0swRfuQED8bV1wAY5CjjxFLUNz9xUlsCYiUCHMB8aI4WiCQNRhUws7m
+	PKUIFkcFzmV6i5Eq6PE2WhPAu9IYSTB1u+Kvu9/2DJRpugRmlr8JAhSsVZGA8uydnu9AP62N+ViKc
+	XXAisLDtmgE+GHeLNDI/u43Zn1NipWL80Cnp88CKHP2ypnR1iJF4gMz2ChsI/yDQRplxNJ5zHFtAW
+	miglvdrSepoOTh97ueAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgJcc-00000004H6Q-39F8;
-	Tue, 20 Aug 2024 07:49:42 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1sgJq0-00000004J4u-3I0p;
+	Tue, 20 Aug 2024 08:03:32 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgJcX-00000004H3K-2YTM
+	id 1sgJpy-00000004J4X-08FF
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Aug 2024 07:49:41 +0000
-Date: Tue, 20 Aug 2024 09:49:25 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1724140173;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type;
-	bh=M5NmlRYVePqzfpvCRGYGwIXh0bDq30gB15n+FrvAydk=;
-	b=PE8OV0hLCxMqeXg8hS9mvU7QnLYzey9M0w/fMeAuVJ1cJy4rKTC1PYTp6maqF6MALwfEXm
-	cTVz0fWkiuoPM/gYbEXRLIuvx1jLMCeTvUW5PAK+i9L55gNyILKj0q4XhxdkAjEI/YupJ0
-	7BW4LIMhcxx2JyIqyzGrUimxA9woEjTRaxQE9NHaxEqXROYfCEGvaL0jrjqi8/CcWJ+u85
-	XDG7aCybX9r0GVo1Clv2vWDjyMBK1sRcmTrbBgo4c7HjWsoTlT4MW5dw+ED0sZmX9pD20d
-	grPSGzQkOLmxsGNyXU2Tejkw/lgBechynWzjdjmG7wU28WLGVIQH7cyju9bXGg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1724140173;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type;
-	bh=M5NmlRYVePqzfpvCRGYGwIXh0bDq30gB15n+FrvAydk=;
-	b=+MTA0FTeEAynBAvdPlV4rTlOo59sQn9r1aklahwhOqzBIo2j1l0NFZ9LFzACZW7KpqHS5j
-	EPhOIJ2j4iDFaICA==
-From: Nam Cao <namcao@linutronix.de>
-To: Atish Patra <atishp@rivosinc.com>, Palmer Dabbelt <palmer@rivosinc.com>,
-	Anup Patel <anup@brainfault.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
+	Tue, 20 Aug 2024 08:03:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1724141010; x=1755677010;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=0BQRMn2iq5py+pyV5ZFgCOVX4sHafSCNgulGe91HtT8=;
+  b=Z9sS5AdBbTLkmNVi05cfjYBWblrx0zT1dTbN17KLNmrmFwnkz68GLE0U
+   oOG2pplWu/oWG4UWK+7erWKT+AoUN4/KUoOT/xOF4Ksn9yLK6gRgqSoKM
+   9BsRZzZbqXMryW7UN4eDrWaA8TuCPca3OEa01pabUu0kBZ57Q/XoAnJeE
+   MkF8NrYsPO0+/X4O+qPvYbvq7RB2fGsUic7FJiLQRu34UFdCGq8H9AbhX
+   P1kG12qblrf2d5SsAo8CP5XLddbA3Et5UvB3UsKQTx3yLFgsCNX4Pg9wb
+   Gbu/HBgpPYE0SFFh6mku/j6+lJjW5ZWn2ZKfRwjn0ju1sFtNl5wiBUnBT
+   Q==;
+X-CSE-ConnectionGUID: jMT6HZ4SQM6iy6VCU4lOEg==
+X-CSE-MsgGUID: tzRY7UmhQFKcPHhe4gA/jg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11169"; a="33845000"
+X-IronPort-AV: E=Sophos;i="6.10,161,1719903600"; 
+   d="scan'208";a="33845000"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Aug 2024 01:03:29 -0700
+X-CSE-ConnectionGUID: EdumMx0DSnOLEqsw4ZYbAA==
+X-CSE-MsgGUID: aAK/GSw9Q3aAxXa3Z2NsGg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.10,161,1719903600"; 
+   d="scan'208";a="60624940"
+Received: from lkp-server01.sh.intel.com (HELO 9a732dc145d3) ([10.239.97.150])
+  by orviesa009.jf.intel.com with ESMTP; 20 Aug 2024 01:03:22 -0700
+Received: from kbuild by 9a732dc145d3 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1sgJpo-0009sh-0P;
+	Tue, 20 Aug 2024 08:03:20 +0000
+Date: Tue, 20 Aug 2024 16:02:50 +0800
+From: kernel test robot <lkp@intel.com>
+To: Jesse Taube <jesse@rivosinc.com>, linux-riscv@lists.infradead.org
+Cc: oe-kbuild-all@lists.linux.dev, Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
+	Evan Green <evan@rivosinc.com>,
 	Andrew Jones <ajones@ventanamicro.com>,
-	Samuel Holland <samuel.holland@sifive.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: drivers/perf: riscv: BUG: using smp_processor_id() in preemptible
-Message-ID: <20240820074925.ReMKUPP3@linutronix.de>
+	Jesse Taube <jesse@rivosinc.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Xiao Wang <xiao.w.wang@intel.com>, Andy Chiu <andy.chiu@sifive.com>,
+	Eric Biggers <ebiggers@google.com>,
+	Greentime Hu <greentime.hu@sifive.com>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Costa Shulyupin <costa.shul@redhat.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Linux Memory Management List <linux-mm@kvack.org>,
+	Baoquan He <bhe@redhat.com>, Anup Patel <apatel@ventanamicro.com>,
+	Zong Li <zong.li@sifive.com>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Ben Dooks <ben.dooks@codethink.co.uk>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Erick Archer <erick.archer@gmx.com>
+Subject: Re: [PATCH v8 4/6] RISC-V: Detect unaligned vector accesses supported
+Message-ID: <202408201543.4MIUQPd7-lkp@intel.com>
+References: <20240819212605.1837175-5-jesse@rivosinc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
+In-Reply-To: <20240819212605.1837175-5-jesse@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240820_004937_831877_A1D7E683 
-X-CRM114-Status: UNSURE (   3.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240820_010330_113245_8A574360 
+X-CRM114-Status: GOOD (  14.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,45 +112,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Jesse,
 
-I noticed the following issue on 6.11.0-rc4 with CONFIG_DEBUG_PREEMPT=y.
+kernel test robot noticed the following build errors:
 
-BUG: using smp_processor_id() in preemptible [00000000] code: swapper/0/1
-caller is debug_smp_processor_id+0x1c/0x26
-CPU: 2 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.11.0-rc4 #2
-Hardware name: StarFive VisionFive 2 v1.3B (DT)
-Call Trace:
-    dump_backtrace+0x1c/0x24
-    show_stack+0x2c/0x38
-    dump_stack_lvl+0x5a/0x72
-    dump_stack+0x14/0x1c
-    check_preemption_disabled+0xb6/0xb8
-    debug_smp_processor_id+0x1c/0x26
-    pmu_sbi_device_probe+0x474/0x570
-    platform_probe+0x52/0x96
-    really_probe+0x82/0x202
-    __driver_probe_device+0x5c/0xd0
-    driver_probe_device+0x2c/0xb0
-    __device_attach_driver+0x6e/0x8e
-    bus_for_each_drv+0x64/0xb8
-    __device_attach+0x82/0x144
-    device_initial_probe+0xe/0x16
-    bus_probe_device+0x86/0x88
-    device_add+0x508/0x6ac
-    platform_device_add+0xcc/0x1c8
-    platform_device_register_full+0xee/0x142
-    pmu_sbi_devinit+0xd4/0x11c
-    do_one_initcall+0x58/0x19c
-    kernel_init_freeable+0x210/0x27a
-    kernel_init+0x1e/0x112
-    ret_from_fork+0xe/0x1c
+[auto build test ERROR on 32d5f7add080a936e28ab4142bfeea6b06999789]
 
-If you fix the issue, please add:
-Reported-by: Nam Cao <namcao@linutronix.de>
+url:    https://github.com/intel-lab-lkp/linux/commits/Jesse-Taube/RISC-V-Check-scalar-unaligned-access-on-all-CPUs/20240820-052900
+base:   32d5f7add080a936e28ab4142bfeea6b06999789
+patch link:    https://lore.kernel.org/r/20240819212605.1837175-5-jesse%40rivosinc.com
+patch subject: [PATCH v8 4/6] RISC-V: Detect unaligned vector accesses supported
+config: riscv-allnoconfig (https://download.01.org/0day-ci/archive/20240820/202408201543.4MIUQPd7-lkp@intel.com/config)
+compiler: riscv64-linux-gcc (GCC) 14.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20240820/202408201543.4MIUQPd7-lkp@intel.com/reproduce)
 
-Best regards,
-Nam
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202408201543.4MIUQPd7-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   arch/riscv/kernel/sys_hwprobe.c: In function 'hwprobe_one_pair':
+>> arch/riscv/kernel/sys_hwprobe.c:263:14: error: 'RISCV_HWPROBE_KEY_VECTOR_MISALIGNED_PERF' undeclared (first use in this function)
+     263 |         case RISCV_HWPROBE_KEY_VECTOR_MISALIGNED_PERF:
+         |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/riscv/kernel/sys_hwprobe.c:263:14: note: each undeclared identifier is reported only once for each function it appears in
+
+
+vim +/RISCV_HWPROBE_KEY_VECTOR_MISALIGNED_PERF +263 arch/riscv/kernel/sys_hwprobe.c
+
+   234	
+   235	static void hwprobe_one_pair(struct riscv_hwprobe *pair,
+   236				     const struct cpumask *cpus)
+   237	{
+   238		switch (pair->key) {
+   239		case RISCV_HWPROBE_KEY_MVENDORID:
+   240		case RISCV_HWPROBE_KEY_MARCHID:
+   241		case RISCV_HWPROBE_KEY_MIMPID:
+   242			hwprobe_arch_id(pair, cpus);
+   243			break;
+   244		/*
+   245		 * The kernel already assumes that the base single-letter ISA
+   246		 * extensions are supported on all harts, and only supports the
+   247		 * IMA base, so just cheat a bit here and tell that to
+   248		 * userspace.
+   249		 */
+   250		case RISCV_HWPROBE_KEY_BASE_BEHAVIOR:
+   251			pair->value = RISCV_HWPROBE_BASE_BEHAVIOR_IMA;
+   252			break;
+   253	
+   254		case RISCV_HWPROBE_KEY_IMA_EXT_0:
+   255			hwprobe_isa_ext0(pair, cpus);
+   256			break;
+   257	
+   258		case RISCV_HWPROBE_KEY_CPUPERF_0:
+   259		case RISCV_HWPROBE_KEY_MISALIGNED_SCALAR_PERF:
+   260			pair->value = hwprobe_misaligned(cpus);
+   261			break;
+   262	
+ > 263		case RISCV_HWPROBE_KEY_VECTOR_MISALIGNED_PERF:
+   264			pair->value = hwprobe_vec_misaligned(cpus);
+   265			break;
+   266	
+   267		case RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE:
+   268			pair->value = 0;
+   269			if (hwprobe_ext0_has(cpus, RISCV_HWPROBE_EXT_ZICBOZ))
+   270				pair->value = riscv_cboz_block_size;
+   271			break;
+   272		case RISCV_HWPROBE_KEY_HIGHEST_VIRT_ADDRESS:
+   273			pair->value = user_max_virt_addr();
+   274			break;
+   275	
+   276		case RISCV_HWPROBE_KEY_TIME_CSR_FREQ:
+   277			pair->value = riscv_timebase;
+   278			break;
+   279	
+   280		/*
+   281		 * For forward compatibility, unknown keys don't fail the whole
+   282		 * call, but get their element key set to -1 and value set to 0
+   283		 * indicating they're unrecognized.
+   284		 */
+   285		default:
+   286			pair->key = -1;
+   287			pair->value = 0;
+   288			break;
+   289		}
+   290	}
+   291	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
