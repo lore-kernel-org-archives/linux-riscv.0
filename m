@@ -4,78 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3DDEC3DA4A
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2024 14:15:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12370C3DA4A
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2024 15:15:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hGasaOeLtSzP1o72PTG8RhKR1R1nwQPUtcV+VWOPTUE=; b=mhfP7em2WMn4W3
-	LXfqVjvIbk7Bk3LA2wiqNGmJRYQwCPExGuzajH4mab+cvP+E3szJO0mwq5L7P4ZPpCSEjSks30iN1
-	DFYZytUiwidbVaPX5ji+KGMrIW1zyqU+1MvA7s4u2bAgQGfGOBaq8KshjM7c0F2N4rmDa/Z207vO7
-	LMHCOR/ZmYkERsM11X44K9Mib8zS3+8XvKtz9weayUcjdyhihjDhEUK18GjRFzdFuKxD7NsQBrHWI
-	IPm6r+J92tQ5mMHis7xcZVRxLE1FAeUJa623a4nzt0JcuonoQGpd/pRB5mVLwgkYI7Sc1xr5PCRKL
-	wX66hqxFEU7sri5aWHPg==;
+	List-Owner; bh=oKB16l8rfcATAR11j3ZyQcclb2ksPZk0Bc1ZDcGymiE=; b=sY5OqnRCH1C6m8
+	1JNdQLI348Q2qQqd3f4b11plwXDc5+kBf9iluW+6M9I9nOf6jgwflvyK/uDvYdFH8Luqlj4bJX6wG
+	BUtTwP02ENnQ/f/+xcmNYByp4SAsH7YWwVuNpeOTbv+lXhziPbv+a4m4xIylyNfpv61Xch5wMOl5T
+	9zPFIppJzOx1HHcUAH/utZOo4QH4BGNuQW3Zl7rO7S2FfsM79jcUWmG7ntyzGWu8s032IZugJlWdU
+	wgHHo3wLElbQcVcTjUGIokHSFdoTOO6nOFnkpNgjoZNCk6vKPQQespOYsjZNSqz8H0zmcr8Ibuyge
+	G4fIoUsn2hlWPgetDR6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgPdz-00000005VeW-3ldo;
-	Tue, 20 Aug 2024 14:15:31 +0000
-Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
+	id 1sgQZe-00000005kiK-2NfJ;
+	Tue, 20 Aug 2024 15:15:06 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgPdx-00000005VdE-3Bbj
-	for linux-riscv@lists.infradead.org;
-	Tue, 20 Aug 2024 14:15:31 +0000
-Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-2f1a7faa4d4so13099851fa.0
-        for <linux-riscv@lists.infradead.org>; Tue, 20 Aug 2024 07:15:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1724163327; x=1724768127; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=06G4FyezZgfDrsrpdflEgDGPZdrxliGs+D3AnzUYadA=;
-        b=f8/CFr/xmvdBx4TZUI6ySRyCCFdW8fksdVOdt2XTbZYvNZbTduWNIE9xPOB6Qt80Sa
-         9Ul9MDshGJQsjj5gyPy8k9jhr9Xk1ZAOI8xTMCKBvG5KKsKLHOUw9LaZetBiEh8wR7BI
-         yLhDGe1g8DLuu2/icko9gnsmekbzUMhAvqXSh0YKZXmhU3d95gmABhLj+zdb+2giJPrf
-         wT1w6k6odZf1rh/c7qlQYW+LnmnWV7WsNaWHrLhkwJCNEG7y8hx1k2szvId8EfKytaWR
-         SfurW1ARwSE3TSww4h0bp3KE1ge5tjFuXKLVCXBLAVFsn136L6i5MkTA7BUitKW9yGK4
-         GBfQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1724163327; x=1724768127;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=06G4FyezZgfDrsrpdflEgDGPZdrxliGs+D3AnzUYadA=;
-        b=V8ZRaV0B3nlJyFkqlnbof7T44QRc8pSO/pEDSXcPNrFzPgMvwYOoB9lvBf75yfGDdc
-         q2HkDAe0WpKmvLmepQKd5lPsR4i2QHf6ZPK3Ib4o9HEGeSc+BlG3MFp8AsaSvdTnHeE2
-         uPrmDD2lOpa2vE+eTTaEhaEz8zgT0ibfvwvGwwzvjs4bp4SgOSFzXnhquAEcEsGt8s1r
-         yppZQ7fEwhlJ1gpg+rwAEuQ7b4fwexN9cZdsJD5cO8yXsPK01H0FjbUAWftiHgHz8fJP
-         NDvX4i6AGw4TU8IK07n0CwDWdLIIWudyD2K2soSOkBqrQt0+GU//HkrQ6YUPoYK3dPWM
-         zfZQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXN+Q3YqBeY9uMmVwJn7V7qBr2gXF009k6qxNOhF5jDUKuQMsK1ArkHxhMJawNLSrFOcD9qX1RYiIrOKA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxDvEkrz4DzjtYXcxaVFQgRgX0Qli3NpqCBgRES/Ho1igFbvAzO
-	o9yTsrUOmJIpRvOJ687COiTaM+OwVGUTSUvFVLOF0cjAM3xh6mNXDfDaBnsr/3z5BxHUS1tmnua
-	t9qXooyMzwGEhUwnMLJjbUQpyfJvJajy6alL1mA==
-X-Google-Smtp-Source: AGHT+IGKiThAN0GuC44MFttdMjzCeTZn0kU8ugyaZbQcInGnnepS6RNuiFyj+ZZXcbedpVwVkDYHDnMsJPfbHLCUf2o=
-X-Received: by 2002:a05:651c:890:b0:2f3:f170:8ec2 with SMTP id
- 38308e7fff4ca-2f3f1708f2emr5847911fa.21.1724163326587; Tue, 20 Aug 2024
- 07:15:26 -0700 (PDT)
+	id 1sgQKa-00000005gHQ-0tPS;
+	Tue, 20 Aug 2024 14:59:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 371B9CE092D;
+	Tue, 20 Aug 2024 14:59:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA71FC4AF0F;
+	Tue, 20 Aug 2024 14:59:23 +0000 (UTC)
+Date: Tue, 20 Aug 2024 15:59:21 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Shuah Khan <shuah@kernel.org>,
+	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
+	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
+	Szabolcs Nagy <Szabolcs.Nagy@arm.com>, Kees Cook <kees@kernel.org>,
+	"H.J. Lu" <hjl.tools@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Florian Weimer <fweimer@redhat.com>,
+	Christian Brauner <brauner@kernel.org>,
+	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
+	Ross Burton <ross.burton@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v10 13/40] arm64/mm: Map pages for guarded control stack
+Message-ID: <ZsSvSeE303LGtk4b@arm.com>
+References: <20240801-arm64-gcs-v10-0-699e2bd2190b@kernel.org>
+ <20240801-arm64-gcs-v10-13-699e2bd2190b@kernel.org>
+ <ZsMMDNIp6Pkfbg1e@arm.com>
+ <d43f8036-cc06-430c-9e9e-b938037fc64c@sirena.org.uk>
 MIME-Version: 1.0
-References: <20240820132857.247679-1-yuehaibing@huawei.com>
-In-Reply-To: <20240820132857.247679-1-yuehaibing@huawei.com>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Tue, 20 Aug 2024 19:45:14 +0530
-Message-ID: <CAK9=C2UMsvb=mZHks+c-YBsWO23=WSrKj3=GgFiO9wzQwc_XLw@mail.gmail.com>
-Subject: Re: [PATCH -next] irqchip/riscv-aplic: Fix NULL vs IS_ERR() bug
-To: Yue Haibing <yuehaibing@huawei.com>
-Cc: anup@brainfault.org, tglx@linutronix.de, paul.walmsley@sifive.com, 
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, ruanjinjie@huawei.com, 
-	bjorn@rivosinc.com, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, dan.carpenter@linaro.org
+Content-Disposition: inline
+In-Reply-To: <d43f8036-cc06-430c-9e9e-b938037fc64c@sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240820_071529_820636_A8F2BFF8 
-X-CRM114-Status: GOOD (  16.15  )
+X-CRM114-CacheID: sfid-20240820_075932_634120_6F629347 
+X-CRM114-Status: GOOD (  31.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,32 +82,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBBdWcgMjAsIDIwMjQgYXQgNzowNOKAr1BNIFl1ZSBIYWliaW5nIDx5dWVoYWliaW5n
-QGh1YXdlaS5jb20+IHdyb3RlOgo+Cj4gZGV2bV9wbGF0Zm9ybV9pb3JlbWFwX3Jlc291cmNlKCkg
-bmV2ZXIgcmV0dXJucyBOVUxMIHBvaW50ZXIsIGl0IHdpbGwKPiByZXR1cm4gRVJSX1BUUigpIHdo
-ZW4gaXQgZmFpbHMsIHNvIGNoZWNrIGl0IHdpdGggSVNfRVJSKCkuCj4KPiBGaXhlczogMjMzM2Rm
-NWFlNTFlICgiaXJxY2hpcDogQWRkIFJJU0MtViBhZHZhbmNlZCBQTElDIGRyaXZlciBmb3IgZGly
-ZWN0LW1vZGUiKQo+IFNpZ25lZC1vZmYtYnk6IFl1ZSBIYWliaW5nIDx5dWVoYWliaW5nQGh1YXdl
-aS5jb20+CgpEYW4gKENDJ2VkKSBhbHJlYWR5IHBvc3RlZCBhIHZlcnkgc2ltaWxhciBwYXRjaC4K
-ClJlZ2FyZHMsCkFudXAKCj4gLS0tCj4gIGRyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtYXBsaWMt
-bWFpbi5jIHwgNCArKy0tCj4gIDEgZmlsZSBjaGFuZ2VkLCAyIGluc2VydGlvbnMoKyksIDIgZGVs
-ZXRpb25zKC0pCj4KPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1hcGxp
-Yy1tYWluLmMgYi9kcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWFwbGljLW1haW4uYwo+IGluZGV4
-IDI4ZGQxNzViNTc2NC4uNmQ5M2E4NWYxZmM2IDEwMDY0NAo+IC0tLSBhL2RyaXZlcnMvaXJxY2hp
-cC9pcnEtcmlzY3YtYXBsaWMtbWFpbi5jCj4gKysrIGIvZHJpdmVycy9pcnFjaGlwL2lycS1yaXNj
-di1hcGxpYy1tYWluLmMKPiBAQCAtMTc1LDkgKzE3NSw5IEBAIHN0YXRpYyBpbnQgYXBsaWNfcHJv
-YmUoc3RydWN0IHBsYXRmb3JtX2RldmljZSAqcGRldikKPgo+ICAgICAgICAgLyogTWFwIHRoZSBN
-TUlPIHJlZ2lzdGVycyAqLwo+ICAgICAgICAgcmVncyA9IGRldm1fcGxhdGZvcm1faW9yZW1hcF9y
-ZXNvdXJjZShwZGV2LCAwKTsKPiAtICAgICAgIGlmICghcmVncykgewo+ICsgICAgICAgaWYgKElT
-X0VSUihyZWdzKSkKPiAgICAgICAgICAgICAgICAgZGV2X2VycihkZXYsICJmYWlsZWQgbWFwIE1N
-SU8gcmVnaXN0ZXJzXG4iKTsKPiAtICAgICAgICAgICAgICAgcmV0dXJuIC1FTk9NRU07Cj4gKyAg
-ICAgICAgICAgICAgIHJldHVybiBQVFJfRVJSKHJlZ3MpOwo+ICAgICAgICAgfQo+Cj4gICAgICAg
-ICAvKgo+IC0tCj4gMi4zNC4xCj4KPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
-LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
-by9saW51eC1yaXNjdgo=
+On Mon, Aug 19, 2024 at 05:33:24PM +0100, Mark Brown wrote:
+> On Mon, Aug 19, 2024 at 10:10:36AM +0100, Catalin Marinas wrote:
+> > On Thu, Aug 01, 2024 at 01:06:40PM +0100, Mark Brown wrote:
+> > > +	if (system_supports_gcs() && (vm_flags & VM_SHADOW_STACK)) {
+> > > +		/*
+> > > +		 * An executable GCS isn't a good idea, and the mm
+> > > +		 * core can't cope with a shared GCS.
+> > > +		 */
+> > > +		if (vm_flags & (VM_EXEC | VM_ARM64_BTI | VM_SHARED))
+> > > +			return false;
+> > > +	}
+> 
+> > I wonder whether we should clear VM_MAYEXEC early on during the vma
+> > creation. This way the mprotect() case will be handled in the core code.
+> > At a quick look, do_mmap() seems to always set VM_MAYEXEC but discard it
+> > for non-executable file mmap. Last time I looked (when doing MTE) there
+> > wasn't a way for the arch code to clear specific VM_* flags, only to
+> > validate them. But I think we should just clear VM_MAYEXEC and also
+> > return an error for VM_EXEC in the core do_mmap() if VM_SHADOW_STACK. It
+> > would cover the other architectures doing shadow stacks.
+> 
+> Yes, I think adding something generic would make sense here.  That feels
+> like a cleanup which could be split out?
+
+It can be done separately. It doesn't look like x86 has such checks.
+Adding it generically would be a slight ABI tightening but I doubt it
+matters, no sane software would use an executable shadow stack.
+
+> > Regarding VM_SHARED, how do we even end up with this via the
+> > map_shadow_stack() syscall? I can't see how one can pass MAP_SHARED to
+> > do_mmap() on this path. I'm fine with a VM_WARN_ON() if you want the
+> > check (and there's no way a user can trigger it).
+> 
+> It's just a defenesive programming thing, I'm not aware of any way in
+> which it should be possible to trigger this.
+> 
+> > Is there any arch restriction with setting BTI and GCS? It doesn't make
+> > sense but curious if it matters. We block the exec permission anyway
+> > (unless the BTI pages moved to PIE as well, I don't remember).
+> 
+> As you say BTI should be meaningless for a non-executable page like GCS,
+> I'm not aware of any way in which it matters.  BTI is separate to PIE.
+
+My thoughts were whether we can get rid of this hunk entirely by
+handling it in the core code. We'd allow BTI if one wants such useless
+combination but clear VM_MAYEXEC in the core code (and ignore VM_SHARED
+since you can't set it anyway).
+
+-- 
+Catalin
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
