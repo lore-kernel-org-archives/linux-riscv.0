@@ -4,82 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2C92C3DA4A
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2024 08:42:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58D87C3DA4A
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2024 08:54:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=SOrXLZyzB/4U6hDxcmBljohUn/gJ9rHse+Z35kxPMkU=; b=GydPl6bzJjkFyA
-	Sedmo0i8s6oYhMAkg2OtVUVhu3LsYQCjhYWhW1FKfBF9j4wIJcjPmPewR6bZQybEIz4A1xUU1tilS
-	1gE6tBkGlNPE6R7lgwMWFK72zHQHLTMsjPKTw/ooreCxLXjogeFBHb2zAnipJcHPW49aEnzAcCrZQ
-	+1SuXC5vDLwtOgO2L21MQSdAy/qDAI9d6HIVxYdYFin2HHAWJsvNtxa2zuSW0rqCqtMDCfD4IM8vI
-	dZyI8m9ZQOHrXvH34i40LNZBTn2Qa6keIiB9cecBm6wNGPQYg+ED+jzA0BBMRlmxklDRcP9PBni2v
-	xKtF0NLbPDPp2lV1kzvw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=CkQSHmbYa1J6OFqtFo+qDPnHOhruGsoq8aa+dtSGZOQ=; b=mgLIL2+44/I9eH
+	SuEj0FDknjCIXcFtdIhqUx2OPENdj8Zz3SToDTI0ZvVIycU4Svl6sbLfgO40lvi5Q5wHo5JDXbHAw
+	SsuTJi/wN0XWhLnfryaOMiSr1AfizQg0a2gqtb6d5+3Iwb6BWpVTPXKRJ9Ag6t6lpLurR0/SmhLNi
+	oV3h9A5rH9Yd8aZOVtNm0O8WVyjWzxs0h50a4wvxPl80XnzBCSAI89ySL6Exc9CyH3X/kwXHaSsE8
+	Souits1KEumCN156I7LVo7l8fUu71Y+d0XVPD62zvp9S0TTzoS7OW+1kjHsjFXtS/4FHMQVhcIPv6
+	sSdgZr6kQIn/8iKzTOZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgKS1-00000004QsL-38ou;
-	Tue, 20 Aug 2024 08:42:50 +0000
-Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
+	id 1sgKdZ-00000004SmD-1zQR;
+	Tue, 20 Aug 2024 08:54:45 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgKRy-00000004Qri-30Y5
+	id 1sgKdW-00000004Sls-1dp0
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Aug 2024 08:42:48 +0000
-Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-2f3ce5bc7b4so29317121fa.2
-        for <linux-riscv@lists.infradead.org>; Tue, 20 Aug 2024 01:42:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1724143364; x=1724748164; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=2PP/VAgEIyHL1KqSWiO//9a8kNH8xXXjnkMKoqwockA=;
-        b=F700TNRIkzaI48d8Y/lwKIPMB4+XHyej0EBKPPNkFzW8cYRTeVcsubmIgetL8hVMsx
-         6J41+EmCBBNW6F/965IGrPQcdjL+46BvLkcDKM3GQUG9bzINmSLJlif35++eL5Mm/Ci1
-         4n7YqimpUdokeD0BZXQjEJ8yH8/FLOV3vqQK6ROotG+5h+Vi8El1YFuNAsUMK28OEA6+
-         hge/qTpp+j7KuGFKMr4chF4ts+U/N26ouwfLo5in7F26yxpQpnLLGqgv6lG3HmasRHiY
-         a2zP79YTgNR5kwkzoum1tRbnPxlMFNgVFi6Dko7FHM9yZEi8NNBrNWK3OoVdPbvUBwxM
-         VJew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1724143364; x=1724748164;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=2PP/VAgEIyHL1KqSWiO//9a8kNH8xXXjnkMKoqwockA=;
-        b=mK1xu6/3BJUVPyerFlYSy4VPIKts4lHT14HW/dz2g/YGIV5d+zLOvos+irefwgtqxw
-         tl1udXb1P7hw/bJ7U9+ZcnPnWVgpA2aJd6JR7Bqmu6TMSF6Bw6J5dAoS4xAm3x9sETNU
-         cINAIDJHAmEWu+fBUZiEUHB7ZMxiLyhwPdxpJ39dzjYzgs9BM/Eu82/BtbBlgjxS9+1z
-         OXjQxZfmBFxPho6nArqcMikEsT5Rs20nxyETTnxD/hWZFFlN0WT6f4/hAfTpTI6Cn76g
-         VYDZcjaD5hTg6nrlL2TvN9TMXrZ43LjLEC83Q/ZqHu/XxfxvRtfTrV6xHFqGrNJE9VU3
-         ALMA==
-X-Forwarded-Encrypted: i=1; AJvYcCVK+x0Vncj5fcohFs/OWzLgo4VuKYgFpsabVwn6mq/AZ+r0LRTXLFBsGouqIGxQoEm1iEWOAWNYHUy7TqdZsQFATye798U0vZNDN7OwQVBR
-X-Gm-Message-State: AOJu0Yzlk0ljxYcGJIKnf+0r6MIaxSp/vtgN9MVh/QkzSNGn1DTJiZ+B
-	lGEMMf5u6HpAeej1SL24Y71O5ioUMjGjgBgNDDevI8XOASbSNPHA0owD0tV2sXYiPa4nOPwPPz/
-	vI40=
-X-Google-Smtp-Source: AGHT+IHyMvSwXLRRmCjKbTOz+MEieevfpO33ioQwKGl2Doy+5ysz84GRgquXIJdiF2lrdI+nfWga3w==
-X-Received: by 2002:a05:6512:6ce:b0:52f:d0f0:e37e with SMTP id 2adb3069b0e04-5331c6dca58mr8439534e87.42.1724143364033;
-        Tue, 20 Aug 2024 01:42:44 -0700 (PDT)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a838396c306sm731716766b.208.2024.08.20.01.42.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Aug 2024 01:42:43 -0700 (PDT)
-Date: Tue, 20 Aug 2024 11:42:40 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Anup Patel <anup@brainfault.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel-janitors@vger.kernel.org
-Subject: [PATCH] irqchip/riscv-aplic: Fix an IS_ERR() vs NULL bug in probe()
-Message-ID: <a5a628d6-81d8-4933-81a8-64aad4743ec4@stanley.mountain>
+	Tue, 20 Aug 2024 08:54:44 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.44])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4Wp3725pvrz2Cn5v;
+	Tue, 20 Aug 2024 16:49:34 +0800 (CST)
+Received: from kwepemh500013.china.huawei.com (unknown [7.202.181.146])
+	by mail.maildlp.com (Postfix) with ESMTPS id 6A69F1401F2;
+	Tue, 20 Aug 2024 16:54:34 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ kwepemh500013.china.huawei.com (7.202.181.146) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 20 Aug 2024 16:54:33 +0800
+Message-ID: <ae6a4702-3225-620c-e83b-b8736ac486a8@huawei.com>
+Date: Tue, 20 Aug 2024 16:54:32 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-X-Mailer: git-send-email haha only kidding
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.0
+Subject: Re: [PATCH] irqchip/riscv-aplic: Fix an IS_ERR() vs NULL bug in
+ probe()
+Content-Language: en-US
+To: Dan Carpenter <dan.carpenter@linaro.org>, Anup Patel
+	<apatel@ventanamicro.com>
+CC: Anup Patel <anup@brainfault.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<kernel-janitors@vger.kernel.org>
+References: <a5a628d6-81d8-4933-81a8-64aad4743ec4@stanley.mountain>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <a5a628d6-81d8-4933-81a8-64aad4743ec4@stanley.mountain>
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
+ kwepemh500013.china.huawei.com (7.202.181.146)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240820_014246_778126_8842957A 
-X-CRM114-Status: GOOD (  13.50  )
+X-CRM114-CacheID: sfid-20240820_015442_795373_0DE206B3 
+X-CRM114-Status: GOOD (  12.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,34 +78,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The devm_platform_ioremap_resource() function doesn't return NULL, it
-returns error pointers.  Fix the error handling to match.
 
-Fixes: 2333df5ae51e ("irqchip: Add RISC-V advanced PLIC driver for direct-mode")
-Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
----
- drivers/irqchip/irq-riscv-aplic-main.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/irqchip/irq-riscv-aplic-main.c b/drivers/irqchip/irq-riscv-aplic-main.c
-index 28dd175b5764..981fad6fb8f7 100644
---- a/drivers/irqchip/irq-riscv-aplic-main.c
-+++ b/drivers/irqchip/irq-riscv-aplic-main.c
-@@ -175,9 +175,9 @@ static int aplic_probe(struct platform_device *pdev)
- 
- 	/* Map the MMIO registers */
- 	regs = devm_platform_ioremap_resource(pdev, 0);
--	if (!regs) {
-+	if (IS_ERR(regs)) {
- 		dev_err(dev, "failed map MMIO registers\n");
--		return -ENOMEM;
-+		return PTR_ERR(regs);
- 	}
- 
- 	/*
--- 
-2.43.0
+On 2024/8/20 16:42, Dan Carpenter wrote:
+> The devm_platform_ioremap_resource() function doesn't return NULL, it
+> returns error pointers.  Fix the error handling to match.
+> 
+> Fixes: 2333df5ae51e ("irqchip: Add RISC-V advanced PLIC driver for direct-mode")
+> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+> ---
+>  drivers/irqchip/irq-riscv-aplic-main.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/irqchip/irq-riscv-aplic-main.c b/drivers/irqchip/irq-riscv-aplic-main.c
+> index 28dd175b5764..981fad6fb8f7 100644
+> --- a/drivers/irqchip/irq-riscv-aplic-main.c
+> +++ b/drivers/irqchip/irq-riscv-aplic-main.c
+> @@ -175,9 +175,9 @@ static int aplic_probe(struct platform_device *pdev)
+>  
+>  	/* Map the MMIO registers */
+>  	regs = devm_platform_ioremap_resource(pdev, 0);
+> -	if (!regs) {
+> +	if (IS_ERR(regs)) {
+>  		dev_err(dev, "failed map MMIO registers\n");
+> -		return -ENOMEM;
+> +		return PTR_ERR(regs);
 
+LGTM
+Reviewed-by:  Jinjie Ruan <ruanjinjie@huawei.com>
+
+>  	}
+>  
+>  	/*
 
 _______________________________________________
 linux-riscv mailing list
