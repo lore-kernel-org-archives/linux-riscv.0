@@ -4,79 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC2BFC3DA4A
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2024 09:21:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8B5DC3DA4A
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2024 09:25:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7zoooOAOwXa12CRmlXPJJOlnp5Q688bhCJ/i4OiPu6Q=; b=apzfVp9AFp1btb
-	icA5RsqIwzh2EaL3h3p8vklSfT9xc8EBsChKyf5/O5IZXQFWfoNwWhc1QlviJhw1mHxTOAxi/tQao
-	zSzNHl0lmLb1H0sOMCGIJaVAt6I10u9dC6x6GkZWVsLlxkU5SPUNFgVWGB2mEXv4Nol+pvN4xZjoP
-	yrEf4Qsyv3hsran/5KzBqxa9IaDeYOgHal86NPfu5vc+y+SFJgBoXKNvYt8y19/GplBlkb0Or5ahf
-	pt1D8VNZ8JOkxlRaTYgmmBdgn2NGduPin7ljvqpMHDBGbEOzt7pE7GLXe7RUXbBGq/pq8i5337DmW
-	h2ZkFyWwB+wHZ78Tiaow==;
+	List-Owner; bh=zx+j4jZ9V234Q7hwLSdHOnNYH4PN5uzMkH+13o6zbCs=; b=h2ga7vmBjJ/UIc
+	ViqjrIv0Z0RvnLtWkf63EfmLESQg1fR7oXrgC1vDRSSbG+PB2EyoBUYWZn7j5+LPebO1gY/bOQN7a
+	lR7XP6Xr+fysnzsyLwoi4jA2ACYnabFXwrani/Az0MrxP3Ov5SzXSpl31773+Etg0/p/pKHDQy+Nd
+	WTExNlxANkPtVwcgOLDcBeKCnuLPm7UpksotKopY4EvmQVBsH8Pvnx04/6ughN63lkmJOxIWqPsyd
+	6hwOpBO5dDtnTP+ktpUkMoFDp57t0+ePQW4jYL4p19ppbiiCIYrMxrgnGSqHAP/LQJdD9Oiv1vlRG
+	uBYw4ADtRMH2CBPQ08/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgL3R-00000004Xb1-3acS;
-	Tue, 20 Aug 2024 09:21:29 +0000
-Received: from mail-il1-x135.google.com ([2607:f8b0:4864:20::135])
+	id 1sgL7U-00000004YhB-2oRb;
+	Tue, 20 Aug 2024 09:25:40 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgL1k-00000004XIj-1cPl
+	id 1sgL7R-00000004Yf4-18la
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Aug 2024 09:19:45 +0000
-Received: by mail-il1-x135.google.com with SMTP id e9e14a558f8ab-39d3b31e577so12132075ab.1
-        for <linux-riscv@lists.infradead.org>; Tue, 20 Aug 2024 02:19:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1724145583; x=1724750383; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zwPbfctzRfZa2/zhqSrtwrO42MOMX85GRmKfc11Yv8c=;
-        b=FYNu7g4Sv1qvCVYiVMFVviPC5/PFz22VBLLiovXf5eN7N52VViIEtmcQ088yC49cQ0
-         3b2s+yNL9QG5PcxKaLCYQkoiP7xQLztA1X6bePpEz+q/hBj7OVqyDb2YN3BnwipDMJlM
-         aAK/GDjX7Z2CGOTIF/+x/0aoZ/YeTAr9M+a+Xul8kaqlqwTotIj4y0eWuV+pzUufX5ch
-         DpFdnI3mE4oMR4tKEn2T6OppCDyR0eShhbmoZixZgSLHqoLQnslUx5qNdiIgYSOOLRH8
-         aVF7fsgw2n4ByDDLmHLYmL8j79kT3RW55/qE6bfWYuO3X3F/fqRdQpge/4cM+R8lR4fU
-         wt4A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1724145583; x=1724750383;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zwPbfctzRfZa2/zhqSrtwrO42MOMX85GRmKfc11Yv8c=;
-        b=D3IMmysXFtMdo5bNTaZ7pBF1r1MfLCutudfciG4xnfulwNidShBRJTw6g4Kq7RfGq1
-         ja1oUFX6pHss8W3qe0JQYg0JvqtHGSlFPKwfV64/31zmWD6ybKndsb0T7/6ASHyJiSQv
-         jQL5AFDgm8mUWYSoAWtZrDQctkyjQcEwu2twMnIKWeJ1+GBgCGF5CFWMsaMaLglgFQ2n
-         RL4Vsmd/QprQNjOo1Eh12CEtazQy6+2UItC73/1tB94OjJU5RtVm++FcrnyEHsU6IyvV
-         XHZtovDU6mTSfsbb+G+RftelYn6pEuSlglg5EDsLeuPK+EGGTjtjwqP0HvMfSjZR+Avu
-         fF0w==
-X-Forwarded-Encrypted: i=1; AJvYcCX4sx/OGWhB86SAyDzu7L+0vAnb6+/QmmQkcfQRPGtTw4QpgsI4KiqlPUce2yKDP3C4pDkoHz991BZEYZRSJKzHnTMmYKgGZRIT4g/4Grwm
-X-Gm-Message-State: AOJu0YwMST0blZTQHRXRvU7vBqlw7KjQ1IyJYZdgftO4S4pPkcz2Crr+
-	qQ/R/rquGH2OPrJAilUzZRE6aUozw6tTx3mK/6JlM6bfeRYCM595CVOSmn1wf+BYNosnwGH7a/1
-	fcDqfm/8z5XyhWMr0S59tnKraWqSIxUXyyeJYxA==
-X-Google-Smtp-Source: AGHT+IExX7dzgemFOY+5Vhm6vcIRzonwTa1j3n/gS7/d7T+aopXOQDlPfujd3coFGkXkPVCcQNAlbebtpfJSDbgjJjI=
-X-Received: by 2002:a05:6e02:1fcf:b0:39b:1ed5:4a55 with SMTP id
- e9e14a558f8ab-39d26d64ac5mr163368045ab.24.1724145583225; Tue, 20 Aug 2024
- 02:19:43 -0700 (PDT)
+	Tue, 20 Aug 2024 09:25:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1724145937; x=1755681937;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=THweWyUnKikOWA2A+WsOKdmg2rS+0jZaR0q7DErdGs8=;
+  b=aSKdzUAVt5JnU95CJSxTPPGjdlbmtZZ/d4LJ4Zv+/ALsWOQoKDu+alf9
+   eGC9TEuLE9foWy0lbfb2FdzkcWD4D/HOmluY4eqGoyB0PJwQw24dXj6ws
+   06lg8XYPQtvkzRACtNT7Gym49wj7qvYr4yyYlmvHsyCaEIKETURtZId9+
+   AN2pkGK1ZXBFV1i4Dv8f8I4ivK11p+5tedkxXB43SZKAN7z53/lgcUfPL
+   aYA3cSJBFhUGj0MNPBnwZhs98v51wiR1J/S/Ab1bW45Z2yLar0rLnKBIg
+   zwwWC4cy2MscgaUH13gAKV0K5ys90GzjdBh5GMmknnkIAql6mA3JM0dAU
+   A==;
+X-CSE-ConnectionGUID: SZ5RoTKiRN6K5d15N2oYBg==
+X-CSE-MsgGUID: ueN977M9SJG2DniKATzAdw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11169"; a="22282119"
+X-IronPort-AV: E=Sophos;i="6.10,161,1719903600"; 
+   d="scan'208";a="22282119"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Aug 2024 02:25:33 -0700
+X-CSE-ConnectionGUID: uKJSlvzWTU+N3dv/t9vFdA==
+X-CSE-MsgGUID: M23/lFdcQLSJJU+C9YW+0Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.10,161,1719903600"; 
+   d="scan'208";a="64850206"
+Received: from lkp-server01.sh.intel.com (HELO 9a732dc145d3) ([10.239.97.150])
+  by fmviesa003.fm.intel.com with ESMTP; 20 Aug 2024 02:25:26 -0700
+Received: from kbuild by 9a732dc145d3 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1sgL7E-0009y0-1o;
+	Tue, 20 Aug 2024 09:25:24 +0000
+Date: Tue, 20 Aug 2024 17:25:24 +0800
+From: kernel test robot <lkp@intel.com>
+To: Jesse Taube <jesse@rivosinc.com>, linux-riscv@lists.infradead.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
+	Evan Green <evan@rivosinc.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Jesse Taube <jesse@rivosinc.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Xiao Wang <xiao.w.wang@intel.com>, Andy Chiu <andy.chiu@sifive.com>,
+	Eric Biggers <ebiggers@google.com>,
+	Greentime Hu <greentime.hu@sifive.com>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Costa Shulyupin <costa.shul@redhat.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Linux Memory Management List <linux-mm@kvack.org>,
+	Baoquan He <bhe@redhat.com>, Anup Patel <apatel@ventanamicro.com>,
+	Zong Li <zong.li@sifive.com>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Ben Dooks <ben.dooks@codethink.co.uk>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Erick Archer <erick.archer@gmx.com>
+Subject: Re: [PATCH v8 4/6] RISC-V: Detect unaligned vector accesses supported
+Message-ID: <202408201720.u8SfprDk-lkp@intel.com>
+References: <20240819212605.1837175-5-jesse@rivosinc.com>
 MIME-Version: 1.0
-References: <a5a628d6-81d8-4933-81a8-64aad4743ec4@stanley.mountain>
-In-Reply-To: <a5a628d6-81d8-4933-81a8-64aad4743ec4@stanley.mountain>
-From: Anup Patel <anup@brainfault.org>
-Date: Tue, 20 Aug 2024 14:49:31 +0530
-Message-ID: <CAAhSdy1n54TxAiPHwrRBmvNZrijoFGXbgq3xb8LXVtPCD8udow@mail.gmail.com>
-Subject: Re: [PATCH] irqchip/riscv-aplic: Fix an IS_ERR() vs NULL bug in probe()
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Anup Patel <apatel@ventanamicro.com>, Thomas Gleixner <tglx@linutronix.de>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kernel-janitors@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <20240819212605.1837175-5-jesse@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240820_021944_717621_EE2B47CF 
-X-CRM114-Status: GOOD (  16.91  )
+X-CRM114-CacheID: sfid-20240820_022537_437836_02ACCBE6 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,32 +108,113 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBBdWcgMjAsIDIwMjQgYXQgMjoxMuKAr1BNIERhbiBDYXJwZW50ZXIgPGRhbi5jYXJw
-ZW50ZXJAbGluYXJvLm9yZz4gd3JvdGU6Cj4KPiBUaGUgZGV2bV9wbGF0Zm9ybV9pb3JlbWFwX3Jl
-c291cmNlKCkgZnVuY3Rpb24gZG9lc24ndCByZXR1cm4gTlVMTCwgaXQKPiByZXR1cm5zIGVycm9y
-IHBvaW50ZXJzLiAgRml4IHRoZSBlcnJvciBoYW5kbGluZyB0byBtYXRjaC4KPgo+IEZpeGVzOiAy
-MzMzZGY1YWU1MWUgKCJpcnFjaGlwOiBBZGQgUklTQy1WIGFkdmFuY2VkIFBMSUMgZHJpdmVyIGZv
-ciBkaXJlY3QtbW9kZSIpCj4gU2lnbmVkLW9mZi1ieTogRGFuIENhcnBlbnRlciA8ZGFuLmNhcnBl
-bnRlckBsaW5hcm8ub3JnPgoKTEdUTS4KClJldmlld2VkLWJ5OiBBbnVwIFBhdGVsIDxhbnVwQGJy
-YWluZmF1bHQub3JnPgoKUmVnYXJkcywKQW51cAoKPiAtLS0KPiAgZHJpdmVycy9pcnFjaGlwL2ly
-cS1yaXNjdi1hcGxpYy1tYWluLmMgfCA0ICsrLS0KPiAgMSBmaWxlIGNoYW5nZWQsIDIgaW5zZXJ0
-aW9ucygrKSwgMiBkZWxldGlvbnMoLSkKPgo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2lycWNoaXAv
-aXJxLXJpc2N2LWFwbGljLW1haW4uYyBiL2RyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtYXBsaWMt
-bWFpbi5jCj4gaW5kZXggMjhkZDE3NWI1NzY0Li45ODFmYWQ2ZmI4ZjcgMTAwNjQ0Cj4gLS0tIGEv
-ZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1hcGxpYy1tYWluLmMKPiArKysgYi9kcml2ZXJzL2ly
-cWNoaXAvaXJxLXJpc2N2LWFwbGljLW1haW4uYwo+IEBAIC0xNzUsOSArMTc1LDkgQEAgc3RhdGlj
-IGludCBhcGxpY19wcm9iZShzdHJ1Y3QgcGxhdGZvcm1fZGV2aWNlICpwZGV2KQo+Cj4gICAgICAg
-ICAvKiBNYXAgdGhlIE1NSU8gcmVnaXN0ZXJzICovCj4gICAgICAgICByZWdzID0gZGV2bV9wbGF0
-Zm9ybV9pb3JlbWFwX3Jlc291cmNlKHBkZXYsIDApOwo+IC0gICAgICAgaWYgKCFyZWdzKSB7Cj4g
-KyAgICAgICBpZiAoSVNfRVJSKHJlZ3MpKSB7Cj4gICAgICAgICAgICAgICAgIGRldl9lcnIoZGV2
-LCAiZmFpbGVkIG1hcCBNTUlPIHJlZ2lzdGVyc1xuIik7Cj4gLSAgICAgICAgICAgICAgIHJldHVy
-biAtRU5PTUVNOwo+ICsgICAgICAgICAgICAgICByZXR1cm4gUFRSX0VSUihyZWdzKTsKPiAgICAg
-ICAgIH0KPgo+ICAgICAgICAgLyoKPiAtLQo+IDIuNDMuMAo+CgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi Jesse,
+
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on 32d5f7add080a936e28ab4142bfeea6b06999789]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Jesse-Taube/RISC-V-Check-scalar-unaligned-access-on-all-CPUs/20240820-052900
+base:   32d5f7add080a936e28ab4142bfeea6b06999789
+patch link:    https://lore.kernel.org/r/20240819212605.1837175-5-jesse%40rivosinc.com
+patch subject: [PATCH v8 4/6] RISC-V: Detect unaligned vector accesses supported
+config: riscv-defconfig (https://download.01.org/0day-ci/archive/20240820/202408201720.u8SfprDk-lkp@intel.com/config)
+compiler: clang version 20.0.0git (https://github.com/llvm/llvm-project 26670e7fa4f032a019d23d56c6a02926e854e8af)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20240820/202408201720.u8SfprDk-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202408201720.u8SfprDk-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   In file included from arch/riscv/kernel/sys_hwprobe.c:7:
+   In file included from include/linux/syscalls.h:93:
+   In file included from include/trace/syscall.h:7:
+   In file included from include/linux/trace_events.h:6:
+   In file included from include/linux/ring_buffer.h:5:
+   In file included from include/linux/mm.h:2228:
+   include/linux/vmstat.h:514:36: warning: arithmetic between different enumeration types ('enum node_stat_item' and 'enum lru_list') [-Wenum-enum-conversion]
+     514 |         return node_stat_name(NR_LRU_BASE + lru) + 3; // skip "nr_"
+         |                               ~~~~~~~~~~~ ^ ~~~
+>> arch/riscv/kernel/sys_hwprobe.c:263:7: error: use of undeclared identifier 'RISCV_HWPROBE_KEY_VECTOR_MISALIGNED_PERF'
+     263 |         case RISCV_HWPROBE_KEY_VECTOR_MISALIGNED_PERF:
+         |              ^
+   1 warning and 1 error generated.
+
+
+vim +/RISCV_HWPROBE_KEY_VECTOR_MISALIGNED_PERF +263 arch/riscv/kernel/sys_hwprobe.c
+
+   234	
+   235	static void hwprobe_one_pair(struct riscv_hwprobe *pair,
+   236				     const struct cpumask *cpus)
+   237	{
+   238		switch (pair->key) {
+   239		case RISCV_HWPROBE_KEY_MVENDORID:
+   240		case RISCV_HWPROBE_KEY_MARCHID:
+   241		case RISCV_HWPROBE_KEY_MIMPID:
+   242			hwprobe_arch_id(pair, cpus);
+   243			break;
+   244		/*
+   245		 * The kernel already assumes that the base single-letter ISA
+   246		 * extensions are supported on all harts, and only supports the
+   247		 * IMA base, so just cheat a bit here and tell that to
+   248		 * userspace.
+   249		 */
+   250		case RISCV_HWPROBE_KEY_BASE_BEHAVIOR:
+   251			pair->value = RISCV_HWPROBE_BASE_BEHAVIOR_IMA;
+   252			break;
+   253	
+   254		case RISCV_HWPROBE_KEY_IMA_EXT_0:
+   255			hwprobe_isa_ext0(pair, cpus);
+   256			break;
+   257	
+   258		case RISCV_HWPROBE_KEY_CPUPERF_0:
+   259		case RISCV_HWPROBE_KEY_MISALIGNED_SCALAR_PERF:
+   260			pair->value = hwprobe_misaligned(cpus);
+   261			break;
+   262	
+ > 263		case RISCV_HWPROBE_KEY_VECTOR_MISALIGNED_PERF:
+   264			pair->value = hwprobe_vec_misaligned(cpus);
+   265			break;
+   266	
+   267		case RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE:
+   268			pair->value = 0;
+   269			if (hwprobe_ext0_has(cpus, RISCV_HWPROBE_EXT_ZICBOZ))
+   270				pair->value = riscv_cboz_block_size;
+   271			break;
+   272		case RISCV_HWPROBE_KEY_HIGHEST_VIRT_ADDRESS:
+   273			pair->value = user_max_virt_addr();
+   274			break;
+   275	
+   276		case RISCV_HWPROBE_KEY_TIME_CSR_FREQ:
+   277			pair->value = riscv_timebase;
+   278			break;
+   279	
+   280		/*
+   281		 * For forward compatibility, unknown keys don't fail the whole
+   282		 * call, but get their element key set to -1 and value set to 0
+   283		 * indicating they're unrecognized.
+   284		 */
+   285		default:
+   286			pair->key = -1;
+   287			pair->value = 0;
+   288			break;
+   289		}
+   290	}
+   291	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
