@@ -4,74 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 409C2C531DC
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2024 03:49:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6118CC3DA4A
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2024 03:57:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=nXYZVaNlI9jBQaUUtdF5f5ii7HARk2NrMqBem+ufx2Y=; b=ed1Kl1547fzJNm
-	RnyY7iECfXsYsZyRFww3CVwzyhGvAfTRY+QES0YVKscvuGRcqeYS7r76Qwkb1Vb9T/XFw9jCYQQCi
-	Q92TbnblD2/Xcdp5oC21Aa2D52TtFQqC3YNb3bDkIxEPSON/LFybWxVQK4Wvzi9g5vADEYXM7+X+2
-	k7b06SAWVlmIPU5OjT+RCJjKUgt9jhFmuhG0n9AGoOa2DzMFlU3lMesAsAqzbTbVGUZ6D5dCeKp24
-	lYxpXez6ZGiDcU4hJHHTsBTF2F1TNaFwMQ/ac6ncVLwmq4nRpuDBtOqrVKdJNJhEL6gYNTlES4bqf
-	eA1THuZtoxs/bNQMbf1A==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=k4xdZMhkYOMiDMlQsq8G9p9shCPwR5qy7A6AUT8BmAw=; b=INCRPH6BJb7WoK
+	uqbGjxzRMHAUzFfiOaVXYjRF8l1duSlliqRwBcLWsWbxwGEg/hVqcZQF2wDz6tEM+EZmgsutmw8wd
+	4O3FTHwfDkXJyTZ1H1PIdx2ksqvjYux+kuGMKJF47IBZNYNDb/NOD3pFY+irBrIuIAlzqYxj8lfex
+	41Q90AHa8cdJbmNIEBcu0vBXibh3wxAy/NNqa6xdQlskvySLcrNFRToXU3Ov+lEtai67iguGBexsw
+	Fh5Cp3x5xXsne6s6rEd/ovNNrrDdeUok1lsjsMIDtU1/XNUE/axAf8hCLgJV4Yqq2BT99wbkzkEs0
+	r9oFi0SH/7jD4M5e5DMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgFrj-00000003hT8-21AK;
-	Tue, 20 Aug 2024 03:49:03 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1sgFzZ-00000003iGh-0rgg;
+	Tue, 20 Aug 2024 03:57:09 +0000
+Received: from mail-yw1-x1135.google.com ([2607:f8b0:4864:20::1135])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgFrf-00000003hRM-3z4d
+	id 1sgFzW-00000003iFz-2xSd
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Aug 2024 03:49:02 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-201fba05363so32010065ad.3
-        for <linux-riscv@lists.infradead.org>; Mon, 19 Aug 2024 20:48:59 -0700 (PDT)
+	Tue, 20 Aug 2024 03:57:07 +0000
+Received: by mail-yw1-x1135.google.com with SMTP id 00721157ae682-690aabe2600so42195477b3.0
+        for <linux-riscv@lists.infradead.org>; Mon, 19 Aug 2024 20:57:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1724125739; x=1724730539; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=zXio7EK5HntiEszQP2Jhk3OXhbsQjLydHBM0J7GAI/U=;
-        b=bwsXGfMeoywgQwAvJ6w6NLpi4d7r3/ndo/YleEQexuxkDiiq1wxa2h52rEeBmDgGJq
-         5QwVwkGVXtZXd58ieZvcAVDzU9rTy2AfIYEvIvf6C/Y7ayc2zzj/Y5VWAiU5ZgAly0vD
-         UmWFCkGlMV07OHa4H2nMr28NSCOySmQ7g0QeEwYlzDys/F0DjbXBxaaK9zDZA5/Re0av
-         hjbIzGx0m7qJngrA+N97pRz/XAdjrXD4x7luMOZOyEhMa7NokPBCbun6Xa4uv6mo2cIO
-         urXtLObJbckjeOKoac79kuUxkwhUc0M9QE9UJA9UqkEb0O9C71+95PzDmHMIHoFUERON
-         cL9A==
+        d=sifive.com; s=google; t=1724126225; x=1724731025; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6BlLp8ySwbtC/N1/BK5qckNa0L23by1DV5/7Cbxmm6A=;
+        b=F52CktX7IGGSyPKYCRqyTku3cz+17HicGZ+Ob5tb3pxA5LbLL/uhOPRCcGViUlDnrA
+         ExG4TdLYkOIompmLGeGnm2PCPgEE7PTbHDThhljuT/CQpiIpTtuvp4uRcWS96WmHOr3t
+         HvE3w34CO7CdYlKud1FgJh72XjNSra+m+qtdL0Pufk6UDCc1WpkmgMjE8kbzuIGcE4VK
+         73NKih4wgzvbn7crXCTqgCUyR5ec90ZpYlgelnlF+pgAjUkN++Wvil/Uwqi/lWTpt563
+         X36BirLlFCmZR+etOdcHOobPPQnlzpj2tcsb2B1qYuRuQndCjvZA6gjqgaLM1mvlS0IQ
+         n9QA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1724125739; x=1724730539;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=zXio7EK5HntiEszQP2Jhk3OXhbsQjLydHBM0J7GAI/U=;
-        b=mx8m7pFxIMoakuaf7claoK4I64H5TL7cNTdLZP0Taz0LLx/7xoeG8DJ33gcJkPsgR4
-         lCUvhEyU553e9+WHwSmwi9JVJmgVYdvhEZ1YOiFnqPtDUEPEuJttGkrczS9sBliNvgRx
-         u5oZEBexXTCIzUx7NEhOOdITsdRcn2Q3THGlqhOW2y/2SCeS1rBgaMIrvtgaBKezSAAM
-         plfjNZUaBvP0oDJNO7YeMDVjxrLzCgh9ILVGE6PqLfxVi/dWAqloKAUojhHvur1Eg1t1
-         cMgHS+jCrTp4AJa4j0eUP1ZJSaupOYb3xbJYb51wmYmCr6fu2ui6/6rt1nt9efDgtQcc
-         U9tA==
-X-Forwarded-Encrypted: i=1; AJvYcCUxkvJGqIaX44ZHppdc3foUydfphBFoHZPSNZfv/XwLrStH2JuoNdRjtS46FeE1xCqER26mLJRzPWuoIg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YznLPVlaZ8Z3CrVgdoakLWzR7bGmEfKXUDfbbhleY7TUFhs7aPZ
-	YgEPdf0ylOEvEEvcfuv9u0w9tSW/qubAfKaGjJLeza0MggHz+AiOJ9MCoHwQnJM=
-X-Google-Smtp-Source: AGHT+IHjongBjNcIxrS0J+fWK7pBgTQAi0+fmVa4nE66btSPYZ7NHijUmPa3HYDh8tutbCiryaoFyA==
-X-Received: by 2002:a17:902:ce81:b0:202:2ed:b3a2 with SMTP id d9443c01a7336-20203e4f493mr125240195ad.8.1724125738649;
-        Mon, 19 Aug 2024 20:48:58 -0700 (PDT)
-Received: from anup-ubuntu-vm.localdomain ([223.185.128.68])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-201f0394718sm68806485ad.226.2024.08.19.20.48.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Aug 2024 20:48:58 -0700 (PDT)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Thomas Gleixner <tglx@linutronix.de>
-Subject: [PATCH v3] irqchip/sifive-plic: Probe plic driver early for Allwinner D1 platform
-Date: Tue, 20 Aug 2024 09:18:50 +0530
-Message-Id: <20240820034850.3189912-1-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.34.1
+        d=1e100.net; s=20230601; t=1724126225; x=1724731025;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=6BlLp8ySwbtC/N1/BK5qckNa0L23by1DV5/7Cbxmm6A=;
+        b=UbdAGLVReT794GeS1M6U6CUhZWhCCqn3ETgKnKna13BkWQeQ2rbWJeU3opfzAcgpZW
+         dt6EfjYqcjupnyM9bM5yxLauAWiTQqQDcUCW0mSs8wxWGQwhgwyQZX9mHq4tnBFKCFRf
+         jQoLiBRahJejHpzbKnCucjMFe3Wwq5nqp8UEr5tsHcV7k1XeA+/gMcAZEpoJyjnonxkc
+         c3owFRXBghM+qGqo7qDWbZkDS3ZvVYGIFkSr4OxihgPOyD4ThLm+8waOjrR1OWmOJPd5
+         Rl6po79kDkMdVsFSd5UuwvpzwqOnOlaH4U2uBA2pfjUCPU0OCWLqkcOYw68ptii+SZhL
+         8o8g==
+X-Forwarded-Encrypted: i=1; AJvYcCUjPuNSYU0hf3QlMTOnwcJa+YY6fq+CFY7mvNHlA2qtyE7fmKU8iQ2Jub6jJ3u4W0okuBvVuemhBRC58g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YylTyP0kYhqzAcrYBtPMg9aXzS/OLwBJLkj9PYUF3TtEESEUBIt
+	WWZEYn+A3eXUYRFKG+lJSEPtBXOvsb9IoFVqPi2LDpmwSEw9mkUCN44pr93WaB8UrC2ui/JlZHV
+	1GxEC8qYANpUV/SF+3aFs/HeRAb1NepJyQo9MNg==
+X-Google-Smtp-Source: AGHT+IEExajBlY/glKVOjfMsdYuk7N3HbpX3+R5vKAaBwb3zlj3A/SivuRq1ZnpX/obDae5kv/3Zih28gc1+g+bhAz0=
+X-Received: by 2002:a05:6902:2808:b0:e13:cd13:25b7 with SMTP id
+ 3f1490d57ef6-e13cd132a8emr11947868276.46.1724126224896; Mon, 19 Aug 2024
+ 20:57:04 -0700 (PDT)
 MIME-Version: 1.0
+References: <20240711111508.1373322-1-ruanjinjie@huawei.com> <2ee770cc-b5dc-1837-aa65-6b2519e03d70@huawei.com>
+In-Reply-To: <2ee770cc-b5dc-1837-aa65-6b2519e03d70@huawei.com>
+From: Andy Chiu <andy.chiu@sifive.com>
+Date: Tue, 20 Aug 2024 11:56:53 +0800
+Message-ID: <CABgGipXpYzivDF5zyLL+2JSEE6q=SH6X2DKAERbf2WWaVAenCA@mail.gmail.com>
+Subject: Re: [PATCH] riscv: Remove unused _TIF_WORK_MASK
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	samitolvanen@google.com, debug@rivosinc.com, guoren@kernel.org, 
+	songshuaishuai@tinylab.org, bjorn@rivosinc.com, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240819_204900_025932_8C30DDFC 
-X-CRM114-Status: GOOD (  25.82  )
+X-CRM114-CacheID: sfid-20240819_205706_778144_68142F8F 
+X-CRM114-Status: GOOD (  12.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,323 +87,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, Charlie Jenkins <charlie@rivosinc.com>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org, Emil Renner Berthing <emil.renner.berthing@canonical.com>, Andrew Jones <ajones@ventanamicro.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The latest Linux RISC-V no longer boots on the Allwinner D1 platform
-because the sun4i_timer driver fails to get an interrupt from PLIC.
-
-The real fix requires enabling the SBI time extension in the platform
-firmware (OpenSBI) and convert sun4i_timer into platform driver.
-Unfortunately, the real fix involves changing multiple places and
-can't be achieved in a short duration.
-
-As a work-around, retrofit plic probing such that plic is probed
-early only for the Allwinner D1 platform and probed as a regular
-platform driver for rest of the RISC-V platforms. In the process,
-partially revert some of the previous patches because PLIC device
-pointer is not available in all probing paths.
-
-More detailed discussion can found here:
-https://lore.kernel.org/lkml/20240814145642.344485-1-emil.renner.berthing@canonical.com/
-
-Fixes: e306a894bd51 ("irqchip/sifive-plic: Chain to parent IRQ after handlers are ready")
-Fixes: 8ec99b033147 ("irqchip/sifive-plic: Convert PLIC driver into a platform driver")
-Suggested-by: Thomas Gleixner <tglx@linutronix.de>
-Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
-Tested-by: Samuel Holland <samuel.holland@sifive.com>
-Tested-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
-Tested-by: Charlie Jenkins <charlie@rivosinc.com>
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
----
-Changes since v2:
- - Use SoC specific PLIC compatible string for Allwinner D1
-Changes since v1:
- - Set suppress_bind_attrs for PLIC platform driver
----
- drivers/irqchip/irq-sifive-plic.c | 115 ++++++++++++++++++------------
- 1 file changed, 71 insertions(+), 44 deletions(-)
-
-diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index 9e22f7e378f5..4d9ea718086d 100644
---- a/drivers/irqchip/irq-sifive-plic.c
-+++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -3,6 +3,7 @@
-  * Copyright (C) 2017 SiFive
-  * Copyright (C) 2018 Christoph Hellwig
-  */
-+#define pr_fmt(fmt) "riscv-plic: " fmt
- #include <linux/cpu.h>
- #include <linux/interrupt.h>
- #include <linux/io.h>
-@@ -63,7 +64,7 @@
- #define PLIC_QUIRK_EDGE_INTERRUPT	0
- 
- struct plic_priv {
--	struct device *dev;
-+	struct fwnode_handle *fwnode;
- 	struct cpumask lmask;
- 	struct irq_domain *irqdomain;
- 	void __iomem *regs;
-@@ -378,8 +379,8 @@ static void plic_handle_irq(struct irq_desc *desc)
- 		int err = generic_handle_domain_irq(handler->priv->irqdomain,
- 						    hwirq);
- 		if (unlikely(err)) {
--			dev_warn_ratelimited(handler->priv->dev,
--					     "can't find mapping for hwirq %lu\n", hwirq);
-+			pr_warn_ratelimited("%pfwP: can't find mapping for hwirq %lu\n",
-+					    handler->priv->fwnode, hwirq);
- 		}
- 	}
- 
-@@ -408,7 +409,8 @@ static int plic_starting_cpu(unsigned int cpu)
- 		enable_percpu_irq(plic_parent_irq,
- 				  irq_get_trigger_type(plic_parent_irq));
- 	else
--		dev_warn(handler->priv->dev, "cpu%d: parent irq not available\n", cpu);
-+		pr_warn("%pfwP: cpu%d: parent irq not available\n",
-+			handler->priv->fwnode, cpu);
- 	plic_set_threshold(handler, PLIC_ENABLE_THRESHOLD);
- 
- 	return 0;
-@@ -424,38 +426,36 @@ static const struct of_device_id plic_match[] = {
- 	{}
- };
- 
--static int plic_parse_nr_irqs_and_contexts(struct platform_device *pdev,
-+static int plic_parse_nr_irqs_and_contexts(struct fwnode_handle *fwnode,
- 					   u32 *nr_irqs, u32 *nr_contexts)
- {
--	struct device *dev = &pdev->dev;
- 	int rc;
- 
- 	/*
- 	 * Currently, only OF fwnode is supported so extend this
- 	 * function for ACPI support.
- 	 */
--	if (!is_of_node(dev->fwnode))
-+	if (!is_of_node(fwnode))
- 		return -EINVAL;
- 
--	rc = of_property_read_u32(to_of_node(dev->fwnode), "riscv,ndev", nr_irqs);
-+	rc = of_property_read_u32(to_of_node(fwnode), "riscv,ndev", nr_irqs);
- 	if (rc) {
--		dev_err(dev, "riscv,ndev property not available\n");
-+		pr_err("%pfwP: riscv,ndev property not available\n", fwnode);
- 		return rc;
- 	}
- 
--	*nr_contexts = of_irq_count(to_of_node(dev->fwnode));
-+	*nr_contexts = of_irq_count(to_of_node(fwnode));
- 	if (WARN_ON(!(*nr_contexts))) {
--		dev_err(dev, "no PLIC context available\n");
-+		pr_err("%pfwP: no PLIC context available\n", fwnode);
- 		return -EINVAL;
- 	}
- 
- 	return 0;
- }
- 
--static int plic_parse_context_parent(struct platform_device *pdev, u32 context,
-+static int plic_parse_context_parent(struct fwnode_handle *fwnode, u32 context,
- 				     u32 *parent_hwirq, int *parent_cpu)
- {
--	struct device *dev = &pdev->dev;
- 	struct of_phandle_args parent;
- 	unsigned long hartid;
- 	int rc;
-@@ -464,10 +464,10 @@ static int plic_parse_context_parent(struct platform_device *pdev, u32 context,
- 	 * Currently, only OF fwnode is supported so extend this
- 	 * function for ACPI support.
- 	 */
--	if (!is_of_node(dev->fwnode))
-+	if (!is_of_node(fwnode))
- 		return -EINVAL;
- 
--	rc = of_irq_parse_one(to_of_node(dev->fwnode), context, &parent);
-+	rc = of_irq_parse_one(to_of_node(fwnode), context, &parent);
- 	if (rc)
- 		return rc;
- 
-@@ -480,48 +480,55 @@ static int plic_parse_context_parent(struct platform_device *pdev, u32 context,
- 	return 0;
- }
- 
--static int plic_probe(struct platform_device *pdev)
-+static int plic_probe(struct fwnode_handle *fwnode)
- {
- 	int error = 0, nr_contexts, nr_handlers = 0, cpu, i;
--	struct device *dev = &pdev->dev;
- 	unsigned long plic_quirks = 0;
- 	struct plic_handler *handler;
- 	u32 nr_irqs, parent_hwirq;
- 	struct plic_priv *priv;
- 	irq_hw_number_t hwirq;
-+	void __iomem *regs;
- 
--	if (is_of_node(dev->fwnode)) {
-+	if (is_of_node(fwnode)) {
- 		const struct of_device_id *id;
- 
--		id = of_match_node(plic_match, to_of_node(dev->fwnode));
-+		id = of_match_node(plic_match, to_of_node(fwnode));
- 		if (id)
- 			plic_quirks = (unsigned long)id->data;
-+
-+		regs = of_iomap(to_of_node(fwnode), 0);
-+		if (!regs)
-+			return -ENOMEM;
-+	} else {
-+		return -ENODEV;
- 	}
- 
--	error = plic_parse_nr_irqs_and_contexts(pdev, &nr_irqs, &nr_contexts);
-+	error = plic_parse_nr_irqs_and_contexts(fwnode, &nr_irqs, &nr_contexts);
- 	if (error)
--		return error;
-+		goto fail_free_regs;
- 
--	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
--	if (!priv)
--		return -ENOMEM;
-+	priv = kzalloc(sizeof(*priv), GFP_KERNEL);
-+	if (!priv) {
-+		error = -ENOMEM;
-+		goto fail_free_regs;
-+	}
- 
--	priv->dev = dev;
-+	priv->fwnode = fwnode;
- 	priv->plic_quirks = plic_quirks;
- 	priv->nr_irqs = nr_irqs;
-+	priv->regs = regs;
- 
--	priv->regs = devm_platform_ioremap_resource(pdev, 0);
--	if (WARN_ON(!priv->regs))
--		return -EIO;
--
--	priv->prio_save = devm_bitmap_zalloc(dev, nr_irqs, GFP_KERNEL);
--	if (!priv->prio_save)
--		return -ENOMEM;
-+	priv->prio_save = bitmap_zalloc(nr_irqs, GFP_KERNEL);
-+	if (!priv->prio_save) {
-+		error = -ENOMEM;
-+		goto fail_free_priv;
-+	}
- 
- 	for (i = 0; i < nr_contexts; i++) {
--		error = plic_parse_context_parent(pdev, i, &parent_hwirq, &cpu);
-+		error = plic_parse_context_parent(fwnode, i, &parent_hwirq, &cpu);
- 		if (error) {
--			dev_warn(dev, "hwirq for context%d not found\n", i);
-+			pr_warn("%pfwP: hwirq for context%d not found\n", fwnode, i);
- 			continue;
- 		}
- 
-@@ -543,7 +550,7 @@ static int plic_probe(struct platform_device *pdev)
- 		}
- 
- 		if (cpu < 0) {
--			dev_warn(dev, "Invalid cpuid for context %d\n", i);
-+			pr_warn("%pfwP: Invalid cpuid for context %d\n", fwnode, i);
- 			continue;
- 		}
- 
-@@ -554,7 +561,7 @@ static int plic_probe(struct platform_device *pdev)
- 		 */
- 		handler = per_cpu_ptr(&plic_handlers, cpu);
- 		if (handler->present) {
--			dev_warn(dev, "handler already present for context %d.\n", i);
-+			pr_warn("%pfwP: handler already present for context %d.\n", fwnode, i);
- 			plic_set_threshold(handler, PLIC_DISABLE_THRESHOLD);
- 			goto done;
- 		}
-@@ -568,8 +575,8 @@ static int plic_probe(struct platform_device *pdev)
- 			i * CONTEXT_ENABLE_SIZE;
- 		handler->priv = priv;
- 
--		handler->enable_save = devm_kcalloc(dev, DIV_ROUND_UP(nr_irqs, 32),
--						    sizeof(*handler->enable_save), GFP_KERNEL);
-+		handler->enable_save = kcalloc(DIV_ROUND_UP(nr_irqs, 32),
-+					       sizeof(*handler->enable_save), GFP_KERNEL);
- 		if (!handler->enable_save)
- 			goto fail_cleanup_contexts;
- done:
-@@ -581,7 +588,7 @@ static int plic_probe(struct platform_device *pdev)
- 		nr_handlers++;
- 	}
- 
--	priv->irqdomain = irq_domain_add_linear(to_of_node(dev->fwnode), nr_irqs + 1,
-+	priv->irqdomain = irq_domain_add_linear(to_of_node(fwnode), nr_irqs + 1,
- 						&plic_irqdomain_ops, priv);
- 	if (WARN_ON(!priv->irqdomain))
- 		goto fail_cleanup_contexts;
-@@ -619,13 +626,13 @@ static int plic_probe(struct platform_device *pdev)
- 		}
- 	}
- 
--	dev_info(dev, "mapped %d interrupts with %d handlers for %d contexts.\n",
--		 nr_irqs, nr_handlers, nr_contexts);
-+	pr_info("%pfwP: mapped %d interrupts with %d handlers for %d contexts.\n",
-+		fwnode, nr_irqs, nr_handlers, nr_contexts);
- 	return 0;
- 
- fail_cleanup_contexts:
- 	for (i = 0; i < nr_contexts; i++) {
--		if (plic_parse_context_parent(pdev, i, &parent_hwirq, &cpu))
-+		if (plic_parse_context_parent(fwnode, i, &parent_hwirq, &cpu))
- 			continue;
- 		if (parent_hwirq != RV_IRQ_EXT || cpu < 0)
- 			continue;
-@@ -634,17 +641,37 @@ static int plic_probe(struct platform_device *pdev)
- 		handler->present = false;
- 		handler->hart_base = NULL;
- 		handler->enable_base = NULL;
-+		kfree(handler->enable_save);
- 		handler->enable_save = NULL;
- 		handler->priv = NULL;
- 	}
--	return -ENOMEM;
-+	bitmap_free(priv->prio_save);
-+fail_free_priv:
-+	kfree(priv);
-+fail_free_regs:
-+	iounmap(regs);
-+	return error;
-+}
-+
-+static int plic_platform_probe(struct platform_device *pdev)
-+{
-+	return plic_probe(pdev->dev.fwnode);
- }
- 
- static struct platform_driver plic_driver = {
- 	.driver = {
- 		.name		= "riscv-plic",
- 		.of_match_table	= plic_match,
-+		.suppress_bind_attrs = true,
- 	},
--	.probe = plic_probe,
-+	.probe = plic_platform_probe,
- };
- builtin_platform_driver(plic_driver);
-+
-+static int __init plic_early_probe(struct device_node *node,
-+				   struct device_node *parent)
-+{
-+	return plic_probe(&node->fwnode);
-+}
-+
-+IRQCHIP_DECLARE(riscv, "allwinner,sun20i-d1-plic", plic_early_probe);
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBBdWcgMjAsIDIwMjQgYXQgMTA6NDLigK9BTSBKaW5qaWUgUnVhbiA8cnVhbmppbmpp
+ZUBodWF3ZWkuY29tPiB3cm90ZToKPgo+Cj4KPiBPbiAyMDI0LzcvMTEgMTk6MTUsIEppbmppZSBS
+dWFuIHdyb3RlOgo+ID4gU2luY2UgY29tbWl0IGYwYmRkZjUwNTg2ZCAoInJpc2N2OiBlbnRyeTog
+Q29udmVydCB0byBnZW5lcmljIGVudHJ5IiksCj4gPiBfVElGX1dPUktfTUFTSyBpcyBubyBsb25n
+ZXIgdXNlZCwgc28gcmVtb3ZlIGl0Lgo+ID4KPiA+IEZpeGVzOiBmMGJkZGY1MDU4NmQgKCJyaXNj
+djogZW50cnk6IENvbnZlcnQgdG8gZ2VuZXJpYyBlbnRyeSIpCj4gPiBTaWduZWQtb2ZmLWJ5OiBK
+aW5qaWUgUnVhbiA8cnVhbmppbmppZUBodWF3ZWkuY29tPgoKUmV2aWV3ZWQtYnk6IEFuZHkgQ2hp
+dSA8YW5keS5jaGl1QHNpZml2ZS5jb20+Cgo+ID4gLS0tCj4gPiAgYXJjaC9yaXNjdi9pbmNsdWRl
+L2FzbS90aHJlYWRfaW5mby5oIHwgNCAtLS0tCj4gPiAgMSBmaWxlIGNoYW5nZWQsIDQgZGVsZXRp
+b25zKC0pCj4gPgo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGhyZWFk
+X2luZm8uaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGhyZWFkX2luZm8uaAo+ID4gaW5kZXgg
+NWQ0NzMzNDM2MzRiLi4wZWVhZDZiN2I3OTAgMTAwNjQ0Cj4gPiAtLS0gYS9hcmNoL3Jpc2N2L2lu
+Y2x1ZGUvYXNtL3RocmVhZF9pbmZvLmgKPiA+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20v
+dGhyZWFkX2luZm8uaAo+ID4gQEAgLTExMSw4ICsxMTEsNCBAQCBpbnQgYXJjaF9kdXBfdGFza19z
+dHJ1Y3Qoc3RydWN0IHRhc2tfc3RydWN0ICpkc3QsIHN0cnVjdCB0YXNrX3N0cnVjdCAqc3JjKTsK
+PiA+ICAjZGVmaW5lIF9USUZfVVBST0JFICAgICAgICAgICgxIDw8IFRJRl9VUFJPQkUpCj4gPiAg
+I2RlZmluZSBfVElGX1JJU0NWX1ZfREVGRVJfUkVTVE9SRSAgICgxIDw8IFRJRl9SSVNDVl9WX0RF
+RkVSX1JFU1RPUkUpCj4gPgo+ID4gLSNkZWZpbmUgX1RJRl9XT1JLX01BU0sgXAo+ID4gLSAgICAg
+KF9USUZfTk9USUZZX1JFU1VNRSB8IF9USUZfU0lHUEVORElORyB8IF9USUZfTkVFRF9SRVNDSEVE
+IHwgXAo+ID4gLSAgICAgIF9USUZfTk9USUZZX1NJR05BTCB8IF9USUZfVVBST0JFKQo+ID4gLQo+
+Cj4gUGluZy4KPgo+ID4gICNlbmRpZiAvKiBfQVNNX1JJU0NWX1RIUkVBRF9JTkZPX0ggKi8KCl9f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
+IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
+cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
