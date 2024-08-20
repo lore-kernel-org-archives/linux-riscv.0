@@ -4,86 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 276E1C52D6F
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2024 02:43:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 409C2C531DC
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2024 03:49:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ckTc4HXHAPIpIY6R0JA4WQIbuW4Yp5nRJMHQKvF1tQc=; b=HCv5hcC4zdbiFf
-	NFVFO0Tnbb67vMg5Fbct774zZXuonPrphV9MkKk5bEZonJMpidwMofD1KO4d71aWAZ/OsHuThTHFU
-	ooHTX8qqcVjoZAJv/KGwU52YKhm1r59ZuAX1RVHPKpQUiWkLgpk4PGjcKajuVr/Zszn8o4nWAZX9O
-	Pj8cEl54drNeVuJ2q41JS4dVpsNTOjIpy4QOpFqWMT74Jzti2vtbS5+vNBCFZQwIpDFJbgiKd89Fb
-	F63If9MjSVogJuhPs29ekMNMYA2QzjQ3tjVhqPxv5wyaGoiarXFwDXSs64S09MGVZ7XhEr0E6rhQt
-	RxHrR6BMC/KaB4RCqpjQ==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=nXYZVaNlI9jBQaUUtdF5f5ii7HARk2NrMqBem+ufx2Y=; b=ed1Kl1547fzJNm
+	RnyY7iECfXsYsZyRFww3CVwzyhGvAfTRY+QES0YVKscvuGRcqeYS7r76Qwkb1Vb9T/XFw9jCYQQCi
+	Q92TbnblD2/Xcdp5oC21Aa2D52TtFQqC3YNb3bDkIxEPSON/LFybWxVQK4Wvzi9g5vADEYXM7+X+2
+	k7b06SAWVlmIPU5OjT+RCJjKUgt9jhFmuhG0n9AGoOa2DzMFlU3lMesAsAqzbTbVGUZ6D5dCeKp24
+	lYxpXez6ZGiDcU4hJHHTsBTF2F1TNaFwMQ/ac6ncVLwmq4nRpuDBtOqrVKdJNJhEL6gYNTlES4bqf
+	eA1THuZtoxs/bNQMbf1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgEpx-00000003Zpg-3ndl;
-	Tue, 20 Aug 2024 02:43:09 +0000
-Received: from mail-oa1-x2c.google.com ([2001:4860:4864:20::2c])
+	id 1sgFrj-00000003hT8-21AK;
+	Tue, 20 Aug 2024 03:49:03 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgEpu-00000003Zoq-29c7
+	id 1sgFrf-00000003hRM-3z4d
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Aug 2024 02:43:08 +0000
-Received: by mail-oa1-x2c.google.com with SMTP id 586e51a60fabf-27018df4ff3so2965424fac.1
-        for <linux-riscv@lists.infradead.org>; Mon, 19 Aug 2024 19:43:06 -0700 (PDT)
+	Tue, 20 Aug 2024 03:49:02 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-201fba05363so32010065ad.3
+        for <linux-riscv@lists.infradead.org>; Mon, 19 Aug 2024 20:48:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1724121785; x=1724726585; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=IFOzHWvbak6LE8xz7ZLjSo/pB2FEXgmHkGdVOLCa8Qg=;
-        b=XMuusJB47JcjfLJ3L+XUE7lAu9kimPEozF2ph9IAZcneYtkuSP4zCpoWMLbk/MWGEK
-         0F635uRnmU2BIC7q61/doi/6ZJwUKbWoC7I056/EYkxj6oINPro9ZAzbHtT4tvOqdRRe
-         SJuXF0SN2J6atQztI4r2vGz8djXinTUtVJ/YaVn+IFEGaFSkLlH/iQNDhMsTCvXi85xe
-         iJ32Ev6y56D7hp+D+nkfM0HXdHCIPG+HBs19dd3jjviv05o8hc7r1SkqEO4f0dkZygoi
-         J0DQdcysU1lMW/os4cbhuSs4DotxAMoX6cA/9CTe9VUw91wTZv9HpDwvSndPu9VLH+9v
-         KVbQ==
+        d=ventanamicro.com; s=google; t=1724125739; x=1724730539; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=zXio7EK5HntiEszQP2Jhk3OXhbsQjLydHBM0J7GAI/U=;
+        b=bwsXGfMeoywgQwAvJ6w6NLpi4d7r3/ndo/YleEQexuxkDiiq1wxa2h52rEeBmDgGJq
+         5QwVwkGVXtZXd58ieZvcAVDzU9rTy2AfIYEvIvf6C/Y7ayc2zzj/Y5VWAiU5ZgAly0vD
+         UmWFCkGlMV07OHa4H2nMr28NSCOySmQ7g0QeEwYlzDys/F0DjbXBxaaK9zDZA5/Re0av
+         hjbIzGx0m7qJngrA+N97pRz/XAdjrXD4x7luMOZOyEhMa7NokPBCbun6Xa4uv6mo2cIO
+         urXtLObJbckjeOKoac79kuUxkwhUc0M9QE9UJA9UqkEb0O9C71+95PzDmHMIHoFUERON
+         cL9A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1724121785; x=1724726585;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=IFOzHWvbak6LE8xz7ZLjSo/pB2FEXgmHkGdVOLCa8Qg=;
-        b=UQeu8QAcHVnPe26T94TCn0u5Sd+wSyCxf1spXF6Z1w5Ng8UombCOlyldbarCSBNk8i
-         Dn8Ez4tDpWwXnyxL3qW371Erb4maBj2FTsD6C1wiu2YQWg7KyuxURW/Q37FnYMixWADC
-         y1KdJ3NpN5oEOilZZ98CTxS0SkJUxPA9duvvgIu6oW9tyTMvU+CyPechmdSsLdMNXyH6
-         ASr62wWkA3OxzMoM/6ZINB4kuwQQLw2QwsLORBw86FijBuLqh9zgq2HjzrC1t2nYcUfA
-         4SGjQWL33sMj9h7KTcSTEd3FQIDVktio3wR+Ma4+updVNjR1qBVYtwsxv8xFo9mPGEdo
-         Nohg==
-X-Forwarded-Encrypted: i=1; AJvYcCU69YF7CHnKhOy1/+RUzheHW2luhwit6JJCRRpuupBcIJa9SyYgyBqjDdWFeQBeEBdgTlajhb/SxLx2mQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yym3872DoCE7hUx8qVAmmFejc/D/nGcTf56wuPh60518qWVAvyD
-	GvJwMexoKIiCTKUfNC+NB7dHd6oO00TwhO0984hndpUafsiR3IIBoTOljUQBzQ0=
-X-Google-Smtp-Source: AGHT+IFyL2JXMETglLC3qz3X/+8Y7jUI/5f0Wd58GItgifYO6esi1EP2LeOLUWy1KtEsosdOCx3dgA==
-X-Received: by 2002:a05:6870:e387:b0:24e:8987:6f34 with SMTP id 586e51a60fabf-2701c354855mr15623458fac.3.1724121785232;
-        Mon, 19 Aug 2024 19:43:05 -0700 (PDT)
-Received: from ghost ([2601:647:6700:64d0:7ef:3ad1:b795:8617])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7127af1e415sm7473468b3a.175.2024.08.19.19.43.03
+        d=1e100.net; s=20230601; t=1724125739; x=1724730539;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=zXio7EK5HntiEszQP2Jhk3OXhbsQjLydHBM0J7GAI/U=;
+        b=mx8m7pFxIMoakuaf7claoK4I64H5TL7cNTdLZP0Taz0LLx/7xoeG8DJ33gcJkPsgR4
+         lCUvhEyU553e9+WHwSmwi9JVJmgVYdvhEZ1YOiFnqPtDUEPEuJttGkrczS9sBliNvgRx
+         u5oZEBexXTCIzUx7NEhOOdITsdRcn2Q3THGlqhOW2y/2SCeS1rBgaMIrvtgaBKezSAAM
+         plfjNZUaBvP0oDJNO7YeMDVjxrLzCgh9ILVGE6PqLfxVi/dWAqloKAUojhHvur1Eg1t1
+         cMgHS+jCrTp4AJa4j0eUP1ZJSaupOYb3xbJYb51wmYmCr6fu2ui6/6rt1nt9efDgtQcc
+         U9tA==
+X-Forwarded-Encrypted: i=1; AJvYcCUxkvJGqIaX44ZHppdc3foUydfphBFoHZPSNZfv/XwLrStH2JuoNdRjtS46FeE1xCqER26mLJRzPWuoIg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YznLPVlaZ8Z3CrVgdoakLWzR7bGmEfKXUDfbbhleY7TUFhs7aPZ
+	YgEPdf0ylOEvEEvcfuv9u0w9tSW/qubAfKaGjJLeza0MggHz+AiOJ9MCoHwQnJM=
+X-Google-Smtp-Source: AGHT+IHjongBjNcIxrS0J+fWK7pBgTQAi0+fmVa4nE66btSPYZ7NHijUmPa3HYDh8tutbCiryaoFyA==
+X-Received: by 2002:a17:902:ce81:b0:202:2ed:b3a2 with SMTP id d9443c01a7336-20203e4f493mr125240195ad.8.1724125738649;
+        Mon, 19 Aug 2024 20:48:58 -0700 (PDT)
+Received: from anup-ubuntu-vm.localdomain ([223.185.128.68])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-201f0394718sm68806485ad.226.2024.08.19.20.48.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Aug 2024 19:43:04 -0700 (PDT)
-Date: Mon, 19 Aug 2024 19:43:01 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Levi Zim <rsworktech@outlook.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, cyy@cyyself.name,
-	alexghiti@rivosinc.com, Paul Walmsley <paul.walmsley@sifive.com>,
-	aou@eecs.berkeley.edu, shuah@kernel.org, corbet@lwn.net,
-	linux-mm@kvack.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-api@vger.kernel.org
-Subject: Re: [PATCH v3 1/3] riscv: mm: Use hint address in mmap if available
-Message-ID: <ZsQCtUP9ul2Y9WB9@ghost>
-References: <mhng-5d9bb6c0-9f40-44b2-b9dc-3823cf6dbdef@palmer-ri-x1c9>
- <MEYP282MB2312106710775098261AB348C68C2@MEYP282MB2312.AUSP282.PROD.OUTLOOK.COM>
- <ZsN6R8IliKzAKKMb@ghost>
- <MEYP282MB2312FDB8F4AA7A76884081ADC68D2@MEYP282MB2312.AUSP282.PROD.OUTLOOK.COM>
+        Mon, 19 Aug 2024 20:48:58 -0700 (PDT)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Thomas Gleixner <tglx@linutronix.de>
+Subject: [PATCH v3] irqchip/sifive-plic: Probe plic driver early for Allwinner D1 platform
+Date: Tue, 20 Aug 2024 09:18:50 +0530
+Message-Id: <20240820034850.3189912-1-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <MEYP282MB2312FDB8F4AA7A76884081ADC68D2@MEYP282MB2312.AUSP282.PROD.OUTLOOK.COM>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240819_194306_850088_2364183D 
-X-CRM114-Status: GOOD (  68.82  )
+X-CRM114-CacheID: sfid-20240819_204900_025932_8C30DDFC 
+X-CRM114-Status: GOOD (  25.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,415 +83,320 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Cc: Anup Patel <apatel@ventanamicro.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, Charlie Jenkins <charlie@rivosinc.com>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org, Emil Renner Berthing <emil.renner.berthing@canonical.com>, Andrew Jones <ajones@ventanamicro.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 20, 2024 at 09:48:50AM +0800, Levi Zim wrote:
-> On 2024-08-20 01:00, Charlie Jenkins wrote:
-> > On Mon, Aug 19, 2024 at 01:55:57PM +0800, Levi Zim wrote:
-> > > On 2024-03-22 22:06, Palmer Dabbelt wrote:
-> > > > On Thu, 01 Feb 2024 18:28:06 PST (-0800), Charlie Jenkins wrote:
-> > > > > On Wed, Jan 31, 2024 at 11:59:43PM +0800, Yangyu Chen wrote:
-> > > > > > On Wed, 2024-01-31 at 22:41 +0800, Yangyu Chen wrote:
-> > > > > > > On Tue, 2024-01-30 at 17:07 -0800, Charlie Jenkins wrote:
-> > > > > > > > On riscv it is guaranteed that the address returned by mmap=
- is less
-> > > > > > > > than
-> > > > > > > > the hint address. Allow mmap to return an address all the w=
-ay up to
-> > > > > > > > addr, if provided, rather than just up to the lower address=
- space.
-> > > > > > > > > > This provides a performance benefit as well, allowing
-> > > > > > mmap to exit
-> > > > > > > > after
-> > > > > > > > checking that the address is in range rather than searching=
- for a
-> > > > > > > > valid
-> > > > > > > > address.
-> > > > > > > > > > It is possible to provide an address that uses at most =
-the same
-> > > > > > > > number
-> > > > > > > > of bits, however it is significantly more computationally e=
-xpensive
-> > > > > > > > to
-> > > > > > > > provide that number rather than setting the max to be the h=
-int
-> > > > > > > > address.
-> > > > > > > > There is the instruction clz/clzw in Zbb that returns the h=
-ighest
-> > > > > > > > set
-> > > > > > > > bit
-> > > > > > > > which could be used to performantly implement this, but it =
-would
-> > > > > > > > still
-> > > > > > > > be slower than the current implementation. At worst case, h=
-alf of
-> > > > > > > > the
-> > > > > > > > address would not be able to be allocated when a hint addre=
-ss is
-> > > > > > > > provided.
-> > > > > > > > > > Signed-off-by: Charlie Jenkins<charlie@rivosinc.com>
-> > > > > > > > ---
-> > > > > > > >  =A0arch/riscv/include/asm/processor.h | 27 +++++++++++----=
------------
-> > > > > > > > -
-> > > > > > > >  =A01 file changed, 11 insertions(+), 16 deletions(-)
-> > > > > > > > > > diff --git a/arch/riscv/include/asm/processor.h
-> > > > > > > > b/arch/riscv/include/asm/processor.h
-> > > > > > > > index f19f861cda54..8ece7a8f0e18 100644
-> > > > > > > > --- a/arch/riscv/include/asm/processor.h
-> > > > > > > > +++ b/arch/riscv/include/asm/processor.h
-> > > > > > > > @@ -14,22 +14,16 @@
-> > > > > > > > =
+The latest Linux RISC-V no longer boots on the Allwinner D1 platform
+because the sun4i_timer driver fails to get an interrupt from PLIC.
 
-> > > > > > > >  =A0#include <asm/ptrace.h>
-> > > > > > > > =
+The real fix requires enabling the SBI time extension in the platform
+firmware (OpenSBI) and convert sun4i_timer into platform driver.
+Unfortunately, the real fix involves changing multiple places and
+can't be achieved in a short duration.
 
-> > > > > > > > -#ifdef CONFIG_64BIT
-> > > > > > > > -#define DEFAULT_MAP_WINDOW=A0=A0=A0 (UL(1) << (MMAP_VA_BIT=
-S - 1))
-> > > > > > > > -#define STACK_TOP_MAX=A0=A0=A0=A0=A0=A0=A0 TASK_SIZE_64
-> > > > > > > > -
-> > > > > > > >  =A0#define arch_get_mmap_end(addr, len, flags)=A0=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0=A0 \
-> > > > > > > >  =A0({=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 \
-> > > > > > > >  =A0=A0=A0=A0 unsigned long
-> > > > > > > > mmap_end;=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0=A0=A0 \
-> > > > > > > >  =A0=A0=A0=A0 typeof(addr) _addr =3D (addr);=A0=A0=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 \
-> > > > > > > > -=A0=A0=A0 if ((_addr) =3D=3D 0 || (IS_ENABLED(CONFIG_COMPA=
-T) &&
-> > > > > > > > is_compat_task())) \
-> > > > > > > > +=A0=A0=A0 if ((_addr) =3D=3D 0 ||=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 \
-> > > > > > > > +=A0=A0=A0 =A0=A0=A0 (IS_ENABLED(CONFIG_COMPAT) && is_compa=
-t_task()) ||=A0=A0=A0 \
-> > > > > > > > +=A0=A0=A0 =A0=A0=A0 ((_addr + len) > BIT(VA_BITS -
-> > > > > > > > 1)))=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 \
-> > > > > > > >  =A0=A0=A0=A0=A0=A0=A0=A0 mmap_end =3D STACK_TOP_MAX;=A0=A0=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0 \
-> > > > > > > > -=A0=A0=A0 else if ((_addr) >=3D VA_USER_SV57) \
-> > > > > > > > -=A0=A0=A0=A0=A0=A0=A0 mmap_end =3D STACK_TOP_MAX;=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0=A0=A0 \
-> > > > > > > > -=A0=A0=A0 else if ((((_addr) >=3D VA_USER_SV48)) && (VA_BI=
-TS >=3D
-> > > > > > > > VA_BITS_SV48)) \
-> > > > > > > > -=A0=A0=A0=A0=A0=A0=A0 mmap_end =3D VA_USER_SV48;=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0=A0=A0 \
-> > > > > > > >  =A0=A0=A0=A0 else=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 \
-> > > > > > > > -=A0=A0=A0=A0=A0=A0=A0 mmap_end =3D VA_USER_SV39;=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0=A0=A0 \
-> > > > > > > > +=A0=A0=A0=A0=A0=A0=A0 mmap_end =3D (_addr + len);=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0=A0=A0 \
-> > > > > > > >  =A0=A0=A0=A0 mmap_end;=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 \
-> > > > > > > >  =A0})
-> > > > > > > > =
+As a work-around, retrofit plic probing such that plic is probed
+early only for the Allwinner D1 platform and probed as a regular
+platform driver for rest of the RISC-V platforms. In the process,
+partially revert some of the previous patches because PLIC device
+pointer is not available in all probing paths.
 
-> > > > > > > > @@ -39,17 +33,18 @@
-> > > > > > > >  =A0=A0=A0=A0 typeof(addr) _addr =3D (addr);=A0=A0=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 \
-> > > > > > > >  =A0=A0=A0=A0 typeof(base) _base =3D (base);=A0=A0=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 \
-> > > > > > > >  =A0=A0=A0=A0 unsigned long rnd_gap =3D DEFAULT_MAP_WINDOW =
-- (_base);=A0=A0=A0 \
-> > > > > > > > -=A0=A0=A0 if ((_addr) =3D=3D 0 || (IS_ENABLED(CONFIG_COMPA=
-T) &&
-> > > > > > > > is_compat_task())) \
-> > > > > > > > +=A0=A0=A0 if ((_addr) =3D=3D 0 ||=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 \
-> > > > > > > > +=A0=A0=A0 =A0=A0=A0 (IS_ENABLED(CONFIG_COMPAT) && is_compa=
-t_task()) ||=A0=A0=A0 \
-> > > > > > > > +=A0=A0=A0 =A0=A0=A0 ((_addr + len) > BIT(VA_BITS -
-> > > > > > > > 1)))=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 \
-> > > > > > > >  =A0=A0=A0=A0=A0=A0=A0=A0 mmap_base =3D (_base);=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 \
-> > > > > > > > -=A0=A0=A0 else if (((_addr) >=3D VA_USER_SV57) && (VA_BITS=
- >=3D
-> > > > > > > > VA_BITS_SV57)) \
-> > > > > > > > -=A0=A0=A0=A0=A0=A0=A0 mmap_base =3D VA_USER_SV57 - rnd_gap=
-; \
-> > > > > > > > -=A0=A0=A0 else if ((((_addr) >=3D VA_USER_SV48)) && (VA_BI=
-TS >=3D
-> > > > > > > > VA_BITS_SV48)) \
-> > > > > > > > -=A0=A0=A0=A0=A0=A0=A0 mmap_base =3D VA_USER_SV48 - rnd_gap=
-; \
-> > > > > > > >  =A0=A0=A0=A0 else=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 \
-> > > > > > > > -=A0=A0=A0=A0=A0=A0=A0 mmap_base =3D VA_USER_SV39 - rnd_gap=
-; \
-> > > > > > > > +=A0=A0=A0=A0=A0=A0=A0 mmap_base =3D (_addr + len) - rnd_ga=
-p; \
-> > > > > > > >  =A0=A0=A0=A0 mmap_base;=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 \
-> > > > > > > >  =A0})
-> > > > > > > > =
+More detailed discussion can found here:
+https://lore.kernel.org/lkml/20240814145642.344485-1-emil.renner.berthing@canonical.com/
 
-> > > > > > > > +#ifdef CONFIG_64BIT
-> > > > > > > > +#define DEFAULT_MAP_WINDOW=A0=A0=A0 (UL(1) << (MMAP_VA_BIT=
-S - 1))
-> > > > > > > > +#define STACK_TOP_MAX=A0=A0=A0=A0=A0=A0=A0 TASK_SIZE_64
-> > > > > > > >  =A0#else
-> > > > > > > >  =A0#define DEFAULT_MAP_WINDOW=A0=A0=A0 TASK_SIZE
-> > > > > > > >  =A0#define STACK_TOP_MAX=A0=A0=A0=A0=A0=A0=A0 TASK_SIZE
-> > > > > > > > > > I have carefully tested your patch on qemu with sv57. A
-> > > > > > bug that
-> > > > > > > needs
-> > > > > > > to be solved is that mmap with the same hint address without
-> > > > > > > MAP_FIXED
-> > > > > > > set will fail the second time.
-> > > > > > > > Userspace code to reproduce the bug:
-> > > > > > > > #include <sys/mman.h>
-> > > > > > > #include <stdio.h>
-> > > > > > > #include <stdint.h>
-> > > > > > > > void test(char *addr) {
-> > > > > > >  =A0=A0=A0 char *res =3D mmap(addr, 4096, PROT_READ | PROT_WR=
-ITE,
-> > > > > > > MAP_ANONYMOUS
-> > > > > > > > MAP_PRIVATE, -1, 0);
-> > > > > > >  =A0=A0=A0 printf("hint %p got %p.\n", addr, res);
-> > > > > > > }
-> > > > > > > > int main (void) {
-> > > > > > >  =A0=A0=A0 test(1<<30);
-> > > > > > >  =A0=A0=A0 test(1<<30);
-> > > > > > >  =A0=A0=A0 test(1<<30);
-> > > > > > >  =A0=A0=A0 return 0;
-> > > > > > > }
-> > > > > > > > output:
-> > > > > > > > hint 0x40000000 got 0x40000000.
-> > > > > > > hint 0x40000000 got 0xffffffffffffffff.
-> > > > > > > hint 0x40000000 got 0xffffffffffffffff.
-> > > > > > > > output on x86:
-> > > > > > > > hint 0x40000000 got 0x40000000.
-> > > > > > > hint 0x40000000 got 0x7f9171363000.
-> > > > > > > hint 0x40000000 got 0x7f9171362000.
-> > > > > > > > It may need to implement a special arch_get_unmapped_area a=
-nd
-> > > > > > > arch_get_unmapped_area_topdown function.
-> > > > > > > =
+Fixes: e306a894bd51 ("irqchip/sifive-plic: Chain to parent IRQ after handlers are ready")
+Fixes: 8ec99b033147 ("irqchip/sifive-plic: Convert PLIC driver into a platform driver")
+Suggested-by: Thomas Gleixner <tglx@linutronix.de>
+Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
+Tested-by: Samuel Holland <samuel.holland@sifive.com>
+Tested-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
+Tested-by: Charlie Jenkins <charlie@rivosinc.com>
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+---
+Changes since v2:
+ - Use SoC specific PLIC compatible string for Allwinner D1
+Changes since v1:
+ - Set suppress_bind_attrs for PLIC platform driver
+---
+ drivers/irqchip/irq-sifive-plic.c | 115 ++++++++++++++++++------------
+ 1 file changed, 71 insertions(+), 44 deletions(-)
 
-> > > > > > This is because hint address < rnd_gap. I have tried to let mma=
-p_base =3D
-> > > > > > min((_addr + len), (base) + TASK_SIZE - DEFAULT_MAP_WINDOW). Ho=
-wever it
-> > > > > > does not work for bottom-up while ulimit -s is unlimited. You s=
-aid this
-> > > > > > behavior is expected from patch v2 review.=A0However it brings =
-a new
-> > > > > > regression even on sv39 systems.
-> > > > > > =
-
-> > > > > > I still don't know the reason why use addr+len as the upper-bou=
-nd. I
-> > > > > > think solution like x86/arm64/powerpc provide two address space=
- switch
-> > > > > > based on whether hint address above the default map window is e=
-nough.
-> > > > > > =
-
-> > > > > Yep this is expected. It is up to the maintainers to decide.
-> > > > Sorry I forgot to reply to this, I had a buffer sitting around some=
-where
-> > > > but I must have lost it.
-> > > > =
-
-> > > > I think Charlie's approach is the right way to go.=A0 Putting my us=
-erspace
-> > > > hat on, I'd much rather have my allocations fail rather than silent=
-ly
-> > > > ignore the hint when there's memory pressure.
-> > > > =
-
-> > > > If there's some real use case that needs these low hints to be sile=
-ntly
-> > > > ignored under VA pressure then we can try and figure something out =
-that
-> > > > makes those applications work.
-> > > I could confirm that this patch has broken chromium's partition alloc=
-ator on
-> > > riscv64. The minimal reproduction I use is chromium-mmap.c:
-> > > =
-
-> > > #include <stdio.h>
-> > > #include <sys/mman.h>
-> > > =
-
-> > > int main() {
-> > >  =A0=A0=A0 void* expected =3D (void*)0x400000000;
-> > >  =A0=A0=A0 void* addr =3D mmap(expected, 17179869184, PROT_NONE,
-> > > MAP_PRIVATE|MAP_ANONYMOUS, -1, 0);
-> > >  =A0=A0=A0 if (addr !=3D expected) {
-> > It is not valid to assume that the address returned by mmap will be the
-> > hint address. If the hint address is not available, mmap will return a
-> > different address.
-> =
-
-> Oh, sorry I didn't make it clear what is the expected behavior.
-> The printf here is solely for debugging purpose and I don't mean that
-> chromium expect it will get the hint address. The expected behavior is th=
-at
-> both the two mmap calls will succeed.
-> =
-
-> > >  =A0=A0=A0=A0=A0=A0=A0 printf("Not expected address: %p !=3D %p\n", a=
-ddr, expected);
-> > >  =A0=A0=A0 }
-> > >  =A0=A0=A0 expected =3D (void*)0x3fffff000;
-> > >  =A0=A0=A0 addr =3D mmap(expected, 17179873280, PROT_NONE, MAP_PRIVAT=
-E|MAP_ANONYMOUS,
-> > > -1, 0);
-> > >  =A0=A0=A0 if (addr !=3D expected) {
-> > >  =A0=A0=A0=A0=A0=A0=A0 printf("Not expected address: %p !=3D %p\n", a=
-ddr, expected);
-> > >  =A0=A0=A0 }
-> > >  =A0=A0=A0 return 0;
-> > > }
-> > > =
-
-> > > The second mmap fails with ENOMEM. Manually reverting this commit fix=
-es the
-> > > issue for me. So I think it's clearly a regression and breaks userspa=
-ce.
-> > > =
-
-> > The issue here is that overlapping memory is being requested. This
-> > second mmap will never be able to provide an address at 0x3fffff000 with
-> > a size of 0x400001000 since mmap just provided an address at 0x400000000
-> > with a size of 0x400000000.
-> > =
-
-> > Before this patch, this request causes mmap to return a completely
-> > arbitrary value. There is no reason to use a hint address in this manner
-> > because the hint can never be respected. Since an arbitrary address is
-> > desired, a hint of zero should be used.
-> > =
-
-> > This patch causes the behavior to be more deterministic. Instead of
-> > providing an arbitrary address, it causes the address to be less than or
-> > equal to the hint address. This allows for applications to make
-> > assumptions about the returned address.
-> =
-
-> About the overlap, of course the partition allocator's request for
-> overlapped vma seems unreasonable.
-> =
-
-> But I still don't quite understand why mmap cannot use an address higher
-> than the hint address.
-> The hint address, after all, is a hint, not a requirement.
-
-Yes that is fair. A "hint" that does not guarantee anything is
-useless so architectures have abused the term quite a bit.
-
-> =
-
-> Quoting the man page:
-> =
-
-> >    If another mapping already exists there, the kernel picks
-> >         a new address that may or may not depend on the hint.  The
-> >         address of the new mapping is returned as the result of the cal=
-l.
-> So for casual programmers that only reads man page but not architecture
-> specific kernel
-> documentation, the current behavior of mmap on riscv64 failing on overlap=
-ped
-> address ranges
-> are quite surprising IMO.
-
-The man pages for riscv are in desperate need of attention. I have
-submitted a couple of updates to them recently, but there is a lot more
-work to be done to help developers.
-
-> =
-
-> And quoting the man page again about the errno:
-> =
-
-> > =A0=A0=A0=A0=A0 ENOMEM No memory is available.
-> > =
-
-> > =A0=A0=A0=A0=A0=A0ENOMEM The process's maximum number of mappings would=
- have been
-> > =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0exceeded. =A0This error can also=
- occur for munmap(), when
-> > =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0unmapping a region in the middle=
- of an existing mapping,
-> > =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0since this results in two smalle=
-r mappings on either side
-> > =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0of the region being unmapped.
-> > =
-
-> > =A0=A0=A0=A0=A0=A0ENOMEM (since Linux 4.7) The process's RLIMIT_DATA li=
-mit,
-> > =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0described in getrlimit(2), would=
- have been exceeded.
-> > =
-
-> > =A0=A0=A0=A0=A0=A0ENOMEM We don't like addr, because it exceeds the vir=
-tual address
-> > =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0space of the CPU.
-> > =
-
-> =
-
-> There's no matching description for the ENOMEM returned here.
-> I would suggest removing "because it exceeds the virtual address
-> space of the CPU." from the last item if the ENOMEM behavior here
-> is expected.
-
-This ENOMEM means something like "no memory available in the requested
-region".
-
-> =
-
-> > This code is unfortunately relying on the previously mostly undefined
-> > behavior of the hint address in mmap.
-> Although I haven't read the code of chromium's partition allocator to jud=
-ge
-> whether it should
-> be improved or fixed for riscv64, I do know that the kernel "don't break
-> userspace" and
-> "never EVER blame the user programs".
-
-The hint address design of mmap is a tricky one because it is largely
-implementation defined and what the man pages say is not how it is
-implemented in most architectures!
-
-> > The goal of this patch is to help
-> > developers have more consistent mmap behavior, but maybe it is necessary
-> > to hide this behavior behind an mmap flag.
-> Thank you for helping to shape a more consistent mmap behavior.
-> I think this should be fixed ASAP either by allowing the hint address to =
-be
-> ignored
-> (as suggested by the Linux man page), or hide this behavior behind an mmap
-> flag as you said.
-
-Having a flag could also lead to a generic way of defining this
-behavior. Other architectures do not provide a way for applications to
-guarantee that some number of bits are left unused in a virtual address,
-and that was one of the motivating design goals here.
-
-- Charlie
-
-> =
-
-> > - Charlie
-> > =
-
-> > > See alsohttps://github.com/riscv-forks/electron/issues/4
-> > > =
-
-> > > > > - Charlie
-> > > Sincerely,
-> > > Levi
-> > > =
+diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+index 9e22f7e378f5..4d9ea718086d 100644
+--- a/drivers/irqchip/irq-sifive-plic.c
++++ b/drivers/irqchip/irq-sifive-plic.c
+@@ -3,6 +3,7 @@
+  * Copyright (C) 2017 SiFive
+  * Copyright (C) 2018 Christoph Hellwig
+  */
++#define pr_fmt(fmt) "riscv-plic: " fmt
+ #include <linux/cpu.h>
+ #include <linux/interrupt.h>
+ #include <linux/io.h>
+@@ -63,7 +64,7 @@
+ #define PLIC_QUIRK_EDGE_INTERRUPT	0
+ 
+ struct plic_priv {
+-	struct device *dev;
++	struct fwnode_handle *fwnode;
+ 	struct cpumask lmask;
+ 	struct irq_domain *irqdomain;
+ 	void __iomem *regs;
+@@ -378,8 +379,8 @@ static void plic_handle_irq(struct irq_desc *desc)
+ 		int err = generic_handle_domain_irq(handler->priv->irqdomain,
+ 						    hwirq);
+ 		if (unlikely(err)) {
+-			dev_warn_ratelimited(handler->priv->dev,
+-					     "can't find mapping for hwirq %lu\n", hwirq);
++			pr_warn_ratelimited("%pfwP: can't find mapping for hwirq %lu\n",
++					    handler->priv->fwnode, hwirq);
+ 		}
+ 	}
+ 
+@@ -408,7 +409,8 @@ static int plic_starting_cpu(unsigned int cpu)
+ 		enable_percpu_irq(plic_parent_irq,
+ 				  irq_get_trigger_type(plic_parent_irq));
+ 	else
+-		dev_warn(handler->priv->dev, "cpu%d: parent irq not available\n", cpu);
++		pr_warn("%pfwP: cpu%d: parent irq not available\n",
++			handler->priv->fwnode, cpu);
+ 	plic_set_threshold(handler, PLIC_ENABLE_THRESHOLD);
+ 
+ 	return 0;
+@@ -424,38 +426,36 @@ static const struct of_device_id plic_match[] = {
+ 	{}
+ };
+ 
+-static int plic_parse_nr_irqs_and_contexts(struct platform_device *pdev,
++static int plic_parse_nr_irqs_and_contexts(struct fwnode_handle *fwnode,
+ 					   u32 *nr_irqs, u32 *nr_contexts)
+ {
+-	struct device *dev = &pdev->dev;
+ 	int rc;
+ 
+ 	/*
+ 	 * Currently, only OF fwnode is supported so extend this
+ 	 * function for ACPI support.
+ 	 */
+-	if (!is_of_node(dev->fwnode))
++	if (!is_of_node(fwnode))
+ 		return -EINVAL;
+ 
+-	rc = of_property_read_u32(to_of_node(dev->fwnode), "riscv,ndev", nr_irqs);
++	rc = of_property_read_u32(to_of_node(fwnode), "riscv,ndev", nr_irqs);
+ 	if (rc) {
+-		dev_err(dev, "riscv,ndev property not available\n");
++		pr_err("%pfwP: riscv,ndev property not available\n", fwnode);
+ 		return rc;
+ 	}
+ 
+-	*nr_contexts = of_irq_count(to_of_node(dev->fwnode));
++	*nr_contexts = of_irq_count(to_of_node(fwnode));
+ 	if (WARN_ON(!(*nr_contexts))) {
+-		dev_err(dev, "no PLIC context available\n");
++		pr_err("%pfwP: no PLIC context available\n", fwnode);
+ 		return -EINVAL;
+ 	}
+ 
+ 	return 0;
+ }
+ 
+-static int plic_parse_context_parent(struct platform_device *pdev, u32 context,
++static int plic_parse_context_parent(struct fwnode_handle *fwnode, u32 context,
+ 				     u32 *parent_hwirq, int *parent_cpu)
+ {
+-	struct device *dev = &pdev->dev;
+ 	struct of_phandle_args parent;
+ 	unsigned long hartid;
+ 	int rc;
+@@ -464,10 +464,10 @@ static int plic_parse_context_parent(struct platform_device *pdev, u32 context,
+ 	 * Currently, only OF fwnode is supported so extend this
+ 	 * function for ACPI support.
+ 	 */
+-	if (!is_of_node(dev->fwnode))
++	if (!is_of_node(fwnode))
+ 		return -EINVAL;
+ 
+-	rc = of_irq_parse_one(to_of_node(dev->fwnode), context, &parent);
++	rc = of_irq_parse_one(to_of_node(fwnode), context, &parent);
+ 	if (rc)
+ 		return rc;
+ 
+@@ -480,48 +480,55 @@ static int plic_parse_context_parent(struct platform_device *pdev, u32 context,
+ 	return 0;
+ }
+ 
+-static int plic_probe(struct platform_device *pdev)
++static int plic_probe(struct fwnode_handle *fwnode)
+ {
+ 	int error = 0, nr_contexts, nr_handlers = 0, cpu, i;
+-	struct device *dev = &pdev->dev;
+ 	unsigned long plic_quirks = 0;
+ 	struct plic_handler *handler;
+ 	u32 nr_irqs, parent_hwirq;
+ 	struct plic_priv *priv;
+ 	irq_hw_number_t hwirq;
++	void __iomem *regs;
+ 
+-	if (is_of_node(dev->fwnode)) {
++	if (is_of_node(fwnode)) {
+ 		const struct of_device_id *id;
+ 
+-		id = of_match_node(plic_match, to_of_node(dev->fwnode));
++		id = of_match_node(plic_match, to_of_node(fwnode));
+ 		if (id)
+ 			plic_quirks = (unsigned long)id->data;
++
++		regs = of_iomap(to_of_node(fwnode), 0);
++		if (!regs)
++			return -ENOMEM;
++	} else {
++		return -ENODEV;
+ 	}
+ 
+-	error = plic_parse_nr_irqs_and_contexts(pdev, &nr_irqs, &nr_contexts);
++	error = plic_parse_nr_irqs_and_contexts(fwnode, &nr_irqs, &nr_contexts);
+ 	if (error)
+-		return error;
++		goto fail_free_regs;
+ 
+-	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+-	if (!priv)
+-		return -ENOMEM;
++	priv = kzalloc(sizeof(*priv), GFP_KERNEL);
++	if (!priv) {
++		error = -ENOMEM;
++		goto fail_free_regs;
++	}
+ 
+-	priv->dev = dev;
++	priv->fwnode = fwnode;
+ 	priv->plic_quirks = plic_quirks;
+ 	priv->nr_irqs = nr_irqs;
++	priv->regs = regs;
+ 
+-	priv->regs = devm_platform_ioremap_resource(pdev, 0);
+-	if (WARN_ON(!priv->regs))
+-		return -EIO;
+-
+-	priv->prio_save = devm_bitmap_zalloc(dev, nr_irqs, GFP_KERNEL);
+-	if (!priv->prio_save)
+-		return -ENOMEM;
++	priv->prio_save = bitmap_zalloc(nr_irqs, GFP_KERNEL);
++	if (!priv->prio_save) {
++		error = -ENOMEM;
++		goto fail_free_priv;
++	}
+ 
+ 	for (i = 0; i < nr_contexts; i++) {
+-		error = plic_parse_context_parent(pdev, i, &parent_hwirq, &cpu);
++		error = plic_parse_context_parent(fwnode, i, &parent_hwirq, &cpu);
+ 		if (error) {
+-			dev_warn(dev, "hwirq for context%d not found\n", i);
++			pr_warn("%pfwP: hwirq for context%d not found\n", fwnode, i);
+ 			continue;
+ 		}
+ 
+@@ -543,7 +550,7 @@ static int plic_probe(struct platform_device *pdev)
+ 		}
+ 
+ 		if (cpu < 0) {
+-			dev_warn(dev, "Invalid cpuid for context %d\n", i);
++			pr_warn("%pfwP: Invalid cpuid for context %d\n", fwnode, i);
+ 			continue;
+ 		}
+ 
+@@ -554,7 +561,7 @@ static int plic_probe(struct platform_device *pdev)
+ 		 */
+ 		handler = per_cpu_ptr(&plic_handlers, cpu);
+ 		if (handler->present) {
+-			dev_warn(dev, "handler already present for context %d.\n", i);
++			pr_warn("%pfwP: handler already present for context %d.\n", fwnode, i);
+ 			plic_set_threshold(handler, PLIC_DISABLE_THRESHOLD);
+ 			goto done;
+ 		}
+@@ -568,8 +575,8 @@ static int plic_probe(struct platform_device *pdev)
+ 			i * CONTEXT_ENABLE_SIZE;
+ 		handler->priv = priv;
+ 
+-		handler->enable_save = devm_kcalloc(dev, DIV_ROUND_UP(nr_irqs, 32),
+-						    sizeof(*handler->enable_save), GFP_KERNEL);
++		handler->enable_save = kcalloc(DIV_ROUND_UP(nr_irqs, 32),
++					       sizeof(*handler->enable_save), GFP_KERNEL);
+ 		if (!handler->enable_save)
+ 			goto fail_cleanup_contexts;
+ done:
+@@ -581,7 +588,7 @@ static int plic_probe(struct platform_device *pdev)
+ 		nr_handlers++;
+ 	}
+ 
+-	priv->irqdomain = irq_domain_add_linear(to_of_node(dev->fwnode), nr_irqs + 1,
++	priv->irqdomain = irq_domain_add_linear(to_of_node(fwnode), nr_irqs + 1,
+ 						&plic_irqdomain_ops, priv);
+ 	if (WARN_ON(!priv->irqdomain))
+ 		goto fail_cleanup_contexts;
+@@ -619,13 +626,13 @@ static int plic_probe(struct platform_device *pdev)
+ 		}
+ 	}
+ 
+-	dev_info(dev, "mapped %d interrupts with %d handlers for %d contexts.\n",
+-		 nr_irqs, nr_handlers, nr_contexts);
++	pr_info("%pfwP: mapped %d interrupts with %d handlers for %d contexts.\n",
++		fwnode, nr_irqs, nr_handlers, nr_contexts);
+ 	return 0;
+ 
+ fail_cleanup_contexts:
+ 	for (i = 0; i < nr_contexts; i++) {
+-		if (plic_parse_context_parent(pdev, i, &parent_hwirq, &cpu))
++		if (plic_parse_context_parent(fwnode, i, &parent_hwirq, &cpu))
+ 			continue;
+ 		if (parent_hwirq != RV_IRQ_EXT || cpu < 0)
+ 			continue;
+@@ -634,17 +641,37 @@ static int plic_probe(struct platform_device *pdev)
+ 		handler->present = false;
+ 		handler->hart_base = NULL;
+ 		handler->enable_base = NULL;
++		kfree(handler->enable_save);
+ 		handler->enable_save = NULL;
+ 		handler->priv = NULL;
+ 	}
+-	return -ENOMEM;
++	bitmap_free(priv->prio_save);
++fail_free_priv:
++	kfree(priv);
++fail_free_regs:
++	iounmap(regs);
++	return error;
++}
++
++static int plic_platform_probe(struct platform_device *pdev)
++{
++	return plic_probe(pdev->dev.fwnode);
+ }
+ 
+ static struct platform_driver plic_driver = {
+ 	.driver = {
+ 		.name		= "riscv-plic",
+ 		.of_match_table	= plic_match,
++		.suppress_bind_attrs = true,
+ 	},
+-	.probe = plic_probe,
++	.probe = plic_platform_probe,
+ };
+ builtin_platform_driver(plic_driver);
++
++static int __init plic_early_probe(struct device_node *node,
++				   struct device_node *parent)
++{
++	return plic_probe(&node->fwnode);
++}
++
++IRQCHIP_DECLARE(riscv, "allwinner,sun20i-d1-plic", plic_early_probe);
+-- 
+2.34.1
 
 
 _______________________________________________
