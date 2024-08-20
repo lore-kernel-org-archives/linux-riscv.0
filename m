@@ -4,83 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94937C3DA4A
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2024 17:57:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B08DC531DC
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2024 19:49:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G+Zql+WMlQ344phL06cdMmeYMyB9T3qjI3fgEHVEIak=; b=DOfRFgH1IhfEHKfK39SLIqt596
-	/6BAT0rLrG+IjywPRLbE0WU7d7t2CXa/1vFeyOx3NH/EQDElHJQlSk7fbdwTn28ZZOx3Z/sGtgqqy
-	CG2U8uoefv55IpfCjEAd1XkUi2eJTyvPxaD7mL75bDm0s3cvWLyxRDkG3NgO4YnkzAZ3+TGGIzyMG
-	+rPGZzZujq4W3WAlZ7FwAbysWxqL65yU5z2wg/RQiwHkf7rqb7BUky9Acsz9bsdfPZrpngtsSaI48
-	6RVj4KUA8DTMa9O1SsQAHwkYjw+cobtHfkXyt15Y3SqPJ9Fzl29+5o1Oo2JtLJnC0ZRaADrZbcoW5
-	Mi5WclSw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=QqQfM+gh0IoywN0U0ASk4ullQzz/eG5E6SsRO4GBMsg=; b=4A1Ob4UVGkkQMH
+	s48D2veFQbvgcyuYwzjgCHGNHqarKqdsjoNkXs82nLiCqo07H+irpK+s6dVl6n7wEwxNefLMBBnyG
+	O9u06YOVG31m+eEeD57EOjnKmPTjD37QO7yp4NM5Qs2hOtr/a+PnEdvl1I9a2HwW9+KS4ULFCOoMM
+	Gx5BYzDGBIWk1W+7qzEAWMKozHT10/EZaIay/VytvCzbXbdqainDdF1y6u9LOwhgYnTBZSrDp7vGI
+	PyXUe9Pa133CXEhRp/R99gc7A61F2hMJREDr0vBMVlz/LobsJwDX4HzysRJnVEPY1wcg1A9eNIbtn
+	QX80NcCtPLqJuYkOvCWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgT6Y-00000006FTg-3GUV;
-	Tue, 20 Aug 2024 17:57:14 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sgUrL-00000006V1v-2XbV;
+	Tue, 20 Aug 2024 19:49:39 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgT5p-00000006FJY-3L2M;
-	Tue, 20 Aug 2024 17:56:31 +0000
+	id 1sgUrI-00000006Uzn-1b03
+	for linux-riscv@lists.infradead.org;
+	Tue, 20 Aug 2024 19:49:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C44D160E86;
-	Tue, 20 Aug 2024 17:56:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA60CC4AF63;
-	Tue, 20 Aug 2024 17:56:21 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 1CFE6CE01BC
+	for <linux-riscv@lists.infradead.org>; Tue, 20 Aug 2024 19:49:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34D57C4AF0C
+	for <linux-riscv@lists.infradead.org>; Tue, 20 Aug 2024 19:49:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1724176588;
-	bh=gZbF78Vf8hQyyvrqZwyllYGTMkZkFUc2boH3xNoj3xg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kMBNHgu8QiEUNr6Dj0H9OBOYNtuyoJmzRNKbBHyDLb+AJcBwiuh2LgJrzteoMvVsx
-	 5LXnhtvTMAUrTQWGO8C4/3pUWw0n2Ty4gAoWYmAT+yBC5FbQ2efuWgCCm9W086xLv1
-	 Zz0YOIynNZ511iDRjmQKgI/z2W0DSwrGpMHtyIFX7gsM+jxsuh0nwza7zZ/cUCLkch
-	 5kByC8ltUO3h9EBYmOklMwhN2gyHbUmRzoURFqk+UuCaO0bvG1QT+x0RnLV4jkxDZv
-	 rOQIythKgjlcvs2q9paWHNJINWO8TqkFa8qlRlL1CfSG4cDj+KBmcAFn41ujrmw+M5
-	 1HSxxSLa5whtA==
-Date: Tue, 20 Aug 2024 18:56:19 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Shuah Khan <shuah@kernel.org>,
-	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
-	Szabolcs Nagy <Szabolcs.Nagy@arm.com>, Kees Cook <kees@kernel.org>,
-	"H.J. Lu" <hjl.tools@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Florian Weimer <fweimer@redhat.com>,
-	Christian Brauner <brauner@kernel.org>,
-	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
-	Ross Burton <ross.burton@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v10 19/40] arm64/gcs: Context switch GCS state for EL0
-Message-ID: <3b316422-7f88-4f5d-a691-eb9209ec4ba9@sirena.org.uk>
-References: <20240801-arm64-gcs-v10-0-699e2bd2190b@kernel.org>
- <20240801-arm64-gcs-v10-19-699e2bd2190b@kernel.org>
- <ZsMwhdmE_Ai9BbM9@arm.com>
- <0f6fd3ec-2481-4507-af0e-3cbbb7406b54@sirena.org.uk>
+	s=k20201202; t=1724183373;
+	bh=wkf9gsj1XSad7V3Dq8I4UyQtzWEYMfLIFCxAydmaCzw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=sy0DPFjE2z4e4ndbFJNJlaSfwCMDm0MejofoMIjOYLN7S16C40bZtSVdduAceF8kp
+	 L37yPmYSv4YTmwiQr+4wVez8Rz3mCCFYoa46GGmoOWTBumQPHS3Cj7TUU69/WIw8L4
+	 ZJB7+HrEesmVE6o/faFkeTHS2OairxmyGGwXtPLOwyX/Tqyo4vtrJCkIJNkzxAao9V
+	 wJ8H91mn+kB/fkg3FBNMkcLZP3Fi8GAtlRDdFvbozoRSXTIg1Y6PRpOEd5IU9whwBk
+	 5llTyew94a2FKNYn66OtIUD8ljb7MWCC2wvUVacfQQzLLVTvyQAntwvwoJkuGyG+9k
+	 9OmcJn1CphI0g==
+Received: by mail-oa1-f44.google.com with SMTP id 586e51a60fabf-270420e231aso2049315fac.2
+        for <linux-riscv@lists.infradead.org>; Tue, 20 Aug 2024 12:49:33 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVLlP9CE2gicy8P0keDXxx/8K6FFs71q8BY3ey35CwsD2X00EZa/5fALEJdSNfMjq2bmE6w8i6E0lAXCg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/bkeh6jjpGq31z2CnO8DmJWGWCzV3xO0inYXq1DC+LlEHMr2s
+	hmIwScmqmEiMnQEIyGqe/jVPfwyhWYF4a3wJtM0bCpBTpsaJcVOVC6i+3krzA/Sf4BuM/2MjIgY
+	na871nQkI7A29Prhw0pMAmJAPvFE=
+X-Google-Smtp-Source: AGHT+IEROyYPyyUToSOegMz5cgcnQfC+ZGutYEi8+81lPeRqkPLiLkJ6XqDwy11TysehDcz1PmHz7jBrDEzmfk2nO1I=
+X-Received: by 2002:a05:6870:96ab:b0:270:4a9:c369 with SMTP id
+ 586e51a60fabf-2701c349c01mr18298140fac.7.1724183372607; Tue, 20 Aug 2024
+ 12:49:32 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <0f6fd3ec-2481-4507-af0e-3cbbb7406b54@sirena.org.uk>
-X-Cookie: You are false data.
+References: <20240820094023.61155-1-krzysztof.kozlowski@linaro.org> <CAAhSdy3S_QTBzCNtj8kKDpzxtoeyKWvGLtjgSTViieWimpP-JA@mail.gmail.com>
+In-Reply-To: <CAAhSdy3S_QTBzCNtj8kKDpzxtoeyKWvGLtjgSTViieWimpP-JA@mail.gmail.com>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Tue, 20 Aug 2024 21:49:21 +0200
+X-Gmail-Original-Message-ID: <CAJZ5v0i7kweDVUGw103kq7kPOoh+9vJMU_8xugHA_hqqkRdaNg@mail.gmail.com>
+Message-ID: <CAJZ5v0i7kweDVUGw103kq7kPOoh+9vJMU_8xugHA_hqqkRdaNg@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] cpuidle: riscv-sbi: Use scoped device node
+ handling to fix missing of_node_put
+To: Anup Patel <anup@brainfault.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Atish Patra <atishp@rivosinc.com>, linux-pm@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240820_105629_993680_6A6427F8 
-X-CRM114-Status: GOOD (  19.27  )
+X-CRM114-CacheID: sfid-20240820_124936_628286_11D43879 
+X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,70 +83,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============9123897092505463495=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============9123897092505463495==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="3PN7G0mWO4eG7H9j"
-Content-Disposition: inline
-
-
---3PN7G0mWO4eG7H9j
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Mon, Aug 19, 2024 at 04:44:52PM +0100, Mark Brown wrote:
-> On Mon, Aug 19, 2024 at 12:46:13PM +0100, Catalin Marinas wrote:
-> > On Thu, Aug 01, 2024 at 01:06:46PM +0100, Mark Brown wrote:
-
-> > > +	/*
-> > > +	 * Ensure that GCS changes are observable by/from other PEs in
-> > > +	 * case of migration.
-> > > +	 */
-> > > +	if (task_gcs_el0_enabled(current) || task_gcs_el0_enabled(next))
-> > > +		gcsb_dsync();
-
-> > Could we do the sysreg writing under this 'if' block? If no app is using
-> > GCS (which would be the case for a while), it looks like unnecessary
-> > sysreg accesses.
-
-> Yes, that should be fine I think.
-
-I forgot when writing the above that we always allow reads from
-GCSPR_EL0 in order to avoid corner cases for unwinders in the case of
-asynchronous disable.  I'd expect that to be cheap to access though.
-
---3PN7G0mWO4eG7H9j
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmbE2MIACgkQJNaLcl1U
-h9DGLQf+N5+bf9wgOIIzNX1vkURDnQUEK8nayHI+jFDZJUtCwgCR7dnbVvAybutt
-pxS7u/jQBZvRrPuIk4JAvlPy/uRMzwfk9ooJ/US3OA2OmcbLQX+k4cNNxkx4uJiN
-XP2g8aMT14h2hwKkusxr8dUCwyB55hTlFvHPsLZQ24dqsLp2FMZOXqIjEhjPth/I
-qtq8/NVfk4nBuJ2M9HAMVMTiB9RxjE0dkqvWrD11wiWoD4oxozxMWze93JijR2LZ
-2DkwdCLX0oezojVLBNXak0Qyw5JCKP+y1UDdtsLfN2kKyEljQp9lr5+hTUdEjv+N
-JBdNzCm5oAI+cdBJ0+S4fqr7zDDDLg==
-=Yb1u
------END PGP SIGNATURE-----
-
---3PN7G0mWO4eG7H9j--
-
-
---===============9123897092505463495==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============9123897092505463495==--
-
+T24gVHVlLCBBdWcgMjAsIDIwMjQgYXQgMTI6NTfigK9QTSBBbnVwIFBhdGVsIDxhbnVwQGJyYWlu
+ZmF1bHQub3JnPiB3cm90ZToKPgo+IE9uIFR1ZSwgQXVnIDIwLCAyMDI0IGF0IDM6MTDigK9QTSBL
+cnp5c3p0b2YgS296bG93c2tpCj4gPGtyenlzenRvZi5rb3psb3dza2lAbGluYXJvLm9yZz4gd3Jv
+dGU6Cj4gPgo+ID4gVHdvIHJldHVybiBzdGF0ZW1lbnRzIGluIHNiaV9jcHVpZGxlX2R0X2luaXRf
+c3RhdGVzKCkgZGlkIG5vdCBkcm9wIHRoZQo+ID4gT0Ygbm9kZSByZWZlcmVuY2UgY291bnQuICBT
+b2x2ZSB0aGUgaXNzdWUgYW5kIHNpbXBsaWZ5IGVudGlyZSBlcnJvcgo+ID4gaGFuZGxpbmcgd2l0
+aCBzY29wZWQvY2xlYW51cC5oLgo+ID4KPiA+IEZpeGVzOiA2YWJmMzJmMWQ5YzUgKCJjcHVpZGxl
+OiBBZGQgUklTQy1WIFNCSSBDUFUgaWRsZSBkcml2ZXIiKQo+ID4gQ2M6IDxzdGFibGVAdmdlci5r
+ZXJuZWwub3JnPgo+ID4gU2lnbmVkLW9mZi1ieTogS3J6eXN6dG9mIEtvemxvd3NraSA8a3J6eXN6
+dG9mLmtvemxvd3NraUBsaW5hcm8ub3JnPgo+Cj4gTEdUTS4KPgo+IFJldmlld2VkLWJ5OiBBbnVw
+IFBhdGVsIDxhbnVwQGJyYWluZmF1bHQub3JnPgoKQXBwbGllZCBhbG9uZyB3aXRoIHRoZSBbMi8y
+XSBhcyA2LjEyIG1hdGVyaWFsLCB0aGFua3MhCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZA
+bGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
+c3RpbmZvL2xpbnV4LXJpc2N2Cg==
