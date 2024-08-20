@@ -4,98 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 565FEC5320E
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2024 08:03:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2C92C3DA4A
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2024 08:42:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6RvZ6lRGuY9X8fuKIs+5dcOeEuM0Yjg24lItCte1sYY=; b=UkDEBYGXraLUDG
-	UeDtybt2mB00DyqWqv+kkvDOgb5JWlJf+gww9J473W13K4yCpSwPkQRX9OUyEissuiUUOcnrM4oKy
-	yXY+/3+yMtXuBAOx/E0+/h0swRfuQED8bV1wAY5CjjxFLUNz9xUlsCYiUCHMB8aI4WiCQNRhUws7m
-	PKUIFkcFzmV6i5Eq6PE2WhPAu9IYSTB1u+Kvu9/2DJRpugRmlr8JAhSsVZGA8uydnu9AP62N+ViKc
-	XXAisLDtmgE+GHeLNDI/u43Zn1NipWL80Cnp88CKHP2ypnR1iJF4gMz2ChsI/yDQRplxNJ5zHFtAW
-	miglvdrSepoOTh97ueAw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=SOrXLZyzB/4U6hDxcmBljohUn/gJ9rHse+Z35kxPMkU=; b=GydPl6bzJjkFyA
+	Sedmo0i8s6oYhMAkg2OtVUVhu3LsYQCjhYWhW1FKfBF9j4wIJcjPmPewR6bZQybEIz4A1xUU1tilS
+	1gE6tBkGlNPE6R7lgwMWFK72zHQHLTMsjPKTw/ooreCxLXjogeFBHb2zAnipJcHPW49aEnzAcCrZQ
+	+1SuXC5vDLwtOgO2L21MQSdAy/qDAI9d6HIVxYdYFin2HHAWJsvNtxa2zuSW0rqCqtMDCfD4IM8vI
+	dZyI8m9ZQOHrXvH34i40LNZBTn2Qa6keIiB9cecBm6wNGPQYg+ED+jzA0BBMRlmxklDRcP9PBni2v
+	xKtF0NLbPDPp2lV1kzvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgJq0-00000004J4u-3I0p;
-	Tue, 20 Aug 2024 08:03:32 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1sgKS1-00000004QsL-38ou;
+	Tue, 20 Aug 2024 08:42:50 +0000
+Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgJpy-00000004J4X-08FF
+	id 1sgKRy-00000004Qri-30Y5
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Aug 2024 08:03:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1724141010; x=1755677010;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=0BQRMn2iq5py+pyV5ZFgCOVX4sHafSCNgulGe91HtT8=;
-  b=Z9sS5AdBbTLkmNVi05cfjYBWblrx0zT1dTbN17KLNmrmFwnkz68GLE0U
-   oOG2pplWu/oWG4UWK+7erWKT+AoUN4/KUoOT/xOF4Ksn9yLK6gRgqSoKM
-   9BsRZzZbqXMryW7UN4eDrWaA8TuCPca3OEa01pabUu0kBZ57Q/XoAnJeE
-   MkF8NrYsPO0+/X4O+qPvYbvq7RB2fGsUic7FJiLQRu34UFdCGq8H9AbhX
-   P1kG12qblrf2d5SsAo8CP5XLddbA3Et5UvB3UsKQTx3yLFgsCNX4Pg9wb
-   Gbu/HBgpPYE0SFFh6mku/j6+lJjW5ZWn2ZKfRwjn0ju1sFtNl5wiBUnBT
-   Q==;
-X-CSE-ConnectionGUID: jMT6HZ4SQM6iy6VCU4lOEg==
-X-CSE-MsgGUID: tzRY7UmhQFKcPHhe4gA/jg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11169"; a="33845000"
-X-IronPort-AV: E=Sophos;i="6.10,161,1719903600"; 
-   d="scan'208";a="33845000"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Aug 2024 01:03:29 -0700
-X-CSE-ConnectionGUID: EdumMx0DSnOLEqsw4ZYbAA==
-X-CSE-MsgGUID: aAK/GSw9Q3aAxXa3Z2NsGg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.10,161,1719903600"; 
-   d="scan'208";a="60624940"
-Received: from lkp-server01.sh.intel.com (HELO 9a732dc145d3) ([10.239.97.150])
-  by orviesa009.jf.intel.com with ESMTP; 20 Aug 2024 01:03:22 -0700
-Received: from kbuild by 9a732dc145d3 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1sgJpo-0009sh-0P;
-	Tue, 20 Aug 2024 08:03:20 +0000
-Date: Tue, 20 Aug 2024 16:02:50 +0800
-From: kernel test robot <lkp@intel.com>
-To: Jesse Taube <jesse@rivosinc.com>, linux-riscv@lists.infradead.org
-Cc: oe-kbuild-all@lists.linux.dev, Jonathan Corbet <corbet@lwn.net>,
+	Tue, 20 Aug 2024 08:42:48 +0000
+Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-2f3ce5bc7b4so29317121fa.2
+        for <linux-riscv@lists.infradead.org>; Tue, 20 Aug 2024 01:42:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1724143364; x=1724748164; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=2PP/VAgEIyHL1KqSWiO//9a8kNH8xXXjnkMKoqwockA=;
+        b=F700TNRIkzaI48d8Y/lwKIPMB4+XHyej0EBKPPNkFzW8cYRTeVcsubmIgetL8hVMsx
+         6J41+EmCBBNW6F/965IGrPQcdjL+46BvLkcDKM3GQUG9bzINmSLJlif35++eL5Mm/Ci1
+         4n7YqimpUdokeD0BZXQjEJ8yH8/FLOV3vqQK6ROotG+5h+Vi8El1YFuNAsUMK28OEA6+
+         hge/qTpp+j7KuGFKMr4chF4ts+U/N26ouwfLo5in7F26yxpQpnLLGqgv6lG3HmasRHiY
+         a2zP79YTgNR5kwkzoum1tRbnPxlMFNgVFi6Dko7FHM9yZEi8NNBrNWK3OoVdPbvUBwxM
+         VJew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1724143364; x=1724748164;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=2PP/VAgEIyHL1KqSWiO//9a8kNH8xXXjnkMKoqwockA=;
+        b=mK1xu6/3BJUVPyerFlYSy4VPIKts4lHT14HW/dz2g/YGIV5d+zLOvos+irefwgtqxw
+         tl1udXb1P7hw/bJ7U9+ZcnPnWVgpA2aJd6JR7Bqmu6TMSF6Bw6J5dAoS4xAm3x9sETNU
+         cINAIDJHAmEWu+fBUZiEUHB7ZMxiLyhwPdxpJ39dzjYzgs9BM/Eu82/BtbBlgjxS9+1z
+         OXjQxZfmBFxPho6nArqcMikEsT5Rs20nxyETTnxD/hWZFFlN0WT6f4/hAfTpTI6Cn76g
+         VYDZcjaD5hTg6nrlL2TvN9TMXrZ43LjLEC83Q/ZqHu/XxfxvRtfTrV6xHFqGrNJE9VU3
+         ALMA==
+X-Forwarded-Encrypted: i=1; AJvYcCVK+x0Vncj5fcohFs/OWzLgo4VuKYgFpsabVwn6mq/AZ+r0LRTXLFBsGouqIGxQoEm1iEWOAWNYHUy7TqdZsQFATye798U0vZNDN7OwQVBR
+X-Gm-Message-State: AOJu0Yzlk0ljxYcGJIKnf+0r6MIaxSp/vtgN9MVh/QkzSNGn1DTJiZ+B
+	lGEMMf5u6HpAeej1SL24Y71O5ioUMjGjgBgNDDevI8XOASbSNPHA0owD0tV2sXYiPa4nOPwPPz/
+	vI40=
+X-Google-Smtp-Source: AGHT+IHyMvSwXLRRmCjKbTOz+MEieevfpO33ioQwKGl2Doy+5ysz84GRgquXIJdiF2lrdI+nfWga3w==
+X-Received: by 2002:a05:6512:6ce:b0:52f:d0f0:e37e with SMTP id 2adb3069b0e04-5331c6dca58mr8439534e87.42.1724143364033;
+        Tue, 20 Aug 2024 01:42:44 -0700 (PDT)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a838396c306sm731716766b.208.2024.08.20.01.42.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 20 Aug 2024 01:42:43 -0700 (PDT)
+Date: Tue, 20 Aug 2024 11:42:40 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Anup Patel <anup@brainfault.org>, Thomas Gleixner <tglx@linutronix.de>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
-	Evan Green <evan@rivosinc.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Jesse Taube <jesse@rivosinc.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Xiao Wang <xiao.w.wang@intel.com>, Andy Chiu <andy.chiu@sifive.com>,
-	Eric Biggers <ebiggers@google.com>,
-	Greentime Hu <greentime.hu@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
 	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Costa Shulyupin <costa.shul@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Linux Memory Management List <linux-mm@kvack.org>,
-	Baoquan He <bhe@redhat.com>, Anup Patel <apatel@ventanamicro.com>,
-	Zong Li <zong.li@sifive.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Ben Dooks <ben.dooks@codethink.co.uk>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Erick Archer <erick.archer@gmx.com>
-Subject: Re: [PATCH v8 4/6] RISC-V: Detect unaligned vector accesses supported
-Message-ID: <202408201543.4MIUQPd7-lkp@intel.com>
-References: <20240819212605.1837175-5-jesse@rivosinc.com>
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel-janitors@vger.kernel.org
+Subject: [PATCH] irqchip/riscv-aplic: Fix an IS_ERR() vs NULL bug in probe()
+Message-ID: <a5a628d6-81d8-4933-81a8-64aad4743ec4@stanley.mountain>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240819212605.1837175-5-jesse@rivosinc.com>
+X-Mailer: git-send-email haha only kidding
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240820_010330_113245_8A574360 
-X-CRM114-Status: GOOD (  14.96  )
+X-CRM114-CacheID: sfid-20240820_014246_778126_8842957A 
+X-CRM114-Status: GOOD (  13.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,98 +96,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Jesse,
+The devm_platform_ioremap_resource() function doesn't return NULL, it
+returns error pointers.  Fix the error handling to match.
 
-kernel test robot noticed the following build errors:
+Fixes: 2333df5ae51e ("irqchip: Add RISC-V advanced PLIC driver for direct-mode")
+Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+---
+ drivers/irqchip/irq-riscv-aplic-main.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-[auto build test ERROR on 32d5f7add080a936e28ab4142bfeea6b06999789]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Jesse-Taube/RISC-V-Check-scalar-unaligned-access-on-all-CPUs/20240820-052900
-base:   32d5f7add080a936e28ab4142bfeea6b06999789
-patch link:    https://lore.kernel.org/r/20240819212605.1837175-5-jesse%40rivosinc.com
-patch subject: [PATCH v8 4/6] RISC-V: Detect unaligned vector accesses supported
-config: riscv-allnoconfig (https://download.01.org/0day-ci/archive/20240820/202408201543.4MIUQPd7-lkp@intel.com/config)
-compiler: riscv64-linux-gcc (GCC) 14.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20240820/202408201543.4MIUQPd7-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202408201543.4MIUQPd7-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   arch/riscv/kernel/sys_hwprobe.c: In function 'hwprobe_one_pair':
->> arch/riscv/kernel/sys_hwprobe.c:263:14: error: 'RISCV_HWPROBE_KEY_VECTOR_MISALIGNED_PERF' undeclared (first use in this function)
-     263 |         case RISCV_HWPROBE_KEY_VECTOR_MISALIGNED_PERF:
-         |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/riscv/kernel/sys_hwprobe.c:263:14: note: each undeclared identifier is reported only once for each function it appears in
-
-
-vim +/RISCV_HWPROBE_KEY_VECTOR_MISALIGNED_PERF +263 arch/riscv/kernel/sys_hwprobe.c
-
-   234	
-   235	static void hwprobe_one_pair(struct riscv_hwprobe *pair,
-   236				     const struct cpumask *cpus)
-   237	{
-   238		switch (pair->key) {
-   239		case RISCV_HWPROBE_KEY_MVENDORID:
-   240		case RISCV_HWPROBE_KEY_MARCHID:
-   241		case RISCV_HWPROBE_KEY_MIMPID:
-   242			hwprobe_arch_id(pair, cpus);
-   243			break;
-   244		/*
-   245		 * The kernel already assumes that the base single-letter ISA
-   246		 * extensions are supported on all harts, and only supports the
-   247		 * IMA base, so just cheat a bit here and tell that to
-   248		 * userspace.
-   249		 */
-   250		case RISCV_HWPROBE_KEY_BASE_BEHAVIOR:
-   251			pair->value = RISCV_HWPROBE_BASE_BEHAVIOR_IMA;
-   252			break;
-   253	
-   254		case RISCV_HWPROBE_KEY_IMA_EXT_0:
-   255			hwprobe_isa_ext0(pair, cpus);
-   256			break;
-   257	
-   258		case RISCV_HWPROBE_KEY_CPUPERF_0:
-   259		case RISCV_HWPROBE_KEY_MISALIGNED_SCALAR_PERF:
-   260			pair->value = hwprobe_misaligned(cpus);
-   261			break;
-   262	
- > 263		case RISCV_HWPROBE_KEY_VECTOR_MISALIGNED_PERF:
-   264			pair->value = hwprobe_vec_misaligned(cpus);
-   265			break;
-   266	
-   267		case RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE:
-   268			pair->value = 0;
-   269			if (hwprobe_ext0_has(cpus, RISCV_HWPROBE_EXT_ZICBOZ))
-   270				pair->value = riscv_cboz_block_size;
-   271			break;
-   272		case RISCV_HWPROBE_KEY_HIGHEST_VIRT_ADDRESS:
-   273			pair->value = user_max_virt_addr();
-   274			break;
-   275	
-   276		case RISCV_HWPROBE_KEY_TIME_CSR_FREQ:
-   277			pair->value = riscv_timebase;
-   278			break;
-   279	
-   280		/*
-   281		 * For forward compatibility, unknown keys don't fail the whole
-   282		 * call, but get their element key set to -1 and value set to 0
-   283		 * indicating they're unrecognized.
-   284		 */
-   285		default:
-   286			pair->key = -1;
-   287			pair->value = 0;
-   288			break;
-   289		}
-   290	}
-   291	
-
+diff --git a/drivers/irqchip/irq-riscv-aplic-main.c b/drivers/irqchip/irq-riscv-aplic-main.c
+index 28dd175b5764..981fad6fb8f7 100644
+--- a/drivers/irqchip/irq-riscv-aplic-main.c
++++ b/drivers/irqchip/irq-riscv-aplic-main.c
+@@ -175,9 +175,9 @@ static int aplic_probe(struct platform_device *pdev)
+ 
+ 	/* Map the MMIO registers */
+ 	regs = devm_platform_ioremap_resource(pdev, 0);
+-	if (!regs) {
++	if (IS_ERR(regs)) {
+ 		dev_err(dev, "failed map MMIO registers\n");
+-		return -ENOMEM;
++		return PTR_ERR(regs);
+ 	}
+ 
+ 	/*
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
