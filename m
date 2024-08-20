@@ -4,133 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82F21C3DA4A
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2024 09:30:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00475C531DF
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2024 09:36:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rHd4rOTQKSFKZgRj2QCMetAbQOylKtsfoKdtye9EkQQ=; b=AkkTDDK1Sz1zot
-	pLtQVezyMfwz6vC/ufd81UWpEBrt6+DwaDNfrGpNssbKIOJ1C22Eb/bymka5+iSyKHPPGbf+n3Y5L
-	EWeBwHZmDUUy/IXzeZAr1oMioZNQVyBWC49tSHcrq6F3e+aE3fetvyEtUkzir05VNzScsknoWpim0
-	Xi0ilZwQUR5oXqcbwvezCy+jEeA6vi2Cdugrx+30zIiRR94TVrO7uUzLvTNmydS38Rcv6PiYZJNVL
-	xUWuCov1UUcE3rf5XCups2kAXveQbtDekC/qUG48SSh6SnsDV0/2fNJ8Kc9ntZ4vgUT3ZWla1r+eo
-	P1yo5Oian3Lwq5AC8apQ==;
+	List-Owner; bh=MAy1+czhm0uO4WC3MN5LqTc7nJAM6GNh7WTRC1Awe5k=; b=MEduubFF4+RkFM
+	7i1x3dRx5W7ThE+nh9lIxXBOkP9QXt4mVcYZ2Ze0JIYHJSCHQtT0cc/N47P+zT7a7H1QnpLAAguio
+	BMn6cFL4YfBShs23bP0xORbydvgrzrrQXaGqRuTQcR3bpQHx0oY5WpxM57pWBcND3acPIT3dD7Qw/
+	gSKi3OHVJVkzqqWAADXWXCNDLT4ctYmmCml42ykXtHRi5QXj0QVM8zVsJ+37QUFDBs7ciYxslYG8z
+	QqXBZfR59Rlsni/AENKVoUPXHaQmPRWMjrWJWeY1NnhW0GmPvCcOac3CrXA915lbR7/Y5ihNYmME0
+	baU8JtlZcG/0xhv/Ucvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgLCA-00000004a1j-0xZG;
-	Tue, 20 Aug 2024 09:30:30 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1sgLHT-00000004bCQ-0L5F;
+	Tue, 20 Aug 2024 09:35:59 +0000
+Received: from mail-yb1-xb2c.google.com ([2607:f8b0:4864:20::b2c])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgLAv-00000004Zh6-0JIK
+	id 1sgLG7-00000004ajh-1d1y
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Aug 2024 09:29:14 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-371aa511609so1872140f8f.1
-        for <linux-riscv@lists.infradead.org>; Tue, 20 Aug 2024 02:29:12 -0700 (PDT)
+	Tue, 20 Aug 2024 09:34:36 +0000
+Received: by mail-yb1-xb2c.google.com with SMTP id 3f1490d57ef6-e115ef5740dso5589996276.3
+        for <linux-riscv@lists.infradead.org>; Tue, 20 Aug 2024 02:34:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1724146151; x=1724750951; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=ivBmOEvLY8+21XD8B+T6OkZ7t7klTY/OPjkKL2J8uTc=;
-        b=i0IguhJAHSoCWMalgHOlUw2KsZeMBqeItS0lpeRW4/BIMuAnW9iEhyY9h3pl2d8HaK
-         +urbY8+/YqWU2FjueA8x8ovgAijq2ZTn1z4aFTrZMDs48x/QOXBjxynJD+jO1XU32r+f
-         Gbw9gRD4TbrWQfGUvyCZQQ0UUg0rw5gX6Ff5pNWI3UV6s7/PcJGU74tK59CwSYapsPSJ
-         CgEVBg4a8Pdp8cWKdrx2/z6QaVS4hIphxFmHJT4QwmEskpcmXr5dSyev0evXUYcsL2rf
-         9/2T3Ry61aRW1yVkqD/wwPRU1WavJBqm+d3Zk9HG8mU+gOljRrPkV/ILY7q0yuTe0uGn
-         EZoA==
+        d=linaro.org; s=google; t=1724146474; x=1724751274; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=UDPgJBCq1kxO9wbeFyugQyBH98hbT0XIZ0Mk7Mav/Tk=;
+        b=FE4bxbN/gR/09uGVxKftIau4OVwrKgp8OcQvoJSeWVEH9xNIHXTKCTQmN12P0/U9py
+         IkynYlbC0Zg9OEiE3Uf0KzGfkiUYxqg3VJqHnJFZy17ZmUt4vqyLVjHeEJo+3ZhPMisd
+         LP2rjJ5KOR0rfG0JPWi5X0jntO37P0N49vQTr3OF8MpIbDVdnLud2yxn0JlLfq3RjzYO
+         i5sOZ4RITv+Y78duQROARDJ/FZN0i2FZTRJeL47sGFx+Z1n5/HdbctIf1/p+CVFTBkPB
+         X4r+uiuJRk/ObCiuwh3m+peKBFcddUTnLTxEd021MOooN4AIqX1LTb1LyPxQNXKcGI2s
+         MEgg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1724146151; x=1724750951;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1724146474; x=1724751274;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ivBmOEvLY8+21XD8B+T6OkZ7t7klTY/OPjkKL2J8uTc=;
-        b=YOi/98VuEissYiRQXT6IP91SY7dyCsgIApWWJaU5CWV32p5pAIS/K1IuRU1oW7DxAt
-         nm2NxdKbHDFddX9wKXutJOt+e/i9CnIJQvL+YACisBEZIH9e48R/Bb+vKOXRP9mgRNUY
-         zevzKAYV1+KTe5GBw77LjVbH/E9NBL3Krz0o43uhGErFLM5qwCMid1BI2hJ4I/mnkM6B
-         G3ralWijCzgtKlnasipY/kLmV70PhCpSqFTSmGiuMvYZhDIdp4co8K/XvyXPt9gT3ZZ2
-         n2tjIw+8jZUaoDcidw/v8QVm7fmi+JJ/XTIUQRgu3k1q7fmWLu7byl2q4RSboLq9uXeo
-         PQCQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUMWi3fCzpCaXPkRYbJxha+S5+sV0zF/JZGN0qEt9kvLUdpE8xKlziFvwYVrLB/IuxJnLl+ITKl+R/LSw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz1ryxcwcRCp7sjB8DHGZg2VLeaBD4/FlNBAoe9WEek2Gjji8oI
-	GDbFSfTjdOmIyljezJ4qzWSlObp2Sd3L0AuaOlNvnrZmJYIZDT9l6lZXJIWBqo8=
-X-Google-Smtp-Source: AGHT+IGzHYVgNuPPuklz7BIbEFwfE3SMKsmmxyisrPKTcLAJxvBCk59VCsf/VZQKx+dMghAMJqq6uw==
-X-Received: by 2002:adf:a35d:0:b0:368:319c:9a77 with SMTP id ffacd0b85a97d-371946535f5mr7217989f8f.29.1724146150608;
-        Tue, 20 Aug 2024 02:29:10 -0700 (PDT)
-Received: from [192.168.1.20] ([178.197.215.209])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3718983a2eesm12661135f8f.19.2024.08.20.02.29.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 20 Aug 2024 02:29:10 -0700 (PDT)
-Message-ID: <176bcb51-f343-47a8-a5d9-14e76a7a6139@linaro.org>
-Date: Tue, 20 Aug 2024 11:29:08 +0200
+        bh=UDPgJBCq1kxO9wbeFyugQyBH98hbT0XIZ0Mk7Mav/Tk=;
+        b=rXeZ/cyzj7dRH0Thg94fEp1l5ZhxmUVRNwjry2aT2ET+BwXpnC4VPZNDO/H9sHTAOg
+         y6oxLVM1yjTN26Wm1eriBvdwj8G5zTbLzuhxZgIjCNUpzKZwd2FKiEUlGYzWvUIklWo4
+         cpaJ6e/gbXlupXPr+W1Znxy2mWhC5oUM/dx6BdJRH1LKbTkh25HHppsS90iGUHdolOlh
+         2f2q/HJrKCjdUFibXgbDgmF3/RC5vus3vspXptJsbMuJy5xneTNuyKL2EdvDg0gzn1H1
+         fN5NE0BPUbjA25YzI1KEMug1K5VO6tOWG+v9PlIM8jrt97Wnk+vgCOhAQyAPseQxUFQu
+         EW7A==
+X-Forwarded-Encrypted: i=1; AJvYcCWaxvupmwbhS8GGrQIA0hbv4AVRw5rCr16GQLW+M3ZGFGh5ECkXye4qygdsc8kZRcogG0FA5AtRwq3n5A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwudveKzyMYXcVDcaQp0E2iPtWgDMH27G2T59m7+dxjHSBLREYg
+	9DMQz5IFwoP6XVor4a2NaVioeRLHn6RKQRRIi/H889LAu1Df/yzJmAij2CsphKFDIcodKGb87Ud
+	MJQusTQK4sZsRMcjKGRG2hVvaO7unSwJ71PgVKQ==
+X-Google-Smtp-Source: AGHT+IG+n9FSFEOe1JiKKz3Rk6QBY5s4AnGwrZNnNZD361hchMNJL5Kyar8IXmLLJIBCe/aZ1QdLIcBPSSESXxqy+bQ=
+X-Received: by 2002:a25:8204:0:b0:e11:7ecc:3b0b with SMTP id
+ 3f1490d57ef6-e1180f45d93mr13140044276.14.1724146474273; Tue, 20 Aug 2024
+ 02:34:34 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/4] cpuidle: riscv-sbi: Use scoped device node handling
- to simplify error paths
-To: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Anup Patel
- <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 References: <20240816150931.142208-1-krzysztof.kozlowski@linaro.org>
- <20240816150931.142208-2-krzysztof.kozlowski@linaro.org>
- <20240819171313.00004677@Huawei.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Content-Language: en-US
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <20240819171313.00004677@Huawei.com>
+In-Reply-To: <20240816150931.142208-1-krzysztof.kozlowski@linaro.org>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Tue, 20 Aug 2024 11:33:58 +0200
+Message-ID: <CAPDyKFpVmELdcK8WXe-3OgenF9nHMM1Om4JW=UkSBKycfkQhsQ@mail.gmail.com>
+Subject: Re: [PATCH 1/4] cpuidle: psci: Simplify with scoped for each OF child loop
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, linux-pm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240820_022913_128274_41F289BD 
-X-CRM114-Status: GOOD (  10.08  )
+X-CRM114-CacheID: sfid-20240820_023435_461529_B9E2114C 
+X-CRM114-Status: GOOD (  18.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,34 +92,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 19/08/2024 18:13, Jonathan Cameron wrote:
->>  
->>  	/* Parse SBI specific details from state DT nodes */
->>  	for (i = 1; i < state_count; i++) {
->> @@ -264,10 +262,8 @@ static int sbi_cpuidle_dt_init_states(struct device *dev,
->>  
->>  		pr_debug("sbi-state %#x index %d\n", states[i], i);
->>  	}
->> -	if (i != state_count) {
->> -		ret = -ENODEV;
->> -		goto fail;
->> -	}
->> +	if (i != state_count)
->> +		return -ENODEV;
->>  
->>  	/* Initialize optional data, used for the hierarchical topology. */
->>  	ret = sbi_dt_cpu_init_topology(drv, data, state_count, cpu);
-> The handling of error ret from here doesn't free the node.
-> 
-> Bug or something subtle I'm missing?
-> 
-> If it's a bug, then fixes tag.
+On Fri, 16 Aug 2024 at 17:09, Krzysztof Kozlowski
+<krzysztof.kozlowski@linaro.org> wrote:
+>
+> Use scoped for_each_child_of_node_scoped() when iterating over device
+> nodes to make code a bit simpler.
+>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Yeah, indeed it is a fix.
+Applied for next, thanks!
 
-Best regards,
-Krzysztof
+Kind regards
+Uffe
 
+
+> ---
+>  drivers/cpuidle/cpuidle-psci-domain.c | 7 ++-----
+>  1 file changed, 2 insertions(+), 5 deletions(-)
+>
+> diff --git a/drivers/cpuidle/cpuidle-psci-domain.c b/drivers/cpuidle/cpuidle-psci-domain.c
+> index ea28b73ef3fb..146f97068022 100644
+> --- a/drivers/cpuidle/cpuidle-psci-domain.c
+> +++ b/drivers/cpuidle/cpuidle-psci-domain.c
+> @@ -142,7 +142,6 @@ static const struct of_device_id psci_of_match[] = {
+>  static int psci_cpuidle_domain_probe(struct platform_device *pdev)
+>  {
+>         struct device_node *np = pdev->dev.of_node;
+> -       struct device_node *node;
+>         bool use_osi = psci_has_osi_support();
+>         int ret = 0, pd_count = 0;
+>
+> @@ -153,15 +152,13 @@ static int psci_cpuidle_domain_probe(struct platform_device *pdev)
+>          * Parse child nodes for the "#power-domain-cells" property and
+>          * initialize a genpd/genpd-of-provider pair when it's found.
+>          */
+> -       for_each_child_of_node(np, node) {
+> +       for_each_child_of_node_scoped(np, node) {
+>                 if (!of_property_present(node, "#power-domain-cells"))
+>                         continue;
+>
+>                 ret = psci_pd_init(node, use_osi);
+> -               if (ret) {
+> -                       of_node_put(node);
+> +               if (ret)
+>                         goto exit;
+> -               }
+>
+>                 pd_count++;
+>         }
+> --
+> 2.43.0
+>
 
 _______________________________________________
 linux-riscv mailing list
