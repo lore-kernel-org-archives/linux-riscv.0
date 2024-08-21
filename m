@@ -4,82 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 582F0C52D6F
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Aug 2024 12:48:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5590DC52D6F
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Aug 2024 12:49:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jxDCRJ4ju264wR5p2fCEf0UxQXsM9cKMvsJEMkI6rYI=; b=txuBY6WqzkD2EE
-	j5Vh7PZf40WgBk5oEocKrmaO/1uhRjKfPV4U+jzxbOYWMyF9+BUu1HIqcgYuGagFLw2M/x3YZkUHy
-	9rhbLkkg2vrtK16VPQGbC+fDTbwY6rg6tNGqKfFrEhEweXX410c5xxpZom8gAWvDPetfpmrT1qZOE
-	rcseTVw0NaMYzvFZLaYlqBeo7xZ6RssJvnQnWIiniNGaHZrkdLChCU3GXcmfn5BU7ZqYjOK6hbjpO
-	x+RAmge+W+j1KV4AghsdB72y6MuWnNjUXTrDw7MgjA7FtSaTwpWE7byYsmuVDXHJhL711Ihn4849I
-	oqOGWHuy/U97x+rcXKlQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hJ7fHgwjIvCO6YQYsaijaDOKft3K/qFQrGSODpTQNZM=; b=4nCjctc4B7eOv6qhd0FSZxV+6X
+	X2D3U2kEErmSvavmdKHD6TZZVYgTTEFeDxJ/UyObQ8p0GbrMMWqY5AzX6PsmPvgSRidBJQRp3MlPd
+	ExXH+kpcGdzBCGWPDeAO7XkCDX2hmbcBkJqTZbih0knOGCHuyYRp6vaE4cyFVxxbScPVepOzhJ/zi
+	fclzWNFgQ/XVZ/UL+CtVN0IOzg9jBEILsCTZ+HEwMqRMnQfI/tzU/rADmGVk8YMItb+R2PreHV7nb
+	fHQ87esZXfDCeq8OK0t7E2rbkFpvN2YnUJqa27nEz78lZolJ8UOtj5qI4NTTnZffU1wJOSe0RHOzK
+	s3A2leSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgkl6-00000008yjQ-2tB8;
-	Wed, 21 Aug 2024 12:48:16 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1sgkm6-00000008yzO-3KDr;
+	Wed, 21 Aug 2024 12:49:18 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgkl3-00000008yiT-2t0Y
-	for linux-riscv@lists.infradead.org;
-	Wed, 21 Aug 2024 12:48:15 +0000
-Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-5bef4d9e7f8so4569554a12.2
-        for <linux-riscv@lists.infradead.org>; Wed, 21 Aug 2024 05:48:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1724244492; x=1724849292; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=owctU5UF/MrOqJiKH/wjLFTDxdDZZM8Or/kAuo7tn/8=;
-        b=Fbp2I9ymLcs89tds9eb4L4ogGHBVURW1PDrkdAIXMlaJgQQCV/lwn0imZ6MUMOIemv
-         wdr+IvmfLrK6mbJcmi0Tjn4SssTrHcHCc7VLcB7I+z2JqhrsL81sJ0Xhauv4S99iCy22
-         Wp9PqanVsGu5HNhmMjtS/9C12YyzP1cNfoZ+f/3jII8yTU+I/4YVmnq+fr0oL+QLh3uJ
-         xNMca+EJbcs7Ist9ledwovSshTzCqeEBjhHEiu7wgOj0NBzXk+WCxZ+rYJVNaSehuPNS
-         ZyyQh87n1eKWuTPWeP9pB8ohMuXgJZ0X7CwBmpGHdoUlBOtBHPk6ZFfC/DC7YrUjZPLj
-         vX5g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1724244492; x=1724849292;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=owctU5UF/MrOqJiKH/wjLFTDxdDZZM8Or/kAuo7tn/8=;
-        b=wp+KRgReCqE0W7uWSS5XtnvjF72BU8A5QRCTSC7SSIiy0YNEs1RlfOKnIxaS0NGbc9
-         lKzRxWU5OkluyFgfXgCiyXyEIG/KBUe1OTeQj7wnqi+PyE50sYCvx4Q8f9IdosTATXVn
-         iH8wl4vLWVgOjLVKMQFUv9CrAWZOhliia3nUICUvtE7OK3+MQxHlpJDwBMgQtPGkZm1B
-         mowzGn+ASRqcpaScZUr7E58oTCs67Wr8oIeEyeb8UXT1lMmqAfk0TFk/jbIykwjg3ysk
-         K7Gl0rbnOVn6BL8bzQruY09e7c+iTqIj4WTmILZvtPpA8T+hUbi+1lAZ5w+Fvb6OXGC/
-         Mmqw==
-X-Forwarded-Encrypted: i=1; AJvYcCUx2aXPLPoBuBydF8Dk8bhPDii0Xoz6dFSiC9S7/+nMKz0j600thH8umtb4a3S0fjr8oHCo9D/91iCCkA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzBZnfuY/YBFUDNWoGIgfGtCyTKqXzEvKTUoyvvJi98sJMZC3PQ
-	qNxVf54x0QjeJhP/kNzirVjDh4+ZEqrX5AjL34F3mbpsp7m86ivN1LeKY2gr9Ms=
-X-Google-Smtp-Source: AGHT+IEBHJpECbZj9IKLd7v7eqsKAcU06neT/8vBwwygqFiwFCmvnkErVfPeY9IwiKfaKQItm4XXxw==
-X-Received: by 2002:a17:907:a41:b0:a7d:3de1:4ab2 with SMTP id a640c23a62f3a-a866f3616a2mr165794866b.27.1724244491373;
-        Wed, 21 Aug 2024 05:48:11 -0700 (PDT)
-Received: from localhost (cst2-173-13.cust.vodafone.cz. [31.30.173.13])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a83838c69easm901792366b.40.2024.08.21.05.48.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 21 Aug 2024 05:48:10 -0700 (PDT)
-Date: Wed, 21 Aug 2024 14:48:10 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: zhouquan@iscas.ac.cn
-Cc: anup@brainfault.org, atishp@atishpatra.org, paul.walmsley@sifive.com, 
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, mark.rutland@arm.com, 
-	alexander.shishkin@linux.intel.com, jolsa@kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-perf-users@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] riscv: perf: add guest vs host distinction
-Message-ID: <20240821-f5e1d6afb0d2230c1256a75b@orel>
-References: <cover.1723518282.git.zhouquan@iscas.ac.cn>
- <3729354b59658535c4370d3c1c7e2f162433807b.1723518282.git.zhouquan@iscas.ac.cn>
+	id 1sgklM-00000008yoA-2rj9;
+	Wed, 21 Aug 2024 12:48:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E024660FEF;
+	Wed, 21 Aug 2024 12:48:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34586C4AF0C;
+	Wed, 21 Aug 2024 12:48:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1724244511;
+	bh=j9HZBA2/5Wb2g40y9Oti29HTzjGioJbne5mKkeX2ur8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=c2vqtqLzx77yK+jri4pI05ZBvo2YloFCkoCVtCEjRuNnOxfTyJdeVqAID+oks/Got
+	 k/MOAywNrA9LkLm2vhxFrX8HojrmEpCpPMFZ8usZAOfEXdFUi9ZJwugyMFj8wDYOpP
+	 J1p1m7nAlRo1BJ53vsZ41xGztHqtr9cQpA/9TG6W3AYjgGVSZYvjFqKjCbFotL/+sN
+	 WOBnbQJNg1ix3kDwZLLHWgSh5TWlK3ROmZdRmEhC1vOJVT/Udnx4TyTf9FOU8SDCdC
+	 IYiUPSkNc7T8xR3pNt74QmD397GNbk0kklwH3BlYq4s8DCTEhzbg4+mFWP0qXvQSXc
+	 HGPkV5gyPIOuA==
+Date: Wed, 21 Aug 2024 13:48:22 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Shuah Khan <shuah@kernel.org>,
+	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
+	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
+	Szabolcs Nagy <Szabolcs.Nagy@arm.com>, Kees Cook <kees@kernel.org>,
+	"H.J. Lu" <hjl.tools@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Florian Weimer <fweimer@redhat.com>,
+	Christian Brauner <brauner@kernel.org>,
+	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
+	Ross Burton <ross.burton@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v10 19/40] arm64/gcs: Context switch GCS state for EL0
+Message-ID: <3bc63a7e-0cb7-483b-9054-b52727997b6d@sirena.org.uk>
+References: <20240801-arm64-gcs-v10-0-699e2bd2190b@kernel.org>
+ <20240801-arm64-gcs-v10-19-699e2bd2190b@kernel.org>
+ <ZsMwhdmE_Ai9BbM9@arm.com>
+ <0f6fd3ec-2481-4507-af0e-3cbbb7406b54@sirena.org.uk>
+ <3b316422-7f88-4f5d-a691-eb9209ec4ba9@sirena.org.uk>
+ <ZsWqTtCq1mNJH1vz@arm.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <3729354b59658535c4370d3c1c7e2f162433807b.1723518282.git.zhouquan@iscas.ac.cn>
+In-Reply-To: <ZsWqTtCq1mNJH1vz@arm.com>
+X-Cookie: You are false data.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240821_054813_753506_EF1B4E0B 
-X-CRM114-Status: GOOD (  24.01  )
+X-CRM114-CacheID: sfid-20240821_054832_885113_D3FCE698 
+X-CRM114-Status: GOOD (  14.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,120 +94,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0156171351199974414=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 13, 2024 at 09:23:54PM GMT, zhouquan@iscas.ac.cn wrote:
-> From: Quan Zhou <zhouquan@iscas.ac.cn>
-> 
-> Introduce basic guest support in perf, enabling it to distinguish
-> between PMU interrupts in the host or guest, and collect
-> fundamental information.
-> 
-> Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
-> ---
->  arch/riscv/include/asm/perf_event.h |  7 ++++++
->  arch/riscv/kernel/perf_callchain.c  | 38 +++++++++++++++++++++++++++++
->  2 files changed, 45 insertions(+)
-> 
-> diff --git a/arch/riscv/include/asm/perf_event.h b/arch/riscv/include/asm/perf_event.h
-> index 665bbc9b2f84..c2b73c3aefe4 100644
-> --- a/arch/riscv/include/asm/perf_event.h
-> +++ b/arch/riscv/include/asm/perf_event.h
-> @@ -8,13 +8,20 @@
->  #ifndef _ASM_RISCV_PERF_EVENT_H
->  #define _ASM_RISCV_PERF_EVENT_H
->  
-> +#ifdef CONFIG_PERF_EVENTS
->  #include <linux/perf_event.h>
->  #define perf_arch_bpf_user_pt_regs(regs) (struct user_regs_struct *)regs
->  
-> +extern unsigned long perf_instruction_pointer(struct pt_regs *regs);
-> +extern unsigned short perf_misc_flags(struct pt_regs *regs);
-> +#define perf_misc_flags(regs) perf_misc_flags(regs)
-> +
->  #define perf_arch_fetch_caller_regs(regs, __ip) { \
->  	(regs)->epc = (__ip); \
->  	(regs)->s0 = (unsigned long) __builtin_frame_address(0); \
->  	(regs)->sp = current_stack_pointer; \
->  	(regs)->status = SR_PP; \
->  }
-> +#endif
-> +
->  #endif /* _ASM_RISCV_PERF_EVENT_H */
-> diff --git a/arch/riscv/kernel/perf_callchain.c b/arch/riscv/kernel/perf_callchain.c
-> index 3348a61de7d9..7af90a3bb373 100644
-> --- a/arch/riscv/kernel/perf_callchain.c
-> +++ b/arch/riscv/kernel/perf_callchain.c
-> @@ -58,6 +58,11 @@ void perf_callchain_user(struct perf_callchain_entry_ctx *entry,
->  {
->  	unsigned long fp = 0;
->  
-> +	if (perf_guest_state()) {
-> +		/* TODO: We don't support guest os callchain now */
-> +		return;
-> +	}
-> +
->  	fp = regs->s0;
->  	perf_callchain_store(entry, regs->epc);
->  
-> @@ -74,5 +79,38 @@ static bool fill_callchain(void *entry, unsigned long pc)
->  void perf_callchain_kernel(struct perf_callchain_entry_ctx *entry,
->  			   struct pt_regs *regs)
->  {
-> +	if (perf_guest_state()) {
-> +		/* TODO: We don't support guest os callchain now */
-> +		return;
-> +	}
-> +
->  	walk_stackframe(NULL, regs, fill_callchain, entry);
->  }
-> +
-> +unsigned long perf_instruction_pointer(struct pt_regs *regs)
-> +{
-> +	if (perf_guest_state())
-> +		return perf_guest_get_ip();
-> +
-> +	return instruction_pointer(regs);
-> +}
-> +
-> +unsigned short perf_misc_flags(struct pt_regs *regs)
 
-I see that the consumer of perf_misc_flags is only a u16, but all other
-architectures define this function as returning an unsigned long, and
-your last version did as well. My comment in the last version was that
-we should use an unsigned long for the 'misc' variable to match the
-return type of the function. I still think we should do that instead
-since the function should be consistent with the other architectures.
+--===============0156171351199974414==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="qtdMReCOgtjtAPvI"
+Content-Disposition: inline
 
-> +{
-> +	unsigned int guest_state = perf_guest_state();
-> +	unsigned short misc = 0;
-> +
-> +	if (guest_state) {
-> +		if (guest_state & PERF_GUEST_USER)
-> +			misc |= PERF_RECORD_MISC_GUEST_USER;
-> +		else
-> +			misc |= PERF_RECORD_MISC_GUEST_KERNEL;
-> +	} else {
-> +		if (user_mode(regs))
-> +			misc |= PERF_RECORD_MISC_USER;
-> +		else
-> +			misc |= PERF_RECORD_MISC_KERNEL;
-> +	}
-> +
-> +	return misc;
-> +}
-> -- 
-> 2.34.1
->
 
-Thanks,
-drew
+--qtdMReCOgtjtAPvI
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Wed, Aug 21, 2024 at 09:50:22AM +0100, Catalin Marinas wrote:
+> On Tue, Aug 20, 2024 at 06:56:19PM +0100, Mark Brown wrote:
+
+> > I forgot when writing the above that we always allow reads from
+> > GCSPR_EL0 in order to avoid corner cases for unwinders in the case of
+> > asynchronous disable.  I'd expect that to be cheap to access though.
+
+> But then gcs_preserve_current_state() doesn't save the GCSPR_EL0 value
+> if the shadow stack was disabled. At the subsequent switch to this task,
+> we write some stale value.
+
+True, we should make the disable save the current value.
+
+--qtdMReCOgtjtAPvI
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmbF4hUACgkQJNaLcl1U
+h9DrbQf/SQgnftiL0Tbvv1xffP9U4UoVPIul2GtdtgQHIDIzT1ukcsmQhdRliW8p
+YkPVH3S3HbTM+Qtdp/kLSqVJHoK9rDDUsUJYlLAIBhC0dxhz6vEeOekbUti1UKFB
+hdq/nUQDHb0LMufsGWvFir+5WNZkrUMFajAkS8FQ/0RFAA8IXmWgihu6T+Lf1wu2
+TVR7gLXkxw51w03S8rD5D4xGzNLF6xXKU50cftHNVPwu8zsPbXCbu1jIpaPVPCXM
+oWKLc3IOSmG0w3XNoWb7Ki07+H0OmcAbrXvIDK/8FLyyHrcehyy+teM/H/AJqJtt
+gDCFIXYlvUlLXHmodMUWCk2uNYAYXA==
+=msk7
+-----END PGP SIGNATURE-----
+
+--qtdMReCOgtjtAPvI--
+
+
+--===============0156171351199974414==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0156171351199974414==--
+
