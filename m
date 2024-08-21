@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCC19C52D6F
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Aug 2024 17:29:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03D14C52D7C
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Aug 2024 17:41:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iXEq5bZLPW1G3rXGTXxF4epMQF4q/MKnm4YJXiB05ZA=; b=VKpM55ZlCBb74K
-	BGsib6EXYNFuQ7+4auHHma2GRAfeG/+z+yAtsy5OCE1ky7bn03o3LzWagVLrhB1mCvossyfAosClJ
-	oPYZ1BpyWs93W/y3MgVtw+jTPqk83dGZfEPuoQjmqXUdXC181xr3cZZfxSknPNoM40ukg8ku3vdwX
-	I4VyFu8OKFM50/HThXHrLhcfkgMc28nrZo+IrD6P3K0Bvf4VZByQhiVXhsSjRCI43rLcYeRwn+AYc
-	OflMod3LkMA6rq2T1TC/tf657F4ZzE5+GnqysKqs4A/LaCcxpV/2L/9l9sEZbAvo+gqQeejxRzwB1
-	tWfQRMIF2uUpSCpxw80g==;
+	List-Owner; bh=svMhF7eebIj9TTkSk9xkUXEmxPsS0GenqkUEedODyd0=; b=yRs22tT0cDhjSW
+	MSoITih3XyUliyDXE1E22YmvYrSVxtGc3o7eg566pO1UCWstHszPWE3juv4zjj2QVRp00WquCSVQh
+	fHR7+i6f9sqhfhj+bLWKFDQbiqXCj1hMDKFxV5ILglUEBLr8ONdf7Y31KtZZulvgsdgWM5ZNQXvYz
+	aa+v1aYBJvvTeRjn7Wg+TNTCjmiSXboVwN2MceeyuGy4lyU+uk14yjFewTJI89FL28yk1p/CJ0GMb
+	fgLW+rvWWZuHmnBzD1ytDXHPW1lx+s5p8DrCg8f8dX7hVZbNJj4ORivneGtPAlgjcGFg2Dab5PNM2
+	on/yWqODfmyD1uKnLw4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgp9U-00000009vOE-12Ay;
-	Wed, 21 Aug 2024 17:29:44 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sgpKe-00000009xBD-3LBU;
+	Wed, 21 Aug 2024 17:41:16 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgp8j-00000009vBV-3mxl;
-	Wed, 21 Aug 2024 17:28:59 +0000
+	id 1sgpJt-00000009wxV-2a7e;
+	Wed, 21 Aug 2024 17:40:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BDADC610AA;
-	Wed, 21 Aug 2024 17:28:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 439DCC4AF09;
-	Wed, 21 Aug 2024 17:28:51 +0000 (UTC)
-Date: Wed, 21 Aug 2024 18:28:49 +0100
+	by nyc.source.kernel.org (Postfix) with ESMTP id B8847A41DB2;
+	Wed, 21 Aug 2024 17:40:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A67B2C32781;
+	Wed, 21 Aug 2024 17:40:22 +0000 (UTC)
+Date: Wed, 21 Aug 2024 18:40:20 +0100
 From: Catalin Marinas <catalin.marinas@arm.com>
 To: Mark Brown <broonie@kernel.org>
 Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
@@ -59,17 +59,16 @@ Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
 	linux-arch@vger.kernel.org, linux-mm@kvack.org,
 	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v10 23/40] arm64/signal: Set up and restore the GCS
- context for signal handlers
-Message-ID: <ZsYj0YYMuX1YRBZT@arm.com>
+Subject: Re: [PATCH v10 24/40] arm64/signal: Expose GCS state in signal frames
+Message-ID: <ZsYmhHHmqSu7wWWW@arm.com>
 References: <20240801-arm64-gcs-v10-0-699e2bd2190b@kernel.org>
- <20240801-arm64-gcs-v10-23-699e2bd2190b@kernel.org>
+ <20240801-arm64-gcs-v10-24-699e2bd2190b@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240801-arm64-gcs-v10-23-699e2bd2190b@kernel.org>
+In-Reply-To: <20240801-arm64-gcs-v10-24-699e2bd2190b@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240821_102858_095642_44C09D4E 
-X-CRM114-Status: GOOD (  21.00  )
+X-CRM114-CacheID: sfid-20240821_104029_806436_F8D595A7 
+X-CRM114-Status: GOOD (  19.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,86 +85,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 01, 2024 at 01:06:50PM +0100, Mark Brown wrote:
-> @@ -860,6 +892,50 @@ static int restore_sigframe(struct pt_regs *regs,
->  	return err;
->  }
+On Thu, Aug 01, 2024 at 01:06:51PM +0100, Mark Brown wrote:
+> @@ -636,6 +639,81 @@ extern int restore_zt_context(struct user_ctxs *user);
+>  
+>  #endif /* ! CONFIG_ARM64_SME */
 >  
 > +#ifdef CONFIG_ARM64_GCS
-> +static int gcs_restore_signal(void)
+> +
+> +static int preserve_gcs_context(struct gcs_context __user *ctx)
 > +{
-> +	u64 gcspr_el0, cap;
-
-Nitpick: use 'unsigned long __user *gcspr_el0' as in the
-gcs_signal_entry(). It's more consistent and probably less casting.
-
-> +	int ret;
-> +
-> +	if (!system_supports_gcs())
-> +		return 0;
-> +
-> +	if (!(current->thread.gcs_el0_mode & PR_SHADOW_STACK_ENABLE))
-> +		return 0;
-> +
-> +	gcspr_el0 = read_sysreg_s(SYS_GCSPR_EL0);
+> +	int err = 0;
+> +	u64 gcspr;
 > +
 > +	/*
-> +	 * GCSPR_EL0 should be pointing at a capped GCS, read the cap...
+> +	 * We will add a cap token to the frame, include it in the
+> +	 * GCSPR_EL0 we report to support stack switching via
+> +	 * sigreturn.
 > +	 */
-> +	gcsb_dsync();
-> +	ret = copy_from_user(&cap, (__user void*)gcspr_el0, sizeof(cap));
-> +	if (ret)
-> +		return -EFAULT;
+> +	gcs_preserve_current_state();
+> +	gcspr = current->thread.gcspr_el0 - 8;
 
-Can the user change GCSPR_EL0 to a non-shadow-stack region, fake the
-cap before sigreturn? copy_from_user() cannot check it's a GCS page.
-Does it actually matter?
+We discussed briefly offline. Not a problem in this patch but
+gcs_preserve_current_state() only saves it conditionally on GCS being
+enabled for the task. However, you mentioned that the register is always
+available to the user, so I'd rather change the preserving function to
+save it unconditionally.
 
-> @@ -1130,7 +1209,50 @@ static int get_sigframe(struct rt_sigframe_user_layout *user,
->  	return 0;
->  }
->  
-> -static void setup_return(struct pt_regs *regs, struct k_sigaction *ka,
-> +#ifdef CONFIG_ARM64_GCS
 > +
-> +static int gcs_signal_entry(__sigrestore_t sigtramp, struct ksignal *ksig)
+> +	__put_user_error(GCS_MAGIC, &ctx->head.magic, err);
+> +	__put_user_error(sizeof(*ctx), &ctx->head.size, err);
+> +	__put_user_error(gcspr, &ctx->gcspr, err);
+> +	__put_user_error(0, &ctx->reserved, err);
+> +	__put_user_error(current->thread.gcs_el0_mode,
+> +			 &ctx->features_enabled, err);
+> +
+> +	return err;
+> +}
+> +
+> +static int restore_gcs_context(struct user_ctxs *user)
 > +{
-> +	unsigned long __user *gcspr_el0;
-> +	int ret = 0;
+> +	u64 gcspr, enabled;
+> +	int err = 0;
 > +
-> +	if (!system_supports_gcs())
-> +		return 0;
+> +	if (user->gcs_size != sizeof(*user->gcs))
+> +		return -EINVAL;
 > +
-> +	if (!task_gcs_el0_enabled(current))
-> +		return 0;
+> +	__get_user_error(gcspr, &user->gcs->gcspr, err);
+> +	__get_user_error(enabled, &user->gcs->features_enabled, err);
+> +	if (err)
+> +		return err;
+> +
+> +	/* Don't allow unknown modes */
+> +	if (enabled & ~PR_SHADOW_STACK_SUPPORTED_STATUS_MASK)
+> +		return -EINVAL;
+> +
+> +	err = gcs_check_locked(current, enabled);
+> +	if (err != 0)
+> +		return err;
+> +
+> +	/* Don't allow enabling */
+> +	if (!task_gcs_el0_enabled(current) &&
+> +	    (enabled & PR_SHADOW_STACK_ENABLE))
+> +		return -EINVAL;
+
+We don't allow enabling and that's fine but we don't restore gcspr
+either with this early return.
+
+> +
+> +	/* If we are disabling disable everything */
+> +	if (!(enabled & PR_SHADOW_STACK_ENABLE))
+> +		enabled = 0;
+> +
+> +	current->thread.gcs_el0_mode = enabled;
 > +
 > +	/*
-> +	 * We are entering a signal handler, current register state is
-> +	 * active.
+> +	 * We let userspace set GCSPR_EL0 to anything here, we will
+> +	 * validate later in gcs_restore_signal().
 > +	 */
-> +	gcspr_el0 = (unsigned long __user *)read_sysreg_s(SYS_GCSPR_EL0);
-> +
-> +	/*
-> +	 * Push a cap and the GCS entry for the trampoline onto the GCS.
-> +	 */
-> +	put_user_gcs((unsigned long)sigtramp, gcspr_el0 - 2, &ret);
-> +	put_user_gcs(GCS_SIGNAL_CAP(gcspr_el0 - 1), gcspr_el0 - 1, &ret);
-> +	if (ret != 0)
-> +		return ret;
+> +	current->thread.gcspr_el0 = gcspr;
+> +	write_sysreg_s(current->thread.gcspr_el0, SYS_GCSPR_EL0);
 
-Doesn't the second put_user_gcs() override the previous ret?
-
-> +
-> +	gcsb_dsync();
-
-Wondering if we need the barrier both for entry and restore. If the
-restore happens on another CPU, we have the barriers in the context
-switch code already. If it's only the kernel writing the caps with
-GCSSTTR on setting up the stack and checking it on return, a single
-barrier is sufficient (can be this one). If the user can write something
-on the stack or maybe doing a sigreturn without fully unwinding the
-stack, we may need both. Either way, it would help to add some comments
-on these barriers.
+I think you should move this further up unconditionally.
 
 -- 
 Catalin
