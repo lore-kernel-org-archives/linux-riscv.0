@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B30B7C52D6F
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Aug 2024 18:28:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B14EEC52D6F
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Aug 2024 18:42:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lrqC6t+Gq/5ByASNjMwMA2XnwaP/YyeiajzvrPsWdfM=; b=dPpY9YXe+S2TDbhgyPlRmPGNJS
-	WGEEWzj49V6+jZabDzYM2DAtwe4Ft+ZwP1qF8yOtQfCSBRZhNTiuZS5w+glfWtG3m/ztv9qx+fu6S
-	fQ1kYGceFwc2j4yZJvrv9St0fsSxV6YQtbypLdyhJ5P/VaN7Ry4KoVnn6kc+N7qmFuhE476SVZa+z
-	e0383RLey7qolmGHvMlthTf2Q/BxdHsGXdTNQxY6WTbmSF1OnBqmCeO9I8HqCC3LilikZ/3jCQ0bX
-	Vvdvi5lUa3biiMcJAwXN59dVOETOv437zLT/ypiToXbLVclbHVkXjXuVSLbb0LQPS6UolnJZbCaHJ
-	8Q1SeeEQ==;
+	bh=b0BicK9J2C2RwKBLRwkZVgae7tFs3Lf/ArVSK8rGh28=; b=v/0OE1PYlfPEGPTvwD/JkDiHJg
+	K7s+M4EQW8gQTxF/F1V4XOwIHvHOX5IAvcjhao8aaLQ0dzr2Ulpp9ZwvQHBcYpCcQfbwbfEsObrs3
+	u8k+pGFwcceK/mtJ1Ja5YIlzAA2NTbWB/iwYF8qzNjUugg7JLJpqILwnGl6HW7DCTOkCoFDG1Ybmy
+	o9WAo/f/25chwGrnslulnCAV4OLj0gVtrAfkJjF/O7/Ead6wjs+cEqQJPWFtQkDQ6wmJbLZByF1wZ
+	CnVdPHDAh8YFPt8E2LbkvVPObTKXMFF3PcVZLiZKzIO7ieMWBbH271H2VEfnv9iMexYSZCkpYOELQ
+	oe1QFGGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgq4l-0000000A4Bb-48NQ;
-	Wed, 21 Aug 2024 18:28:55 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sgqHb-0000000A5UI-2LFU;
+	Wed, 21 Aug 2024 18:42:11 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgq41-0000000A3xi-3Gza;
-	Wed, 21 Aug 2024 18:28:11 +0000
+	id 1sgqGs-0000000A5Lt-0tIi;
+	Wed, 21 Aug 2024 18:41:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 61D7660FFA;
-	Wed, 21 Aug 2024 18:28:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA21CC32781;
-	Wed, 21 Aug 2024 18:28:01 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 7D192CE0EA2;
+	Wed, 21 Aug 2024 18:41:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 160FEC32781;
+	Wed, 21 Aug 2024 18:41:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1724264888;
-	bh=33baSij/lfUz4rEbu0DhfDZckukmuW2FH61KazHkxLQ=;
+	s=k20201202; t=1724265682;
+	bh=E8dXxpdarfv5CApG/ySDW3eYs88clE31dyTXCgdIj+o=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aTYagprEzcz2g3EIW4SxspQ7iO18F5DjDWUNZgvbFQBngLuxfa6dpeP9T9dw7WcuL
-	 wATPmQQbugIpTAh+yu8sQl3uSAiFbniz7t3a2VnwftqkWda+6Ps2U60RXXCERSDZKk
-	 2G5yackwgc9NzDJc7QB/noWi9xSl7fY6yumKqreAng88x0/HI5LN6dTxOu0JwDYf32
-	 p3tyUuzRIkNq5iNeYht0PNQ+RGraYbbe95MRQSJXxDFqT1bsLDmzRKGdCcZTHGY5YK
-	 AJQoS+KuBojRbSang2TOeLaRZyoOISyOl2kL2kBHWHcU8AvSgrttUrgRRyzQGIPGaq
-	 KzW+H6ExR6s6Q==
-Date: Wed, 21 Aug 2024 19:27:53 +0100
+	b=P1Z5wNq7V+GasD5vLMXFUN5I8quGoeaPeU/IOn49bO8otYh4m4+pEPuD02+LjkIpu
+	 1InGS8UBGdn07hLYwr9lczN0PpJKUZda3+PUnVYGPIHPz37YiW/rlBT39Wu3Z6waXl
+	 yFHS8eRfeRov6xX2PfirQ7yEoiX+M7qPnRSKDkpLB7DgHumi3WXwPKLN/zebkWiSh5
+	 BVgWHhEMq7jh8WLHQBofBwINPODDw2R/uDRfRihMjYS5SRen4JvJhmC1N9DkEtYC28
+	 UbCdbUMMqjuH/078spkgiUnjLrN7q0REvfVwOvY+hgphHs8YYEHun383qhkKCWENa0
+	 +x6JMwgsjOsOA==
+Date: Wed, 21 Aug 2024 19:41:12 +0100
 From: Mark Brown <broonie@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
@@ -71,16 +71,17 @@ Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
 	linux-riscv@lists.infradead.org
 Subject: Re: [PATCH v10 25/40] arm64/ptrace: Expose GCS via ptrace and core
  files
-Message-ID: <58ee01de-88a6-4d0c-845a-3d5bebc0c55c@sirena.org.uk>
+Message-ID: <79d5dad9-3194-45dd-8c2e-663cea2e5f4f@sirena.org.uk>
 References: <20240801-arm64-gcs-v10-0-699e2bd2190b@kernel.org>
  <20240801-arm64-gcs-v10-25-699e2bd2190b@kernel.org>
  <ZsYqfJ3V_-ljqlwq@arm.com>
+ <58ee01de-88a6-4d0c-845a-3d5bebc0c55c@sirena.org.uk>
 MIME-Version: 1.0
-In-Reply-To: <ZsYqfJ3V_-ljqlwq@arm.com>
-X-Cookie: You are false data.
+In-Reply-To: <58ee01de-88a6-4d0c-845a-3d5bebc0c55c@sirena.org.uk>
+X-Cookie: Are you a turtle?
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240821_112809_976518_3293FC58 
-X-CRM114-Status: GOOD (  28.15  )
+X-CRM114-CacheID: sfid-20240821_114126_430826_16782D43 
+X-CRM114-Status: GOOD (  13.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,84 +93,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5437994418479236745=="
+Content-Type: multipart/mixed; boundary="===============1090765575296234887=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============5437994418479236745==
+--===============1090765575296234887==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="XTSIK84UC9+qnNMX"
+	protocol="application/pgp-signature"; boundary="BMJnA8eFDlPmLXSS"
 Content-Disposition: inline
 
 
---XTSIK84UC9+qnNMX
+--BMJnA8eFDlPmLXSS
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 
-On Wed, Aug 21, 2024 at 06:57:16PM +0100, Catalin Marinas wrote:
-> On Thu, Aug 01, 2024 at 01:06:52PM +0100, Mark Brown wrote:
+On Wed, Aug 21, 2024 at 07:28:08PM +0100, Mark Brown wrote:
 
-> > +	if (user_gcs.features_enabled & ~PR_SHADOW_STACK_SUPPORTED_STATUS_MASK)
-> > +		return -EINVAL;
+> part of an otherwise invalid write.  The validation is checking for
+> unknown features and enables.  With clone3() we could relax the enable
+> check, but I've just pulled that out of the series for the time being.
 
-> > +	/* Do not allow enable via ptrace */
-> > +	if ((user_gcs.features_enabled & PR_SHADOW_STACK_ENABLE) &&
-> > +	    !(target->thread.gcs_el0_mode & PR_SHADOW_STACK_ENABLE))
-> > +		return -EBUSY;
+Actually thinking about it some more I'll just remove the check for
+enable, the support for threads with GCS enabled and no kernel allocated
+GCS is already there and I didn't pull that bit out.
 
-> > +	target->thread.gcs_el0_mode = user_gcs.features_enabled;
-> > +	target->thread.gcs_el0_locked = user_gcs.features_locked;
-> > +	target->thread.gcspr_el0 = user_gcs.gcspr_el0;
-
-> As in the previous thread, I thought we need to restore GCSPR_EL0
-> unconditionally.
-
-My thinking here is that if we return an error code then ideally we
-shouldn't implement any changes, especially in cases like this one
-where we're rejecting inputs that are just invalid.  That seems like the
-least surprising outcome and what we should strive for, even if it's too
-complicated for some cases.  It is possible to write GCSPR_EL0
-regardless of if GCS is enabled, it's just not possible to write it as
-part of an otherwise invalid write.  The validation is checking for
-unknown features and enables.  With clone3() we could relax the enable
-check, but I've just pulled that out of the series for the time being.
-
-> I don't particularly like that this register becomes some scrap one that
-> threads can use regardless of GCS. Not sure we have a simple solution.
-> We could track three states: GCS never enabled, GCS enabled and GCS
-> disabled after being enabled. It's probably not worth it.
-
-Yeah, I did give consideration to that but as you say I think it's
-probably not worth it - you end up with a state machine which for the
-most part only gets two of the states exercised.
-
-> On ptrace() access to the shadow stack, we rely on the barrier in the
-> context switch code if stopping a thread. If other threads are running
-> on other CPUs, it's racy anyway even for normal accesses, so I don't
-> think we need to do anything more for ptrace.
-
-Yes, I don't see any reason to try to do anything special there.
-
---XTSIK84UC9+qnNMX
+--BMJnA8eFDlPmLXSS
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmbGMagACgkQJNaLcl1U
-h9Db9wf/YDOH2BjzBXwu0lqzdwn2i+txsrhK+t+d9GX2VzQ6TRQJVseEw3ZiryNO
-J1DTR+iMp5FlHiA+dBqzqZs6Fm09BlHVaMuawV056J8O9fcpyhzG+xMMxoPyAika
-UeVQkZEUvs2eE76O+txWVhVwfLbKWAspcwflXBcFPVd8iT3yQxAgcS4k/h40zC3M
-h96mx+doBNKP+V9QlLlcLMiSsPS6VVN6PGE36A1uHbJWx03Kg133qsB+hzBPC8DU
-mJUnsZprHcbNVOYMJa/HMExbUltPGbuN61YzZvRT3mXkX/eykU2RkhITaZ7p8H8m
-SUu+YRFrKXGRJYWTXtUkcFtUO90vrA==
-=5j94
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmbGNMgACgkQJNaLcl1U
+h9Cs9gf/faFn4ZIWAD0ObkgYSu2MFgvuc0/TxhjIvIwyaRcVoqWhCLuxFx6tDyf7
+R003D+EGEn6M1h6zfEPXV/PKOBUV1KMnZcpTgESMJyUVa4HSREWmw7nMQZmiifDl
+xICPAzUBzqlPsIcc5S1eQlR7ecwt80Hs0WM5cWjh4YmQikjGU4LZse2eCrrVQ+8E
+hrLM84hndTamAlUtO9oREDCdZ8BZc+wxpQSRpRuufSMIdD/Ujv26ikmoRDOvGSbW
+h8v2pgOb1hekEEesgevZoE1YbJ76Z5GfQO4HdJKSh/iB4vz5mbmj324y6K0oL4Ej
+dsCLfFizij3MQaU6gmwwgHzolx6UWg==
+=MjH1
 -----END PGP SIGNATURE-----
 
---XTSIK84UC9+qnNMX--
+--BMJnA8eFDlPmLXSS--
 
 
---===============5437994418479236745==
+--===============1090765575296234887==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -180,5 +147,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============5437994418479236745==--
+--===============1090765575296234887==--
 
