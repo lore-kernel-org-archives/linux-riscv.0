@@ -4,87 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C484DC52D7C
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Aug 2024 14:51:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAA39C52D6F
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Aug 2024 15:30:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HiYOfHa26hDhdWxvgXxy5dbHDWNCJo+pcwDBACB7uMo=; b=X7F1HgnSAXXDZx
-	D1ZzDyDTBm3jn9R5JfjZWtWDhC4tkwSPIMHAiZ/lmhcpIWkGIsuAg855s/mZzEewY8sMAP8LUNd0j
-	Mle6kO779f5Yvx+hLZl0i7uE7V0zJsNky5+yQ0VmgVtRtbGKFoZE9W1ZJwHHMPOTQH4zGaw4Zeyzz
-	M8ng5WcMtttCTrjAeoUBnVxkC4ucTEIbOHYBIj5Y8kSLfwwD3+1cqbBf+3rZVvyfw0hulpcgqkOxF
-	Miw/erSMQdVvou2lbhaROgWXJQ8Bex1BcIIm/bzCwYA/AOn2ISLALT/NHm0cCPQpNso+zdIhWDkwM
-	hlW9TjVRAtWfBRF6l/OQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0JvdRFiGe/oPBcILV9lohywvaUyPiMi+U0vlQy9lB2s=; b=azkCsm5M07Oq6dqB6waIMfIKnp
+	JHB/38hwBQMjPbtMgYRzA2i2z3oE0wNeoijYXWilBf+qo02N4zfPdrguFkeg+rYH738UprTJF/HF7
+	voHlJ3BEBg64+YnIUUEZzB7dcK9M1Agn2vHQS0g2qZWst0CrfKillXP5RULev3IrnDMPgV0jeKv8g
+	wDlspGxiEPWM+TYUtiBNp9Cceg7QoPRWp6k0tnsjaaugMeJGXI1llhbSUXBOQHAU3SLcEVGyu57Jg
+	xULjq2Pfd+xZkFCbeVrSJ/j+w+ILzd8dcLG53CNZMMeUcTGaDIBuPAJjjGflFbhYqysqZe9Mi0MMm
+	AP2YdlEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgmgj-00000009Nl2-2tTL;
-	Wed, 21 Aug 2024 14:51:53 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1sgnHV-00000009VKs-3Ul7;
+	Wed, 21 Aug 2024 15:29:54 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgmgg-00000009Nk2-0viG
+	id 1sgnHT-00000009VKH-05CA
 	for linux-riscv@lists.infradead.org;
-	Wed, 21 Aug 2024 14:51:51 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-5bed83489c3so5662849a12.3
-        for <linux-riscv@lists.infradead.org>; Wed, 21 Aug 2024 07:51:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1724251908; x=1724856708; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/9z45COXiOa8Ur7PNvfAex0dKJEUmq0VNfjSEwtXU3g=;
-        b=Dtg0NXetU3hyyFxcSbJOv/x+/1kNQ2cgvafog8sH/JgHkC5ptzN/P3DrWewU3jU33n
-         pBpCVfXFwFSIsqTV2LDK2nRxJVfZkFVBqfuG3RYSPGNLTaxcKxh6BCTUh45MaMiZFwKF
-         Hv/IS4M0DTE0U8KAA30/w2kADnf5phU3MAoXLY8SRA0tyJmDqWB+9jkTYWjSVBSSe75s
-         IeAWF6agdPLKTTbUhTm2YU0lbfnNUvYmn62RlJ7B3h8D70+N2sD0CAs6+fJnML2qiJmQ
-         jeqW8e94++BvN5wakwfwtStYNEDqq3MOFZxEjvIhqIW2T/oQ4HRmcyf0ufkkDx/G6Rbh
-         GVPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1724251908; x=1724856708;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/9z45COXiOa8Ur7PNvfAex0dKJEUmq0VNfjSEwtXU3g=;
-        b=llraQyeKmUkLT4AdErOLZA6eZitL5c3s1e06B7JZnfwR5KHOZAM/yWf3zeNHBHQh0F
-         H+px1ONu0pkc/mneMZkyLlvGJLs0F55GGRxJiTHwCbQWweor2E/+t0jtPtFPXT2ElKPh
-         egh6u+AfqM+xhJWCwusLZ/hL3pCKXTWvUDuaf11NVQL2aD1zBfmNzBEUfTeh/3iV+18y
-         wJE1WHosIHOmbrPFyQSQugXWXPulptVbefFKaQtyHX8KKqRWOZBBm4uohsGGUISZ4TCC
-         KdvotwSI5A2cNnGVkVGUA9YLLOa8mZu3NbkKGbHlaYGtJP8qcv+9Rpu4cdUB2mL4Juk3
-         kPVw==
-X-Forwarded-Encrypted: i=1; AJvYcCWd5/sn237iIicVU5nYTjs9a4yH4F2ChV1flF2xo8U1rpUfwCiTGsv9e8FVn9V04HkR6AVUBd3yWN8u1g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyAY4xFVgN0LU/wfsK9D1XVStDcBXQ2jdfdhM6ilMRcuVZMhsH7
-	tZcpVxjRVbOnge9N6M0/HXgDKvWtL/PdmmKf4yTQ76LzdGQyS3KeOZFp7pxrVJs=
-X-Google-Smtp-Source: AGHT+IFaIncl/DtJadX96lKhBGv1TThBKGu6LlRSGCmIs0kZEeAJeyIHSe6bPyWgF2jtKC9PjY8pKQ==
-X-Received: by 2002:a17:906:c149:b0:a77:dd1c:6273 with SMTP id a640c23a62f3a-a866f136a88mr179111066b.12.1724251907406;
-        Wed, 21 Aug 2024 07:51:47 -0700 (PDT)
-Received: from localhost (cst2-173-13.cust.vodafone.cz. [31.30.173.13])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a83838c6ac5sm918850266b.18.2024.08.21.07.51.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 21 Aug 2024 07:51:47 -0700 (PDT)
-Date: Wed, 21 Aug 2024 16:51:45 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Andrea Parri <parri.andrea@gmail.com>, 
-	Nathan Chancellor <nathan@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>, Waiman Long <longman@redhat.com>, 
-	Boqun Feng <boqun.feng@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Leonardo Bras <leobras@redhat.com>, Guo Ren <guoren@kernel.org>, linux-doc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-arch@vger.kernel.org
-Subject: Re: [PATCH v5 13/13] riscv: Add qspinlock support
-Message-ID: <20240821-ec1ec92842570050429621d1@orel>
-References: <20240818063538.6651-1-alexghiti@rivosinc.com>
- <20240818063538.6651-14-alexghiti@rivosinc.com>
+	Wed, 21 Aug 2024 15:29:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 26556CE0E62;
+	Wed, 21 Aug 2024 15:29:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC82AC32781;
+	Wed, 21 Aug 2024 15:29:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1724254188;
+	bh=kM9T4AHZ6ULY3dqDxLeHx/n7GocYC9a1Ufp84n6ZZaw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YEp3HXmak6uLH3Lkeuss+9978yCSxp+iL8YP1A/WdsOpOnEJIsN8SyqO1zf4fmKr1
+	 lWJ3RhRbBWp9XHsaUlOvFLLCuGVN1b96sA/uPDsZgr1gj6VWa037dc3+X3GRRh/5xk
+	 181EvCpLAb2BL4PP3k79713Fe4r8i0aZIQKcg234XRRoRNmPqP4awDmS7QokTE4F9z
+	 IFzR7eb35H8mRSoVnu65UYtzBIWjIgWe7iFWFz2g/bn5Z/NGAIP27QLYjdXNciDRjn
+	 FkLgt2VlCOFJIrXYVAXVSu/UANkv2xDH+zej4mlQECPD75KHYNM7rG/VaD3rgqx7ud
+	 AIfgOcBvBOiFw==
+Date: Wed, 21 Aug 2024 16:29:42 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 1/3] dt-bindings: iio: adc: sophgo,cv18xx-saradc.yaml:
+ Add Sophgo CV18XX SARADC binding
+Message-ID: <20240821-unholy-statutory-7aa884ebf857@spud>
+References: <20240812-sg2002-adc-v4-0-599bdb67592f@bootlin.com>
+ <20240812-sg2002-adc-v4-1-599bdb67592f@bootlin.com>
+ <20240812-unwary-mongrel-9f6758bf624c@spud>
+ <89aabfbe-79bf-4da7-be44-b6cbd92b72a9@bootlin.com>
+ <20240820-borough-latch-17d785301aef@spud>
+ <20240821094150.5787905b@xps-13>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240818063538.6651-14-alexghiti@rivosinc.com>
+In-Reply-To: <20240821094150.5787905b@xps-13>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240821_075150_295061_179D2999 
-X-CRM114-Status: GOOD (  41.13  )
+X-CRM114-CacheID: sfid-20240821_082951_431390_2343A135 
+X-CRM114-Status: GOOD (  33.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,290 +83,176 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2410734036386774153=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 18, 2024 at 08:35:38AM GMT, Alexandre Ghiti wrote:
-> In order to produce a generic kernel, a user can select
-> CONFIG_COMBO_SPINLOCKS which will fallback at runtime to the ticket
-> spinlock implementation if Zabha or Ziccrse are not present.
-> 
-> Note that we can't use alternatives here because the discovery of
-> extensions is done too late and we need to start with the qspinlock
-> implementation because the ticket spinlock implementation would pollute
-> the spinlock value, so let's use static keys.
-> 
-> This is largely based on Guo's work and Leonardo reviews at [1].
-> 
-> Link: https://lore.kernel.org/linux-riscv/20231225125847.2778638-1-guoren@kernel.org/ [1]
-> Signed-off-by: Guo Ren <guoren@kernel.org>
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> ---
->  .../locking/queued-spinlocks/arch-support.txt |  2 +-
->  arch/riscv/Kconfig                            | 34 ++++++++++++++
->  arch/riscv/include/asm/Kbuild                 |  4 +-
->  arch/riscv/include/asm/spinlock.h             | 47 +++++++++++++++++++
->  arch/riscv/kernel/setup.c                     | 37 +++++++++++++++
->  include/asm-generic/qspinlock.h               |  2 +
->  include/asm-generic/ticket_spinlock.h         |  2 +
->  7 files changed, 126 insertions(+), 2 deletions(-)
->  create mode 100644 arch/riscv/include/asm/spinlock.h
-> 
-> diff --git a/Documentation/features/locking/queued-spinlocks/arch-support.txt b/Documentation/features/locking/queued-spinlocks/arch-support.txt
-> index 22f2990392ff..cf26042480e2 100644
-> --- a/Documentation/features/locking/queued-spinlocks/arch-support.txt
-> +++ b/Documentation/features/locking/queued-spinlocks/arch-support.txt
-> @@ -20,7 +20,7 @@
->      |    openrisc: |  ok  |
->      |      parisc: | TODO |
->      |     powerpc: |  ok  |
-> -    |       riscv: | TODO |
-> +    |       riscv: |  ok  |
->      |        s390: | TODO |
->      |          sh: | TODO |
->      |       sparc: |  ok  |
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index ef55ab94027e..201d0669db7f 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -79,6 +79,7 @@ config RISCV
->  	select ARCH_WANT_OPTIMIZE_HUGETLB_VMEMMAP
->  	select ARCH_WANTS_NO_INSTR
->  	select ARCH_WANTS_THP_SWAP if HAVE_ARCH_TRANSPARENT_HUGEPAGE
-> +	select ARCH_WEAK_RELEASE_ACQUIRE if ARCH_USE_QUEUED_SPINLOCKS
 
-Hi Alex,
+--===============2410734036386774153==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="Tue/8AFCKfIOWTNr"
+Content-Disposition: inline
 
-Did you get a chance to experiment this as suggested by Andrea?
 
->  	select BINFMT_FLAT_NO_DATA_START_OFFSET if !MMU
->  	select BUILDTIME_TABLE_SORT if MMU
->  	select CLINT_TIMER if RISCV_M_MODE
-> @@ -488,6 +489,39 @@ config NODES_SHIFT
->  	  Specify the maximum number of NUMA Nodes available on the target
->  	  system.  Increases memory reserved to accommodate various tables.
->  
-> +choice
-> +	prompt "RISC-V spinlock type"
-> +	default RISCV_COMBO_SPINLOCKS
-> +
-> +config RISCV_TICKET_SPINLOCKS
-> +	bool "Using ticket spinlock"
-> +
-> +config RISCV_QUEUED_SPINLOCKS
-> +	bool "Using queued spinlock"
-> +	depends on SMP && MMU && NONPORTABLE
-> +	select ARCH_USE_QUEUED_SPINLOCKS
-> +	help
-> +	  The queued spinlock implementation requires the forward progress
-> +	  guarantee of cmpxchg()/xchg() atomic operations: CAS with Zabha or
-> +	  LR/SC with Ziccrse provide such guarantee.
-> +
-> +	  Select this if and only if Zabha or Ziccrse is available on your
-> +	  platform, RISCV_QUEUED_SPINLOCKS must not be selected for platforms
-> +	  without one of those extensions.
-> +
-> +	  If unsure, select RISCV_COMBO_SPINLOCKS, which will use qspinlocks
-> +	  when supported and otherwise ticket spinlocks.
-> +
-> +config RISCV_COMBO_SPINLOCKS
-> +	bool "Using combo spinlock"
-> +	depends on SMP && MMU
-> +	select ARCH_USE_QUEUED_SPINLOCKS
-> +	help
-> +	  Embed both queued spinlock and ticket lock so that the spinlock
-> +	  implementation can be chosen at runtime.
-> +
-> +endchoice
-> +
->  config RISCV_ALTERNATIVE
->  	bool
->  	depends on !XIP_KERNEL
-> diff --git a/arch/riscv/include/asm/Kbuild b/arch/riscv/include/asm/Kbuild
-> index 5c589770f2a8..1c2618c964f0 100644
-> --- a/arch/riscv/include/asm/Kbuild
-> +++ b/arch/riscv/include/asm/Kbuild
-> @@ -5,10 +5,12 @@ syscall-y += syscall_table_64.h
->  generic-y += early_ioremap.h
->  generic-y += flat.h
->  generic-y += kvm_para.h
-> +generic-y += mcs_spinlock.h
->  generic-y += parport.h
-> -generic-y += spinlock.h
->  generic-y += spinlock_types.h
-> +generic-y += ticket_spinlock.h
->  generic-y += qrwlock.h
->  generic-y += qrwlock_types.h
-> +generic-y += qspinlock.h
->  generic-y += user.h
->  generic-y += vmlinux.lds.h
-> diff --git a/arch/riscv/include/asm/spinlock.h b/arch/riscv/include/asm/spinlock.h
-> new file mode 100644
-> index 000000000000..e5121b89acea
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/spinlock.h
-> @@ -0,0 +1,47 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +
-> +#ifndef __ASM_RISCV_SPINLOCK_H
-> +#define __ASM_RISCV_SPINLOCK_H
-> +
-> +#ifdef CONFIG_RISCV_COMBO_SPINLOCKS
-> +#define _Q_PENDING_LOOPS	(1 << 9)
-> +
-> +#define __no_arch_spinlock_redefine
-> +#include <asm/ticket_spinlock.h>
-> +#include <asm/qspinlock.h>
-> +#include <asm/jump_label.h>
-> +
-> +/*
-> + * TODO: Use an alternative instead of a static key when we are able to parse
-> + * the extensions string earlier in the boot process.
-> + */
-> +DECLARE_STATIC_KEY_TRUE(qspinlock_key);
-> +
-> +#define SPINLOCK_BASE_DECLARE(op, type, type_lock)			\
-> +static __always_inline type arch_spin_##op(type_lock lock)		\
-> +{									\
-> +	if (static_branch_unlikely(&qspinlock_key))			\
-> +		return queued_spin_##op(lock);				\
-> +	return ticket_spin_##op(lock);					\
-> +}
+--Tue/8AFCKfIOWTNr
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-I guess there were still a couple questions on the kernel size impact of
-this.
+On Wed, Aug 21, 2024 at 09:41:50AM +0200, Miquel Raynal wrote:
+> > > > > +      Represents the channels of the ADC.
+> > > > > +
+> > > > > +    properties:
+> > > > > +      reg:
+> > > > > +        description: |
+> > > > > +          The channel number. It can have up to 3 channels numbe=
+red from 0 to 2.
+> > > > > +        items:
+> > > > > +          - minimum: 0
+> > > > > +            maximum: 2 =20
+> > > >=20
+> > > > Is this sufficient to limit the number of channels to 3? Aren't you=
+ relying
+> > > > on the unique unit addresses warning in dtc to limit it, rather than
+> > > > actually limiting with min/maxItems?
+> > > >  =20
+> > > It seems like I can't use min/maxItems on this property. I think that=
+ it is
+> > > using size-cells + address-cells to deduce that the number of items s=
+hould
+> > > be equal to 1. =20
+>=20
+> Looking at dt-schema, I couldn't personally understand from where did
+> the error messages reported by Thomas came from. There are clear
 
-> +
-> +SPINLOCK_BASE_DECLARE(lock, void, arch_spinlock_t *)
-> +SPINLOCK_BASE_DECLARE(unlock, void, arch_spinlock_t *)
-> +SPINLOCK_BASE_DECLARE(is_locked, int, arch_spinlock_t *)
-> +SPINLOCK_BASE_DECLARE(is_contended, int, arch_spinlock_t *)
-> +SPINLOCK_BASE_DECLARE(trylock, bool, arch_spinlock_t *)
-> +SPINLOCK_BASE_DECLARE(value_unlocked, int, arch_spinlock_t)
-> +
-> +#elif defined(CONFIG_RISCV_QUEUED_SPINLOCKS)
-> +
-> +#include <asm/qspinlock.h>
-> +
-> +#else
-> +
-> +#include <asm/ticket_spinlock.h>
-> +
-> +#endif
-> +
-> +#include <asm/qrwlock.h>
-> +
-> +#endif /* __ASM_RISCV_SPINLOCK_H */
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index a2cde65b69e9..438e4f6ad2ad 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -244,6 +244,42 @@ static void __init parse_dtb(void)
->  #endif
->  }
->  
-> +#if defined(CONFIG_RISCV_COMBO_SPINLOCKS)
-> +DEFINE_STATIC_KEY_TRUE(qspinlock_key);
-> +EXPORT_SYMBOL(qspinlock_key);
-> +#endif
-> +
-> +static void __init riscv_spinlock_init(void)
-> +{
-> +	char *using_ext = NULL;
-> +
-> +	if (IS_ENABLED(CONFIG_RISCV_TICKET_SPINLOCKS)) {
-> +		pr_info("Ticket spinlock: enabled\n");
-> +		return;
-> +	}
-> +
-> +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZABHA) &&
-> +	    IS_ENABLED(CONFIG_RISCV_ISA_ZACAS) &&
-> +	    riscv_isa_extension_available(NULL, ZABHA) &&
-> +	    riscv_isa_extension_available(NULL, ZACAS)) {
-> +		using_ext = "using Zabha";
-> +	} else if (riscv_isa_extension_available(NULL, ZICCRSE)) {
-> +		using_ext = "using Ziccrse";
-> +	}
-> +#if defined(CONFIG_RISCV_COMBO_SPINLOCKS)
-> +	else {
-> +		static_branch_disable(&qspinlock_key);
-> +		pr_info("Ticket spinlock: enabled\n");
-> +		return;
-> +	}
-> +#endif
-> +
-> +	if (!using_ext)
-> +		pr_err("Queued spinlock without Zabha or Ziccrse");
-> +	else
-> +		pr_info("Queued spinlock %s: enabled\n", using_ext);
-> +}
-> +
->  extern void __init init_rt_signal_env(void);
->  
->  void __init setup_arch(char **cmdline_p)
-> @@ -297,6 +333,7 @@ void __init setup_arch(char **cmdline_p)
->  	riscv_set_dma_cache_alignment();
->  
->  	riscv_user_isa_enable();
-> +	riscv_spinlock_init();
->  }
->  
->  bool arch_cpu_is_hotpluggable(int cpu)
-> diff --git a/include/asm-generic/qspinlock.h b/include/asm-generic/qspinlock.h
-> index 0655aa5b57b2..bf47cca2c375 100644
-> --- a/include/asm-generic/qspinlock.h
-> +++ b/include/asm-generic/qspinlock.h
-> @@ -136,6 +136,7 @@ static __always_inline bool virt_spin_lock(struct qspinlock *lock)
->  }
->  #endif
->  
-> +#ifndef __no_arch_spinlock_redefine
->  /*
->   * Remapping spinlock architecture specific functions to the corresponding
->   * queued spinlock functions.
-> @@ -146,5 +147,6 @@ static __always_inline bool virt_spin_lock(struct qspinlock *lock)
->  #define arch_spin_lock(l)		queued_spin_lock(l)
->  #define arch_spin_trylock(l)		queued_spin_trylock(l)
->  #define arch_spin_unlock(l)		queued_spin_unlock(l)
-> +#endif
->  
->  #endif /* __ASM_GENERIC_QSPINLOCK_H */
-> diff --git a/include/asm-generic/ticket_spinlock.h b/include/asm-generic/ticket_spinlock.h
-> index cfcff22b37b3..325779970d8a 100644
-> --- a/include/asm-generic/ticket_spinlock.h
-> +++ b/include/asm-generic/ticket_spinlock.h
-> @@ -89,6 +89,7 @@ static __always_inline int ticket_spin_is_contended(arch_spinlock_t *lock)
->  	return (s16)((val >> 16) - (val & 0xffff)) > 1;
->  }
->  
-> +#ifndef __no_arch_spinlock_redefine
->  /*
->   * Remapping spinlock architecture specific functions to the corresponding
->   * ticket spinlock functions.
-> @@ -99,5 +100,6 @@ static __always_inline int ticket_spin_is_contended(arch_spinlock_t *lock)
->  #define arch_spin_lock(l)		ticket_spin_lock(l)
->  #define arch_spin_trylock(l)		ticket_spin_trylock(l)
->  #define arch_spin_unlock(l)		ticket_spin_unlock(l)
-> +#endif
->  
->  #endif /* __ASM_GENERIC_TICKET_SPINLOCK_H */
-> -- 
-> 2.39.2
->
- 
-The patch looks good to me, so
+I think the complaints are on a more meta level than that. He provided
+an items list
+     properties:
+       reg:
+         maxItems: 1
+         items:
+           - minimum: 0
+             maximum: 2
+but this list only has one entry as there's one -. The first complaint
+=66rom dt_binding_check is that having maxItems is not needed with an
+items list, because the items list contains the maximum number of
+elements.
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+The second one comes from cell.yaml:
+https://github.com/devicetree-org/dt-schema/blob/main/dtschema/meta-schemas=
+/cell.yaml
 
-It'd still be good to hear more about ARCH_WEAK_RELEASE_ACQUIRE and the
-kernel size though.
+It either allows a single item, with maxItems: 1 or multiple items, in
+which case maxitems must be greater than 1. That's where the "anyOf
+conditonal failed" and "1 is less than the minimum of 2" stuff comes
+=66rom.
 
-Thanks,
-drew
+I hope that helps?
+
+> constraints over minItems/maxItems regarding the use of {#address-cells,
+> #sizez-cells} being {1, 1}, {2, 2} and {2, 1} (in reg.yaml), but nothing
+> explicit regarding the other situations, namely {1, 0} in this case
+> which enforces maxItems to 1 is not clearly stated in any of the core
+> yaml files. Any idea where to look at? Although, I'm convinced there is
+> something defined because renaming the property from 'reg' to 'foo'
+> silences these warnings.
+>=20
+> > I think I was mistaken in talking about mix/max items here. I had the
+> > right idea, but mentioned an incorrect solution - sorry about that. I
+> > wasn't talking about the number of elements in the reg property, what I
+> > meant was limiting the number of channel nodes in the first place -
+> > something which min/maxItems cannot do. As examples of the problem I was
+> > thinking of, see the below two examples:
+> >=20
+> >     adc@30f0000 {
+> >         compatible =3D "sophgo,cv1800b-saradc";
+> >         reg =3D <0x030f0000 0x1000>;
+> >         clocks =3D <&clk CLK_SARADC>;
+> >         interrupts =3D <100 IRQ_TYPE_LEVEL_HIGH>;
+> >         #address-cells =3D <1>;
+> >         #size-cells =3D <0>;
+> >=20
+> >         channel@0 {
+> >             reg =3D <0>;
+> >         };
+> >         channel@2 {
+> >             reg =3D <2>;
+> >         };
+> >         channel@22 {
+> >             reg =3D <2>;
+> >         };
+> >     };
+> >=20
+> >     adc@30f0000 {
+> >         compatible =3D "sophgo,cv1800b-saradc";
+> >         reg =3D <0x030f0000 0x1000>;
+> >         clocks =3D <&clk CLK_SARADC>;
+> >         interrupts =3D <100 IRQ_TYPE_LEVEL_HIGH>;
+> >         #address-cells =3D <1>;
+> >         #size-cells =3D <0>;
+> >=20
+> >         channel@0 {
+> >             reg =3D <0>;
+> >         };
+> >         channel@2 {
+> >             reg =3D <2>;
+> >         };
+> >         channel@22 {
+> >             reg =3D <2>;
+> >         };
+
+I noticed that I pasted two of the same example. I must have just
+yoinked the latter to a vim buffer rather than to my clipboard. At least
+it didn't matter in the end.
+
+Cheers,
+Conor.
+
+> >     };
+> >=20
+> > The solution is simple, remove the + from the regex. Sorry for sending
+> > you on the wrong track Thomas.
+>=20
+> Ah! Thanks Conor for the details, now it makes full sense :-) BTW Thomas
+> the regex is
+>=20
+> 	^channel@[0-3]+$
+>=20
+> and I guess it should instead be
+>=20
+> 	^channel@[0-2]$
+>                     ^
+>=20
+> in order to fully match the real indexing constraints you're enforcing
+> with minimum/maximum.
+>=20
+> Thanks,
+> Miqu=E8l
+
+--Tue/8AFCKfIOWTNr
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZsYH5gAKCRB4tDGHoIJi
+0qwgAP9DK5VMEgFavpXECmhFBfncT7lIUlxJBxj6s5zdF7kQnQD/Sw2qGwYA2V9y
+v3kct0e0cmDF19Qfeha3fH3QXcYq6QQ=
+=9e4E
+-----END PGP SIGNATURE-----
+
+--Tue/8AFCKfIOWTNr--
+
+
+--===============2410734036386774153==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2410734036386774153==--
+
