@@ -4,76 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D16AFC5320E
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Aug 2024 21:37:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8442CC3DA4A
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Aug 2024 21:45:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yaTxQiN4Ni/m+fri9QQvkLYulSX3rHxC+M6o1aLHKr8=; b=n45/HzWUE/F9y4
-	bSx26cwW270TcCEOqnenPZ2BwJ3D4e8euWcmseF4DhblaP3AJqzYidBFMuqPFE/EbaPISU2SZ/whp
-	5AbOEY9BfOEWuNW6ohS9YSq9xGBJjNs7DRxWwUuehCtmWiMCTmnNZY01iqIO9e78oxDFhNIKHhXhP
-	Lc+ihGGrWCdZ5sPi41kEL1x5l99nGYVcxguiZ9Y+jSDA0ZTpBwFiRIH4XHvgUcyA9s4V8iFeX3LQz
-	/c1O3TqaJvacNIqbtbblIqDGauj8q/qcRmnJoZA6IZzs9zh31ZQLLZWC07S5vNeOa7+ILJ4SFqLN6
-	EwZioyM0AWt4a4qW42Qg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=MITRf4vKb60GnFkwjqgZD4MmahZQUMsdLbFs3zdzmlk=; b=DAZ8SoYZbiytUO
+	B7B7xWUXsE7f0bK2AB9KTxYKjczK2cZ345FXyoQy+v7SwbQmR1qC2QgFAKWx/nithjTApBhFHOgVW
+	GerPVDAYoIh5t96seWuOyKx2fHmiFSvINhLyatsLiLcjmcQHJSRjkxXQjH9qoCSSQvVm3e4+daaJ0
+	8D4iLcUfKrXYjAAz56dAvIHnPez0Ww5OS1/DIehGtFLDI+hg2EuaOlF062tMUhViU/nPf04G0mEZ8
+	7oL2tnMS8qCFsK0yVuPzwE7syeaEJiLGb3/zxguP1FrDEVgk/t+kMdwfw/XeWOjMjtCV7x99QeocH
+	GdqqFRiADi4vzBKUtbOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1shFUa-0000000ENQt-0lJV;
-	Thu, 22 Aug 2024 21:37:16 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1shFcC-0000000EOaW-2lFq;
+	Thu, 22 Aug 2024 21:45:08 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1shFUW-0000000ENOs-2FCS
-	for linux-riscv@lists.infradead.org;
-	Thu, 22 Aug 2024 21:37:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1724362632; x=1755898632;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=icQnrCzDD/QHiymbI340Kuyyn1Ca7Gddfa0MRaGXDZI=;
-  b=av4EWQs/w3SjVDEmky8tEjFaARA+/d2xA4mjiTGB12fUgMKG9oKiAE5W
-   D1IRdhZFYQXd88L7LtMEYWNcsWYhHxXPlTwNOVA7JbrYuzX5PAo0PC+l1
-   ZViEgCbF0G4aTAg1o3XnFX94fqHeXnGOPcfaFb4jni6+CxbWOVDgaR0cg
-   nmOu3Qxjjq5MD7oTa7bbYMbOS/Rs/YU6beEdyfceQphd9k3rV9gzZnZkM
-   DZDilrLVZhEYCkI+/S/CAJMpNgKuoAWEmYt7Rst/HtF4YFijiLTlGD5zF
-   1aEjn2Xhj8xvQbCg8DnzTsqwL3nKRHQpvcvngKPtnZPwjb48GkGeYbvVt
-   Q==;
-X-CSE-ConnectionGUID: qSL7NQZqQ7C0IzzI8O/MNg==
-X-CSE-MsgGUID: JX8f5ZtfTxidAdo479ShxA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11172"; a="22973255"
-X-IronPort-AV: E=Sophos;i="6.10,168,1719903600"; 
-   d="scan'208";a="22973255"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Aug 2024 14:37:07 -0700
-X-CSE-ConnectionGUID: 2ffUV8QAQHuprfxMizfYwQ==
-X-CSE-MsgGUID: RQy+U63LR4mpzcCdL5sW/g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.10,168,1719903600"; 
-   d="scan'208";a="66487955"
-Received: from lkp-server01.sh.intel.com (HELO 9a732dc145d3) ([10.239.97.150])
-  by orviesa005.jf.intel.com with ESMTP; 22 Aug 2024 14:37:05 -0700
-Received: from kbuild by 9a732dc145d3 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1shFUM-000DD6-0d;
-	Thu, 22 Aug 2024 21:37:02 +0000
-Date: Fri, 23 Aug 2024 05:36:20 +0800
-From: kernel test robot <lkp@intel.com>
-To: Yue Haibing <yuehaibing@huawei.com>, anup@brainfault.org,
-	tglx@linutronix.de, paul.walmsley@sifive.com, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, ruanjinjie@huawei.com, bjorn@rivosinc.com
-Cc: oe-kbuild-all@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, yuehaibing@huawei.com
-Subject: Re: [PATCH -next] irqchip/riscv-aplic: Fix NULL vs IS_ERR() bug
-Message-ID: <202408230558.er4j09Nd-lkp@intel.com>
-References: <20240820132857.247679-1-yuehaibing@huawei.com>
+	id 1shFbP-0000000EOQ2-1Djz;
+	Thu, 22 Aug 2024 21:44:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E5ABA6125B;
+	Thu, 22 Aug 2024 21:44:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 396D8C32782;
+	Thu, 22 Aug 2024 21:44:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1724363057;
+	bh=wouLQ1NMCmEgVtTZfpizED4KYxY6busZQVGhvu31U9w=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=Xs2zFAA9+v+tdLOs3jXLguv9xMVkhnYJ59w6LWKQLse0VkgpY4n3M9GfnAqMgUxgg
+	 mNQgmv2j5woLX2DsJDcZWJtxsWxnZVNLcQR3pLujkDw/ccz0d5tabsnuK/iD6TBGsB
+	 t6sXdIdz+6bLGcQqNRCzCRhpIqLFDYniLxrB8/L+wpQtGPGmvs+j/2iANc7GyIs+Hl
+	 cDGTOu9lQTSkUNeYComLCaJ5NUiIQBlMmJScKnb/2i64YGpmxy1cQVdiCZjBJd6vtr
+	 O+bq13w1mDVy67a72wMbT+OsLDdhhGwPMprv02UfNs2rIRUeKc3Sl1v8pgSefHlAsE
+	 01Ok7tLTOSowg==
+Date: Thu, 22 Aug 2024 16:44:15 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Sunil V L <sunilvl@ventanamicro.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
+	acpica-devel@lists.linux.dev, Will Deacon <will@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Anup Patel <anup@brainfault.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Robert Moore <robert.moore@intel.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Haibo Xu <haibo1.xu@intel.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Atish Kumar Patra <atishp@rivosinc.com>,
+	Drew Fustini <dfustini@tenstorrent.com>,
+	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>
+Subject: Re: [PATCH v8 08/17] ACPI: pci_link: Clear the dependencies after
+ probe
+Message-ID: <20240822214415.GA351762@bhelgaas>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240820132857.247679-1-yuehaibing@huawei.com>
+In-Reply-To: <20240812005929.113499-9-sunilvl@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240822_143712_696086_6ACE340A 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20240822_144419_439375_D194BCE6 
+X-CRM114-Status: GOOD (  22.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,124 +82,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Yue,
-
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on next-20240820]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Yue-Haibing/irqchip-riscv-aplic-Fix-NULL-vs-IS_ERR-bug/20240820-213521
-base:   next-20240820
-patch link:    https://lore.kernel.org/r/20240820132857.247679-1-yuehaibing%40huawei.com
-patch subject: [PATCH -next] irqchip/riscv-aplic: Fix NULL vs IS_ERR() bug
-config: riscv-allnoconfig (https://download.01.org/0day-ci/archive/20240823/202408230558.er4j09Nd-lkp@intel.com/config)
-compiler: riscv64-linux-gcc (GCC) 14.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20240823/202408230558.er4j09Nd-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202408230558.er4j09Nd-lkp@intel.com/
-
-All error/warnings (new ones prefixed by >>):
-
-   drivers/irqchip/irq-riscv-aplic-main.c: In function 'aplic_probe':
->> drivers/irqchip/irq-riscv-aplic-main.c:178:9: warning: this 'if' clause does not guard... [-Wmisleading-indentation]
-     178 |         if (IS_ERR(regs))
-         |         ^~
-   drivers/irqchip/irq-riscv-aplic-main.c:180:17: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
-     180 |                 return PTR_ERR(regs);
-         |                 ^~~~~~
->> drivers/irqchip/irq-riscv-aplic-main.c:174:13: warning: unused variable 'rc' [-Wunused-variable]
-     174 |         int rc;
-         |             ^~
->> drivers/irqchip/irq-riscv-aplic-main.c:172:14: warning: unused variable 'msi_mode' [-Wunused-variable]
-     172 |         bool msi_mode = false;
-         |              ^~~~~~~~
-   drivers/irqchip/irq-riscv-aplic-main.c: At top level:
->> drivers/irqchip/irq-riscv-aplic-main.c:187:9: warning: data definition has no type or storage class
-     187 |         msi_mode = of_property_present(to_of_node(dev->fwnode), "msi-parent");
-         |         ^~~~~~~~
->> drivers/irqchip/irq-riscv-aplic-main.c:187:9: error: type defaults to 'int' in declaration of 'msi_mode' [-Wimplicit-int]
-   In file included from drivers/irqchip/irq-riscv-aplic-main.c:10:
->> include/linux/of.h:168:9: error: braced-group within expression allowed only inside a function
-     168 |         ({                                                              \
-         |         ^
-   drivers/irqchip/irq-riscv-aplic-main.c:187:40: note: in expansion of macro 'to_of_node'
-     187 |         msi_mode = of_property_present(to_of_node(dev->fwnode), "msi-parent");
-         |                                        ^~~~~~~~~~
->> drivers/irqchip/irq-riscv-aplic-main.c:188:9: error: expected identifier or '(' before 'if'
-     188 |         if (msi_mode)
-         |         ^~
->> drivers/irqchip/irq-riscv-aplic-main.c:190:9: error: expected identifier or '(' before 'else'
-     190 |         else
-         |         ^~~~
-   drivers/irqchip/irq-riscv-aplic-main.c:192:9: error: expected identifier or '(' before 'if'
-     192 |         if (rc)
-         |         ^~
-   In file included from include/linux/device.h:15,
-                    from include/linux/platform_device.h:13,
-                    from drivers/irqchip/irq-riscv-aplic-main.c:12:
->> include/linux/dev_printk.h:111:10: error: expected identifier or '(' before ')' token
-     111 |         })
-         |          ^
-   include/linux/dev_printk.h:154:9: note: in expansion of macro 'dev_printk_index_wrap'
-     154 |         dev_printk_index_wrap(_dev_err, KERN_ERR, dev, dev_fmt(fmt), ##__VA_ARGS__)
-         |         ^~~~~~~~~~~~~~~~~~~~~
-   drivers/irqchip/irq-riscv-aplic-main.c:193:17: note: in expansion of macro 'dev_err'
-     193 |                 dev_err(dev, "failed to setup APLIC in %s mode\n", msi_mode ? "MSI" : "direct");
-         |                 ^~~~~~~
->> drivers/irqchip/irq-riscv-aplic-main.c:195:9: error: expected identifier or '(' before 'return'
-     195 |         return rc;
-         |         ^~~~~~
->> drivers/irqchip/irq-riscv-aplic-main.c:196:1: error: expected identifier or '(' before '}' token
-     196 | }
-         | ^
-
-
-vim +187 drivers/irqchip/irq-riscv-aplic-main.c
-
-2333df5ae51ead Anup Patel  2024-03-07  168  
-2333df5ae51ead Anup Patel  2024-03-07  169  static int aplic_probe(struct platform_device *pdev)
-2333df5ae51ead Anup Patel  2024-03-07  170  {
-2333df5ae51ead Anup Patel  2024-03-07  171  	struct device *dev = &pdev->dev;
-2333df5ae51ead Anup Patel  2024-03-07 @172  	bool msi_mode = false;
-2333df5ae51ead Anup Patel  2024-03-07  173  	void __iomem *regs;
-2333df5ae51ead Anup Patel  2024-03-07 @174  	int rc;
-2333df5ae51ead Anup Patel  2024-03-07  175  
-2333df5ae51ead Anup Patel  2024-03-07  176  	/* Map the MMIO registers */
-2333df5ae51ead Anup Patel  2024-03-07  177  	regs = devm_platform_ioremap_resource(pdev, 0);
-bb109b384dab1e Yue Haibing 2024-08-20 @178  	if (IS_ERR(regs))
-2333df5ae51ead Anup Patel  2024-03-07  179  		dev_err(dev, "failed map MMIO registers\n");
-bb109b384dab1e Yue Haibing 2024-08-20  180  		return PTR_ERR(regs);
-2333df5ae51ead Anup Patel  2024-03-07  181  	}
-2333df5ae51ead Anup Patel  2024-03-07  182  
-2333df5ae51ead Anup Patel  2024-03-07  183  	/*
-2333df5ae51ead Anup Patel  2024-03-07  184  	 * If msi-parent property is present then setup APLIC MSI
-2333df5ae51ead Anup Patel  2024-03-07  185  	 * mode otherwise setup APLIC direct mode.
-2333df5ae51ead Anup Patel  2024-03-07  186  	 */
-2333df5ae51ead Anup Patel  2024-03-07 @187  	msi_mode = of_property_present(to_of_node(dev->fwnode), "msi-parent");
-2333df5ae51ead Anup Patel  2024-03-07 @188  	if (msi_mode)
-ca8df97fe6798a Anup Patel  2024-03-07  189  		rc = aplic_msi_setup(dev, regs);
-2333df5ae51ead Anup Patel  2024-03-07 @190  	else
-2333df5ae51ead Anup Patel  2024-03-07  191  		rc = aplic_direct_setup(dev, regs);
-2333df5ae51ead Anup Patel  2024-03-07  192  	if (rc)
-2333df5ae51ead Anup Patel  2024-03-07  193  		dev_err(dev, "failed to setup APLIC in %s mode\n", msi_mode ? "MSI" : "direct");
-2333df5ae51ead Anup Patel  2024-03-07  194  
-2333df5ae51ead Anup Patel  2024-03-07 @195  	return rc;
-2333df5ae51ead Anup Patel  2024-03-07 @196  }
-2333df5ae51ead Anup Patel  2024-03-07  197  
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBBdWcgMTIsIDIwMjQgYXQgMDY6Mjk6MjBBTSArMDUzMCwgU3VuaWwgViBMIHdyb3Rl
+Ogo+IFJJU0MtViBwbGF0Zm9ybXMgbmVlZCB0byB1c2UgZGVwZW5kZW5jaWVzIGJldHdlZW4gUENJ
+IGhvc3QgYnJpZGdlLCBMaW5rCj4gZGV2aWNlcyBhbmQgdGhlIGludGVycnVwdCBjb250cm9sbGVy
+cyB0byBlbnN1cmUgcHJvYmUgb3JkZXIuIFRoZQo+IGRlcGVuZGVuY3kgaXMgbGlrZSBiZWxvdy4K
+PiAKPiBJbnRlcnJ1cHQgY29udHJvbGxlciA8LS0gTGluayBEZXZpY2UgPC0tIFBDSSBIb3N0IGJy
+aWRnZS4KPiAKPiBJZiB0aGVyZSBpcyBubyBkZXBlbmRlbmN5IGJldHdlZW4gTGluayBkZXZpY2Ug
+YW5kIFBDSSBIb3N0IEJyaWRnZSwKPiB0aGVuIFBDSSBkZXZpY2VzIG1heSBiZSBwcm9iZWQgcHJp
+b3IgdG8gTGluayBkZXZpY2VzLiAgSWYgYSBQQ0kKPiBkZXZpY2UgaXMgcHJvYmVkIGJlZm9yZSBp
+dHMgTGluayBkZXZpY2UsIHdlIHdvbid0IGJlIGFibGUgdG8gZmluZAo+IGl0cyBJTlR4IG1hcHBp
+bmcuCgpUaGlzIHNlZW1zIHRvIGV4cGxhaW4gd2h5IHdlIHdhbnQgdGhlc2UgZGVwZW5kZW5jaWVz
+LCB3aGljaCBpcyB1c2VmdWwsCmJ1dCAqdGhpcyogcGF0Y2ggb25seSByZW1vdmVzIHRoZSBkZXBl
+bmRlbmNpZXMuCgpNYXliZSB0aGlzIGRlc2NyaXB0aW9uIHNob3VsZCBiZSBpbiB0aGUgcGF0Y2gg
+dGhhdCAqYWRkcyogdGhlCmRlcGVuZGVuY2llcywgZS5nLiwgIkFDUEk6IFJJU0MtVjogSW1wbGVt
+ZW50IGZ1bmN0aW9uIHRvIGFkZCBpbXBsaWNpdApkZXBlbmRlbmNpZXMiPwoKPiBTbywgYWRkIHRo
+ZSBsaW5rIGRldmljZSdzIEhJRCB0byBkZXBlbmRlbmN5IGhvbm9yIGxpc3QgYW5kIGNsZWFyIHRo
+ZQo+IGRlcGVuZGVuY3kgYWZ0ZXIgcHJvYmUgaXMgZG9uZSBzbyB0aGF0IHRoZSBkZXBlbmRlbnQg
+ZGV2aWNlcyBhcmUKPiB1bmJsb2NrZWQgdG8gcHJvYmUuCgpUaGlzIHN0aWxsIGNsYWltcyB0aGlz
+IHBhdGNoIGFkZHMgSElELCB3aGljaCBJIGRvbid0IHRoaW5rIGl0IGRvZXMuCgo+IFNpZ25lZC1v
+ZmYtYnk6IFN1bmlsIFYgTCA8c3VuaWx2bEB2ZW50YW5hbWljcm8uY29tPgo+IFRlc3RlZC1ieTog
+QmrDg8K2cm4gVMODwrZwZWwgPGJqb3JuQHJpdm9zaW5jLmNvbT4KPiAtLS0KPiAgZHJpdmVycy9h
+Y3BpL3BjaV9saW5rLmMgfCAyICsrCj4gIGRyaXZlcnMvYWNwaS9zY2FuLmMgICAgIHwgMSArCj4g
+IDIgZmlsZXMgY2hhbmdlZCwgMyBpbnNlcnRpb25zKCspCj4gCj4gZGlmZiAtLWdpdCBhL2RyaXZl
+cnMvYWNwaS9wY2lfbGluay5jIGIvZHJpdmVycy9hY3BpL3BjaV9saW5rLmMKPiBpbmRleCBhYTEw
+MzhiOGFlYzQuLmI3MjdkYjk2OGYzMyAxMDA2NDQKPiAtLS0gYS9kcml2ZXJzL2FjcGkvcGNpX2xp
+bmsuYwo+ICsrKyBiL2RyaXZlcnMvYWNwaS9wY2lfbGluay5jCj4gQEAgLTc0OCw2ICs3NDgsOCBA
+QCBzdGF0aWMgaW50IGFjcGlfcGNpX2xpbmtfYWRkKHN0cnVjdCBhY3BpX2RldmljZSAqZGV2aWNl
+LAo+ICAJaWYgKHJlc3VsdCkKPiAgCQlrZnJlZShsaW5rKTsKPiAgCj4gKwlhY3BpX2Rldl9jbGVh
+cl9kZXBlbmRlbmNpZXMoZGV2aWNlKTsKPiArCj4gIAlyZXR1cm4gcmVzdWx0IDwgMCA/IHJlc3Vs
+dCA6IDE7Cj4gIH0KPiAgCj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvYWNwaS9zY2FuLmMgYi9kcml2
+ZXJzL2FjcGkvc2Nhbi5jCj4gaW5kZXggMjhhMjIxZjk1NmQ3Li43NTM1MzlhMWYyNmIgMTAwNjQ0
+Cj4gLS0tIGEvZHJpdmVycy9hY3BpL3NjYW4uYwo+ICsrKyBiL2RyaXZlcnMvYWNwaS9zY2FuLmMK
+PiBAQCAtODYzLDYgKzg2Myw3IEBAIHN0YXRpYyBjb25zdCBjaGFyICogY29uc3QgYWNwaV9ob25v
+cl9kZXBfaWRzW10gPSB7Cj4gIAkiSU5UQzEwQ0YiLCAvKiBJVlNDIChNVEwpIGRyaXZlciBtdXN0
+IGJlIGxvYWRlZCB0byBhbGxvdyBpMmMgYWNjZXNzIHRvIGNhbWVyYSBzZW5zb3JzICovCj4gIAki
+UlNDVjAwMDEiLCAvKiBSSVNDLVYgUExJQyAqLwo+ICAJIlJTQ1YwMDAyIiwgLyogUklTQy1WIEFQ
+TElDICovCj4gKwkiUE5QMEMwRiIsICAvKiBQQ0kgTGluayBEZXZpY2UgKi8KPiAgCU5VTEwKPiAg
+fTsKPiAgCj4gLS0gCj4gMi40My4wCj4gCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
+dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
+bmZvL2xpbnV4LXJpc2N2Cg==
