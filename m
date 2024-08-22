@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07A49C3DA4A
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Aug 2024 17:47:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 640DEC3DA4A
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Aug 2024 17:48:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ram3k+pbSlGhb+QJK9OgtDz88mgatr853r0dT3lKyKQ=; b=yx2YZ4gxwFS5Ac
-	z36XkJs8WIib+dp8wokWZkcB4urK75Z/fkDBlrNTuCSnoDhn8VeaaUUtAHFCN8oPtYUZRsv40PLLh
-	9hIALem2CiVxn+0yCXdhYVdIEPna4nqzFvMzf5PnBmhSIIFdDuOajWevWKjO3Us3tU1OAuMDdhN1n
-	b8tBbOaFMu5bZ8zCSsgaCrc+CAi3SmJwFLRj4S5EW27PCRs3VKZWlFi0PI6yW2hegMZAyCnYwBKji
-	arweB5IQfBgsDB9gZ8cCJIPhUU4rfIg8CwZzdwQ2kETphJ0t49mYb5az6zPrA5Dq/6T0iAro5I2rU
-	Zvs3ov35zXhfsiExH6PQ==;
+	List-Owner; bh=a3+ET52gEf/gXzi5eYplbbJ62EEYhmNvoLG99csf0FI=; b=MCsp2hZ986Gxvg
+	FVD6WP7mrOdx8AwGPeQK9mwSoxIplUSS3jHatk7lQ5yi1TduwmSGHaxz5IB0bc5Pq/W+ODHi1a9mz
+	KPxUCn3jCK7UiZfFwIFqcuycLNIDSCFK3jehlFvJ0awtx9IfZSNTA5Fk3Q7JYeP2Dc5oY6y4ao0WL
+	95bmB7MBCcySbtnyFY8FJsE3r3fMWC8cjvW+I4vhNPGmRzc5ydWAiCUQSUvvSTJ5MCYXZUHSIG8/k
+	yKfUfVgeTvNVOkZdZcn9VFqRfVdqoKYaJDh4nB+j8Og8NRkt/tEwWivazPAIfbDI+LL6Fk306fIpK
+	52krLMwmtPYm38FJW4Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1shBu5-0000000Dqcp-0D6s;
-	Thu, 22 Aug 2024 17:47:21 +0000
-Received: from mail-pl1-x641.google.com ([2607:f8b0:4864:20::641])
+	id 1shBuo-0000000DqsN-3l3k;
+	Thu, 22 Aug 2024 17:48:06 +0000
+Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1shBqV-0000000Dpfv-2Z1o;
-	Thu, 22 Aug 2024 17:43:41 +0000
-Received: by mail-pl1-x641.google.com with SMTP id d9443c01a7336-2025031eb60so9382055ad.3;
-        Thu, 22 Aug 2024 10:43:39 -0700 (PDT)
+	id 1shBqY-0000000DphR-2cZf;
+	Thu, 22 Aug 2024 17:43:44 +0000
+Received: by mail-pg1-x544.google.com with SMTP id 41be03b00d2f7-7c3d9a5e050so791615a12.2;
+        Thu, 22 Aug 2024 10:43:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1724348619; x=1724953419; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1724348622; x=1724953422; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=naTDf2Yfagd090z1pfb9ctw1MuISnW6ZHr9QkxmSD9w=;
-        b=dEs74xyreWgjW/z2TMp69ol7gR5LEM5T5buIMibY92G4OpUfnqipZm+5eKo7/Qes9U
-         gacib7JOxQlw2+6zHTiSqmQIQxtOifTvIlpIlUk519om0w6FHRJ9dcI2ObGf8Q0ycwPF
-         eA2hXSvOcN7FZm6GDeEWzXTVPg3+o7bku9h66IFuFDnm1Hih0yaElvEHP9FLiRrNMwO6
-         n6wUBDMNz5KENi/vLk/mqAPNBHyDwVdSk+IZIkqK7rMh0h3OVX3D0JhyU8A6WEx9rhsI
-         A9gYlgc0aDz9d4r60vjALb+r9ZJlvbqmGf8V8qs9rrP8v7Veux4BVgc5UGwswlUQuiaS
-         CIHw==
+        bh=7sOOkFBlhh23O4ezy3O2VeMYO9nyKzVNPflyo9LvKHU=;
+        b=Q/D3fj8LTzTjoAWxyodUxVGvVxcyAgrRJqWMhArlc46/CWAOBwu24Gh5ETD3MbAMmC
+         Llt5lR2H9EFlGp9E/Nbr/NEShwTCO/ms0H1B15sEO0mVa1E4zizbanNuGiAz/v2npqUK
+         V4GqvjIZNCcNQyzqds259FJwDe5CmMERsCWWRICi3rfLTL+XcU/SXXPOcmc9nmHYwEe4
+         Rj9la+Anb6go97nrV9uPIjbgZdFD1KIOXE60zJeEhhOdw8Sj9GxEOBWas1uf4iSln7qm
+         5ZAgUQtcvOij6GxjwxoIL8Awi/EH/LQxuoez1bo4usNAiNFJWFDJHl6/wMtMWjRtWnfs
+         FPmg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1724348619; x=1724953419;
+        d=1e100.net; s=20230601; t=1724348622; x=1724953422;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=naTDf2Yfagd090z1pfb9ctw1MuISnW6ZHr9QkxmSD9w=;
-        b=abr6Px5DfPkMIaPshz3Dnry+egZPEUxhyCWFiV/El56fnvXujWW7/BpqSvSU0KYqTJ
-         u6MlV8SdhY1Agcy2qVZZ6WHLetoPuRmlS5Jwqpmq2Gxi6dmppL+f8puRI0e/GwIzJskJ
-         GFFSpnukc9CLwjoERwys5SO0WydAMXFfPSm4JC7k3d+0VQa9vdXPzPj+hJNsQkGfc/hb
-         8TGOMV2BtBc4iHUfRX2qU/bmpfwJU1V/fPLxuPSs1q7jS/AeeCJL5Z3v2uueNOYsCpir
-         Z2VOmFx2vI4BW+LE5spvQDQJZWDIjvJM4DDb/SFGdr618xJTIrcHKC3X618Cz4w7ty7m
-         NCDA==
-X-Forwarded-Encrypted: i=1; AJvYcCUZ4dRNFm4bgvdLMR1P9iXRf3y2EjPgXFNWGoRyhEuWwwf+qpjoayWXTxIF6gUnPtBa0sQIshnAIFl4U/U=@lists.infradead.org, AJvYcCWfTtDc27WX1NXLfxUV0lT6vmVEBmDIhGHRCY0XsxLBL1SSmePJZndPNrvKt+7vyOEhUQZYmTcTUjYr9bogADbs@lists.infradead.org, AJvYcCXJpDNTzq5hX94Fr3qXy7Ibg7BFh7xk1d4CWU6ZMa0tIMnpodRt2bqSJDYb99r4kG142bVx3FOpMvdGfUr/qTfSAg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwPo3IH7NCesD/+PujNfcL3xrK1GFxocVnbNwhZsUS1DMrwTGrj
-	/wMrjTqRbHLGOSG+SYXskHVLAStn2krubGD9V3fXxGFc4Szp8Da7
-X-Google-Smtp-Source: AGHT+IE8Wv2mi92FmXr0EVETbptIN+dts38PH1ZrQUIYcAnqCM0iFwVebSqZvsivRqmBz2JSK5Lz5A==
-X-Received: by 2002:a17:902:c408:b0:1fc:3600:5cd7 with SMTP id d9443c01a7336-20367af0b9amr84139415ad.10.1724348618612;
-        Thu, 22 Aug 2024 10:43:38 -0700 (PDT)
+        bh=7sOOkFBlhh23O4ezy3O2VeMYO9nyKzVNPflyo9LvKHU=;
+        b=AE2Ct0nXfjZVQRRND8qmM7snz+dog95wgTnbtX6r6CU1t/hUlSCAxQ3LL6F6pw76CS
+         l+vg7Kk8TzIVSLTT9otoXYrKaZUziMw11hSS1Mqsoju+ag4MhELiqESkcDT0HMnnQi/v
+         iEwcG52qDpUbv9uyGGKhk5RC5hfMJadmIZvF4k6/lBZ6+MncI5b97zdMH0opLPRmSHIt
+         +5FRuSvafFE4RTrzc6JFNbi/OGIBaO8o4i9112wQAJtFvSnQwzhT2C+QtLtFVzGK5s1P
+         FMqZH1ZEb4aIgCwCBgE5MK25j08J+LybVU/j7cTMl2sP6SpfjKZxG9dwuq6RuSIR4kL/
+         XdZg==
+X-Forwarded-Encrypted: i=1; AJvYcCUPjAO/XkYPGcz8NKXCE4hVM1vNQU0DKHwV8O+cn7lL0jMUmRLDz/SzDpVpBF+7NV08tfQDJRMgEdbE3zE=@lists.infradead.org, AJvYcCUfGTQs5d0OR3COvHrAlTbbIAfV1OYcaMCFE9HeJx3oeTfnHan5PlBbGMQuMRQ1tTHfnrHG0Yah9E8T7xrx/6YrEg==@lists.infradead.org, AJvYcCUzafGFk2CkUPR6QgGSZVaPUpCJfadCO3RGNLd6qiCeFNzcQjqwobQ7S2lMuGpZn/ZLUFcyKL5dwfn1REDHjnby@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx2gDJbYmca0WnJEfK3HNXd15Od4ZSsVs4KrLhZ5Q7FuDfKuZIY
+	Zkcx8jQHdDDCb/Vek0mDCTg0DdIucYPalsTyNhbsuqv9N3z45pNO
+X-Google-Smtp-Source: AGHT+IFVKAnltALjlFsjogL3o8zeO/3bEDh5Wkul+T/Aa6h0si5BxRHsYJSRp8SKq/v4VG7qkbpDqg==
+X-Received: by 2002:a17:90b:3881:b0:2c9:7d09:1e7b with SMTP id 98e67ed59e1d1-2d5e9db8804mr7441404a91.27.1724348621520;
+        Thu, 22 Aug 2024 10:43:41 -0700 (PDT)
 Received: from localhost ([103.156.242.194])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-203855664a7sm15365755ad.15.2024.08.22.10.43.37
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2d613941e6esm2174700a91.26.2024.08.22.10.43.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Aug 2024 10:43:38 -0700 (PDT)
+        Thu, 22 Aug 2024 10:43:41 -0700 (PDT)
 From: Celeste Liu <coelacanthushex@gmail.com>
 X-Google-Original-From: Celeste Liu <CoelacanthusHex@gmail.com>
-Date: Fri, 23 Aug 2024 01:43:27 +0800
-Subject: [PATCH v2 2/4] loongarch: defconfig: drop RT_GROUP_SCHED=y
+Date: Fri, 23 Aug 2024 01:43:28 +0800
+Subject: [PATCH v2 3/4] sh: defconfig: drop RT_GROUP_SCHED=y from
+ sdk7786/urquell
 MIME-Version: 1.0
-Message-Id: <20240823-fix-riscv-rt_group_sched-v2-2-e4dbae24f7e1@gmail.com>
+Message-Id: <20240823-fix-riscv-rt_group_sched-v2-3-e4dbae24f7e1@gmail.com>
 References: <20240823-fix-riscv-rt_group_sched-v2-0-e4dbae24f7e1@gmail.com>
 In-Reply-To: <20240823-fix-riscv-rt_group_sched-v2-0-e4dbae24f7e1@gmail.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -87,21 +88,20 @@ Cc: Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, 
  linux-sh@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-rpi-kernel@lists.infradead.org, linux-omap@vger.kernel.org, 
- linux-tegra@vger.kernel.org, Xi Ruoyao <xry111@xry111.site>, 
- Celeste Liu <CoelacanthusHex@gmail.com>
+ linux-tegra@vger.kernel.org, Celeste Liu <CoelacanthusHex@gmail.com>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1676;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2031;
  i=CoelacanthusHex@gmail.com; h=from:subject:message-id;
- bh=BD75Xt3LZKpr2Q5IcAd6LQbXDWkdD5S9pnl1NWkD0aY=;
- b=owJ4nJvAy8zAJfY4pvNJRPo6U8bTakkMaccrDq7cWv9HKpm1gp9XuSSxq8t74rLzH8Iuc9/9Z
- V6+kdfkhV1HKQuDGBeDrJgii9jOp6+XlT76sIzXZAbMHFYmkCEMXJwCMBH5fob/mZs/PD5ma8Hx
- 8F7zO+Gcfce/RpUvkP7W1qScI/C0aYLCVYb/pR2XVnbPdNm4oDwvfcO+zZx8fjqb7h2UvJJdVsM
- b5lHKCADITk6N
+ bh=RtVPfBukDdiWXFe+rES/vpRLMHkhNnaCFx7uCSJVdVE=;
+ b=owJ4nJvAy8zAJfY4pvNJRPo6U8bTakkMaccrDrHXhbvqv0j2K04OUp6r9c3yjL7wmfkK3ed0L
+ wiLJwVfOdVRysIgxsUgK6bIIrbz6etlpY8+LOM1mQEzh5UJZAgDF6cATIR5CcP/uAsdETX3d4jM
+ P1D0MeoGY0/w5qWbQibevqlWcn6F0szobQx/ZR6s/XP6xDnB6RkyIt+j14R9+7s1gD9Tsy1IxPC
+ t2qsvjAD/Nk5/
 X-Developer-Key: i=CoelacanthusHex@gmail.com; a=openpgp;
  fpr=892EBC7DC392DFF9C9C03F1D15F4180E73787863
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240822_104339_684657_4F745B41 
-X-CRM114-Status: GOOD (  11.85  )
+X-CRM114-CacheID: sfid-20240822_104342_704222_06FA7EFD 
+X-CRM114-Status: GOOD (  11.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,24 +136,36 @@ support it.[2]
 [1]: https://bugzilla.redhat.com/show_bug.cgi?id=1229700
 [2]: https://github.com/systemd/systemd/issues/13781#issuecomment-549164383
 
-Reviewed-by: Xi Ruoyao <xry111@xry111.site>
 Signed-off-by: Celeste Liu <CoelacanthusHex@gmail.com>
 ---
- arch/loongarch/configs/loongson3_defconfig | 1 -
- 1 file changed, 1 deletion(-)
+ arch/sh/configs/sdk7786_defconfig | 1 -
+ arch/sh/configs/urquell_defconfig | 1 -
+ 2 files changed, 2 deletions(-)
 
-diff --git a/arch/loongarch/configs/loongson3_defconfig b/arch/loongarch/configs/loongson3_defconfig
-index b4252c357c8e..4d93adb3f1a2 100644
---- a/arch/loongarch/configs/loongson3_defconfig
-+++ b/arch/loongarch/configs/loongson3_defconfig
-@@ -23,7 +23,6 @@ CONFIG_NUMA_BALANCING=y
- CONFIG_MEMCG=y
- CONFIG_BLK_CGROUP=y
- CONFIG_CFS_BANDWIDTH=y
+diff --git a/arch/sh/configs/sdk7786_defconfig b/arch/sh/configs/sdk7786_defconfig
+index 7b427c17fbfe..3599b1683593 100644
+--- a/arch/sh/configs/sdk7786_defconfig
++++ b/arch/sh/configs/sdk7786_defconfig
+@@ -17,7 +17,6 @@ CONFIG_CPUSETS=y
+ CONFIG_CGROUP_CPUACCT=y
+ CONFIG_CGROUP_MEMCG=y
+ CONFIG_CGROUP_SCHED=y
 -CONFIG_RT_GROUP_SCHED=y
- CONFIG_CGROUP_PIDS=y
- CONFIG_CGROUP_RDMA=y
- CONFIG_CGROUP_FREEZER=y
+ CONFIG_BLK_CGROUP=y
+ CONFIG_RELAY=y
+ CONFIG_NAMESPACES=y
+diff --git a/arch/sh/configs/urquell_defconfig b/arch/sh/configs/urquell_defconfig
+index 00ef62133b04..9cf4a719001e 100644
+--- a/arch/sh/configs/urquell_defconfig
++++ b/arch/sh/configs/urquell_defconfig
+@@ -15,7 +15,6 @@ CONFIG_CPUSETS=y
+ CONFIG_CGROUP_CPUACCT=y
+ CONFIG_CGROUP_MEMCG=y
+ CONFIG_CGROUP_SCHED=y
+-CONFIG_RT_GROUP_SCHED=y
+ CONFIG_BLK_DEV_INITRD=y
+ CONFIG_PROFILING=y
+ CONFIG_MODULES=y
 
 -- 
 2.46.0
