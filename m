@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC586C52D7C
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Aug 2024 01:32:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17E49C52D6F
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Aug 2024 01:34:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jDeTvm9OYZPls08tH6aYbk9gtu0wSVfUvFrAV2IYayo=; b=q20CzDA59MoHFJ
-	rKmnuaajt4GhflQKLfqAtRL/XCtgSfndTmTE9+PKKGkRTSN70mBYgCVwpMRQVEwpWlPZfT+DKciij
-	I+WNLY1f6UC25uhSuVy6eBZrnHNS2wxx2GdLznlJMf8RsiVgptJpiWPqL3cjpyL0UUSjnI10LMC2Z
-	p9ZFD4ZemTywfnYhjmV8J02iz89fX8+0+lh06TPNAHPufKHCEXVO9MToej/akqwZQ5owqWuNJLoFU
-	y67xFNJpsWvDV2WNcpW09TX2lU+B+kdu1XUrKaXwKBtde3hfdHdDwrX9KlJeNe2y1kd1a2qtYlOpJ
-	FqD/iLLYSLPEvCBjieXA==;
+	List-Owner; bh=XYwL2cPviY8OFkZFj/zzYdODmAMxwyrJTS4PuWPGimY=; b=QtAlIM39BbrRcO
+	ssonPwLdCameKLGcm84oqshMlaszT4NSlqHFZt2P+Xpr2OSWb7tlOwwV88DhnxLhkS/wJvfNp+lFZ
+	eyC13Zt8Na9mli24QzTBJkA8wM72riAv9ugw7dmVl32SjLO87h7BBjRzrBYgJwXlVNJPBt52R5wvR
+	ojOxUHMeFSg9Y7UdoLKsb/XgapuCTJYwTaHA0/j4j6l+vyIdmxfAH6yQ61a7LzuDuWH0yggTj32at
+	8sLU5qGaJAwk5qxmicVYarl3UzfODV6PCvH0YiV2yuu0vHXWw5AKVNPHAPhyth1nQi+StuRS4P6mm
+	vtl5IJ+kJ9m2n4PE2KFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgwgi-0000000Ax56-0SBX;
-	Thu, 22 Aug 2024 01:32:32 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1sgwiq-0000000AxjZ-2HFG;
+	Thu, 22 Aug 2024 01:34:44 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgwWA-0000000AtGo-45sV;
-	Thu, 22 Aug 2024 01:21:40 +0000
+	id 1sgwWg-0000000AtV5-3OLS;
+	Thu, 22 Aug 2024 01:22:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 3F2F8CE0B61;
-	Thu, 22 Aug 2024 01:21:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 108E0C32781;
-	Thu, 22 Aug 2024 01:21:25 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 42FC6A42105;
+	Thu, 22 Aug 2024 01:22:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35A24C32781;
+	Thu, 22 Aug 2024 01:21:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1724289696;
-	bh=dtxeJFa9YuBd+oBMECBxmd/jn10TctjlQUazqWWROYc=;
+	s=k20201202; t=1724289729;
+	bh=sPSz542BQgC8GDr8WCulUI2iE6roG4Js5HwD3OcoqCo=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=NkmOBJHKojz8DSwM6nYzZvbL6emtNKUeA7JkKQLB8uH5taYHO+I14fWAwDNwrTKB7
-	 0T32RnpajPiK9jC/FzglUYmAX7r6zJ59RUqRXBuSXJOxiXwjDb/UhKmPt1EbV3ufOc
-	 dABlspAytswhq3Yzqww+v8myDmkXdtcKm9zrxvD8OIuvPeFnFDZfB3cE4jYYHWU1MH
-	 ABwSvvvgZs1w3wnnWqKyZr2EE4xwgT1y9mEuLK1fbheEle6qSyi79MUSXiYkZSLxsr
-	 SMDNlWpcM1ouaNsCfzmPBC+6Ds78A3H+FewAEcvhF+RTUbpS8mk13nVcAVNHuCBOTm
-	 zkNQ59HZYJQIw==
+	b=uAC6VEWhqTL+cBNI2eAUFI40yJ6zaIbicFzZHIA9aVQhz9+Nmj1EPHgtejkleUwU2
+	 9eoLbSp2FoFQTA9mHeTOqm6a/cmAGA0AFvzkvpmrMcOK0GOF4qWO+Sg5XE5dDs7fdY
+	 DjtdvHZaCyv1G/PS0AfMPwUsDQCeuOC58d/2Qe1JQN/XW4WpNaD3f9ZrtCM2FB3Tgf
+	 u6GwLRRCSsqUp/M1on4cDxitAMb4pBdeTW2QVEyeDMzaaLfINMhdkjGI5CIBxaIi9M
+	 4abWcFCb9kARtAD6hw6hMCqfdRGtMxnPISIgSGFhJn1v1uNlGlpwE5OA9wUTgn4u+2
+	 dQ8Lz1RMoBGvA==
 From: Mark Brown <broonie@kernel.org>
-Date: Thu, 22 Aug 2024 02:15:30 +0100
-Subject: [PATCH v11 27/39] arm64: Add Kconfig for Guarded Control Stack
- (GCS)
+Date: Thu, 22 Aug 2024 02:15:33 +0100
+Subject: [PATCH v11 30/39] kselftest/arm64: Add framework support for GCS
+ to signal handling tests
 MIME-Version: 1.0
-Message-Id: <20240822-arm64-gcs-v11-27-41b81947ecb5@kernel.org>
+Message-Id: <20240822-arm64-gcs-v11-30-41b81947ecb5@kernel.org>
 References: <20240822-arm64-gcs-v11-0-41b81947ecb5@kernel.org>
 In-Reply-To: <20240822-arm64-gcs-v11-0-41b81947ecb5@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -73,20 +73,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-37811
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1494; i=broonie@kernel.org;
- h=from:subject:message-id; bh=dtxeJFa9YuBd+oBMECBxmd/jn10TctjlQUazqWWROYc=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBmxpE4HX3waWR6P/nVlIS4iaRLKyJcXdN5BJ4frnqU
- HySFidqJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZsaROAAKCRAk1otyXVSH0EsBB/
- 4ota43I49BjlXLJArTjty05r+82yt0hMdYO4E5E3AqVvSo6NYPm/EaH0sjMV4CXVYPSK7O8E5RULwI
- 70ZaN0kEcZcK7zfvzjnAUtxbQzQHxSo7KjIdrxwbReqbfZPJ2pcPCSPV57KutXRs6RpslMVS5Z7BDw
- bbgqBqDLv/lywndPg1znx2CFWWtZt9YgogyB3inCURWJFCpBsXqacbrtLejVxu9M2ESDMz9qkZyjVC
- BKMU3Fnvs6t1nq3gwuX4cnK7QzcBudiUV3jP3Cyjh64/YAqArluaXS9tRZK51HZOWT1qS3x918virB
- wdZaz1Pctay537JnWPba0phAwyJKVB
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1664; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=sPSz542BQgC8GDr8WCulUI2iE6roG4Js5HwD3OcoqCo=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBmxpE7VRZgG2Z7/DOjWxHR2ISARiB0523hr1ytG8M7
+ JL8y1+CJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZsaROwAKCRAk1otyXVSH0EQUB/
+ 4keLewH0EzA9rHUse6NUxquX1JhR5vNrTj+fWGR0Iuq3Jd7vUcyPg1KOgUkrJbapQqOa7/MvsfkH2P
+ snPa1PsqGlRCYJMszDiUb4y9NmpGrG5vtHoctMSNxgEm/2WdgD9KAN5LP/WVJLijPAQ1QfXhodpTx7
+ FvXCsBAOmHxJ0BypQiv2yDwUhqLqUzlbsaGWGtuye5kO5OT8o/pRmysdBh/1U2FW92ZtKNo+iB3qNZ
+ jEFOn4MtGN+pUdl1PvzyJGXfiPOA0Ry9FrSkLzpgvro1tLNymg+WYe3FBnZDoDsaOVGmDDz/+05kZY
+ yqMAf+H3DK8lyrZ396WQp3EudgGO+V
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240821_182139_396512_FE6B7CDA 
-X-CRM114-Status: GOOD (  12.03  )
+X-CRM114-CacheID: sfid-20240821_182211_007416_0F7644EA 
+X-CRM114-Status: GOOD (  10.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,47 +103,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Provide a Kconfig option allowing the user to select if GCS support is
-built into the kernel.
+Teach the framework about the GCS signal context, avoiding warnings on
+the unknown context.
 
 Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/Kconfig | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+ tools/testing/selftests/arm64/signal/testcases/testcases.c | 7 +++++++
+ tools/testing/selftests/arm64/signal/testcases/testcases.h | 1 +
+ 2 files changed, 8 insertions(+)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index a2f8ff354ca6..772f9ba99fe8 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -2137,6 +2137,26 @@ config ARM64_EPAN
- 	  if the cpu does not implement the feature.
- endmenu # "ARMv8.7 architectural features"
+diff --git a/tools/testing/selftests/arm64/signal/testcases/testcases.c b/tools/testing/selftests/arm64/signal/testcases/testcases.c
+index 674b88cc8c39..49d036e97996 100644
+--- a/tools/testing/selftests/arm64/signal/testcases/testcases.c
++++ b/tools/testing/selftests/arm64/signal/testcases/testcases.c
+@@ -217,6 +217,13 @@ bool validate_reserved(ucontext_t *uc, size_t resv_sz, char **err)
+ 				*err = "Bad size for fpmr_context";
+ 			new_flags |= FPMR_CTX;
+ 			break;
++		case GCS_MAGIC:
++			if (flags & GCS_CTX)
++				*err = "Multiple GCS_MAGIC";
++			if (head->size != sizeof(struct gcs_context))
++				*err = "Bad size for gcs_context";
++			new_flags |= GCS_CTX;
++			break;
+ 		case EXTRA_MAGIC:
+ 			if (flags & EXTRA_CTX)
+ 				*err = "Multiple EXTRA_MAGIC";
+diff --git a/tools/testing/selftests/arm64/signal/testcases/testcases.h b/tools/testing/selftests/arm64/signal/testcases/testcases.h
+index 7727126347e0..dc3cf777dafe 100644
+--- a/tools/testing/selftests/arm64/signal/testcases/testcases.h
++++ b/tools/testing/selftests/arm64/signal/testcases/testcases.h
+@@ -20,6 +20,7 @@
+ #define EXTRA_CTX	(1 << 3)
+ #define ZT_CTX		(1 << 4)
+ #define FPMR_CTX	(1 << 5)
++#define GCS_CTX		(1 << 6)
  
-+menu "v9.4 architectural features"
-+
-+config ARM64_GCS
-+	bool "Enable support for Guarded Control Stack (GCS)"
-+	default y
-+	select ARCH_HAS_USER_SHADOW_STACK
-+	select ARCH_USES_HIGH_VMA_FLAGS
-+	help
-+	  Guarded Control Stack (GCS) provides support for a separate
-+	  stack with restricted access which contains only return
-+	  addresses.  This can be used to harden against some attacks
-+	  by comparing return address used by the program with what is
-+	  stored in the GCS, and may also be used to efficiently obtain
-+	  the call stack for applications such as profiling.
-+
-+	  The feature is detected at runtime, and will remain disabled
-+	  if the system does not implement the feature.
-+
-+endmenu # "v9.4 architectural features"
-+
- config ARM64_SVE
- 	bool "ARM Scalable Vector Extension support"
- 	default y
+ #define KSFT_BAD_MAGIC	0xdeadbeef
+ 
 
 -- 
 2.39.2
