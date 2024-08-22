@@ -4,72 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47FE9C3DA4A
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Aug 2024 06:44:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 623EDC3DA4A
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Aug 2024 07:35:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TLyJ6USlYbDduYrLGS248npZmSTts/UHzCoS+Vkom+E=; b=Fi+UEWkr+pV9dM
-	MF9OfKnTCWUrBYjh7MR6lWLCtdsnonl8vDR34aK+2Ar3Y+sTmuhOZtT+DuOf8vD0IO5oOcoj2r811
-	8SvQF29O49d9iXhsbpxaZKfzPZXzF7lS3sx4aNXy/KQxzngiahYoZGjgLcOzhCNIb9Qm6r8nyqFNF
-	9NZKXvzZhP+DB3bd1Sy1PMYy+zbeq+cfmWlf9+NgQttsF/Im8IOVzcgFCopxifEZcc8ve1t/MII75
-	JSpd9ZT65ldJRN6pB4OQXs91m35AOvP9JgZkVPwhYdETYmtt3u51b945hUaCdOOzkYj+4vR5xqt6k
-	TDE8m/GNCUtO6Uw63XcA==;
+	List-Owner; bh=pMwTAU5ctoBX70DQd2nE+SW/+zk+cFAo8idODakKiUk=; b=Tf+BumkRKNTFae
+	gyJ95+1872Mo5od8/ggWUFOr3Eflb9nVEIUCEbEXkODKm/m+ZnOG14joAttdPUxsJL/1EBNdeM1LS
+	FqQBEMtuRxf+xy9j4fCkN4464RHp523QFjpuey0AZUzgy99dAriiUpVmV5+GdreKwEpSVndKSiNwR
+	8UHW2ImzeWAKNGEFpXFDUm7qEYx3lzsBXQRoPh0sK2VEowxXFf4mxylOeDG9K9GtN4eafopzWUdT6
+	xEgYHu6e4JbuOkbQFEf3n8rn8fw+DFsHqDr+bUyYWQTH2+uaZnesPAcAzP74yjT/SZkIjEcm1bG28
+	ilkPrUHzleQRoz1CzxAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sh1YB-0000000BfRc-0STY;
-	Thu, 22 Aug 2024 06:44:03 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1sh2Lf-0000000BtV1-3JFA;
+	Thu, 22 Aug 2024 07:35:11 +0000
+Received: from outpost1.zedat.fu-berlin.de ([130.133.4.66])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sh1XD-0000000BfBf-1U7L;
-	Thu, 22 Aug 2024 06:43:05 +0000
-Received: from [192.168.12.218] (unknown [121.237.44.107])
-	by APP-01 (Coremail) with SMTP id qwCowADHz8Pt3cZmsJgfCQ--.23985S2;
-	Thu, 22 Aug 2024 14:42:54 +0800 (CST)
-Message-ID: <3e5e4ba4-acb6-4cea-96f8-b16886bb6285@iscas.ac.cn>
-Date: Thu, 22 Aug 2024 14:42:53 +0800
+	id 1sh2Ku-0000000BtGL-0PgO;
+	Thu, 22 Aug 2024 07:34:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=fu-berlin.de; s=fub01; h=MIME-Version:Content-Transfer-Encoding:
+	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=nsNs6OoEVbcw2LLEgSbDKi7BEPoPfsioIF+I1dRzjSQ=; t=1724312064; x=1724916864; 
+	b=ZyeQlXOuie8km2baT013Y73HSBErh+sVmWVWk2cXJfM9sUmUltyemHffc5NWd9ZdlAMzXoJd1OQ
+	Grv0eknRqwkJ6H2uSB3WI7tNnpvHJdxucnQx7MrhfiTWJvuOoVkQVI5RrlVx38m4tXkHrKtow93Da
+	dQIQa24D9JpddUt2moNCvOT9NYipGxuUrNN/Ci943eczUlplpLLfNPSbPfdCN/dDtc3keJTa0hy2y
+	QklGAX6vkv/6zIPS4FS3fUGAzsDh8//TZaP1VP/UuCyTtAetjlYM4sqloN9zFMApErr+soemQ4i3o
+	79hIrZnY8990PMq6Z4rMYvPEs8sOji6VDHeA==;
+Received: from inpost2.zedat.fu-berlin.de ([130.133.4.69])
+          by outpost.zedat.fu-berlin.de (Exim 4.98)
+          with esmtps (TLS1.3)
+          tls TLS_AES_256_GCM_SHA384
+          (envelope-from <glaubitz@zedat.fu-berlin.de>)
+          id 1sh2KT-000000008j9-3CbJ; Thu, 22 Aug 2024 09:33:57 +0200
+Received: from p5b13a2bf.dip0.t-ipconnect.de ([91.19.162.191] helo=[192.168.178.20])
+          by inpost2.zedat.fu-berlin.de (Exim 4.98)
+          with esmtpsa (TLS1.3)
+          tls TLS_AES_256_GCM_SHA384
+          (envelope-from <glaubitz@physik.fu-berlin.de>)
+          id 1sh2KT-00000002vTy-29Tp; Thu, 22 Aug 2024 09:33:57 +0200
+Message-ID: <a9d9ecd1ed8d62eae47ec26257093495e6cbd44a.camel@physik.fu-berlin.de>
+Subject: Re: [PATCH linux-next v3 05/14] crash: clean up kdump related
+ config items
+From: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+To: Baoquan He <bhe@redhat.com>, linux-kernel@vger.kernel.org
+Cc: Dave Vasilevsky <dave@vasilevsky.ca>, Michael Ellerman
+ <mpe@ellerman.id.au>,  kexec@lists.infradead.org,
+ debian-powerpc@lists.debian.org, x86@kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
+ linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+ linux-mips@vger.kernel.org,  linux-riscv@lists.infradead.org,
+ loongarch@lists.linux.dev,  akpm@linux-foundation.org,
+ ebiederm@xmission.com, hbathini@linux.ibm.com,  piliu@redhat.com,
+ viro@zeniv.linux.org.uk, Sam James <sam@gentoo.org>
+Date: Thu, 22 Aug 2024 09:33:56 +0200
+In-Reply-To: <20240124051254.67105-6-bhe@redhat.com>
+References: <20240124051254.67105-1-bhe@redhat.com>
+	 <20240124051254.67105-6-bhe@redhat.com>
+User-Agent: Evolution 3.52.4 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] riscv: KVM: add basic support for host vs guest
- profiling
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: anup@brainfault.org, atishp@atishpatra.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, mark.rutland@arm.com,
- alexander.shishkin@linux.intel.com, jolsa@kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-perf-users@vger.kernel.org
-References: <cover.1723518282.git.zhouquan@iscas.ac.cn>
- <7eb3e1a8fc9f9aa0340a6a1fb88a127b767480ea.1723518282.git.zhouquan@iscas.ac.cn>
- <20240821-5284bf727abbb08a379e1d06@orel>
-Content-Language: en-US
-From: Quan Zhou <zhouquan@iscas.ac.cn>
-In-Reply-To: <20240821-5284bf727abbb08a379e1d06@orel>
-X-CM-TRANSID: qwCowADHz8Pt3cZmsJgfCQ--.23985S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxGw47uF1DXr47Zr43GFy3Arb_yoW5KFWDpF
-	Z8CFs5Ca1rtryxGa4Svr1v9r4FgrsYgw1a9ryUCFy5Ar4DKry8Jr4vg34DCryDJF48XF1I
-	kFy0gF13uws8t3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9qb7Iv0xC_Zr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
-	C2z280aVCY1x0267AKxVWxJr0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
-	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r4j6F
-	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xK
-	xwCY1x0262kKe7AKxVWUtVW8ZwCY02Avz4vE14v_GF1l42xK82IYc2Ij64vIr41l4I8I3I
-	0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWU
-	GVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI
-	0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0
-	rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r
-	4UJbIYCTnIWIevJa73UjIFyTuYvjxUxwZ2UUUUU
-X-Originating-IP: [121.237.44.107]
-X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiDAcRBmbGjC-49gABsQ
+X-Original-Sender: glaubitz@physik.fu-berlin.de
+X-Originating-IP: 91.19.162.191
+X-ZEDAT-Hint: PO
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240821_234304_158780_393D3091 
-X-CRM114-Status: GOOD (  16.48  )
+X-CRM114-CacheID: sfid-20240822_003424_293718_B6E1F381 
+X-CRM114-Status: GOOD (  15.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,132 +87,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Baoquan,
 
-On 2024/8/21 20:51, Andrew Jones wrote:
-> On Tue, Aug 13, 2024 at 09:24:10PM GMT, zhouquan@iscas.ac.cn wrote:
->> From: Quan Zhou <zhouquan@iscas.ac.cn>
->>
->> For the information collected on the host side, we need to
->> identify which data originates from the guest and record
->> these events separately, this can be achieved by having
->> KVM register perf callbacks.
->>
->> Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
->> ---
->>   arch/riscv/include/asm/kvm_host.h |  5 +++++
->>   arch/riscv/kvm/Kconfig            |  1 +
->>   arch/riscv/kvm/main.c             | 12 ++++++++++--
->>   arch/riscv/kvm/vcpu.c             |  7 +++++++
->>   4 files changed, 23 insertions(+), 2 deletions(-)
->>
->> diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
->> index 2e2254fd2a2a..d2350b08a3f4 100644
->> --- a/arch/riscv/include/asm/kvm_host.h
->> +++ b/arch/riscv/include/asm/kvm_host.h
->> @@ -286,6 +286,11 @@ struct kvm_vcpu_arch {
->>   	} sta;
->>   };
->>
+On Wed, 2024-01-24 at 13:12 +0800, Baoquan He wrote:
+> By splitting CRASH_RESERVE and VMCORE_INFO out from CRASH_CORE, cleaning
+> up the dependency of FA_DMUMP on CRASH_DUMP, and moving crash codes from
+> kexec_core.c to crash_core.c, now we can rearrange CRASH_DUMP to
+> depend on KEXEC_CORE, and make CRASH_DUMP select CRASH_RESERVE and
+> VMCORE_INFO.
 > 
-> Let's add the same comment here that arm64 has unless you determine
-> that 'any event that arrives while a vCPU is loaded is considered to be
-> "in guest"' is not true for riscv.
+> KEXEC_CORE won't select CRASH_RESERVE and VMCORE_INFO any more because
+> KEXEC_CORE enables codes which allocate control pages, copy
+> kexec/kdump segments, and prepare for switching. These codes are shared
+> by both kexec reboot and crash dumping.
 > 
+> Doing this makes codes and the corresponding config items more
+> logical (the right item depends on or is selected by the left item).
+> 
+> PROC_KCORE -----------> VMCORE_INFO
+> 
+>            |----------> VMCORE_INFO
+> FA_DUMP----|
+>            |----------> CRASH_RESERVE
+> 
+>                                                 ---->VMCORE_INFO
+>                                                /
+>                                                |---->CRASH_RESERVE
+> KEXEC      --|                                /|
+>              |--> KEXEC_CORE--> CRASH_DUMP-->/-|---->PROC_VMCORE
+> KEXEC_FILE --|                               \ |
+>                                                \---->CRASH_HOTPLUG
+> 
+> KEXEC      --|
+>              |--> KEXEC_CORE--> kexec reboot
+> KEXEC_FILE --|
+> 
+> Signed-off-by: Baoquan He <bhe@redhat.com>
+> ---
+>  kernel/Kconfig.kexec | 7 ++++---
+>  1 file changed, 4 insertions(+), 3 deletions(-)
+> 
+> diff --git a/kernel/Kconfig.kexec b/kernel/Kconfig.kexec
+> index 8faf27043432..6c34e63c88ff 100644
+> --- a/kernel/Kconfig.kexec
+> +++ b/kernel/Kconfig.kexec
+> @@ -9,8 +9,6 @@ config VMCORE_INFO
+>  	bool
+>  
+>  config KEXEC_CORE
+> -	select VMCORE_INFO
+> -	select CRASH_RESERVE
+>  	bool
+>  
+>  config KEXEC_ELF
+> @@ -99,8 +97,11 @@ config KEXEC_JUMP
+>  
+>  config CRASH_DUMP
+>  	bool "kernel crash dumps"
+> +	default y
+>  	depends on ARCH_SUPPORTS_CRASH_DUMP
+> -	select KEXEC_CORE
+> +	depends on KEXEC_CORE
+> +	select VMCORE_INFO
+> +	select CRASH_RESERVE
+>  	help
+>  	  Generate crash dump after being started by kexec.
+>  	  This should be normally only set in special crash dump kernels
 
-Ok, i will add this comment to clarify the point.
+The change to enable CONFIG_CRASH_DUMP by default apparently broke the boot
+on 32-bit Power Macintosh systems which fail after GRUB with:
+
+	"Error: You can't boot a kdump kernel from OF!"
+
+We may have to turn this off for 32-bit Power Macintosh systems.
+
+See this thread on debian-powerpc ML: https://lists.debian.org/debian-powerpc/2024/07/msg00001.html
 
 Thanks,
-Quan
+Adrian
 
->> +static inline bool kvm_arch_pmi_in_guest(struct kvm_vcpu *vcpu)
->> +{
->> +	return IS_ENABLED(CONFIG_GUEST_PERF_EVENTS) && !!vcpu;
->> +}
->> +
->>   static inline void kvm_arch_sync_events(struct kvm *kvm) {}
->>   
->>   #define KVM_RISCV_GSTAGE_TLB_MIN_ORDER		12
->> diff --git a/arch/riscv/kvm/Kconfig b/arch/riscv/kvm/Kconfig
->> index 26d1727f0550..0c3cbb0915ff 100644
->> --- a/arch/riscv/kvm/Kconfig
->> +++ b/arch/riscv/kvm/Kconfig
->> @@ -32,6 +32,7 @@ config KVM
->>   	select KVM_XFER_TO_GUEST_WORK
->>   	select KVM_GENERIC_MMU_NOTIFIER
->>   	select SCHED_INFO
->> +	select GUEST_PERF_EVENTS if PERF_EVENTS
->>   	help
->>   	  Support hosting virtualized guest machines.
->>   
->> diff --git a/arch/riscv/kvm/main.c b/arch/riscv/kvm/main.c
->> index bab2ec34cd87..734b48d8f6dd 100644
->> --- a/arch/riscv/kvm/main.c
->> +++ b/arch/riscv/kvm/main.c
->> @@ -51,6 +51,12 @@ void kvm_arch_hardware_disable(void)
->>   	csr_write(CSR_HIDELEG, 0);
->>   }
->>   
->> +static void kvm_riscv_teardown(void)
->> +{
->> +	kvm_riscv_aia_exit();
->> +	kvm_unregister_perf_callbacks();
->> +}
->> +
->>   static int __init riscv_kvm_init(void)
->>   {
->>   	int rc;
->> @@ -105,9 +111,11 @@ static int __init riscv_kvm_init(void)
->>   		kvm_info("AIA available with %d guest external interrupts\n",
->>   			 kvm_riscv_aia_nr_hgei);
->>   
->> +	kvm_register_perf_callbacks(NULL);
->> +
->>   	rc = kvm_init(sizeof(struct kvm_vcpu), 0, THIS_MODULE);
->>   	if (rc) {
->> -		kvm_riscv_aia_exit();
->> +		kvm_riscv_teardown();
->>   		return rc;
->>   	}
->>   
->> @@ -117,7 +125,7 @@ module_init(riscv_kvm_init);
->>   
->>   static void __exit riscv_kvm_exit(void)
->>   {
->> -	kvm_riscv_aia_exit();
->> +	kvm_riscv_teardown();
->>   
->>   	kvm_exit();
->>   }
->> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
->> index 8d7d381737ee..e8ffb3456898 100644
->> --- a/arch/riscv/kvm/vcpu.c
->> +++ b/arch/riscv/kvm/vcpu.c
->> @@ -226,6 +226,13 @@ bool kvm_arch_vcpu_in_kernel(struct kvm_vcpu *vcpu)
->>   	return (vcpu->arch.guest_context.sstatus & SR_SPP) ? true : false;
->>   }
->>   
->> +#ifdef CONFIG_GUEST_PERF_EVENTS
->> +unsigned long kvm_arch_vcpu_get_ip(struct kvm_vcpu *vcpu)
->> +{
->> +	return vcpu->arch.guest_context.sepc;
->> +}
->> +#endif
->> +
->>   vm_fault_t kvm_arch_vcpu_fault(struct kvm_vcpu *vcpu, struct vm_fault *vmf)
->>   {
->>   	return VM_FAULT_SIGBUS;
->> -- 
->> 2.34.1
->>
-> 
-> Thanks,
-> drew
-
+-- 
+ .''`.  John Paul Adrian Glaubitz
+: :' :  Debian Developer
+`. `'   Physicist
+  `-    GPG: 62FF 8A75 84E0 2956 9546  0006 7426 3B37 F5B5 F913
 
 _______________________________________________
 linux-riscv mailing list
