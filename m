@@ -4,80 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDF6AC52D6F
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Aug 2024 22:18:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30AB8C52D7C
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Aug 2024 01:17:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=oXokbvNsaQCOlO1RBfmQKLdtt8tesYAr1jasJMuvXPE=; b=Y2XSy8AyNZDFZbKCqalao01bkG
-	wPe7l7YONp71nr0WsuA0I2Zus8q29rNBmR4Z3MUvWavJtj7duKfDVntC0Oclnp/7T51Pa+ltBUeNS
-	YanQNKXDsdXO9inpRrwgRWK57n47vEpLDT2AI66deZmLeFT5gJg4Lzij5cJEHGeSTi8eBlHS0HCVx
-	KZr3clXy3TH8fT7yUts/6ia476+8IeIeuiX12FLxZbWldgOMjzbYj8QQHspAv5EjWC3rZNxtp1Wum
-	LRibwZfTDF+ffhiFl0zonK436ObCfGKo3L9C/satIfUgNWgYrwq62dQh8+MXCcwOMJIU+4y9KW981
-	CKdZV6bQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=08jEdJX3FdVxF5uvRHBs0sBHMsqarMdAAmQUkDAZ1Ow=; b=ttRhd8Wx/xqYo7
+	Dj4o9ftIc1Qlep/GbGzPWM1uDGVIL5p9QVi1+6WEzMzFp0ojQ9gqESRIEryaxmULWIt0t2mTHVwdW
+	I7DTH0hVFL6r5Rfo1FDinF0cJm752ypscawbhaJJhRiwainBKBDkmP97c21OKo4npwMjZgaaXIPBZ
+	ubmXbONZwtv3LU4TWkjXUjiMAe+dQpbmPt5FevXtcG/R6ZOnN5/DSrW9V1NmV2jfOtj42uIuOGbap
+	MoaKjpUgRMCoIi5s+5qKxIdYsL9KjClrgnWcjs7HxzpkGovNeKA5+offBIZm/HzNsu7aC5cLjYCEr
+	7GqJcHIu8u8cX9N/ZgmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgteU-0000000AWv7-0uB3;
-	Wed, 21 Aug 2024 22:18:02 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1sgwRa-0000000Aqzu-14ti;
+	Thu, 22 Aug 2024 01:16:54 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgteP-0000000AWuI-3vhb
-	for linux-riscv@lists.infradead.org;
-	Wed, 21 Aug 2024 22:18:00 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-71434174201so140506b3a.0
-        for <linux-riscv@lists.infradead.org>; Wed, 21 Aug 2024 15:17:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1724278676; x=1724883476; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=GA0U69lWqZh9vgiySnbOFG6Yi5OvKjFXU6qSWoDxJ6E=;
-        b=0u32C24KbeAaax9dUEHv73jeiuTpbK3oeNd4VUhttuvi9+6rln3sX1Y4dq+C0lgHA9
-         jox2aiufvDbfZYc4XRqslVQYxs5GCA/GhqAoggwBIXrA4NNQF8oP8salTANAiFu3w6le
-         +Mz6/Vw9wQuGG26x9fDf/jxVXF/UdoCqaLR0C/RFSSoYWtGgP1n9npXgrXMC8FDVq97c
-         yKsqFNi0naLcQDaLxaq1yq2P9d2PK8/jFrg2AwzoFRo79SOr8Xr78XTwjIqy4kwCHfUE
-         SRST9GxaYLmauZ2UnpqrrQZnnDkyRXRqlo9YiFRre15mQ4IJzDU3qKS36f0WrznjmykS
-         045Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1724278676; x=1724883476;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GA0U69lWqZh9vgiySnbOFG6Yi5OvKjFXU6qSWoDxJ6E=;
-        b=U0DQDa7oxLMyT0IO6i+lj9lm9JtkWwTgBKs1n9wS9L5IpcknrHOMNxVTwY4j3nUykl
-         jc9kfoj2XOD7o70e2piT0vD+cSfoRvy4x0AKj9Hr7r5W3bL8GegWelxmQtsTLsOoJaRy
-         6mzdX00ARXihh15oLYz7AL7FMdDiRvN5QWiV6HDNM4x6cPEQ4u/fmcu/Dh7kSrnw1mAP
-         7caiCmiZWxOB4/KbhXnvC7pn5H4xSHyv1OIBsdwi03f+F0dRsBC3Utpa1Q6A7WbTREhc
-         9dmUVIufNWMi06vFNZ8XMJWcBOES7/52QMQRmKx3yGqW+IwhTqtm1+H/r31uXG5y449T
-         +xdA==
-X-Forwarded-Encrypted: i=1; AJvYcCW7dfBDc/XIUEfvXn1QAMGdsvZ8yf9XE8UQgJLdX7kZ788Rr0d3F7g7X0QUZX0MBfFJY9QHi5UGeV21ww==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw20IVWyURrZXC7oJNZQp9EMxU4KZsWVb0G2o8scE/cHLu4XHrR
-	8k2dAJe92eGvYFoNo+38qsEOEImntBkSfYnd0doyzigESxnAThw8Jftx+4DRFXc=
-X-Google-Smtp-Source: AGHT+IGGJZWDDJ8OGBrJ+D+6QI5DXa4ye9cGQczHj52PhpdGbXIA0HyWT9z9gUssP2NjkA94cd9eUg==
-X-Received: by 2002:a05:6a00:10c1:b0:706:6af8:e08a with SMTP id d2e1a72fcca58-71423421f05mr3709454b3a.2.1724278676054;
-        Wed, 21 Aug 2024 15:17:56 -0700 (PDT)
-Received: from localhost ([192.184.165.199])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-71434340419sm138329b3a.205.2024.08.21.15.17.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 21 Aug 2024 15:17:55 -0700 (PDT)
-Date: Wed, 21 Aug 2024 15:17:55 -0700 (PDT)
-X-Google-Original-Date: Wed, 21 Aug 2024 15:17:53 PDT (-0700)
-Subject: Re: [PATCH v3 1/3] riscv: mm: Use hint address in mmap if available
-In-Reply-To: <MEYP282MB2312A08FF95D44014AB78411C68D2@MEYP282MB2312.AUSP282.PROD.OUTLOOK.COM>
-CC: Charlie Jenkins <charlie@rivosinc.com>, cyy@cyyself.name, alexghiti@rivosinc.com,
-  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, shuah@kernel.org, corbet@lwn.net, linux-mm@kvack.org,
-  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-  linux-doc@vger.kernel.org, linux-api@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: rsworktech@outlook.com
-Message-ID: <mhng-7d9e2b27-a53d-4579-b78e-0aec038290fb@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+	id 1sgwQl-0000000AqiO-2ZIB;
+	Thu, 22 Aug 2024 01:16:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 412AACE0A1C;
+	Thu, 22 Aug 2024 01:16:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8009FC32781;
+	Thu, 22 Aug 2024 01:15:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1724289360;
+	bh=3lsEIVGLUL+vfrdoSt9mLqcxu6D2kKD1lSiuPgxxZAo=;
+	h=From:Subject:Date:To:Cc:From;
+	b=J1+dgI1i/oqzor0Bl+EEXcm0KuibSzSHHq54vIVWmTsZS9UllF7BNStDKQrAJSq6L
+	 xR70X1Usfz85k4cVObLqJy4emEe+enuFxa4kNQN4ilhyMQ0NkFyoSaW5WbrBVcHQSP
+	 xLTNw8oA40uTuHuEcydJhTGwR66dN7AWGUAb+A/I+pE37Bk0SB0mATw9RTWsk5m1JC
+	 QgMv5UQyoIKHeHPvLtoccUnFXh69SXORAL3aP043UuxxWT7flaTh9QoRzAOANEMYz4
+	 jOFs6Y+0a9nmZCMXihvTCwjKLHQ2TwrxuDS7ceyIKgBux78rF0MR5xMYyuA16GBicq
+	 qoM69kSg7s7IQ==
+From: Mark Brown <broonie@kernel.org>
+Subject: [PATCH v11 00/39] arm64/gcs: Provide support for GCS in userspace
+Date: Thu, 22 Aug 2024 02:15:03 +0100
+Message-Id: <20240822-arm64-gcs-v11-0-41b81947ecb5@kernel.org>
+MIME-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIABiRxmYC/2XRzU7DMAwA4FeZeqbIdtL8cOI9EIf8OFsF66Z0q
+ kDT3p10CJopyslWPtuyr93MeeS5e9ldu8zLOI+nqQSIT7suHNy0536MJdERkIDyepePSvb7MPc
+ sEJ2HaDTZrvz3bubeZzeFwyoux/OaPWdO49e9xdt7iQ/jfDnl73vHBdfsb22Nqqq9YA+9T4PSy
+ QrvnXr94Dzx5/Mp77u1zEIVJVlTKjQGChilDMS+oaKiAmsqCg0xJpusgWhNQ+VGDeiaykKVCcm
+ JMjIo29ChokQ1HQq1nNBgjEqQbKj6pwhga6oK1YaHIbJzMsaG6o3iY1ddKAEGaYSPWg8NNX9UA
+ j0cfjHrmmzioLXSglND7UYVDTW1hUJSQkplvUnQUITNGni4DsK6Y2uZfCS08HjZ2+32A8lUEBb
+ PAgAA
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+ Andrew Morton <akpm@linux-foundation.org>, Marc Zyngier <maz@kernel.org>, 
+ Oliver Upton <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Arnd Bergmann <arnd@arndb.de>, 
+ Oleg Nesterov <oleg@redhat.com>, Eric Biederman <ebiederm@xmission.com>, 
+ Shuah Khan <shuah@kernel.org>, 
+ "Rick P. Edgecombe" <rick.p.edgecombe@intel.com>, 
+ Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>, 
+ Szabolcs Nagy <Szabolcs.Nagy@arm.com>, Kees Cook <kees@kernel.org>
+Cc: "H.J. Lu" <hjl.tools@gmail.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Florian Weimer <fweimer@redhat.com>, Christian Brauner <brauner@kernel.org>, 
+ Thiago Jung Bauermann <thiago.bauermann@linaro.org>, 
+ Ross Burton <ross.burton@arm.com>, 
+ Yury Khrustalev <yury.khrustalev@arm.com>, 
+ Wilco Dijkstra <wilco.dijkstra@arm.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
+ kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org, 
+ linux-arch@vger.kernel.org, linux-mm@kvack.org, 
+ linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>, 
+ David Hildenbrand <david@redhat.com>, 
+ "Mike Rapoport (IBM)" <rppt@kernel.org>, Kees Cook <kees@kernel.org>, 
+ Shuah Khan <skhan@linuxfoundation.org>
+X-Mailer: b4 0.15-dev-37811
+X-Developer-Signature: v=1; a=openpgp-sha256; l=15916; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=3lsEIVGLUL+vfrdoSt9mLqcxu6D2kKD1lSiuPgxxZAo=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBmxpEjfy4SuyrAJis80ZVjuEXPX37oi0KlHHUCV3h9
+ FZMFWO2JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZsaRIwAKCRAk1otyXVSH0LdiB/
+ 98iRYISnP8ctLPzKhF/nTRetolFsmgq4Qz34cyYtmZvkil1+mq8F1iKDhwrgn9hsMFKt0hkRspB4Aa
+ 57OPEFtSvH6eaI0XuolZwyJ5uMCJxEvW4EdXFfJ0HckSzxjCNf+JUvV3WdXjpppxN9fMaKfpPKhKwC
+ fohO9iHba3s5cWTS23QNVUA4NK3am0XPPZanlYe6LaS6DOcE0pDr3mKK/OdIEzGwL6w6Kpw2U69Ei/
+ UIyhEPHRIQGj7+Nj2nPzeV3UGNHWelwc30A7IN6Dbkh2pFXSb83mfePX91hNB0qlgOsSt19+p4NFjh
+ Aw8Do/EJ6DElDblgt0Lx6uc9ZOC+w5
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240821_151758_263672_60DBADCB 
-X-CRM114-Status: GOOD (  56.02  )
+X-CRM114-CacheID: sfid-20240821_181604_028142_6F112D72 
+X-CRM114-Status: GOOD (  34.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,247 +105,317 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAxOSBBdWcgMjAyNCAxODo1ODoxOCBQRFQgKC0wNzAwKSwgcnN3b3JrdGVjaEBvdXRs
-b29rLmNvbSB3cm90ZToKPiBPbiAyMDI0LTA4LTIwIDAxOjAwLCBDaGFybGllIEplbmtpbnMgd3Jv
-dGU6Cj4+IE9uIE1vbiwgQXVnIDE5LCAyMDI0IGF0IDAxOjU1OjU3UE0gKzA4MDAsIExldmkgWmlt
-IHdyb3RlOgo+Pj4gT24gMjAyNC0wMy0yMiAyMjowNiwgUGFsbWVyIERhYmJlbHQgd3JvdGU6Cj4+
-Pj4gT24gVGh1LCAwMSBGZWIgMjAyNCAxODoyODowNiBQU1QgKC0wODAwKSwgQ2hhcmxpZSBKZW5r
-aW5zIHdyb3RlOgo+Pj4+PiBPbiBXZWQsIEphbiAzMSwgMjAyNCBhdCAxMTo1OTo0M1BNICswODAw
-LCBZYW5neXUgQ2hlbiB3cm90ZToKPj4+Pj4+IE9uIFdlZCwgMjAyNC0wMS0zMSBhdCAyMjo0MSAr
-MDgwMCwgWWFuZ3l1IENoZW4gd3JvdGU6Cj4+Pj4+Pj4gT24gVHVlLCAyMDI0LTAxLTMwIGF0IDE3
-OjA3IC0wODAwLCBDaGFybGllIEplbmtpbnMgd3JvdGU6Cj4+Pj4+Pj4+IE9uIHJpc2N2IGl0IGlz
-IGd1YXJhbnRlZWQgdGhhdCB0aGUgYWRkcmVzcyByZXR1cm5lZCBieSBtbWFwIGlzIGxlc3MKPj4+
-Pj4+Pj4gdGhhbgo+Pj4+Pj4+PiB0aGUgaGludCBhZGRyZXNzLiBBbGxvdyBtbWFwIHRvIHJldHVy
-biBhbiBhZGRyZXNzIGFsbCB0aGUgd2F5IHVwIHRvCj4+Pj4+Pj4+IGFkZHIsIGlmIHByb3ZpZGVk
-LCByYXRoZXIgdGhhbiBqdXN0IHVwIHRvIHRoZSBsb3dlciBhZGRyZXNzIHNwYWNlLgo+Pj4+Pj4+
-Pj4+IFRoaXMgcHJvdmlkZXMgYSBwZXJmb3JtYW5jZSBiZW5lZml0IGFzIHdlbGwsIGFsbG93aW5n
-Cj4+Pj4+PiBtbWFwIHRvIGV4aXQKPj4+Pj4+Pj4gYWZ0ZXIKPj4+Pj4+Pj4gY2hlY2tpbmcgdGhh
-dCB0aGUgYWRkcmVzcyBpcyBpbiByYW5nZSByYXRoZXIgdGhhbiBzZWFyY2hpbmcgZm9yIGEKPj4+
-Pj4+Pj4gdmFsaWQKPj4+Pj4+Pj4gYWRkcmVzcy4KPj4+Pj4+Pj4+PiBJdCBpcyBwb3NzaWJsZSB0
-byBwcm92aWRlIGFuIGFkZHJlc3MgdGhhdCB1c2VzIGF0IG1vc3QgdGhlIHNhbWUKPj4+Pj4+Pj4g
-bnVtYmVyCj4+Pj4+Pj4+IG9mIGJpdHMsIGhvd2V2ZXIgaXQgaXMgc2lnbmlmaWNhbnRseSBtb3Jl
-IGNvbXB1dGF0aW9uYWxseSBleHBlbnNpdmUKPj4+Pj4+Pj4gdG8KPj4+Pj4+Pj4gcHJvdmlkZSB0
-aGF0IG51bWJlciByYXRoZXIgdGhhbiBzZXR0aW5nIHRoZSBtYXggdG8gYmUgdGhlIGhpbnQKPj4+
-Pj4+Pj4gYWRkcmVzcy4KPj4+Pj4+Pj4gVGhlcmUgaXMgdGhlIGluc3RydWN0aW9uIGNsei9jbHp3
-IGluIFpiYiB0aGF0IHJldHVybnMgdGhlIGhpZ2hlc3QKPj4+Pj4+Pj4gc2V0Cj4+Pj4+Pj4+IGJp
-dAo+Pj4+Pj4+PiB3aGljaCBjb3VsZCBiZSB1c2VkIHRvIHBlcmZvcm1hbnRseSBpbXBsZW1lbnQg
-dGhpcywgYnV0IGl0IHdvdWxkCj4+Pj4+Pj4+IHN0aWxsCj4+Pj4+Pj4+IGJlIHNsb3dlciB0aGFu
-IHRoZSBjdXJyZW50IGltcGxlbWVudGF0aW9uLiBBdCB3b3JzdCBjYXNlLCBoYWxmIG9mCj4+Pj4+
-Pj4+IHRoZQo+Pj4+Pj4+PiBhZGRyZXNzIHdvdWxkIG5vdCBiZSBhYmxlIHRvIGJlIGFsbG9jYXRl
-ZCB3aGVuIGEgaGludCBhZGRyZXNzIGlzCj4+Pj4+Pj4+IHByb3ZpZGVkLgo+Pj4+Pj4+Pj4+IFNp
-Z25lZC1vZmYtYnk6IENoYXJsaWUgSmVua2luczxjaGFybGllQHJpdm9zaW5jLmNvbT4KPj4+Pj4+
-Pj4gLS0tCj4+Pj4+Pj4+ICDCoGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vcHJvY2Vzc29yLmggfCAy
-NyArKysrKysrKysrKy0tLS0tLS0tLS0tLS0tLQo+Pj4+Pj4+PiAtCj4+Pj4+Pj4+ICDCoDEgZmls
-ZSBjaGFuZ2VkLCAxMSBpbnNlcnRpb25zKCspLCAxNiBkZWxldGlvbnMoLSkKPj4+Pj4+Pj4+PiBk
-aWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wcm9jZXNzb3IuaAo+Pj4+Pj4+PiBi
-L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcHJvY2Vzc29yLmgKPj4+Pj4+Pj4gaW5kZXggZjE5Zjg2
-MWNkYTU0Li44ZWNlN2E4ZjBlMTggMTAwNjQ0Cj4+Pj4+Pj4+IC0tLSBhL2FyY2gvcmlzY3YvaW5j
-bHVkZS9hc20vcHJvY2Vzc29yLmgKPj4+Pj4+Pj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
-bS9wcm9jZXNzb3IuaAo+Pj4+Pj4+PiBAQCAtMTQsMjIgKzE0LDE2IEBACj4+Pj4+Pj4+Cj4+Pj4+
-Pj4+ICDCoCNpbmNsdWRlIDxhc20vcHRyYWNlLmg+Cj4+Pj4+Pj4+Cj4+Pj4+Pj4+IC0jaWZkZWYg
-Q09ORklHXzY0QklUCj4+Pj4+Pj4+IC0jZGVmaW5lIERFRkFVTFRfTUFQX1dJTkRPV8KgwqDCoCAo
-VUwoMSkgPDwgKE1NQVBfVkFfQklUUyAtIDEpKQo+Pj4+Pj4+PiAtI2RlZmluZSBTVEFDS19UT1Bf
-TUFYwqDCoMKgwqDCoMKgwqAgVEFTS19TSVpFXzY0Cj4+Pj4+Pj4+IC0KPj4+Pj4+Pj4gIMKgI2Rl
-ZmluZSBhcmNoX2dldF9tbWFwX2VuZChhZGRyLCBsZW4sIGZsYWdzKcKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqAgXAo+Pj4+Pj4+PiAgwqAoe8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIFwKPj4+Pj4+Pj4gIMKgwqDCoMKgIHVuc2lnbmVk
-IGxvbmcKPj4+Pj4+Pj4gbW1hcF9lbmQ7wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqAgXAo+Pj4+Pj4+PiAgwqDCoMKgwqAgdHlwZW9mKGFkZHIpIF9hZGRyID0gKGFkZHIpO8Kg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBcCj4+Pj4+Pj4+IC3CoMKgwqAgaWYgKChfYWRk
-cikgPT0gMCB8fCAoSVNfRU5BQkxFRChDT05GSUdfQ09NUEFUKSAmJgo+Pj4+Pj4+PiBpc19jb21w
-YXRfdGFzaygpKSkgXAo+Pj4+Pj4+PiArwqDCoMKgIGlmICgoX2FkZHIpID09IDAgfHzCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBcCj4+Pj4+Pj4+ICvCoMKgwqAgwqDCoMKg
-IChJU19FTkFCTEVEKENPTkZJR19DT01QQVQpICYmIGlzX2NvbXBhdF90YXNrKCkpIHx8wqDCoMKg
-IFwKPj4+Pj4+Pj4gK8KgwqDCoCDCoMKgwqAgKChfYWRkciArIGxlbikgPiBCSVQoVkFfQklUUyAt
-Cj4+Pj4+Pj4+IDEpKSnCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIFwKPj4+Pj4+Pj4gIMKgwqDCoMKg
-wqDCoMKgwqAgbW1hcF9lbmQgPSBTVEFDS19UT1BfTUFYO8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAg
-XAo+Pj4+Pj4+PiAtwqDCoMKgIGVsc2UgaWYgKChfYWRkcikgPj0gVkFfVVNFUl9TVjU3KSBcCj4+
-Pj4+Pj4+IC3CoMKgwqDCoMKgwqDCoCBtbWFwX2VuZCA9IFNUQUNLX1RPUF9NQVg7wqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoCBcCj4+Pj4+Pj4+IC3CoMKgwqAgZWxzZSBpZiAoKCgoX2FkZHIpID49IFZB
-X1VTRVJfU1Y0OCkpICYmIChWQV9CSVRTID49Cj4+Pj4+Pj4+IFZBX0JJVFNfU1Y0OCkpIFwKPj4+
-Pj4+Pj4gLcKgwqDCoMKgwqDCoMKgIG1tYXBfZW5kID0gVkFfVVNFUl9TVjQ4O8KgwqDCoMKgwqDC
-oMKgwqDCoMKgwqAgXAo+Pj4+Pj4+PiAgwqDCoMKgwqAgZWxzZcKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBcCj4+Pj4+Pj4+IC3CoMKgwqDCoMKg
-wqDCoCBtbWFwX2VuZCA9IFZBX1VTRVJfU1YzOTvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIFwKPj4+
-Pj4+Pj4gK8KgwqDCoMKgwqDCoMKgIG1tYXBfZW5kID0gKF9hZGRyICsgbGVuKTvCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgIFwKPj4+Pj4+Pj4gIMKgwqDCoMKgIG1tYXBfZW5kO8KgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgXAo+Pj4+Pj4+PiAgwqB9KQo+Pj4+Pj4+
-Pgo+Pj4+Pj4+PiBAQCAtMzksMTcgKzMzLDE4IEBACj4+Pj4+Pj4+ICDCoMKgwqDCoCB0eXBlb2Yo
-YWRkcikgX2FkZHIgPSAoYWRkcik7wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIFwKPj4+
-Pj4+Pj4gIMKgwqDCoMKgIHR5cGVvZihiYXNlKSBfYmFzZSA9IChiYXNlKTvCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqAgXAo+Pj4+Pj4+PiAgwqDCoMKgwqAgdW5zaWduZWQgbG9uZyBybmRf
-Z2FwID0gREVGQVVMVF9NQVBfV0lORE9XIC0gKF9iYXNlKTvCoMKgwqAgXAo+Pj4+Pj4+PiAtwqDC
-oMKgIGlmICgoX2FkZHIpID09IDAgfHwgKElTX0VOQUJMRUQoQ09ORklHX0NPTVBBVCkgJiYKPj4+
-Pj4+Pj4gaXNfY29tcGF0X3Rhc2soKSkpIFwKPj4+Pj4+Pj4gK8KgwqDCoCBpZiAoKF9hZGRyKSA9
-PSAwIHx8wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgXAo+Pj4+Pj4+PiAr
-wqDCoMKgIMKgwqDCoCAoSVNfRU5BQkxFRChDT05GSUdfQ09NUEFUKSAmJiBpc19jb21wYXRfdGFz
-aygpKSB8fMKgwqDCoCBcCj4+Pj4+Pj4+ICvCoMKgwqAgwqDCoMKgICgoX2FkZHIgKyBsZW4pID4g
-QklUKFZBX0JJVFMgLQo+Pj4+Pj4+PiAxKSkpwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBcCj4+Pj4+
-Pj4+ICDCoMKgwqDCoMKgwqDCoMKgIG1tYXBfYmFzZSA9IChfYmFzZSk7wqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgIFwKPj4+Pj4+Pj4gLcKgwqDCoCBlbHNlIGlmICgoKF9hZGRyKSA+PSBW
-QV9VU0VSX1NWNTcpICYmIChWQV9CSVRTID49Cj4+Pj4+Pj4+IFZBX0JJVFNfU1Y1NykpIFwKPj4+
-Pj4+Pj4gLcKgwqDCoMKgwqDCoMKgIG1tYXBfYmFzZSA9IFZBX1VTRVJfU1Y1NyAtIHJuZF9nYXA7
-IFwKPj4+Pj4+Pj4gLcKgwqDCoCBlbHNlIGlmICgoKChfYWRkcikgPj0gVkFfVVNFUl9TVjQ4KSkg
-JiYgKFZBX0JJVFMgPj0KPj4+Pj4+Pj4gVkFfQklUU19TVjQ4KSkgXAo+Pj4+Pj4+PiAtwqDCoMKg
-wqDCoMKgwqAgbW1hcF9iYXNlID0gVkFfVVNFUl9TVjQ4IC0gcm5kX2dhcDsgXAo+Pj4+Pj4+PiAg
-wqDCoMKgwqAgZWxzZcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoCBcCj4+Pj4+Pj4+IC3CoMKgwqDCoMKgwqDCoCBtbWFwX2Jhc2UgPSBWQV9VU0VS
-X1NWMzkgLSBybmRfZ2FwOyBcCj4+Pj4+Pj4+ICvCoMKgwqDCoMKgwqDCoCBtbWFwX2Jhc2UgPSAo
-X2FkZHIgKyBsZW4pIC0gcm5kX2dhcDsgXAo+Pj4+Pj4+PiAgwqDCoMKgwqAgbW1hcF9iYXNlO8Kg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgXAo+Pj4+Pj4+PiAg
-wqB9KQo+Pj4+Pj4+Pgo+Pj4+Pj4+PiArI2lmZGVmIENPTkZJR182NEJJVAo+Pj4+Pj4+PiArI2Rl
-ZmluZSBERUZBVUxUX01BUF9XSU5ET1fCoMKgwqAgKFVMKDEpIDw8IChNTUFQX1ZBX0JJVFMgLSAx
-KSkKPj4+Pj4+Pj4gKyNkZWZpbmUgU1RBQ0tfVE9QX01BWMKgwqDCoMKgwqDCoMKgIFRBU0tfU0la
-RV82NAo+Pj4+Pj4+PiAgwqAjZWxzZQo+Pj4+Pj4+PiAgwqAjZGVmaW5lIERFRkFVTFRfTUFQX1dJ
-TkRPV8KgwqDCoCBUQVNLX1NJWkUKPj4+Pj4+Pj4gIMKgI2RlZmluZSBTVEFDS19UT1BfTUFYwqDC
-oMKgwqDCoMKgwqAgVEFTS19TSVpFCj4+Pj4+Pj4+Pj4gSSBoYXZlIGNhcmVmdWxseSB0ZXN0ZWQg
-eW91ciBwYXRjaCBvbiBxZW11IHdpdGggc3Y1Ny4gQQo+Pj4+Pj4gYnVnIHRoYXQKPj4+Pj4+PiBu
-ZWVkcwo+Pj4+Pj4+IHRvIGJlIHNvbHZlZCBpcyB0aGF0IG1tYXAgd2l0aCB0aGUgc2FtZSBoaW50
-IGFkZHJlc3Mgd2l0aG91dAo+Pj4+Pj4+IE1BUF9GSVhFRAo+Pj4+Pj4+IHNldCB3aWxsIGZhaWwg
-dGhlIHNlY29uZCB0aW1lLgo+Pj4+Pj4+PiBVc2Vyc3BhY2UgY29kZSB0byByZXByb2R1Y2UgdGhl
-IGJ1ZzoKPj4+Pj4+Pj4gI2luY2x1ZGUgPHN5cy9tbWFuLmg+Cj4+Pj4+Pj4gI2luY2x1ZGUgPHN0
-ZGlvLmg+Cj4+Pj4+Pj4gI2luY2x1ZGUgPHN0ZGludC5oPgo+Pj4+Pj4+PiB2b2lkIHRlc3QoY2hh
-ciAqYWRkcikgewo+Pj4+Pj4+ICDCoMKgwqAgY2hhciAqcmVzID0gbW1hcChhZGRyLCA0MDk2LCBQ
-Uk9UX1JFQUQgfCBQUk9UX1dSSVRFLAo+Pj4+Pj4+IE1BUF9BTk9OWU1PVVMKPj4+Pj4+Pj4gTUFQ
-X1BSSVZBVEUsIC0xLCAwKTsKPj4+Pj4+PiAgwqDCoMKgIHByaW50ZigiaGludCAlcCBnb3QgJXAu
-XG4iLCBhZGRyLCByZXMpOwo+Pj4+Pj4+IH0KPj4+Pj4+Pj4gaW50IG1haW4gKHZvaWQpIHsKPj4+
-Pj4+PiAgwqDCoMKgIHRlc3QoMTw8MzApOwo+Pj4+Pj4+ICDCoMKgwqAgdGVzdCgxPDwzMCk7Cj4+
-Pj4+Pj4gIMKgwqDCoCB0ZXN0KDE8PDMwKTsKPj4+Pj4+PiAgwqDCoMKgIHJldHVybiAwOwo+Pj4+
-Pj4+IH0KPj4+Pj4+Pj4gb3V0cHV0Ogo+Pj4+Pj4+PiBoaW50IDB4NDAwMDAwMDAgZ290IDB4NDAw
-MDAwMDAuCj4+Pj4+Pj4gaGludCAweDQwMDAwMDAwIGdvdCAweGZmZmZmZmZmZmZmZmZmZmYuCj4+
-Pj4+Pj4gaGludCAweDQwMDAwMDAwIGdvdCAweGZmZmZmZmZmZmZmZmZmZmYuCj4+Pj4+Pj4+IG91
-dHB1dCBvbiB4ODY6Cj4+Pj4+Pj4+IGhpbnQgMHg0MDAwMDAwMCBnb3QgMHg0MDAwMDAwMC4KPj4+
-Pj4+PiBoaW50IDB4NDAwMDAwMDAgZ290IDB4N2Y5MTcxMzYzMDAwLgo+Pj4+Pj4+IGhpbnQgMHg0
-MDAwMDAwMCBnb3QgMHg3ZjkxNzEzNjIwMDAuCj4+Pj4+Pj4+IEl0IG1heSBuZWVkIHRvIGltcGxl
-bWVudCBhIHNwZWNpYWwgYXJjaF9nZXRfdW5tYXBwZWRfYXJlYSBhbmQKPj4+Pj4+PiBhcmNoX2dl
-dF91bm1hcHBlZF9hcmVhX3RvcGRvd24gZnVuY3Rpb24uCj4+Pj4+Pj4KPj4+Pj4+IFRoaXMgaXMg
-YmVjYXVzZSBoaW50IGFkZHJlc3MgPCBybmRfZ2FwLiBJIGhhdmUgdHJpZWQgdG8gbGV0IG1tYXBf
-YmFzZSA9Cj4+Pj4+PiBtaW4oKF9hZGRyICsgbGVuKSwgKGJhc2UpICsgVEFTS19TSVpFIC0gREVG
-QVVMVF9NQVBfV0lORE9XKS4gSG93ZXZlciBpdAo+Pj4+Pj4gZG9lcyBub3Qgd29yayBmb3IgYm90
-dG9tLXVwIHdoaWxlIHVsaW1pdCAtcyBpcyB1bmxpbWl0ZWQuIFlvdSBzYWlkIHRoaXMKPj4+Pj4+
-IGJlaGF2aW9yIGlzIGV4cGVjdGVkIGZyb20gcGF0Y2ggdjIgcmV2aWV3LsKgSG93ZXZlciBpdCBi
-cmluZ3MgYSBuZXcKPj4+Pj4+IHJlZ3Jlc3Npb24gZXZlbiBvbiBzdjM5IHN5c3RlbXMuCj4+Pj4+
-Pgo+Pj4+Pj4gSSBzdGlsbCBkb24ndCBrbm93IHRoZSByZWFzb24gd2h5IHVzZSBhZGRyK2xlbiBh
-cyB0aGUgdXBwZXItYm91bmQuIEkKPj4+Pj4+IHRoaW5rIHNvbHV0aW9uIGxpa2UgeDg2L2FybTY0
-L3Bvd2VycGMgcHJvdmlkZSB0d28gYWRkcmVzcyBzcGFjZSBzd2l0Y2gKPj4+Pj4+IGJhc2VkIG9u
-IHdoZXRoZXIgaGludCBhZGRyZXNzIGFib3ZlIHRoZSBkZWZhdWx0IG1hcCB3aW5kb3cgaXMgZW5v
-dWdoLgo+Pj4+Pj4KPj4+Pj4gWWVwIHRoaXMgaXMgZXhwZWN0ZWQuIEl0IGlzIHVwIHRvIHRoZSBt
-YWludGFpbmVycyB0byBkZWNpZGUuCj4+Pj4gU29ycnkgSSBmb3Jnb3QgdG8gcmVwbHkgdG8gdGhp
-cywgSSBoYWQgYSBidWZmZXIgc2l0dGluZyBhcm91bmQgc29tZXdoZXJlCj4+Pj4gYnV0IEkgbXVz
-dCBoYXZlIGxvc3QgaXQuCj4+Pj4KPj4+PiBJIHRoaW5rIENoYXJsaWUncyBhcHByb2FjaCBpcyB0
-aGUgcmlnaHQgd2F5IHRvIGdvLsKgIFB1dHRpbmcgbXkgdXNlcnNwYWNlCj4+Pj4gaGF0IG9uLCBJ
-J2QgbXVjaCByYXRoZXIgaGF2ZSBteSBhbGxvY2F0aW9ucyBmYWlsIHJhdGhlciB0aGFuIHNpbGVu
-dGx5Cj4+Pj4gaWdub3JlIHRoZSBoaW50IHdoZW4gdGhlcmUncyBtZW1vcnkgcHJlc3N1cmUuCj4+
-Pj4KPj4+PiBJZiB0aGVyZSdzIHNvbWUgcmVhbCB1c2UgY2FzZSB0aGF0IG5lZWRzIHRoZXNlIGxv
-dyBoaW50cyB0byBiZSBzaWxlbnRseQo+Pj4+IGlnbm9yZWQgdW5kZXIgVkEgcHJlc3N1cmUgdGhl
-biB3ZSBjYW4gdHJ5IGFuZCBmaWd1cmUgc29tZXRoaW5nIG91dCB0aGF0Cj4+Pj4gbWFrZXMgdGhv
-c2UgYXBwbGljYXRpb25zIHdvcmsuCj4+PiBJIGNvdWxkIGNvbmZpcm0gdGhhdCB0aGlzIHBhdGNo
-IGhhcyBicm9rZW4gY2hyb21pdW0ncyBwYXJ0aXRpb24gYWxsb2NhdG9yIG9uCj4+PiByaXNjdjY0
-LiBUaGUgbWluaW1hbCByZXByb2R1Y3Rpb24gSSB1c2UgaXMgY2hyb21pdW0tbW1hcC5jOgo+Pj4K
-Pj4+ICNpbmNsdWRlIDxzdGRpby5oPgo+Pj4gI2luY2x1ZGUgPHN5cy9tbWFuLmg+Cj4+Pgo+Pj4g
-aW50IG1haW4oKSB7Cj4+PiAgwqDCoMKgIHZvaWQqIGV4cGVjdGVkID0gKHZvaWQqKTB4NDAwMDAw
-MDAwOwo+Pj4gIMKgwqDCoCB2b2lkKiBhZGRyID0gbW1hcChleHBlY3RlZCwgMTcxNzk4NjkxODQs
-IFBST1RfTk9ORSwKPj4+IE1BUF9QUklWQVRFfE1BUF9BTk9OWU1PVVMsIC0xLCAwKTsKPj4+ICDC
-oMKgwqAgaWYgKGFkZHIgIT0gZXhwZWN0ZWQpIHsKPj4gSXQgaXMgbm90IHZhbGlkIHRvIGFzc3Vt
-ZSB0aGF0IHRoZSBhZGRyZXNzIHJldHVybmVkIGJ5IG1tYXAgd2lsbCBiZSB0aGUKPj4gaGludCBh
-ZGRyZXNzLiBJZiB0aGUgaGludCBhZGRyZXNzIGlzIG5vdCBhdmFpbGFibGUsIG1tYXAgd2lsbCBy
-ZXR1cm4gYQo+PiBkaWZmZXJlbnQgYWRkcmVzcy4KPgo+IE9oLCBzb3JyeSBJIGRpZG4ndCBtYWtl
-IGl0IGNsZWFyIHdoYXQgaXMgdGhlIGV4cGVjdGVkIGJlaGF2aW9yLgo+IFRoZSBwcmludGYgaGVy
-ZSBpcyBzb2xlbHkgZm9yIGRlYnVnZ2luZyBwdXJwb3NlIGFuZCBJIGRvbid0IG1lYW4gdGhhdAo+
-IGNocm9taXVtIGV4cGVjdCBpdCB3aWxsIGdldCB0aGUgaGludCBhZGRyZXNzLiBUaGUgZXhwZWN0
-ZWQgYmVoYXZpb3IgaXMKPiB0aGF0IGJvdGggdGhlIHR3byBtbWFwIGNhbGxzIHdpbGwgc3VjY2Vl
-ZC4KPgo+Pj4gIMKgwqDCoMKgwqDCoMKgIHByaW50ZigiTm90IGV4cGVjdGVkIGFkZHJlc3M6ICVw
-ICE9ICVwXG4iLCBhZGRyLCBleHBlY3RlZCk7Cj4+PiAgwqDCoMKgIH0KPj4+ICDCoMKgwqAgZXhw
-ZWN0ZWQgPSAodm9pZCopMHgzZmZmZmYwMDA7Cj4+PiAgwqDCoMKgIGFkZHIgPSBtbWFwKGV4cGVj
-dGVkLCAxNzE3OTg3MzI4MCwgUFJPVF9OT05FLCBNQVBfUFJJVkFURXxNQVBfQU5PTllNT1VTLAo+
-Pj4gLTEsIDApOwo+Pj4gIMKgwqDCoCBpZiAoYWRkciAhPSBleHBlY3RlZCkgewo+Pj4gIMKgwqDC
-oMKgwqDCoMKgIHByaW50ZigiTm90IGV4cGVjdGVkIGFkZHJlc3M6ICVwICE9ICVwXG4iLCBhZGRy
-LCBleHBlY3RlZCk7Cj4+PiAgwqDCoMKgIH0KPj4+ICDCoMKgwqAgcmV0dXJuIDA7Cj4+PiB9Cj4+
-Pgo+Pj4gVGhlIHNlY29uZCBtbWFwIGZhaWxzIHdpdGggRU5PTUVNLiBNYW51YWxseSByZXZlcnRp
-bmcgdGhpcyBjb21taXQgZml4ZXMgdGhlCj4+PiBpc3N1ZSBmb3IgbWUuIFNvIEkgdGhpbmsgaXQn
-cyBjbGVhcmx5IGEgcmVncmVzc2lvbiBhbmQgYnJlYWtzIHVzZXJzcGFjZS4KPj4+Cj4+IFRoZSBp
-c3N1ZSBoZXJlIGlzIHRoYXQgb3ZlcmxhcHBpbmcgbWVtb3J5IGlzIGJlaW5nIHJlcXVlc3RlZC4g
-VGhpcwo+PiBzZWNvbmQgbW1hcCB3aWxsIG5ldmVyIGJlIGFibGUgdG8gcHJvdmlkZSBhbiBhZGRy
-ZXNzIGF0IDB4M2ZmZmZmMDAwIHdpdGgKPj4gYSBzaXplIG9mIDB4NDAwMDAxMDAwIHNpbmNlIG1t
-YXAganVzdCBwcm92aWRlZCBhbiBhZGRyZXNzIGF0IDB4NDAwMDAwMDAwCj4+IHdpdGggYSBzaXpl
-IG9mIDB4NDAwMDAwMDAwLgo+Pgo+PiBCZWZvcmUgdGhpcyBwYXRjaCwgdGhpcyByZXF1ZXN0IGNh
-dXNlcyBtbWFwIHRvIHJldHVybiBhIGNvbXBsZXRlbHkKPj4gYXJiaXRyYXJ5IHZhbHVlLiBUaGVy
-ZSBpcyBubyByZWFzb24gdG8gdXNlIGEgaGludCBhZGRyZXNzIGluIHRoaXMgbWFubmVyCj4+IGJl
-Y2F1c2UgdGhlIGhpbnQgY2FuIG5ldmVyIGJlIHJlc3BlY3RlZC4gU2luY2UgYW4gYXJiaXRyYXJ5
-IGFkZHJlc3MgaXMKPj4gZGVzaXJlZCwgYSBoaW50IG9mIHplcm8gc2hvdWxkIGJlIHVzZWQuCj4+
-Cj4+IFRoaXMgcGF0Y2ggY2F1c2VzIHRoZSBiZWhhdmlvciB0byBiZSBtb3JlIGRldGVybWluaXN0
-aWMuIEluc3RlYWQgb2YKPj4gcHJvdmlkaW5nIGFuIGFyYml0cmFyeSBhZGRyZXNzLCBpdCBjYXVz
-ZXMgdGhlIGFkZHJlc3MgdG8gYmUgbGVzcyB0aGFuIG9yCj4+IGVxdWFsIHRvIHRoZSBoaW50IGFk
-ZHJlc3MuIFRoaXMgYWxsb3dzIGZvciBhcHBsaWNhdGlvbnMgdG8gbWFrZQo+PiBhc3N1bXB0aW9u
-cyBhYm91dCB0aGUgcmV0dXJuZWQgYWRkcmVzcy4KPgo+IEFib3V0IHRoZSBvdmVybGFwLCBvZiBj
-b3Vyc2UgdGhlIHBhcnRpdGlvbiBhbGxvY2F0b3IncyByZXF1ZXN0IGZvcgo+IG92ZXJsYXBwZWQg
-dm1hIHNlZW1zIHVucmVhc29uYWJsZS4KPgo+IEJ1dCBJIHN0aWxsIGRvbid0IHF1aXRlIHVuZGVy
-c3RhbmQgd2h5IG1tYXAgY2Fubm90IHVzZSBhbiBhZGRyZXNzIGhpZ2hlcgo+IHRoYW4gdGhlIGhp
-bnQgYWRkcmVzcy4KPiBUaGUgaGludCBhZGRyZXNzLCBhZnRlciBhbGwsIGlzIGEgaGludCwgbm90
-IGEgcmVxdWlyZW1lbnQuCj4KPiBRdW90aW5nIHRoZSBtYW4gcGFnZToKPgo+PiAgICBJZiBhbm90
-aGVyIG1hcHBpbmcgYWxyZWFkeSBleGlzdHMgdGhlcmUsIHRoZSBrZXJuZWwgcGlja3MKPj4gICAg
-ICAgICBhIG5ldyBhZGRyZXNzIHRoYXQgbWF5IG9yIG1heSBub3QgZGVwZW5kIG9uIHRoZSBoaW50
-LiAgVGhlCj4+ICAgICAgICAgYWRkcmVzcyBvZiB0aGUgbmV3IG1hcHBpbmcgaXMgcmV0dXJuZWQg
-YXMgdGhlIHJlc3VsdCBvZiB0aGUgY2FsbC4KPgo+IFNvIGZvciBjYXN1YWwgcHJvZ3JhbW1lcnMg
-dGhhdCBvbmx5IHJlYWRzIG1hbiBwYWdlIGJ1dCBub3QgYXJjaGl0ZWN0dXJlCj4gc3BlY2lmaWMg
-a2VybmVsIGRvY3VtZW50YXRpb24sIHRoZSBjdXJyZW50IGJlaGF2aW9yIG9mIG1tYXAgb24gcmlz
-Y3Y2NAo+IGZhaWxpbmcgb24gb3ZlcmxhcHBlZCBhZGRyZXNzIHJhbmdlcyBhcmUgcXVpdGUgc3Vy
-cHJpc2luZyBJTU8uCj4KPiBBbmQgcXVvdGluZyB0aGUgbWFuIHBhZ2UgYWdhaW4gYWJvdXQgdGhl
-IGVycm5vOgo+Cj4+IMKgwqDCoMKgwqAgRU5PTUVNIE5vIG1lbW9yeSBpcyBhdmFpbGFibGUuCj4+
-Cj4+IMKgwqDCoMKgwqDCoEVOT01FTSBUaGUgcHJvY2VzcydzIG1heGltdW0gbnVtYmVyIG9mIG1h
-cHBpbmdzIHdvdWxkIGhhdmUgYmVlbgo+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGV4Y2Vl
-ZGVkLiDCoFRoaXMgZXJyb3IgY2FuIGFsc28gb2NjdXIgZm9yIG11bm1hcCgpLCB3aGVuCj4+IMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgdW5tYXBwaW5nIGEgcmVnaW9uIGluIHRoZSBtaWRkbGUg
-b2YgYW4gZXhpc3RpbmcgbWFwcGluZywKPj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBzaW5j
-ZSB0aGlzIHJlc3VsdHMgaW4gdHdvIHNtYWxsZXIgbWFwcGluZ3Mgb24gZWl0aGVyIHNpZGUKPj4g
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBvZiB0aGUgcmVnaW9uIGJlaW5nIHVubWFwcGVkLgo+
-Pgo+PiDCoMKgwqDCoMKgwqBFTk9NRU0gKHNpbmNlIExpbnV4IDQuNykgVGhlIHByb2Nlc3MncyBS
-TElNSVRfREFUQSBsaW1pdCwKPj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBkZXNjcmliZWQg
-aW4gZ2V0cmxpbWl0KDIpLCB3b3VsZCBoYXZlIGJlZW4gZXhjZWVkZWQuCj4+Cj4+IMKgwqDCoMKg
-wqDCoEVOT01FTSBXZSBkb24ndCBsaWtlIGFkZHIsIGJlY2F1c2UgaXQgZXhjZWVkcyB0aGUgdmly
-dHVhbCBhZGRyZXNzCj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgc3BhY2Ugb2YgdGhlIENQ
-VS4KPj4KPgo+IFRoZXJlJ3Mgbm8gbWF0Y2hpbmcgZGVzY3JpcHRpb24gZm9yIHRoZSBFTk9NRU0g
-cmV0dXJuZWQgaGVyZS4KPiBJIHdvdWxkIHN1Z2dlc3QgcmVtb3ZpbmcgImJlY2F1c2UgaXQgZXhj
-ZWVkcyB0aGUgdmlydHVhbCBhZGRyZXNzCj4gc3BhY2Ugb2YgdGhlIENQVS4iIGZyb20gdGhlIGxh
-c3QgaXRlbSBpZiB0aGUgRU5PTUVNIGJlaGF2aW9yIGhlcmUKPiBpcyBleHBlY3RlZC4KPgo+PiBU
-aGlzIGNvZGUgaXMgdW5mb3J0dW5hdGVseSByZWx5aW5nIG9uIHRoZSBwcmV2aW91c2x5IG1vc3Rs
-eSB1bmRlZmluZWQKPj4gYmVoYXZpb3Igb2YgdGhlIGhpbnQgYWRkcmVzcyBpbiBtbWFwLgo+Cj4g
-QWx0aG91Z2ggSSBoYXZlbid0IHJlYWQgdGhlIGNvZGUgb2YgY2hyb21pdW0ncyBwYXJ0aXRpb24g
-YWxsb2NhdG9yIHRvCj4ganVkZ2Ugd2hldGhlciBpdCBzaG91bGQKPiBiZSBpbXByb3ZlZCBvciBm
-aXhlZCBmb3IgcmlzY3Y2NCwgSSBkbyBrbm93IHRoYXQgdGhlIGtlcm5lbCAiZG9uJ3QgYnJlYWsK
-PiB1c2Vyc3BhY2UiIGFuZCAibmV2ZXIgRVZFUiBibGFtZSB0aGUgdXNlciBwcm9ncmFtcyIuCgpZ
-YSwgc29ycnkgZm9yIGJyZWFraW5nIHN0dWZmLgoKVGhlIGdvYWwgaGVyZSB3YXMgdG8gbW92ZSB0
-byB0aGUgbW1hcCBmbGFnIGJlaGF2b3Igc2ltaWxhciB0byB3aGF0IGFybTY0IAphbmQgeDg2IGhh
-dmUsIGFzIHRoYXQgd2FzIGRvbmUgaW4gYSB3YXkgdGhhdCBkaWRuJ3QgYXBwZWFyIHRvIGJyZWFr
-IAp1c2Vyc3BhY2UgLS0gb3IgYXQgbGVhc3QgYW55IHJlYWwgdXNlcnNwYWNlIHByb2dyYW1zLiAg
-SUlSQyB0aGF0IGZpcnN0IAp0ZXN0IHdhcyBwcmV0dHkgYnJva2VuIChpdCBhY3R1YWxseSBkZXBl
-bmRlZCBvbiB0aGUgaGludCBhZGRyZXNzKSwgYnV0IApzb3VuZHMgbGlrZSB0aGF0J3Mgbm90IHRo
-ZSBjYXNlLgoKSSB0aGluayBtYXliZSB0aGlzIGlzIGp1c3QgbHVjazogd2UgZGlkbid0IGNodW5r
-IHRoZSBhZGRyZXNzIHNwYWNlIHVwLCAKd2UncmUganVzdCBoaW50aW5nIG9uIGV2ZXJ5IGJpdCwg
-c28gd2UncmUganVzdCBtb3JlIGxpa2VseSB0byBoaXQgdGhlIApleGhhdXN0aW9uLiAgRG9lc24n
-dCByZWFsbHkgbWF0dGVyLCB0aG91Z2gsIGFzIGlmIGl0J3MgYnJlYWtpbmcgc3R1ZmYgc28gCndl
-J3ZlIGdvdCB0byBkZWFsIHdpdGggaXQuCgpDaGFybGllIGFuZCBJIGFyZSBqdXN0IHRhbGtpbmcs
-IGFuZCBiZXN0IHdlIGNhbiBjb21lIHVwIHdpdGggaXMgdG8gbW92ZSAKdG8gdGhlIGJlaGF2aW9y
-IHdoZXJlIHdlIGZhbGwgYmFjayB0byBsYXJnZXIgYWxsb2NhdGlvbiByZWdpb25zIHdoZW4gCnRo
-ZXJlJ3Mgbm8gc3BhY2UgaW4gdGhlIHNtYWxsZXIgYWxsb2NhdGlvbiByZWdpb24uICBDaGFybGll
-J3MgZ29pbmcgdG8gCnRyeSBhbmQgdGhyb3cgdG9nZXRoZXIgYSBwYXRjaCBmb3IgdGhhdCwgaG9w
-ZWZ1bGx5IGl0J2xsIHNvcnQgdGhpbmdzIApvdXQuCgo+PiBUaGUgZ29hbCBvZiB0aGlzIHBhdGNo
-IGlzIHRvIGhlbHAKPj4gZGV2ZWxvcGVycyBoYXZlIG1vcmUgY29uc2lzdGVudCBtbWFwIGJlaGF2
-aW9yLCBidXQgbWF5YmUgaXQgaXMgbmVjZXNzYXJ5Cj4+IHRvIGhpZGUgdGhpcyBiZWhhdmlvciBi
-ZWhpbmQgYW4gbW1hcCBmbGFnLgo+Cj4gVGhhbmsgeW91IGZvciBoZWxwaW5nIHRvIHNoYXBlIGEg
-bW9yZSBjb25zaXN0ZW50IG1tYXAgYmVoYXZpb3IuCj4gSSB0aGluayB0aGlzIHNob3VsZCBiZSBm
-aXhlZCBBU0FQIGVpdGhlciBieSBhbGxvd2luZyB0aGUgaGludCBhZGRyZXNzIHRvCj4gYmUgaWdu
-b3JlZAo+IChhcyBzdWdnZXN0ZWQgYnkgdGhlIExpbnV4IG1hbiBwYWdlKSwgb3IgaGlkZSB0aGlz
-IGJlaGF2aW9yIGJlaGluZCBhbgo+IG1tYXAgZmxhZyBhcyB5b3Ugc2FpZC4KPgo+PiAtIENoYXJs
-aWUKPj4KPj4+IFNlZSBhbHNvaHR0cHM6Ly9naXRodWIuY29tL3Jpc2N2LWZvcmtzL2VsZWN0cm9u
-L2lzc3Vlcy80Cj4+Pgo+Pj4+PiAtIENoYXJsaWUKPj4+IFNpbmNlcmVseSwKPj4+IExldmkKPj4+
-Cj4KPiBJIGFjY2lkZW50YWxseSBpbnRyb2R1Y2VkIHNvbWUgSFRNTCBpbnRvIHRoaXMgcmVwbHkg
-c28gdGhpcyByZXBseSBpcwo+IHJlc2VudCBhcyBwbGFpbiB0ZXh0Lgo+Cj4gU2luY2VyZWx5LAo+
-IExldmkKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
-bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
-dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+The arm64 Guarded Control Stack (GCS) feature provides support for
+hardware protected stacks of return addresses, intended to provide
+hardening against return oriented programming (ROP) attacks and to make
+it easier to gather call stacks for applications such as profiling.
+
+When GCS is active a secondary stack called the Guarded Control Stack is
+maintained, protected with a memory attribute which means that it can
+only be written with specific GCS operations.  The current GCS pointer
+can not be directly written to by userspace.  When a BL is executed the
+value stored in LR is also pushed onto the GCS, and when a RET is
+executed the top of the GCS is popped and compared to LR with a fault
+being raised if the values do not match.  GCS operations may only be
+performed on GCS pages, a data abort is generated if they are not.
+
+The combination of hardware enforcement and lack of extra instructions
+in the function entry and exit paths should result in something which
+has less overhead and is more difficult to attack than a purely software
+implementation like clang's shadow stacks.
+
+This series implements support for use of GCS by userspace, along with
+support for use of GCS within KVM guests.  It does not enable use of GCS
+by either EL1 or EL2, this will be implemented separately.  Executables
+are started without GCS and must use a prctl() to enable it, it is
+expected that this will be done very early in application execution by
+the dynamic linker or other startup code.  For dynamic linking this will
+be done by checking that everything in the executable is marked as GCS
+compatible.
+
+x86 has an equivalent feature called shadow stacks, this series depends
+on the x86 patches for generic memory management support for the new
+guarded/shadow stack page type and shares APIs as much as possible.  As
+there has been extensive discussion with the wider community around the
+ABI for shadow stacks I have as far as practical kept implementation
+decisions close to those for x86, anticipating that review would lead to
+similar conclusions in the absence of strong reasoning for divergence.
+
+The main divergence I am concious of is that x86 allows shadow stack to
+be enabled and disabled repeatedly, freeing the shadow stack for the
+thread whenever disabled, while this implementation keeps the GCS
+allocated after disable but refuses to reenable it.  This is to avoid
+races with things actively walking the GCS during a disable, we do
+anticipate that some systems will wish to disable GCS at runtime but are
+not aware of any demand for subsequently reenabling it.
+
+x86 uses an arch_prctl() to manage enable and disable, since only x86
+and S/390 use arch_prctl() a generic prctl() was proposed[1] as part of a
+patch set for the equivalent RISC-V Zicfiss feature which I initially
+adopted fairly directly but following review feedback has been revised
+quite a bit.
+
+We currently maintain the x86 pattern of implicitly allocating a shadow
+stack for threads started with shadow stack enabled, there has been some
+discussion of removing this support and requiring the use of clone3()
+with explicit allocation of shadow stacks instead.  I have no strong
+feelings either way, implicit allocation is not really consistent with
+anything else we do and creates the potential for errors around thread
+exit but on the other hand it is existing ABI on x86 and minimises the
+changes needed in userspace code.
+
+glibc and bionic changes using this ABI have been implemented and
+tested.  Headless Android systems have been validated and Ross Burton
+has used this code has been used to bring up a Yocto system with GCS
+enabed as standard, a test implementation of V8 support has also been
+done.
+
+There is an open issue with support for CRIU, on x86 this required the
+ability to set the GCS mode via ptrace.  This series supports
+configuring mode bits other than enable/disable via ptrace but it needs
+to be confirmed if this is sufficient.
+
+It is likely that we could relax some of the barriers added here with
+some more targeted placements, this is left for further study.
+
+There is an in process series adding clone3() support for shadow stacks:
+
+   https://lore.kernel.org/r/20240819-clone3-shadow-stack-v9-0-962d74f99464@kernel.org
+
+Previous versions of this series depended on that, this dependency has
+been removed in order to make merging easier.
+
+[1] https://lore.kernel.org/lkml/20230213045351.3945824-1-debug@rivosinc.com/
+
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+Changes in v11:
+- Remove the dependency on the addition of clone3() support for shadow
+  stacks, rebasing onto v6.11-rc3.
+- Make ID_AA64PFR1_EL1.GCS writeable in KVM.
+- Hide GCS registers when GCS is not enabled for KVM guests.
+- Require HCRX_EL2.GCSEn if booting at EL1.
+- Require that GCSCR_EL1 and GCSCRE0_EL1 be initialised regardless of
+  if we boot at EL2 or EL1.
+- Remove some stray use of bit 63 in signal cap tokens.
+- Warn if we see a GCS with VM_SHARED.
+- Remove rdundant check for VM_WRITE in fault handling.
+- Cleanups and clarifications in the ABI document.
+- Clean up and improve documentation of some sync placement.
+- Only set the EL0 GCS mode if it's actually changed.
+- Various minor fixes and tweaks.
+- Link to v10: https://lore.kernel.org/r/20240801-arm64-gcs-v10-0-699e2bd2190b@kernel.org
+
+Changes in v10:
+- Fix issues with THP.
+- Tighten up requirements for initialising GCSCR*.
+- Only generate GCS signal frames for threads using GCS.
+- Only context switch EL1 GCS registers if S1PIE is enabled.
+- Move context switch of GCSCRE0_EL1 to EL0 context switch.
+- Make GCS registers unconditionally visible to userspace.
+- Use FHU infrastructure.
+- Don't change writability of ID_AA64PFR1_EL1 for KVM.
+- Remove unused arguments from alloc_gcs().
+- Typo fixes.
+- Link to v9: https://lore.kernel.org/r/20240625-arm64-gcs-v9-0-0f634469b8f0@kernel.org
+
+Changes in v9:
+- Rebase onto v6.10-rc3.
+- Restructure and clarify memory management fault handling.
+- Fix up basic-gcs for the latest clone3() changes.
+- Convert to newly merged KVM ID register based feature configuration.
+- Fixes for NV traps.
+- Link to v8: https://lore.kernel.org/r/20240203-arm64-gcs-v8-0-c9fec77673ef@kernel.org
+
+Changes in v8:
+- Invalidate signal cap token on stack when consuming.
+- Typo and other trivial fixes.
+- Don't try to use process_vm_write() on GCS, it intentionally does not
+  work.
+- Fix leak of thread GCSs.
+- Rebase onto latest clone3() series.
+- Link to v7: https://lore.kernel.org/r/20231122-arm64-gcs-v7-0-201c483bd775@kernel.org
+
+Changes in v7:
+- Rebase onto v6.7-rc2 via the clone3() patch series.
+- Change the token used to cap the stack during signal handling to be
+  compatible with GCSPOPM.
+- Fix flags for new page types.
+- Fold in support for clone3().
+- Replace copy_to_user_gcs() with put_user_gcs().
+- Link to v6: https://lore.kernel.org/r/20231009-arm64-gcs-v6-0-78e55deaa4dd@kernel.org
+
+Changes in v6:
+- Rebase onto v6.6-rc3.
+- Add some more gcsb_dsync() barriers following spec clarifications.
+- Due to ongoing discussion around clone()/clone3() I've not updated
+  anything there, the behaviour is the same as on previous versions.
+- Link to v5: https://lore.kernel.org/r/20230822-arm64-gcs-v5-0-9ef181dd6324@kernel.org
+
+Changes in v5:
+- Don't map any permissions for user GCSs, we always use EL0 accessors
+  or use a separate mapping of the page.
+- Reduce the standard size of the GCS to RLIMIT_STACK/2.
+- Enforce a PAGE_SIZE alignment requirement on map_shadow_stack().
+- Clarifications and fixes to documentation.
+- More tests.
+- Link to v4: https://lore.kernel.org/r/20230807-arm64-gcs-v4-0-68cfa37f9069@kernel.org
+
+Changes in v4:
+- Implement flags for map_shadow_stack() allowing the cap and end of
+  stack marker to be enabled independently or not at all.
+- Relax size and alignment requirements for map_shadow_stack().
+- Add more blurb explaining the advantages of hardware enforcement.
+- Link to v3: https://lore.kernel.org/r/20230731-arm64-gcs-v3-0-cddf9f980d98@kernel.org
+
+Changes in v3:
+- Rebase onto v6.5-rc4.
+- Add a GCS barrier on context switch.
+- Add a GCS stress test.
+- Link to v2: https://lore.kernel.org/r/20230724-arm64-gcs-v2-0-dc2c1d44c2eb@kernel.org
+
+Changes in v2:
+- Rebase onto v6.5-rc3.
+- Rework prctl() interface to allow each bit to be locked independently.
+- map_shadow_stack() now places the cap token based on the size
+  requested by the caller not the actual space allocated.
+- Mode changes other than enable via ptrace are now supported.
+- Expand test coverage.
+- Various smaller fixes and adjustments.
+- Link to v1: https://lore.kernel.org/r/20230716-arm64-gcs-v1-0-bf567f93bba6@kernel.org
+
+---
+Mark Brown (39):
+      mm: Introduce ARCH_HAS_USER_SHADOW_STACK
+      arm64/mm: Restructure arch_validate_flags() for extensibility
+      prctl: arch-agnostic prctl for shadow stack
+      mman: Add map_shadow_stack() flags
+      arm64: Document boot requirements for Guarded Control Stacks
+      arm64/gcs: Document the ABI for Guarded Control Stacks
+      arm64/sysreg: Add definitions for architected GCS caps
+      arm64/gcs: Add manual encodings of GCS instructions
+      arm64/gcs: Provide put_user_gcs()
+      arm64/gcs: Provide basic EL2 setup to allow GCS usage at EL0 and EL1
+      arm64/cpufeature: Runtime detection of Guarded Control Stack (GCS)
+      arm64/mm: Allocate PIE slots for EL0 guarded control stack
+      mm: Define VM_SHADOW_STACK for arm64 when we support GCS
+      arm64/mm: Map pages for guarded control stack
+      KVM: arm64: Manage GCS access and registers for guests
+      arm64/idreg: Add overrride for GCS
+      arm64/hwcap: Add hwcap for GCS
+      arm64/traps: Handle GCS exceptions
+      arm64/mm: Handle GCS data aborts
+      arm64/gcs: Context switch GCS state for EL0
+      arm64/gcs: Ensure that new threads have a GCS
+      arm64/gcs: Implement shadow stack prctl() interface
+      arm64/mm: Implement map_shadow_stack()
+      arm64/signal: Set up and restore the GCS context for signal handlers
+      arm64/signal: Expose GCS state in signal frames
+      arm64/ptrace: Expose GCS via ptrace and core files
+      arm64: Add Kconfig for Guarded Control Stack (GCS)
+      kselftest/arm64: Verify the GCS hwcap
+      kselftest/arm64: Add GCS as a detected feature in the signal tests
+      kselftest/arm64: Add framework support for GCS to signal handling tests
+      kselftest/arm64: Allow signals tests to specify an expected si_code
+      kselftest/arm64: Always run signals tests with GCS enabled
+      kselftest/arm64: Add very basic GCS test program
+      kselftest/arm64: Add a GCS test program built with the system libc
+      kselftest/arm64: Add test coverage for GCS mode locking
+      kselftest/arm64: Add GCS signal tests
+      kselftest/arm64: Add a GCS stress test
+      kselftest/arm64: Enable GCS for the FP stress tests
+      KVM: selftests: arm64: Add GCS registers to get-reg-list
+
+ Documentation/admin-guide/kernel-parameters.txt    |   3 +
+ Documentation/arch/arm64/booting.rst               |  32 +
+ Documentation/arch/arm64/elf_hwcaps.rst            |   2 +
+ Documentation/arch/arm64/gcs.rst                   | 230 +++++++
+ Documentation/arch/arm64/index.rst                 |   1 +
+ Documentation/filesystems/proc.rst                 |   2 +-
+ arch/arm64/Kconfig                                 |  20 +
+ arch/arm64/include/asm/cpufeature.h                |   6 +
+ arch/arm64/include/asm/el2_setup.h                 |  29 +
+ arch/arm64/include/asm/esr.h                       |  28 +-
+ arch/arm64/include/asm/exception.h                 |   2 +
+ arch/arm64/include/asm/gcs.h                       | 107 +++
+ arch/arm64/include/asm/hwcap.h                     |   1 +
+ arch/arm64/include/asm/kvm_host.h                  |  12 +
+ arch/arm64/include/asm/mman.h                      |  23 +-
+ arch/arm64/include/asm/pgtable-prot.h              |  14 +-
+ arch/arm64/include/asm/processor.h                 |   7 +
+ arch/arm64/include/asm/sysreg.h                    |  20 +
+ arch/arm64/include/asm/uaccess.h                   |  40 ++
+ arch/arm64/include/asm/vncr_mapping.h              |   2 +
+ arch/arm64/include/uapi/asm/hwcap.h                |   1 +
+ arch/arm64/include/uapi/asm/ptrace.h               |   8 +
+ arch/arm64/include/uapi/asm/sigcontext.h           |   9 +
+ arch/arm64/kernel/cpufeature.c                     |  12 +
+ arch/arm64/kernel/cpuinfo.c                        |   1 +
+ arch/arm64/kernel/entry-common.c                   |  23 +
+ arch/arm64/kernel/pi/idreg-override.c              |   2 +
+ arch/arm64/kernel/process.c                        |  88 +++
+ arch/arm64/kernel/ptrace.c                         |  54 ++
+ arch/arm64/kernel/signal.c                         | 225 ++++++-
+ arch/arm64/kernel/traps.c                          |  11 +
+ arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h         |  49 +-
+ arch/arm64/kvm/sys_regs.c                          |  27 +-
+ arch/arm64/mm/Makefile                             |   1 +
+ arch/arm64/mm/fault.c                              |  40 ++
+ arch/arm64/mm/gcs.c                                | 252 +++++++
+ arch/arm64/mm/mmap.c                               |  10 +-
+ arch/arm64/tools/cpucaps                           |   1 +
+ arch/x86/Kconfig                                   |   1 +
+ arch/x86/include/uapi/asm/mman.h                   |   3 -
+ fs/proc/task_mmu.c                                 |   2 +-
+ include/linux/mm.h                                 |  18 +-
+ include/uapi/asm-generic/mman.h                    |   4 +
+ include/uapi/linux/elf.h                           |   1 +
+ include/uapi/linux/prctl.h                         |  22 +
+ kernel/sys.c                                       |  30 +
+ mm/Kconfig                                         |   6 +
+ tools/testing/selftests/arm64/Makefile             |   2 +-
+ tools/testing/selftests/arm64/abi/hwcap.c          |  19 +
+ tools/testing/selftests/arm64/fp/assembler.h       |  15 +
+ tools/testing/selftests/arm64/fp/fpsimd-test.S     |   2 +
+ tools/testing/selftests/arm64/fp/sve-test.S        |   2 +
+ tools/testing/selftests/arm64/fp/za-test.S         |   2 +
+ tools/testing/selftests/arm64/fp/zt-test.S         |   2 +
+ tools/testing/selftests/arm64/gcs/.gitignore       |   5 +
+ tools/testing/selftests/arm64/gcs/Makefile         |  24 +
+ tools/testing/selftests/arm64/gcs/asm-offsets.h    |   0
+ tools/testing/selftests/arm64/gcs/basic-gcs.c      | 357 ++++++++++
+ tools/testing/selftests/arm64/gcs/gcs-locking.c    | 200 ++++++
+ .../selftests/arm64/gcs/gcs-stress-thread.S        | 311 +++++++++
+ tools/testing/selftests/arm64/gcs/gcs-stress.c     | 530 +++++++++++++++
+ tools/testing/selftests/arm64/gcs/gcs-util.h       | 100 +++
+ tools/testing/selftests/arm64/gcs/libc-gcs.c       | 728 +++++++++++++++++++++
+ tools/testing/selftests/arm64/signal/.gitignore    |   1 +
+ .../testing/selftests/arm64/signal/test_signals.c  |  17 +-
+ .../testing/selftests/arm64/signal/test_signals.h  |   6 +
+ .../selftests/arm64/signal/test_signals_utils.c    |  32 +-
+ .../selftests/arm64/signal/test_signals_utils.h    |  39 ++
+ .../arm64/signal/testcases/gcs_exception_fault.c   |  62 ++
+ .../selftests/arm64/signal/testcases/gcs_frame.c   |  88 +++
+ .../arm64/signal/testcases/gcs_write_fault.c       |  67 ++
+ .../selftests/arm64/signal/testcases/testcases.c   |   7 +
+ .../selftests/arm64/signal/testcases/testcases.h   |   1 +
+ tools/testing/selftests/kvm/aarch64/get-reg-list.c |  28 +
+ 74 files changed, 4086 insertions(+), 43 deletions(-)
+---
+base-commit: 7c626ce4bae1ac14f60076d00eafe71af30450ba
+change-id: 20230303-arm64-gcs-e311ab0d8729
+
+Best regards,
+-- 
+Mark Brown <broonie@kernel.org>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
