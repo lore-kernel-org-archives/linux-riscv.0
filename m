@@ -4,49 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF8F1C52D7C
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Aug 2024 02:30:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11F07C5472C
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Aug 2024 02:31:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rdUHjnOQGOUM/Zc/CFaxZyC+Fo9i/UH8lhoIGhyV81w=; b=meG8vT/7cYY7PQ
-	KuO477sZGN4/iTeljJ9dfXYGMABoLLUHW4OAlaTrqNsz3sLmVe9M0tZZnF7U6kud1kZTdL2OiXmiI
-	6o+x+4CqKLPV+oK7UMtZvQ7XXJBeojsP+OBhJxN+5F36FGsnJ79I5BNs3EDUGslOF7UXvrirJClj3
-	7791w+zy7ecGzIzNR0jCvH7XMeVoKrEgVGpXkz/ePGHhsbs3yUXzyT7GqaCbaerwRQGoF7GsKXdn9
-	ue8FTFf/RKBMA7qb1InB4fQsw8SxkM2toZTcXEnJcu8aPqccYCxOnOQ0IcYfG4fqtnRqex9zzYPEV
-	cLdiMIIWwlq0yaDShwBQ==;
+	List-Owner; bh=A9bJbqSFmBUD4c9DT3rZchRJ89cOFkXCzoDXWfwb4Eg=; b=Cqff6rS1LO8a4a
+	hXKpux3TilDi7tunJlvxTaXldSrn5VycE8upIi4qiJ2tZVofcp2DfkQEw1xKQtQ8uSD0xDn+TGhR/
+	64www6kqtq5qGGJLsFN5rHB02+MAsWTZSQFW0o8hsJWbxo7j54NuIX81kXZIztyR1ITqtd3ZcTzek
+	cOO28j1K+EFCZbw3m04HPE9YfJ5AyX1635ooCIanU+thWy9nNoC5g48TekSSvgD8CyoxhwUhSRJak
+	wR4xuw871q+xAU7ntWspvUFMhkGxV7CbONPHh1rwYbEF7bQrZLNo/Mp7t8uvX/mRRUw/F/teoLEXe
+	KHVXvNU17wRmiv82HxvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgxbC-0000000B4HQ-32Lm;
-	Thu, 22 Aug 2024 02:30:54 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1sgxbF-0000000B4JT-1Srd;
+	Thu, 22 Aug 2024 02:30:57 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgwTm-0000000As7A-0UWw;
-	Thu, 22 Aug 2024 01:19:11 +0000
+	id 1sgwUL-0000000AsPf-3yZV;
+	Thu, 22 Aug 2024 01:19:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8B7E5611CD;
-	Thu, 22 Aug 2024 01:19:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CDCEC32781;
-	Thu, 22 Aug 2024 01:18:57 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8A374A4210D;
+	Thu, 22 Aug 2024 01:19:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D83A7C32781;
+	Thu, 22 Aug 2024 01:19:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1724289549;
-	bh=2VNGjU/LjnznPsbE00KIsk9FNHX2/dkkEbGz3eAYf9Y=;
+	s=k20201202; t=1724289584;
+	bh=e44VTA4PnVMnteUpPeHLUcAac2ATi0WZ4XE1rzWONBc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=qqsq3y1JGEytjuobnz4YSQFParyNgTfj1H9DrFPLajrfVGlJG5BvtE008orYEXzqu
-	 oaOkrF5npdsl7AB9iX4jkW2VpGkqPVyg9foB/36GHkznIEbjaLNeFjCLeHO4eznxeA
-	 GzSpXHoJeH0xutB8zFhxqm5ZneIHpX5O8IixGaoRGXZ1Kf7JadCB38Q+9vOIpZUbPV
-	 WziATaOIkGa7Zkn/3DtpJMC4nUro+Hj9JnUagVWXth6/U10fo7f6uC3NnWj4v/xOjx
-	 /1N+Pn8uR7Sk7sWTU2460lpfgWnUxvbgw9OJHmAGk4rwcWslmMXCjoosZoPMLBC2q3
-	 DRjjTHKRCgtKg==
+	b=Pbtd03YPcs1kyLM4sBb0xDIyW2yq92U7tOZQ9fabgPGYa3s5xtQ6I40erqzcf22XJ
+	 xYieHlP7yB2U+mdBvsSaUnso5fxL7sMS6IO48Y0VLjNX6Sss+pouZus1XoYl/MIe1N
+	 dDl+uUaI0X21QWpoSgzYX03wdx20X+DEWCXRDn+7qj+Nfp3F8ftHUzSm3Yxs6QlIVR
+	 bo8sKzPlkxyZgmDFhB1Mx94j9gcgXuqr2ZU3+ReGVUBwaQr/O9DFV8onQN/RbRwm5O
+	 zdfw341jowqrUFuoeB13x34D0kZfRIndMSQgxUIIgGlfWcsegzcg8AsaMrSEhr5vnX
+	 uT6y0Hm5E4OOA==
 From: Mark Brown <broonie@kernel.org>
-Date: Thu, 22 Aug 2024 02:15:18 +0100
-Subject: [PATCH v11 15/39] KVM: arm64: Manage GCS access and registers for
- guests
+Date: Thu, 22 Aug 2024 02:15:21 +0100
+Subject: [PATCH v11 18/39] arm64/traps: Handle GCS exceptions
 MIME-Version: 1.0
-Message-Id: <20240822-arm64-gcs-v11-15-41b81947ecb5@kernel.org>
+Message-Id: <20240822-arm64-gcs-v11-18-41b81947ecb5@kernel.org>
 References: <20240822-arm64-gcs-v11-0-41b81947ecb5@kernel.org>
 In-Reply-To: <20240822-arm64-gcs-v11-0-41b81947ecb5@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -73,20 +72,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-37811
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8779; i=broonie@kernel.org;
- h=from:subject:message-id; bh=2VNGjU/LjnznPsbE00KIsk9FNHX2/dkkEbGz3eAYf9Y=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBmxpEvUbSkIHp0CYazdvtd0K9lA++4yXoZzuXoIqai
- P7zvrMqJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZsaRLwAKCRAk1otyXVSH0IXIB/
- wKwy9Epi1q/2OiiVwlI6F7z9s+yWlum63IAqiNUP5yLTSZC+Uw/mmsVJqbefDGFdNb8bSEDq9KhQjV
- CZClRlm6htDjUx10oKE794sZU6cOkPw5fzt9kfa1FU49ufRpF9tTHrZaqleS6xNXLH09xHx5yN3g0b
- 0hsZACpQyKXt+KNfj3vpmNj3LNI3eHu49FeKYxrCAOn9Q1JhJuhvxNeTSyJTsdBPVK+hfXz0oqt8GR
- Xe8RV1vqkm5kf8wwmxc6ou7thjRjRtUqJtC04v36qtykJQbVtCwxKHWIaZqkHaw43oQs7SND2Ify1d
- s2PZ+MvA8GRGFmYGF91pxaJXHGHNgY
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6092; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=e44VTA4PnVMnteUpPeHLUcAac2ATi0WZ4XE1rzWONBc=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBmxpExKYuMVBeBz23oWOsSU1k9OAWwiLzazhRA1qWu
+ Bx+hqyKJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZsaRMQAKCRAk1otyXVSH0NmsB/
+ 9EjPsQ/EeMfFBiLaIOkUOjhs28bhufGcXkuzr7C+Wbxopk+/XOgczp4HeDvZTP36PelXAY0aXHqMX1
+ 5ydSxbyO+L1JPycTk0EClSE3uP6kIfLGkterYUUQAbOvueBiyayr6eNZjwqze4yUpl/upmbnyga6p4
+ x8DSnhLLsxeLKXkSfN7mCnagujT55MkIKpGbmlmcgkj0FVJpEz2cEaTBxaQk9RhBINzcBAGXUULwtV
+ LIWb58IVPo0B+BX6en+13U18Fb7pxhovGl8MbndGIeewt3ZQcP2Yc7yQwf9CoZDJ6LP6/nqI34sxBz
+ GBWmbU2MJqvPm5CiPuxTItmSUk4+FC
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240821_181910_292437_430B7FD7 
-X-CRM114-Status: GOOD (  20.66  )
+X-CRM114-CacheID: sfid-20240821_181946_167329_A9474A5D 
+X-CRM114-Status: GOOD (  15.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,239 +102,172 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-GCS introduces a number of system registers for EL1 and EL0, on systems
-with GCS we need to context switch them and expose them to VMMs to allow
-guests to use GCS.
+A new exception code is defined for GCS specific faults other than
+standard load/store faults, for example GCS token validation failures,
+add handling for this. These faults are reported to userspace as
+segfaults with code SEGV_CPERR (protection error), mirroring the
+reporting for x86 shadow stack errors.
 
-In order to allow guests to use GCS we also need to configure
-HCRX_EL2.GCSEn, if this is not set GCS instructions will be noops and
-CHKFEAT will report GCS as disabled.  Also enable fine grained traps for
-access to the GCS registers by guests which do not have the feature
-enabled.
+GCS faults due to memory load/store operations generate data aborts with
+a flag set, these will be handled separately as part of the data abort
+handling.
 
-In order to allow userspace to control availability of the feature to
-guests we enable writability for only ID_AA64PFR1_EL1.GCS, this is a
-deliberately conservative choice to avoid errors due to oversights.
-Further fields should be made writable in future.
+Since we do not currently enable GCS for EL1 we should not get any faults
+there but while we're at it we wire things up there, treating any GCS
+fault as fatal.
 
 Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/include/asm/kvm_host.h          | 12 ++++++++
- arch/arm64/include/asm/vncr_mapping.h      |  2 ++
- arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h | 49 ++++++++++++++++++++++++------
- arch/arm64/kvm/sys_regs.c                  | 27 +++++++++++++++-
- 4 files changed, 79 insertions(+), 11 deletions(-)
+ arch/arm64/include/asm/esr.h       | 28 +++++++++++++++++++++++++++-
+ arch/arm64/include/asm/exception.h |  2 ++
+ arch/arm64/kernel/entry-common.c   | 23 +++++++++++++++++++++++
+ arch/arm64/kernel/traps.c          | 11 +++++++++++
+ 4 files changed, 63 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index a33f5996ca9f..88d6a85a2844 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -446,6 +446,10 @@ enum vcpu_sysreg {
- 	GCR_EL1,	/* Tag Control Register */
- 	TFSRE0_EL1,	/* Tag Fault Status Register (EL0) */
+diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
+index 56c148890daf..0c231adf3867 100644
+--- a/arch/arm64/include/asm/esr.h
++++ b/arch/arm64/include/asm/esr.h
+@@ -51,7 +51,8 @@
+ #define ESR_ELx_EC_FP_EXC32	(0x28)
+ /* Unallocated EC: 0x29 - 0x2B */
+ #define ESR_ELx_EC_FP_EXC64	(0x2C)
+-/* Unallocated EC: 0x2D - 0x2E */
++#define ESR_ELx_EC_GCS		(0x2D)
++/* Unallocated EC: 0x2E */
+ #define ESR_ELx_EC_SERROR	(0x2F)
+ #define ESR_ELx_EC_BREAKPT_LOW	(0x30)
+ #define ESR_ELx_EC_BREAKPT_CUR	(0x31)
+@@ -385,6 +386,31 @@
+ #define ESR_ELx_MOPS_ISS_SRCREG(esr)	(((esr) & (UL(0x1f) << 5)) >> 5)
+ #define ESR_ELx_MOPS_ISS_SIZEREG(esr)	(((esr) & (UL(0x1f) << 0)) >> 0)
  
-+	/* Guarded Control Stack registers */
-+	GCSCRE0_EL1,	/* Guarded Control Stack Control (EL0) */
-+	GCSPR_EL0,	/* Guarded Control Stack Pointer (EL0) */
++/* ISS field definitions for GCS */
++#define ESR_ELx_ExType_SHIFT	(20)
++#define ESR_ELx_ExType_MASK		GENMASK(23, 20)
++#define ESR_ELx_Raddr_SHIFT		(10)
++#define ESR_ELx_Raddr_MASK		GENMASK(14, 10)
++#define ESR_ELx_Rn_SHIFT		(5)
++#define ESR_ELx_Rn_MASK			GENMASK(9, 5)
++#define ESR_ELx_Rvalue_SHIFT		5
++#define ESR_ELx_Rvalue_MASK		GENMASK(9, 5)
++#define ESR_ELx_IT_SHIFT		(0)
++#define ESR_ELx_IT_MASK			GENMASK(4, 0)
 +
- 	/* 32bit specific registers. */
- 	DACR32_EL2,	/* Domain Access Control Register */
- 	IFSR32_EL2,	/* Instruction Fault Status Register */
-@@ -517,6 +521,10 @@ enum vcpu_sysreg {
- 	VNCR(PIR_EL1),	 /* Permission Indirection Register 1 (EL1) */
- 	VNCR(PIRE0_EL1), /*  Permission Indirection Register 0 (EL1) */
++#define ESR_ELx_ExType_DATA_CHECK	0
++#define ESR_ELx_ExType_EXLOCK		1
++#define ESR_ELx_ExType_STR		2
++
++#define ESR_ELx_IT_RET			0
++#define ESR_ELx_IT_GCSPOPM		1
++#define ESR_ELx_IT_RET_KEYA		2
++#define ESR_ELx_IT_RET_KEYB		3
++#define ESR_ELx_IT_GCSSS1		4
++#define ESR_ELx_IT_GCSSS2		5
++#define ESR_ELx_IT_GCSPOPCX		6
++#define ESR_ELx_IT_GCSPOPX		7
++
+ #ifndef __ASSEMBLY__
+ #include <asm/types.h>
  
-+	/* Guarded Control Stack registers */
-+	VNCR(GCSPR_EL1),	/* Guarded Control Stack Pointer (EL1) */
-+	VNCR(GCSCR_EL1),	/* Guarded Control Stack Control (EL1) */
-+
- 	VNCR(HFGRTR_EL2),
- 	VNCR(HFGWTR_EL2),
- 	VNCR(HFGITR_EL2),
-@@ -1473,4 +1481,8 @@ void kvm_set_vm_id_reg(struct kvm *kvm, u32 reg, u64 val);
- 		(pa + pi + pa3) == 1;					\
- 	})
- 
-+#define kvm_has_gcs(k) 					\
-+	(system_supports_gcs() &&			\
-+	 kvm_has_feat((k), ID_AA64PFR1_EL1, GCS, IMP))
-+
- #endif /* __ARM64_KVM_HOST_H__ */
-diff --git a/arch/arm64/include/asm/vncr_mapping.h b/arch/arm64/include/asm/vncr_mapping.h
-index df2c47c55972..5e83e6f579fd 100644
---- a/arch/arm64/include/asm/vncr_mapping.h
-+++ b/arch/arm64/include/asm/vncr_mapping.h
-@@ -88,6 +88,8 @@
- #define VNCR_PMSIRR_EL1         0x840
- #define VNCR_PMSLATFR_EL1       0x848
- #define VNCR_TRFCR_EL1          0x880
-+#define VNCR_GCSPR_EL1		0x8C0
-+#define VNCR_GCSCR_EL1		0x8D0
- #define VNCR_MPAM1_EL1          0x900
- #define VNCR_MPAMHCR_EL2        0x930
- #define VNCR_MPAMVPMV_EL2       0x938
-diff --git a/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h b/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
-index 4c0fdabaf8ae..ac29352e225a 100644
---- a/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
-@@ -16,6 +16,27 @@
- #include <asm/kvm_hyp.h>
- #include <asm/kvm_mmu.h>
- 
-+static inline struct kvm_vcpu *ctxt_to_vcpu(struct kvm_cpu_context *ctxt)
-+{
-+	struct kvm_vcpu *vcpu = ctxt->__hyp_running_vcpu;
-+
-+	if (!vcpu)
-+		vcpu = container_of(ctxt, struct kvm_vcpu, arch.ctxt);
-+
-+	return vcpu;
-+}
-+
-+static inline bool ctxt_has_gcs(struct kvm_cpu_context *ctxt)
-+{
-+	struct kvm_vcpu *vcpu;
-+
-+	if (!cpus_have_final_cap(ARM64_HAS_GCS))
-+		return false;
-+
-+	vcpu = ctxt_to_vcpu(ctxt);
-+	return kvm_has_feat(kern_hyp_va(vcpu->kvm), ID_AA64PFR1_EL1, GCS, IMP);
-+}
-+
- static inline void __sysreg_save_common_state(struct kvm_cpu_context *ctxt)
- {
- 	ctxt_sys_reg(ctxt, MDSCR_EL1)	= read_sysreg(mdscr_el1);
-@@ -25,16 +46,10 @@ static inline void __sysreg_save_user_state(struct kvm_cpu_context *ctxt)
- {
- 	ctxt_sys_reg(ctxt, TPIDR_EL0)	= read_sysreg(tpidr_el0);
- 	ctxt_sys_reg(ctxt, TPIDRRO_EL0)	= read_sysreg(tpidrro_el0);
--}
--
--static inline struct kvm_vcpu *ctxt_to_vcpu(struct kvm_cpu_context *ctxt)
--{
--	struct kvm_vcpu *vcpu = ctxt->__hyp_running_vcpu;
--
--	if (!vcpu)
--		vcpu = container_of(ctxt, struct kvm_vcpu, arch.ctxt);
--
--	return vcpu;
-+	if (ctxt_has_gcs(ctxt)) {
-+		ctxt_sys_reg(ctxt, GCSPR_EL0) = read_sysreg_s(SYS_GCSPR_EL0);
-+		ctxt_sys_reg(ctxt, GCSCRE0_EL1)	= read_sysreg_s(SYS_GCSCRE0_EL1);
-+	}
+diff --git a/arch/arm64/include/asm/exception.h b/arch/arm64/include/asm/exception.h
+index f296662590c7..674518464718 100644
+--- a/arch/arm64/include/asm/exception.h
++++ b/arch/arm64/include/asm/exception.h
+@@ -57,6 +57,8 @@ void do_el0_undef(struct pt_regs *regs, unsigned long esr);
+ void do_el1_undef(struct pt_regs *regs, unsigned long esr);
+ void do_el0_bti(struct pt_regs *regs);
+ void do_el1_bti(struct pt_regs *regs, unsigned long esr);
++void do_el0_gcs(struct pt_regs *regs, unsigned long esr);
++void do_el1_gcs(struct pt_regs *regs, unsigned long esr);
+ void do_debug_exception(unsigned long addr_if_watchpoint, unsigned long esr,
+ 			struct pt_regs *regs);
+ void do_fpsimd_acc(unsigned long esr, struct pt_regs *regs);
+diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+index b77a15955f28..54f2d16d82f4 100644
+--- a/arch/arm64/kernel/entry-common.c
++++ b/arch/arm64/kernel/entry-common.c
+@@ -463,6 +463,15 @@ static void noinstr el1_bti(struct pt_regs *regs, unsigned long esr)
+ 	exit_to_kernel_mode(regs);
  }
  
- static inline bool ctxt_has_mte(struct kvm_cpu_context *ctxt)
-@@ -79,6 +94,10 @@ static inline void __sysreg_save_el1_state(struct kvm_cpu_context *ctxt)
- 		if (ctxt_has_s1pie(ctxt)) {
- 			ctxt_sys_reg(ctxt, PIR_EL1)	= read_sysreg_el1(SYS_PIR);
- 			ctxt_sys_reg(ctxt, PIRE0_EL1)	= read_sysreg_el1(SYS_PIRE0);
-+			if (ctxt_has_gcs(ctxt)) {
-+				ctxt_sys_reg(ctxt, GCSPR_EL1)	= read_sysreg_el1(SYS_GCSPR);
-+				ctxt_sys_reg(ctxt, GCSCR_EL1)	= read_sysreg_el1(SYS_GCSCR);
-+			}
- 		}
- 	}
- 	ctxt_sys_reg(ctxt, ESR_EL1)	= read_sysreg_el1(SYS_ESR);
-@@ -126,6 +145,11 @@ static inline void __sysreg_restore_user_state(struct kvm_cpu_context *ctxt)
- {
- 	write_sysreg(ctxt_sys_reg(ctxt, TPIDR_EL0),	tpidr_el0);
- 	write_sysreg(ctxt_sys_reg(ctxt, TPIDRRO_EL0),	tpidrro_el0);
-+	if (ctxt_has_gcs(ctxt)) {
-+		write_sysreg_s(ctxt_sys_reg(ctxt, GCSPR_EL0), SYS_GCSPR_EL0);
-+		write_sysreg_s(ctxt_sys_reg(ctxt, GCSCRE0_EL1),
-+			       SYS_GCSCRE0_EL1);
-+	}
- }
- 
- static inline void __sysreg_restore_el1_state(struct kvm_cpu_context *ctxt)
-@@ -157,6 +181,11 @@ static inline void __sysreg_restore_el1_state(struct kvm_cpu_context *ctxt)
- 		if (ctxt_has_s1pie(ctxt)) {
- 			write_sysreg_el1(ctxt_sys_reg(ctxt, PIR_EL1),	SYS_PIR);
- 			write_sysreg_el1(ctxt_sys_reg(ctxt, PIRE0_EL1),	SYS_PIRE0);
-+
-+			if (ctxt_has_gcs(ctxt)) {
-+				write_sysreg_el1(ctxt_sys_reg(ctxt, GCSPR_EL1),	SYS_GCSPR);
-+				write_sysreg_el1(ctxt_sys_reg(ctxt, GCSCR_EL1),	SYS_GCSCR);
-+			}
- 		}
- 	}
- 	write_sysreg_el1(ctxt_sys_reg(ctxt, ESR_EL1),	SYS_ESR);
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index c90324060436..4e820dd50414 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -1645,6 +1645,15 @@ static unsigned int raz_visibility(const struct kvm_vcpu *vcpu,
- 	return REG_RAZ;
- }
- 
-+static unsigned int gcs_visibility(const struct kvm_vcpu *vcpu,
-+				   const struct sys_reg_desc *r)
++static void noinstr el1_gcs(struct pt_regs *regs, unsigned long esr)
 +{
-+	if (kvm_has_gcs(vcpu->kvm))
-+		return 0;
-+
-+	return REG_HIDDEN;
++	enter_from_kernel_mode(regs);
++	local_daif_inherit(regs);
++	do_el1_gcs(regs, esr);
++	local_daif_mask();
++	exit_to_kernel_mode(regs);
 +}
 +
- /* cpufeature ID register access trap handlers */
+ static void noinstr el1_dbg(struct pt_regs *regs, unsigned long esr)
+ {
+ 	unsigned long far = read_sysreg(far_el1);
+@@ -505,6 +514,9 @@ asmlinkage void noinstr el1h_64_sync_handler(struct pt_regs *regs)
+ 	case ESR_ELx_EC_BTI:
+ 		el1_bti(regs, esr);
+ 		break;
++	case ESR_ELx_EC_GCS:
++		el1_gcs(regs, esr);
++		break;
+ 	case ESR_ELx_EC_BREAKPT_CUR:
+ 	case ESR_ELx_EC_SOFTSTP_CUR:
+ 	case ESR_ELx_EC_WATCHPT_CUR:
+@@ -684,6 +696,14 @@ static void noinstr el0_mops(struct pt_regs *regs, unsigned long esr)
+ 	exit_to_user_mode(regs);
+ }
  
- static bool access_id_reg(struct kvm_vcpu *vcpu,
-@@ -2362,7 +2371,7 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 		   ID_AA64PFR0_EL1_GIC |
- 		   ID_AA64PFR0_EL1_AdvSIMD |
- 		   ID_AA64PFR0_EL1_FP), },
--	ID_SANITISED(ID_AA64PFR1_EL1),
-+	ID_WRITABLE(ID_AA64PFR1_EL1, ID_AA64PFR1_EL1_GCS),
- 	ID_UNALLOCATED(4,2),
- 	ID_UNALLOCATED(4,3),
- 	ID_WRITABLE(ID_AA64ZFR0_EL1, ~ID_AA64ZFR0_EL1_RES0),
-@@ -2446,6 +2455,13 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 	PTRAUTH_KEY(APDB),
- 	PTRAUTH_KEY(APGA),
- 
-+	{ SYS_DESC(SYS_GCSCR_EL1), NULL, reset_val, GCSCR_EL1, 0,
-+	  .visibility = gcs_visibility },
-+	{ SYS_DESC(SYS_GCSPR_EL1), NULL, reset_unknown, GCSPR_EL1,
-+	  .visibility = gcs_visibility },
-+	{ SYS_DESC(SYS_GCSCRE0_EL1), NULL, reset_val, GCSCRE0_EL1, 0,
-+	  .visibility = gcs_visibility },
++static void noinstr el0_gcs(struct pt_regs *regs, unsigned long esr)
++{
++	enter_from_user_mode(regs);
++	local_daif_restore(DAIF_PROCCTX);
++	do_el0_gcs(regs, esr);
++	exit_to_user_mode(regs);
++}
 +
- 	{ SYS_DESC(SYS_SPSR_EL1), access_spsr},
- 	{ SYS_DESC(SYS_ELR_EL1), access_elr},
+ static void noinstr el0_inv(struct pt_regs *regs, unsigned long esr)
+ {
+ 	enter_from_user_mode(regs);
+@@ -766,6 +786,9 @@ asmlinkage void noinstr el0t_64_sync_handler(struct pt_regs *regs)
+ 	case ESR_ELx_EC_MOPS:
+ 		el0_mops(regs, esr);
+ 		break;
++	case ESR_ELx_EC_GCS:
++		el0_gcs(regs, esr);
++		break;
+ 	case ESR_ELx_EC_BREAKPT_LOW:
+ 	case ESR_ELx_EC_SOFTSTP_LOW:
+ 	case ESR_ELx_EC_WATCHPT_LOW:
+diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
+index 9e22683aa921..d410dcc12ed8 100644
+--- a/arch/arm64/kernel/traps.c
++++ b/arch/arm64/kernel/traps.c
+@@ -500,6 +500,16 @@ void do_el1_bti(struct pt_regs *regs, unsigned long esr)
+ 	die("Oops - BTI", regs, esr);
+ }
  
-@@ -2535,6 +2551,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 			     CTR_EL0_IDC_MASK |
- 			     CTR_EL0_DminLine_MASK |
- 			     CTR_EL0_IminLine_MASK),
-+	{ SYS_DESC(SYS_GCSPR_EL0), NULL, reset_unknown, GCSPR_EL0,
-+	  .visibility = gcs_visibility },
- 	{ SYS_DESC(SYS_SVCR), undef_access },
- 
- 	{ PMU_SYS_REG(PMCR_EL0), .access = access_pmcr, .reset = reset_pmcr,
-@@ -4560,6 +4578,9 @@ void kvm_calculate_traps(struct kvm_vcpu *vcpu)
- 
- 		if (kvm_has_feat(kvm, ID_AA64MMFR3_EL1, TCRX, IMP))
- 			vcpu->arch.hcrx_el2 |= HCRX_EL2_TCR2En;
++void do_el0_gcs(struct pt_regs *regs, unsigned long esr)
++{
++	force_signal_inject(SIGSEGV, SEGV_CPERR, regs->pc, 0);
++}
 +
-+		if (kvm_has_gcs(kvm))
-+			vcpu->arch.hcrx_el2 |= HCRX_EL2_GCSEn;
- 	}
- 
- 	if (test_bit(KVM_ARCH_FLAG_FGU_INITIALIZED, &kvm->arch.flags))
-@@ -4604,6 +4625,10 @@ void kvm_calculate_traps(struct kvm_vcpu *vcpu)
- 		kvm->arch.fgu[HFGxTR_GROUP] |= (HFGxTR_EL2_nPIRE0_EL1 |
- 						HFGxTR_EL2_nPIR_EL1);
- 
-+	if (!kvm_has_gcs(kvm))
-+		kvm->arch.fgu[HFGxTR_GROUP] |= (HFGxTR_EL2_nGCS_EL0 |
-+						HFGxTR_EL2_nGCS_EL1);
++void do_el1_gcs(struct pt_regs *regs, unsigned long esr)
++{
++	die("Oops - GCS", regs, esr);
++}
 +
- 	if (!kvm_has_feat(kvm, ID_AA64PFR0_EL1, AMU, IMP))
- 		kvm->arch.fgu[HAFGRTR_GROUP] |= ~(HAFGRTR_EL2_RES0 |
- 						  HAFGRTR_EL2_RES1);
+ void do_el0_fpac(struct pt_regs *regs, unsigned long esr)
+ {
+ 	force_signal_inject(SIGILL, ILL_ILLOPN, regs->pc, esr);
+@@ -838,6 +848,7 @@ static const char *esr_class_str[] = {
+ 	[ESR_ELx_EC_MOPS]		= "MOPS",
+ 	[ESR_ELx_EC_FP_EXC32]		= "FP (AArch32)",
+ 	[ESR_ELx_EC_FP_EXC64]		= "FP (AArch64)",
++	[ESR_ELx_EC_GCS]		= "Guarded Control Stack",
+ 	[ESR_ELx_EC_SERROR]		= "SError",
+ 	[ESR_ELx_EC_BREAKPT_LOW]	= "Breakpoint (lower EL)",
+ 	[ESR_ELx_EC_BREAKPT_CUR]	= "Breakpoint (current EL)",
 
 -- 
 2.39.2
