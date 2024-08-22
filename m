@@ -4,85 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0662BC3DA4A
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Aug 2024 03:57:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7792BC52D7C
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Aug 2024 04:00:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4D0LWb18XJB+44KeFCZ5sMaX4hTlhJYtFOSu7dcOa/4=; b=f3VshadfY45Aj/
-	/2mECvKB6xUgk1bNTvMlSSLh8rwgWnQ5XgG16/36778hMhGfoJ6O38FRz4P4RaWLyrO3oOMNkSqmI
-	vtMD9PzhwSj0qlueJtAaWPAb9L2Q3d9KkBFjLHJdI+EqDpNSpshi+tmbH1EDcpxk3d75JA0VX6Nvn
-	vqY0CLBWQGoVn/c/GI65sBUgBDlgF2AEzabTRf9wTzli4HIPRTkQARAj8fM2UiXofmEFPGMxlBOZN
-	KRPHa1UcnubppbpfVKGrN8Jei4L5rqvfBY4tugNfDUs7kyhuNMG1raRhKG7QqKzrB63TEYVaaG2CD
-	C3ux8oN+gA5uj3AiUg9w==;
+	List-Owner; bh=Pb+IUXxCTJkwsNgOyC6jpLAyzHahIsoz6lZXol3W5Lc=; b=NEnKTgfCimlt+Z
+	Y0ApP3mVNfcZ2+/aAFFakrCZfxgo637xx+37Ed3j03jccyZ8SH6sA6Ck2y9R7cnJTWiX57o+aCKsD
+	AGvK1NkHDoqAq9gPMOzlcjXk8ItCIITmdZgPotd9lv41EW4a0v2pgsea7rgkoAoOAAjYtFfbOd6sq
+	q9vv2BoyaQo2Olbfwx6rGTuqSbZAI4ApZu/rJZH5iZarEoKiN6KXlza9tcfVDoboz3HctH3rLaeS5
+	T6yPfXWIr3KBHLvOBdEimCkSbdeeTZ8gbGjlk30NOEedbsDO3FVTfSs/bv5oEWQrj6CiJsEECVHrU
+	wxdIpdEU/8bjUkffxFqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgywl-0000000BHur-2Ieh;
-	Thu, 22 Aug 2024 03:57:15 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1sgz0G-0000000BINs-1IPM;
+	Thu, 22 Aug 2024 04:00:52 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgyw1-0000000BHoe-3BlA;
-	Thu, 22 Aug 2024 03:56:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1724298989; x=1755834989;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=67Bel21jv6hBWlgoQQSJs1O2C0veB/Hwe5bH9yClc8k=;
-  b=Z+3h6TejfJeE/CJnSpgPjdd0WKgS3Npq0Ei7Vgcyx8pJPuNsKdfP449Q
-   Wy7y0Mtyt5lzNw0XQdzqUZRap8Z4buCnV1LHFVxz4LkFNZCsZpmrlFb6u
-   GkEWt4aO60ll8r0t6pgxm8JDU7+EYDc/mCBDUG2/bavmA6puoqseRS5j1
-   Se+pzeg0PMfOYJms2yZ+vlijZ0C1BvrowvjCNqtV+ir/luHtl7Ssvqoox
-   7VChZCbMDi96U1Rzs7rX6t/iQ/3PctZ55WG3KXb+XsES3uGtsvY3Y7Jkl
-   MZc7405+lpBmNxT7zzWjf4PHgNHJlGDbqbndjxaKszhr+SD5cQLvjl78W
-   g==;
-X-CSE-ConnectionGUID: QUro8ltBTe6WJ/OghQRNkw==
-X-CSE-MsgGUID: 7zjqkB0xQ1m4rR8ro7SG+A==
-X-IronPort-AV: E=McAfee;i="6700,10204,11171"; a="25586268"
-X-IronPort-AV: E=Sophos;i="6.10,165,1719903600"; 
-   d="scan'208";a="25586268"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Aug 2024 20:56:25 -0700
-X-CSE-ConnectionGUID: 953bsQieS0uirvWSphoJ2w==
-X-CSE-MsgGUID: W5kDMKzfRiixYZMrvLsMHQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.10,165,1719903600"; 
-   d="scan'208";a="60971752"
-Received: from lkp-server01.sh.intel.com (HELO 9a732dc145d3) ([10.239.97.150])
-  by fmviesa006.fm.intel.com with ESMTP; 21 Aug 2024 20:56:21 -0700
-Received: from kbuild by 9a732dc145d3 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1sgyvr-000CGW-0t;
-	Thu, 22 Aug 2024 03:56:19 +0000
-Date: Thu, 22 Aug 2024 11:55:51 +0800
-From: kernel test robot <lkp@intel.com>
-To: Lei Liu <liulei.rjpt@vivo.com>, Neal Liu <neal_liu@aspeedtech.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Bin Liu <b-liu@ti.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
-	linux-aspeed@lists.ozlabs.org, linux-usb@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Cc: oe-kbuild-all@lists.linux.dev, opensource.kernel@vivo.com
-Subject: Re: [PATCH 2/5] usb: pxa27x_udc: Use devm_clk_get_enabled() helpers
-Message-ID: <202408221155.UveHbLu0-lkp@intel.com>
-References: <20240821121048.31566-3-liulei.rjpt@vivo.com>
+	id 1sgwUj-0000000Asa9-2d5a;
+	Thu, 22 Aug 2024 01:20:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id C83AEA42111;
+	Thu, 22 Aug 2024 01:20:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81CF3C4AF09;
+	Thu, 22 Aug 2024 01:19:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1724289608;
+	bh=ahP+LTv7b4XthpsSBycFF0WuUJionb06ERHs9uQMqB0=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=spIIBu4GeSPYVLSchl3Yy+CPSYnnh/AGFV9P30yga1/EwkCOvuGXE/lRU3Idarzsn
+	 ldpc9kbY/fYBlkZX7edjPkGY7Wut4tpr1xmRr2QHhF6vMuMsBx49HqGxCRcnyuFpJr
+	 xpKbjEu6xpDic42aTtPKuWCVXYuQ/imk5MYCoNpwGVTojGqYBblO25LMxJ6piXmY3i
+	 aRLW3AUUhzIk2g3XoXc9ZWzXwRdEhvEsj8G+43a5VVh8biGOzNzX8ts4jdM58xBKWL
+	 BPt9Q6X3ZPeiLSOjDYB34uin93NvXR43LI7WIjSwkWqIjCfX+ZtJiV5fQFmONqAUi3
+	 i3rXPWmu/5lnA==
+From: Mark Brown <broonie@kernel.org>
+Date: Thu, 22 Aug 2024 02:15:23 +0100
+Subject: [PATCH v11 20/39] arm64/gcs: Context switch GCS state for EL0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240821121048.31566-3-liulei.rjpt@vivo.com>
+Message-Id: <20240822-arm64-gcs-v11-20-41b81947ecb5@kernel.org>
+References: <20240822-arm64-gcs-v11-0-41b81947ecb5@kernel.org>
+In-Reply-To: <20240822-arm64-gcs-v11-0-41b81947ecb5@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+ Andrew Morton <akpm@linux-foundation.org>, Marc Zyngier <maz@kernel.org>, 
+ Oliver Upton <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Arnd Bergmann <arnd@arndb.de>, 
+ Oleg Nesterov <oleg@redhat.com>, Eric Biederman <ebiederm@xmission.com>, 
+ Shuah Khan <shuah@kernel.org>, 
+ "Rick P. Edgecombe" <rick.p.edgecombe@intel.com>, 
+ Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>, 
+ Szabolcs Nagy <Szabolcs.Nagy@arm.com>, Kees Cook <kees@kernel.org>
+Cc: "H.J. Lu" <hjl.tools@gmail.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Florian Weimer <fweimer@redhat.com>, Christian Brauner <brauner@kernel.org>, 
+ Thiago Jung Bauermann <thiago.bauermann@linaro.org>, 
+ Ross Burton <ross.burton@arm.com>, 
+ Yury Khrustalev <yury.khrustalev@arm.com>, 
+ Wilco Dijkstra <wilco.dijkstra@arm.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
+ kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org, 
+ linux-arch@vger.kernel.org, linux-mm@kvack.org, 
+ linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.15-dev-37811
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6696; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=ahP+LTv7b4XthpsSBycFF0WuUJionb06ERHs9uQMqB0=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBmxpEzoEVzAmKLLFWRLpMs9clmoSlI6B8aerT4lEDr
+ HEQHpGOJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZsaRMwAKCRAk1otyXVSH0N89B/
+ wKEtFu6hbp0q1zALn5n+QKZjuVKSfBNrqE0RrWOFE8Z94hdCTI+y//U6UsFa4TiqxX4xr+l4twYbOM
+ //DvZO4MQzswfdnT0o8G15wME25L/bOuhxVXEE7PjS3mTXqq74+2piWjX79jTaWHSTB0TbhjzVWkny
+ S37hqjsYYpPRYxQCd+oE2zZRfto8VOhPQHhaoKo3TjL+H0tph2KAdYrFWXwV/dCVOeDaceRy8dgwxs
+ zZoDabYZ6FEQqOWecUbQrAPkPXIpztAdOFFZW5wCQa4I7XMN54YRtPAiKyHAHCC/0ExuzI6eSO03/y
+ waC60FONbYCCPGLAkhiTufm08+rOWq
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240821_205629_886127_067B2365 
-X-CRM114-Status: GOOD (  14.61  )
+X-CRM114-CacheID: sfid-20240821_182009_936250_5D31A87F 
+X-CRM114-Status: GOOD (  23.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,143 +102,237 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Lei,
+There are two registers controlling the GCS state of EL0, GCSPR_EL0 which
+is the current GCS pointer and GCSCRE0_EL1 which has enable bits for the
+specific GCS functionality enabled for EL0. Manage these on context switch
+and process lifetime events, GCS is reset on exec().  Also ensure that
+any changes to the GCS memory are visible to other PEs and that changes
+from other PEs are visible on this one by issuing a GCSB DSYNC when
+moving to or from a thread with GCS.
 
-kernel test robot noticed the following build errors:
+Since the current GCS configuration of a thread will be visible to
+userspace we store the configuration in the format used with userspace
+and provide a helper which configures the system register as needed.
 
-[auto build test ERROR on usb/usb-testing]
-[also build test ERROR on usb/usb-next usb/usb-linus linus/master v6.11-rc4 next-20240821]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+On systems that support GCS we always allow access to GCSPR_EL0, this
+facilitates reporting of GCS faults if userspace implements disabling of
+GCS on error - the GCS can still be discovered and examined even if GCS
+has been disabled.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Lei-Liu/usb-aspeed_udc-Use-devm_clk_get_enabled-helpers/20240821-201358
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git usb-testing
-patch link:    https://lore.kernel.org/r/20240821121048.31566-3-liulei.rjpt%40vivo.com
-patch subject: [PATCH 2/5] usb: pxa27x_udc: Use devm_clk_get_enabled() helpers
-config: x86_64-randconfig-161-20240822 (https://download.01.org/0day-ci/archive/20240822/202408221155.UveHbLu0-lkp@intel.com/config)
-compiler: clang version 18.1.5 (https://github.com/llvm/llvm-project 617a15a9eac96088ae5e9134248d8236e34b91b1)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20240822/202408221155.UveHbLu0-lkp@intel.com/reproduce)
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+ arch/arm64/include/asm/gcs.h       | 24 ++++++++++++++++
+ arch/arm64/include/asm/processor.h |  6 ++++
+ arch/arm64/kernel/process.c        | 56 ++++++++++++++++++++++++++++++++++++++
+ arch/arm64/mm/Makefile             |  1 +
+ arch/arm64/mm/gcs.c                | 39 ++++++++++++++++++++++++++
+ 5 files changed, 126 insertions(+)
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202408221155.UveHbLu0-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> drivers/usb/gadget/udc/pxa27x_udc.c:2401:44: error: too many arguments to function call, expected single argument 'clk', have 2 arguments
-    2401 |         udc->clk = clk_prepare_enable(&pdev->dev, NULL);
-         |                    ~~~~~~~~~~~~~~~~~~             ^~~~
-   include/linux/stddef.h:8:14: note: expanded from macro 'NULL'
-       8 | #define NULL ((void *)0)
-         |              ^~~~~~~~~~~
-   include/linux/clk.h:1107:19: note: 'clk_prepare_enable' declared here
-    1107 | static inline int clk_prepare_enable(struct clk *clk)
-         |                   ^                  ~~~~~~~~~~~~~~~
-   1 error generated.
-
-
-vim +/clk +2401 drivers/usb/gadget/udc/pxa27x_udc.c
-
-  2345	
-  2346	/**
-  2347	 * pxa_udc_probe - probes the udc device
-  2348	 * @pdev: platform device
-  2349	 *
-  2350	 * Perform basic init : allocates udc clock, creates sysfs files, requests
-  2351	 * irq.
-  2352	 */
-  2353	static int pxa_udc_probe(struct platform_device *pdev)
-  2354	{
-  2355		struct pxa_udc *udc = &memory;
-  2356		int retval = 0, gpio;
-  2357		struct pxa2xx_udc_mach_info *mach = dev_get_platdata(&pdev->dev);
-  2358		unsigned long gpio_flags;
-  2359	
-  2360		if (mach) {
-  2361			gpio_flags = mach->gpio_pullup_inverted ? GPIOF_ACTIVE_LOW : 0;
-  2362			gpio = mach->gpio_pullup;
-  2363			if (gpio_is_valid(gpio)) {
-  2364				retval = devm_gpio_request_one(&pdev->dev, gpio,
-  2365							       gpio_flags,
-  2366							       "USB D+ pullup");
-  2367				if (retval)
-  2368					return retval;
-  2369				udc->gpiod = gpio_to_desc(mach->gpio_pullup);
-  2370			}
-  2371			udc->udc_command = mach->udc_command;
-  2372		} else {
-  2373			udc->gpiod = devm_gpiod_get(&pdev->dev, NULL, GPIOD_ASIS);
-  2374		}
-  2375	
-  2376		udc->regs = devm_platform_ioremap_resource(pdev, 0);
-  2377		if (IS_ERR(udc->regs))
-  2378			return PTR_ERR(udc->regs);
-  2379		udc->irq = platform_get_irq(pdev, 0);
-  2380		if (udc->irq < 0)
-  2381			return udc->irq;
-  2382	
-  2383		udc->dev = &pdev->dev;
-  2384		if (of_have_populated_dt()) {
-  2385			udc->transceiver =
-  2386				devm_usb_get_phy_by_phandle(udc->dev, "phys", 0);
-  2387			if (IS_ERR(udc->transceiver))
-  2388				return PTR_ERR(udc->transceiver);
-  2389		} else {
-  2390			udc->transceiver = usb_get_phy(USB_PHY_TYPE_USB2);
-  2391		}
-  2392	
-  2393		if (IS_ERR(udc->gpiod)) {
-  2394			dev_err(&pdev->dev, "Couldn't find or request D+ gpio : %ld\n",
-  2395				PTR_ERR(udc->gpiod));
-  2396			return PTR_ERR(udc->gpiod);
-  2397		}
-  2398		if (udc->gpiod)
-  2399			gpiod_direction_output(udc->gpiod, 0);
-  2400	
-> 2401		udc->clk = clk_prepare_enable(&pdev->dev, NULL);
-  2402		if (IS_ERR(udc->clk))
-  2403			return PTR_ERR(udc->clk);
-  2404	
-  2405		udc->vbus_sensed = 0;
-  2406	
-  2407		the_controller = udc;
-  2408		platform_set_drvdata(pdev, udc);
-  2409		udc_init_data(udc);
-  2410	
-  2411		/* irq setup after old hardware state is cleaned up */
-  2412		retval = devm_request_irq(&pdev->dev, udc->irq, pxa_udc_irq,
-  2413					  IRQF_SHARED, driver_name, udc);
-  2414		if (retval != 0) {
-  2415			dev_err(udc->dev, "%s: can't get irq %i, err %d\n",
-  2416				driver_name, udc->irq, retval);
-  2417			goto err;
-  2418		}
-  2419	
-  2420		if (!IS_ERR_OR_NULL(udc->transceiver))
-  2421			usb_register_notifier(udc->transceiver, &pxa27x_udc_phy);
-  2422		retval = usb_add_gadget_udc(&pdev->dev, &udc->gadget);
-  2423		if (retval)
-  2424			goto err_add_gadget;
-  2425	
-  2426		pxa_init_debugfs(udc);
-  2427		if (should_enable_udc(udc))
-  2428			udc_enable(udc);
-  2429		return 0;
-  2430	
-  2431	err_add_gadget:
-  2432		if (!IS_ERR_OR_NULL(udc->transceiver))
-  2433			usb_unregister_notifier(udc->transceiver, &pxa27x_udc_phy);
-  2434	err:
-  2435		clk_unprepare(udc->clk);
-  2436		return retval;
-  2437	}
-  2438	
+diff --git a/arch/arm64/include/asm/gcs.h b/arch/arm64/include/asm/gcs.h
+index 7c5e95218db6..04594ef59dad 100644
+--- a/arch/arm64/include/asm/gcs.h
++++ b/arch/arm64/include/asm/gcs.h
+@@ -48,4 +48,28 @@ static inline u64 gcsss2(void)
+ 	return Xt;
+ }
+ 
++#ifdef CONFIG_ARM64_GCS
++
++static inline bool task_gcs_el0_enabled(struct task_struct *task)
++{
++	return current->thread.gcs_el0_mode & PR_SHADOW_STACK_ENABLE;
++}
++
++void gcs_set_el0_mode(struct task_struct *task);
++void gcs_free(struct task_struct *task);
++void gcs_preserve_current_state(void);
++
++#else
++
++static inline bool task_gcs_el0_enabled(struct task_struct *task)
++{
++	return false;
++}
++
++static inline void gcs_set_el0_mode(struct task_struct *task) { }
++static inline void gcs_free(struct task_struct *task) { }
++static inline void gcs_preserve_current_state(void) { }
++
++#endif
++
+ #endif
+diff --git a/arch/arm64/include/asm/processor.h b/arch/arm64/include/asm/processor.h
+index f77371232d8c..c55e3600604a 100644
+--- a/arch/arm64/include/asm/processor.h
++++ b/arch/arm64/include/asm/processor.h
+@@ -184,6 +184,12 @@ struct thread_struct {
+ 	u64			sctlr_user;
+ 	u64			svcr;
+ 	u64			tpidr2_el0;
++#ifdef CONFIG_ARM64_GCS
++	unsigned int		gcs_el0_mode;
++	u64			gcspr_el0;
++	u64			gcs_base;
++	u64			gcs_size;
++#endif
+ };
+ 
+ static inline unsigned int thread_get_vl(struct thread_struct *thread,
+diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
+index 4ae31b7af6c3..a4fd25585801 100644
+--- a/arch/arm64/kernel/process.c
++++ b/arch/arm64/kernel/process.c
+@@ -48,6 +48,7 @@
+ #include <asm/cacheflush.h>
+ #include <asm/exec.h>
+ #include <asm/fpsimd.h>
++#include <asm/gcs.h>
+ #include <asm/mmu_context.h>
+ #include <asm/mte.h>
+ #include <asm/processor.h>
+@@ -271,12 +272,32 @@ static void flush_tagged_addr_state(void)
+ 		clear_thread_flag(TIF_TAGGED_ADDR);
+ }
+ 
++#ifdef CONFIG_ARM64_GCS
++
++static void flush_gcs(void)
++{
++	if (!system_supports_gcs())
++		return;
++
++	gcs_free(current);
++	current->thread.gcs_el0_mode = 0;
++	write_sysreg_s(0, SYS_GCSCRE0_EL1);
++	write_sysreg_s(0, SYS_GCSPR_EL0);
++}
++
++#else
++
++static void flush_gcs(void) { }
++
++#endif
++
+ void flush_thread(void)
+ {
+ 	fpsimd_flush_thread();
+ 	tls_thread_flush();
+ 	flush_ptrace_hw_breakpoint(current);
+ 	flush_tagged_addr_state();
++	flush_gcs();
+ }
+ 
+ void arch_release_task_struct(struct task_struct *tsk)
+@@ -471,6 +492,40 @@ static void entry_task_switch(struct task_struct *next)
+ 	__this_cpu_write(__entry_task, next);
+ }
+ 
++#ifdef CONFIG_ARM64_GCS
++
++void gcs_preserve_current_state(void)
++{
++	current->thread.gcspr_el0 = read_sysreg_s(SYS_GCSPR_EL0);
++}
++
++static void gcs_thread_switch(struct task_struct *next)
++{
++	if (!system_supports_gcs())
++		return;
++
++	/* GCSPR_EL0 is always readable */
++	gcs_preserve_current_state();
++	write_sysreg_s(next->thread.gcspr_el0, SYS_GCSPR_EL0);
++
++	if (current->thread.gcs_el0_mode != next->thread.gcs_el0_mode)
++		gcs_set_el0_mode(next);
++
++	/*
++	 * Ensure that GCS changes are observable by/from other PEs in
++	 * case of migration.
++	 */
++	gcsb_dsync();
++}
++
++#else
++
++static void gcs_thread_switch(struct task_struct *next)
++{
++}
++
++#endif
++
+ /*
+  * ARM erratum 1418040 handling, affecting the 32bit view of CNTVCT.
+  * Ensure access is disabled when switching to a 32bit task, ensure
+@@ -530,6 +585,7 @@ struct task_struct *__switch_to(struct task_struct *prev,
+ 	ssbs_thread_switch(next);
+ 	erratum_1418040_thread_switch(next);
+ 	ptrauth_thread_switch_user(next);
++	gcs_thread_switch(next);
+ 
+ 	/*
+ 	 * Complete any pending TLB or cache maintenance on this CPU in case
+diff --git a/arch/arm64/mm/Makefile b/arch/arm64/mm/Makefile
+index 60454256945b..1a7b3a2f21e6 100644
+--- a/arch/arm64/mm/Makefile
++++ b/arch/arm64/mm/Makefile
+@@ -11,6 +11,7 @@ obj-$(CONFIG_TRANS_TABLE)	+= trans_pgd.o
+ obj-$(CONFIG_TRANS_TABLE)	+= trans_pgd-asm.o
+ obj-$(CONFIG_DEBUG_VIRTUAL)	+= physaddr.o
+ obj-$(CONFIG_ARM64_MTE)		+= mteswap.o
++obj-$(CONFIG_ARM64_GCS)		+= gcs.o
+ KASAN_SANITIZE_physaddr.o	+= n
+ 
+ obj-$(CONFIG_KASAN)		+= kasan_init.o
+diff --git a/arch/arm64/mm/gcs.c b/arch/arm64/mm/gcs.c
+new file mode 100644
+index 000000000000..b0a67efc522b
+--- /dev/null
++++ b/arch/arm64/mm/gcs.c
+@@ -0,0 +1,39 @@
++// SPDX-License-Identifier: GPL-2.0-only
++
++#include <linux/mm.h>
++#include <linux/mman.h>
++#include <linux/syscalls.h>
++#include <linux/types.h>
++
++#include <asm/cpufeature.h>
++#include <asm/page.h>
++
++/*
++ * Apply the GCS mode configured for the specified task to the
++ * hardware.
++ */
++void gcs_set_el0_mode(struct task_struct *task)
++{
++	u64 gcscre0_el1 = GCSCRE0_EL1_nTR;
++
++	if (task->thread.gcs_el0_mode & PR_SHADOW_STACK_ENABLE)
++		gcscre0_el1 |= GCSCRE0_EL1_RVCHKEN | GCSCRE0_EL1_PCRSEL;
++
++	if (task->thread.gcs_el0_mode & PR_SHADOW_STACK_WRITE)
++		gcscre0_el1 |= GCSCRE0_EL1_STREn;
++
++	if (task->thread.gcs_el0_mode & PR_SHADOW_STACK_PUSH)
++		gcscre0_el1 |= GCSCRE0_EL1_PUSHMEn;
++
++	write_sysreg_s(gcscre0_el1, SYS_GCSCRE0_EL1);
++}
++
++void gcs_free(struct task_struct *task)
++{
++	if (task->thread.gcs_base)
++		vm_munmap(task->thread.gcs_base, task->thread.gcs_size);
++
++	task->thread.gcspr_el0 = 0;
++	task->thread.gcs_base = 0;
++	task->thread.gcs_size = 0;
++}
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.39.2
+
 
 _______________________________________________
 linux-riscv mailing list
