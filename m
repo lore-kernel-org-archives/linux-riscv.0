@@ -4,85 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54BCEC52D7C
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Aug 2024 04:17:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5FA1C3DA4A
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Aug 2024 04:23:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bRvmTmH7NiU5yg8Vzr0sXgId6x2I810gG0Gk7zfDzPU=; b=thDc95RuD/U9tO
-	MP6kJrtpbnqEG/uGfNbJvDP0Kp72ic9d7PH+vUq1sIlgtzBLOCebTK3MIJFsQ+1wPDVKmqIJEnrCL
-	Yw4osRwYHwhri9vLHJNQhjjzulWMfEFYS+PM/5+/KpgiaVu6tv09hSYpNm4icZbNRjGNdzuvUQdMo
-	jt8YLLPL+QeZO1qy8PKJkVqjYcwf5ghCd5bRV+Yg067oi4HoGbSx/Rn0uo7YduLUEeh8PKhbPkq2T
-	/hxgfCxRs+eA2MfYpdg1+GYGc31onNRnUe6h5/PoNZFoZmE+cwUfsQxAbpQbA1o40Idc/OB0S8IB8
-	kBG/B91Wd/lGD7EkdrMw==;
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Cc:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=qNpFudD77SHAdM8FMl9RE5h+SYlBnrIc4olqnn1gNO0=; b=At5GS9Qgt0QjCQu3L0JLYtN8os
+	xSLMo13aeZiQoaKsL7NPv5IdXcGxxZI7oAygPrETSpQAUNIWU924yjudBNR4w34V4VTCfNjIAWtlH
+	WosBeWhCky9z5T98IjW2cQrZQMaIdFfC5T/7LQSv2q5wQhIRub2wyKXqwQ5Meo1JossahdLuPhekt
+	HVSSmPizg2EqmBjg86HgHLM2NlhwFvdIn+NBf6CXcETUno7feQCf5KSY81xA1SHCiCi5lyF6EdXo9
+	WgSt6FDLKnrjPWGyL9v0risx8cGeIKzBoVT1EafnWJg5C49jEsjD/VVj2eMT5LabPLG9aD4pY9Pob
+	lORXmY7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgzGB-0000000BLYw-2NmZ;
-	Thu, 22 Aug 2024 04:17:19 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1sgzLe-0000000BMOu-3Jwh;
+	Thu, 22 Aug 2024 04:22:58 +0000
+Received: from mail-oa1-x2f.google.com ([2001:4860:4864:20::2f])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgzFR-0000000BLRL-0Bp5;
-	Thu, 22 Aug 2024 04:16:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1724300193; x=1755836193;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=LcAYJElrUmw8cakNhbZlmrL27yzOntaJO0b9hxovysA=;
-  b=BBzbTFNs3n+/OnQuamaG7xD2izZ6Mut10wkAVhz3m+UkzpoFJ5G9dbFI
-   uePdQE5wUhq/ZJHIFRTPFoEr+9OcdK9GT9NByv/HfFS5EFBrESQKDkU5e
-   tPdRjMu1yErXUnqb4JugTqu+ASJdliCwGMQl9vc4v+SpYAilNztyiGV07
-   UCJwY/gh9+XI0lcocHvdmG6Q47dFmCco1DMywgXuPE8aTFNGZa5//slaA
-   PYB25pYZogygXhkJTdjC/7eLPfLPn9E6CHZeiN4W2LQZPZLrV9zttHOMS
-   K6q77T0fecFc5HKBYKIs4kOousbI19xUe+IYeYK5K6mpdxbca+Ip7EIfL
-   g==;
-X-CSE-ConnectionGUID: 96StkaM7TpW1I8rbgR0lrg==
-X-CSE-MsgGUID: 5mddKn8YSBumzXqZbyq4fA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11171"; a="33846731"
-X-IronPort-AV: E=Sophos;i="6.10,165,1719903600"; 
-   d="scan'208";a="33846731"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Aug 2024 21:16:31 -0700
-X-CSE-ConnectionGUID: CDxB2P9ARQ219xXZDtNGng==
-X-CSE-MsgGUID: G9OIF0lNQJqeSRsSmg9Wnw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.10,165,1719903600"; 
-   d="scan'208";a="92049605"
-Received: from lkp-server01.sh.intel.com (HELO 9a732dc145d3) ([10.239.97.150])
-  by orviesa002.jf.intel.com with ESMTP; 21 Aug 2024 21:16:26 -0700
-Received: from kbuild by 9a732dc145d3 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1sgzFH-000CLg-2i;
-	Thu, 22 Aug 2024 04:16:23 +0000
-Date: Thu, 22 Aug 2024 12:16:23 +0800
-From: kernel test robot <lkp@intel.com>
-To: Lei Liu <liulei.rjpt@vivo.com>, Neal Liu <neal_liu@aspeedtech.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Bin Liu <b-liu@ti.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
-	linux-aspeed@lists.ozlabs.org, linux-usb@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Cc: oe-kbuild-all@lists.linux.dev, opensource.kernel@vivo.com
-Subject: Re: [PATCH 2/5] usb: pxa27x_udc: Use devm_clk_get_enabled() helpers
-Message-ID: <202408221126.F1eulsSr-lkp@intel.com>
-References: <20240821121048.31566-3-liulei.rjpt@vivo.com>
+	id 1sgzLb-0000000BMOM-3TSK
+	for linux-riscv@lists.infradead.org;
+	Thu, 22 Aug 2024 04:22:57 +0000
+Received: by mail-oa1-x2f.google.com with SMTP id 586e51a60fabf-2705dd4ba64so229676fac.3
+        for <linux-riscv@lists.infradead.org>; Wed, 21 Aug 2024 21:22:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1724300574; x=1724905374; darn=lists.infradead.org;
+        h=content-transfer-encoding:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/P0vbfAjm6K3LNoQ5CD1IrJf0GFaknx79tF0mwTM7G8=;
+        b=C/tQKxBQbfbYSg4vOtDz4yGIxTaxRL7gStgPKfbDAQ3vVivEC0uuQhFaWWXLemtAw0
+         6eNXUkObd2WILQ0Y/MljghKEtsnq2afcXGGzb+UDG1DqcMUnjwEE7Uk+NBO8yycXjfhl
+         C0xGkCX3Qf6fhnurIjg4wHFSRmxovfGxWqf+Lu3MqudXN5LmlPIZMuccrJjm3w396HIN
+         bdA44kO3KFzlH57GQHGqHGAFiRjQDhOedf82iKQmyZ/ZqfKnJmusyA1V+HsyW24Iycwo
+         82/SqHOB3qZYYGpFP7vYIDsFurKX1LIEVy2Te689qJUCxLZoyO2cW48vL+ppNLBAXx/w
+         2h8Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1724300574; x=1724905374;
+        h=content-transfer-encoding:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/P0vbfAjm6K3LNoQ5CD1IrJf0GFaknx79tF0mwTM7G8=;
+        b=FU4/h63qnF4z+jVSgqszZCjVyU2dgA5MDEXxzFjotumm6EvsZjaW5gMeWa4OveEqOR
+         9cSHopi/rlJPFsLvGUZedbmSPhvck2+a8MOQ57ZJk0WazhbibtUi6fO7s3b4uqSBISFY
+         9CanwZ01qnJXOxj5J9vi7BEj/XHeyJ7NhwwC5hZwd2600Ll3GZLj31ZnDbkojs+vlDIw
+         U5r8RhLnXqB+UDYv6GbJ0j1Hs4Xm3zUA9TNOn3qnyVtmgGqW/ZrM5CqH3gML2JdqkNC9
+         It1/2QtwX3eU9hBbwkZwxGGUE0Vg4zR/337njLU3AJuffJ4ypoy9hcxpGAyKd5iQ/VXT
+         ZrcA==
+X-Forwarded-Encrypted: i=1; AJvYcCW1I/h+/En/DY+idY5enpL5KztA7wED7ZXR1swMdY6TID+/kvJqDfsAVv2TfARzrxWJTTut8zh26i5ZDg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxW8pXMtLQ5OhkxFlhGeUZ9Ff0di27N4lp6jEvX3M/z1CuwfjDU
+	ayWOk3WFK1OiT8LVthMAV+4H1kBHcY6Ijl5stNMUv+3J5Mxfg8n8jBaCyV+iYS4yFYNJctd8Ze9
+	2MikKbm1akFVnL2dJOeUvOTkACZtQR+Q+7NcZwQ==
+X-Google-Smtp-Source: AGHT+IEpdBLiEt1QeV/r1ArAeTNomsIoxgldSKxTLruJ6FvISHi+9M+Oz1GauKpOvyUFIwwNZXL6T3m6b3lVwcyxDas=
+X-Received: by 2002:a05:6870:9111:b0:261:1177:6a56 with SMTP id
+ 586e51a60fabf-273cfc54187mr874430fac.20.1724300574074; Wed, 21 Aug 2024
+ 21:22:54 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240821121048.31566-3-liulei.rjpt@vivo.com>
+References: <20240814054434.3563453-1-nick.hu@sifive.com>
+In-Reply-To: <20240814054434.3563453-1-nick.hu@sifive.com>
+From: Nick Hu <nick.hu@sifive.com>
+Date: Thu, 22 Aug 2024 12:22:43 +0800
+Message-ID: <CAKddAkCa1pZGZRtTLeB0PFK_sdsxDC44EwYmh4f=SFPzuSbG+g@mail.gmail.com>
+Subject: Re: [PATCH v2 0/2] cpuidle: riscv-sbi: Allow cpuidle pd used by other devices
+To: anup@brainfault.org, rafael@kernel.org, daniel.lezcano@linaro.org, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, greentime.hu@sifive.com, zong.li@sifive.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240821_211633_213625_71CEBCCF 
-X-CRM114-Status: GOOD (  16.82  )
+X-CRM114-CacheID: sfid-20240821_212256_056669_6E28D35B 
+X-CRM114-Status: GOOD (  11.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,159 +87,22 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Lei,
-
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on usb/usb-testing]
-[also build test ERROR on usb/usb-next usb/usb-linus linus/master v6.11-rc4 next-20240821]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Lei-Liu/usb-aspeed_udc-Use-devm_clk_get_enabled-helpers/20240821-201358
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git usb-testing
-patch link:    https://lore.kernel.org/r/20240821121048.31566-3-liulei.rjpt%40vivo.com
-patch subject: [PATCH 2/5] usb: pxa27x_udc: Use devm_clk_get_enabled() helpers
-config: s390-allyesconfig (https://download.01.org/0day-ci/archive/20240822/202408221126.F1eulsSr-lkp@intel.com/config)
-compiler: s390-linux-gcc (GCC) 14.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20240822/202408221126.F1eulsSr-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202408221126.F1eulsSr-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   drivers/usb/gadget/udc/pxa27x_udc.c: In function 'pxa_udc_probe':
-   drivers/usb/gadget/udc/pxa27x_udc.c:2401:39: error: passing argument 1 of 'clk_prepare_enable' from incompatible pointer type [-Wincompatible-pointer-types]
-    2401 |         udc->clk = clk_prepare_enable(&pdev->dev, NULL);
-         |                                       ^~~~~~~~~~
-         |                                       |
-         |                                       struct device *
-   In file included from drivers/usb/gadget/udc/pxa27x_udc.c:18:
-   include/linux/clk.h:1107:50: note: expected 'struct clk *' but argument is of type 'struct device *'
-    1107 | static inline int clk_prepare_enable(struct clk *clk)
-         |                                      ~~~~~~~~~~~~^~~
-   drivers/usb/gadget/udc/pxa27x_udc.c:2401:20: error: too many arguments to function 'clk_prepare_enable'
-    2401 |         udc->clk = clk_prepare_enable(&pdev->dev, NULL);
-         |                    ^~~~~~~~~~~~~~~~~~
-   include/linux/clk.h:1107:19: note: declared here
-    1107 | static inline int clk_prepare_enable(struct clk *clk)
-         |                   ^~~~~~~~~~~~~~~~~~
->> drivers/usb/gadget/udc/pxa27x_udc.c:2401:18: error: assignment to 'struct clk *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
-    2401 |         udc->clk = clk_prepare_enable(&pdev->dev, NULL);
-         |                  ^
-
-
-vim +2401 drivers/usb/gadget/udc/pxa27x_udc.c
-
-  2345	
-  2346	/**
-  2347	 * pxa_udc_probe - probes the udc device
-  2348	 * @pdev: platform device
-  2349	 *
-  2350	 * Perform basic init : allocates udc clock, creates sysfs files, requests
-  2351	 * irq.
-  2352	 */
-  2353	static int pxa_udc_probe(struct platform_device *pdev)
-  2354	{
-  2355		struct pxa_udc *udc = &memory;
-  2356		int retval = 0, gpio;
-  2357		struct pxa2xx_udc_mach_info *mach = dev_get_platdata(&pdev->dev);
-  2358		unsigned long gpio_flags;
-  2359	
-  2360		if (mach) {
-  2361			gpio_flags = mach->gpio_pullup_inverted ? GPIOF_ACTIVE_LOW : 0;
-  2362			gpio = mach->gpio_pullup;
-  2363			if (gpio_is_valid(gpio)) {
-  2364				retval = devm_gpio_request_one(&pdev->dev, gpio,
-  2365							       gpio_flags,
-  2366							       "USB D+ pullup");
-  2367				if (retval)
-  2368					return retval;
-  2369				udc->gpiod = gpio_to_desc(mach->gpio_pullup);
-  2370			}
-  2371			udc->udc_command = mach->udc_command;
-  2372		} else {
-  2373			udc->gpiod = devm_gpiod_get(&pdev->dev, NULL, GPIOD_ASIS);
-  2374		}
-  2375	
-  2376		udc->regs = devm_platform_ioremap_resource(pdev, 0);
-  2377		if (IS_ERR(udc->regs))
-  2378			return PTR_ERR(udc->regs);
-  2379		udc->irq = platform_get_irq(pdev, 0);
-  2380		if (udc->irq < 0)
-  2381			return udc->irq;
-  2382	
-  2383		udc->dev = &pdev->dev;
-  2384		if (of_have_populated_dt()) {
-  2385			udc->transceiver =
-  2386				devm_usb_get_phy_by_phandle(udc->dev, "phys", 0);
-  2387			if (IS_ERR(udc->transceiver))
-  2388				return PTR_ERR(udc->transceiver);
-  2389		} else {
-  2390			udc->transceiver = usb_get_phy(USB_PHY_TYPE_USB2);
-  2391		}
-  2392	
-  2393		if (IS_ERR(udc->gpiod)) {
-  2394			dev_err(&pdev->dev, "Couldn't find or request D+ gpio : %ld\n",
-  2395				PTR_ERR(udc->gpiod));
-  2396			return PTR_ERR(udc->gpiod);
-  2397		}
-  2398		if (udc->gpiod)
-  2399			gpiod_direction_output(udc->gpiod, 0);
-  2400	
-> 2401		udc->clk = clk_prepare_enable(&pdev->dev, NULL);
-  2402		if (IS_ERR(udc->clk))
-  2403			return PTR_ERR(udc->clk);
-  2404	
-  2405		udc->vbus_sensed = 0;
-  2406	
-  2407		the_controller = udc;
-  2408		platform_set_drvdata(pdev, udc);
-  2409		udc_init_data(udc);
-  2410	
-  2411		/* irq setup after old hardware state is cleaned up */
-  2412		retval = devm_request_irq(&pdev->dev, udc->irq, pxa_udc_irq,
-  2413					  IRQF_SHARED, driver_name, udc);
-  2414		if (retval != 0) {
-  2415			dev_err(udc->dev, "%s: can't get irq %i, err %d\n",
-  2416				driver_name, udc->irq, retval);
-  2417			goto err;
-  2418		}
-  2419	
-  2420		if (!IS_ERR_OR_NULL(udc->transceiver))
-  2421			usb_register_notifier(udc->transceiver, &pxa27x_udc_phy);
-  2422		retval = usb_add_gadget_udc(&pdev->dev, &udc->gadget);
-  2423		if (retval)
-  2424			goto err_add_gadget;
-  2425	
-  2426		pxa_init_debugfs(udc);
-  2427		if (should_enable_udc(udc))
-  2428			udc_enable(udc);
-  2429		return 0;
-  2430	
-  2431	err_add_gadget:
-  2432		if (!IS_ERR_OR_NULL(udc->transceiver))
-  2433			usb_unregister_notifier(udc->transceiver, &pxa27x_udc_phy);
-  2434	err:
-  2435		clk_unprepare(udc->clk);
-  2436		return retval;
-  2437	}
-  2438	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQW51cAoKQW55IHN1Z2dlc3Rpb25zIG9uIHRoaXMgb25lPwoKT24gV2VkLCBBdWcgMTQsIDIw
+MjQgYXQgMTo0NOKAr1BNIE5pY2sgSHUgPG5pY2suaHVAc2lmaXZlLmNvbT4gd3JvdGU6Cj4KPiBB
+ZGQgdGhpcyBwYXRjaHNldCBzbyB0aGUgZGV2aWNlcyB0aGF0IGluc2lkZSB0aGUgY3B1L2NsdXN0
+ZXIgcG93ZXIgZG9tYWluCj4gY2FuIHVzZSB0aGUgY3B1aWRsZSBwZCB0byByZWdpc3RlciB0aGUg
+Z2VucGQgbm90aWZpZXIgdG8gaGFuZGxlIHRoZSBQTQo+IHdoZW4gY3B1L2NsdXN0ZXIgaXMgZ29p
+bmcgdG8gZW50ZXIgYSBkZWVwZXIgc2xlZXAgc3RhdGUuCj4KPiBOaWNrIEh1ICgyKToKPiAgIGNw
+dWlkbGU6IHJpc2N2LXNiaTogTW92ZSBzYmlfY3B1aWRsZV9pbml0IHRvIGFyY2hfaW5pdGNhbGwK
+PiAgIGNwdWlkbGU6IHJpc2N2LXNiaTogQWRkIGNwdWlkbGVfZGlzYWJsZWQoKSBjaGVjawo+Cj4g
+IGRyaXZlcnMvY3B1aWRsZS9jcHVpZGxlLXJpc2N2LXNiaS5jIHwgMTEgKysrKysrKysrLS0KPiAg
+MSBmaWxlIGNoYW5nZWQsIDkgaW5zZXJ0aW9ucygrKSwgMiBkZWxldGlvbnMoLSkKPgo+IC0tCj4g
+Mi4zNC4xCj4KClJlZ2FyZHMsCk5pY2sKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YK
