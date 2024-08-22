@@ -4,49 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2A5DC531DF
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Aug 2024 04:00:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66C44C52D7C
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Aug 2024 04:01:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NivUfWpXzUcNMoLuV2RIW5AtD+puSYBT5huALQIJ1Nk=; b=CckJLbErTia/M6
-	H7+IpbcJyBgG3dY/b5FvYBLtmpep6kEv/MECrGa5fzD0ci8z9TgNP0lkt7VX4Bt9L/tepOTtcNrKF
-	3NsndmTtOIK64Pmoxe1D50Ml/2ut482+NMoZLPDxK5nEMFjy9sLVDVTrOliOh94RUoI+tWbt4B5K5
-	3q0kdn0KtwLcx3iHWiHHzChIYgYWvVXc9DJILtsymHiBzMVzFYYFkI8bhDbnmAVHaRvKdKsfOZA44
-	gNwe4VJQzhlMhhb3EsDmxOw14lyh23MOQhadw/HDP9lifRsNwsF1AR0O7+fi0M3JjFShgCcyART0R
-	dWZunpWKddu1k7TI3jNg==;
+	List-Owner; bh=ZqpnWAig2upYsGaA7ZQk/YP6p/BSNBHtzql0Tt9SXUs=; b=g36lDWb6T5WZfN
+	zlDiFnQGeB1e9HdzOtM+Qu35S9VLqba+hJLfYzEk904fYPz07AqatlxHcGh6j53fJYio88VxkLRiD
+	7y1HaZQbiqBkWrjnPBp1UwHg2KKZjFdrJNOtmw3KzoRgzwk4sdL2POc/F9OZNcdSJLmwYLLsG+5EM
+	tw67ZzGj/K0Thv0SeS4UK6bCgQmD4c/ewC+TQd7JY5xCHshXbc8aJLOS2H8EFSJm5Z5a5SkRHT98E
+	kY3L0zfKiGlB7XgOFAzTZ6iDr8Pg+V86iQBTF3Zfq14C+cwc+9Fl2C4wsp4NMcHr5dwtF1ZelN2tY
+	M4sEe4mdyP3GKpCyHWTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgz0I-0000000BIP9-0pIT;
-	Thu, 22 Aug 2024 04:00:54 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1sgz0K-0000000BIRE-3kvA;
+	Thu, 22 Aug 2024 04:00:56 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgwVy-0000000AtCA-2Ga8;
-	Thu, 22 Aug 2024 01:21:28 +0000
+	id 1sgwWK-0000000AtLH-34GY;
+	Thu, 22 Aug 2024 01:21:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1C133A4210E;
-	Thu, 22 Aug 2024 01:21:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9900C4AF1D;
-	Thu, 22 Aug 2024 01:21:12 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id E3983611B2;
+	Thu, 22 Aug 2024 01:21:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14C90C4AF10;
+	Thu, 22 Aug 2024 01:21:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1724289685;
-	bh=q2OusIvdEq6zRTANVy/UM3LZC1Q7yQnrfCWP7+HoHyE=;
+	s=k20201202; t=1724289707;
+	bh=oHs0edHK2ZH//P9wlXUiorha791DOO+hA3lq1vKIHRU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=j34IVQ+H2dY3xLOT9P/ni5GeSKnHvl+Z09mfbufBDTCe9kg80dGQcrAXTD0aJJJU+
-	 7DW8heBrXQC+zcsYEp3jhkBLwkLbsZON3ustFsM0sN2ajSlMeNRfUy88gNIl/AsRg4
-	 n0aoo+Rbkd1Snq0hTNverUhz7J1IVIFlOI6UKiPsWmjCftfbqWaZBtjKji4622yKVA
-	 s5zdOpEtgqSQMdEAVdcpOnFhpLRnYzEPSHVGn3PxXxhRTT8NB/O+0jYalPh3krEj5l
-	 b7LIbNhfV/1ExqZTF0ZRcXrtN0NiHFezcL5bm8RvdAcBeUGWLi6bc3CarnwrWlttku
-	 SJ34mJe3eHhhA==
+	b=i2jJ8j7yO5ZxaxcgqkfrVoOX1ioF/kpI7DKJFezNvjCQnlVOinULY8Zjak9ELFf9g
+	 7+6uhM3r3wLXETAStuORju7Yf7rkffQS5BOOAlApFwtSO1KPWev4UPd1mHu5oh8PFU
+	 JubPSf9+gWhnfejdO34HXSUwzypCNvnm3sjNO/xtiB6WzkLhfFGXOIWaWYvVQ4zjNV
+	 ZD3s9WFpYW/F1nxM7G4JOt/B015t+ByXRQgyifr92N8KVuDLjFzhkn60I66kqPUy8D
+	 jIhqv+traJMxxpKdDso4fEgQBnhI9PsrSymhZA0wP7gyuPUkZ4ALZSO4Yi/uEpm8Ds
+	 kvvnZvB7c8HpQ==
 From: Mark Brown <broonie@kernel.org>
-Date: Thu, 22 Aug 2024 02:15:29 +0100
-Subject: [PATCH v11 26/39] arm64/ptrace: Expose GCS via ptrace and core
- files
+Date: Thu, 22 Aug 2024 02:15:31 +0100
+Subject: [PATCH v11 28/39] kselftest/arm64: Verify the GCS hwcap
 MIME-Version: 1.0
-Message-Id: <20240822-arm64-gcs-v11-26-41b81947ecb5@kernel.org>
+Message-Id: <20240822-arm64-gcs-v11-28-41b81947ecb5@kernel.org>
 References: <20240822-arm64-gcs-v11-0-41b81947ecb5@kernel.org>
 In-Reply-To: <20240822-arm64-gcs-v11-0-41b81947ecb5@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -73,20 +72,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-37811
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4141; i=broonie@kernel.org;
- h=from:subject:message-id; bh=q2OusIvdEq6zRTANVy/UM3LZC1Q7yQnrfCWP7+HoHyE=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBmxpE46S4eNrbFfzLLKelY1sIaFKtVoFOEh9u0esmR
- mto9XBOJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZsaROAAKCRAk1otyXVSH0OIXB/
- 0WLhGTnrr1acNEWUaHKTlFQ02Twd04uku5m9qigkISL/cOHuacfNhP/XjFCv1YD//lay6SHPXywYpd
- dJ+lnTfu/y7u6LYnbym71Jw+lPAK9SKgzzUeA+CzlglU2+IVQHhc+jUckTftFfbo0OdtwS5z6TGVH2
- Dfnl47K9G24gdVGKn4o30EZnc0mzWB1ZwU4ROeFpxjrouQ74/k/1VZZA6vZhLAE5uPswgY1FtaW2xf
- DmPEy+x7Ab7Iv+jY8Vlzk7JJ1qBdaVUiaSPjnwAcwjSpa4TBMcmX9PQoGDaYpSigZ3aROo08Ok7GHx
- uqollhgNezTV/BBR1BdogdCKV69oBr
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1288; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=oHs0edHK2ZH//P9wlXUiorha791DOO+hA3lq1vKIHRU=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBmxpE5VVU3mpFKJ3hhjwa1thDydHnqMetxvpjvhVp+
+ 8HDjHUmJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZsaROQAKCRAk1otyXVSH0AsLB/
+ 9E1Fcy2IXhvd/JhwhLRd+hrphvNVZfzJt505FwMtQNrnZzVixBvseWV9X6QlBFErh6ouCP81vIrMCq
+ t2rSdIK/pY1jXzvzGra8yMdPJynAThpNy0Iz8l8hiyQrFOZR2cR7LkWqS4r7PwaBUdZlwXy165+Kqq
+ 1VJIDF3fOjOgWpZ/UVwApLw+/dJIZhKvZtrCUrndbg0vD6sUyQuW/OD6q4MkHZeyxMoDCJK1wOhtJl
+ tJ/3fzsjZ6SivGFUbnlwr+8gmS5VtzX6PUNQwOmZh3tcaaCuSIUt+4UP5lYhIOJl8gQ4EbSff1Qzj+
+ rqDAauZOO0JhY7bXmhQBlbkhQv7v/a
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240821_182127_352494_6A0E0055 
-X-CRM114-Status: GOOD (  16.52  )
+X-CRM114-CacheID: sfid-20240821_182148_975825_D853B220 
+X-CRM114-Status: GOOD (  10.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,136 +102,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Provide a new register type NT_ARM_GCS reporting the current GCS mode
-and pointer for EL0.  Due to the interactions with allocation and
-deallocation of Guarded Control Stacks we do not permit any changes to
-the GCS mode via ptrace, only GCSPR_EL0 may be changed.
+Add coverage of the GCS hwcap to the hwcap selftest, using a read of
+GCSPR_EL0 to generate SIGILL without having to worry about enabling GCS.
 
 Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/include/uapi/asm/ptrace.h |  8 ++++++
- arch/arm64/kernel/ptrace.c           | 54 ++++++++++++++++++++++++++++++++++++
- include/uapi/linux/elf.h             |  1 +
- 3 files changed, 63 insertions(+)
+ tools/testing/selftests/arm64/abi/hwcap.c | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
 
-diff --git a/arch/arm64/include/uapi/asm/ptrace.h b/arch/arm64/include/uapi/asm/ptrace.h
-index 7fa2f7036aa7..0f39ba4f3efd 100644
---- a/arch/arm64/include/uapi/asm/ptrace.h
-+++ b/arch/arm64/include/uapi/asm/ptrace.h
-@@ -324,6 +324,14 @@ struct user_za_header {
- #define ZA_PT_SIZE(vq)						\
- 	(ZA_PT_ZA_OFFSET + ZA_PT_ZA_SIZE(vq))
- 
-+/* GCS state (NT_ARM_GCS) */
-+
-+struct user_gcs {
-+	__u64 features_enabled;
-+	__u64 features_locked;
-+	__u64 gcspr_el0;
-+};
-+
- #endif /* __ASSEMBLY__ */
- 
- #endif /* _UAPI__ASM_PTRACE_H */
-diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
-index 0d022599eb61..88f525b0c4fb 100644
---- a/arch/arm64/kernel/ptrace.c
-+++ b/arch/arm64/kernel/ptrace.c
-@@ -34,6 +34,7 @@
- #include <asm/cpufeature.h>
- #include <asm/debug-monitors.h>
- #include <asm/fpsimd.h>
-+#include <asm/gcs.h>
- #include <asm/mte.h>
- #include <asm/pointer_auth.h>
- #include <asm/stacktrace.h>
-@@ -1440,6 +1441,46 @@ static int tagged_addr_ctrl_set(struct task_struct *target, const struct
+diff --git a/tools/testing/selftests/arm64/abi/hwcap.c b/tools/testing/selftests/arm64/abi/hwcap.c
+index d8909b2b535a..dc54ae894fe5 100644
+--- a/tools/testing/selftests/arm64/abi/hwcap.c
++++ b/tools/testing/selftests/arm64/abi/hwcap.c
+@@ -98,6 +98,17 @@ static void fpmr_sigill(void)
+ 	asm volatile("mrs x0, S3_3_C4_C4_2" : : : "x0");
  }
- #endif
  
-+#ifdef CONFIG_ARM64_GCS
-+static int gcs_get(struct task_struct *target,
-+		   const struct user_regset *regset,
-+		   struct membuf to)
++static void gcs_sigill(void)
 +{
-+	struct user_gcs user_gcs;
++	unsigned long *gcspr;
 +
-+	if (target == current)
-+		gcs_preserve_current_state();
-+
-+	user_gcs.features_enabled = target->thread.gcs_el0_mode;
-+	user_gcs.features_locked = target->thread.gcs_el0_locked;
-+	user_gcs.gcspr_el0 = target->thread.gcspr_el0;
-+
-+	return membuf_write(&to, &user_gcs, sizeof(user_gcs));
++	asm volatile(
++		"mrs	%0, S3_3_C2_C5_1"
++	: "=r" (gcspr)
++	:
++	: "cc");
 +}
 +
-+static int gcs_set(struct task_struct *target, const struct
-+		   user_regset *regset, unsigned int pos,
-+		   unsigned int count, const void *kbuf, const
-+		   void __user *ubuf)
-+{
-+	int ret;
-+	struct user_gcs user_gcs;
-+
-+	ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, &user_gcs, 0, -1);
-+	if (ret)
-+		return ret;
-+
-+	if (user_gcs.features_enabled & ~PR_SHADOW_STACK_SUPPORTED_STATUS_MASK)
-+		return -EINVAL;
-+
-+	target->thread.gcs_el0_mode = user_gcs.features_enabled;
-+	target->thread.gcs_el0_locked = user_gcs.features_locked;
-+	target->thread.gcspr_el0 = user_gcs.gcspr_el0;
-+
-+	return 0;
-+}
-+#endif
-+
- enum aarch64_regset {
- 	REGSET_GPR,
- 	REGSET_FPR,
-@@ -1469,6 +1510,9 @@ enum aarch64_regset {
- #ifdef CONFIG_ARM64_TAGGED_ADDR_ABI
- 	REGSET_TAGGED_ADDR_CTRL,
- #endif
-+#ifdef CONFIG_ARM64_GCS
-+	REGSET_GCS,
-+#endif
- };
- 
- static const struct user_regset aarch64_regsets[] = {
-@@ -1628,6 +1672,16 @@ static const struct user_regset aarch64_regsets[] = {
- 		.set = tagged_addr_ctrl_set,
+ static void ilrcpc_sigill(void)
+ {
+ 	/* LDAPUR W0, [SP, #8] */
+@@ -528,6 +539,14 @@ static const struct hwcap_data {
+ 		.sigill_fn = fpmr_sigill,
+ 		.sigill_reliable = true,
  	},
- #endif
-+#ifdef CONFIG_ARM64_GCS
-+	[REGSET_GCS] = {
-+		.core_note_type = NT_ARM_GCS,
-+		.n = sizeof(struct user_gcs) / sizeof(u64),
-+		.size = sizeof(u64),
-+		.align = sizeof(u64),
-+		.regset_get = gcs_get,
-+		.set = gcs_set,
++	{
++		.name = "GCS",
++		.at_hwcap = AT_HWCAP2,
++		.hwcap_bit = HWCAP2_GCS,
++		.cpuinfo = "gcs",
++		.sigill_fn = gcs_sigill,
++		.sigill_reliable = true,
 +	},
-+#endif
- };
- 
- static const struct user_regset_view user_aarch64_view = {
-diff --git a/include/uapi/linux/elf.h b/include/uapi/linux/elf.h
-index b54b313bcf07..77d4910bbb9d 100644
---- a/include/uapi/linux/elf.h
-+++ b/include/uapi/linux/elf.h
-@@ -441,6 +441,7 @@ typedef struct elf64_shdr {
- #define NT_ARM_ZA	0x40c		/* ARM SME ZA registers */
- #define NT_ARM_ZT	0x40d		/* ARM SME ZT registers */
- #define NT_ARM_FPMR	0x40e		/* ARM floating point mode register */
-+#define NT_ARM_GCS	0x40f		/* ARM GCS state */
- #define NT_ARC_V2	0x600		/* ARCv2 accumulator/extra registers */
- #define NT_VMCOREDD	0x700		/* Vmcore Device Dump Note */
- #define NT_MIPS_DSP	0x800		/* MIPS DSP ASE registers */
+ 	{
+ 		.name = "JSCVT",
+ 		.at_hwcap = AT_HWCAP,
 
 -- 
 2.39.2
