@@ -4,88 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 175E5C531DC
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Aug 2024 02:45:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0662BC3DA4A
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Aug 2024 03:57:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8UbjVkZ7xtwTxu28kegMlOdoEH28TErLJgQf/ss3m8c=; b=pWagyvppoAKcsQ
-	BIjq8xaAc/n+cq0SWBZ7qgdPp3dr9cLwYzPUCBPFIgWxoEEVhesrbTKY+qDwTNgVvqTB4ZCjWFXXD
-	PaQxV6yilp79eqsyN0BFatP9hPsjEOzhwOXTb64PcGA6gMTwb5xGWsfR2OLpGKxMNc4l5Fm4DhtqE
-	QjuWtLncQUuUAsEGs820PPgNtJ6e/UImVOnZianHkYAEDZBXJpxR2+FmAzE4CNECJ8gNO4oXjVNUG
-	Ua4WiI80cbp4MORp/JsNACgIh/T+1uNKxC/OhDilThKPzSP8G/HMHEquYVTlZiEOMXGryKRG/Pp/X
-	KxUjkFeeznYQ28njbd5w==;
+	List-Owner; bh=4D0LWb18XJB+44KeFCZ5sMaX4hTlhJYtFOSu7dcOa/4=; b=f3VshadfY45Aj/
+	/2mECvKB6xUgk1bNTvMlSSLh8rwgWnQ5XgG16/36778hMhGfoJ6O38FRz4P4RaWLyrO3oOMNkSqmI
+	vtMD9PzhwSj0qlueJtAaWPAb9L2Q3d9KkBFjLHJdI+EqDpNSpshi+tmbH1EDcpxk3d75JA0VX6Nvn
+	vqY0CLBWQGoVn/c/GI65sBUgBDlgF2AEzabTRf9wTzli4HIPRTkQARAj8fM2UiXofmEFPGMxlBOZN
+	KRPHa1UcnubppbpfVKGrN8Jei4L5rqvfBY4tugNfDUs7kyhuNMG1raRhKG7QqKzrB63TEYVaaG2CD
+	C3ux8oN+gA5uj3AiUg9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgxph-0000000B6d9-2Ehs;
-	Thu, 22 Aug 2024 02:45:53 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1sgywl-0000000BHur-2Ieh;
+	Thu, 22 Aug 2024 03:57:15 +0000
+Received: from mgamail.intel.com ([192.198.163.13])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgwXH-0000000AtiR-3vlm;
-	Thu, 22 Aug 2024 01:22:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 049B4A4205A;
-	Thu, 22 Aug 2024 01:22:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EC86C32781;
-	Thu, 22 Aug 2024 01:22:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1724289766;
-	bh=uHJiYcvljzUX8f4hJI4pgvGmhWWcFPMp0a5s58eHg1Q=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=gKENafN8WZiJblJ8RxoYjLVXC1AG4j2c/EPj2/9pQzohgfGO2/h0XAT621/R/qxrS
-	 co3mgnOzG1qXQSM4yudCbxWTnXsrxfK84+An5IJLakmTxAkHy4vWRbxJW6Am+LYzDx
-	 5Rmixn9OtrsG/sjX2Sufyq3ttstFuXAv4JccStcrjXHtVwPR26k5g4z+8LkhwSOSpo
-	 hZqrNTUe3ZLzf/bKqxOSrRAQGNXdv+GfigXEK1AOkunoOtWC+s2LCLkcnaI5s1ZGSP
-	 MrNT1HAlJfqdPKQjidJSN5k1n6l1FgQd4d/0CZUxN6yyLRWX6IcQCgVGlUVr41JVvX
-	 6L1hWl4Y3dIpQ==
-From: Mark Brown <broonie@kernel.org>
-Date: Thu, 22 Aug 2024 02:15:36 +0100
-Subject: [PATCH v11 33/39] kselftest/arm64: Add very basic GCS test program
+	id 1sgyw1-0000000BHoe-3BlA;
+	Thu, 22 Aug 2024 03:56:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1724298989; x=1755834989;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=67Bel21jv6hBWlgoQQSJs1O2C0veB/Hwe5bH9yClc8k=;
+  b=Z+3h6TejfJeE/CJnSpgPjdd0WKgS3Npq0Ei7Vgcyx8pJPuNsKdfP449Q
+   Wy7y0Mtyt5lzNw0XQdzqUZRap8Z4buCnV1LHFVxz4LkFNZCsZpmrlFb6u
+   GkEWt4aO60ll8r0t6pgxm8JDU7+EYDc/mCBDUG2/bavmA6puoqseRS5j1
+   Se+pzeg0PMfOYJms2yZ+vlijZ0C1BvrowvjCNqtV+ir/luHtl7Ssvqoox
+   7VChZCbMDi96U1Rzs7rX6t/iQ/3PctZ55WG3KXb+XsES3uGtsvY3Y7Jkl
+   MZc7405+lpBmNxT7zzWjf4PHgNHJlGDbqbndjxaKszhr+SD5cQLvjl78W
+   g==;
+X-CSE-ConnectionGUID: QUro8ltBTe6WJ/OghQRNkw==
+X-CSE-MsgGUID: 7zjqkB0xQ1m4rR8ro7SG+A==
+X-IronPort-AV: E=McAfee;i="6700,10204,11171"; a="25586268"
+X-IronPort-AV: E=Sophos;i="6.10,165,1719903600"; 
+   d="scan'208";a="25586268"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Aug 2024 20:56:25 -0700
+X-CSE-ConnectionGUID: 953bsQieS0uirvWSphoJ2w==
+X-CSE-MsgGUID: W5kDMKzfRiixYZMrvLsMHQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.10,165,1719903600"; 
+   d="scan'208";a="60971752"
+Received: from lkp-server01.sh.intel.com (HELO 9a732dc145d3) ([10.239.97.150])
+  by fmviesa006.fm.intel.com with ESMTP; 21 Aug 2024 20:56:21 -0700
+Received: from kbuild by 9a732dc145d3 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1sgyvr-000CGW-0t;
+	Thu, 22 Aug 2024 03:56:19 +0000
+Date: Thu, 22 Aug 2024 11:55:51 +0800
+From: kernel test robot <lkp@intel.com>
+To: Lei Liu <liulei.rjpt@vivo.com>, Neal Liu <neal_liu@aspeedtech.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Bin Liu <b-liu@ti.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
+	linux-aspeed@lists.ozlabs.org, linux-usb@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Cc: oe-kbuild-all@lists.linux.dev, opensource.kernel@vivo.com
+Subject: Re: [PATCH 2/5] usb: pxa27x_udc: Use devm_clk_get_enabled() helpers
+Message-ID: <202408221155.UveHbLu0-lkp@intel.com>
+References: <20240821121048.31566-3-liulei.rjpt@vivo.com>
 MIME-Version: 1.0
-Message-Id: <20240822-arm64-gcs-v11-33-41b81947ecb5@kernel.org>
-References: <20240822-arm64-gcs-v11-0-41b81947ecb5@kernel.org>
-In-Reply-To: <20240822-arm64-gcs-v11-0-41b81947ecb5@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
- Andrew Morton <akpm@linux-foundation.org>, Marc Zyngier <maz@kernel.org>, 
- Oliver Upton <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, Arnd Bergmann <arnd@arndb.de>, 
- Oleg Nesterov <oleg@redhat.com>, Eric Biederman <ebiederm@xmission.com>, 
- Shuah Khan <shuah@kernel.org>, 
- "Rick P. Edgecombe" <rick.p.edgecombe@intel.com>, 
- Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>, 
- Szabolcs Nagy <Szabolcs.Nagy@arm.com>, Kees Cook <kees@kernel.org>
-Cc: "H.J. Lu" <hjl.tools@gmail.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Florian Weimer <fweimer@redhat.com>, Christian Brauner <brauner@kernel.org>, 
- Thiago Jung Bauermann <thiago.bauermann@linaro.org>, 
- Ross Burton <ross.burton@arm.com>, 
- Yury Khrustalev <yury.khrustalev@arm.com>, 
- Wilco Dijkstra <wilco.dijkstra@arm.com>, 
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
- kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org, 
- linux-arch@vger.kernel.org, linux-mm@kvack.org, 
- linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.15-dev-37811
-X-Developer-Signature: v=1; a=openpgp-sha256; l=13330; i=broonie@kernel.org;
- h=from:subject:message-id; bh=uHJiYcvljzUX8f4hJI4pgvGmhWWcFPMp0a5s58eHg1Q=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBmxpE9Xg7x717YwnuvJnwC+Q3h96FAxyrqWwICT5Xj
- cflEB/KJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZsaRPQAKCRAk1otyXVSH0BHFCA
- CAOD9sdfDcPURA3vB8y9lGL+N9YDO1PT98jwOQi23/w0cPdkRFF93K9zX+npcboaP9G8ieG6ynXIKp
- m7xiQg2+skrTNc83i0UcQCS8coZWy3pbN+3CxUVmIlH1miGybPPQea32c/HX84y/0hoeHwRMLeeQ3H
- /2sNz8DGoohw1cVhbTWfczRYDYXGpHYHjvRuZHMT2X+1DkOlT1jIhJDEM2SdSE6ACEhJW9fdkNYpS3
- MsHvcEc0lND23DwRUDp0PuRjlribj4lJXBbJbTGkqudijouMnS3EU7eU7m6oh1aQ1G/RQ/uYq+uqjk
- IBNKdjwdgOPqTiJUMYkizvvzWTmlL5
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Disposition: inline
+In-Reply-To: <20240821121048.31566-3-liulei.rjpt@vivo.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240821_182248_157481_EEFA4529 
-X-CRM114-Status: GOOD (  29.00  )
+X-CRM114-CacheID: sfid-20240821_205629_886127_067B2365 
+X-CRM114-Status: GOOD (  14.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,526 +99,143 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This test program just covers the basic GCS ABI, covering aspects of the
-ABI as standalone features without attempting to integrate things.
+Hi Lei,
 
-Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- tools/testing/selftests/arm64/Makefile        |   2 +-
- tools/testing/selftests/arm64/gcs/.gitignore  |   1 +
- tools/testing/selftests/arm64/gcs/Makefile    |  18 ++
- tools/testing/selftests/arm64/gcs/basic-gcs.c | 357 ++++++++++++++++++++++++++
- tools/testing/selftests/arm64/gcs/gcs-util.h  |  90 +++++++
- 5 files changed, 467 insertions(+), 1 deletion(-)
+kernel test robot noticed the following build errors:
 
-diff --git a/tools/testing/selftests/arm64/Makefile b/tools/testing/selftests/arm64/Makefile
-index 28b93cab8c0d..22029e60eff3 100644
---- a/tools/testing/selftests/arm64/Makefile
-+++ b/tools/testing/selftests/arm64/Makefile
-@@ -4,7 +4,7 @@
- ARCH ?= $(shell uname -m 2>/dev/null || echo not)
- 
- ifneq (,$(filter $(ARCH),aarch64 arm64))
--ARM64_SUBTARGETS ?= tags signal pauth fp mte bti abi
-+ARM64_SUBTARGETS ?= tags signal pauth fp mte bti abi gcs
- else
- ARM64_SUBTARGETS :=
- endif
-diff --git a/tools/testing/selftests/arm64/gcs/.gitignore b/tools/testing/selftests/arm64/gcs/.gitignore
-new file mode 100644
-index 000000000000..0e5e695ecba5
---- /dev/null
-+++ b/tools/testing/selftests/arm64/gcs/.gitignore
-@@ -0,0 +1 @@
-+basic-gcs
-diff --git a/tools/testing/selftests/arm64/gcs/Makefile b/tools/testing/selftests/arm64/gcs/Makefile
-new file mode 100644
-index 000000000000..61a30f483429
---- /dev/null
-+++ b/tools/testing/selftests/arm64/gcs/Makefile
-@@ -0,0 +1,18 @@
-+# SPDX-License-Identifier: GPL-2.0
-+# Copyright (C) 2023 ARM Limited
-+#
-+# In order to avoid interaction with the toolchain and dynamic linker the
-+# portions of these tests that interact with the GCS are implemented using
-+# nolibc.
-+#
-+
-+TEST_GEN_PROGS := basic-gcs
-+
-+include ../../lib.mk
-+
-+$(OUTPUT)/basic-gcs: basic-gcs.c
-+	$(CC) -g -fno-asynchronous-unwind-tables -fno-ident -s -Os -nostdlib \
-+		-static -include ../../../../include/nolibc/nolibc.h \
-+		-I../../../../../usr/include \
-+		-std=gnu99 -I../.. -g \
-+		-ffreestanding -Wall $^ -o $@ -lgcc
-diff --git a/tools/testing/selftests/arm64/gcs/basic-gcs.c b/tools/testing/selftests/arm64/gcs/basic-gcs.c
-new file mode 100644
-index 000000000000..3fb9742342a3
---- /dev/null
-+++ b/tools/testing/selftests/arm64/gcs/basic-gcs.c
-@@ -0,0 +1,357 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2023 ARM Limited.
-+ */
-+
-+#include <limits.h>
-+#include <stdbool.h>
-+
-+#include <linux/prctl.h>
-+
-+#include <sys/mman.h>
-+#include <asm/mman.h>
-+#include <linux/sched.h>
-+
-+#include "kselftest.h"
-+#include "gcs-util.h"
-+
-+/* nolibc doesn't have sysconf(), just hard code the maximum */
-+static size_t page_size = 65536;
-+
-+static  __attribute__((noinline)) void valid_gcs_function(void)
-+{
-+	/* Do something the compiler can't optimise out */
-+	my_syscall1(__NR_prctl, PR_SVE_GET_VL);
-+}
-+
-+static inline int gcs_set_status(unsigned long mode)
-+{
-+	bool enabling = mode & PR_SHADOW_STACK_ENABLE;
-+	int ret;
-+	unsigned long new_mode;
-+
-+	/*
-+	 * The prctl takes 1 argument but we need to ensure that the
-+	 * other 3 values passed in registers to the syscall are zero
-+	 * since the kernel validates them.
-+	 */
-+	ret = my_syscall5(__NR_prctl, PR_SET_SHADOW_STACK_STATUS, mode,
-+			  0, 0, 0);
-+
-+	if (ret == 0) {
-+		ret = my_syscall5(__NR_prctl, PR_GET_SHADOW_STACK_STATUS,
-+				  &new_mode, 0, 0, 0);
-+		if (ret == 0) {
-+			if (new_mode != mode) {
-+				ksft_print_msg("Mode set to %lx not %lx\n",
-+					       new_mode, mode);
-+				ret = -EINVAL;
-+			}
-+		} else {
-+			ksft_print_msg("Failed to validate mode: %d\n", ret);
-+		}
-+
-+		if (enabling != chkfeat_gcs()) {
-+			ksft_print_msg("%senabled by prctl but %senabled in CHKFEAT\n",
-+				       enabling ? "" : "not ",
-+				       chkfeat_gcs() ? "" : "not ");
-+			ret = -EINVAL;
-+		}
-+	}
-+
-+	return ret;
-+}
-+
-+/* Try to read the status */
-+static bool read_status(void)
-+{
-+	unsigned long state;
-+	int ret;
-+
-+	ret = my_syscall5(__NR_prctl, PR_GET_SHADOW_STACK_STATUS,
-+			  &state, 0, 0, 0);
-+	if (ret != 0) {
-+		ksft_print_msg("Failed to read state: %d\n", ret);
-+		return false;
-+	}
-+
-+	return state & PR_SHADOW_STACK_ENABLE;
-+}
-+
-+/* Just a straight enable */
-+static bool base_enable(void)
-+{
-+	int ret;
-+
-+	ret = gcs_set_status(PR_SHADOW_STACK_ENABLE);
-+	if (ret) {
-+		ksft_print_msg("PR_SHADOW_STACK_ENABLE failed %d\n", ret);
-+		return false;
-+	}
-+
-+	return true;
-+}
-+
-+/* Check we can read GCSPR_EL0 when GCS is enabled */
-+static bool read_gcspr_el0(void)
-+{
-+	unsigned long *gcspr_el0;
-+
-+	ksft_print_msg("GET GCSPR\n");
-+	gcspr_el0 = get_gcspr();
-+	ksft_print_msg("GCSPR_EL0 is %p\n", gcspr_el0);
-+
-+	return true;
-+}
-+
-+/* Also allow writes to stack */
-+static bool enable_writeable(void)
-+{
-+	int ret;
-+
-+	ret = gcs_set_status(PR_SHADOW_STACK_ENABLE | PR_SHADOW_STACK_WRITE);
-+	if (ret) {
-+		ksft_print_msg("PR_SHADOW_STACK_ENABLE writeable failed: %d\n", ret);
-+		return false;
-+	}
-+
-+	ret = gcs_set_status(PR_SHADOW_STACK_ENABLE);
-+	if (ret) {
-+		ksft_print_msg("failed to restore plain enable %d\n", ret);
-+		return false;
-+	}
-+
-+	return true;
-+}
-+
-+/* Also allow writes to stack */
-+static bool enable_push_pop(void)
-+{
-+	int ret;
-+
-+	ret = gcs_set_status(PR_SHADOW_STACK_ENABLE | PR_SHADOW_STACK_PUSH);
-+	if (ret) {
-+		ksft_print_msg("PR_SHADOW_STACK_ENABLE with push failed: %d\n",
-+			       ret);
-+		return false;
-+	}
-+
-+	ret = gcs_set_status(PR_SHADOW_STACK_ENABLE);
-+	if (ret) {
-+		ksft_print_msg("failed to restore plain enable %d\n", ret);
-+		return false;
-+	}
-+
-+	return true;
-+}
-+
-+/* Enable GCS and allow everything */
-+static bool enable_all(void)
-+{
-+	int ret;
-+
-+	ret = gcs_set_status(PR_SHADOW_STACK_ENABLE | PR_SHADOW_STACK_PUSH |
-+			     PR_SHADOW_STACK_WRITE);
-+	if (ret) {
-+		ksft_print_msg("PR_SHADOW_STACK_ENABLE with everything failed: %d\n",
-+			       ret);
-+		return false;
-+	}
-+
-+	ret = gcs_set_status(PR_SHADOW_STACK_ENABLE);
-+	if (ret) {
-+		ksft_print_msg("failed to restore plain enable %d\n", ret);
-+		return false;
-+	}
-+
-+	return true;
-+}
-+
-+static bool enable_invalid(void)
-+{
-+	int ret = gcs_set_status(ULONG_MAX);
-+	if (ret == 0) {
-+		ksft_print_msg("GCS_SET_STATUS %lx succeeded\n", ULONG_MAX);
-+		return false;
-+	}
-+
-+	return true;
-+}
-+
-+/* Map a GCS */
-+static bool map_guarded_stack(void)
-+{
-+	int ret;
-+	uint64_t *buf;
-+	uint64_t expected_cap;
-+	int elem;
-+	bool pass = true;
-+
-+	buf = (void *)my_syscall3(__NR_map_shadow_stack, 0, page_size,
-+				  SHADOW_STACK_SET_MARKER |
-+				  SHADOW_STACK_SET_TOKEN);
-+	if (buf == MAP_FAILED) {
-+		ksft_print_msg("Failed to map %lu byte GCS: %d\n",
-+			       page_size, errno);
-+		return false;
-+	}
-+	ksft_print_msg("Mapped GCS at %p-%p\n", buf,
-+		       (void *)((uint64_t)buf + page_size));
-+
-+	/* The top of the newly allocated region should be 0 */
-+	elem = (page_size / sizeof(uint64_t)) - 1;
-+	if (buf[elem]) {
-+		ksft_print_msg("Last entry is 0x%llx not 0x0\n", buf[elem]);
-+		pass = false;
-+	}
-+
-+	/* Then a valid cap token */
-+	elem--;
-+	expected_cap = ((uint64_t)buf + page_size - 16);
-+	expected_cap &= GCS_CAP_ADDR_MASK;
-+	expected_cap |= GCS_CAP_VALID_TOKEN;
-+	if (buf[elem] != expected_cap) {
-+		ksft_print_msg("Cap entry is 0x%llx not 0x%llx\n",
-+			       buf[elem], expected_cap);
-+		pass = false;
-+	}
-+	ksft_print_msg("cap token is 0x%llx\n", buf[elem]);
-+
-+	/* The rest should be zeros */
-+	for (elem = 0; elem < page_size / sizeof(uint64_t) - 2; elem++) {
-+		if (!buf[elem])
-+			continue;
-+		ksft_print_msg("GCS slot %d is 0x%llx not 0x0\n",
-+			       elem, buf[elem]);
-+		pass = false;
-+	}
-+
-+	ret = munmap(buf, page_size);
-+	if (ret != 0) {
-+		ksft_print_msg("Failed to unmap %ld byte GCS: %d\n",
-+			       page_size, errno);
-+		pass = false;
-+	}
-+
-+	return pass;
-+}
-+
-+/* A fork()ed process can run */
-+static bool test_fork(void)
-+{
-+	unsigned long child_mode;
-+	int ret, status;
-+	pid_t pid;
-+	bool pass = true;
-+
-+	pid = fork();
-+	if (pid == -1) {
-+		ksft_print_msg("fork() failed: %d\n", errno);
-+		pass = false;
-+		goto out;
-+	}
-+	if (pid == 0) {
-+		/* In child, make sure we can call a function, read
-+		 * the GCS pointer and status and then exit */
-+		valid_gcs_function();
-+		get_gcspr();
-+
-+		ret = my_syscall5(__NR_prctl, PR_GET_SHADOW_STACK_STATUS,
-+				  &child_mode, 0, 0, 0);
-+		if (ret == 0 && !(child_mode & PR_SHADOW_STACK_ENABLE)) {
-+			ksft_print_msg("GCS not enabled in child\n");
-+			ret = -EINVAL;
-+		}
-+
-+		exit(ret);
-+	}
-+
-+	/*
-+	 * In parent, check we can still do function calls then block
-+	 * for the child.
-+	 */
-+	valid_gcs_function();
-+
-+	ksft_print_msg("Waiting for child %d\n", pid);
-+
-+	ret = waitpid(pid, &status, 0);
-+	if (ret == -1) {
-+		ksft_print_msg("Failed to wait for child: %d\n",
-+			       errno);
-+		return false;
-+	}
-+
-+	if (!WIFEXITED(status)) {
-+		ksft_print_msg("Child exited due to signal %d\n",
-+			       WTERMSIG(status));
-+		pass = false;
-+	} else {
-+		if (WEXITSTATUS(status)) {
-+			ksft_print_msg("Child exited with status %d\n",
-+				       WEXITSTATUS(status));
-+			pass = false;
-+		}
-+	}
-+
-+out:
-+
-+	return pass;
-+}
-+
-+typedef bool (*gcs_test)(void);
-+
-+static struct {
-+	char *name;
-+	gcs_test test;
-+	bool needs_enable;
-+} tests[] = {
-+	{ "read_status", read_status },
-+	{ "base_enable", base_enable, true },
-+	{ "read_gcspr_el0", read_gcspr_el0 },
-+	{ "enable_writeable", enable_writeable, true },
-+	{ "enable_push_pop", enable_push_pop, true },
-+	{ "enable_all", enable_all, true },
-+	{ "enable_invalid", enable_invalid, true },
-+	{ "map_guarded_stack", map_guarded_stack },
-+	{ "fork", test_fork },
-+};
-+
-+int main(void)
-+{
-+	int i, ret;
-+	unsigned long gcs_mode;
-+
-+	ksft_print_header();
-+
-+	/*
-+	 * We don't have getauxval() with nolibc so treat a failure to
-+	 * read GCS state as a lack of support and skip.
-+	 */
-+	ret = my_syscall5(__NR_prctl, PR_GET_SHADOW_STACK_STATUS,
-+			  &gcs_mode, 0, 0, 0);
-+	if (ret != 0)
-+		ksft_exit_skip("Failed to read GCS state: %d\n", ret);
-+
-+	if (!(gcs_mode & PR_SHADOW_STACK_ENABLE)) {
-+		gcs_mode = PR_SHADOW_STACK_ENABLE;
-+		ret = my_syscall5(__NR_prctl, PR_SET_SHADOW_STACK_STATUS,
-+				  gcs_mode, 0, 0, 0);
-+		if (ret != 0)
-+			ksft_exit_fail_msg("Failed to enable GCS: %d\n", ret);
-+	}
-+
-+	ksft_set_plan(ARRAY_SIZE(tests));
-+
-+	for (i = 0; i < ARRAY_SIZE(tests); i++) {
-+		ksft_test_result((*tests[i].test)(), "%s\n", tests[i].name);
-+	}
-+
-+	/* One last test: disable GCS, we can do this one time */
-+	my_syscall5(__NR_prctl, PR_SET_SHADOW_STACK_STATUS, 0, 0, 0, 0);
-+	if (ret != 0)
-+		ksft_print_msg("Failed to disable GCS: %d\n", ret);
-+
-+	ksft_finished();
-+
-+	return 0;
-+}
-diff --git a/tools/testing/selftests/arm64/gcs/gcs-util.h b/tools/testing/selftests/arm64/gcs/gcs-util.h
-new file mode 100644
-index 000000000000..1ae6864d3f86
---- /dev/null
-+++ b/tools/testing/selftests/arm64/gcs/gcs-util.h
-@@ -0,0 +1,90 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2023 ARM Limited.
-+ */
-+
-+#ifndef GCS_UTIL_H
-+#define GCS_UTIL_H
-+
-+#include <stdbool.h>
-+
-+#ifndef __NR_map_shadow_stack
-+#define __NR_map_shadow_stack 453
-+#endif
-+
-+#ifndef __NR_prctl
-+#define __NR_prctl 167
-+#endif
-+
-+/* Shadow Stack/Guarded Control Stack interface */
-+#define PR_GET_SHADOW_STACK_STATUS	74
-+#define PR_SET_SHADOW_STACK_STATUS      75
-+#define PR_LOCK_SHADOW_STACK_STATUS     76
-+
-+# define PR_SHADOW_STACK_ENABLE         (1UL << 0)
-+# define PR_SHADOW_STACK_WRITE		(1UL << 1)
-+# define PR_SHADOW_STACK_PUSH		(1UL << 2)
-+
-+#define PR_SHADOW_STACK_ALL_MODES \
-+	PR_SHADOW_STACK_ENABLE | PR_SHADOW_STACK_WRITE | PR_SHADOW_STACK_PUSH
-+
-+#define SHADOW_STACK_SET_TOKEN (1ULL << 0)     /* Set up a restore token in the shadow stack */
-+#define SHADOW_STACK_SET_MARKER (1ULL << 1)     /* Set up a top of stack merker in the shadow stack */
-+
-+#define GCS_CAP_ADDR_MASK		(0xfffffffffffff000UL)
-+#define GCS_CAP_TOKEN_MASK		(0x0000000000000fffUL)
-+#define GCS_CAP_VALID_TOKEN		1
-+#define GCS_CAP_IN_PROGRESS_TOKEN	5
-+
-+#define GCS_CAP(x) (((unsigned long)(x) & GCS_CAP_ADDR_MASK) | \
-+		    GCS_CAP_VALID_TOKEN)
-+
-+static inline unsigned long *get_gcspr(void)
-+{
-+	unsigned long *gcspr;
-+
-+	asm volatile(
-+		"mrs	%0, S3_3_C2_C5_1"
-+	: "=r" (gcspr)
-+	:
-+	: "cc");
-+
-+	return gcspr;
-+}
-+
-+static inline void __attribute__((always_inline)) gcsss1(unsigned long *Xt)
-+{
-+	asm volatile (
-+		"sys #3, C7, C7, #2, %0\n"
-+		:
-+		: "rZ" (Xt)
-+		: "memory");
-+}
-+
-+static inline unsigned long __attribute__((always_inline)) *gcsss2(void)
-+{
-+	unsigned long *Xt;
-+
-+	asm volatile(
-+		"SYSL %0, #3, C7, C7, #3\n"
-+		: "=r" (Xt)
-+		:
-+		: "memory");
-+
-+	return Xt;
-+}
-+
-+static inline bool chkfeat_gcs(void)
-+{
-+	register long val __asm__ ("x16") = 1;
-+
-+	/* CHKFEAT x16 */
-+	asm volatile(
-+		"hint #0x28\n"
-+		: "=r" (val)
-+		: "r" (val));
-+
-+	return val != 1;
-+}
-+
-+#endif
+[auto build test ERROR on usb/usb-testing]
+[also build test ERROR on usb/usb-next usb/usb-linus linus/master v6.11-rc4 next-20240821]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Lei-Liu/usb-aspeed_udc-Use-devm_clk_get_enabled-helpers/20240821-201358
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git usb-testing
+patch link:    https://lore.kernel.org/r/20240821121048.31566-3-liulei.rjpt%40vivo.com
+patch subject: [PATCH 2/5] usb: pxa27x_udc: Use devm_clk_get_enabled() helpers
+config: x86_64-randconfig-161-20240822 (https://download.01.org/0day-ci/archive/20240822/202408221155.UveHbLu0-lkp@intel.com/config)
+compiler: clang version 18.1.5 (https://github.com/llvm/llvm-project 617a15a9eac96088ae5e9134248d8236e34b91b1)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20240822/202408221155.UveHbLu0-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202408221155.UveHbLu0-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> drivers/usb/gadget/udc/pxa27x_udc.c:2401:44: error: too many arguments to function call, expected single argument 'clk', have 2 arguments
+    2401 |         udc->clk = clk_prepare_enable(&pdev->dev, NULL);
+         |                    ~~~~~~~~~~~~~~~~~~             ^~~~
+   include/linux/stddef.h:8:14: note: expanded from macro 'NULL'
+       8 | #define NULL ((void *)0)
+         |              ^~~~~~~~~~~
+   include/linux/clk.h:1107:19: note: 'clk_prepare_enable' declared here
+    1107 | static inline int clk_prepare_enable(struct clk *clk)
+         |                   ^                  ~~~~~~~~~~~~~~~
+   1 error generated.
+
+
+vim +/clk +2401 drivers/usb/gadget/udc/pxa27x_udc.c
+
+  2345	
+  2346	/**
+  2347	 * pxa_udc_probe - probes the udc device
+  2348	 * @pdev: platform device
+  2349	 *
+  2350	 * Perform basic init : allocates udc clock, creates sysfs files, requests
+  2351	 * irq.
+  2352	 */
+  2353	static int pxa_udc_probe(struct platform_device *pdev)
+  2354	{
+  2355		struct pxa_udc *udc = &memory;
+  2356		int retval = 0, gpio;
+  2357		struct pxa2xx_udc_mach_info *mach = dev_get_platdata(&pdev->dev);
+  2358		unsigned long gpio_flags;
+  2359	
+  2360		if (mach) {
+  2361			gpio_flags = mach->gpio_pullup_inverted ? GPIOF_ACTIVE_LOW : 0;
+  2362			gpio = mach->gpio_pullup;
+  2363			if (gpio_is_valid(gpio)) {
+  2364				retval = devm_gpio_request_one(&pdev->dev, gpio,
+  2365							       gpio_flags,
+  2366							       "USB D+ pullup");
+  2367				if (retval)
+  2368					return retval;
+  2369				udc->gpiod = gpio_to_desc(mach->gpio_pullup);
+  2370			}
+  2371			udc->udc_command = mach->udc_command;
+  2372		} else {
+  2373			udc->gpiod = devm_gpiod_get(&pdev->dev, NULL, GPIOD_ASIS);
+  2374		}
+  2375	
+  2376		udc->regs = devm_platform_ioremap_resource(pdev, 0);
+  2377		if (IS_ERR(udc->regs))
+  2378			return PTR_ERR(udc->regs);
+  2379		udc->irq = platform_get_irq(pdev, 0);
+  2380		if (udc->irq < 0)
+  2381			return udc->irq;
+  2382	
+  2383		udc->dev = &pdev->dev;
+  2384		if (of_have_populated_dt()) {
+  2385			udc->transceiver =
+  2386				devm_usb_get_phy_by_phandle(udc->dev, "phys", 0);
+  2387			if (IS_ERR(udc->transceiver))
+  2388				return PTR_ERR(udc->transceiver);
+  2389		} else {
+  2390			udc->transceiver = usb_get_phy(USB_PHY_TYPE_USB2);
+  2391		}
+  2392	
+  2393		if (IS_ERR(udc->gpiod)) {
+  2394			dev_err(&pdev->dev, "Couldn't find or request D+ gpio : %ld\n",
+  2395				PTR_ERR(udc->gpiod));
+  2396			return PTR_ERR(udc->gpiod);
+  2397		}
+  2398		if (udc->gpiod)
+  2399			gpiod_direction_output(udc->gpiod, 0);
+  2400	
+> 2401		udc->clk = clk_prepare_enable(&pdev->dev, NULL);
+  2402		if (IS_ERR(udc->clk))
+  2403			return PTR_ERR(udc->clk);
+  2404	
+  2405		udc->vbus_sensed = 0;
+  2406	
+  2407		the_controller = udc;
+  2408		platform_set_drvdata(pdev, udc);
+  2409		udc_init_data(udc);
+  2410	
+  2411		/* irq setup after old hardware state is cleaned up */
+  2412		retval = devm_request_irq(&pdev->dev, udc->irq, pxa_udc_irq,
+  2413					  IRQF_SHARED, driver_name, udc);
+  2414		if (retval != 0) {
+  2415			dev_err(udc->dev, "%s: can't get irq %i, err %d\n",
+  2416				driver_name, udc->irq, retval);
+  2417			goto err;
+  2418		}
+  2419	
+  2420		if (!IS_ERR_OR_NULL(udc->transceiver))
+  2421			usb_register_notifier(udc->transceiver, &pxa27x_udc_phy);
+  2422		retval = usb_add_gadget_udc(&pdev->dev, &udc->gadget);
+  2423		if (retval)
+  2424			goto err_add_gadget;
+  2425	
+  2426		pxa_init_debugfs(udc);
+  2427		if (should_enable_udc(udc))
+  2428			udc_enable(udc);
+  2429		return 0;
+  2430	
+  2431	err_add_gadget:
+  2432		if (!IS_ERR_OR_NULL(udc->transceiver))
+  2433			usb_unregister_notifier(udc->transceiver, &pxa27x_udc_phy);
+  2434	err:
+  2435		clk_unprepare(udc->clk);
+  2436		return retval;
+  2437	}
+  2438	
 
 -- 
-2.39.2
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
