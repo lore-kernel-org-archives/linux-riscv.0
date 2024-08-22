@@ -4,49 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5589EC52D7C
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Aug 2024 01:26:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BEB3C52D7C
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Aug 2024 01:29:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qqUT8ikBPhCVAvdrzzvB9pPLTZqXYkOB0dm6P5YG67g=; b=oczY/R+jyCuO/g
-	AVUlwhQsnkm1zVAPASrib2C6CZxCbfZLA5ZnbU4rbh+qstMpuZfm8ZGYgm1/mJmJdP+rHj7ntYdv1
-	tWy4gWxZk4V78q0H6nEoQBcJNQmwBlHvGKpry2BxkONFKr5XYs/3eGroFj6xxvb+13bn+9N7nLYZq
-	ClNArEItikMSv8nmoimECVZH7LCSRQCNgHbeXFnX0yxy4KudhvvhMMihxfHwMs9EB9cp0+vGenY79
-	ro0vQvrTN+dxWnZFkcYAZ6ohQCrLLCzqhjgsrUppAaC6QUmO627ncc3LkngUzXoUjORiekFv/d9oT
-	N2JNmAD9fCg/HI61JDhQ==;
+	List-Owner; bh=4gDyo5V6mxpE9NSXDjVUAKsep3mMDheYg2dMn8K/7Ag=; b=WQP5Te1rMsT4PU
+	rkpMxKIdUSVKrkog/frnE2P5+31Up8nHZTrA9aC3oiSMy9MFecrw4TTJoWobPJoy8I/wYiTobXoK+
+	LKbg1cg75Rlai2JNN04mmwUeA49V+5r0NHMZMrTK092YwLtpqcEETOHmyjPWiFuce+yJl5Zs12hdF
+	joSgvoN9p1a4C8a6q700ueNz1NeTb5Osn6kPzbwvj8iOwdxBJEvRIE8T0zZ2rUmISvOJ9f7IQ9rY0
+	okdZXDVq4J9OOax4Kaw0fvc3kA+hVgUnD4b1NcgtjAo+I87WJCFZwCfywHALoqs2lH4InWy4wMdpv
+	XfjuhIWPnXkq/0dtjUAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgwaP-0000000Aux4-2Yan;
-	Thu, 22 Aug 2024 01:26:01 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sgwdr-0000000AvwT-2Nhe;
+	Thu, 22 Aug 2024 01:29:35 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sgwTB-0000000Arok-3vez;
-	Thu, 22 Aug 2024 01:18:35 +0000
+	id 1sgwUA-0000000AsKK-22sD;
+	Thu, 22 Aug 2024 01:19:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DF1FC611D8;
-	Thu, 22 Aug 2024 01:18:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D950EC32781;
-	Thu, 22 Aug 2024 01:18:21 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id EC3C2A420F1;
+	Thu, 22 Aug 2024 01:19:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FA7EC32782;
+	Thu, 22 Aug 2024 01:19:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1724289512;
-	bh=HBIymMJlJf7+ITwOhb+j59rN4WPQGeznsoeJKujezak=;
+	s=k20201202; t=1724289573;
+	bh=p+k0jTbaEA99trdr4pz3NzAF7Yf9BBO+B19MeJlSzs4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Kz8Qn1dVXZwn3iFEW41ra68PPQpg0HFL9voVy7exoGuRfVzhkAtm1OLE4clwl0tJa
-	 Kj5G8LOyxsXltC2ktdc/Uqt73GasTmTyYIn8UtQVvoVg/wQme6aScqoWRqoTNnGCxF
-	 Dbv4fNY3XBHJS14GBqrHQLnKd/e9dZxF+WW4F/rT0nQ6vtRUB1KuwKqBofpbORrdMG
-	 S4/juCHpHtdXdnSCgbNjkkbgwef4Ij0+8lZCQgaaTOu2iIMr4ubW7B9yTX0s4urgjJ
-	 VOj99SPuYtSttZcdVZ6t+gxQpf10o3VrfAiF9mPoDncgzpBC87hNADQffOE/LZYGI/
-	 hLx/RuteFWVOA==
+	b=DwFM/rF8dbxF5iAiJQBkNcyl4MpQCNPo/7h0ijDZEC2DQwX6P9MCQJsdLQmYTo3w4
+	 kN4XMcgPS2+Nspg04WpyMwQwYWuchJLA1u1F9LpbzcJyk4SC/i/91VJTbuWn3rtzAt
+	 VpyNFub3O4QF2XvVSbLUSDsC9s2WN1aGQDuRu0kbT6dN8Y8pNyKsAikEC/usnkkjoq
+	 oYOW1xC4zVRaLJoVH1YEwGK9uwA7iEDdO/7V5k+wsLwg3MbJLU8s9XwWsvX19Q49Yc
+	 vW0VQAElmyecYsp8uUWzpK8uNtNd5HA9mIXI4uZxTEQmHL5tLYrAUkMW5KpB5drC8e
+	 OCmI3NfA5JKKg==
 From: Mark Brown <broonie@kernel.org>
-Date: Thu, 22 Aug 2024 02:15:15 +0100
-Subject: [PATCH v11 12/39] arm64/mm: Allocate PIE slots for EL0 guarded
- control stack
+Date: Thu, 22 Aug 2024 02:15:20 +0100
+Subject: [PATCH v11 17/39] arm64/hwcap: Add hwcap for GCS
 MIME-Version: 1.0
-Message-Id: <20240822-arm64-gcs-v11-12-41b81947ecb5@kernel.org>
+Message-Id: <20240822-arm64-gcs-v11-17-41b81947ecb5@kernel.org>
 References: <20240822-arm64-gcs-v11-0-41b81947ecb5@kernel.org>
 In-Reply-To: <20240822-arm64-gcs-v11-0-41b81947ecb5@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -73,20 +72,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-37811
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3084; i=broonie@kernel.org;
- h=from:subject:message-id; bh=HBIymMJlJf7+ITwOhb+j59rN4WPQGeznsoeJKujezak=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBmxpEtPzYDapH3MV8gMaoexDsHWcMRzFaXWkp+B4FG
- Apb7F/SJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZsaRLQAKCRAk1otyXVSH0DpZB/
- 0W7CmNKx9qJWcA0k9C5eRPWl9RKSC0z4wTrmzfIWrmad3I3j6Cc8X94j1zwkLeK2xltL6BW4CeuosZ
- 0VutV8rMNXss6LLo3crNyiabTVLzdvy0RFEMAEgkM83zL/LP3fjByt3jBblyur9wzoprUel5878i3s
- EnFcr4X1haZ48jgFLmKn89LFE5loVNKlW1ZRXQgoE3JTxszvcE+GKSj/QFe7OcxFEjY70zxMYIVoF2
- 3IigbDsH26R6G09bvWSCHi78hFaot3WUnt9PUBcorJxvzNtNRt2zfY6QHqsxf16smEQr/pA24Wtd7D
- f5TMssAav7WV7DvkH0XksZvpDUBkIP
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3096; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=p+k0jTbaEA99trdr4pz3NzAF7Yf9BBO+B19MeJlSzs4=;
+ b=owGbwMvMwMWocq27KDak/QLjabUkhrRjEw1DBY8JsZhfUkz7zMLPotW9MILVab/efK+acqsQxtNf
+ nsp0MhqzMDByMciKKbKsfZaxKj1cYuv8R/NfwQxiZQKZwsDFKQAT8Upl/yuzWbS/+865EpdD2g498z
+ w3P/6+U/jpagZd/3Lfla+CD88SiPb2SjaTYyl4HuGy3VWd4Z77x2pO0yk2u93KX2TNWZvNnHVgPUfc
+ g/2Oh7JPOj0tMYzcy5q2RWum69L4Hdz2e5qFCw9z/IxuDv56fAZL3YGCuiKb2aIltw/yvpmoLjFr4V
+ 6RCA9d9aV/rheX/57psfC3DM/klQLzpLbaWSruccnP3rqR9Yva9sdJqoVq89ryFSIy22MlImVtfZ7U
+ V2//v+Zualed3eN8E7W66XEz5Xqm7lgwxeTN/tInxs+vsZbnze+rZj/lcWPT2mrDqSfjVAU7OMxbmD
+ SKRU89ip8QE6tRGrlg/qnWXx0XAQ==
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240821_181834_144506_2298CC4A 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20240821_181934_709188_45F30F32 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,62 +102,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Pages used for guarded control stacks need to be described to the hardware
-using the Permission Indirection Extension, GCS is not supported without
-PIE. In order to support copy on write for guarded stacks we allocate two
-values, one for active GCSs and one for GCS pages marked as read only prior
-to copy.
-
-Since the actual effect is defined using PIE the specific bit pattern used
-does not matter to the hardware but we choose two values which differ only
-in PTE_WRITE in order to help share code with non-PIE cases.
+Provide a hwcap to enable userspace to detect support for GCS.
 
 Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/include/asm/pgtable-prot.h | 14 ++++++++++++--
- 1 file changed, 12 insertions(+), 2 deletions(-)
+ Documentation/arch/arm64/elf_hwcaps.rst | 2 ++
+ arch/arm64/include/asm/hwcap.h          | 1 +
+ arch/arm64/include/uapi/asm/hwcap.h     | 1 +
+ arch/arm64/kernel/cpufeature.c          | 3 +++
+ arch/arm64/kernel/cpuinfo.c             | 1 +
+ 5 files changed, 8 insertions(+)
 
-diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
-index b11cfb9fdd37..545d54c88520 100644
---- a/arch/arm64/include/asm/pgtable-prot.h
-+++ b/arch/arm64/include/asm/pgtable-prot.h
-@@ -144,15 +144,23 @@ static inline bool __pure lpa2_is_enabled(void)
- /* 6:                                PTE_PXN | PTE_WRITE            */
- /* 7: PAGE_SHARED_EXEC               PTE_PXN | PTE_WRITE | PTE_USER */
- /* 8: PAGE_KERNEL_ROX      PTE_UXN                                  */
--/* 9:                      PTE_UXN |                       PTE_USER */
-+/* 9: PAGE_GCS_RO          PTE_UXN |                       PTE_USER */
- /* a: PAGE_KERNEL_EXEC     PTE_UXN |           PTE_WRITE            */
--/* b:                      PTE_UXN |           PTE_WRITE | PTE_USER */
-+/* b: PAGE_GCS             PTE_UXN |           PTE_WRITE | PTE_USER */
- /* c: PAGE_KERNEL_RO       PTE_UXN | PTE_PXN                        */
- /* d: PAGE_READONLY        PTE_UXN | PTE_PXN |             PTE_USER */
- /* e: PAGE_KERNEL          PTE_UXN | PTE_PXN | PTE_WRITE            */
- /* f: PAGE_SHARED          PTE_UXN | PTE_PXN | PTE_WRITE | PTE_USER */
+diff --git a/Documentation/arch/arm64/elf_hwcaps.rst b/Documentation/arch/arm64/elf_hwcaps.rst
+index 448c1664879b..cf87be078f33 100644
+--- a/Documentation/arch/arm64/elf_hwcaps.rst
++++ b/Documentation/arch/arm64/elf_hwcaps.rst
+@@ -365,6 +365,8 @@ HWCAP2_SME_SF8DP2
+ HWCAP2_SME_SF8DP4
+     Functionality implied by ID_AA64SMFR0_EL1.SF8DP4 == 0b1.
  
-+#define _PAGE_GCS	(_PAGE_DEFAULT | PTE_NG | PTE_UXN | PTE_WRITE | PTE_USER)
-+#define _PAGE_GCS_RO	(_PAGE_DEFAULT | PTE_NG | PTE_UXN | PTE_USER)
-+
-+#define PAGE_GCS	__pgprot(_PAGE_GCS)
-+#define PAGE_GCS_RO	__pgprot(_PAGE_GCS_RO)
-+
- #define PIE_E0	( \
-+	PIRx_ELx_PERM(pte_pi_index(_PAGE_GCS),           PIE_GCS)  | \
-+	PIRx_ELx_PERM(pte_pi_index(_PAGE_GCS_RO),        PIE_R)   | \
- 	PIRx_ELx_PERM(pte_pi_index(_PAGE_EXECONLY),      PIE_X_O) | \
- 	PIRx_ELx_PERM(pte_pi_index(_PAGE_READONLY_EXEC), PIE_RX)  | \
- 	PIRx_ELx_PERM(pte_pi_index(_PAGE_SHARED_EXEC),   PIE_RWX) | \
-@@ -160,6 +168,8 @@ static inline bool __pure lpa2_is_enabled(void)
- 	PIRx_ELx_PERM(pte_pi_index(_PAGE_SHARED),        PIE_RW))
++HWCAP2_GCS
++    Functionality implied by ID_AA64PFR1_EL1.GCS == 0b1
  
- #define PIE_E1	( \
-+	PIRx_ELx_PERM(pte_pi_index(_PAGE_GCS),           PIE_NONE_O) | \
-+	PIRx_ELx_PERM(pte_pi_index(_PAGE_GCS_RO),        PIE_NONE_O) | \
- 	PIRx_ELx_PERM(pte_pi_index(_PAGE_EXECONLY),      PIE_NONE_O) | \
- 	PIRx_ELx_PERM(pte_pi_index(_PAGE_READONLY_EXEC), PIE_R)      | \
- 	PIRx_ELx_PERM(pte_pi_index(_PAGE_SHARED_EXEC),   PIE_RW)     | \
+ 4. Unused AT_HWCAP bits
+ -----------------------
+diff --git a/arch/arm64/include/asm/hwcap.h b/arch/arm64/include/asm/hwcap.h
+index 4edd3b61df11..fd7e162e7e39 100644
+--- a/arch/arm64/include/asm/hwcap.h
++++ b/arch/arm64/include/asm/hwcap.h
+@@ -157,6 +157,7 @@
+ #define KERNEL_HWCAP_SME_SF8FMA		__khwcap2_feature(SME_SF8FMA)
+ #define KERNEL_HWCAP_SME_SF8DP4		__khwcap2_feature(SME_SF8DP4)
+ #define KERNEL_HWCAP_SME_SF8DP2		__khwcap2_feature(SME_SF8DP2)
++#define KERNEL_HWCAP_GCS		__khwcap2_feature(GCS)
+ 
+ /*
+  * This yields a mask that user programs can use to figure out what
+diff --git a/arch/arm64/include/uapi/asm/hwcap.h b/arch/arm64/include/uapi/asm/hwcap.h
+index 285610e626f5..328fb7843e2f 100644
+--- a/arch/arm64/include/uapi/asm/hwcap.h
++++ b/arch/arm64/include/uapi/asm/hwcap.h
+@@ -122,5 +122,6 @@
+ #define HWCAP2_SME_SF8FMA	(1UL << 60)
+ #define HWCAP2_SME_SF8DP4	(1UL << 61)
+ #define HWCAP2_SME_SF8DP2	(1UL << 62)
++#define HWCAP2_GCS		(1UL << 63)
+ 
+ #endif /* _UAPI__ASM_HWCAP_H */
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 315bd7be1106..e3e8290a4447 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -2994,6 +2994,9 @@ static const struct arm64_cpu_capabilities arm64_elf_hwcaps[] = {
+ 	HWCAP_CAP(ID_AA64ZFR0_EL1, I8MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEI8MM),
+ 	HWCAP_CAP(ID_AA64ZFR0_EL1, F32MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEF32MM),
+ 	HWCAP_CAP(ID_AA64ZFR0_EL1, F64MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEF64MM),
++#endif
++#ifdef CONFIG_ARM64_GCS
++	HWCAP_CAP(ID_AA64PFR1_EL1, GCS, IMP, CAP_HWCAP, KERNEL_HWCAP_GCS),
+ #endif
+ 	HWCAP_CAP(ID_AA64PFR1_EL1, SSBS, SSBS2, CAP_HWCAP, KERNEL_HWCAP_SSBS),
+ #ifdef CONFIG_ARM64_BTI
+diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
+index 09eeaa24d456..2f539e3101ee 100644
+--- a/arch/arm64/kernel/cpuinfo.c
++++ b/arch/arm64/kernel/cpuinfo.c
+@@ -143,6 +143,7 @@ static const char *const hwcap_str[] = {
+ 	[KERNEL_HWCAP_SME_SF8FMA]	= "smesf8fma",
+ 	[KERNEL_HWCAP_SME_SF8DP4]	= "smesf8dp4",
+ 	[KERNEL_HWCAP_SME_SF8DP2]	= "smesf8dp2",
++	[KERNEL_HWCAP_GCS]		= "gcs",
+ };
+ 
+ #ifdef CONFIG_COMPAT
 
 -- 
 2.39.2
