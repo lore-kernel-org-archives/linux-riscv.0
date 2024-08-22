@@ -4,85 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15C33C3DA4A
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Aug 2024 20:39:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D16AFC5320E
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Aug 2024 21:37:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=meNgGaidJgvhBiJXdFHfJZf43HdRTt/jo5NqPDBGGXw=; b=za5kYxewK/pdQK
-	Z6AvJMUA9UF2Kvs4xxcWnZfDIHdcJiSE0dJaaC5OmRobys53wDpB34XGKS4d9l7DykNZnipZpkAX+
-	kFnhNmfMh0KWXfCgzHpNW05YMp3UF2p484hToFk/txsL2Iz6WNyskZtC43CJRdl3NDKje8lDsEPgW
-	Nh2DoDRTg+rXsjk4gj3StlS4wC+N2vuAWXKXZqc+UfNpDGEHuAvSvV0/lm8U/JJiZsI2UHv2LaZ3B
-	oiWKLvFPfbtsP9h57j6ijpIyI63EWLhEfxUAbzLMbAG0lRKDvqxVFh70IrvacwxIMTnC7wFNpL2uI
-	Rq5e7R/txHSycpgU763A==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=yaTxQiN4Ni/m+fri9QQvkLYulSX3rHxC+M6o1aLHKr8=; b=n45/HzWUE/F9y4
+	bSx26cwW270TcCEOqnenPZ2BwJ3D4e8euWcmseF4DhblaP3AJqzYidBFMuqPFE/EbaPISU2SZ/whp
+	5AbOEY9BfOEWuNW6ohS9YSq9xGBJjNs7DRxWwUuehCtmWiMCTmnNZY01iqIO9e78oxDFhNIKHhXhP
+	Lc+ihGGrWCdZ5sPi41kEL1x5l99nGYVcxguiZ9Y+jSDA0ZTpBwFiRIH4XHvgUcyA9s4V8iFeX3LQz
+	/c1O3TqaJvacNIqbtbblIqDGauj8q/qcRmnJoZA6IZzs9zh31ZQLLZWC07S5vNeOa7+ILJ4SFqLN6
+	EwZioyM0AWt4a4qW42Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1shEaW-0000000EFiK-0BQM;
-	Thu, 22 Aug 2024 20:39:20 +0000
-Received: from mail-qk1-x72a.google.com ([2607:f8b0:4864:20::72a])
+	id 1shFUa-0000000ENQt-0lJV;
+	Thu, 22 Aug 2024 21:37:16 +0000
+Received: from mgamail.intel.com ([198.175.65.17])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1shEaT-0000000EFhh-0izd
+	id 1shFUW-0000000ENOs-2FCS
 	for linux-riscv@lists.infradead.org;
-	Thu, 22 Aug 2024 20:39:18 +0000
-Received: by mail-qk1-x72a.google.com with SMTP id af79cd13be357-7a1e31bc1efso78458485a.3
-        for <linux-riscv@lists.infradead.org>; Thu, 22 Aug 2024 13:39:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1724359154; x=1724963954; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=aVFB9PSUxxNQxYSa9Dc2uzxRSZf/ScsRdF3Dy3pBcbw=;
-        b=jlgmFTYs1jppNQmqBALQjXeLSc6b2b4at4EAwwlBw5trD6XOF78LyBmjCI4J8YE1Yh
-         ACNRCbpifbME2AMIBb7J4KFSh8XKcw0m0tKHf2/nrtwE/IConb3Z/thWByvLPEPs7p/3
-         VY+UK1TSCaeDcsnHg8ZQcjYpKKWYro6C4LWZSdb6/mHbRkhaax9NwaZ2HSCcDOAOFL89
-         DQX3NUq3FDEJgKl9Xsir1tz9wA726D5lgOpKrvrfvrhV4O2HJ2mOSaNg3moErqEfn4kp
-         XyH9Z27XjXV1GA1kvyu18RPDiICMHwRh6tW7SZQMgaCEfkmjwYbjCehfQc42IPPHhwpF
-         n8RQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1724359154; x=1724963954;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=aVFB9PSUxxNQxYSa9Dc2uzxRSZf/ScsRdF3Dy3pBcbw=;
-        b=NFVC3Bx+E9qU9yav1nq/iVwKM2qnwDImBLj2ErkNmlD5Q4sogyED02DE0wG24l8yM1
-         wL7BCW2YNUIa0OGTa3ggF+JkjhauzFQ8fMBcvCbNcazppUlerq+UVw53w9fdwojZ0GM4
-         FxDBBEwd1ajYjZbGzwY43wcDJ9MiFo4tb6PPW/BCtgSFVNdI6d47UNMu7ZQke7q1XfcW
-         DWiEZa8KMYaa8ILHtsc7I3BzsHdJ2A6tVElZbpk2C5r6I1n55a/Ou7uF2v86qAJKqvrV
-         jWz95M32krioRJKJ28+eT9GLgFdeVfrV+O7O1wJ9f/4r0VMj5LI2fvCpG0VvID7hcQ7B
-         qpjw==
-X-Gm-Message-State: AOJu0YxfBAWdWmyw7w1u42f10zE3vBiMA/KhpXPNejAZk9olumQHJ9dL
-	pXRbymEf3POx7bvOOSs6N1C8QKw1bM+sA1fIc6eEYnd2VXg1er8K7SDvqRQFOpTxZypqxYIIYca
-	l
-X-Google-Smtp-Source: AGHT+IEoRpx83TwCTADpbTIPE8iEGIQ8Pwle6TGVihkq7WkEL+JaskxzQiEWVFEUECXATS3MnClPBw==
-X-Received: by 2002:a05:620a:1990:b0:7a2:d64:1cbc with SMTP id af79cd13be357-7a680a57533mr449953785a.26.1724359154139;
-        Thu, 22 Aug 2024 13:39:14 -0700 (PDT)
-Received: from jesse-desktop.. (pool-108-26-179-17.bstnma.fios.verizon.net. [108.26.179.17])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7a67f327ce2sm108846185a.1.2024.08.22.13.39.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Aug 2024 13:39:13 -0700 (PDT)
-From: Jesse Taube <jesse@rivosinc.com>
-To: linux-riscv@lists.infradead.org
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
-	Conor Dooley <conor@kernel.org>,
-	Evan Green <evan@rivosinc.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Jesse Taube <jesse@rivosinc.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] RISC-V: hwprobe: Use BIT macro to avoid warnings
-Date: Thu, 22 Aug 2024 16:39:12 -0400
-Message-ID: <20240822203913.2306574-1-jesse@rivosinc.com>
-X-Mailer: git-send-email 2.45.2
+	Thu, 22 Aug 2024 21:37:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1724362632; x=1755898632;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=icQnrCzDD/QHiymbI340Kuyyn1Ca7Gddfa0MRaGXDZI=;
+  b=av4EWQs/w3SjVDEmky8tEjFaARA+/d2xA4mjiTGB12fUgMKG9oKiAE5W
+   D1IRdhZFYQXd88L7LtMEYWNcsWYhHxXPlTwNOVA7JbrYuzX5PAo0PC+l1
+   ZViEgCbF0G4aTAg1o3XnFX94fqHeXnGOPcfaFb4jni6+CxbWOVDgaR0cg
+   nmOu3Qxjjq5MD7oTa7bbYMbOS/Rs/YU6beEdyfceQphd9k3rV9gzZnZkM
+   DZDilrLVZhEYCkI+/S/CAJMpNgKuoAWEmYt7Rst/HtF4YFijiLTlGD5zF
+   1aEjn2Xhj8xvQbCg8DnzTsqwL3nKRHQpvcvngKPtnZPwjb48GkGeYbvVt
+   Q==;
+X-CSE-ConnectionGUID: qSL7NQZqQ7C0IzzI8O/MNg==
+X-CSE-MsgGUID: JX8f5ZtfTxidAdo479ShxA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11172"; a="22973255"
+X-IronPort-AV: E=Sophos;i="6.10,168,1719903600"; 
+   d="scan'208";a="22973255"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Aug 2024 14:37:07 -0700
+X-CSE-ConnectionGUID: 2ffUV8QAQHuprfxMizfYwQ==
+X-CSE-MsgGUID: RQy+U63LR4mpzcCdL5sW/g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.10,168,1719903600"; 
+   d="scan'208";a="66487955"
+Received: from lkp-server01.sh.intel.com (HELO 9a732dc145d3) ([10.239.97.150])
+  by orviesa005.jf.intel.com with ESMTP; 22 Aug 2024 14:37:05 -0700
+Received: from kbuild by 9a732dc145d3 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1shFUM-000DD6-0d;
+	Thu, 22 Aug 2024 21:37:02 +0000
+Date: Fri, 23 Aug 2024 05:36:20 +0800
+From: kernel test robot <lkp@intel.com>
+To: Yue Haibing <yuehaibing@huawei.com>, anup@brainfault.org,
+	tglx@linutronix.de, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, ruanjinjie@huawei.com, bjorn@rivosinc.com
+Cc: oe-kbuild-all@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, yuehaibing@huawei.com
+Subject: Re: [PATCH -next] irqchip/riscv-aplic: Fix NULL vs IS_ERR() bug
+Message-ID: <202408230558.er4j09Nd-lkp@intel.com>
+References: <20240820132857.247679-1-yuehaibing@huawei.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240820132857.247679-1-yuehaibing@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240822_133917_239116_0442B9BD 
-X-CRM114-Status: UNSURE (   8.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240822_143712_696086_6ACE340A 
+X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,143 +90,117 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In uapi/asm/hwprobe.h file, (1 << N) is used to define the bit field
-which causes checkpatch to warn. Use BIT(N) and BIT_ULL(N) to avoid
-these warnings.
+Hi Yue,
 
-Signed-off-by: Jesse Taube <jesse@rivosinc.com>
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
-Tested-by: Charlie Jenkins <charlie@rivosinc.com>
----
-V1 -> V2:
- - Reword commit message
----
- arch/riscv/include/uapi/asm/hwprobe.h | 102 +++++++++++++-------------
- 1 file changed, 51 insertions(+), 51 deletions(-)
+kernel test robot noticed the following build errors:
 
-diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
-index b706c8e47b02..d0874ff2fd37 100644
---- a/arch/riscv/include/uapi/asm/hwprobe.h
-+++ b/arch/riscv/include/uapi/asm/hwprobe.h
-@@ -21,57 +21,57 @@ struct riscv_hwprobe {
- #define RISCV_HWPROBE_KEY_MARCHID	1
- #define RISCV_HWPROBE_KEY_MIMPID	2
- #define RISCV_HWPROBE_KEY_BASE_BEHAVIOR	3
--#define		RISCV_HWPROBE_BASE_BEHAVIOR_IMA	(1 << 0)
-+#define		RISCV_HWPROBE_BASE_BEHAVIOR_IMA	BIT_ULL(0)
- #define RISCV_HWPROBE_KEY_IMA_EXT_0	4
--#define		RISCV_HWPROBE_IMA_FD		(1 << 0)
--#define		RISCV_HWPROBE_IMA_C		(1 << 1)
--#define		RISCV_HWPROBE_IMA_V		(1 << 2)
--#define		RISCV_HWPROBE_EXT_ZBA		(1 << 3)
--#define		RISCV_HWPROBE_EXT_ZBB		(1 << 4)
--#define		RISCV_HWPROBE_EXT_ZBS		(1 << 5)
--#define		RISCV_HWPROBE_EXT_ZICBOZ	(1 << 6)
--#define		RISCV_HWPROBE_EXT_ZBC		(1 << 7)
--#define		RISCV_HWPROBE_EXT_ZBKB		(1 << 8)
--#define		RISCV_HWPROBE_EXT_ZBKC		(1 << 9)
--#define		RISCV_HWPROBE_EXT_ZBKX		(1 << 10)
--#define		RISCV_HWPROBE_EXT_ZKND		(1 << 11)
--#define		RISCV_HWPROBE_EXT_ZKNE		(1 << 12)
--#define		RISCV_HWPROBE_EXT_ZKNH		(1 << 13)
--#define		RISCV_HWPROBE_EXT_ZKSED		(1 << 14)
--#define		RISCV_HWPROBE_EXT_ZKSH		(1 << 15)
--#define		RISCV_HWPROBE_EXT_ZKT		(1 << 16)
--#define		RISCV_HWPROBE_EXT_ZVBB		(1 << 17)
--#define		RISCV_HWPROBE_EXT_ZVBC		(1 << 18)
--#define		RISCV_HWPROBE_EXT_ZVKB		(1 << 19)
--#define		RISCV_HWPROBE_EXT_ZVKG		(1 << 20)
--#define		RISCV_HWPROBE_EXT_ZVKNED	(1 << 21)
--#define		RISCV_HWPROBE_EXT_ZVKNHA	(1 << 22)
--#define		RISCV_HWPROBE_EXT_ZVKNHB	(1 << 23)
--#define		RISCV_HWPROBE_EXT_ZVKSED	(1 << 24)
--#define		RISCV_HWPROBE_EXT_ZVKSH		(1 << 25)
--#define		RISCV_HWPROBE_EXT_ZVKT		(1 << 26)
--#define		RISCV_HWPROBE_EXT_ZFH		(1 << 27)
--#define		RISCV_HWPROBE_EXT_ZFHMIN	(1 << 28)
--#define		RISCV_HWPROBE_EXT_ZIHINTNTL	(1 << 29)
--#define		RISCV_HWPROBE_EXT_ZVFH		(1 << 30)
--#define		RISCV_HWPROBE_EXT_ZVFHMIN	(1ULL << 31)
--#define		RISCV_HWPROBE_EXT_ZFA		(1ULL << 32)
--#define		RISCV_HWPROBE_EXT_ZTSO		(1ULL << 33)
--#define		RISCV_HWPROBE_EXT_ZACAS		(1ULL << 34)
--#define		RISCV_HWPROBE_EXT_ZICOND	(1ULL << 35)
--#define		RISCV_HWPROBE_EXT_ZIHINTPAUSE	(1ULL << 36)
--#define		RISCV_HWPROBE_EXT_ZVE32X	(1ULL << 37)
--#define		RISCV_HWPROBE_EXT_ZVE32F	(1ULL << 38)
--#define		RISCV_HWPROBE_EXT_ZVE64X	(1ULL << 39)
--#define		RISCV_HWPROBE_EXT_ZVE64F	(1ULL << 40)
--#define		RISCV_HWPROBE_EXT_ZVE64D	(1ULL << 41)
--#define		RISCV_HWPROBE_EXT_ZIMOP		(1ULL << 42)
--#define		RISCV_HWPROBE_EXT_ZCA		(1ULL << 43)
--#define		RISCV_HWPROBE_EXT_ZCB		(1ULL << 44)
--#define		RISCV_HWPROBE_EXT_ZCD		(1ULL << 45)
--#define		RISCV_HWPROBE_EXT_ZCF		(1ULL << 46)
--#define		RISCV_HWPROBE_EXT_ZCMOP		(1ULL << 47)
--#define		RISCV_HWPROBE_EXT_ZAWRS		(1ULL << 48)
-+#define		RISCV_HWPROBE_IMA_FD		BIT_ULL(0)
-+#define		RISCV_HWPROBE_IMA_C		BIT_ULL(1)
-+#define		RISCV_HWPROBE_IMA_V		BIT_ULL(2)
-+#define		RISCV_HWPROBE_EXT_ZBA		BIT_ULL(3)
-+#define		RISCV_HWPROBE_EXT_ZBB		BIT_ULL(4)
-+#define		RISCV_HWPROBE_EXT_ZBS		BIT_ULL(5)
-+#define		RISCV_HWPROBE_EXT_ZICBOZ	BIT_ULL(6)
-+#define		RISCV_HWPROBE_EXT_ZBC		BIT_ULL(7)
-+#define		RISCV_HWPROBE_EXT_ZBKB		BIT_ULL(8)
-+#define		RISCV_HWPROBE_EXT_ZBKC		BIT_ULL(9)
-+#define		RISCV_HWPROBE_EXT_ZBKX		BIT_ULL(10)
-+#define		RISCV_HWPROBE_EXT_ZKND		BIT_ULL(11)
-+#define		RISCV_HWPROBE_EXT_ZKNE		BIT_ULL(12)
-+#define		RISCV_HWPROBE_EXT_ZKNH		BIT_ULL(13)
-+#define		RISCV_HWPROBE_EXT_ZKSED		BIT_ULL(14)
-+#define		RISCV_HWPROBE_EXT_ZKSH		BIT_ULL(15)
-+#define		RISCV_HWPROBE_EXT_ZKT		BIT_ULL(16)
-+#define		RISCV_HWPROBE_EXT_ZVBB		BIT_ULL(17)
-+#define		RISCV_HWPROBE_EXT_ZVBC		BIT_ULL(18)
-+#define		RISCV_HWPROBE_EXT_ZVKB		BIT_ULL(19)
-+#define		RISCV_HWPROBE_EXT_ZVKG		BIT_ULL(20)
-+#define		RISCV_HWPROBE_EXT_ZVKNED	BIT_ULL(21)
-+#define		RISCV_HWPROBE_EXT_ZVKNHA	BIT_ULL(22)
-+#define		RISCV_HWPROBE_EXT_ZVKNHB	BIT_ULL(23)
-+#define		RISCV_HWPROBE_EXT_ZVKSED	BIT_ULL(24)
-+#define		RISCV_HWPROBE_EXT_ZVKSH		BIT_ULL(25)
-+#define		RISCV_HWPROBE_EXT_ZVKT		BIT_ULL(26)
-+#define		RISCV_HWPROBE_EXT_ZFH		BIT_ULL(27)
-+#define		RISCV_HWPROBE_EXT_ZFHMIN	BIT_ULL(28)
-+#define		RISCV_HWPROBE_EXT_ZIHINTNTL	BIT_ULL(29)
-+#define		RISCV_HWPROBE_EXT_ZVFH		BIT_ULL(30)
-+#define		RISCV_HWPROBE_EXT_ZVFHMIN	BIT_ULL(31)
-+#define		RISCV_HWPROBE_EXT_ZFA		BIT_ULL(32)
-+#define		RISCV_HWPROBE_EXT_ZTSO		BIT_ULL(33)
-+#define		RISCV_HWPROBE_EXT_ZACAS		BIT_ULL(34)
-+#define		RISCV_HWPROBE_EXT_ZICOND	BIT_ULL(35)
-+#define		RISCV_HWPROBE_EXT_ZIHINTPAUSE	BIT_ULL(36)
-+#define		RISCV_HWPROBE_EXT_ZVE32X	BIT_ULL(37)
-+#define		RISCV_HWPROBE_EXT_ZVE32F	BIT_ULL(38)
-+#define		RISCV_HWPROBE_EXT_ZVE64X	BIT_ULL(39)
-+#define		RISCV_HWPROBE_EXT_ZVE64F	BIT_ULL(40)
-+#define		RISCV_HWPROBE_EXT_ZVE64D	BIT_ULL(41)
-+#define		RISCV_HWPROBE_EXT_ZIMOP		BIT_ULL(42)
-+#define		RISCV_HWPROBE_EXT_ZCA		BIT_ULL(43)
-+#define		RISCV_HWPROBE_EXT_ZCB		BIT_ULL(44)
-+#define		RISCV_HWPROBE_EXT_ZCD		BIT_ULL(45)
-+#define		RISCV_HWPROBE_EXT_ZCF		BIT_ULL(46)
-+#define		RISCV_HWPROBE_EXT_ZCMOP		BIT_ULL(47)
-+#define		RISCV_HWPROBE_EXT_ZAWRS		BIT_ULL(48)
- #define RISCV_HWPROBE_KEY_CPUPERF_0	5
- #define		RISCV_HWPROBE_MISALIGNED_UNKNOWN	(0 << 0)
- #define		RISCV_HWPROBE_MISALIGNED_EMULATED	(1 << 0)
-@@ -85,6 +85,6 @@ struct riscv_hwprobe {
- /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
- 
- /* Flags */
--#define RISCV_HWPROBE_WHICH_CPUS	(1 << 0)
-+#define RISCV_HWPROBE_WHICH_CPUS	BIT(0)
- 
- #endif
+[auto build test ERROR on next-20240820]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Yue-Haibing/irqchip-riscv-aplic-Fix-NULL-vs-IS_ERR-bug/20240820-213521
+base:   next-20240820
+patch link:    https://lore.kernel.org/r/20240820132857.247679-1-yuehaibing%40huawei.com
+patch subject: [PATCH -next] irqchip/riscv-aplic: Fix NULL vs IS_ERR() bug
+config: riscv-allnoconfig (https://download.01.org/0day-ci/archive/20240823/202408230558.er4j09Nd-lkp@intel.com/config)
+compiler: riscv64-linux-gcc (GCC) 14.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20240823/202408230558.er4j09Nd-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202408230558.er4j09Nd-lkp@intel.com/
+
+All error/warnings (new ones prefixed by >>):
+
+   drivers/irqchip/irq-riscv-aplic-main.c: In function 'aplic_probe':
+>> drivers/irqchip/irq-riscv-aplic-main.c:178:9: warning: this 'if' clause does not guard... [-Wmisleading-indentation]
+     178 |         if (IS_ERR(regs))
+         |         ^~
+   drivers/irqchip/irq-riscv-aplic-main.c:180:17: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
+     180 |                 return PTR_ERR(regs);
+         |                 ^~~~~~
+>> drivers/irqchip/irq-riscv-aplic-main.c:174:13: warning: unused variable 'rc' [-Wunused-variable]
+     174 |         int rc;
+         |             ^~
+>> drivers/irqchip/irq-riscv-aplic-main.c:172:14: warning: unused variable 'msi_mode' [-Wunused-variable]
+     172 |         bool msi_mode = false;
+         |              ^~~~~~~~
+   drivers/irqchip/irq-riscv-aplic-main.c: At top level:
+>> drivers/irqchip/irq-riscv-aplic-main.c:187:9: warning: data definition has no type or storage class
+     187 |         msi_mode = of_property_present(to_of_node(dev->fwnode), "msi-parent");
+         |         ^~~~~~~~
+>> drivers/irqchip/irq-riscv-aplic-main.c:187:9: error: type defaults to 'int' in declaration of 'msi_mode' [-Wimplicit-int]
+   In file included from drivers/irqchip/irq-riscv-aplic-main.c:10:
+>> include/linux/of.h:168:9: error: braced-group within expression allowed only inside a function
+     168 |         ({                                                              \
+         |         ^
+   drivers/irqchip/irq-riscv-aplic-main.c:187:40: note: in expansion of macro 'to_of_node'
+     187 |         msi_mode = of_property_present(to_of_node(dev->fwnode), "msi-parent");
+         |                                        ^~~~~~~~~~
+>> drivers/irqchip/irq-riscv-aplic-main.c:188:9: error: expected identifier or '(' before 'if'
+     188 |         if (msi_mode)
+         |         ^~
+>> drivers/irqchip/irq-riscv-aplic-main.c:190:9: error: expected identifier or '(' before 'else'
+     190 |         else
+         |         ^~~~
+   drivers/irqchip/irq-riscv-aplic-main.c:192:9: error: expected identifier or '(' before 'if'
+     192 |         if (rc)
+         |         ^~
+   In file included from include/linux/device.h:15,
+                    from include/linux/platform_device.h:13,
+                    from drivers/irqchip/irq-riscv-aplic-main.c:12:
+>> include/linux/dev_printk.h:111:10: error: expected identifier or '(' before ')' token
+     111 |         })
+         |          ^
+   include/linux/dev_printk.h:154:9: note: in expansion of macro 'dev_printk_index_wrap'
+     154 |         dev_printk_index_wrap(_dev_err, KERN_ERR, dev, dev_fmt(fmt), ##__VA_ARGS__)
+         |         ^~~~~~~~~~~~~~~~~~~~~
+   drivers/irqchip/irq-riscv-aplic-main.c:193:17: note: in expansion of macro 'dev_err'
+     193 |                 dev_err(dev, "failed to setup APLIC in %s mode\n", msi_mode ? "MSI" : "direct");
+         |                 ^~~~~~~
+>> drivers/irqchip/irq-riscv-aplic-main.c:195:9: error: expected identifier or '(' before 'return'
+     195 |         return rc;
+         |         ^~~~~~
+>> drivers/irqchip/irq-riscv-aplic-main.c:196:1: error: expected identifier or '(' before '}' token
+     196 | }
+         | ^
+
+
+vim +187 drivers/irqchip/irq-riscv-aplic-main.c
+
+2333df5ae51ead Anup Patel  2024-03-07  168  
+2333df5ae51ead Anup Patel  2024-03-07  169  static int aplic_probe(struct platform_device *pdev)
+2333df5ae51ead Anup Patel  2024-03-07  170  {
+2333df5ae51ead Anup Patel  2024-03-07  171  	struct device *dev = &pdev->dev;
+2333df5ae51ead Anup Patel  2024-03-07 @172  	bool msi_mode = false;
+2333df5ae51ead Anup Patel  2024-03-07  173  	void __iomem *regs;
+2333df5ae51ead Anup Patel  2024-03-07 @174  	int rc;
+2333df5ae51ead Anup Patel  2024-03-07  175  
+2333df5ae51ead Anup Patel  2024-03-07  176  	/* Map the MMIO registers */
+2333df5ae51ead Anup Patel  2024-03-07  177  	regs = devm_platform_ioremap_resource(pdev, 0);
+bb109b384dab1e Yue Haibing 2024-08-20 @178  	if (IS_ERR(regs))
+2333df5ae51ead Anup Patel  2024-03-07  179  		dev_err(dev, "failed map MMIO registers\n");
+bb109b384dab1e Yue Haibing 2024-08-20  180  		return PTR_ERR(regs);
+2333df5ae51ead Anup Patel  2024-03-07  181  	}
+2333df5ae51ead Anup Patel  2024-03-07  182  
+2333df5ae51ead Anup Patel  2024-03-07  183  	/*
+2333df5ae51ead Anup Patel  2024-03-07  184  	 * If msi-parent property is present then setup APLIC MSI
+2333df5ae51ead Anup Patel  2024-03-07  185  	 * mode otherwise setup APLIC direct mode.
+2333df5ae51ead Anup Patel  2024-03-07  186  	 */
+2333df5ae51ead Anup Patel  2024-03-07 @187  	msi_mode = of_property_present(to_of_node(dev->fwnode), "msi-parent");
+2333df5ae51ead Anup Patel  2024-03-07 @188  	if (msi_mode)
+ca8df97fe6798a Anup Patel  2024-03-07  189  		rc = aplic_msi_setup(dev, regs);
+2333df5ae51ead Anup Patel  2024-03-07 @190  	else
+2333df5ae51ead Anup Patel  2024-03-07  191  		rc = aplic_direct_setup(dev, regs);
+2333df5ae51ead Anup Patel  2024-03-07  192  	if (rc)
+2333df5ae51ead Anup Patel  2024-03-07  193  		dev_err(dev, "failed to setup APLIC in %s mode\n", msi_mode ? "MSI" : "direct");
+2333df5ae51ead Anup Patel  2024-03-07  194  
+2333df5ae51ead Anup Patel  2024-03-07 @195  	return rc;
+2333df5ae51ead Anup Patel  2024-03-07 @196  }
+2333df5ae51ead Anup Patel  2024-03-07  197  
+
 -- 
-2.45.2
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
