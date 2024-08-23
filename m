@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB76EC52D7C
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Aug 2024 09:43:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3D86C52D7C
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Aug 2024 09:50:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u/2k+kXrJe+2QZvSHDevPQZ/M6RQMbR5l6sm4CrB8i8=; b=zn5WMGdWYkqXa9
-	HAfrsAqmonz8db+aCfyIR5+aJ/n8RjhpsC6/wWtW6B8kJmMThscMAgjw6GQnqWGn55SnRre7oYQfd
-	Gbpy0hJr02484UMcMYdeqDdGu8n+4+muiMBv28Jvod/KJOd9meumoCuU+Qx/WA/1Ft7AI8WR+AojB
-	4to3HOw0u2+mRiGoUCDsTrx1lvyWxOhaqQQLXNvW1Lyr6I71TucH4hvh4tOy2oOlt5lxRMvPXt/fT
-	akfaU3lnjy7LT4BNyAb+VLacJ2m14tC+auUTlNcll10sv4lsPKr7wZUk89sRYEyZSK/UyBtu2DVHC
-	yhSH/ScxSZDtZwEO8t7g==;
+	List-Owner; bh=CiE2m2v+41y+YGSR7d00THuW2+CSTQdKiajDbByty3A=; b=MIWl911AOqCn5M
+	ETdrJRr+3q89bY7e0xT6eI77GZBi0TTpIsSna6KQHQgXo7+nAsiuvmqCvYTlQ3j1mgcDUuqHTtvyn
+	Fsm1FhvWzrowhv0Yx/3jnE0ICeFKS2+83sXiUkdh+NbYembhKK3cM8AtF7YghnsT/bkoHRKbcdHK7
+	CXzGbanZGL4LQek7ZwBdZIjAskEVA8Uo0dXeGvn+Syp1qC7Lk7SB9e8YPMfzBGZBQRPNDIHHnBGMD
+	OKqtNsn4pIhEKxrjXBq3/UbCt5f4V+B1aZBjR6DiC8Tf5noSKvX0Rb7Ar/bktECHr10PST0Erfon8
+	SqcxMhcJQyVSFRQWC9Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1shQpY-0000000GAXX-2GZC;
-	Fri, 23 Aug 2024 09:43:40 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1shQw8-0000000GCGK-1wgL;
+	Fri, 23 Aug 2024 09:50:28 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1shQo0-0000000G9ui-1KwX;
-	Fri, 23 Aug 2024 09:42:06 +0000
+	id 1shQuf-0000000GBqr-1BYf;
+	Fri, 23 Aug 2024 09:48:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B32B26126E;
-	Fri, 23 Aug 2024 09:42:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0426C4AF0F;
-	Fri, 23 Aug 2024 09:41:57 +0000 (UTC)
-Date: Fri, 23 Aug 2024 10:41:55 +0100
+	by nyc.source.kernel.org (Postfix) with ESMTP id 74FB1A42641;
+	Fri, 23 Aug 2024 09:48:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6993C32786;
+	Fri, 23 Aug 2024 09:48:49 +0000 (UTC)
+Date: Fri, 23 Aug 2024 10:48:47 +0100
 From: Catalin Marinas <catalin.marinas@arm.com>
 To: Mark Brown <broonie@kernel.org>
 Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
@@ -61,18 +61,17 @@ Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
 	linux-arch@vger.kernel.org, linux-mm@kvack.org,
 	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v11 26/39] arm64/ptrace: Expose GCS via ptrace and core
- files
-Message-ID: <ZshZYzWcdYdid7kG@arm.com>
+Subject: Re: [PATCH v11 27/39] arm64: Add Kconfig for Guarded Control Stack
+ (GCS)
+Message-ID: <Zsha_58Y2nkOC35v@arm.com>
 References: <20240822-arm64-gcs-v11-0-41b81947ecb5@kernel.org>
- <20240822-arm64-gcs-v11-26-41b81947ecb5@kernel.org>
+ <20240822-arm64-gcs-v11-27-41b81947ecb5@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240822-arm64-gcs-v11-26-41b81947ecb5@kernel.org>
+In-Reply-To: <20240822-arm64-gcs-v11-27-41b81947ecb5@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240823_024204_560652_E3356584 
-X-CRM114-Status: UNSURE (   8.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240823_024857_408920_0ABC697B 
+X-CRM114-Status: GOOD (  18.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,16 +88,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 22, 2024 at 02:15:29AM +0100, Mark Brown wrote:
-> Provide a new register type NT_ARM_GCS reporting the current GCS mode
-> and pointer for EL0.  Due to the interactions with allocation and
-> deallocation of Guarded Control Stacks we do not permit any changes to
-> the GCS mode via ptrace, only GCSPR_EL0 may be changed.
-> 
-> Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
-> Signed-off-by: Mark Brown <broonie@kernel.org>
+On Thu, Aug 22, 2024 at 02:15:30AM +0100, Mark Brown wrote:
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index a2f8ff354ca6..772f9ba99fe8 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -2137,6 +2137,26 @@ config ARM64_EPAN
+>  	  if the cpu does not implement the feature.
+>  endmenu # "ARMv8.7 architectural features"
+>  
+> +menu "v9.4 architectural features"
+> +
+> +config ARM64_GCS
+> +	bool "Enable support for Guarded Control Stack (GCS)"
+> +	default y
+> +	select ARCH_HAS_USER_SHADOW_STACK
+> +	select ARCH_USES_HIGH_VMA_FLAGS
+> +	help
+> +	  Guarded Control Stack (GCS) provides support for a separate
+> +	  stack with restricted access which contains only return
+> +	  addresses.  This can be used to harden against some attacks
+> +	  by comparing return address used by the program with what is
+> +	  stored in the GCS, and may also be used to efficiently obtain
+> +	  the call stack for applications such as profiling.
+> +
+> +	  The feature is detected at runtime, and will remain disabled
+> +	  if the system does not implement the feature.
+> +
+> +endmenu # "v9.4 architectural features"
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+BTW, as Mark R spotted we'd also need to handle uprobes. Since that's
+off in defconfig, I think it can be done separately on top of this
+series. In the meantime, we could make this dependent on !UPROBES.
+
+-- 
+Catalin
 
 _______________________________________________
 linux-riscv mailing list
