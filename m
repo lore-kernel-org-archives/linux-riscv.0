@@ -4,74 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16870C531DC
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Aug 2024 12:28:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35810C5321E
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Aug 2024 12:59:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vzuMnl9Djv3PtpHMhrjUqJr+wR5KJzXfd0IlRmKrALo=; b=3Obpl1hXc2pLFa
-	OhIsPH1Yji9Scucn6liL4RSyLRURvs+/My6OGPQNxpd4Xtv2qo7lPGml0g3tNvEcgY2PKbuL79gMF
-	m/mWPNliNtOwQWDerRcqQlolZGBO8nSfn4ynRUp3coTCQ4tqZQCYfANWVwHM82KM0gIdMh7QNLEuD
-	ktBK7mx3wRUAEY46GYESvhb/h4guMGJS1HVEg4Cg+KiXyHoDcl1hl8qOGYPDeLGJyiZ6gJSFb7ttJ
-	lbrR73P19TY54JhyJ2fneGT865SwdfcwVhxvGlEqvXIm1m7GBAKlylMQl7OWW/fYObMgSkge3NBca
-	4FgwqPWYDZ3s38Y9//PA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3QkWlTSwS+B14TveH1XSFrZE3uokol3v7GngeKvZzHs=; b=c3WIFixwzhJ95sXHM4SEqvyk7N
+	TnJuz6qtV1vA10gCEm44HyQ5Go15jWPOyIjsJ21hRvjhlc7AhGKUw3YIj2QxZ0eT1R23gpbp5lWP7
+	0gx8BtgC4oJKYWdaOfAxTdFiYzcKNk11rpSqKJQ5Fa+VR62imoe7R8w5oWwwPF1o+q+85Nw9ftmUP
+	OdmR/X3ayhaBhmREQydrgYG4TU6/FMtNuubI9Y/nQKuFEhDLm41ybdfq3RM6K8EjuafxLrN/1EeIK
+	yjDQ2TI1NiSqyY+xebeDoFjOBrZ6gxNpJlRmOHo3UIWsw1iw4DuTzOWQwl6QNzhtNH7zJBM+RdEzX
+	gICemxQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1shTOe-0000000Gh42-3Gdq;
-	Fri, 23 Aug 2024 12:28:04 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1shTtP-0000000Gn2I-3bY3;
+	Fri, 23 Aug 2024 12:59:51 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1shTOZ-0000000Gh1G-0q18
+	id 1shTqm-0000000GmVt-4A0J
 	for linux-riscv@lists.infradead.org;
-	Fri, 23 Aug 2024 12:28:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1724416079; x=1755952079;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=AAJU18OBl8o8+iDmdG41Ki05MWpShLtTzqE+u3kWNwI=;
-  b=Rzmgum9LXWohg4N8TKyAZIciL3v47SybuKAyu6tH6jOJjst5Y1rCMN72
-   QQy/G2hqEqtaNUPugkzXOq7b5l+nVLt4e/rauvzLumkXIlO1zYwynC4ny
-   mHG2KXRHM6q6ZHTIwaA34mm4EtzA0P19HvD1LtumVG6WgSVT/cWCsnwGJ
-   jLEUcBfVIfvGfRCUmQuSbZFEg6LtP+ssVAmL8z4Mzx23m0DDlNQfRT4+O
-   YVkHcP6SH9c/UbCNF2CIVsubKJVGxF5E+/TOST2qRkiaKkFkRPaX8HmqE
-   zcgzMkyOzKNzRyAkPPAQxO0mYyWh1D0wJ0rEGV63P8i7KrQ4xZfWNoM2x
-   w==;
-X-CSE-ConnectionGUID: rDZOZxKYRGu2u+L6hg58hQ==
-X-CSE-MsgGUID: j2lyweIKQPuiHDwPt1WV/g==
-X-IronPort-AV: E=Sophos;i="6.10,170,1719903600"; 
-   d="scan'208";a="198251697"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 23 Aug 2024 05:27:54 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Fri, 23 Aug 2024 05:27:35 -0700
-Received: from daire-X570.microchip.com (10.10.85.11) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Fri, 23 Aug 2024 05:27:33 -0700
-From: <daire.mcnamara@microchip.com>
-To: <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>
-CC: <conor.dooley@microchip.com>, <lpieralisi@kernel.org>, <kw@linux.com>,
-	<robh@kernel.org>, <bhelgaas@google.com>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <daire.mcnamara@microchip.com>,
-	<ilpo.jarvinen@linux.intel.com>
-Subject: [PATCH v9 3/3] dt-bindings: PCI: microchip,pcie-host: allow dma-noncoherent
-Date: Fri, 23 Aug 2024 13:27:17 +0100
-Message-ID: <20240823122717.1159133-4-daire.mcnamara@microchip.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20240823122717.1159133-1-daire.mcnamara@microchip.com>
-References: <20240823122717.1159133-1-daire.mcnamara@microchip.com>
+	Fri, 23 Aug 2024 12:57:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id D2FD0CE0E12;
+	Fri, 23 Aug 2024 12:57:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A571EC32786;
+	Fri, 23 Aug 2024 12:57:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1724417826;
+	bh=sGmHqigfi91h++MeSMtlhXkd6vbhLv6URYk0YuK46s8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UbdnMo5d55IdSjhgLtcvmiSUiq/dv+hk5KM6y+MQiDDaeW0rvNEcJgSXSQ34Mhwf8
+	 zQmQwEiItTdC36StskZgYLUpfr//Yf6rBH001jenF54dryZLzdeZx4NKEdFT4te75y
+	 ngqL6K2DIUFSa8W0Tajj4wKCLgrNzlyJoWDiJ8PiY3cqNYN1WnmQTXIKUgFAuQTcqk
+	 es1SFOfNaJ2HDJS8x+5DLnZnxbeLDtPdL+5ayHE+QZmRbEJaEmW5XdEXrkU8IQUhz5
+	 rigzhB1otII5Y3X8Uu/X378c0IJW4m8/xeMkDbH47ZiDuaoVxd4G3Nfi8BmrdK9OV2
+	 d9+M3OPB2X3ow==
+Date: Fri, 23 Aug 2024 13:57:01 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Zhe Qiao <qiaozhe@iscas.ac.cn>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	conor.dooley@microchip.com, samuel.holland@sifive.com,
+	evan@rivosinc.com, tglx@linutronix.de, andy.chiu@sifive.com,
+	cleger@rivosinc.com, ajones@ventanamicro.com,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] riscv: Report error when repeatedly recording CPU
+ hardware ID
+Message-ID: <20240823-circulate-underarm-13406fd8cc44@spud>
+References: <20240823091100.598162-1-qiaozhe@iscas.ac.cn>
 MIME-Version: 1.0
+In-Reply-To: <20240823091100.598162-1-qiaozhe@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240823_052759_427375_E4158405 
-X-CRM114-Status: UNSURE (   7.10  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240823_055709_405833_A08B4D93 
+X-CRM114-Status: GOOD (  21.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,42 +70,107 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0423077434512371159=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
 
-PolarFire SoC may be configured in a way that requires non-coherent DMA
-handling. On RISC-V, buses are coherent by default & the dma-noncoherent
-property is required to denote buses or devices that are non-coherent.
+--===============0423077434512371159==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="1gk8Xx/zdEe749N2"
+Content-Disposition: inline
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
-Acked-by: Rob Herring <robh@kernel.org>
----
- Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml | 2 ++
- 1 file changed, 2 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml b/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
-index 612633ba59e2..5f5f2b25d797 100644
---- a/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
-+++ b/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
-@@ -44,6 +44,8 @@ properties:
-     items:
-       pattern: '^fic[0-3]$'
- 
-+  dma-coherent: true
-+
-   ranges:
-     minItems: 1
-     maxItems: 3
--- 
-2.34.1
+--1gk8Xx/zdEe749N2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+On Fri, Aug 23, 2024 at 05:11:00PM +0800, Zhe Qiao wrote:
+> In the of_parse_and_init_cpus() function, when the __cpuid_to_hartid_map[]
+> array records the CPU hardware ID, if the same CPU hardware attribute has=
+=20
+> been recorded, an error report is issued, thereby ensuring the uniqueness
+> of the CPU hardware ID recorded in the __cpuid_to_hartid_map[] array.
+
+Why is this actually required? On what system did you encounter this?
+
+> Signed-off-by: Zhe Qiao <qiaozhe@iscas.ac.cn>
+> ---
+>  arch/riscv/kernel/smpboot.c | 16 ++++++++++++++++
+>  1 file changed, 16 insertions(+)
+>=20
+> diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+> index 0f8f1c95ac38..698f9fe791f7 100644
+> --- a/arch/riscv/kernel/smpboot.c
+> +++ b/arch/riscv/kernel/smpboot.c
+> @@ -118,6 +118,16 @@ static void __init acpi_parse_and_init_cpus(void)
+>  #define acpi_parse_and_init_cpus(...)	do { } while (0)
+>  #endif
+> =20
+> +static bool __init is_mpidr_duplicate(unsigned int cpuid, u64 hart)
+> +{
+> +	unsigned int i;
+> +
+> +	for (i =3D 1; (i < cpuid) && (i < NR_CPUS); i++)
+> +		if (cpuid_to_hartid_map(i) =3D=3D hart)
+> +			return true;
+> +	return false;
+> +}
+> +
+>  static void __init of_parse_and_init_cpus(void)
+>  {
+>  	struct device_node *dn;
+> @@ -131,6 +141,12 @@ static void __init of_parse_and_init_cpus(void)
+>  		if (rc < 0)
+>  			continue;
+> =20
+> +		if (is_mpidr_duplicate(cpuid, hart)) {
+> +			pr_err("%pOF: duplicate cpu reg properties in the DT\n",
+> +				dn);
+> +			continue;
+
+Why would we continue in this case? If the devicetree is this broken,
+why shouldn't we just BUG() and abort immediately?
+
+> +		}
+> +
+>  		if (hart =3D=3D cpuid_to_hartid_map(0)) {
+>  			BUG_ON(found_boot_cpu);
+>  			found_boot_cpu =3D 1;
+> --=20
+> 2.43.0
+>=20
+>=20
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--1gk8Xx/zdEe749N2
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZsiHHQAKCRB4tDGHoIJi
+0koxAP9sghG9OoWshjsuVj24oEUwt51pZSe90s5Ueu+Sg0ExKwEA0HAyUVMgE7sL
+yteP1g/gbK+VV4uHO6ELtK0bzChEeQE=
+=MNX+
+-----END PGP SIGNATURE-----
+
+--1gk8Xx/zdEe749N2--
+
+
+--===============0423077434512371159==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0423077434512371159==--
+
