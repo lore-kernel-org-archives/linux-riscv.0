@@ -4,124 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A536C5320E
-	for <linux-riscv@archiver.kernel.org>; Sat, 24 Aug 2024 11:27:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4CAEC52D6F
+	for <linux-riscv@archiver.kernel.org>; Sat, 24 Aug 2024 20:34:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qFkjtdZf4+9GA/UqkImMwcPW8ox1u4YJhBxtzOXATfg=; b=ClLrau+MVLfF2h
-	vn6TGmb4m2CYTafsKpvJemMwRbkKS3S0Srget4pbAxTscrefgRrqFFaCx/meooaMX6rHmyA7Kvq5W
-	ZyLh8ZGOybvC0k7mhI4uXfhXeYZO/rBzWcZfYb1Vnd3Gom7szwQuAtHAIu6+yUrmBr+nODZcRGFGW
-	LSf+scgoGG6v6OGcJi147X7rWb1f89pahyw2WnylBQGiMMvSebs4eN8svUIbk0oLDhFHv36J7BDrt
-	XQ2hvjUPZBDRugcuuEQBxxg9P08pPBef5oFmi62In9mYd8Fa9GUmeZsjq5XTn4ouI0QD9wGwoASs9
-	5mkXaGLdJo6Jk/jSC9WA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=CkfbXd3xmZz17D1bRYtiTvUWN9FMeze8vpMYeVd9eG8=; b=oP4xO8G4plEEv4
+	Sykg5y1Gq15v2ZpY5xSGu3JUKQxOAn3uCRE8G592G68Rry6Mo6SLrhnCzPGkIZHHl+/m+bKkne8cs
+	gUXKIGmt5fNLJtU1kKP+RAVywW3naAFAKtsBwYgG0ezfenbwa3P6+SRw3zPK2AJfE/EUvDFmhugH+
+	HRMfmty5yyaFeE/5l0dcZKOotnGgEpRQoM4LToBKsP7zg2lTo0W2ncww+KIqnV7nFl8ILUBJ6z/hk
+	6WFvUIJh9BT/Nu1p6I6Hr2oVTCjPxKW3AWJhWmc0Qalf/ZgxuZFaM0k6oQQOs+y1vMJ9aFPdQVY3w
+	UWkr7uz+AAEaxujAjxrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1shov4-000000027Kz-3G1a;
-	Sat, 24 Aug 2024 11:26:58 +0000
-Received: from mail-dm6nam04olkn2081d.outbound.protection.outlook.com ([2a01:111:f403:2c09::81d] helo=NAM04-DM6-obe.outbound.protection.outlook.com)
+	id 1shxT2-00000002suY-1gBf;
+	Sat, 24 Aug 2024 20:34:36 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1shov1-000000027KJ-0fOu
+	id 1shxSy-00000002ssl-0BCa
 	for linux-riscv@lists.infradead.org;
-	Sat, 24 Aug 2024 11:26:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=inOZLpNPTF3+6CsJ6w7oW+NE1sEqKL8VMXMgCkJaWrigZd+ZOy5BLZr2U5EC3DeXyom6JgSKjrYFVxRLMS5+Q7TXXSB2hLoZLHoTnguQ7oGZ/HOVpySgUCt/wXBcgbXePiy3TGewgB3wkGn/Xrn2p4ejEFVxpAbJvqaBYGqVmQB4qcLUJBMmOK3G3nQnk4lsNEtQgS5IeIa8Gs65yeLbz+vcZvtdZZrPkxsoAIZ2ONVb6fPRx08KENGaM7KJsFcWS7Z1oQRlOaDGkjR3YSucBhPOlxM1irk7Q9HsYss8iBuug1RWxiGeBkGxUFv5axZ5c54fScnS3iBDjbHdm3ibRQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=FBLuGQyrA0UiV3q1qvXYkxmO40l1w1qrUJWVC3GFFls=;
- b=seweTF0bU7/0P0A2oChpmDkzbFuxnZU/lyT5JhHviozEDzOvsLIPHZ0NwAG31ouF4/vU9bEclCF3G/vTwvgGpAfYJQU7x7fDDhoNgCJyiXTrz2O58+t4Hg9YLY/1yJOvbpgmOMoH6szYpufMWRT71jXtyuQ305OkXxiR4xZfmFICDOKoDZcW6VrIPPyx7sJZHOGZdtPLoK7mchk4NQ5jw7jmhkM/yGhXuviqdIewVjHlNglOU03KaVGIUBTim99FrmXVWcwHp6E62n7QQEsjlqI+AsQFODM/Gas8bJIY1OWnXI315evLFbxtiHoz38pgeaBIhhCfdhk1K9zRSUy4fw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=FBLuGQyrA0UiV3q1qvXYkxmO40l1w1qrUJWVC3GFFls=;
- b=RH+rHcQTVIezu4Z/mlXJDumRUkOaDGptTOr7qfr/KI6RhvxGSjONMNUMix6/YhIG+haDWq95dpwtAcISpbfyqzqMrUmmuel6bOhuHeoGhEM3m2JI38pw3kLD2aybDw5CkqhjcYIIH42nYRwPITKZ9v6uBLKPuv0Y4yxRqgVqxRgJfCyXT3b9WfBWLDUOEdUHin9FuDK98W1zy/1qxBM1Jp/KLc+sy0OZng4BrKG2GxAuSrLhLm9MBxnIJnuAT7IUQr8Huy1aUpdYSFGbAHX/R9jrGeaMiQhxJCL3+yxy51KrQsh30GVH65ac5x30w7lYTq6cBlysQHdBFefPa03QJQ==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by DS7PR20MB4623.namprd20.prod.outlook.com (2603:10b6:8:76::5) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.7897.23; Sat, 24 Aug 2024 11:26:47 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::ab0b:c0d3:1f91:d149]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::ab0b:c0d3:1f91:d149%4]) with mapi id 15.20.7897.014; Sat, 24 Aug 2024
- 11:26:45 +0000
-Date: Sat, 24 Aug 2024 19:25:39 +0800
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Linus Walleij <linus.walleij@linaro.org>, 
-	Inochi Amaoto <inochiama@outlook.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>, 
-	Drew Fustini <dfustini@baylibre.com>, Haylen Chu <heylenay@outlook.com>, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 0/7] riscv: sophgo: Add pinctrl support for CV1800
- series SoC
-Message-ID: <IA1PR20MB495368D784BE3F977617BF39BB892@IA1PR20MB4953.namprd20.prod.outlook.com>
-References: <IA1PR20MB4953DC78BB0FE0C57EA94F91BBB32@IA1PR20MB4953.namprd20.prod.outlook.com>
- <CACRpkdbaDW2=R881G9C=r1iW4YNdYpRZ2kHaN63T7EX1A0xVrA@mail.gmail.com>
-Content-Disposition: inline
-In-Reply-To: <CACRpkdbaDW2=R881G9C=r1iW4YNdYpRZ2kHaN63T7EX1A0xVrA@mail.gmail.com>
-X-TMN: [kmkp2C/EmnCmC7Jcgvw1pcjR0fK7SgW9QqOiXh5ATfk=]
-X-ClientProxiedBy: OSAPR01CA0263.jpnprd01.prod.outlook.com
- (2603:1096:604:29::35) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <k3xyfjzfslqae44rdsv5dfw3ybfphfzkfkv5vvmtruykxuqbnw@z2c3yqlvtsyx>
+	Sat, 24 Aug 2024 20:34:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:From:Reply-To:Subject:Content-ID:
+	Content-Description:In-Reply-To:References:X-Debbugs-Cc;
+	bh=4nY5++i41dpTSS2mCdP2J5oQwyTFedfkauL833e59jQ=; b=Td3BzZrhq4hX0mgcTctq35mRN9
+	L701ZYvwOg9vdtyhQfIKbM4GpkHr5mjbGvyboRMC8JZiXB9UmyfcI7WiODG1TiIjFMQd4BMDF5j3d
+	rxEGUEtHxz0hvpcCvp9zxdvTulFxyr/SUpRijPKTgiq8OhJK0skLsxruDc1pETHp2Xn2YcRXUsUw2
+	9h4Wndz7xAdXTDmpmLetta7NW/ximrgp3Z5g+m4Z8drRs04LR417TEFDn4BXIaSBtwaBRvAc4+R4O
+	5/EzOrcmn3dQlqVrZb8K9Earz7UULxTZ4/gCv2oKFsQY5VuqJp17wEaLmYL71YNLrgdp/8cy2YjNJ
+	wGD+AAdg==;
+Received: from ohm.aurel32.net ([2001:bc8:30d7:111::2] helo=ohm.rr44.fr)
+	by hall.aurel32.net with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1shxSj-00363Z-0o;
+	Sat, 24 Aug 2024 22:34:17 +0200
+Date: Sat, 24 Aug 2024 22:34:16 +0200
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: Jia Jie Ho <jiajie.ho@starfivetech.com>,
+	William Qiu <william.qiu@starfivetech.com>
+Cc: linux-crypto@vger.kernel.org, linux-riscv@lists.infradead.org,
+	E Shattow <lucent@gmail.com>
+Subject: crypto: starfive: kernel oops when unloading jh7110_crypto module
+ and loading it again
+Message-ID: <ZspDyIZiG8kvXaoS@aurel32.net>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|DS7PR20MB4623:EE_
-X-MS-Office365-Filtering-Correlation-Id: 19c4338c-d834-4167-b889-08dcc42fa2cb
-X-Microsoft-Antispam: BCL:0;ARA:14566002|8060799006|461199028|19110799003|5072599009|15080799006|4302099013|3412199025|440099028|1602099012|1710799026;
-X-Microsoft-Antispam-Message-Info: mZ4GQTeAgAJYWgPffbSILmpVEnEghBLryoiyCnFFnFso9zwbHkXwWnvkA6CDhUmfbfHT7NlFcdecSelVzB4jO0hrzIuliM8MpACauDD67AlZf6npxwxPnAIyZQ1dJ+jlwQRhyd+yYpBga1TFClPekHm4nHJJt3um8pTzqbpTbxY0w10RRsSEoVP44ezJW7ANCIbmqDT0Mw0j60qJsNhojlZqt2iePaWfHv6/d8bVnPN0ijl1z83asx0S7OyFWOeFKqCy0Dmcpy93Ds5EQjuU/i03TjnlecHqgzIEYJGvoBK8Yy2/uln2BZ34zbprZYjeKGSfu6Mh39OWxvyr+g/zJ6vgO2nAuMB06NrTd8+YMLMyNoYWBG5nRGQJ7ZO8WygZ5DZSDfhNRwjpG0ulvEjX8+WG1pIQe+dHjgVp9WuZBs8Y8tPrh4llKs2IDQnRz9ZCmdC5xZkQAsEYcZmBIGvC0PWCTR1vl3C0xMWIuJyy4OhSKV13SXbV9jJ537xXqD0bVvQJ2l0NZ2h9M14he4MhkmaD7MtlUDwDuiL00R3qycIKn6zbn7C5JeiJVdPttPvjNUva9+j8/RYc6cB4TPk7WZ4E4BPpiuiv/Yuc/Or2ZzGxwZ1HER0PFZBysbl3eDwvoDEjHCZ+ws8b6jZkSzz0FN0pK4wBwNmf8tV+zQW5Ier+XTunRC58D2wIB2AmbBEvtD4LAhgz7Ntj2jkS78w+DXEFCd/h28Ht+Lhkj6akS9FyXrVyOy6qkyq1qAaIbf2UhxtnI67Z0pC/GMBcq9e13XOxGFbNhOGzIqK3NygKX29Txt3ZJXjn3eIuzzrZIiq4lvTHkYbqYuZ3ctEpINgShjneb6D7HwbLZiQMxjNfO1o=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?c0JZT0pIOGZkYkxoeFBBSVlMQ3lKdmFCS08vWVN5TnZFTmZEQXhFYUxHcEd5?=
- =?utf-8?B?aTJtZ1Y5TXJjZWkwOVhiY3lmbDFidmplbXpVMWwrRGVjWGcwRWhCUFVrZ3FB?=
- =?utf-8?B?SkdSOEhId1EzWVF1R1N0WnczVzNMQWlCelFLRTdPMkpVM3NYRmFKZ2t1dE1x?=
- =?utf-8?B?dExva2JDV0J0NWZjVkpVZFNPNHFBQVdOZHhPRXI5bXE5UVJoRkRmeDdYUG9H?=
- =?utf-8?B?Y1lMTEJDT1duMURtd0ZYb2xraWNlenJWRTV3UnBBM1lpSEcvMjBZOE5uNHkr?=
- =?utf-8?B?UEJYcVAweitiSC9yTk1aVTEybmpkdnU1N2JvZXVUNVJaTTZKeURiWmZlM3lZ?=
- =?utf-8?B?dCtxMy96ajAwUjBBb2NJMVlHUUNJb3R2VGhqeTFPSDFrZm5jcVd0RTBQdFlv?=
- =?utf-8?B?T0dTaW1GTnVUcWJzRFFySnhpZDZmQjUxYVNVSjJoWTFLaG0zczRoQnA1Q2Qr?=
- =?utf-8?B?MWpseFBJOTI0ZDNpM0NFbnBBVTBQMzExc0dXekkzemxGYmk2Mi9XOW1Rd1FJ?=
- =?utf-8?B?VTJ0NWg5dVA5RkIxK1JJTW5KazBoVFczRjdmR0NjUWY5YTByUzZrbE1LVEwz?=
- =?utf-8?B?OFhnTFprT0tCQVFMUU41SkI2QmhUR0RYVXZjaEJFdFF4UW1DVHpmczZIc213?=
- =?utf-8?B?TlRVVUdpVXZnNUNia0FmSHlpRi9yRWNRYkZkSlpsZzlFRkE3SVhIZEEwdjJ6?=
- =?utf-8?B?eTByVTFRRDZFcVdNNGNNNzVyb01SNHRkbFBsdEEwakF3MWE5ejJ6U1FrSklx?=
- =?utf-8?B?RVRqQTBVWVpVY3lxRVg0R3BmRnBVMGF3bDdvZkxpeVozNUJBcHkreFErc21B?=
- =?utf-8?B?MGkzSnArZlBqcGZtajFPZEdGRWJWQ3RIQVBuNFRHekIrK3lzcFNYZldIY284?=
- =?utf-8?B?a2ZTaWNMdVZjekMyT2Jia0J1YU1xZ0g3RkgxM1NWdExNMWNqV3hDa01xRFdK?=
- =?utf-8?B?TnlFdzhPbkNSL25Qa2UrUEdIcTdzMCtJT1ErZG1zcEt2N1FDQitWcm9McTcz?=
- =?utf-8?B?Qml4czFvY0ZpS2drdFMyWithN3Jtb0FYbWNnVVpzeS9aUUtRYnJwWmFjdzVG?=
- =?utf-8?B?Z1RYYk9xMjNyYXJ6M3lQNjlRU1NDd1RwcVJnVEVXdlRUTW1MUkRmUWZSUkRt?=
- =?utf-8?B?V2xST2drdDllUlNGWnJBUDNCUXdwYXFxelNsaStPbkxKTkVKaDYxS0RJVnpq?=
- =?utf-8?B?RDJ3VWRvemk5MGVIZmNFb1JObWdtajFkSS8wTDkzVERPemx6K21nNGJIdTFX?=
- =?utf-8?B?Q1BlMlNMSmNta3VvcUVNTFJBTEVvZXNLdS90ZWFzZWlidTBCbGp5cUNJcXVm?=
- =?utf-8?B?UVpDNTdONXhOSzRxMk95SFp0YzlWenNzNW1LQkJwSE4zQVdhL0x6b0J6ejlX?=
- =?utf-8?B?ZVo1cXFONGU5Tm4yRnVwVkwxc1JmdFFJd3orRDFKaXJ6MmwxWk8rNVpaMkFj?=
- =?utf-8?B?ZExNVGdhTlJqYUw0Nnp0b1dJVTF0bDZiMnZBa2M4TXZQbldHZ2licm91S0lw?=
- =?utf-8?B?dllweGxJd01IR2dWcHdsTXhiM3ZiemU3dXBVcFdMbkJaaHhLYVliMGtXUlBY?=
- =?utf-8?B?bWxNOE1aeDhzbW0zMnVnejFIZ2JwNnZLWGhORlFJTUJCOVBTQ3BJeExJayty?=
- =?utf-8?B?VWxwcnJESmtVZVY4c0thWHZVYVdSc2JYc1J6U2FXYnVHV1gyekp1MkJ4Y0Rv?=
- =?utf-8?Q?JysRYOyPMW/GvXv/IqH8?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 19c4338c-d834-4167-b889-08dcc42fa2cb
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Aug 2024 11:26:45.6147
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR20MB4623
+Content-Disposition: inline
+User-Agent: Mutt/2.2.13 (2024-03-09)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240824_042655_241472_85C57EDE 
-X-CRM114-Status: GOOD (  19.11  )
+X-CRM114-CacheID: sfid-20240824_133432_565767_FAE8C1F8 
+X-CRM114-Status: UNSURE (   6.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,36 +70,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBBdWcgMjMsIDIwMjQgYXQgMDU6NDQ6MTdQTSBHTVQsIExpbnVzIFdhbGxlaWogd3Jv
-dGU6Cj4gT24gRnJpLCBBdWcgMiwgMjAyNCBhdCAyOjM04oCvQU0gSW5vY2hpIEFtYW90byA8aW5v
-Y2hpYW1hQG91dGxvb2suY29tPiB3cm90ZToKPiAKPiA+IEFkZCBiYXNpYyBwaW5jdHJsIGRyaXZl
-ciBmb3IgU29waGdvIENWMTgwMCBzZXJpZXMgU29Dcy4KPiA+IFRoaXMgcGF0Y2ggc2VyaWVzIGFp
-bXMgdG8gcmVwbGFjZSB0aGUgcHJldmlvdXMgcGF0Y2ggZnJvbSBKaXNoZW5nIFsxXS4KPiA+IFNp
-bmNlIHRoZSBwaW5jdHJsIG9mIGN2MTgwMCBoYXMgbmVzdGVkIG11eCBhbmQgaXRzIHBpbiBkZWZp
-bmluYXRpb24KPiA+IGlzIGRpc2NyZXRlLCBpdCBpcyBub3Qgc3VpdGFibGUgdG8gdXNlICJwaW5j
-dHJsLXNpbmdsZSIgdG8gY292ZXIgdGhlCj4gPiBwaW5jdHJsIGRldmljZS4KPiA+Cj4gPiBUaGlz
-IHBhdGNoIHJlcXVpcmUgYW5vdGhlciBwYXRjaCBbMl0gdGhhdCBwcm92aWRlcyBzdGFuZGFyZCBh
-dHRyaWJ1dGUKPiA+ICJpbnB1dC1zY2htaXR0LW1pY3Jvdm9sdCIKPiA+Cj4gPiBOb3RlOiBBcyBj
-dXJyZW50IGRvY3VtZW50YXRpb24gaXMgbm90IGVub3VnaCB0byBndWVzcyB0aGUgcGluCj4gPiBj
-b25maWd1cmF0aW9uIG9mIEh1YXNoYW4gUGksIG9ubHkgdGhlIHBpbmN0cmwgbm9kZSBpcyBhZGRl
-ZC4KPiA+Cj4gPiBbMV0gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvMjAyMzEx
-MTMwMDU3MDIuMjQ2Ny0xLWpzemhhbmdAa2VybmVsLm9yZy8KPiA+IFsyXSBodHRwczovL2xvcmUu
-a2VybmVsLm9yZy9hbGwvSUExUFIyME1CNDk1MzQ2MjQ2MjQ1MDc0MjM0RDMzN0E2QkJBQzJASUEx
-UFIyME1CNDk1My5uYW1wcmQyMC5wcm9kLm91dGxvb2suY29tLwo+ID4KPiA+IENoYW5nZWQgZnJv
-bSB2MzoKPiA+IDEuIGJpbmRpbmc6IGRyb3AgdW5uZWNlc3NhcnkgdHlwZQo+ID4gMi4gYmluZGlu
-ZzogdXNlIHJpZ2h0IHJlZiBmb3IgcGluIG5vZGUuCj4gPiAzLiBiaW5kaW5nOiByZW1vdmUgbWl4
-ZWQgc3BhY2VzIGFuZCB0YWJzLgo+IAo+IFRoaXMgdjQgbG9va3MgZ29vZCB0byBtZSBhbmQgaGFz
-IG5lY2Vzc2FyeSBBQ0tzLgo+IAo+IEl0IGNvbnRhaW5zIGRldmljZSB0cmVlIHBhdGNoZXMgd2hp
-Y2ggSSBhbSBpY2t5IHRvIG1lcmdlIGJ1dAo+IEkgY2FuIG1lcmdlIHRoZSByZXN0IGFuZCBnaXZl
-IHlvdSBhbiBpbW11dGFibGUgYnJhbmNoIGluIHRoZQo+IHBpbmN0cmwgdHJlZSB0aGF0IHRoZSBB
-Uk0gU29DIG1haW50YWluZXJzIGNhbiBwdWxsIGluIHRvCj4gbWVyZ2UgdGhlIGRldmljZSB0cmVl
-cywgZG9lcyB0aGlzIHdvcmsgZm9yIHlvdT8KPiAKPiBZb3VycywKPiBMaW51cyBXYWxsZWlqCgpI
-aSwgTGludXMKCkl0IGlzIE9LIGZvciBtZSwgVGhhbmtzIGZvciB0YWtpbmcgaXQuCgpSZWdhcmQs
-Cklub2NoaQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
-bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
-aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hi,
+
+I have been testing the jh7110_crypto module on a VisionFive 1.2a board,
+running a 6.11-rc4 kernel. To benchmark the crypto with and without
+acceleration, I have unloaded the module, and later on I loaded it
+again. Unloading it works fine, but when loading it again, I get the
+following kernel oops:
+
+[ 1379.354601] jh7110-crypto 16000000.crypto: will run requests pump with realtime priority
+[ 1379.397261] alg: aead: starfive-ccm-aes encryption test failed (wrong result) on test vector 0, cfg="in-place (one sglist)"
+[ 1379.408481] alg: self-tests for ccm(aes) using starfive-ccm-aes failed (rc=-22)
+[ 1379.408490] ------------[ cut here ]------------
+[ 1379.420469] alg: self-tests for ccm(aes) using starfive-ccm-aes failed (rc=-22)
+[ 1379.420523] WARNING: CPU: 2 PID: 1402 at crypto/testmgr.c:5908 alg_test+0x5aa/0x5fa
+[ 1379.420545] Modules linked in: jh7110_crypto(+) xts twofish_generic twofish_common serpent_generic algif_skcipher af_alg ad7418 binfmt_misc sm3_generic sm3 nls_ascii nls_cp437 vfat fat snd_soc_simple_card sha512_generic snd_soc_simple_card_utils jh7110_pwmdac snd_soc_spdif_tx sd_mod cdns3 snd_soc_core sg udc_core cdns_usb_common roles snd_pcm_dmaengine ccm snd_pcm ofpart ghash_generic gf128mul spi_nor gcm crypto_null cdns3_starfive dw_axi_dmac_platform ctr snd_timer mtd snd starfive_wdt watchdog crypto_engine jh7110_trng soundcore sfctemp cpufreq_dt drm nvme_fabrics configfs drm_panel_orientation_quirks nfnetlink efivarfs ip_tables x_tables autofs4 ext4 crc16 mbcache jbd2 uas usb_storage crc32c_generic scsi_mod scsi_common rtc_ds1307 dm_mod dax xhci_pci xhci_hcd motorcomm nvme nvme_core dwmac_starfive stmmac_platform stmmac usbcore axp20x_regulator axp20x_i2c axp20x mfd_core usb_common regmap_i2c pcs_xpcs dw_mmc_starfive dw_mmc_pltfm mdio_devres of_mdio dw_mmc fixed_phy phylink mmc_core clk_starfive_jh7110_vout
+[ 1379.420856]  fwnode_mdio clk_starfive_jh7110_isp libphy phy_jh7110_dphy_rx clk_starfive_jh7110_aon spi_cadence_quadspi clk_starfive_jh7110_stg i2c_designware_platform phy_jh7110_usb i2c_designware_core phy_jh7110_pcie [last unloaded: jh7110_crypto]
+[ 1379.420903] CPU: 2 UID: 0 PID: 1402 Comm: cryptomgr_test Not tainted 6.11-rc4+unreleased-riscv64 #1  Debian 6.11~rc4-1~exp3
+[ 1379.420915] Hardware name: Unknown Unknown Product/Unknown Product, BIOS 2024.01+dfsg-3 01/01/2024
+[ 1379.420921] epc : alg_test+0x5aa/0x5fa
+[ 1379.420930]  ra : alg_test+0x5aa/0x5fa
+[ 1379.420938] epc : ffffffff8045db18 ra : ffffffff8045db18 sp : ffffffc6008dbd60
+[ 1379.420945]  gp : ffffffff81ba8980 tp : ffffffd6c3978000 t0 : ffffffff81a30570
+[ 1379.420951]  t1 : ffffffffffffffff t2 : 2d2d2d2d2d2d2d2d s0 : ffffffc6008dbe80
+[ 1379.420958]  s1 : ffffffffffffffff a0 : 0000000000000043 a1 : ffffffff81a95888
+[ 1379.420964]  a2 : 0000000200000022 a3 : ffffffff81c1d158 a4 : 0000000000000000
+[ 1379.420971]  a5 : 0000000000000000 a6 : 0000000000000001 a7 : 0000000000057fa8
+[ 1379.420976]  s2 : ffffffd6d00e0a00 s3 : 0000000000000383 s4 : ffffffd6d00e0a80
+[ 1379.420983]  s5 : 000000000000017f s6 : ffffffffffffffea s7 : 0000000000000003
+[ 1379.420989]  s8 : 000000000000002f s9 : 00000000000000c0 s10: 00000000000000c0
+[ 1379.420995]  s11: ffffffff81063b08 t3 : ffffffff81bbedef t4 : ffffffff81bbedef
+[ 1379.421001]  t5 : ffffffff81bbedf0 t6 : ffffffc6008dbb68
+[ 1379.421006] status: 0000000200000120 badaddr: 0000000000000000 cause: 0000000000000003
+[ 1379.421013] [<ffffffff8045db18>] alg_test+0x5aa/0x5fa
+[ 1379.421024] [<ffffffff8045a026>] cryptomgr_test+0x28/0x4a
+[ 1379.421034] [<ffffffff8004906e>] kthread+0xc4/0xe2
+[ 1379.421046] [<ffffffff80a1333e>] ret_from_fork+0xe/0x20
+[ 1379.421059] ---[ end trace 0000000000000000 ]---
+
+Regards
+Aurelien
+
+-- 
+Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+aurelien@aurel32.net                     http://aurel32.net
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
