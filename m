@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91B4FC5320E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D71A2C5321E
 	for <linux-riscv@archiver.kernel.org>; Sun, 25 Aug 2024 14:16:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,62 +12,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Artp7mRu6C7jjBDRY5zgoEo+QYR/XWSeT+oQEwc+F5w=; b=bwWFXA2s3BcGXz
-	M1jupA22eSkRUQDaAY8/DNFZiOcb8i5DzVLcG1Onyd1up/645yqA8m9hXF3qMN+HuivRVYRQohLHQ
-	8/mM+C9cHv1CtswXbjiX8mOCeLqBjspy54rz1Wm0gMGVTf36rwam9w8x97rJ5b5yk/QZTWvMuVrSV
-	ykcOtE9vbyuZPsOgXORIYviB2+5cpuhgxz9Vmfi2ULKu6N0x+TKc5MXYYo8ISdp1olMvC02JNtT7Y
-	oKbXX6fD2jhSZJPiNWycMvOm+FVWpJ4ThBKjGoPg2u0y4oqfGGWZVXKsOPopwwL6zgi6aaL6Uh63n
-	y5/B9Dw/hqm4RowhEVcg==;
+	List-Owner; bh=U1sfCmtlUwsqKJJgnU1JocSKDfIq6V5+l5iy1Ucdv5M=; b=KZrNB+kDY/B4QP
+	RV2BVHv3yX+z9vCKw3DJmortJtiMNzQsa8hbrh5+j4FkvZQz+NM8MTYirzYYCZlhzs3yKVWrsi5aD
+	ZtOP3ScRyHoKYVfVE8euBzJTp3GwSxznWL1xwX8hMZ3XIuyxdZTYXIUugpTaVcIUKU896Z2vE1h65
+	m/fKHkZ/utPdrY1UlmtJRcP9pVeS7Gnej63NcihHIEGlY0PT4oyCy2uZTakk/QwC5n2AvGEXmaF4k
+	ONNN7ACqPVBVU94rnV63TokRTZtcBYX3u8Xw+rLfKzI77lwDmqh4sKz/VR5gnCdN/2KKAc2m2cb7z
+	6f/onxzoIQfQqusRC7ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1siE35-00000004SwC-2Tcl;
-	Sun, 25 Aug 2024 14:16:55 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1siE36-00000004Swf-1Isz;
+	Sun, 25 Aug 2024 14:16:56 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1siE0r-00000004SHs-09YE
+	id 1siE0r-00000004SIF-3Y6y
 	for linux-riscv@lists.infradead.org;
 	Sun, 25 Aug 2024 14:14:39 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4280772333eso5433855e9.0
-        for <linux-riscv@lists.infradead.org>; Sun, 25 Aug 2024 07:14:36 -0700 (PDT)
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4281da2cdaeso5392115e9.2
+        for <linux-riscv@lists.infradead.org>; Sun, 25 Aug 2024 07:14:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1724595275; x=1725200075; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1724595276; x=1725200076; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=+vyI734cRrZFj0A/p/jgke1T1ninVILNTlfgxfQSwKE=;
-        b=uY2C2CIq+AkR79a18RDC5srSsUyZMLlyhfG2f+od0VEhn+2kfnMeYltAYwn4Fm0YDf
-         MqUzQ4yE2ijHGWGv1/UcswFzxVVZq/JDoNNAhJmn3R7rSYZdnd8yFXjxmYMWjokpWdSg
-         ghBXJ7FJYE+CPlO+cGPbvPUf8mvW+waouEhFDV9jJxpChKN2Mx1rwcQ6apFZwagyh53T
-         K6auAJyiwZl01zzBe8EqOKgu4gmm/7m0GrSF3J8YwocnACBRYAzN3yFriuXJQta38GAC
-         XtDCF6F8ieByqgf0poJPWbcbDKEzv/AmGa8rKf6aqKLlzmpxH4adUMc4xaD8bNOxl3gM
-         VnrQ==
+        bh=RgnZ6ZqZdmNcLaioI4ubaYNngOpE05oWSti+DXvBHck=;
+        b=UnpXj9sMkUlalAg4cWJ6hJFo/WwRYxSlGRTR0tQlh9UA3l64C559QEPeZELzxt1Hrp
+         kE18GA4cslHI3a+6YlUvQoNDQQXZC9rH8T9gqcUiH8e3paqVdEmudYVmT04YJThC6XRi
+         TVsOtdYwK0mNIckuKhyGpDcwo42fmWI3FNXChrLFGPv5m5M5LCl4xLndZpSK/vCFGDNX
+         tn32N/FQYzOm9+NTuJkOA2HcmSPs6C6XfRKZvMV1MpMoT573ncjxfdOdfj/kJhqWJqhE
+         rn88ITkR5NO/PQcGFWLDm4vcoF8Z1XVQT1WiMnOAPD238UqjtPnV6r8YfkdaVIOZCP++
+         Y4Bg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1724595275; x=1725200075;
+        d=1e100.net; s=20230601; t=1724595276; x=1725200076;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=+vyI734cRrZFj0A/p/jgke1T1ninVILNTlfgxfQSwKE=;
-        b=HHn9ZZTlaMQtUkWE379hmiXDpTVWMvq2/bpmOxoGe4sqassaVsKPkAv90ydax7dno0
-         G42BpH/ef9Cp/bWAseJeL7kJflhSFt74ZbHWiMeI8j5M5B704HUYb4lYvCkqiAtlBJv+
-         nzRyCNuPv07FauStrvF0bTOBMN079/1C7z89UbH1acHFMLCDd/7OJ5ZSaqTyjQatgxw2
-         gfCBOlT82Q3PoqHol416OPf1fM2kg2iKmQ5A0QND0VwVRwdiE2mDZVM8iPApScORpX4y
-         YwdqC5WI3wzZOjOUIUxt1TRJmkd5xW51A7OFRb6cK0tXXlC53JcHS0DFClevqoo6kdBX
-         /AWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUgUP4TM+rRDslvNQZYXxxAZodROWt2OtUHNUeeKJatMV/lW98HSjV1pp2TKJaERElt0KpTkZ3x5Y93Hg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzf2DAUqzD6d7dwW15B0JZ9LaTycL591QwiQmcLOfKLVQr0R7FG
-	4rYs9MabGLL+2ZMAAJv8lKJu02yeEADKfpny41MTrK79aAXXe/vnWmSs/ZyBjvE=
-X-Google-Smtp-Source: AGHT+IFak5e9TgxMwRV1VQC3TmD/nC7hYru8uGqId4jYQGfP92V0mB5tath7X71OxrZX1Y6HIUhsVA==
-X-Received: by 2002:a05:600c:1d25:b0:426:6ecc:e5c4 with SMTP id 5b1f17b1804b1-42acca0c727mr34083495e9.4.1724595275253;
-        Sun, 25 Aug 2024 07:14:35 -0700 (PDT)
+        bh=RgnZ6ZqZdmNcLaioI4ubaYNngOpE05oWSti+DXvBHck=;
+        b=qv1sWZ7VDZRXJK8zQlprGgoU44pI5nS4mS2kj3UO7t/0UighITVlitzgdN9lGiQUvI
+         Am6KTP8p81bAz+y7NedR9TVFJW2Py3BjysCI4hgWY6HiqfOgpneaDDMTU2fW2+SGobp7
+         vrXjMdm5PMWhBsEwZmJOtba6DhDHET/eTlSMt9wQ3+EaOBQmC9rY9vU87B1rsaa0xuZo
+         5ons64TFIsNzeH2WkTGyGjQRADYL2aMM1cbnWhU264YXCoKFQ2ku8r+m4lLPMPXiSrEA
+         85yDYBjFGlcY6jsXrGpBK6tfV7mDSFTX8gws98k/nKFw01h75yLOYRyICNSVPCPE4N4O
+         7ezA==
+X-Forwarded-Encrypted: i=1; AJvYcCXL11oLzr4dA25Ij2LAv/K82EIo7iFg0xwlSZLgT8/6WtDObRlBvoxSMgM4X62J+veIZXBGFmdOoccAVQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwrI8sE+khCGGI2YPnQ82zTfprPDZ250Kc+Il/KtTt53eyni3mA
+	ty4xD/MiMidfSZtnfMbyrJFHq6mDO8N4T8le/GzU3MkuhFfstl/wm8nuXiqhQOg=
+X-Google-Smtp-Source: AGHT+IFuxALm/fRk7IdAEl9tHnqRf3lkS/IQePpSj6npJhpr82rrpicyYF4ug/0SBMzTwrc8Ul4eLw==
+X-Received: by 2002:a05:600c:46d4:b0:424:8b08:26aa with SMTP id 5b1f17b1804b1-42acca01063mr34147235e9.3.1724595276499;
+        Sun, 25 Aug 2024 07:14:36 -0700 (PDT)
 Received: from [127.0.1.1] ([178.197.222.82])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-42ac5162347sm122556045e9.23.2024.08.25.07.14.34
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-42ac5162347sm122556045e9.23.2024.08.25.07.14.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 25 Aug 2024 07:14:34 -0700 (PDT)
+        Sun, 25 Aug 2024 07:14:36 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Date: Sun, 25 Aug 2024 16:14:25 +0200
-Subject: [PATCH 2/5] reset: k210: fix OF node leak in probe() error path
+Date: Sun, 25 Aug 2024 16:14:26 +0200
+Subject: [PATCH 3/5] reset: simplify locking with guard()
 MIME-Version: 1.0
-Message-Id: <20240825-reset-cleanup-scoped-v1-2-03f6d834f8c0@linaro.org>
+Message-Id: <20240825-reset-cleanup-scoped-v1-3-03f6d834f8c0@linaro.org>
 References: <20240825-reset-cleanup-scoped-v1-0-03f6d834f8c0@linaro.org>
 In-Reply-To: <20240825-reset-cleanup-scoped-v1-0-03f6d834f8c0@linaro.org>
 To: Philipp Zabel <p.zabel@pengutronix.de>, 
@@ -80,26 +80,26 @@ Cc: linux-kernel@vger.kernel.org, Damien Le Moal <damien.lemoal@wdc.com>,
  linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
  Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1185;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1684;
  i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
- bh=9pgusit1pxrr+A2/sS7UfW0KAIyXH2HmTDW6oahLzho=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBmyzxD9ZG4S/H4bpvV+Ch6/rnPSqPk9mJsU/Jxb
- DPFQLvB6+KJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCZss8QwAKCRDBN2bmhouD
- 19lyD/4x8fa4AOkKyveVLnoZhsiOq4/EM63MPkrJMxfB9Vfm/yTnK2uzctxkuWPgDgB076mY76k
- SaMnFfbFkK8VdlwXcAX/zFm0PBTyRXcbKk7Nv4u01b8rHPx9IAHCFOM8hIwGIa03i6XNmsL5Uko
- t42t2QmGdu6UFGT4kC9GKB5YbpDuZVYys8UZdPTYbwFScrCa3qRrMkZFZJZ8KP2YPGNtRR/F/Ua
- NqmT68ych37x5XciGnCF23o31YCm6nU5COwcDG6I/N7hWjqMt6f8ur/bRKEJeV/BJWFlK+Y2VHj
- 2zhkkrX7jC/eVXDm8L/zrU+aIn68h7lrDNgOtp53fekgqoPoQ6VXqmXGzYpChSl8atweHp1gDBr
- Q0/uc0DWw/Nheal0uryPSodVR2zQ1iqMoCxEPIa/wPHNqOcPOxjFC4OLs2tBViG6jaTrsWuRQBm
- zpVBbKkvEGSsf9sPZoNLWnyG6k9DnsXaaNoJPRC6EFXmpGJPnCIFAFW1BLmK02AWvLJ1IfZmIv6
- Dem+z3xlw1HPDUIc1VjoTAXgLqUVqUFiSWXjd4jYqUtCtbvsNqp8+3iMCsvZAKJuK7RMKQGLwOs
- l3/2GQjQD7VfbOVodIn3WKUknAfKn67Gdhj0ML4V9Fk3gIyBj93OX8kSoSyTxq2vYb91N1LAfbb
- 6ZR51YIOEl0TDoA==
+ bh=Ytuccfgs9TsHyxm9hDxL6CEbdGnLEij+BN4ZXAevank=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBmyzxEEiERshJp4P/O36tRaMG3GnkMMvYxJ9g39
+ bFAc2IS7BSJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCZss8RAAKCRDBN2bmhouD
+ 104EEACHYXj9r8WaYp2o9fRW7dCF85yE11j+zp1IjAWosumCqGUSVtaVcJW0o6mKFDOTGul1Wmo
+ MGE7W1EzVXd2ZyZNNLAWa51uznABmwL5ZSkg+AyjwrZx1lfZXEzPZb+MKhf46k1xFZ9zoi0Onam
+ AbtiaiV/t2b4em83210TuqxSqsc3eSpkq/AXPN82gw1cHeCNA2H46wvTQ8/rQnBB+nBvPwiaocj
+ nmyC7d3OlrR/xjr7T1ulZN9Or0ze+vm1Y1EVBZ4j84sz/fwmxtFQBNmC6/81lInJ4OScRLCjQvp
+ wlCsXhPQKhluGr0r2UOgtXk84h1kdik+M6u3yL5HNMK1QomVKwfFkFJaHe3UKbnedEJ1DhmJY6v
+ /M1aagcB3QnKmvBfK4XUsgDMJldJs0jQgOxJp0dgd4oY4sK9hgojSs2m3lVpAe/YHT788A876/k
+ C9gRgcuxs8Y2lK6ktL71UuVKnLQwHAOWimTwIDcp8rNJ6naGB5/iITiRkdBh1EC8VRiYrIK3CyS
+ GXP0khpho7KVDnNld4Vu7c1kYdbGqm21HiJnuMCgPl/tX60dfG/NDMu0WxUNKYWnjz6Zd8OWvm4
+ viMP4fPY4NQ+9emd1ZPd+/JbZEcBj3++KrIc7DKp/Ylzn1+ckWQHIdd/1yATfUUliOQ/kShZjZ3
+ 6L2Gi0ciWufsHyQ==
 X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
  fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240825_071437_133312_FB91A3CE 
-X-CRM114-Status: GOOD (  11.88  )
+X-CRM114-CacheID: sfid-20240825_071437_920142_49D0662F 
+X-CRM114-Status: GOOD (  11.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,37 +116,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Driver is leaking OF node reference on memory allocation failure.
-Acquire the OF node reference after memory allocation to fix this and
-keep it simple.
+Simplify error handling (less gotos) over locks with guard().
 
-Fixes: 5a2308da9f60 ("riscv: Add Canaan Kendryte K210 reset controller")
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- drivers/reset/reset-k210.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ drivers/reset/core.c | 15 ++++-----------
+ 1 file changed, 4 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/reset/reset-k210.c b/drivers/reset/reset-k210.c
-index b62a2fd44e4e..e77e4cca377d 100644
---- a/drivers/reset/reset-k210.c
-+++ b/drivers/reset/reset-k210.c
-@@ -90,7 +90,7 @@ static const struct reset_control_ops k210_rst_ops = {
- static int k210_rst_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
--	struct device_node *parent_np = of_get_parent(dev->of_node);
-+	struct device_node *parent_np;
- 	struct k210_rst *ksr;
+diff --git a/drivers/reset/core.c b/drivers/reset/core.c
+index dba74e857be6..c9074810306c 100644
+--- a/drivers/reset/core.c
++++ b/drivers/reset/core.c
+@@ -916,20 +916,18 @@ static int __reset_add_reset_gpio_device(const struct of_phandle_args *args)
+ 	 */
+ 	lockdep_assert_not_held(&reset_list_mutex);
  
- 	dev_info(dev, "K210 reset controller\n");
-@@ -99,6 +99,7 @@ static int k210_rst_probe(struct platform_device *pdev)
- 	if (!ksr)
- 		return -ENOMEM;
+-	mutex_lock(&reset_gpio_lookup_mutex);
++	guard(mutex)(&reset_gpio_lookup_mutex);
  
-+	parent_np = of_get_parent(dev->of_node);
- 	ksr->map = syscon_node_to_regmap(parent_np);
- 	of_node_put(parent_np);
- 	if (IS_ERR(ksr->map))
+ 	list_for_each_entry(rgpio_dev, &reset_gpio_lookup_list, list) {
+ 		if (args->np == rgpio_dev->of_args.np) {
+ 			if (of_phandle_args_equal(args, &rgpio_dev->of_args))
+-				goto out; /* Already on the list, done */
++				return 0; /* Already on the list, done */
+ 		}
+ 	}
+ 
+ 	id = ida_alloc(&reset_gpio_ida, GFP_KERNEL);
+-	if (id < 0) {
+-		ret = id;
+-		goto err_unlock;
+-	}
++	if (id < 0)
++		return id;
+ 
+ 	/* Not freed on success, because it is persisent subsystem data. */
+ 	rgpio_dev = kzalloc(sizeof(*rgpio_dev), GFP_KERNEL);
+@@ -959,9 +957,6 @@ static int __reset_add_reset_gpio_device(const struct of_phandle_args *args)
+ 
+ 	list_add(&rgpio_dev->list, &reset_gpio_lookup_list);
+ 
+-out:
+-	mutex_unlock(&reset_gpio_lookup_mutex);
+-
+ 	return 0;
+ 
+ err_put:
+@@ -970,8 +965,6 @@ static int __reset_add_reset_gpio_device(const struct of_phandle_args *args)
+ 	kfree(rgpio_dev);
+ err_ida_free:
+ 	ida_free(&reset_gpio_ida, id);
+-err_unlock:
+-	mutex_unlock(&reset_gpio_lookup_mutex);
+ 
+ 	return ret;
+ }
 
 -- 
 2.43.0
