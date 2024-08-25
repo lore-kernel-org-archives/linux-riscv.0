@@ -4,65 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50099C5472F
-	for <linux-riscv@archiver.kernel.org>; Sun, 25 Aug 2024 13:11:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4331CC5320E
+	for <linux-riscv@archiver.kernel.org>; Sun, 25 Aug 2024 13:48:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Message-Id:
-	MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qGtJ42A+vmCmun3NHGDQ0CICEt1T9wDQb8v4VdR3MfI=; b=ly1vE/tALJiCwe
-	tevT2bWjN2aN6GJ6DAVCNESMMD/fw/eFS2+2Sww6Q5k4ma/Qp6pea+8XfmoOSnMKEqKa4NqKTlnx2
-	+i0M5t1+xXtrN0+W517Lc/Zr8AZhDfKzXUmmvAeQAQQ6DRzKgEEELGggis2Nc7VrQq/yI4Itc6DIv
-	TLjdbX03zHlrLxMTsr3e/PLf5zNiXs9rRRgj2P0BFN+kabJWnNXUrh0B4I/QNK/ur6tX2UPCTcc6t
-	MnCivOFR1dtn9hIgZ9tHC1t5pW6+WVEHNGc+Cr9bwPxrR4hoIpz2SjZbczl77j+6FIxmXunjvkjat
-	uQrc5RsOE6aTw+4/d2CQ==;
+	List-Owner; bh=GfCQuEX+DEL+pZVQhTR57BXtr8zjnaK5HtEGKGC8Bag=; b=RnNMS8erBjmrxW
+	jNhU3bEHJYtERTo3XTJW49vTkKk7eEF60hlyxPhYctBZ3FU7re/pEWcMiM2K0s1Hj5ygIUJBHPtZm
+	VnspS2+ifhZR+Q/MPWfIwpBlkIdW+8kXgRfwTcgz8gqTkLFI7pfCh/GBy4f+t5VAS2oAXsnSlS6iV
+	iLLoo5+JBYYymc8vbWODLqy3pfj8tpAyjt9MeMYLxpTUKC/9WsJoFqq7nVQkHprfTcjOwfsfXLfeR
+	hyPhHvnbZnmDEvIgoXvldK/K/eOyE18MydlJXVq/HRjjzytIpPEcAiLyL7QlZnZGseC5Npno1s8sf
+	WB00N65gN+pfYIq9rQMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1siD1z-00000004MV9-4Bg4;
-	Sun, 25 Aug 2024 13:11:44 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1siDbP-00000004Py0-2tjj;
+	Sun, 25 Aug 2024 13:48:19 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1siD1G-00000004MFn-1B22
+	id 1siDbL-00000004Pwa-2IRU
 	for linux-riscv@lists.infradead.org;
-	Sun, 25 Aug 2024 13:11:00 +0000
-From: Yixun Lan <dlan@gentoo.org>
-Date: Sun, 25 Aug 2024 13:10:05 +0000
-Subject: [PATCH v2 4/4] riscv: dts: spacemit: add pinctrl property to uart0
- in BPI-F3
+	Sun, 25 Aug 2024 13:48:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id EB933A400FD;
+	Sun, 25 Aug 2024 13:48:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C7B7C32782;
+	Sun, 25 Aug 2024 13:48:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1724593693;
+	bh=X72AlScvaPxqLKWXqTT9/W0Pnwi6aBl63hTlXvjuACw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=NfshdcAPYXicVbanDEYenOvw0yqUvLS5aB5tke+4P1Nm+kYgokb6rbMqib5rf9x2X
+	 GWVDEBxJPx98i8pCHRChR2uL2xF1ql4odHjoj5v5V9n3PCTBrohz1Zv7yx8nKG0fLh
+	 VUbCHXgibauwTK6BWDk6Hj+VPErtTfkHOdnJ4ssE5yrCxyTtogcYLQE7s/YUYqLIdb
+	 ENNRC9q/IDVDIdXf8uWxkvEr25wqwoIlJRzkdP1kH9zCnGksK9iNAtJeeeNBSJr7eF
+	 UmSTkPXboRWOuc8AFqOQ2TbBIQAyptgx51loa8/CjJxrvGARepY/urRAV1vfdz9nbA
+	 CWFF4b2l8ckcg==
+Message-ID: <d9a925da-2381-4203-a3b6-4cb892039d23@kernel.org>
+Date: Sun, 25 Aug 2024 15:48:03 +0200
 MIME-Version: 1.0
-Message-Id: <20240825-02-k1-pinctrl-v2-4-ddd38a345d12@gentoo.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/4] dt-binding: pinctrl: spacemit: add documents for
+ K1 SoC
+To: Yixun Lan <dlan@gentoo.org>, Linus Walleij <linus.walleij@linaro.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>
 References: <20240825-02-k1-pinctrl-v2-0-ddd38a345d12@gentoo.org>
-In-Reply-To: <20240825-02-k1-pinctrl-v2-0-ddd38a345d12@gentoo.org>
-To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Conor Dooley <conor@kernel.org>
-X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=866; i=dlan@gentoo.org;
- h=from:subject:message-id; bh=gWmuyPDq21pf5ffpnoMsUraKHy3KBjlrnMFcvKOQvaI=;
- b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBmyy1LY7BfomQ4OaNo/voQ9Uklrc1sU+g8YPp7i
- t8Aa4Di2rqJApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCZsstS18UgAAAAAAuAChp
- c3N1ZXItZnByQG5vdGF0aW9ucy5vcGVucGdwLmZpZnRoaG9yc2VtYW4ubmV0QjVCQUI4QzlDMzF
- CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277TMgD/4hf3LdOS3W3E1dPh
- 5VIydrMUw5A9R0j2+vRxifJAy5ZN+SqDZ55uHUBXL270EUslItPMAaCbs/lamBSlVjPUxCClk6v
- CbsOO57HSArNuFRcnfcQMugpaF1jOSsLlxCdVU7zpCohXrmCKquJZ5UOGkXtuu14EvbgloSS77b
- Rmrs4TtjVyso6keTSrKzX/nYljSyZwBd2N1DxAKSDhmnXqLcZPqsyPwY9EsFmwq5Pzk6PsnU4gu
- fXgLsKYrmnu+Znw6LrnyXh4ckBHwaRbYNj42zBCk0i/H2dle1IwDMFX+/Z3ge+VDautH1FQjUb8
- ZbiZKbsrxGR2opytNN8eAskJpxSiIvERSvidcFmUfaHwr0UN3locGSH7fe08GWGD/yQn3Dj7xXN
- 6uHq9ItCxHC3RSK2dE0mzfJY4uEtSIPaBXUgfvCYdAUExHyEJhVZH6jEW6EiCGtmm0wB0oH/JJ+
- 1cK5cSIaGgGage1JIhv9RHERZa11SZbpxzl3GJkFBuoDHR3ELyLXSuL/0oK2Q2vtqJsTzi+AXYz
- AVrwwZIWspQVKetlEJRwb4igPRvVT95bHKK8SSbKnekQNmOy5hEuAcLiffSl6iEZGc/eip3F0Cu
- d6N4hCnXaE/7eXskalOq1AKELg3GUiGR5+u8Ap+Zvs8Eqz/0hZrdl69wQAh6E2keG8Kg==
-X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
- fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
+ <20240825-02-k1-pinctrl-v2-1-ddd38a345d12@gentoo.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20240825-02-k1-pinctrl-v2-1-ddd38a345d12@gentoo.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240825_061058_378328_E9A2F001 
-X-CRM114-Status: UNSURE (   7.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240825_064815_756265_1B8E3433 
+X-CRM114-Status: GOOD (  24.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,45 +115,246 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Yixun Lan <dlan@gentoo.org>, Meng Zhang <zhangmeng.kevin@spacemit.com>, linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, Jesse Taube <jesse@rivosinc.com>, Yangyu Chen <cyy@cyyself.name>, Inochi Amaoto <inochiama@outlook.com>, Jisheng Zhang <jszhang@kernel.org>, Meng Zhang <kevin.z.m@hotmail.com>, linux-riscv@lists.infradead.org
+Cc: devicetree@vger.kernel.org, Meng Zhang <zhangmeng.kevin@spacemit.com>, linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, Jesse Taube <jesse@rivosinc.com>, Yangyu Chen <cyy@cyyself.name>, Inochi Amaoto <inochiama@outlook.com>, Jisheng Zhang <jszhang@kernel.org>, Meng Zhang <kevin.z.m@hotmail.com>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Before pinctrl driver implemented, the uart0 controller reply on
-bootloader for setting correct pin mux and configurations.
+On 25/08/2024 15:10, Yixun Lan wrote:
+> Add dt-binding for the pinctrl driver of SpacemiT's K1 SoC.
 
-Now, let's add pinctrl property to uart0 of Bananapi-F3 board.
 
-Signed-off-by: Yixun Lan <dlan@gentoo.org>
----
- arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts | 3 +++
- 1 file changed, 3 insertions(+)
+Please use subject prefixes matching the subsystem. You can get them for
+example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
+your patch is touching. For bindings, the preferred subjects are
+explained here:
+https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-index 023274189b492..bc88d4de25a62 100644
---- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-@@ -4,6 +4,7 @@
-  */
- 
- #include "k1.dtsi"
-+#include "k1-pinctrl.dtsi"
- 
- / {
- 	model = "Banana Pi BPI-F3";
-@@ -15,5 +16,7 @@ chosen {
- };
- 
- &uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart0_2_cfg>;
- 	status = "okay";
- };
+It's "dt-bindings:"
 
--- 
-2.45.2
+> 
+> Two vendor specific properties are introduced here, As the pinctrl
+> has dedicated slew rate enable control - bit[7], so we have
+> spacemit,slew-rate-{enable,disable} for this. For the same reason,
+> creating spacemit,strong-pull-up for the strong pull up control.
+
+Huh, no, use generic properties. More on that below
+
+
+
+> 
+> Signed-off-by: Yixun Lan <dlan@gentoo.org>
+> ---
+>  .../bindings/pinctrl/spacemit,k1-pinctrl.yaml      | 134 +++++++++++++++++
+>  include/dt-bindings/pinctrl/spacemit,k1-pinctrl.h  | 161 +++++++++++++++++++++
+>  2 files changed, 295 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml
+> new file mode 100644
+> index 0000000000000..8adfc5ebbce37
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml
+> @@ -0,0 +1,134 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pinctrl/spacemit,k1-pinctrl.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: SpacemiT K1 SoC Pin Controller
+> +
+> +maintainers:
+> +  - Yixun Lan <dlan@gentoo.org>
+> +
+> +properties:
+> +  compatible:
+> +    const: spacemit,k1-pinctrl
+> +
+> +  reg:
+> +    items:
+> +      - description: pinctrl io memory base
+> +
+> +patternProperties:
+> +  '-cfg$':
+> +    type: object
+> +    description: |
+
+Do not need '|' unless you need to preserve formatting.
+
+> +      A pinctrl node should contain at least one subnode representing the
+> +      pinctrl groups available on the machine.
+> +
+> +    additionalProperties: false
+
+Keep it before description.
+
+> +
+> +    patternProperties:
+> +      '-pins$':
+> +        type: object
+> +        description: |
+> +          Each subnode will list the pins it needs, and how they should
+> +          be configured, with regard to muxer configuration, bias, input
+> +          enable/disable, input schmitt trigger, slew-rate enable/disable,
+> +          slew-rate, drive strength, power source.
+> +        $ref: /schemas/pinctrl/pincfg-node.yaml
+> +
+> +        allOf:
+> +          - $ref: pincfg-node.yaml#
+> +          - $ref: pinmux-node.yaml#
+
+You are duplicating refs.
+
+> +
+> +        properties:
+> +          pinmux:
+> +            description: |
+> +              The list of GPIOs and their mux settings that properties in the
+> +              node apply to. This should be set using the K1_PADCONF macro to
+> +              construct the value.
+> +            $ref: /schemas/pinctrl/pinmux-node.yaml#/properties/pinmux
+
+Hm why you need the ref?
+
+> +
+> +          bias-disable: true
+> +
+> +          bias-pull-up: true
+> +
+> +          bias-pull-down: true
+> +
+> +          drive-strength-microamp:
+> +            description: |
+> +              typical current when output high level, but in mA.
+> +              1.8V output: 11, 21, 32, 42 (mA)
+> +              3.3V output: 7, 10, 13, 16, 19, 23, 26, 29 (mA)
+> +            $ref: /schemas/types.yaml#/definitions/uint32
+> +
+> +          input-schmitt:
+> +            description: |
+> +              typical threshold for schmitt trigger.
+> +              0: buffer mode
+> +              1: trigger mode
+> +              2, 3: trigger mode
+> +            $ref: /schemas/types.yaml#/definitions/uint32
+> +            enum: [0, 1, 2, 3]
+> +
+> +          power-source:
+> +            description: external power supplies at 1.8v or 3.3v.
+> +            enum: [ 1800, 3300 ]
+> +
+> +          slew-rate:
+> +            description: |
+> +              slew rate for output buffer
+> +              0, 1: Slow speed
+
+Hm? Surprising, 0 is slow speed?
+
+> +              2: Medium speed
+> +              3: Fast speed
+> +            $ref: /schemas/types.yaml#/definitions/uint32
+> +            enum: [0, 1, 2, 3]
+> +
+> +          spacemit,slew-rate-enable:
+> +            description: enable slew rate.
+
+The presence of slew-rate enables it, doesn't it?
+
+> +            type: boolean
+> +
+> +          spacemit,slew-rate-disable:
+> +            description: disable slew rate.
+> +            type: boolean
+
+Just use slew-rate, 0 disable, some value to match real slew-rate.
+
+> +
+> +          spacemit,strong-pull-up:
+> +            description: enable strong pull up.
+
+Do not duplicate the property name in description. You did not say
+anything useful here. What is "strong"? bias-pull-up takes also an argument.
+
+> +            type: boolean
+> +
+> +        required:
+> +          - pinmux
+> +
+> +        additionalProperties: false
+
+This goes up, before description.
+
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/pinctrl/spacemit,k1-pinctrl.h>
+> +
+> +    soc {
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +
+> +        pinctrl@d401e000 {
+> +            compatible = "spacemit,k1-pinctrl";
+> +            reg = <0x0 0xd401e000 0x0 0x400>;
+> +            #pinctrl-cells = <2>;
+> +            #gpio-range-cells = <3>;
+
+This wasn't ever tested... :(
+...
+
+> diff --git a/include/dt-bindings/pinctrl/spacemit,k1-pinctrl.h b/include/dt-bindings/pinctrl/spacemit,k1-pinctrl.h
+> new file mode 100644
+> index 0000000000000..13ef4aa6c53a3
+> --- /dev/null
+> +++ b/include/dt-bindings/pinctrl/spacemit,k1-pinctrl.h
+> @@ -0,0 +1,161 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
+> +/*
+> + * Copyright (c) 2022-2024 SpacemiT (Hangzhou) Technology Co. Ltd
+> + * Copyright (c) 2024 Yixun Lan <dlan@gentoo.org>
+> + *
+> + */
+> +
+> +#ifndef _DT_BINDINGS_PINCTRL_K1_H
+> +#define _DT_BINDINGS_PINCTRL_K1_H
+> +
+> +#define PINMUX(pin, mux) \
+> +	(((pin) & 0xffff) | (((mux) & 0xff) << 16))
+> +
+> +/* pin offset */
+> +#define PINID(x)	((x) + 1)
+> +
+> +#define GPIO_INVAL  0
+> +#define GPIO_00     PINID(0)
+
+Not really, pin numbers are not bindings. Drop entire header.
+
+...
+
+> +
+> +#define SLEW_RATE_SLOW0		0
+> +#define SLEW_RATE_SLOW1		1
+> +#define SLEW_RATE_MEDIUM	2
+> +#define SLEW_RATE_FAST		3
+
+Not a binding, either. No usage in the driver.
+
+> +
+> +#define K1_PADCONF(pin, func) (((pin) << 16) | (func))
+
+Not a binding.
+
+
+
+Best regards,
+Krzysztof
 
 
 _______________________________________________
