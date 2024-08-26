@@ -4,131 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CED3C5472D
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Aug 2024 07:04:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 757ACC5321D
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Aug 2024 07:05:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CTZM6a2fq8p1+uFm8xF/0n8TqaQ61IN2vr7YmMcotRc=; b=kdRdt7Tp0Izhbh
-	WLUIrnFl3wBZjQaGh3SvO3pSD4gdAbXTgaBU9w2p/+JpRpkL9KC9RVU3c3ilnWxZ7T+0QFrxUVj46
-	6m4vXboDBXUq6AL/icDwNAd6C93MUTphXecz6UJ20M+RdTu1x7+XwZDVycZXF4TvfE9Xm28cTNS6K
-	sjR4/MH6xRsCnlZxufFhSdcum+cE94KlioLgtk8p8oMFYWZ9/MN4k3gCfD2VXdJLQMk+PtFLhTRlT
-	5NCE3QAw/J3/9QUd68XwGt8aHROUmyiA0dALm6XG7OpocBVYAiOAnpIN0JOrHn6J91jARHA3oUhQD
-	uUYHa1LgGn7lx15dH9hg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=w/3jaz12s8HcxetPsfb76nA2YGDNz/1hieiX1akyfpo=; b=VjNl6RCpdyWnux
+	fQKTe+FmCbT1Oy6gDmkFPVhELpynYUEly27K43RIqR781UC9MvsLZUqPlgKwVz+CCKmKjE1EDEm8s
+	/7+UoMqA6wnn1lvQXMlnLJCkv8w/x1n+ijT4pY3TICrZRZzbHpwmJ5NtQy2Ek4qNSltV/zRAj8hsk
+	wCrRyVr2FDipkus8I49UcYZLpqwg1VwKaqdfm4ub+2RXArfb3vAJ2qLOxXCHGMsP1taFd7N4KS9ju
+	K3CmlMiTYO/2y+6fyUmMs/GndU57O5bZ4W8PzK6FuWVgW0l12y4p+X0A9icqvlAkchKg6oIa98O3S
+	wqH0nPSuQjkHI7gN3Zzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1siTlr-00000006BeW-2DRr;
-	Mon, 26 Aug 2024 07:04:11 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1siTms-00000006Bvb-3PXx;
+	Mon, 26 Aug 2024 07:05:14 +0000
+Received: from mail-sgaapc01on2061b.outbound.protection.outlook.com ([2a01:111:f400:feab::61b] helo=APC01-SG2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1siTkU-00000006ApI-2wf0;
-	Mon, 26 Aug 2024 07:02:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=LxF225/K/unP9JE6t/pV9AyRKMos1QHjLabCCQuOXXY=; b=ol4YDqfm34JyfJTvyLUxjGuwYh
-	hfrOMqmDv3t9924DE7zspd3//EEx9STiVk4tobplWVBsOetP6RzlAZN4Iyg5PGtOKvsv1+d/79WF5
-	5h0JpVNl5i9SCW54z85k93ZKqYEjwG+3p03fmgmhH4DYbKQGQ9+EPm3J2SsnVQWNSDJ8YwEiZb5st
-	Sz1N27uaKbaNP4clyh1d3wIxqlhvFLGQU0Pziu4eSad6RYC0ckcreDwrXhDrgd36aNwGduJneuGpQ
-	z5oyiuUmzq1aQY3Jeir5DNqgI9sTkwCzF10atiiXAYH845Cj3Z/QJM10vbHHecKZGPeGM9FbJUlc5
-	JOAVbYFQ==;
-Received: from sin.source.kernel.org ([145.40.73.55])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1siTkM-0000000AZPn-3XhV;
-	Mon, 26 Aug 2024 07:02:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id BCB08CE0D07;
-	Mon, 26 Aug 2024 07:02:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7310EC4CC21;
-	Mon, 26 Aug 2024 06:55:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1724655371;
-	bh=1IVaPMd4I4fDfGF1ACfZ1lO9QxF1trpdGcxo9QBF4dI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=eEXWu1rKRnZ648Ah+x/1BHnotq5Ln0fHqGprrk/r5JBNYEHatBGvJrJociOpwu76B
-	 aZf6asJPDlGZg/jbjaINxlgmRQgSqtzNvMEGQW1yfKDx/eRPw4h5498wpkylKQMGwF
-	 6ik8WsFe6xb4iUQGRa6QVkB48hCx3+0QVmX1P1sO40K5nOnoLaCUvsYe9tt8SMyXJN
-	 NX7HI9ihImLp5tA/BMIzq0nTRJMAdNRlk5OyHkilumvLHOyzu3rzeAoFqtfiiRbQqp
-	 qizWmDiaWIyxFsVcbhSIUXn1ghK+zdzLlqjG04+bjJA0HiiGMEo9ORCQvDuCHXAmSr
-	 KUgJwhh6Ckf6Q==
-From: Mike Rapoport <rppt@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Andreas Larsson <andreas@gaisler.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Borislav Petkov <bp@alien8.de>,
-	Brian Cain <bcain@quicinc.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christoph Hellwig <hch@infradead.org>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Guo Ren <guoren@kernel.org>,
-	Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Kent Overstreet <kent.overstreet@linux.dev>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Matt Turner <mattst88@gmail.com>,
-	Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Simek <monstr@monstr.eu>,
-	Mike Rapoport <rppt@kernel.org>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>,
-	Song Liu <song@kernel.org>,
-	Stafford Horne <shorne@gmail.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Vineet Gupta <vgupta@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org,
-	linux-alpha@vger.kernel.org,
-	linux-arch@vger.kernel.org,
+	id 1siTkw-00000006B84-3mTw;
+	Mon, 26 Aug 2024 07:03:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IZAeTyR/wjPwhyLuHL6/IL2SYiAQ8y9pYuwcRMUF5+Klqcm4I2vQbsWYTC+kHU/+3tVmNmYwsxkl4HANDVmJHdJq4SFMzWKRUaTy+HjfzExeueOI6h1qGz9Nse5J/gxMW7cvCxFnDq1lElSL6XU9jjQKCMni7hZazorb47DKEyI/kLqOv7JYmKZl5ajuOx8hYlKANBnoNuRIUEKtDPsfOT3VpFDsGw304ibj+dHbf+H89VPGN3onYVAZolCB9f0761iAPOfym5ld5sRF63C6Fd0rTqrXKKFE4vQQdDGkkI8AZ2A/tg2smUO2Sa1vXcML7SqcyvXUNl2Y4p5RuyU3IA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9G4SIElM1iVOlScJgsDjuvZP2BzHL137tu5+ozmC3dc=;
+ b=Cl/52Cf7ivauDcVSq/qDCUwfVgIAD7RqtkHZbkug2AuXcXStXW4yLHd67nn9/iVL1sfwzTxOr17v1PuL6l8G1UDhhFMlp1u6NRyC1H5F+XOfCr7cN4fhHVVsF/Fbo7bJoB5tjuCB6FeniGzdrZ+h/VLns7SEPWnu2spEkQXSxhbnzFzcz6egToZjjQlzTEF1CZk3+rOATw4p5gMo5E6OIoU7rnyPTSHKglbMJmWTBRYC2ITKjQ5sJcBjlotmgRhrb0GsuVBEN9xmtZwqOid5G7B70+gYOp1Pv/6BxInbmScnrLHTYQsgLwkJ5AKtlbn/SgbE/KUfn1SkGo8zMctcdQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
+ dkim=pass header.d=vivo.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9G4SIElM1iVOlScJgsDjuvZP2BzHL137tu5+ozmC3dc=;
+ b=YKjuhnv99tosk2dY8eKP6mDKJAj2/5kH/qy+4WU8QnbAfNI42ncNFyoMjM6788FLZRJeyMPRpNMeTQV9wHos7kEzttWFXvbBrgg0wMV+SHocPFbLD7wpllz9c1TiJiQfu3+xH+CywNwJFBWK4g3g8ZHG7obGRKXiWkHNJ59n2vftnDOqchL7RScrnN0iK0Knn8fThJ0K0o54KOwOTI41pPAqJ5Yqjr0/g/scyXq1YtdSlTMg/2I6K/nKnIJ2OCQ5RjsI/JL5jBGRotVWXxtMlx96NSGWvRMdTkSUSBt2odKAL9YP9igV6n8gK/6rJVpoqx/grcYE8KIFg13I054DeQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=vivo.com;
+Received: from SEZPR06MB5624.apcprd06.prod.outlook.com (2603:1096:101:c8::14)
+ by PUZPR06MB6055.apcprd06.prod.outlook.com (2603:1096:301:106::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7897.24; Mon, 26 Aug
+ 2024 07:02:57 +0000
+Received: from SEZPR06MB5624.apcprd06.prod.outlook.com
+ ([fe80::e837:10e3:818e:bdfd]) by SEZPR06MB5624.apcprd06.prod.outlook.com
+ ([fe80::e837:10e3:818e:bdfd%5]) with mapi id 15.20.7897.021; Mon, 26 Aug 2024
+ 07:02:56 +0000
+From: Lei Liu <liulei.rjpt@vivo.com>
+To: Neal Liu <neal_liu@aspeedtech.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Bin Liu <b-liu@ti.com>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+	Lei Liu <liulei.rjpt@vivo.com>,
+	linux-aspeed@lists.ozlabs.org,
+	linux-usb@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-modules@vger.kernel.org,
-	linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-sh@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org,
-	linux-um@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org
-Subject: [PATCH v2 1/8] mm: vmalloc: group declarations depending on CONFIG_MMU together
-Date: Mon, 26 Aug 2024 09:55:25 +0300
-Message-ID: <20240826065532.2618273-2-rppt@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240826065532.2618273-1-rppt@kernel.org>
-References: <20240826065532.2618273-1-rppt@kernel.org>
+	linux-riscv@lists.infradead.org
+Cc: opensource.kernel@vivo.com
+Subject: [PATCH v2 0/5] usb drivers use devm_clk_get_enabled() helpers
+Date: Mon, 26 Aug 2024 15:02:38 +0800
+Message-Id: <20240826070244.1835-1-liulei.rjpt@vivo.com>
+X-Mailer: git-send-email 2.34.1
+X-ClientProxiedBy: TY2PR0101CA0037.apcprd01.prod.exchangelabs.com
+ (2603:1096:404:8000::23) To SEZPR06MB5624.apcprd06.prod.outlook.com
+ (2603:1096:101:c8::14)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SEZPR06MB5624:EE_|PUZPR06MB6055:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5581a048-c6cf-418f-90e0-08dcc59d1c9c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|52116014|921020|38350700014|41080700001;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?OC5iInawkBwUMk2zZurC3t9s4VPjncKra6vsP8NeqXps22Up6zrIoQEsuFsJ?=
+ =?us-ascii?Q?9zVwYpzUD+NIW8bxo2vvSm2xZ6LkU/7AFaky2sCxomCjq/IgAW7H5azIPLY4?=
+ =?us-ascii?Q?9BmuGkmEj3/c/poceD62cenAMzeb/6D3o5GY+kyslqzZ6EM+YTpgAzVLKlA2?=
+ =?us-ascii?Q?6suLQ/4HE1eI3ldNCDJzD+xYvCdOgs6a111dUXWyxU9kI7RLufFmkGyf/NTa?=
+ =?us-ascii?Q?3aJBU4VSyCu/A4oUHNIL5nFuSOqWRjrsnz7e8Rs/u2nrXUDX/AC0QmV+rwkI?=
+ =?us-ascii?Q?5qJRcTeREG7KFt2hKKBKYl1wgot+wwlvxHO89ift9s5pXDV5ls71+DoaLlQb?=
+ =?us-ascii?Q?zgIPnWtRK4aWC0krxOTM9iKf/UDhEa2mFc7h3IZmH/k02i4q/WTfqfNQMGYK?=
+ =?us-ascii?Q?Doaxt9gWeo6yh5vI70ksNnEDsXeiUN52NnffPQRXUq6FI5Atq9hGvlPQguqf?=
+ =?us-ascii?Q?xkRerypZrFA49APeJPJ83NGtsZatS62d7mYT3VpyD16q2eOfhurh/oKd+Bgk?=
+ =?us-ascii?Q?pq1KuOyqsaKUjFeUf4yyRthM7DeeFHpPQ6k2TBTx1V6PHb/EHYrvGA6xE5yW?=
+ =?us-ascii?Q?uXWROeYYLZ2Rmvxr1rnz3OVI9TLPgCnjm2f4A5D8vtjL7/3d8nUtG3KpnKdv?=
+ =?us-ascii?Q?0McrPhvfqGdSU3K9gyrdmtEmy76U2BpWghmKuldWEIOJBLaz49+uPBEIURaf?=
+ =?us-ascii?Q?cP1ArxxNpr1hCW7jtgQUsSyzm4iv6PAHDh79koGtLR9olpS7CG0SwBQWbfex?=
+ =?us-ascii?Q?trrOxlzE5ofXQenpA/ES1anAB0Pp2Tbey+L6nWEEyAmGBalvHn79gV8eTC+5?=
+ =?us-ascii?Q?mTMtg5mm3/YzOU4djYglQhZBbxaf7VO3yTk6g7UhbFYSjJBxEuiMIXDBlPne?=
+ =?us-ascii?Q?qQaROU1dfTEjYoG76cbWsIRuflLoKpbP7/OqiH9jZBUZHYBnrIQO0J+GKXHn?=
+ =?us-ascii?Q?xSIgme8J9U6/yTkaWZHkuZnmK18GZ3jPjwk4l9BFAJYU/toUozyRm+gjUExf?=
+ =?us-ascii?Q?tcHnQjXPC0oe9sDNt8LT9lmeg4+8p5IsJYL1Qw5DfKJSKAEMdPspR9WkhyHw?=
+ =?us-ascii?Q?5YlwfDHtWg9Q6Zy5SW/wdK5iJgmZinngzsAJbuOP/VnlQQ61ZmzWed/ph6oO?=
+ =?us-ascii?Q?TKdY9L2569l0/mvUnEgNHniUW/Ju+2Lr6PyGjOabkyGOGpYeJRfCuwA+yBRh?=
+ =?us-ascii?Q?sVFY4PjdDNRIZb9PZDhbV8LQGhzlNbc9epAD1LAZTFhRX7Anyuvot8d8UGkw?=
+ =?us-ascii?Q?qc41mrfzgM+Xx41MmD4QRmDLTdyPNxWsbDcnFugyh5I4o5eN3PRB9FDh5YMM?=
+ =?us-ascii?Q?ENpwxzSLkwc1e0N/z+tQ15koSsnGiszh7aQUzVMILRr0LMkphoQQ/WCmlafM?=
+ =?us-ascii?Q?DzMYhm2P1ofVkM0O5Ve6MWKxfZ2jG2W5mJVjwwA4vY6GzVHk8BAJJdh49Moe?=
+ =?us-ascii?Q?4MptdEBjP5JHfMTRDOPOWhoKEMBMgMGr?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR06MB5624.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(52116014)(921020)(38350700014)(41080700001);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?WuFFIGyltUUMAgaeKRA5xdXDR0MIVxJgadAU9iJaqv2cCl0AN6nXIMBjSeK3?=
+ =?us-ascii?Q?4hcGrw/em/dkDONYGxGivOWciI3iuDq14rDJi/TtvEQOhOvDPSF3C6MVezad?=
+ =?us-ascii?Q?Fw5cP+u2aoZ1LsoAynZoftP9FnbkHw7lk75QCE/qTWwPMohhXNn3PGTgdhbz?=
+ =?us-ascii?Q?WFky7J4PBAAxV88fd8zJQlf2vwT1/YT7roZl/B+IdVXGTSmUIv92axhaFY8k?=
+ =?us-ascii?Q?5UoLoBHxYL174h/XMzX9L4blZto6ndlSJd7vfJy4lf6ExYNTyRRv7cAw4JG6?=
+ =?us-ascii?Q?B+T2qiqfP37pPV2xfpORrOHZge7YeQMFX3ctaAyjYLOl9RihCuQSxMdaqljV?=
+ =?us-ascii?Q?cJnlktRoWFMLZw2ubZCrU7xzbxMZrYgpM5xXmI6fkA9e08zswAdMogY4HFCK?=
+ =?us-ascii?Q?UyzEbLT+n8kc6JovKs4dJtQRBhv/Xs8U51zpLDZelbZMpb/P/Peeg567pTC8?=
+ =?us-ascii?Q?Fl6OVKoJ6w53hv6YuqsyZH+KLb7Dz6FPPm9QDjY9zCqz8pkqs802AgB6HZ+b?=
+ =?us-ascii?Q?K4kxyZFhcACs1PEWqJw8bokWjoJII+7LVaCvQAn3V5u6TQSFVofwWLpg1btn?=
+ =?us-ascii?Q?u9ZKOnes8xlvpFMMXE6Ki77PhuM/nyOJZrXoaOGdfJbRXiHdCLLR/xqq++Xt?=
+ =?us-ascii?Q?H2TFmqhNE4yF/7mYbVUpfqOw+XS/0ttbUmnPtpg8dEaJEPFFFACSmUHJDNiV?=
+ =?us-ascii?Q?AoWH/HHieOKO4eCE82t3V0WYbjCeVePUveTsJk2ZF7w1rLBsAwqGj09SXITq?=
+ =?us-ascii?Q?D4gCMceogk1rGv2rHV5GA6Ce5r/p/rn9ZPCpmd1DGywHEImOZ4IlpqJcIAK/?=
+ =?us-ascii?Q?WSqZ4rTVb1S7PJ+e5/4KnQpDN+apaMLqTwO94viskMZ7Pr6l2PFmcwJjZbWH?=
+ =?us-ascii?Q?9qJYtUJDsjkeH2d6fleArnF6SYnUsBDukWyR7SI8rq6FHJ4jyDuMr4aNwM/4?=
+ =?us-ascii?Q?K+uX3yw0MaLYPv+lB0Ud1aINUm5O9LZfUgnsl99go+FVWOC40yP3Hz69t5X7?=
+ =?us-ascii?Q?OSdvY7UVGnvM5ac1e9s8CIjA1RribatQrl4kvIk8VZEV3/r0SHOJszFyZCUd?=
+ =?us-ascii?Q?RKx91mYbFBVPblcO4dAqxQN2navfEZ099tk0ucMdH4KNr7tRzKmh7cn+F8tv?=
+ =?us-ascii?Q?zwpZmtDKbEvJiSMBb5hg45mI1bOYA0RIUFvpcBUNPwu5YorSMqjfGGwM9N+S?=
+ =?us-ascii?Q?R0V7M1OSc0bnWsa0TagRIrUC300AgJf2rqTCJ8YDsIlUYdTyAHEqvTs9LQ6I?=
+ =?us-ascii?Q?Iq69XDb0kLH36hcZZ38GqnhCEBPdbs8w+smFlVoqPmTmvVk7Mj4zf3+/EQ6S?=
+ =?us-ascii?Q?6g43+YWz9e7m3D7g3+AhX1W1zGoYYwN7p/Ma50BrXgKwHHWyFZT1sxv8Or9N?=
+ =?us-ascii?Q?xqo6iImhZKQzzzUOBB1PEZbBuAtR2JaAIabfEdYeFw+4hiZy/Ni0t+CbO1hI?=
+ =?us-ascii?Q?k+t3vP/lk8QqWsiQ7Dcaw+bKCWYpFy+BnGKt6Me46YyVGkGUsjfsFF3NtBJf?=
+ =?us-ascii?Q?nv29P2XlAtNNrUu/D9JCEdj1Xmik/mhdh5ngYSn13RQkPaOMM4PpaMblwBMR?=
+ =?us-ascii?Q?wmjOEPViMBGVMIiJT+4MxIXrB0KtVo2A1dJh4Br2?=
+X-OriginatorOrg: vivo.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5581a048-c6cf-418f-90e0-08dcc59d1c9c
+X-MS-Exchange-CrossTenant-AuthSource: SEZPR06MB5624.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Aug 2024 07:02:56.3476
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ElUZ5DyEIQxSBeUDS5+4D2UMdpmuz2fiBnRxRQ21qCo5XZkP+EZv+yTxcmqU8JidBoHUJ7B+CCi6LS/5X5yvrg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PUZPR06MB6055
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240826_080243_971624_77AFA078 
-X-CRM114-Status: GOOD (  13.73  )
+X-CRM114-CacheID: sfid-20240826_000315_481003_522DD366 
+X-CRM114-Status: UNSURE (   6.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,124 +169,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+The devm_clk_get_enabled() helpers:
+    - call devm_clk_get()
+    - call clk_prepare_enable() and register what is needed in order to
+     call clk_disable_unprepare() when needed, as a managed resource.
 
-There are a couple of declarations that depend on CONFIG_MMU in
-include/linux/vmalloc.h spread all over the file.
+This simplifies the code and avoids calls to clk_disable_unprepare().
 
-Group them all together to improve code readability.
-
-No functional changes.
-
-Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- include/linux/vmalloc.h | 60 +++++++++++++++++------------------------
- 1 file changed, 24 insertions(+), 36 deletions(-)
+The files ux500.c, mpfs.c, and pxa27x_udc.c have incorrect usage of 
+certain interfaces due to the lack of synchronization during the 
+commit updates. These issues have been corrected in the v1 version.
 
-diff --git a/include/linux/vmalloc.h b/include/linux/vmalloc.h
-index e4a631ec430b..c614631a31cb 100644
---- a/include/linux/vmalloc.h
-+++ b/include/linux/vmalloc.h
-@@ -134,12 +134,6 @@ extern void vm_unmap_ram(const void *mem, unsigned int count);
- extern void *vm_map_ram(struct page **pages, unsigned int count, int node);
- extern void vm_unmap_aliases(void);
- 
--#ifdef CONFIG_MMU
--extern unsigned long vmalloc_nr_pages(void);
--#else
--static inline unsigned long vmalloc_nr_pages(void) { return 0; }
--#endif
--
- extern void *vmalloc_noprof(unsigned long size) __alloc_size(1);
- #define vmalloc(...)		alloc_hooks(vmalloc_noprof(__VA_ARGS__))
- 
-@@ -262,12 +256,29 @@ static inline bool is_vm_area_hugepages(const void *addr)
- #endif
- }
- 
-+/* for /proc/kcore */
-+extern long vread_iter(struct iov_iter *iter, const char *addr, size_t count);
-+
-+/*
-+ *	Internals.  Don't use..
-+ */
-+extern __init void vm_area_add_early(struct vm_struct *vm);
-+extern __init void vm_area_register_early(struct vm_struct *vm, size_t align);
-+
-+int register_vmap_purge_notifier(struct notifier_block *nb);
-+int unregister_vmap_purge_notifier(struct notifier_block *nb);
-+
- #ifdef CONFIG_MMU
-+#define VMALLOC_TOTAL (VMALLOC_END - VMALLOC_START)
-+
-+extern unsigned long vmalloc_nr_pages(void);
-+
- int vm_area_map_pages(struct vm_struct *area, unsigned long start,
- 		      unsigned long end, struct page **pages);
- void vm_area_unmap_pages(struct vm_struct *area, unsigned long start,
- 			 unsigned long end);
- void vunmap_range(unsigned long addr, unsigned long end);
-+
- static inline void set_vm_flush_reset_perms(void *addr)
- {
- 	struct vm_struct *vm = find_vm_area(addr);
-@@ -275,24 +286,14 @@ static inline void set_vm_flush_reset_perms(void *addr)
- 	if (vm)
- 		vm->flags |= VM_FLUSH_RESET_PERMS;
- }
-+#else  /* !CONFIG_MMU */
-+#define VMALLOC_TOTAL 0UL
- 
--#else
--static inline void set_vm_flush_reset_perms(void *addr)
--{
--}
--#endif
--
--/* for /proc/kcore */
--extern long vread_iter(struct iov_iter *iter, const char *addr, size_t count);
--
--/*
-- *	Internals.  Don't use..
-- */
--extern __init void vm_area_add_early(struct vm_struct *vm);
--extern __init void vm_area_register_early(struct vm_struct *vm, size_t align);
-+static inline unsigned long vmalloc_nr_pages(void) { return 0; }
-+static inline void set_vm_flush_reset_perms(void *addr) {}
-+#endif /* CONFIG_MMU */
- 
--#ifdef CONFIG_SMP
--# ifdef CONFIG_MMU
-+#if defined(CONFIG_MMU) && defined(CONFIG_SMP)
- struct vm_struct **pcpu_get_vm_areas(const unsigned long *offsets,
- 				     const size_t *sizes, int nr_vms,
- 				     size_t align);
-@@ -307,22 +308,9 @@ pcpu_get_vm_areas(const unsigned long *offsets,
- 	return NULL;
- }
- 
--static inline void
--pcpu_free_vm_areas(struct vm_struct **vms, int nr_vms)
--{
--}
--# endif
--#endif
--
--#ifdef CONFIG_MMU
--#define VMALLOC_TOTAL (VMALLOC_END - VMALLOC_START)
--#else
--#define VMALLOC_TOTAL 0UL
-+static inline void pcpu_free_vm_areas(struct vm_struct **vms, int nr_vms) {}
- #endif
- 
--int register_vmap_purge_notifier(struct notifier_block *nb);
--int unregister_vmap_purge_notifier(struct notifier_block *nb);
--
- #if defined(CONFIG_MMU) && defined(CONFIG_PRINTK)
- bool vmalloc_dump_obj(void *object);
- #else
+version 2 changes
+1.ux500: Incorrect usage of clk_prepare_enable() should be corrected to
+  devm_clk_get_enabled().
+2.mpfs: Incorrect usage of devm_clk_get_enable() should be corrected to
+  devm_clk_get_enabled().
+3.pxa27x_udc: Incorrect usage of clk_prepare_enable() should be
+  corrected to devm_clk_get_enabled().
+
+Lei Liu (5):
+  usb: aspeed_udc: Use devm_clk_get_enabled() helpers
+  usb: pxa27x_udc: Use devm_clk_get_enabled() helpers
+  usb: r8a66597-udc: Use devm_clk_get_enabled() helpers
+  usb: mpfs: Use devm_clk_get_enabled() helpers
+  sb: ux500: Use devm_clk_get_enabled() helpers
+
+ drivers/usb/gadget/udc/aspeed_udc.c   |  9 +--------
+ drivers/usb/gadget/udc/pxa27x_udc.c   |  6 +-----
+ drivers/usb/gadget/udc/r8a66597-udc.c | 16 ++++------------
+ drivers/usb/musb/mpfs.c               | 22 ++++++----------------
+ drivers/usb/musb/ux500.c              | 18 ++++--------------
+ 5 files changed, 16 insertions(+), 55 deletions(-)
+
 -- 
-2.43.0
+2.34.1
 
 
 _______________________________________________
