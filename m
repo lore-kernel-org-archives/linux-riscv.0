@@ -4,92 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC946C5321D
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Aug 2024 16:37:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05630C5321E
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Aug 2024 16:53:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1AzxVMn4Y2J1Ay3x6PoK1fvuA8Pju4i0hOPKiXd6UnE=; b=Vo65Pxt+gfRZ32
-	dr1p2NNrSZSi6KQT46E3wawqO51SNojMF9Q9843qZmTRjLSSp+0HfS48kRcxlZR2CtcGCffNWXsob
-	gDw8mLm5d44XskbeV1XpCXpjvwxiC9WkvjAkMT7B31MysGPDnDIOHfMQH2V/fkoad7DXfuHMlL+Q6
-	0mWdHnQa5RPGf+byWa+ULisFpWMYc6JrL/mstUFwhT3xgqAGaadeADtYH0jqe9OWPB+9FjHegGVuc
-	pvZqyAKgTQWAhf9gYBbsVu4GbLLSJ8weOg9GtubSCD/RND/WUvEtxDXlBDbwpEYXxHA2oL2qZhxaF
-	jzE/H1SjUosl0Sxffmhw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Ff+De+4yJMjonZOe4h80atb0oZQjmO2PV+vDnOk4jwU=; b=NJg80ovoT1nhFt
+	K0ve295tCkYdO66ICPMPqeseBzeXIaGQ6Oycn2HS5W98RqEBhGcTp7ak9HaE8HwQ14C5eB1Uc3Ur5
+	yZw4EcfOspzPbvbjnjbSLiDT2/HFGt2nSpxpkNy39Du0j0ZTsGN40e8SXBYKjyrmkYHOWYzeeIbNZ
+	+BVOclOLsSXvfHP3OMz/e5ARNEbDAEFSauWCIy1trO6vn9ikI4hhJa+ZT44lm74Ysey3ssK2kx5bE
+	Dd8xfvYmXemMp99WmJUOYz3l2ZFjM0BKcUgH7xYNxoIICBoZx7OsAofWkEi/EC74y5Q7pyLNDDI+l
+	yMgmKhbJ6MHoevTafBRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sicin-000000082As-1zMA;
-	Mon, 26 Aug 2024 16:37:37 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1sicxk-000000085j2-3Hdp;
+	Mon, 26 Aug 2024 16:53:04 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sici8-000000081xP-3Vuz
+	id 1sicww-000000085an-3aE9
 	for linux-riscv@lists.infradead.org;
-	Mon, 26 Aug 2024 16:36:58 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-7bb75419123so2940983a12.3
-        for <linux-riscv@lists.infradead.org>; Mon, 26 Aug 2024 09:36:56 -0700 (PDT)
+	Mon, 26 Aug 2024 16:52:16 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-36d2a601c31so2736232f8f.0
+        for <linux-riscv@lists.infradead.org>; Mon, 26 Aug 2024 09:52:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1724690215; x=1725295015; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=vwEY/VtoVmU+E8jst/8XYF4V03csuvmXOzOLHGK9FuU=;
-        b=gtdPC3fteEduYc+etNfCZPrCB8o3h3drdhpuLwBtfp2L7e88GVEHxYez3EbLjz62uB
-         av0R5szpBdSZnsDYvRabzWB0peU0hIlEFJfTsMPf2RrRS2lNLrjjfxdTKreIeuVrl9E6
-         3wOaQ33J+3v1yvrxr9WQ9vvcQG2MNo0p8iZLjb8cuAN/QvwHiihSPeghn1JMcLTRe/bM
-         mQnW6O9+DTcS9TxP8thjQwfAS7V0fNiwspZzL06TzSJwuzHMVSOoAi9ELXQn7lC9WsvJ
-         Ku4bjzJSCMZaszXyRRo2BZn63JtGdMJtlX1INad70W4wAP7/354ybiv7O5tPkLF81zIJ
-         5gKA==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1724691133; x=1725295933; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=BL9JjpcnqKHeua2e3XbD0fdD08HoTxgLl7O829TDGu4=;
+        b=z3lkgDA0MwA1oXGSXsdLLW2HRdCY8TYXQ3er+LosT2l8jJPKrX0lZeH1cAI/PjA+Hp
+         l3WPOAJmW2wJa1xsW4OmwnJbh2p3xxyFpsv0E9W5Ng39AONulBjjsfa4JsI0Ahu6EKkt
+         CHwmYWS9sFivHF320peRZJPvJmXx/ZSgj3UB3p1+yvHPzozUVbM9Jw7a0uxdj97fSTDG
+         U3uHEfo8+Ms7Et5Osl3FOUie4IWrwXk+g88y+JneGGFQHl2P/fj91N7ADy4mLbXT+N4H
+         0efjbnQos9wrugeKYk/5Habn7rY52ritaWpJDHj6P+X+bYtRabfIQ612CiDEd4yOTAx9
+         jmzw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1724690215; x=1725295015;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=vwEY/VtoVmU+E8jst/8XYF4V03csuvmXOzOLHGK9FuU=;
-        b=K1yATBdLaHt9xV6INUWswUrqoLcNb8H/uePIlNHTlr+VXFVDcjfsUPeS0daKmUiftR
-         9cOWgB528oNfn853vgMh5mtN6Ls7e4eDogKhAaNOoyYhV9bsJ9sEKVreKOSXKXM4PCfV
-         nnCs2htdbxLJ44kb/33t3sq7Wnex06LBNrbS/fl9xhL3yLK9M8VadbNUq8oEFvBXjOkb
-         mQT5RKSEwZi1w5Iem9zNJEn385l0u71i9aSH29J2V5nX4ZB6nW0Qn9aCIi2yH59i/dHS
-         lczOCe8mv6hYOcsWzxnFNwXAtmJoIETWwYWh87qipHfwyMsleqHBafaIv8jctdR9qgyU
-         70DA==
-X-Forwarded-Encrypted: i=1; AJvYcCXzhoQdUZ06Reb2tnSxOWgVNCCm7YrQoPL9l9C/XBDOzu3DlrsnH9vRqLNpJMNKuZJxg5SfksxrGNQinw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwEaQoYYa68N5Qixrb6opI8KskmVoM1nujf5v0Vxou71XEnsppQ
-	AL05CYxH/2TO7OS+jsm9n3sxllrksAY2P6W/WBjCEWKOB3Rk+qNZhMkQB0G+a/s=
-X-Google-Smtp-Source: AGHT+IG8QhmkiiyjHn7CNuzuO3cKEPwPnStUmNniRFxIT45XKmbFcpuLujqkeUl+VhROGvvkE85iNg==
-X-Received: by 2002:a05:6a21:3401:b0:1c6:a777:4cfa with SMTP id adf61e73a8af0-1cc8b475035mr8486714637.13.1724690215233;
-        Mon, 26 Aug 2024 09:36:55 -0700 (PDT)
-Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7143434052dsm7174708b3a.217.2024.08.26.09.36.53
+        d=1e100.net; s=20230601; t=1724691133; x=1725295933;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=BL9JjpcnqKHeua2e3XbD0fdD08HoTxgLl7O829TDGu4=;
+        b=JvEXi0HdqvmwxQqR8udmwkuBbd3rfZ/Rth9Eoegbso2pVMlFnug/7Yipco3BpR4DZE
+         X9ZSHk/WkPSQRpybtMvsd8epjKfy+zPEIz1hz18AkWN7OaqCqjaUZsLxCEMUl58vDRBP
+         dlWXklyWwhJudZBU+9UKEueYWGQc6wAP5P1KL0KNZ4YxRYKquIOZMVRDXl/A9TK7Jb8y
+         KvdbitJSTngNFzUPoDNFBDoz2plin9RcE/2FjpQh+0SG13JDwhIRIjgtV4Dvbkmgxjxf
+         j9LaO/KWwOZn1F38myfiQ2yJRV+RzqJN+TIfEBo5n6negDfH4XTLnbyWfZUfdBCAbcGR
+         aD7Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVmXZ5OdSt+Bd99vvfmNFdqaIsAE9aL53FeA9FhxMdaFmOZSweCzW9OIE7Ddw4wW6JLJ0aptU7P7v+smA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxahuxl/WH28gjhSw0BjVMCzhIXCWP6cF9sLQHnfnHrEc2OtJq7
+	52oZaZivLJrmpyUp4f6BzlXT6/gV4UibAK1jlFVWeaocONaZvP1LXyWr+a98MOs=
+X-Google-Smtp-Source: AGHT+IHgPww2vGsUStPy4YUKa5Ssz7uxojN5Zc8AsHlLup59YaFfKd8Gz+nUHC6X++d8ON3xrClYDw==
+X-Received: by 2002:a5d:6885:0:b0:371:8bc9:1682 with SMTP id ffacd0b85a97d-3748c7dcc10mr183591f8f.33.1724691132518;
+        Mon, 26 Aug 2024 09:52:12 -0700 (PDT)
+Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3730811044bsm11137226f8f.23.2024.08.26.09.52.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Aug 2024 09:36:54 -0700 (PDT)
-From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Mon, 26 Aug 2024 09:36:45 -0700
-Subject: [PATCH 1/3] Revert "RISC-V: mm: Document mmap changes"
+        Mon, 26 Aug 2024 09:52:12 -0700 (PDT)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Atish Patra <atishp@atishpatra.org>,
+	Anup Patel <anup@brainfault.org>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Nam Cao <namcao@linutronix.de>
+Subject: [PATCH -fixes] drivers: perf: Fix smp_processor_id() use in preemptible code
+Date: Mon, 26 Aug 2024 18:52:10 +0200
+Message-Id: <20240826165210.124696-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Message-Id: <20240826-riscv_mmap-v1-1-cd8962afe47f@rivosinc.com>
-References: <20240826-riscv_mmap-v1-0-cd8962afe47f@rivosinc.com>
-In-Reply-To: <20240826-riscv_mmap-v1-0-cd8962afe47f@rivosinc.com>
-To: Jonathan Corbet <corbet@lwn.net>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Shuah Khan <shuah@kernel.org>, Yangyu Chen <cyy@cyyself.name>, 
- Levi Zim <rsworktech@outlook.com>, Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, 
- linux-kselftest@vger.kernel.org, Charlie Jenkins <charlie@rivosinc.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1682; i=charlie@rivosinc.com;
- h=from:subject:message-id; bh=XqOUkInmaOdlhgabGcz+808CcLq83Htv813NZMtziMU=;
- b=owGbwMvMwCHWx5hUnlvL8Y3xtFoSQ9qZ9crHD5wOM37Qun7plPRMb+9NoTsZH2gXqZrrqPotV
- QpY5a7UUcrCIMbBICumyMJzrYG59Y5+2VHRsgkwc1iZQIYwcHEKwEQstzH8lbiy35Wr1fNig5vi
- i2+/j7/w4mc/YXtzUcOKwzUz5Mqf2zP8s8kSC61Yeb3Ztl4vi8N6j4Pw6Rm1q/s5plxPsLT+t/E
- EPwA=
-X-Developer-Key: i=charlie@rivosinc.com; a=openpgp;
- fpr=7D834FF11B1D8387E61C776FFB10D1F27D6B1354
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240826_093656_918219_01A5D5B0 
-X-CRM114-Status: GOOD (  10.46  )
+X-CRM114-CacheID: sfid-20240826_095214_898134_3B86C28D 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,41 +99,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This mmap behavior caused unintended breakages so the behavior has been
-changed.
+As reported in [1], the use of smp_processor_id() in
+pmu_sbi_device_probe() must be protected by disabling the preemption, so
+simple use get_cpu()/put_cpu() instead.
 
-Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+Reported-by: Nam Cao <namcao@linutronix.de>
+Closes: https://lore.kernel.org/linux-riscv/20240820074925.ReMKUPP3@linutronix.de/ [1]
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 ---
- Documentation/arch/riscv/vm-layout.rst | 16 ----------------
- 1 file changed, 16 deletions(-)
+ drivers/perf/riscv_pmu_sbi.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/arch/riscv/vm-layout.rst b/Documentation/arch/riscv/vm-layout.rst
-index 077b968dcc81..eabec99b5852 100644
---- a/Documentation/arch/riscv/vm-layout.rst
-+++ b/Documentation/arch/riscv/vm-layout.rst
-@@ -134,19 +134,3 @@ RISC-V Linux Kernel SV57
-    ffffffff00000000 |  -4     GB | ffffffff7fffffff |    2 GB | modules, BPF
-    ffffffff80000000 |  -2     GB | ffffffffffffffff |    2 GB | kernel
-   __________________|____________|__________________|_________|____________________________________________________________
--
--
--Userspace VAs
----------------------
--To maintain compatibility with software that relies on the VA space with a
--maximum of 48 bits the kernel will, by default, return virtual addresses to
--userspace from a 48-bit range (sv48). This default behavior is achieved by
--passing 0 into the hint address parameter of mmap. On CPUs with an address space
--smaller than sv48, the CPU maximum supported address space will be the default.
--
--Software can "opt-in" to receiving VAs from another VA space by providing
--a hint address to mmap. When a hint address is passed to mmap, the returned
--address will never use more bits than the hint address. For example, if a hint
--address of `1 << 40` is passed to mmap, a valid returned address will never use
--bits 41 through 63. If no mappable addresses are available in that range, mmap
--will return `MAP_FAILED`.
-
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 31a17a56eb3b..25b1b699b3e2 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -1373,11 +1373,15 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
+ 
+ 	/* SBI PMU Snapsphot is only available in SBI v2.0 */
+ 	if (sbi_v2_available) {
++		int cpu;
++
+ 		ret = pmu_sbi_snapshot_alloc(pmu);
+ 		if (ret)
+ 			goto out_unregister;
+ 
+-		ret = pmu_sbi_snapshot_setup(pmu, smp_processor_id());
++		cpu = get_cpu();
++
++		ret = pmu_sbi_snapshot_setup(pmu, cpu);
+ 		if (ret) {
+ 			/* Snapshot is an optional feature. Continue if not available */
+ 			pmu_sbi_snapshot_free(pmu);
+@@ -1391,6 +1395,7 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
+ 			 */
+ 			static_branch_enable(&sbi_pmu_snapshot_available);
+ 		}
++		put_cpu();
+ 	}
+ 
+ 	register_sysctl("kernel", sbi_pmu_sysctl_table);
 -- 
-2.45.0
+2.39.2
 
 
 _______________________________________________
