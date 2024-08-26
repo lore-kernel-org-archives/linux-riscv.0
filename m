@@ -4,78 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E260C5472E
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Aug 2024 17:29:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0BC2C5472D
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Aug 2024 17:36:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lgdHSWT+m3mZuarFVG/x7Cv/9wyyOsdEMgvvB8J4iug=; b=JDjCjn/m5W0Z5k
-	HdIMb6GnPQrvXonWMroD/nrAPxwmyusNN1as95GLfnz0VCT+HSN/ZgYUezH7fcFCnluHf34O8cI2x
-	FnumL9VWPsd/cGvKgsKE9TmYJSDrBPwyt2gXh5ZKBW2aW2H4COEUx522t0MSQQInqlao0Tg4VzF+X
-	glroRWsjFMpH0OonxCIHnt91qrpTa+7ojwY3+qfwAJ2DAZevv0vgki1WCG6eV2eHbQ7UG0D2vYE3g
-	z1FJc6MvDNiAfvCpJyQjZeuHSHJLpQEJg2Q35Ng1GjsXXIm90ffyMFryNjkXU1l0Ce8AJy/ZAyW8p
-	dldAFATOESRNGFtxgIUw==;
+	List-Owner; bh=CTNhlCO0N1A+l5w/965oARKX+FESLVmyl1imGE02Iio=; b=xBCsg6replsM4C
+	LaOevzLhC9KJuvgazkamK9291PPuQ2Ga4CxMUzefrdwFPqJ2z27ZKjZ4CJtVyATzgKUBo/BiVzclr
+	EBfeKtSvtK0EGc9MDblg4Tx5zXdTXIrY5Q4uP1kP54lm5+m6AtRiLRQtJVjnnkcoz0WxpJCf5TUtJ
+	PNt0mx6FFaGgxFcSxr5XCKphnfBaxg9fynU/9jsYZ1ROu6WSBm2I44NloFdBXSy6Lwv2sAUDGm8Yg
+	B9NIVQWL+dkibvEq2sGXAsf2/ReF1ong44l5VqwZB3OsQCEiR3Txx3zckWZXpNsVAzehVhOdx6VC3
+	sRDhzc3lAZsbAMkRzDpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sidX2-00000008DmT-0BuV;
-	Mon, 26 Aug 2024 17:29:32 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1siddD-00000008FQu-1pre;
+	Mon, 26 Aug 2024 17:35:55 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sidWB-00000008DW2-0oGU;
-	Mon, 26 Aug 2024 17:28:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B3469A40480;
-	Mon, 26 Aug 2024 17:28:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0E6AC8B7B5;
-	Mon, 26 Aug 2024 17:28:29 +0000 (UTC)
-Date: Mon, 26 Aug 2024 13:29:09 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Andreas Larsson
- <andreas@gaisler.com>, Andy Lutomirski <luto@kernel.org>, Arnd Bergmann
- <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>, Brian Cain
- <bcain@quicinc.com>, Catalin Marinas <catalin.marinas@arm.com>, Christoph
- Hellwig <hch@infradead.org>, Christophe Leroy
- <christophe.leroy@csgroup.eu>, Dave Hansen <dave.hansen@linux.intel.com>,
- Dinh Nguyen <dinguyen@kernel.org>, Geert Uytterhoeven
- <geert@linux-m68k.org>, Guo Ren <guoren@kernel.org>, Helge Deller
- <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar
- <mingo@redhat.com>, Johannes Berg <johannes@sipsolutions.net>, John Paul
- Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Kent Overstreet
- <kent.overstreet@linux.dev>, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Luis Chamberlain <mcgrof@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Masami Hiramatsu <mhiramat@kernel.org>, Matt Turner <mattst88@gmail.com>,
- Max Filippov <jcmvbkbc@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>,
- Michal Simek <monstr@monstr.eu>, Oleg Nesterov <oleg@redhat.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Peter Zijlstra <peterz@infradead.org>,
- Richard Weinberger <richard@nod.at>, Russell King <linux@armlinux.org.uk>,
- Song Liu <song@kernel.org>, Stafford Horne <shorne@gmail.com>, Thomas
- Bogendoerfer <tsbogend@alpha.franken.de>, Thomas Gleixner
- <tglx@linutronix.de>, Uladzislau Rezki <urezki@gmail.com>, Vineet Gupta
- <vgupta@kernel.org>, Will Deacon <will@kernel.org>, bpf@vger.kernel.org,
- linux-alpha@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
- linux-hexagon@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-mm@kvack.org, linux-modules@vger.kernel.org,
- linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-trace-kernel@vger.kernel.org,
- linux-um@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- loongarch@lists.linux.dev, sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v2 5/8] ftrace: Add swap_func to ftrace_process_locs()
-Message-ID: <20240826132909.306b08fc@gandalf.local.home>
-In-Reply-To: <20240826065532.2618273-6-rppt@kernel.org>
-References: <20240826065532.2618273-1-rppt@kernel.org>
-	<20240826065532.2618273-6-rppt@kernel.org>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	id 1sidZJ-00000008ELv-2mRv;
+	Mon, 26 Aug 2024 17:31:56 +0000
+Date: Mon, 26 Aug 2024 19:31:43 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1724693511;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=AkZcASK4ZhVjM72PRr7wbPEwfXLYJAc1hlsf/gSb5Wg=;
+	b=GlqAxXBRPQBeqRIdp7YEFkKGSYyjuJ95hzkSmIq8lVdpmRgSdpDAHvFFHTphEHIF7FHTDM
+	5PSz07IXyHDeDZ+Y2o6QF5z6Y+A9eOCKTlRVTYuvpDCxqslD/1ocwKqQCh+Ot66v2HcfEN
+	PbuRXrTyzdJSOiCfA7xVbFpUW+TXGmFG5s/1d3+R0BWB6DRAovv3+ZvIPBSQFu/VTTu96g
+	QGoPH9I73b7kwAlLkRk0xk0o4j3dNIPj9nbGr0jY7yJuxyh3iUl2ELSfIC1IIP7y5st4dw
+	dMFt/Ke/hDrZSr1oc/Wnv+oC+Vg/OHokmAw8mrlbwSPRGfibdNx0eJdwDq/qFA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1724693511;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=AkZcASK4ZhVjM72PRr7wbPEwfXLYJAc1hlsf/gSb5Wg=;
+	b=SqSvGkEU6QOjP5krxwFS/EKg/yysjqLKhkJPWnYHRP++vjK9SQmcVSs4lwYF4azefHCQPb
+	dw2acvrVcW6ZA7CQ==
+From: Nam Cao <namcao@linutronix.de>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH -fixes] drivers: perf: Fix smp_processor_id() use in
+ preemptible code
+Message-ID: <20240826173143.CxUkM4j0@linutronix.de>
+References: <20240826165210.124696-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240826165210.124696-1-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240826_102839_371595_5B8E8B78 
-X-CRM114-Status: GOOD (  22.11  )
+X-CRM114-CacheID: sfid-20240826_103153_859673_43789FDB 
+X-CRM114-Status: UNSURE (   7.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,72 +81,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 26 Aug 2024 09:55:29 +0300
-Mike Rapoport <rppt@kernel.org> wrote:
-
-> From: Song Liu <song@kernel.org>
+On Mon, Aug 26, 2024 at 06:52:10PM +0200, Alexandre Ghiti wrote:
+> As reported in [1], the use of smp_processor_id() in
+> pmu_sbi_device_probe() must be protected by disabling the preemption, so
+> simple use get_cpu()/put_cpu() instead.
 > 
-> ftrace_process_locs sorts module mcount, which is inside RO memory. Add a
-> ftrace_swap_func so that archs can use RO-memory-poke function to do the
-> sorting.
+> Reported-by: Nam Cao <namcao@linutronix.de>
+> Closes: https://lore.kernel.org/linux-riscv/20240820074925.ReMKUPP3@linutronix.de/ [1]
+> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 
-Can you add the above as a comment above the ftrace_swap_func() function?
+Tested-by: Nam Cao <namcao@linutronix.de>
 
-Thanks,
+I think this also needs:
+Fixes: a8625217a054 ("drivers/perf: riscv: Implement SBI PMU snapshot function")
 
--- Steve
-
-> 
-> Signed-off-by: Song Liu <song@kernel.org>
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> ---
->  include/linux/ftrace.h |  2 ++
->  kernel/trace/ftrace.c  | 13 ++++++++++++-
->  2 files changed, 14 insertions(+), 1 deletion(-)
-> 
-> diff --git a/include/linux/ftrace.h b/include/linux/ftrace.h
-> index fd5e84d0ec47..b794dcb7cae8 100644
-> --- a/include/linux/ftrace.h
-> +++ b/include/linux/ftrace.h
-> @@ -1188,4 +1188,6 @@ unsigned long arch_syscall_addr(int nr);
->  
->  #endif /* CONFIG_FTRACE_SYSCALLS */
->  
-> +void ftrace_swap_func(void *a, void *b, int n);
-> +
->  #endif /* _LINUX_FTRACE_H */
-> diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
-> index 4c28dd177ca6..9829979f3a46 100644
-> --- a/kernel/trace/ftrace.c
-> +++ b/kernel/trace/ftrace.c
-> @@ -6989,6 +6989,17 @@ static void test_is_sorted(unsigned long *start,
-> unsigned long count) }
->  #endif
->  
-> +void __weak ftrace_swap_func(void *a, void *b, int n)
-> +{
-> +	unsigned long t;
-> +
-> +	WARN_ON_ONCE(n != sizeof(t));
-> +
-> +	t = *((unsigned long *)a);
-> +	*(unsigned long *)a = *(unsigned long *)b;
-> +	*(unsigned long *)b = t;
-> +}
-> +
->  static int ftrace_process_locs(struct module *mod,
->  			       unsigned long *start,
->  			       unsigned long *end)
-> @@ -7016,7 +7027,7 @@ static int ftrace_process_locs(struct module *mod,
->  	 */
->  	if (!IS_ENABLED(CONFIG_BUILDTIME_MCOUNT_SORT) || mod) {
->  		sort(start, count, sizeof(*start),
-> -		     ftrace_cmp_ips, NULL);
-> +		     ftrace_cmp_ips, ftrace_swap_func);
->  	} else {
->  		test_is_sorted(start, count);
->  	}
-
+Best regards,
+Nam
 
 _______________________________________________
 linux-riscv mailing list
