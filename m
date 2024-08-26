@@ -4,155 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77A4DC5321E
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Aug 2024 09:30:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46DE8C5321D
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Aug 2024 10:01:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=j+sNu52S7VI1+BDUxb35YwJie5ahwyxoWF43wmojwrM=; b=T9xvVC3cC3dPYE
-	pQToa3Gf0XJqXNTu3jKhk3bIz5J7R1hPF3o0HO/iXtNfQsdO+nZxSln9HFotQrQ2Slt5Cbdi68nxm
-	bd9tWXDrg1qnTCMtcCIYzaDFrHFdH12ydEel59RLZFsOfVCao/LKpZB/aGPP+RpdH041kxgia/oAQ
-	6vK3+pgkE+2s/7HvnGG3/Qi3LGu6J8Px+nyJc9ydUO3pnuL/uuJC2PyIk4LZnE53e2Iiuh/drYncn
-	7r0oVGKD5qQ5nf/sh5D4yWnaKASQhTozBD2X85bxJ3Q5q7m0MVkwb24D4HFGJCXe+OcJa2O6ezscW
-	87G2aqkxb3iycbg1iodw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=A3cUWDlkGBDnBrxWs48hFcfDky34TOZZIeTfKjappDs=; b=HZwfy/P6qbf+jV
+	oI1uNYYT/sLsrIZFzgrkAiqG55yzDpHsPRN+amoCxyZI/b/bgkgILXgUXUGU/HaS2YeGr8/JAj3t9
+	NrNL6arMZlETXcgwOpQhwh7PR75Q4B1fPdnJUYkwuIOPBh6e5rTHdr90f+W7jyOFiVamqfkbQnc5F
+	CUNdV2vJsSsD4LjM5O39DaXB04EvRonnGj3hBAdNGQWLj/r9YQ02/XEnWgQstuMoOQ39G25JOtOdc
+	QGedwCFx2lv9dHBeZX/Nd3zTcXuhRuyCfKTtibJMBFfZ3o3SuQ5UDRel7O1CElHbmiQ38et4vip6v
+	f6fFLJY/ErfyS5fDHnwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1siW3H-00000006fb8-2flu;
-	Mon, 26 Aug 2024 09:30:19 +0000
-Received: from mail-psaapc01on20602.outbound.protection.outlook.com ([2a01:111:f400:feae::602] helo=APC01-PSA-obe.outbound.protection.outlook.com)
+	id 1siWXZ-00000006pCi-1V0l;
+	Mon, 26 Aug 2024 10:01:37 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1siUwd-00000006S7u-2hvh;
-	Mon, 26 Aug 2024 08:19:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=E0Cj5DVp/Jfgd90qeyD7BWw4MVaH1K68Kc1M04ExGA4srQ7/WWPDLwTUEIFI0ErMfwVKvZzGpVkLgOPZSpvJ7TUA6poULfJOJJNG/ITr4oLjvZCp6mumtUEpl8GYQ66ltF6Dzxi7AzKDCAe2xUIsngCnvC4gYk6Cn5w5tzkEKxUVQHHzA4thP/0hL5unygs9hDND/J+z/Ou3VdIfoa2xsZrs4zC7jQoGqo0EL6OcqtyHNlAvMRfuBwCTus1+VR6CxJeCwxF+YGnD/x27nKgbOzsm41YiMsa0iXKTZRgs70bcydj0wBHAdLtJsKuTKrmr+LZpeiFCP7aGWyTYAoPJDw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IMvNq01cZxIQRzSvW44AMhazzDa0aH9XVcQg22UIxA4=;
- b=ihTr9Qwd1JFKpouFXA2TFijUgbWMdHLpsskXwx0SkyNOJhfTl4ayo2F8wzHuBRYb/8nKCEmTGldO/NVcHX/dCKM4+wp9Ck6NghI252XOv7TJNhGsEgR/ohASrJpe/3Z7GG/fQg74Eslwd4Zh4ODdvClnRdtlkUZEZEJNz6fefLPPpz65sw46NJJftM7kxdXs3Vi1rfZr6ypztcSKkQV7yZPS4Rv3n7cxPeJjLuoSd0nUNhZ44+3zuJO9EQ97nEmUBZd1SlYH1fXFExJEYzglVsHZ6fCUpbpGlG8/zucl6tflkPnDte3FxItfsB2QwmSqGFVDx01vzqvGtjV+riB9lQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
- dkim=pass header.d=vivo.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IMvNq01cZxIQRzSvW44AMhazzDa0aH9XVcQg22UIxA4=;
- b=hW2Iw662+7ZYv6wKn2JqW09vYEbZ8Z/SsD4EEg35cDcJrS2OVkrCbI3OLEb2gosPdYMd9wHAg8JY+CEsHCF9DWb6IRndMNBPTu7NBMLWAil4cYiR1mv7O79KtoNPYUga+C6zBPwFbwZsnPpN3iLyxAFCQSF6NHObFI3R9FM4Rb7eCnHIrQrH3kgTee4UfezkNrB6XFAlpchsJkWe55voCM703aSRIymbiGycXRlM1hM7YI07dERnZioUqKrrZDpeRoEwbYMnjJABcyOY4X2ArYlkWC2FO1V7/ygGtkUoGrbtDMQ2KaV6J92Ww+X64Cr+RguZ3/o2cDnBUsCD7kr2gw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=vivo.com;
-Received: from SEZPR06MB5624.apcprd06.prod.outlook.com (2603:1096:101:c8::14)
- by SEZPR06MB6230.apcprd06.prod.outlook.com (2603:1096:101:f1::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7875.20; Mon, 26 Aug
- 2024 08:19:13 +0000
-Received: from SEZPR06MB5624.apcprd06.prod.outlook.com
- ([fe80::e837:10e3:818e:bdfd]) by SEZPR06MB5624.apcprd06.prod.outlook.com
- ([fe80::e837:10e3:818e:bdfd%5]) with mapi id 15.20.7897.021; Mon, 26 Aug 2024
- 08:19:13 +0000
-From: Lei Liu <liulei.rjpt@vivo.com>
-To: Neal Liu <neal_liu@aspeedtech.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Bin Liu <b-liu@ti.com>,
-	Lei Liu <liulei.rjpt@vivo.com>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
-	linux-aspeed@lists.ozlabs.org,
-	linux-usb@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
+	id 1siWWA-00000006oYn-2Pzv;
+	Mon, 26 Aug 2024 10:00:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3546AA41C6E;
+	Mon, 26 Aug 2024 10:00:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABF28C51400;
+	Mon, 26 Aug 2024 10:00:01 +0000 (UTC)
+Date: Mon, 26 Aug 2024 13:00:09 +0300
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Shuah Khan <shuah@kernel.org>,
+	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
+	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
+	Szabolcs Nagy <Szabolcs.Nagy@arm.com>, Kees Cook <kees@kernel.org>,
+	"H.J. Lu" <hjl.tools@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Florian Weimer <fweimer@redhat.com>,
+	Christian Brauner <brauner@kernel.org>,
+	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
+	Ross Burton <ross.burton@arm.com>,
+	Yury Khrustalev <yury.khrustalev@arm.com>,
+	Wilco Dijkstra <wilco.dijkstra@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Cc: opensource.kernel@vivo.com
-Subject: [PATCH v3 0/5] usb drivers use devm_clk_get_enabled() helpers
-Date: Mon, 26 Aug 2024 16:18:56 +0800
-Message-Id: <20240826081900.2284-1-liulei.rjpt@vivo.com>
-X-Mailer: git-send-email 2.34.1
-X-ClientProxiedBy: SI1PR02CA0052.apcprd02.prod.outlook.com
- (2603:1096:4:1f5::20) To SEZPR06MB5624.apcprd06.prod.outlook.com
- (2603:1096:101:c8::14)
+Subject: Re: [PATCH v11 25/39] arm64/signal: Expose GCS state in signal frames
+Message-ID: <ZsxSKVAOHQq12YfB@arm.com>
+References: <20240822-arm64-gcs-v11-0-41b81947ecb5@kernel.org>
+ <20240822-arm64-gcs-v11-25-41b81947ecb5@kernel.org>
+ <ZshYTyNbveD7WMyJ@arm.com>
+ <ZshjmuYcejbhaSBg@finisterre.sirena.org.uk>
+ <Zsixz6Y9xWxqaQaV@arm.com>
+ <ZskGqU8BSvR01W30@finisterre.sirena.org.uk>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SEZPR06MB5624:EE_|SEZPR06MB6230:EE_
-X-MS-Office365-Filtering-Correlation-Id: 01437f23-c55b-4820-82d8-08dcc5a7c482
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|52116014|366016|921020|38350700014|41080700001;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ihl1pFr6xIhLUtU+6VNwpFyBF7aq/SF/Tro3+nz7Z2z4551O0WU/Mqw3JVaE?=
- =?us-ascii?Q?xMJCCOGwDwI3g9q58CijQ7s/O/I6Iuzv7rJEeA+hMAthte1c+6+pnrwOXJ+/?=
- =?us-ascii?Q?k2ARDTr+J/IiP+PxpbXQVtm1Hyq/7/WWQuzJAIR0s0vWwumYVAXzDGmAyVes?=
- =?us-ascii?Q?WArlAt/xkkzDC2CVsCe3adwRm6DZbNSwhr1nlZxvvaafLolGl4p4kUOd7tN5?=
- =?us-ascii?Q?9iOxgf2ASPAICtt/QE7qCPeV3LamS3075mag9qo8wcEeBRnjEEcYdr5iVO5q?=
- =?us-ascii?Q?PkrPlstyIVvcg2jxHTfF8MpHxOkvNmXKieErg/sJQmS6Oq7zPFiDaXfXdyfv?=
- =?us-ascii?Q?REy+rwMM3FQ3jUFaaZ1U4yKoCnB8thQOofLzlvBwV8Qm264CMImRfDfdt7+L?=
- =?us-ascii?Q?RkowquNzwaeunNzgslHkxX8za1uneQ7uT81UxCDcwapTO9LV8c/Ta0SJkRwb?=
- =?us-ascii?Q?ql8ssf5XDN3fzzkYUwybiyZ5nitQKMsF/fvGAfHYsWLDDRzCP6mCcDifRO+S?=
- =?us-ascii?Q?dNjNituOfJ7ED9PE4ZMUqoEWdjaUrDbfo8PMVwKzkBDYkUEhrWNBca4nPVXr?=
- =?us-ascii?Q?ssx8g2uptB5a6Q0MYx4u2I19zBYLVwr5oFnIgzQ9rCMO0zfS0FB5nIH0YDxK?=
- =?us-ascii?Q?IS54uDD6LdjICA+Jx9RT0KCDbDsAw6unQ6KBLaZv4Xz4Gq0t44Bj+vyqEeBA?=
- =?us-ascii?Q?EPv3PbGCcUIRjxK7maZPp80n8F6x+Lft8R2j5fvc3D8UdiL5pJ+7Cvci9+hP?=
- =?us-ascii?Q?iER/1QIgsU2y8V14Elf/94tyBF2xOMj7JBWddg2jyfSlfEJa09O4g46e0++o?=
- =?us-ascii?Q?kaRbzC3wRiG8bhxHQp5oIFtoNlXm8tNrKUiGncjvVECHzBlYM6zDNuAMJIWJ?=
- =?us-ascii?Q?PB6aSl0TDQSt9u6kLzcwhiGLVCb1PYXVkczRyKEeVvq8XSSZtTluI67MgPFl?=
- =?us-ascii?Q?f4VuzQFrVAYY0cx5BF1aS/8HQcTc90wQTO5nsZHVyyi0tINySnsYpGNKx9N+?=
- =?us-ascii?Q?Ge2X9ia5GDAdg3CO4C+Uze6mjSpKfbEWjMlzhHM8diQ8JPXe10uZtpsBYrvM?=
- =?us-ascii?Q?EGHshNQHU0RfoClxDeRFjfT+6F+xAMQjkDktd9zZVwnM55UjZ28ddgA/d6Ty?=
- =?us-ascii?Q?MOd3d6C7nEkxLVnhQwDyLY+Wt1tZ3WJ4LdgpOtcPh/he5qdLRI1Sb3yyaELN?=
- =?us-ascii?Q?7gTI74nW990LaY3vq1q9fIW0Wq4xJpeWM2cwMyAj86xygeQlyV6kRgU/Evr8?=
- =?us-ascii?Q?rwKQYEYMmPIJZWoMMiJT5SaucyiPHHYJh61uVZsrfQfGFEBD058kzGUf72kX?=
- =?us-ascii?Q?zJUe3qI9t5Qbc42QmGqA/XarwVarp9V0O4WATQkb33NKCSy6e2nZKthUPi/O?=
- =?us-ascii?Q?eXRRx3ghmtpFsrJ2KRs9lBH/iXEa8wA2TyByOjEYQbNisq1SUe2OXD7xNIS2?=
- =?us-ascii?Q?WariSS+E9lZEGLDRO98v5TnOKBKbsdJU?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR06MB5624.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(52116014)(366016)(921020)(38350700014)(41080700001);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+h22mhtgV2U85YSWDExyPtR0yM5nSep2f6NT8saYkkeZhRGBjXqM0AuFES3K?=
- =?us-ascii?Q?gUoOktNJXP8AJVDSz3jVaaDSJPvAUeCLQGh4EZqGuq0sFeAFTuQsQv8Z+y/D?=
- =?us-ascii?Q?vpczqLYDRNZrUyj+KdQOllPc69WOr5fm5RxQu06thvreyU9FxXyjxhvPx5LX?=
- =?us-ascii?Q?1iSeTa6chKFSc5mNPOWAu9muaXCIao1yPKP3IDLktVLa3uNo6sNzvp/4BhRJ?=
- =?us-ascii?Q?mcQddg81/taPsePylxsq/j+RBucbSuCHdmQbJFml/hPZKPCH/ExZFP9c3FOT?=
- =?us-ascii?Q?SYr5PlcWxsARbAL8rg8hufKtbke8ODBrO1mdOtfXSx669QrCl9ESftqE7mOk?=
- =?us-ascii?Q?eA4eLAyW8tu8gAt/dhw6HbM5V2x/sznst8PVtqvfAv32EAzkeK6qDWu6UoJC?=
- =?us-ascii?Q?EXS6S/5480z5c98ZBcjd+qrugOln4FYE/hRoInpms9u9p4OTO+rb+GEB7vW+?=
- =?us-ascii?Q?mtjgpBqD3xRQo5sXrtyowbVULs+ui+FqUvT6MDuv9N52cxklTbi8arfipg5s?=
- =?us-ascii?Q?zavUzhbN7xxwm7nzZr5MJUqLgtMeSPcCSK1lWN1/LDKMeYn305nRYwLjodZ/?=
- =?us-ascii?Q?5uSR8fps+9DoSOMKYsaQCV70xohxtrbojfUtXouFDqCSrCJzgzyym+p8C8V2?=
- =?us-ascii?Q?EmQuNuDv6Us8uJ9wnBdz6gI+jkiC8UM/kerkxH1D6VryYA4jc4h2NJHvqdno?=
- =?us-ascii?Q?qABl5ELcpbCv4lxLPOW5HHsTdXRjBwzz+kKmxVUWUzYbdK9U65jygiSnDXzH?=
- =?us-ascii?Q?mzCJZ1wutzLjXD2PMjLdCLhYKjaHrZ3WANK/Jg7QuB6NBzvmlODhbOdreWfV?=
- =?us-ascii?Q?cEHTbnpPdRu7mTwSg7aYJE1WXYw26+Cz625oK5Xlnqb/r3q+6g5TNid4CdXQ?=
- =?us-ascii?Q?7WrefU41AbNTunFTl+I00V/LGldpvUfRH++mfAuTB1q//TXc3S8FkC1Nitts?=
- =?us-ascii?Q?59sFcGBZDwyGEvDvZ3I9BhKCq+KdtowIMPGdQL6gfTUb6tu4FLpzhNxJhbE5?=
- =?us-ascii?Q?1Hgl/eTkN0gcxUeLlcsSQJmegNG1jaESobWM/yYDPA0Ya5ZizlpCQNsJw9Au?=
- =?us-ascii?Q?jqAO4Jcw6tTuTvVMbsbH/sWq96oZ2QIuMLIkAFkXrqtOYaskVV1fAOvM3T33?=
- =?us-ascii?Q?HudQqF6aUYFrVZlztgwdTLqqn5rgsKnWJ6QVH5bkCQvjqgFPykiCN1S2TANj?=
- =?us-ascii?Q?3/sWtWaSDBbMMbMg3EmmhOgAZq3D1DV+Uag+PKc/rH7eg8LtoR77Rufmodfb?=
- =?us-ascii?Q?qk5Hx6iQnVZGoHe9piGYg4uE0oz3dR9zn4iXWoLofOZltpLL0jVT1VY2K7Q6?=
- =?us-ascii?Q?SA7CbQ/2GCZb/uSqt5i3YORJf3SgE5uM4/xf5Yvt/mKFJd5lxoHqryAtFaa8?=
- =?us-ascii?Q?OVbZbVMtQwzbVnDx3FKLdF3mDc8RgwHYc5lczCN/zeWqgPlhIN5lM2x6FtT8?=
- =?us-ascii?Q?sJeqBFFTd0V6MOsq+pPaJky+IYXC5mfoquGL0f+KMfZUMplJ/OqOlhS6oh2D?=
- =?us-ascii?Q?4s06SmoXnfNk0+Gp4bcOBvDIwEJ21snIICcP+jRxe0cXK68mLS5KXSbpKEDM?=
- =?us-ascii?Q?nmoUvxl9kXIVNaAcZO97fAQcVe4JL6C8EeWG3XpQ?=
-X-OriginatorOrg: vivo.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 01437f23-c55b-4820-82d8-08dcc5a7c482
-X-MS-Exchange-CrossTenant-AuthSource: SEZPR06MB5624.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Aug 2024 08:19:12.9184
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: rIhUdHxQIG7Ckm000y7dLiE3ApajsXetHk/JLAnBtBaZN9BxlnoBq3OtpgNJUxVeWIifO6YOgYqQ514CdIBltw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR06MB6230
+Content-Disposition: inline
+In-Reply-To: <ZskGqU8BSvR01W30@finisterre.sirena.org.uk>
+X-TUID: eW4byJ2kTpsL
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240826_011923_714638_8259AA98 
-X-CRM114-Status: UNSURE (   7.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240826_030010_776547_6231ECE7 
+X-CRM114-Status: GOOD (  36.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,48 +92,82 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The devm_clk_get_enabled() helpers:
-    - call devm_clk_get()
-    - call clk_prepare_enable() and register what is needed in order to
-     call clk_disable_unprepare() when needed, as a managed resource.
+On Fri, Aug 23, 2024 at 11:01:13PM +0100, Mark Brown wrote:
+> On Fri, Aug 23, 2024 at 04:59:11PM +0100, Catalin Marinas wrote:
+> > On Fri, Aug 23, 2024 at 11:25:30AM +0100, Mark Brown wrote:
+> 
+> > > We could store either the cap token or the interrupted GCSPR_EL0 (the
+> > > address below the cap token).  It felt more joined up to go with the cap
+> > > token since notionally signal return is consuming the cap token but
+> > > either way would work, we could just add an offset when looking at the
+> > > pointer.
+> 
+> > In a hypothetical sigaltshadowstack() scenario, would the cap go on the
+> > new signal shadow stack or on the old one? I assume on the new one but
+> > in sigcontext we'd save the original GCSPR_EL0. In such hypothetical
+> > case, the original GCSPR_EL0 would not need 8 subtracted.
+> 
+> I would have put the token on the old stack since that's what we'd be
+> returning to.
 
-This simplifies the code and avoids calls to clk_disable_unprepare().
+After some more spec reading, your approach makes sense as it matches
+the GCSSS[12] instructions where the outgoing, rather than incoming,
+shadow stack is capped. So all good I think. However, a bit more below
+on the restore order (it's ok but a bit confusing).
 
----
-version 3 changes
-Fix the email thread.
+> This raises interesting questions about what happens if
+> the reason for the signal is that we just overflowed the normal stack
+> (which are among the issues that have got in the way of working out if
+> or how we do something with sigaltshadowstack).
 
----
-version 2 changes
+That's not that different from the classic case where we get an error
+trying to setup the frame. signal_setup_done() handles it by forcing a
+SIGSEGV. I'd say we do the same here.
 
-The files ux500.c, mpfs.c, and pxa27x_udc.c have incorrect usage of 
-certain interfaces due to the lack of synchronization during the 
-commit updates. These issues have been corrected in the v1 version.
+> I'm not clear what the
+> purpose of the token would be on the new stack, the token basically says
+> "this is somewhere we can sigreturn to", that's not the case for the
+> alternative stack.
 
-1.ux500: Incorrect usage of clk_prepare_enable() should be corrected to
-  devm_clk_get_enabled().
-2.mpfs: Incorrect usage of devm_clk_get_enable() should be corrected to
-  devm_clk_get_enabled().
-3.pxa27x_udc: Incorrect usage of clk_prepare_enable() should be
-  corrected to devm_clk_get_enabled().
+Yeah, I thought we have to somehow mark the top of the stack with this
+token. But looking at the architecture stack switching, it caps the
+outgoing stack (in our case this would be the interrupted one). So
+that's settled.
 
-Lei Liu (5):
-  usb: aspeed_udc: Use devm_clk_get_enabled() helpers
-  usb: pxa27x_udc: Use devm_clk_get_enabled() helpers
-  usb: r8a66597-udc: Use devm_clk_get_enabled() helpers
-  usb: mpfs: Use devm_clk_get_enabled() helpers
-  sb: ux500: Use devm_clk_get_enabled() helpers
+On the patch itself, I think there are some small inconsistencies on how
+it reads the GCSPR_EL0: preserve_gcs_context() does a
+gcs_preserve_current_state() and subsequently reads the value from the
+thread structure. A bit later, gcs_signal_entry() goes for the sysreg
+directly. I don't think that's a problem even if the thread gets
+preempted but it would be nice to be consistent. Maybe leave the
+gcs_preserve_current_state() only a context switch thing. Would it work
+if we don't touch the thread structure at all in the signal code? We
+wouldn't deliver a signal in the middle of the switch_to() code. So any
+value we write in thread struct would be overridden at the next switch.
 
- drivers/usb/gadget/udc/aspeed_udc.c   |  9 +--------
- drivers/usb/gadget/udc/pxa27x_udc.c   |  6 +-----
- drivers/usb/gadget/udc/r8a66597-udc.c | 16 ++++------------
- drivers/usb/musb/mpfs.c               | 22 ++++++----------------
- drivers/usb/musb/ux500.c              | 18 ++++--------------
- 5 files changed, 16 insertions(+), 55 deletions(-)
+If GCS is disabled for a guest, we save the GCSPR_EL0 with the cap size
+subtracted but there's no cap written. In restore_gcs_context() it
+doesn't look like we add the cap size back when writing GCSPR_EL0. If
+GCS is enabled, we do consume the cap and add 8 but otherwise it looks
+that we keep decreasing GCSPR_EL0. I think we should always subtract the
+cap size if GCS is enabled. This could could do with some refactoring as
+I find it hard to follow (not sure exactly how, maybe just comments will
+do).
+
+I'd also keep a single write to GCSPR_EL0 on the return path but I'm ok
+with two if we need to cope with GCS being disabled but the GCSPR_EL0
+still being saved/restored.
+
+Another aspect for gcs_restore_signal(), I think it makes more sense for
+the cap to be consumed _after_ restoring the sigcontext since this has
+the actual gcspr_el0 where we stored the cap and represents the original
+stack. If we'll get an alternative shadow stack, current GCSPR_EL0 on
+sigreturn points to that alternative shadow stack rather than the
+original one. That's what confused me when reviewing the patch and I
+thought the cap goes to the top of the signal stack.
 
 -- 
-2.34.1
-
+Catalin
 
 _______________________________________________
 linux-riscv mailing list
