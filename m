@@ -4,51 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7A22C5321D
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Aug 2024 06:47:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78221C54732
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Aug 2024 06:59:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LW8wt/NaN8w2AJvu3bUsYxR92X91XLAZLxwR4tY6MF8=; b=LURVFf5ReEkqOb
-	bJMGz7nddRAf14wuQy/TTjZQ44vwZ0ryspR4JpeGwOcVWn/Xqpilr8ScihK0ZcE04UpYXiHCwxnte
-	/ItNGXMD7ffbqQXu+EQincq6JPpLl32Lqk/wDWqynNcybOXVFQJ84MbMvunax9qAn5hHCUAqtH5EY
-	KYn0kCoNSjW+HCtNB7J7s86uQf9aXcrhFIDQhyyWk0MAJt2ueVUHzvUnvZXSVn8uEglDl8ltN1Jdh
-	p7E3eNSzfrlSjjDXiMQ0s9E2AdUHZsCdCtqi70fsq+3JzU8bwyBrqBGUVRYwEESS13r7WCYnoQP4Q
-	iKLESk9slPtnovzA8uww==;
+	List-Owner; bh=VyxIqsMeWBmk5qXG8y5CmB2LibvzAhCbnMeGNW5chqI=; b=Z7wDogratqzG5x
+	oQ/JvvU4WftqHON/V1J3Gb3dE4tiG7El8BQDTsz9bNqgTV7Ok3xgNfXPpoq2AYF1NJ7Ul1NPTqv+U
+	l+W7+eWzYRGi65nx1tpFNTejvUiqO+7ALZo7iCPFLvxiMCsSZr2FXsni/uwLUq45rKULI9bGeqilb
+	T5+a01enny2iEZb2FNH1wiK60/EHwO9hcjyxOsmV/NIMhb54K7+eXT4SPEPGxvHhODpbiwi7PfZ+B
+	+WAPZVpa4nlFrSuOZJlvHaesYMG5bja7uc8/+A9OZNBTRnA7X4FTLx6seK0c/RYcFfEPeI1RCILZi
+	EzeoCi3MkBflUjCTpKOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1siTVK-000000066hV-2LiA;
-	Mon, 26 Aug 2024 06:47:06 +0000
-Received: from relay1-d.mail.gandi.net ([217.70.183.193])
+	id 1siThP-000000069pT-3IxN;
+	Mon, 26 Aug 2024 06:59:35 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1siTDF-000000061UY-3Mue
-	for linux-riscv@lists.infradead.org;
-	Mon, 26 Aug 2024 06:28:28 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 32EFE240006;
-	Mon, 26 Aug 2024 06:28:17 +0000 (UTC)
-Message-ID: <422ee6c5-048d-498e-a823-97deef02326f@ghiti.fr>
-Date: Mon, 26 Aug 2024 08:28:17 +0200
+	id 1siTfp-000000069B2-0wbg;
+	Mon, 26 Aug 2024 06:57:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 40DF9A41190;
+	Mon, 26 Aug 2024 06:57:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F0D5C567EB;
+	Mon, 26 Aug 2024 06:57:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1724655475;
+	bh=l7egSUNcilONf7gTBq0Hjl37ut+S55vwboWjXSdFWe0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=u9brm9ffBKJJy0lQBqVUmOtRsmRW1o2mBFKA4EhD7/nH8h2gv+M7lKVr7gSQptliB
+	 hbOarsMop4k9H3WwY7Yn4SDp1vUrBJIaGRD3L7h2LyBRLq6p3w2M+aMtu5fF8yUiOT
+	 JzgM/Mh7LerNq33JfGbB0R6dXwMiZvlBUPNF03eoh1GhN4IuDSdJxnUg45kUvxXE/S
+	 I1P3qHXaDeHHHmN8Cm9t03nsqNN6vCskEjl1NxrPzvke5fbuCG5/WnwkhujA6NhoOt
+	 p9raTRTUjWPVS0MKDT5Lhfx819pdvVyaXynnIIS3xdhWfXB7iG8JbUVNzrCj5nDxC0
+	 KwcaUZEBkiEAw==
+From: Mike Rapoport <rppt@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Andreas Larsson <andreas@gaisler.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Borislav Petkov <bp@alien8.de>,
+	Brian Cain <bcain@quicinc.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christoph Hellwig <hch@infradead.org>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Guo Ren <guoren@kernel.org>,
+	Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Kent Overstreet <kent.overstreet@linux.dev>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Matt Turner <mattst88@gmail.com>,
+	Max Filippov <jcmvbkbc@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Simek <monstr@monstr.eu>,
+	Mike Rapoport <rppt@kernel.org>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Richard Weinberger <richard@nod.at>,
+	Russell King <linux@armlinux.org.uk>,
+	Song Liu <song@kernel.org>,
+	Stafford Horne <shorne@gmail.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Vineet Gupta <vgupta@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org,
+	linux-alpha@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-modules@vger.kernel.org,
+	linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-sh@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org
+Subject: [PATCH v2 8/8] x86/module: enable ROX caches for module text
+Date: Mon, 26 Aug 2024 09:55:32 +0300
+Message-ID: <20240826065532.2618273-9-rppt@kernel.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20240826065532.2618273-1-rppt@kernel.org>
+References: <20240826065532.2618273-1-rppt@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] RISC-V: hwprobe: Use BIT macro to avoid warnings
-Content-Language: en-US
-To: Jesse Taube <jesse@rivosinc.com>, linux-riscv@lists.infradead.org
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
- Conor Dooley <conor@kernel.org>, Evan Green <evan@rivosinc.com>,
- Charlie Jenkins <charlie@rivosinc.com>,
- Andrew Jones <ajones@ventanamicro.com>, linux-kernel@vger.kernel.org
-References: <20240822203913.2306574-1-jesse@rivosinc.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20240822203913.2306574-1-jesse@rivosinc.com>
-X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240825_232826_137354_64F47051 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20240825_235757_429966_A4076117 
+X-CRM114-Status: GOOD (  14.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,160 +126,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Jesse,
+From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 
-On 22/08/2024 22:39, Jesse Taube wrote:
-> In uapi/asm/hwprobe.h file, (1 << N) is used to define the bit field
-> which causes checkpatch to warn. Use BIT(N) and BIT_ULL(N) to avoid
-> these warnings.
->
-> Signed-off-by: Jesse Taube <jesse@rivosinc.com>
-> Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
-> Tested-by: Charlie Jenkins <charlie@rivosinc.com>
-> ---
-> V1 -> V2:
->   - Reword commit message
-> ---
->   arch/riscv/include/uapi/asm/hwprobe.h | 102 +++++++++++++-------------
->   1 file changed, 51 insertions(+), 51 deletions(-)
->
-> diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
-> index b706c8e47b02..d0874ff2fd37 100644
-> --- a/arch/riscv/include/uapi/asm/hwprobe.h
-> +++ b/arch/riscv/include/uapi/asm/hwprobe.h
-> @@ -21,57 +21,57 @@ struct riscv_hwprobe {
->   #define RISCV_HWPROBE_KEY_MARCHID	1
->   #define RISCV_HWPROBE_KEY_MIMPID	2
->   #define RISCV_HWPROBE_KEY_BASE_BEHAVIOR	3
-> -#define		RISCV_HWPROBE_BASE_BEHAVIOR_IMA	(1 << 0)
-> +#define		RISCV_HWPROBE_BASE_BEHAVIOR_IMA	BIT_ULL(0)
->   #define RISCV_HWPROBE_KEY_IMA_EXT_0	4
-> -#define		RISCV_HWPROBE_IMA_FD		(1 << 0)
-> -#define		RISCV_HWPROBE_IMA_C		(1 << 1)
-> -#define		RISCV_HWPROBE_IMA_V		(1 << 2)
-> -#define		RISCV_HWPROBE_EXT_ZBA		(1 << 3)
-> -#define		RISCV_HWPROBE_EXT_ZBB		(1 << 4)
-> -#define		RISCV_HWPROBE_EXT_ZBS		(1 << 5)
-> -#define		RISCV_HWPROBE_EXT_ZICBOZ	(1 << 6)
-> -#define		RISCV_HWPROBE_EXT_ZBC		(1 << 7)
-> -#define		RISCV_HWPROBE_EXT_ZBKB		(1 << 8)
-> -#define		RISCV_HWPROBE_EXT_ZBKC		(1 << 9)
-> -#define		RISCV_HWPROBE_EXT_ZBKX		(1 << 10)
-> -#define		RISCV_HWPROBE_EXT_ZKND		(1 << 11)
-> -#define		RISCV_HWPROBE_EXT_ZKNE		(1 << 12)
-> -#define		RISCV_HWPROBE_EXT_ZKNH		(1 << 13)
-> -#define		RISCV_HWPROBE_EXT_ZKSED		(1 << 14)
-> -#define		RISCV_HWPROBE_EXT_ZKSH		(1 << 15)
-> -#define		RISCV_HWPROBE_EXT_ZKT		(1 << 16)
-> -#define		RISCV_HWPROBE_EXT_ZVBB		(1 << 17)
-> -#define		RISCV_HWPROBE_EXT_ZVBC		(1 << 18)
-> -#define		RISCV_HWPROBE_EXT_ZVKB		(1 << 19)
-> -#define		RISCV_HWPROBE_EXT_ZVKG		(1 << 20)
-> -#define		RISCV_HWPROBE_EXT_ZVKNED	(1 << 21)
-> -#define		RISCV_HWPROBE_EXT_ZVKNHA	(1 << 22)
-> -#define		RISCV_HWPROBE_EXT_ZVKNHB	(1 << 23)
-> -#define		RISCV_HWPROBE_EXT_ZVKSED	(1 << 24)
-> -#define		RISCV_HWPROBE_EXT_ZVKSH		(1 << 25)
-> -#define		RISCV_HWPROBE_EXT_ZVKT		(1 << 26)
-> -#define		RISCV_HWPROBE_EXT_ZFH		(1 << 27)
-> -#define		RISCV_HWPROBE_EXT_ZFHMIN	(1 << 28)
-> -#define		RISCV_HWPROBE_EXT_ZIHINTNTL	(1 << 29)
-> -#define		RISCV_HWPROBE_EXT_ZVFH		(1 << 30)
-> -#define		RISCV_HWPROBE_EXT_ZVFHMIN	(1ULL << 31)
-> -#define		RISCV_HWPROBE_EXT_ZFA		(1ULL << 32)
-> -#define		RISCV_HWPROBE_EXT_ZTSO		(1ULL << 33)
-> -#define		RISCV_HWPROBE_EXT_ZACAS		(1ULL << 34)
-> -#define		RISCV_HWPROBE_EXT_ZICOND	(1ULL << 35)
-> -#define		RISCV_HWPROBE_EXT_ZIHINTPAUSE	(1ULL << 36)
-> -#define		RISCV_HWPROBE_EXT_ZVE32X	(1ULL << 37)
-> -#define		RISCV_HWPROBE_EXT_ZVE32F	(1ULL << 38)
-> -#define		RISCV_HWPROBE_EXT_ZVE64X	(1ULL << 39)
-> -#define		RISCV_HWPROBE_EXT_ZVE64F	(1ULL << 40)
-> -#define		RISCV_HWPROBE_EXT_ZVE64D	(1ULL << 41)
-> -#define		RISCV_HWPROBE_EXT_ZIMOP		(1ULL << 42)
-> -#define		RISCV_HWPROBE_EXT_ZCA		(1ULL << 43)
-> -#define		RISCV_HWPROBE_EXT_ZCB		(1ULL << 44)
-> -#define		RISCV_HWPROBE_EXT_ZCD		(1ULL << 45)
-> -#define		RISCV_HWPROBE_EXT_ZCF		(1ULL << 46)
-> -#define		RISCV_HWPROBE_EXT_ZCMOP		(1ULL << 47)
-> -#define		RISCV_HWPROBE_EXT_ZAWRS		(1ULL << 48)
-> +#define		RISCV_HWPROBE_IMA_FD		BIT_ULL(0)
-> +#define		RISCV_HWPROBE_IMA_C		BIT_ULL(1)
-> +#define		RISCV_HWPROBE_IMA_V		BIT_ULL(2)
-> +#define		RISCV_HWPROBE_EXT_ZBA		BIT_ULL(3)
-> +#define		RISCV_HWPROBE_EXT_ZBB		BIT_ULL(4)
-> +#define		RISCV_HWPROBE_EXT_ZBS		BIT_ULL(5)
-> +#define		RISCV_HWPROBE_EXT_ZICBOZ	BIT_ULL(6)
-> +#define		RISCV_HWPROBE_EXT_ZBC		BIT_ULL(7)
-> +#define		RISCV_HWPROBE_EXT_ZBKB		BIT_ULL(8)
-> +#define		RISCV_HWPROBE_EXT_ZBKC		BIT_ULL(9)
-> +#define		RISCV_HWPROBE_EXT_ZBKX		BIT_ULL(10)
-> +#define		RISCV_HWPROBE_EXT_ZKND		BIT_ULL(11)
-> +#define		RISCV_HWPROBE_EXT_ZKNE		BIT_ULL(12)
-> +#define		RISCV_HWPROBE_EXT_ZKNH		BIT_ULL(13)
-> +#define		RISCV_HWPROBE_EXT_ZKSED		BIT_ULL(14)
-> +#define		RISCV_HWPROBE_EXT_ZKSH		BIT_ULL(15)
-> +#define		RISCV_HWPROBE_EXT_ZKT		BIT_ULL(16)
-> +#define		RISCV_HWPROBE_EXT_ZVBB		BIT_ULL(17)
-> +#define		RISCV_HWPROBE_EXT_ZVBC		BIT_ULL(18)
-> +#define		RISCV_HWPROBE_EXT_ZVKB		BIT_ULL(19)
-> +#define		RISCV_HWPROBE_EXT_ZVKG		BIT_ULL(20)
-> +#define		RISCV_HWPROBE_EXT_ZVKNED	BIT_ULL(21)
-> +#define		RISCV_HWPROBE_EXT_ZVKNHA	BIT_ULL(22)
-> +#define		RISCV_HWPROBE_EXT_ZVKNHB	BIT_ULL(23)
-> +#define		RISCV_HWPROBE_EXT_ZVKSED	BIT_ULL(24)
-> +#define		RISCV_HWPROBE_EXT_ZVKSH		BIT_ULL(25)
-> +#define		RISCV_HWPROBE_EXT_ZVKT		BIT_ULL(26)
-> +#define		RISCV_HWPROBE_EXT_ZFH		BIT_ULL(27)
-> +#define		RISCV_HWPROBE_EXT_ZFHMIN	BIT_ULL(28)
-> +#define		RISCV_HWPROBE_EXT_ZIHINTNTL	BIT_ULL(29)
-> +#define		RISCV_HWPROBE_EXT_ZVFH		BIT_ULL(30)
-> +#define		RISCV_HWPROBE_EXT_ZVFHMIN	BIT_ULL(31)
-> +#define		RISCV_HWPROBE_EXT_ZFA		BIT_ULL(32)
-> +#define		RISCV_HWPROBE_EXT_ZTSO		BIT_ULL(33)
-> +#define		RISCV_HWPROBE_EXT_ZACAS		BIT_ULL(34)
-> +#define		RISCV_HWPROBE_EXT_ZICOND	BIT_ULL(35)
-> +#define		RISCV_HWPROBE_EXT_ZIHINTPAUSE	BIT_ULL(36)
-> +#define		RISCV_HWPROBE_EXT_ZVE32X	BIT_ULL(37)
-> +#define		RISCV_HWPROBE_EXT_ZVE32F	BIT_ULL(38)
-> +#define		RISCV_HWPROBE_EXT_ZVE64X	BIT_ULL(39)
-> +#define		RISCV_HWPROBE_EXT_ZVE64F	BIT_ULL(40)
-> +#define		RISCV_HWPROBE_EXT_ZVE64D	BIT_ULL(41)
-> +#define		RISCV_HWPROBE_EXT_ZIMOP		BIT_ULL(42)
-> +#define		RISCV_HWPROBE_EXT_ZCA		BIT_ULL(43)
-> +#define		RISCV_HWPROBE_EXT_ZCB		BIT_ULL(44)
-> +#define		RISCV_HWPROBE_EXT_ZCD		BIT_ULL(45)
-> +#define		RISCV_HWPROBE_EXT_ZCF		BIT_ULL(46)
-> +#define		RISCV_HWPROBE_EXT_ZCMOP		BIT_ULL(47)
-> +#define		RISCV_HWPROBE_EXT_ZAWRS		BIT_ULL(48)
->   #define RISCV_HWPROBE_KEY_CPUPERF_0	5
->   #define		RISCV_HWPROBE_MISALIGNED_UNKNOWN	(0 << 0)
->   #define		RISCV_HWPROBE_MISALIGNED_EMULATED	(1 << 0)
+Enable execmem's cache of PMD_SIZE'ed pages mapped as ROX for module
+text allocations.
 
+Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+---
+ arch/x86/mm/init.c | 26 +++++++++++++++++++++++++-
+ 1 file changed, 25 insertions(+), 1 deletion(-)
 
-Why isn't this one ^ converted too? I did not look but are there other 
-occurrences in this file that should be converted too?
+diff --git a/arch/x86/mm/init.c b/arch/x86/mm/init.c
+index eb503f53c319..a0ec99fb9385 100644
+--- a/arch/x86/mm/init.c
++++ b/arch/x86/mm/init.c
+@@ -1053,6 +1053,15 @@ unsigned long arch_max_swapfile_size(void)
+ #ifdef CONFIG_EXECMEM
+ static struct execmem_info execmem_info __ro_after_init;
+ 
++static void execmem_fill_trapping_insns(void *ptr, size_t size, bool writeable)
++{
++	/* fill memory with INT3 instructions */
++	if (writeable)
++		memset(ptr, INT3_INSN_OPCODE, size);
++	else
++		text_poke_set(ptr, INT3_INSN_OPCODE, size);
++}
++
+ struct execmem_info __init *execmem_arch_setup(void)
+ {
+ 	unsigned long start, offset = 0;
+@@ -1063,8 +1072,23 @@ struct execmem_info __init *execmem_arch_setup(void)
+ 	start = MODULES_VADDR + offset;
+ 
+ 	execmem_info = (struct execmem_info){
++		.fill_trapping_insns = execmem_fill_trapping_insns,
+ 		.ranges = {
+-			[EXECMEM_DEFAULT] = {
++			[EXECMEM_MODULE_TEXT] = {
++				.flags	= EXECMEM_KASAN_SHADOW | EXECMEM_ROX_CACHE,
++				.start	= start,
++				.end	= MODULES_END,
++				.pgprot	= PAGE_KERNEL_ROX,
++				.alignment = MODULE_ALIGN,
++			},
++			[EXECMEM_KPROBES ... EXECMEM_BPF] = {
++				.flags	= EXECMEM_KASAN_SHADOW,
++				.start	= start,
++				.end	= MODULES_END,
++				.pgprot	= PAGE_KERNEL,
++				.alignment = MODULE_ALIGN,
++			},
++			[EXECMEM_MODULE_DATA] = {
+ 				.flags	= EXECMEM_KASAN_SHADOW,
+ 				.start	= start,
+ 				.end	= MODULES_END,
+-- 
+2.43.0
 
-And what about the rest of the riscv sources?
-
-Thanks,
-
-Alex
-
-
-> @@ -85,6 +85,6 @@ struct riscv_hwprobe {
->   /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
->   
->   /* Flags */
-> -#define RISCV_HWPROBE_WHICH_CPUS	(1 << 0)
-> +#define RISCV_HWPROBE_WHICH_CPUS	BIT(0)
->   
->   #endif
 
 _______________________________________________
 linux-riscv mailing list
