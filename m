@@ -4,99 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61BC6C54731
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Aug 2024 15:59:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2998C54731
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Aug 2024 16:29:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Vq4ppbyQt8aAFtPaH/1/OsCvojuWN7GUT1rBHTrmEQQ=; b=mSLbO5/s8uSa2b
-	67lkEf2TaSORJZe97NhLP4zjEv65LrFu+fRffxTd1u4UJH+3n7fse53wiNxWzmQ/c99hWTAy3OEcd
-	CcdzuBUCXUBLgxnpfTqEzhspbsYwl0GUQYdAeocS0J4g3g/TJdUrcPhx7qdii54j9waF+fCn2ZRvU
-	DcuonBHT7aNSOUfRYrcEeSBCPV9we1oNmUlGiMwEoS0KjQ8CsYQUryg5EeqkvarD3md+HnQDXOsqG
-	xJHy+dKW7xqe/gHyq1NnSbNRo56nOI20eLcBs4pSIDegoZRzVZo06Nq32O0kDWqzpakgphJpTN7xs
-	JfSL4UiX9dHouiGjUR9g==;
+	List-Owner; bh=AFAOKAcG4KoJH67/w/JbDchAgmuemC6s1Qdrxhdle4Y=; b=v47z9uQOfF+VCB
+	ootLsTK8WJGxPj2JRTN/WnP6LDs5E1vDRhgyXqE//JZYhEBJstaiPMMWTxfwUkGUQIq62Lbtb2n6w
+	4zzlYGmitZDSkIQjAKnEwKOSBRFbOo+ONzQ90Lc0V6C3n3HfMS4EogzuutJ+k54c23/Fi87hzb/lg
+	Q22LNhJ5w53PFtgvWhP6RHkmyBOBwVPTE2N4M/5bGp+jbP0UfbEubI/W5tWYVZacL8W1259vo06IF
+	X3XlqYJ32DN5kz2YklaV0fU/hikI9WgKHoD5FHEFfKay9YpLRTU5cPjgxi4JedUNKYNbAVic+fox5
+	pRZp/gtzmCZPoM3OH5eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1siyb9-0000000BzAF-1yUH;
-	Tue, 27 Aug 2024 15:59:11 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1siz45-0000000C4YZ-1UOE;
+	Tue, 27 Aug 2024 16:29:05 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1siyUd-0000000Bxhm-1R3M;
-	Tue, 27 Aug 2024 15:52:29 +0000
+	id 1siz2V-0000000C45q-14Vw;
+	Tue, 27 Aug 2024 16:27:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1EE20A41FD3;
-	Tue, 27 Aug 2024 15:52:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0C93C4DE0D;
-	Tue, 27 Aug 2024 15:43:09 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id ECFD5A4252C;
+	Tue, 27 Aug 2024 16:27:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABE6CC581BB;
+	Tue, 27 Aug 2024 16:20:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1724773408;
-	bh=gLN6XrXPe8lnOYBY+qE6Br7q9z15uQyViI2cYvrjDUQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pJjeZGdRlRZciwiSds7ncOoFJeP+wPAbVUVeY1LlTa56La6oD/XycPb3ju2I/Si6N
-	 bNsP9pfRPVziKGgn/Q7CZW62Bt7rl9iXHC+NkqAHxIdvlozlUPOn7DKQtQl24SAAKo
-	 NVAJkyrxO3xLQShBOmpHzZcPcSpDnuVLQLFIjp6TCSAVJcQE/Q6oni4wO6fU4ZsrHD
-	 4ovVIvkGw6loTWaFlHze4az9iCCc+TXdBuzKzGsuhZ4ATm4q785T8iPGoGLrAdyrZK
-	 3tUYk2k2P5uZy+/qiIPItAj2gx6xlt89fXh5S1kblIuw6KS4FNa+7dzFK9H80hz+VW
-	 wYQnWN9qfNMIA==
-Date: Tue, 27 Aug 2024 18:40:35 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@quicinc.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christoph Hellwig <hch@infradead.org>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Kent Overstreet <kent.overstreet@linux.dev>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Simek <monstr@monstr.eu>, Oleg Nesterov <oleg@redhat.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
-	Stafford Horne <shorne@gmail.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linux-mm@kvack.org,
-	linux-modules@vger.kernel.org, linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org, linux-um@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v2 5/8] ftrace: Add swap_func to ftrace_process_locs()
-Message-ID: <Zs3zcwyygUk4_X8y@kernel.org>
-References: <20240826065532.2618273-1-rppt@kernel.org>
- <20240826065532.2618273-6-rppt@kernel.org>
- <20240826132909.306b08fc@gandalf.local.home>
+	s=k20201202; t=1724775636;
+	bh=Nq+N2JRm3qs/YfyiIeI6nh9WFZTDcrLh7AvXtVujdoc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=kMTKuI5rfdZ7S/J978dFx/vEVmxDYHpINBaSPMCrIlVb15gdSLENBvbIDc1bqVGMv
+	 uhev6qlAyNA+RqfXkZihFS4wf63LI0MZUMP8yRL0V+0Uyf108AmHRyh4PwP3GGT2lP
+	 qGviXwLk9n1XV20/5uupk7bLBAkB+aW3maMGy7KDuu1dIxSfRQLVtu5XOXIMJc04Lg
+	 yItklsEHDP+v6nftf63HtbRXg5qaQB1wXMTiGFwWEGoOMjni3xbOLgQCpx5mygys64
+	 KyJDBEuKGeloEihQul1Db2k6hAG0kNAGzxEFhYqz4e6DnntH46T1yhq5l5aFAJKoQl
+	 XR7hIjmWVQruw==
+Received: by mail-oa1-f43.google.com with SMTP id 586e51a60fabf-270263932d5so4031623fac.2;
+        Tue, 27 Aug 2024 09:20:36 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVN3lcjuSCHFqdI4ZaFEQPSqFqrIPPmQSqqNo07n9VcqS5SvNamki7+7Ayy1hi0pvkXB7ntNs91vY4tWRI=@lists.infradead.org, AJvYcCVVp8BZ6LTfoD2YkaCyq1kiVRpUfWKxhr0PyMI/C4XD2Cq7ERs8dE4Os4uH0YzLtvGRtkPQtVLctPRVheykEMCW@lists.infradead.org
+X-Gm-Message-State: AOJu0YxaFWIkQmPygRW15RQkaGfUxCzdVrQztAJhtC4WXkXTbT4WmLke
+	91+dqk7I9FASc1xFLa+29HcXqZtTmLqJMAaziB8DQLm/dwmNSWXvW9M3Lr+WSAbTrOH3uJYs8zT
+	NSTRxM5zsFUbA8MhdCiOEviexQI0=
+X-Google-Smtp-Source: AGHT+IEcevmf56HaHFi76opfMbCV8B1aBMG9slI81zTpqBsgMvZDsrfuxYvsyZ6B/GpsYTnUSrI2yl5r0i6NGyBQDqc=
+X-Received: by 2002:a05:6870:82a1:b0:270:735:96e with SMTP id
+ 586e51a60fabf-273e6465ed4mr15637051fac.12.1724775635797; Tue, 27 Aug 2024
+ 09:20:35 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240826132909.306b08fc@gandalf.local.home>
+References: <20240812005929.113499-1-sunilvl@ventanamicro.com>
+ <ZrlgVUXC_dCW9ISM@sunil-laptop> <87mskzcnmf.ffs@tglx> <CAJZ5v0imJcU4cwDuZKEvGf93fZm4ea4s2Ocp3Cnfb3+nBQ0-Gg@mail.gmail.com>
+ <Zsy3o_N8hvc6GfTp@sunil-laptop> <CAJZ5v0hxoT9tBjm3xRPU4fHx3MgHfYAx_Vyf4oe2toa3GWAN+Q@mail.gmail.com>
+ <87jzg3c7bz.ffs@tglx>
+In-Reply-To: <87jzg3c7bz.ffs@tglx>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Tue, 27 Aug 2024 18:20:24 +0200
+X-Gmail-Original-Message-ID: <CAJZ5v0iMpaxBevgPWmD2Ym_JG1ChkjzVFf22fV7Xw8-ssg9+Ag@mail.gmail.com>
+Message-ID: <CAJZ5v0iMpaxBevgPWmD2Ym_JG1ChkjzVFf22fV7Xw8-ssg9+Ag@mail.gmail.com>
+Subject: Re: [PATCH v8 00/17] RISC-V: ACPI: Add external interrupt controller support
+To: Thomas Gleixner <tglx@linutronix.de>, Sunil V L <sunilvl@ventanamicro.com>
+Cc: Will Deacon <will@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Len Brown <lenb@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Anup Patel <anup@brainfault.org>, 
+	Samuel Holland <samuel.holland@sifive.com>, Robert Moore <robert.moore@intel.com>, 
+	Conor Dooley <conor.dooley@microchip.com>, Haibo Xu <haibo1.xu@intel.com>, 
+	Andrew Jones <ajones@ventanamicro.com>, Atish Kumar Patra <atishp@rivosinc.com>, 
+	Drew Fustini <dfustini@tenstorrent.com>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-acpi@vger.kernel.org, acpica-devel@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240827_085227_568652_BE795A34 
-X-CRM114-Status: GOOD (  24.05  )
+X-CRM114-CacheID: sfid-20240827_092727_442463_B0374BE8 
+X-CRM114-Status: GOOD (  17.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,86 +86,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 26, 2024 at 01:29:09PM -0400, Steven Rostedt wrote:
-> On Mon, 26 Aug 2024 09:55:29 +0300
-> Mike Rapoport <rppt@kernel.org> wrote:
-> 
-> > From: Song Liu <song@kernel.org>
-> > 
-> > ftrace_process_locs sorts module mcount, which is inside RO memory. Add a
-> > ftrace_swap_func so that archs can use RO-memory-poke function to do the
-> > sorting.
-> 
-> Can you add the above as a comment above the ftrace_swap_func() function?
-
-Sure.
- 
-> Thanks,
-> 
-> -- Steve
-> 
-> > 
-> > Signed-off-by: Song Liu <song@kernel.org>
-> > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> > ---
-> >  include/linux/ftrace.h |  2 ++
-> >  kernel/trace/ftrace.c  | 13 ++++++++++++-
-> >  2 files changed, 14 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/include/linux/ftrace.h b/include/linux/ftrace.h
-> > index fd5e84d0ec47..b794dcb7cae8 100644
-> > --- a/include/linux/ftrace.h
-> > +++ b/include/linux/ftrace.h
-> > @@ -1188,4 +1188,6 @@ unsigned long arch_syscall_addr(int nr);
-> >  
-> >  #endif /* CONFIG_FTRACE_SYSCALLS */
-> >  
-> > +void ftrace_swap_func(void *a, void *b, int n);
-> > +
-> >  #endif /* _LINUX_FTRACE_H */
-> > diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
-> > index 4c28dd177ca6..9829979f3a46 100644
-> > --- a/kernel/trace/ftrace.c
-> > +++ b/kernel/trace/ftrace.c
-> > @@ -6989,6 +6989,17 @@ static void test_is_sorted(unsigned long *start,
-> > unsigned long count) }
-> >  #endif
-> >  
-> > +void __weak ftrace_swap_func(void *a, void *b, int n)
-> > +{
-> > +	unsigned long t;
-> > +
-> > +	WARN_ON_ONCE(n != sizeof(t));
-> > +
-> > +	t = *((unsigned long *)a);
-> > +	*(unsigned long *)a = *(unsigned long *)b;
-> > +	*(unsigned long *)b = t;
-> > +}
-> > +
-> >  static int ftrace_process_locs(struct module *mod,
-> >  			       unsigned long *start,
-> >  			       unsigned long *end)
-> > @@ -7016,7 +7027,7 @@ static int ftrace_process_locs(struct module *mod,
-> >  	 */
-> >  	if (!IS_ENABLED(CONFIG_BUILDTIME_MCOUNT_SORT) || mod) {
-> >  		sort(start, count, sizeof(*start),
-> > -		     ftrace_cmp_ips, NULL);
-> > +		     ftrace_cmp_ips, ftrace_swap_func);
-> >  	} else {
-> >  		test_is_sorted(start, count);
-> >  	}
-> 
-
--- 
-Sincerely yours,
-Mike.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBBdWcgMjYsIDIwMjQgYXQgMTE6MjLigK9QTSBUaG9tYXMgR2xlaXhuZXIgPHRnbHhA
+bGludXRyb25peC5kZT4gd3JvdGU6Cj4KPiBPbiBNb24sIEF1ZyAyNiAyMDI0IGF0IDE5OjI3LCBS
+YWZhZWwgSi4gV3lzb2NraSB3cm90ZToKPiA+IE9uIE1vbiwgQXVnIDI2LCAyMDI0IGF0IDc6MjLi
+gK9QTSBTdW5pbCBWIEwgPHN1bmlsdmxAdmVudGFuYW1pY3JvLmNvbT4gd3JvdGU6Cj4gPj4gVGhl
+cmUgd2lsbCBiZSBhIGNvbmZsaWN0IGluIFBMSUMgaXJxY2hpcCBkcml2ZXIgZHVlIHRvIGEgcmVj
+ZW50IHBhdGNoIFsxXS4KPiA+PiBUaGlzIHBhdGNoIGlzIG5vdCBpbiBsYXRlc3QgUkM1IHJlbGVh
+c2UgYnV0IGluIGxpbnV4LW5leHQuIEkgdXN1YWxseSBiYXNlIHRoZQo+ID4+IHNlcmllcyBvbiBs
+YXRlc3QgUkMgcmVsZWFzZS4gU2hvdWxkIEkgcmViYXNlIHRvIGxpbnV4LW5leHQgaW4gdGhpcyBj
+YXNlCj4gPj4gYW5kIHNlbmQgdGhlIG5leHQgcmV2aXNpb24gb2YgdGhlIHNlcmllcyByZXNvbHZp
+bmcgdGhlIGNvbmZsaWN0Pwo+ID4KPiA+IE5vLCBwbGVhc2UgZG9uJ3QuCj4gPgo+ID4gVGhhdCB3
+aWxsIGJlIHJlc29sdmVkIGF0IHRoZSBtZXJnZSB0aW1lLgo+Cj4gQWx0ZXJuYXRpdmVseSB5b3Ug
+Y2FuIHB1bGwKPgo+ICAgZ2l0Oi8vZ2l0Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51eC9rZXJuZWwv
+Z2l0L3RpcC90aXAuZ2l0IGlycS11cmdlbnQtMjAyNC0wOC0yNQo+Cj4gd2hpY2ggSSdtIGFib3V0
+IHRvIHNlbmQgdG8gTGludXMgbGF0ZXN0IHRvbW9ycm93IG1vcm5pbmcuIFRoYXQgY29udGFpbnMK
+PiB0aGUgY29uZmxpY3RpbmcgY2hhbmdlLgoKU28gSSd2ZSBhcHBsaWVkIHRoZSBzZXJpZXMgb24g
+dG9wIG9mIHRoZSBhYm92ZS4KClRoaXMgaW5jbHVkZWQgYSBmdWxsLXN3aW5nIHJlYmFzZSBvZiB0
+aGUgbGFzdCBwYXRjaCwgd2hpY2ggSSBob3BlIEkndmUKZG9uZSBjb3JyZWN0bHksIGJ1dCBTdW5p
+bCBwbGVhc2Ugc2VlCgpodHRwczovL2dpdC5rZXJuZWwub3JnL3B1Yi9zY20vbGludXgva2VybmVs
+L2dpdC9yYWZhZWwvbGludXgtcG0uZ2l0L2NvbW1pdC8/aD1ibGVlZGluZy1lZGdlJmlkPTVkMWI1
+NDk4ODNjMWJiYTMzMWM0MTllNDkxZmRhOWJiOTM0ZWEyMDIKCmFuZCBsZXQgbWUga25vdy4KClRo
+YW5rcyEKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
+bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
+dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
