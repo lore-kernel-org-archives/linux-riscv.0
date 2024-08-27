@@ -4,65 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B316C5320E
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Aug 2024 08:27:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08600C52D6F
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Aug 2024 08:38:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wPM8MvCy2TvOog8EwruUUiFQDXA+q8kzye0YDpsy8UI=; b=IaYzNxLHcyzX/Ix+wA0pnCf6VK
-	dKSS/29KXXiHPnxJL0tKnEiCMY8/xAFXIxp/kfayDgjLgb2CGGFG/fsJMt09vrYSgPkPOaYgcYV7s
-	qreZ8OIrQ9vserfQZE8WzgdXJLhjmD9o4hjXE2CYtliPL9/zjWHjEKVO6YYCXchauTM92pCiJ9hXJ
-	eyy3RuqnANyD+gib4PFdMstRn1OkR9+vCJTH7NF3tB1MkYXFRricac9fGrUpLaEwqVv3fLCH3Qcyx
-	qaZDUWWUjjVelW8O6lpgEUF9cXwkVFacg3njUldkRkbh6qEPgl+CrzuQSU5B8FNEfcnIwzMGmudJu
-	Mf3h1G9Q==;
+	bh=esCTqBoKNmAsKK2KfAYhCFKb8BI0ukn2zU5kowHrVCc=; b=FPq3Ma8Gahb2SvMH6y5ka2bfw7
+	cKeAfrjilStErUDXuOt/aazb7D+f6eUu9mbF2uuv7B8sKUMtWy/Vhv0E1H9B2iJkM1e7Vqp+S0683
+	WyrF6t+dYr3G1kgogmdEbugZQLUPmmAeQwF9nTo9j9zYAhijCnbcErzjzfnGPk6aI5Aeo5SameycQ
+	Y5x4wycRS0cEwI/kx6O7SyKecMkdlbZ0l+26+a86NTib4t/TGieyw55f9Q1WQVVhHrxedDHCeqYcR
+	Aio1kR8KhW3x6EiO8tUfW0qZE3QVAK8U8ny9FLs6hn/D19Sp/VJY7v+rPi+HyISD5UOjT/Jd4KAj3
+	Bo+zt+8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sirYD-0000000AOdM-1fpv;
-	Tue, 27 Aug 2024 08:27:41 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1sirig-0000000AQc3-2RcV;
+	Tue, 27 Aug 2024 08:38:30 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sirYA-0000000AOcj-1697
+	id 1siriI-0000000AQVD-2gWo
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 Aug 2024 08:27:39 +0000
+	Tue, 27 Aug 2024 08:38:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8E434A416A2;
-	Tue, 27 Aug 2024 08:27:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF5BDC8B7A1;
-	Tue, 27 Aug 2024 08:27:34 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 02B00A416D1;
+	Tue, 27 Aug 2024 08:37:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB228C8B7B1;
+	Tue, 27 Aug 2024 08:38:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1724747257;
-	bh=1rkI4WrRPDAwhoBOGEVwC57pHpopfqFDDT7/hRpJzqE=;
+	s=k20201202; t=1724747885;
+	bh=3nRrCcNh+WKk3hvq0XOgP1afEtOult9YOcUxytPerZ4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Twy4yVBq4eCjHpx5uL77VoG3+vIPFlZxx8KMRhrbne1H+70TI04S50mj9XoTxZMv7
-	 iFrZ6Cywk6J3dIoYbVzP4ew2L+sK38EvkSAFSiFbADLEhTc1qdmrGuRlsrpucKfVL1
-	 aesWVGMebsYWX5kDKA0E4ZAn3n6qTRW6ZMJhT69rGnij++8TWFGiuDFUtaVr8tR+UC
-	 fmQBZz9a7dopQHdnDXi0IgHqzoPYmhrIPVRzk6ApLzhvRd0p7a8KQK27Q4p8fKO1N8
-	 P1AwvoBK16Z4K2inHHCl0fhpUVcF2BLHffXA4wAluT073/Lmw5f/icl07ISW5LKMen
-	 penIzHL3HXe+Q==
-Date: Tue, 27 Aug 2024 09:27:32 +0100
+	b=d1bN+dcawacxtmJn73wXDUWD3ZDFeOKXp8i2MOAZZeL7vLJ/cH951XwPUOmY0feve
+	 5s936d3tdjJpgIwBrpMlVIXtMpKSJ2ZwcFBNppxhYBscyq0pp1ikZH7fpjh1nklkkO
+	 Kx8cMYDcR1xEk/Py0qhyaOnXzEUSpn7dVpQ8haJrzo/014Wd4Pr/pyb5ljZySgiuyP
+	 XgXdKDHQBnNeM9CjuK6xlmfTSlTVK0mLtBy8KjdBx24pb/F/C1uGgWWayxxcJOPE3U
+	 Ypd9hynZDRIVaxM1RNXz8zv89U/CPqkP2G/wvdYyS8BuMd5RlftO842zXH3U9Tejc1
+	 nuJXr8Xj4x8AQ==
+Date: Tue, 27 Aug 2024 09:38:01 +0100
 From: Conor Dooley <conor@kernel.org>
-To: qiaozhe <qiaozhe@iscas.ac.cn>
-Cc: Conor Dooley <conor.dooley@microchip.com>, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	samuel.holland@sifive.com, evan@rivosinc.com, tglx@linutronix.de,
-	andy.chiu@sifive.com, cleger@rivosinc.com, ajones@ventanamicro.com,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] riscv: Report error when repeatedly recording CPU
- hardware ID
-Message-ID: <20240827-brink-dinginess-a50cccba3bc7@spud>
-References: <20240823091100.598162-1-qiaozhe@iscas.ac.cn>
- <20240823-circulate-underarm-13406fd8cc44@spud>
- <18c653d4-e2d5-4886-bbcc-a2c87da7e8e9@iscas.ac.cn>
- <20240826-arousal-sharply-9aeffe1bd89d@wendy>
- <0157d961-1124-43c8-ac40-53e4986dbbf9@iscas.ac.cn>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Philipp Tomsich <philipp.tomsich@vrull.eu>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH -fixes] riscv: Fix RISCV_ALTERNATIVE_EARLY
+Message-ID: <20240827-striving-dispute-19b6cf97139b@spud>
+References: <20240826105737.106879-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <0157d961-1124-43c8-ac40-53e4986dbbf9@iscas.ac.cn>
+In-Reply-To: <20240826105737.106879-1-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240827_012738_450377_2DE83C3E 
-X-CRM114-Status: GOOD (  34.93  )
+X-CRM114-CacheID: sfid-20240827_013806_761113_BF91E5D6 
+X-CRM114-Status: GOOD (  12.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,138 +70,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8816639092920972843=="
+Content-Type: multipart/mixed; boundary="===============1696034344335220717=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============8816639092920972843==
+--===============1696034344335220717==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="4kBnFeiL0axLL0iM"
+	protocol="application/pgp-signature"; boundary="WUoEQbA1AuWx5rCS"
 Content-Disposition: inline
 
 
---4kBnFeiL0axLL0iM
-Content-Type: text/plain; charset=iso-8859-1
+--WUoEQbA1AuWx5rCS
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Aug 27, 2024 at 09:39:30AM +0800, qiaozhe wrote:
+On Mon, Aug 26, 2024 at 12:57:37PM +0200, Alexandre Ghiti wrote:
+> RISCV_ALTERNATIVE_EARLY will issue sbi_ecall() very early in the boot
+> process, before the first memory mapping is setup so we can't have any
+> instrumentation happening here.
 >=20
-> On 2024/8/26 16:15, Conor Dooley wrote:
+> In addition, when the kernel is relocatable, we must also not issue any
+> relocation this early since they would have been patched virtually only.
 >=20
-> > On Sat, Aug 24, 2024 at 10:41:28AM +0800, qiaozhe wrote:
-> >>
-> >>
-> >> On 2024/8/23 20:57, Conor Dooley wrote:
-> >>
-> >>> On Fri, Aug 23, 2024 at 05:11:00PM +0800, Zhe Qiao wrote:
-> >>>> In the of_parse_and_init_cpus() function, when the __cpuid_to_hartid=
-_map[]
-> >>>> array records the CPU hardware ID, if the same CPU hardware attribut=
-e has=20
-> >>>> been recorded, an error report is issued, thereby ensuring the uniqu=
-eness
-> >>>> of the CPU hardware ID recorded in the __cpuid_to_hartid_map[] array.
-> >>> Why is this actually required? On what system did you encounter this?
-> >> This is not actually a patch submitted for problems encountered in act=
-ual=A0
-> >> development environments, but rather a comparison of ARM architecture =
-when=A0
-> >> I was learning Linux kernel and found similar judgments on ARM archite=
-cture.
-> > Okay, it's good that you didn't find such a bad dtb "in the wild" :)
-> >
-> >> In addition, if the same attribute exists on the CPU hardware ID and i=
-s=A0
-> >> recorded in __cpuid_to_hartid_map[], the kernel may need to make a jud=
-gment=A0
-> >> on this error.
-> >>
-> >>
-> >>>> Signed-off-by: Zhe Qiao <qiaozhe@iscas.ac.cn>
-> >>>> ---
-> >>>>  arch/riscv/kernel/smpboot.c | 16 ++++++++++++++++
-> >>>>  1 file changed, 16 insertions(+)
-> >>>>
-> >>>> diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot=
-=2Ec
-> >>>> index 0f8f1c95ac38..698f9fe791f7 100644
-> >>>> --- a/arch/riscv/kernel/smpboot.c
-> >>>> +++ b/arch/riscv/kernel/smpboot.c
-> >>>> @@ -118,6 +118,16 @@ static void __init acpi_parse_and_init_cpus(voi=
-d)
-> >>>>  #define acpi_parse_and_init_cpus(...)	do { } while (0)
-> >>>>  #endif
-> >>>> =20
-> >>>> +static bool __init is_mpidr_duplicate(unsigned int cpuid, u64 hart)
-> >>>> +{
-> >>>> +	unsigned int i;
-> >>>> +
-> >>>> +	for (i =3D 1; (i < cpuid) && (i < NR_CPUS); i++)
-> >>>> +		if (cpuid_to_hartid_map(i) =3D=3D hart)
-> >>>> +			return true;
-> >>>> +	return false;
-> >>>> +}
-> >>>> +
-> >>>>  static void __init of_parse_and_init_cpus(void)
-> >>>>  {
-> >>>>  	struct device_node *dn;
-> >>>> @@ -131,6 +141,12 @@ static void __init of_parse_and_init_cpus(void)
-> >>>>  		if (rc < 0)
-> >>>>  			continue;
-> >>>> =20
-> >>>> +		if (is_mpidr_duplicate(cpuid, hart)) {
-> >>>> +			pr_err("%pOF: duplicate cpu reg properties in the DT\n",
-> >>>> +				dn);
-> >>>> +			continue;
-> >>> Why would we continue in this case? If the devicetree is this broken,
-> >>> why shouldn't we just BUG() and abort immediately?
-> >> This is because I did not find any judgment on this issue in the previ=
-ous code=A0
-> >> during the analysis process, so I did not take more aggressive measure=
-s in this=A0
-> >> regard, but only issued an error alarm.
-> > What do you think though? Should we continue to boot in this case?
-> > If you read the function a bit further, you'll see that we abort boot
-> > if there are two instances of the boot CPU. Do you think the same should
-> > be done for all CPUs?
->=20
->=20
-> Yes, I saw that if there are two boot CPUs, a BUG will occur. For all CPU=
-s,=A0
->=20
-> if there are two CPUs with the same attributes, I think a bug should be g=
-enerated=A0
->=20
-> directly. This will attract more attention than issuing false warnings, w=
-hile also=A0
->=20
-> reducing the difficulty of troubleshooting related issues.
->=20
->=20
-> These are some of my opinions, I don't know if they are reasonable to con=
-sider.=A0
->=20
-> What do you think?
+> So, instead of disabling instrumentation for the whole kernel/sbi.c file
+> and compiling it with -fno-pie, simply move __sbi_ecall() and
+> __sbi_base_ecall() into their own file where this is fixed.
 
-I think that BUG()ing here would be reasonable to do.
+IOW, this should fix the issue that we discussed here
+https://lore.kernel.org/linux-riscv/abec162e-f3f2-488c-83d9-be17257a5df8@gh=
+iti.fr/
+also?
+I'm sorry I didn't get to test that yet, we had some pretty bad IT
+issues in the office the last weeks and I have been avoiding going
+there. I'll try to test this one instead..
 
---4kBnFeiL0axLL0iM
+--WUoEQbA1AuWx5rCS
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZs2N9AAKCRB4tDGHoIJi
-0vSFAQD02Hl7HYzSRaEa2s1RMLlAvYZPFnLpJ2EbtfSnT6OziQD/eHtYk4oC4gjY
-C7+qRESu3N+O5q0+llc+uESyupemiAM=
-=zOcg
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZs2QaQAKCRB4tDGHoIJi
+0s4HAP9R7DRRgtrxWKs/ooG2L716azXsarufF81XC3XFVzH61wD/WgnopbRqbSZM
+rAkoD48sOPA15UGrJsrtmq7Aslc1SA4=
+=gQhL
 -----END PGP SIGNATURE-----
 
---4kBnFeiL0axLL0iM--
+--WUoEQbA1AuWx5rCS--
 
 
---===============8816639092920972843==
+--===============1696034344335220717==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -216,5 +131,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============8816639092920972843==--
+--===============1696034344335220717==--
 
