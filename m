@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D09C5C7114C
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2024 23:36:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33CF9C7114C
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2024 23:38:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hR23fR7ccI8hRdwFAwb7FwQ3FP0ozGcN5ddaQnAmGrM=; b=WRZIZy5FIRfmWL
-	PrUk9049L0zm1ATUw8bcm/MrcuVsFlJR0gPuAz0o+DCUvxunSQut1OpBbYv6coLq1m0GO3B6tC6Hs
-	LFuu3TSC0uQqkfuIwqEA3oPi66/d3FxFVHPUT07pXlHWUpWY3B/v5G4fZg7K+cGS2ubeXuS/VbF0N
-	1tPKWF4XXZojJ/cjfrrkRc6vRSGFbiF+92Q0fjI1nNgFBt3ytRQhujAo31wr3H9Mo+salmloVq3ds
-	1AsX/15Qp+DRTWmVi6hf04ksV06gnVlcs7o+tfxPapkGgGYm87kpSNG5nKDUN8Q4YcSgMvENnAPsb
-	8JhEyCeo+NY63XUHJgMA==;
+	List-Owner; bh=qqUT8ikBPhCVAvdrzzvB9pPLTZqXYkOB0dm6P5YG67g=; b=3yIZXVdN+VHSvW
+	CL5zT1Q8VUGVwFYjazB7mx87JT/LLkgmn/j1WKZh33mtD3+4OxLSrVuvQFVo2pj9QuESHu89TY687
+	b/uQVPXgs5IXxPbegcu/Gk4ro33SrhqQj3cZtfQrqigvtabYQF+zL1klRP8HOnqdDCla3xoQPHr+C
+	0EKWsPBSvuANchb2OybbMycScvVy2tEYUesKjt8WZ47nDdL1Zl9QyIJFy/qmdDlE9nVracjgEy+Fe
+	dZ/EmXAg8SVqgfRxziIPvQqsPWTyRQC/+gWAeIngwzT8D1pBPY3VQBYMWa97/YjYkn8wdMncYvj+F
+	LRZcXJc193Gpl8h9T+qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjSDe-0000000HPZO-3w8G;
-	Wed, 28 Aug 2024 23:36:55 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1sjSEh-0000000HQ6q-2cIr;
+	Wed, 28 Aug 2024 23:37:59 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjS6s-0000000HMCy-0GJP;
-	Wed, 28 Aug 2024 23:29:55 +0000
+	id 1sjS6z-0000000HMFw-1QT5;
+	Wed, 28 Aug 2024 23:30:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 38E22CE19B3;
-	Wed, 28 Aug 2024 23:29:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7CC5C4CEC9;
-	Wed, 28 Aug 2024 23:29:44 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 5C37ECE1736;
+	Wed, 28 Aug 2024 23:29:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4708C4CEC4;
+	Wed, 28 Aug 2024 23:29:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1724887791;
-	bh=sqQ+QKkmK52Q/49cSzsvA/P7PZLEWrgUxaLRjQV/ejo=;
+	s=k20201202; t=1724887798;
+	bh=HBIymMJlJf7+ITwOhb+j59rN4WPQGeznsoeJKujezak=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=vG80HCEqvwmLnCMPkEsueZpCKLk3qtzddeKGLPDggKc6vRzBYEVS7ER5zmIqb1k72
-	 NJ1WLhLlBb6yY4yclm2dLosi9ZONjWf9eYlc3C82IixUyhBSDuWTFQMAolAUCMkM9J
-	 7SjJdVma1a2/j3wYaNDGWvEO5/vHkCsBgW1H+gnKDWcWZ9zsjhCM3a5ynw7GDeZEbI
-	 RYnwHTKAJIGplNTJjfF6wbBxz/GCmTcN4Htny3mZyzgJCqIMielS4u829nwbK9k358
-	 Wl+yTMciBXNs+qpqoXOF4IimaaclSmXDpNXC1NnA2XXJfC0lOLhxIv+qaKPAwihBnp
-	 LgDRVDOFqlr7w==
+	b=XuchLGfpg5OGC29+xUs4tplER41FbxWeXpPKVwAao9yigT9A0vzLu7atvegblnWF+
+	 l9n0lbSiCOwQOVqWPFmMwZ1ekCxohBLhxIZlTDfvhlHMYoLVZI08jkKtMiKzUjmCyJ
+	 HXaPWb7Ph7Xw++l04ZvMGyciJbqPUY2k+kTF27pDfK8ghBeiw7eTIvye3AUkkz1u78
+	 6n0WaZY6WuAU6cMUUkD6py5x0AXdt7mK/+Q5nxwlcrX9FL1hWh3+RdOSLrmFC/Z+iA
+	 VwV99HdP/CYpHb+hNifkAqUX+HWxIPzuli175SpswLow1sDMGQsJ6xewd1Eilts376
+	 aMj66DaER4Yng==
 From: Mark Brown <broonie@kernel.org>
-Date: Thu, 29 Aug 2024 00:27:27 +0100
-Subject: [PATCH v12 11/39] arm64/cpufeature: Runtime detection of Guarded
- Control Stack (GCS)
+Date: Thu, 29 Aug 2024 00:27:28 +0100
+Subject: [PATCH v12 12/39] arm64/mm: Allocate PIE slots for EL0 guarded
+ control stack
 MIME-Version: 1.0
-Message-Id: <20240829-arm64-gcs-v12-11-42fec947436a@kernel.org>
+Message-Id: <20240829-arm64-gcs-v12-12-42fec947436a@kernel.org>
 References: <20240829-arm64-gcs-v12-0-42fec947436a@kernel.org>
 In-Reply-To: <20240829-arm64-gcs-v12-0-42fec947436a@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -73,20 +73,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-37811
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2509; i=broonie@kernel.org;
- h=from:subject:message-id; bh=sqQ+QKkmK52Q/49cSzsvA/P7PZLEWrgUxaLRjQV/ejo=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBmz7KBb0D7nRtPjG+I2opJk4w/nm2oBnx9CZM1fZNA
- klVt8vmJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZs+ygQAKCRAk1otyXVSH0FsFB/
- 4jYAAOCvMcLn76pgsL2eJroEr/+4+Q1QK1oTGp2N5IIb1Gio3ea8VWw98RqN1INA8Mr//fr6P0TKYy
- btsGw20wDmKwt5jWc4K/dnC+VD8mes1LfawGk0hby4u5Ca7dMRld+UYbTiAZ+i6NPw+ncBK0JPmdWL
- pCOn8dL8Z2Czjd8hPQmEIEzbIjmzRjJQpPRYGtL1HNHJf3xYN3Tf5HJwqqcrk9Rg6BUiehboxjX8Q9
- OOLqAkIsvVPSqD1hbZ7miFEFFWfduQ6zIILc0lwpyTF21OKBGEGL4Kb2q3rYqKOEUbOEeV0dawvxBS
- QcMYvPUxZ4tb6LAVN5gvIu9lP4qrET
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3084; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=HBIymMJlJf7+ITwOhb+j59rN4WPQGeznsoeJKujezak=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBmz7KBw7IkueYw48dG/sRyNikrfDrnQy9nMXT3KbWR
+ xXEWMBqJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZs+ygQAKCRAk1otyXVSH0CGzB/
+ 9FpI/8Nvj4l3e3y0PhdlgWD6cJmpnUTWZm24RKsU3fbtVsmMEvF3ODMODz0uFDiL1/lUe63cWHGkvx
+ Hayy3os5dp5kOAHOGPUEn/4XN2M79ssNHm7FbaM6+IVxsHoWOQm6JNyQi2nae5oZkjwAdhs/mJ4JvI
+ 1cVV/RtvTwu7irvFTTH7T2lXgJsyo5nQ9CkkSoetnG0WX5MeiT5WseOUdX/Nw71e5CWMAt3FZ3WVpw
+ kULf7K2sNZigyVBgAFwDqXzzJF4vlIWRJTVbnBJ2yT0BSWPHSX1nKyIQ0rCEvUO4Nycaw8vzShgwMY
+ eBO4adf8kEYYhFUkeNbsu+9vEwVFE3
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240828_162954_476281_20F79237 
-X-CRM114-Status: GOOD (  11.08  )
+X-CRM114-CacheID: sfid-20240828_163001_822699_A29D2DE8 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,74 +103,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a cpufeature for GCS, allowing other code to conditionally support it
-at runtime.
+Pages used for guarded control stacks need to be described to the hardware
+using the Permission Indirection Extension, GCS is not supported without
+PIE. In order to support copy on write for guarded stacks we allocate two
+values, one for active GCSs and one for GCS pages marked as read only prior
+to copy.
+
+Since the actual effect is defined using PIE the specific bit pattern used
+does not matter to the hardware but we choose two values which differ only
+in PTE_WRITE in order to help share code with non-PIE cases.
 
 Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
 Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/include/asm/cpufeature.h | 6 ++++++
- arch/arm64/kernel/cpufeature.c      | 9 +++++++++
- arch/arm64/tools/cpucaps            | 1 +
- 3 files changed, 16 insertions(+)
+ arch/arm64/include/asm/pgtable-prot.h | 14 ++++++++++++--
+ 1 file changed, 12 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-index 558434267271..e0f0e4c24544 100644
---- a/arch/arm64/include/asm/cpufeature.h
-+++ b/arch/arm64/include/asm/cpufeature.h
-@@ -832,6 +832,12 @@ static inline bool system_supports_lpa2(void)
- 	return cpus_have_final_cap(ARM64_HAS_LPA2);
- }
+diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
+index b11cfb9fdd37..545d54c88520 100644
+--- a/arch/arm64/include/asm/pgtable-prot.h
++++ b/arch/arm64/include/asm/pgtable-prot.h
+@@ -144,15 +144,23 @@ static inline bool __pure lpa2_is_enabled(void)
+ /* 6:                                PTE_PXN | PTE_WRITE            */
+ /* 7: PAGE_SHARED_EXEC               PTE_PXN | PTE_WRITE | PTE_USER */
+ /* 8: PAGE_KERNEL_ROX      PTE_UXN                                  */
+-/* 9:                      PTE_UXN |                       PTE_USER */
++/* 9: PAGE_GCS_RO          PTE_UXN |                       PTE_USER */
+ /* a: PAGE_KERNEL_EXEC     PTE_UXN |           PTE_WRITE            */
+-/* b:                      PTE_UXN |           PTE_WRITE | PTE_USER */
++/* b: PAGE_GCS             PTE_UXN |           PTE_WRITE | PTE_USER */
+ /* c: PAGE_KERNEL_RO       PTE_UXN | PTE_PXN                        */
+ /* d: PAGE_READONLY        PTE_UXN | PTE_PXN |             PTE_USER */
+ /* e: PAGE_KERNEL          PTE_UXN | PTE_PXN | PTE_WRITE            */
+ /* f: PAGE_SHARED          PTE_UXN | PTE_PXN | PTE_WRITE | PTE_USER */
  
-+static inline bool system_supports_gcs(void)
-+{
-+	return IS_ENABLED(CONFIG_ARM64_GCS) &&
-+		alternative_has_cap_unlikely(ARM64_HAS_GCS);
-+}
++#define _PAGE_GCS	(_PAGE_DEFAULT | PTE_NG | PTE_UXN | PTE_WRITE | PTE_USER)
++#define _PAGE_GCS_RO	(_PAGE_DEFAULT | PTE_NG | PTE_UXN | PTE_USER)
 +
- int do_emulate_mrs(struct pt_regs *regs, u32 sys_reg, u32 rt);
- bool try_emulate_mrs(struct pt_regs *regs, u32 isn);
++#define PAGE_GCS	__pgprot(_PAGE_GCS)
++#define PAGE_GCS_RO	__pgprot(_PAGE_GCS_RO)
++
+ #define PIE_E0	( \
++	PIRx_ELx_PERM(pte_pi_index(_PAGE_GCS),           PIE_GCS)  | \
++	PIRx_ELx_PERM(pte_pi_index(_PAGE_GCS_RO),        PIE_R)   | \
+ 	PIRx_ELx_PERM(pte_pi_index(_PAGE_EXECONLY),      PIE_X_O) | \
+ 	PIRx_ELx_PERM(pte_pi_index(_PAGE_READONLY_EXEC), PIE_RX)  | \
+ 	PIRx_ELx_PERM(pte_pi_index(_PAGE_SHARED_EXEC),   PIE_RWX) | \
+@@ -160,6 +168,8 @@ static inline bool __pure lpa2_is_enabled(void)
+ 	PIRx_ELx_PERM(pte_pi_index(_PAGE_SHARED),        PIE_RW))
  
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 646ecd3069fd..315bd7be1106 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -291,6 +291,8 @@ static const struct arm64_ftr_bits ftr_id_aa64pfr0[] = {
- };
- 
- static const struct arm64_ftr_bits ftr_id_aa64pfr1[] = {
-+	ARM64_FTR_BITS(FTR_VISIBLE_IF_IS_ENABLED(CONFIG_ARM64_GCS),
-+		       FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR1_EL1_GCS_SHIFT, 4, 0),
- 	ARM64_FTR_BITS(FTR_VISIBLE_IF_IS_ENABLED(CONFIG_ARM64_SME),
- 		       FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR1_EL1_SME_SHIFT, 4, 0),
- 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR1_EL1_MPAM_frac_SHIFT, 4, 0),
-@@ -2870,6 +2872,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
- 		.matches = has_nv1,
- 		ARM64_CPUID_FIELDS_NEG(ID_AA64MMFR4_EL1, E2H0, NI_NV1)
- 	},
-+	{
-+		.desc = "Guarded Control Stack (GCS)",
-+		.capability = ARM64_HAS_GCS,
-+		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
-+		.matches = has_cpuid_feature,
-+		ARM64_CPUID_FIELDS(ID_AA64PFR1_EL1, GCS, IMP)
-+	},
- 	{},
- };
- 
-diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-index ac3429d892b9..66eff95c0824 100644
---- a/arch/arm64/tools/cpucaps
-+++ b/arch/arm64/tools/cpucaps
-@@ -29,6 +29,7 @@ HAS_EVT
- HAS_FPMR
- HAS_FGT
- HAS_FPSIMD
-+HAS_GCS
- HAS_GENERIC_AUTH
- HAS_GENERIC_AUTH_ARCH_QARMA3
- HAS_GENERIC_AUTH_ARCH_QARMA5
+ #define PIE_E1	( \
++	PIRx_ELx_PERM(pte_pi_index(_PAGE_GCS),           PIE_NONE_O) | \
++	PIRx_ELx_PERM(pte_pi_index(_PAGE_GCS_RO),        PIE_NONE_O) | \
+ 	PIRx_ELx_PERM(pte_pi_index(_PAGE_EXECONLY),      PIE_NONE_O) | \
+ 	PIRx_ELx_PERM(pte_pi_index(_PAGE_READONLY_EXEC), PIE_R)      | \
+ 	PIRx_ELx_PERM(pte_pi_index(_PAGE_SHARED_EXEC),   PIE_RW)     | \
 
 -- 
 2.39.2
