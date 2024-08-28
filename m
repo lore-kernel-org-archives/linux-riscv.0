@@ -4,66 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2E65C636ED
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2024 17:56:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B6DEC636EE
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2024 18:13:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SK15yZBhp3gO7EJ/8LlzcYoMzksmN3CXhbxUBV7wt8E=; b=WXpcxVmDiGUFJM
-	Az5UE+ACbnCedwFoiLVEAHaLzmPe53LZjsz1tl3JI5LDhje3v9OgZHdQOPanbC8kys9pWcpI0Qh+4
-	vozx+AKwDCWuxPFkWq2RgdMCwnOGoQOmmfy4jjAn1B9gq3c6N9rqi5LGe9G7GYEs4aTB+R1y7b0pN
-	9RUK1W0k1q84NT4b2Gws0uHHkr1PPy002x9z2zS6MEI2Ebvr7psvcyZtKzsXwPCD6YOfwWVZf6W40
-	3MX0hPGeQFTm2QgQir7HXL5In1orWRpkuIDNmJqdVH03+16Z2UbWHtTNPGNncQokJ1rI572+BU4f6
-	huEgXuSFiDQ+BWSJkKJw==;
+	List-Owner; bh=NwCbdYStesuTzXEnsxeMi+7KE+0TxcIRiEEbYIfvoAA=; b=cqkXHmXSEXUWXd
+	vW/vHGPC142jN8ODwB35NZQfotyo0NLpEyMfqCRb1M6xIQlc2vSyDrShGOoJVLI8aExLdXFZkdEYP
+	9vgmRgVfDio0M7C3jPXB9eam3qvHHhKxioOlHlwlxudqhkb7xR+RD81mJX78ZcpKgmcfbCl2kUGkF
+	CexDE0zRMHCYXw9pPqqQJB+Og5qDMgn+Yq91dGDpNcCg+MgF+LvxLdOVCUca36YsLztY+c7ETDYHV
+	sLYlF1QM2hIio3drA89yV4QLT9l5SlKIXEapBQueV+vLJFjcuihB/fk50lIrkGv1Zd87yTXkboGZS
+	b7Hgl/cRuMD+TjafAX7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjMu1-0000000GS0L-0xEJ;
-	Wed, 28 Aug 2024 17:56:17 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1sjNAX-0000000GVGz-1vqv;
+	Wed, 28 Aug 2024 18:13:21 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjMtx-0000000GRzi-3V7g
+	id 1sjNAU-0000000GVGF-172n
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Aug 2024 17:56:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 0054CA429C3;
-	Wed, 28 Aug 2024 17:56:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C322C4CEC0;
-	Wed, 28 Aug 2024 17:56:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1724867772;
-	bh=2PBr5QWpevcJp1WvmduesQGSU9hgFKf8rgffyoLHc58=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sLIAqa7IYJVdRWlUTOSvnEsPnfEF+xhTICeMK07wPkmBwFopRY1JIkg5U+HcWQlA0
-	 fc8AYHKCP7fRumJvkC2iWRByMKVj9kimNGsJLG8HhuD7e9eXUW1OruB/NF6+T9WLAv
-	 LOCHPKqUArYIvR8JRd087fJ2Yo6psrSkhSo1cHcax1L34cAnw1VlzPrAaoLLI16AG8
-	 HIJfZmMPddg/kd8V7vOpFnvCQyEWKZtepCmeJT7BxQug7nl+qmrgLXNqCctE4EDEjg
-	 WQqUEm8/XDnVuABbclzr/ingQqTOItqbWqTCjlPq4Ns6Z5kZtZRoJYBwnbMD0dAsu0
-	 wDto0iHEI77Mw==
-Date: Wed, 28 Aug 2024 23:26:08 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Inochi Amaoto <inochiama@outlook.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	Wed, 28 Aug 2024 18:13:19 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2020b730049so56023915ad.3
+        for <linux-riscv@lists.infradead.org>; Wed, 28 Aug 2024 11:13:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1724868797; x=1725473597; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=LALoI8v52A4/X4uxJhIa0heHcwoa9eC5vLoHkCEA7Ac=;
+        b=BsMEUmtYJm2hJH6MRHp2ou7b/pi3r2Y5rQqnM6lmP9Wdt4+vbU87HEIlVuqs5pYrEo
+         AmW2ExMpEakF1WySHqh+sQbKExvxINwczUpCEpfiYZH0bTYAUl4D82+F0lQ8LGNHdtfX
+         7Kc7363S5eAatA4ekiIMW9O0Vug6AJnSSFekO/hmsXl31viJuB2bUNMXHZyi++JAEPUW
+         601lZOiMebMOP7r+bK6j4AtNtuJWgMNrhGD9/75NI7MWXjz4lumawU7Jw9JvdxWGWp99
+         VC8eoDXH6lXgrV2n5tdqQjJQKds22hZKhDqrOOP4fvH73dZ1aQd4HTFo9rXNKcRF3UsL
+         CZ5A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1724868797; x=1725473597;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LALoI8v52A4/X4uxJhIa0heHcwoa9eC5vLoHkCEA7Ac=;
+        b=P84gMnOycU32Nv5W/Lf1MzpXyt/97IFard+i2JFYNLFUMEy+7vbsTay6U+xtFNaTiz
+         x9JPVJFqVq/4CLNPlKumk2TV1HNALp2o6FKwquZ657Ev8uMhE1t5BcMjCIqdIxa9NEBj
+         aR+DyiAnN1pKci3if4tyHVM6cAvVtq9GR32Z49ib+UgrdOk8NXJMtN3V5k25Hpsj2kfA
+         UPTSm4AIKLtVE5/YLeM68d/nc0KqXH3wLZ9as1aX9hGiJ2Oq4cIZByKejA3tD6zzMAcv
+         9SqY9dwctjjAvBXhNH3mU0Z8bSGzdF/Zw34qsOyogcBCrwUMcF4v02Hb7c28fshyTgPR
+         b6fQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUCg+JiBP+i2Zi/eRRt3/qKHGQOa18lQtmBk83PU2fWLNINHNtC9Y2ap8XM6yFsp+bo5qE0umayK35Qjw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyiwp1LdabFJuTQVGd0xVoNRRAkKw4dvZA/uk9P6872Z5GtcOSJ
+	mp8SMko6tQVENYleLpRYFbpFyWtFzf5zImi8hZkSSkCyC9+6VjG7eCyEk+Vs0m8=
+X-Google-Smtp-Source: AGHT+IGuZvjR8n1DEJgaREJ89Ekx33Df2TcjSjzsxg5aNNIN6dSl+M4/n8ZHA/SWHFgBiHe+4H0WZQ==
+X-Received: by 2002:a17:902:f78c:b0:1fd:9269:72c6 with SMTP id d9443c01a7336-2050c4a5b8fmr3765425ad.62.1724868797179;
+        Wed, 28 Aug 2024 11:13:17 -0700 (PDT)
+Received: from ghost ([50.145.13.30])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-203855df88esm101966005ad.152.2024.08.28.11.13.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 28 Aug 2024 11:13:16 -0700 (PDT)
+Date: Wed, 28 Aug 2024 11:13:11 -0700
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, dmaengine@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v12 3/3] dmaengine: add driver for Sophgo CV18XX/SG200X
- dmamux
-Message-ID: <Zs9kuJ1+aLdvFHrU@vaman>
-References: <IA1PR20MB495396729244074C36E51E11BB942@IA1PR20MB4953.namprd20.prod.outlook.com>
- <IA1PR20MB4953D9A62A26337E7EBC73DCBB942@IA1PR20MB4953.namprd20.prod.outlook.com>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Naveen N Rao <naveen@kernel.org>,
+	Muchun Song <muchun.song@linux.dev>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Russell King <linux@armlinux.org.uk>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Helge Deller <deller@gmx.de>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Rich Felker <dalias@libc.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	linux-mm@kvack.org, loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH 16/16] selftests/mm: Create MAP_BELOW_HINT test
+Message-ID: <Zs9oty09IysKUHCF@ghost>
+References: <20240827-patches-below_hint_mmap-v1-0-46ff2eb9022d@rivosinc.com>
+ <20240827-patches-below_hint_mmap-v1-16-46ff2eb9022d@rivosinc.com>
+ <71528354-4884-41e4-a4a9-318e26187f86@lucifer.local>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <IA1PR20MB4953D9A62A26337E7EBC73DCBB942@IA1PR20MB4953.namprd20.prod.outlook.com>
+In-Reply-To: <71528354-4884-41e4-a4a9-318e26187f86@lucifer.local>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240828_105614_036868_2FDE90FC 
-X-CRM114-Status: GOOD (  30.31  )
+X-CRM114-CacheID: sfid-20240828_111318_330960_3135EA2A 
+X-CRM114-Status: GOOD (  29.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,323 +136,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 27-08-24, 14:49, Inochi Amaoto wrote:
-> Sophgo CV18XX/SG200X use DW AXI CORE with a multiplexer for remapping
-> its request lines. The multiplexer supports at most 8 request lines.
+On Wed, Aug 28, 2024 at 06:48:33PM +0100, Lorenzo Stoakes wrote:
+> On Tue, Aug 27, 2024 at 10:49:22PM GMT, Charlie Jenkins wrote:
+> > Add a selftest for MAP_BELOW_HINT that maps until it runs out of space
+> > below the hint address.
+> >
+> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> > ---
+> >  tools/testing/selftests/mm/Makefile         |  1 +
+> >  tools/testing/selftests/mm/map_below_hint.c | 29 +++++++++++++++++++++++++++++
+> >  2 files changed, 30 insertions(+)
+> >
+> > diff --git a/tools/testing/selftests/mm/Makefile b/tools/testing/selftests/mm/Makefile
+> > index cfad627e8d94..4e2de85267b5 100644
+> > --- a/tools/testing/selftests/mm/Makefile
+> > +++ b/tools/testing/selftests/mm/Makefile
+> > @@ -50,6 +50,7 @@ TEST_GEN_FILES += hugepage-shm
+> >  TEST_GEN_FILES += hugepage-vmemmap
+> >  TEST_GEN_FILES += khugepaged
+> >  TEST_GEN_FILES += madv_populate
+> > +TEST_GEN_FILES += map_below_hint
+> >  TEST_GEN_FILES += map_fixed_noreplace
+> >  TEST_GEN_FILES += map_hugetlb
+> >  TEST_GEN_FILES += map_populate
+> > diff --git a/tools/testing/selftests/mm/map_below_hint.c b/tools/testing/selftests/mm/map_below_hint.c
+> > new file mode 100644
+> > index 000000000000..305274c5af49
+> > --- /dev/null
+> > +++ b/tools/testing/selftests/mm/map_below_hint.c
+> > @@ -0,0 +1,29 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +/*
+> > + * Test the MAP_BELOW_HINT mmap flag.
+> > + */
+> > +#include <sys/mman.h>
+> > +#include "../kselftest.h"
+> > +
+> > +#define ADDR 0x1000000UL
+> > +#define LENGTH (ADDR / 100)
+> > +
+> > +#define MAP_BELOW_HINT	  0x8000000	/* Not defined in all libc */
+> > +
+> > +/*
+> > + * Map memory with MAP_BELOW_HINT until no memory left. Ensure that all returned
+> > + * addresses are below the hint.
+> > + */
+> > +int main(int argc, char **argv)
+> > +{
+> > +	void *addr;
+> > +
+> > +	do {
+> > +		addr = mmap((void *)ADDR, LENGTH, MAP_ANONYMOUS, MAP_BELOW_HINT, -1, 0);
 > 
-> Add driver for Sophgo CV18XX/SG200X DMA multiplexer.
+> How can this be correct? mmap() has parameters:
 > 
-> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
-> ---
->  drivers/dma/Kconfig         |   9 ++
->  drivers/dma/Makefile        |   1 +
->  drivers/dma/cv1800-dmamux.c | 257 ++++++++++++++++++++++++++++++++++++
->  3 files changed, 267 insertions(+)
->  create mode 100644 drivers/dma/cv1800-dmamux.c
+>        void *mmap(void addr[.length], size_t length, int prot, int flags,
+>                   int fd, off_t offset);
 > 
-> diff --git a/drivers/dma/Kconfig b/drivers/dma/Kconfig
-> index cc0a62c34861..df010ee1de46 100644
-> --- a/drivers/dma/Kconfig
-> +++ b/drivers/dma/Kconfig
-> @@ -546,6 +546,15 @@ config PLX_DMA
->  	  These are exposed via extra functions on the switch's
->  	  upstream port. Each function exposes one DMA channel.
->  
-> +config SOPHGO_CV1800_DMAMUX
-> +	tristate "Sophgo CV1800/SG2000 series SoC DMA multiplexer support"
-> +	depends on MFD_SYSCON
-> +	depends on ARCH_SOPHGO
+> You'r setting prot = MAP_ANONYMOUS, flags = MAP_BELOW_HINT...
+> 
+> This surely should be:
+> 
+> mmap(..., PROT_READ | PROT_WRITE, MAP_ANON | MAP_PRIVATE | MAP_BELOW_HINT, -1, 0);
+> 
+> > +	} while (addr == MAP_FAILED && (unsigned long)addr <= ADDR);
+> 
+> How can addr == MAP_FAILED (i.e. ~0) and addr <= ADDR? This will just loop
+> through once...
+> 
+> If you want to make sure you're getting mappings only below the hint until
+> you start getting MAP_FAILED's you'll need to handle this more robustly.
+> 
+> > +
+> > +	if (addr != MAP_FAILED && (unsigned long)addr > ADDR)
+> > +		ksft_exit_fail_msg("mmap returned address above hint with MAP_BELOW_HINT\n");
+> 
+> This is just going to fail because your flags are wrong then wrongly claim
+> to have passed...
 
-this lgtm, maybe add || COMPILE_TEST for wider compile test coverage?
+I obviously didn't spend enough time thinking about this test case...
+You are correct that I wrote this incorrectly. I will make a proper test case
+and send out a new version.
 
-> +	help
-> +	  Support for the DMA multiplexer on Sophgo CV1800/SG2000
-> +	  series SoCs.
-> +	  Say Y here if your board have this soc.
-> +
->  config STE_DMA40
->  	bool "ST-Ericsson DMA40 support"
->  	depends on ARCH_U8500
-> diff --git a/drivers/dma/Makefile b/drivers/dma/Makefile
-> index 374ea98faf43..60d05b305082 100644
-> --- a/drivers/dma/Makefile
-> +++ b/drivers/dma/Makefile
-> @@ -69,6 +69,7 @@ obj-$(CONFIG_PPC_BESTCOMM) += bestcomm/
->  obj-$(CONFIG_PXA_DMA) += pxa_dma.o
->  obj-$(CONFIG_RENESAS_DMA) += sh/
->  obj-$(CONFIG_SF_PDMA) += sf-pdma/
-> +obj-$(CONFIG_SOPHGO_CV1800_DMAMUX) += cv1800-dmamux.o
->  obj-$(CONFIG_STE_DMA40) += ste_dma40.o ste_dma40_ll.o
->  obj-$(CONFIG_SPRD_DMA) += sprd-dma.o
->  obj-$(CONFIG_TXX9_DMAC) += txx9dmac.o
-> diff --git a/drivers/dma/cv1800-dmamux.c b/drivers/dma/cv1800-dmamux.c
-> new file mode 100644
-> index 000000000000..a907c72325c7
-> --- /dev/null
-> +++ b/drivers/dma/cv1800-dmamux.c
-> @@ -0,0 +1,257 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (C) 2024 Inochi Amaoto <inochiama@outlook.com>
-> + */
-> +
-> +#include <linux/bitops.h>
-> +#include <linux/cleanup.h>
-> +#include <linux/module.h>
-> +#include <linux/of_dma.h>
-> +#include <linux/of_address.h>
-> +#include <linux/of_platform.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/llist.h>
-> +#include <linux/regmap.h>
-> +#include <linux/spinlock.h>
-> +#include <linux/mfd/syscon.h>
-> +
-> +#include <soc/sophgo/cv1800-sysctl.h>
-> +
-> +#define DMAMUX_NCELLS			2
-> +#define MAX_DMA_MAPPING_ID		42
-> +#define MAX_DMA_CPU_ID			2
-> +#define MAX_DMA_CH_ID			7
-> +
-> +#define DMAMUX_INTMUX_REGISTER_LEN	4
-> +#define DMAMUX_NR_CH_PER_REGISTER	4
-> +#define DMAMUX_BIT_PER_CH		8
-> +#define DMAMUX_CH_MASk			GENMASK(5, 0)
-> +#define DMAMUX_INT_BIT_PER_CPU		10
-> +#define DMAMUX_CH_UPDATE_BIT		BIT(31)
-> +
-> +#define DMAMUX_CH_REGPOS(chid) \
-> +	((chid) / DMAMUX_NR_CH_PER_REGISTER)
-> +#define DMAMUX_CH_REGOFF(chid) \
-> +	((chid) % DMAMUX_NR_CH_PER_REGISTER)
-> +#define DMAMUX_CH_REG(chid) \
-> +	((DMAMUX_CH_REGPOS(chid) * sizeof(u32)) + \
-> +	 CV1800_SDMA_DMA_CHANNEL_REMAP0)
-> +#define DMAMUX_CH_SET(chid, val) \
-> +	(((val) << (DMAMUX_CH_REGOFF(chid) * DMAMUX_BIT_PER_CH)) | \
-> +	 DMAMUX_CH_UPDATE_BIT)
-> +#define DMAMUX_CH_MASK(chid) \
-> +	DMAMUX_CH_SET(chid, DMAMUX_CH_MASk)
-> +
-> +#define DMAMUX_INT_BIT(chid, cpuid) \
-> +	BIT((cpuid) * DMAMUX_INT_BIT_PER_CPU + (chid))
-> +#define DMAMUX_INTEN_BIT(cpuid) \
-> +	DMAMUX_INT_BIT(8, cpuid)
-> +#define DMAMUX_INT_CH_BIT(chid, cpuid) \
-> +	(DMAMUX_INT_BIT(chid, cpuid) | DMAMUX_INTEN_BIT(cpuid))
-> +#define DMAMUX_INT_MASK(chid) \
-> +	(DMAMUX_INT_BIT(chid, 0) | \
-> +	 DMAMUX_INT_BIT(chid, 1) | \
-> +	 DMAMUX_INT_BIT(chid, 2))
-> +#define DMAMUX_INT_CH_MASK(chid, cpuid) \
-> +	(DMAMUX_INT_MASK(chid) | DMAMUX_INTEN_BIT(cpuid))
-> +
-> +struct cv1800_dmamux_data {
-> +	struct dma_router	dmarouter;
-> +	struct regmap		*regmap;
-> +	spinlock_t		lock;
-> +	struct llist_head	free_maps;
-> +	struct llist_head	reserve_maps;
-> +	DECLARE_BITMAP(mapped_peripherals, MAX_DMA_MAPPING_ID);
-> +};
-> +
-> +struct cv1800_dmamux_map {
-> +	struct llist_node node;
-> +	unsigned int channel;
-> +	unsigned int peripheral;
-> +	unsigned int cpu;
-> +};
-> +
-> +static void cv1800_dmamux_free(struct device *dev, void *route_data)
-> +{
-> +	struct cv1800_dmamux_data *dmamux = dev_get_drvdata(dev);
-> +	struct cv1800_dmamux_map *map = route_data;
-> +
-> +	guard(spinlock_irqsave)(&dmamux->lock);
-> +
-> +	regmap_update_bits(dmamux->regmap,
-> +			   DMAMUX_CH_REG(map->channel),
-> +			   DMAMUX_CH_MASK(map->channel),
-> +			   DMAMUX_CH_UPDATE_BIT);
-> +
-> +	regmap_update_bits(dmamux->regmap, CV1800_SDMA_DMA_INT_MUX,
-> +			   DMAMUX_INT_CH_MASK(map->channel, map->cpu),
-> +			   DMAMUX_INTEN_BIT(map->cpu));
-> +
-> +	dev_dbg(dev, "free channel %u for req %u (cpu %u)\n",
-> +		map->channel, map->peripheral, map->cpu);
-> +}
-> +
-> +static void *cv1800_dmamux_route_allocate(struct of_phandle_args *dma_spec,
-> +					  struct of_dma *ofdma)
-> +{
-> +	struct platform_device *pdev = of_find_device_by_node(ofdma->of_node);
-> +	struct cv1800_dmamux_data *dmamux = platform_get_drvdata(pdev);
-> +	struct cv1800_dmamux_map *map;
-> +	struct llist_node *node;
-> +	unsigned long flags;
-> +	unsigned int chid, devid, cpuid;
-> +	int ret;
-> +
-> +	if (dma_spec->args_count != DMAMUX_NCELLS) {
-> +		dev_err(&pdev->dev, "invalid number of dma mux args\n");
-> +		return ERR_PTR(-EINVAL);
-> +	}
-> +
-> +	devid = dma_spec->args[0];
-> +	cpuid = dma_spec->args[1];
-> +	dma_spec->args_count = 1;
-> +
-> +	if (devid > MAX_DMA_MAPPING_ID) {
-> +		dev_err(&pdev->dev, "invalid device id: %u\n", devid);
-> +		return ERR_PTR(-EINVAL);
-> +	}
-> +
-> +	if (cpuid > MAX_DMA_CPU_ID) {
-> +		dev_err(&pdev->dev, "invalid cpu id: %u\n", cpuid);
-> +		return ERR_PTR(-EINVAL);
-> +	}
-> +
-> +	dma_spec->np = of_parse_phandle(ofdma->of_node, "dma-masters", 0);
-> +	if (!dma_spec->np) {
-> +		dev_err(&pdev->dev, "can't get dma master\n");
-> +		return ERR_PTR(-EINVAL);
-> +	}
-> +
-> +	spin_lock_irqsave(&dmamux->lock, flags);
-> +
-> +	if (test_bit(devid, dmamux->mapped_peripherals)) {
-> +		llist_for_each_entry(map, dmamux->reserve_maps.first, node) {
-> +			if (map->peripheral == devid && map->cpu == cpuid)
-> +				goto found;
-> +		}
-> +
-> +		ret = -EINVAL;
-> +		goto failed;
-> +	} else {
-> +		node = llist_del_first(&dmamux->free_maps);
-> +		if (!node) {
-> +			ret = -ENODEV;
-> +			goto failed;
-> +		}
-> +
-> +		map = llist_entry(node, struct cv1800_dmamux_map, node);
-> +		llist_add(&map->node, &dmamux->reserve_maps);
-> +		set_bit(devid, dmamux->mapped_peripherals);
-> +	}
-> +
-> +found:
-> +	chid = map->channel;
-> +	map->peripheral = devid;
-> +	map->cpu = cpuid;
-> +
-> +	regmap_set_bits(dmamux->regmap,
-> +			DMAMUX_CH_REG(chid),
-> +			DMAMUX_CH_SET(chid, devid));
-> +
-> +	regmap_update_bits(dmamux->regmap, CV1800_SDMA_DMA_INT_MUX,
-> +			   DMAMUX_INT_CH_MASK(chid, cpuid),
-> +			   DMAMUX_INT_CH_BIT(chid, cpuid));
-> +
-> +	spin_unlock_irqrestore(&dmamux->lock, flags);
-> +
-> +	dma_spec->args[0] = chid;
-> +
-> +	dev_dbg(&pdev->dev, "register channel %u for req %u (cpu %u)\n",
-> +		chid, devid, cpuid);
-> +
-> +	return map;
-> +
-> +failed:
-> +	spin_unlock_irqrestore(&dmamux->lock, flags);
-> +	of_node_put(dma_spec->np);
-> +	dev_err(&pdev->dev, "errno %d\n", ret);
-> +	return ERR_PTR(ret);
-> +}
-> +
-> +static int cv1800_dmamux_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct device_node *mux_node = dev->of_node;
-> +	struct cv1800_dmamux_data *data;
-> +	struct cv1800_dmamux_map *tmp;
-> +	struct device *parent = dev->parent;
-> +	struct regmap *regmap = NULL;
-> +	unsigned int i;
-> +
-> +	if (!parent)
-> +		return -ENODEV;
-> +
-> +	regmap = device_node_to_regmap(parent->of_node);
-> +	if (IS_ERR(regmap))
-> +		return PTR_ERR(regmap);
-> +
-> +	data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
-> +	if (!data)
-> +		return -ENOMEM;
-> +
-> +	spin_lock_init(&data->lock);
-> +	init_llist_head(&data->free_maps);
-> +	init_llist_head(&data->reserve_maps);
-> +
-> +	for (i = 0; i <= MAX_DMA_CH_ID; i++) {
-> +		tmp = devm_kmalloc(dev, sizeof(*tmp), GFP_KERNEL);
-> +		if (!tmp) {
-> +			/* It is OK for not allocating all channel */
-> +			dev_warn(dev, "can not allocate channel %u\n", i);
-> +			continue;
-> +		}
-> +
-> +		init_llist_node(&tmp->node);
-> +		tmp->channel = i;
-> +		llist_add(&tmp->node, &data->free_maps);
-> +	}
-> +
-> +	/* if no channel is allocated, the probe must fail */
-> +	if (llist_empty(&data->free_maps))
-> +		return -ENOMEM;
-> +
-> +	data->regmap = regmap;
-> +	data->dmarouter.dev = dev;
-> +	data->dmarouter.route_free = cv1800_dmamux_free;
-> +
-> +	platform_set_drvdata(pdev, data);
-> +
-> +	return of_dma_router_register(mux_node,
-> +				      cv1800_dmamux_route_allocate,
-> +				      &data->dmarouter);
-> +}
-> +
-> +static void cv1800_dmamux_remove(struct platform_device *pdev)
-> +{
-> +	of_dma_controller_free(pdev->dev.of_node);
-> +}
-> +
-> +static const struct of_device_id cv1800_dmamux_ids[] = {
-> +	{ .compatible = "sophgo,cv1800b-dmamux", },
-> +	{ }
-> +};
-> +MODULE_DEVICE_TABLE(of, cv1800_dmamux_ids);
-> +
-> +static struct platform_driver cv1800_dmamux_driver = {
-> +	.driver = {
-> +		.name = "cv1800-dmamux",
-> +		.of_match_table = cv1800_dmamux_ids,
-> +	},
-> +	.probe = cv1800_dmamux_probe,
-> +	.remove_new = cv1800_dmamux_remove,
-> +};
-> +module_platform_driver(cv1800_dmamux_driver);
-> +
-> +MODULE_AUTHOR("Inochi Amaoto <inochiama@outlook.com>");
-> +MODULE_DESCRIPTION("Sophgo CV1800/SG2000 Series SoC DMAMUX driver");
-> +MODULE_LICENSE("GPL");
-> -- 
-> 2.46.0
+- Charlie
 
--- 
-~Vinod
+> 
+> > +
+> > +	ksft_test_result_pass("MAP_BELOW_HINT works\n");
+> > +}
+> >
+> > --
+> > 2.45.0
+> >
 
 _______________________________________________
 linux-riscv mailing list
