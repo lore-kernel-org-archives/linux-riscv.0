@@ -4,77 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3939C54FAA
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2024 13:59:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CB38C5B55B
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2024 15:45:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=POqMOXCBtTgjk0OyQynQICeRkZ4bkA9N6bM24oYc4G4=; b=KM1ArBIJqyeyS6
-	kYPa1AhqhMENmVf2HAfF6R4NtyIQgWW4NqjtdhYGpftdjSrFSHOZqjVQ/ohnnSmE7GKbXtYaa8gNs
-	1xLVFd7clayeXIiD4/12IBRW3iTteNUKtviUhCgvGnqBEENwZIgJd/F1lJaSj91hP3lZ8sBamlW+C
-	TiZ0M44b5Bja6lIMRxEwqFRRDj579STJqA6979r9Y/CCAWpBUKzsCM8jFXjZN37Ul1RHy4w5lRASQ
-	WvydWdPYGeVSBnJE6kWuJqbSfvIiu5q2lksqPI7sfHcybn605zYG57zgGHfLB6lg+4Rbt+5ijhSgF
-	i4DMw0BQFUXlw6D3xzBA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=YEYm3/SjZ+b4w2MPAVZ8fo4qgO8jHEMuqUAJawF/FqU=; b=qJx
+	QtEGrbLv7uFiAR6vhXUQIZBCPbk7IZpyVPLFXid2G7DukpunxGLeegBE5/KtYnr0SysuEArvkTG/l
+	XwVC4vqQ/bmtEdPHEk9FDmZs/RV2W8b0fpnVIUMyGFjLFRDaYO0DNlOB9j08s9O6N/M4J+AhzKORi
+	nV7HLQsopyQgHwXqKmSAmziGECQgndrw75dAJx65cc861I0w6kW/2mPLYseXZAbwrc+9lSE9BrHQB
+	2SVNu4DQnd6V+bU81kN8jyoh1buVG+vC+eE7MgtraLqHA7rjmB0IomO+wfD6KHT5Gp4iUzd5B4Ou2
+	r1PGhGDuN4uqfDAo1k1F27EbG1qbMBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjJDE-0000000FdTZ-1l3p;
-	Wed, 28 Aug 2024 13:59:52 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1sjKrV-0000000G3bu-1KD9;
+	Wed, 28 Aug 2024 15:45:33 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjJAu-0000000FcvA-3spu;
-	Wed, 28 Aug 2024 13:57:30 +0000
+	id 1sjKob-0000000G1HW-2FXG
+	for linux-riscv@lists.infradead.org;
+	Wed, 28 Aug 2024 15:42:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CB786A40BC7;
-	Wed, 28 Aug 2024 13:57:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A50CC581BF;
-	Wed, 28 Aug 2024 13:41:56 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id D632ACE18EF
+	for <linux-riscv@lists.infradead.org>; Wed, 28 Aug 2024 15:42:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A30EC51590;
+	Wed, 28 Aug 2024 15:26:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1724852516;
-	bh=a2swbrR98wISn+eYtffCdkI+7ImxeBOzuWP7GOb5gpY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ufak4esb9vRxDU4GXWxGafmlJTaaq4y+jEUzLh7YVE4uiQMPQ83Ft6+XewFe94s4D
-	 FNSQ6lEyET56QVve7F3q7ILt31ZxLKe/stiwlh1KArGfGN1zrJBxVz3Lb4UAYpXXbH
-	 Xa1fAc4sQdH7f2f+Ia1OCsm3lDcOVwDwdd2qnY1z7dxxkPnXF0uCJxN75Wsa/lDK3Z
-	 AwW/zPEUD4tQB7wVyZJYppBwcu0FJ4zD8yyJijlAQjkxBO2aztydzi3duvsjQ990CJ
-	 31Fp721OMzvYoe8BbXyNS/QwrRMlSJQfFszL9R7HyGkyWXl8LMbBeV6tW5+NmhyeKX
-	 1DPFCurUvPooA==
-Date: Wed, 28 Aug 2024 08:41:55 -0500
-From: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Maxime Ripard <mripard@kernel.org>,
-	Masahiro Yamada <yamada.masahiro@socionext.com>,
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 0/3] dt-bindings: gpio/pinctrl: add missing type to GPIO
- hogs
-Message-ID: <20240828134155.GA3656223-robh@kernel.org>
-References: <20240828-dt-bindings-gpio-hog-v1-0-63b83e47d804@linaro.org>
+	s=k20201202; t=1724858803;
+	bh=ZoERSQbjaOWh1gtlRlRypBVPk3FVstEDzvne1n0+4L0=;
+	h=Date:From:List-Id:To:Cc:Subject:From;
+	b=gXu3J3Q6ji3pcOppqROGFvS52Itk4D2BM/KNtMctMB3kg6X+XrMJDJVVRLNkFyB28
+	 l+qcMi97tg0VEJ8lJEC2/aox3OY/8G9xhzcGV4fAJddNWaIVVfUnYuyZcOkp3fLm3A
+	 nIicJw+5vpylSqkXelHRUgkYOEGi3XM89RTpdXcOiTauLwjEg9v2bWza15Qqvc5BuA
+	 lUm8kdaZw57XO1uLaBS5ezbGvy4iECcF4YQapHoHDxc4HZpyQoL+/LCkJI+Yj1QMKA
+	 x4h1pMPhREYP9ovye66yTANtAJFOdJ0ySQWm1BG/oQzIHSclNlQmo0W3n+gd6fietm
+	 gjXPC4gmRUUMg==
+Date: Wed, 28 Aug 2024 16:26:40 +0100
+From: Conor Dooley <conor@kernel.org>
+To: soc@kernel.org
+Cc: conor@kernel.org, linux-riscv@lists.infradead.org
+Subject: [GIT PULL] RISC-V soc driver fixes for v6.11-rc6
+Message-ID: <20240828-fidelity-almighty-18d5434aaef0@spud>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240828-dt-bindings-gpio-hog-v1-0-63b83e47d804@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240828_065729_056757_602F8496 
-X-CRM114-Status: GOOD (  12.12  )
+X-CRM114-CacheID: sfid-20240828_084234_813128_1362FCF5 
+X-CRM114-Status: UNSURE (   8.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,42 +64,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6710647945275936982=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 28, 2024 at 11:35:56AM +0200, Krzysztof Kozlowski wrote:
-> Merging
-> =======
-> Patches are independent and can go via different trees.
-> 
-> Description
-> ===========
-> DTS like:
-> 
->     device {
->         compatible = "fcs,fxl6408";
->         dummy-hog;
->     };
-> 
-> should fail, but unfortunately it does not if "type: object" is missing.
-> Add missing type, so this will properly trigger warning:
-> 
->     dummy-hog: True is not of type 'object'
-> 
-> Best regards,
-> Krzysztof
-> 
-> ---
-> Krzysztof Kozlowski (3):
->       dt-bindings: gpio: fcs,fxl6408: add missing type to GPIO hogs
->       dt-bindings: pinctrl: qcom: add missing type to GPIO hogs
->       dt-bindings: gpio: simplify GPIO hog nodes schema
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+--===============6710647945275936982==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="tkJBe2+XzIuRNfpc"
+Content-Disposition: inline
+
+
+--tkJBe2+XzIuRNfpc
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+Hey Arnd,
+
+Please pull a single fix for 6.11, as things have been rather quiet on
+this front over the summer.
+
+Cheers,
+Conor.
+
+The following changes since commit 8400291e289ee6b2bf9779ff1c83a291501f017b:
+
+  Linux 6.11-rc1 (2024-07-28 14:19:55 -0700)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ riscv-soc-fixes-for-v6.11-rc6
+
+for you to fetch changes up to 591940e22e287fb64ac07be275e343d860cb72d6:
+
+  firmware: microchip: fix incorrect error report of programming:timeout on success (2024-08-22 20:47:16 +0100)
+
+----------------------------------------------------------------
+RISC-V soc fixes for v6.11-rc6
+
+Prevent an erroneous unconditional report of a timeout during firmware
+upload in the mpfs-auto-update driver.
+
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+
+----------------------------------------------------------------
+Steve Wilkins (1):
+      firmware: microchip: fix incorrect error report of programming:timeout on success
+
+ drivers/firmware/microchip/mpfs-auto-update.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+--tkJBe2+XzIuRNfpc
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZs9BsAAKCRB4tDGHoIJi
+0gScAP497y8a5x23Y7/lmtqrptUo+066U7NdJ1/pSOB4HTaXAAD+LQRAWkVLxn4K
+LG9Ha/nXoCN/9hJaQ3mRnO6VLlRfEgA=
+=uRMf
+-----END PGP SIGNATURE-----
+
+--tkJBe2+XzIuRNfpc--
+
+
+--===============6710647945275936982==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6710647945275936982==--
+
