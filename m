@@ -4,88 +4,207 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACA77C636ED
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2024 17:36:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BF44C636EE
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2024 17:50:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DuMiomY7XD9iOOG/u0H+KRd4Lyp1RsSywW1ZruM1sPM=; b=ohNYYpGdDIEi7kg8psYojPTdF8
-	Q7YfSFkoYiIzhQ2LC56OntnZnWEiQkNYqlf170I2Hd8mhla18aExNJN8FAXsjcvsptQW6BgGpDPHd
-	NWxaT6V2evELNPpdiIHd4Uq/hNzus5n2zeOI3mJ/H/gcbOdQQlQuyO2wr+FEI0rm+KzhCRTOHu69W
-	xParxSMDx6R5k/m8+pf4v/P9fK2AESpaAE4lVqlvE0pKY1Pzwq8xqzeNDt3s1gL/5FTrK0gL0OJAw
-	crCK/T7Yak5C2uBZxgx2RUv/ZwLrwRhsfs+8mxeX3pQmR6EtHl+QlbdU7Qs77tfKEt6rTmUqc8K6h
-	8p/v8ykw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=167heORbH+WXcHCkNhc8OieX/yDWmK004/dc63JPvtI=; b=Ofj9wIFSKY8lAN
+	dFSP9K/m67+W44cIUZ+vT8LeUaWRI5rT5DwFCHkckyOp26/5bWtdoSJajj2LdxtJ1YXHGmR0G2Ecg
+	8mGqfghVbtSbYYWC9As/1ZcnnyP8lSl8KZrkaH2/f8k+6LA1jaIdGXBQjj/GZebZbLLKUQulqnmov
+	QtLl8Q8Lsr901U8HmLth8e/ZTMfZzolA1bB3IiMEE6lMTNHAe0t3C3Mh9JVfWOyG+rr9W+n7vb/34
+	L7nxJIG9AVYuOwZPGSmGPQPFL69/J0cAuVxNGT8j7/y+2IlZPrcCYTnr16A2n3rqeTaegicH9ROGM
+	ilYUbk4A1uGzYa7PWTyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjMaU-0000000GOOW-2qNB;
-	Wed, 28 Aug 2024 17:36:06 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1sjMnz-0000000GQtm-3s6i;
+	Wed, 28 Aug 2024 17:50:03 +0000
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjMXT-0000000GNxV-3mhq;
-	Wed, 28 Aug 2024 17:33:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CD370A42763;
-	Wed, 28 Aug 2024 17:32:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71927C4CEC0;
-	Wed, 28 Aug 2024 17:32:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1724866378;
-	bh=4MDDdzSEhRjEbEa2n9fIYxr42mIY+eyZfSj6+j+Bu0s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=O/xcOhorFRSv2vHmRagMWmGxh+ScNnb9p5YrzG9/pAmQfUsEg399/CaTU0Z06a3Kd
-	 25gBR9x3tRKON/9TVqn3X9yWKKyvoaXPglSuRX8H/AEzCQfOfamSFXFrUflPvWSiAU
-	 m2RTlwhEQm6GYG4Uu3jWFaCtKcYLtQjATOV2MkQy03IMy9y2Bez9OmpxvhprGtMcQG
-	 PjRlInV3Bc/JK1THjQVmMuPnn6fu1rOqZ3+sGnnl2KRptQU5L4iIPf6dlZynx0jL9x
-	 730E1RPdEdJUvwP5kiHq7t30Mte5uQ7x3NQJjn8eIqgssRzUyqSg0jXamQWsy9Pz/C
-	 BWKufAwkMrGMg==
-Date: Wed, 28 Aug 2024 18:32:48 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Shuah Khan <shuah@kernel.org>,
-	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
-	Szabolcs Nagy <Szabolcs.Nagy@arm.com>, Kees Cook <kees@kernel.org>,
-	"H.J. Lu" <hjl.tools@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Florian Weimer <fweimer@redhat.com>,
-	Christian Brauner <brauner@kernel.org>,
-	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
-	Ross Burton <ross.burton@arm.com>,
-	Yury Khrustalev <yury.khrustalev@arm.com>,
-	Wilco Dijkstra <wilco.dijkstra@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v11 25/39] arm64/signal: Expose GCS state in signal frames
-Message-ID: <4de41478-3bc8-4cb4-a557-3e9402afe858@sirena.org.uk>
-References: <20240822-arm64-gcs-v11-0-41b81947ecb5@kernel.org>
- <20240822-arm64-gcs-v11-25-41b81947ecb5@kernel.org>
- <ZshYTyNbveD7WMyJ@arm.com>
- <ZshjmuYcejbhaSBg@finisterre.sirena.org.uk>
- <Zsixz6Y9xWxqaQaV@arm.com>
- <ZskGqU8BSvR01W30@finisterre.sirena.org.uk>
- <ZsxSKVAOHQq12YfB@arm.com>
+	id 1sjMnw-0000000GQru-0FaS;
+	Wed, 28 Aug 2024 17:50:02 +0000
+Received: from pps.filterd (m0333521.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 47SHfYxw031689;
+	Wed, 28 Aug 2024 17:48:44 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=
+	date:from:to:cc:subject:message-id:references:content-type
+	:in-reply-to:mime-version; s=corp-2023-11-20; bh=jPD5ldR86T2j/Wf
+	dbSeTg1sO/e6xkTCdjrJDK7zzUfU=; b=O8ONZoXfA5lDXH9fMNwNOdxAlS1sMF+
+	kmohtjiDuqlDCqjyEvUf66E3LilPSlzKpvby3f34r+eb4ljbPBZ2AifOERsqGJzw
+	hghR2pxev/SqQ5aK2oj4V8+mVUsW6P9rcO1pd/IWNoAsbYboxWKv0GtV56cTiamm
+	l0FeqXoPOL7d5DapD0z0EYTHHZn1K6X+26o6BOlnDXIFIRDtWfKPG8A8y0L+ZCL6
+	kN2Ts9A4zNr6C0E3WQ2ibdwkBVf4dCByRfQxnn+QGKxW3xEP51tm9p8ugwEYZ4k5
+	SwjCOpygArTUFttR9NuOL3QnIZMRmzUPAOS4VEKGjPFdyYtDxCRKZTw==
+Received: from iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta03.appoci.oracle.com [130.35.103.27])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 419pur9xea-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 28 Aug 2024 17:48:43 +0000 (GMT)
+Received: from pps.filterd (iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 47SG4GM9036474;
+	Wed, 28 Aug 2024 17:48:41 GMT
+Received: from nam11-dm6-obe.outbound.protection.outlook.com (mail-dm6nam11lp2175.outbound.protection.outlook.com [104.47.57.175])
+	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 4189jm599a-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 28 Aug 2024 17:48:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kF9i3ijmNb1rz1BaEASY5QA2puRFaZea+OdOVAluw1rt7ItjRjshtdGauq3QgB0sY2lD7rXnBOgkRmcVfy6lLI4yjj86YAXI+E6Uil4JUjZlp7KJCE8KGqt96SRb4dcmNoxXIo6wHWO1msvu9VvJDX10ZQqgPdGBAQ3jbn0vh9lpg+aYMhE7t0GZph0Pzd0ktGoXX6+StouIfDhSX0bku9leFAoIM9K/4j8ED4Y+wC3dUpmdFq0uEdGwKAJ6Ssyc+oYFUqRUb/yHfn9ORe+lHmpYWEXkvdGE87mc+kYz78XBSGraLu6aJADtzHZzHMKvwIZDZzkWBf7wxnfeYabtSA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jPD5ldR86T2j/WfdbSeTg1sO/e6xkTCdjrJDK7zzUfU=;
+ b=AWRkbPeUiFWkJWLW3WyqC5ixcPkUGeqTTq1S0qOiFK9yCHhTvtSX1oyCtt4PnXIT761GvBtgxzS80cZGDvRMNs+TFG2ev7vAuFQqfhY0QnAT4WACQMTcAN5OtUaYJnk9NAZx6wOBnuJCvXTeZ7JmYKAX3ilI8tHZigcmrq3FjwnYP3Ag151ni6mdPPd99+Py3r7ChwC7UmDeDXV3TqBaIA2fKLWchwHk9fi9htSZR7mciZyUv51QGkaAyCm3wpfpgu5u8o36LjYh+t69/W+UQ2mcPrbMLG/XSF7Kr/y1IF8VkUc6gRRxFEFYSs0W/4661SHV8e0gLkxBdP3XZf3Jyw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jPD5ldR86T2j/WfdbSeTg1sO/e6xkTCdjrJDK7zzUfU=;
+ b=Yh+sSEPhUvzaiiJofsQOPOEnC1buZ0KkAaPosiOhUkOPtTDcAlc/NSbDDm54hylZ4JIsttckpqz7HgrJbnaOGb4B0g/m1gVAiL6vQrkUqkXmNh8QqUylGfZn+WxmatwojBy30h4Ux8ZegWsnHPfgMBit+0pfVYncKCRjabDO2WI=
+Received: from SJ0PR10MB5613.namprd10.prod.outlook.com (2603:10b6:a03:3d0::5)
+ by MN6PR10MB7443.namprd10.prod.outlook.com (2603:10b6:208:46f::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7918.14; Wed, 28 Aug
+ 2024 17:48:38 +0000
+Received: from SJ0PR10MB5613.namprd10.prod.outlook.com
+ ([fe80::4239:cf6f:9caa:940e]) by SJ0PR10MB5613.namprd10.prod.outlook.com
+ ([fe80::4239:cf6f:9caa:940e%5]) with mapi id 15.20.7918.017; Wed, 28 Aug 2024
+ 17:48:38 +0000
+Date: Wed, 28 Aug 2024 18:48:33 +0100
+From: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        Christophe Leroy <christophe.leroy@csgroup.eu>,
+        Naveen N Rao <naveen@kernel.org>, Muchun Song <muchun.song@linux.dev>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+        Vlastimil Babka <vbabka@suse.cz>, Thomas Gleixner <tglx@linutronix.de>,
+        Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+        Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+        "H. Peter Anvin" <hpa@zytor.com>, Huacai Chen <chenhuacai@kernel.org>,
+        WANG Xuerui <kernel@xen0n.name>, Russell King <linux@armlinux.org.uk>,
+        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+        "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+        Helge Deller <deller@gmx.de>,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Yoshinori Sato <ysato@users.sourceforge.jp>,
+        Rich Felker <dalias@libc.org>,
+        John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+        "David S. Miller" <davem@davemloft.net>,
+        Andreas Larsson <andreas@gaisler.com>, Shuah Khan <shuah@kernel.org>,
+        Alexandre Ghiti <alexghiti@rivosinc.com>, linux-arch@vger.kernel.org,
+        linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>,
+        linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+        linuxppc-dev@lists.ozlabs.org, linux-mm@kvack.org,
+        loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+        linux-parisc@vger.kernel.org, linux-s390@vger.kernel.org,
+        linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+        linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH 16/16] selftests/mm: Create MAP_BELOW_HINT test
+Message-ID: <71528354-4884-41e4-a4a9-318e26187f86@lucifer.local>
+References: <20240827-patches-below_hint_mmap-v1-0-46ff2eb9022d@rivosinc.com>
+ <20240827-patches-below_hint_mmap-v1-16-46ff2eb9022d@rivosinc.com>
+Content-Disposition: inline
+In-Reply-To: <20240827-patches-below_hint_mmap-v1-16-46ff2eb9022d@rivosinc.com>
+X-ClientProxiedBy: LO4P123CA0079.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:190::12) To SJ0PR10MB5613.namprd10.prod.outlook.com
+ (2603:10b6:a03:3d0::5)
 MIME-Version: 1.0
-In-Reply-To: <ZsxSKVAOHQq12YfB@arm.com>
-X-Cookie: You are number 6!  Who is number one?
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ0PR10MB5613:EE_|MN6PR10MB7443:EE_
+X-MS-Office365-Filtering-Correlation-Id: e2c91bd3-3436-44b7-d731-08dcc789a569
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5qB7dXrGtOohFAs2PmlYdYsCVZUNPzS3ePN53jPnSYcXSaHy5vHWrPl7tlBU?=
+ =?us-ascii?Q?RPkNsfIq1uU7KFWHj+htbdWLx/67oWaBE6Ep225sM/AQzxWUmQ/lLQsNnSkA?=
+ =?us-ascii?Q?m/26s1Kqwi8AWaePI+5cLzH0tocRH4nFCh1jKa7JBo5hUeCFn/TdtXoSx9Yk?=
+ =?us-ascii?Q?CdLHR8glV9UZ20XEZq0Ipv4WfgenO9A5ko5x54o3cOIGqgxwiaHb/8oCFEX0?=
+ =?us-ascii?Q?hmUlxovV3l6uRHLsvj/gTyRT4OXpe1ULjwesQW1Oe35cOe0wBgNsX/Ghfqik?=
+ =?us-ascii?Q?R+aU1EDolRfH28SoH5fJlXjHmrWKb1npaeAQGrB2uTuByTjpYjO6jlesSoJu?=
+ =?us-ascii?Q?6FCggzJJWG0PBg5o4osPdqyxG2nLyihwJz3VOkvE/bsPdfUDAXDmyQGKicLI?=
+ =?us-ascii?Q?xfgimxnIkktuXqHVfWcACtJ91kYeUg5PMIhpVO91ltkmvxtnqeIEwvaglMXg?=
+ =?us-ascii?Q?09yKlqlze5dPjiobVIrEVfMFmu9VpgZYK8XO5g6OIpDbVD4Cx9Y4WRc+M2SH?=
+ =?us-ascii?Q?USM4j0eFrDlvcCw1Z9TEuBjCyqXQvRKZ1JeyUEDCSkBxRfMhy1rlYuZ7gv2f?=
+ =?us-ascii?Q?9uU/jDqSCh/s++hG04N+fI1TjKNemZQbU4M4H31O6zb9n3b5zvd1hlMVMp3I?=
+ =?us-ascii?Q?ViZeqCVH1W4wCVbUOaGz++hh7/jT8sc9jsj4+bv9BjWxiTw9pGp8SCGfRlhL?=
+ =?us-ascii?Q?2/XEnJm3yaFt9m8umxH3LlojBNsXGmbrClrYQWW2q8Bl2HU2HVQFeT2eNos0?=
+ =?us-ascii?Q?9y9BBQ7v9pEvBy5w163lTXfdbqm46AZKA3+JSKJExvDzMzn8VoK2ieCTmpRy?=
+ =?us-ascii?Q?Jx20xss9/WbX2DyoerDpfdkvjWOpJUKPsckOnjpQqQopAZviW0+ZsM4s0R1p?=
+ =?us-ascii?Q?GLNTgTbdOx2j3fEDFJh0EQR80LKZLZuO7OBH572+t2U0dTqm3TTVWsXi6ebA?=
+ =?us-ascii?Q?YBsddRZPU9w2poJ0wP8HjZ1ajEHD3AqxMORREYVbBw3rruhCo8VnUsiXrDr3?=
+ =?us-ascii?Q?b4vCOGOLnklfDzzkcaWV9aegbcJJLdWK28OmAWen9ZBzE2pCElWBmdVgm0sA?=
+ =?us-ascii?Q?YN8liSeUNeuS0OehrshtEPK5FH2rMYQI6T66uEr3x2Eg6lHIDgUbH535Q8iY?=
+ =?us-ascii?Q?OpPggKrRZchbUm7WDas3Ddl6RI63D51MfZNohxBxQWwOsYhIrsrphUhcW6Sb?=
+ =?us-ascii?Q?Yg/KY/30X6qHDAmRhBXow5pFGQXFcpyIRvcEhN3TUxM1NdrU3qr0xKjwmfoO?=
+ =?us-ascii?Q?aJxwNbATEhLzsiaVXPeJh8MVi8j2PnUQ6XkjZJf4Lb/2M/JGVBuHxehc7tI5?=
+ =?us-ascii?Q?apCwofi5oguCjuCn0CvwTQUgVXcrczxrhzCj4TywYyYHAQ=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR10MB5613.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?dEtmyiRAHwMdmP2cPtID2M9+0VQVuVLn+Su8rvLgYEbNAoS0EJa2qPROu8Mc?=
+ =?us-ascii?Q?uGck05u4K0j1Kipi38/3LgQYgdVp+6Z5vLivYh4x4+EYZC167SNVh4O5yr19?=
+ =?us-ascii?Q?fJRBvSYsj/hfD/SSug4pCSFoWB1LZJk2L9qQqbjbST+Xm1zJuZQSLqhuHaaZ?=
+ =?us-ascii?Q?Nz3YZ9IqwsSQBRYQdBgnNCrwpTvSkm+VzdaPobhBf7fh+czebWQsQVABrIch?=
+ =?us-ascii?Q?gdcR/GcUTiuGZFNb/sfzbwVvZrsk2k4NhVL2pDu4MZ80x/mDTLh7X32SaETD?=
+ =?us-ascii?Q?2lmwUV+9dRWAnpLYvH5oeYSlhCzDibtOZP6X9Et/pUEgY10kbVpgGNA+wUZT?=
+ =?us-ascii?Q?nKZSSQY5yxE0+O3ZWT8vNJ+OKXCtAQGHZ+ITtCn1sWQ8KftRwRztb1BjxOou?=
+ =?us-ascii?Q?llL90leHNGjVnI4JRtPczeZxP3ikP1vsrnB72DE+X1n2sy30IomSGVIXUDBg?=
+ =?us-ascii?Q?NzMR7VZtVcn1S3wyIwe7FiDIOOwZRcP38Ocyhq2m1z2ktSWXZ0CJvvT5+lsZ?=
+ =?us-ascii?Q?G/GU6bdgtsuEKo2zlwjb4GhnDmguiCGHVQzv3TBFJyoyOYL8gIgkOwM0G+tu?=
+ =?us-ascii?Q?2DBlmca7HPgmXYL2xi9HIPmb/xl30ud8ZF5WVZTpvGiW8d6tr2R59PjKg07d?=
+ =?us-ascii?Q?Lh13/2a62DuO71lJhaoBA1AqwUT2h9FN045FykPGjPdjoHScRKI4P95T2QK9?=
+ =?us-ascii?Q?7pdaCaD0JoGYxaDNQg7kj5hiVxGelonZqaiQvyuysL+jB+14BAp+4tHBSdUJ?=
+ =?us-ascii?Q?LIfLSwicDRd+6QajTJTV7uqYDZ4F/8QLYnp5FauhAtCOBRuq/QsmP+BIPOGY?=
+ =?us-ascii?Q?7kq24HgcyHOdljxLqovw8n09nbWZG8EwzsLV/pPw8eKEmBgEpZLG3H62Avqg?=
+ =?us-ascii?Q?790ctjxUs0AV+Qoi7Lr+HoweWxMyXmsugMQLYOyYEgYT5vI9u9EhWxfAhmjn?=
+ =?us-ascii?Q?dqD85EXUMguE2okC1Je8OKdPe4v5TbfbqV8/yzazklD+zBzfsc95VeZxGAvD?=
+ =?us-ascii?Q?hUZUjYFowPj60xI3MCli73AFcNi15bjTtPwyro03b9Gp+LqxOEzqEwXfpOzb?=
+ =?us-ascii?Q?Rb5my+CouQbNjukhw2Qa1eUUIRyFvCBa159ZlWm2QQUXeD7CymQro7IjXM+8?=
+ =?us-ascii?Q?ApK53BtR/607alu+GW8cVtGtWVzW6ABCJeFJRbF1K5w5rHWqUd6XbnioSMYB?=
+ =?us-ascii?Q?faoRzVqR0uhxTndriHpBrDi5FYoNYFNoGQfJktSPIU+3fdPnDzinKV1oHPGV?=
+ =?us-ascii?Q?jvUUd5Lef/TWL/KKYtWRFaN7LDI+oMkpAEFgRjDuyPNaVqeMbGiN464Qg0Nc?=
+ =?us-ascii?Q?fHBOCwPTX+1JF1/rQQRwUyhLlylxMaDN9cQtQ/eyfK/zTdwiiLfa0+/yxfPD?=
+ =?us-ascii?Q?LJWp2qOIX6bHL7EppC/m0lA7W5HxadQWXMOJ9sqgR2XIN467SkQ2KtawJz0I?=
+ =?us-ascii?Q?2kQUhYioVaUXpIWYbfgFROivKkTHsQPRO+j1TsjmZdNnNv6HiufzuSLFtySu?=
+ =?us-ascii?Q?BH8uBExybN3Ty+xi2G2P2Ojqr4Dd6SUPtlJpIUXYmBmFBUyMOJROR5Qe8gOU?=
+ =?us-ascii?Q?HIQZ0T4ed0ncj9c4SToZBlM8QMacblWqFVUZye+OKOb4vFHKO8338GMHhxZr?=
+ =?us-ascii?Q?Ig=3D=3D?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: zzfimRHknnoXHJjUfQ4B39vRUPV5SDgXkpKJjYvlH8kSVxSOTTbO+bWFT/8cTl6YUx3I3FWipFFM1JgT3FtpvxD83YVQg3VjF5aZRtVfsE2v+4D9bbXHz/6c8nyv+bKy77MQqbSRUxZvJ1zA2A6LqWyB6PFLTiI/AhWNIG4H0a5v7uiZw0r78e0sQshve+3IepeIwZYHdNa57BvPOj4V317rmC0/k4oMjA2poTlPFKbmjLZsu2PALn28Pa4xkVpLs3Dmuy8Fkpm1l+qY4tCY34CwG0dwXCR/w36l0wAf6jBNvbLD3zXVTdDrlA5LSRN8QiGonB9xlbZ8idlCkrel8Ush2cLCExU0T8Nv7RW+80JnvPkyXq/I7XfGb4Wr/7ATN81ESTVLVjkaJflV2CEwS6rsyCBTEh1smKucRhZ6vOh8zC/N2fF+0KYNaI9Ar6RwBM4Tvb0ULhV5TtQ0DwIACrWRm8NYEhjmb2T9VA2y6MfpXLzjWL76v9Em165mtTHcWcgH3hyoxCkEcRQDLzZ/U4HjMKNnptAmXljLrU0voar5ky0K79lKQb2X2jXnUnT2NAFMByX8208CahK3dHny6mahZ6C+uaZlNacUzXaZIHE=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e2c91bd3-3436-44b7-d731-08dcc789a569
+X-MS-Exchange-CrossTenant-AuthSource: SJ0PR10MB5613.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Aug 2024 17:48:38.1127
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: SubI1FC1LlPy7yx1J3Jz8QmSV9Jxs7tC6sBaXloQFHq4+ogjbZjENIYXEPo4v2/YLR0tEkRjMhvL9cfrOYNIQVX7mErGIFsoJmk1F6LKtms=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN6PR10MB7443
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.28.16
+ definitions=2024-08-28_08,2024-08-28_01,2024-05-17_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 spamscore=0 mlxscore=0 suspectscore=0
+ phishscore=0 malwarescore=0 bulkscore=0 mlxlogscore=999 adultscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2407110000
+ definitions=main-2408280129
+X-Proofpoint-ORIG-GUID: 3JUvpC-_E5lWYtJJaCVys7J802EE5rAv
+X-Proofpoint-GUID: 3JUvpC-_E5lWYtJJaCVys7J802EE5rAv
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240828_103300_092228_C6A7EDC6 
-X-CRM114-Status: GOOD (  30.05  )
+X-CRM114-CacheID: sfid-20240828_105000_120239_06FE7D55 
+X-CRM114-Status: GOOD (  22.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,95 +216,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1479384096184699262=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Tue, Aug 27, 2024 at 10:49:22PM GMT, Charlie Jenkins wrote:
+> Add a selftest for MAP_BELOW_HINT that maps until it runs out of space
+> below the hint address.
+>
+> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> ---
+>  tools/testing/selftests/mm/Makefile         |  1 +
+>  tools/testing/selftests/mm/map_below_hint.c | 29 +++++++++++++++++++++++++++++
+>  2 files changed, 30 insertions(+)
+>
+> diff --git a/tools/testing/selftests/mm/Makefile b/tools/testing/selftests/mm/Makefile
+> index cfad627e8d94..4e2de85267b5 100644
+> --- a/tools/testing/selftests/mm/Makefile
+> +++ b/tools/testing/selftests/mm/Makefile
+> @@ -50,6 +50,7 @@ TEST_GEN_FILES += hugepage-shm
+>  TEST_GEN_FILES += hugepage-vmemmap
+>  TEST_GEN_FILES += khugepaged
+>  TEST_GEN_FILES += madv_populate
+> +TEST_GEN_FILES += map_below_hint
+>  TEST_GEN_FILES += map_fixed_noreplace
+>  TEST_GEN_FILES += map_hugetlb
+>  TEST_GEN_FILES += map_populate
+> diff --git a/tools/testing/selftests/mm/map_below_hint.c b/tools/testing/selftests/mm/map_below_hint.c
+> new file mode 100644
+> index 000000000000..305274c5af49
+> --- /dev/null
+> +++ b/tools/testing/selftests/mm/map_below_hint.c
+> @@ -0,0 +1,29 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Test the MAP_BELOW_HINT mmap flag.
+> + */
+> +#include <sys/mman.h>
+> +#include "../kselftest.h"
+> +
+> +#define ADDR 0x1000000UL
+> +#define LENGTH (ADDR / 100)
+> +
+> +#define MAP_BELOW_HINT	  0x8000000	/* Not defined in all libc */
+> +
+> +/*
+> + * Map memory with MAP_BELOW_HINT until no memory left. Ensure that all returned
+> + * addresses are below the hint.
+> + */
+> +int main(int argc, char **argv)
+> +{
+> +	void *addr;
+> +
+> +	do {
+> +		addr = mmap((void *)ADDR, LENGTH, MAP_ANONYMOUS, MAP_BELOW_HINT, -1, 0);
 
---===============1479384096184699262==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="qwAebp9So100JWhv"
-Content-Disposition: inline
+How can this be correct? mmap() has parameters:
 
+       void *mmap(void addr[.length], size_t length, int prot, int flags,
+                  int fd, off_t offset);
 
---qwAebp9So100JWhv
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+You'r setting prot = MAP_ANONYMOUS, flags = MAP_BELOW_HINT...
 
-On Mon, Aug 26, 2024 at 01:00:09PM +0300, Catalin Marinas wrote:
-> On Fri, Aug 23, 2024 at 11:01:13PM +0100, Mark Brown wrote:
-> > On Fri, Aug 23, 2024 at 04:59:11PM +0100, Catalin Marinas wrote:
+This surely should be:
 
-> gcs_preserve_current_state() only a context switch thing. Would it work
-> if we don't touch the thread structure at all in the signal code? We
-> wouldn't deliver a signal in the middle of the switch_to() code. So any
-> value we write in thread struct would be overridden at the next switch.
+mmap(..., PROT_READ | PROT_WRITE, MAP_ANON | MAP_PRIVATE | MAP_BELOW_HINT, -1, 0);
 
-I think so, yes.
+> +	} while (addr == MAP_FAILED && (unsigned long)addr <= ADDR);
 
-> If GCS is disabled for a guest, we save the GCSPR_EL0 with the cap size
+How can addr == MAP_FAILED (i.e. ~0) and addr <= ADDR? This will just loop
+through once...
 
-s/guest/task/ I guess?
+If you want to make sure you're getting mappings only below the hint until
+you start getting MAP_FAILED's you'll need to handle this more robustly.
 
-> subtracted but there's no cap written. In restore_gcs_context() it
-> doesn't look like we add the cap size back when writing GCSPR_EL0. If
-> GCS is enabled, we do consume the cap and add 8 but otherwise it looks
-> that we keep decreasing GCSPR_EL0. I think we should always subtract the
-> cap size if GCS is enabled. This could could do with some refactoring as
-> I find it hard to follow (not sure exactly how, maybe just comments will
-> do).
+> +
+> +	if (addr != MAP_FAILED && (unsigned long)addr > ADDR)
+> +		ksft_exit_fail_msg("mmap returned address above hint with MAP_BELOW_HINT\n");
 
-I've changed this so we instead only add the frame for the token if GCS
-is enabled and updated the comment, that way we don't modify GCSPR_EL0
-in cases where GCS is not enabled.
+This is just going to fail because your flags are wrong then wrongly claim
+to have passed...
 
-> I'd also keep a single write to GCSPR_EL0 on the return path but I'm ok
-> with two if we need to cope with GCS being disabled but the GCSPR_EL0
-> still being saved/restored.
-
-I think the handling for the various options in the second case mean
-that it's clearer and simpler to write once when we restore the frame
-and once when we consume the token.
-
-> Another aspect for gcs_restore_signal(), I think it makes more sense for
-> the cap to be consumed _after_ restoring the sigcontext since this has
-> the actual gcspr_el0 where we stored the cap and represents the original
-> stack. If we'll get an alternative shadow stack, current GCSPR_EL0 on
-> sigreturn points to that alternative shadow stack rather than the
-> original one. That's what confused me when reviewing the patch and I
-> thought the cap goes to the top of the signal stack.
-
-I've moved gcs_restore_signal() before the altstack restore which I
-think is what you're looking for here?
-
---qwAebp9So100JWhv
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmbPXz8ACgkQJNaLcl1U
-h9AINwgAghxTu8PB4VcQHkYwz1H/qDleYcPMAHplNpZgcLpx59wTJgBZ5QfIwDnV
-v12mJKsZJ3gfnHdZipZjp7EKhKGELQUTGRLICZqBr9S/8SfK3cXC3z6gQEXLxu3W
-Z122sDonqb/vfykIYhrtWeP12Rgm1n7KRplfJrXGx+xfZD2pQRdydES4L5RWtbZU
-coJqFBLlGHRFqsnIUQni4PFl1UCQRVitFHHS4nL+Fs/lGj+rkjM69mkCQjmAHR1d
-/Wivj6fyHPPQj8UCXiCXkk+/KcM64IZqgoTzIdYH+khbjTKKaBC0s06fnqJqU2n1
-d06XGwawJkM0HfQlIcf0XRaB8a7aew==
-=V6Zo
------END PGP SIGNATURE-----
-
---qwAebp9So100JWhv--
-
-
---===============1479384096184699262==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> +
+> +	ksft_test_result_pass("MAP_BELOW_HINT works\n");
+> +}
+>
+> --
+> 2.45.0
+>
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1479384096184699262==--
-
