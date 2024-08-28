@@ -4,70 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D318BC5472D
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2024 05:50:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3031EC5474A
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2024 05:50:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=a4//p+soGpkQFdMCLWpX9udTeKlJ3BtGpyZ1bJ1no6U=; b=DsI1c+TvIFdxG1
-	dskZ0r9EFFn6h6D0jyBNAd8nOv7DrTZ381YOUZO1WSEGvcgnhB+K40lztHA2qMnP3jq7F4OKn96kI
-	Lz/Gv5IGbPVeSUZYaBGN1O+t4oG1Dau3vp3dtOeYFtNhAYcnwj6A8DUVt+7BQEUcsrk9sYM/Lx3Ov
-	0ky53c/hwuptpq/+3I9hH/XfOyxtPmyZoIVt3exXb90NN6XprTwlaczxBhQXFKZH/e26lDBAX02gZ
-	06iVFCLPdeBlIJZUL7DNPDi6n4YVQRVXzmXKeHwxyX+lDSR+BnpWgAjoNCb2EaTR6llRLYAnsc3m8
-	bRCI4JM+qjXQTMWv8WPQ==;
+	List-Owner; bh=gI98YrTKS+SmGurGN10p1Qs0VsOzZayk2DI9TDSwrNg=; b=kM5+5heAKOWmNG
+	FCALt5D1lEmogGf1wkFnx9vvBEDvn4wDvUsJal21CT7QSm0Ed112PkwPsfIJbFuoDK5pKIgAMPDOX
+	p2QsC/fi0wWR7JXvNb7TQ6tT+YtKnorgEzE0B9ubA1h4xbzEKaZx2OYd9HmmJEB5bZ5qUAr/IcIGM
+	+AMla6qNoP0gNk4ukUNjY50tTC6degn6LN5Wn+VGDfKYf3gbjZ9RIUaXVlYcDn3rg66VLxV/+PYqM
+	XqF/XbKHJPXkdwzNHJnZPLyFyRrS+Od5I1plJGleOYiiXApud97G1bjhSZ2iosVI6jrsoicymJ2OZ
+	5PkeGs5eID1AZDdAWMLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjBZe-0000000DygA-2N0Z;
-	Wed, 28 Aug 2024 05:50:30 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1sjBZg-0000000DyiA-3JIE;
+	Wed, 28 Aug 2024 05:50:32 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjBZV-0000000DyY8-2nBQ
+	id 1sjBZY-0000000Dya6-2Qi9
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 28 Aug 2024 05:50:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=74ih38qyFApS59Oo5hAHcKEdd4ieUrnz9WHar/pXDMA=; b=DpU5ujsBqp1rSj2t/8v3Mgrwtu
+	RjR8fz/oB3DmRXbZ6Co2wvb666sDcSEsrLg9bP7U4mUarJquTWvad4Jw5FaA1jcu23Djb3te2huZH
+	aaxeezTuCD5QXnbWkOx8uHM/XYMpUq+bOeq0xqqyiURxI81wptEY3Bco6hzBsC3ModxXmet7dBJZ6
+	dHSewKMZQ1VKKUCpwSbiDSHfwpxawf+BJVvjnlHqC8unXlLfoTnE30pmJSH8ZTyVA1uzjfHPASpUb
+	zL+/+kX3wzfgEHGcdPOf00iSk3f3UvC/v8qRtsgFL7lEUQCJHnYCNsUBRqNdkqL5CP9xezqfcoM2j
+	3pjv5VEQ==;
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1sjBZR-0000000B30c-3jEt
 	for linux-riscv@lists.infradead.org;
 	Wed, 28 Aug 2024 05:50:23 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2021c03c13aso2181775ad.1
-        for <linux-riscv@lists.infradead.org>; Tue, 27 Aug 2024 22:50:21 -0700 (PDT)
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2025031eb60so55565605ad.3
+        for <linux-riscv@lists.infradead.org>; Tue, 27 Aug 2024 22:50:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1724824221; x=1725429021; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1724824214; x=1725429014; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=n1bnpMYTna27bSqlaeNn9zMkLMdTuL1lgzvNhNTdiTs=;
-        b=dTDTveryA3Uivw0IrMzebpiegzvDsldXBHiKQ/QzdVthOMlA0Sxsq96avY4z5m56e1
-         DiSNsBYC0LZZK3mtqM1xu69Vgz4dEkgWVYk0rDrhbzvC4Mr7x73lMQmh5cpGz6hRZfri
-         Z3BC5/0H/or6treURzsUQL7V1Gxgtr6lgyBXXkZdR6nn07rHGUD/oWTcaWG18YUfnWqE
-         asS4Yq9GF/EEC439rOB2dk86UiyYDq/8hLY0oFeVtd+4SDqtytfUxbjVHUTupFqFzrqc
-         SfCdI8QkqXJcUdefoLROT+a4HVxF3opIkP7hadBJ3g5X2umOgUHso3A8OkxjvW4OQPSP
-         QDKw==
+        bh=74ih38qyFApS59Oo5hAHcKEdd4ieUrnz9WHar/pXDMA=;
+        b=rq5fx3XaZQVFBfbUmBlNSo95ovfv5Ia1J+gul7R2x3SpssvSBEx1KqZp6w9jHApeD0
+         Xnc8+CADo5AqQlpUPULP48oYIb52IfQzoXmhMz3L5mnmkVBBS9VzVDK+vr7ZxF44E2Qb
+         Vrk1Mu/PEbv8IkAhQRKyl6Qz9aho5MqbrqQkm4flNHAmwRk0Au+HQ8uFFGIzMj/HxLjk
+         D99kztI63It1FQUe2/wyNPQDOrpDh+ER4PaD8w3cRf584a7Q8DvVokJnuv0oOK8A+F7r
+         SwdTvKeSpjYWBfaXtWeComqgfFbHaXBoQSbKtUe2b2/bPAcJoUqb3o7DZUx+l4G7+7aQ
+         aHcA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1724824221; x=1725429021;
+        d=1e100.net; s=20230601; t=1724824214; x=1725429014;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=n1bnpMYTna27bSqlaeNn9zMkLMdTuL1lgzvNhNTdiTs=;
-        b=FKRQTnMlw0lWgmyln046zZkOrha9Q9OvTD7qsVbWZ4sVOkJJkS+yPjBODNhs2uKpVi
-         kzfpgxhsONXw34EeT+WT5gwAmldHmQcyoscmx7Sb/1uic32AUerJDDJQ65jWlvqONhDx
-         rDTEhpsQPOUuy1HKZMptSPcp8REVOsLF6eEeyZ1k2nQqxTyFRnjTkG3rfVdnW2yHBbba
-         DbGu8zWM7o5SDii1eETzjCzpQRolfoYkpRqvu3SUIY4vaWyOeSSC+0cVSlcHtxr/fWZL
-         bgldIUeLeqUGI8ohSjYXtkABtpL9V2shd5v79NGDnPRnxKFrzBt/qTGd7tRqn8n0y+iC
-         et6g==
-X-Forwarded-Encrypted: i=1; AJvYcCVJQRdjFNFF8RuH3WprONe/ZHpzmq1l+7GXWQEyzOjtV2aUMUte/B1NRj/nhqxbhcM8Qu2ZIPb1vz9NIw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx9qpNSW1Nzy0KO9gfECHjQehxLTgMVi9dCNFhE0BG4gkhOd7n2
-	EDi33D/u3/n6f8nSaHJnhpRUqRRDErglGaPsktoSi/hV+Z6EWRuEjM8I/KL4nn8=
-X-Google-Smtp-Source: AGHT+IGQeeMMIWRhlzvEY447u73v0bcDYqggMB4NKbY4CT7iyrW8LbpZG4Gsc+7GkkDRX2iCA5iJHw==
-X-Received: by 2002:a17:903:35d0:b0:1fc:41c0:7a82 with SMTP id d9443c01a7336-204f9912733mr19656305ad.0.1724824220864;
-        Tue, 27 Aug 2024 22:50:20 -0700 (PDT)
+        bh=74ih38qyFApS59Oo5hAHcKEdd4ieUrnz9WHar/pXDMA=;
+        b=OEECzc5LCUK2ztca2HZQ4hxl4a/DvMh8Ot8mk/agSRvoale55YY9Z+vPYL15+WAvTX
+         s4U2/sCr68Y3odfOa4d2MWtAuGPD60Nrt6zEH6+p7kHk0X63msZyzwIh9SJTJu7mjD15
+         CB2n8Yv5cVkkzXwmHIg1GTtt22hFkpTX4yn8Q0CUuejS8qdlFdlKGIQy6Irvdb4RFe7r
+         i8WgPLpFBHySRE7wA9OkciTnpdg+C+XTxoj6z1MCLxDw+MDwBt9ITs16TCb4m9FcmDbj
+         XzXqWdx0q+Nc2I9I4KQ40Gz/10EUsTQ9NaJ7156doOsLDsaM0wrcLDMh3w2DfIma6dfV
+         7gjg==
+X-Forwarded-Encrypted: i=1; AJvYcCWRHh9fAs9QQAo79S4KAUlPFOOajjEItL4ngIrdOx4w0Ao+v96Ua0JIexzYrQPp2/W9NiZmUgA0SMLDQQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw/imMO8d/9DZEz3ZJxdtskxElsm9DlVK/KzqfnFYoiwAF+bXPU
+	Rm30u5inCy885qSYqZJ4ABvev+vrQVG1hS1YrTxPMGCHTRh+FYdFl1HkMNe34o8=
+X-Google-Smtp-Source: AGHT+IHaxH8ov/UqUPxBA8x0bmmHbs3R6mKOF+WDurSlvopgHqFjxqmjotSQ0dAp9h1od2RsPmTDOA==
+X-Received: by 2002:a17:902:e852:b0:200:ac2c:6785 with SMTP id d9443c01a7336-2039e44cbcdmr164066655ad.3.1724824213959;
+        Tue, 27 Aug 2024 22:50:13 -0700 (PDT)
 Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-203855df0c4sm92092495ad.157.2024.08.27.22.50.17
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-203855df0c4sm92092495ad.157.2024.08.27.22.50.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Aug 2024 22:50:20 -0700 (PDT)
+        Tue, 27 Aug 2024 22:50:13 -0700 (PDT)
 From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Tue, 27 Aug 2024 22:49:22 -0700
-Subject: [PATCH 16/16] selftests/mm: Create MAP_BELOW_HINT test
+Date: Tue, 27 Aug 2024 22:49:20 -0700
+Subject: [PATCH 14/16] sh: mm: Support MAP_BELOW_HINT
 MIME-Version: 1.0
-Message-Id: <20240827-patches-below_hint_mmap-v1-16-46ff2eb9022d@rivosinc.com>
+Message-Id: <20240827-patches-below_hint_mmap-v1-14-46ff2eb9022d@rivosinc.com>
 References: <20240827-patches-below_hint_mmap-v1-0-46ff2eb9022d@rivosinc.com>
 In-Reply-To: <20240827-patches-below_hint_mmap-v1-0-46ff2eb9022d@rivosinc.com>
 To: Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -105,17 +120,17 @@ Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
  linux-kselftest@vger.kernel.org, Charlie Jenkins <charlie@rivosinc.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1906; i=charlie@rivosinc.com;
- h=from:subject:message-id; bh=bFLw7L4BlwG3KLICmNgvPIAvf1/5Sm3GeWEQAkx1eJA=;
- b=owGbwMvMwCHWx5hUnlvL8Y3xtFoSQ9q5XYnPPfbbPo8yeWL66+yxo/N6BS8nd1/7qNQhsOWpf
- 3tQ+KzTHaUsDGIcDLJiiiw81xqYW+/olx0VLZsAM4eVCWQIAxenAEzkdAYjwwau79apS3QeSJmm
- 67cdPe+1+9TsAsXmhc0Xrt4+G6VRe5aR4ekEGZPT2yyYhB/f/i4QYfZn696jodpGS1YWP+X48/d
- dEQMA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1729; i=charlie@rivosinc.com;
+ h=from:subject:message-id; bh=RSW/tCXIl3OqIq1wugK/BMhqzVxC+hGCJaNgaxgxyH4=;
+ b=owGbwMvMwCHWx5hUnlvL8Y3xtFoSQ9q5XYlVP75VR006aZFn+70kVT1K4PGO6plPeD6ttY1Ib
+ fZuvX6uo5SFQYyDQVZMkYXnWgNz6x39sqOiZRNg5rAygQxh4OIUgInsXsrw34+bSWfTiYerug+W
+ bJm2uPHhi6ei0zVPGCvcutghUP70ggcjQ8uKDy93HJCN5MpSDQ5Y9+eF9/TONIm5nufepW33SA2
+ /wgMA
 X-Developer-Key: i=charlie@rivosinc.com; a=openpgp;
  fpr=7D834FF11B1D8387E61C776FFB10D1F27D6B1354
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240827_225021_783420_0B8E110F 
-X-CRM114-Status: GOOD (  14.34  )
+X-CRM114-CacheID: sfid-20240828_065021_355705_1653A145 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,62 +147,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a selftest for MAP_BELOW_HINT that maps until it runs out of space
-below the hint address.
+Add support for MAP_BELOW_HINT to mmap by restricting high_limit to addr
+when the flag is enabled.
 
 Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
 ---
- tools/testing/selftests/mm/Makefile         |  1 +
- tools/testing/selftests/mm/map_below_hint.c | 29 +++++++++++++++++++++++++++++
- 2 files changed, 30 insertions(+)
+ arch/sh/mm/mmap.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/tools/testing/selftests/mm/Makefile b/tools/testing/selftests/mm/Makefile
-index cfad627e8d94..4e2de85267b5 100644
---- a/tools/testing/selftests/mm/Makefile
-+++ b/tools/testing/selftests/mm/Makefile
-@@ -50,6 +50,7 @@ TEST_GEN_FILES += hugepage-shm
- TEST_GEN_FILES += hugepage-vmemmap
- TEST_GEN_FILES += khugepaged
- TEST_GEN_FILES += madv_populate
-+TEST_GEN_FILES += map_below_hint
- TEST_GEN_FILES += map_fixed_noreplace
- TEST_GEN_FILES += map_hugetlb
- TEST_GEN_FILES += map_populate
-diff --git a/tools/testing/selftests/mm/map_below_hint.c b/tools/testing/selftests/mm/map_below_hint.c
-new file mode 100644
-index 000000000000..305274c5af49
---- /dev/null
-+++ b/tools/testing/selftests/mm/map_below_hint.c
-@@ -0,0 +1,29 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Test the MAP_BELOW_HINT mmap flag.
-+ */
-+#include <sys/mman.h>
-+#include "../kselftest.h"
-+
-+#define ADDR 0x1000000UL
-+#define LENGTH (ADDR / 100)
-+
-+#define MAP_BELOW_HINT	  0x8000000	/* Not defined in all libc */
-+
-+/*
-+ * Map memory with MAP_BELOW_HINT until no memory left. Ensure that all returned
-+ * addresses are below the hint.
-+ */
-+int main(int argc, char **argv)
-+{
-+	void *addr;
-+
-+	do {
-+		addr = mmap((void *)ADDR, LENGTH, MAP_ANONYMOUS, MAP_BELOW_HINT, -1, 0);
-+	} while (addr == MAP_FAILED && (unsigned long)addr <= ADDR);
-+
-+	if (addr != MAP_FAILED && (unsigned long)addr > ADDR)
-+		ksft_exit_fail_msg("mmap returned address above hint with MAP_BELOW_HINT\n");
-+
-+	ksft_test_result_pass("MAP_BELOW_HINT works\n");
-+}
+diff --git a/arch/sh/mm/mmap.c b/arch/sh/mm/mmap.c
+index bee329d4149a..867f6598b7d0 100644
+--- a/arch/sh/mm/mmap.c
++++ b/arch/sh/mm/mmap.c
+@@ -91,6 +91,8 @@ unsigned long arch_get_unmapped_area(struct file *filp, unsigned long addr,
+ 	info.length = len;
+ 	info.low_limit = TASK_UNMAPPED_BASE;
+ 	info.high_limit = TASK_SIZE;
++	if (flags & MAP_BELOW_HINT)
++		info.high_limit = MIN(info.high_limit, addr + len);
+ 	info.align_mask = do_colour_align ? (PAGE_MASK & shm_align_mask) : 0;
+ 	info.align_offset = pgoff << PAGE_SHIFT;
+ 	return vm_unmapped_area(&info);
+@@ -141,6 +143,12 @@ arch_get_unmapped_area_topdown(struct file *filp, const unsigned long addr0,
+ 	info.length = len;
+ 	info.low_limit = PAGE_SIZE;
+ 	info.high_limit = mm->mmap_base;
++	if (flags & MAP_BELOW_HINT)
++		/*
++		 * Subtract (STACK_TOP - mm->mmap_base) to get random
++		 * offset defined in mmap_base() in mm/util.c
++		 */
++		info.high_limit = MIN(info.high_limit, (addr + len) - (STACK_TOP - mm->mmap_base));
+ 	info.align_mask = do_colour_align ? (PAGE_MASK & shm_align_mask) : 0;
+ 	info.align_offset = pgoff << PAGE_SHIFT;
+ 	addr = vm_unmapped_area(&info);
+@@ -156,6 +164,8 @@ arch_get_unmapped_area_topdown(struct file *filp, const unsigned long addr0,
+ 		info.flags = 0;
+ 		info.low_limit = TASK_UNMAPPED_BASE;
+ 		info.high_limit = TASK_SIZE;
++		if (flags & MAP_BELOW_HINT)
++			info.high_limit = MIN(info.high_limit, addr + len);
+ 		addr = vm_unmapped_area(&info);
+ 	}
+ 
 
 -- 
 2.45.0
