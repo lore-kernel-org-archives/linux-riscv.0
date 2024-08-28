@@ -4,114 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79DFBC5475C
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2024 09:40:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B507EC54ED1
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2024 11:31:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Message-Id:
+	MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UEcXSL1EL6RMFxOuLqbpGLuJa7QK3vX0JlicnPv1Pag=; b=2rZeuWdO3MV1BA
-	AMSjfos0eVhxNvCTuEoI4dAqYkNmN4JvZMuVfSAIZBkaej7dzsGPzbpS5ebalVlbnMI98VWQF1WRD
-	kDfAA3rs4/UP+zbeJoxS05too6TLM+znPoxprijsf12fzY4dS9ckaGspJWKQn0o2H+tXemgh3ow4h
-	0vmpYQ+PIIT67JqQcEJ0kiTQcVWsO+n66+iwZV1MczR+I19MOqPdrima20WBXjot7QWhLMknjDGCO
-	vB4juY+0/413AJ/JET0QYP948Z33hMICw1NO5W4Qw4+qP4yPef6WDdZP+aTVT5radixZSTz9YBMuZ
-	BS7URRUIzuzTeqshahlg==;
+	List-Owner; bh=uy63/KRw9VKZo5dvHtIwbKFwY4PU6Wudwlbt6Yw2DhQ=; b=L7BkUM/OsyFau7
+	+CfQuzyCMgg6pqlKPNvxVs8tuGbOJwblUGFJvbnDKOd8c4UIfglc3nJ7OQHwU92VYgvsohinhnmBE
+	1SDmegYxRlNcBjnaQ2f7x89nABN9nQ86oAwjSlDIUxOTQfy5BwVSpB6OY5y2SHWA1a3aKNCjg2B16
+	U5n2v5NzoY9bivfwl70YPoFo6GK/dtZSJ5Nk8Op/SZJNCKwH7hHwTl9zVodOeW0kK+7uR23EDxO5c
+	ttv2eZKMcQ2zRg+S6/rW2Y8IFQxBgodIlseCmOadUOrJnpbCmq50W6ctVk43yuSnTtaflZTgnvqyg
+	Q+lPG/C95Q/e99qHZT5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjF9h-0000000EldW-2ZIR;
-	Wed, 28 Aug 2024 09:39:57 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1sjGtY-0000000F9Um-3IGv;
+	Wed, 28 Aug 2024 11:31:24 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjF65-0000000EkFU-2f8x
+	id 1sjGtV-0000000F9T0-2MdZ
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Aug 2024 09:36:15 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4280772333eso9255535e9.0
-        for <linux-riscv@lists.infradead.org>; Wed, 28 Aug 2024 02:36:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1724837772; x=1725442572; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Oqpgi+Ioc4Hh1q2eVNsUH6IqcMRcphlNfWp1+WCdT64=;
-        b=Z8rbCXXxqsVD5PeuxGLW6qbXBmP1yg4zRs/AdVe2dU7rGN9vQCn7NxBxTi8rrnn1cq
-         y9RNHCQTLCHPvejOJ1PwJZ0xuOmfAWxOUAu7/p2rpIL/XZonK0y2mY0LtneSF8Q14vEj
-         uYNl84jKX7EnQSBo2yhHxniiyEUYUfOjZthHDRcvnSqFsXZm+H2bQlqkYS7MLACBToao
-         5XUXpNwEyNax6HZrvJ2i3auE4LV+6BSy+tIIm5TucNV8twmKj/hg7iBThFKzk6CDV6cU
-         fXuC/9JXbp7AchnbcK/0wgcSnEMg3FgQcEvLBBPzYGMwxGOil0nZM+GEKO5Sf7nSM1A3
-         ldZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1724837772; x=1725442572;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Oqpgi+Ioc4Hh1q2eVNsUH6IqcMRcphlNfWp1+WCdT64=;
-        b=BGqNZX5I/lJhrC/758bPfaBfD1iYYg3CZuBsHEE2fJ5ztoCCfoRoDb83GTbPodi/hl
-         PoqpkfPDqN3gdFSkfvCmnsJ8kM2idow5Xy/g4NR1W2d/4gTaYbZ6ZDJGfNLFINqc3j9P
-         22b8jaDo1xEqroDYfDxHBJsfAi3Vu7s+nQhwS155l6Wopf55/0m8bB+LTriP2cOWHx21
-         BfHLieeJuWH9pubADnlu326oSU033+GiNowfifPX7toRU0+H8xg+R2rRW73EUG+T97XT
-         FySagumqFQldFLfD8QJY4ImBRNH9BuinHrPECRnkTvSPzbAfPRr2ZHBid2JrBNQdzmr+
-         heqw==
-X-Forwarded-Encrypted: i=1; AJvYcCU+qglxNfVQjaSfO87AtFrCpqyvssUdGzHLRcnSOLGGA3n7EwSZ5/F987HCTDfOIUWSlIJYfaZ/MZVd/w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzX05I1Yqed5PsZ6/7mnRV8YwS971xWpRQvYMsDXaiNHzJKCHFy
-	zNLZMw9FH9HNmRKRfF350h3AZCpP6KqtzAEXiPbxgr2yMqwYggfW4KXUqtkaKbLoatuVTMJtk3D
-	5
-X-Google-Smtp-Source: AGHT+IETpe3b9BGv0n0aM0dnAJ8cS5Q7YY6k14fOQPDFxFj2whk1YkEA+f5mnYL+L6tMMK9TqVfI6w==
-X-Received: by 2002:a5d:5889:0:b0:35f:1edb:4695 with SMTP id ffacd0b85a97d-373118b65acmr5912438f8f.6.1724837771829;
-        Wed, 28 Aug 2024 02:36:11 -0700 (PDT)
-Received: from [127.0.1.1] ([178.197.222.82])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-42ba63d7d3esm15270825e9.37.2024.08.28.02.36.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Aug 2024 02:36:11 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Date: Wed, 28 Aug 2024 11:35:59 +0200
-Subject: [PATCH 3/3] dt-bindings: gpio: simplify GPIO hog nodes schema
+	Wed, 28 Aug 2024 11:31:23 +0000
+From: Yixun Lan <dlan@gentoo.org>
+Date: Wed, 28 Aug 2024 11:30:23 +0000
+Subject: [PATCH v3 1/4] dt-bindings: pinctrl: spacemit: add support for K1
+ SoC
 MIME-Version: 1.0
-Message-Id: <20240828-dt-bindings-gpio-hog-v1-3-63b83e47d804@linaro.org>
-References: <20240828-dt-bindings-gpio-hog-v1-0-63b83e47d804@linaro.org>
-In-Reply-To: <20240828-dt-bindings-gpio-hog-v1-0-63b83e47d804@linaro.org>
-To: Linus Walleij <linus.walleij@linaro.org>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>, 
+Message-Id: <20240828-02-k1-pinctrl-v3-1-1fed6a22be98@gentoo.org>
+References: <20240828-02-k1-pinctrl-v3-0-1fed6a22be98@gentoo.org>
+In-Reply-To: <20240828-02-k1-pinctrl-v3-0-1fed6a22be98@gentoo.org>
+To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
- Emanuele Ghidoli <emanuele.ghidoli@toradex.com>, 
- Bjorn Andersson <andersson@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Daire McNamara <daire.mcnamara@microchip.com>, 
- Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, 
- Masami Hiramatsu <mhiramat@kernel.org>, Maxime Ripard <mripard@kernel.org>, 
- Masahiro Yamada <yamada.masahiro@socionext.com>
-Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
- linux-arm-msm@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>, 
- Conor Dooley <conor.dooley@microchip.com>, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Conor Dooley <conor@kernel.org>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4308;
- i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
- bh=bfnqlyzaJpLrEgkQnghSy/QuUGq8pRc27uQrIneNjNU=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBmzu+CXWk9x7tyzNeDQFogtsG8zjaPPskp0BUXE
- 4KwHhVpHwmJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCZs7vggAKCRDBN2bmhouD
- 11QrEACVIpIu/QhFsBa1s0ikl/l3NZcISpoVtaGfa7CO039p5WWJDGiQvU2XGHmZRqeZrfdigxy
- hORUEVKrYlwVYTYH41liiu5wW9SsB2Ezbh3mkN/zMeb4/Grug6Jv9K2V3JPGfK1+lXI7Q0INRo2
- X5Vnl5ze9n2TtBSd1RFrBBdIMiCUaNvtRGzBDVpNJPazhXLfV1yH4t/wZefomqpGP53ErB5WQBU
- OuFczEFjRPTYG9+9ZKxT5olkt9sLD1qybpcl7hujY4zObNsH3d+BdWZFF3lOyg5V8L3d17wRrqQ
- gNNMqd+BMeDirtt9VAHL/DKwG7BQOASFkKAmb8m7c6GWCNVqMzQQUoB3HVjUmJLTHBZqXqHn/+t
- iuv0CFwwMLUryCG22Bf6q3jhJ0pyoPhxhuvDcHuELlFc+B/To1bJS1vkLwQtgyxw1ijQrrANd1Z
- Hu0BNtzAGLh3VQIt1dehi98Jvi17K7XWJ4dP/bpbX0OQB0b6KyyVJta6jRZXjucgf9m3S0en5ZD
- Qj4V+q+fnifnY779vEX4TDaz4LHU1gNY7fszLKPq/9NNmlGyAVLLWITalO01t3fzxwjoeiI6PRj
- yqteXxBVHnDUnmQGqodOcQ1Hp2SLEWkTQwhKHgi5ppgZo37EwX+VVc1gDJ9bTIwWuSFv1h0runq
- zyPoznFYDtvUFmg==
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
- fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4318; i=dlan@gentoo.org;
+ h=from:subject:message-id; bh=EhXdvTJICZ/CPHgBVnkqp92mbVQd/cH/vOKFkcWHcAI=;
+ b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBmzwp0rycktKHFvryD1vu55Ph4DoP4jJjOWQB5m
+ BI0bYTLHa6JApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCZs8KdF8UgAAAAAAuAChp
+ c3N1ZXItZnByQG5vdGF0aW9ucy5vcGVucGdwLmZpZnRoaG9yc2VtYW4ubmV0QjVCQUI4QzlDMzF
+ CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277TMkD/9o5DemKkC5q2PP/p
+ NDonyaDiLDDGYD0ku3QGS5SUuA0bkvC65Pzokq5Xxvh2WH5VpFxwSW4NL8IPjfe8hx2gt/TRQ4R
+ l0rQbiH0sUfSj5OM+N7G00CusSkDXL3Vz2ZsVUuXA1tZdvMZOHgp0ZIE0MjmC/sdKL8cEyu+Yf2
+ N+rJbfXlmoOnKYo/fUu2FjmZ9cqkvyXdxtyJfUpFf332h5wl68nOFRFkwk0bTD5HPJajTcRqakJ
+ WWU/DCC/Nzx80CDdJGQgyZuupyPPJbWLF2ROaSYMtlnCFhMBqohfJjDTVoBC8xHClvlSlDeh45i
+ u1KUCuJJdx5J+nZM7VUMC8jEf0UDloKvYvGxEWRuBr1wF/I3/E2xGXM07VvFicYljEScwUoTR6Y
+ 2o7OGgxv6X76sQriSHaiY8ofzdr+mn3G4YTWlLjkwtOhQ4P+Ef4fV8noxYTbo9hBV+ObKbZ3Pdy
+ /yblC2Yz649oR2MRUghcC/R7JK9Vdi0f46Mi8cmR9xFde7BBurezz51yM7l/CfdmEVaXaxCA/S8
+ WA5wKBz3UNX7JunrfoB5Mw6aowQHCBLJbTe7wWjnbGgN8nucy6Q02ppsZT21p2xHOxiUGugBefx
+ lfBh4Wp11ia9h6iEFexcyeFMrgmNTn4M54k66dThp1zbcZAO2eek4ESPXV4gV1AmQ1Yg==
+X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240828_023613_702509_227036AC 
-X-CRM114-Status: UNSURE (   7.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240828_043121_666747_9249CF3B 
+X-CRM114-Status: GOOD (  13.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,150 +73,162 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, Yixun Lan <dlan@gentoo.org>, Meng Zhang <zhangmeng.kevin@spacemit.com>, linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, Jesse Taube <jesse@rivosinc.com>, Yangyu Chen <cyy@cyyself.name>, Inochi Amaoto <inochiama@outlook.com>, Jisheng Zhang <jszhang@kernel.org>, Meng Zhang <kevin.z.m@hotmail.com>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The core schema in dtschema already strictly defines contents of nodes
-with "gpio-hog" property (with additionalProperties: false), thus the
-only thing device schema should do is: define "type: object" and
-required "gpio-hog".  Make the code a bit simpler by removing redundant
-parts.
+Add dt-bindings for the pinctrl driver of SpacemiT's K1 SoC.
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Yixun Lan <dlan@gentoo.org>
 ---
- .../devicetree/bindings/gpio/fairchild,74hc595.yaml          | 11 -----------
- Documentation/devicetree/bindings/gpio/fsl-imx-gpio.yaml     | 11 -----------
- Documentation/devicetree/bindings/gpio/gpio-pca95xx.yaml     | 11 -----------
- .../devicetree/bindings/gpio/microchip,mpfs-gpio.yaml        | 12 ------------
- .../devicetree/bindings/gpio/socionext,uniphier-gpio.yaml    | 11 -----------
- 5 files changed, 56 deletions(-)
+Changes in v3:
+- drop spacemit,slew-rate-{enable,disable} property
+- use drive-strength instead of drive-strength-microamp
+- fold strong-pull-up into bias-pull-up
+- format fixed
+- title fixed
+---
+ .../bindings/pinctrl/spacemit,k1-pinctrl.yaml      | 127 +++++++++++++++++++++
+ 1 file changed, 127 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/gpio/fairchild,74hc595.yaml b/Documentation/devicetree/bindings/gpio/fairchild,74hc595.yaml
-index c0ad70e66f76..e8bc9f018edb 100644
---- a/Documentation/devicetree/bindings/gpio/fairchild,74hc595.yaml
-+++ b/Documentation/devicetree/bindings/gpio/fairchild,74hc595.yaml
-@@ -36,19 +36,8 @@ properties:
- patternProperties:
-   "^(hog-[0-9]+|.+-hog(-[0-9]+)?)$":
-     type: object
--
--    properties:
--      gpio-hog: true
--      gpios: true
--      output-high: true
--      output-low: true
--      line-name: true
--
-     required:
-       - gpio-hog
--      - gpios
--
--    additionalProperties: false
- 
- required:
-   - compatible
-diff --git a/Documentation/devicetree/bindings/gpio/fsl-imx-gpio.yaml b/Documentation/devicetree/bindings/gpio/fsl-imx-gpio.yaml
-index e1fc8bb6d379..6b06609c649e 100644
---- a/Documentation/devicetree/bindings/gpio/fsl-imx-gpio.yaml
-+++ b/Documentation/devicetree/bindings/gpio/fsl-imx-gpio.yaml
-@@ -85,19 +85,8 @@ properties:
- patternProperties:
-   "^(hog-[0-9]+|.+-hog(-[0-9]+)?)$":
-     type: object
--    properties:
--      gpio-hog: true
--      gpios: true
--      input: true
--      output-high: true
--      output-low: true
--      line-name: true
--
-     required:
-       - gpio-hog
--      - gpios
--
--    additionalProperties: false
- 
- required:
-   - compatible
-diff --git a/Documentation/devicetree/bindings/gpio/gpio-pca95xx.yaml b/Documentation/devicetree/bindings/gpio/gpio-pca95xx.yaml
-index 51e8390d6b32..7b1eb08fa055 100644
---- a/Documentation/devicetree/bindings/gpio/gpio-pca95xx.yaml
-+++ b/Documentation/devicetree/bindings/gpio/gpio-pca95xx.yaml
-@@ -107,19 +107,8 @@ properties:
- patternProperties:
-   "^(hog-[0-9]+|.+-hog(-[0-9]+)?)$":
-     type: object
--    properties:
--      gpio-hog: true
--      gpios: true
--      input: true
--      output-high: true
--      output-low: true
--      line-name: true
--
-     required:
-       - gpio-hog
--      - gpios
--
--    additionalProperties: false
- 
- required:
-   - compatible
-diff --git a/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml b/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
-index d61569b3f15b..d78da7dd2a56 100644
---- a/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
-+++ b/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
-@@ -49,20 +49,8 @@ properties:
- patternProperties:
-   "^.+-hog(-[0-9]+)?$":
-     type: object
--
--    additionalProperties: false
--
--    properties:
--      gpio-hog: true
--      gpios: true
--      input: true
--      output-high: true
--      output-low: true
--      line-name: true
--
-     required:
-       - gpio-hog
--      - gpios
- 
- allOf:
-   - if:
-diff --git a/Documentation/devicetree/bindings/gpio/socionext,uniphier-gpio.yaml b/Documentation/devicetree/bindings/gpio/socionext,uniphier-gpio.yaml
-index 228fa27ffdc3..36f5a0610471 100644
---- a/Documentation/devicetree/bindings/gpio/socionext,uniphier-gpio.yaml
-+++ b/Documentation/devicetree/bindings/gpio/socionext,uniphier-gpio.yaml
-@@ -55,19 +55,8 @@ properties:
- patternProperties:
-   "^.+-hog(-[0-9]+)?$":
-     type: object
--    properties:
--      gpio-hog: true
--      gpios: true
--      input: true
--      output-high: true
--      output-low: true
--      line-name: true
--
-     required:
-       - gpio-hog
--      - gpios
--
--    additionalProperties: false
- 
- required:
-   - compatible
+diff --git a/Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml
+new file mode 100644
+index 0000000000000..166e529b54b27
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml
+@@ -0,0 +1,127 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pinctrl/spacemit,k1-pinctrl.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: SpacemiT K1 SoC Pin Controller
++
++maintainers:
++  - Yixun Lan <dlan@gentoo.org>
++
++properties:
++  compatible:
++    const: spacemit,k1-pinctrl
++
++  reg:
++    items:
++      - description: pinctrl io memory base
++
++patternProperties:
++  '-cfg$':
++    type: object
++    additionalProperties: false
++
++    description:
++      A pinctrl node should contain at least one subnode representing the
++      pinctrl groups available on the machine.
++
++    patternProperties:
++      '-pins$':
++        type: object
++        additionalProperties: false
++
++        description:
++          Each subnode will list the pins it needs, and how they should
++          be configured, with regard to muxer configuration, bias pull,
++          drive strength, input schmitt trigger, slew rate, power source.
++
++        allOf:
++          - $ref: pincfg-node.yaml#
++          - $ref: pinmux-node.yaml#
++
++        properties:
++          pinmux:
++            description:
++              The list of GPIOs and their mux settings that properties in the
++              node apply to. This should be set using the K1_PADCONF macro to
++              construct the value.
++
++          bias-disable: true
++
++          bias-pull-down: true
++
++          bias-pull-up:
++            description: |
++              typical value for selecting bias pull up or strong pull up.
++              0: normal bias pull up
++              1: strong bias pull up
++            enum: [ 0, 1 ]
++
++          drive-strength:
++            description: |
++              typical current when output high level.
++              1.8V output: 11, 21, 32, 42 (mA)
++              3.3V output: 7, 10, 13, 16, 19, 23, 26, 29 (mA)
++
++          input-schmitt:
++            description: |
++              typical threshold for schmitt trigger.
++              0: buffer mode
++              1: trigger mode
++              2, 3: trigger mode
++            $ref: /schemas/types.yaml#/definitions/uint32
++            enum: [ 0, 1, 2, 3 ]
++
++          power-source:
++            description: external power supplies at 1.8v or 3.3v.
++            enum: [ 1800, 3300 ]
++
++          slew-rate:
++            description: |
++              slew rate for output buffer.
++              0: disable it
++              1: enable it (via bundled value from drive strength)
++              2: slow speed 0
++              3: slow speed 1
++              4: medium speed
++              5: fast speed
++            enum: [ 0, 1, 2, 3, 4, 5 ]
++
++        required:
++          - pinmux
++
++required:
++  - compatible
++  - reg
++
++additionalProperties: false
++
++examples:
++  - |
++    #define GPIO_68 69
++    #define GPIO_69 70
++
++    #define K1_PADCONF(pin, func) (((pin) << 16) | (func))
++
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        pinctrl@d401e000 {
++            compatible = "spacemit,k1-pinctrl";
++            reg = <0x0 0xd401e000 0x0 0x400>;
++
++            uart0_2_cfg: uart0-2-cfg {
++                uart0-2-pins {
++                    pinmux = <K1_PADCONF(GPIO_68, 2)>,
++                             <K1_PADCONF(GPIO_69, 2)>;
++
++                    bias-pull-up = <0>;
++                    drive-strength = <32>;
++                };
++            };
++        };
++    };
++
++...
 
 -- 
-2.43.0
+2.45.2
 
 
 _______________________________________________
