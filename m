@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB00BC7114C
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2024 23:45:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84193C71150
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2024 23:46:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tJfKb9ZUXx9Zm7kmb0MXOUjOKC84yMZYgHOa8MRTwbc=; b=2n+HX/smp2a7hn
-	WHgpBVeqZ9TvPAgn1MhMcMIQk9EGk1BgG3u4RGykkPb2isuH7AIak3FGM+5etsYDIUoPfi19K7Y2f
-	K1Q7i3Pg+BuL7BOsI2iUdA0FLl6vX9KTDVw1yEQYBraCzcwFAMpdkbMqF4EtF0pgkbrcvLxkCPXm5
-	ssxUEJ6mq7aJESkamwlcsYa37DerUXfEN1g/bvXCXRroHPK1GrXvpT2Kz2JQ7NXrJvQWbLz1nQEP3
-	e459Ib2ALCM4MwFgVLCMkpV2PXnJNIVdLwiO4//e/HdT2PHmgTcVMScGzKDB8K09u/+OZtkRpATlt
-	B6G5f+kMVy7HvYkEBZkQ==;
+	List-Owner; bh=ZjTlm9W7C2AhsMv/vc7mU6G9pt8jqShpr8B+HB8ynGA=; b=TFYuM9xWM8qLwR
+	iQAiHctvuivTMwuRGn89e9tJn6O7Ko5MMSYJ9DN+u/s/yacs5ptwJQtfii4gh1GXw2bzO0PQBpz59
+	1riH7YZHOBxIzD5UE/xtLYMRyBxJq1fAspzikR2Fl7nLr5uOEB3onHCGQgEwVdQy2anTBQkkBPedi
+	b+qZ0xhSmr5T6NUuFqc84V/uKYqZaakRTOf6lsXZo0IufUPAzU1nvJ0n6QzFfhGVnFPl9J3sh5Trl
+	e65Kciy51pHLx4R3PxbZNp0mpRB8pTa57IXA/9nOjF5usV+yp1u8Yzj5kikPQ+E2u38RuiCh9ed2P
+	4h9JmOwnRT/v2B5L4t2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjSLh-0000000HSxB-0WxL;
-	Wed, 28 Aug 2024 23:45:13 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1sjSMY-0000000HTEj-10ow;
+	Wed, 28 Aug 2024 23:46:06 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjS7x-0000000HMlR-2DNZ;
-	Wed, 28 Aug 2024 23:31:03 +0000
+	id 1sjS84-0000000HMpN-2nCX;
+	Wed, 28 Aug 2024 23:31:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id BD8DCCE19B1;
+	by ams.source.kernel.org (Postfix) with ESMTP id 749F1AE3F03;
+	Wed, 28 Aug 2024 23:31:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55C61C4CEC9;
 	Wed, 28 Aug 2024 23:30:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33925C4CEC5;
-	Wed, 28 Aug 2024 23:30:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1724887858;
-	bh=sydLriD9HWAooq5yd+cFzuUdkx2R+cx9auWZHUCA7fY=;
+	s=k20201202; t=1724887866;
+	bh=r1EPj2HNqmDTMAGJCm8ZuYXl6ItJtVM0L7jZMyZ+dfk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=otQuTQdp3wk4hcDOpjNnIrsQg9KwhgaBu5nx/u8HDL40Y7pR+jwHY9XxR7ZEWI1NU
-	 NRRvw9nWhLQGps7I7wTBCL9a4JyiewgCme094HrHD/rbMJ9nUSr2fBWGMwSgMwJgPA
-	 z4HXz91hU69poRSngzfP+0sDDBbh6yG3aLEVdY+LoYb/5zZPUpm4OY0Lu0HZ31ZC3W
-	 vv2AQd1cOVqNYUN/GO+VPnymTlwZXqzN70XnQzAVhseCYLdPW5EqiguurR2SqhPTGu
-	 44udrqET8WA/QduW7M/ojCL8+5xJpTZtWNaLehopKUxmyXauNsX48h4RCD1uH7QFA5
-	 1QcvwBWd7x28Q==
+	b=mP13yPt96U0NJ8JNGBGVVgP2AVcIQPF58gZXM8j0Qy0kQa8jYYDC5VYSzfyDFEl5g
+	 61Veao72PGikqGnoud+HUsiYZTclcPIDUbZo+UCKp3elNPD+z1QjmxY4p5I3v7VFkY
+	 T1EOk1nJd5zpitaaSNM+Xw7iszKf/gxjxoc9ZwZx7DSjRCZAPxRNgMQgXn2um572RJ
+	 8PeCXYX3WCB10UyDizQx5bBu3cjCPmKJ1/RWippRiQMyBX5kQfT2hqVKmqiYeQVF2o
+	 OxA17g1emtKnHYIekmQp1NlcayCS7Sk13SsgrYqwCd5ERaDnDwJYwG3gno0nfT4zVt
+	 oZBqTUqd2wVew==
 From: Mark Brown <broonie@kernel.org>
-Date: Thu, 29 Aug 2024 00:27:36 +0100
-Subject: [PATCH v12 20/39] arm64/gcs: Context switch GCS state for EL0
+Date: Thu, 29 Aug 2024 00:27:37 +0100
+Subject: [PATCH v12 21/39] arm64/gcs: Ensure that new threads have a GCS
 MIME-Version: 1.0
-Message-Id: <20240829-arm64-gcs-v12-20-42fec947436a@kernel.org>
+Message-Id: <20240829-arm64-gcs-v12-21-42fec947436a@kernel.org>
 References: <20240829-arm64-gcs-v12-0-42fec947436a@kernel.org>
 In-Reply-To: <20240829-arm64-gcs-v12-0-42fec947436a@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -72,20 +72,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-37811
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7225; i=broonie@kernel.org;
- h=from:subject:message-id; bh=sydLriD9HWAooq5yd+cFzuUdkx2R+cx9auWZHUCA7fY=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBmz7KIKy2R7h93FkcxSJ/JfAGC1aobAQmoB1N96ecE
- blTmFraJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZs+yiAAKCRAk1otyXVSH0GSaB/
- 9gxycINt4jGEeumEzdfCbt1p9bcOTP7yN85Ty0JiwmkCl9PI+CjA8zGVZph/94PzIc5flRKldAYMqf
- hCBFkL0f+/lxgMmZ5gUQS7U+FGEwCAHAcw9L+4mtP0sqt6SGcbriQEHK8FpJkBwE41vHrjO+LEEoug
- jJEGciaeFVePAaCgtS4Ngbi325zdvvfp3ADSjEtispU3e+oWL0ZF8yxPXlBlm9xSy/doD5IoP4tfET
- XGytk6FbkXpLtqCteSaV9DSybym1c4aqlEsaWmwlYo3GoEjHwHnF+z7Ej1h0fCtEyw1Z6UnFEtVL66
- AvC2vr7F6fs0bTjLe+ljshUsfu+8oq
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6471; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=r1EPj2HNqmDTMAGJCm8ZuYXl6ItJtVM0L7jZMyZ+dfk=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBmz7KI/5/EZA8otPXJTG4eAk+IZZZZk3RvvbHfAmvN
+ zK4Jf5iJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZs+yiAAKCRAk1otyXVSH0PymB/
+ 4klnjT1lRlENsooIrfLx8Z6FCqQScC0UWLZeDIMhUJOIuVgoKoHlu6qSUErmQ/0oVXkQQ+742PWItM
+ 5rXuixBT7PpQtlBRhFbhu1vh5dh1xlFFr9WAhxGBo5AS9Pc+K9ban4ZPFw1tXViKYBaG/QWHXqS9ZK
+ OohbPPA12F58N+WsDHitR9kMB+hBKQzgTwBVWVFHLLaVCXYfFvXqDY4C/+sRMp7Ht+Qzvcv+NzgPn7
+ oMpHxAwV9HJXFzJ7k8VtlUhmVf2cDWq8mEY/yrMcMA4kE6HC40emJJm0H+L/1osaoRJvmoAEb6ajCi
+ BQB9EXlV4kZhXUZqH/RlyGEXCfMSP5
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240828_163101_978577_0734EBA1 
-X-CRM114-Status: GOOD (  23.73  )
+X-CRM114-CacheID: sfid-20240828_163109_036219_7121CBDD 
+X-CRM114-Status: GOOD (  20.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,241 +102,216 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There are two registers controlling the GCS state of EL0, GCSPR_EL0 which
-is the current GCS pointer and GCSCRE0_EL1 which has enable bits for the
-specific GCS functionality enabled for EL0. Manage these on context switch
-and process lifetime events, GCS is reset on exec().  Also ensure that
-any changes to the GCS memory are visible to other PEs and that changes
-from other PEs are visible on this one by issuing a GCSB DSYNC when
-moving to or from a thread with GCS.
+When a new thread is created by a thread with GCS enabled the GCS needs
+to be specified along with the regular stack.
 
-Since the current GCS configuration of a thread will be visible to
-userspace we store the configuration in the format used with userspace
-and provide a helper which configures the system register as needed.
+Unfortunately plain clone() is not extensible and existing clone3()
+users will not specify a stack so all existing code would be broken if
+we mandated specifying the stack explicitly.  For compatibility with
+these cases and also x86 (which did not initially implement clone3()
+support for shadow stacks) if no GCS is specified we will allocate one
+so when a thread is created which has GCS enabled allocate one for it.
+We follow the extensively discussed x86 implementation and allocate
+min(RLIMIT_STACK, 2G).  Since the GCS only stores the call stack and not
+any variables this should be more than sufficient for most applications.
 
-On systems that support GCS we always allow access to GCSPR_EL0, this
-facilitates reporting of GCS faults if userspace implements disabling of
-GCS on error - the GCS can still be discovered and examined even if GCS
-has been disabled.
+GCSs allocated via this mechanism will be freed when the thread exits.
 
 Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/include/asm/gcs.h       | 24 +++++++++++++++
- arch/arm64/include/asm/processor.h |  6 ++++
- arch/arm64/kernel/process.c        | 62 ++++++++++++++++++++++++++++++++++++++
- arch/arm64/mm/Makefile             |  1 +
- arch/arm64/mm/gcs.c                | 39 ++++++++++++++++++++++++
- 5 files changed, 132 insertions(+)
+ arch/arm64/include/asm/gcs.h |  9 ++++++
+ arch/arm64/kernel/process.c  | 26 ++++++++++++++++
+ arch/arm64/mm/gcs.c          | 70 ++++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 105 insertions(+)
 
 diff --git a/arch/arm64/include/asm/gcs.h b/arch/arm64/include/asm/gcs.h
-index 7c5e95218db6..04594ef59dad 100644
+index 04594ef59dad..c1f274fdb9c0 100644
 --- a/arch/arm64/include/asm/gcs.h
 +++ b/arch/arm64/include/asm/gcs.h
-@@ -48,4 +48,28 @@ static inline u64 gcsss2(void)
- 	return Xt;
- }
+@@ -8,6 +8,8 @@
+ #include <asm/types.h>
+ #include <asm/uaccess.h>
  
-+#ifdef CONFIG_ARM64_GCS
++struct kernel_clone_args;
 +
-+static inline bool task_gcs_el0_enabled(struct task_struct *task)
+ static inline void gcsb_dsync(void)
+ {
+ 	asm volatile(".inst 0xd503227f" : : : "memory");
+@@ -58,6 +60,8 @@ static inline bool task_gcs_el0_enabled(struct task_struct *task)
+ void gcs_set_el0_mode(struct task_struct *task);
+ void gcs_free(struct task_struct *task);
+ void gcs_preserve_current_state(void);
++unsigned long gcs_alloc_thread_stack(struct task_struct *tsk,
++				     const struct kernel_clone_args *args);
+ 
+ #else
+ 
+@@ -69,6 +73,11 @@ static inline bool task_gcs_el0_enabled(struct task_struct *task)
+ static inline void gcs_set_el0_mode(struct task_struct *task) { }
+ static inline void gcs_free(struct task_struct *task) { }
+ static inline void gcs_preserve_current_state(void) { }
++static inline unsigned long gcs_alloc_thread_stack(struct task_struct *tsk,
++						   const struct kernel_clone_args *args)
 +{
-+	return current->thread.gcs_el0_mode & PR_SHADOW_STACK_ENABLE;
++	return -ENOTSUPP;
 +}
-+
-+void gcs_set_el0_mode(struct task_struct *task);
-+void gcs_free(struct task_struct *task);
-+void gcs_preserve_current_state(void);
-+
-+#else
-+
-+static inline bool task_gcs_el0_enabled(struct task_struct *task)
-+{
-+	return false;
-+}
-+
-+static inline void gcs_set_el0_mode(struct task_struct *task) { }
-+static inline void gcs_free(struct task_struct *task) { }
-+static inline void gcs_preserve_current_state(void) { }
-+
-+#endif
-+
+ 
  #endif
-diff --git a/arch/arm64/include/asm/processor.h b/arch/arm64/include/asm/processor.h
-index f77371232d8c..c55e3600604a 100644
---- a/arch/arm64/include/asm/processor.h
-+++ b/arch/arm64/include/asm/processor.h
-@@ -184,6 +184,12 @@ struct thread_struct {
- 	u64			sctlr_user;
- 	u64			svcr;
- 	u64			tpidr2_el0;
-+#ifdef CONFIG_ARM64_GCS
-+	unsigned int		gcs_el0_mode;
-+	u64			gcspr_el0;
-+	u64			gcs_base;
-+	u64			gcs_size;
-+#endif
- };
  
- static inline unsigned int thread_get_vl(struct thread_struct *thread,
 diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-index 4ae31b7af6c3..3622956b6515 100644
+index 3622956b6515..de59aa16919c 100644
 --- a/arch/arm64/kernel/process.c
 +++ b/arch/arm64/kernel/process.c
-@@ -48,6 +48,7 @@
- #include <asm/cacheflush.h>
- #include <asm/exec.h>
- #include <asm/fpsimd.h>
-+#include <asm/gcs.h>
- #include <asm/mmu_context.h>
- #include <asm/mte.h>
- #include <asm/processor.h>
-@@ -271,12 +272,32 @@ static void flush_tagged_addr_state(void)
- 		clear_thread_flag(TIF_TAGGED_ADDR);
+@@ -285,9 +285,29 @@ static void flush_gcs(void)
+ 	write_sysreg_s(0, SYS_GCSPR_EL0);
  }
  
-+#ifdef CONFIG_ARM64_GCS
-+
-+static void flush_gcs(void)
++static int copy_thread_gcs(struct task_struct *p,
++			   const struct kernel_clone_args *args)
 +{
-+	if (!system_supports_gcs())
-+		return;
++	unsigned long gcs;
 +
-+	gcs_free(current);
-+	current->thread.gcs_el0_mode = 0;
-+	write_sysreg_s(0, SYS_GCSCRE0_EL1);
-+	write_sysreg_s(0, SYS_GCSPR_EL0);
++	gcs = gcs_alloc_thread_stack(p, args);
++	if (IS_ERR_VALUE(gcs))
++		return PTR_ERR((void *)gcs);
++
++	p->thread.gcs_el0_mode = current->thread.gcs_el0_mode;
++	p->thread.gcs_el0_locked = current->thread.gcs_el0_locked;
++
++	return 0;
 +}
 +
-+#else
-+
-+static void flush_gcs(void) { }
-+
-+#endif
-+
- void flush_thread(void)
- {
- 	fpsimd_flush_thread();
- 	tls_thread_flush();
- 	flush_ptrace_hw_breakpoint(current);
- 	flush_tagged_addr_state();
-+	flush_gcs();
- }
+ #else
  
+ static void flush_gcs(void) { }
++static int copy_thread_gcs(struct task_struct *p,
++			   const struct kernel_clone_args *args)
++{
++	return 0;
++}
+ 
+ #endif
+ 
+@@ -303,6 +323,7 @@ void flush_thread(void)
  void arch_release_task_struct(struct task_struct *tsk)
-@@ -471,6 +492,46 @@ static void entry_task_switch(struct task_struct *next)
- 	__this_cpu_write(__entry_task, next);
+ {
+ 	fpsimd_release_task(tsk);
++	gcs_free(tsk);
  }
  
-+#ifdef CONFIG_ARM64_GCS
+ int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
+@@ -366,6 +387,7 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ 	unsigned long stack_start = args->stack;
+ 	unsigned long tls = args->tls;
+ 	struct pt_regs *childregs = task_pt_regs(p);
++	int ret;
+ 
+ 	memset(&p->thread.cpu_context, 0, sizeof(struct cpu_context));
+ 
+@@ -407,6 +429,10 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ 			p->thread.uw.tp_value = tls;
+ 			p->thread.tpidr2_el0 = 0;
+ 		}
 +
-+void gcs_preserve_current_state(void)
++		ret = copy_thread_gcs(p, args);
++		if (ret != 0)
++			return ret;
+ 	} else {
+ 		/*
+ 		 * A kthread has no context to ERET to, so ensure any buggy
+diff --git a/arch/arm64/mm/gcs.c b/arch/arm64/mm/gcs.c
+index b0a67efc522b..6e8a5e14fff1 100644
+--- a/arch/arm64/mm/gcs.c
++++ b/arch/arm64/mm/gcs.c
+@@ -5,9 +5,69 @@
+ #include <linux/syscalls.h>
+ #include <linux/types.h>
+ 
++#include <asm/cmpxchg.h>
+ #include <asm/cpufeature.h>
++#include <asm/gcs.h>
+ #include <asm/page.h>
+ 
++static unsigned long alloc_gcs(unsigned long addr, unsigned long size)
 +{
-+	current->thread.gcspr_el0 = read_sysreg_s(SYS_GCSPR_EL0);
++	int flags = MAP_ANONYMOUS | MAP_PRIVATE;
++	struct mm_struct *mm = current->mm;
++	unsigned long mapped_addr, unused;
++
++	if (addr)
++		flags |= MAP_FIXED_NOREPLACE;
++
++	mmap_write_lock(mm);
++	mapped_addr = do_mmap(NULL, addr, size, PROT_READ, flags,
++			      VM_SHADOW_STACK | VM_WRITE, 0, &unused, NULL);
++	mmap_write_unlock(mm);
++
++	return mapped_addr;
 +}
 +
-+static void gcs_thread_switch(struct task_struct *next)
++static unsigned long gcs_size(unsigned long size)
 +{
++	if (size)
++		return PAGE_ALIGN(size);
++
++	/* Allocate RLIMIT_STACK/2 with limits of PAGE_SIZE..2G */
++	size = PAGE_ALIGN(min_t(unsigned long long,
++				rlimit(RLIMIT_STACK) / 2, SZ_2G));
++	return max(PAGE_SIZE, size);
++}
++
++unsigned long gcs_alloc_thread_stack(struct task_struct *tsk,
++				     const struct kernel_clone_args *args)
++{
++	unsigned long addr, size;
++
 +	if (!system_supports_gcs())
-+		return;
++		return 0;
 +
-+	/* GCSPR_EL0 is always readable */
-+	gcs_preserve_current_state();
-+	write_sysreg_s(next->thread.gcspr_el0, SYS_GCSPR_EL0);
++	if (!task_gcs_el0_enabled(tsk))
++		return 0;
 +
-+	if (current->thread.gcs_el0_mode != next->thread.gcs_el0_mode)
-+		gcs_set_el0_mode(next);
++	if ((args->flags & (CLONE_VFORK | CLONE_VM)) != CLONE_VM) {
++		tsk->thread.gcspr_el0 = read_sysreg_s(SYS_GCSPR_EL0);
++		return 0;
++	}
 +
-+	/*
-+	 * Ensure that GCS memory effects of the 'prev' thread are
-+	 * ordered before other memory accesses with release semantics
-+	 * (or preceded by a DMB) on the current PE. In addition, any
-+	 * memory accesses with acquire semantics (or succeeded by a
-+	 * DMB) are ordered before GCS memory effects of the 'next'
-+	 * thread. This will ensure that the GCS memory effects are
-+	 * visible to other PEs in case of migration.
-+	 */
-+	if (task_gcs_el0_enabled(current) || task_gcs_el0_enabled(next))
-+		gcsb_dsync();
++	size = args->stack_size;
++
++	size = gcs_size(size);
++	addr = alloc_gcs(0, size);
++	if (IS_ERR_VALUE(addr))
++		return addr;
++
++	tsk->thread.gcs_base = addr;
++	tsk->thread.gcs_size = size;
++	tsk->thread.gcspr_el0 = addr + size - sizeof(u64);
++
++	return addr;
 +}
-+
-+#else
-+
-+static void gcs_thread_switch(struct task_struct *next)
-+{
-+}
-+
-+#endif
 +
  /*
-  * ARM erratum 1418040 handling, affecting the 32bit view of CNTVCT.
-  * Ensure access is disabled when switching to a 32bit task, ensure
-@@ -530,6 +591,7 @@ struct task_struct *__switch_to(struct task_struct *prev,
- 	ssbs_thread_switch(next);
- 	erratum_1418040_thread_switch(next);
- 	ptrauth_thread_switch_user(next);
-+	gcs_thread_switch(next);
+  * Apply the GCS mode configured for the specified task to the
+  * hardware.
+@@ -30,6 +90,16 @@ void gcs_set_el0_mode(struct task_struct *task)
  
- 	/*
- 	 * Complete any pending TLB or cache maintenance on this CPU in case
-diff --git a/arch/arm64/mm/Makefile b/arch/arm64/mm/Makefile
-index 60454256945b..1a7b3a2f21e6 100644
---- a/arch/arm64/mm/Makefile
-+++ b/arch/arm64/mm/Makefile
-@@ -11,6 +11,7 @@ obj-$(CONFIG_TRANS_TABLE)	+= trans_pgd.o
- obj-$(CONFIG_TRANS_TABLE)	+= trans_pgd-asm.o
- obj-$(CONFIG_DEBUG_VIRTUAL)	+= physaddr.o
- obj-$(CONFIG_ARM64_MTE)		+= mteswap.o
-+obj-$(CONFIG_ARM64_GCS)		+= gcs.o
- KASAN_SANITIZE_physaddr.o	+= n
+ void gcs_free(struct task_struct *task)
+ {
++
++	/*
++	 * When fork() with CLONE_VM fails, the child (tsk) already
++	 * has a GCS allocated, and exit_thread() calls this function
++	 * to free it.  In this case the parent (current) and the
++	 * child share the same mm struct.
++	 */
++	if (!task->mm || task->mm != current->mm)
++		return;
++
+ 	if (task->thread.gcs_base)
+ 		vm_munmap(task->thread.gcs_base, task->thread.gcs_size);
  
- obj-$(CONFIG_KASAN)		+= kasan_init.o
-diff --git a/arch/arm64/mm/gcs.c b/arch/arm64/mm/gcs.c
-new file mode 100644
-index 000000000000..b0a67efc522b
---- /dev/null
-+++ b/arch/arm64/mm/gcs.c
-@@ -0,0 +1,39 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+
-+#include <linux/mm.h>
-+#include <linux/mman.h>
-+#include <linux/syscalls.h>
-+#include <linux/types.h>
-+
-+#include <asm/cpufeature.h>
-+#include <asm/page.h>
-+
-+/*
-+ * Apply the GCS mode configured for the specified task to the
-+ * hardware.
-+ */
-+void gcs_set_el0_mode(struct task_struct *task)
-+{
-+	u64 gcscre0_el1 = GCSCRE0_EL1_nTR;
-+
-+	if (task->thread.gcs_el0_mode & PR_SHADOW_STACK_ENABLE)
-+		gcscre0_el1 |= GCSCRE0_EL1_RVCHKEN | GCSCRE0_EL1_PCRSEL;
-+
-+	if (task->thread.gcs_el0_mode & PR_SHADOW_STACK_WRITE)
-+		gcscre0_el1 |= GCSCRE0_EL1_STREn;
-+
-+	if (task->thread.gcs_el0_mode & PR_SHADOW_STACK_PUSH)
-+		gcscre0_el1 |= GCSCRE0_EL1_PUSHMEn;
-+
-+	write_sysreg_s(gcscre0_el1, SYS_GCSCRE0_EL1);
-+}
-+
-+void gcs_free(struct task_struct *task)
-+{
-+	if (task->thread.gcs_base)
-+		vm_munmap(task->thread.gcs_base, task->thread.gcs_size);
-+
-+	task->thread.gcspr_el0 = 0;
-+	task->thread.gcs_base = 0;
-+	task->thread.gcs_size = 0;
-+}
 
 -- 
 2.39.2
