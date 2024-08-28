@@ -4,94 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ED06C5474E
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2024 06:35:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB251C5474A
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2024 06:46:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6kYuvPagtE83mXkTD8x7Y5mZmcZIqxlVWhsufL038F0=; b=rbGr/Zf2zNZGP1
-	OmctLHj07jmN5hLYun8cL7Zu+B6Wq+nyKjQhcNcT6yx8eHlEU2DytIE3mtN0j0b8bfu1PGCp61xdD
-	rMWcmt7TI0OKT5TJyEBAPYUUaKBfIf2ReShP9PYQLhhol8+7A44ejUe/IV7DVDMmpSDkkb0+1Bq8I
-	1XB4o2qnC9E0SC1I/m6Ni1AaevF3D9RXANTnxyRhUcRnpkuQlpa1urzCfYtHMNQhB70pGTYrhGCyb
-	YwQhYE1Ei7P4HlUZeMWZ1yuMrfiuRDPx/kV8//WmF/QCI/LDwLgpN334k0tcPuzhU2g53o/IgASF3
-	ZWFhdIcQmLJr8DIVpUpw==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kgzMedIjUhi0DkShJwQ60sb435b5/JEzyWlFLl4sD64=; b=o2iQYePyfIkEfJ6N9mS+jOz3c6
+	6ZRW8rxgnhIpPR9tYQnWTFMCSWcP3fOGzNnL2OsbdhZ2oFNXcrGTkGlq91XxP4boAuhmfu31JVOvM
+	k2T+MZNyodrjR6wyxFcL3Ctha+1larxUUbFWJjdJZP2BGbykNe4PNRT1FYhFbR27A0bhWIR6mL5YX
+	qKVh5gsydzl4mBAZyrY9i4CBAUTno9rrj0vgP2c2gug5nMcqENGL/6svprKZWdGq4DzhmLXO+0PrK
+	Kvu1nS8R2JIhfmkhlxHHershIfQm6xqY/Bho8MRUClH/6GZ4JGoSzt68nZnvzvy33r9TtVfXpFW12
+	fkuj9X1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjCGf-0000000E6wj-41Lv;
-	Wed, 28 Aug 2024 06:34:57 +0000
-Received: from pegase2.c-s.fr ([93.17.235.10])
+	id 1sjCS2-0000000E8rA-2BPb;
+	Wed, 28 Aug 2024 06:46:42 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjCGc-0000000E6vw-2TNs;
-	Wed, 28 Aug 2024 06:34:56 +0000
-Received: from localhost (mailhub3.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4Wtvlv5gSRz9sRs;
-	Wed, 28 Aug 2024 08:34:51 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase2.c-s.fr ([172.26.127.65])
-	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id 6jPb3ZkzpTtP; Wed, 28 Aug 2024 08:34:51 +0200 (CEST)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4Wtvlt44Xsz9sRy;
-	Wed, 28 Aug 2024 08:34:50 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 72A688B77E;
-	Wed, 28 Aug 2024 08:34:50 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id vzIG7P3XR8ze; Wed, 28 Aug 2024 08:34:50 +0200 (CEST)
-Received: from [172.25.230.108] (unknown [172.25.230.108])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id C02CD8B764;
-	Wed, 28 Aug 2024 08:34:49 +0200 (CEST)
-Message-ID: <a43c52c6-c1ac-4ef3-b511-08f0459bddad@csgroup.eu>
-Date: Wed, 28 Aug 2024 08:34:49 +0200
+	id 1sjCRz-0000000E8p7-2NCJ
+	for linux-riscv@lists.infradead.org;
+	Wed, 28 Aug 2024 06:46:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1724827599; x=1756363599;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=k7OQG7UGq+5+V4/ckvBPFF0UXfEHVjzOblv15sDs95A=;
+  b=p2Kq6M27gKIhFoTHzQNAfGeQuOtkJav8bCFbSoVPXXZZxAh+6B3/pKSL
+   X1dR/yqdGPTEP2hutf07ydsX5IlJTGHEmZV9xW7zTeliJcgQGQfdNTa4y
+   nkpHme2NffLRrIo/KcGbqbcgpBT0Q8TAhtWcIervkKab1IO76lPw3DVIY
+   gwTfyUqdW3CJ0LryKFwBjEbBfS1QTMX4SIFfiEyIEAH3LXDSBgrnCXjTb
+   ZaAfynFP2uFXqLCbAtebA+x5ovzShrsKriZ8GXybXF/4TAJyNeRVHMvZn
+   R529UCxNbLlyFW9srr+GTlpFgbg3Ls94ECok5Dm/pThdJjQ9rdV+OPErQ
+   w==;
+X-CSE-ConnectionGUID: x3WSnwMeTXCQAFkJ2kaqjQ==
+X-CSE-MsgGUID: uEo4ucA1TdiN1WsF5bHHrQ==
+X-IronPort-AV: E=Sophos;i="6.10,182,1719903600"; 
+   d="asc'?scan'208";a="30984765"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 27 Aug 2024 23:46:35 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Tue, 27 Aug 2024 23:46:04 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
+ Transport; Tue, 27 Aug 2024 23:46:02 -0700
+Date: Wed, 28 Aug 2024 07:45:30 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Alexandre Ghiti <alex@ghiti.fr>
+CC: Conor Dooley <conor@kernel.org>, Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Guo Ren
+	<guoren@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Philipp Tomsich
+	<philipp.tomsich@vrull.eu>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH -fixes] riscv: Fix RISCV_ALTERNATIVE_EARLY
+Message-ID: <20240828-wolf-expletive-f96cfc4e9c7a@wendy>
+References: <20240826105737.106879-1-alexghiti@rivosinc.com>
+ <20240827-striving-dispute-19b6cf97139b@spud>
+ <14d633c5-804b-4be9-8329-751a2ac08c7a@ghiti.fr>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 07/16] powerpc: mm: Support MAP_BELOW_HINT
-To: Charlie Jenkins <charlie@rivosinc.com>, Arnd Bergmann <arnd@arndb.de>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Naveen N Rao <naveen@kernel.org>, Muchun Song <muchun.song@linux.dev>,
- Andrew Morton <akpm@linux-foundation.org>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka
- <vbabka@suse.cz>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Russell King <linux@armlinux.org.uk>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Helge Deller <deller@gmx.de>, Alexander Gordeev <agordeev@linux.ibm.com>,
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>,
- Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
- "David S. Miller" <davem@davemloft.net>,
- Andreas Larsson <andreas@gaisler.com>, Shuah Khan <shuah@kernel.org>,
- Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
- Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- linux-mm@kvack.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
- linux-parisc@vger.kernel.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-kselftest@vger.kernel.org
-References: <20240827-patches-below_hint_mmap-v1-0-46ff2eb9022d@rivosinc.com>
- <20240827-patches-below_hint_mmap-v1-7-46ff2eb9022d@rivosinc.com>
-Content-Language: fr-FR
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-In-Reply-To: <20240827-patches-below_hint_mmap-v1-7-46ff2eb9022d@rivosinc.com>
+In-Reply-To: <14d633c5-804b-4be9-8329-751a2ac08c7a@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240827_233454_814353_4759AB9B 
-X-CRM114-Status: GOOD (  15.04  )
+X-CRM114-CacheID: sfid-20240827_234639_750870_E911AFEA 
+X-CRM114-Status: GOOD (  16.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,56 +86,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============7614108250717544943=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQ2hhcmxpZSwKCkxlIDI4LzA4LzIwMjQgw6AgMDc6NDksIENoYXJsaWUgSmVua2lucyBhIMOp
-Y3JpdMKgOgo+IEFkZCBzdXBwb3J0IGZvciBNQVBfQkVMT1dfSElOVCB0byBhcmNoX2dldF9tbWFw
-X2Jhc2UoKSBhbmQKPiBhcmNoX2dldF9tbWFwX2VuZCgpLgo+IAo+IFNpZ25lZC1vZmYtYnk6IENo
-YXJsaWUgSmVua2lucyA8Y2hhcmxpZUByaXZvc2luYy5jb20+Cj4gLS0tCj4gICBhcmNoL3Bvd2Vy
-cGMvaW5jbHVkZS9hc20vdGFza19zaXplXzY0LmggfCAzNiArKysrKysrKysrKysrKysrKysrKysr
-KysrKystLS0tLS0KPiAgIDEgZmlsZSBjaGFuZ2VkLCAzMCBpbnNlcnRpb25zKCspLCA2IGRlbGV0
-aW9ucygtKQo+IAo+IGRpZmYgLS1naXQgYS9hcmNoL3Bvd2VycGMvaW5jbHVkZS9hc20vdGFza19z
-aXplXzY0LmggYi9hcmNoL3Bvd2VycGMvaW5jbHVkZS9hc20vdGFza19zaXplXzY0LmgKPiBpbmRl
-eCAyMzliMzYzODQxYWEuLmEzN2E1YTgxMzY1ZCAxMDA2NDQKPiAtLS0gYS9hcmNoL3Bvd2VycGMv
-aW5jbHVkZS9hc20vdGFza19zaXplXzY0LmgKPiArKysgYi9hcmNoL3Bvd2VycGMvaW5jbHVkZS9h
-c20vdGFza19zaXplXzY0LmgKPiBAQCAtNzIsMTIgKzcyLDM2IEBACj4gICAjZGVmaW5lIFNUQUNL
-X1RPUF9NQVggVEFTS19TSVpFX1VTRVI2NAo+ICAgI2RlZmluZSBTVEFDS19UT1AgKGlzXzMyYml0
-X3Rhc2soKSA/IFNUQUNLX1RPUF9VU0VSMzIgOiBTVEFDS19UT1BfVVNFUjY0KQo+ICAgCj4gLSNk
-ZWZpbmUgYXJjaF9nZXRfbW1hcF9iYXNlKGFkZHIsIGxlbiwgYmFzZSwgZmxhZ3MpIFwKPiAtCSgo
-KGFkZHIpID4gREVGQVVMVF9NQVBfV0lORE9XKSA/IChiYXNlKSArIFRBU0tfU0laRSAtIERFRkFV
-TFRfTUFQX1dJTkRPVyA6IChiYXNlKSkKPiArI2RlZmluZSBhcmNoX2dldF9tbWFwX2Jhc2UoYWRk
-ciwgbGVuLCBiYXNlLCBmbGFncykJCQkJCVwKClRoaXMgbWFjcm8gbG9va3MgcXVpdGUgYmlnIGZv
-ciBhIG1hY3JvLCBjYW4gaXQgYmUgYSBzdGF0aWMgaW5saW5lIApmdW5jdGlvbiBpbnN0ZWFkID8g
-U2FtZSBmb3IgdGhlIG90aGVyIG1hY3JvIGJlbG93LgoKPiArKHsJCQkJCQkJCQkJCVwKPiArCXVu
-c2lnbmVkIGxvbmcgbW1hcF9iYXNlOwkJCQkJCQlcCj4gKwl0eXBlb2YoZmxhZ3MpIF9mbGFncyA9
-IChmbGFncyk7CQkJCQkJCVwKPiArCXR5cGVvZihhZGRyKSBfYWRkciA9IChhZGRyKTsJCQkJCQkJ
-XAo+ICsJdHlwZW9mKGJhc2UpIF9iYXNlID0gKGJhc2UpOwkJCQkJCQlcCj4gKwl0eXBlb2YobGVu
-KSBfbGVuID0gKGxlbik7CQkJCQkJCVwKPiArCXVuc2lnbmVkIGxvbmcgcm5kX2dhcCA9IERFRkFV
-TFRfTUFQX1dJTkRPVyAtIChfYmFzZSk7CQkJCVwKPiArCWlmIChfZmxhZ3MgJiBNQVBfQkVMT1df
-SElOVCAmJiBfYWRkciAhPSAwICYmICgoX2FkZHIgKyBfbGVuKSA+IEJJVChWQV9CSVRTIC0gMSkp
-KVwKPiArCQltbWFwX2Jhc2UgPSAoX2FkZHIgKyBfbGVuKSAtIHJuZF9nYXA7CQkJCQlcCj4gKwll
-bHNlCQkJCQkJCQkJCVwKPiArCQltbWFwX2VuZCA9ICgoX2FkZHIgPiBERUZBVUxUX01BUF9XSU5E
-T1cpID8JCQkJXAo+ICsJCQkJX2Jhc2UgKyBUQVNLX1NJWkUgLSBERUZBVUxUX01BUF9XSU5ET1cg
-OgkJXAo+ICsJCQkJX2Jhc2UpOwkJCQkJCQlcCj4gKwltbWFwX2VuZDsJCQkJCQkJCQlcCgptbWFw
-X2VuZCBkb2Vzbid0IGV4aXN0LCBkaWQgeW91IG1lYW4gbW1hcF9iYXNlID8KCj4gK30pCj4gICAK
-PiAtI2RlZmluZSBhcmNoX2dldF9tbWFwX2VuZChhZGRyLCBsZW4sIGZsYWdzKSBcCj4gLQkoKChh
-ZGRyKSA+IERFRkFVTFRfTUFQX1dJTkRPVykgfHwgXAo+IC0JICgoKGZsYWdzKSAmIE1BUF9GSVhF
-RCkgJiYgKChhZGRyKSArIChsZW4pID4gREVGQVVMVF9NQVBfV0lORE9XKSkgPyBUQVNLX1NJWkUg
-OiBcCj4gLQkJCQkJCQkJCSAgICBERUZBVUxUX01BUF9XSU5ET1cpCj4gKyNkZWZpbmUgYXJjaF9n
-ZXRfbW1hcF9lbmQoYWRkciwgbGVuLCBmbGFncykJCQkJCQkJXAo+ICsoewkJCQkJCQkJCQkJCVwK
-PiArCXVuc2lnbmVkIGxvbmcgbW1hcF9lbmQ7CQkJCQkJCQkJXAo+ICsJdHlwZW9mKGZsYWdzKSBf
-ZmxhZ3MgPSAoZmxhZ3MpOwkJCQkJCQkJXAo+ICsJdHlwZW9mKGFkZHIpIF9hZGRyID0gKGFkZHIp
-OwkJCQkJCQkJXAo+ICsJdHlwZW9mKGxlbikgX2xlbiA9IChsZW4pOwkJCQkJCQkJXAo+ICsJaWYg
-KF9mbGFncyAmIE1BUF9CRUxPV19ISU5UICYmIF9hZGRyICE9IDAgJiYgKChfYWRkciArIF9sZW4p
-ID4gQklUKFZBX0JJVFMgLSAxKSkpCVwKPiArCQltbWFwX2VuZCA9IChfYWRkciArIF9sZW4pOwkJ
-CQkJCQlcCj4gKwllbHNlCQkJCQkJCQkJCQlcCj4gKwkJbW1hcF9lbmQgPSAoKChfYWRkcikgPiBE
-RUZBVUxUX01BUF9XSU5ET1cpIHx8CQkJCQlcCj4gKwkJCQkoKChfZmxhZ3MpICYgTUFQX0ZJWEVE
-KSAmJiAoKF9hZGRyKSArIChfbGVuKSA+IERFRkFVTFRfTUFQX1dJTkRPVykpXAo+ICsJCQkJPyBU
-QVNLX1NJWkUgOiBERUZBVUxUX01BUF9XSU5ET1cpCQkJCVwKPiArCW1tYXBfZW5kOwkJCQkJCQkJ
-CQlcCj4gK30pCj4gICAKPiAgICNlbmRpZiAvKiBfQVNNX1BPV0VSUENfVEFTS19TSVpFXzY0X0gg
-Ki8KPiAKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
-bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
-dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+--===============7614108250717544943==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="6jLkahvux+y0lESW"
+Content-Disposition: inline
+
+--6jLkahvux+y0lESW
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Aug 27, 2024 at 11:13:16AM +0200, Alexandre Ghiti wrote:
+> Hi Conor,
+>=20
+> On 27/08/2024 10:38, Conor Dooley wrote:
+> > On Mon, Aug 26, 2024 at 12:57:37PM +0200, Alexandre Ghiti wrote:
+> > > RISCV_ALTERNATIVE_EARLY will issue sbi_ecall() very early in the boot
+> > > process, before the first memory mapping is setup so we can't have any
+> > > instrumentation happening here.
+> > >=20
+> > > In addition, when the kernel is relocatable, we must also not issue a=
+ny
+> > > relocation this early since they would have been patched virtually on=
+ly.
+> > >=20
+> > > So, instead of disabling instrumentation for the whole kernel/sbi.c f=
+ile
+> > > and compiling it with -fno-pie, simply move __sbi_ecall() and
+> > > __sbi_base_ecall() into their own file where this is fixed.
+> > IOW, this should fix the issue that we discussed here
+> > https://lore.kernel.org/linux-riscv/abec162e-f3f2-488c-83d9-be17257a5df=
+8@ghiti.fr/
+> > also?
+>=20
+>=20
+> Yes, as a side effect it also fixes TRACEPOINTS + [KASAN|RELOCATABLE] as I
+> reported in this thread since I moved the tracepoints in a file where
+> instrumentation is disabled and compiled with no-pie.
+
+And it does, so
+Closes: https://lore.kernel.org/linux-riscv/20240813-pony-truck-3e7a83e9759=
+e@spud/
+Reported-by: Conor Dooley <conor.dooley@microchip.com>
+Tested-by: Conor Dooley <conor.dooley@microchip.com>
+
+Cheers,
+Conor.
+
+--6jLkahvux+y0lESW
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZs7HhQAKCRB4tDGHoIJi
+0mRNAQDN1X4zm0B2mqva54OgfujQV8jdFEp/nNY3Mt1f+Fmy+wEA/uHkjAC3VXyc
+9lCVnuuUC/VbM/U/cV+Nqa/q5hRD2wU=
+=qxcC
+-----END PGP SIGNATURE-----
+
+--6jLkahvux+y0lESW--
+
+
+--===============7614108250717544943==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7614108250717544943==--
+
