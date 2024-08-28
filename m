@@ -4,55 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CB38C5B55B
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2024 15:45:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26BBDC61DB8
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2024 15:57:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=YEYm3/SjZ+b4w2MPAVZ8fo4qgO8jHEMuqUAJawF/FqU=; b=qJx
-	QtEGrbLv7uFiAR6vhXUQIZBCPbk7IZpyVPLFXid2G7DukpunxGLeegBE5/KtYnr0SysuEArvkTG/l
-	XwVC4vqQ/bmtEdPHEk9FDmZs/RV2W8b0fpnVIUMyGFjLFRDaYO0DNlOB9j08s9O6N/M4J+AhzKORi
-	nV7HLQsopyQgHwXqKmSAmziGECQgndrw75dAJx65cc861I0w6kW/2mPLYseXZAbwrc+9lSE9BrHQB
-	2SVNu4DQnd6V+bU81kN8jyoh1buVG+vC+eE7MgtraLqHA7rjmB0IomO+wfD6KHT5Gp4iUzd5B4Ou2
-	r1PGhGDuN4uqfDAo1k1F27EbG1qbMBQ==;
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9A51hS+MWNhRkc+qW87OSFZNehDBpWoJIo8r4yDqlYY=; b=e9i/+jX/koY1j23oIT2lB31shE
+	W5dyD1Ss2XGe2VI8d22/AC4Ot9CRo7ZPpPZns1TDdvom7qIQr4x/ZvKEyCUkoUIEfRWmt2vMqj/+9
+	86f3ZZO7pTbnPT1efz4rQ5QYSVEbOVldDUWEzb+oKHKETXdl1b4RHOwu+kPnKfmbOjwDqtNg2UvZU
+	nOOO6jNa4RFckrtB6/SHPALhecxlfZUdVsDPr4+sIZ47MvZinzjffeVIUVHhzockV6XDHG3UL9jso
+	YHL/qvXz2MjCUbixWfq16akCuVlli6F/pQhy6xTcheXLlGUFSp1Gg8/Bn/g99aeVC4a/GEiqgTspl
+	FDp+h4yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjKrV-0000000G3bu-1KD9;
-	Wed, 28 Aug 2024 15:45:33 +0000
+	id 1sjL2m-0000000G6Oi-36B7;
+	Wed, 28 Aug 2024 15:57:12 +0000
 Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjKob-0000000G1HW-2FXG
-	for linux-riscv@lists.infradead.org;
-	Wed, 28 Aug 2024 15:42:41 +0000
+	id 1sjKzR-0000000G5iC-2p1Q;
+	Wed, 28 Aug 2024 15:53:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id D632ACE18EF
-	for <linux-riscv@lists.infradead.org>; Wed, 28 Aug 2024 15:42:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A30EC51590;
-	Wed, 28 Aug 2024 15:26:42 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id C928BCE18AF;
+	Wed, 28 Aug 2024 15:53:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31BEEC4CEC4;
+	Wed, 28 Aug 2024 15:53:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1724858803;
-	bh=ZoERSQbjaOWh1gtlRlRypBVPk3FVstEDzvne1n0+4L0=;
-	h=Date:From:List-Id:To:Cc:Subject:From;
-	b=gXu3J3Q6ji3pcOppqROGFvS52Itk4D2BM/KNtMctMB3kg6X+XrMJDJVVRLNkFyB28
-	 l+qcMi97tg0VEJ8lJEC2/aox3OY/8G9xhzcGV4fAJddNWaIVVfUnYuyZcOkp3fLm3A
-	 nIicJw+5vpylSqkXelHRUgkYOEGi3XM89RTpdXcOiTauLwjEg9v2bWza15Qqvc5BuA
-	 lUm8kdaZw57XO1uLaBS5ezbGvy4iECcF4YQapHoHDxc4HZpyQoL+/LCkJI+Yj1QMKA
-	 x4h1pMPhREYP9ovye66yTANtAJFOdJ0ySQWm1BG/oQzIHSclNlQmo0W3n+gd6fietm
-	 gjXPC4gmRUUMg==
-Date: Wed, 28 Aug 2024 16:26:40 +0100
+	s=k20201202; t=1724860423;
+	bh=FceCKpvwCfYxeVjhu7dja8rLnOmk8oo7I++7LCS81Os=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YSHlBo+lH7EtoI6uF+gIKcgjd9oBGCAmJJm51PU7R5og/9T8YIhusI+lD6Hjb8iLY
+	 hAtNShc4mk69/Qc56HZoyml4uqh0lO47YpsTrZ4etaMElT9d+jlndSc/aHWkasKc+D
+	 FV2ucl0nT3Q6yVPGQh/I/y+0jmwJksKsfxZ+7OROHiB2iWyYav4i3Ds10emSgnx5ol
+	 A7CWs3QoFl6kfXs6Ti6gV2IJRdAb8w/tX1vfgZjkT9i/46Exm4qV1f563eSGQh4Wxh
+	 1M5e+xKvpzP8ShQEOfg7M/f91GjOc52bGt4cB3H6My1e9dFCLU9wGhhvvhPlbPsy+i
+	 19ckAowLYmw5w==
+Date: Wed, 28 Aug 2024 16:53:36 +0100
 From: Conor Dooley <conor@kernel.org>
-To: soc@kernel.org
-Cc: conor@kernel.org, linux-riscv@lists.infradead.org
-Subject: [GIT PULL] RISC-V soc driver fixes for v6.11-rc6
-Message-ID: <20240828-fidelity-almighty-18d5434aaef0@spud>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Maxime Ripard <mripard@kernel.org>,
+	Masahiro Yamada <yamada.masahiro@socionext.com>,
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 3/3] dt-bindings: gpio: simplify GPIO hog nodes schema
+Message-ID: <20240828-goofiness-haven-6d22011353e4@spud>
+References: <20240828-dt-bindings-gpio-hog-v1-0-63b83e47d804@linaro.org>
+ <20240828-dt-bindings-gpio-hog-v1-3-63b83e47d804@linaro.org>
 MIME-Version: 1.0
+In-Reply-To: <20240828-dt-bindings-gpio-hog-v1-3-63b83e47d804@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240828_084234_813128_1362FCF5 
-X-CRM114-Status: UNSURE (   8.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240828_085345_934371_1A47878C 
+X-CRM114-Status: GOOD (  11.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,71 +85,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6710647945275936982=="
+Content-Type: multipart/mixed; boundary="===============2602844099067192773=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============6710647945275936982==
+--===============2602844099067192773==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="tkJBe2+XzIuRNfpc"
+	protocol="application/pgp-signature"; boundary="OayRlMiikjtxs/jT"
 Content-Disposition: inline
 
 
---tkJBe2+XzIuRNfpc
+--OayRlMiikjtxs/jT
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Hey Arnd,
+On Wed, Aug 28, 2024 at 11:35:59AM +0200, Krzysztof Kozlowski wrote:
+> The core schema in dtschema already strictly defines contents of nodes
+> with "gpio-hog" property (with additionalProperties: false), thus the
+> only thing device schema should do is: define "type: object" and
+> required "gpio-hog".  Make the code a bit simpler by removing redundant
+> parts.
+>=20
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> ---
+>  .../devicetree/bindings/gpio/fairchild,74hc595.yaml          | 11 ------=
+-----
+>  Documentation/devicetree/bindings/gpio/fsl-imx-gpio.yaml     | 11 ------=
+-----
+>  Documentation/devicetree/bindings/gpio/gpio-pca95xx.yaml     | 11 ------=
+-----
+>  .../devicetree/bindings/gpio/microchip,mpfs-gpio.yaml        | 12 ------=
+------
 
-Please pull a single fix for 6.11, as things have been rather quiet on
-this front over the summer.
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
 
 Cheers,
 Conor.
 
-The following changes since commit 8400291e289ee6b2bf9779ff1c83a291501f017b:
-
-  Linux 6.11-rc1 (2024-07-28 14:19:55 -0700)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ riscv-soc-fixes-for-v6.11-rc6
-
-for you to fetch changes up to 591940e22e287fb64ac07be275e343d860cb72d6:
-
-  firmware: microchip: fix incorrect error report of programming:timeout on success (2024-08-22 20:47:16 +0100)
-
-----------------------------------------------------------------
-RISC-V soc fixes for v6.11-rc6
-
-Prevent an erroneous unconditional report of a timeout during firmware
-upload in the mpfs-auto-update driver.
-
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-
-----------------------------------------------------------------
-Steve Wilkins (1):
-      firmware: microchip: fix incorrect error report of programming:timeout on success
-
- drivers/firmware/microchip/mpfs-auto-update.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
---tkJBe2+XzIuRNfpc
+--OayRlMiikjtxs/jT
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZs9BsAAKCRB4tDGHoIJi
-0gScAP497y8a5x23Y7/lmtqrptUo+066U7NdJ1/pSOB4HTaXAAD+LQRAWkVLxn4K
-LG9Ha/nXoCN/9hJaQ3mRnO6VLlRfEgA=
-=uRMf
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZs9H/wAKCRB4tDGHoIJi
+0r7DAQDw7o8LeA1EG/uppquSI4wvHkpnTbF9vLKnFD2DK5QubgEApnVKe+GiJvsk
+xuyCPYk1pqnyzWfnNVW7zYqynGfKLQ8=
+=DkUp
 -----END PGP SIGNATURE-----
 
---tkJBe2+XzIuRNfpc--
+--OayRlMiikjtxs/jT--
 
 
---===============6710647945275936982==
+--===============2602844099067192773==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -139,5 +150,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============6710647945275936982==--
+--===============2602844099067192773==--
 
