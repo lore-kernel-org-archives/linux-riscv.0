@@ -4,82 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B09E1C5473F
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Aug 2024 23:10:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 497E1C5474A
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2024 03:15:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xY9JKEL/zzBZmCmQpHCcmvUs83QsckfMBP1PVvgKd2I=; b=NjicqmcznB/PBv
-	jjW/j1Qveqi0Wa1gJKHIO8K8EE49NlslJo+2mxL2NQS70Fz4SLkG+kap0O1E+iS8S8oih1Z6myCgU
-	emRTYa16+GSSP3SbyNh7gKyQv3o28gK44j99nKgPhYeU507m0gSWawqKqI+mZSS0ZvmoQvR3IXnGy
-	riDunEMFtfoAYog/LCiI7GMDxCYHJNeug3g7KA95h/FyevmPrXrURuGcI/JbdiJVB43DDYQkjl7gj
-	k9qe4KCmS8jblEZiydGuSkzgYUSWfC5u5QdsCtVyzDsUpdKk3kfCOU3XoTug/aCb7ALOL9WSmHZRA
-	FGHJliNGFZCoJCmAFOkw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9BZMiaR8QabiJTe6ejToGtI5OrYT4w0d68Zpkvr47HI=; b=kSg2gPcyevHX8+
+	NOXKFeESmyl8UuHhaapcPj0NaPW+QU6sTe7iEFGRUcCjYEZwmRGW5vu5+bqz2A9rfbdZuSXIAjbUa
+	JebQV0XpgoqbTQArfK8WlH9nHIbKKNNxoG+oTPW1ZEuuyr3YK+Lk5U5YsTwAB42fvGTuAowPR/Yzq
+	kIuWMFNkalBa4WSGu9RnEcLBEqVHSbhxeMEL+JDgpdFnMsvilVDtafJGLXiQ6c4Z+lBoErSu48hd6
+	Vq8DhU8iNTuOr2ygI7nZNZ3bzheunvOwFXQ2amstE2mH6xbG5wqqyvStFUrk2mxLHw+4umuv2b+ar
+	TpO3r1ZmjkI64fO4ZMEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sj5KV-0000000D61a-1WQ2;
-	Tue, 27 Aug 2024 23:10:27 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1sj99k-0000000Db24-3kDz;
+	Wed, 28 Aug 2024 03:15:36 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sj5KS-0000000D60z-0E4R
+	id 1sj86F-0000000DRGX-0mp7
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 28 Aug 2024 02:07:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=cBLBtpXcxfQzmOyUBk4IUQHmoLQCCNDtpqHJRXc82Cs=; b=mxO+DUNObkXs8qydYv6igIciZS
+	ljMra4O2U5INL8nrOi12u1W12BRJ+6Sw2A2AsVQ7d2QaKAJOIqZLMJ2QCd47QYa1JA7/s6nhHp+jy
+	zAM/1hcs1EJIqyXk9fDmZvCfJ48jY/YtSQc17M3yJbS3FblFFFA9GCEUvR6sSsRB5agFTpre8d7fU
+	hxGdxeAjk6nVXn7DFyQzGNPg+DesJMlvDady/LEdYh1N2mqxe+0IDeHCDaaB8OoEkyiIf5DHEtC8a
+	1WZ96nMobziAVROE1434SpJ7F/YF/qOYvTmX+Q0JumMsFphonmnAAVGQmIei9w4jstqTJ8fT219nx
+	quBuDdlQ==;
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1sj867-0000000B0LU-05pr
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 Aug 2024 23:10:25 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-71431524f33so5121379b3a.1
-        for <linux-riscv@lists.infradead.org>; Tue, 27 Aug 2024 16:10:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1724800222; x=1725405022; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=W32QRSPB+v/v1hZB3DM0yi6GVvOLbgl8fIqle8GTQRg=;
-        b=avZ4Md5PEyYuOBIPPWVwyTkZVfjfFcu/N0RA/Gsi17b35hyGzzHvKedn3z9QcBPS+a
-         sWdAu8H9FpBSpF33fXNSMD/9On6LL03ZD5y1bh/TENhfwqCtXAt3k39kue3keda/2LH7
-         pg1NGpLx1VuW0i3EHy+/sPgGfh4jtgr8+OJKOVTTGl4Mb6kUrTvZOb6ABoFvuBt8NMe0
-         Q0adclUhIxxgu9U9ukWh3oGNz+zcyyOXweHOxpzA7PyUIb6P92CHTVlfEd+SNExnEL9+
-         4kvAudpchjmGtglbloSGM7fFZpGZDC4S4tO9TepukV40s+QgmD/ZOsumvex9a7R+RrVH
-         Iz5A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1724800222; x=1725405022;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=W32QRSPB+v/v1hZB3DM0yi6GVvOLbgl8fIqle8GTQRg=;
-        b=mrksiXISB+OfzrTTYrV5h6HuSlnXW98QijtXnhP2tY+ERTs8klS6xERA5SRv1We7Y/
-         fdUsnBwID75rA0ev9tFjg5teFHJrEor/v9ko3LLOnkH6JqZ4QwdUc0iKhTQEMyaHZM2Q
-         DOKIun5zBVoh2K2UdL+FQsSTq11bKEpFIBhBmwP5AHszlPV6n+3ap5fUmPl5q7fOipRi
-         mICnyV5t4PHxz+Hc2HnkNaQJymcXC0EnWv3qV6Ov1OVlRixFWuhSb1VD09aD0vBtPKeR
-         BAxl2Db9T6tl88JCDfZ6Jpg7159UdhkPc9bqDMCugHapAZCSQJy+YqQ5Y1jdPP92vRSz
-         Q1tQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXB9Lpw9SCwPalR0FVq5tjC3NhofJq0KuBAs3E+u7LtLlOBWbcYHGribgnOQzouZ3La7MSxetjYlxzjgg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5kwlEmhYeGRI1n/0Gzjqmzpm+dbhGoNZpt35/VbDYTyX7ujEt
-	4bCi5+nGdLDlcrRks7+s6Vwhwoh97hi6neuAmuTcbWHwPCnBHw0VjzPHmjJb4AA=
-X-Google-Smtp-Source: AGHT+IEroGkXS6DzUhuTL3usdmL+nViyF25HwRxsfbE8sxGqcjS2RSN8mHQbCRPygBZgO5SnMudlIw==
-X-Received: by 2002:a05:6a20:c6ce:b0:1ca:dbec:c5d2 with SMTP id adf61e73a8af0-1ccd28675a7mr85752637.5.1724800222214;
-        Tue, 27 Aug 2024 16:10:22 -0700 (PDT)
-Received: from x1 (75-164-215-68.ptld.qwest.net. [75.164.215.68])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7143430c407sm9369816b3a.178.2024.08.27.16.10.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Aug 2024 16:10:21 -0700 (PDT)
-Date: Tue, 27 Aug 2024 16:10:20 -0700
-From: Drew Fustini <dfustini@tenstorrent.com>
-To: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org
-Subject: Re: [PATCH] riscv: make ZONE_DMA32 optional
-Message-ID: <Zs5c3KJR41AUVyEv@x1>
-References: <20240827113611.537302-1-vladimir.kondratiev@mobileye.com>
+	Wed, 28 Aug 2024 02:07:54 +0000
+Received: from qiao.. (unknown [210.73.53.31])
+	by APP-05 (Coremail) with SMTP id zQCowACnEUFahs5mJkzmCg--.9771S2;
+	Wed, 28 Aug 2024 10:07:24 +0800 (CST)
+From: Zhe Qiao <qiaozhe@iscas.ac.cn>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	conor.dooley@microchip.com,
+	samuel.holland@sifive.com,
+	evan@rivosinc.com,
+	sunilvl@ventanamicro.com,
+	ajones@ventanamicro.com,
+	andy.chiu@sifive.com,
+	tglx@linutronix.de,
+	qiaozhe@iscas.ac.cn
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] riscv: Report error when repeatedly recording CPU hardware ID
+Date: Wed, 28 Aug 2024 10:07:18 +0800
+Message-ID: <20240828020718.46977-1-qiaozhe@iscas.ac.cn>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240827113611.537302-1-vladimir.kondratiev@mobileye.com>
+X-CM-TRANSID: zQCowACnEUFahs5mJkzmCg--.9771S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7CF1DAFWrKFWUGr15KF45KFg_yoW8Jw47pr
+	W8Grs0krsYvFsFk34Sqa4xuFy3JF1vgw4ftF4fta4rJr1UAwnrJ39xKa43ZF15tF48X3Wr
+	AF4Yyr1YgFyUCa7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9214x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1I6r4UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr
+	1j6F4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv
+	7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r
+	1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02
+	628vn2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4
+	IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1r
+	MI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJV
+	WUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j
+	6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYx
+	BIdaVFxhVjvjDU0xZFpf9x0JUd-B_UUUUU=
+X-Originating-IP: [210.73.53.31]
+X-CM-SenderInfo: ptld061kh6x2xfdvhtffof0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240827_161024_178909_AB9FA4F1 
-X-CRM114-Status: GOOD (  19.79  )
+X-CRM114-CacheID: sfid-20240828_030750_491853_DBC17828 
+X-CRM114-Status: GOOD (  10.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,93 +102,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 27, 2024 at 02:36:11PM +0300, Vladimir Kondratiev wrote:
-> It is not necessary any RISCV platform has ZONE_DMA32.
-> 
-> Example - if platform has no DRAM in [0..4G] region,
-> it will report failure like below each boot.
-> 
-> [    0.088709] swapper/0: page allocation failure: order:7, mode:0xcc4(GFP_KERNEL|GFP_DMA32), nodemask=(null),cpuset=/
-> [    0.088832] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.11.0-rc5 #30
-> [    0.088864] Call Trace:
-> [    0.088869] [<ffffffff800059f2>] dump_backtrace+0x1c/0x24
-> [    0.088910] [<ffffffff805f328c>] show_stack+0x2c/0x38
-> [    0.088957] [<ffffffff805fd800>] dump_stack_lvl+0x52/0x74
-> [    0.088987] [<ffffffff805fd836>] dump_stack+0x14/0x1c
-> [    0.089010] [<ffffffff801a23a8>] warn_alloc+0xf4/0x176
-> [    0.089041] [<ffffffff801a3052>] __alloc_pages_noprof+0xc28/0xcb4
-> [    0.089067] [<ffffffff80086eda>] atomic_pool_expand+0x62/0x1f8
-> [    0.089090] [<ffffffff8080d674>] __dma_atomic_pool_init+0x46/0x9e
-> [    0.089115] [<ffffffff8080d762>] dma_atomic_pool_init+0x96/0x11c
-> [    0.089139] [<ffffffff80002146>] do_one_initcall+0x5c/0x1b2
-> [    0.089158] [<ffffffff8080127c>] kernel_init_freeable+0x214/0x274
-> [    0.089190] [<ffffffff805fefd8>] kernel_init+0x1e/0x10a
-> [    0.089209] [<ffffffff8060748a>] ret_from_fork+0xe/0x1c
-> 
-> Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-> ---
->  arch/riscv/Kconfig | 2 +-
->  mm/Kconfig         | 2 +-
->  2 files changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 0f3cd7c3a436..94a573112625 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -50,6 +50,7 @@ config RISCV
->  	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
->  	select ARCH_HAS_UBSAN
->  	select ARCH_HAS_VDSO_DATA
-> +	select ARCH_HAS_ZONE_DMA_SET if 64BIT
->  	select ARCH_KEEP_MEMBLOCK if ACPI
->  	select ARCH_MHP_MEMMAP_ON_MEMORY_ENABLE	if 64BIT && MMU
->  	select ARCH_OPTIONAL_KERNEL_RWX if ARCH_HAS_STRICT_KERNEL_RWX
-> @@ -200,7 +201,6 @@ config RISCV
->  	select THREAD_INFO_IN_TASK
->  	select TRACE_IRQFLAGS_SUPPORT
->  	select UACCESS_MEMCPY if !MMU
-> -	select ZONE_DMA32 if 64BIT
->  
->  config CLANG_SUPPORTS_DYNAMIC_FTRACE
->  	def_bool CC_IS_CLANG
-> diff --git a/mm/Kconfig b/mm/Kconfig
-> index b72e7d040f78..97c85da98e89 100644
-> --- a/mm/Kconfig
-> +++ b/mm/Kconfig
-> @@ -1032,7 +1032,7 @@ config ZONE_DMA
->  config ZONE_DMA32
->  	bool "Support DMA32 zone" if ARCH_HAS_ZONE_DMA_SET
->  	depends on !X86_32
-> -	default y if ARM64
-> +	default y if ARM64 || (RISCV && 64BIT)
->  
->  config ZONE_DEVICE
->  	bool "Device memory (pmem, HMM, etc...) hotplug support"
-> -- 
-> 2.37.3
-> 
+If the same CPU hardware attributes exist, the boot is aborted.
+Ensure the uniqueness of the CPU hardware ID recorded in the
+__cpuid_to_hartid_map[] array.
 
-Reviewed-by: Drew Fustini <dfustini@tenstorrent.com>
+Signed-off-by: Zhe Qiao <qiaozhe@iscas.ac.cn>
+---
+V1 -> V2:
+  1. Change the error report to BUG().
+  2. Change the function name to is_cartid_duplicate().
+  3. Modify commit description.
+---
+ arch/riscv/kernel/smpboot.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-Thanks for sending this patch as I've also encountered that annoying
-error on systems with DRAM above 4GB.
-
-I tested this patch by changing the qemu virt machine to have DRAM
-starting at 2^32:
-
-diff --git a/hw/riscv/virt.c b/hw/riscv/virt.c
-index cef41c150aaf..3033a2560edb 100644
---- a/hw/riscv/virt.c
-+++ b/hw/riscv/virt.c
-@@ -87,7 +87,7 @@ static const MemMapEntry virt_memmap[] = {
-     [VIRT_IMSIC_S] =      { 0x28000000, VIRT_IMSIC_MAX_SIZE },
-     [VIRT_PCIE_ECAM] =    { 0x30000000,    0x10000000 },
-     [VIRT_PCIE_MMIO] =    { 0x40000000,    0x40000000 },
--    [VIRT_DRAM] =         { 0x80000000,           0x0 },
-+    [VIRT_DRAM] =        { 0x100000000,           0x0 },
- };
+diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+index 0f8f1c95ac38..f29a6fd55aa8 100644
+--- a/arch/riscv/kernel/smpboot.c
++++ b/arch/riscv/kernel/smpboot.c
+@@ -118,6 +118,16 @@ static void __init acpi_parse_and_init_cpus(void)
+ #define acpi_parse_and_init_cpus(...)	do { } while (0)
+ #endif
  
- /* PCIe high mmio is fixed for RV32 */
++static bool __init is_hartid_duplicate(unsigned int cpuid, u64 hart)
++{
++	unsigned int i;
++
++	for (i = 1; (i < cpuid) && (i < NR_CPUS); i++)
++		if (cpuid_to_hartid_map(i) == hart)
++			return true;
++	return false;
++}
++
+ static void __init of_parse_and_init_cpus(void)
+ {
+ 	struct device_node *dn;
+@@ -131,6 +141,9 @@ static void __init of_parse_and_init_cpus(void)
+ 		if (rc < 0)
+ 			continue;
+ 
++		if (is_hartid_duplicate(cpuid, hart))
++			BUG_ON(1);
++
+ 		if (hart == cpuid_to_hartid_map(0)) {
+ 			BUG_ON(found_boot_cpu);
+ 			found_boot_cpu = 1;
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
