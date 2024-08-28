@@ -4,49 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A5CCC7114C
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2024 23:51:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C12B7C7114C
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2024 23:52:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tt5cDaVJi6yHzxEOuSKwMyTvUtdLWiLyHGJV+I6FAOk=; b=T+/OSiRHb7KAI6
-	xFB8HZHKXE2xU+l1ScVjiAe5qKdher1ZD2jdxO7Z8LGuFW9EfEUTYMdnecmwRQyUx3fm/OAM4GOkR
-	m+wu2SgEnvfrxtd9DLTvkrG5afm/BUz7963FJ3ACKGaAFSUbVU9A/zopeeHpeXL7n+KkL/GagqTHf
-	3GjDUCfJxZuZiaY4fOOgkg3X6OlidrrGINE1IvGIdtvl6uB5+SoayY2Q779ISg/CBz3VNXycg1Vel
-	2ykqo03GL5qzvoDeMgKtiKQlecnOlY1Nc/wpDFnoXHQxQPO26Neb67FOiypsJzmVN3lq2wZSPJ8w9
-	BZx8/aaCHoQh3pq6AEZw==;
+	List-Owner; bh=WNkyHb14XOuXYr8tY9V2IJInqubH2fxSH2e7zRXFagA=; b=2uGYhr/CrKKAsW
+	XHzr8XYPW8UScqY9KHjwkshTx70nd+i5Mkatf71SVPkoedbYZOitW8p4t0RQEMuUEgEr5xvkDhOeY
+	hbmZZNrgdaiQkDCWdKdilW603mihO+JNZ3d7ARiMbQtd/z3POcRonQxZuviL6XYToSMKJOvXuLiY9
+	yKAhPLbPq/JWh8ZyEqRcF5MIPjMJoFeiE5HXaLN+OVA5OYls+x/x+uG2U9CeUZ6yWY3RZG9OyAgPA
+	ymg5AgeH02EVKkdLkWCaoiQA2P9BQOHCFcIMBavlgJe2DejPRT+Aej0fx/ktTOfTRaAEBmPB7XPCA
+	FIiVBu21yqFawRI/ZQZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjSRT-0000000HUcV-1foy;
-	Wed, 28 Aug 2024 23:51:11 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1sjSSI-0000000HUpG-2cym;
+	Wed, 28 Aug 2024 23:52:02 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjS8n-0000000HNEw-3ibJ;
-	Wed, 28 Aug 2024 23:31:55 +0000
+	id 1sjS8t-0000000HNIO-3Xph;
+	Wed, 28 Aug 2024 23:32:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id AC3EBAE3F62;
-	Wed, 28 Aug 2024 23:31:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FA6CC4CEC2;
-	Wed, 28 Aug 2024 23:31:43 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 228D6A4373D;
+	Wed, 28 Aug 2024 23:31:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B375C4CEC7;
+	Wed, 28 Aug 2024 23:31:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1724887911;
-	bh=beFDrtDyIwMIQ+9ZnRJrXKiqbsyL6F5ZUs+tNbRY4bo=;
+	s=k20201202; t=1724887918;
+	bh=aFW2qvTAUk71Nq29FR7iqobh+ecvMgae9gmrzv39Zig=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=cmxwoYiPlqAu3PpbAe4bGKFan0D35T9aFz1uyLOo8UJeOq5mAHsWPTyVNiP5qq+QF
-	 1bJmwFkWzxk1xeCmgEZjTmbPypjyB2wMPlh4/9IEsgqdGpkxmvUz3PCfJH9PueVAL6
-	 MKQBMKGgFzhwPuS8beYHyGbOiwMhjcRUsKrtqTZHRGCrVw+kmWWj1h9HXwUb6w3RWV
-	 FYKB2GvPgAUY/CCdj7QhVw+qDbhnzLjrekLZU+8Q32/0IagdbBbZuMFRTV3mEFcGaP
-	 m66+DiHgGeY1Hu80y6yk2xG+bH397ive8mzSUVwJSrPZmFjr4FhDO1y9KjCrF9iyRT
-	 i9cYNNLgL2fWw==
+	b=hjwu1NOIEmtm8Z7u72gZ6JHpkwB5gkUJwalodRKF8NUXnKJGIEb0zJUYn0XqEtVsK
+	 6eir07YTJAN930R0rS8oXPsf6PMfQ9EfkaAWQ1dRKOa5wXBUnNDnZaVRhFcZay/PDH
+	 o/emvel+ObwFHeJv5S51ipjvW8LPa1xdsI+eywNUXvOC5+9MncYTnDzs8Uteg4EfVc
+	 yuQM05fKSpjDRx9hshHQz8ztRMRG76+LOxIH3PymqWyy4gwdHZESoB/tcfmV/26lB+
+	 qTA10jQeMNmWKfhwrB7LyxLXvrqayRjUqWp7rT//nr67E8BdqSESxF6eyGyVLa88li
+	 voHyn7VgIlVTQ==
 From: Mark Brown <broonie@kernel.org>
-Date: Thu, 29 Aug 2024 00:27:43 +0100
-Subject: [PATCH v12 27/39] arm64: Add Kconfig for Guarded Control Stack
- (GCS)
+Date: Thu, 29 Aug 2024 00:27:44 +0100
+Subject: [PATCH v12 28/39] kselftest/arm64: Verify the GCS hwcap
 MIME-Version: 1.0
-Message-Id: <20240829-arm64-gcs-v12-27-42fec947436a@kernel.org>
+Message-Id: <20240829-arm64-gcs-v12-28-42fec947436a@kernel.org>
 References: <20240829-arm64-gcs-v12-0-42fec947436a@kernel.org>
 In-Reply-To: <20240829-arm64-gcs-v12-0-42fec947436a@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -73,20 +72,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-37811
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1518; i=broonie@kernel.org;
- h=from:subject:message-id; bh=beFDrtDyIwMIQ+9ZnRJrXKiqbsyL6F5ZUs+tNbRY4bo=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBmz7KNVB+3I+jq6y04asLcwgZ/MwTq5s+oa0mg+YNh
- Yfgu4RqJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZs+yjQAKCRAk1otyXVSH0BPHB/
- 90dYgJUIMJYlO9HaX+ruyrHyhuRC2pGtl9VBK2lNdeGXJ6Hvqi4owpgy/8/6e5omy6rq70EJZcWYul
- POQSUjKOHIw23YuSNSZgnq/G5o/jHmK1bUc5Vbn/iSGWK+Qdd/pAYigxHAfQZv40m5SgkAm+/vKLRP
- Cn4pGEJ7bm1AL0CKRoMgGxW7lo4EIWCdJDkr6hLUENHRWN15nlW1jpIfgtrYVfTm+AN7qx8NuUyjwp
- MoSbOf9pQqmotQKVb8unNR3EsDxcpUueJxVZgR9sSM8h2vGjIfeXq6D2SF/qtFM9p7KvJAd/F9OMXD
- x31o4oXplu9qcRnov3va3/52q6tZ/o
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1352; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=aFW2qvTAUk71Nq29FR7iqobh+ecvMgae9gmrzv39Zig=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBmz7KOSj/YT5ssZcKeVNxIRh75CfX+1/LJGwnNPsEb
+ KfxmaQmJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZs+yjgAKCRAk1otyXVSH0AjAB/
+ 9IIDCOoIAD9cFmgd31fBocKw1sDdzChCEINlCN4R0b5mrluwuKvPLbgBxP96AyAIXdOfycNgOfzLkX
+ sEBtTYbGIRb/4+k5PT5XV+8RvrJUQOYR/upipwFuP5naV3G16qy+an11n090xuLfuaBy8W/ImD5z82
+ ZIIS8iof/mQ8HEOGmIyMAz+DDNpZbIl40V+PgO8ZXNOHJjj6kCUomP4kQhbcfb/AvtUtOuo5tBYbxs
+ 4Wr4Lb7KhW/WNKTnUD3EBFmzIQj/TGOJTSMEw0BUVChYxdHRy+U0lpcFUxuRK30pAxHy3X06v1Pnm/
+ Gmna9QTiGgP9kprUoXL7dL1XvDBs1s
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240828_163154_309443_22224121 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20240828_163200_063271_12BD69CB 
+X-CRM114-Status: GOOD (  10.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,48 +102,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Provide a Kconfig option allowing the user to select if GCS support is
-built into the kernel.
+Add coverage of the GCS hwcap to the hwcap selftest, using a read of
+GCSPR_EL0 to generate SIGILL without having to worry about enabling GCS.
 
 Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Tested-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/Kconfig | 21 +++++++++++++++++++++
- 1 file changed, 21 insertions(+)
+ tools/testing/selftests/arm64/abi/hwcap.c | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index a2f8ff354ca6..3fa682151c8f 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -2137,6 +2137,27 @@ config ARM64_EPAN
- 	  if the cpu does not implement the feature.
- endmenu # "ARMv8.7 architectural features"
+diff --git a/tools/testing/selftests/arm64/abi/hwcap.c b/tools/testing/selftests/arm64/abi/hwcap.c
+index d8909b2b535a..dc54ae894fe5 100644
+--- a/tools/testing/selftests/arm64/abi/hwcap.c
++++ b/tools/testing/selftests/arm64/abi/hwcap.c
+@@ -98,6 +98,17 @@ static void fpmr_sigill(void)
+ 	asm volatile("mrs x0, S3_3_C4_C4_2" : : : "x0");
+ }
  
-+menu "v9.4 architectural features"
++static void gcs_sigill(void)
++{
++	unsigned long *gcspr;
 +
-+config ARM64_GCS
-+	bool "Enable support for Guarded Control Stack (GCS)"
-+	default y
-+	select ARCH_HAS_USER_SHADOW_STACK
-+	select ARCH_USES_HIGH_VMA_FLAGS
-+	depends on !UPROBES
-+	help
-+	  Guarded Control Stack (GCS) provides support for a separate
-+	  stack with restricted access which contains only return
-+	  addresses.  This can be used to harden against some attacks
-+	  by comparing return address used by the program with what is
-+	  stored in the GCS, and may also be used to efficiently obtain
-+	  the call stack for applications such as profiling.
++	asm volatile(
++		"mrs	%0, S3_3_C2_C5_1"
++	: "=r" (gcspr)
++	:
++	: "cc");
++}
 +
-+	  The feature is detected at runtime, and will remain disabled
-+	  if the system does not implement the feature.
-+
-+endmenu # "v9.4 architectural features"
-+
- config ARM64_SVE
- 	bool "ARM Scalable Vector Extension support"
- 	default y
+ static void ilrcpc_sigill(void)
+ {
+ 	/* LDAPUR W0, [SP, #8] */
+@@ -528,6 +539,14 @@ static const struct hwcap_data {
+ 		.sigill_fn = fpmr_sigill,
+ 		.sigill_reliable = true,
+ 	},
++	{
++		.name = "GCS",
++		.at_hwcap = AT_HWCAP2,
++		.hwcap_bit = HWCAP2_GCS,
++		.cpuinfo = "gcs",
++		.sigill_fn = gcs_sigill,
++		.sigill_reliable = true,
++	},
+ 	{
+ 		.name = "JSCVT",
+ 		.at_hwcap = AT_HWCAP,
 
 -- 
 2.39.2
