@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33CF9C7114C
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2024 23:38:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC861C71150
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2024 23:38:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qqUT8ikBPhCVAvdrzzvB9pPLTZqXYkOB0dm6P5YG67g=; b=3yIZXVdN+VHSvW
-	CL5zT1Q8VUGVwFYjazB7mx87JT/LLkgmn/j1WKZh33mtD3+4OxLSrVuvQFVo2pj9QuESHu89TY687
-	b/uQVPXgs5IXxPbegcu/Gk4ro33SrhqQj3cZtfQrqigvtabYQF+zL1klRP8HOnqdDCla3xoQPHr+C
-	0EKWsPBSvuANchb2OybbMycScvVy2tEYUesKjt8WZ47nDdL1Zl9QyIJFy/qmdDlE9nVracjgEy+Fe
-	dZ/EmXAg8SVqgfRxziIPvQqsPWTyRQC/+gWAeIngwzT8D1pBPY3VQBYMWa97/YjYkn8wdMncYvj+F
-	LRZcXJc193Gpl8h9T+qg==;
+	List-Owner; bh=kUHyc7PYt8uH00IPyXS1OaT8GijmCr7j77p48y2xJ8U=; b=ll0egQL8QViqVz
+	fjz5V5NUlGktgIQOA7ZCx/qBo7M5sEw5YjXMylpLEGS8YdSGL/pfwwJkrShnpTUMOeRcSWfx/aq8W
+	fCnfCNS91COpqE1F4UKG5jC7xDYuYgoc2B3QSxQ7uorBfsNpmeEvMUNUKk2l7M6dcbqT93o0rWSay
+	J+gJa85kJNsuTtIJs8CzWMBFUda7/5SZYY4e5JLawD8Zlmi5Sfu3b+t3Robt0Xy0B+A9hWFI/bsWH
+	qeXm7GWd2yxqRXvikbhX5BZO9Fy99hPFqWjIep9nFR4t3nvVd6IJMChgOzf+GOa5Pcu3EK45hSmYj
+	aPIcJZ50R6xwlGE7bcbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjSEh-0000000HQ6q-2cIr;
-	Wed, 28 Aug 2024 23:37:59 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1sjSFY-0000000HQTg-0W4l;
+	Wed, 28 Aug 2024 23:38:52 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjS6z-0000000HMFw-1QT5;
-	Wed, 28 Aug 2024 23:30:03 +0000
+	id 1sjS77-0000000HMKC-0zc9;
+	Wed, 28 Aug 2024 23:30:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 5C37ECE1736;
-	Wed, 28 Aug 2024 23:29:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4708C4CEC4;
-	Wed, 28 Aug 2024 23:29:51 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 2F368CE1708;
+	Wed, 28 Aug 2024 23:30:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02F6FC4CEC8;
+	Wed, 28 Aug 2024 23:29:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1724887798;
-	bh=HBIymMJlJf7+ITwOhb+j59rN4WPQGeznsoeJKujezak=;
+	s=k20201202; t=1724887806;
+	bh=DQ+/lIqnw5gAspETmMxguFP3SMk6gUYbh+baBR7FnZg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=XuchLGfpg5OGC29+xUs4tplER41FbxWeXpPKVwAao9yigT9A0vzLu7atvegblnWF+
-	 l9n0lbSiCOwQOVqWPFmMwZ1ekCxohBLhxIZlTDfvhlHMYoLVZI08jkKtMiKzUjmCyJ
-	 HXaPWb7Ph7Xw++l04ZvMGyciJbqPUY2k+kTF27pDfK8ghBeiw7eTIvye3AUkkz1u78
-	 6n0WaZY6WuAU6cMUUkD6py5x0AXdt7mK/+Q5nxwlcrX9FL1hWh3+RdOSLrmFC/Z+iA
-	 VwV99HdP/CYpHb+hNifkAqUX+HWxIPzuli175SpswLow1sDMGQsJ6xewd1Eilts376
-	 aMj66DaER4Yng==
+	b=h6shQglCaEjIfYuTEJECgLX7lmS4cLVxZ5/7WqVoFrdb5D7Ce/hcrxVEtQrj4rVR4
+	 CjkXTzUFDxo3k+MP3kYXPiF7Zf6LlOF5zOTZRxyUc6CiD4BGk9Gqkj2tLEQNuY/CWj
+	 tVZgYMNHmu1h3WH8kPaRHrEbMwcjJJSHNuOc/HcThupy0uWzseDVB8df6mki4sEV6A
+	 dKs8K77IC57vsS7LZTM88azbG+E3gESpYvAIZwASo9QVP+Q5NW/DinIeBkMl1sx7zK
+	 o7h6mnPdVrzJBvvAj1oKUMiMLJYm5WiXjkPTu47uIBshlBzAA9biECrUn/MX1JEOok
+	 vU57fRaLMiLjg==
 From: Mark Brown <broonie@kernel.org>
-Date: Thu, 29 Aug 2024 00:27:28 +0100
-Subject: [PATCH v12 12/39] arm64/mm: Allocate PIE slots for EL0 guarded
- control stack
+Date: Thu, 29 Aug 2024 00:27:29 +0100
+Subject: [PATCH v12 13/39] mm: Define VM_SHADOW_STACK for arm64 when we
+ support GCS
 MIME-Version: 1.0
-Message-Id: <20240829-arm64-gcs-v12-12-42fec947436a@kernel.org>
+Message-Id: <20240829-arm64-gcs-v12-13-42fec947436a@kernel.org>
 References: <20240829-arm64-gcs-v12-0-42fec947436a@kernel.org>
 In-Reply-To: <20240829-arm64-gcs-v12-0-42fec947436a@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -73,20 +73,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-37811
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3084; i=broonie@kernel.org;
- h=from:subject:message-id; bh=HBIymMJlJf7+ITwOhb+j59rN4WPQGeznsoeJKujezak=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBmz7KBw7IkueYw48dG/sRyNikrfDrnQy9nMXT3KbWR
- xXEWMBqJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZs+ygQAKCRAk1otyXVSH0CGzB/
- 9FpI/8Nvj4l3e3y0PhdlgWD6cJmpnUTWZm24RKsU3fbtVsmMEvF3ODMODz0uFDiL1/lUe63cWHGkvx
- Hayy3os5dp5kOAHOGPUEn/4XN2M79ssNHm7FbaM6+IVxsHoWOQm6JNyQi2nae5oZkjwAdhs/mJ4JvI
- 1cVV/RtvTwu7irvFTTH7T2lXgJsyo5nQ9CkkSoetnG0WX5MeiT5WseOUdX/Nw71e5CWMAt3FZ3WVpw
- kULf7K2sNZigyVBgAFwDqXzzJF4vlIWRJTVbnBJ2yT0BSWPHSX1nKyIQ0rCEvUO4Nycaw8vzShgwMY
- eBO4adf8kEYYhFUkeNbsu+9vEwVFE3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1576; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=DQ+/lIqnw5gAspETmMxguFP3SMk6gUYbh+baBR7FnZg=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBmz7KC/Rhk/py2u3sq1Sq6IyAa28H/JCkWwuYqk/+i
+ WZjmPvmJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZs+yggAKCRAk1otyXVSH0JK4B/
+ 0c7CeQWbofgjSYjTY0ueVTYCsxmNGC9m3r7+5bju4v637iOCojsNlg3DLCUWyOw3YXzrrbNW9zZ0dH
+ 0kmVCJ+uifdZ3TJcp7w/fXoNJAyQjJV0aBj0a9Qv9B3oIpvQU9NZMkfeVwQ5+zkVI/u13qRDDpeYUP
+ gIDHJXKhQ/cj1Rnz45LHx/uGssDgemHZkNA7x47Ku8ce4ltskMLY955Df6RLOnG98MGgE59Jc0uHbN
+ Ox8V5SLtKLryDkZiQfOsUX/zOoZkqlqhox/0UBfebCkjWZJ9NRh7d8nl7j/BGcIZnav+h1LVscipli
+ t53+wNbtpeU5VBt7BRlrgDb2TyZMRM
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240828_163001_822699_A29D2DE8 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20240828_163009_750988_596359AD 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,62 +103,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Pages used for guarded control stacks need to be described to the hardware
-using the Permission Indirection Extension, GCS is not supported without
-PIE. In order to support copy on write for guarded stacks we allocate two
-values, one for active GCSs and one for GCS pages marked as read only prior
-to copy.
-
-Since the actual effect is defined using PIE the specific bit pattern used
-does not matter to the hardware but we choose two values which differ only
-in PTE_WRITE in order to help share code with non-PIE cases.
+Use VM_HIGH_ARCH_5 for guarded control stack pages.
 
 Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
 Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/include/asm/pgtable-prot.h | 14 ++++++++++++--
- 1 file changed, 12 insertions(+), 2 deletions(-)
+ Documentation/filesystems/proc.rst |  2 +-
+ include/linux/mm.h                 | 12 +++++++++++-
+ 2 files changed, 12 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
-index b11cfb9fdd37..545d54c88520 100644
---- a/arch/arm64/include/asm/pgtable-prot.h
-+++ b/arch/arm64/include/asm/pgtable-prot.h
-@@ -144,15 +144,23 @@ static inline bool __pure lpa2_is_enabled(void)
- /* 6:                                PTE_PXN | PTE_WRITE            */
- /* 7: PAGE_SHARED_EXEC               PTE_PXN | PTE_WRITE | PTE_USER */
- /* 8: PAGE_KERNEL_ROX      PTE_UXN                                  */
--/* 9:                      PTE_UXN |                       PTE_USER */
-+/* 9: PAGE_GCS_RO          PTE_UXN |                       PTE_USER */
- /* a: PAGE_KERNEL_EXEC     PTE_UXN |           PTE_WRITE            */
--/* b:                      PTE_UXN |           PTE_WRITE | PTE_USER */
-+/* b: PAGE_GCS             PTE_UXN |           PTE_WRITE | PTE_USER */
- /* c: PAGE_KERNEL_RO       PTE_UXN | PTE_PXN                        */
- /* d: PAGE_READONLY        PTE_UXN | PTE_PXN |             PTE_USER */
- /* e: PAGE_KERNEL          PTE_UXN | PTE_PXN | PTE_WRITE            */
- /* f: PAGE_SHARED          PTE_UXN | PTE_PXN | PTE_WRITE | PTE_USER */
+diff --git a/Documentation/filesystems/proc.rst b/Documentation/filesystems/proc.rst
+index e834779d9611..6a882c57a7e7 100644
+--- a/Documentation/filesystems/proc.rst
++++ b/Documentation/filesystems/proc.rst
+@@ -579,7 +579,7 @@ encoded manner. The codes are the following:
+     mt    arm64 MTE allocation tags are enabled
+     um    userfaultfd missing tracking
+     uw    userfaultfd wr-protect tracking
+-    ss    shadow stack page
++    ss    shadow/guarded control stack page
+     sl    sealed
+     ==    =======================================
  
-+#define _PAGE_GCS	(_PAGE_DEFAULT | PTE_NG | PTE_UXN | PTE_WRITE | PTE_USER)
-+#define _PAGE_GCS_RO	(_PAGE_DEFAULT | PTE_NG | PTE_UXN | PTE_USER)
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index 96faf26b6083..c6c7454ce4e0 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -353,7 +353,17 @@ extern unsigned int kobjsize(const void *objp);
+  * for more details on the guard size.
+  */
+ # define VM_SHADOW_STACK	VM_HIGH_ARCH_5
+-#else
++#endif
 +
-+#define PAGE_GCS	__pgprot(_PAGE_GCS)
-+#define PAGE_GCS_RO	__pgprot(_PAGE_GCS_RO)
++#if defined(CONFIG_ARM64_GCS)
++/*
++ * arm64's Guarded Control Stack implements similar functionality and
++ * has similar constraints to shadow stacks.
++ */
++# define VM_SHADOW_STACK	VM_HIGH_ARCH_5
++#endif
 +
- #define PIE_E0	( \
-+	PIRx_ELx_PERM(pte_pi_index(_PAGE_GCS),           PIE_GCS)  | \
-+	PIRx_ELx_PERM(pte_pi_index(_PAGE_GCS_RO),        PIE_R)   | \
- 	PIRx_ELx_PERM(pte_pi_index(_PAGE_EXECONLY),      PIE_X_O) | \
- 	PIRx_ELx_PERM(pte_pi_index(_PAGE_READONLY_EXEC), PIE_RX)  | \
- 	PIRx_ELx_PERM(pte_pi_index(_PAGE_SHARED_EXEC),   PIE_RWX) | \
-@@ -160,6 +168,8 @@ static inline bool __pure lpa2_is_enabled(void)
- 	PIRx_ELx_PERM(pte_pi_index(_PAGE_SHARED),        PIE_RW))
++#ifndef VM_SHADOW_STACK
+ # define VM_SHADOW_STACK	VM_NONE
+ #endif
  
- #define PIE_E1	( \
-+	PIRx_ELx_PERM(pte_pi_index(_PAGE_GCS),           PIE_NONE_O) | \
-+	PIRx_ELx_PERM(pte_pi_index(_PAGE_GCS_RO),        PIE_NONE_O) | \
- 	PIRx_ELx_PERM(pte_pi_index(_PAGE_EXECONLY),      PIE_NONE_O) | \
- 	PIRx_ELx_PERM(pte_pi_index(_PAGE_READONLY_EXEC), PIE_R)      | \
- 	PIRx_ELx_PERM(pte_pi_index(_PAGE_SHARED_EXEC),   PIE_RW)     | \
 
 -- 
 2.39.2
