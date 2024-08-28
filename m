@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EAB3C5474F
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2024 05:49:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4D75C5474A
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2024 05:49:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Mtxdwlv9T5BAfncOB5KjtnKL1dH0rSxpwHZ5LiMXKzs=; b=RSmw65BLlVSd3D
-	1wSZtOgpitDnqAJZAjdCdzPUOehmXif/VzrbwYAl7PmswzZM4RKAt8JW6oF4LvbeKcSijUI23BJmT
-	k1wQlI0wQ+Jz+OKyVRBW31h4fS+uyoF/JQ6rR9sym6Mp70ONikSTuEB7OwI6tAFfrTGueq6qUWn10
-	4e4r87zEAvlNORSJhKKnQ1B7T01VTOFn1ej+eAVqT0WcgYg7bsZKKtMh7jHZbsP8oMqJ+jjYRdECn
-	l0uo0zijdD1lLxaWuQwc2L7kTsZCUKbjSreRyQa90dW91hjPGXu0OclJfLZv5sea1aECnX2o2IE8/
-	b/P/PazRL+EEjOOqnmJg==;
+	List-Owner; bh=oE+bqKj03gciBOHFC9jW8X6oVWSmeGRujGWIdzC3UQ0=; b=i04y8oplMJLHVh
+	21lLIsfIfzc9wED8uDx31TpoLdAas7TPWwvMaSKEAMyJdUO+yYSK0hx0HERMFsW6wyLbdDF4vrBkV
+	OoJfEWTEVT2XyNjZWpX+P7Jhe7cyLm4fuZxNYqWDdWe3un+ILPfy9/k7O6m/wx0JxcxdW/2WeW5lY
+	qauowal6e9l+j+jVjncPwnqSxkdu6NOj6oO53tMGRHf/awwG1BVUsIxpPd4P39qD71EuxEEH3UpOT
+	DcuIkLTCCTtrUHOW2EuXtd3w/fF/nT9uYM+9Dq+QZOUVc+Ko0rYcUgmQNyn3UzIgrmUXIayqpvjmZ
+	zIeKkALQvkgPKBLTfXUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjBYn-0000000Dxqa-2HJm;
-	Wed, 28 Aug 2024 05:49:37 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1sjBYh-0000000Dxmh-45tm;
+	Wed, 28 Aug 2024 05:49:31 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjBYk-0000000Dxng-0aBJ
+	id 1sjBYg-0000000DxlS-0amC
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Aug 2024 05:49:35 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2025031eb60so55560945ad.3
-        for <linux-riscv@lists.infradead.org>; Tue, 27 Aug 2024 22:49:33 -0700 (PDT)
+	Wed, 28 Aug 2024 05:49:31 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-201fbd0d7c2so52360425ad.0
+        for <linux-riscv@lists.infradead.org>; Tue, 27 Aug 2024 22:49:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1724824173; x=1725428973; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1724824169; x=1725428969; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=moiMY/9kOk6Xzt0Khn1FkF8wyTL4BDNBgOSp+BMugag=;
-        b=oFgBBSVL/fEmNt5ff/kfAJU4oDIhT7d0gxx7izQFQscz46cfXPITc0ledzev860D6y
-         vEV7hBVj+Nf//E4KoINTmVx5UJr0wdA7tq/GewvnL76Vs8O89FWzSXg0AWfDgvWyvOOV
-         oZtAZ+2ZArE/6HDVQ5f96+Xv+OHmW9RTYttmhTSa0Pbng+G6u+TvAxYwczTqEHlTT18A
-         5BwwR6qJu6XhkocTJcXijmdZGWwZIo6YAAofHHRs2FPjqMMxvVhGlgF3pANyCcmuAxo1
-         It7ptQO/RrUrReqjtMQ8nhYdUHvJTseCLbYu7HXO5HuTe9lfTet4dvqLUXh8YzOy5Mhu
-         Qz0A==
+        bh=s842qMNTVJPdnaHjTgUH53HGzrqC8L35w1DIbWpmxjE=;
+        b=di+mOgLTxniJ6s/PXutNlO4iDIs2uyEuHIDO5NoxWDrdlg0Mj4opFOs7HagBGCjB4C
+         iYGDLSQriYr9dXNldLn6gaf6LD7xbF7KQx0QIPOxwuUWWB1QVsbNHT/g4wyY9nb/DsG0
+         Vr6BfLbyFB4/0nI3wndqMVYSJSFzJEpPEB6BiBGFkaEK9wqMDAI7MKTz1Cw/88MYqjpc
+         3rzwersvpCiaBLuCblsbP5lnnGDsUkAvIqRw4p26otlS7QRsh9fOEoGwczRXIZMmBrLc
+         JzIJsze+NOFhwR+0Fpbi2rzbz9rVBIVT3lrhE/9XK55Bl9Z5SwTuOWpA+hW7dzPHtATl
+         r4fA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1724824173; x=1725428973;
+        d=1e100.net; s=20230601; t=1724824169; x=1725428969;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=moiMY/9kOk6Xzt0Khn1FkF8wyTL4BDNBgOSp+BMugag=;
-        b=w57xAsOV5vPjBA4ReVz2hADa2+cJxEDqrg19UUZ1iRJvrNBmVc+02bVBKhCX8cTjEL
-         sIVgZttjtqcT0mvs+nZqvZ3GJA57VIgmuOAkG7aSMBUTpElzeBT7BGqSGGAcdTl/fTAb
-         yHR/2pU4YWMgg7+V9o44G02ZErh9pNOUL/3fmHS5vXKguh0QP9d5LSFYhdflFlrakF/V
-         Wb1V3i8peBhOZBtXqXQEgpzc52OrcPKtFjiNzleX2U9n7vuZUyEC0P3JnXQpaGLxl7ZW
-         +8ulyl0RHw+gl8VvPtF6S8VNy5ild3zYqDzQCg/ACKU2ROurUMrQtN1EFldCgMzIX87s
-         LFNw==
-X-Forwarded-Encrypted: i=1; AJvYcCXU03z59IEIlkjv3odQnBymgM1MA+zVFtRaByylEwGT2HC5JPJvVBgQpH4DoJKPcy31DAT/PupJvCPxLQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwiWffp/0dCsORcN9wOcSz4rxe3xVxRcW2BL7vQneYFslC8G8n8
-	KfQsO4rYYy17m9xfrk4B/tvVAyygtIEPsnQ8QXk1T0E+E1ETd/DE6f3jCtI66PM=
-X-Google-Smtp-Source: AGHT+IE+xcDspGauSp7IVmRnQSeJseOyw+wVLX4elXR4/BGbU1fHY0MaCzZG4/pxtEucaF+r97Z9DQ==
-X-Received: by 2002:a17:903:124b:b0:202:4079:1c19 with SMTP id d9443c01a7336-2039e47589dmr164242605ad.14.1724824172722;
-        Tue, 27 Aug 2024 22:49:32 -0700 (PDT)
+        bh=s842qMNTVJPdnaHjTgUH53HGzrqC8L35w1DIbWpmxjE=;
+        b=YgA3oZ3VCUWY9d0sy/3boMTBsv8ZuxbLVeb/5A3pWgdqnNwe80O64RXbkrcPbAfrUG
+         UMhFGGesY59SGrQne73kUhoZCQOFfgczOgqa4A7Vd3QJkAWELCnn+Un1Snd0sW4bYyx+
+         heMumLzKWzfxD10mc4mYzCKCqK3puEk6X7ylnywn7AWagvCGZj3JJNRc97BXx3eDX926
+         iyEmph+ZFalOcVv4B4E8UBtqZow4Pnvg8MiBsCFjPYmc/Nbmh8Ufqy8u8Rh7MH0uGGml
+         fUpojlhqhua626JkCLTV53oBqisekDMl8ZBgbBwxY/WKP6Md4ecdrVBEkf4ehREGtEds
+         KYrA==
+X-Forwarded-Encrypted: i=1; AJvYcCW7xu/ZcaZmAlrQ6WobP/kqK2kev2YiBInOT2vGlcArxuXkBOYdyZyX7caVcTA5oWDywhSu1iCp7P7FHA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyid/9eF6SyKsgWe3vjz6Jd/CPWXi4/6aEKodrYGC90Esd0cBVg
+	67g0Mu1TYD1R8Urh4huNU4vkQKzmyfis/fvqKvQY5kDo69yacVye28slY/BT9hw=
+X-Google-Smtp-Source: AGHT+IE7iBIF/ncsUM+UTT7p6QlENkfnsLUglL71vzMDiTXQo3W/0gxhDidIM3IPRiHs8W/EU5lCPQ==
+X-Received: by 2002:a17:902:ce83:b0:1fd:92a7:6ccc with SMTP id d9443c01a7336-204f9ba22b4mr11347335ad.30.1724824169192;
+        Tue, 27 Aug 2024 22:49:29 -0700 (PDT)
 Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-203855df0c4sm92092495ad.157.2024.08.27.22.49.29
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-203855df0c4sm92092495ad.157.2024.08.27.22.49.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Aug 2024 22:49:31 -0700 (PDT)
+        Tue, 27 Aug 2024 22:49:28 -0700 (PDT)
 From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Tue, 27 Aug 2024 22:49:08 -0700
-Subject: [PATCH 02/16] riscv: mm: Do not restrict mmap address based on
- hint
+Date: Tue, 27 Aug 2024 22:49:07 -0700
+Subject: [PATCH 01/16] mm: Add MAP_BELOW_HINT
 MIME-Version: 1.0
-Message-Id: <20240827-patches-below_hint_mmap-v1-2-46ff2eb9022d@rivosinc.com>
+Message-Id: <20240827-patches-below_hint_mmap-v1-1-46ff2eb9022d@rivosinc.com>
 References: <20240827-patches-below_hint_mmap-v1-0-46ff2eb9022d@rivosinc.com>
 In-Reply-To: <20240827-patches-below_hint_mmap-v1-0-46ff2eb9022d@rivosinc.com>
 To: Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -106,17 +105,17 @@ Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
  linux-kselftest@vger.kernel.org, Charlie Jenkins <charlie@rivosinc.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2260; i=charlie@rivosinc.com;
- h=from:subject:message-id; bh=YMF9irkRUC4sRvnkdcE8hTIaJNmeFPHDQEKHg4RlOyw=;
- b=owGbwMvMwCHWx5hUnlvL8Y3xtFoSQ9q5XbEGN52ULpq4/39venW688upWgwFDj9spqW3rOd57
- Wdme6Ooo5SFQYyDQVZMkYXnWgNz6x39sqOiZRNg5rAygQxh4OIUgInoxjIyLPq831JpspB17kOr
- jRV1b1+9OjXz6TVOvZStd2IFbrHtWM3wV9buiFXmKu3sWVt1RJfzLlfjNmD+lbK6aQ3rc0+mG/t
- jOAA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1656; i=charlie@rivosinc.com;
+ h=from:subject:message-id; bh=tmMz4K99F0U2eFjTmXZPsRyQ5BJlKhVYtlPfqgJsjxI=;
+ b=owGbwMvMwCHWx5hUnlvL8Y3xtFoSQ9q5XbFSzP1yPpXBlYea467kRPvaspyLaj1+ty58k+rfy
+ b+vtHB1lLIwiHEwyIopsvBca2BuvaNfdlS0bALMHFYmkCEMXJwCMBGZFoa/UreElT5ecG2dxnH1
+ 4+SJG05OW30u9uBl4X2J5vXXMs59v8LIcOvZs96dRZxGwS//rJlxOfEru+W5B7X39RYcjRI4YV7
+ 3gA8A
 X-Developer-Key: i=charlie@rivosinc.com; a=openpgp;
  fpr=7D834FF11B1D8387E61C776FFB10D1F27D6B1354
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240827_224934_187893_F3790222 
-X-CRM114-Status: GOOD (  13.88  )
+X-CRM114-CacheID: sfid-20240827_224930_220817_1E618450 
+X-CRM114-Status: GOOD (  12.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,70 +132,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The hint address should not forcefully restrict the addresses returned
-by mmap as this causes mmap to report ENOMEM when there is memory still
-available.
+Some applications rely on placing data in free bits addresses allocated
+by mmap. Various architectures (eg. x86, arm64, powerpc) restrict the
+address returned by mmap to be less than the maximum address space,
+unless the hint address is greater than this value.
+
+To make this behavior explicit and more versatile across all
+architectures, define a mmap flag that allows users to define an
+arbitrary upper limit on addresses returned by mmap.
 
 Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-Fixes: b5b4287accd7 ("riscv: mm: Use hint address in mmap if available")
-Fixes: add2cc6b6515 ("RISC-V: mm: Restrict address space for sv39,sv48,sv57")
-Closes: https://lore.kernel.org/linux-kernel/ZbxTNjQPFKBatMq+@ghost/T/#mccb1890466bf5a488c9ce7441e57e42271895765
-
 ---
+ include/uapi/asm-generic/mman-common.h       | 1 +
+ tools/include/uapi/asm-generic/mman-common.h | 1 +
+ 2 files changed, 2 insertions(+)
 
-This patch is pulled from [1] for ease of review of this series.
-
-Link:
-https://lore.kernel.org/lkml/20240826-riscv_mmap-v1-2-cd8962afe47f@rivosinc.com/T/
-[1]
----
- arch/riscv/include/asm/processor.h | 28 +++-------------------------
- 1 file changed, 3 insertions(+), 25 deletions(-)
-
-diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index 8702b8721a27..1015f2a49917 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -14,36 +14,14 @@
+diff --git a/include/uapi/asm-generic/mman-common.h b/include/uapi/asm-generic/mman-common.h
+index 6ce1f1ceb432..03ac13d9aa37 100644
+--- a/include/uapi/asm-generic/mman-common.h
++++ b/include/uapi/asm-generic/mman-common.h
+@@ -32,6 +32,7 @@
  
- #include <asm/ptrace.h>
+ #define MAP_UNINITIALIZED 0x4000000	/* For anonymous mmap, memory could be
+ 					 * uninitialized */
++#define MAP_BELOW_HINT	  0x8000000	/* give out address that is below (inclusive) hint address */
  
--/*
-- * addr is a hint to the maximum userspace address that mmap should provide, so
-- * this macro needs to return the largest address space available so that
-- * mmap_end < addr, being mmap_end the top of that address space.
-- * See Documentation/arch/riscv/vm-layout.rst for more details.
-- */
- #define arch_get_mmap_end(addr, len, flags)			\
- ({								\
--	unsigned long mmap_end;					\
--	typeof(addr) _addr = (addr);				\
--	if ((_addr) == 0 || is_compat_task() ||			\
--	    ((_addr + len) > BIT(VA_BITS - 1)))			\
--		mmap_end = STACK_TOP_MAX;			\
--	else							\
--		mmap_end = (_addr + len);			\
--	mmap_end;						\
-+	STACK_TOP_MAX;						\
- })
+ /*
+  * Flags for mlock
+diff --git a/tools/include/uapi/asm-generic/mman-common.h b/tools/include/uapi/asm-generic/mman-common.h
+index 6ce1f1ceb432..03ac13d9aa37 100644
+--- a/tools/include/uapi/asm-generic/mman-common.h
++++ b/tools/include/uapi/asm-generic/mman-common.h
+@@ -32,6 +32,7 @@
  
--#define arch_get_mmap_base(addr, base)				\
-+#define arch_get_mmap_base(addr, base, flags)			\
- ({								\
--	unsigned long mmap_base;				\
--	typeof(addr) _addr = (addr);				\
--	typeof(base) _base = (base);				\
--	unsigned long rnd_gap = DEFAULT_MAP_WINDOW - (_base);	\
--	if ((_addr) == 0 || is_compat_task() || 		\
--	    ((_addr + len) > BIT(VA_BITS - 1)))			\
--		mmap_base = (_base);				\
--	else							\
--		mmap_base = (_addr + len) - rnd_gap;		\
--	mmap_base;						\
-+	base;							\
- })
+ #define MAP_UNINITIALIZED 0x4000000	/* For anonymous mmap, memory could be
+ 					 * uninitialized */
++#define MAP_BELOW_HINT	  0x8000000	/* give out address that is below (inclusive) hint address */
  
- #ifdef CONFIG_64BIT
+ /*
+  * Flags for mlock
 
 -- 
 2.45.0
