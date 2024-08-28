@@ -4,80 +4,206 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1B0DC63798
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2024 18:15:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88E1FC636F0
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2024 18:21:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
-	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AKv2QP16WTC3jVEmJm9hydeUNO6k96+4j87GXL0uiz8=; b=DR5sj/iSzfgCRy
-	bkvk34F/grk1G9fP/M6zQB3H8WkSLNiFYGJaxdPzVdrPxqW9kXe7J6IKwB1hPba7TmtsE3YcEV2ww
-	4oTKXEDj+4YfUXnNafyPNhNUQjJZ6JcciI88q6MuaNiO3A+biZHqULSOzr4aO7TOBYlhwHw02agdB
-	5LLF4wgODvCWIC8vp+a+46+BnQmaJTKnnS1br0j67PPpsWDBi3jmGK4akzCld7jHYQI3wcrr7za4p
-	V7K3Yq3yGNCCNOfRf5K2SX4g9ii/YvYaloam18yitwjTw1pISzbR+zm59VKLe/LjwOUoEtjjUa2BZ
-	XCXrgmqOUua7XPvHvjsQ==;
+	List-Owner; bh=vOIJF08aAWH6FEYIrvpFx3Kb8geRYHXKlbToebq0q3A=; b=S01+9CpXwnK55a
+	c4WAclS6m+SBlNUf6Uc1YR0wlzgdIAhCstwCpwHXb+C2gA+Bbk0O+c9i+hsE0ME1Sf/aEccMNc2kt
+	HTlN+up+ebC/CUj8vilO8U8Dh88PoIcFh2sc31Ho9Xu1qSzHC8L3ir63B+Bp69JL56nSJeLrUjep6
+	BbRwimgD+zdX47MIakiqzBbi+OId7s/LKTdYXI99CEY8giwrLzVL71/kH7eboAw8ehYPbJHyBvHma
+	Jv7YRjqAoHmEe3ppv6/3lzk6dh9/QegACzRNZ8ICKTPehZ7EAMgHgKuc1ZcsZIsDAzPCntfXXrIJD
+	EB2ipHEGs28rFFH5oKSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjNC8-0000000GVnM-0gk0;
-	Wed, 28 Aug 2024 18:15:00 +0000
-Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
+	id 1sjNHv-0000000GXJF-2Adc;
+	Wed, 28 Aug 2024 18:20:59 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjNC3-0000000GVju-0wOt
-	for linux-riscv@lists.infradead.org;
-	Wed, 28 Aug 2024 18:14:56 +0000
-Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-e17bb508bb9so9342388276.2
-        for <linux-riscv@lists.infradead.org>; Wed, 28 Aug 2024 11:14:54 -0700 (PDT)
+	id 1sjNHs-0000000GXIl-3oYu;
+	Wed, 28 Aug 2024 18:20:58 +0000
+Received: from pps.filterd (m0333520.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 47SHfUKD016673;
+	Wed, 28 Aug 2024 18:19:52 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=
+	date:from:to:cc:subject:message-id:references:content-type
+	:in-reply-to:mime-version; s=corp-2023-11-20; bh=VZxvPOSfXTNaI+J
+	KRN5dmgtLnHpwdW0zRNwIgz5BYwU=; b=a421hkuOSPmIY002FZHq3StnMZFe5Zz
+	zwpE3idA3tq0/grq7pVPPtBpWDI4eH32DyOKJNfuijXStkTDMMFBnUi3wfsQMRrr
+	bBb7ANY/zwJ4f+3PEOuT2Xsum35gXNtzWGjxJzJB4ySs8Sk+zGhqHg8Ep04Hfe/w
+	o7uELz/4/Kj9s2W4gV/iDk19Fj/Zxf6kEZ8Sl7N1TqGkYq+ZKHzHIUCIycdGYWfC
+	ji1G2kU3pICOf9duYyNFJJaxhqKbiyr+doTBryB4074Xe+5jC0OahygyQ8Pw1oUu
+	9o2vN51FOowV7/VZcRvJzAN0vTT1n073N5KurIf2onXEzCYwi6OKuBA==
+Received: from phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta03.appoci.oracle.com [138.1.37.129])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 419pugt2gt-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 28 Aug 2024 18:19:52 +0000 (GMT)
+Received: from pps.filterd (phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
+	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 47SGan2o035057;
+	Wed, 28 Aug 2024 18:19:44 GMT
+Received: from nam11-co1-obe.outbound.protection.outlook.com (mail-co1nam11lp2176.outbound.protection.outlook.com [104.47.56.176])
+	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 4189suvss8-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 28 Aug 2024 18:19:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BVjusITUu8qblGMrOgXlXibv0Nq4JGS9aKe0gjMKbLaGYCvjL/sdJ6MZ4Gv7rU6eQkMqlUVmz9zp7V1+OJaE/50C0jT2G7YOQmekjBcSInMwunObImGDNGRHEG8eNNIok5lPHT6hv+BRXvB1L0FmkFBAmdpZwr2k2UWp4MgXBM3QOiQpUxozexm9VCTISv/KW6/khlEsC9fcG0GrAMo159600Ah6i+jp4zEb8cWpdTafafe8ezPxAdKtLu2t+yz6d1w217qbaayYxJTklokKF24YVcyQCqxFVolFRANrly+rxvCwCHAfEoA7G04KDeLqbLSzRpJ6QFoKoGG+2zd+tw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VZxvPOSfXTNaI+JKRN5dmgtLnHpwdW0zRNwIgz5BYwU=;
+ b=Ooa69cTusO4BTQMz43ZUJqrep5tSw56eK0/koi9tnB7A8C5LRzJrWei7X3usvHmNUh7YgHvb1I5xG+0hlbclMDjMskZrloVWVyLYKTpCsiUEYRFlWkXcbuHvjV19ZxHeJA2sdy/cD+qwkKUdEW6852hqkjpSA/N1QV1/uWAIODtNQhZqkqXfzjctyJNuDMxxnpnMs/guyFNZ4Dz2cbNjFosPvMTs3miMpTxxD60n6SOVJybwlyrzB+UP13Cu9A88uhP1gEr6IHbg/SjhFpM60d5Ha8PNHhrrxkhPmFFwu3xWKFMKvY6eplVTS9m86AnN6OUBGfHag4R7gU/APLrQMw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1724868894; x=1725473694; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=g8CEH7SnnSsHaiw39Cx2W/imrlcDKaVqaPZKBSnVoqE=;
-        b=RebIUt5SF1fsC8ZAp1F/pqy9MtxbQykK2gucLz4ZvvWLIu84RzlcS/HB10SHk6iGzc
-         CT50DgDuLLF95BTnxcJ3ydTXF9C2oBBDu87MB34fPOFImOKKik3q07Rz4j94k1KFSY0M
-         8uPkT492ODOgt/W8riH/JUCQtGA0z0K62dfMVVWdAEwSDwzFI7EwOZgu76gKv0tbl7B/
-         RDMHkeLawcuaXEfUKhU/pyxlPsNZo6XEzYm1/m1mnzkdjTqFJonOgs15R26b6bEghGbC
-         dCbqUJbBklhwhXwlVs2an2zHcJi/o2i6+6bQdEjX7PhVYDxBgO7UwKOGD/c/NZuToRv0
-         RxQw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1724868894; x=1725473694;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=g8CEH7SnnSsHaiw39Cx2W/imrlcDKaVqaPZKBSnVoqE=;
-        b=evnGvtqTMuQzQTDv02KphK/reYc11er0yHm50ile7uAPIgojG7lavvGIB1tLHXRTne
-         wLPwOwzzp7w2HMUiOBJSL2ZvemeT7d/p8m8y9A9GmvW4MLRV8nu03QL3Kj1e8fgsDmFg
-         vWCifTVWgIRJ9TPit+2n+kMkqnotWBRvT2c9YkR1gZkZJMcOeF+dsCiaGv/KvkyJU2cm
-         kmCzf5aoR5ZN1rLSPrDXFVERFeB0yV06BbYqn15I0y0Uj6E+D/Cjd/fg47XPuenO1cwq
-         gaJLIndiAGfMcuHE7WuK2ISLmn/LBb6cpcL+3M4YicZ5CjyU/i9tEJEtI0FK3zbgRfuj
-         2cog==
-X-Forwarded-Encrypted: i=1; AJvYcCX0W4RyLjI8rlJjsXVIK8WyTlEmZp1WTpJehCEH7iGzjd7YpPkOEbOTmT9WduEokPLHIk/eZwg0TCar1g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwyOsFRBiM+IeuqO5znWhrw01sCPUFVuRC89zn/2pu6gYFkUfFz
-	QFUAlaKZUc0vhvtpFSQpgNb7XfLSujOnkI1QWju68a5t+q81Cx8+kar3lMawnrFzIHEoPevIhNh
-	UAA==
-X-Google-Smtp-Source: AGHT+IHNeuQKAVCun7jGA+4F4NSXhmCTAL6hk/rIp4B1oyD7UZlqqmU2e4hcnFIXLWY3/GKLuflJ7LotGs0=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a25:e304:0:b0:e11:7112:6b9b with SMTP id
- 3f1490d57ef6-e1a5ab3d138mr6965276.3.1724868893779; Wed, 28 Aug 2024 11:14:53
- -0700 (PDT)
-Date: Wed, 28 Aug 2024 11:14:46 -0700
-In-Reply-To: <20240828181446.652474-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20240828181446.652474-1-seanjc@google.com>
-X-Mailer: git-send-email 2.46.0.295.g3b9ea8a38a-goog
-Message-ID: <20240828181446.652474-3-seanjc@google.com>
-Subject: [PATCH v2 2/2] KVM: Clean up coalesced MMIO ring full check
-From: Sean Christopherson <seanjc@google.com>
-To: Paolo Bonzini <pbonzini@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: kvm@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Ilias Stamatis <ilstam@amazon.com>, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Anup Patel <anup@brainfault.org>, Sean Christopherson <seanjc@google.com>, Paul Durrant <paul@xen.org>
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VZxvPOSfXTNaI+JKRN5dmgtLnHpwdW0zRNwIgz5BYwU=;
+ b=aOT3NsVH6yKmK1lWWkHJEMCMfKCdknAnXoq32esZksK3VKxYB8q4uhCKlHoiV89sOzlK5HdC0TIbIn/1lDUxV5A5P/CFTEWVEi6r7MocSQChNAEndxSPxlkcx8+wsNU4x+YwMiR9N00b2WBCG69i3ACUhvvJ+O+nYRKLLfKn110=
+Received: from SJ0PR10MB5613.namprd10.prod.outlook.com (2603:10b6:a03:3d0::5)
+ by CH2PR10MB4328.namprd10.prod.outlook.com (2603:10b6:610:7e::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7918.19; Wed, 28 Aug
+ 2024 18:19:40 +0000
+Received: from SJ0PR10MB5613.namprd10.prod.outlook.com
+ ([fe80::4239:cf6f:9caa:940e]) by SJ0PR10MB5613.namprd10.prod.outlook.com
+ ([fe80::4239:cf6f:9caa:940e%5]) with mapi id 15.20.7918.017; Wed, 28 Aug 2024
+ 18:19:40 +0000
+Date: Wed, 28 Aug 2024 19:19:36 +0100
+From: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        Christophe Leroy <christophe.leroy@csgroup.eu>,
+        Naveen N Rao <naveen@kernel.org>, Muchun Song <muchun.song@linux.dev>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+        Vlastimil Babka <vbabka@suse.cz>, Thomas Gleixner <tglx@linutronix.de>,
+        Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+        Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+        "H. Peter Anvin" <hpa@zytor.com>, Huacai Chen <chenhuacai@kernel.org>,
+        WANG Xuerui <kernel@xen0n.name>, Russell King <linux@armlinux.org.uk>,
+        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+        "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+        Helge Deller <deller@gmx.de>,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Yoshinori Sato <ysato@users.sourceforge.jp>,
+        Rich Felker <dalias@libc.org>,
+        John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+        "David S. Miller" <davem@davemloft.net>,
+        Andreas Larsson <andreas@gaisler.com>, Shuah Khan <shuah@kernel.org>,
+        Alexandre Ghiti <alexghiti@rivosinc.com>, linux-arch@vger.kernel.org,
+        linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>,
+        linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+        linuxppc-dev@lists.ozlabs.org, linux-mm@kvack.org,
+        loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+        linux-parisc@vger.kernel.org, linux-s390@vger.kernel.org,
+        linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+        linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH 00/16] mm: Introduce MAP_BELOW_HINT
+Message-ID: <2570b1ea-d2a4-4bcb-9bb3-8d979657c56a@lucifer.local>
+References: <20240827-patches-below_hint_mmap-v1-0-46ff2eb9022d@rivosinc.com>
+Content-Disposition: inline
+In-Reply-To: <20240827-patches-below_hint_mmap-v1-0-46ff2eb9022d@rivosinc.com>
+X-ClientProxiedBy: LO2P265CA0277.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:a1::25) To SJ0PR10MB5613.namprd10.prod.outlook.com
+ (2603:10b6:a03:3d0::5)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ0PR10MB5613:EE_|CH2PR10MB4328:EE_
+X-MS-Office365-Filtering-Correlation-Id: e05102ad-382d-47c5-9242-08dcc78dfb2b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?h9Bwh+5CyCo/7d+hlYnFzczbfYTh7eao2pufQJyT13VLIVQzk/NlUIzYDTO6?=
+ =?us-ascii?Q?PqQwSnIvuJ6ICjp5WwDelhEP8YALtnZk/3nk2po9uP8kH1a0uIeZed6QytoH?=
+ =?us-ascii?Q?N3SGavdayR2pA8MrSVUJvEio1PYsEfPNMUQ3RXPU+vJUpBQOrDvzt+YXehnx?=
+ =?us-ascii?Q?Pt3m/bBCcG2FrqVf1gslgD5vpC6IBJKd6yoJnjyrkP2gMtZo04xc1P7v0WO9?=
+ =?us-ascii?Q?Sbw2aiYk3c4wulgc3UH5PUDUhrxUrTobn+gyOG3mWq3AL6cdVUU3QA4L6TEL?=
+ =?us-ascii?Q?FjfQGQvehCYkz0i1dwMHzhJwu6RQaF+rV9OzO42TMg+ItbYqfPi5BxFMvSBc?=
+ =?us-ascii?Q?qUr/V33oD5MBDq58y2ruJZFyrsYCjvVkPRwPeYSPAsrzLmbTPkGLP/ymQGPS?=
+ =?us-ascii?Q?GBKCydjc0UGG0Tr32WR2kSWXo/4N5jhTUfsIN8V9JGBPDuXJYnZ4eoMRFl5M?=
+ =?us-ascii?Q?HfpT+PdX3tuU4ESZ4PlC6G+HC9xitYFV/Bz+SOYwq7wCIucq3PeffndkCu3T?=
+ =?us-ascii?Q?ivUBB1iX3kcUjnGwbE5fFOnXL+NXe6ST+nRJeKnfip70LcVruIIOtI4QXhtj?=
+ =?us-ascii?Q?GgXgvJxpReXnwTr0zYiQwtDWZqs8XxNL0ldHqahOnrPk2en2J5xeJJ1Pg4Zo?=
+ =?us-ascii?Q?XPnITxbmLAcJrMcKm+vePdO7IxQh6xocSw/LtitSbsITVYiiv4QvIS+w+pEf?=
+ =?us-ascii?Q?Xr6l1n/ZTz/9xGPXDf14JNNFc5uOPBcYEDprYXbInABL1Ix3IRFs8V15Ro0n?=
+ =?us-ascii?Q?XHXP5zzJ16efbXUglDI7z+LJRr+Q8fVdVESCybWEto/hpbP9RHmHKErFF1qr?=
+ =?us-ascii?Q?IA1WhGrlWx1DrH7j015ZJCpYCaE8e09gdpPMHa8E5V6Kk/4964eazzw7vHxK?=
+ =?us-ascii?Q?maZ6nMm+e0Z0glOIgX/VpnVLK+0W+w2AAQEBT6S05Q9RueOU5MzqhlzRSFt8?=
+ =?us-ascii?Q?9KfTgUX187tLl1ia959b9+JIAF+2mBDrDbI84cJWm9i5toHWMsKJR1N9Abfc?=
+ =?us-ascii?Q?gKzyBeWZQ3+U2hNvWQEhcLNGNG9C2+HcqCI5iJ9qK4IBWJLm3jNtYRoB8PXO?=
+ =?us-ascii?Q?TDLSS5sm1ZrykY4MxvO+L88KHguW+jaccV/aSjltPbY7pFQN7CeT4UduU7h4?=
+ =?us-ascii?Q?fPSKDBzoP7jAxfNQa9BR6cfInU2yq8Q27HiT4MVhIBPmxAYbduLucqdmwkBM?=
+ =?us-ascii?Q?0f/6jDpgPgiSldGYlB+D3miXWm2d8jV248SJGlAzvKbHEPiv+usz30E4TdSe?=
+ =?us-ascii?Q?2GP8ZU74/LJvYU5JJP8VEBLJBDkDFhIAOcdr7Kg4X239xhs2x2nCYWyHk7Wb?=
+ =?us-ascii?Q?uSw=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR10MB5613.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+1EEe+dvbVKbyqp84+X9Co5zlItBils64pI27ncE/VjwhEbv4MvVHNYU+7bY?=
+ =?us-ascii?Q?nReKGSzLJ4ZPogQbMEM4d9PV+HYPHhS0FoWLckEiLKwvYafOBIlQ6Y2vSFPu?=
+ =?us-ascii?Q?b8MOWrtTgzxYV8iqVA6etuFZiv2oEEVD4PiTFCYDL1cJC/dOcQj2oSOe16mN?=
+ =?us-ascii?Q?VD2gYXgKRsT7N2ZD7AD/bz0yWEMaoSgTWpSL0GqQSYXcb8olWAdK/8HHTfHP?=
+ =?us-ascii?Q?F3VQ0HHEV4bx9l6pCVFtX/OZph286ZNLepVtBjiFvqs+tY5AE9sJrq5sdlwE?=
+ =?us-ascii?Q?GvWkV6cEjMoGh4YNiWzmdmatXPaSNcx3/1bsLMD5XR24pBP2VvzkwCA5BH2Y?=
+ =?us-ascii?Q?e9SUYpkqdTgPmmbViJlTyaBWXa8FrLt7F9NMpYwd258nUlJQ++EC8rOMBgT/?=
+ =?us-ascii?Q?sXId6WHC+1DKtcGmhQPuRV6ifuNNxmzy6JYu0ZoC99gsvHDR2joyAxdwkbX9?=
+ =?us-ascii?Q?tX9F01tFakD8kncISXVL49IHi8w/BekFF3+RFQh0Oe23Ma/XxAU6UXW123dQ?=
+ =?us-ascii?Q?DISFUBiEBSF3gtjQzTBvkIso/tyOaWa0dZYEAtOk9+9N4BMFCwz/uJ8Gf9LX?=
+ =?us-ascii?Q?GF9MTSrPj63tkUrOCBCye1FeM0TlcMxUdWGP6iYz3JElQTGVfJYF+uSeNmiH?=
+ =?us-ascii?Q?zUVGEq3G8LBbTVRMoWl5MgweRCiYnDjhCLkt9oMqQTZoJoz5/lalCaQsRu2z?=
+ =?us-ascii?Q?DBND4+cUfRD1Dii+c4VrqMrfRXRtDh9Ep7DigWdijh2KV1h20ggtG5EWGSq3?=
+ =?us-ascii?Q?48jsoYnSb1UAn1t9C8MdNPh3wFuNx/bHKRgFawFxkjagkfCopqSQly0H4KXN?=
+ =?us-ascii?Q?fug5J+WMcc9lNuc65lUNDK/u8JZj53NmKXHdaog/eM9zKVdqrcGW7hMLoNJP?=
+ =?us-ascii?Q?U7E7Ls2/sO74XcHIAnHlGCenk7IPjJg4SL0KoK/1z/eNrYNr0VRYSZ5SgQpA?=
+ =?us-ascii?Q?Fbr5pL88F3Wn87+ZLAgL8mMP4XXqwTVuYkWTpPv3cH3qiHdH/1KLzI5+u4KE?=
+ =?us-ascii?Q?R7gGybSucj/a0IvRLT8z6dgWbCfjYhMTr2FGV3OHUp7c9y2qbUZ6eAYikvHc?=
+ =?us-ascii?Q?XrVm6QMeD13O3LBfc646lD8I/N3Vrt3UahPgI9icbVI6DKUnNjIj5ED42ovg?=
+ =?us-ascii?Q?7V/4cYxaMNvENigsULUs2wLy1GofUaAcBel+8GtQZhAGM3lEMlc8vtG4EbnX?=
+ =?us-ascii?Q?ecUJibVynWbNctq4GWAj830KpmeWbSO5L/4Syym27ej4jFE9D6exM/iNs3pJ?=
+ =?us-ascii?Q?+wRNOH5wDQcifknRgNC5SA6xQaqBf+BmLiwC2kr2ifmjwgfstf++RD5qeTPz?=
+ =?us-ascii?Q?U/XSGUuM4jfbpY4qjlWfie1D7SixDfMhfcF/rG+ydFIon6QpdGHShunyjgbr?=
+ =?us-ascii?Q?BCBm6wev1U4p2NJJnvwxl3p1NlBzLKPlpvU5T2M2/zbqAQk3JHbn5sNCvSca?=
+ =?us-ascii?Q?ZH135k8xT4CTIkOQmkhyc1K786Zj2gB8z295fBV1mUD1jIikIEwDKLmKtq1L?=
+ =?us-ascii?Q?wJDoYuS3jBpb7EZ+lOptcmYMMQcE2lTbtwvcae81twgE1ZYfMdnTeerJfPgC?=
+ =?us-ascii?Q?8lfKk3iXXsPzSMPPPNBqpD275EUWPEjd4jitNE7iVuinWmARK0097XHvdW07?=
+ =?us-ascii?Q?bw=3D=3D?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: mEl8fuq4VdtNMDB+MdFj/osh3pASI3kdsIgtk14MBjUA1L0X7croAvSMqSw3OG/u1NSF9EjqvSj+U7L/zeiNZbOxrhPIqlAZJbtmoPt6xLtLQU0QgpDWP3vWmz6K6cTqalkg13ucjxaZz0y1cbJVlHPQv0MZb4jLPAgBbPIH0yD+4jeRmkB2Bs9rXIUGfwmlQJBQTsboF7NDelNCjoQn6ag+F/1JuGbaMwKdWtiEaFS3dT6ALFTEuVjNwxWizqIXFTg79cQsw4vC4tUUK5xGrPvC+G7YHgC8mBTIoiZveeg6K9SqxQ7ZtkfNALiOqcZPLwmXX2UC1apDZF44weCz4zu3/zPVbsMWc/Wm90JREaxEc5xxPURwphNX8ci0UaH7Twv4Yramtq+uXvacQIHUWWxaK+g9PBxG72PrwupV8ZTYeVhdTVIzZ68nJ7Op56yCtoK22QrRgoHNifz4B2jATEcZoFgMqiw7VjZF20wUvygtTf9v31arNN2YG7IAJQ3o4zStu0i/9flszfGjLMA+xHPGiqkZfZU+nB35o+NPeerb2MV0jZxWGsCV0pYvThHQRKRU5NiH2Y2myidv97rcgaQETyMGnaUpkN0IzHPiPsM=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e05102ad-382d-47c5-9242-08dcc78dfb2b
+X-MS-Exchange-CrossTenant-AuthSource: SJ0PR10MB5613.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Aug 2024 18:19:40.0774
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: fCXQG9vpDZti0R4B1uQdF0OPq+dKWvDdkaQFcQGHkSGJEoa/kJF+C2olJZparT/vLDhgMfY2y9VnNoQ2qQxUAgDEDlkv75RzrmvpEdQ9go4=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR10MB4328
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.28.16
+ definitions=2024-08-28_08,2024-08-28_01,2024-05-17_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0 spamscore=0 suspectscore=0
+ mlxlogscore=999 malwarescore=0 bulkscore=0 phishscore=0 mlxscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2407110000
+ definitions=main-2408280133
+X-Proofpoint-GUID: NvgtYYx7-t4bJL95ZESXg4r_1H8G4njA
+X-Proofpoint-ORIG-GUID: NvgtYYx7-t4bJL95ZESXg4r_1H8G4njA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240828_111455_283939_3BC8F672 
-X-CRM114-Status: GOOD (  14.96  )
+X-CRM114-CacheID: sfid-20240828_112057_093504_B7B34AB8 
+X-CRM114-Status: GOOD (  26.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,84 +215,197 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Fold coalesced_mmio_has_room() into its sole caller, coalesced_mmio_write(),
-as it's really just a single line of code, has a goofy return value, and
-is unnecessarily brittle.
+On Tue, Aug 27, 2024 at 10:49:06PM GMT, Charlie Jenkins wrote:
+> Some applications rely on placing data in free bits addresses allocated
+> by mmap. Various architectures (eg. x86, arm64, powerpc) restrict the
+> address returned by mmap to be less than the maximum address space,
+> unless the hint address is greater than this value.
+>
+> On arm64 this barrier is at 52 bits and on x86 it is at 56 bits. This
+> flag allows applications a way to specify exactly how many bits they
+> want to be left unused by mmap. This eliminates the need for
+> applications to know the page table hierarchy of the system to be able
+> to reason which addresses mmap will be allowed to return.
+>
+> ---
+> riscv made this feature of mmap returning addresses less than the hint
+> address the default behavior. This was in contrast to the implementation
+> of x86/arm64 that have a single boundary at the 5-level page table
+> region. However this restriction proved too great -- the reduced
+> address space when using a hint address was too small.
+>
+> A patch for riscv [1] reverts the behavior that broke userspace. This
+> series serves to make this feature available to all architectures.
 
-E.g. if coalesced_mmio_has_room() were to check ring->last directly, or
-the caller failed to use READ_ONCE(), KVM would be susceptible to TOCTOU
-attacks from userspace.
+I'm a little confused as to the justification for this - you broke RISC V by
+doing this, and have now reverted it, but now offer the same behaviour that
+broke RISC V to all other architectures?
 
-Opportunistically add a comment explaining why on earth KVM leaves one
-entry free, which may not be obvious to readers that aren't familiar with
-ring buffers.
+I mean this is how this reads, so I might be being ungenerous here :) but would
+be good to clarify what the value-add is here.
 
-No functional change intended.
+I also wonder at use of a new MAP_ flag, they're a limited resource and we
+should only ever add them if we _really_ need to. This seems a bit niche and
+specific to be making such a big change for including touching a bunch of pretty
+sensitive arch-specific code.
 
-Reviewed-by: Ilias Stamatis <ilstam@amazon.com>
-Cc: Paul Durrant <paul@xen.org>
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- virt/kvm/coalesced_mmio.c | 29 ++++++++---------------------
- 1 file changed, 8 insertions(+), 21 deletions(-)
+We have the ability to change how mmap() functions through 'personalities'
+though of course this would impact every mmap() call in the process.
 
-diff --git a/virt/kvm/coalesced_mmio.c b/virt/kvm/coalesced_mmio.c
-index 184c5c40c9c1..375d6285475e 100644
---- a/virt/kvm/coalesced_mmio.c
-+++ b/virt/kvm/coalesced_mmio.c
-@@ -40,25 +40,6 @@ static int coalesced_mmio_in_range(struct kvm_coalesced_mmio_dev *dev,
- 	return 1;
- }
- 
--static int coalesced_mmio_has_room(struct kvm_coalesced_mmio_dev *dev, u32 last)
--{
--	struct kvm_coalesced_mmio_ring *ring;
--
--	/* Are we able to batch it ? */
--
--	/* last is the first free entry
--	 * check if we don't meet the first used entry
--	 * there is always one unused entry in the buffer
--	 */
--	ring = dev->kvm->coalesced_mmio_ring;
--	if ((last + 1) % KVM_COALESCED_MMIO_MAX == READ_ONCE(ring->first)) {
--		/* full */
--		return 0;
--	}
--
--	return 1;
--}
--
- static int coalesced_mmio_write(struct kvm_vcpu *vcpu,
- 				struct kvm_io_device *this, gpa_t addr,
- 				int len, const void *val)
-@@ -72,9 +53,15 @@ static int coalesced_mmio_write(struct kvm_vcpu *vcpu,
- 
- 	spin_lock(&dev->kvm->ring_lock);
- 
-+	/*
-+	 * last is the index of the entry to fill.  Verify userspace hasn't
-+	 * set last to be out of range, and that there is room in the ring.
-+	 * Leave one entry free in the ring so that userspace can differentiate
-+	 * between an empty ring and a full ring.
-+	 */
- 	insert = READ_ONCE(ring->last);
--	if (!coalesced_mmio_has_room(dev, insert) ||
--	    insert >= KVM_COALESCED_MMIO_MAX) {
-+	if (insert >= KVM_COALESCED_MMIO_MAX ||
-+	    (insert + 1) % KVM_COALESCED_MMIO_MAX == READ_ONCE(ring->first)) {
- 		spin_unlock(&dev->kvm->ring_lock);
- 		return -EOPNOTSUPP;
- 	}
--- 
-2.46.0.295.g3b9ea8a38a-goog
+Overall I'm really not hugely convinced by this, it feels like userland
+could find better ways of doing this (mostly you'd do a PROT_NONE mmap() to
+reserve a domain and mprotect() it on allocation or mmap() over it).
 
+So I just struggle to see the purpose myself. BUT absolutely I may be
+missing context/others may have a view on the value of this. So happy to
+stand corrected.
+
+>
+> I have only tested on riscv and x86. There is a tremendous amount of
+
+Yeah, OK this is crazy, you can't really submit something as non-RFC that
+touches every single arch and not test it.
+
+I also feel like we need more justification than 'this is a neat thing that
+we use in RISC V sometimes' conceptually for such a big change.
+
+Also your test program is currently completely broken afaict (have
+commented on it directly). I also feel like your test program is a little
+rudimentary, and should test some edge cases close to the limit etc.
+
+So I think this is a NACK until there is testing across the board and a little
+more justification.
+
+Feel free to respin, but I think any future revisions should be RFC until
+we're absolutely sure on testing/justification.
+
+I appreciate your efforts here so sorry to be negative, but just obviously
+want to make sure this is functional and trades off added complexity for
+value for the kernel and userland :)
+
+Thanks!
+
+> duplicated code in mmap so the implementations across architectures I
+> believe should be mostly consistent. I added this feature to all
+> architectures that implement either
+> arch_get_mmap_end()/arch_get_mmap_base() or
+> arch_get_unmapped_area_topdown()/arch_get_unmapped_area(). I also added
+> it to the default behavior for arch_get_mmap_end()/arch_get_mmap_base().
+>
+> Link: https://lore.kernel.org/lkml/20240826-riscv_mmap-v1-2-cd8962afe47f@rivosinc.com/T/ [1]
+>
+> To: Arnd Bergmann <arnd@arndb.de>
+> To: Paul Walmsley <paul.walmsley@sifive.com>
+> To: Palmer Dabbelt <palmer@dabbelt.com>
+> To: Albert Ou <aou@eecs.berkeley.edu>
+> To: Catalin Marinas <catalin.marinas@arm.com>
+> To: Will Deacon <will@kernel.org>
+> To: Michael Ellerman <mpe@ellerman.id.au>
+> To: Nicholas Piggin <npiggin@gmail.com>
+> To: Christophe Leroy <christophe.leroy@csgroup.eu>
+> To: Naveen N Rao <naveen@kernel.org>
+> To: Muchun Song <muchun.song@linux.dev>
+> To: Andrew Morton <akpm@linux-foundation.org>
+> To: Liam R. Howlett <Liam.Howlett@oracle.com>
+> To: Vlastimil Babka <vbabka@suse.cz>
+> To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+> To: Thomas Gleixner <tglx@linutronix.de>
+> To: Ingo Molnar <mingo@redhat.com>
+> To: Borislav Petkov <bp@alien8.de>
+> To: Dave Hansen <dave.hansen@linux.intel.com>
+> To: x86@kernel.org
+> To: H. Peter Anvin <hpa@zytor.com>
+> To: Huacai Chen <chenhuacai@kernel.org>
+> To: WANG Xuerui <kernel@xen0n.name>
+> To: Russell King <linux@armlinux.org.uk>
+> To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+> To: James E.J. Bottomley <James.Bottomley@HansenPartnership.com>
+> To: Helge Deller <deller@gmx.de>
+> To: Alexander Gordeev <agordeev@linux.ibm.com>
+> To: Gerald Schaefer <gerald.schaefer@linux.ibm.com>
+> To: Heiko Carstens <hca@linux.ibm.com>
+> To: Vasily Gorbik <gor@linux.ibm.com>
+> To: Christian Borntraeger <borntraeger@linux.ibm.com>
+> To: Sven Schnelle <svens@linux.ibm.com>
+> To: Yoshinori Sato <ysato@users.sourceforge.jp>
+> To: Rich Felker <dalias@libc.org>
+> To: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+> To: David S. Miller <davem@davemloft.net>
+> To: Andreas Larsson <andreas@gaisler.com>
+> To: Shuah Khan <shuah@kernel.org>
+> To: Alexandre Ghiti <alexghiti@rivosinc.com>
+> Cc: linux-arch@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: Palmer Dabbelt <palmer@rivosinc.com>
+> Cc: linux-riscv@lists.infradead.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linuxppc-dev@lists.ozlabs.org
+> Cc: linux-mm@kvack.org
+> Cc: loongarch@lists.linux.dev
+> Cc: linux-mips@vger.kernel.org
+> Cc: linux-parisc@vger.kernel.org
+> Cc: linux-s390@vger.kernel.org
+> Cc: linux-sh@vger.kernel.org
+> Cc: sparclinux@vger.kernel.org
+> Cc: linux-kselftest@vger.kernel.org
+> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+>
+> ---
+> Charlie Jenkins (16):
+>       mm: Add MAP_BELOW_HINT
+>       riscv: mm: Do not restrict mmap address based on hint
+>       mm: Add flag and len param to arch_get_mmap_base()
+>       mm: Add generic MAP_BELOW_HINT
+>       riscv: mm: Support MAP_BELOW_HINT
+>       arm64: mm: Support MAP_BELOW_HINT
+>       powerpc: mm: Support MAP_BELOW_HINT
+>       x86: mm: Support MAP_BELOW_HINT
+>       loongarch: mm: Support MAP_BELOW_HINT
+>       arm: mm: Support MAP_BELOW_HINT
+>       mips: mm: Support MAP_BELOW_HINT
+>       parisc: mm: Support MAP_BELOW_HINT
+>       s390: mm: Support MAP_BELOW_HINT
+>       sh: mm: Support MAP_BELOW_HINT
+>       sparc: mm: Support MAP_BELOW_HINT
+>       selftests/mm: Create MAP_BELOW_HINT test
+>
+>  arch/arm/mm/mmap.c                           | 10 ++++++++
+>  arch/arm64/include/asm/processor.h           | 34 ++++++++++++++++++++++----
+>  arch/loongarch/mm/mmap.c                     | 11 +++++++++
+>  arch/mips/mm/mmap.c                          |  9 +++++++
+>  arch/parisc/include/uapi/asm/mman.h          |  1 +
+>  arch/parisc/kernel/sys_parisc.c              |  9 +++++++
+>  arch/powerpc/include/asm/task_size_64.h      | 36 +++++++++++++++++++++++-----
+>  arch/riscv/include/asm/processor.h           | 32 -------------------------
+>  arch/s390/mm/mmap.c                          | 10 ++++++++
+>  arch/sh/mm/mmap.c                            | 10 ++++++++
+>  arch/sparc/kernel/sys_sparc_64.c             |  8 +++++++
+>  arch/x86/kernel/sys_x86_64.c                 | 25 ++++++++++++++++---
+>  fs/hugetlbfs/inode.c                         |  2 +-
+>  include/linux/sched/mm.h                     | 34 ++++++++++++++++++++++++--
+>  include/uapi/asm-generic/mman-common.h       |  1 +
+>  mm/mmap.c                                    |  2 +-
+>  tools/arch/parisc/include/uapi/asm/mman.h    |  1 +
+>  tools/include/uapi/asm-generic/mman-common.h |  1 +
+>  tools/testing/selftests/mm/Makefile          |  1 +
+>  tools/testing/selftests/mm/map_below_hint.c  | 29 ++++++++++++++++++++++
+>  20 files changed, 216 insertions(+), 50 deletions(-)
+> ---
+> base-commit: 5be63fc19fcaa4c236b307420483578a56986a37
+> change-id: 20240827-patches-below_hint_mmap-b13d79ae1c55
+> --
+> - Charlie
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
