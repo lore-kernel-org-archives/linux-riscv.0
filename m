@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A6E5C83F15
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Aug 2024 13:32:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B773C7115F
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Aug 2024 13:32:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fkbhnEnZXgYim3f192aRvEoG0sIMi0OhbvOLjBHAFBE=; b=Nd2hrnGr80y5BW
-	+p7C4DBLgVupAJ3S3NVoWF4VMvDU4Bq2WrXMvtVeGhk1HKMs7Wo8e3mxSw5REkZ4D6l40UHkYceVu
-	6jQAUMvwf3PzZkXz1xoD47jKN6PV5KDWo+5kGyPFrjSs5x2xhlVte7utqf/Iui2Bkh74DYAqygfYR
-	5cavWaWU7E5jl2cE44azIkTDPBdrlxiBrmSQWiBD4JpQFYuGU9yhX4Eijq1ebGqqplTQEpYalsqIW
-	YKrZpSfMqzErKwSTWzzobU/uNqbRobzKeoKP/caO87Ckynak+1xm1fdk441Iqh+NI+ut9axQw52Ed
-	adwAgY8x8GEzWRgHSPxw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=8CUTEgiZlC6cN28Y7fyZLOAeNag5juuCuOZE2E/pKic=; b=y19UlsLe5sCME0
+	4b2uG5BQaC3WA1+jks7QIsPIVBsWLUGHFnndn4qCGN2BKpQIxIm+ow8v9V6fuiXpdVYAzzKVt34G4
+	7AnoF5xOSexZQakgnBRt6AcXZRdKItoDIlxQPNXsUxpnriPxn+WJSq2RwoVZRemHRH9UwklfR9BWJ
+	uuHgxuRgCrW6yw7XB7VkcuVLJBwhQWEx74v3Mzxyz/hrzNmMyOIrJRlpPVcx3Isy2scpRHbR7ch1S
+	IBlWmlNC9eTiUp86U8YaYiP2PxOUc7zyBHoN/fYvY+vsmN80f8El5wce+snDZWqn3X1EQr5rJkzgO
+	QmrQsI5AWg5J2TjvflTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjfG8-00000002CNs-3fsD;
-	Thu, 29 Aug 2024 13:32:21 +0000
+	id 1sjfGB-00000002COy-2sN3;
+	Thu, 29 Aug 2024 13:32:23 +0000
 Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjfG5-00000002CJc-2Vti
+	id 1sjfG6-00000002CJb-3m19
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Aug 2024 13:32:20 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.235])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4Wvhyn5hhqz4f3l7v
-	for <linux-riscv@lists.infradead.org>; Thu, 29 Aug 2024 21:32:01 +0800 (CST)
+	Thu, 29 Aug 2024 13:32:21 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.216])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4Wvhyh12Fjz4f3nTK
+	for <linux-riscv@lists.infradead.org>; Thu, 29 Aug 2024 21:31:56 +0800 (CST)
 Received: from mail02.huawei.com (unknown [10.116.40.252])
-	by mail.maildlp.com (Postfix) with ESMTP id C99EE1A058E
+	by mail.maildlp.com (Postfix) with ESMTP id A7F9A1A1733
 	for <linux-riscv@lists.infradead.org>; Thu, 29 Aug 2024 21:32:11 +0800 (CST)
 Received: from ultra.huawei.com (unknown [10.90.53.71])
-	by APP3 (Coremail) with SMTP id _Ch0CgBXurhbeNBmFVXQCw--.7237S3;
+	by APP3 (Coremail) with SMTP id _Ch0CgBXurhbeNBmFVXQCw--.7237S2;
 	Thu, 29 Aug 2024 21:32:11 +0800 (CST)
 From: Pu Lehui <pulehui@huaweicloud.com>
 To: bpf@vger.kernel.org,
@@ -57,35 +57,32 @@ Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
 	Puranjay Mohan <puranjay@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Pu Lehui <pulehui@huawei.com>
-Subject: [PATCH bpf-next 1/2] libbpf: Fix accessing first syscall argument on RV64
-Date: Thu, 29 Aug 2024 13:34:52 +0000
-Message-Id: <20240829133453.882259-2-pulehui@huaweicloud.com>
+Subject: [PATCH bpf-next 0/2] Fix accessing first syscall argument on RV64
+Date: Thu, 29 Aug 2024 13:34:51 +0000
+Message-Id: <20240829133453.882259-1-pulehui@huaweicloud.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20240829133453.882259-1-pulehui@huaweicloud.com>
-References: <20240829133453.882259-1-pulehui@huaweicloud.com>
 MIME-Version: 1.0
-X-CM-TRANSID: _Ch0CgBXurhbeNBmFVXQCw--.7237S3
-X-Coremail-Antispam: 1UD129KBjvJXoW7Kr43ArWfCw1Dur47Zry3CFg_yoW8ZF4DpF
-	W5Ca47Kr18Wr4Ig3s7KF4aqa13Kr15JrsrJF93Ww4S9FW8t39aqa429390yrsIqrW8J3y5
-	ZFZrKw1rWry7ZwUanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUP2b4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUGw
-	A2048vs2IY020Ec7CjxVAFwI0_Gr0_Xr1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxS
-	w2x7M28EF7xvwVC0I7IYx2IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxV
-	W8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v2
-	6rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMc
-	Ij6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_
-	Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI
-	0_Wrv_ZF1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG
-	67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MI
-	IYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E
-	14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr
-	0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IUnTa
-	0DUUUUU==
+X-CM-TRANSID: _Ch0CgBXurhbeNBmFVXQCw--.7237S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrKr1xAr4xGry8Wr4DWr1UGFg_yoW3GrgE9w
+	48ur97Ars5ur98tF15Wr15CrZFkw45Wr15Wr4DJrW3tr1DArs8JFsYk34UJasxWF4rWayf
+	Ca9rX34fAr1avjkaLaAFLSUrUUUUbb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbIxYFVCjjxCrM7AC8VAFwI0_Xr0_Wr1l1xkIjI8I6I8E6xAIw20E
+	Y4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM28CjxkF64kEwV
+	A0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0cI8IcVCY1x02
+	67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I
+	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
+	x7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
+	0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAa
+	w2AFwI0_Wrv_ZF1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxV
+	Aqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a
+	6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6x
+	kF7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAF
+	wI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa
+	7IU0l1v3UUUUU==
 X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240829_063218_339153_25EF97A9 
-X-CRM114-Status: UNSURE (   9.15  )
+X-CRM114-CacheID: sfid-20240829_063220_280827_7FA3954E 
+X-CRM114-Status: UNSURE (   5.30  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -103,52 +100,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Pu Lehui <pulehui@huawei.com>
-
 On RV64, as Ilya mentioned before [0], the first syscall parameter should be
 accessed through orig_a0 (see arch/riscv64/include/asm/syscall.h),
 otherwise it will cause selftests like bpf_syscall_macro, vmlinux,
-test_lsm, etc. to fail on RV64. Let's fix it by using the struct pt_regs
-style to provide access to it only through PT_REGS_PARM1_CORE_SYSCALL().
+test_lsm, etc. to fail on RV64.
 
 Link: https://lore.kernel.org/bpf/20220209021745.2215452-1-iii@linux.ibm.com [0]
-Signed-off-by: Pu Lehui <pulehui@huawei.com>
----
- tools/lib/bpf/bpf_tracing.h | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
 
-diff --git a/tools/lib/bpf/bpf_tracing.h b/tools/lib/bpf/bpf_tracing.h
-index 9314fa95f04e..388f30cf7914 100644
---- a/tools/lib/bpf/bpf_tracing.h
-+++ b/tools/lib/bpf/bpf_tracing.h
-@@ -351,6 +351,10 @@ struct pt_regs___arm64 {
-  * https://github.com/riscv-non-isa/riscv-elf-psabi-doc/blob/master/riscv-cc.adoc#risc-v-calling-conventions
-  */
- 
-+struct pt_regs___riscv {
-+	unsigned long orig_a0;
-+};
-+
- /* riscv provides struct user_regs_struct instead of struct pt_regs to userspace */
- #define __PT_REGS_CAST(x) ((const struct user_regs_struct *)(x))
- #define __PT_PARM1_REG a0
-@@ -362,12 +366,15 @@ struct pt_regs___arm64 {
- #define __PT_PARM7_REG a6
- #define __PT_PARM8_REG a7
- 
--#define __PT_PARM1_SYSCALL_REG __PT_PARM1_REG
-+#define __PT_PARM1_SYSCALL_REG orig_a0
- #define __PT_PARM2_SYSCALL_REG __PT_PARM2_REG
- #define __PT_PARM3_SYSCALL_REG __PT_PARM3_REG
- #define __PT_PARM4_SYSCALL_REG __PT_PARM4_REG
- #define __PT_PARM5_SYSCALL_REG __PT_PARM5_REG
- #define __PT_PARM6_SYSCALL_REG __PT_PARM6_REG
-+#define PT_REGS_PARM1_SYSCALL(x) PT_REGS_PARM1_CORE_SYSCALL(x)
-+#define PT_REGS_PARM1_CORE_SYSCALL(x) \
-+	BPF_CORE_READ((const struct pt_regs___riscv *)(x), __PT_PARM1_SYSCALL_REG)
- 
- #define __PT_RET_REG ra
- #define __PT_FP_REG s0
+Pu Lehui (2):
+  libbpf: Fix accessing first syscall argument on RV64
+  selftests/bpf: Skip case involving first arg in bpf_syscall_macro on
+    RV64
+
+ tools/lib/bpf/bpf_tracing.h                              | 9 ++++++++-
+ .../selftests/bpf/prog_tests/test_bpf_syscall_macro.c    | 2 +-
+ tools/testing/selftests/bpf/progs/bpf_syscall_macro.c    | 2 +-
+ 3 files changed, 10 insertions(+), 3 deletions(-)
+
 -- 
 2.34.1
 
