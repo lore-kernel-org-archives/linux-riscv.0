@@ -4,121 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9403DC7EE2D
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Aug 2024 07:14:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95CD7C6FD35
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Aug 2024 07:59:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=38Qe3qYsKsVxQnBWVUQYdus+hy4M/4o92W2jH+RXNFw=; b=Ac6EG5PA2MEjSz
-	gO9G+KS+0mp8TcjJrwPjVoteqMkPklEkz4AiSpmf5NlWmH3GIPL8gcGQ2OlrZivwO43/9ZvtqpEpU
-	yYPmfQGYGVew42qNqQzHn5FtGxlxt6J7CQD9RaCnpey5efI2ESbs5dlrMU0O58ljJCb1nolTDTFib
-	u0o1xkJQTpAw/5tyk3R5JTNZbHUjka2MuJtBWqBOeJLLaxaqhpg5KXvQ3qN3bOHh7oJFECBzBRkoB
-	fIVjESe3iRrXE/ToGFaooxvXWd+iEwz1ssGE5g4pG6m088IF2AfxJw/i8/tRwq3ZMk7gRVFfx/NyY
-	Uv1Hq6xZKsoA9vhu0iWQ==;
+	List-Owner; bh=OaLMOXeL6wVFsQJ7kZ1EwFBXyuZ5vhMNdx5GlLngp2Q=; b=Jeuc8PiK2Rl5nx
+	oxzVQREuLwTv4NEJYB4MlMW/I16gYAdODgWmbFICttOIQGUnxIhOODepwEmPS4Buhq3pRzQ4wrP/H
+	fgStBhHwqx+FCJGUNs6Sb7x6y5kn82ghvSd6B5LpxVdTiqrs2Su4C7ZbCruxcFCmd/2M27n3LL5Ha
+	965idyJ5sCpGIWB5dfpZFCbPLnIgU0Z/o69V9Fi9AOFkgDNsBFjWFmwOvYEUUXOcnSVVwaS8DhFsS
+	aSQC+qVmUe7jmxDBD0e9v5pPmA8yadtvs2rHNqofNI/TmPJO6Q6PC8e09wxAJ5cUQtrnnDHva4iai
+	+erta1myQZTJWQEJKWoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjZMW-00000000ttl-3Yvb;
-	Thu, 29 Aug 2024 07:14:32 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1sja4I-000000013dy-2MhE;
+	Thu, 29 Aug 2024 07:59:46 +0000
+Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjZMT-00000000tsr-1mhQ
+	id 1sja3h-000000013Yq-0R2a
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Aug 2024 07:14:31 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-71433096e89so276516b3a.3
-        for <linux-riscv@lists.infradead.org>; Thu, 29 Aug 2024 00:14:29 -0700 (PDT)
+	Thu, 29 Aug 2024 07:59:44 +0000
+Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-2f50966c469so3961161fa.3
+        for <linux-riscv@lists.infradead.org>; Thu, 29 Aug 2024 00:59:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1724915668; x=1725520468; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1724918347; x=1725523147; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=59qS8d6E7jAm/hvEeiY72pf/LRpSv6Q2qjD/8hJgS38=;
-        b=jjw1JUom9cGNK08777QqYxW5BBJiF+IHrnmrD1HKTJsx7L4SKaQu5XkvpxKTJkAkOn
-         RbjdtTAlyp9K74OKeSqsaUfurb1zCF7AeZGkZvHolam7HdhwpDvzD0c/DIx22Rwxi/Rh
-         xQIYe0/jb1GbDOmSpWCbjGQ4gc0po/DlH6nIE49KHdUxQaXx4YazeniIF+ncti+Q4XkW
-         jD9xXFAO0Bj+t3wjqmxLo5D1DrjI7GGAcktviFJRYAPDhFhOJpt7nOPYAoOsrhueYW/1
-         faZHOgLWGaZEVEU6triSQdORpDUU1nKd75ZY4WoETI536GY8FAl4UFSTfroowbJ8OLO+
-         meWg==
+        bh=6elqEmMP4Fqdb/aWp7gByX3m8OcBQtHxRmlqmcr7txg=;
+        b=CkwUMxYq5HyapGdks12WIq1ZsfM2ROyuUZYM90c8rNCJU8v18HbHpJzCPljqrTNxd6
+         yw4CAeDwvyEU5jj/CX8XE2RP3+h/vwSNSOJ+LprkU2enySISX3biiAMx6N8aCE5NNYoH
+         LCTQHB1GKZd0qemKGkmaDTTPvRc4q4e8jUDCzZ46eZEGfgDCRxUiUXzWmWMWtlxxgY9R
+         iiLtPkmc6wCXhFbYETb+NbGB+VK/pmglBc9x3OhgfFTDHqiOrzfVpaBBxK4Y+IoDRyvf
+         TQ6JjdxPAHJl1qOFOcCeg6rt46C7O+L+5onCjpmFIx3eQtyK9iNYZaO6kMrIGDtTuTJW
+         53qA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1724915668; x=1725520468;
+        d=1e100.net; s=20230601; t=1724918347; x=1725523147;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=59qS8d6E7jAm/hvEeiY72pf/LRpSv6Q2qjD/8hJgS38=;
-        b=ZqinboAAevlkjl4LS/faZBtvypoRnYWOBwYPrj1gKycxs7u9wMNF8VXM3l0CyvuXmT
-         r+GFCn7mX1ZPhJUOEAiE0yTFEzYswzEipDNLAdSKNmfzUQs00WLgz87AuWEHDdiHmYfv
-         4rpLCshij0LDr/IGS8fe16XmLyvJdTUojwNSzlAlkIt6YjgTWbGKxVyaFWkyv5PhWvQh
-         Jgu2qmNcjtXKMgiO5Zy8WSxfLlcrCDs6C8ovrTr76FU/SBbbRO0L+FIIpHQ83zWeV2cV
-         eJD5UcRkMZqn45msrG/kgDig/OFBdlO+ZWzLKJXHPod5LX1NCxREbTddrYtYeKjRpJdo
-         O3Cg==
-X-Forwarded-Encrypted: i=1; AJvYcCWWDVk8m2PWqxrLygkzTtNWjxh5tPmA629RqHm8v5YLOfRaW9a2lV2uRwQfc48OVr16McS/nNPLc52r5g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwoSfirnIDjw3V424imSI4fmeIlfn4GBUHLYZTNKbjYLoj22/O6
-	sSARA9UoMHeukdCMkR7JQEJ/i0ZF4pqRUtd9wN+9TqSP1IwtGVBHnVWg8OYgy30=
-X-Google-Smtp-Source: AGHT+IFxhM4cuDGdAmG+3DSZ8PIKqAZRC1xEgxgW4g8JXtjfrvLb83nabdJs3AxBg2ozZcKKdgajyA==
-X-Received: by 2002:a05:6a20:e196:b0:1c4:c1cd:a29d with SMTP id adf61e73a8af0-1cce101c8fdmr2021570637.28.1724915668227;
-        Thu, 29 Aug 2024 00:14:28 -0700 (PDT)
-Received: from ghost (c-67-164-127-253.hsd1.ca.comcast.net. [67.164.127.253])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-715e56d9716sm545002b3a.174.2024.08.29.00.14.23
+        bh=6elqEmMP4Fqdb/aWp7gByX3m8OcBQtHxRmlqmcr7txg=;
+        b=KgeGm5NtTdMAGU5TPSQ2qpAVKdllIZCZk9N5ikRFMB+Sh/TFvgoURFEHi0wGRX5rvG
+         0nIKpw19u/5jNX1AWTUitEKO0UdOy3oIGwGFQ7SDXgLA6E8PZBUUm4kvCDhlxCcirtWR
+         39bxaFD359hrWeNfWlO5aW0t09kdMXDxX+78T3MYxcA/BIhtzFUMOQP5nBD6vihkw/FB
+         lLNijZVgQ1LilW05DJBNdIp2ZacEOmD7jUwpFRntGhfRkEzP72SL9QoZ/HuZtzzgzH5h
+         XJ2zt5Y1mKGS9X4Etjj1aVVkWnGJVpqn3rqznmHJAuhQ4D6O0flbMflylPdySWqI7tl2
+         y6Cg==
+X-Forwarded-Encrypted: i=1; AJvYcCWjC0XHpwdQMcWWrqRPwgqR3in6VDPUv7e6DTyG3mpU9eAgoYYeLSUcaZ7Ev99w3k4OnSd5ZLo0DncDzg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzNPhGNsQEjX2BU5vBponQrd9fwBggccNKQpztUUNtMjaMHlYsj
+	hHrUFtyYFLZRCC8S2lleZlBvffqnZGzFyq1CH6pqTC0rsg6WvRx8P0csMvbsPwU=
+X-Google-Smtp-Source: AGHT+IEknpoiPwNIZCUWqC5wlzEu9yh+Rxh2v4jcs1wvi/j58/8VhBs0RUuviEJZYalHd8CSAHV62w==
+X-Received: by 2002:a05:651c:1990:b0:2ef:2b05:2ab3 with SMTP id 38308e7fff4ca-2f610392703mr13785621fa.10.1724918346154;
+        Thu, 29 Aug 2024 00:59:06 -0700 (PDT)
+Received: from localhost (cst2-173-13.cust.vodafone.cz. [31.30.173.13])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5c226c7c2aesm382119a12.51.2024.08.29.00.59.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Aug 2024 00:14:27 -0700 (PDT)
-Date: Thu, 29 Aug 2024 00:14:22 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Naveen N Rao <naveen@kernel.org>,
-	Muchun Song <muchun.song@linux.dev>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Russell King <linux@armlinux.org.uk>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	Helge Deller <deller@gmx.de>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	Rich Felker <dalias@libc.org>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	"David S. Miller" <davem@davemloft.net>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Palmer Dabbelt <palmer@rivosinc.com>,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	linux-mm@kvack.org, loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH 00/16] mm: Introduce MAP_BELOW_HINT
-Message-ID: <ZtAfzrOMitPlx96X@ghost>
-References: <20240827-patches-below_hint_mmap-v1-0-46ff2eb9022d@rivosinc.com>
- <2570b1ea-d2a4-4bcb-9bb3-8d979657c56a@lucifer.local>
+        Thu, 29 Aug 2024 00:59:05 -0700 (PDT)
+Date: Thu, 29 Aug 2024 09:59:04 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Nick Hu <nick.hu@sifive.com>
+Subject: Re: [PATCH 1/2] riscv: Add stimecmp save and restore
+Message-ID: <20240829-fb7bda6b46302b65b2f89d20@orel>
+References: <20240829033904.477200-1-nick.hu@sifive.com>
+ <20240829033904.477200-2-nick.hu@sifive.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <2570b1ea-d2a4-4bcb-9bb3-8d979657c56a@lucifer.local>
+In-Reply-To: <20240829033904.477200-2-nick.hu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240829_001429_738304_4B71C36F 
-X-CRM114-Status: GOOD (  53.72  )
+X-CRM114-CacheID: sfid-20240829_005909_173435_96446524 
+X-CRM114-Status: GOOD (  21.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,220 +86,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, zong.li@sifive.com, "Rafael J. Wysocki" <rafael@kernel.org>, linux-pm@vger.kernel.org, Daniel Lezcano <daniel.lezcano@linaro.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, Pavel Machek <pavel@ucw.cz>, Paul Walmsley <paul.walmsley@sifive.com>, greentime.hu@sifive.com, Thomas Gleixner <tglx@linutronix.de>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 28, 2024 at 07:19:36PM +0100, Lorenzo Stoakes wrote:
-> On Tue, Aug 27, 2024 at 10:49:06PM GMT, Charlie Jenkins wrote:
-> > Some applications rely on placing data in free bits addresses allocated
-> > by mmap. Various architectures (eg. x86, arm64, powerpc) restrict the
-> > address returned by mmap to be less than the maximum address space,
-> > unless the hint address is greater than this value.
-> >
-> > On arm64 this barrier is at 52 bits and on x86 it is at 56 bits. This
-> > flag allows applications a way to specify exactly how many bits they
-> > want to be left unused by mmap. This eliminates the need for
-> > applications to know the page table hierarchy of the system to be able
-> > to reason which addresses mmap will be allowed to return.
-> >
-> > ---
-> > riscv made this feature of mmap returning addresses less than the hint
-> > address the default behavior. This was in contrast to the implementation
-> > of x86/arm64 that have a single boundary at the 5-level page table
-> > region. However this restriction proved too great -- the reduced
-> > address space when using a hint address was too small.
-> >
-> > A patch for riscv [1] reverts the behavior that broke userspace. This
-> > series serves to make this feature available to all architectures.
+On Thu, Aug 29, 2024 at 11:38:59AM GMT, Nick Hu wrote:
+> If the HW support the SSTC extension, we should save and restore the
+> stimecmp register while cpu non retention suspend.
 > 
-> I'm a little confused as to the justification for this - you broke RISC V by
-> doing this, and have now reverted it, but now offer the same behaviour that
-> broke RISC V to all other architectures?
+> Signed-off-by: Nick Hu <nick.hu@sifive.com>
+> ---
+>  arch/riscv/include/asm/suspend.h |  4 ++++
+>  arch/riscv/kernel/suspend.c      | 13 +++++++++++++
+>  2 files changed, 17 insertions(+)
 > 
-> I mean this is how this reads, so I might be being ungenerous here :) but would
-> be good to clarify what the value-add is here.
+> diff --git a/arch/riscv/include/asm/suspend.h b/arch/riscv/include/asm/suspend.h
+> index 4ffb022b097f..ffaac2efabb5 100644
+> --- a/arch/riscv/include/asm/suspend.h
+> +++ b/arch/riscv/include/asm/suspend.h
+> @@ -16,6 +16,10 @@ struct suspend_context {
+>  	unsigned long envcfg;
+>  	unsigned long tvec;
+>  	unsigned long ie;
+> +#if __riscv_xlen < 64
+> +	unsigned long stimecmph;
+> +#endif
 
-Yeah I did not do a good job of explaining this! Having this be the
-default behavior was broken, not that this feature in general was
-broken.
+I'm not sure the reduction in struct size is worth the #ifdeffery. If we
+just always add stimecmph, then we can also change the #ifdef's below to
+if's, i.e. if (__riscv_xlen < 64), which should still remove the code from
+64-bit builds.
 
-> 
-> I also wonder at use of a new MAP_ flag, they're a limited resource and we
-> should only ever add them if we _really_ need to. This seems a bit niche and
-> specific to be making such a big change for including touching a bunch of pretty
-> sensitive arch-specific code.
->
-> We have the ability to change how mmap() functions through 'personalities'
-> though of course this would impact every mmap() call in the process.
-> 
-> Overall I'm really not hugely convinced by this, it feels like userland
-> could find better ways of doing this (mostly you'd do a PROT_NONE mmap() to
-> reserve a domain and mprotect() it on allocation or mmap() over it).
-> 
-> So I just struggle to see the purpose myself. BUT absolutely I may be
-> missing context/others may have a view on the value of this. So happy to
-> stand corrected.
-> 
-> >
-> > I have only tested on riscv and x86. There is a tremendous amount of
-> 
-> Yeah, OK this is crazy, you can't really submit something as non-RFC that
-> touches every single arch and not test it.
-> 
-> I also feel like we need more justification than 'this is a neat thing that
-> we use in RISC V sometimes' conceptually for such a big change.
+Or maybe we need something like
 
-I will send out a new version that does a much better job at explaining!
-This is not something that is done on riscv ever currently. This is
-something that is done on other architectures such as x86 and arm64.
-This flag is to make similar behavior (the ability to force mmap to
-return addresses that have a constrained address space) available to all
-architectures.
+#if __riscv_xlen < 64
+#define csrh_write(r, v) csr_write(r, v)
+#else
+#define csrh_write(r, v)
+#endif
 
-> 
-> Also your test program is currently completely broken afaict (have
-> commented on it directly). I also feel like your test program is a little
-> rudimentary, and should test some edge cases close to the limit etc.
-> 
-> So I think this is a NACK until there is testing across the board and a little
-> more justification.
-> 
-> Feel free to respin, but I think any future revisions should be RFC until
-> we're absolutely sure on testing/justification.
-> 
-> I appreciate your efforts here so sorry to be negative, but just obviously
-> want to make sure this is functional and trades off added complexity for
-> value for the kernel and userland :)
-> 
+in asm/csr.h and then use it for all the *h csrs, but keep the #if in
+the struct.
 
-Totally understand thank you! After reviewing comments I have realized
-that I made this much more complicated than it needs to be. This should
-be able to be done without changing any architecture specific code. That
-will mostly eliminate all of the complexity, but still has the downside
-of consuming a MAP_ flag.
+Thanks,
+drew
 
-- Charlie
-
-> Thanks!
+> +	unsigned long stimecmp;
+>  #ifdef CONFIG_MMU
+>  	unsigned long satp;
+>  #endif
+> diff --git a/arch/riscv/kernel/suspend.c b/arch/riscv/kernel/suspend.c
+> index c8cec0cc5833..3afd86e1abf7 100644
+> --- a/arch/riscv/kernel/suspend.c
+> +++ b/arch/riscv/kernel/suspend.c
+> @@ -19,6 +19,12 @@ void suspend_save_csrs(struct suspend_context *context)
+>  	context->tvec = csr_read(CSR_TVEC);
+>  	context->ie = csr_read(CSR_IE);
+>  
+> +	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SSTC)) {
+> +		context->stimecmp = csr_read(CSR_STIMECMP);
+> +#if __riscv_xlen < 64
+> +		context->stimecmph = csr_read(CSR_STIMECMPH);
+> +#endif
+> +	}
+>  	/*
+>  	 * No need to save/restore IP CSR (i.e. MIP or SIP) because:
+>  	 *
+> @@ -42,6 +48,13 @@ void suspend_restore_csrs(struct suspend_context *context)
+>  	csr_write(CSR_TVEC, context->tvec);
+>  	csr_write(CSR_IE, context->ie);
+>  
+> +	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SSTC)) {
+> +		csr_write(CSR_STIMECMP, context->stimecmp);
+> +#if __riscv_xlen < 64
+> +		csr_write(CSR_STIMECMPH, context->stimecmph);
+> +#endif
+> +	}
+> +
+>  #ifdef CONFIG_MMU
+>  	csr_write(CSR_SATP, context->satp);
+>  #endif
+> -- 
+> 2.34.1
 > 
-> > duplicated code in mmap so the implementations across architectures I
-> > believe should be mostly consistent. I added this feature to all
-> > architectures that implement either
-> > arch_get_mmap_end()/arch_get_mmap_base() or
-> > arch_get_unmapped_area_topdown()/arch_get_unmapped_area(). I also added
-> > it to the default behavior for arch_get_mmap_end()/arch_get_mmap_base().
-> >
-> > Link: https://lore.kernel.org/lkml/20240826-riscv_mmap-v1-2-cd8962afe47f@rivosinc.com/T/ [1]
-> >
-> > To: Arnd Bergmann <arnd@arndb.de>
-> > To: Paul Walmsley <paul.walmsley@sifive.com>
-> > To: Palmer Dabbelt <palmer@dabbelt.com>
-> > To: Albert Ou <aou@eecs.berkeley.edu>
-> > To: Catalin Marinas <catalin.marinas@arm.com>
-> > To: Will Deacon <will@kernel.org>
-> > To: Michael Ellerman <mpe@ellerman.id.au>
-> > To: Nicholas Piggin <npiggin@gmail.com>
-> > To: Christophe Leroy <christophe.leroy@csgroup.eu>
-> > To: Naveen N Rao <naveen@kernel.org>
-> > To: Muchun Song <muchun.song@linux.dev>
-> > To: Andrew Morton <akpm@linux-foundation.org>
-> > To: Liam R. Howlett <Liam.Howlett@oracle.com>
-> > To: Vlastimil Babka <vbabka@suse.cz>
-> > To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-> > To: Thomas Gleixner <tglx@linutronix.de>
-> > To: Ingo Molnar <mingo@redhat.com>
-> > To: Borislav Petkov <bp@alien8.de>
-> > To: Dave Hansen <dave.hansen@linux.intel.com>
-> > To: x86@kernel.org
-> > To: H. Peter Anvin <hpa@zytor.com>
-> > To: Huacai Chen <chenhuacai@kernel.org>
-> > To: WANG Xuerui <kernel@xen0n.name>
-> > To: Russell King <linux@armlinux.org.uk>
-> > To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-> > To: James E.J. Bottomley <James.Bottomley@HansenPartnership.com>
-> > To: Helge Deller <deller@gmx.de>
-> > To: Alexander Gordeev <agordeev@linux.ibm.com>
-> > To: Gerald Schaefer <gerald.schaefer@linux.ibm.com>
-> > To: Heiko Carstens <hca@linux.ibm.com>
-> > To: Vasily Gorbik <gor@linux.ibm.com>
-> > To: Christian Borntraeger <borntraeger@linux.ibm.com>
-> > To: Sven Schnelle <svens@linux.ibm.com>
-> > To: Yoshinori Sato <ysato@users.sourceforge.jp>
-> > To: Rich Felker <dalias@libc.org>
-> > To: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
-> > To: David S. Miller <davem@davemloft.net>
-> > To: Andreas Larsson <andreas@gaisler.com>
-> > To: Shuah Khan <shuah@kernel.org>
-> > To: Alexandre Ghiti <alexghiti@rivosinc.com>
-> > Cc: linux-arch@vger.kernel.org
-> > Cc: linux-kernel@vger.kernel.org
-> > Cc: Palmer Dabbelt <palmer@rivosinc.com>
-> > Cc: linux-riscv@lists.infradead.org
-> > Cc: linux-arm-kernel@lists.infradead.org
-> > Cc: linuxppc-dev@lists.ozlabs.org
-> > Cc: linux-mm@kvack.org
-> > Cc: loongarch@lists.linux.dev
-> > Cc: linux-mips@vger.kernel.org
-> > Cc: linux-parisc@vger.kernel.org
-> > Cc: linux-s390@vger.kernel.org
-> > Cc: linux-sh@vger.kernel.org
-> > Cc: sparclinux@vger.kernel.org
-> > Cc: linux-kselftest@vger.kernel.org
-> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> >
-> > ---
-> > Charlie Jenkins (16):
-> >       mm: Add MAP_BELOW_HINT
-> >       riscv: mm: Do not restrict mmap address based on hint
-> >       mm: Add flag and len param to arch_get_mmap_base()
-> >       mm: Add generic MAP_BELOW_HINT
-> >       riscv: mm: Support MAP_BELOW_HINT
-> >       arm64: mm: Support MAP_BELOW_HINT
-> >       powerpc: mm: Support MAP_BELOW_HINT
-> >       x86: mm: Support MAP_BELOW_HINT
-> >       loongarch: mm: Support MAP_BELOW_HINT
-> >       arm: mm: Support MAP_BELOW_HINT
-> >       mips: mm: Support MAP_BELOW_HINT
-> >       parisc: mm: Support MAP_BELOW_HINT
-> >       s390: mm: Support MAP_BELOW_HINT
-> >       sh: mm: Support MAP_BELOW_HINT
-> >       sparc: mm: Support MAP_BELOW_HINT
-> >       selftests/mm: Create MAP_BELOW_HINT test
-> >
-> >  arch/arm/mm/mmap.c                           | 10 ++++++++
-> >  arch/arm64/include/asm/processor.h           | 34 ++++++++++++++++++++++----
-> >  arch/loongarch/mm/mmap.c                     | 11 +++++++++
-> >  arch/mips/mm/mmap.c                          |  9 +++++++
-> >  arch/parisc/include/uapi/asm/mman.h          |  1 +
-> >  arch/parisc/kernel/sys_parisc.c              |  9 +++++++
-> >  arch/powerpc/include/asm/task_size_64.h      | 36 +++++++++++++++++++++++-----
-> >  arch/riscv/include/asm/processor.h           | 32 -------------------------
-> >  arch/s390/mm/mmap.c                          | 10 ++++++++
-> >  arch/sh/mm/mmap.c                            | 10 ++++++++
-> >  arch/sparc/kernel/sys_sparc_64.c             |  8 +++++++
-> >  arch/x86/kernel/sys_x86_64.c                 | 25 ++++++++++++++++---
-> >  fs/hugetlbfs/inode.c                         |  2 +-
-> >  include/linux/sched/mm.h                     | 34 ++++++++++++++++++++++++--
-> >  include/uapi/asm-generic/mman-common.h       |  1 +
-> >  mm/mmap.c                                    |  2 +-
-> >  tools/arch/parisc/include/uapi/asm/mman.h    |  1 +
-> >  tools/include/uapi/asm-generic/mman-common.h |  1 +
-> >  tools/testing/selftests/mm/Makefile          |  1 +
-> >  tools/testing/selftests/mm/map_below_hint.c  | 29 ++++++++++++++++++++++
-> >  20 files changed, 216 insertions(+), 50 deletions(-)
-> > ---
-> > base-commit: 5be63fc19fcaa4c236b307420483578a56986a37
-> > change-id: 20240827-patches-below_hint_mmap-b13d79ae1c55
-> > --
-> > - Charlie
-> >
-> >
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
