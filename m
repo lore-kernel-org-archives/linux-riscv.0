@@ -4,75 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B3DCC7EE2E
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Aug 2024 06:50:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9403DC7EE2D
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Aug 2024 07:14:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eWajyTHkKHijh7f5lFMm8fBIQJIDacZbue1f8jpYtsU=; b=4yqP2jYYfbN093
-	wVJ7oyfp7vhUblxFGlmRVmqgfYW3nP2tiwTetLZ3BPmAkZLDD1KzQVKaRa/7i3+Phk+Uv/aeLulqU
-	L2ZKcu9odZh6Vz6tdpWoTPLFALBmH6sRyjTuU9BV94stuM/IvP+qS9CgI1uv6XezPHW/2uXQypxAr
-	IvAWiJC74ICWjDpSx5IAD8pkBKMtmqASDfOlmYCByPfaNfAw256ju8XMA89BFNfjM50RIV2HtuwFq
-	GQA8+fZLSyxn4dOcI/SH++CszFuLjD0/YC4LhMIiKcHaFvmxX+/G6pghY7bWw4jlgi8dvVWoxpBaL
-	hLWiNulLq/DQ4STD71MA==;
+	List-Owner; bh=38Qe3qYsKsVxQnBWVUQYdus+hy4M/4o92W2jH+RXNFw=; b=Ac6EG5PA2MEjSz
+	gO9G+KS+0mp8TcjJrwPjVoteqMkPklEkz4AiSpmf5NlWmH3GIPL8gcGQ2OlrZivwO43/9ZvtqpEpU
+	yYPmfQGYGVew42qNqQzHn5FtGxlxt6J7CQD9RaCnpey5efI2ESbs5dlrMU0O58ljJCb1nolTDTFib
+	u0o1xkJQTpAw/5tyk3R5JTNZbHUjka2MuJtBWqBOeJLLaxaqhpg5KXvQ3qN3bOHh7oJFECBzBRkoB
+	fIVjESe3iRrXE/ToGFaooxvXWd+iEwz1ssGE5g4pG6m088IF2AfxJw/i8/tRwq3ZMk7gRVFfx/NyY
+	Uv1Hq6xZKsoA9vhu0iWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjYzd-00000000qi1-1uID;
-	Thu, 29 Aug 2024 06:50:53 +0000
-Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
+	id 1sjZMW-00000000ttl-3Yvb;
+	Thu, 29 Aug 2024 07:14:32 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjYya-00000000qPv-47yC
+	id 1sjZMT-00000000tsr-1mhQ
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Aug 2024 06:49:50 +0000
-Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-2f4f2cda058so12916601fa.1
-        for <linux-riscv@lists.infradead.org>; Wed, 28 Aug 2024 23:49:48 -0700 (PDT)
+	Thu, 29 Aug 2024 07:14:31 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-71433096e89so276516b3a.3
+        for <linux-riscv@lists.infradead.org>; Thu, 29 Aug 2024 00:14:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1724914187; x=1725518987; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3SJ/S8s6ymwgMOR0oWpgqeaiVzupwAzeqRKGoyGdDvg=;
-        b=e5aUZ/wbgwHNYtN9liBi1Nbo+1eapXAdIJLUUokNYfvPSpksM/tyg0aQSCTMV+YOx8
-         FqyB5J1v0gPzfWBUAwqdLWLFm5N+ehiuj1jmvrvmGDJYb1H8FgAN8KKeWdHk2mdfvDKC
-         B9xGv89xTDNNAJrTAVBOpsemlhBZgjxbpwuSvD5J1ERb5N5VQnFQE2qOc0kKWvAwLodV
-         xVwersZVEG4j0zlsKMfGSrZbnHM8NgpitB28+hXqwjWBWYuryMe52ncEM2DL+X5TApoZ
-         kGH4WpPQf6ayJniAtx4sMni/OxiKuk0qBCNAuMLNsAwThAKl3eO+dZsegR/KyM5uE1C/
-         aT4g==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1724915668; x=1725520468; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=59qS8d6E7jAm/hvEeiY72pf/LRpSv6Q2qjD/8hJgS38=;
+        b=jjw1JUom9cGNK08777QqYxW5BBJiF+IHrnmrD1HKTJsx7L4SKaQu5XkvpxKTJkAkOn
+         RbjdtTAlyp9K74OKeSqsaUfurb1zCF7AeZGkZvHolam7HdhwpDvzD0c/DIx22Rwxi/Rh
+         xQIYe0/jb1GbDOmSpWCbjGQ4gc0po/DlH6nIE49KHdUxQaXx4YazeniIF+ncti+Q4XkW
+         jD9xXFAO0Bj+t3wjqmxLo5D1DrjI7GGAcktviFJRYAPDhFhOJpt7nOPYAoOsrhueYW/1
+         faZHOgLWGaZEVEU6triSQdORpDUU1nKd75ZY4WoETI536GY8FAl4UFSTfroowbJ8OLO+
+         meWg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1724914187; x=1725518987;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=3SJ/S8s6ymwgMOR0oWpgqeaiVzupwAzeqRKGoyGdDvg=;
-        b=SqqjXoSJ53KiFl7ZBF8gSfyjbMEX8UTPp+5snvEr8ivc+W5vwA/ytxFZ4I6B0ydhVZ
-         MNkuSgH3Qwt8tmd5CpxabZHBdeisksoHbzyal9aHNxrMuk3s5I1txcjchDYk8sn/iWxg
-         2HotC/NHwLO4P0aBtzK1zNy4GpQX7z1Ba9GamiYpKviGjIcFm3XjR+OCiKDPMLbXCjAV
-         FOZXJmO9x1eRusvuq3I0eqFKAlk6CjmeI+4qrQmGy1rBjRwGeBCuzEl6vYHlX2TOil2N
-         kjLlii94zR7pWGRKauM5CS7JJGHUGeRHcGEjCqh2DdyO5iBJlmjp2uOpWGe+AxkWz3aA
-         02Hg==
-X-Forwarded-Encrypted: i=1; AJvYcCUT6I1xizxVdvmLzw8mhugvImxnUHK5vOV9Fw4eNMm8N2zl+yidTk2UPZmCwQ9xxD/+1Ag8HYG2pWjmHg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxUuhTKoGjMmVXNt/KBRDyFbE2cX+y+LGkpMTj2WKM1gWqA+ZLz
-	VwVxjMiOE5sABqUFY0FanbHW7aIsRalD/2gWLsp42n9fZRSM3df5mcUcfPBmPL64xmJ1TcGItdd
-	YPF/o5iMwwhSCadxMDswn3G+64goT4AVGHiMB2g==
-X-Google-Smtp-Source: AGHT+IF3BL6bSy6BIFTMgHXF0M9DSfrHTvM8HzubREUgUq0pr1f3k88i+ThXx1hinTdBsAZkIqxHeHHemAumxKwyxQE=
-X-Received: by 2002:a05:6512:b1b:b0:52f:30d:526c with SMTP id
- 2adb3069b0e04-53540fe8999mr206492e87.5.1724914186368; Wed, 28 Aug 2024
- 23:49:46 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1724915668; x=1725520468;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=59qS8d6E7jAm/hvEeiY72pf/LRpSv6Q2qjD/8hJgS38=;
+        b=ZqinboAAevlkjl4LS/faZBtvypoRnYWOBwYPrj1gKycxs7u9wMNF8VXM3l0CyvuXmT
+         r+GFCn7mX1ZPhJUOEAiE0yTFEzYswzEipDNLAdSKNmfzUQs00WLgz87AuWEHDdiHmYfv
+         4rpLCshij0LDr/IGS8fe16XmLyvJdTUojwNSzlAlkIt6YjgTWbGKxVyaFWkyv5PhWvQh
+         Jgu2qmNcjtXKMgiO5Zy8WSxfLlcrCDs6C8ovrTr76FU/SBbbRO0L+FIIpHQ83zWeV2cV
+         eJD5UcRkMZqn45msrG/kgDig/OFBdlO+ZWzLKJXHPod5LX1NCxREbTddrYtYeKjRpJdo
+         O3Cg==
+X-Forwarded-Encrypted: i=1; AJvYcCWWDVk8m2PWqxrLygkzTtNWjxh5tPmA629RqHm8v5YLOfRaW9a2lV2uRwQfc48OVr16McS/nNPLc52r5g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwoSfirnIDjw3V424imSI4fmeIlfn4GBUHLYZTNKbjYLoj22/O6
+	sSARA9UoMHeukdCMkR7JQEJ/i0ZF4pqRUtd9wN+9TqSP1IwtGVBHnVWg8OYgy30=
+X-Google-Smtp-Source: AGHT+IFxhM4cuDGdAmG+3DSZ8PIKqAZRC1xEgxgW4g8JXtjfrvLb83nabdJs3AxBg2ozZcKKdgajyA==
+X-Received: by 2002:a05:6a20:e196:b0:1c4:c1cd:a29d with SMTP id adf61e73a8af0-1cce101c8fdmr2021570637.28.1724915668227;
+        Thu, 29 Aug 2024 00:14:28 -0700 (PDT)
+Received: from ghost (c-67-164-127-253.hsd1.ca.comcast.net. [67.164.127.253])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-715e56d9716sm545002b3a.174.2024.08.29.00.14.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 29 Aug 2024 00:14:27 -0700 (PDT)
+Date: Thu, 29 Aug 2024 00:14:22 -0700
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Naveen N Rao <naveen@kernel.org>,
+	Muchun Song <muchun.song@linux.dev>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Russell King <linux@armlinux.org.uk>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Helge Deller <deller@gmx.de>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Rich Felker <dalias@libc.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	linux-mm@kvack.org, loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH 00/16] mm: Introduce MAP_BELOW_HINT
+Message-ID: <ZtAfzrOMitPlx96X@ghost>
+References: <20240827-patches-below_hint_mmap-v1-0-46ff2eb9022d@rivosinc.com>
+ <2570b1ea-d2a4-4bcb-9bb3-8d979657c56a@lucifer.local>
 MIME-Version: 1.0
-References: <20240829033904.477200-1-nick.hu@sifive.com> <20240829033904.477200-3-nick.hu@sifive.com>
- <CAK9=C2Xui8c0b55WrZxCZYqK=AFmiPT+nG8d_E0d7SpamwvO-Q@mail.gmail.com> <CAKddAkCoZy=uid5gVzUg-zwhBxX_EZCbFR18521N3142MPv=jw@mail.gmail.com>
-In-Reply-To: <CAKddAkCoZy=uid5gVzUg-zwhBxX_EZCbFR18521N3142MPv=jw@mail.gmail.com>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Thu, 29 Aug 2024 12:19:34 +0530
-Message-ID: <CAK9=C2VbF2JKSfJLVEV4SYQFxr+gmpBTjtK6DuVFSbEAjRmFOA@mail.gmail.com>
-Subject: Re: [PATCH 2/2] time-riscv: Stop stimecmp when cpu hotplug
-To: Nick Hu <nick.hu@sifive.com>
+Content-Disposition: inline
+In-Reply-To: <2570b1ea-d2a4-4bcb-9bb3-8d979657c56a@lucifer.local>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240828_234949_053463_F91959CB 
-X-CRM114-Status: GOOD (  26.82  )
+X-CRM114-CacheID: sfid-20240829_001429_738304_4B71C36F 
+X-CRM114-Status: GOOD (  53.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,82 +130,222 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, zong.li@sifive.com, "Rafael J. Wysocki" <rafael@kernel.org>, linux-pm@vger.kernel.org, Daniel Lezcano <daniel.lezcano@linaro.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, Pavel Machek <pavel@ucw.cz>, Paul Walmsley <paul.walmsley@sifive.com>, greentime.hu@sifive.com, Thomas Gleixner <tglx@linutronix.de>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBBdWcgMjksIDIwMjQgYXQgMTE6NTPigK9BTSBOaWNrIEh1IDxuaWNrLmh1QHNpZml2
-ZS5jb20+IHdyb3RlOgo+Cj4gSGkgQW51cAo+Cj4gT24gVGh1LCBBdWcgMjksIDIwMjQgYXQgMTox
-OOKAr1BNIEFudXAgUGF0ZWwgPGFwYXRlbEB2ZW50YW5hbWljcm8uY29tPiB3cm90ZToKPiA+Cj4g
-PiBPbiBUaHUsIEF1ZyAyOSwgMjAyNCBhdCA5OjEw4oCvQU0gTmljayBIdSA8bmljay5odUBzaWZp
-dmUuY29tPiB3cm90ZToKPiA+ID4KPiA+ID4gU3RvcCB0aGUgc3RpbWVjbXAgd2hlbiB0aGUgY3B1
-IGlzIGdvaW5nIHRvIGJlIG9mZiBvdGhlcndpc2UgdGhlIHRpbWVyCj4gPiA+IGludGVycnVwdCBt
-YXkgcGVuZGluZyB3aGlsZSBwZXJmb3JtaW5nIHBvd2VyIGRvd24gb3BlcmF0aW9uLgo+ID4gPgo+
-ID4gPiBTaWduZWQtb2ZmLWJ5OiBOaWNrIEh1IDxuaWNrLmh1QHNpZml2ZS5jb20+Cj4gPiA+IC0t
-LQo+ID4gPiAgZHJpdmVycy9jbG9ja3NvdXJjZS90aW1lci1yaXNjdi5jIHwgMjIgKysrKysrKysr
-KysrKysrLS0tLS0tLQo+ID4gPiAgMSBmaWxlIGNoYW5nZWQsIDE1IGluc2VydGlvbnMoKyksIDcg
-ZGVsZXRpb25zKC0pCj4gPiA+Cj4gPiA+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2Nsb2Nrc291cmNl
-L3RpbWVyLXJpc2N2LmMgYi9kcml2ZXJzL2Nsb2Nrc291cmNlL3RpbWVyLXJpc2N2LmMKPiA+ID4g
-aW5kZXggNDhjZTUwYzVmNWU2Li45YTZhY2FhOGRmYjAgMTAwNjQ0Cj4gPiA+IC0tLSBhL2RyaXZl
-cnMvY2xvY2tzb3VyY2UvdGltZXItcmlzY3YuYwo+ID4gPiArKysgYi9kcml2ZXJzL2Nsb2Nrc291
-cmNlL3RpbWVyLXJpc2N2LmMKPiA+ID4gQEAgLTMyLDE1ICszMiwxOSBAQAo+ID4gPiAgc3RhdGlj
-IERFRklORV9TVEFUSUNfS0VZX0ZBTFNFKHJpc2N2X3NzdGNfYXZhaWxhYmxlKTsKPiA+ID4gIHN0
-YXRpYyBib29sIHJpc2N2X3RpbWVyX2Nhbm5vdF93YWtlX2NwdTsKPiA+ID4KPiA+ID4gK3N0YXRp
-YyB2b2lkIHJpc2N2X2Nsb2NrX3N0b3Bfc3RpbWVjbXAodm9pZCkKPiA+ID4gK3sKPiA+ID4gKyAg
-ICAgICBjc3Jfd3JpdGUoQ1NSX1NUSU1FQ01QLCBVTE9OR19NQVgpOwo+ID4gPiArICAgICAgIGlm
-IChJU19FTkFCTEVEKENPTkZJR18zMkJJVCkpCj4gPiA+ICsgICAgICAgICAgICAgICBjc3Jfd3Jp
-dGUoQ1NSX1NUSU1FQ01QSCwgVUxPTkdfTUFYKTsKPiA+ID4gK30KPiA+ID4gKwo+ID4gPiAgc3Rh
-dGljIHZvaWQgcmlzY3ZfY2xvY2tfZXZlbnRfc3RvcCh2b2lkKQo+ID4gPiAgewo+ID4gPiAtICAg
-ICAgIGlmIChzdGF0aWNfYnJhbmNoX2xpa2VseSgmcmlzY3Zfc3N0Y19hdmFpbGFibGUpKSB7Cj4g
-PiA+IC0gICAgICAgICAgICAgICBjc3Jfd3JpdGUoQ1NSX1NUSU1FQ01QLCBVTE9OR19NQVgpOwo+
-ID4gPiAtICAgICAgICAgICAgICAgaWYgKElTX0VOQUJMRUQoQ09ORklHXzMyQklUKSkKPiA+ID4g
-LSAgICAgICAgICAgICAgICAgICAgICAgY3NyX3dyaXRlKENTUl9TVElNRUNNUEgsIFVMT05HX01B
-WCk7Cj4gPiA+IC0gICAgICAgfSBlbHNlIHsKPiA+ID4gKyAgICAgICBpZiAoc3RhdGljX2JyYW5j
-aF9saWtlbHkoJnJpc2N2X3NzdGNfYXZhaWxhYmxlKSkKPiA+ID4gKyAgICAgICAgICAgICAgIHJp
-c2N2X2Nsb2NrX3N0b3Bfc3RpbWVjbXAoKTsKPiA+ID4gKyAgICAgICBlbHNlCj4gPiA+ICAgICAg
-ICAgICAgICAgICBzYmlfc2V0X3RpbWVyKFU2NF9NQVgpOwo+ID4gPiAtICAgICAgIH0KPiA+ID4g
-IH0KPiA+ID4KPiA+ID4gIHN0YXRpYyBpbnQgcmlzY3ZfY2xvY2tfbmV4dF9ldmVudCh1bnNpZ25l
-ZCBsb25nIGRlbHRhLAo+ID4gPiBAQCAtMTI2LDcgKzEzMCwxMSBAQCBzdGF0aWMgaW50IHJpc2N2
-X3RpbWVyX3N0YXJ0aW5nX2NwdSh1bnNpZ25lZCBpbnQgY3B1KQo+ID4gPgo+ID4gPiAgc3RhdGlj
-IGludCByaXNjdl90aW1lcl9keWluZ19jcHUodW5zaWduZWQgaW50IGNwdSkKPiA+ID4gIHsKPiA+
-ID4gLSAgICAgICBkaXNhYmxlX3BlcmNwdV9pcnEocmlzY3ZfY2xvY2tfZXZlbnRfaXJxKTsKPiA+
-ID4gKyAgICAgICBpZiAoc3RhdGljX2JyYW5jaF9saWtlbHkoJnJpc2N2X3NzdGNfYXZhaWxhYmxl
-KSkKPiA+ID4gKyAgICAgICAgICAgICAgIHJpc2N2X2Nsb2NrX3N0b3Bfc3RpbWVjbXAoKTsKPiA+
-ID4gKyAgICAgICBlbHNlCj4gPiA+ICsgICAgICAgICAgICAgICBkaXNhYmxlX3BlcmNwdV9pcnEo
-cmlzY3ZfY2xvY2tfZXZlbnRfaXJxKTsKPiA+ID4gKwo+ID4KPiA+IE5vdCBkaXNhYmxpbmcgcmlz
-Y3ZfY2xvY2tfZXZlbnRfaXJxIGhlcmUgZm9yIFNzdGMgd291bGQgbm93Cj4gPiBjYXVzZSByaXNj
-dl90aW1lcl9zdGFydGluZ19jcHUoKSB0byB1bm5lY2Vzc2FyaWx5IGVuYWJsZSBpdAo+ID4gd2hl
-biB0aGUgQ1BVIGlzIHBvd2VyZWQtdXAuCj4gPgo+ID4gSSB0aGluayB0aGUgYmVsb3cgY2hhbmdl
-IGlzIHN1ZmZpY2llbnQgZm9yIHRoaXMgcGF0Y2g6Cj4gPgo+ID4gZGlmZiAtLWdpdCBhL2RyaXZl
-cnMvY2xvY2tzb3VyY2UvdGltZXItcmlzY3YuYwo+ID4gYi9kcml2ZXJzL2Nsb2Nrc291cmNlL3Rp
-bWVyLXJpc2N2LmMKPiA+IGluZGV4IDQ4Y2U1MGM1ZjVlNi4uNTQ2ZmQyNDhmNGZmIDEwMDY0NAo+
-ID4gLS0tIGEvZHJpdmVycy9jbG9ja3NvdXJjZS90aW1lci1yaXNjdi5jCj4gPiArKysgYi9kcml2
-ZXJzL2Nsb2Nrc291cmNlL3RpbWVyLXJpc2N2LmMKPiA+IEBAIC0xMjcsNiArMTI3LDExIEBAIHN0
-YXRpYyBpbnQgcmlzY3ZfdGltZXJfc3RhcnRpbmdfY3B1KHVuc2lnbmVkIGludCBjcHUpCj4gPiAg
-c3RhdGljIGludCByaXNjdl90aW1lcl9keWluZ19jcHUodW5zaWduZWQgaW50IGNwdSkKPiA+ICB7
-Cj4gPiAgICAgICAgIGRpc2FibGVfcGVyY3B1X2lycShyaXNjdl9jbG9ja19ldmVudF9pcnEpOwo+
-ID4gKyAgICAgICAvKgo+ID4gKyAgICAgICAgKiBTdG9wIHRoZSB0aW1lciB3aGVuIHRoZSBjcHUg
-aXMgZ29pbmcgdG8gYmUgb2ZmbGluZSBvdGhlcndpc2UKPiA+ICsgICAgICAgICogdGhlIHRpbWVy
-IGludGVycnVwdCBtYXkgYmUgcGVuZGluZyB3aGlsZSBwZXJmb3JtaW5nIHBvd2VyLWRvd24uCj4g
-PiArICAgICAgICAqLwo+ID4gKyAgICAgICByaXNjdl9jbG9ja19ldmVudF9zdG9wKCk7Cj4gPiAg
-ICAgICAgIHJldHVybiAwOwo+ID4gIH0KPiA+Cj4gVGhlIHNiaV9leGl0KCkgb2YgT3BlblNCSSB3
-aWxsIGRpc2FibGUgbXRpbWVjbXAgd2hlbgo+IHNiaV9oc21faGFydF9zdG9wKCkgc28gdGhlIG10
-aW1lY21wIHdpbGwgYmUgZGlzYWJsZWQgdHdpY2UgaWYgdGhlcmUgaXMKPiBubyBTU1RDLgo+IEhv
-dyBhYm91dCBhZGRpbmcgYSBTU1RDIGF2YWlsYWJsZSBjaGVjayBiZWZvcmUgdGhlIHJpc2N2X2Ns
-b2NrX2V2ZW50X3N0b3A/CgpDdXJyZW50bHksIE9wZW5TQkkgdXNlcyBtdGltZWNtcCBvbmx5IGZv
-ciBpbXBsZW1lbnRpbmcKU0JJIHRpbWUgZXh0ZW5zaW9uIGJ1dCBpbiB0aGUgZnV0dXJlLCBPcGVu
-U0JJIG1pZ2h0IGltcGxlbWVudAphIHBlci1oYXJ0IHRpbWVyIGV2ZW50IGxpc3QgdG8gYWxsb3cg
-TS1tb2RlIHRpbWVyIGV2ZW50cy4KCkRvbid0IGFzc3VtZSBpbiB3aGF0IGVudmlyb25tZW50IHRo
-ZSBkcml2ZXIgaXMgcnVubmluZy4KCkl0IGlzIHBvc3NpYmxlIHRoYXQgdGhlIGRyaXZlciBpcyBy
-dW5uaW5nIHVuZGVyIGEgaHlwZXJ2aXNvcgp3aGljaCBvbmx5IHByb3ZpZGVzIFNCSSB0aW1lIGV4
-dGVuc2lvbiBhbmQgZG9lcyBub3QgdmlydHVhbGl6ZQpTc3RjIGV4dGVuc2lvbi4KCj4KPiAgIC8q
-Cj4gICAgKiBTdG9wIHRoZSB0aW1lciB3aGVuIHRoZSBjcHUgaXMgZ29pbmcgdG8gYmUgb2ZmbGlu
-ZSBvdGhlcndpc2UKPiAgICAqIHRoZSB0aW1lciBpbnRlcnJ1cHQgbWF5IGJlIHBlbmRpbmcgd2hp
-bGUgcGVyZm9ybWluZyBwb3dlci1kb3duLgo+ICAgICovCj4gaWYgKHN0YXRpY19icmFuY2hfbGlr
-ZWx5KCZyaXNjdl9zc3RjX2F2YWlsYWJsZSkpCj4gICAgIHJpc2N2X2Nsb2NrX2V2ZW50X3N0b3Ao
-KTsKPgoKUmVnYXJkcywKQW51cAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
-ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
-aW51eC1yaXNjdgo=
+On Wed, Aug 28, 2024 at 07:19:36PM +0100, Lorenzo Stoakes wrote:
+> On Tue, Aug 27, 2024 at 10:49:06PM GMT, Charlie Jenkins wrote:
+> > Some applications rely on placing data in free bits addresses allocated
+> > by mmap. Various architectures (eg. x86, arm64, powerpc) restrict the
+> > address returned by mmap to be less than the maximum address space,
+> > unless the hint address is greater than this value.
+> >
+> > On arm64 this barrier is at 52 bits and on x86 it is at 56 bits. This
+> > flag allows applications a way to specify exactly how many bits they
+> > want to be left unused by mmap. This eliminates the need for
+> > applications to know the page table hierarchy of the system to be able
+> > to reason which addresses mmap will be allowed to return.
+> >
+> > ---
+> > riscv made this feature of mmap returning addresses less than the hint
+> > address the default behavior. This was in contrast to the implementation
+> > of x86/arm64 that have a single boundary at the 5-level page table
+> > region. However this restriction proved too great -- the reduced
+> > address space when using a hint address was too small.
+> >
+> > A patch for riscv [1] reverts the behavior that broke userspace. This
+> > series serves to make this feature available to all architectures.
+> 
+> I'm a little confused as to the justification for this - you broke RISC V by
+> doing this, and have now reverted it, but now offer the same behaviour that
+> broke RISC V to all other architectures?
+> 
+> I mean this is how this reads, so I might be being ungenerous here :) but would
+> be good to clarify what the value-add is here.
+
+Yeah I did not do a good job of explaining this! Having this be the
+default behavior was broken, not that this feature in general was
+broken.
+
+> 
+> I also wonder at use of a new MAP_ flag, they're a limited resource and we
+> should only ever add them if we _really_ need to. This seems a bit niche and
+> specific to be making such a big change for including touching a bunch of pretty
+> sensitive arch-specific code.
+>
+> We have the ability to change how mmap() functions through 'personalities'
+> though of course this would impact every mmap() call in the process.
+> 
+> Overall I'm really not hugely convinced by this, it feels like userland
+> could find better ways of doing this (mostly you'd do a PROT_NONE mmap() to
+> reserve a domain and mprotect() it on allocation or mmap() over it).
+> 
+> So I just struggle to see the purpose myself. BUT absolutely I may be
+> missing context/others may have a view on the value of this. So happy to
+> stand corrected.
+> 
+> >
+> > I have only tested on riscv and x86. There is a tremendous amount of
+> 
+> Yeah, OK this is crazy, you can't really submit something as non-RFC that
+> touches every single arch and not test it.
+> 
+> I also feel like we need more justification than 'this is a neat thing that
+> we use in RISC V sometimes' conceptually for such a big change.
+
+I will send out a new version that does a much better job at explaining!
+This is not something that is done on riscv ever currently. This is
+something that is done on other architectures such as x86 and arm64.
+This flag is to make similar behavior (the ability to force mmap to
+return addresses that have a constrained address space) available to all
+architectures.
+
+> 
+> Also your test program is currently completely broken afaict (have
+> commented on it directly). I also feel like your test program is a little
+> rudimentary, and should test some edge cases close to the limit etc.
+> 
+> So I think this is a NACK until there is testing across the board and a little
+> more justification.
+> 
+> Feel free to respin, but I think any future revisions should be RFC until
+> we're absolutely sure on testing/justification.
+> 
+> I appreciate your efforts here so sorry to be negative, but just obviously
+> want to make sure this is functional and trades off added complexity for
+> value for the kernel and userland :)
+> 
+
+Totally understand thank you! After reviewing comments I have realized
+that I made this much more complicated than it needs to be. This should
+be able to be done without changing any architecture specific code. That
+will mostly eliminate all of the complexity, but still has the downside
+of consuming a MAP_ flag.
+
+- Charlie
+
+> Thanks!
+> 
+> > duplicated code in mmap so the implementations across architectures I
+> > believe should be mostly consistent. I added this feature to all
+> > architectures that implement either
+> > arch_get_mmap_end()/arch_get_mmap_base() or
+> > arch_get_unmapped_area_topdown()/arch_get_unmapped_area(). I also added
+> > it to the default behavior for arch_get_mmap_end()/arch_get_mmap_base().
+> >
+> > Link: https://lore.kernel.org/lkml/20240826-riscv_mmap-v1-2-cd8962afe47f@rivosinc.com/T/ [1]
+> >
+> > To: Arnd Bergmann <arnd@arndb.de>
+> > To: Paul Walmsley <paul.walmsley@sifive.com>
+> > To: Palmer Dabbelt <palmer@dabbelt.com>
+> > To: Albert Ou <aou@eecs.berkeley.edu>
+> > To: Catalin Marinas <catalin.marinas@arm.com>
+> > To: Will Deacon <will@kernel.org>
+> > To: Michael Ellerman <mpe@ellerman.id.au>
+> > To: Nicholas Piggin <npiggin@gmail.com>
+> > To: Christophe Leroy <christophe.leroy@csgroup.eu>
+> > To: Naveen N Rao <naveen@kernel.org>
+> > To: Muchun Song <muchun.song@linux.dev>
+> > To: Andrew Morton <akpm@linux-foundation.org>
+> > To: Liam R. Howlett <Liam.Howlett@oracle.com>
+> > To: Vlastimil Babka <vbabka@suse.cz>
+> > To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+> > To: Thomas Gleixner <tglx@linutronix.de>
+> > To: Ingo Molnar <mingo@redhat.com>
+> > To: Borislav Petkov <bp@alien8.de>
+> > To: Dave Hansen <dave.hansen@linux.intel.com>
+> > To: x86@kernel.org
+> > To: H. Peter Anvin <hpa@zytor.com>
+> > To: Huacai Chen <chenhuacai@kernel.org>
+> > To: WANG Xuerui <kernel@xen0n.name>
+> > To: Russell King <linux@armlinux.org.uk>
+> > To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+> > To: James E.J. Bottomley <James.Bottomley@HansenPartnership.com>
+> > To: Helge Deller <deller@gmx.de>
+> > To: Alexander Gordeev <agordeev@linux.ibm.com>
+> > To: Gerald Schaefer <gerald.schaefer@linux.ibm.com>
+> > To: Heiko Carstens <hca@linux.ibm.com>
+> > To: Vasily Gorbik <gor@linux.ibm.com>
+> > To: Christian Borntraeger <borntraeger@linux.ibm.com>
+> > To: Sven Schnelle <svens@linux.ibm.com>
+> > To: Yoshinori Sato <ysato@users.sourceforge.jp>
+> > To: Rich Felker <dalias@libc.org>
+> > To: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+> > To: David S. Miller <davem@davemloft.net>
+> > To: Andreas Larsson <andreas@gaisler.com>
+> > To: Shuah Khan <shuah@kernel.org>
+> > To: Alexandre Ghiti <alexghiti@rivosinc.com>
+> > Cc: linux-arch@vger.kernel.org
+> > Cc: linux-kernel@vger.kernel.org
+> > Cc: Palmer Dabbelt <palmer@rivosinc.com>
+> > Cc: linux-riscv@lists.infradead.org
+> > Cc: linux-arm-kernel@lists.infradead.org
+> > Cc: linuxppc-dev@lists.ozlabs.org
+> > Cc: linux-mm@kvack.org
+> > Cc: loongarch@lists.linux.dev
+> > Cc: linux-mips@vger.kernel.org
+> > Cc: linux-parisc@vger.kernel.org
+> > Cc: linux-s390@vger.kernel.org
+> > Cc: linux-sh@vger.kernel.org
+> > Cc: sparclinux@vger.kernel.org
+> > Cc: linux-kselftest@vger.kernel.org
+> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> >
+> > ---
+> > Charlie Jenkins (16):
+> >       mm: Add MAP_BELOW_HINT
+> >       riscv: mm: Do not restrict mmap address based on hint
+> >       mm: Add flag and len param to arch_get_mmap_base()
+> >       mm: Add generic MAP_BELOW_HINT
+> >       riscv: mm: Support MAP_BELOW_HINT
+> >       arm64: mm: Support MAP_BELOW_HINT
+> >       powerpc: mm: Support MAP_BELOW_HINT
+> >       x86: mm: Support MAP_BELOW_HINT
+> >       loongarch: mm: Support MAP_BELOW_HINT
+> >       arm: mm: Support MAP_BELOW_HINT
+> >       mips: mm: Support MAP_BELOW_HINT
+> >       parisc: mm: Support MAP_BELOW_HINT
+> >       s390: mm: Support MAP_BELOW_HINT
+> >       sh: mm: Support MAP_BELOW_HINT
+> >       sparc: mm: Support MAP_BELOW_HINT
+> >       selftests/mm: Create MAP_BELOW_HINT test
+> >
+> >  arch/arm/mm/mmap.c                           | 10 ++++++++
+> >  arch/arm64/include/asm/processor.h           | 34 ++++++++++++++++++++++----
+> >  arch/loongarch/mm/mmap.c                     | 11 +++++++++
+> >  arch/mips/mm/mmap.c                          |  9 +++++++
+> >  arch/parisc/include/uapi/asm/mman.h          |  1 +
+> >  arch/parisc/kernel/sys_parisc.c              |  9 +++++++
+> >  arch/powerpc/include/asm/task_size_64.h      | 36 +++++++++++++++++++++++-----
+> >  arch/riscv/include/asm/processor.h           | 32 -------------------------
+> >  arch/s390/mm/mmap.c                          | 10 ++++++++
+> >  arch/sh/mm/mmap.c                            | 10 ++++++++
+> >  arch/sparc/kernel/sys_sparc_64.c             |  8 +++++++
+> >  arch/x86/kernel/sys_x86_64.c                 | 25 ++++++++++++++++---
+> >  fs/hugetlbfs/inode.c                         |  2 +-
+> >  include/linux/sched/mm.h                     | 34 ++++++++++++++++++++++++--
+> >  include/uapi/asm-generic/mman-common.h       |  1 +
+> >  mm/mmap.c                                    |  2 +-
+> >  tools/arch/parisc/include/uapi/asm/mman.h    |  1 +
+> >  tools/include/uapi/asm-generic/mman-common.h |  1 +
+> >  tools/testing/selftests/mm/Makefile          |  1 +
+> >  tools/testing/selftests/mm/map_below_hint.c  | 29 ++++++++++++++++++++++
+> >  20 files changed, 216 insertions(+), 50 deletions(-)
+> > ---
+> > base-commit: 5be63fc19fcaa4c236b307420483578a56986a37
+> > change-id: 20240827-patches-below_hint_mmap-b13d79ae1c55
+> > --
+> > - Charlie
+> >
+> >
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
