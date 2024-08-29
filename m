@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39937C83F15
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DB71C83F16
 	for <linux-riscv@archiver.kernel.org>; Thu, 29 Aug 2024 12:32:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,41 +12,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fk9j/iR/x23ryKV+9rfE1Zk8PwS7zlaYjF1lAXNuIcg=; b=goeeMIdrXPYcX4
-	QPD11M5iLFvVfkx0xsHxElquJcAJJ11y/0CfDgNnHlqXKa9ZCuAsIYM2p1VU+DWPTqF9vU1aUvaLF
-	c/ZBMTnoUILbjsnt8nO64sn47Ljo6XoGUf4SFQdMWGqwWcVFneUyIqimsLdOTf/ZxOi47V5xJOu+1
-	V2gJWI6GDQmX+t0KAl/hbZ8CChTieVpTSjdvr5E3qwwpY0SGugF1+jHK2+c70/FpmXJA1JMXKHjE0
-	KamiffyXCkvas3fs7HqBge/t7BWNpM4I5WCK9ckJWW6QAAUyNzYhD08gyTcjIatBOVlaOxVEDZoIT
-	E0qApU0+kkA+6+3YDCvw==;
+	List-Owner; bh=uJnvvdiK5vZJfcvO1YRryDLoUg/JMz8jVLIkB9QP+ps=; b=s0pvkMgHXrsUgz
+	6t223Bj9PNdTd6GqsMn5kY+v0ahWotVXem1H6Ipx1lj5nh+x25j+Qat0UijqPBbVFL+LitKGrDWeI
+	hk73FbvyTgqUmdCVf9H4QkXlLc8Q4Sf3LH8IMZ9R8O3PPzNA+hJj+XNhXA8ApY8kjRRGN2UqaR6nM
+	nRXAynfkCCXvxhKMrFqT8lRlx77fnf500wzWxZqclrBi/Bvqv1gZeFKp1DWaX2u4i/MLBJ0JsM634
+	sRUOYmEzaOwLy+3ccQFVazNsdEZ83ISEw17WsJAauLZ9L3UXOVs4iSP+vP0YPU8gduKyfXzwQ0LCM
+	js4F+HsLE3C4+KHWPd3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjeJw-00000001w0P-12T9;
-	Thu, 29 Aug 2024 12:32:12 +0000
-Received: from relay5-d.mail.gandi.net ([217.70.183.197])
+	id 1sjeJx-00000001w1Q-41C7;
+	Thu, 29 Aug 2024 12:32:13 +0000
+Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjeJs-00000001vy0-1VBY
+	id 1sjeJt-00000001vyB-1wpq
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Aug 2024 12:32:10 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 067A11C000B;
-	Thu, 29 Aug 2024 12:32:03 +0000 (UTC)
+	Thu, 29 Aug 2024 12:32:11 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id B3C551C0009;
+	Thu, 29 Aug 2024 12:32:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1724934724;
+	t=1724934726;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=+ZFMETiTqp68bZQf/Uc678bUmyXC3+gumwmJpkb2eIU=;
-	b=SrO1QxtjtfBWoeT+ncaKYKkh8QcRaLPYH50TYcLxfrqwBDbn4qX0LE6AM+bDcwR2Nln5sT
-	naVx7vsPDjBCLwjIbPgIAAbMuxCGWU7e5xmsYG+H1zgFMNA6SJAnmRexAONAIJ2fG20z0H
-	JKsGtk58Vm21cvw9LLxj+17umVVSmWez3ThiRIzhROOIUlLXjGKY4gwbA+SrVSgsNbHSp0
-	CY8ZBV12MjpbPETuNrC/6Ya3Yp4v2NrED24DSAyke3N1Uv8X9cpydYy42Xs81dr9P7ZEiQ
-	2753iAOk4bjqdLnplRAtzBsDdfABVj8fKv1CDWI9MIDTQqkIsQDUsttFBeoVVQ==
+	bh=pIJSlvc0OIIlXfPgHywJ3lvSAon8+SBKTfloWcCpukU=;
+	b=JoPBjs3C2rvgrY0JEtG2cku16cDlYOIJb7X+tASwuPB9fdWwbTKGBFRw9S0DJdhp2O2smW
+	tjz1hRl6Tx1WDiCNchRcIw+OqYSMn0mFgLjJJl2+kP5CqbzaCe7Qb0lHVhW5d9Ly2SABf5
+	O5ToyVx9mX3MfhS0DX2l4G8r/7UDn8haspSqU4C1tmHE6UIOaEqFZag+yD4S0SYf7MpcBV
+	GFp3hswGrwLe1gLNo2p4Anu7XPONxRenEmClffVV7jG3C1PCvnfeFOqPRE4/m/Su9bQo3c
+	Oo8UZK8LBNOOtXyWUb+B+RQLzTsPMzfCs8SpZ6DgKd5vORfuHDl9DyWJxXxW0Q==
 From: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-Date: Thu, 29 Aug 2024 14:31:50 +0200
-Subject: [PATCH v5 1/3] dt-bindings: iio: adc: sophgo,cv1800b-saradc: Add
- Sophgo CV1800B SARADC
+Date: Thu, 29 Aug 2024 14:31:52 +0200
+Subject: [PATCH v5 3/3] riscv: dts: sophgo: Add SARADC description for
+ Sophgo CV1800B
 MIME-Version: 1.0
-Message-Id: <20240829-sg2002-adc-v5-1-aacb381e869b@bootlin.com>
+Message-Id: <20240829-sg2002-adc-v5-3-aacb381e869b@bootlin.com>
 References: <20240829-sg2002-adc-v5-0-aacb381e869b@bootlin.com>
 In-Reply-To: <20240829-sg2002-adc-v5-0-aacb381e869b@bootlin.com>
 To: Jonathan Cameron <jic23@kernel.org>, 
@@ -64,8 +64,9 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 X-Mailer: b4 0.14.1
 X-GND-Sasl: thomas.bonnefille@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240829_053209_158477_F065478A 
-X-CRM114-Status: GOOD (  10.17  )
+X-CRM114-CacheID: sfid-20240829_053209_688508_DDD297E9 
+X-CRM114-Status: UNSURE (   8.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,103 +83,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Sophgo CV1800B SARADC is a Successive Approximation ADC that can be
-found in the Sophgo CV1800B SoC.
+Add SARADC node for the Successive Approximation Analog to
+Digital Converter used in Sophgo CV1800B SoC.
+This patch only adds the active domain controller.
 
 Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
 ---
- .../bindings/iio/adc/sophgo,cv1800b-saradc.yaml    | 83 ++++++++++++++++++++++
- 1 file changed, 83 insertions(+)
+ arch/riscv/boot/dts/sophgo/cv18xx.dtsi | 22 ++++++++++++++++++++++
+ 1 file changed, 22 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/iio/adc/sophgo,cv1800b-saradc.yaml b/Documentation/devicetree/bindings/iio/adc/sophgo,cv1800b-saradc.yaml
-new file mode 100644
-index 000000000000..f652b98615f7
---- /dev/null
-+++ b/Documentation/devicetree/bindings/iio/adc/sophgo,cv1800b-saradc.yaml
-@@ -0,0 +1,83 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/iio/adc/sophgo,cv1800b-saradc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+index 891932ae470f..da1ac59e976f 100644
+--- a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
++++ b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+@@ -133,6 +133,28 @@ portd: gpio-controller@0 {
+ 			};
+ 		};
+ 
++		saradc: adc@30f0000 {
++			compatible = "sophgo,cv1800b-saradc";
++			reg = <0x030f0000 0x1000>;
++			clocks = <&clk CLK_SARADC>;
++			interrupts = <100 IRQ_TYPE_LEVEL_HIGH>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
 +
-+title:
-+  Sophgo CV1800B SoC 3 channels Successive Approximation Analog to
-+  Digital Converters
++			channel@0 {
++				reg = <0>;
++			};
 +
-+maintainers:
-+  - Thomas Bonnefille <thomas.bonnefille@bootlin.com>
++			channel@1 {
++				reg = <1>;
++			};
 +
-+description:
-+  Datasheet at https://github.com/sophgo/sophgo-doc/releases
++			channel@2 {
++				reg = <2>;
++			};
++		};
 +
-+properties:
-+  compatible:
-+    const: sophgo,cv1800b-saradc
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  '#address-cells':
-+    const: 1
-+
-+  '#size-cells':
-+    const: 0
-+
-+patternProperties:
-+  "^channel@[0-2]$":
-+    $ref: adc.yaml
-+
-+    properties:
-+      reg:
-+        items:
-+          - minimum: 0
-+            maximum: 2
-+
-+    required:
-+      - reg
-+
-+    additionalProperties: false
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - '#address-cells'
-+  - '#size-cells'
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/sophgo,cv1800.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+    adc@30f0000 {
-+        compatible = "sophgo,cv1800b-saradc";
-+        reg = <0x030f0000 0x1000>;
-+        clocks = <&clk CLK_SARADC>;
-+        interrupts = <100 IRQ_TYPE_LEVEL_HIGH>;
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        channel@0 {
-+            reg = <0>;
-+        };
-+
-+        channel@1 {
-+            reg = <1>;
-+        };
-+
-+        channel@2 {
-+            reg = <2>;
-+        };
-+    };
+ 		i2c0: i2c@4000000 {
+ 			compatible = "snps,designware-i2c";
+ 			reg = <0x04000000 0x10000>;
 
 -- 
 2.46.0
