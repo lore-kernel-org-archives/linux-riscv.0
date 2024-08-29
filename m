@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6A76C83F16
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Aug 2024 13:30:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A6E5C83F15
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Aug 2024 13:32:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fkbhnEnZXgYim3f192aRvEoG0sIMi0OhbvOLjBHAFBE=; b=e4OugCmVjoOfCa
-	FQapkPg+k8+wKZ0qh9prUgZS4vdQNlWNEGj9svBqtOWBNeS2malxC2e+fneekX3mA+rX3Df3FE1++
-	eW9XIomnoqjn0ey3EY+o8oPhxfdsPNuBW7Ej0wGpfBC6wpQGDj1loPSbWQSd3+9uAyGQMCEhzTETe
-	vc3EYipgAHMsX9f/HBUNeC7u8H1PvHmk3oexA1MMdMygN9c4mwH2OOKWw8NRE8mWM/XqBuGtnIneP
-	yCmnbS0cjNLAWubOYzqI5aq84x7qQV+jl8Bw+zPwtk+WPHWB879mfrSdC78VVTNlmqf+0KmYn9wLi
-	XE2ORUg04cuxs+Mq+OQQ==;
+	List-Owner; bh=fkbhnEnZXgYim3f192aRvEoG0sIMi0OhbvOLjBHAFBE=; b=Nd2hrnGr80y5BW
+	+p7C4DBLgVupAJ3S3NVoWF4VMvDU4Bq2WrXMvtVeGhk1HKMs7Wo8e3mxSw5REkZ4D6l40UHkYceVu
+	6jQAUMvwf3PzZkXz1xoD47jKN6PV5KDWo+5kGyPFrjSs5x2xhlVte7utqf/Iui2Bkh74DYAqygfYR
+	5cavWaWU7E5jl2cE44azIkTDPBdrlxiBrmSQWiBD4JpQFYuGU9yhX4Eijq1ebGqqplTQEpYalsqIW
+	YKrZpSfMqzErKwSTWzzobU/uNqbRobzKeoKP/caO87Ckynak+1xm1fdk441Iqh+NI+ut9axQw52Ed
+	adwAgY8x8GEzWRgHSPxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjfEL-00000002BbW-45gt;
-	Thu, 29 Aug 2024 13:30:29 +0000
+	id 1sjfG8-00000002CNs-3fsD;
+	Thu, 29 Aug 2024 13:32:21 +0000
 Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjfEF-00000002BXc-46Hw
+	id 1sjfG5-00000002CJc-2Vti
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Aug 2024 13:30:27 +0000
+	Thu, 29 Aug 2024 13:32:20 +0000
 Received: from mail.maildlp.com (unknown [172.19.163.235])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4WvhwX6mpBz4f3l8B
-	for <linux-riscv@lists.infradead.org>; Thu, 29 Aug 2024 21:30:04 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.112])
-	by mail.maildlp.com (Postfix) with ESMTP id EF6421A0568
-	for <linux-riscv@lists.infradead.org>; Thu, 29 Aug 2024 21:30:14 +0800 (CST)
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4Wvhyn5hhqz4f3l7v
+	for <linux-riscv@lists.infradead.org>; Thu, 29 Aug 2024 21:32:01 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.252])
+	by mail.maildlp.com (Postfix) with ESMTP id C99EE1A058E
+	for <linux-riscv@lists.infradead.org>; Thu, 29 Aug 2024 21:32:11 +0800 (CST)
 Received: from ultra.huawei.com (unknown [10.90.53.71])
-	by APP1 (Coremail) with SMTP id cCh0CgDHHE_jd9Bm48_bCw--.51956S3;
-	Thu, 29 Aug 2024 21:30:14 +0800 (CST)
+	by APP3 (Coremail) with SMTP id _Ch0CgBXurhbeNBmFVXQCw--.7237S3;
+	Thu, 29 Aug 2024 21:32:11 +0800 (CST)
 From: Pu Lehui <pulehui@huaweicloud.com>
 To: bpf@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
@@ -58,33 +58,33 @@ Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Pu Lehui <pulehui@huawei.com>
 Subject: [PATCH bpf-next 1/2] libbpf: Fix accessing first syscall argument on RV64
-Date: Thu, 29 Aug 2024 13:32:51 +0000
-Message-Id: <20240829133253.882133-2-pulehui@huaweicloud.com>
+Date: Thu, 29 Aug 2024 13:34:52 +0000
+Message-Id: <20240829133453.882259-2-pulehui@huaweicloud.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20240829133253.882133-1-pulehui@huaweicloud.com>
-References: <20240829133253.882133-1-pulehui@huaweicloud.com>
+In-Reply-To: <20240829133453.882259-1-pulehui@huaweicloud.com>
+References: <20240829133453.882259-1-pulehui@huaweicloud.com>
 MIME-Version: 1.0
-X-CM-TRANSID: cCh0CgDHHE_jd9Bm48_bCw--.51956S3
+X-CM-TRANSID: _Ch0CgBXurhbeNBmFVXQCw--.7237S3
 X-Coremail-Antispam: 1UD129KBjvJXoW7Kr43ArWfCw1Dur47Zry3CFg_yoW8ZF4DpF
 	W5Ca47Kr18Wr4Ig3s7KF4aqa13Kr15JrsrJF93Ww4S9FW8t39aqa429390yrsIqrW8J3y5
-	ZFZrKw1rWry7ZwUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPYb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
+	ZFZrKw1rWry7ZwUanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUP2b4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
 	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUGw
 	A2048vs2IY020Ec7CjxVAFwI0_Gr0_Xr1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxS
 	w2x7M28EF7xvwVC0I7IYx2IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxV
-	WxJVW8Jr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_
-	GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx
-	0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWU
-	JVW8JwACjcxG0xvY0x0EwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AKxV
-	W8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E
-	14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIx
-	kGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAF
-	wI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r
-	4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07jqYL9U
-	UUUU=
+	W8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v2
+	6rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMc
+	Ij6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_
+	Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI
+	0_Wrv_ZF1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG
+	67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MI
+	IYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E
+	14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr
+	0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IUnTa
+	0DUUUUU==
 X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240829_063026_347102_FA1021CB 
+X-CRM114-CacheID: sfid-20240829_063218_339153_25EF97A9 
 X-CRM114-Status: UNSURE (   9.15  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
