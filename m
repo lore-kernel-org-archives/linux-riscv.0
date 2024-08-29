@@ -4,83 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28F12C83F25
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Aug 2024 13:44:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF85FC83F2D
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Aug 2024 14:46:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KvQU3Fl03yDny4Q3IJS8ojM1tJHRtHmBEQSnf5E8AHk=; b=vjRrUf491qQrHH
-	R94Mx0KOPyE+eI5ZmtLq0V60cFVj2StWQiXxjFMG7so+ozJEiGKHppEzpB9tEw0cb7G4JA6U/KCpz
-	RhIm/tGE19eO6++0RiZIGLDV2JZBEery+rQfhKOVvgEjjt7QkpShlnMS0wcBlsrTpR0dZnvRo5QrK
-	Wy0Ws8QkBKzbTvhRR4LOXX+Stq8xv6V+r4ZPGxgzK7f+h5/GXbyCy1Xx/yzaWdZ666Zn3MvpR2pjW
-	dkQVASC5OIkU0cSziXNrh5nbWV+6FrPl2x+aTG0pB9Z1Dux4ZkmFvDaOrC1OGVAH0DQBlH/yhpR4E
-	+iAX3kLTmOcpQz/vHycQ==;
+	List-Owner; bh=Unn7KJ3akRlC2ujllejSd2+1ZsZ39U6CYV6nZwHoOpM=; b=bNmgRJAH6ni/IC
+	93ip9GSs5JrmXmuloEtse0Fj02OqrIz6PHgw+SMp/HW8bGl3ZcKezPV4HZ4GhCJ66Z3PLOy0MYjHl
+	Q7YzCbyuXUnWO+3yzn3mKSRIzP6f/ySXlb74vS9fK5W9opUHUImk6HOAXv24jeeciWXQlruChZuhA
+	pjUOesQ/NaCZSHxwraH3h301fQc49zmryTOIlG57Qvm4Ml+WE0uWtQm5xIQ8KDheUVAKOZSGwqqlS
+	MCBP4Jy8xoBrq2100ODieSmL8rS/3t/eEZCS4rvCJknZi/DtMepwQK/M5hehc9FBUuQYYIlFN6pPL
+	hjd/nzxYbmpufeVp14cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjfRa-00000002F0t-2nzh;
-	Thu, 29 Aug 2024 13:44:10 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1sjgPQ-00000002Ssq-48vT;
+	Thu, 29 Aug 2024 14:46:00 +0000
+Received: from szxga06-in.huawei.com ([45.249.212.32])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjfQn-00000002Eoh-28ws
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 29 Aug 2024 13:43:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:Message-ID:
-	Date:References:In-Reply-To:Subject:To:From:Sender:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=aggf7neS26jWKW+YIQkenH6/dZMQMCyhYknOlHKaKGE=; b=b8JU3arE7zRIsQPzeA6gpwwlvB
-	qNMn7RINg1WVwHLReXs3icazzu75L3jaWd8MmhaHxHbMmqqx8qj83IiHrQqXtqgmInMdGjajCU8sx
-	P98Wn2rjnrYgxKU8vmHf4bGhTQSRs4C1x1XQrKknyzXj5sCksIdHGPnjFaTKf8bWAT1Z2lKIWTzXn
-	vlTfYAOIKYr5VBEHPhW8FJ8o9zWHsghPq1LSCr6VAjX44Em2RW3cUU3yYck+uwI81ZMjdoyfSHKtS
-	z+aV1L0z9OchGrVtX8WJvMPp0uTQprWQroMSUiEA2i+KG4ylJyKw/KwxIh2F518wQ09ygYEd1+J5U
-	z7lgvS0g==;
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjfQk-0000000BReb-1UVw
+	id 1sjfJC-00000002DK4-1spk
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Aug 2024 13:43:20 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1724938987;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=aggf7neS26jWKW+YIQkenH6/dZMQMCyhYknOlHKaKGE=;
-	b=2/IeRB1udgz4p/pcCGc4UXSK9YP6TdSt3W2cdcUezsQDh+7EcnPjfzF/HyuFC0wa1MuHme
-	pF4BZhAikgZHgi0clgSyrrZqEQu+Xa6sCwl8pEDhE7/iPCA+V1V2vJWi/6R15lBwbmCkru
-	bci5WWK2Bd3hCii45vkheTFIxUgsg9NEoxiC+xaFbBD1QPPWOCtPYNA4B0dN7SCS0aAPXS
-	SzPBQZDbbjcwSmZA8XaCc12t6gmA+/Guz3Qyk942yu1dXqgUsLd+WDcExOdAOem/kS40j/
-	i6lX2n9LoJKzq24FJwBbl38f61+fTKaCIbWYuT5OaW0/HP+wzhgsBp1B/gZDlQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1724938987;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=aggf7neS26jWKW+YIQkenH6/dZMQMCyhYknOlHKaKGE=;
-	b=juGiuoXIPzeyd6G33VQMgMjLiCRqDX7VGyrH4FIb3jszoPFwGaNtXSGD53P39IycO9hqRh
-	2FCHfRTeae/j+hDQ==
-To: Nick Hu <nick.hu@sifive.com>, greentime.hu@sifive.com,
- zong.li@sifive.com, "Rafael J. Wysocki" <rafael@kernel.org>, Pavel Machek
- <pavel@ucw.cz>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Daniel Lezcano
- <daniel.lezcano@linaro.org>, Andrew Jones <ajones@ventanamicro.com>, Conor
- Dooley <conor.dooley@microchip.com>, Samuel Holland
- <samuel.holland@sifive.com>, Nick Hu <nick.hu@sifive.com>, Sunil V L
- <sunilvl@ventanamicro.com>, linux-pm@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] time-riscv: Stop stimecmp when cpu hotplug
-In-Reply-To: <20240829033904.477200-3-nick.hu@sifive.com>
-References: <20240829033904.477200-1-nick.hu@sifive.com>
- <20240829033904.477200-3-nick.hu@sifive.com>
-Date: Thu, 29 Aug 2024 15:43:06 +0200
-Message-ID: <87o75ba1hx.ffs@tglx>
+	Thu, 29 Aug 2024 13:35:52 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.163])
+	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4Wvj0M6gnyz1xwG6;
+	Thu, 29 Aug 2024 21:33:23 +0800 (CST)
+Received: from kwepemf100007.china.huawei.com (unknown [7.202.181.221])
+	by mail.maildlp.com (Postfix) with ESMTPS id 1246D180042;
+	Thu, 29 Aug 2024 21:35:22 +0800 (CST)
+Received: from [10.67.109.184] (10.67.109.184) by
+ kwepemf100007.china.huawei.com (7.202.181.221) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 29 Aug 2024 21:35:21 +0800
+Message-ID: <f7a7d089-3313-4c25-884c-8d073ddf54e4@huawei.com>
+Date: Thu, 29 Aug 2024 21:35:20 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf-next 0/2] Fix accessing first syscall argument on RV64
+Content-Language: en-US
+To: Pu Lehui <pulehui@huaweicloud.com>, <bpf@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>
+CC: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Ilya Leoshkevich
+	<iii@linux.ibm.com>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
+	<daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
+	<martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, Song Liu
+	<song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, John Fastabend
+	<john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, Stanislav Fomichev
+	<sdf@google.com>, Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
+	Puranjay Mohan <puranjay@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>
+References: <20240829133253.882133-1-pulehui@huaweicloud.com>
+From: Pu Lehui <pulehui@huawei.com>
+In-Reply-To: <20240829133253.882133-1-pulehui@huaweicloud.com>
+X-Originating-IP: [10.67.109.184]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ kwepemf100007.china.huawei.com (7.202.181.221)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240829_144318_593140_5039087C 
-X-CRM114-Status: UNSURE (   3.98  )
+X-CRM114-CacheID: sfid-20240829_063531_453094_D48B7805 
+X-CRM114-Status: UNSURE (   7.20  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -93,19 +74,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 29 2024 at 11:39, Nick Hu wrote:
 
-clocksource/drivers/timer-riscv: is the proper prefix
+On 2024/8/29 21:32, Pu Lehui wrote:
+> On RV64, as Ilya mentioned before [0], the first syscall parameter should be
+> accessed through orig_a0 (see arch/riscv64/include/asm/syscall.h),
+> otherwise it will cause selftests like bpf_syscall_macro, vmlinux,
+> test_lsm, etc. to fail on RV64.
+> 
+> Link: https://lore.kernel.org/bpf/20220209021745.2215452-1-iii@linux.ibm.com [0]
+> 
+> Pu Lehui (2):
+>    libbpf: Fix accessing first syscall argument on RV64
+>    selftests/bpf: Skip case involving first arg in bpf_syscall_macro on
+>      RV64
+> 
+>   tools/lib/bpf/bpf_tracing.h                              | 9 ++++++++-
+>   .../selftests/bpf/prog_tests/test_bpf_syscall_macro.c    | 2 +-
+>   tools/testing/selftests/bpf/progs/bpf_syscall_macro.c    | 2 +-
+>   3 files changed, 10 insertions(+), 3 deletions(-)
+> 
 
-Thanks,
-
-        tglx
-        
+There was an error in sending this time. A new one has been sent. Sorry 
+for the noise.
 
 _______________________________________________
 linux-riscv mailing list
