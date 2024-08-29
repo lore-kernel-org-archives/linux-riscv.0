@@ -4,131 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7217DC71151
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Aug 2024 05:10:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F53FC71151
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Aug 2024 05:18:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UJ3+3yOt4uu0NXJ61hARGk+3RNG/b8vNGFXzkxlC99c=; b=VXqsZWbvc+vS7r
-	CCq9+TGw8gF4iQX75hgQEH7ZxKpET4TOETATl9Uaghq+p5JNVem7jmVp+TUPKRfBC/S/PeyO7pzAN
-	Nk5goM5hfTmx6gedlMlliNYu2rucpGEPlfkkvZdO3++xzJEA7I3g0B4sn8Ew//Cf/75rdgiqNB9GC
-	NQZW8e5atgf1c53ME1C2hCnyCArIZlAiMW2s769Hm141coa4Auts9KPtjnHhmPxL6WvURXEP9Oba9
-	xKDaWS/3sS8Qgg2tt8Rq01rDd453AqiHegE+U/445j6cmsDw3dsoNojcrio19dDrPwAMfrHreMhgB
-	LOQtaIE0dgjUsWFotThw==;
+	List-Owner; bh=FsYFUvV/tGTLI/fvS+yr3hr4o9WRyCrb6F8Jq7MVj0g=; b=rODdBVFgoI4qv/
+	01MVGVxGlVqU2GjClQl3qMxZnjRlwzep6YD1N7xAvocDQRxO07W0MJWKMNoHOHhffirMyok3xLNTN
+	c+lQm+Z6rOfFqNB/0i8uYtx1obRwnFihF7rx7lQ700Y2JeagZ/7Nai44Rvgdt5/IaJ2fhDixIGgLu
+	twvii7OkutodyJ/6czWMb+Qso3LWpte3/NP1uVWuU714x0jHJg0j8vExVOsrbhheBfJbD7wOD0z7G
+	sTOnlD9mKD6WRFWtPEYqvz70lGh+FjP++zsVNu8ShjSQNWSRFLlTErrxP1LvQxnGFjakQpjsU7uva
+	ZRTzINx7Ysm/yz4tyZYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjXPw-00000000YTL-3Qe0;
-	Thu, 29 Aug 2024 05:09:56 +0000
-Received: from mail-bn8nam11olkn20830.outbound.protection.outlook.com ([2a01:111:f403:2c14::830] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
+	id 1sjXY9-00000000ZYR-2l3D;
+	Thu, 29 Aug 2024 05:18:25 +0000
+Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjXPt-00000000YSL-3fmY
+	id 1sjXY6-00000000ZXU-2kaV
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Aug 2024 05:09:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=R0LFTob9Tl/v216/zUEjxvPuO8OBUnWlahBO80gMQ3Rerh6Q4UPTEf6l9D+BCPlFvaVHqeePH8XrkaEQHsyxRZv3xB9Q3Eog/PjgzjbAdGRQngYsMaQLEuxgqwKOpary24TNY6r97IdYv8UpOQFH6WBW4wDAy/L99bT5XrnxMVCuALFTJTa6tLNOjZfqAppHGlKMuhWzocpD81WywfUivyIbAh8tH9W4iAQYl0+Myw2tNBEg4VuWPPmcAJ4TOPCcOZ28jc3m5YqAztEq4d0t+u7vaJ+tQmMR8gXcOSl8qM6FoSW9rQyNClcBqMKiZpSuJpDlswIsRNZqwUbuEBKkwQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vVmT5CMMYq9LdP3EkPBBN2ZqNm+zKy81PF+L2axmtGw=;
- b=lwvCWqkSJj4GDjHrssS75c/XhA6AtDrQX3gOQb7s6E6Eo9hqZUAIekb8Xw8HQIH6N4EaJTF7dwJiQttNvpnBA7cHQxYIwzpLTfHXhPsIxVxbv893Hw4hAc4KO/yM22VRwlCvMB+IdsXegPPTvJPNStGrVYNBeYtepeOm77ZP3gipLUg+ZJs4Oo9zUwJYEq1k/nA++O8uHAvX57p5k9infIWjKScKuSTC/l7ixI9WpGNv3dVFYnSZtajuIKbbmxSROFPAW7qYzQGzreH1Uil5yRBwM3UnTaXFny31MwMJ+y7KSFxPKC9UJU/b2NpqAbN8TmRXHgAE2EF98XJDr6L2IA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vVmT5CMMYq9LdP3EkPBBN2ZqNm+zKy81PF+L2axmtGw=;
- b=Cbw+ing+IuEdyt0ri+vDKh9rejSsA/bPGCWvsQlcTrxHtZb9TfVVhAvVIsMpAPyciniB7vnooC9uqMAad5lOfj1D+tsRHB62B2a7iHUUugyT+8DrgezLY8qNORVhWc5SS83Km1hWaq9vncyh+yyHwZ7ZfaFIBAy+IhfiV62Blq+Yc9mfiqVjtx9Fn6BboYiiIeC32V8aEWY98AO2ojHigzTJVIaDxuc/j+sni3Rh/HMEUg/Mv6OyL+9GRMNUBO4v8WobCzaUgz+mHhxR4A2VlfUIsc/p0TkoU1fkyAlVi658qireroFqpuHk7YnKuaibOZ0RQa9taadK9lYzeWzZ4w==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by MW4PR20MB5105.namprd20.prod.outlook.com (2603:10b6:303:20a::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7897.27; Thu, 29 Aug
- 2024 05:09:41 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::ab0b:c0d3:1f91:d149]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::ab0b:c0d3:1f91:d149%4]) with mapi id 15.20.7897.021; Thu, 29 Aug 2024
- 05:09:41 +0000
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Linus Walleij <linus.walleij@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Guo Ren <guoren@kernel.org>,
-	Drew Fustini <dfustini@baylibre.com>,
-	Haylen Chu <heylenay@outlook.com>,
-	Inochi Amaoto <inochiama@outlook.com>
-Cc: linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: (subset) [PATCH v4 0/7] riscv: sophgo: Add pinctrl support for CV1800 series SoC
-Date: Thu, 29 Aug 2024 13:08:41 +0800
-Message-ID: <IA1PR20MB4953281633974BE4AB4887F5BB962@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <IA1PR20MB4953DC78BB0FE0C57EA94F91BBB32@IA1PR20MB4953.namprd20.prod.outlook.com>
-References: <IA1PR20MB4953DC78BB0FE0C57EA94F91BBB32@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-TMN: [IT9AbJ8TNaKIyzrpvWlfPsXJDZEWp/n29LcozQBzIgw=]
-X-ClientProxiedBy: TYCPR01CA0021.jpnprd01.prod.outlook.com (2603:1096:405::33)
- To IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <172490809691.606212.17146855872593490329.b4-ty@outlook.com>
+	Thu, 29 Aug 2024 05:18:24 +0000
+Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-5334a8a1b07so266968e87.1
+        for <linux-riscv@lists.infradead.org>; Wed, 28 Aug 2024 22:18:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1724908700; x=1725513500; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=W3IB0lNCEhV9enuNzk+VnTluaGKoDtr4uKJKrcnidUw=;
+        b=Pw57M6cc97wAEkLE1MqD5HoCHsflWMVOBr1fvz+djgMNVxBtutKR+TjwDTLAQFPGdO
+         17qWbZdKdmIoTpegTY4ZkLJ+SBNM1f+VNy4Ee5Nixovt80QcbjZOfIrxHmBk+sKDy/pY
+         BmSyqu57gwDUrZ6RcERqcwwCCtFB9FIcQISGwZuy6gcdCAQiy4lvxNK412NSmB0GeEKK
+         lTm5Ino8lgmQJL0Ef5nB2zf+4ykkwHNwXIektkHboWXsqZMUI2qQ2XWefm6JmWMHVX7u
+         acBhFnNGq7S3Cz6czzxBt65D0WsQcsErb1UtXrayXMp2VRaLLAmVycqPLr2NpZytbdxj
+         3SmA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1724908700; x=1725513500;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=W3IB0lNCEhV9enuNzk+VnTluaGKoDtr4uKJKrcnidUw=;
+        b=IYF9AR/XDHPzvp1bDLSDD+8WKQUO5AvlibNXcLpyAvSrW5gWK6PQOv+o7iqdK2qkIL
+         JuYK7rfYX96LCzuO00wPQ09tBVfVwZyi2z2E6HP009RzwLgtXfIKSj45NfS+jr6y2CAX
+         G/iM3fY+GyYarnQ5wbzAXZFqxewrzp6nZHXOVtkaDjMuO4xCC9jY0h3XT3fs4tmqc358
+         dS4TgfPLuoVsKNoDM1eabhAB5fU7egwoPb397nfqa22MStE6TQnc8Yl6F5JeY0S34f4T
+         B5wQtgXOFArJrgJpHUJz1k/XCcNCrsZza+QG+/riQH/aIAkuWQbyT2NGvmEGJ0n1C2a1
+         dBmg==
+X-Forwarded-Encrypted: i=1; AJvYcCVcZezfDb62NBOvQswjxnXuKM1EIuIb9t0SP4LAN79RZ325+dj2raHi4Weyqr9zPpj7pZ758pTih+RnYQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzDZMkFyruN2m2xyrJAhpbZYkg/GwG7aWbVRnic2wOmh473tzmS
+	sP3mYJn5T27yy3nTNf1HiUHBkP6MzHm7mamRAGPJntvaZptGdyiNRqe9NQA9Vv+RcEzooH7Y0Bv
+	FW61WaKybBwmpTJJPG31gXQRHrgIFOG/e2pa1+g==
+X-Google-Smtp-Source: AGHT+IF5qM5Tv33jrhTxPQuB7QcGegW/B0kYwW+2dXW1R9ibKz60sWm56wn4RINz3pCrSIub6yb7ue9n11Ee4xuIvkE=
+X-Received: by 2002:a05:6512:2245:b0:52b:8ef7:bf1f with SMTP id
+ 2adb3069b0e04-5353e56680fmr723799e87.17.1724908699186; Wed, 28 Aug 2024
+ 22:18:19 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|MW4PR20MB5105:EE_
-X-MS-Office365-Filtering-Correlation-Id: ee3bdf6a-d6b9-4e94-164a-08dcc7e8c968
-X-MS-Exchange-SLBlob-MailProps: 7J/vb0KDx3jIGjTVij+H+31XKAuPWx7Gsw+JgTmeTHrySBmQtvsGenU2hMnP0j1KyDw089V+UQ95JHqJtbDXcgEbhgYxVfTdXXecfr935JWbe9WcR+wsz/pt/8vpEmf6+JUc5irl+Ku/rnqPxkLo6by6F7rwxyQOu9LsPW/wafHE3hQ3rbfQ0laSyeSJoJhR7bmIRD05+b7uU9tD53Et8xtrLH1GKi/kNdginOZVKWeNK5YzEvvykiEixKEYfcUzV6EKu2xIuDZnQAqJKFch1g2LZDEa8kKXFgUIAZ8vGmPpTc9J3zdOCd+syQc7X6KRpro9FIvlkF2vx5q9Y2KkXnQpTUL7Zt91+v82x5AGuR/ZL4b+mcc3NRMdqzXookrIaTVkrKM4TdLF1TI04voS+aBlA7a77yUR0Pz8QAlyTBsRImxc+qky1sxqHJhNnLS8Qmr2QfNLXoRSTEzxexTQxJWBtPwphnMjcQRFn1U2/wFjfC5U49Gw7/8FgA2rb+5+M+J4MukFE+SCWYv/AeqZY+YkUbDUjCpPhfseALix/pRtf+rN+viDbXFZ+lhBhuehxhRuoOjVU44q3iQ2P/bk9pm1u1eojVDylkYqTKdJc6fGuhTm2XZbI7JaJTpGRC/Zn6xwDckoLc51jtcA2ufQI9wSzwdlBiO22VqcV/3ZgJ9vhh8rz6E2CnisssdPTH8JkOXLD70qh1BGRJM+roTs+osB0LEx+RQ/GlGinykmXnF5rZRHmFprSS1omZn4RrV2VgiMKNgsU8ShhHaVQjGYYenpbztmA8rEeDJUN4iNewQ=
-X-Microsoft-Antispam: BCL:0;ARA:14566002|15080799006|6090799003|5072599009|19110799003|8060799006|461199028|1602099012|3412199025|440099028|4302099013|1710799026;
-X-Microsoft-Antispam-Message-Info: nPV1MtS8RGncpZDzSkQ3C21Nfmd9zMedD/sxiEePt0NwjvH+JsVDIThC403e0a1BjVj0PXsVQ1eSG/9+fbKlvll6qIVuwtxsbDh5clETg/grz8zx2Znd0M+jRYjR7pRmRCHVxCmtaWUdSNXfL4T9eMuV8h35d9ZoGKWTrIEXC9sl5XMx8ZBq9IBw1gbfn+H0VxQ9SmTTmH0i6LY+qrFSZsqfWs5xX70KnkId/WZkdo+Uh2S9iOGq4epOos1Qd256cf6p3Wlb87fxqf+bkhK/OffYK4NHV5seAzllSacsxu1RibOaOLZHehig5HcrBobzzpifRat/94UCsvJF5JBxXNwYQ7n/aDq19iIH6/nbvKM2YEEbsrBk4fTbGlVeZKN7u+vTNDzWhgSWangbKdn4Bwg8SyTnDdc55H8ZyLEJeTDuBU53YCV4Tib9S6RVtIBEhu2bZRQI+pLO5aapopg9qYG977ubhEjpGmDSTDj4CXRwbherBalmlx4YQppwL//Xr3yw7ikYsPIbWuc3qNMtS8lTBnqIBPHex7IGKNtqKpY0cl4YXHuu46WnvxPe6M6aWEfzvPVkM9DeavuBV4ORrhlXzNCZ6uoCfzGX2iB4HNkYeGrJFLOn9xMpEIaz15OyjVy4g4LRtts4f/n+6NS/q9bglsPc2/zuw6Lt1j9+3ZoNpvPI2AYg0CJXdfWd159aKQwmV69mSiyHcEChZH+pajuUHlQahNcHAEJGzmJpCp4ODi7bEk3/yi2Pt3FYfzyVcaQl0Ak06RX9uLzW9ixPyU6eLqELvQKYCweXm0GYTNT0UzSGGR/I/3SafdiOJhhwlANdFuKR7g26z/hBn29YWKnFMeEKYpDEbjtIlogXgST0cBumPZRHRqikCaDnpbu0
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?V1c3SkdLa2pVS2E5clczUC9HNzRmNzd0b0x2RkpLaGNWOWYvRmRJQVcyUllZ?=
- =?utf-8?B?RDJPN1F6aXM0YVgwVmlkczd2cUl3MjJrZ3hMS2l6ejQwY3pnVGM0dktxRkxH?=
- =?utf-8?B?N1hOdm1PS2thM0cxM3dOcFFvcmlHOW9hVzlJQ214VlRPTHgxTmt4QVlSaHpZ?=
- =?utf-8?B?WWthbVdHQ001VnM5ek4xOUlpejNSUCt2L2lzZjhLUzNYTXFHZENGY3J6TFZx?=
- =?utf-8?B?MmVSUHVwQnFDemVydEdVLzAwOXlISkxwRXdkcHlzc0dCM3A0Y1ZuNkpqdWlD?=
- =?utf-8?B?NlhsMktEWE03ejlLNlVZUW90aUFpWEVoRkoxckxYNEtna2pLWXlaV2NRMlVu?=
- =?utf-8?B?MDdNbFVDc0phSmtIZ2l3bWszYm4yZ2p0Z2Z1dGF4QTV0TjhkR0dRY3BNNktK?=
- =?utf-8?B?UUlCRVljNWtIU0s0eEVYRW1CaTlYWkVMbDBXQ01zdmJKemNueDJ1eWllSTJl?=
- =?utf-8?B?Z3BKcXZVK0ZuSUFMczBMbU0ya3JLR09keWdBT0VRZHB4cUJUZFl1L3NaZkRq?=
- =?utf-8?B?OUVlNUxTWnc0WHZ4TXNwcis2d1diRGJ6Q3FxeFYvY2c4Yk9TbEh3V3FJb0M0?=
- =?utf-8?B?STdmZnhsYVh0TUxrZEY0WDlwbldKVFRNdGRqMStYUkU4cWVSc2F6ZVhFaGdN?=
- =?utf-8?B?RUt4UFpSN09ma1NMSEtiak03U3ZzVTdrY29wRG5UdDJxa01VL0dWV09handW?=
- =?utf-8?B?UVpEREFTZ2lYaW9tcUoyeVdNYjBmbG1uWFNUZVc3akllRG9qWWoveXJNM3pX?=
- =?utf-8?B?dFlSZXcwM2xqVkREQ3RsS1BIcDlhTUpIN3h0dHJEczRhU0xwMEtvTXFFRTRW?=
- =?utf-8?B?YTF2b2h5SVNKYzd4VmpMK3o0eUxqZmRiOEpsTFZYRWlNVmdTTzFpWk55L2FD?=
- =?utf-8?B?TG9Icng3NGZ5MW1FcWtiQnF5OW5xMGF6QjB4UGl4bENYOG00TnJGNUtZWHFw?=
- =?utf-8?B?a3pGdWl2cG4rczRXVGt0TnhFUHUvNkdORHgyNklFSFJuSWRrVk5YUENYaTB1?=
- =?utf-8?B?MHJGS0dUNGZGVkIwS2ZobFltMEZ3RHVkT0pSZlhCUkZMN1YvZEZXRHlRMzBC?=
- =?utf-8?B?QVFaOEhscXphWVBtKzA5SWF3bXIxWGJPTEI3RmFrMGlPNDBITWplRDZudVVp?=
- =?utf-8?B?NU8rTGZuTEZzUnU5SlV5dm1XS2d6TlpUdDBvbWlFQjNUejNCQWFDWUU0cjdw?=
- =?utf-8?B?bTl6SGkwaC9NV0ZHRU84d1ZnMnRnbkMzMjJXcTRtQStqaFVRZEVLb0lpenRV?=
- =?utf-8?B?UU13UFp1TW95U2xaeVVqOVFYNEN1cnJ2S1BHYzhCVjBuN0pwT1VvZlJxVnBY?=
- =?utf-8?B?QnFreEpVOUhMVkZDblNjL0R4a3dqc2syODRVdHoyc01MbmNBSDlDSm16d09s?=
- =?utf-8?B?aWllN2ZwVE5jMWZaL3FLR2k2RVhkVXJidyt3eHkzMGc2VkZHcEJjWHRjMkI3?=
- =?utf-8?B?c0djN3EzUVBiUzVDR21rZFphb1RaZ1l4cWtnK1ltNTBhWitWb3NYWlBycUcr?=
- =?utf-8?B?dk1NTjRKK3piS2NnM3NSS2ROcUVLYnlqck1SVG1ISndnZEN3T0gvbnZrUTkv?=
- =?utf-8?B?dUR1QTIrbVVLU2FMb3VQNG1lWlY5U3dpOEVwUHhlc2NWS0duVUIxelVOUllJ?=
- =?utf-8?B?Z2YvSWg4ZE9VUVNCeXdsei9NalZqY1oxcXF5NzVoRFNoVERIekVCKzhvQVV3?=
- =?utf-8?Q?4YJYWoDXBk/gpt+wyoxW?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ee3bdf6a-d6b9-4e94-164a-08dcc7e8c968
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Aug 2024 05:09:40.9604
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR20MB5105
+References: <20240829033904.477200-1-nick.hu@sifive.com> <20240829033904.477200-2-nick.hu@sifive.com>
+In-Reply-To: <20240829033904.477200-2-nick.hu@sifive.com>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Thu, 29 Aug 2024 10:48:07 +0530
+Message-ID: <CAK9=C2XSrxXGB-PKKi0sLQq7L1Ovucb73Bc9tOnxwWTxux_D7g@mail.gmail.com>
+Subject: Re: [PATCH 1/2] riscv: Add stimecmp save and restore
+To: Nick Hu <nick.hu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240828_220953_976572_FB719D8C 
-X-CRM114-Status: GOOD (  10.35  )
+X-CRM114-CacheID: sfid-20240828_221822_726629_60C3128F 
+X-CRM114-Status: GOOD (  17.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,35 +83,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Albert Ou <aou@eecs.berkeley.edu>, zong.li@sifive.com, "Rafael J. Wysocki" <rafael@kernel.org>, linux-pm@vger.kernel.org, Daniel Lezcano <daniel.lezcano@linaro.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, Pavel Machek <pavel@ucw.cz>, Paul Walmsley <paul.walmsley@sifive.com>, greentime.hu@sifive.com, Thomas Gleixner <tglx@linutronix.de>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2 Aug 2024 08:33:58 +0800, Inochi Amaoto wrote:
-> Add basic pinctrl driver for Sophgo CV1800 series SoCs.
-> This patch series aims to replace the previous patch from Jisheng [1].
-> Since the pinctrl of cv1800 has nested mux and its pin definination
-> is discrete, it is not suitable to use "pinctrl-single" to cover the
-> pinctrl device.
-> 
-> This patch require another patch [2] that provides standard attribute
-> "input-schmitt-microvolt"
-> 
-> [...]
-
-Applied to for-next, thanks!
-
-[6/7] riscv: dts: sophgo: cv1800b: add pinctrl support
-      https://github.com/sophgo/linux/commit/1728c7e408c6e5ef1c6f3a2c7f75bd20139c2e13
-[7/7] riscv: dts: sophgo: cv1812h: add pinctrl support
-      https://github.com/sophgo/linux/commit/2926c05f9cb7b5bb0374fb7a53bffd65937a454f
-
-Thanks,
-Inochi
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBBdWcgMjksIDIwMjQgYXQgOTowOeKAr0FNIE5pY2sgSHUgPG5pY2suaHVAc2lmaXZl
+LmNvbT4gd3JvdGU6Cj4KPiBJZiB0aGUgSFcgc3VwcG9ydCB0aGUgU1NUQyBleHRlbnNpb24sIHdl
+IHNob3VsZCBzYXZlIGFuZCByZXN0b3JlIHRoZQo+IHN0aW1lY21wIHJlZ2lzdGVyIHdoaWxlIGNw
+dSBub24gcmV0ZW50aW9uIHN1c3BlbmQuCj4KPiBTaWduZWQtb2ZmLWJ5OiBOaWNrIEh1IDxuaWNr
+Lmh1QHNpZml2ZS5jb20+Cj4gLS0tCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3VzcGVuZC5o
+IHwgIDQgKysrKwo+ICBhcmNoL3Jpc2N2L2tlcm5lbC9zdXNwZW5kLmMgICAgICB8IDEzICsrKysr
+KysrKysrKysKPiAgMiBmaWxlcyBjaGFuZ2VkLCAxNyBpbnNlcnRpb25zKCspCj4KPiBkaWZmIC0t
+Z2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zdXNwZW5kLmggYi9hcmNoL3Jpc2N2L2luY2x1
+ZGUvYXNtL3N1c3BlbmQuaAo+IGluZGV4IDRmZmIwMjJiMDk3Zi4uZmZhYWMyZWZhYmI1IDEwMDY0
+NAo+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3VzcGVuZC5oCj4gKysrIGIvYXJjaC9y
+aXNjdi9pbmNsdWRlL2FzbS9zdXNwZW5kLmgKPiBAQCAtMTYsNiArMTYsMTAgQEAgc3RydWN0IHN1
+c3BlbmRfY29udGV4dCB7Cj4gICAgICAgICB1bnNpZ25lZCBsb25nIGVudmNmZzsKPiAgICAgICAg
+IHVuc2lnbmVkIGxvbmcgdHZlYzsKPiAgICAgICAgIHVuc2lnbmVkIGxvbmcgaWU7Cj4gKyNpZiBf
+X3Jpc2N2X3hsZW4gPCA2NAo+ICsgICAgICAgdW5zaWduZWQgbG9uZyBzdGltZWNtcGg7Cj4gKyNl
+bmRpZgo+ICsgICAgICAgdW5zaWduZWQgbG9uZyBzdGltZWNtcDsKPiAgI2lmZGVmIENPTkZJR19N
+TVUKPiAgICAgICAgIHVuc2lnbmVkIGxvbmcgc2F0cDsKPiAgI2VuZGlmCj4gZGlmZiAtLWdpdCBh
+L2FyY2gvcmlzY3Yva2VybmVsL3N1c3BlbmQuYyBiL2FyY2gvcmlzY3Yva2VybmVsL3N1c3BlbmQu
+Ywo+IGluZGV4IGM4Y2VjMGNjNTgzMy4uM2FmZDg2ZTFhYmY3IDEwMDY0NAo+IC0tLSBhL2FyY2gv
+cmlzY3Yva2VybmVsL3N1c3BlbmQuYwo+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3N1c3BlbmQu
+Ywo+IEBAIC0xOSw2ICsxOSwxMiBAQCB2b2lkIHN1c3BlbmRfc2F2ZV9jc3JzKHN0cnVjdCBzdXNw
+ZW5kX2NvbnRleHQgKmNvbnRleHQpCj4gICAgICAgICBjb250ZXh0LT50dmVjID0gY3NyX3JlYWQo
+Q1NSX1RWRUMpOwo+ICAgICAgICAgY29udGV4dC0+aWUgPSBjc3JfcmVhZChDU1JfSUUpOwo+Cj4g
+KyAgICAgICBpZiAocmlzY3ZfaGFzX2V4dGVuc2lvbl91bmxpa2VseShSSVNDVl9JU0FfRVhUX1NT
+VEMpKSB7Cj4gKyAgICAgICAgICAgICAgIGNvbnRleHQtPnN0aW1lY21wID0gY3NyX3JlYWQoQ1NS
+X1NUSU1FQ01QKTsKPiArI2lmIF9fcmlzY3ZfeGxlbiA8IDY0Cj4gKyAgICAgICAgICAgICAgIGNv
+bnRleHQtPnN0aW1lY21waCA9IGNzcl9yZWFkKENTUl9TVElNRUNNUEgpOwo+ICsjZW5kaWYKPiAr
+ICAgICAgIH0KClRoZSBzdXNwZW5kIHNhdmUvcmVzdG9yZSBpcyBlbmFibGVkIGZvciB0aGUgTm9N
+TVUga2VybmVsIGFzIHdlbGwKKHdoaWNoIHJ1bnMgaW4gTS1tb2RlKSBzbyBpdCBpcyBiZXR0ZXIg
+dG8gc2F2ZS9yZXN0b3JlIHN0aW1lY21wIENTUgpvbmx5IGZvciBNTVUgZW5hYmxlZCBrZXJuZWxz
+IChqdXN0IGxpa2Ugc2F0cCBDU1IpLgoKPiAgICAgICAgIC8qCj4gICAgICAgICAgKiBObyBuZWVk
+IHRvIHNhdmUvcmVzdG9yZSBJUCBDU1IgKGkuZS4gTUlQIG9yIFNJUCkgYmVjYXVzZToKPiAgICAg
+ICAgICAqCj4gQEAgLTQyLDYgKzQ4LDEzIEBAIHZvaWQgc3VzcGVuZF9yZXN0b3JlX2NzcnMoc3Ry
+dWN0IHN1c3BlbmRfY29udGV4dCAqY29udGV4dCkKPiAgICAgICAgIGNzcl93cml0ZShDU1JfVFZF
+QywgY29udGV4dC0+dHZlYyk7Cj4gICAgICAgICBjc3Jfd3JpdGUoQ1NSX0lFLCBjb250ZXh0LT5p
+ZSk7Cj4KPiArICAgICAgIGlmIChyaXNjdl9oYXNfZXh0ZW5zaW9uX3VubGlrZWx5KFJJU0NWX0lT
+QV9FWFRfU1NUQykpIHsKPiArICAgICAgICAgICAgICAgY3NyX3dyaXRlKENTUl9TVElNRUNNUCwg
+Y29udGV4dC0+c3RpbWVjbXApOwo+ICsjaWYgX19yaXNjdl94bGVuIDwgNjQKPiArICAgICAgICAg
+ICAgICAgY3NyX3dyaXRlKENTUl9TVElNRUNNUEgsIGNvbnRleHQtPnN0aW1lY21waCk7Cj4gKyNl
+bmRpZgo+ICsgICAgICAgfQo+ICsKPiAgI2lmZGVmIENPTkZJR19NTVUKPiAgICAgICAgIGNzcl93
+cml0ZShDU1JfU0FUUCwgY29udGV4dC0+c2F0cCk7Cj4gICNlbmRpZgo+IC0tCj4gMi4zNC4xCj4K
+PgoKUmVnYXJkcywKQW51cAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
+ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
+eC1yaXNjdgo=
