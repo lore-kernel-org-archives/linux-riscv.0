@@ -4,84 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21B99C87FC8
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Aug 2024 16:51:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A66BC87FC8
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Aug 2024 16:54:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ONXi7viF6JUFaX59BOxcnMdG52Mvmv6F0F6GoV7mikU=; b=CYWoaoHvmOFjIe
-	rh7hEuKfVyTOupcM0EKqZ4dHUAAeGd6eBhz0RvLwZ4W/XJvFhMihVmQcu5Hi4gTJsVydTEkXj+Amn
-	cF/YZ6V2XS5a7cuaUGn0uKlUoUtq/j8tbsfBpPPWiY+5/1dmgSg4ML86Jz9rh4E7WxzKne5k6/LPP
-	wf3FMC7CsY53bQ3I4BeuRcxXKGmNEeyOUFCN0OF8bEU4uSzRqrjqzHaThQwQnGi/fQvEzWERkeJuX
-	ILIsbTH4iv3WZusykaqwdvdiobAu/SjQ91V05G/kcFHkWWQAZuAJowIcma1GkxXg+JpadD+abQt2r
-	T8DcaAs6qoOHimlznn7Q==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=hbEVdDk8Xzt097YPBS+xXItE5UyyltWwygfqV9IwXYA=; b=uShSOY8bc5jFRb
+	glv9YxH7e7wzmmAUqRHUeinqQxs4D1JIZdVG+/r2nv3AtA8zXPYPuM73aYLLpq9J182OK5grqC3kE
+	WS4/fQFCEmMG3qhwOYQ3OLOW6+bPKgE9HX9MHjYkhkp+w9VshicTnK3aLTdPNRor6keb+T1Ab54w1
+	/FCzwb1noMGkNogVv5ILSXv3kdJDSxaSbYFEiToMTJbY3nldZJcIH+1SWqV1S43yGYQnBdCya/Fmn
+	uvZimadBQYhwq1902cUKveNoIFn95Hurctv4t5gi1Vvcm57SanHgwP540a0VLESLiBOVV+zx/Wn2Y
+	sRsRsR2+hN4zou+S+pMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjiMN-00000002tg0-3Bw7;
-	Thu, 29 Aug 2024 16:50:59 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1sjiQ2-00000002uql-099N;
+	Thu, 29 Aug 2024 16:54:46 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjiMJ-00000002teY-0X6i
-	for linux-riscv@lists.infradead.org;
-	Thu, 29 Aug 2024 16:50:57 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-371a13c7c80so1233465f8f.0
-        for <linux-riscv@lists.infradead.org>; Thu, 29 Aug 2024 09:50:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1724950253; x=1725555053; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=NNRo4pYlVhAaDob5jz389OO0K96/Tof4H7HpMWmLpCE=;
-        b=YhyW63OlQsbw3CxrV4gs4z09BnVS9q8qO+k6OMu5/lNPgQrUJC8J975hMuLXNvSpUt
-         HZOzZMxt07EdZ5Xpss6V8nDyKjcHev7WEn8c/Z9uXyatx809RSP3TkHIr1YMwKp2Fy9o
-         Aff9AfuCvIwmV7j0zAil4qPeKp7rfAOg0KV6nDsskuw96m3rkGj69tbfJAnguAom0xRQ
-         ApZMrnETzpJKCdZbZvM/YrcsTQP3i/89sOhh+HMn2ksC6uJvM3EblX01yblO0zytR4u1
-         wv+M75qln843tP6MwEljkjuVrIg66CDSEgJlVqCnMqhdUkAhbGmcAZbXFu9OCqckEbFN
-         ErIw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1724950253; x=1725555053;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=NNRo4pYlVhAaDob5jz389OO0K96/Tof4H7HpMWmLpCE=;
-        b=wDfRZn+Xjr2QupbMRXICX/RarMJLXSEZGb0Uhg38wd7hCKaGamIhzz74PST3EST59S
-         65f43xtsMRpoxnjWt4vtdhf48sM8xa1xUkBmHQNf8+qn+H05BwigCWJzgZNGcgavi75f
-         vyxaXmgeaPD5LMCQ6DHnoqdF6qARbBFqEot8eGG20tmi5C7KqW+b1BnDT+Xyk3xFX4Nu
-         MZ8D6IUIItrnotZR+Wvt8QQgKWe3lAnsvqrJmBv2quJaXJC/S8mQGQZymbf8LOcnEujk
-         8TQJ26dS8goQOsEXyXPHkpScGqwpUuI5HKGtOcniElOMgKt3VNDZQM4dvCBQqCPtVRMY
-         od6w==
-X-Forwarded-Encrypted: i=1; AJvYcCViyhBeNJ+VlRkJD5qStUggZ6YPK/9Kuo9V0I4CByys18WL3xjjBEA6j9Rh7QLHAZM5eg2FCl6+1Xr67g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyfWi4f7oDOsBSQRPERpB1cDh9waxmAOauFpkEwETyYR69EBb4K
-	YTcO1XDncfgeZEhVAQB1UShlu0UwVJ8FgK+FJvtXPapJxFiEw4Q8h7bMy6CQxnM=
-X-Google-Smtp-Source: AGHT+IGiImxHTvG37n8UL0B/l76NzCvlfBmx0BJGM9uNrDMyVOCeNKcJXBtNbCYakEaAYL3zIFmgPw==
-X-Received: by 2002:adf:fd81:0:b0:368:3562:7c76 with SMTP id ffacd0b85a97d-3749fe43401mr1919619f8f.3.1724950252528;
-        Thu, 29 Aug 2024 09:50:52 -0700 (PDT)
-Received: from alex-rivos.home (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3749ef8adcbsm1852277f8f.71.2024.08.29.09.50.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Aug 2024 09:50:52 -0700 (PDT)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Guo Ren <guoren@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Philipp Tomsich <philipp.tomsich@vrull.eu>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	syzbot+cfbcb82adf6d7279fd35@syzkaller.appspotmail.com
-Subject: [PATCH -fixes v2] riscv: Fix RISCV_ALTERNATIVE_EARLY
-Date: Thu, 29 Aug 2024 18:50:48 +0200
-Message-Id: <20240829165048.49756-1-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.39.2
+	id 1sjiPj-00000002ukq-3DTc;
+	Thu, 29 Aug 2024 16:54:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1724950468; x=1756486468;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=ECTcIF0xxb8SZM8YCfmHs42MeG76z8YoRXRULe0ZOL0=;
+  b=WT4LZFydtbblxDMMZIhuUpmzkJOlC4qO4+jMlZzj4Z+8snCH8/SZe1iy
+   mBCXm0itm8tW3OuuiO80tAes6iJ89xYopPJJshBVTnUwXgBaEwZ8pvGH0
+   w5b2DiFII5gWiomsIKHURgeEqnf15WaHVPq1nugDLwaJLsTv0NZLqaWOt
+   FNoKPHmry0Xm7YKuOKhHLxYxh9rP4jiIfuXkpPWXDCf81PmvgJaQwu4dC
+   2RwYSiO+cWKi/cqZ+DaA8GpFikZHlF1EIELgB7TAaHztseaxX6EcxDGUJ
+   zVn/2GsfXutJe1qWrHgNrn1oUKGcI9sLTs2s/z5Uc1P6/AOx7IFWM5rwh
+   Q==;
+X-CSE-ConnectionGUID: XopDvlezTI+s47Eo5sCWTQ==
+X-CSE-MsgGUID: om7GkX8uSKW6n2N3A2a3fQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11179"; a="34724898"
+X-IronPort-AV: E=Sophos;i="6.10,186,1719903600"; 
+   d="scan'208";a="34724898"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Aug 2024 09:54:26 -0700
+X-CSE-ConnectionGUID: P97BROI6SnmMUbj7R/2YUg==
+X-CSE-MsgGUID: Ykbtf9D6Se20V7CYNg9rEw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.10,186,1719903600"; 
+   d="scan'208";a="68308084"
+Received: from tfalcon-desk.amr.corp.intel.com (HELO [10.124.220.59]) ([10.124.220.59])
+  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Aug 2024 09:54:23 -0700
+Message-ID: <4219f619-4b32-40bc-85b8-cb11d76fde98@intel.com>
+Date: Thu, 29 Aug 2024 09:54:08 -0700
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 00/16] mm: Introduce MAP_BELOW_HINT
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Naveen N Rao <naveen@kernel.org>, Muchun Song <muchun.song@linux.dev>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka
+ <vbabka@suse.cz>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+ Russell King <linux@armlinux.org.uk>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Helge Deller <deller@gmx.de>, Alexander Gordeev <agordeev@linux.ibm.com>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+ "David S. Miller" <davem@davemloft.net>,
+ Andreas Larsson <andreas@gaisler.com>, Shuah Khan <shuah@kernel.org>,
+ Alexandre Ghiti <alexghiti@rivosinc.com>, linux-arch@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, linux-mm@kvack.org,
+ loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-kselftest@vger.kernel.org
+References: <20240827-patches-below_hint_mmap-v1-0-46ff2eb9022d@rivosinc.com>
+ <fd1b8016-e73d-4535-9c67-579ab994351f@intel.com> <Zs+FYbII0ewwdisg@ghost>
+From: Dave Hansen <dave.hansen@intel.com>
+Content-Language: en-US
+Autocrypt: addr=dave.hansen@intel.com; keydata=
+ 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
+In-Reply-To: <Zs+FYbII0ewwdisg@ghost>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240829_095055_398108_9A15B37E 
-X-CRM114-Status: GOOD (  18.56  )
+X-CRM114-CacheID: sfid-20240829_095427_884415_0B5E08BD 
+X-CRM114-Status: GOOD (  12.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,260 +159,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RISCV_ALTERNATIVE_EARLY will issue sbi_ecall() very early in the boot
-process, before the first memory mapping is setup so we can't have any
-instrumentation happening here.
+On 8/28/24 13:15, Charlie Jenkins wrote:
+> A way to restrict mmap() to return LAM compliant addresses in an entire
+> address space also doesn't have to be mutually exclusive with this flag.
+> This flag allows for the greatest degree of control from applications.
+> I don't believe there is additionally performance saving that could be
+> achieved by having this be on a per address space basis.
 
-In addition, when the kernel is relocatable, we must also not issue any
-relocation this early since they would have been patched virtually only.
+I agree with you in general.  The MAP_BELOW_HINT _is_ the most flexible.
+ But it's also rather complicated.
 
-So, instead of disabling instrumentation for the whole kernel/sbi.c file
-and compiling it with -fno-pie, simply move __sbi_ecall() and
-__sbi_base_ecall() into their own file where this is fixed.
+My _hope_ would be that a per-address-space property could share at
+least some infrastructure with what x86/LAM and arm/TBI do to the
+address space.  Basically put the restrictions in place for purely
+software reasons instead of the mostly hardware reasons for LAM/TBI.
 
-Reported-by: Conor Dooley <conor.dooley@microchip.com>
-Closes: https://lore.kernel.org/linux-riscv/20240813-pony-truck-3e7a83e9759e@spud/
-Reported-by: syzbot+cfbcb82adf6d7279fd35@syzkaller.appspotmail.com
-Closes: https://lore.kernel.org/linux-riscv/00000000000065062c061fcec37b@google.com/
-Fixes: 1745cfafebdf ("riscv: don't use global static vars to store alternative data")
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
----
-
-Changes in v2:
-* Move sbi_err_map_linux_errno() in sbi.h (Samuel)
-
- arch/riscv/include/asm/sbi.h  | 20 ++++++++++-
- arch/riscv/kernel/Makefile    |  6 +++-
- arch/riscv/kernel/sbi.c       | 63 -----------------------------------
- arch/riscv/kernel/sbi_ecall.c | 48 ++++++++++++++++++++++++++
- 4 files changed, 72 insertions(+), 65 deletions(-)
- create mode 100644 arch/riscv/kernel/sbi_ecall.c
-
-diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-index 7cffd4ffecd0..7bd3746028c9 100644
---- a/arch/riscv/include/asm/sbi.h
-+++ b/arch/riscv/include/asm/sbi.h
-@@ -9,6 +9,7 @@
- 
- #include <linux/types.h>
- #include <linux/cpumask.h>
-+#include <linux/jump_label.h>
- 
- #ifdef CONFIG_RISCV_SBI
- enum sbi_ext_id {
-@@ -304,6 +305,7 @@ struct sbiret {
- };
- 
- void sbi_init(void);
-+long __sbi_base_ecall(int fid);
- struct sbiret __sbi_ecall(unsigned long arg0, unsigned long arg1,
- 			  unsigned long arg2, unsigned long arg3,
- 			  unsigned long arg4, unsigned long arg5,
-@@ -373,7 +375,23 @@ static inline unsigned long sbi_mk_version(unsigned long major,
- 		| (minor & SBI_SPEC_VERSION_MINOR_MASK);
- }
- 
--int sbi_err_map_linux_errno(int err);
-+static inline int sbi_err_map_linux_errno(int err)
-+{
-+	switch (err) {
-+	case SBI_SUCCESS:
-+		return 0;
-+	case SBI_ERR_DENIED:
-+		return -EPERM;
-+	case SBI_ERR_INVALID_PARAM:
-+		return -EINVAL;
-+	case SBI_ERR_INVALID_ADDRESS:
-+		return -EFAULT;
-+	case SBI_ERR_NOT_SUPPORTED:
-+	case SBI_ERR_FAILURE:
-+	default:
-+		return -ENOTSUPP;
-+	};
-+}
- 
- extern bool sbi_debug_console_available;
- int sbi_debug_console_write(const char *bytes, unsigned int num_bytes);
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index 06d407f1b30b..7f88cc4931f5 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -20,17 +20,21 @@ endif
- ifdef CONFIG_RISCV_ALTERNATIVE_EARLY
- CFLAGS_alternative.o := -mcmodel=medany
- CFLAGS_cpufeature.o := -mcmodel=medany
-+CFLAGS_sbi_ecall.o := -mcmodel=medany
- ifdef CONFIG_FTRACE
- CFLAGS_REMOVE_alternative.o = $(CC_FLAGS_FTRACE)
- CFLAGS_REMOVE_cpufeature.o = $(CC_FLAGS_FTRACE)
-+CFLAGS_REMOVE_sbi_ecall.o = $(CC_FLAGS_FTRACE)
- endif
- ifdef CONFIG_RELOCATABLE
- CFLAGS_alternative.o += -fno-pie
- CFLAGS_cpufeature.o += -fno-pie
-+CFLAGS_sbi_ecall.o += -fno-pie
- endif
- ifdef CONFIG_KASAN
- KASAN_SANITIZE_alternative.o := n
- KASAN_SANITIZE_cpufeature.o := n
-+KASAN_SANITIZE_sbi_ecall.o := n
- endif
- endif
- 
-@@ -88,7 +92,7 @@ obj-$(CONFIG_DYNAMIC_FTRACE)	+= mcount-dyn.o
- 
- obj-$(CONFIG_PERF_EVENTS)	+= perf_callchain.o
- obj-$(CONFIG_HAVE_PERF_REGS)	+= perf_regs.o
--obj-$(CONFIG_RISCV_SBI)		+= sbi.o
-+obj-$(CONFIG_RISCV_SBI)		+= sbi.o sbi_ecall.o
- ifeq ($(CONFIG_RISCV_SBI), y)
- obj-$(CONFIG_SMP)		+= sbi-ipi.o
- obj-$(CONFIG_SMP) += cpu_ops_sbi.o
-diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-index 837bdab2601b..1989b8cade1b 100644
---- a/arch/riscv/kernel/sbi.c
-+++ b/arch/riscv/kernel/sbi.c
-@@ -14,9 +14,6 @@
- #include <asm/smp.h>
- #include <asm/tlbflush.h>
- 
--#define CREATE_TRACE_POINTS
--#include <asm/trace.h>
--
- /* default SBI version is 0.1 */
- unsigned long sbi_spec_version __ro_after_init = SBI_SPEC_VERSION_DEFAULT;
- EXPORT_SYMBOL(sbi_spec_version);
-@@ -27,55 +24,6 @@ static int (*__sbi_rfence)(int fid, const struct cpumask *cpu_mask,
- 			   unsigned long start, unsigned long size,
- 			   unsigned long arg4, unsigned long arg5) __ro_after_init;
- 
--struct sbiret __sbi_ecall(unsigned long arg0, unsigned long arg1,
--			  unsigned long arg2, unsigned long arg3,
--			  unsigned long arg4, unsigned long arg5,
--			  int fid, int ext)
--{
--	struct sbiret ret;
--
--	trace_sbi_call(ext, fid);
--
--	register uintptr_t a0 asm ("a0") = (uintptr_t)(arg0);
--	register uintptr_t a1 asm ("a1") = (uintptr_t)(arg1);
--	register uintptr_t a2 asm ("a2") = (uintptr_t)(arg2);
--	register uintptr_t a3 asm ("a3") = (uintptr_t)(arg3);
--	register uintptr_t a4 asm ("a4") = (uintptr_t)(arg4);
--	register uintptr_t a5 asm ("a5") = (uintptr_t)(arg5);
--	register uintptr_t a6 asm ("a6") = (uintptr_t)(fid);
--	register uintptr_t a7 asm ("a7") = (uintptr_t)(ext);
--	asm volatile ("ecall"
--		      : "+r" (a0), "+r" (a1)
--		      : "r" (a2), "r" (a3), "r" (a4), "r" (a5), "r" (a6), "r" (a7)
--		      : "memory");
--	ret.error = a0;
--	ret.value = a1;
--
--	trace_sbi_return(ext, ret.error, ret.value);
--
--	return ret;
--}
--EXPORT_SYMBOL(__sbi_ecall);
--
--int sbi_err_map_linux_errno(int err)
--{
--	switch (err) {
--	case SBI_SUCCESS:
--		return 0;
--	case SBI_ERR_DENIED:
--		return -EPERM;
--	case SBI_ERR_INVALID_PARAM:
--		return -EINVAL;
--	case SBI_ERR_INVALID_ADDRESS:
--		return -EFAULT;
--	case SBI_ERR_NOT_SUPPORTED:
--	case SBI_ERR_FAILURE:
--	default:
--		return -ENOTSUPP;
--	};
--}
--EXPORT_SYMBOL(sbi_err_map_linux_errno);
--
- #ifdef CONFIG_RISCV_SBI_V01
- static unsigned long __sbi_v01_cpumask_to_hartmask(const struct cpumask *cpu_mask)
- {
-@@ -535,17 +483,6 @@ long sbi_probe_extension(int extid)
- }
- EXPORT_SYMBOL(sbi_probe_extension);
- 
--static long __sbi_base_ecall(int fid)
--{
--	struct sbiret ret;
--
--	ret = sbi_ecall(SBI_EXT_BASE, fid, 0, 0, 0, 0, 0, 0);
--	if (!ret.error)
--		return ret.value;
--	else
--		return sbi_err_map_linux_errno(ret.error);
--}
--
- static inline long sbi_get_spec_version(void)
- {
- 	return __sbi_base_ecall(SBI_EXT_BASE_GET_SPEC_VERSION);
-diff --git a/arch/riscv/kernel/sbi_ecall.c b/arch/riscv/kernel/sbi_ecall.c
-new file mode 100644
-index 000000000000..24aabb4fbde3
---- /dev/null
-+++ b/arch/riscv/kernel/sbi_ecall.c
-@@ -0,0 +1,48 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/* Copyright (c) 2024 Rivos Inc. */
-+
-+#include <asm/sbi.h>
-+#define CREATE_TRACE_POINTS
-+#include <asm/trace.h>
-+
-+long __sbi_base_ecall(int fid)
-+{
-+	struct sbiret ret;
-+
-+	ret = sbi_ecall(SBI_EXT_BASE, fid, 0, 0, 0, 0, 0, 0);
-+	if (!ret.error)
-+		return ret.value;
-+	else
-+		return sbi_err_map_linux_errno(ret.error);
-+}
-+EXPORT_SYMBOL(__sbi_base_ecall);
-+
-+struct sbiret __sbi_ecall(unsigned long arg0, unsigned long arg1,
-+			  unsigned long arg2, unsigned long arg3,
-+			  unsigned long arg4, unsigned long arg5,
-+			  int fid, int ext)
-+{
-+	struct sbiret ret;
-+
-+	trace_sbi_call(ext, fid);
-+
-+	register uintptr_t a0 asm ("a0") = (uintptr_t)(arg0);
-+	register uintptr_t a1 asm ("a1") = (uintptr_t)(arg1);
-+	register uintptr_t a2 asm ("a2") = (uintptr_t)(arg2);
-+	register uintptr_t a3 asm ("a3") = (uintptr_t)(arg3);
-+	register uintptr_t a4 asm ("a4") = (uintptr_t)(arg4);
-+	register uintptr_t a5 asm ("a5") = (uintptr_t)(arg5);
-+	register uintptr_t a6 asm ("a6") = (uintptr_t)(fid);
-+	register uintptr_t a7 asm ("a7") = (uintptr_t)(ext);
-+	asm volatile ("ecall"
-+		       : "+r" (a0), "+r" (a1)
-+		       : "r" (a2), "r" (a3), "r" (a4), "r" (a5), "r" (a6), "r" (a7)
-+		       : "memory");
-+	ret.error = a0;
-+	ret.value = a1;
-+
-+	trace_sbi_return(ext, ret.error, ret.value);
-+
-+	return ret;
-+}
-+EXPORT_SYMBOL(__sbi_ecall);
--- 
-2.39.2
-
+Lorenzo also raised some very valid points about a having a generic
+address-restriction ABI.  I'm certainly not discounting those concerns.
+It's not something that can be done lightly.
 
 _______________________________________________
 linux-riscv mailing list
