@@ -4,125 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D622CA0ECE
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Aug 2024 01:10:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C483DCA0ECE
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Aug 2024 01:17:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RGARh8EdeLnC2zExPVkQZb3YTDWM6Fg6wXARu3dd1nA=; b=DanmjNEB5jghn2
-	EBOzYcwwUPuh5B8rwwy7LJ1+/9HHrJBZjMgYPBQ1D33Nu2mxeW3FGQd7PZNQ9gbXJYF2ixWl9KIMl
-	2R+HKcFhNB/ubQbDtLeYL8B4LzHlqC2YqJ6QfBDKJ02ieQ7IbK5Bsvnqwt5KUWzG1AVzYuLBX3+2m
-	RtEodsNCUkVPUC9m0iYAgQqJR0AQvp3TGYBeEqAsxo7O4Db/GFEo5MUrjZt2Oozu5CJKfoWUbOt/u
-	/upDkendYwfmFgM+S06q0Rci7YhJBXBdMcZM7WlM17m9hyFEcTBZyiU7KTkwPJBVAIm9tLhvt4FjY
-	Flz7WjNDLI/XiflWe5Vg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=T6kZ47WdlcHlsvbfGYlfKfcLjBbti8KJWZR+aQKbtLE=; b=OjLR7uzMEQv8y5
+	9dh9FCu0n3aHV26Rjajtt+SrC1CmE2yTVl6CNcHOHB0LE4Ayy6CC9HW47dWyhXOw837WrjAgYeV7/
+	FgiYXWgbQC92soSTgP4SLHNd+wAsHvbiASl8/v2REkcsOUQALlWH05E7az2VRaBvV6YOx0L9KbyRR
+	5241nhCyMKcN4lVfhTkRcqCEl5z0BhRZip8pChtNHTYMcU5q+cauVdmASqBknEQYOqGuz8VjGYZ3U
+	39qHei/hj8p+amGvv+s6K7nwI5Z+ewd1T5kQGh5V//eWJ0njqVC0GYmQHNN8etx71XC8dSi7mzt9R
+	+Oj6K57CdjFvdhNTYG2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjq9S-00000004Fdp-1eAg;
-	Fri, 30 Aug 2024 01:10:10 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1sjqGw-00000004GWM-0eu6;
+	Fri, 30 Aug 2024 01:17:54 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjq9O-00000004Fcd-2wpb
+	id 1sjqGr-00000004GUE-1IxW
 	for linux-riscv@lists.infradead.org;
-	Fri, 30 Aug 2024 01:10:07 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-714263cb074so982736b3a.1
-        for <linux-riscv@lists.infradead.org>; Thu, 29 Aug 2024 18:10:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1724980205; x=1725585005; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=CwoqNPnm0PFMKEw2mojvKZssW8GhVCDsDfQmuaD4p/M=;
-        b=onx0PFR8wi2r7ZuNKIq5yH9NVeG4OzMhI7MsirEShCOu6nPUfvFh9QOe7bJ/aY1Ved
-         CWQvGFwoQS1M1nJbrLjP9v7DTAWxqSfLnw2+oj4XKI8Cavc0FqzU40V8Vj9RkVQY36K3
-         vb+4bJjNnsUFpy5sWtDOSrSDGWqc9rf1g8P2NIrGo17gEiyit0vKhzCVSNtuGyLOAKkB
-         LdaJfMpwbpE7dkYNMUmCWJi1IEHtizjMx9baFUrFjTEAL1/uL9IPdTJpfOR9Jl21OLv4
-         VMVRPFW7T1cZpoW8HuxDozyG0nfazC834eqIV3FNA0zVPSIV9jbwtr67pRdK7OesVcFm
-         +BcA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1724980205; x=1725585005;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CwoqNPnm0PFMKEw2mojvKZssW8GhVCDsDfQmuaD4p/M=;
-        b=pjd8OnutvWtVNxxw4Rbfzt15DrbrNvtdWMmZ3HfwfBGIosjIbbBkE7n46NdyjnCpKU
-         MLbn+fTtMx8i6OELaSMUw+yArRtwrcNV6QLUSVNRkKA/U1m3bpQuYZCKqU+z44EiKY5r
-         I2Xv19Tr5u2bAkbto9Enku4GlqiOdQa+xDp4aB60WXoqlqBTsIARxAcJBEsG7F9pO+bh
-         LQ+LDDwd2FRHEKCYgdjnrUDzd7adCpKUKWdCo7jaE+HZubePBjT3D0J5tWcM3lIKA1h+
-         JqwSLSds6ZbQh70CLAUHneyn8fvW7RRQuCvtOZawFEyz10pbEXXeVkoI+AljbK+l6hrJ
-         AlWw==
-X-Forwarded-Encrypted: i=1; AJvYcCUZU+1t2RS4vNWXiNzt4a4fBo/OWevVAboH02SUfah+5FJBgeDBnFz6nVKRtPMSxPdAM4DGdaRwr/laHw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw4ce60utVhJfALrnMKpN/gsyIPUpiPfJopRccPnH5I0zC6GSlN
-	diu+JEt87Asw6NayOqLcDCPbSfXQVdPQO94vNpVzkGLyItAgUPLS/NNsPdQ4jjU=
-X-Google-Smtp-Source: AGHT+IHjWR5hohyc19lNozH4CTnGNOicvRPszOH5PvlKyMQFSKFQKAXiGMUabKYrMEs/kL3dRfpZ8w==
-X-Received: by 2002:a05:6a21:3943:b0:1c0:f216:7f20 with SMTP id adf61e73a8af0-1cce10ec619mr4946320637.49.1724980205096;
-        Thu, 29 Aug 2024 18:10:05 -0700 (PDT)
-Received: from ghost ([50.145.13.30])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-205152b1326sm17228115ad.35.2024.08.29.18.10.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Aug 2024 18:10:04 -0700 (PDT)
-Date: Thu, 29 Aug 2024 18:10:00 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: "Liam R. Howlett" <Liam.Howlett@oracle.com>
-Cc: Dave Hansen <dave.hansen@intel.com>, Arnd Bergmann <arnd@arndb.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	Fri, 30 Aug 2024 01:17:51 +0000
+Received: from ubt.. (unknown [210.73.53.31])
+	by APP-01 (Coremail) with SMTP id qwCowAC3vUmsHdFmIwaXCw--.62105S2;
+	Fri, 30 Aug 2024 09:17:33 +0800 (CST)
+From: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Naveen N Rao <naveen@kernel.org>,
-	Muchun Song <muchun.song@linux.dev>,
 	Andrew Morton <akpm@linux-foundation.org>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Russell King <linux@armlinux.org.uk>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	Helge Deller <deller@gmx.de>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	Rich Felker <dalias@libc.org>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	"David S. Miller" <davem@davemloft.net>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Palmer Dabbelt <palmer@rivosinc.com>,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	linux-mm@kvack.org, loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH 00/16] mm: Introduce MAP_BELOW_HINT
-Message-ID: <ZtEb6EogqifmKrQU@ghost>
-References: <20240827-patches-below_hint_mmap-v1-0-46ff2eb9022d@rivosinc.com>
- <fd1b8016-e73d-4535-9c67-579ab994351f@intel.com>
- <Zs+FYbII0ewwdisg@ghost>
- <4219f619-4b32-40bc-85b8-cb11d76fde98@intel.com>
- <pzxlpwxbrs3pali53bogsorwebi45ayqivxmpeagrhvdh7zt4u@ybsa2vnkze7v>
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Chunyan Zhang <zhang.lyra@gmail.com>
+Subject: [RESEND PATCH V4 0/3] riscv: mm: Add soft-dirty and uffd-wp support
+Date: Fri, 30 Aug 2024 09:10:58 +0800
+Message-Id: <20240830011101.3189522-1-zhangchunyan@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <pzxlpwxbrs3pali53bogsorwebi45ayqivxmpeagrhvdh7zt4u@ybsa2vnkze7v>
+X-CM-TRANSID: qwCowAC3vUmsHdFmIwaXCw--.62105S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Aw17trWrtr4xKryUZF4UXFb_yoW8Wrykpa
+	93Gwn8tryYkr1xtrs3Cr1DKr15Wa1ft3s8Cryft34vyw45JF4jvrnYkF1fJw18Xa429r90
+	kF15CrW3u3ykZaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvYb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8JVWxJwA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_Gr0_Gr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lc7CjxVAaw2AFwI0_JF0_Jw1l
+	c2xSY4AK67AK6w4l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxV
+	Aqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q
+	6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6x
+	kF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AK
+	xVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r1j6r4UYxBIdaVFxhVjvjDU0xZFpf9x07
+	jetCwUUUUU=
+X-Originating-IP: [210.73.53.31]
+X-CM-SenderInfo: x2kd0wxfkx051dq6x2xfdvhtffof0/1tbiBwoCB2bNLFyRwAACsA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240829_181006_754538_FDE553FC 
-X-CRM114-Status: GOOD (  39.47  )
+X-CRM114-CacheID: sfid-20240829_181749_741795_0D0755A2 
+X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,75 +83,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 29, 2024 at 03:36:43PM -0400, Liam R. Howlett wrote:
-> * Dave Hansen <dave.hansen@intel.com> [240829 12:54]:
-> > On 8/28/24 13:15, Charlie Jenkins wrote:
-> > > A way to restrict mmap() to return LAM compliant addresses in an entire
-> > > address space also doesn't have to be mutually exclusive with this flag.
-> > > This flag allows for the greatest degree of control from applications.
-> > > I don't believe there is additionally performance saving that could be
-> > > achieved by having this be on a per address space basis.
-> > 
-> > I agree with you in general.  The MAP_BELOW_HINT _is_ the most flexible.
-> >  But it's also rather complicated.
-> 
-> There is a (seldom used?) feature of mmap_min_addr, it seems like we
-> could have an mmap_max_addr.  Would something like that work for your
-> use case?  Perhaps it would be less intrusive to do something in this
-> way?  I haven't looked at it in depth and this affects all address
-> spaces as well (new allocations only).
-> 
-> There is a note on mmap_min_addr about applications that require the
-> lower addresses, would this mean we'll now have a note about upper
-> limits?
+This patchset adds soft dirty and userfaultfd write protect tracking support
+for RISC-V.
 
-I don't think that's a viable solution because that would change the
-mmap behavior for all applications running on the system, and wouldn't
-allow individual applications to have different configurations.
+As described in the patches, we are trying to utilize only one free PTE
+bit(9) to support three kernel features (devmap, soft-dirty, uffd-wp).
+Users cannot have them supported at the same time (have to select
+one when building the kernel).
 
-> 
-> I really don't understand why you need this at all, to be honest.  If
-> you know the upper limit you could just MAP_FIXED map a huge guard at
-> the top of your address space then do whatever you want with those bits.
-> 
-> This will create an entry in the vma tree that no one else will be able
-> to use, and you can do this in any process you want, for as many bits as
-> you want.
+This patchset has been tested with:
+1) The kselftest mm suite in which soft-dirty, madv_populate, test_unmerge_uffd_wp,
+and uffd-unit-tests run and pass, and no regressions are observed in any of the
+other tests.
 
-Oh that's an interesting idea. I am not sure how that could work in
-practice though. The application would need to know it allocated all of
-the addresses in the upper address space, how would it be able to do
-that?
+2) CRIU:
+- 'criu check --feature mem_dirty_track' returns supported;
+- incremental_dumps[1] and simple_loop [2] dump and restores work fine;
+- zdtm test suite can run under host mode.
 
-> 
-> > 
-> > My _hope_ would be that a per-address-space property could share at
-> > least some infrastructure with what x86/LAM and arm/TBI do to the
-> > address space.  Basically put the restrictions in place for purely
-> > software reasons instead of the mostly hardware reasons for LAM/TBI.
-> > 
-> > Lorenzo also raised some very valid points about a having a generic
-> > address-restriction ABI.  I'm certainly not discounting those concerns.
-> > It's not something that can be done lightly.
-> 
-> Yes, I am concerned about supporting this (probably forever) and dancing
-> around special code that may cause issues, perhaps on an arch that few
-> have for testing.  I already have so many qemu images for testing, some
-> of which no longer have valid install media - and basically none of them
-> use the same code in this area (or have special cases already).  I think
-> you understand what we are dealing with considering your comments in
-> your cover letter.
+This patchset applies on top of v6.11-rc1.
 
-It is definitely not something to be taken lightly. The version 2 of
-this is completely generic so that should eliminate most of the concern
-of "special code" on various architectures. Unless I am misunderstanding
-something.
+V4:
+- Added bit(4) descriptions into "Format of swap PTE".
 
-- Charlie
+V3:
+- Fixed the issue reported by kernel test irobot <lkp@intel.com>.
 
-> 
-> Thanks,
-> Liam
+V1 -> V2:
+- Add uffd-wp supported;
+- Make soft-dirty uffd-wp and devmap mutually exclusive which all use the same PTE bit;
+- Add test results of CRIU in the cover-letter.
+
+[1] https://www.criu.org/Incremental_dumps
+[2] https://asciinema.org/a/232445
+
+Chunyan Zhang (3):
+  riscv: mm: Prepare for reusing PTE RSW bit(9)
+  riscv: mm: Add soft-dirty page tracking support
+  riscv: mm: Add uffd write-protect support
+
+ arch/riscv/Kconfig                    |  34 ++++++-
+ arch/riscv/include/asm/pgtable-64.h   |   2 +-
+ arch/riscv/include/asm/pgtable-bits.h |  31 ++++++
+ arch/riscv/include/asm/pgtable.h      | 133 +++++++++++++++++++++++++-
+ 4 files changed, 197 insertions(+), 3 deletions(-)
+
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
