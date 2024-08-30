@@ -4,71 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F06D3CA0ECC
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Aug 2024 01:18:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00B45CA0ED0
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Aug 2024 01:31:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rx7bCG0weWkfBATReUcyrQoT62//mIc0+/JfnfhCg60=; b=N8UuLUR93l8uw6
-	p+UUOJcWeEpLXu3MO3sH4CUIcWNoMO0upIdilT2LuU3V4s8aFViqwpE61qbis2fpdRr0dXfuTFQ2b
-	HBIeigsVv0lPPQdWgIKATl/AxEw5tBKDflXNbrI3zTz6G0oqnOEingTRHdzaWuJasUog1iZpnYWAq
-	ibR8myERWO5LQrZay1R6ismDQNvo435WGAeCm1zBAsy9a4Vi9OX/i/hBx0LfGxmE2pgP7AuCF9RNg
-	2iURb2iQrrmB9I5ANOWCB26MIC9NNOaM5eXoIIs913Jz9O7Hjuz244/yNBTDH4zdVqIdqC0s1CpPG
-	6C7nnPtu93c2qp4A1QEQ==;
+	List-Owner; bh=LAwM6yzfw8twOfcl+tMw6caRt50RzXZGgjd8VNU0zZw=; b=hwv/KCg0IKu46Q
+	UEGTIcXddupwVhM7VOBSX3a1mPmj/QKCQWXZfjXuruR31Oi7OraZIJtYq2J/xOGXU6CtOF5J3XBAq
+	en5pI69FbkX+sEf+/5ia1kcRhJgeBqcZrzX8XG79wq1MqI93AeGrEE0RMQq2SdPGB8Z6qCyYWm5e9
+	dIW24szmeZ8YALWmgozXjBZPKB1itXKKFZNfjoAM6RcB03KT4W38LsiPO5wzF9z8ak6DVlxmMeNNo
+	gjhnZ1uaKTrSzufgY5Obr+s+iIAJfG87K9KWBd1R48/1dPmrBH7WDOIli43K3Jhe6vUKo6S87qakn
+	UzXhNBji4Noo7Q8vLW7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjqGv-00000004GW9-1ou5;
-	Fri, 30 Aug 2024 01:17:53 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1sjqTp-00000004IhO-3rDn;
+	Fri, 30 Aug 2024 01:31:14 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjqGr-00000004GUG-1JlQ
+	id 1sjqTm-00000004Iga-0jDy
 	for linux-riscv@lists.infradead.org;
-	Fri, 30 Aug 2024 01:17:51 +0000
-Received: from ubt.. (unknown [210.73.53.31])
-	by APP-01 (Coremail) with SMTP id qwCowAC3vUmsHdFmIwaXCw--.62105S3;
-	Fri, 30 Aug 2024 09:17:34 +0800 (CST)
-From: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Chunyan Zhang <zhang.lyra@gmail.com>
-Subject: [RESEND PATCH V4 1/3] riscv: mm: Prepare for reusing PTE RSW bit(9)
-Date: Fri, 30 Aug 2024 09:10:59 +0800
-Message-Id: <20240830011101.3189522-2-zhangchunyan@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20240830011101.3189522-1-zhangchunyan@iscas.ac.cn>
-References: <20240830011101.3189522-1-zhangchunyan@iscas.ac.cn>
+	Fri, 30 Aug 2024 01:31:12 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.252])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4Ww0vq4hpgzyR5C;
+	Fri, 30 Aug 2024 09:30:31 +0800 (CST)
+Received: from kwepemh500013.china.huawei.com (unknown [7.202.181.146])
+	by mail.maildlp.com (Postfix) with ESMTPS id BDC851800D1;
+	Fri, 30 Aug 2024 09:31:03 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ kwepemh500013.china.huawei.com (7.202.181.146) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 30 Aug 2024 09:31:03 +0800
+Message-ID: <c4fbc62f-e398-1229-c1b1-7bab30e4460e@huawei.com>
+Date: Fri, 30 Aug 2024 09:31:02 +0800
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowAC3vUmsHdFmIwaXCw--.62105S3
-X-Coremail-Antispam: 1UD129KBjvJXoW7tw4UKF47uw1UGr13AFy5urg_yoW8AryDpF
-	s0kr9YkFWrCrySkay2yFnFgr4UAa98K3sIgry8ur4UJas8t3yUZ39xKw17Xay8Xa1vvF93
-	GFWvg345ury3Jw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPYb7Iv0xC_Zr1lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
-	8067AKxVWUGwA2048vs2IY020Ec7CjxVAFwI0_JFI_Gr1l8cAvFVAK0II2c7xJM28CjxkF
-	64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0cI8IcV
-	CY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26r4j6F4UM28EF7xvwVC2z280aVCY
-	1x0267AKxVW8JVW8Jr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I
-	8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCF
-	s4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwCY1x0262kKe7AKxVWUAVWUtwCY02Avz4
-	vE14v_KwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E
-	14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIx
-	kGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAF
-	wI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r
-	4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07jz9akU
-	UUUU=
-X-Originating-IP: [210.73.53.31]
-X-CM-SenderInfo: x2kd0wxfkx051dq6x2xfdvhtffof0/1tbiDAYFB2bRD2YmYQAAsR
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.0
+Subject: Re: [RESEND PATCH V4 2/3] riscv: mm: Add soft-dirty page tracking
+ support
+Content-Language: en-US
+To: Chunyan Zhang <zhangchunyan@iscas.ac.cn>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Andrew Morton <akpm@linux-foundation.org>, Alexandre
+ Ghiti <alex@ghiti.fr>
+CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, Chunyan
+ Zhang <zhang.lyra@gmail.com>
+References: <20240830011101.3189522-1-zhangchunyan@iscas.ac.cn>
+ <20240830011101.3189522-3-zhangchunyan@iscas.ac.cn>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20240830011101.3189522-3-zhangchunyan@iscas.ac.cn>
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ kwepemh500013.china.huawei.com (7.202.181.146)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240829_181749_746659_50A43465 
-X-CRM114-Status: GOOD (  10.75  )
+X-CRM114-CacheID: sfid-20240829_183110_719217_4B1F59BF 
+X-CRM114-Status: GOOD (  24.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,53 +77,199 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The PTE bit(9) on RISC-V is reserved for software, it is used by DEVMAP
-now which has to be disabled if we want to use bit(9) for other features,
-since there's no more free PTE bit on RISC-V now.
 
-So to make ARCH_HAS_PTE_DEVMAP selectable, this patch uses it as
-the build condition of devmap definitions.
 
-Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
----
- arch/riscv/include/asm/pgtable-64.h   | 2 +-
- arch/riscv/include/asm/pgtable-bits.h | 6 ++++++
- 2 files changed, 7 insertions(+), 1 deletion(-)
+On 2024/8/30 9:11, Chunyan Zhang wrote:
+> The PTE bit(9) is reserved for software, now used by DEVMAP,
+> this patch reuse bit(9) for soft-dirty which is enabled only
+> if !CONFIG_ARCH_HAS_PTE_DEVMAP, in other words, soft-dirty
+> and devmap will be mutually exclusive on RISC-V.
+> 
+> To add swap PTE soft-dirty tracking, we borrow bit (4) which is
+> available for swap PTEs on RISC-V systems.
+> 
+> Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+> ---
+>  arch/riscv/Kconfig                    | 27 ++++++++++-
+>  arch/riscv/include/asm/pgtable-bits.h | 12 +++++
+>  arch/riscv/include/asm/pgtable.h      | 69 ++++++++++++++++++++++++++-
+>  3 files changed, 106 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 0f3cd7c3a436..f1460fc01cd4 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -39,7 +39,6 @@ config RISCV
+>  	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
+>  	select ARCH_HAS_PMEM_API
+>  	select ARCH_HAS_PREPARE_SYNC_CORE_CMD
+> -	select ARCH_HAS_PTE_DEVMAP if 64BIT && MMU
+>  	select ARCH_HAS_PTE_SPECIAL
+>  	select ARCH_HAS_SET_DIRECT_MAP if MMU
+>  	select ARCH_HAS_SET_MEMORY if MMU
+> @@ -948,6 +947,32 @@ config RANDOMIZE_BASE
+>  
+>            If unsure, say N.
+>  
+> +choice
+> +	prompt "PET RSW Bit(9) used for"
+> +	default RISCV_HAS_PTE_DEVMEP
+> +	depends on MMU && 64BIT
+> +	help
+> +	  RISC-V PTE bit(9) is reserved for software, and used by more than
+> +	  one kernel features which cannot be supported at the same time.
+> +	  So we have to select one for it.
+> +
+> +config RISCV_HAS_PTE_DEVMEP
+> +	bool "DEVMAP mark"
+> +	select ARCH_HAS_PTE_DEVMAP
+> +	help
+> +	  The PTE bit(9) is used for DEVMAP mark. ZONE_DEVICE pages need DEVMAP
+> +	  PTEs support to function.
+> +
+> +	  So if you want to use ZONE_DEVICE, select this.
+> +
+> +config RISCV_HAS_SOFT_DIRTY
+> +	bool "soft dirty"
+> +	select HAVE_ARCH_SOFT_DIRTY
+> +	help
+> +	  The PTE bit(9) is used for soft-dirty tracking.
+> +
+> +endchoice
+> +
 
-diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
-index 0897dd99ab8d..babb8d2b0f0b 100644
---- a/arch/riscv/include/asm/pgtable-64.h
-+++ b/arch/riscv/include/asm/pgtable-64.h
-@@ -398,7 +398,7 @@ static inline struct page *pgd_page(pgd_t pgd)
- #define p4d_offset p4d_offset
- p4d_t *p4d_offset(pgd_t *pgd, unsigned long address);
- 
--#ifdef CONFIG_TRANSPARENT_HUGEPAGE
-+#if defined(CONFIG_TRANSPARENT_HUGEPAGE) && defined(CONFIG_ARCH_HAS_PTE_DEVMAP)
- static inline int pte_devmap(pte_t pte);
- static inline pte_t pmd_pte(pmd_t pmd);
- 
-diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
-index a8f5205cea54..5bcc73430829 100644
---- a/arch/riscv/include/asm/pgtable-bits.h
-+++ b/arch/riscv/include/asm/pgtable-bits.h
-@@ -19,7 +19,13 @@
- #define _PAGE_SOFT      (3 << 8)    /* Reserved for software */
- 
- #define _PAGE_SPECIAL   (1 << 8)    /* RSW: 0x1 */
-+
-+#ifdef CONFIG_ARCH_HAS_PTE_DEVMAP
- #define _PAGE_DEVMAP    (1 << 9)    /* RSW, devmap */
-+#else
-+#define _PAGE_DEVMAP	0
-+#endif /* CONFIG_ARCH_HAS_PTE_DEVMAP */
-+
- #define _PAGE_TABLE     _PAGE_PRESENT
- 
- /*
--- 
-2.34.1
+Hi, ARCH_HAS_PTE_DEVMAP will be removed in following patch, I guess
+riscv will too:
 
+https://lore.kernel.org/all/47c26640cd85f3db2e0a2796047199bb984d1b3f.1719386613.git-series.apopple@nvidia.com/
+
+>  endmenu # "Kernel features"
+>  
+>  menu "Boot options"
+> diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
+> index 5bcc73430829..c6d51fe9fc6f 100644
+> --- a/arch/riscv/include/asm/pgtable-bits.h
+> +++ b/arch/riscv/include/asm/pgtable-bits.h
+> @@ -26,6 +26,18 @@
+>  #define _PAGE_DEVMAP	0
+>  #endif /* CONFIG_ARCH_HAS_PTE_DEVMAP */
+>  
+> +#ifdef CONFIG_MEM_SOFT_DIRTY
+> +#define _PAGE_SOFT_DIRTY	(1 << 9)    /* RSW: 0x2 for software dirty tracking */
+> +/*
+> + * BIT 4 is not involved into swap entry computation, so we
+> + * can borrow it for swap page soft-dirty tracking.
+> + */
+> +#define _PAGE_SWP_SOFT_DIRTY	_PAGE_USER
+> +#else
+> +#define _PAGE_SOFT_DIRTY	0
+> +#define _PAGE_SWP_SOFT_DIRTY	0
+> +#endif /* CONFIG_MEM_SOFT_DIRTY */
+> +
+>  #define _PAGE_TABLE     _PAGE_PRESENT
+>  
+>  /*
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index 089f3c9f56a3..d41507919ef2 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -428,7 +428,7 @@ static inline pte_t pte_mkwrite_novma(pte_t pte)
+>  
+>  static inline pte_t pte_mkdirty(pte_t pte)
+>  {
+> -	return __pte(pte_val(pte) | _PAGE_DIRTY);
+> +	return __pte(pte_val(pte) | _PAGE_DIRTY | _PAGE_SOFT_DIRTY);
+>  }
+>  
+>  static inline pte_t pte_mkclean(pte_t pte)
+> @@ -461,6 +461,38 @@ static inline pte_t pte_mkhuge(pte_t pte)
+>  	return pte;
+>  }
+>  
+> +#ifdef CONFIG_HAVE_ARCH_SOFT_DIRTY
+> +static inline int pte_soft_dirty(pte_t pte)
+> +{
+> +	return pte_val(pte) & _PAGE_SOFT_DIRTY;
+> +}
+> +
+> +static inline pte_t pte_mksoft_dirty(pte_t pte)
+> +{
+> +	return __pte(pte_val(pte) | _PAGE_SOFT_DIRTY);
+> +}
+> +
+> +static inline pte_t pte_clear_soft_dirty(pte_t pte)
+> +{
+> +	return __pte(pte_val(pte) & ~(_PAGE_SOFT_DIRTY));
+> +}
+> +
+> +static inline int pte_swp_soft_dirty(pte_t pte)
+> +{
+> +	return pte_val(pte) & _PAGE_SWP_SOFT_DIRTY;
+> +}
+> +
+> +static inline pte_t pte_swp_mksoft_dirty(pte_t pte)
+> +{
+> +	return __pte(pte_val(pte) | _PAGE_SWP_SOFT_DIRTY);
+> +}
+> +
+> +static inline pte_t pte_swp_clear_soft_dirty(pte_t pte)
+> +{
+> +	return __pte(pte_val(pte) & ~(_PAGE_SWP_SOFT_DIRTY));
+> +}
+> +#endif /* CONFIG_HAVE_ARCH_SOFT_DIRTY */
+> +
+>  #ifdef CONFIG_RISCV_ISA_SVNAPOT
+>  #define pte_leaf_size(pte)	(pte_napot(pte) ?				\
+>  					napot_cont_size(napot_cont_order(pte)) :\
+> @@ -751,6 +783,40 @@ static inline pmd_t pmd_mkdevmap(pmd_t pmd)
+>  	return pte_pmd(pte_mkdevmap(pmd_pte(pmd)));
+>  }
+>  
+> +#ifdef CONFIG_HAVE_ARCH_SOFT_DIRTY
+> +static inline int pmd_soft_dirty(pmd_t pmd)
+> +{
+> +	return pte_soft_dirty(pmd_pte(pmd));
+> +}
+> +
+> +static inline pmd_t pmd_mksoft_dirty(pmd_t pmd)
+> +{
+> +	return pte_pmd(pte_mksoft_dirty(pmd_pte(pmd)));
+> +}
+> +
+> +static inline pmd_t pmd_clear_soft_dirty(pmd_t pmd)
+> +{
+> +	return pte_pmd(pte_clear_soft_dirty(pmd_pte(pmd)));
+> +}
+> +
+> +#ifdef CONFIG_ARCH_ENABLE_THP_MIGRATION
+> +static inline int pmd_swp_soft_dirty(pmd_t pmd)
+> +{
+> +	return pte_swp_soft_dirty(pmd_pte(pmd));
+> +}
+> +
+> +static inline pmd_t pmd_swp_mksoft_dirty(pmd_t pmd)
+> +{
+> +	return pte_pmd(pte_swp_mksoft_dirty(pmd_pte(pmd)));
+> +}
+> +
+> +static inline pmd_t pmd_swp_clear_soft_dirty(pmd_t pmd)
+> +{
+> +	return pte_pmd(pte_swp_clear_soft_dirty(pmd_pte(pmd)));
+> +}
+> +#endif /* CONFIG_ARCH_ENABLE_THP_MIGRATION */
+> +#endif /* CONFIG_HAVE_ARCH_SOFT_DIRTY */
+> +
+>  static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
+>  				pmd_t *pmdp, pmd_t pmd)
+>  {
+> @@ -841,6 +907,7 @@ extern pmd_t pmdp_collapse_flush(struct vm_area_struct *vma,
+>   * Format of swap PTE:
+>   *	bit            0:	_PAGE_PRESENT (zero)
+>   *	bit       1 to 3:       _PAGE_LEAF (zero)
+> + *	bit	       4:	_PAGE_SWP_SOFT_DIRTY
+>   *	bit            5:	_PAGE_PROT_NONE (zero)
+>   *	bit            6:	exclusive marker
+>   *	bits      7 to 11:	swap type
 
 _______________________________________________
 linux-riscv mailing list
