@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82A24CA0EE0
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 872F8CA0EE4
 	for <linux-riscv@archiver.kernel.org>; Fri, 30 Aug 2024 05:46:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
-	:Mime-Version:Date:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=PbbQSvRiUnwsZErULmGvvZpo2mSO8VfPpaPM9q6gaXI=; b=lV1bzdv6j30qcr
-	TofGxf4ClBFrloGPTKPyUl6M+CWuDUYrqXVP9jrdpDFQDqMRbdi7AJLsg3BXKtyS3fTe/ZAbVpoiF
-	el4HiAyOB/5Rz34nUzUzWXsWVt2TwTjGJdrdlOMi1xFqqVMiGzJrxnnanyDfO6KIT8443tvXiHBrf
-	+rxACHBqKfF0DCW6763fZxsJp7KuyTkfieq4JowE6W4ZWEE/DTy450aRKbV37OTFjoggyby/foy+2
-	braIRMnPJrYutVZNe8jSRmdQWCj1CvKa6CqG5arP2MjafpNhPxXNiYoxqNt/Kn022u9eJGWu4yhIk
-	kRalazN2+fzeild5pkFw==;
+	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=yqKvy61G5QHdK1OJ2E1RaaLaqfnQduifQ9CScCplUfg=; b=GmGcxvvMFSMxpn
+	5uIZQgYlPbjv3KLSke2VXVQygUawRf1MrxiB5j+1Y9XOpPjzhrTaJ9GlMovKXTCPqL0W2bHkSKW5a
+	pJhYQR8jZoxIU/rON/FhwOaIjzTqoTMJdgFFFyfijbUuACx+PFuCMsr/NYF7XphgqxAIoE4NkjFs7
+	xC6u2nms7cmtChUf3xy2HP0C1vsK4JgOqQxFJ7WuprW3aBo/x5cb5uWM82fJ3cIIJcUdJlU5xmxqq
+	Bz24F9wyb4kOgp17TdSp/bqeVUm6JPNgWoagSIQa/GzCLa7TkovnGgabeQO6Oruk9twkZJeFjJjvc
+	xAmAKX1KHAyV0rIu+wGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjuSV-00000004qcm-0sCY;
-	Fri, 30 Aug 2024 05:46:07 +0000
-Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
+	id 1sjuSX-00000004qdr-0UaO;
+	Fri, 30 Aug 2024 05:46:09 +0000
+Received: from mail-yw1-f202.google.com ([209.85.128.202])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjtMk-00000004fjC-11ul
+	id 1sjtMu-00000004foV-2eez
 	for linux-riscv@lists.infradead.org;
-	Fri, 30 Aug 2024 04:36:11 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-e11cdb464f2so2299371276.0
-        for <linux-riscv@lists.infradead.org>; Thu, 29 Aug 2024 21:36:05 -0700 (PDT)
+	Fri, 30 Aug 2024 04:36:17 +0000
+Received: by mail-yw1-f202.google.com with SMTP id 00721157ae682-6b0f068833bso37014497b3.0
+        for <linux-riscv@lists.infradead.org>; Thu, 29 Aug 2024 21:36:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1724992564; x=1725597364; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:reply-to:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0RRTA1H5OtG+8qgMxGB5BU8t5Dbb6+roBouJjwlrdgk=;
-        b=g/cY6GNfHjQGU82xxjE/xY2qz4eNPQw+RBMEPkZnbQ6xOJlm7Vwg4GrxQneZfkzbSf
-         8aBxFiWrE8dad7REJpVHqnwFj7O1kv+5pGu93P6iEkkLxQdb2bEeTKfYgA1E0YRe5IcQ
-         +PNPDwaiV892CMi+lnP7mT9QJWg5bE4CA+Ut7OUn/simwm2F9H9tqfqBrhrOMqwsMycj
-         z/XqgFEHy7zrVf9bjrQ46UWVnJs/PeOhHZZ2wMPyhNFNM458S4c4ORZd2him3oEizVpW
-         OJ7gHnCG/U9hVrhnGorJHPpKGI0e+nBHiseHMnq9id/S7pu1W3FI2Kq6r0rxJ6e3qBP5
-         HO3A==
+        d=google.com; s=20230601; t=1724992574; x=1725597374; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=udiDa1YXNVQe9YQdq8pNqA0v4AMGb+sHHwac6qQVu4U=;
+        b=LG0k+UnkpaWm0HiPRveyQirdctz9QyRerwH3QNgroVinFBw56oviB5Rjk5H2HRuBk5
+         rhhWtBaL+hErpinjf268P7GB/3TNQaLC66SkBJasWQ9z5mKKrbM5r9dG1UuZ+Pzy1jC2
+         QwqST5KwKons9nxLLn87jzVgUmpadNko6Q8TuVV/Fy/qJP+PNAXNE1/4JZY8f/WXx936
+         X264Bxp1rfOKOcDqLJcJ9YSsnX0ROESoZjkU/QGe6PUIv2v8j5MabwMY5BudWvc3A7H0
+         bAlWp9zvrTYYoZpAHLT7dlht9nlir1Hw4AL+pmR/0lOjv4gqoLg7AqSo7qPRkmFhKUD2
+         kr+A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1724992564; x=1725597364;
-        h=cc:to:from:subject:message-id:mime-version:date:reply-to
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=0RRTA1H5OtG+8qgMxGB5BU8t5Dbb6+roBouJjwlrdgk=;
-        b=QPhFcdH2S8MefwvUmnDbEXJiXLJ29I3X+MPg9A1suGy3mVLVhpOHSV6s1H6Cq2E4D9
-         e9EdEZZLdN1gr/7LhL4OOXhx45aMdUYvs52oWeAImATXMrgXIMzvKlHmn4bbMf2EXe2t
-         YvmoxGE3ZoW6Q5APcNQgE96dV8wvp6YqMQNOJ0306fMlz0n5sRnjTWWWXilfKUCkHCYP
-         RIYvvANGp6sW9jLfAIjw16NugqWiFBNUiL75edGHtEMQmh/6H/InCluivSAHGEItK6dP
-         0yJitIi2+fk3PhHYips9LensRuZxMdS/FClfxexGbFWi87f7Sn4EARg9C5dOIfbXGPJN
-         dzqg==
-X-Forwarded-Encrypted: i=1; AJvYcCVE8UIIL2fNEO4hm8JSfPJzYhRrJxoxcYzqMobyrEP9n8Skp5Nh64zLz0Yiq6AQe1QvFj1flTuI/O1fIg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxFwOiSx4hJsK/0t8ndtLxx6CvLKRRjkhK9R8PhPwT2iGPT6UvQ
-	DrgzkJa/mrD4bpN4NWZ37kGFbFR585yTHRzwnfPDquNNnj5ozM0Gq5bUJAzS8VdCEKB8fr3yHCj
-	l7Q==
-X-Google-Smtp-Source: AGHT+IG+hqynsJ7hdgdKV9gAtkROKS2qGVXayEmYSbfKtO5Jo9FgRfejcOxvLz+XMdzoh9wRJFEwtKQxRPs=
+        d=1e100.net; s=20230601; t=1724992574; x=1725597374;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=udiDa1YXNVQe9YQdq8pNqA0v4AMGb+sHHwac6qQVu4U=;
+        b=OoCCV6E58K1FumfAyR8ak1cp6IB4iLMEFLg+3d9atyjRRpz/HczqXCkfdInR1uXHoc
+         2YTapAgIZEKyMox9FaYUfID4sUetku0IU49nqR7Qxqiewc900RJ+aOs+73d8uyQTRPPX
+         2Wy9rvUkLPOUHCbzzVAg2IcBFO//Dsd0mcz51q+daQ1SrKy1dsXSXaZcBKbh+ArG/h3e
+         ZwddvieAYAglo8M7D7sUdgv6/5G5Fhoowjg56slRPs2cfdCHFhQ/gHBOLJG4TFv+s1Zg
+         SqXq9GKLMAFahFl28AAh6VtMSWI/bbfzcxPk/UwSnocAb8BIuDNEZOi26IPzXe6qXicV
+         XOaQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX2O7JRRNrzg8YoHvVmdyE02NGHOq0zROvFQYci6QJ++dntiqFQodQgxIk0DUVQh4fnkmOIHeGj0YZBiQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyD6tHSf7rB/WtJ1eZhFSgM2PfhVs2g8i82msGSgJspJQqGOfM0
+	Muz4JCnwpGDn+bfAtsEZGv+5e9wbm17b+DooIo9Rj0fXCBI2rA2qOdcRE+hEFqMujzjUytCq2SX
+	T5A==
+X-Google-Smtp-Source: AGHT+IF7AfgBrJe8PwdncYuFwENH9bcWVSUBeh2Gmsa0ZJKxp7DrJ4HVnhtseSn5Ja9qHK89gyQHI56lkSI=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a25:278a:0:b0:e0b:a712:2ceb with SMTP id
- 3f1490d57ef6-e1a79ff35c5mr30969276.5.1724992564279; Thu, 29 Aug 2024 21:36:04
- -0700 (PDT)
-Date: Thu, 29 Aug 2024 21:35:50 -0700
+ (user=seanjc job=sendgmr) by 2002:a05:690c:6681:b0:665:24b0:e936 with SMTP id
+ 00721157ae682-6d286f64db5mr2502337b3.4.1724992574565; Thu, 29 Aug 2024
+ 21:36:14 -0700 (PDT)
+Date: Thu, 29 Aug 2024 21:35:55 -0700
+In-Reply-To: <20240830043600.127750-1-seanjc@google.com>
 Mime-Version: 1.0
+References: <20240830043600.127750-1-seanjc@google.com>
 X-Mailer: git-send-email 2.46.0.469.g59c65b2a67-goog
-Message-ID: <20240830043600.127750-1-seanjc@google.com>
-Subject: [PATCH v4 00/10] KVM: Register cpuhp/syscore callbacks when enabling virt
+Message-ID: <20240830043600.127750-6-seanjc@google.com>
+Subject: [PATCH v4 05/10] KVM: MIPS: Rename virtualization {en,dis}abling APIs
+ to match common KVM
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
@@ -78,8 +82,8 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org, Chao Gao <chao.gao@intel.com>, 
 	Kai Huang <kai.huang@intel.com>, Farrah Chen <farrah.chen@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240829_213606_298586_17418DC2 
-X-CRM114-Status: GOOD (  14.08  )
+X-CRM114-CacheID: sfid-20240829_213616_698200_7B877BE7 
+X-CRM114-Status: GOOD (  12.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,96 +101,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Register KVM's cpuhp and syscore callbacks when enabling virtualization in
-hardware, as the sole purpose of said callbacks is to disable and re-enable
-virtualization as needed.
+Rename MIPS's trampoline hooks for virtualization enabling to match the
+recently renamed arch hooks.
 
-The primary motivation for this series is to simplify dealing with enabling
-virtualization for Intel's TDX, which needs to enable virtualization
-when kvm-intel.ko is loaded, i.e. long before the first VM is created.
+No functional change intended.
 
-That said, this is a nice cleanup on its own.  By registering the callbacks
-on-demand, the callbacks themselves don't need to check kvm_usage_count,
-because their very existence implies a non-zero count.
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ arch/mips/include/asm/kvm_host.h | 4 ++--
+ arch/mips/kvm/mips.c             | 4 ++--
+ arch/mips/kvm/vz.c               | 8 ++++----
+ 3 files changed, 8 insertions(+), 8 deletions(-)
 
-Patch 1 (re)adds a dedicated lock for kvm_usage_count.  Hopefully it's a
-temporary lock, as we can likely fix the cpus_read_lock() vs. kvm_lock mess
-for good by switching vm_list to an (S)RCU-protected list.
-
-v4:
- - Collect more reviews.
- - Fix documentation for kvm_usage_lock. [Kai]
- - Add a blurb in locking.rst to call out that cpus_read_lock() vs kvm_lock is
-   a general problem.
- - Add a paragraph in the locking patch to suggest switching vm_list to an
-   (S)RCU-protected list, so that walkers don't need to take kvm_lock.
- - Add an example call chain for the other cpus_read_lock() vs kvm_lock issues
-   that are lurking.
- - Enable the module param by default from the get-go. [Paolo]
- - Rename even more APIs/symbols (all of 'em I could find). [Paolo]
- - Clarify that it's the 0=>1 VM creation that's problematic, not simply the
-   creation of the very first VM. [Paolo]
- - Document enable_virt_at_load, and call out the (dis)advantages of enabling
-   virtualization when KVM is loaded.
- - Drop the WARN on kvm_usage_count being elevated at the end of
-   kvm_uninit_virtualization(), as it's annoyingly difficult to keep the WARN
-   and still allow arch code (i.e. TDX) to enable virtualization during setup.
-
-v3:
- - https://lore.kernel.org/all/20240608000639.3295768-1-seanjc@google.com
- - Collect reviews/acks.
- - Switch to kvm_usage_lock in a dedicated patch, Cc'd for stable@. [Chao]
- - Enable virt at load by default. [Chao]
- - Add comments to document how kvm_arch_{en,dis}able_virtualization() fit
-   into the overall flow. [Kai]
-
-v2:
- - https://lore.kernel.org/all/20240522022827.1690416-1-seanjc@google.com
- - Use a dedicated mutex to avoid lock inversion issues between kvm_lock and
-   the cpuhp lock.
- - Register emergency disable callbacks on-demand. [Kai]
- - Drop an unintended s/junk/ign rename. [Kai]
- - Decrement kvm_usage_count on failure. [Chao]
-
-v1: https://lore.kernel.org/all/20240425233951.3344485-1-seanjc@google.com
-
-Sean Christopherson (10):
-  KVM: Use dedicated mutex to protect kvm_usage_count to avoid deadlock
-  KVM: Register cpuhp and syscore callbacks when enabling hardware
-  KVM: Rename symbols related to enabling virtualization hardware
-  KVM: Rename arch hooks related to per-CPU virtualization enabling
-  KVM: MIPS: Rename virtualization {en,dis}abling APIs to match common
-    KVM
-  KVM: x86: Rename virtualization {en,dis}abling APIs to match common
-    KVM
-  KVM: Add a module param to allow enabling virtualization when KVM is
-    loaded
-  KVM: Add arch hooks for enabling/disabling virtualization
-  x86/reboot: Unconditionally define cpu_emergency_virt_cb typedef
-  KVM: x86: Register "emergency disable" callbacks when virt is enabled
-
- .../admin-guide/kernel-parameters.txt         |  17 ++
- Documentation/virt/kvm/locking.rst            |  31 +-
- arch/arm64/kvm/arm.c                          |   6 +-
- arch/loongarch/kvm/main.c                     |   4 +-
- arch/mips/include/asm/kvm_host.h              |   4 +-
- arch/mips/kvm/mips.c                          |   8 +-
- arch/mips/kvm/vz.c                            |   8 +-
- arch/riscv/kvm/main.c                         |   4 +-
- arch/x86/include/asm/kvm-x86-ops.h            |   4 +-
- arch/x86/include/asm/kvm_host.h               |   7 +-
- arch/x86/include/asm/reboot.h                 |   2 +-
- arch/x86/kvm/svm/svm.c                        |  19 +-
- arch/x86/kvm/vmx/main.c                       |   6 +-
- arch/x86/kvm/vmx/vmx.c                        |  10 +-
- arch/x86/kvm/vmx/x86_ops.h                    |   5 +-
- arch/x86/kvm/x86.c                            |  26 +-
- include/linux/kvm_host.h                      |  18 +-
- virt/kvm/kvm_main.c                           | 270 +++++++++---------
- 18 files changed, 251 insertions(+), 198 deletions(-)
-
-
-base-commit: 15e1c3d65975524c5c792fcd59f7d89f00402261
+diff --git a/arch/mips/include/asm/kvm_host.h b/arch/mips/include/asm/kvm_host.h
+index 6743a57c1ab4..f7222eb594ea 100644
+--- a/arch/mips/include/asm/kvm_host.h
++++ b/arch/mips/include/asm/kvm_host.h
+@@ -728,8 +728,8 @@ struct kvm_mips_callbacks {
+ 	int (*handle_fpe)(struct kvm_vcpu *vcpu);
+ 	int (*handle_msa_disabled)(struct kvm_vcpu *vcpu);
+ 	int (*handle_guest_exit)(struct kvm_vcpu *vcpu);
+-	int (*hardware_enable)(void);
+-	void (*hardware_disable)(void);
++	int (*enable_virtualization_cpu)(void);
++	void (*disable_virtualization_cpu)(void);
+ 	int (*check_extension)(struct kvm *kvm, long ext);
+ 	int (*vcpu_init)(struct kvm_vcpu *vcpu);
+ 	void (*vcpu_uninit)(struct kvm_vcpu *vcpu);
+diff --git a/arch/mips/kvm/mips.c b/arch/mips/kvm/mips.c
+index 52e1f275351e..60b43ea85c12 100644
+--- a/arch/mips/kvm/mips.c
++++ b/arch/mips/kvm/mips.c
+@@ -127,12 +127,12 @@ int kvm_arch_vcpu_should_kick(struct kvm_vcpu *vcpu)
+ 
+ int kvm_arch_enable_virtualization_cpu(void)
+ {
+-	return kvm_mips_callbacks->hardware_enable();
++	return kvm_mips_callbacks->enable_virtualization_cpu();
+ }
+ 
+ void kvm_arch_disable_virtualization_cpu(void)
+ {
+-	kvm_mips_callbacks->hardware_disable();
++	kvm_mips_callbacks->disable_virtualization_cpu();
+ }
+ 
+ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
+diff --git a/arch/mips/kvm/vz.c b/arch/mips/kvm/vz.c
+index 99d5a71e4300..ccab4d76b126 100644
+--- a/arch/mips/kvm/vz.c
++++ b/arch/mips/kvm/vz.c
+@@ -2869,7 +2869,7 @@ static unsigned int kvm_vz_resize_guest_vtlb(unsigned int size)
+ 	return ret + 1;
+ }
+ 
+-static int kvm_vz_hardware_enable(void)
++static int kvm_vz_enable_virtualization_cpu(void)
+ {
+ 	unsigned int mmu_size, guest_mmu_size, ftlb_size;
+ 	u64 guest_cvmctl, cvmvmconfig;
+@@ -2983,7 +2983,7 @@ static int kvm_vz_hardware_enable(void)
+ 	return 0;
+ }
+ 
+-static void kvm_vz_hardware_disable(void)
++static void kvm_vz_disable_virtualization_cpu(void)
+ {
+ 	u64 cvmvmconfig;
+ 	unsigned int mmu_size;
+@@ -3280,8 +3280,8 @@ static struct kvm_mips_callbacks kvm_vz_callbacks = {
+ 	.handle_msa_disabled = kvm_trap_vz_handle_msa_disabled,
+ 	.handle_guest_exit = kvm_trap_vz_handle_guest_exit,
+ 
+-	.hardware_enable = kvm_vz_hardware_enable,
+-	.hardware_disable = kvm_vz_hardware_disable,
++	.enable_virtualization_cpu = kvm_vz_enable_virtualization_cpu,
++	.disable_virtualization_cpu = kvm_vz_disable_virtualization_cpu,
+ 	.check_extension = kvm_vz_check_extension,
+ 	.vcpu_init = kvm_vz_vcpu_init,
+ 	.vcpu_uninit = kvm_vz_vcpu_uninit,
 -- 
 2.46.0.469.g59c65b2a67-goog
 
