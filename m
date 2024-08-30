@@ -4,127 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE295CA0EFB
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Aug 2024 10:01:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA59BCA0EFE
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Aug 2024 10:01:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4LnrUZw20WlGce0NM0oTno8v5dhhSu+kQLT5T//zfqE=; b=PJndehy3TFs/5c
-	wKc7UNdBnysd3VI1PcWn7hwsmQnzaQ5vpwYlBRo9srnuwr66Qa5lMdhpMoOX0ufCBzx6JYXomXle9
-	cL7fFNXPNvxFA4IrH9PTKtjS2/O01NoCEAsUy4Gw9GsY2n97fNnhl8WLjVjfZDa2BGSwzUssJK+K6
-	fyWW/ksrTMW8D7w68cbQux3BlY3R/GIlTquK/+nRLG1lkn/ZTjbHjMiPef6+yUloCZ16y6BcCIMlB
-	jHPmzBhbT3Dv+tyahtGnajS3nJn0cA/XWcVfGxDVeW+z5rlBpP1HUPRgLWyeujI9Xt+RbhVDnhZIW
-	bT2nmNuT9BbZu57N+aqQ==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=UUf4rDbV9bT/DN97ndLU+x4NxjmEoyJrwFhzZpZ3AXY=; b=uMhmpTEf0P1S9F
+	PzJaeAKk6vokkhHk4+WvPrT36lLmGsqGTMKdy/xf+X9pb6e7aiSpU+Ucyi6Whg/kkI1V/eGh88YUa
+	K1BctA7PR5hgJAPS2Zc4vw3FSsk/2/seoUKzo1AwnQQAyQHcWZ6bCfjmm2yGVcahl/GME/JxeocNk
+	kb+hWodrLrY+CNpDWRA6RzDVpC53uDXPIJGzfLkTWoYvf4VB9Y9e0+Y6yAZpVO7svolu3RBGJjf2j
+	8x1tLMIAEEc6cGtR+2Ldf2MJzI1zCHl1OlPC+z3dVqUu7sgeob0qSl4kr02TpMmTAklz+uNN+zvCW
+	nZymhC9A936LIImTVycA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjyRM-00000005gEQ-0uYa;
-	Fri, 30 Aug 2024 10:01:12 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1sjyRS-00000005gJr-0fQ1;
+	Fri, 30 Aug 2024 10:01:18 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjxJW-00000005QlV-23id
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 30 Aug 2024 08:49:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=wExFnTotY0bkXB4qvU68194faUzqnWH17rXDHpxCCSk=; b=TGFpgT+nQ3BziULwJkq0mWRR9w
-	ygzY8M6przJ7w557/qzOPukHHiGeGSFTPVSmseOX4TKtK0Bsraz8azcOT0orQIMHLAdkQITTibW24
-	477d6Vou32Wdcnsi/v5O9c/KudG9JuNtT4Yw4PiXAkvAVKl6LXiiefDZjpn2dRBA4rlYNLAWQcMD5
-	TBMDTLcAvf5lWdpvZAYparf5q9h+C3sLQ83SE1A09p3HxWIINh0bvefur5Y+eJe9yuLO63+HvHw3N
-	GBLixKWodYXPW3KzP5mUbsAKty/c+tsJadAgXUP/EX62XjsuQ3b0A4Cud8vlkQOHXVmA+/vozw6hi
-	HmfD8QWQ==;
-Received: from mail-mw2nam10olkn20805.outbound.protection.outlook.com ([2a01:111:f403:2c12::805] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sjxJS-0000000Bd9K-14MS
+	id 1sjxK9-00000005Qwt-2f9T
 	for linux-riscv@lists.infradead.org;
-	Fri, 30 Aug 2024 08:49:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=G1QrCOWkZKcdWWN6tvyxxbKQtz2GhF5Gwfqx9ImfopIQLl8qXyijgGQ2FTFO2qbSkG3EvTgkAS0RqOLTKK5Ch5apt+tYQi2tXwpCBIvkoYqx6AX1URX3SQRMGQBBWOayVqsIJRanGsBAQx+qo8Ql2dl0XeKPh0IiZNVrG2aZXlbG3snhYeiWVtK2pfKUUmQ4z71aybxlT9wPwYVgVIyeIDWWdQVF7hHbHbB9rjEQY1JAqcdAq7UaSEzWyYkF4hry1RM6i68yAnnBXc9NV9eLEXOvcTL31dNyluO5T0nB8aU4pUBMRNhXIoDuUElCpSznkUce0ITBrznhsOm/DTt1Lw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wExFnTotY0bkXB4qvU68194faUzqnWH17rXDHpxCCSk=;
- b=EClo8wXVha9kfV69fj6H6EaM9570FNQLsysWjAAWNW+fXmDGadGVPtP9J5U8BNTG9OO5PZCrLSmZFxMhE3jz3ERN+NR8bCMByjoIpiSgSuYEBxRE+hBT2vB1SclEPs07mRk69r6SRs55pyMWAivYAAr5wuTc1UDoNwEKiUeN9YOT377z/YX3SXTqvtwdjrTLj62bbDiRK5Vr1+g1TDL8ap+QahNaLCvL7VyTxR4S6zBwzSzQpRJob7sYPyQC7OT5S2Z3L2+30T/vj/McoT5v/oHFG5k6uwG7GnxijaEACRPwxQ9NY4IX/1RlnaSlxY03QgEQtaw9Cy+uMysB+2ZIzw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wExFnTotY0bkXB4qvU68194faUzqnWH17rXDHpxCCSk=;
- b=UV4VmP4jGJiBzfpjAVhh1yHC5kvNIA8HI6h68rdUIOKjRCUV/8Pkz+DDiumRjEZ3RQ8eR0+1zNc7ZcXYMAGRXjnLrvCF0705lwgFWUug8vvVSYqoDnd8RMPTGL/B60IPfAfsBF8SaPfLK4vSUQAv3rVAz8/VIEBbizlwjARX4qH9FmBtyOTWvTCyyYwbUR71LrRGCEj5k6w4cod2qsS8A8j+wN037nK7vUdJpGK7ZiuI9YAuD/kgGdy3l0PiSKiSPd/F+Ds77VJOcmzh3q+sdLPmvh34/ir3yyDmB8JHku+MPsT/ZE2AkJNvobKjxY/pCMz4KokNWHe8r/Z9BxoW4g==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by PH8PR20MB5218.namprd20.prod.outlook.com (2603:10b6:510:1c6::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7897.28; Fri, 30 Aug
- 2024 08:48:44 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::ab0b:c0d3:1f91:d149]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::ab0b:c0d3:1f91:d149%4]) with mapi id 15.20.7897.021; Fri, 30 Aug 2024
- 08:48:44 +0000
-Date: Fri, 30 Aug 2024 16:47:39 +0800
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Yixun Lan <dlan@gentoo.org>, Inochi Amaoto <inochiama@outlook.com>
-Subject: Re: [PATCH v3 3/4] riscv: dts: spacemit: add pinctrl support for K1
- SoC
-Message-ID: <IA1PR20MB495356670C7F97542E6F5072BB972@IA1PR20MB4953.namprd20.prod.outlook.com>
-References: <20240828-02-k1-pinctrl-v3-0-1fed6a22be98@gentoo.org>
- <20240828-02-k1-pinctrl-v3-3-1fed6a22be98@gentoo.org>
- <IA1PR20MB495369231BB1E1677228D95DBB972@IA1PR20MB4953.namprd20.prod.outlook.com>
- <20240830075626-GYA41291@gentoo>
-Content-Disposition: inline
-In-Reply-To: <20240830075626-GYA41291@gentoo>
-X-TMN: [zlcGTxEZJuqaULsJHdpCqguVyHvsBPTV1LSf2vXWveI=]
-X-ClientProxiedBy: TYCPR01CA0196.jpnprd01.prod.outlook.com
- (2603:1096:405:7a::20) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <mlsih6s2lgmapjshkpdnv42lzajpz3vd5auqpv5yysr4dnpjoo@c6ec7ijpe5ov>
+	Fri, 30 Aug 2024 08:50:02 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-37182eee02dso990256f8f.1
+        for <linux-riscv@lists.infradead.org>; Fri, 30 Aug 2024 01:49:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1725007779; x=1725612579; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=iGJL7OIFuIkfLAFkoMGwwROnKpnDuEMTd89ued1Cebg=;
+        b=eVNN57aCs7tu+B8l27J1X0o1AdJLk2E4+tvbURXPCHoutSaUX5WCf+dRvNuEes1fDy
+         3nywArDRHFMmPlzumu8sy3zoJLGZRiCfLb5VZe7esglI8Rmi4y2MUMetiWELXUlR5wZz
+         NR0B8kL3hGgCb+aH5LUDsfEkgxVpKbAKiNIgqhrONmjlHtUoUqKuZMVfvLw2tMkBdPK6
+         gsmMxtKkgBq8tTX/dAc46zSxa06mEeAzptJdlHJxZy2pG7ceU5F4UDiDDLzJnteU4DxS
+         j2pkJzm43WRSQ2AtkytfvBgXXgmMEZ7rTTCS0/uDHFwJlZtgMQm+MbquLLqcHUBZjNSN
+         z1rQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1725007779; x=1725612579;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=iGJL7OIFuIkfLAFkoMGwwROnKpnDuEMTd89ued1Cebg=;
+        b=cjEZ81detA20hXsrDVnUdsuMPdQzOlTwKDFIW4OzIu5L5PtKbKLOpk3bePemycMEqE
+         0m9B6m/GNYGVWcW6XX0ubEat8eSE3bsGF3SERufySKp4JIIsndkAqfoisCK3r1ZFQOrf
+         GI5QBDTDkzuINXgRC3+OsDnRwepW6cqophJ/GR6/V+Im1AycaGjHg6I1CBNFq9svyUyo
+         vawz0/COBmlc93Ji7ZplGNnFHlgUnM0cRr7AKcsv91kHUNBbzFJyxWEqcJvOVef5/i9j
+         I4QGohpfni/0UiwdB97ThYGkPoHoxRr/ZdUTK46Orc/MpKyKlS26jCu5htsKuAmgpncf
+         FXhw==
+X-Forwarded-Encrypted: i=1; AJvYcCUyKvZsJm6LvKW0DxG0czRt0Hg17D3uWlzQAAlo6izNQ4SBOkcqd8c8qIHtGAtrpq2SDKvIHXCE8BpnrQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwfhDmCaZGqkVI0Uf87Zc6kXOmCVy19gtID7hm5+uQNZnJwMGUP
+	St6fvPA1j8gzzdqFvtNn7POyDVt7oy5QlzNafQWS1qSOsMLiynZco2O5yOI3rGE=
+X-Google-Smtp-Source: AGHT+IE35PnHcXWnBWcAufXm2itAOGM3bjIxxoVO2EORI0hpbo/KkZo9FhT5TSGQ+S/KMoIRwGKHwg==
+X-Received: by 2002:a05:6000:1e90:b0:36b:b174:5256 with SMTP id ffacd0b85a97d-3749c1a9d0bmr2933640f8f.6.1725007778972;
+        Fri, 30 Aug 2024 01:49:38 -0700 (PDT)
+Received: from carbon-x1.. ([2a01:e0a:e17:9700:16d2:7456:6634:9626])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3749ee73fa0sm3373144f8f.43.2024.08.30.01.49.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 30 Aug 2024 01:49:38 -0700 (PDT)
+From: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] riscv: remove useless pc check in stacktrace handling
+Date: Fri, 30 Aug 2024 10:49:32 +0200
+Message-ID: <20240830084934.3690037-1-cleger@rivosinc.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|PH8PR20MB5218:EE_
-X-MS-Office365-Filtering-Correlation-Id: a1c00012-531c-47ad-f926-08dcc8d08e33
-X-Microsoft-Antispam: BCL:0;ARA:14566002|461199028|15080799006|19110799003|8060799006|6090799003|5072599009|440099028|3412199025|1710799026;
-X-Microsoft-Antispam-Message-Info: 62OEtHyRrUecktfzFi+51JnYUlGXsIJsAwLlGuJYlUtCuRChPbxhKAyoAACYr9SPJSVDgv9FPqVyadcHRav2yisuGS6rnAH9oezUpgXaQbVkB7N6u5IIcgOVHeLwkuSIzcemlqfhDl7FK0ABGrQfnkK1ZIYFpIz31dRR0p9FEW5cPFeDKdRC9IhT8GnHqErJ+AJcaUZvT86M3bjQkBKzlgtBfsLukz8QRYHN/dgamI1WtyBTU1UY0y6YaxY0S2nULteO5zbqkr1mgEE67m5lcp6G1pY9OzZhEv0gc3UcOY3R1N3892M2QTJTMlh3wifz3NXiussOPjk0i3g0g1JTbFJIaSKMkmCUPNOshFI+l03CYU9T/jvWTRRib5IgHFNhzVyu8SIPtZHeSy/Rddu4gifHd3u66COmgLIe5WuFBEbvgyyp/9Dj4CYd9IvHVFGZFAmPC+ikTvnzj9QUquc4t2t6E4sIm5Tsmt81wWTc+sq6rAEH9BzPNwmEfPHAf4uGsmT/gc5YdJ9jwxBCSOmt7wLMIwIwVzNmotCJZgDxbrZGw07m4V485aZIqZ04Q6mE3KsJwIwiqv/g3WXWKAy8FLMVf8vbBi6c9tmco69vWPLZMIy9Qbxo9t8khKZHy0M5s+2CzBQhKysJpq4+du+MJZxLUg7fENtqPw+VF6HlYPV5eK0oDODBwr+kkQHtsxu0PDE/aufcUZnxwsKuFb0VWSWJy5CUU8GinzIm1k3JHwF8ZbSPG+Peln148GHFmvp13do8tZt8nP3jvWBH+oyu/g==
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GO5sb3CefbjASO+vxoPjN48sOu2w0pAKrvS9QW3JiD7g1RvrRFwW/3hFKi4p?=
- =?us-ascii?Q?qurg32V/UR7mhJzb8W+Sr+foj2vVqLA7SvDBER5YGWowcJ/5OMehMoyRKxmW?=
- =?us-ascii?Q?dWL14+5gMInRrMhktP1+whuNpAfMvvHg1fFkO8IIhBtweyIH1WUXIKliCPBI?=
- =?us-ascii?Q?b4QM1hMJjoDaPk76JANqhRvwjznJtTf3Ex2fyDtA8aXkzq1nooCHLKPT+rt/?=
- =?us-ascii?Q?OXqkhNHRa5hwGsi0lC81Pd13Jkp1u4FdhOnO4groNpKu0bKkpb+qJ5vLPJ3o?=
- =?us-ascii?Q?0ObtygkgvRGRS86k3AOmhTC29Pn6oHhYHlLpJ3UISX+QzkHTIQI/ijl37ktl?=
- =?us-ascii?Q?giXsSKI6/gwzRyxLt9Hzj4fxDq36sw9CobgI6dLJI3z0kNzdRbbTrpuqUS2q?=
- =?us-ascii?Q?OeJW2O060zg0IwJQ7UjQXRiUfAQ3YqeqUPd3eGXIanRbhS0cmdpiQUMgsenX?=
- =?us-ascii?Q?jenEmSZRZTwIfRPq+97bgreIBhXOEdbkTCGzi04bW7NyPU4iCawzX31S8ytZ?=
- =?us-ascii?Q?gZZ/fZjgZSsk6iwVcO7PbCasT12Lck/4FQYkaFuKXcgCl7GEgvjAL825wFhc?=
- =?us-ascii?Q?7mAOoAHCMQ0UNRkDrNl0+PCD6U9eWu/8xTimDVLz8Qka+YU8/B8lVM54xIQv?=
- =?us-ascii?Q?EIvayt/fPPqzWbvQzM69uybS6frrjYPBpErB/WKfSuhfhM+lkw5Ufm96I1e/?=
- =?us-ascii?Q?fXmXGiqkJqqGyJRAcnltNHHVF/8cRObNCowPXNc2tC46MhxlrZkIBZx+6/5V?=
- =?us-ascii?Q?mxxuYxHKbJTKikJjggSOrvlp7KlXGm6jM9SdCgmTssFP+f3d8CZL8FkLmeW+?=
- =?us-ascii?Q?Pvl1JeJro/bBE9KWN0dDL34Sx0QA6oX6TBL+Vs8vNRRJAX3Y27NJgR0cP2f5?=
- =?us-ascii?Q?E+sZaQqBHyvg6Y/Z7Zd0cRz/KSxywxa8CYdyni7/05LSiV2mVLUPhktLszau?=
- =?us-ascii?Q?j25i5z069pcXonIPnDmFhCN/4vrCk4jHGrfjydZ6/ZN6tZ4v6Plih8UKvSDF?=
- =?us-ascii?Q?RgiIlyYQBGdjGqcnOhBzA10QHPka2Gvz6vo/NcZGePHm82KifwQuKRaNx39y?=
- =?us-ascii?Q?LWEGiqN7T81TCufX7eFCY7WajlN0YZ26e5FJCcc4hw6h6O8/p3X1l0ljI+qw?=
- =?us-ascii?Q?TrYPmbokRgZBEwD5UD/tn+xZ0b+SExQCQ7rBDQ54WsXzXKVXaG/tAfJAyvoo?=
- =?us-ascii?Q?E2k6oDtIz2UYSVP6Xjoi4hK/07PxljqJNERMK5+zMTcMu1xvnNVp90FN+A0T?=
- =?us-ascii?Q?C+OYAqclc21vmnQEiDeK?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a1c00012-531c-47ad-f926-08dcc8d08e33
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Aug 2024 08:48:44.5769
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR20MB5218
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240830_094858_944492_74DAF9A7 
-X-CRM114-Status: GOOD (  29.69  )
+X-CRM114-CacheID: sfid-20240830_014941_961438_D32CB7A4 
+X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,86 +89,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, devicetree@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Yangyu Chen <cyy@cyyself.name>, linux-gpio@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Jesse Taube <jesse@rivosinc.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Meng Zhang <kevin.z.m@hotmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org, Meng Zhang <zhangmeng.kevin@spacemit.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 30, 2024 at 07:56:26AM GMT, Yixun Lan wrote:
-> Hi
-> 
-> On 09:36 Fri 30 Aug     , Inochi Amaoto wrote:
-> > On Wed, Aug 28, 2024 at 11:30:25AM GMT, Yixun Lan wrote:
-> > > Add pinctrl device tree data to SpacemiT's K1 SoC.
-> > > 
-> > > Signed-off-by: Yixun Lan <dlan@gentoo.org>
-> > > ---
-> > > Note, only minimal device tree data added in this series,
-> > > which just try to demonstrate this pinctrl driver, but
-> > > more dt data can be added later, in separate patches.
-> > > ---
-> > >  arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi |  19 ++++
-> > >  arch/riscv/boot/dts/spacemit/k1-pinctrl.h    | 161 +++++++++++++++++++++++++++
-> > >  arch/riscv/boot/dts/spacemit/k1.dtsi         |   5 +
-> > >  3 files changed, 185 insertions(+)
-> > > 
-> > > diff --git a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
-> > > new file mode 100644
-> > > index 0000000000000..1082f92753176
-> > > --- /dev/null
-> > > +++ b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
-> > > @@ -0,0 +1,19 @@
-> > > +// SPDX-License-Identifier: GPL-2.0 OR MIT
-> > > +/*
-> > > + * Copyright (c) 2024 Yixun Lan <dlan@gentoo.org>
-> > > + */
-> > > +
-> > > +#include <dt-bindings/gpio/gpio.h>
-> > > +#include "k1-pinctrl.h"
-> > > +
-> > 
-> > > +&pinctrl {
-> > > +	uart0_2_cfg: uart0-2-cfg {
-> > > +		uart0-2-pins {
-> > > +			pinmux = <K1_PADCONF(GPIO_68, 2)>,
-> > > +				 <K1_PADCONF(GPIO_69, 2)>;
-> > > +
-> > > +			bias-pull-up = <0>;
-> > > +			drive-strength = <32>;
-> > > +		};
-> > > +	};
-> > > +};
-> > 
-> > "uart0_2"? Is not enough to use "uart0"?
-> > 
-> not sure if I understand your point correctly here, are you saying that
-> we should describe all configurations of the "uart0", as there are indeed
-> another two options - uart0_0, uart0_1 which using different pins, I can
-> add them in next version
-
-I doubt whether it is necessary to add all configuration. Now I think adding
-only used is fine and can save a lot space.
-
-> 
-> for uart0_2 itself , I would consider it's a complete configuration
-> 
-> > Although I do not reject to add a new common file, it is better
-> > for you to squash this part into the next uart dts patch. I think
-> > this is more related.
-> > 
-> I can squash them into one patch but still with separated pinctrl common file,
-> does this sound good to you?
-
-This is OK for me.
-
-> 
-> -- 
-> Yixun Lan (dlan)
-> Gentoo Linux Developer
-> GPG Key ID AABEFD55
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Q2hlY2tpbmcgZm9yIHBjIHRvIGJlIGEga2VybmVsIHRleHQgYWRkcmVzcyBhdCB0aGlzIGxvY2F0
+aW9uIGlzIHVzZWxlc3MKc2luY2UgcGMgPT0gaGFuZGxlX2V4Y2VwdGlvbi4gUmVtb3ZlIHRoaXMg
+Y2hlY2suCgpTaWduZWQtb2ZmLWJ5OiBDbMOpbWVudCBMw6lnZXIgPGNsZWdlckByaXZvc2luYy5j
+b20+CgotLS0KIGFyY2gvcmlzY3Yva2VybmVsL3N0YWNrdHJhY2UuYyB8IDIgKy0KIDEgZmlsZSBj
+aGFuZ2VkLCAxIGluc2VydGlvbigrKSwgMSBkZWxldGlvbigtKQoKZGlmZiAtLWdpdCBhL2FyY2gv
+cmlzY3Yva2VybmVsL3N0YWNrdHJhY2UuYyBiL2FyY2gvcmlzY3Yva2VybmVsL3N0YWNrdHJhY2Uu
+YwppbmRleCBjNmQ1ZGUyMjQ2M2YuLmY5MzRjNTczYzA4NyAxMDA2NDQKLS0tIGEvYXJjaC9yaXNj
+di9rZXJuZWwvc3RhY2t0cmFjZS5jCisrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3N0YWNrdHJhY2Uu
+YwpAQCAtNzIsNyArNzIsNyBAQCB2b2lkIG5vdHJhY2Ugd2Fsa19zdGFja2ZyYW1lKHN0cnVjdCB0
+YXNrX3N0cnVjdCAqdGFzaywgc3RydWN0IHB0X3JlZ3MgKnJlZ3MsCiAJCQlwYyA9IGZ0cmFjZV9n
+cmFwaF9yZXRfYWRkcihjdXJyZW50LCAmZ3JhcGhfaWR4LCBmcmFtZS0+cmEsCiAJCQkJCQkgICAm
+ZnJhbWUtPnJhKTsKIAkJCWlmIChwYyA9PSAodW5zaWduZWQgbG9uZyloYW5kbGVfZXhjZXB0aW9u
+KSB7Ci0JCQkJaWYgKHVubGlrZWx5KCFfX2tlcm5lbF90ZXh0X2FkZHJlc3MocGMpIHx8ICFmbihh
+cmcsIHBjKSkpCisJCQkJaWYgKHVubGlrZWx5KCFmbihhcmcsIHBjKSkpCiAJCQkJCWJyZWFrOwog
+CiAJCQkJcGMgPSAoKHN0cnVjdCBwdF9yZWdzICopc3ApLT5lcGM7Ci0tIAoyLjQ1LjIKCgpfX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBt
+YWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMu
+aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
