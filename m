@@ -4,86 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA375CD1293
-	for <linux-riscv@archiver.kernel.org>; Sat, 31 Aug 2024 04:17:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F8B8C5474C
+	for <linux-riscv@archiver.kernel.org>; Sat, 31 Aug 2024 04:32:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=OdceXCJ3h8vgLOmW5looJN8aSSkynDl4k2SETFdVmYU=; b=Sq9Sikx6WbfSfx
-	EnFnxZXzS1kOxElwIfcpXCobBDem+P7lrs0l7V6B6EzbJniUzyJSE3Nl8tnzcJ8gfqPB7AdYESA+P
-	ZPeYFbCZds0NB635cwdjVDP9tNvoZrJRKwvjWTJYrm7AUKKbrxkc5xBqZqdf2D8F4jFxBs1I0OIiV
-	Ig9VwxDTYTGIthjGYjrvMuW9FblCEGpywQRgL1Menay8fkHPBZTYZEuD7g+2WSrMZG4Q01qWuCSiA
-	Ts9ze6tfQMINVAGfHwFqgcVECgNdN7SLGqF0+q3kbhD+6YU5BmiLAR99zo4EGe3RDbQLz/vaKdd08
-	+IsLIs3+94KJrJDPk05w==;
+	List-Owner; bh=qNSM6VCwsAWhI5U8ZujhBlOy3z2pQ9NZZungcnvcytk=; b=z4OPCXtu+5I0S6
+	s32J0jJJ52LHiUPoOT0ZFPpQ8pAtGhWHW49ngWH5sIaxn+aVhDyrSSQEDJdBHUMusfSZyk9XRAajv
+	l7SuF37VKeiw7+tPCcUY6g8DzVBlWqTw7nQcoWWUiu2fojG471XOnzxGyG1kLPVvwrZtfydjYP1/a
+	fYrrBQytlPyF92o5MF2dlaUNLVZY/kN/YuDWBD5IGkmnBMZkYbf1E0gPph+Jry0PuZrxsrmrmyfDX
+	bgJmiFTDvzSnV0PW/xyCbIL2j3Qm3Ab+CArqGsE3U0wbkdmtYJWUdjsKv16qXgNNmy8EKcOjjgFul
+	lBiOfZ6+bPWSz+0sUdKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1skFXq-00000008UoT-3tMt;
-	Sat, 31 Aug 2024 04:17:02 +0000
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
+	id 1skFmj-00000008Wcu-1Ujf;
+	Sat, 31 Aug 2024 04:32:25 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1skFXm-00000008UmL-3qtd
+	id 1skFmh-00000008Wce-3BH4
+	for linux-riscv@bombadil.infradead.org;
+	Sat, 31 Aug 2024 04:32:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
+	bh=AqHseBOIrzbXPNScCBf/4rC10NMVAn6bCAlgVTHbNrA=; b=J5bjPVRFqve+Id5JThH6rXn75U
+	Qhu7KTrXjx/p49mjxbxo3gK58oXgRZYM0/fxwRgbNAfzqEm0Vys0FcWrfcg2n2fOBlYeF51VaHOgk
+	f1XNppb4eHJGkFs39MuVgfaTd9/IV6Y3DPNfw/Sa510nKab1LUYzpsro0gPNJD0gTCSx2WdovCa6j
+	+a1vJwS6CnjZGwGLNUWCb5gNhumNAHdtNt0Bd1Abl4KJna/n7+gDuA32/pvovssBcUAxCFnJLLpeo
+	lE2oAMTv6kVNuUxkkoOWSHYXstby9lMfwHeoLnQWe1YXXxHnggZuBKByO+zApuSb4qTEs9kh5KsZD
+	egIZRw0g==;
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1skFmK-0000000Bo00-37NY
 	for linux-riscv@lists.infradead.org;
-	Sat, 31 Aug 2024 04:17:01 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.216])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4WwhY64pKPz4f3jkJ
-	for <linux-riscv@lists.infradead.org>; Sat, 31 Aug 2024 12:16:42 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.75])
-	by mail.maildlp.com (Postfix) with ESMTP id BF8561A14EE
-	for <linux-riscv@lists.infradead.org>; Sat, 31 Aug 2024 12:16:52 +0800 (CST)
-Received: from ultra.huawei.com (unknown [10.90.53.71])
-	by APP2 (Coremail) with SMTP id Syh0CgBnT74ymdJmoSHHDA--.65422S2;
-	Sat, 31 Aug 2024 12:16:51 +0800 (CST)
-From: Pu Lehui <pulehui@huaweicloud.com>
-To: bpf@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	netdev@vger.kernel.org,
-	Andrii Nakryiko <andrii@kernel.org>
-Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
-	Ilya Leoshkevich <iii@linux.ibm.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>,
-	Stanislav Fomichev <sdf@google.com>,
-	Hao Luo <haoluo@google.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Pu Lehui <pulehui@huawei.com>
-Subject: [PATCH bpf-next v3 0/4] Fix accessing first syscall argument on RV64
-Date: Sat, 31 Aug 2024 04:19:30 +0000
-Message-Id: <20240831041934.1629216-1-pulehui@huaweicloud.com>
-X-Mailer: git-send-email 2.34.1
+	Sat, 31 Aug 2024 04:32:14 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-7140ff4b1e9so2134915b3a.3
+        for <linux-riscv@lists.infradead.org>; Fri, 30 Aug 2024 21:31:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1725078708; x=1725683508; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=AqHseBOIrzbXPNScCBf/4rC10NMVAn6bCAlgVTHbNrA=;
+        b=Zy4z3WydDHc4vRcDuEk9Bj628K8yS7lhkkUSJ8GcPZJuLmy7KP07BG0RyOyKjHQmzY
+         aWamlIik/WxWtCC6rDoWZp3EZYakcMFvQ8CCDUh60q/h+5BZAi/0vi9ENOM9iFwyTzvq
+         9QL4bvX/WPGO+pcECZNxgPl4zKbL+EemYQb3TDh5E90ybVt92Kf3SmuhiZh+3ugw8N4q
+         1blsz4RLbniXDQbyrPwxRoYnOzKcpHgtO0+w14Sw2S5AVBRVvXrjP2/M3unoEM9IoSK/
+         vTd4rLMTDOqKww8Dfa/db+UAHD38dupZNI5CciOpremAhB2LgIb+D/Ss2SYswzMEa0Fi
+         aSYg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1725078708; x=1725683508;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=AqHseBOIrzbXPNScCBf/4rC10NMVAn6bCAlgVTHbNrA=;
+        b=Ie+zUDBJhec9OHNRmfj6ompyHQ5m+MBMYNxZoroHTJ/OWwwe9AgGcXpBTbyTNZhZhw
+         h7Ljs3X1UcTRTt5a8egQ0iCw2bASLzcWm/vwnaPuBtZVwYRYkHa3qqqEBP7MPPgh3VmE
+         rRv8ak3KtI+qhedx8OaS2rW4eutxC8Yzfj62IpcJqlpnVAF4w4/6QbkDjAsT2cWCRo+D
+         G8jCndM2BcFqKLn+40toP5SOIPX+X/ov9oqHI3Z6LQBe4/JkhcsIY3WYtZ1mUpEvcNU/
+         qmNOlE/PEzTdxiwXLm8zrDTniaexmLVJ4j6EW5VA0caFXITh/CemwQeElR7V/GoVRHcv
+         OxXw==
+X-Forwarded-Encrypted: i=1; AJvYcCU3/Qlljddz7uUnxW28jQ20A9Kk9MiepwyJm+8LaGZRpi3QOfY4S8S+qJJwx4xRUDnLZMUrMj+EizCXWQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwG7ALJJL7FY+ju8oc0PeK7PdsPKeeVOoBaH45yFUf/ZxLLa02s
+	9ui/p5tP1u0OHa3fHGhlrSO4rVG7DQdKPGcMClDjCTbHM2EphoweP157MPWJNhg=
+X-Google-Smtp-Source: AGHT+IEVfVxTh9O/Prc9cqZKqT7+Ms4R+Qe/6R5MqTusHWzC77xL8vi5tuVksIYgreLjKfHXmdGvfg==
+X-Received: by 2002:a05:6a00:4f93:b0:70d:11d9:8a3c with SMTP id d2e1a72fcca58-7173c5c237emr1446912b3a.26.1725078708306;
+        Fri, 30 Aug 2024 21:31:48 -0700 (PDT)
+Received: from charlie.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-715e55771fesm3499773b3a.23.2024.08.30.21.31.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 30 Aug 2024 21:31:47 -0700 (PDT)
+From: Charlie Jenkins <charlie@rivosinc.com>
+Date: Fri, 30 Aug 2024 21:30:50 -0700
+Subject: [PATCH] perf syscalltbl: Add syscalltbl__id_at_idx() with no
+ syscall table support
 MIME-Version: 1.0
-X-CM-TRANSID: Syh0CgBnT74ymdJmoSHHDA--.65422S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrKr1xAr4xGry8Wr4DWr1UGFg_yoWkZrcEkw
-	42yr93JrWrCrZxtF4fWr15CrWDK3yUJF18GF4DtrWfCw1xAr97XFsY9r90yas8Wa10gFZx
-	Ga9rX34FvrnIvjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbIxYFVCjjxCrM7AC8VAFwI0_Xr0_Wr1l1xkIjI8I6I8E6xAIw20E
-	Y4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM28CjxkF64kEwV
-	A0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0cI8IcVCY1x02
-	67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I
-	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
-	x7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
-	0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAa
-	w2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxV
-	Aqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a
-	6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6x
-	kF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AK
-	xVW8JVWxJwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcSsGvfC2KfnxnUUI43ZEXa
-	7IU0s2-5UUUUU==
-X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
+Message-Id: <20240830-perf_syscalltbl_fix-v1-1-e2ff61ee5e8e@rivosinc.com>
+X-B4-Tracking: v=1; b=H4sIAHmc0mYC/x2MWwqAIBAArxL7nWCmva4SET3WWpAKN6KQ7p70O
+ QMzARg9IUOTBPB4EdO+RcjSBKZ12BYUNEcGJZWWVS7Fgd72/PA0OHeOrrd0C21NVSiVlbVBiOX
+ hMer/2nbv+wF4IT/dZQAAAA==
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Howard Chu <howardchu95@gmail.com>, 
+ David Abdurachmanov <davidlt@rivosinc.com>
+Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, Charlie Jenkins <charlie@rivosinc.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2359; i=charlie@rivosinc.com;
+ h=from:subject:message-id; bh=8GBs99s2ipPdDYyn7Cp9pfYjyv56y3V4qn3Ysb2DMbE=;
+ b=owGbwMvMwCHWx5hUnlvL8Y3xtFoSQ9qlOctkYh0Znr6aWvI29F6U4mHlKgM9q29fumd7HJn77
+ t43zz7TjlIWBjEOBlkxRRaeaw3MrXf0y46Klk2AmcPKBDKEgYtTACaSHcrIMHGKn92tI1wdidmn
+ Jk1P7sj5X/zXNfdBvfqcRXoncpf7mzP8d+O2CH2zvvvERUXZ6Y43qnpO+r6dpDv5w7t4ryp96XB
+ lfgA=
+X-Developer-Key: i=charlie@rivosinc.com; a=openpgp;
+ fpr=7D834FF11B1D8387E61C776FFB10D1F27D6B1354
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240830_211659_237513_93409DC3 
-X-CRM114-Status: UNSURE (   4.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240831_053212_443921_1D7B08B4 
+X-CRM114-Status: GOOD (  15.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,35 +126,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On RV64, as Ilya mentioned before [0], the first syscall parameter should be
-accessed through orig_a0 (see arch/riscv64/include/asm/syscall.h),
-otherwise it will cause selftests like bpf_syscall_macro, vmlinux,
-test_lsm, etc. to fail on RV64.
+When HAVE_SYSCALL_TABLE_SUPPORT is not defined, neither is
+syscalltbl__id_at_idx(). However, this function is expected to be
+defined when HAVE_BPF_SKEL is defined.
 
-Link: https://lore.kernel.org/bpf/20220209021745.2215452-1-iii@linux.ibm.com [0]
+Return -1 from syscalltbl__id_at_idx() to match the other functions when
+HAVE_SYSCALL_TABLE_SUPPORT is not defined.
 
-v3:
-- Fix test case error.
+Without this, compiling perf on riscv when libtraceevents, libelf, and
+clang are available will cause the functions trying to call
+syscalltbl__id_at_idx() to be compiled. This results in the following
+error:
 
-v2: https://lore.kernel.org/all/20240831023646.1558629-1-pulehui@huaweicloud.com/
-- Access first syscall argument with CO-RE direct read. (Andrii)
+/usr/bin/ld: perf-in.o: in function `.L0 ':
+builtin-trace.c:(.text+0x60b14): undefined reference to `syscalltbl__id_at_idx'
+/usr/bin/ld: builtin-trace.c:(.text+0x60c6c): undefined reference to `syscalltbl__id_at_idx'
+/usr/bin/ld: perf-in.o: in function `.L2564':
+builtin-trace.c:(.text+0x60cb6): undefined reference to `syscalltbl__id_at_idx'
+collect2: error: ld returned 1 exit status
+make[2]: *** [Makefile.perf:793: perf] Error 1
+make[1]: *** [Makefile.perf:290: sub-make] Error 2
+make: *** [Makefile:70: all] Error 2
+make: Leaving directory '/src/linux-6.11-rc5/tools/perf'
 
-v1: https://lore.kernel.org/all/20240829133453.882259-1-pulehui@huaweicloud.com/
+This patch resolves this issue for all architectures which do not define
+HAVE_SYSCALL_TABLE_SUPPORT.
 
-Pu Lehui (4):
-  libbpf: Access first syscall argument with CO-RE direct read on s390
-  libbpf: Access first syscall argument with CO-RE direct read on arm64
-  selftests/bpf: Enable test_bpf_syscall_macro:syscall_arg1 on s390 and
-    arm64
-  libbpf: Fix accessing first syscall argument on RV64
+$ ./perf trace -e syscalls:sys_enter_mmap --max-events=1 ls
+0.000 ls/287 syscalls:sys_enter_mmap(__syscall_nr: 222, len: 9939, prot: READ, flags: PRIVATE, fd: 3)
 
- tools/lib/bpf/bpf_tracing.h                     | 17 ++++++++++++-----
- .../bpf/prog_tests/test_bpf_syscall_macro.c     |  4 ----
- .../selftests/bpf/progs/bpf_syscall_macro.c     |  2 --
- 3 files changed, 12 insertions(+), 11 deletions(-)
+Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+Reported-by: David Abdurachmanov <davidlt@rivosinc.com>
+Suggested-by: David Abdurachmanov <davidlt@rivosinc.com>
+Fixes: 7a2fb5619cc1 ("perf trace: Fix iteration of syscall ids in syscalltbl->entries")
+---
+ tools/perf/util/syscalltbl.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
+diff --git a/tools/perf/util/syscalltbl.c b/tools/perf/util/syscalltbl.c
+index 0dd26b991b3f..12654460428f 100644
+--- a/tools/perf/util/syscalltbl.c
++++ b/tools/perf/util/syscalltbl.c
+@@ -188,4 +188,9 @@ int syscalltbl__strglobmatch_first(struct syscalltbl *tbl, const char *syscall_g
+ {
+ 	return syscalltbl__strglobmatch_next(tbl, syscall_glob, idx);
+ }
++
++int syscalltbl__id_at_idx(struct syscalltbl *tbl __always_unused, int idx __always_unused)
++{
++	return -1;
++}
+ #endif /* HAVE_SYSCALL_TABLE_SUPPORT */
+
+---
+base-commit: 985bf40edf4343dcb04c33f58b40b4a85c1776d4
+change-id: 20240830-perf_syscalltbl_fix-4f586221795e
 -- 
-2.34.1
+- Charlie
 
 
 _______________________________________________
