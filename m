@@ -4,70 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E76F4CA100B
-	for <linux-riscv@archiver.kernel.org>; Sat, 31 Aug 2024 07:13:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BD4CCD1293
+	for <linux-riscv@archiver.kernel.org>; Sat, 31 Aug 2024 07:27:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=QX9tPDtcfaq5v15n4E+4rhmInWDEViLML0Y94s+bnBU=; b=VvLvSsOL4Ad1wt
-	T7yHFkOoF4PO+ERWEeKZtsvfOdHp5RVQKndCVc3ysvS5avBbjYI1gChyE2aVc9P2fSJbgJxapKcsB
-	r2i/YxD23+wTDgEW5mF6h/FTJYSuCMTh4D/Rx4CSN8pj56kQKoRxReK2me+LAt+OGKqInopw71kp1
-	o6svQx7geEP7va/Qq14S7BFjkD7rcdVWWsrqXOEhwQULdDu/X5HEGlZ8lPbGj0o4Qf7iembWeoZbP
-	X8Ou/JpGdg8l+vcHXEb2O3Tu57InLlSyiEv0+mUw0iyA+B/QkA7FkBCqqM4y/tGieGmeN6+vp2BZw
-	0rDLCgk6c8SzcOJ8gFbA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=TWj+g7zqVF7kKk0FRYVoQ+wklHmtxDbJvJ4S0EtkPEM=; b=DcGl9b6xDAIoKW
+	V+3CMjZFEgBhHOSm+GHTV73LlUSyO4kRGSbtgwilDClF/PTZV50qmd129g1ACOt+XcSk9oW0c7FyT
+	JVxYRwjT0VxDkPBGfzXCqGTAykmikYLgwdgUmBgck81QeGcohOxSA79fRGj3FnRKTFU8H1L2fRq3j
+	Jc18prqZdUXjCGBVpw6AGXkLt/Wtdq0wPLAGsTPJoEQBpYRqnYt/4vQCTpfQGQJXLE7q/34Bq6evI
+	RKInGRYZhA/r/C/HIddWOGaaCK83Fh40VG7XyYd2oNTX/Plf5Y6KciaXD2zk6TEAFzbZTrfiIqImE
+	j2zuTE5rkD6GbGyBt43g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1skII5-00000008oCQ-3DdD;
-	Sat, 31 Aug 2024 07:12:57 +0000
+	id 1skIVm-00000008pVr-2Jfc;
+	Sat, 31 Aug 2024 07:27:06 +0000
 Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1skII0-00000008oBt-3emN
+	id 1skIVi-00000008pTm-0Ud5
 	for linux-riscv@lists.infradead.org;
-	Sat, 31 Aug 2024 07:12:56 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.216])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4WwmRn5CjGz4f3l1s
-	for <linux-riscv@lists.infradead.org>; Sat, 31 Aug 2024 15:12:21 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.128])
-	by mail.maildlp.com (Postfix) with ESMTP id 5A81B1A08FC
-	for <linux-riscv@lists.infradead.org>; Sat, 31 Aug 2024 15:12:37 +0800 (CST)
-Received: from ultra.huawei.com (unknown [10.90.53.71])
-	by APP4 (Coremail) with SMTP id gCh0CgB36oBkwtJmVQfcDA--.5749S2;
-	Sat, 31 Aug 2024 15:12:37 +0800 (CST)
-From: Pu Lehui <pulehui@huaweicloud.com>
-To: linux-riscv@lists.infradead.org
-Cc: Atish Patra <atishp@atishpatra.org>,
-	Anup Patel <anup@brainfault.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
-	Pu Lehui <pulehui@huawei.com>
-Subject: [PATCH v2] drivers/perf: riscv: Align errno for unsupported perf event
-Date: Sat, 31 Aug 2024 07:15:20 +0000
-Message-Id: <20240831071520.1630360-1-pulehui@huaweicloud.com>
-X-Mailer: git-send-email 2.34.1
+	Sat, 31 Aug 2024 07:27:05 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.235])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4Wwmm52Yv4z4f3l28
+	for <linux-riscv@lists.infradead.org>; Sat, 31 Aug 2024 15:26:29 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.75])
+	by mail.maildlp.com (Postfix) with ESMTP id F3D941A058E
+	for <linux-riscv@lists.infradead.org>; Sat, 31 Aug 2024 15:26:44 +0800 (CST)
+Received: from [10.67.111.192] (unknown [10.67.111.192])
+	by APP2 (Coremail) with SMTP id Syh0CgAHPLuzxdJmcpHTDA--.9841S2;
+	Sat, 31 Aug 2024 15:26:44 +0800 (CST)
+Message-ID: <2379c139-6457-49dc-84fa-0d60ce226f2a@huaweicloud.com>
+Date: Sat, 31 Aug 2024 15:26:46 +0800
 MIME-Version: 1.0
-X-CM-TRANSID: gCh0CgB36oBkwtJmVQfcDA--.5749S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7AF17ury5ArykJFyfuFW3Jrb_yoW8Zw1Dpr
-	Z8Cr4Yk3WrtF12q3y8AFZru3WrJwnaqFZ8Kr9Iy398Zr1rJrW5X3Z8J345Xrn5JFykZFy2
-	kw45KrW3Ca4FvaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUkjb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k2
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf-next v3 2/4] libbpf: Access first syscall argument
+ with CO-RE direct read on arm64
+Content-Language: en-US
+To: Pu Lehui <pulehui@huaweicloud.com>, bpf@vger.kernel.org,
+ linux-riscv@lists.infradead.org, netdev@vger.kernel.org,
+ Andrii Nakryiko <andrii@kernel.org>
+Cc: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
+ Ilya Leoshkevich <iii@linux.ibm.com>, Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman
+ <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>,
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
+ Stanislav Fomichev <sdf@google.com>, Hao Luo <haoluo@google.com>,
+ Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Pu Lehui <pulehui@huawei.com>
+References: <20240831041934.1629216-1-pulehui@huaweicloud.com>
+ <20240831041934.1629216-3-pulehui@huaweicloud.com>
+From: Xu Kuohai <xukuohai@huaweicloud.com>
+In-Reply-To: <20240831041934.1629216-3-pulehui@huaweicloud.com>
+X-CM-TRANSID: Syh0CgAHPLuzxdJmcpHTDA--.9841S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7uF4DAr13tFWDGw47Kr4DArb_yoW8WFWrpa
+	yUCa4UKw18Ww4jkasrKF4avrW3tws3trnrCFZ7W3yS9FWUK3yrWa42grs0kw4ay3yUtw4Y
+	vr9Fkr18G3W7Z37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvjb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
 	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
-	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
-	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
-	Cjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JMxkF7I0En4kS14v26r126r1DMxAIw28IcxkI
-	7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxV
-	Cjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUAVWUtwCIc40Y0x0EwIxGrwCI42IY
-	6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6x
-	AIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Gr0_Cr1lIxAIcVC2z280aVCY
-	1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x07jjVbkUUUUU=
-X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I
+	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
+	x7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
+	0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AF
+	wI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4
+	xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5
+	MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I
+	0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWU
+	JVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUIa
+	0PDUUUU
+X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240831_001254_622783_F35EF90B 
-X-CRM114-Status: GOOD (  11.03  )
+X-CRM114-CacheID: sfid-20240831_002702_804089_563D81F2 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,70 +92,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Pu Lehui <pulehui@huawei.com>
+On 8/31/2024 12:19 PM, Pu Lehui wrote:
+> From: Pu Lehui <pulehui@huawei.com>
+> 
+> Currently PT_REGS_PARM1 SYSCALL(x) is consistent with PT_REGS_PARM1_CORE
+> SYSCALL(x), which will introduce the overhead of BPF_CORE_READ(), taking
+> into account the read pt_regs comes directly from the context, let's use
+> CO-RE direct read to access the first system call argument.
+> 
+> Suggested-by: Andrii Nakryiko <andrii@kernel.org>
+> Signed-off-by: Pu Lehui <pulehui@huawei.com>
+> ---
+>   tools/lib/bpf/bpf_tracing.h | 4 ++--
+>   1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/tools/lib/bpf/bpf_tracing.h b/tools/lib/bpf/bpf_tracing.h
+> index e7d9382efeb3..051c408e6aed 100644
+> --- a/tools/lib/bpf/bpf_tracing.h
+> +++ b/tools/lib/bpf/bpf_tracing.h
+> @@ -222,7 +222,7 @@ struct pt_regs___s390 {
+>   
+>   struct pt_regs___arm64 {
+>   	unsigned long orig_x0;
+> -};
+> +} __attribute__((preserve_access_index));
+>   
+>   /* arm64 provides struct user_pt_regs instead of struct pt_regs to userspace */
+>   #define __PT_REGS_CAST(x) ((const struct user_pt_regs *)(x))
+> @@ -241,7 +241,7 @@ struct pt_regs___arm64 {
+>   #define __PT_PARM4_SYSCALL_REG __PT_PARM4_REG
+>   #define __PT_PARM5_SYSCALL_REG __PT_PARM5_REG
+>   #define __PT_PARM6_SYSCALL_REG __PT_PARM6_REG
+> -#define PT_REGS_PARM1_SYSCALL(x) PT_REGS_PARM1_CORE_SYSCALL(x)
+> +#define PT_REGS_PARM1_SYSCALL(x) (((const struct pt_regs___arm64 *)(x))->orig_x0)
+>   #define PT_REGS_PARM1_CORE_SYSCALL(x) \
+>   	BPF_CORE_READ((const struct pt_regs___arm64 *)(x), __PT_PARM1_SYSCALL_REG)
+>   
 
-RISC-V perf driver does not yet support PERF_TYPE_BREAKPOINT. It would
-be more appropriate to return -EOPNOTSUPP or -ENOENT for this type in
-pmu_sbi_event_map. Considering that other implementations return -ENOENT
-for unsupported perf types, let's synchronize this behavior. Due to this
-reason, a riscv bpf testcases perf_skip fail. Meanwhile, align that
-behavior to the rest of proper place.
+Cool!
 
-Signed-off-by: Pu Lehui <pulehui@huawei.com>
----
- drivers/perf/riscv_pmu_legacy.c | 4 ++--
- drivers/perf/riscv_pmu_sbi.c    | 4 ++--
- 2 files changed, 4 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/perf/riscv_pmu_legacy.c b/drivers/perf/riscv_pmu_legacy.c
-index 04487ad7fba0..93c8e0fdb589 100644
---- a/drivers/perf/riscv_pmu_legacy.c
-+++ b/drivers/perf/riscv_pmu_legacy.c
-@@ -22,13 +22,13 @@ static int pmu_legacy_ctr_get_idx(struct perf_event *event)
- 	struct perf_event_attr *attr = &event->attr;
- 
- 	if (event->attr.type != PERF_TYPE_HARDWARE)
--		return -EOPNOTSUPP;
-+		return -ENOENT;
- 	if (attr->config == PERF_COUNT_HW_CPU_CYCLES)
- 		return RISCV_PMU_LEGACY_CYCLE;
- 	else if (attr->config == PERF_COUNT_HW_INSTRUCTIONS)
- 		return RISCV_PMU_LEGACY_INSTRET;
- 	else
--		return -EOPNOTSUPP;
-+		return -ENOENT;
- }
- 
- /* For legacy config & counter index are same */
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index 44d3951d009f..169c5157b916 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -309,7 +309,7 @@ static void pmu_sbi_check_event(struct sbi_pmu_event_data *edata)
- 			  ret.value, 0x1, SBI_PMU_STOP_FLAG_RESET, 0, 0, 0);
- 	} else if (ret.error == SBI_ERR_NOT_SUPPORTED) {
- 		/* This event cannot be monitored by any counter */
--		edata->event_idx = -EINVAL;
-+		edata->event_idx = -ENOENT;
- 	}
- }
- 
-@@ -543,7 +543,7 @@ static int pmu_sbi_event_map(struct perf_event *event, u64 *econfig)
- 		}
- 		break;
- 	default:
--		ret = -EINVAL;
-+		ret = -ENOENT;
- 		break;
- 	}
- 
--- 
-2.34.1
+Acked-by: Xu Kuohai <xukuohai@huawei.com>
 
 
 _______________________________________________
