@@ -4,81 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F877CA101A
-	for <linux-riscv@archiver.kernel.org>; Sat, 31 Aug 2024 00:21:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48732CA101A
+	for <linux-riscv@archiver.kernel.org>; Sat, 31 Aug 2024 00:46:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=t+oYxg8jFicyyoNyGBx4gbPOOFzDwF9bFvuaxWhAzhQ=; b=rVcS4UtkIRHyg62rTnrluwkzK8
-	ptReEucVWVnWxBkdht87QoB2cqiSKb9b+e6ecwt/UUo5KgtdbBMw1WXZaPwj0dMPZ/5hsOpfnjzu9
-	wxwd1ZYigQYT432dzrDtumJf6tka0ibQ+DrjkjvImo6gazot+Y5tYMR27/Ya+tOOenJDXIM8bo1x6
-	vgxkgDkwQfyTIxLPHavX2kbqwlQL+QUJWTvp96cU1Kclod/qGtnfFqoJ9gS6RcwxqJkq14OfqoGuB
-	j8om4324Bv9q9G40jan3RyP376DNS+WVZWtybmT3ZnsxHLE/Y+cUHRP/qQiQjf7RmdoUgTO5xITF6
-	eRVhvRoQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=WDfeIQw+QsBGCj04XpGMjl+9mtGmxHdSLFkzr3U5aY0=; b=F42AOMrP8FKN9n
+	l6pcOkD44IZqMJw/vQ2GIe/5mo6c2I/9T4FME1XAHa0ypIihRt13i7IGJTKT8MZLjTVzE9vyqa/QW
+	pj0YZPmel1OrzcGVSlCbV5wSe23UlyQhDD0WddYDELwUpoNGzxK7sn3RzrdG6KdxXRG0a/Sy+Luw1
+	Ap34bCmpMsiv8mQFfuBfbePa3e65heML++k4DuRckWn+hcvulG0ClyQNDBzpyUE7MzBOBsd0tQW3h
+	McdFm+zdjfo8j8GuPa8TMv7atK5pl7/ppwsJysCBrQcdWuAIMoIPaUpG/NaI5j7n812s3URBdCj75
+	F6/DNgD10dMDzdWn5mnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1skBrk-000000086wY-2Pcw;
-	Sat, 31 Aug 2024 00:21:20 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1skCFX-00000008AVT-2OEz;
+	Sat, 31 Aug 2024 00:45:55 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1skBrh-000000086vN-04hG
+	id 1skCFU-00000008ASp-3Ca5
 	for linux-riscv@lists.infradead.org;
-	Sat, 31 Aug 2024 00:21:18 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2d3b438c8c9so2322949a91.0
-        for <linux-riscv@lists.infradead.org>; Fri, 30 Aug 2024 17:21:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1725063675; x=1725668475; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=cMgQaudxr4J/6Rw/Ugn77ELKpct5vFB3BePzAq1Kny4=;
-        b=i9aRZ+7wimZgW6yC5TFfa/5qNz84fHf6R6JePkJ9+oKz0bYmn/pLI1FTzY2jIVWJt9
-         Q0nx900y7DiHnhQPwMMKLBUNYdBqOTbzXbOkQgkhCZELBzp1R6oZsg+SLnmk+KZ3Jqvx
-         Q0rya+uoiQuEOtcSiPr+8Sxm6hPAho8MVjQ9EDjk4F80wa4epGT2I8XYU99sOXwUwo4A
-         sHDAAeqMc8zPPljOicg0igMiL6KRdmdG9TLGdcfmINjg6DnTS54OlGe65t8B+CuBGdTE
-         Hj6clfiiAxI0FS5UwphUnyP9ZvqkwD2aA36FVpe7Gau1r3icDt5mXXV8F5VCO08z5q3y
-         5GDw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1725063675; x=1725668475;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=cMgQaudxr4J/6Rw/Ugn77ELKpct5vFB3BePzAq1Kny4=;
-        b=bjEon0FDUbja5IVNgPGVjR6wuZ7/+yAoB5ER+2lUfG7f+DlOAZZH2YKiMNkvssfcaw
-         WBlkOGQHWBoQ17D+yWqu4KV+GjLsRaFUEndEOUHow5ztnXydzZ19szb0g9yS8lc98WjP
-         H8H+ZL4eS012FhznaRCYRZG0l9wdEXB0pg3D2cEYT6FWz0zAXALQp/QxsBxpUE+6To0K
-         lwDpdkYnR67AUkyINPOYiXQGnURtBf5wK6AaxMX9rU+yc2B2KltTDmAEb+Y7PuX3vyv1
-         2lLBQr9nnteykH6vYzqPopKZi8W+3K02uPQazRm+TpKNPD910c2SF174ySP0Cp1WNQtN
-         P3Zw==
-X-Forwarded-Encrypted: i=1; AJvYcCXPJFwwiVzzxPcgUjsI09A77DU3d34meD+I7JmqDQ12Ou9bl4Z1/pajoKrvYu0DaBZFh04rMbR33OlqPw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz21Xe/2SZUafEV/FP2drwLpMuCdMFgMeBTWyB2k1bD038VknY0
-	lGStF88pDiMp/Sc15igTpa2FaLsZU2w6Y0ZKHX/IuufirpHDimux5BuVCGEu3BVRlXurIIwcYlc
-	opA==
-X-Google-Smtp-Source: AGHT+IGHPAth3Odv/1fyvFXsQ6a6cOh/6c7Pc1YRYmloVg4ApwcWdTNEKcK5OuRp6hsqbhF1nbDaV/8wJko=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a17:90b:5143:b0:2c8:e660:6769 with SMTP id
- 98e67ed59e1d1-2d86b85569cmr32103a91.8.1725063674377; Fri, 30 Aug 2024
- 17:21:14 -0700 (PDT)
-Date: Fri, 30 Aug 2024 17:20:51 -0700
-In-Reply-To: <20240828181446.652474-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20240828181446.652474-1-seanjc@google.com>
-X-Mailer: git-send-email 2.46.0.469.g59c65b2a67-goog
-Message-ID: <172506365309.339538.5291166487767889409.b4-ty@google.com>
-Subject: Re: [PATCH v2 0/2] KVM: Coalesced IO cleanup and test
-From: Sean Christopherson <seanjc@google.com>
-To: Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Sat, 31 Aug 2024 00:45:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1725065153; x=1756601153;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=m2q0EIE3WOnElSaZtNtUDPmT9aG++HAOSqsq5F8ycZo=;
+  b=aMRUNt7HLf/GDZM1EiexaEkH/HQI4t3finNp25Eqv7zN3ho5kK4658TR
+   8BV7Blx+u26NHi6tAX1eW3GIxBnzaidpveR1HfHt3VsvrrZCDAKFrDtLM
+   uj27yYUmi07ERBPN/uSKMNFcb2g3OYvId7tiFNa3atzLrP3mVVNuy+PBQ
+   NFdnNDzGLEbOR86sfktfLDQ9kqfCe69KBIivsW8m5wwqbyK+fHCoYZVeA
+   BD6aLRrcHI01SLw9w28zL255srmFrmLZyKUW25ZnUDTneiqi+/BH60uoa
+   ciGLbpGDVdpuNDD+RDxobS4bwtBQHGp1c2GyQ25xnLNMCaWp1zxgyEqoI
+   A==;
+X-CSE-ConnectionGUID: Lv0TbcNoRwa3AMQrHKYzwA==
+X-CSE-MsgGUID: JTn2QK4QSkC2ll/6LdfyGQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11180"; a="23892875"
+X-IronPort-AV: E=Sophos;i="6.10,190,1719903600"; 
+   d="scan'208";a="23892875"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Aug 2024 17:45:47 -0700
+X-CSE-ConnectionGUID: u/GJuGqQQlK5hrQMr3hglw==
+X-CSE-MsgGUID: k697wz3HTuSYiLlEI6//FQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.10,190,1719903600"; 
+   d="scan'208";a="68458817"
+Received: from lkp-server01.sh.intel.com (HELO 9c6b1c7d3b50) ([10.239.97.150])
+  by fmviesa005.fm.intel.com with ESMTP; 30 Aug 2024 17:45:43 -0700
+Received: from kbuild by 9c6b1c7d3b50 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1skCFJ-0002Fc-06;
+	Sat, 31 Aug 2024 00:45:41 +0000
+Date: Sat, 31 Aug 2024 08:45:16 +0800
+From: kernel test robot <lkp@intel.com>
+To: Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>
-Cc: kvm@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Ilias Stamatis <ilstam@amazon.com>, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Anup Patel <anup@brainfault.org>, Paul Durrant <paul@xen.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	=?iso-8859-1?Q?Miqu=E8l?= Raynal <miquel.raynal@bootlin.com>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+Subject: Re: [PATCH v5 2/3] iio: adc: sophgo-saradc: Add driver for Sophgo
+ CV1800B SARADC
+Message-ID: <202408310817.GT3TMpnv-lkp@intel.com>
+References: <20240829-sg2002-adc-v5-2-aacb381e869b@bootlin.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240829-sg2002-adc-v5-2-aacb381e869b@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240830_172117_075850_7146F39E 
-X-CRM114-Status: GOOD (  10.27  )
+X-CRM114-CacheID: sfid-20240830_174552_995114_64C69D3E 
+X-CRM114-Status: GOOD (  12.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,26 +102,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 28 Aug 2024 11:14:44 -0700, Sean Christopherson wrote:
-> Add a regression test for the bug fixed by commit 92f6d4130497 ("KVM:
-> Fix coalesced_mmio_has_room() to avoid premature userspace exit"), and
-> then do additional clean up on the offending KVM code.  I wrote the test
-> mainly so that I was confident I actually understood Ilias' fix.
-> 
-> This applies on the aforementioned commit, which is sitting in
-> kvm-x86/generic.
-> 
-> [...]
+Hi Thomas,
 
-Applied to kvm-x86 generic, thanks!
+kernel test robot noticed the following build warnings:
 
-[1/2] KVM: selftests: Add a test for coalesced MMIO (and PIO on x86)
-      https://github.com/kvm-x86/linux/commit/215b3cb7a84f
-[2/2] KVM: Clean up coalesced MMIO ring full check
-      https://github.com/kvm-x86/linux/commit/e027ba1b83ad
+[auto build test WARNING on 5be63fc19fcaa4c236b307420483578a56986a37]
 
---
-https://github.com/kvm-x86/linux/tree/next
+url:    https://github.com/intel-lab-lkp/linux/commits/Thomas-Bonnefille/dt-bindings-iio-adc-sophgo-cv1800b-saradc-Add-Sophgo-CV1800B-SARADC/20240829-203431
+base:   5be63fc19fcaa4c236b307420483578a56986a37
+patch link:    https://lore.kernel.org/r/20240829-sg2002-adc-v5-2-aacb381e869b%40bootlin.com
+patch subject: [PATCH v5 2/3] iio: adc: sophgo-saradc: Add driver for Sophgo CV1800B SARADC
+config: x86_64-allyesconfig (https://download.01.org/0day-ci/archive/20240831/202408310817.GT3TMpnv-lkp@intel.com/config)
+compiler: clang version 18.1.5 (https://github.com/llvm/llvm-project 617a15a9eac96088ae5e9134248d8236e34b91b1)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20240831/202408310817.GT3TMpnv-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202408310817.GT3TMpnv-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> drivers/iio/adc/sophgo-cv1800b-adc.c:120:3: warning: label followed by a declaration is a C23 extension [-Wc23-extensions]
+     120 |                 u32 status_reg = readl(saradc->regs + CV1800B_ADC_CYC_SET_REG);
+         |                 ^
+   1 warning generated.
+
+
+vim +120 drivers/iio/adc/sophgo-cv1800b-adc.c
+
+    88	
+    89	static int cv1800b_adc_read_raw(struct iio_dev *indio_dev,
+    90					struct iio_chan_spec const *chan,
+    91					int *val, int *val2, long mask)
+    92	{
+    93		struct cv1800b_adc *saradc = iio_priv(indio_dev);
+    94	
+    95		switch (mask) {
+    96		case IIO_CHAN_INFO_RAW:{
+    97			u32 sample;
+    98	
+    99			scoped_guard(mutex, &saradc->lock) {
+   100				int ret;
+   101	
+   102				cv1800b_adc_start_measurement(saradc, chan->scan_index);
+   103				ret = cv1800b_adc_wait(saradc);
+   104				if (ret < 0)
+   105					return ret;
+   106	
+   107				sample = readl(saradc->regs + CV1800B_ADC_CH_RESULT_REG(chan->scan_index));
+   108			}
+   109			if (!(sample & CV1800B_ADC_CH_VALID))
+   110				return -ENODATA;
+   111	
+   112			*val = sample & CV1800B_ADC_CH_RESULT;
+   113			return IIO_VAL_INT;
+   114			}
+   115		case IIO_CHAN_INFO_SCALE:
+   116			*val = 3300;
+   117			*val2 = 12;
+   118			return IIO_VAL_FRACTIONAL_LOG2;
+   119		case IIO_CHAN_INFO_SAMP_FREQ:
+ > 120			u32 status_reg = readl(saradc->regs + CV1800B_ADC_CYC_SET_REG);
+   121			int clk_div = (1 + FIELD_GET(CV1800B_MASK_CLKDIV, status_reg));
+   122			int freq = clk_get_rate(saradc->clk) / clk_div;
+   123			int nb_startup_cycle = 1 + FIELD_GET(CV1800B_MASK_STARTUP_CYCLE, status_reg);
+   124			int nb_sample_cycle = 1 + FIELD_GET(CV1800B_MASK_SAMPLE_WINDOW, status_reg);
+   125			int nb_compare_cycle = 1 + FIELD_GET(CV1800B_MASK_COMPARE_CYCLE, status_reg);
+   126	
+   127			*val = freq / (nb_startup_cycle + nb_sample_cycle + nb_compare_cycle);
+   128			return IIO_VAL_INT;
+   129		default:
+   130			return -EINVAL;
+   131		}
+   132	}
+   133	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
