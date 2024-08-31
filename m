@@ -4,122 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 191C8CD1293
-	for <linux-riscv@archiver.kernel.org>; Sat, 31 Aug 2024 03:34:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EE48C5474C
+	for <linux-riscv@archiver.kernel.org>; Sat, 31 Aug 2024 04:17:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zfJJgw+TSDHZjaiGCm3RLlW26C3e0vxnNddoOesff+U=; b=fg1Cnj2zLSfkWi0RtSI3HOaKtz
-	TI+9sU1AuQj0zUqCCzleXLxWnnoB9yJjT9LqUfYiN6cuE5B5+EICBspid+tzLc7+G9P9l9Tg9uOD3
-	XEuTVqL5TQj0yGcnE1DMBAH5IAiFLBnLlo6fj2M+aLvaGQz78z+I7dX64BdkZUfyY4IG7UwaxiFOZ
-	0YuhKxL9YphanKWc47pf2HYZXYCUDWm1q3ci/6CnrAP9T8BB3CJtKkDqCkA5Gn9vMwA6gvSpc9Cd7
-	GzRhKTeX4EzEzU0vAOXd/c0n6/osq2oLOir0KFDduvn1QJCcNRzGnmlObZyYS0U8LF0x9FOSBULhc
-	90eMpXgg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=RrQFIDWG2Q1L3Nwc6LpElL4MLEFjAhNR+7rK0gOkUXY=; b=ZaCdJUQp77066l
+	UFuh3IS6Ahg6gui8pXpPLYEF9qEMvDWyFmjeD+JKEybjOv1MWX0bkwsBCz0iwqrRHh+cA7PXViW5m
+	kUpZXdRR3aBWiWRDLA681/4eeIfBuIi+Ft/qGkgGA1cySkjrC3iz2AAZkAIXsCXLnwVXdURtKhYVF
+	8m1NgYXvgHaPCveg7MR43Iegdzbo/4HpWN2SbGONqLiro7pM0o3edeyR8RQtZiL/01evdYUzBqaHw
+	mnDqpffZT8+RLu+Le/V9wpxmnL8Yl2fEPhf11VBojK7JOXg8RrhhVoXKR8MdjNMwHOL6k2LLmLbqF
+	F0aU/SajxF6kTQn+83fA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1skEsi-00000008R5k-0axG;
-	Sat, 31 Aug 2024 03:34:32 +0000
-Received: from mail-sy4aus01olkn20809.outbound.protection.outlook.com ([2a01:111:f403:2819::809] helo=AUS01-SY4-obe.outbound.protection.outlook.com)
+	id 1skFXq-00000008Uo5-0v2N;
+	Sat, 31 Aug 2024 04:17:02 +0000
+Received: from dggsgout12.his.huawei.com ([45.249.212.56])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1skEsf-00000008R2z-2m9y
+	id 1skFXm-00000008UmN-3qoc
 	for linux-riscv@lists.infradead.org;
-	Sat, 31 Aug 2024 03:34:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=g91CXYnHH9cIqsglugrNCd6Bj1cX+I8XBxCph7Y76TGPHLHrIe6eiZCqQ5YXTV6K+JDzQgo3CHoxjSlkb3Q0jUol8eWuDzJwHbIwJQ25XNdaFSuC9ZJiI6cY0Xf9+FAimVNH3V54iOxk63E9QQlvX2Bhh1j9SU9PAXMOjNIrX5OZMUeMZ97zhwDg1suC0KatALAVktFT3Gm4XJkQHBgXm0nNcitshLS0gsM9h2arUxPzJrqo8mUA27HgaI3Q9ikQf6z0F1u6gn0OS24VmyPQ0ubowl9s8Pwvx/qsISH8LM0v7HJ0o58ehqdCK25uqGxwx5oL3wQT5yQW1GgWitGTBQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vHauG8AlPUeAzUasa+fgao591JMNiBnKP7Vd6tpC/bo=;
- b=ub5lnVdDpOWJ1Kcaw2/hbuwWF41hoGtUDb+mfB5d1EDkGeP8LuDzhkJLQHW5piLsbEF7fOvYEAjAin2S9vhlpfJ4wWnnC5HFarl4siYDUAbRxoR4uGCeOSil53CuFYtygYHBBvcuZnwzPay2vEAMeeeZ+iSBY33v7f5Fa7wPZEGGxoPU7yWqhASxlZiB6KUrGOZ/aiwxCuX8o8TtPWLBbK6na8C8lew8l6QKI4UitrkRgF1NJfrSJZazIDJr3H6muAinakx6PxUzabN6jFfoQNlGkAFVPFjw0ERnLEUKwBZm3ud3cdJtLkLTLUA2u4n3Zm7r1q/6o9sO8fnwd0IASg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vHauG8AlPUeAzUasa+fgao591JMNiBnKP7Vd6tpC/bo=;
- b=K0Qf2D9QrlP1XmvVFLwN5gV9cMK8RZFKZWkdGDapgEHzEgJ2VCiJQaUSsEveuP6vJyC3IV/93DntrIK+YbIIak2G+e+ONCpoxLtk7ehIKGcHhA6FCib4wkSDPhSHPnOB9DIRKGDj5yKWkXIDHO5Onkykoj1Lq9r3kSODEnHYQxbp0GFT18vFy8Upueaiu5kcV5iRx6VNdFYiVaHXnqrWcnIYzPGvghmbaIXOvCpJkVq3HmKUXVx2JZsy+Xpzx9kKIUofdqgxL3lXanceStk6P00vaqyTLBIhihLYD2yel/YOmIN25+9DPDq44qCvP2MtsnBbuJWNgelq8h+6C8doVQ==
-Received: from MEYP282MB2312.AUSP282.PROD.OUTLOOK.COM (2603:10c6:220:ff::9) by
- ME3P282MB1844.AUSP282.PROD.OUTLOOK.COM (2603:10c6:220:a0::12) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.7897.28; Sat, 31 Aug 2024 03:34:07 +0000
-Received: from MEYP282MB2312.AUSP282.PROD.OUTLOOK.COM
- ([fe80::6174:52de:9210:9165]) by MEYP282MB2312.AUSP282.PROD.OUTLOOK.COM
- ([fe80::6174:52de:9210:9165%3]) with mapi id 15.20.7918.020; Sat, 31 Aug 2024
- 03:34:07 +0000
-Message-ID: <MEYP282MB2312DF315C4FC264E96AF8B2C6902@MEYP282MB2312.AUSP282.PROD.OUTLOOK.COM>
-Date: Sat, 31 Aug 2024 11:33:50 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] riscv: mm: Do not restrict mmap address based on hint
-To: Charlie Jenkins <charlie@rivosinc.com>, Jonathan Corbet <corbet@lwn.net>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Shuah Khan <shuah@kernel.org>, Yangyu Chen <cyy@cyyself.name>,
- Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>,
- linux-kselftest@vger.kernel.org
-References: <20240826-riscv_mmap-v1-0-cd8962afe47f@rivosinc.com>
- <20240826-riscv_mmap-v1-3-cd8962afe47f@rivosinc.com>
-Content-Language: en-US
-From: Levi Zim <rsworktech@outlook.com>
-In-Reply-To: <20240826-riscv_mmap-v1-3-cd8962afe47f@rivosinc.com>
-X-TMN: [95OAXNkcMNv5EUZfKhpGVTQw601WQjTY]
-X-ClientProxiedBy: SG2PR02CA0012.apcprd02.prod.outlook.com
- (2603:1096:3:17::24) To MEYP282MB2312.AUSP282.PROD.OUTLOOK.COM
- (2603:10c6:220:ff::9)
-X-Microsoft-Original-Message-ID: <a4bf3140-3130-483f-b4f7-809c3ce091de@outlook.com>
+	Sat, 31 Aug 2024 04:17:01 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.235])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTP id 4WwhY21JKCz4f3jXT
+	for <linux-riscv@lists.infradead.org>; Sat, 31 Aug 2024 12:16:38 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.75])
+	by mail.maildlp.com (Postfix) with ESMTP id E96921A06DC
+	for <linux-riscv@lists.infradead.org>; Sat, 31 Aug 2024 12:16:52 +0800 (CST)
+Received: from ultra.huawei.com (unknown [10.90.53.71])
+	by APP2 (Coremail) with SMTP id Syh0CgBnT74ymdJmoSHHDA--.65422S4;
+	Sat, 31 Aug 2024 12:16:52 +0800 (CST)
+From: Pu Lehui <pulehui@huaweicloud.com>
+To: bpf@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	netdev@vger.kernel.org,
+	Andrii Nakryiko <andrii@kernel.org>
+Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Stanislav Fomichev <sdf@google.com>,
+	Hao Luo <haoluo@google.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Pu Lehui <pulehui@huawei.com>
+Subject: [PATCH bpf-next v3 2/4] libbpf: Access first syscall argument with CO-RE direct read on arm64
+Date: Sat, 31 Aug 2024 04:19:32 +0000
+Message-Id: <20240831041934.1629216-3-pulehui@huaweicloud.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20240831041934.1629216-1-pulehui@huaweicloud.com>
+References: <20240831041934.1629216-1-pulehui@huaweicloud.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MEYP282MB2312:EE_|ME3P282MB1844:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2f7b1966-a399-45d7-b50d-08dcc96dc4cd
-X-Microsoft-Antispam: BCL:0;ARA:14566002|15080799006|461199028|5072599009|19110799003|6090799003|8060799006|1602099012|3412199025|440099028|4302099013;
-X-Microsoft-Antispam-Message-Info: 87iH7s/oFLWfAHp6rJheEv0FX5azOFfv0w5n6iDuKupC3CD1Bugnr2u2wYfH47Xhf0qqdopdH7FT82vH1oqf2eNj1BU0t5tKHIMEPoeDv54OxXKuu8YXZWqKC4z/lymR0Mikm8Yr97xOH/ubX6X+SAB3Igxt4t7jxVNEapddqT3H48qSydSrNo2joVcmFNiUsJlRiHjZywfcUxKTEjeUsjLO0H7ffVC38rgSDKoikJaT77llORlphlkHt9QPbc3gyhRdyjoj1y620jTfYVhqs52wDw+glq2G5BRge1MePqyKZYCr9yK+06569bhBtZFvxwiuJWpmGumdcncjAnCQFQf32bUyNLRl1I/ZaEmdL6rLqh2uM5prc7HAHcqF4FRkO8prRQ6JRYhrgto2smgAxHTTU/reNnpS3zDx3RA/izXqC5myN9PxPs95BcjwE4I5wnrY8ipHQ8nfsVwDR+UAwP+uybq8K1Lea57QegSdovy3j9ykCV9flGTl2mXd1L/XmTx09ZuB7eCQEzxZmTv9Kcr0vLdiHZYDwcOT9th7a6PcnS4uMM1CZkBffb6vLLoKEmt1JKShYM6eAUJ1Yzq8gWyDwoZzzjnASVBAw5Geyh9tgc/sPlyBP5EoFMhlIto8YO4SW0uQxfnOJobieDlvBOiap8bxiqpSjC911kzPoGp4nY3VcvagWGYr5NEnFC0+VhnzwFbgGxf/xl64Zx4Sm9G29HZTgBLGUNnPz0ZvQuUcCZM+n0U+KTfJlRRGswaoD0Oitp0o3YRlI3aYOr3tcUiTAXJe+cVjWVqiRaVjK4rk94q6NUTBr1DfR06QdlRU7mSnrGW1Bxk9OL1NVfx3Mg==
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VzBvd0xQM2x0ZEwyRDVFZTUvcjFpbjlJQjFkUTB6UjcwMVJkZGdlMEgzdEJI?=
- =?utf-8?B?UmsvanB1UHJXZGJUZUo5bURlQW55NmNOSnFCMlA4OGl2WHQrNXFKS3JNWTY4?=
- =?utf-8?B?OXdlbzBGTjZjUVNmaThObnNWNytOWmM1c0d1QzVWZFlpc2tVRDBRUDR5dTZH?=
- =?utf-8?B?YUc4RGdiVUs4S05UMkthY2tOSmxzOGlUckdMaTJGcHVlV0dwNC9OVG1CNHV4?=
- =?utf-8?B?L0JIZ1d5ekZsS0pNUzQ1SHBOWWRoVi9uLzNpTlIvaW1KZGJ5aWpQaEs2RUU3?=
- =?utf-8?B?ZWlUU1lkdnM1RGFKWGd1SWlUZ0V4YkcyRnZHUE1PWWh3emxaNjhrUDJVZTV2?=
- =?utf-8?B?TStPNk1LQWxCdTBOejVKN0hUSHFLUjZkY29GUjZEUGphNVd3cGJjMXpiVjFE?=
- =?utf-8?B?TUFIUUxicUtZUXp3Z3hHUGJ1MEFjNk9DR1p4M0EyOTQwV0FSbENPclV1QWhS?=
- =?utf-8?B?VXlnclUxSzV4QmxyMDZvdmlQY1paRWdvcU1wVEZ6WnZ5N3ExQkVGZTl0RCtp?=
- =?utf-8?B?cXY3UFFEN3Nzak1IS0xrK3czVG1NbjVOSUZ0bnhQQjRyTEFEWG5xcktZbmQx?=
- =?utf-8?B?ZWhFK0ZxNXZFUVhaU2hqYXJrTHZVTi9CMmsyRkRxSlRpUEx2cnkreGxtY1Uz?=
- =?utf-8?B?YzlqMDNKa2FuQXZISVI2aVA1L01jK3kvWndQR1M5TzltWFVVOWE4REpoamVT?=
- =?utf-8?B?SUFNL0RrU2YvNFdIZXd5Ui9HZ09VZUJXTjYxVlRRSHdpNVVUWkswc05ndFVo?=
- =?utf-8?B?N216UTdlN2FzR29CYTIvSmsySWRKVk5VcVl5MytPYm1rQ0RPdld4VEdwcE43?=
- =?utf-8?B?bFE1NFA4cXFHQUduUHZPUUNoQWVZTlVxWG50U1JrZWhjczBjT1V4UXlUVkI5?=
- =?utf-8?B?ZlBnQmFkSzNxdTdSeEUzN3dCdmhBRWpjS3lvcllIbzVKeUVHUi9DOGNZU3d5?=
- =?utf-8?B?d1RMWHdrcXZwUG9ZWFhMRnFuYWtyT2RPa3pIKzdRUmliMVcwSm1nVW1CTEhZ?=
- =?utf-8?B?QVdaOXpSRGZJamdNemROMXNpT05venhjRXJveTN5VWo1TVhWdVd2OThXMi9a?=
- =?utf-8?B?emxrSnJ2OFQrK2R4NzNESHVZTndZcWtaa3JnOTRkdXQ0ZHUrRi9GRlRhcHl1?=
- =?utf-8?B?SG1IREVHUVM2OHQrTk5vRHBBZEFnVUJ6NlFLL1VQVG12QmthK1FTMG5LUS82?=
- =?utf-8?B?eDlXTklETlNZQlBtTlpMcnJZMXBXSHpWUkk2eFY0VTlyaXkyS2diSFgwN29k?=
- =?utf-8?B?N281UGdpYm9CSkc0ME9rd01YUUpqaHp0VUJHS3FGL1N1NlpaWGpmWllCZVFi?=
- =?utf-8?B?ZmdpbVFGdXY5eThvbEVIVzNIMEgrek5Sd1VNdm5GQVpHUzFWNGY3bmVsNXlH?=
- =?utf-8?B?SlcyQk5YbWR5V3FOM2FCT0xwNW5VZnBPUE5EOXRHeGZKcDdPbzlNWFB0VjRX?=
- =?utf-8?B?TG94UTVJaHpmTUZTcDhKZ0gxYVRrcDI3d2cvbkE1RzhtaGZtdkp3Z0k0b1pE?=
- =?utf-8?B?emU3TDBQSmVEdTNJVytkUy9YSGpjL1dnbFpGZzNZRlJmL2FVcjg4TzdUS1Jw?=
- =?utf-8?B?QkNEc2Y5K1dYem5VakNnV2ZWd3ZWVHVNeERhMTR2eEYvUkpmTUl3ZEtMdnRk?=
- =?utf-8?Q?BPmV1Wmrz3DxX110SeGo7mPj8Mz2MG7ee7be3MYZ8CtE=3D?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2f7b1966-a399-45d7-b50d-08dcc96dc4cd
-X-MS-Exchange-CrossTenant-AuthSource: MEYP282MB2312.AUSP282.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Aug 2024 03:34:07.4494
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ME3P282MB1844
+X-CM-TRANSID: Syh0CgBnT74ymdJmoSHHDA--.65422S4
+X-Coremail-Antispam: 1UD129KBjvJXoW7uF17Zr1rWry5Xry3CFWUXFb_yoW8XFW8pF
+	WUCa47Kr18Ww4jkasrKF4avF13tws5twsrJF97WayS9FWUt393X3W2grZ0kw4avrW5Gw4Y
+	vr9Fkr18G3W7Z37anT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPIb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUXw
+	A2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxS
+	w2x7M28EF7xvwVC0I7IYx2IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxV
+	W8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v2
+	6rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMc
+	Ij6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_
+	Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI
+	0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG
+	67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MI
+	IYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E
+	14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Gr
+	0_Cr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x07jI
+	sjbUUUUU=
+X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240830_203429_712324_BD8C080A 
-X-CRM114-Status: GOOD (  16.59  )
+X-CRM114-CacheID: sfid-20240830_211659_834342_56937F17 
+X-CRM114-Status: UNSURE (   8.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,73 +98,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2024-08-27 00:36, Charlie Jenkins wrote:
-> The hint address should not forcefully restrict the addresses returned
-> by mmap as this causes mmap to report ENOMEM when there is memory still
-> available.
->
-> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> Fixes: b5b4287accd7 ("riscv: mm: Use hint address in mmap if available")
-> Fixes: add2cc6b6515 ("RISC-V: mm: Restrict address space for sv39,sv48,sv57")
-> Closes: https://lore.kernel.org/linux-kernel/ZbxTNjQPFKBatMq+@ghost/T/#mccb1890466bf5a488c9ce7441e57e42271895765
-> ---
->   arch/riscv/include/asm/processor.h | 26 ++------------------------
->   1 file changed, 2 insertions(+), 24 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-> index 8702b8721a27..efa1b3519b23 100644
-> --- a/arch/riscv/include/asm/processor.h
-> +++ b/arch/riscv/include/asm/processor.h
-> @@ -14,36 +14,14 @@
->   
->   #include <asm/ptrace.h>
->   
-> -/*
-> - * addr is a hint to the maximum userspace address that mmap should provide, so
-> - * this macro needs to return the largest address space available so that
-> - * mmap_end < addr, being mmap_end the top of that address space.
-> - * See Documentation/arch/riscv/vm-layout.rst for more details.
-> - */
->   #define arch_get_mmap_end(addr, len, flags)			\
->   ({								\
-> -	unsigned long mmap_end;					\
-> -	typeof(addr) _addr = (addr);				\
-> -	if ((_addr) == 0 || is_compat_task() ||			\
-> -	    ((_addr + len) > BIT(VA_BITS - 1)))			\
-> -		mmap_end = STACK_TOP_MAX;			\
-> -	else							\
-> -		mmap_end = (_addr + len);			\
-> -	mmap_end;						\
-> +	STACK_TOP_MAX;						\
->   })
->   
->   #define arch_get_mmap_base(addr, base)				\
->   ({								\
-> -	unsigned long mmap_base;				\
-> -	typeof(addr) _addr = (addr);				\
-> -	typeof(base) _base = (base);				\
-> -	unsigned long rnd_gap = DEFAULT_MAP_WINDOW - (_base);	\
-> -	if ((_addr) == 0 || is_compat_task() || 		\
-> -	    ((_addr + len) > BIT(VA_BITS - 1)))			\
-> -		mmap_base = (_base);				\
-> -	else							\
-> -		mmap_base = (_addr + len) - rnd_gap;		\
-> -	mmap_base;						\
-> +	base;							\
->   })
->   
->   #ifdef CONFIG_64BIT
->
-I tested this patch on 6.10.2 kernel and could confirm that it fixes the 
-crash of chromium. But I think I prefer Yangyu Chen's approach because 
-that would avoid breaking some applications on sv57.
+From: Pu Lehui <pulehui@huawei.com>
 
-Tested-by: Levi Zim <rsworktech@outlook.com> # Chromium, sv39
+Currently PT_REGS_PARM1 SYSCALL(x) is consistent with PT_REGS_PARM1_CORE
+SYSCALL(x), which will introduce the overhead of BPF_CORE_READ(), taking
+into account the read pt_regs comes directly from the context, let's use
+CO-RE direct read to access the first system call argument.
+
+Suggested-by: Andrii Nakryiko <andrii@kernel.org>
+Signed-off-by: Pu Lehui <pulehui@huawei.com>
+---
+ tools/lib/bpf/bpf_tracing.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/tools/lib/bpf/bpf_tracing.h b/tools/lib/bpf/bpf_tracing.h
+index e7d9382efeb3..051c408e6aed 100644
+--- a/tools/lib/bpf/bpf_tracing.h
++++ b/tools/lib/bpf/bpf_tracing.h
+@@ -222,7 +222,7 @@ struct pt_regs___s390 {
+ 
+ struct pt_regs___arm64 {
+ 	unsigned long orig_x0;
+-};
++} __attribute__((preserve_access_index));
+ 
+ /* arm64 provides struct user_pt_regs instead of struct pt_regs to userspace */
+ #define __PT_REGS_CAST(x) ((const struct user_pt_regs *)(x))
+@@ -241,7 +241,7 @@ struct pt_regs___arm64 {
+ #define __PT_PARM4_SYSCALL_REG __PT_PARM4_REG
+ #define __PT_PARM5_SYSCALL_REG __PT_PARM5_REG
+ #define __PT_PARM6_SYSCALL_REG __PT_PARM6_REG
+-#define PT_REGS_PARM1_SYSCALL(x) PT_REGS_PARM1_CORE_SYSCALL(x)
++#define PT_REGS_PARM1_SYSCALL(x) (((const struct pt_regs___arm64 *)(x))->orig_x0)
+ #define PT_REGS_PARM1_CORE_SYSCALL(x) \
+ 	BPF_CORE_READ((const struct pt_regs___arm64 *)(x), __PT_PARM1_SYSCALL_REG)
+ 
+-- 
+2.34.1
 
 
 _______________________________________________
