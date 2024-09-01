@@ -4,97 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78927CD13DE
-	for <linux-riscv@archiver.kernel.org>; Sat, 31 Aug 2024 16:33:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A505C54FC6
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 Sep 2024 18:39:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T3Gnx0/lvsumYBKJy0PKFOBH7QJoQW/Ivnl0YgT3va0=; b=tWHMzFqNcH7FZS
-	SyROsNwV+1EIHhjJXu7o66G6s1tJ+i2GIUyrJwJNjdLoII7F4MOhk9H+06OuTIgpel5XaQ4jbila7
-	/KczpzvLYdqShKaCMDGhl6QS+8dTLOYEQE1Q006l5Cuv5hnS4ni/xaQPBjxSXuKFkcuMdFhaR26Gb
-	Qr/wcbeNDnX6BSd+cYBn337nnIqpZgo8TGf8Y3JLSwOpbjbKRbvub4NYmxYUGhIRaic4PDMVK9GOi
-	sqVWRGWOqshNHcRn5AlMp20l1Kc4Bcd6huateeiWCVIafvLFMxSW2TCnmv/+jDecnLjCr1hQAjC+y
-	rkj5SyuhF4VKBIQnAOSQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=/igHlogd0PYZIl6Ms5zAHdm/n4WMvUaUgMbu9kG7ik4=; b=RwkjE6/EUoc9Ja
+	cww1J8djakRLp1XkTEfszaDBOusmxleJJ/pXmeF8VfmTbL1mLErVjagF8sFfkHwegjhxBY4mRFjwN
+	3HXHHZ5e24QIImCDK5VOa8DkztTyjHjBlciB6GTMLPVdbl3U4YGFfhP4wV/ia3Q1Fbe0Ag8Qdk5kb
+	Pz6+FtzN372ofjX6mG1rQrRQEw91GhOJFi4h2zCcMhYCcdWmjU5G+8f7wwYQiG/CX5jBEyuphT7j7
+	fiTt59isQx5fYX5V59X2eKt1ZCOtqBfJFOc5DJ3j5q6cDA/8EZsJFmj18sXhVfgiccXlQRw+GiyJy
+	3vFR9C8q/QJLvkyuri7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1skR20-00000009grS-20rf;
-	Sat, 31 Aug 2024 16:32:56 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
-	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1skR0V-00000009gZF-1Xyu
+	id 1skpTj-0000000C9Gf-3xhF;
+	Sun, 01 Sep 2024 18:39:11 +0000
+Received: from relmlor2.renesas.com ([210.160.252.172] helo=relmlie6.idc.renesas.com)
+	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1skpPG-0000000C8S6-1fgO
 	for linux-riscv@lists.infradead.org;
-	Sat, 31 Aug 2024 16:31:25 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
- relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-262-wK_tsTO6PIqyGgtMlXpe8w-1; Sat, 31 Aug 2024 17:31:14 +0100
-X-MC-Unique: wK_tsTO6PIqyGgtMlXpe8w-1
-Received: from AcuMS.Aculab.com (10.202.163.6) by AcuMS.aculab.com
- (10.202.163.6) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Sat, 31 Aug
- 2024 17:30:28 +0100
-Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
- id 15.00.1497.048; Sat, 31 Aug 2024 17:30:28 +0100
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Christophe Leroy' <christophe.leroy@csgroup.eu>, Charlie Jenkins
-	<charlie@rivosinc.com>, Arnd Bergmann <arnd@arndb.de>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Catalin Marinas <catalin.marinas@arm.com>, "Will
- Deacon" <will@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>, "Nicholas
- Piggin" <npiggin@gmail.com>, Naveen N Rao <naveen@kernel.org>, Muchun Song
-	<muchun.song@linux.dev>, Andrew Morton <akpm@linux-foundation.org>, "Liam R.
- Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@suse.cz>,
-	"Lorenzo Stoakes" <lorenzo.stoakes@oracle.com>, Thomas Gleixner
-	<tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
-	<bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, "x86@kernel.org"
-	<x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, Huacai Chen
-	<chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, Russell King
-	<linux@armlinux.org.uk>, "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, Helge Deller
-	<deller@gmx.de>, Alexander Gordeev <agordeev@linux.ibm.com>, Gerald Schaefer
-	<gerald.schaefer@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, "Vasily
- Gorbik" <gor@linux.ibm.com>, Christian Borntraeger
-	<borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, "Yoshinori
- Sato" <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, "John Paul
- Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>, "David S. Miller"
-	<davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, Shuah Khan
-	<shuah@kernel.org>, Alexandre Ghiti <alexghiti@rivosinc.com>
-CC: "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Palmer Dabbelt
-	<palmer@rivosinc.com>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linuxppc-dev@lists.ozlabs.org"
-	<linuxppc-dev@lists.ozlabs.org>, "linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
-	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
-	"linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
-	"linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
-	"linux-sh@vger.kernel.org" <linux-sh@vger.kernel.org>,
-	"sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>,
-	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>
-Subject: RE: [PATCH 07/16] powerpc: mm: Support MAP_BELOW_HINT
-Thread-Topic: [PATCH 07/16] powerpc: mm: Support MAP_BELOW_HINT
-Thread-Index: AQHa+RRTN/GnVgA7wEmCsX6Cdbuah7JBk7Rw
-Date: Sat, 31 Aug 2024 16:30:28 +0000
-Message-ID: <7011cb340586473dac83efbbe84c4a05@AcuMS.aculab.com>
-References: <20240827-patches-below_hint_mmap-v1-0-46ff2eb9022d@rivosinc.com>
- <20240827-patches-below_hint_mmap-v1-7-46ff2eb9022d@rivosinc.com>
- <a43c52c6-c1ac-4ef3-b511-08f0459bddad@csgroup.eu>
-In-Reply-To: <a43c52c6-c1ac-4ef3-b511-08f0459bddad@csgroup.eu>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+	Sun, 01 Sep 2024 18:34:36 +0000
+X-IronPort-AV: E=Sophos;i="6.10,194,1719846000"; 
+   d="scan'208";a="221160764"
+Received: from unknown (HELO relmlir5.idc.renesas.com) ([10.200.68.151])
+  by relmlie6.idc.renesas.com with ESMTP; 02 Sep 2024 03:34:30 +0900
+Received: from localhost.localdomain (unknown [10.226.92.9])
+	by relmlir5.idc.renesas.com (Postfix) with ESMTP id 5AE2B40071EC;
+	Mon,  2 Sep 2024 03:34:26 +0900 (JST)
+From: Biju Das <biju.das.jz@bp.renesas.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Biju Das <biju.das.jz@bp.renesas.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-renesas-soc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Biju Das <biju.das.au@gmail.com>
+Subject: [PATCH v4 0/2] Enable serial NOR flash on RZ/G2UL SMARC EVK
+Date: Sun,  1 Sep 2024 19:34:16 +0100
+Message-ID: <20240901183422.31600-1-biju.das.jz@bp.renesas.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240831_093123_709881_CA0914BB 
-X-CRM114-Status: GOOD (  18.50  )
+X-CRM114-CacheID: sfid-20240901_113434_564005_92978BD6 
+X-CRM114-Status: UNSURE (   7.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,65 +69,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogQ2hyaXN0b3BoZSBMZXJveQ0KPiBTZW50OiAyOCBBdWd1c3QgMjAyNCAwNzozNQ0KPiBI
-aSBDaGFybGllLA0KPiANCj4gTGUgMjgvMDgvMjAyNCDDoCAwNzo0OSwgQ2hhcmxpZSBKZW5raW5z
-IGEgw6ljcml0wqA6DQo+ID4gQWRkIHN1cHBvcnQgZm9yIE1BUF9CRUxPV19ISU5UIHRvIGFyY2hf
-Z2V0X21tYXBfYmFzZSgpIGFuZA0KPiA+IGFyY2hfZ2V0X21tYXBfZW5kKCkuDQo+ID4NCj4gPiBT
-aWduZWQtb2ZmLWJ5OiBDaGFybGllIEplbmtpbnMgPGNoYXJsaWVAcml2b3NpbmMuY29tPg0KPiA+
-IC0tLQ0KPiA+ICAgYXJjaC9wb3dlcnBjL2luY2x1ZGUvYXNtL3Rhc2tfc2l6ZV82NC5oIHwgMzYg
-KysrKysrKysrKysrKysrKysrKysrKysrKysrLS0tLS0tDQo+ID4gICAxIGZpbGUgY2hhbmdlZCwg
-MzAgaW5zZXJ0aW9ucygrKSwgNiBkZWxldGlvbnMoLSkNCj4gPg0KPiA+IGRpZmYgLS1naXQgYS9h
-cmNoL3Bvd2VycGMvaW5jbHVkZS9hc20vdGFza19zaXplXzY0LmggYi9hcmNoL3Bvd2VycGMvaW5j
-bHVkZS9hc20vdGFza19zaXplXzY0LmgNCj4gPiBpbmRleCAyMzliMzYzODQxYWEuLmEzN2E1YTgx
-MzY1ZCAxMDA2NDQNCj4gPiAtLS0gYS9hcmNoL3Bvd2VycGMvaW5jbHVkZS9hc20vdGFza19zaXpl
-XzY0LmgNCj4gPiArKysgYi9hcmNoL3Bvd2VycGMvaW5jbHVkZS9hc20vdGFza19zaXplXzY0LmgN
-Cj4gPiBAQCAtNzIsMTIgKzcyLDM2IEBADQo+ID4gICAjZGVmaW5lIFNUQUNLX1RPUF9NQVggVEFT
-S19TSVpFX1VTRVI2NA0KPiA+ICAgI2RlZmluZSBTVEFDS19UT1AgKGlzXzMyYml0X3Rhc2soKSA/
-IFNUQUNLX1RPUF9VU0VSMzIgOiBTVEFDS19UT1BfVVNFUjY0KQ0KPiA+DQo+ID4gLSNkZWZpbmUg
-YXJjaF9nZXRfbW1hcF9iYXNlKGFkZHIsIGxlbiwgYmFzZSwgZmxhZ3MpIFwNCj4gPiAtCSgoKGFk
-ZHIpID4gREVGQVVMVF9NQVBfV0lORE9XKSA/IChiYXNlKSArIFRBU0tfU0laRSAtIERFRkFVTFRf
-TUFQX1dJTkRPVyA6IChiYXNlKSkNCj4gPiArI2RlZmluZSBhcmNoX2dldF9tbWFwX2Jhc2UoYWRk
-ciwgbGVuLCBiYXNlLCBmbGFncykJCQkJCVwNCj4gDQo+IFRoaXMgbWFjcm8gbG9va3MgcXVpdGUg
-YmlnIGZvciBhIG1hY3JvLCBjYW4gaXQgYmUgYSBzdGF0aWMgaW5saW5lDQo+IGZ1bmN0aW9uIGlu
-c3RlYWQgPyBTYW1lIGZvciB0aGUgb3RoZXIgbWFjcm8gYmVsb3cuDQoNCk9yIGV2ZW4gYSByZWFs
-IGZ1bmN0aW9uPw0KR2l2ZW4gdGhlIGFjdHVhbCBjb3N0IG9mIG1hcHBpbmcgbWVtb3J5IGFuIGV4
-dHJhIGZ1bmN0aW9uIGNhbGwNCmlzbid0IGdvaW5nIHRvIGJlIG1hc3VyYWJsZS4NCg0KCURhdmlk
-DQoNCj4gDQo+ID4gKyh7CQkJCQkJCQkJCQlcDQo+ID4gKwl1bnNpZ25lZCBsb25nIG1tYXBfYmFz
-ZTsJCQkJCQkJXA0KPiA+ICsJdHlwZW9mKGZsYWdzKSBfZmxhZ3MgPSAoZmxhZ3MpOwkJCQkJCQlc
-DQo+ID4gKwl0eXBlb2YoYWRkcikgX2FkZHIgPSAoYWRkcik7CQkJCQkJCVwNCj4gPiArCXR5cGVv
-ZihiYXNlKSBfYmFzZSA9IChiYXNlKTsJCQkJCQkJXA0KPiA+ICsJdHlwZW9mKGxlbikgX2xlbiA9
-IChsZW4pOwkJCQkJCQlcDQo+ID4gKwl1bnNpZ25lZCBsb25nIHJuZF9nYXAgPSBERUZBVUxUX01B
-UF9XSU5ET1cgLSAoX2Jhc2UpOwkJCQlcDQo+ID4gKwlpZiAoX2ZsYWdzICYgTUFQX0JFTE9XX0hJ
-TlQgJiYgX2FkZHIgIT0gMCAmJiAoKF9hZGRyICsgX2xlbikgPiBCSVQoVkFfQklUUyAtIDEpKSlc
-DQo+ID4gKwkJbW1hcF9iYXNlID0gKF9hZGRyICsgX2xlbikgLSBybmRfZ2FwOwkJCQkJXA0KPiA+
-ICsJZWxzZQkJCQkJCQkJCQlcDQo+ID4gKwkJbW1hcF9lbmQgPSAoKF9hZGRyID4gREVGQVVMVF9N
-QVBfV0lORE9XKSA/CQkJCVwNCj4gPiArCQkJCV9iYXNlICsgVEFTS19TSVpFIC0gREVGQVVMVF9N
-QVBfV0lORE9XIDoJCVwNCj4gPiArCQkJCV9iYXNlKTsJCQkJCQkJXA0KPiA+ICsJbW1hcF9lbmQ7
-CQkJCQkJCQkJXA0KPiANCj4gbW1hcF9lbmQgZG9lc24ndCBleGlzdCwgZGlkIHlvdSBtZWFuIG1t
-YXBfYmFzZSA/DQo+IA0KPiA+ICt9KQ0KPiA+DQo+ID4gLSNkZWZpbmUgYXJjaF9nZXRfbW1hcF9l
-bmQoYWRkciwgbGVuLCBmbGFncykgXA0KPiA+IC0JKCgoYWRkcikgPiBERUZBVUxUX01BUF9XSU5E
-T1cpIHx8IFwNCj4gPiAtCSAoKChmbGFncykgJiBNQVBfRklYRUQpICYmICgoYWRkcikgKyAobGVu
-KSA+IERFRkFVTFRfTUFQX1dJTkRPVykpID8gVEFTS19TSVpFIDogXA0KPiA+IC0JCQkJCQkJCQkg
-ICAgREVGQVVMVF9NQVBfV0lORE9XKQ0KPiA+ICsjZGVmaW5lIGFyY2hfZ2V0X21tYXBfZW5kKGFk
-ZHIsIGxlbiwgZmxhZ3MpCQkJCQkJCVwNCj4gPiArKHsJCQkJCQkJCQkJCQlcDQo+ID4gKwl1bnNp
-Z25lZCBsb25nIG1tYXBfZW5kOwkJCQkJCQkJCVwNCj4gPiArCXR5cGVvZihmbGFncykgX2ZsYWdz
-ID0gKGZsYWdzKTsJCQkJCQkJCVwNCj4gPiArCXR5cGVvZihhZGRyKSBfYWRkciA9IChhZGRyKTsJ
-CQkJCQkJCVwNCj4gPiArCXR5cGVvZihsZW4pIF9sZW4gPSAobGVuKTsJCQkJCQkJCVwNCj4gPiAr
-CWlmIChfZmxhZ3MgJiBNQVBfQkVMT1dfSElOVCAmJiBfYWRkciAhPSAwICYmICgoX2FkZHIgKyBf
-bGVuKSA+IEJJVChWQV9CSVRTIC0gMSkpKQlcDQo+ID4gKwkJbW1hcF9lbmQgPSAoX2FkZHIgKyBf
-bGVuKTsJCQkJCQkJXA0KPiA+ICsJZWxzZQkJCQkJCQkJCQkJXA0KPiA+ICsJCW1tYXBfZW5kID0g
-KCgoX2FkZHIpID4gREVGQVVMVF9NQVBfV0lORE9XKSB8fAkJCQkJXA0KPiA+ICsJCQkJKCgoX2Zs
-YWdzKSAmIE1BUF9GSVhFRCkgJiYgKChfYWRkcikgKyAoX2xlbikgPiBERUZBVUxUX01BUF9XSU5E
-T1cpKVwNCj4gPiArCQkJCT8gVEFTS19TSVpFIDogREVGQVVMVF9NQVBfV0lORE9XKQkJCQlcDQo+
-ID4gKwltbWFwX2VuZDsJCQkJCQkJCQkJXA0KPiA+ICt9KQ0KPiA+DQo+ID4gICAjZW5kaWYgLyog
-X0FTTV9QT1dFUlBDX1RBU0tfU0laRV82NF9IICovDQo+ID4NCg0KLQ0KUmVnaXN0ZXJlZCBBZGRy
-ZXNzIExha2VzaWRlLCBCcmFtbGV5IFJvYWQsIE1vdW50IEZhcm0sIE1pbHRvbiBLZXluZXMsIE1L
-MSAxUFQsIFVLDQpSZWdpc3RyYXRpb24gTm86IDEzOTczODYgKFdhbGVzKQ0KX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
-aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
-ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+This patch series aims to enable serial NOR flash on RZ/G2UL SMARC EVK.
+
+Also update partition table for spi-nor flash on RZ{G2L,G2LC,V2L}, so
+that we can flash bootloaders in Linux by executing the below commands:
+flash_erase /dev/mtd0  0 0
+flash_erase /dev/mtd1  0 0
+mtd_debug write /dev/mtd0 0 ${BL2_FILE_SIZE} ${BL2_IMAGE}
+mtd_debug write /dev/mtd1 512 ${FIP_FILE_SIZE} ${FIP_IMAGE}
+
+v3->v4:
+ * Dropped patch#1 from the series [1] as it is aceepted.
+ * Merged patch#2 for [1] and patch from [2]
+ * Updated partition table for spi-nor flash.
+ * Removed Rb tag from Geert as there are some changes w.r.to
+   partition table.
+ [1] https://patchwork.kernel.org/project/linux-renesas-soc/list/?series=885350
+ [2] https://patchwork.kernel.org/project/linux-renesas-soc/patch/20230901075932.105822-2-biju.das.jz@bp.renesas.com/
+v2->v3:
+ * Dropped subnodes, as all pins use the same power-source value.
+v1->v2:
+ * Enabled 4-bit tx support
+
+Biju Das (2):
+  arm64: dts: renesas: rzg2ul-smarc-som: Enable serial NOR flash
+  arm64: dts: renesas: rz{g2l,g2lc}-smarc-som: Update partition table
+    for spi-nor flash
+
+ .../boot/dts/renesas/rzg2l-smarc-som.dtsi     | 15 +++++--
+ .../boot/dts/renesas/rzg2lc-smarc-som.dtsi    | 15 +++++--
+ .../boot/dts/renesas/rzg2ul-smarc-som.dtsi    | 45 +++++++++++++++++++
+ .../boot/dts/renesas/rzfive-smarc-som.dtsi    |  4 ++
+ 4 files changed, 71 insertions(+), 8 deletions(-)
+
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
