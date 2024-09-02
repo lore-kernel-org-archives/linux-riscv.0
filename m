@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A14F7CD13CF
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Sep 2024 18:56:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B169CD13CF
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Sep 2024 18:57:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XIoFOLjivXnaZrt0aadMXFUuof4oWHwwJw5U/Ie68Wk=; b=yu/mg3JDFpwR4h
-	O6chJg7ATONji4KmybF0KTLDZ9GffSSGvwrncog82BWgW4Jpok7SddmupgOW4n07xq3kqyEqmzC28
-	L0xvs9tBDc5jaWrxKbB9Q5NKjHdf4QDFkB0LYLtfmMjmAPtRbte2iXGFNJdQHKfBt6VO3KDdZlJUp
-	rnXGcDTln1Q9vDSuXdlB1bkj3HDoFEoaBYi8qD30m5nC+MHJCGBa7B9UYfsK+qS/e+qelvj0SwUDh
-	bCfHu5AT5wPERxP+TlbEv5wwz0iqet4ucmHuBaU+VSZ2KH+LfmL3WWOgnvfUw46uV02wp8HOQzdyq
-	t9LBRCs0blNyxfSNCW3w==;
+	List-Owner; bh=1aDQwzLNbjbiliLgkHpLUxMPN/aNhxxAzhOthIZi30Q=; b=pASupuTbcMpF+A
+	Nxhg1oEmywZ7J4OTWcCdSLhUAS48YrV93fB388JnAAlF/xoFWuQy7a+Nant4u8lwLPy/yuvXHgFS9
+	W+YhVG+YiMnjBr7z7U3OE4zjtE9bBZ4mMpV8lQrBd5GlFIhBr6TecwlTsRxBd1B3hHv3qkERgIE1O
+	geFw5DUvSkCkf6lB46PSKnGCarVd6FS0f41QeP9z9CDshjwtbQFaGLSl0+LA3Z+B2ddaEDU2ilT/2
+	MFwkxKkFMTDG4RNAchMabp9bMbEjXgbGcjZjk+7ltj7HKefaTa8YdW/EMrYktjSKwYOVhO7ehB42j
+	jtfwGZK6hWd+Zn2zylLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1slCE0-0000000FKXI-49Rj;
-	Mon, 02 Sep 2024 18:56:28 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1slCF9-0000000FKs4-14HN;
+	Mon, 02 Sep 2024 18:57:39 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1slCCq-0000000FK9e-1Ofg;
-	Mon, 02 Sep 2024 18:55:17 +0000
+	id 1slCED-0000000FKdm-21UY;
+	Mon, 02 Sep 2024 18:56:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 613D9A4106A;
-	Mon,  2 Sep 2024 18:55:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AB9EC4CEC2;
-	Mon,  2 Sep 2024 18:55:09 +0000 (UTC)
-Date: Mon, 2 Sep 2024 19:55:07 +0100
+	by nyc.source.kernel.org (Postfix) with ESMTP id 70878A431B5;
+	Mon,  2 Sep 2024 18:56:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63A22C4CECB;
+	Mon,  2 Sep 2024 18:56:34 +0000 (UTC)
+Date: Mon, 2 Sep 2024 19:56:32 +0100
 From: Catalin Marinas <catalin.marinas@arm.com>
 To: Mark Brown <broonie@kernel.org>
 Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
@@ -61,16 +61,18 @@ Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
 	linux-arch@vger.kernel.org, linux-mm@kvack.org,
 	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v12 25/39] arm64/signal: Expose GCS state in signal frames
-Message-ID: <ZtYKC8ytQBJpudOt@arm.com>
+Subject: Re: [PATCH v12 26/39] arm64/ptrace: Expose GCS via ptrace and core
+ files
+Message-ID: <ZtYKYMWjApRxFO_-@arm.com>
 References: <20240829-arm64-gcs-v12-0-42fec947436a@kernel.org>
- <20240829-arm64-gcs-v12-25-42fec947436a@kernel.org>
+ <20240829-arm64-gcs-v12-26-42fec947436a@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240829-arm64-gcs-v12-25-42fec947436a@kernel.org>
+In-Reply-To: <20240829-arm64-gcs-v12-26-42fec947436a@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240902_115516_459779_852A4E1C 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20240902_115641_601480_A0A17BCA 
+X-CRM114-Status: UNSURE (   9.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,22 +89,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 29, 2024 at 12:27:41AM +0100, Mark Brown wrote:
-> Add a context for the GCS state and include it in the signal context when
-> running on a system that supports GCS. We reuse the same flags that the
-> prctl() uses to specify which GCS features are enabled and also provide the
-> current GCS pointer.
-> 
-> We do not support enabling GCS via signal return, there is a conflict
-> between specifying GCSPR_EL0 and allocation of a new GCS and this is not
-> an ancticipated use case.  We also enforce GCS configuration locking on
-> signal return.
-> 
-> Signed-off-by: Mark Brown <broonie@kernel.org>
+On Thu, Aug 29, 2024 at 12:27:42AM +0100, Mark Brown wrote:
+> +static int gcs_get(struct task_struct *target,
+> +		   const struct user_regset *regset,
+> +		   struct membuf to)
+> +{
+> +	struct user_gcs user_gcs;
+> +
+> +	if (target == current)
+> +		gcs_preserve_current_state();
 
-It looks fine to me now.
+What's the use-case where target == current and do we need something
+similar for gcs_set()?
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+-- 
+Catalin
 
 _______________________________________________
 linux-riscv mailing list
