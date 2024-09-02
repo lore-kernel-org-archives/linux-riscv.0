@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08AA5CD13CF
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Sep 2024 09:57:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C4DFCA0ED3
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Sep 2024 09:59:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kCgmSXkuCqRlROGEmwPsDoDc6h92m5oBtWDy8lXL074=; b=J1/HkpLPIPHxnR
-	WERR2QyrimM5NFxkHeox4sRNnz68rAAnkcsZIkkdbKbRRyImTNRDNB0ZZc1MgPjsfzsv8AXWDC8+x
-	kSf0p4rUiaDcXwshrRd/7NB4FY00qbg9i/cIEdQZEeoul7Xj9ej2fff1nLrlrbwb2A7ifwRmK/LAA
-	Bs2AUvenw/eBfdP6Vm97VfaiFXUSgcVR5EfWfM4RjC1ilHFBaqyj0uk1sFS36SiDB9Kc111Od8z5F
-	r8597I7QIN18F9s23sCzbIQSNbCU2oHv1va91x9lGYQfg5gp3xvmDbx+iy4h0W2F/Gg2m8BvvtVZn
-	BuToIL7AUH08h1t/yvYQ==;
+	List-Owner; bh=x9lkDmqfc6rWgNJDGn5BAl1oVz2i21SGo4yxlWp//Vw=; b=bQvsPTWXWibwzk
+	Iz6TSGFY8HyEwbzmQz487lQ3QguoZWSvBhd+pQDJdPoISEWZWZCoLemTVZRSWYJsiOd+6f7ECkZVs
+	L+Lxaj9A/5megOjy1Hma3Ywx2aEVluH2IiYWoUAoU6O+JlGlX1WnaTyFqRCb2aaEGtClu2ZJ4YVgx
+	j7Lx+yIBPROnJQyb+YwdrSTSQxYassv5HITmodtTzZdkupQ6P1BohK9EROQo2JlhICcdnN8ginwyG
+	ikQYFobKM8cWH9AItqLhiAYTIFaVJJ8p8ClNhESMvXmrBL9PhWttrOms4irHjj+5VGwc6aL0UWs99
+	Ob/Y8JLorQh2yldVimAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sl3oI-0000000DnZR-2OQh;
-	Mon, 02 Sep 2024 09:57:22 +0000
+	id 1sl3q5-0000000DoM8-43BH;
+	Mon, 02 Sep 2024 09:59:13 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sl3oF-0000000DnY9-1zvx
+	id 1sl3pP-0000000Do49-2uvP
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Sep 2024 09:57:20 +0000
+	Mon, 02 Sep 2024 09:58:33 +0000
 Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
 	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
 	(Exim 4.92)
 	(envelope-from <p.zabel@pengutronix.de>)
-	id 1sl3o6-0004xr-F8; Mon, 02 Sep 2024 11:57:10 +0200
+	id 1sl3pG-0005c2-GS; Mon, 02 Sep 2024 11:58:22 +0200
 Received: from [2a0a:edc0:0:900:1d::4e] (helo=lupine)
 	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <p.zabel@pengutronix.de>)
-	id 1sl3o5-004s9i-JQ; Mon, 02 Sep 2024 11:57:09 +0200
+	id 1sl3pG-004s9t-1Q; Mon, 02 Sep 2024 11:58:22 +0200
 Received: from pza by lupine with local (Exim 4.96)
 	(envelope-from <p.zabel@pengutronix.de>)
-	id 1sl3o5-000g7r-1g;
-	Mon, 02 Sep 2024 11:57:09 +0200
-Message-ID: <f4df713c2a5945395bbc73d6da412d7df4a0fc50.camel@pengutronix.de>
-Subject: Re: [PATCH 3/5] reset: simplify locking with guard()
+	id 1sl3pF-000gBo-37;
+	Mon, 02 Sep 2024 11:58:21 +0200
+Message-ID: <33e85db3d74cdd01ee789f64d7ce6409adfa52a1.camel@pengutronix.de>
+Subject: Re: [PATCH 0/5] reset: cleanup and simplify with devm and scoped
 From: Philipp Zabel <p.zabel@pengutronix.de>
 To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Antoine Tenart
  <atenart@kernel.org>, Sebastian Hesselbarth
@@ -50,10 +50,9 @@ To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Antoine Tenart
  Palmer Dabbelt <palmerdabbelt@google.com>, Vladimir Zapolskiy <vz@mleia.com>
 Cc: linux-kernel@vger.kernel.org, Damien Le Moal <damien.lemoal@wdc.com>, 
 	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Date: Mon, 02 Sep 2024 11:57:09 +0200
-In-Reply-To: <20240825-reset-cleanup-scoped-v1-3-03f6d834f8c0@linaro.org>
+Date: Mon, 02 Sep 2024 11:58:21 +0200
+In-Reply-To: <20240825-reset-cleanup-scoped-v1-0-03f6d834f8c0@linaro.org>
 References: <20240825-reset-cleanup-scoped-v1-0-03f6d834f8c0@linaro.org>
-	 <20240825-reset-cleanup-scoped-v1-3-03f6d834f8c0@linaro.org>
 User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
 X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
@@ -61,8 +60,8 @@ X-SA-Exim-Mail-From: p.zabel@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240902_025719_530191_FA7E47A2 
-X-CRM114-Status: UNSURE (   4.70  )
+X-CRM114-CacheID: sfid-20240902_025831_771497_BBB330A2 
+X-CRM114-Status: UNSURE (   6.58  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,11 +80,13 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On So, 2024-08-25 at 16:14 +0200, Krzysztof Kozlowski wrote:
-> Simplify error handling (less gotos) over locks with guard().
+> Hi,
 > 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Two simple fixes, which do not cover real scenario (memory allocation
+> failure during probe), thus not marking CC-stable. Rest of patchset is
+> simplifying of code.
 
-Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
+Thank you, applied to reset/next with Damien's suggested change.
 
 regards
 Philipp
