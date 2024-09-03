@@ -4,55 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64D8CCD343A
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Sep 2024 14:25:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D60FACD3439
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Sep 2024 14:28:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=N2DOxBY+k16dTEaqIsmdEQ6TTcr1Fw+2KzVFgCSlyuc=; b=xdxWqmjeMJ2LTk
-	OX4BPkE3JGao2R9A4a1QW40rcCyv7iLRqkMP6neKSPc/VgNW8fUF61zYAJbGKFMjtu9o6tQ31DlV5
-	Gvx+g7RyED5lDpMlAT/732eI6x/S3rb9+p9OH80rOAuToN5UwCbrnnPmiQg+3wuBn2nJUa+/+hV4b
-	NEDGWFoc0IljVMP1NR4TAp+BQW8NGwQ6lZ3iuHoW2hgsj9y5VG+1dhAU1kbS4iGSuhDoEC1lXtHvt
-	RBNTQt8m0Hk0gF2L1Y4cFdu25o2MBPah2QZSHfYJ4AwOXYbxK/bkkXSYF0ohPIFrkJp/ZecJklJ/u
-	/vuXc4fTQL5TMwk9KQxg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0wVIyRS+07m6kCN9vkGsC5f+VTkO0kl2rlXPy387oJk=; b=yrgYumVnPCpE+d
+	zsINcF12qYwVtaO6g+nJjDMuaxuFZgm58cas5dxGavrszP7wfdTMDJ7q4Yk/Ffc/LACyWtlogcOtU
+	8yeAY+IXceyBC2zth33LExN/vr/r7Z5gvF1CUzr6jElWKVHa8O4SrdtyUiKN+HNBC+Ad4saTSPLMd
+	eiE2KUSKeWwBqXoqtujIhcM0MNREZdfXHsIahSO1HHjJVtxsl80CSUXiuYRSUjoFIpqB9mP8DY896
+	VbkhTR7a4S418OyGcokT5w2nK4gW4AK2R2VM9LbhzvM2mQUoBRkloL/V2v1MOlAKORnN2bY5MDrOK
+	tG6dWJWMHD+AdWS1DMRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1slUTA-00000000YZB-1Fqe;
-	Tue, 03 Sep 2024 14:25:20 +0000
+	id 1slUVz-00000000Zj0-0cz2;
+	Tue, 03 Sep 2024 14:28:15 +0000
 Received: from mgamail.intel.com ([192.198.163.19])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1slUT6-00000000YXU-3Yw7;
-	Tue, 03 Sep 2024 14:25:18 +0000
+	id 1slUTK-00000000Ybc-207l
+	for linux-riscv@lists.infradead.org;
+	Tue, 03 Sep 2024 14:25:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1725373517; x=1756909517;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=8oF38+wcTyCFFLJNltFe9UX5N5NexPR+hPC1BNLasBQ=;
-  b=DsIVLegYVViNIuiYg9/WCZmLKOuHzfotosktNF6SPut08LjZiJYtyg1q
-   3scZDOQdsWseZ+tlQtY1oQEIxHu9RryFLVCMfX9tW7OP6/ls9FvgEfop7
-   goGJB12MycZXxPdqYRh5ORm1adSkb7oYw/PUPyLCshLusteO3PkayYPhl
-   z6pe20Ho/ito6aZyQmuQTsoM55Ra9Jseb20K7PpFcJxZa5GLgAHymhD+d
-   Lp835VqX5Pjetx1xnBEXb3QZaZUXHYpRjFz++Zr3xCu0/jIhaY0lufcqf
-   RpXUQjU5XX1UYMAJy+ByuiAUWuHkB93jv5uQ+fb2nOY9ABdojwZz6KdK4
-   A==;
-X-CSE-ConnectionGUID: G2yEySJCTDCtIpuhV1WCxg==
-X-CSE-MsgGUID: x6VtBidsTqSprX5hdfvp4A==
-X-IronPort-AV: E=McAfee;i="6700,10204,11184"; a="23541264"
+  t=1725373530; x=1756909530;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=KI8GxIrOhxgLo51/oeYq13OvikInu2s7CKSV1thf5sQ=;
+  b=kNt6kquP574JuvaY4y3hClIuCCSJ7MGss7QCTCpXT05Xzjc714pJbXTE
+   o6m2HBDpVnVdp6OafVwd2sEVHMTjfWhmHH2pKnAbgbqetHK6qobtoOBWT
+   sDufI+cT7fexHFohMKvcBumjfTj6P6hnbdQ9KvPCz5Bjpj6/uO8wjgLG2
+   /u8VuK21skb5RSnnb1EGlajWSp5ycn6+lHSCFW77YsUEzVJwDwRajNcXU
+   30M6jn6QDqKQD29xbZodPXOLctpz/iWl4DT80m+I8SaTFmXECwAdYLcUa
+   F8MAQ09iMIVWTyq6gY7oLxJ8MzYCaAf0ApYEQt6GKw/7NzryA5MtftpBb
+   w==;
+X-CSE-ConnectionGUID: dIPJS0h2TOqZKorMcfm55Q==
+X-CSE-MsgGUID: aLQ43t57RU6PK5HCTWnMEA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11184"; a="23541359"
 X-IronPort-AV: E=Sophos;i="6.10,199,1719903600"; 
-   d="scan'208";a="23541264"
+   d="scan'208";a="23541359"
 Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Sep 2024 07:25:14 -0700
-X-CSE-ConnectionGUID: rb+5gYZhQFG9CNAs2BREDQ==
-X-CSE-MsgGUID: 3n4/huujQW21hYevl0+/+A==
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Sep 2024 07:25:30 -0700
+X-CSE-ConnectionGUID: EhBQ2FULSAaj+xHeR4r97w==
+X-CSE-MsgGUID: NZ1KZ83cRfqPprAfMd6fHQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.10,199,1719903600"; 
-   d="scan'208";a="65658762"
+   d="scan'208";a="65658869"
 Received: from black.fi.intel.com (HELO black.fi.intel.com.) ([10.237.72.28])
-  by orviesa008.jf.intel.com with ESMTP; 03 Sep 2024 07:25:07 -0700
+  by orviesa008.jf.intel.com with ESMTP; 03 Sep 2024 07:25:27 -0700
 From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
 To: Andi Shyti <andi.shyti@kernel.org>,
 	Jarkko Nikula <jarkko.nikula@linux.intel.com>
@@ -61,36 +62,20 @@ Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
 	Jan Dabros <jsd@semihalf.com>,
 	linux-i2c@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Vineet Gupta <vgupta@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Jiawen Wu <jiawenwu@trustnetic.com>,
-	Mengyuan Lou <mengyuanlou@net-swift.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	UNGLinuxDriver@microchip.com,
-	linux-mips@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-snps-arc@lists.infradead.org
-Subject: [PATCH v2 0/7] i2c: designware: Group all DesignWare drivers under a single option
-Date: Tue,  3 Sep 2024 17:24:59 +0300
-Message-ID: <20240903142506.3444628-1-heikki.krogerus@linux.intel.com>
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v2 5/7] RISC-V: configs: enable I2C_DESIGNWARE_CORE with I2C_DESIGNWARE_PLATFORM
+Date: Tue,  3 Sep 2024 17:25:04 +0300
+Message-ID: <20240903142506.3444628-6-heikki.krogerus@linux.intel.com>
 X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20240903142506.3444628-1-heikki.krogerus@linux.intel.com>
+References: <20240903142506.3444628-1-heikki.krogerus@linux.intel.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240903_072517_137158_8AEDAC0A 
-X-CRM114-Status: UNSURE (   8.99  )
+X-CRM114-CacheID: sfid-20240903_072530_714141_85EE3687 
+X-CRM114-Status: UNSURE (   9.28  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,57 +93,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi guys,
+The dependency handling of the Synopsys DesignWare I2C
+adapter drivers is going to be changed so that the glue
+drivers for the PCI and platform buses depend on
+I2C_DESIGNWARE_CORE.
 
-This is a proposal for Kconfig improvement regarding the Synopsys
-DesignWare I2C adapter driver.
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org
+Signed-off-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+---
+ arch/riscv/configs/defconfig                   | 1 +
+ arch/riscv/configs/nommu_k210_defconfig        | 1 +
+ arch/riscv/configs/nommu_k210_sdcard_defconfig | 1 +
+ 3 files changed, 3 insertions(+)
 
-Changes since v1:
-
-There was one driver that selects I2C_DESIGNWARE_PLATFORM in its
-Kconfig which causes an error because I2C_DESIGNWARE_CORE is not
-selected.
-
-The drivers Kconfig I'm proposing that we fix by using "depends on"
-instead of "select". There are also a number of defconfigs that enable
-I2C_DESIGNWARE_PLATFORM that now need to enable I2C_DESIGNWARE_CORE.
-
-The original patch:
-https://lore.kernel.org/linux-i2c/20240830111222.2131172-1-heikki.krogerus@linux.intel.com/
-
-thanks,
-
-Heikki Krogerus (7):
-  ARC: configs: enable I2C_DESIGNWARE_CORE with I2C_DESIGNWARE_PLATFORM
-  ARM: configs: enable I2C_DESIGNWARE_CORE with I2C_DESIGNWARE_PLATFORM
-  arm64: defconfig: enable I2C_DESIGNWARE_CORE with
-    I2C_DESIGNWARE_PLATFORM
-  mips: configs: enable I2C_DESIGNWARE_CORE with I2C_DESIGNWARE_PLATFORM
-  RISC-V: configs: enable I2C_DESIGNWARE_CORE with
-    I2C_DESIGNWARE_PLATFORM
-  net: txgbe: Fix I2C Kconfig dependencies
-  i2c: designware: Group all DesignWare drivers under a single option
-
- arch/arc/configs/axs101_defconfig             |  1 +
- arch/arc/configs/axs103_defconfig             |  1 +
- arch/arc/configs/axs103_smp_defconfig         |  1 +
- arch/arc/configs/tb10x_defconfig              |  1 +
- arch/arm/configs/hisi_defconfig               |  1 +
- arch/arm/configs/multi_v7_defconfig           |  1 +
- arch/arm/configs/pxa_defconfig                |  1 +
- arch/arm/configs/socfpga_defconfig            |  1 +
- arch/arm/configs/spear13xx_defconfig          |  1 +
- arch/arm/configs/spear3xx_defconfig           |  1 +
- arch/arm/configs/spear6xx_defconfig           |  1 +
- arch/arm64/configs/defconfig                  |  1 +
- arch/mips/configs/generic/board-ocelot.config |  1 +
- arch/riscv/configs/defconfig                  |  1 +
- arch/riscv/configs/nommu_k210_defconfig       |  1 +
- .../riscv/configs/nommu_k210_sdcard_defconfig |  1 +
- drivers/i2c/busses/Kconfig                    | 29 ++++++++++++-------
- drivers/net/ethernet/wangxun/Kconfig          |  3 +-
- 18 files changed, 35 insertions(+), 13 deletions(-)
-
+diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+index 0d678325444f..a644a798f602 100644
+--- a/arch/riscv/configs/defconfig
++++ b/arch/riscv/configs/defconfig
+@@ -157,6 +157,7 @@ CONFIG_HW_RANDOM_VIRTIO=y
+ CONFIG_HW_RANDOM_JH7110=m
+ CONFIG_I2C=y
+ CONFIG_I2C_CHARDEV=m
++CONFIG_I2C_DESIGNWARE_CORE=y
+ CONFIG_I2C_DESIGNWARE_PLATFORM=y
+ CONFIG_I2C_MV64XXX=m
+ CONFIG_I2C_RIIC=y
+diff --git a/arch/riscv/configs/nommu_k210_defconfig b/arch/riscv/configs/nommu_k210_defconfig
+index af9601da4643..87ff5a1233af 100644
+--- a/arch/riscv/configs/nommu_k210_defconfig
++++ b/arch/riscv/configs/nommu_k210_defconfig
+@@ -58,6 +58,7 @@ CONFIG_I2C=y
+ # CONFIG_I2C_COMPAT is not set
+ CONFIG_I2C_CHARDEV=y
+ # CONFIG_I2C_HELPER_AUTO is not set
++CONFIG_I2C_DESIGNWARE_CORE=y
+ CONFIG_I2C_DESIGNWARE_PLATFORM=y
+ CONFIG_SPI=y
+ # CONFIG_SPI_MEM is not set
+diff --git a/arch/riscv/configs/nommu_k210_sdcard_defconfig b/arch/riscv/configs/nommu_k210_sdcard_defconfig
+index dd460c649152..95cbd574f291 100644
+--- a/arch/riscv/configs/nommu_k210_sdcard_defconfig
++++ b/arch/riscv/configs/nommu_k210_sdcard_defconfig
+@@ -50,6 +50,7 @@ CONFIG_DEVTMPFS_MOUNT=y
+ CONFIG_I2C=y
+ CONFIG_I2C_CHARDEV=y
+ # CONFIG_I2C_HELPER_AUTO is not set
++CONFIG_I2C_DESIGNWARE_CORE=y
+ CONFIG_I2C_DESIGNWARE_PLATFORM=y
+ CONFIG_SPI=y
+ # CONFIG_SPI_MEM is not set
 -- 
 2.45.2
 
