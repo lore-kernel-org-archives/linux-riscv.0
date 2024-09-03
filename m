@@ -4,69 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EF34CD37AA
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Sep 2024 19:05:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5B6CCD37AA
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Sep 2024 19:10:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IoO0/1Z+HABfte8IhXJtb1N3XjpwtveXFg1bhkbEmXU=; b=KaljuTruhlt6VI
-	+y+L8i+NBmtFOI91+EECF09fscb2SAvp7nUm4XeSUUAP5h435xbbsnIbFyNcnUJ/jQoAL5aLcrL8Z
-	tk0nwqK94gq4R3YLYWgm3u9Kfept24IIAbY9eh3bxeCvFXpI2uwQacOrUYrYJtZNtvfS6wcc/WW2t
-	T5n3ybO19+QjnF9iejuRU2SzmfPTEnh/Sqm5V/tXS3xBfti8+P3cgzEyghBLiwwXPvxu2PGQ1c0aj
-	6v4Ig2pgcH0emi5dC6U1o10uECN5x2sNCdFeoo8sClCGMlwYPlj1t9CYfASn8m7k6CsbmEEFMNBcf
-	REsHdzzsllaNCWz1weVg==;
+	List-Owner; bh=bidyZnD0YuMaB2l92UDuo7arHCDbAy0Q+IK8spX50XQ=; b=iqV/W3b3XLb5sj
+	wx2+jMBWhzCxH3t/iI6OZXFyC6gVmRxXnZyGEvCe2YsWLYSa2CW5NCUW9aqXFag0aW+2PExEgqSho
+	xpkWxC1NbIOJCjvdSOPu/r6+wkC+5m6N5Fp7adMJlOzhYdqLFNYdfKbs0o8UgPbQE1azk4YVYyyEx
+	kt9FlhgWgW/FFaXzWv73iKRf9Pl32T4lECZCYXVUy/9keXoXwpIi9akKVSD4OvksmD5xc5zSVIAL9
+	T+SWYaS3g9KuKXFbH6B7PFpVzaLWMnBnaLRGqEiavoqqlWZU57gtxumMsnnR7ruoqCCU1AswwJcaU
+	oINyVQ+oC5k4Mp6sY9nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1slYqT-00000001YQB-45eb;
-	Tue, 03 Sep 2024 19:05:41 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1slYvD-00000001Z6v-48Ek;
+	Tue, 03 Sep 2024 19:10:35 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1slYqQ-00000001YP7-3ZWP
+	id 1slYvB-00000001Z5k-1AI3
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Sep 2024 19:05:40 +0000
+	Tue, 03 Sep 2024 19:10:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2D1675C0065;
-	Tue,  3 Sep 2024 19:05:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CED2DC4CEC4;
-	Tue,  3 Sep 2024 19:05:31 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 31BE5A43DD9;
+	Tue,  3 Sep 2024 19:10:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B97E1C4CEC4;
+	Tue,  3 Sep 2024 19:10:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1725390337;
-	bh=BUy2TeYt7ETGBxQbUva9x1TfE8cMBg2J+5DRllp421s=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=AcE43Wa2dnsTIBchrXXkdMITdQHXIIHY6JcBdMTfPcuzctY2b+nopsm1/HXNooQA2
-	 VNc4AFSG5gmY/m84mdjd/t5XNHaUt+vcIQOa5tCVNvb9ywCb6dP7j+9MXV1x7muAR8
-	 iUoTrP1TOtgaa+ALWv54jbScn3MDUMmAuzJ8ZxYOJb3ZzHdv8JwyAIpBmHjIZRmCxt
-	 tyM5QmU5eqGYymt1CDwxZA8tF2Xpton0y9c9k4Vh5R0uPagCxV23XBjsnf6RA8Y7Uc
-	 TScvuMvL6fcf8xsIxl8iKLNmENUmpxUvtC0Dw1IUctVEGAMnFt7IoLnnmSkjpll+IB
-	 LjEaW+cfujizg==
-Date: Tue, 3 Sep 2024 20:05:26 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Andy Shevchenko <andy.shevchenko@gmail.com>
-Cc: Thomas Bonnefille <thomas.bonnefille@bootlin.com>, Lars-Peter Clausen
- <lars@metafoo.de>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen Wang
- <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@outlook.com>, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Thomas Petazzoni
- <thomas.petazzoni@bootlin.com>, =?UTF-8?B?TWlxdcOobA==?= Raynal
- <miquel.raynal@bootlin.com>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v5 2/3] iio: adc: sophgo-saradc: Add driver for Sophgo
- CV1800B SARADC
-Message-ID: <20240903200526.0734945b@jic23-huawei>
-In-Reply-To: <ZtYh6xUcP8zo3xMj@surfacebook.localdomain>
-References: <20240829-sg2002-adc-v5-0-aacb381e869b@bootlin.com>
-	<20240829-sg2002-adc-v5-2-aacb381e869b@bootlin.com>
-	<ZtYh6xUcP8zo3xMj@surfacebook.localdomain>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-pc-linux-gnu)
+	s=k20201202; t=1725390631;
+	bh=cWXGR4w2Vj6v4BISy6xoOQ0UL0iDK6UFZuzaOXitMS4=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=byQd17iMj6Es28rAatIJPs77TIhIDYpKeZCcubxC6nx5XTvtbZBKVOk7rt3tcQjh6
+	 GCPtFuE+U6gKIrbfP2R3ZWWuVnDSD6BVfhBB36PLrU4UlbeV7PCbIrzRMttxq5+lOh
+	 /xcHYPL0RMkwRx6wky9VdNt7+yhQp1TG6lABz4Lxgsv+yp2NNDoNzVTPSuA90ko5XN
+	 77ZV/c7tMvYqw4jpvlDn2Wwyoaxlrr4aEjMWGFtXcM3O5ROg6PaHnLcydeXuh5UZGO
+	 xAKODkmqIY1X/AuJLS5nzWgoOPFYNh3hERBKYADxItvalEHhYwqfFTymiZOXJTNQeV
+	 PrSvbcEf8t74A==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id AFE9B3822D69;
+	Tue,  3 Sep 2024 19:10:33 +0000 (UTC)
 MIME-Version: 1.0
+Subject: Re: [PATCH -fixes] riscv: Do not restrict memory size because of linear
+ mapping on nommu
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <172539063224.409367.11306153899728878438.git-patchwork-notify@kernel.org>
+Date: Tue, 03 Sep 2024 19:10:32 +0000
+References: <20240827065230.145021-1-alexghiti@rivosinc.com>
+In-Reply-To: <20240827065230.145021-1-alexghiti@rivosinc.com>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, david.mckay@codasip.com,
+ stuart.menefy@codasip.com, linux-kernel@vger.kernel.org, geert@linux-m68k.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240903_120539_015696_E31264D2 
-X-CRM114-Status: GOOD (  26.77  )
+X-CRM114-CacheID: sfid-20240903_121033_402642_B573D002 
+X-CRM114-Status: UNSURE (   9.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,220 +77,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2 Sep 2024 23:36:59 +0300
-Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
+Hello:
 
-> Thu, Aug 29, 2024 at 02:31:51PM +0200, Thomas Bonnefille kirjoitti:
-> > This adds a driver for the Sophgo CV1800B SARADC.  
-> 
-> Jonathan, please consider the below improvements to be folded in as well.
-> 
-> ...
-> 
-> + array_size.h
-> 
-> > +#include <linux/bitfield.h>  
-> 
-> + bits.h
-> + cleanup.h
-> 
-> > +#include <linux/clk.h>
-> > +#include <linux/completion.h>  
-> 
-> + err.h
-> 
-> > +#include <linux/interrupt.h>  
-> 
-> > +#include <linux/iio/iio.h>  
-> 
-> I would split it into a separate group already.
-> 
-> > +#include <linux/iopoll.h>
-> > +#include <linux/mod_devicetable.h>
-> > +#include <linux/module.h>
-> > +#include <linux/mutex.h>
-> > +#include <linux/platform_device.h>  
-> 
-> + types.h
-Added. 
+This patch was applied to riscv/linux.git (fixes)
+by Palmer Dabbelt <palmer@rivosinc.com>:
 
+On Tue, 27 Aug 2024 08:52:30 +0200 you wrote:
+> It makes no sense to restrict physical memory size because of linear
+> mapping size constraints when there is no linear mapping, so only do
+> that when mmu is enabled.
 > 
-> ...
+> Reported-by: Geert Uytterhoeven <geert@linux-m68k.org>
+> Closes: https://lore.kernel.org/linux-riscv/CAMuHMdW0bnJt5GMRtOZGkTiM7GK4UaLJCDMF_Ouq++fnDKi3_A@mail.gmail.com/
+> Fixes: 3b6564427aea ("riscv: Fix linear mapping checks for non-contiguous memory regions")
+> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 > 
-> > +#define CV1800B_READ_TIMEOUT_MS				1000
-> > +#define CV1800B_READ_TIMEOUT_US				(CV1800B_READ_TIMEOUT_MS * 1000)  
-> 
-> Effectively these may be written as
-> 
-> (1 * MSEC_PER_SEC)
-> (1 * USEC_PER_SEC)
-> 
-> ...
-I'm not going to make this one.  Sure good feedback but not worth fixing
-and chance I mess it up.
+> [...]
 
-> 
-> > +static int cv1800b_adc_wait(struct cv1800b_adc *saradc)
-> > +{
-> > +	if (saradc->irq < 0) {
-> > +		u32 reg;
-> > +
-> > +		return readl_poll_timeout(saradc->regs + CV1800B_ADC_STATUS_REG,
-> > +					  reg, !(reg & CV1800B_ADC_BUSY),
-> > +					  500, CV1800B_READ_TIMEOUT_US);
-> > +	}
-> > +
-> > +	return wait_for_completion_timeout(&saradc->completion,
-> > +					  msecs_to_jiffies(CV1800B_READ_TIMEOUT_MS)) > 0
-> > +					  ? 0 : -ETIMEDOUT;  
-> 
-> Usually we leave "?" part on the previous line.
-Moved.
-Also the line above is one space short of alignment.
+Here is the summary with links:
+  - [-fixes] riscv: Do not restrict memory size because of linear mapping on nommu
+    https://git.kernel.org/riscv/c/5f771088a2b5
 
-> 
-> > +}
-> > +
-> > +static int cv1800b_adc_read_raw(struct iio_dev *indio_dev,
-> > +				struct iio_chan_spec const *chan,
-> > +				int *val, int *val2, long mask)
-> > +{
-> > +	struct cv1800b_adc *saradc = iio_priv(indio_dev);
-> > +
-> > +	switch (mask) {
-> > +	case IIO_CHAN_INFO_RAW:{  
-> 
-> Missing space
-I'd already fixed that one.
-> 
-> > +		u32 sample;
-> > +
-> > +		scoped_guard(mutex, &saradc->lock) {
-> > +			int ret;
-> > +
-> > +			cv1800b_adc_start_measurement(saradc, chan->scan_index);
-> > +			ret = cv1800b_adc_wait(saradc);
-> > +			if (ret < 0)
-> > +				return ret;
-> > +
-> > +			sample = readl(saradc->regs + CV1800B_ADC_CH_RESULT_REG(chan->scan_index));
-> > +		}
-> > +		if (!(sample & CV1800B_ADC_CH_VALID))
-> > +			return -ENODATA;
-> > +
-> > +		*val = sample & CV1800B_ADC_CH_RESULT;
-> > +		return IIO_VAL_INT;
-> > +		}  
-> 
-> This should be indented as 'c' in the above 'case'.
-True. Fixed up.
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-> 
-> > +	case IIO_CHAN_INFO_SCALE:
-> > +		*val = 3300;
-> > +		*val2 = 12;
-> > +		return IIO_VAL_FRACTIONAL_LOG2;
-> > +	case IIO_CHAN_INFO_SAMP_FREQ:
-> > +		u32 status_reg = readl(saradc->regs + CV1800B_ADC_CYC_SET_REG);  
-> 
-> > +		int clk_div = (1 + FIELD_GET(CV1800B_MASK_CLKDIV, status_reg));
-> > +		int freq = clk_get_rate(saradc->clk) / clk_div;  
-> 
-> Why are these signed?
-Made them unsigned. Seems safe enough
-
-> 
-> > +		int nb_startup_cycle = 1 + FIELD_GET(CV1800B_MASK_STARTUP_CYCLE, status_reg);
-> > +		int nb_sample_cycle = 1 + FIELD_GET(CV1800B_MASK_SAMPLE_WINDOW, status_reg);
-> > +		int nb_compare_cycle = 1 + FIELD_GET(CV1800B_MASK_COMPARE_CYCLE, status_reg);
-> > +
-> > +		*val = freq / (nb_startup_cycle + nb_sample_cycle + nb_compare_cycle);
-> > +		return IIO_VAL_INT;
-> > +	default:
-> > +		return -EINVAL;
-> > +	}
-> > +}  
-> 
-> ...
-> 
-> > +static int cv1800b_adc_probe(struct platform_device *pdev)
-> > +{  
-> 
-> Having
-> 
-> 	struct device *dev = &pdev->dev;
-> 
-> here helps making below code neater.
-sure. modified.
-
-> 
-> > +	struct cv1800b_adc *saradc;
-> > +	struct iio_dev *indio_dev;
-> > +	int ret;
-> > +
-> > +	indio_dev = devm_iio_device_alloc(&pdev->dev, sizeof(*saradc));
-> > +	if (!indio_dev)
-> > +		return -ENOMEM;
-> > +
-> > +	saradc = iio_priv(indio_dev);
-> > +	indio_dev->name = "sophgo-cv1800b-adc";
-> > +	indio_dev->modes = INDIO_DIRECT_MODE;
-> > +	indio_dev->info = &cv1800b_adc_info;
-> > +	indio_dev->num_channels = ARRAY_SIZE(sophgo_channels);
-> > +	indio_dev->channels = sophgo_channels;
-> > +
-> > +	saradc->clk = devm_clk_get_enabled(&pdev->dev, NULL);
-> > +	if (IS_ERR(saradc->clk))
-> > +		return PTR_ERR(saradc->clk);
-> > +
-> > +	saradc->regs = devm_platform_ioremap_resource(pdev, 0);
-> > +	if (IS_ERR(saradc->regs))
-> > +		return PTR_ERR(saradc->regs);
-> > +
-> > +	saradc->irq = platform_get_irq_optional(pdev, 0);
-> > +	if (saradc->irq >= 0) {  
-> 
-> '=' is redundant
-removed.
-> 
-> > +		init_completion(&saradc->completion);
-> > +		ret = devm_request_irq(&pdev->dev, saradc->irq,
-> > +				       cv1800b_adc_interrupt_handler, 0,
-> > +				       dev_name(&pdev->dev), saradc);
-> > +		if (ret)
-> > +			return ret;
-> > +
-> > +		writel(1, saradc->regs + CV1800B_ADC_INTR_EN_REG);  
-> 
-> BIT(0)
-
-Maybe on that - would need to compare with datasheet to know how it's
-described. In theory that might not be a mask.
-
-> 
-> > +	}
-> > +
-> > +	ret = devm_mutex_init(&pdev->dev, &saradc->lock);
-> > +	if (ret)
-> > +		return ret;  
-> 
-> + blank line?
-That one I'd done already.
-Anyhow tweaked and pushed out again.
-
-
-Jonathan
-
-> 
-> > +	writel(FIELD_PREP(CV1800B_MASK_STARTUP_CYCLE, 15) |
-> > +	       FIELD_PREP(CV1800B_MASK_SAMPLE_WINDOW, 15) |
-> > +	       FIELD_PREP(CV1800B_MASK_CLKDIV, 1) |
-> > +	       FIELD_PREP(CV1800B_MASK_COMPARE_CYCLE, 15),
-> > +	       saradc->regs + CV1800B_ADC_CYC_SET_REG);
-> > +
-> > +	return devm_iio_device_register(&pdev->dev, indio_dev);
-> > +}  
-> 
 
 
 _______________________________________________
