@@ -4,90 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40AD4CD13CF
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Sep 2024 09:19:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9806CD13CF
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Sep 2024 09:55:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7JGYpYEG4hxcIAsbSRf9zx+5Hnb15sILBbb5NsSlayE=; b=Ugtr7W6UXH2Ik1
-	zc2NHO8o47w4fm8cYiwXicVP/PzbgipHczoKF3+X+oAw7VKZTqlbC2RIB3GYRMn19ViBn+Ldc2kZN
-	i+x38heYmvusUGnXe3tEa82HQPZrNT6hhGjqDUYkwsjJOc9OSXIZIDZPyaS1781qT8qZpKLCwkjuT
-	pcukh9ltkhWvH1BrjSO/N3VpSMgvSCMP7upsbC2xXJmXYSRMxK2F9nW7aD1Q6l5LgM5qXvSnw6WuV
-	C9Dvo9RC0OCVTZh6dYsxV0yRZm1o9uwgvf6GieamrMqfCGlZznU2RDmyks0bOtkoOqB7MhZI6VIfL
-	3sHPHRvltZV8NJLJj4ew==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w2MoTGGYuIH58VsksZRZP5FOlpgxOgkGGC/iZzw0UmY=; b=ChoFjaDREUSyyZQnJppoRNW3cC
+	9NZOduTrjxM0GPT5sOGTNUspJzw2lj24Pwnd99SLZ7MYTMmVyG3iupzno4ymlGP/D7wHqw/z4R8T1
+	S3ug7l5WrELmOflWxKI63piBagmPNd54NvBa2iaA7PeGJ2Q9ZdpCtvBXSqy4fOepGTzvUBWh7iyRO
+	bKR7js7rWU+jF+LGTBM3YxsngxIR6EXKTryo4sqqihrVM/yNp5LlJJW8fsEUosqubl8vnW4Fw/BpT
+	ej7uwvyngqTp+1Mp9aOXRutScPpU86e0NdE7OJ4gBRs//H2dbfxPZGWpgeRsikYhjyfAjlL5waNXX
+	wG8LrSUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1slPgz-0000000H6qq-1IxL;
-	Tue, 03 Sep 2024 09:19:17 +0000
-Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
+	id 1slQGM-0000000HG4P-2nwl;
+	Tue, 03 Sep 2024 09:55:50 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1slPeb-0000000H61c-1JlD
-	for linux-riscv@lists.infradead.org;
-	Tue, 03 Sep 2024 09:16:51 +0000
-Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-2f50966c448so58076911fa.2
-        for <linux-riscv@lists.infradead.org>; Tue, 03 Sep 2024 02:16:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1725355007; x=1725959807; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HWjGQ4YHroQwD/57wggdSbHx9qHopndgiBjBXsMUmLI=;
-        b=QzhHpoIDba/igwQre9ZsI4gw8U6iIpIPD18FZ7A+eFw5l8tjwK6Jhbmx/5OjtGEhqY
-         kdS9HfZALMh7kT916HDPA9i9fdliIU+tU/6cMBXQNJRA7dH8ofteC8qLx31pmT8LwM1z
-         HPmSUabtLE12DZBaJWW9vUyLWAC8thHWIE5Htep1iayR8C5EgSWT0m6Yw8+jHZeSbjTm
-         7hrsDpW10MCzKeyXWefPiryrqJ7A6Z+ENxyd1VDJ8uXlXHMJmCGa8UhTs0aeM8k/biw2
-         Esmw+xOMCyrkp2SkW31h0wGnp33pSGtmX0ZtTwtVo7I/pSB4tuH4jEVXRP95xWdSe6z/
-         NRZw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1725355007; x=1725959807;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=HWjGQ4YHroQwD/57wggdSbHx9qHopndgiBjBXsMUmLI=;
-        b=PGfpBnu5PFhsU3CFfGMmJIFmG4DYiZwLMECp8fkEszb/c3sJcL4rbFVSHSwQIfVLYh
-         5of+5hz9o2XHsEf3icb8PLuhNtksTeQcDVY4SUieV7yT5oqOAK4D4cotUbcwSKrgnQjk
-         85sXyqlrBHYeoHEDjMYTO3LufpyBNjFjof0OJdBsLR+fDf2h/x8AAvfITPU8zcVDtfGv
-         A9VvTfu5gQ7FaV1qszGbHM/EJ+5S725UM4y6VX/uljokTUr47NOUL5vAlW1h4WXXeuFC
-         9AteVpgYn/9Dzia8PbXO9SP1epe+cbVwoqWlotse83aWt5gcH72duuSnAc+Gh8Tym1Kq
-         +ldQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVbmRTMzQlgv/fkoxNwENAC5Vg91LiaDzoTVJ0dN7WIDu+jeJtzLDbZYiaZnok8U+YV1d2a9EIloxnYkQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzbOcd7fazeqqUPO9Kh+F85nmul0jkV3nfcjKxprvjz83B2eOpt
-	dj4P/QAuyhNZAuWJZyapzgpdytRKwA82pO5MsS5M5e1hXmgzmqWlylJ5BVQ8I9N8XEQTAGlPs92
-	/L4OfOlBVaDXEIQxJf8FCe4mjQnJ82fEBLTcjOw==
-X-Google-Smtp-Source: AGHT+IF5iXmXm3uBNGtfu2k2W3mUA/wL6HSlGri8eJbZA0MDiPWsO5xxdT1fn59W0sd0nud+XYxGXlKqBmQA/C+s9Vc=
-X-Received: by 2002:a2e:a9a1:0:b0:2f3:d008:a54e with SMTP id
- 38308e7fff4ca-2f6104f2859mr113545281fa.36.1725355005999; Tue, 03 Sep 2024
- 02:16:45 -0700 (PDT)
+	id 1slQ3S-0000000HDYx-3yt6;
+	Tue, 03 Sep 2024 09:42:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6FBD1A42627;
+	Tue,  3 Sep 2024 09:42:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBE20C4CEC4;
+	Tue,  3 Sep 2024 09:42:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1725356549;
+	bh=5BLz5g5ZXnWApa/H8Ah2Nu3ZSoDtsGE5Qt5nhSeqhdk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fpWJiwrwBxT7rWN+9/oKqNvpR+ufP71dFF1FTsDNfzANX/Nj/bigOjITeTIxXHdOt
+	 nG3Ot6/tpDS03RaC2jtz+XgT9WwZQz7UEJjsxed+xrO24kTIfBNlCtVa3v+Kc0bt3B
+	 ZYs1ebjQXYxPPfq11YzTKqL8Voc16LR7exKuRy6/OlL7TPsSgt6mxoOg9txiYJe4u+
+	 jzXNfGLZH+BpA22zL1XF1JJMEY+D23K96KK5SUDZVnHnttnVOc1JkkObL8um+4+fZM
+	 z5KEvA4BwWDThCEMjQaj7AKNDQkBgbE5vZVFNbyBUNCY0hqmJQjjUHCnCXJlf3ZOw/
+	 qPcsTSZBncIFA==
+Date: Tue, 3 Sep 2024 10:42:30 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Minda Chen <minda.chen@starfivetech.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Jan Kiszka <jan.kiszka@siemens.com>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	"linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Subject: Re: [PATCH v2 1/3] dt-bindings: phy: jh7110-usb-phy: Add sys-syscon
+ property
+Message-ID: <20240903-gating-shamrock-c0d4415d1eb3@squawk>
+References: <cover.1723472153.git.jan.kiszka@siemens.com>
+ <30f3ca9f6bd788e16767b36aa22c0e9dc4d1c6a4.1723472153.git.jan.kiszka@siemens.com>
+ <20240812-overstuff-skirt-7a8aabbcdc6f@spud>
+ <8cdba8b0-7364-4c09-b18a-f3f59da1eae2@siemens.com>
+ <20240813-haiku-pusher-f2fb037a2f49@wendy>
+ <SHXPR01MB08633B523DA1F6C5632F6D9DE6802@SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn>
+ <20240815-endless-credible-324438d164f4@spud>
+ <SHXPR01MB08632E50DFE53BE0CFAA99ABE6922@SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn>
 MIME-Version: 1.0
-References: <20240828-dt-bindings-gpio-hog-v1-0-63b83e47d804@linaro.org>
- <20240828-dt-bindings-gpio-hog-v1-2-63b83e47d804@linaro.org>
- <CACRpkdZzF5yJQnnDsjU8cTr9Fpe7wZZXoW3K-wFYuAq2vv8XxA@mail.gmail.com>
- <CAMRc=Mcv9nfiG7N-ttS_A=Ay-5Wv2mYpT+41G1u8G4GrMQAuEA@mail.gmail.com>
- <CAMRc=Md9+pmiDSzjhNXBOzZeBLCemvxCzFMAyfFH_Qi329jG9Q@mail.gmail.com> <884facf9-09dd-4454-9f39-67335b4e8c5f@linaro.org>
-In-Reply-To: <884facf9-09dd-4454-9f39-67335b4e8c5f@linaro.org>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 3 Sep 2024 11:16:34 +0200
-Message-ID: <CACRpkdZosOeBhEo460Wr3r9gF+xg1wJGdhvX0xf2_PWLZ2hkYg@mail.gmail.com>
-Subject: Re: [PATCH 2/3] dt-bindings: pinctrl: qcom: add missing type to GPIO hogs
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Emanuele Ghidoli <emanuele.ghidoli@toradex.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Daire McNamara <daire.mcnamara@microchip.com>, 
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu <mhiramat@kernel.org>, 
-	Maxime Ripard <mripard@kernel.org>, Masahiro Yamada <yamada.masahiro@socionext.com>, 
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org
+In-Reply-To: <SHXPR01MB08632E50DFE53BE0CFAA99ABE6922@SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240903_021649_394346_9FA5A082 
-X-CRM114-Status: GOOD (  14.69  )
+X-CRM114-CacheID: sfid-20240903_024231_145859_AB85A28F 
+X-CRM114-Status: GOOD (  41.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,21 +82,143 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============7197630580931973820=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBTZXAgMiwgMjAyNCBhdCAxMjowMuKAr1BNIEtyenlzenRvZiBLb3psb3dza2kKPGty
-enlzenRvZi5rb3psb3dza2lAbGluYXJvLm9yZz4gd3JvdGU6Cgo+ID4+PiBJIHN1cHBvc2UgaXQn
-cyBiZXN0IG9mIEJhcnRvc3ogYXBwbGllcyB0aGlzIHRvIHRoZSBHUElPIHRyZWUgd2l0aAo+ID4+
-PiB0aGUgcmVzdCBvZiB0aGUgc2VyaWVzPwo+ID4+Pgo+ID4+PiBZb3VycywKPiA+Pj4gTGludXMg
-V2FsbGVpago+ID4+Cj4gPj4gQWgsIEkgcGlja2VkIHVwIHRoZSBHUElPIGNoYW5nZXMgc2VwYXJh
-dGVseS4gTm8gcHJvYmxlbSwgSSdsbCBwaWNrCj4gPj4gdGhpcyBvbmUgdXAgYXMgd2VsbC4KPiA+
-Pgo+ID4+IEJhcnQKPiA+Cj4gPiBOb3BlLCBJIGNhbm5vdCwgdGhpcyBkb2Vzbid0IGFwcGx5IHRv
-IHRoZSBHUElPIHRyZWUuCj4KPiBIbSwgcHJvYmFibHkgdGhlcmUgaXMgc29tZXRoaW5nIGluIHBp
-bmN0cmwgdHJlZS4KPgo+IEBMaW51cywgY2FuIHlvdSBncmFiIHBpbmN0cmwgYml0cz8KCk9LIEkg
-YXBwbGllZCB0aGlzIHBhdGNoIDIvMyB0byB0aGUgcGluY3RybCB0cmVlIQoKWW91cnMsCkxpbnVz
-IFdhbGxlaWoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+
+--===============7197630580931973820==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="V8qJgUi9TxzWpM4h"
+Content-Disposition: inline
+
+
+--V8qJgUi9TxzWpM4h
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, Sep 02, 2024 at 09:19:29AM +0000, Minda Chen wrote:
+>=20
+>=20
+> >=20
+> > On Thu, Aug 15, 2024 at 10:33:55AM +0000, Minda Chen wrote:
+> > >
+> > >
+> > > >
+> > > > On Tue, Aug 13, 2024 at 07:31:50AM +0200, Jan Kiszka wrote:
+> > > > > On 12.08.24 17:55, Conor Dooley wrote:
+> > > > > > On Mon, Aug 12, 2024 at 04:15:51PM +0200, Jan Kiszka wrote:
+> > > > > >> From: Jan Kiszka <jan.kiszka@siemens.com>
+> > > > > >>
+> > > > > >> Analogously to the PCI PHY, access to sys_syscon is needed to
+> > > > > >> connect the USB PHY to its controller.
+> > > > > >>
+> > > > > >> Signed-off-by: Jan Kiszka <jan.kiszka@siemens.com>
+> > > > > >> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> > > > > >> ---
+> > > > > >> CC: Rob Herring <robh@kernel.org>
+> > > > > >> CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> > > > > >> CC: Conor Dooley <conor+dt@kernel.org>
+> > > > > >> ---
+> > > > > >>  .../bindings/phy/starfive,jh7110-usb-phy.yaml         | 11
+> > > > +++++++++++
+> > > > > >>  1 file changed, 11 insertions(+)
+> > > > > >>
+> > > > > >> diff --git
+> > > > > >> a/Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy
+> > > > > >> .yam
+> > > > > >> l
+> > > > > >> b/Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy
+> > > > > >> .yam l index 269e9f9f12b6..eaf0050c6f17 100644
+> > > > > >> ---
+> > > > > >> a/Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy
+> > > > > >> .yam
+> > > > > >> l
+> > > > > >> +++ b/Documentation/devicetree/bindings/phy/starfive,jh7110-usb
+> > > > > >> +++ -phy
+> > > > > >> +++ .yaml
+> > > > > >> @@ -19,6 +19,16 @@ properties:
+> > > > > >>    "#phy-cells":
+> > > > > >>      const: 0
+> > > > > >>
+> > > > > >> +  starfive,sys-syscon:
+> > > > > >> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> > > > > >> +    items:
+> > > > > >> +      - items:
+> > > > > >> +          - description: phandle to System Register Controller
+> > > > sys_syscon node.
+> > > > > >> +          - description: PHY connect offset of
+> > > > SYS_SYSCONSAIF__SYSCFG register for USB PHY.
+> > > > > >
+> > > > > > Why is having a new property for this required? The devicetree
+> > > > > > only has a single usb phy, so isn't it sufficient to look up the
+> > > > > > syscon by compatible, rather than via phandle + offset?
+> > > > > >
+> > > > >
+> > > > > I didn't design this, I just copied it from
+> > > > > starfive,jh7110-pcie-phy.yaml. As that already exists, I'm neither
+> > > > > sure we want to change that anymore nor deviate in the pattern he=
+re.
+> > > >
+> > > > To be honest, I think some of the other users of phandle + offset on
+> > > > this soc were just copy-pasted without thinking about whether or no=
+t they
+> > were required too.
+> > > > This one seems like it should just be a lookup by compatible in the
+> > > > driver instead of by phandle. As a bonus, it will work with existing
+> > > > devicetrees - whereas your current implementation will fail to probe
+> > > > on systems that have the old devicetree, a regression for systems
+> > > > running with that devicetree and downstream firmware.
+> > > >
+> > > > Cheers,
+> > > > Conor.
+> > > >
+> > > Hi Conor
+> > > I know you would like to put the offset value to the code, Just set s=
+yscon in dts.
+> > > Just like pcie-starfive.c. right?
+> >=20
+> > No, not quite. That still uses a phandle lookup, I was talking about us=
+ing
+> > syscon_regmap_lookup_by_compatible().
+>=20
+> Okay. Using syscon_regmap_lookup_by_compatible() can just modify the driv=
+er code only.
+> But syscon_regmap_lookup_by_compatible() is not exist in uboot now. If I =
+want to enable
+> CONFIG_OF_UPSTREAM in uboot. I have to add this function in u-boot...
+
+You can use
+	node =3D ofnode_by_compatible(ofnode_null(), "foo");
+	*regmap =3D syscon_node_to_regmap(node);
+in U-Boot.
+
+
+--V8qJgUi9TxzWpM4h
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZtbaAQAKCRB4tDGHoIJi
+0qddAQCykV/8wdobsflqJGegk8VpG4PfIyVD95Ps/lFiN6N8EAEA3A0m+qTJUFXs
+meGu8AGVsKo0mah3sBBHmXQzCetNhA8=
+=t0GZ
+-----END PGP SIGNATURE-----
+
+--V8qJgUi9TxzWpM4h--
+
+
+--===============7197630580931973820==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7197630580931973820==--
+
