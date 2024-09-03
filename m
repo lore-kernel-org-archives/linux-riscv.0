@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E026ECD342E
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Sep 2024 04:09:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1AD8CD3427
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Sep 2024 04:09:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0DwEc9kk2uas8VHXMfiwk8JQ+6EgwvzRxfNsspXpQHw=; b=mQqsu1zbvLtiZE
-	T8JlDQ+MOcYTMLovb+uVOWM29R2S92q+hlxqJi/T/swzN9X/gJhefj4mzelQeW3Ssh1nvFS5a2zQr
-	OFyXoCfiPkhiqw76ONQQ35qi7Qdz05MwYg0Nmn7GuXXwBtnaM9gloolWG3Oaz/UyCobMiKluqD4TU
-	fsoX72D52cCo67JMi59pQ4DvrfUddIhl1QfaDJUSi+8VPnBvexqwwCjrUIITObhrtifK8dSaLLVo1
-	qwvREEv5OhkFec4p4tF09r3BTL3Ca2xpqksOpjHR1JUAU07AbBy69EH8xS4FG1kHnr85gQyiaAQsB
-	4+cHPES9Zr3nB3uKWqug==;
+	List-Owner; bh=eUcLjpWS12fqTR0HDG64wUeEkA94zwQXJPmMhXICwgY=; b=358GQOEcvH9eO5
+	DdSe4IdC4na6sctOJ2QHVhLWdkAvl3m6ZnF+FIE3Z9301y6KL1ODLNaYl1IUJRy3fyZf3hLqhokeM
+	lD1+KA1pYq4CgFn5kmw3k0E6ZWXFEyFfipWjMmd2S3qVWrDXycdPkOSSfGaVUcG75Tu0x2PdVdgeM
+	F82UbDYV2kYd3E74d4hHUPTvucaRW+fnWX+yzVlxmTzcpGJhCH+OtV/WsBN+j1J6DJz09asRxHsWB
+	f3xc5D+X37meKs7lfZSmSWPyjpX+eA8gudEcFpyRDWte262jDsG1HZBhVUNON44VkJWw8Kg8rvq+6
+	34XnHQ0SSZuoZJoChxyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1slKqn-0000000GFmn-0BDE;
-	Tue, 03 Sep 2024 04:09:05 +0000
-Received: from mail-ot1-x333.google.com ([2607:f8b0:4864:20::333])
+	id 1slKqo-0000000GFnu-0RGP;
+	Tue, 03 Sep 2024 04:09:06 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1slKqi-0000000GFiP-0L0L
+	id 1slKqj-0000000GFjD-0yNy
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Sep 2024 04:09:01 +0000
-Received: by mail-ot1-x333.google.com with SMTP id 46e09a7af769-70f657cc420so2135591a34.0
-        for <linux-riscv@lists.infradead.org>; Mon, 02 Sep 2024 21:08:59 -0700 (PDT)
+	Tue, 03 Sep 2024 04:09:03 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-7176645e440so588692b3a.1
+        for <linux-riscv@lists.infradead.org>; Mon, 02 Sep 2024 21:09:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1725336539; x=1725941339; darn=lists.infradead.org;
+        d=tenstorrent.com; s=google; t=1725336540; x=1725941340; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Q35mWPAy5chjBGIgQ12zyoacjaj9qPPf+2nGjCp33vM=;
-        b=CAG10+2IOqaVg1HbRdsZjFvDtEojc2fE1aGSGiNrbtcPwNJjPNVQYbd0KX2Xyve0bP
-         jAnFbvQKoZ1EW7tHIC2G3WCnzyQ7KAB9JibG4OHDzEsuzBkDtiCO0GlDx6Rv8rh1JOZg
-         l56xpAXmRslvwAV0usMtNYLvHwkgk1zQ1THCVyZEB2hMpLdD64oww/UxBGotm9xdC8pn
-         Ua7AMeos+BUVNA3zvioAMR31B2qySkD5MHywYYLDVPODhU6Q3xokkoYw/q9b3AI+1jCN
-         mk/efN/Qwq6f7fXwMTFnt1HkpE9BMeehhi2SRFuvmy0Whu1ExxQ1IEg9xQN4GwRc9CKB
-         HYpA==
+        bh=Nq2qwoQ8fGvyakSE32KyqUjWPDGD9IAug2eijzHwHho=;
+        b=GpCMbApaovpTbFw0ZGJn9tzIvuoRDYV5BAE5t54C63VLvdy+ZMYBnAKxqfNjYAH/9i
+         PS/svqOhuCQl9p91jiOQEOONzv5WgPYZOsh9/piKlakuxRkAc5AZ/SRKTIBVvK8Wcxp0
+         nsGf5ZDm9v+xVVZFD78OhTbf4NkV6s1xrAVzP8VqeiKjiEMsoIwulQUaHHntPi/y2AYV
+         X5KQgoFwJSykCAmvmm41+KQnFfwVo67fuNrbzH4kg9DV2JVkux5NPla0qR/OcYsd9Bpw
+         o51peSoCnOoNrkvEyzLFB5O1nhvS3QbeZo3Yp4bGcuMJv3D1s8zpNZW3n186Y3tYMORi
+         9Y7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1725336539; x=1725941339;
+        d=1e100.net; s=20230601; t=1725336540; x=1725941340;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Q35mWPAy5chjBGIgQ12zyoacjaj9qPPf+2nGjCp33vM=;
-        b=OTgiHb/YhlgcgqV90e7XTt2iiIIKt6xpna/WxPeqoZfnd923rGhZQ/KYW1afJ2s+QM
-         mu+EHIMFc9ODa0DP32zJeRo2fG9/5fweDqiXCuUvpZCSQblx4+pd8dsBwZ+5O1YfjiO1
-         PpUvXs3/Jai0PajFN85lY6AyQ7C4vukyCiVGMxa3xhJrhfMiCsAFqVRpCr4pPaf5yi7B
-         RpQtbd5RWA3wLVfJHKBysJIIA8CBKq7VbFBg/qUxira4oVTWlJDUzgnltoFMFElvwPzN
-         jN+L/L9mXPGH+FhYohC9KnRwh6YsN5bAFCGbgEX6iJYxTkJP8dLnfeoETtMTcNtY2c6l
-         XaUA==
-X-Gm-Message-State: AOJu0YzmHZW57GnGn2rmo93CI7LiW/GXmMRuTn59Xg9TnC0vgyyWlQiw
-	VasX9VmcUd6StaJOTl+stzUwrZTh4otAc1TFkAuYcoKhdTC/Vd6x8RvfY5dFWk0=
-X-Google-Smtp-Source: AGHT+IG1bv+0Hcu89hJ/iW0ppyWLhDz7hQS9eXP//hut2vcYYD8TEwbZJJXon33WkI7TKADhhCw9MA==
-X-Received: by 2002:a05:6358:b00f:b0:1aa:c49e:587d with SMTP id e5c5f4694b2df-1b603c48be2mr1966327055d.18.1725336539064;
-        Mon, 02 Sep 2024 21:08:59 -0700 (PDT)
+        bh=Nq2qwoQ8fGvyakSE32KyqUjWPDGD9IAug2eijzHwHho=;
+        b=B5Qn4QhLAF+gCZ5FamQ5ps6oHkmRyT7naJreVmxCPelcitbZ36ERNR1jhVnvph4YRj
+         BSYA218sL4NAP0XnIwZsq2D65SGk/Slb7ERKPMMDcbTQIZR3ky/ME25sPGO3aoVMXw7F
+         MU4R6aQpCcbFIQjmL+mYP06qQutdiHyvb2KYvghNMgiQI2HHwWpNdv3pC3Y0mm32UO80
+         PoyDz40VCsq6G49Taa2nApR7bEnTKnqzmBuaHMQmp73EPaiJNGuDGORjMllyrfJs9z3f
+         QpeUeniqA0gisfgF7Qg4ysSqmiXOkFNnrO02PTiIF1n2yoqCkvpkqC1qBTUB5UEgsRWA
+         coIA==
+X-Gm-Message-State: AOJu0YwFxRkg4/Oj29dZvVRR8coruU6Q468xOBuptNUFLpR6qilvTffj
+	pkwFK2GZbR1oh2omIXz5lcT6vAf9StijLlB8IfWbZdswCDENh808wBut/WXjrJo=
+X-Google-Smtp-Source: AGHT+IFNAPzS6NfqW5WUiKK6YWRUIPCTsa89ov5gA3kZvZyE5KG2NssyQ0TR5AepdwMXQxdhjgwENQ==
+X-Received: by 2002:a05:6a00:2d1c:b0:70d:26cd:9741 with SMTP id d2e1a72fcca58-7170a85aaafmr19264523b3a.12.1725336540085;
+        Mon, 02 Sep 2024 21:09:00 -0700 (PDT)
 Received: from [127.0.1.1] (75-164-215-68.ptld.qwest.net. [75.164.215.68])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-715e569ef39sm7532701b3a.122.2024.09.02.21.08.58
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-715e569ef39sm7532701b3a.122.2024.09.02.21.08.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Sep 2024 21:08:58 -0700 (PDT)
+        Mon, 02 Sep 2024 21:08:59 -0700 (PDT)
 From: Drew Fustini <dfustini@tenstorrent.com>
-Date: Mon, 02 Sep 2024 21:07:00 -0700
-Subject: [PATCH 7/8] riscv: dts: thead: Add TH1520 pinctrl settings for
- UART0
+Date: Mon, 02 Sep 2024 21:07:01 -0700
+Subject: [PATCH 8/8] riscv: dtb: thead: Add BeagleV Ahead LEDs
 MIME-Version: 1.0
-Message-Id: <20240902-th1520-pinctrl-v1-7-639bf83ef50a@tenstorrent.com>
+Message-Id: <20240902-th1520-pinctrl-v1-8-639bf83ef50a@tenstorrent.com>
 References: <20240902-th1520-pinctrl-v1-0-639bf83ef50a@tenstorrent.com>
 In-Reply-To: <20240902-th1520-pinctrl-v1-0-639bf83ef50a@tenstorrent.com>
 To: Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>, 
@@ -83,9 +82,8 @@ Cc: linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org,
  Drew Fustini <dfustini@tenstorrent.com>
 X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240902_210900_178589_E9ECE46F 
-X-CRM114-Status: UNSURE (   9.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240902_210901_368185_85793F2F 
+X-CRM114-Status: GOOD (  10.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,91 +102,96 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 
-Add pinctrl settings for UART0 used as the default debug console on
-both the Lichee Pi 4A and BeagleV Ahead boards.
+Add nodes for the 5 user controllable LEDs on the BeagleV Ahead board.
 
 Tested-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
 Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 Signed-off-by: Drew Fustini <dfustini@tenstorrent.com>
 ---
- arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts | 26 ++++++++++++++++++++++
- arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts  | 26 ++++++++++++++++++++++
- 2 files changed, 52 insertions(+)
+ arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts | 55 ++++++++++++++++++++++
+ 1 file changed, 55 insertions(+)
 
 diff --git a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-index c48f6fd6387b..c5356f674f85 100644
+index c5356f674f85..823aa5b44efb 100644
 --- a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
 +++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-@@ -82,6 +82,32 @@ &sdio0 {
- 	status = "okay";
- };
+@@ -7,6 +7,8 @@
+ /dts-v1/;
  
-+&padctrl0_apsys {
-+	uart0_pins: uart0-0 {
-+		tx-pins {
-+			pins = "UART0_TXD";
-+			function = "uart";
-+			bias-disable;
-+			drive-strength = <3>;
-+			input-disable;
-+			input-schmitt-disable;
-+			slew-rate = <0>;
-+		};
-+
-+		rx-pins {
-+			pins = "UART0_RXD";
-+			function = "uart";
-+			bias-disable;
-+			drive-strength = <1>;
-+			input-enable;
-+			input-schmitt-enable;
-+			slew-rate = <0>;
-+		};
+ #include "th1520.dtsi"
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/leds/common.h>
+ 
+ / {
+ 	model = "BeagleV Ahead";
+@@ -34,7 +36,42 @@ chosen {
+ 	memory@0 {
+ 		device_type = "memory";
+ 		reg = <0x0  0x00000000  0x1 0x00000000>;
 +	};
-+};
 +
- &uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart0_pins>;
- 	status = "okay";
- };
-diff --git a/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts b/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
-index 0ae2c20d5641..932838c55f90 100644
---- a/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
-+++ b/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
-@@ -29,6 +29,32 @@ chosen {
++	leds {
++		pinctrl-names = "default";
++		pinctrl-0 = <&led_pins>;
++		compatible = "gpio-leds";
++
++		led-1 {
++			gpios = <&gpio4 8 GPIO_ACTIVE_LOW>;
++			color = <LED_COLOR_ID_BLUE>;
++			label = "led1";
++		};
++
++		led-2 {
++			gpios = <&gpio4 9 GPIO_ACTIVE_LOW>;
++			color = <LED_COLOR_ID_BLUE>;
++			label = "led2";
++		};
++
++		led-3 {
++			gpios = <&gpio4 10 GPIO_ACTIVE_LOW>;
++			color = <LED_COLOR_ID_BLUE>;
++			label = "led3";
++		};
++
++		led-4 {
++			gpios = <&gpio4 11 GPIO_ACTIVE_LOW>;
++			color = <LED_COLOR_ID_BLUE>;
++			label = "led4";
++		};
+ 
++		led-5 {
++			gpios = <&gpio4 12 GPIO_ACTIVE_LOW>;
++			color = <LED_COLOR_ID_BLUE>;
++			label = "led5";
++		};
  	};
  };
  
-+&padctrl0_apsys {
-+	uart0_pins: uart0-0 {
-+		tx-pins {
-+			pins = "UART0_TXD";
-+			function = "uart";
+@@ -82,6 +119,24 @@ &sdio0 {
+ 	status = "okay";
+ };
+ 
++&padctrl_aosys {
++	led_pins: led-0 {
++		led-pins {
++			pins = "AUDIO_PA8",  /* GPIO4_8 */
++			       "AUDIO_PA9",  /* GPIO4_9 */
++			       "AUDIO_PA10", /* GPIO4_10 */
++			       "AUDIO_PA11", /* GPIO4_11 */
++			       "AUDIO_PA12"; /* GPIO4_12 */
++			function = "gpio";
 +			bias-disable;
 +			drive-strength = <3>;
 +			input-disable;
 +			input-schmitt-disable;
 +			slew-rate = <0>;
 +		};
-+
-+		rx-pins {
-+			pins = "UART0_RXD";
-+			function = "uart";
-+			bias-disable;
-+			drive-strength = <1>;
-+			input-enable;
-+			input-schmitt-enable;
-+			slew-rate = <0>;
-+		};
 +	};
 +};
 +
- &uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart0_pins>;
- 	status = "okay";
- };
+ &padctrl0_apsys {
+ 	uart0_pins: uart0-0 {
+ 		tx-pins {
 
 -- 
 2.34.1
