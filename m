@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44DB6CD3420
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Sep 2024 12:27:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4AF4CD13CF
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Sep 2024 12:27:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Message-Id:
 	MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GHDdTsG/sU44IY2Zr2Z+qFC6NK83bd/si29DJkDeTPo=; b=lLYoZommLvks++
-	/gbtmkr63zRLVIqP4jdDMB/1Q79Efie54KA6NWSBONtaXUpXooZyuNTtMvhkPDcmYQrtmzAZLcvHX
-	IDjua2QPcmb/dN/K+TVb/nCgPKrZFdKxbNu/2Z/adZ4XT0sA02JNevw4KjE3qzOXemEWy8ck6o5qc
-	9C83fDtsSdDV3/RqLgt8N4B3JeuIjplYfMbK6jL87eU8of+cGXYHJUqJPRBIPNDHDVlT8f2S+GtSi
-	hi/OTWw/afn1yIkfuABLuntsVAAcdvxGrIz08S7136eY9P7/y0cytke5NegLm/Pa87UcAb7wyD6kW
-	V3D9UxkNiLTgP0MICgFA==;
+	List-Owner; bh=itQ6D9uhUxHHgsfFeKQThAp6iE6SMD+lXr/nCSw8UfE=; b=K39rOOkjpv4u8Q
+	P/IAJVHwwImLx1wSeI2ydiYQz4gfYb9kli5gg7AcWUIVt/kdJfTjUFedqRJ0QiOTtyIzDtplAQVD7
+	xvbGaaJ+LYmcb4zD/cnLQqOKbyF2gWBlOExDiJFtfheoj/i7Q4XQ2rHBzNDVJUzu7Cn/9K1VDm4CL
+	L2j2QJu0FFB7KL+eVy0ACLAG4C5Yxx1G8LiKCGovakNZqhpUSfDGT0oRIR6I79oTQMyBdeCcTBGwz
+	IaeM7eQQxW5rycQdIeZSWdymcE83QevRK4qcHlIACb60KHc2P59bq226RGlnJDlNSNDr/ob+ZiZPu
+	3Z8lBKRZw4+mJyce1Ezw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1slSd0-000000009Df-3ocE;
-	Tue, 03 Sep 2024 12:27:22 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1slSd9-000000009Ib-22G7;
+	Tue, 03 Sep 2024 12:27:31 +0000
+Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1slScy-000000009C0-0VGn
+	id 1slSd6-000000009GN-3UzL
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Sep 2024 12:27:22 +0000
+	Tue, 03 Sep 2024 12:27:30 +0000
 From: Yixun Lan <dlan@gentoo.org>
-Date: Tue, 03 Sep 2024 12:26:44 +0000
-Subject: [PATCH v4 1/3] dt-bindings: pinctrl: spacemit: add support for K1
- SoC
+Date: Tue, 03 Sep 2024 12:26:46 +0000
+Subject: [PATCH v4 3/3] riscv: dts: spacemit: add pinctrl property to uart0
+ in BPI-F3
 MIME-Version: 1.0
-Message-Id: <20240903-02-k1-pinctrl-v4-1-d76c00a33b2b@gentoo.org>
+Message-Id: <20240903-02-k1-pinctrl-v4-3-d76c00a33b2b@gentoo.org>
 References: <20240903-02-k1-pinctrl-v4-0-d76c00a33b2b@gentoo.org>
 In-Reply-To: <20240903-02-k1-pinctrl-v4-0-d76c00a33b2b@gentoo.org>
 To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
@@ -42,26 +42,26 @@ To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
  Conor Dooley <conor@kernel.org>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4339; i=dlan@gentoo.org;
- h=from:subject:message-id; bh=YBpT/3PqGgtZFSNBAnPeMlslzAclFshMpPrK579COGU=;
- b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBm1wCUEbvr8+/5FNss5zfyKq9w+eMy/Cy5pBUXG
- k0glKkbII6JApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCZtcAlF8UgAAAAAAuAChp
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2235; i=dlan@gentoo.org;
+ h=from:subject:message-id; bh=72OUePKJmY9EObBTz2p3oSPWaKFyOulBRCi5gSja9tI=;
+ b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBm1wCbeyJvCjfwfjk6CxerD0e3wqymKHbG2IGb5
+ 8rM/z5ULKmJApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCZtcAm18UgAAAAAAuAChp
  c3N1ZXItZnByQG5vdGF0aW9ucy5vcGVucGdwLmZpZnRoaG9yc2VtYW4ubmV0QjVCQUI4QzlDMzF
- CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277avMD/9kig+JxRIVo9rUKW
- iusSVCLOzi4WUuog1YkjMPM9FbMVBNd5Yof3kbOYvbMM7GABrbQm28/4aZdnjvCQU6svRGIJ0YG
- uiL1qa43A+/EYZOWB+97KBDHathok9w3RziCBJPYtnL8T/+5iJSf695Pq33zK4S6TJd9vvcZF8g
- GfPwc052gF/FHUbG58SlzFr1FMzC9uzR2R841lV4ioEtRYHxSwEnpQSe3xchO6SoeAvbKazNpxS
- Y11hG46e/iCq/n3/o2o91Bh/RiTAhufhcuJ1EMfJxmVcTeb0+D0GE9ss9HfjmmRZgwrZt9AT25u
- cQZ7vcHdyTC6gkDnig10cMkH6Uk0ELe6LscuKxHtZlqkO6Xwx97oVGLzVv65XsFxKpXOaWFJqEj
- v92mOfW9AHflAiux/+dTdRM9H2V8UlJb4dXGp9SUfPRObqBkJn8s22cUWOioWNTV3ZL/5WjuaSY
- YzWtX9EvW4X4Z+kwhH4mBaR8PZUsOdbt2CYI4npL17bsv1CPeIMMaEXPDfskx1fTClWTWM2gctQ
- XBlub0bNF0Edp7Np2q5KpjzE+CwXC08g+8QAKIol0Jj7aQQCHyQi9ktE1TSKNuYWu16K+/YpaFO
- hYaXxWxezocWmnJdTHzXxxgLsm7ziXOiUrxlP/UZf1CSC0U2rruGV7pf0DSpaTJn78jg==
+ CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277WrOD/9QFex+y4trbZ+gJC
+ YHw1005oEpM6MRg7yEsgUPuISrnLXM4a8S8R+J0AQaP7OV0gIF51d7rxqabRAHk9pW+GyAISSS6
+ 2YeBSA0Wd2luVEy4Ioc2qc0xkqYnuZR62kz/3QN4QG55JI6KRX9UQnSUwau4xNNa2ItFHGCb2cS
+ qL8sVNPPdmBZe0TSUMByqV+ndT2SERktZtU0O5xkk1a3JHp6F+p5/99utf+QkkxnwkRxtVvZDtt
+ B6lkhaGX5DVjygkugsuTr9Vj7C+Y8yb2w3xMdwOfc4xbMaAJ0IEhZ583peVog/STflOeJsi1nmu
+ X44CAmGCODxpuMeTIW9AI5q+8Foc+sL0wt42IJB9rK58aYC+Dkq+e3IGumLNGdQmR1+xntXNxPk
+ 4Nsy5eYKt0aUnOJFa8sXYAB5SS06M2RKbxe4fqUio1p94ucHLvzyw8V7cIpiy8wk1dhUZJdwnaY
+ HFqkW3l8kftO0cuucRmSquFfJ07ByMBcX3q0xUaIloF6j8xzV6OQwCopJYPuzAcSa0UA1wNtCVW
+ TJI1OypksHZPzs4+NsFg+DVSleu9QVfWDRwIUVhr/qCzIyBKWMdTGpCbv2FbvisyuADQEL/Jxhk
+ s8YcsJ+m3LJWdOfk/xJe6D85+LvkTR7QFEOuviA06Fa0nAeNjnFshLS+TiIHuynhBeNw==
 X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
  fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240903_052720_237047_E7FA29E4 
-X-CRM114-Status: GOOD (  13.51  )
+X-CRM114-CacheID: sfid-20240903_052729_206255_A50B461C 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,154 +79,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add dt-bindings for the pinctrl driver of SpacemiT's K1 SoC.
+Before pinctrl driver implemented, the uart0 controller reply on
+bootloader for setting correct pin mux and configurations.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Now, let's add pinctrl property to uart0 of Bananapi-F3 board.
+
 Signed-off-by: Yixun Lan <dlan@gentoo.org>
 ---
-Changes in v4:
-- collect tags
+ arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts |  3 +++
+ arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi    | 20 ++++++++++++++++++++
+ arch/riscv/boot/dts/spacemit/k1.dtsi            |  5 +++++
+ 3 files changed, 28 insertions(+)
 
-Changes in v3:
-- drop spacemit,slew-rate-{enable,disable} property
-- use drive-strength instead of drive-strength-microamp
-- fold strong-pull-up into bias-pull-up
-- format fixed
-- title fixed
----
- .../bindings/pinctrl/spacemit,k1-pinctrl.yaml      | 124 +++++++++++++++++++++
- 1 file changed, 124 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml
+diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+index 023274189b492..bc88d4de25a62 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+@@ -4,6 +4,7 @@
+  */
+ 
+ #include "k1.dtsi"
++#include "k1-pinctrl.dtsi"
+ 
+ / {
+ 	model = "Banana Pi BPI-F3";
+@@ -15,5 +16,7 @@ chosen {
+ };
+ 
+ &uart0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&uart0_2_cfg>;
+ 	status = "okay";
+ };
+diff --git a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
 new file mode 100644
-index 0000000000000..b01ecd83b71b5
+index 0000000000000..a8eac5517f857
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml
-@@ -0,0 +1,124 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pinctrl/spacemit,k1-pinctrl.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
+@@ -0,0 +1,20 @@
++// SPDX-License-Identifier: GPL-2.0 OR MIT
++/*
++ * Copyright (c) 2024 Yixun Lan <dlan@gentoo.org>
++ */
 +
-+title: SpacemiT K1 SoC Pin Controller
++#include <dt-bindings/gpio/gpio.h>
 +
-+maintainers:
-+  - Yixun Lan <dlan@gentoo.org>
++#define K1_PADCONF(pin, func) (((pin) << 16) | (func))
 +
-+properties:
-+  compatible:
-+    const: spacemit,k1-pinctrl
++&pinctrl {
++	uart0_2_cfg: uart0-2-cfg {
++		uart0-2-pins {
++			pinmux = <K1_PADCONF(68, 2)>,
++				 <K1_PADCONF(69, 2)>;
 +
-+  reg:
-+    items:
-+      - description: pinctrl io memory base
++			bias-pull-up = <0>;
++			drive-strength = <32>;
++		};
++	};
++};
+diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
+index 0777bf9e01183..a2d5f7d4a942a 100644
+--- a/arch/riscv/boot/dts/spacemit/k1.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
+@@ -416,6 +416,11 @@ uart9: serial@d4017800 {
+ 			status = "disabled";
+ 		};
+ 
++		pinctrl: pinctrl@d401e000 {
++			compatible = "spacemit,k1-pinctrl";
++			reg = <0x0 0xd401e000 0x0 0x400>;
++		};
 +
-+patternProperties:
-+  '-cfg$':
-+    type: object
-+    additionalProperties: false
-+
-+    description:
-+      A pinctrl node should contain at least one subnode representing the
-+      pinctrl groups available on the machine.
-+
-+    patternProperties:
-+      '-pins$':
-+        type: object
-+        additionalProperties: false
-+
-+        description:
-+          Each subnode will list the pins it needs, and how they should
-+          be configured, with regard to muxer configuration, bias pull,
-+          drive strength, input schmitt trigger, slew rate, power source.
-+
-+        allOf:
-+          - $ref: pincfg-node.yaml#
-+          - $ref: pinmux-node.yaml#
-+
-+        properties:
-+          pinmux:
-+            description:
-+              The list of GPIOs and their mux settings that properties in the
-+              node apply to. This should be set using the K1_PADCONF macro to
-+              construct the value.
-+
-+          bias-disable: true
-+
-+          bias-pull-down: true
-+
-+          bias-pull-up:
-+            description: |
-+              typical value for selecting bias pull up or strong pull up.
-+              0: normal bias pull up
-+              1: strong bias pull up
-+            enum: [ 0, 1 ]
-+
-+          drive-strength:
-+            description: |
-+              typical current when output high level.
-+              1.8V output: 11, 21, 32, 42 (mA)
-+              3.3V output: 7, 10, 13, 16, 19, 23, 26, 29 (mA)
-+
-+          input-schmitt:
-+            description: |
-+              typical threshold for schmitt trigger.
-+              0: buffer mode
-+              1: trigger mode
-+              2, 3: trigger mode
-+            $ref: /schemas/types.yaml#/definitions/uint32
-+            enum: [ 0, 1, 2, 3 ]
-+
-+          power-source:
-+            description: external power supplies at 1.8v or 3.3v.
-+            enum: [ 1800, 3300 ]
-+
-+          slew-rate:
-+            description: |
-+              slew rate for output buffer.
-+              0: disable it
-+              1: enable it (via bundled value from drive strength)
-+              2: slow speed 0
-+              3: slow speed 1
-+              4: medium speed
-+              5: fast speed
-+            enum: [ 0, 1, 2, 3, 4, 5 ]
-+
-+        required:
-+          - pinmux
-+
-+required:
-+  - compatible
-+  - reg
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #define K1_PADCONF(pin, func) (((pin) << 16) | (func))
-+
-+    soc {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        pinctrl@d401e000 {
-+            compatible = "spacemit,k1-pinctrl";
-+            reg = <0x0 0xd401e000 0x0 0x400>;
-+
-+            uart0_2_cfg: uart0-2-cfg {
-+                uart0-2-pins {
-+                    pinmux = <K1_PADCONF(68, 2)>,
-+                             <K1_PADCONF(69, 2)>;
-+
-+                    bias-pull-up = <0>;
-+                    drive-strength = <32>;
-+                };
-+            };
-+        };
-+    };
-+
-+...
+ 		plic: interrupt-controller@e0000000 {
+ 			compatible = "spacemit,k1-plic", "sifive,plic-1.0.0";
+ 			reg = <0x0 0xe0000000 0x0 0x4000000>;
 
 -- 
 2.45.2
