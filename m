@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D277ECD343B
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5D05CD343D
 	for <linux-riscv@archiver.kernel.org>; Tue,  3 Sep 2024 14:34:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,55 +12,55 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VeLEv5l1+X89A+Ju2APdjYRG7FjHcj5SdhyhoWE/vwE=; b=cQzK9mfom+yNKv
-	3zbUiUgBz7B9ZXBZzEoN80soJR8hRjRfBVwxYDzjAgl4IxKtBtOOwDjRTG8c+oXFqA0hVqNJpmfdS
-	luQBNZGzZc7QlA1+ntoxbU8S86MK2vJ4r+om3m+tAOlBc/P4Bo/FtMMAnKeiz9ssgFEZxm9z1CBuu
-	c2iuZz/AC22bYNfMib5JjKHsBWQ2ofkhP63ApqmuAeclpO3C/9MDoBryramZh55gE8gcZ+3N/DVKy
-	+HhJp+isdxEy/ljkcgcwlF/30GlCLpyAtcl+4Dg8Q7XLHr6ebnVq0bBJcZp9TVZFHDFS0s60HV0RZ
-	tDW5mUBljArjxFJPd65g==;
+	List-Owner; bh=yHmUE3m+qsHvLMBBjR3PxtHhdmq6HQKcnqwp4Vieuzg=; b=VQJAajxhOnDR5J
+	xwCDm4Lk8oeGPIJ3ipICrwjD5lE//8uCgt0ojJMZoNxGFxvXzQUpGb6hFHjQ5dvd5W6wEjxM1O+yV
+	mLDyb+Lpw/QyIoEgfRI/tESwPRNouAW93G/SP7BKAsjGX9tuqqbU7s4BasPXwmo7HVF8gq0cQ47NL
+	LOo1weVry4PPMHq07wszhIxCIRa6GDhjl11W7TumSy26nWrCyUgJq0KsWPUYpeiHTsXyWtWOPWY8o
+	U1VAJ5e9cLyBv8nlF3TzW+Q2rr+t1qIqPyWjbudnTTHON7a/4fUmwIMj4ekmcpHmRXoXTh5mcyAm8
+	Lbj54vnOQb9FOVx84rUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1slUcN-00000000c3X-3xL1;
-	Tue, 03 Sep 2024 14:34:51 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1slUcO-00000000c3u-2dez;
+	Tue, 03 Sep 2024 14:34:52 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1slUYL-00000000aim-0ne5
+	id 1slUYL-00000000ajH-3xbP
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Sep 2024 14:30:42 +0000
+	Tue, 03 Sep 2024 14:30:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6A21D5C55F4;
-	Tue,  3 Sep 2024 14:30:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83A67C4CEC4;
-	Tue,  3 Sep 2024 14:30:39 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id EBBB0A4370B;
+	Tue,  3 Sep 2024 14:30:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF4BCC4CEC7;
+	Tue,  3 Sep 2024 14:30:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1725373839;
-	bh=8hIsX3Gtu284V91gL7N6GgFB7NiLigl/6FXHMFI6wzo=;
+	s=k20201202; t=1725373840;
+	bh=gXbykwMFgquDkN8SDMxjOjIVVBU81MHk34Ikbht7mSU=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=cMPhAULPDWSY4mHmyASlsRi7jgsoFCb5qncdk7Jm9YyLKiP1V8Y7lViX0Z6v3UdYZ
-	 3hKlLIzyD2wxeMBcwS/sM7csrpCqg2Gyjj2PTMKkz1HE52x+8QTO9oVINqw/wZ2dUO
-	 K2GI7Dq8dYPFk8SxBa/XdFK/R9fQuUz2A4ORDKHr/WrikJkdbS9Am/Mrvvj1XDChZv
-	 3Ox2jpueSGC5u4BsN/VgskFOuyyrur94yhgpyyREzRNvsoDIOZa9PFmdM44MBZo0T9
-	 SIeZAFnHAaXTNNGkeABnF026+EK3JOBXANHgq4uXE78oPEQayzpL+KZbZR908BCG70
-	 yWXz2nhHg9VtA==
+	b=NY0GouETMhA6ixaEs0zebQd5v7X+lytuVzWSrsX+un7J9l8MbCKFjBQ9tsj3llMIn
+	 2bNW4KVWrafxBjqUy1uBWpHCYTMQO2lNRQok087HJxKgOaUsgFu0Qy6LhqbXEd2Az2
+	 exFQx9qQYItrxEkjQSgvRlCOVX6ebKHflhY9EaaMIna+fJaPXHQso+o1aMlh4q6+DK
+	 V/Ik3nYsoEeTElmDyRUplk/g4pwHkkRowcIwWQcK977tzMiRdOPe9RMMrwgWPRPM0/
+	 jtsNV7OVJqCsb6B6Bhuk7xBHEP6WxXgDI9HMEgez8NjerpNdifVBYhFG4AVKretDIC
+	 WNtGxNkrUDiYw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70EF53822D69;
-	Tue,  3 Sep 2024 14:30:41 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADDB03822D69;
+	Tue,  3 Sep 2024 14:30:42 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH 0/3] riscv: mm: Do not restrict mmap address based on hint
+Subject: Re: [PATCH] riscv: misaligned: Restrict user access to kernel memory
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <172537383996.320952.12145351414026889643.git-patchwork-notify@kernel.org>
-Date: Tue, 03 Sep 2024 14:30:39 +0000
-References: <20240826-riscv_mmap-v1-0-cd8962afe47f@rivosinc.com>
-In-Reply-To: <20240826-riscv_mmap-v1-0-cd8962afe47f@rivosinc.com>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, corbet@lwn.net, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, shuah@kernel.org,
- cyy@cyyself.name, rsworktech@outlook.com, alexghiti@rivosinc.com,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, palmer@rivosinc.com,
- linux-kselftest@vger.kernel.org
+Message-Id: <172537384152.320952.10274584984472776456.git-patchwork-notify@kernel.org>
+Date: Tue, 03 Sep 2024 14:30:41 +0000
+References: <20240815005714.1163136-1-samuel.holland@sifive.com>
+In-Reply-To: <20240815005714.1163136-1-samuel.holland@sifive.com>
+To: Samuel Holland <samuel.holland@sifive.com>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+ stable@vger.kernel.org, aou@eecs.berkeley.edu, ben.dooks@codethink.co.uk,
+ bjorn@rivosinc.com, charlie@rivosinc.com, cleger@rivosinc.com,
+ conor.dooley@microchip.com, evan@rivosinc.com, paul.walmsley@sifive.com,
+ linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240903_073041_340276_CC6A951B 
-X-CRM114-Status: UNSURE (   9.13  )
+X-CRM114-CacheID: sfid-20240903_073042_064692_741EA601 
+X-CRM114-Status: UNSURE (   8.24  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,26 +80,23 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to riscv/linux.git (fixes)
+This patch was applied to riscv/linux.git (fixes)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Mon, 26 Aug 2024 09:36:44 -0700 you wrote:
-> There have been a couple of reports that using the hint address to
-> restrict the address returned by mmap hint address has caused issues in
-> applications. A different solution for restricting addresses returned by
-> mmap is necessary to avoid breakages.
+On Wed, 14 Aug 2024 17:57:03 -0700 you wrote:
+> raw_copy_{to,from}_user() do not call access_ok(), so this code allowed
+> userspace to access any virtual memory address.
 > 
-> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> Cc: stable@vger.kernel.org
+> Fixes: 7c83232161f6 ("riscv: add support for misaligned trap handling in S-mode")
+> Fixes: 441381506ba7 ("riscv: misaligned: remove CONFIG_RISCV_M_MODE specific code")
+> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 > 
 > [...]
 
 Here is the summary with links:
-  - [1/3] Revert "RISC-V: mm: Document mmap changes"
-    https://git.kernel.org/riscv/c/954260ff5a46
-  - [2/3] riscv: selftests: Remove mmap hint address checks
-    https://git.kernel.org/riscv/c/83dae72ac038
-  - [3/3] riscv: mm: Do not restrict mmap address based on hint
-    https://git.kernel.org/riscv/c/2116988d5372
+  - riscv: misaligned: Restrict user access to kernel memory
+    https://git.kernel.org/riscv/c/b686ecdeacf6
 
 You are awesome, thank you!
 -- 
