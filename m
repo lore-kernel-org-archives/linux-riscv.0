@@ -4,63 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70828CD37AB
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Sep 2024 19:10:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73CFDCD3440
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Sep 2024 21:03:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TvRaYTI0S7eW91WrvevFC44zzhS0Rkk3wQqErMgpy6c=; b=Oe1Lpk2xM87Pv4
-	TQOpKSRH6kOscPJ1CQbxY7mrpGJ6dMshHQWxrOhlaEnaVofR7tj+pqbvAy/z2rM6NIzrq6YXxEHh+
-	DjHqQ/gSEYqs3cT0J2fjZDGQMzyA8aTLC6w2Kbtvtdn0UFSC5sA3ywBeV6H0Jac1FAyhV8uM5e9Uv
-	eHGGdqt/XRntdxD8UpHxFmgD/X8Ux22OKineOHV4ilk0nmC8y8ci1WTmJ403xpQHngnTzHrnxYeSJ
-	rTxmDvErAPlBA4KUX+ktFFXy7xLkh+zkmgtkPtUrGu6qhTxCHlW4UwbbnJeleGaHzKZyX15LCHQSZ
-	7UuMxXZLrncKDdpC1QlA==;
+	List-Owner; bh=mMGH65rqIRjOOgLibjVBaYIIs7+uVCtz9abU1oXG3xQ=; b=cPA8NIgTgs1eOX
+	k5nJLpGDebggrmJ9V15CqdWHhH81puOe5cX4/+FgS2ntw/bYDwJNPJPYW+htSNpw0RdFlpn/S4KC9
+	qjFNeOen0GyAfRl0d6Gz5/C1BBZy3UQaYSqiGLz0USNSFM6jMhUBKUcfU7p8X6oFQ6BxocwHGEGNf
+	IHa3cVcB6oNkar1qUkFxkp9bD3OKT1KlQRS8CUhi0m6fblt9YReKJZXQvZeHmviYXB5M9/Td89q/r
+	EgjQqkkcVRG5V1PYen87vrZ89KP7RsRwvkiZR2dZlQ7d7wdbJfrocezsYTPMXcw/cWqO2X0ma9onG
+	sY93LVODIEb8WmkaQf5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1slYvE-00000001Z7F-3NZ0;
-	Tue, 03 Sep 2024 19:10:36 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1slafx-00000001uQl-3guz;
+	Tue, 03 Sep 2024 21:02:57 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1slYvB-00000001Z62-3hTT
-	for linux-riscv@lists.infradead.org;
-	Tue, 03 Sep 2024 19:10:35 +0000
+	id 1slaf1-00000001uEc-0AI1;
+	Tue, 03 Sep 2024 21:02:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E237C5C4117;
-	Tue,  3 Sep 2024 19:10:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03834C4CEC5;
-	Tue,  3 Sep 2024 19:10:33 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id F1A8CA43F2D;
+	Tue,  3 Sep 2024 21:01:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD49DC4CEC4;
+	Tue,  3 Sep 2024 21:01:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1725390633;
-	bh=bi02hKY9TT2lgBGhRmTMgwKwEPLQd/+wT7G/ZLU/UDc=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=m2OB85uy3/ByOiuTgWLvMWJg9SQVFnrfC+BBdRug0UlmmL/Nsb2LamUihzVtmAwmd
-	 51YRQth7CM1M/Gk/MEJrqUuwTA2TyrMnB98MvdxSIjpgVJfK4E8ciGxL/DqrvBeE6q
-	 VC4eihS0HvI8viVkQBsuBWk+qNHbCwePm8AGNFhcvPd8J0QeEgyWg3VpRv0d3vcsxw
-	 QFAx719cV1OZLbErNUTA/lHH8Yg1gRMOwuknz32BD/FqOOlQAPl1FiGhdUr19Y3k8w
-	 UDd+9TT558wlHtSgEKnQy1PeYx4/MkRNJlW2z/tqIj598YhCA7EDURvJlUYAeLGbr0
-	 EUcm59Fq2kIAQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB95C3822D69;
-	Tue,  3 Sep 2024 19:10:34 +0000 (UTC)
+	s=k20201202; t=1725397317;
+	bh=YlgYWrov2J1Ssj0+EKTW9v1CpfXqfqZj60bm9Xzp8gA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=figUKZY/IW8+qj7UyVP2DYHB0tHl/V0Pgl7XXGOIlJCbEkzSModtPUp0dan0N5Myq
+	 Q7rk+ptZvZZSVnYv3dSL3VCISr8aMuhGm92zZCxaA6oLTVHLOgWQWGPCWuqrB+VVUK
+	 YbjcW2ZsfYoYx9vadxljtW++8Rmn7juctFToFEUFzLwpfx8pADCMx2XMQWif7Rp10D
+	 516BJHWIOMlx/QI7FXzzITM5Hb6YmryY8/YcMj9jdcv02+EkIGTa+uiwEtOpJXdhuG
+	 sms353NOhmcFQ8tdzyfUcKzEVhO51qCmV4Zc+Ed1Nl6edZeevKQKcJn4WhY4yXh4TU
+	 fH+9xY7y2v5zA==
+Date: Tue, 3 Sep 2024 23:01:54 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+Cc: Jarkko Nikula <jarkko.nikula@linux.intel.com>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Mika Westerberg <mika.westerberg@linux.intel.com>, 
+	Jan Dabros <jsd@semihalf.com>, linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>, 
+	Dinh Nguyen <dinguyen@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Jiawen Wu <jiawenwu@trustnetic.com>, Mengyuan Lou <mengyuanlou@net-swift.com>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, netdev@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, UNGLinuxDriver@microchip.com, linux-mips@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-snps-arc@lists.infradead.org
+Subject: Re: [PATCH v2 0/7] i2c: designware: Group all DesignWare drivers
+ under a single option
+Message-ID: <3phynd24wmymhqugikbdwdzoa6vlzxwv5a6n6bk4446atbf7nu@c2kb766j3pcc>
+References: <20240903142506.3444628-1-heikki.krogerus@linux.intel.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH -fixes v2] riscv: Fix RISCV_ALTERNATIVE_EARLY
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <172539063376.409367.11331685769005840751.git-patchwork-notify@kernel.org>
-Date: Tue, 03 Sep 2024 19:10:33 +0000
-References: <20240829165048.49756-1-alexghiti@rivosinc.com>
-In-Reply-To: <20240829165048.49756-1-alexghiti@rivosinc.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, guoren@kernel.org,
- heiko@sntech.de, philipp.tomsich@vrull.eu, linux-kernel@vger.kernel.org,
- conor.dooley@microchip.com,
- syzbot+cfbcb82adf6d7279fd35@syzkaller.appspotmail.com
+Content-Disposition: inline
+In-Reply-To: <20240903142506.3444628-1-heikki.krogerus@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240903_121033_982510_0001B6BF 
-X-CRM114-Status: UNSURE (   7.85  )
+X-CRM114-CacheID: sfid-20240903_140159_169312_0FAD34D2 
+X-CRM114-Status: UNSURE (   7.27  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,31 +84,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Hi Jarkko, Andy,
 
-This patch was applied to riscv/linux.git (fixes)
-by Palmer Dabbelt <palmer@rivosinc.com>:
+...
 
-On Thu, 29 Aug 2024 18:50:48 +0200 you wrote:
-> RISCV_ALTERNATIVE_EARLY will issue sbi_ecall() very early in the boot
-> process, before the first memory mapping is setup so we can't have any
-> instrumentation happening here.
-> 
-> In addition, when the kernel is relocatable, we must also not issue any
-> relocation this early since they would have been patched virtually only.
-> 
-> [...]
+> Heikki Krogerus (7):
+>   ARC: configs: enable I2C_DESIGNWARE_CORE with I2C_DESIGNWARE_PLATFORM
+>   ARM: configs: enable I2C_DESIGNWARE_CORE with I2C_DESIGNWARE_PLATFORM
+>   arm64: defconfig: enable I2C_DESIGNWARE_CORE with
+>     I2C_DESIGNWARE_PLATFORM
+>   mips: configs: enable I2C_DESIGNWARE_CORE with I2C_DESIGNWARE_PLATFORM
+>   RISC-V: configs: enable I2C_DESIGNWARE_CORE with
+>     I2C_DESIGNWARE_PLATFORM
+>   net: txgbe: Fix I2C Kconfig dependencies
+>   i2c: designware: Group all DesignWare drivers under a single option
 
-Here is the summary with links:
-  - [-fixes,v2] riscv: Fix RISCV_ALTERNATIVE_EARLY
-    https://git.kernel.org/riscv/c/1ff95eb2bebd
+I believe you know this code already, do you mind giving it an
+ack?
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Thanks,
+Andi
 
 _______________________________________________
 linux-riscv mailing list
