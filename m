@@ -4,67 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20877CD379F
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Sep 2024 16:25:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C215ACD379F
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Sep 2024 16:39:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7CEtJfxn5iwvOYQPNPFtd41jZQNrE+MhFEh6uvkTMAE=; b=BhAqBIAKlz4tKG
-	F2pMNSIhBO21qRU/Hp6XdS4ef/JZn/stt5rYfHwZ3f8lQEqNagL+Rawfuv/8KbQLCBGQA6P4uWu5n
-	WdgyZ6Yym//fciQftsctR8b3W6th4IbuP67aV+1qh7PHLRZ8u1DMNXFtdenr1gAUXuAzVLa6qwyFi
-	3ndJPnxeaByMvccU+ecW27F3Xd0eVqMaEKTArIgA3MHHdReo2X6dkkjmSutt3eyHwSnQ20WN92N7O
-	V0v+k9iiZ0om2u4K55Il8Y32d/RSLhDezmSyr3VrnthglCv/uVNzBiUmFiSsec9dIjLC41b6Z39gJ
-	hhh+BtToWm5ARCFrmPfg==;
+	List-Owner; bh=rYvvyxdR3E57xmOuM2yRLInfVXGMMW4ishU0/erkFg0=; b=X7zzXfZCqrv9Ep
+	IM9GACq1r5CBRhrBU7bsRv5z9W3APlBQtk+VaiUOjbpNYuJVFAUwcu6c9mgL0Q08oRNwptPdvYLOq
+	/UEzIVh1VsX9ktl7An6o8yP4SAmR31Jjo1SzaKsUY4Wi46kvbWgeL4DL9IbG46uwPwP29OR53jfWN
+	zTH+SHdMeQBn4TY7nPal2G4CXHQOUP9guTcF1kT3R3i2wj0Nw3lS27rlgLmmeBtseh9wbSbctztlt
+	+QbHKGVJ8ZfYuuPtTe9iQVG7jPkZgXIqVYpHpsqJ9iRR6ztjlC02767fmv9eX7lDmPRaXKSh5Ske/
+	+0/VTkqeEUqB26jehrSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1slWLP-0000000161l-0gon;
-	Tue, 03 Sep 2024 16:25:27 +0000
+	id 1slWYy-00000001A07-3pz8;
+	Tue, 03 Sep 2024 16:39:28 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1slWKT-000000015qB-012C;
-	Tue, 03 Sep 2024 16:24:30 +0000
+	id 1slWY1-000000019ig-3CC6;
+	Tue, 03 Sep 2024 16:38:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 96C16A43CC0;
-	Tue,  3 Sep 2024 16:24:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66625C4CEC4;
-	Tue,  3 Sep 2024 16:24:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1725380667;
-	bh=9iVOVu/9OW9hC1XMij8LOQYkL6JBtfZqflc0EqcwKzo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Sg6V9rynIO66aMzDEBdKiQ0PGMnzTSeEnWtbuUwm1PMyXSw6Eb5HLrr+fSzCLg5VS
-	 RpTpcLZdH0/HhnyFmkx7TdZyKyFyZyb2qNdRz3JhkQrXjbDjTft5YAHYZX93CBNlS7
-	 CJlI1eqDSRpSThx4MCtKO9jqYyuli7Keqv5WG70qcjiQ5cCbYfJf5Lv8ERlynMtaid
-	 lzVOPLg/KQ+9XmZQmpdlE39b4X7g4bqYuZVHPFpOgmTf1jNIgR/+ZnL/1E+0kWG8+i
-	 iua2ccNDnbGg78bfE4O5uA36r5FQCvCw5QYJDz5l7ZWpbwBbCiVV9kck1fdcGNeMcK
-	 dTaJAroCrhjDg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1slWKP-009J5x-7F;
-	Tue, 03 Sep 2024 17:24:25 +0100
-Date: Tue, 03 Sep 2024 17:24:24 +0100
-Message-ID: <86r0a0vh6v.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,	Will Deacon <will@kernel.org>, Mark Brown <broonie@kernel.org>
-Cc: Jonathan Corbet <corbet@lwn.net>,
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3094DA4374F;
+	Tue,  3 Sep 2024 16:38:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 697ECC4CEC4;
+	Tue,  3 Sep 2024 16:38:22 +0000 (UTC)
+Date: Tue, 3 Sep 2024 17:38:20 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
 	Andrew Morton <akpm@linux-foundation.org>,
+	Marc Zyngier <maz@kernel.org>,
 	Oliver Upton <oliver.upton@linux.dev>,
 	James Morse <james.morse@arm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Oleg Nesterov <oleg@redhat.com>,
+	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
 	Eric Biederman <ebiederm@xmission.com>,
 	Shuah Khan <shuah@kernel.org>,
 	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Deepak Gupta <debug@rivosinc.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
-	Kees Cook <kees@kernel.org>,
+	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
+	Szabolcs Nagy <Szabolcs.Nagy@arm.com>, Kees Cook <kees@kernel.org>,
 	"H.J. Lu" <hjl.tools@gmail.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -75,30 +56,24 @@ Cc: Jonathan Corbet <corbet@lwn.net>,
 	Ross Burton <ross.burton@arm.com>,
 	Yury Khrustalev <yury.khrustalev@arm.com>,
 	Wilco Dijkstra <wilco.dijkstra@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v12 15/39] KVM: arm64: Manage GCS access and registers for guests
-In-Reply-To: <20240829-arm64-gcs-v12-15-42fec947436a@kernel.org>
+Subject: Re: [PATCH v12 26/39] arm64/ptrace: Expose GCS via ptrace and core
+ files
+Message-ID: <Ztc7fIneIhCEmesI@arm.com>
 References: <20240829-arm64-gcs-v12-0-42fec947436a@kernel.org>
-	<20240829-arm64-gcs-v12-15-42fec947436a@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org, corbet@lwn.net, akpm@linux-foundation.org, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, arnd@arndb.de, oleg@redhat.com, ebiederm@xmission.com, shuah@kernel.org, rick.p.edgecombe@intel.com, debug@rivosinc.com, ardb@kernel.org, Szabolcs.Nagy@arm.com, kees@kernel.org, hjl.tools@gmail.com, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, fweimer@redhat.com, brauner@kernel.org, thiago.bauermann@linaro.org, ross.burton@arm.com, yury.khrustalev@arm.com, wilco.dijkstra@arm.com, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org, linux-arch@vger.kernel.org, linux-mm@kvack.org, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+ <20240829-arm64-gcs-v12-26-42fec947436a@kernel.org>
+ <ZtYKYMWjApRxFO_-@arm.com>
+ <3f190f54-477e-48dd-8a57-8d61ea20413b@sirena.org.uk>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <3f190f54-477e-48dd-8a57-8d61ea20413b@sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240903_092429_196443_FDABE2DC 
-X-CRM114-Status: GOOD (  23.62  )
+X-CRM114-CacheID: sfid-20240903_093829_885098_DDD53D94 
+X-CRM114-Status: GOOD (  13.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,47 +90,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 29 Aug 2024 00:27:31 +0100,
-Mark Brown <broonie@kernel.org> wrote:
+On Mon, Sep 02, 2024 at 07:58:28PM +0100, Mark Brown wrote:
+> On Mon, Sep 02, 2024 at 07:56:32PM +0100, Catalin Marinas wrote:
+> > On Thu, Aug 29, 2024 at 12:27:42AM +0100, Mark Brown wrote:
 > 
-> GCS introduces a number of system registers for EL1 and EL0, on systems
-> with GCS we need to context switch them and expose them to VMMs to allow
-> guests to use GCS.
+> > > +static int gcs_get(struct task_struct *target,
+> > > +		   const struct user_regset *regset,
+> > > +		   struct membuf to)
 > 
-> In order to allow guests to use GCS we also need to configure
-> HCRX_EL2.GCSEn, if this is not set GCS instructions will be noops and
-> CHKFEAT will report GCS as disabled.  Also enable fine grained traps for
-> access to the GCS registers by guests which do not have the feature
-> enabled.
+> > > +	if (target == current)
+> > > +		gcs_preserve_current_state();
 > 
-> In order to allow userspace to control availability of the feature to
-> guests we enable writability for only ID_AA64PFR1_EL1.GCS, this is a
-> deliberately conservative choice to avoid errors due to oversights.
-> Further fields should be made writable in future.
+> > What's the use-case where target == current and do we need something
+> > similar for gcs_set()?
 > 
-> Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> ---
->  arch/arm64/include/asm/kvm_host.h          | 12 ++++++++
->  arch/arm64/include/asm/vncr_mapping.h      |  2 ++
->  arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h | 49 ++++++++++++++++++++++++------
->  arch/arm64/kvm/sys_regs.c                  | 27 +++++++++++++++-
->  4 files changed, 79 insertions(+), 11 deletions(-)
+> IIRC core file generation so no.
 
-FWIW, this patch is going to conflict badly with -next, because of the
-"conservative" approach to dealing with ID_AA64PFR1_EL1 (thankfully,
-the *progressive* approach has been merged).
-
-If it gets stuck on a branch together with patch #11 (which seems to
-be the minimum for things to compile), I can take it independently and
-fix it myself. Just let me know.
-
-Thanks,
-
-	M.
+Ah, true. Makes sense.
 
 -- 
-Without deviation from the norm, progress is not possible.
+Catalin
 
 _______________________________________________
 linux-riscv mailing list
