@@ -4,66 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B0DECD4F25
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Sep 2024 20:30:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44D2ECD4F2B
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Sep 2024 20:38:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1wzZxWpb+CNa1yq6+bKNVzlegRBCqg80uQoX3k1mi9I=; b=SVcZ4D4iTFNijk
-	IAq3uQPQe5YysmoZ7LsbkYFo8cAN4tJQBIqqy2DEZx0mtMxbIBlq7CXgNTbPzRQmpnd3cBPNpmzgv
-	UIhZlulwmpgZwaGnlCtm7ePeCAd7UTZhxtuhia5D4+oBYq8NU2SXkHHAM6WFODC8/nfCJ9Jh50oI+
-	Km5XBsbYj3zAtnmIBbrQQMTvOJBbdej55tizqKJb/7FKBCwuTe5dlpcnh9CxyEoYbhqpmHqcs5hS0
-	tnw6HnBUj4A50vFW0kMsI29wONULg1nHc6m0D2NqzgmawEnd9Do2NNHIuAAOhSEnksyy5u0fYIlTD
-	8bX11sgoQgekGib6xvlQ==;
+	List-Owner; bh=ygBkI7Hlyb8URsqTjPAcNIrULnizS/muiUGP853C2lw=; b=WbSymJkfsm5K/M
+	vgTTHzvoRSeSjkP7wGvwo9JSNBUMVXqYnzZaB7bkXPhKhnFuqxTHGk8/RfxmtEnwvtCt0SHjZX+fz
+	Wsuzig8SpsE0Y24QW9ko8LYe2RIOMtjgZKkdvQHAtUonnbK2PCq97SeI0+YNf3HPW8TKm10EDGw5l
+	GrCSci5Oy7fLVYgBcTDo3pFwer25NXFnsC8fcy0/4SIBSEULwLeVj2guvRK2LFQxi68mr1mUpyXfJ
+	UtO0wLjCDJndShMkfMwDzBxc5H8YOc1TgZ0w3GU3/fRs+8UZ5Yw4ZmtCuIHcPmca5FRaHC99kYbhb
+	AmSKORyqxry2fTNgnNGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1slweB-00000005ySd-1kCW;
-	Wed, 04 Sep 2024 20:30:35 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1slwlu-00000005zz4-0jJS;
+	Wed, 04 Sep 2024 20:38:34 +0000
+Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1slwe7-00000005yRG-3EbA
+	id 1slwlp-00000005zxx-3H0h
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Sep 2024 20:30:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8FDCEA44579;
-	Wed,  4 Sep 2024 20:30:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BEB1C4CEC2;
-	Wed,  4 Sep 2024 20:30:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1725481830;
-	bh=ZDVqpTpXFqfaQOBp5jbdRI+wlIMqz5/1OVyt667YST4=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=mrzNlBMFEsp7n8AE5qk3UQVmKDA2R/m+wCfhYHJ0nrP0WwtV+3YLXgzPbuXARX4tv
-	 jS0KSkgsZk//TO+fCx0l2I1HVyUmV5YGRSjFieQDi5OUtXrWVhS0Sx0SNO/A6kttYI
-	 l5vNW5MU0O6oThFon7QQGUT91pTT+v13l1pU8nyZwwSQi7PboAhv/HnajNyaZEo/jL
-	 mJOM+zquArWYrloWULK9D1f2BTTl2nJeEoBHc4Kc4FfkBZAFyjGHaFcG+GlQks55lV
-	 Lnh0JpDmo63LtKdlhqwZm48SatHEJZZrRrMQwTU4xRqTDoLMBLFWpYJFAWi0P9Vio6
-	 vFgnfKqO1b2bA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70DFD3822D30;
-	Wed,  4 Sep 2024 20:30:32 +0000 (UTC)
+	Wed, 04 Sep 2024 20:38:31 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 0D16A1BF203;
+	Wed,  4 Sep 2024 20:38:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1725482304;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=eIswLtOfZtf2hkYmMprySdT0sIt7a6+fv7isRSExRY8=;
+	b=hDyX45kuNseqYmR1xNb2I+QSwtW32sZzTAu0n79JH5zh02JZAigAOLaZ6wAMwC45sdsXEF
+	l2z6nfx3DR08UlCNKXOo8yAViMitC0yih7g0juMcxUVT2h0QuSxznqa1PL5NpDOqgeZl0a
+	i+PnbUUINAUJ/LBLMyJ5Z58fIhm1pPqQjBZo6Q9Vn914dTZVAdpdzwF2hOrvQS+zA0k9fD
+	Nq+ESIaGYc8rr+6wW/h1AjD8NjzWLPlhxEbFgBzmORdpLgNR/l8vaQ9kjtIdwkNyo6Mibn
+	Tb+MFIntj8BKRvubKT+31bHe193VEBveBrBON6ZPh7GDBlon9bcmlMRpw3k7mw==
+Message-ID: <b0849f3a-ddd3-4e6a-9f1f-1c5c9ab3e613@bootlin.com>
+Date: Wed, 4 Sep 2024 22:38:18 +0200
 MIME-Version: 1.0
-Subject: Re: [PATCH bpf-next v3 0/4] Fix accessing first syscall argument on RV64
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <172548183128.1158691.9881712792582282151.git-patchwork-notify@kernel.org>
-Date: Wed, 04 Sep 2024 20:30:31 +0000
-References: <20240831041934.1629216-1-pulehui@huaweicloud.com>
-In-Reply-To: <20240831041934.1629216-1-pulehui@huaweicloud.com>
-To: Pu Lehui <pulehui@huaweicloud.com>
-Cc: bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
- netdev@vger.kernel.org, andrii@kernel.org, bjorn@kernel.org,
- iii@linux.ibm.com, ast@kernel.org, daniel@iogearbox.net,
- martin.lau@linux.dev, eddyz87@gmail.com, song@kernel.org,
- yonghong.song@linux.dev, john.fastabend@gmail.com, kpsingh@kernel.org,
- sdf@google.com, haoluo@google.com, jolsa@kernel.org, puranjay@kernel.org,
- palmer@dabbelt.com, pulehui@huawei.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 2/3] iio: adc: sophgo-saradc: Add driver for Sophgo
+ CV1800B SARADC
+To: Jonathan Cameron <jic23@kernel.org>,
+ Andy Shevchenko <andy.shevchenko@gmail.com>
+Cc: Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
+ Inochi Amaoto <inochiama@outlook.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ =?UTF-8?Q?Miqu=C3=A8l_Raynal?= <miquel.raynal@bootlin.com>,
+ linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <20240829-sg2002-adc-v5-0-aacb381e869b@bootlin.com>
+ <20240829-sg2002-adc-v5-2-aacb381e869b@bootlin.com>
+ <ZtYh6xUcP8zo3xMj@surfacebook.localdomain>
+ <20240903200526.0734945b@jic23-huawei>
+From: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+Content-Language: fr, en-US
+In-Reply-To: <20240903200526.0734945b@jic23-huawei>
+X-GND-Sasl: thomas.bonnefille@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240904_133031_890782_4D2857F0 
-X-CRM114-Status: UNSURE (   7.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240904_133830_450806_6FFE503B 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,44 +81,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This series was applied to bpf/bpf-next.git (master)
-by Andrii Nakryiko <andrii@kernel.org>:
-
-On Sat, 31 Aug 2024 04:19:30 +0000 you wrote:
-> On RV64, as Ilya mentioned before [0], the first syscall parameter should be
-> accessed through orig_a0 (see arch/riscv64/include/asm/syscall.h),
-> otherwise it will cause selftests like bpf_syscall_macro, vmlinux,
-> test_lsm, etc. to fail on RV64.
-> 
-> Link: https://lore.kernel.org/bpf/20220209021745.2215452-1-iii@linux.ibm.com [0]
-> 
-> [...]
-
-Here is the summary with links:
-  - [bpf-next,v3,1/4] libbpf: Access first syscall argument with CO-RE direct read on s390
-    https://git.kernel.org/bpf/bpf-next/c/65ee11d9c822
-  - [bpf-next,v3,2/4] libbpf: Access first syscall argument with CO-RE direct read on arm64
-    https://git.kernel.org/bpf/bpf-next/c/ebd8ad474888
-  - [bpf-next,v3,3/4] selftests/bpf: Enable test_bpf_syscall_macro:syscall_arg1 on s390 and arm64
-    https://git.kernel.org/bpf/bpf-next/c/3a913c4d62e1
-  - [bpf-next,v3,4/4] libbpf: Fix accessing first syscall argument on RV64
-    https://git.kernel.org/bpf/bpf-next/c/13143c5816bc
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGVsbG8sIHRoYW5rIHlvdSBmb3IgdGhlc2UgZml4ZXMsIEkganVzdCB3YW50ZWQgdG8gYWRkIHNv
+bWV0aGluZyBiZWxvdy4KCkxlIDAzLzA5LzIwMjQgw6AgOTowNSBQTSwgSm9uYXRoYW4gQ2FtZXJv
+biBhIMOpY3JpdMKgOgo+IE9uIE1vbiwgMiBTZXAgMjAyNCAyMzozNjo1OSArMDMwMAo+IEFuZHkg
+U2hldmNoZW5rbyA8YW5keS5zaGV2Y2hlbmtvQGdtYWlsLmNvbT4gd3JvdGU6Cj4gCj4+IFRodSwg
+QXVnIDI5LCAyMDI0IGF0IDAyOjMxOjUxUE0gKzAyMDAsIFRob21hcyBCb25uZWZpbGxlIGtpcmpv
+aXR0aToKPj4+IFRoaXMgYWRkcyBhIGRyaXZlciBmb3IgdGhlIFNvcGhnbyBDVjE4MDBCIFNBUkFE
+Qy4KCi4uLgoKPj4+ICsJCWluaXRfY29tcGxldGlvbigmc2FyYWRjLT5jb21wbGV0aW9uKTsKPj4+
+ICsJCXJldCA9IGRldm1fcmVxdWVzdF9pcnEoJnBkZXYtPmRldiwgc2FyYWRjLT5pcnEsCj4+PiAr
+CQkJCSAgICAgICBjdjE4MDBiX2FkY19pbnRlcnJ1cHRfaGFuZGxlciwgMCwKPj4+ICsJCQkJICAg
+ICAgIGRldl9uYW1lKCZwZGV2LT5kZXYpLCBzYXJhZGMpOwo+Pj4gKwkJaWYgKHJldCkKPj4+ICsJ
+CQlyZXR1cm4gcmV0Owo+Pj4gKwo+Pj4gKwkJd3JpdGVsKDEsIHNhcmFkYy0+cmVncyArIENWMTgw
+MEJfQURDX0lOVFJfRU5fUkVHKTsKPj4KPj4gQklUKDApCj4gCj4gTWF5YmUgb24gdGhhdCAtIHdv
+dWxkIG5lZWQgdG8gY29tcGFyZSB3aXRoIGRhdGFzaGVldCB0byBrbm93IGhvdyBpdCdzCj4gZGVz
+Y3JpYmVkLiBJbiB0aGVvcnkgdGhhdCBtaWdodCBub3QgYmUgYSBtYXNrLgoKSW5kZWVkLCBpbiB0
+aGlzIGNhc2UgIkNWMTgwMEJfQURDX0lOVFJfRU5fUkVHIiBpcyB0aGUgcmVnaXN0ZXIgdGhhdCAK
+ZW5hYmxlcyB0aGUgaW50ZXJydXB0cy4KU28gaGVyZSB3aGF0IEkgZGlzIGlzIHRvIHNldCB0aGlz
+IHJlZ2lzdGVyIHRvIDEgKE9OKS4KCj4gCj4+Cj4+PiArCX0KPj4+ICsKPj4+ICsJcmV0ID0gZGV2
+bV9tdXRleF9pbml0KCZwZGV2LT5kZXYsICZzYXJhZGMtPmxvY2spOwo+Pj4gKwlpZiAocmV0KQo+
+Pj4gKwkJcmV0dXJuIHJldDsKPj4KPj4gKyBibGFuayBsaW5lPwo+IFRoYXQgb25lIEknZCBkb25l
+IGFscmVhZHkuCj4gQW55aG93IHR3ZWFrZWQgYW5kIHB1c2hlZCBvdXQgYWdhaW4uCj4gCj4gCj4g
+Sm9uYXRoYW4KPiAKPj4KPj4+ICsJd3JpdGVsKEZJRUxEX1BSRVAoQ1YxODAwQl9NQVNLX1NUQVJU
+VVBfQ1lDTEUsIDE1KSB8Cj4+PiArCSAgICAgICBGSUVMRF9QUkVQKENWMTgwMEJfTUFTS19TQU1Q
+TEVfV0lORE9XLCAxNSkgfAo+Pj4gKwkgICAgICAgRklFTERfUFJFUChDVjE4MDBCX01BU0tfQ0xL
+RElWLCAxKSB8Cj4+PiArCSAgICAgICBGSUVMRF9QUkVQKENWMTgwMEJfTUFTS19DT01QQVJFX0NZ
+Q0xFLCAxNSksCj4+PiArCSAgICAgICBzYXJhZGMtPnJlZ3MgKyBDVjE4MDBCX0FEQ19DWUNfU0VU
+X1JFRyk7Cj4+PiArCj4+PiArCXJldHVybiBkZXZtX2lpb19kZXZpY2VfcmVnaXN0ZXIoJnBkZXYt
+PmRldiwgaW5kaW9fZGV2KTsKPj4+ICt9Cj4+Cj4gClRob21hcwoKX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
+bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
+bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
