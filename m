@@ -4,130 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B0FBCD37AE
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Sep 2024 07:02:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C17BCA0ED3
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Sep 2024 07:05:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hSZLFbfhe18KdfyCWqBxjCjZ7aE1LmYeomtYqNqTAcQ=; b=ffx8IBmQS1Nb5S
-	8YngpBh4hAYOBbB5CM5J5bQjObN5p4C4sA1J8BKKgoG30xDCYCfi2LcdzrOS+BYyvaIFyGW2EGIGv
-	hBwtiI1uN+ikIkK8CAFMjvp153o138UpCPRIQChuYf4SzxqZ5ug95MJ7y83kOq8pLabcg2kjAI79d
-	ig7cSA2kCkiEj3IpSxBO8yLBhl5QvKA8TADarlUKdkclcTGrgdZJvgSzp7Tk2mpSCsKb9e0183tMs
-	Myp0r3/sV6jM+prKrNHEUPvfbTLt7Igoszb9BdX4ICFT8grva2DczFzkXuKvhWzpZdKj0L/d33ZWU
-	KiCYE2ZLtKjLVydTHvJw==;
+	List-Owner; bh=t/HH4tC4VuDFVmqzfTWkK4yDPww9HTfcx16A0IRp+kk=; b=40duqVo8uQA4eQ
+	8qqCXpydzH2b27fzg0yGeacxb8dOb5CjjFDk2KD5Lf2LRwBPgkf02d0eHNhioMNzOUtnV6YHm2rGp
+	9ej1P2QTTQDAew1jqmhUKyXqOl59Q7C65gvpOmT/dHPh71PWplngoAroqI3/4dmHAJn6lWcuKoUVt
+	Rvb5StUwhONnKpkT53GyjhoilVKOJYP7hjnNk7apM/qmQM2UdkZcaWSzrjNXaKTQnmtDtKH5Z+w/7
+	whjFerK1zcQrGAUA0lOZSkgJC+a+LPIs3fZnuf0Nk0OO/gXT/Gthel0JNRpr6REA0mACD9sW5yjHX
+	tdG//1Irntk+ia2Gw7aQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1slk1s-000000036bY-0cTu;
-	Wed, 04 Sep 2024 07:02:12 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1slk54-0000000378a-3wd1;
+	Wed, 04 Sep 2024 07:05:31 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1slk0B-000000036C0-0xoH;
-	Wed, 04 Sep 2024 07:00:28 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4846HBfX016570;
-	Wed, 4 Sep 2024 06:59:24 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=from
-	:to:cc:subject:date:message-id:in-reply-to:references
-	:mime-version:content-transfer-encoding; s=pp1; bh=folkEIJqstNzu
-	7lwREFA/To2vbOIgoI9Y7HXfVt2L+U=; b=lE0LMpjqff+1mmFkHrSz4fklZ5X+5
-	iBqjQRbetoP8n+C+7ngNmnp+awphLL0vlg84xB25xHnDJ2f66lwui/k2DAtlNNg/
-	P91ynPjf8WHxkt5Z7IRFm+5IAkLz7u+ADKaknng+M/flQ6Dr+T+2PLif7E3UNOv1
-	IfzQ+CrYh88BCVLi1OL88XCywOiH6Cs2Vnt2XZ+scTsDa7YYPYmQ1psJ7KcN0tmY
-	o5EpEgn16MpCatVoZWMrwUl1CCpujfbpbX839/a05o5v3dleyO2mQ9yJZBh38WaL
-	FXFHPty7ghqYDiPxbGrYtFxyhRW8hF451vjRrMOsjpOuKux3F5cSMfYHw==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 41btp9hn91-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 04 Sep 2024 06:59:24 +0000 (GMT)
-Received: from m0360083.ppops.net (m0360083.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 4846xNXk004735;
-	Wed, 4 Sep 2024 06:59:23 GMT
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 41btp9hn8r-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 04 Sep 2024 06:59:23 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 48430pfD000413;
-	Wed, 4 Sep 2024 06:59:21 GMT
-Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 41cdgupq5e-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 04 Sep 2024 06:59:21 +0000
-Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 4846xHm534931168
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 4 Sep 2024 06:59:18 GMT
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id CC49C20043;
-	Wed,  4 Sep 2024 06:59:17 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id A500320040;
-	Wed,  4 Sep 2024 06:59:17 +0000 (GMT)
-Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.152.85.9])
-	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Wed,  4 Sep 2024 06:59:17 +0000 (GMT)
-Received: by tuxmaker.boeblingen.de.ibm.com (Postfix, from userid 55390)
-	id 7AC54E0297; Wed,  4 Sep 2024 08:59:17 +0200 (CEST)
-From: Sven Schnelle <svens@linux.ibm.com>
-To: Steven Rostedt <rostedt@goodmis.org>,
-        Masami Hiramatsu <mhiramat@kernel.org>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-        Russell King <linux@armlinux.org.uk>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
-        Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
-        Michal Simek <monstr@monstr.eu>,
-        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-        "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-        Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        Christophe Leroy <christophe.leroy@csgroup.eu>,
-        Naveen N Rao <naveen@kernel.org>,
-        Paul Walmsley <paul.walmsley@sifive.com>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-        Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
-        Alexander Gordeev <agordeev@linux.ibm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Yoshinori Sato <ysato@users.sourceforge.jp>,
-        Rich Felker <dalias@libc.org>,
-        John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-        "David S. Miller" <davem@davemloft.net>,
-        Andreas Larsson <andreas@gaisler.com>,
-        Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-        Borislav Petkov <bp@alien8.de>,
-        Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-        "H. Peter Anvin" <hpa@zytor.com>
-Cc: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-        loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
-        linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-        linux-sh@vger.kernel.org, sparclinux@vger.kernel.org
-Subject: [PATCH 1/7] tracing: add ftrace_regs to function_graph_enter()
-Date: Wed,  4 Sep 2024 08:58:55 +0200
-Message-ID: <20240904065908.1009086-2-svens@linux.ibm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240904065908.1009086-1-svens@linux.ibm.com>
-References: <20240904065908.1009086-1-svens@linux.ibm.com>
+	id 1slk51-0000000377o-26Zc
+	for linux-riscv@lists.infradead.org;
+	Wed, 04 Sep 2024 07:05:29 +0000
+Date: Wed, 4 Sep 2024 07:05:20 +0000
+From: Yixun Lan <dlan@gentoo.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH 1/3] dt-bindings: gpio: spacemit: add support for K1 SoC
+Message-ID: <20240904070520-GYA107481@gentoo>
+References: <20240904-03-k1-gpio-v1-0-6072ebeecae0@gentoo.org>
+ <20240904-03-k1-gpio-v1-1-6072ebeecae0@gentoo.org>
+ <ttvqw3hncprtshhdgsnvlfopobqcxtsraxevgxqgnlt6orftkr@ktahud64cczd>
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: 4SIE32AwU4OcPAwAEJmTo-vtL9wXompT
-X-Proofpoint-ORIG-GUID: 562DU-xMxw4EVrNelRokSilhcXaDg0Dm
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-04_04,2024-09-03_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
- bulkscore=0 lowpriorityscore=0 phishscore=0 impostorscore=0 spamscore=0
- malwarescore=0 mlxlogscore=861 adultscore=0 mlxscore=0 suspectscore=0
- clxscore=1011 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2407110000 definitions=main-2409040049
+Content-Disposition: inline
+In-Reply-To: <ttvqw3hncprtshhdgsnvlfopobqcxtsraxevgxqgnlt6orftkr@ktahud64cczd>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240904_000027_287287_DE43057B 
-X-CRM114-Status: GOOD (  22.80  )
+X-CRM114-CacheID: sfid-20240904_000527_764353_05A83401 
+X-CRM114-Status: GOOD (  28.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,247 +52,156 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: linux-riscv@lists.infradead.org, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Meng Zhang <kevin.z.m@hotmail.com>, Linus Walleij <linus.walleij@linaro.org>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Yangyu Chen <cyy@cyyself.name>, devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Inochi Amaoto <inochiama@outlook.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Meng Zhang <zhangmeng.kevin@spacemit.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Will be used later for showing function arguments in the function
-graph tracer.
+Hi Krzysztof 
 
-Signed-off-by: Sven Schnelle <svens@linux.ibm.com>
----
- arch/arm/kernel/ftrace.c           | 2 +-
- arch/arm64/kernel/ftrace.c         | 2 +-
- arch/csky/kernel/ftrace.c          | 2 +-
- arch/loongarch/kernel/ftrace.c     | 2 +-
- arch/loongarch/kernel/ftrace_dyn.c | 2 +-
- arch/microblaze/kernel/ftrace.c    | 2 +-
- arch/mips/kernel/ftrace.c          | 2 +-
- arch/parisc/kernel/ftrace.c        | 2 +-
- arch/powerpc/kernel/trace/ftrace.c | 2 +-
- arch/riscv/kernel/ftrace.c         | 2 +-
- arch/s390/kernel/ftrace.c          | 2 +-
- arch/sh/kernel/ftrace.c            | 2 +-
- arch/sparc/kernel/ftrace.c         | 2 +-
- arch/x86/kernel/ftrace.c           | 2 +-
- include/linux/ftrace.h             | 3 ++-
- kernel/trace/fgraph.c              | 3 ++-
- 16 files changed, 18 insertions(+), 16 deletions(-)
+On 08:46 Wed 04 Sep     , Krzysztof Kozlowski wrote:
+> On Wed, Sep 04, 2024 at 12:27:23AM +0000, Yixun Lan wrote:
+> > The GPIO controller of K1 support basic functions as input/output,
+> > all pins can be used as interrupt which route to one IRQ line,
+> > trigger type can be select between rising edge, failing edge, or both.
+> > There are four GPIO banks, each consisting of 32 pins.
+> > 
+> > Signed-off-by: Yixun Lan <dlan@gentoo.org>
+> > ---
+> >  .../devicetree/bindings/gpio/spacemit,k1-gpio.yaml | 95 ++++++++++++++++++++++
+> >  1 file changed, 95 insertions(+)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/gpio/spacemit,k1-gpio.yaml b/Documentation/devicetree/bindings/gpio/spacemit,k1-gpio.yaml
+> > new file mode 100644
+> > index 0000000000000..db2e62fb452fd
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/gpio/spacemit,k1-gpio.yaml
+> > @@ -0,0 +1,95 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/gpio/spacemit,k1-gpio.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: SpacemiT K1 GPIO controller
+> > +
+> > +description: >
+> 
+> Drop >
+> 
+> > +  The controller's registers are organized as sets of eight 32-bit
+> > +  registers with each set controlling a bank of up to 32 pins.  A single
+> > +  interrupt is shared for all of the banks handled by the controller.
+> > +
+> > +maintainers:
+> > +  - Yixun Lan <dlan@gentoo.org>
+> 
+> Maintainers go before description. Use example-schema as template.
+> 
+> > +
+> > +properties:
+> > +  $nodename:
+> > +    pattern: '^gpio@[0-9a-f]+$'
+> 
+> 
+> No, why? Drop.
+> 
+> > +
+> > +  compatible:
+> > +    items:
+> 
+> and you can drop items as well.
+> 
+> > +      - const: spacemit,k1-gpio
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +    description: >
+> 
+> Drop >. Everywhere.
+> 
+> > +      Define the base and range of the I/O address space containing
+> > +      the SpacemiT K1 GPIO controller registers
+> 
+> Redundant description, drop.
+> 
+> > +
+> > +  ranges: true
+> > +
+> > +  "#gpio-cells":
+> > +    const: 2
+> > +    description: >
+> > +      The first cell is the pin number (within the controller's
+> > +      pin space), and the second is used for the following:
+> > +      bit[0]: polarity (0 for active-high, 1 for active-low)
+> 
+> Rather refer to standard GPIO bindings header.
+> 
+> > +
+> > +  gpio-controller: true
+> > +
+> > +  gpio-ranges: true
+> > +
+> > +  interrupts:
+> > +    maxItems: 1
+> > +    description:
+> > +      The interrupt shared by all GPIO lines for this controller.
+> > +
+> > +  interrupt-names:
+> > +    items:
+> > +      - const: gpio_mux
+> > +
+> > +  "#interrupt-cells":
+> > +    const: 2
+> > +    description: |
+> > +      The first cell is the GPIO number, the second should specify
+> > +      flags.  The following subset of flags is supported:
+> > +      - bits[3:0] trigger type flags (no level trigger type support)
+> > +        1 = low-to-high edge triggered
+> > +        2 = high-to-low edge triggered
+> > +      Valid combinations are 1, 2, 3
+> 
+> Hm? No, you must use standard interrupt flags, not custom ones.
+> 
+It should be same as standard flags, my intention here was try to say
+the controller support edge trigger only, but no level trigger flags (4, 8)
+should I just replace number to macro, and put it like this:
 
-diff --git a/arch/arm/kernel/ftrace.c b/arch/arm/kernel/ftrace.c
-index e61591f33a6c..1f8802439e34 100644
---- a/arch/arm/kernel/ftrace.c
-+++ b/arch/arm/kernel/ftrace.c
-@@ -267,7 +267,7 @@ void prepare_ftrace_return(unsigned long *parent, unsigned long self_addr,
- 	old = *parent;
- 	*parent = return_hooker;
- 
--	if (function_graph_enter(old, self_addr, frame_pointer, NULL))
-+	if (function_graph_enter(old, self_addr, frame_pointer, NULL, NULL))
- 		*parent = old;
- }
- 
-diff --git a/arch/arm64/kernel/ftrace.c b/arch/arm64/kernel/ftrace.c
-index a650f5e11fc5..686fbebb0432 100644
---- a/arch/arm64/kernel/ftrace.c
-+++ b/arch/arm64/kernel/ftrace.c
-@@ -472,7 +472,7 @@ void prepare_ftrace_return(unsigned long self_addr, unsigned long *parent,
- 	old = *parent;
- 
- 	if (!function_graph_enter(old, self_addr, frame_pointer,
--	    (void *)frame_pointer)) {
-+	    (void *)frame_pointer, NULL)) {
- 		*parent = return_hooker;
- 	}
- }
-diff --git a/arch/csky/kernel/ftrace.c b/arch/csky/kernel/ftrace.c
-index 50bfcf129078..c12af268c1cb 100644
---- a/arch/csky/kernel/ftrace.c
-+++ b/arch/csky/kernel/ftrace.c
-@@ -156,7 +156,7 @@ void prepare_ftrace_return(unsigned long *parent, unsigned long self_addr,
- 	old = *parent;
- 
- 	if (!function_graph_enter(old, self_addr,
--			*(unsigned long *)frame_pointer, parent)) {
-+			*(unsigned long *)frame_pointer, parent, NULL)) {
- 		/*
- 		 * For csky-gcc function has sub-call:
- 		 * subi	sp,	sp, 8
-diff --git a/arch/loongarch/kernel/ftrace.c b/arch/loongarch/kernel/ftrace.c
-index 8c3ec1bc7aad..43d908b01718 100644
---- a/arch/loongarch/kernel/ftrace.c
-+++ b/arch/loongarch/kernel/ftrace.c
-@@ -61,7 +61,7 @@ void prepare_ftrace_return(unsigned long self_addr,
- 	if (ftrace_get_parent_ra_addr(self_addr, &ra_off))
- 		goto out;
- 
--	if (!function_graph_enter(old, self_addr, 0, NULL))
-+	if (!function_graph_enter(old, self_addr, 0, NULL, NULL))
- 		*(unsigned long *)(callsite_sp + ra_off) = return_hooker;
- 
- 	return;
-diff --git a/arch/loongarch/kernel/ftrace_dyn.c b/arch/loongarch/kernel/ftrace_dyn.c
-index bff058317062..eab16231d09d 100644
---- a/arch/loongarch/kernel/ftrace_dyn.c
-+++ b/arch/loongarch/kernel/ftrace_dyn.c
-@@ -233,7 +233,7 @@ void prepare_ftrace_return(unsigned long self_addr, unsigned long *parent)
- 
- 	old = *parent;
- 
--	if (!function_graph_enter(old, self_addr, 0, parent))
-+	if (!function_graph_enter(old, self_addr, 0, parent, NULL))
- 		*parent = return_hooker;
- }
- 
-diff --git a/arch/microblaze/kernel/ftrace.c b/arch/microblaze/kernel/ftrace.c
-index 188749d62709..009800d7e54f 100644
---- a/arch/microblaze/kernel/ftrace.c
-+++ b/arch/microblaze/kernel/ftrace.c
-@@ -62,7 +62,7 @@ void prepare_ftrace_return(unsigned long *parent, unsigned long self_addr)
- 		return;
- 	}
- 
--	if (function_graph_enter(old, self_addr, 0, NULL))
-+	if (function_graph_enter(old, self_addr, 0, NULL, NULL))
- 		*parent = old;
- }
- #endif /* CONFIG_FUNCTION_GRAPH_TRACER */
-diff --git a/arch/mips/kernel/ftrace.c b/arch/mips/kernel/ftrace.c
-index 8c401e42301c..65f29de35a59 100644
---- a/arch/mips/kernel/ftrace.c
-+++ b/arch/mips/kernel/ftrace.c
-@@ -362,7 +362,7 @@ void prepare_ftrace_return(unsigned long *parent_ra_addr, unsigned long self_ra,
- 	insns = core_kernel_text(self_ra) ? 2 : MCOUNT_OFFSET_INSNS + 1;
- 	self_ra -= (MCOUNT_INSN_SIZE * insns);
- 
--	if (function_graph_enter(old_parent_ra, self_ra, fp, NULL))
-+	if (function_graph_enter(old_parent_ra, self_ra, fp, NULL, NULL))
- 		*parent_ra_addr = old_parent_ra;
- 	return;
- out:
-diff --git a/arch/parisc/kernel/ftrace.c b/arch/parisc/kernel/ftrace.c
-index c91f9c2e61ed..c8d926f057a6 100644
---- a/arch/parisc/kernel/ftrace.c
-+++ b/arch/parisc/kernel/ftrace.c
-@@ -45,7 +45,7 @@ static void __hot prepare_ftrace_return(unsigned long *parent,
- 
- 	old = *parent;
- 
--	if (!function_graph_enter(old, self_addr, 0, NULL))
-+	if (!function_graph_enter(old, self_addr, 0, NULL, NULL))
- 		/* activate parisc_return_to_handler() as return point */
- 		*parent = (unsigned long) &parisc_return_to_handler;
- }
-diff --git a/arch/powerpc/kernel/trace/ftrace.c b/arch/powerpc/kernel/trace/ftrace.c
-index d8d6b4fd9a14..8a24d6eabb64 100644
---- a/arch/powerpc/kernel/trace/ftrace.c
-+++ b/arch/powerpc/kernel/trace/ftrace.c
-@@ -434,7 +434,7 @@ void ftrace_graph_func(unsigned long ip, unsigned long parent_ip,
- 	if (bit < 0)
- 		goto out;
- 
--	if (!function_graph_enter(parent_ip, ip, 0, (unsigned long *)sp))
-+	if (!function_graph_enter(parent_ip, ip, 0, (unsigned long *)sp, NULL))
- 		parent_ip = ppc_function_entry(return_to_handler);
- 
- 	ftrace_test_recursion_unlock(bit);
-diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
-index 4b95c574fd04..b45985265b29 100644
---- a/arch/riscv/kernel/ftrace.c
-+++ b/arch/riscv/kernel/ftrace.c
-@@ -205,7 +205,7 @@ void prepare_ftrace_return(unsigned long *parent, unsigned long self_addr,
- 	 */
- 	old = *parent;
- 
--	if (!function_graph_enter(old, self_addr, frame_pointer, parent))
-+	if (!function_graph_enter(old, self_addr, frame_pointer, parent, NULL))
- 		*parent = return_hooker;
- }
- 
-diff --git a/arch/s390/kernel/ftrace.c b/arch/s390/kernel/ftrace.c
-index 0b6e62d1d8b8..cf9ee90ae216 100644
---- a/arch/s390/kernel/ftrace.c
-+++ b/arch/s390/kernel/ftrace.c
-@@ -273,7 +273,7 @@ unsigned long prepare_ftrace_return(unsigned long ra, unsigned long sp,
- 	if (unlikely(atomic_read(&current->tracing_graph_pause)))
- 		goto out;
- 	ip -= MCOUNT_INSN_SIZE;
--	if (!function_graph_enter(ra, ip, 0, (void *) sp))
-+	if (!function_graph_enter(ra, ip, 0, (void *) sp, NULL))
- 		ra = (unsigned long) return_to_handler;
- out:
- 	return ra;
-diff --git a/arch/sh/kernel/ftrace.c b/arch/sh/kernel/ftrace.c
-index 930001bb8c6a..a9a0a1238214 100644
---- a/arch/sh/kernel/ftrace.c
-+++ b/arch/sh/kernel/ftrace.c
-@@ -359,7 +359,7 @@ void prepare_ftrace_return(unsigned long *parent, unsigned long self_addr)
- 		return;
- 	}
- 
--	if (function_graph_enter(old, self_addr, 0, NULL))
-+	if (function_graph_enter(old, self_addr, 0, NULL, NULL))
- 		__raw_writel(old, parent);
- }
- #endif /* CONFIG_FUNCTION_GRAPH_TRACER */
-diff --git a/arch/sparc/kernel/ftrace.c b/arch/sparc/kernel/ftrace.c
-index eaead3da8e03..9ad77a2d9bc4 100644
---- a/arch/sparc/kernel/ftrace.c
-+++ b/arch/sparc/kernel/ftrace.c
-@@ -125,7 +125,7 @@ unsigned long prepare_ftrace_return(unsigned long parent,
- 	if (unlikely(atomic_read(&current->tracing_graph_pause)))
- 		return parent + 8UL;
- 
--	if (function_graph_enter(parent, self_addr, frame_pointer, NULL))
-+	if (function_graph_enter(parent, self_addr, frame_pointer, NULL, NULL))
- 		return parent + 8UL;
- 
- 	return return_hooker;
-diff --git a/arch/x86/kernel/ftrace.c b/arch/x86/kernel/ftrace.c
-index 8da0e66ca22d..b325f7e7e39a 100644
---- a/arch/x86/kernel/ftrace.c
-+++ b/arch/x86/kernel/ftrace.c
-@@ -637,7 +637,7 @@ void prepare_ftrace_return(unsigned long ip, unsigned long *parent,
- 	if (bit < 0)
- 		return;
- 
--	if (!function_graph_enter(*parent, ip, frame_pointer, parent))
-+	if (!function_graph_enter(*parent, ip, frame_pointer, parent, NULL))
- 		*parent = return_hooker;
- 
- 	ftrace_test_recursion_unlock(bit);
-diff --git a/include/linux/ftrace.h b/include/linux/ftrace.h
-index fd5e84d0ec47..56d91041ecd2 100644
---- a/include/linux/ftrace.h
-+++ b/include/linux/ftrace.h
-@@ -1083,7 +1083,8 @@ extern void return_to_handler(void);
- 
- extern int
- function_graph_enter(unsigned long ret, unsigned long func,
--		     unsigned long frame_pointer, unsigned long *retp);
-+		     unsigned long frame_pointer, unsigned long *retp,
-+		     struct ftrace_regs *fregs);
- 
- struct ftrace_ret_stack *
- ftrace_graph_get_ret_stack(struct task_struct *task, int skip);
-diff --git a/kernel/trace/fgraph.c b/kernel/trace/fgraph.c
-index d1d5ea2d0a1b..fa62ebfa0711 100644
---- a/kernel/trace/fgraph.c
-+++ b/kernel/trace/fgraph.c
-@@ -613,7 +613,8 @@ ftrace_push_return_trace(unsigned long ret, unsigned long func,
- 
- /* If the caller does not use ftrace, call this function. */
- int function_graph_enter(unsigned long ret, unsigned long func,
--			 unsigned long frame_pointer, unsigned long *retp)
-+			 unsigned long frame_pointer, unsigned long *retp,
-+			struct ftrace_regs *fregs)
- {
- 	struct ftrace_graph_ent trace;
- 	unsigned long bitmap = 0;
+The value is defined in <dt-bindings/interrupt-controller/irq.h>
+Only the following flags are supported:
+    IRQ_TYPE_EDGE_RISING
+    IRQ_TYPE_EDGE_FALLING
+    IRQ_TYPE_EDGE_BOTH
+
+
+> > +
+> > +  interrupt-controller: true
+> > +
+> > +required:
+> > +  - compatible
+> > +  - reg
+> > +  - gpio-controller
+> > +  - '#gpio-cells'
+> > +  - interrupts
+> > +  - interrupt-names
+> > +  - interrupt-controller
+> > +  - '#interrupt-cells'
+> 
+> Use consistent quotes. Either ' or ".
+> 
+> > +
+> > +additionalProperties: false
+> 
+> Best regards,
+> Krzysztof
+
+Ack for other comments, will address them in next version, thanks
+
 -- 
-2.43.0
-
+Yixun Lan (dlan)
+Gentoo Linux Developer
+GPG Key ID AABEFD55
 
 _______________________________________________
 linux-riscv mailing list
