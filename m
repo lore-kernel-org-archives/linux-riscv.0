@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29583CD4F5F
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Sep 2024 08:14:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9248BCD4F5B
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Sep 2024 08:14:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EtWzIu11YUx2n2NjRWccCJjdibeh0x47nZDAvL2DL6g=; b=h2Yy4gFaoFuTxK
-	uoSN38YDjy6qz/0iEokeeWPluJZ8Ewsqf7ONlRaMLBWTVX1be8NPdHp1pvT1dSyXtbvcvVSodHsqc
-	jJpsRvPg5391wvBsnBZjiGBTnlgdyhctFEh+Ox/VMls/+0SyAmoIzSjfcJrjUzjw3+tVwzglr/n53
-	IV/HDj0VMCilb4qhtWUNiIASzqELTsCrLXmxq9WRS3u55TxNOHsUm0bV2Nc0LiQWuYp28iWob0UL2
-	63tltWiLAKIGnrjH3mntRvZTx3EiUek7EphrXCY27JyCh2CoYNm5TDvqcc1NtqEQBSeLQ2mgigkmf
-	gFDz5WCbO9QnTLLaEI2g==;
+	List-Owner; bh=VM7CZMijls/NntniHbBBzJQtk21BQvVdJ87zeox6qPw=; b=WJtJuFmMu0LfjO
+	1lCgw59lPqRpw1JgHYENZiDTVnRG6YHLjW6c7rQOpoXd+qXpBecRB1HD9ERbR4ibFmuuZE0wBoZ8F
+	/foNOJ2h83X3LDMidvhXfhW39D2vJCubd8F9zqC/qN5fjB4q89ipCYsI83jsjHXLkfosS29tWdOre
+	IDGWVgOIOCKsEuz0nOzdxUX34rnTouaA+6snamY7foHvI97WvgmHZMte64LxjCbzsWFzbFV0PmAxv
+	yx5Z1WhRluTYjqs2pqUUuCI9qeXfQpUKrncKy4+UFPXzeQZDTuWj7eiB8s0s+2cJ7VUu3RkJY1B8J
+	dT6OQDyFwgkI+mjI/7rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sm7dB-00000007VoG-49Mq;
-	Thu, 05 Sep 2024 08:14:17 +0000
+	id 1sm7dA-00000007Vnl-2RQ1;
+	Thu, 05 Sep 2024 08:14:16 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sm7ak-00000007VFK-02NX
+	id 1sm7ai-00000007VER-24sA
 	for linux-riscv@bombadil.infradead.org;
-	Thu, 05 Sep 2024 08:11:46 +0000
+	Thu, 05 Sep 2024 08:11:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=erhqH3gX8H/ueOU81X4sXktOMKgA5+Vpi9T0bkFgvq8=; b=F6Zq/Bh+Z6msdXwwEkTsrHj4x7
-	nJiZLJCD3MkcWxsZPjtgMSU+3SPbSYerhlS4b1zYeFL/DRFSLvk6bcuLswRAd+vB+ETzgAwMIFfsu
-	RvkS323+wTjZaDavXhMqzRESyRyNxZHM80+qUMIm7+PJgJT1neJQHZdMOPA0yUCRS55UXJW2IDoBa
-	JFJgIvSEyW3GABeXEiSpy2chepYlEeWmwu3HwzLNKSJD/eUXEdk9Q+Cx2mxI8ky6m4HdsE1bJ/QOj
-	keCbPKDlLxU4ZKRUiO0QVOA6/YdFSxA0s9bhnpfsDktrmeFxlz37ogbkOit/PmcPHUCh1xQOMvL1H
-	Bw5ckvow==;
+	bh=30yy2OgD5v0bfj390qUjmROqN+Rfg4ulwMJfO/cVprM=; b=imT7YL9EwwxtoB6sBNWtGH1KmU
+	kJ+zPO8OE+g2dYNstNyrM1ThAIG8HurwNbZiRQyZxhYkcKf8SnEYpdhISV3dgBe9rm5j5VbMnwa7j
+	oMskGlq7Izz6pzKiFtbBrOOEga5nYGPKcd4Y3Wn+45wki2ezuwo2fUn6wAA3lI/Y/NZhv3niUTGuA
+	t5RTlYwUv3bYCy9qg+hy/jHgLyxAfm2H+nwH+cezmQdqYkxFthI4PrZNbZvhWvkgT5JDibyBugREh
+	ViLVPSXZZMlHmLYGyCONsnVtGrDw/gEIKVTZ+XUMi8Xfy4d5Tx33ANL0bGivIMGBoRqFvye0vuKuU
+	n7NjuxVw==;
 Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sm7ac-00000000QLE-2fAc
+	id 1sm7ab-00000000QLB-3Vqd
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Sep 2024 08:11:44 +0000
+	Thu, 05 Sep 2024 08:11:43 +0000
 Received: from mail.maildlp.com (unknown [172.19.163.235])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4WzsWB5Wj1z4f3lDV
-	for <linux-riscv@lists.infradead.org>; Thu,  5 Sep 2024 16:11:02 +0800 (CST)
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4WzsWD49H6z4f3lD4
+	for <linux-riscv@lists.infradead.org>; Thu,  5 Sep 2024 16:11:04 +0800 (CST)
 Received: from mail02.huawei.com (unknown [10.116.40.112])
-	by mail.maildlp.com (Postfix) with ESMTP id A73281A058E
-	for <linux-riscv@lists.infradead.org>; Thu,  5 Sep 2024 16:11:18 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTP id 7A4CE1A06DA
+	for <linux-riscv@lists.infradead.org>; Thu,  5 Sep 2024 16:11:20 +0800 (CST)
 Received: from ultra.huawei.com (unknown [10.90.53.71])
-	by APP1 (Coremail) with SMTP id cCh0CgD3Ii+gZ9lmMQ7AAQ--.26932S6;
+	by APP1 (Coremail) with SMTP id cCh0CgD3Ii+gZ9lmMQ7AAQ--.26932S8;
 	Thu, 05 Sep 2024 16:11:18 +0800 (CST)
 From: Pu Lehui <pulehui@huaweicloud.com>
 To: bpf@vger.kernel.org,
@@ -72,18 +72,18 @@ Cc: Andrii Nakryiko <andrii@kernel.org>,
 	Jiri Olsa <jolsa@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Pu Lehui <pulehui@huawei.com>
-Subject: [PATCH bpf-next v3 04/10] selftests/bpf: Limit URLS parsing logic to actual scope in vmtest
-Date: Thu,  5 Sep 2024 08:13:55 +0000
-Message-Id: <20240905081401.1894789-5-pulehui@huaweicloud.com>
+Subject: [PATCH bpf-next v3 06/10] selftests/bpf: Enable cross platform testing for vmtest
+Date: Thu,  5 Sep 2024 08:13:57 +0000
+Message-Id: <20240905081401.1894789-7-pulehui@huaweicloud.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20240905081401.1894789-1-pulehui@huaweicloud.com>
 References: <20240905081401.1894789-1-pulehui@huaweicloud.com>
 MIME-Version: 1.0
-X-CM-TRANSID: cCh0CgD3Ii+gZ9lmMQ7AAQ--.26932S6
-X-Coremail-Antispam: 1UD129KBjvJXoW7uF4fZr4DGF1rtF13Zry5urg_yoW8uFW3pw
-	1fWryakw1Iq3W7Wrn3JFyUuF43Gr4xCF1xJFy8Wr4Y9r17XF1qqFyIyFyqqrs8X345Xr4S
-	vayfWFy3Cr45taDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPqb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
+X-CM-TRANSID: cCh0CgD3Ii+gZ9lmMQ7AAQ--.26932S8
+X-Coremail-Antispam: 1UD129KBjvJXoW3AryxCFyUZFyfCrWrCFyxAFb_yoW7GF4rp3
+	y8Zw42ka48WF1Sgrn7AF409FWfGw4kZrW7Gry8Xw1UZwn7JF9Fyr9ayFWDXrsxW34Syr43
+	ZasagF90kw47Z37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmFb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
 	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUAV
 	Cq3wA2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0
 	rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWDJVCq3wA2z4x0Y4vE2Ix0cI8IcVCY1x0267
@@ -93,15 +93,14 @@ X-Coremail-Antispam: 1UD129KBjvJXoW7uF4fZr4DGF1rtF13Zry5urg_yoW8uFW3pw
 	z7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2
 	AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAq
 	x4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6r
-	W5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF
-	7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI
-	0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x
-	07jIPfQUUUUU=
+	W5MIIYY7kG6xAYrwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1I6r4UMIIF0xvE
+	2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42
+	IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcSsGvfC2
+	KfnxnUUI43ZEXa7IUYk9N7UUUUU==
 X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240905_091139_696123_1B78F11B 
-X-CRM114-Status: UNSURE (   8.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240905_091138_984405_34992904 
+X-CRM114-Status: GOOD (  11.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,93 +119,149 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Pu Lehui <pulehui@huawei.com>
 
-The URLS array is only valid in the download_rootfs function and does
-not need to be parsed globally in advance. At the same time, the logic
-of loading rootfs is refactored to prepare vmtest for supporting local
-rootfs.
+Add support cross platform testing for vmtest. The variable $ARCH in the
+current script is platform semantics, not kernel semantics. Rename it to
+$PLATFORM so that we can easily use $ARCH in cross-compilation. And drop
+`set -u` unbound variable check as we will use CROSS_COMPILE env
+variable. For now, Using PLATFORM= and CROSS_COMPILE= options will
+enable cross platform testing:
 
+  PLATFORM=<platform> CROSS_COMPILE=<toolchain> vmtest.sh -- ./test_progs
+
+Tested-by: Eduard Zingerman <eddyz87@gmail.com>
 Signed-off-by: Pu Lehui <pulehui@huawei.com>
 ---
- tools/testing/selftests/bpf/vmtest.sh | 39 +++++++++++++--------------
- 1 file changed, 19 insertions(+), 20 deletions(-)
+ tools/testing/selftests/bpf/vmtest.sh | 42 ++++++++++++++++++++-------
+ 1 file changed, 31 insertions(+), 11 deletions(-)
 
 diff --git a/tools/testing/selftests/bpf/vmtest.sh b/tools/testing/selftests/bpf/vmtest.sh
-index 65d14f3bbe30..87d93f29c565 100755
+index 7bd2b44deb08..91f940e8ce45 100755
 --- a/tools/testing/selftests/bpf/vmtest.sh
 +++ b/tools/testing/selftests/bpf/vmtest.sh
-@@ -92,19 +92,6 @@ populate_url_map()
- 	fi
- }
+@@ -1,7 +1,6 @@
+ #!/bin/bash
+ # SPDX-License-Identifier: GPL-2.0
  
--download()
--{
--	local file="$1"
--
--	if [[ ! -v URLS[$file] ]]; then
--		echo "$file not found" >&2
--		return 1
--	fi
--
--	echo "Downloading $file..." >&2
--	curl -Lsf "${URLS[$file]}" "${@:2}"
--}
--
- newest_rootfs_version()
+-set -u
+ set -e
+ 
+ # This script currently only works for the following platforms,
+@@ -9,25 +8,31 @@ set -e
+ # available only for these architectures. We can also specify
+ # the local rootfs image generated by the following script:
+ # https://github.com/libbpf/ci/blob/main/rootfs/mkrootfs_debian.sh
+-ARCH="$(uname -m)"
+-case "${ARCH}" in
++PLATFORM="${PLATFORM:-$(uname -m)}"
++case "${PLATFORM}" in
+ s390x)
+ 	QEMU_BINARY=qemu-system-s390x
+ 	QEMU_CONSOLE="ttyS1"
+-	QEMU_FLAGS=(-smp 2)
++	HOST_FLAGS=(-smp 2 -enable-kvm)
++	CROSS_FLAGS=(-smp 2)
+ 	BZIMAGE="arch/s390/boot/vmlinux"
++	ARCH="s390"
+ 	;;
+ x86_64)
+ 	QEMU_BINARY=qemu-system-x86_64
+ 	QEMU_CONSOLE="ttyS0,115200"
+-	QEMU_FLAGS=(-cpu host -smp 8)
++	HOST_FLAGS=(-cpu host -enable-kvm -smp 8)
++	CROSS_FLAGS=(-smp 8)
+ 	BZIMAGE="arch/x86/boot/bzImage"
++	ARCH="x86"
+ 	;;
+ aarch64)
+ 	QEMU_BINARY=qemu-system-aarch64
+ 	QEMU_CONSOLE="ttyAMA0,115200"
+-	QEMU_FLAGS=(-M virt,gic-version=3 -cpu host -smp 8)
++	HOST_FLAGS=(-M virt,gic-version=3 -cpu host -enable-kvm -smp 8)
++	CROSS_FLAGS=(-M virt,gic-version=3 -cpu cortex-a76 -smp 8)
+ 	BZIMAGE="arch/arm64/boot/Image"
++	ARCH="arm64"
+ 	;;
+ *)
+ 	echo "Unsupported architecture"
+@@ -41,7 +46,7 @@ ROOTFS_IMAGE="root.img"
+ OUTPUT_DIR="$HOME/.bpf_selftests"
+ KCONFIG_REL_PATHS=("tools/testing/selftests/bpf/config"
+ 	"tools/testing/selftests/bpf/config.vm"
+-	"tools/testing/selftests/bpf/config.${ARCH}")
++	"tools/testing/selftests/bpf/config.${PLATFORM}")
+ INDEX_URL="https://raw.githubusercontent.com/libbpf/ci/master/INDEX"
+ NUM_COMPILE_JOBS="$(nproc)"
+ LOG_FILE_BASE="$(date +"bpf_selftests.%Y-%m-%d_%H-%M-%S")"
+@@ -61,6 +66,10 @@ tools/testing/selftests/bpf. e.g:
+ If no command is specified and a debug shell (-s) is not requested,
+ "${DEFAULT_COMMAND}" will be run by default.
+ 
++Using PLATFORM= and CROSS_COMPILE= options will enable cross platform testing:
++
++  PLATFORM=<platform> CROSS_COMPILE=<toolchain> $0 -- ./test_progs -t test_lsm
++
+ If you build your kernel using KBUILD_OUTPUT= or O= options, these
+ can be passed as environment variables to the script:
+ 
+@@ -100,7 +109,7 @@ newest_rootfs_version()
  {
  	{
-@@ -118,16 +105,30 @@ newest_rootfs_version()
+ 	for file in "${!URLS[@]}"; do
+-		if [[ $file =~ ^"${ARCH}"/libbpf-vmtest-rootfs-(.*)\.tar\.zst$ ]]; then
++		if [[ $file =~ ^"${PLATFORM}"/libbpf-vmtest-rootfs-(.*)\.tar\.zst$ ]]; then
+ 			echo "${BASH_REMATCH[1]}"
+ 		fi
+ 	done
+@@ -112,7 +121,7 @@ download_rootfs()
+ 	populate_url_map
  
- download_rootfs()
- {
--	local rootfsversion="$1"
--	local dir="$2"
-+	populate_url_map
-+
-+	local rootfsversion="$(newest_rootfs_version)"
-+	local file="${ARCH}/libbpf-vmtest-rootfs-$rootfsversion.tar.zst"
-+
-+	if [[ ! -v URLS[$file] ]]; then
-+		echo "$file not found" >&2
-+		return 1
-+	fi
-+
-+	echo "Downloading $file..." >&2
-+	curl -Lsf "${URLS[$file]}" "${@:2}"
-+}
-+
-+load_rootfs()
-+{
-+	local dir="$1"
+ 	local rootfsversion="$(newest_rootfs_version)"
+-	local file="${ARCH}/libbpf-vmtest-rootfs-$rootfsversion.tar.zst"
++	local file="${PLATFORM}/libbpf-vmtest-rootfs-$rootfsversion.tar.zst"
  
- 	if ! which zstd &> /dev/null; then
- 		echo 'Could not find "zstd" on the system, please install zstd'
+ 	if [[ ! -v URLS[$file] ]]; then
+ 		echo "$file not found" >&2
+@@ -253,12 +262,17 @@ EOF
  		exit 1
  	fi
  
--	download "${ARCH}/libbpf-vmtest-rootfs-$rootfsversion.tar.zst" |
--		zstd -d | sudo tar -C "$dir" -x
-+	download_rootfs | zstd -d | sudo tar -C "$dir" -x
- }
++	if [[ "${PLATFORM}" != "$(uname -m)" ]]; then
++		QEMU_FLAGS=("${CROSS_FLAGS[@]}")
++	else
++		QEMU_FLAGS=("${HOST_FLAGS[@]}")
++	fi
++
+ 	${QEMU_BINARY} \
+ 		-nodefaults \
+ 		-display none \
+ 		-serial mon:stdio \
+ 		"${QEMU_FLAGS[@]}" \
+-		-enable-kvm \
+ 		-m 4G \
+ 		-drive file="${rootfs_img}",format=raw,index=1,media=disk,if=virtio,cache=none \
+ 		-kernel "${kernel_bzimage}" \
+@@ -389,6 +403,11 @@ main()
  
- recompile_kernel()
-@@ -227,7 +228,7 @@ create_vm_image()
- 	mkfs.ext4 -q "${rootfs_img}"
+ 	trap 'catch "$?"' EXIT
  
- 	mount_image
--	download_rootfs "$(newest_rootfs_version)" "${mount_dir}"
-+	load_rootfs "${mount_dir}"
- 	unmount_image
- }
- 
-@@ -402,8 +403,6 @@ main()
- 		make_command="${make_command} KBUILD_OUTPUT=${KBUILD_OUTPUT}"
++	if [[ "${PLATFORM}" != "$(uname -m)" ]] && [[ -z "${CROSS_COMPILE}" ]]; then
++		echo "Cross-platform testing needs to specify CROSS_COMPILE"
++		exit 1
++	fi
++
+ 	if [[ $# -eq 0  && "${debug_shell}" == "no" ]]; then
+ 		echo "No command specified, will run ${DEFAULT_COMMAND} in the vm"
+ 	else
+@@ -396,7 +415,8 @@ main()
  	fi
  
--	populate_url_map
--
- 	local rootfs_img="${OUTPUT_DIR}/${ROOTFS_IMAGE}"
- 	local mount_dir="${OUTPUT_DIR}/${MOUNT_DIR}"
+ 	local kconfig_file="${OUTPUT_DIR}/latest.config"
+-	local make_command="make -j ${NUM_COMPILE_JOBS} KCONFIG_CONFIG=${kconfig_file}"
++	local make_command="make ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} \
++			    -j ${NUM_COMPILE_JOBS} KCONFIG_CONFIG=${kconfig_file}"
  
+ 	# Figure out where the kernel is being built.
+ 	# O takes precedence over KBUILD_OUTPUT.
 -- 
 2.34.1
 
