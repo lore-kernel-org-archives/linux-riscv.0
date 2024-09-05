@@ -4,68 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41409CD5BCF
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Sep 2024 16:16:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C3BCC3DA4A
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Sep 2024 16:46:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=75fNY08gsnYl5Hc6abDgGaTeK0mbN8+YQNid+nypz5g=; b=CRcX/JE29v0aHO
-	PAUPpCJtT75hW21D0XNDs67q6Spue26ALFarSITOGrJg0zJH3Y0Zx3PDMbbpsOp+EIOI8u1VWlr9R
-	z9dwtREc+t9fhR1lZuKpmco9bWApa9/s3jIn+7M8zwR0ojIrD3thbziltPAk1MMFr3SVRho/f3ImD
-	dEuRIkou8HWq7wqTWDuWNZy0GddzEicuhtHP3f7ww48YPxZEKZGHwOQbEo63vJZOr+x6bvbYW+t7O
-	jCwneCUsO5+dGEhK/TflA044g6kNuoM1ak27sNjxV9ekcrKuwNbdJf6SnL3OopVUu+2623C4yTWHk
-	FJAWEB8dr+VdjyYRUDmw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pO15ipVgU2I+COrE8j4wm7amTRSXilunYHyO3Zl3zEg=; b=xTUs4592XIr+/VY+XDJLZ5B1zq
+	zydeSx0qzzjgpDiQAAEh3LMx00gg7kHbuaSpG7Bs6vu2nQfLfGE8em6u2IcBCCZ4jhsiw8Py+WD6d
+	Zpb3lCLWPjppu5F0kx/MSzMMBvINIT1XSHQMkzZWnLwz+Bo/M6I5qzISZ/VFFB/+Xwp/9BBLi92dD
+	Fsw4SHFdbV2g1CB4KFM/5MVRRlANIde2hi/CRjsNEq1BxNJoMllzSa1coxvFYsYTxf2qp58+3PHpC
+	LZtMeORXrimHpVviRHN6+sRguCBRdnl+Diw8N1uevIBTd382TUrK6H5226nx9hJw2HXzUEQTY2WKV
+	mfhNLxmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1smF9W-000000094lV-0Buy;
-	Thu, 05 Sep 2024 16:16:10 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1smFcX-00000009BNt-2JBg;
+	Thu, 05 Sep 2024 16:46:09 +0000
+Received: from www62.your-server.de ([213.133.104.62])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1smECl-00000008uM5-1Yol
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 05 Sep 2024 15:15:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=PUMH1kZYJJP1WZoaZ/pfkJhVznOI6rM1dIwukKEm4Cg=; b=X6wuliAJLHlFwW83yA570slPax
-	b4T+e8cEG8B6CWNcsLrzznYIEZ8Fw2F46RyDEbPxLn9e0OCqUFtO9DvwxZ7C7DvxDJVtFQ5+YIi4c
-	pzWlpR8VHJysmmh2DyfjPGwvPkRqe1H/02rh0gCqFBYk3XLKTgGTOY3qq07PicfG9fScdVawvz75k
-	iPVJcQMwrXqt/L9h2lUw4CZ0Wmn5/hI3uzgRoui5buyzOA9RBEhcEg7DZsXfzS6ImwurarT5wP0kC
-	rahYKjIZOsX+c7LOLzH7yjTm9QcNHIttUrg9KfsYlsl288HrtMdnyurt0yyiZLoiVkXbU++QqX+7b
-	KWhnW2Kw==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1smECh-00000000VnW-0zed
+	id 1smER9-00000008x5W-1aPC
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Sep 2024 15:15:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7D4D85C5D21;
-	Thu,  5 Sep 2024 15:15:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B839C4CEC3;
-	Thu,  5 Sep 2024 15:15:18 +0000 (UTC)
-Date: Thu, 5 Sep 2024 11:16:20 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Sven Schnelle <svens@linux.ibm.com>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland
- <mark.rutland@arm.com>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Guo Ren
- <guoren@kernel.org>, linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-csky@vger.kernel.org
-Subject: Re: [PATCH 0/7] add function arguments to ftrace
-Message-ID: <20240905111620.5211d9f8@gandalf.local.home>
-In-Reply-To: <20240904065908.1009086-1-svens@linux.ibm.com>
-References: <20240904065908.1009086-1-svens@linux.ibm.com>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Thu, 05 Sep 2024 15:32:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=iogearbox.net; s=default2302; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=W+748PDs7VWuitosbujGj48wCatW4hM4cT/gHZqGVis=; b=oBC/3jdg6uDXD1j+nEaBdQs0gm
+	ZJUUOhWw3BPZpLheie6PSGgoRpV1spwGsLn3/0BlP+GIWLtxzfjPCtPafGMR3yebw53W4YkkgMSOD
+	CKZhPFrsyLQtEmuKFqanh4bhJicMSCj24XSyt0fBhlGhJOGpbzCRlpI7tbaIg7N82/gexz4mM2Rec
+	TlmA+x/ScSs6dGB3b/UZ6idVx7MIwy+10SCKaaXQX56qrefVbhnBBbZpDIpf+IqJsWfH87xzacHS0
+	US9RQFRoQimB/oYy3goPysjxda7YVnO+0NzZFc/URuAqfABLP0wrNCATsc/zVBRY/0Lxn/BJmsiFi
+	oU87IdIg==;
+Received: from sslproxy03.your-server.de ([88.198.220.132])
+	by www62.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <daniel@iogearbox.net>)
+	id 1smEQq-0002Hz-Bz; Thu, 05 Sep 2024 17:30:00 +0200
+Received: from [178.197.248.23] (helo=linux.home)
+	by sslproxy03.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <daniel@iogearbox.net>)
+	id 1smEQo-000M2I-2G;
+	Thu, 05 Sep 2024 17:29:59 +0200
+Subject: Re: [PATCH bpf-next v3 03/10] selftests/bpf: Prefer static linking
+ for LLVM libraries
+To: Pu Lehui <pulehui@huaweicloud.com>, bpf@vger.kernel.org,
+ linux-riscv@lists.infradead.org, netdev@vger.kernel.org
+Cc: Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman
+ <eddyz87@gmail.com>, Mykola Lysenko <mykolal@fb.com>,
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
+ Puranjay Mohan <puranjay@kernel.org>, Alexei Starovoitov <ast@kernel.org>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>,
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
+ Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>,
+ Jiri Olsa <jolsa@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Pu Lehui <pulehui@huawei.com>
+References: <20240905081401.1894789-1-pulehui@huaweicloud.com>
+ <20240905081401.1894789-4-pulehui@huaweicloud.com>
+From: Daniel Borkmann <daniel@iogearbox.net>
+Message-ID: <a0e6117a-12ae-388f-bb43-d32a219d08b5@iogearbox.net>
+Date: Thu, 5 Sep 2024 17:29:58 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.7.2
 MIME-Version: 1.0
+In-Reply-To: <20240905081401.1894789-4-pulehui@huaweicloud.com>
+Content-Language: en-US
+X-Authenticated-Sender: daniel@iogearbox.net
+X-Virus-Scanned: Clear (ClamAV 0.103.10/27389/Thu Sep  5 10:33:25 2024)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240905_161523_706559_66BD7B17 
-X-CRM114-Status: GOOD (  19.60  )
+X-CRM114-CacheID: sfid-20240905_083019_440670_4D5546C3 
+X-CRM114-Status: UNSURE (   7.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,122 +90,22 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed,  4 Sep 2024 08:58:54 +0200
-Sven Schnelle <svens@linux.ibm.com> wrote:
+On 9/5/24 10:13 AM, Pu Lehui wrote:
+> From: Eduard Zingerman <eddyz87@gmail.com>
+> 
+> It is not always convenient to have LLVM libraries installed inside CI
+> rootfs images, thus request static libraries from llvm-config.
+> 
+> Suggested-by: Andrii Nakryiko <andrii@kernel.org>
+> Signed-off-by: Eduard Zingerman <eddyz87@gmail.com>
 
-> These patches add support for printing function arguments in ftrace.
-> 
-> Example usage:
-> 
-> function tracer:
-> 
-> cd /sys/kernel/tracing/
-> echo icmp_rcv >set_ftrace_filter
-> echo function >current_tracer
-> echo 1 >options/func-args
-> ping -c 10 127.0.0.1
-> [..]
-> cat trace
-> [..]
->             ping-1277    [030] ..s1.    39.120939: icmp_rcv(skb = 0xa0ecab00) <-ip_protocol_deliver_rcu
->             ping-1277    [030] ..s1.    39.120946: icmp_rcv(skb = 0xa0ecac00) <-ip_protocol_deliver_rcu
->             ping-1277    [030] ..s1.    40.179724: icmp_rcv(skb = 0xa0ecab00) <-ip_protocol_deliver_rcu
->             ping-1277    [030] ..s1.    40.179730: icmp_rcv(skb = 0xa0ecac00) <-ip_protocol_deliver_rcu
->             ping-1277    [030] ..s1.    41.219700: icmp_rcv(skb = 0xa0ecab00) <-ip_protocol_deliver_rcu
->             ping-1277    [030] ..s1.    41.219706: icmp_rcv(skb = 0xa0ecac00) <-ip_protocol_deliver_rcu
->             ping-1277    [030] ..s1.    42.259717: icmp_rcv(skb = 0xa0ecab00) <-ip_protocol_deliver_rcu
->             ping-1277    [030] ..s1.    42.259725: icmp_rcv(skb = 0xa0ecac00) <-ip_protocol_deliver_rcu
->             ping-1277    [030] ..s1.    43.299735: icmp_rcv(skb = 0xa0ecab00) <-ip_protocol_deliver_rcu
->             ping-1277    [030] ..s1.    43.299742: icmp_rcv(skb = 0xa0ecac00) <-ip_protocol_deliver_rcu
-> 
-> function graph:
-> 
-> cd /sys/kernel/tracing
-> echo icmp_rcv >set_graph_function
-> echo function_graph >current_tracer
-> echo 1 >options/funcgraph-args
-> 
-> ping -c 1 127.0.0.1
-> 
-> cat trace
-> 
->  30)               |  icmp_rcv(skb = 0xa0ecab00) {
->  30)               |    __skb_checksum_complete(skb = 0xa0ecab00) {
->  30)               |      skb_checksum(skb = 0xa0ecab00, offset = 0, len = 64, csum = 0) {
->  30)               |        __skb_checksum(skb = 0xa0ecab00, offset = 0, len = 64, csum = 0, ops = 0x232e0327a88) {
->  30)   0.418 us    |          csum_partial(buff = 0xa0d20924, len = 64, sum = 0)
->  30)   0.985 us    |        }
->  30)   1.463 us    |      }
->  30)   2.039 us    |    }
-> [..]
-> 
-
-First I want to say THANK YOU!!!!
-
-This has been on my TODO list for far too long. I never got the time to
-work on it :-p
-
-Anyway, this is something I definitely want added. But I'm going to guess
-that there is going to be issues with it and I doubt it will be ready for
-the next merge window. I'm currently focused on some other things and also
-have to get ready for next weeks travels (I'll be in Prague for GNU Cauldron,
-then Vienna for Plumbers and OSS EU, then to Paris for Kernel Recipes!).
-
-But I most definitely want this in. Hopefully by 6.13. This may be
-something I can review on the plane (if I get my slides done).
-
-Again, thanks for doing this!
-
--- Steve
-
-> 
-> Sven Schnelle (7):
->   tracing: add ftrace_regs to function_graph_enter()
->   x86/tracing: pass ftrace_regs to function_graph_enter()
->   s390/tracing: pass ftrace_regs to function_graph_enter()
->   Add print_function_args()
->   tracing: add config option for print arguments in ftrace
->   tracing: add support for function argument to graph tracer
->   tracing: add arguments to function tracer
-> 
->  arch/arm/kernel/ftrace.c             |  2 +-
->  arch/arm64/kernel/ftrace.c           |  2 +-
->  arch/csky/kernel/ftrace.c            |  2 +-
->  arch/loongarch/kernel/ftrace.c       |  2 +-
->  arch/loongarch/kernel/ftrace_dyn.c   |  2 +-
->  arch/microblaze/kernel/ftrace.c      |  2 +-
->  arch/mips/kernel/ftrace.c            |  2 +-
->  arch/parisc/kernel/ftrace.c          |  2 +-
->  arch/powerpc/kernel/trace/ftrace.c   |  2 +-
->  arch/riscv/kernel/ftrace.c           |  2 +-
->  arch/s390/kernel/entry.h             |  4 +-
->  arch/s390/kernel/ftrace.c            |  4 +-
->  arch/sh/kernel/ftrace.c              |  2 +-
->  arch/sparc/kernel/ftrace.c           |  2 +-
->  arch/x86/include/asm/ftrace.h        |  2 +-
->  arch/x86/kernel/ftrace.c             |  6 +-
->  include/linux/ftrace.h               |  4 +-
->  kernel/trace/Kconfig                 | 12 ++++
->  kernel/trace/fgraph.c                |  7 ++-
->  kernel/trace/trace.c                 |  8 ++-
->  kernel/trace/trace.h                 |  4 +-
->  kernel/trace/trace_entries.h         |  7 ++-
->  kernel/trace/trace_functions.c       | 46 ++++++++++++++--
->  kernel/trace/trace_functions_graph.c | 74 +++++++++++++------------
->  kernel/trace/trace_irqsoff.c         |  4 +-
->  kernel/trace/trace_output.c          | 82 +++++++++++++++++++++++++++-
->  kernel/trace/trace_output.h          |  9 +++
->  kernel/trace/trace_sched_wakeup.c    |  4 +-
->  28 files changed, 228 insertions(+), 73 deletions(-)
-> 
-> --
-> 2.43.0
-
+Acked-by: Daniel Borkmann <daniel@iogearbox.net>
+Tested-by: Daniel Borkmann <daniel@iogearbox.net>
 
 _______________________________________________
 linux-riscv mailing list
