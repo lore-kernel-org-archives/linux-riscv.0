@@ -4,78 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22E11CD6E56
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Sep 2024 17:20:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F562CE7A81
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Sep 2024 18:52:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Cc:Date:In-Reply-To:From:
-	Subject:Mime-Version:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6qxoV8m1PA0IXY8Vt/qN5bAawW8zrkhID10Rtjnk6dA=; b=die86KDQOFKy0p
-	7vz+ZKmOtkFUE6NTzif4sAoHACSivqIV2NDahWtoXujoKusLGb3lWkN4LDtXyu0yPxlr7H+7Xebwb
-	vNWEGDcED+wea2/31wF6H5vb/ADG/hJnHhNPpI1AIycxFigvSeOlkmtVJt2FCRElOcGhNcifx2mIW
-	Ye4M/YmpIQJ77aFrSt5ZIbjB8u87txMVOxxB3ClJyjT5lckVoG38sDQlHk30RkrUEwym4wzt49OeC
-	DR812AC7H56I3rB641CzYfxqY3P9rIXGFQIqoUqnB/7Glf7ipC2MFvgskxq7b5LwyIb1qDgGNM4sd
-	rWpTj3jMqKqLieQafi9w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E2MR0A3G7HIzmKFS63aR2rVUrlukOQav4HP3vuNJHmI=; b=p7JMxOAt+cURXtu6/Sogur16L7
+	wHD1eKFppM2gU4/3BUEyBV/4+zZlfCmfkEglHUknG9u4rJ5setH1f4gzABc4TZFMoAlXNaJAokeXH
+	TFm/tY3GddwnIkYdUxfFIZ3dAboI4qmodM+ZTs8DGS0fwJK6osunBhz6aQ+JsNnvK9/lW/cGWo5tZ
+	OAWBYN3x4GMRQY4e6V+U6yhJgOAIwnSRSUFh9Dgsby/5lqZIHq7ifCHrXeeWWhizvdGa02AzyJtZB
+	Il7ap61mEOedHRAb5ZNj4NQjq/IQX3Ig2zXxDdSPnfcFeDNY91Qji732fos8f63q33tv2C7hMB/o6
+	i5x2wVOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1smG9u-00000009H2P-2qdP;
-	Thu, 05 Sep 2024 17:20:38 +0000
-Received: from out162-62-58-216.mail.qq.com ([162.62.58.216])
+	id 1smHar-00000009UrZ-0tnx;
+	Thu, 05 Sep 2024 18:52:33 +0000
+Received: from www62.your-server.de ([213.133.104.62])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1smG9r-00000009H0l-1iwS
+	id 1smHan-00000009Uqw-31Ot
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Sep 2024 17:20:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1725556518; bh=IdmLzzE4Y30s9YeYCM0UVuwavqz/aTp5LLdmTh4K8f0=;
-	h=Subject:From:In-Reply-To:Date:Cc:References:To;
-	b=XsUmZi5HPqQjER2B98kOFc2PPfFs8IGDZYwGuoonrTzf9KFuX8IJjXUIxr8wTFikf
-	 5f366F/4LO6GWGn1TbgtVF+juAFuzy1Mg+1iDo7z9qu1SxNdiVwQ+tP2PccyjRCqaI
-	 oxL4xwV5gzqX76ew2bykD20WrZw/Pf7UWpCQla2M=
-Received: from smtpclient.apple ([2001:da8:c800:d084:a0ed:5d47:36ee:f762])
-	by newxmesmtplogicsvrszc19-0.qq.com (NewEsmtp) with SMTP
-	id 3CF3FE5C; Fri, 06 Sep 2024 01:15:15 +0800
-X-QQ-mid: xmsmtpt1725556515tl5azvo8d
-Message-ID: <tencent_B49BC6F11F5737662664B35196CF50904805@qq.com>
-X-QQ-XMAILINFO: ODdZrkDuTlAgtf9EojIpmtCpfUBNWoLW0j3WAfyUMzA3bmwJ7yeQCYEc7UNFBn
-	 dgh4i/ubTQJldg/Ixe82HlksCUKuP6ZB9TbSRJBKn41i3yBB2sRE7UvmO3YIC1QadIh8rIj/U8Ob
-	 xH7bwli6OntCsqeLXERo7Y0XmcVZVpp1clpxOMdhqTinb81fAts36L1vK8A+E7h2Mf5Hldqx5cw1
-	 Yh1mPCbyW5t+OXe9JQuZiQHaBL5Tgi+M8fqLuqsqpn2IOD6+uiIq3lfhyh4XjmrrH7DdlZ6Jzkib
-	 kVJz16UBYU8LzQHK1p4nAPJrBTi7vHY4UZNzZ/5grKw7LomY+65wIzlpDI+bKGJqB9A6tjY/U24G
-	 QkI6/AcMcoh1NoUKktLykS5V1O7JTc72+tHKbZhrP2UpPXaWITkdAhdVW1HGgAG+kXTlZpcvLh/Y
-	 8cpdW+BsQI0yAsgApBmRlPDdPDE/ZrbPs8dicFV9WM8cZwe9x48K/ZBKXKCTqVxqnOiKqXEyz72l
-	 ZCEhLxim4Nn/TV4mxzfNuiu+Da5NUfHJ3+w2yPm9qk1A0127lY/g/Pk0kL08DiDn5mQz8jdY4tdl
-	 8bs9yiNxXxzyqzwRNBOts1bSTKhyPoDOSDVpGRR0It1732B7jTZvZ2ZxB1/b9c4pMZfX7vuXSQNw
-	 2UuHfqJH6fhYR7CUn72aJtd8RIZR+2YbwsI8lZvt2dvJrJ8nuuBMZgHjqN+0CmzCFrkTU1irKZNm
-	 2Meayw7xkV0dXhvVEmvLrzv375PBa8l7NAjRa9C0wnDMGPMWduh8lpGneRF0E3V/nNOj6vCaALJk
-	 B8AEFCvseA/R67BkrBlCzy7HjhoKhEzOzq2YodvvCsYqH6lgwH2nzVcn5Zkr2R5wXd2D71Zlq/yF
-	 ow3eN1KFSzysK54VOaYlROVEN801XV85jm9ownawFqEtQ1NDGDvayh16w3Ot3KgCCu8Y8Wy4ZdBv
-	 qxg4sXU4K+3FSYX4TYO/9OJF01ZzV4O6nmyo/XVJzdPzuwYjBm9/mYtXGswYJ1suUI3Ztp28A=
-X-QQ-XMRINFO: M/715EihBoGSf6IYSX1iLFg=
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3776.700.51\))
-Subject: Re: [PATCH 3/3] riscv: mm: Do not restrict mmap address based on hint
-From: Yangyu Chen <cyy@cyyself.name>
-In-Reply-To: <mhng-ad0c8c3b-568a-484d-bc3d-49b56a11dcd6@palmer-ri-x1c9>
-Date: Fri, 6 Sep 2024 01:15:04 +0800
-Cc: Charlie Jenkins <charlie@rivosinc.com>,
- Jonathan Corbet <corbet@lwn.net>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Shuah Khan <shuah@kernel.org>,
- Levi Zim <rsworktech@outlook.com>,
- Alexandre Ghiti <alexghiti@rivosinc.com>,
- linux-doc@vger.kernel.org,
- linux-riscv@lists.infradead.org,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-kselftest@vger.kernel.org
-X-OQ-MSGID: <AFED66DE-BE37-467B-A7FD-BF6D530CE0D3@cyyself.name>
-References: <mhng-ad0c8c3b-568a-484d-bc3d-49b56a11dcd6@palmer-ri-x1c9>
-To: Palmer Dabbelt <palmer@rivosinc.com>
-X-Mailer: Apple Mail (2.3776.700.51)
+	Thu, 05 Sep 2024 18:52:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=iogearbox.net; s=default2302; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=3JdRgnFAFmyWl8pgpB+J2k4MqOvYT4UaKoiSnuu0LXA=; b=S21tY5rN3er41xJSdwiH8OfzRy
+	Rk7tJQIyqHgyB2yyDwwOGj/edEB1ooqUmWo0LP65DzF8mx8ArPyvStghCtbRcmAWVUQKamjATRV+z
+	lC9fDNcwBwdveB4RGGUA1fSy43X+zGyH3EO51JqfwHmz8GZTPeq7XngHVlTxWvwxTHRbbT7VLmwnD
+	Z68HKHgbUc9l5eCQZaFC0l6+CVa1pev1rd1+6rOJGaGhcfV/RkQTsGb5B3exjqj3k9AC74Oy08uAL
+	13Yr5oY5iFLhJH9UKP3GGvg819BebTAOLdZKPtLxGAKdIMfoLIsqm5TZnRAXpoDIUwXa4OfBfQ95D
+	4gsrhcNg==;
+Received: from sslproxy07.your-server.de ([78.47.199.104])
+	by www62.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <daniel@iogearbox.net>)
+	id 1smHaY-000ODB-A9; Thu, 05 Sep 2024 20:52:14 +0200
+Received: from [178.197.248.15] (helo=linux.home)
+	by sslproxy07.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <daniel@iogearbox.net>)
+	id 1smHaW-000Fzm-1t;
+	Thu, 05 Sep 2024 20:52:13 +0200
+Subject: Re: [PATCH bpf-next v3 00/10] Local vmtest enhancement and RV64
+ enabled
+To: Pu Lehui <pulehui@huaweicloud.com>, bpf@vger.kernel.org,
+ linux-riscv@lists.infradead.org, netdev@vger.kernel.org
+Cc: Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman
+ <eddyz87@gmail.com>, Mykola Lysenko <mykolal@fb.com>,
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
+ Puranjay Mohan <puranjay@kernel.org>, Alexei Starovoitov <ast@kernel.org>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>,
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
+ Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>,
+ Jiri Olsa <jolsa@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Pu Lehui <pulehui@huawei.com>
+References: <20240905081401.1894789-1-pulehui@huaweicloud.com>
+From: Daniel Borkmann <daniel@iogearbox.net>
+Message-ID: <e9816f7c-a603-c73e-5fcc-71bbcf6c6ca3@iogearbox.net>
+Date: Thu, 5 Sep 2024 20:52:12 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.7.2
+MIME-Version: 1.0
+In-Reply-To: <20240905081401.1894789-1-pulehui@huaweicloud.com>
+Content-Language: en-US
+X-Authenticated-Sender: daniel@iogearbox.net
+X-Virus-Scanned: Clear (ClamAV 0.103.10/27389/Thu Sep  5 10:33:25 2024)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240905_102036_025464_D93B132A 
-X-CRM114-Status: GOOD (  20.05  )
+X-CRM114-CacheID: sfid-20240905_115230_085823_8D2D8804 
+X-CRM114-Status: GOOD (  15.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,97 +88,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-> On Sep 3, 2024, at 22:27, Palmer Dabbelt <palmer@rivosinc.com> wrote:
+On 9/5/24 10:13 AM, Pu Lehui wrote:
+> Patch 1-3 fix some problem about bpf selftests. Patch 4 add local rootfs
+> image support for vmtest. Patch 5 enable cross-platform testing for
+> vmtest. Patch 6-10 enable vmtest on RV64.
 > 
-> On Mon, 26 Aug 2024 19:24:38 PDT (-0700), cyy@cyyself.name wrote:
->> 
->> 
->>> On Aug 27, 2024, at 00:36, Charlie Jenkins <charlie@rivosinc.com> wrote:
->>> The hint address should not forcefully restrict the addresses returned
->>> by mmap as this causes mmap to report ENOMEM when there is memory still
->>> available.
->> 
->> Fixing in this way will break userspace on Sv57 machines as some
->> issues mentioned in the patch [1].
->> 
->> I suggest restricting to BIT(47) by default, like patch [2], to
->> align with kernel behavior on x86 and aarch64, and this does exist
->> on x86 and aarch64 for quite a long time. In that way, we will also
->> solve the problem mentioned in the first patch [1], as QEMU enables
->> Sv57 by default now and will not break userspace.
->> 
->> [1] https://lore.kernel.org/linux-riscv/20230809232218.849726-1-charlie@rivosinc.com/
->> [2] https://lore.kernel.org/linux-riscv/tencent_B2D0435BC011135736262764B511994F4805@qq.com/
+> We can now perform cross platform testing for riscv64 bpf using the
+> following command:
 > 
-> I'm going to pick this up as it's a revert and a bug fix, so we can backport it.  If the right answer is to just forget about the sv39 userspace and only worry about sv48 userspace then your patches are likely the way to go,
-
-I think we don't need to care about restricting to sv39 now since
-the ASAN bug has been fixed. We should care about what to do to not
-break userspace on sv57 machines as QEMU enables sv57 by default,
-which is widely used.
-
-> but there's a handful of discussions around that which might take a bit.
+> PLATFORM=riscv64 CROSS_COMPILE=riscv64-linux-gnu- \
+>    tools/testing/selftests/bpf/vmtest.sh \
+>    -l <path of local rootfs image> -- \
+>    ./test_progs -d \
+>        \"$(cat tools/testing/selftests/bpf/DENYLIST.riscv64 \
+>            | cut -d'#' -f1 \
+>            | sed -e 's/^[[:space:]]*//' \
+>                  -e 's/[[:space:]]*$//' \
+>            | tr -s '\n' ',' \
+>        )\"
 > 
->> 
->> Thanks,
->> Yangyu Chen
->> 
->>> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
->>> Fixes: b5b4287accd7 ("riscv: mm: Use hint address in mmap if available")
->>> Fixes: add2cc6b6515 ("RISC-V: mm: Restrict address space for sv39,sv48,sv57")
->>> Closes: https://lore.kernel.org/linux-kernel/ZbxTNjQPFKBatMq+@ghost/T/#mccb1890466bf5a488c9ce7441e57e42271895765
->>> ---
->>> arch/riscv/include/asm/processor.h | 26 ++------------------------
->>> 1 file changed, 2 insertions(+), 24 deletions(-)
->>> diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
->>> index 8702b8721a27..efa1b3519b23 100644
->>> --- a/arch/riscv/include/asm/processor.h
->>> +++ b/arch/riscv/include/asm/processor.h
->>> @@ -14,36 +14,14 @@
->>> #include <asm/ptrace.h>
->>> -/*
->>> - * addr is a hint to the maximum userspace address that mmap should provide, so
->>> - * this macro needs to return the largest address space available so that
->>> - * mmap_end < addr, being mmap_end the top of that address space.
->>> - * See Documentation/arch/riscv/vm-layout.rst for more details.
->>> - */
->>> #define arch_get_mmap_end(addr, len, flags) \
->>> ({ \
->>> - unsigned long mmap_end; \
->>> - typeof(addr) _addr = (addr); \
->>> - if ((_addr) == 0 || is_compat_task() || \
->>> -    ((_addr + len) > BIT(VA_BITS - 1))) \
->>> - mmap_end = STACK_TOP_MAX; \
->>> - else \
->>> - mmap_end = (_addr + len); \
->>> - mmap_end; \
->>> + STACK_TOP_MAX; \
->>> })
->>> #define arch_get_mmap_base(addr, base) \
->>> ({ \
->>> - unsigned long mmap_base; \
->>> - typeof(addr) _addr = (addr); \
->>> - typeof(base) _base = (base); \
->>> - unsigned long rnd_gap = DEFAULT_MAP_WINDOW - (_base); \
->>> - if ((_addr) == 0 || is_compat_task() || \
->>> -    ((_addr + len) > BIT(VA_BITS - 1))) \
->>> - mmap_base = (_base); \
->>> - else \
->>> - mmap_base = (_addr + len) - rnd_gap; \
->>> - mmap_base; \
->>> + base; \
->>> })
->>> #ifdef CONFIG_64BIT
->>> -- 
->>> 2.45.0
+> For better regression, we rely on commit [0]. And since the work of riscv
+> ftrace to remove stop_machine atomic replacement is in progress, we also
+> need to revert commit [1] [2].
+> 
+> The test platform is x86_64 architecture, and the versions of relevant
+> components are as follows:
+>      QEMU: 8.2.0
+>      CLANG: 17.0.6 (align to BPF CI)
+>      ROOTFS: ubuntu noble (generated by [3])
+> 
+> Link: https://lore.kernel.org/all/20240831071520.1630360-1-pulehui@huaweicloud.com/ [0]
+> Link: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3308172276db [1]
+> Link: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7caa9765465f [2]
+> Link: https://github.com/libbpf/ci/blob/main/rootfs/mkrootfs_debian.sh [3]
 
+Nice work! Next step is upstream BPF CI integration? :)
+
+Fwiw, all still works for me on x86-64 (*), so:
+
+Acked-by: Daniel Borkmann <daniel@iogearbox.net>
+Tested-by: Daniel Borkmann <daniel@iogearbox.net>
+
+(*) fresh Equinix Ubuntu instance still requires this one for vmtest.sh, but
+     that is independent of this series (and for others it seems not required)
+
+diff --git a/tools/testing/selftests/bpf/Makefile b/tools/testing/selftests/bpf/Makefile
+index 04716a5e43f1..02dd161e5185 100644
+--- a/tools/testing/selftests/bpf/Makefile
++++ b/tools/testing/selftests/bpf/Makefile
+@@ -693,7 +693,7 @@ $(OUTPUT)/$(TRUNNER_BINARY): $(TRUNNER_TEST_OBJS)                   \
+                              $(TRUNNER_BPFTOOL)                         \
+                              | $(TRUNNER_BINARY)-extras
+         $$(call msg,BINARY,,$$@)
+-       $(Q)$$(CC) $$(CFLAGS) $$(filter %.a %.o,$$^) $$(LDLIBS) $$(LDFLAGS) -o $$@
++       $(Q)$$(CC) $$(CFLAGS) $(TRUNNER_LDFLAGS) $$(filter %.a %.o,$$^) $$(LDLIBS) $$(LDFLAGS) -o $$@
+         $(Q)$(RESOLVE_BTFIDS) --btf $(TRUNNER_OUTPUT)/btf_data.bpf.o $$@
+         $(Q)ln -sf $(if $2,..,.)/tools/build/bpftool/$(USE_BOOTSTRAP)bpftool \
+                    $(OUTPUT)/$(if $2,$2/)bpftool
+diff --git a/tools/testing/selftests/bpf/vmtest.sh b/tools/testing/selftests/bpf/vmtest.sh
+index 79505d294c44..afbd6b785064 100755
+--- a/tools/testing/selftests/bpf/vmtest.sh
++++ b/tools/testing/selftests/bpf/vmtest.sh
+@@ -189,7 +189,7 @@ update_selftests()
+         local selftests_dir="${kernel_checkout}/tools/testing/selftests/bpf"
+
+         cd "${selftests_dir}"
+-       ${make_command}
++       TRUNNER_LDFLAGS=-static ${make_command}
+
+         # Mount the image and copy the selftests to the image.
+         mount_image
 
 _______________________________________________
 linux-riscv mailing list
