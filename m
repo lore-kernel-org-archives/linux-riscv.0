@@ -4,90 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CDEBCD4F4A
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Sep 2024 23:08:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E813CD4F4A
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Sep 2024 00:03:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5DVA/hpQqeVK7l0/OPMVB3ubbpYkdg+IgpCc8P6d6LA=; b=GV3+4BMIRKUuK0
-	AqjB5AN3yPVRtCcsaoRbSzfeOTdGyoyc4vtD8MuLCFEUTM7+QbQsTlTj98RCGLBDub3tSSLNWNQ8o
-	3AU1+F9SK6cRRTAIoYQA3vkbjtXgVSNTUBn0QpWpV/Tl793FzxMjBGbFtA23crmeTwT/VA0SD7MUo
-	+U15Q9eIkbBbMxcfVfaBcVufeIbJXTb8eIP05QOQTif4YhofXTrF52Eg+1++uUHIYxG3/P+OjbS/M
-	VB8/duulwwlsLu+opCTX8TObr24Qw4Oc0z00veOlAeFxL7bT2aiDYXIcDpZRfFWmtKhRcH+yBqaXg
-	M7NvG7ZYzl6+2P0t19XQ==;
+	List-Owner; bh=hLvRgvu8xESg0Hem9hysSM5N1Hy1Q6W/23hZEnWahWE=; b=FpU/vvt1i7UNV0
+	Zf8/jjFWaXo5cZVKr+kQzymi/pe/zcK87D+Z24lzmkm+P6mmYvaPQTnI6RCTYrqG9ITLHTGDr7AfD
+	xxUMKr4afaSMnTf7terGQNNUU5ICl5lCmO76XWJXcH/d7E6paew4fssNAh0OWn92RmQpycOinAsPl
+	ib89eCD03EM7gK2HoNpPJXPanou7TN3flxDFmfFNMOJJQzIwn07Y0NSiVWne1Uw6jGcBRviyP2Q4h
+	LNGCYaIH3CYcopj1orrh4oDZaKPz4/9ITLfFq0ftMTL8jVvzwV2FOcM+OW6a+7AHV3uGd9w/7n0WV
+	xLxeHlecLJgTz9fv0U4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1slz6o-00000006KNS-3Brk;
-	Wed, 04 Sep 2024 23:08:18 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1slzyR-00000006RY5-2qbe;
+	Thu, 05 Sep 2024 00:03:43 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1slz6l-00000006KMv-2hnC
+	id 1slzyO-00000006RXi-0jM6
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Sep 2024 23:08:17 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-20570b42f24so2365685ad.1
-        for <linux-riscv@lists.infradead.org>; Wed, 04 Sep 2024 16:08:15 -0700 (PDT)
+	Thu, 05 Sep 2024 00:03:41 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-2d8f06c2459so116488a91.0
+        for <linux-riscv@lists.infradead.org>; Wed, 04 Sep 2024 17:03:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1725491295; x=1726096095; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=JuYY7Ue61iqYlGMoVC45JUKp7fJ5h0XkO3P1iEMCu2c=;
-        b=YSRwXA6Ow+l4n2WpsQLlqHggyCTu7WY1+qpiUpnLGvi69MxXu28zquvOJLDm2vEDw7
-         pPaVCLkAc4MgCZ66TBQOAZb0KQah9ZOP3aGgvYYaabayBo7DkIWdASWy1KgPyJnGMLFo
-         cUEXZoaOd3KX6TC+sjf/QZV0tMgcesa/YVbj/fQ/cNLUsDu199uf6asnsdUDVWiE7PrT
-         xvXdS3PpV8U7zn1AHw/AvMbyfjgQXTwJ3P+egOw6ZzlRSEsARv1e9nc51E1mqlV6nXA9
-         +rr9aG8w+pk9V/nd9JHrX9hHh9LNWesBL6l6J9LQdapGstOMqo5mppdFxOo1eCsC5Mw7
-         UpkQ==
+        d=gmail.com; s=20230601; t=1725494619; x=1726099419; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6Pp5XlYCZbKVyNu+taRdigNsqhXnKoDENO/bwZGJUkU=;
+        b=Qoo+3IwI+9bBpWmk2zScKeVBykoRzKQj83u2N1lKjZ24i5NMGhpTUM8nFGSnu+dFQE
+         ZMa2AoxGUjgewPX90YD8xdfsyHqgqhbBhXh/TFh7GiMQ3QTRho2XyRJPsi7L3N2Viacs
+         5P73my+sMJaiHdCikKrSPUfsLT1ZhCzcYrCIFoThX1FUPpDWbKKJ0gCljbwgYgU+Fdne
+         ZR13xS8d+oSIDB1ygEMkVeS1i5Sw7WqbtPh4K5BQ7O7bg4k2bYy1WDwSB0P4h8on+/Sh
+         G6nESpn2fFt93huMb9mrVLEYfJ6pDLHpkujkRAmdg8PDyLMq7JNouYdr0baH0oYXXXK7
+         iwBA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1725491295; x=1726096095;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=JuYY7Ue61iqYlGMoVC45JUKp7fJ5h0XkO3P1iEMCu2c=;
-        b=JfVLMb3jfmqhSe2OZCTqkcGc6gpRRK+bBdbNpnmO8qojfzCrJExI1KOA5tSA2TCrsd
-         ZyvbSrBX5LbBnavuOvfeo03vfQ8qGviHBhTqJIMOSayWamzlZXpHUI8YxV8M6CYvsNdd
-         4AbkHX+cRjt+fs+QRvcXhxTAcUPDs86L7LOYW0zGdZFUAfwSZ0niqKn6QKYMaUZAwGIr
-         aPMwNkdCsmIR7H61mkjyp/TGgsaLQ23Zp1dT1DRKjOIbWY607EhquKMzShlu0JnYlh2I
-         ZsM+TVftUpnUVjrxG04PgASKXLABzfJJ4rhJAtvRsV/zuTYmfdfK2tWUtJALRH7ct/DV
-         b4yw==
-X-Forwarded-Encrypted: i=1; AJvYcCVPyuTXS1Thi/blSb9QJy0ydmcgpf+NLOmry/sV+3VFeeYo3BB2/gI/PuU68rIzd3qjTrfIKAvy1d+YvA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/HJMA5VFw5mn/gQgTpWv5oDE0p82E1EP/any7CIPx/ajiGY2U
-	NAtCFRbuBuypFQL6V/Lq78uMsM5T26Wrqeb4NX03E0B1swGJebOC
-X-Google-Smtp-Source: AGHT+IF4rQGkEVUHVpqqXf2jKmQLiLHqowPu6xYKSxVTfrDXBPMBmlKsnz4QlN3364FnuloKsGiLHQ==
-X-Received: by 2002:a17:902:e543:b0:1fc:6a13:a394 with SMTP id d9443c01a7336-20699ae817dmr101712865ad.23.1725491294513;
-        Wed, 04 Sep 2024 16:08:14 -0700 (PDT)
-Received: from [192.168.0.235] ([38.34.87.7])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-206ae951f35sm18340095ad.85.2024.09.04.16.08.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Sep 2024 16:08:13 -0700 (PDT)
-Message-ID: <1bd4056c2b311aca03b7707b077f7555db4e55d6.camel@gmail.com>
-Subject: Re: [PATCH bpf-next v2 03/10] selftests/bpf: Disable feature-llvm
- for vmtest
-From: Eduard Zingerman <eddyz87@gmail.com>
-To: Pu Lehui <pulehui@huaweicloud.com>, bpf@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, netdev@vger.kernel.org
-Cc: Andrii Nakryiko <andrii@kernel.org>, Mykola Lysenko <mykolal@fb.com>, 
- =?ISO-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>, Puranjay Mohan
- <puranjay@kernel.org>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
- <daniel@iogearbox.net>, Martin KaFai Lau <martin.lau@linux.dev>, Song Liu
- <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, John Fastabend
- <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, Stanislav
- Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, Jiri Olsa
- <jolsa@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Pu Lehui
- <pulehui@huawei.com>
-Date: Wed, 04 Sep 2024 16:08:08 -0700
-In-Reply-To: <fc9a03f1809cfdd80a9a8cb7b513e32302be5a43.camel@gmail.com>
-References: <20240904141951.1139090-1-pulehui@huaweicloud.com>
-	 <20240904141951.1139090-4-pulehui@huaweicloud.com>
-	 <fc9a03f1809cfdd80a9a8cb7b513e32302be5a43.camel@gmail.com>
-User-Agent: Evolution 3.52.4 (3.52.4-1.fc40) 
+        d=1e100.net; s=20230601; t=1725494619; x=1726099419;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=6Pp5XlYCZbKVyNu+taRdigNsqhXnKoDENO/bwZGJUkU=;
+        b=Ak+xl5flQ8IzFwMgp9OYasj0cqOK8RORkHVULo2Q8ueZidPStVWieFi+aby7gkWf30
+         MRfbQzkgyTaqaGd0/yNla5jJUcOhz7py3d5wVGv911YfLDloWI2p4WJFdGTTTV+6idr/
+         OuKJ031aWMqL5vo4nagoBE6WKtZ19XOJva7Xq89Rpy/lZKNymGWGwcXFBz3QiwYiPs8R
+         PWCyG3ErGI4n+xdXN14q05tUyGmOuMZyXEmTgiyV+PTU4KkS51DKF3uZrbsZqahkUrQ7
+         ta/x7O89MVu7SLchAiNdqUtXpE+WqRvh3l/XEpBGlviQab0NfHJIGJ7w1rEvs8cIHhRi
+         /FAg==
+X-Forwarded-Encrypted: i=1; AJvYcCU5zvCBBHqTJlpkBh6CkSljDjC0QeyBLkqcNFRhmU2pAwN8xaAiGQHFzeUT/C9e9uf0QjXZPwJKK1dq4g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzrxY0S7B2qGzENkcSXLhe6kwPmvxOgXD+rfrO03Kph9Qa9MUBc
+	wlnJParEfi3ZpoQXtbj4Ram6Ts5O9WfKSDVPD7FeLUE02lA+k8lH/ulNvUs/xNk5zZ8I1d5YqeE
+	hUkvjPLLr/BcrVGpnjcMKmET8oEA=
+X-Google-Smtp-Source: AGHT+IFBpYTti429OSnNnQQ+QN6FQO6CvlS7tcnhLxLRhP/UPmJKgFeYjE++SyoFnDaw1HzAKVP4OrSpsTvrVJ1N8JM=
+X-Received: by 2002:a17:90a:e2c3:b0:2d8:9a0c:36c0 with SMTP id
+ 98e67ed59e1d1-2da55924370mr8617709a91.8.1725494619043; Wed, 04 Sep 2024
+ 17:03:39 -0700 (PDT)
 MIME-Version: 1.0
+References: <20240831041934.1629216-1-pulehui@huaweicloud.com>
+ <172548183128.1158691.9881712792582282151.git-patchwork-notify@kernel.org> <CAEf4BzayV1ihbfSg4fv0AqSazVycXqCJp4dTq1pwRt5hmx7X4g@mail.gmail.com>
+In-Reply-To: <CAEf4BzayV1ihbfSg4fv0AqSazVycXqCJp4dTq1pwRt5hmx7X4g@mail.gmail.com>
+From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Date: Wed, 4 Sep 2024 17:03:26 -0700
+Message-ID: <CAEf4Bza5i+MFqeOs8w+Zhw4e6vt7KMgVwjNaEOTz33P8T6Ldsg@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v3 0/4] Fix accessing first syscall argument on RV64
+To: patchwork-bot+netdevbpf@kernel.org
+Cc: Pu Lehui <pulehui@huaweicloud.com>, bpf <bpf@vger.kernel.org>, 
+	linux-riscv <linux-riscv@lists.infradead.org>, Networking <netdev@vger.kernel.org>, 
+	Andrii Nakryiko <andrii@kernel.org>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, 
+	Ilya Leoshkevich <iii@linux.ibm.com>, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Martin KaFai Lau <martin.lau@linux.dev>, 
+	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, john fastabend <john.fastabend@gmail.com>, 
+	KP Singh <kpsingh@kernel.org>, Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Puranjay Mohan <puranjay@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Pu Lehui <pulehui@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240904_160815_705917_3C5A355B 
-X-CRM114-Status: GOOD (  18.25  )
+X-CRM114-CacheID: sfid-20240904_170340_273033_AF0248C2 
+X-CRM114-Status: GOOD (  20.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,46 +93,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2024-09-04 at 12:37 -0700, Eduard Zingerman wrote:
-> On Wed, 2024-09-04 at 14:19 +0000, Pu Lehui wrote:
-> > From: Pu Lehui <pulehui@huawei.com>
-> > 
-> > After commit b991fc520700 ("selftests/bpf: utility function to get
-> > program disassembly after jit"), Makefile will link libLLVM* related
-> > libraries to the user binary execution file when detecting that
-> > feature-llvm is enabled, which will cause the local vmtest to appear as
-> > follows mistake:
-> > 
-> >   ./test_progs: error while loading shared libraries: libLLVM-17.so.1:
-> >     cannot open shared object file: No such file or directory
-> > 
-> > Considering that the get_jited_program_text() function is a useful tool
-> > for user debugging and will not be relied upon by the entire bpf
-> > selftests, let's turn it off in local vmtest.
-> > 
-> > Signed-off-by: Pu Lehui <pulehui@huawei.com>
-> > ---
-> 
-> I actually don't agree.
-> The __jited tag is supposed to be used by selftests
-> (granted, used by a single selftest for now).
-> Maybe add an option to forgo LLVM linkage when test_progs are compiled?
-> Regarding base image lacking libLLVM -- I need to fix this.
-> 
-
-Please consider using my commit [1] instead of this patch, it forces
-static linking form LLVM libraries, thus avoiding issues with rootfs.
-(This was suggested by Andrii off list).
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/ez/bpf-next.git/commit/?h=selftest-llvm-static-linking&id=263bacf2f20fbc17204fd912609e26bdf6ac5a13
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBTZXAgNCwgMjAyNCBhdCAzOjQ04oCvUE0gQW5kcmlpIE5ha3J5aWtvCjxhbmRyaWku
+bmFrcnlpa29AZ21haWwuY29tPiB3cm90ZToKPgo+Cj4KPiBPbiBXZWQsIFNlcCA0LCAyMDI0IGF0
+IDE6MzDigK9QTSA8cGF0Y2h3b3JrLWJvdCtuZXRkZXZicGZAa2VybmVsLm9yZz4gd3JvdGU6Cj4g
+Pgo+ID4gSGVsbG86Cj4gPgo+ID4gVGhpcyBzZXJpZXMgd2FzIGFwcGxpZWQgdG8gYnBmL2JwZi1u
+ZXh0LmdpdCAobWFzdGVyKQo+ID4gYnkgQW5kcmlpIE5ha3J5aWtvIDxhbmRyaWlAa2VybmVsLm9y
+Zz46Cj4gPgo+ID4gT24gU2F0LCAzMSBBdWcgMjAyNCAwNDoxOTozMCArMDAwMCB5b3Ugd3JvdGU6
+Cj4gPiA+IE9uIFJWNjQsIGFzIElseWEgbWVudGlvbmVkIGJlZm9yZSBbMF0sIHRoZSBmaXJzdCBz
+eXNjYWxsIHBhcmFtZXRlciBzaG91bGQgYmUKPiA+ID4gYWNjZXNzZWQgdGhyb3VnaCBvcmlnX2Ew
+IChzZWUgYXJjaC9yaXNjdjY0L2luY2x1ZGUvYXNtL3N5c2NhbGwuaCksCj4gPiA+IG90aGVyd2lz
+ZSBpdCB3aWxsIGNhdXNlIHNlbGZ0ZXN0cyBsaWtlIGJwZl9zeXNjYWxsX21hY3JvLCB2bWxpbnV4
+LAo+ID4gPiB0ZXN0X2xzbSwgZXRjLiB0byBmYWlsIG9uIFJWNjQuCj4gPiA+Cj4gPiA+IExpbms6
+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2JwZi8yMDIyMDIwOTAyMTc0NS4yMjE1NDUyLTEtaWlp
+QGxpbnV4LmlibS5jb20gWzBdCj4gPiA+Cj4gPiA+IFsuLi5dCj4gPgo+ID4gSGVyZSBpcyB0aGUg
+c3VtbWFyeSB3aXRoIGxpbmtzOgo+ID4gICAtIFticGYtbmV4dCx2MywxLzRdIGxpYmJwZjogQWNj
+ZXNzIGZpcnN0IHN5c2NhbGwgYXJndW1lbnQgd2l0aCBDTy1SRSBkaXJlY3QgcmVhZCBvbiBzMzkw
+Cj4gPiAgICAgaHR0cHM6Ly9naXQua2VybmVsLm9yZy9icGYvYnBmLW5leHQvYy82NWVlMTFkOWM4
+MjIKPiA+ICAgLSBbYnBmLW5leHQsdjMsMi80XSBsaWJicGY6IEFjY2VzcyBmaXJzdCBzeXNjYWxs
+IGFyZ3VtZW50IHdpdGggQ08tUkUgZGlyZWN0IHJlYWQgb24gYXJtNjQKPiA+ICAgICBodHRwczov
+L2dpdC5rZXJuZWwub3JnL2JwZi9icGYtbmV4dC9jL2ViZDhhZDQ3NDg4OAo+ID4gICAtIFticGYt
+bmV4dCx2MywzLzRdIHNlbGZ0ZXN0cy9icGY6IEVuYWJsZSB0ZXN0X2JwZl9zeXNjYWxsX21hY3Jv
+OnN5c2NhbGxfYXJnMSBvbiBzMzkwIGFuZCBhcm02NAo+ID4gICAgIGh0dHBzOi8vZ2l0Lmtlcm5l
+bC5vcmcvYnBmL2JwZi1uZXh0L2MvM2E5MTNjNGQ2MmUxCj4gPiAgIC0gW2JwZi1uZXh0LHYzLDQv
+NF0gbGliYnBmOiBGaXggYWNjZXNzaW5nIGZpcnN0IHN5c2NhbGwgYXJndW1lbnQgb24gUlY2NAo+
+ID4gICAgIGh0dHBzOi8vZ2l0Lmtlcm5lbC5vcmcvYnBmL2JwZi1uZXh0L2MvMTMxNDNjNTgxNmJj
+Cj4gPgo+Cj4gT2ssIEkgaGFkIHRvICJ1bmFwcGx5IiB0aGVzZSBwYXRjaGVzLCBhcyBzMzkweCBz
+ZWxmdGVzdCAoYnBmX3N5c2NhbGxfbWFjcm8pIHN0YXJ0ZWQgZmFpbGluZyAoYXJtNjQgaXMgZmlu
+ZSwgc28gSSB0aGluayBpdCdzIHByb2JhYmx5IGR1ZSB0byBwYXRjaCAjMyB0aGF0IGNoYW5nZXMg
+c2VsZnRlc3RzIGl0c2VsZikuCj4KPiBQdSwgY2FuIHlvdSBwbGVhc2UgdGFrZSBhIGxvb2sgYXQg
+dGhhdCAoZS5nLiwgc2VlIFswXSk/IEl0J3MgYSBiaXQgc3RyYW5nZSwgYXMgb3JpZ2luYWxseSBu
+byBlcnJvciB3YXMgcmVwb3J0ZWQsIHNvIG5vdCBzdXJlIHdoYXQgY2hhbmdlZC4gUGxlYXNlIGFs
+c28gc2VlIHRoZSB0aGluZ3MgSSB3YXMgZml4aW5nIHVwIHdoaWxlIGFwcGx5aW5nLCBzbyBJIGRv
+bid0IGhhdmUgdG8gZG8gaXQgYWdhaW4gOikKPgo+ICAgWzBdIGh0dHBzOi8vZ2l0aHViLmNvbS9r
+ZXJuZWwtcGF0Y2hlcy9icGYvYWN0aW9ucy9ydW5zLzEwNzA5MDI0NzU1L2pvYi8yOTY5MzA1NjU1
+MCNzdGVwOjU6ODc0NgoKT2gsIEkgZmlndXJlZCBpdCBvdXQhIFRoYXQgdG1wIGlzIHRoZXJlIGZv
+ciBhIHJlYXNvbiEgV2UKYnBmX3Byb2JlX3JlYWRfa2VybmVsKCkgOCBieXRlcywgYnV0IHN5c2Nh
+bGwncyAxc3QgYXJndW1lbnQgaXRzZWxmIGlzCjQgYnl0ZSBsb25nLCBzbyB3ZSBuZWVkIHRvIGNh
+c3QgdTY0IHRvIHUzMi4gQW5kIHMzOTB4IGJlaW5nIHRoZSBiaWcKZW5kaWFuIGFyY2hpdGVjdHVy
+ZSBkZXRlY3RlZCB0aGlzIHByb2JsZW0sIHdoaWxlIGZvciBhcm02NCB3ZSB3ZXJlCmx1Y2t5LgoK
+U28gbmV2ZXIgbWluZCwgSSdsbCBhcHBseSB5b3VyIHBhdGNoZXMgd2l0aCBmaXggdXBzIGluIHRo
+ZQpicGZfdHJhY2luZy5oIGhlYWRlciwgYnV0IEkgd29uJ3QgdG91Y2ggcGF0Y2ggIzMuCgo+Cj4g
+PiBZb3UgYXJlIGF3ZXNvbWUsIHRoYW5rIHlvdSEKPiA+IC0tCj4gPiBEZWV0LWRvb3QtZG90LCBJ
+IGFtIGEgYm90Lgo+ID4gaHR0cHM6Ly9rb3JnLmRvY3Mua2VybmVsLm9yZy9wYXRjaHdvcmsvcHdi
+b3QuaHRtbAo+ID4KPiA+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
+ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LXJpc2N2Cg==
