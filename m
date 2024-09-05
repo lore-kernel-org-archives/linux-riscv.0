@@ -4,103 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9248BCD4F5B
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Sep 2024 08:14:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C84ACD4F5B
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Sep 2024 08:18:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VM7CZMijls/NntniHbBBzJQtk21BQvVdJ87zeox6qPw=; b=WJtJuFmMu0LfjO
-	1lCgw59lPqRpw1JgHYENZiDTVnRG6YHLjW6c7rQOpoXd+qXpBecRB1HD9ERbR4ibFmuuZE0wBoZ8F
-	/foNOJ2h83X3LDMidvhXfhW39D2vJCubd8F9zqC/qN5fjB4q89ipCYsI83jsjHXLkfosS29tWdOre
-	IDGWVgOIOCKsEuz0nOzdxUX34rnTouaA+6snamY7foHvI97WvgmHZMte64LxjCbzsWFzbFV0PmAxv
-	yx5Z1WhRluTYjqs2pqUUuCI9qeXfQpUKrncKy4+UFPXzeQZDTuWj7eiB8s0s+2cJ7VUu3RkJY1B8J
-	dT6OQDyFwgkI+mjI/7rw==;
+	List-Owner; bh=ijYc7hKix3l5/BKLF5b9EIF41IHd4efkyTYQ7tNTUYY=; b=dAgPY5nXp20rXx
+	Zy4xkOUAl+c/pdnb7iHvKJkagOB1UzsSLO41W0AaJBUVc6S72rjQX8zO3PZmjDWtrULKZxe1nEN9+
+	xBua8iMetTU53soYDx8OjNjIeeVBeug7IXl2+lPTLuCSuktNW3yXW17bVS6Y3WRRU1JO8YazN3PtS
+	xztVOWpLAo2cO9Z51LsmRs7F7Nrks+HvGIdGvQQXmyLjJAYn6YNpB94b3yszVG9OCmpN7IfWLyd4l
+	6226Qi63o7jxRJnixcJg2Nf34Tmxa/MZ8y5G1GQFJIYl8ci0HbXc8DwHrZTuC8uMYcUfi4tbLTG+Z
+	flNZJZJbwPF/NFrd0Acw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sm7dA-00000007Vnl-2RQ1;
-	Thu, 05 Sep 2024 08:14:16 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1sm7hd-00000007XOZ-42nS;
+	Thu, 05 Sep 2024 08:18:53 +0000
+Received: from mgamail.intel.com ([198.175.65.17])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sm7ai-00000007VER-24sA
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 05 Sep 2024 08:11:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=30yy2OgD5v0bfj390qUjmROqN+Rfg4ulwMJfO/cVprM=; b=imT7YL9EwwxtoB6sBNWtGH1KmU
-	kJ+zPO8OE+g2dYNstNyrM1ThAIG8HurwNbZiRQyZxhYkcKf8SnEYpdhISV3dgBe9rm5j5VbMnwa7j
-	oMskGlq7Izz6pzKiFtbBrOOEga5nYGPKcd4Y3Wn+45wki2ezuwo2fUn6wAA3lI/Y/NZhv3niUTGuA
-	t5RTlYwUv3bYCy9qg+hy/jHgLyxAfm2H+nwH+cezmQdqYkxFthI4PrZNbZvhWvkgT5JDibyBugREh
-	ViLVPSXZZMlHmLYGyCONsnVtGrDw/gEIKVTZ+XUMi8Xfy4d5Tx33ANL0bGivIMGBoRqFvye0vuKuU
-	n7NjuxVw==;
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sm7ab-00000000QLB-3Vqd
-	for linux-riscv@lists.infradead.org;
-	Thu, 05 Sep 2024 08:11:43 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.235])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4WzsWD49H6z4f3lD4
-	for <linux-riscv@lists.infradead.org>; Thu,  5 Sep 2024 16:11:04 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.112])
-	by mail.maildlp.com (Postfix) with ESMTP id 7A4CE1A06DA
-	for <linux-riscv@lists.infradead.org>; Thu,  5 Sep 2024 16:11:20 +0800 (CST)
-Received: from ultra.huawei.com (unknown [10.90.53.71])
-	by APP1 (Coremail) with SMTP id cCh0CgD3Ii+gZ9lmMQ7AAQ--.26932S8;
-	Thu, 05 Sep 2024 16:11:18 +0800 (CST)
-From: Pu Lehui <pulehui@huaweicloud.com>
-To: bpf@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	netdev@vger.kernel.org
-Cc: Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Mykola Lysenko <mykolal@fb.com>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Hao Luo <haoluo@google.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Pu Lehui <pulehui@huawei.com>
-Subject: [PATCH bpf-next v3 06/10] selftests/bpf: Enable cross platform testing for vmtest
-Date: Thu,  5 Sep 2024 08:13:57 +0000
-Message-Id: <20240905081401.1894789-7-pulehui@huaweicloud.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20240905081401.1894789-1-pulehui@huaweicloud.com>
-References: <20240905081401.1894789-1-pulehui@huaweicloud.com>
+	id 1sm7hA-00000007XHT-48YU;
+	Thu, 05 Sep 2024 08:18:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1725524306; x=1757060306;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=MxbG1NFAO2hA0Y81lnNJT1+jSGtQoe5Vz9VbrJuDz5M=;
+  b=RbWOCf0zlHu9mzAfpffAKif9gEAVyE6l/sahEeqTtkWhXoad6SKvotzM
+   B1ay6NWX0uzkbqNwTYMsHzGdVSXRwRZ8183CLqVhqGMJU6ErMGwhhTke/
+   dq6XVzq4D1FR08hxywpqUEyV/P/F4vtsfMlj0V7FoVE8V4co2HNOvRM85
+   Ky1rRSyVEGXq0UV7PFC/gJ6bQjBks0J/6gFAGZ/4OdMX2iLDzYqHdGCqL
+   slpJUHtif6VdjDQyS5E5v9AQ+UXUPLEavW1PXCNcWaQMItecaWN1eocsl
+   K8mysfHbVAmUniJL4W9WOz8v+Bi/97JOUZjsO0gd7ZicW1/lGa0DfF0O5
+   g==;
+X-CSE-ConnectionGUID: w9uC2ArHRPaVzGWjCopi1w==
+X-CSE-MsgGUID: QBWbkpS/S3mhNyrgZXgbEw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11185"; a="24383599"
+X-IronPort-AV: E=Sophos;i="6.10,204,1719903600"; 
+   d="scan'208";a="24383599"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Sep 2024 01:18:24 -0700
+X-CSE-ConnectionGUID: zUECY1JsTCytv0zNGU91zg==
+X-CSE-MsgGUID: 3BzHH7e7Syqb+WqtcOa6iA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.10,204,1719903600"; 
+   d="scan'208";a="65242627"
+Received: from mylly.fi.intel.com (HELO [10.237.72.58]) ([10.237.72.58])
+  by fmviesa007.fm.intel.com with ESMTP; 05 Sep 2024 01:18:16 -0700
+Message-ID: <6cbdf44e-7346-4463-a622-7810706d5419@linux.intel.com>
+Date: Thu, 5 Sep 2024 11:18:14 +0300
 MIME-Version: 1.0
-X-CM-TRANSID: cCh0CgD3Ii+gZ9lmMQ7AAQ--.26932S8
-X-Coremail-Antispam: 1UD129KBjvJXoW3AryxCFyUZFyfCrWrCFyxAFb_yoW7GF4rp3
-	y8Zw42ka48WF1Sgrn7AF409FWfGw4kZrW7Gry8Xw1UZwn7JF9Fyr9ayFWDXrsxW34Syr43
-	ZasagF90kw47Z37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUmFb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUAV
-	Cq3wA2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0
-	rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWDJVCq3wA2z4x0Y4vE2Ix0cI8IcVCY1x0267
-	AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E
-	14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7
-	xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Y
-	z7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2
-	AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAq
-	x4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6r
-	W5MIIYY7kG6xAYrwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1I6r4UMIIF0xvE
-	2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42
-	IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcSsGvfC2
-	KfnxnUUI43ZEXa7IUYk9N7UUUUU==
-X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/7] i2c: designware: Group all DesignWare drivers
+ under a single option
+To: Andi Shyti <andi.shyti@kernel.org>,
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Mika Westerberg <mika.westerberg@linux.intel.com>,
+ Jan Dabros <jsd@semihalf.com>, linux-i2c@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Vineet Gupta <vgupta@kernel.org>,
+ Russell King <linux@armlinux.org.uk>, Dinh Nguyen <dinguyen@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Jiawen Wu <jiawenwu@trustnetic.com>, Mengyuan Lou
+ <mengyuanlou@net-swift.com>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, netdev@vger.kernel.org,
+ linux-riscv@lists.infradead.org, UNGLinuxDriver@microchip.com,
+ linux-mips@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-snps-arc@lists.infradead.org
+References: <20240903142506.3444628-1-heikki.krogerus@linux.intel.com>
+ <3phynd24wmymhqugikbdwdzoa6vlzxwv5a6n6bk4446atbf7nu@c2kb766j3pcc>
+Content-Language: en-US
+From: Jarkko Nikula <jarkko.nikula@linux.intel.com>
+In-Reply-To: <3phynd24wmymhqugikbdwdzoa6vlzxwv5a6n6bk4446atbf7nu@c2kb766j3pcc>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240905_091138_984405_34992904 
-X-CRM114-Status: GOOD (  11.81  )
+X-CRM114-CacheID: sfid-20240905_011825_102782_B7EB69EF 
+X-CRM114-Status: UNSURE (   7.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,159 +98,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Pu Lehui <pulehui@huawei.com>
+On 9/4/24 12:01 AM, Andi Shyti wrote:
+> Hi Jarkko, Andy,
+> 
+> ...
+> 
+>> Heikki Krogerus (7):
+>>    ARC: configs: enable I2C_DESIGNWARE_CORE with I2C_DESIGNWARE_PLATFORM
+>>    ARM: configs: enable I2C_DESIGNWARE_CORE with I2C_DESIGNWARE_PLATFORM
+>>    arm64: defconfig: enable I2C_DESIGNWARE_CORE with
+>>      I2C_DESIGNWARE_PLATFORM
+>>    mips: configs: enable I2C_DESIGNWARE_CORE with I2C_DESIGNWARE_PLATFORM
+>>    RISC-V: configs: enable I2C_DESIGNWARE_CORE with
+>>      I2C_DESIGNWARE_PLATFORM
+>>    net: txgbe: Fix I2C Kconfig dependencies
+>>    i2c: designware: Group all DesignWare drivers under a single option
+> 
+> I believe you know this code already, do you mind giving it an
+> ack?
+> 
+To the patches 1-7/7 in this set:
 
-Add support cross platform testing for vmtest. The variable $ARCH in the
-current script is platform semantics, not kernel semantics. Rename it to
-$PLATFORM so that we can easily use $ARCH in cross-compilation. And drop
-`set -u` unbound variable check as we will use CROSS_COMPILE env
-variable. For now, Using PLATFORM= and CROSS_COMPILE= options will
-enable cross platform testing:
-
-  PLATFORM=<platform> CROSS_COMPILE=<toolchain> vmtest.sh -- ./test_progs
-
-Tested-by: Eduard Zingerman <eddyz87@gmail.com>
-Signed-off-by: Pu Lehui <pulehui@huawei.com>
----
- tools/testing/selftests/bpf/vmtest.sh | 42 ++++++++++++++++++++-------
- 1 file changed, 31 insertions(+), 11 deletions(-)
-
-diff --git a/tools/testing/selftests/bpf/vmtest.sh b/tools/testing/selftests/bpf/vmtest.sh
-index 7bd2b44deb08..91f940e8ce45 100755
---- a/tools/testing/selftests/bpf/vmtest.sh
-+++ b/tools/testing/selftests/bpf/vmtest.sh
-@@ -1,7 +1,6 @@
- #!/bin/bash
- # SPDX-License-Identifier: GPL-2.0
- 
--set -u
- set -e
- 
- # This script currently only works for the following platforms,
-@@ -9,25 +8,31 @@ set -e
- # available only for these architectures. We can also specify
- # the local rootfs image generated by the following script:
- # https://github.com/libbpf/ci/blob/main/rootfs/mkrootfs_debian.sh
--ARCH="$(uname -m)"
--case "${ARCH}" in
-+PLATFORM="${PLATFORM:-$(uname -m)}"
-+case "${PLATFORM}" in
- s390x)
- 	QEMU_BINARY=qemu-system-s390x
- 	QEMU_CONSOLE="ttyS1"
--	QEMU_FLAGS=(-smp 2)
-+	HOST_FLAGS=(-smp 2 -enable-kvm)
-+	CROSS_FLAGS=(-smp 2)
- 	BZIMAGE="arch/s390/boot/vmlinux"
-+	ARCH="s390"
- 	;;
- x86_64)
- 	QEMU_BINARY=qemu-system-x86_64
- 	QEMU_CONSOLE="ttyS0,115200"
--	QEMU_FLAGS=(-cpu host -smp 8)
-+	HOST_FLAGS=(-cpu host -enable-kvm -smp 8)
-+	CROSS_FLAGS=(-smp 8)
- 	BZIMAGE="arch/x86/boot/bzImage"
-+	ARCH="x86"
- 	;;
- aarch64)
- 	QEMU_BINARY=qemu-system-aarch64
- 	QEMU_CONSOLE="ttyAMA0,115200"
--	QEMU_FLAGS=(-M virt,gic-version=3 -cpu host -smp 8)
-+	HOST_FLAGS=(-M virt,gic-version=3 -cpu host -enable-kvm -smp 8)
-+	CROSS_FLAGS=(-M virt,gic-version=3 -cpu cortex-a76 -smp 8)
- 	BZIMAGE="arch/arm64/boot/Image"
-+	ARCH="arm64"
- 	;;
- *)
- 	echo "Unsupported architecture"
-@@ -41,7 +46,7 @@ ROOTFS_IMAGE="root.img"
- OUTPUT_DIR="$HOME/.bpf_selftests"
- KCONFIG_REL_PATHS=("tools/testing/selftests/bpf/config"
- 	"tools/testing/selftests/bpf/config.vm"
--	"tools/testing/selftests/bpf/config.${ARCH}")
-+	"tools/testing/selftests/bpf/config.${PLATFORM}")
- INDEX_URL="https://raw.githubusercontent.com/libbpf/ci/master/INDEX"
- NUM_COMPILE_JOBS="$(nproc)"
- LOG_FILE_BASE="$(date +"bpf_selftests.%Y-%m-%d_%H-%M-%S")"
-@@ -61,6 +66,10 @@ tools/testing/selftests/bpf. e.g:
- If no command is specified and a debug shell (-s) is not requested,
- "${DEFAULT_COMMAND}" will be run by default.
- 
-+Using PLATFORM= and CROSS_COMPILE= options will enable cross platform testing:
-+
-+  PLATFORM=<platform> CROSS_COMPILE=<toolchain> $0 -- ./test_progs -t test_lsm
-+
- If you build your kernel using KBUILD_OUTPUT= or O= options, these
- can be passed as environment variables to the script:
- 
-@@ -100,7 +109,7 @@ newest_rootfs_version()
- {
- 	{
- 	for file in "${!URLS[@]}"; do
--		if [[ $file =~ ^"${ARCH}"/libbpf-vmtest-rootfs-(.*)\.tar\.zst$ ]]; then
-+		if [[ $file =~ ^"${PLATFORM}"/libbpf-vmtest-rootfs-(.*)\.tar\.zst$ ]]; then
- 			echo "${BASH_REMATCH[1]}"
- 		fi
- 	done
-@@ -112,7 +121,7 @@ download_rootfs()
- 	populate_url_map
- 
- 	local rootfsversion="$(newest_rootfs_version)"
--	local file="${ARCH}/libbpf-vmtest-rootfs-$rootfsversion.tar.zst"
-+	local file="${PLATFORM}/libbpf-vmtest-rootfs-$rootfsversion.tar.zst"
- 
- 	if [[ ! -v URLS[$file] ]]; then
- 		echo "$file not found" >&2
-@@ -253,12 +262,17 @@ EOF
- 		exit 1
- 	fi
- 
-+	if [[ "${PLATFORM}" != "$(uname -m)" ]]; then
-+		QEMU_FLAGS=("${CROSS_FLAGS[@]}")
-+	else
-+		QEMU_FLAGS=("${HOST_FLAGS[@]}")
-+	fi
-+
- 	${QEMU_BINARY} \
- 		-nodefaults \
- 		-display none \
- 		-serial mon:stdio \
- 		"${QEMU_FLAGS[@]}" \
--		-enable-kvm \
- 		-m 4G \
- 		-drive file="${rootfs_img}",format=raw,index=1,media=disk,if=virtio,cache=none \
- 		-kernel "${kernel_bzimage}" \
-@@ -389,6 +403,11 @@ main()
- 
- 	trap 'catch "$?"' EXIT
- 
-+	if [[ "${PLATFORM}" != "$(uname -m)" ]] && [[ -z "${CROSS_COMPILE}" ]]; then
-+		echo "Cross-platform testing needs to specify CROSS_COMPILE"
-+		exit 1
-+	fi
-+
- 	if [[ $# -eq 0  && "${debug_shell}" == "no" ]]; then
- 		echo "No command specified, will run ${DEFAULT_COMMAND} in the vm"
- 	else
-@@ -396,7 +415,8 @@ main()
- 	fi
- 
- 	local kconfig_file="${OUTPUT_DIR}/latest.config"
--	local make_command="make -j ${NUM_COMPILE_JOBS} KCONFIG_CONFIG=${kconfig_file}"
-+	local make_command="make ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} \
-+			    -j ${NUM_COMPILE_JOBS} KCONFIG_CONFIG=${kconfig_file}"
- 
- 	# Figure out where the kernel is being built.
- 	# O takes precedence over KBUILD_OUTPUT.
--- 
-2.34.1
-
+Acked-by: Jarkko Nikula <jarkko.nikula@linux.intel.com>
 
 _______________________________________________
 linux-riscv mailing list
