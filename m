@@ -4,104 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2FD6CD4F5B
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Sep 2024 09:16:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55E75CD5BAA
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Sep 2024 11:46:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/4Ymka43v5tkXkBpEdOmfDieB/9UiZZKZ2t2wbksKEw=; b=NJ+NwODuxun3de
-	RrK8Go6mVVZXYcxptQsMR7ZX2K9q6cikk20Mu/Mk+gW1hbDeTLAqfrBOwG6SGfw3rg5pZx6+SmKXR
-	DoJi9uSwtDZh5CCEbLLUaFlpXmgi6hNS2nbhG4fz9mwlMJPsdX/Z4iK4ZYvah1T38fXwiNnRF0koo
-	1YK1bYaNfI/T+f6KV4Zo55xdToBJ0y0fLcAFpjLDf6Upbvstq/QhX3OosZvLoHJrMuSJFdUQ1/Ouw
-	0PgEWCQhKldeeSq8tvHy6HB0vx9eeRyq6cJMfakUdfokovTf8zMz9iaODbrgBkkyluBajlegMf1Sj
-	JHSiuunc/mqoNV/0u+CA==;
+	List-Owner; bh=E9ZqAuQT2+l8K1AjdmUIwOEkYEbu0odawlgKAMDtAYU=; b=VTl04YytSSB/4a
+	oIZ0/2tWzmTDQ5kUX0YnOiZepNMCTxgF3D3jlQhVFr1YwbuJIkFrgr6t4SHWVQwjDpfgY31zal5u5
+	n62hMOTENnSDZ8NQxSimSi+ZjyL9M0iFRNvXlH90LTAnbRoMGxqd0QEJ+02AXVEfEM7nT2VsZ5ktK
+	/wI3QziZpwbRwPIuhBcCiEvR5bDYo92caobA1wX4/mSaEoDWik/Coikyoa1uwlWMGywaGDj4veiVZ
+	eTGd76TJZvUpKv21YJ7FKk6NCjmqwWOSvXaSjmajfeelQ1rdSsMOQLvIo1GI3HFDe/+RN+4OV2tPA
+	S54MqBgw0SnICacmn+8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sm8au-00000007ig2-311W;
-	Thu, 05 Sep 2024 09:16:00 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1smAwu-00000008Ac5-3j0Q;
+	Thu, 05 Sep 2024 11:46:52 +0000
+Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sm7ah-00000007VDj-0iLS
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 05 Sep 2024 08:11:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=p0X33u1ymJDxYZ76BQ9kZIXWkZBB61OlTvbgamg77Wo=; b=Z0EW9YD9QekOjFauwUIG0FgvYg
-	11j/4HRb7EP4fpCoktKyFDGtqRYzcRYIgptSxmrXmoZtjOYtFh10FLL7zjGlGprd2cK0g44JSsU4O
-	GzzvFilYlmwGallDcOrrhj5YhIhvJI2wGn9zJNzXcbdvujuf4FsYeWkumKeOmpLqq/281hFCibcx9
-	PAPlJt+k1/NqtLnf4oDmzZ/aRQg5s+0dotW5m37fRfvUmayOSK2OZ1vPcjhiHwQ/TvbGXRBte9mFu
-	xfeEXzAw7Sr0hm9s7PsLsHJnom0C6s9vjkb4K1SZaTmk01V/Q/AHuRVNCVCP8X4M5es8ZzV61qZU6
-	yScLsilg==;
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sm7ab-00000000QKu-3BpI
+	id 1smAwr-00000008AbA-1Ycp
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Sep 2024 08:11:41 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.216])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4WzsWJ23m5z4f3jjn
-	for <linux-riscv@lists.infradead.org>; Thu,  5 Sep 2024 16:11:08 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.112])
-	by mail.maildlp.com (Postfix) with ESMTP id 951F01A15F0
-	for <linux-riscv@lists.infradead.org>; Thu,  5 Sep 2024 16:11:18 +0800 (CST)
-Received: from ultra.huawei.com (unknown [10.90.53.71])
-	by APP1 (Coremail) with SMTP id cCh0CgD3Ii+gZ9lmMQ7AAQ--.26932S5;
-	Thu, 05 Sep 2024 16:11:18 +0800 (CST)
-From: Pu Lehui <pulehui@huaweicloud.com>
-To: bpf@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	netdev@vger.kernel.org
-Cc: Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Mykola Lysenko <mykolal@fb.com>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Hao Luo <haoluo@google.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Pu Lehui <pulehui@huawei.com>
-Subject: [PATCH bpf-next v3 03/10] selftests/bpf: Prefer static linking for LLVM libraries
-Date: Thu,  5 Sep 2024 08:13:54 +0000
-Message-Id: <20240905081401.1894789-4-pulehui@huaweicloud.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20240905081401.1894789-1-pulehui@huaweicloud.com>
-References: <20240905081401.1894789-1-pulehui@huaweicloud.com>
+	Thu, 05 Sep 2024 11:46:51 +0000
+Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-2f406034874so8083591fa.1
+        for <linux-riscv@lists.infradead.org>; Thu, 05 Sep 2024 04:46:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1725536808; x=1726141608; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BM+w7SmS+M15Gzb2t7Xs/YrBp02BDmfc8gIF88Qzt5g=;
+        b=lT/gzW54BmypAqkyZKhbxZpBLJJulSLqLJtOq1JNbwi2FD7ep8thMce1H8WtkY8sBP
+         YcVv1KXyzf7xJT72u27lYPryS75oX0vpjJU1xQXh1a25PAi4p5d3y9YgEVplTQAN+d+E
+         juCm8hvCiWOIShmzuzoLPbHS3Lk0rQb6gZPAq5JKIbZHvBPcD4HwdmLEnPIVD8hB1y0V
+         +yrAsjIP14zUapsC3W6SnjGdds1K/UZENm96B/Ux3C4o+gzf1fHvx9vQvLl+9N1ZhY+6
+         L9TQQle93qPrg6EUnkqFeE2Ydz+eC8gbyTLFMreOAPBS09DCCUXuvTCVaiV1LJNE9Jio
+         n90A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1725536808; x=1726141608;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=BM+w7SmS+M15Gzb2t7Xs/YrBp02BDmfc8gIF88Qzt5g=;
+        b=fqH0T1KtL56szLYgqhzGQvKitqZAMCdeuUboy8IthJcyO9DO/M7k0upBQLEptLhwHD
+         gVEIxjBf78qEs8Jfb86rk6zwxT7QAODnt/EfaLwBXXBuw5/Na7xGnkwNNE1e0eOV2kzt
+         nGN778rVwj4vUbKvGc0UxBkayQ+m90/vi3XaMSqZEVj+nvDypRR4mt6E5aKbFm3JN7fS
+         od18obVnf6pqgcvejCMtMrMpGPDgPmgmL8Vo0VgiFaQQ2CeuD4VDATl2Q3+8Z0KYmzyu
+         X0CPmRfih2o4SH/gmq8inpWN6xUUopnWnlDymPVWnPe4nGPlGGrKatbMsjc+5+1wSMXx
+         Wq1w==
+X-Forwarded-Encrypted: i=1; AJvYcCXMFwZ1uEqCsThgfwe8MTLd0ojQc/LViBM1KyejR5AG96xwcgbElQu+AXsxrBany+VP7qdlf7wvntYs7w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzU2L7S7yM+NXLUa/mOomOoQ54QvN/slzzXiJeiOnnUUijK81vP
+	cjLi6LJjgKyAPBbBWXQ0CoiO9toODUhw21D9b2EcVs8Zk8Lgqw/Nsrpi3cmhqUl88aKf3DCYrwd
+	vdg/xhRW7qc66zIliFSskvt5nxp5RCDo6pBhjfg==
+X-Google-Smtp-Source: AGHT+IHCsGQBYwg2ohwx5OLsJ3HR5XOoonPUOUhGDfgKfGVyaOU9Jfn9m+n8OOre+5olcGMI+3GJhnGkwebhcYZHI3g=
+X-Received: by 2002:a2e:b8c6:0:b0:2f3:e2f0:2b74 with SMTP id
+ 38308e7fff4ca-2f64d54ff96mr53248961fa.36.1725536806884; Thu, 05 Sep 2024
+ 04:46:46 -0700 (PDT)
 MIME-Version: 1.0
-X-CM-TRANSID: cCh0CgD3Ii+gZ9lmMQ7AAQ--.26932S5
-X-Coremail-Antispam: 1UD129KBjvJXoW7Ar17Cr4fJr43Zw15tFykuFg_yoW8XF1Dpw
-	s5Cw4ftF18Gr1Y9FZ7GFWqgrZ0g3y5JFyjgr1xXrnrZrn7Jry2gr4SqryfJF9rXrWftw43
-	AF1SkryfAF4UJ3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPIb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUWw
-	A2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxS
-	w2x7M28EF7xvwVC0I7IYx2IY67AKxVWDJVCq3wA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxV
-	W8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v2
-	6rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMc
-	Ij6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_
-	Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI
-	0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG
-	67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MI
-	IYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E
-	14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr
-	0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x07jx
-	CztUUUUU=
-X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
+References: <20240902-th1520-pinctrl-v1-0-639bf83ef50a@tenstorrent.com>
+In-Reply-To: <20240902-th1520-pinctrl-v1-0-639bf83ef50a@tenstorrent.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Thu, 5 Sep 2024 13:46:35 +0200
+Message-ID: <CACRpkdbNwpiaXKgkZfq6cw5LuW7RGxCuQvF4n3F0YCcUqKSf0A@mail.gmail.com>
+Subject: Re: [PATCH 0/8] pinctrl: Add T-Head TH1520 SoC pin controllers
+To: Drew Fustini <dfustini@tenstorrent.com>
+Cc: Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
+	Thomas Bonnefille <thomas.bonnefille@bootlin.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240905_091138_753907_E8CE0E5C 
-X-CRM114-Status: UNSURE (   6.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240905_044650_335717_827A2608 
+X-CRM114-Status: GOOD (  17.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,46 +90,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Eduard Zingerman <eddyz87@gmail.com>
-
-It is not always convenient to have LLVM libraries installed inside CI
-rootfs images, thus request static libraries from llvm-config.
-
-Suggested-by: Andrii Nakryiko <andrii@kernel.org>
-Signed-off-by: Eduard Zingerman <eddyz87@gmail.com>
----
- tools/testing/selftests/bpf/Makefile | 8 +++-----
- 1 file changed, 3 insertions(+), 5 deletions(-)
-
-diff --git a/tools/testing/selftests/bpf/Makefile b/tools/testing/selftests/bpf/Makefile
-index 9905e3739dd0..04716a5e43f1 100644
---- a/tools/testing/selftests/bpf/Makefile
-+++ b/tools/testing/selftests/bpf/Makefile
-@@ -202,11 +202,9 @@ ifeq ($(feature-llvm),1)
-   LLVM_CONFIG_LIB_COMPONENTS := mcdisassembler all-targets
-   # both llvm-config and lib.mk add -D_GNU_SOURCE, which ends up as conflict
-   LLVM_CFLAGS  += $(filter-out -D_GNU_SOURCE,$(shell $(LLVM_CONFIG) --cflags))
--  LLVM_LDLIBS  += $(shell $(LLVM_CONFIG) --libs $(LLVM_CONFIG_LIB_COMPONENTS))
--  ifeq ($(shell $(LLVM_CONFIG) --shared-mode),static)
--    LLVM_LDLIBS += $(shell $(LLVM_CONFIG) --system-libs $(LLVM_CONFIG_LIB_COMPONENTS))
--    LLVM_LDLIBS += -lstdc++
--  endif
-+  LLVM_LDLIBS  += $(shell $(LLVM_CONFIG) --link-static --libs $(LLVM_CONFIG_LIB_COMPONENTS))
-+  LLVM_LDLIBS  += $(shell $(LLVM_CONFIG) --link-static --system-libs $(LLVM_CONFIG_LIB_COMPONENTS))
-+  LLVM_LDLIBS  += -lstdc++
-   LLVM_LDFLAGS += $(shell $(LLVM_CONFIG) --ldflags)
- endif
- 
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBTZXAgMywgMjAyNCBhdCA2OjA44oCvQU0gRHJldyBGdXN0aW5pIDxkZnVzdGluaUB0
+ZW5zdG9ycmVudC5jb20+IHdyb3RlOgoKPiBUaGlzIGFkZHMgYSBwaW4gY29udHJvbCBkcml2ZXIg
+Y3JlYXRlZCBieSBFbWlsIGZvciB0aGUgVC1IZWFkIFRIMTUyMAo+IFJJU0MtViBTb0MgdXNlZCBv
+biB0aGUgTGljaGVlIFBpIDRBIGFuZCBCZWFnbGVWIEFoZWFkIGJvYXJkcyBhbmQKPiB1cGRhdGVz
+IHRoZSBkZXZpY2UgdHJlZXMgdG8gbWFrZSB1c2Ugb2YgaXQuCj4KPiBFbWlsJ3Mgc2VyaWVzIGZy
+b20gSmFudWFyeSB1c2VkIHNlcGFyYXRlIGNvbXBhdGlibGVzIGZvciBlYWNoIHBpbgo+IGNvbnRy
+b2xsZXIgaW5zdGFuY2UuIFJvYiBkaWQgbm90IHRoaW5rIHRoaXMgd2FzIGFwcHJvcHJpYXRlIGJl
+Y2F1c2UgdGhlCj4gcHJvZ3JhbW1pbmcgbW9kZWwgaXMgdGhlIHNhbWUgZm9yIGVhY2ggaW5zdGFu
+Y2UuCj4KPiBUaGlzIHNlcmllcyB0YWtlcyBhIGRpZmZlcmVudCBhcHByb2FjaC4gVGhlcmUgaXMg
+bm93IG9ubHkgYSBzaW5nbGUKPiBjb21wYXRpYmxlIGZvciBhbGwgcGluIGNvbnRyb2xsZXIgaW5z
+dGFuY2VzLiBUaGUgcGluY3RybCBkcml2ZXIgY2hlY2tzCj4gdGhlIHVuaXQgYWRkcmVzcyB0byBp
+ZGVudGl0eSB3aGljaCBwaW4gY29udHJvbGxlciBpbnN0YW5jZSBpcyBiZWluZwo+IHByb2JlZC4K
+CkkgZG9uJ3Qga25vdyBpZiB0aGF0IGlzIGEgZ29vZCB3YXkgdG8gZG8gaXQsIHRoZSB1bml0IG5h
+bWUgY291bGQgY2hhbmdlCmZvciBzb21lIHJlYXNvbiBhbmQgdGhlbiB0aGUgZHJpdmVyIHdpbGwg
+bm90IHdvcmssIGl0IHNlZW1zIGZyYWdpbGUuCgpDYW4ndCB3ZSBqdXN0IGFkZCBhIGN1c3RvbSBw
+cm9wZXJ0eSBzdWNoIGFzOgp0aGVhZCxwaW4tZ3JvdXAtbnVtYmVyID0gPDI+Owp0byB0aGUgZGV2
+aWNlIG5vZGU/CgpZb3VycywKTGludXMgV2FsbGVpagoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgo=
