@@ -4,76 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3092AE6FE2B
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Sep 2024 15:26:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 650C1E6FE2F
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Sep 2024 16:29:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6zGJwnjnthopcXXQpwGfqFqFk9FHfqnddNkdpDuuf8Q=; b=1g6bUm9ESPha/J
-	J+mLvIzKG63oMcQc30PKFLpmKzoozSm0Dl2BjgYPQtVMpeH0tLJB7intFNHd4iFZ4MrSQY44HVMmJ
-	QIl1n5ATQNg1qqMJB9acbWcrBsf2ybZYf6pcsYSf1wovxMeNkSKPHsRnu4Wk+9thpVNmZDlI/vrR+
-	mipEaP6UBBmQbA+iTezrGtM1u2snczkD2pkEvZL6TyhEnXvdV8ewCqgosJYFYNLUhI9BWNmRlLzm2
-	GwRmtC9QyqJEzdcpEsguHl/+ITG1fyPT4Dgb+qF6HA9U9Zk9REC4cvR9G1he8c3ciX/8cEJHMI6e8
-	a5u2Xfx1z0izRQqxqDmg==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=h8r1hmocTvCYtwIDWIrAka1E8A+RyrzgY3fgxFraAuw=; b=WuM/dX0JNPgkuO
+	gQk0JucnApOcRQr5yqmPVn8HRPYndMOd/L85mjDBDd8S+Ik61PA8gz24+Cp8gwyQyjHxsMvFJJO5R
+	urPNzY6YXqNmx/TK3AZWR7DwahGzchqfX2pIU8Qw0bKPICUl295i5dbSHj9geZ6dkZGwJMM3eRru2
+	sERGR8KRe3EDDOVW69LvDijYsHUo02fcHUPP7IaN8q5+ulUHhZoOT/LLoMmIVXWzCKvUMCCKktUzA
+	SLl/HsMX3CslupK27AJvGVdG5VnxJ9iSEH526FJmuTGuugLvrqCEqK/XcJI0mRwmg8ywlB0p/L0AB
+	CMVay6L2wTvrDlmLDmGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1smar6-0000000ClXd-3rfd;
-	Fri, 06 Sep 2024 15:26:36 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1smbpU-0000000Cy8h-40RC;
+	Fri, 06 Sep 2024 16:29:00 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1smaeQ-0000000Cigh-3opa;
-	Fri, 06 Sep 2024 15:13:34 +0000
-Date: Fri, 6 Sep 2024 17:13:24 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1725635609;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/D0LcQBjxhJJ1AT5w4YUeZZjy397PwHo7bQDfurXH4c=;
-	b=PsmzuHSPPsXBekPPcoob60zTYBqoqXnp6kmaOnMKt4TwqcREqNE6+mpTA+r4u/cXnlHA5E
-	oZgW6zAkKY1prDkhkmJ6hWmNwsk8pDem1qIsE1ibbOMHE5Q5GReB0qxaIVpwxnF1DsUJOD
-	0hZYo6rMa0C6VzAwYoyQq+m9I24+bjPOYylpbnK7wJ256+IUS1kzOZUnJ4qEa6Vurpczo5
-	OeIpl7tggkVXKV1kHGoYQ+xBv9yxCIZYNr2RhanugHWT33r2GV2dtKKUz9n9+w+skZixBi
-	hT6XpUyX96yDzN6kereU1WQkJ0kj2Y9c82/lEptC1d/gkWkw5kAh3SOVURdwTA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1725635609;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/D0LcQBjxhJJ1AT5w4YUeZZjy397PwHo7bQDfurXH4c=;
-	b=c8xPMN/Fu00bImPX7/GwPpKS8scd2dkJ8KjZbFkePnrWay14CKKulnP8Gz7AvDVmKT5ual
-	zWEjfEHm5bHAIECQ==
-From: Nam Cao <namcao@linutronix.de>
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Clark Williams <williams@redhat.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	John Ogness <john.ogness@linutronix.de>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Petr Mladek <pmladek@suse.com>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Steven Rostedt <rostedt@goodmis.org>, Will Deacon <will@kernel.org>
-Subject: Re: [PATCH 3/3] riscv: Allow to enable PREEMPT_RT.
-Message-ID: <20240906151324.tVwX6lFy@linutronix.de>
-References: <20240906111841.562402-1-bigeasy@linutronix.de>
- <20240906111841.562402-4-bigeasy@linutronix.de>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240906111841.562402-4-bigeasy@linutronix.de>
+	id 1smbiG-0000000CwoK-241S
+	for linux-riscv@lists.infradead.org;
+	Fri, 06 Sep 2024 16:21:34 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-1fc47abc040so20964945ad.0
+        for <linux-riscv@lists.infradead.org>; Fri, 06 Sep 2024 09:21:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1725639691; x=1726244491; darn=lists.infradead.org;
+        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5eYtctJfTJlMWL5l2Lu9nbkftuipcA6blBFQEhlLdB8=;
+        b=dlNnhAkwjFInFkUhPI3zx6mhrh1PPasKvKtRLTzfGXlLlcc3eQDiqm4jkWkBHWnfG4
+         L8pHI9ynU4N5UsfednE5jEqFKhJ1i/Mwh9+A9sRcVUFBE8/GATb9ZNZ3Xvd9+4x1efHW
+         okQvSbXWHNqUEwzEIHnhYkNpZWGfCyvb02cGAX4/isEv9P12camv43H93t3zqt5H5js3
+         CTzGbGZ7kIQuJorWaedNMU2pwXP9cX6fyaeOCoMum+D5SxYshNbN8QH+12E/IudXshvb
+         16YqR1SxjCyrYmVqd83Gcq+XLr4l7NKoYksdCnJDhJ/EC4du/WA4mtBk4LDeKmJJrdLb
+         eiFQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1725639691; x=1726244491;
+        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=5eYtctJfTJlMWL5l2Lu9nbkftuipcA6blBFQEhlLdB8=;
+        b=YRzDy+Pf5auSDlmbGUmiIinlrWGf17xVsSrRiZQAR9Ggp4GaC/wjqPBnphSmvSovzJ
+         7igxyfeTyY4kMyB4HO2IL/PfX2Dm+C5pFVR69Sxa/1XN2el/FajNIZbp+6CyOjC0jH/l
+         ujeWjOZf9eW7FYWOjhmrnk4LluD6TTII0hqPW0hc1xua/qMle2EkzUAHEVq8H0FVpHLU
+         JSEUzwqp3MN/Iy2LYtbIGNBQczPnuS9Scb6mg0s5/VPhtHwZRyQYrUFda4oMPPR3ptM8
+         zy9TLbMBRdiycuY7EzljXWaia/tHRZyn5YS+aAt64q2P39zay6PkIDlMhBvEQVmJoHFF
+         scEQ==
+X-Gm-Message-State: AOJu0Yy6PfEJYKuIfue7ElZllhp5AxXED/5UEmoWoker885p/3CxEav5
+	3PsEcn2kQG3cUfzoChWKQrX+ce8C3m7CdVLTcVZG4gULxyPv7gAOV1ZZtQoJYCA18SAIOAqPAt9
+	r
+X-Google-Smtp-Source: AGHT+IFrxyzqMcF2UeehBPT3CymEL6yHGMozxetkTEC0Q2e1Ixf8Bdnmqn+Nx69DjJsy2v2toYrq+A==
+X-Received: by 2002:a17:902:e749:b0:206:aafb:4a91 with SMTP id d9443c01a7336-206aafb4aeamr114695635ad.50.1725639690771;
+        Fri, 06 Sep 2024 09:21:30 -0700 (PDT)
+Received: from localhost ([192.184.165.199])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-206ae9505b7sm44789525ad.89.2024.09.06.09.21.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 06 Sep 2024 09:21:30 -0700 (PDT)
+Date: Fri, 06 Sep 2024 09:21:30 -0700 (PDT)
+X-Google-Original-Date: Fri, 06 Sep 2024 09:21:27 PDT (-0700)
+Subject: [GIT PULL] RISC-V Fixes for 6.11-rc7
+CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-43509d97-4d3a-449f-b4d7-74f1041daefc@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240906_081331_137884_4E6DCC69 
-X-CRM114-Status: UNSURE (   8.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240906_092132_742531_B04BBC0C 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,28 +82,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 06, 2024 at 12:59:06PM +0200, Sebastian Andrzej Siewior wrote:
-> It is really time.
-> 
-> riscv has all the required architecture related changes, that have been
-> identified over time, in order to enable PREEMPT_RT. With the recent
-> printk changes, the last known road block has been addressed.
-> 
-> Allow to enable PREEMPT_RT on riscv.
-> 
-> Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+The following changes since commit 32d5f7add080a936e28ab4142bfeea6b06999789:
 
-With the printk patches applied:
+  Merge patch series "RISC-V: hwprobe: Misaligned scalar perf fix and rename" (2024-08-15 13:12:21 -0700)
 
-Tested-by: Nam Cao <namcao@linutronix.de> # Visionfive 2
+are available in the Git repository at:
 
-Best regards,
-Nam
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.11-rc7
+
+for you to fetch changes up to 1ff95eb2bebda50c4c5406caaf201e0fcb24cc8f:
+
+  riscv: Fix RISCV_ALTERNATIVE_EARLY (2024-09-03 07:57:55 -0700)
+
+----------------------------------------------------------------
+RISC-V Fixes for 6.11-rc7
+
+* A revert for the mmap() change that ties the allocation range to the
+  hint adress, as what we tried to do ended up regressing on other
+  userspace workloads.
+* A fix to avoid a kernel memory leak when emulating misaligned accesses
+  from userspace.
+* A Kconfig fix for toolchain vector detection, which now correctly
+  detects vector support on toolchains where the V extension depends on
+  the M extension.
+* A fix to avoid failing the linear mapping bootmem bounds check on
+  NOMMU systems.
+* A fix for early alternatives on relocatable kernels.
+
+----------------------------------------------------------------
+That mmap() one is particuarly embarassing, as it didn't even fix the sv39
+compatibility issue we set out to fix in the first place.  We'll have a better
+fix for this, but I figured it would be best to get the revert out as it'll
+need to be backported and it breaks real workloads.
+
+----------------------------------------------------------------
+Alexandre Ghiti (2):
+      riscv: Do not restrict memory size because of linear mapping on nommu
+      riscv: Fix RISCV_ALTERNATIVE_EARLY
+
+Anton Blanchard (1):
+      riscv: Fix toolchain vector detection
+
+Charlie Jenkins (3):
+      Revert "RISC-V: mm: Document mmap changes"
+      riscv: selftests: Remove mmap hint address checks
+      riscv: mm: Do not restrict mmap address based on hint
+
+Palmer Dabbelt (1):
+      Merge patch series "riscv: mm: Do not restrict mmap address based on hint"
+
+Samuel Holland (1):
+      riscv: misaligned: Restrict user access to kernel memory
+
+ Documentation/arch/riscv/vm-layout.rst           | 16 ------
+ arch/riscv/Kconfig                               |  4 +-
+ arch/riscv/include/asm/processor.h               | 26 +--------
+ arch/riscv/include/asm/sbi.h                     | 20 ++++++-
+ arch/riscv/kernel/Makefile                       |  6 ++-
+ arch/riscv/kernel/sbi.c                          | 63 ----------------------
+ arch/riscv/kernel/sbi_ecall.c                    | 48 +++++++++++++++++
+ arch/riscv/kernel/traps_misaligned.c             |  4 +-
+ arch/riscv/mm/init.c                             |  2 +-
+ tools/testing/selftests/riscv/mm/mmap_bottomup.c |  2 -
+ tools/testing/selftests/riscv/mm/mmap_default.c  |  2 -
+ tools/testing/selftests/riscv/mm/mmap_test.h     | 67 ------------------------
+ 12 files changed, 79 insertions(+), 181 deletions(-)
+ create mode 100644 arch/riscv/kernel/sbi_ecall.c
 
 _______________________________________________
 linux-riscv mailing list
