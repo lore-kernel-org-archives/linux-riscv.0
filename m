@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1A37CD5BDD
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Sep 2024 11:28:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64DFCCE7B02
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Sep 2024 11:29:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bG6uRh28HG8WbKj6XyprjxdwOP1iYTMaTpKGQbB4nco=; b=OmUYVAvZdPxpBC
-	cOqOOqvq8wjj1nHipfsQtbNcNAhTSf8tpR5N3loUzIiLRP43swkep3+yWjLV0NLEorVD92Q8PrP7j
-	HOOVVmky/b4kb1IlmxBL7KlgIpylrnn5P0AJbDc7BRj57sX7ekXMfFfUVKkp6oHQEKd7Sk3UAG9eu
-	eA1u9y2jK+dMJV3Jh6cclq1ppvPNB7s2gI4lcL2l0kS+zW3ABddQ/F/aW655c2tc3KULCE0K/corl
-	hM2cB49HYxFA+aNyyDr8rNtrf1+Cx+e1azzp1PzHfug8GQYkqVIVUtlrLipglHg23JSc0NyndK45d
-	nXDmkp3ryh5bHAeyZz2Q==;
+	List-Owner; bh=4SzFTUUefL4yw/MMy6qegSvHWXSQ3CcDJpu4pdTn4pk=; b=1k2GzgK7Ozga2c
+	lw3uRVrTZv8ZAR/km6cILtpN5BsqB4VrXYIiYwK31kwFqSQy4sJrJTwbyWiKv3yOTx6p/7wNAEvLk
+	gP0Pge6xvAgeZSgaX67VMPokCbpph5hC/juIPRadML2eX4LLFiXb98I+UvLd57rRMdgT/2at9M+7j
+	caPzv+w6pCkg9/9mk5YlLwmVKqbFiu5WkBEa3Gr8W7BUz2IwP83rqCHirgSUsoAA3sG5NfFfaunTK
+	t9KOzfLQHemBjPt9nZrwB0IGX6E9NOSX5XtDEcVsr8ToIAOGAL/uXFQIkbZFcnN52o/2kpyQGUliq
+	wdsq1sQbs0SnpdBb7Qjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1smX8f-0000000Bykx-1xQO;
-	Fri, 06 Sep 2024 11:28:29 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1smX9d-0000000Bz0l-0f9L;
+	Fri, 06 Sep 2024 11:29:29 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1smWzM-0000000BwI9-0Wgu;
-	Fri, 06 Sep 2024 11:18:56 +0000
+	id 1smWzM-0000000BwI2-05jF;
+	Fri, 06 Sep 2024 11:18:57 +0000
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1725621529;
+	s=2020; t=1725621528;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=WOMw6yKC0dEl8fkVPj+ZP9/y4lvZ127Nc38gQlPELzQ=;
-	b=zFn5vSuk9/Mh+EIJBImR+DDDiyG+NB/rc2dvSBqbqpTfw5VUOjP1GVMcmMaWBixMOssmi2
-	mH0AZ2o7d9I8gsApxr6fYTV8wKSTpcDJhGIEHbsfKJYXPKvK9uFssU3KW+ytwxKcKvgg8y
-	pW25LuqZtBgzgZl9gB47ELcrHxBYqN4hlLW20VfcjnkAKiLO76GyiQJK9/idDMKXNJhSOQ
-	2RfzLWvxjf82kidLd7iZLZ1cS2/iyA3NnJDoQUK/jYip2OqwagrqEoBEorjP/c/ik0GIuC
-	JTBecfgOZUneOlySrio8ET/pKHZPYsW55wuQHQCAnpSZkWhAUPt9o7ON8E9ACA==
+	bh=x24fAVGIJ6RuBG9Lhr8zLFLnY6PVtiQ+egHDc5imzTY=;
+	b=VfZkbxfeVSYo8CDDMZ35DzkLGbAxtXEqxJTTahK9OPPE95/ZrgARouXC6xlRFXgZ1Dq6HE
+	QShB7PFR1C31xUDFfHcIiQQf5x0QK7zgjFbQYs7suIrcIAcicX+Go12o+iNNtRsD18wHCu
+	L+laTOp9PbG28VcUtAPlHLSppTvAwCNzu2oHFYqnhA3ZJ/MKNzm0+BlSqf+qjPkT6ouCfZ
+	dHoOWMX8G1pgXaFe6C6dusln/bluwbGsUfHmqsev0Tb7JsVHvyRiGCXf0etdNSXx38bqFp
+	rSe43qa44M31mcTkeHgCtC2oGWhF52cj0P9c5dzqlFJvVPjJrdGbnBd1FdXiQw==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1725621529;
+	s=2020e; t=1725621528;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=WOMw6yKC0dEl8fkVPj+ZP9/y4lvZ127Nc38gQlPELzQ=;
-	b=K2lwu6K3Xj3KtwUoxxC/CTmka++ZUOKZEHv9tD5Rsq5a09OBghiqtEJEqJs+X5N4FFqrWU
-	nwktQFPm/Jwh+RBA==
+	bh=x24fAVGIJ6RuBG9Lhr8zLFLnY6PVtiQ+egHDc5imzTY=;
+	b=657UDvKx20erci7Np8vEKYB6HMqB3iipyMUZV54Cb6fGMLLEfvZ9ZjVPbpu1CL2mjJ//nq
+	ORnCt1D4PHWLWjCg==
 To: Thomas Gleixner <tglx@linutronix.de>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -68,15 +68,15 @@ Cc: "H. Peter Anvin" <hpa@zytor.com>,
 	Steven Rostedt <rostedt@goodmis.org>,
 	Will Deacon <will@kernel.org>,
 	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Subject: [PATCH 2/3] arm64: Allow to enable PREEMPT_RT.
-Date: Fri,  6 Sep 2024 12:59:05 +0200
-Message-ID: <20240906111841.562402-3-bigeasy@linutronix.de>
+Subject: [PATCH 1/3] x86: Allow to enable PREEMPT_RT.
+Date: Fri,  6 Sep 2024 12:59:04 +0200
+Message-ID: <20240906111841.562402-2-bigeasy@linutronix.de>
 In-Reply-To: <20240906111841.562402-1-bigeasy@linutronix.de>
 References: <20240906111841.562402-1-bigeasy@linutronix.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240906_041852_354493_A891C4D9 
-X-CRM114-Status: UNSURE (   6.92  )
+X-CRM114-CacheID: sfid-20240906_041852_229332_254EC36E 
+X-CRM114-Status: UNSURE (   6.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,29 +96,29 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 It is really time.
 
-arm64 has all the required architecture related changes, that have been
+x86 has all the required architecture related changes, that have been
 identified over time, in order to enable PREEMPT_RT. With the recent
 printk changes, the last known road block has been addressed.
 
-Allow to enable PREEMPT_RT on arm64.
+Allow to enable PREEMPT_RT on x86.
 
 Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 ---
- arch/arm64/Kconfig | 1 +
+ arch/x86/Kconfig | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 0e5bd38633936..2cce9cb44c31e 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -101,6 +101,7 @@ config ARM64
- 	select ARCH_SUPPORTS_NUMA_BALANCING
- 	select ARCH_SUPPORTS_PAGE_TABLE_CHECK
- 	select ARCH_SUPPORTS_PER_VMA_LOCK
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index 28401c16b0c3f..a8cf61c52b063 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -125,6 +125,7 @@ config X86
+ 	select ARCH_USES_CFI_TRAPS		if X86_64 && CFI_CLANG
+ 	select ARCH_SUPPORTS_LTO_CLANG
+ 	select ARCH_SUPPORTS_LTO_CLANG_THIN
 +	select ARCH_SUPPORTS_RT
- 	select ARCH_SUPPORTS_HUGE_PFNMAP if TRANSPARENT_HUGEPAGE
- 	select ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH
- 	select ARCH_WANT_COMPAT_IPC_PARSE_VERSION if COMPAT
+ 	select ARCH_USE_BUILTIN_BSWAP
+ 	select ARCH_USE_CMPXCHG_LOCKREF		if X86_CMPXCHG64
+ 	select ARCH_USE_MEMTEST
 -- 
 2.45.2
 
