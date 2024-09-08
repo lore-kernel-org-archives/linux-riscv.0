@@ -4,66 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC04FCD4F4C
-	for <linux-riscv@archiver.kernel.org>; Sun,  8 Sep 2024 13:28:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1A1FCD4F4C
+	for <linux-riscv@archiver.kernel.org>; Sun,  8 Sep 2024 14:11:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=B4VmNCMCQwqGRHhH0c0/SIt1kaFpYqdfjO1ZnjEse10=; b=BxFoblS+sixRDT
-	yovh+pr+xfGkR1Mait5x7LGQoueA9YIyMgd1/m2PzUypl35uZEPzvqEWfv6/2OmKZW6WLvk9XpkI7
-	MMHy0ogJgiFRqp/DzlNExWDG9YgYM7+hqTJShm5XWxUpmIu9cVAJ1DMW6tKBWsoBtnZ8pATYek+Sw
-	ZKJHg4fHyJLQVYw2pRPTIrUqIe2TqimWG3JSuZoINCoymOIt94gXlzZnTyK9qTGqImtAQJ0ZXekbJ
-	WxUnpd6FdIqjxHKwbgUGWVn5cxtTXt9Bm9YqMqZtLZO9Ai1ILZTUdCE2D7UXogg1AMQci00C5T6nB
-	I9HAkDO7G+WQINRwWUpQ==;
+	List-Owner; bh=IeIB1BzbHPwGhhiEBtAVsdr2cd9LikiFrRiufYnsdUU=; b=PUvwbK0UXVfLdK
+	FlXwuxvqxu2nGn5DxZQFSfcXP+UQmR0ObmAC6tDzg4ajIQIBgk9jeBPcO3/S+RtvqeFCLL4h4k5QK
+	u42WmXOkOwYKq6s6bG24ll7mBzYeKVKk7AiDFaWgzAJERWryC0HvZ1IvpfSXT6HTnLnDWAyb1zqVC
+	MLQeNum/oQdqgQlWJySKehAe9XtaOwtXxyMHxnSO6oZRWZs4/WYQU6fdmaZMgn1sscRB9nqI/0UrE
+	dd6MLJom8h+fOtz1atkB4qwG2E7EHLX6Cfh2Pa1CYznUhZGye32l9loqvCk8Y7Gvk7y+yUxAob9gk
+	mN4jScnDNtwJGh8dauww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1snHy5-0000000Gpnd-33xu;
-	Sun, 08 Sep 2024 13:28:41 +0000
+	id 1snIdT-0000000Gulv-14vu;
+	Sun, 08 Sep 2024 14:11:27 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1snHy2-0000000GpnB-0txB
-	for linux-riscv@lists.infradead.org;
-	Sun, 08 Sep 2024 13:28:39 +0000
+	id 1snIcR-0000000Gucn-1C4U;
+	Sun, 08 Sep 2024 14:10:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id F07DB5C4338;
-	Sun,  8 Sep 2024 13:28:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 146EDC4CEC3;
-	Sun,  8 Sep 2024 13:28:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1725802116;
-	bh=Ri56JanrxzJT4UAsenigTt4NMozWGcCirDACmDKy/58=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=o7ebJUoTay3mWVdOCJ4YnYJZjSzmSnevlKrosJn8e6uCur1cUoVbw9AKKa6GDZXt1
-	 qxExlBWFTKM5q7/LVzILs04dk1Pq0KKrLMfdXcFBLK8l5WMlySIzzvHOBnNy5W8lNJ
-	 OPGhpYs0TrwJg+DYNRQHUBzF8/UvDPGLsiXswSS5Ko7wyXHPxVJSrcHt9v4OyO+BVE
-	 nNLHP+i0KOG/K0u7PtjWKIwfZLaKZpWhUDJmBAeGhOGRrsRkh6Yc/IRSqYU7myASWp
-	 aW/1VD16L2dLdm86/Vx+cuDhYrWRmEemikoIP+g4/KIs0YEJw+DmdL/j9CcjiEX9vL
-	 zImcMKORyq8mQ==
-Date: Sun, 8 Sep 2024 22:28:30 +0900
-From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: Sven Schnelle <svens@linux.ibm.com>, Masami Hiramatsu
- <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Mathieu
- Desnoyers <mathieu.desnoyers@efficios.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
- linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org
-Subject: Re: [PATCH 0/7] add function arguments to ftrace
-Message-Id: <20240908222830.01a01b10d62d59ed73dcb676@kernel.org>
-In-Reply-To: <20240906100738.2526cffd@gandalf.local.home>
-References: <20240904065908.1009086-1-svens@linux.ibm.com>
-	<20240905111620.5211d9f8@gandalf.local.home>
-	<yt9dv7z9l2zp.fsf@linux.ibm.com>
-	<20240906100738.2526cffd@gandalf.local.home>
-X-Mailer: Sylpheed 3.7.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+	by dfw.source.kernel.org (Postfix) with ESMTP id E96C25C06AE;
+	Sun,  8 Sep 2024 14:10:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66505C4CEC3;
+	Sun,  8 Sep 2024 14:10:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1725804622;
+	bh=L52NrvFH6cCL7WSJulp5eAsipG5pw57QkN8inQ79Oco=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=g21nXnFpknMI2iSsRnuzU8ofufypbHq8Lycu/54iYLStunG5IRZvwfEehMdKJCFG+
+	 o/lsVIe/S+2/vXnDXjLQnFUUA35NEZxM9SDl/lsd9iyNA0rTGcFNN5pZT2Uak6fhOB
+	 EXTO5l2M3fz6xF3tSWgeivOPR0rTxa1b+G+P+SK0=
+Date: Sun, 8 Sep 2024 16:10:19 +0200
+From: Greg KH <gregkh@linuxfoundation.org>
+To: WangYuli <wangyuli@uniontech.com>
+Cc: stable@vger.kernel.org, sashal@kernel.org, alexghiti@rivosinc.com,
+	palmer@rivosinc.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, anup@brainfault.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	rdunlap@infradead.org, dvlachos@ics.forth.gr, bhe@redhat.com,
+	samuel.holland@sifive.com, guoren@kernel.org, linux@armlinux.org.uk,
+	linux-arm-kernel@lists.infradead.org, willy@infradead.org,
+	akpm@linux-foundation.org, fengwei.yin@intel.com,
+	prabhakar.mahadev-lad.rj@bp.renesas.com, conor.dooley@microchip.com,
+	glider@google.com, elver@google.com, dvyukov@google.com,
+	kasan-dev@googlegroups.com, ardb@kernel.org,
+	linux-efi@vger.kernel.org, atishp@atishpatra.org,
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+	qiaozhe@iscas.ac.cn, ryan.roberts@arm.com, ryabinin.a.a@gmail.com,
+	andreyknvl@gmail.com, vincenzo.frascino@arm.com,
+	namcao@linutronix.de
+Subject: Re: [PATCH 6.6 4/4] riscv: Use accessors to page table entries
+ instead of direct dereference
+Message-ID: <2024090808-elusive-deviate-3bbb@gregkh>
+References: <20240906082254.435410-1-wangyuli@uniontech.com>
+ <D68939319C9C81B0+20240906082254.435410-4-wangyuli@uniontech.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <D68939319C9C81B0+20240906082254.435410-4-wangyuli@uniontech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240908_062838_356715_EA66F6F2 
-X-CRM114-Status: GOOD (  18.38  )
+X-CRM114-CacheID: sfid-20240908_071023_653999_C3B28C4D 
+X-CRM114-Status: UNSURE (   8.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,43 +85,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 6 Sep 2024 10:07:38 -0400
-Steven Rostedt <rostedt@goodmis.org> wrote:
-
-> On Fri, 06 Sep 2024 08:18:02 +0200
-> Sven Schnelle <svens@linux.ibm.com> wrote:
+On Fri, Sep 06, 2024 at 04:22:39PM +0800, WangYuli wrote:
+> From: Alexandre Ghiti <alexghiti@rivosinc.com>
 > 
+> [ Upstream commit edf955647269422e387732870d04fc15933a25ea ]
 > 
-> > One thing i learned after submitting the series is that struct
-> > ftrace_regs depends on CONFIG_FUNCTION_TRACER, so it cannot be used
-> > with the graph tracer.
-
-Yeah, this is solved by my series [1].
-
-[1] https://patchwork.kernel.org/project/linux-trace-kernel/patch/172398532480.293426.13232399076477198126.stgit@devnote2/
-
-So I think this series is easier to apply after my series, which
-passes fgraph_regs in return handler.
-
-Thanks,
-
-> > So either we make it available unconditionally,
-> > or use some other data structure. Would like to hear your opinion on
-> > that, but i'll wait for the review after your travel because there
-> > are likely other issues that needs to be fixed as well.
+> As very well explained in commit 20a004e7b017 ("arm64: mm: Use
+> READ_ONCE/WRITE_ONCE when accessing page tables"), an architecture whose
+> page table walker can modify the PTE in parallel must use
+> READ_ONCE()/WRITE_ONCE() macro to avoid any compiler transformation.
 > 
-> Hmm, I thought the graph tracer depends on function tracer? Anyway, the
-> configs should be cleaned up. I would like to make CONFIG_FTRACE just mean
-> the function hook mechanism (mcount,fentry,etc) and not be used for the
-> tracing system.
+> So apply that to riscv which is such architecture.
 > 
-> Anyway, we can just make ftrace_regs defined outside any config for now.
-> 
-> -- Steve
+> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> Acked-by: Anup Patel <anup@brainfault.org>
+> Link: https://lore.kernel.org/r/20231213203001.179237-5-alexghiti@rivosinc.com
+> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+> Signed-off-by: WangYuli <wangyuli@uniontech.com>
+> ---
 
+all now queued up, thanks.
 
--- 
-Masami Hiramatsu (Google) <mhiramat@kernel.org>
+greg k-h
 
 _______________________________________________
 linux-riscv mailing list
