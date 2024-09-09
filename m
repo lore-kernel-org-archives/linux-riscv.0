@@ -4,59 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEDC8EB64DE
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Sep 2024 02:33:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF167EB64DE
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Sep 2024 02:58:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nFtHMN85LmrjV994/kiJcJffWEiYXpuwyOt3aLwkiX8=; b=mXSYa41GHwgFZV
-	XD5/3KFNtd/qOxFF76885abkJ5s/ee3uOcZRrHu3bBEKmbYaqeTFHnAN/IXU1SsKUSFHyvbCzUUvs
-	rRqMxHWAJAWgLMaZ3HkyuS1Ei3eQlsHNiqUgMAKK4iDbHupuMMbtqIXSwrHCjiFBcvGD3K5CrZ/pU
-	hb8L/Q/frQtvoYBXsGPj+06pWsYwnsypwk9QBDNsc/zQzC7WXM69PrYlBYMThzq8iNlWq8dg4bqI8
-	npSkjBPKDwWeDPJDBhf3ZIaIkh/5Kn4LNTuapFfTVyNU31bpb8uTNYjl2UbIpwYkvZaizPNkzmL4L
-	9T+sehgFmgAsNYkMRorw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Yk28fs8uDJwJ2X+xMeh2E44FAAOf0waUdOURxo90i9s=; b=5G3xgzMYa/yUi+
+	PYr/LhwsidCdr5D/m4VZBYCi1No+ehvOkkyX01si1EBcfdaw89W4LYFlUM2ETrXde5ylAftKqgjQg
+	o8osLDp34mZRgWMw4cICenxO7c6veWud3W2GGKzzZZqnkR3diJYJWLOYGmSt8cqCQoc4z8yNRmXZ6
+	xYn462fpNfbQiWDndik7PC2uNImTkHYjnUJ9yq2JjjQHXDk7YbJ5wbP9WIOOIPaUiOmsILZZJjAGK
+	H894iA7BmWcoJ/SiJMI8ghDyRX18247Pdry8TVluXE7DM7eXcFbaneHGBAkBuzb/aBbgUvsu7DZEY
+	z1xkFRLPfShE6y1G4RWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1snUDU-00000000HvV-0z75;
-	Mon, 09 Sep 2024 02:33:24 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1snUbO-00000000KM7-2XsO;
+	Mon, 09 Sep 2024 02:58:06 +0000
+Received: from smtpbguseast2.qq.com ([54.204.34.130])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1snUDP-00000000HuN-00kJ
+	id 1snUbJ-00000000KL4-2Oju
 	for linux-riscv@lists.infradead.org;
-	Mon, 09 Sep 2024 02:33:23 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.44])
-	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4X29px6wbCz1j8CY;
-	Mon,  9 Sep 2024 10:32:41 +0800 (CST)
-Received: from kwepemf100007.china.huawei.com (unknown [7.202.181.221])
-	by mail.maildlp.com (Postfix) with ESMTPS id 1C6741400DC;
-	Mon,  9 Sep 2024 10:33:08 +0800 (CST)
-Received: from [10.67.109.184] (10.67.109.184) by
- kwepemf100007.china.huawei.com (7.202.181.221) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 9 Sep 2024 10:33:07 +0800
-Message-ID: <90847eaa-ddfa-47e9-9f2f-31364bb13947@huawei.com>
-Date: Mon, 9 Sep 2024 10:33:07 +0800
+	Mon, 09 Sep 2024 02:58:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
+	s=onoh2408; t=1725850638;
+	bh=0jvAXe9spnDkSUEV8dePIAYQvx00bCT7m3MR46ml5fI=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version;
+	b=gvaQqebcD8pSIsNoXprAnAoaJCKxnOH5YwKzeDzQl6DL7zSdFJNEDwoBL+SnthU4G
+	 ViWrPZTpzLg600dslrHdJ751mq7exozGI9kPmEXhOHi+qdCeOmUGbEhdI8AtQmNn8u
+	 xkPYwuaSvStrU9OmRmHLavfpkvw1Ti3wJPySquUQ=
+X-QQ-mid: bizesmtp80t1725850634tv2rc5j5
+X-QQ-Originating-IP: E6t5mxXfc7ZFPvUXzfw9HkQ6yB38DisTbd7HuGprEOo=
+Received: from localhost.localdomain ( [113.57.152.160])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 09 Sep 2024 10:57:11 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 2667592176881023246
+From: WangYuli <wangyuli@uniontech.com>
+To: stable@vger.kernel.org,
+	gregkh@linuxfoundation.org,
+	sashal@kernel.org,
+	parri.andrea@gmail.com,
+	mathieu.desnoyers@efficios.com,
+	palmer@rivosinc.com,
+	wangyuli@uniontech.com
+Cc: linux-kernel@vger.kernel.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	nathan@kernel.org,
+	ndesaulniers@google.com,
+	trix@redhat.com,
+	linux-riscv@lists.infradead.org,
+	llvm@lists.linux.dev,
+	paulmck@kernel.org,
+	mingo@redhat.com,
+	peterz@infradead.org,
+	juri.lelli@redhat.com,
+	vincent.guittot@linaro.org,
+	dietmar.eggemann@arm.com,
+	rostedt@goodmis.org,
+	bsegall@google.com,
+	mgorman@suse.de,
+	bristot@redhat.com,
+	vschneid@redhat.com,
+	brauner@kernel.org,
+	arnd@arndb.de
+Subject: [PATCH 6.6] membarrier: riscv: Add full memory barrier in switch_mm()
+Date: Mon,  9 Sep 2024 10:57:01 +0800
+Message-ID: <10F34E3A3BFBC534+20240909025701.1101397-1-wangyuli@uniontech.com>
+X-Mailer: git-send-email 2.43.4
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] drivers/perf: riscv: Align errno for unsupported perf
- event
-Content-Language: en-US
-To: Atish Patra <atishp@rivosinc.com>, <linux-riscv@lists.infradead.org>
-CC: Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
-	<bjorn@kernel.org>, Pu Lehui <pulehui@huaweicloud.com>
-References: <20240831071520.1630360-1-pulehui@huaweicloud.com>
-From: Pu Lehui <pulehui@huawei.com>
-In-Reply-To: <20240831071520.1630360-1-pulehui@huaweicloud.com>
-X-Originating-IP: [10.67.109.184]
-X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
- kwepemf100007.china.huawei.com (7.202.181.221)
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:uniontech.com:qybglogicsvrgz:qybglogicsvrgz8a-1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240908_193321_314754_206AB325 
-X-CRM114-Status: GOOD (  15.21  )
+X-CRM114-CacheID: sfid-20240908_195802_441226_C8E8416C 
+X-CRM114-Status: GOOD (  21.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,77 +93,134 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Andrea Parri <parri.andrea@gmail.com>
 
-On 2024/8/31 15:15, Pu Lehui wrote:
-> From: Pu Lehui <pulehui@huawei.com>
-> 
-> RISC-V perf driver does not yet support PERF_TYPE_BREAKPOINT. It would
-> be more appropriate to return -EOPNOTSUPP or -ENOENT for this type in
-> pmu_sbi_event_map. Considering that other implementations return -ENOENT
-> for unsupported perf types, let's synchronize this behavior. Due to this
-> reason, a riscv bpf testcases perf_skip fail. Meanwhile, align that
-> behavior to the rest of proper place.
+[ Upstream commit d6cfd1770f20392d7009ae1fdb04733794514fa9 ]
 
-Hi Atish,
+The membarrier system call requires a full memory barrier after storing
+to rq->curr, before going back to user-space.  The barrier is only
+needed when switching between processes: the barrier is implied by
+mmdrop() when switching from kernel to userspace, and it's not needed
+when switching from userspace to kernel.
 
-Is current modification appropriate? Hope if you have time to review it.
+Rely on the feature/mechanism ARCH_HAS_MEMBARRIER_CALLBACKS and on the
+primitive membarrier_arch_switch_mm(), already adopted by the PowerPC
+architecture, to insert the required barrier.
 
-Thanks.
+Fixes: fab957c11efe2f ("RISC-V: Atomic and Locking Code")
+Signed-off-by: Andrea Parri <parri.andrea@gmail.com>
+Reviewed-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Link: https://lore.kernel.org/r/20240131144936.29190-2-parri.andrea@gmail.com
+Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+Signed-off-by: WangYuli <wangyuli@uniontech.com>
+---
+ MAINTAINERS                         |  2 +-
+ arch/riscv/Kconfig                  |  1 +
+ arch/riscv/include/asm/membarrier.h | 31 +++++++++++++++++++++++++++++
+ arch/riscv/mm/context.c             |  2 ++
+ kernel/sched/core.c                 |  5 +++--
+ 5 files changed, 38 insertions(+), 3 deletions(-)
+ create mode 100644 arch/riscv/include/asm/membarrier.h
 
-> 
-> Signed-off-by: Pu Lehui <pulehui@huawei.com>
-> ---
->   drivers/perf/riscv_pmu_legacy.c | 4 ++--
->   drivers/perf/riscv_pmu_sbi.c    | 4 ++--
->   2 files changed, 4 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/perf/riscv_pmu_legacy.c b/drivers/perf/riscv_pmu_legacy.c
-> index 04487ad7fba0..93c8e0fdb589 100644
-> --- a/drivers/perf/riscv_pmu_legacy.c
-> +++ b/drivers/perf/riscv_pmu_legacy.c
-> @@ -22,13 +22,13 @@ static int pmu_legacy_ctr_get_idx(struct perf_event *event)
->   	struct perf_event_attr *attr = &event->attr;
->   
->   	if (event->attr.type != PERF_TYPE_HARDWARE)
-> -		return -EOPNOTSUPP;
-> +		return -ENOENT;
->   	if (attr->config == PERF_COUNT_HW_CPU_CYCLES)
->   		return RISCV_PMU_LEGACY_CYCLE;
->   	else if (attr->config == PERF_COUNT_HW_INSTRUCTIONS)
->   		return RISCV_PMU_LEGACY_INSTRET;
->   	else
-> -		return -EOPNOTSUPP;
-> +		return -ENOENT;
->   }
->   
->   /* For legacy config & counter index are same */
-> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-> index 44d3951d009f..169c5157b916 100644
-> --- a/drivers/perf/riscv_pmu_sbi.c
-> +++ b/drivers/perf/riscv_pmu_sbi.c
-> @@ -309,7 +309,7 @@ static void pmu_sbi_check_event(struct sbi_pmu_event_data *edata)
->   			  ret.value, 0x1, SBI_PMU_STOP_FLAG_RESET, 0, 0, 0);
->   	} else if (ret.error == SBI_ERR_NOT_SUPPORTED) {
->   		/* This event cannot be monitored by any counter */
-> -		edata->event_idx = -EINVAL;
-> +		edata->event_idx = -ENOENT;
->   	}
->   }
->   
-> @@ -543,7 +543,7 @@ static int pmu_sbi_event_map(struct perf_event *event, u64 *econfig)
->   		}
->   		break;
->   	default:
-> -		ret = -EINVAL;
-> +		ret = -ENOENT;
->   		break;
->   	}
->   
+diff --git a/MAINTAINERS b/MAINTAINERS
+index f09415b2b3c5..ae4c0cec5073 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -13702,7 +13702,7 @@ M:	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+ M:	"Paul E. McKenney" <paulmck@kernel.org>
+ L:	linux-kernel@vger.kernel.org
+ S:	Supported
+-F:	arch/powerpc/include/asm/membarrier.h
++F:	arch/*/include/asm/membarrier.h
+ F:	include/uapi/linux/membarrier.h
+ F:	kernel/sched/membarrier.c
+ 
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index c785a0200573..1df4afccc381 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -27,6 +27,7 @@ config RISCV
+ 	select ARCH_HAS_GCOV_PROFILE_ALL
+ 	select ARCH_HAS_GIGANTIC_PAGE
+ 	select ARCH_HAS_KCOV
++	select ARCH_HAS_MEMBARRIER_CALLBACKS
+ 	select ARCH_HAS_MMIOWB
+ 	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
+ 	select ARCH_HAS_PMEM_API
+diff --git a/arch/riscv/include/asm/membarrier.h b/arch/riscv/include/asm/membarrier.h
+new file mode 100644
+index 000000000000..6c016ebb5020
+--- /dev/null
++++ b/arch/riscv/include/asm/membarrier.h
+@@ -0,0 +1,31 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++#ifndef _ASM_RISCV_MEMBARRIER_H
++#define _ASM_RISCV_MEMBARRIER_H
++
++static inline void membarrier_arch_switch_mm(struct mm_struct *prev,
++					     struct mm_struct *next,
++					     struct task_struct *tsk)
++{
++	/*
++	 * Only need the full barrier when switching between processes.
++	 * Barrier when switching from kernel to userspace is not
++	 * required here, given that it is implied by mmdrop(). Barrier
++	 * when switching from userspace to kernel is not needed after
++	 * store to rq->curr.
++	 */
++	if (IS_ENABLED(CONFIG_SMP) &&
++	    likely(!(atomic_read(&next->membarrier_state) &
++		     (MEMBARRIER_STATE_PRIVATE_EXPEDITED |
++		      MEMBARRIER_STATE_GLOBAL_EXPEDITED)) || !prev))
++		return;
++
++	/*
++	 * The membarrier system call requires a full memory barrier
++	 * after storing to rq->curr, before going back to user-space.
++	 * Matches a full barrier in the proximity of the membarrier
++	 * system call entry.
++	 */
++	smp_mb();
++}
++
++#endif /* _ASM_RISCV_MEMBARRIER_H */
+diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
+index 217fd4de6134..ba8eb3944687 100644
+--- a/arch/riscv/mm/context.c
++++ b/arch/riscv/mm/context.c
+@@ -323,6 +323,8 @@ void switch_mm(struct mm_struct *prev, struct mm_struct *next,
+ 	if (unlikely(prev == next))
+ 		return;
+ 
++	membarrier_arch_switch_mm(prev, next, task);
++
+ 	/*
+ 	 * Mark the current MM context as inactive, and the next as
+ 	 * active.  This is at least used by the icache flushing
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+index 97571d390f18..9b406d988654 100644
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -6679,8 +6679,9 @@ static void __sched notrace __schedule(unsigned int sched_mode)
+ 		 *
+ 		 * Here are the schemes providing that barrier on the
+ 		 * various architectures:
+-		 * - mm ? switch_mm() : mmdrop() for x86, s390, sparc, PowerPC.
+-		 *   switch_mm() rely on membarrier_arch_switch_mm() on PowerPC.
++		 * - mm ? switch_mm() : mmdrop() for x86, s390, sparc, PowerPC,
++		 *   RISC-V.  switch_mm() relies on membarrier_arch_switch_mm()
++		 *   on PowerPC and on RISC-V.
+ 		 * - finish_lock_switch() for weakly-ordered
+ 		 *   architectures where spin_unlock is a full barrier,
+ 		 * - switch_to() for arm64 (weakly-ordered, spin_unlock
+-- 
+2.43.4
+
 
 _______________________________________________
 linux-riscv mailing list
