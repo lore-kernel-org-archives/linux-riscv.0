@@ -4,100 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D551FECE579
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Sep 2024 12:47:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17947ECE579
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Sep 2024 13:07:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:Date:References:In-Reply-To:Subject:Cc:To:From:Message-ID:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QovTa5/Q6ThPYMNAq+IiKtPwmOAdhfWCehlXe/2ygtg=; b=dfug9YposAhP/WGANNr5OuKo8l
-	UcggaQGjwT6fJrNTuEw8FntFcoDncU5aPrHLK+N7xq4F6QYxnnn2ZH4CPqR6yThNTdmuzUBGiancn
-	FvgWFKLaS2ipktqjgm+vMW5Gl+91PmAMe6DRvKGqn40NvHbjQegE8fyOGuk3qdwjZyZdu0Kf5afW4
-	9Ykqvhuwprknrt2NvVpBAM5KtzMgohiqD7stbfyUSF7gw58admRsfim2uMhpmDeGkGDXUfusAP8jX
-	rzJ3Q7Aeh4jb/UtqRtRdTtgjiKf9300WgsCGKz5tzfLCWbg6oTK7jKnepYiVgc/Vom1QZlk4qvd0o
-	4V+4qRgA==;
+	bh=M8MMjxJ/ZGfAJjYiFTyLRYUK39IrATP3R91HvUl7YPY=; b=J7GpJIWFnlBAMD32v6jRZ4bP0k
+	sYIJx7zoZ0hkcrnMYa8pDF+09np1OAKPPO9HeAM2MXJNaIMrMYU9o/9XtkPZjEE48PeGzxsK1PufF
+	UTo6+REQsBs/Srn5wOt17fmpouv9vv+hvT/nLJizzCOv1x3dz07asQ+bQGhFDW+SyzATvCraCdUsA
+	DVoPa+ECqY/qEYsbLBx1PDV53gNQYurDjUpnhr7FmU7QQlf7nvGu5jGKz3J+AT+mEbtdfXIya0ofl
+	DVB7rYxfncdWmBT+XVHpVhf9XF4eaRFeqlzMItUF39uCZJr9Xje0Uh1q6RfQiGc/mpdIp6vEVZw2W
+	CCeGiNQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sndnw-00000001udp-3Y8l;
-	Mon, 09 Sep 2024 12:47:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1sne7P-00000001zl3-04ly;
+	Mon, 09 Sep 2024 13:07:47 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sncjZ-00000001hp5-15RE
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 09 Sep 2024 11:39:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:Date:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=W26nZdJnLBsIfHz/s3jK5jdIhMQf+KGV6UKCsoG9vuM=; b=UTFae2GXyDQXOtzdnPa/iJkmYw
-	nZM5K0Q8qFSfPTfqvjkhpQtea6xvEAeL1atULX97Wmy/llWpqxd+9qyrbkPRpbr+rgmNAJICMqm4B
-	KVpzxCZk2mhTpGxYT4/ObY6o3B66Xft+pMq5Bv7foVwfAPoBszCM+LZInjg6OeNii5aa+oYz4YQUW
-	lmwDeOY1Z3AIIcNK1e5PmD9h+uHfcbcPhl+UYU9YyWvJOGuiTRVojLrlmiG7tuvC7jLFn9/++lu3W
-	6tpv+REr6W8uGaqOOQtet6PloR/0ubFfpJPZpi9RABGAxpu+rOIKDcB9l0XFJth3Vc6JIW0WhBQq3
-	4x2Hk09g==;
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sncjU-00000000PJY-0ra4
-	for linux-riscv@lists.infradead.org;
-	Mon, 09 Sep 2024 11:39:02 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-42cb0f28bfbso16707345e9.1
-        for <linux-riscv@lists.infradead.org>; Mon, 09 Sep 2024 04:38:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1725881936; x=1726486736; darn=lists.infradead.org;
-        h=mime-version:date:references:organization:in-reply-to:subject:cc:to
-         :from:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=W26nZdJnLBsIfHz/s3jK5jdIhMQf+KGV6UKCsoG9vuM=;
-        b=EucwWKjjyb2QN4KFkVQLJLN6ke9wZdNZ+CL9gW8gcA/OXEndyzGYt+O7fwlPuxDYOP
-         jOwxzef0wadzN6EZ6HBEEmXS35RjJ/qxzMf4oQp1tpUnOcN09XDpUPEJ1fHsod5WY10n
-         4AtMDi2/6/GNGs2IkUs2HQs+OgLx5ylTDtzRk/MT5vnWljfztS81qud8JvPV+YTaaZZx
-         6B2XCjeRqjWiLhMUNr7kpwbJ8eFF+0YhNw/MFDSpif77azxIbJUJvhtpukQQ7h2Z5B2m
-         7SHzmljSY1pU3EG/jhAL3K/sZliOAqiazzrkyjRbqx7HyCO3klOzr2VpseoT1rZU57Uw
-         BMAA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1725881936; x=1726486736;
-        h=mime-version:date:references:organization:in-reply-to:subject:cc:to
-         :from:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=W26nZdJnLBsIfHz/s3jK5jdIhMQf+KGV6UKCsoG9vuM=;
-        b=kPcvv7IJq8gkBuDY2FiOJg8hemgADXHqpR2s+2HHYjURVwgKEhTuUhIVt85TqD6jw6
-         HV2gpwbUywtqugpmmsk08HrBaDcduzq5Qg+C7lz5DVg/fhNn70LDUBb1NfO5qOtICKnR
-         1MGaGoMFM2Wgb0UTLuJriw6w9iKVwJj4os/jE2P5eQ8c7/aMQA0knUHslvT7MnqptpMx
-         M+8J7E1ZV4YCCHERIYzvyNUY+7e1s3M+aydg6KiZUImVQWn4QmCslHFQlhsBG27PJt2R
-         U21BXqZcrkBoWiZjBFMM2WqBUBTgKF+o8j4EPjyhXNVbvTCNQ1zEPy+k6MH9On/VRX2m
-         2nyA==
-X-Forwarded-Encrypted: i=1; AJvYcCWAdQS8y0VsnPwK0dn20MzrFubqO5Q9vu6jCTXK02EexVG6ZTK2Bi99bXkB5wm/vBEi7cb105iQwMRtuw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUqEQzE6Y1IxHriAp7tCn+viPn05zJfjALajuiLS72yxeFpUKb
-	fsnf1SqEJj6d41qmCwAbcSh0k2HLzrMyiBHeZwFmaYWk7dMJ/nYG
-X-Google-Smtp-Source: AGHT+IEGeIzBSBnr7TPWOE+RFt3Bxl7/u8wxu6JoWx2W06vU993cayEWH0d1yjJvBoxU3/Ef6ZYzDQ==
-X-Received: by 2002:a05:600c:4707:b0:426:5dd0:a1ee with SMTP id 5b1f17b1804b1-42c9f97bc2amr79572585e9.2.1725881935677;
-        Mon, 09 Sep 2024 04:38:55 -0700 (PDT)
-Received: from localhost ([37.72.3.43])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-378956d3743sm5846883f8f.79.2024.09.09.04.38.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Sep 2024 04:38:55 -0700 (PDT)
-Message-ID: <66dede4f.5d0a0220.1ef0e1.c922@mx.google.com>
-X-Google-Original-Message-ID: <87mskhjbue.fsf@>
-From: =?utf-8?Q?Miquel_Sabat=C3=A9_Sol=C3=A0?= <mikisabate@gmail.com>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: <paul.walmsley@sifive.com>,  <palmer@dabbelt.com>,
-  <aou@eecs.berkeley.edu>,  <linux-riscv@lists.infradead.org>,
-  <linux-kernel@vger.kernel.org>,  <jesse@rivosinc.com>,
-  <conor@kernel.org>
-Subject: Re: [PATCH v2] riscv: hwprobe: export Zicntr and Zihpm extensions
-In-Reply-To: <20240909-raving-reproach-74431f57896d@wendy> (Conor Dooley's
-	message of "Mon, 9 Sep 2024 12:11:46 +0100")
-Organization: Linux Private Site
-References: <20240817075629.262318-1-mikisabate@gmail.com>
-	<20240820044749.557349-1-mikisabate@gmail.com>
-	<66d9605f.5d0a0220.3dabb6.3586@mx.google.com>
-	<20240909-raving-reproach-74431f57896d@wendy>
-Date: Mon, 09 Sep 2024 13:38:49 +0200
+	id 1sne7A-00000001zgT-13vt;
+	Mon, 09 Sep 2024 13:07:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1725887252; x=1757423252;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=E4RRuE/i/qRg5/oov9kgzW8yHUJaA1SH34naXvnk51U=;
+  b=Y1dafvuvBV5oGZ+mxyrVRjj3mBIwaiVLKdLvxfCkVmWL9ia89vgyZHUC
+   nJ1XJQVD7iRfRDuZxzQN9+mQsrEOzYnwxiOehaAGXUgXCoa6ammTX0pvz
+   Vva4qujIlCWDXMMh5xYamXbL7mARYL2PmtzIFeuenPVVPm69lk5ku4QrG
+   bEiPBMG2va9GhyjObW5FrusD6UDnCxMDmIzTVNBXsogKD8KbxIyyDTREW
+   g49flZmrofK1g8E+3ma53bcD9q1g6KukQTpoj4L+GwAZC0crMza3SjK3e
+   r8XFmgdatr7nATUiy8SCwGXSCX/mgw1cvnRWWdMaqDNVt7Qlzr9vhkB7m
+   A==;
+X-CSE-ConnectionGUID: 3dr8ppBdTSqlMqiZcvwtew==
+X-CSE-MsgGUID: 7eQd4TXpT4qDo4RNMd5DoA==
+X-IronPort-AV: E=Sophos;i="6.10,214,1719903600"; 
+   d="asc'?scan'208";a="198949684"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 09 Sep 2024 06:07:30 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Mon, 9 Sep 2024 06:07:25 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex01.mchp-main.com (10.10.85.143)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
+ Transport; Mon, 9 Sep 2024 06:07:21 -0700
+Date: Mon, 9 Sep 2024 14:06:48 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Celeste Liu <coelacanthushex@gmail.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Guo Ren
+	<guoren@kernel.org>, Anup Patel <anup@brainfault.org>, Heinrich Schuchardt
+	<heinrich.schuchardt@canonical.com>, Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>, Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Rich Felker <dalias@libc.org>, John Paul Adrian Glaubitz
+	<glaubitz@physik.fu-berlin.de>, Russell King <linux@armlinux.org.uk>, Florian
+ Fainelli <florian.fainelli@broadcom.com>, Broadcom internal kernel review
+ list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>, Tony Lindgren <tony@atomide.com>,
+	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter
+	<jonathanh@nvidia.com>, Palmer Dabbelt <palmer@rivosinc.com>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<loongarch@lists.linux.dev>, <linux-sh@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-rpi-kernel@lists.infradead.org>, <linux-omap@vger.kernel.org>,
+	<linux-tegra@vger.kernel.org>
+Subject: Re: [PATCH v2 1/4] riscv: defconfig: drop RT_GROUP_SCHED=y
+Message-ID: <20240909-arguable-detection-02445bd1cc89@wendy>
+References: <20240823-fix-riscv-rt_group_sched-v2-0-e4dbae24f7e1@gmail.com>
+ <20240823-fix-riscv-rt_group_sched-v2-1-e4dbae24f7e1@gmail.com>
+ <20240909-gave-celtic-af2ea8bc38d5@wendy>
+ <9e364ae4-dc2c-4efa-8611-462218402a5d@gmail.com>
 MIME-Version: 1.0
+In-Reply-To: <9e364ae4-dc2c-4efa-8611-462218402a5d@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240909_123900_290082_732C0E6C 
-X-CRM114-Status: GOOD (  22.80  )
+X-CRM114-CacheID: sfid-20240909_060732_382177_E93CD571 
+X-CRM114-Status: GOOD (  26.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,148 +97,100 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8820962177756087237=="
+Content-Type: multipart/mixed; boundary="===============5627762899379909931=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============8820962177756087237==
-Content-Type: multipart/signed; boundary="=-=-=";
-	micalg=pgp-sha512; protocol="application/pgp-signature"
+--===============5627762899379909931==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="0hp6eR1gUAB5lPpR"
+Content-Disposition: inline
 
---=-=-=
-Content-Type: text/plain; charset=utf-8
+--0hp6eR1gUAB5lPpR
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On dl., de set. 09 2024, Conor Dooley wrote:
+On Mon, Sep 09, 2024 at 08:14:16PM +0800, Celeste Liu wrote:
+> On 2024-09-09 19:53, Conor Dooley wrote:
+>=20
+> > On Fri, Aug 23, 2024 at 01:43:26AM +0800, Celeste Liu wrote:
+> >> Commit ba6cfef057e1 ("riscv: enable Docker requirements in defconfig")
+> >> introduced it because of Docker, but Docker has removed this requireme=
+nt
+> >> since [1] (2023-04-19).
+> >>
+> >> For cgroup v1, if turned on, and there's any cgroup in the "cpu" hiera=
+rchy it
+> >> needs an RT budget assigned, otherwise the processes in it will not be=
+ able to
+> >> get RT at all. The problem with RT group scheduling is that it require=
+s the
+> >> budget assigned but there's no way we could assign a default budget, s=
+ince the
+> >> values to assign are both upper and lower time limits, are absolute, a=
+nd need to
+> >> be sum up to < 1 for each individal cgroup. That means we cannot reall=
+y come up
+> >> with values that would work by default in the general case.[2]
+> >>
+> >> For cgroup v2, it's almost unusable as well. If it turned on, the cpu =
+controller
+> >> can only be enabled when all RT processes are in the root cgroup. But =
+it will
+> >> lose the benefits of cgroup v2 if all RT process were placed in the sa=
+me cgroup.
+> >>
+> >> Red Hat, Gentoo, Arch Linux and Debian all disable it. systemd also do=
+esn't
+> >> support it.[3]
+> >>
+> >> [1]: https://github.com/moby/moby/commit/005150ed69c540fb0b5323e0f2208=
+608c1204536
+> >> [2]: https://bugzilla.redhat.com/show_bug.cgi?id=3D1229700
+> >> [3]: https://github.com/systemd/systemd/issues/13781#issuecomment-5491=
+64383
+> >>
+> >> Fixes: ba6cfef057e1 ("riscv: enable Docker requirements in defconfig")
+> >=20
+> > I don't think this fixes tag is suitable, the commit you cite in
+> > moby/docker is a year younger than the one in the fixes tag, so it was
+> > correct at the time it was written. I think the fixes tag should just be
+> > removed, since that commit was not wrong. Or am I missing something?
+>=20
+> The Docker commit I cited introduce the fix, not the bug. So it should be=
+ later
+> than commit in fixes tag, otherwise Heinrich Schuchardt won't pick the wr=
+ong
+> config from upstream.
+>=20
+> Timeline is:
+> 1) 2015-06-19 Qiang Huang introduce RT_GROUP_SCHED check in Docker.[1]
+> 2) 2022-06-08 Heinrich Schuchardt pick this to defconfig in commit
+>               in fixes tag.
+> 3) 2023-04-19 Florian Schmaus remove this requirement from Docker in
+>               commit I cited.
 
-> On Thu, Sep 05, 2024 at 09:40:14AM +0200, Miquel Sabat=C3=A9 Sol=C3=A0 wr=
-ote:
->> On dt., d=E2=80=99ag. 20 2024, Miquel Sabat=C3=A9 Sol=C3=A0 wrote:
->>=20
->> > Export Zicntr and Zihpm ISA extensions through the hwprobe syscall.
->> >
->> > Signed-off-by: Miquel Sabat=C3=A9 Sol=C3=A0 <mikisabate@gmail.com>
->> > ---
->> >  Documentation/arch/riscv/hwprobe.rst  | 6 ++++++
->> >  arch/riscv/include/uapi/asm/hwprobe.h | 2 ++
->> >  arch/riscv/kernel/sys_hwprobe.c       | 2 ++
->> >  3 files changed, 10 insertions(+)
->> >
->> > diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch=
-/riscv/hwprobe.rst
->> > index 3db60a0911df..cfd2929d0562 100644
->> > --- a/Documentation/arch/riscv/hwprobe.rst
->> > +++ b/Documentation/arch/riscv/hwprobe.rst
->> > @@ -183,6 +183,9 @@ The following keys are defined:
->> >         defined in the Atomic Compare-and-Swap (CAS) instructions manu=
-al starting
->> >         from commit 5059e0ca641c ("update to ratified").
->> >=20=20
->> > +  * :c:macro:`RISCV_HWPROBE_EXT_ZICNTR`: The Zicntr extension version=
- 2.0
->> > +       is supported as defined in the RISC-V ISA manual.
->> > +
->> >    * :c:macro:`RISCV_HWPROBE_EXT_ZICOND`: The Zicond extension is supp=
-orted as
->> >         defined in the RISC-V Integer Conditional (Zicond) operations =
-extension
->> >         manual starting from commit 95cf1f9 ("Add changes requested by=
- Ved
->> > @@ -192,6 +195,9 @@ The following keys are defined:
->> >         supported as defined in the RISC-V ISA manual starting from co=
-mmit
->> >         d8ab5c78c207 ("Zihintpause is ratified").
->> >=20=20
->> > +  * :c:macro:`RISCV_HWPROBE_EXT_ZIHPM`: The Zihpm extension version 2=
-.0
->> > +       is supported as defined in the RISC-V ISA manual.
->> > +
->> >    * :c:macro:`RISCV_HWPROBE_EXT_ZVE32X`: The Vector sub-extension Zve=
-32x is
->> >      supported, as defined by version 1.0 of the RISC-V Vector extensi=
-on manual.
->> >=20=20
->> > diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/includ=
-e/uapi/asm/hwprobe.h
->> > index b706c8e47b02..098a815b3fd4 100644
->> > --- a/arch/riscv/include/uapi/asm/hwprobe.h
->> > +++ b/arch/riscv/include/uapi/asm/hwprobe.h
->> > @@ -72,6 +72,8 @@ struct riscv_hwprobe {
->> >  #define		RISCV_HWPROBE_EXT_ZCF		(1ULL << 46)
->> >  #define		RISCV_HWPROBE_EXT_ZCMOP		(1ULL << 47)
->> >  #define		RISCV_HWPROBE_EXT_ZAWRS		(1ULL << 48)
->> > +#define		RISCV_HWPROBE_EXT_ZICNTR	(1ULL << 49)
->> > +#define		RISCV_HWPROBE_EXT_ZIHPM		(1ULL << 50)
->> >  #define RISCV_HWPROBE_KEY_CPUPERF_0	5
->> >  #define		RISCV_HWPROBE_MISALIGNED_UNKNOWN	(0 << 0)
->> >  #define		RISCV_HWPROBE_MISALIGNED_EMULATED	(1 << 0)
->> > diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_h=
-wprobe.c
->> > index 8d1b5c35d2a7..910b41b6a7ab 100644
->> > --- a/arch/riscv/kernel/sys_hwprobe.c
->> > +++ b/arch/riscv/kernel/sys_hwprobe.c
->> > @@ -107,9 +107,11 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe=
- *pair,
->> >  		EXT_KEY(ZCB);
->> >  		EXT_KEY(ZCMOP);
->> >  		EXT_KEY(ZICBOZ);
->> > +		EXT_KEY(ZICNTR);
->> >  		EXT_KEY(ZICOND);
->> >  		EXT_KEY(ZIHINTNTL);
->> >  		EXT_KEY(ZIHINTPAUSE);
->> > +		EXT_KEY(ZIHPM);
->> >  		EXT_KEY(ZIMOP);
->> >  		EXT_KEY(ZKND);
->> >  		EXT_KEY(ZKNE);
->> >
->> > base-commit: dc1c8034e31b14a2e5e212104ec508aec44ce1b9
->>=20
->> Hello,
->>=20
->> Can I get a review on this version of this patchset?
->
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
->
-> By the way, I totally missed this first time around because the v2 was
-> sent as a reply to v1 - it's pretty common for people to view their
-> mailbox sorted by thread, and sending new versions as a reply will bury
-> it.
->
-> Cheers,
-> Conor.
+Yes, this is the way I understood things to be. IOW, when Heinrich wrote
+ba6cfef057e1 ("riscv: enable Docker requirements in defconfig"), it was
+a requirement for docker. The requirement later being removed doesn't
+make his patch incorrect, which is why I don't think this is a fix.
 
-Thanks for the review!
-
-This is my first contribution to the Linux kernel, as you can tell :)
-Will keep in mind next time!
-
-Thanks,
-Miquel
-
---=-=-=
+--0hp6eR1gUAB5lPpR
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQJJBAEBCgAzFiEEG6U8esk9yirP39qXlr6Mb9idZWUFAmbe3kkVHG1pa2lzYWJh
-dGVAZ21haWwuY29tAAoJEJa+jG/YnWVlj+sP/iAqt4EMHI+8kZlVyGUdndX5I0hP
-ABdwK8prk09tVOkt7VBEjQI61Ibn/ZimfrRLaGwZB+UYmpb2kXBZzO/CLUhaya2f
-Lsj/cr8Cr5sqlZiRoYGDVOUfVdNoQSn7vqURb1KWHHTMLdg8jgFJVCDRTudROCn9
-vyWxmNuVWiZRoBvK61alPwHJYbVqCEJN+vIz8bw3yv5fZgRsGqxQM/L0ZUmI52gZ
-eHFfoKQEFYoWxKVypTV/wn4jtl2VwOJJQ5iT6sEnKfyWh84XF0phBbQPpQz9S/8S
-Aa2/eE+w/frmwo3Nh+43aCwvtUXGRxc147nQ6CuY68flW4SUnayndQlYindTBQDw
-Nq6NgkXpj3Pixa/Ntw7dTHgVbFAeWcuuQWgBXwXgyyd26bFXcETLR4TkV/ANHWKi
-eEG9+cRTF9LqB5FxDFfBtddtnVhnMiZBeXmwA1PCy3nZaBghhN+ctWgXDvu4f27U
-JXn9BzpTH8VwDMzi4+cIsgeQCZiPdZ4JOIP5LhOXNRHaZHi+JceBhVUIMHYd7urB
-KRtSrau5O1p6WyEi+JdF0ydafkRx2Gmc5MpVpXB9gBCeT0/jurS62oL4aXP4D4Np
-cQthVm2Xirq3XitRMylGKt2iOOz8Uks1BKnBKHB1xAGcdnTZvM2/Pwv7LicxCHnh
-827assRBdYKjkbgR
-=MCFy
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZt7y6AAKCRB4tDGHoIJi
+0iy2AQDO+J8hujJIKzDG3Tt61SU7uY4jZrPVSF7Wt04GvnnrUAD/R5bugsa3nUum
+Fkt27iTRmJcCAdjr+VwrO5JvzhczMQo=
+=mCFv
 -----END PGP SIGNATURE-----
---=-=-=--
+
+--0hp6eR1gUAB5lPpR--
 
 
---===============8820962177756087237==
+--===============5627762899379909931==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -261,5 +201,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============8820962177756087237==--
+--===============5627762899379909931==--
 
