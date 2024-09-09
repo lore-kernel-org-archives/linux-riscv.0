@@ -4,122 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC21EECE581
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Sep 2024 08:25:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57249ECE584
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Sep 2024 08:54:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gNvRwa3xLgbv0RaP/Zzv05vdr7XAf7MR5AdsiKVlRCw=; b=ZDGGQC4AYxdvC1NfGx+B2Edf4t
-	d2MBOfZIbvAJT3qxrsSWQRuF1sa83a8dpZV+dR0upZxFXs3WN4iW0v2o5k3ycfZwcJF6iLeIaAMyK
-	3VhTT/09bzirgY4PkhzWt2onP1Uumqn1SDwVhY7Yoi6NX4qDMgYbOn1n8t4pTgUvBodrTQ8X4Ka1W
-	4jbtWCi+cADK7JBdY8U+CQJee3yaZSrjdstI7iRwJRtJ/Pa/IyM7KY6FRyBddhEgWGL6vZ/LyMFGk
-	HnmfzodIbP8Mgv/ej3DoKbJYlOLwOI6/+3JYou/ul4404stWUmZD29frzJTxJFTy3PCexigD3X1Fa
-	qZKLHjAg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=U2PJrJ2hQNYSm2ga4edQ3bRg488KZ0sIA0Lo2DAJH04=; b=wKe+a30sE2AjAJ
+	yrjcqhYozUM13wgjosp9uK0EZXxrHy8TP+MFoREq7gCpyHRqNe8134jUUB319EX/gcjl8VzXURqdS
+	sHFNQtu9MjkRmF1tHpIU22mHMp3iUTPWqxTwQaNa/qxr6WJvLwehxtRROAPk3wi2nMKbdjZweyXt+
+	j0VYP4KzGwQn9O0hVuE1/RQWjgPwp1V55ZsZxKRsTzyCA245ikCCmNugninl19PNIiSddPJS+jcij
+	Zc1jFBCexIiLaOPFaXCR0mhD+qzT10tewGvxhWc7vxJ1ONvOxzBmfUx4DEucqcKsSU7b8wDllu3OR
+	zV/LGpwtYrIUWZ5HoDoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1snZhx-000000014sG-0c53;
-	Mon, 09 Sep 2024 08:25:13 +0000
-Received: from mail-bmxind01olkn2080c.outbound.protection.outlook.com ([2a01:111:f403:281c::80c] helo=IND01-BMX-obe.outbound.protection.outlook.com)
+	id 1sna9p-00000001C24-33zW;
+	Mon, 09 Sep 2024 08:54:01 +0000
+Received: from mail-yb1-f173.google.com ([209.85.219.173])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1snZht-000000014ph-2NuV
+	id 1sna1f-00000001ARE-3Gbr
 	for linux-riscv@lists.infradead.org;
-	Mon, 09 Sep 2024 08:25:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SenjdaEk7+ec6VyPm7sItsheGwJjC6+HCP6OoPQlGcyM6TxY9hWXGkuQj//oZ4fbbmEAAcZ+IGOyIzs01V3oeTmt3omVniBmBIP7qIzNWloQDNurr/EtvVX04MdKsJh+RMphJAfChIoEvlMZrbPD3s60ndyy/tPGcYnqmDSPydm827lCSMlBrIlbmxv+xLq//rKMXxbUJOqpmO6bx/uEVbl36dwu2Ns9rmbmqQCkgjP79xMTb15cgdTBaLCdDtnmU0806dVHgaXNRzhZTkr32X4Dpq4F0J1QTLegszWvx6K/Bwh3zAQXQTd5aCHSh3srhF/wpzbh3g0whBbn8L7a3w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=i7F+idI0fLiJXc1a8thWbHsAnjIxRwlnHKF36BTzfyI=;
- b=fgLi5I49KJFgOsXrKphzZFkLuXQZIr4js9L4IHKaH2SenQLeCOz9hzUbG41UCHlMJi4ik7Z/cJXXzTEVovMnP6MmM/FrUk27QSwI6Nt1BD1jRSBDPKR/LuHAwPvMMncZWSB/UFkwU5T6FPOUNQc5jJRcBgD+tZw/YbP1KGUvjwgXuoLh9P29UKL7xkbxnBPKQZf30KwKi6w+C7k4lOCHAn9QPFdYNUpdu0+QtMGvJVqrXfR1PiZXglgqTHZAlhdS7m1Qjsl5LmgTEXYCJ9NxjZOzPzNUt7bGY0SoVDFjGzNSP0d7LDI6zGi1IOho+RpTjiWeRsbp7Wgyku43eoRWQA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=i7F+idI0fLiJXc1a8thWbHsAnjIxRwlnHKF36BTzfyI=;
- b=uQqVWGDaHh0qJCZ91A3jREzwLjSGu2ZVvk+xhn+CbOE3+iP9ivoVkQSwLm2soqyFNtzxEncdNn2fmr856rpp1IvgWZf/6Of/WLkSvImp37IN2Iqfm9jXQ8Ca/tcGbwIoMA3MCN/c1XC4I0YE7QeKPUs/k0aWDC1mNUlC7vY9afVZeZ1BLa2x0rYCPeJVPWuZwF3GLtRcBdwnevbA3e0+BSmA9HOpkKTdzgWHTSUgalW4SuKsm6l5W64oDxN7GR4LiGjobDmAgm2mKPLDt2lslhhAxFM97lZdMBnHewiPqBC6EQC+eEngkFeXwZwT3HJlcusv/70bPU9Qn8EswxOKlA==
-Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:138::5)
- by MA0P287MB0314.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:b1::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7939.23; Mon, 9 Sep
- 2024 08:24:54 +0000
-Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- ([fe80::a94:ad0a:9071:806c]) by MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- ([fe80::a94:ad0a:9071:806c%4]) with mapi id 15.20.7939.022; Mon, 9 Sep 2024
- 08:24:54 +0000
-Message-ID: <MA0P287MB28225ECCF1D263A20917AD5DFE992@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
-Date: Mon, 9 Sep 2024 16:24:48 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] pwm: sophgo: add driver for Sophgo SG2042 PWM
-To: kernel test robot <lkp@intel.com>
-Cc: oe-kbuild-all@lists.linux.dev, Chen Wang <unicornxw@gmail.com>,
- ukleinek@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, inochiama@outlook.com, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
- linux-riscv@lists.infradead.org, chao.wei@sophgo.com,
- haijiao.liu@sophgo.com, xiaoguang.xing@sophgo.com, chunzhi.lin@sophgo.com
-References: <3985690b29340982a45314bdcc914c554621e909.1725536870.git.unicorn_wang@outlook.com>
- <202409080100.h6lX5Asm-lkp@intel.com>
-From: Chen Wang <unicorn_wang@outlook.com>
-In-Reply-To: <202409080100.h6lX5Asm-lkp@intel.com>
-X-TMN: [F1S1sqjnhUwCAGR9Vq1av/D2K/GB4g9e]
-X-ClientProxiedBy: SI2PR06CA0009.apcprd06.prod.outlook.com
- (2603:1096:4:186::17) To MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:138::5)
-X-Microsoft-Original-Message-ID: <6657655b-591f-4c52-99ca-0fb1f9ac5c40@outlook.com>
+	Mon, 09 Sep 2024 08:45:37 +0000
+Received: by mail-yb1-f173.google.com with SMTP id 3f1490d57ef6-e1a819488e3so3399723276.3
+        for <linux-riscv@lists.infradead.org>; Mon, 09 Sep 2024 01:45:35 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1725871533; x=1726476333;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=OClx8FdjyQ2dYCnYDOmUx9fSX8zEhQ05R0o7VQeRBrI=;
+        b=m9iQIw0JJExpPaSdcFdPH802MBnveEol8uDbBttWGbQmTNgenohg4Rr+m6vvunofxg
+         T0cU8Y/D2hhrWjAr36geV5ikKaUOBPg0aifnuuiiTVZ+YilJHidU1QzMTyi3EN7PMD23
+         iBMQ6cCGaOeZW/DhkCtKj0rFGU7h/HQTT1b2I0H9sINri0CWlXJR+oapyxeWVtipV1I+
+         1fjnndyFQ5wAWzrcMdNIYb5fpEZHcGUkIXTIrJatedU2o5DVh9DLe/21wP6OjjdvQxfb
+         OeEA8EDINvtn+6WcX2vUUpJMDjuopb+EkEk7S4uoIS7DqjNILda8uE6WoXq7l9/qf6hO
+         MxOg==
+X-Forwarded-Encrypted: i=1; AJvYcCUx9QDKqA9CoVXhAmKie2czf45b6nC1GmMzDw5obqMKbcSsyaJ7LrDXjEIrcplk7qVRphXf+qzQcwOwYQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxRK3ocMS6j00dY9H9BbR6u4lplpOWwAavhK8x78u/Ufj/+QjSC
+	0LCRZgq4NiQYRRFK00QIzeVXtHmcksV+VA7vxc8jBLtL3TyHw/j3+24gF6Ns
+X-Google-Smtp-Source: AGHT+IHpwf5YB3j9yodVrBpgPWXxe4Dp25rT7nS/j9RpvQNV7AZ0SlcS7FDEP67wRm8P0/PrGnzUmA==
+X-Received: by 2002:a05:6902:2e0a:b0:e1a:a0c2:df2d with SMTP id 3f1490d57ef6-e1d3487fbf4mr8379802276.23.1725871532879;
+        Mon, 09 Sep 2024 01:45:32 -0700 (PDT)
+Received: from mail-yw1-f179.google.com (mail-yw1-f179.google.com. [209.85.128.179])
+        by smtp.gmail.com with ESMTPSA id 3f1490d57ef6-e1d4b2cf0f1sm875583276.4.2024.09.09.01.45.31
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 09 Sep 2024 01:45:31 -0700 (PDT)
+Received: by mail-yw1-f179.google.com with SMTP id 00721157ae682-6c49c9018ebso36299947b3.3
+        for <linux-riscv@lists.infradead.org>; Mon, 09 Sep 2024 01:45:31 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXH51XmD7p1k68iTPx81/3PcHcP6kcBpjUuykbSXCkit78N6sLBj/RnxZpPjytI7gOydr/vQ8GLzuODdw==@lists.infradead.org
+X-Received: by 2002:a05:690c:113:b0:64a:7040:2d8a with SMTP id
+ 00721157ae682-6db44f10494mr80803477b3.23.1725871531566; Mon, 09 Sep 2024
+ 01:45:31 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MA0P287MB2822:EE_|MA0P287MB0314:EE_
-X-MS-Office365-Filtering-Correlation-Id: e81a3ff1-48e0-4752-b952-08dcd0a8e183
-X-Microsoft-Antispam: BCL:0;ARA:14566002|15080799006|461199028|5072599009|6090799003|8060799006|19110799003|3412199025|440099028|4302099013|1602099012;
-X-Microsoft-Antispam-Message-Info: Y725LEHWHC5nkMirIFAjRX0e0ige1pYoZC++5dRu/VGxx8uoUAN225a2UBlofAQm8Yod+tOPP+TDTFfl0P0jwQeuPoC5kVkEarz2yJr+F4vF0fpXnq92EkVaWIJF6to8bLCtUs9WuUQVCxLFtHp6rYhpBY1F+XF6F06U/kTNICVFkHkDAU6guHOz6bnUx0B8eMvPGmQuRv+RUQN7V2EH6FX2AHEYinp2w8q/OXes506FPggvn+4FhlbXBAmx+gS9jTtqSU/IkjNN2U/bNMgIpc4+UbvVfyGqQtC691+6GTwRM9h1z1/Qk8VBHvIK8sd/eC6EkF+OA6ZVKYjZbRYQNGm6iotbAvajiLUjJUqrWUeANLQBM+FxbHNB3ePbEkEFurAYX6Eh0Jel5AcTRVx8HkzNe2AyMTfM/ZBge4LNwnrtR79dsGUYPNNAZX5IMUMoc9nyzbHIxQheEfY7OxSlTU9nsvt5OV0i9C9/fhDYCNKYY9ghMjreftgcujf896VGGtnBXj5XsSfwJB6aHu2forJZiFYtnpi5w0CpJz3uACaY2LaqeusDpJ2AQGwMmEtAHyPVC9H+yDPt1m0xLTPKmF456bsnMJqIVfJ+zbqc7c7kNdEDVyAczriD2NdwG/MZoyef6fwP6ue014AtywuIKaOQFP+6rf62/mT6mwHZdHBRq6oE1CgeiACy7R2GFEYwOjj/DfGUHBynjbbAoga9d0dLX5V92/49s3rwlUzG3Zv5nbIa5NJIBX0/J6N3egOz2zHokOCW3VfvM77AUPV511c2EQLRuv/XptSqLaNq9t79m9Iw8gio8h5K2VW9WjMGZJTOJuP7j7Lj/lTrlV9CBAelF7yM8bP2GlVEGUEVRGo=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dW8zWnpuRFlnYWpOSmJEaTZLN0EwK094ZHN1TDJnR01Ndk02ZmhjL1A2UVVV?=
- =?utf-8?B?MDE4bzZEUHN6NW1kWkExZEl6aEFEdGRoR3p0aHFQQ2xiVWNtTEJTY3RyMC9S?=
- =?utf-8?B?a3Z2eFlLWUU0Q3BtbmR3WFdwMXNMODdCZFNMb1oxOTFCR1FRZTVvQlVWN0dC?=
- =?utf-8?B?TzE2ekNXNTFzVUI2NGFsQ0NodUhLNUZ1T2dLV2lzck9yZzlXZkNiS3oxTWJa?=
- =?utf-8?B?TmN0U3FldHZKM0VnaGFnMGNzQjZkR0xienU5UEp5SU8xZGZGM2tScm5RRHU5?=
- =?utf-8?B?eFF4bGVvclVIdlgyVUdwaEJEVjFoaHRCMEU0dWxNVDJOWnZYMjhtUytMMnli?=
- =?utf-8?B?bVQ4M015NnBNdG5tdG1qTUtlbXBwUXNWeUFGMWFjNGVzR0luekJzVGNDZ3RP?=
- =?utf-8?B?UjBFdXVNZlRVWFRubHVGT3RaMEkrMU5QLzduZFdZbW5VbUFyTjdVRnFrSWJQ?=
- =?utf-8?B?ekFLYUJxOE5Oa2NMMytYUGtVeVkwd281SStFU2M0ZG40a3RHNGJnWU1vRG8r?=
- =?utf-8?B?U0V0azJPS09qdXdTUy82SWoyeFFkamZXQ29WOWdVS2dxcFl0MTlpNkRJRE9D?=
- =?utf-8?B?N2xoU3dDSko1MUY1QzVFWlJ4dmIvSVV6bURTM1B2bUVFWlgzdVc4TWpxaEVI?=
- =?utf-8?B?TG5VRmhKSzUxKzJ2S1pRTk1Ta2Zib2RYV1JJTnhIMko0eE16dnB4cWFFY3k3?=
- =?utf-8?B?c3l1RFVKUnp3eGtyaHd0WWg4VmhLM1J0REkyOTMwTDJFbnlpb0s0ajNZTVZT?=
- =?utf-8?B?a1lyendBTnd1Wnc1bW5oenNkRWZuY004UnZEellBTDBEbU9NbWF2WTVud1lC?=
- =?utf-8?B?OXFhb2J6Z2wwMCtkeUdHRmpESEtGVDUzbTBPUWVBZFNyOW5ucTBMU1RLS1B3?=
- =?utf-8?B?Y1IwS2VhbmFGcFE2UVY2UXZtelgwVmcvWXdiZ3hqVjVUWW1HVmV3SzY1NkRY?=
- =?utf-8?B?WWNRM3BjSmdmdWNPVmZqNTNITmJRMDFHWjFicmVkb00xZGhJNWY2bmNPZS83?=
- =?utf-8?B?RjM0bFZzY2htUEw5bkhxMnUxN2NKeUhaZ2NBcTRxMXBENmdRWkxLM0VsbWZN?=
- =?utf-8?B?ZFlqVGZ1UWVoYWJVZjJIOXA2ZW1NU3ZtQ0Q5bjl3bE02QU1CVXQrOGluVDlq?=
- =?utf-8?B?amoxdXlVSWtxRi9vWU5mT3JqbVEvUjUvWWNlWUkvNlhVRDZNYWhBaEI3aXdB?=
- =?utf-8?B?anVmbjZlZmxMWVE4WktOaWFQcUZkelJidFNqSHJLN2MwYlhhNUFYZFAvOEhj?=
- =?utf-8?B?eDR1YWRjK1UzVHJGVVU5WnVwNGx5QmNxKytYK1lnSmxIQWZFdXVldTNja1Ry?=
- =?utf-8?B?ak9JT1UvUUJIYlBsU0xzaXJxWVB5ZEZWVWxRb2dMUVhHZU1CSXJuOUN0SXRK?=
- =?utf-8?B?aDNXTnVqeGxiYUZxcWdoV2w2MWJ2Vm9CUDdoeUNyMDdwb1ZGNUJjRXhsdTU0?=
- =?utf-8?B?NGdyZERtNHFuZitmbTRReldybERVMHY5ckJPV1JQRmJ1WExqUUtaMzhWMXVW?=
- =?utf-8?B?R3RhU3VxODQ4V1A1aW9rUFlTeGNhTmNGZ0Z0YlRVYmdoR05ER3B0aGUyY0Er?=
- =?utf-8?B?Q0J5OXJQZU9ZUDA1RXdHRHJOVXRJNnF2ZTNqQ3NpbkFFOURMeWtZWTNPTk5a?=
- =?utf-8?B?MkJ3M3RCT21teDhVY0dXb29UVkxxQWRUbVo5aVIyUm5yODlkMFVRZTlCRkRE?=
- =?utf-8?Q?uCZrC7ugcPLfoqb0gOd5?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e81a3ff1-48e0-4752-b952-08dcd0a8e183
-X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2024 08:24:54.1243
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MA0P287MB0314
+References: <3985690b29340982a45314bdcc914c554621e909.1725536870.git.unicorn_wang@outlook.com>
+ <202409080100.h6lX5Asm-lkp@intel.com> <MA0P287MB28225ECCF1D263A20917AD5DFE992@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
+In-Reply-To: <MA0P287MB28225ECCF1D263A20917AD5DFE992@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 9 Sep 2024 10:45:19 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdXOAmCsdcvdo41qD9f4L=K2uZa6nJN7D5YOTTuCnBHtWA@mail.gmail.com>
+Message-ID: <CAMuHMdXOAmCsdcvdo41qD9f4L=K2uZa6nJN7D5YOTTuCnBHtWA@mail.gmail.com>
+Subject: Re: [PATCH 2/2] pwm: sophgo: add driver for Sophgo SG2042 PWM
+To: Chen Wang <unicorn_wang@outlook.com>
+Cc: kernel test robot <lkp@intel.com>, oe-kbuild-all@lists.linux.dev, 
+	Chen Wang <unicornxw@gmail.com>, ukleinek@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, inochiama@outlook.com, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-pwm@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	chao.wei@sophgo.com, haijiao.liu@sophgo.com, xiaoguang.xing@sophgo.com, 
+	chunzhi.lin@sophgo.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240909_012509_662719_641910FA 
-X-CRM114-Status: GOOD (  11.64  )
+X-CRM114-CacheID: sfid-20240909_014535_849680_74EB4AAA 
+X-CRM114-Status: GOOD (  22.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,59 +89,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-hi,
-
-I wonder why CONFIG_PWM_SOPHGO_SG2042 is enabeld for m68k? Please remove 
-this.
-
-Regards,
-
-Chen
-
-On 2024/9/8 1:58, kernel test robot wrote:
-> Hi Chen,
->
-> kernel test robot noticed the following build warnings:
->
-> [auto build test WARNING on 431c1646e1f86b949fa3685efc50b660a364c2b6]
->
-> url:    https://github.com/intel-lab-lkp/linux/commits/Chen-Wang/dt-bindings-pwm-sophgo-add-bindings-for-sg2042/20240905-201303
-> base:   431c1646e1f86b949fa3685efc50b660a364c2b6
-> patch link:    https://lore.kernel.org/r/3985690b29340982a45314bdcc914c554621e909.1725536870.git.unicorn_wang%40outlook.com
-> patch subject: [PATCH 2/2] pwm: sophgo: add driver for Sophgo SG2042 PWM
-> config: m68k-randconfig-r133-20240907 (https://download.01.org/0day-ci/archive/20240908/202409080100.h6lX5Asm-lkp@intel.com/config)
-> compiler: m68k-linux-gcc (GCC) 14.1.0
-> reproduce: (https://download.01.org/0day-ci/archive/20240908/202409080100.h6lX5Asm-lkp@intel.com/reproduce)
->
-> If you fix the issue in a separate patch/commit (i.e. not just a new version of
-> the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Closes: https://lore.kernel.org/oe-kbuild-all/202409080100.h6lX5Asm-lkp@intel.com/
->
-> All warnings (new ones prefixed by >>):
->
->>> drivers/pwm/pwm-sophgo-sg2042.c:99:34: warning: 'sg2042_pwm_match' defined but not used [-Wunused-const-variable=]
->        99 | static const struct of_device_id sg2042_pwm_match[] = {
->           |                                  ^~~~~~~~~~~~~~~~
->
->
-> vim +/sg2042_pwm_match +99 drivers/pwm/pwm-sophgo-sg2042.c
->
->      98	
->    > 99	static const struct of_device_id sg2042_pwm_match[] = {
->     100		{ .compatible = "sophgo,sg2042-pwm" },
->     101		{ },
->     102	};
->     103	MODULE_DEVICE_TABLE(of, sg2042_pwm_match);
->     104	
->
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQ2hlbiwKCk9uIE1vbiwgU2VwIDksIDIwMjQgYXQgMTA6MjbigK9BTSBDaGVuIFdhbmcgPHVu
+aWNvcm5fd2FuZ0BvdXRsb29rLmNvbT4gd3JvdGU6Cj4gSSB3b25kZXIgd2h5IENPTkZJR19QV01f
+U09QSEdPX1NHMjA0MiBpcyBlbmFiZWxkIGZvciBtNjhrPyBQbGVhc2UgcmVtb3ZlCj4gdGhpcy4K
+CkJlY2F1c2UgaXQgZGVwZW5kcyBvbiBBUkNIX1NPUEhHTyB8fCBDT01QSUxFX1RFU1QuClNvIGl0
+IGNhbiBiZSBlbmFibGVkIG9uIGFsbCBhcmNoaXRlY3R1cmVzIHdoZW4gY29tcGlsZS10ZXN0aW5n
+LgoKPiBPbiAyMDI0LzkvOCAxOjU4LCBrZXJuZWwgdGVzdCByb2JvdCB3cm90ZToKPiA+IGtlcm5l
+bCB0ZXN0IHJvYm90IG5vdGljZWQgdGhlIGZvbGxvd2luZyBidWlsZCB3YXJuaW5nczoKPiA+Cj4g
+PiBbYXV0byBidWlsZCB0ZXN0IFdBUk5JTkcgb24gNDMxYzE2NDZlMWY4NmI5NDlmYTM2ODVlZmM1
+MGI2NjBhMzY0YzJiNl0KPiA+Cj4gPiB1cmw6ICAgIGh0dHBzOi8vZ2l0aHViLmNvbS9pbnRlbC1s
+YWItbGtwL2xpbnV4L2NvbW1pdHMvQ2hlbi1XYW5nL2R0LWJpbmRpbmdzLXB3bS1zb3BoZ28tYWRk
+LWJpbmRpbmdzLWZvci1zZzIwNDIvMjAyNDA5MDUtMjAxMzAzCj4gPiBiYXNlOiAgIDQzMWMxNjQ2
+ZTFmODZiOTQ5ZmEzNjg1ZWZjNTBiNjYwYTM2NGMyYjYKPiA+IHBhdGNoIGxpbms6ICAgIGh0dHBz
+Oi8vbG9yZS5rZXJuZWwub3JnL3IvMzk4NTY5MGIyOTM0MDk4MmE0NTMxNGJkY2M5MTRjNTU0NjIx
+ZTkwOS4xNzI1NTM2ODcwLmdpdC51bmljb3JuX3dhbmclNDBvdXRsb29rLmNvbQo+ID4gcGF0Y2gg
+c3ViamVjdDogW1BBVENIIDIvMl0gcHdtOiBzb3BoZ286IGFkZCBkcml2ZXIgZm9yIFNvcGhnbyBT
+RzIwNDIgUFdNCj4gPiBjb25maWc6IG02OGstcmFuZGNvbmZpZy1yMTMzLTIwMjQwOTA3IChodHRw
+czovL2Rvd25sb2FkLjAxLm9yZy8wZGF5LWNpL2FyY2hpdmUvMjAyNDA5MDgvMjAyNDA5MDgwMTAw
+Lmg2bFg1QXNtLWxrcEBpbnRlbC5jb20vY29uZmlnKQo+ID4gY29tcGlsZXI6IG02OGstbGludXgt
+Z2NjIChHQ0MpIDE0LjEuMAo+ID4gcmVwcm9kdWNlOiAoaHR0cHM6Ly9kb3dubG9hZC4wMS5vcmcv
+MGRheS1jaS9hcmNoaXZlLzIwMjQwOTA4LzIwMjQwOTA4MDEwMC5oNmxYNUFzbS1sa3BAaW50ZWwu
+Y29tL3JlcHJvZHVjZSkKPiA+Cj4gPiBJZiB5b3UgZml4IHRoZSBpc3N1ZSBpbiBhIHNlcGFyYXRl
+IHBhdGNoL2NvbW1pdCAoaS5lLiBub3QganVzdCBhIG5ldyB2ZXJzaW9uIG9mCj4gPiB0aGUgc2Ft
+ZSBwYXRjaC9jb21taXQpLCBraW5kbHkgYWRkIGZvbGxvd2luZyB0YWdzCj4gPiB8IFJlcG9ydGVk
+LWJ5OiBrZXJuZWwgdGVzdCByb2JvdCA8bGtwQGludGVsLmNvbT4KPiA+IHwgQ2xvc2VzOiBodHRw
+czovL2xvcmUua2VybmVsLm9yZy9vZS1rYnVpbGQtYWxsLzIwMjQwOTA4MDEwMC5oNmxYNUFzbS1s
+a3BAaW50ZWwuY29tLwo+ID4KPiA+IEFsbCB3YXJuaW5ncyAobmV3IG9uZXMgcHJlZml4ZWQgYnkg
+Pj4pOgo+ID4KPiA+Pj4gZHJpdmVycy9wd20vcHdtLXNvcGhnby1zZzIwNDIuYzo5OTozNDogd2Fy
+bmluZzogJ3NnMjA0Ml9wd21fbWF0Y2gnIGRlZmluZWQgYnV0IG5vdCB1c2VkIFstV3VudXNlZC1j
+b25zdC12YXJpYWJsZT1dCj4gPiAgICAgICAgOTkgfCBzdGF0aWMgY29uc3Qgc3RydWN0IG9mX2Rl
+dmljZV9pZCBzZzIwNDJfcHdtX21hdGNoW10gPSB7Cj4gPiAgICAgICAgICAgfCAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICBefn5+fn5+fn5+fn5+fn5+Cj4gPgo+ID4KPiA+IHZpbSAr
+L3NnMjA0Ml9wd21fbWF0Y2ggKzk5IGRyaXZlcnMvcHdtL3B3bS1zb3BoZ28tc2cyMDQyLmMKPiA+
+Cj4gPiAgICAgIDk4Cj4gPiAgICA+IDk5ICAgICAgIHN0YXRpYyBjb25zdCBzdHJ1Y3Qgb2ZfZGV2
+aWNlX2lkIHNnMjA0Ml9wd21fbWF0Y2hbXSA9IHsKPiA+ICAgICAxMDAgICAgICAgICAgICAgICB7
+IC5jb21wYXRpYmxlID0gInNvcGhnbyxzZzIwNDItcHdtIiB9LAo+ID4gICAgIDEwMSAgICAgICAg
+ICAgICAgIHsgfSwKPiA+ICAgICAxMDIgICAgICAgfTsKPiA+ICAgICAxMDMgICAgICAgTU9EVUxF
+X0RFVklDRV9UQUJMRShvZiwgc2cyMDQyX3B3bV9tYXRjaCk7Cj4gPiAgICAgMTA0CgpHcntvZXRq
+ZSxlZXRpbmd9cywKCiAgICAgICAgICAgICAgICAgICAgICAgIEdlZXJ0CgotLSAKR2VlcnQgVXl0
+dGVyaG9ldmVuIC0tIFRoZXJlJ3MgbG90cyBvZiBMaW51eCBiZXlvbmQgaWEzMiAtLSBnZWVydEBs
+aW51eC1tNjhrLm9yZwoKSW4gcGVyc29uYWwgY29udmVyc2F0aW9ucyB3aXRoIHRlY2huaWNhbCBw
+ZW9wbGUsIEkgY2FsbCBteXNlbGYgYSBoYWNrZXIuIEJ1dAp3aGVuIEknbSB0YWxraW5nIHRvIGpv
+dXJuYWxpc3RzIEkganVzdCBzYXkgInByb2dyYW1tZXIiIG9yIHNvbWV0aGluZyBsaWtlIHRoYXQu
+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgLS0gTGludXMgVG9ydmFsZHMKCl9fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
+aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
+bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
