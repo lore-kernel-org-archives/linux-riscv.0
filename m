@@ -4,84 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF167EB64DE
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Sep 2024 02:58:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3503CCE7AB0
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Sep 2024 06:48:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Yk28fs8uDJwJ2X+xMeh2E44FAAOf0waUdOURxo90i9s=; b=5G3xgzMYa/yUi+
-	PYr/LhwsidCdr5D/m4VZBYCi1No+ehvOkkyX01si1EBcfdaw89W4LYFlUM2ETrXde5ylAftKqgjQg
-	o8osLDp34mZRgWMw4cICenxO7c6veWud3W2GGKzzZZqnkR3diJYJWLOYGmSt8cqCQoc4z8yNRmXZ6
-	xYn462fpNfbQiWDndik7PC2uNImTkHYjnUJ9yq2JjjQHXDk7YbJ5wbP9WIOOIPaUiOmsILZZJjAGK
-	H894iA7BmWcoJ/SiJMI8ghDyRX18247Pdry8TVluXE7DM7eXcFbaneHGBAkBuzb/aBbgUvsu7DZEY
-	z1xkFRLPfShE6y1G4RWQ==;
+	List-Owner; bh=RlTr8DNeMa4fBBrHM8d+AXoz4sp1czTUbDaK/yYorg4=; b=RIp+HqpyLLnM5f
+	C3dBjF3O4b0kmGyCs8/aRQC+IHUQmV4Yf6206cCImj39W91x5NENQVcSRc9iI0MavUeewteaZ5ULJ
+	06tNt3D5VZz85Jxk77w9FgYDMWMvjXo7t8Gc5oOyF6Jjp28euB7LJyjhiEHfcZ84wpdoqxwE57wv1
+	HdpQsNxfiwsybJV4KpJ6PFCVFCzgtgnkGmvMkiTRy74QLnFltmcJ5BOQHj/4EIK7/2CxP7IS7zJ5A
+	RImi90TU09ajt6YBW80YK7fJvZIoUuJ3pnJh+PjqF2Nd3cRlDbPAIFfLKljrow7NMs8QJYuPl6lAa
+	WJBLo99VTrWQObbIw9/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1snUbO-00000000KM7-2XsO;
-	Mon, 09 Sep 2024 02:58:06 +0000
-Received: from smtpbguseast2.qq.com ([54.204.34.130])
+	id 1snYBs-00000000fbS-3QfV;
+	Mon, 09 Sep 2024 06:48:00 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1snUbJ-00000000KL4-2Oju
-	for linux-riscv@lists.infradead.org;
-	Mon, 09 Sep 2024 02:58:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1725850638;
-	bh=0jvAXe9spnDkSUEV8dePIAYQvx00bCT7m3MR46ml5fI=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=gvaQqebcD8pSIsNoXprAnAoaJCKxnOH5YwKzeDzQl6DL7zSdFJNEDwoBL+SnthU4G
-	 ViWrPZTpzLg600dslrHdJ751mq7exozGI9kPmEXhOHi+qdCeOmUGbEhdI8AtQmNn8u
-	 xkPYwuaSvStrU9OmRmHLavfpkvw1Ti3wJPySquUQ=
-X-QQ-mid: bizesmtp80t1725850634tv2rc5j5
-X-QQ-Originating-IP: E6t5mxXfc7ZFPvUXzfw9HkQ6yB38DisTbd7HuGprEOo=
-Received: from localhost.localdomain ( [113.57.152.160])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 09 Sep 2024 10:57:11 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 2667592176881023246
-From: WangYuli <wangyuli@uniontech.com>
-To: stable@vger.kernel.org,
-	gregkh@linuxfoundation.org,
-	sashal@kernel.org,
-	parri.andrea@gmail.com,
-	mathieu.desnoyers@efficios.com,
-	palmer@rivosinc.com,
-	wangyuli@uniontech.com
-Cc: linux-kernel@vger.kernel.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	nathan@kernel.org,
-	ndesaulniers@google.com,
-	trix@redhat.com,
+	id 1snYBp-00000000fZW-0CrF;
+	Mon, 09 Sep 2024 06:47:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D49E05C483E;
+	Mon,  9 Sep 2024 06:47:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F127C4CEC5;
+	Mon,  9 Sep 2024 06:47:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1725864475;
+	bh=B9x+q6EZd7K9Ar6u2d/l/9Mk8JmglYJFdX3xwumRUgY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=GZTJc1yoHgAC1vrKmkrTik6bpeO/Ba3QeazSMwPEzdJE6v6r2E7ixgB1ws7HJXN1F
+	 HRwEzExXYATn3fg6VyMu83WZRGIqkCuTqIpvYBgI7GMvZ2fNpZanOxVPd3ZxuoqB0K
+	 kwTmCftX0HBa5qu7J42H4mXCg8BICIgqgeYhEDOMsEPSqM10sT99D9eEaHA26BQrpc
+	 fWMQM7MbpHVOJx1YrHAuv2j7+cuQdZMv1YBYBeSYPLwSZAqusrJbcD9XnNmcUVYqMp
+	 6acnhTwIIPKoUx5UMRy32HTx9KDEvPL+OqTadSOplha4y8PQUwonrxBocNmxw0Twq/
+	 7gmEoI8OZn75Q==
+From: Mike Rapoport <rppt@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Andreas Larsson <andreas@gaisler.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Borislav Petkov <bp@alien8.de>,
+	Brian Cain <bcain@quicinc.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christoph Hellwig <hch@infradead.org>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Guo Ren <guoren@kernel.org>,
+	Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Kent Overstreet <kent.overstreet@linux.dev>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Matt Turner <mattst88@gmail.com>,
+	Max Filippov <jcmvbkbc@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Simek <monstr@monstr.eu>,
+	Mike Rapoport <rppt@kernel.org>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Richard Weinberger <richard@nod.at>,
+	Russell King <linux@armlinux.org.uk>,
+	Song Liu <song@kernel.org>,
+	Stafford Horne <shorne@gmail.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Vineet Gupta <vgupta@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org,
+	linux-alpha@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-modules@vger.kernel.org,
+	linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	llvm@lists.linux.dev,
-	paulmck@kernel.org,
-	mingo@redhat.com,
-	peterz@infradead.org,
-	juri.lelli@redhat.com,
-	vincent.guittot@linaro.org,
-	dietmar.eggemann@arm.com,
-	rostedt@goodmis.org,
-	bsegall@google.com,
-	mgorman@suse.de,
-	bristot@redhat.com,
-	vschneid@redhat.com,
-	brauner@kernel.org,
-	arnd@arndb.de
-Subject: [PATCH 6.6] membarrier: riscv: Add full memory barrier in switch_mm()
-Date: Mon,  9 Sep 2024 10:57:01 +0800
-Message-ID: <10F34E3A3BFBC534+20240909025701.1101397-1-wangyuli@uniontech.com>
-X-Mailer: git-send-email 2.43.4
+	linux-sh@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org
+Subject: [PATCH v3 0/8] x86/module: use large ROX pages for text allocations
+Date: Mon,  9 Sep 2024 09:47:22 +0300
+Message-ID: <20240909064730.3290724-1-rppt@kernel.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:uniontech.com:qybglogicsvrgz:qybglogicsvrgz8a-1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240908_195802_441226_C8E8416C 
-X-CRM114-Status: GOOD (  21.95  )
+X-CRM114-CacheID: sfid-20240908_234757_262252_DC8064EF 
+X-CRM114-Status: GOOD (  16.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,128 +129,182 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Andrea Parri <parri.andrea@gmail.com>
+From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 
-[ Upstream commit d6cfd1770f20392d7009ae1fdb04733794514fa9 ]
+Hi,
 
-The membarrier system call requires a full memory barrier after storing
-to rq->curr, before going back to user-space.  The barrier is only
-needed when switching between processes: the barrier is implied by
-mmdrop() when switching from kernel to userspace, and it's not needed
-when switching from userspace to kernel.
+These patches add support for using large ROX pages for allocations of
+executable memory on x86.
 
-Rely on the feature/mechanism ARCH_HAS_MEMBARRIER_CALLBACKS and on the
-primitive membarrier_arch_switch_mm(), already adopted by the PowerPC
-architecture, to insert the required barrier.
+They address Andy's comments [1] about having executable mappings for code
+that was not completely formed.
 
-Fixes: fab957c11efe2f ("RISC-V: Atomic and Locking Code")
-Signed-off-by: Andrea Parri <parri.andrea@gmail.com>
-Reviewed-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Link: https://lore.kernel.org/r/20240131144936.29190-2-parri.andrea@gmail.com
-Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-Signed-off-by: WangYuli <wangyuli@uniontech.com>
----
- MAINTAINERS                         |  2 +-
- arch/riscv/Kconfig                  |  1 +
- arch/riscv/include/asm/membarrier.h | 31 +++++++++++++++++++++++++++++
- arch/riscv/mm/context.c             |  2 ++
- kernel/sched/core.c                 |  5 +++--
- 5 files changed, 38 insertions(+), 3 deletions(-)
- create mode 100644 arch/riscv/include/asm/membarrier.h
+The approach taken is to allocate ROX memory along with writable but not
+executable memory and use the writable copy to perform relocations and
+alternatives patching. After the module text gets into its final shape, the
+contents of the writable memory is copied into the actual ROX location
+using text poking.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index f09415b2b3c5..ae4c0cec5073 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -13702,7 +13702,7 @@ M:	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
- M:	"Paul E. McKenney" <paulmck@kernel.org>
- L:	linux-kernel@vger.kernel.org
- S:	Supported
--F:	arch/powerpc/include/asm/membarrier.h
-+F:	arch/*/include/asm/membarrier.h
- F:	include/uapi/linux/membarrier.h
- F:	kernel/sched/membarrier.c
- 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index c785a0200573..1df4afccc381 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -27,6 +27,7 @@ config RISCV
- 	select ARCH_HAS_GCOV_PROFILE_ALL
- 	select ARCH_HAS_GIGANTIC_PAGE
- 	select ARCH_HAS_KCOV
-+	select ARCH_HAS_MEMBARRIER_CALLBACKS
- 	select ARCH_HAS_MMIOWB
- 	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
- 	select ARCH_HAS_PMEM_API
-diff --git a/arch/riscv/include/asm/membarrier.h b/arch/riscv/include/asm/membarrier.h
-new file mode 100644
-index 000000000000..6c016ebb5020
---- /dev/null
-+++ b/arch/riscv/include/asm/membarrier.h
-@@ -0,0 +1,31 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+#ifndef _ASM_RISCV_MEMBARRIER_H
-+#define _ASM_RISCV_MEMBARRIER_H
-+
-+static inline void membarrier_arch_switch_mm(struct mm_struct *prev,
-+					     struct mm_struct *next,
-+					     struct task_struct *tsk)
-+{
-+	/*
-+	 * Only need the full barrier when switching between processes.
-+	 * Barrier when switching from kernel to userspace is not
-+	 * required here, given that it is implied by mmdrop(). Barrier
-+	 * when switching from userspace to kernel is not needed after
-+	 * store to rq->curr.
-+	 */
-+	if (IS_ENABLED(CONFIG_SMP) &&
-+	    likely(!(atomic_read(&next->membarrier_state) &
-+		     (MEMBARRIER_STATE_PRIVATE_EXPEDITED |
-+		      MEMBARRIER_STATE_GLOBAL_EXPEDITED)) || !prev))
-+		return;
-+
-+	/*
-+	 * The membarrier system call requires a full memory barrier
-+	 * after storing to rq->curr, before going back to user-space.
-+	 * Matches a full barrier in the proximity of the membarrier
-+	 * system call entry.
-+	 */
-+	smp_mb();
-+}
-+
-+#endif /* _ASM_RISCV_MEMBARRIER_H */
-diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
-index 217fd4de6134..ba8eb3944687 100644
---- a/arch/riscv/mm/context.c
-+++ b/arch/riscv/mm/context.c
-@@ -323,6 +323,8 @@ void switch_mm(struct mm_struct *prev, struct mm_struct *next,
- 	if (unlikely(prev == next))
- 		return;
- 
-+	membarrier_arch_switch_mm(prev, next, task);
-+
- 	/*
- 	 * Mark the current MM context as inactive, and the next as
- 	 * active.  This is at least used by the icache flushing
-diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index 97571d390f18..9b406d988654 100644
---- a/kernel/sched/core.c
-+++ b/kernel/sched/core.c
-@@ -6679,8 +6679,9 @@ static void __sched notrace __schedule(unsigned int sched_mode)
- 		 *
- 		 * Here are the schemes providing that barrier on the
- 		 * various architectures:
--		 * - mm ? switch_mm() : mmdrop() for x86, s390, sparc, PowerPC.
--		 *   switch_mm() rely on membarrier_arch_switch_mm() on PowerPC.
-+		 * - mm ? switch_mm() : mmdrop() for x86, s390, sparc, PowerPC,
-+		 *   RISC-V.  switch_mm() relies on membarrier_arch_switch_mm()
-+		 *   on PowerPC and on RISC-V.
- 		 * - finish_lock_switch() for weakly-ordered
- 		 *   architectures where spin_unlock is a full barrier,
- 		 * - switch_to() for arm64 (weakly-ordered, spin_unlock
+The allocations of the ROX memory use vmalloc(VMAP_ALLOW_HUGE_MAP) to
+allocate PMD aligned memory, fill that memory with invalid instructions and
+in the end remap it as ROX. Portions of these large pages are handed out to
+execmem_alloc() callers without any changes to the permissions. When the
+memory is freed with execmem_free() it is invalidated again so that it
+won't contain stale instructions.
+
+The module memory allocation, x86 code dealing with relocations and
+alternatives patching take into account the existence of the two copies,
+the writable memory and the ROX memory at the actual allocated virtual
+address.
+
+The patches are available at git:
+https://git.kernel.org/pub/scm/linux/kernel/git/rppt/linux.git/log/?h=execmem/x86-rox/v2
+
+[1] https://lore.kernel.org/all/a17c65c6-863f-4026-9c6f-a04b659e9ab4@app.fastmail.com
+
+v2: https://lore.kernel.org/all/20240826065532.2618273-1-rppt@kernel.org
+* add comment why ftrace_swap_func() is needed (Steve)
+
+Since RFC: https://lore.kernel.org/all/20240411160526.2093408-1-rppt@kernel.org
+* update changelog about HUGE_VMAP allocations (Christophe) 
+* move module_writable_address() from x86 to modules core (Ingo)
+* rename execmem_invalidate() to execmem_fill_trapping_insns() (Peter)
+* call alternatives_smp_unlock() after module text in-place is up to
+  date (Nadav)
+
+Mike Rapoport (Microsoft) (7):
+  mm: vmalloc: group declarations depending on CONFIG_MMU together
+  mm: vmalloc: don't account for number of nodes for HUGE_VMAP allocations
+  asm-generic: introduce text-patching.h
+  module: prepare to handle ROX allocations for text
+  x86/module: perpare module loading for ROX allocations of text
+  execmem: add support for cache of large ROX pages
+  x86/module: enable ROX caches for module text
+
+Song Liu (1):
+  ftrace: Add swap_func to ftrace_process_locs()
+
+ arch/alpha/include/asm/Kbuild                 |   1 +
+ arch/arc/include/asm/Kbuild                   |   1 +
+ .../include/asm/{patch.h => text-patching.h}  |   0
+ arch/arm/kernel/ftrace.c                      |   2 +-
+ arch/arm/kernel/jump_label.c                  |   2 +-
+ arch/arm/kernel/kgdb.c                        |   2 +-
+ arch/arm/kernel/patch.c                       |   2 +-
+ arch/arm/probes/kprobes/core.c                |   2 +-
+ arch/arm/probes/kprobes/opt-arm.c             |   2 +-
+ .../asm/{patching.h => text-patching.h}       |   0
+ arch/arm64/kernel/ftrace.c                    |   2 +-
+ arch/arm64/kernel/jump_label.c                |   2 +-
+ arch/arm64/kernel/kgdb.c                      |   2 +-
+ arch/arm64/kernel/patching.c                  |   2 +-
+ arch/arm64/kernel/probes/kprobes.c            |   2 +-
+ arch/arm64/kernel/traps.c                     |   2 +-
+ arch/arm64/net/bpf_jit_comp.c                 |   2 +-
+ arch/csky/include/asm/Kbuild                  |   1 +
+ arch/hexagon/include/asm/Kbuild               |   1 +
+ arch/loongarch/include/asm/Kbuild             |   1 +
+ arch/m68k/include/asm/Kbuild                  |   1 +
+ arch/microblaze/include/asm/Kbuild            |   1 +
+ arch/mips/include/asm/Kbuild                  |   1 +
+ arch/nios2/include/asm/Kbuild                 |   1 +
+ arch/openrisc/include/asm/Kbuild              |   1 +
+ .../include/asm/{patch.h => text-patching.h}  |   0
+ arch/parisc/kernel/ftrace.c                   |   2 +-
+ arch/parisc/kernel/jump_label.c               |   2 +-
+ arch/parisc/kernel/kgdb.c                     |   2 +-
+ arch/parisc/kernel/kprobes.c                  |   2 +-
+ arch/parisc/kernel/patch.c                    |   2 +-
+ arch/powerpc/include/asm/kprobes.h            |   2 +-
+ .../asm/{code-patching.h => text-patching.h}  |   0
+ arch/powerpc/kernel/crash_dump.c              |   2 +-
+ arch/powerpc/kernel/epapr_paravirt.c          |   2 +-
+ arch/powerpc/kernel/jump_label.c              |   2 +-
+ arch/powerpc/kernel/kgdb.c                    |   2 +-
+ arch/powerpc/kernel/kprobes.c                 |   2 +-
+ arch/powerpc/kernel/module_32.c               |   2 +-
+ arch/powerpc/kernel/module_64.c               |   2 +-
+ arch/powerpc/kernel/optprobes.c               |   2 +-
+ arch/powerpc/kernel/process.c                 |   2 +-
+ arch/powerpc/kernel/security.c                |   2 +-
+ arch/powerpc/kernel/setup_32.c                |   2 +-
+ arch/powerpc/kernel/setup_64.c                |   2 +-
+ arch/powerpc/kernel/static_call.c             |   2 +-
+ arch/powerpc/kernel/trace/ftrace.c            |   2 +-
+ arch/powerpc/kernel/trace/ftrace_64_pg.c      |   2 +-
+ arch/powerpc/lib/code-patching.c              |   2 +-
+ arch/powerpc/lib/feature-fixups.c             |   2 +-
+ arch/powerpc/lib/test-code-patching.c         |   2 +-
+ arch/powerpc/lib/test_emulate_step.c          |   2 +-
+ arch/powerpc/mm/book3s32/mmu.c                |   2 +-
+ arch/powerpc/mm/book3s64/hash_utils.c         |   2 +-
+ arch/powerpc/mm/book3s64/slb.c                |   2 +-
+ arch/powerpc/mm/kasan/init_32.c               |   2 +-
+ arch/powerpc/mm/mem.c                         |   2 +-
+ arch/powerpc/mm/nohash/44x.c                  |   2 +-
+ arch/powerpc/mm/nohash/book3e_pgtable.c       |   2 +-
+ arch/powerpc/mm/nohash/tlb.c                  |   2 +-
+ arch/powerpc/mm/nohash/tlb_64e.c              |   2 +-
+ arch/powerpc/net/bpf_jit_comp.c               |   2 +-
+ arch/powerpc/perf/8xx-pmu.c                   |   2 +-
+ arch/powerpc/perf/core-book3s.c               |   2 +-
+ arch/powerpc/platforms/85xx/smp.c             |   2 +-
+ arch/powerpc/platforms/86xx/mpc86xx_smp.c     |   2 +-
+ arch/powerpc/platforms/cell/smp.c             |   2 +-
+ arch/powerpc/platforms/powermac/smp.c         |   2 +-
+ arch/powerpc/platforms/powernv/idle.c         |   2 +-
+ arch/powerpc/platforms/powernv/smp.c          |   2 +-
+ arch/powerpc/platforms/pseries/smp.c          |   2 +-
+ arch/powerpc/xmon/xmon.c                      |   2 +-
+ arch/riscv/errata/andes/errata.c              |   2 +-
+ arch/riscv/errata/sifive/errata.c             |   2 +-
+ arch/riscv/errata/thead/errata.c              |   2 +-
+ .../include/asm/{patch.h => text-patching.h}  |   0
+ arch/riscv/include/asm/uprobes.h              |   2 +-
+ arch/riscv/kernel/alternative.c               |   2 +-
+ arch/riscv/kernel/cpufeature.c                |   3 +-
+ arch/riscv/kernel/ftrace.c                    |   2 +-
+ arch/riscv/kernel/jump_label.c                |   2 +-
+ arch/riscv/kernel/patch.c                     |   2 +-
+ arch/riscv/kernel/probes/kprobes.c            |   2 +-
+ arch/riscv/net/bpf_jit_comp64.c               |   2 +-
+ arch/riscv/net/bpf_jit_core.c                 |   2 +-
+ arch/sh/include/asm/Kbuild                    |   1 +
+ arch/sparc/include/asm/Kbuild                 |   1 +
+ arch/um/kernel/um_arch.c                      |  16 +-
+ arch/x86/entry/vdso/vma.c                     |   3 +-
+ arch/x86/include/asm/alternative.h            |  14 +-
+ arch/x86/include/asm/text-patching.h          |   1 +
+ arch/x86/kernel/alternative.c                 | 160 ++++++----
+ arch/x86/kernel/ftrace.c                      |  41 ++-
+ arch/x86/kernel/module.c                      |  45 ++-
+ arch/x86/mm/init.c                            |  26 +-
+ arch/xtensa/include/asm/Kbuild                |   1 +
+ include/asm-generic/text-patching.h           |   5 +
+ include/linux/execmem.h                       |  25 ++
+ include/linux/ftrace.h                        |   2 +
+ include/linux/module.h                        |   9 +
+ include/linux/moduleloader.h                  |   4 +
+ include/linux/text-patching.h                 |  15 +
+ include/linux/vmalloc.h                       |  60 ++--
+ kernel/module/main.c                          |  77 ++++-
+ kernel/module/strict_rwx.c                    |   3 +
+ kernel/trace/ftrace.c                         |  19 +-
+ mm/execmem.c                                  | 300 +++++++++++++++++-
+ mm/vmalloc.c                                  |   9 +-
+ 108 files changed, 752 insertions(+), 236 deletions(-)
+ rename arch/arm/include/asm/{patch.h => text-patching.h} (100%)
+ rename arch/arm64/include/asm/{patching.h => text-patching.h} (100%)
+ rename arch/parisc/include/asm/{patch.h => text-patching.h} (100%)
+ rename arch/powerpc/include/asm/{code-patching.h => text-patching.h} (100%)
+ rename arch/riscv/include/asm/{patch.h => text-patching.h} (100%)
+ create mode 100644 include/asm-generic/text-patching.h
+ create mode 100644 include/linux/text-patching.h
+
+
+base-commit: 47ac09b91befbb6a235ab620c32af719f8208399
 -- 
-2.43.4
+2.43.0
 
 
 _______________________________________________
