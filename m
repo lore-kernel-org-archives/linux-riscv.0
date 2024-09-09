@@ -4,99 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D071EECE57A
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Sep 2024 12:16:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 829C4ECE57A
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Sep 2024 12:45:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mHIBILsFw5wxuTG13RNL7Ne03MySb1qzT8QaloDv2eA=; b=mLHOyoJ5oSkMeg
-	Z2FFQFe/GDgycqRKVG3ZdWLpSOdQSgLsoDmjt3iLjzymvnuV70/MAce98KmOh6BGNTOCRJiyZX9q8
-	Kkwg0SYM5WMo0vERu2i+mgFg8eNEBii0QJzokQOKxfBGXDF89GW2IGCXcknGLZJW2SuQbsvCEVQd5
-	Jx8dx9RIWrrgI2qlNz+JBNED+UYGQsKdrYxcfjDCQg5Rx/+in3oWuNDsxwEiQdwfklA+46siuBzaG
-	4jLicge5zN7yYocS/3qEQKXWPxPB8Nl4q5A2dUuLhvbxpfU6zGVq1ry7kPV/KEnmht02Is+4je18F
-	qS7GG7jhMujRQ3AfMKMA==;
+	List-Owner; bh=G3x9gtojKla0asNjVqucyrMjLs+Yxh9t8hYx6sFGjiI=; b=2JJIax/Gi/PAHr
+	mB4RzGkH1pQao1npdcd0vkr25oUYbpa3jABHn6QXOFa8sBC5GbIsGi0lHTEbXLc5kGQFgxUJy6I51
+	Lvu64dWZzkIE2mNKEXoDcpGpcnZc7VCsXl/effpfe+CDBt2GM2kZLzrb/ujosOF/ARc6gNYtAqwVd
+	Cw0kvpySDBvjDNSMGeKrBw16jlfW5UFKoczdlcXwNYVpbW0RAm75lK25PsYUC3xD/ocKFRwcTqt76
+	X+N23eDxLZkMUySoGqx2WufwaaUEHRcu+qAB4FPch6NKApb5w/W38lwoDZmbWm7HGPeg4voh5tIfH
+	wtNLqs7DPleq25HWIACQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sndK5-00000001oKH-01Aa;
-	Mon, 09 Sep 2024 12:16:49 +0000
-Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
+	id 1sndli-00000001sZA-3IbH;
+	Mon, 09 Sep 2024 12:45:22 +0000
+Received: from mail-io1-xd2a.google.com ([2607:f8b0:4864:20::d2a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sndJe-00000001oE7-3env;
-	Mon, 09 Sep 2024 12:16:24 +0000
-Received: by mail-pf1-x444.google.com with SMTP id d2e1a72fcca58-7179069d029so2933199b3a.2;
-        Mon, 09 Sep 2024 05:16:22 -0700 (PDT)
+	id 1snc3i-00000001ZTe-1Ewi
+	for linux-riscv@lists.infradead.org;
+	Mon, 09 Sep 2024 10:55:51 +0000
+Received: by mail-io1-xd2a.google.com with SMTP id ca18e2360f4ac-82cec47242eso20444239f.0
+        for <linux-riscv@lists.infradead.org>; Mon, 09 Sep 2024 03:55:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1725884181; x=1726488981; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=gPJ7uHySGWvGCBzUZkM0XzRLu8h7eCfH2Esu33AGR14=;
-        b=Qxu5BlMIX0VcCSqJ8Ye8AOv1Fd7Iu5HXnvqDKgVPNcc9QRDFlRXe3m6QC/cLJKiLB+
-         VW2yDYvUugNvHGWG0cwgyNCnRjCSF7iFyg7j9knm696msMChB9c1653UTiTAk86SxGOS
-         SBxw+DyHaE/bRVrjxwQmvMG0xKZVMxC5/10j/GD/xMZv7DyaGDfurc5rSQKU1NdpuvNQ
-         3KB94CjWRJaqW0SBTGzq6juvH6TRWWsyG3oSozLHlTesx+sugyOIOAaEl8e2yuj2tv0C
-         FyfBIXKyW1GZPVvmztnaX1ttzmXA4Og2TT7jx60gooO2H5HaMX92nUsQ2f5lyYPSM9nM
-         ZWsw==
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1725879349; x=1726484149; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gRenQZpsyYsPRZFrE6Z8exC8VyrPgR2I0N0/8AA/xzs=;
+        b=wCAdBgus0AcVKEEd/edIOXUXAEBaMEN2yeHWM4EDuEteNzxLWWoce7UV/1EawNbYeZ
+         udkWwb3LfwDosxIUGVq3SfQholQCWFBEW3oGAPOMEtSqZBYT1EThjXyVfJSdorOmwrmZ
+         6PeQsUUEWt8hJM8R+10m3fgZVPayJhK1tKYI0d+YhzyRrp+yPPKlgh62vwuFFsrfAvaV
+         FGOmaSOeSS0V0vVygac8m+MUJGJkgYca45prN54HSQi/2xtYO3774+ExPK65IyU/buUc
+         0NGkMqbs6KUI7/rfhQCSWCbaalbhQlkzf1pcLLT0hJJdcqVwjsTxxuSw0Lb22I/vKgDV
+         TMHw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1725884181; x=1726488981;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=gPJ7uHySGWvGCBzUZkM0XzRLu8h7eCfH2Esu33AGR14=;
-        b=ov9rDbifNHk6+SwDlYkEOyUCBvd43kggzG+aAxlGRmtEWagO21re2ZGQSQv40XdSRf
-         7KsPPjDWCEKt91fBV2TFDGTxcuOR4d8i0ygFCpPblQAmY4yOvKx/siEbROhRJePwPTHD
-         huGxpn3FgOz84exnsr0ybktldEovRQM3enZeLFsOSMYuXtC4v0bKPfS02BFXx+ZTBhdz
-         pHRu5I+Zd+ydUQ3HrexrADYWsmh9ho94M+JQrnud7ZToIgb39DuMIEM5cQ/6HTMLFon2
-         OdeMg8Vl1QeOvbeZ3G4mJPhU6N/W9S8JKe0VbSb+JzE5ZEesiz8ottlRvMmcoeoZjFxl
-         bfyw==
-X-Forwarded-Encrypted: i=1; AJvYcCXDNYTaZh6scKa6sc6OX3HLBA420hdquaO2Ejpx6oS7MBqVnbZW/tZfYUfh5dQ8vUDjuuoxWpYryK33gy4=@lists.infradead.org, AJvYcCXHmgjeNTJwvc+MhNfyIN6Igf3fzYojzXncCaGvhHM4baQ1wDFdMRCKhtAQgAz1Mf8ejCzPsF0aChXPdciHDXsUNg==@lists.infradead.org, AJvYcCXxtxhAi1/UaxRKWW44UGeoe63dB2GC3HuQuFyGOaei8mn3H6vlWN/r+mVY03su28zy67Byz8ON3If6s67MxtW4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3NH8aVv9HnP08prh4sZ5T/XCWTBzAdI7psrTlFhLSQ0JoCRSQ
-	dryzubx/g4FFHe+teRE2S1qMxKwNSWJA6EKDlJaOg/cC5+vOZaRFYyKndTtTSjT2fQ==
-X-Google-Smtp-Source: AGHT+IHM6o7g7DPr5Llw8JRr5tP9jGrL5l9uJZb1UkPnnG81PEEIs9bo2qQPnTUWF40R2wiNKVBM8Q==
-X-Received: by 2002:a05:6a00:4b16:b0:718:dd1e:de1a with SMTP id d2e1a72fcca58-718dd1edeb4mr8053950b3a.28.1725884181407;
-        Mon, 09 Sep 2024 05:16:21 -0700 (PDT)
-Received: from [127.0.0.1] ([212.107.28.55])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-718e59687cbsm3397730b3a.115.2024.09.09.05.14.54
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 09 Sep 2024 05:16:20 -0700 (PDT)
-From: Celeste Liu <coelacanthushex@gmail.com>
-X-Google-Original-From: Celeste Liu <CoelacanthusHex@gmail.com>
-Message-ID: <9e364ae4-dc2c-4efa-8611-462218402a5d@gmail.com>
-Date: Mon, 9 Sep 2024 20:14:16 +0800
+        d=1e100.net; s=20230601; t=1725879349; x=1726484149;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=gRenQZpsyYsPRZFrE6Z8exC8VyrPgR2I0N0/8AA/xzs=;
+        b=KH1drIeN7YbbLvKmgsYYG4hVx1R45e8E1YCiYPRL+oi4PEZYlW9jSFR//oJGU8l/pt
+         2vte9UBCT3+ab1/HLAs5YQX0PKKKWoFRdtp+my8Lda+wPEiWDX3+nZ6Tysr1JwNzeuUb
+         vzSihhSb/+JkoLfLvDSYvqVugT611C8sdikUYYdOf89wdir8TKRDZc7AFw5zicxW1o3L
+         DMu5ilSkBIIup7lNb1VUoOrNCzSJyGATra+9/UO3FNH/rueHlp4NHr1YjOTAEoyWxbMi
+         HRKlx0qBZxlEtCx7y4wgV6H0oA8g2jFNgJd2IAQwEMdDY15lpFp7kqPR7NoBGYcp8tus
+         mHZQ==
+X-Gm-Message-State: AOJu0Yzk00AHRmwSz4+ORK/81MimgbEEM8znxK6CkmwFSPwtaS/kPCgt
+	wdjqUzqcClYzdtybd4zcCzkPl7snvQHY751R11Aok3ix5tBog46hUsuRU4zhWfpfH/T8sbq6DnP
+	lilCk7lUFRwnEAIG2ngd0YHlg2amCvuhW07SfEQ==
+X-Google-Smtp-Source: AGHT+IEUDJyXv2vNFFv9EShn4mJ8cnVFxPmnwZrvxExgRhOCxti541uhxlyRmn9HiGjbpDSnGCkrSVIPWa00MTMLvv0=
+X-Received: by 2002:a05:6e02:b49:b0:398:a9b3:d6b1 with SMTP id
+ e9e14a558f8ab-3a04ede83d8mr89419445ab.12.1725879348819; Mon, 09 Sep 2024
+ 03:55:48 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] riscv: defconfig: drop RT_GROUP_SCHED=y
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Guo Ren <guoren@kernel.org>, Anup Patel <anup@brainfault.org>,
- Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
- Russell King <linux@armlinux.org.uk>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
- Scott Branden <sbranden@broadcom.com>, Tony Lindgren <tony@atomide.com>,
- Thierry Reding <thierry.reding@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>, Palmer Dabbelt
- <palmer@rivosinc.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
- linux-sh@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rpi-kernel@lists.infradead.org, linux-omap@vger.kernel.org,
- linux-tegra@vger.kernel.org
-References: <20240823-fix-riscv-rt_group_sched-v2-0-e4dbae24f7e1@gmail.com>
- <20240823-fix-riscv-rt_group_sched-v2-1-e4dbae24f7e1@gmail.com>
- <20240909-gave-celtic-af2ea8bc38d5@wendy>
-Content-Language: en-GB-large
-In-Reply-To: <20240909-gave-celtic-af2ea8bc38d5@wendy>
+References: <20240909085610.46625-2-ajones@ventanamicro.com>
+In-Reply-To: <20240909085610.46625-2-ajones@ventanamicro.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Mon, 9 Sep 2024 16:25:36 +0530
+Message-ID: <CAAhSdy2dS=97YVLBvKsA-GjPKXZTpoGUhahj0_ocTpuB=UBNKQ@mail.gmail.com>
+Subject: Re: [PATCH] irqchip/riscv-imsic: Fix output text of base address
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	tglx@linutronix.de, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240909_051622_951100_EA9C1F63 
-X-CRM114-Status: GOOD (  22.19  )
+X-CRM114-CacheID: sfid-20240909_035550_526772_87B30EED 
+X-CRM114-Status: GOOD (  14.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,82 +85,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2024-09-09 19:53, Conor Dooley wrote:
-
-> On Fri, Aug 23, 2024 at 01:43:26AM +0800, Celeste Liu wrote:
->> Commit ba6cfef057e1 ("riscv: enable Docker requirements in defconfig")
->> introduced it because of Docker, but Docker has removed this requirement
->> since [1] (2023-04-19).
->>
->> For cgroup v1, if turned on, and there's any cgroup in the "cpu" hierarchy it
->> needs an RT budget assigned, otherwise the processes in it will not be able to
->> get RT at all. The problem with RT group scheduling is that it requires the
->> budget assigned but there's no way we could assign a default budget, since the
->> values to assign are both upper and lower time limits, are absolute, and need to
->> be sum up to < 1 for each individal cgroup. That means we cannot really come up
->> with values that would work by default in the general case.[2]
->>
->> For cgroup v2, it's almost unusable as well. If it turned on, the cpu controller
->> can only be enabled when all RT processes are in the root cgroup. But it will
->> lose the benefits of cgroup v2 if all RT process were placed in the same cgroup.
->>
->> Red Hat, Gentoo, Arch Linux and Debian all disable it. systemd also doesn't
->> support it.[3]
->>
->> [1]: https://github.com/moby/moby/commit/005150ed69c540fb0b5323e0f2208608c1204536
->> [2]: https://bugzilla.redhat.com/show_bug.cgi?id=1229700
->> [3]: https://github.com/systemd/systemd/issues/13781#issuecomment-549164383
->>
->> Fixes: ba6cfef057e1 ("riscv: enable Docker requirements in defconfig")
-> 
-> I don't think this fixes tag is suitable, the commit you cite in
-> moby/docker is a year younger than the one in the fixes tag, so it was
-> correct at the time it was written. I think the fixes tag should just be
-> removed, since that commit was not wrong. Or am I missing something?
-
-The Docker commit I cited introduce the fix, not the bug. So it should be later
-than commit in fixes tag, otherwise Heinrich Schuchardt won't pick the wrong
-config from upstream.
-
-Timeline is:
-1) 2015-06-19 Qiang Huang introduce RT_GROUP_SCHED check in Docker.[1]
-2) 2022-06-08 Heinrich Schuchardt pick this to defconfig in commit
-              in fixes tag.
-3) 2023-04-19 Florian Schmaus remove this requirement from Docker in
-              commit I cited.
-
-[1]: https://github.com/moby/moby/commit/fb85a99f5899df7475ba6b1ac4b2e1d32974eca2
-
-> 
->> Signed-off-by: Celeste Liu <CoelacanthusHex@gmail.com>
->> ---
->>  arch/riscv/configs/defconfig | 1 -
->>  1 file changed, 1 deletion(-)
->>
->> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
->> index 12dc8c73a8ac..de85c3ab261e 100644
->> --- a/arch/riscv/configs/defconfig
->> +++ b/arch/riscv/configs/defconfig
->> @@ -9,7 +9,6 @@ CONFIG_CGROUPS=y
->>  CONFIG_MEMCG=y
->>  CONFIG_CGROUP_SCHED=y
->>  CONFIG_CFS_BANDWIDTH=y
->> -CONFIG_RT_GROUP_SCHED=y
->>  CONFIG_CGROUP_PIDS=y
->>  CONFIG_CGROUP_FREEZER=y
->>  CONFIG_CGROUP_HUGETLB=y
->>
->> -- 
->> 2.46.0
->>
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBTZXAgOSwgMjAyNCBhdCAyOjI24oCvUE0gQW5kcmV3IEpvbmVzIDxham9uZXNAdmVu
+dGFuYW1pY3JvLmNvbT4gd3JvdGU6Cj4KPiBUaGUgInBlci1DUFUgSURzIC4uLiBhdCBiYXNlIC4u
+LiIgaW5mbyBsb2cgaXMgb3V0cHV0dGluZyBhIHBoeXNpY2FsCj4gYWRkcmVzcywgbm90IGEgUFBO
+Lgo+Cj4gRml4ZXM6IDAyN2UxMjVhY2RiYSAoImlycWNoaXAvcmlzY3YtaW1zaWM6IEFkZCBkZXZp
+Y2UgTVNJIGRvbWFpbiBzdXBwb3J0IGZvciBwbGF0Zm9ybSBkZXZpY2VzIikKPiBTaWduZWQtb2Zm
+LWJ5OiBBbmRyZXcgSm9uZXMgPGFqb25lc0B2ZW50YW5hbWljcm8uY29tPgoKTEdUTS4KClJldmll
+d2VkLWJ5OiBBbnVwIFBhdGVsIDxhbnVwQGJyYWluZmF1bHQub3JnPgoKUmVnYXJkcywKQW51cAoK
+PiAtLS0KPiAgZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1pbXNpYy1wbGF0Zm9ybS5jIHwgMiAr
+LQo+ICAxIGZpbGUgY2hhbmdlZCwgMSBpbnNlcnRpb24oKyksIDEgZGVsZXRpb24oLSkKPgo+IGRp
+ZmYgLS1naXQgYS9kcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWltc2ljLXBsYXRmb3JtLmMgYi9k
+cml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWltc2ljLXBsYXRmb3JtLmMKPiBpbmRleCAxMTcyM2E3
+NjNjMTAuLmM1ZWM2NmUwYmZkMyAxMDA2NDQKPiAtLS0gYS9kcml2ZXJzL2lycWNoaXAvaXJxLXJp
+c2N2LWltc2ljLXBsYXRmb3JtLmMKPiArKysgYi9kcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWlt
+c2ljLXBsYXRmb3JtLmMKPiBAQCAtMzQwLDcgKzM0MCw3IEBAIGludCBpbXNpY19pcnFkb21haW5f
+aW5pdCh2b2lkKQo+ICAgICAgICAgICAgICAgICBpbXNpYy0+Zndub2RlLCBnbG9iYWwtPmhhcnRf
+aW5kZXhfYml0cywgZ2xvYmFsLT5ndWVzdF9pbmRleF9iaXRzKTsKPiAgICAgICAgIHByX2luZm8o
+IiVwZndQOiBncm91cC1pbmRleC1iaXRzOiAlZCwgZ3JvdXAtaW5kZXgtc2hpZnQ6ICVkXG4iLAo+
+ICAgICAgICAgICAgICAgICBpbXNpYy0+Zndub2RlLCBnbG9iYWwtPmdyb3VwX2luZGV4X2JpdHMs
+IGdsb2JhbC0+Z3JvdXBfaW5kZXhfc2hpZnQpOwo+IC0gICAgICAgcHJfaW5mbygiJXBmd1A6IHBl
+ci1DUFUgSURzICVkIGF0IGJhc2UgUFBOICVwYVxuIiwKPiArICAgICAgIHByX2luZm8oIiVwZndQ
+OiBwZXItQ1BVIElEcyAlZCBhdCBiYXNlIGFkZHJlc3MgJXBhXG4iLAo+ICAgICAgICAgICAgICAg
+ICBpbXNpYy0+Zndub2RlLCBnbG9iYWwtPm5yX2lkcywgJmdsb2JhbC0+YmFzZV9hZGRyKTsKPiAg
+ICAgICAgIHByX2luZm8oIiVwZndQOiB0b3RhbCAlZCBpbnRlcnJ1cHRzIGF2YWlsYWJsZVxuIiwK
+PiAgICAgICAgICAgICAgICAgaW1zaWMtPmZ3bm9kZSwgbnVtX3Bvc3NpYmxlX2NwdXMoKSAqIChn
+bG9iYWwtPm5yX2lkcyAtIDEpKTsKPiAtLQo+IDIuNDYuMAo+CgpfX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
+dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
+YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
