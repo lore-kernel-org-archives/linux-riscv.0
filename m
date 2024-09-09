@@ -4,77 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FDA9ECE577
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Sep 2024 17:18:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CBEAECE588
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Sep 2024 19:22:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:References:To:Subject:From:MIME-Version:
-	Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ao5AdNxJjd7Jvs/c0vSdczCNaItZZE828Tf35CtTGLY=; b=qm0LLvMI6o7jepbQFn9SlvYwyp
-	7ooJfHmU+tjiT7JIsTKA81CIXgfjQvKrOZ/IUUbxL8g1Cn/GsM5FBTLDriVyKYyUdiZjj7ZEcVJlo
-	jNeZPqvYzCvdKCssiaraSzFgug+ZlG3JFa6CXBRsXskDTe6oeBQNZNifBbBVmdwYjdblcAvqyBQxG
-	TLxXfCnuMj2aSzv9c0fclgN23gNCtaMckHFPia54O+lXIdEupG9pMNRCwb01z9IaBsTuHsfggd/Ln
-	UDLQJCBdhYqIzgVi/njhrx1e48hVw2uWY9a2cpoZADU4JimKFCPrnEs6WaaRzKRv564VE4dmW9jxj
-	BVzRiYbg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=dH8+16JgRWoQsIaa/k1Xj3Q0AAo5ljYbr6vCWsaKa7A=; b=qjtyFo3T9uIQfA
+	G3jGxKDT38g1SkxLBX9EPkL74KrkEdmEDeWIL9hRz5s2qVhDYdWxwTads200QDM9vHOff0Xt6f0az
+	ONbjABaa8+A9uczpDRqfoB6YbXG+EYvolTmjaxUzKhZmXGn8b8IQcllNi6DPaRLBc6fF5Q1K1VUUj
+	RqmP+4KRa87N1jD2xhprDX96OMscQ52rklHyjwCt8rMtIe+QFiypZT5EkuFn9JAEmrsBO5M1ZSONp
+	+Z+PWLdPd9tV7sTIjzbIkrdkfR+r2M7kdunOQTTS30kPGN5Lm5RnV2PpS+nevY7mGgNydt9FUROBp
+	GWg3fL6gAPzZiYUZOqCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sni1e-00000002n73-1VW9;
-	Mon, 09 Sep 2024 17:18:06 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1snjxp-000000034B4-0arp;
+	Mon, 09 Sep 2024 19:22:17 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sni0c-00000002mx5-1rCX;
-	Mon, 09 Sep 2024 17:17:04 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2068acc8a4fso43325405ad.1;
-        Mon, 09 Sep 2024 10:17:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1725902221; x=1726507021; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:from:user-agent:mime-version:date:message-id:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=hauHXk0UHvL9WIL9OJwYkRJrxeJ42bwu7guvi9wUyZ0=;
-        b=KLa2pGfuZ1Hk//Pf7UfpIArFwIYyBkRIz0za8Uv5+d01Un+7xjVsplxp4N6VRupRFG
-         Q3p145NDbx8SIT4s5jQTLXqrGWyqXpFXPn4Vvwf2KBVb6jpJyjqdhiYR5dVX0FdXlsEs
-         uznF2bxz4iAHm3LTKrftxjPAnJDVW7Hw6BWHNJrsuI6lwTrUCdGRvaV3gA7QR7dZvO1W
-         7RQ3x8sLm06Uj7TlkQ4YoOcSR8S7LIqKDbfZcVieBJ5alzdWV+5+RXyyJJIQcc57y9KY
-         AcIeGC8xGhwXF2Wvtx0w8v7XSnoXDLRKdnKvBcHZeR2W4XoudYQk7uYDaT1b5PFPlsXe
-         I9zw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1725902221; x=1726507021;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:from:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=hauHXk0UHvL9WIL9OJwYkRJrxeJ42bwu7guvi9wUyZ0=;
-        b=MdDAhxnX7a2ShpHowAHZju0lLEVxX5E4GWvr6NnjbUlCbu1ooib4x7xDt0CZZ3THJo
-         eTKMCmDtHFXLIG4lRb7Y4vxF27mL30SnA94KmvoxdYiAm821yoN+sF3h6z/VyRrzhjq0
-         0xo2cugID1oMpg23usM4kTcaclfRwsYy8e+dqznau3jfF+8e2F9zEGjCMuW5aJB0U9u2
-         4znEWLS4aJS/P8sN0qcIyVRDHLOtypmRM7IRSjXY/nNrLg+XMvuWwvyixXBJLdud4+FX
-         uyB4YX7Hq8BkFT0MQadCKtFiIXyuy+kqBr3POAlGGMNKLSHPb39+ghjxkZr3zIwP/3DI
-         l+DA==
-X-Forwarded-Encrypted: i=1; AJvYcCV3lawLuGsouZAKlozq5nyB8PBJSyBELFKXM4Id8OgekGNMIj6n9gI0ov8KLEJit7wGpuvgcdUL26SCc67K9Nuv@lists.infradead.org, AJvYcCW0I8YMKm2JPLzquajcSVm9AXIsgUdQxxu84BQ5f7hz+9vsGCOUS6/SvmvqHv9U07pOGiNsDst5Mputk5g=@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywh+LP8WYtpVwmPlAkd/yErP7WoHDncvKEwmR18ON2A5aYp6AK4
-	2iCynBBn4pat0ic+Oujw8rvHvI/ft9pEZyHICtaJgaPtSFHHVjxu
-X-Google-Smtp-Source: AGHT+IHnNeEvODa1Qt6cj+F9ZMmq0nJBVXi/m6bl9hffcSzJHoVbOj9/wfPZtg6NqY9graxO1THDuw==
-X-Received: by 2002:a17:903:120d:b0:205:866d:174f with SMTP id d9443c01a7336-207070002e8mr83668675ad.44.1725902220449;
-        Mon, 09 Sep 2024 10:17:00 -0700 (PDT)
-Received: from ?IPV6:2601:1c2:c184:dc00:6c38:4539:e063:d0ba? ([2601:1c2:c184:dc00:6c38:4539:e063:d0ba])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-20710f31729sm36233705ad.261.2024.09.09.10.16.58
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 09 Sep 2024 10:16:59 -0700 (PDT)
-Message-ID: <08466bb0-4306-4941-97e1-e62ba07d8ea2@gmail.com>
-Date: Mon, 9 Sep 2024 10:16:56 -0700
+	id 1snjwo-0000000343B-0xfZ;
+	Mon, 09 Sep 2024 19:21:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 54A23A4322F;
+	Mon,  9 Sep 2024 19:21:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF463C4CEC5;
+	Mon,  9 Sep 2024 19:21:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1725909672;
+	bh=9bJSDQBGO7k0Jh0GnFnt1TFpIGhSJEn1itkvE6YG00w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aaV47taXUvlO1IM/k32cr5uPBzJDKZbuBq1ir7Km9ali579z3EsSWJZ3uqvn4pt82
+	 mrwJHXJ4Oi1oaOXPUU5TTDr5F6XrmRrUPPaAy5Vkkc03quK+06VsS4FQtazG7pYIbl
+	 QxWUcd6IzmAL9nuuQjPPzYrUXLoZi3FwADB4sCrsxMmlff6xaSwNBTR+NyWTHQU0Oh
+	 PAKzvKsHz8hIuiPKUjoE/h2PxenDYTMv5b3sE/TdDO1u5IHGM7mwtNsY4cDmHu16WN
+	 nAKAkvv+xm63cCPYbRYmV4/nNBGpHPq9ouwePxQ0gKsEls1ZyqVd8WYD8v1U81pySk
+	 HWylKm5zar/Fw==
+Date: Mon, 9 Sep 2024 21:21:08 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+Cc: Jarkko Nikula <jarkko.nikula@linux.intel.com>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Mika Westerberg <mika.westerberg@linux.intel.com>, 
+	Jan Dabros <jsd@semihalf.com>, linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>, 
+	Dinh Nguyen <dinguyen@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Jiawen Wu <jiawenwu@trustnetic.com>, Mengyuan Lou <mengyuanlou@net-swift.com>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, netdev@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, UNGLinuxDriver@microchip.com, linux-mips@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-snps-arc@lists.infradead.org
+Subject: Re: [PATCH v2 0/7] i2c: designware: Group all DesignWare drivers
+ under a single option
+Message-ID: <y3b5aalxlqifobajynik3b7v4xicukuq66kwmpydvcntij4k5b@epqcjrureczj>
+References: <20240903142506.3444628-1-heikki.krogerus@linux.intel.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Sam Edwards <cfsworks@gmail.com>
-Subject: Re: [PATCH v6 3/3] riscv: dts: allwinner: d1: Add thermal sensor
-To: bigunclemax@gmail.com
-References: <20231217210629.131486-4-bigunclemax@gmail.com>
-Content-Language: en-US
-In-Reply-To: <20231217210629.131486-4-bigunclemax@gmail.com>
+Content-Disposition: inline
+In-Reply-To: <20240903142506.3444628-1-heikki.krogerus@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240909_101702_519519_0160DCB2 
-X-CRM114-Status: UNSURE (   6.44  )
+X-CRM114-CacheID: sfid-20240909_122114_352844_6D2EDED2 
+X-CRM114-Status: UNSURE (   6.58  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,21 +79,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: rafael@kernel.org, tiny.windzz@gmail.com, contact@jookia.org, krzysztof.kozlowski+dt@linaro.org, linux-riscv@lists.infradead.org, samuel@sholland.org, daniel.lezcano@linaro.org, jernej.skrabec@gmail.com, anarsoul@gmail.com, wens@csie.org, rui.zhang@intel.com, linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org, conor+dt@kernel.org, aou@eecs.berkeley.edu, linux-pm@vger.kernel.org, andre.przywara@arm.com, robh+dt@kernel.org, mkl@pengutronix.de, paul.walmsley@sifive.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, palmer@dabbelt.com, lukasz.luba@arm.com
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Maksim,
+Hi Heikki,
 
-Apologies if I have failed to find a v7 of this patch in my searching, 
-but I'm seeing that patch #3 here was never applied, so Linux still does 
-not enable the thermal sensor in these chips. I just thought I'd give 
-you a heads-up in case you weren't aware. :)
+> Heikki Krogerus (7):
+>   ARC: configs: enable I2C_DESIGNWARE_CORE with I2C_DESIGNWARE_PLATFORM
+>   ARM: configs: enable I2C_DESIGNWARE_CORE with I2C_DESIGNWARE_PLATFORM
+>   arm64: defconfig: enable I2C_DESIGNWARE_CORE with
+>     I2C_DESIGNWARE_PLATFORM
+>   mips: configs: enable I2C_DESIGNWARE_CORE with I2C_DESIGNWARE_PLATFORM
+>   RISC-V: configs: enable I2C_DESIGNWARE_CORE with
+>     I2C_DESIGNWARE_PLATFORM
+>   net: txgbe: Fix I2C Kconfig dependencies
+>   i2c: designware: Group all DesignWare drivers under a single option
 
-Thanks for all your hard work,
-Sam
+Merged to i2c/i2c-host.
+
+Thanks,
+Andi
 
 _______________________________________________
 linux-riscv mailing list
