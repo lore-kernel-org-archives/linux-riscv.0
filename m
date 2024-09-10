@@ -4,61 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AF51EDE9AB
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Sep 2024 19:00:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 947EAEE01EB
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Sep 2024 22:02:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8Oej9Ds51PCObnWPXmVDQvNDnlYMijzuBAOP2n45GCw=; b=wYyJ9nIsqckg1Y
-	O0AAcUuBb53ZLi310vg0awB/684l5P8FgfT1e5K3d/Ckac6WgdL2enDH1c1bdnBm53frnV63kaU2I
-	ITFOy5LV2wBgWnglciuH1hd8AzkWifrwVABKnLWnlW9C87YlXsEQ/E6daXCXCc+ZrBt4Th9nSXst3
-	jsOSsQ8hzph525v8T1wi7uM3nv/nVONvNnZ4tCsPIt5QHAGQtr0JfDdII0YFwgd6bt9pKWdGDjy4x
-	5XdsX630tbu8ZVN/88w/R5uHExO3LV84eDFcgvZnDzPlEv/odGhhZ1GGI8EJReiqdT0sfwgOrsAep
-	10dOUoVsnZ2hfEQ4fvSQ==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=UYG9C+jyxc0qwURpGNKjSgGj5gZQxPOuJyeGwgv/a+0=; b=NrC
+	s+cZhyBEAZlNI1Mur5rwCTbhC8yjmmgx24SzeoX5dDcUhttrqhFg6E1tbGfbAK5RdUv1m0hWEyagB
+	h5cRt251FxGmHe+6XUR+zZy/YBWaOm1/4jLpW2Gy4OFFN+nzs3UGfazRVDCMmuD/oRYQ2syjf0cMU
+	JM5+mB0mKeoHxKsQ/mQ1+5yItdERTo4HJdXDY/+vEC1tCPWV01wjkHDSlisGKqCG3aBgqP7YiUNqP
+	i1F3DXv/R5CeVvh4m/mL3dxtl97KPj6PIsLgZJpr+4VmpYcwOnW6l1IB9m4pUYMXD40f1iFDVQ/ks
+	JhDWRwKQHncu2zhUL3qUeMmED60eY+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1so668-00000006p9R-3mx7;
-	Tue, 10 Sep 2024 19:00:20 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1so8wK-00000007G6E-2rEN;
+	Tue, 10 Sep 2024 22:02:24 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1so658-00000006ovB-0iSe
+	id 1so8wH-00000007G5F-3sef
 	for linux-riscv@lists.infradead.org;
-	Tue, 10 Sep 2024 18:59:20 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id BDCA3FF803;
-	Tue, 10 Sep 2024 18:59:09 +0000 (UTC)
-Message-ID: <77d0f59f-554b-4cd9-ae1c-4c89a76058ef@ghiti.fr>
-Date: Tue, 10 Sep 2024 20:59:08 +0200
+	Tue, 10 Sep 2024 22:02:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id C3B3C5C0535;
+	Tue, 10 Sep 2024 22:02:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 062EEC4CEC3;
+	Tue, 10 Sep 2024 22:02:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1726005741;
+	bh=y7w4sfdixGiLqhSxoJLTOPd76eVwqCLaa3m6abWtlAg=;
+	h=Date:From:List-Id:To:Cc:Subject:From;
+	b=uK+hucoTvT6mn0wIHUCiZ0FtZW7XoFZiopsIWf3ErpwV58udUTGtH75AedtBi6cCk
+	 bzlEdYrLb14pHgxJvb15YATCd0+H8hYlmDgVPiXhWvKIZf5nCX+d534CZAffLqW4wf
+	 wxr5YhMkd5qNROBCBDq4dvtyrgedUS0nqf1d3xjE+gzQPnOZ6B8pGRfooHUBKTAhpv
+	 8n0tOMn1Hwhtb+NnlZBmDmNl2nbcUBuK2esMTXn7+Fx4mg8M1YrSlGHe10iyWnJRRJ
+	 GO9CHWBdJy9rNA+9uLeyCnmKZjTTLJn1ydOpGOKlOz7Wm+ArQiy+/QDTwAY6cUQr4n
+	 hy1jteLKfc5rA==
+Date: Tue, 10 Sep 2024 23:02:17 +0100
+From: Conor Dooley <conor@kernel.org>
+To: soc@kernel.org
+Cc: conor@kernel.org, palmer@dabbelt.com, linux-riscv@lists.infradead.org
+Subject: [GIT PULL] RISC-V config for v6.12
+Message-ID: <20240910-annex-ravage-07d63041a7c5@spud>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6.6] membarrier: riscv: Add full memory barrier in
- switch_mm()
-Content-Language: en-US
-To: Greg KH <gregkh@linuxfoundation.org>
-Cc: WangYuli <wangyuli@uniontech.com>, stable@vger.kernel.org,
- sashal@kernel.org, parri.andrea@gmail.com, mathieu.desnoyers@efficios.com,
- palmer@rivosinc.com, linux-kernel@vger.kernel.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, nathan@kernel.org,
- ndesaulniers@google.com, trix@redhat.com, linux-riscv@lists.infradead.org,
- llvm@lists.linux.dev, paulmck@kernel.org, mingo@redhat.com,
- peterz@infradead.org, juri.lelli@redhat.com, vincent.guittot@linaro.org,
- dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com,
- mgorman@suse.de, bristot@redhat.com, vschneid@redhat.com,
- brauner@kernel.org, arnd@arndb.de
-References: <10F34E3A3BFBC534+20240909025701.1101397-1-wangyuli@uniontech.com>
- <2024091002-caution-tinderbox-a847@gregkh>
- <364e0e33-68ad-4f0c-86f1-f6a95def9a30@ghiti.fr>
- <2024091037-errant-countdown-4928@gregkh>
- <5d486ff8-2ab5-4ed5-a1da-c2817927b3a2@ghiti.fr>
- <2024091056-bogus-whoops-4bde@gregkh>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <2024091056-bogus-whoops-4bde@gregkh>
-X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240910_115918_507934_1D88AD40 
-X-CRM114-Status: GOOD (  20.98  )
+X-CRM114-CacheID: sfid-20240910_150222_034312_9FA6BE3E 
+X-CRM114-Status: UNSURE (   7.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,87 +64,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============2535931206423146765=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/09/2024 15:25, Greg KH wrote:
-> On Tue, Sep 10, 2024 at 02:35:06PM +0200, Alexandre Ghiti wrote:
->> On 10/09/2024 13:58, Greg KH wrote:
->>> On Tue, Sep 10, 2024 at 01:31:04PM +0200, Alexandre Ghiti wrote:
->>>> Hi Greg,
->>>>
->>>> On 10/09/2024 09:32, Greg KH wrote:
->>>>> On Mon, Sep 09, 2024 at 10:57:01AM +0800, WangYuli wrote:
->>>>>> From: Andrea Parri <parri.andrea@gmail.com>
->>>>>>
->>>>>> [ Upstream commit d6cfd1770f20392d7009ae1fdb04733794514fa9 ]
->>>>>>
->>>>>> The membarrier system call requires a full memory barrier after storing
->>>>>> to rq->curr, before going back to user-space.  The barrier is only
->>>>>> needed when switching between processes: the barrier is implied by
->>>>>> mmdrop() when switching from kernel to userspace, and it's not needed
->>>>>> when switching from userspace to kernel.
->>>>>>
->>>>>> Rely on the feature/mechanism ARCH_HAS_MEMBARRIER_CALLBACKS and on the
->>>>>> primitive membarrier_arch_switch_mm(), already adopted by the PowerPC
->>>>>> architecture, to insert the required barrier.
->>>>>>
->>>>>> Fixes: fab957c11efe2f ("RISC-V: Atomic and Locking Code")
->>>>>> Signed-off-by: Andrea Parri <parri.andrea@gmail.com>
->>>>>> Reviewed-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
->>>>>> Link: https://lore.kernel.org/r/20240131144936.29190-2-parri.andrea@gmail.com
->>>>>> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
->>>>>> Signed-off-by: WangYuli <wangyuli@uniontech.com>
->>>>>> ---
->>>>>>     MAINTAINERS                         |  2 +-
->>>>>>     arch/riscv/Kconfig                  |  1 +
->>>>>>     arch/riscv/include/asm/membarrier.h | 31 +++++++++++++++++++++++++++++
->>>>>>     arch/riscv/mm/context.c             |  2 ++
->>>>>>     kernel/sched/core.c                 |  5 +++--
->>>>>>     5 files changed, 38 insertions(+), 3 deletions(-)
->>>>>>     create mode 100644 arch/riscv/include/asm/membarrier.h
->>>>> Now queued up, thanks.
->>>> The original patch was merged in 6.9 and the Fixes tag points to a commit
->>>> introduced in v4.15. So IIUC, this patch should have been backported
->>>> "automatically" to the releases < 6.9 right? As stated in the documentation
->>>> (process/stable-kernel-rules.html):
->>>>
->>>> "Note, such tagging is unnecessary if the stable team can derive the
->>>> appropriate versions from Fixes: tags."
->>>>
->>>> Or did we miss something?
->>> Yes, you didn't tag cc: stable at all in this commit, which is why we
->>> did not see it.  The documentation says that :)
->>
->> Ok, some patches seem to make it to stable without the cc: stable tag (like
->> the one below for example), so I thought it was not necessary.
-> Yes, they do, because many maintainers and developers don't follow the
-> normal rules, so we sweep the tree when we have a chance and do a "best
-> effort" backport at times.
->
-> But again, it is NOT guaranteed that this will happen, and even if it
-> does, you will NOT get emails saying the attempt-at-backporting fails,
-> if it fails, as obviously the developers involved weren't explicitly
-> asking for it to be backported.
->
-> So in short, just properly tag things for stable, and all will be fine.
+
+--===============2535931206423146765==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="yP0QS5j1N9BokM1p"
+Content-Disposition: inline
 
 
-Great, thank you, I'll make sure we tag the fixes to backport properly!
+--yP0QS5j1N9BokM1p
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Thanks again,
+Hey Arnd,
 
-Alex
+Practically nothing for you this cycle, so this will be my only PR.
+There's both Microchip and Spacemit stuff on the lists, but none of it
+ready for this cycle.
+
+Cheers,
+Conor.
+
+The following changes since commit 8400291e289ee6b2bf9779ff1c83a291501f017b:
+
+  Linux 6.11-rc1 (2024-07-28 14:19:55 -0700)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ riscv-config-for-v6.12
+
+for you to fetch changes up to 72160ec6cb12613663f26d89049b95f8dc9fa000:
+
+  riscv: defconfig: Enable pinctrl support for CV18XX Series SoC (2024-09-09 12:55:53 +0100)
+
+----------------------------------------------------------------
+RISC-V config for v6.12
+
+Two patches, enabling clock and pinctrl support in defconfig for Sopghgo
+devices.
+
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+
+----------------------------------------------------------------
+Chen Wang (1):
+      riscv: defconfig: sophgo: enable clks for sg2042
+
+Inochi Amaoto (1):
+      riscv: defconfig: Enable pinctrl support for CV18XX Series SoC
+
+ arch/riscv/configs/defconfig | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+--yP0QS5j1N9BokM1p
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZuDB6QAKCRB4tDGHoIJi
+0hNXAP0YwgjXERXateyyMSzrmh3Ax84qnZUGVW/ofoKk2cVTLAEAx6V6QwqDSvuW
+ELWvPRfyrTazD2XyC/ukrX05gjbSsQw=
+=0yyF
+-----END PGP SIGNATURE-----
+
+--yP0QS5j1N9BokM1p--
 
 
->
-> thanks,
->
-> greg k-h
+--===============2535931206423146765==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2535931206423146765==--
+
