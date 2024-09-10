@@ -4,80 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8604CECE582
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Sep 2024 07:33:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D64F3ECE582
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Sep 2024 07:45:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fmVZljeDsG95zxCiU8yr8mg6vjZfwRPThppV21mWqQ8=; b=J7BHhz5dYfldOB
-	0pohbIsi5w9BUvAEP3VQaVAiGTT7Ex7uE8TwzYbFKl355wjYBcCWnsnaLTqNwW0d6TfYdee5TCbos
-	J5Zv3sJzT5MvhwCKVk2DQhhTmN2AGda49rozgMq88bEm6ytEuedupnuP5vMCSHdteVU+mq49/exTB
-	5SGJ0+zveuZfVgDzbYc8ELLZdlPQAhNV/pQDBsUVKKetSpDBWSiZecBZqMiz52O5OR7jeBUTA65S8
-	WRZb7vSllamr+C5lXhaA6nh5I2ZVetA7heNMF2LacRxSwKF9vgBpT4bYgvAalTsU9511PvPkob53+
-	lavejpLhJn522NFWoqaQ==;
+	List-Owner; bh=1tSb6Nm5srWwdwjeMNZzC8ow8pHbzZN9yt4934VGF1E=; b=m9Xsngym4cyFSO
+	WPQd0NKrNPlobP+RAa+FIDMG/v5HZy41mIfoQvx/1zaZEqZpm2JKw0dTIId8w35taHwGxTkDFyI4c
+	vX+RKBh1kxglIcySKEMwBTVvyjRjLLZKglLbb/Tm/8cWlU11tBlRtVZWnaAKTZLwmMsecIHhZpv6E
+	SbIWjI+cH43FW213kd2XbOrijxQOTVdCWVjnXIeh6dTMLJUpObyRiJBW/UVT5Zp24q8hx7egJwP0Z
+	YRmYe77vj7M9nkX0vIAfqssDoGI5wYx/pdXm3U+jQYwnTER1PnUO7l+m99E/s3+ZK9HcUHkMUVYui
+	8HZTaly4ws97hhjV/Ecg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1snvMu-00000004bpb-1xV9;
-	Tue, 10 Sep 2024 07:32:56 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1snvMK-00000004bli-3L8c
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 10 Sep 2024 07:32:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=oupfuvI1qFP52gybwFkSmWRoflYygTkYVGfmy0pnAXU=; b=FvL5lnEFz8kIZjf4HpMyLm4Vm0
-	p1GXiRBs+an/rRjL1J4RsIRlNhuSp5INPsYT1HXoPdaKymz0oJLCIMRvnxFD476Sc/rRTuXJpIsoE
-	shP0Y8y+Rw/V/zv+xDsNDYYL+u8AzCdxoTV1Hbc3A56NA58gDWWI1yUYWA9GdQsaw8P4ikj/4Ggej
-	RF8XJsYIH43TTdv9ZQXMooQ/rrYJ7fSik7UuQg1Meu/L5lH3MDROViYAt/IchKfn7cOkdnvQ0Ol9U
-	ohMa5ydUt66Zf7yTplyu0brrEAbgnTJYh4gAb/viyj34OtaDiSKN+yxGoovFxRdwOwDXXcqVhnNvY
-	Glz5KxPA==;
+	id 1snvZ1-00000004f0P-40rr;
+	Tue, 10 Sep 2024 07:45:27 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1snvMF-00000000gn9-3OAK
+	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1snvUv-00000004e5o-4214
 	for linux-riscv@lists.infradead.org;
-	Tue, 10 Sep 2024 07:32:19 +0000
+	Tue, 10 Sep 2024 07:41:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 27DC95C054B;
-	Tue, 10 Sep 2024 07:32:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C50A4C4CEC3;
-	Tue, 10 Sep 2024 07:32:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1725953533;
-	bh=Wt3I8iEDKPg35JSenun0Nk2iBIDnFaPNA3lYXP3Yk4U=;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8BF725C0581;
+	Tue, 10 Sep 2024 07:41:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D690C4CEC3;
+	Tue, 10 Sep 2024 07:41:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1725954072;
+	bh=snAB2tdXCnqKC6Qfh4W9stiXFqOoO8KWhEKAuOrN4UM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UcszCMuZNY9rpBWYCUlpAx6I7oXcWxHhUQfGs4FOETXF3tyEjS8aQXwrT1pZFCcEU
-	 LhhUwaaWo+my1Lf8s57xE0KDl498Qzn3WzAmGpip6FtQGnRPZN5ry0i6ja1U0phOTU
-	 7Vv4Z65RInrd9LnCJ6L/4HTNUhxM7ipbuJK9+QW8=
-Date: Tue, 10 Sep 2024 09:32:10 +0200
-From: Greg KH <gregkh@linuxfoundation.org>
-To: WangYuli <wangyuli@uniontech.com>
-Cc: stable@vger.kernel.org, sashal@kernel.org, parri.andrea@gmail.com,
-	mathieu.desnoyers@efficios.com, palmer@rivosinc.com,
-	linux-kernel@vger.kernel.org, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, nathan@kernel.org,
-	ndesaulniers@google.com, trix@redhat.com,
-	linux-riscv@lists.infradead.org, llvm@lists.linux.dev,
-	paulmck@kernel.org, mingo@redhat.com, peterz@infradead.org,
-	juri.lelli@redhat.com, vincent.guittot@linaro.org,
-	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com,
-	mgorman@suse.de, bristot@redhat.com, vschneid@redhat.com,
-	brauner@kernel.org, arnd@arndb.de
-Subject: Re: [PATCH 6.6] membarrier: riscv: Add full memory barrier in
- switch_mm()
-Message-ID: <2024091002-caution-tinderbox-a847@gregkh>
-References: <10F34E3A3BFBC534+20240909025701.1101397-1-wangyuli@uniontech.com>
+	b=H5VqmMrWsbd6uECOztim29wGz414g5qg2DEABQl1yTEwZXgSGWOnM8CSQ+yWR1Xfg
+	 T3IZGyR/ySFDS5s8RS25TBTlAP1znCAaCW14XrPIgYIIrCoBtMJmlCvjdOhhY8ZgAU
+	 qAlblk7drRkqScptp5TnwwTChdtfPbar4JvV/iE/pKLb4IMuV86798cIDdN9PRYpiG
+	 H5b+mBmhxWo69OzcnCgDVB0VVN16R05g8oF2Soev2MohY64RLvVHRZLCZtWg0L43Cx
+	 WrTpWvjpHJHEAs95EnfBt8sHBNLHU6znbQy2kPRHTlrW5JnJEt2zWe34LFtP1O6YgX
+	 /O6OE44c2ao7g==
+Date: Tue, 10 Sep 2024 09:41:09 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Chen Wang <unicornxw@gmail.com>
+Cc: ukleinek@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, unicorn_wang@outlook.com, inochiama@outlook.com, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, chao.wei@sophgo.com, haijiao.liu@sophgo.com, 
+	xiaoguang.xing@sophgo.com, chunzhi.lin@sophgo.com
+Subject: Re: [PATCH v2 1/2] dt-bindings: pwm: sophgo: add PWM controller for
+ SG2042
+Message-ID: <33wi6plp5ebovfzl64cndw532ob75bwlpn74ldnqd2ggktrp6z@tooe3usdh3cl>
+References: <cover.1725931796.git.unicorn_wang@outlook.com>
+ <c2b237b5b2430b0715c9c3dee043d30fe5216e2e.1725931796.git.unicorn_wang@outlook.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <10F34E3A3BFBC534+20240909025701.1101397-1-wangyuli@uniontech.com>
+In-Reply-To: <c2b237b5b2430b0715c9c3dee043d30fe5216e2e.1725931796.git.unicorn_wang@outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240910_083216_054456_FBD5408A 
-X-CRM114-Status: GOOD (  14.95  )
+X-CRM114-CacheID: sfid-20240910_004114_062144_E3E1B79C 
+X-CRM114-Status: UNSURE (   8.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,39 +78,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 09, 2024 at 10:57:01AM +0800, WangYuli wrote:
-> From: Andrea Parri <parri.andrea@gmail.com>
+On Tue, Sep 10, 2024 at 10:08:10AM +0800, Chen Wang wrote:
+> From: Chen Wang <unicorn_wang@outlook.com>
 > 
-> [ Upstream commit d6cfd1770f20392d7009ae1fdb04733794514fa9 ]
+> Sophgo SG2042 contains a PWM controller, which has 4 channels and
+> can generate PWM waveforms output.
 > 
-> The membarrier system call requires a full memory barrier after storing
-> to rq->curr, before going back to user-space.  The barrier is only
-> needed when switching between processes: the barrier is implied by
-> mmdrop() when switching from kernel to userspace, and it's not needed
-> when switching from userspace to kernel.
-> 
-> Rely on the feature/mechanism ARCH_HAS_MEMBARRIER_CALLBACKS and on the
-> primitive membarrier_arch_switch_mm(), already adopted by the PowerPC
-> architecture, to insert the required barrier.
-> 
-> Fixes: fab957c11efe2f ("RISC-V: Atomic and Locking Code")
-> Signed-off-by: Andrea Parri <parri.andrea@gmail.com>
-> Reviewed-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-> Link: https://lore.kernel.org/r/20240131144936.29190-2-parri.andrea@gmail.com
-> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> Signed-off-by: WangYuli <wangyuli@uniontech.com>
+> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
 > ---
->  MAINTAINERS                         |  2 +-
->  arch/riscv/Kconfig                  |  1 +
->  arch/riscv/include/asm/membarrier.h | 31 +++++++++++++++++++++++++++++
->  arch/riscv/mm/context.c             |  2 ++
->  kernel/sched/core.c                 |  5 +++--
->  5 files changed, 38 insertions(+), 3 deletions(-)
->  create mode 100644 arch/riscv/include/asm/membarrier.h
+>  .../bindings/pwm/sophgo,sg2042-pwm.yaml       | 51 +++++++++++++++++++
+>  1 file changed, 51 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pwm/sophgo,sg2042-pwm.yaml
 
-Now queued up, thanks.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-greg k-h
+Best regards,
+Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
