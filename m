@@ -4,70 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC1FAECE564
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Sep 2024 13:27:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83320EDE9A0
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Sep 2024 16:13:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3V4R2rHVL8pH2Py7G2y1DUclK28KlR4OjspQ7g1yVCw=; b=neDmas0WKj9H+S
-	ERIelhYIbTDzNZZZ+ldqw3cmjpcIV0YXc0HoTKa8EWmmTaC5tMCGdhAQp1ZxAWRgnmbqhKg1hOoZS
-	nM6Lo2DSque+TOZtRO2b4/kZKkDVHKIrFiHZ8pzkD3iuFhmtvSflsAPPA4UauOAh10e0mwqsk6Wd1
-	4C16tXNZoVuCXBtxx/5idtcOWyHGFHOSxbqoY65RpQckBY9R9HtxgXGFSCZks1H+RLIbzsxWsXA5+
-	Z1A4xIWe7Amdh4ZrAI3Fe8zfJMhVzIfR54cndifCBzYkjqOfaPVcrbe9hgyaMt157To0b3NPpZ+B4
-	JAyyxi+AVuDjSg9oNrBg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jePemn6DPtMPRqZ7TzOP+Ity8GQ3N/lVeAG2hQtHCVo=; b=MYZ+jnCCGFhKf4sN94VStxwaFf
+	nTHqa/W++7bYqnfH5wEL+gL17AFKNBrrk51yA+LhIglseMPffKZGX44E1hFwOYI5pPtrB2fjI29zj
+	w5gr/s9uHE1P2/zD93Bf1L/bNJWLJj9Ws4Q6U1T2GM5vc7wEw/wAUdy0uJ6yrBe22olY/pVjaH3Lv
+	5o+gLVvO7Kkzz/bS5ctZ7z2Aju69CVv+AxC8Wd+dtBivuIf4X9fWTwDZDVXTESF98Rf6gphgCDFi3
+	ua5x54/1XZECdGfS/itSgrtrnmF8gLJwLkT5RsdNDXBWuVzRJL62WESQXfEksvXHTB6cJYIcK4oy1
+	UUwrhb+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1so0tW-00000005htG-016e;
-	Tue, 10 Sep 2024 13:26:58 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1so3V2-00000006IMl-2mi0;
+	Tue, 10 Sep 2024 16:13:52 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1so0s6-00000005hfu-1KR0
+	id 1so3Uz-00000006IMM-3zjj
 	for linux-riscv@lists.infradead.org;
-	Tue, 10 Sep 2024 13:25:31 +0000
+	Tue, 10 Sep 2024 16:13:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 73F90A44781;
-	Tue, 10 Sep 2024 13:25:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11685C4CEC3;
-	Tue, 10 Sep 2024 13:25:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1725974728;
-	bh=iErFQRjvVaeRZZjjypJjPsqKtrbs1/0tXgyfPY3kmLs=;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5DAA7A4485D;
+	Tue, 10 Sep 2024 16:13:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97733C4CEC3;
+	Tue, 10 Sep 2024 16:13:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1725984828;
+	bh=dOdR3AQgsVyZSdcajtpHjcfvmfwJd54PfZ0HuKjzNEc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UvNI427V24MmWNO6p4R/aCPouxzmHYkcslJu44OJmlY074/gMUvEcJBgc+8unpqmo
-	 34Kabs2y6x+Vjsr883Q2aXbocI5JwTMoZrh90gNKM2+5gftHxV8NRsYCKcxeDQUyJK
-	 s0rfVlfTKn/PNMLuMk5eske1c5fS5DPZUSDYE9+Y=
-Date: Tue, 10 Sep 2024 15:25:25 +0200
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: WangYuli <wangyuli@uniontech.com>, stable@vger.kernel.org,
-	sashal@kernel.org, parri.andrea@gmail.com,
-	mathieu.desnoyers@efficios.com, palmer@rivosinc.com,
-	linux-kernel@vger.kernel.org, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, nathan@kernel.org,
-	ndesaulniers@google.com, trix@redhat.com,
-	linux-riscv@lists.infradead.org, llvm@lists.linux.dev,
-	paulmck@kernel.org, mingo@redhat.com, peterz@infradead.org,
-	juri.lelli@redhat.com, vincent.guittot@linaro.org,
-	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com,
-	mgorman@suse.de, bristot@redhat.com, vschneid@redhat.com,
-	brauner@kernel.org, arnd@arndb.de
-Subject: Re: [PATCH 6.6] membarrier: riscv: Add full memory barrier in
- switch_mm()
-Message-ID: <2024091056-bogus-whoops-4bde@gregkh>
-References: <10F34E3A3BFBC534+20240909025701.1101397-1-wangyuli@uniontech.com>
- <2024091002-caution-tinderbox-a847@gregkh>
- <364e0e33-68ad-4f0c-86f1-f6a95def9a30@ghiti.fr>
- <2024091037-errant-countdown-4928@gregkh>
- <5d486ff8-2ab5-4ed5-a1da-c2817927b3a2@ghiti.fr>
+	b=MgyNizoF746o+zqMHs8s646fq8ley9zuXy4EFkWifAD6Cu/lxJbPvvvMPVfJa0/Sa
+	 sTfoEzWXD3D6LH2ClrjDxj4aqvBCe+B+ScS9oIZMj9CPzhkJKmfpj3krvvu8rmbzLu
+	 XWj65OOi7IYzjuz/a2An/EHqGn0qrFaXXVBSajydHd5M2eM5ccindUsfPBUyNinuAp
+	 avgjOH11E5EkKDG0g7vVscCzp+900SR5nfyMK2f4MAryGjeXrrbkNlzLcRoudJRwud
+	 c3bjVEFLmTc6onkATCF/hUEIXOZOA7/ce/Y88AIh3KPJIfkeHFRlsfmONv8he1Z8fM
+	 QCiGe40jd0fpA==
+Date: Tue, 10 Sep 2024 17:13:43 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Inochi Amaoto <inochiama@outlook.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Haylen Chu <heylenay@outlook.com>, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 0/2] riscv: sophgo: Add pinctrl support for CV1800
+ series SoC
+Message-ID: <20240910-bust-mulled-e45f6f6ef29d@spud>
+References: <IA1PR20MB495374DB8C4208575AAC9675BB972@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <20240909-prowler-renewal-0592d820ccca@spud>
+ <IA1PR20MB4953A0D6A2B73D03BF162671BB992@IA1PR20MB4953.namprd20.prod.outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <5d486ff8-2ab5-4ed5-a1da-c2817927b3a2@ghiti.fr>
+In-Reply-To: <IA1PR20MB4953A0D6A2B73D03BF162671BB992@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240910_062530_522837_15DA31D1 
-X-CRM114-Status: GOOD (  28.66  )
+X-CRM114-CacheID: sfid-20240910_091350_079236_DD9FF0F8 
+X-CRM114-Status: GOOD (  23.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,81 +76,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7948912563521054064=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 10, 2024 at 02:35:06PM +0200, Alexandre Ghiti wrote:
-> 
-> On 10/09/2024 13:58, Greg KH wrote:
-> > On Tue, Sep 10, 2024 at 01:31:04PM +0200, Alexandre Ghiti wrote:
-> > > Hi Greg,
-> > > 
-> > > On 10/09/2024 09:32, Greg KH wrote:
-> > > > On Mon, Sep 09, 2024 at 10:57:01AM +0800, WangYuli wrote:
-> > > > > From: Andrea Parri <parri.andrea@gmail.com>
-> > > > > 
-> > > > > [ Upstream commit d6cfd1770f20392d7009ae1fdb04733794514fa9 ]
-> > > > > 
-> > > > > The membarrier system call requires a full memory barrier after storing
-> > > > > to rq->curr, before going back to user-space.  The barrier is only
-> > > > > needed when switching between processes: the barrier is implied by
-> > > > > mmdrop() when switching from kernel to userspace, and it's not needed
-> > > > > when switching from userspace to kernel.
-> > > > > 
-> > > > > Rely on the feature/mechanism ARCH_HAS_MEMBARRIER_CALLBACKS and on the
-> > > > > primitive membarrier_arch_switch_mm(), already adopted by the PowerPC
-> > > > > architecture, to insert the required barrier.
-> > > > > 
-> > > > > Fixes: fab957c11efe2f ("RISC-V: Atomic and Locking Code")
-> > > > > Signed-off-by: Andrea Parri <parri.andrea@gmail.com>
-> > > > > Reviewed-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-> > > > > Link: https://lore.kernel.org/r/20240131144936.29190-2-parri.andrea@gmail.com
-> > > > > Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> > > > > Signed-off-by: WangYuli <wangyuli@uniontech.com>
-> > > > > ---
-> > > > >    MAINTAINERS                         |  2 +-
-> > > > >    arch/riscv/Kconfig                  |  1 +
-> > > > >    arch/riscv/include/asm/membarrier.h | 31 +++++++++++++++++++++++++++++
-> > > > >    arch/riscv/mm/context.c             |  2 ++
-> > > > >    kernel/sched/core.c                 |  5 +++--
-> > > > >    5 files changed, 38 insertions(+), 3 deletions(-)
-> > > > >    create mode 100644 arch/riscv/include/asm/membarrier.h
-> > > > Now queued up, thanks.
-> > > 
-> > > The original patch was merged in 6.9 and the Fixes tag points to a commit
-> > > introduced in v4.15. So IIUC, this patch should have been backported
-> > > "automatically" to the releases < 6.9 right? As stated in the documentation
-> > > (process/stable-kernel-rules.html):
-> > > 
-> > > "Note, such tagging is unnecessary if the stable team can derive the
-> > > appropriate versions from Fixes: tags."
-> > > 
-> > > Or did we miss something?
-> > Yes, you didn't tag cc: stable at all in this commit, which is why we
-> > did not see it.  The documentation says that :)
-> 
-> 
-> Ok, some patches seem to make it to stable without the cc: stable tag (like
-> the one below for example), so I thought it was not necessary.
 
-Yes, they do, because many maintainers and developers don't follow the
-normal rules, so we sweep the tree when we have a chance and do a "best
-effort" backport at times.
+--===============7948912563521054064==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="5rQtVXXUCRQ43X6+"
+Content-Disposition: inline
 
-But again, it is NOT guaranteed that this will happen, and even if it
-does, you will NOT get emails saying the attempt-at-backporting fails,
-if it fails, as obviously the developers involved weren't explicitly
-asking for it to be backported.
 
-So in short, just properly tag things for stable, and all will be fine.
+--5rQtVXXUCRQ43X6+
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-thanks,
+On Tue, Sep 10, 2024 at 06:24:34AM +0800, Inochi Amaoto wrote:
+> On Mon, Sep 09, 2024 at 03:41:10PM GMT, Conor Dooley wrote:
+> > On Sat, Aug 31, 2024 at 06:38:40AM +0800, Inochi Amaoto wrote:
+> > > Add basic pinctrl driver for Sophgo CV1800 series SoCs.
+> > > This patch series aims to replace the previous patch from Jisheng [1].
+> > > Since the pinctrl of cv1800 has nested mux and its pin definination
+> > > is discrete, it is not suitable to use "pinctrl-single" to cover the
+> > > pinctrl device.
+> > >=20
+> > > This patch require another patch [2] that provides standard attribute
+> > > "input-schmitt-microvolt"
+> > >=20
+> > > The v4 version is from [3]
+> >=20
+> > Which version of this ended up in linux-next? I see a link to v4 in
+> > what's been applied, but this v5 was sent before that code was
+> > committed.
+> >=20
+> > Either way, what's been applied and what's here produce warnings:
+> > cv1812h.dtsi:19.28-24.5: Warning (simple_bus_reg): /soc/pinctrl@3008000=
+: simple-bus unit address format error, expected "3001000"
+> > cv1800b.dtsi:18.28-23.5: Warning (simple_bus_reg): /soc/pinctrl@3008000=
+: simple-bus unit address format error, expected "3001000"
+> >=20
+> > It's just a copy-paste error I would imagine, but please send a fix.
+>=20
+> Yes, it is like some copy-paste error, I will fix it.
 
-greg k-h
+I'd rather you had sent some follow-up patches, than rebase your tree at
+this point in the cycle. I assume you hadn't yet sent that stuff in a PR
+to Arnd?
+
+Cheers,
+Conor.
+
+--5rQtVXXUCRQ43X6+
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZuBwNwAKCRB4tDGHoIJi
+0t5rAP4upEEdJUW2Gc+Vage29OZ9yngrJUbqENkbK/Ej9TAbRQD+OLDBe2aZ8tIR
+uI1kXbmhKJKXdKpQEDrMWeaxtnPUNA0=
+=+P8k
+-----END PGP SIGNATURE-----
+
+--5rQtVXXUCRQ43X6+--
+
+
+--===============7948912563521054064==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7948912563521054064==--
+
