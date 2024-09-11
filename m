@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D40C3EE57D7
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Sep 2024 20:51:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55B6BEE57CF
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Sep 2024 20:52:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lfgSSGBVc4bAuFH7c4AO1wmFaJWTorMNm1wrRmJuQDI=; b=gGf1Z8OKmqhIrz
-	XbAC9U2RZliR2T3uExtFU4UxKczUIzZAQpEctI3/AnqAKdDhcQzzK7GdxbeXLRKHI8tLeRONQLKCd
-	GqSV8PMEgPxQvg3o+VRQ3F5ZYbzUygX+EXDRwlcimCPt+2Sx3B5Nf0tFE7N4erS2gTwLS3VK1GRn8
-	x8E9771YJAJsapBT9ZAIXtOkpiI1vu3Uhs7Y8ag9i9xkWkd/D3KlX9R/c/LSUd8t15OHL5CdOjK72
-	CMdb/i1dV+H1KaQjaKRF8m1YTk/jpXfYRyXG2StB38TmPfcDqKac/3g5C919zg9qfYOdUJK+RfBvw
-	R9IT+wpoFO1ucZk5Ua0Q==;
+	List-Owner; bh=bBp3AOPZs/+WG8FOIAzf/6Q1emaQWVrJDJsZZKb4Tug=; b=EBRxaf2PpNhD/e
+	xwUVLSOg4bxP3RIwGigvPV3pw0AqBtuOH7X2kUO5ItfizV+XPJO3O4grBVW/iUvZ0BACqPrSkpDBx
+	Gc6UJ3WS2Vb4Kk6SSvuYG1tKjMMV3i13pkZ43h56POzWZDT7Su83cK26dww5GJAKxLbzcXTSw43zN
+	QGUP+/lH6kqFol3aRTxcrNp0Yf05iS9yjNpH8pxfFxW8tqYb/APzfzdVzMKyh4/vzSHfc8/XHd1TE
+	1REDXWd3CsyJVSbU32a4X15J5qCTzKIzfSvJwQqDq1L3crt9ouRlNltJCWdeN0kxM3baHYPl0ga9d
+	/WooFttuoPUPh7Ks5vcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1soUJB-0000000AzYB-0mIt;
-	Wed, 11 Sep 2024 20:51:25 +0000
-Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
+	id 1soUKG-0000000Azn0-2rzf;
+	Wed, 11 Sep 2024 20:52:32 +0000
+Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1soUAf-0000000Ax2p-2xnQ
+	id 1soUAg-0000000Ax4L-33aI
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Sep 2024 20:42:39 +0000
-Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-e1d351c9fb5so949638276.1
-        for <linux-riscv@lists.infradead.org>; Wed, 11 Sep 2024 13:42:36 -0700 (PDT)
+	Wed, 11 Sep 2024 20:42:40 +0000
+Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-e1a74f824f9so704798276.1
+        for <linux-riscv@lists.infradead.org>; Wed, 11 Sep 2024 13:42:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1726087355; x=1726692155; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1726087357; x=1726692157; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=mDeUl+tBis0dtonBgnOqcF+rjd+/029ZvfofLpY6Be0=;
-        b=qoZhFCfEOsf/3vXB8k+u3PPE3MsiCggMd77u4Xmpfjjzb+vRBg3CylZGmImL0NGJwn
-         tOlnMZHaYM/K2IGmk0kK0JvB0RgGQ/RqnAi5E6fr0Whzd21xfaO/8WFE4e8jpNRV0ylv
-         qJ1dYO4qQBQ3qTHx0aoZ/J/rilEXaA9iUdJYJqcIjxpoESa4wBwpJFMp5o1bFGdaKNlh
-         TnjoIFjyLBTsEifWfT+NRMGiNjqBZcskfzPahNtUk7KqS78ooYYCKytT7sWA4250nhCb
-         OnlBDSKZZPoOfvG+TO9AYgy0wIQOsKrg7hkdOFFS92auvoOXDCPJAoCLMBajU2mwrZ7F
-         E4Tw==
+        bh=47BQJJiikboIPrV2PD33si1kPUmickrZ0k1m7wYEIK0=;
+        b=ShO1z0gbrTzxwxPIXcB2vEdq3+csHFir46p2yV3MQ/pIJ3TKj4LuHdhq1K55MEX0Sx
+         1FwQrQr044cBq8PwvXMFMFrdbl0Sj79dbgYtg1E4NWVH7S0d19ug2aX3244OhOrfmZsr
+         FRRQeKhWjqQcPEU1g0H9aXMM0GxY4JyixdFVlmYkLMkdlirT3NpCzlzHHb6NBXD3cPDH
+         B3gzzQzvMxgNRVPYdkrbPBPPwaWBsPBY6wbc9c7xWy1bW8PL5oaTi9M1bl3BGlijgBRf
+         5QQwAZRCU6wC4IgBsoc9qcaVcnuNa8fIUrOuFLCgTDtbsCEThXZSsO2Zx92WHiylMOYr
+         x7gA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1726087355; x=1726692155;
+        d=1e100.net; s=20230601; t=1726087357; x=1726692157;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=mDeUl+tBis0dtonBgnOqcF+rjd+/029ZvfofLpY6Be0=;
-        b=h1bhiyBSg+67HGbCQ6d852oPOIvCq4n6gLmP56CChqXo/AioM9l07pmsKzbOkypPLc
-         Jk9ty5KwuHxiRyiFA3XEmDIidhnSjEzOzyzeXncnrzhFPwPeV09nmDWOoV937TS7BWOL
-         /ZFp/lC4zqgcWvsI1Npp0ZTGDCrIv8y5qZNe4ZLyEMY3ScmlOwdFWB06J3Fan2IHJsZf
-         38X6HPOZ/mvizdHmIisQ+MkYUQbSGcuBN48ViwhFDGENfmcUn3p6jYQt1comUNGTobiD
-         Zku1Ok5qJA/B0x3LmMe2UrUu4GwYugpGev3mU317Go0jr2JMvLuBurDdOPS5rfUVjxRq
-         OZ8w==
-X-Forwarded-Encrypted: i=1; AJvYcCWhsvfiNyWtAOZghqa+K9WACLUxqyedoa7lLlX4n/eioJuKjxSzLeul3iqogGk8ky6WaXSbLvw8r+RT3Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXEEtFzzFzaeruTo+gT024R1G/hExMztdH/C2XKn0jUTJOlcd/
-	uvwgNjhTn3vOWe2tB0anV5WLNXRr8d3UlpmI6rdWXEHRQ7ZBx8rA+KaPGNlp+M4d9/IbxLX/mLF
-	GcQ==
-X-Google-Smtp-Source: AGHT+IGxqix6H/PLMvvIcFrC3JMaLMXEJXlPHwcg40gW3P6CGrRnyhAhRYR7DkVEhB/fpO0WlA4G6vBj/5E=
+        bh=47BQJJiikboIPrV2PD33si1kPUmickrZ0k1m7wYEIK0=;
+        b=Tqb/Q0J+zB8KItqd7BozjfC1VZLBOADnP/wCBsSYrDA12Nh+6+WIO8P9RhvWc1UJbe
+         EFC8Lq68OanuZE8WCQ72TFoWGaF16t7nSAsE5rz6E2dxtgi1FlI4fJBkYSMBDEMkh/vU
+         tlrXT4PSlc8Z2kE59aDaKLdiwTkun31yQQ6RliQiOuImYW0K/CLMHoWp0qwN7/7wbEob
+         KEuG0qk7BoXan7xVCM+JQ7dLElXw5LRypXCqtOJPOu/wMg7h4nGhM0yOxfu/6nnJOtvz
+         f5ubPk+oZ56hEDtqSMQ0BHpDKUMhBQcE5kgu+ItzOn0ianAknpIS4hHC1NooylQ3phfT
+         SIbw==
+X-Forwarded-Encrypted: i=1; AJvYcCXrFBTXGzZmn5UZXeHd91+hPlpnAy+E5bEB8vPKG10NL/uQoZ9WxhLll6kmGikr4o7qIPTBTGRxnSitSw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwhmiCrOJxMZUZ2atrXpmXcZSuf8tRQvJxJHpnB4+wcjSkdByDW
+	iC0C86NA3+HCj06Y3K4zg5WaN+FekdHTQxPo2spuC3yunKBpfbAQ6KX6KPgacd4TzZm46JvYpQN
+	zgg==
+X-Google-Smtp-Source: AGHT+IGKCOrdvuPh1JFZJTD4VhxgbmNdEtpijYplyDxOyPTYxT/JV5RegfErX1F5y84KkH5DsNf+hpV7TUg=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a25:9108:0:b0:e16:4e62:8a17 with SMTP id
- 3f1490d57ef6-e1d9db9ca04mr3916276.2.1726087355066; Wed, 11 Sep 2024 13:42:35
+ (user=seanjc job=sendgmr) by 2002:a25:c206:0:b0:e11:7039:ff92 with SMTP id
+ 3f1490d57ef6-e1d9dc6f379mr708276.11.1726087357418; Wed, 11 Sep 2024 13:42:37
  -0700 (PDT)
-Date: Wed, 11 Sep 2024 13:41:52 -0700
+Date: Wed, 11 Sep 2024 13:41:53 -0700
 In-Reply-To: <20240911204158.2034295-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20240911204158.2034295-1-seanjc@google.com>
 X-Mailer: git-send-email 2.46.0.598.g6f2099f65c-goog
-Message-ID: <20240911204158.2034295-8-seanjc@google.com>
-Subject: [PATCH v2 07/13] KVM: selftests: Only muck with SREGS on x86 in mmu_stress_test
+Message-ID: <20240911204158.2034295-9-seanjc@google.com>
+Subject: [PATCH v2 08/13] KVM: selftests: Compute number of extra pages needed
+ in mmu_stress_test
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Anup Patel <anup@brainfault.org>, Paolo Bonzini <pbonzini@redhat.com>, 
@@ -78,8 +79,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	Sean Christopherson <seanjc@google.com>, James Houghton <jthoughton@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240911_134237_830312_3069CC83 
-X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-CacheID: sfid-20240911_134238_842431_3C17D9ED 
+X-CRM114-Status: UNSURE (   9.02  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -98,46 +99,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Try to get/set SREGS in mmu_stress_test only when running on x86, as the
-ioctls are supported only by x86 and PPC, and the latter doesn't yet
-support KVM selftests.
+Create mmu_stress_tests's VM with the correct number of extra pages needed
+to map all of memory in the guest.  The bug hasn't been noticed before as
+the test currently runs only on x86, which maps guest memory with 1GiB
+pages, i.e. doesn't need much memory in the guest for page tables.
 
+Reviewed-by: James Houghton <jthoughton@google.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- tools/testing/selftests/kvm/mmu_stress_test.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ tools/testing/selftests/kvm/mmu_stress_test.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
 diff --git a/tools/testing/selftests/kvm/mmu_stress_test.c b/tools/testing/selftests/kvm/mmu_stress_test.c
-index 0b9678858b6d..847da23ec1b1 100644
+index 847da23ec1b1..5467b12f5903 100644
 --- a/tools/testing/selftests/kvm/mmu_stress_test.c
 +++ b/tools/testing/selftests/kvm/mmu_stress_test.c
-@@ -59,10 +59,10 @@ static void run_vcpu(struct kvm_vcpu *vcpu)
+@@ -209,7 +209,13 @@ int main(int argc, char *argv[])
+ 	vcpus = malloc(nr_vcpus * sizeof(*vcpus));
+ 	TEST_ASSERT(vcpus, "Failed to allocate vCPU array");
  
- static void *vcpu_worker(void *data)
- {
-+	struct kvm_sregs __maybe_unused sregs;
- 	struct vcpu_info *info = data;
- 	struct kvm_vcpu *vcpu = info->vcpu;
- 	struct kvm_vm *vm = vcpu->vm;
--	struct kvm_sregs sregs;
- 
- 	vcpu_args_set(vcpu, 3, info->start_gpa, info->end_gpa, vm->page_size);
- 
-@@ -70,12 +70,12 @@ static void *vcpu_worker(void *data)
- 
- 	run_vcpu(vcpu);
- 	rendezvous_with_boss();
+-	vm = vm_create_with_vcpus(nr_vcpus, guest_code, vcpus);
++	vm = __vm_create_with_vcpus(VM_SHAPE_DEFAULT, nr_vcpus,
 +#ifdef __x86_64__
- 	vcpu_sregs_get(vcpu, &sregs);
--#ifdef __x86_64__
- 	/* Toggle CR0.WP to trigger a MMU context reset. */
- 	sregs.cr0 ^= X86_CR0_WP;
--#endif
- 	vcpu_sregs_set(vcpu, &sregs);
++				    max_mem / SZ_1G,
++#else
++				    max_mem / vm_guest_mode_params[VM_MODE_DEFAULT].page_size,
 +#endif
- 	rendezvous_with_boss();
++				    guest_code, vcpus);
  
- 	run_vcpu(vcpu);
+ 	max_gpa = vm->max_gfn << vm->page_shift;
+ 	TEST_ASSERT(max_gpa > (4 * slot_size), "MAXPHYADDR <4gb ");
 -- 
 2.46.0.598.g6f2099f65c-goog
 
