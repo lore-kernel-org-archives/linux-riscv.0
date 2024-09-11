@@ -4,118 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECB92EE01EB
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Sep 2024 22:27:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1136DEE498D
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Sep 2024 10:28:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uu4xY9cghn9lTXGK9An9kDBucyyLdi36byQJ2IxO/wM=; b=F8Ip+fv4fipKub
-	ZrOBHSsBQJVW0TRr+vs2KN0rAVc2ZFKBt0eB12LPoP5uHAgfneglNL+Z3RLsHzCyiPrgV7QelPSj7
-	YWiWfVmUs9F5hCmkxW3jQXNGBGw5RXo3D4b1zmbWeZPJB4bHefRGEfhYR/BOwOEdoXO9ujAIatoFz
-	foN+7hL8KoymXT5LM3ccWKZBBLaYn9nB2oVKLwC8IQ0FK9Xc2xr0MAmhtBaWoxvRYaQoIiYYVjlbS
-	bGUNjUhVDinEq2ZwxRmYYrxPDGYo1yz+FFj+lWtaOOYIl9MEWj9qadm4hALh1aNd54Avl/sCUw55a
-	2v4mAvhZ2F3sGULyEIzA==;
+	List-Owner; bh=fRCyh9NSLQ2qVcKpepwo2+Im427lnaaKYKTcyCRhb/4=; b=3mlX3gCeXYEAFP
+	wfmkvTfpUw3G2S4XvDLN4cCXOWEWnjaUHVNHcjxrqgGRBHxiuiScjeXM+gX4rJUWm5soK8/z7E0Hi
+	2jiaQT4Q8UbQ9HCokn13HapctLOUHlVKzEcpiC95MSI1Xq0raVTGcG9CoKi7qYA6V+47znqSigJ0x
+	jkIHg7ePs57DDo0MByewwqAj2PasD8ZtekVUhnjR+eGxRMOCuPRDZyed88EofyPz8P+i9LaaU6wNb
+	D21EsDzfZcbNgkf2PZu4Zp1MyuAuADv6cvX7xk/bWyun9gFuGvVEv+sliproYk2NXxoTg8dA523bh
+	gjMfj8e43iYwRVJWvCDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1so9KT-00000007KQS-3R12;
-	Tue, 10 Sep 2024 22:27:21 +0000
-Received: from mail-dm6nam10acsn20806.outbound.protection.outlook.com ([2a01:111:f400:7e88::806] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1soKaK-000000095YE-09vu;
+	Wed, 11 Sep 2024 10:28:28 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1so9KR-00000007KP0-19rR
-	for linux-riscv@lists.infradead.org;
-	Tue, 10 Sep 2024 22:27:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wMYKLLhGlPPW8CDNzW7i3blQuqdL0uD3s49i8wUyuqHMnkRIJCmx15sX0BVtb04qLwaCHxIngT/bB4WBWTCmk9FMsGT5om40nkEKIm5Vvn3oQW0Rp4J1c3k/Z24vEI+Ap+IXqGDy4hQGmRWBD2iWayJRc6+B1hzs7B7F2C6WGRQF+m88lpkyIpE+XxaQPYm/duTCp0UgovciWdoamPlGcAN6tmk7Nkp1swsInzGxS3ax2mw3ymF4Gh5N2lAbEfEBxHvbT8wGqexR+h/5ztTp8i0uPTBb484OePWCpoyeuI1tnWr1axlkQOZ66g+SBJl2ojjbssmh8sC7PehubGBZ5g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HSFRnQhZP4g7kdAk6rJhyseq4OmtnlenShNmkN4qjjU=;
- b=uP7wgORNKT5oT6QE2ax/U93c33pJl3i55WtUbNIbB0UW5svevZvuLnev3fo/peGNiXadgcRZ77QYL2rXmRi+HzrrbUmasELaCG/Q5xg9oRA0UDbc2IzoD7kZt0dJPgH45hvupl8KD4mQR2ADyucwJDI6Ilkr+Dwoku34TNvO6sjtdhoLnppEAAi9qKNHQEfnKkoHEZMxnRxkh4JMaS+IUyQSCjc68WAlatKFvPnQ+6/zSPQZg2On6SdoORGI3Zgj/0uAXe/rFOvIca+xg4G6Nru4MUE8+atgRj21MPmsZxyAiIbMjcTgx+OF7WgWDLz6lRq9MOq+VOw9bWEv6cKULQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HSFRnQhZP4g7kdAk6rJhyseq4OmtnlenShNmkN4qjjU=;
- b=rziymZl5BegSCNUOr/06dw8WP1UlKuZdVpOlsxvIReFo28PxX0wZqgICBqzFiNTYk3ZhkMeMXZOCvorA3stP7+/XMKyulMc+z+W7a3+sSmGzxkqOw0ze7CBsiJG4jkm/+rd2P4FpbZltkZvp+rWE+wuh+a+2EnKMIdz0N1J9I+UDT9/rlKioQhFJ36JOpmxV9xj71/CuoQutO8C7szAtA7LUODgz7iWFRAhqfJfXVuL1MIkWsCXzTcW0axSeUFx1RintlNF7VVUA+HTcEtjlHeQ0vbjo24c+J6fFcbPEw/4xIZ2NK7GD8Xm1qV1DcqMjalq9fpccojD+4xyBSdec2Q==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by MW4PR20MB5297.namprd20.prod.outlook.com (2603:10b6:303:20c::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7918.27; Tue, 10 Sep
- 2024 22:27:07 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::ab0b:c0d3:1f91:d149]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::ab0b:c0d3:1f91:d149%5]) with mapi id 15.20.7939.017; Tue, 10 Sep 2024
- 22:27:07 +0000
-Date: Wed, 11 Sep 2024 06:25:49 +0800
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Conor Dooley <conor@kernel.org>, Inochi Amaoto <inochiama@outlook.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Jisheng Zhang <jszhang@kernel.org>, Haylen Chu <heylenay@outlook.com>, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 0/2] riscv: sophgo: Add pinctrl support for CV1800
- series SoC
-Message-ID: <IA1PR20MB495316205F5AC588867FA8E1BB9A2@IA1PR20MB4953.namprd20.prod.outlook.com>
-References: <IA1PR20MB495374DB8C4208575AAC9675BB972@IA1PR20MB4953.namprd20.prod.outlook.com>
- <20240909-prowler-renewal-0592d820ccca@spud>
- <IA1PR20MB4953A0D6A2B73D03BF162671BB992@IA1PR20MB4953.namprd20.prod.outlook.com>
- <20240910-bust-mulled-e45f6f6ef29d@spud>
-Content-Disposition: inline
-In-Reply-To: <20240910-bust-mulled-e45f6f6ef29d@spud>
-X-TMN: [AWn+tYGNRNo8yQKl6YinOeuDG2TiVcdinU9FABZh8SE=]
-X-ClientProxiedBy: PS2PR01CA0027.apcprd01.prod.exchangelabs.com
- (2603:1096:300:58::15) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <jcalupqrlblzwyiewq7ldtcvo3ok6bpy7jcrnotg62c2y4v54w@2sk72fe6jgn4>
+	id 1soKUQ-0000000948R-2219;
+	Wed, 11 Sep 2024 10:22:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4C9715C0235;
+	Wed, 11 Sep 2024 10:22:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6640EC4CEC5;
+	Wed, 11 Sep 2024 10:22:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1726050140;
+	bh=8dWUooDoOxWC7Oca2MrJGx9YGMSeHFyGIMo9brZfk4E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MbotaJ9vmctcoaZuCwWhMhi9fy5FIYS+b/HAYEruiQzbymZobfKvo47gbwbW+fy1t
+	 kmLvVspCoENf4YJ7MG6qyNvTNAzqVaH95FS48N7vxf5HH4w5x9HqfrCJhhZOz0qSYT
+	 FD4o6UXDBrwti0gG104xpdNn7cPukgyiIL3B2k9CSxzBbiHil9QxdJScuV7IplHt5W
+	 o1J96IBLlfPsULekNIV4gsIz3YvGb3R5Lz6mZ8XITZx+iA0s8RnjfUTf8lq+EpquOb
+	 tNbpjbzeeIR2Bev+q9SOEtahsme33D5y9Lo7KW1fhsL38m9Zfs1kaXRBBkfiBGmn1+
+	 HGqEyFiCasPYg==
+Date: Wed, 11 Sep 2024 13:19:07 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Steven Rostedt <rostedt@goodmis.org>
+Cc: Peter Zijlstra <peterz@infradead.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@quicinc.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christoph Hellwig <hch@infradead.org>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Kent Overstreet <kent.overstreet@linux.dev>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Simek <monstr@monstr.eu>, Oleg Nesterov <oleg@redhat.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Richard Weinberger <richard@nod.at>,
+	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
+	Stafford Horne <shorne@gmail.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org, linux-alpha@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, linux-mm@kvack.org,
+	linux-modules@vger.kernel.org, linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+	linux-trace-kernel@vger.kernel.org, linux-um@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
+	sparclinux@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH v3 6/8] x86/module: perpare module loading for ROX
+ allocations of text
+Message-ID: <ZuFumwtGQGOPMDo3@kernel.org>
+References: <20240909064730.3290724-1-rppt@kernel.org>
+ <20240909064730.3290724-7-rppt@kernel.org>
+ <20240909092923.GB4723@noisy.programming.kicks-ass.net>
+ <Zt8HiAzcaZS8lHT-@kernel.org>
+ <20240909104940.71d8464c@gandalf.local.home>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|MW4PR20MB5297:EE_
-X-MS-Office365-Filtering-Correlation-Id: b06810d0-30da-498b-6494-08dcd1e7b3f4
-X-Microsoft-Antispam: BCL:0;ARA:14566002|8060799006|5072599009|15080799006|19110799003|461199028|6090799003|3412199025|440099028|1710799026;
-X-Microsoft-Antispam-Message-Info: NVCWJAB1KVD3dmTmm5cY4yuSAZwaEi1RFanI7fgN3V5CgoEnAuUypFxpgCgAJFK7h84S6FFiXSRsfCy2wOtNgXXoqkfFXneKcxiR1nX1wtDsxUWBjxq7rR0BD8BRhmpdYom2Dgjq2cIIomVrKhoDkHdBiFM6KeVxwwu3yjcVPm+ZJBCR+O/BiiMyhPC5vyL+6wAk/umTVlRWKOKurv7wH2HMlZ+PhlbMaAqlUYKJw6MAe5Cpue2gE8PZuA8ezq9HeAOI4En0a9mimLAb2UuxzNltr26vPajU3XlLzWVvf0kXxvJ2xXwI1ZCGr0PTwzwQlDbMqlzP2lPHySJS+n3uCET72xaeNHqUDiFlzbjbI3CFIwj0rDIrQTZkUtCrNHKuyIBCpGQg45HbH7rqAW4k5PdXGAI+Nhi4ZD3p2SclXtJkwwnohiiREXZHBX5qqv+7d/MmFQw0JWfOVJ9gkOq4b4SjOhZ+zdLHo/nhc6rNv+ebGFf+RGNqy0fnmIRQ2Ln/2c7DK4uEuqlRYIYFSTqv3tM2Xx0DIO2gHCuzrIC3e4Bttu6EG5mf587Jde0P3XvSsgDLjTFbBBDbYCg9ONocHoI6TKK2QC94tIUG1ubXh9yUhNQqqkRyXiwxjYvpyvFjgnXIrWwh4juqIv9u8TWmGeJ1L5qgLmLu1TMTBkmFKzmMeu6mZcXCnuczyjZEJMaNikbc2rsIA8Q5hyWOcTKD+setF6o2m3/aMTWVQls9vkia+qBA927zRGNbtB3IGyevdjlgCwXmbab+wPhytebWxg==
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+6+1S0K+lE6ZVIom9RWSK4xvs+PrgVhMQ8Q3MHc32aT9gdE/wFpq8+WRBV1A?=
- =?us-ascii?Q?WRGgRcF2j41q0O65edqNiJga4pSGC2N3M3eSt7/JbiV7L6lFrSqJqxmeyoZd?=
- =?us-ascii?Q?JVtpQbbL7+oeF4ICQfLgqjpYVfWgYM7RN0/7htzsCMRDRZhVHGmYLB3QEstK?=
- =?us-ascii?Q?2bGDJsHSQXplQnVBJwzRwkfWewow6YLhLGOWhbZstHqO6p/C0N95PVk1J4y6?=
- =?us-ascii?Q?8vHojbY+IikDGUpPDa9P3qb0Jk3eMLMA540EUvBKyU9y3SdjRR5DWhuqD194?=
- =?us-ascii?Q?uCFe/6B7HJDpF/DsfOjxVLJPFxkQM2pfdUr79nEk7haNUMl40+lhT1kiK4Ou?=
- =?us-ascii?Q?spQgg18eNifK6TG0wTrKhw+2xiDJdTQjra5gdJeeVFu5+d+/LPbGpqG6Xnxo?=
- =?us-ascii?Q?X6Qr57120woBhH2w4kA79JZoyEyqRZB5M0q8bMBpmaKzYrjWUIMDrypUqFzV?=
- =?us-ascii?Q?5rWMzKDFZlFmWd0b0yOAbkuneQHJBxk3PU+tVXVvgyDJuEh6VJjZcT8y4xqP?=
- =?us-ascii?Q?twFEO4zJoGkKfIvs6FqqbcvfuJv1g9IEorsPlgAaxkkDMaa12u2ra4vg+7iy?=
- =?us-ascii?Q?oaw2pMlYMz8t007DltDF+uU+mISYbI0bfUwTIBJtHcEdQE7xK8B5mYH60I+y?=
- =?us-ascii?Q?m/Q0sdYLccGL8BFsRhTymLofZwFOotb81QtpxL1o5nbJeC+lupBxMbQTaVBW?=
- =?us-ascii?Q?DmkeQWnZP9KKoEvNgigBvj82IWYnidPLho33gSLD3sCmiccOSCUBQQ5USYUf?=
- =?us-ascii?Q?Vl5hyeSs+8ZXbSQHnFE1rhboZ6+U0TdXTCBFDbZE3TybDRrHKrD2C7/R7Gsd?=
- =?us-ascii?Q?27A0UySSaUhfupYE8xNNxuzRNyG4synhgKuJ1UKvvNEEXAkUgFc0d/keWYAV?=
- =?us-ascii?Q?YGUh62hB5MSek/+Lt2PNtBto92QUN6uoyu728cHBVLai3zXLAxbX0U8/euqO?=
- =?us-ascii?Q?9TGSvHOMiKee7976pvcoDogpuqBUL3e+Uu+wLkQuYM/9ke+uOGe98vbrcOzg?=
- =?us-ascii?Q?g7d6IxOFP70T6C/DI/U6iwmr2UFyhDXBpXTgXkVab3/yEn2Z5TulxZIW9p0b?=
- =?us-ascii?Q?+uv5nCm7R2Mll1Uz+NUoUcDSsgcNwipblIAyMM8HcHkP+OoMrZRuFPQGJjLX?=
- =?us-ascii?Q?LbgAR7S7F+QDb7L1zKsixAOJyEvnSsQpgqfkOobpkSgUXdKjQla/RGuu7USk?=
- =?us-ascii?Q?qMIJUdgEQKQPNtdcxlRz21mx8xT6RuSzk5toFjyKtTUZZcHnxS1QZ8zGqZK3?=
- =?us-ascii?Q?nqRuyRJRVzB064VbPKMv?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b06810d0-30da-498b-6494-08dcd1e7b3f4
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2024 22:27:06.8693
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR20MB5297
+Content-Disposition: inline
+In-Reply-To: <20240909104940.71d8464c@gandalf.local.home>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240910_152719_353144_2579DB39 
-X-CRM114-Status: GOOD (  22.90  )
+X-CRM114-CacheID: sfid-20240911_032222_672185_9C64051A 
+X-CRM114-Status: GOOD (  16.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,46 +116,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 10, 2024 at 05:13:43PM GMT, Conor Dooley wrote:
-> On Tue, Sep 10, 2024 at 06:24:34AM +0800, Inochi Amaoto wrote:
-> > On Mon, Sep 09, 2024 at 03:41:10PM GMT, Conor Dooley wrote:
-> > > On Sat, Aug 31, 2024 at 06:38:40AM +0800, Inochi Amaoto wrote:
-> > > > Add basic pinctrl driver for Sophgo CV1800 series SoCs.
-> > > > This patch series aims to replace the previous patch from Jisheng [1].
-> > > > Since the pinctrl of cv1800 has nested mux and its pin definination
-> > > > is discrete, it is not suitable to use "pinctrl-single" to cover the
-> > > > pinctrl device.
-> > > > 
-> > > > This patch require another patch [2] that provides standard attribute
-> > > > "input-schmitt-microvolt"
-> > > > 
-> > > > The v4 version is from [3]
-> > > 
-> > > Which version of this ended up in linux-next? I see a link to v4 in
-> > > what's been applied, but this v5 was sent before that code was
-> > > committed.
-> > > 
-> > > Either way, what's been applied and what's here produce warnings:
-> > > cv1812h.dtsi:19.28-24.5: Warning (simple_bus_reg): /soc/pinctrl@3008000: simple-bus unit address format error, expected "3001000"
-> > > cv1800b.dtsi:18.28-23.5: Warning (simple_bus_reg): /soc/pinctrl@3008000: simple-bus unit address format error, expected "3001000"
-> > > 
-> > > It's just a copy-paste error I would imagine, but please send a fix.
+On Mon, Sep 09, 2024 at 10:49:40AM -0400, Steven Rostedt wrote:
+> On Mon, 9 Sep 2024 17:34:48 +0300
+> Mike Rapoport <rppt@kernel.org> wrote:
+> 
+> > > This is insane, just force BUILDTIME_MCOUNT_SORT  
 > > 
-> > Yes, it is like some copy-paste error, I will fix it.
+> > The comment in ftrace.c says "... while mcount loc in modules can not be
+> > sorted at build time"
+> >  
+> > I don't know enough about objtool, but I'd presume it's because the sorting
+> > should happen after relocations, no?
+> > 
 > 
-> I'd rather you had sent some follow-up patches, than rebase your tree at
-> this point in the cycle. I assume you hadn't yet sent that stuff in a PR
-> to Arnd?
-> 
-> Cheers,
-> Conor.
+> IIRC, the sorting at build time uses scripts/sorttable.c, which from what I
+> can tell, only gets called on vmlinux.
 
-Yes, the pinctrl dts needs binding header, which is taken by Linus.
-So we hadn't sent them. This is why I sent a new version to fix this.
+Regardless of the tool, the sorting should be done after relocation, no?
 
-Thanks,
-Inochi
+But isn't mcount loc is in data section? Then there should be no problem
+just drop this patch
  
+> -- Steve
+
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
