@@ -4,73 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C9AEEED617
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Sep 2024 16:25:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8C22EED617
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Sep 2024 16:48:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
-	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=GbScQlBAJnNRX8YDJD85wqMw9n6/gARt9aeV1W6tyFE=; b=4KGs6nd5P2uy5j
-	yPmm4cC9DI8k3b/mexGnGEvRE+02tG/zqbVJILjhyL0Dpi6oQEQn263ABxsQ3LZyk99ymVBQJyuAY
-	UgLKab+Rqb7DkcpMSN7VcUEHmR+hoscVAg2/ziPcsb4zWMa780Yn/hHn/WrVyGuWWVQa4PfNJiCPo
-	4gOXRMytRTS/ilNMpf49oFUcItwje38rG55ACeNU0CjGo5qzqppdVQLmE8i8AVdRfsAXgWZQL1UeI
-	9TyZqJwX/NvJJ1w1yZjO0Dy0J5jPjOCKP3b1x8/KRJde/wmv7FM0LdBX6Q7nXs+GkWHf+1uVUSQNW
-	CuNxEMHEKfIH7rwtmBiQ==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=eLsWBHpzG9INI750pR+2DyIBPCgfLGO2vc1THpP2fYU=; b=Vwo20hL5kxDt5b
+	My/CKe7GD/wECbJ6nYEbGEWVP+HPo7Lu//xJIUJlBgMOUbxnE+POeLA0irH1WPwWDHG1ufkD13QUk
+	TyScjMM8NT/64Y1dTfhV0/zS5euSc1RxYddrMMWSuwqa8/m6mLVDUyJhmqc5jzgN2JcagmkOvMxo1
+	crZ8Ubapm7bdX9kA5tADPc+P3TD7/h0DYIzcdu3K27cp+raetvkKwDX53cUHbwId5Jbe2V/RwCoaA
+	0yg0uwDnnNF1e/JGh62ohwHb9Wt/fkv2OjX1H/SUSxqK5SeF087Pb8caWabP54BNStJs4LedJ+vaY
+	vH3QiMzikOIxW6ZsCccA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1somdg-0000000Dh6b-2s7z;
-	Thu, 12 Sep 2024 16:25:48 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1somze-0000000Dkle-0hD9;
+	Thu, 12 Sep 2024 16:48:30 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1somde-0000000Dh66-1kfR
+	id 1somzb-0000000DkkE-28GU
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Sep 2024 16:25:48 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2068acc8a4fso11749375ad.1
-        for <linux-riscv@lists.infradead.org>; Thu, 12 Sep 2024 09:25:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1726158345; x=1726763145; darn=lists.infradead.org;
-        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4QILesIw2jO/jv8xws5YIjHNnjamw3bXH4diaHqXW30=;
-        b=Bs97GaNGR2JDFcNkztQeIEfxKMwfMyE/i3c0xi8FUz59ASCGwEV1OmdTGbVPEeMz5z
-         uenPAfrlqw4+zQbLurp7HB2vjbLbRiFmSR7wNDWjN9U3OKNOkLkGmPdO1nCWNGdLBK0B
-         WquTv8+5gHP4qbPH80CURoH7OLAIcbdRI7Fc6i2rtdL5wPvB0SXGJxQNNvqB3nMIx11A
-         PZCnhKmGe64d5JqhSoMd3CY4dfitcAC+t3MwYw5M9PjTvC5KmaIMduVMkelBUrydEOtT
-         2hrXqlEAm0NvHC+4MvF5DxAd/Y6M1mHJHCbzbQIgysE+XBkgpbDwK5UuY3A+hHQTuF4n
-         GfxA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1726158345; x=1726763145;
-        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=4QILesIw2jO/jv8xws5YIjHNnjamw3bXH4diaHqXW30=;
-        b=VIEvGkK0JILSjxEVz+i6gDo8NPq49Wj/h4/B98qS0UeB5oAG8ste86StniqkkoiajU
-         gal7UtRhD71PUXO58xcmpHDpRSXgDwlUqvDz4ffkZhfiUDZQNSQnt36JBGNFL/ioKR+Q
-         Q3egibAx6IgLglirkHmn6KDcVbE1IQttst5rLxlt4UFoRvYKw2pkpjzfNwWyj9e3i3up
-         2XIykoSlbJ8DSpEGW7CgN7mZgoLtNbvw0nAV2X2F6P+rcnKIN0tPN3S3ruJYpsu4hwmC
-         XQGBBO22LwjSQAKHlUmsbQdbWogV0Uh6Is8WYuWYnFFBQVNfeNCT0lvz2pyu6o8QH/tE
-         fSxA==
-X-Gm-Message-State: AOJu0YxsHzGiPRGz0r6MvC9Fv4FemikjCfuMPDzhv/f5d/Y4YuqOFGA+
-	mCaWe0D8W7lVJ8zOiiLkBllK+fBy7ePzY5c6g5oS5zF1QXjoWySCksixkVl05WVakNZPobJizPU
-	7
-X-Google-Smtp-Source: AGHT+IEEf6iT3JV53GFjFR8pXoISHJUM3Kt/EUI8UQxiP6hXee0eeD1F6ANvQcR2UhfoNqUnoEFChQ==
-X-Received: by 2002:a17:902:e804:b0:205:88bf:bfe9 with SMTP id d9443c01a7336-2076e348076mr42857005ad.15.1726158344810;
-        Thu, 12 Sep 2024 09:25:44 -0700 (PDT)
-Received: from localhost ([192.184.165.199])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2076b0096e9sm16037235ad.254.2024.09.12.09.25.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Sep 2024 09:25:44 -0700 (PDT)
-Date: Thu, 12 Sep 2024 09:25:44 -0700 (PDT)
-X-Google-Original-Date: Thu, 12 Sep 2024 09:25:42 PDT (-0700)
-Subject: [GIT PULL] RISC-V Fixes for 6.11-rc8
-CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Message-ID: <mhng-61f22aea-eea4-4ed5-a803-92fa9df853cd@palmer-ri-x1c9>
+	Thu, 12 Sep 2024 16:48:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1726159707; x=1757695707;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=xWSs+CCHo2cnkHp+YQIYQ9pyFy661acsmyXS6RC2uDQ=;
+  b=C3blLx2H9bOkRNfWsN7jCj67u2+s6CLvpaFLUFWQUnw/FkC/1KNy61Kw
+   HsUb5PofbfgDOsrFUkgM7lG8zVshXvltrkT3I9WKh6qTjWzCVAlWrKa3J
+   ArcEMb2z0mHZ/Byaqg7ONtcfFtxJCPu4xtUf9ag0ZOXqN4D86b2Nnse4d
+   ZNfFPitu2DO54xPqcwNXN+U47Irxtr5d5CTGN53nZhgGgpEB3XaHWgpQO
+   4cuEx4Evx/q6g7qq7TlYJEUVSivxx/fpjtvvmux7ePWCz/yRPv7DkEgqC
+   xclC2Pj+3NTCzla8oPP8MsbzBbRBhEBXJyN1lMTPQZ/v5eCtYS3DBxIel
+   g==;
+X-CSE-ConnectionGUID: DQLE4LE3SvKX/JE8rC2tCg==
+X-CSE-MsgGUID: aRwW0yqNSKm9/T8UGb7dXQ==
+X-IronPort-AV: E=Sophos;i="6.10,223,1719903600"; 
+   d="scan'208";a="32331226"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 12 Sep 2024 09:48:25 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Thu, 12 Sep 2024 09:47:47 -0700
+Received: from valentina.microchip.com (10.10.85.11) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
+ 15.1.2507.35 via Frontend Transport; Thu, 12 Sep 2024 09:47:44 -0700
+From: Valentina Fernandez <valentina.fernandezalanis@microchip.com>
+To: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<peterlin@andestech.com>, <dminus@andestech.com>,
+	<conor.dooley@microchip.com>, <conor+dt@kernel.org>, <ycliang@andestech.com>,
+	<jassisinghbrar@gmail.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<andersson@kernel.org>, <mathieu.poirier@linaro.org>,
+	<valentina.fernandezalanis@microchip.com>
+CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-remoteproc@vger.kernel.org>
+Subject: [PATCH v1 1/5] riscv: asm: vendorid_list: Add Microchip Technology to the vendor list
+Date: Thu, 12 Sep 2024 18:00:21 +0100
+Message-ID: <20240912170025.455167-2-valentina.fernandezalanis@microchip.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20240912170025.455167-1-valentina.fernandezalanis@microchip.com>
+References: <20240912170025.455167-1-valentina.fernandezalanis@microchip.com>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240912_092546_741042_55675526 
-X-CRM114-Status: UNSURE (   6.22  )
+X-CRM114-CacheID: sfid-20240912_094827_635470_11C33447 
+X-CRM114-Status: UNSURE (   7.91  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,40 +85,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 1ff95eb2bebda50c4c5406caaf201e0fcb24cc8f:
+Add Microchip Technology to the RISC-V vendor list.
 
-  riscv: Fix RISCV_ALTERNATIVE_EARLY (2024-09-03 07:57:55 -0700)
+Signed-off-by: Valentina Fernandez <valentina.fernandezalanis@microchip.com>
+---
+ arch/riscv/include/asm/vendorid_list.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-are available in the Git repository at:
+diff --git a/arch/riscv/include/asm/vendorid_list.h b/arch/riscv/include/asm/vendorid_list.h
+index 2f2bb0c84f9a..a5150cdf34d8 100644
+--- a/arch/riscv/include/asm/vendorid_list.h
++++ b/arch/riscv/include/asm/vendorid_list.h
+@@ -6,6 +6,7 @@
+ #define ASM_VENDOR_LIST_H
+ 
+ #define ANDES_VENDOR_ID		0x31e
++#define MICROCHIP_VENDOR_ID	0x029
+ #define SIFIVE_VENDOR_ID	0x489
+ #define THEAD_VENDOR_ID		0x5b7
+ 
+-- 
+2.34.1
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.11-rc8
-
-for you to fetch changes up to 7c1e5b9690b0e14acead4ff98d8a6c40f2dff54b:
-
-  riscv: Disable preemption while handling PR_RISCV_CTX_SW_FENCEI_OFF (2024-09-10 20:38:46 -0700)
-
-----------------------------------------------------------------
-RISC-V Fixes for 6.11-rc8
-
-* Two fixes for smp_processor_id() calls in preemptible sections: one if
-  the perf driver, and one in the fence.i prctl.
-
-----------------------------------------------------------------
-Alexandre Ghiti (1):
-      drivers: perf: Fix smp_processor_id() use in preemptible code
-
-Charlie Jenkins (1):
-      riscv: Disable preemption while handling PR_RISCV_CTX_SW_FENCEI_OFF
-
- arch/riscv/mm/cacheflush.c   | 12 ++++++------
- drivers/perf/riscv_pmu_sbi.c |  7 ++++++-
- 2 files changed, 12 insertions(+), 7 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
