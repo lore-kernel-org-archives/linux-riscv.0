@@ -4,82 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 073FEEED63A
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Sep 2024 18:51:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E168EEE25B
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Sep 2024 20:15:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B8hg/VNXg2rkFpfwhrvOFQiW7BDdFbqAcpsvaDru+iY=; b=YGr02aDgtv8GQoUL7TRGjqHjrM
-	t3tfy1QFD9eUOA5SbUguvLfOKmV2UKFCYS3+jmkXQ4VdoNBilfIDBgRf8+zmzQ3fVsTPsfQqLzI6x
-	HxgFdXVxFI3I0eJqfElLIHq3sacpKzlLkfn2riBf+gyFY0Q36bChS323CpQdpfo/BA+RuzmnPZxfB
-	R9gZI9OYLEFmu1ntaAHgrCwpzhkrB0D/I4HuNFw++1tHef8vJIx6bTNhmLQmFOcnFCpa3rh+XAsjk
-	SFDdJPNGFTzp3B8UFVbx0Ow0pWbTjPAAWRVcnZjDU6iuS58ytY33fTTBJ1f6bZwNTw/sf4yF94KsP
-	BUkEsu2w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=pJmAzL1qwi0sir0m8r1r5Fw/nkLnM4vqF0TTr43Xs9s=; b=AIJ50F//y1jgy4
+	6n5gKu/S5Kd4BA7PfCP5vuiV6mWi5OSDVsh/trj+Fs9q5UlfqQuqwWTU/YzFI6jVaedT5sQIogMmx
+	/PpcTlpghSwaceCYiB0z5kzltyZy3klPj35u1lLxQ5NNfSYoTzPi0hroNh1JrkzhwZC7aUXErxnqa
+	oVECo28GPrzcY76aJiX3mCCDFM8U7iQoDPTOmHimyRiGP972gfbUOG/7RdWrBG0NVgykjK3+JvTiN
+	O8vky8KXzj8iKqqXVqVkXR67B3hBkaorG6vqlrlJogKH//Gi3dlfTyW/fLLq2qEMPjZpALGJB9L/2
+	uKwB9X0KDtYRFL8Vpdqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1soou8-0000000DyI0-3xCx;
-	Thu, 12 Sep 2024 18:50:56 +0000
+	id 1soqDh-0000000E9ef-0OTC;
+	Thu, 12 Sep 2024 20:15:13 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1soos1-0000000Dy1j-0mqw
+	id 1soqDe-0000000E9e1-0kRL
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Sep 2024 18:48:55 +0000
+	Thu, 12 Sep 2024 20:15:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4A975A457BB;
-	Thu, 12 Sep 2024 18:48:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FE08C4CEC3;
-	Thu, 12 Sep 2024 18:48:39 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2D5C4A45452;
+	Thu, 12 Sep 2024 20:15:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77DE3C4CEC3;
+	Thu, 12 Sep 2024 20:15:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1726166923;
-	bh=VsPoHKdTV/hmH6JHnw5e9LUwNZcjzv8WARUE6KL4R+4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=W5pzdq97xBYRWrUX9/mGz2HpiJrmpmeTvrOuap/dYSsMh+Bd9HU1egW7G37O2u4vO
-	 MgiBoBKQC7n+qkGaUrAtRpCzfzhRgG9qEmoDnpB1xB8rYETW3Zdy+seJxwwXekhk3y
-	 RxU7SRt2SYbgdXE8Vs9XW1+V1FMY+JlopI9v9cAhe0XMHBCc/7PMUHI1BQKfmRVYmG
-	 YfEe4VKtRXiZNg2e2zwff7sL6KTwoItkEtqXCt4QlMIRwAtXzwy7JWFftM2j/7kmJn
-	 5fVDxtAMepSqVRF22fANE2tOLxYhAqQfeGiZkapwHBRe/FDNYOoPP2o5BCoW/lQyPp
-	 LMdr4kvVJ5q6A==
-Date: Thu, 12 Sep 2024 19:48:37 +0100
-From: Conor Dooley <conor@kernel.org>
-To: WangYuli <wangyuli@uniontech.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Hal Feng <hal.feng@starfivetech.com>,
-	"stable@vger.kernel.org" <stable@vger.kernel.org>,
-	"gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
-	"sashal@kernel.org" <sashal@kernel.org>,
-	William Qiu <william.qiu@starfivetech.com>,
-	"emil.renner.berthing@canonical.com" <emil.renner.berthing@canonical.com>,
-	Xingyu Wu <xingyu.wu@starfivetech.com>,
-	Walker Chen <walker.chen@starfivetech.com>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"kernel@esmil.dk" <kernel@esmil.dk>,
-	"robh+dt@kernel.org" <robh+dt@kernel.org>,
-	"krzysztof.kozlowski+dt@linaro.org" <krzysztof.kozlowski+dt@linaro.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"richardcochran@gmail.com" <richardcochran@gmail.com>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>
-Subject: Re: [PATCH 6.6 v2 3/4] riscv: dts: starfive: Add the nodes and pins
- of I2Srx/I2Stx0/I2Stx1
-Message-ID: <20240912-carnation-aspirate-9a8ef572da2f@spud>
-References: <20240912025539.1928223-1-wangyuli@uniontech.com>
- <D2DCF9E2F70EDC93+20240912025539.1928223-3-wangyuli@uniontech.com>
- <ZQ2PR01MB13070BA638E892A5516DEA8CE6642@ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn>
- <20240912-lividly-remover-6d71b985a803@wendy>
- <57B002D3A0A289D5+d784ecd6-ed84-4aa1-ae58-0c67d2de1989@uniontech.com>
-MIME-Version: 1.0
-In-Reply-To: <57B002D3A0A289D5+d784ecd6-ed84-4aa1-ae58-0c67d2de1989@uniontech.com>
+	s=k20201202; t=1726172108;
+	bh=BY/nMIl8gVt2eO0JCfBQjP8aUlLdXOO4DYz+gvc/Pzs=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=Hnxq/xTUKQfDt+rRz6hrI3CQVtb5lkBFo2sEQ/+B5LTz+bfDV/4OI/VmfDDjkVGEb
+	 8Y+fFdj9rVP2X/e3HCDtLiik2aYWZhB/oOY2SuSZGt0ZooR63m+pC7uGWRXAUwZp3H
+	 0/wuk9+S0mkt00AFlVyTB/ypL6IMrKhILK+vODxk5U5d4psW5/Jh6vJ4LaO5dUjJmL
+	 CEDnixc4Xh265SX7FzV7A8oj5ztLuiNeMV3v2c+88rEJAA+bfcadvQ2hvjBmjF+wXv
+	 IKa8hcL2GsN7G21SisSrLxl4tearpQvNo8im73YuIITV32Fv4C6AOk7/izs0nAeEbY
+	 kGWVc/oI/BVbg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB1583822D1B;
+	Thu, 12 Sep 2024 20:15:10 +0000 (UTC)
+Subject: Re: [GIT PULL] RISC-V Fixes for 6.11-rc8
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <mhng-61f22aea-eea4-4ed5-a803-92fa9df853cd@palmer-ri-x1c9>
+References: <mhng-61f22aea-eea4-4ed5-a803-92fa9df853cd@palmer-ri-x1c9>
+X-PR-Tracked-List-Id: <linux-riscv.lists.infradead.org>
+X-PR-Tracked-Message-Id: <mhng-61f22aea-eea4-4ed5-a803-92fa9df853cd@palmer-ri-x1c9>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.11-rc8
+X-PR-Tracked-Commit-Id: 7c1e5b9690b0e14acead4ff98d8a6c40f2dff54b
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 8581ae1ea0d203a71851b21455c2d5167ba00e50
+Message-Id: <172617210959.1705632.12738653586746207738.pr-tracker-bot@kernel.org>
+Date: Thu, 12 Sep 2024 20:15:09 +0000
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240912_114845_373240_DD31CCD0 
-X-CRM114-Status: GOOD (  19.24  )
+X-CRM114-CacheID: sfid-20240912_131510_297933_C33B1F38 
+X-CRM114-Status: UNSURE (   3.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,114 +75,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4450611649549269115=="
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The pull request you sent on Thu, 12 Sep 2024 09:25:44 -0700 (PDT):
 
---===============4450611649549269115==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="DUVkQka0vWnFdotT"
-Content-Disposition: inline
+> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.11-rc8
 
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/8581ae1ea0d203a71851b21455c2d5167ba00e50
 
---DUVkQka0vWnFdotT
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Thank you!
 
-On Thu, Sep 12, 2024 at 07:19:05PM +0800, WangYuli wrote:
-> On 2024/9/12 18:40, Conor Dooley wrote:
->=20
-> > On Thu, Sep 12, 2024 at 10:23:09AM +0000, Hal Feng wrote:
-> > > > On 12.09.24 10:55, WangYuli wrote:
-> > > > +	i2srx_pins: i2srx-0 {
-> > > > +		clk-sd-pins {
-> > > > +			pinmux =3D <GPIOMUX(38, GPOUT_LOW,
-> > > > +					      GPOEN_DISABLE,
-> > > > +					      GPI_SYS_I2SRX_BCLK)>,
-> > > > +				 <GPIOMUX(63, GPOUT_LOW,
-> > > > +					      GPOEN_DISABLE,
-> > > > +					      GPI_SYS_I2SRX_LRCK)>,
-> > > > +				 <GPIOMUX(38, GPOUT_LOW,
-> > > > +					      GPOEN_DISABLE,
-> > > > +					      GPI_SYS_I2STX1_BCLK)>,
-> > > > +				 <GPIOMUX(63, GPOUT_LOW,
-> > > > +					      GPOEN_DISABLE,
-> > > > +					      GPI_SYS_I2STX1_LRCK)>,
-> > > > +				 <GPIOMUX(61, GPOUT_LOW,
-> > > > +					      GPOEN_DISABLE,
-> > > > +					      GPI_SYS_I2SRX_SDIN0)>;
-> > > > +			input-enable;
-> > > > +		};
-> > > > +	};
-> > > > +
-> > > > +	i2stx1_pins: i2stx1-0 {
-> > > > +		sd-pins {
-> > > > +			pinmux =3D <GPIOMUX(44, GPOUT_SYS_I2STX1_SDO0,
-> > > > +					      GPOEN_ENABLE,
-> > > > +					      GPI_NONE)>;
-> > > > +			bias-disable;
-> > > > +			input-disable;
-> > > > +		};
-> > > > +	};
-> > > > +
-> > > > +	mclk_ext_pins: mclk-ext-0 {
-> > > > +		mclk-ext-pins {
-> > > > +			pinmux =3D <GPIOMUX(4, GPOUT_LOW,
-> > > > +					     GPOEN_DISABLE,
-> > > > +					     GPI_SYS_MCLK_EXT)>;
-> > > > +			input-enable;
-> > > > +		};
-> > > > +	};
-> > > > +
-> > > >   	mmc0_pins: mmc0-0 {
-> > > >   		 rst-pins {
-> > > >   			pinmux =3D <GPIOMUX(62, GPOUT_SYS_SDIO0_RST,
-> > > The above changes had been reverted in commit e0503d47e93d in the mai=
-nline.
-> > > Is it appropriate to merge this patch into the stable branch?
-> > >=20
-> > > https://lore.kernel.org/all/20240415125033.86909-1-hannah.peuckmann@c=
-anonical.com/
-> > Hah, I had gone looking this morning because I had a hunch that there
-> > was some missing fix this series didn't, but couldn't remember what it
-> > was. I completely forgot that some of this was non-present overlay
-> > related stuff that had had to be reverted.
-> >=20
-> > So yes, if it had to be reverted in mainline, it shouldn't get
-> > backported. Thanks for spotting that Hal.
-> >=20
-> Got it. Thanks for pointing that out, and sorry for bothering you all...
-
-Patch 1 still seems like it could be backported though, even if these
-pwmdac patches are not suitble?
-
-
---DUVkQka0vWnFdotT
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZuM3hQAKCRB4tDGHoIJi
-0tHdAP469+SvjkqO/rEKHfqhrnsk2nxKybDVYuHxJ0twOw+RjwD/YUruu5BbY7La
-NBPyazL+MNe9sykkvgmWNvSNnwcfwQA=
-=i+ZU
------END PGP SIGNATURE-----
-
---DUVkQka0vWnFdotT--
-
-
---===============4450611649549269115==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4450611649549269115==--
-
