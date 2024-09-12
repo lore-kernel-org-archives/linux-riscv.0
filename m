@@ -4,74 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AEABEE644D
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Sep 2024 05:55:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59FF9EE6450
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Sep 2024 05:56:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=wQ929UEiShZUgzcLw7rDDzpi3fIUqJVZliSYRxWSbgQ=; b=QABdWUcHDkcHDB
-	IcLTGgtdtSWJXQgucRshTcnbFVBCN6Q4q+8cNHfzrjen2nmB0zHIzY2c493hoMJThBgW4DZ3E2KnZ
-	/4hqwy1OHCKXm0EsV86WxIWpBQxuG9mO/i5tyrPZT6yujm4RNFMWyu/z5IRbQweqiS7A8ig/36+H4
-	HKlBZJlWUwFGlcJG/hd2eM9mKCflBOpxSJByO6vdiAo76xM8sGzQhUrW5+DcxvlcMtzJ6w9m7yV3P
-	psJ9G9U9u+ukpR4bE6w2tvDd93vNMhdBVAhsgK6Ua2ugj0qwbU26jhyzTjpgsVpVeRJZg2NjNpruu
-	WLoTcJWuL7MJvBvr8q+g==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jqYR3D0iMPg1AeIIB2RazRTxnBl3TlotXtO3e1p6x5Q=; b=gb1eitp3IGGlcK
+	rBG9kET1a1VWdwDMpbQFXrBVW8k1aeffieqVolRjCvupWGt82swilsOLdrl0JbXWHTvhxMd3G1zTA
+	wsKa6SxQHOf73jiMSVRkluYeALHSNpBq4KUdR9DJAOACdSMbTL/ibsDGvix8aAak8Cnqoo/sBm3Qt
+	+DrjgJeo6GHQUZFQAV9/5/P81jD00vzNFc1uHU/pp3jvO4F+G3FICLz/vO1BnrBIcNHL4GL4OnoLI
+	r9ADVrvq39Ydb/MpC5C8HWwi4WZvce13Yj0K4OpCEWx8vuDF0VK9jTv/RTkcIwbRe5lIz67a8QK2f
+	rXt2m9e4vQXqujhvW+Bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1soco2-0000000BvxC-0P0O;
-	Thu, 12 Sep 2024 05:55:50 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1soco7-0000000Bw0Q-3VY3;
+	Thu, 12 Sep 2024 05:55:55 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1socny-0000000BvwK-1Xv1
+	id 1soco4-0000000Bvy8-2Y0j
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Sep 2024 05:55:48 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2053a0bd0a6so6472485ad.3
-        for <linux-riscv@lists.infradead.org>; Wed, 11 Sep 2024 22:55:45 -0700 (PDT)
+	Thu, 12 Sep 2024 05:55:53 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2054e22ce3fso6440265ad.2
+        for <linux-riscv@lists.infradead.org>; Wed, 11 Sep 2024 22:55:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1726120545; x=1726725345; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=r2sJuto8J6qlx9l4vhzQd/fiMVew5qrixv4vGRu31KU=;
-        b=GsM8kVw1pzcVRlhyLh4+Y9sRMDnE2VhwpTK0nL4iSziVy0ZP9730VBUZDNWBEpHuq+
-         l10OQxRYvKgUbfPwXDhBsWNY82fnPjDd82suUQihEpHvZjpltPk0gUZoZ0KqvNptBN/Z
-         JyahKl6D+9UWV+BihjsfFJLmG/JvKGX6EecxTtVmP021sVOtCSf58WchPNr2W92vN2GW
-         wuHqWgT4eAwG1pc968xNI9uECzSnrWQwwcvR/1kvle8Jb6HBlnaLrEK1dC7ePsMbJviH
-         fisN3FXM+vlBEdpSWBh7SDNKeQiB2GzE+lnZOQ0qWHHv1ytDQ+Mo0o9ofXrA2bcHgSZk
-         c81w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1726120545; x=1726725345;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1726120552; x=1726725352; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=r2sJuto8J6qlx9l4vhzQd/fiMVew5qrixv4vGRu31KU=;
-        b=sca8AC2CznN0JcltVOBV+v8b9eZCrp86O0KUjCHKXhdVBkIYFesn5hr5EYdWtYagKe
-         49oQ+fLNRTwvYzgwUMSO+FsOtKyID7Q7kDXVByCeU0xLrHMxK+b31fj66DB/OeP5AxDR
-         scGmhblP+ddXfUXBOiEYoKbJn+gXj3iTMQ0AE2BpNbfuB1mlEUcbRRWkMNp2zgYrIN93
-         6UU1T3PAjfG5XJa66zRHc653acQd1fIWR6gn/lX0mQ9K0mxvaisSr1aEd9fjwX+rqJgg
-         difHT/pbCusvXTFAuK+WdajiteBdybtiv8PGo0D3+PTsIEryXdPCKwqLo0bqWgQQIZMq
-         ezRg==
-X-Gm-Message-State: AOJu0YzV2SQuMP4VsJvkCTMlB1HgNHwJP4YwkCC+nPmzeePzTAwxdEn2
-	l0pF1+BQvo9kL6qZ0HG2L9V+JaAwGwkzE5kZhQIWAjBRTlRHABU/xD9oe2U31oU=
-X-Google-Smtp-Source: AGHT+IEA96LdD8UiE6swQbLpeiAMLHbKY/mHMp7gIRsZWC3xyHAl8dIHybcEurM26z7GNO1XLs0g1A==
-X-Received: by 2002:a17:902:f693:b0:205:68a4:b2d8 with SMTP id d9443c01a7336-2076e3155e9mr27603745ad.11.1726120544539;
-        Wed, 11 Sep 2024 22:55:44 -0700 (PDT)
+        bh=34tWDw4L8SN+akOs9Do5H0mwwhItc2hNKASWAYLthDo=;
+        b=ea9K/5Z//pGyJ4xveaOaETD1qzcVhvnI7Du1FY+Eso/WZhm2hkFBdOTF75yUCKUsNE
+         36818fKgugqLZABbNNRaXmSsaN1uTxSdRXsu3E8p8iJMnu2RZtAt3GguUGTCGIRQfFyg
+         EyMHo0ZdZxVKonMP+I8nMWIgSDNHW6IKlsP6grAymTzQ3jcVKtKbo9lkSD98WO6kTuOz
+         RnSMc3WAXU3iJfFfelbljQjTmW6uk4MfWfjHjQqjEI47oYe1l1nOage10cVSjE+etKZi
+         KRzyDFMgROq2ETyPtXc9Q7gMFo+V1BMS/OJuXlaZUeRpi+0Ko/yMmcpq/mkJH7Wseixv
+         TmvA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1726120552; x=1726725352;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=34tWDw4L8SN+akOs9Do5H0mwwhItc2hNKASWAYLthDo=;
+        b=kSBoXkU9OwlY3leBKL1BRLXN47Z24ujcly+Ako+FMIlgaqZpm7Dq774s2ib3qnwL5W
+         Mk3aoQtHE5iwU/aPmgTnHuG3+SZqsPa9pW/OtVAwPGdC/QNNAQGddkeMji+gFXTtPNXz
+         Oz93envfBmVpJHoVoXJtvAsn5SxDJCQk2Z9+ck2Oq4t3q1P/4Mo3SKQiNAZ2HR1XCsnG
+         pj3U+TUhrMCIZN6HDxaaNr8pVjXIwjJVGI0he/HchvHr6A8otinC9dqM51LI9OwI8hxy
+         scztxHCe51EZOfLocipMM4unsDAb7ViRAveP9C8aImVxCOU58LNtKKEGQrLyFvAN4YAT
+         JbBw==
+X-Gm-Message-State: AOJu0YwxWLDTmrbD95/d4MZDWjSYlRhL6YupEqSsFCEEIk37h9Q+oMXp
+	wy2COtnis+4J5rmefXOHBLIm2k2tTlj9Z+FzO3Q712VirvUL/ZoKc/ypP1xjHB4=
+X-Google-Smtp-Source: AGHT+IFiwN7AL0oMOImj8Bb6j31gbdzpkXOKklYI/Dyd/oOvuPIOVHkDWeO1Nnywoc6bxuIJ7G506g==
+X-Received: by 2002:a17:902:fc4c:b0:207:4c7c:743b with SMTP id d9443c01a7336-2076d90a1aamr22272135ad.0.1726120551451;
+        Wed, 11 Sep 2024 22:55:51 -0700 (PDT)
 Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2076afe99b6sm7870465ad.209.2024.09.11.22.55.42
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2076afe99b6sm7870465ad.209.2024.09.11.22.55.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Sep 2024 22:55:43 -0700 (PDT)
+        Wed, 11 Sep 2024 22:55:50 -0700 (PDT)
 From: Charlie Jenkins <charlie@rivosinc.com>
-Subject: [PATCH v10 00/14] riscv: Add support for xtheadvector
-Date: Wed, 11 Sep 2024 22:55:08 -0700
-Message-Id: <20240911-xtheadvector-v10-0-8d3930091246@rivosinc.com>
+Date: Wed, 11 Sep 2024 22:55:11 -0700
+Subject: [PATCH v10 03/14] riscv: dts: allwinner: Add xtheadvector to the
+ D1/D1s devicetree
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAD2C4mYC/33QTU7DMBAF4Ksgrwma8fiXFfdALJzYpl7QoKSyi
- qrenUlZNBiL5Vj+3hv7Ita0lLSK54eLWFIta5mPPCA8PojpEI7vaSiRD4QEqUATDOfTIYVY03S
- al8ERRYpoRyVJMPlcUi7nW97rG8+HsvK1r1t8xe30J8iA/x1UcYCBctIeo80I/mUpdV7LcXqa5
- g+xZVW589gsUiV7b4NyBilEozqe9r7tJ/ZjzuTT6I1xqePV3VuQjVfs5cjNTkIcETte7/yffs1
- ejcrpPNmode54s/Oy7TfsJx8yIEEOAB1v91413m7vtwo9QoiBeu93/3m39WdQhPx5SLbj/d07M
- I337I0M2kQZg47t/tfr9RtvOSFLrAIAAA==
+Message-Id: <20240911-xtheadvector-v10-3-8d3930091246@rivosinc.com>
+References: <20240911-xtheadvector-v10-0-8d3930091246@rivosinc.com>
+In-Reply-To: <20240911-xtheadvector-v10-0-8d3930091246@rivosinc.com>
 To: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -88,20 +86,20 @@ Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev, 
  linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
  Charlie Jenkins <charlie@rivosinc.com>, 
- Conor Dooley <conor.dooley@microchip.com>, Heiko Stuebner <heiko@sntech.de>, 
- Heiko Stuebner <heiko@sntech.de>
+ Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8203; i=charlie@rivosinc.com;
- h=from:subject:message-id; bh=o+xGimf4uv1DtTQWCqU/EUmhyATy4y8NMqx66C5v0vg=;
- b=owGbwMvMwCHWx5hUnlvL8Y3xtFoSQ9qjJvv8pmLtq1O8PO/onlrRc2Kz3zuOXctKlHMZL07xn
- SPznu9CRykLgxgHg6yYIgvPtQbm1jv6ZUdFyybAzGFlAhnCwMUpABPZeo7hn9ULb53WSa++pM76
- pz7jtja7ckL37tm/j1tGMZ6sW2Mc1MPw30cy7n2avPsZjvqQY8Zadow3Qo/+XcJzbrWpwsnXHcs
- 3sAIA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=960; i=charlie@rivosinc.com;
+ h=from:subject:message-id; bh=twijwVNwXlRnqiWorC6lSyhzIHtshmEdOl4sTIAcK5Q=;
+ b=owGbwMvMwCHWx5hUnlvL8Y3xtFoSQ9qjpqjdgupZ/AlK1Q7FNw/u1tnC9ORpXqpi78+DtXKPk
+ 5uMNrJ2lLIwiHEwyIopsvBca2BuvaNfdlS0bALMHFYmkCEMXJwCMJG3rAz/VOd8nRK482XkT6UZ
+ tYt2FjXdjPqi+VXavm/u3tKdInOD3zMyPI7n++V4VnP92xmlpRHdhfJLrru5Hwm1Pvs24Vmrmdc
+ lDgA=
 X-Developer-Key: i=charlie@rivosinc.com; a=openpgp;
  fpr=7D834FF11B1D8387E61C776FFB10D1F27D6B1354
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240911_225546_656159_0268C2DE 
-X-CRM114-Status: GOOD (  22.70  )
+X-CRM114-CacheID: sfid-20240911_225552_684832_E70BA5AB 
+X-CRM114-Status: UNSURE (   9.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,170 +116,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-xtheadvector is a custom extension that is based upon riscv vector
-version 0.7.1 [1]. All of the vector routines have been modified to
-support this alternative vector version based upon whether xtheadvector
-was determined to be supported at boot.
-
-vlenb is not supported on the existing xtheadvector hardware, so a
-devicetree property thead,vlenb is added to provide the vlenb to Linux.
-
-There is a new hwprobe key RISCV_HWPROBE_KEY_VENDOR_EXT_THEAD_0 that is
-used to request which thead vendor extensions are supported on the
-current platform. This allows future vendors to allocate hwprobe keys
-for their vendor.
-
-Support for xtheadvector is also added to the vector kselftests.
+The D1/D1s SoCs support xtheadvector so it can be included in the
+devicetree. Also include vlenb for the cpu.
 
 Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-
-[1] https://github.com/T-head-Semi/thead-extension-spec/blob/95358cb2cca9489361c61d335e03d3134b14133f/xtheadvector.adoc
-
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 ---
-This series is a continuation of a different series that was fragmented
-into two other series in an attempt to get part of it merged in the 6.10
-merge window. The split-off series did not get merged due to a NAK on
-the series that added the generic riscv,vlenb devicetree entry. This
-series has converted riscv,vlenb to thead,vlenb to remedy this issue.
+ arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-The original series is titled "riscv: Support vendor extensions and
-xtheadvector" [3].
+diff --git a/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi b/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
+index 64c3c2e6cbe0..6367112e614a 100644
+--- a/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
++++ b/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
+@@ -27,7 +27,8 @@ cpu0: cpu@0 {
+ 			riscv,isa = "rv64imafdc";
+ 			riscv,isa-base = "rv64i";
+ 			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
+-					       "zifencei", "zihpm";
++					       "zifencei", "zihpm", "xtheadvector";
++			thead,vlenb = <128>;
+ 			#cooling-cells = <2>;
+ 
+ 			cpu0_intc: interrupt-controller {
 
-The series titled "riscv: Extend cpufeature.c to detect vendor
-extensions" is still under development and this series is based on that
-series! [4]
-
-I have tested this with an Allwinner Nezha board. I used SkiffOS [1] to
-manage building the image, but upgraded the U-Boot version to Samuel
-Holland's more up-to-date version [2] and changed out the device tree
-used by U-Boot with the device trees that are present in upstream linux
-and this series. Thank you Samuel for all of the work you did to make
-this task possible.
-
-[1] https://github.com/skiffos/SkiffOS/tree/master/configs/allwinner/nezha
-[2] https://github.com/smaeul/u-boot/commit/2e89b706f5c956a70c989cd31665f1429e9a0b48
-[3] https://lore.kernel.org/all/20240503-dev-charlie-support_thead_vector_6_9-v6-0-cb7624e65d82@rivosinc.com/
-[4] https://lore.kernel.org/lkml/20240719-support_vendor_extensions-v3-4-0af7587bbec0@rivosinc.com/T/
-
----
-Changes in v10:
-- In DT probing disable vector with new function to clear vendor
-  extension bits for xtheadvector
-- Add ghostwrite mitigations for c9xx CPUs. This disables xtheadvector
-  unless mitigations=off is set as a kernel boot arg
-- Link to v9: https://lore.kernel.org/r/20240806-xtheadvector-v9-0-62a56d2da5d0@rivosinc.com
-
-Changes in v9:
-- Rebase onto palmer's for-next
-- Fix sparse error in arch/riscv/kernel/vendor_extensions/thead.c
-- Fix maybe-uninitialized warning in arch/riscv/include/asm/vendor_extensions/vendor_hwprobe.h
-- Wrap some long lines
-- Link to v8: https://lore.kernel.org/r/20240724-xtheadvector-v8-0-cf043168e137@rivosinc.com
-
-Changes in v8:
-- Rebase onto palmer's for-next
-- Link to v7: https://lore.kernel.org/r/20240724-xtheadvector-v7-0-b741910ada3e@rivosinc.com
-
-Changes in v7:
-- Add defs for has_xtheadvector_no_alternatives() and has_xtheadvector()
-  when vector disabled. (Palmer)
-- Link to v6: https://lore.kernel.org/r/20240722-xtheadvector-v6-0-c9af0130fa00@rivosinc.com
-
-Changes in v6:
-- Fix return type of is_vector_supported()/is_xthead_supported() to be bool
-- Link to v5: https://lore.kernel.org/r/20240719-xtheadvector-v5-0-4b485fc7d55f@rivosinc.com
-
-Changes in v5:
-- Rebase on for-next
-- Link to v4: https://lore.kernel.org/r/20240702-xtheadvector-v4-0-2bad6820db11@rivosinc.com
-
-Changes in v4:
-- Replace inline asm with C (Samuel)
-- Rename VCSRs to CSRs (Samuel)
-- Replace .insn directives with .4byte directives
-- Link to v3: https://lore.kernel.org/r/20240619-xtheadvector-v3-0-bff39eb9668e@rivosinc.com
-
-Changes in v3:
-- Add back Heiko's signed-off-by (Conor)
-- Mark RISCV_HWPROBE_KEY_VENDOR_EXT_THEAD_0 as a bitmask
-- Link to v2: https://lore.kernel.org/r/20240610-xtheadvector-v2-0-97a48613ad64@rivosinc.com
-
-Changes in v2:
-- Removed extraneous references to "riscv,vlenb" (Jess)
-- Moved declaration of "thead,vlenb" into cpus.yaml and added
-  restriction that it's only applicable to thead cores (Conor)
-- Check CONFIG_RISCV_ISA_XTHEADVECTOR instead of CONFIG_RISCV_ISA_V for
-  thead,vlenb (Jess)
-- Fix naming of hwprobe variables (Evan)
-- Link to v1: https://lore.kernel.org/r/20240609-xtheadvector-v1-0-3fe591d7f109@rivosinc.com
-
----
-Charlie Jenkins (13):
-      dt-bindings: riscv: Add xtheadvector ISA extension description
-      dt-bindings: cpus: add a thead vlen register length property
-      riscv: dts: allwinner: Add xtheadvector to the D1/D1s devicetree
-      riscv: Add thead and xtheadvector as a vendor extension
-      riscv: vector: Use vlenb from DT for thead
-      riscv: csr: Add CSR encodings for CSR_VXRM/CSR_VXSAT
-      riscv: Add xtheadvector instruction definitions
-      riscv: vector: Support xtheadvector save/restore
-      riscv: hwprobe: Add thead vendor extension probing
-      riscv: hwprobe: Document thead vendor extensions and xtheadvector extension
-      selftests: riscv: Fix vector tests
-      selftests: riscv: Support xtheadvector in vector tests
-      riscv: Add ghostwrite vulnerability
-
-Heiko Stuebner (1):
-      RISC-V: define the elements of the VCSR vector CSR
-
- Documentation/arch/riscv/hwprobe.rst               |  10 +
- Documentation/devicetree/bindings/riscv/cpus.yaml  |  19 ++
- .../devicetree/bindings/riscv/extensions.yaml      |  10 +
- arch/riscv/Kconfig.errata                          |  11 +
- arch/riscv/Kconfig.vendor                          |  26 ++
- arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi      |   3 +-
- arch/riscv/errata/thead/errata.c                   |  28 ++
- arch/riscv/include/asm/bugs.h                      |  22 ++
- arch/riscv/include/asm/cpufeature.h                |   2 +
- arch/riscv/include/asm/csr.h                       |  15 +
- arch/riscv/include/asm/errata_list.h               |   3 +-
- arch/riscv/include/asm/hwprobe.h                   |   3 +-
- arch/riscv/include/asm/switch_to.h                 |   2 +-
- arch/riscv/include/asm/vector.h                    | 225 +++++++++++----
- arch/riscv/include/asm/vendor_extensions/thead.h   |  48 ++++
- .../include/asm/vendor_extensions/thead_hwprobe.h  |  19 ++
- .../include/asm/vendor_extensions/vendor_hwprobe.h |  37 +++
- arch/riscv/include/uapi/asm/hwprobe.h              |   3 +-
- arch/riscv/include/uapi/asm/vendor/thead.h         |   3 +
- arch/riscv/kernel/Makefile                         |   2 +
- arch/riscv/kernel/bugs.c                           |  55 ++++
- arch/riscv/kernel/cpufeature.c                     |  58 +++-
- arch/riscv/kernel/kernel_mode_vector.c             |   8 +-
- arch/riscv/kernel/process.c                        |   4 +-
- arch/riscv/kernel/signal.c                         |   6 +-
- arch/riscv/kernel/sys_hwprobe.c                    |   5 +
- arch/riscv/kernel/vector.c                         |  24 +-
- arch/riscv/kernel/vendor_extensions.c              |  10 +
- arch/riscv/kernel/vendor_extensions/Makefile       |   2 +
- arch/riscv/kernel/vendor_extensions/thead.c        |  29 ++
- .../riscv/kernel/vendor_extensions/thead_hwprobe.c |  19 ++
- drivers/base/cpu.c                                 |   3 +
- include/linux/cpu.h                                |   1 +
- tools/testing/selftests/riscv/vector/.gitignore    |   3 +-
- tools/testing/selftests/riscv/vector/Makefile      |  17 +-
- .../selftests/riscv/vector/v_exec_initval_nolibc.c |  94 +++++++
- tools/testing/selftests/riscv/vector/v_helpers.c   |  68 +++++
- tools/testing/selftests/riscv/vector/v_helpers.h   |   8 +
- tools/testing/selftests/riscv/vector/v_initval.c   |  22 ++
- .../selftests/riscv/vector/v_initval_nolibc.c      |  68 -----
- .../selftests/riscv/vector/vstate_exec_nolibc.c    |  20 +-
- .../testing/selftests/riscv/vector/vstate_prctl.c  | 305 +++++++++++++--------
- 42 files changed, 1048 insertions(+), 272 deletions(-)
----
-base-commit: 0e3f3649d44bf1b388a7613ade14c29cbdedf075
-change-id: 20240530-xtheadvector-833d3d17b423
 -- 
-- Charlie
+2.45.0
 
 
 _______________________________________________
