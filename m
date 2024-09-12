@@ -4,65 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07622EED628
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Sep 2024 17:16:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 073FEEED63A
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Sep 2024 18:51:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YTBlN09z8qZgK9nU5FkETT6I85RNXLWh4BFXchvwEfw=; b=bZKWGBmCbouTZpSgvxaBZ5jYZg
-	JI/cZGTYNk9FlJyUX82uf6mAL9epKmOllD5Zn7NdP/qRCczV3yblAYy8NGXOg0KkdJSywYK+zRKDa
-	qj/VdSZt0hnxvskEQpk+3V8bexqQCpXpsTZGQ2T2IvLq7yKHBgTgGENcpHaQokr4yhuMFDc1oa3k1
-	dz1WIoXHcN1AxE0zagn/BUUMPO/qIede6yjsOgCKjL+ACU1QfqhIZmNNaI/fpd04+wMgSYwbmT+NC
-	k2kTs07sNACYa71pHnzptSkddMu6EISzS8wWB09fQYCJ+AlhHS1eH4aKHdANCsq3SCV3UN1+T5fb6
-	1ZnaPIUA==;
+	bh=B8hg/VNXg2rkFpfwhrvOFQiW7BDdFbqAcpsvaDru+iY=; b=YGr02aDgtv8GQoUL7TRGjqHjrM
+	t3tfy1QFD9eUOA5SbUguvLfOKmV2UKFCYS3+jmkXQ4VdoNBilfIDBgRf8+zmzQ3fVsTPsfQqLzI6x
+	HxgFdXVxFI3I0eJqfElLIHq3sacpKzlLkfn2riBf+gyFY0Q36bChS323CpQdpfo/BA+RuzmnPZxfB
+	R9gZI9OYLEFmu1ntaAHgrCwpzhkrB0D/I4HuNFw++1tHef8vJIx6bTNhmLQmFOcnFCpa3rh+XAsjk
+	SFDdJPNGFTzp3B8UFVbx0Ow0pWbTjPAAWRVcnZjDU6iuS58ytY33fTTBJ1f6bZwNTw/sf4yF94KsP
+	BUkEsu2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sonR2-0000000DoDw-2jMu;
-	Thu, 12 Sep 2024 17:16:48 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1soou8-0000000DyI0-3xCx;
+	Thu, 12 Sep 2024 18:50:56 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sonR0-0000000DoDR-0kSZ
+	id 1soos1-0000000Dy1j-0mqw
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Sep 2024 17:16:47 +0000
+	Thu, 12 Sep 2024 18:48:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E2B395C5BE0;
-	Thu, 12 Sep 2024 17:16:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6F3BC4CEC3;
-	Thu, 12 Sep 2024 17:16:41 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4A975A457BB;
+	Thu, 12 Sep 2024 18:48:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FE08C4CEC3;
+	Thu, 12 Sep 2024 18:48:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1726161405;
-	bh=lcXDiJUuSazbyiM7a9bDnM0VBOr4vDSb01GvcGWxj9o=;
+	s=k20201202; t=1726166923;
+	bh=VsPoHKdTV/hmH6JHnw5e9LUwNZcjzv8WARUE6KL4R+4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DA8+QBA7MmBMhmWysQj3WpTWIQaCdjOvJ3jGqukftUb0iTA8PHxdaJ5kCkDDZAzHi
-	 U4jxZB+tpspxCILjXAUoPMyVx8KN4aph/wzHz3JmUVGn8oXaluVkoOxQvpgFiF5kUf
-	 waCQXQWhoVPUJJHXiDcg52niG85I6PppwmdZkAzJPGhtOCslPInuql8QqNfjtzdeBE
-	 Q48scY29pdSKalRQjV52E1zzExUBKMk7a0xUFW9bGy0OTt2zDT6mo6XaQGsPYwrog9
-	 8llo9e+YeK4GnCmPwoprbNIC3k+K9+uUlSOMpRdYoQigm1Ck04N4NMiPXMJDIiXP0i
-	 icFEv0Msv2TnQ==
-Date: Thu, 12 Sep 2024 18:16:39 +0100
+	b=W5pzdq97xBYRWrUX9/mGz2HpiJrmpmeTvrOuap/dYSsMh+Bd9HU1egW7G37O2u4vO
+	 MgiBoBKQC7n+qkGaUrAtRpCzfzhRgG9qEmoDnpB1xB8rYETW3Zdy+seJxwwXekhk3y
+	 RxU7SRt2SYbgdXE8Vs9XW1+V1FMY+JlopI9v9cAhe0XMHBCc/7PMUHI1BQKfmRVYmG
+	 YfEe4VKtRXiZNg2e2zwff7sL6KTwoItkEtqXCt4QlMIRwAtXzwy7JWFftM2j/7kmJn
+	 5fVDxtAMepSqVRF22fANE2tOLxYhAqQfeGiZkapwHBRe/FDNYOoPP2o5BCoW/lQyPp
+	 LMdr4kvVJ5q6A==
+Date: Thu, 12 Sep 2024 19:48:37 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Valentina Fernandez <valentina.fernandezalanis@microchip.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	peterlin@andestech.com, dminus@andestech.com,
-	conor.dooley@microchip.com, conor+dt@kernel.org,
-	ycliang@andestech.com, jassisinghbrar@gmail.com, robh@kernel.org,
-	krzk+dt@kernel.org, andersson@kernel.org,
-	mathieu.poirier@linaro.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-remoteproc@vger.kernel.org
-Subject: Re: [PATCH v1 1/5] riscv: asm: vendorid_list: Add Microchip
- Technology to the vendor list
-Message-ID: <20240912-landmass-sculpture-c4884637f5df@spud>
-References: <20240912170025.455167-1-valentina.fernandezalanis@microchip.com>
- <20240912170025.455167-2-valentina.fernandezalanis@microchip.com>
+To: WangYuli <wangyuli@uniontech.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Hal Feng <hal.feng@starfivetech.com>,
+	"stable@vger.kernel.org" <stable@vger.kernel.org>,
+	"gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+	"sashal@kernel.org" <sashal@kernel.org>,
+	William Qiu <william.qiu@starfivetech.com>,
+	"emil.renner.berthing@canonical.com" <emil.renner.berthing@canonical.com>,
+	Xingyu Wu <xingyu.wu@starfivetech.com>,
+	Walker Chen <walker.chen@starfivetech.com>,
+	"robh@kernel.org" <robh@kernel.org>,
+	"kernel@esmil.dk" <kernel@esmil.dk>,
+	"robh+dt@kernel.org" <robh+dt@kernel.org>,
+	"krzysztof.kozlowski+dt@linaro.org" <krzysztof.kozlowski+dt@linaro.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>,
+	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"richardcochran@gmail.com" <richardcochran@gmail.com>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>
+Subject: Re: [PATCH 6.6 v2 3/4] riscv: dts: starfive: Add the nodes and pins
+ of I2Srx/I2Stx0/I2Stx1
+Message-ID: <20240912-carnation-aspirate-9a8ef572da2f@spud>
+References: <20240912025539.1928223-1-wangyuli@uniontech.com>
+ <D2DCF9E2F70EDC93+20240912025539.1928223-3-wangyuli@uniontech.com>
+ <ZQ2PR01MB13070BA638E892A5516DEA8CE6642@ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn>
+ <20240912-lividly-remover-6d71b985a803@wendy>
+ <57B002D3A0A289D5+d784ecd6-ed84-4aa1-ae58-0c67d2de1989@uniontech.com>
 MIME-Version: 1.0
-In-Reply-To: <20240912170025.455167-2-valentina.fernandezalanis@microchip.com>
+In-Reply-To: <57B002D3A0A289D5+d784ecd6-ed84-4aa1-ae58-0c67d2de1989@uniontech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240912_101646_283655_7874D3A3 
-X-CRM114-Status: GOOD (  13.03  )
+X-CRM114-CacheID: sfid-20240912_114845_373240_DD31CCD0 
+X-CRM114-Status: GOOD (  19.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,67 +91,105 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0661100767770228580=="
+Content-Type: multipart/mixed; boundary="===============4450611649549269115=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============0661100767770228580==
+--===============4450611649549269115==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="iuE30SpHjwyKCbFe"
+	protocol="application/pgp-signature"; boundary="DUVkQka0vWnFdotT"
 Content-Disposition: inline
 
 
---iuE30SpHjwyKCbFe
+--DUVkQka0vWnFdotT
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Sep 12, 2024 at 06:00:21PM +0100, Valentina Fernandez wrote:
-> Add Microchip Technology to the RISC-V vendor list.
+On Thu, Sep 12, 2024 at 07:19:05PM +0800, WangYuli wrote:
+> On 2024/9/12 18:40, Conor Dooley wrote:
 >=20
-> Signed-off-by: Valentina Fernandez <valentina.fernandezalanis@microchip.c=
-om>
+> > On Thu, Sep 12, 2024 at 10:23:09AM +0000, Hal Feng wrote:
+> > > > On 12.09.24 10:55, WangYuli wrote:
+> > > > +	i2srx_pins: i2srx-0 {
+> > > > +		clk-sd-pins {
+> > > > +			pinmux =3D <GPIOMUX(38, GPOUT_LOW,
+> > > > +					      GPOEN_DISABLE,
+> > > > +					      GPI_SYS_I2SRX_BCLK)>,
+> > > > +				 <GPIOMUX(63, GPOUT_LOW,
+> > > > +					      GPOEN_DISABLE,
+> > > > +					      GPI_SYS_I2SRX_LRCK)>,
+> > > > +				 <GPIOMUX(38, GPOUT_LOW,
+> > > > +					      GPOEN_DISABLE,
+> > > > +					      GPI_SYS_I2STX1_BCLK)>,
+> > > > +				 <GPIOMUX(63, GPOUT_LOW,
+> > > > +					      GPOEN_DISABLE,
+> > > > +					      GPI_SYS_I2STX1_LRCK)>,
+> > > > +				 <GPIOMUX(61, GPOUT_LOW,
+> > > > +					      GPOEN_DISABLE,
+> > > > +					      GPI_SYS_I2SRX_SDIN0)>;
+> > > > +			input-enable;
+> > > > +		};
+> > > > +	};
+> > > > +
+> > > > +	i2stx1_pins: i2stx1-0 {
+> > > > +		sd-pins {
+> > > > +			pinmux =3D <GPIOMUX(44, GPOUT_SYS_I2STX1_SDO0,
+> > > > +					      GPOEN_ENABLE,
+> > > > +					      GPI_NONE)>;
+> > > > +			bias-disable;
+> > > > +			input-disable;
+> > > > +		};
+> > > > +	};
+> > > > +
+> > > > +	mclk_ext_pins: mclk-ext-0 {
+> > > > +		mclk-ext-pins {
+> > > > +			pinmux =3D <GPIOMUX(4, GPOUT_LOW,
+> > > > +					     GPOEN_DISABLE,
+> > > > +					     GPI_SYS_MCLK_EXT)>;
+> > > > +			input-enable;
+> > > > +		};
+> > > > +	};
+> > > > +
+> > > >   	mmc0_pins: mmc0-0 {
+> > > >   		 rst-pins {
+> > > >   			pinmux =3D <GPIOMUX(62, GPOUT_SYS_SDIO0_RST,
+> > > The above changes had been reverted in commit e0503d47e93d in the mai=
+nline.
+> > > Is it appropriate to merge this patch into the stable branch?
+> > >=20
+> > > https://lore.kernel.org/all/20240415125033.86909-1-hannah.peuckmann@c=
+anonical.com/
+> > Hah, I had gone looking this morning because I had a hunch that there
+> > was some missing fix this series didn't, but couldn't remember what it
+> > was. I completely forgot that some of this was non-present overlay
+> > related stuff that had had to be reverted.
+> >=20
+> > So yes, if it had to be reverted in mainline, it shouldn't get
+> > backported. Thanks for spotting that Hal.
+> >=20
+> Got it. Thanks for pointing that out, and sorry for bothering you all...
 
-In $subject "asm" should probably be "sbi", otherwise:
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Patch 1 still seems like it could be backported though, even if these
+pwmdac patches are not suitble?
 
-> ---
->  arch/riscv/include/asm/vendorid_list.h | 1 +
->  1 file changed, 1 insertion(+)
->=20
-> diff --git a/arch/riscv/include/asm/vendorid_list.h b/arch/riscv/include/=
-asm/vendorid_list.h
-> index 2f2bb0c84f9a..a5150cdf34d8 100644
-> --- a/arch/riscv/include/asm/vendorid_list.h
-> +++ b/arch/riscv/include/asm/vendorid_list.h
-> @@ -6,6 +6,7 @@
->  #define ASM_VENDOR_LIST_H
-> =20
->  #define ANDES_VENDOR_ID		0x31e
-> +#define MICROCHIP_VENDOR_ID	0x029
->  #define SIFIVE_VENDOR_ID	0x489
->  #define THEAD_VENDOR_ID		0x5b7
-> =20
-> --=20
-> 2.34.1
->=20
 
---iuE30SpHjwyKCbFe
+--DUVkQka0vWnFdotT
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZuMh9wAKCRB4tDGHoIJi
-0n1ZAPwNlMdbujIfW5R6Du2ao945FO0uBhC/YZF+e2UTGjXQ5wEAr0myf1+5QDw9
-e0ZL9gHXB3oSW9Z9B+aqz83pu5H6vAs=
-=zdl8
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZuM3hQAKCRB4tDGHoIJi
+0tHdAP469+SvjkqO/rEKHfqhrnsk2nxKybDVYuHxJ0twOw+RjwD/YUruu5BbY7La
+NBPyazL+MNe9sykkvgmWNvSNnwcfwQA=
+=i+ZU
 -----END PGP SIGNATURE-----
 
---iuE30SpHjwyKCbFe--
+--DUVkQka0vWnFdotT--
 
 
---===============0661100767770228580==
+--===============4450611649549269115==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -145,5 +200,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============0661100767770228580==--
+--===============4450611649549269115==--
 
