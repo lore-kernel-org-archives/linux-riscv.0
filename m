@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A2E9EEE277
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Sep 2024 00:31:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0850BEEE272
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Sep 2024 00:31:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Q2eMsj6xjzNLfdEUEB1fj2dHlnLYL3qqwd58NApm0l4=; b=o7U2Lsp+Av4FDP
-	o3wJFnLp5ze2p5zm+HyXKSIWXZ51GmFNnB+L/DfR4CQz2aS762jX7ZaPAVJ2LosxH1pxzivjQHxD8
-	7oSgaeS5+CntdWrKW8hoF5peoY2yUaE9tQHBQX0jRfzEDjjm4G7K3NQc0PLFl3f4244EoDavdst6V
-	buXj4JwXj1iWBFWpty4S8mf5WYh3vtRT34DziRNlvOkSxLE2NRcxnzfmEf94xZVhBOyqsAYKXJo/M
-	C3puMsZK34RxSlMb5aey2xokBliC9szExvwaecyI35au07qszKqnsigvD/Uwx0EQK9s1IoRPodMo7
-	gn6c/uSSv6QOlzQC4byQ==;
+	List-Owner; bh=QLQlvY2p8wLI7WgoeqoYAMKORtT/5fDmWdPiCKnREtw=; b=ZtWuBnhiP4Fgu7
+	KNgpGCcrvsv2n5isLTURwqHdpf6jGnB/miRmUJb/jO1MuSKeLN9i0+6OtBIM2i0keB0dKGlx3/cEs
+	NfCSHEnHQMVcXd0MyjrU9bGhjEX21uZcXUUxIKYonQxU/SAF5kcPsTKjz7icn851VTFUleW3wKqc4
+	7cPatlklsNLBBCVDlRuVhfqtlIPw5Br7ZYoctODx/J3YUeDRVJMIkdiZ41qBCYpp1X+WwpHViyXEw
+	hva639/Pwpww+vQWpW4iwz5A6lCXgE098Kk6Yh4nygfYASV/8AlVdoE+wTsnINfEUGNJOLZEpeHyw
+	ncxqo942fkAFc6R63UQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1souDK-0000000EaYa-0Lbd;
-	Fri, 13 Sep 2024 00:31:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1souDI-0000000EaXb-1N69;
+	Fri, 13 Sep 2024 00:31:04 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sot5s-0000000ESmQ-3rsO
+	id 1sot51-0000000ERwy-3RQc
 	for linux-riscv@bombadil.infradead.org;
-	Thu, 12 Sep 2024 23:19:21 +0000
+	Thu, 12 Sep 2024 23:18:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=vRpTmBOo4f9wGNdjTiRRTPN5pl3eVu/w/Wzy47xL6pg=; b=MzYCBxCnNxTaWYkLERSp+AEKHO
-	4O40YnaKbv9Cw6OfD/EvGs5BQOjqGTLHhOaiYAEKVbsa+ftAs6hyC1jsNfU4bheX8iTwsQLEBG1Ex
-	vTZya+csCl9DIrdNyTMhp4q5Rp17l4xTqXbF8ga47JRpp37NShuhXjp6YAr/h+WuQgv6tnZ03G31t
-	7cAwIzzoQTvgCvN0fHwen7aIBN2e8LxBzub8Ik64IDpTybsYrIrT/E4I0MXjGZJvK6o49LcqrbCNW
-	5cDN5yENGRUmmZ9GGulm8PRqE5Vt0lCKTAktvl6BcpHeQn5yP2sRIe3Cs0G2PBTYBHIDRY5HzVs10
-	ZAzv6uug==;
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sot5S-00000000YJl-2CFz
+	bh=eQcGpVU0IdnPD1mHTUz69E9YXFdr868sAk68PrVb1pE=; b=jIMicuCT+SvDHplikS8V9yx5D2
+	A9B++kK6f4oICG+VDGAuV8RnA7ZYO0UZlOW2g1o6AdJoV3r9eMWmowi1MQZdrOgPblLBGXFn8vXnz
+	0iX8nMG+5ujIWEm6Irr/hyyB8uBB+rj4pdah+Welu3Gk+m9AV3NUInRYaz87pmJ1jW0cUyIcfNDNd
+	IcMfkmtCYwWGAX/NqfRravCEjUugn9mAQVShK0ERgoA1JdzBk0stK4D5pYGmMYmtS9Jq4d6v0xS8+
+	gZzXjec9ZgK5gYK739osWYuBy1rHbNtbiHQ8Px6c5HGt2sINi/GGwGjs6ovyqXFLrq/swD9nCPWte
+	5xXL0/mg==;
+Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
+	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1sot4y-0000000CMzW-1BKt
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Sep 2024 23:19:14 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-2db928dbd53so1261248a91.2
-        for <linux-riscv@lists.infradead.org>; Thu, 12 Sep 2024 16:18:52 -0700 (PDT)
+	Thu, 12 Sep 2024 23:18:26 +0000
+Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-7c1324be8easo1892088a12.1
+        for <linux-riscv@lists.infradead.org>; Thu, 12 Sep 2024 16:18:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1726183131; x=1726787931; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1726183100; x=1726787900; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=vRpTmBOo4f9wGNdjTiRRTPN5pl3eVu/w/Wzy47xL6pg=;
-        b=EubGq3m5ZvVzO77BgexbV19Y7VM3ZUiv6FU967A7x6+5SRRHtJcodhp4XGr1z6XO+Z
-         kYh7r3F4CgLboPwQWbJW2xOAJf58+97u9L4woKi5JY/DHzEvwzhSXwQW73pj4hoHdNYM
-         RZi/S7KoMD7aNDD0EsCXt4Xlw2T16jGLZnJtEUPP6oiBLuHC5D5MGiusK7+ZKTLiO6Ob
-         HOPXqhYcCX4DqREZsXtptCG9WPNANi4tOa65eZFQquamgWasKgOv6S5XoUjTF0cisiGg
-         uGTucTY5ilATJ1kjFfttj+LzR6jKfGAsldekInDvgY3Nqrd1aT6uXs88JfO7l4N13RLI
-         mRug==
+        bh=eQcGpVU0IdnPD1mHTUz69E9YXFdr868sAk68PrVb1pE=;
+        b=PPYk8Qhx0+ubgD2h1Cwocp6zXTCPUBXAG7uHIXhxQYL80JVxC8rQ+sjQ+fIiNSNqKH
+         O8cDJoLNHeH/mCcJRzcE7rMUta59YBCqKfv1wuosFaMAzBe1EtL5BNTeF9xacJitHULp
+         KjEXgvQWyVpnEOceyPQ8NgyUoxf5jWkhBjoa8pbmg0crWCHqlBiVOksss33xc4nuwhum
+         vrOo5jco6lag61xWAde9lKYML/bEDWeqAI7mWrrRmg5N6Ag7phUwqOJmaPk8zg4/r47c
+         RQMYW21E7oCFaXK5JZDaff7fQuOe0wDq21AwKt0LDyoA+ikIN8EGdNslE8Aic6iAA8qE
+         JsuQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1726183131; x=1726787931;
+        d=1e100.net; s=20230601; t=1726183100; x=1726787900;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=vRpTmBOo4f9wGNdjTiRRTPN5pl3eVu/w/Wzy47xL6pg=;
-        b=Up/1D4LKvgskfI+TwtgRULvfWrypDgafrV3cBwAFEBdP0wI6H1IUNx54l6Wz+hg22/
-         Bw4lzWWemkaO8MhFsJYmTjnI1Z2AdkF+Ts5J6NeJoM8MLPlNPBK2oEQJEIQCAkMX/6u9
-         WzYDqIU5jgAeztC9Boate8zlGjPvLZd2F8VBK74cLcJnfxcAN1cVLDtCbv8+dMJAJSls
-         KaLr6HAf7Fj8S/A/cSiRUZ+wmPXR8n3I4dog8zEOeFWZQ79BKXhem8Dw5UYZ6tpoAHgC
-         pydkbkmJ5zfbPTE5ST2vJU8PbjODd/62MFJ0hYi6ox7jdbW/no7NEnhsUwrIUZCH3akx
-         B6pg==
-X-Forwarded-Encrypted: i=1; AJvYcCXVsULBZo/bdB8yDDqUeRxkJ2UCeL4cN29hsHfV8UngAumXfvUVVYeruGzE76vnc4LxF9xas1SCiiBjlQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVlY6JPn2EHxCLz+GuGgkh3wsXjSSG2h3o9GJB3z+ue60WKr0f
-	S/S1WOoCl8N/sLu+OPWldOeCGSvZCha6I8bUAMUKi7iNm9N4hjPjOayyMn4ecNg=
-X-Google-Smtp-Source: AGHT+IGSBIHvNtnBIsR7GeLeQfebNSrrsHlC0GHK9qkrAjtXKK+cIqA47d5wbXfoZYS+dksrkXz4mA==
-X-Received: by 2002:a17:90a:1641:b0:2d3:bc5e:8452 with SMTP id 98e67ed59e1d1-2dba00681b2mr5466829a91.32.1726183131166;
-        Thu, 12 Sep 2024 16:18:51 -0700 (PDT)
+        bh=eQcGpVU0IdnPD1mHTUz69E9YXFdr868sAk68PrVb1pE=;
+        b=uqVhK0Y8USTkyl0XAKREWeK4fAEIBewB7lqyn+6ty5Bl6G1/iDC4RJyjjur+cixo3w
+         Yq9qsxPGYiAAv9/qW5IXcd2oVdsoeN0JPAyIzlmYNGy0tCT1TEMo1CzA3w/WSUGgPp4o
+         r+Sc3dt8jN8wXHLv0cxaew6UYBBxp+qwHrwl61hKh1eKP2fagsRF3RMPbUBPeFkzUizU
+         GU+P7K/f8s5BSkzHxM7hkoFg1RjggN5ERxx4QaHfKcz/4WwoxuYfmuajDl6MByiHZ7yX
+         OomFIQj/tVEI2mi/mUIxS/ov+1xAfWiKJcP07r4Sdr4mwDJrsbAs7YCTzo9UpdmAvun7
+         7uOg==
+X-Forwarded-Encrypted: i=1; AJvYcCWMZ8TiUHQkR5zDk6msDqBJsRwggj1wR2R/yCTmIvUziQIz7DCTWz3dnXKYr5rJgUu3EjDrg9T2SIFvMw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx5l1uHGdNaZ6yXL7viaW6fb+oBkkqVZ7rTxx28uOrC9i7vUiqF
+	EC7oDcXYdnbQyNqmCX7Rtc2MzJygO99DMFQ1kGBSjVquAhDYn9ipCNJbehNiSuc=
+X-Google-Smtp-Source: AGHT+IFff016Dc/UvJnFaAb1uH5IeOSLPpio1EAHCPI04vBCz6X3EEqRQxY7cO8q2vilVk8FL6IgYg==
+X-Received: by 2002:a17:90a:2c0f:b0:2d8:25ce:e6e3 with SMTP id 98e67ed59e1d1-2db6718d8b4mr19220198a91.5.1726183100307;
+        Thu, 12 Sep 2024 16:18:20 -0700 (PDT)
 Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2db6c1ac69asm3157591a91.0.2024.09.12.16.18.47
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2db6c1ac69asm3157591a91.0.2024.09.12.16.18.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Sep 2024 16:18:50 -0700 (PDT)
+        Thu, 12 Sep 2024 16:18:19 -0700 (PDT)
 From: Deepak Gupta <debug@rivosinc.com>
 To: paul.walmsley@sifive.com,
 	palmer@sifive.com,
@@ -90,17 +90,16 @@ To: paul.walmsley@sifive.com,
 	linux-mm@kvack.org,
 	linux-arch@vger.kernel.org,
 	linux-kselftest@vger.kernel.org
-Subject: [PATCH v4 24/30] riscv/kernel: update __show_regs to print shadow stack register
-Date: Thu, 12 Sep 2024 16:16:43 -0700
-Message-ID: <20240912231650.3740732-25-debug@rivosinc.com>
+Subject: [PATCH v4 17/30] prctl: arch-agnostic prctl for shadow stack
+Date: Thu, 12 Sep 2024 16:16:36 -0700
+Message-ID: <20240912231650.3740732-18-debug@rivosinc.com>
 X-Mailer: git-send-email 2.45.0
 In-Reply-To: <20240912231650.3740732-1-debug@rivosinc.com>
 References: <20240912231650.3740732-1-debug@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240913_001854_984037_726B2B61 
-X-CRM114-Status: UNSURE (   8.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240913_001824_449418_7E61E1DA 
+X-CRM114-Status: GOOD (  15.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,30 +117,135 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Updating __show_regs to print captured shadow stack pointer as well.
-On tasks where shadow stack is disabled, it'll simply print 0.
+From: Mark Brown <broonie@kernel.org>
 
+Three architectures (x86, aarch64, riscv) have announced support for
+shadow stacks with fairly similar functionality.  While x86 is using
+arch_prctl() to control the functionality neither arm64 nor riscv uses
+that interface so this patch adds arch-agnostic prctl() support to
+get and set status of shadow stacks and lock the current configuration to
+prevent further changes, with support for turning on and off individual
+subfeatures so applications can limit their exposure to features that
+they do not need.  The features are:
+
+  - PR_SHADOW_STACK_ENABLE: Tracking and enforcement of shadow stacks,
+    including allocation of a shadow stack if one is not already
+    allocated.
+  - PR_SHADOW_STACK_WRITE: Writes to specific addresses in the shadow
+    stack.
+  - PR_SHADOW_STACK_PUSH: Push additional values onto the shadow stack.
+  - PR_SHADOW_STACK_DISABLE: Allow to disable shadow stack.
+    Note once locked, disable must fail.
+
+These features are expected to be inherited by new threads and cleared
+on exec(), unknown features should be rejected for enable but accepted
+for locking (in order to allow for future proofing).
+
+This is based on a patch originally written by Deepak Gupta but later
+modified by Mark Brown for arm's GCS patch series.
+
+Signed-off-by: Mark Brown <broonie@kernel.org>
+Co-developed-by: Deepak Gupta <debug@rivosinc.com>
 Signed-off-by: Deepak Gupta <debug@rivosinc.com>
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 ---
- arch/riscv/kernel/process.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ include/linux/mm.h         |  3 +++
+ include/uapi/linux/prctl.h | 21 +++++++++++++++++++++
+ kernel/sys.c               | 30 ++++++++++++++++++++++++++++++
+ 3 files changed, 54 insertions(+)
 
-diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-index f3c5b8f2c869..1a5d70977e5a 100644
---- a/arch/riscv/kernel/process.c
-+++ b/arch/riscv/kernel/process.c
-@@ -87,8 +87,8 @@ void __show_regs(struct pt_regs *regs)
- 		regs->s8, regs->s9, regs->s10);
- 	pr_cont(" s11: " REG_FMT " t3 : " REG_FMT " t4 : " REG_FMT "\n",
- 		regs->s11, regs->t3, regs->t4);
--	pr_cont(" t5 : " REG_FMT " t6 : " REG_FMT "\n",
--		regs->t5, regs->t6);
-+	pr_cont(" t5 : " REG_FMT " t6 : " REG_FMT " ssp : " REG_FMT "\n",
-+		regs->t5, regs->t6, get_active_shstk(current));
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index f0dc94fb782a..e3acb4297877 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -4215,6 +4215,9 @@ static inline bool pfn_is_unaccepted_memory(unsigned long pfn)
  
- 	pr_cont("status: " REG_FMT " badaddr: " REG_FMT " cause: " REG_FMT "\n",
- 		regs->status, regs->badaddr, regs->cause);
+ 	return range_contains_unaccepted_memory(paddr, paddr + PAGE_SIZE);
+ }
++int arch_get_shadow_stack_status(struct task_struct *t, unsigned long __user *status);
++int arch_set_shadow_stack_status(struct task_struct *t, unsigned long status);
++int arch_lock_shadow_stack_status(struct task_struct *t, unsigned long status);
+ 
+ void vma_pgtable_walk_begin(struct vm_area_struct *vma);
+ void vma_pgtable_walk_end(struct vm_area_struct *vma);
+diff --git a/include/uapi/linux/prctl.h b/include/uapi/linux/prctl.h
+index 35791791a879..b8d7b6361754 100644
+--- a/include/uapi/linux/prctl.h
++++ b/include/uapi/linux/prctl.h
+@@ -327,5 +327,26 @@ struct prctl_mm_map {
+ # define PR_PPC_DEXCR_CTRL_SET_ONEXEC	 0x8 /* Set the aspect on exec */
+ # define PR_PPC_DEXCR_CTRL_CLEAR_ONEXEC	0x10 /* Clear the aspect on exec */
+ # define PR_PPC_DEXCR_CTRL_MASK		0x1f
++/*
++ * Get the current shadow stack configuration for the current thread,
++ * this will be the value configured via PR_SET_SHADOW_STACK_STATUS.
++ */
++#define PR_GET_SHADOW_STACK_STATUS      74
++
++/*
++ * Set the current shadow stack configuration.  Enabling the shadow
++ * stack will cause a shadow stack to be allocated for the thread.
++ */
++#define PR_SET_SHADOW_STACK_STATUS      75
++# define PR_SHADOW_STACK_ENABLE         (1UL << 0)
++# define PR_SHADOW_STACK_WRITE		(1UL << 1)
++# define PR_SHADOW_STACK_PUSH		(1UL << 2)
++
++/*
++ * Prevent further changes to the specified shadow stack
++ * configuration.  All bits may be locked via this call, including
++ * undefined bits.
++ */
++#define PR_LOCK_SHADOW_STACK_STATUS      76
+ 
+ #endif /* _LINUX_PRCTL_H */
+diff --git a/kernel/sys.c b/kernel/sys.c
+index 3a2df1bd9f64..7e0c10e867cf 100644
+--- a/kernel/sys.c
++++ b/kernel/sys.c
+@@ -2324,6 +2324,21 @@ int __weak arch_prctl_spec_ctrl_set(struct task_struct *t, unsigned long which,
+ 	return -EINVAL;
+ }
+ 
++int __weak arch_get_shadow_stack_status(struct task_struct *t, unsigned long __user *status)
++{
++	return -EINVAL;
++}
++
++int __weak arch_set_shadow_stack_status(struct task_struct *t, unsigned long status)
++{
++	return -EINVAL;
++}
++
++int __weak arch_lock_shadow_stack_status(struct task_struct *t, unsigned long status)
++{
++	return -EINVAL;
++}
++
+ #define PR_IO_FLUSHER (PF_MEMALLOC_NOIO | PF_LOCAL_THROTTLE)
+ 
+ #ifdef CONFIG_ANON_VMA_NAME
+@@ -2782,6 +2797,21 @@ SYSCALL_DEFINE5(prctl, int, option, unsigned long, arg2, unsigned long, arg3,
+ 	case PR_RISCV_SET_ICACHE_FLUSH_CTX:
+ 		error = RISCV_SET_ICACHE_FLUSH_CTX(arg2, arg3);
+ 		break;
++	case PR_GET_SHADOW_STACK_STATUS:
++		if (arg3 || arg4 || arg5)
++			return -EINVAL;
++		error = arch_get_shadow_stack_status(me, (unsigned long __user *) arg2);
++		break;
++	case PR_SET_SHADOW_STACK_STATUS:
++		if (arg3 || arg4 || arg5)
++			return -EINVAL;
++		error = arch_set_shadow_stack_status(me, arg2);
++		break;
++	case PR_LOCK_SHADOW_STACK_STATUS:
++		if (arg3 || arg4 || arg5)
++			return -EINVAL;
++		error = arch_lock_shadow_stack_status(me, arg2);
++		break;
+ 	default:
+ 		error = -EINVAL;
+ 		break;
 -- 
 2.45.0
 
