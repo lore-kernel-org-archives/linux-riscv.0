@@ -4,88 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1D39EEE270
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Sep 2024 22:57:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 184A7EEE270
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Sep 2024 22:59:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=e4nbZ/mibmHlo5dJRTDZLgqIwaaqyJnaTAxluZVpcGg=; b=b0GDW1/Av9rinT
-	mqF75q5VMzu1lmN3s7BM+OqanlcU6c3YiA3rw+S/0QJZJDEYATz68XnAaDvwwaHsRU2cXgLXfKG+D
-	nR631iLHy0MWzWBR6RQhfAB1qMJwsUAV2tmvEn+nk8HabhcDq0WgZVjV773myg2d6YPoszd3NocwZ
-	M1kkC41Cavggej4tQW+B8LMBSG0678bAZZAfnoXuAEc3LvgeeEvLSUIdHPzuHv3xtd5kgPY3pZ0Mp
-	LGRUsKzdIGy3927d3/BTt5P9dowMl13VKQBy2oW5paBE84S6n1GVgFvscZJejWpTkftEJFDBmC0GJ
-	/HL1RqQHcHsTOMW/cVTQ==;
+	List-Owner; bh=eRWY6Yqo5A51JPGMwKTxOuyPpDL9G7WWgh/RdCOLW5w=; b=3d6jLvb/eadwbA
+	lwTKC2B0Dq8cFSZz6yrwwEpaHcR2Eg/MhlwMWQr9HiND2wFl8WXhDsjDDUNRVh5HumK4HFHyjtHAT
+	la5tPEv2Sli7udertJAOx4+P6vWv8nAk3ACHbPAM01DgxaILSbuBgAT/b8ngOcyp/SzvaFKpQbwWF
+	fngEwCv27MpKydFowTTKO6ziXZu9kPK7Pnd0TyImmuDQO2kJgfV6QyX3U+TZ0Wf69OEpwLfqKKb2y
+	Ulq5JKM/KvE7pgy8nWIdC1nXc1yuC3ZFggWNaySWP6il0AcC+djQgsjTXaHvPDMp61Hg245oixaGm
+	ZWVjCpfwqPXhGGxdm8kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1soskG-0000000EPAu-3MPr;
-	Thu, 12 Sep 2024 22:57:00 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1sosml-0000000EPP0-0c84;
+	Thu, 12 Sep 2024 22:59:35 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1soskE-0000000EP9q-0tDl
+	id 1sosmi-0000000EPOI-42qW
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Sep 2024 22:56:59 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2057c6c57b5so8908715ad.1
-        for <linux-riscv@lists.infradead.org>; Thu, 12 Sep 2024 15:56:57 -0700 (PDT)
+	Thu, 12 Sep 2024 22:59:34 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-20551e2f1f8so3157195ad.2
+        for <linux-riscv@lists.infradead.org>; Thu, 12 Sep 2024 15:59:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1726181817; x=1726786617; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1726181972; x=1726786772; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=GYeDafd6h4Ckb8JAjqukFPSa5tGTBnNmbEnNRSDSsQ0=;
-        b=JFaMf7BFKbxB4maD3IQf5yi0xXpAdAzA72QE35WHprTOBXNPK/Wn20m729B/VJtreq
-         oKP43wvwwze0CMd2dVsL7RwPVBW/0yVGMhEsE6tHOSsWmEsT/2qLJZ5o671yo3xEJxyG
-         3nbCeDZVniPIvunPVWDTWoMxApi3EYUDk0ehjlbik06CFIBNr4VHpW4A+RzFnEO4vX3D
-         dGxpKtPcR8KTZOLKUMbM2GJU73k3kkK/C+UTt23XM0tNv2e0sAS4lkn57rHuWUvsGR2V
-         6bxGKT21q+K8xTpY15hy6rpUmqRhM6AMg/cU2oDzsUM8nrvAdJI/IVb+LM0SJ77MxMgj
-         DmQw==
+        bh=LI4dI97SWAb860LG4NezAi+gyF0moRXuDnMKm5Q9r2s=;
+        b=fq4b6hTxWeomQdBbYK65LwaxnNQSzZJ/9f//3tAIVMrGKykUo2XAIgTrIbASBGfhpe
+         dS60TAZ2Ab71ZXzpgyhMnIofHvPXFbFLS1T2LmJ2mos2AB5vkMMcY6wfFL9tiCTjREps
+         K2SekFPrLqDs2i2UqFhrf6jvR+nKVa1zuw4hRw4AIgi07Fj8aU31/Qq7/zcdtx/rvtTt
+         v6Ida0BHhDC2XyTdPxjkeUmgtpgzk76a53N46m5bG28B6bDX6AzAFbr9RPDUM0GfBKwB
+         gfc/r6Ye032ZTnvsQYKZNWFRvvgx7eAVJTFrS0RWgNbsBNmFfI3K0LQv/VqD1+LxVSFP
+         +77Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1726181817; x=1726786617;
+        d=1e100.net; s=20230601; t=1726181972; x=1726786772;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=GYeDafd6h4Ckb8JAjqukFPSa5tGTBnNmbEnNRSDSsQ0=;
-        b=YLu5UYxZNZK/cYsufpamdzH2clv3BXzWVRh8BZsTSgC7eG4FUNbMQngPxr0SuKbozk
-         tz1gfdflT+hM/Nim4nwX2ChkBj8Xz4Wa+qQlzYufpOTBsuJncFRoBABJwA4Dwnt+jnpg
-         tCNrrXCblvzL+dRJwbla3aOHurr0dHeiYJlYIa/tt+A+ZAtMJSdn8akd/Cj53DlqCEO7
-         AKxijofXgab8QPnBco591PX2yjD5PpG6J+umgGw8aQ7AEAx4Vpy7L0CeIR/Jwd5nYdGV
-         A47H7re5vfPkv0WzSfXmHiJijPCAhF1uOWv0hFt2fCrDXuJXfy7x0vjrUDVUklp403Rr
-         Ph+w==
-X-Gm-Message-State: AOJu0Yxu0O4RXcnk4EJ5DlRdmxjl+mm8J/vpTCuGnrNHM9X8U5x95Tx4
-	izglR1zyQbaNWQL+QPirxW6np6l3ouiDYlsmr3a1QdQwkWnDdIH7QbjekPFRQQ4=
-X-Google-Smtp-Source: AGHT+IHY8n+CpuCNyplrI5I2c5yN0lN83eMD2C9rgDbxBSIaStLSLcw/aHiLyl46zfx/eLeTeZoTHQ==
-X-Received: by 2002:a17:902:ea03:b0:202:4bd9:aea5 with SMTP id d9443c01a7336-2074c623694mr162541905ad.14.1726181817024;
-        Thu, 12 Sep 2024 15:56:57 -0700 (PDT)
+        bh=LI4dI97SWAb860LG4NezAi+gyF0moRXuDnMKm5Q9r2s=;
+        b=wJUEH/J6Nr4+76+SiJLdlbSerZuKZNPsf5qp6WXT7yBaSOsd2e6r+b2J0KiC/nVZUT
+         h8R0KfvUXh3NVxS6RHB+fNPYOp0FOmGZRABkuXWFkCBU8FSlhGEd1LO+XRCm4KQyMxis
+         XLCnk6KefnNCg9aIITlJoNVi96Xc3a2T/g61WiOFAMSpSJLQAY6KEMYsUkRBFdvsi+Gu
+         N5tYmKnFtzOPKcvwY36zVDvqWPz+76lab7/0bKm4YFC9uVQ5eydovyFem3yEcgV2WRmU
+         FfZwah5hOkrdYeGpYltJPszolSrsecMymR8Gj3p3qOw4stqarhiI6omb/W6VnGLvUSj3
+         gt3Q==
+X-Gm-Message-State: AOJu0Yzu0JNSfAf9+y8GGUnShMfdBLThkQ252H7R1W+o+asG3lm/IfUl
+	ES9+PTABl5ABMLmigkLQSzO/bdpQWoQXiVW5gY+06MsKHgvCoPm1KYjmRHIDKZ4=
+X-Google-Smtp-Source: AGHT+IE+CL3+oYuw4kshgAQdGS8pSbDVdFnEX/NOrpfbZgL0VyDq3X6tMQuMNJbHW68DMGighRDooA==
+X-Received: by 2002:a17:90b:1c84:b0:2c9:6a2d:b116 with SMTP id 98e67ed59e1d1-2dbb9dc9551mr1002941a91.7.1726181972073;
+        Thu, 12 Sep 2024 15:59:32 -0700 (PDT)
 Received: from ghost ([50.145.13.30])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2076afdc33csm18588835ad.143.2024.09.12.15.56.55
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2076af456c5sm18707335ad.65.2024.09.12.15.59.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Sep 2024 15:56:56 -0700 (PDT)
-Date: Thu, 12 Sep 2024 15:56:54 -0700
+        Thu, 12 Sep 2024 15:59:31 -0700 (PDT)
+Date: Thu, 12 Sep 2024 15:59:28 -0700
 From: Charlie Jenkins <charlie@rivosinc.com>
 To: Samuel Holland <samuel.holland@sifive.com>
 Cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
 	Andrew Jones <ajones@ventanamicro.com>,
 	Conor Dooley <conor@kernel.org>, linux-kernel@vger.kernel.org,
 	Deepak Gupta <debug@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Andy Chiu <andy.chiu@sifive.com>,
 	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
 	Evan Green <evan@rivosinc.com>,
-	Greentime Hu <greentime.hu@sifive.com>, Guo Ren <guoren@kernel.org>,
-	Leonardo Bras <leobras@redhat.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Xiao Wang <xiao.w.wang@intel.com>
-Subject: Re: [PATCH v3 2/3] riscv: Add support for per-thread envcfg CSR
- values
-Message-ID: <ZuNxtoZqvbzGptyp@ghost>
-References: <20240718004808.2246354-1-samuel.holland@sifive.com>
- <20240718004808.2246354-3-samuel.holland@sifive.com>
+	Thomas Gleixner <tglx@linutronix.de>,
+	Xiao Wang <xiao.w.wang@intel.com>, Zhao Ke <ke.zhao@shingroup.cn>
+Subject: Re: [PATCH v4 3/3] riscv: Call riscv_user_isa_enable() only on the
+ boot hart
+Message-ID: <ZuNyUC8mUSp8UtfI@ghost>
+References: <20240814081126.956287-1-samuel.holland@sifive.com>
+ <20240814081126.956287-4-samuel.holland@sifive.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240718004808.2246354-3-samuel.holland@sifive.com>
+In-Reply-To: <20240814081126.956287-4-samuel.holland@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240912_155658_275638_8ECD21C5 
-X-CRM114-Status: GOOD (  25.59  )
+X-CRM114-CacheID: sfid-20240912_155933_030030_562F2CCA 
+X-CRM114-Status: GOOD (  23.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,21 +102,14 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 17, 2024 at 05:47:55PM -0700, Samuel Holland wrote:
-> Some bits in the [ms]envcfg CSR, such as the CFI state and pointer
-> masking mode, need to be controlled on a per-thread basis. Support this
-> by keeping a copy of the CSR value in struct thread_struct and writing
-> it during context switches. It is safe to discard the old CSR value
-> during the context switch because the CSR is modified only by software,
-> so the CSR will remain in sync with the copy in thread_struct.
-> 
-> Use ALTERNATIVE directly instead of riscv_has_extension_unlikely() to
-> minimize branchiness in the context switching code.
-> 
-> Since thread_struct is copied during fork(), setting the value for the
-> init task sets the default value for all other threads.
+On Wed, Aug 14, 2024 at 01:10:56AM -0700, Samuel Holland wrote:
+> Now that the [ms]envcfg CSR value is maintained per thread, not per
+> hart, riscv_user_isa_enable() only needs to be called once during boot,
+> to set the value for the init task. This also allows it to be marked as
+> __init.
 > 
 > Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 > Reviewed-by: Deepak Gupta <debug@rivosinc.com>
 > Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 
@@ -124,64 +117,66 @@ Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
 
 > ---
 > 
-> (no changes since v1)
+> Changes in v4:
+>  - Rebase on riscv/for-next (v6.11-rc)
+>  - Add Conor's Reviewed-by tags from v2 (missed in v3)
 > 
->  arch/riscv/include/asm/processor.h | 1 +
->  arch/riscv/include/asm/switch_to.h | 8 ++++++++
->  arch/riscv/kernel/cpufeature.c     | 2 +-
->  3 files changed, 10 insertions(+), 1 deletion(-)
+> Changes in v3:
+>  - Drop use of __initdata due to conflicts with cpufeature.c refactoring
 > 
-> diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-> index 8702b8721a27..586e4ab701c4 100644
-> --- a/arch/riscv/include/asm/processor.h
-> +++ b/arch/riscv/include/asm/processor.h
-> @@ -124,6 +124,7 @@ struct thread_struct {
->  	unsigned long s[12];	/* s[0]: frame pointer */
->  	struct __riscv_d_ext_state fstate;
->  	unsigned long bad_cause;
-> +	unsigned long envcfg;
->  	u32 riscv_v_flags;
->  	u32 vstate_ctrl;
->  	struct __riscv_v_ext_state vstate;
-> diff --git a/arch/riscv/include/asm/switch_to.h b/arch/riscv/include/asm/switch_to.h
-> index 7594df37cc9f..9685cd85e57c 100644
-> --- a/arch/riscv/include/asm/switch_to.h
-> +++ b/arch/riscv/include/asm/switch_to.h
-> @@ -70,6 +70,13 @@ static __always_inline bool has_fpu(void) { return false; }
->  #define __switch_to_fpu(__prev, __next) do { } while (0)
->  #endif
+> Changes in v2:
+>  - Rebase on riscv/for-next
+> 
+>  arch/riscv/include/asm/cpufeature.h | 2 +-
+>  arch/riscv/kernel/cpufeature.c      | 4 ++--
+>  arch/riscv/kernel/smpboot.c         | 2 --
+>  3 files changed, 3 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
+> index 45f9c1171a48..ce9a995730c1 100644
+> --- a/arch/riscv/include/asm/cpufeature.h
+> +++ b/arch/riscv/include/asm/cpufeature.h
+> @@ -31,7 +31,7 @@ DECLARE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
+>  /* Per-cpu ISA extensions. */
+>  extern struct riscv_isainfo hart_isa[NR_CPUS];
 >  
-> +static inline void __switch_to_envcfg(struct task_struct *next)
-> +{
-> +	asm volatile (ALTERNATIVE("nop", "csrw " __stringify(CSR_ENVCFG) ", %0",
-> +				  0, RISCV_ISA_EXT_XLINUXENVCFG, 1)
-> +			:: "r" (next->thread.envcfg) : "memory");
-> +}
-> +
->  extern struct task_struct *__switch_to(struct task_struct *,
->  				       struct task_struct *);
+> -void riscv_user_isa_enable(void);
+> +void __init riscv_user_isa_enable(void);
 >  
-> @@ -103,6 +110,7 @@ do {							\
->  		__switch_to_vector(__prev, __next);	\
->  	if (switch_to_should_flush_icache(__next))	\
->  		local_flush_icache_all();		\
-> +	__switch_to_envcfg(__next);			\
->  	((last) = __switch_to(__prev, __next));		\
->  } while (0)
->  
+>  #define _RISCV_ISA_EXT_DATA(_name, _id, _subset_exts, _subset_exts_size, _validate) {	\
+>  	.name = #_name,									\
 > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index 4efaf12b470e..43fdae953379 100644
+> index df3e7e8d6d78..b3b9735cb19a 100644
 > --- a/arch/riscv/kernel/cpufeature.c
 > +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -878,7 +878,7 @@ unsigned long riscv_get_elf_hwcap(void)
->  void riscv_user_isa_enable(void)
+> @@ -919,12 +919,12 @@ unsigned long riscv_get_elf_hwcap(void)
+>  	return hwcap;
+>  }
+>  
+> -void riscv_user_isa_enable(void)
+> +void __init riscv_user_isa_enable(void)
 >  {
 >  	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_ZICBOZ))
-> -		csr_set(CSR_ENVCFG, ENVCFG_CBZE);
-> +		current->thread.envcfg |= ENVCFG_CBZE;
+>  		current->thread.envcfg |= ENVCFG_CBZE;
 >  	else if (any_cpu_has_zicboz)
->  		pr_warn_once("Zicboz disabled as it is unavailable on some harts\n");
+> -		pr_warn_once("Zicboz disabled as it is unavailable on some harts\n");
+> +		pr_warn("Zicboz disabled as it is unavailable on some harts\n");
 >  }
+>  
+>  #ifdef CONFIG_RISCV_ALTERNATIVE
+> diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+> index 0f8f1c95ac38..e36d20205bd7 100644
+> --- a/arch/riscv/kernel/smpboot.c
+> +++ b/arch/riscv/kernel/smpboot.c
+> @@ -233,8 +233,6 @@ asmlinkage __visible void smp_callin(void)
+>  	numa_add_cpu(curr_cpuid);
+>  	set_cpu_online(curr_cpuid, true);
+>  
+> -	riscv_user_isa_enable();
+> -
+>  	/*
+>  	 * Remote cache and TLB flushes are ignored while the CPU is offline,
+>  	 * so flush them both right now just in case.
 > -- 
 > 2.45.1
 > 
