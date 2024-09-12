@@ -4,76 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99019EE645B
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Sep 2024 08:01:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D60B3EEB565
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Sep 2024 09:03:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fHVFEKD9l1boAMdkrcLUwb3D7M/8fPPqTPNNWtb2Jwo=; b=i0oIHXGsH0vFQz
-	L9tqCEIXlEavrZKMgs3xsl7hUR5z2LTJ6/PIqo+tW8UquUZYzHBeSc9+0flvYWxM1mux4LLaUE0OG
-	L6Do4k7j+gbeFr7KfYXElvuP9ZevC5B/pOIoj3lfU5wbUJS9iaVQo43K/t4AH1RQ/S5DuFYPCWaJv
-	HnJjR2LBZGE80kxQTZkE1ZTYWpMAHFHJvVTTye4fJUbEl4YR+M8WpgLtooFK8uoFQ6VmZRXmtNdHn
-	oQucqE3/v79YyLdp2d2m6lRUPTK3Rbbf7E/gFSo7hdoU7dgPxYXvEGBCIz51WW3tVLB/RquLuNpYS
-	VThzi3NqeP/5uQVcTh4A==;
+	List-Owner; bh=C5iVd6cjA1uEEGu3pD0Qm7QTqD6sIQ955rhOhQdwwYY=; b=b/7nrkhiR3mHV0
+	YdceaRk0NRck3YM1LHc7VlU8n7Q+mg8WXL4tkQwMXYVFGnXdwWYHkQmxhbBBh7nK0iiSuyk0E2hpE
+	ETSLSJRs95ErFbUwgVEH1C+7r6x4AqBDOvXwzoLvSAXGnLYGUxI5rt/fGD+DU5wTeV0a243JMntX6
+	iHQVGfNHMpZ2+qofmqDbBc5ZUFeG8mBC41fUuhM6p0XKaqzl9tyEpeLarpw2FQzyOW2xIPzaICSkt
+	WyIr8BH+gn3V/kkfurPsDo21zf7mr4O/Qcla56f86GU6yR7TrXk1stTCMg+/eK36IbLNks5IGL6QY
+	uTH5js2YZzRyfbr50rCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1soelQ-0000000CHrY-0JNs;
-	Thu, 12 Sep 2024 08:01:16 +0000
+	id 1sofjp-0000000CSiw-1ooV;
+	Thu, 12 Sep 2024 09:03:41 +0000
 Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1soel4-0000000CHhH-05Uy;
-	Thu, 12 Sep 2024 08:00:56 +0000
-Received: from zq-Legion-Y7000.. (unknown [180.111.103.6])
-	by APP-01 (Coremail) with SMTP id qwCowAAHDx+pn+Jm9F_9Ag--.56033S2;
-	Thu, 12 Sep 2024 16:00:41 +0800 (CST)
-From: zhouquan@iscas.ac.cn
-To: anup@brainfault.org,
-	ajones@ventanamicro.com,
-	atishp@atishpatra.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	Quan Zhou <zhouquan@iscas.ac.cn>
-Subject: [PATCH v3 2/2] riscv: KVM: add basic support for host vs guest profiling
-Date: Thu, 12 Sep 2024 16:00:38 +0800
-Message-Id: <86e8f4eeb30dfc8700089cd88616e6cfb5a142ff.1726126795.git.zhouquan@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1726126795.git.zhouquan@iscas.ac.cn>
-References: <cover.1726126795.git.zhouquan@iscas.ac.cn>
+	id 1sofjl-0000000CShr-1hm0;
+	Thu, 12 Sep 2024 09:03:40 +0000
+Received: from [192.168.12.114] (unknown [180.111.103.6])
+	by APP-01 (Coremail) with SMTP id qwCowAC3aKhbruJmh60BAw--.7963S2;
+	Thu, 12 Sep 2024 17:03:24 +0800 (CST)
+Message-ID: <b5128162-278a-4284-8271-b2b91dc446e1@iscas.ac.cn>
+Date: Thu, 12 Sep 2024 17:03:20 +0800
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowAAHDx+pn+Jm9F_9Ag--.56033S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxJFW7KrWUtFWxAryrGF15Arb_yoW5ZF1xpF
-	Z8ur9Y9r4rKryxC34ayr1v9r45WFsYg343Xry7CFy5Wr45try8Jr4vg34DAry5JFW8Xa4S
-	kFy8KFyruwn8Aw7anT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBj14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jw0_WrylYx0Ex4A2jsIE14v26F4j6r4UJwAm72CE4IkC6x0Yz7v_Jr
-	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E
-	8cxan2IY04v7M4kE6xkIj40Ew7xC0wCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwI
-	xGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480
-	Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7
-	IYx2IY67AKxVWUCVW8JwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k2
-	6cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxV
-	AFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUXqXdUUUUU=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] RISC-V: KVM: Redirect instruction access fault trap to
+ guest
+To: anup@brainfault.org, ajones@ventanamicro.com, atishp@atishpatra.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
+References: <83c2234d582b7e823ce9ac9b73a6bbcf63971a29.1724911120.git.zhouquan@iscas.ac.cn>
+Content-Language: en-US
+From: Quan Zhou <zhouquan@iscas.ac.cn>
+In-Reply-To: <83c2234d582b7e823ce9ac9b73a6bbcf63971a29.1724911120.git.zhouquan@iscas.ac.cn>
+X-CM-TRANSID: qwCowAC3aKhbruJmh60BAw--.7963S2
+X-Coremail-Antispam: 1UD129KBjvJXoWrtF1rtr1xWF43Gr4fGFW8Xrb_yoW8JryrpF
+	43CF1a9r4rWFyq93WIvrs7uFWIqwn5K3ZxWr4jqFW5Xwsrtas5Crs0g3yUtFy8Gr4rX3yI
+	9F4IqFyvyFn8twUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvlb7Iv0xC_Cr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwV
+	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
+	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Cr0_Gr
+	1UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xK
+	xwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJV
+	W8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF
+	1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6x
+	IIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvE
+	x4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvj
+	DU0xZFpf9x07UN2-5UUUUU=
 X-Originating-IP: [180.111.103.6]
-X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiCQ8SBmbifb+DkgAAsF
+X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiCQ8SBmbifb-JEgAAsP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240912_010054_478423_12DCCF10 
-X-CRM114-Status: GOOD (  12.97  )
+X-CRM114-CacheID: sfid-20240912_020338_883744_A3B6C87D 
+X-CRM114-Status: GOOD (  12.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,118 +76,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Quan Zhou <zhouquan@iscas.ac.cn>
 
-For the information collected on the host side, we need to
-identify which data originates from the guest and record
-these events separately, this can be achieved by having
-KVM register perf callbacks.
+On 2024/8/29 14:20, zhouquan@iscas.ac.cn wrote:
+> From: Quan Zhou <zhouquan@iscas.ac.cn>
+> 
+> The M-mode redirects an unhandled instruction access
+> fault trap back to S-mode when not delegating it to
+> VS-mode(hedeleg). However, KVM running in HS-mode
+> terminates the VS-mode software when back from M-mode.
+> 
+> The KVM should redirect the trap back to VS-mode, and
+> let VS-mode trap handler decide the next step.
+> 
+> Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
+> ---
+>   arch/riscv/kvm/vcpu_exit.c | 1 +
+>   1 file changed, 1 insertion(+)
+> 
+> diff --git a/arch/riscv/kvm/vcpu_exit.c b/arch/riscv/kvm/vcpu_exit.c
+> index fa98e5c024b2..696b62850d0b 100644
+> --- a/arch/riscv/kvm/vcpu_exit.c
+> +++ b/arch/riscv/kvm/vcpu_exit.c
+> @@ -182,6 +182,7 @@ int kvm_riscv_vcpu_exit(struct kvm_vcpu *vcpu, struct kvm_run *run,
+>   	ret = -EFAULT;
+>   	run->exit_reason = KVM_EXIT_UNKNOWN;
+>   	switch (trap->scause) {
+> +	case EXC_INST_ACCESS:
 
-Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
----
- arch/riscv/include/asm/kvm_host.h | 10 ++++++++++
- arch/riscv/kvm/Kconfig            |  1 +
- arch/riscv/kvm/main.c             | 12 ++++++++++--
- arch/riscv/kvm/vcpu.c             |  7 +++++++
- 4 files changed, 28 insertions(+), 2 deletions(-)
+A gentle ping, the instruction access fault should be redirected to
+VS-mode for handling, is my understanding correct?
 
-diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-index 2e2254fd2a2a..35eab6e0f4ae 100644
---- a/arch/riscv/include/asm/kvm_host.h
-+++ b/arch/riscv/include/asm/kvm_host.h
-@@ -286,6 +286,16 @@ struct kvm_vcpu_arch {
- 	} sta;
- };
- 
-+/*
-+ * Returns true if a Performance Monitoring Interrupt (PMI), a.k.a. perf event,
-+ * arrived in guest context.  For riscv, any event that arrives while a vCPU is
-+ * loaded is considered to be "in guest".
-+ */
-+static inline bool kvm_arch_pmi_in_guest(struct kvm_vcpu *vcpu)
-+{
-+	return IS_ENABLED(CONFIG_GUEST_PERF_EVENTS) && !!vcpu;
-+}
-+
- static inline void kvm_arch_sync_events(struct kvm *kvm) {}
- 
- #define KVM_RISCV_GSTAGE_TLB_MIN_ORDER		12
-diff --git a/arch/riscv/kvm/Kconfig b/arch/riscv/kvm/Kconfig
-index 26d1727f0550..0c3cbb0915ff 100644
---- a/arch/riscv/kvm/Kconfig
-+++ b/arch/riscv/kvm/Kconfig
-@@ -32,6 +32,7 @@ config KVM
- 	select KVM_XFER_TO_GUEST_WORK
- 	select KVM_GENERIC_MMU_NOTIFIER
- 	select SCHED_INFO
-+	select GUEST_PERF_EVENTS if PERF_EVENTS
- 	help
- 	  Support hosting virtualized guest machines.
- 
-diff --git a/arch/riscv/kvm/main.c b/arch/riscv/kvm/main.c
-index bab2ec34cd87..734b48d8f6dd 100644
---- a/arch/riscv/kvm/main.c
-+++ b/arch/riscv/kvm/main.c
-@@ -51,6 +51,12 @@ void kvm_arch_hardware_disable(void)
- 	csr_write(CSR_HIDELEG, 0);
- }
- 
-+static void kvm_riscv_teardown(void)
-+{
-+	kvm_riscv_aia_exit();
-+	kvm_unregister_perf_callbacks();
-+}
-+
- static int __init riscv_kvm_init(void)
- {
- 	int rc;
-@@ -105,9 +111,11 @@ static int __init riscv_kvm_init(void)
- 		kvm_info("AIA available with %d guest external interrupts\n",
- 			 kvm_riscv_aia_nr_hgei);
- 
-+	kvm_register_perf_callbacks(NULL);
-+
- 	rc = kvm_init(sizeof(struct kvm_vcpu), 0, THIS_MODULE);
- 	if (rc) {
--		kvm_riscv_aia_exit();
-+		kvm_riscv_teardown();
- 		return rc;
- 	}
- 
-@@ -117,7 +125,7 @@ module_init(riscv_kvm_init);
- 
- static void __exit riscv_kvm_exit(void)
- {
--	kvm_riscv_aia_exit();
-+	kvm_riscv_teardown();
- 
- 	kvm_exit();
- }
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index 8d7d381737ee..e8ffb3456898 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -226,6 +226,13 @@ bool kvm_arch_vcpu_in_kernel(struct kvm_vcpu *vcpu)
- 	return (vcpu->arch.guest_context.sstatus & SR_SPP) ? true : false;
- }
- 
-+#ifdef CONFIG_GUEST_PERF_EVENTS
-+unsigned long kvm_arch_vcpu_get_ip(struct kvm_vcpu *vcpu)
-+{
-+	return vcpu->arch.guest_context.sepc;
-+}
-+#endif
-+
- vm_fault_t kvm_arch_vcpu_fault(struct kvm_vcpu *vcpu, struct vm_fault *vmf)
- {
- 	return VM_FAULT_SIGBUS;
--- 
-2.34.1
+>   	case EXC_INST_ILLEGAL:
+>   	case EXC_LOAD_MISALIGNED:
+>   	case EXC_STORE_MISALIGNED:
+> 
+> base-commit: 7c626ce4bae1ac14f60076d00eafe71af30450ba
 
 
 _______________________________________________
