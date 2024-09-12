@@ -4,75 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8E50EED625
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Sep 2024 16:48:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12225EED627
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Sep 2024 17:15:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8u7BQC3tRdBj4fxAoyp9OzFY/zI0uacuSC9UqIVtOrs=; b=CbUjCf9x6S0tri
-	06RUaQu6Be2TAOm7Ax4hBbFqrgM4nS0mwzXpY5zlS/JbjRqvjfyfTD0xRt92P+4nBlG0/3S5MvyM2
-	idYLMVIqYcc9NvdFfSVi0Wb3O1f9SU699GlwN4oG4hAaO98rcZ8D62PTAb+4xnhUOxndzMgZ/mXwR
-	AhM28SQ7qdcXUuyagZzg5bzMfwEZmkRQ9jHvUkOTfqPGB2Wlexvzc3JfqcrBpv//iK530HCl7UeUH
-	DX/syxA7amfmAlsj9upvQfRAykXapoV+fLCLTEMjkSbeMhFF6yF8Z1eL8018fUmVaYp9Eej9oWOX/
-	XrkmwkEuphp7GHJ80bBg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LjhMyy/EindzitBv2JJuliaPKGJeUlwa/iRwQPnEeqY=; b=c1eXp0msntO/DVA5gj6Fz++GFv
+	qmBzyxN0kF4e3eyiYhSDN0UiwgFtE0QkIEwmzaiNuLi/RUidJIKu7VVvp46xYGULXUG+sPvO3VZlp
+	MXqomSv10dNY4e2KfZyAssNFlfuvCbP2VMqBeHhe69G29ZsHCUMzJDQjXnDaFBMGc7ClRjz3d2xl0
+	5FgOBKIDWDPZ8vYODfmhCq/soMSjRF6SUw9o5eQyGGI1iVIfs7HoaEvitkH5eMY9TPk5avzCiXTmf
+	dk7GJvdQ3AYTMzFRiGUavvEucZlEccDFH/uPmZBnkusfgCneTcD/9LYmJuTaGBDiQRlhJ26GEFFXk
+	x7d2n+2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1somzj-0000000DkoK-1iV3;
-	Thu, 12 Sep 2024 16:48:35 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1sonQA-0000000Do8C-3Z9U;
+	Thu, 12 Sep 2024 17:15:54 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1somzf-0000000DkmE-3fUo
+	id 1sonQ7-0000000Do7p-1hQI
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Sep 2024 16:48:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1726159711; x=1757695711;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=NJTyCpO+Y77tWGIpphUjAJTNx//eTMs3hE/+Nvi3nlE=;
-  b=dasiXP2XD92A2X5CrvY6jByZVItmzQcS5aJFHeATzMvCI9eItwmAmmCI
-   kOyvZMYiEv3M2/eWCbf/ENQd091OdS1sdmkXtFYYdG4PGCgvjVcEAE3xZ
-   cAIQTBet+Vl3bddxJ7pK6fjF00mTChjiMeo361CY91XEiNhhHdofEqNTI
-   R3y/NieczfXRM4D4h+nn1OP0o5TTXW5jniNShb4qwyz+Dg3aYs0P6Ax48
-   I0QN71fwmoE/cLComa+NSeKm7shoWx6wUkvVhdAcIrN2jnjhMb1B12oJ4
-   mGLg9izMdkwkSG094Fxdg065sYhU09QtczpNilgXZNTJ9dS3FhFoOCVXd
-   w==;
-X-CSE-ConnectionGUID: Ac9NytbARZ2zk5pQNIMJbg==
-X-CSE-MsgGUID: 3Apw9UqhQwquUSB58z2Nvw==
-X-IronPort-AV: E=Sophos;i="6.10,223,1719903600"; 
-   d="scan'208";a="31712183"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 12 Sep 2024 09:48:29 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Thu, 12 Sep 2024 09:48:00 -0700
-Received: from valentina.microchip.com (10.10.85.11) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Thu, 12 Sep 2024 09:47:57 -0700
-From: Valentina Fernandez <valentina.fernandezalanis@microchip.com>
-To: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<peterlin@andestech.com>, <dminus@andestech.com>,
-	<conor.dooley@microchip.com>, <conor+dt@kernel.org>, <ycliang@andestech.com>,
-	<jassisinghbrar@gmail.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<andersson@kernel.org>, <mathieu.poirier@linaro.org>,
-	<valentina.fernandezalanis@microchip.com>
-CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-remoteproc@vger.kernel.org>
-Subject: [PATCH v1 5/5] remoteproc: add support for Microchip IPC remoteproc platform driver
-Date: Thu, 12 Sep 2024 18:00:25 +0100
-Message-ID: <20240912170025.455167-6-valentina.fernandezalanis@microchip.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20240912170025.455167-1-valentina.fernandezalanis@microchip.com>
+	Thu, 12 Sep 2024 17:15:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D28CD5C5BDE;
+	Thu, 12 Sep 2024 17:15:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FF58C4CEC3;
+	Thu, 12 Sep 2024 17:15:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1726161350;
+	bh=F2KHOAwtI2liyPV9p1o+B/TcQTeoG/9OurOUzOITgCY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=d6a1m6UN8+Mc8aa6OvJQtkMkFtlC/An2ncY7bN/TbuccIworuRnicIdjj5P5hqc+R
+	 /7ZoY3Eq2dlhOeP1Qmd3MvKhDPnsK3oHckYnwNW78m8BHlfI1CvAMY9fiIv9cnBU3b
+	 T1XWuFt3kWODI8xkFitIi8m9f8ssXfdUdEMDxuuc2x1oFTwudoqhqIM5Cyml/T0rqV
+	 7SBIMn5ZF5iiCOfe3hAwcT7Niwk4azuxQDgYn6dTX7TM8PKn+8q7STiPQuKjGVe4xt
+	 k9llevAIEppG9KN+L2mN3LLzcXvEhCs4NeOzImt+bhhAiVa1Wlys6Ocq33ox9cgftZ
+	 VzzzCIMgWVHcg==
+Date: Thu, 12 Sep 2024 18:15:44 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Valentina Fernandez <valentina.fernandezalanis@microchip.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	peterlin@andestech.com, dminus@andestech.com,
+	conor.dooley@microchip.com, conor+dt@kernel.org,
+	ycliang@andestech.com, jassisinghbrar@gmail.com, robh@kernel.org,
+	krzk+dt@kernel.org, andersson@kernel.org,
+	mathieu.poirier@linaro.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-remoteproc@vger.kernel.org
+Subject: Re: [PATCH v1 2/5] dt-bindings: mailbox: add binding for Microchip
+ IPC mailbox driver
+Message-ID: <20240912-wired-skirt-a758f0e1507c@spud>
 References: <20240912170025.455167-1-valentina.fernandezalanis@microchip.com>
+ <20240912170025.455167-3-valentina.fernandezalanis@microchip.com>
 MIME-Version: 1.0
+In-Reply-To: <20240912170025.455167-3-valentina.fernandezalanis@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240912_094831_965363_3B365557 
-X-CRM114-Status: GOOD (  30.52  )
+X-CRM114-CacheID: sfid-20240912_101551_610621_0F36D0A4 
+X-CRM114-Status: GOOD (  22.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,547 +74,206 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3406334434576776459=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Microchip family of RISC-V SoCs typically has one or more clusters.
-These clusters can be configured to run in Asymmetric Multi-Processing
-(AMP) mode.
 
-Add a remoteproc platform driver to be able to load and boot firmware
-to the remote processor(s).
+--===============3406334434576776459==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="YivsFDfHFtw+N+Us"
+Content-Disposition: inline
 
-The driver uses SBI (RISC-V Supervisor Binary Interface) ecalls to
-request software running in machine-privileged mode (M-mode) to
-start/stop the remote processor(s).
 
-Inter-processor communication is supported through the virtio rpmsg
-stack using shared memory and the Microchip IPC mailbox driver.
+--YivsFDfHFtw+N+Us
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Currently, the driver the following features are supported:
-- Start/stop a remote software context
-- Kick function implementation for RPMsg Communication
-- Attach to a remote context loaded by another entity (bootloader)
+On Thu, Sep 12, 2024 at 06:00:22PM +0100, Valentina Fernandez wrote:
+> Add a dt-binding for the Microchip Inter-Processor Communication (IPC)
+> mailbox controller.
 
-Error Recovery and Power Management features are not currently supported
+Before anyone else gets here, there's an erroneous "driver" in $subject
+:)
 
-Signed-off-by: Valentina Fernandez <valentina.fernandezalanis@microchip.com>
----
- drivers/remoteproc/Kconfig               |  12 +
- drivers/remoteproc/Makefile              |   1 +
- drivers/remoteproc/mchp_ipc_remoteproc.c | 461 +++++++++++++++++++++++
- 3 files changed, 474 insertions(+)
- create mode 100644 drivers/remoteproc/mchp_ipc_remoteproc.c
+> Signed-off-by: Valentina Fernandez <valentina.fernandezalanis@microchip.c=
+om>
+> ---
+>  .../bindings/mailbox/microchip,sbi-ipc.yaml   | 115 ++++++++++++++++++
+>  1 file changed, 115 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/mailbox/microchip,s=
+bi-ipc.yaml
+>=20
+> diff --git a/Documentation/devicetree/bindings/mailbox/microchip,sbi-ipc.=
+yaml b/Documentation/devicetree/bindings/mailbox/microchip,sbi-ipc.yaml
+> new file mode 100644
+> index 000000000000..dc2cbd5eb28f
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/mailbox/microchip,sbi-ipc.yaml
+> @@ -0,0 +1,115 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/mailbox/microchip,sbi-ipc.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Microchip Inter-processor communication (IPC) mailbox controller
+> +
+> +maintainers:
+> +  - Valentina Fernandez <valentina.fernandezalanis@microchip.com>
+> +
+> +description:
+> +  The Microchip Inter-processor Communication (IPC) facilitates
+> +  message passing between processors using an interrupt signaling
+> +  mechanism.
+> +  This SBI interface is compatible with the Mi-V Inter-hart
+> +  Communication (IHC) IP.
+> +  The microchip,sbi-ipc compatible string is inteded for use by software
+> +  running in supervisor privileged mode (s-mode). The SoC-specific
+> +  compatibles are inteded for use by the SBI implementation in machine
+> +  mode (m-mode).
 
-diff --git a/drivers/remoteproc/Kconfig b/drivers/remoteproc/Kconfig
-index dda2ada215b7..f973ed1d0635 100644
---- a/drivers/remoteproc/Kconfig
-+++ b/drivers/remoteproc/Kconfig
-@@ -54,6 +54,18 @@ config INGENIC_VPU_RPROC
- 	  This can be either built-in or a loadable module.
- 	  If unsure say N.
- 
-+config MCHP_IPC_REMOTEPROC
-+	tristate "Microchip IPC remoteproc support"
-+	depends on MCHP_SBI_IPC_MBOX || COMPILE_TEST
-+	depends on RISCV_SBI
-+	help
-+	  Say y here to support booting and loading firmware to remote
-+	  processors on various Microchip family of RISC-V SoCs via the
-+	  remote processor framework.
-+	  This can be either built-in or a loadable module.
-+	  If compiled as module, the module will be called mchp_ipc_remoteproc.
-+	  If unsure say N.
-+
- config MTK_SCP
- 	tristate "Mediatek SCP support"
- 	depends on ARCH_MEDIATEK || COMPILE_TEST
-diff --git a/drivers/remoteproc/Makefile b/drivers/remoteproc/Makefile
-index 91314a9b43ce..3e3a27d2e848 100644
---- a/drivers/remoteproc/Makefile
-+++ b/drivers/remoteproc/Makefile
-@@ -14,6 +14,7 @@ obj-$(CONFIG_REMOTEPROC_CDEV)		+= remoteproc_cdev.o
- obj-$(CONFIG_IMX_REMOTEPROC)		+= imx_rproc.o
- obj-$(CONFIG_IMX_DSP_REMOTEPROC)	+= imx_dsp_rproc.o
- obj-$(CONFIG_INGENIC_VPU_RPROC)		+= ingenic_rproc.o
-+obj-$(CONFIG_MCHP_IPC_REMOTEPROC)	+= mchp_ipc_remoteproc.o
- obj-$(CONFIG_MTK_SCP)			+= mtk_scp.o mtk_scp_ipi.o
- obj-$(CONFIG_OMAP_REMOTEPROC)		+= omap_remoteproc.o
- obj-$(CONFIG_WKUP_M3_RPROC)		+= wkup_m3_rproc.o
-diff --git a/drivers/remoteproc/mchp_ipc_remoteproc.c b/drivers/remoteproc/mchp_ipc_remoteproc.c
-new file mode 100644
-index 000000000000..95446dbc7993
---- /dev/null
-+++ b/drivers/remoteproc/mchp_ipc_remoteproc.c
-@@ -0,0 +1,461 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Microchip IPC Remoteproc driver
-+ *
-+ * Copyright (c) 2021 - 2024 Microchip Technology Inc. All rights reserved.
-+ *
-+ * Author: Valentina Fernandez <valentina.fernandezalanis@microchip.com>
-+ *
-+ * Derived from the imx_rproc implementation:
-+ * Copyright (c) 2017 Pengutronix, Oleksij Rempel <kernel@pengutronix.de>
-+ */
-+
-+#include <linux/err.h>
-+#include <linux/kernel.h>
-+#include <linux/mailbox_client.h>
-+#include <linux/module.h>
-+#include <linux/of_address.h>
-+#include <linux/of_reserved_mem.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+#include <linux/remoteproc.h>
-+#include <linux/workqueue.h>
-+
-+#include <asm/sbi.h>
-+#include <asm/vendorid_list.h>
-+#include <linux/mailbox/mchp-ipc.h>
-+
-+#include "remoteproc_internal.h"
-+
-+#define SBI_EXT_MICROCHIP_TECHNOLOGY	(SBI_EXT_VENDOR_START | \
-+					 MICROCHIP_VENDOR_ID)
-+
-+#define MIV_RPROC_MEM_MAX		2
-+
-+enum {
-+	SBI_EXT_RPROC_STATE = 0x3,
-+	SBI_EXT_RPROC_START,
-+	SBI_EXT_RPROC_STOP,
-+};
-+
-+/**
-+ * enum mchp_ipc_rproc_mbox_messages - predefined mailbox messages
-+ *
-+ * @MCHP_IPC_RPROC_MBOX_READY: a ready message response from a remote context indicating
-+ * that the remote context is up and running.
-+ *
-+ * @MIV_RP_MBOX_PENDING_MSG: Not currently in use, but reserved for future use
-+ * to inform the receiver that there is a message awaiting in its receive-side
-+ * vring. At the moment, one can explicitly send the index of the triggered
-+ * virtqueue as a payload.
-+ *
-+ * @MIV_RP_MBOX_STOP: a stop request for the remote context
-+ *
-+ * @MIV_RP_MBOX_END_MSG: Indicates end of known/defined messages.
-+ * This should be the last definition.
-+ *
-+ */
-+enum mchp_ipc_rproc_mbox_messages {
-+	MCHP_IPC_RPROC_MBOX_READY = 0xFFFFFF00,
-+	MCHP_IPC_RPROC_MBOX_PENDING_MSG = 0xFFFFFF01,
-+	MCHP_IPC_RPROC_MBOX_STOP = 0xFFFFFF02,
-+	MCHP_IPC_RPROC_MBOX_END_MSG = 0xFFFFFF03,
-+};
-+
-+struct mchp_ipc_rproc {
-+	struct device *dev;
-+	struct rproc *rproc;
-+	struct mbox_chan *mbox_channel;
-+	struct workqueue_struct *workqueue;
-+	struct mbox_client mbox_client;
-+	struct completion start_done;
-+	struct work_struct rproc_work;
-+	struct mchp_ipc_msg message;
-+	void __iomem *rsc_table;
-+	bool initialized;
-+	u32 chan_id;
-+};
-+
-+static int mchp_ipc_rproc_start(struct rproc *rproc)
-+{
-+	struct mchp_ipc_rproc *priv = rproc->priv;
-+	struct device_node *np = priv->dev->of_node;
-+	struct sbiret ret;
-+	int result;
-+
-+	ret = sbi_ecall(SBI_EXT_MICROCHIP_TECHNOLOGY, SBI_EXT_RPROC_START,
-+			priv->chan_id, rproc->bootaddr, 0, 0, 0, 0);
-+
-+	if (ret.error)
-+		return sbi_err_map_linux_errno(ret.error);
-+
-+	result = wait_for_completion_timeout(&priv->start_done,
-+					     msecs_to_jiffies(5000));
-+
-+	if (!of_property_present(np, "microchip,skip-start-wait") && result == 0) {
-+		dev_err(priv->dev, "timeout waiting for ready notification\n");
-+		return -ETIMEDOUT;
-+	}
-+
-+	return 0;
-+}
-+
-+static int mchp_ipc_rproc_stop(struct rproc *rproc)
-+{
-+	struct mchp_ipc_rproc *priv = rproc->priv;
-+	struct sbiret ret;
-+
-+	ret = sbi_ecall(SBI_EXT_MICROCHIP_TECHNOLOGY, SBI_EXT_RPROC_STOP,
-+			priv->chan_id, MCHP_IPC_RPROC_MBOX_STOP, 0, 0, 0, 0);
-+
-+	if (ret.error)
-+		return sbi_err_map_linux_errno(ret.error);
-+
-+	return ret.value;
-+}
-+
-+static int mchp_ipc_rproc_mem_alloc(struct rproc *rproc, struct rproc_mem_entry *mem)
-+{
-+	struct device *dev = rproc->dev.parent;
-+	void *va;
-+
-+	dev_dbg(dev, "map memory: %pad+%zx\n", &mem->dma, mem->len);
-+	va = ioremap_wc(mem->dma, mem->len);
-+	if (IS_ERR_OR_NULL(va)) {
-+		dev_err(dev, "Unable to map memory region: %p+%zx\n",
-+			&mem->dma, mem->len);
-+		return -ENOMEM;
-+	}
-+
-+	mem->va = va;
-+
-+	return 0;
-+}
-+
-+static int mchp_ipc_rproc_mem_release(struct rproc *rproc,
-+				      struct rproc_mem_entry *mem)
-+{
-+	dev_dbg(rproc->dev.parent, "unmap memory: %pad\n", &mem->dma);
-+	iounmap(mem->va);
-+
-+	return 0;
-+}
-+
-+static int mchp_ipc_rproc_prepare(struct rproc *rproc)
-+{
-+	struct mchp_ipc_rproc *priv = rproc->priv;
-+	struct device_node *np = priv->dev->of_node;
-+	struct rproc_mem_entry *mem;
-+	struct reserved_mem *rmem;
-+	struct of_phandle_iterator it;
-+	u64 device_address;
-+
-+	reinit_completion(&priv->start_done);
-+
-+	of_phandle_iterator_init(&it, np, "memory-region", NULL, 0);
-+	while (of_phandle_iterator_next(&it) == 0) {
-+		/*
-+		 * Ignore the first memory region which will be used vdev
-+		 * buffer. No need to do extra handlings, rproc_add_virtio_dev
-+		 * will handle it.
-+		 */
-+		if (!strcmp(it.node->name, "vdev0buffer"))
-+			continue;
-+
-+		if (!strcmp(it.node->name, "rsc-table"))
-+			continue;
-+
-+		rmem = of_reserved_mem_lookup(it.node);
-+		if (!rmem) {
-+			of_node_put(it.node);
-+			dev_err(priv->dev, "unable to acquire memory-region\n");
-+			return -EINVAL;
-+		}
-+
-+		device_address = rmem->base;
-+
-+		mem = rproc_mem_entry_init(priv->dev, NULL, (dma_addr_t)rmem->base,
-+					   rmem->size, device_address, mchp_ipc_rproc_mem_alloc,
-+					   mchp_ipc_rproc_mem_release, it.node->name);
-+
-+		if (!mem) {
-+			of_node_put(it.node);
-+			return -ENOMEM;
-+		}
-+
-+		rproc_add_carveout(rproc, mem);
-+	}
-+
-+	return 0;
-+}
-+
-+static int mchp_ipc_rproc_parse_fw(struct rproc *rproc, const struct firmware *fw)
-+{
-+	int ret;
-+
-+	ret = rproc_elf_load_rsc_table(rproc, fw);
-+	if (ret)
-+		dev_info(&rproc->dev, "No resource table in elf\n");
-+
-+	return 0;
-+}
-+
-+static void mchp_ipc_rproc_kick(struct rproc *rproc, int vqid)
-+{
-+	struct mchp_ipc_rproc *priv = (struct mchp_ipc_rproc *)rproc->priv;
-+	struct mchp_ipc_msg msg;
-+	int ret;
-+
-+	msg.buf = (void *)&vqid;
-+	msg.size = sizeof(vqid);
-+
-+	ret = mbox_send_message(priv->mbox_channel, (void *)&msg);
-+	if (ret < 0)
-+		dev_err(priv->dev,
-+			"failed to send mbox message, status = %d\n", ret);
-+}
-+
-+static int mchp_ipc_rproc_attach(struct rproc *rproc)
-+{
-+	return 0;
-+}
-+
-+static struct resource_table
-+*mchp_ipc_rproc_get_loaded_rsc_table(struct rproc *rproc, size_t *table_sz)
-+{
-+	struct mchp_ipc_rproc *priv = rproc->priv;
-+
-+	if (!priv->rsc_table)
-+		return NULL;
-+
-+	*table_sz = SZ_1K;
-+	return (struct resource_table *)priv->rsc_table;
-+}
-+
-+static const struct rproc_ops mchp_ipc_rproc_ops = {
-+	.prepare = mchp_ipc_rproc_prepare,
-+	.start = mchp_ipc_rproc_start,
-+	.get_loaded_rsc_table = mchp_ipc_rproc_get_loaded_rsc_table,
-+	.attach = mchp_ipc_rproc_attach,
-+	.stop = mchp_ipc_rproc_stop,
-+	.kick = mchp_ipc_rproc_kick,
-+	.load = rproc_elf_load_segments,
-+	.parse_fw = mchp_ipc_rproc_parse_fw,
-+	.find_loaded_rsc_table = rproc_elf_find_loaded_rsc_table,
-+	.sanity_check = rproc_elf_sanity_check,
-+	.get_boot_addr = rproc_elf_get_boot_addr,
-+};
-+
-+static int mchp_ipc_rproc_addr_init(struct mchp_ipc_rproc *priv,
-+				    struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct device_node *np = dev->of_node;
-+	int i, err, rmem_np;
-+
-+	rmem_np = of_count_phandle_with_args(np, "memory-region", NULL);
-+	if (rmem_np <= 0)
-+		return 0;
-+
-+	for (i = 0; i < rmem_np; i++) {
-+		struct device_node *node;
-+		struct resource res;
-+
-+		node = of_parse_phandle(np, "memory-region", i);
-+		if (!node)
-+			continue;
-+
-+		if (!strncmp(node->name, "vdev", strlen("vdev"))) {
-+			of_node_put(node);
-+			continue;
-+		}
-+
-+		if (!strcmp(node->name, "rsc-table")) {
-+			err = of_address_to_resource(node, 0, &res);
-+			if (err) {
-+				of_node_put(node);
-+				return dev_err_probe(dev, err,
-+						     "unable to resolve memory region\n");
-+			}
-+			priv->rsc_table = devm_ioremap(&pdev->dev,
-+						       res.start, resource_size(&res));
-+			of_node_put(node);
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+static void mchp_ipc_rproc_vq_work(struct work_struct *work)
-+{
-+	struct mchp_ipc_rproc *priv = container_of(work, struct mchp_ipc_rproc, rproc_work);
-+	struct device *dev = priv->rproc->dev.parent;
-+
-+	u32 msg = priv->message.buf[0];
-+
-+	/*
-+	 * Currently, we are expected to receive the following messages
-+	 * from the remote cluster: a ready message or receive the index
-+	 * of the triggered virtqueue as a payload.
-+	 * We can silently ignore any other type of mailbox messages since
-+	 * they are not meant for us and are meant to be received by the
-+	 * remote cluster only.
-+	 */
-+	switch (msg) {
-+	case MCHP_IPC_RPROC_MBOX_READY:
-+		complete(&priv->start_done);
-+		break;
-+	default:
-+		if (msg >= MCHP_IPC_RPROC_MBOX_READY && msg < MCHP_IPC_RPROC_MBOX_END_MSG)
-+			return;
-+		if (msg > priv->rproc->max_notifyid) {
-+			dev_info(dev, "dropping unknown message 0x%x", msg);
-+			return;
-+		}
-+		/* msg contains the index of the triggered vring */
-+		if (rproc_vq_interrupt(priv->rproc, msg) == IRQ_NONE)
-+			dev_dbg(dev, "no message was found in vqid %d\n", msg);
-+	}
-+}
-+
-+static void mchp_ipc_rproc_rx_callback(struct mbox_client *mbox_client, void *msg)
-+{
-+	struct rproc *rproc = dev_get_drvdata(mbox_client->dev);
-+	struct mchp_ipc_rproc *priv = rproc->priv;
-+
-+	priv->message = *(struct mchp_ipc_msg *)msg;
-+	queue_work(priv->workqueue, &priv->rproc_work);
-+}
-+
-+static int mchp_ipc_rproc_mbox_init(struct rproc *rproc)
-+{
-+	struct mchp_ipc_rproc *priv = rproc->priv;
-+	struct device *dev = priv->dev;
-+	struct mbox_client *mbox_client;
-+
-+	mbox_client = &priv->mbox_client;
-+	mbox_client->dev = dev;
-+	mbox_client->tx_block = true;
-+	mbox_client->tx_tout = 100;
-+	mbox_client->knows_txdone = false;
-+	mbox_client->rx_callback = mchp_ipc_rproc_rx_callback;
-+
-+	priv->mbox_channel = mbox_request_channel(mbox_client, 0);
-+	if (IS_ERR(priv->mbox_channel))
-+		return dev_err_probe(mbox_client->dev,
-+				     PTR_ERR(priv->mbox_channel),
-+				     "failed to request mailbox channel\n");
-+
-+	priv->chan_id = mchp_ipc_get_chan_id(priv->mbox_channel);
-+
-+	return 0;
-+}
-+
-+static int mchp_ipc_rproc_get_state(u32 chan)
-+{
-+	struct sbiret ret;
-+
-+	ret = sbi_ecall(SBI_EXT_MICROCHIP_TECHNOLOGY, SBI_EXT_RPROC_STATE,
-+			chan, 0, 0, 0, 0, 0);
-+
-+	if (ret.error)
-+		return sbi_err_map_linux_errno(ret.error);
-+
-+	return ret.value;
-+}
-+
-+static int mchp_ipc_rproc_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct device_node *np = dev->of_node;
-+	struct mchp_ipc_rproc *priv;
-+	struct rproc *rproc;
-+	int ret;
-+
-+	rproc = devm_rproc_alloc(dev, np->name, &mchp_ipc_rproc_ops,
-+				 NULL, sizeof(*priv));
-+	if (!rproc)
-+		return -ENOMEM;
-+
-+	priv = rproc->priv;
-+	priv->rproc = rproc;
-+	priv->dev = dev;
-+
-+	priv->workqueue = create_workqueue(dev_name(dev));
-+	if (!priv->workqueue)
-+		return dev_err_probe(dev, -ENOMEM, "cannot create workqueue\n");
-+
-+	INIT_WORK(&priv->rproc_work, mchp_ipc_rproc_vq_work);
-+	init_completion(&priv->start_done);
-+
-+	ret = mchp_ipc_rproc_mbox_init(rproc);
-+	if (ret)
-+		goto err_put_wkq;
-+
-+	ret = mchp_ipc_rproc_addr_init(priv, pdev);
-+	if (ret)
-+		goto err_put_mbox;
-+
-+	/*
-+	 * Check if the remote cluster has been booted by another entity
-+	 * (i.e. bootloader) and set rproc state accordingly
-+	 */
-+	rproc->state = mchp_ipc_rproc_get_state(priv->chan_id);
-+	if (ret < 0) {
-+		dev_err_probe(dev, ret, "Couldn't get cluster boot mode\n");
-+		goto err_put_mbox;
-+	}
-+
-+	if (rproc->state != RPROC_DETACHED)
-+		rproc->auto_boot = of_property_present(np, "microchip,auto-boot");
-+
-+	/* error recovery is not supported at present */
-+	rproc->recovery_disabled = true;
-+
-+	dev_set_drvdata(dev, rproc);
-+
-+	ret = devm_rproc_add(dev, rproc);
-+	if (ret) {
-+		dev_err_probe(dev, ret, "rproc_add failed\n");
-+		goto err_put_mbox;
-+	}
-+
-+	return 0;
-+
-+err_put_mbox:
-+	mbox_free_channel(priv->mbox_channel);
-+err_put_wkq:
-+	destroy_workqueue(priv->workqueue);
-+
-+	return ret;
-+}
-+
-+static void mchp_ipc_rproc_remove(struct platform_device *pdev)
-+{
-+	struct rproc *rproc = platform_get_drvdata(pdev);
-+	struct mchp_ipc_rproc *priv = rproc->priv;
-+
-+	mbox_free_channel(priv->mbox_channel);
-+	destroy_workqueue(priv->workqueue);
-+}
-+
-+static const struct of_device_id mchp_ipc_rproc_of_match[] __maybe_unused = {
-+	{ .compatible = "microchip,ipc-remoteproc", },
-+	{}
-+};
-+MODULE_DEVICE_TABLE(of, mchp_ipc_rproc_of_match);
-+
-+static struct platform_driver mchp_ipc_rproc_driver = {
-+	.probe = mchp_ipc_rproc_probe,
-+	.remove_new = mchp_ipc_rproc_remove,
-+	.driver = {
-+		.name = "microchip-ipc-rproc",
-+		.of_match_table = of_match_ptr(mchp_ipc_rproc_of_match),
-+	},
-+};
-+
-+module_platform_driver(mchp_ipc_rproc_driver);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_AUTHOR("Valentina Fernandez <valentina.fernandezalanis@microchip.com>");
-+MODULE_DESCRIPTION("Microchip IPC Remote Processor control driver");
--- 
-2.34.1
+And it might be worth me pointing out to the !riscv folks that "SBI
+implementation in machine mode" means that the
+"microchip,miv-ihc-rtl-v2" compatible is intended for use by firmware
+only.
 
+Cheers,
+Conor.
+
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - microchip,sbi-ipc
+> +      - microchip,miv-ihc-rtl-v2
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    minItems: 1
+> +    maxItems: 5
+> +
+> +  interrupt-names:
+> +    minItems: 1
+> +    maxItems: 5
+> +
+> +  "#mbox-cells":
+> +    description:
+> +      For the SBI "device", the cell represents the global "logical" cha=
+nnel IDs.
+> +      The meaning of channel IDs are platform firmware dependent. The
+> +      SoC-specific compatibles are intended for use by the SBI implement=
+ation,
+> +      rather than s-mode software. There the cell would represent the ph=
+ysical
+> +      channel and do not vary depending on platform firmware.
+> +    const: 1
+> +
+> +  microchip,ihc-chan-disabled-mask:
+> +    description:
+> +      Represents the enable/disable state of the bi-directional IHC chan=
+nels
+> +      within the MIV-IHC IP configuration. The mask is a 16-bit value, b=
+ut only
+> +      the first 15 bits are utilized.Each of the bits corresponds to
+> +      one of the 15 IHC channels.
+> +      A bit set to '1' indicates that the corresponding channel is disab=
+led,
+> +      and any read or write operations to that channel will return zero.
+> +      A bit set to '0' indicates that the corresponding channel is enabl=
+ed
+> +      and will be accessible through its dedicated address range registe=
+rs.
+> +      The remaining bit of the 16-bit mask is reserved and should be ign=
+ored.
+> +      The actual enable/disable state of each channel is determined by t=
+he
+> +      IP block=E2=80=99s configuration.
+> +    $ref: /schemas/types.yaml#/definitions/uint16
+> +    default: 0
+> +
+> +required:
+> +  - compatible
+> +  - interrupts
+> +  - interrupt-names
+> +  - "#mbox-cells"
+> +
+> +additionalProperties: false
+> +
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: microchip,sbi-ipc
+> +    then:
+> +      properties:
+> +        reg: false
+> +    else:
+> +      required:
+> +        - reg
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: microchip,miv-ihc-rtl-v2
+> +    then:
+> +      properties:
+> +        interrupt-names:
+> +          items:
+> +            pattern: "^hart-[0-5]+$"
+> +
+> +examples:
+> +  - |
+> +    mailbox {
+> +      compatible =3D "microchip,sbi-ipc";
+> +      interrupt-parent =3D <&plic>;
+> +      interrupts =3D <180>, <179>, <178>;
+> +      interrupt-names =3D "hart-1", "hart-2", "hart-3";
+> +      #mbox-cells =3D <1>;
+> +    };
+> +  - |
+> +    mailbox@50000000 {
+> +      compatible =3D "microchip,miv-ihc-rtl-v2";
+> +      microchip,ihc-chan-disabled-mask=3D  /bits/ 16 <0>;
+> +      reg =3D <0x50000000 0x1C000>;
+> +      interrupt-parent =3D <&plic>;
+> +      interrupts =3D <180>, <179>, <178>;
+> +      interrupt-names =3D "hart-1", "hart-2", "hart-3";
+> +      #mbox-cells =3D <1>;
+> +    };
+> --=20
+> 2.34.1
+>=20
+
+--YivsFDfHFtw+N+Us
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZuMhwAAKCRB4tDGHoIJi
+0ueGAQCjRtgOUFPYCV/NiX1IBYJRwc+sQaTW3AN/213MKFEm9gD9ELhr1G0y3nvJ
+A9fm9nCT5PQy4F0MwaegNptVjGbC+Qo=
+=L4tD
+-----END PGP SIGNATURE-----
+
+--YivsFDfHFtw+N+Us--
+
+
+--===============3406334434576776459==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3406334434576776459==--
+
