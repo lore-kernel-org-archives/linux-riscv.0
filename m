@@ -4,67 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D60B3EEB565
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Sep 2024 09:03:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECCE6EEB565
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Sep 2024 09:12:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=C5iVd6cjA1uEEGu3pD0Qm7QTqD6sIQ955rhOhQdwwYY=; b=b/7nrkhiR3mHV0
-	YdceaRk0NRck3YM1LHc7VlU8n7Q+mg8WXL4tkQwMXYVFGnXdwWYHkQmxhbBBh7nK0iiSuyk0E2hpE
-	ETSLSJRs95ErFbUwgVEH1C+7r6x4AqBDOvXwzoLvSAXGnLYGUxI5rt/fGD+DU5wTeV0a243JMntX6
-	iHQVGfNHMpZ2+qofmqDbBc5ZUFeG8mBC41fUuhM6p0XKaqzl9tyEpeLarpw2FQzyOW2xIPzaICSkt
-	WyIr8BH+gn3V/kkfurPsDo21zf7mr4O/Qcla56f86GU6yR7TrXk1stTCMg+/eK36IbLNks5IGL6QY
-	uTH5js2YZzRyfbr50rCw==;
+	List-Owner; bh=2IXIEvLV9NtEQTEdL2uXNDsoVVlDNg5PNaRDv+ACW5E=; b=HKuKpdC8kI9BsJ
+	MMwxy4VPCMC+tmIW6guwIe9ithKNVA52RBFvRJw3jlrtw3WxCX8UQqTdQ7bFW9XBMyqt+VKRp08Fw
+	cR44fEabFXelHk9r8gZisgoMFPTWtdeFoF3W9M7MlDRffXDtMXFfuKEbFFaL5t1jX5sTSJ7FSU+Uu
+	YLRwL8lB/fTAGj7o26PIkhEmRYD3/RyXQmQk3nVKgOVeFIssmhBYU5D6CW5p3u5KX05uECFUHJoM1
+	nh6hAgUvR0aVOMhLZjIN6a1lYrA/mDmJP8P0taHu6FeFTDQr93Z08rQ2HDbMp9zPARYh6KtR91tIY
+	autCB8Sjz59Hwhu2hjdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sofjp-0000000CSiw-1ooV;
-	Thu, 12 Sep 2024 09:03:41 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1sofsY-0000000CUCm-01TO;
+	Thu, 12 Sep 2024 09:12:42 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sofjl-0000000CShr-1hm0;
-	Thu, 12 Sep 2024 09:03:40 +0000
-Received: from [192.168.12.114] (unknown [180.111.103.6])
-	by APP-01 (Coremail) with SMTP id qwCowAC3aKhbruJmh60BAw--.7963S2;
-	Thu, 12 Sep 2024 17:03:24 +0800 (CST)
-Message-ID: <b5128162-278a-4284-8271-b2b91dc446e1@iscas.ac.cn>
-Date: Thu, 12 Sep 2024 17:03:20 +0800
+	id 1sofrQ-0000000CTwl-3ryf
+	for linux-riscv@lists.infradead.org;
+	Thu, 12 Sep 2024 09:11:35 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-5c25f01879fso749813a12.1
+        for <linux-riscv@lists.infradead.org>; Thu, 12 Sep 2024 02:11:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1726132291; x=1726737091; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=KDYukj80mIHPYCgHSB2w3O30EP7PG7QCtWy9R/+4O+8=;
+        b=dCWyEASp/St5fOVrXYbLAXOVL+aJleoApmzI3nl/vjrlS5Rm4Tn0saIpusDmuP9WYt
+         iLWUS2EP+8uifvLpnMq3Ks251JFbGZRxCf/Lo6SSn5Xxj2mJO2RUwyusC07H56SC9STf
+         1Hkiq+hiovSBVhK9c51t2HObUiaZwMNohZjOBiufOaav8IOkvvA4TyTIpplqsW9GN8np
+         1OPO96iX0mf0VChS0q+phAa/DFxTMjBkSVSAVTbmRU8L1dy/Gi2V9M/TBDu9hhsQplIh
+         q47xqSzisbglFaqCZNLicvnMJf/U8fhWyv87ZCx9QEuvKnUBVg496WCYz27Za2pVUBAb
+         z9eg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1726132291; x=1726737091;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=KDYukj80mIHPYCgHSB2w3O30EP7PG7QCtWy9R/+4O+8=;
+        b=o9LzqLfuj0BdtNf4X4q80wHDGCMOziBLSeyRS1KAmAQ4wCo8TAQHwCaXULluzyK66f
+         e7+fI/SCf741JKVtccdImCfnzRlci7Sa3+WNlt4ijY3SYsviRXcGrkqUkF7EqhzX71Sa
+         UGlwqUPZcID3EwG4etyPWm46jp/hfOKrfdnCKrmMx8WvPe53QgZvoXgKhmyfbe1/oOLO
+         lb32K1XUnd+a4vARxA5di+fA2dSKF6Jk8Lq/EFBCMuXGRPpOFriEUiYNC97xu64DFLLf
+         4su6/8wMICvQkEzdq+Cr/kc9uKSDIlg+nVs9NtEuk4QjJcx9HIzs75j3zBZFEfUjncb2
+         OwZQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVaPz4XgKMz9m9iak0m1xcpqEt6BGALECy/vCYIDPGTGduSjrbX7AAJoPqI26etTa0f6KRguQV+fZtXRw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyNoJmNDG5+G4S4GREhE22utJ31AwP0trTb7wa7+ioU8koiwNGL
+	QJ6W8dy3wPOshxzLEbTwzOJsgGjyH9CiDor/L6O7dsu5sjyzCQFuIO2jleHzNTU=
+X-Google-Smtp-Source: AGHT+IFYGstY7Ee7hZURlNK3JZABLF8M1RnLjnl2KXSy/Qm7bwNeqA+fGuOPSyrnOfiIz4Olnre2Gw==
+X-Received: by 2002:a50:cdd4:0:b0:5c2:1f74:114f with SMTP id 4fb4d7f45d1cf-5c413e54913mr1194735a12.34.1726132289759;
+        Thu, 12 Sep 2024 02:11:29 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5c3ebd467desm6239500a12.40.2024.09.12.02.11.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Sep 2024 02:11:29 -0700 (PDT)
+Date: Thu, 12 Sep 2024 11:11:28 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Anup Patel <anup@brainfault.org>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, James Houghton <jthoughton@google.com>
+Subject: Re: [PATCH v2 02/13] KVM: selftests: Return a value from
+ vcpu_get_reg() instead of using an out-param
+Message-ID: <20240912-a3894135370bf3fe551ed018@orel>
+References: <20240911204158.2034295-1-seanjc@google.com>
+ <20240911204158.2034295-3-seanjc@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] RISC-V: KVM: Redirect instruction access fault trap to
- guest
-To: anup@brainfault.org, ajones@ventanamicro.com, atishp@atishpatra.org,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
-References: <83c2234d582b7e823ce9ac9b73a6bbcf63971a29.1724911120.git.zhouquan@iscas.ac.cn>
-Content-Language: en-US
-From: Quan Zhou <zhouquan@iscas.ac.cn>
-In-Reply-To: <83c2234d582b7e823ce9ac9b73a6bbcf63971a29.1724911120.git.zhouquan@iscas.ac.cn>
-X-CM-TRANSID: qwCowAC3aKhbruJmh60BAw--.7963S2
-X-Coremail-Antispam: 1UD129KBjvJXoWrtF1rtr1xWF43Gr4fGFW8Xrb_yoW8JryrpF
-	43CF1a9r4rWFyq93WIvrs7uFWIqwn5K3ZxWr4jqFW5Xwsrtas5Crs0g3yUtFy8Gr4rX3yI
-	9F4IqFyvyFn8twUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvlb7Iv0xC_Cr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwV
-	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Cr0_Gr
-	1UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xK
-	xwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJV
-	W8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF
-	1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6x
-	IIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvE
-	x4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvj
-	DU0xZFpf9x07UN2-5UUUUU=
-X-Originating-IP: [180.111.103.6]
-X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiCQ8SBmbifb-JEgAAsP
+Content-Disposition: inline
+In-Reply-To: <20240911204158.2034295-3-seanjc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240912_020338_883744_A3B6C87D 
-X-CRM114-Status: GOOD (  12.45  )
+X-CRM114-CacheID: sfid-20240912_021132_995680_80CFCCB7 
+X-CRM114-Status: GOOD (  14.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,47 +93,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, Sep 11, 2024 at 01:41:47PM GMT, Sean Christopherson wrote:
+> Return a uint64_t from vcpu_get_reg() instead of having the caller provide
+> a pointer to storage, as none of the KVM_GET_ONE_REG usage in KVM selftests
 
-On 2024/8/29 14:20, zhouquan@iscas.ac.cn wrote:
-> From: Quan Zhou <zhouquan@iscas.ac.cn>
+"none of the vcpu_get_reg() usage"
+
+(There is KVM_GET_ONE_REG usage accessing larger registers, but those are
+ done through __vcpu_get_reg(). See get-reg-list.c)
+
+> accesses a register larger than 64 bits, and vcpu_set_reg() only accepts a
+> 64-bit value.  If a use case comes along that needs to get a register that
+> is larger than 64 bits, then a utility can be added to assert success and
+> take a void pointer, but until then, forcing an out param yields ugly code
+> and prevents feeding the output of vcpu_get_reg() into vcpu_set_reg().
 > 
-> The M-mode redirects an unhandled instruction access
-> fault trap back to S-mode when not delegating it to
-> VS-mode(hedeleg). However, KVM running in HS-mode
-> terminates the VS-mode software when back from M-mode.
-> 
-> The KVM should redirect the trap back to VS-mode, and
-> let VS-mode trap handler decide the next step.
-> 
-> Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
 > ---
->   arch/riscv/kvm/vcpu_exit.c | 1 +
->   1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/riscv/kvm/vcpu_exit.c b/arch/riscv/kvm/vcpu_exit.c
-> index fa98e5c024b2..696b62850d0b 100644
-> --- a/arch/riscv/kvm/vcpu_exit.c
-> +++ b/arch/riscv/kvm/vcpu_exit.c
-> @@ -182,6 +182,7 @@ int kvm_riscv_vcpu_exit(struct kvm_vcpu *vcpu, struct kvm_run *run,
->   	ret = -EFAULT;
->   	run->exit_reason = KVM_EXIT_UNKNOWN;
->   	switch (trap->scause) {
-> +	case EXC_INST_ACCESS:
+>  .../selftests/kvm/aarch64/aarch32_id_regs.c   | 10 +--
+>  .../selftests/kvm/aarch64/debug-exceptions.c  |  4 +-
+>  .../selftests/kvm/aarch64/hypercalls.c        |  6 +-
+>  .../testing/selftests/kvm/aarch64/psci_test.c |  6 +-
+>  .../selftests/kvm/aarch64/set_id_regs.c       | 18 ++---
+>  .../kvm/aarch64/vpmu_counter_access.c         | 19 +++---
+>  .../testing/selftests/kvm/include/kvm_util.h  |  6 +-
+>  .../selftests/kvm/lib/aarch64/processor.c     |  8 +--
+>  .../selftests/kvm/lib/riscv/processor.c       | 66 +++++++++----------
+>  .../testing/selftests/kvm/riscv/arch_timer.c  |  2 +-
+>  .../testing/selftests/kvm/riscv/ebreak_test.c |  2 +-
+>  .../selftests/kvm/riscv/sbi_pmu_test.c        |  2 +-
+>  tools/testing/selftests/kvm/s390x/resets.c    |  2 +-
+>  tools/testing/selftests/kvm/steal_time.c      |  3 +-
+>  14 files changed, 77 insertions(+), 77 deletions(-)
+>
 
-A gentle ping, the instruction access fault should be redirected to
-VS-mode for handling, is my understanding correct?
+Other than the commit message not being quite right,
 
->   	case EXC_INST_ILLEGAL:
->   	case EXC_LOAD_MISALIGNED:
->   	case EXC_STORE_MISALIGNED:
-> 
-> base-commit: 7c626ce4bae1ac14f60076d00eafe71af30450ba
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
