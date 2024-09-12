@@ -4,126 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90776EEB582
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Sep 2024 09:50:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DD1EEEB57D
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Sep 2024 10:00:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Gwgyb504RfadVNvqGt2sjlCc56WPkAjumfzwQ4L7dqk=; b=HJgBg6LdQ5Bq8k
-	i2sRk7ScqJSZItDqLSvqRAvIssHGbORiczvUn6ErpHrWQTlSiky5Ytu/98Bz2FzWrw3ZUP+W5ItOr
-	wnyiTdIySkh7xEvgdx8w6dSF2Ocey3hg0XeGtGIN7/HA6gNu6yryiKh2oNu+0yselHBQJuSbH0WBf
-	J1+P+7Dkt+Z7VZgBSt3ZvsqSFCSr5Hsi7KWmCasg9RSvt6ueEzeZaamjTZklliIGT13ESe9hx0ypS
-	V+EsbJpdKFFVtE+eTnCm1d7DA1LxKhen1fSEn2gw5OkDwGF4o0CFORYgTLLI6giS3bk6BirUzX6i6
-	/9SrkoOPvvA8K653+oKw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=UPZ8TJl7nyhTbFNv0/BKYZldqiz+KLelyWGiVXhtXBg=; b=orzfHQAVnVY4LP
+	lySvFAlOvX8q8pRWXkltnLvTDqc1/Gnrqlo2bkrYoUYIEudK73G/EzOTjqW74Ynk3xuiWH2YTNfC0
+	htr0J8vsuAag5EwcOZCIhAj3mIcSzSfPiIeqQrabS1sp2pW9VAg0i9/UUWEOyfs9BxoNIgUq62equ
+	FJA1m5ojOWIPG921O+Xy7uEVfJkoeY/jvA0tWW89JbG0gbetiJXXb8B3uNcNKBh3PQ+gLkGSRZG20
+	YIOooJlRfrKmdMAIKe/ibTVzWNFEBDUkLe51hJsO61ISnzH2LeCGHaODhNXrodCS52KELy6CGaxWj
+	WIPLAvPjS/tylvZm9WiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sogSb-0000000Cb91-1sjX;
-	Thu, 12 Sep 2024 09:49:57 +0000
-Received: from mail-sh0chn02on20731.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::731] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	id 1sogcw-0000000Ccp0-2T7h;
+	Thu, 12 Sep 2024 10:00:38 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sogSX-0000000Cb7W-1McV
+	id 1sogct-0000000Cco6-111I
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Sep 2024 09:49:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=mgytjtinqdsULAV3RAqrx83Ik0c08vc2891hTeBvpoFEYH6YC3Zin0YqDiP6GuUqkf36se97O+hAOn4w3he0Nk0BWlrqpCST6y0n7k4hfWxg7MqZETiTx7jhBcFgw6sxg49RZLjvWYPQmFyR5CuyfgcVtzJX5JzuxbaOJvvuKgGlfLnZgB6qUFWomtzOTdbofP//EuFRM2zl+9WmuV9OgMUaBdhqub+SRrafiGCq/+OhQtS8OzBxzInj+Qk3WMQEwGPSlSpW3UvfzmnOoDrF3hds4IjtEEhocMyBqBlLK1Mxswi5snvNq0sax2L0fbEomBCDoOpeZC5KH8Lj7Jzr8A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hRGOZamObQ6yvNp8DtEqEPZkM44OSr6zNvpoCqAFAJo=;
- b=achQoL8/pmWqIMpDNdKDwW3t2YJMz+Pf8ZYeXzGgqWgcBOWSDlhlw559JYQEs/qZwd1dJN/nE7tmKp0RzsDsjOQDb9VIA9pPzehN8Db1iCj/lPSeBd9slYYSQWZbOKZNM7Wq9iHdZwRvEkr/gbkgmXAyuPaNm8+rCIrn0x+6liAwBnHesPFqopHZrsA5+TTVlUp9MJX3AfsGN+bO2DkcfaCFi1zF9gm6/CsQOZ/jyrfJsbslyaTKVX7dnfmzUvZnjliKMRVO4Lg+UxFh1wl0UjGnHttGdr5hYSdYz2jeq/HRXzIS4XXq51z0YvhtlZ9fGLN5/YxaN/HN9XIe34pGQg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c311:25::15) by SHXPR01MB0798.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c311:27::14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7897.33; Thu, 12 Sep
- 2024 09:49:38 +0000
-Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
- ([fe80::3f35:8db2:7fdf:9ffb]) by
- SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn ([fe80::3f35:8db2:7fdf:9ffb%5])
- with mapi id 15.20.7897.032; Thu, 12 Sep 2024 09:49:38 +0000
-From: Minda Chen <minda.chen@starfivetech.com>
-To: "daire.mcnamara@microchip.com" <daire.mcnamara@microchip.com>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
-CC: "conor.dooley@microchip.com" <conor.dooley@microchip.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "kw@linux.com"
-	<kw@linux.com>, "robh@kernel.org" <robh@kernel.org>, "bhelgaas@google.com"
-	<bhelgaas@google.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, "ilpo.jarvinen@linux.intel.com"
-	<ilpo.jarvinen@linux.intel.com>, Kevin Xie <kevin.xie@starfivetech.com>
-Subject: Re: [PATCH v9 2/3] PCI: microchip: Fix inbound address translation
- tables
-Thread-Topic: [PATCH v9 2/3] PCI: microchip: Fix inbound address translation
- tables
-Thread-Index: AQHa9Vf2RPNmxyZqn0mZxLezldc8ybJUB3gg
-Date: Thu, 12 Sep 2024 09:49:38 +0000
-Message-ID: <SHXPR01MB08632D4FA056118612EA675AE6642@SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn>
-References: <20240823122717.1159133-1-daire.mcnamara@microchip.com>
- <20240823122717.1159133-3-daire.mcnamara@microchip.com>
-In-Reply-To: <20240823122717.1159133-3-daire.mcnamara@microchip.com>
-Accept-Language: en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SHXPR01MB0863:EE_|SHXPR01MB0798:EE_
-x-ms-office365-filtering-correlation-id: a1ceb3ab-eef6-4747-454e-08dcd310376a
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|41320700013|7416014|1800799024|38070700018;
-x-microsoft-antispam-message-info: aVuHsUNADJRij9abRX75bmNsfC4dE7JacsM2NxPm6wJuMXO0oC+QUM4P33S1PG6Q/KQ0BC7/INMLVCbT6hC7TJJFbiVVGtKlFZiI7n85eVNxcYlcUcNdtWrQfGUai4Yr3j5boRtUOaxH4WJQgbHedJywNahXS70h7tL+umAvpOERbT6AngesaSDla5qHnX21hOPmKPDR7ngt9cjNQQu4IZjSCvFWo52vgbTmLQ9MEJdIqW9QgPfgl8BHV7B3YIABy9/UPLQukJghMF7eyWj8C8fD8wDDiPiqw2+vQVzh0k3kVLrXpjbRPkaFwMMsJ6z6xozl572SeKv/mGJogTs31c7RSpKNEuTckFF5MCDpPWyUv0oYH2oZJIch120YI3BPTS5+OjtNsnDLLxPg/3n1SK/QywWJUpIgKcQIb7mY5BtyehJbnwqfBDK1ptEYzHE9gDKxt5wTl/JU8aS2KDaUjeKeg8PRseGVFeCmEzmpoKH8pgrmaYkhK5RYXydoyNsqN970oDaxkxK2cez+igatRnisDlkEesrnjI6ChVfIsuPzPqWOj9gP79lzcn7uh16YZa82suqoWtaBlScqzSwMq+sEU5wCvFw/J68orRZRHAGth5NiZl2+SgN4alzblmR1
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(366016)(41320700013)(7416014)(1800799024)(38070700018);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?palda4okWS0MTP0JyiA5KZxexG+cjCcJSaFLtBykjFkZ2OKD2egHcO+y6CRa?=
- =?us-ascii?Q?j5H63xKHcd7exKwUDEZkdWIPBp2pLGwZ9PBUxtEN/ui9P9AE8b1KVSzmah/D?=
- =?us-ascii?Q?FUUD4cDneHVX5prWav8c3i8FOUVuLEPX54eSoQB2Wd9GURDUnR7MxASLrEam?=
- =?us-ascii?Q?s2cLgtRgpFAH+WvMTlsS4+mvf7cHM44E0DGm6xWTI/6DEVnT0hyHnK7Oj1N4?=
- =?us-ascii?Q?WB9SOpeZ8aJrIh7BwSo/lXu1bXc1qi5JDRE5D1EVc54bjmvfiy8ruK09g9nG?=
- =?us-ascii?Q?U7xePcjf+aYvUIiVgsz4BZb4c3pk3nOY4C2KJTmcElU2EOkQnSoP0N5iZg1P?=
- =?us-ascii?Q?cGazT1WBQdC/S3rcx1Yr3UZjpCqhJP0qdeshlkDSeqdmaMs4mm4TYfTZlwhX?=
- =?us-ascii?Q?Wc722lUaLt2KcjS31m8yO7hoGKe4QojYQo3mhL/gLsa7Nyq7+pxEZeHUwyPU?=
- =?us-ascii?Q?Qn9NW5UrC3jAiBC9BS5GqOoVWclN9BsXHAgpnv8a1ievv/rFmMGSRooUYlRF?=
- =?us-ascii?Q?R32IVDENPCk1uB13leQS+oLrOG/HA6bc35K/4t9V8x/6YmhdZm8tQt8nDNiD?=
- =?us-ascii?Q?sE988blucUAGt+DTcQntWqc0NTl8gY/ZBtUu53BCgfjQ7GhVr7FcgrtVJ6zf?=
- =?us-ascii?Q?WGYVix6BFbOuw9oZMIXW6ZTiDUvGHzrZtawuh0MyPcFmpviPXUOqidyhukkX?=
- =?us-ascii?Q?9NQt2gd1zHcJBt0boKv4wBG23beN5nvPMORhsnL5dczQJJ5XnytvMHGQoBnC?=
- =?us-ascii?Q?flnWB3qOVukCAaaZB5p5JBKit1Xh11gOEf2OJVDJOtqpdXKq+QhbRIRAJMF9?=
- =?us-ascii?Q?20RC3Lq4cbVUjt+II+mIa0hAYRYB57/pzw+Lwwif58RZp7RaSDVQXWT3aWJ5?=
- =?us-ascii?Q?FSUFjEqyDfmqnlTABCRZdZ7zecmcLCf2YgfRSKu1FkZFGnOqviJutXL7g7CQ?=
- =?us-ascii?Q?Uh6lrv41WIbTrbVa6/7Rj2zwx23C9rsfkbv3f46UA9doT6L9p5ENQjWCuuiA?=
- =?us-ascii?Q?heqxklL+9ZwHT373OdQLq6lbO8TGT5p31tZ9Wiqr6SwI0JEZi6rtDxSMJEeH?=
- =?us-ascii?Q?7ya2h3QERhqaZTSMjx6CRKji03qTn9Kb52BpyeFcqXP9Sv8kBE+H96ToNddV?=
- =?us-ascii?Q?5x+vVfcURiPGh76/+BD2IZPr9z+ZUWvmJ6t4KNR7QZZBiGoHBQN2rZ32CU2h?=
- =?us-ascii?Q?yAVtdGRKOeHlW1l80+wGB/voinCJyaEeOD+Hvofcm6tXbOq6lcSS9/gPXn2x?=
- =?us-ascii?Q?9CklIzMOGU2DIo6T5rX+lvLSBuMhtpxVP4ndMwNlOalRvpdeg94C0y3zc8oJ?=
- =?us-ascii?Q?bsDXnBINvmYDnbDzD7tVbEYmN11/bYZU7t91mRBGfPzdf6ATnfxGaH7OSoVX?=
- =?us-ascii?Q?mZCGbsWc6hxMeQP6xpjG4ta77jElcrxDdwaGBr6aThEIOvtISK4M0tPwMJvq?=
- =?us-ascii?Q?91W21lEHOBbj9UlJIOEpr0MjIIGxlIVUuuwKvr6oMHSiqB3LQactOnhjJqXx?=
- =?us-ascii?Q?ZYBwTj7S802iR45C5l2OghwPsk/qffb9DOaCabVpf0RWobYKamViD/gLG12R?=
- =?us-ascii?Q?8JhOA4eKLFZ0DwUttQt9HnO5B3LnNbwak93LYkej?=
+	Thu, 12 Sep 2024 10:00:37 +0000
+Received: from ubt.. (unknown [210.73.53.31])
+	by APP-03 (Coremail) with SMTP id rQCowABXho61u+Jmfr4GAw--.13301S2;
+	Thu, 12 Sep 2024 18:00:22 +0800 (CST)
+From: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+To: Andrew Morton <akpm@linux-foundation.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Chunyan Zhang <zhang.lyra@gmail.com>
+Subject: [PATCH] selftest/mm: Do not use hint for riscv mmap
+Date: Thu, 12 Sep 2024 18:00:18 +0800
+Message-Id: <20240912100018.736447-1-zhangchunyan@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-Network-Message-Id: a1ceb3ab-eef6-4747-454e-08dcd310376a
-X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Sep 2024 09:49:38.2031
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: aHGi77I2SR32U7RfehrLwIBbWAnh+iiols2suXu7m64OB5GfS39NYr9NYz4WuTScdIwEyYfWueH9kSZNcRGYqms7hPJqR+L3gnjfz5Q0UP0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SHXPR01MB0798
+X-CM-TRANSID: rQCowABXho61u+Jmfr4GAw--.13301S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Cr1DCry3XFWkZF1xAFWDArb_yoW8Jw47pr
+	97Gwn0kF1FqFnrJa1UXr17urWvkF1vqay0yr1Uu34S9r15Xr97uws7C3y7tFsxKFWrXrs3
+	A3W0vw13uF4UX3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvlb7Iv0xC_Cr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I
+	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVW8JVWxJw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkI
+	wI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr
+	0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY
+	17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcV
+	C0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY
+	6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r1j6r4UYxBIdaVFxhVjvj
+	DU0xZFpf9x07j5Z2-UUUUU=
+X-Originating-IP: [210.73.53.31]
+X-CM-SenderInfo: x2kd0wxfkx051dq6x2xfdvhtffof0/1tbiBwsSB2bif7X3hgAAsm
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240912_024953_530571_9A1D8711 
-X-CRM114-Status: GOOD (  27.51  )
+X-CRM114-CacheID: sfid-20240912_030035_686343_6036DF02 
+X-CRM114-Status: UNSURE (   8.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,289 +85,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+When the virtual address range selftest is run on RISC-V platforms,
+it is observed that using the hint address when calling mmap cannot
+get the address in the range of that validate_addr() checks, also
+that will cause '/proc/self/maps' have gaps larger than MAP_CHUNK_SIZE.
 
-> 
-> From: Daire McNamara <daire.mcnamara@microchip.com>
-> 
-> On Microchip PolarFire SoC the PCIe Root Port can be behind one of three
-> general purpose Fabric Interface Controller (FIC) buses that encapsulates an
-> AXI-S bus. Depending on which FIC(s) the Root Port is connected through to CPU
-> space, and what address translation is done by that FIC, the Root Port driver's
-> inbound address translation may vary.
-> 
-> For all current supported designs and all future expected designs, inbound
-> address translation done by a FIC on PolarFire SoC varies depending on whether
-> PolarFire SoC is operating in coherent DMA mode or noncoherent DMA mode.
-> 
-> The setup of the outbound address translation tables in the Root Port driver only
-> needs to handle these two cases.
-> 
-> Setup the inbound address translation tables to one of two address translations,
-> depending on whether the Root Port is being used with coherent DMA or
-> noncoherent DMA.
-> 
-> Fixes: 6f15a9c9f941 ("PCI: microchip: Add Microchip Polarfire PCIe controller
-> driver")
-> Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  .../pci/controller/plda/pcie-microchip-host.c | 93 +++++++++++++++++++
-> drivers/pci/controller/plda/pcie-plda-host.c  | 17 +++-
->  drivers/pci/controller/plda/pcie-plda.h       |  6 +-
->  drivers/pci/controller/plda/pcie-starfive.c   |  3 +
->  4 files changed, 114 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c
-> b/drivers/pci/controller/plda/pcie-microchip-host.c
-> index fa4c85be21f0..e06251523560 100644
-> --- a/drivers/pci/controller/plda/pcie-microchip-host.c
-> +++ b/drivers/pci/controller/plda/pcie-microchip-host.c
-> @@ -7,21 +7,27 @@
->   * Author: Daire McNamara <daire.mcnamara@microchip.com>
->   */
-> 
-> +#include <linux/align.h>
-> +#include <linux/bits.h>
->  #include <linux/bitfield.h>
->  #include <linux/clk.h>
->  #include <linux/irqchip/chained_irq.h>
->  #include <linux/irqdomain.h>
-> +#include <linux/log2.h>
->  #include <linux/module.h>
->  #include <linux/msi.h>
->  #include <linux/of_address.h>
->  #include <linux/of_pci.h>
->  #include <linux/pci-ecam.h>
->  #include <linux/platform_device.h>
-> +#include <linux/wordpart.h>
-> 
->  #include "../../pci.h"
->  #include "pcie-plda.h"
-> 
->  #define MC_OUTBOUND_TRANS_TBL_MASK		GENMASK(31, 0)
-> +#define MC_MAX_NUM_INBOUND_WINDOWS		8
-> +#define MPFS_NC_BOUNCE_ADDR			0x80000000
-> 
->  /* PCIe Bridge Phy and Controller Phy offsets */
->  #define MC_PCIE1_BRIDGE_ADDR			0x00008000u
-> @@ -614,6 +620,89 @@ static void mc_disable_interrupts(struct mc_pcie
-> *port)
->  	writel_relaxed(GENMASK(31, 0), bridge_base_addr + ISTATUS_HOST);  }
-> 
-> +static void mc_pcie_setup_inbound_atr(int window_index, u64 axi_addr,
-> +				      u64 pcie_addr, u64 size)
-> +{
-> +	void __iomem *bridge_base_addr = port->axi_base_addr +
-> +					 MC_PCIE_BRIDGE_ADDR;
-> +	u32 table_offset = window_index * ATR_ENTRY_SIZE;
-> +	void __iomem *table_addr = bridge_base_addr + table_offset;
-> +	u32 atr_sz;
-> +	u32 val;
-> +
-> +	atr_sz = ilog2(size) - 1;
-> +
-> +	val = ALIGN_DOWN(lower_32_bits(pcie_addr), SZ_4K);
-> +	val |= FIELD_PREP(ATR_SIZE_MASK, atr_sz);
-> +	val |= ATR_IMPL_ENABLE;
-> +
-> +	writel(val, table_addr + ATR0_PCIE_WIN0_SRCADDR_PARAM);
-> +
-> +	writel(upper_32_bits(pcie_addr), table_addr +
-> +ATR0_PCIE_WIN0_SRC_ADDR);
-> +
-> +	writel(lower_32_bits(axi_addr), table_addr +
-> ATR0_PCIE_WIN0_TRSL_ADDR_LSB);
-> +	writel(upper_32_bits(axi_addr), table_addr +
-> +ATR0_PCIE_WIN0_TRSL_ADDR_UDW);
-> +
-> +	writel(TRSL_ID_AXI4_MASTER_0, table_addr +
-> ATR0_PCIE_WIN0_TRSL_PARAM);
-> +}
-> +
-> +static int mc_pcie_setup_inbound_ranges(struct platform_device *pdev,
-> +					struct mc_pcie *port)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct device_node *dn = dev->of_node;
-> +	struct of_range_parser parser;
-> +	struct of_range range;
-> +	int atr_index = 0;
-> +
-> +	/*
-> +	 * MPFS PCIe Root Port is 32-bit only, behind a Fabric Interface
-> +	 * Controller FPGA logic block which contains the AXI-S interface.
-> +	 *
-> +	 * From the point of view of the PCIe Root Port, there are only
-> +	 * two supported Root Port configurations:
-> +	 *
-> +	 * Configuration 1: for use with fully coherent designs; supports a
-> +	 * window from 0x0 (CPU space) to specified PCIe space.
-> +	 *
-> +	 * Configuration 2: for use with non-coherent designs; supports two
-> +	 * 1 GB wide windows to CPU space; one mapping CPU space 0 to PCIe
-> +	 * space 0x80000000 and mapping CPU space 0x40000000 to pcie
-> +	 * space 0xc0000000. This cfg needs two windows because of how
-> +	 * the MSI space is allocated in the AXI-S range on MPFS.
-> +	 *
-> +	 * The FIC interface outside the PCIe block *must* complete the inbound
-> +	 * address translation as per MCHP MPFS FPGA design guidelines.
-> +	 */
-> +	if (device_property_read_bool(dev, "dma-noncoherent")) {
-> +		/*
-> +		 * Always need same two tables in this case.  Need two tables
-> +		 * due to hardware interactions between address and size.
-> +		 */
-> +		mc_pcie_setup_inbound_atr(0, 0, MPFS_NC_BOUNCE_ADDR, SZ_1G);
-> +		mc_pcie_setup_inbound_atr(1, SZ_1G, MPFS_NC_BOUNCE_ADDR +
-> SZ_1G, SZ_1G);
-> +	} else {
-> +		/* Find any DMA ranges */
-> +		if (of_pci_dma_range_parser_init(&parser, dn)) {
-> +			/* No DMA range property - setup default */
-> +			mc_pcie_setup_inbound_atr(0, 0, 0, SZ_4G);
-> +			return 0;
-> +		}
-> +
-> +		for_each_of_range(&parser, &range) {
-> +			if (atr_index >= MC_MAX_NUM_INBOUND_WINDOWS) {
-> +				dev_err(dev, "too many inbound ranges; %d available
-> tables\n",
-> +					MC_MAX_NUM_INBOUND_WINDOWS);
-> +				return -EINVAL;
-> +			}
-> +			mc_pcie_setup_inbound_atr(atr_index, 0, range.pci_addr,
-> range.size);
-> +			atr_index++;
-> +		}
-> +	}
-> +
-> +	return 0;
-> +}
-> +
->  static int mc_pcie_setup_iomems(struct pci_host_bridge *bridge,
->  			   struct plda_pcie_rp *port)
->  {
-> @@ -656,6 +745,10 @@ static int mc_platform_init(struct pci_config_window
-> *cfg)
->  	if (ret)
->  		return ret;
-> 
-> +	ret = mc_pcie_setup_inbound_ranges(pdev, port);
-> +	if (ret)
-> +		return ret;
-> +
->  	port->plda.event_ops = &mc_event_ops;
->  	port->plda.event_irq_chip = &mc_event_irq_chip;
->  	port->plda.events_bitmap = GENMASK(NUM_EVENTS - 1, 0); diff --git
-> a/drivers/pci/controller/plda/pcie-plda-host.c
-> b/drivers/pci/controller/plda/pcie-plda-host.c
-> index a18923d7cea6..2a3cc2544200 100644
-> --- a/drivers/pci/controller/plda/pcie-plda-host.c
-> +++ b/drivers/pci/controller/plda/pcie-plda-host.c
-> @@ -8,11 +8,14 @@
->   * Author: Daire McNamara <daire.mcnamara@microchip.com>
->   */
-> 
-> +#include <linux/align.h>
-> +#include <linux/bitfield.h>
->  #include <linux/irqchip/chained_irq.h>
->  #include <linux/irqdomain.h>
->  #include <linux/msi.h>
->  #include <linux/pci_regs.h>
->  #include <linux/pci-ecam.h>
-> +#include <linux/wordpart.h>
-> 
->  #include "pcie-plda.h"
-> 
-> @@ -509,8 +512,9 @@ void plda_pcie_setup_window(void __iomem
-> *bridge_base_addr, u32 index,
->  	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
->  	       ATR0_AXI4_SLV0_TRSL_PARAM);
-> 
-> -	val = lower_32_bits(axi_addr) | (atr_sz << ATR_SIZE_SHIFT) |
-> -			    ATR_IMPL_ENABLE;
-> +	val = ALIGN_DOWN(lower_32_bits(axi_addr), SZ_4K);
-> +	val |= FIELD_PREP(ATR_SIZE_MASK, atr_sz);
-> +	val |= ATR_IMPL_ENABLE;
->  	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
->  	       ATR0_AXI4_SLV0_SRCADDR_PARAM);
-> 
-> @@ -525,13 +529,20 @@ void plda_pcie_setup_window(void __iomem
-> *bridge_base_addr, u32 index,
->  	val = upper_32_bits(pci_addr);
->  	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
->  	       ATR0_AXI4_SLV0_TRSL_ADDR_UDW);
-> +}
-> +EXPORT_SYMBOL_GPL(plda_pcie_setup_window);
-> +
-> +void plda_pcie_setup_inbound_address_translation(struct plda_pcie_rp
-> +*port) {
-> +	void __iomem *bridge_base_addr = port->bridge_addr;
-> +	u32 val;
-> 
->  	val = readl(bridge_base_addr + ATR0_PCIE_WIN0_SRCADDR_PARAM);
->  	val |= (ATR0_PCIE_ATR_SIZE << ATR0_PCIE_ATR_SIZE_SHIFT);
->  	writel(val, bridge_base_addr + ATR0_PCIE_WIN0_SRCADDR_PARAM);
->  	writel(0, bridge_base_addr + ATR0_PCIE_WIN0_SRC_ADDR);  }
-> -EXPORT_SYMBOL_GPL(plda_pcie_setup_window);
-> +EXPORT_SYMBOL_GPL(plda_pcie_setup_inbound_address_translation);
-> 
->  int plda_pcie_setup_iomems(struct pci_host_bridge *bridge,
->  			   struct plda_pcie_rp *port)
-> diff --git a/drivers/pci/controller/plda/pcie-plda.h
-> b/drivers/pci/controller/plda/pcie-plda.h
-> index 0e7dc0d8e5ba..61ece26065ea 100644
-> --- a/drivers/pci/controller/plda/pcie-plda.h
-> +++ b/drivers/pci/controller/plda/pcie-plda.h
-> @@ -89,14 +89,15 @@
-> 
->  /* PCIe AXI slave table init defines */
->  #define ATR0_AXI4_SLV0_SRCADDR_PARAM		0x800u
-> -#define  ATR_SIZE_SHIFT				1
-> -#define  ATR_IMPL_ENABLE			1
-> +#define  ATR_SIZE_MASK				GENMASK(6, 1)
-> +#define  ATR_IMPL_ENABLE			BIT(0)
->  #define ATR0_AXI4_SLV0_SRC_ADDR			0x804u
->  #define ATR0_AXI4_SLV0_TRSL_ADDR_LSB		0x808u
->  #define ATR0_AXI4_SLV0_TRSL_ADDR_UDW		0x80cu
->  #define ATR0_AXI4_SLV0_TRSL_PARAM		0x810u
->  #define  PCIE_TX_RX_INTERFACE			0x00000000u
->  #define  PCIE_CONFIG_INTERFACE			0x00000001u
-> +#define  TRSL_ID_AXI4_MASTER_0			0x00000004u
-> 
->  #define CONFIG_SPACE_ADDR_OFFSET		0x1000u
-> 
-> @@ -204,6 +205,7 @@ int plda_init_interrupts(struct platform_device *pdev,
-> void plda_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
->  			    phys_addr_t axi_addr, phys_addr_t pci_addr,
->  			    size_t size);
-> +void plda_pcie_setup_inbound_address_translation(struct plda_pcie_rp
-> +*port);
->  int plda_pcie_setup_iomems(struct pci_host_bridge *bridge,
->  			   struct plda_pcie_rp *port);
->  int plda_pcie_host_init(struct plda_pcie_rp *port, struct pci_ops *ops, diff --git
-> a/drivers/pci/controller/plda/pcie-starfive.c
-> b/drivers/pci/controller/plda/pcie-starfive.c
-> index c9933ecf6833..55e84bc79eca 100644
-> --- a/drivers/pci/controller/plda/pcie-starfive.c
-> +++ b/drivers/pci/controller/plda/pcie-starfive.c
-> @@ -355,6 +355,9 @@ static int starfive_pcie_host_init(struct plda_pcie_rp
-> *plda)
->  	 */
->  	plda_pcie_set_pref_win_64bit(plda);
-> 
-> +	/* Setup the inbound address translation */
-> +	plda_pcie_setup_inbound_address_translation(plda);
-> +
->  	/*
->  	 * Ensure that PERST has been asserted for at least 100 ms,
->  	 * the sleep value is T_PVPERL from PCIe CEM spec r2.0 (Table 2-4)
-> --
-> 2.34.1
-> 
+Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+---
+ tools/testing/selftests/mm/virtual_address_range.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-Hi Daire
-  Could you please CC Kevin to this patch-set e-mail list? Thanks.
+diff --git a/tools/testing/selftests/mm/virtual_address_range.c b/tools/testing/selftests/mm/virtual_address_range.c
+index 4e4c1e311247..25f3eb304999 100644
+--- a/tools/testing/selftests/mm/virtual_address_range.c
++++ b/tools/testing/selftests/mm/virtual_address_range.c
+@@ -64,6 +64,14 @@
+ #define NR_CHUNKS_HIGH  NR_CHUNKS_384TB
+ #endif
+ 
++#if defined(__riscv) && (__riscv_xlen == 64)
++static char *hind_addr(void)
++{
++	return NULL;
++}
++
++static void validate_addr(char *ptr, int high_addr) { }
++#else
+ static char *hind_addr(void)
+ {
+ 	int bits = HIGH_ADDR_SHIFT + rand() % (63 - HIGH_ADDR_SHIFT);
+@@ -81,6 +89,7 @@ static void validate_addr(char *ptr, int high_addr)
+ 	if (addr > HIGH_ADDR_MARK)
+ 		ksft_exit_fail_msg("Bad address %lx\n", addr);
+ }
++#endif
+ 
+ static int validate_lower_address_hint(void)
+ {
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
