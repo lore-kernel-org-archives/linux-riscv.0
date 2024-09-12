@@ -4,83 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1841EEE25C
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Sep 2024 20:47:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79702EEE262
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Sep 2024 20:58:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oQoVUSRSulTVAhe6QIbDoVgV//upx2dLX6HVvKEZB9U=; b=B3lLx59EP9mAKQ
-	QynkxKEq1RLvcu5O4CUz5pC8d3zRbJ7cfrsr2RxBC3wvF7owXAXwVc8tOcC4bMKFAu1ebt/71g+LL
-	SWQBrvSblwgA+tDpey1lEJtveb8BfpwAiHsfocjn2M6ewrdUwEbceFq7pVx7tHJd4XRkwv8l7khkR
-	EvxPJcrceExZaGibfWZG2VMIu9sB29ohXV2vvwLTlCdgHYpvjbrfR7LK8QMSA3+3JJOt5XrBb6TPe
-	1znK1cqKHxdtsylLto/U8coISZOMEFc2U5c4HHbWJq90+CeoS9ZOMhwyWd1XHhZiM960mCBiUZAE7
-	OQKbnYcikcgbKhCQ2LHw==;
+	List-Owner; bh=SBpDzcN8M3sJbQgNSOU6to5fCwbdo+PjkTT7wYubSRU=; b=TisLAkjhjvGdei
+	bMG4BbN1tEUgfgOfToS+g7WlV5/zFKKeILKMEr8xaC1iUEFzfmEqlAtojmgXNSCsj7PhydSNsIiVB
+	GCSOn7bVP9c1ypxn7mYpHv2prPgTd1UFKkYWaw7PdNoukrC+VKjZd47rTt9s4bw1Q3zCBKE+haTkc
+	lwWVVNbdVzf+graFzQt9mHpNwJPKFiRg+8+6STc7GAdPRxKSMEzzMF/wZASDpWLXFM3XaXpAkJH6c
+	2eBMFmjTawAKYtk73/BQyW8AikhNJgPSmvwxeUskG4t5eAhiB5/pifohDoCzOt3VJek3U3VTcbgMb
+	LS+N8v2PCQrRcHs1WNpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1soqit-0000000ECgW-0ETm;
-	Thu, 12 Sep 2024 20:47:27 +0000
-Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
+	id 1soqtI-0000000EEam-34jG;
+	Thu, 12 Sep 2024 20:58:12 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1soqiq-0000000ECfo-3DYC
+	id 1soqtG-0000000EEZN-2UMo
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Sep 2024 20:47:26 +0000
-Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-70b2421471aso116720a12.0
-        for <linux-riscv@lists.infradead.org>; Thu, 12 Sep 2024 13:47:24 -0700 (PDT)
+	Thu, 12 Sep 2024 20:58:12 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-20551e2f1f8so2221505ad.2
+        for <linux-riscv@lists.infradead.org>; Thu, 12 Sep 2024 13:58:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1726174043; x=1726778843; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1726174689; x=1726779489; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=QkYEDgSUi+q4cC1mKbyRLPDEigMYGApwN1eBhMPthC4=;
-        b=gMfeEcTgvntkvkzTf6idDc6hpW/7KOvu1OLuKI/345dCgrjJEBxBILFS3Muy5Wimq2
-         G6hM23u7Xq9rQaiui2aUWV6RlRLBPHxDwXnPfhckO/jowMZ0BEnCldDMnVADkazk3tAS
-         9M37PbG4WbWF30Gx5fi3bPM9QX9QBRJG+/m/tl044SYRE3skOiypC7wM/QMKoN5KBz8F
-         rpOK86r1rsUge8BMOI9T4v+hWD4fO/8D0K5qJ0155HQoCmSYl/PXaPeFh/nlbwBNgZjf
-         ZNg20DUOP3rCDHJ/Tifuma07RqwlMIIk9zpChMTCLFbYu1mqLNO2mxnLSaTeTqqiCkkq
-         JuOw==
+        bh=awElkTLWK6u37rMcH6vV+9dmrRY/uH5yY9ycJ6GvqvQ=;
+        b=GuEVcMAuRYq6YYT26ep9Ol1MhzMck2TgX07Jc8ig5GT3r68GfrRZGOc0+jH8pctPjo
+         pHEJZurPCfDK5bjxb7s5eojem9KPCguPVGBb1/NPeUtb7g4muebXyDNVlagpwLwVkygw
+         VcpFEhDN3XhKzmABCcDh6FiXvJ8y9OwYZAu0+44HiaWM0rEvhn2CHfRvCKElatPseK2L
+         fm5S74HpngkGUrELWvPkGaNHFfam61OBjpkYZB5i6Co058W4/M9Z1d8M/MP78Uno9DE2
+         OaU7HLjhuQKKzfUrDAO1VftiLZUWSygVDYTGy2bvE29Y3+yFkp/kf62t77/05FFv9Ey8
+         dIkQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1726174043; x=1726778843;
+        d=1e100.net; s=20230601; t=1726174689; x=1726779489;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=QkYEDgSUi+q4cC1mKbyRLPDEigMYGApwN1eBhMPthC4=;
-        b=BeuL/ZFPNJ6H37taG05YSWfhpP7N7uJC9iwcU55seBN0I7pgxADIJGaeNN8qr4bxPd
-         fITzxiqhG+GbY0h/287jQWgMGyQuj3a19uyNrystWQpW2Vj6MR4fJsw72QLylLCW7k04
-         p8R48ypvpdaRcJ1Dpqvjta8w5BKq5F/p8LMg3WI0JYnRfxLAClcaitNQRCWCwe7UEmUP
-         WSdkNXE8c6cNjhtyM2fEdvTvbrEE1FIu9PPR2OzCBX5DQpAxgQMW/FpcBSJX0NuljhLu
-         TwkpjG61hYFNNLJMaCMKE7QaTplU8I3uxtd1W8l5FwkL3EF8Gu6ZejBo9itsCI5z5/mc
-         rxgg==
-X-Forwarded-Encrypted: i=1; AJvYcCXFwuJLMduO5VRImIjInzNlV8MAskDYOh01fNCR2dy1Y8CQ11RtCvNJyufP3Y/31GS1ZvrTtgn6Ik/3eA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyOQqgQoDQ8Sh0wPXBQJaf6hP4EoKvPK1SD+gqLEeXK6EHW8U1v
-	lWITxzv3YwhtMGyBaCK4fbSGh8KiZQV0DjwvLPTqCy2EdPLy7tiAHmSWKOJ5zk0=
-X-Google-Smtp-Source: AGHT+IHY1ulWf8xIoYCgymvFfMz7AvIjbgg3u2pIVYFSwdjBxA8LW0bzDtVMfKaopkm+QTibJTkj8w==
-X-Received: by 2002:a05:6a21:e90:b0:1cf:6d67:fe5a with SMTP id adf61e73a8af0-1d112edc9b4mr484866637.50.1726174043300;
-        Thu, 12 Sep 2024 13:47:23 -0700 (PDT)
+        bh=awElkTLWK6u37rMcH6vV+9dmrRY/uH5yY9ycJ6GvqvQ=;
+        b=N2gecU2pvSvNrRsvV0KX/JWKkRkaD90H1GqaRGma4vZN2/JlWFFzx5YDN27Udi3a4f
+         MNCAsegbqyO79dAm2Hgm6CxmB/96NzPuqXSvFYoo8y44yASIkvJrFrNrAR+QjZmMhitW
+         /SuKzpT9F+8CmSi7Dsw9vBgs4GvTJw7uL1uW1/DiAK9K3cBmbAWRHfGTOFQI1SBfyeRp
+         Mx7Juc/V9F61Vthy9AV2UCugVXgw21TPmTGEiedLFuPgbdXKmJhcvBjDVMBBjHXKb4BZ
+         72cgzumcOM6wP6KSGdjaKI/N+l4LMmd7tdoX3C1bk3Al/opUfAwRTBVLkxJPM5hOfiFR
+         eVAg==
+X-Forwarded-Encrypted: i=1; AJvYcCWCtfsMu0qNFU3YddL9D9y+gZ93Y3lWEn6oRU+OzZq2jLylGfEwl5Yp+RxOmuR0DDw5aU+sRqJdh+FhpA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYCzSKV3LnvK3iSlt6ZhyMbFdjVw1wOzjtQgVpTE++FSJDhp63
+	FQYVmMV9T0gV7BKQG9NIaY3J8ba1U0RjlIXgMtLPz+PEiBahyxeJ6lGpyk/zfCM=
+X-Google-Smtp-Source: AGHT+IFNbFNRlMUVnmzvIAqMYOHLNoYiu39w2cW+++5PhbuKhP72IpMktdJxCrIrvKb5Z0jSCotKrw==
+X-Received: by 2002:a17:902:f60e:b0:205:809c:d490 with SMTP id d9443c01a7336-20781d61d67mr8439965ad.16.1726174689001;
+        Thu, 12 Sep 2024 13:58:09 -0700 (PDT)
 Received: from ghost ([50.145.13.30])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7db1fddd1c4sm2128722a12.63.2024.09.12.13.47.21
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2076b0097desm18030445ad.247.2024.09.12.13.58.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Sep 2024 13:47:22 -0700 (PDT)
-Date: Thu, 12 Sep 2024 13:47:20 -0700
+        Thu, 12 Sep 2024 13:58:08 -0700 (PDT)
+Date: Thu, 12 Sep 2024 13:58:05 -0700
 From: Charlie Jenkins <charlie@rivosinc.com>
-To: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+To: Celeste Liu <coelacanthushex@gmail.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>, linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Chunyan Zhang <zhang.lyra@gmail.com>
-Subject: Re: [PATCH] selftest/mm: Do not use hint for riscv mmap
-Message-ID: <ZuNTWCsPPLTm1zdX@ghost>
-References: <20240912100018.736447-1-zhangchunyan@iscas.ac.cn>
+	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
+	Anup Patel <anup@brainfault.org>,
+	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Rich Felker <dalias@libc.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Russell King <linux@armlinux.org.uk>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Tony Lindgren <tony@atomide.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-sh@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rpi-kernel@lists.infradead.org, linux-omap@vger.kernel.org,
+	linux-tegra@vger.kernel.org
+Subject: Re: [PATCH v3 1/4] riscv: defconfig: drop RT_GROUP_SCHED=y
+Message-ID: <ZuNV3ewTH63lb972@ghost>
+References: <20240910-fix-riscv-rt_group_sched-v3-0-486e75e5ae6d@gmail.com>
+ <20240910-fix-riscv-rt_group_sched-v3-1-486e75e5ae6d@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240912100018.736447-1-zhangchunyan@iscas.ac.cn>
+In-Reply-To: <20240910-fix-riscv-rt_group_sched-v3-1-486e75e5ae6d@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240912_134724_828834_9C02526C 
-X-CRM114-Status: GOOD (  23.96  )
+X-CRM114-CacheID: sfid-20240912_135810_699040_CA86EDE6 
+X-CRM114-Status: GOOD (  23.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,61 +114,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 12, 2024 at 06:00:18PM +0800, Chunyan Zhang wrote:
-> When the virtual address range selftest is run on RISC-V platforms,
-> it is observed that using the hint address when calling mmap cannot
-> get the address in the range of that validate_addr() checks, also
-> that will cause '/proc/self/maps' have gaps larger than MAP_CHUNK_SIZE.
+On Tue, Sep 10, 2024 at 08:51:07PM +0800, Celeste Liu wrote:
+> Commit ba6cfef057e1 ("riscv: enable Docker requirements in defconfig")
+> introduced it because of Docker, but Docker has removed this requirement
+> since [1] (2023-04-19).
 > 
-> Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+> For cgroup v1, if turned on, and there's any cgroup in the "cpu" hierarchy it
+> needs an RT budget assigned, otherwise the processes in it will not be able to
+> get RT at all. The problem with RT group scheduling is that it requires the
+> budget assigned but there's no way we could assign a default budget, since the
+> values to assign are both upper and lower time limits, are absolute, and need to
+> be sum up to < 1 for each individal cgroup. That means we cannot really come up
+> with values that would work by default in the general case.[2]
+> 
+> For cgroup v2, it's almost unusable as well. If it turned on, the cpu controller
+> can only be enabled when all RT processes are in the root cgroup. But it will
+> lose the benefits of cgroup v2 if all RT process were placed in the same cgroup.
+> 
+> Red Hat, Gentoo, Arch Linux and Debian all disable it. systemd also doesn't
+> support it.[3]
+> 
+> [1]: https://github.com/moby/moby/commit/005150ed69c540fb0b5323e0f2208608c1204536
+> [2]: https://bugzilla.redhat.com/show_bug.cgi?id=1229700
+> [3]: https://github.com/systemd/systemd/issues/13781#issuecomment-549164383
+> 
+> Acked-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+> Signed-off-by: Celeste Liu <CoelacanthusHex@gmail.com>
+
+Acked-by: Charlie Jenkins <charlie@rivosinc.com>
+
 > ---
->  tools/testing/selftests/mm/virtual_address_range.c | 9 +++++++++
->  1 file changed, 9 insertions(+)
+>  arch/riscv/configs/defconfig | 1 -
+>  1 file changed, 1 deletion(-)
 > 
-> diff --git a/tools/testing/selftests/mm/virtual_address_range.c b/tools/testing/selftests/mm/virtual_address_range.c
-> index 4e4c1e311247..25f3eb304999 100644
-> --- a/tools/testing/selftests/mm/virtual_address_range.c
-> +++ b/tools/testing/selftests/mm/virtual_address_range.c
-> @@ -64,6 +64,14 @@
->  #define NR_CHUNKS_HIGH  NR_CHUNKS_384TB
->  #endif
->  
-> +#if defined(__riscv) && (__riscv_xlen == 64)
-> +static char *hind_addr(void)
-
-This is not a typo by you since this is the name of the original
-function but this should be "hint_addr" right?
-
-> +{
-> +	return NULL;
-> +}
-> +
-> +static void validate_addr(char *ptr, int high_addr) { }
-> +#else
-
-This is something that I am trying to solve over at
-https://lore.kernel.org/lkml/20240905-patches-below_hint_mmap-v3-0-3cd5564efbbb@rivosinc.com/
-(the solution is still in flux). Since riscv doesn't currently have this
-behavior of restricting the virtual address space, I think it is more
-reasonable to disable this test entirely. After we have a longer-term
-solution with the patch I have up we can adjust the test and re-enable
-it. What do you think?
-
-- Charlie
-
->  static char *hind_addr(void)
->  {
->  	int bits = HIGH_ADDR_SHIFT + rand() % (63 - HIGH_ADDR_SHIFT);
-> @@ -81,6 +89,7 @@ static void validate_addr(char *ptr, int high_addr)
->  	if (addr > HIGH_ADDR_MARK)
->  		ksft_exit_fail_msg("Bad address %lx\n", addr);
->  }
-> +#endif
->  
->  static int validate_lower_address_hint(void)
->  {
+> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+> index 12dc8c73a8acfaa5c8f442968a807de303428d9e..de85c3ab261e6d62b2089a3c89bdc9d1b34fa792 100644
+> --- a/arch/riscv/configs/defconfig
+> +++ b/arch/riscv/configs/defconfig
+> @@ -9,7 +9,6 @@ CONFIG_CGROUPS=y
+>  CONFIG_MEMCG=y
+>  CONFIG_CGROUP_SCHED=y
+>  CONFIG_CFS_BANDWIDTH=y
+> -CONFIG_RT_GROUP_SCHED=y
+>  CONFIG_CGROUP_PIDS=y
+>  CONFIG_CGROUP_FREEZER=y
+>  CONFIG_CGROUP_HUGETLB=y
+> 
 > -- 
-> 2.34.1
+> 2.46.0
 > 
 > 
 > _______________________________________________
