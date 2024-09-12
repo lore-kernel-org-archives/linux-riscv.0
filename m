@@ -4,85 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EED2EEE26A
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Sep 2024 21:30:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C067EEE26C
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Sep 2024 22:09:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yoOMp/7NdIta/fYCV9FITQQlNcb9rbSFhO30kWftWqs=; b=ZaXlyEK/i6dF58
-	pRE0nvIRhJIZcYDhaj/2KaJPYsHdU/T7GK8w1QHEpiFUtuTLoxtz1My86uZxJaUFpAqbN/h+qQALj
-	TaOgll7byHWvhJ2xRsdz/mxdqSbomoO3JZ7lIzDL5waQo0pTvAy2vMGqRjdJ/AX2NkJO25Ov+Pb29
-	wul1H0/5xW+lqlwq1zdsBgrVjgGYz2NlxECj9Iov/kUR1MnOYz5+5QsZC/wrqmNji+UTgd/mPN6JO
-	FENH/gPKlgQVB6e4LGwQeNaEVXuzNuMMEhlsnmm7HT7xxkWWIxnXiknesynTNzNAYwAvXugLFRK6V
-	catlkLZqsyNJCAEcBUKA==;
+	List-Owner; bh=Sm7nP/b76vjcOWyIneG/ORAAQX7/qRnVcRS7aTlntzI=; b=nb/i462aI8vX4h
+	H06Z/2m68b+Fwmeb49a7Bp05kOxSI4xpLeP+H5uvPujajvm44pIo/JOJKEP4SfBC7uYKpTfM8dq8m
+	KK1aFLLkx41z4Fj5GPtqOpLLbtBL+GYst9Yb/cSlDf6VknAHmOzXUckz88JgmXP00IqnQJQkYXqQp
+	AtnsGCEKG+WP9zf8XHB5R8/bUKDy3aH+dXoAsl+3rRR6Tn7cvFkK+/nGgEvvBJtQLFDYZqDnLAp9l
+	YeMiUPHfiLkSBV3FBf8rT5aJsB1R/hBClIEWpc8ieV+uKMkODps697sKrm1RthPqIONtQf/Itjw9W
+	jskxDqjl97zxg/NXggng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sorOs-0000000EHop-0tLg;
-	Thu, 12 Sep 2024 21:30:50 +0000
-Received: from mail-io1-xd2c.google.com ([2607:f8b0:4864:20::d2c])
+	id 1sos0S-0000000EKZP-1xKg;
+	Thu, 12 Sep 2024 22:09:40 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sorOp-0000000EHoL-2J1J
-	for linux-riscv@lists.infradead.org;
-	Thu, 12 Sep 2024 21:30:49 +0000
-Received: by mail-io1-xd2c.google.com with SMTP id ca18e2360f4ac-82a238e0a9cso10141939f.3
-        for <linux-riscv@lists.infradead.org>; Thu, 12 Sep 2024 14:30:47 -0700 (PDT)
+	id 1sorzN-0000000EKUh-3AEV;
+	Thu, 12 Sep 2024 22:08:35 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-2d8741c85bdso228148a91.1;
+        Thu, 12 Sep 2024 15:08:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1726176646; x=1726781446; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=UtIMN8hjt+eHm8/8igTe0EDjoiHpYlyPflzpSE1/b8c=;
-        b=lYqKEcleymTSy64HOkOLXrVZ3G+lKE7YFxkC/MAtVUar74UmcZgdliwGS8/4Wb2Dya
-         oz1zxH+yx2AWsiYdlrL6yTE14YRCg1CJJktE+yEwSOxEjBvkbGoIZbT5saB/1s24ohdI
-         nFC3yltllv5xXP4PdfHq9e7xiyULjW74V4qVqvYp2hj8uoIhi9RVr+5qb/deYJISXOf6
-         aN6dk+MW9W/Do2tlnmxj0sQlP8UqwU7/aQYxf3tv9Uj60QXyI8CfUpAMekxcuRbBcFDq
-         Vpw+9u/u3AIOYc1qB36rg43iwWDWqvgIhiP0l2dHHdL0HzwRC5jch6ddGo/ifkdy6Ean
-         gk6A==
+        d=gmail.com; s=20230601; t=1726178912; x=1726783712; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/2YLoM8QgDHNOaLNzKK8v/KNYvua5uBzCv9i1eFPyFY=;
+        b=l5v6MywdCu7HKloqsRSdscM7f5UUWPnNLMu2lCa+vNLK6PBDLv6E8AStyEvTa8g6Gt
+         uFyautxlUmNJIgWnvXa9hXmo1vZN5pV4ndsfR6osErFN8j7RwDnDNgYvPrBGsVvmSG9Z
+         a25wjCXYyxaYkW33oX2H62NxFdgznkNQGDnTOWvKUfogS2Xwzbl9u3MIcx0mUPCK30IJ
+         nit0BQOFrzw4qPpHsn+ANvu+W455x6CJm8Nn7/m5ncVRyFUfZRh15Xv30BzUpSprYHs3
+         0cWSxwz3VVV1OQCIy9IzyWO1ga9E4PAWNFvgpUUvM9u3uTKgdHP6m+aDSJH7V5/JvStQ
+         WhHg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1726176646; x=1726781446;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=UtIMN8hjt+eHm8/8igTe0EDjoiHpYlyPflzpSE1/b8c=;
-        b=URNiuZ21hacvgpSydOR9f+keM9q+eYUrR+pfk2eoPQj7hzi7L7YO8+FmROC8pj+X5/
-         wlTpYS8eitMx5/Gkw11S0dSXmMIrQ6sVRq0x3I1HvJopO2ZMsdQJv+Tn+yl4tBgCJhQq
-         0hhABNByRsMQb/l45S3S7DFHKv+BudBKNEa3GTZ1KX1zVUxb0ev8+Mri6y8n4R9Iedc5
-         3biEcHDciZMnyZDNQ+O6Z1bUHXTmBzVjjr/ql64B2QLyKqyquR1rYYwro1ySg+9WGYD3
-         v3dc9ofyTPqjffJfIKb3Cn356IA+l6kjDw3zx6jlyxpQtCmCqSGXvNjQM3LNhChMVGZa
-         oR5Q==
-X-Gm-Message-State: AOJu0YxrICOTOiPDQ5rVoWLI3kRENXmOF2cQvg/SZzT6HqdRWlbs/3ce
-	k+3/P917c/w+3qtdLBu6NG/LyYFbWq7PjA+EIQ0G6zDC7Wzkt1+uvQ8CeW5GE94=
-X-Google-Smtp-Source: AGHT+IF0Dj116Hozge8v197MDvYjeTxK3MKp0aY5RS13PAtZvlLU8oqWjlPSuwRMds/rwKfYKaJo8g==
-X-Received: by 2002:a05:6602:15ca:b0:82d:d07:daaa with SMTP id ca18e2360f4ac-82d376b01c6mr102431939f.4.1726176646337;
-        Thu, 12 Sep 2024 14:30:46 -0700 (PDT)
-Received: from [100.64.0.1] ([147.124.94.167])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4d35f8dac37sm807546173.133.2024.09.12.14.30.44
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 12 Sep 2024 14:30:45 -0700 (PDT)
-Message-ID: <22dd1d53-9ac5-4672-ad68-e82499038283@sifive.com>
-Date: Thu, 12 Sep 2024 16:30:43 -0500
+        d=1e100.net; s=20230601; t=1726178912; x=1726783712;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/2YLoM8QgDHNOaLNzKK8v/KNYvua5uBzCv9i1eFPyFY=;
+        b=j+KNRHE6SYuGpx/EiSZdR/yuvkEVFKlkC/Gsa+dpAtDXvLvSp+YjCXw6vrU1Zy1NNk
+         yBeL6xuGKnaD+yOxx/1h1MndG3IuZc2JmoQNQTNs/eIGPQ560m19/m7ZViU8ruLwxdtn
+         peNREsw7VK7VW3Dxx+Jb7cxCg4KjHlrQWfn8Q3YnuGV3GXC/roL9SQDhqh8mlwVOpxJ6
+         Xq0oYYBY2NeXR+UxLf/C0D9b+tyIzHtFCH3ajnV8MD1ELSQGtGOAvdsHjg+gq+fZ4kx2
+         8lEm/Umy4IjbgX9aGVTOtlz4cU8U+PsUAj3XJWZt6nCyhcJDHGin0sQzTGBLFIRO+NwI
+         rxnQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVJ7DSu3kIIeV3Zg6teOvTUguRbvcsqgJsLfav+VehJIr72Mvn84bKDBwPqxkYC1i9mkS7Fu2cvd5BNPcd2TWtc@lists.infradead.org, AJvYcCVUi0onUYKXoez6e2wicVpyuvz1Glix2bWREHExwgoD878HqWlkTqvY9yci9gYEHqiebXJTwzi+HGF9Ak8=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxx0cFGLPHj+I8Ql59Hk934PKzfGWAaUhPDsGCl7ukp85qpqBD5
+	fKfxx51zM/M0iy4CHSpyxY0ADIetS6uDeX7WFEdTMc2oznYRii7Xil//oXErZb8CJ/kjLB6Wq4o
+	ZIa3tBGlR2DKXKRFAFAD0BOXhQcM=
+X-Google-Smtp-Source: AGHT+IG6aej/NB5LBMrn83sRcBRKI2TpgN93fxt/vJJgonNH0ivdw+rd6rheCsWsaNjoH5e3gvokg2/fm6nDqHPOGEI=
+X-Received: by 2002:a17:90a:d791:b0:2da:71f8:7ff with SMTP id
+ 98e67ed59e1d1-2dba005b46amr2003435a91.5.1726178912177; Thu, 12 Sep 2024
+ 15:08:32 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 3/5] mailbox: add Microchip IPC support
-To: Valentina Fernandez <valentina.fernandezalanis@microchip.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- peterlin@andestech.com, dminus@andestech.com, conor.dooley@microchip.com,
- conor+dt@kernel.org, ycliang@andestech.com, jassisinghbrar@gmail.com,
- robh@kernel.org, krzk+dt@kernel.org, andersson@kernel.org,
- mathieu.poirier@linaro.org
-References: <20240912170025.455167-1-valentina.fernandezalanis@microchip.com>
- <20240912170025.455167-4-valentina.fernandezalanis@microchip.com>
-From: Samuel Holland <samuel.holland@sifive.com>
-Content-Language: en-US
-In-Reply-To: <20240912170025.455167-4-valentina.fernandezalanis@microchip.com>
+References: <20240829-shadow-call-stack-v7-1-2f62a4432abf@google.com>
+In-Reply-To: <20240829-shadow-call-stack-v7-1-2f62a4432abf@google.com>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Fri, 13 Sep 2024 00:08:20 +0200
+Message-ID: <CANiq72kNmvFOXhhAcQJQdMC872908=CWW15_bzyyt9ht2q=twQ@mail.gmail.com>
+Subject: Re: [PATCH v7] rust: support for shadow call stack sanitizer
+To: Alice Ryhl <aliceryhl@google.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Ard Biesheuvel <ardb@kernel.org>, Jamie Cunliffe <Jamie.Cunliffe@arm.com>, 
+	Sami Tolvanen <samitolvanen@google.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Conor Dooley <conor@kernel.org>, Kees Cook <kees@kernel.org>, 
+	Masahiro Yamada <masahiroy@kernel.org>, Nicolas Schier <nicolas@fjasle.eu>, Marc Zyngier <maz@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Mark Brown <broonie@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Miguel Ojeda <ojeda@kernel.org>, 
+	Alex Gaynor <alex.gaynor@gmail.com>, Wedson Almeida Filho <wedsonaf@gmail.com>, 
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+	Benno Lossin <benno.lossin@proton.me>, Andreas Hindborg <a.hindborg@samsung.com>, 
+	Valentin Obst <kernel@valentinobst.de>, linux-kbuild@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	rust-for-linux@vger.kernel.org, linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240912_143047_626984_335AAD41 
-X-CRM114-Status: GOOD (  14.10  )
+X-CRM114-CacheID: sfid-20240912_150833_813370_520B4339 
+X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,110 +98,20 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Valentina,
-
-On 2024-09-12 12:00 PM, Valentina Fernandez wrote:
-> +static int mchp_ipc_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct mchp_ipc_probe ipc_info;
-> +	struct microchip_ipc *ipc;
-> +	struct ipc_chan_info *priv;
-> +	bool irq_avail = false;
-> +	int ret;
-> +	u32 chan_id;
-> +
-> +	ret = sbi_probe_extension(SBI_EXT_MICROCHIP_TECHNOLOGY);
-> +	if (ret <= 0)
-> +		return dev_err_probe(dev, ret, "Microchip SBI extension not detected\n");
-> +
-> +	ipc = devm_kzalloc(dev, sizeof(*ipc), GFP_KERNEL);
-> +	if (!ipc)
-> +		return -ENOMEM;
-> +
-> +	platform_set_drvdata(pdev, ipc);
-> +
-> +	ret = dma_set_mask_and_coherent(dev, DMA_BIT_MASK(IPC_DMA_BIT_MASK));
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "dma_set_mask_and_coherent failed\n");
-> +
-> +	ipc->buf_base = dmam_alloc_coherent(dev, sizeof(u32), &ipc->dma_addr, GFP_KERNEL);
-> +
-> +	if (!ipc->buf_base)
-> +		return -ENOMEM;
-
-One drive-by comment here: you don't need to use the DMA API to get a physical
-address for passing to the SBI interface. You can use __pa() on a kmalloc'd
-buffer, since kmalloc() returns memory from the linear map. This has the
-advantage of 1) using cacheable memory and 2) not rounding up the allocation
-size to a whole page.
-
-> +
-> +	ret = mchp_ipc_sbi_send(SBI_EXT_IPC_PROBE, ipc->dma_addr);
-> +	if (ret < 0)
-> +		return dev_err_probe(dev, ret, "could not probe IPC SBI service\n");
-> +
-> +	memcpy(&ipc_info, ipc->buf_base, sizeof(struct mchp_ipc_probe));
-
-Here sizeof(struct mchp_ipc_probe) > sizeof(u32), so if the DMA API wasn't
-rounding up the allocation size, this would be a buffer overflow.
-
-Regards,
-Samuel
-
-> +	ipc->num_channels = ipc_info.num_channels;
-> +	ipc->hw_type = ipc_info.hw_type;
-> +
-> +	ipc->chans = devm_kcalloc(dev, ipc->num_channels, sizeof(*ipc->chans), GFP_KERNEL);
-> +	if (!ipc->chans)
-> +		return -ENOMEM;
-> +
-> +	ipc->dev = dev;
-> +	ipc->controller.txdone_irq = true;
-> +	ipc->controller.dev = ipc->dev;
-> +	ipc->controller.ops = &mchp_ipc_ops;
-> +	ipc->controller.chans = ipc->chans;
-> +	ipc->controller.num_chans = ipc->num_channels;
-> +	ipc->controller.of_xlate = mchp_ipc_mbox_xlate;
-> +
-> +	for (chan_id = 0; chan_id < ipc->num_channels; chan_id++) {
-> +		priv = devm_kmalloc(dev, sizeof(*priv), GFP_KERNEL);
-> +		if (!priv)
-> +			return -ENOMEM;
-> +
-> +		ipc->chans[chan_id].con_priv = priv;
-> +		priv->id = chan_id;
-> +	}
-> +
-> +	if (ipc->hw_type == MIV_IHC) {
-> +		ipc->cluster_cfg = devm_kcalloc(dev, num_online_cpus(),
-> +						sizeof(struct mchp_ipc_cluster_cfg),
-> +						GFP_KERNEL);
-> +		if (!ipc->cluster_cfg)
-> +			return -ENOMEM;
-> +
-> +		if (mchp_ipc_get_cluster_aggr_irq(ipc))
-> +			irq_avail = true;
-> +	}
-> +
-> +	if (!irq_avail)
-> +		return dev_err_probe(dev, -ENODEV, "missing interrupt property\n");
-> +
-> +	ret = devm_mbox_controller_register(dev, &ipc->controller);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret,
-> +					 "Inter-Processor communication (IPC) registration failed\n");
-> +
-> +	return 0;
-> +}
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBBdWcgMjksIDIwMjQgYXQgMTA6MjPigK9BTSBBbGljZSBSeWhsIDxhbGljZXJ5aGxA
+Z29vZ2xlLmNvbT4gd3JvdGU6Cj4KPiBBZGQgYWxsIG9mIHRoZSBmbGFncyB0aGF0IGFyZSBuZWVk
+ZWQgdG8gc3VwcG9ydCB0aGUgc2hhZG93IGNhbGwgc3RhY2sKPiAoU0NTKSBzYW5pdGl6ZXIgd2l0
+aCBSdXN0LCBhbmQgdXBkYXRlcyBLY29uZmlnIHRvIGFsbG93IG9ubHkKPiBjb25maWd1cmF0aW9u
+cyB0aGF0IHdvcmsuCgpBcHBsaWVkIHRvIGBydXN0LW5leHRgIC0tIHRoYW5rcyBldmVyeW9uZSEK
+ClBhdWwvUGFsbWVyL0FsYmVydC9SSVNDLVY6IEkgdGhpbmsgeW91IHdlcmUgbm90IENjJ2QgKGF0
+IGxlYXN0IGluIHRoaXMKdmVyc2lvbj8pLCBzbyBwbGVhc2Ugc2hvdXQgaWYgeW91IGhhdmUgYSBw
+cm9ibGVtIHdpdGggdGhpcy4KClsgRml4ZWQgaW5kZW50YXRpb24gdXNpbmcgc3BhY2VzLiAtIE1p
+Z3VlbCBdCgpDaGVlcnMsCk1pZ3VlbAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
+LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
+by9saW51eC1yaXNjdgo=
