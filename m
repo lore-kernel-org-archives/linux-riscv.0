@@ -4,65 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DA77FA375A
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Sep 2024 15:09:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AEDDFA3755
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Sep 2024 15:26:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Message-ID:Date:
-	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=2U2AR92YHaFF9c94L6oZsBcLCuwzbDrrt4SbiQ/XhGo=; b=Q3S
-	f+V0RLYXzLdNT8VyF1IeBQisqPuZj4923kYlA1KSO7d8M8dXUrtcTcuo6kqSF/neYSSgGqpJ+HyFq
-	9NHu3YntaJhCbgt23gRgf3ZCbMWCGpOrhZeOzY0/zbeucYBlo8UDjHsiEYiKljN3cMNLwxlPhLVn+
-	TExhkJ9tQohM6VlFwpn7wtgC0o5MOmFtPWNjQo9uVZIOW08r/qbhkoFz0V5ho/5wD5YeZA51TGTkE
-	BtsgKLEE+EOsgw10XTABr8MWIcLKu2vacyKNiZLPZrV5WEDGGmC1nV2ctPZhTO2lLE6jPVfRFGE7T
-	gMD/om7bd4EyN8qeScwYWrTYvDREomA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ai1M+33J2nrRrL8NEZNiO5DDI/TsPuBBo04UQKtJpsI=; b=3cQ+ux1orim0clY4GFBUORfQds
+	uMxoLPSHHErEMnK5ArH1f8fgZLO4Vr/BuQivdY+G4uhYduzWS3UCXOIZiVlD78M1PsVpblZ1WtU/T
+	KfBBAKPDOgsTARfN3PB1c11qw8KNKxmY4bzG/SmuZ7mweSPpNa41rWTU/3IsgXxCH75H5vlcG3xsK
+	VmjFIXTOf6H+ClyLpj78m9eLXueN0yEwH7Ws4YFFvWMcA2u0riQnUTkCvN3N8z14QWR/9/E93KMiO
+	mfnB4GDh/BORY3Ij+JYBissBjS3clxvbm8h6jYzI3M1D03W/msqqZGSSYJSnI2JSF/y58JwzzNRSF
+	d9qqbidA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sp7vR-0000000GIqX-0Sv2;
-	Fri, 13 Sep 2024 15:09:33 +0000
-Received: from mail-io1-f69.google.com ([209.85.166.69])
+	id 1sp8C4-0000000GMRe-0wX6;
+	Fri, 13 Sep 2024 15:26:44 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sp7vN-0000000GIpN-2pJl
+	id 1sp8C0-0000000GMQA-3O6p
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Sep 2024 15:09:31 +0000
-Received: by mail-io1-f69.google.com with SMTP id ca18e2360f4ac-82aa83ff294so43952839f.2
-        for <linux-riscv@lists.infradead.org>; Fri, 13 Sep 2024 08:09:28 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1726240167; x=1726844967;
-        h=to:from:subject:message-id:date:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=uwZk2Mnqq2cweJX6bDDtcGnk53Z7SnCzW4WXDuHomAE=;
-        b=ukd67jHNrfn32GMjEMfLzXHVJgy5hqKTYwZY2EtMvyePm9dQM1Jo7k0bINdcDjr9yT
-         +sKcgB3yRk+XIsm8wrOWvXfG8LKyacjHVcw+3A58lo8gYzoplIWpWSZjuPR9dBhfS1iS
-         1SK3FnjFtg1465NltSx3IbJrX5elYbvRelCjLH84kWzUjOyJBisgKKyBMRj9i8q4hKwJ
-         vF6ADl770UqqcCE9xLonTsNkuOATirM5WLIKuLzQ8cRDkpMD7VEGg2hkpC0470zUfbGA
-         Q0/xLOOSxu6LeAiAwjemYCKeWCYMjt0CXK6Z1vbDbZ51CHPQGQL725j9uaaGmMA9edmn
-         VStA==
-X-Forwarded-Encrypted: i=1; AJvYcCX3DY58C0W4KtByY/Rz6TA0/C+bB1A50EgheDYOOGhF6DVSgWhXl7iwZ9SOk7/LsWeqFBOt5js/3y8WJw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzeOipKoReRsaTUiHh8TvRB15ejLss22wepJ+ub+RNfas7afLzh
-	tiSpMvAxj2WVkIyGT4FR+ylGfQ5a5MbPai++eqYaD4mL8qJkuHRHGDelaIoxPCipntwSLfmzkgu
-	A0YZODfu7grLqZt+A763FLpQK/QUpb89mbCgzFSB+5eyDVewZ5grZn4w=
-X-Google-Smtp-Source: AGHT+IEQoJRcIrzGUkN4aBBAUJBtrxkYArlv+beaDll8QIp9cBUcHhnYeXB1rLxxTrg7K/KJ8rD2bB4D+8ClBawnxtz5KWwC9PT7
+	Fri, 13 Sep 2024 15:26:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 17A55A4519D;
+	Fri, 13 Sep 2024 15:26:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15DC8C4CEC0;
+	Fri, 13 Sep 2024 15:26:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1726241198;
+	bh=ztIFbvcKHrPQ+NfdDu5k6kNg3CZWEYi5RfxBXDsqDZI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KYIsiGg67ZSEYjI+/JpS8X4W0kcxPK+UzDAXAdG1PyIFs3rv2bEQPuAySqIBGc5Xv
+	 p5zQiVmUqbRLyMQhk8u2Bg3NCQSYyiwpzHo8fnQoBM34PTLUJC0Gx6Sy5Z2hzqm9tj
+	 iD4M7OLvOn/wM9WR66B/vcjCLdmOKn/onYUTW5yrNFYeNUyw78v6GCFu1EYnoH3aJk
+	 te0ADuUj45E/VLOfSrJgqCuQPaiJ7sWZcMKLgMdfWGEqshfI7ZLMuockf6xIq9InNR
+	 H5RPCmR5HVOAo9q3mCoBMXa5xfX+NPl4SgRRlDcVr5OcbDKBHSWvotFUKFDpmMof6w
+	 To7i5QdUXP0qg==
+Date: Fri, 13 Sep 2024 16:26:20 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Deepak Gupta <debug@rivosinc.com>
+Subject: Re: [PATCH v4 15/30] riscv/mm: Implement map_shadow_stack() syscall
+Message-ID: <8904b159-7798-454e-a615-34566c088fda@sirena.org.uk>
+References: <20240912231650.3740732-1-debug@rivosinc.com>
+ <20240912231650.3740732-16-debug@rivosinc.com>
 MIME-Version: 1.0
-X-Received: by 2002:a05:6e02:1383:b0:3a0:57b5:6e08 with SMTP id
- e9e14a558f8ab-3a08497522cmr17636745ab.7.1726240167434; Fri, 13 Sep 2024
- 08:09:27 -0700 (PDT)
-Date: Fri, 13 Sep 2024 08:09:27 -0700
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <000000000000fa38f30622019b6e@google.com>
-Subject: [syzbot] [riscv?] kernel panic: corrupted stack end in
- handle_page_fault (2)
-From: syzbot <syzbot+5a364b90a40e8fe8ab78@syzkaller.appspotmail.com>
-To: aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, palmer@dabbelt.com, paul.walmsley@sifive.com, 
-	syzkaller-bugs@googlegroups.com
+In-Reply-To: <20240912231650.3740732-16-debug@rivosinc.com>
+X-Cookie: In space, no one can hear you fart.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240913_080929_739567_765C8E1C 
-X-CRM114-Status: UNSURE (   7.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240913_082641_012165_083D27F1 
+X-CRM114-Status: GOOD (  11.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,137 +66,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: quic_zhonhan@quicinc.com, jszhang@kernel.org, zong.li@sifive.com, linux-doc@vger.kernel.org, peterz@infradead.org, catalin.marinas@arm.com, cuiyunhui@bytedance.com, palmer@sifive.com, atishp@rivosinc.com, bjorn@rivosinc.com, namcaov@gmail.com, oleg@redhat.com, linux-mm@kvack.org, guoren@kernel.org, alx@kernel.org, linux-kselftest@vger.kernel.org, hpa@zytor.com, puranjay@kernel.org, linux-riscv@lists.infradead.org, shuah@kernel.org, kees@kernel.org, sorear@fastmail.com, linux-arch@vger.kernel.org, robh@kernel.org, antonb@tenstorrent.com, quic_bjorande@quicinc.com, zev@bewilderbeest.net, lorenzo.stoakes@oracle.com, corbet@lwn.net, dawei.li@shingroup.cn, anup@brainfault.org, deller@gmx.de, x86@kernel.org, andrii@kernel.org, willy@infradead.org, dave.hansen@linux.intel.com, mingo@redhat.com, ancientmodern4@gmail.com, libang.li@antgroup.com, samitolvanen@google.com, usama.anjum@collabora.com, greentime.hu@sifive.com, ajones@ventanamicro.com, revest@chromium.org, devicetree@vger.kernel.org, aou@eecs.berkeley.edu, jerry.shih@sifive.com, alexghiti@rivosinc.com, arnd@arndb.de, yang.lee@linux.alibaba.com, charlie@rivosinc.com, bgray@linux.ibm.com, Liam.Howlett@oracle.com, leobras@redhat.com, songshuaishuai@tinylab.org, xiao.w.wang@intel.com, bp@alien8.de, costa.shul@redhat.com, paul.walmsley@sifive.com, mchitale@ventanamicro.com, cleger@rivosinc.com, tglx@linutronix.de, david@redhat.com, akpm@linux-foundation.org, vbabka@suse.cz, osalvador@suse.de, brauner@kernel.org, bhe@redhat.com, ke.zhao@shingroup.cn, linux-kernel@vger.kernel.org, conor@kernel.org, samuel.holland@sifive.com, ben.dooks@codethink.co.uk, evan@rivosinc.com, palmer@dabbelt.com, ebiederm@xmission.com, andy.chiu@sifive.com, schwab@suse.de, linux-fsdevel@vger.kernel.org, krzk+dt@kernel.org, sameo@rivosinc.com, tanzhasanwork@gmail.com, rppt@kernel.org, ryan.roberts@arm.com
+Content-Type: multipart/mixed; boundary="===============0070127667053392267=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello,
 
-syzbot found the following issue on:
-
-HEAD commit:    1ff95eb2bebd riscv: Fix RISCV_ALTERNATIVE_EARLY
-git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git fixes
-console output: https://syzkaller.appspot.com/x/log.txt?x=119b27c7980000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=c79e90d7b2f5b364
-dashboard link: https://syzkaller.appspot.com/bug?extid=5a364b90a40e8fe8ab78
-compiler:       riscv64-linux-gnu-gcc (Debian 12.2.0-13) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40
-userspace arch: riscv64
-
-Unfortunately, I don't have any reproducer for this issue yet.
-
-Downloadable assets:
-disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/a741b348759c/non_bootable_disk-1ff95eb2.raw.xz
-vmlinux: https://storage.googleapis.com/syzbot-assets/1491182abe4e/vmlinux-1ff95eb2.xz
-kernel image: https://storage.googleapis.com/syzbot-assets/926302c5c645/Image-1ff95eb2.xz
-
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+5a364b90a40e8fe8ab78@syzkaller.appspotmail.com
-
-Registered RDS/tcp transport
-NET: Registered PF_SMC protocol family
-9pnet: Installing 9P2000 support
-Key type dns_resolver registered
-Key type ceph registered
-libceph: loaded (mon/osd proto 15/24)
-NET: Registered PF_VSOCK protocol family
-registered taskstats version 1
-Loading compiled-in X.509 certificates
-Loaded X.509 cert 'Build time autogenerated kernel key: f2a59455c4296818b28c73c1d87b1152c8ec3b9d'
-zswap: loaded using pool 842/z3fold
-Demotion targets for Node 0: null
-debug_vm_pgtable: [debug_vm_pgtable         ]: Validating architecture page table helpers
-Key type .fscrypt registered
-Key type fscrypt-provisioning registered
-Key type big_key registered
-Key type encrypted registered
-AppArmor: AppArmor sha256 policy hashing enabled
-ima: No TPM chip found, activating TPM-bypass!
-Loading compiled-in module X.509 certificates
-Loaded X.509 cert 'Build time autogenerated kernel key: f2a59455c4296818b28c73c1d87b1152c8ec3b9d'
-ima: Allocated hash algorithm: sha256
-ima: No architecture policies found
-evm: Initialising EVM extended attributes:
-evm: security.selinux (disabled)
-evm: security.SMACK64 (disabled)
-evm: security.SMACK64EXEC (disabled)
-evm: security.SMACK64TRANSMUTE (disabled)
-evm: security.SMACK64MMAP (disabled)
-evm: security.apparmor
-evm: security.ima
-evm: security.capability
-evm: HMAC attrs: 0x1
-printk: legacy console [netcon0] enabled
-netconsole: network logging started
-gtp: GTP module loaded (pdp ctx size 128 bytes)
-rdma_rxe: loaded
-clk: Disabling unused clocks
-PM: genpd: Disabling unused power domains
-ALSA device list:
-  #0: Dummy 1
-  #1: Loopback 1
-  #2: Virtual MIDI Card 1
-md: Skipping autodetection of RAID arrays. (raid=autodetect will force)
-EXT4-fs (vda): mounted filesystem 34b94c48-234b-4869-b990-1f782e29954a ro with ordered data mode. Quota mode: none.
-VFS: Mounted root (ext4 filesystem) readonly on device 253:0.
-devtmpfs: mounted
-Freeing unused kernel image (initmem) memory: 2532K
-Failed to set sysctl parameter 'max_rcu_stall_to_panic=1': parameter not found
-Run /sbin/init as init process
-Kernel panic - not syncing: corrupted stack end detected inside scheduler
-CPU: 1 UID: 0 PID: 1 Comm: init Not tainted 6.11.0-rc2-syzkaller-g1ff95eb2bebd #0
-Hardware name: riscv-virtio,qemu (DT)
-Call Trace:
-[<ffffffff80010216>] dump_backtrace+0x2e/0x3c arch/riscv/kernel/stacktrace.c:130
-[<ffffffff85edbc4e>] show_stack+0x34/0x40 arch/riscv/kernel/stacktrace.c:136
-[<ffffffff85f3714c>] __dump_stack lib/dump_stack.c:93 [inline]
-[<ffffffff85f3714c>] dump_stack_lvl+0x108/0x196 lib/dump_stack.c:119
-[<ffffffff85f371f6>] dump_stack+0x1c/0x24 lib/dump_stack.c:128
-[<ffffffff85edc812>] panic+0x388/0x806 kernel/panic.c:348
-[<ffffffff85f4533a>] schedule_debug kernel/sched/core.c:5745 [inline]
-[<ffffffff85f4533a>] __schedule+0x3230/0x3288 kernel/sched/core.c:6411
-[<ffffffff85f4585c>] preempt_schedule_common kernel/sched/core.c:6708 [inline]
-[<ffffffff85f4585c>] preempt_schedule+0xd2/0x1e2 kernel/sched/core.c:6732
-[<ffffffff85f5a472>] __raw_spin_unlock include/linux/spinlock_api_smp.h:143 [inline]
-[<ffffffff85f5a472>] _raw_spin_unlock+0x88/0xa8 kernel/locking/spinlock.c:186
-[<ffffffff806c89e0>] spin_unlock include/linux/spinlock.h:391 [inline]
-[<ffffffff806c89e0>] filemap_map_pages+0xa4a/0xf70 mm/filemap.c:3655
-[<ffffffff807efa7c>] do_fault_around mm/memory.c:5019 [inline]
-[<ffffffff807efa7c>] do_read_fault mm/memory.c:5052 [inline]
-[<ffffffff807efa7c>] do_fault mm/memory.c:5191 [inline]
-[<ffffffff807efa7c>] do_pte_missing mm/memory.c:3947 [inline]
-[<ffffffff807efa7c>] handle_pte_fault mm/memory.c:5522 [inline]
-[<ffffffff807efa7c>] __handle_mm_fault+0x1cbe/0x3998 mm/memory.c:5665
-[<ffffffff807f1d08>] handle_mm_fault+0x5b2/0xb36 mm/memory.c:5833
-[<ffffffff8002350a>] handle_page_fault+0x2ba/0x1588 arch/riscv/mm/fault.c:302
-[<ffffffff85f3950a>] do_page_fault+0x20/0x56 arch/riscv/kernel/traps.c:362
-[<ffffffff85f5b85a>] handle_exception+0xca/0xd6 arch/riscv/kernel/entry.S:110
-SMP: stopping secondary CPUs
-Rebooting in 86400 seconds..
+--===============0070127667053392267==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="EXdCC84RfjoEE1iq"
+Content-Disposition: inline
 
 
----
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
+--EXdCC84RfjoEE1iq
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-syzbot will keep track of this issue. See:
-https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+On Thu, Sep 12, 2024 at 04:16:34PM -0700, Deepak Gupta wrote:
 
-If the report is already addressed, let syzbot know by replying with:
-#syz fix: exact-commit-title
+> This patch implements this syscall for riscv. riscv doesn't require token
+> to be setup by kernel because user mode can do that by itself. However to
+> provide compatibility and portability with other architectues, user mode
+> can specify token set flag.
 
-If you want to overwrite report's subsystems, reply with:
-#syz set subsystems: new-subsystem
-(See the list of subsystem names on the web dashboard)
+The arm64 series also adds SHADOW_STACK_SET_MARKER for a top of stack
+marker, if this is only being done for compatibility it might be good to
+pick that up as well.  I don't know what the thoughts are on using them
+for RISC-V.  On arm64 the top of stack marker is just all bits 0.
 
-If the report is a duplicate of another one, reply with:
-#syz dup: exact-subject-of-another-report
+--EXdCC84RfjoEE1iq
+Content-Type: application/pgp-signature; name="signature.asc"
 
-If you want to undo deduplication, reply with:
-#syz undup
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmbkWZsACgkQJNaLcl1U
+h9BxgAf+PzUH92Qd8Gx84qFgdXuCpqKnDddOVzhJ/1HXiYtm3Yst508zBxwr03E0
+oP3VhAC469mn8uOctrOJqdGHEFcC2/i3SXoyOMIp2gE+YkhdZxatybrRoCF+oNAT
+AW4y0dPMgjW0i9h1kbiw/MjiHQgVoxdgULs0eZOFLl2zr+QVAD6PYLIAh/3y/lzl
+e4xv7Bdh51DfKjKr7WwnKYJRGG12WjMxyOjHmy37b09h7THnjSTrg+Y/B7uQ6IpD
+xS8TYwFAAn9veTqu5LuGRrKm5zBfJ+xSs78Ee/F/MZ+JgzW4ZpDbmQxuBnk33TRe
+bsixBm+3DOUSeFsCCg21dGBeFYR0JQ==
+=Y+Cs
+-----END PGP SIGNATURE-----
+
+--EXdCC84RfjoEE1iq--
+
+
+--===============0070127667053392267==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0070127667053392267==--
+
