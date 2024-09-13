@@ -4,69 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD348FA3755
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Sep 2024 14:57:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54FB0FA375B
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Sep 2024 15:01:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BI97Gk4YjsNAAz3UQPtP0emcjtEqCw/vYt/XCosNpYo=; b=giBJ1m5LUNBKIk
-	mgCnvX5DUTnLiFlsvRKU/OHcbCZ2rA+HnA8vVM0bq0ufxqYWphjb5YXMD9wtMgmpMKZHrvgIbhhgj
-	zPEt/DOF31OpXzaXzD8pvZzA/vQZWFTy7EpwAsFKlQuvVyEZqnF6Vu4vt4nELAnO6G0xO5brtlxsG
-	PlenElDmtD6Im1l+cPPld1OyC+yMbSVfj0lpgih4gMhWL2Hj9VcIlRhzFaADgka/EcwC6aKArmlKR
-	klvtW115o+dk8qoSexQxXkT9izQ4tKbozOdYCLZZ/fuVuJG9a+6WNN3hRPLR9OAYF3e3/TSjKcK+f
-	UgSoGmKTllcJlhL8gAYA==;
+	List-Owner; bh=Mrrpag/UQpT30miWnvSQQtJ59mhoMLN3h1X7JqGYSIY=; b=KYa0Iy//ip9haU
+	DtPHrCQXoEsU3oGiO+Ca2IbiNtixQ6w9Zn3xfcy5e3aowIkz+ONzphYm5ZgIu8LAe3tWT+wlkIog7
+	YWAGxuj4zpl79VgChNQQ3wJo+oDQcjgreaYwlOWqXMiaERqKgjpnOuzA/Mlg1c5BxJhs6HxDYiu75
+	6yaz9QjVX2FDYE0xg4eFBAIFG0167G3xCGQcAso2PkurMo+3IP9F9SbqtPAdz6wXF7KHvHz4rn48C
+	lBjcOWRyv1EC0s3yj2KkA8gGSvWzaCk/O+NZBfT2Ixf3LQQAxxpvrYIgWYpAaM4l1JWUDvpsHZsX8
+	vD9IKFcUoptQtDCx2ATg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sp7jG-0000000GGI2-1z2h;
-	Fri, 13 Sep 2024 14:56:58 +0000
-Received: from msa-213.smtpout.orange.fr ([193.252.23.213] helo=msa.smtpout.orange.fr)
+	id 1sp7nO-0000000GHHG-2Psi;
+	Fri, 13 Sep 2024 15:01:14 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sp7jC-0000000GGHb-3hQR
-	for linux-riscv@lists.infradead.org;
-	Fri, 13 Sep 2024 14:56:57 +0000
-Received: from [192.168.1.37] ([90.11.132.44])
-	by smtp.orange.fr with ESMTPA
-	id p7j0sSUf9oR4tp7j1soqq0; Fri, 13 Sep 2024 16:56:51 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1726239411;
-	bh=2ppfZtFE3UF/ZPMPNi/oYz7eBBncngRv+97pSLrZhqA=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From;
-	b=frB2zXBkPf2SbckhFM/MElr0u4oWmiNEG9WMsoDpJ/9F4I7EYcra7Vs8SKV+jLf+1
-	 WWGlSmHvc/f7s+3oGUMSXH5RIL/A2V+mD/tDQ2Npd7phpBuZLSvDKJhe1Lm1JTLPfu
-	 aoxhKvyROQrUYZ8kb0VNSo/Qfd2ONclCAzrvbaA7mu5HE+UmjR/zDHxx+E1fE7Es+7
-	 kJbvvCde1ENSFzGt/J6Qu/wq7dZt4HKhih6QC9K5ksQM1/n4HyKc1NWK5Yw0uZwRO6
-	 s4b/ny6bMWwAvVEVZZhnBEqRRMu4p2PMo2aiVQriYVg2PMV8jODsa9EVN43ryFMzxo
-	 R4XOTF72vKrbw==
-X-ME-Helo: [192.168.1.37]
-X-ME-Auth: bWFyaW9uLmphaWxsZXRAd2FuYWRvby5mcg==
-X-ME-Date: Fri, 13 Sep 2024 16:56:51 +0200
-X-ME-IP: 90.11.132.44
-Message-ID: <e2d7ed77-827b-4b7c-800c-9c8f3bcb6b5a@wanadoo.fr>
-Date: Fri, 13 Sep 2024 16:56:42 +0200
+	id 1sp7n7-0000000GH5Q-1wbs;
+	Fri, 13 Sep 2024 15:00:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id F10B35C549C;
+	Fri, 13 Sep 2024 15:00:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 536A1C4CECE;
+	Fri, 13 Sep 2024 15:00:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1726239656;
+	bh=BA0ANnltDBBfuoBltj9aaFdaXEL//Iks38XJnB02U/g=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=YAJMkQFcS9yQrD3CD9uf2YDAnPedZRu2sdG3Uq7zy8+8g4fHsdnaV9YMu/zLJ/1tj
+	 EDiCdYnV0pGG/cGSGCoqzc1yz3NAQwdRBBLRfL0AaT5mhRSd5SqOtQjToavlsk96bb
+	 oKdYkALvWRv8THfAoHVYOAKmMboDnCW5qhSOfsTXSAkiRSZcMGaGh7XxCBtwPbd5yo
+	 iYcY5nqsZThg8+lFTkl4wHHIxP84VsBur9fkHWLMiLx+uY355fMP3Bd0gFRq3KpUT4
+	 TIJSScKe0wBqYY1i+xFQfTmvYKL4lkyD4Paj6wDyvXKCliGwP8nsVtdZV47PWrdook
+	 qWRlseRXwzJPA==
+Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-2f75de9a503so25797881fa.0;
+        Fri, 13 Sep 2024 08:00:56 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUzUL8+Zebn9B+XgCm7ciGeTatsPr9/FzFqplzqatCztOb3yKbvQ0/SPARVmJGT6GaYKhQWb5z+5II=@lists.infradead.org, AJvYcCWQZF/hoeE7xlGyyAOO0wZs8LfszfzeyyT62mL9hq4OBK3MkUnen0vsgYLhPODQ3t+Yi7GodV7MVaTP5TwKc58=@lists.infradead.org, AJvYcCWaYolRzmMxcq3jSCKMh9TNrh9vcnqTIFTW59ffz5V7mqoOy4wOELWOmNIBsaEtz/nS8Vj5qNSLvPIa6WY=@lists.infradead.org, AJvYcCX2/39JK8T5RAztR2wZKdJPHRPNSzocrPexsgmx5tOIKOTPwZp/32APRHv7sHnytX2Yql6krtHgZqfWvgJHC/vP@lists.infradead.org
+X-Gm-Message-State: AOJu0YzEoYUn/DIslLWcBjaRbQ7snw7HMNfbBk6HEe0ehA6EEhkLlFPI
+	i+4a9sjI2pJjfsd7oUH2mCgeHOwiMHythagkxPfBgFVErBHe+NWKVo01qnYyxTC4VBMgYctvB6l
+	sQyN9P45Y3zFZ1d13K88kfKl2/ms=
+X-Google-Smtp-Source: AGHT+IEIp2MygUsW5Tc1gnqrEXhSi4Y5LfaJ7pDs2t1FcVSY61BEs2pVKMYAU/+O+nJIsawLe6NqpBRTPpsi7cWLSzQ=
+X-Received: by 2002:a05:651c:1a0c:b0:2f0:1e0a:4696 with SMTP id
+ 38308e7fff4ca-2f787dabe7emr39035411fa.7.1726239653924; Fri, 13 Sep 2024
+ 08:00:53 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6.6 v2 1/4] riscv: dts: starfive: add assigned-clock* to
- limit frquency
-To: WangYuli <wangyuli@uniontech.com>, stable@vger.kernel.org,
- gregkh@linuxfoundation.org, sashal@kernel.org, william.qiu@starfivetech.com,
- emil.renner.berthing@canonical.com, conor.dooley@microchip.com,
- xingyu.wu@starfivetech.com, walker.chen@starfivetech.com, robh@kernel.org,
- hal.feng@starfivetech.com
-Cc: kernel@esmil.dk, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org,
- conor+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- richardcochran@gmail.com, netdev@vger.kernel.org
-References: <3A31C289BC240955+20240912025539.1928223-1-wangyuli@uniontech.com>
-Content-Language: en-US, fr-FR
-From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-In-Reply-To: <3A31C289BC240955+20240912025539.1928223-1-wangyuli@uniontech.com>
+References: <20240909064730.3290724-1-rppt@kernel.org> <20240909064730.3290724-8-rppt@kernel.org>
+In-Reply-To: <20240909064730.3290724-8-rppt@kernel.org>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Fri, 13 Sep 2024 17:00:42 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXG_Z=7B_eDAk3vhtDjfcnka3AoSKNzvFQDzpvYY2EyVfg@mail.gmail.com>
+Message-ID: <CAMj1kXG_Z=7B_eDAk3vhtDjfcnka3AoSKNzvFQDzpvYY2EyVfg@mail.gmail.com>
+Subject: Re: [PATCH v3 7/8] execmem: add support for cache of large ROX pages
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Andreas Larsson <andreas@gaisler.com>, 
+	Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>, 
+	Brian Cain <bcain@quicinc.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Christoph Hellwig <hch@infradead.org>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, Dinh Nguyen <dinguyen@kernel.org>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>, 
+	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+	Johannes Berg <johannes@sipsolutions.net>, 
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Kent Overstreet <kent.overstreet@linux.dev>, 
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Luis Chamberlain <mcgrof@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Masami Hiramatsu <mhiramat@kernel.org>, 
+	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Michal Simek <monstr@monstr.eu>, Oleg Nesterov <oleg@redhat.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Richard Weinberger <richard@nod.at>, Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>, 
+	Stafford Horne <shorne@gmail.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Thomas Gleixner <tglx@linutronix.de>, 
+	Uladzislau Rezki <urezki@gmail.com>, Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>, 
+	bpf@vger.kernel.org, linux-alpha@vger.kernel.org, linux-arch@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
+	linux-hexagon@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
+	linux-mm@kvack.org, linux-modules@vger.kernel.org, 
+	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org, 
+	linux-snps-arc@lists.infradead.org, linux-trace-kernel@vger.kernel.org, 
+	linux-um@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
+	loongarch@lists.linux.dev, sparclinux@vger.kernel.org, x86@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240913_075655_356131_20FFFB59 
-X-CRM114-Status: GOOD (  10.53  )
+X-CRM114-CacheID: sfid-20240913_080057_790099_B3650A48 
+X-CRM114-Status: GOOD (  28.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,38 +102,141 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-TGUgMTIvMDkvMjAyNCDDoCAwNDo1NSwgV2FuZ1l1bGkgYSDDqWNyaXTCoDoKPiBGcm9tOiBXaWxs
-aWFtIFFpdSA8d2lsbGlhbS5xaXVAc3RhcmZpdmV0ZWNoLmNvbT4KPiAKPiBbIFVwc3RyZWFtIGNv
-bW1pdCBhZjU3MTEzM2Y3YWUwMjhlYzliNWZkYWI3OGY0ODNhZjEzYmYyOGQzIF0KPiAKPiBJbiBK
-SDcxMTAgU29DLCB3ZSBuZWVkIHRvIGdvIGJ5LXBhc3MgbW9kZSwgc28gd2UgbmVlZCBhZGQgdGhl
-Cj4gYXNzaWduZWQtY2xvY2sqIHByb3BlcnRpZXMgdG8gbGltaXQgY2xvY2sgZnJxdWVuY3kuCj4g
-Cj4gU2lnbmVkLW9mZi1ieTogV2lsbGlhbSBRaXUgPHdpbGxpYW0ucWl1QHN0YXJmaXZldGVjaC5j
-b20+Cj4gUmV2aWV3ZWQtYnk6IEVtaWwgUmVubmVyIEJlcnRoaW5nIDxlbWlsLnJlbm5lci5iZXJ0
-aGluZ0BjYW5vbmljYWwuY29tPgo+IFNpZ25lZC1vZmYtYnk6IENvbm9yIERvb2xleSA8Y29ub3Iu
-ZG9vbGV5QG1pY3JvY2hpcC5jb20+Cj4gU2lnbmVkLW9mZi1ieTogV2FuZ1l1bGkgPHdhbmd5dWxp
-QHVuaW9udGVjaC5jb20+Cj4gLS0tCgpIaSwKCmlmL3doZW4gcmVzZW50LCB0aGVyZSBpcyBhIHR5
-cG8gaW4gdGhlIHN1YmplY3Q6IHMvZnJxdWVuY3kvZnJlcXVlbmN5LwoKQ0oKCgo+ICAgLi4uL3Jp
-c2N2L2Jvb3QvZHRzL3N0YXJmaXZlL2poNzExMC1zdGFyZml2ZS12aXNpb25maXZlLTIuZHRzaSB8
-IDQgKysrKwo+ICAgMSBmaWxlIGNoYW5nZWQsIDQgaW5zZXJ0aW9ucygrKQo+IAo+IGRpZmYgLS1n
-aXQgYS9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3N0YXJmaXZlL2poNzExMC1zdGFyZml2ZS12aXNpb25m
-aXZlLTIuZHRzaSBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3RhcmZpdmUvamg3MTEwLXN0YXJmaXZl
-LXZpc2lvbmZpdmUtMi5kdHNpCj4gaW5kZXggMDYyYjk3YzZlN2RmLi40ODc0ZTNiYjQyYWIgMTAw
-NjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9ib290L2R0cy9zdGFyZml2ZS9qaDcxMTAtc3RhcmZpdmUt
-dmlzaW9uZml2ZS0yLmR0c2kKPiArKysgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3N0YXJmaXZlL2po
-NzExMC1zdGFyZml2ZS12aXNpb25maXZlLTIuZHRzaQo+IEBAIC0yMDQsNiArMjA0LDggQEAgJmky
-YzYgewo+ICAgCj4gICAmbW1jMCB7Cj4gICAJbWF4LWZyZXF1ZW5jeSA9IDwxMDAwMDAwMDA+Owo+
-ICsJYXNzaWduZWQtY2xvY2tzID0gPCZzeXNjcmcgSkg3MTEwX1NZU0NMS19TRElPMF9TRENBUkQ+
-Owo+ICsJYXNzaWduZWQtY2xvY2stcmF0ZXMgPSA8NTAwMDAwMDA+Owo+ICAgCWJ1cy13aWR0aCA9
-IDw4PjsKPiAgIAljYXAtbW1jLWhpZ2hzcGVlZDsKPiAgIAltbWMtZGRyLTFfOHY7Cj4gQEAgLTIy
-MCw2ICsyMjIsOCBAQCAmbW1jMCB7Cj4gICAKPiAgICZtbWMxIHsKPiAgIAltYXgtZnJlcXVlbmN5
-ID0gPDEwMDAwMDAwMD47Cj4gKwlhc3NpZ25lZC1jbG9ja3MgPSA8JnN5c2NyZyBKSDcxMTBfU1lT
-Q0xLX1NESU8xX1NEQ0FSRD47Cj4gKwlhc3NpZ25lZC1jbG9jay1yYXRlcyA9IDw1MDAwMDAwMD47
-Cj4gICAJYnVzLXdpZHRoID0gPDQ+Owo+ICAgCW5vLXNkaW87Cj4gICAJbm8tbW1jOwoKCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Mike,
+
+On Mon, 9 Sept 2024 at 08:51, Mike Rapoport <rppt@kernel.org> wrote:
+>
+> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+>
+> Using large pages to map text areas reduces iTLB pressure and improves
+> performance.
+>
+> Extend execmem_alloc() with an ability to use huge pages with ROX
+> permissions as a cache for smaller allocations.
+>
+> To populate the cache, a writable large page is allocated from vmalloc with
+> VM_ALLOW_HUGE_VMAP, filled with invalid instructions and then remapped as
+> ROX.
+>
+> Portions of that large page are handed out to execmem_alloc() callers
+> without any changes to the permissions.
+>
+> When the memory is freed with execmem_free() it is invalidated again so
+> that it won't contain stale instructions.
+>
+> The cache is enabled when an architecture sets EXECMEM_ROX_CACHE flag in
+> definition of an execmem_range.
+>
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> ---
+>  include/linux/execmem.h |   2 +
+>  mm/execmem.c            | 289 +++++++++++++++++++++++++++++++++++++++-
+>  2 files changed, 286 insertions(+), 5 deletions(-)
+>
+> diff --git a/include/linux/execmem.h b/include/linux/execmem.h
+> index dfdf19f8a5e8..7436aa547818 100644
+> --- a/include/linux/execmem.h
+> +++ b/include/linux/execmem.h
+> @@ -77,12 +77,14 @@ struct execmem_range {
+>
+>  /**
+>   * struct execmem_info - architecture parameters for code allocations
+> + * @fill_trapping_insns: set memory to contain instructions that will trap
+>   * @ranges: array of parameter sets defining architecture specific
+>   * parameters for executable memory allocations. The ranges that are not
+>   * explicitly initialized by an architecture use parameters defined for
+>   * @EXECMEM_DEFAULT.
+>   */
+>  struct execmem_info {
+> +       void (*fill_trapping_insns)(void *ptr, size_t size, bool writable);
+>         struct execmem_range    ranges[EXECMEM_TYPE_MAX];
+>  };
+>
+> diff --git a/mm/execmem.c b/mm/execmem.c
+> index 0f6691e9ffe6..f547c1f3c93d 100644
+> --- a/mm/execmem.c
+> +++ b/mm/execmem.c
+> @@ -7,28 +7,88 @@
+>   */
+>
+>  #include <linux/mm.h>
+> +#include <linux/mutex.h>
+>  #include <linux/vmalloc.h>
+>  #include <linux/execmem.h>
+> +#include <linux/maple_tree.h>
+>  #include <linux/moduleloader.h>
+>  #include <linux/text-patching.h>
+>
+> +#include <asm/tlbflush.h>
+> +
+> +#include "internal.h"
+> +
+>  static struct execmem_info *execmem_info __ro_after_init;
+>  static struct execmem_info default_execmem_info __ro_after_init;
+>
+> -static void *__execmem_alloc(struct execmem_range *range, size_t size)
+> +#ifdef CONFIG_MMU
+> +struct execmem_cache {
+> +       struct mutex mutex;
+> +       struct maple_tree busy_areas;
+> +       struct maple_tree free_areas;
+> +};
+> +
+> +static struct execmem_cache execmem_cache = {
+> +       .mutex = __MUTEX_INITIALIZER(execmem_cache.mutex),
+> +       .busy_areas = MTREE_INIT_EXT(busy_areas, MT_FLAGS_LOCK_EXTERN,
+> +                                    execmem_cache.mutex),
+> +       .free_areas = MTREE_INIT_EXT(free_areas, MT_FLAGS_LOCK_EXTERN,
+> +                                    execmem_cache.mutex),
+> +};
+> +
+> +static void execmem_cache_clean(struct work_struct *work)
+> +{
+> +       struct maple_tree *free_areas = &execmem_cache.free_areas;
+> +       struct mutex *mutex = &execmem_cache.mutex;
+> +       MA_STATE(mas, free_areas, 0, ULONG_MAX);
+> +       void *area;
+> +
+> +       mutex_lock(mutex);
+> +       mas_for_each(&mas, area, ULONG_MAX) {
+> +               size_t size;
+> +
+> +               if (!xa_is_value(area))
+> +                       continue;
+> +
+> +               size = xa_to_value(area);
+> +
+> +               if (IS_ALIGNED(size, PMD_SIZE) &&
+> +                   IS_ALIGNED(mas.index, PMD_SIZE)) {
+> +                       void *ptr = (void *)mas.index;
+> +
+> +                       mas_erase(&mas);
+> +                       vfree(ptr);
+> +               }
+> +       }
+> +       mutex_unlock(mutex);
+> +}
+> +
+> +static DECLARE_WORK(execmem_cache_clean_work, execmem_cache_clean);
+> +
+> +static void execmem_fill_trapping_insns(void *ptr, size_t size, bool writable)
+> +{
+> +       if (execmem_info->fill_trapping_insns)
+> +               execmem_info->fill_trapping_insns(ptr, size, writable);
+> +       else
+> +               memset(ptr, 0, size);
+
+Does this really have to be a function pointer with a runtime check?
+
+This could just be a __weak definition, with the arch providing an
+override if the memset() is not appropriate.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
