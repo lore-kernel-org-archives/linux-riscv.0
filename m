@@ -4,85 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFD32EEE27A
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Sep 2024 03:22:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C208EEEC08
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Sep 2024 03:42:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ikWIcJJverBzgBDBHLtQKuAKLe/kTNHGPw4MueWf0a8=; b=M0Y7xt/bT1CfLs
-	RECfIQVp+TNLu0JtAV81qyTCzZGhzz7AfKAUurluhBkUv6eZANKtQ4gy0XZv5Ft47qXoB2eRqeFHh
-	x0S6/f8x515S1Pjj3n8mfG/Xe/ILRh5GzlYVVjr9bPKfOX72cRpus9i8R72IwASfwJToHaXDb06Aw
-	nFtsRhkArxOmCqFxYa7r/GwczZKPYQxtLg/MEZq2OhnQ41CY+qEu+cPhQ6qK4OAY1pG259XBwyeI5
-	taFWh0TDiV98hn4WjrLBX5VxBHJ2GtinQluICA+ont8IbAvXp0TLguMCgXgOtOQ+XjSXA+haQroq9
-	TOU13tb2dWPoys6OSq1w==;
+	List-Owner; bh=6IumsXRURrUXs364VF904a+WSRyyaBU5rLG6P3mZs1o=; b=YB9XEuIfIMDF4V
+	eRl8htKlGWuktSsQ+bGJFYaoJHN8IJJzRrYmdQTAEtDazMAde596uWL3AsONiMGFD8T4iPQ7dIgFm
+	xkPsHdP9Be0U82sBsZmqXPgfO5rqMcMfeieymnz4VRdpERcA8wFj/AsrUghwlFtt0uI4c7NWgBhfJ
+	431qKFVuHJzlQeHN536YbAwnod9TQqUni8blJ+NfdtVhrW2zxbR5SQQubOKa5tFFV55S5WDcYfnAT
+	1k6p+7lCR0HguotVQH/nLa6sSA8pyXLb8Tjny1PR4w6zPQUn88RjBKR9Ex9q4cXNQod5D4CkZxm+Z
+	jpNl+OQwwMk5uojxm6wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sowt6-0000000EoP7-1G7J;
-	Fri, 13 Sep 2024 03:22:24 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1soxBz-0000000EpsK-36Vx;
+	Fri, 13 Sep 2024 03:41:55 +0000
+Received: from mail-oi1-x22e.google.com ([2607:f8b0:4864:20::22e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sowt3-0000000EoOm-21SN
+	id 1soxBw-0000000Eprv-2afG
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Sep 2024 03:22:22 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-718e11e4186so1533788b3a.2
-        for <linux-riscv@lists.infradead.org>; Thu, 12 Sep 2024 20:22:21 -0700 (PDT)
+	Fri, 13 Sep 2024 03:41:54 +0000
+Received: by mail-oi1-x22e.google.com with SMTP id 5614622812f47-3e0438e81aaso264178b6e.3
+        for <linux-riscv@lists.infradead.org>; Thu, 12 Sep 2024 20:41:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1726197740; x=1726802540; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=gkPkVDRD0OwFEuQUvV+n2s6XJ6GgG4bakHl8tALnG+0=;
-        b=W5TztJMFj6MulRXgVxH+mfeQ0Adu5w2ESKbniCmRa/MP2NoDAvuf7G4NTroI04Uf1F
-         MPwUup0LFhKn3Q7uw1RT/ceQ1ckQIE5sg+Aq7dZq6un/BmS+mTFmdu8VoLY5JEOu/i2i
-         5a0HIEDhyppHSfeZT/bF32l7neYrWz0SZfy7Z3+tX4SLe6dP1k2J+vNscVY7s4PnRCxx
-         SFLf7Kv/oo/wXlLl5sXDiyDTe1V2X5A7iwTQ5OymY2uyyBtuVdvozxpAw8OpAygU/XIc
-         Y3UL2HzH704HT8J5QVIGQP+mLK/anuiRdyZORmHGyD4zxDkUNWYuG8gon6jhj9YHSv3f
-         oWjg==
+        d=gmail.com; s=20230601; t=1726198911; x=1726803711; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=WiG+fM+7N9Q40JfTc9raIwTA9+J99+5kuXFj+tWJcxo=;
+        b=MtXhaNGhiMgQavApZwk/ClFQWq2BoeLCaSq21C4dX/ddA85C9T1mrfm2MX7IJJHGox
+         Uef0OHhMfoNUGYLzZ+YDra1klSDKn+MD+lG9wNvSzb5a1q3KZNehLqxoUogbqHCFCbIO
+         /+EIE/tP4cdERJpXu/eDFIpMJWHuS6G2L1A7mandjv2rzrBrV7dGaJIyB2VTNB1UnFJu
+         668bbDHXIk7xI4fKQZ0K/QG46d8Apl4qR2fK2JQvG4Njb/wW0isS05/zK9AMS7qtlzgj
+         Qrsrk0VYhDyFbKJBUYFPRMISGlgQTGR5Z7uSfONK8gRQeG/MYw1tQn7R/X59WBSHsrI/
+         eEsw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1726197740; x=1726802540;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gkPkVDRD0OwFEuQUvV+n2s6XJ6GgG4bakHl8tALnG+0=;
-        b=vt5iOWAV5ycVQ62jLKShnDMUi0WkUcw7+4hNJw9gLoZNTxZ7BPi3rMxf7h9EkA1/Ay
-         9q+Vi1XUJNVUVsZhaZEVPt45YQHLN19g7Ay+VWh47qcDsBwpM6EtHUVhkBpyfBvSyT10
-         qDSY5Q3w0FlnSYXZrMXudcZ6VTyZUgN/WYorM9UyUTYQO6CtiiVVDHNv/d+isqTWJvrc
-         JXh2BkM51nv4raUIFjMu/FlsM9Gw6hAiOO1RMeZzB9U73RHTQ8RPNUR5B7FIthKMh6W7
-         agtiBDwyBkjq+ITM1vtvjf+uu2/1Kqc+GIAaABdcDbiyXXECr04/M8Sfn4mRBxHHo+Xe
-         FwQg==
-X-Forwarded-Encrypted: i=1; AJvYcCVgvqDrUV4Y3xQVbT049TLzaY38XcFSsdVpali1gSC3Wo8t/lakg0otr5N+wTWjrq3S8EukiRamIz/ctw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxy17AbI6+Fu3Zyn4qrCt041OA4huSqpfAZjJllnmgTBgF5KrUT
-	CWP3GqQT/bHuKZdTlIENBBAt8/yJRwKmMytK3l1EYUiyIhPbFcKovMgxtvavjsg=
-X-Google-Smtp-Source: AGHT+IEXdu7/jKSiLZPseTbEtvh8wm3jfCToFcsHiweT3cn9stVw7aGwEh7jPsLs5sXKDmpHC50qCg==
-X-Received: by 2002:a05:6a21:9d91:b0:1c6:fbf3:a0ef with SMTP id adf61e73a8af0-1cf764c11e3mr7345712637.44.1726197740389;
-        Thu, 12 Sep 2024 20:22:20 -0700 (PDT)
-Received: from ghost ([2600:1010:b329:66c7:b074:429:f745:d035])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-719090b273asm5263978b3a.166.2024.09.12.20.22.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Sep 2024 20:22:19 -0700 (PDT)
-Date: Thu, 12 Sep 2024 20:22:15 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>, linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Chunyan Zhang <zhang.lyra@gmail.com>
-Subject: Re: [PATCH 2/2] selftests/mm: skip virtual_address_range tests on
- riscv
-Message-ID: <ZuOv55YsorfvhlQi@ghost>
-References: <20240913022635.751505-1-zhangchunyan@iscas.ac.cn>
- <20240913022635.751505-2-zhangchunyan@iscas.ac.cn>
+        d=1e100.net; s=20230601; t=1726198911; x=1726803711;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=WiG+fM+7N9Q40JfTc9raIwTA9+J99+5kuXFj+tWJcxo=;
+        b=P8QYQOcbAWH89Gzt2SMwhhVWIieLTz218/wPY79kfFQL75A46az13BQV+CNbq8W50g
+         s4I643fPfUVmgxafOjz7C5vk3y5NpIa73bWFeuVvzlXdacHh+NeIG8mI0bH3yrzSiJ4C
+         aWHLGN4VpwYSfKxqeMVXSDlvbjAI+CrsoWWcXo3W2SFnJYtsbs8dB3FQkE9XH3Ai6PnM
+         Wb6qJRnzo1Gt32o0ai7ikrwUuA6Ylurk397mLSmj72Mx3nUsMrpS8ZkH34IjzMgBiqIn
+         YZXrIqSQQeXL77czNw0oDsqtw6yLux7141TaioWb5FVzBHNQmioGxhmrolorddLBnHdA
+         imvQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWHhA5K3klM8mJ601sgz3eIU50IiCpFfwmbdRFHRjevHPCJ0hMv86mcvuGFeUtvtc2Og+DcQ83AYiQZeA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yylpt76kPxXP5XbqnJl2c62mnlY2roDT5aUzurFKu1nplnO+Nv/
+	Pi2Tn8TvsT6OV+1TtanygLmsJ5lln5O6OdMVfmkR1cOEfXuwvFvVfQk7VU6TH4Q4NFDqxrTfnYi
+	s8o0MWg836GTa/KFna06O8RcpvdA=
+X-Google-Smtp-Source: AGHT+IFapc1fMjHxFBGJ0qkUtd+XJG4w0zAhtt6ixANanpzleOSJATkFV4GdeXlL/n6mICeMMpYCQrQW1V9fRfCBD5k=
+X-Received: by 2002:a05:6808:192a:b0:3e0:45ea:7fbe with SMTP id
+ 5614622812f47-3e07a1103c3mr858054b6e.13.1726198911381; Thu, 12 Sep 2024
+ 20:41:51 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240913022635.751505-2-zhangchunyan@iscas.ac.cn>
+References: <20240913022635.751505-1-zhangchunyan@iscas.ac.cn>
+ <20240913022635.751505-2-zhangchunyan@iscas.ac.cn> <ZuOv55YsorfvhlQi@ghost>
+In-Reply-To: <ZuOv55YsorfvhlQi@ghost>
+From: Chunyan Zhang <zhang.lyra@gmail.com>
+Date: Fri, 13 Sep 2024 11:41:15 +0800
+Message-ID: <CAAfSe-vQCG=RRGwxEEWR-HE5LGH4XniMWi=nTzOOQMrW_fvRUQ@mail.gmail.com>
+Subject: Re: [PATCH 2/2] selftests/mm: skip virtual_address_range tests on riscv
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Chunyan Zhang <zhangchunyan@iscas.ac.cn>, Andrew Morton <akpm@linux-foundation.org>, 
+	Shuah Khan <shuah@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>, linux-mm@kvack.org, 
+	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240912_202221_545478_86ED21EA 
-X-CRM114-Status: GOOD (  19.85  )
+X-CRM114-CacheID: sfid-20240912_204152_683913_76EEBA4A 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,64 +93,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 13, 2024 at 10:26:35AM +0800, Chunyan Zhang wrote:
-> RISC-V doesn't currently have the behavior of restricting the virtual
-> address space which virtual_address_range tests check, this will
-> cause the tests fail. So lets disable the whole test suite for riscv64
-> for now, not build it and run_vmtests.sh will skip it if it is not present.
-> 
-> Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+Hi Charlie,
 
-Which tree does this apply onto? It is failing to apply on -rc7. Also,
-since this is the second version of this patch it is good practice to
-put v2 in the subject like [PATCH v2 2/2]. Anyways, the content of this
-patch looks good!
+On Fri, 13 Sept 2024 at 11:22, Charlie Jenkins <charlie@rivosinc.com> wrote:
+>
+> On Fri, Sep 13, 2024 at 10:26:35AM +0800, Chunyan Zhang wrote:
+> > RISC-V doesn't currently have the behavior of restricting the virtual
+> > address space which virtual_address_range tests check, this will
+> > cause the tests fail. So lets disable the whole test suite for riscv64
+> > for now, not build it and run_vmtests.sh will skip it if it is not present.
+> >
+> > Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+>
+> Which tree does this apply onto? It is failing to apply on -rc7. Also,
 
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
+Oh, it applies to -rc1.
 
-> ---
->  tools/testing/selftests/mm/Makefile       |  2 ++
->  tools/testing/selftests/mm/run_vmtests.sh | 10 ++++++----
->  2 files changed, 8 insertions(+), 4 deletions(-)
-> 
-> diff --git a/tools/testing/selftests/mm/Makefile b/tools/testing/selftests/mm/Makefile
-> index 84573ddfcfa2..912778347213 100644
-> --- a/tools/testing/selftests/mm/Makefile
-> +++ b/tools/testing/selftests/mm/Makefile
-> @@ -112,7 +112,9 @@ endif
->  
->  ifneq (,$(filter $(ARCH),arm64 ia64 mips64 parisc64 powerpc riscv64 s390x sparc64 x86_64))
->  TEST_GEN_FILES += va_high_addr_switch
-> +ifneq ($(ARCH),riscv64)
->  TEST_GEN_FILES += virtual_address_range
-> +endif
->  TEST_GEN_FILES += write_to_hugetlbfs
->  endif
->  
-> diff --git a/tools/testing/selftests/mm/run_vmtests.sh b/tools/testing/selftests/mm/run_vmtests.sh
-> index 03ac4f2e1cce..7caa624a2e5a 100755
-> --- a/tools/testing/selftests/mm/run_vmtests.sh
-> +++ b/tools/testing/selftests/mm/run_vmtests.sh
-> @@ -347,10 +347,12 @@ if [ $VADDR64 -ne 0 ]; then
->  	# allows high virtual address allocation requests independent
->  	# of platform's physical memory.
->  
-> -	prev_policy=$(cat /proc/sys/vm/overcommit_memory)
-> -	echo 1 > /proc/sys/vm/overcommit_memory
-> -	CATEGORY="hugevm" run_test ./virtual_address_range
-> -	echo $prev_policy > /proc/sys/vm/overcommit_memory
-> +	if [ -x ./virtual_address_range ]; then
-> +		prev_policy=$(cat /proc/sys/vm/overcommit_memory)
-> +		echo 1 > /proc/sys/vm/overcommit_memory
-> +		CATEGORY="hugevm" run_test ./virtual_address_range
-> +		echo $prev_policy > /proc/sys/vm/overcommit_memory
-> +	fi
->  
->  	# va high address boundary switch test
->  	ARCH_ARM64="arm64"
-> -- 
-> 2.34.1
-> 
+> since this is the second version of this patch it is good practice to
+> put v2 in the subject like [PATCH v2 2/2]. Anyways, the content of this
+> patch looks good!
+>
+> Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
+
+Thanks,
+Chunyan
 
 _______________________________________________
 linux-riscv mailing list
