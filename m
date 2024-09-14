@@ -4,97 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1BA7FA3758
-	for <linux-riscv@archiver.kernel.org>; Sat, 14 Sep 2024 02:52:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B231CFC618B
+	for <linux-riscv@archiver.kernel.org>; Sat, 14 Sep 2024 02:58:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZTl4JaFnbvWEHti3HXFrD/NVfdgrJjsMymJVw1Vd5Ac=; b=c1uIV8aUsBNW12
-	IvTkLjFWx/6cVGe+GgxrVnWmbxq1oawCMT/vr7GMwUgKHpY1cTuMcOb7EsyraJZKKX7/3OiLM6Lw+
-	Fcik96pRgpwHAxAZddbRo6kV8vWW5ouVeo9Ca9gTiVu3lzbT9jNxiBtHK8H9WnuboypZcsBJzWo/V
-	fYJukW5+dTZH4w9K65FeFLynzw12Vc930MPEDg2VE3kEq6A5LJtqPWitirxWtLBptDkYCvzEpIj63
-	iQVdg0waO8BJ1bMhglDWtnJqRYpNpShYy8AH+GeOKzkwkvn2YuKAN+lnnq1Az3gBw/KSzxbzP207S
-	Wwgdf+gKXlWiTdH/2edA==;
+	List-Owner; bh=G3JlU7aprE/j6etYcAjQfz2KDfzI1h5+4nJLtuhAT+A=; b=ZVqYNWUxZj+qu6
+	dO+lsJ60dgXht9C1qIRYlBnYwiR2K+o+UzyqM4EWURlX2hF62O8lxbjOvY39Mq8DPLsng0mYZH4rj
+	F1475mQM6CmzCBZEx5s/8wVWRzFaW51ftnwodiRYFNG/czykaK4SWEbpjluLNUa5qZj/Ng4igFmdy
+	ryilWrSUB5Gxe9zLkpgBK/9cWxn6BOlbw8UXwO0Rr059nf+SE4k9Ot5kNrYkX+P3rQzDawoWZIOQJ
+	QYqBjm5vM8HvZ1DdBxD9GpRSmsZnKZmcQ5X8YxL/Mn1woTuGMpG0f/+1OGQ9TzMo1FnPVZVSfqpk1
+	yronLquLMob09niL6sRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1spItS-0000000HXT9-3kBU;
-	Sat, 14 Sep 2024 02:52:14 +0000
+	id 1spIyu-0000000HY68-15tQ;
+	Sat, 14 Sep 2024 02:57:52 +0000
 Received: from mail-io1-xd2c.google.com ([2607:f8b0:4864:20::d2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1spItP-0000000HXSI-1xy9
+	id 1spIyD-0000000HY0G-3mMv
 	for linux-riscv@lists.infradead.org;
-	Sat, 14 Sep 2024 02:52:13 +0000
-Received: by mail-io1-xd2c.google.com with SMTP id ca18e2360f4ac-824ee14f7bfso102466039f.1
-        for <linux-riscv@lists.infradead.org>; Fri, 13 Sep 2024 19:52:11 -0700 (PDT)
+	Sat, 14 Sep 2024 02:57:11 +0000
+Received: by mail-io1-xd2c.google.com with SMTP id ca18e2360f4ac-82ce603d8b5so115967139f.0
+        for <linux-riscv@lists.infradead.org>; Fri, 13 Sep 2024 19:57:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1726282330; x=1726887130; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
+        d=sifive.com; s=google; t=1726282629; x=1726887429; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=PcgocvC07KwdgYkvDV/qMfScM5+LqmPejCCEAA1uMJI=;
-        b=mWQNuzeJa5+AHUvbhiFDuJ4aYv9/dPMSdDnz6/pUJDVkDIOhk7LlC+v7qdQxVDAImB
-         1ALXCRfWzXTIzoIlsYTXuvC/eHBCghSV61OOGP4jb3Zrmcuxewa6/yYhek5NAKtBNIpA
-         WCukHIuzU+hnHjetMZYFmOmWw+NjJmPWii7fCAlDL1ltHDFIk0/z+Zl96DV4wwXZ9n2G
-         wOIEN9oG3OIwzzmzt29gUjvpJSMckgkLSLtHuMKVPqaysG3KGiIpcMnoMWPeh9GyQltt
-         uTlGrPE3p2vpHKIWBhDJSLaXHpjQFB0B15SJKNwS+u65/nF4vg1vU8GhAzd5sFRoC1Zo
-         Gn3A==
+        bh=pb+QdAWP89TAukwJGu2QJVdRrPw/zDWAXPkcoFz3eXo=;
+        b=CGM1YuSXazKyguGqP6NvuXSTO8hoSTQgi/aPUjzTy5TpCbYmqpWJzDAlPOoD9e2ZD2
+         afkuLHB33uWNt+6O/VH3sU87xqp68AbiL51mCBkVrs39NEnAOgfLseSUwJ2Aol1r110y
+         Dr2e+rq6ABG3VBtiZJb2aOIkt2drX5GVJel0ct4+7GuVY4AWvrZEpVUyj0Cbw0SMK7tT
+         Jaz0AkAmnJDigjZ6ByPiFjxpsFULWx1PGXK7XxDx74EjK/c7Twr4S8xVoLf8NjFpVjPe
+         uTc3FdTD3S7bkavrL4Cuw2t4dXquDYC99amFbsclZORkUU8hHfEYAtSzUe6vAqGVF0iJ
+         FzGA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1726282330; x=1726887130;
-        h=content-transfer-encoding:in-reply-to:content-language:from
+        d=1e100.net; s=20230601; t=1726282629; x=1726887429;
+        h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=PcgocvC07KwdgYkvDV/qMfScM5+LqmPejCCEAA1uMJI=;
-        b=m/qMgioClm5liXmIsbdGL3lZtpGDoHAdLCxlkK5YsOcszDRNXc+MkCVS8yv1n+Q4V/
-         0ECXP3dOCM/Km6yn3bN33EjEhfdgvbjxsRtWR/ZWNw+X1cWpqGdVdsk84lgUklPatGHa
-         1afDSDHdmp8h8sE2HzMoeR8EAlZFag2A2gqY73Cy+aBzY7zjp5JWQkzif1YF8vhhvVCl
-         DVS2YJYSS+J9QbxUpzvE9w0u4huFMZdLQwy1sNPZATxZMf5Kd7BnLRXvkXvTDT8U2bCf
-         Z6FVJ7Zu03/I2ZizHa1uqfk+rP2UGxldgWiLU62n7PIE35cQ1v6DibrAhccSJCjrZVoI
-         Ltpw==
-X-Forwarded-Encrypted: i=1; AJvYcCWBVnpYVlnKbwf7FhW0xZ93ZWzdh4+v5QJbwAfJccYT05xtKU+mvgXiC/Og7dzSHwYseKZexsfmIZ9jNA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz9saotsQHhnhYqdVyWlHMY572GbhUq4jNaopoooUln0MizgEgD
-	745pC68eytOjra5lj48EZYkKIHVauYcQfjN4ptok6HBlzrht8Y5Tc0Jz4oKpn00=
-X-Google-Smtp-Source: AGHT+IEaD4v+a/RKnKmId+r+Iz4R86fNRYyVeVXynZnVMTjpM3fXydjExpGYdtf8Iye3kIi/wgX9bQ==
-X-Received: by 2002:a05:6e02:5ad:b0:3a0:8dae:8b06 with SMTP id e9e14a558f8ab-3a08dae8c99mr24837465ab.9.1726282330175;
-        Fri, 13 Sep 2024 19:52:10 -0700 (PDT)
+        bh=pb+QdAWP89TAukwJGu2QJVdRrPw/zDWAXPkcoFz3eXo=;
+        b=sRRGqCM5X18laUpvF60eHC80ZPPr72411HBXnvlTHRS6b4bCXNBu65dXNhHBS8s3sm
+         yqMIlNs9FfbW3WqTEVXuWsUMFMywGwQYvtAsBuBMPS3XRZRA4dUAAnTu9wpV5gEpwTr3
+         rwb32LdyjjORqW6xOjdB60EjoNlhFDoNyQI5JZFGHnLNaEHlIBiThBRf4/97zB9PADGZ
+         plzS5ZTrrW1doKqGMF9gB3i+5Qu/ly9ByBO8SAgbNgw0xHTnZts+LJMD1HYtyBnPgZNF
+         datYHzkB1wH+w417WyybNQBsoP7PXcTaCpx5Gmv8mhuvlk66vS9I9WVuI+ryHblJ570v
+         RHBw==
+X-Forwarded-Encrypted: i=1; AJvYcCWwASoU+dqeL3APuP02gGKilE1WmQsmiCZxCL7kjuCrLLlmLV/EpNbpRfj8rKL9MGT8Fkip2up5TKmSRQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+HO3fxfCPYyU1KtWY+Z7ZrppU/mMRspQl/rTfcBsjiaL/19U7
+	FU9BQSIZewN/hIXcUTPrq3rd1haGfQRXUdBmkc2t/lS79BrXdDMpxswYoMCP7Zk=
+X-Google-Smtp-Source: AGHT+IFlqpN7MI41bzCJ3ml+1W2MQdnzy5SRXf7KXCYOGK0/zENcZ3yjIG7aJHvxKqOoTWVxlgNwnw==
+X-Received: by 2002:a05:6602:3414:b0:82c:ed57:ebea with SMTP id ca18e2360f4ac-82d1f95f09amr1096525739f.13.1726282628881;
+        Fri, 13 Sep 2024 19:57:08 -0700 (PDT)
 Received: from [100.64.0.1] ([147.124.94.167])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3a092dfe1d8sm1609685ab.13.2024.09.13.19.52.08
+        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-82d4928ac38sm16179039f.17.2024.09.13.19.57.06
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 13 Sep 2024 19:52:09 -0700 (PDT)
-Message-ID: <8e474b14-e963-4d3e-8240-37f662e7bd8a@sifive.com>
-Date: Fri, 13 Sep 2024 21:52:07 -0500
+        Fri, 13 Sep 2024 19:57:08 -0700 (PDT)
+Message-ID: <b5b1b654-b603-4e22-ae9c-b712e4d6babe@sifive.com>
+Date: Fri, 13 Sep 2024 21:57:05 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 09/10] RISC-V: KVM: Allow Smnpm and Ssnpm extensions
- for guests
-To: Anup Patel <anup@brainfault.org>
-Cc: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
+Subject: Re: [PATCH v4 05/10] riscv: Add support for the tagged address ABI
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
  devicetree@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
- linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>,
- kasan-dev@googlegroups.com, Atish Patra <atishp@atishpatra.org>,
- Evgenii Stepanov <eugenis@google.com>,
+ linux-kernel@vger.kernel.org, Anup Patel <anup@brainfault.org>,
+ Conor Dooley <conor@kernel.org>, kasan-dev@googlegroups.com,
+ Atish Patra <atishp@atishpatra.org>, Evgenii Stepanov <eugenis@google.com>,
  Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
  Rob Herring <robh+dt@kernel.org>,
- "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>,
- kvm-riscv@lists.infradead.org
+ "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 References: <20240829010151.2813377-1-samuel.holland@sifive.com>
- <20240829010151.2813377-10-samuel.holland@sifive.com>
- <CAK9=C2WjraWjuQCeU2Y4Jhr-gKkOcP42Sza7wVp0FgeGaD923g@mail.gmail.com>
- <b6de8769-7e4e-4a19-b239-a39fd424e0c8@sifive.com>
- <CAAhSdy08SoDoZCii9R--BK7_NKLnRciW7V3mo2aQRKW1dbOgNg@mail.gmail.com>
- <20ab0fa2-d5dd-446d-9fff-a3ef82e8db35@sifive.com>
- <CAAhSdy1pZcEfajg3OZUCaFf9JMYcMzpRVogCT5VL2FHx__vDdA@mail.gmail.com>
- <4c010cb1-b57c-427e-a241-1dd3ab15f2ce@sifive.com>
- <CAAhSdy0kYUdgX8NUKuOdQa-69ET=cscduJvyz3z31kVeB-JaNw@mail.gmail.com>
-From: Samuel Holland <samuel.holland@sifive.com>
+ <20240829010151.2813377-6-samuel.holland@sifive.com> <ZuOnTvgMv2b/ki9e@ghost>
 Content-Language: en-US
-In-Reply-To: <CAAhSdy0kYUdgX8NUKuOdQa-69ET=cscduJvyz3z31kVeB-JaNw@mail.gmail.com>
+From: Samuel Holland <samuel.holland@sifive.com>
+In-Reply-To: <ZuOnTvgMv2b/ki9e@ghost>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240913_195211_556622_EDC7095E 
-X-CRM114-Status: GOOD (  41.52  )
+X-CRM114-CacheID: sfid-20240913_195709_992985_127D4356 
+X-CRM114-Status: GOOD (  35.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,173 +96,364 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQW51cCwKCk9uIDIwMjQtMDktMDUgMTI6MTggQU0sIEFudXAgUGF0ZWwgd3JvdGU6Cj4gT24g
-V2VkLCBTZXAgNCwgMjAyNCBhdCA5OjI14oCvUE0gU2FtdWVsIEhvbGxhbmQgPHNhbXVlbC5ob2xs
-YW5kQHNpZml2ZS5jb20+IHdyb3RlOgo+Pgo+PiBPbiAyMDI0LTA5LTA0IDEwOjIwIEFNLCBBbnVw
-IFBhdGVsIHdyb3RlOgo+Pj4gT24gV2VkLCBTZXAgNCwgMjAyNCBhdCA4OjI34oCvUE0gU2FtdWVs
-IEhvbGxhbmQgPHNhbXVlbC5ob2xsYW5kQHNpZml2ZS5jb20+IHdyb3RlOgo+Pj4+Cj4+Pj4gSGkg
-QW51cCwKPj4+Pgo+Pj4+IE9uIDIwMjQtMDktMDQgOTo0NSBBTSwgQW51cCBQYXRlbCB3cm90ZToK
-Pj4+Pj4gT24gV2VkLCBTZXAgNCwgMjAyNCBhdCA4OjAx4oCvUE0gU2FtdWVsIEhvbGxhbmQgPHNh
-bXVlbC5ob2xsYW5kQHNpZml2ZS5jb20+IHdyb3RlOgo+Pj4+Pj4gT24gMjAyNC0wOS0wNCA3OjE3
-IEFNLCBBbnVwIFBhdGVsIHdyb3RlOgo+Pj4+Pj4+IE9uIFRodSwgQXVnIDI5LCAyMDI0IGF0IDY6
-MzLigK9BTSBTYW11ZWwgSG9sbGFuZAo+Pj4+Pj4+IDxzYW11ZWwuaG9sbGFuZEBzaWZpdmUuY29t
-PiB3cm90ZToKPj4+Pj4+Pj4KPj4+Pj4+Pj4gVGhlIGludGVyZmFjZSBmb3IgY29udHJvbGxpbmcg
-cG9pbnRlciBtYXNraW5nIGluIFZTLW1vZGUgaXMgaGVudmNmZy5QTU0sCj4+Pj4+Pj4+IHdoaWNo
-IGlzIHBhcnQgb2YgdGhlIFNzbnBtIGV4dGVuc2lvbiwgZXZlbiB0aG91Z2ggcG9pbnRlciBtYXNr
-aW5nIGluCj4+Pj4+Pj4+IEhTLW1vZGUgaXMgcHJvdmlkZWQgYnkgdGhlIFNtbnBtIGV4dGVuc2lv
-bi4gQXMgYSByZXN1bHQsIGVtdWxhdGluZyBTbW5wbQo+Pj4+Pj4+PiBpbiB0aGUgZ3Vlc3QgcmVx
-dWlyZXMgKG9ubHkpIFNzbnBtIG9uIHRoZSBob3N0Lgo+Pj4+Pj4+Pgo+Pj4+Pj4+PiBTaW5jZSB0
-aGUgZ3Vlc3QgY29uZmlndXJlcyBTbW5wbSB0aHJvdWdoIHRoZSBTQkkgRmlybXdhcmUgRmVhdHVy
-ZXMKPj4+Pj4+Pj4gaW50ZXJmYWNlLCB0aGUgZXh0ZW5zaW9uIGNhbiBiZSBkaXNhYmxlZCBieSBm
-YWlsaW5nIHRoZSBTQkkgY2FsbC4gU3NucG0KPj4+Pj4+Pj4gY2Fubm90IGJlIGRpc2FibGVkIHdp
-dGhvdXQgaW50ZXJjZXB0aW5nIHdyaXRlcyB0byB0aGUgc2VudmNmZyBDU1IuCj4+Pj4+Pj4+Cj4+
-Pj4+Pj4+IFNpZ25lZC1vZmYtYnk6IFNhbXVlbCBIb2xsYW5kIDxzYW11ZWwuaG9sbGFuZEBzaWZp
-dmUuY29tPgo+Pj4+Pj4+PiAtLS0KPj4+Pj4+Pj4KPj4+Pj4+Pj4gKG5vIGNoYW5nZXMgc2luY2Ug
-djIpCj4+Pj4+Pj4+Cj4+Pj4+Pj4+IENoYW5nZXMgaW4gdjI6Cj4+Pj4+Pj4+ICAtIE5ldyBwYXRj
-aCBmb3IgdjIKPj4+Pj4+Pj4KPj4+Pj4+Pj4gIGFyY2gvcmlzY3YvaW5jbHVkZS91YXBpL2FzbS9r
-dm0uaCB8IDIgKysKPj4+Pj4+Pj4gIGFyY2gvcmlzY3Yva3ZtL3ZjcHVfb25lcmVnLmMgICAgICB8
-IDMgKysrCj4+Pj4+Pj4+ICAyIGZpbGVzIGNoYW5nZWQsIDUgaW5zZXJ0aW9ucygrKQo+Pj4+Pj4+
-Pgo+Pj4+Pj4+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL3VhcGkvYXNtL2t2bS5o
-IGIvYXJjaC9yaXNjdi9pbmNsdWRlL3VhcGkvYXNtL2t2bS5oCj4+Pj4+Pj4+IGluZGV4IGU5N2Ri
-MzI5NjQ1Ni4uNGYyNDIwMTM3NmIxIDEwMDY0NAo+Pj4+Pj4+PiAtLS0gYS9hcmNoL3Jpc2N2L2lu
-Y2x1ZGUvdWFwaS9hc20va3ZtLmgKPj4+Pj4+Pj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL3Vh
-cGkvYXNtL2t2bS5oCj4+Pj4+Pj4+IEBAIC0xNzUsNiArMTc1LDggQEAgZW51bSBLVk1fUklTQ1Zf
-SVNBX0VYVF9JRCB7Cj4+Pj4+Pj4+ICAgICAgICAgS1ZNX1JJU0NWX0lTQV9FWFRfWkNGLAo+Pj4+
-Pj4+PiAgICAgICAgIEtWTV9SSVNDVl9JU0FfRVhUX1pDTU9QLAo+Pj4+Pj4+PiAgICAgICAgIEtW
-TV9SSVNDVl9JU0FfRVhUX1pBV1JTLAo+Pj4+Pj4+PiArICAgICAgIEtWTV9SSVNDVl9JU0FfRVhU
-X1NNTlBNLAo+Pj4+Pj4+PiArICAgICAgIEtWTV9SSVNDVl9JU0FfRVhUX1NTTlBNLAo+Pj4+Pj4+
-PiAgICAgICAgIEtWTV9SSVNDVl9JU0FfRVhUX01BWCwKPj4+Pj4+Pj4gIH07Cj4+Pj4+Pj4+Cj4+
-Pj4+Pj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2t2bS92Y3B1X29uZXJlZy5jIGIvYXJjaC9y
-aXNjdi9rdm0vdmNwdV9vbmVyZWcuYwo+Pj4+Pj4+PiBpbmRleCBiMzE5YzRjMTNjNTQuLjZmODMz
-ZWMyMzQ0YSAxMDA2NDQKPj4+Pj4+Pj4gLS0tIGEvYXJjaC9yaXNjdi9rdm0vdmNwdV9vbmVyZWcu
-Ywo+Pj4+Pj4+PiArKysgYi9hcmNoL3Jpc2N2L2t2bS92Y3B1X29uZXJlZy5jCj4+Pj4+Pj4+IEBA
-IC0zNCw5ICszNCwxMSBAQCBzdGF0aWMgY29uc3QgdW5zaWduZWQgbG9uZyBrdm1faXNhX2V4dF9h
-cnJbXSA9IHsKPj4+Pj4+Pj4gICAgICAgICBbS1ZNX1JJU0NWX0lTQV9FWFRfTV0gPSBSSVNDVl9J
-U0FfRVhUX20sCj4+Pj4+Pj4+ICAgICAgICAgW0tWTV9SSVNDVl9JU0FfRVhUX1ZdID0gUklTQ1Zf
-SVNBX0VYVF92LAo+Pj4+Pj4+PiAgICAgICAgIC8qIE11bHRpIGxldHRlciBleHRlbnNpb25zIChh
-bHBoYWJldGljYWxseSBzb3J0ZWQpICovCj4+Pj4+Pj4+ICsgICAgICAgW0tWTV9SSVNDVl9JU0Ff
-RVhUX1NNTlBNXSA9IFJJU0NWX0lTQV9FWFRfU1NOUE0sCj4+Pj4+Pj4KPj4+Pj4+PiBXaHkgbm90
-IHVzZSBLVk1fSVNBX0VYVF9BUlIoKSBtYWNybyBoZXJlID8KPj4+Pj4+Cj4+Pj4+PiBCZWNhdXNl
-IHRoZSBleHRlbnNpb24gbmFtZSBpbiB0aGUgaG9zdCBkb2VzIG5vdCBtYXRjaCB0aGUgZXh0ZW5z
-aW9uIG5hbWUgaW4gdGhlCj4+Pj4+PiBndWVzdC4gUG9pbnRlciBtYXNraW5nIGZvciBIUyBtb2Rl
-IGlzIHByb3ZpZGVkIGJ5IFNtbnBtLiBQb2ludGVyIG1hc2tpbmcgZm9yIFZTCj4+Pj4+PiBtb2Rl
-IGlzIHByb3ZpZGVkIGJ5IFNzbnBtIGF0IHRoZSBoYXJkd2FyZSBsZXZlbCwgYnV0IHRoaXMgbmVl
-ZHMgdG8gYXBwZWFyIHRvIHRoZQo+Pj4+Pj4gZ3Vlc3QgYXMgaWYgU21ucG0gd2FzIGltcGxlbWVu
-dGVkLCBzaW5jZSB0aGUgZ3Vlc3QgdGhpbmtzIGl0IGlzIHJ1bm5pbmcgb24gYmFyZQo+Pj4+Pj4g
-bWV0YWwuCj4+Pj4+Cj4+Pj4+IE9rYXksIG1ha2VzIHNlbnNlLgo+Pj4+Pgo+Pj4+Pj4KPj4+Pj4+
-Pj4gICAgICAgICBLVk1fSVNBX0VYVF9BUlIoU01TVEFURUVOKSwKPj4+Pj4+Pj4gICAgICAgICBL
-Vk1fSVNBX0VYVF9BUlIoU1NBSUEpLAo+Pj4+Pj4+PiAgICAgICAgIEtWTV9JU0FfRVhUX0FSUihT
-U0NPRlBNRiksCj4+Pj4+Pj4+ICsgICAgICAgS1ZNX0lTQV9FWFRfQVJSKFNTTlBNKSwKPj4+Pj4+
-Pj4gICAgICAgICBLVk1fSVNBX0VYVF9BUlIoU1NUQyksCj4+Pj4+Pj4+ICAgICAgICAgS1ZNX0lT
-QV9FWFRfQVJSKFNWSU5WQUwpLAo+Pj4+Pj4+PiAgICAgICAgIEtWTV9JU0FfRVhUX0FSUihTVk5B
-UE9UKSwKPj4+Pj4+Pj4gQEAgLTEyOSw2ICsxMzEsNyBAQCBzdGF0aWMgYm9vbCBrdm1fcmlzY3Zf
-dmNwdV9pc2FfZGlzYWJsZV9hbGxvd2VkKHVuc2lnbmVkIGxvbmcgZXh0KQo+Pj4+Pj4+PiAgICAg
-ICAgIGNhc2UgS1ZNX1JJU0NWX0lTQV9FWFRfTToKPj4+Pj4+Pj4gICAgICAgICAvKiBUaGVyZSBp
-cyBub3QgYXJjaGl0ZWN0dXJhbCBjb25maWcgYml0IHRvIGRpc2FibGUgc3Njb2ZwbWYgY29tcGxl
-dGVseSAqLwo+Pj4+Pj4+PiAgICAgICAgIGNhc2UgS1ZNX1JJU0NWX0lTQV9FWFRfU1NDT0ZQTUY6
-Cj4+Pj4+Pj4+ICsgICAgICAgY2FzZSBLVk1fUklTQ1ZfSVNBX0VYVF9TU05QTToKPj4+Pj4+Pgo+
-Pj4+Pj4+IFdoeSBub3QgYWRkIEtWTV9SSVNDVl9JU0FfRVhUX1NNTlBNIGhlcmUgPwo+Pj4+Pj4+
-Cj4+Pj4+Pj4gRGlzYWJsaW5nIFNtbnBtIGZyb20gS1ZNIHVzZXIgc3BhY2UgaXMgdmVyeSBkaWZm
-ZXJlbnQgZnJvbQo+Pj4+Pj4+IGRpc2FibGluZyBTbW5wbSBmcm9tIEd1ZXN0IHVzaW5nIFNCSSBG
-V0ZUIGV4dGVuc2lvbi4KPj4+Pj4+Cj4+Pj4+PiBVbnRpbCBhIHN1Y2Nlc3NmdWwgU0JJIEZXRlQg
-Y2FsbCB0byBLVk0gdG8gZW5hYmxlIHBvaW50ZXIgbWFza2luZyBmb3IgVlMgbW9kZSwKPj4+Pj4+
-IHRoZSBleGlzdGVuY2Ugb2YgU21ucG0gaGFzIG5vIHZpc2libGUgZWZmZWN0IG9uIHRoZSBndWVz
-dC4gU28gZmFpbGluZyB0aGUgU0JJCj4+Pj4+PiBjYWxsIGlzIHN1ZmZpY2llbnQgdG8gcHJldGVu
-ZCB0aGF0IHRoZSBoYXJkd2FyZSBkb2VzIG5vdCBzdXBwb3J0IFNtbnBtLgo+Pj4+Pj4KPj4+Pj4+
-PiBUaGUgS1ZNIHVzZXIgc3BhY2Ugc2hvdWxkIGFsd2F5cyBhZGQgU21ucG0gaW4gdGhlCj4+Pj4+
-Pj4gR3Vlc3QgSVNBIHN0cmluZyB3aGVuZXZlciB0aGUgSG9zdCBJU0Egc3RyaW5nIGhhcyBpdC4K
-Pj4+Pj4+Cj4+Pj4+PiBJIGRpc2FncmVlLiBBbGxvd2luZyB1c2Vyc3BhY2UgdG8gZGlzYWJsZSBl
-eHRlbnNpb25zIGlzIHVzZWZ1bCBmb3IgdGVzdGluZyBhbmQKPj4+Pj4+IHRvIHN1cHBvcnQgbWln
-cmF0aW9uIHRvIGhvc3RzIHdoaWNoIGRvIG5vdCBzdXBwb3J0IHRob3NlIGV4dGVuc2lvbnMuIFNv
-IEkgd291bGQKPj4+Pj4+IG9ubHkgYWRkIGV4dGVuc2lvbnMgdG8gdGhpcyBsaXN0IGlmIHRoZXJl
-IGlzIG5vIHBvc3NpYmxlIHdheSB0byBkaXNhYmxlIHRoZW0uCj4+Pj4+Cj4+Pj4+IEkgYW0gbm90
-IHNheWluZyB0byBkaXNhbGxvdyBLVk0gdXNlciBzcGFjZSBkaXNhYmxpbmcgU21ucG0uCj4+Pj4K
-Pj4+PiBUaGVuIEknbSBjb25mdXNlZC4gVGhpcyBpcyB0aGUgInJldHVybiBmYWxzZTsiIHN3aXRj
-aCBjYXNlIGluc2lkZQo+Pj4+IGt2bV9yaXNjdl92Y3B1X2lzYV9kaXNhYmxlX2FsbG93ZWQoKS4g
-SWYgSSBhZGQgS1ZNX1JJU0NWX0lTQV9FWFRfU01OUE0gaGVyZSwKPj4+PiB0aGVuICh1bmxlc3Mg
-SSBhbSBtaXNyZWFkaW5nIHRoZSBjb2RlKSBJIGFtIGRpc2FsbG93aW5nIEtWTSB1c2Vyc3BhY2Ug
-ZnJvbQo+Pj4+IGRpc2FibGluZyBTbW5wbSBpbiB0aGUgZ3Vlc3QgKGkuZS4gcHJldmVudGluZyBL
-Vk0gdXNlcnNwYWNlIGZyb20gcmVtb3ZpbmcgU21ucG0KPj4+PiBmcm9tIHRoZSBndWVzdCBJU0Eg
-c3RyaW5nKS4gSWYgdGhhdCBpcyBub3QgZGVzaXJlZCwgdGhlbiB3aHkgZG8geW91IHN1Z2dlc3Qg
-SQo+Pj4+IGFkZCBLVk1fUklTQ1ZfSVNBX0VYVF9TTU5QTSBoZXJlPwo+Pj4KPj4+IFllcywgYWRk
-aW5nIEtWTV9SSVNDVl9JU0FfRVhUX1NNTlBNIGhlcmUgbWVhbnMgS1ZNCj4+PiB1c2VyIHNwYWNl
-IGNhbid0IGRpc2FibGUgaXQgdXNpbmcgT05FX1JFRyBpbnRlcmZhY2UgYnV0IEtWTSB1c2VyCj4+
-PiBzcGFjZSBjYW4gY2VydGFpbmx5IG5vdCBhZGQgaXQgaW4gdGhlIEd1ZXN0IElTQSBzdHJpbmcu
-Cj4+Cj4+IElzIHRoZXJlIGEgcHJvYmxlbSB3aXRoIGFsbG93aW5nIEtWTSB1c2Vyc3BhY2UgdG8g
-ZGlzYWJsZSB0aGUgSVNBIGV4dGVuc2lvbiB3aXRoCj4+IHRoZSBPTkVfUkVHIGludGVyZmFjZT8K
-Pj4KPj4gSWYgS1ZNIHVzZXJzcGFjZSByZW1vdmVzIFNtbnBtIGZyb20gdGhlIElTQSBzdHJpbmcg
-d2l0aG91dCB0aGUgaG9zdCBrZXJuZWwncwo+PiBrbm93bGVkZ2UsIHRoYXQgZG9lc24ndCBhY3R1
-YWxseSBwcmV2ZW50IHRoZSBndWVzdCBmcm9tIHN1Y2Nlc3NmdWxseSBjYWxsaW5nCj4+IHNiaV9m
-d2Z0X3NldChQT0lOVEVSX01BU0tJTkdfUE1MRU4sIC4uLiksIHNvIGl0IGRvZXNuJ3QgZ3VhcmFu
-dGVlIHRoYXQgdGhlIFZNCj4+IGNhbiBiZSBtaWdyYXRlZCB0byBhIGhvc3Qgd2l0aG91dCBwb2lu
-dGVyIG1hc2tpbmcgc3VwcG9ydC4gU28gdGhlIE9ORV9SRUcKPj4gaW50ZXJmYWNlIHN0aWxsIGhh
-cyB2YWx1ZS4gKEFuZCB0aGF0J3MgbXkgYW5zd2VyIHRvIHlvdXIgb3JpZ2luYWwgcXVlc3Rpb24g
-IldoeQo+PiBub3QgYWRkIEtWTV9SSVNDVl9JU0FfRVhUX1NNTlBNIGhlcmUgPyIpCj4gCj4gQ3Vy
-cmVudGx5LCBkaXNhYmxpbmcgS1ZNX1JJU0NWX0lTQV9FWFRfU01OUE0gdmlhIE9ORV9SRUcKPiB3
-aWxsIG9ubHkgY2xlYXIgdGhlIGNvcnJlc3BvbmRpbmcgYml0IGluIFZDUFUgaXNhIGJpdG1hcC4g
-QmFzaWNhbGx5LCB0aGUKPiBLVk0gdXNlciBzcGFjZSBkaXNhYmxpbmcgS1ZNX1JJU0NWX0lTQV9F
-WFRfU01OUE0gZm9yIEd1ZXN0Cj4gY2hhbmdlcyBub3RoaW5nIGZvciB0aGUgR3Vlc3QvVk0uCj4g
-Cj4gT24gb3RoZXIgaGFuZCwgZGlzYWJsaW5nIEtWTV9SSVNDVl9JU0FfRVhUX1NWUEJNVCB2aWEK
-PiBPTkVfUkVHIHdpbGwgbm90IG9ubHkgY2xlYXIgaXQgZnJvbSBWQ1BVIGlzYSBiaXRtYXAgYnV0
-IGFsc28KPiBkaXNhYmxlIFN2cG1idCBmcm9tIGhlbnZjZmcgQ1NSIGZvciB0aGUgR3Vlc3QvVk0u
-Cj4gCj4gSW4gb3RoZXIgd29yZHMsIGlmIGRpc2FibGluZyBhbiBJU0EgZXh0ZW5zaW9uIGlzIGFs
-bG93ZWQgYnkgdGhlCj4ga3ZtX3Jpc2N2X3ZjcHVfaXNhX2Rpc2FibGVfYWxsb3dlZCgpIHRoZW4g
-dGhlIEd1ZXN0L1ZNIG11c3QKPiBzZWUgYSBkaWZmZXJlbnQgYmVoYXZpb3VyIHdoZW4gdGhlIElT
-QSBleHRlbnNpb24gaXMgZGlzYWJsZWQgYnkKPiBLVk0gdXNlciBzcGFjZS4KPiAKPj4KPj4+Pj4g
-VGhlIHByZXNlbmNlIG9mIFNtbnBtIGluIElTQSBvbmx5IG1lYW5zIHRoYXQgaXQgaXMgcHJlc2Vu
-dCBpbiBIVwo+Pj4+PiBidXQgaXQgbmVlZHMgdG8gYmUgZXhwbGljaXRseSBjb25maWd1cmVkL2Vu
-YWJsZWQgdXNpbmcgU0JJIEZXRlQuCj4+Pj4+Cj4+Pj4+IEtWTSB1c2VyIHNwYWNlIGNhbiBjZXJ0
-YWlubHkgZGlzYWJsZSBleHRlbnNpb25zIGJ5IG5vdCBhZGRpbmcgaXQgdG8KPj4+Pj4gSVNBIHN0
-cmluZyBiYXNlZCBvbiB0aGUgS1ZNVE9PTC9RRU1VLUtWTSBjb21tYW5kIGxpbmUgb3B0aW9uLgo+
-Pj4+PiBBZGRpdGlvbmFsbHksIHdoZW4gU0JJIEZXRlQgaXMgYWRkZWQgdG8gS1ZNIFJJU0MtVi4g
-SXQgd2lsbCBoYXZlIGl0cwo+Pj4+PiBvd24gd2F5IHRvIGV4cGxpY2l0bHkgZGlzYWJsZSBmaXJt
-d2FyZSBmZWF0dXJlcyBmcm9tIEtWTSB1c2VyIHNwYWNlLgo+Pj4+Cj4+Pj4gSSB0aGluayB3ZSBh
-Z3JlZSBvbiB0aGlzLCBidXQgeW91ciBleHBsYW5hdGlvbiBoZXJlIGFwcGVhcnMgdG8gY29uZmxp
-Y3Qgd2l0aAo+Pj4+IHlvdXIgc3VnZ2VzdGVkIGNvZGUgY2hhbmdlLiBBcG9sb2dpZXMgaWYgSSdt
-IG1pc3Npbmcgc29tZXRoaW5nLgo+Pj4KPj4+IEkgdGhpbmsgdGhlIGNvbmZ1c2lvbiBpcyBhYm91
-dCB3aGF0IGRvZXMgaXQgbWVhbiB3aGVuIFNtbnBtIGlzIHByZXNlbnQKPj4+IGluIHRoZSBJU0Eg
-c3RyaW5nLiBXZSBoYXZlIHR3byBhcHByb2FjaGVzOgo+Pj4KPj4+IDEpIFByZXNlbmNlIG9mIFNt
-bnBtIGluIElTQSBzdHJpbmcgb25seSBtZWFucyBpdCBpcyBwcmVzZW50IGluIEhXIGJ1dAo+Pj4g
-ICAgIHNheXMgbm90aGluZyBhYm91dCBpdHMgZW5hYmxlL2Rpc2FibGUgc3RhdGUuIFRvIGNvbmZp
-Z3VyZS9lbmFibGUKPj4+ICAgICBTbW5wbSwgdGhlIHN1cGVydmlzb3IgbXVzdCB1c2UgU0JJIEZX
-RlQuCj4+Pgo+Pj4gMikgUHJlc2VuY2Ugb2YgU21ucG0gaW4gSVNBIHN0cmluZyBtZWFucyBpdCBp
-cyBwcmVzZW50IGluIEhXIGFuZAo+Pj4gICAgIGVuYWJsZWQgYXQgYm9vdC10aW1lLiBUbyByZS1j
-b25maWd1cmUvZGlzYWJsZSBTbW5wbSwgdGhlIHN1cGVydmlzb3IKPj4+ICAgICBtdXN0IHVzZSBT
-QkkgRldGVC4KPj4+Cj4+PiBJIGFtIHN1Z2dlc3RpbmcgYXBwcm9hY2ggIzEgYnV0IEkgYW0gZ3Vl
-c3NpbmcgeW91IGFyZSBsZWFuaW5nIHRvd2FyZHMKPj4+IGFwcHJvYWNoICMyID8KPj4+Cj4+PiBG
-b3IgYXBwcm9hY2ggIzIsIGFkZGl0aW9uYWwgaGVuY2ZnLlBNTSBjb25maWd1cmF0aW9uIGlzIHJl
-cXVpcmVkIGluCj4+PiB0aGlzIHBhdGNoIGJhc2VkIG9uIHRoZSBzdGF0ZSBvZiBLVk1fUklTQ1Zf
-SVNBX0VYVF9TTU5QTS4KPj4KPj4gTm8sIEkgYW0gZGVmaW5pdGVseSBzdWdnZXN0aW5nIG9ubHkg
-YXBwcm9hY2ggIzEuIE15IHByb3Bvc2FsIGZvciBhZGRpbmcgcG9pbnRlcgo+PiBtYXNraW5nIHRv
-IHRoZSBTQkkgRldGVCBleHRlbnNpb25bMV0gc3BlY2lmaWVzIHRoZSBmZWF0dXJlIGFzIGRpc2Fi
-bGVkIGJ5Cj4+IGRlZmF1bHQsIGFuZCB0aGlzIHdvdWxkIGFwcGx5IGJvdGggaW5zaWRlIGFuZCBv
-dXNpZGUgYSBWTS4KPj4KPj4gQnV0IEkgYW0gYWxzbyBzdWdnZXN0aW5nIHRoYXQgdGhlIE9ORV9S
-RUcgaW50ZXJmYWNlIGlzIGEgdXNlZnVsIHdheSB0bwo+PiBjb21wbGV0ZWx5IGhpZGUgdGhlIGV4
-dGVuc2lvbiBmcm9tIHRoZSBndWVzdCwgbGlrZSB3ZSBkbyBmb3Igb3RoZXIgZXh0ZW5zaW9ucwo+
-PiBzdWNoIGFzIFN2cGJtdC4gVGhlIG9ubHkgZGlmZmVyZW5jZSBiZXR3ZWVuIHNvbWV0aGluZyBs
-aWtlIFN2cGJtdCBhbmQgU21ucG0gaXMKPj4gdGhhdCBpbnN0ZWFkIG9mIGNsZWFyaW5nIGEgYml0
-IGluIGhlbnZjZmcgdG8gaGlkZSB0aGUgZXh0ZW5zaW9uIGZyb20gdGhlIGd1ZXN0LAo+PiB3ZSBy
-ZWplY3QgY2FsbHMgdG8gc2JpX2Z3ZnRfc2V0KFBPSU5URVJfTUFTS0lOR19QTUxFTiwgLi4uKSB3
-aGVuIHRoZSBJU0EKPj4gZXh0ZW5zaW9uIGlzIGhpZGRlbiBmcm9tIHRoZSBndWVzdC4KPiAKPiBJ
-IHRoaW5rIHdlIGFyZSBjb252ZXJnaW5nIHRvd2FyZHMgdGhlIHNhbWUgdGhpbmcuCj4gCj4gSG93
-IGFib3V0IHRoaXMgPwo+IAo+IEZvciB0aGlzIHNlcmllcywgbGV0cyBhZGQgS1ZNX1JJU0NWX0lT
-QV9FWFRfU01OUE0gdG8KPiBrdm1fcmlzY3ZfdmNwdV9pc2FfZGlzYWJsZV9hbGxvd2VkKCkgc28g
-dGhhdCBmb3IgdGhlIHRpbWUKPiBiZWluZyBLVk0gdXNlciBzcGFjZSBjYW4ndCBkaXNhYmxlIFNt
-bnBtLgo+IAo+IEluIHRoZSBmdXR1cmUsIGEgc2VwYXJhdGUgc2VyaWVzIHdoaWNoIGFkZHMgU0JJ
-IEZXRlQgdG8KPiBLVk0gUklTQy1WIHdpbGwgcmVtb3ZlIEtWTV9SSVNDVl9JU0FfRVhUX1NNTlBN
-Cj4gZnJvbSB0aGUga3ZtX3Jpc2N2X3ZjcHVfaXNhX2Rpc2FibGVfYWxsb3dlZCgpIGJlY2F1c2UK
-PiBkaXNhYmxpbmcgU21ucG0gZnJvbSBLVk0gdXNlciBzcGFjZSB3b3VsZCBtZWFuIHRoYXQKPiB0
-aGUgUE9JTlRFUl9NQVNLSU5HX1BNTEVOIGZpcm13YXJlIGZlYXR1cmUgaXMKPiBub3QgYXZhaWxh
-YmxlIHRvIHRoZSBHdWVzdC9WTS4KPiAKPiBUaGlzIG1lYW5zIGluIHRoZSBmdXR1cmUgKGFmdGVy
-IFNCSSBGV0ZUIGlzIGltcGxlbWVudGVkIGluCj4gS1ZNIFJJU0MtViksIEd1ZXN0IHdpdGggU21u
-cG0gZGlzYWJsZWQgY2FuIGJlIG1pZ3JhdGVkCj4gdG8gYSBob3N0IHdpdGhvdXQgcG9pbnRlciBt
-YXNraW5nLgoKT0ssIHRoYXQgaXMgYSByZWFzb25hYmxlIGNvbXByb21pc2UuIEknbGwgZG8gdGhh
-dCBmb3IgdjUuCgpSZWdhcmRzLApTYW11ZWwKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZA
-bGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
-c3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi Charlie,
+
+On 2024-09-12 9:45 PM, Charlie Jenkins wrote:
+> On Wed, Aug 28, 2024 at 06:01:27PM -0700, Samuel Holland wrote:
+>> When pointer masking is enabled for userspace, the kernel can accept
+>> tagged pointers as arguments to some system calls. Allow this by
+>> untagging the pointers in access_ok() and the uaccess routines. The
+>> uaccess routines must peform untagging in software because U-mode and
+>> S-mode have entirely separate pointer masking configurations. In fact,
+>> hardware may not even implement pointer masking for S-mode.
+>>
+>> Since the number of tag bits is variable, untagged_addr_remote() needs
+>> to know what PMLEN to use for the remote mm. Therefore, the pointer
+>> masking mode must be the same for all threads sharing an mm. Enforce
+>> this with a lock flag in the mm context, as x86 does for LAM. The flag
+>> gets reset in init_new_context() during fork(), as the new mm is no
+>> longer multithreaded.
+>>
+>> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+>> ---
+> 
+> Not necessary, but what do you think about adding riscv to include/uapi/linux/prctl.h:
+> 
+> /* Tagged user address controls for arm64 */
+> #define PR_SET_TAGGED_ADDR_CTRL		55
+> #define PR_GET_TAGGED_ADDR_CTRL		56
+> # define PR_TAGGED_ADDR_ENABLE		(1UL << 0)
+
+Yes, I'll add this in v5.
+
+> Also looks like this last line should probably be under SET rather than
+> GET.
+
+The same bit fields are used for both prctl() functions, so I think the current
+grouping is okay (compare PR_RISCV_V_GET_CONTROL).
+
+Regards,
+Samuel
+
+> Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
+> Tested-by: Charlie Jenkins <charlie@rivosinc.com>
+> 
+>>
+>> Changes in v4:
+>>  - Combine __untagged_addr() and __untagged_addr_remote()
+>>
+>> Changes in v3:
+>>  - Use IS_ENABLED instead of #ifdef when possible
+>>  - Implement mm_untag_mask()
+>>  - Remove pmlen from struct thread_info (now only in mm_context_t)
+>>
+>> Changes in v2:
+>>  - Implement untagged_addr_remote()
+>>  - Restrict PMLEN changes once a process is multithreaded
+>>
+>>  arch/riscv/include/asm/mmu.h         |  7 +++
+>>  arch/riscv/include/asm/mmu_context.h | 13 +++++
+>>  arch/riscv/include/asm/uaccess.h     | 43 ++++++++++++++--
+>>  arch/riscv/kernel/process.c          | 73 ++++++++++++++++++++++++++--
+>>  4 files changed, 126 insertions(+), 10 deletions(-)
+>>
+>> diff --git a/arch/riscv/include/asm/mmu.h b/arch/riscv/include/asm/mmu.h
+>> index c9e03e9da3dc..1cc90465d75b 100644
+>> --- a/arch/riscv/include/asm/mmu.h
+>> +++ b/arch/riscv/include/asm/mmu.h
+>> @@ -25,9 +25,16 @@ typedef struct {
+>>  #ifdef CONFIG_BINFMT_ELF_FDPIC
+>>  	unsigned long exec_fdpic_loadmap;
+>>  	unsigned long interp_fdpic_loadmap;
+>> +#endif
+>> +	unsigned long flags;
+>> +#ifdef CONFIG_RISCV_ISA_SUPM
+>> +	u8 pmlen;
+>>  #endif
+>>  } mm_context_t;
+>>  
+>> +/* Lock the pointer masking mode because this mm is multithreaded */
+>> +#define MM_CONTEXT_LOCK_PMLEN	0
+>> +
+>>  #define cntx2asid(cntx)		((cntx) & SATP_ASID_MASK)
+>>  #define cntx2version(cntx)	((cntx) & ~SATP_ASID_MASK)
+>>  
+>> diff --git a/arch/riscv/include/asm/mmu_context.h b/arch/riscv/include/asm/mmu_context.h
+>> index 7030837adc1a..8c4bc49a3a0f 100644
+>> --- a/arch/riscv/include/asm/mmu_context.h
+>> +++ b/arch/riscv/include/asm/mmu_context.h
+>> @@ -20,6 +20,9 @@ void switch_mm(struct mm_struct *prev, struct mm_struct *next,
+>>  static inline void activate_mm(struct mm_struct *prev,
+>>  			       struct mm_struct *next)
+>>  {
+>> +#ifdef CONFIG_RISCV_ISA_SUPM
+>> +	next->context.pmlen = 0;
+>> +#endif
+>>  	switch_mm(prev, next, NULL);
+>>  }
+>>  
+>> @@ -30,11 +33,21 @@ static inline int init_new_context(struct task_struct *tsk,
+>>  #ifdef CONFIG_MMU
+>>  	atomic_long_set(&mm->context.id, 0);
+>>  #endif
+>> +	if (IS_ENABLED(CONFIG_RISCV_ISA_SUPM))
+>> +		clear_bit(MM_CONTEXT_LOCK_PMLEN, &mm->context.flags);
+>>  	return 0;
+>>  }
+>>  
+>>  DECLARE_STATIC_KEY_FALSE(use_asid_allocator);
+>>  
+>> +#ifdef CONFIG_RISCV_ISA_SUPM
+>> +#define mm_untag_mask mm_untag_mask
+>> +static inline unsigned long mm_untag_mask(struct mm_struct *mm)
+>> +{
+>> +	return -1UL >> mm->context.pmlen;
+>> +}
+>> +#endif
+>> +
+>>  #include <asm-generic/mmu_context.h>
+>>  
+>>  #endif /* _ASM_RISCV_MMU_CONTEXT_H */
+>> diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
+>> index 72ec1d9bd3f3..fee56b0c8058 100644
+>> --- a/arch/riscv/include/asm/uaccess.h
+>> +++ b/arch/riscv/include/asm/uaccess.h
+>> @@ -9,8 +9,41 @@
+>>  #define _ASM_RISCV_UACCESS_H
+>>  
+>>  #include <asm/asm-extable.h>
+>> +#include <asm/cpufeature.h>
+>>  #include <asm/pgtable.h>		/* for TASK_SIZE */
+>>  
+>> +#ifdef CONFIG_RISCV_ISA_SUPM
+>> +static inline unsigned long __untagged_addr_remote(struct mm_struct *mm, unsigned long addr)
+>> +{
+>> +	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SUPM)) {
+>> +		u8 pmlen = mm->context.pmlen;
+>> +
+>> +		/* Virtual addresses are sign-extended; physical addresses are zero-extended. */
+>> +		if (IS_ENABLED(CONFIG_MMU))
+>> +			return (long)(addr << pmlen) >> pmlen;
+>> +		else
+>> +			return (addr << pmlen) >> pmlen;
+>> +	}
+>> +
+>> +	return addr;
+>> +}
+>> +
+>> +#define untagged_addr(addr) ({							\
+>> +	unsigned long __addr = (__force unsigned long)(addr);			\
+>> +	(__force __typeof__(addr))__untagged_addr_remote(current->mm, __addr);	\
+>> +})
+>> +
+>> +#define untagged_addr_remote(mm, addr) ({					\
+>> +	unsigned long __addr = (__force unsigned long)(addr);			\
+>> +	mmap_assert_locked(mm);							\
+>> +	(__force __typeof__(addr))__untagged_addr_remote(mm, __addr);		\
+>> +})
+>> +
+>> +#define access_ok(addr, size) likely(__access_ok(untagged_addr(addr), size))
+>> +#else
+>> +#define untagged_addr(addr) (addr)
+>> +#endif
+>> +
+>>  /*
+>>   * User space memory access functions
+>>   */
+>> @@ -130,7 +163,7 @@ do {								\
+>>   */
+>>  #define __get_user(x, ptr)					\
+>>  ({								\
+>> -	const __typeof__(*(ptr)) __user *__gu_ptr = (ptr);	\
+>> +	const __typeof__(*(ptr)) __user *__gu_ptr = untagged_addr(ptr); \
+>>  	long __gu_err = 0;					\
+>>  								\
+>>  	__chk_user_ptr(__gu_ptr);				\
+>> @@ -246,7 +279,7 @@ do {								\
+>>   */
+>>  #define __put_user(x, ptr)					\
+>>  ({								\
+>> -	__typeof__(*(ptr)) __user *__gu_ptr = (ptr);		\
+>> +	__typeof__(*(ptr)) __user *__gu_ptr = untagged_addr(ptr); \
+>>  	__typeof__(*__gu_ptr) __val = (x);			\
+>>  	long __pu_err = 0;					\
+>>  								\
+>> @@ -293,13 +326,13 @@ unsigned long __must_check __asm_copy_from_user(void *to,
+>>  static inline unsigned long
+>>  raw_copy_from_user(void *to, const void __user *from, unsigned long n)
+>>  {
+>> -	return __asm_copy_from_user(to, from, n);
+>> +	return __asm_copy_from_user(to, untagged_addr(from), n);
+>>  }
+>>  
+>>  static inline unsigned long
+>>  raw_copy_to_user(void __user *to, const void *from, unsigned long n)
+>>  {
+>> -	return __asm_copy_to_user(to, from, n);
+>> +	return __asm_copy_to_user(untagged_addr(to), from, n);
+>>  }
+>>  
+>>  extern long strncpy_from_user(char *dest, const char __user *src, long count);
+>> @@ -314,7 +347,7 @@ unsigned long __must_check clear_user(void __user *to, unsigned long n)
+>>  {
+>>  	might_fault();
+>>  	return access_ok(to, n) ?
+>> -		__clear_user(to, n) : n;
+>> +		__clear_user(untagged_addr(to), n) : n;
+>>  }
+>>  
+>>  #define __get_kernel_nofault(dst, src, type, err_label)			\
+>> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+>> index f39221ab5ddd..6e9c84a41c29 100644
+>> --- a/arch/riscv/kernel/process.c
+>> +++ b/arch/riscv/kernel/process.c
+>> @@ -204,6 +204,10 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+>>  	unsigned long tls = args->tls;
+>>  	struct pt_regs *childregs = task_pt_regs(p);
+>>  
+>> +	/* Ensure all threads in this mm have the same pointer masking mode. */
+>> +	if (IS_ENABLED(CONFIG_RISCV_ISA_SUPM) && p->mm && (clone_flags & CLONE_VM))
+>> +		set_bit(MM_CONTEXT_LOCK_PMLEN, &p->mm->context.flags);
+>> +
+>>  	memset(&p->thread.s, 0, sizeof(p->thread.s));
+>>  
+>>  	/* p->thread holds context to be restored by __switch_to() */
+>> @@ -249,10 +253,16 @@ enum {
+>>  static bool have_user_pmlen_7;
+>>  static bool have_user_pmlen_16;
+>>  
+>> +/*
+>> + * Control the relaxed ABI allowing tagged user addresses into the kernel.
+>> + */
+>> +static unsigned int tagged_addr_disabled;
+>> +
+>>  long set_tagged_addr_ctrl(struct task_struct *task, unsigned long arg)
+>>  {
+>> -	unsigned long valid_mask = PR_PMLEN_MASK;
+>> +	unsigned long valid_mask = PR_PMLEN_MASK | PR_TAGGED_ADDR_ENABLE;
+>>  	struct thread_info *ti = task_thread_info(task);
+>> +	struct mm_struct *mm = task->mm;
+>>  	unsigned long pmm;
+>>  	u8 pmlen;
+>>  
+>> @@ -267,16 +277,41 @@ long set_tagged_addr_ctrl(struct task_struct *task, unsigned long arg)
+>>  	 * in case choosing a larger PMLEN has a performance impact.
+>>  	 */
+>>  	pmlen = FIELD_GET(PR_PMLEN_MASK, arg);
+>> -	if (pmlen == PMLEN_0)
+>> +	if (pmlen == PMLEN_0) {
+>>  		pmm = ENVCFG_PMM_PMLEN_0;
+>> -	else if (pmlen <= PMLEN_7 && have_user_pmlen_7)
+>> +	} else if (pmlen <= PMLEN_7 && have_user_pmlen_7) {
+>> +		pmlen = PMLEN_7;
+>>  		pmm = ENVCFG_PMM_PMLEN_7;
+>> -	else if (pmlen <= PMLEN_16 && have_user_pmlen_16)
+>> +	} else if (pmlen <= PMLEN_16 && have_user_pmlen_16) {
+>> +		pmlen = PMLEN_16;
+>>  		pmm = ENVCFG_PMM_PMLEN_16;
+>> -	else
+>> +	} else {
+>>  		return -EINVAL;
+>> +	}
+>> +
+>> +	/*
+>> +	 * Do not allow the enabling of the tagged address ABI if globally
+>> +	 * disabled via sysctl abi.tagged_addr_disabled, if pointer masking
+>> +	 * is disabled for userspace.
+>> +	 */
+>> +	if (arg & PR_TAGGED_ADDR_ENABLE && (tagged_addr_disabled || !pmlen))
+>> +		return -EINVAL;
+>> +
+>> +	if (!(arg & PR_TAGGED_ADDR_ENABLE))
+>> +		pmlen = PMLEN_0;
+>> +
+>> +	if (mmap_write_lock_killable(mm))
+>> +		return -EINTR;
+>> +
+>> +	if (test_bit(MM_CONTEXT_LOCK_PMLEN, &mm->context.flags) && mm->context.pmlen != pmlen) {
+>> +		mmap_write_unlock(mm);
+>> +		return -EBUSY;
+>> +	}
+>>  
+>>  	envcfg_update_bits(task, ENVCFG_PMM, pmm);
+>> +	mm->context.pmlen = pmlen;
+>> +
+>> +	mmap_write_unlock(mm);
+>>  
+>>  	return 0;
+>>  }
+>> @@ -289,6 +324,10 @@ long get_tagged_addr_ctrl(struct task_struct *task)
+>>  	if (is_compat_thread(ti))
+>>  		return -EINVAL;
+>>  
+>> +	/*
+>> +	 * The mm context's pmlen is set only when the tagged address ABI is
+>> +	 * enabled, so the effective PMLEN must be extracted from envcfg.PMM.
+>> +	 */
+>>  	switch (task->thread.envcfg & ENVCFG_PMM) {
+>>  	case ENVCFG_PMM_PMLEN_7:
+>>  		ret = FIELD_PREP(PR_PMLEN_MASK, PMLEN_7);
+>> @@ -298,6 +337,9 @@ long get_tagged_addr_ctrl(struct task_struct *task)
+>>  		break;
+>>  	}
+>>  
+>> +	if (task->mm->context.pmlen)
+>> +		ret |= PR_TAGGED_ADDR_ENABLE;
+>> +
+>>  	return ret;
+>>  }
+>>  
+>> @@ -307,6 +349,24 @@ static bool try_to_set_pmm(unsigned long value)
+>>  	return (csr_read_clear(CSR_ENVCFG, ENVCFG_PMM) & ENVCFG_PMM) == value;
+>>  }
+>>  
+>> +/*
+>> + * Global sysctl to disable the tagged user addresses support. This control
+>> + * only prevents the tagged address ABI enabling via prctl() and does not
+>> + * disable it for tasks that already opted in to the relaxed ABI.
+>> + */
+>> +
+>> +static struct ctl_table tagged_addr_sysctl_table[] = {
+>> +	{
+>> +		.procname	= "tagged_addr_disabled",
+>> +		.mode		= 0644,
+>> +		.data		= &tagged_addr_disabled,
+>> +		.maxlen		= sizeof(int),
+>> +		.proc_handler	= proc_dointvec_minmax,
+>> +		.extra1		= SYSCTL_ZERO,
+>> +		.extra2		= SYSCTL_ONE,
+>> +	},
+>> +};
+>> +
+>>  static int __init tagged_addr_init(void)
+>>  {
+>>  	if (!riscv_has_extension_unlikely(RISCV_ISA_EXT_SUPM))
+>> @@ -320,6 +380,9 @@ static int __init tagged_addr_init(void)
+>>  	have_user_pmlen_7 = try_to_set_pmm(ENVCFG_PMM_PMLEN_7);
+>>  	have_user_pmlen_16 = try_to_set_pmm(ENVCFG_PMM_PMLEN_16);
+>>  
+>> +	if (!register_sysctl("abi", tagged_addr_sysctl_table))
+>> +		return -EINVAL;
+>> +
+>>  	return 0;
+>>  }
+>>  core_initcall(tagged_addr_init);
+>> -- 
+>> 2.45.1
+>>
+>>
+>> _______________________________________________
+>> linux-riscv mailing list
+>> linux-riscv@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
