@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CB1FC021A7
-	for <linux-riscv@archiver.kernel.org>; Sat, 14 Sep 2024 16:47:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA1B4C021BE
+	for <linux-riscv@archiver.kernel.org>; Sat, 14 Sep 2024 22:19:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OMexnncMAfhnRyoV/u3pvVIKGzHp/lrurcqeZBI1gn4=; b=li76rhWw4p2ejPxNNraIqVMh1d
-	oU4S2jbTk2jP9OHRScRqa8oQOBk8qwsLz/kXS85c4WZ4wMHzf5nh+pvktp9c45HiVlm6IF4SV4rP1
-	VM+9GiR/2JmPp1ayO0TTmmTJQu3uRLQcy6DgrP8atgs+TCfxuMQ5tIAdDM0bE6kuuUgNVoNwIfUQQ
-	hUTDlZrOm8bC993Lg2R71+F9JcrQZ3ShC3riyt31/yaiW6T/cDw/GBtx0uqGNnu2Nuu9P+5qZd8ez
-	vgnG8hmw3dSgb1vwBw+/0vdTh1rzxWMBKk3oJz+MMxooaJs6Fqbre2hJQ5UVa0cwPBwecKOSUhp35
-	Uy6qHiCA==;
+	bh=pcpAZAR4GoFjeL1Q4deMYzCGkK+qS+HYAk8yFf5gixc=; b=pf71fXcMXKyuoz2NNlgqliNItz
+	iBKqgz06SqEzKhIOHCDee4MdkSgC1nBUUQY+CxuamV/NXA/U41XOVt1yMKapHsz3Hx/c12lBfb2E0
+	4mYLNXjrY6WEMa7UHU9Vl/Kd55qXU3+uY6cZ5VIhrz2yUFD/v7KfXqFx0+QKn8naqzLhxpbE2vaKq
+	5ekqzkHTdUM2bM1y7hNn9edSpYMmrkV5jA+IirLAaQfLd0AQkSotnpJVblGLlKZrlU2ybCEQKlzQi
+	thZPFrdZAVZ2YwSKD3fyOCB0PajX4veoDZ4J5Z7peB6vKTZMbN5ROqkluz28wq4PqZPCSLxM9keko
+	bY3TZ/eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1spVvn-00000000xw0-2JZt;
-	Sat, 14 Sep 2024 16:47:31 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1spb6i-00000001Jiy-1421;
+	Sat, 14 Sep 2024 22:19:08 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1spVuh-00000000xos-3wJz;
-	Sat, 14 Sep 2024 16:46:25 +0000
+	id 1spb3K-00000001JON-0uMs;
+	Sat, 14 Sep 2024 22:15:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B99FE5C5A14;
-	Sat, 14 Sep 2024 16:46:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28943C4CEC0;
-	Sat, 14 Sep 2024 16:46:15 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 36850A400FD;
+	Sat, 14 Sep 2024 22:15:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFF7BC4CEC0;
+	Sat, 14 Sep 2024 22:15:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1726332382;
-	bh=Z9KLHDysHT+QZFA9N2DhaeAfpGSFeSGzTbu4CvQ+R/g=;
+	s=k20201202; t=1726352135;
+	bh=CbuOYtL+nJOrUCr5pQsOYq97OPNcveR8zM/nfsn08qY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ES4QW2+Uwsj+XxM5lsWtejDsyOt9ZxevTIIBqFbZx8Ekjs8gGHWSIh3a8CpIVW9HY
-	 qNvzSPQulxAR2lc1Zc3mYbp1WxeuanQ/YnOtjtE4tbV7Dk3hpC2ZFMR9Ui/ZcXnJMd
-	 joB8iOzpysPGpZoTeUIclgN/bkqEURdblOs3dA5z94M8KJohCAXAWf6e3+fv3tH/aS
-	 w/hAMRF8JFDk28dxJwTeM70QvXD9PExnCQFxaf7pkYJ1pQtHWRvd23OFe9056W6CiY
-	 9mOw0QVp9E0wRJnUMOiLwN8YTMDpTOuEy4jt3c/ZVaBHUvCUoEMFlZojKSaVomwxHJ
-	 bBo2jcypLgsUQ==
-Date: Sat, 14 Sep 2024 17:46:14 +0100
+	b=VQDKnls003f8BK0pKf1mAStEZ9zE6wsWHaExX8l8zaWXnpDiBsz1jZs7ZttGkqDSa
+	 XatEWwLlqGA1c6lCIgeKGcsUk99gpo63jaFqtbfURKCUTk7glOMU4PdvuguR/Rk5xd
+	 008Op3BGEMvHes4BgTBis51CxqO/Q+Lse+BZ0FWM4mdsg0ftYw9+Z70Cm920dhA5Go
+	 FQzfzQCtDH1SqvgamYPu9C/Bj8QTuM0ENOBpC+tTr3Pnd4b1Ky+JSApbXwzGyLnIRA
+	 gIIWc3a9hlYpEhltsut6EeWj1jdEBP8nCX/uOAHZ6fRNW7M03nXKHVj95BYfODd31K
+	 Wt0mM0JoWMGTA==
+Date: Sat, 14 Sep 2024 23:15:27 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Gary Guo <gary@garyguo.net>
 Cc: rust-for-linux@vger.kernel.org,
@@ -72,16 +72,17 @@ Cc: rust-for-linux@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-riscv <linux-riscv@lists.infradead.org>
 Subject: Re: [PATCH v7] rust: support for shadow call stack sanitizer
-Message-ID: <20240914-jitters-barber-a0e51e7b83a8@spud>
+Message-ID: <20240914-romp-clothing-965a16cb4dd4@spud>
 References: <20240829-shadow-call-stack-v7-1-2f62a4432abf@google.com>
  <CANiq72kNmvFOXhhAcQJQdMC872908=CWW15_bzyyt9ht2q=twQ@mail.gmail.com>
  <20240913-shack-estate-b376a65921b1@spud>
  <20240914173037.422902b9.gary@garyguo.net>
+ <20240914-jitters-barber-a0e51e7b83a8@spud>
 MIME-Version: 1.0
-In-Reply-To: <20240914173037.422902b9.gary@garyguo.net>
+In-Reply-To: <20240914-jitters-barber-a0e51e7b83a8@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240914_094624_141383_A464BFDC 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20240914_151538_430514_5017FC6E 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,65 +94,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1755086303488815978=="
+Content-Type: multipart/mixed; boundary="===============4536811819768069302=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============1755086303488815978==
+--===============4536811819768069302==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="B4QM7QVF324ySoAc"
+	protocol="application/pgp-signature"; boundary="aukCVL/k+hWQAKhq"
 Content-Disposition: inline
 
 
---B4QM7QVF324ySoAc
+--aukCVL/k+hWQAKhq
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Sat, Sep 14, 2024 at 05:30:37PM +0100, Gary Guo wrote:
-> On Fri, 13 Sep 2024 22:17:56 +0100
-> Conor Dooley <conor@kernel.org> wrote:
-
-> > error[E0425]: cannot find function `__mutex_init` in crate `bindings`
-> > --> /stuff/linux/rust/kernel/sync/lock/mutex.rs:104:28 =20
-> > |
-> > 104   |           unsafe { bindings::__mutex_init(ptr, name, key) }
-> > |                              ^^^^^^^^^^^^ help: a function with a sim=
-ilar name exists: `__mutex_rt_init`
-> > |
-> > ::: /stuff/brsdk/work/linux/rust/bindings/bindings_generated.rs:12907:5
-> > |
-> > 12907 | /     pub fn __mutex_rt_init(
-> > 12908 | |         lock: *mut mutex,
-> > 12909 | |         name: *const core::ffi::c_char,
-> > 12910 | |         key: *mut lock_class_key,
-> > 12911 | |     );
-> > | |_____- similarly named function `__mutex_rt_init` defined here
-> >=20
-> > error: aborting due to 1 previous error
-> >=20
+On Sat, Sep 14, 2024 at 05:46:14PM +0100, Conor Dooley wrote:
+> On Sat, Sep 14, 2024 at 05:30:37PM +0100, Gary Guo wrote:
+> > On Fri, 13 Sep 2024 22:17:56 +0100
+> > Conor Dooley <conor@kernel.org> wrote:
 >=20
-> Do you have PREEMPT_RT enabled?
+> > > error[E0425]: cannot find function `__mutex_init` in crate `bindings`
+> > > --> /stuff/linux/rust/kernel/sync/lock/mutex.rs:104:28 =20
+> > > |
+> > > 104   |           unsafe { bindings::__mutex_init(ptr, name, key) }
+> > > |                              ^^^^^^^^^^^^ help: a function with a s=
+imilar name exists: `__mutex_rt_init`
+> > > |
+> > > ::: /stuff/brsdk/work/linux/rust/bindings/bindings_generated.rs:12907=
+:5
+> > > |
+> > > 12907 | /     pub fn __mutex_rt_init(
+> > > 12908 | |         lock: *mut mutex,
+> > > 12909 | |         name: *const core::ffi::c_char,
+> > > 12910 | |         key: *mut lock_class_key,
+> > > 12911 | |     );
+> > > | |_____- similarly named function `__mutex_rt_init` defined here
+> > >=20
+> > > error: aborting due to 1 previous error
+> > >=20
+> >=20
+> > Do you have PREEMPT_RT enabled?
+>=20
+> I do indeed.
 
-I do indeed.
+
+Turned it off, only to find out my board farm is non-functional! Looks
+fine in QEMU however :)
 
 
---B4QM7QVF324ySoAc
+--aukCVL/k+hWQAKhq
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZuW91QAKCRB4tDGHoIJi
-0g1AAP4jVE5sTjh7ZpAYSXX8cAez9VIN9z196SmWTQQotiAMIQEAglBSa7/hmf+1
-k1drziNQUGk/j2h9jhXIhrEAGrRagwI=
-=6Xln
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZuYK/wAKCRB4tDGHoIJi
+0l1DAQCyyTAltATXfFiGsTKm9k1tm3bo1zh+Ka4em8UHR49XWgD+IOU3xgen2R5l
+RRhM8jVPdaxa/BqvxrBHgqH4wRX5xgg=
+=Fb0t
 -----END PGP SIGNATURE-----
 
---B4QM7QVF324ySoAc--
+--aukCVL/k+hWQAKhq--
 
 
---===============1755086303488815978==
+--===============4536811819768069302==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -162,5 +169,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============1755086303488815978==--
+--===============4536811819768069302==--
 
