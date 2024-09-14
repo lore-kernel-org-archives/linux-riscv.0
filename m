@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B228C02181
-	for <linux-riscv@archiver.kernel.org>; Sat, 14 Sep 2024 08:13:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38E81C02180
+	for <linux-riscv@archiver.kernel.org>; Sat, 14 Sep 2024 08:13:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=F6xXUx0EAtMlVnbG0GMIk2r5I3NCPAk3U0IGwE8RpRU=; b=fkjub+I2I58rs0
-	2wlN5qfqQK76b7SbrE5d+0q9XDRizZJLjIBRT4Vf8tJiXCX5P3H9YsYfJ9e3kIaE399brcVef9xfD
-	F3OHDlf039tEph+ctGp+DCJBobr5NqhBCcXUNptq3bS/OtmfMhzeCxTzFlaqb6o/EGZNPN3bnoa+X
-	9N/KBriFgU+9TbuZpOLasuO9UlyiP2NGax+HRwuDyYeeCaF4LsCmSGPDbhyhg3uKLi34pe6M+FNgI
-	kvFEFdryb5nDpUDVmCLsD06mcW4SDwnVpACuixgninE7gVIKkp0w4uhADsc9NQgX1hUZhict97Fq0
-	IxAux0CBlyiFrfK4opTA==;
+	List-Owner; bh=3J9du8Lb0sF3ZRJzE1onOfvzo3nqi6K7XLZ+7zzBO6o=; b=UJWhFqsSWAO+Rh
+	3Nn7P+CKBEq3cT/VVtfjLnxSjvtud06ACdlKmB0mAZddxnO+9kg0e/A6295gm3kwE/w1Bh+nRj+4Y
+	Zg4w15xi1BXzg3bNiO4lJlPvCouuO3Uy/fkDX5ziTekajqsXYdt8CGdxLiuQgAP45e9PWYx2zb9DP
+	rGbzx/waN3P/pInUrpv8nea2n8jlw8uyOvbjMm4m5MiavOcSju6xluG4AitKfxws0s6n7uog4k/Tc
+	Y7i2R931SrM9XZsbmLNtnKKnKAAPH+1ks0SnnGqZ/+cxd9dA+RfSfRl2pFjVToMGRqNf7qc4L7Onu
+	qRRxsWstxgaQKaThoohQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1spNu7-00000000Kvs-0C9k;
-	Sat, 14 Sep 2024 08:13:15 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1spNu3-00000000KvI-3Rvc
-	for linux-riscv@lists.infradead.org;
+	id 1spNu5-00000000Kvi-37e8;
 	Sat, 14 Sep 2024 08:13:13 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1spNu2-00000000Kv1-3lCy
+	for linux-riscv@lists.infradead.org;
+	Sat, 14 Sep 2024 08:13:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 06B8EA404FE;
-	Sat, 14 Sep 2024 08:13:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63E34C4CEC0;
-	Sat, 14 Sep 2024 08:13:10 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 86DAC5C5BAF;
+	Sat, 14 Sep 2024 08:13:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7164C4CEC0;
+	Sat, 14 Sep 2024 08:13:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1726301590;
-	bh=/2SevD51AcV5pVbvRLnt56xDTvHbzz40ZtLBxX4HJQ4=;
+	s=k20201202; t=1726301588;
+	bh=atOTn57tJO3Z7a94bD4V7a3Ea/wzajO80ag5dk1D11I=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=GgpTdH3l75heIogZDa3tqbkaBULKvauLr8695+GhRAaE8oGLVk6GRi6NvGDfTyrBs
-	 ZGMJLu5jB3XBys1IUGSC3RAcLwEQOcp6rwJs+c3c4i4PS+WkCjy9yB9fiD5NkHsd8z
-	 900xT8f0d0pDfdh5XLcn+HeUTrJXLG/ReFpt2gabul7S2A3T06nmHJRoBww+LeZovn
-	 rghF+p+35Wu4TbZueHtcCVCQT9oLKz3i31ozKLVL8PR1pyRTnXhyUQoI3tV2if3DUt
-	 +89/Cx49Hj0quN6ouVWPqjenDe90njlwhuU2kxqG9gZEJ7FU/qH00pAr6fL0oZ0pRW
-	 dqIf/aJ937mtA==
+	b=n0CIpRV5xsld0qkHuFruytPdc25QvCP2b+GchUkwgd035FslwPI5EBuKgpop9utYM
+	 6lSNKm0RwLJ5BwKVSGqF3s0gpCevK8E8lQQzGwui4vbWyfnDQ28kAk5Eoj/053hVE2
+	 8kuE/k+UFuJ+cCR80yN9sR3I4mikvQhhLZBMB6SrpW/eDz4qZubvADUh2MKDzwoHDv
+	 PwOj21M1DDORXu6LfaFFeKuL5lXWq2/IOfmHx8ulqTBNSsPYp8JM7EgLIWuOxj33Zd
+	 VjI5jE+E+5O3lhDzSP+2LVJiYXHBZFK7DbNfP7+xpXPGk4t3nS7TcBF04+0pXqErm3
+	 HlQRvE25ChO5A==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB2E73806655;
-	Sat, 14 Sep 2024 08:13:12 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70E093806655;
+	Sat, 14 Sep 2024 08:13:11 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH 0/2] riscv: Add missing licenses
+Subject: Re: [PATCH v2 0/8] remove size limit on XIP kernel
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <172630159149.2498524.12159135435898265005.git-patchwork-notify@kernel.org>
-Date: Sat, 14 Sep 2024 08:13:11 +0000
-References: <20240729-riscv_fence_license-v1-0-7d5648069640@rivosinc.com>
-In-Reply-To: <20240729-riscv_fence_license-v1-0-7d5648069640@rivosinc.com>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org
+Message-Id: <172630159029.2498524.2048412782900676166.git-patchwork-notify@kernel.org>
+Date: Sat, 14 Sep 2024 08:13:10 +0000
+References: <cover.1717789719.git.namcao@linutronix.de>
+In-Reply-To: <cover.1717789719.git.namcao@linutronix.de>
+To: Nam Cao <namcao@linutronix.de>
+Cc: linux-riscv@lists.infradead.org, alexghiti@rivosinc.com,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240914_011311_943346_77FB75FB 
-X-CRM114-Status: UNSURE (   8.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240914_011311_023732_A9041074 
+X-CRM114-Status: GOOD (  10.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,23 +80,35 @@ Hello:
 This series was applied to riscv/linux.git (for-next)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Mon, 29 Jul 2024 14:00:01 -0700 you wrote:
-> I was poking around some files and noticed that vmalloc.h and fence.h
-> were missing licenses. This series simply adds in those licenses.
+On Fri,  7 Jun 2024 22:22:05 +0200 you wrote:
+> Hi,
 > 
-> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> ---
-> Charlie Jenkins (2):
->       riscv: Add license to fence.h
->       riscv: Add license to vmalloc.h
+> For XIP kernel, the writable data section is always at offset specified in
+> XIP_OFFSET, which is hard-coded to 32MB.
+> 
+> Unfortunately, this means the read-only section (placed before the
+> writable section) is restricted in size. This causes build failure if the
+> kernel gets too large.
 > 
 > [...]
 
 Here is the summary with links:
-  - [1/2] riscv: Add license to fence.h
-    https://git.kernel.org/riscv/c/097c72e1f2b5
-  - [2/2] riscv: Add license to vmalloc.h
-    https://git.kernel.org/riscv/c/4ffc8a342298
+  - [v2,1/8] riscv: cleanup XIP_FIXUP macro
+    https://git.kernel.org/riscv/c/aa3457f22f00
+  - [v2,2/8] riscv: don't export va_kernel_pa_offset in vmcoreinfo for XIP kernel
+    https://git.kernel.org/riscv/c/f2df5b4fdd74
+  - [v2,3/8] riscv: replace misleading va_kernel_pa_offset on XIP kernel
+    https://git.kernel.org/riscv/c/5cf089672119
+  - [v2,4/8] riscv: drop the use of XIP_OFFSET in XIP_FIXUP_OFFSET
+    https://git.kernel.org/riscv/c/e4eac34feda4
+  - [v2,5/8] riscv: drop the use of XIP_OFFSET in XIP_FIXUP_FLASH_OFFSET
+    https://git.kernel.org/riscv/c/23311f57ee13
+  - [v2,6/8] riscv: drop the use of XIP_OFFSET in kernel_mapping_va_to_pa()
+    https://git.kernel.org/riscv/c/75fdf791dff0
+  - [v2,7/8] riscv: drop the use of XIP_OFFSET in create_kernel_page_table()
+    https://git.kernel.org/riscv/c/a7cfb999433a
+  - [v2,8/8] riscv: remove limit on the size of read-only section for XIP kernel
+    https://git.kernel.org/riscv/c/b635a84bde6f
 
 You are awesome, thank you!
 -- 
