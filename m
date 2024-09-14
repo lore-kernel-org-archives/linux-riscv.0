@@ -4,82 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27DA1FC6172
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Sep 2024 23:51:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3634DFC618A
+	for <linux-riscv@archiver.kernel.org>; Sat, 14 Sep 2024 01:55:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0xIlripCIMA1LYtv+pzrT682RMjSRO4s9Du0qYduWqs=; b=juPlJPCadsCL2O
-	hCzHc6yrawwJqNl4p/uleqV/32ni4Bl305q8GbgCajJILhwTDaDSWD3olpihgtMmiLiwCUMYJc10j
-	K/QezeNzwBCJanJGqLrsVlXTPKNDzRWIuTk3agqb3ocT5R9lRcj8BRkOfu9oZ3BCDJyOSgT1ca3cf
-	8JxM1MDXEqmepiNuTzKfk+2yZZAzxUi/4BJLyLcOG5pcXmqjo7FL3WF+BGfrYhvC3wVj482HH1t8l
-	73uAnh/eFtxoo5FdVgAb1uFdJ9LtnvZYRjCcNRL8WM/V9S01pAMTRTBiZP+kUXjV/JkTRt09Dz5VH
-	nmCydKjIIb6JKf0m2mTg==;
+	List-Owner; bh=vY6fFtvzfJn6dj64Tvvjgjklz8DYPDALD6Cw5JH1ssU=; b=0+hGFyyaSy8aVU
+	YYs+ITikuasRoSQNok7UVJXaJjkjLJBuF1T79KVjKbP6O3OuUogw0zvOmVir3uWpGJwa5/JWbhR9p
+	uIUA3gWrAY3RJkRNsdH4Yamy+hbT9Id9dORgcArqjsXz9zbb0Ik0YhJF0gLS0U+oPG8h7exoZYm7M
+	C+11RV95Y9RaT4taedQiBz9WtUESht+ZQoRP+Vh1h9iLRyEiICdcMGg9akgk8kPhKuhkFuYqtdCHT
+	Ege4Rm5uq1QgcZUQeCtjjVDu3RTvb+VP2FrqMCN9DpW49FMYnfgbziVhEqZszW2tWa5CwCLzkeDgr
+	xBoPNazTBAKGaOXnICpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1spG4Z-0000000HNiY-0fRq;
-	Fri, 13 Sep 2024 23:51:31 +0000
-Received: from mail-io1-xd2d.google.com ([2607:f8b0:4864:20::d2d])
+	id 1spHzt-0000000HUU7-1YpR;
+	Sat, 14 Sep 2024 01:54:49 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1spG3m-0000000HNfX-0UoR
+	id 1spHzq-0000000HUTc-3Iw0
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Sep 2024 23:50:43 +0000
-Received: by mail-io1-xd2d.google.com with SMTP id ca18e2360f4ac-82cdada0f21so55273739f.3
-        for <linux-riscv@lists.infradead.org>; Fri, 13 Sep 2024 16:50:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1726271440; x=1726876240; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ys9D+RLXwhTpgH1pWEB+6o3E3W0DAjyQ5WRdSmgexZs=;
-        b=dZG6DCTnDLDijwhjBRFFOSnbjPv8BCGUhrPKQXVG+OihPaqP3EM3IPOymA0lIZ2m7g
-         Pc6/aW+i48icZgfgeBZdWyQPo1Zw1b6NhzKdB0mboP2EBFWOmBshO/+IdVOy4r/lmGqj
-         kfTAsvWsKaA2FwfdVlJs9aY2/s7HLaY/gW17GeL7VT9fLY2AHRxASthw9E1l7aGSOav9
-         sNDI9YHVm3GjD67wVBlcitD12h1CqiKastF2POZjMDmeBAIvOeWlF6hVYF9/lwQhbqcm
-         g5vSzJ34D58ZYA05GUdTg+dua+i4bnk2Xmi8jDM6jNv+dnmFwMf4z4LCuzfLe2W5DUq/
-         86yw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1726271440; x=1726876240;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ys9D+RLXwhTpgH1pWEB+6o3E3W0DAjyQ5WRdSmgexZs=;
-        b=I/hKQzZIwL8qGNmS3X6Ybrv6Lyk0SlVQRdJutLUtKFSmd9BJQTriQOxNWQZU3+vh+B
-         AZscQpus6r+gH7HFFJT/AysOZAHPsXk4PbyGjXXNjTkc4Ia5mI3YYcPvkgtE2i4LFM60
-         cwOghhoWXvKY/es9oj3bHXPP7hqohNMjDC3ObFhluz8wNuE76OkrDHO3v+rD+5TVkz2K
-         2Q0GvPrJGsSq+NBZn5m30QdIaUI0ojEA0v0u8Yp4omCGN9ni0pNOGBK58AxO7uM1Im1Q
-         F/8xvcQYlI5DnoDwykbsvV0S4nF9yRhN0aKBIC51d/Z1RIGfpQ1aMUrqtL0Cw0s+Cps4
-         WeSg==
-X-Gm-Message-State: AOJu0Yyw45naebXtUORAWjca5s857YhlJo6D8vjptM82aU0XL2KKfVmX
-	ns3up2LrYd4BukO8wIrTkgvBtckCQDatmTXlCUAaeNYp/d5/cyNhr/pnRE0ItLw=
-X-Google-Smtp-Source: AGHT+IE308z1W4TCDHUUF03ezwRzE9xkKqtY4m1O5nmNwXAeBrU0VE783Zv01Z5VI0le8m/Y+OuFlw==
-X-Received: by 2002:a05:6e02:219b:b0:3a0:4bd1:c1d6 with SMTP id e9e14a558f8ab-3a08b710dccmr38499675ab.9.1726271439932;
-        Fri, 13 Sep 2024 16:50:39 -0700 (PDT)
-Received: from [100.64.0.1] ([147.124.94.167])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4d37ed13d31sm118864173.98.2024.09.13.16.50.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 13 Sep 2024 16:50:39 -0700 (PDT)
-Message-ID: <54ce36a6-8be1-4ce8-b246-2255df333d00@sifive.com>
-Date: Fri, 13 Sep 2024 18:50:37 -0500
+	Sat, 14 Sep 2024 01:54:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1726278887; x=1757814887;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=TLXeBUebCUeA7FDBNQ7Y62aN1d7vguuNY9Dg5smqFKw=;
+  b=Mk42WwY+D3T0A1d9TzVczQ5C2yjhBt7ZOelm0uPJ0XnIC0GzojXfFHKp
+   +531lDVVEKuQq/g3EwJsjctXjhapv78+kyPwj0OHZS53XCmvs4ZlbzN7t
+   Z2cW0v9S3cDP/HcBKMj2SUDsY1Z5y2I92RPd+tkm7K2Wi5OiuuKI2tUKb
+   oN2eIkgAK4cgO2BzR+H9Wo8YFEe9jjrSafqSdX9LLA3+/A8LEwZjqKJxx
+   NkIxnP7bxYG7b7oenAQVpFAnBtprzJbsMbQ2qxLsFAIbXPan+juMBzUxh
+   FguCVWlTUIjZjHvHj9vVNqR/0T4Yxy/zDtCklcH1Gd7xQZjn2AsMPdIOE
+   w==;
+X-CSE-ConnectionGUID: JgsTGE1eTuOMHUfyVsOtuA==
+X-CSE-MsgGUID: qA/kpnIAR++ART8ER1Cjsg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11194"; a="25392359"
+X-IronPort-AV: E=Sophos;i="6.10,227,1719903600"; 
+   d="scan'208";a="25392359"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Sep 2024 18:54:42 -0700
+X-CSE-ConnectionGUID: 8/RVo9fwTHKmd/RxSkbmmA==
+X-CSE-MsgGUID: 6noWOEqXTIaiVBZhuyPnbQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.10,227,1719903600"; 
+   d="scan'208";a="72381126"
+Received: from lkp-server01.sh.intel.com (HELO 53e96f405c61) ([10.239.97.150])
+  by fmviesa003.fm.intel.com with ESMTP; 13 Sep 2024 18:54:35 -0700
+Received: from kbuild by 53e96f405c61 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1spHzc-0007Eu-2R;
+	Sat, 14 Sep 2024 01:54:32 +0000
+Date: Sat, 14 Sep 2024 09:54:31 +0800
+From: kernel test robot <lkp@intel.com>
+To: Deepak Gupta <debug@rivosinc.com>, paul.walmsley@sifive.com,
+	palmer@sifive.com, conor@kernel.org, linux-doc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+	linux-mm@kvack.org, linux-arch@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev, corbet@lwn.net,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, robh@kernel.org,
+	krzk+dt@kernel.org, oleg@redhat.com, tglx@linutronix.de,
+	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
+	x86@kernel.org, hpa@zytor.com, akpm@linux-foundation.org,
+	arnd@arndb.de, ebiederm@xmission.com, kees@kernel.org,
+	Liam.Howlett@oracle.com, vbabka@suse.cz
+Subject: Re: [PATCH v4 16/30] riscv/shstk: If needed allocate a new shadow
+ stack on clone
+Message-ID: <202409140913.73qFCOmB-lkp@intel.com>
+References: <20240912231650.3740732-17-debug@rivosinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: Is RISC-V Static Call worth implementing ?
-To: Conor Dooley <conor@kernel.org>, Juhan Jin <juhan.jin@foxmail.com>
-Cc: linux-riscv@lists.infradead.org, peterz@infradead.org,
- jpoimboe@kernel.org, juhanj2@illinois.edu, alexghiti@rivosinc.com,
- palmer@dabbelt.com, ajones@ventanamicro.com
-References: <tencent_24E1437DFC1D2BB7528A2A28D503C8033107@qq.com>
- <20240913-spearfish-feeble-4c0032f37484@spud>
-From: Samuel Holland <samuel.holland@sifive.com>
-Content-Language: en-US
-In-Reply-To: <20240913-spearfish-feeble-4c0032f37484@spud>
+Content-Disposition: inline
+In-Reply-To: <20240912231650.3740732-17-debug@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240913_165042_189897_09C4D7EA 
-X-CRM114-Status: UNSURE (   9.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240913_185446_897867_AA740796 
+X-CRM114-Status: GOOD (  13.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,30 +94,122 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjAyNC0wOS0xMyAzOjU1IFBNLCBDb25vciBEb29sZXkgd3JvdGU6Cj4gT24gRnJpLCBTZXAg
-MTMsIDIwMjQgYXQgMDM6MDU6MzNBTSAtMDUwMCwgSnVoYW4gSmluIHdyb3RlOgo+PiBIaSBmb2xr
-cywKPj4KPj4gSeKAmW0gaW50ZXJlc3RlZCBpbiBpbXBsZW1lbnRpbmcgU3RhdGljIENhbGwgZm9y
-IFJJU0MtViwgYW5kIEkgd2FudCB0bwo+PiBrbm93IHdoZXRoZXIgaXQgaXMgd29ydGggdGhlIGVm
-Zm9ydHMgdG8gaW1wbGVtZW50IFN0YXRpYyBDYWxsIGZvcgo+PiBSSVNDLVYuCj4+Cj4+IERvZXMg
-dGhlIGFmb3JlbWVudGlvbmVkIGJlbmVmaXRzIG1lcml0IGEgUklTQy1WIHN0YXRpYyBjYWxsIGlt
-cGxlbWVudGF0aW9uIAo+PiAoZXNwZWNpYWxseSBpbmxpbmUpPyBPciBhcmUgdGhlIGJlbmVmaXRz
-IHNvIG5lZ2xpZ2libGUgdGhhdCBpdOKAmXMgc2ltcGx5IG5vdCAKPj4gd29ydGggdGhlIGVmZm9y
-dCB0byBkbyBhIFJJU0MtViBpbXBsZW1lbnRhdGlvbj8KPiAKPiBQcmV0dHkgc3VyZSB3ZSd2ZSB0
-YWxrZWQgYWJvdXQgd2FudGluZyBpdCBiZWZvcmUgLSBTYW11ZWwsIEFsZXgsIERyZXcKPiBKb25l
-cyBvciBQYWxtZXIgbWlnaHQgcmVtZW1iZXIgYmVzdCB3aGF0IGV4YWN0bHkgd2Ugd2FudGVkIGl0
-IGZvcgo+IGhvd2V2ZXIsIGFzIEkgZG8gbm90LgoKSWYgSSByZW1lbWJlciBjb3JyZWN0bHksIHdl
-IGhhZCBkaXNjdXNzZWQgaXQgaW4gdGhlIGNvbnRleHQgb2Ygbm9uLWNvaGVyZW50IERNQQpvcGVy
-YXRpb25zLCBidXQgd2UgZGVjaWRlZCB0aGF0IHRoZSBiZW5lZml0IHdhcyBuZWdsaWdpYmxlIGZv
-ciB0aGF0IHVzZSBjYXNlLgoKVGhlcmUgYXJlIG90aGVyIHBsYWNlcyB0aGF0IGNvdWxkIGxpa2Vs
-eSBiZW5lZml0IGZyb20gc3RhdGljIGNhbGxzLCBzdWNoIGFzClN2MzkvU3Y0OC9TdjU3IGRpZmZl
-cmVuY2VzLCBzb21lIHVzZXJzIG9mIHJpc2N2X2hhc19leHRlbnNpb25fKigpLCBvciBtYXliZSBz
-b21lCmhvdCBpbmRpcmVjdCBTQkkgZnVuY3Rpb25zIGxpa2Ugc2JpX3NldF90aW1lcigpLiBCdXQg
-aXQgZGVwZW5kcyBvbiB0aGUgb3ZlcmhlYWQuCgpSZWdhcmRzLApTYW11ZWwKCgpfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
-IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
-ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi Deepak,
+
+kernel test robot noticed the following build warnings:
+
+[auto build test WARNING on shuah-kselftest/next]
+[also build test WARNING on shuah-kselftest/fixes tip/x86/core robh/for-next tip/smp/core kees/for-next/execve linus/master v6.11-rc7]
+[cannot apply to akpm-mm/mm-everything next-20240913]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Deepak-Gupta/mm-Introduce-ARCH_HAS_USER_SHADOW_STACK/20240913-072124
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/shuah/linux-kselftest.git next
+patch link:    https://lore.kernel.org/r/20240912231650.3740732-17-debug%40rivosinc.com
+patch subject: [PATCH v4 16/30] riscv/shstk: If needed allocate a new shadow stack on clone
+config: riscv-defconfig (https://download.01.org/0day-ci/archive/20240914/202409140913.73qFCOmB-lkp@intel.com/config)
+compiler: clang version 20.0.0git (https://github.com/llvm/llvm-project bf684034844c660b778f0eba103582f582b710c9)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20240914/202409140913.73qFCOmB-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202409140913.73qFCOmB-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   In file included from arch/riscv/kernel/asm-offsets.c:10:
+   In file included from include/linux/mm.h:7:
+   In file included from include/linux/gfp.h:7:
+   In file included from include/linux/mmzone.h:8:
+   In file included from include/linux/spinlock.h:56:
+   In file included from include/linux/preempt.h:79:
+   In file included from ./arch/riscv/include/generated/asm/preempt.h:1:
+   In file included from include/asm-generic/preempt.h:5:
+   In file included from include/linux/thread_info.h:60:
+   In file included from arch/riscv/include/asm/thread_info.h:37:
+   In file included from arch/riscv/include/asm/processor.h:17:
+>> arch/riscv/include/asm/usercfi.h:44:15: warning: no previous prototype for function 'get_shstk_base' [-Wmissing-prototypes]
+      44 | unsigned long get_shstk_base(struct task_struct *task, unsigned long *size)
+         |               ^
+   arch/riscv/include/asm/usercfi.h:44:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+      44 | unsigned long get_shstk_base(struct task_struct *task, unsigned long *size)
+         | ^
+         | static 
+   In file included from arch/riscv/kernel/asm-offsets.c:10:
+   In file included from include/linux/mm.h:2233:
+   include/linux/vmstat.h:514:36: warning: arithmetic between different enumeration types ('enum node_stat_item' and 'enum lru_list') [-Wenum-enum-conversion]
+     514 |         return node_stat_name(NR_LRU_BASE + lru) + 3; // skip "nr_"
+         |                               ~~~~~~~~~~~ ^ ~~~
+   2 warnings generated.
+--
+   In file included from arch/riscv/kernel/soc.c:7:
+   In file included from include/linux/pgtable.h:6:
+   In file included from arch/riscv/include/asm/pgtable.h:9:
+   In file included from include/linux/mmzone.h:8:
+   In file included from include/linux/spinlock.h:56:
+   In file included from include/linux/preempt.h:79:
+   In file included from ./arch/riscv/include/generated/asm/preempt.h:1:
+   In file included from include/asm-generic/preempt.h:5:
+   In file included from include/linux/thread_info.h:60:
+   In file included from arch/riscv/include/asm/thread_info.h:37:
+   In file included from arch/riscv/include/asm/processor.h:17:
+>> arch/riscv/include/asm/usercfi.h:44:15: warning: no previous prototype for function 'get_shstk_base' [-Wmissing-prototypes]
+      44 | unsigned long get_shstk_base(struct task_struct *task, unsigned long *size)
+         |               ^
+   arch/riscv/include/asm/usercfi.h:44:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+      44 | unsigned long get_shstk_base(struct task_struct *task, unsigned long *size)
+         | ^
+         | static 
+   1 warning generated.
+--
+   In file included from arch/riscv/kernel/asm-offsets.c:10:
+   In file included from include/linux/mm.h:7:
+   In file included from include/linux/gfp.h:7:
+   In file included from include/linux/mmzone.h:8:
+   In file included from include/linux/spinlock.h:56:
+   In file included from include/linux/preempt.h:79:
+   In file included from ./arch/riscv/include/generated/asm/preempt.h:1:
+   In file included from include/asm-generic/preempt.h:5:
+   In file included from include/linux/thread_info.h:60:
+   In file included from arch/riscv/include/asm/thread_info.h:37:
+   In file included from arch/riscv/include/asm/processor.h:17:
+>> arch/riscv/include/asm/usercfi.h:44:15: warning: no previous prototype for function 'get_shstk_base' [-Wmissing-prototypes]
+      44 | unsigned long get_shstk_base(struct task_struct *task, unsigned long *size)
+         |               ^
+   arch/riscv/include/asm/usercfi.h:44:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+      44 | unsigned long get_shstk_base(struct task_struct *task, unsigned long *size)
+         | ^
+         | static 
+   In file included from arch/riscv/kernel/asm-offsets.c:10:
+   In file included from include/linux/mm.h:2233:
+   include/linux/vmstat.h:514:36: warning: arithmetic between different enumeration types ('enum node_stat_item' and 'enum lru_list') [-Wenum-enum-conversion]
+     514 |         return node_stat_name(NR_LRU_BASE + lru) + 3; // skip "nr_"
+         |                               ~~~~~~~~~~~ ^ ~~~
+   2 warnings generated.
+
+
+vim +/get_shstk_base +44 arch/riscv/include/asm/usercfi.h
+
+    43	
+  > 44	unsigned long get_shstk_base(struct task_struct *task, unsigned long *size)
+    45	{
+    46		return 0;
+    47	}
+    48	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
