@@ -4,84 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCA1BEE0202
-	for <linux-riscv@archiver.kernel.org>; Sat, 14 Sep 2024 03:26:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 978B8C02180
+	for <linux-riscv@archiver.kernel.org>; Sat, 14 Sep 2024 07:47:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7TK2WAI4ON1/eUlpy/4UxHIUJ+lQ5HhZYC44SCrJF2E=; b=thbtNqZbvHQ02G
-	nHnBT6c+aoSGaq35pVh1GcyIra+JR6+fTo8VSMs9LvTGJuLk6caR/7aSzlk/LpJl53karNJtaui3b
-	fPByc56Wi1jjF1Q7zw8Dxt07FmKSvWRupYAWFfRCtlvZr9UgnvCjqL56KPneQX03dKiEXChZ5WZO2
-	V6QKxGOP+GmoC9k3X7+zCwkJ516k0ChJ15+95F6rAP6NUIIlJ/O80WuDYPEplwDkmJ4/YDblxoGrI
-	IHQlnuIhDFwGTP21KZqFP+BEUjmhGfzxE/J92+LgyptLgt8w/QNHe7+Mvw7UNh8VmMJgJg1Cv50Sy
-	zp9YHSGdmyJgYz1sKoqw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=nq/l9ci7YKVkpjDpPv8IhlIy8LD7kx5U53gQkRue0to=; b=2BZhaQdv1qUElX
+	/Dm/0swACkE2nyhnwMDOz46NR90mWvQwelBoSBZH+VCoAfhB6BfbhIjklT441ySNeAfA1UuC8iG+L
+	3lkawIHoWU8xTXcMbkiDT0vKfM4DRlcebsO2O8/7De18YKd2J7t+lBZtUGNdZ0GyyfLHC06338yUR
+	X7KvoFJSP+w1kJjw+VLU416LG40JRgM/RbFgJKNGcpl2Nr8DZ+QefDzlV6sYITUy2eJ7zweKFrTN/
+	yXn9oXC2p7aEGkkldvMs/tnm0eX04fQ+Kggaeq2tyDqCsU7PX8ZsoVKHClVpf3HH97rAvLEIDT3oX
+	Sfzq1XjxDE91GIP8SlaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1spJQt-0000000HaQW-2y9S;
-	Sat, 14 Sep 2024 03:26:47 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1spNVB-00000000JON-2jqo;
+	Sat, 14 Sep 2024 07:47:29 +0000
+Received: from mail-il1-x129.google.com ([2607:f8b0:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1spJQq-0000000HaQ9-2lLt
+	id 1spNV8-00000000JNj-06oe
 	for linux-riscv@lists.infradead.org;
-	Sat, 14 Sep 2024 03:26:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1726284404; x=1757820404;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=omgqvgzzouQEUhPUfMey5nnTnVKYeEVzaU01hZPxRW0=;
-  b=frI+/C/AHpjnEFMGmznTEwGIfY1dQ7q4F3TV4T7xBBqhL8EPJv+NVHgy
-   v2TMIIin4yjxofF4NalOTDGdbqZZ2mIWF6z9hymvkuqiEJkVNDj16G09x
-   jOUaL+J9bbkcaTidnRuxXn0hMNm3WEKUAZHJvIBBsSZOUcxxcWla1tYGx
-   xTJ6lYs4N/KwC4DVAbvfifJqy+81d6G115802eiORVpnY4WZN9RI7NVX5
-   J7VzYHZW5HMv8qGjHa9fKAlanQUM4lHoYNbnfgHbwextX5rmG47bRbtGU
-   jev7Ts7Y/JshGhTIL9iIgLAJ2t8XeBJQtL5038x5XyDgUwHi5MTPMALvs
-   w==;
-X-CSE-ConnectionGUID: DbUkuyTyRG6Oc0UdwaShYg==
-X-CSE-MsgGUID: h249z3t1SRehe+znLgi6Sw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11194"; a="24681066"
-X-IronPort-AV: E=Sophos;i="6.10,228,1719903600"; 
-   d="scan'208";a="24681066"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Sep 2024 20:26:43 -0700
-X-CSE-ConnectionGUID: izKp/OBXQm66DzDaFEJEaQ==
-X-CSE-MsgGUID: sqg/QmHsTlGKouqptM4I1w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.10,228,1719903600"; 
-   d="scan'208";a="91566204"
-Received: from lkp-server01.sh.intel.com (HELO 53e96f405c61) ([10.239.97.150])
-  by fmviesa002.fm.intel.com with ESMTP; 13 Sep 2024 20:26:37 -0700
-Received: from kbuild by 53e96f405c61 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1spJQh-0007Je-0z;
-	Sat, 14 Sep 2024 03:26:35 +0000
-Date: Sat, 14 Sep 2024 11:26:33 +0800
-From: kernel test robot <lkp@intel.com>
-To: Deepak Gupta <debug@rivosinc.com>, paul.walmsley@sifive.com,
-	palmer@sifive.com, conor@kernel.org, linux-doc@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-fsdevel@vger.kernel.org,
-	linux-mm@kvack.org, linux-arch@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, corbet@lwn.net, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, robh@kernel.org, krzk+dt@kernel.org,
-	oleg@redhat.com, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
-	akpm@linux-foundation.org, arnd@arndb.de, ebiederm@xmission.com,
-	kees@kernel.org, Liam.Howlett@oracle.com, vbabka@suse.cz
-Subject: Re: [PATCH v4 16/30] riscv/shstk: If needed allocate a new shadow
- stack on clone
-Message-ID: <202409141139.mn5fTYCl-lkp@intel.com>
-References: <20240912231650.3740732-17-debug@rivosinc.com>
+	Sat, 14 Sep 2024 07:47:27 +0000
+Received: by mail-il1-x129.google.com with SMTP id e9e14a558f8ab-3a098564893so501995ab.1
+        for <linux-riscv@lists.infradead.org>; Sat, 14 Sep 2024 00:47:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1726300044; x=1726904844; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=xCXWx1AARdSEy+aE8rrZQ09YhMgt7Bc9EsokRlJmT98=;
+        b=vHwaDsXipWMNwdB1aB5GEuwzNc9ZZNuz8XHZhkZKuKDv9q3NATGf0BpBBRfKA/PD/A
+         ITK1jX1gPsyda9efBy7IUjcEnoNiF7Q2NYuXoR7IAipgCHvjeFKT5cfcOZhbC+m4AYiv
+         b9lFCoPGsnqyQ94B3bv4slUeFCZeLWQaRds9qH9pLAHpw85jgrX21lu6cEkMXAMeLXoh
+         3fciivQ87dEejmo9xBDbdFLZqWeC1l6zp0QuyT7zweTRkh0sTc2RgG4uUk1ZaOlNapsr
+         HUyR6QDRB7AlQQ+wK2fEcFmGc9CN4nm1I8+mJcHQk1iEtozD9MfIb6SG2vxq8l3GeJT6
+         2Zow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1726300044; x=1726904844;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=xCXWx1AARdSEy+aE8rrZQ09YhMgt7Bc9EsokRlJmT98=;
+        b=QBALaO5ATcBwisOiQRdNcC/VzNemVOAzBOsG44sUNKM3NeUUbP6og7cbWCXJsAiEpA
+         nenMd5KfXYiut/y8Y3WBYGu81D2UcmuDVXebYnNkL08l65236R0qLRl+ozsx0g49AfIi
+         Iq7/Ei6nb+qxuUHGmeHh7m2NoW+xRcsAME3L4lekpm+GIFqBZFTQM+3zxMI97TJ+vTqH
+         AxNTytm3v1wf621gHFIQf4HGlXK3BW9o6bPk/cQCQRYeWsG+cFSDxFDXCbjcFvwGJIH/
+         95xX5SnNfz+pT9SJnY9YO/4vc+pTEduUkL6Pm3GYyvyJM9oIpchhYy6Dv+JFqQALTdCX
+         zbDQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXb6pOGMGODanF74h/uqlyoD44tb+542onPy89x8vFqSvdo8ejoqlp1QPos6d8Bl153tiVOaIuzyiKruQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YycWGTW02A5SqI/cIlgRyGTs96jABF84nlXeM/ZT5AR68jOc+K7
+	WVN2KGLgFMmkVLWfNV8AC9TKS57e5bEqw/KYGgLbb3j9I5xluiFNza+4o8tBvcB0nAOAi1CsvMD
+	nDwfgykUfEq/hZq9bJ7cak4d8LPOLyJ7J8cFo3Q==
+X-Google-Smtp-Source: AGHT+IE1+YolBGHlPsnYebHEoJOTB+fxO3iuwnRSWzmivhke4/IK2SM0tqoudxlnPJ1GndHJ+aH11X+h3T8BBsrdWoQ=
+X-Received: by 2002:a05:6e02:2147:b0:398:a9b3:d6b1 with SMTP id
+ e9e14a558f8ab-3a08464e152mr82842365ab.12.1726300044565; Sat, 14 Sep 2024
+ 00:47:24 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240912231650.3740732-17-debug@rivosinc.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Sat, 14 Sep 2024 13:17:13 +0530
+Message-ID: <CAAhSdy0fHNoSx9KAG9nL=sc9=L+zeComyJjctD7kYOhuMNxLdg@mail.gmail.com>
+Subject: [GIT PULL] KVM/riscv changes for 6.12
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Andrew Jones <ajones@ventanamicro.com>, Atish Patra <atishp@atishpatra.org>, 
+	Atish Patra <atishp@rivosinc.com>, KVM General <kvm@vger.kernel.org>, 
+	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, 
+	linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240913_202644_786359_2507335B 
-X-CRM114-Status: GOOD (  13.82  )
+X-CRM114-CacheID: sfid-20240914_004726_360172_42E8BBE2 
+X-CRM114-Status: UNSURE (   6.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,247 +90,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Deepak,
+Hi Paolo,
 
-kernel test robot noticed the following build errors:
+We have only 4 KVM RISC-V fixes for 6.12. There
+are quite a few in-flight patches waiting for more
+reviews and these will be included in 6.13.
 
-[auto build test ERROR on shuah-kselftest/next]
-[also build test ERROR on shuah-kselftest/fixes tip/x86/core robh/for-next arnd-asm-generic/master tip/smp/core kees/for-next/execve linus/master v6.11-rc7]
-[cannot apply to akpm-mm/mm-everything next-20240913]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Please pull.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Deepak-Gupta/mm-Introduce-ARCH_HAS_USER_SHADOW_STACK/20240913-072124
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/shuah/linux-kselftest.git next
-patch link:    https://lore.kernel.org/r/20240912231650.3740732-17-debug%40rivosinc.com
-patch subject: [PATCH v4 16/30] riscv/shstk: If needed allocate a new shadow stack on clone
-config: riscv-randconfig-r071-20240914 (https://download.01.org/0day-ci/archive/20240914/202409141139.mn5fTYCl-lkp@intel.com/config)
-compiler: riscv64-linux-gcc (GCC) 14.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20240914/202409141139.mn5fTYCl-lkp@intel.com/reproduce)
+Regards,
+Anup
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202409141139.mn5fTYCl-lkp@intel.com/
+The following changes since commit 47ac09b91befbb6a235ab620c32af719f8208399:
 
-All error/warnings (new ones prefixed by >>):
+  Linux 6.11-rc4 (2024-08-18 13:17:27 -0700)
 
-   In file included from arch/riscv/include/asm/processor.h:17,
-                    from arch/riscv/include/asm/thread_info.h:37,
-                    from include/linux/thread_info.h:60,
-                    from include/asm-generic/preempt.h:5,
-                    from ./arch/riscv/include/generated/asm/preempt.h:1,
-                    from include/linux/preempt.h:79,
-                    from include/linux/spinlock.h:56,
-                    from include/linux/mmzone.h:8,
-                    from include/linux/gfp.h:7,
-                    from include/linux/mm.h:7,
-                    from arch/riscv/kernel/asm-offsets.c:10:
->> arch/riscv/include/asm/usercfi.h:44:15: warning: no previous prototype for 'get_shstk_base' [-Wmissing-prototypes]
-      44 | unsigned long get_shstk_base(struct task_struct *task, unsigned long *size)
-         |               ^~~~~~~~~~~~~~
---
-   In file included from arch/riscv/include/asm/processor.h:17,
-                    from include/linux/sched.h:13,
-                    from kernel/ptrace.c:13:
->> arch/riscv/include/asm/usercfi.h:44:15: warning: no previous prototype for 'get_shstk_base' [-Wmissing-prototypes]
-      44 | unsigned long get_shstk_base(struct task_struct *task, unsigned long *size)
-         |               ^~~~~~~~~~~~~~
-   In file included from include/linux/string.h:374,
-                    from include/linux/bitmap.h:13,
-                    from include/linux/cpumask.h:12,
-                    from arch/riscv/include/asm/processor.h:79:
-   In function 'fortify_memcpy_chk',
-       inlined from 'syscall_get_arguments.isra' at arch/riscv/include/asm/syscall.h:66:2:
-   include/linux/fortify-string.h:580:25: warning: call to '__read_overflow2_field' declared with attribute warning: detected read beyond size of field (2nd parameter); maybe use struct_group()? [-Wattribute-warning]
-     580 |                         __read_overflow2_field(q_size_field, size);
-         |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
---
-   In file included from arch/riscv/include/asm/processor.h:17,
-                    from include/linux/mutex.h:19,
-                    from include/linux/notifier.h:14,
-                    from include/linux/clk.h:14,
-                    from lib/vsprintf.c:22:
->> arch/riscv/include/asm/usercfi.h:44:15: warning: no previous prototype for 'get_shstk_base' [-Wmissing-prototypes]
-      44 | unsigned long get_shstk_base(struct task_struct *task, unsigned long *size)
-         |               ^~~~~~~~~~~~~~
-   lib/vsprintf.c: In function 'va_format':
-   lib/vsprintf.c:1683:9: warning: function 'va_format' might be a candidate for 'gnu_printf' format attribute [-Wsuggest-attribute=format]
-    1683 |         buf += vsnprintf(buf, end > buf ? end - buf : 0, va_fmt->fmt, va);
-         |         ^~~
---
-   In file included from arch/riscv/include/asm/processor.h:17,
-                    from include/linux/sched.h:13,
-                    from include/linux/ratelimit.h:6,
-                    from include/linux/dev_printk.h:16,
-                    from include/linux/device.h:15,
-                    from lib/string_helpers.c:13:
->> arch/riscv/include/asm/usercfi.h:44:15: warning: no previous prototype for 'get_shstk_base' [-Wmissing-prototypes]
-      44 | unsigned long get_shstk_base(struct task_struct *task, unsigned long *size)
-         |               ^~~~~~~~~~~~~~
-   lib/string_helpers.c: In function 'string_get_size':
-   lib/string_helpers.c:124:46: warning: '%03u' directive output may be truncated writing between 3 and 10 bytes into a region of size 7 [-Wformat-truncation=]
-     124 |                 snprintf(tmp, sizeof(tmp), ".%03u", remainder);
-         |                                              ^~~~
-   lib/string_helpers.c:124:44: note: directive argument in the range [0, 4294966295]
-     124 |                 snprintf(tmp, sizeof(tmp), ".%03u", remainder);
-         |                                            ^~~~~~~
-   lib/string_helpers.c:124:17: note: 'snprintf' output between 5 and 12 bytes into a destination of size 8
-     124 |                 snprintf(tmp, sizeof(tmp), ".%03u", remainder);
-         |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
---
-   In file included from arch/riscv/include/asm/processor.h:17,
-                    from arch/riscv/include/asm/thread_info.h:37,
-                    from include/linux/thread_info.h:60,
-                    from include/asm-generic/preempt.h:5,
-                    from ./arch/riscv/include/generated/asm/preempt.h:1,
-                    from include/linux/preempt.h:79,
-                    from include/linux/spinlock.h:56,
-                    from include/linux/mmzone.h:8,
-                    from include/linux/gfp.h:7,
-                    from include/linux/umh.h:4,
-                    from include/linux/kmod.h:9,
-                    from include/linux/module.h:17,
-                    from lib/test_bitops.c:10:
->> arch/riscv/include/asm/usercfi.h:44:15: error: no previous prototype for 'get_shstk_base' [-Werror=missing-prototypes]
-      44 | unsigned long get_shstk_base(struct task_struct *task, unsigned long *size)
-         |               ^~~~~~~~~~~~~~
-   cc1: all warnings being treated as errors
---
-   In file included from arch/riscv/include/asm/processor.h:17,
-                    from include/linux/mutex.h:19,
-                    from kernel/locking/lockdep.c:30:
->> arch/riscv/include/asm/usercfi.h:44:15: warning: no previous prototype for 'get_shstk_base' [-Wmissing-prototypes]
-      44 | unsigned long get_shstk_base(struct task_struct *task, unsigned long *size)
-         |               ^~~~~~~~~~~~~~
-   In file included from kernel/locking/lockdep.c:62:
-   kernel/locking/lockdep_internals.h:69:28: warning: 'LOCKF_USED_IN_IRQ_READ' defined but not used [-Wunused-const-variable=]
-      69 | static const unsigned long LOCKF_USED_IN_IRQ_READ =
-         |                            ^~~~~~~~~~~~~~~~~~~~~~
-   kernel/locking/lockdep_internals.h:63:28: warning: 'LOCKF_ENABLED_IRQ_READ' defined but not used [-Wunused-const-variable=]
-      63 | static const unsigned long LOCKF_ENABLED_IRQ_READ =
-         |                            ^~~~~~~~~~~~~~~~~~~~~~
-   kernel/locking/lockdep_internals.h:57:28: warning: 'LOCKF_USED_IN_IRQ' defined but not used [-Wunused-const-variable=]
-      57 | static const unsigned long LOCKF_USED_IN_IRQ =
-         |                            ^~~~~~~~~~~~~~~~~
-   kernel/locking/lockdep_internals.h:51:28: warning: 'LOCKF_ENABLED_IRQ' defined but not used [-Wunused-const-variable=]
-      51 | static const unsigned long LOCKF_ENABLED_IRQ =
-         |                            ^~~~~~~~~~~~~~~~~
---
-   In file included from arch/riscv/include/asm/processor.h:17,
-                    from arch/riscv/include/asm/thread_info.h:37,
-                    from include/linux/thread_info.h:60,
-                    from include/asm-generic/preempt.h:5,
-                    from ./arch/riscv/include/generated/asm/preempt.h:1,
-                    from include/linux/preempt.h:79,
-                    from include/linux/spinlock.h:56,
-                    from include/linux/mmzone.h:8,
-                    from include/linux/gfp.h:7,
-                    from include/linux/umh.h:4,
-                    from include/linux/kmod.h:9,
-                    from include/linux/module.h:17,
-                    from net/sunrpc/clnt.c:22:
->> arch/riscv/include/asm/usercfi.h:44:15: warning: no previous prototype for 'get_shstk_base' [-Wmissing-prototypes]
-      44 | unsigned long get_shstk_base(struct task_struct *task, unsigned long *size)
-         |               ^~~~~~~~~~~~~~
-   net/sunrpc/clnt.c: In function 'rpc_create':
-   net/sunrpc/clnt.c:582:75: warning: '%s' directive output may be truncated writing up to 107 bytes into a region of size 48 [-Wformat-truncation=]
-     582 |                                 snprintf(servername, sizeof(servername), "%s",
-         |                                                                           ^~
-   net/sunrpc/clnt.c:582:33: note: 'snprintf' output between 1 and 108 bytes into a destination of size 48
-     582 |                                 snprintf(servername, sizeof(servername), "%s",
-         |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     583 |                                          sun->sun_path);
-         |                                          ~~~~~~~~~~~~~~
---
-   In file included from arch/riscv/include/asm/processor.h:17,
-                    from arch/riscv/include/asm/thread_info.h:37,
-                    from include/linux/thread_info.h:60,
-                    from include/asm-generic/preempt.h:5,
-                    from ./arch/riscv/include/generated/asm/preempt.h:1,
-                    from include/linux/preempt.h:79,
-                    from include/linux/spinlock.h:56,
-                    from include/linux/mmzone.h:8,
-                    from include/linux/gfp.h:7,
-                    from include/linux/umh.h:4,
-                    from include/linux/kmod.h:9,
-                    from include/linux/module.h:17,
-                    from drivers/clk/clkdev.c:9:
->> arch/riscv/include/asm/usercfi.h:44:15: warning: no previous prototype for 'get_shstk_base' [-Wmissing-prototypes]
-      44 | unsigned long get_shstk_base(struct task_struct *task, unsigned long *size)
-         |               ^~~~~~~~~~~~~~
-   drivers/clk/clkdev.c: In function 'vclkdev_alloc':
-   drivers/clk/clkdev.c:185:17: warning: function 'vclkdev_alloc' might be a candidate for 'gnu_printf' format attribute [-Wsuggest-attribute=format]
-     185 |                 res = vsnprintf(cla->dev_id, sizeof(cla->dev_id), dev_fmt, ap);
-         |                 ^~~
---
-   riscv64-linux-ld: net/dns_resolver/dns_query.o: in function `get_shstk_base':
->> arch/riscv/include/asm/usercfi.h:45: multiple definition of `get_shstk_base'; net/dns_resolver/dns_key.o:arch/riscv/include/asm/usercfi.h:45: first defined here
---
-   In file included from arch/riscv/include/asm/processor.h:17,
-                    from include/linux/sched.h:13,
-                    from include/linux/ratelimit.h:6,
-                    from include/linux/dev_printk.h:16,
-                    from include/linux/device.h:15,
-                    from include/linux/miscdevice.h:7,
-                    from drivers/misc/xilinx_sdfec.c:13:
->> arch/riscv/include/asm/usercfi.h:44:15: warning: no previous prototype for 'get_shstk_base' [-Wmissing-prototypes]
-      44 | unsigned long get_shstk_base(struct task_struct *task, unsigned long *size)
-         |               ^~~~~~~~~~~~~~
-   drivers/misc/xilinx_sdfec.c: In function 'xsdfec_probe':
-   drivers/misc/xilinx_sdfec.c:1404:57: warning: '%d' directive output may be truncated writing between 1 and 10 bytes into a region of size 6 [-Wformat-truncation=]
-    1404 |         snprintf(xsdfec->dev_name, DEV_NAME_LEN, "xsdfec%d", xsdfec->dev_id);
-         |                                                         ^~
-   drivers/misc/xilinx_sdfec.c:1404:50: note: directive argument in the range [0, 2147483647]
-    1404 |         snprintf(xsdfec->dev_name, DEV_NAME_LEN, "xsdfec%d", xsdfec->dev_id);
-         |                                                  ^~~~~~~~~~
-   drivers/misc/xilinx_sdfec.c:1404:9: note: 'snprintf' output between 8 and 17 bytes into a destination of size 12
-    1404 |         snprintf(xsdfec->dev_name, DEV_NAME_LEN, "xsdfec%d", xsdfec->dev_id);
-         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
---
-   In file included from arch/riscv/include/asm/processor.h:17,
-                    from include/linux/sched.h:13,
-                    from include/linux/ratelimit.h:6,
-                    from include/linux/dev_printk.h:16,
-                    from include/linux/device.h:15,
-                    from include/linux/node.h:18,
-                    from include/linux/cpu.h:17,
-                    from kernel/time/hrtimer.c:25:
->> arch/riscv/include/asm/usercfi.h:44:15: warning: no previous prototype for 'get_shstk_base' [-Wmissing-prototypes]
-      44 | unsigned long get_shstk_base(struct task_struct *task, unsigned long *size)
-         |               ^~~~~~~~~~~~~~
-   kernel/time/hrtimer.c:121:35: warning: initialized field overwritten [-Woverride-init]
-     121 |         [CLOCK_REALTIME]        = HRTIMER_BASE_REALTIME,
-         |                                   ^~~~~~~~~~~~~~~~~~~~~
-   kernel/time/hrtimer.c:121:35: note: (near initialization for 'hrtimer_clock_to_base_table[0]')
-   kernel/time/hrtimer.c:122:35: warning: initialized field overwritten [-Woverride-init]
-     122 |         [CLOCK_MONOTONIC]       = HRTIMER_BASE_MONOTONIC,
-         |                                   ^~~~~~~~~~~~~~~~~~~~~~
-   kernel/time/hrtimer.c:122:35: note: (near initialization for 'hrtimer_clock_to_base_table[1]')
-   kernel/time/hrtimer.c:123:35: warning: initialized field overwritten [-Woverride-init]
-     123 |         [CLOCK_BOOTTIME]        = HRTIMER_BASE_BOOTTIME,
-         |                                   ^~~~~~~~~~~~~~~~~~~~~
-   kernel/time/hrtimer.c:123:35: note: (near initialization for 'hrtimer_clock_to_base_table[7]')
-   kernel/time/hrtimer.c:124:35: warning: initialized field overwritten [-Woverride-init]
-     124 |         [CLOCK_TAI]             = HRTIMER_BASE_TAI,
-         |                                   ^~~~~~~~~~~~~~~~
-   kernel/time/hrtimer.c:124:35: note: (near initialization for 'hrtimer_clock_to_base_table[11]')
-..
+are available in the Git repository at:
 
+  https://github.com/kvm-riscv/linux.git tags/kvm-riscv-6.12-1
 
-vim +/get_shstk_base +44 arch/riscv/include/asm/usercfi.h
+for you to fetch changes up to 5aa09297a3dcc798d038bd7436f8c90f664045a6:
 
-    43	
-  > 44	unsigned long get_shstk_base(struct task_struct *task, unsigned long *size)
-  > 45	{
-    46		return 0;
-    47	}
-    48	
+  RISC-V: KVM: Fix to allow hpmcounter31 from the guest (2024-08-19
+08:58:21 +0530)
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+----------------------------------------------------------------
+KVM/riscv changes for 6.12
+
+- Fix sbiret init before forwarding to userspace
+- Don't zero-out PMU snapshot area before freeing data
+- Allow legacy PMU access from guest
+- Fix to allow hpmcounter31 from the guest
+
+----------------------------------------------------------------
+Andrew Jones (1):
+      RISC-V: KVM: Fix sbiret init before forwarding to userspace
+
+Anup Patel (1):
+      RISC-V: KVM: Don't zero-out PMU snapshot area before freeing data
+
+Atish Patra (2):
+      RISC-V: KVM: Allow legacy PMU access from guest
+      RISC-V: KVM: Fix to allow hpmcounter31 from the guest
+
+ arch/riscv/include/asm/kvm_vcpu_pmu.h | 21 +++++++++++++++++----
+ arch/riscv/kvm/vcpu_pmu.c             | 14 ++------------
+ arch/riscv/kvm/vcpu_sbi.c             |  4 ++--
+ 3 files changed, 21 insertions(+), 18 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
