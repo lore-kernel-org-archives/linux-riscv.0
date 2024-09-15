@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1597FC35FE7
-	for <linux-riscv@archiver.kernel.org>; Sun, 15 Sep 2024 14:24:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3EE8C35FE4
+	for <linux-riscv@archiver.kernel.org>; Sun, 15 Sep 2024 14:24:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:To:From
 	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ioNcfIyEMc2el9T+L+PoGAO8EThLp8/Iq4IOh9XQPdA=; b=RQd5H2McD58OZV
-	8oZxw8tT5Pvl1ILgRSmWZmkV+MC1YFD67UF/frYcst/zItNFgWV0l1GhNxJMpq26Vd2218OSM6t6m
-	vNL5qN724T/D0c1T+ZTASrN3j3GjotksEfvChw1H0dAnJ+GosC0JTP48i3hrWcM/a8rCNLRzedQdi
-	FAjRipDxn1NZX/RhdJVZVsiUPTwZwTzwFE9p9/GmqaB74Sl9hoqHcYwhUvlkXxCun8XR4eSqqjtk7
-	bYOZbTR+OfGCWoghNASEZ+cc4lAOtfdoh9qcyxNsWXtcjHdBcf/JqVtp8yj9XkhQ7Fg9b09frPdCW
-	4e4U2L4V6PwzvViat4oA==;
+	List-Owner; bh=n9QyTm1vUdONKhlrIvkA4PTeRAJSS+/RrQoy0TyUUhc=; b=Tpg8GEw6uueQoj
+	lU3YluK9n/FxStdxCd7GmLwMWHXQyGyM6OhLcqT3GqZLewuisBqsH1BCtgKo/X1yDvQhAZ9TmULr0
+	eILabX544BmalbH9kWj8O4QvPslzvvmfajsx+5gQOyiRH9K38dRYforYMIyUpKwyUj5XX/QsPxixr
+	aVYBnT519zNLEFKJQD4KP2YSgw1cpfib5wC7lUJNCNhzGgn/w+xlskm7MIqasXQMJLp59KM1xpzV+
+	+ND269bsLu51KhEXF7Yf2gKQfT5Ouo+m0pgYuOmEMkEURYKNo6DFxCpg3Rtdi7pw7oKS1v8hCS07E
+	LATL7x2RiNG+WSk3RDzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1spqAl-00000002Bxd-0Vgm;
-	Sun, 15 Sep 2024 14:24:19 +0000
+	id 1spqAn-00000002Byc-0YKM;
+	Sun, 15 Sep 2024 14:24:21 +0000
 Received: from mail-8160.188.com ([60.191.81.60])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1spqAh-00000002BwV-3ySx
+	id 1spqAk-00000002BxA-1NgW
 	for linux-riscv@lists.infradead.org;
-	Sun, 15 Sep 2024 14:24:17 +0000
+	Sun, 15 Sep 2024 14:24:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
 	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=VmvseBodIPHwPD2IY1KUDWoyNyfnQqV7tVtR4Merht0=;
-	b=bg2KKK0Vy7znRnL4Ag6f9GnrUzZsutmZPlHM9fjR9O7yBfL1SVFyelE4hQ3fYZ
-	HpuyvKTn2AdGsKnkIXOTT5wX1Yu2D/cgbumyHkmPd7shxr9rungxiNnAecja/iL3
-	wZRatEcB1VzC4ikgn7UrWK9yeBXImde8fpmht2IbrNNy0=
+	Content-Type; bh=H5SO/a1hfbyVpeTzy2AAy5aKvwSqfgsGs2lOMb5bsec=;
+	b=fys986Q/g+u4A0/xZa184KzB/igUG7h3XWl6DRMDWbn/ODou+b7WA1OF6OGQx3
+	X9xSNe0ctTIav1KwG9TfetzQHJAMwmMRyxJ/5vYO7vQ+cL1k9jNoz6vgZHy5zlmj
+	cjwCI/JiIUr0saZC6T3xgoUNfBCeNjiPU65efM/YDyrpM=
 Received: from localhost (unknown [27.18.168.209])
-	by gzga-smtp-mta-g3-4 (Coremail) with SMTP id _____wCnvJnF7eZmD1SdEA--.24094S2;
-	Sun, 15 Sep 2024 22:23:02 +0800 (CST)
-Date: Sun, 15 Sep 2024 22:23:01 +0800
+	by gzsmtp1 (Coremail) with SMTP id sCgvCgAXyoqA7eZmsSQ2Bw--.53271S2;
+	Sun, 15 Sep 2024 22:21:52 +0800 (CST)
+Date: Sun, 15 Sep 2024 22:21:52 +0800
 From: Ze Huang <18771902331@163.com>
 To: linus.walleij@linaro.org, robh@kernel.org, krzk+dt@kernel.org,
 	conor+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
 	aou@eecs.berkeley.edu, conor@kernel.org
-Subject: [PATCH 3/3] riscv: dts: canaan: Add k230's pinctrl node
-Message-ID: <ZubtxUMTRbHg_N6n@jean.localdomain>
+Subject: [PATCH 1/3] dt-bindings: pinctrl: Add support for canaan,k230 SoC
+Message-ID: <ZubtgIxm-rzAWHaO@jean.localdomain>
 MIME-Version: 1.0
 Content-Disposition: inline
-X-CM-TRANSID: _____wCnvJnF7eZmD1SdEA--.24094S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxtw15Ww1DXr4Dtr4fKF1UAwb_yoW3Zw15pF
-	WS9rn3K34j9rWrK3y0qr1jgF1UWF4q9r1rK3srKry7tw10gFs5K3s5Cr1YqFn8ur1Yk34j
-	g3ykZw4Ivrs7AwUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pi2jg-UUUUU=
+X-CM-TRANSID: sCgvCgAXyoqA7eZmsSQ2Bw--.53271S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxuF17Cr1xuw1rZr4rAryfXrb_yoWrJFyxpF
+	ZxKa98KF1rWF47K3yfta18uF13Xa1kArsagw1Utry7tw45WF18Kr1akr4IvF4DWFn7J3Wa
+	qFWIgry7KF47Ar7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0ziYLvJUUUUU=
 X-Originating-IP: [27.18.168.209]
-X-CM-SenderInfo: zpryllqrzqjjitr6il2tof0z/1tbiNwlbomXAnRCmlgAAsf
+X-CM-SenderInfo: zpryllqrzqjjitr6il2tof0z/1tbiNxxbomXAnRCLnwAGso
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240915_072416_249770_91E899E3 
-X-CRM114-Status: GOOD (  11.66  )
+X-CRM114-CacheID: sfid-20240915_072418_638232_EA9F07B1 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,375 +72,148 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add pinctrl device, containing default config for uart, pwm, iis, iic and
-mmc.
+Add device tree binding details for Canaan K230 pinctrl device.
 
 Signed-off-by: Ze Huang <18771902331@163.com>
 ---
- arch/riscv/boot/dts/canaan/k230-pinctrl.dtsi | 318 +++++++++++++++++++
- arch/riscv/boot/dts/canaan/k230-pinctrl.h    |  18 ++
- arch/riscv/boot/dts/canaan/k230.dtsi         |   2 +
- 3 files changed, 338 insertions(+)
- create mode 100644 arch/riscv/boot/dts/canaan/k230-pinctrl.dtsi
- create mode 100644 arch/riscv/boot/dts/canaan/k230-pinctrl.h
+ .../bindings/pinctrl/canaan,k230-pinctrl.yaml | 128 ++++++++++++++++++
+ 1 file changed, 128 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/canaan,k230-pinctrl.yaml
 
-diff --git a/arch/riscv/boot/dts/canaan/k230-pinctrl.dtsi b/arch/riscv/boot/dts/canaan/k230-pinctrl.dtsi
+diff --git a/Documentation/devicetree/bindings/pinctrl/canaan,k230-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/canaan,k230-pinctrl.yaml
 new file mode 100644
-index 000000000000..7537d3286e5a
+index 000000000000..979c5bd71e3d
 --- /dev/null
-+++ b/arch/riscv/boot/dts/canaan/k230-pinctrl.dtsi
-@@ -0,0 +1,317 @@
-+// SPDX-License-Identifier: GPL-2.0 OR MIT
-+/*
-+ * Copyright (C) 2024 Ze Huang <18771902331@163.com>
-+ */
-+#include "k230-pinctrl.h"
++++ b/Documentation/devicetree/bindings/pinctrl/canaan,k230-pinctrl.yaml
+@@ -0,0 +1,128 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pinctrl/canaan,k230-pinctrl.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+/ {
-+	soc {
-+		pinctrl: pinctrl@91105000 {
-+			compatible = "canaan,k230-pinctrl";
-+			reg = <0x0 0x91105000 0x0 0x100>;
++title: Canaan Kendryte K230 Pin Controller
 +
-+			jtag_pins: jtag-pins {
-+				jtag-tck-cfg {
-+					pinmux = <K230_PINMUX(2, 1)>;
-+					slew-rate = <0>;
-+					drive-strength = <4>;
-+					power-source = <K230_MSC_1V8>;
-+					input-enable;
-+					bias-pull-down;
-+					input-schmitt-enable;
-+				};
++maintainers:
++  - Ze Huang <18771902331@163.com>
 +
-+				jtag-tdi-cfg {
-+					pinmux = <K230_PINMUX(3, 1)>;
-+					slew-rate = <0>;
-+					drive-strength = <4>;
-+					power-source = <K230_MSC_1V8>;
-+					input-enable;
-+					bias-disable;
-+				};
++description:
++  The Canaan Kendryte K230 platform includes 64 IO pins, each capable of
++  multiplexing up to 5 different functions. Pin function configuration is
++  performed on a per-pin basis.
 +
-+				jtag-tdo-cfg {
-+					pinmux = <K230_PINMUX(4, 1)>;
-+					slew-rate = <0>;
-+					drive-strength = <4>;
-+					power-source = <K230_MSC_1V8>;
-+					output-enable;
-+					bias-disable;
-+				};
++properties:
++  compatible:
++    const: canaan,k230-pinctrl
 +
-+				jtag-tms-cfg {
-+					pinmux = <K230_PINMUX(5, 1)>;
-+					slew-rate = <0>;
-+					drive-strength = <4>;
-+					power-source = <K230_MSC_1V8>;
-+					input-enable;
-+					bias-pull-up;
-+				};
-+			};
++  reg:
++    maxItems: 1
 +
-+			uart2_pins: uart2-pins {
-+				uart2-pins-cfg {
-+					pinmux = <K230_PINMUX(5, 3)>, /* uart2 txd */
-+						 <K230_PINMUX(6, 3)>; /* uart2 rxd */
-+					slew-rate = <0>;
-+					drive-strength = <4>;
-+					power-source = <K230_MSC_1V8>;
-+					input-enable;
-+					output-enable;
-+					bias-disable;
-+				};
-+			};
++patternProperties:
++  '-pins$':
++    type: object
++    additionalProperties: false
++    description:
++      A pinctrl node should contain at least one subnode representing the
++      pinctrl groups available on the machine.
 +
-+			pwm2_pins: pwm2-pins {
-+				pwm2-pin-cfg {
-+					pinmux = <K230_PINMUX(7, 1)>;
-+					slew-rate = <0>;
-+					drive-strength = <7>;
-+					power-source = <K230_MSC_1V8>;
-+					input-enable;
-+					output-enable;
-+					bias-disable;
-+					input-schmitt-enable;
-+				};
-+			};
++    patternProperties:
++      '-cfg$':
++        type: object
++        $ref: /schemas/pinctrl/pincfg-node.yaml
++        additionalProperties: false
++        description:
++          Each subnode will list the pins it needs, and how they should
++          be configured, with regard to muxer configuration, bias, input
++          enable/disable, input schmitt trigger, slew-rate enable/disable,
++          slew-rate, drive strength.
 +
-+			pwm3_pins: pwm3-pins {
-+				pwm3-pin-cfg {
-+					pinmux = <K230_PINMUX(8, 1)>;
-+					slew-rate = <0>;
-+					drive-strength = <7>;
-+					power-source = <K230_MSC_1V8>;
-+					input-enable;
-+					output-enable;
-+					bias-disable;
-+					input-schmitt-enable;
-+				};
-+			};
++        properties:
++          pinmux:
++            $ref: /schemas/types.yaml#/definitions/uint32-array
++            description:
++              The list of GPIOs and their mux settings that properties in
++              the node apply to. This should be set with the macro
++              'K230_PINMUX(pin, mode)'
 +
-+			pwm4_pins: pwm4-pins {
-+				pwm4-pin-cfg {
-+					pinmux = <K230_PINMUX(9, 1)>;
-+					slew-rate = <0>;
-+					drive-strength = <7>;
-+					power-source = <K230_MSC_1V8>;
-+					input-enable;
-+					output-enable;
-+					bias-disable;
-+					input-schmitt-enable;
-+				};
-+			};
++          bias-disable: true
 +
-+			iis_pins: iis-pins {
-+				iis-clk-cfg {
-+					pinmux = <K230_PINMUX(32, 2)>;
-+					slew-rate = <0>;
-+					drive-strength = <4>;
-+					power-source = <K230_MSC_1V8>;
-+					output-enable;
-+					bias-disable;
-+				};
++          bias-pull-up: true
 +
-+				iis-ws-cfg {
-+					pinmux = <K230_PINMUX(33, 2)>;
-+					slew-rate = <0>;
-+					drive-strength = <4>;
-+					power-source = <K230_MSC_1V8>;
-+					output-enable;
-+					bias-disable;
-+				};
++          bias-pull-down: true
 +
-+				iis-din0-cfg {
-+					pinmux = <K230_PINMUX(34, 2)>;
-+					slew-rate = <0>;
-+					drive-strength = <4>;
-+					power-source = <K230_MSC_1V8>;
-+					input-enable;
-+					bias-disable;
-+				};
++          drive-strength:
++            minimum: 0
++            maximum: 15
 +
-+				iis-dout0-cfg {
-+					pinmux = <K230_PINMUX(35, 2)>;
-+					slew-rate = <0>;
-+					drive-strength = <4>;
-+					power-source = <K230_MSC_1V8>;
-+					output-enable;
-+					bias-disable;
-+				};
-+			};
++          input-enable: true
 +
-+			uart4_pins: uart4-pins {
-+				uart4-txd-cfg {
-+					pinmux = <K230_PINMUX(36, 4)>;
-+					slew-rate = <0>;
-+					drive-strength = <7>;
-+					power-source = <K230_MSC_1V8>;
-+					output-enable;
-+					bias-disable;
-+					input-schmitt-enable;
-+				};
++          output-enable: true
 +
-+				uart4-rxd-cfg {
-+					pinmux = <K230_PINMUX(37, 4)>;
-+					slew-rate = <0>;
-+					drive-strength = <7>;
-+					power-source = <K230_MSC_1V8>;
-+					input-enable;
-+					bias-disable;
-+					input-schmitt-enable;
-+				};
-+			};
++          input-schmitt-enable: true
 +
-+			uart0_pins: uart0-pins {
-+				uart0-txd-cfg {
-+					pinmux = <K230_PINMUX(38, 1)>;
-+					slew-rate = <0>;
-+					drive-strength = <7>;
-+					power-source = <K230_MSC_1V8>;
-+					output-enable;
-+					bias-disable;
-+					input-schmitt-enable;
-+				};
++          slew-rate:
++            $ref: /schemas/types.yaml#/definitions/uint32
++            description: |
++              slew rate control enable
++              0: disable
++              1: enable
 +
-+				uart0-rxd-cfg {
-+					pinmux = <K230_PINMUX(39, 1)>;
-+					slew-rate = <0>;
-+					drive-strength = <7>;
-+					power-source = <K230_MSC_1V8>;
-+					input-enable;
-+					bias-disable;
-+					input-schmitt-enable;
-+				};
-+			};
++            enum: [0, 1]
 +
-+			iic1_pins: iic1-pins {
-+				iic1-pins-cfg {
-+					pinmux = <K230_PINMUX(40, 2)>, /* iic1 scl */
-+						 <K230_PINMUX(41, 2)>; /* iic1 sda */
-+					slew-rate = <0>;
-+					drive-strength = <7>;
-+					power-source = <K230_MSC_1V8>;
-+					input-enable;
-+					output-enable;
-+					bias-pull-up;
-+					input-schmitt-enable;
-+				};
-+			};
++          power-source:
++            $ref: /schemas/types.yaml#/definitions/uint32
++            description: |
++              Specifies the power source voltage for the IO bank that the
++              pin belongs to. Each bank of IO pins operate at a specific,
++              fixed voltage levels. Incorrect voltage configuration can
++              damage the chip. The defined constants represent the
++              possible voltage configurations:
 +
-+			iic3_pins: iic3-pins {
-+				iic3-pins-cfg {
-+					pinmux = <K230_PINMUX(44, 2)>, /* iic3 scl */
-+						 <K230_PINMUX(45, 2)>; /* iic3 sda */
-+					slew-rate = <0>;
-+					drive-strength = <7>;
-+					power-source = <K230_MSC_1V8>;
-+					input-enable;
-+					output-enable;
-+					bias-pull-up;
-+					input-schmitt-enable;
-+				};
-+			};
++              - K230_MSC_3V3 (value 0): 3.3V power supply
++              - K230_MSC_1V8 (value 1): 1.8V power supply
 +
-+			iic4_pins: iic4-pins {
-+				iic4-pins-cfg {
-+					pinmux = <K230_PINMUX(46, 3)>, /* iic4 scl */
-+						 <K230_PINMUX(47, 3)>; /* iic4 sda */
-+					slew-rate = <0>;
-+					drive-strength = <7>;
-+					power-source = <K230_MSC_1V8>;
-+					input-enable;
-+					output-enable;
-+					bias-pull-up;
-+					input-schmitt-enable;
-+				};
-+			};
++              The following banks have the corresponding voltage
++              configurations:
 +
-+			iic0_pins: iic0-pins {
-+				iic0-pins-cfg {
-+					pinmux = <K230_PINMUX(48, 3)>, /* iic0 scl */
-+						 <K230_PINMUX(49, 3)>; /* iic0 sda */
-+					slew-rate = <0>;
-+					drive-strength = <7>;
-+					power-source = <K230_MSC_1V8>;
-+					input-enable;
-+					output-enable;
-+					bias-pull-up;
-+					input-schmitt-enable;
-+				};
-+			};
++              - bank IO0 to IO1: Fixed at 1.8V
++              - bank IO2 to IO13: Fixed at 1.8V
++              - bank IO14 to IO25: Fixed at 1.8V
++              - bank IO26 to IO37: Fixed at 1.8V
++              - bank IO38 to IO49: Fixed at 1.8V
++              - bank IO50 to IO61: Fixed at 3.3V
++              - bank IO62 to IO63: Fixed at 1.8V
 +
-+			uart3_pins: uart3-pins {
-+				uart3-txd-cfg {
-+					pinmux = <K230_PINMUX(50, 1)>;
-+					slew-rate = <0>;
-+					drive-strength = <7>;
-+					power-source = <K230_MSC_3V3>;
-+					output-enable;
-+					bias-disable;
-+					input-schmitt-enable;
-+				};
++            enum: [0, 1]
 +
-+				uart3-rxd-cfg {
-+					pinmux = <K230_PINMUX(51, 1)>;
-+					slew-rate = <0>;
-+					drive-strength = <7>;
-+					power-source = <K230_MSC_3V3>;
-+					input-enable;
-+					bias-disable;
-+					input-schmitt-enable;
-+				};
-+			};
++        required:
++          - pinmux
 +
-+			key_pins: key-pins {
-+				key-pins-cfg {
-+					pinmux = <K230_PINMUX(52, 0)>, /* key0 */
-+						 <K230_PINMUX(53, 0)>; /* key1 */
-+					slew-rate = <0>;
-+					drive-strength = <7>;
-+					power-source = <K230_MSC_3V3>;
-+					input-enable;
-+					output-enable;
-+					bias-disable;
-+					input-schmitt-enable;
-+				};
-+			};
++required:
++  - compatible
++  - reg
 +
-+			mmc1_pins: mmc1-pins {
-+				mmc1-cmd-cfg {
-+					pinmux = <K230_PINMUX(54, 2)>;
-+					slew-rate = <0>;
-+					drive-strength = <7>;
-+					power-source = <K230_MSC_3V3>;
-+					input-enable;
-+					output-enable;
-+					bias-pull-up;
-+					input-schmitt-enable;
-+				};
++additionalProperties: false
 +
-+				mmc1-clk-cfg {
-+					pinmux = <K230_PINMUX(55, 2)>;
-+					slew-rate = <0>;
-+					drive-strength = <7>;
-+					power-source = <K230_MSC_3V3>;
-+					output-enable;
-+					bias-disable;
-+					input-schmitt-enable;
-+				};
++examples:
++  - |
++    pinctrl: pinctrl@91105000 {
++        compatible = "canaan,k230-pinctrl";
++        reg = <0x91105000 0x100>;
 +
-+				mmc1-data-cfg {
-+					pinmux = <K230_PINMUX(56, 2)>, /* mmc1 data0 */
-+						 <K230_PINMUX(57, 2)>, /* mmc1 data1 */
-+						 <K230_PINMUX(58, 2)>, /* mmc1 data2 */
-+						 <K230_PINMUX(59, 2)>; /* mmc1 data3 */
-+					slew-rate = <0>;
-+					drive-strength = <7>;
-+					power-source = <K230_MSC_3V3>;
-+					input-enable;
-+					output-enable;
-+					bias-pull-up;
-+					input-schmitt-enable;
-+				};
-+			};
-+		};
-+	};
-+};
-+
-diff --git a/arch/riscv/boot/dts/canaan/k230-pinctrl.h b/arch/riscv/boot/dts/canaan/k230-pinctrl.h
-new file mode 100644
-index 000000000000..9a34d75afd9f
---- /dev/null
-+++ b/arch/riscv/boot/dts/canaan/k230-pinctrl.h
-@@ -0,0 +1,18 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+/*
-+ * Copyright (C) 2024 Canaan Bright Sight Co. Ltd
-+ * Copyright (C) 2024 Ze Huang <18771902331@163.com>
-+ */
-+
-+#ifndef _DT_BINDINGS_K230_PINCTRL_H
-+#define _DT_BINDINGS_K230_PINCTRL_H
-+
-+#define K230_MSC_3V3 0
-+#define K230_MSC_1V8 1
-+
-+#define BANK_VOLTAGE_DEFAULT       K230_MSC_1V8
-+#define BANK_VOLTAGE_IO50_IO61     K230_MSC_3V3
-+
-+#define K230_PINMUX(pin, mode) (((pin) << 8) | (mode))
-+
-+#endif /* _DT_BINDINGS_K230_PINCTRL_H */
-diff --git a/arch/riscv/boot/dts/canaan/k230.dtsi b/arch/riscv/boot/dts/canaan/k230.dtsi
-index 95c1a3d8fb11..a9354e538642 100644
---- a/arch/riscv/boot/dts/canaan/k230.dtsi
-+++ b/arch/riscv/boot/dts/canaan/k230.dtsi
-@@ -140,3 +140,5 @@ uart4: serial@91404000 {
- 		};
- 	};
- };
-+
-+#include "k230-pinctrl.dtsi"
++        uart2_pins: uart2-pins {
++            uart2-pins-cfg {
++                pinmux = <0x503>, /* uart2 txd */
++                         <0x603>; /* uart2 rxd */
++                slew-rate = <0>;
++                drive-strength = <4>;
++                power-source = <1>;
++                input-enable;
++                output-enable;
++                bias-disable;
++            };
++        };
++    };
 -- 
 2.46.1
 
