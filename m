@@ -4,100 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C42CC35FE4
-	for <linux-riscv@archiver.kernel.org>; Sun, 15 Sep 2024 13:52:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BC27C35FE4
+	for <linux-riscv@archiver.kernel.org>; Sun, 15 Sep 2024 14:23:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+4t0/x1aVDcSa9Llu1BbmbDyEo98GP3ztPr09Nkmzi4=; b=tZHtIBmxgDkNiJ
-	z2Nj33ppzm+jOJ38uDUWGb5Dj/VxGYHsXKkV4jOF2ccYAZAaIMiSM2z0BfskYV2ilyLv0pS7weK8u
-	1GNBA0y6MNXEdHuOanotXVz4VmFqo3wDmqSTbxfv1n21IWmyXRYCePLUGTQ/Kl5CRnKt0TeQnrrzm
-	sG8Z6yP4bqw9is8DGrRvDhB86TYwa1f7hQFDIwjlWhLWFyKS5EWqRTgcPcvNTmQfdIA8m8mfWuBM+
-	6Byy9NYbJHbNCh7W0vMkSQ71qSahpOT4sDYQXSHXgG8dfRrPnjbz9l9cny62pJ9t/p1yL+MCoaDR2
-	NMtn5XnoB7A+L/EpoJqg==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:To:From
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=klPN9FzymcJM+IMaCZevgKEiyGxAV4v5e4+On1/D8J4=; b=iu+PsjL0q60luv
+	w7pcWUiaP9cf9zn1cQ8dpzIMS1fg+XnlGa5rvFkmNBPq79Z/bAxQBXD8nlTQI8tvHaBLTJfS6BaRV
+	cV1FHz66yiOBxLnjHfFUXa+jxSRlSvLHQNY74sCtiZOacoyHED3RE0ozMiksu2otwP5OD3PYtDmpW
+	r10+LwU7lA3eYnY/FDFvk8jAee+msbvFcZijjk5sG/wfE4TV58xc3/sc02EBOPuTp+8uuN1cQPN17
+	Rf5PyeC0PLMNBp+T52i0u7LaHyobH1HQwmvMF7D1ghxAILvFvJ/dJI8lGSpsMSozf/vIzW2+VnNGq
+	j8MUMZ1ZE03LkOXwcNWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sppfO-00000002ACs-1hc8;
-	Sun, 15 Sep 2024 13:51:54 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sppfJ-00000002AA9-2zUg;
-	Sun, 15 Sep 2024 13:51:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 45A6A5C54F3;
-	Sun, 15 Sep 2024 13:51:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 666C4C4CEC3;
-	Sun, 15 Sep 2024 13:51:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1726408306;
-	bh=q7WJquAI08+CAD5lP6bdNehob9Dq1wPKxQPjeFRtiiI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DRkIar9RFkBNG39Lg4VF36+C0l1NwYSaEE09Z1SxGxc6M4S+jx9O3QiS3XE0iEOXa
-	 dugg4+gux8cHvhMy415EwhG2oqeI29OZXErerIPWPPLxGdjDxioHvmSB5SFgMR8cmZ
-	 GF890/YHKLL0YWKx3z2y3nIavnufDvUSXph8DwoVC1aciO37Nuj9Dl/4U3xgMBW1Vr
-	 QqbWqbJwbZ+B8JLq+POjgebhgVzaYSVrG+oX+aypioA+ScnFYEAUCNxQIIMCRKMIR8
-	 1d75vfMvgyrvMLYGrv0O59GREHzSdXP1f5IYJf2XBPq1KtNNCfQ4hdGzn/h6TRc0iB
-	 7g69hrbWPmj5g==
-Date: Sun, 15 Sep 2024 16:48:27 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@quicinc.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christoph Hellwig <hch@infradead.org>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Kent Overstreet <kent.overstreet@linux.dev>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Simek <monstr@monstr.eu>, Oleg Nesterov <oleg@redhat.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
-	Stafford Horne <shorne@gmail.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linux-mm@kvack.org,
-	linux-modules@vger.kernel.org, linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org, linux-um@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v3 7/8] execmem: add support for cache of large ROX pages
-Message-ID: <Zublq4tR0q7lvicK@kernel.org>
-References: <20240909064730.3290724-1-rppt@kernel.org>
- <20240909064730.3290724-8-rppt@kernel.org>
- <CAMj1kXG_Z=7B_eDAk3vhtDjfcnka3AoSKNzvFQDzpvYY2EyVfg@mail.gmail.com>
+	id 1spq9n-00000002BqD-0SxF;
+	Sun, 15 Sep 2024 14:23:19 +0000
+Received: from m16.mail.163.com ([220.197.31.3])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1spq9j-00000002BpL-1tS2
+	for linux-riscv@lists.infradead.org;
+	Sun, 15 Sep 2024 14:23:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=TKFcsOdhek0MQQPDbf+d7h1KvB9ASf45xqz2FA0Pvtw=;
+	b=kxEeo9F9quII4RERyftAooA6a1sJkTQAfSl47OAWc36+x1KG7EvXN/TjrEUBP7
+	bf/hsr7c1j7Yz+D7G6UyCJlKSHHai1bg9GwaXIjDoij1ngUkT4ztAYBm0CtCLpeU
+	thNnP0IzmpplGkfIwfSukHaEufUb4n89D0g6KnkbHv4O8=
+Received: from localhost (unknown [27.18.168.209])
+	by gzga-smtp-mta-g3-0 (Coremail) with SMTP id _____wAnblZk7eZmaNI2Aw--.11240S2;
+	Sun, 15 Sep 2024 22:21:24 +0800 (CST)
+Date: Sun, 15 Sep 2024 22:21:24 +0800
+From: Ze Huang <18771902331@163.com>
+To: linus.walleij@linaro.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, conor@kernel.org
+Subject: [PATCH 0/3] Add initial support for Canaan Kendryte K230 pinctrl
+Message-ID: <ZubtZKlxqejnCFx_@jean.localdomain>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAMj1kXG_Z=7B_eDAk3vhtDjfcnka3AoSKNzvFQDzpvYY2EyVfg@mail.gmail.com>
+X-CM-TRANSID: _____wAnblZk7eZmaNI2Aw--.11240S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7AFW3uFyxWrW8WFWrCr18AFb_yoW8AF1Upa
+	13CF9xGrnrGr4SkrWft3Wv9ry3Can7Jr1Y93Way3srXF43ZFyqywnxKrW5Xw4DGr47Z3yY
+	9r4rtry8Wr15AaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0ziU5r7UUUUU=
+X-Originating-IP: [27.18.168.209]
+X-CM-SenderInfo: zpryllqrzqjjitr6il2tof0z/1tbiNxxbomXAnRCLnwAEsq
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240915_065149_882615_A71D1545 
-X-CRM114-Status: GOOD (  16.54  )
+X-CRM114-CacheID: sfid-20240915_072315_942714_FE7B27E9 
+X-CRM114-Status: GOOD (  10.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,41 +66,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: 18771902331@163.com, devicetree@vger.kernel.org, dlan@gentoo.org, zhangmeng.kevin@spacemit.com, linux-kernel@vger.kernel.org, jesse@rivosinc.com, cyy@cyyself.name, inochiama@outlook.com, jszhang@kernel.org, kevin.z.m@hotmail.com, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Ard,
+This patch series introduces support for the pinctrl driver of the Canaan
+K230 SoC. The K230 SoC features 64 IO pins, each of which can be configured
+for up to five different functions.
+							
+The controller manages the entire pin configuration and multiplexing
+through a single register, which control features such as schmitt trigger,
+drive strength, bias pull-up/down, input/output enable, power source, and
+mux mode.
 
-On Fri, Sep 13, 2024 at 05:00:42PM +0200, Ard Biesheuvel wrote:
-> Hi Mike,
-> 
-> On Mon, 9 Sept 2024 at 08:51, Mike Rapoport <rppt@kernel.org> wrote:
+The changes have been tested on the K230 development board.
+							
+The pin function definition can be found here [1], and most of the DTS data
+was converted from the vendor's code [2].
 
-...
+Link: https://developer.canaan-creative.com/k230/dev/_downloads/a53655a81951bc8a440ae647be286e75/K230_PINOUT_V1.1_20230321.xlsx [1]
+Link: https://github.com/kendryte/k230_sdk/blob/main/src/little/uboot/arch/riscv/dts/k230_canmv.dts [2]
 
-> > +static void execmem_fill_trapping_insns(void *ptr, size_t size, bool writable)
-> > +{
-> > +       if (execmem_info->fill_trapping_insns)
-> > +               execmem_info->fill_trapping_insns(ptr, size, writable);
-> > +       else
-> > +               memset(ptr, 0, size);
-> 
-> Does this really have to be a function pointer with a runtime check?
-> 
-> This could just be a __weak definition, with the arch providing an
-> override if the memset() is not appropriate.
+Ze Huang (3):
+  dt-bindings: pinctrl: Add support for canaan,k230 SoC
+  pinctrl: canaan: Add support for k230 SoC
+  riscv: dts: canaan: Add k230's pinctrl node
 
-I prefer to keep this a method in execmem_info rather that have a __weak
-definition that architectures can override.
-
-This is not on the hot path, so I don't think a runtime check here would
-matter. Still, I can fill in a default with memset at init time.
+ .../bindings/pinctrl/canaan,k230-pinctrl.yaml | 128 ++++
+ arch/riscv/boot/dts/canaan/k230-pinctrl.dtsi  | 318 +++++++++
+ arch/riscv/boot/dts/canaan/k230-pinctrl.h     |  18 +
+ arch/riscv/boot/dts/canaan/k230.dtsi          |   2 +
+ drivers/pinctrl/Kconfig                       |  10 +
+ drivers/pinctrl/Makefile                      |   1 +
+ drivers/pinctrl/pinctrl-k230.c                | 674 ++++++++++++++++++
+ 7 files changed, 1151 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/canaan,k230-pinctrl.yaml
+ create mode 100644 arch/riscv/boot/dts/canaan/k230-pinctrl.dtsi
+ create mode 100644 arch/riscv/boot/dts/canaan/k230-pinctrl.h
+ create mode 100644 drivers/pinctrl/pinctrl-k230.c
 
 -- 
-Sincerely yours,
-Mike.
+2.46.1
+
 
 _______________________________________________
 linux-riscv mailing list
