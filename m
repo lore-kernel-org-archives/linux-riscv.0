@@ -4,99 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B23B8C35FE8
-	for <linux-riscv@archiver.kernel.org>; Sun, 15 Sep 2024 07:34:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2409AC35FE7
+	for <linux-riscv@archiver.kernel.org>; Sun, 15 Sep 2024 08:56:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xSEYLgJyEBNDnD+vDhISX1b5bXEWmHiPSZ6sXD19eqA=; b=EzzcTAHEg3YqP6
-	3JYVLEtYdzi9a4rZ7XcqMuX3yt2PDfkXvQmkRQ2GEwkqk7WReUXN5mD8YATt22ZD4FNVpzl55Ulk5
-	NWTHpOH7QMKeZUJnrMM8J0lGlERvOg4pC4DB3G5oPKvpH0cyoTB3HDOwqQRLGXi5mbOHgK89nYy59
-	k1TKVSMq1SGRAQIjXMdlDvWEyRNtAJOZdSkRvFQ0ZWIjZXQX+Py++bGEIiO+J7akbtqQ61wGE9zGq
-	0LPRHQouHC+Q+Vpg6Pjy2uek4+4zlKkfCbuoh3R3wNpdCgqWCPDjxV/AOKBRWcmMOETvBz/nUY1TL
-	mzaB33ywt6Q9aLTzogrg==;
+	List-Owner; bh=TQMVUm7u9OAL7rO6w8rimynK7pnZT6s/g5JuOoSlvY8=; b=dbVVVGT/MMDGBD
+	urFk0w4PKOq5RFzL5XwWO8A2qf5K3mhIvXTvaKHz3Xn5B7Z+jjTTo7q/20R3rpX5QaGUSYzRbsayZ
+	0U1LFU6TEuEEYPy4fqVtP7V7bZzuZGN6I+hJPmGLs9JjuFBL89G8xjVHEqPcN2MMW8g7lr0Og2PuY
+	fupOyQCkHSmuz92swJ/0WQtSg6IPhmqKwH7XktRHuHZ72HeYPT400qN5VtSBnV3thdpQgFL01LlWv
+	kNiPmz/bj16qjhDxNHELLvcvmtrGjcE6RhAQwg3s9E0G2AKvdWHqmppkKkpDKQ3sMBq+wrDY7ry4b
+	v6K9oRV8Xl0mLVyz9Ltg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1spjld-00000001jUK-4Atx;
-	Sun, 15 Sep 2024 07:33:58 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1spl3F-00000001rbE-1dUW;
+	Sun, 15 Sep 2024 08:56:13 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1spjkY-00000001jNX-06MJ;
-	Sun, 15 Sep 2024 07:32:51 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-a8a7b1c2f2bso566728766b.0;
-        Sun, 15 Sep 2024 00:32:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1726385568; x=1726990368; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=IeRHQu+yKzQUqrXbd5lul2wLwuoHFUxcLP2h5VUYKXk=;
-        b=XjAq5RC2X8/iPD2UGRx65CUyToxLRNSIGRknh/fbVRlUp38BhIzP5nA00CZlbUedEC
-         UiKR7MLYLty5ckxwlGCyFEIMZaKPlOwh3om2Su8V4ayw6qK1lukipEulDwl9RYhjMMit
-         +PF6ZkA8pdyEvEo+H/8Rm1PBMWTTseC1s/gUMCA1OZTiXraFBvyJc1DcGrE+7MridNAW
-         ixg6LQy79dbtZ80vl9WeIdkcnJtAr1qzr4ce+nTXM0ttiGngdmTWf9WJanmf/rWEj5Z5
-         Nb3gtnectFXsoXO8sMnRKKSs5mijug6M5m1ofsIBSDia8VHH7+ERqlGrAffstNQeC2lD
-         bJ9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1726385568; x=1726990368;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=IeRHQu+yKzQUqrXbd5lul2wLwuoHFUxcLP2h5VUYKXk=;
-        b=WbWXDYFToDwokuVGrs4VXBf597EOlf2+c9Mzqk+wDOeBQ7JACYRZIsqGFmKaCfYjAF
-         Cw7WPEqcUoF5jgOM9N9jPR7dBxNMOSb0ajrOICldVZBtIMjqODtlkCfxPUAiNcmGglGa
-         hVqFU4p2LuEt4DmgMDbDT1LXuXxk4uW/ym4hv2h0oF7Her7O05s8Fj+DtTBdpzXNHsuS
-         8m2emySsvoZ5Pfm2NbiKkuZ6wxiJMjq+00A5+p+IsxnO0PJ7kYP+ZFn40Sh4ybdw4GRe
-         7Pbdjoecg8jTTXK5+UXJgjSBMhb96/phkf822203NX7kKvyhehnzjhU6yLxY2wVLD9rg
-         yVrQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU2neoMG2TZ/frmGrMKiWy0GiBOPl5QJkBc0mMUAPp45jXUwd2+lypktaL2NhkokrivsGyEepXNdMVrJfTG4R4B@lists.infradead.org, AJvYcCWfG3Vr1L1wVmUJTac9peMFy/WJLSS/ndLcr59oj0Si1F1FyqVn++vsL8RswA4J8iYxTZUIwkGWLXCqPLg=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxdnm/E+hONtw+lRVdgE2yezYLG4fmct8//8XJS887iwP8eyWVm
-	MaZ3mT/cmS2ijRWsq1bRkzQMFOTIXKom1AH7CmM/IAmIVWodEuWH
-X-Google-Smtp-Source: AGHT+IGlHUAsnPjOFFuTn/tXNwH8GByOCS4k9zUVf6iXg3eJnbjo7p2RPWPflOmT8NKEozFzWvNMPQ==
-X-Received: by 2002:a17:907:e28f:b0:a8d:2ab2:c99e with SMTP id a640c23a62f3a-a9029730615mr1197571366b.55.1726385566847;
-        Sun, 15 Sep 2024 00:32:46 -0700 (PDT)
-Received: from ?IPV6:2003:df:bf21:aa00:bafe:d6:9476:f8d4? (p200300dfbf21aa00bafe00d69476f8d4.dip0.t-ipconnect.de. [2003:df:bf21:aa00:bafe:d6:9476:f8d4])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a90613205b8sm163145166b.188.2024.09.15.00.32.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 15 Sep 2024 00:32:46 -0700 (PDT)
-Message-ID: <c7c5a16b-d033-4b46-8994-259c55bfd8b1@gmail.com>
-Date: Sun, 15 Sep 2024 09:32:44 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7] rust: support for shadow call stack sanitizer
-To: Alice Ryhl <aliceryhl@google.com>, Conor Dooley <conor@kernel.org>
-Cc: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	id 1spl3C-00000001rap-1rbU
+	for linux-riscv@lists.infradead.org;
+	Sun, 15 Sep 2024 08:56:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id BCD5BA400F5;
+	Sun, 15 Sep 2024 08:56:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94857C4CEC3;
+	Sun, 15 Sep 2024 08:56:05 +0000 (UTC)
+Date: Sun, 15 Sep 2024 04:56:01 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
  <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Ard Biesheuvel <ardb@kernel.org>, Jamie Cunliffe <Jamie.Cunliffe@arm.com>,
- Sami Tolvanen <samitolvanen@google.com>,
- Nathan Chancellor <nathan@kernel.org>, Kees Cook <kees@kernel.org>,
- Masahiro Yamada <masahiroy@kernel.org>, Nicolas Schier <nicolas@fjasle.eu>,
- Marc Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Mark Brown <broonie@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>,
- Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,
- Wedson Almeida Filho <wedsonaf@gmail.com>, Boqun Feng
- <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
- =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
- Benno Lossin <benno.lossin@proton.me>,
- Andreas Hindborg <a.hindborg@samsung.com>,
- Valentin Obst <kernel@valentinobst.de>, linux-kbuild@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- rust-for-linux@vger.kernel.org, linux-riscv <linux-riscv@lists.infradead.org>
-References: <20240829-shadow-call-stack-v7-1-2f62a4432abf@google.com>
- <CANiq72kNmvFOXhhAcQJQdMC872908=CWW15_bzyyt9ht2q=twQ@mail.gmail.com>
- <20240913-shack-estate-b376a65921b1@spud>
- <CAH5fLggX=Uw8T6EqyonJyOkjOVM7ELy4hK8NV80suvDEBnq_Lg@mail.gmail.com>
-Content-Language: en-US
-From: Dirk Behme <dirk.behme@gmail.com>
-In-Reply-To: <CAH5fLggX=Uw8T6EqyonJyOkjOVM7ELy4hK8NV80suvDEBnq_Lg@mail.gmail.com>
+ linux-riscv@lists.infradead.org
+Cc: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>, Florent Revest
+ <revest@chromium.org>, linux-trace-kernel@vger.kernel.org, LKML
+ <linux-kernel@vger.kernel.org>, Alexei Starovoitov <ast@kernel.org>, Jiri
+ Olsa <jolsa@kernel.org>, Arnaldo Carvalho de Melo <acme@kernel.org>, Daniel
+ Borkmann <daniel@iogearbox.net>, Alan Maguire <alan.maguire@oracle.com>,
+ Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH v14 03/19] function_graph: Pass ftrace_regs to entryfunc
+Message-ID: <20240915045601.14a293e0@rorschach.local.home>
+In-Reply-To: <172615372005.133222.15797801841635819220.stgit@devnote2>
+References: <172615368656.133222.2336770908714920670.stgit@devnote2>
+ <172615372005.133222.15797801841635819220.stgit@devnote2>
+X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240915_003250_092113_C7930735 
-X-CRM114-Status: GOOD (  26.15  )
+X-CRM114-CacheID: sfid-20240915_015610_673208_D6D2C2AB 
+X-CRM114-Status: GOOD (  38.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,94 +64,501 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QW0gMTMuMDkuMjQgdW0gMjM6NDQgc2NocmllYiBBbGljZSBSeWhsOgo+IE9uIEZyaSwgU2VwIDEz
-LCAyMDI0IGF0IDExOjE44oCvUE0gQ29ub3IgRG9vbGV5IDxjb25vckBrZXJuZWwub3JnPiB3cm90
-ZToKPj4KPj4gT24gRnJpLCBTZXAgMTMsIDIwMjQgYXQgMTI6MDg6MjBBTSArMDIwMCwgTWlndWVs
-IE9qZWRhIHdyb3RlOgo+Pj4gT24gVGh1LCBBdWcgMjksIDIwMjQgYXQgMTA6MjPigK9BTSBBbGlj
-ZSBSeWhsIDxhbGljZXJ5aGxAZ29vZ2xlLmNvbT4gd3JvdGU6Cj4+Pj4KPj4+PiBBZGQgYWxsIG9m
-IHRoZSBmbGFncyB0aGF0IGFyZSBuZWVkZWQgdG8gc3VwcG9ydCB0aGUgc2hhZG93IGNhbGwgc3Rh
-Y2sKPj4+PiAoU0NTKSBzYW5pdGl6ZXIgd2l0aCBSdXN0LCBhbmQgdXBkYXRlcyBLY29uZmlnIHRv
-IGFsbG93IG9ubHkKPj4+PiBjb25maWd1cmF0aW9ucyB0aGF0IHdvcmsuCj4+Pgo+Pj4gQXBwbGll
-ZCB0byBgcnVzdC1uZXh0YCAtLSB0aGFua3MgZXZlcnlvbmUhCj4+Pgo+Pj4gUGF1bC9QYWxtZXIv
-QWxiZXJ0L1JJU0MtVjogSSB0aGluayB5b3Ugd2VyZSBub3QgQ2MnZCAoYXQgbGVhc3QgaW4gdGhp
-cwo+Pj4gdmVyc2lvbj8pLCBzbyBwbGVhc2Ugc2hvdXQgaWYgeW91IGhhdmUgYSBwcm9ibGVtIHdp
-dGggdGhpcy4KPj4KPj4gRm9yIHNvbWUgcmVhc29uIEkgZGVsZXRlZCB0aGUgc2VyaWVzIGZyb20g
-bXkgbWFpbGJveCwgbXVzdCd2ZSBiZWVuIGluCj4+IGR0LWJpbmRpbmcgcmV2aWV3IG1vZGUgYW5k
-IGhpdCBjdHJsICsgZC4gSSd2ZSBiZWVuIGF3YXkgYW5kIGJ1c3ksIHNvIG15Cj4+IGFwb2xvZ2ll
-cyBBbGljZSBmb3Igbm90IHRyeWluZyB0aGlzIG91dCBzb29uZXIuCj4+IEl0J3Mgc29ydGEgYW5u
-b3lpbmcgdG8gdGVzdCBydXN0ICsgc2NzIG9uIHJpc2N2LCBjb3MgeW91IG5lZWQgKHVubGVzcyBJ
-Cj4+IGFtIG1pc3Rha2VuKSBsbHZtLTE5LiBsbHZtLTE4ICsgcnVzdCBidWlsdCBmaW5lLCBidXQg
-aGFzIG5vIFNDUy4KPj4KPj4gbGx2bS0xOSArIHJ1c3QgZmFpbGVkIHRvIGJ1aWxkIGZvciBtZSBy
-aXNjdiwgcHJvZHVjaW5nOgo+Pgo+PiBJbiBmaWxlIGluY2x1ZGVkIGZyb20gL3N0dWZmL2xpbnV4
-L3J1c3QvaGVscGVycy9oZWxwZXJzLmM6MjI6Cj4+IC9zdHVmZi9saW51eC9ydXN0L2hlbHBlcnMv
-c3BpbmxvY2suYzoxMDoyMzogZXJyb3I6IGNhbGwgdG8gdW5kZWNsYXJlZCBmdW5jdGlvbiAnc3Bp
-bmxvY2tfY2hlY2snOyBJU08gQzk5IGFuZCBsYXRlciBkbyBub3Qgc3VwcG9ydCBpbXBsaWNpdCBm
-dW5jdGlvbiBkZWNsYXJhdGlvbnMgWy1XaW1wbGljaXQtZnVuY3Rpb24tZGVjbGFyYXRpb25dCj4+
-IF9fcmF3X3NwaW5fbG9ja19pbml0KHNwaW5sb2NrX2NoZWNrKGxvY2spLCBuYW1lLCBrZXksIExE
-X1dBSVRfQ09ORklHKTsKPj4gXgo+PiAvc3R1ZmYvbGludXgvcnVzdC9oZWxwZXJzL3NwaW5sb2Nr
-LmM6MTA6MjM6IGVycm9yOiBpbmNvbXBhdGlibGUgaW50ZWdlciB0byBwb2ludGVyIGNvbnZlcnNp
-b24gcGFzc2luZyAnaW50JyB0byBwYXJhbWV0ZXIgb2YgdHlwZSAncmF3X3NwaW5sb2NrX3QgKicg
-KGFrYSAnc3RydWN0IHJhd19zcGlubG9jayAqJykgWy1XaW50LWNvbnZlcnNpb25dCj4+IF9fcmF3
-X3NwaW5fbG9ja19pbml0KHNwaW5sb2NrX2NoZWNrKGxvY2spLCBuYW1lLCBrZXksIExEX1dBSVRf
-Q09ORklHKTsKPj4gXn5+fn5+fn5+fn5+fn5+fn5+fn4KPj4gL3N0dWZmL2xpbnV4L2luY2x1ZGUv
-bGludXgvc3BpbmxvY2suaDoxMDE6NTI6IG5vdGU6IHBhc3NpbmcgYXJndW1lbnQgdG8gcGFyYW1l
-dGVyICdsb2NrJyBoZXJlCj4+IGV4dGVybiB2b2lkIF9fcmF3X3NwaW5fbG9ja19pbml0KHJhd19z
-cGlubG9ja190ICpsb2NrLCBjb25zdCBjaGFyICpuYW1lLAo+PiBeCj4+IDIgZXJyb3JzIGdlbmVy
-YXRlZC4KPj4KPj4gVGhpcyBvY2N1cnMgYmVjYXVzZSBJIGhhdmUgREVCVUdfU1BJTkxPQ0sgZW5h
-YmxlZC4gSSBkaWRuJ3QgY2hlY2sgd2h5LAo+PiBidXQgQW5kcmVhcyBzZWVtcyB0byBoYXZlIGlu
-dHJvZHVjZWQgdGhhdCBjb2RlIC0gbHVja2lseSBoZSdzIGFscmVhZHkgb24KPj4gQ0MgaGVyZSA6
-KQo+Pgo+PiBXaXRoIHRoYXQgZGlzYWJsZWQsIHRoZXJlIGFyZSBkb3plbnMgb2Ygd2FybmluZ3Mg
-YWxvbmcgdGhlIGxpbmVzIG9mOgo+PiAvc3R1ZmYvbGludXgvcnVzdC9oZWxwZXJzL2Vyci5jOjY6
-MTQ6IHdhcm5pbmc6IHN5bWJvbCAncnVzdF9oZWxwZXJfRVJSX1BUUicgd2FzIG5vdCBkZWNsYXJl
-ZC4gU2hvdWxkIGl0IGJlIHN0YXRpYz8KPj4gSWYgdGhvc2UgYXJlIG9rYXkgZm9yIHJ1c3QgY29k
-ZSwgaXQgd291bGQgYmUgcmF0aGVyIGhlbHBmdWwgaWYgdGhlCj4+IHdhcm5pbmdzIGNvdWxkIGJl
-IGRpc2FibGVkIC0gb3RoZXJ3aXNlIHRoZXkgc2hvdWxkIHJlYWxseSBiZSBmaXhlZC4KPj4KPj4g
-Rm9sbG93aW5nIHRoYXQsIEkgZ290IGEgYnVpbGQgZXJyb3I6Cj4+Cj4+IGVycm9yW0UwNDI1XTog
-Y2Fubm90IGZpbmQgZnVuY3Rpb24gYF9fbXV0ZXhfaW5pdGAgaW4gY3JhdGUgYGJpbmRpbmdzYAo+
-PiAtLT4gL3N0dWZmL2xpbnV4L3J1c3Qva2VybmVsL3N5bmMvbG9jay9tdXRleC5yczoxMDQ6MjgK
-Pj4gfAo+PiAxMDQgICB8ICAgICAgICAgICB1bnNhZmUgeyBiaW5kaW5nczo6X19tdXRleF9pbml0
-KHB0ciwgbmFtZSwga2V5KSB9Cj4+IHwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBeXl5e
-Xl5eXl5eXl4gaGVscDogYSBmdW5jdGlvbiB3aXRoIGEgc2ltaWxhciBuYW1lIGV4aXN0czogYF9f
-bXV0ZXhfcnRfaW5pdGAKPj4gfAo+PiA6OjogL3N0dWZmL2Jyc2RrL3dvcmsvbGludXgvcnVzdC9i
-aW5kaW5ncy9iaW5kaW5nc19nZW5lcmF0ZWQucnM6MTI5MDc6NQo+PiB8Cj4+IDEyOTA3IHwgLyAg
-ICAgcHViIGZuIF9fbXV0ZXhfcnRfaW5pdCgKPj4gMTI5MDggfCB8ICAgICAgICAgbG9jazogKm11
-dCBtdXRleCwKPj4gMTI5MDkgfCB8ICAgICAgICAgbmFtZTogKmNvbnN0IGNvcmU6OmZmaTo6Y19j
-aGFyLAo+PiAxMjkxMCB8IHwgICAgICAgICBrZXk6ICptdXQgbG9ja19jbGFzc19rZXksCj4+IDEy
-OTExIHwgfCAgICAgKTsKPj4gfCB8X19fX18tIHNpbWlsYXJseSBuYW1lZCBmdW5jdGlvbiBgX19t
-dXRleF9ydF9pbml0YCBkZWZpbmVkIGhlcmUKPj4KPj4gZXJyb3I6IGFib3J0aW5nIGR1ZSB0byAx
-IHByZXZpb3VzIGVycm9yCj4gCj4gVGhpcyBsb29rcyBsaWtlIGFuIHVucmVsYXRlZCBwcm9ibGVt
-IHRvIG1lLiAKCgpZZXMsIGl0IGlzIHVucmVsYXRlZCB0byB0aGlzIGNoYW5nZS4gSXQgaXMgUFJF
-RU1QVF9SVCB1c2FnZSByZWxhdGVkLiBJIAp0aGluayB3ZSBjb3VsZCBhZGQgc29tZXRoaW5nIGxp
-a2UKCiNpZmRlZiBDT05GSUdfUFJFRU1QVF9SVAp2b2lkIHJ1c3RfaGVscGVyX19fbXV0ZXhfaW5p
-dChzdHJ1Y3QgbXV0ZXggKm11dGV4LCBjb25zdCBjaGFyICpuYW1lLAoJCQkgc3RydWN0IGxvY2tf
-Y2xhc3Nfa2V5ICprZXkpCnsKCXJldHVybiBfX211dGV4X2luaXQobXV0ZXgsIG5hbWUsIGtleSk7
-Cn0KI2VuZGlmCgp0byBoZWxwZXJzIHRvIGZpeAoKaHR0cHM6Ly9naXQua2VybmVsLm9yZy9wdWIv
-c2NtL2xpbnV4L2tlcm5lbC9naXQvdG9ydmFsZHMvbGludXguZ2l0L2NvbW1pdC9ydXN0L2tlcm5l
-bC9zeW5jL2xvY2svbXV0ZXgucnM/JmlkPTZkMjBkNjI5YzZkODU3NWJlOThlZWViZTQ5YTE2ZmIy
-ZDdiMzIzNTAKCj8KCkV4cGxhbmF0aW9uOiBMb29raW5nIGF0CgpodHRwczovL2dpdC5rZXJuZWwu
-b3JnL3B1Yi9zY20vbGludXgva2VybmVsL2dpdC90b3J2YWxkcy9saW51eC5naXQvdHJlZS9pbmNs
-dWRlL2xpbnV4L211dGV4Lmg/I241MgoKd2UgaGF2ZSAoc2ltcGxpZmllZCkKCiNpZm5kZWYgQ09O
-RklHX1BSRUVNUFRfUlQKZXh0ZXJuIHZvaWQgX19tdXRleF9pbml0KHN0cnVjdCBtdXRleCAqbG9j
-aywgY29uc3QgY2hhciAqbmFtZSwKCQkJIHN0cnVjdCBsb2NrX2NsYXNzX2tleSAqa2V5KTsKI2Vs
-c2UKI2RlZmluZSBfX211dGV4X2luaXQobXV0ZXgsIG5hbWUsIGtleSkJCQlcCmRvIHsJCQkJCQkJ
-XAoJcnRfbXV0ZXhfYmFzZV9pbml0KCYobXV0ZXgpLT5ydG11dGV4KTsJCVwKCV9fbXV0ZXhfcnRf
-aW5pdCgobXV0ZXgpLCBuYW1lLCBrZXkpOwkJXAp9IHdoaWxlICgwKQojZW5kaWYKClNvIGluIHRo
-ZSBDT05GSUdfUFJFRU1QVF9SVCBjYXNlIGJpbmRnZW4gZG9lc24ndCByZXNvbHZlIHRoZSBtYWNy
-byAKd2hhdCBjb3VsZCBiZSBmaXhlZCBieSBhZGRpbmcgYSBoZWxwZXIuCgpEaXJrCgoKPiBUaGlz
-IHBhdGNoIG9ubHkgY2hhbmdlcwo+IHRoZSBydXN0YyBmbGFncywgYnV0IHRoZXNlIGVycm9ycyBo
-YXZlIHRvIGRvIHdpdGggdGhlIFJ1c3QKPiBoZWxwZXJzL2JpbmRpbmdzLCB3aGljaCBnZXQgZ2Vu
-ZXJhdGVkIGJlZm9yZSB0aGUgcnVzdGMgZmxhZ3MgYXJlIHVzZWQKPiBhdCBhbGwuIE1vc3QgbGlr
-ZWx5LCB0aGVyZSBpcyBhIHByb2JsZW0gdW5kZXIgdGhlIHBhcnRpY3VsYXIKPiBjb25maWd1cmF0
-aW9uIHlvdSBhcmUgdXNpbmcuIFdlcmUgeW91IGFibGUgdG8gcmVwcm9kdWNlIHRoZXNlIGVycm9y
-cwo+IHdpdGhvdXQgdGhpcyBwYXRjaD8KPiAKPj4gSSBzdG9wcGVkIHRoZXJlLCBTcGFjZSBNYXJp
-bmUgMiBhd2FpdHMuCj4+Cj4+IEhvcGVmdWxseSBJJ2xsIGdldCB0byBzYXkgaGVsbG8gbmV4dCB3
-ZWVrLAo+PiBDb25vci4KPiAKPiBUaGFua3MgZm9yIHRha2luZyBhIGxvb2ssIGFuZCBzZWUgeW91
-IGF0IFBsdW1iZXJzIQo+IAo+IEFsaWNlCj4gCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
-QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
-aXN0aW5mby9saW51eC1yaXNjdgo=
+
+Can I get an Acked-by from the RISC-V maintainers for this patch?
+
+Thanks!
+
+-- Steve
+
+
+On Fri, 13 Sep 2024 00:08:40 +0900
+"Masami Hiramatsu (Google)" <mhiramat@kernel.org> wrote:
+
+> From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+> 
+> Pass ftrace_regs to the fgraph_ops::entryfunc(). If ftrace_regs is not
+> available, it passes a NULL instead. User callback function can access
+> some registers (including return address) via this ftrace_regs.
+> 
+> Signed-off-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+> ---
+>  Changes in v11:
+>   - Update for the latest for-next branch.
+>  Changes in v8:
+>   - Just pass ftrace_regs to the handler instead of adding a new
+>     entryregfunc.
+>   - Update riscv ftrace_graph_func().
+>  Changes in v3:
+>   - Update for new multiple fgraph.
+> ---
+>  arch/arm64/kernel/ftrace.c               |   20 +++++++++++-
+>  arch/loongarch/kernel/ftrace_dyn.c       |   10 +++++-
+>  arch/powerpc/kernel/trace/ftrace.c       |    2 +
+>  arch/powerpc/kernel/trace/ftrace_64_pg.c |   10 ++++--
+>  arch/riscv/kernel/ftrace.c               |   17 ++++++++++
+>  arch/x86/kernel/ftrace.c                 |   50 +++++++++++++++++++++---------
+>  include/linux/ftrace.h                   |   18 ++++++++---
+>  kernel/trace/fgraph.c                    |   23 ++++++++------
+>  kernel/trace/ftrace.c                    |    3 +-
+>  kernel/trace/trace.h                     |    3 +-
+>  kernel/trace/trace_functions_graph.c     |    3 +-
+>  kernel/trace/trace_irqsoff.c             |    3 +-
+>  kernel/trace/trace_sched_wakeup.c        |    3 +-
+>  kernel/trace/trace_selftest.c            |    8 +++--
+>  14 files changed, 128 insertions(+), 45 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/ftrace.c b/arch/arm64/kernel/ftrace.c
+> index a650f5e11fc5..bc647b725e6a 100644
+> --- a/arch/arm64/kernel/ftrace.c
+> +++ b/arch/arm64/kernel/ftrace.c
+> @@ -481,7 +481,25 @@ void prepare_ftrace_return(unsigned long self_addr, unsigned long *parent,
+>  void ftrace_graph_func(unsigned long ip, unsigned long parent_ip,
+>  		       struct ftrace_ops *op, struct ftrace_regs *fregs)
+>  {
+> -	prepare_ftrace_return(ip, &fregs->lr, fregs->fp);
+> +	unsigned long return_hooker = (unsigned long)&return_to_handler;
+> +	unsigned long frame_pointer = fregs->fp;
+> +	unsigned long *parent = &fregs->lr;
+> +	unsigned long old;
+> +
+> +	if (unlikely(atomic_read(&current->tracing_graph_pause)))
+> +		return;
+> +
+> +	/*
+> +	 * Note:
+> +	 * No protection against faulting at *parent, which may be seen
+> +	 * on other archs. It's unlikely on AArch64.
+> +	 */
+> +	old = *parent;
+> +
+> +	if (!function_graph_enter_regs(old, ip, frame_pointer,
+> +				       (void *)frame_pointer, fregs)) {
+> +		*parent = return_hooker;
+> +	}
+>  }
+>  #else
+>  /*
+> diff --git a/arch/loongarch/kernel/ftrace_dyn.c b/arch/loongarch/kernel/ftrace_dyn.c
+> index bff058317062..966e0f7f7aca 100644
+> --- a/arch/loongarch/kernel/ftrace_dyn.c
+> +++ b/arch/loongarch/kernel/ftrace_dyn.c
+> @@ -243,8 +243,16 @@ void ftrace_graph_func(unsigned long ip, unsigned long parent_ip,
+>  {
+>  	struct pt_regs *regs = &fregs->regs;
+>  	unsigned long *parent = (unsigned long *)&regs->regs[1];
+> +	unsigned long return_hooker = (unsigned long)&return_to_handler;
+> +	unsigned long old;
+> +
+> +	if (unlikely(atomic_read(&current->tracing_graph_pause)))
+> +		return;
+> +
+> +	old = *parent;
+>  
+> -	prepare_ftrace_return(ip, (unsigned long *)parent);
+> +	if (!function_graph_enter_regs(old, ip, 0, parent, fregs))
+> +		*parent = return_hooker;
+>  }
+>  #else
+>  static int ftrace_modify_graph_caller(bool enable)
+> diff --git a/arch/powerpc/kernel/trace/ftrace.c b/arch/powerpc/kernel/trace/ftrace.c
+> index d8d6b4fd9a14..a1a0e0b57662 100644
+> --- a/arch/powerpc/kernel/trace/ftrace.c
+> +++ b/arch/powerpc/kernel/trace/ftrace.c
+> @@ -434,7 +434,7 @@ void ftrace_graph_func(unsigned long ip, unsigned long parent_ip,
+>  	if (bit < 0)
+>  		goto out;
+>  
+> -	if (!function_graph_enter(parent_ip, ip, 0, (unsigned long *)sp))
+> +	if (!function_graph_enter_regs(parent_ip, ip, 0, (unsigned long *)sp, fregs))
+>  		parent_ip = ppc_function_entry(return_to_handler);
+>  
+>  	ftrace_test_recursion_unlock(bit);
+> diff --git a/arch/powerpc/kernel/trace/ftrace_64_pg.c b/arch/powerpc/kernel/trace/ftrace_64_pg.c
+> index 12fab1803bcf..4ae9eeb1c8f1 100644
+> --- a/arch/powerpc/kernel/trace/ftrace_64_pg.c
+> +++ b/arch/powerpc/kernel/trace/ftrace_64_pg.c
+> @@ -800,7 +800,8 @@ int ftrace_disable_ftrace_graph_caller(void)
+>   * in current thread info. Return the address we want to divert to.
+>   */
+>  static unsigned long
+> -__prepare_ftrace_return(unsigned long parent, unsigned long ip, unsigned long sp)
+> +__prepare_ftrace_return(unsigned long parent, unsigned long ip, unsigned long sp,
+> +			struct ftrace_regs *fregs)
+>  {
+>  	unsigned long return_hooker;
+>  	int bit;
+> @@ -817,7 +818,7 @@ __prepare_ftrace_return(unsigned long parent, unsigned long ip, unsigned long sp
+>  
+>  	return_hooker = ppc_function_entry(return_to_handler);
+>  
+> -	if (!function_graph_enter(parent, ip, 0, (unsigned long *)sp))
+> +	if (!function_graph_enter_regs(parent, ip, 0, (unsigned long *)sp, fregs))
+>  		parent = return_hooker;
+>  
+>  	ftrace_test_recursion_unlock(bit);
+> @@ -829,13 +830,14 @@ __prepare_ftrace_return(unsigned long parent, unsigned long ip, unsigned long sp
+>  void ftrace_graph_func(unsigned long ip, unsigned long parent_ip,
+>  		       struct ftrace_ops *op, struct ftrace_regs *fregs)
+>  {
+> -	fregs->regs.link = __prepare_ftrace_return(parent_ip, ip, fregs->regs.gpr[1]);
+> +	fregs->regs.link = __prepare_ftrace_return(parent_ip, ip,
+> +						   fregs->regs.gpr[1], fregs);
+>  }
+>  #else
+>  unsigned long prepare_ftrace_return(unsigned long parent, unsigned long ip,
+>  				    unsigned long sp)
+>  {
+> -	return __prepare_ftrace_return(parent, ip, sp);
+> +	return __prepare_ftrace_return(parent, ip, sp, NULL);
+>  }
+>  #endif
+>  #endif /* CONFIG_FUNCTION_GRAPH_TRACER */
+> diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
+> index 4b95c574fd04..f5c3b5a752b0 100644
+> --- a/arch/riscv/kernel/ftrace.c
+> +++ b/arch/riscv/kernel/ftrace.c
+> @@ -214,7 +214,22 @@ void prepare_ftrace_return(unsigned long *parent, unsigned long self_addr,
+>  void ftrace_graph_func(unsigned long ip, unsigned long parent_ip,
+>  		       struct ftrace_ops *op, struct ftrace_regs *fregs)
+>  {
+> -	prepare_ftrace_return(&fregs->ra, ip, fregs->s0);
+> +	unsigned long return_hooker = (unsigned long)&return_to_handler;
+> +	unsigned long frame_pointer = fregs->s0;
+> +	unsigned long *parent = &fregs->ra;
+> +	unsigned long old;
+> +
+> +	if (unlikely(atomic_read(&current->tracing_graph_pause)))
+> +		return;
+> +
+> +	/*
+> +	 * We don't suffer access faults, so no extra fault-recovery assembly
+> +	 * is needed here.
+> +	 */
+> +	old = *parent;
+> +
+> +	if (!function_graph_enter_regs(old, ip, frame_pointer, parent, fregs))
+> +		*parent = return_hooker;
+>  }
+>  #else /* CONFIG_DYNAMIC_FTRACE_WITH_ARGS */
+>  extern void ftrace_graph_call(void);
+> diff --git a/arch/x86/kernel/ftrace.c b/arch/x86/kernel/ftrace.c
+> index 8da0e66ca22d..decf4c11dcf3 100644
+> --- a/arch/x86/kernel/ftrace.c
+> +++ b/arch/x86/kernel/ftrace.c
+> @@ -605,16 +605,8 @@ int ftrace_disable_ftrace_graph_caller(void)
+>  }
+>  #endif /* CONFIG_DYNAMIC_FTRACE && !CONFIG_HAVE_DYNAMIC_FTRACE_WITH_ARGS */
+>  
+> -/*
+> - * Hook the return address and push it in the stack of return addrs
+> - * in current thread info.
+> - */
+> -void prepare_ftrace_return(unsigned long ip, unsigned long *parent,
+> -			   unsigned long frame_pointer)
+> +static inline bool skip_ftrace_return(void)
+>  {
+> -	unsigned long return_hooker = (unsigned long)&return_to_handler;
+> -	int bit;
+> -
+>  	/*
+>  	 * When resuming from suspend-to-ram, this function can be indirectly
+>  	 * called from early CPU startup code while the CPU is in real mode,
+> @@ -624,13 +616,28 @@ void prepare_ftrace_return(unsigned long ip, unsigned long *parent,
+>  	 * This check isn't as accurate as virt_addr_valid(), but it should be
+>  	 * good enough for this purpose, and it's fast.
+>  	 */
+> -	if (unlikely((long)__builtin_frame_address(0) >= 0))
+> -		return;
+> +	if ((long)__builtin_frame_address(0) >= 0)
+> +		return true;
+>  
+> -	if (unlikely(ftrace_graph_is_dead()))
+> -		return;
+> +	if (ftrace_graph_is_dead())
+> +		return true;
+> +
+> +	if (atomic_read(&current->tracing_graph_pause))
+> +		return true;
+> +	return false;
+> +}
+> +
+> +/*
+> + * Hook the return address and push it in the stack of return addrs
+> + * in current thread info.
+> + */
+> +void prepare_ftrace_return(unsigned long ip, unsigned long *parent,
+> +			   unsigned long frame_pointer)
+> +{
+> +	unsigned long return_hooker = (unsigned long)&return_to_handler;
+> +	int bit;
+>  
+> -	if (unlikely(atomic_read(&current->tracing_graph_pause)))
+> +	if (unlikely(skip_ftrace_return()))
+>  		return;
+>  
+>  	bit = ftrace_test_recursion_trylock(ip, *parent);
+> @@ -649,8 +656,21 @@ void ftrace_graph_func(unsigned long ip, unsigned long parent_ip,
+>  {
+>  	struct pt_regs *regs = &fregs->regs;
+>  	unsigned long *stack = (unsigned long *)kernel_stack_pointer(regs);
+> +	unsigned long return_hooker = (unsigned long)&return_to_handler;
+> +	unsigned long *parent = (unsigned long *)stack;
+> +	int bit;
+>  
+> -	prepare_ftrace_return(ip, (unsigned long *)stack, 0);
+> +	if (unlikely(skip_ftrace_return()))
+> +		return;
+> +
+> +	bit = ftrace_test_recursion_trylock(ip, *parent);
+> +	if (bit < 0)
+> +		return;
+> +
+> +	if (!function_graph_enter_regs(*parent, ip, 0, parent, fregs))
+> +		*parent = return_hooker;
+> +
+> +	ftrace_test_recursion_unlock(bit);
+>  }
+>  #endif
+>  
+> diff --git a/include/linux/ftrace.h b/include/linux/ftrace.h
+> index f84fb9635fb0..1fe49a28de2d 100644
+> --- a/include/linux/ftrace.h
+> +++ b/include/linux/ftrace.h
+> @@ -1063,9 +1063,12 @@ struct fgraph_ops;
+>  typedef void (*trace_func_graph_ret_t)(struct ftrace_graph_ret *,
+>  				       struct fgraph_ops *); /* return */
+>  typedef int (*trace_func_graph_ent_t)(struct ftrace_graph_ent *,
+> -				      struct fgraph_ops *); /* entry */
+> +				      struct fgraph_ops *,
+> +				      struct ftrace_regs *); /* entry */
+>  
+> -extern int ftrace_graph_entry_stub(struct ftrace_graph_ent *trace, struct fgraph_ops *gops);
+> +extern int ftrace_graph_entry_stub(struct ftrace_graph_ent *trace,
+> +				   struct fgraph_ops *gops,
+> +				   struct ftrace_regs *fregs);
+>  bool ftrace_pids_enabled(struct ftrace_ops *ops);
+>  
+>  #ifdef CONFIG_FUNCTION_GRAPH_TRACER
+> @@ -1108,8 +1111,15 @@ struct ftrace_ret_stack {
+>  extern void return_to_handler(void);
+>  
+>  extern int
+> -function_graph_enter(unsigned long ret, unsigned long func,
+> -		     unsigned long frame_pointer, unsigned long *retp);
+> +function_graph_enter_regs(unsigned long ret, unsigned long func,
+> +			  unsigned long frame_pointer, unsigned long *retp,
+> +			  struct ftrace_regs *fregs);
+> +
+> +static inline int function_graph_enter(unsigned long ret, unsigned long func,
+> +				       unsigned long fp, unsigned long *retp)
+> +{
+> +	return function_graph_enter_regs(ret, func, fp, retp, NULL);
+> +}
+>  
+>  struct ftrace_ret_stack *
+>  ftrace_graph_get_ret_stack(struct task_struct *task, int skip);
+> diff --git a/kernel/trace/fgraph.c b/kernel/trace/fgraph.c
+> index d7d4fb403f6f..0322c5723748 100644
+> --- a/kernel/trace/fgraph.c
+> +++ b/kernel/trace/fgraph.c
+> @@ -290,7 +290,8 @@ static inline unsigned long make_data_type_val(int idx, int size, int offset)
+>  }
+>  
+>  /* ftrace_graph_entry set to this to tell some archs to run function graph */
+> -static int entry_run(struct ftrace_graph_ent *trace, struct fgraph_ops *ops)
+> +static int entry_run(struct ftrace_graph_ent *trace, struct fgraph_ops *ops,
+> +		     struct ftrace_regs *fregs)
+>  {
+>  	return 0;
+>  }
+> @@ -484,7 +485,7 @@ int __weak ftrace_disable_ftrace_graph_caller(void)
+>  #endif
+>  
+>  int ftrace_graph_entry_stub(struct ftrace_graph_ent *trace,
+> -			    struct fgraph_ops *gops)
+> +			    struct fgraph_ops *gops, struct ftrace_regs *fregs)
+>  {
+>  	return 0;
+>  }
+> @@ -612,8 +613,9 @@ ftrace_push_return_trace(unsigned long ret, unsigned long func,
+>  #endif
+>  
+>  /* If the caller does not use ftrace, call this function. */
+> -int function_graph_enter(unsigned long ret, unsigned long func,
+> -			 unsigned long frame_pointer, unsigned long *retp)
+> +int function_graph_enter_regs(unsigned long ret, unsigned long func,
+> +			      unsigned long frame_pointer, unsigned long *retp,
+> +			      struct ftrace_regs *fregs)
+>  {
+>  	struct ftrace_graph_ent trace;
+>  	unsigned long bitmap = 0;
+> @@ -631,7 +633,7 @@ int function_graph_enter(unsigned long ret, unsigned long func,
+>  	if (static_branch_likely(&fgraph_do_direct)) {
+>  		int save_curr_ret_stack = current->curr_ret_stack;
+>  
+> -		if (static_call(fgraph_func)(&trace, fgraph_direct_gops))
+> +		if (static_call(fgraph_func)(&trace, fgraph_direct_gops, fregs))
+>  			bitmap |= BIT(fgraph_direct_gops->idx);
+>  		else
+>  			/* Clear out any saved storage */
+> @@ -649,7 +651,7 @@ int function_graph_enter(unsigned long ret, unsigned long func,
+>  
+>  			save_curr_ret_stack = current->curr_ret_stack;
+>  			if (ftrace_ops_test(&gops->ops, func, NULL) &&
+> -			    gops->entryfunc(&trace, gops))
+> +			    gops->entryfunc(&trace, gops, fregs))
+>  				bitmap |= BIT(i);
+>  			else
+>  				/* Clear out any saved storage */
+> @@ -925,7 +927,7 @@ unsigned long ftrace_graph_ret_addr(struct task_struct *task, int *idx,
+>  
+>  static struct ftrace_ops graph_ops = {
+>  	.func			= ftrace_graph_func,
+> -	.flags			= FTRACE_OPS_GRAPH_STUB,
+> +	.flags			= FTRACE_OPS_GRAPH_STUB | FTRACE_OPS_FL_SAVE_ARGS,
+>  #ifdef FTRACE_GRAPH_TRAMP_ADDR
+>  	.trampoline		= FTRACE_GRAPH_TRAMP_ADDR,
+>  	/* trampoline_size is only needed for dynamically allocated tramps */
+> @@ -935,7 +937,8 @@ static struct ftrace_ops graph_ops = {
+>  void fgraph_init_ops(struct ftrace_ops *dst_ops,
+>  		     struct ftrace_ops *src_ops)
+>  {
+> -	dst_ops->flags = FTRACE_OPS_FL_PID | FTRACE_OPS_GRAPH_STUB;
+> +	dst_ops->flags = FTRACE_OPS_FL_PID | FTRACE_OPS_GRAPH_STUB |
+> +			 FTRACE_OPS_FL_SAVE_ARGS;
+>  
+>  #ifdef CONFIG_DYNAMIC_FTRACE
+>  	if (src_ops) {
+> @@ -1119,7 +1122,7 @@ void ftrace_graph_exit_task(struct task_struct *t)
+>  
+>  #ifdef CONFIG_DYNAMIC_FTRACE
+>  static int fgraph_pid_func(struct ftrace_graph_ent *trace,
+> -			   struct fgraph_ops *gops)
+> +			   struct fgraph_ops *gops, struct ftrace_regs *fregs)
+>  {
+>  	struct trace_array *tr = gops->ops.private;
+>  	int pid;
+> @@ -1133,7 +1136,7 @@ static int fgraph_pid_func(struct ftrace_graph_ent *trace,
+>  			return 0;
+>  	}
+>  
+> -	return gops->saved_func(trace, gops);
+> +	return gops->saved_func(trace, gops, fregs);
+>  }
+>  
+>  void fgraph_update_pid_func(void)
+> diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
+> index 4c28dd177ca6..775040a9f541 100644
+> --- a/kernel/trace/ftrace.c
+> +++ b/kernel/trace/ftrace.c
+> @@ -821,7 +821,8 @@ void ftrace_graph_graph_time_control(bool enable)
+>  }
+>  
+>  static int profile_graph_entry(struct ftrace_graph_ent *trace,
+> -			       struct fgraph_ops *gops)
+> +			       struct fgraph_ops *gops,
+> +			       struct ftrace_regs *fregs)
+>  {
+>  	struct ftrace_ret_stack *ret_stack;
+>  
+> diff --git a/kernel/trace/trace.h b/kernel/trace/trace.h
+> index bd3e3069300e..28d8ad5e31e6 100644
+> --- a/kernel/trace/trace.h
+> +++ b/kernel/trace/trace.h
+> @@ -683,7 +683,8 @@ void trace_default_header(struct seq_file *m);
+>  void print_trace_header(struct seq_file *m, struct trace_iterator *iter);
+>  
+>  void trace_graph_return(struct ftrace_graph_ret *trace, struct fgraph_ops *gops);
+> -int trace_graph_entry(struct ftrace_graph_ent *trace, struct fgraph_ops *gops);
+> +int trace_graph_entry(struct ftrace_graph_ent *trace, struct fgraph_ops *gops,
+> +		      struct ftrace_regs *fregs);
+>  
+>  void tracing_start_cmdline_record(void);
+>  void tracing_stop_cmdline_record(void);
+> diff --git a/kernel/trace/trace_functions_graph.c b/kernel/trace/trace_functions_graph.c
+> index 13d0387ac6a6..b9785fc919c9 100644
+> --- a/kernel/trace/trace_functions_graph.c
+> +++ b/kernel/trace/trace_functions_graph.c
+> @@ -128,7 +128,8 @@ static inline int ftrace_graph_ignore_irqs(void)
+>  }
+>  
+>  int trace_graph_entry(struct ftrace_graph_ent *trace,
+> -		      struct fgraph_ops *gops)
+> +		      struct fgraph_ops *gops,
+> +		      struct ftrace_regs *fregs)
+>  {
+>  	unsigned long *task_var = fgraph_get_task_var(gops);
+>  	struct trace_array *tr = gops->private;
+> diff --git a/kernel/trace/trace_irqsoff.c b/kernel/trace/trace_irqsoff.c
+> index fce064e20570..ad739d76fc86 100644
+> --- a/kernel/trace/trace_irqsoff.c
+> +++ b/kernel/trace/trace_irqsoff.c
+> @@ -176,7 +176,8 @@ static int irqsoff_display_graph(struct trace_array *tr, int set)
+>  }
+>  
+>  static int irqsoff_graph_entry(struct ftrace_graph_ent *trace,
+> -			       struct fgraph_ops *gops)
+> +			       struct fgraph_ops *gops,
+> +			       struct ftrace_regs *fregs)
+>  {
+>  	struct trace_array *tr = irqsoff_trace;
+>  	struct trace_array_cpu *data;
+> diff --git a/kernel/trace/trace_sched_wakeup.c b/kernel/trace/trace_sched_wakeup.c
+> index 130ca7e7787e..23360a2700de 100644
+> --- a/kernel/trace/trace_sched_wakeup.c
+> +++ b/kernel/trace/trace_sched_wakeup.c
+> @@ -113,7 +113,8 @@ static int wakeup_display_graph(struct trace_array *tr, int set)
+>  }
+>  
+>  static int wakeup_graph_entry(struct ftrace_graph_ent *trace,
+> -			      struct fgraph_ops *gops)
+> +			      struct fgraph_ops *gops,
+> +			      struct ftrace_regs *fregs)
+>  {
+>  	struct trace_array *tr = wakeup_trace;
+>  	struct trace_array_cpu *data;
+> diff --git a/kernel/trace/trace_selftest.c b/kernel/trace/trace_selftest.c
+> index c4ad7cd7e778..89067f02094a 100644
+> --- a/kernel/trace/trace_selftest.c
+> +++ b/kernel/trace/trace_selftest.c
+> @@ -773,7 +773,8 @@ struct fgraph_fixture {
+>  };
+>  
+>  static __init int store_entry(struct ftrace_graph_ent *trace,
+> -			      struct fgraph_ops *gops)
+> +			      struct fgraph_ops *gops,
+> +			      struct ftrace_regs *fregs)
+>  {
+>  	struct fgraph_fixture *fixture = container_of(gops, struct fgraph_fixture, gops);
+>  	const char *type = fixture->store_type_name;
+> @@ -1024,7 +1025,8 @@ static unsigned int graph_hang_thresh;
+>  
+>  /* Wrap the real function entry probe to avoid possible hanging */
+>  static int trace_graph_entry_watchdog(struct ftrace_graph_ent *trace,
+> -				      struct fgraph_ops *gops)
+> +				      struct fgraph_ops *gops,
+> +				      struct ftrace_regs *fregs)
+>  {
+>  	/* This is harmlessly racy, we want to approximately detect a hang */
+>  	if (unlikely(++graph_hang_thresh > GRAPH_MAX_FUNC_TEST)) {
+> @@ -1038,7 +1040,7 @@ static int trace_graph_entry_watchdog(struct ftrace_graph_ent *trace,
+>  		return 0;
+>  	}
+>  
+> -	return trace_graph_entry(trace, gops);
+> +	return trace_graph_entry(trace, gops, fregs);
+>  }
+>  
+>  static struct fgraph_ops fgraph_ops __initdata  = {
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
