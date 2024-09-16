@@ -4,66 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42581C3ABCE
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Sep 2024 03:53:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DACAC3ABCB
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Sep 2024 03:56:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6CKkhNMH2ehHOPf5bG2eUYPv5vdfFHphRJehJcfI8EY=; b=rH16lj4L76FkJr
-	ObCJJlHuXQOC2cp8jOfM/mazBP3PNXhiYaftqNfOUZLeFCY7tJXMn033BrhGPH5QHvhOp7riBBiDH
-	sMKE6qpolf7iS8lvwcpKyyRxyjfWCZP11K+2qhSrkg9fsGBTqmIgt78IOJL88cURM5ZFonIDFf+w5
-	KbgcGmsjfVH96XQTrcXu5FCMLEg6yzhN/VJhPpUDv1FQDjllojX1CAnUnM+dXf0yOB6M5Zoi9S7JC
-	Qy0CdZYRbs6n8rINOxYqjT3otO8PtsIJhOCXImDUVj2RnoHzPP9QpuWchSPgirPb5suRXFqXEPi7i
-	65D+wENmqDebF2qju/MA==;
+	List-Owner; bh=O1KbqjOVRln9hsEOvf4zkBm0MLoA9I6A9OFDw/6vj84=; b=K3M7j/sbRWlRzy
+	Yzho335bLrb/k1/hZXCNRmjc6Fqeb9rYyUaVb4/PziYA7rrljhU/bs03B9hoKPRQE8k5AYSxt+hGt
+	LC5dXLFZvoj7KiwMnKdAV75DdMHz/QhZKNuUB0S+HonqiIQXUTne2lgYR4jzoi/1faLfTPqJnSRB6
+	MlZlYXagQlssB8vMFxe7UTUUQhE4lcZOX50m2hJY/fyRQmVTawSn+gLpZq4Nw259rNgFdnROwEphR
+	Xb4INWh5bmlz/ogrHjgS2HlNuvFl4BWp8KffX/xK7iQoF9pBAcNjujIHYS34gZsIvz0AmrcpUcrgI
+	nrOw6zMvDB2di2zrTMDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sq2nK-000000031OO-2Gtv;
-	Mon, 16 Sep 2024 03:52:58 +0000
-Received: from m16.mail.163.com ([117.135.210.5])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sq2nH-000000031Nt-2gEv
+	id 1sq2r4-000000031hk-3Vpk;
+	Mon, 16 Sep 2024 03:56:50 +0000
+Received: from smtpbg150.qq.com ([18.132.163.193])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1sq2r1-000000031f4-49OS
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Sep 2024 03:52:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:From:
-	Content-Type; bh=JBXp6u4xA7OQQ+LtZ1LNgRXSs/t4TjIGfnYriPctbLI=;
-	b=ANE0cFELTvjQr4PZ9JGI/YHORRAM8s5AqxYGGIrO4WHoKviL5ZkK6wLUE7sQ0m
-	NcXBqHSIREN3MOUgN6R7BamD3FI2ni/qKAUziil1bxAt4w+8I+4t8B9fSPgQE+HJ
-	b4ZZiaTTeabkD1oyYG1wqcQn7g7iBLRMIq19qF9sQAxMk=
-Received: from [10.79.243.159] (unknown [113.57.237.78])
-	by gzga-smtp-mta-g2-5 (Coremail) with SMTP id _____wCXKBUhq+dmIxD2HQ--.24077S2;
-	Mon, 16 Sep 2024 11:51:00 +0800 (CST)
-Message-ID: <3013dff5-e700-49b8-8531-f4369b3fa9e6@163.com>
-Date: Mon, 16 Sep 2024 11:50:33 +0800
+	Mon, 16 Sep 2024 03:56:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
+	s=onoh2408; t=1726458990;
+	bh=uQeCiuqofbp7VBgWJBHIBiFbeaUu9Qm1y9Nz4rNP4v0=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version;
+	b=nO0eOJO5KWXwyCVueVDt4D9I5KPTJD0sKVmtao8eRjcHWafxPvmzooU09JaV93uwX
+	 eX3f93sxxtk7dxw/1a5h3q3dH+tcpn/UaF6T2fT/KIhX1LTPGnTNLh59HtdSkvwtk4
+	 A8mnxB2KsRJ+93TfcjmFHPqctyrVKSQzPwa3QicA=
+X-QQ-mid: bizesmtpip2t1726458973t9xfue2
+X-QQ-Originating-IP: 4+X9rNC0rfWCVm+jTaZrmC9K3XSZNEdwwr0L1XVgKWM=
+Received: from avenger-OMEN-by-HP-Gaming-Lapto ( [localhost])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 16 Sep 2024 11:56:10 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 14186944467596871158
+From: WangYuli <wangyuli@uniontech.com>
+To: christophe.jaillet@wanadoo.fr
+Cc: aou@eecs.berkeley.edu,
+	conor+dt@kernel.org,
+	conor.dooley@microchip.com,
+	devicetree@vger.kernel.org,
+	emil.renner.berthing@canonical.com,
+	gregkh@linuxfoundation.org,
+	hal.feng@starfivetech.com,
+	kernel@esmil.dk,
+	krzysztof.kozlowski+dt@linaro.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	netdev@vger.kernel.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	richardcochran@gmail.com,
+	robh+dt@kernel.org,
+	robh@kernel.org,
+	sashal@kernel.org,
+	stable@vger.kernel.org,
+	walker.chen@starfivetech.com,
+	wangyuli@uniontech.com,
+	william.qiu@starfivetech.com,
+	xingyu.wu@starfivetech.com
+Subject: Re: [PATCH 6.6 v2 1/4] riscv: dts: starfive: add assigned-clock* to limit frquency
+Date: Mon, 16 Sep 2024 11:56:10 +0800
+Message-ID: <87764635B0614447+20240916035610.64002-1-wangyuli@uniontech.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <e2d7ed77-827b-4b7c-800c-9c8f3bcb6b5a@wanadoo.fr>
+References: <e2d7ed77-827b-4b7c-800c-9c8f3bcb6b5a@wanadoo.fr>
 MIME-Version: 1.0
-User-Agent: Betterbird (Linux)
-Subject: Re: [PATCH 0/3] Add initial support for Canaan Kendryte K230 pinctrl
-To: Conor Dooley <conor@kernel.org>
-Cc: linus.walleij@linaro.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, cyy@cyyself.name, jesse@rivosinc.com,
- jszhang@kernel.org, inochiama@outlook.com, zhangmeng.kevin@spacemit.com,
- kevin.z.m@hotmail.com, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <ZubtZKlxqejnCFx_@jean.localdomain>
- <320c1fd8-2f8d-414d-a6a5-23280955b9b8@163.com>
- <20240915-flinch-harness-e9e1b92f5c79@spud>
-Content-Language: en-US
-From: Ze Huang <18771902331@163.com>
-In-Reply-To: <20240915-flinch-harness-e9e1b92f5c79@spud>
-X-CM-TRANSID: _____wCXKBUhq+dmIxD2HQ--.24077S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxGry8tFy7AF15ArWxAw43KFg_yoW5Zw1kpa
-	yfCFs0kF13Jr4xt3ySvws09ryav3Z7Ar1agw1agryUJFnIvFy7Xw4fKr429FZ8Wr4UWr4j
-	vrs5X34xur43Aa7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UAEfOUUUUU=
-X-Originating-IP: [113.57.237.78]
-X-CM-SenderInfo: zpryllqrzqjjitr6il2tof0z/1tbiNwlcomXAnRd2pQAAs8
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtpip:uniontech.com:qybglogicsvrgz:qybglogicsvrgz8a-1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240915_205256_385395_DFD25D2D 
-X-CRM114-Status: GOOD (  13.37  )
+X-CRM114-CacheID: sfid-20240915_205648_511866_155C48FC 
+X-CRM114-Status: UNSURE (   3.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,76 +91,16 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Since this commit is already in 'linux/master', changing its title for the backport might just make things more confusing.
 
-On 9/16/24 3:35 AM, Conor Dooley wrote:
-> On Sun, Sep 15, 2024 at 11:22:16PM +0800, Ze Huang wrote:
->> On 9/15/24 10:21 PM, Ze Huang wrote:
->>> This patch series introduces support for the pinctrl driver of the Canaan
->>> K230 SoC. The K230 SoC features 64 IO pins, each of which can be configured
->>> for up to five different functions.
->>> 							
->>> The controller manages the entire pin configuration and multiplexing
->>> through a single register, which control features such as schmitt trigger,
->>> drive strength, bias pull-up/down, input/output enable, power source, and
->>> mux mode.
->>>
->>> The changes have been tested on the K230 development board.
->>> 							
->>> The pin function definition can be found here [1], and most of the DTS data
->>> was converted from the vendor's code [2].
->>>
->>> Link: https://developer.canaan-creative.com/k230/dev/_downloads/a53655a81951bc8a440ae647be286e75/K230_PINOUT_V1.1_20230321.xlsx [1]
->>> Link: https://github.com/kendryte/k230_sdk/blob/main/src/little/uboot/arch/riscv/dts/k230_canmv.dts [2]
->>>
->>> Ze Huang (3):
->>>     dt-bindings: pinctrl: Add support for canaan,k230 SoC
->>>     pinctrl: canaan: Add support for k230 SoC
->>>     riscv: dts: canaan: Add k230's pinctrl node
->>>
->>>    .../bindings/pinctrl/canaan,k230-pinctrl.yaml | 128 ++++
->>>    arch/riscv/boot/dts/canaan/k230-pinctrl.dtsi  | 318 +++++++++
->>>    arch/riscv/boot/dts/canaan/k230-pinctrl.h     |  18 +
->>>    arch/riscv/boot/dts/canaan/k230.dtsi          |   2 +
->>>    drivers/pinctrl/Kconfig                       |  10 +
->>>    drivers/pinctrl/Makefile                      |   1 +
->>>    drivers/pinctrl/pinctrl-k230.c                | 674 ++++++++++++++++++
->>>    7 files changed, 1151 insertions(+)
->>>    create mode 100644 Documentation/devicetree/bindings/pinctrl/canaan,k230-pinctrl.yaml
->>>    create mode 100644 arch/riscv/boot/dts/canaan/k230-pinctrl.dtsi
->>>    create mode 100644 arch/riscv/boot/dts/canaan/k230-pinctrl.h
->>>    create mode 100644 drivers/pinctrl/pinctrl-k230.c
->>>
->> lost base commit and prerequisite patch id here:
->>
->> base-commit: 0eea987088a22d73d81e968de7347cdc7e594f72
->> prerequisite-patch-id: 740cbeb9fc3f3e3fd30df4914cd31e9eb148a581
->> prerequisite-patch-id: b5cc919a7e8e2f852569d5918944dbe4f21e6912
->> prerequisite-patch-id: 554cb838b7264109437359e88443cc3497ed344c
-> I don't have the ability to convert those to something I can understand,
-> is
-> https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/log/?h=k230-basic
-> effectively the basis for your series?
-
-Thank you for your understanding; that is indeed the basis for series.
-
-base-commit: 0eea987088a22d73d81e968de7347cdc7e594f72
-prerequisite-patch-id: 2401703b57448c9ea2c3dc7650b4502491a28944
-prerequisite-patch-id: 50ccf1104191cdf22f9077880d3dc781b190a3c8
-prerequisite-patch-id: f8b983b301d0c14f1448b9e4c321262a509e061e
-prerequisite-patch-id: ced4a01ccd8ddab2fd308d543ddf47bd1641518a
-prerequisite-patch-id: c2144cf468c57b856830a61615ba6ba501e8ec58
-prerequisite-patch-id: 704efc6e76814e1877748959d7319d558c8386c1
-
-Link: 
-https://lore.kernel.org/all/tencent_22BA0425B4DF1CA1713B62E4423C1BFBF809@qq.com/ 
-
-
-
+Thanks,
+--
+WangYuli
 
 _______________________________________________
 linux-riscv mailing list
