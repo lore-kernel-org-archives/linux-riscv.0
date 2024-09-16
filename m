@@ -4,75 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B456C3ABB2
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Sep 2024 14:19:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A26F2C3ABA2
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Sep 2024 15:05:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9oRe3lYcc0MNjxIDINHuhIs2TxevhoV2baneWbBkSU8=; b=GJPB2jplBycBdo
-	epyfA7/VQ22UMYzp3++GvUuvm2Kz6g92W2dUrrxZXgVaT/WNd3Vy0EQpijHMRS9fB9BBB6Ek0UEwK
-	dIbJ4s6JKHhS1zTl4eaSAvzDjYVX2D1oEuh6lk1LO2jFQszWG3Y+J4aveE+c1qrjcPdrHQ1Kl92PB
-	ncqU0uFo9VnMALbcwTjqScx3025ZGmehiLPIaRt3c2WKjZ2BaH+W63ghbJlt9KqbF1QIEbFYicYFY
-	oJnoXEQkOiAqerv20slWNsbTp6wlT8cKZlSoWEzI4OdVIA3FzxoPGGeSid80FT1gsCBlFeMos0RIu
-	lJ7K8dsPVv29dxwbOf1Q==;
+	List-Owner; bh=knA0Pyg/qtRvx/0YbwBncC3YDZmSeT41BOYlFBSyXxM=; b=ArVoU9n5i2BJIR
+	DgG4SJnbHINj3lY4iSbbZ/3go7VUB9oXdXD65CuD/SN/P5pyrdeSN1XTeqGl9VAIAguEgB5RdkEuD
+	DM0mZlJn8oy825GG0/ZbEHUEMwkFt8khS3xs5pnAcUawIOJ9BLLn/YLqkYYXc5XLszabILJLXC/YL
+	GpufwCrcLJqYecD2MuDlUGyL6F7x3oPbqPLWgFogH4CX9xohRbMefzjClS7TT7CNQXVxIyY+mt1Wa
+	zFMZ3//RFoKlSCeWqs9aT4wRFVAARODh+yj2p+2/vIOnUCTmGZ8vzpzGugA/NreE5Ju2LvU6c3goK
+	o8RECWQCbcWfGsZCSbjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sqCZI-00000004CCL-0Eg6;
-	Mon, 16 Sep 2024 14:19:08 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1sqDHb-00000004I6Y-02jR;
+	Mon, 16 Sep 2024 15:04:55 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sqCZE-00000004CBx-19Zc
+	id 1sqDHX-00000004I5k-3mqO
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Sep 2024 14:19:05 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-718e285544fso2592820b3a.1
-        for <linux-riscv@lists.infradead.org>; Mon, 16 Sep 2024 07:19:03 -0700 (PDT)
+	Mon, 16 Sep 2024 15:04:53 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5c42f406e29so2912462a12.2
+        for <linux-riscv@lists.infradead.org>; Mon, 16 Sep 2024 08:04:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1726496343; x=1727101143; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=G1UmXOgsWH3fdiCHw5DCGNn13IW8Bhm9lnRCetGbtc8=;
-        b=QY65UPyyNUxAE60BRBZED752YUWZ0MQ2Xx0+KOZtU7bk9do/RTf2UQycubsRCP8xET
-         euPJpSHfm81oUmrKX9jK4BKXeB4/QT0ANDdT1+GnlAxnrlSo4LE9so1aAy/uhChLrhYf
-         gqlum86jOe7IkxWa5/D3G21E4wmaiEAN97PIMgAu7ofk/9RvOAj8VFL3lvXGtHuptPxm
-         F7wQvKmeW4HIZxj/vQ5fg5P3YVSC5WImXVGQNDFrw5PmOxsGMO0lmG8DcPmC/sWPbd68
-         BQoOD88ZrkUP0nKtVHW/Mu68DO6pTXLo5JL6pTzEQhivQqCKJHkFfPAVEk7yNl7auq9H
-         VnMw==
+        d=linaro.org; s=google; t=1726499089; x=1727103889; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=Hdt/C3X2PP3Zg5PnoGqtBdwBBLQg7apsiImcH1HDjNw=;
+        b=Dl6BN/RNcoPK0UQ9YhuNw8VB3ZJEng0hcr8X7gNk0Mc7zhXJdNo7/KVksXjJ3+C27H
+         4OAuRwev0fvOfQJVuQLsIBFHUGwS0D6bLH+TVs5GmMhRG5A2gBF9SA5c7ghw5dXoCZH6
+         KL9HHRkucWuplHf76hOafHkgb/vUPJS2BMQCi3yjcXavo2TG66uCSJCLp1Up1M0nk/pq
+         imRQND2A/6VsiHCWkvSmV8XVPShNjqRe0eHY9izxf+xrW+R0sf3Ajz/7S+450urfAejk
+         NBd6sQLUP2vnwLqiJmlBcBRMO5nN4x5pGXzRt+AG0M7LnK9hAwe16f48Su7Rp+IFN078
+         oRyQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1726496343; x=1727101143;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=G1UmXOgsWH3fdiCHw5DCGNn13IW8Bhm9lnRCetGbtc8=;
-        b=KUHGWBsbi733P7NJ/kjH9W4xr9l5p6Bez7fjqom3bhpu2+lBWSNbE+vfNrL0eyLkUx
-         Xce9dYIrcIedZPDTeiV9uWRzJaTBIOqjRFRQXz6htyvSeZuzIbSqT7SpRHYL9G20CLo5
-         Pi+sNE8Y1y9n/UiU9mzaVQO1WievAboS3rR/GnGafdwJpirqr1SHfv+XE7GmV/9469uO
-         PJ1WVy3Me6O4ism61l62noRU77dDWoCUGIzptp2bGlb6jqQxtDcJ+TxbYVFYbk4yjgOu
-         nqi20GHlWKdsMFFEyytHUDeMY1E+VsNJwO6b9b+GjRI5N9XXql1igo1hXFG3S0gLrdOZ
-         7LgQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWvF0+zFFyRx/CavzQE8pApAh4oQtvOxulIv4yrdgkBHGoHwbHXYZ2AtJGQAdQ0H+l4zBOP7uuSL3/a3g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxDkDgRowqwY3/SgvtKvQ2NIl+xajEKrwCucae95dnI627jVzqs
-	7FDV+4Nha05VNXl8MGxwp/k8eTDLKou6BUrKKWqaNfUi3PlhxU/7Nj1Jh1j3MYhzafrwFSYJRGu
-	EThLBqWaKT0N7iqPxTO3pTodmtitXDOd8
-X-Google-Smtp-Source: AGHT+IFYCVh4ja8kmnu32Sq8veW94hYo66DZbsZuYwwlDt/F+10yGHRXvBJzhVGd0HcyK1y8/b8Pz+qY2eHEL8EuSBg=
-X-Received: by 2002:a05:6a20:d806:b0:1cf:440a:d449 with SMTP id
- adf61e73a8af0-1d112ead762mr15155093637.42.1726496343265; Mon, 16 Sep 2024
- 07:19:03 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1726499089; x=1727103889;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Hdt/C3X2PP3Zg5PnoGqtBdwBBLQg7apsiImcH1HDjNw=;
+        b=kT7GeqemleAE/c+YWmohPR7799h5Ru6U/GISb2W1NhQId2iYw9rDATo0hD7zCR4a9j
+         VwwvHKqQmGN/aJ9L6zuejpOKMAUpglf9NDz6F3V9D4LJRaPPw2+xfEFhCK0YhQjjLbZ4
+         48nY+v2PzX973MHmQOFKffbKRU2UXbf7RcyFXXcOu6KIRjlSW5JCA1TeuBHuOKQTDkE5
+         yRO+vykPzt1EkHKvOdfYu3IViyzOqhMmLjomQQKfCH+S5MTe3+WLjtuXIhVAwo9b37bn
+         5iIHPUyhDtcDkPaSgma5MjJGPZHE19cMEE9h0szQSTQHpwLtlGqI2z98uHaNzKOsG9VX
+         58pg==
+X-Forwarded-Encrypted: i=1; AJvYcCUrRubDBke3STyMcJ3q9prXy5Tl4G8vfTVg9AUkaXmX6swFMJb2YzDDnFAHIBo0tQhpJ6GcyUV6zqBWLw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxhkVqfjYfGdn174FMTxmqwsRmUs5ea9NGhZpUUEkuDiYF5Bj5U
+	1MrvVgq7LtkuxGLiS6MvBvfKiqUJlcaNLDTwwpPIaZUaWl68hqYNEYn/sg7hX/FJS51cgFRJvz9
+	jFpq0LlXQmDSWRDCU3k4U6F9KLegeDkyBx7c7QA==
+X-Google-Smtp-Source: AGHT+IG953y/v5dl5p5Z3LL49kO5fYc2xRp4hHw8+JoAMYA8z1TeDNMF/zfkoylCATu6XMkcxeBAsRZUu5pz6qqEpaE=
+X-Received: by 2002:a05:6402:2347:b0:5c4:23ad:89b4 with SMTP id
+ 4fb4d7f45d1cf-5c423ad89e8mr9452741a12.26.1726499088917; Mon, 16 Sep 2024
+ 08:04:48 -0700 (PDT)
 MIME-Version: 1.0
-References: <7ede7ca6-f8db-4b38-a1cc-8be3d0db7fae@gmail.com> <20240916024536-GYA2058951@gentoo>
-In-Reply-To: <20240916024536-GYA2058951@gentoo>
-From: Jesse T <mr.bossman075@gmail.com>
-Date: Mon, 16 Sep 2024 10:18:27 -0400
-Message-ID: <CAJFTR8QEwoJDANTgGOyMxX4d539ZjHUU2nzf-sB=Gu5bsHBfyQ@mail.gmail.com>
-Subject: Re: [PATCH v4 3/3] riscv: dts: spacemit: add pinctrl property to
- uart0 in BPI-F3
-To: Yixun Lan <dlan@gentoo.org>
+References: <20240912170025.455167-1-valentina.fernandezalanis@microchip.com>
+In-Reply-To: <20240912170025.455167-1-valentina.fernandezalanis@microchip.com>
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+Date: Mon, 16 Sep 2024 09:04:37 -0600
+Message-ID: <CANLsYkzGiB+vkjHKkHYhZEK+MK-Uid0VxcqsBUJG0ZbmCQCeqg@mail.gmail.com>
+Subject: Re: [PATCH v1 0/5] Add Microchip IPC mailbox and remoteproc support
+To: Valentina Fernandez <valentina.fernandezalanis@microchip.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	peterlin@andestech.com, dminus@andestech.com, conor.dooley@microchip.com, 
+	conor+dt@kernel.org, ycliang@andestech.com, jassisinghbrar@gmail.com, 
+	robh@kernel.org, krzk+dt@kernel.org, andersson@kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240916_071904_355448_B5D72096 
-X-CRM114-Status: GOOD (  30.40  )
+X-CRM114-CacheID: sfid-20240916_080451_963744_A26B2E77 
+X-CRM114-Status: GOOD (  22.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,82 +88,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-gpio@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Yangyu Chen <cyy@cyyself.name>, Palmer Dabbelt <palmer@dabbelt.com>, Meng Zhang <kevin.z.m@hotmail.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Inochi Amaoto <inochiama@outlook.com>, linux-riscv@lists.infradead.org, Rob Herring <robh@kernel.org>, Meng Zhang <zhangmeng.kevin@spacemit.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU3VuLCBTZXAgMTUsIDIwMjQgYXQgMTA6NDXigK9QTSBZaXh1biBMYW4gPGRsYW5AZ2VudG9v
-Lm9yZz4gd3JvdGU6Cj4KPiBIaSBKZXNzZQo+Cj4gT24gMTA6NDUgU3VuIDE1IFNlcCAgICAgLCBK
-ZXNzZSBUYXViZSB3cm90ZToKPiA+Cj4gPiBCZWZvcmUgcGluY3RybCBkcml2ZXIgaW1wbGVtZW50
-ZWQsIHRoZSB1YXJ0MCBjb250cm9sbGVyIHJlcGx5IG9uCj4gPiBib290bG9hZGVyIGZvciBzZXR0
-aW5nIGNvcnJlY3QgcGluIG11eCBhbmQgY29uZmlndXJhdGlvbnMuCj4gPgo+ID4gTm93LCBsZXQn
-cyBhZGQgcGluY3RybCBwcm9wZXJ0eSB0byB1YXJ0MCBvZiBCYW5hbmFwaS1GMyBib2FyZC4KPiA+
-Cj4gPiBTaWduZWQtb2ZmLWJ5OiBZaXh1biBMYW4gPGRsYW5AZ2VudG9vLm9yZz4KPiA+IC0tLQo+
-ID4gICBhcmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2sxLWJhbmFuYXBpLWYzLmR0cyB8ICAz
-ICsrKwo+ID4gICBhcmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2sxLXBpbmN0cmwuZHRzaSAg
-ICB8IDIwICsrKysrKysrKysrKysrKysrKysrCj4gPiAgIGFyY2gvcmlzY3YvYm9vdC9kdHMvc3Bh
-Y2VtaXQvazEuZHRzaSAgICAgICAgICAgIHwgIDUgKysrKysKPiA+ICAgMyBmaWxlcyBjaGFuZ2Vk
-LCAyOCBpbnNlcnRpb25zKCspCj4gPgo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvYm9vdC9k
-dHMvc3BhY2VtaXQvazEtYmFuYW5hcGktZjMuZHRzCj4gPiBiL2FyY2gvcmlzY3YvYm9vdC9kdHMv
-c3BhY2VtaXQvazEtYmFuYW5hcGktZjMuZHRzCj4gPiBpbmRleCAwMjMyNzQxODliNDkyLi5iYzg4
-ZDRkZTI1YTYyIDEwMDY0NAo+ID4gLS0tIGEvYXJjaC9yaXNjdi9ib290L2R0cy9zcGFjZW1pdC9r
-MS1iYW5hbmFwaS1mMy5kdHMKPiA+ICsrKyBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3BhY2VtaXQv
-azEtYmFuYW5hcGktZjMuZHRzCj4gPiBAQCAtNCw2ICs0LDcgQEAKPiA+ICAgICovCj4gPgo+ID4g
-ICAjaW5jbHVkZSAiazEuZHRzaSIKPiA+ICsjaW5jbHVkZSAiazEtcGluY3RybC5kdHNpIgo+ID4K
-PiA+ICAgLyB7Cj4gPiAgICAgICBtb2RlbCA9ICJCYW5hbmEgUGkgQlBJLUYzIjsKPiA+IEBAIC0x
-NSw1ICsxNiw3IEBAIGNob3NlbiB7Cj4gPiAgIH07Cj4gPgo+ID4gICAmdWFydDAgewo+ID4gKyAg
-ICAgcGluY3RybC1uYW1lcyA9ICJkZWZhdWx0IjsKPiA+ICsgICAgIHBpbmN0cmwtMCA9IDwmdWFy
-dDBfMl9jZmc+Owo+ID4gICAgICAgc3RhdHVzID0gIm9rYXkiOwo+ID4gICB9Owo+ID4gZGlmZiAt
-LWdpdCBhL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3BhY2VtaXQvazEtcGluY3RybC5kdHNpCj4gPiBi
-L2FyY2gvcmlzY3YvYm9vdC9kdHMvc3BhY2VtaXQvazEtcGluY3RybC5kdHNpCj4gPiBuZXcgZmls
-ZSBtb2RlIDEwMDY0NAo+ID4gaW5kZXggMDAwMDAwMDAwMDAwMC4uYThlYWM1NTE3Zjg1Nwo+ID4g
-LS0tIC9kZXYvbnVsbAo+ID4gKysrIGIvYXJjaC9yaXNjdi9ib290L2R0cy9zcGFjZW1pdC9rMS1w
-aW5jdHJsLmR0c2kKPiA+IEBAIC0wLDAgKzEsMjAgQEAKPiA+ICsvLyBTUERYLUxpY2Vuc2UtSWRl
-bnRpZmllcjogR1BMLTIuMCBPUiBNSVQKPiA+ICsvKgo+ID4gKyAqIENvcHlyaWdodCAoYykgMjAy
-NCBZaXh1biBMYW4gPGRsYW5AZ2VudG9vLm9yZz4KPiA+ICsgKi8KPiA+ICsKPiA+ICsjaW5jbHVk
-ZSA8ZHQtYmluZGluZ3MvZ3Bpby9ncGlvLmg+Cj4gPiArCj4gPiArI2RlZmluZSBLMV9QQURDT05G
-KHBpbiwgZnVuYykgKCgocGluKSA8PCAxNikgfCAoZnVuYykpCj4gPgo+ID4gSXQgd291bGQgYmUg
-bmljZSB0byBoYXZlIGEgcGluZnVuYyBoZWFkZXIgbGlrZQo+ID4gYXJjaC9hcm0vYm9vdC9kdHMv
-bnhwL2lteC9pbXg3dWxwLXBpbmZ1bmMuaC4KPiA+IEl0IHdvdWxkIHJlZmVyZW5jZSBhbmQgZW5j
-b2RlIHRoZSBkYXRhIG9mICIzLjIgUGluIE11bHRpcGxleCIgaW4KPiA+IGh0dHBzOi8vZGV2ZWxv
-cGVyLnNwYWNlbWl0LmNvbS9kb2N1bWVudGF0aW9uP3Rva2VuPUFuMXZ3VHdLYWlnYVhSa1lmd21j
-em5UWG5lZAo+ID4gLCB0aGUgZG9jdW1lbnQgeW91IGF0dGFjaGVkIGluIHRoZSBzdW1tYXJ5Lgo+
-IE5vdCBzdXJlIGlmIGl0J3Mgd29ydGggdGhlIGVmZm9ydC4uCgpJIGNhbiBzZW5kIGEgZnV0dXJl
-IHBhdGNoIGZvciB0aGlzLgoKPgo+IEkgZ2F2ZSB1cCBvZiBpbnRyb2R1Y2luZyBhbm90aGVyIG1h
-Y3JvLCBhcyBpdCdzIGV4YWN0bHkgb25lIHRvIG9uZSBtYXBwaW5nIHRvCj4gR1BJTyBJRCwgd2hp
-Y2ggbWVhbiBwaW4oeCkgLT4gR1BJT194Cj4KPiBtYXliZSBJIGNvdWxkIHB1dCBhIGNvbW1lbnQg
-YXQgSzFfUEFEQ09ORigpIHRvIGRvY3VtZW50IHRoaXM/CgpJJ20gd2VhcnkgdGhlIE1hbnVhbCBt
-YXkgbm90IGV4aXN0IG9uIHRoZSBzaXRlIGluIHRoZSBmdXR1cmUgb3IKd2lsbCBjaGFuZ2UgZm9y
-bWF0cy4gQnV0IGl0IHdvdWxkIGJlIG5pY2Ugb3RoZXJ3aXNlLgoKPgo+IC8qIHBpbiBpcyBzYW1l
-IHRvIHRoZSBHUElPIGlkIGFjY29yZGluZyB0byAzLjIgUGluIE11bHRpcGxleCBvZiBVc2VyIE1h
-bnVhbCAqLwo+ICNkZWZpbmUgSzFfUEFEQ09ORihwaW4sIGZ1bmMpICgoKHBpbikgPDwgMTYpIHwg
-KGZ1bmMpKQo+Cj4gZG9lcyB0aGlzIHNvdW5kIGdvb2QgdG8geW91PwoKU3VyZSwgYWRkIGl0LgoK
-QWxzbyBzb3JyeSBmb3IgbWVzc2luZyB1cCB0aGUgcmVwbHktdG8gdGhpbmcgdGh1bmRlcmJpcmQg
-aXMgY29uZnVzaW5nLgoKVGhhbmtzLApKZXNzZSBUYXViZQoKPgo+ID4KPiA+IE90aGVyd2lzZSwK
-PiA+IEFja2VkLWJ5OiBKZXNzZSBUYXViZSA8TXIuQm9zc21hbjA3NUBnbWFpbC5jb20+Cj4gPgo+
-IHRoYW5rcwo+Cj4gPiArCj4gPiArJnBpbmN0cmwgewo+ID4gKyAgICAgdWFydDBfMl9jZmc6IHVh
-cnQwLTItY2ZnIHsKPiA+ICsgICAgICAgICAgICAgdWFydDAtMi1waW5zIHsKPiA+ICsgICAgICAg
-ICAgICAgICAgICAgICBwaW5tdXggPSA8SzFfUEFEQ09ORig2OCwgMik+LAo+ID4gKyAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgIDxLMV9QQURDT05GKDY5LCAyKT47Cj4gPiArCj4gPiArICAg
-ICAgICAgICAgICAgICAgICAgYmlhcy1wdWxsLXVwID0gPDA+Owo+ID4gKyAgICAgICAgICAgICAg
-ICAgICAgIGRyaXZlLXN0cmVuZ3RoID0gPDMyPjsKPiA+ICsgICAgICAgICAgICAgfTsKPiA+ICsg
-ICAgIH07Cj4gPiArfTsKPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNl
-bWl0L2sxLmR0c2kKPiA+IGIvYXJjaC9yaXNjdi9ib290L2R0cy9zcGFjZW1pdC9rMS5kdHNpCj4g
-PiBpbmRleCAwNzc3YmY5ZTAxMTgzLi5hMmQ1ZjdkNGE5NDJhIDEwMDY0NAo+ID4gLS0tIGEvYXJj
-aC9yaXNjdi9ib290L2R0cy9zcGFjZW1pdC9rMS5kdHNpCj4gPiArKysgYi9hcmNoL3Jpc2N2L2Jv
-b3QvZHRzL3NwYWNlbWl0L2sxLmR0c2kKPiA+IEBAIC00MTYsNiArNDE2LDExIEBAIHVhcnQ5OiBz
-ZXJpYWxAZDQwMTc4MDAgewo+ID4gICAgICAgICAgICAgICAgICAgICAgIHN0YXR1cyA9ICJkaXNh
-YmxlZCI7Cj4gPiAgICAgICAgICAgICAgIH07Cj4gPgo+ID4gKyAgICAgICAgICAgICBwaW5jdHJs
-OiBwaW5jdHJsQGQ0MDFlMDAwIHsKPiA+ICsgICAgICAgICAgICAgICAgICAgICBjb21wYXRpYmxl
-ID0gInNwYWNlbWl0LGsxLXBpbmN0cmwiOwo+ID4gKyAgICAgICAgICAgICAgICAgICAgIHJlZyA9
-IDwweDAgMHhkNDAxZTAwMCAweDAgMHg0MDA+Owo+ID4gKyAgICAgICAgICAgICB9Owo+ID4gKwo+
-ID4gICAgICAgICAgICAgICBwbGljOiBpbnRlcnJ1cHQtY29udHJvbGxlckBlMDAwMDAwMCB7Cj4g
-PiAgICAgICAgICAgICAgICAgICAgICAgY29tcGF0aWJsZSA9ICJzcGFjZW1pdCxrMS1wbGljIiwg
-InNpZml2ZSxwbGljLTEuMC4wIjsKPiA+ICAgICAgICAgICAgICAgICAgICAgICByZWcgPSA8MHgw
-IDB4ZTAwMDAwMDAgMHgwIDB4NDAwMDAwMD47Cj4gPgo+ID4gLS0KPiA+IDIuNDUuMgo+Cj4gLS0K
-PiBZaXh1biBMYW4gKGRsYW4pCj4gR2VudG9vIExpbnV4IERldmVsb3Blcgo+IEdQRyBLZXkgSUQg
-QUFCRUZENTUKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Valentina,
+
+On Thu, 12 Sept 2024 at 10:48, Valentina Fernandez
+<valentina.fernandezalanis@microchip.com> wrote:
+>
+> Hello all,
+>
+> This series adds support for the Microchip Inter-Processor Communication
+> (IPC) mailbox controller, as well as an IPC remoteproc platform driver.
+>
+> Microchip's family of RISC-V SoCs typically has one or more clusters
+> that can be configured to run in Asymmetric Multi-Processing (AMP) mode.
+>
+> The Microchip IPC is used to send messages between processors using
+> an interrupt signaling mechanism. The driver uses the RISC-V Supervisor
+> Binary Interface (SBI) to communicate with software running in machine
+> mode (M-mode) to access the IPC hardware block.
+>
+> Additional details on the Microchip vendor extension and the IPC
+> function IDs described in the driver can be found in the following
+> documentation:
+>
+> https://github.com/linux4microchip/microchip-sbi-ecall-extension
+>
+> The IPC remoteproc platform driver allows for starting and stopping
+> firmware on the remote cluster(s) and facilitates RPMsg communication.
+> The remoteproc attach/detach operations are also supported for use cases
+> where the firmware is loaded by the Hart Software Services
+> (zero-stage bootloader) before Linux boots.
+>
+> Error Recovery and Power Management features are not currently
+> supported in the remoteproc platform driver.
+>
+> The PIC64GX MPU has a Mi-V IHC block, this will be added to the PIC64GX
+> dts after the initial upstreaming:
+>
+> https://patchwork.kernel.org/project/linux-riscv/patch/20240725121609.13101-18-pierre-henry.moussay@microchip.com/
+>
+> Thanks,
+> Valentina
+>
+> Valentina Fernandez (5):
+>   riscv: asm: vendorid_list: Add Microchip Technology to the vendor list
+>   dt-bindings: mailbox: add binding for Microchip IPC mailbox driver
+>   mailbox: add Microchip IPC support
+>   dt-bindings: remoteproc: add binding for Microchip IPC remoteproc
+>   remoteproc: add support for Microchip IPC remoteproc platform driver
+>
+>  .../bindings/mailbox/microchip,sbi-ipc.yaml   | 115 ++++
+>  .../remoteproc/microchip,ipc-remoteproc.yaml  |  84 +++
+>  arch/riscv/include/asm/vendorid_list.h        |   1 +
+>  drivers/mailbox/Kconfig                       |  12 +
+>  drivers/mailbox/Makefile                      |   2 +
+>  drivers/mailbox/mailbox-mchp-ipc-sbi.c        | 539 ++++++++++++++++++
+>  drivers/remoteproc/Kconfig                    |  12 +
+>  drivers/remoteproc/Makefile                   |   1 +
+>  drivers/remoteproc/mchp_ipc_remoteproc.c      | 461 +++++++++++++++
+>  include/linux/mailbox/mchp-ipc.h              |  23 +
+
+I would advise splitting the two patchsets, i.e one for the mailbox
+driver and another one for the remoteproc.  I would also start with
+the mailbox and then go with the remoteproc.
+
+Thanks,
+Mathieu
+
+>  10 files changed, 1250 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/mailbox/microchip,sbi-ipc.yaml
+>  create mode 100644 Documentation/devicetree/bindings/remoteproc/microchip,ipc-remoteproc.yaml
+>  create mode 100644 drivers/mailbox/mailbox-mchp-ipc-sbi.c
+>  create mode 100644 drivers/remoteproc/mchp_ipc_remoteproc.c
+>  create mode 100644 include/linux/mailbox/mchp-ipc.h
+>
+> --
+> 2.34.1
+>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
