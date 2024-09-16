@@ -4,74 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 525B9C3ABCB
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Sep 2024 18:57:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE6AAC3ABCB
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Sep 2024 20:14:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OU1XfQMLwQk/NCASQhx+Eely3tcRGTzuM1CCt18nKHo=; b=v8M7FhgGWk6LQX2uvreII46nrf
-	gsQYAHhmmzkqk/615DZGcKrPyB9240x6Gkgix6uFIULEK15Vlltz7QyzuNl6mn8TjQg9Z2uxoBSTH
-	vhTiCQnulIUhdkm88jvdNEukufd/fwHcMP0YBZSjc/oJnILWO06k+c2P3QQaudjk5eY5I2yx05Oo0
-	CwadRnWkgP4Z5+KBUrVARKM8CxfVXCK47g0X3HWfpUltuI+2gtZiRDzVzLGHKPncyzAgh4ZfCegRS
-	Iovm7kxPyMsIcwSzNutQapzvtNPn2aaSXtZv+9N5z7kDM/a0rcNn8lsmcCWxoIsqf9LEbYxa6Korp
-	7NZ0sXGw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=vKd/agjKf+7eVCnq9267UH79WaZL+rg/1JL8RW9AZN4=; b=Sq7P2s0PFEjqY1
+	BT35Ynlvy7jLRmfecFjO3okp1tZy+IHmyQ9vI6uDDq04vyR5OxHw+uJDCQe8n0zXz5KqrxZTCiEgn
+	mdWylC3Y0tLzVHSvW6sCEX6a5b/FIgKJ7MMb0rGlzorIyzqqon/owZuFtq9U80BEK6/QDxe/pb+Km
+	CAP9ocN7Ioh9rhMeuNPDzBsL/yzBSV3AevGWF/0TdcR0RFZPalE2cPS67XUex1Qj7EMMWeeFYnK5T
+	cm0i6oRF53lAt5xW3dH60WOy8RpyMUqM/v3GpVSxyRJlj2ZXgzKR2WzWjxXCkwsrBa5miLAlpdY8n
+	wtGkxJ/f2Z/47g1DWAaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sqGuK-00000004jOI-27SJ;
-	Mon, 16 Sep 2024 18:57:08 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1sqI7B-00000004pTT-0sev;
+	Mon, 16 Sep 2024 20:14:29 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sqGuI-00000004jNi-14a3
+	id 1sqI78-00000004pT0-2lo2
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Sep 2024 18:57:07 +0000
+	Mon, 16 Sep 2024 20:14:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4C194A42885;
-	Mon, 16 Sep 2024 18:56:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 619BFC4CEC4;
-	Mon, 16 Sep 2024 18:57:00 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 799D3A4321A;
+	Mon, 16 Sep 2024 20:14:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12BC1C4CEC4;
+	Mon, 16 Sep 2024 20:14:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1726513024;
-	bh=2rOpEhNpvCP5tv41uT2H58Pziu7pmFrgPvj3jAcIgk8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lYjquCjVo93Cjg6pRa3FlOisSx9MJ0vXCu4xMq2Xjz4aidkOJMUNj+MnONJfY8OLP
-	 7aOsfYtBLdwKewXDfHgrowYJe2tuR/BgBKovwDNM7AEMfIx1n/eW0BPKaqfaXCEztm
-	 6frSYxvTmE7M70IH/+kpaw4Kc5GrGDjOH8AGqTb+F+vdcO1KAHBsqQcnoGfHBTyMDg
-	 lTMiQKecGCgTJGbUi/FX4GXOHoVZ7Cf0Fq6nPUOSd8yhBT+oGBA8h8qT/UAxAA+rxM
-	 NTITXtsr6HwaVyrryQY59zZmbjucqRJGzixpHDF0y0Q7EFaB5tZfp4rCnTp7iJCSTO
-	 Fm0LLPVS95KnA==
-Date: Mon, 16 Sep 2024 19:56:58 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jisheng Zhang <jszhang@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Guo Ren <guoren@kernel.org>, Evan Green <evan@rivosinc.com>,
-	Andy Chiu <andy.chiu@sifive.com>,
-	Jessica Clarke <jrtc27@jrtc27.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v10 14/14] riscv: Add ghostwrite vulnerability
-Message-ID: <20240916-profanity-superjet-33a08a8b0b3f@spud>
-References: <20240911-xtheadvector-v10-0-8d3930091246@rivosinc.com>
- <20240911-xtheadvector-v10-14-8d3930091246@rivosinc.com>
- <20240916-pretext-freehand-20dca1376cd4@spud>
- <Zuh8dLsA50IHXymz@ghost>
+	s=k20201202; t=1726517665;
+	bh=QNzJiTjU1Mns30+lM7utuaNjSCWZepqybD5AhL4pGbE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jkCW0qlvon1aTP5nsQ8Jn2wXPWktp7ZaaL5DLAdEO2ynTYnHiDkVNiOfPQ2q+mu/L
+	 QvMD+l+I/Mq2qcZO6kRHxZHV1twdKwoRnmav3W4etqskaaXzuKwkqMXWHgyjvx70SL
+	 3ThfgjpawBgCXnq9+4ctKEQhkV/1clg89IlxDwfgoF28NK1xHSvXV5NvAbMcfxWlfL
+	 1VIgqod5fanMOZR0z2w9bwXaFCQ0gbNPXXad/yz+0SWr5K31kepCXD0vUwzyNzi8ez
+	 772ONMbvb8aAA8vx/47pcBOQx921GOzc8y+srYswYxwxmGfjMzIfCSmw1RjruWdnve
+	 7NvEHdC/kNeUQ==
+Message-ID: <fc541e78-5304-42be-a844-70935d66f151@kernel.org>
+Date: Mon, 16 Sep 2024 22:14:15 +0200
 MIME-Version: 1.0
-In-Reply-To: <Zuh8dLsA50IHXymz@ghost>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 4/5] dt-bindings: remoteproc: add binding for Microchip
+ IPC remoteproc
+To: Valentina Fernandez <valentina.fernandezalanis@microchip.com>,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ peterlin@andestech.com, dminus@andestech.com, conor.dooley@microchip.com,
+ conor+dt@kernel.org, ycliang@andestech.com, jassisinghbrar@gmail.com,
+ robh@kernel.org, krzk+dt@kernel.org, andersson@kernel.org,
+ mathieu.poirier@linaro.org
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org
+References: <20240912170025.455167-1-valentina.fernandezalanis@microchip.com>
+ <20240912170025.455167-5-valentina.fernandezalanis@microchip.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
+ QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
+ gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
+ /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
+ iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
+ VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
+ 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
+ xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
+ eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
+ AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
+ MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
+ Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
+ ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
+ vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
+ oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
+ lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
+ t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
+ uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
+ 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
+ 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
+In-Reply-To: <20240912170025.455167-5-valentina.fernandezalanis@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240916_115706_381203_6E98301B 
-X-CRM114-Status: GOOD (  11.07  )
+X-CRM114-CacheID: sfid-20240916_131426_866528_7273176C 
+X-CRM114-Status: GOOD (  23.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,53 +118,169 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4463290348119730444=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 12/09/2024 19:00, Valentina Fernandez wrote:
+> Microchip family of RISC-V SoCs typically has or more clusters. These
+> clusters can be configured to run in Asymmetric Multi Processing (AMP)
+> mode
 
---===============4463290348119730444==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="1W3qJ42zpxTLHb35"
-Content-Disposition: inline
+A nit, subject: drop second/last, redundant "binding for". The
+"dt-bindings" prefix is already stating that these are bindings.
+See also:
+https://elixir.bootlin.com/linux/v6.7-rc8/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
 
+> 
+> Add a dt-binding for the Microchip IPC Remoteproc platform driver.
+> 
 
---1W3qJ42zpxTLHb35
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Mon, Sep 16, 2024 at 11:44:04AM -0700, Charlie Jenkins wrote:
-> I figured that since T-Head didn't feel it was
-> valuable to change the archid/implid between cores that Linux shouldn't
-> go out of its way to fix the granularity issue.
-
-I mean, when you put it like that, I'm not particularly inclined to
-disagree...
-
---1W3qJ42zpxTLHb35
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZuh/egAKCRB4tDGHoIJi
-0m9ZAP4p4x2mD8mK/6PbASnwkCkRX6uLXgKlb3Og6pl+CuOYXQD+Pot5fkAszZBn
-jOtHr1hp7qBYQvOX0qqA+aF3UF/INAc=
-=rRd0
------END PGP SIGNATURE-----
-
---1W3qJ42zpxTLHb35--
+Binding is for hardware, not driver. Please rephrase it to describe
+hardware.
 
 
---===============4463290348119730444==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> Signed-off-by: Valentina Fernandez <valentina.fernandezalanis@microchip.com>
+> ---
+>  .../remoteproc/microchip,ipc-remoteproc.yaml  | 84 +++++++++++++++++++
+>  1 file changed, 84 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/remoteproc/microchip,ipc-remoteproc.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/remoteproc/microchip,ipc-remoteproc.yaml b/Documentation/devicetree/bindings/remoteproc/microchip,ipc-remoteproc.yaml
+> new file mode 100644
+> index 000000000000..1765c68d22cf
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/remoteproc/microchip,ipc-remoteproc.yaml
+> @@ -0,0 +1,84 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/remoteproc/microchip,ipc-remoteproc.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Microchip IPC Remote Processor
+> +
+> +description:
+> +  Microchip family of RISC-V SoCs typically have one or more
+> +  clusters. These clusters can be configured to run in an Asymmetric
+> +  Multi Processing (AMP) mode where clusters are split in independent
+> +  software contexts.
+> +
+> +  This document defines the binding for the remoteproc component that
+> +  loads and boots firmwares on remote clusters.
+
+Don't say that binding is a binding for. Say what this hardware piece is.
+
+> +
+> +  This SBI interface is compatible with the Mi-V Inter-hart
+> +  Communication (IHC) IP.
+> +
+> +maintainers:
+> +  - Valentina Fernandez <valentina.fernandezalanis@microchip.com>
+> +
+> +properties:
+> +  compatible:
+> +    const: microchip,ipc-remoteproc
+
+That's quite generic. Basically this says it will handle IPC of all
+possible Microchip SoCs, not only RISC-V but also ARM and whatever you
+come up with.
+
+
+
+> +
+> +  mboxes:
+> +    description:
+> +      This property is required only if the rpmsg/virtio functionality is used.
+> +      Microchip IPC mailbox specifier. To be used for communication with a
+> +      remote cluster. The specifier format is as per the bindings,
+> +      Documentation/devicetree/bindings/mailbox/microchip,sbi-ipc.yaml
+> +    maxItems: 1
+> +
+> +  microchip,auto-boot:
+> +    $ref: /schemas/types.yaml#/definitions/flag
+> +    description:
+> +      If defined, when remoteproc is probed, it loads the default firmware and
+> +      starts the remote processor.
+
+You described the desired Linux feature or behavior, not the actual
+hardware. The bindings are about the latter, so instead you need to
+rephrase the property and its description to match actual hardware
+capabilities/features/configuration etc.
+
+> +
+> +  microchip,skip-ready-wait:
+> +    $ref: /schemas/types.yaml#/definitions/flag
+> +    description:
+> +      If defined, the master processor will not expect a ready signal from the
+> +      remote processor indicating it has booted successfully. This allows the
+> +      master processor to proceed with its operations without waiting for
+> +      confirmation from the remote processor.
+Same problem.
+
+
+> +
+> +  memory-region:
+> +    description:
+> +      If present, a phandle for a reserved memory area that used for vdev buffer,
+> +      resource table, vring region and others used by remote cluster.
+
+missing constraints
+
+> +
+> +required:
+> +  - compatible
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +
+
+Drop blank line
+
+> +    reserved-memory {
+> +        #address-cells = <1>;
+> +        #size-cells = <1>;
+> +
+> +        contextb: contextb_reserved@81000000 {
+> +          reg = <0x81000000 0x400000>;
+> +          no-map;
+> +        };
+> +    };
+
+Drop entire reserved-node. Obvious.
+
+> +
+> +    soc {
+> +      #address-cells = <2>;
+> +      #size-cells = <2>;
+> +
+> +      rproc-contextb {
+
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+
+usually remoteproc
+
+> +          compatible = "microchip,ipc-remoteproc";
+> +          memory-region = <&contextb>;
+> +          mboxes= <&ihc 8>;
+
+Make the binding complete. Fix the white-space issues.
+
+> +      };
+> +    };
+> +
+> +...
+
+Best regards,
+Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4463290348119730444==--
-
