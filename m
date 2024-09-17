@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6546C35FFF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0168BC3601D
 	for <linux-riscv@archiver.kernel.org>; Tue, 17 Sep 2024 13:00:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,54 +12,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gZ75xn33n33MZaBRPsLghXCaEfHF8TrA1u6yseL9QcU=; b=2Nud1cMRhrDL7i
-	lk9WGI4RV+H+DHoRQGJltFQ/7wJleCgPOkSO9fFAbkNrk0hkc+Ke1rh/7UboPyG1g7jHTKszQlq5z
-	5e12B3rvCB8vnAz9KPqCRup1PP+QFbojFGpeZoxLytsj5nYAcs3IuNDXwKDOd5J8Pi47eQAu/hRpd
-	DKX24h7aFHchP9AtoFyhXtEYWs29BYgaEMmVQUJpNLNYC0st46b+UZzUyXD1e0lfUyFVvLGSYadZd
-	i8SHi7b00XqCuO95qUFxq8CLMeDnG2g+u97qNSdweq1AfZjCL9LQ/njWqY5dGBsszsMTq9f7RvHKc
-	r8OgvTLVKzLBTsUxWpuA==;
+	List-Owner; bh=KLeXm0ws8UsE9Fd4wylkzbST2+SyBxzcUC0xmKNycxU=; b=S8YulxKrjLeZ+l
+	3PPte5dxH1sYNcfLeG34L+Ti8l4zCdfx7ZhUQ6CDmWAibX800W46PRbA5HzvTUgpGiECTIHX5Y4BW
+	uIOlgjFaD+i1nnSicP9k0HsCfDUjj3jD0i2fbU7hWAilAs7c8v5rmqZMZiyj/YN45ve1JwPXCtErQ
+	IRK6HNzeWbjUNUNegCojhHFUdAzoCDN11DCK2ySK12MCj7Ym1VbItpwZQ/uCXC6dMtKyl54RkulCf
+	k7Dp4awfpii9HJ/6Cs/CMTi0Pxr+3im8hF5zPwW+/9/Q4LB04rQU8cRGfvaxTl1vPbiQyweqRuSte
+	AzPm36tvSmWAxMUfi/Bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sqXp8-00000006B0B-0YPg;
-	Tue, 17 Sep 2024 13:00:54 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1sqXp0-00000006Aui-2RkP;
+	Tue, 17 Sep 2024 13:00:46 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sqXp3-00000006Avw-11AT
+	id 1sqXox-00000006AsY-1WOD
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Sep 2024 13:00:50 +0000
+	Tue, 17 Sep 2024 13:00:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8649AA41475;
-	Tue, 17 Sep 2024 13:00:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1288DC4CECE;
-	Tue, 17 Sep 2024 13:00:48 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 82945A41470;
+	Tue, 17 Sep 2024 13:00:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B696C4CEC5;
+	Tue, 17 Sep 2024 13:00:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1726578048;
-	bh=13+lBwvxPVO2YzZgD8MFY652lnuH8q/bLmJzRCKZ9O8=;
+	s=k20201202; t=1726578041;
+	bh=+I6YJNqbdS6L1MKoC08v99ILu3LMq10ZIEs52n/9GwE=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=XQHiXsXtGWTaeXInAeOBHbvavc1cGKZL8PxRsDiJXoyOcQ4BAPz3aUYJkY7DdkJcB
-	 sVyqrHuZ1mGoL9MY9+NkQHyCiGW2h5YvyB4ujx9/Uqr/9RrWsq35i285z1OOc7t1MI
-	 hrVYNsOGGulFvYqKPhcGaFAWitTtS9qJkwG1HJYqHAgDLzikOR6OXVDTujuKV90rgX
-	 +EgvXqcuB4K6MS7ihtbyOp/rkL4eaoGRLFaR3bZAXOku4PPMyftACJKHhEkFdt0oCa
-	 a/3VnVZk8xhYLtE74unnmsBrVegXOfaFQyi+qCqNXMyytnCgmr6sRoVgtjWypWX6Dm
-	 KW5/gizybVdaA==
+	b=jEH4LxVl1YVf01Fn16xlBk3tziXeXWCBEq9mwh7k2aCKrq6pKbYmnFkSK4yeW5+fy
+	 8Kc0YYtez89HiikNsvFQP9UpbAWQdSvCdHJ6IHHNi7h3EBGpWqp7kCpdKh2x2idDtK
+	 VJ9HVeS3THp3eYX1VBuaZclps8n3sEffrcOIfBYQsDUJpw2czvIfEBBB83kFyixZ6B
+	 Sa57g0jmsx/BCBy3/NHIm4pWiIAREb2OcAPz+S7wkzgWsGZpAS4qS+t9qy5wo8hqKL
+	 lGbLHoRFVNYr04RqodUvqOVniByJf6R4k9tYQMcFioaKMJYib8gMbziKlUNeG080Mr
+	 RvXIVwNt026aw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAD083809A80;
-	Tue, 17 Sep 2024 13:00:50 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EACCC3809A80;
+	Tue, 17 Sep 2024 13:00:43 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv: Remove unused _TIF_WORK_MASK
+Subject: Re: [PATCH] drivers/perf: riscv: Remove redundant macro check
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <172657804950.126252.10342609864354079162.git-patchwork-notify@kernel.org>
-Date: Tue, 17 Sep 2024 13:00:49 +0000
-References: <20240711111508.1373322-1-ruanjinjie@huawei.com>
-In-Reply-To: <20240711111508.1373322-1-ruanjinjie@huawei.com>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
+Message-Id: <172657804252.126252.6901114018072567420.git-patchwork-notify@kernel.org>
+Date: Tue, 17 Sep 2024 13:00:42 +0000
+References: <20240708121224.1148154-1-xiao.w.wang@intel.com>
+In-Reply-To: <20240708121224.1148154-1-xiao.w.wang@intel.com>
+To: Wang@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org,
+	Xiao W <xiao.w.wang@intel.com>
 Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, samitolvanen@google.com,
- debug@rivosinc.com, andy.chiu@sifive.com, guoren@kernel.org,
- songshuaishuai@tinylab.org, bjorn@rivosinc.com, linux-kernel@vger.kernel.org
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, atishp@atishpatra.org,
+ anup@brainfault.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240917_060049_367457_A5E7BDB7 
-X-CRM114-Status: UNSURE (   8.22  )
+X-CRM114-CacheID: sfid-20240917_060043_487139_023CA6F8 
+X-CRM114-Status: UNSURE (   9.34  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,19 +82,18 @@ Hello:
 This patch was applied to riscv/linux.git (for-next)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Thu, 11 Jul 2024 19:15:08 +0800 you wrote:
-> Since commit f0bddf50586d ("riscv: entry: Convert to generic entry"),
-> _TIF_WORK_MASK is no longer used, so remove it.
+On Mon,  8 Jul 2024 20:12:24 +0800 you wrote:
+> The macro CONFIG_RISCV_PMU must have been defined when riscv_pmu.c gets
+> compiled, so this patch removes the redundant check.
 > 
-> Fixes: f0bddf50586d ("riscv: entry: Convert to generic entry")
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> Signed-off-by: Xiao Wang <xiao.w.wang@intel.com>
 > ---
->  arch/riscv/include/asm/thread_info.h | 4 ----
->  1 file changed, 4 deletions(-)
+>  drivers/perf/riscv_pmu.c | 2 --
+>  1 file changed, 2 deletions(-)
 
 Here is the summary with links:
-  - riscv: Remove unused _TIF_WORK_MASK
-    https://git.kernel.org/riscv/c/cea9d27705d6
+  - drivers/perf: riscv: Remove redundant macro check
+    https://git.kernel.org/riscv/c/1e206fad765b
 
 You are awesome, thank you!
 -- 
