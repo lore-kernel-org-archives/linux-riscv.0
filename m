@@ -4,75 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F0CBC3601E
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Sep 2024 13:58:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3503DC3601A
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Sep 2024 14:01:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jecH/p+s4cVp8cVZ3BXs0vP3dWaGdtEpKGnaGgkaZMM=; b=LBtY9yDIoAMYBA
-	IE4bbqrCQCh8XfR4VuWsWaNQAQuJOrT34S7GG/D6QH1ijyK4yZFm9wTg4zXwPyVg9w5/vuEJfFDqr
-	tAbPh4VcafFDDiJWaZICAZNP+AhloOqfXIaIxvY1zI3s9YYRi4mr7m6HQJBQ1qyxEwEWW5MxRuOTe
-	DxQYnPm6Pm7Y3itB4ZZjnPlaMJhM3LSE0Tj60UT+OnPt+Zcylmq3jESxc9g4JTRMkFaUPJs8T/V4D
-	lydelHGMtIU4CtN+s0g4CKIrm58DbVLhjyVKQDpJErmP64rli72zTEdfk+vhNbCtMu6nVFl3OqkSr
-	ir0q5GajOiycakquuBUw==;
+	List-Owner; bh=vLGnhM/SSPRBwbb1e4jzvE1hkALHk/MjPR8AZuU9Eu0=; b=nSDhb4QTHzEZW+
+	keZlod6gTaEv+aHOwUCICMfhZW5kXxIFWuhOUih+RezusAUH6GegQFUMSAPXNpXw2ctgbCOPZ5U41
+	iipasXUuFZCk6KDE5QPxL8W/vGIRa3NSiOJ6pO4JmXY873IHXzLrNigi6DactPml61pLSeM062smt
+	AnKLIOz8GhOQQKWS4lssIwUIM/DMJjsryucOVNSbo7pZb6iA5BZuJB7R+Jw45IPPt5IUKelMfjZWk
+	4F6hJS/9sIwreMvjnlmp7s6VZ4HYmHnoCSlx0U5lc5DOiyWhVOeX7eNxQc/kXLM4WKJJgNuAnIENp
+	d1HT31xoGKrTJEohBFAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sqYj7-00000006Gtd-2XpC;
-	Tue, 17 Sep 2024 13:58:45 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1sqYlz-00000006H7B-2bgy;
+	Tue, 17 Sep 2024 14:01:43 +0000
+Received: from imap4.hz.codethink.co.uk ([188.40.203.114])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sqYj4-00000006GtE-1w4q
+	id 1sqYlw-00000006H6Y-1bBr
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Sep 2024 13:58:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1726581523; x=1758117523;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ZXeO3cCGpQp8km56A8jsnfTWizOI32RKsbTpSpPVZrM=;
-  b=E4yB86KRVjEe5Ms0VFY298YXHLURFDig19oD28PTWwAUWFteJewatiEW
-   4SVeIwGMOoV3szNaLgb5O1G7CPRRZbcnhuU/VVAfRNKaKYsOyAx//f7FA
-   kd2irkQ7yOjiQMCjOGIhc9rpDtDKstl8OIcndzXuWoIULvNTcIUBrWnEk
-   5K6tlO88g7/UD9GWwGMAIfIbSMrGv1CEmx6k06sXZBjoMChBDxftBcD/+
-   hMs9r05+7IZIaAUTWVxgXssicvUwNfqw8InEK9b0vo5xregLh8fm3BhYO
-   DuxodQyhyJuk2Cp6ol9TZd4yOhIz+8n5ZCmQ09XNyxX+L4HaNbd0Lyl07
-   Q==;
-X-CSE-ConnectionGUID: cvVwbTjoRrmPABTOmesCtA==
-X-CSE-MsgGUID: kYfKR6FGQWeiT2JuqsrC5g==
-X-IronPort-AV: E=McAfee;i="6700,10204,11198"; a="25538896"
-X-IronPort-AV: E=Sophos;i="6.10,235,1719903600"; 
-   d="scan'208";a="25538896"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Sep 2024 06:58:41 -0700
-X-CSE-ConnectionGUID: DrsjfDWiQXS1CygqQkRpgQ==
-X-CSE-MsgGUID: +42bj6NxTM6E86iNmlIkXg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.10,235,1719903600"; 
-   d="scan'208";a="100036764"
-Received: from smile.fi.intel.com ([10.237.72.54])
-  by fmviesa001.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Sep 2024 06:58:38 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1sqYix-00000009q6z-1l1f;
-	Tue, 17 Sep 2024 16:58:35 +0300
-Date: Tue, 17 Sep 2024 16:58:35 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Subject: Re: [PATCH] serial: 8250_platform: Enable generic 16550A platform
- devices
-Message-ID: <ZumLC9I1Jf82Y8T-@smile.fi.intel.com>
-References: <20240730051218.767580-1-sunilvl@ventanamicro.com>
- <mhng-d52ac6ff-2221-4613-9fce-f73467495389@palmer-ri-x1c9>
+	Tue, 17 Sep 2024 14:01:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=codethink.co.uk; s=imap4-20230908; h=Sender:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=f+3PEqy3eVzR5SLTyEyR0t5SPJ5FLNpYsuvhkC3ogdc=; b=E0nIo1sg0OQyCNJQqEMdZUzwHG
+	+RHkx90nnvmEbr68KOFgz4gBl3AOxDalLhYC17Jp72vwnGSEczQWQVDfR6GCrjuMWZfTf/oe9mRTI
+	AWCOG2LfgZOsxcpgM/qM9MRCsYlkE+V1mmi8jTaOrh8S/170dVUxhPBlqhIkSk71Q2Jr6kXQofbnl
+	ZARxfjcQiq7V7l8uHSicmtFsfdo4/9fI3ul2D3CsIBhZDXLI5Qyrjyx45FBtJ9iVVvuVH1kgA6sBK
+	+yZEdQ8lhBoxRgg4kpzSnEZpu6afMzL00aCm9NdVibynTRioiqtfIaCSIsNLYw1sv+QfSlzrAFy9o
+	iMXGMY0Q==;
+Received: from [83.68.141.146] (helo=[10.136.0.254])
+	by imap4.hz.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
+	id 1sqYlr-00BSfR-DO; Tue, 17 Sep 2024 15:01:35 +0100
+Message-ID: <bab6f17a-3e39-4be4-a20e-bbdbbc2e81f8@codethink.co.uk>
+Date: Tue, 17 Sep 2024 15:01:34 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <mhng-d52ac6ff-2221-4613-9fce-f73467495389@palmer-ri-x1c9>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: RFC: extern illegal instruction trap and trap RDCYCLE
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: linux-riscv@lists.infradead.org
+References: <mhng-ac746ffc-8099-447d-a45f-772550f23290@palmer-ri-x1c9>
+Content-Language: en-GB
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+Organization: Codethink Limited.
+In-Reply-To: <mhng-ac746ffc-8099-447d-a45f-772550f23290@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240917_065842_583391_28E564DD 
-X-CRM114-Status: GOOD (  17.05  )
+X-CRM114-CacheID: sfid-20240917_070140_542192_4CF3B8F1 
+X-CRM114-Status: GOOD (  22.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,42 +68,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: apatel@ventanamicro.com, Greg KH <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org, andrei.warkentin@intel.com, linux-serial@vger.kernel.org, linux-riscv@lists.infradead.org, dfustini@tenstorrent.com, jirislaby@kernel.org, ajones@ventanamicro.com
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 17, 2024 at 06:10:25AM -0700, Palmer Dabbelt wrote:
-> On Mon, 29 Jul 2024 22:12:18 PDT (-0700), Sunil V L wrote:
-> > Currently, 8250_platform driver is used only for devices with fixed
-> > serial ports (plat_serial8250_port). Extend this driver for any generic
-> > 16550A platform devices which can be probed using standard hardware
-> > discovery mechanisms like ACPI.
-> >
-> > This is required in particular for RISC-V which has non-PNP generic
-> > 16550A compatible UART that needs to be enumerated as ACPI platform
-> > device.
+On 17/09/2024 14:46, Palmer Dabbelt wrote:
+> On Tue, 17 Sep 2024 06:08:50 PDT (-0700), ben.dooks@codethink.co.uk wrote:
+>> This is a RFC series to change how the illegal instruction trap
+>> is handled and then how to trap RDCYCLE and emulate it with RDTIME
+>> instead.
+> 
+> Only 1/3 made it to lore for me, not sure if it's just stuck somewhere.
+> 
+>>
+>> I did this when we found multiple libraries using RDCYCLE and
+>> upgrading multiple runners to newer kernels caused many problems
+> 
+> OK, so I think we're kind of just stuck with RDCYCLE then -- it was part 
+> of the base ISA when we merged the port, and every time it disappears we 
+> end up breaking userspace.
 
-> It seems a bit awkward that we need something RISC-V specific here.  I 
-> guess the idea is that we don't want to depend on PNP because we'd end 
-> up with a bunch of PCI dependencies as well?  That seems like kind of an 
-> odd way to do things, but I'm frequently suprised by ACPI stuff so
+Yes, it was an annoyance, we managed to track down all the users and
+patch out.
 
-We have the same for HSUART on Intel (see 8250_dw.c). The ACPI devices use
-different approach than PNP. PNP has the exact requirements for compatibility
-with the legacy UARTs (to some extend). It puts some limitations. I believe
-having specifics for RISC-V is fine. But I haven't checked the real IP used
-in the SoC. If it's one that we have the existing driver for (like again
-mentioned 8250_dw.c), then it should be added there.
+I thought this might be a useful idea for more generic type, so might
+look at updating to have a table of instruction masks to call.
 
-TL;DR: so, what is the IP is in hardware for UART? Custom?
+> I'm not sure what exactly the right way to do this is: IIRC there's some 
+> perf-related hooks for this, but there's also systems that just don't 
+> implement the RDCYCLE instruction at all and thus we'll need some sort 
+> of emulation for those.
+
+I couldn't get the PMU driver to allow it, not sure if there was an
+issue higher up or some other issue?
+
+> So hopefully the other two patches get through the lists at some point, 
+> but I think in general this is a reasonable thing to do -- or I guess 
+> maybe a completely unreasonable thing to be stuck needing to do, but no 
+> way around it ;)
+
+I'll check back later, currently as OSS-EU
+
+>>
+>>
+>>
+>> _______________________________________________
+>> linux-riscv mailing list
+>> linux-riscv@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
+
 
 -- 
-With Best Regards,
-Andy Shevchenko
+Ben Dooks				http://www.codethink.co.uk/
+Senior Engineer				Codethink - Providing Genius
 
-
+https://www.codethink.co.uk/privacy.html
 
 _______________________________________________
 linux-riscv mailing list
