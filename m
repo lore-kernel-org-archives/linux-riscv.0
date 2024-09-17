@@ -4,87 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0B43C35FFF
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Sep 2024 13:41:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB1A2C35FFF
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Sep 2024 13:44:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ds21H//+xuBC7i7Rq/uARSok3t3Yld2h9CfYfAAOOHM=; b=kZ1uwkT+lp9OBe
-	T5kSoGHKtWeI4zc2XSSQUC7DYcXwYqiw5nVrv+ZN9FVk9k7pS+9MTxwCen7c3mVDqZomBs1fLjOI6
-	CNb3J13Lv2dzme8ptBe0IkQli+KlBAQorN/cNm63n21l1MgdYx3zvftq8rl/SBa4EImuA0Dn9L0Pb
-	Ti8lAB5nEAzd9BjU3YboNxWdv4qIVKN41J/jeABIv3OuRBJQn+XTD4IZ6/Fgwyc110CzutjNCotYy
-	klzNTpINUAtGvGRtyAc80+JCXil1pVyzwVp+HxrNryYAch9T3GOSbbYx1tJF4tAnCqaWGA/5bAxsx
-	C8toRpjK5iFIcz1BwMBg==;
+	List-Owner; bh=bFmrixWolhXRnMCcF/McilxdYudWBhc6DO8vEPRZjGo=; b=Vl/Y8wtHgdXtAF
+	RrzZLtR4R4ROuBFrNghdZ5e88EKJfuIGfpytjsF188Qz9t8vjyQKvfngEB5JjIXaS70p2X2K3CHHq
+	2Zttqeaxqoa9BrL0mu4WaUzj7tyitm7PC38VPXv18HQo2Sc9gvEDZoBlAM6UX1KHE53w6zVfYp3Fz
+	5PvyBf0oSymVfRXFqmhqP5ExuxIQFLCPm09QIGwStH8veQE1HtSfSke3wWzz4UAPYvgL0aavPGxlM
+	Oid9wgArG0EGxCgsYQ3or9J4Moz9zcs5V8s5utr2FfCKz/xlfXkRPQpq6ue08T+iIy5M5AejEvBEj
+	nZ+obWhfg5YASpRtoZDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sqYRv-00000006FOE-1ykz;
-	Tue, 17 Sep 2024 13:40:59 +0000
-Received: from mx01.omp.ru ([90.154.21.10])
+	id 1sqYUw-00000006Fjc-0tFK;
+	Tue, 17 Sep 2024 13:44:06 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sqYRs-00000006FMQ-12pM
+	id 1sqYUv-00000006FjD-15Ff
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 17 Sep 2024 13:44:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Sender:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description;
+	bh=vPT1/BO+U9Phv5a4Mw+G6VxVGbtaN7AKxVNuXrAVhRI=; b=KldsTzIdyNgzlL6BI8GkWzD2JM
+	gjWonhomDyuEFRgGnHlRcsZPZ+vkYTs324LWfcH6GSTD3pQ9RIXwVufqkl93EJdKqdi8ktlCjvxZ8
+	GJk4OJF+XrA/sW93vgOcqCm2NYJA35vCrgEq9duyxfBroEf6/TavBBEp30alMnZbbFWPr2U87tEsl
+	VTV8yDGjC4plUQ7N2VK6uT3yIN7tOUPe6NP1M1MpCUv7nabZuf1HfhMIrlkKohU2DzVOktv58lylx
+	f75THXW6S0F2M4vz2M1S/+uncb4RU6rxPOtLCWWc6B8WWzhVRFAKcdaMu4Sxyhf6X6co48yyClPwg
+	e9zz6cnQ==;
+Received: from imap4.hz.codethink.co.uk ([188.40.203.114])
+	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1sqYUr-00000003CDA-1RIw
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Sep 2024 13:40:57 +0000
-Received: from [192.168.1.108] (178.176.75.202) by msexch01.omp.ru
- (10.188.4.12) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id 15.2.1258.12; Tue, 17 Sep
- 2024 16:40:36 +0300
-Message-ID: <3acac3fb-7e23-8d8d-974e-dec7bffb8125@omp.ru>
-Date: Tue, 17 Sep 2024 16:40:14 +0300
+	Tue, 17 Sep 2024 13:44:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=codethink.co.uk; s=imap4-20230908; h=Sender:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=vPT1/BO+U9Phv5a4Mw+G6VxVGbtaN7AKxVNuXrAVhRI=; b=cO9PkAkTgHhCseu84EvUpDu4Sh
+	HUcTYeSfDshELiR/LnkopNz36MH4w7NAc6EPNZuktjEi4ctH021XTWbj1QpLHT6t0Ey6WVpK3AH9l
+	4irjcf2cOAB/9dBukzr4NCxSSxW5y8xdtjXWVN8Z/QRYqj13wOfEPw/LDGHgGEdAKB6eTAcBcb0cp
+	vUhdCOWjdNtjW0HSi8cWCyhAnrOqYNjZgTHJKkJ9qJQOxcmehAvxYUnWlP9tCFUt5d2WRxtq8wNZo
+	ErFVUC3w1/6LuYik9vR+N7yZj4DWdF1QQ32A6B59hUIAerAqI2jdg47KYuxVMIyhDRedtg4tMNeoW
+	ZXqpFSug==;
+Received: from [83.68.141.146] (helo=rainbowdash)
+	by imap4.hz.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
+	id 1sqXws-00BR17-JL; Tue, 17 Sep 2024 14:08:54 +0100
+Received: from ben by rainbowdash with local (Exim 4.98)
+	(envelope-from <ben@rainbowdash>)
+	id 1sqXws-000000004rV-0lGX;
+	Tue, 17 Sep 2024 14:08:54 +0100
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+To: linux-riscv@lists.infradead.org
+Cc: Ben Dooks <ben.dooks@codethink.co.uk>
+Subject: [PATCH 3/3] riscv: add trap and emulation for RDCYCLE
+Date: Tue, 17 Sep 2024 14:08:53 +0100
+Message-Id: <20240917130853.18657-4-ben.dooks@codethink.co.uk>
+X-Mailer: git-send-email 2.37.2.352.g3c44437643
+In-Reply-To: <20240917130853.18657-1-ben.dooks@codethink.co.uk>
+References: <20240917130853.18657-1-ben.dooks@codethink.co.uk>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.9.0
-Subject: Re: [PATCH] RISC-V: defconfig: Remove ARCH_RENESAS
-Content-Language: en-US
-To: Palmer Dabbelt <palmer@rivosinc.com>, <prabhakar.csengg@gmail.com>,
-	<geert+renesas@glider.be>
-CC: <linux-riscv@lists.infradead.org>, <linux-renesas-soc@vger.kernel.org>
-References: <20240917131936.18980-1-palmer@rivosinc.com>
-From: Sergey Shtylyov <s.shtylyov@omp.ru>
-Organization: Open Mobile Platform
-In-Reply-To: <20240917131936.18980-1-palmer@rivosinc.com>
-X-Originating-IP: [178.176.75.202]
-X-ClientProxiedBy: msexch01.omp.ru (10.188.4.12) To msexch01.omp.ru
- (10.188.4.12)
-X-KSE-ServerInfo: msexch01.omp.ru, 9
-X-KSE-AntiSpam-Interceptor-Info: scan successful
-X-KSE-AntiSpam-Version: 6.1.1, Database issued on: 09/17/2024 13:30:04
-X-KSE-AntiSpam-Status: KAS_STATUS_NOT_DETECTED
-X-KSE-AntiSpam-Method: none
-X-KSE-AntiSpam-Rate: 59
-X-KSE-AntiSpam-Info: Lua profiles 187802 [Sep 17 2024]
-X-KSE-AntiSpam-Info: Version: 6.1.1.5
-X-KSE-AntiSpam-Info: Envelope from: s.shtylyov@omp.ru
-X-KSE-AntiSpam-Info: LuaCore: 34 0.3.34
- 8a1fac695d5606478feba790382a59668a4f0039
-X-KSE-AntiSpam-Info: {rep_avail}
-X-KSE-AntiSpam-Info: {Tracking_from_domain_doesnt_match_to}
-X-KSE-AntiSpam-Info: {relay has no DNS name}
-X-KSE-AntiSpam-Info: {SMTP from is not routable}
-X-KSE-AntiSpam-Info: d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;omp.ru:7.1.1;127.0.0.199:7.1.2
-X-KSE-AntiSpam-Info: FromAlignment: s
-X-KSE-AntiSpam-Info: ApMailHostAddress: 178.176.75.202
-X-KSE-AntiSpam-Info: {DNS response errors}
-X-KSE-AntiSpam-Info: Rate: 59
-X-KSE-AntiSpam-Info: Status: not_detected
-X-KSE-AntiSpam-Info: Method: none
-X-KSE-AntiSpam-Info: Auth:dmarc=temperror header.from=omp.ru;spf=temperror
- smtp.mailfrom=omp.ru;dkim=none
-X-KSE-Antiphishing-Info: Clean
-X-KSE-Antiphishing-ScanningType: Heuristic
-X-KSE-Antiphishing-Method: None
-X-KSE-Antiphishing-Bases: 09/17/2024 13:33:00
-X-KSE-Antivirus-Interceptor-Info: scan successful
-X-KSE-Antivirus-Info: Clean, bases: 9/17/2024 11:32:00 AM
-X-KSE-Attachment-Filter-Triggered-Rules: Clean
-X-KSE-Attachment-Filter-Triggered-Filters: Clean
-X-KSE-BulkMessagesFiltering-Scan-Result: InTheLimit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240917_064056_319405_44127D02 
-X-CRM114-Status: UNSURE (   5.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240917_144402_181664_4AC346B9 
+X-CRM114-Status: GOOD (  11.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,24 +90,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 9/17/24 16:19, Palmer Dabbelt wrote:
+Add a trap for RDCYCLE and emulate it as RDTIME instruciton.
 
-> The RZ/Five is gated behind CONFIG_NONPORTABLE because of the DMA pool
-> issue.  e36ddf322686 ("riscv: defconfig: Disable RZ/Five peripheral
+This is an initial PoC and should probably be made more generic
+way of trapping and dealing with bad instructions
 
-   Commit e36ddf322686?
+Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+---
+ arch/riscv/kernel/traps.c | 31 +++++++++++++++++++++++++++++++
+ 1 file changed, 31 insertions(+)
 
-> support") removes the drivers, so let's remove the rest of the vendor
-> support as well -- users of these will already have to play aruond with
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index 1c3fab272fd1..51ea28ebf54d 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -167,6 +167,35 @@ DO_ERROR_INFO(do_trap_insn_misaligned,
+ DO_ERROR_INFO(do_trap_insn_fault,
+ 	SIGSEGV, SEGV_ACCERR, "instruction access fault");
+ 
++#define is_system(__i) (((__i) & 0x7f) == RVG_OPCODE_SYSTEM)
++
++static bool riscv_try_csr_fixup_user(struct pt_regs *regs, u32 insn)
++{
++	/* expecting a 4 byte CSR instruction (*/
++	if (unlikely(GET_INSN_LENGTH(insn) != 4))
++		return false;
++
++	if (is_system(insn)) {
++		u32 csr = insn >> RVG_SYSTEM_CSR_OFF;
++		u32 rd = (insn >> RVG_RD_OPOFF) & RVG_RD_MASK;
++		u32 rs = (insn >> RVG_RS1_OPOFF) & RVG_RS1_MASK;
++		u32 funct3 = (insn >> RV_INSN_FUNCT3_OPOFF) & 0x7;
++
++		if (rs == 0 && funct3 == 2 && csr == CSR_CYCLE) {
++			u64 val = csr_read(CSR_TIME);
++			/* we've got a RDCCLYE, emulated it with CSR_TIME */
++
++			printk_ratelimited("PID %d: process using RDCYCLE, emulating with RDTIME\n", current->pid);
++
++			regs_set_register(regs, rd*sizeof(unsigned long), val);
++			regs->epc += 4;
++			return true;
++		}
++	}
++
++	return false;
++}
++
+ asmlinkage __visible __trap_section void do_trap_insn_illegal(struct pt_regs *regs)
+ {
+ 	bool handled;
+@@ -186,6 +215,8 @@ asmlinkage __visible __trap_section void do_trap_insn_illegal(struct pt_regs *re
+ 		}
+ 
+ 		handled = riscv_v_first_use_handler(regs, insn);
++		if (!handle)
++			handled = riscv_try_csr_fixup_user(regs, insn);
+ 
+ 		local_irq_disable();
+ 
+-- 
+2.37.2.352.g3c44437643
 
-   Around. :-)
-
-> kernel configs, so this shouldn't be much of a burden.
-> 
-> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-[...]
-
-MBR, Sergey
 
 _______________________________________________
 linux-riscv mailing list
