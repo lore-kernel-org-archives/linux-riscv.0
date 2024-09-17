@@ -4,59 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3503DC3601A
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Sep 2024 14:01:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3247C3601E
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Sep 2024 14:13:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vLGnhM/SSPRBwbb1e4jzvE1hkALHk/MjPR8AZuU9Eu0=; b=nSDhb4QTHzEZW+
-	keZlod6gTaEv+aHOwUCICMfhZW5kXxIFWuhOUih+RezusAUH6GegQFUMSAPXNpXw2ctgbCOPZ5U41
-	iipasXUuFZCk6KDE5QPxL8W/vGIRa3NSiOJ6pO4JmXY873IHXzLrNigi6DactPml61pLSeM062smt
-	AnKLIOz8GhOQQKWS4lssIwUIM/DMJjsryucOVNSbo7pZb6iA5BZuJB7R+Jw45IPPt5IUKelMfjZWk
-	4F6hJS/9sIwreMvjnlmp7s6VZ4HYmHnoCSlx0U5lc5DOiyWhVOeX7eNxQc/kXLM4WKJJgNuAnIENp
-	d1HT31xoGKrTJEohBFAQ==;
+	List-Owner; bh=Od87KDvEGVzzQi077duqoV8Q04u7ElAxznhhYa4pQm8=; b=JJ807QgoKcunJl
+	/GqrpyCirAXbNQvWgTqapoS1ZOW6YP3/kBhDF3U5ysvtTPewXnaXndiarL0C/pUYrF/fZMZXRZMQM
+	a5Z1e1amzOi6if+zRERfxJ3OSiMbUOO2fflpCrQkJPtlgdmOuE9ziwEtZ7voE0Xv5We+KyiHLg87A
+	jMJc2fIeRa6dKQmogSnqj8qPhmSxmrFmdnTXqBa4Hgbr7toBi2y8WWBwX3aYFbkyw+x5gPdVuz1O2
+	o6EoSKTmzhcfpPdUcJqoYWGeAlMVaz53A8Ak8Z63quAMJSlpIT8dIutn+D5DSxpHh4CjlDs7Y1FJC
+	Q3oskdceCraTHBUze3Yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sqYlz-00000006H7B-2bgy;
-	Tue, 17 Sep 2024 14:01:43 +0000
+	id 1sqYxn-00000006Hrq-2seK;
+	Tue, 17 Sep 2024 14:13:55 +0000
 Received: from imap4.hz.codethink.co.uk ([188.40.203.114])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sqYlw-00000006H6Y-1bBr
+	id 1sqYxl-00000006HrU-0RYg
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Sep 2024 14:01:42 +0000
+	Tue, 17 Sep 2024 14:13:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=codethink.co.uk; s=imap4-20230908; h=Sender:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=f+3PEqy3eVzR5SLTyEyR0t5SPJ5FLNpYsuvhkC3ogdc=; b=E0nIo1sg0OQyCNJQqEMdZUzwHG
-	+RHkx90nnvmEbr68KOFgz4gBl3AOxDalLhYC17Jp72vwnGSEczQWQVDfR6GCrjuMWZfTf/oe9mRTI
-	AWCOG2LfgZOsxcpgM/qM9MRCsYlkE+V1mmi8jTaOrh8S/170dVUxhPBlqhIkSk71Q2Jr6kXQofbnl
-	ZARxfjcQiq7V7l8uHSicmtFsfdo4/9fI3ul2D3CsIBhZDXLI5Qyrjyx45FBtJ9iVVvuVH1kgA6sBK
-	+yZEdQ8lhBoxRgg4kpzSnEZpu6afMzL00aCm9NdVibynTRioiqtfIaCSIsNLYw1sv+QfSlzrAFy9o
-	iMXGMY0Q==;
-Received: from [83.68.141.146] (helo=[10.136.0.254])
+	bh=gtRmv9BrhSGoV+dH/R03FLbWHG3jzP2Ra9nhvo2NjUU=; b=hs3Up6K/Z9vcE8Sh/GdJgxIP/j
+	Wl0C0cWL3EfxzPjwVZxMmJkPkoH73fQmiByU2SHt/78cUyxAv1KSrovlTgAaJLiy89D1OvJD5brLP
+	BXeskyQsQhaJ1M7XnvMMOJ94ejzzQXNFaj08HzeAeL9g2tbeAor6Bd4xcorcQDo80rVBnUXb++Umy
+	DzS0Zr+Fn1Jy/biUaCMjFzvcklDSiC7ZFNQWyQffHCvM++RXruY0OQ0w67An/7Km2TPw+wGgxZ9Zr
+	9ippZZ37LlDE56C+2yjahn9me1Q+sUurKhOjZkzqlR25whp7PV83E5ULcevY4P6m1BDdKhskNULug
+	XjZbDhlA==;
+Received: from [83.68.141.146] (helo=rainbowdash)
 	by imap4.hz.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
-	id 1sqYlr-00BSfR-DO; Tue, 17 Sep 2024 15:01:35 +0100
-Message-ID: <bab6f17a-3e39-4be4-a20e-bbdbbc2e81f8@codethink.co.uk>
-Date: Tue, 17 Sep 2024 15:01:34 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: RFC: extern illegal instruction trap and trap RDCYCLE
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: linux-riscv@lists.infradead.org
-References: <mhng-ac746ffc-8099-447d-a45f-772550f23290@palmer-ri-x1c9>
-Content-Language: en-GB
+	id 1sqXws-00BR16-Io; Tue, 17 Sep 2024 14:08:55 +0100
+Received: from ben by rainbowdash with local (Exim 4.98)
+	(envelope-from <ben@rainbowdash>)
+	id 1sqXws-000000004rS-0dH8;
+	Tue, 17 Sep 2024 14:08:54 +0100
 From: Ben Dooks <ben.dooks@codethink.co.uk>
-Organization: Codethink Limited.
-In-Reply-To: <mhng-ac746ffc-8099-447d-a45f-772550f23290@palmer-ri-x1c9>
+To: linux-riscv@lists.infradead.org
+Cc: Ben Dooks <ben.dooks@codethink.co.uk>
+Subject: [PATCH 2/3] riscv: traps: make insn fetch common in unknown instruction
+Date: Tue, 17 Sep 2024 14:08:52 +0100
+Message-Id: <20240917130853.18657-3-ben.dooks@codethink.co.uk>
+X-Mailer: git-send-email 2.37.2.352.g3c44437643
+In-Reply-To: <20240917130853.18657-1-ben.dooks@codethink.co.uk>
+References: <20240917130853.18657-1-ben.dooks@codethink.co.uk>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240917_070140_542192_4CF3B8F1 
-X-CRM114-Status: GOOD (  22.28  )
+X-CRM114-CacheID: sfid-20240917_071353_252607_7900D3FE 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,68 +70,103 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 17/09/2024 14:46, Palmer Dabbelt wrote:
-> On Tue, 17 Sep 2024 06:08:50 PDT (-0700), ben.dooks@codethink.co.uk wrote:
->> This is a RFC series to change how the illegal instruction trap
->> is handled and then how to trap RDCYCLE and emulate it with RDTIME
->> instead.
-> 
-> Only 1/3 made it to lore for me, not sure if it's just stuck somewhere.
-> 
->>
->> I did this when we found multiple libraries using RDCYCLE and
->> upgrading multiple runners to newer kernels caused many problems
-> 
-> OK, so I think we're kind of just stuck with RDCYCLE then -- it was part 
-> of the base ISA when we merged the port, and every time it disappears we 
-> end up breaking userspace.
+Add the insn as the second argument to riscv_v_first_use_handler() form
+the trap handler so when we add more handlers we can do the fetch of the
+instruction just once.
 
-Yes, it was an annoyance, we managed to track down all the users and
-patch out.
+Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+---
+ arch/riscv/include/asm/vector.h |  4 ++--
+ arch/riscv/kernel/traps.c       | 11 ++++++++++-
+ arch/riscv/kernel/vector.c      | 11 +----------
+ 3 files changed, 13 insertions(+), 13 deletions(-)
 
-I thought this might be a useful idea for more generic type, so might
-look at updating to have a table of instruction masks to call.
-
-> I'm not sure what exactly the right way to do this is: IIRC there's some 
-> perf-related hooks for this, but there's also systems that just don't 
-> implement the RDCYCLE instruction at all and thus we'll need some sort 
-> of emulation for those.
-
-I couldn't get the PMU driver to allow it, not sure if there was an
-issue higher up or some other issue?
-
-> So hopefully the other two patches get through the lists at some point, 
-> but I think in general this is a reasonable thing to do -- or I guess 
-> maybe a completely unreasonable thing to be stuck needing to do, but no 
-> way around it ;)
-
-I'll check back later, currently as OSS-EU
-
->>
->>
->>
->> _______________________________________________
->> linux-riscv mailing list
->> linux-riscv@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-riscv
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-> 
-
-
+diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
+index be7d309cca8a..c9f0b02cd975 100644
+--- a/arch/riscv/include/asm/vector.h
++++ b/arch/riscv/include/asm/vector.h
+@@ -21,7 +21,7 @@
+ 
+ extern unsigned long riscv_v_vsize;
+ int riscv_v_setup_vsize(void);
+-bool riscv_v_first_use_handler(struct pt_regs *regs);
++bool riscv_v_first_use_handler(struct pt_regs *regs, u32 insn);
+ void kernel_vector_begin(void);
+ void kernel_vector_end(void);
+ void get_cpu_vector_context(void);
+@@ -268,7 +268,7 @@ struct pt_regs;
+ 
+ static inline int riscv_v_setup_vsize(void) { return -EOPNOTSUPP; }
+ static __always_inline bool has_vector(void) { return false; }
+-static inline bool riscv_v_first_use_handler(struct pt_regs *regs) { return false; }
++static inline bool riscv_v_first_use_handler(struct pt_regs *regs, u32 insn) { return false; }
+ static inline bool riscv_v_vstate_query(struct pt_regs *regs) { return false; }
+ static inline bool riscv_v_vstate_ctrl_user_allowed(void) { return false; }
+ #define riscv_v_vsize (0)
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index 51ebfd23e007..1c3fab272fd1 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -172,11 +172,20 @@ asmlinkage __visible __trap_section void do_trap_insn_illegal(struct pt_regs *re
+ 	bool handled;
+ 
+ 	if (user_mode(regs)) {
++		u32 __user *epc = (u32 __user *)regs->epc;
++		u32 insn = (u32)regs->badaddr;
++
+ 		irqentry_enter_from_user_mode(regs);
+ 
+ 		local_irq_enable();
+ 
+-		handled = riscv_v_first_use_handler(regs);
++		if (!insn) {
++			if (__get_user(insn, epc)) {
++				/* todo */
++			}
++		}
++
++		handled = riscv_v_first_use_handler(regs, insn);
+ 
+ 		local_irq_disable();
+ 
+diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
+index 682b3feee451..b852648cb8d5 100644
+--- a/arch/riscv/kernel/vector.c
++++ b/arch/riscv/kernel/vector.c
+@@ -168,11 +168,8 @@ bool riscv_v_vstate_ctrl_user_allowed(void)
+ }
+ EXPORT_SYMBOL_GPL(riscv_v_vstate_ctrl_user_allowed);
+ 
+-bool riscv_v_first_use_handler(struct pt_regs *regs)
++bool riscv_v_first_use_handler(struct pt_regs *regs, u32 insn)
+ {
+-	u32 __user *epc = (u32 __user *)regs->epc;
+-	u32 insn = (u32)regs->badaddr;
+-
+ 	if (!has_vector())
+ 		return false;
+ 
+@@ -184,12 +181,6 @@ bool riscv_v_first_use_handler(struct pt_regs *regs)
+ 	if (riscv_v_vstate_query(regs))
+ 		return false;
+ 
+-	/* Get the instruction */
+-	if (!insn) {
+-		if (__get_user(insn, epc))
+-			return false;
+-	}
+-
+ 	/* Filter out non-V instructions */
+ 	if (!insn_is_vector(insn))
+ 		return false;
 -- 
-Ben Dooks				http://www.codethink.co.uk/
-Senior Engineer				Codethink - Providing Genius
+2.37.2.352.g3c44437643
 
-https://www.codethink.co.uk/privacy.html
 
 _______________________________________________
 linux-riscv mailing list
