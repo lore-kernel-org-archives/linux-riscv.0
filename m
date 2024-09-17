@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91012CAC593
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Sep 2024 17:45:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54B3FCAC593
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Sep 2024 17:45:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=76HmY5h+z3YgI6stxAOYj5bRTjQ0/7qFlqZfQWMg1vg=; b=Zp8rmCdNwa6/IG
-	x2Je5gFG5/mA6UlutCPh7VC+yf6iBF+8yA1XF/a51Bvm0QN0MZxl6LqWvL2/F1EzTXRMqy6xdEYbu
-	pBMndeAlET1dpRvHsv6ghh7UDEf/uuP0fFTH3Nq6hp8JUqcycSYvN0EBuKMH6n1+sFNrNEQXYnKPE
-	2s+JXNpvSDH+NYm4x9RZjD3zyJE34OuBNES2qpiOMy3bx2NT4sPXZDl8oUWRDZZGN8rrrkYgWTdW9
-	h96mzQ5CZ3NFu4I64J9mklyqFFgTAFnGRCTFrp8+esopBiau53k0NprCZxoEC3QZRCtUn89o1Hj0+
-	3V6kE0vRYYp5A2xlV2vw==;
+	List-Owner; bh=JvePEVbA5LJqjf8zSIvWDYti98VBGR8OahjJ59hYUNE=; b=Vt3MJz3brnFP5z
+	apNc+jNV9LVA5tL2DLCP9tqwn+jUEOz2sAnPRKASZGHAWWBbFIv0xnnjIc6f2URseJjl5WD4xXSa8
+	vWt3D6s4XafeKnpr/3Hs/sg52ZwMztDLS5pr2qp2UItlCo8b+MXjuD25NhERZl3S/ickvSI7GGfmt
+	BYAgQEZ0qVU8XZVeiVqi8IKFX5jfY+EI/TYRizu+/sMIv5yH/J34UmJlNNBTL3UJJ9mY7LqNuu4F5
+	DICfjb0sCp28M91O4t3xF1XYGS5mdJqW6BXKqEdG9tporQVEpLwmuCqoGADsOk7NhCZ0fhz9W+i5o
+	tU3bXA6fK42WCKNIK3RA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sqcGZ-00000006dkm-0oJt;
-	Tue, 17 Sep 2024 17:45:31 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sqcGX-00000006dkQ-3yCj;
+	Tue, 17 Sep 2024 17:45:29 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sqb62-00000006VWJ-34nq
+	id 1sqb5z-00000006VVI-2N9P
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Sep 2024 16:30:36 +0000
+	Tue, 17 Sep 2024 16:30:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E39EC5C5C7D;
-	Tue, 17 Sep 2024 16:30:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C094EC4CED0;
-	Tue, 17 Sep 2024 16:30:32 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 95138A426EA;
+	Tue, 17 Sep 2024 16:30:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 161B3C4CEC5;
+	Tue, 17 Sep 2024 16:30:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1726590632;
-	bh=dVn6toOWUMndWz0phAgZEkT51ag34FEvN23AY+GMlWE=;
+	s=k20201202; t=1726590630;
+	bh=Qp1EeX8xGUd5kQiQXNESKgJ0EV0UH4Y/iy7zxMn1Lvo=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=Ys91hG9uFq6OA7NKIX7tE56ex7D90o+edlc2ucpaf6EXRhiF1hvn0gcsTSAYiHQh+
-	 YrzKVvF2YGWBZoxGrgH7pUp4NzirWH05v7uZkCtWjTUU3iwempLKa/qPlGx3ud0maN
-	 ZHn5rwGkkvPALfYdRVeJa+Yk/kyvI7fcw+WIlZmv6anN+xIlZw5MNrJUm+GbDcymO/
-	 qKGq3tMPiXml1d0japm9CWsIa+xBgXsfkGtcqcLknOcpzgUH2cs1f4Am2Xsby1J/xX
-	 ZcE8oKD30QPTKsCsng8qPI4H5oRdwhm/BCn8kkRluVHRJUqr0/9+1bYqrabWv2dVKG
-	 OYbbJQUhjM96g==
+	b=TgyNJbBcw2xzv5RloeoYcrEkX6Whx/GkckMJuCATs3ROis2LX0WZ81THmXk13YR7T
+	 whRNNBfxHCq6MLvpgl/5cUBsWCf/NPcPbQQcE90hj521BJLZNqXpmmyzz8xb7sGo4I
+	 zBRkhZpdB/ZTIpivUhNz4aR/ErqdSUpo+xH0xnDea8KeZzz+U5Tqjc8XN60AOxfrfB
+	 KwOBoV6b6pKrGVP1bx+J4OEIEALrVfLUSHVzCe97LUeiZ0lVQ4ROn6Z3tG6tIPhzyW
+	 1fPEoIU+a3gamopndP1zJEM/eZ1VPsq5RM1QhBq3554uXUwwLUJwHurOjl54XqPjwH
+	 E8yoj1Klm5K+Q==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id AE31B3809A80;
-	Tue, 17 Sep 2024 16:30:35 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EBBAE3809A80;
+	Tue, 17 Sep 2024 16:30:32 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH -next] riscv: Use LIST_HEAD() to simplify code
+Subject: Re: [PATCH] riscv: Make riscv_isa_vendor_ext_andes array static
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <172659063451.214459.17274423748599144826.git-patchwork-notify@kernel.org>
-Date: Tue, 17 Sep 2024 16:30:34 +0000
-References: <20240904013344.2026738-1-ruanjinjie@huawei.com>
-In-Reply-To: <20240904013344.2026738-1-ruanjinjie@huawei.com>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
+Message-Id: <172659063180.214459.6745282493523135362.git-patchwork-notify@kernel.org>
+Date: Tue, 17 Sep 2024 16:30:31 +0000
+References: <20240807-make_andes_static-v1-1-b64bf4c3d941@rivosinc.com>
+In-Reply-To: <20240807-make_andes_static-v1-1-b64bf4c3d941@rivosinc.com>
+To: Charlie Jenkins <charlie@rivosinc.com>
 Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, charlie@rivosinc.com,
- mcgrof@kernel.org, dan.carpenter@linaro.org, rppt@kernel.org,
- alexghiti@rivosinc.com, kernel@esmil.dk
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org,
+ lkp@intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240917_093034_859918_F33B645B 
-X-CRM114-Status: UNSURE (   8.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240917_093031_697863_20896AB1 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,18 +80,21 @@ Hello:
 This patch was applied to riscv/linux.git (for-next)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Wed, 4 Sep 2024 09:33:44 +0800 you wrote:
-> list_head can be initialized automatically with LIST_HEAD()
-> instead of calling INIT_LIST_HEAD().
+On Wed, 07 Aug 2024 17:27:42 -0700 you wrote:
+> Since this array is only used in this file, it should be static.
 > 
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202407241530.ej5SVgX1-lkp@intel.com/
 > ---
->  arch/riscv/kernel/module.c | 4 +---
->  1 file changed, 1 insertion(+), 3 deletions(-)
+>  arch/riscv/kernel/vendor_extensions/andes.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> [...]
 
 Here is the summary with links:
-  - [-next] riscv: Use LIST_HEAD() to simplify code
-    https://git.kernel.org/riscv/c/3cc754c237e9
+  - riscv: Make riscv_isa_vendor_ext_andes array static
+    https://git.kernel.org/riscv/c/594ffcf4efe5
 
 You are awesome, thank you!
 -- 
