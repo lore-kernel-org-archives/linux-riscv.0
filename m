@@ -4,59 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64DEECAC596
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Sep 2024 19:10:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C065FCAC5A2
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Sep 2024 21:08:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wSKm0331FrldEi51hOgP8Ug0mG54IhjQN1NLcBx61E8=; b=WKyLCP7sDh5GqO
-	prTLNWvPc44InVv+Qn8p6TCzdfmHFY5S3Z97RnB+TdwsKcqGDh4mvPbnyHw4q9B8HBuAVpaRvoWCV
-	envny6zuqeTEBhHc+BshwnILMK9eYGLKy3LteabYDTiC+CVY+GxgekUbBz6Gc/ojJOlBowVoqNBI/
-	sRvxFTp1iRWfC/M3QnmS7NtexNKxGDTi0E4CIYSyVgZCNqy8UO888ZnaCANJCzJcMU/UkgVomawoA
-	ZUTjc53+pLB2/giP5NbXsXCsp58NPt5MqjVAn2/bSfev6gLOLQR4ZJvPBHBMiXltc8hCbBpnZoh6v
-	OX343KIuq3wpLR0v1jEA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jL9xXh+bGQQAwQ35CFRSlFnym8yk4NAe6EQ1JDIvZuQ=; b=f8d6lCTqaK1J3l38ofWm4sv+VR
+	H8eoNe0xAdLyBuehjVe2flLw6iaeS2YzTMJBmKsfD4rWdAjFujfr1A+Boph0cYoIkaZx4qUZ5agUq
+	GdCO9BUJfcQCZyYkbizep1MB+w1KlRdUgPXh5Sx6ImtCHihH8MaI4LHq1u15B/W5oHXSzurcfCzmM
+	YQEG0b9CQsajlAxqe/zrcTabSHAPJtjQ7dKl8Nfqyty3broAomsxhLyz9DwbQ7zrKSAifW0dL9nh2
+	SQCJhGcrxL/0bIlfN2xd9Z4LI8QSCFtbfigTYHQuK/dMVw/H5/Fyf0IPMtsQWWbwL43Pd+SnnoKtN
+	vXeXw2Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sqdat-00000006jaA-0mET;
-	Tue, 17 Sep 2024 19:10:35 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1sqfQe-00000006v9T-0vmq;
+	Tue, 17 Sep 2024 21:08:08 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sqdaq-00000006jZS-0DCL
+	id 1sqfQa-00000006v8u-1lhs
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Sep 2024 19:10:33 +0000
+	Tue, 17 Sep 2024 21:08:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4691C5C0205;
-	Tue, 17 Sep 2024 19:10:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68419C4CEC6;
-	Tue, 17 Sep 2024 19:10:30 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 63EB35C38FC;
+	Tue, 17 Sep 2024 21:07:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A7AFC4CEC5;
+	Tue, 17 Sep 2024 21:07:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1726600230;
-	bh=LN4sSdQbVNRyuftdRjJJuLlsJTP2gVDvHPaxKdycA+E=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=g7eXMVgOamIn36vMbI7OuOfwa16ZYj540udwW+aw0LC5jk77499xdtMqu4+A781a4
-	 JXFWE02bYY8cKiHwool1FkHqHPB1Bm/5V+oGpDvsMsFpqI+fHW3Z6r/pdJHOtuJmv0
-	 l67yZnK/BHXhciEeDPl3Vy5NheFPkSEtJkKZ6F2+leJCcyABGU8BsbRC6Su8ORzjo3
-	 7G6EoxkrMNGCzprGCbrI9TVknmWwsuvRZOy/udc5Y7J/+J6jt9EZwL7M+bj+Thquk0
-	 annP5eezlsUrx6ni73ycjRDliNFIarC2RpjqjzqKWXnuoZ44UsoUK8WTvz3/8Bv+8U
-	 i1nr7135Ut1AA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 34FE73809A81;
-	Tue, 17 Sep 2024 19:10:33 +0000 (UTC)
+	s=k20201202; t=1726607282;
+	bh=Xw3qFVde4mW/vVW5R3FHyrkUkN6HRIPohqAfP8ki1cI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CsbDwsQMzYP89sJ1xwuAWKIoRn8xBwDKXeZc2aPQxof68aoPY2YRumZdSdWdEc+Ho
+	 bENcFwj9e2++zZDEjW5+MefLdrq9A7siRX0dYBhKXcollwOX8h6rvTqCIXASx6zlsT
+	 eCQ3DnxsA7D4JgP+zlUg/XWpEUZE5HuM3eHqwTIE18TbkNf/zdkqH0lyNQ8JS7MGIV
+	 EgDUjZhWlOBVSDbinAUrSP8yB/jDA1sZsLgrJiZ9hgOf0Uzueilgi8rybxwdvawVL1
+	 3wNiEVxcHWM7tZ2bhrPRO9GHpav6z2H5S8wcRzE9aDScHsr16Jy/xFTrrl3bulziAm
+	 K4nxuAfu/2ZlQ==
+Date: Tue, 17 Sep 2024 22:08:03 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Subject: Re: [PATCH v5 00/10] riscv: add initial support for SpacemiT K1
+Message-ID: <20240917-spoilage-nimble-a8303fd04482@squawk>
+References: <20240730-k1-01-basic-dt-v5-0-98263aae83be@gentoo.org>
+ <mhng-5bc45db9-5deb-4db6-8733-561768b2968c@palmer-ri-x1c9>
 MIME-Version: 1.0
-Subject: Re: [PATCH] ACPI: RISCV: Make acpi_numa_get_nid() to be static
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <172660023203.247451.10308153847159173227.git-patchwork-notify@kernel.org>
-Date: Tue, 17 Sep 2024 19:10:32 +0000
-References: <20240811031804.3347298-1-guohanjun@huawei.com>
-In-Reply-To: <20240811031804.3347298-1-guohanjun@huawei.com>
-To: Hanjun Guo <guohanjun@huawei.com>
+In-Reply-To: <mhng-5bc45db9-5deb-4db6-8733-561768b2968c@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240917_121032_152707_81C7AD99 
-X-CRM114-Status: UNSURE (   9.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240917_140804_617255_A88315F3 
+X-CRM114-Status: GOOD (  26.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,40 +65,103 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, haibo1.xu@intel.com, rafael@kernel.org, lpieralisi@kernel.org, sudeep.holla@arm.com, linux-acpi@vger.kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: cyy@cyyself.name, Conor Dooley <conor.dooley@microchip.com>, jszhang@kernel.org, linux-riscv@lists.infradead.org, jirislaby@kernel.org, robh@kernel.org, anup@brainfault.org, daniel.lezcano@linaro.org, kevin.z.m@hotmail.com, linux-serial@vger.kernel.org, devicetree@vger.kernel.org, conor+dt@kernel.org, aou@eecs.berkeley.edu, lkundrak@v3.sk, Paul Walmsley <paul.walmsley@sifive.com>, tglx@linutronix.de, zhangmeng.kevin@spacemit.com, dlan@gentoo.org, Greg KH <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org, jesse@rivosinc.com, samuel.holland@sifive.com, inochiama@outlook.com, matthias.bgg@kernel.org, krzk+dt@kernel.org
+Content-Type: multipart/mixed; boundary="===============1333388682629162090=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
 
-This patch was applied to riscv/linux.git (for-next)
-by Palmer Dabbelt <palmer@rivosinc.com>:
-
-On Sun, 11 Aug 2024 11:18:04 +0800 you wrote:
-> acpi_numa_get_nid() is only called in acpi_numa.c for riscv,
-> no need to add it in head file, so make it static and remove
-> related functions in the asm/acpi.h.
-> 
-> Spotted by doing some cleanup for arm64 ACPI.
-> 
-> Signed-off-by: Hanjun Guo <guohanjun@huawei.com>
-> 
-> [...]
-
-Here is the summary with links:
-  - ACPI: RISCV: Make acpi_numa_get_nid() to be static
-    https://git.kernel.org/riscv/c/21d98d658f9e
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+--===============1333388682629162090==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="v4bulkuQot7/4uA1"
+Content-Disposition: inline
 
 
+--v4bulkuQot7/4uA1
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Sep 17, 2024 at 06:04:29AM -0700, Palmer Dabbelt wrote:
+> On Mon, 29 Jul 2024 17:28:03 PDT (-0700), dlan@gentoo.org wrote:
+> > SpacemiT K1 is an ideal chip for some new extension such as RISC-V Vect=
+or
+> > 1.0 and Zicond evaluation now. Add initial support for it to allow more
+> > people to participate in building drivers to mainline for it.
+> >=20
+> > This kernel has been tested upon Banana Pi BPI-F3 board on vendor U-Boot
+> > bootflow generated by Armbian SDK[1] and patched OpenSBI[2] to enable
+> > Zicboz, which does not in the vendor dts on its U-Boot. Then successful=
+ly
+> > booted to busybox on initrd with this log[3].
+> >=20
+> > As previous discussion in patch v1[4], maintainer expect more basic dri=
+vers
+> > ready before really merging it, which would be fine. For other follow-u=
+p patches,
+> > that are clk, pinctrl/gpio, reset.. My current goal would target at a h=
+eadless
+> > system including SD card, emmc, and ethernet.
+>=20
+> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+>=20
+> if you guys want to take this through some SOC tree.  I'm not really sure
+> what the bar is for SOC support to get merged, but I'd be happy to just s=
+ee
+> this booting at all -- we've got a bunch of them floating around and the
+> vendor kernels are pretty crusty, so anything's an improvement on my end.
+
+I've asked for clock and ideally pinctrl support before merging it. We
+had a conversation about the usefulness etc of some of the initial
+devicetrees merged for some platforms a few months back, that lead to me
+not merging the k230 support I had queued up. I know this isn't exactly
+a "fair" barrier to entry, as it is likely that platforms supported by
+hobbyists are going to be more affected than companies that usually come
+with that basic level, but have to draw a line somewhere.
+Both clock and pinctrl are currently in progress for the k1, hopefully
+wont take too much longer before this is mergeable.
+
+In other news, nobody has really made an "official" statement about who
+is going to maintain this particular platform. People have expressed
+interest (including the submitter of the series, IIRC) but there's no
+MAINTAINERS entry added here AFAICT. I used to have an entry that
+covered arch/riscv/boot/dts/*, with exclusions for sunxi and renesas,
+but with Drew taking on thead and sophgo being the res=E3=81=BDonsibility of
+Chen Wang and Inochi, I no longer have that wildcard.
+
+I'm happy to apply patches for the platform if noone else is interested
+in that side of things, provided there are willing reviewers, but I
+would much rather that someone else took up the responsibility of
+applying patches and sending PRs - and of course I am happy to help
+whoever that is with the process.
+
+Cheers,
+Conor.
+
+--v4bulkuQot7/4uA1
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZunvrwAKCRB4tDGHoIJi
+0vJfAQCKzg29et4gyyvvDvcq+H0Lr+9pUp0MuhQz0BQ1+12qRAD/ZabDnCrlmXdm
+mcstHKWqUcb70WAc/TNCUbS+pCiwsgo=
+=JYI3
+-----END PGP SIGNATURE-----
+
+--v4bulkuQot7/4uA1--
+
+
+--===============1333388682629162090==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1333388682629162090==--
+
