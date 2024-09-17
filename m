@@ -4,76 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81543CAC585
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Sep 2024 15:03:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA9E2CAC583
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Sep 2024 15:03:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5Y/Qat6AzRKplphp48SZUYlsDNRZPg5kxstqtlHPmX0=; b=kToofqOmRB1EpR
-	dbYymbT6ckTqEJK1uWc/trda87VRdVBVaQLP9QFeD7NViyZ1oh+xo2p4VKoVALItc/FjSwJ4y1lFR
-	zZUK2maeW09UMTR6cD/ajQSY18hemJne9qg5QADwqGWANkxjJKRiAtRxpmFnfFUhvHD/+F5DOFk7m
-	v+KLoC0Pye3EhZo425cjEy8vNSdKTUnUzQSmEIjYvtUaqBDPhqimedUUZkBIB8sOEbn0yX8F1GciQ
-	8xFF4T7qwu4+hnnL6KerC5z1XB80JOQU1x3M85VSHfsEKCHtn3cnnC1OV8Fry0R99K28WO0B9N362
-	gbuO9z/4yezzJRwyAFGQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=iaVx/bA2D81o1hBolahiIZqhmhWFBlWVlbXr/ROatuY=; b=dJFkm7oPaZSa8/
+	/FK7e28hC731lK4dhLp0/ZAkVCMwfxCwj6fBY62jA85w4UGcnRQ4AwFEJDFNlzIUGhsXYxrY0YLr9
+	Gdhdjt+QjD4gIuaj3M8cRkRU/Qwbwl1Dn7vCKBuGBCi6Liv0bzA17rc7oTgnRZSswXTjkIEYpWh31
+	OxpkntukLWmPBzrmq2N98eQicidSJmcJbmvxqosYV5iBcsXci7OBJ2KiPaHr45cODyexhQV+xV6/U
+	+7SzgPyD1q/3El+ELKbwpXFFJmJo0ddoYqLl/pN5UsqEBSxHysPAbrIFviKbuV3ABNNrUhptpMcnM
+	9Egqq3B9uWxWRCB0o+Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sqZjn-00000006M8E-1XsW;
-	Tue, 17 Sep 2024 15:03:31 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1sqZjt-00000006M97-1JlW;
+	Tue, 17 Sep 2024 15:03:37 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sqZjk-00000006M7i-2erc
+	id 1sqZjp-00000006M8I-1YyH
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Sep 2024 15:03:30 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-42cb57f8b41so59976515e9.0
-        for <linux-riscv@lists.infradead.org>; Tue, 17 Sep 2024 08:03:27 -0700 (PDT)
+	Tue, 17 Sep 2024 15:03:35 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-42cb9a0c300so49686745e9.0
+        for <linux-riscv@lists.infradead.org>; Tue, 17 Sep 2024 08:03:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1726585406; x=1727190206; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=DEjfOu7U4qW/b8av+aYUfpVst9tLz9bG3DCS1JXbv6Q=;
-        b=d+JF2LWlJxytndzL8B++1LE+G3yxaq+YboCj59T8lBEUbzk6qQWYL86ME+LOoy9P+a
-         rKHPqFVWBEBfhSs1/MSUcfhglSmjaLxCxTJ+mp2d++MEckmefR+6xqGA9sIWvATivWGr
-         y+oK+h5l3JsAL3RIaDLrY/UaA/C7LRCcll2uQhRHutfNgiRBybEvi7RW+QIrxgNGRR+l
-         vF+IT2CZWYBdNfvjVhNB4ckZtFftZeW3wxsqgdoi6vl4ZWR31oLVrkJYgo2LJFaTm5Tv
-         y882xyQP3r8px3fiESKkm4r5w39uuvm177CCDhoGvmXDQwSt9RgUmr6zOw3PAQUxhHEh
-         1I5w==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1726585411; x=1727190211; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ND6eYc2e5z5r+zC7yHLZpkb+5DC0X9uw7m7bHoeXpy8=;
+        b=eBoA8ueL+07sc44Kt8g1n6OJGR9nK9JD9R5LhBUKn7aT4kCikoyIFDOOF57FyTiCh+
+         PLMiW9MEpuFEc09qgHP/FfTW93EdVO073jnduX4pWmeW2ulVakOFi0Z4MPyQpTWesj9j
+         qM/fVydxOHv6TbAJON2C321nbGOIEywtMMywJeFf8CsMOrqkjUMictsyluAMSFNdwbgF
+         2qj+3RIay20wNh3+PKhO8la5VGM0xf02Fmz/49c6WQwhSJ0d93iP2wqT5htD1sNZEy8Q
+         j2pPvg7XCSD+ZArW+wfJ4llDwTvmRCj+J2MwN+mwDKiS4i8r9pXcTEIEJs+3efllIUIL
+         sQeg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1726585406; x=1727190206;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DEjfOu7U4qW/b8av+aYUfpVst9tLz9bG3DCS1JXbv6Q=;
-        b=pQw22uuDTxaTFm4QTHQSOHux+bjYluaE/mhZbkUMpvW37nzpv7oDypELPGJtfyy7Vc
-         cK6fF1GhMG6vtnLJmUOrMXHcY7dPoJOjnGdrl1hkp96Tz4ecEGgnkHxxK4xntPgfb3a8
-         Ca5l5XZH6Rhb4saXLK1sPIwF4CQ03FVayxzTMnCCt5Mn/ECPsNqbQYLirtlg9NoaJNpu
-         gAQCAwz9UwamsthzPNF9b1Li38ZNamCgZc2XK+x+kP/5fNclz+eit7THhUGoi8KmRrUn
-         klSkww34fZPwmJyam0oaj5UyKjDSyS1KVfIXXf4rGUEikNbeVyWGud0UqRYMoU4+jP+/
-         +t8g==
-X-Gm-Message-State: AOJu0Yx48btLr88zXdZZj2RX8y3uJ9aCb2EpXEuS8WQe2lUzYKmfZnBM
-	BojTIlwY18H3VC4NhZ/S3wFKsIppDeP17O7QHk2OGSUA5fINc/Z3BkL69BIbkDU=
-X-Google-Smtp-Source: AGHT+IE509PIgGJLgtatMO/F5FZJq/6KkzgLOlDt8Uchy/rQAQ1FKzvuvPLTcVZZZ8K82Ui2J88/mg==
-X-Received: by 2002:a05:6000:1847:b0:374:c160:269e with SMTP id ffacd0b85a97d-378d61e28acmr17727506f8f.22.1726585405388;
-        Tue, 17 Sep 2024 08:03:25 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-378e780024fsm9810258f8f.81.2024.09.17.08.03.24
+        d=1e100.net; s=20230601; t=1726585411; x=1727190211;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ND6eYc2e5z5r+zC7yHLZpkb+5DC0X9uw7m7bHoeXpy8=;
+        b=J33rV4dUK/e6QdUfE0zQSEMoOwPhHXR4gxltWrJGrSJQIzLgclf8c/EJld/Eo0KMMV
+         kyo3fKXN9wcab4+aQwL6fsulPmFB4V5W2K0m7mMrfEAIq15/zCRpCbqa10UNxYijhhvm
+         Xs1k823g6T9Hxhz+LFX/Cgz4Lw7xVYjZjdRTo5FR6BetRU5JVodjQ6OJ/o2pzMz1F68i
+         IxUVLSCwA86UyKp7LO+rQyio4dNnKdAzS3b9sDhkPxEWeX+QQteWZJz9lN12Rc1rOPk8
+         Cmg1dTQOs41mj99Gf+7/eB8tkl0bTMToIW8XBmo4shK+3UbzuD+Z4BjR5eiyZP6vXz+p
+         WdNw==
+X-Forwarded-Encrypted: i=1; AJvYcCXESm3KS/QFVOhOuVi5E1lCZM8TG5idvZ0GxBRiCJ5LawnGG0Qs+6W5s+pOeNBP/x3ZKza6WfrYBjMNbg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwBaxjzTTJcvy0VHm44NVHcS2eNu5+tSyoQtAAiw1oVmF8wQ/bc
+	LroAMj8g8Pu1ozVjmC7wnMvWL2afQR1SIQ132wnyCsl7aJtilKocj9QXgpOvNuE=
+X-Google-Smtp-Source: AGHT+IFcVadBxh+qAbSCLQDPMzD1mmtwUDKphd/cCXTI/LhLVwku41hzZL7m/dPisydjMBeLLD04ig==
+X-Received: by 2002:a05:600c:1e10:b0:42c:bd27:4c12 with SMTP id 5b1f17b1804b1-42cdb522cf7mr148867315e9.10.1726585410790;
+        Tue, 17 Sep 2024 08:03:30 -0700 (PDT)
+Received: from alex-rivos.ba.rivosinc.com (83-65-76-156.static.upcbusiness.at. [83.65.76.156])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-378e73e81a5sm9812770f8f.34.2024.09.17.08.03.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Sep 2024 08:03:24 -0700 (PDT)
-Date: Tue, 17 Sep 2024 17:03:24 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, schwab@suse.de
-Subject: Re: [PATCH v2] RISC-V: Schedule SBI-0.1 for removal
-Message-ID: <20240917-eaaf475e51774a8953eb45cb@orel>
-References: <20240917135308.24997-1-palmer@rivosinc.com>
+        Tue, 17 Sep 2024 08:03:30 -0700 (PDT)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Guo Ren <guoren@kernel.org>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
+	syzbot+ba9eac24453387a9d502@syzkaller.appspotmail.com,
+	stable@vger.kernel.org
+Subject: [PATCH -fixes] riscv: Fix kernel stack size when KASAN is enabled
+Date: Tue, 17 Sep 2024 17:03:28 +0200
+Message-Id: <20240917150328.59831-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240917135308.24997-1-palmer@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240917_080328_695815_E03C122B 
-X-CRM114-Status: GOOD (  23.09  )
+X-CRM114-CacheID: sfid-20240917_080333_713908_ED0A4816 
+X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,77 +96,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 17, 2024 at 06:53:08AM GMT, Palmer Dabbelt wrote:
-> We've said we're going to deprecate SBI-0.1 for a while now, but I
-> didn't find that written down anywhere.  So mark SBI-0.1 as deprecated
-> and print a timeline for that deprecation on systems that probe it.
-> 
-> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> ---
->  arch/riscv/Kconfig      | 17 +++++++++++++----
->  arch/riscv/kernel/sbi.c |  1 +
->  2 files changed, 14 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index f00d474e13d0..fad197d5e122 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -838,12 +838,21 @@ menu "Kernel features"
->  
->  source "kernel/Kconfig.hz"
->  
-> -config RISCV_SBI_V01
-> -	bool "SBI v0.1 support"
-> +config RISCV_SBI_V01_DEPRECATED
-> +	bool "SBI v0.1 support (DEPRECATED)"
->  	depends on RISCV_SBI
->  	help
-> -	  This config allows kernel to use SBI v0.1 APIs. This will be
-> -	  deprecated in future once legacy M-mode software are no longer in use.
-> +	  This config allows kernel to use SBI v0.1 APIs.
-> +
-> +	  SBI v0.1 support has been deprecated and will be removed after the
-> +	  2025 LTS.
-> +
-> +	  If unsure what to do here, say N.
-> +
-> +config RISCV_SBI_V01
-> +	bool
-> +	default y
-> +	depends on RISCV_SBI_V01_DEPRECATED
+We use Kconfig to select the kernel stack size, doubling the default
+size if KASAN is enabled.
 
-I think this could be simplified to
+But that actually only works if KASAN is selected from the beginning,
+meaning that if KASAN config is added later (for example using
+menuconfig), CONFIG_THREAD_SIZE_ORDER won't be updated, keeping the
+default size, which is not enough for KASAN as reported in [1].
 
-  def_bool RISCV_SBI_V01_DEPRECATED
+So fix this by moving the logic to compute the right kernel stack into a
+header.
 
->  
->  config RISCV_BOOT_SPINWAIT
->  	bool "Spinwait booting method"
-> diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-> index 837bdab2601b..1209a4e53ed1 100644
-> --- a/arch/riscv/kernel/sbi.c
-> +++ b/arch/riscv/kernel/sbi.c
-> @@ -686,6 +686,7 @@ void __init sbi_init(void)
->  			sbi_debug_console_available = true;
->  		}
->  	} else {
-> +		pr_warn("SBI-0.1 is deprecated and scheduled for removal after the 2025 LTS");
+Fixes: a7555f6b62e7 ("riscv: stack: Add config of thread stack size")
+Reported-by: syzbot+ba9eac24453387a9d502@syzkaller.appspotmail.com
+Closes: https://lore.kernel.org/all/000000000000eb301906222aadc2@google.com/ [1]
+Cc: stable@vger.kernel.org
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
+ arch/riscv/Kconfig                   | 3 +--
+ arch/riscv/include/asm/thread_info.h | 7 ++++++-
+ 2 files changed, 7 insertions(+), 3 deletions(-)
 
-I don't think pr_warn appends a newline.
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index ccbfd28f4982..b65846d02622 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -759,8 +759,7 @@ config IRQ_STACKS
+ config THREAD_SIZE_ORDER
+ 	int "Kernel stack size (in power-of-two numbers of page size)" if VMAP_STACK && EXPERT
+ 	range 0 4
+-	default 1 if 32BIT && !KASAN
+-	default 3 if 64BIT && KASAN
++	default 1 if 32BIT
+ 	default 2
+ 	help
+ 	  Specify the Pages of thread stack size (from 4KB to 64KB), which also
+diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
+index fca5c6be2b81..385b43211a71 100644
+--- a/arch/riscv/include/asm/thread_info.h
++++ b/arch/riscv/include/asm/thread_info.h
+@@ -13,7 +13,12 @@
+ #include <linux/sizes.h>
+ 
+ /* thread information allocation */
+-#define THREAD_SIZE_ORDER	CONFIG_THREAD_SIZE_ORDER
++#ifdef CONFIG_KASAN
++#define KASAN_STACK_ORDER	1
++#else
++#define KASAN_STACK_ORDER	0
++#endif
++#define THREAD_SIZE_ORDER	(CONFIG_THREAD_SIZE_ORDER + KASAN_STACK_ORDER)
+ #define THREAD_SIZE		(PAGE_SIZE << THREAD_SIZE_ORDER)
+ 
+ /*
+-- 
+2.39.2
 
->  		__sbi_set_timer = __sbi_set_timer_v01;
->  		__sbi_send_ipi	= __sbi_send_ipi_v01;
->  		__sbi_rfence	= __sbi_rfence_v01;
-> -- 
-> 2.45.2
->
-
-Otherwise,
-
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-
-Thanks,
-drew
 
 _______________________________________________
 linux-riscv mailing list
