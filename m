@@ -4,86 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 213D3CDD543
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Sep 2024 15:32:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11ECECDD543
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Sep 2024 15:36:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vIxTC3PSYEmZfZ3DTgGvms1VtVH/fJaEa+it9nCNpzs=; b=CiBHtgThHawy+f
-	o1SMVpGrza/Co06UNckogMI9spGtk9L/51ALUEzBlkAgZ7ih/M+jfUlkmcefqYIkZmv3Fhh3Kxn/m
-	aLRInM89KsUuur1tzQBYdeNwfnwTQAMrGXpK4dP3n3zWK87uo4/OzdiqREGk8LE3oV2f6+wTltNC/
-	l9WheocMWjLJjPmKKXgOtfV04MWdurpV8lwgGmajl3ATyPS79rSSFzXdxbWxHo7j672s53+ziX2ru
-	anhD9GCxFFmo2e6+Ai7Om0KkX1/dLt/bQeE/kEilUfa4vdSOzm5gAr/pxo6bsHmmS0VBSqv6z65Zc
-	Qy76BteOIQr37niJpZMA==;
+	List-Owner; bh=H1KtpG86ea0ip3jnHITKET17q8Np+lllQbKm5OLld4g=; b=TogIemQnhAyfOJ
+	/uPe2nSNt3Mj4RJjsuLYOkmqAA6JsN0UqEIsdAFROTsG+XxMfOzEeif/nCTI/q3TewRoV2ppQ1ttC
+	ORvDw2weM//ILZV2LbVlK3nVDBDDnnU56HMyrog6gdYT8V0ua/oXq3hkOVqs/nh4bdF/9kVf0O0nA
+	c9sayybg/mOCOuEjwEooEnUd4QpC6Z8mLD/7RwbEfY8FW2qzQFxmTSV3/SdkJPpT/94yr292AeBF9
+	emZnsfOxpeUk7nNJQ75W0NYfEoAdgY245aKnu8VIhZJiDindPpPIHP7ITw1TY5navqdQRV4EzDnUn
+	880wSPQeVcJDIA2LhqBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sqwfh-00000008XXU-19Vj;
-	Wed, 18 Sep 2024 15:32:49 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1sqwip-00000008Xsb-1jFb;
+	Wed, 18 Sep 2024 15:36:03 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sqwfd-00000008XWe-2ca3
+	id 1sqwim-00000008Xrv-22RJ
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Sep 2024 15:32:47 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-5c42e7adbe0so4746567a12.2
-        for <linux-riscv@lists.infradead.org>; Wed, 18 Sep 2024 08:32:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1726673563; x=1727278363; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=DCpTEL/dYMB7Uol2NlYZ7DCyhiPYwgEy6rc2BA5KywU=;
-        b=ZIIg++9MMXc+D19V3Q+MwkpFiZKf5pE8R3Bk8ehtPG5TlxHoYfjknC8ZMjZfwJYH/C
-         27abNxSQoiubFHhkqeIu1K8kQ9kFDZDnGtCUIma9E9pML3fWsxS7eMtvV/IA719ve3Ep
-         3Vhks0ggxgi38jh0qL0ELu0BZmkPSes5Var519hxyHGFepFMkSrknulm7051Ivqyeayg
-         MiaYYYwYQUZ/uQiZo1iUiGvXTgHqwS8nIedafJn4HLdnOelc+rqAlu7BgA0ZdESCXHyN
-         4VUc58MZMSQ6cVRu8X/YJeeQaFzb7Byjx76r2WPjUSJuvVZb5dMS9id8rHpbnOiLQDvG
-         LMxA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1726673563; x=1727278363;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=DCpTEL/dYMB7Uol2NlYZ7DCyhiPYwgEy6rc2BA5KywU=;
-        b=LLnZgLvW6FaCDqAb4Gk5iJaQmym6wZ7E2y4gib4s7M3wTDtWKJbqkI1YuWrtmyN1ms
-         ieKFw6PtrEi/QAUhKjKZKYqk4E+Xx9bjl/qx2eTAtTysDUGGwEm9S/poJ12cPKGVJj+V
-         qQr8egGFTCvZV0X7lMEzKfNVdY6GXCQ/DGYfhbhoOuLnSpSJhSNDCUW7DdQKZgNCu6ts
-         WIA3L6K+K2I+6Gwgql77qyDJGqpZhFKZDYI9yzszkYsZjICXzcBeetU+y/FX4fggGhq4
-         INHJ1KZKYWsBo7p3Wu6UbWIWaxAd+giQPn1TSD6zwZjZFPttsByLAhqgCbGkxCWZpPqI
-         8qDg==
-X-Forwarded-Encrypted: i=1; AJvYcCU2WUL/kOpisGvBOgsqmONL4/1mpM1qetcfBrjXfswUz+ecXwbmg3QhZNlxbLqmkb+meL7WGLgcaCYDqQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyFfz643uQfyjxaSEMvnknYuy8ut2GzjiNx4yPuW60oqaJdlTdx
-	rbR0rdvhtreW1S8nNtPYe9pgXmmaoocKyqJca0pbn2JsUiqsWPjiiVJFiXyR1oVm7opKdSKvkJ4
-	geo6p8xsbNROT0yJGCpgCZilGxIgbZ9/V9FkMBw==
-X-Google-Smtp-Source: AGHT+IHUXyXfmA5Am44lE06hFsf1unXiUfxYsmWUCGV8LXPzN024Cxhz2eXy8PcJcIICTPqY5rE5RE0MwfG5g8Mtkro=
-X-Received: by 2002:a05:6402:280a:b0:5c2:8249:b2d3 with SMTP id
- 4fb4d7f45d1cf-5c413e4c51fmr18852185a12.26.1726673562914; Wed, 18 Sep 2024
- 08:32:42 -0700 (PDT)
+	Wed, 18 Sep 2024 15:36:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D7ABC5C589B;
+	Wed, 18 Sep 2024 15:35:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14FDFC4CEC2;
+	Wed, 18 Sep 2024 15:35:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1726673759;
+	bh=t6/c5gLj5Sr5S19QSIiY4LV1QuDRPt2TAIfzZnvEPL0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Sb1eBrFgQG+VGo4qvB3wbm8AsE/+UXeCFh2UwONZyzvBE034FqXsJKUcm5oWvdAYc
+	 OsPjknNg2Zq9regd9voTw8vbPTwI9/XIebsla9aKJVlE4B0t2q42T0C/CSWnk6Ktee
+	 81fXj7YOLONzahwPJg7911QqFFd2NPRQFV2RJTs8LAVAbM+9zPEpoL5DxJ60aIrwiM
+	 OedF3BhOGnapShKgYlav/hBKYLfdylDomJEhYg2LmZ9C55rCoNXNKOCcYQdRv4jkqc
+	 SruDPZEsKKDkLqWnJxSr0r0rf8fWPlnz0mmTbxrlae18oHKsXrhnw6P3hVs18nbBjP
+	 98vAHay3S0+1w==
+Date: Wed, 18 Sep 2024 10:35:58 -0500
+From: Rob Herring <robh@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: Samuel Holland <samuel.holland@sifive.com>,
+	Valentina Fernandez <valentina.fernandezalanis@microchip.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	peterlin@andestech.com, dminus@andestech.com, ycliang@andestech.com,
+	jassisinghbrar@gmail.com, krzk+dt@kernel.org, andersson@kernel.org,
+	mathieu.poirier@linaro.org, conor+dt@kernel.org,
+	conor.dooley@microchip.com
+Subject: Re: [PATCH v1 2/5] dt-bindings: mailbox: add binding for Microchip
+ IPC mailbox driver
+Message-ID: <20240918153558.GA1567736-robh@kernel.org>
+References: <20240912170025.455167-1-valentina.fernandezalanis@microchip.com>
+ <20240912170025.455167-3-valentina.fernandezalanis@microchip.com>
+ <b4acc0a7-b7da-4947-904d-8406aa5ba95b@sifive.com>
+ <20240916-palpable-flock-7217424ed8db@spud>
 MIME-Version: 1.0
-References: <20240916181633.366449-1-heinrich.schuchardt@canonical.com>
- <20240917-f45624310204491aede04703@orel> <15c359a4-b3c1-4cb0-be2e-d5ca5537bc5b@canonical.com>
- <20240917-b13c51d41030029c70aab785@orel> <8b24728f-8b6e-4c79-91f6-7cbb79494550@canonical.com>
- <20240918-039d1e3bebf2231bd452a5ad@orel> <CAFEAcA-Yg9=5naRVVCwma0Ug0vFZfikqc6_YiRQTrfBpoz9Bjw@mail.gmail.com>
- <bab7a5ce-74b6-49ae-b610-9a0f624addc0@canonical.com> <CAFEAcA-L7sQfK6MNt1ZbZqUMk+TJor=uD3Jj-Pc6Vy9j9JHhYQ@mail.gmail.com>
- <f1e41b95-c499-4e06-91cb-006dcd9d29e6@canonical.com>
-In-Reply-To: <f1e41b95-c499-4e06-91cb-006dcd9d29e6@canonical.com>
-From: Peter Maydell <peter.maydell@linaro.org>
-Date: Wed, 18 Sep 2024 16:32:31 +0100
-Message-ID: <CAFEAcA_ePVwnpVVWJSx8=-8v2h_z2imfSdyAZd62RhXaZUTojA@mail.gmail.com>
-Subject: Re: [PATCH 1/1] target/riscv: enable floating point unit
-To: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Alistair Francis <alistair.francis@wdc.com>, 
-	Bin Meng <bmeng.cn@gmail.com>, Weiwei Li <liwei1518@gmail.com>, 
-	Daniel Henrique Barboza <dbarboza@ventanamicro.com>, Liu Zhiwei <zhiwei_liu@linux.alibaba.com>, 
-	qemu-riscv@nongnu.org, qemu-devel@nongnu.org, 
-	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>
+Content-Disposition: inline
+In-Reply-To: <20240916-palpable-flock-7217424ed8db@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240918_083245_719913_C15C4530 
-X-CRM114-Status: GOOD (  26.51  )
+X-CRM114-CacheID: sfid-20240918_083600_637457_913FC5DB 
+X-CRM114-Status: GOOD (  27.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,62 +83,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 18 Sept 2024 at 14:49, Heinrich Schuchardt
-<heinrich.schuchardt@canonical.com> wrote:
->
-> On 18.09.24 15:12, Peter Maydell wrote:
-> > On Wed, 18 Sept 2024 at 14:06, Heinrich Schuchardt
-> > <heinrich.schuchardt@canonical.com> wrote:
-> >> Thanks Peter for looking into this.
-> >>
-> >> QEMU's cpu_synchronize_all_post_init() and
-> >> do_kvm_cpu_synchronize_post_reset() both end up in
-> >> kvm_arch_put_registers() and that is long after Linux
-> >> kvm_arch_vcpu_create() has been setting some FPU state. See the output
-> >> below.
-> >>
-> >> kvm_arch_put_registers() copies the CSRs by calling
-> >> kvm_riscv_put_regs_csr(). Here we can find:
-> >>
-> >>       KVM_RISCV_SET_CSR(cs, env, sstatus, env->mstatus);
-> >>
-> >> This call enables or disables the FPU according to the value of
-> >> env->mstatus.
-> >>
-> >> So we need to set the desired state of the floating point unit in QEMU.
-> >> And this is what the current patch does both for TCG and KVM.
-> >
-> > If it does this for both TCG and KVM then I don't understand
-> > this bit from the commit message:
-> >
-> > # Without this patch EDK II with TLS enabled crashes when hitting the first
-> > # floating point instruction while running QEMU with --accel kvm and runs
-> > # fine with --accel tcg.
-> >
-> > Shouldn't this guest crash the same way with both KVM and TCG without
-> > this patch, because the FPU state is the same for both?
+On Mon, Sep 16, 2024 at 05:31:36PM +0100, Conor Dooley wrote:
+> On Thu, Sep 12, 2024 at 04:23:44PM -0500, Samuel Holland wrote:
+> > Hi Valentina,
+> > 
+> > On 2024-09-12 12:00 PM, Valentina Fernandez wrote:
+> > > Add a dt-binding for the Microchip Inter-Processor Communication (IPC)
+> > > mailbox controller.
+> > > 
+> > > Signed-off-by: Valentina Fernandez <valentina.fernandezalanis@microchip.com>
+> > > ---
+> > >  .../bindings/mailbox/microchip,sbi-ipc.yaml   | 115 ++++++++++++++++++
+> > >  1 file changed, 115 insertions(+)
+> > >  create mode 100644 Documentation/devicetree/bindings/mailbox/microchip,sbi-ipc.yaml
+> > > 
+> > > diff --git a/Documentation/devicetree/bindings/mailbox/microchip,sbi-ipc.yaml b/Documentation/devicetree/bindings/mailbox/microchip,sbi-ipc.yaml
+> > > new file mode 100644
+> > > index 000000000000..dc2cbd5eb28f
+> > > --- /dev/null
+> > > +++ b/Documentation/devicetree/bindings/mailbox/microchip,sbi-ipc.yaml
+> > > @@ -0,0 +1,115 @@
+> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > > +%YAML 1.2
+> > > +---
+> > > +$id: http://devicetree.org/schemas/mailbox/microchip,sbi-ipc.yaml#
+> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > > +
+> > > +title: Microchip Inter-processor communication (IPC) mailbox controller
+> > > +
+> > > +maintainers:
+> > > +  - Valentina Fernandez <valentina.fernandezalanis@microchip.com>
+> > > +
+> > > +description:
+> > > +  The Microchip Inter-processor Communication (IPC) facilitates
+> > > +  message passing between processors using an interrupt signaling
+> > > +  mechanism.
+> > > +  This SBI interface is compatible with the Mi-V Inter-hart
+> > > +  Communication (IHC) IP.
+> > > +  The microchip,sbi-ipc compatible string is inteded for use by software
+> > > +  running in supervisor privileged mode (s-mode). The SoC-specific
+> > > +  compatibles are inteded for use by the SBI implementation in machine
+> > > +  mode (m-mode).
+> > 
+> > There is a lot of conditional logic in this binding for how small it is. Would
+> > it make sense to split this into two separate bindings? For example, with the
+> > current binding microchip,ihc-chan-disabled-mask is allowed for the SBI
+> > interface, but doesn't look like it belongs there.
+> 
+> I dunno. Part of me says that because this is two compatibles for the
+> same piece of hardware (the choice depending on which programming model
+> you use) they should be documented together. The other part of me is of
+> the opinion that they effectively describe different things, given one
+> describes the hardware and the other describes a firmware interface that
+> may have any sort of hardware backing it.
+> 
+> I suppose it's more of a problem for "us" (that being me/Rob/Krzysztof)
+> than for Valentina, and how to handle firmware interfaces to hardware
+> like this is one of the topics that's planned for Krzysztof's devicetree
+> BoF session at LPC.
 
-> By default `qemu-system-riscv64 --accel tcg` runs OpenSBI as firmware
-> which enables the FPU.
->
-> If you would choose a different SBI implementation which does not enable
-> the FPU you could experience the same crash.
+If how the client interacts with the device is fundamentally different, 
+then I think different compatibles is fine.
 
-Ah, so KVM vs TCG is a red herring and it's actually "some guest
-firmware doesn't enable the FPU itself, and if you run that then it will
-fall over, whether you do it in KVM or TCG" ? That makes more sense.
-
-I don't have an opinion on whether you want to do that or not,
-not knowing what the riscv architecture mandates. (On Arm this
-would be fairly clearly "the guest software is broken and
-should be fixed", but that's because the Arm architecture
-says you can't assume the FPU is enabled from reset.)
-
-I do think the commit message could use clarification to
-explain this.
-
-thanks
--- PMM
+Rob
 
 _______________________________________________
 linux-riscv mailing list
