@@ -4,78 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AC7CFA3758
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Sep 2024 06:46:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 857E1CCD18B
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Sep 2024 08:13:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Pfp1WHcRNaYGGC6RHMrKQCp9QOTzHk3ffisI9vKQQxo=; b=PQB64bPApVMgdW
-	SrJS7tzxhAqgIeFwfH4goTCHr4Dli2TV4rwJufv5CjPrzbCoQIquVUkgZEGT2l39dk7CM/FeEvQ/m
-	tBZFtzVrxKzYGsInDkM3UbBB/0/3iccA6BnzZ8nlkvVeNvpLcJJR5GvZJJ9QpIJIs8EsogdtEDIgo
-	Z3HK940pilZwC4ABckI9pr2GDL9tpKVrRhS68XySTNX/1FoZdG2LSJeywGcTBDq8l1peJAz/pU9jk
-	XxfCgiuNEy/hOXa3HlvzHme8RCZfCJexS/8jbfHlIWtTeBUlrrGje3RYeGSB2wlkxO+ddPJEiDzn+
-	Y+3KvIdJp7+FO+hPDWDw==;
+	List-Owner; bh=5LFQGS+EpE/QrAFv6m5jAV8eU3vsxh2mYbxrx7EO56Q=; b=cJVkqIIlkz04mG
+	pKzgumefP9R1wp0BxgkADwkf6HY2IlIeM3xAcWEXXPR6zWkg4Dnh8V7FtzcKNYE75f14MNBePszSr
+	/Q+cR3NQg/5iwmFbpoIWp4gBGD2nVZSZQq7zwogY8j0PVIgicKnPXky2/cop1Kn810kQabeVi734R
+	5MU5V5SF78zV/y01BSx9pWj6q911A7tII5nqiaxTul+NXwsqaBLoRf+NFK3CrOdSS19gx/4OrvGq4
+	XbYZl/al6O28yfm3N0xKVOJLvu5bl2a1WrjtjkwkxE2bgGa0OclSn7IWnZNJCDCiy/6iVnUj72jtx
+	Re/sOa+Y3Kxz1mIlwp+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sqoSZ-00000007a3O-2b88;
-	Wed, 18 Sep 2024 06:46:43 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sqoSA-00000007a2E-1h3Q
+	id 1sqpoE-00000007l0s-1ovG;
+	Wed, 18 Sep 2024 08:13:10 +0000
+Received: from m16.mail.163.com ([220.197.31.2])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1sqpo1-00000007kxi-2I5g
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Sep 2024 06:46:20 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-a7a81bd549eso768510966b.3
-        for <linux-riscv@lists.infradead.org>; Tue, 17 Sep 2024 23:46:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1726641976; x=1727246776; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=k9jyaeiIinZNttzIHR6Qx8fod17PkNkLP2EMDotjvPw=;
-        b=Gas+xSxNQwm9fmJoAbwAFPWRU3l3VXIoMiVVRZRRu+KHMaGsW7ORuKEfV3rDNVkHV7
-         yBWoJf0uJTaGYTiU73iBm+4yg0D13h99GxH0g3acXeo2q4IF/3lSrs2RX63EYjRD1zYc
-         g7ecG0BN9kKmZOqi/YYHl5IuGr+22Yf7QS+thkll58FJp+YsbSVreFonkKazyxxbEEnC
-         1jlI8aMMpo5U8RKWxDL1320QLWhaE3qK0vBlNf62eJGEZMLSVJYUMZqCNsqM6EKcAtYW
-         RNhOsOlWNryajUW6g71Ymsc/yLuP9EgahODCoz6poEhlaIzicRuBiKlB/uQU11zz8ibF
-         8Y/w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1726641976; x=1727246776;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=k9jyaeiIinZNttzIHR6Qx8fod17PkNkLP2EMDotjvPw=;
-        b=e3wlyvf0XFS+z4GRtE6ry8rupsJhvbLdqYHtRWD3yAhDhec2chGk0S44WigVcjBxay
-         //sai14sW47eOM6umZNazJHTOgHy5IpNOy3dt29BtGFIFtBT/vx22KkWVw7DJXmPyV1K
-         DJoKeekoBTdRsRfUB5edYcJ0IXkyRqlrHd1oHZ2B4ArBFWeM9121Olg9+IZUMdjEcv5u
-         caG0hoDTrO6oM8f3rp8VFnr5GAZa3c7t2IO7MKUjOibUX+e91/s8K06RwNo3XdTDiKg/
-         AkZJgi23ZDi7m7QR3Ahl7EDzoSu1kQElrP4McydkBquKi+LHrCT6/RLT/5K0YlrcY8Ul
-         K+2g==
-X-Gm-Message-State: AOJu0YzRDvLUyHfyEkocziptOSzm050pTilwO77ibK3QndVAQLrs+jGH
-	49PHdd7a2YMnxvYrGj6XJ7l7RDnmg6xHNNGLruRNUBOC2b4hlZeMOuI5536/tIoELMOWi12zove
-	R
-X-Google-Smtp-Source: AGHT+IEatDvlPcocBy9FXk4yAitfgkZ6DStIDw/UZ5DXxkWPsywPsD4aAxD5oIAmLntLCsVaSVgbdg==
-X-Received: by 2002:a17:907:e6a2:b0:a8d:64af:dc4c with SMTP id a640c23a62f3a-a9029505570mr2291921666b.25.1726641976241;
-        Tue, 17 Sep 2024 23:46:16 -0700 (PDT)
-Received: from localhost ([213.235.133.41])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a90610f440bsm540330666b.86.2024.09.17.23.46.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Sep 2024 23:46:15 -0700 (PDT)
-Date: Wed, 18 Sep 2024 08:45:02 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Ben Dooks <ben.dooks@codethink.co.uk>
-Cc: linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 3/3] riscv: add trap and emulation for RDCYCLE
-Message-ID: <20240918-a465abde626cce8b72ba4758@orel>
-References: <20240917130853.18657-1-ben.dooks@codethink.co.uk>
- <20240917130853.18657-4-ben.dooks@codethink.co.uk>
+	Wed, 18 Sep 2024 08:12:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:From:
+	Content-Type; bh=HExARYwQxEimoTdw9gpUMnKEEbHm5ZJTXTSTMk9kBI8=;
+	b=DIWtnZCxOAQJOV00/XPIysMoYuZtgqzHx5nm9j3JfDSzWHwM7RpdV6Y/Wo3k9/
+	Tr1T6/RYugMmept7NV+NUwKuWhGL10WIV/YLS5GyvBcMM+vOHlrbaQTw67R8TR4N
+	sTS20HGKWtaEcnalr06NNR7m2K8ZvBsM6nYiUnpVJV4dg=
+Received: from [192.168.31.242] (unknown [27.18.168.209])
+	by gzga-smtp-mta-g3-2 (Coremail) with SMTP id _____wD3v+AAi+pmGsLKJg--.9338S2;
+	Wed, 18 Sep 2024 16:10:43 +0800 (CST)
+Message-ID: <f1e2ee2c-c54c-4c6b-bcee-0e41687eb9c2@163.com>
+Date: Wed, 18 Sep 2024 16:10:40 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240917130853.18657-4-ben.dooks@codethink.co.uk>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RESEND PATCH 2/3] pinctrl: canaan: Add support for k230 SoC
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Yangyu Chen <cyy@cyyself.name>
+Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <20240916063021.311721-1-18771902331@163.com>
+ <20240916064706.318793-1-18771902331@163.com>
+ <1488e936-d906-41d7-ae97-ffdbcc53b08c@linaro.org>
+Content-Language: en-US
+From: Ze Huang <18771902331@163.com>
+In-Reply-To: <1488e936-d906-41d7-ae97-ffdbcc53b08c@linaro.org>
+X-CM-TRANSID: _____wD3v+AAi+pmGsLKJg--.9338S2
+X-Coremail-Antispam: 1Uf129KBjvAXoW3tw4rtF1rWw4fAr4fZw18Krg_yoW8Ww15Go
+	WSgwn2qw48Jr17WrW5J3s5KF13Zw4jkF1DCFn8ZwnxC3WUt3WYgrsrX3yrGFZYgF4xXrWx
+	Jas3XFW7Aaykt3W5n29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
+	AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUbyCGUUUUU
+X-Originating-IP: [27.18.168.209]
+X-CM-SenderInfo: zpryllqrzqjjitr6il2tof0z/1tbiUQdeomXAklc8pgAAsQ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240917_234618_757773_E0853751 
-X-CRM114-Status: GOOD (  25.15  )
+X-CRM114-CacheID: sfid-20240918_011258_011375_1ABE6364 
+X-CRM114-Status: GOOD (  25.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,98 +76,553 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 17, 2024 at 02:08:53PM GMT, Ben Dooks wrote:
-> Add a trap for RDCYCLE and emulate it as RDTIME instruciton.
-> 
-> This is an initial PoC and should probably be made more generic
-> way of trapping and dealing with bad instructions
-> 
-> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
-> ---
->  arch/riscv/kernel/traps.c | 31 +++++++++++++++++++++++++++++++
->  1 file changed, 31 insertions(+)
-> 
-> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-> index 1c3fab272fd1..51ea28ebf54d 100644
-> --- a/arch/riscv/kernel/traps.c
-> +++ b/arch/riscv/kernel/traps.c
-> @@ -167,6 +167,35 @@ DO_ERROR_INFO(do_trap_insn_misaligned,
->  DO_ERROR_INFO(do_trap_insn_fault,
->  	SIGSEGV, SEGV_ACCERR, "instruction access fault");
->  
-> +#define is_system(__i) (((__i) & 0x7f) == RVG_OPCODE_SYSTEM)
-
-We have riscv_insn_is_system()
-
-> +
-> +static bool riscv_try_csr_fixup_user(struct pt_regs *regs, u32 insn)
-> +{
-> +	/* expecting a 4 byte CSR instruction (*/
-> +	if (unlikely(GET_INSN_LENGTH(insn) != 4))
-> +		return false;
-> +
-> +	if (is_system(insn)) {
-> +		u32 csr = insn >> RVG_SYSTEM_CSR_OFF;
-> +		u32 rd = (insn >> RVG_RD_OPOFF) & RVG_RD_MASK;
-> +		u32 rs = (insn >> RVG_RS1_OPOFF) & RVG_RS1_MASK;
-> +		u32 funct3 = (insn >> RV_INSN_FUNCT3_OPOFF) & 0x7;
-
-There are are a few other macros in asm/insn.h that can be applied, such
-as RV_EXTRACT_RD_REG(), and more could be added if necessary.
-
-> +
-> +		if (rs == 0 && funct3 == 2 && csr == CSR_CYCLE) {
-
-We could probably create a riscv_insn_is_csr_read() and RV_EXTRACT_CSR()
-for this.
-
-> +			u64 val = csr_read(CSR_TIME);
-> +			/* we've got a RDCCLYE, emulated it with CSR_TIME */
-> +
-> +			printk_ratelimited("PID %d: process using RDCYCLE, emulating with RDTIME\n", current->pid);
-
-If we add current->comm it may be easier to find applications that should
-be converted to CSR_TIME.
-
-> +
-> +			regs_set_register(regs, rd*sizeof(unsigned long), val);
-
-nit: spaces around the '*'
-
-> +			regs->epc += 4;
-> +			return true;
-> +		}
-> +	}
-> +
-> +	return false;
-> +}
-> +
->  asmlinkage __visible __trap_section void do_trap_insn_illegal(struct pt_regs *regs)
->  {
->  	bool handled;
-> @@ -186,6 +215,8 @@ asmlinkage __visible __trap_section void do_trap_insn_illegal(struct pt_regs *re
->  		}
->  
->  		handled = riscv_v_first_use_handler(regs, insn);
-> +		if (!handle)
-                     ^handled?
-
-> +			handled = riscv_try_csr_fixup_user(regs, insn);
->  
->  		local_irq_disable();
->  
-> -- 
-> 2.37.2.352.g3c44437643
-> 
+On 9/16/24 11:58 PM, Krzysztof Kozlowski wrote:
+> On 16/09/2024 08:47, Ze Huang wrote:
+>> Configuration of the K230 is similar to that of the K210. However, in K210,
+>> the 256 functions for each pin are shared, whereas in K230, multiplex
+>> functions are different for every pin.
+>>
+>> Signed-off-by: Ze Huang <18771902331@163.com>
+>> ---
+>>   drivers/pinctrl/Kconfig        |  10 +
+>>   drivers/pinctrl/Makefile       |   1 +
+>>   drivers/pinctrl/pinctrl-k230.c | 674 +++++++++++++++++++++++++++++++++
+>>   3 files changed, 685 insertions(+)
+>>   create mode 100644 drivers/pinctrl/pinctrl-k230.c
+> ...
 >
+>> +
+>> +struct k230_pinctrl {
+>> +	struct pinctrl_desc	pctl;
+>> +	struct pinctrl_dev	*pctl_dev;
+>> +	struct regmap		*regmap_base;
+>> +	void __iomem		*base;
+>> +	struct k230_pin_group	*groups;
+>> +	unsigned int		ngroups;
+>> +	struct k230_pmx_func	*functions;
+>> +	unsigned int		nfunctions;
+>> +};
+>> +
+>> +static struct regmap_config k230_regmap_config = {
+> Why is this not a const?
 
-Thanks,
-drew
+Will move definition of 'name' here and set to const.
+
+>
+>> +	.reg_bits	= 32,
+>> +	.val_bits	= 32,
+>> +	.max_register	= 0x100,
+>> +	.reg_stride	= 4,
+>> +};
+>> +
+>> +static int k230_get_groups_count(struct pinctrl_dev *pctldev)
+>> +{
+>> +	struct k230_pinctrl *info = pinctrl_dev_get_drvdata(pctldev);
+>> +
+>> +	return info->ngroups;
+>> +}
+>> +
+>> +static const char *k230_get_group_name(struct pinctrl_dev *pctldev,
+>> +				       unsigned int selector)
+>> +{
+>> +	struct k230_pinctrl *info = pinctrl_dev_get_drvdata(pctldev);
+>> +
+>> +	return info->groups[selector].name;
+>> +}
+>> +
+>> +static int k230_get_group_pins(struct pinctrl_dev *pctldev,
+>> +			       unsigned int selector,
+>> +			       const unsigned int **pins,
+>> +			       unsigned int *num_pins)
+>> +{
+>> +	struct k230_pinctrl *info = pinctrl_dev_get_drvdata(pctldev);
+>> +
+>> +	if (selector >= info->ngroups)
+>> +		return -EINVAL;
+>> +
+>> +	*pins = info->groups[selector].pins;
+>> +	*num_pins = info->groups[selector].num_pins;
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static inline const struct k230_pmx_func *k230_name_to_funtion(
+>> +		const struct k230_pinctrl *info, const char *name)
+>> +{
+>> +	unsigned int i;
+>> +
+>> +	for (i = 0; i < info->nfunctions; i++) {
+>> +		if (!strcmp(info->functions[i].name, name))
+>> +			return &info->functions[i];
+>> +	}
+>> +
+>> +	return NULL;
+>> +}
+>> +
+>> +static int k230_pinctrl_parse_groups(struct device_node *np,
+>> +				     struct k230_pin_group *grp,
+>> +				     struct k230_pinctrl *info,
+>> +				     unsigned int index)
+>> +{
+>> +	struct device *dev = info->pctl_dev->dev;
+>> +	const __be32 *list;
+>> +	int size, i, ret;
+>> +
+>> +	grp->name = np->name;
+>> +
+>> +	list = of_get_property(np, "pinmux", &size);
+>> +	size /= sizeof(*list);
+>> +
+>> +	grp->num_pins = size;
+>> +	grp->pins = devm_kcalloc(dev, grp->num_pins, sizeof(*grp->pins),
+>> +				 GFP_KERNEL);
+>> +	grp->data = devm_kcalloc(dev, grp->num_pins, sizeof(*grp->data),
+>> +				 GFP_KERNEL);
+>> +	if (!grp->pins || !grp->data)
+>> +		return -ENOMEM;
+>> +
+>> +	for (i = 0; i < size; i++) {
+>> +		unsigned int mux_data = be32_to_cpu(*list++);
+>> +
+>> +		grp->pins[i] = (mux_data >> 8);
+>> +		grp->data[i].func = (mux_data & 0xff);
+>> +
+>> +		ret = pinconf_generic_parse_dt_config(np, NULL,
+>> +						      &grp->data[i].configs,
+>> +						      &grp->data[i].nconfigs);
+>> +		if (ret)
+>> +			return ret;
+>> +	}
+>> +	of_node_put(np);
+>> +
+> This looks like double free. There is no get in this scope.
+
+Thanks for pointing that out. 'np' would be released by the caller. Will 
+remove
+`of_node_put()` here.
+
+>> +	return 0;
+>> +}
+>> +
+>> +static void k230_pinctrl_child_count(struct k230_pinctrl *info,
+>> +				     struct device_node *np)
+>> +{
+>> +	struct device_node *child;
+>> +
+>> +	for_each_child_of_node(np, child) {
+>> +		info->nfunctions++;
+>> +		info->ngroups += of_get_child_count(child);
+>> +	}
+>> +}
+>> +
+>> +static int k230_pinctrl_parse_functions(struct device_node *np,
+>> +					struct k230_pinctrl *info,
+>> +					unsigned int index)
+>> +{
+>> +	struct device *dev = info->pctl_dev->dev;
+>> +	struct k230_pmx_func *func;
+>> +	struct k230_pin_group *grp;
+>> +	struct device_node *child;
+>> +	static unsigned int idx, i;
+>> +	int ret;
+>> +
+>> +	func = &info->functions[index];
+>> +
+>> +	func->name = np->name;
+>> +	func->ngroups = of_get_child_count(np);
+>> +	if (func->ngroups <= 0)
+>> +		return 0;
+>> +
+>> +	func->groups = devm_kcalloc(dev, func->ngroups,
+>> +				    sizeof(*func->groups), GFP_KERNEL);
+>> +	func->group_idx = devm_kcalloc(dev, func->ngroups,
+>> +				       sizeof(*func->group_idx), GFP_KERNEL);
+>> +	if (!func->groups || !func->group_idx)
+>> +		return -ENOMEM;
+>> +
+>> +	i = 0;
+>> +
+>> +	for_each_child_of_node(np, child) {
+>> +		func->groups[i] = child->name;
+>> +		func->group_idx[i] = idx;
+>> +		grp = &info->groups[idx];
+>> +		idx++;
+>> +		ret = k230_pinctrl_parse_groups(child, grp, info, i++);
+>> +		if (ret) {
+>> +			of_node_put(child);
+> Use scoped loop instead.
+
+OK, will use `for_each_child_of_node_scoped` instead.
+
+>
+>> +			return ret;
+>> +		}
+>> +	}
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int k230_pinctrl_parse_dt(struct platform_device *pdev,
+>> +				 struct k230_pinctrl *info)
+> Please keep all probe related code next to each other. That's quite
+> confusing to find probe code far away from the probe().
+
+Noted, will do.
+
+>> +{
+>> +	struct device *dev = &pdev->dev;
+>> +	struct device_node *np = dev->of_node;
+>> +	struct device_node *child;
+>> +	unsigned int i;
+>> +	int ret;
+>> +
+>> +	k230_pinctrl_child_count(info, np);
+>> +
+>> +	info->functions = devm_kcalloc(dev, info->nfunctions,
+>> +				       sizeof(*info->functions), GFP_KERNEL);
+>> +	info->groups = devm_kcalloc(dev, info->ngroups,
+>> +				    sizeof(*info->groups), GFP_KERNEL);
+>> +	if (!info->functions || !info->groups)
+>> +		return -ENOMEM;
+>> +
+>> +	i = 0;
+>> +
+>> +	for_each_child_of_node(np, child) {
+>> +		ret = k230_pinctrl_parse_functions(child, info, i++);
+>> +		if (ret) {
+>> +			dev_err(dev, "failed to parse function\n");
+>> +			of_node_put(child);
+> Use scoped loop instead.
+
+Will use `for_each_child_of_node_scoped` instead.
+
+>> +			return ret;
+>> +		}
+>> +	}
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static struct pinctrl_pin_desc k230_pins[] = {
+> Why is this not a const?
+
+Field `drv_data` was used to point to currently activated group, which would
+be updated in `set_mux()`. It was used to print the name of the current
+function of pin in `k230_pinctrl_pin_dbg_show()`.
+
+>> +	PINCTRL_PIN(0,  "IO0"),  PINCTRL_PIN(1,  "IO1"),  PINCTRL_PIN(2,  "IO2"),
+>> +	PINCTRL_PIN(3,  "IO3"),  PINCTRL_PIN(4,  "IO4"),  PINCTRL_PIN(5,  "IO5"),
+>> +	PINCTRL_PIN(6,  "IO6"),  PINCTRL_PIN(7,  "IO7"),  PINCTRL_PIN(8,  "IO8"),
+>> +	PINCTRL_PIN(9,  "IO9"),  PINCTRL_PIN(10, "IO10"), PINCTRL_PIN(11, "IO11"),
+>> +	PINCTRL_PIN(12, "IO12"), PINCTRL_PIN(13, "IO13"), PINCTRL_PIN(14, "IO14"),
+>> +	PINCTRL_PIN(15, "IO15"), PINCTRL_PIN(16, "IO16"), PINCTRL_PIN(17, "IO17"),
+>> +	PINCTRL_PIN(18, "IO18"), PINCTRL_PIN(19, "IO19"), PINCTRL_PIN(20, "IO20"),
+>> +	PINCTRL_PIN(21, "IO21"), PINCTRL_PIN(22, "IO22"), PINCTRL_PIN(23, "IO23"),
+>> +	PINCTRL_PIN(24, "IO24"), PINCTRL_PIN(25, "IO25"), PINCTRL_PIN(26, "IO26"),
+>> +	PINCTRL_PIN(27, "IO27"), PINCTRL_PIN(28, "IO28"), PINCTRL_PIN(29, "IO29"),
+>> +	PINCTRL_PIN(30, "IO30"), PINCTRL_PIN(31, "IO31"), PINCTRL_PIN(32, "IO32"),
+>> +	PINCTRL_PIN(33, "IO33"), PINCTRL_PIN(34, "IO34"), PINCTRL_PIN(35, "IO35"),
+>> +	PINCTRL_PIN(36, "IO36"), PINCTRL_PIN(37, "IO37"), PINCTRL_PIN(38, "IO38"),
+>> +	PINCTRL_PIN(39, "IO39"), PINCTRL_PIN(40, "IO40"), PINCTRL_PIN(41, "IO41"),
+>> +	PINCTRL_PIN(42, "IO42"), PINCTRL_PIN(43, "IO43"), PINCTRL_PIN(44, "IO44"),
+>> +	PINCTRL_PIN(45, "IO45"), PINCTRL_PIN(46, "IO46"), PINCTRL_PIN(47, "IO47"),
+>> +	PINCTRL_PIN(48, "IO48"), PINCTRL_PIN(49, "IO49"), PINCTRL_PIN(50, "IO50"),
+>> +	PINCTRL_PIN(51, "IO51"), PINCTRL_PIN(52, "IO52"), PINCTRL_PIN(53, "IO53"),
+>> +	PINCTRL_PIN(54, "IO54"), PINCTRL_PIN(55, "IO55"), PINCTRL_PIN(56, "IO56"),
+>> +	PINCTRL_PIN(57, "IO57"), PINCTRL_PIN(58, "IO58"), PINCTRL_PIN(59, "IO59"),
+>> +	PINCTRL_PIN(60, "IO60"), PINCTRL_PIN(61, "IO61"), PINCTRL_PIN(62, "IO62"),
+>> +	PINCTRL_PIN(63, "IO63")
+>> +};
+>> +
+>> +static void k230_pinctrl_pin_dbg_show(struct pinctrl_dev *pctldev,
+>> +				      struct seq_file *s, unsigned int offset)
+>> +{
+>> +	struct k230_pinctrl *info = pinctrl_dev_get_drvdata(pctldev);
+>> +	u32 val, mode, bias, drive, input, output, slew, schmitt, power;
+>> +	struct k230_pin_group *grp = k230_pins[offset].drv_data;
+>> +	static const char * const biasing[] = {
+>> +			"pull none", "pull down", "pull up", "" };
+>> +	static const char * const enable[] = {
+>> +			"disable", "enable" };
+>> +	static const char * const power_source[] = {
+>> +			"3V3", "1V8" };
+>> +	int ret;
+>> +
+>> +	ret = regmap_read(info->regmap_base, offset * 4, &val);
+>> +	if (ret) {
+>> +		dev_err(info->pctl_dev->dev,
+>> +			"failed to read offset 0x%x\n", offset * 4);
+>> +		return;
+>> +	}
+>> +
+>> +	mode	= (val & K230_PC_SEL) >> K230_SHIFT_SEL;
+>> +	drive	= (val & K230_PC_DS) >> K230_SHIFT_DS;
+>> +	bias	= (val & K230_PC_BIAS) >> K230_SHIFT_BIAS;
+>> +	input	= (val & K230_PC_IE) >> K230_SHIFT_IE;
+>> +	output	= (val & K230_PC_OE) >> K230_SHIFT_OE;
+>> +	slew	= (val & K230_PC_SL) >> K230_SHIFT_SL;
+>> +	schmitt	= (val & K230_PC_ST) >> K230_SHIFT_ST;
+>> +	power	= (val & K230_PC_MSC) >> K230_SHIFT_MSC;
+>> +
+>> +	seq_printf(s, "%s - strength %d - %s - %s - slewrate %s - schmitt %s - %s",
+>> +		   grp ? grp->name : "unknown",
+>> +		   drive,
+>> +		   biasing[bias],
+>> +		   input ? "input" : "output",
+>> +		   enable[slew],
+>> +		   enable[schmitt],
+>> +		   power_source[power]);
+>> +}
+>> +
+>> +static int k230_dt_node_to_map(struct pinctrl_dev *pctldev,
+>> +			       struct device_node *np_config,
+>> +			       struct pinctrl_map **map,
+>> +			       unsigned int *num_maps)
+>> +{
+>> +	struct k230_pinctrl *info = pinctrl_dev_get_drvdata(pctldev);
+>> +	struct device *dev = info->pctl_dev->dev;
+>> +	const struct k230_pmx_func *func;
+>> +	const struct k230_pin_group *grp;
+>> +	struct pinctrl_map *new_map;
+>> +	int map_num, i, j, idx;
+>> +	unsigned int grp_id;
+>> +
+>> +	func = k230_name_to_funtion(info, np_config->name);
+>> +	if (!func) {
+>> +		dev_err(dev, "function %s not found\n", np_config->name);
+>> +		return -EINVAL;
+>> +	}
+>> +
+>> +	map_num = 0;
+>> +	for (i = 0; i < func->ngroups; ++i) {
+>> +		grp_id = func->group_idx[i];
+>> +		/* npins of config map plus a mux map */
+>> +		map_num += info->groups[grp_id].num_pins + 1;
+>> +	}
+>> +
+>> +	new_map = kcalloc(map_num, sizeof(*new_map), GFP_KERNEL);
+>> +	if (!new_map)
+>> +		return -ENOMEM;
+>> +	*map = new_map;
+>> +	*num_maps = map_num;
+>> +
+>> +	idx = 0;
+>> +	for (i = 0; i < func->ngroups; ++i) {
+>> +		grp_id = func->group_idx[i];
+>> +		grp = &info->groups[grp_id];
+>> +		new_map[idx].type = PIN_MAP_TYPE_MUX_GROUP;
+>> +		new_map[idx].data.mux.group = grp->name;
+>> +		new_map[idx].data.mux.function = np_config->name;
+>> +		idx++;
+>> +
+>> +		for (j = 0; j < grp->num_pins; ++j) {
+>> +			new_map[idx].type = PIN_MAP_TYPE_CONFIGS_PIN;
+>> +			new_map[idx].data.configs.group_or_pin =
+>> +				pin_get_name(pctldev, grp->pins[j]);
+>> +			new_map[idx].data.configs.configs =
+>> +				grp->data[j].configs;
+>> +			new_map[idx].data.configs.num_configs =
+>> +				grp->data[j].nconfigs;
+>> +			idx++;
+>> +		}
+>> +	}
+>> +
+>> +	return 0;
+>> +}
+> ...
+>
+>> +
+>> +	ret = regmap_write(info->regmap_base, pin * 4, val);
+>> +	if (ret) {
+>> +		dev_err(dev, "failed to write offset 0x%x\n", pin * 4);
+> Isn't regmap an MMIO? If so, drop all of such messages. This just makes
+> unlikely error paths too big.
+
+Acknowledged. Will drop them.
+
+>> +		return ret;
+>> +	}
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int k230_pinconf_set(struct pinctrl_dev *pctldev, unsigned int pin,
+>> +			    unsigned long *configs, unsigned int num_configs)
+>> +{
+>> +	enum pin_config_param param;
+>> +	unsigned int arg, i;
+>> +	int ret;
+>> +
+>> +	if (WARN_ON(pin >= K230_NPINS))
+> Drop WARN_ON. No need to panic kernel. Instead, handle correctly the error.
+
+Acknowledged. Will use dev_err instead.
+
+>> +		return -EINVAL;
+>> +
+>> +	for (i = 0; i < num_configs; i++) {
+>> +		param = pinconf_to_config_param(configs[i]);
+>> +		arg = pinconf_to_config_argument(configs[i]);
+>> +		ret = k230_pinconf_set_param(pctldev, pin, param, arg);
+>> +		if (ret)
+>> +			return ret;
+>> +	}
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static void k230_pconf_dbg_show(struct pinctrl_dev *pctldev,
+>> +				struct seq_file *s, unsigned int pin)
+>> +{
+>> +	struct k230_pinctrl *info = pinctrl_dev_get_drvdata(pctldev);
+>> +	unsigned int val;
+>> +	int ret;
+>> +
+>> +	ret = regmap_read(info->regmap_base, pin * 4, &val);
+>> +	if (ret) {
+>> +		dev_err(info->pctl_dev->dev, "failed to read offset 0x%x\n", pin * 4);
+>> +		return;
+>> +	}
+>> +
+>> +	seq_printf(s, " 0x%08x", val);
+>> +}
+>> +
+>> +static const struct pinconf_ops k230_pinconf_ops = {
+>> +	.is_generic		= true,
+>> +	.pin_config_get		= k230_pinconf_get,
+>> +	.pin_config_set		= k230_pinconf_set,
+>> +	.pin_config_dbg_show	= k230_pconf_dbg_show,
+>> +};
+>> +
+>> +static int k230_get_functions_count(struct pinctrl_dev *pctldev)
+>> +{
+>> +	struct k230_pinctrl *info = pinctrl_dev_get_drvdata(pctldev);
+>> +
+>> +	return info->nfunctions;
+>> +}
+>> +
+>> +static const char *k230_get_fname(struct pinctrl_dev *pctldev,
+>> +				  unsigned int selector)
+>> +{
+>> +	struct k230_pinctrl *info = pinctrl_dev_get_drvdata(pctldev);
+>> +
+>> +	return info->functions[selector].name;
+>> +}
+>> +
+>> +static int k230_get_groups(struct pinctrl_dev *pctldev, unsigned int selector,
+>> +			   const char * const **groups, unsigned int *num_groups)
+>> +{
+>> +	struct k230_pinctrl *info = pinctrl_dev_get_drvdata(pctldev);
+>> +
+>> +	*groups = info->functions[selector].groups;
+>> +	*num_groups = info->functions[selector].ngroups;
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int k230_set_mux(struct pinctrl_dev *pctldev, unsigned int selector,
+>> +			unsigned int group)
+>> +{
+>> +	struct k230_pinctrl *info = pinctrl_dev_get_drvdata(pctldev);
+>> +	const struct k230_pin_conf *data = info->groups[group].data;
+>> +	struct k230_pin_group *grp = &info->groups[group];
+>> +	const unsigned int *pins = grp->pins;
+>> +	struct regmap *regmap;
+>> +	unsigned int value, mask;
+>> +	int cnt, reg;
+>> +
+>> +	regmap = info->regmap_base;
+>> +
+>> +	for (cnt = 0; cnt < grp->num_pins; cnt++) {
+>> +		reg = pins[cnt] * 4;
+>> +		value = data[cnt].func << K230_SHIFT_SEL;
+>> +		mask = K230_PC_SEL;
+>> +		regmap_update_bits(regmap, reg, mask, value);
+>> +		k230_pins[pins[cnt]].drv_data = grp;
+>> +	}
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static const struct pinmux_ops k230_pmxops = {
+>> +	.get_functions_count	= k230_get_functions_count,
+>> +	.get_function_name	= k230_get_fname,
+>> +	.get_function_groups	= k230_get_groups,
+>> +	.set_mux		= k230_set_mux,
+>> +	.strict			= true,
+>> +};
+>> +
+>> +static int k230_pinctrl_probe(struct platform_device *pdev)
+>> +{
+>> +	struct device *dev = &pdev->dev;
+>> +	struct k230_pinctrl *info;
+>> +	struct pinctrl_desc *pctl;
+>> +
+>> +	info = devm_kzalloc(dev, sizeof(*info), GFP_KERNEL);
+>> +	if (!info)
+>> +		return -ENOMEM;
+>> +
+>> +	pctl = &info->pctl;
+>> +
+>> +	pctl->name	= "k230-pinctrl";
+>> +	pctl->owner	= THIS_MODULE;
+>> +	pctl->pins	= k230_pins;
+>> +	pctl->npins	= ARRAY_SIZE(k230_pins);
+>> +	pctl->pctlops	= &k230_pctrl_ops;
+>> +	pctl->pmxops	= &k230_pmxops;
+>> +	pctl->confops	= &k230_pinconf_ops;
+>> +
+>> +	info->base = devm_platform_ioremap_resource(pdev, 0);
+>> +	if (IS_ERR(info->base))
+>> +		return PTR_ERR(info->base);
+>> +
+>> +	k230_regmap_config.name = "canaan,pinctrl";
+> Why this is not part of definition?
+
+Will move to definition and set regmap to const.
+
+>> +	info->regmap_base = devm_regmap_init_mmio(dev, info->base,
+>> +						  &k230_regmap_config);
+>> +	if (IS_ERR(info->regmap_base))
+>> +		return dev_err_probe(dev, PTR_ERR(info->regmap_base),
+>> +				     "failed to init regmap\n");
+>> +
+>> +	info->pctl_dev = devm_pinctrl_register(dev, pctl, info);
+>> +	if (IS_ERR(info->pctl_dev))
+>> +		return dev_err_probe(dev, PTR_ERR(info->pctl_dev),
+>> +				     "devm_pinctrl_register failed\n");
+>> +
+>> +	k230_pinctrl_parse_dt(pdev, info);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static const struct of_device_id k230_dt_ids[] = {
+>> +	{ .compatible = "canaan,k230-pinctrl", },
+>> +	{ /* sintenel */ }
+>> +};
+>> +MODULE_DEVICE_TABLE(of, k230_dt_ids);
+>> +
+>> +static struct platform_driver k230_pinctrl_driver = {
+>> +	.probe = k230_pinctrl_probe,
+>> +	.driver = {
+>> +		.name = "k230-pinctrl",
+>> +		.of_match_table = k230_dt_ids,
+>> +	},
+>> +};
+>> +module_platform_driver(k230_pinctrl_driver);
+>> +
+>> +MODULE_LICENSE("GPL");
+>> +MODULE_AUTHOR("Ze Huang <18771902331@163.com>");
+>> +MODULE_DESCRIPTION("Canaan K230 pinctrl driver");
+> Best regards,
+> Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
