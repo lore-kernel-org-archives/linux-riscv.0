@@ -4,88 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6FC6C3600F
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Sep 2024 06:05:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AC7CFA3758
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Sep 2024 06:46:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=prZ91J5K8pAJ9vzLWSrWza/dVu963VGeA19sVR/hlK4=; b=Kp+5chw5LaXNe4
-	DfVKAI7tFsvO5HJNpu9BGGDQzUGC4lbeDlDKhcW9tWNOu1PHSQDBsZEctbzHK6hVBQBy3elCBGRJ3
-	2+aUn2EvdNHqlzbzF9v7KuFWBCtbv/SPHulP/OjMbY0s36A4o6QpDBN7Iekqq0vHSlVky69IOTBkt
-	DSgAR1xGL/N/FoJnG6LRDTu3IQd1YUhidyckhfLmWk2LZg4T3CiPrGkUSLKKS1cpAu85ILAuZdKyz
-	LrFBzI23O/NVlhuRGlPc3E47x2scSEX1QGlOwdxJXhldiT5Fl39FkHgVy952T++GuCXxe9pa1Ah+q
-	CW6LxjOwfAe0+vMQPWGQ==;
+	List-Owner; bh=Pfp1WHcRNaYGGC6RHMrKQCp9QOTzHk3ffisI9vKQQxo=; b=PQB64bPApVMgdW
+	SrJS7tzxhAqgIeFwfH4goTCHr4Dli2TV4rwJufv5CjPrzbCoQIquVUkgZEGT2l39dk7CM/FeEvQ/m
+	tBZFtzVrxKzYGsInDkM3UbBB/0/3iccA6BnzZ8nlkvVeNvpLcJJR5GvZJJ9QpIJIs8EsogdtEDIgo
+	Z3HK940pilZwC4ABckI9pr2GDL9tpKVrRhS68XySTNX/1FoZdG2LSJeywGcTBDq8l1peJAz/pU9jk
+	XxfCgiuNEy/hOXa3HlvzHme8RCZfCJexS/8jbfHlIWtTeBUlrrGje3RYeGSB2wlkxO+ddPJEiDzn+
+	Y+3KvIdJp7+FO+hPDWDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sqnoY-00000007VVV-13mW;
-	Wed, 18 Sep 2024 06:05:22 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1sqoSZ-00000007a3O-2b88;
+	Wed, 18 Sep 2024 06:46:43 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sqnoU-00000007VT3-3UjO
+	id 1sqoSA-00000007a2E-1h3Q
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Sep 2024 06:05:21 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-a8d2b24b7a8so76902166b.1
-        for <linux-riscv@lists.infradead.org>; Tue, 17 Sep 2024 23:05:18 -0700 (PDT)
+	Wed, 18 Sep 2024 06:46:20 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-a7a81bd549eso768510966b.3
+        for <linux-riscv@lists.infradead.org>; Tue, 17 Sep 2024 23:46:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1726639517; x=1727244317; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1726641976; x=1727246776; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=t5mGxf+CZ3zZYnX4JbiIfh5pZ7tAjdTRZMOnJjviD4c=;
-        b=YM0l+7WcM9jI6q9Up4S45/0wbbo+9C4grm1SP0/xUr85YhNks+KBeR2QbfsZemFIGg
-         nFAwInwSb9ngVlZfCo2L6JuDu39pOHF8CVZqKbUnb87y28ZABsDp7+CDzmV/XjazKDK5
-         OBsr7Cr6PzlMt9cGBcm0zUzIgN8bw9DhBcsYusDt2hrNZH6GsVr4GbUYy4GG87uD7my8
-         L7EM2jlKaHVwzwwfQltuzQ8elxhX3ZpHz+9fuuBztaw5xYXZ2xM5EnJ2tfn4tNWZHwi0
-         gf1kD+bcvdzv6JUjQZAUlcSlnzo9mhp+MgKo+qi3qy25ciCyWpOEgUXqPZq+q7SDYcaD
-         7FaA==
+        bh=k9jyaeiIinZNttzIHR6Qx8fod17PkNkLP2EMDotjvPw=;
+        b=Gas+xSxNQwm9fmJoAbwAFPWRU3l3VXIoMiVVRZRRu+KHMaGsW7ORuKEfV3rDNVkHV7
+         yBWoJf0uJTaGYTiU73iBm+4yg0D13h99GxH0g3acXeo2q4IF/3lSrs2RX63EYjRD1zYc
+         g7ecG0BN9kKmZOqi/YYHl5IuGr+22Yf7QS+thkll58FJp+YsbSVreFonkKazyxxbEEnC
+         1jlI8aMMpo5U8RKWxDL1320QLWhaE3qK0vBlNf62eJGEZMLSVJYUMZqCNsqM6EKcAtYW
+         RNhOsOlWNryajUW6g71Ymsc/yLuP9EgahODCoz6poEhlaIzicRuBiKlB/uQU11zz8ibF
+         8Y/w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1726639517; x=1727244317;
+        d=1e100.net; s=20230601; t=1726641976; x=1727246776;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=t5mGxf+CZ3zZYnX4JbiIfh5pZ7tAjdTRZMOnJjviD4c=;
-        b=gZDrAKJc9q6zn7O+UYUgP6HzuCRCGmuc9vOxEQdCA7xZo2RiUO1I7/KNKVnP55X8fo
-         J+5g4D5XkgKTpJIBZmzIWv6vpSQgxl9aqLbSzUWxMQeotnVMzlxdheDXqv9TwVQWuc3d
-         mBGjNT+2if3pMfYa3OXG0UnEtnZk2d0G35XHDEV2OMLVa98LG/e6xfUVWu3/qFGyAdqh
-         9UVZWSp1bkcXA9JbX758DM4WuY1X3SHQeRS+6cHGxyW+GsO57xKrzvZkrIT90a7zt1bT
-         918tVFuyz4DGq8WTWLm58fDQy7NzDcx18FZ9kc7Ln5/gwbcQf2Rok4SWzhvO2SYWFXQC
-         iEzA==
-X-Forwarded-Encrypted: i=1; AJvYcCUPF+YFk78srzcVMWYa0lFAsp/i/b5MwsaITanAJW06yzV271dpy2d3f2RIlI9H5ys8Ni2j4mI+VPZb4g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwEz2dFjw4IYiQVtaXbU9EWSnW1yx+22ZPxomDSezhHMjJk1Gy5
-	6YonrSFHVCcx0kcOAuj220zrCvY5CJgjOhnQoRZ3b0vCR2QOD6XyGMYPQpMpJcs=
-X-Google-Smtp-Source: AGHT+IGHKR0qqgSX96tsaPbrMvlFd8LcDl6wWuDi67U5uzQHtG4PPaURsQoSA0G1nXDghe6Ahz69jQ==
-X-Received: by 2002:a17:907:7ea7:b0:a8a:cc5a:7f30 with SMTP id a640c23a62f3a-a902a8c26ffmr2252797466b.25.1726639516625;
-        Tue, 17 Sep 2024 23:05:16 -0700 (PDT)
+        bh=k9jyaeiIinZNttzIHR6Qx8fod17PkNkLP2EMDotjvPw=;
+        b=e3wlyvf0XFS+z4GRtE6ry8rupsJhvbLdqYHtRWD3yAhDhec2chGk0S44WigVcjBxay
+         //sai14sW47eOM6umZNazJHTOgHy5IpNOy3dt29BtGFIFtBT/vx22KkWVw7DJXmPyV1K
+         DJoKeekoBTdRsRfUB5edYcJ0IXkyRqlrHd1oHZ2B4ArBFWeM9121Olg9+IZUMdjEcv5u
+         caG0hoDTrO6oM8f3rp8VFnr5GAZa3c7t2IO7MKUjOibUX+e91/s8K06RwNo3XdTDiKg/
+         AkZJgi23ZDi7m7QR3Ahl7EDzoSu1kQElrP4McydkBquKi+LHrCT6/RLT/5K0YlrcY8Ul
+         K+2g==
+X-Gm-Message-State: AOJu0YzRDvLUyHfyEkocziptOSzm050pTilwO77ibK3QndVAQLrs+jGH
+	49PHdd7a2YMnxvYrGj6XJ7l7RDnmg6xHNNGLruRNUBOC2b4hlZeMOuI5536/tIoELMOWi12zove
+	R
+X-Google-Smtp-Source: AGHT+IEatDvlPcocBy9FXk4yAitfgkZ6DStIDw/UZ5DXxkWPsywPsD4aAxD5oIAmLntLCsVaSVgbdg==
+X-Received: by 2002:a17:907:e6a2:b0:a8d:64af:dc4c with SMTP id a640c23a62f3a-a9029505570mr2291921666b.25.1726641976241;
+        Tue, 17 Sep 2024 23:46:16 -0700 (PDT)
 Received: from localhost ([213.235.133.41])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9061096aa2sm536689566b.35.2024.09.17.23.05.15
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a90610f440bsm540330666b.86.2024.09.17.23.46.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Sep 2024 23:05:15 -0700 (PDT)
-Date: Wed, 18 Sep 2024 08:05:13 +0200
+        Tue, 17 Sep 2024 23:46:15 -0700 (PDT)
+Date: Wed, 18 Sep 2024 08:45:02 +0200
 From: Andrew Jones <ajones@ventanamicro.com>
-To: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, 
-	Alistair Francis <alistair.francis@wdc.com>, Bin Meng <bmeng.cn@gmail.com>, Weiwei Li <liwei1518@gmail.com>, 
-	Daniel Henrique Barboza <dbarboza@ventanamicro.com>, Liu Zhiwei <zhiwei_liu@linux.alibaba.com>, qemu-riscv@nongnu.org, 
-	qemu-devel@nongnu.org, Anup Patel <anup@brainfault.org>, 
-	Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/1] target/riscv: enable floating point unit
-Message-ID: <20240918-039d1e3bebf2231bd452a5ad@orel>
-References: <20240916181633.366449-1-heinrich.schuchardt@canonical.com>
- <20240917-f45624310204491aede04703@orel>
- <15c359a4-b3c1-4cb0-be2e-d5ca5537bc5b@canonical.com>
- <20240917-b13c51d41030029c70aab785@orel>
- <8b24728f-8b6e-4c79-91f6-7cbb79494550@canonical.com>
+To: Ben Dooks <ben.dooks@codethink.co.uk>
+Cc: linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 3/3] riscv: add trap and emulation for RDCYCLE
+Message-ID: <20240918-a465abde626cce8b72ba4758@orel>
+References: <20240917130853.18657-1-ben.dooks@codethink.co.uk>
+ <20240917130853.18657-4-ben.dooks@codethink.co.uk>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <8b24728f-8b6e-4c79-91f6-7cbb79494550@canonical.com>
+In-Reply-To: <20240917130853.18657-4-ben.dooks@codethink.co.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240917_230518_926334_D61BA4C7 
-X-CRM114-Status: UNSURE (   8.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240917_234618_757773_E0853751 
+X-CRM114-Status: GOOD (  25.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,15 +92,90 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 17, 2024 at 06:45:21PM GMT, Heinrich Schuchardt wrote:
-...
-> When thinking about the migration of virtual machines shouldn't QEMU be in
-> control of the initial state of vcpus instead of KVM?
->
+On Tue, Sep 17, 2024 at 02:08:53PM GMT, Ben Dooks wrote:
+> Add a trap for RDCYCLE and emulate it as RDTIME instruciton.
+> 
+> This is an initial PoC and should probably be made more generic
+> way of trapping and dealing with bad instructions
+> 
+> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+> ---
+>  arch/riscv/kernel/traps.c | 31 +++++++++++++++++++++++++++++++
+>  1 file changed, 31 insertions(+)
+> 
+> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+> index 1c3fab272fd1..51ea28ebf54d 100644
+> --- a/arch/riscv/kernel/traps.c
+> +++ b/arch/riscv/kernel/traps.c
+> @@ -167,6 +167,35 @@ DO_ERROR_INFO(do_trap_insn_misaligned,
+>  DO_ERROR_INFO(do_trap_insn_fault,
+>  	SIGSEGV, SEGV_ACCERR, "instruction access fault");
+>  
+> +#define is_system(__i) (((__i) & 0x7f) == RVG_OPCODE_SYSTEM)
 
-Thinking about this more, I'm inclined to agree. Initial state and reset
-state should be traits of the VMM (potentially influenced by the user)
-rather than KVM.
+We have riscv_insn_is_system()
+
+> +
+> +static bool riscv_try_csr_fixup_user(struct pt_regs *regs, u32 insn)
+> +{
+> +	/* expecting a 4 byte CSR instruction (*/
+> +	if (unlikely(GET_INSN_LENGTH(insn) != 4))
+> +		return false;
+> +
+> +	if (is_system(insn)) {
+> +		u32 csr = insn >> RVG_SYSTEM_CSR_OFF;
+> +		u32 rd = (insn >> RVG_RD_OPOFF) & RVG_RD_MASK;
+> +		u32 rs = (insn >> RVG_RS1_OPOFF) & RVG_RS1_MASK;
+> +		u32 funct3 = (insn >> RV_INSN_FUNCT3_OPOFF) & 0x7;
+
+There are are a few other macros in asm/insn.h that can be applied, such
+as RV_EXTRACT_RD_REG(), and more could be added if necessary.
+
+> +
+> +		if (rs == 0 && funct3 == 2 && csr == CSR_CYCLE) {
+
+We could probably create a riscv_insn_is_csr_read() and RV_EXTRACT_CSR()
+for this.
+
+> +			u64 val = csr_read(CSR_TIME);
+> +			/* we've got a RDCCLYE, emulated it with CSR_TIME */
+> +
+> +			printk_ratelimited("PID %d: process using RDCYCLE, emulating with RDTIME\n", current->pid);
+
+If we add current->comm it may be easier to find applications that should
+be converted to CSR_TIME.
+
+> +
+> +			regs_set_register(regs, rd*sizeof(unsigned long), val);
+
+nit: spaces around the '*'
+
+> +			regs->epc += 4;
+> +			return true;
+> +		}
+> +	}
+> +
+> +	return false;
+> +}
+> +
+>  asmlinkage __visible __trap_section void do_trap_insn_illegal(struct pt_regs *regs)
+>  {
+>  	bool handled;
+> @@ -186,6 +215,8 @@ asmlinkage __visible __trap_section void do_trap_insn_illegal(struct pt_regs *re
+>  		}
+>  
+>  		handled = riscv_v_first_use_handler(regs, insn);
+> +		if (!handle)
+                     ^handled?
+
+> +			handled = riscv_try_csr_fixup_user(regs, insn);
+>  
+>  		local_irq_disable();
+>  
+> -- 
+> 2.37.2.352.g3c44437643
+> 
+>
 
 Thanks,
 drew
