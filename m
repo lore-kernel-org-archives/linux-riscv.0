@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92A7BCCD192
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Sep 2024 09:07:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9717ACCD191
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Sep 2024 09:15:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2Gst2mniQd2gY6s4QAWctalX8yV0qBKU/dYC+1oGQjU=; b=rYpm2rrWT7i990
-	KYgOLrQggluI6/C+03ToKeGsXLSt5awfHSBS16uu0wpFBd+Orz5NHrHoDoTyEQ8A8IBtwGJBUqOMm
-	Q8mpgzjVUFzpqznulr7Fs4GVeW8NOSGDp6XU6V140Jevyu7+3ZPQOr5CY7I/9gZX19hUk3trymgQa
-	0Ychc4yI7Q3t1+s2TrisCwXYkAFZwShYBU95BYijhIpTZJLMjmW54AkmJkKR3prPk2O5tOaJwuXn+
-	DavXAly11bpwIbvYrQfUWefo7QKBXhnxD9uFxDj6tvxczMVQY70Dmp6AvEOdc0WlyRnZc6gMfUyW2
-	gngXYYvB+nuoMvphf3bw==;
+	List-Owner; bh=7NKtnWLykfmNHt5lemT2sdYcxkEZQ/MEe+pl4d1K4NI=; b=ysAv82hdf+9yI1
+	ZN8ubyhq2VnSuWg5cT5iB0CY4vNJS75YCzMffU5uUpFwEsjEngyyPqR/Y+/VtuDcNI2BKcehTt1Fx
+	5WwIrAgBhYReEl0yk/GjE2jn1UINJKosQ52eEDNlm9/9PCv2zP6lfMVf/N+dp2gziwWqcuMrUC7oO
+	5nvDNE4Rmm4lD/P6r1y/Nqv78JGei7gEjEILZoAriw4EtjjnB/KzKGtVJQozDXXrGROgVfz/YIasn
+	+kMWUeAmV9W1gxozpi/XfTs8GGsPaUAZqDHZuKv5n708WvsZQGoMSyE6pTpGt5UmkMQUW9x6PS0lg
+	NwUVtGOh8T920cLZdc5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sqqez-00000007tiz-1I8s;
-	Wed, 18 Sep 2024 09:07:41 +0000
+	id 1sqqmP-00000007uPy-0rUa;
+	Wed, 18 Sep 2024 09:15:21 +0000
 Received: from imap4.hz.codethink.co.uk ([188.40.203.114])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sqqew-00000007ti7-3Bic
+	id 1sqqmM-00000007uPK-3bDK
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Sep 2024 09:07:40 +0000
+	Wed, 18 Sep 2024 09:15:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=codethink.co.uk; s=imap4-20230908; h=Sender:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=yNAK/OKQT3dRIkbSu4E3cCi+/OlSS0ZmMUvwc9bXbI8=; b=I/oW7NIJUZ1bO78AOmstia8yIZ
-	rSc1c9AISsvHdLi8GzVr/OdR2xL13iOuTSx/chUNheO4f0P4eTi9Rmpme+HQodiVAm1kbRI0GBZ7i
-	PBiH06NhuVtkX21iYh0+hL1Cm0RNXB4x9bRGrYCDHxwpFYIW+9MFKsb82pFpVAT0VI5qC6LK2TbXR
-	CYjS5dPxqSmYLYDh/w/znw6lQEVCbhFmhoEui2n/m8nLEjwq0xMO+v6eQQwD7INjOLDV3pCsD/B8i
-	B7Gr4TbF/l8RkAmaNW1Uhdg/w3g6WApyf62Gv9HhSu0TtjF5iG/SxIudy46z7OH9eJgICXUkYjhY9
-	KadUrgIA==;
+	bh=7HunsVn0i5H7wnrEH05aye8p87cvPSuFCD3jzC2lA0g=; b=t9inYu4U6E1kC/xPcQuTLp234C
+	z4pqXaYIQ4CNSLPQhOFjJHBSsO7w1cgupmgp43IWryqO6+iaRSpjXIrNLqu2ShsMnrV2MUhfnwaom
+	l9PrzQlpqNItkDs7va91QXWpq3SGLIpVQMtz/5OeoEOp7JXzs2+Tb5mWZlMutXhzoHpTJyipjZS7Q
+	ukXEyq/XVyQ5QQcwLfUjT7d2kqn7Yfqf5jQtXLdkMTOLitj8K/fRb2W76S7Ol3Nx4iiK4rBpMhQWl
+	YbYQdIlzysB+VPEi8xHpR7S3T/YD8IUJP2ffjeN9QfJtT8ELyFpMXhMRbewbDx3zNjJ06wGQ+bTiG
+	7uZdur7A==;
 Received: from [83.68.141.146] (helo=[10.136.0.254])
 	by imap4.hz.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
-	id 1sqqes-00Br8b-D8; Wed, 18 Sep 2024 10:07:34 +0100
-Message-ID: <5daeb572-563d-4cda-9f67-042f0ab380f5@codethink.co.uk>
-Date: Wed, 18 Sep 2024 10:07:33 +0100
+	id 1sqqmH-00BrLu-NK; Wed, 18 Sep 2024 10:15:14 +0100
+Message-ID: <3b2c206f-bea6-4058-ac6c-c8b1071fdb8c@codethink.co.uk>
+Date: Wed, 18 Sep 2024 10:15:13 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH 3/3] riscv: add trap and emulation for RDCYCLE
@@ -57,8 +57,8 @@ From: Ben Dooks <ben.dooks@codethink.co.uk>
 Organization: Codethink Limited.
 In-Reply-To: <20240918-a465abde626cce8b72ba4758@orel>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240918_020738_919568_1BC99562 
-X-CRM114-Status: GOOD (  22.53  )
+X-CRM114-CacheID: sfid-20240918_021518_934334_CA5EEE01 
+X-CRM114-Status: GOOD (  25.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,9 +98,7 @@ On 18/09/2024 07:45, Andrew Jones wrote:
 >> +#define is_system(__i) (((__i) & 0x7f) == RVG_OPCODE_SYSTEM)
 > 
 > We have riscv_insn_is_system()
-
-Ah, didn't notice that.
-
+> 
 >> +
 >> +static bool riscv_try_csr_fixup_user(struct pt_regs *regs, u32 insn)
 >> +{
@@ -116,18 +114,13 @@ Ah, didn't notice that.
 > 
 > There are are a few other macros in asm/insn.h that can be applied, such
 > as RV_EXTRACT_RD_REG(), and more could be added if necessary.
-
-will have a look at that.
-
+> 
 >> +
 >> +		if (rs == 0 && funct3 == 2 && csr == CSR_CYCLE) {
 > 
 > We could probably create a riscv_insn_is_csr_read() and RV_EXTRACT_CSR()
 > for this.
-
-Not sure if this is totally necessary. I will check for the relevant 
-read/write type from the CSR acces instructions
-
+> 
 >> +			u64 val = csr_read(CSR_TIME);
 >> +			/* we've got a RDCCLYE, emulated it with CSR_TIME */
 >> +
@@ -136,15 +129,16 @@ read/write type from the CSR acces instructions
 > If we add current->comm it may be easier to find applications that should
 > be converted to CSR_TIME.
 
-ok, will add.
+I guess I should have also checked for the 32bit case too, but i think
+those are slightly different encodings for RDCYCLE/RDCYCLEH calls.
 
+
+> 
 >> +
 >> +			regs_set_register(regs, rd*sizeof(unsigned long), val);
 > 
 > nit: spaces around the '*'
-
-oops. will fix
-
+> 
 >> +			regs->epc += 4;
 >> +			return true;
 >> +		}
@@ -174,8 +168,13 @@ oops. will fix
 > 
 > Thanks,
 > drew
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
 
-Thanks.
 
 -- 
 Ben Dooks				http://www.codethink.co.uk/
