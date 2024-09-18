@@ -4,64 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99EE4CDD540
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Sep 2024 15:21:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 213D3CDD543
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Sep 2024 15:32:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
-	In-Reply-To:Cc:To:From:MIME-Version:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=pxluMAsuGN2MLV2KI3ES5A2NMC5FjGq2A+H49RXETPI=; b=zmQG8oYYn1kNs8AXRjEpoCJdWY
-	DGjwiep4wvMZ8mCreU9QDP3KUBk/9NySndsiO6roEO1IZ/UCV6iDVbhYzIqQcbdo2T0oNpy4Dcuyh
-	AI/k/wO7qBeIChLdZk75TkyexmDAutrIkZax8F018uvW8fyfI6dbIe532RLh8/h1AKC8Q8tCbmGBp
-	ym50C+XDMkGK/L+4mTNmV/nKQJcZ7JrRxAv2U97dJekt4wMoe0eDaVaE8VWC/Q9IaC7lFf3wgck45
-	zAGIpCvPvp49ntFMLtddcKnwwObc3XU965DOCyZjIDv4uZil6Xv+hptqFMSjB0mQTL3S5BniRuAJU
-	hFGiOHlA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=vIxTC3PSYEmZfZ3DTgGvms1VtVH/fJaEa+it9nCNpzs=; b=CiBHtgThHawy+f
+	o1SMVpGrza/Co06UNckogMI9spGtk9L/51ALUEzBlkAgZ7ih/M+jfUlkmcefqYIkZmv3Fhh3Kxn/m
+	aLRInM89KsUuur1tzQBYdeNwfnwTQAMrGXpK4dP3n3zWK87uo4/OzdiqREGk8LE3oV2f6+wTltNC/
+	l9WheocMWjLJjPmKKXgOtfV04MWdurpV8lwgGmajl3ATyPS79rSSFzXdxbWxHo7j672s53+ziX2ru
+	anhD9GCxFFmo2e6+Ai7Om0KkX1/dLt/bQeE/kEilUfa4vdSOzm5gAr/pxo6bsHmmS0VBSqv6z65Zc
+	Qy76BteOIQr37niJpZMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sqwUO-00000008W1W-0Yy1;
-	Wed, 18 Sep 2024 15:21:08 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1sqwfh-00000008XXU-19Vj;
+	Wed, 18 Sep 2024 15:32:49 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sqwUK-00000008W15-3eDV
+	id 1sqwfd-00000008XWe-2ca3
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Sep 2024 15:21:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6F51EA425CD;
-	Wed, 18 Sep 2024 15:20:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9FE6C4CEC3;
-	Wed, 18 Sep 2024 15:21:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1726672862;
-	bh=h74MYu0CMAjngiyISC1+qiBUaTaAmY+BF5I44TzOFQk=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=YWu/nLbZF3y4sdm/3OduIKLe/XT4R7y2ikUHgB9K/VBfEdIy4ceX09gq/1MTt3pSi
-	 /4Re/5YjjHtrwq9+Nta1Tjw3ozq9fHWYv/OaKnVjdm4FMjxB8uLm+hBecPV4EDo/TL
-	 0+GXxGvauyUN5CCvgBjq++XCk7V9Npwl4+hkLiZYlm6sdb/VJR4YsEopLu/NIksnq4
-	 jwJyoV6pV0uH92gt507H9I1YmLL1Tt2yjOzMqTpfXzAnr0IxBsk0gbDDt5TFEm6AoQ
-	 doALZonCIQ0vC6nZjdEFnc1qzuu9Lk7Yrzg/ezWY5Xdi2KN7VccEkvvuhMcEKVldj4
-	 nHRu8GVXCnhSA==
-Date: Wed, 18 Sep 2024 10:21:01 -0500
+	Wed, 18 Sep 2024 15:32:47 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-5c42e7adbe0so4746567a12.2
+        for <linux-riscv@lists.infradead.org>; Wed, 18 Sep 2024 08:32:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1726673563; x=1727278363; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=DCpTEL/dYMB7Uol2NlYZ7DCyhiPYwgEy6rc2BA5KywU=;
+        b=ZIIg++9MMXc+D19V3Q+MwkpFiZKf5pE8R3Bk8ehtPG5TlxHoYfjknC8ZMjZfwJYH/C
+         27abNxSQoiubFHhkqeIu1K8kQ9kFDZDnGtCUIma9E9pML3fWsxS7eMtvV/IA719ve3Ep
+         3Vhks0ggxgi38jh0qL0ELu0BZmkPSes5Var519hxyHGFepFMkSrknulm7051Ivqyeayg
+         MiaYYYwYQUZ/uQiZo1iUiGvXTgHqwS8nIedafJn4HLdnOelc+rqAlu7BgA0ZdESCXHyN
+         4VUc58MZMSQ6cVRu8X/YJeeQaFzb7Byjx76r2WPjUSJuvVZb5dMS9id8rHpbnOiLQDvG
+         LMxA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1726673563; x=1727278363;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=DCpTEL/dYMB7Uol2NlYZ7DCyhiPYwgEy6rc2BA5KywU=;
+        b=LLnZgLvW6FaCDqAb4Gk5iJaQmym6wZ7E2y4gib4s7M3wTDtWKJbqkI1YuWrtmyN1ms
+         ieKFw6PtrEi/QAUhKjKZKYqk4E+Xx9bjl/qx2eTAtTysDUGGwEm9S/poJ12cPKGVJj+V
+         qQr8egGFTCvZV0X7lMEzKfNVdY6GXCQ/DGYfhbhoOuLnSpSJhSNDCUW7DdQKZgNCu6ts
+         WIA3L6K+K2I+6Gwgql77qyDJGqpZhFKZDYI9yzszkYsZjICXzcBeetU+y/FX4fggGhq4
+         INHJ1KZKYWsBo7p3Wu6UbWIWaxAd+giQPn1TSD6zwZjZFPttsByLAhqgCbGkxCWZpPqI
+         8qDg==
+X-Forwarded-Encrypted: i=1; AJvYcCU2WUL/kOpisGvBOgsqmONL4/1mpM1qetcfBrjXfswUz+ecXwbmg3QhZNlxbLqmkb+meL7WGLgcaCYDqQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyFfz643uQfyjxaSEMvnknYuy8ut2GzjiNx4yPuW60oqaJdlTdx
+	rbR0rdvhtreW1S8nNtPYe9pgXmmaoocKyqJca0pbn2JsUiqsWPjiiVJFiXyR1oVm7opKdSKvkJ4
+	geo6p8xsbNROT0yJGCpgCZilGxIgbZ9/V9FkMBw==
+X-Google-Smtp-Source: AGHT+IHUXyXfmA5Am44lE06hFsf1unXiUfxYsmWUCGV8LXPzN024Cxhz2eXy8PcJcIICTPqY5rE5RE0MwfG5g8Mtkro=
+X-Received: by 2002:a05:6402:280a:b0:5c2:8249:b2d3 with SMTP id
+ 4fb4d7f45d1cf-5c413e4c51fmr18852185a12.26.1726673562914; Wed, 18 Sep 2024
+ 08:32:42 -0700 (PDT)
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: devicetree@vger.kernel.org, wefu@redhat.com, guoren@kernel.org, 
- paul.walmsley@sifive.com, palmer@dabbelt.com, drew@pdp7.com, 
- krzk+dt@kernel.org, aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org, 
- m.szyprowski@samsung.com, conor+dt@kernel.org, linux-kernel@vger.kernel.org, 
- jassisinghbrar@gmail.com
-In-Reply-To: <20240918134901.193033-3-m.wilczynski@samsung.com>
-References: <20240918134901.193033-1-m.wilczynski@samsung.com>
- <CGME20240918134926eucas1p1df23a583b356505939d4c5501bd6c80f@eucas1p1.samsung.com>
- <20240918134901.193033-3-m.wilczynski@samsung.com>
-Message-Id: <172667286158.1610121.8972324212190229160.robh@kernel.org>
-Subject: Re: [PATCH RFC v1 2/3] dt-bindings: mailbox: Add
- thead,th1520-mailbox bindings
+References: <20240916181633.366449-1-heinrich.schuchardt@canonical.com>
+ <20240917-f45624310204491aede04703@orel> <15c359a4-b3c1-4cb0-be2e-d5ca5537bc5b@canonical.com>
+ <20240917-b13c51d41030029c70aab785@orel> <8b24728f-8b6e-4c79-91f6-7cbb79494550@canonical.com>
+ <20240918-039d1e3bebf2231bd452a5ad@orel> <CAFEAcA-Yg9=5naRVVCwma0Ug0vFZfikqc6_YiRQTrfBpoz9Bjw@mail.gmail.com>
+ <bab7a5ce-74b6-49ae-b610-9a0f624addc0@canonical.com> <CAFEAcA-L7sQfK6MNt1ZbZqUMk+TJor=uD3Jj-Pc6Vy9j9JHhYQ@mail.gmail.com>
+ <f1e41b95-c499-4e06-91cb-006dcd9d29e6@canonical.com>
+In-Reply-To: <f1e41b95-c499-4e06-91cb-006dcd9d29e6@canonical.com>
+From: Peter Maydell <peter.maydell@linaro.org>
+Date: Wed, 18 Sep 2024 16:32:31 +0100
+Message-ID: <CAFEAcA_ePVwnpVVWJSx8=-8v2h_z2imfSdyAZd62RhXaZUTojA@mail.gmail.com>
+Subject: Re: [PATCH 1/1] target/riscv: enable floating point unit
+To: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Alistair Francis <alistair.francis@wdc.com>, 
+	Bin Meng <bmeng.cn@gmail.com>, Weiwei Li <liwei1518@gmail.com>, 
+	Daniel Henrique Barboza <dbarboza@ventanamicro.com>, Liu Zhiwei <zhiwei_liu@linux.alibaba.com>, 
+	qemu-riscv@nongnu.org, qemu-devel@nongnu.org, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240918_082105_004722_8C80DE5E 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20240918_083245_719913_C15C4530 
+X-CRM114-Status: GOOD (  26.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,50 +100,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, 18 Sept 2024 at 14:49, Heinrich Schuchardt
+<heinrich.schuchardt@canonical.com> wrote:
+>
+> On 18.09.24 15:12, Peter Maydell wrote:
+> > On Wed, 18 Sept 2024 at 14:06, Heinrich Schuchardt
+> > <heinrich.schuchardt@canonical.com> wrote:
+> >> Thanks Peter for looking into this.
+> >>
+> >> QEMU's cpu_synchronize_all_post_init() and
+> >> do_kvm_cpu_synchronize_post_reset() both end up in
+> >> kvm_arch_put_registers() and that is long after Linux
+> >> kvm_arch_vcpu_create() has been setting some FPU state. See the output
+> >> below.
+> >>
+> >> kvm_arch_put_registers() copies the CSRs by calling
+> >> kvm_riscv_put_regs_csr(). Here we can find:
+> >>
+> >>       KVM_RISCV_SET_CSR(cs, env, sstatus, env->mstatus);
+> >>
+> >> This call enables or disables the FPU according to the value of
+> >> env->mstatus.
+> >>
+> >> So we need to set the desired state of the floating point unit in QEMU.
+> >> And this is what the current patch does both for TCG and KVM.
+> >
+> > If it does this for both TCG and KVM then I don't understand
+> > this bit from the commit message:
+> >
+> > # Without this patch EDK II with TLS enabled crashes when hitting the first
+> > # floating point instruction while running QEMU with --accel kvm and runs
+> > # fine with --accel tcg.
+> >
+> > Shouldn't this guest crash the same way with both KVM and TCG without
+> > this patch, because the FPU state is the same for both?
 
-On Wed, 18 Sep 2024 15:49:00 +0200, Michal Wilczynski wrote:
-> Add bindings for the mailbox controller. This work is based on the vendor
-> kernel. [1]
-> 
-> Link: https://github.com/revyos/thead-kernel.git [1]
-> 
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> ---
->  .../bindings/mailbox/thead,th1520-mbox.yaml   | 83 +++++++++++++++++++
->  MAINTAINERS                                   |  1 +
->  2 files changed, 84 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/mailbox/thead,th1520-mbox.yaml
-> 
+> By default `qemu-system-riscv64 --accel tcg` runs OpenSBI as firmware
+> which enables the FPU.
+>
+> If you would choose a different SBI implementation which does not enable
+> the FPU you could experience the same crash.
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Ah, so KVM vs TCG is a red herring and it's actually "some guest
+firmware doesn't enable the FPU itself, and if you run that then it will
+fall over, whether you do it in KVM or TCG" ? That makes more sense.
 
-yamllint warnings/errors:
+I don't have an opinion on whether you want to do that or not,
+not knowing what the riscv architecture mandates. (On Arm this
+would be fairly clearly "the guest software is broken and
+should be fixed", but that's because the Arm architecture
+says you can't assume the FPU is enabled from reset.)
 
-dtschema/dtc warnings/errors:
-Error: Documentation/devicetree/bindings/mailbox/thead,th1520-mbox.example.dts:31.28-29 syntax error
-FATAL ERROR: Unable to parse input tree
-make[2]: *** [scripts/Makefile.lib:442: Documentation/devicetree/bindings/mailbox/thead,th1520-mbox.example.dtb] Error 1
-make[2]: *** Waiting for unfinished jobs....
-make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1432: dt_binding_check] Error 2
-make: *** [Makefile:224: __sub-make] Error 2
+I do think the commit message could use clarification to
+explain this.
 
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20240918134901.193033-3-m.wilczynski@samsung.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+thanks
+-- PMM
 
 _______________________________________________
 linux-riscv mailing list
