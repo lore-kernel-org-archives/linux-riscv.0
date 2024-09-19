@@ -4,77 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E043CCDD560
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Sep 2024 23:24:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85954CDD565
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Sep 2024 00:57:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DqKrC+HYcfMIt6J1bre86WqXtWtdNEYRNUPQmlXqNv8=; b=wqf3CkSMU1U5c2
-	xbxi6B9MWx19c+uPQCer+hIZoc3Vvx7gRWP3TOaFVr3IMc92/EZFKk6jZ6WNNjQYHdWs356GuGQWl
-	8Rkux2C7APZMISPW2EvNEb+nDV08/u76M8lycTXNw9Y44YMfT1VwDeVIr3Ji+qwg5uSvrAWouTTnt
-	/RElPh/uO+IUyJ3P35jUua9CG+DNiybrkI8rJoYqewfu5KiyDUrdQFdOFYMPXBDxn4sAl8J8yCyj7
-	G+V38/NwF24cxFpj3OevKvc3b6O4DlJHXq8p0ihhBZmtod0RpOKT9m5T9ji7LEvr4nYT5P4No57cK
-	rgR2aZ/RInXZeWb71sew==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:To:Subject:
+	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wr6F/G7g8kRQFGjqAgZa76cvy7iB/aFmJPkuOYrF2Qk=; b=i+rfVCqoLxwCfU5NNfZ9QJCudi
+	AqV2ROt3NLr3HJ4q/54J3f9aU35eOWLqYr/gug/0eJtat80M57lZ49rIY6SlgEsgqe163AG/YqEw6
+	dvWbqpgHLg5ppHaT8IfHn9BmYt8ylIHXBfSjbHn0XqvR66SStGgwFZb7V2BamjMShR4V+go5oK/Dn
+	h6uUr2eiQ38JdkhLgZkqwFzSXL8OjaUektrxLB/kdnaPAweRNRrZIerSxbZ6WfRxP5Pn+NXsGcm/O
+	2l1ZUTkkLydrXO+kWFj0UW/BDHhxQd+f6kfbdDdeNuyMqQg2HjCsUYT9U3xh0GEBCXiBZBYZjRGgQ
+	R+wdgypA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sr41h-000000098gw-2Niy;
-	Wed, 18 Sep 2024 23:24:01 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1sr5Tu-00000009Ckv-2jlc;
+	Thu, 19 Sep 2024 00:57:14 +0000
+Received: from mail-bmxind01olkn20819.outbound.protection.outlook.com ([2a01:111:f403:281c::819] helo=IND01-BMX-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sr41d-000000098gX-3IvL
+	id 1sr5Tq-00000009Ci6-3fDG
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Sep 2024 23:23:59 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-718e9c8bd83so984418b3a.1
-        for <linux-riscv@lists.infradead.org>; Wed, 18 Sep 2024 16:23:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1726701837; x=1727306637; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4fcaG1aPLyqtXvqRgyQZU+xgi/vEYBuWe1gbQxqTPNA=;
-        b=oWETlXFACsL+HJXxbxr78DgzxXKYLH8t9lJn16wL5MUKsHhcMiRVDV9V/HyYmWiQbK
-         bZhIa668M4Db9fS3JU4GtJ1eeESL/BuE4j6xLOkii7bjUvRPye2Mgb6P5Ur0VLWfq1DA
-         tiArokITN4qDxTdE3v3NamTEivalwqT168BNOixXVO1gJcDAmXAtcr7NZsFHSqA7dgTZ
-         zStbPfuC6cFy70Pmx1TD0wsPbna4AkrT05oGEuJg+KCoD5yJExbxziHdosJaDBF2sXqX
-         QriUtYlvFIW/C6YqOTYtKPuYLZqnmryJ+d1OKh/yVzbo7/b/aAvDmiOhASugcp73E6hD
-         C0MQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1726701837; x=1727306637;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=4fcaG1aPLyqtXvqRgyQZU+xgi/vEYBuWe1gbQxqTPNA=;
-        b=tG9DIgN81DtQCgFXUfTInWTSIPu1a56WNxJnTBsf4xNBicmykT1Ci4g/xk4wh3mOuT
-         3C/OWQbIgRTXqsPrZ2qVrVXV177cAOLfGxLnWun5nqOwZggQN6sXXxwNsWTYPRZKgPUs
-         +/zWzdqFIA1Upp1xDSbBhGzyzld9QNwEkNbLaJFBkeF8Fm/qbWP7ZYmDbPSQBGAruF7Z
-         g0B5LJys6kZTt65GruDGc62PCBb6d+/E5Igh8bhKi438tSI2Pg2NE0ulTQHFhlnTejil
-         sqaKhLcrDkbqYfDNUNAHXdLuuuib/hMDYu0MUibnpQo8gJZStqlxyRluVZQgsF+havAa
-         /pUQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXz87/y5hXINX6cH0rlXH+fdpq+o9oMOICpxstfK7nmj5siXyEP8EJM1Tt+BSqimqO4+K8nXRZYxagx6w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQdKA0RLBuTVK8LjUif6oQTC2DF3OhbrgZFFoFa31bo0Nsoy6y
-	PJw+UEerqE6g8ab4N3c0qEvpWXfQy329KbiGNur6Gz+mj5d5AUOSuX8W85YLiXVF2X18f1u7cCX
-	6+EjcjSMlFrHtLX5Xg1urMPs6qxFLH0pjdE/+fQ==
-X-Google-Smtp-Source: AGHT+IEdAyiUtTa+4zOlgoa1GxilH8W1w69t4wGIrgLeOOI0wySmIPAElMGfIhy33t77DLzT3QTJDcEmeQ19sUR7wmo=
-X-Received: by 2002:a05:6a20:6f08:b0:1d2:bc91:ba33 with SMTP id
- adf61e73a8af0-1d2fc900ef9mr2535184637.0.1726701836892; Wed, 18 Sep 2024
- 16:23:56 -0700 (PDT)
+	Thu, 19 Sep 2024 00:57:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cKJt2mFsENt6GUxQRegnaw7usdt8tHeIjHXOAA+6Eo+zA0NlS488f1Rhy6kO2o3F4dyGGa1UmhFWKeKwmZksFLpyjU7XSF8h0wK4LGeBa/NeVCgAchZYSc+EW6QqF7LLeR67R1Q4jTcCzqrw2uO6EeU5fq1pXgtw2sRAdFfQzubj6EeVDV5j6wcyOL5aEGVdVcUY7u6C5CgcswUL3aT7mZpKWv1Z0bPpBJjFoeGLfWKlw6QgqprCmhOihAoLuZaZIT5xX4V8MCcRpuCXsp8cI6eohmG/KcgI2Vk48fDtCsI7beHez6vkJrhpWbfNRAjmc+kOLaoxuPB+1iWy/E3b2w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nldyJwSfEE11io8vtch1j0lP2qDJ4yKW7mqy0MKZFx4=;
+ b=FeGE35pCNYltixUtY/VGeGOQAgSYn9IjRFe/EhDO3zqJi5ZCHKsvviZM9wlejHHqTEMHQOAp88E09GY1UuL2j8ypBaLy3zJeX4e8oNFBaFxg/IESsF3Vg4NkHtEpqXht4CtjfiCObpua6BoWVHatznIKtlUVzO9BRp6KgfHvEkDUN4FSi/YbGPHhM0NI1DiZ+KwEtIXcVvxspnQMho5mF8FtA9q6tGHNqm/Pd+T5objeKfCg/ovq0AzmuqfUtoA/xjpb/0zEm1LGgdmhWGNHBR3jf7JtquuV6uuSVDDcvR1W3nOcek1Tfd8+dnih696aiRivFk5/9TQ0E6Qaev0VPg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nldyJwSfEE11io8vtch1j0lP2qDJ4yKW7mqy0MKZFx4=;
+ b=KXZh56+cmEL5aLZov5izF+ireK8XRPpcr6aP6iWNdV6ESRrIDlxkywJl5qZDlmDAGQE1PQNVEWGAtc9V0prtFV1LBOn8EQ2pFl6wdbRV6VOgihBzRAFIyUl7IDMXyEE/Y1fILk55R3QXtWguqxMgftLEL9pXFffpNEuUcsAWlzT4bvjY8hq6Qam07OIRHuQX8aLeGKxiDkUTXARzMxAbsJMT9iyw4dDWnbLWb+RG4ttTVFGEYrE/KhDaGMHUQLj9M1tphFeO/wSeJJWpam32mvdflX8DuURlQr5ep+aKCR1yzn3/eKV5llriBKzFO0afq6haXvl+hJvkH/Hii3ubhg==
+Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:138::5)
+ by MA0P287MB0394.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:aa::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7982.16; Thu, 19 Sep
+ 2024 00:56:45 +0000
+Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ ([fe80::a94:ad0a:9071:806c]) by MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ ([fe80::a94:ad0a:9071:806c%4]) with mapi id 15.20.7982.012; Thu, 19 Sep 2024
+ 00:56:45 +0000
+Message-ID: <MA0P287MB28229E6C1F4AD0C75B6201BAFE632@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
+Date: Thu, 19 Sep 2024 08:56:42 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] pwm: sophgo: add driver for Sophgo SG2042 PWM
+To: Chen Wang <unicornxw@gmail.com>, ukleinek@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, inochiama@outlook.com,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-pwm@vger.kernel.org, linux-riscv@lists.infradead.org,
+ chao.wei@sophgo.com, haijiao.liu@sophgo.com, xiaoguang.xing@sophgo.com,
+ chunzhi.lin@sophgo.com
+References: <cover.1725931796.git.unicorn_wang@outlook.com>
+ <0f7568620c2ad3d21885e83182c51f4fe9202367.1725931796.git.unicorn_wang@outlook.com>
+From: Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <0f7568620c2ad3d21885e83182c51f4fe9202367.1725931796.git.unicorn_wang@outlook.com>
+X-ClientProxiedBy: SI1PR02CA0022.apcprd02.prod.outlook.com
+ (2603:1096:4:1f4::16) To MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:138::5)
+X-Microsoft-Original-Message-ID: <57b0d0aa-8a87-44ff-b38e-28b069de1564@outlook.com>
 MIME-Version: 1.0
-References: <mhng-ac746ffc-8099-447d-a45f-772550f23290@palmer-ri-x1c9>
- <bab6f17a-3e39-4be4-a20e-bbdbbc2e81f8@codethink.co.uk> <6ea17387-6efc-49c7-b631-b6a682054d49@rivosinc.com>
- <1bf46ac0-2ab4-44d3-bcf0-7a29ba6380c1@codethink.co.uk>
-In-Reply-To: <1bf46ac0-2ab4-44d3-bcf0-7a29ba6380c1@codethink.co.uk>
-From: Atish Kumar Patra <atishp@rivosinc.com>
-Date: Wed, 18 Sep 2024 16:23:45 -0700
-Message-ID: <CAHBxVyGAJOXwws92M13vf-=+7Z2Nk0c8VjwsQ_YwMa0y+PgtoQ@mail.gmail.com>
-Subject: Re: RFC: extern illegal instruction trap and trap RDCYCLE
-To: Ben Dooks <ben.dooks@codethink.co.uk>, Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MA0P287MB2822:EE_|MA0P287MB0394:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1f5f069f-d16a-4148-48c6-08dcd845eee5
+X-Microsoft-Antispam: BCL:0;ARA:14566002|15080799006|8060799006|5072599009|19110799003|6090799003|461199028|7092599003|440099028|3412199025;
+X-Microsoft-Antispam-Message-Info: 6QE/sKj0Oo9/Ob5ZTQt/p/zUApYvINFQlXUCJttGnkKkArgrrC7+04085H8GSh76qfkfhikgfSp4UAXq+y5JHprCr1N0WQl2ZYoMyThMRlSwI3BqwRg+ZQvCNRnjy4VJzS27CcBn0NuDwXRTtaBB720aE4+9aE7KGHaCZzO6pp9Hws72YRwxZ/jPNiw27clPNz4tVyWZ0Lg1xXyWz8g07Gk9Z5uFwZWsOBBiSSiNJi/ekTSMLoM3giS0x2XGaGdSCD2Bvnx6tEsJIK18ebD/Zqf1FRMTZ00mm7lFOJxMnf6/WZoXILZswzGILNlxAWBlMzg6cizv2K1zS6QZhEY7Cbd2Hx+AshEmr7dHKs6Cxj14fBGAPEeX/RMWbpNdO8AmVTOV2bwi9lrsdmNd/IiApujANRt983xHwfhitJJduSKZXlHfsjDw11LKRqZtvXTVas/f++8Nbst8Tm2ObGE0fwiNZaQefOZmqSO7VG1kL0KGuPP6oZbtb5DySobyrQpWQmCeyjzRGj+gxv/uKaHvWBc3UvmrphLYMjC0RWzBINVW+vb5hDeQQFOnRsE3JAu8Ras7gkYXncEcRIWooTYWrlvP2MI2CNU6CFJFJxJIxSdiqabueZ/P4Wcd80afrkciSZbzJ3iSqc3UTGkio+jwDtu/rlMYTrQWKyrfGh9sAvoQ9MBWGnlWiQ8pMG41w06pebVmoeFJOUbqNFdHGy9X89VG0OaltTqt74TM2b4Dy7Qp5bj7HarJaEr8CAU3Xk/fKHFxrtuW7kTv/FPwRM5ZPQ==
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZGFXUFJpcEpZV01TNk9JbHBXSVlXTWVsQlpnbitLaUgvMW1vc0x0a3F0U2pn?=
+ =?utf-8?B?bWdNRlBDaWs1b3g2c1VGK2liSnZWZ0k2dldLbzdJSjVWV003elJQTitsempT?=
+ =?utf-8?B?SkZSQVZrOW5tZWNFYTZmdzRWb21qa05RNC9pSW9MY3pHWmpHak5Sc3ZiN2Fo?=
+ =?utf-8?B?SUl5NTJyZU01Y283UVQ2YmZIWDBwYVBxbk5rVkYzQnZJUjYyRVlMYnRpV2t0?=
+ =?utf-8?B?NEpOZmxGeHpKWS9ZRUVlSVJrWWNRV3JXQ2x4TVJnYksvdTZROXdLYWN6K2p6?=
+ =?utf-8?B?YU50Zi9PVnNEeTZma3E5OG4zMEU5V1NoblVhMTFsUEs3VjdNQ09GdUFBdWNI?=
+ =?utf-8?B?KzBwNUhJTWRGRWNLSWtIWTlJNUVEWDV5ZTB0RGRNRFhnY1BzYXI3S0doczVE?=
+ =?utf-8?B?NGFYTFJ1TDJ1T3dvZ21CRUNGYW1xWXcyb1ZjQ01qTmhBMlZkTkJscDVjZ1dG?=
+ =?utf-8?B?L0JIaVhvTDVJQUpSR2JtbUJrZm1KWXJqaXY1VUhtYnBCcXhFajlPc0JLdTBs?=
+ =?utf-8?B?ZnZWenBJbzJYdUdaMVdKcVRRNzhPL0lsajhSa085a2FKZ3E5ZHprVTA1dFVy?=
+ =?utf-8?B?QWFxRUFHVXlEdmNua1VjVjkrekxZUDlsU0pTS2ZEaWpCVGgwMG01U2Y3OXZh?=
+ =?utf-8?B?Yng5aXllSHFUNisxMkJhdVVKNExKb3RpaG9DbGVnTVk4a3pNN0Y4WGlnK2V5?=
+ =?utf-8?B?MGd5cWFtaU8zWWRoU0tUY3F6YXROZ2JKZUF4bldtYkI0d2VMNjJ2QThnb2hD?=
+ =?utf-8?B?ZUdsaXVtWVMzUlNtZjgySGtUeE9XQ2lGVnQrY2k5b3kya2R6TWQ2UHhoeDR0?=
+ =?utf-8?B?ckFRNDBBaDROTnBGMDRWU2ZZOHhOc3ZFd1lGVlJ4T2lPbUlJYkYvZ3ExNmhR?=
+ =?utf-8?B?VGt5VlkrN2JiY0xZcVpBb3JQZkZlNDgvTDVVN3NqNENudXdSYnNkYUgyY2RR?=
+ =?utf-8?B?SFRYV3hJY2hsa2pndEFpZHZ1elNaN2FiODQrQlZaNTk0UndPTVFicW8xajdl?=
+ =?utf-8?B?MDV5VkxObllybk10b3YvNUtZL2dvWFg5ai9RRFZIdjZvUE1ZbG1PSHVnQnlt?=
+ =?utf-8?B?OEtLdVdWQ0FLeE5vSkZybnMxVXptV21kTy9OMmxwRWpCM2gwSCs4WVYzMlk3?=
+ =?utf-8?B?U3E2YlZSaURkVmxQUDNTOTI5Q3NROVRjUGlKZDJWZUZTWjFkNHJUaDRWcFRq?=
+ =?utf-8?B?M0lNd0lGWFZXYjVsVjl5QzJ4R3RabXdCdHBmRU8xd1krNFYrTWIxYlRPMll5?=
+ =?utf-8?B?Unc5eXg3MUtRY2EvdDhJTytXUDZXYTFpZStLdHRlcHRxMFF1c3g4T0ZheVNv?=
+ =?utf-8?B?ZWJ2NmNWTmtYVFBrU0w2QktWTEIzK1lqbGRodktmaThVOHRPTkpxWWJmd0xr?=
+ =?utf-8?B?c3NqZitCU1l2dkRvMUNMS2dOQ0JtSFgzaVpDeEdZdzM4NEIyeHlSS2x4ejB5?=
+ =?utf-8?B?UTdnZDhQbHdQRGFET0dGR0d4MlgxcURkL2dwOXdKVWFXbEt0T1k2WkR4blZl?=
+ =?utf-8?B?TW1xWmxsVjFIVWlURGtXRnFONWtvQi9BMWVPUFhueVBpczhNa0R0QW5JcSs1?=
+ =?utf-8?B?UW4vRDJBbjVNYTVSakczZXo3cDBidGNnNXlTbVdkRnN1WlEzMlllLzU0WTBJ?=
+ =?utf-8?B?OS8zL2ZZQXgwUit3R216SWExMzZCbUtwdnpKOGxtRk84dW9iRE1sMmY0TSs3?=
+ =?utf-8?Q?aR3jt7pQAnnK4yZ8g4YD?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1f5f069f-d16a-4148-48c6-08dcd845eee5
+X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Sep 2024 00:56:45.4566
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MA0P287MB0394
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240918_162358_119176_9328D3C7 
-X-CRM114-Status: GOOD (  34.22  )
+X-CRM114-CacheID: sfid-20240918_175711_171866_9B926226 
+X-CRM114-Status: GOOD (  30.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,65 +129,255 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBTZXAgMTgsIDIwMjQgYXQgMjo1N+KAr0FNIEJlbiBEb29rcyA8YmVuLmRvb2tzQGNv
-ZGV0aGluay5jby51az4gd3JvdGU6Cj4KPiBPbiAxOC8wOS8yMDI0IDEwOjU1LCBBdGlzaCBQYXRy
-YSB3cm90ZToKPiA+IE9uIDkvMTcvMjQgNzowMSBBTSwgQmVuIERvb2tzIHdyb3RlOgo+ID4+IE9u
-IDE3LzA5LzIwMjQgMTQ6NDYsIFBhbG1lciBEYWJiZWx0IHdyb3RlOgo+ID4+PiBPbiBUdWUsIDE3
-IFNlcCAyMDI0IDA2OjA4OjUwIFBEVCAoLTA3MDApLCBiZW4uZG9va3NAY29kZXRoaW5rLmNvLnVr
-Cj4gPj4+IHdyb3RlOgo+ID4+Pj4gVGhpcyBpcyBhIFJGQyBzZXJpZXMgdG8gY2hhbmdlIGhvdyB0
-aGUgaWxsZWdhbCBpbnN0cnVjdGlvbiB0cmFwCj4gPj4+PiBpcyBoYW5kbGVkIGFuZCB0aGVuIGhv
-dyB0byB0cmFwIFJEQ1lDTEUgYW5kIGVtdWxhdGUgaXQgd2l0aCBSRFRJTUUKPiA+Pj4+IGluc3Rl
-YWQuCj4gPj4+Cj4gPj4+IE9ubHkgMS8zIG1hZGUgaXQgdG8gbG9yZSBmb3IgbWUsIG5vdCBzdXJl
-IGlmIGl0J3MganVzdCBzdHVjayBzb21ld2hlcmUuCj4gPj4+Cj4gPj4+Pgo+ID4+Pj4gSSBkaWQg
-dGhpcyB3aGVuIHdlIGZvdW5kIG11bHRpcGxlIGxpYnJhcmllcyB1c2luZyBSRENZQ0xFIGFuZAo+
-ID4+Pj4gdXBncmFkaW5nIG11bHRpcGxlIHJ1bm5lcnMgdG8gbmV3ZXIga2VybmVscyBjYXVzZWQg
-bWFueSBwcm9ibGVtcwo+ID4+Pgo+ID4+PiBPSywgc28gSSB0aGluayB3ZSdyZSBraW5kIG9mIGp1
-c3Qgc3R1Y2sgd2l0aCBSRENZQ0xFIHRoZW4gLS0gaXQgd2FzCj4gPj4+IHBhcnQgb2YgdGhlIGJh
-c2UgSVNBIHdoZW4gd2UgbWVyZ2VkIHRoZSBwb3J0LCBhbmQgZXZlcnkgdGltZSBpdAo+ID4+PiBk
-aXNhcHBlYXJzIHdlIGVuZCB1cCBicmVha2luZyB1c2Vyc3BhY2UuCj4gPj4KPiA+PiBZZXMsIGl0
-IHdhcyBhbiBhbm5veWFuY2UsIHdlIG1hbmFnZWQgdG8gdHJhY2sgZG93biBhbGwgdGhlIHVzZXJz
-IGFuZAo+ID4+IHBhdGNoIG91dC4KPiA+Pgo+ID4+IEkgdGhvdWdodCB0aGlzIG1pZ2h0IGJlIGEg
-dXNlZnVsIGlkZWEgZm9yIG1vcmUgZ2VuZXJpYyB0eXBlLCBzbyBtaWdodAo+ID4+IGxvb2sgYXQg
-dXBkYXRpbmcgdG8gaGF2ZSBhIHRhYmxlIG9mIGluc3RydWN0aW9uIG1hc2tzIHRvIGNhbGwuCj4g
-Pj4KPiA+Pj4gSSdtIG5vdCBzdXJlIHdoYXQgZXhhY3RseSB0aGUgcmlnaHQgd2F5IHRvIGRvIHRo
-aXMgaXM6IElJUkMgdGhlcmUncwo+ID4+PiBzb21lIHBlcmYtcmVsYXRlZCBob29rcyBmb3IgdGhp
-cywgYnV0IHRoZXJlJ3MgYWxzbyBzeXN0ZW1zIHRoYXQganVzdAo+ID4+PiBkb24ndCBpbXBsZW1l
-bnQgdGhlIFJEQ1lDTEUgaW5zdHJ1Y3Rpb24gYXQgYWxsIGFuZCB0aHVzIHdlJ2xsIG5lZWQKPiA+
-Pj4gc29tZSBzb3J0IG9mIGVtdWxhdGlvbiBmb3IgdGhvc2UuCj4gPj4KPiA+PiBJIGNvdWxkbid0
-IGdldCB0aGUgUE1VIGRyaXZlciB0byBhbGxvdyBpdCwgbm90IHN1cmUgaWYgdGhlcmUgd2FzIGFu
-Cj4gPj4gaXNzdWUgaGlnaGVyIHVwIG9yIHNvbWUgb3RoZXIgaXNzdWU/Cj4gPj4KPiA+Cj4gPiBI
-ZXJlIGlzIHRoZSB3YXkgdG8gcHJvcGVybHkgYWxsb3cgaXQgdmlhIHRoZSBkcml2ZXIuCj4gPgo+
-ID4gaHR0cHM6Ly93d3cua2VybmVsLm9yZy9kb2MvRG9jdW1lbnRhdGlvbi9hZG1pbi1ndWlkZS9z
-eXNjdGwva2VybmVsLnJzdAo+ID4KPiA+IENoZWNrIHRoZSBwZXJmX3VzZXJfYWNjZXNzCj4KPiBE
-aWRuJ3Qgd29yayBmb3IgbWUsIG5vdCBzdXJlIHdoeQo+CgorQWxleGFuZHJlIEdoaXRpCgpIbW0u
-IFRoYXQncyB3ZWlyZC4gTWF5YmUgc29tZSBidWcgY3JlcHQgaW4gcmVjZW50bHkuIENhbiB5b3Ug
-cHJvdmlkZQpzb21lIG1vcmUgZGV0YWlscwpvbiB0aGUgcGxhdGZvcm0sIGtlcm5lbCB2ZXJzaW9u
-IGFuZCBwcm9jZWR1cmUgZm9sbG93ZWQgdG8gY2hhbmdlIGl0ID8KCj4gPgo+ID4gQXMgeW91IG5v
-dGVkLCB0aGUgdXNlciBzcGFjZSBhcHBsaWNhdGlvbiBzaG91bGRuJ3QgdXNlIFJEQ1lDTEUgZm9y
-Cj4gPiB2YXJpb3VzIHJlYXNvbnMgZGlzY3Vzc2VkIGluIHRoZSBwYXN0Lgo+ID4KPiA+IElmIFJE
-VElNRSBpcyByZWFsbHkgbm90IGFuIG9wdGlvbiwgeW91IGNhbiBhbHdheXMgc2V0IHRoZSBsZWdh
-Y3kgbW9kZSB0bwo+ID4gZW5hYmxlIGFjY2Vzcy4KPiA+Cj4gPj4+IFNvIGhvcGVmdWxseSB0aGUg
-b3RoZXIgdHdvIHBhdGNoZXMgZ2V0IHRocm91Z2ggdGhlIGxpc3RzIGF0IHNvbWUKPiA+Pj4gcG9p
-bnQsIGJ1dCBJIHRoaW5rIGluIGdlbmVyYWwgdGhpcyBpcyBhIHJlYXNvbmFibGUgdGhpbmcgdG8g
-ZG8gLS0gb3IKPiA+Pj4gSSBndWVzcyBtYXliZSBhIGNvbXBsZXRlbHkgdW5yZWFzb25hYmxlIHRo
-aW5nIHRvIGJlIHN0dWNrIG5lZWRpbmcgdG8KPiA+Pj4gZG8sIGJ1dCBubyB3YXkgYXJvdW5kIGl0
-IDspCj4gPj4KPiA+PiBJJ2xsIGNoZWNrIGJhY2sgbGF0ZXIsIGN1cnJlbnRseSBhcyBPU1MtRVUK
-PiA+Pgo+ID4+Pj4KPiA+Pj4+Cj4gPj4+Pgo+ID4+Pj4gX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX18KPiA+Pj4+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+
-ID4+Pj4gbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+ID4+Pj4gaHR0cDovL2xpc3Rz
-LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo+ID4+Pgo+ID4+PiBf
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+ID4+PiBsaW51
-eC1yaXNjdiBtYWlsaW5nIGxpc3QKPiA+Pj4gbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
-Zwo+ID4+PiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cj4gPj4+Cj4gPj4KPiA+Pgo+ID4KPiA+Cj4KPgo+IC0tCj4gQmVuIERvb2tzICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgIGh0dHA6Ly93d3cuY29kZXRoaW5rLmNvLnVrLwo+IFNl
-bmlvciBFbmdpbmVlciAgICAgICAgICAgICAgICAgICAgICAgICBDb2RldGhpbmsgLSBQcm92aWRp
-bmcgR2VuaXVzCj4KPiBodHRwczovL3d3dy5jb2RldGhpbmsuY28udWsvcHJpdmFjeS5odG1sCgpf
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
-diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
-dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Ping ~
+
+hi, Uwe,
+
+Can you please review and comment?
+
+Thanks,
+
+Chen
+
+On 2024/9/10 10:08, Chen Wang wrote:
+> From: Chen Wang <unicorn_wang@outlook.com>
+>
+> Add a PWM driver for PWM controller in Sophgo SG2042 SoC.
+>
+> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
+> ---
+>   drivers/pwm/Kconfig             |  10 ++
+>   drivers/pwm/Makefile            |   1 +
+>   drivers/pwm/pwm-sophgo-sg2042.c | 180 ++++++++++++++++++++++++++++++++
+>   3 files changed, 191 insertions(+)
+>   create mode 100644 drivers/pwm/pwm-sophgo-sg2042.c
+>
+> diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
+> index 3e53838990f5..de8a36ecabbb 100644
+> --- a/drivers/pwm/Kconfig
+> +++ b/drivers/pwm/Kconfig
+> @@ -577,6 +577,16 @@ config PWM_SL28CPLD
+>   	  To compile this driver as a module, choose M here: the module
+>   	  will be called pwm-sl28cpld.
+>   
+> +config PWM_SOPHGO_SG2042
+> +	tristate "Sophgo SG2042 PWM support"
+> +	depends on ARCH_SOPHGO || COMPILE_TEST
+> +	help
+> +	  PWM driver for the PWM controller on Sophgo SG2042 SoC. The PWM
+> +	  controller supports outputing 4 channels of PWM waveforms.
+> +
+> +	  To compile this driver as a module, choose M here: the module
+> +	  will be called pwm_sophgo_sg2042.
+> +
+>   config PWM_SPEAR
+>   	tristate "STMicroelectronics SPEAr PWM support"
+>   	depends on PLAT_SPEAR || COMPILE_TEST
+> diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
+> index 0be4f3e6dd43..ef2555e83183 100644
+> --- a/drivers/pwm/Makefile
+> +++ b/drivers/pwm/Makefile
+> @@ -52,6 +52,7 @@ obj-$(CONFIG_PWM_RZ_MTU3)	+= pwm-rz-mtu3.o
+>   obj-$(CONFIG_PWM_SAMSUNG)	+= pwm-samsung.o
+>   obj-$(CONFIG_PWM_SIFIVE)	+= pwm-sifive.o
+>   obj-$(CONFIG_PWM_SL28CPLD)	+= pwm-sl28cpld.o
+> +obj-$(CONFIG_PWM_SOPHGO_SG2042)	+= pwm-sophgo-sg2042.o
+>   obj-$(CONFIG_PWM_SPEAR)		+= pwm-spear.o
+>   obj-$(CONFIG_PWM_SPRD)		+= pwm-sprd.o
+>   obj-$(CONFIG_PWM_STI)		+= pwm-sti.o
+> diff --git a/drivers/pwm/pwm-sophgo-sg2042.c b/drivers/pwm/pwm-sophgo-sg2042.c
+> new file mode 100644
+> index 000000000000..198019b751ad
+> --- /dev/null
+> +++ b/drivers/pwm/pwm-sophgo-sg2042.c
+> @@ -0,0 +1,180 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Sophgo SG2042 PWM Controller Driver
+> + *
+> + * Copyright (C) 2024 Sophgo Technology Inc.
+> + * Copyright (C) 2024 Chen Wang <unicorn_wang@outlook.com>
+> + *
+> + * Limitations:
+> + * - After reset, the output of the PWM channel is always high.
+> + *   The value of HLPERIOD/PERIOD is 0.
+> + * - When HLPERIOD or PERIOD is reconfigured, PWM will start to
+> + *   output waveforms with the new configuration after completing
+> + *   the running period.
+> + * - When PERIOD and HLPERIOD is set to 0, the PWM wave output will
+> + *   be stopped and the output is pulled to high.
+> + */
+> +
+> +#include <linux/clk.h>
+> +#include <linux/err.h>
+> +#include <linux/io.h>
+> +#include <linux/module.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/pwm.h>
+> +
+> +#include <asm/div64.h>
+> +
+> +/*
+> + * Offset RegisterName
+> + * 0x0000 HLPERIOD0
+> + * 0x0004 PERIOD0
+> + * 0x0008 HLPERIOD1
+> + * 0x000C PERIOD1
+> + * 0x0010 HLPERIOD2
+> + * 0x0014 PERIOD2
+> + * 0x0018 HLPERIOD3
+> + * 0x001C PERIOD3
+> + * Four groups and every group is composed of HLPERIOD & PERIOD
+> + */
+> +#define SG2042_HLPERIOD(chan) ((chan) * 8 + 0)
+> +#define SG2042_PERIOD(chan) ((chan) * 8 + 4)
+> +
+> +#define SG2042_PWM_CHANNELNUM	4
+> +
+> +/**
+> + * struct sg2042_pwm_ddata - private driver data
+> + * @base:		base address of mapped PWM registers
+> + * @clk_rate_hz:	rate of base clock in HZ
+> + */
+> +struct sg2042_pwm_ddata {
+> +	void __iomem *base;
+> +	unsigned long clk_rate_hz;
+> +};
+> +
+> +static void pwm_sg2042_config(void __iomem *base, unsigned int chan, u32 period, u32 hlperiod)
+> +{
+> +	writel(period, base + SG2042_PERIOD(chan));
+> +	writel(hlperiod, base + SG2042_HLPERIOD(chan));
+> +}
+> +
+> +static int pwm_sg2042_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+> +			    const struct pwm_state *state)
+> +{
+> +	struct sg2042_pwm_ddata *ddata = pwmchip_get_drvdata(chip);
+> +	u32 hlperiod;
+> +	u32 period;
+> +
+> +	if (state->polarity == PWM_POLARITY_INVERSED)
+> +		return -EINVAL;
+> +
+> +	if (!state->enabled) {
+> +		pwm_sg2042_config(ddata->base, pwm->hwpwm, 0, 0);
+> +		return 0;
+> +	}
+> +
+> +	/*
+> +	 * Period of High level (duty_cycle) = HLPERIOD x Period_clk
+> +	 * Period of One Cycle (period) = PERIOD x Period_clk
+> +	 */
+> +	period = min(mul_u64_u64_div_u64(ddata->clk_rate_hz, state->period, NSEC_PER_SEC), U32_MAX);
+> +	hlperiod = min(mul_u64_u64_div_u64(ddata->clk_rate_hz, state->duty_cycle, NSEC_PER_SEC), U32_MAX);
+> +
+> +	if (hlperiod > period) {
+> +		dev_err(pwmchip_parent(chip), "period < hlperiod, failed to apply current setting\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	dev_dbg(pwmchip_parent(chip), "chan[%u]: period=%u, hlperiod=%u\n",
+> +		pwm->hwpwm, period, hlperiod);
+> +
+> +	pwm_sg2042_config(ddata->base, pwm->hwpwm, period, hlperiod);
+> +
+> +	return 0;
+> +}
+> +
+> +static int pwm_sg2042_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
+> +				struct pwm_state *state)
+> +{
+> +	struct sg2042_pwm_ddata *ddata = pwmchip_get_drvdata(chip);
+> +	unsigned int chan = pwm->hwpwm;
+> +	u32 hlperiod;
+> +	u32 period;
+> +
+> +	period = readl(ddata->base + SG2042_PERIOD(chan));
+> +	hlperiod = readl(ddata->base + SG2042_HLPERIOD(chan));
+> +
+> +	if (!period && !hlperiod)
+> +		state->enabled = false;
+> +	else
+> +		state->enabled = true;
+> +
+> +	state->period = DIV_ROUND_UP_ULL((u64)period * NSEC_PER_SEC, ddata->clk_rate_hz);
+> +	state->duty_cycle = DIV_ROUND_UP_ULL((u64)hlperiod * NSEC_PER_SEC, ddata->clk_rate_hz);
+> +
+> +	state->polarity = PWM_POLARITY_NORMAL;
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct pwm_ops pwm_sg2042_ops = {
+> +	.apply = pwm_sg2042_apply,
+> +	.get_state = pwm_sg2042_get_state,
+> +};
+> +
+> +static const struct of_device_id sg2042_pwm_ids[] = {
+> +	{ .compatible = "sophgo,sg2042-pwm" },
+> +	{ }
+> +};
+> +MODULE_DEVICE_TABLE(of, sg2042_pwm_ids);
+> +
+> +static int pwm_sg2042_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct sg2042_pwm_ddata *ddata;
+> +	struct pwm_chip *chip;
+> +	struct clk *clk;
+> +	int ret;
+> +
+> +	chip = devm_pwmchip_alloc(dev, SG2042_PWM_CHANNELNUM, sizeof(*ddata));
+> +	if (IS_ERR(chip))
+> +		return PTR_ERR(chip);
+> +	ddata = pwmchip_get_drvdata(chip);
+> +
+> +	ddata->base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(ddata->base))
+> +		return PTR_ERR(ddata->base);
+> +
+> +	clk = devm_clk_get_enabled(dev, "apb");
+> +	if (IS_ERR(clk))
+> +		return dev_err_probe(dev, PTR_ERR(clk), "failed to get base clk\n");
+> +
+> +	ret = devm_clk_rate_exclusive_get(dev, clk);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to get exclusive rate\n");
+> +
+> +	ddata->clk_rate_hz = clk_get_rate(clk);
+> +	if (!ddata->clk_rate_hz || ddata->clk_rate_hz > NSEC_PER_SEC)
+> +		return dev_err_probe(dev, -EINVAL,
+> +				     "Invalid clock rate: %lu\n", ddata->clk_rate_hz);
+> +
+> +	chip->ops = &pwm_sg2042_ops;
+> +
+> +	ret = devm_pwmchip_add(dev, chip);
+> +	if (ret < 0)
+> +		return dev_err_probe(dev, ret, "failed to register PWM chip\n");
+> +
+> +	return 0;
+> +}
+> +
+> +static struct platform_driver pwm_sg2042_driver = {
+> +	.driver	= {
+> +		.name = "sg2042-pwm",
+> +		.of_match_table = sg2042_pwm_ids,
+> +	},
+> +	.probe = pwm_sg2042_probe,
+> +};
+> +module_platform_driver(pwm_sg2042_driver);
+> +
+> +MODULE_AUTHOR("Chen Wang");
+> +MODULE_DESCRIPTION("Sophgo SG2042 PWM driver");
+> +MODULE_LICENSE("GPL");
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
