@@ -4,77 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93AEFCE8D49
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Sep 2024 03:43:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 330F6CE8D4C
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Sep 2024 06:15:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=WNGy1wEPwhi+Ca+iINnI3FeppI75fLddQ0rCWbDjPJQ=; b=lRuIE0y/w6YgO2
-	qDwL/WUgVWa4zT6f0R+N703UaWEoxOE7xbIJj4tKo+HCm5H02891gLmXkFGE9KzxYJqKhr9sW6ktQ
-	fzxSR81VOf/Mdp59FkiI4x7JWh4pSybS2MfgwT1a3An0dM/OqEtmaoKqBmLBjo2y9H0YcjMTUV32J
-	SugpU1cHy2deEtqfI4gYNmGLbw22zs8WfJOGU5QbUubrRf+yqcZntW5ppXHF/gyE1n5c/r8dGONlN
-	GFsEt+CP1O0RKukWPPblShCS1QiEAGHZpiMPwytR9/TLlGIbnIBu6ZSpy6hJ4pO20Pu2/PgpIGArY
-	d3d4vQPc1zKA97DhP1Og==;
+	List-Owner; bh=izYC1Brn5sF4lzXhLu7XzX92yVhXMI0jhF18Yf0MltQ=; b=Ml5HA0xXBceGgB
+	7zqpNoNZmO3UjPY0kkCbzQHZhS0UhXlj+RV1UjvqOsN1ZcdnXD57XjLp+hh1sMS4APfAvC9jSTE/I
+	2zjjIRGpxBe+glOImRuSbsvZZiYHZrmSXYv+1Ynmv37ze3awHDjDfCYq8wZSpDMnKRJXoWYcDzH9Q
+	uWbEj6dxofJ0iPS/u++Fj9gN/uf/cqhogeFGIIqTr6MN2Xryzr2Q5QRmjSCjnCbjLyjcf/0//nTsu
+	/049CshtUNRgKtDP0IAA34Kx47vHStG2wJmdGzltDkEqKDvEsq2NCLY3YH42bRYw8B7Nj8hYfwXZ3
+	u9FxFN+t+SLovVmhTefw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sr854-00000009NEN-2gbQ;
-	Thu, 19 Sep 2024 03:43:46 +0000
-Received: from smtpbg151.qq.com ([18.169.211.239])
+	id 1srAS1-00000009XsP-3gvO;
+	Thu, 19 Sep 2024 06:15:37 +0000
+Received: from imap5.colo.codethink.co.uk ([78.40.148.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sr851-00000009NDf-4AtO
+	id 1srARz-00000009XrX-0QBs
 	for linux-riscv@lists.infradead.org;
-	Thu, 19 Sep 2024 03:43:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1726717350;
-	bh=SgCHUiz82lndKjTeNsmeInw+/PdasPiFZ+8EYbiHHVQ=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=gtZZ8HRSPC4t7+Sxe1Ngrcotzqpb55SeZR2V4FtT7AjGhHJMwLkq5HLxC+upg93Rs
-	 GZ31SjcXNTZi7NZ572jZal4bakpIoDcYWkl+q22H9OmdJGtKjlxMb1JvzMP9/6SBgY
-	 sAz59CiGc8xh7DRq9wkPiP0pnVx4KWljJnsR5xyA=
-X-QQ-mid: bizesmtp91t1726717345tc4qvn7k
-X-QQ-Originating-IP: tfsA70aSzkRofVa6syLi67IHJ7ynHwMMwuML09155uQ=
-Received: from localhost.localdomain ( [113.57.152.160])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 19 Sep 2024 11:42:23 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 5706766640839109577
-From: WangYuli <wangyuli@uniontech.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	samuel.holland@sifive.com,
-	conor.dooley@microchip.com,
+	Thu, 19 Sep 2024 06:15:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=codethink.co.uk; s=imap5-20230908; h=Sender:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=oBYpkWszY7tggqf79E5F5PPG229HgY/r22zB1ZJnXhg=; b=auQZD6cUqKd5EA5acWo6rsIj9d
+	A9kH19tYjJxdrNdRdzdz5dNI595piQHgeNnTxEiBlwqtZJ74uasCETar/Qh5Wg8+ZGchiBO49Sjq0
+	x0Jtg++D/hqyCUQNJDBeh58i9kJR6F/QBUnj7MfTvYHtTKUJ0PXUiZR56sVLAO0v1/UPVr8xMXRKh
+	98fhjTF9q2beJcRmuKJi68pXYhk5Jvp6wZM6e/FClCoIZQ4Uw4/SManec1N41Bhvgt0/0uG89ik9O
+	QH3li1zIpbSRmfA0kmofMfDeYQdel4ugKEBmGucaG1K6uw/KZu3XYNkZM8hAuk1PG8S2rzxP8FdWX
+	IJRGjHQQ==;
+Received: from 81-223-238-147.static.upcbusiness.at ([81.223.238.147] helo=rainbowdash)
+	by imap5.colo.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
+	id 1srARq-000GL2-9T; Thu, 19 Sep 2024 07:15:26 +0100
+Received: from ben by rainbowdash with local (Exim 4.98)
+	(envelope-from <ben@rainbowdash>)
+	id 1srARp-000000016gP-20OG;
+	Thu, 19 Sep 2024 07:15:25 +0100
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+To: linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org,
 	charlie@rivosinc.com,
-	macro@orcam.me.uk
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	atish.patra@wdc.com,
-	anup@brainfault.org,
-	guanwentao@uniontech.com,
-	zhanjun@uniontech.com,
-	tglx@linutronix.de,
-	peterz@infradead.org,
-	palmer@rivosinc.com,
-	mikelley@microsoft.com,
-	oleksandr@natalenko.name,
-	deller@gmx.de,
-	gpiccoli@igalia.com,
-	WangYuli <wangyuli@uniontech.com>
-Subject: [RESEND. PATCH v2] riscv: Use '%u' to format the output of 'cpu'
-Date: Thu, 19 Sep 2024 11:41:46 +0800
-Message-ID: <CC5FEE6571AB2A58+20240919034146.57207-1-wangyuli@uniontech.com>
-X-Mailer: git-send-email 2.45.2
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	Ben Dooks <ben.dooks@codethink.co.uk>
+Subject: [PATCH] riscv: make riscv_isa_vendor_ext_andes[] static
+Date: Thu, 19 Sep 2024 07:15:24 +0100
+Message-Id: <20240919061524.264007-1-ben.dooks@codethink.co.uk>
+X-Mailer: git-send-email 2.37.2.352.g3c44437643
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:uniontech.com:qybglogicsvrgz:qybglogicsvrgz8a-1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240918_204344_545235_6F2E0137 
-X-CRM114-Status: UNSURE (   9.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240918_231535_241563_1745961D 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,34 +77,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-'cpu' is an unsigned integer, so its conversion specifier should
-be %u, not %d.
+The riscv_isa_vendor_ext_andes array is not exported out of the
+file it is in, so make it static to fix the following sparse
+warning:
 
-Suggested-by: Wentao Guan <guanwentao@uniontech.com>
-Suggested-by: Maciej W. Rozycki <macro@orcam.me.uk>
-Link: https://lore.kernel.org/all/alpine.DEB.2.21.2409122309090.40372@angie.orcam.me.uk/
-Signed-off-by: WangYuli <wangyuli@uniontech.com>
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
-Tested-by: Charlie Jenkins <charlie@rivosinc.com>
+arch/riscv/kernel/vendor_extensions/andes.c:11:33: warning: symbol 'riscv_isa_vendor_ext_andes' was not declared. Should it be static?
+
+Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
 ---
- arch/riscv/kernel/cpu-hotplug.c | 2 +-
+ arch/riscv/kernel/vendor_extensions/andes.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/kernel/cpu-hotplug.c b/arch/riscv/kernel/cpu-hotplug.c
-index 28b58fc5ad19..a1e38ecfc8be 100644
---- a/arch/riscv/kernel/cpu-hotplug.c
-+++ b/arch/riscv/kernel/cpu-hotplug.c
-@@ -58,7 +58,7 @@ void arch_cpuhp_cleanup_dead_cpu(unsigned int cpu)
- 	if (cpu_ops->cpu_is_stopped)
- 		ret = cpu_ops->cpu_is_stopped(cpu);
- 	if (ret)
--		pr_warn("CPU%d may not have stopped: %d\n", cpu, ret);
-+		pr_warn("CPU%u may not have stopped: %d\n", cpu, ret);
- }
+diff --git a/arch/riscv/kernel/vendor_extensions/andes.c b/arch/riscv/kernel/vendor_extensions/andes.c
+index ec688c88456a..51f302b6d503 100644
+--- a/arch/riscv/kernel/vendor_extensions/andes.c
++++ b/arch/riscv/kernel/vendor_extensions/andes.c
+@@ -8,7 +8,7 @@
+ #include <linux/types.h>
  
- /*
+ /* All Andes vendor extensions supported in Linux */
+-const struct riscv_isa_ext_data riscv_isa_vendor_ext_andes[] = {
++static const struct riscv_isa_ext_data riscv_isa_vendor_ext_andes[] = {
+ 	__RISCV_ISA_EXT_DATA(xandespmu, RISCV_ISA_VENDOR_EXT_XANDESPMU),
+ };
+ 
 -- 
-2.45.2
+2.37.2.352.g3c44437643
 
 
 _______________________________________________
