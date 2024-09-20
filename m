@@ -4,84 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF51CCF3959
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Sep 2024 16:02:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE6A8CF58CD
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Sep 2024 05:31:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=8x2Fe/FzULjSjpx/AR3WVdcMqMxRnr35dByWaccG5e4=; b=Bz2tLhKFLMlotR
-	R+22Q1nRgOlNt2qfI96iEZnYGtPcldhmt+gq4GxjGS7BaDRXbN1XusHG1zK2/SIQJ+82XNcZ4764l
-	TuZfhy4IEZL/n6am7OV5u5rqOwOCA/cLExrJ8Bvft8XXl75dLkY+J8q0ueNdM2EFM7E8hYpxz94lI
-	6/h4bgDe0zrLPCt4SoXHnDKh+3Ttm+up6gPlLAlWQx+3qurVGtAO4dcka2Gf4sznoHnkgjsDmozrG
-	+gd7629Mr2cRDeWfpGxrIB+oBiUCBzcBHxcBMdGfmgZqQGfgg339ZQm9RDNeCMldKH1BoTPY/QjKg
-	2xGHtH+SLTJm7zJq+cRw==;
+	List-Owner; bh=2w4EVdzKGq1bMXpM7wXfYtHzRnqiWVl7X2bJSIO3+Ss=; b=xa0n+u/rqi2wzl
+	kRgJG5sh+uMnJxf4SGG5SnnxfvhfFE57enrWzMDG1TXkVjnkHSfOxLe178nz9RL6EkfOrMidYdl1B
+	/36sGlWtvn2huAqET8e37bc7+tWfQSS3i1uzYZTd8gZP/62006LCBl4kWzxa+Ypk1a7DH5mEYWARZ
+	uobb0L/7OFJ3ZVj1emGx3u+8OQXIOE7PipcIUppmirraBUwugMOcLgQQ0qttHA0R+FrngytpRjzYW
+	Ob+d6AqO0cRKFGjcWCQHYuYxr1NY+Xa4muhN1RC7U8d7qhX7ocjGzJ+uhIbVgDRMhU1awoAjIVNGQ
+	F7lidsU0j34roA3TaNog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1srJc4-0000000AbbT-3V86;
-	Thu, 19 Sep 2024 16:02:36 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1srJc2-0000000Abaf-1dFN
+	id 1srWEU-0000000BTvt-2iT4;
+	Fri, 20 Sep 2024 05:31:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1srWDy-0000000BTrg-29Rc
 	for linux-riscv@lists.infradead.org;
-	Thu, 19 Sep 2024 16:02:35 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-20696938f86so9078875ad.3
-        for <linux-riscv@lists.infradead.org>; Thu, 19 Sep 2024 09:02:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1726761751; x=1727366551; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=IY5B5QxXDNVGbG3vnBPyBqvWzO5uiDp/nIYu33vK85A=;
-        b=KzlBD5wKt+0+qnWE3LPD3FlKUcrTDNyurjbiOFLuB2D6lh3EgIH8gLgVkt6AzYP2tU
-         XrbJ4KJOM4tUWrwpVKz44m8LG+tbuU+jPk+o/Voaip2xeBK6vnCm02T0E7RkAgv8OHZ0
-         9+GaxrY8/S8rO8Rgl5EPMHE+EiNV0oQgiK0JPxetlubdL6a2erpb1BJtpl1NMHM+M+MT
-         Q4KPBFVSRkKs/DXlE4RRNBQTdmAhNV2w3dktYesnNIUQJzUe7ORxw+k4u1tQ4oPZKMwe
-         CI3249XAOy/zvFuIrBPJaYPE6V9X/YK98CAeqoXJ5XeeG5CvRRxj1gkPzqmyLy/LDzWx
-         U+oA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1726761751; x=1727366551;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=IY5B5QxXDNVGbG3vnBPyBqvWzO5uiDp/nIYu33vK85A=;
-        b=VxW8thfg1TPxxctxfqtQDlWWW9/nDpwDNO0kx2PSL+vIlFwHEOfLeXBwopKK8sz569
-         bmf/CarFqir9HFlCqMPjBPHzO8FSWRDv6rs4K9VhS9ZWcpQQi3GcqOcWu+cqKT6FtDrD
-         Z5JMyfgRRn8XuFHwuMZWFKTlipYjxrYHz665EBuJ0ZOa0nP093Lt/Fu/3b5UlVZ+034a
-         uxUNhr8JTlfQVIX3M8xX8GwlQhvoa4g4n3ndAV/oh3FzAMMavq6j47Q6x2ZZgmk3VCWK
-         z+CP2kPXiv8+bF8bOiy081CW0lKdD2V8BsJe7GZhBs6V1Vwe32q3YukjMYZIe/ZTzbiY
-         GWZw==
-X-Forwarded-Encrypted: i=1; AJvYcCVsMrhrMmxbOHwyzYCziSHOBNO0gPTu/qZA7arpBeac9sYr1qJE3uEdZPQLCgdSJBYspdJtbbA5j2bldg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywn7ezGgLqqjpiRQsU/nGXjFC9yXWmeThz47mVgtJF0z8Iu2VPU
-	VijciyFBm6zsOszJf9bdfUDf7v+8+SDNNfrS2F32OCFet0o7ek8YFgyLpg+VVog=
-X-Google-Smtp-Source: AGHT+IHlrfEPPxfE7BBmxMTJoT8E08EE7/Q0AmzGFUzu6sN8uV/9Rnz5ZDYIemz+SMlLQ8t0Vj4kxg==
-X-Received: by 2002:a17:903:8c8:b0:205:40a6:115a with SMTP id d9443c01a7336-2076e4360f7mr350612825ad.48.1726761751137;
-        Thu, 19 Sep 2024 09:02:31 -0700 (PDT)
-Received: from cyan-mbp.internal.sifive.com (114-32-147-116.hinet-ip.hinet.net. [114.32.147.116])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-207946d19e5sm81665645ad.140.2024.09.19.09.02.28
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 19 Sep 2024 09:02:30 -0700 (PDT)
-From: Cyan Yang <cyan.yang@sifive.com>
-To: anup@brainfault.org
-Cc: atishp@atishpatra.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
+	Fri, 20 Sep 2024 05:30:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A223AFEC;
+	Thu, 19 Sep 2024 22:30:55 -0700 (PDT)
+Received: from a077893.arm.com (unknown [10.163.35.184])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id EFA933F66E;
+	Thu, 19 Sep 2024 22:30:21 -0700 (PDT)
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-mm@kvack.org,
+	akpm@linux-foundation.org
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Hildenbrand <david@redhat.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	x86@kernel.org,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Cyan Yang <cyan.yang@sifive.com>,
-	Yong-Xuan Wang <yongxuan.wang@sifive.com>
-Subject: [PATCH] RISCV: KVM: use raw_spinlock for critical section in imsic
-Date: Fri, 20 Sep 2024 00:01:26 +0800
-Message-Id: <20240919160126.44487-1-cyan.yang@sifive.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] mm: Move set_pxd_safe() helpers from generic to platform
+Date: Fri, 20 Sep 2024 11:00:17 +0530
+Message-Id: <20240920053017.2514920-1-anshuman.khandual@arm.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240919_090234_435538_0B312B91 
-X-CRM114-Status: GOOD (  10.46  )
+X-CRM114-CacheID: sfid-20240919_223034_642104_E4A8C5E8 
+X-CRM114-Status: GOOD (  11.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,59 +70,159 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-For the external interrupt updating procedure in imsic, there was a
-spinlock to protect it already. But since it should not be preempted in
-any cases, we should turn to use raw_spinlock to prevent any preemption
-in case PREEMPT_RT was enabled.
+set_pxd_safe() helpers that serve a specific purpose for both x86 and riscv
+platforms, do not need to be in the common memory code. Otherwise they just
+unnecessarily make the common API more complicated. This moves the helpers
+from common code to platform instead.
 
-Signed-off-by: Cyan Yang <cyan.yang@sifive.com>
-Reviewed-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Dave Hansen <dave.hansen@linux.intel.com>
+Cc: David Hildenbrand <david@redhat.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: x86@kernel.org
+Cc: linux-mm@kvack.org
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Suggested-by: David Hildenbrand <david@redhat.com>
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 ---
- arch/riscv/kvm/aia_imsic.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ arch/riscv/include/asm/pgtable.h | 19 ++++++++++++++++
+ arch/x86/include/asm/pgtable.h   | 37 +++++++++++++++++++++++++++++++
+ include/linux/pgtable.h          | 38 --------------------------------
+ 3 files changed, 56 insertions(+), 38 deletions(-)
 
-diff --git a/arch/riscv/kvm/aia_imsic.c b/arch/riscv/kvm/aia_imsic.c
-index 0a1e85932..a8085cd82 100644
---- a/arch/riscv/kvm/aia_imsic.c
-+++ b/arch/riscv/kvm/aia_imsic.c
-@@ -55,7 +55,7 @@ struct imsic {
- 	/* IMSIC SW-file */
- 	struct imsic_mrif *swfile;
- 	phys_addr_t swfile_pa;
--	spinlock_t swfile_extirq_lock;
-+	raw_spinlock_t swfile_extirq_lock;
- };
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 089f3c9f56a3..39ca652c5ebe 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -957,6 +957,25 @@ void misc_mem_init(void);
+ extern unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)];
+ #define ZERO_PAGE(vaddr) (virt_to_page(empty_zero_page))
  
- #define imsic_vs_csr_read(__c)			\
-@@ -622,7 +622,7 @@ static void imsic_swfile_extirq_update(struct kvm_vcpu *vcpu)
- 	 * interruptions between reading topei and updating pending status.
- 	 */
++/*
++ * Use set_p*_safe(), and elide TLB flushing, when confident that *no*
++ * TLB flush will be required as a result of the "set". For example, use
++ * in scenarios where it is known ahead of time that the routine is
++ * setting non-present entries, or re-setting an existing entry to the
++ * same value. Otherwise, use the typical "set" helpers and flush the
++ * TLB.
++ */
++#define set_p4d_safe(p4dp, p4d) \
++({ \
++	WARN_ON_ONCE(p4d_present(*p4dp) && !p4d_same(*p4dp, p4d)); \
++	set_p4d(p4dp, p4d); \
++})
++
++#define set_pgd_safe(pgdp, pgd) \
++({ \
++	WARN_ON_ONCE(pgd_present(*pgdp) && !pgd_same(*pgdp, pgd)); \
++	set_pgd(pgdp, pgd); \
++})
+ #endif /* !__ASSEMBLY__ */
  
--	spin_lock_irqsave(&imsic->swfile_extirq_lock, flags);
-+	raw_spin_lock_irqsave(&imsic->swfile_extirq_lock, flags);
+ #endif /* _ASM_RISCV_PGTABLE_H */
+diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
+index e39311a89bf4..fefb52bb6b4d 100644
+--- a/arch/x86/include/asm/pgtable.h
++++ b/arch/x86/include/asm/pgtable.h
+@@ -1701,6 +1701,43 @@ bool arch_is_platform_page(u64 paddr);
+ #define arch_is_platform_page arch_is_platform_page
+ #endif
  
- 	if (imsic_mrif_atomic_read(mrif, &mrif->eidelivery) &&
- 	    imsic_mrif_topei(mrif, imsic->nr_eix, imsic->nr_msis))
-@@ -630,7 +630,7 @@ static void imsic_swfile_extirq_update(struct kvm_vcpu *vcpu)
- 	else
- 		kvm_riscv_vcpu_unset_interrupt(vcpu, IRQ_VS_EXT);
++/*
++ * Use set_p*_safe(), and elide TLB flushing, when confident that *no*
++ * TLB flush will be required as a result of the "set". For example, use
++ * in scenarios where it is known ahead of time that the routine is
++ * setting non-present entries, or re-setting an existing entry to the
++ * same value. Otherwise, use the typical "set" helpers and flush the
++ * TLB.
++ */
++#define set_pte_safe(ptep, pte) \
++({ \
++	WARN_ON_ONCE(pte_present(*ptep) && !pte_same(*ptep, pte)); \
++	set_pte(ptep, pte); \
++})
++
++#define set_pmd_safe(pmdp, pmd) \
++({ \
++	WARN_ON_ONCE(pmd_present(*pmdp) && !pmd_same(*pmdp, pmd)); \
++	set_pmd(pmdp, pmd); \
++})
++
++#define set_pud_safe(pudp, pud) \
++({ \
++	WARN_ON_ONCE(pud_present(*pudp) && !pud_same(*pudp, pud)); \
++	set_pud(pudp, pud); \
++})
++
++#define set_p4d_safe(p4dp, p4d) \
++({ \
++	WARN_ON_ONCE(p4d_present(*p4dp) && !p4d_same(*p4dp, p4d)); \
++	set_p4d(p4dp, p4d); \
++})
++
++#define set_pgd_safe(pgdp, pgd) \
++({ \
++	WARN_ON_ONCE(pgd_present(*pgdp) && !pgd_same(*pgdp, pgd)); \
++	set_pgd(pgdp, pgd); \
++})
+ #endif	/* __ASSEMBLY__ */
  
--	spin_unlock_irqrestore(&imsic->swfile_extirq_lock, flags);
-+	raw_spin_unlock_irqrestore(&imsic->swfile_extirq_lock, flags);
+ #endif /* _ASM_X86_PGTABLE_H */
+diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+index 2a6a3cccfc36..0bf88e505aad 100644
+--- a/include/linux/pgtable.h
++++ b/include/linux/pgtable.h
+@@ -1050,44 +1050,6 @@ static inline int pgd_same(pgd_t pgd_a, pgd_t pgd_b)
  }
+ #endif
  
- static void imsic_swfile_read(struct kvm_vcpu *vcpu, bool clear,
-@@ -1051,7 +1051,7 @@ int kvm_riscv_vcpu_aia_imsic_init(struct kvm_vcpu *vcpu)
- 	}
- 	imsic->swfile = page_to_virt(swfile_page);
- 	imsic->swfile_pa = page_to_phys(swfile_page);
--	spin_lock_init(&imsic->swfile_extirq_lock);
-+	raw_spin_lock_init(&imsic->swfile_extirq_lock);
- 
- 	/* Setup IO device */
- 	kvm_iodevice_init(&imsic->iodev, &imsic_iodoev_ops);
+-/*
+- * Use set_p*_safe(), and elide TLB flushing, when confident that *no*
+- * TLB flush will be required as a result of the "set". For example, use
+- * in scenarios where it is known ahead of time that the routine is
+- * setting non-present entries, or re-setting an existing entry to the
+- * same value. Otherwise, use the typical "set" helpers and flush the
+- * TLB.
+- */
+-#define set_pte_safe(ptep, pte) \
+-({ \
+-	WARN_ON_ONCE(pte_present(*ptep) && !pte_same(*ptep, pte)); \
+-	set_pte(ptep, pte); \
+-})
+-
+-#define set_pmd_safe(pmdp, pmd) \
+-({ \
+-	WARN_ON_ONCE(pmd_present(*pmdp) && !pmd_same(*pmdp, pmd)); \
+-	set_pmd(pmdp, pmd); \
+-})
+-
+-#define set_pud_safe(pudp, pud) \
+-({ \
+-	WARN_ON_ONCE(pud_present(*pudp) && !pud_same(*pudp, pud)); \
+-	set_pud(pudp, pud); \
+-})
+-
+-#define set_p4d_safe(p4dp, p4d) \
+-({ \
+-	WARN_ON_ONCE(p4d_present(*p4dp) && !p4d_same(*p4dp, p4d)); \
+-	set_p4d(p4dp, p4d); \
+-})
+-
+-#define set_pgd_safe(pgdp, pgd) \
+-({ \
+-	WARN_ON_ONCE(pgd_present(*pgdp) && !pgd_same(*pgdp, pgd)); \
+-	set_pgd(pgdp, pgd); \
+-})
+-
+ #ifndef __HAVE_ARCH_DO_SWAP_PAGE
+ static inline void arch_do_swap_page_nr(struct mm_struct *mm,
+ 				     struct vm_area_struct *vma,
 -- 
-2.39.5 (Apple Git-154)
+2.25.1
 
 
 _______________________________________________
