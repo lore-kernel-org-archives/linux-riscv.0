@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B595DCF9C6E
-	for <linux-riscv@archiver.kernel.org>; Sun, 22 Sep 2024 14:52:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F249CF9C6C
+	for <linux-riscv@archiver.kernel.org>; Sun, 22 Sep 2024 14:52:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5ok4sLkY0h4Tnj22twJlbxqwjsrfiMJrKIE1LQA7f2U=; b=PzospHNnwhSGrE
-	hY6Jx5RMHe/HWYX/vlQ1peKp5nmb/93LYeN77Taglka0a6qk8gSecKAw9el/NfQvmPBZfDpjlHIKk
-	5epA3mcXSITE8JUIKFkvYi3yCY05G4SdRNZgfLSb5n7wJMfSIPViFRD9RzF9wq2WBnQ0L4Rp5d6Lk
-	JHvNBLFcB6fA/RmSFYTllALYhTOZtdY8Qpz0/KBAl66bvBo5TTyUeVhdzlfeFCobbFL8oTBRITYzR
-	64qwKhksHDNva5Ym8fGBoLrzUcltgkFbGQHuWfQ/OiEn5lS6PAGX7cT3RVEzxKoyY7TtrYDUrWXnT
-	SmTNMJOVi2XfELF4j32A==;
+	List-Owner; bh=L6dDMpZfKRrAi5f5feoT1smZb3Bai19UTh1pGp9ZkLg=; b=vzIT14VLDUtOem
+	wU/j9m80EPcLrtZBjOxbx4ntjuKW8vzkCrDrCW+3A/7LHFw9vUO/kDPdABMB+fNdSTx2KXqe0QI/i
+	IHGRdpIRCVl1afDgUa5W7j9Vqoyqs+iqv8yG70z7F/++4c9OIdeZ+BLicsTD+cuJTZepwRs79xRpK
+	/2eowWDoRf0rxoNuu7sHMCcKsqmnvIzAUj8ivveTzMbhhQjIKsumL3NTNFoSGeV1kgH10wEaCevhI
+	7z7PTCiuCSmwsTMBjU6Ea7U3ajqJB89VQeXwokXcuqnuHJaMrkFDcu52UFxbTVhir18/ArLoOAywu
+	22JLt+LdcKu8qvgXoGoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ssNwu-0000000FI7S-35U9;
-	Sun, 22 Sep 2024 14:52:32 +0000
+	id 1ssNwy-0000000FI8g-2ajh;
+	Sun, 22 Sep 2024 14:52:36 +0000
 Received: from mail-sh0chn02on2072d.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::72d] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ssNwq-0000000FI5N-1t5u
+	id 1ssNwv-0000000FI5N-37ku
 	for linux-riscv@lists.infradead.org;
-	Sun, 22 Sep 2024 14:52:29 +0000
+	Sun, 22 Sep 2024 14:52:35 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=WLy5//gxz1EEqENPkIWjCjwz1HhPNHwrYrDtgK44KjAjYHA7ss9gwfar5B4fcYqlZ9l7TafSsNv35LkRuonXb/WdLsBXdi+JP05udicI9H/G86CUHK3PU4UMnIL3zy523YvG80q6FYv6z+YICCtm0wDnAe6p4IH+EmAEKl8g5s9kVm7Y7zylxtvzRjTRdHU/EOt8rJYJKGhrq8JKrA1hMVY23AeyhRBmWpaVvxh9lcim/OO1GalGKQdETDlNoFOH9zMAUzMd/kEC4kCpW2hWrRo7uP19dSw58edbOzVHdc+ctQ5JVOndZUjpi3lyHBpIvyuHqlisx9zjA+iczg28mQ==
+ b=YWvscdSOZFMCoh2pB09MxQ36ZOG1GHwPMeeE1/xCsqWCDKbLzVMDxBxwpv/6Dg2i4sI+UYS3RO42EErVkw393+VlnUivdxwnGN8yqVL4AWyY47sA1xkBVWzOwQ2RYLbpdnD7j2go2KIYUBR6ohFoXdZ7/Zg3fP7s6l+TNRj2+RC1fhUqDouoEkm4alO3GYFuU1NtuAeX4x1GYTjnBdkjA68lThR30t84h3na/UXK3jvil/Ng8UyoX1s6aQUGvACwpQ+twAkwydFxZjbLuAaodR7fowsjatoyOkuc0SIX9IMUsbcB1jsitb1cNRrw7e9PBmg9hAhMO4/6eyxzjjS0bg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xGog7RH8gMlxqZjwmj0fjNLvCAAwCP9dhYNgE08yFVo=;
- b=UyYrEDpQBofN7sWfbw82EMXFzDcHM9EcXNPvN1LOopJtjKJe1sVp+zvjTU51f8qhVGh5eDR8QtdP+1Ln4tdHulc3H9P0mLnmlInKIXuQUSB7JDwRROMNc51K7CYBShxATWAQWmiPLPOtInP4qQNl4t066AnvbWKgC7PeFX4M1tj2IhdNfxoNzcdVFGC2Wjc4ig1w9MYn7iY9AEycztg8VkmJWGTU57Y9VU0uqrKQMyZIwN0ObsuWkxxetbBpmQy8lDq99RnpxpDamJaUi+BlG7vl1qgCHIW8/4Si7xVCfl8UKJL9UCKVsZeld2HtYu5zePCjNdaTYivh56Gw7JSe6A==
+ bh=boQOFNz2EK8l2+Om/smGByT0hie5kB/d7HNghFz/its=;
+ b=S7JlchTkOStbUQrC60aDwmF5s91e2evWQg46UaLTp0uzzYodD9sX4lKUTDtGYXuYyHM0owe4ZjXYSSPT1RhV4ncd7o9v415yoMGZunhniy93a04aZNqjY6EBAlwyZoXA1qr0EsNBygb5btCYX6rekB2bWMrI1xtNcnMogPO5mp3OJzdEpXJIUGhsoBZKnZ7rCmgHv6mlpfArMKLnIDoPCm08FzCsdR2MPpn8terFMlt8U22ByspdEKEmijhLk0LoAul6gE5J8KXYYpdWm9G5mwiWv38zwmZHOOtvGEC0+20j+37F9FWAdn9sPzySwADJU4427cDNeyfNhxDUYt2e9g==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
@@ -43,11 +43,11 @@ Received: from ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c550:7::14) by ZQ2PR01MB1145.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c550:6::11) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7962.30; Sun, 22 Sep
- 2024 14:52:02 +0000
+ 2024 14:52:05 +0000
 Received: from ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
  ([fe80::2595:ef4d:fae:37d7]) by ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
  ([fe80::2595:ef4d:fae:37d7%4]) with mapi id 15.20.7962.029; Sun, 22 Sep 2024
- 14:52:02 +0000
+ 14:52:05 +0000
 From: Hal Feng <hal.feng@starfivetech.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -70,9 +70,9 @@ Cc: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
 	netdev@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/4] dt-bindings: can: Add CAST CAN Bus Controller
-Date: Sun, 22 Sep 2024 22:51:48 +0800
-Message-ID: <20240922145151.130999-3-hal.feng@starfivetech.com>
+Subject: [PATCH v2 4/4] riscv: dts: starfive: jh7110: Add CAN nodes
+Date: Sun, 22 Sep 2024 22:51:50 +0800
+Message-ID: <20240922145151.130999-5-hal.feng@starfivetech.com>
 X-Mailer: git-send-email 2.43.2
 In-Reply-To: <20240922145151.130999-1-hal.feng@starfivetech.com>
 References: <20240922145151.130999-1-hal.feng@starfivetech.com>
@@ -82,54 +82,55 @@ X-ClientProxiedBy: SHXPR01CA0027.CHNPR01.prod.partner.outlook.cn
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: ZQ2PR01MB1307:EE_|ZQ2PR01MB1145:EE_
-X-MS-Office365-Filtering-Correlation-Id: 425b14e6-5b30-4f5b-7654-08dcdb161df3
+X-MS-Office365-Filtering-Correlation-Id: cfea74a7-0952-42b0-1b07-08dcdb161fbe
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;ARA:13230040|41320700013|7416014|366016|52116014|1800799024|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: Kl8kFGbidh6eORm1N8kZPPBvOftKpQR4EwAz1SRtGMCdVoJyHz8iLl4PUQpmpbghuVqzuyW1w/cUJqGq4cRKm4Vy12x5r4EMIHA1zr7UM6pJxwNOb2NmPeM+uNNXCdyw3TYcdEq8gIjmsi09+UV5+rwPZRDJjYs7GEde5J+/I/0qOB3Cp7B6KblTnTv239XoHTznj7t/74DbGtbODmf0ydOkWpLYinTexRW4MRzieotFB5BdPz4S7FV9jK2S+XitajvJ/i93zlSCW12pY2q5rnAK1Qv+KMWRyvQ5DHUA5t4mjx5sKrDNKBKnsO+g7wHhLQKzKkRVeIaWcxFTOAurqoJfHEKc8GoikR92d+NW9pv3cvhIr5jWVLWwXy/3sBPoco8WQd4ni2eSDEjRHiqGroRPs1y3t98gHDVYzLxLokVRWBSHvPMUmcgy7ZfkUO79MMx/OI2NpTTxhn61BxX4kTd0iHQ6MabuoE01KN6qFPiwDKQxutuOJgLtq7a8Ku7x7GxaxDsv6SWbxFOxawquE7NTKVzahUbgr1gEKv9sqrK0Jdq3LW18Uz4DiFCnY6xX3BTtUxlaXfzjwvPyxqIr/7W3R0SjyhrfDdn3LUzBZqocB3lrEUFmSMzp2UTMLDOQ3ET3ez/zI9AwgeY/E8SS9Q==
+X-Microsoft-Antispam-Message-Info: 5P4p6SelbiLdbau+aFsXuIQ3zucWTYeq2q6ZVytPDdBqwJPlxGMLL4MlQQVJ6/p37axjKKq4Ip/6Rz3HwDt5x6N79Io+Xcyy2OImpRbKzrHmJw+CGcUEg0j/EsrX6BB8n+68vryGDSDEsrwxR90STdmrINpFp/rDZMN1r6+XU+S1RICcLLg3NT6YJSqlzPDnK83oxi8/GTJ9adwoAV1fWgq4G5rryhAIbHnSmes6xJBEMyJPR8KVMvb3nXALSl2sRCrCaauUlz86vBKMjx+GfhOP3CzfEUNH7emUNm1/trJXR+Pm/keGuKLgUCf7CsqQnoomqcdZAne3PQO9a+LdykIekEhRzVkCrz4giyzvaolLWh9KXM/KSNb7Df3cHcE0REN1vfj7/pVBUMXjxzhlwdOP20WCdpA97AJ5JThb3iICTJ1LmWZ2P38X/uNWntcwFZjt9WfE1v+24kgxLItA2H89/uNUPyVlAePZGACbNgC53NMSzIaX1AdH/ogpGGbG9sMqmghuW8GdCqhlVIwN198G3WB9kwlrtm6Dfnz7XpzqVZETEtdlp4zvClX25Zew+qt/TN66/Smq5Rnh4p4jBhlJyjHs7Lu9g9/61bSJXdYFFm/MIBwRTV4n9rlkFUfFVUx5q3aFAIM8Q5uiwWWbgQ==
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(41320700013)(7416014)(366016)(52116014)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?q5bg4uScxmppeOhhlvCGkNav7o6SgZf5N4ue70zuuxH91IwKWAtvYhNf5UQq?=
- =?us-ascii?Q?5LE+OWWSCfBNtgkv7sFKqzwFZFE4O+DWcuIxpVkLy2Bjqc3OQq3f2q7mIyE/?=
- =?us-ascii?Q?ylvDb8lIzVTCWaKhN6UZ0XUfixMmJMjXWWnbcF5NO3EtidyoAR1NmEBYBHQu?=
- =?us-ascii?Q?DoC3sMi5IqXWa4+1QejoxIGa3A6ic8fSriwksBM2/2xIlKYKB97lp7e0Qztp?=
- =?us-ascii?Q?t4623606kRnI2e0wkHRx5J9COr+Jl6qp074P4//FCyeIm5BOdY2fP5pm18RE?=
- =?us-ascii?Q?jq3za7NzId/4VEpNx5Ar05v93EKid3/C5M0ONQwjBu+lFzsrqdTja7fp0Oaw?=
- =?us-ascii?Q?QfuhIpxhgorC0KkGxP8jpwSZTj4hXee2sMtsRv3B+eHXw2LtHNaMe9fx8QLR?=
- =?us-ascii?Q?QuEVBq6pApG4wqk45Dbfcea8tBJby08Fo69E/6Ly5mYBitaMVFRSW1SitRS+?=
- =?us-ascii?Q?NkRizo7bqakc2fwOrR1i7KQGBrkLVl6f8qKeEiDW3t8XOsjMsq8Z9bWdRgQE?=
- =?us-ascii?Q?M34TI3+eEpPIIAH1vtqOnfCWw5hqXjU46PNJBv4qcglw5pv4oRjUPFbMOHjw?=
- =?us-ascii?Q?xjlXx5oENXcIGiUBi8sg7+WbKXzwlPgPVFetXyMsLwkk6M6QZ0ZCy4O4NXdm?=
- =?us-ascii?Q?OzD6kuhKIraXN3XBIYDe1GMS5yHoRd1FbmCiozMo0EXLEvU19ln4Tn1XY7j+?=
- =?us-ascii?Q?Jm019I9yaZe7rnwt10bBQ7Il0b5nz7AuD7E66E1+9J5tkPOrgkRERQZB8lEZ?=
- =?us-ascii?Q?7MZyPfK7xCx2USTLiNA+AEsvtU628HzblaAT5LqusbrMtzvXOIe0MSiHyhez?=
- =?us-ascii?Q?30boPYrm9AeAjcMNZgLxIYduM+aaXLPNgoVb9tgI0uIPjlJuhayB/Q4nwEyJ?=
- =?us-ascii?Q?e2W3JVoBsdo7L8bjqwzYd6XJQ0FwnuZfxVIjsFht9ANTXDfYiRmMnD6Y1RnG?=
- =?us-ascii?Q?BXKQWaCXkvP6bs2iLznfp3KbtGoxEUGga0lkpfxYr8cR/hkBCLGX3Yqx++7a?=
- =?us-ascii?Q?LTMi+kG+AcN8dAPeLkTHVrd/jRbIQouqyGbOGUnQMFIqkv1/S5RjP/Oq/iAj?=
- =?us-ascii?Q?YkHQ3fMsa5eyv0rwjbfAiMG+DNHjrJoQKipakBcHT45E5pCUjHUsK+nvc3s2?=
- =?us-ascii?Q?g+nYVG1HxOwmfBkE74vWh9dsPFi4WlZpKS92K34Xt0D9HfHXgdQUULG87ySW?=
- =?us-ascii?Q?cnqCiTydAkwt5XOORRVt5Xt5Or8k5B2/n4uIxY/Hov+hr25HNZA7/3x2mQ8a?=
- =?us-ascii?Q?vVLwwP+PQ1d8oZkAKSycOUBvoq5WFyvM4ReuHz36p4QRiOwt46zKhi3mVoB5?=
- =?us-ascii?Q?8WlKBLNCKQgpcDVxCSgHAnQd9Y0J/2KbM5Sfd2/75W+ziOTBZyuklDnj87kW?=
- =?us-ascii?Q?/6JdfpR0Gt/EKBb9bmgBLDnJTQ+wZ6RbqBPDx0kuxHqFHkcgXOuu4h/7u3nm?=
- =?us-ascii?Q?97BniAzkUWnBlo50lk6P4ZKfrw0Iq3zqtdSe28rT9KUFedNL5g7UJuoPzOS7?=
- =?us-ascii?Q?Vbw5Xx/Adh05KfZaI09voDDgQs4q5wONjKfY1sxyN3zyPuoOx+zBDDvWzoW6?=
- =?us-ascii?Q?scFYl6K9vPI0HJVKDGT0wBxGOHt13IffobQk/pFPcqoy3vJI0I/YJVveaqpO?=
- =?us-ascii?Q?XQ=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?viW24WfvDb1tv6OLIE9BdZltT2YPPbsxNRq/0FZHEY2/JDwhoLZY/WEWGn5J?=
+ =?us-ascii?Q?CssKL3yYfSYLnS98qEbp4dNQSxi3fZM7dBfl+JgUOTUQsYVWZgeW+XSyrTPI?=
+ =?us-ascii?Q?XDtc6pXu2G4+XNCSEQ7TEvyQxMEmjZBU484dNMYMpxWXBY6a6w/GaePotNU5?=
+ =?us-ascii?Q?gvuXn4cPxuEf+A8iyDAzyJSgdZy20SPKRtELoskdUY+6p8d/pUMKivrq0JBp?=
+ =?us-ascii?Q?pofjvXA4VlJlfntF6si4+i+h5P/NAzSrfOgvXv6iIr1hudJXY7IN5WQ+WbB/?=
+ =?us-ascii?Q?/mMb8x3YCxZrONyMT+pVtWmnCv3f3GENG46qu6qlAxnxBZnzkVBJr+ILyCSG?=
+ =?us-ascii?Q?Z4FjD9+6LzdtElqdtawH0ZniQPJ/CvXMCJ8nZxI7vHPn2QqRTvm2F9HEuZCt?=
+ =?us-ascii?Q?j/Zf098BNYdkIhEXtQmPPyD8uiJqEllzrixP1GfRRQ9QUn2tkAz6AcxDe221?=
+ =?us-ascii?Q?45b/O8+Wo+byt1BFvND3F/t69oxZflOuLS3KctROdMHXySEPCYQINrhMGvUv?=
+ =?us-ascii?Q?Lr7SeR5W4qy+BqxiBSWSyZIjERJoGZN/kVm3d2svurr3QEJWMftBWWGnm+dJ?=
+ =?us-ascii?Q?TS2pByrPA62k7/ApH/TN38kmv08kW7vZzqZSsKRKeHPLkC4af+vRfeiaknnj?=
+ =?us-ascii?Q?8RfMfNCpV9y9ZxaNVLjTAi4jHxslYVj7U6XmOpohsmjf8dJpH7f+rwNfpmr5?=
+ =?us-ascii?Q?SoSWXiDkr7893ZmEZDRNV+rpGNiUxhsu+Q4WBpWCLCnEvLCNbWczbO4pLkkA?=
+ =?us-ascii?Q?XgOA1zc45uq6rwib/iTTmGqPIGHzT/ie/WAXFh1bYSQ1Vc+iW1AhhQy0b0E8?=
+ =?us-ascii?Q?TfTYPFH7SZ/AUPKc7MSAfvshAh7KtMbpgYCt0bPiMl/vH+4tz6NZ6DyfCfUz?=
+ =?us-ascii?Q?VIx9h0g0CLxR2VX//F+sjpCWY0IBCyniFAWmcueXXodPTxNEZZJ8MRPf4FEO?=
+ =?us-ascii?Q?WeOPJ+j1AmwBfHoije4Y2egsmJXGSv68/zCKnKqZjJXpf9P9vHnXURBbE5uw?=
+ =?us-ascii?Q?o74yP8p8XFGjmI+Z4ipbae996o5RhRu1FacUyF3Q6hhjwkK3blZwuW3H7vvu?=
+ =?us-ascii?Q?r2Xq/mMu/Bqk67SNcnU3/3Mcxl+s31dg9YR9BtWrKa5jTVeVRSZbn9b6ChVt?=
+ =?us-ascii?Q?sDDLeIEaBi6Sy73C3J1zZDYJ8hnWs4GfQBaEXiTyGtMv7DRsaPi3RShrQ8Sq?=
+ =?us-ascii?Q?gY/KOeAfZWSxrLA9hm7NL0OhQVJc2JSQc2a2bsVDNKip2T+VEPN0CwcSr5/v?=
+ =?us-ascii?Q?m5X1WKH6H64dePamk+9csPKrPhayYkL/rrjY6rjSePyMETo9TqbieGHrAcu8?=
+ =?us-ascii?Q?EBtXytNLfRaenCF39UHhFZdC4mkQ8au0Q7XgWHBTYlo/sQK7ooiPT0IcpRP5?=
+ =?us-ascii?Q?Wsf7FZuNJG4k5seUknmNQLMtlNjDXM4yE7vVbvIs9rCeyBn6P3dMN38bq9P4?=
+ =?us-ascii?Q?RPFDKjpby+QFYgGAHQUS0q81PLlreU0SUbSGEWL+is/y8M62T1Hi8KXIcong?=
+ =?us-ascii?Q?OArfR66FJFDMmAvuefbK3n9+48To5iz+Lwkkueh7oHMAp6c4W8hB0F2O+7rC?=
+ =?us-ascii?Q?B2ISm3TRwH8pLKwlOIQ5sIJE6qeXBM79Bvv7GQVvPMW+YnRfe7OZPlpflcUj?=
+ =?us-ascii?Q?RA=3D=3D?=
 X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 425b14e6-5b30-4f5b-7654-08dcdb161df3
+X-MS-Exchange-CrossTenant-Network-Message-Id: cfea74a7-0952-42b0-1b07-08dcdb161fbe
 X-MS-Exchange-CrossTenant-AuthSource: ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Sep 2024 14:52:01.9311
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Sep 2024 14:52:04.9079
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: thJ5eDq9rH0wOq2fgwK6HTDxx4q836ZaFf3Tw69bm4kSDPKqFJQyDZm2M+uDPMlUgKnxTnB3c+6k76N1w3ZwvFItyY50oQ6HeyrtLUf85y0=
+X-MS-Exchange-CrossTenant-UserPrincipalName: E4/D3q9LKbwZzsVogxJXMM6vijOUDiIqay45GMD7eLn4/j8BSLTb0PJ2t0OKIY//Q8PeV0bQsPgSPr23RaaAhXAz2z9YeiNk9WxoNM3L000=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ2PR01MB1145
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240922_075228_524638_0838B1E4 
-X-CRM114-Status: GOOD (  13.26  )
+X-CRM114-CacheID: sfid-20240922_075233_818297_42AF22D9 
+X-CRM114-Status: UNSURE (   7.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,127 +149,57 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: William Qiu <william.qiu@starfivetech.com>
 
-Add bindings for CAST CAN Bus Controller.
+Add can0/1 support for StarFive JH7110 SoC.
 
 Signed-off-by: William Qiu <william.qiu@starfivetech.com>
 Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
 ---
- .../bindings/net/can/cast,can-ctrl.yaml       | 106 ++++++++++++++++++
- 1 file changed, 106 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/net/can/cast,can-ctrl.yaml
+ arch/riscv/boot/dts/starfive/jh7110.dtsi | 32 ++++++++++++++++++++++++
+ 1 file changed, 32 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/net/can/cast,can-ctrl.yaml b/Documentation/devicetree/bindings/net/can/cast,can-ctrl.yaml
-new file mode 100644
-index 000000000000..2870cff80164
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/can/cast,can-ctrl.yaml
-@@ -0,0 +1,106 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/can/cast,can-ctrl.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+index 0d8339357bad..368cc40829f9 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+@@ -929,6 +929,38 @@ watchdog@13070000 {
+ 				 <&syscrg JH7110_SYSRST_WDT_CORE>;
+ 		};
+ 
++		can0: can@130d0000 {
++			compatible = "starfive,jh7110-can", "cast,can-ctrl-fd-7x10N00S00";
++			reg = <0x0 0x130d0000 0x0 0x1000>;
++			interrupts = <112>;
++			clocks = <&syscrg JH7110_SYSCLK_CAN0_APB>,
++				 <&syscrg JH7110_SYSCLK_CAN0_TIMER>,
++				 <&syscrg JH7110_SYSCLK_CAN0_CAN>;
++			clock-names = "apb", "timer", "core";
++			resets = <&syscrg JH7110_SYSRST_CAN0_APB>,
++				 <&syscrg JH7110_SYSRST_CAN0_TIMER>,
++				 <&syscrg JH7110_SYSRST_CAN0_CORE>;
++			reset-names = "apb", "timer", "core";
++			starfive,syscon = <&sys_syscon 0x10 0x3 0x8>;
++			status = "disabled";
++		};
 +
-+title: CAST CAN Bus Controller
++		can1: can@130e0000 {
++			compatible = "starfive,jh7110-can", "cast,can-ctrl-fd-7x10N00S00";
++			reg = <0x0 0x130e0000 0x0 0x1000>;
++			interrupts = <113>;
++			clocks = <&syscrg JH7110_SYSCLK_CAN1_APB>,
++				 <&syscrg JH7110_SYSCLK_CAN1_TIMER>,
++				 <&syscrg JH7110_SYSCLK_CAN1_CAN>;
++			clock-names = "apb", "timer", "core";
++			resets = <&syscrg JH7110_SYSRST_CAN1_APB>,
++				 <&syscrg JH7110_SYSRST_CAN1_TIMER>,
++				 <&syscrg JH7110_SYSRST_CAN1_CORE>;
++			reset-names = "apb", "timer", "core";
++			starfive,syscon = <&sys_syscon 0x88 0x12 0x40000>;
++			status = "disabled";
++		};
 +
-+description:
-+  This CAN Bus Controller, also called CAN-CTRL, implements a highly
-+  featured and reliable CAN bus controller that performs serial
-+  communication according to the CAN protocol.
-+
-+  The CAN-CTRL comes in three variants, they are CC, FD, and XL.
-+  The CC variant supports only Classical CAN, the FD variant adds support
-+  for CAN FD, and the XL variant supports the Classical CAN, CAN FD, and
-+  CAN XL standards.
-+
-+maintainers:
-+  - William Qiu <william.qiu@starfivetech.com>
-+  - Hal Feng <hal.feng@starfivetech.com>
-+
-+properties:
-+  compatible:
-+    items:
-+      - enum:
-+        - starfive,jh7110-can
-+      - const: cast,can-ctrl-fd-7x10N00S00
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  clocks:
-+    minItems: 3
-+
-+  clock-names:
-+    items:
-+      - const: apb
-+      - const: timer
-+      - const: core
-+
-+  resets:
-+    minItems: 3
-+
-+  reset-names:
-+    items:
-+      - const: apb
-+      - const: timer
-+      - const: core
-+
-+  starfive,syscon:
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    items:
-+      - items:
-+          - description: phandle to System Register Controller syscon node
-+          - description: offset of SYS_SYSCONSAIF__SYSCFG register for CAN controller
-+          - description: shift of SYS_SYSCONSAIF__SYSCFG register for CAN controller
-+          - description: mask of SYS_SYSCONSAIF__SYSCFG register for CAN controller
-+    description:
-+      Should be four parameters, the phandle to System Register Controller
-+      syscon node and the offset/shift/mask of SYS_SYSCONSAIF__SYSCFG register
-+      for CAN controller.
-+
-+allOf:
-+  - $ref: can-controller.yaml#
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: starfive,jh7110-can
-+    then:
-+      required:
-+        - starfive,syscon
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+  - clock-names
-+  - resets
-+  - reset-names
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    can@130d0000{
-+        compatible = "starfive,jh7110-can", "cast,can-ctrl-fd-7x10N00S00";
-+        reg = <0x130d0000 0x1000>;
-+        interrupts = <112>;
-+        clocks = <&syscrg 115>,
-+                 <&syscrg 116>,
-+                 <&syscrg 117>;
-+        clock-names = "apb", "timer", "core";
-+        resets = <&syscrg 111>,
-+                 <&syscrg 113>,
-+                 <&syscrg 112>;
-+        reset-names = "apb", "timer", "core";
-+        starfive,syscon = <&sys_syscon 0x10 0x3 0x8>;
-+    };
-+
-+...
+ 		crypto: crypto@16000000 {
+ 			compatible = "starfive,jh7110-crypto";
+ 			reg = <0x0 0x16000000 0x0 0x4000>;
 -- 
 2.43.2
 
