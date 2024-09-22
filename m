@@ -4,64 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ACFBCF9C5B
-	for <linux-riscv@archiver.kernel.org>; Sat, 21 Sep 2024 22:06:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3869CF9C5B
+	for <linux-riscv@archiver.kernel.org>; Sun, 22 Sep 2024 02:42:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yc9bw4T6BQL6Vj8FIOMYaPYEBUV0+FEFqNV8AvyX678=; b=Hb1gVPACK/SEXY2qWcm5CoPG3r
-	L+ltv14tUm/O9V2iMmNv5OwjPBvOcKyp09pGLCuyAEKjMnKCA23G42WnMeDiFFpf5XzgyT6PesGI+
-	LjJw7i6t6cxsrIkvHqSAr3lG9JQdRngtN1afd37UHM9H0GS7zgzshCGy4KwE22dWMbP12YWwOiUZ2
-	CNk4iIuOetFiuvliy6bOo7HBcMvpWeA5i8SzrW7bqJ+nQFWJQdWa9IWrmrNh6Qf1qldLt/gPXp2zZ
-	NCOKto/rlIPLQZaSsVQxBDBOozVsT4CNo59lAQO+cg8dxq9YkmZp9l/LTXAkIGx/ci8uY+W28UL1l
-	CnOx9AqQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
+	In-Reply-To:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2cfGii5GHEvvFmjVE8omCx3pIgVGMa5lJstSiICT+6U=; b=VMow8LFNyFwv8K
+	YiaUNdEB6Gp46/7Q5SEnmQBnJJHXFcvFy9ur6TUkFyETJuIHa0mypvT1Ss9MOeotK/rpxYtbrstRD
+	jwsCTxXq65SjDOLUGCkg+kpTSRgh9dBv30OG0MibyxXExuJEwmAkbYJcHEHKqUH36N71VH6kPKxpo
+	sp0REYzQkw1elHV0gajZsq5UgaHcWrAjy9M08mFLpujX9F9m9VV/6GTxc7S6Ybh13jYvcnOmtttGn
+	frJEIuP+oFw1MlbcKI9A6iCj070eoJF1Wy8KQvKyD07YpTcgbAElI7BneYtshZsjSoLb4h7URw8pt
+	rANkSpPRybeex5peZTHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ss8Eu-0000000EKZC-0mQk;
-	Sat, 21 Sep 2024 22:06:04 +0000
+	id 1ssCYD-0000000EcOv-3WSx;
+	Sun, 22 Sep 2024 02:42:17 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ss8Eq-0000000EKYa-2gOq;
-	Sat, 21 Sep 2024 22:06:01 +0000
+	id 1ssCYB-0000000EcNe-06Ex
+	for linux-riscv@lists.infradead.org;
+	Sun, 22 Sep 2024 02:42:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6C1A55C0533;
-	Sat, 21 Sep 2024 22:05:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDEE8C4CEC2;
-	Sat, 21 Sep 2024 22:05:55 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 943125C04E2;
+	Sun, 22 Sep 2024 02:42:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9C24C4CEC2;
+	Sun, 22 Sep 2024 02:42:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1726956358;
-	bh=/X57ncqkKV685Tc73lC69jepq5DQEY1k/4jxl0qDY1I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eaFW6f6H4UbmenZx+RBfLxcjVcGtlv6PLhDt7CBFjY7+rsSkXYal+pGf8Y9K0/ApG
-	 aP+3br8KzKBaSNGIWK73F1GLmQa06AlB3jQ2yTUJNQJW50Z3KwCB8gjCNU8AbuzxhL
-	 n+d+6QS5euVbHibGXG80FHn2iGlM9DIPLErFhBioSqAUxwRCfSHRkDa1fmiAWRnONE
-	 euQiKvpVXbdfRRv0QRhsr1t+iq02bSsK/xnZB5lNBTlIb4cvMz4gT4OynYkSATAXhT
-	 7R6wthhKyj7+sgApV1KTWMw3oHPPLX/LyKH3mFbPfvDLTplyCVzs88G3VKW2IjGgwC
-	 iENCPkcAOpbdg==
-Date: Sat, 21 Sep 2024 23:05:53 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Max Hsu <max.hsu@sifive.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Palmer Dabbelt <palmer@sifive.com>, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
-	Samuel Holland <samuel.holland@sifive.com>
-Subject: Re: [PATCH RFC 1/3] dt-bindings: riscv: Add Svukte entry
-Message-ID: <20240921-shock-purge-d91482d191a1@spud>
-References: <20240920-dev-maxh-svukte-rebase-v1-0-7864a88a62bd@sifive.com>
- <20240920-dev-maxh-svukte-rebase-v1-1-7864a88a62bd@sifive.com>
+	s=k20201202; t=1726972933;
+	bh=F2sRA/waMaVZiogBCpg45s1Yg8jSpVY87MXz2W5LWhk=;
+	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+	b=PwL5moodjftQlhDhVTIBrhaaq1XyE3g8oVWYf/Poal/g8OP09ccV5wGEHHQXYeAWH
+	 P2mPFpfb4UTuUcbO6yRr7L2KmZy93Qx7nfEX2sUkLnBVDOoYLg+BXX/HRSLc8xBk+K
+	 5Cdl89F5IVTephwz36skmMpwlakldWidNhsWGfocLcwF9qCiJygzqsJglZ71sT+G5R
+	 xBo/OkLs1yclRMeS+z+aPEEeknM2VPD8PqmSLT4kGsmrsJfksio5Z3Ajl0WUNl3wuc
+	 CunKOMfVThwIK8NP/zDJCLLj2nrB4l0TNxcIOse/NOOb35erffXNv9eNgh1lpaiu88
+	 ig3cKe7kcvaPA==
+Date: Sat, 21 Sep 2024 19:42:12 -0700
+From: Kees Cook <kees@kernel.org>
+To: Jason Montleon <jmontleo@redhat.com>, linux-hardening@vger.kernel.org
+CC: Linux regressions mailing list <regressions@lists.linux.dev>,
+ linux-riscv@lists.infradead.org
+Subject: =?US-ASCII?Q?Re=3A_=5BREGRESSION=5D=5BBISECTED=5D_Cannot_boot_?=
+ =?US-ASCII?Q?Lichee_Pi_4A_with_FORTIFY=5FSOURCE_enabled?=
+User-Agent: K-9 Mail for Android
+In-Reply-To: <CAJD_bPJes4QhmXY5f63GHV9B9HFkSCoaZjk-qCT2NGS7Q9HODg@mail.gmail.com>
+References: <CAJD_bPJes4QhmXY5f63GHV9B9HFkSCoaZjk-qCT2NGS7Q9HODg@mail.gmail.com>
+Message-ID: <B2A62C7F-45BA-43E1-975F-5AF0197CD2C3@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20240920-dev-maxh-svukte-rebase-v1-1-7864a88a62bd@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240921_150600_793314_0418A2BE 
-X-CRM114-Status: GOOD (  17.47  )
+X-CRM114-CacheID: sfid-20240921_194215_131937_7F8F5B0F 
+X-CRM114-Status: UNSURE (   9.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,91 +69,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3539319485526907487=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============3539319485526907487==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="e1yUmKuhmIxAjSpf"
-Content-Disposition: inline
 
+On September 21, 2024 10:42:11 AM PDT, Jason Montleon <jmontleo@redhat.com> wrote:
+>Starting with 6.11-rc1 I can no longer boot the Lichee Pi 4A with
+>FORTIFY_SOURCE enabled. This works on 6.10 up to at least 6.10.11.
+>However, with 6.11 I get no output at all from the kernel on the
+>serial console with FORTIFY_SOURCE enabled and the system never comes
+>online on network or otherwise as far as I can tell.
+>
+>I did a bisect which led to:
+>2003e483a81cc235e29f77da3f6b256cb4b348e7
+>fortify: Do not special-case 0-sized destinations
+>
+>If I revert this commit I can once again boot the Lichee Pi 4A with
+>FORTIFY_SOURCE enabled.
+>
 
---e1yUmKuhmIxAjSpf
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Thanks for the report! Are you able to catch what the error log shows? There must be some 0-sized array that snuck by.
 
-On Fri, Sep 20, 2024 at 03:39:03PM +0800, Max Hsu wrote:
-> Add an entry for the Svukte extension to the riscv,isa-extensions
-> property.
->=20
-> Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
-> Signed-off-by: Max Hsu <max.hsu@sifive.com>
-> ---
->  Documentation/devicetree/bindings/riscv/extensions.yaml | 7 +++++++
->  1 file changed, 7 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Do=
-cumentation/devicetree/bindings/riscv/extensions.yaml
-> index a06dbc6b4928958704855c8993291b036e3d1a63..df96aea5e53a70b0cb8905332=
-464a42a264e56e6 100644
-> --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-> +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-> @@ -171,6 +171,13 @@ properties:
->              memory types as ratified in the 20191213 version of the priv=
-ileged
->              ISA specification.
-> =20
-> +        - const: svukte
-> +          description:
-> +            The standard Svukte supervisor-level extensions for making u=
-ser-mode
-> +            accesses to supervisor memory raise page faults in constant =
-time,
-> +            mitigating attacks that attempt to discover the supervisor
-> +            software's address-space layout, as PR#1564 of riscv-isa-man=
-ual.
+Can you share your .config and compiler version?
 
-I'm surprised this doesn't fail dt_binding_check, with the # in it. I'd
-like to see a commit hash here though, in the same format as the other
-extensions using them.
+-Kees
 
-> +
->          - const: zacas
->            description: |
->              The Zacas extension for Atomic Compare-and-Swap (CAS) instru=
-ctions
->=20
-> --=20
-> 2.43.2
->=20
-
---e1yUmKuhmIxAjSpf
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZu9DQQAKCRB4tDGHoIJi
-0vpuAP92NYEC9FM8e8Y7BhVJDJvf069DI4tcoz+kx+BoYjEtzQD9Fp1Wj8hFfHNh
-s70/gx+0/zuAYgjxNfQ7GnUDfjIW7A8=
-=lQCo
------END PGP SIGNATURE-----
-
---e1yUmKuhmIxAjSpf--
-
-
---===============3539319485526907487==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Kees Cook
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3539319485526907487==--
-
