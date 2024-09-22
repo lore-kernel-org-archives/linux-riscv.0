@@ -4,110 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 409E9CF9C69
-	for <linux-riscv@archiver.kernel.org>; Sun, 22 Sep 2024 20:21:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EA84CF9C68
+	for <linux-riscv@archiver.kernel.org>; Sun, 22 Sep 2024 22:38:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZSKSoKXLkyEd5GaUJsQeXJsRNtbTjMWPWh5tIbkBd6g=; b=E9A2BCR6BNVgKH
-	wFab8jFBR/6K3+ImyPT1D9uOsp2HQ28o2YQDDAXaYHA66u+BGbzS1r4bf6dbAAFWXe/2Uf2001ecb
-	Lu9MBgxqyYKLPIKsDf4t7Kx7slfqFWx+CMnjudik+Vg7tF3BPB/I3olOzVKRQjW8CwvSfFMwlK652
-	fPIeoyjmuVlnOa/+g0KwlnKR6qOwVeKaosZvPqzcVdkHEsSE7RCj1lHm9wCIb8wkKdDw0zGFBqWW0
-	IC+GcxoOaYMosXybK8mAoNdDJlhx4pMuHYWMyW1nqFRtdfSAQatmgVnTdboPtGTnn5TRxy9d/GoRb
-	viYFVN4MWQUAuQuWc/1w==;
+	List-Owner; bh=/ankmHGOKcJFIhe8bA2+/0AjsZiaQ5/S0uI8SIev1jM=; b=XB/Pm60Ben/g/u
+	CbgLcSl37kS9iYaDjfW7LNY+SihdgfXJhbyNx7hWGovyry/gUvqwT5SS+xW/fV2Ag3D501kmE4OX2
+	/SI6zOY8eV7RrEngGRHNWwY0jg4RZoJLrXPBy5JTER9Xs9hLSl9+yPf0QB8asAKeElEUh0SIfAnaw
+	JRBr3DsHZT/GlX9YEozzDNL0RhI8FdHHvpKlTkbX8WB+L8fewFiQPbKY5l1iFfmPQCvSdCIuniRwO
+	pjCFHZ5fqwcmKwZoiZnRHWLbgTgELMuOB38nl1gAo8u40tacIUBJM3UXW4n1TFV5AtVxAOWPXg6uz
+	m+AtF5iatwZ5vLJBPzEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ssT58-0000000Fh4L-0DSn;
-	Sun, 22 Sep 2024 20:21:22 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ssVDO-0000000FsV8-2D8Z;
+	Sun, 22 Sep 2024 22:38:02 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ssT54-0000000Fh3u-3Sfj
+	id 1ssVDL-0000000FsUS-2tAD
 	for linux-riscv@lists.infradead.org;
-	Sun, 22 Sep 2024 20:21:20 +0000
+	Sun, 22 Sep 2024 22:38:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B778E5C54FF;
-	Sun, 22 Sep 2024 20:21:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3EC5C4CEC3;
-	Sun, 22 Sep 2024 20:21:10 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 922F8A4117C;
+	Sun, 22 Sep 2024 22:37:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 274D4C4CEC3;
+	Sun, 22 Sep 2024 22:37:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1727036477;
-	bh=InhEVXvKe00XKGjJ0zyePEOYAcKMa68cdzla8J9zOr4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=HIPOxPFV4y2v+s1byS7VmY+eMlF/84VYPCP3JDSGlXXYyhEvszRdYsjepLXXo7W7j
-	 95IGNKnpZJZzKmk/50ysSe1L0MBcdDts2KP322kwtHRH13qsvjnPFXsAMxa807VDtb
-	 lg7nOV7V6mYwraZVhy1r2gEuDqAbXki60IIpRtAty39YNkrsaJ/JhvXipMT3nENJyv
-	 KRf2ubFSuSmrTRiWveeQkIGl3O057SLtVopYM/PooHJHRPqG7aUVKEM0UWJZZpMrYT
-	 Dr0fjiosjI38ldD2KX9ARq+tZr0dliXT3xQP9MclAhA24A6+iah7VQnEPB3LH/pxEw
-	 kRpbzOEN0EtlA==
-Message-ID: <275b1b46-4ed0-44d8-a240-93a422e96bbf@kernel.org>
-Date: Sun, 22 Sep 2024 22:21:08 +0200
+	s=k20201202; t=1727044678;
+	bh=4IWXfehvkd6g9rLG1j1cad/y+btEFVhO05pVNfTAi3Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=d9qDGn0OfprDM5k76Ofdp1z2t4i5njPK0D01NvWyvex0YnTUKeYBDAyykOUVfJZUI
+	 Hvg9yqiiTmUv7QQMBeYamO2QdFH0QFT5YVFTrNXO0H6BJaMxiAxGdwmX5wcrhZ12DE
+	 bxtSp29u2x1+JVh/8qwEtwZWkxeryO1kIPUxoyUSP4WZT4xzpVf0UbKa6IP9MY72EG
+	 OtCT01MGPn1iKCYwFwui6+Evm1xW7YHISOrr281UsTEUW2cdL6ZEHNR+0Znfju1FMM
+	 YhDj7b1K8xcyjmc23tVmtwHzDyEQQKfIImhf56xWfnkkwEcL+Yj/97xzQdnV4UD3O2
+	 Naz0TrQuZVI1g==
+Date: Sun, 22 Sep 2024 15:37:57 -0700
+From: Kees Cook <kees@kernel.org>
+To: Jason Montleon <jmontleo@redhat.com>
+Cc: linux-hardening@vger.kernel.org,
+	Linux regressions mailing list <regressions@lists.linux.dev>,
+	linux-riscv@lists.infradead.org
+Subject: Re: [REGRESSION][BISECTED] Cannot boot Lichee Pi 4A with
+ FORTIFY_SOURCE enabled
+Message-ID: <202409221511.9AF49BD@keescook>
+References: <CAJD_bPJes4QhmXY5f63GHV9B9HFkSCoaZjk-qCT2NGS7Q9HODg@mail.gmail.com>
+ <B2A62C7F-45BA-43E1-975F-5AF0197CD2C3@kernel.org>
+ <CAJD_bP+43=XXD7p3fRfDxCbj=_YedgVLv38XO4iOAw94a+4PHg@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 5/5] remoteproc: add support for Microchip IPC
- remoteproc platform driver
-To: Valentina.FernandezAlanis@microchip.com, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, peterlin@andestech.com,
- dminus@andestech.com, Conor.Dooley@microchip.com, conor+dt@kernel.org,
- ycliang@andestech.com, jassisinghbrar@gmail.com, robh@kernel.org,
- krzk+dt@kernel.org, andersson@kernel.org, mathieu.poirier@linaro.org
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org
-References: <20240912170025.455167-1-valentina.fernandezalanis@microchip.com>
- <20240912170025.455167-6-valentina.fernandezalanis@microchip.com>
- <6f1fa401-e9ca-466f-990a-52bc37899bf4@kernel.org>
- <1ece2f4b-6f2d-452f-b2af-18d0895f9443@microchip.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <1ece2f4b-6f2d-452f-b2af-18d0895f9443@microchip.com>
+Content-Disposition: inline
+In-Reply-To: <CAJD_bP+43=XXD7p3fRfDxCbj=_YedgVLv38XO4iOAw94a+4PHg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240922_132118_978715_7D382110 
-X-CRM114-Status: GOOD (  30.76  )
+X-CRM114-CacheID: sfid-20240922_153759_881080_4F8BCC60 
+X-CRM114-Status: GOOD (  26.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,77 +71,107 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMTgvMDkvMjAyNCAxNzo1MSwgVmFsZW50aW5hLkZlcm5hbmRlekFsYW5pc0BtaWNyb2NoaXAu
-Y29tIHdyb3RlOgo+IE9uIDE2LzA5LzIwMjQgMjE6MTgsIEtyenlzenRvZiBLb3psb3dza2kgd3Jv
-dGU6Cj4+IEVYVEVSTkFMIEVNQUlMOiBEbyBub3QgY2xpY2sgbGlua3Mgb3Igb3BlbiBhdHRhY2ht
-ZW50cyB1bmxlc3MgeW91IGtub3cgdGhlIGNvbnRlbnQgaXMgc2FmZQo+Pgo+PiBPbiAxMi8wOS8y
-MDI0IDE5OjAwLCBWYWxlbnRpbmEgRmVybmFuZGV6IHdyb3RlOgo+Pj4gVGhlIE1pY3JvY2hpcCBm
-YW1pbHkgb2YgUklTQy1WIFNvQ3MgdHlwaWNhbGx5IGhhcyBvbmUgb3IgbW9yZSBjbHVzdGVycy4K
-Pj4+IFRoZXNlIGNsdXN0ZXJzIGNhbiBiZSBjb25maWd1cmVkIHRvIHJ1biBpbiBBc3ltbWV0cmlj
-IE11bHRpLVByb2Nlc3NpbmcKPj4+IChBTVApIG1vZGUuCj4+Pgo+Pj4gQWRkIGEgcmVtb3RlcHJv
-YyBwbGF0Zm9ybSBkcml2ZXIgdG8gYmUgYWJsZSB0byBsb2FkIGFuZCBib290IGZpcm13YXJlCj4+
-PiB0byB0aGUgcmVtb3RlIHByb2Nlc3NvcihzKS4KPj4KPj4gLi4uCj4+Cj4+PiArCj4+PiArc3Rh
-dGljIGludCBtY2hwX2lwY19ycHJvY19wcmVwYXJlKHN0cnVjdCBycHJvYyAqcnByb2MpCj4+PiAr
-ewo+Pj4gKyAgICAgc3RydWN0IG1jaHBfaXBjX3Jwcm9jICpwcml2ID0gcnByb2MtPnByaXY7Cj4+
-PiArICAgICBzdHJ1Y3QgZGV2aWNlX25vZGUgKm5wID0gcHJpdi0+ZGV2LT5vZl9ub2RlOwo+Pj4g
-KyAgICAgc3RydWN0IHJwcm9jX21lbV9lbnRyeSAqbWVtOwo+Pj4gKyAgICAgc3RydWN0IHJlc2Vy
-dmVkX21lbSAqcm1lbTsKPj4+ICsgICAgIHN0cnVjdCBvZl9waGFuZGxlX2l0ZXJhdG9yIGl0Owo+
-Pj4gKyAgICAgdTY0IGRldmljZV9hZGRyZXNzOwo+Pj4gKwo+Pj4gKyAgICAgcmVpbml0X2NvbXBs
-ZXRpb24oJnByaXYtPnN0YXJ0X2RvbmUpOwo+Pj4gKwo+Pj4gKyAgICAgb2ZfcGhhbmRsZV9pdGVy
-YXRvcl9pbml0KCZpdCwgbnAsICJtZW1vcnktcmVnaW9uIiwgTlVMTCwgMCk7Cj4+PiArICAgICB3
-aGlsZSAob2ZfcGhhbmRsZV9pdGVyYXRvcl9uZXh0KCZpdCkgPT0gMCkgewo+Pj4gKyAgICAgICAg
-ICAgICAvKgo+Pj4gKyAgICAgICAgICAgICAgKiBJZ25vcmUgdGhlIGZpcnN0IG1lbW9yeSByZWdp
-b24gd2hpY2ggd2lsbCBiZSB1c2VkIHZkZXYKPj4+ICsgICAgICAgICAgICAgICogYnVmZmVyLiBO
-byBuZWVkIHRvIGRvIGV4dHJhIGhhbmRsaW5ncywgcnByb2NfYWRkX3ZpcnRpb19kZXYKPj4+ICsg
-ICAgICAgICAgICAgICogd2lsbCBoYW5kbGUgaXQuCj4+PiArICAgICAgICAgICAgICAqLwo+Pj4g
-KyAgICAgICAgICAgICBpZiAoIXN0cmNtcChpdC5ub2RlLT5uYW1lLCAidmRldjBidWZmZXIiKSkK
-Pj4KPj4gV2hhdD8gSWYgeW91IGlnbm9yZSB0aGUgZmlyc3QsIHRoZW4gd2h5IGFyZSB5b3UgY2hl
-Y2tpbmcgbmFtZXM/IFRoaXMKPj4gZG9lcyBub3QgbWFrZSBzZW5zZS4gRXNwZWNpYWxseSB0aGF0
-IHlvdXIgYmluZGluZyBkaWQgbm90IHNheSBhbnl0aGluZwo+PiBhYm91dCB0aGVzZSBwaGFuZGxl
-cyBiZWluZyBzb21laG93IHNwZWNpYWwuCj4gCj4gVGhlIGlkZWEgaW4gdGhlIGNvZGUgYWJvdmUg
-aXMgdG8gc2tpcCB0aGUgdmRldiBidWZmZXIgYWxsb2NhdGlvbiBhbmQgCj4gY2FydmVvdXQgcmVn
-aXN0cmF0aW9uLiBMYXRlciwgd2hlbiB0aGUgcmVtb3RlcHJvYyB2aXJ0aW8gZHJpdmVyIAo+IHJl
-Z2lzdGVycyB0aGUgdmlydGlvIGRldmljZSAocnByb2NfYWRkX3ZpcnRpb19kZXYpLCBpdCB3aWxs
-IGF0dGVtcHQgdG8gCj4gZmluZCB0aGUgY2FydmVvdXQuIFNpbmNlIHRoZSBjYXJ2ZW91dCB3YXNu
-4oCZdCByZWdpc3RlcmVkLCBpdCB3aWxsIHVzZSB0aGUgCj4gZmlyc3QgbWVtb3J5IHJlZ2lvbiBm
-cm9tIHRoZSBwYXJlbnQgYnkgY2FsbGluZyAKPiBvZl9yZXNlcnZlZF9tZW1fZGV2aWNlX2luaXRf
-YnlfaWR4Lgo+IAo+IFRoaXMgYmVoYXZpb3IgaXMgYmFzZWQgb24gc29tZSBleGlzdGluZyBwbGF0
-Zm9ybSBkcml2ZXJzLiBIb3dldmVyLCB1cG9uIAo+IGZ1cnRoZXIgaW5zcGVjdGlvbiwgaXQgc2Vl
-bXMgdGhhdCBzb21lIG5ld2VyIGRyaXZlcnMgdXNlIAo+IHJwcm9jX29mX3Jlc21fbWVtX2VudHJ5
-X2luaXQgdG8gYWxsb2NhdGUgdmRldiBidWZmZXJzLgo+IAo+IEkgd2lsbCByZXN0cnVjdHVyZSB0
-aGlzIHNlY3Rpb24gYW5kIHJlcGhhc2UvZHJvcCB0aGUgY29tbWVudC4KPiAKPiBXaXRoIHJlZ2Fy
-ZHMgdGhlIGJpbmRpbmdzLCBJJ2xsIGV4cGxhaW4gYmV0dGVyIGFsbCB0aGUgbWVtb3J5IHJlZ2lv
-bnMgCj4gZm9yIHYyLgo+IAo+IEp1c3QgZm9yIGV2ZXJ5b25l4oCZcyBpbmZvcm1hdGlvbiwgd2Ug
-aGF2ZSB0aGUgZm9sbG93aW5nIHVzZSBjYXNlczoKPiAKPiBFYXJseSBib290OiBSZW1vdGUgcHJv
-Y2Vzc29ycyBhcmUgYm9vdGVkIGJ5IGFub3RoZXIgZW50aXR5IGJlZm9yZSBMaW51eCwgCj4gc28g
-d2Ugb25seSBuZWVkIHRvIGF0dGFjaC4gRm9yIHRoaXMgbW9kZSwgd2UgcmVxdWlyZSB0aGUgcmVz
-b3VyY2UgdGFibGUgCj4gYXMgYSBtZW1vcnkgcmVnaW9uIGluIHRoZSBkZXZpY2UgdHJlZS4KPiAK
-PiBMYXRlIGJvb3QgLSBMaW51eCBpcyByZXNwb25zaWJsZSBmb3IgbG9hZGluZyB0aGUgZmlybXdh
-cmUgYW5kIHN0YXJ0aW5nIAo+IGl0IG9uIHRoZSByZW1vdGUgcHJvY2Vzc29ycy4gRm9yIHRoaXMs
-IHdlIG5lZWQgdGhlIHJlZ2lvbiB1c2VkIGZvciB0aGUgCj4gZmlybXdhcmUgaW1hZ2UuCj4gCj4g
-SW4gYm90aCBjYXNlcywgcnBtc2cgY29tbXVuaWNhdGlvbiBpcyBvcHRpb25hbC4gVGhpcyBtZWFu
-cyB0aGF0IHRoZSB2ZGV2IAo+IGJ1ZmZlcnMgYW5kIHZyaW5ncyBtZW1vcnkgcmVnaW9ucyBhcmUg
-YWxzbyBvcHRpb25hbC4KPiAKPiBUaGVyZSBjb3VsZCBhbHNvIGJlIGEgbWl4ZWQgY2FzZSB3aGVy
-ZSB3ZSBzdGFydCB3aXRoIGVhcmx5IGJvb3QgbW9kZSBieSAKPiBhdHRhY2hpbmcgdG8gYW4gZXhp
-c3RpbmcgcmVtb3RlcHJvYywgYW5kIHRoZW4gc3RvcCwgc3RhcnQsIGFuZCBsb2FkIAo+IGFub3Ro
-ZXIgZmlybXdhcmUgb25jZSBMaW51eCBoYXMgYm9vdGVkLiBJbiB0aGlzIGNhc2UsIHdlIHdvdWxk
-IHJlcXVpcmUgCj4gdGhlIHJlc291cmNlIHRhYmxlIGFuZCBmaXJtd2FyZSBpbWFnZSByZWdpb24s
-IGFuZCBvcHRpb25hbGx5LCB2ZGV2IAo+IGJ1ZmZlcnMgYW5kIHZyaW5ncy4KPiAKPj4KPj4+ICsg
-ICAgICAgICAgICAgICAgICAgICBjb250aW51ZTsKPj4+ICsKPj4+ICsgICAgICAgICAgICAgaWYg
-KCFzdHJjbXAoaXQubm9kZS0+bmFtZSwgInJzYy10YWJsZSIpKQo+Pgo+PiBOb3BlLgo+IFNpbmNl
-IHRoZSByZXNvdXJjZSB0YWJsZSBpcyBvbmx5IG5lZWRlZCBmb3IgZWFybHkgYm9vdCBtb2RlIGFu
-ZCBkb2VzIG5vdCAKPiBuZWVkIHRvIGJlIGEgY2FydmVvdXQgcmVnaW9uLCB3ZSBhcmUgc2tpcHBp
-bmcgdGhhdC4KPiAKPiBJIHdpbGwgd29yayBvbiBtYWtpbmcgdGhlIHJlc291cmNlIHRhYmxlIGEg
-Zml4ZWQgaW5kZXggaW4gdGhlIAo+IG1lbW9yeS1yZWdpb24gcHJvcGVydHkgc28gdGhhdCBpdCBk
-b2Vzbid0IGhhdmUgYSBmaXhlZCBuYW1lLgoKVGhlIGxpc3Qgb2YgbWVtb3J5LXJlZ2lvbnMgYWxy
-ZWFkeSBIQVMgZml4ZWQgaW5kaWNlcy4gQWxsIHRoaXMgaXMgbm90Cm9ubHkgY29uZnVzaW5nLCBi
-dXQgaW5jb3JyZWN0LiBJIGNvbW1lbnRlZCB0aGF0IGlmIEkgY2FsbCB0aGUgbm9kZQoicnNjLW5v
-dC1hLXRhYmxlIiB5b3VyIGNvZGUgd2lsbCBzdG9wIHdvcmtpbmcuCgpCZXN0IHJlZ2FyZHMsCkty
-enlzenRvZgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Sun, Sep 22, 2024 at 04:18:39PM -0400, Jason Montleon wrote:
+> Thank you for the quick reply! I am using the Fedora 40 packaged
+> version of gcc, gcc-14.1.1-1.fc40.riscv64.
+
+Great! Thanks for the details.
+
+> I originally noticed this while testing a build of the Fedora RISC-V
+> .config on Fedora 40.
+> http://fedora.riscv.rocks:3000/rpms/kernel/src/branch/main-riscv64/kernel-riscv64-fedora.config
+> 
+> When I noticed I could not boot this on the lpi4a I tried the
+> defconfig(arch/riscv/configs/defconfig), which worked. After merging
+> the configs a bit at a time I narrowed it down to FORTIFY_SOURCE=y
+
+I'm trying to imagine how the boot would get stopped with 2003e483a81c
+("fortify: Do not special-case 0-sized destinations") applied, since
+that portion of the fortify checking is only supposed to warn (i.e. not
+bug or panic) and then continue without blocking anything. I don't see
+CONFIG_PANIC_ON_OOPS set in this config, so that's not it.
+
+> To do the bisect I used the riscv defconfig, running make menuconfig
+> to turn on FORTIFY_SOURCE, and saving.
+> https://gist.github.com/jmontleon/9cdc778e9c9139296924d3f71b48067b
+> 
+> As far as logs, I am having a hard time gathering anything useful
+> because the boot fails so early. Normally with FORTIFY_SOURCE turned
+> on I get no output from the kernel at all.
+> https://gist.github.com/jmontleon/42167a7b6d71bb4db8b7ca7114893b86
+> 
+> With a config closer to the Fedora debug kernel config I got a bit
+> more, but it stopped booting here and doesn't seem much more useful.
+> https://gist.github.com/jmontleon/00426b3bff2c85a68370ca1fb5f968c7
+
+I don't see a panic_on_warn on the boot command line either:
+
+  Kernel command line: console=ttyS0,115200 root=PARTUUID=c44914cf-1285-4aec-b5df-0224434d3e12 rootfstype=ext4 rw clk_ignore_unused earlycon=sbi loglevel=7 debug=console
+
+> If you have suggestions for getting more meaningful output I am happy to try.
+
+Can you try this patch? It should avoid using the "WARN" infrastructure
+(if that is the source of blocking boot), but should still provide some
+detail about what tripped it up (via the "regular" pr_*() logging). And
+if it boots, can you look at the log to find what it reports for the
+"Wanted to write ..." line(s)?
+
+Thanks!
+
+-Kees
+
+
+diff --git a/include/linux/fortify-string.h b/include/linux/fortify-string.h
+index 0d99bf11d260..469a3439959d 100644
+--- a/include/linux/fortify-string.h
++++ b/include/linux/fortify-string.h
+@@ -549,7 +549,8 @@ __FORTIFY_INLINE bool fortify_memcpy_chk(__kernel_size_t size,
+ 					 const size_t q_size,
+ 					 const size_t p_size_field,
+ 					 const size_t q_size_field,
+-					 const u8 func)
++					 const u8 func,
++					 const char *field)
+ {
+ 	if (__builtin_constant_p(size)) {
+ 		/*
+@@ -610,8 +611,13 @@ __FORTIFY_INLINE bool fortify_memcpy_chk(__kernel_size_t size,
+ 	 * https://gcc.gnu.org/bugzilla/show_bug.cgi?id=101832
+ 	 */
+ 	if (p_size_field != SIZE_MAX &&
+-	    p_size != p_size_field && p_size_field < size)
+-		return true;
++	    p_size != p_size_field && p_size_field < size) {
++		if (p_size_field == 0)
++			pr_warn("Wanted to write %zu to a 0-sized destination: %s\n",
++				size, field);
++		else
++			return true;
++	}
+ 
+ 	return false;
+ }
+@@ -625,7 +631,8 @@ __FORTIFY_INLINE bool fortify_memcpy_chk(__kernel_size_t size,
+ 	const size_t __q_size_field = (q_size_field);			\
+ 	fortify_warn_once(fortify_memcpy_chk(__fortify_size, __p_size,	\
+ 				     __q_size, __p_size_field,		\
+-				     __q_size_field, FORTIFY_FUNC_ ##op), \
++				     __q_size_field, FORTIFY_FUNC_ ##op,\
++				     #p " at " FILE_LINE), \
+ 		  #op ": detected field-spanning write (size %zu) of single %s (size %zu)\n", \
+ 		  __fortify_size,					\
+ 		  "field \"" #p "\" at " FILE_LINE,			\
+
+
+-- 
+Kees Cook
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
