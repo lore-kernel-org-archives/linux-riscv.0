@@ -4,60 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAF98CF9C5B
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Sep 2024 05:38:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5824DCF9C6F
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Sep 2024 07:55:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:From:Mime-Version:To:Message-Id:Subject
-	:Cc:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=02rYlEoOmqBvEsV29IncW0ZtkTK9HHmdbR385y/9P38=; b=AkZJjcR29s5JB2
-	U8PpTcVBq/lxX7rb/RZWGipP7M5ApaSUvh6ubyOG/OZrCCgkZKThLYi9Fcb+la8C8+HwwhvXC62ia
-	4Hq9UKq0xr51w+94IusoDG+ZVcs1KHdRKrTyWImWkQXnw1tnSv2IyL3m/D1HnOsnYoGhnMaaBdvW7
-	mlUqB/e6YGpIV6Ry4Z3236+B1fC0aMKlAma8aa2cb5D9WMP4MZduk2ywTCXrrghd20Wy4zjqgpB0z
-	z6/Czccjkku0Wl1Zskn6L1C84w/YTIm6Ns3DVJMM+2EWNcaeIVRQyfs3fMNFhkC8JG/U+m3yXwH+4
-	YZFl1oLcIOWlOU4P9e0Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=voQl18DUQG5XFNdbQgefr+yf9imAVbYgbjo4DsOH2rA=; b=PUHaxjwStxPIqf
+	yqRVniVRISlrkOg0AkjXc6+xgfczuuG3je1AqCFqd2cYxxSI4YAki9E/yzFN/Ru19bNYNmH8PHQoK
+	l+6967JfchjMVS9XZqBrLYPhJokkA/kIEq/6P8MVSiQ9fHmHvKlIlnL/XvmCUtCIL+GkdfqvRGxWH
+	Qy1TWlrsmhDLyu8ESTBRm4axhpzS6RcGBbxtCullFeAOSv4bXUfikFqMLLsojcEZKBIu+tVt6tzER
+	6L3SBlb4F4XDWj0ByeUFfMLx2+CxseivmkeJ0c/rfpUXeJgp++V/saVNYk2q5mSBvuNYlTbz5xIgJ
+	qQ+ha05AC2BZiGS37JRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ssbmb-0000000GLnx-2PNm;
-	Mon, 23 Sep 2024 05:38:49 +0000
-Received: from va-2-11.ptr.blmpb.com ([209.127.231.11])
+	id 1ssduG-0000000Ga9Q-38tX;
+	Mon, 23 Sep 2024 07:54:52 +0000
+Received: from mail-sh0chn02on20714.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::714] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ssbmY-0000000GLnS-1i7B
+	id 1ssdtH-0000000Ga0H-13eP
 	for linux-riscv@lists.infradead.org;
-	Mon, 23 Sep 2024 05:38:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=deepcomputing-io.20200927.dkim.feishu.cn; t=1727069921;
-  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
- reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=rm+jLD7LmwpSNEJzIkH2zPuhNPjw332z9klR4q5Peis=;
- b=WvK9YwamhENJOAv9wEI12+iDQ1UgArwnp5CO04Qt9o6UJsqUi/sNh1nhiKiJ3kN2EpCfgI
- PacPtqloPnQThRSjkRefpPt/p0FeBrU51WNR7fU89GjH9r1flDheeWITpLW6VfK83Ug0DX
- 9ruw1Z63Thp8sOb3Na6u1bCgYWMV7ABR//pT765TfIHmwiQNj4K3qkjvH57emWiANeM0q/
- U2lLJAj2D+zHGil8HBHnrH3UfPRz4A6UU5YZPnv4AElxEU671YEzedpa3U3gWu3XgIZavG
- 35iouyzQfPMD7FU4l/287gVG1wP4N3kPseFBzwe5zOBXWYgWEL6YorAtMNrKLA==
-Date: Mon, 23 Sep 2024 13:38:06 +0800
-X-Lms-Return-Path: <lba+266f0fee0+237347+lists.infradead.org+sandie.cao@deepcomputing.io>
-Received: from roma-MacBookPro.. ([61.141.249.188]) by smtp.feishu.cn with ESMTPS; Mon, 23 Sep 2024 13:38:39 +0800
-Cc: "Conor Dooley" <conor@kernel.org>, "Rob Herring" <robh@kernel.org>, 
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
-	"Paul Walmsley" <paul.walmsley@sifive.com>, 
-	"Palmer Dabbelt" <palmer@dabbelt.com>, 
-	"Albert Ou" <aou@eecs.berkeley.edu>, <linux-riscv@lists.infradead.org>, 
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, 
-	"Sandie Cao" <sandie.cao@deepcomputing.io>
-Subject: [PATCH 2/2] riscv:configs:starfive:add framework config
-Message-Id: <20240923053806.1586080-1-sandie.cao@deepcomputing.io>
-To: "Emil Renner Berthing" <kernel@esmil.dk>
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.34.1
-X-Original-From: Sandie Cao <sandie.cao@deepcomputing.io>
-From: "Sandie Cao" <sandie.cao@deepcomputing.io>
+	Mon, 23 Sep 2024 07:53:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=ThhmqKkK+LHDjGkzT+PVK27kUzvWhfa+H9PGvh9s3HqXHUpzXF5WgFiXj8NYccbX7e8S5i+OLSwxpbKi1Of/wt4vLA/kHR8IlATHKEl2C0ZLl7UNuqjG5bdRHYTg2MZ8LDPstb9tfoBN8i5UjS4a/XViWB97uVA5ypOR/qIhnALVyxaep/5iZI++iLzFox7OM9cIr9wIp7Y61kUqXy65tTSElrrDjBBa/YaxkkSdOxt3OcLoWxM1Ypbhvyrwc2NNZuKfdQCQkWLtdwF8ye7gWvV4mjUiXpufIgws8yD+ORDt0f4tbDZ9cWRfDuT2SoLOwQZKQjMA7oIz0RUO3uT5Lw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cyQdn+W1djXv/5fY7L44dPNxVOJfDdFiZsdyAqqB0r0=;
+ b=cwEFL2Rfgc6Eh7kGxwPGWgZqUCAuK0Zh4eHNBa1KDE2dugaWI2XV+e+9bAAXB7YRK8YLXBMi6tK0FKVZZzMkn3XPc7wWj5aMxVMuXa2muWswuIML9s+Fdibq8ijf6/LOXPURInyD+7Kb27J3UGSliF55x0ourdaAkcdEDTrmBEOossJZ5IsZCdz5xLdPCipMDmj91wIBBh2MnYxghAdDzdy9U4aJtLrCkix/LbYhn30QQCy2m/HgNaQSlwkddwokKPXeDkREwuSkbTbI3DEm3zINsCFWqxeXkFKT1VL6g8AWSY5dQNsB8o6MZUlEKrgGkW5VkvaDkaJovQcg6XF8oQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:7::14) by ZQ2PR01MB1211.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:7::11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7962.30; Mon, 23 Sep
+ 2024 07:53:25 +0000
+Received: from ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
+ ([fe80::2595:ef4d:fae:37d7]) by ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
+ ([fe80::2595:ef4d:fae:37d7%4]) with mapi id 15.20.7962.029; Mon, 23 Sep 2024
+ 07:53:25 +0000
+From: Hal Feng <hal.feng@starfivetech.com>
+To: Andrew Lunn <andrew@lunn.ch>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Marc Kleine-Budde <mkl@pengutronix.de>,
+	Vincent Mailhol <mailhol.vincent@wanadoo.fr>, "David S . Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Emil Renner
+ Berthing <emil.renner.berthing@canonical.com>, William Qiu
+	<william.qiu@starfivetech.com>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-can@vger.kernel.org"
+	<linux-can@vger.kernel.org>, "netdev@vger.kernel.org"
+	<netdev@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH v2 3/4] can: Add driver for CAST CAN Bus Controller
+Thread-Topic: [PATCH v2 3/4] can: Add driver for CAST CAN Bus Controller
+Thread-Index: AQHbDP78QyTswaw7pki8MOjaOJeAtrJkAHKAgAC5iGA=
+Date: Mon, 23 Sep 2024 07:53:24 +0000
+Message-ID: <ZQ2PR01MB13071A093EB33F48340F753EE66F2@ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn>
+References: <20240922145151.130999-1-hal.feng@starfivetech.com>
+ <20240922145151.130999-4-hal.feng@starfivetech.com>
+ <cf17f15b-cbd7-4692-b3b2-065e549cb21e@lunn.ch>
+In-Reply-To: <cf17f15b-cbd7-4692-b3b2-065e549cb21e@lunn.ch>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: ZQ2PR01MB1307:EE_|ZQ2PR01MB1211:EE_
+x-ms-office365-filtering-correlation-id: baf9751f-ab54-4877-1c25-08dcdba4cd8e
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|41320700013|7416014|1800799024|38070700018;
+x-microsoft-antispam-message-info: Ei2TJpZ6EkPWgpFNiA1MIjp3LEVKtRRY2ZHfcqcRYXR0N3xWLZ5O90iKc4gMDGzzjaVxZWcgHJB8XFhQ36Bmd+7IylO2sM3rRBkEHRYeEv5GnRSS9qIW0I5PAp5LE7PHU1wmc1g7nkd2XM5nZn6k/0i8+WsEge4g86E4DH06iHofbcDYhNOzb5NXRXE+GyA17mvBK7e0/NBC9t3q54K04Fr+dPukcLnMvG9s2QIu3QIvm1Ep6FdXLEVSdKwqMx0WN6yM4jp6RGGNGKB0mLlLZHl53QxQg0aziwcwnjPJh5TsU0FOJfob9CclYCgiELZlR0WQAsSYl4vovR2HIFLoOAG2xmvN+Oa7M9SnfIhf1PEC0GBbfl1htR683RWfKQa9S1RuW8Vym4jRHLuNd90cT/banill4LZnQpKXa20/tQo30zwiEFO9QMKldyeb+Dg6dRdQbPTdv3nKM0n3lxdvLIOCsZSX2L1/LO3z11eMqpkXv8EeYvcEDcIS9DMjsk3lM7bRhP2N1cDMh4qHVbzQCky8nf1Mjg0YoKX8JZm4ZHtZwt7oqKt0cPOuSiBiIAAl0taHXeTmogRgFiWyP7kPHtLkOR9+FNhzpQznbAaEOJ1wIIbWxrNKjBuN/RVMSfY2
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(366016)(41320700013)(7416014)(1800799024)(38070700018);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Vn5F7qKhSC2w0bchBD22ba4+L+rzlPxMwxPRLeZRaMVg4THK146JI7BbC3cd?=
+ =?us-ascii?Q?6rXQo39B5bAE2j6aqwP8I/TgBDFAi/VKp/ioiO6mt5yCzR1yRszfqAQ6Ucd0?=
+ =?us-ascii?Q?jf7Ke6fYJW0nXjgTYgJtzhpC3RVFBC3ZQfaZTxTvqHHadVdzdUmpbvTAauly?=
+ =?us-ascii?Q?Op6Z48h9SUwkAdRlujdmwlvxm0GYDp8B8IzgR39s/wAD1YdUhxT0wH8Al+wc?=
+ =?us-ascii?Q?wYz34QScKcYdxgAU5FJ9Lnb+nVEDMnleDnZxQb2/y8fIHTOj43yrnojvsc9n?=
+ =?us-ascii?Q?mRv37zq62bIloUx8MLsc/pSv5OA1RuPauA0kIKhDaLM75RpLXRPCwcWf0W2o?=
+ =?us-ascii?Q?GVGZoiS7vMAqn8BcujZMgIxKK6zkVOgCy6sRoNLnkG2Hev8k5dNAh8FO0oDL?=
+ =?us-ascii?Q?G0+IK7HPM/YninWDJnwcv886EFUjQOdhoOCXG1ONXhO+3RbDcezH9nWoA1oA?=
+ =?us-ascii?Q?JUNY5XGGIjk0NAasFsAyNGGBopXl4DcZ0fG7BQNoWDqvJKbQlP+/JAFr8TYQ?=
+ =?us-ascii?Q?fmxvVD1lck9wmgvMSH+o/mX9daDcSgNyg0D1VouF6VUjYnxYdCrGY4UNdwHK?=
+ =?us-ascii?Q?pD1YL+gHaHfIjjrqvmh2TQzNl9RAufo7CpUgv3hK5jgHFBxPJn9DtXy0MeaO?=
+ =?us-ascii?Q?MZ8WX/Lli+qFUbGPPORUkQ6LXyOKsxcVjP9ciTRCVpEOSjvAaDXNZ7denkUX?=
+ =?us-ascii?Q?Px1u2QP8R1/nPN5sMJ0yAeRQGeMtpVRJphAYJYe41DZi5fbULvqm6GsRgDG+?=
+ =?us-ascii?Q?RIhxZXtw+C4XAHfundZ6N6xf5QUi8/2dRgW3tpjaH34fy+DCXpqydPmO3Fnw?=
+ =?us-ascii?Q?59NjjOOPMgNjYKUFurBwXXMq/lY3/pN77SxYqh0i46uN4w34TNc4R32fLShG?=
+ =?us-ascii?Q?yK1xdr4axGH4CVDMAjcT1C1qMFbr1Uo1z8JsIDI+dRg1kWaEq2a0YPjkxioF?=
+ =?us-ascii?Q?WX9uOXslHy/ccg7ZVQThXCPz51cbdIqpbis8l/YQb2EvCiN6JA8U/1bjZhx1?=
+ =?us-ascii?Q?SscxMxIzf5LO6MekzBdx/AUm/gzyKsK3NYrGhbTNgdcB5z0XWxG9yZQzCAfD?=
+ =?us-ascii?Q?Y2bzFamlOh9JyhPJRG15c8e1VPhe3bou1arnhrj6viUY1y+/uEEB1XD3w34A?=
+ =?us-ascii?Q?a0+2gBV7VJNR3Bt0n7s/NY7pdmstv3MOLlIjuUZ8Z6zTpnf829LS3ZZsW8+b?=
+ =?us-ascii?Q?XTra8pVNvWBZ+dhp8P2toiDmmxEo3D3UJeNX3p+2AJUhpR3dTwkfpRFgRgKp?=
+ =?us-ascii?Q?A5EYaijYAqV5/mrMkrH8wHd9ogvZDhVnWZasZvz584POQ8PCJ4TxXY7JVBwn?=
+ =?us-ascii?Q?LHZiP1xhi/Iu1cxfB+HkZkQ/FU0gbD5u2WtEk2CHTKADRM1bUyPln9OMJkrX?=
+ =?us-ascii?Q?qhGrvnhVAOIvg23m3o5BEgZ4OHQbOsjjodk+Yp6Gv0Fw73zGGUSZvi/WE7FR?=
+ =?us-ascii?Q?rOpl5+boxn+FXT0aZnuP4sale6Fj+ANQhv23/Dueu3yxCFp4ciiZs4HpsB7f?=
+ =?us-ascii?Q?UaSCipDxE5DpzlBnq1mKHk4hMbtmJYS5ydY9PUbTLHyrJwQisLyEW+GQuoWT?=
+ =?us-ascii?Q?S/lflaTp9+aE/smQKta9KciDmVHi1OSZnTfPbqrc?=
+MIME-Version: 1.0
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: baf9751f-ab54-4877-1c25-08dcdba4cd8e
+X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Sep 2024 07:53:24.9396
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: feyUlhW66cFM++aUWev1MMmE09ulyhCQBfNoGwvGkcYYAzXGx2bHsA8Vm6lM5J/nzb+wqi5tiWJl2auSaBwOV//gM3MjVH+tab3EMlz6Tqo=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ2PR01MB1211
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240922_223846_576148_6D72D421 
-X-CRM114-Status: UNSURE (   9.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240923_005351_322194_8C600CF5 
+X-CRM114-Status: GOOD (  19.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,173 +143,102 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add config to support RISC-V Framework Laptop 13 Mainboard. 
+> On 23.09.24 00:34, Andrew Lunn wrote: 
+> > +static inline u32 ccan_read_reg(const struct ccan_priv *priv, u8 reg)
+> > +{
+> > +	return ioread32(priv->reg_base + reg); }
+> > +
+> > +static inline void ccan_write_reg(const struct ccan_priv *priv, u8
+> > +reg, u32 value) {
+> > +	iowrite32(value, priv->reg_base + reg); }
+> 
+> No inline functions in .c files please. Let the compiler decide.
 
-Signed-off-by: Sandie Cao <sandie.cao@deepcomputing.io>
----
- .../starfive_jh7110_framework_defconfig       | 151 ++++++++++++++++++
- 1 file changed, 151 insertions(+)
- create mode 100644 arch/riscv/configs/starfive_jh7110_framework_defconfig
+OK. Drop them.
 
-diff --git a/arch/riscv/configs/starfive_jh7110_framework_defconfig b/arch/riscv/configs/starfive_jh7110_framework_defconfig
-new file mode 100644
-index 000000000000..512ac09184b7
---- /dev/null
-+++ b/arch/riscv/configs/starfive_jh7110_framework_defconfig
-@@ -0,0 +1,151 @@
-+CONFIG_SYSVIPC=y
-+CONFIG_POSIX_MQUEUE=y
-+CONFIG_NO_HZ_IDLE=y
-+CONFIG_HIGH_RES_TIMERS=y
-+CONFIG_BPF_SYSCALL=y
-+CONFIG_IKCONFIG=y
-+CONFIG_IKCONFIG_PROC=y
-+CONFIG_CGROUPS=y
-+CONFIG_CGROUP_SCHED=y
-+CONFIG_CFS_BANDWIDTH=y
-+CONFIG_CGROUP_BPF=y
-+CONFIG_NAMESPACES=y
-+CONFIG_USER_NS=y
-+CONFIG_CHECKPOINT_RESTORE=y
-+CONFIG_BLK_DEV_INITRD=y
-+CONFIG_EXPERT=y
-+# CONFIG_SYSFS_SYSCALL is not set
-+CONFIG_ARCH_STARFIVE=y
-+CONFIG_SOC_STARFIVE=y
-+CONFIG_SOC_STARFIVE_JH7110=y
-+CONFIG_SMP=y
-+CONFIG_MODULES=y
-+CONFIG_MODULE_UNLOAD=y
-+CONFIG_NET=y
-+CONFIG_PACKET=y
-+CONFIG_IP_MULTICAST=y
-+CONFIG_IP_ADVANCED_ROUTER=y
-+CONFIG_IP_PNP=y
-+CONFIG_IP_PNP_DHCP=y
-+CONFIG_IP_PNP_BOOTP=y
-+CONFIG_IP_PNP_RARP=y
-+CONFIG_NETFILTER=y
-+CONFIG_NET_9P=y
-+CONFIG_NET_9P_VIRTIO=y
-+CONFIG_PCI=y
-+CONFIG_PCIE_STARFIVE_HOST=y
-+CONFIG_DEVTMPFS=y
-+CONFIG_DEVTMPFS_MOUNT=y
-+CONFIG_MTD=y
-+CONFIG_MTD_BLOCK=y
-+CONFIG_MTD_SPI_NOR=y
-+CONFIG_BLK_DEV_LOOP=y
-+CONFIG_VIRTIO_BLK=y
-+CONFIG_BLK_DEV_SD=y
-+CONFIG_BLK_DEV_SR=y
-+CONFIG_SCSI_VIRTIO=y
-+CONFIG_ATA=y
-+CONFIG_SATA_AHCI=y
-+CONFIG_MD=y
-+CONFIG_BLK_DEV_DM=m
-+CONFIG_NETDEVICES=y
-+CONFIG_VIRTIO_NET=y
-+CONFIG_R8169=y
-+CONFIG_STMMAC_ETH=y
-+CONFIG_DWMAC_DWC_QOS_ETH=y
-+CONFIG_DWMAC_STARFIVE=y
-+CONFIG_MICREL_PHY=y
-+CONFIG_MOTORCOMM_PHY=y
-+CONFIG_INPUT_MOUSEDEV=y
-+CONFIG_SERIAL_8250=y
-+CONFIG_SERIAL_8250_CONSOLE=y
-+CONFIG_SERIAL_8250_DW=y
-+CONFIG_SERIAL_OF_PLATFORM=y
-+CONFIG_SERIAL_EARLYCON_RISCV_SBI=y
-+CONFIG_VIRTIO_CONSOLE=y
-+CONFIG_HW_RANDOM=y
-+CONFIG_HW_RANDOM_JH7110=y
-+CONFIG_I2C=y
-+CONFIG_I2C_CHARDEV=y
-+CONFIG_I2C_DESIGNWARE_PLATFORM=y
-+CONFIG_SPI=y
-+CONFIG_SPI_PL022=m
-+CONFIG_POWER_RESET_GPIO_RESTART=y
-+CONFIG_CPU_THERMAL=y
-+CONFIG_WATCHDOG=y
-+CONFIG_REGULATOR=y
-+CONFIG_REGULATOR_FIXED_VOLTAGE=y
-+CONFIG_REGULATOR_AXP20X=y
-+CONFIG_REGULATOR_GPIO=y
-+CONFIG_FB=y
-+CONFIG_SOUND=y
-+CONFIG_SND=y
-+CONFIG_SND_SOC=y
-+CONFIG_SND_DESIGNWARE_I2S=m
-+CONFIG_SND_SOC_STARFIVE=m
-+CONFIG_SND_SOC_JH7110_PWMDAC=m
-+CONFIG_SND_SOC_JH7110_TDM=m
-+CONFIG_SND_SIMPLE_CARD=m
-+CONFIG_I2C_HID_OF=y
-+CONFIG_USB=y
-+CONFIG_USB_XHCI_HCD=y
-+CONFIG_USB_STORAGE=y
-+CONFIG_USB_UAS=y
-+CONFIG_USB_CDNS_SUPPORT=y
-+CONFIG_USB_CDNS3=y
-+CONFIG_USB_CDNS3_GADGET=y
-+CONFIG_USB_CDNS3_HOST=y
-+CONFIG_USB_CDNS3_STARFIVE=y
-+CONFIG_USB_CONFIGFS=y
-+CONFIG_USB_CONFIGFS_MASS_STORAGE=y
-+CONFIG_USB_CONFIGFS_F_FS=y
-+CONFIG_MMC=y
-+CONFIG_MMC_SDHCI=y
-+CONFIG_MMC_SDHCI_PLTFM=y
-+CONFIG_MMC_SDHCI_OF_DWCMSHC=y
-+CONFIG_MMC_SPI=y
-+CONFIG_MMC_SDHI=y
-+CONFIG_MMC_DW=y
-+CONFIG_MMC_DW_STARFIVE=y
-+CONFIG_RTC_CLASS=y
-+CONFIG_DMADEVICES=y
-+CONFIG_DW_AXI_DMAC=y
-+CONFIG_RPMSG_CHAR=y
-+CONFIG_RPMSG_VIRTIO=y
-+CONFIG_JH71XX_PMU=y
-+CONFIG_CLK_STARFIVE_JH7110_PLL=y
-+CONFIG_CLK_STARFIVE_JH7110_SYS=y
-+CONFIG_CLK_STARFIVE_JH7110_AON=y
-+CONFIG_CLK_STARFIVE_JH7110_STG=y
-+CONFIG_CLK_STARFIVE_JH7110_ISP=y
-+CONFIG_CLK_STARFIVE_JH7110_VOUT=y
-+CONFIG_PINCTRL_STARFIVE_JH7110_SYS=y
-+CONFIG_STARFIVE_WATCHDOG=y
-+CONFIG_RESET_STARFIVE_JH7110=y
-+CONFIG_STARFIVE_STARLINK_PMU=y
-+CONFIG_DWC_PCIE_PMU=y
-+CONFIG_IIO=y
-+CONFIG_PHY_STARFIVE_JH7110_DPHY_RX=y
-+CONFIG_PHY_STARFIVE_JH7110_PCIE=y
-+CONFIG_PHY_STARFIVE_JH7110_USB=y
-+CONFIG_EXT4_FS=y
-+CONFIG_EXT4_FS_POSIX_ACL=y
-+CONFIG_AUTOFS_FS=y
-+CONFIG_MSDOS_FS=y
-+CONFIG_VFAT_FS=y
-+CONFIG_TMPFS=y
-+CONFIG_TMPFS_POSIX_ACL=y
-+CONFIG_HUGETLBFS=y
-+CONFIG_NFS_FS=y
-+CONFIG_NFS_V4=y
-+CONFIG_NFS_V4_1=y
-+CONFIG_NFS_V4_2=y
-+CONFIG_ROOT_NFS=y
-+CONFIG_NLS_CODEPAGE_437=y
-+CONFIG_CRYPTO_USER_API_HASH=y
-+CONFIG_CRYPTO_DEV_VIRTIO=y
-+CONFIG_PRINTK_TIME=y
-+CONFIG_DEBUG_FS=y
-+# CONFIG_RCU_TRACE is not set
-+# CONFIG_FTRACE is not set
-+# CONFIG_RUNTIME_TESTING_MENU is not set
--- 
-2.34.1
+> 
+> > +static inline u8 ccan_read_reg_8bit(const struct ccan_priv *priv,
+> > +				    enum ccan_reg reg)
+> > +{
+> > +	u8 reg_down;
+> > +	union val {
+> > +		u8 val_8[4];
+> > +		u32 val_32;
+> > +	} val;
+> > +
+> > +	reg_down = ALIGN_DOWN(reg, 4);
+> > +	val.val_32 = ccan_read_reg(priv, reg_down);
+> > +	return val.val_8[reg - reg_down];
+> 
+> There is an ioread8(). Is it invalid to do a byte read for this hardware? If so, it is
+> probably worth a comment.
+
+The hardware has been initially developed as peripheral component for 8 bit systems
+and therefore control and status registers defined as 8 bit groups. Nevertheless
+the hardware is designed as a 32 bit component finally. It prefers 32-bit read/write
+interfaces. I will add a comment later.
+
+> 
+> > +static int ccan_bittime_configuration(struct net_device *ndev) {
+> > +	struct ccan_priv *priv = netdev_priv(ndev);
+> > +	struct can_bittiming *bt = &priv->can.bittiming;
+> > +	struct can_bittiming *dbt = &priv->can.data_bittiming;
+> > +	u32 bittiming, data_bittiming;
+> > +	u8 reset_test;
+> > +
+> > +	reset_test = ccan_read_reg_8bit(priv, CCAN_CFG_STAT);
+> > +
+> > +	if (!(reset_test & CCAN_RST_MASK)) {
+> > +		netdev_alert(ndev, "Not in reset mode, cannot set bit
+> timing\n");
+> > +		return -EPERM;
+> > +	}
+> 
+> 
+> You don't see nedev_alert() used very often. If this is fatal then netdev_err().
+> 
+> Also, EPERM? man 3 errno say:
+> 
+>        EPERM           Operation not permitted (POSIX.1-2001).
+> 
+> Why is this a permission issue?
+
+Will use netdev_err() and return -EWOULDBLOCK instead.
+
+> 
+> > +static void ccan_tx_interrupt(struct net_device *ndev, u8 isr) {
+> > +	struct ccan_priv *priv = netdev_priv(ndev);
+> > +
+> > +	/* wait till transmission of the PTB or STB finished */
+> > +	while (isr & (CCAN_TPIF_MASK | CCAN_TSIF_MASK)) {
+> > +		if (isr & CCAN_TPIF_MASK)
+> > +			ccan_reg_set_bits(priv, CCAN_RTIF,
+> CCAN_TPIF_MASK);
+> > +
+> > +		if (isr & CCAN_TSIF_MASK)
+> > +			ccan_reg_set_bits(priv, CCAN_RTIF,
+> CCAN_TSIF_MASK);
+> > +
+> > +		isr = ccan_read_reg_8bit(priv, CCAN_RTIF);
+> > +	}
+> 
+> Potentially endless loops like this are a bad idea. If the firmware crashes, you
+> are never getting out of here. Please use one of the macros from iopoll.h
+
+Agree with you. Will modify accordingly.
+
+> 
+> > +static irqreturn_t ccan_interrupt(int irq, void *dev_id) {
+> > +	struct net_device *ndev = (struct net_device *)dev_id;
+> 
+> dev_id is a void *, so you don't need the cast.
+
+OK, drop it.
+
+Thanks for you review.
+
+Best regards,
+Hal
 
 _______________________________________________
 linux-riscv mailing list
