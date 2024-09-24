@@ -4,72 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD66BCF9C69
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Sep 2024 17:53:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 719B7CF9C72
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Sep 2024 18:01:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ygqg28rKvd/VTUPcE0xoWid4i8YpM5S3EHJyzdx3zcY=; b=0lGEwA7h+khM0t
-	14wc8HOkxYaOHQ55TfHxDY1WXdTMb7j3T8pgCDwHxB3gxYlvt6aczzjeoGgHJ847v3rQJvoJqnAn+
-	eIvpIV6gOpepsPJOrOoiScMPHI4IvSz2iZcJJb1D6HauqqPfOUIYLJnmqZW5d5PEiiNejGHfJVaiP
-	3sLrmo0D5rz0aoPCzVFaFI4MGxRPbICMTMzDiTCD5k3Ml1WcDAwsxMIGtcjb4qFU/Cr/V7Lwu6VT3
-	nC/Df8VrRdccAr5cw1+lSj+QspXNRDqtMDywBObNpU33MBlE4Ke9lxStlSEf1+hpgR779FtZ0PZJC
-	8zyTJ8vV1eXWNYwt4PGQ==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
+	In-Reply-To:Cc:To:From:MIME-Version:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=mA694F63z/iGyPSSmFzaHMhfCzoPoYanrwbvHMQDd+Q=; b=H8uuYQuQKcp6gmlk/nbldA13sG
+	x6fp0qkIiPLlTCFORx3G1R3payOJ44yfurvtzzJyiEQQyzBfOdpklK73hSveK2Fg+jzjJFL3Yw6Tw
+	AOERhnHuwTwztPYX/d6u0BDt2xTZWA1nxmBnIAyONZGIWeMzrtIGgWtgBHSM19SEG2yVGl5ZaXwlL
+	PZEb5ufuFvMN5hLA5D7EG1FS5lF8R6kWqpb87MEGMg8C7bbbOsUwd9V5IIEF+oQ5kWV1yplmclREd
+	bhK4Mb5iAyje2xcTDDR/2iYfV6u4prcRwZbUGhSLFN17aHlC4b4m1n8NT/815FsmgX4FC/J0eAauc
+	MbpvYOvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1st9ip-00000002z8Z-1sRn;
-	Tue, 24 Sep 2024 17:53:11 +0000
+	id 1st9qb-00000002zr8-00Kw;
+	Tue, 24 Sep 2024 18:01:13 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1st9im-00000002z7s-17vf
+	id 1st9qW-00000002zq1-1u3M
 	for linux-riscv@lists.infradead.org;
-	Tue, 24 Sep 2024 17:53:10 +0000
+	Tue, 24 Sep 2024 18:01:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 00D2FA4357E;
-	Tue, 24 Sep 2024 17:52:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5936C4CEC4;
-	Tue, 24 Sep 2024 17:53:05 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0C045A437F3;
+	Tue, 24 Sep 2024 18:00:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92A3FC4CEC4;
+	Tue, 24 Sep 2024 18:01:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1727200386;
-	bh=POs2HK6kTTolY7xaUcSVPRXzi118N9fp0b/+xerp1wA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=THPZiS+vIs0qgmO/2MeLNZ/ZqOJxR3RO1/zx4o5GN+BiGNCfStw4/D3dzzFad0qsl
-	 up3h2IeWem1sr1TXYZYjtr6TSqUJ7HGqwL0kwMhyMAP8mIzU0i1AUDk4GU/tv81912
-	 Wwc5lDCVt0IvXJlYu5chCkXz0/8QRbkfgBVaJAnGhEzOsplbUk/T/8ivAiWX4RVrz1
-	 HXWFrVdjsx3Vmyf62S+zhUcESsSDwqUx0zuSaktmISjkCa4xae/aCJAluUfW06ExOk
-	 9U7nOj/ufDq1Xy0wqNPqcSKz0iIH6P/MJsDUGMXR4Kohl4JWs0qgnpgoHvm54QKj/o
-	 gCLINtAhYGr1w==
-Date: Tue, 24 Sep 2024 10:53:04 -0700
-From: Namhyung Kim <namhyung@kernel.org>
-To: Arnaldo Carvalho de Melo <acme@kernel.org>
-Cc: Ian Rogers <irogers@google.com>, Charlie Jenkins <charlie@rivosinc.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Howard Chu <howardchu95@gmail.com>,
-	David Abdurachmanov <davidlt@rivosinc.com>,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] perf syscalltbl: Add syscalltbl__id_at_idx() with no
- syscall table support
-Message-ID: <ZvL8gAy07ekBJZ_H@google.com>
-References: <20240830-perf_syscalltbl_fix-v1-1-e2ff61ee5e8e@rivosinc.com>
- <ZvLaGy7jRa9Q/5fQ@ghost>
- <CAP-5=fVWFUA4LpchM1MZdMhDvSFhTUtqdVR-s59WtAcpj1fO=g@mail.gmail.com>
+	s=k20201202; t=1727200866;
+	bh=vE8pGVYwDVIrlIjKoF6T0212mB8n6SPYkRCwr61rAUw=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
+	b=aAqnMEyEu0uCAmz3kn+7IUO3/RB2QOyeS8oYiE9bDkCZXnPdlkSCkZxg53/BA8NXm
+	 9iI/dz08QotnMxwXZY53r0cEaGM3YM/FX1UQmPw0A0yQjOWL7InId3K4E2Kz+cLfil
+	 Zae2E9R+y0ofIaIoU3xQPPgxCvTOQJ1TGYP8YBCjp2SGn/8we61MDb70v7KqJW6v0h
+	 5012T6eLvZ3ZgjKXNyCVjCEpGAYqkEOSWHZuqtirKTDf6Hm8Y7PNO3UJsIqKyBPc9W
+	 jTzOKtSstllbY5a7lhpC2Jv5v4v9UFtEKJwcnrI4JDo17ek7KkPsJJ2PI7UosP0fho
+	 CIO2/qMpUxs9Q==
+Date: Tue, 24 Sep 2024 13:01:05 -0500
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAP-5=fVWFUA4LpchM1MZdMhDvSFhTUtqdVR-s59WtAcpj1fO=g@mail.gmail.com>
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Hal Feng <hal.feng@starfivetech.com>
+Cc: "David S . Miller" <davem@davemloft.net>, 
+ Jakub Kicinski <kuba@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Marc Kleine-Budde <mkl@pengutronix.de>, 
+ William Qiu <william.qiu@starfivetech.com>, 
+ Vincent Mailhol <mailhol.vincent@wanadoo.fr>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, 
+ netdev@vger.kernel.org, linux-can@vger.kernel.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>
+In-Reply-To: <20240922145151.130999-3-hal.feng@starfivetech.com>
+References: <20240922145151.130999-1-hal.feng@starfivetech.com>
+ <20240922145151.130999-3-hal.feng@starfivetech.com>
+Message-Id: <172720086189.2892.16772874968651869906.robh@kernel.org>
+Subject: Re: [PATCH v2 2/4] dt-bindings: can: Add CAST CAN Bus Controller
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240924_105308_457218_7D6CC0C8 
-X-CRM114-Status: GOOD (  35.84  )
+X-CRM114-CacheID: sfid-20240924_110108_581523_B5D056A4 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,71 +79,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBTZXAgMjQsIDIwMjQgYXQgMDk6MTE6NDFBTSAtMDcwMCwgSWFuIFJvZ2VycyB3cm90
-ZToKPiBPbiBUdWUsIFNlcCAyNCwgMjAyNCBhdCA4OjI24oCvQU0gQ2hhcmxpZSBKZW5raW5zIDxj
-aGFybGllQHJpdm9zaW5jLmNvbT4gd3JvdGU6Cj4gPgo+ID4gT24gRnJpLCBBdWcgMzAsIDIwMjQg
-YXQgMDk6MzA6NTBQTSAtMDcwMCwgQ2hhcmxpZSBKZW5raW5zIHdyb3RlOgo+ID4gPiBXaGVuIEhB
-VkVfU1lTQ0FMTF9UQUJMRV9TVVBQT1JUIGlzIG5vdCBkZWZpbmVkLCBuZWl0aGVyIGlzCj4gPiA+
-IHN5c2NhbGx0YmxfX2lkX2F0X2lkeCgpLiBIb3dldmVyLCB0aGlzIGZ1bmN0aW9uIGlzIGV4cGVj
-dGVkIHRvIGJlCj4gPiA+IGRlZmluZWQgd2hlbiBIQVZFX0JQRl9TS0VMIGlzIGRlZmluZWQuCj4g
-PiA+Cj4gPiA+IFJldHVybiAtMSBmcm9tIHN5c2NhbGx0YmxfX2lkX2F0X2lkeCgpIHRvIG1hdGNo
-IHRoZSBvdGhlciBmdW5jdGlvbnMgd2hlbgo+ID4gPiBIQVZFX1NZU0NBTExfVEFCTEVfU1VQUE9S
-VCBpcyBub3QgZGVmaW5lZC4KPiA+ID4KPiA+ID4gV2l0aG91dCB0aGlzLCBjb21waWxpbmcgcGVy
-ZiBvbiByaXNjdiB3aGVuIGxpYnRyYWNlZXZlbnRzLCBsaWJlbGYsIGFuZAo+ID4gPiBjbGFuZyBh
-cmUgYXZhaWxhYmxlIHdpbGwgY2F1c2UgdGhlIGZ1bmN0aW9ucyB0cnlpbmcgdG8gY2FsbAo+ID4g
-PiBzeXNjYWxsdGJsX19pZF9hdF9pZHgoKSB0byBiZSBjb21waWxlZC4gVGhpcyByZXN1bHRzIGlu
-IHRoZSBmb2xsb3dpbmcKPiA+ID4gZXJyb3I6Cj4gPiA+Cj4gPiA+IC91c3IvYmluL2xkOiBwZXJm
-LWluLm86IGluIGZ1bmN0aW9uIGAuTDAgJzoKPiA+ID4gYnVpbHRpbi10cmFjZS5jOigudGV4dCsw
-eDYwYjE0KTogdW5kZWZpbmVkIHJlZmVyZW5jZSB0byBgc3lzY2FsbHRibF9faWRfYXRfaWR4Jwo+
-ID4gPiAvdXNyL2Jpbi9sZDogYnVpbHRpbi10cmFjZS5jOigudGV4dCsweDYwYzZjKTogdW5kZWZp
-bmVkIHJlZmVyZW5jZSB0byBgc3lzY2FsbHRibF9faWRfYXRfaWR4Jwo+ID4gPiAvdXNyL2Jpbi9s
-ZDogcGVyZi1pbi5vOiBpbiBmdW5jdGlvbiBgLkwyNTY0JzoKPiA+ID4gYnVpbHRpbi10cmFjZS5j
-OigudGV4dCsweDYwY2I2KTogdW5kZWZpbmVkIHJlZmVyZW5jZSB0byBgc3lzY2FsbHRibF9faWRf
-YXRfaWR4Jwo+ID4gPiBjb2xsZWN0MjogZXJyb3I6IGxkIHJldHVybmVkIDEgZXhpdCBzdGF0dXMK
-PiA+ID4gbWFrZVsyXTogKioqIFtNYWtlZmlsZS5wZXJmOjc5MzogcGVyZl0gRXJyb3IgMQo+ID4g
-PiBtYWtlWzFdOiAqKiogW01ha2VmaWxlLnBlcmY6MjkwOiBzdWItbWFrZV0gRXJyb3IgMgo+ID4g
-PiBtYWtlOiAqKiogW01ha2VmaWxlOjcwOiBhbGxdIEVycm9yIDIKPiA+ID4gbWFrZTogTGVhdmlu
-ZyBkaXJlY3RvcnkgJy9zcmMvbGludXgtNi4xMS1yYzUvdG9vbHMvcGVyZicKPiA+ID4KPiA+ID4g
-VGhpcyBwYXRjaCByZXNvbHZlcyB0aGlzIGlzc3VlIGZvciBhbGwgYXJjaGl0ZWN0dXJlcyB3aGlj
-aCBkbyBub3QgZGVmaW5lCj4gPiA+IEhBVkVfU1lTQ0FMTF9UQUJMRV9TVVBQT1JULgo+ID4gPgo+
-ID4gPiAkIC4vcGVyZiB0cmFjZSAtZSBzeXNjYWxsczpzeXNfZW50ZXJfbW1hcCAtLW1heC1ldmVu
-dHM9MSBscwo+ID4gPiAwLjAwMCBscy8yODcgc3lzY2FsbHM6c3lzX2VudGVyX21tYXAoX19zeXNj
-YWxsX25yOiAyMjIsIGxlbjogOTkzOSwgcHJvdDogUkVBRCwgZmxhZ3M6IFBSSVZBVEUsIGZkOiAz
-KQo+ID4gPgo+ID4gPiBTaWduZWQtb2ZmLWJ5OiBDaGFybGllIEplbmtpbnMgPGNoYXJsaWVAcml2
-b3NpbmMuY29tPgo+ID4gPiBSZXBvcnRlZC1ieTogRGF2aWQgQWJkdXJhY2htYW5vdiA8ZGF2aWRs
-dEByaXZvc2luYy5jb20+Cj4gPiA+IFN1Z2dlc3RlZC1ieTogRGF2aWQgQWJkdXJhY2htYW5vdiA8
-ZGF2aWRsdEByaXZvc2luYy5jb20+Cj4gPiA+IEZpeGVzOiA3YTJmYjU2MTljYzEgKCJwZXJmIHRy
-YWNlOiBGaXggaXRlcmF0aW9uIG9mIHN5c2NhbGwgaWRzIGluIHN5c2NhbGx0YmwtPmVudHJpZXMi
-KQo+ID4gPiAtLS0KPiA+ID4gIHRvb2xzL3BlcmYvdXRpbC9zeXNjYWxsdGJsLmMgfCA1ICsrKysr
-Cj4gPiA+ICAxIGZpbGUgY2hhbmdlZCwgNSBpbnNlcnRpb25zKCspCj4gPiA+Cj4gPiA+IGRpZmYg
-LS1naXQgYS90b29scy9wZXJmL3V0aWwvc3lzY2FsbHRibC5jIGIvdG9vbHMvcGVyZi91dGlsL3N5
-c2NhbGx0YmwuYwo+ID4gPiBpbmRleCAwZGQyNmI5OTFiM2YuLjEyNjU0NDYwNDI4ZiAxMDA2NDQK
-PiA+ID4gLS0tIGEvdG9vbHMvcGVyZi91dGlsL3N5c2NhbGx0YmwuYwo+ID4gPiArKysgYi90b29s
-cy9wZXJmL3V0aWwvc3lzY2FsbHRibC5jCj4gPiA+IEBAIC0xODgsNCArMTg4LDkgQEAgaW50IHN5
-c2NhbGx0YmxfX3N0cmdsb2JtYXRjaF9maXJzdChzdHJ1Y3Qgc3lzY2FsbHRibCAqdGJsLCBjb25z
-dCBjaGFyICpzeXNjYWxsX2cKPiA+ID4gIHsKPiA+ID4gICAgICAgcmV0dXJuIHN5c2NhbGx0Ymxf
-X3N0cmdsb2JtYXRjaF9uZXh0KHRibCwgc3lzY2FsbF9nbG9iLCBpZHgpOwo+ID4gPiAgfQo+ID4g
-PiArCj4gPiA+ICtpbnQgc3lzY2FsbHRibF9faWRfYXRfaWR4KHN0cnVjdCBzeXNjYWxsdGJsICp0
-YmwgX19hbHdheXNfdW51c2VkLCBpbnQgaWR4IF9fYWx3YXlzX3VudXNlZCkKPiA+ID4gK3sKPiA+
-ID4gKyAgICAgcmV0dXJuIC0xOwo+ID4gPiArfQo+ID4gPiAgI2VuZGlmIC8qIEhBVkVfU1lTQ0FM
-TF9UQUJMRV9TVVBQT1JUICovCj4gPiA+Cj4gPiA+IC0tLQo+ID4gPiBiYXNlLWNvbW1pdDogOTg1
-YmY0MGVkZjQzNDNkY2IwNGMzM2Y1OGI0MGI0YTg1YzE3NzZkNAo+ID4gPiBjaGFuZ2UtaWQ6IDIw
-MjQwODMwLXBlcmZfc3lzY2FsbHRibF9maXgtNGY1ODYyMjE3OTVlCj4gPiA+IC0tCj4gPiA+IC0g
-Q2hhcmxpZQo+ID4gPgo+ID4KPiA+IENhbiB0aGlzIHBsZWFzZSBiZSBwaWNrZWQgdXA/IENvbXBp
-bGF0aW9uIG9uIHJpc2N2IChhbG9uZyB3aXRoIGFueSBvZgo+ID4gdGhlIG90aGVyIGFyY2hpdGVj
-dHVyZXMgdGhhdCBkb24ndCBoYXZlIHN5c2NhbGwgdGFibGUgc3VwcG9ydCkgaXMKPiA+IGJyb2tl
-bi4gVGhlIGxvbmcgdGVybSBzb2x1dGlvbiBpcyB0byBhZGQgc3VwcG9ydCBmb3IgdGhlIHN5c2Nh
-bGwgdGFibGUKPiA+IG9uIHJpc2N2LiBJIHdpbGwgc2VuZCBvdXQgYSBwYXRjaCBmb3IgdGhhdCwg
-YnV0IGluIHRoZSBtZWFudGltZSBpdCB3b3VsZAo+ID4gYmUgZ3JlYXQgdG8gaGF2ZSB0aGlzIGlu
-IHRoZSB0cmVlLgo+IAo+IEkgdGhvdWdodCBzb21ldGhpbmcgaGFkIGJlZW4gZG9uZToKPiBodHRw
-czovL2xvcmUua2VybmVsLm9yZy9sa21sLzczOTAwMWE0LTRkZjEtNGRlYy1hMTQxLTkyNmM3OGM1
-YzA3ZUBrZXJuZWwub3JnLwo+IE5vdCBzdXJlIHdoYXQncyBoYXBwZW5lZC4KCkhpIEFybmFsZG8s
-IGNhbiB5b3UgY2xhcmlmeSB3aGF0J3MgZ29pbmcgb24gaGVyZT8KClRoYW5rcywKTmFtaHl1bmcK
-CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
-aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
-bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+On Sun, 22 Sep 2024 22:51:48 +0800, Hal Feng wrote:
+> From: William Qiu <william.qiu@starfivetech.com>
+> 
+> Add bindings for CAST CAN Bus Controller.
+> 
+> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+> ---
+>  .../bindings/net/can/cast,can-ctrl.yaml       | 106 ++++++++++++++++++
+>  1 file changed, 106 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/net/can/cast,can-ctrl.yaml
+> 
+
+My bot found errors running 'make dt_binding_check' on your patch:
+
+yamllint warnings/errors:
+./Documentation/devicetree/bindings/net/can/cast,can-ctrl.yaml:27:9: [warning] wrong indentation: expected 10 but found 8 (indentation)
+
+dtschema/dtc warnings/errors:
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20240922145151.130999-3-hal.feng@starfivetech.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
