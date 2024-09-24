@@ -4,72 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07AD8CF9C6F
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Sep 2024 16:28:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26706CF9C6B
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Sep 2024 16:28:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nhvVScI3gC6NWJctF66t0rYQjkIDYGg2qr6ewpz2T9g=; b=M93hyL3uOimPLOdyaPUVycTa3f
-	QYWcvbDY6QO8PvR9bXnnnX27W0kyAifsG7iwgC7ljsuSd6O6B51OvMuLou+JAadppRUrYrBfB4qN5
-	KBc0Cz80L+WzjvCnYdDrwbH4DV3VCxNau8M3PhX1bglV3CmYwP47HIil7EtpmoE6uudjkFW28X6w4
-	XtvkMaC2moycXBMn9kXinBNIfTRDjdugo8UUzOxuFTHncl/B775/Oa5hnu4W4yd90T9ACwtw6j1i5
-	7eSnXBHOkm44OrAHGn5M6caenWGu7NK6VL/c7n8KCxmuLHLywa9NYI6aVXDbAeMP0aNIRaC/PjuO0
-	L/ni0yww==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8xMrdzQigIRglnfIvA4Ca+mkBTJE4s1DovQ1AOHiqIA=; b=Y2Uft7z6UwMxh+
+	uu70OOfGlbdZZR9zyEO8/Wq3gXNAPeV1rLZtO+J3JdliLTiFDNli5MJoixy2qAvjXj5LUbOCNlrQZ
+	dBain67aCoA/gmQwaum5k9y5hNQGNouFFMLT8tCyorNbn//85Le1KcyorWQWWpKEDOG/IxEmNWZnQ
+	a6V0CVbBxmDRmFjRPm/LAg1cz56vJjlR0fKx0Mv8C/E7LzSf+HwQ9Rggq3bvCbVRoSx/mW+U4U2NI
+	Ilx9qryNgS+maIwYXyAsymfUlQ75kU30PIvYv8gWzaLC/zhHw/+9Jh+p22peHeOqT53xHa8fv91h4
+	ashsuo+qot1m22qv/vNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1st8Oh-00000002pM3-34Dm;
-	Tue, 24 Sep 2024 16:28:19 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1st8Oi-00000002pM7-1KEf;
+	Tue, 24 Sep 2024 16:28:20 +0000
+Received: from shrimp.cherry.relay.mailchannels.net ([23.83.223.164])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1st8Mr-00000002oz7-2Hl4
+	id 1st8Ms-00000002oz2-23Jt
 	for linux-riscv@lists.infradead.org;
-	Tue, 24 Sep 2024 16:26:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BCC82A43704;
-	Tue, 24 Sep 2024 16:26:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87435C4CEC4;
-	Tue, 24 Sep 2024 16:26:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1727195184;
-	bh=DOqNrBus5khy2mu8X0lPPo/d0p67Z7fHJKwABB8mpW0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fyeZO+mErroNrBSgULOwcva6kbr76WvSP5MArjfRJ/kNS/YZWjX4sr9KJz58a1z/T
-	 /x1eX6pq7RKF9bz/Tztk3WjgN+3BZXBtU+H0QYoHdltwtITBxSHsLeYtWyhbkS4zyI
-	 U6QSf7T3aH3WB7Ipe1Jpptj3i1KYZFSO/ZN/VJF9vN7RDMcTu2Jdnr54EBTAC3ygr7
-	 8tVOMveqPV0xZfpTzGe2E13C3ztIwlrK96p2qxjQY8hXz8LuP3q6Nqo9RYUTHsOEmQ
-	 PUlqjPOLuv8xY5qKsVVL7bLwfcKVmQ8oINOGkGp/chYK+O0cpDcz2bdY9hnx0nixc4
-	 aBdC4Bty8Rf8w==
-Date: Tue, 24 Sep 2024 17:26:18 +0100
-From: Conor Dooley <conor@kernel.org>
-To: =?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>
-Cc: Sandie Cao <sandie.cao@deepcomputing.io>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Stuebner <heiko.stuebner@cherry.de>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Michael Zhu <michael.zhu@starfivetech.com>,
-	Drew Fustini <drew@beagleboard.org>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, dhs@frame.work, ams@frame.work,
-	gregkh@linuxfoundation.org, yuning.liang@deepcomputing.io,
-	huiming.qiu@deepcomputing.io
-Subject: Re: [patch v2 3/3] riscv: dts: starfive: add framework dts
-Message-ID: <20240924-ended-tactics-b2e779875a76@spud>
-References: <20240924080650.1345485-4-sandie.cao@deepcomputing.io>
- <75d4f0395187f7950e0450a91fbe087d@milecki.pl>
+	Tue, 24 Sep 2024 16:26:28 +0000
+X-Sender-Id: dreamhost|x-authsender|matthias@kaehlcke.net
+Received: from relay.mailchannels.net (localhost [127.0.0.1])
+	by relay.mailchannels.net (Postfix) with ESMTP id 19D8148629;
+	Tue, 24 Sep 2024 16:26:24 +0000 (UTC)
+Received: from pdx1-sub0-mail-a261.dreamhost.com (trex-8.trex.outbound.svc.cluster.local [100.99.104.27])
+	(Authenticated sender: dreamhost)
+	by relay.mailchannels.net (Postfix) with ESMTPA id 9873B48567;
+	Tue, 24 Sep 2024 16:26:23 +0000 (UTC)
+ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1727195183; a=rsa-sha256;
+	cv=none;
+	b=HFqeqapJ9owPzlOB2dWy8IE6bvvGnBP6UTSBdMtWDOqgnS/8MDUfzGN39f8eBgN1lrAqMq
+	4We9rdNqHUKFdt8wcl2ZArrU+bkpf4NQa8RUL3ZhfvKC6vFHvO/Jcs2gy0/ELbV8QQZrGE
+	oclwm/V48+K0Et/m0DL0I44fjxCGEcCuWdVv7eriERZZiOL/vaA1O8grMkhk6gTwHm8K1N
+	nPaYuazJ8GS9JREn9zjKKbbmnobQItZmlAAo/YbdF2wzItirYoxU4wq+lXKK29wTTRDBEm
+	9vm9nRYk+fkY+8dDw8P51b9thw89U+ebilNknMpOzi6hSS1xZEet5en1V6yNZg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mailchannels.net;
+	s=arc-2022; t=1727195183;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references:dkim-signature;
+	bh=Av61wivpiKXZjT8Fw53JLo9cG+2oIzCa3ZDTt2rhlG8=;
+	b=8fcPh0eJf0UPe8ywVhbs4viVl+sjcEGbUH5Ai096+vs4M66M35fZwc02PEbQKpHsd/SlaK
+	9X2VPqgmbpgX2dfYOmKybylNmLIfXiKXJcuXL1MIqAsjKSaw/eVKelR57o9fq2Pvh1+JY+
+	vVHFCxWPYAswY2YrQ0CkAa7RQzuG0O6X7r51Rty+L/mwv9BKn4Sdqu2sQxXo1fgdG2mIrU
+	D2+MjMbxMnqewdkuLowpLkAaNTDYk5Kdm2H1JkBVWQDDz5+PMgIiNsOWzmbhDScOVHrZEi
+	T3gck4yXRn24+7YoMrQmDIwgkOJaS0Z2lM0KcUWvDWs9V4FkIU++VhKftq9Brg==
+ARC-Authentication-Results: i=1;
+	rspamd-5b46bcd97f-cgxsc;
+	auth=pass smtp.auth=dreamhost smtp.mailfrom=matthias@kaehlcke.net
+X-Sender-Id: dreamhost|x-authsender|matthias@kaehlcke.net
+X-MC-Relay: Neutral
+X-MailChannels-SenderId: dreamhost|x-authsender|matthias@kaehlcke.net
+X-MailChannels-Auth-Id: dreamhost
+X-Dime-Bitter: 24513f152aaa5c04_1727195183933_302722891
+X-MC-Loop-Signature: 1727195183933:3524963969
+X-MC-Ingress-Time: 1727195183933
+Received: from pdx1-sub0-mail-a261.dreamhost.com (pop.dreamhost.com
+ [64.90.62.162])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
+	by 100.99.104.27 (trex/7.0.2);
+	Tue, 24 Sep 2024 16:26:23 +0000
+Received: from curie.home (unknown [79.116.59.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: matthias@kaehlcke.net)
+	by pdx1-sub0-mail-a261.dreamhost.com (Postfix) with ESMTPSA id 4XClbz19Gkz6t;
+	Tue, 24 Sep 2024 09:26:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kaehlcke.net;
+	s=dreamhost; t=1727195183;
+	bh=Av61wivpiKXZjT8Fw53JLo9cG+2oIzCa3ZDTt2rhlG8=;
+	h=Date:From:To:Cc:Subject:Content-Type;
+	b=aGNiBOvroj3D/7SlmHNiYCLyyGBkTS8vBv+WHsJsNMmzpvXWFasFhlmgA6QtG+2Z6
+	 eIlXu6vSZqwnBhE2oORVNZjLaNcx5ICeKYu2qyqHdbZ/Cn/Oyy4uV1F0zV+p9wJs0L
+	 Ex639wf6cyzgQBn/11Q2TqYi9Ieaa6hE0Gi9e/pwIArKAeb/MaarYXp1pU+Iejqocd
+	 tkbYvWI9SGD3kDoeP9p0Rrm/OpfvOw8s3cQehktGFV0P3P5+dFgyoAOxHW0jxo19YB
+	 IxxfypW6UpTNpjpWWni0JKYjl/GoiTpeY0eQ4jOp/6kDEFtHjVyTeiOdieX9NEkzuE
+	 udTBwIvGI4hgA==
+Received: by curie.home (Postfix, from userid 1000)
+	id 0E119102310; Tue, 24 Sep 2024 18:26:20 +0200 (CEST)
+Date: Tue, 24 Sep 2024 16:26:20 +0000
+From: Matthias Kaehlcke <matthias@kaehlcke.net>
+To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Cc: gregkh@linuxfoundation.org, mka@chromium.org, paul.walmsley@sifive.com, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, wentong.wu@intel.com, oneukum@suse.com, 
+	javier.carrasco@wolfvision.net, linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, git@amd.com
+Subject: Re: [PATCH] usb: misc: onboard_usb_dev: introduce new config symbol
+ for usb5744 SMBus support
+Message-ID: <t4ghbba233fsrq5ec42dbwjzirtmxtmknu6xnenqgizrcqjm5u@w35ssjatzxgb>
+Mail-Followup-To: Matthias Kaehlcke <matthias@kaehlcke.net>, 
+	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, gregkh@linuxfoundation.org, mka@chromium.org, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, wentong.wu@intel.com, 
+	oneukum@suse.com, javier.carrasco@wolfvision.net, linux-usb@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, git@amd.com
+References: <1727187551-3772897-1-git-send-email-radhey.shyam.pandey@amd.com>
 MIME-Version: 1.0
-In-Reply-To: <75d4f0395187f7950e0450a91fbe087d@milecki.pl>
+Content-Disposition: inline
+In-Reply-To: <1727187551-3772897-1-git-send-email-radhey.shyam.pandey@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240924_092625_679578_1C547DD7 
-X-CRM114-Status: GOOD (  15.40  )
+X-CRM114-CacheID: sfid-20240924_092626_716442_8CDEB67F 
+X-CRM114-Status: GOOD (  10.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,76 +121,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2275888308510008596=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+El Tue, Sep 24, 2024 at 07:49:11PM GMT Radhey Shyam Pandey ha dit:
 
---===============2275888308510008596==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="f5CsaSLaLqFN6mer"
-Content-Disposition: inline
+> Introduce new kernel config symbol for Microchip usb5744 SMBus programming
+> support. Since usb5744 i2c initialization routine uses i2c SMBus APIs these
+> APIs should only be invoked when kernel has I2C support. This new kernel
+> config describes the dependency on I2C kernel support and fix the below
+> build issues when USB_ONBOARD_DEV=y and CONFIG_I2C=m.
+> 
+> riscv64-linux-ld: drivers/usb/misc/onboard_usb_dev.o:
+> undefined reference to `i2c_find_device_by_fwnode'
+> drivers/usb/misc/onboard_usb_dev.c:408:(.text+0xb24): undefined
+> reference to `i2c_smbus_write_block_data'
+> <snip>
+> 
+> Parsing of the i2c-bus bus handle is not put under usb5744 kernel config
+> check as the intention is to report an error when DT is configured for
+> usb5744 SMBus support and kernel has USB_ONBOARD_DEV_USB5744 disabled.
+> 
+> Fixes: 6782311d04df ("usb: misc: onboard_usb_dev: add Microchip usb5744 SMBus programming support")
+> Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+> Suggested-by: Matthias Kaehlcke <matthias@kaehlcke.net>
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202409140539.3Axwv38m-lkp@intel.com/
 
-
---f5CsaSLaLqFN6mer
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Sep 24, 2024 at 11:55:44AM +0200, Rafa=C5=82 Mi=C5=82ecki wrote:
-> On 2024-09-24 10:06, Sandie Cao wrote:
-> > diff --git a/arch/riscv/boot/dts/starfive/jh7110-framework.dts
-> > b/arch/riscv/boot/dts/starfive/jh7110-framework.dts
-> > new file mode 100644
-> > index 000000000000..ff12c24ebab3
-> > --- /dev/null
-> > +++ b/arch/riscv/boot/dts/starfive/jh7110-framework.dts
-> > @@ -0,0 +1,34 @@
-> > +// SPDX-License-Identifier: GPL-2.0 OR MIT
-> > +/*
-> > + * Copyright (C) 2022 StarFive Technology Co., Ltd.
-> > + * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
-> > + */
-> > +
-> > +/dts-v1/;
-> > +#include "jh7110-common.dtsi"
-> > +
-> > +/ {
-> > +	model =3D "Framework FRANME0000";
-> > +	compatible =3D "deepcomputing,fm7110", "starfive,jh7110";
-> > +};
->=20
-> Nitpicking: property "compatible" should go first.
->=20
-> See Documentation/devicetree/bindings/dts-coding-style.rst
-
-I think "model" usually goes before compatible, I wouldn't change it
-here.
-
---f5CsaSLaLqFN6mer
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZvLoKgAKCRB4tDGHoIJi
-0hEwAP9qlgaPcQGuJMokpi9NuIXGcdP7TrRN34mjUCdLTxXL0QEA0I5qKOqWwcj5
-GLvAFrTd6v2Fb1p45ufZ1Vfl/Ff4Jws=
-=AnWM
------END PGP SIGNATURE-----
-
---f5CsaSLaLqFN6mer--
-
-
---===============2275888308510008596==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Acked-by: Matthias Kaehlcke <matthias@kaehlcke.net>
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2275888308510008596==--
-
