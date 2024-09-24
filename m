@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9B5DCF9C71
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Sep 2024 06:05:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17D29CF9C71
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Sep 2024 06:05:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JDgVu0S3KpgF6G2y6r1RDhiJ+Zc1nEyzzpAOlfCJA1E=; b=W0VIzVCH3AjUXI
-	QiDkpRHCgGPkO5r3/o+onY/bJhZp+bxASvGWQWBeAbbhufhKezAMfDmvuwnGNiletwAFIZXM1t1mJ
-	re9KUL1NH9NroimOVPa1O/dDyZN8z6Tvl+xKWDd31h/Ixshk68nrdMoC9w5DSH5kcDTaMitQYUBsX
-	bceBOMtTrQYqSpEMWgAkJ5JvdT4OV2Q4MnAvb+qT9rq867f+dnyHZS7qa3jq+rzGLGwwZ+iKrnuDp
-	RFRH2b1l/f8vSA1613dnrO6TWx6wWzmfbQLdjjWDDjwU/qEIXuMzqZs1Lg0xc7Rmyaga6EbztlR0j
-	arar/pAoRbddji3mgw7w==;
+	List-Owner; bh=X5tkVrgWZq+q71qpNprqySA9NOe8wZkBgqUUAJuW9QA=; b=b3fooEqG5qk2az
+	7sGXdNp+CzWXNpHOL6V7QlroO/R1HgO8Hj1YVQdFtWZkVFqr9cdA7/IlXXDUrZfWCBQJ6oyQ63tYH
+	vUECzU/uoPWU0H1N4FvH1BfFRJGPrFLN557uSfx/Fg40JQkCCp9ONG2lhCK5bLtp54Iq/mapf0QDS
+	Y5E0F5jvWCu0/YIBkcde7i+NrLjncLjmFDJqtbVgb5GP6O8ZtH3POqsbQdBHnA/wZk2O4Sy+yo0PM
+	eyqcrxQQBGWKcJisTkkDZ6RxDjco+huncVHiZ4gQxR6qN6cp6NwzCUSETIkttBqBlKYOexeuTIwx4
+	HpgCxRO3hkVOWk/GmKRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ssyfh-00000001AdV-4103;
-	Tue, 24 Sep 2024 06:05:13 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1ssyfn-00000001AfM-378O;
+	Tue, 24 Sep 2024 06:05:19 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ssyff-00000001Acb-29Rb
+	id 1ssyfk-00000001Ae6-2xAA
 	for linux-riscv@lists.infradead.org;
-	Tue, 24 Sep 2024 06:05:13 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-2dee71e47c5so1806916a91.0
-        for <linux-riscv@lists.infradead.org>; Mon, 23 Sep 2024 23:05:11 -0700 (PDT)
+	Tue, 24 Sep 2024 06:05:18 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-2d8abac30ddso4198633a91.0
+        for <linux-riscv@lists.infradead.org>; Mon, 23 Sep 2024 23:05:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1727157910; x=1727762710; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1727157915; x=1727762715; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Mz3nKts0utmgs04ieZ/p598fLVtnPylqw2MjQFSirMk=;
-        b=R+C6QgnUZxhi5KD0rwafHOEsYifxBjcbIQRSz9E4fjlkMWPfrcNkyRbKE45mpIUKJU
-         oyixmiGCVtThf0eKXKiNRAIiwg1QfZjlzG9l+I0KpvDigRXGG9p9YaNcSUMcwqMyBlye
-         nQXHYxX7sV8Z1gFZu51q5466OwTQTqGh35AiesupOkMlVmCUFXJG113ySwoY7pcqPnSi
-         RyWOZ+evwo3sLqFVF2MxECcA040v9+Zx9sLkwykpXby8wUcn9GRw03VKy9vU06VH0RQy
-         tFEaJzCH7SlP8lb9Jbn0/sKQMahI1D/fh2/rxU4YRlfW5fGjVYGbKRbSP52oot14qoXo
-         eFLQ==
+        bh=B+pg2Atz65JX+fd/Upr8BHJygQ9vmYJBNYP444GSXAI=;
+        b=g7PlLEyvFD1wX2SgazFbywa/WKSQR/UlyNfaTkvc7lA0TxQLPMzo/owqd8erEk13HA
+         VJ6g79Nh9vtHzL8nDXQ7eqHe49vG9R2RDzSpEVaUO597s3znemmDTNyygElzpB8Z0Mib
+         MkjYKrKZDQRVRk/UtdwvhCwHtKoVUsbur7t1+57UefUa9o/UBiI5F/9dia3VZbvIV5Lq
+         P7jRB38G/q4e4Lrp5q5y6RfJA6mn2HbExOhQ68fSL2T4AxZMaWkHUcS3lUqjrHtSEVi/
+         jez805ZmeIr0FwhM2899fBJmrTo59TltH/DL3XXLW8VIiAwbrLjFydQjcOO0GpfllKsJ
+         +esA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1727157910; x=1727762710;
+        d=1e100.net; s=20230601; t=1727157915; x=1727762715;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Mz3nKts0utmgs04ieZ/p598fLVtnPylqw2MjQFSirMk=;
-        b=p4zEIwuTc91jReWicdoxE7CME4iZBilD1Ja/z17tEX4gAY1bc+Im2tWEwV5VTxvNhy
-         M7K0ZL13bCfWw3Y1GJp5EdVq47QNQyxKjjPQoqMHqSCkvO8sbh1My/dr/tKHbchi/jGA
-         gEFKohzgSNb8J5jghs8D1cAw8sz72hQyDhTyxzCglOJt8bpej3u1ubcZy/UiHKsRxCXo
-         5bN49HKGQuvh3brAb9aaIEAFtZkQNe7Tlzqc0Dc89Lc1lFELHpoVzBCFPWRGfIade4R1
-         3HWv2NTzl+61aniqkJD2CmF/iHHEQKNJIwnyvRxGEGVxoUg7ktK2adOEjHVTvtUNlBa7
-         6qwA==
-X-Forwarded-Encrypted: i=1; AJvYcCW+68b0cXYwH4mqZbAa6Hm21PW9L0kk/6dC9gwiMu/+zrGbPr1EOSHEIGGzRPXjsnysVDtbrHcNZkyPMw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwCQ0qmm6eEgNf5nvKNaR/+vj0mD6LRcv3aIFS/RvTEXuZGbGtX
-	PZAUHlQCJAd97VmPkmejtvQHD3794WA2LbCxTF/wJB+vAhXrB648Rb6xScZ5
-X-Google-Smtp-Source: AGHT+IHEs5JTbd4Uy1AB7v5TYcvGJHt0D51ZNLLFLBKASZdOZKuuLvZv6oT6qTCDrvsfz5Vq/NGhBw==
-X-Received: by 2002:a17:90a:fe8b:b0:2cf:f3e9:d5c8 with SMTP id 98e67ed59e1d1-2dd80c9662dmr17655048a91.31.1727157909895;
-        Mon, 23 Sep 2024 23:05:09 -0700 (PDT)
+        bh=B+pg2Atz65JX+fd/Upr8BHJygQ9vmYJBNYP444GSXAI=;
+        b=tzkMsvv/zNa35KkU8RWSfEoooOfzAs7tIk1VJMtaRd/PhjfJc5AZ+zV3bHVJBNl3U5
+         JsiNNwOGqQvwG4IFKJhmPgaPg6LbiHq/lV7LNSZlw3aj+Iwun5Bz2FbIMHbtMLqYZI25
+         aPbnmvnTvRz/aV/98QyfpAHtfZwDGCTFT+5p8nOGFXFtJWanlWDTjn/vwDXXuBMGNQv6
+         mrJXCSuBCbSX5kLI2lWI0l38h6kRPDJX9SPdarLpdfUbdgQmtxD8eTiqNyCBEmdVVdL/
+         EQdSz0BKeZ+1FMIsLOuGBKbdzqYBia5hjfCFVvETocWqmv4WkoTIp3uGVJKnbxRt2gu5
+         aa7A==
+X-Forwarded-Encrypted: i=1; AJvYcCXpB08jd4mTPVJjy+hFB+rLCcrKYZH/ZEc4WBntcN9aSRI/usar80xxMounC8T50HhG6Rr9ubAqtwlDkQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZ2/Q+DwyJzZK+5sCLp3t3PR7n1D7K3XnPZSEzWejXiFeP3uql
+	XeHLSnvsozn6RvCVGQ/UZkqYKUG4LYxuf+lBqaRDZrGfO3vQZXrrKHqeLmwX
+X-Google-Smtp-Source: AGHT+IEceFZzIi3n/RITgks58HjUDivSe3Anu/iRufdOL4BO6WxZlA8lC3pwICFE1GrMAnoKspAjQg==
+X-Received: by 2002:a17:90b:524f:b0:2d8:84df:fa0a with SMTP id 98e67ed59e1d1-2dd7f5c10acmr18239124a91.32.1727157914769;
+        Mon, 23 Sep 2024 23:05:14 -0700 (PDT)
 Received: from localhost ([188.253.115.253])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e05904a314sm632095a91.54.2024.09.23.23.05.09
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2dd6ef95ad9sm10364641a91.56.2024.09.23.23.05.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Sep 2024 23:05:09 -0700 (PDT)
+        Mon, 23 Sep 2024 23:05:13 -0700 (PDT)
 From: Junhui Liu <liujh2818@gmail.com>
 X-Google-Original-From: Junhui Liu <liujh2818@outlook.com>
-Date: Tue, 24 Sep 2024 14:00:40 +0800
-Subject: [PATCH 1/2] dt-bindings: reset: Add support for canaan,k230-rst
+Date: Tue, 24 Sep 2024 14:00:41 +0800
+Subject: [PATCH 2/2] reset: canaan: Add reset driver for Kendryte K230
 MIME-Version: 1.0
-Message-Id: <20240924-k230-reset-v1-1-d0cdc11989eb@outlook.com>
+Message-Id: <20240924-k230-reset-v1-2-d0cdc11989eb@outlook.com>
 References: <20240924-k230-reset-v1-0-d0cdc11989eb@outlook.com>
 In-Reply-To: <20240924-k230-reset-v1-0-d0cdc11989eb@outlook.com>
 To: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
@@ -77,16 +77,16 @@ To: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
 Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1727157904; l=4188;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1727157904; l=13262;
  i=liujh2818@outlook.com; s=20240831; h=from:subject:message-id;
- bh=7fBWxyB98XXovcKl78F8c4WOs4siCf6giYXUMRNF5yk=;
- b=RkZHstqExAXr2yLqjQiqAiWnrpe7I3Nnyar3ZPDYw2XZRAGTcqJluSjV83DbzF0RZ9jYbjkIi
- durMfCI1CCNB5tUlv/+aJPseRabHn0bhBnbeoJz4D0W/MRzsFrpJhTz
+ bh=YetNdoTFI/ZkZXdVqDmDT/X/UMYcmS7kp1DoQoZCSRA=;
+ b=xa58k/MnfDMBxdnoV/yBetXGrDfN/GDSNwWcs/EurD7i/I02l2gpNEwPEXGvr/KA5iAexXLGU
+ HITET3kobXBCIk6DVft1r5SvhcEquKeLwiBSc+hvnmpzJOgcyGmL+PS
 X-Developer-Key: i=liujh2818@outlook.com; a=ed25519;
  pk=UPJ4WEhX1Oe+1ABSe4UlisQyfljdECO+XeTLv1VxTuY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240923_230511_598674_335D75C4 
-X-CRM114-Status: GOOD (  13.24  )
+X-CRM114-CacheID: sfid-20240923_230516_805409_002A116A 
+X-CRM114-Status: GOOD (  18.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,157 +105,373 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Junhui Liu <liujh2818@outlook.com>
 
-Introduces a reset controller driver for the Kendryte K230 SoC,
-resposible for managing the reset functionality of the CPUs and
-various sub-modules.
+Add support for the resets on Canaan Kendryte K230 SoC.
 
 Signed-off-by: Junhui Liu <liujh2818@outlook.com>
 ---
- .../devicetree/bindings/reset/canaan,k230-rst.yaml | 39 ++++++++++
- include/dt-bindings/reset/canaan,k230-rst.h        | 90 ++++++++++++++++++++++
- 2 files changed, 129 insertions(+)
+ drivers/reset/Kconfig      |   8 ++
+ drivers/reset/Makefile     |   1 +
+ drivers/reset/reset-k230.c | 321 +++++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 330 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/reset/canaan,k230-rst.yaml b/Documentation/devicetree/bindings/reset/canaan,k230-rst.yaml
+diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
+index 5484a65f66b95374e25bac31f539a2dd92ae007e..716c676e9b934dd3d2b1ee28f2c43ef38daf7dba 100644
+--- a/drivers/reset/Kconfig
++++ b/drivers/reset/Kconfig
+@@ -133,6 +133,14 @@ config RESET_K210
+ 	  Say Y if you want to control reset signals provided by this
+ 	  controller.
+ 
++config RESET_K230
++	bool "Reset controller driver for Canaan Kendryte K230 SoC"
++	depends on (ARCH_CANAAN || COMPILE_TEST) && OF
++	help
++	  Support for the Canaan Kendryte K230 RISC-V SoC reset controller.
++	  Say Y if you want to control reset signals provided by this
++	  controller.
++
+ config RESET_LANTIQ
+ 	bool "Lantiq XWAY Reset Driver" if COMPILE_TEST
+ 	default SOC_TYPE_XWAY
+diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
+index 4411a2a124d7de29808fcf36d0829393fc79af72..f02c35607ba88947e868d33ead70e9ec91a85636 100644
+--- a/drivers/reset/Makefile
++++ b/drivers/reset/Makefile
+@@ -18,6 +18,7 @@ obj-$(CONFIG_RESET_IMX7) += reset-imx7.o
+ obj-$(CONFIG_RESET_IMX8MP_AUDIOMIX) += reset-imx8mp-audiomix.o
+ obj-$(CONFIG_RESET_INTEL_GW) += reset-intel-gw.o
+ obj-$(CONFIG_RESET_K210) += reset-k210.o
++obj-$(CONFIG_RESET_K230) += reset-k230.o
+ obj-$(CONFIG_RESET_LANTIQ) += reset-lantiq.o
+ obj-$(CONFIG_RESET_LPC18XX) += reset-lpc18xx.o
+ obj-$(CONFIG_RESET_MCHP_SPARX5) += reset-microchip-sparx5.o
+diff --git a/drivers/reset/reset-k230.c b/drivers/reset/reset-k230.c
 new file mode 100644
-index 0000000000000000000000000000000000000000..ede02dd01ee53a6e20e3387dec51a34e685aa0e1
+index 0000000000000000000000000000000000000000..9c693e1cee35dd725bebb6916002f846e8b4003b
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/reset/canaan,k230-rst.yaml
-@@ -0,0 +1,39 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/reset/canaan,k230-rst.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Canaan Kendryte K230 Reset Controller
-+
-+maintainers:
-+  - Junhui Liu <liujh2818@outlook.com>
-+
-+description:
-+  The Canaan Kendryte K230 reset controller is part of the SoC's system
-+  controller and controls the reset registers for CPUs and various peripherals.
-+
-+properties:
-+  compatible:
-+    const: canaan,k230-rst
-+
-+  reg:
-+    maxItems: 1
-+
-+  '#reset-cells':
-+    const: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - '#reset-cells'
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    reset-controller@91101000 {
-+      compatible = "canaan,k230-rst";
-+      reg = <0x91101000 0x1000>;
-+      #reset-cells = <1>;
-+    };
-diff --git a/include/dt-bindings/reset/canaan,k230-rst.h b/include/dt-bindings/reset/canaan,k230-rst.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..5960705636fbab70859624437862bf06d7fb65cd
---- /dev/null
-+++ b/include/dt-bindings/reset/canaan,k230-rst.h
-@@ -0,0 +1,90 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
++++ b/drivers/reset/reset-k230.c
+@@ -0,0 +1,321 @@
++// SPDX-License-Identifier: GPL-2.0-only
 +/*
-+ * Copyright (C) 2023-2024 Canaan Bright Sight Co., Ltd
++ * Copyright (C) 2016-2017 Linaro Ltd.
++ * Copyright (C) 2022-2024 Canaan Bright Sight Co., Ltd
 + * Copyright (C) 2024 Junhui Liu <liujh2818@outlook.com>
 + */
-+#ifndef _DT_BINDINGS_CANAAN_K230_RST_H_
-+#define _DT_BINDINGS_CANAAN_K230_RST_H_
 +
-+#define RST_CPU0		0
-+#define RST_CPU1		1
-+#define RST_CPU0_FLUSH		2
-+#define RST_CPU1_FLUSH		3
-+#define RST_AI			4
-+#define RST_VPU			5
-+#define RST_HS			6
-+#define RST_HS_AHB		7
-+#define RST_SDIO0		8
-+#define RST_SDIO1		9
-+#define RST_SDIO_AXI		10
-+#define RST_USB0		11
-+#define RST_USB1		12
-+#define RST_USB0_AHB		13
-+#define RST_USB1_AHB		14
-+#define RST_SPI0		15
-+#define RST_SPI1		16
-+#define RST_SPI2		17
-+#define RST_SEC			18
-+#define RST_PDMA		19
-+#define RST_SDMA		20
-+#define RST_DECOMPRESS		21
-+#define RST_SRAM		22
-+#define RST_SHRM_AXIM		23
-+#define RST_SHRM_AXIS		24
-+#define RST_NONAI2D		25
-+#define RST_MCTL		26
-+#define RST_ISP			27
-+#define RST_ISP_DW		28
-+#define RST_DPU			29
-+#define RST_DISP		30
-+#define RST_GPU			31
-+#define RST_AUDIO		32
-+#define RST_TIMER0		33
-+#define RST_TIMER1		34
-+#define RST_TIMER2		35
-+#define RST_TIMER3		36
-+#define RST_TIMER4		37
-+#define RST_TIMER5		38
-+#define RST_TIMER_APB		39
-+#define RST_HDI			40
-+#define RST_WDT0		41
-+#define RST_WDT1		42
-+#define RST_WDT0_APB		43
-+#define RST_WDT1_APB		44
-+#define RST_TS_APB		45
-+#define RST_MAILBOX		46
-+#define RST_STC			47
-+#define RST_PMU			48
-+#define RST_LS_APB		49
-+#define RST_UART0		50
-+#define RST_UART1		51
-+#define RST_UART2		52
-+#define RST_UART3		53
-+#define RST_UART4		54
-+#define RST_I2C0		55
-+#define RST_I2C1		56
-+#define RST_I2C2		57
-+#define RST_I2C3		58
-+#define RST_I2C4		59
-+#define RST_JAMLINK0_APB	60
-+#define RST_JAMLINK1_APB	61
-+#define RST_JAMLINK2_APB	62
-+#define RST_JAMLINK3_APB	63
-+#define RST_CODEC_APB		64
-+#define RST_GPIO_DB		65
-+#define RST_GPIO_APB		66
-+#define RST_ADC			67
-+#define RST_ADC_APB		68
-+#define RST_PWM_APB		69
-+#define RST_SHRM_APB		70
-+#define RST_CSI0		71
-+#define RST_CSI1		72
-+#define RST_CSI2		73
-+#define RST_CSI_DPHY		74
-+#define RST_ISP_AHB		75
-+#define RST_M0			76
-+#define RST_M1			77
-+#define RST_M2			78
-+#define RST_SPI2AXI		79
++#include <linux/io.h>
++#include <linux/iopoll.h>
++#include <linux/of.h>
++#include <linux/platform_device.h>
++#include <linux/reset-controller.h>
++#include <linux/spinlock.h>
++#include <linux/delay.h>
++#include <dt-bindings/reset/canaan,k230-rst.h>
 +
-+#endif
++/**
++ * enum k230_rst_type - K230 reset types
++ * @RST_TYPE_CPU0: Reset type for CPU0
++ *	Automatically clears, has write enable and done bit, active high
++ * @RST_TYPE_CPU1: Reset type for CPU1
++ *	Manually clears, has write enable and done bit, active high
++ * @RST_TYPE_FLUSH: Reset type for CPU L2 cache flush
++ *	Automatically clears, has write enable, no done bit, active high
++ * @RST_TYPE_HW_DONE: Reset type for hardware auto clear
++ *	Automatically clears, no write enable, has done bit, active high
++ * @RST_TYPE_SW_DONE: Reset type for software manual clear
++ *	Manually clears, no write enable and done bit,
++ *	active high if ID is RST_SPI2AXI, otherwise active low
++ */
++enum k230_rst_type {
++	RST_TYPE_CPU0 = 0,
++	RST_TYPE_CPU1,
++	RST_TYPE_FLUSH,
++	RST_TYPE_HW_DONE,
++	RST_TYPE_SW_DONE,
++};
++
++struct k230_rst_map {
++	u32			offset;
++	enum k230_rst_type	type;
++	u32			done;
++	u32			reset;
++};
++
++struct k230_rst {
++	struct reset_controller_dev	rcdev;
++	struct device			*dev;
++	void __iomem			*base;
++	spinlock_t			lock;
++};
++
++static const struct k230_rst_map k230_resets[] = {
++	[RST_CPU0]		= { 0x4,  RST_TYPE_CPU0,    BIT(12), BIT(0) },
++	[RST_CPU1]		= { 0xc,  RST_TYPE_CPU1,    BIT(12), BIT(0) },
++	[RST_CPU0_FLUSH]	= { 0x4,  RST_TYPE_FLUSH,   0,       BIT(4) },
++	[RST_CPU1_FLUSH]	= { 0xc,  RST_TYPE_FLUSH,   0,       BIT(4) },
++	[RST_AI]		= { 0x14, RST_TYPE_HW_DONE, BIT(31), BIT(0) },
++	[RST_VPU]		= { 0x1c, RST_TYPE_HW_DONE, BIT(31), BIT(0) },
++	[RST_HS]		= { 0x2c, RST_TYPE_HW_DONE, BIT(4),  BIT(0) },
++	[RST_HS_AHB]		= { 0x2c, RST_TYPE_HW_DONE, BIT(5),  BIT(1) },
++	[RST_SDIO0]		= { 0x34, RST_TYPE_HW_DONE, BIT(28), BIT(0) },
++	[RST_SDIO1]		= { 0x34, RST_TYPE_HW_DONE, BIT(29), BIT(1) },
++	[RST_SDIO_AXI]		= { 0x34, RST_TYPE_HW_DONE, BIT(30), BIT(2) },
++	[RST_USB0]		= { 0x3c, RST_TYPE_HW_DONE, BIT(28), BIT(0) },
++	[RST_USB1]		= { 0x3c, RST_TYPE_HW_DONE, BIT(29), BIT(1) },
++	[RST_USB0_AHB]		= { 0x3c, RST_TYPE_HW_DONE, BIT(30), BIT(0) },
++	[RST_USB1_AHB]		= { 0x3c, RST_TYPE_HW_DONE, BIT(31), BIT(1) },
++	[RST_SPI0]		= { 0x44, RST_TYPE_HW_DONE, BIT(28), BIT(0) },
++	[RST_SPI1]		= { 0x44, RST_TYPE_HW_DONE, BIT(29), BIT(1) },
++	[RST_SPI2]		= { 0x44, RST_TYPE_HW_DONE, BIT(30), BIT(2) },
++	[RST_SEC]		= { 0x4c, RST_TYPE_HW_DONE, BIT(31), BIT(0) },
++	[RST_PDMA]		= { 0x54, RST_TYPE_HW_DONE, BIT(28), BIT(0) },
++	[RST_SDMA]		= { 0x54, RST_TYPE_HW_DONE, BIT(29), BIT(1) },
++	[RST_DECOMPRESS]	= { 0x5c, RST_TYPE_HW_DONE, BIT(31), BIT(0) },
++	[RST_SRAM]		= { 0x64, RST_TYPE_HW_DONE, BIT(28), BIT(0) },
++	[RST_SHRM_AXIM]		= { 0x64, RST_TYPE_HW_DONE, BIT(30), BIT(2) },
++	[RST_SHRM_AXIS]		= { 0x64, RST_TYPE_HW_DONE, BIT(31), BIT(3) },
++	[RST_NONAI2D]		= { 0x6c, RST_TYPE_HW_DONE, BIT(31), BIT(0) },
++	[RST_MCTL]		= { 0x74, RST_TYPE_HW_DONE, BIT(31), BIT(0) },
++	[RST_ISP]		= { 0x80, RST_TYPE_HW_DONE, BIT(29), BIT(6) },
++	[RST_ISP_DW]		= { 0x80, RST_TYPE_HW_DONE, BIT(28), BIT(5) },
++	[RST_DPU]		= { 0x88, RST_TYPE_HW_DONE, BIT(31), BIT(0) },
++	[RST_DISP]		= { 0x90, RST_TYPE_HW_DONE, BIT(31), BIT(0) },
++	[RST_GPU]		= { 0x98, RST_TYPE_HW_DONE, BIT(31), BIT(0) },
++	[RST_AUDIO]		= { 0xa4, RST_TYPE_HW_DONE, BIT(31), BIT(0) },
++	[RST_TIMER0]		= { 0x20, RST_TYPE_SW_DONE, 0,       BIT(0) },
++	[RST_TIMER1]		= { 0x20, RST_TYPE_SW_DONE, 0,       BIT(1) },
++	[RST_TIMER2]		= { 0x20, RST_TYPE_SW_DONE, 0,       BIT(2) },
++	[RST_TIMER3]		= { 0x20, RST_TYPE_SW_DONE, 0,       BIT(3) },
++	[RST_TIMER4]		= { 0x20, RST_TYPE_SW_DONE, 0,       BIT(4) },
++	[RST_TIMER5]		= { 0x20, RST_TYPE_SW_DONE, 0,       BIT(5) },
++	[RST_TIMER_APB]		= { 0x20, RST_TYPE_SW_DONE, 0,       BIT(6) },
++	[RST_HDI]		= { 0x20, RST_TYPE_SW_DONE, 0,       BIT(7) },
++	[RST_WDT0]		= { 0x20, RST_TYPE_SW_DONE, 0,       BIT(12) },
++	[RST_WDT1]		= { 0x20, RST_TYPE_SW_DONE, 0,       BIT(13) },
++	[RST_WDT0_APB]		= { 0x20, RST_TYPE_SW_DONE, 0,       BIT(14) },
++	[RST_WDT1_APB]		= { 0x20, RST_TYPE_SW_DONE, 0,       BIT(15) },
++	[RST_TS_APB]		= { 0x20, RST_TYPE_SW_DONE, 0,       BIT(16) },
++	[RST_MAILBOX]		= { 0x20, RST_TYPE_SW_DONE, 0,       BIT(17) },
++	[RST_STC]		= { 0x20, RST_TYPE_SW_DONE, 0,       BIT(18) },
++	[RST_PMU]		= { 0x20, RST_TYPE_SW_DONE, 0,       BIT(19) },
++	[RST_LS_APB]		= { 0x24, RST_TYPE_SW_DONE, 0,       BIT(0) },
++	[RST_UART0]		= { 0x24, RST_TYPE_SW_DONE, 0,       BIT(1) },
++	[RST_UART1]		= { 0x24, RST_TYPE_SW_DONE, 0,       BIT(2) },
++	[RST_UART2]		= { 0x24, RST_TYPE_SW_DONE, 0,       BIT(3) },
++	[RST_UART3]		= { 0x24, RST_TYPE_SW_DONE, 0,       BIT(4) },
++	[RST_UART4]		= { 0x24, RST_TYPE_SW_DONE, 0,       BIT(5) },
++	[RST_I2C0]		= { 0x24, RST_TYPE_SW_DONE, 0,       BIT(6) },
++	[RST_I2C1]		= { 0x24, RST_TYPE_SW_DONE, 0,       BIT(7) },
++	[RST_I2C2]		= { 0x24, RST_TYPE_SW_DONE, 0,       BIT(8) },
++	[RST_I2C3]		= { 0x24, RST_TYPE_SW_DONE, 0,       BIT(9) },
++	[RST_I2C4]		= { 0x24, RST_TYPE_SW_DONE, 0,       BIT(10) },
++	[RST_JAMLINK0_APB]	= { 0x24, RST_TYPE_SW_DONE, 0,       BIT(11) },
++	[RST_JAMLINK1_APB]	= { 0x24, RST_TYPE_SW_DONE, 0,       BIT(12) },
++	[RST_JAMLINK2_APB]	= { 0x24, RST_TYPE_SW_DONE, 0,       BIT(13) },
++	[RST_JAMLINK3_APB]	= { 0x24, RST_TYPE_SW_DONE, 0,       BIT(14) },
++	[RST_CODEC_APB]		= { 0x24, RST_TYPE_SW_DONE, 0,       BIT(17) },
++	[RST_GPIO_DB]		= { 0x24, RST_TYPE_SW_DONE, 0,       BIT(18) },
++	[RST_GPIO_APB]		= { 0x24, RST_TYPE_SW_DONE, 0,       BIT(19) },
++	[RST_ADC]		= { 0x24, RST_TYPE_SW_DONE, 0,       BIT(20) },
++	[RST_ADC_APB]		= { 0x24, RST_TYPE_SW_DONE, 0,       BIT(21) },
++	[RST_PWM_APB]		= { 0x24, RST_TYPE_SW_DONE, 0,       BIT(22) },
++	[RST_SHRM_APB]		= { 0x64, RST_TYPE_SW_DONE, 0,       BIT(1) },
++	[RST_CSI0]		= { 0x80, RST_TYPE_SW_DONE, 0,       BIT(0) },
++	[RST_CSI1]		= { 0x80, RST_TYPE_SW_DONE, 0,       BIT(1) },
++	[RST_CSI2]		= { 0x80, RST_TYPE_SW_DONE, 0,       BIT(2) },
++	[RST_CSI_DPHY]		= { 0x80, RST_TYPE_SW_DONE, 0,       BIT(3) },
++	[RST_ISP_AHB]		= { 0x80, RST_TYPE_SW_DONE, 0,       BIT(4) },
++	[RST_M0]		= { 0x80, RST_TYPE_SW_DONE, 0,       BIT(7) },
++	[RST_M1]		= { 0x80, RST_TYPE_SW_DONE, 0,       BIT(8) },
++	[RST_M2]		= { 0x80, RST_TYPE_SW_DONE, 0,       BIT(9) },
++	[RST_SPI2AXI]		= { 0xa8, RST_TYPE_SW_DONE, 0,       BIT(0) }
++};
++
++#define to_k230_rst(p) container_of((p), struct k230_rst, rcdev)
++
++static void k230_rst_clear_done(struct k230_rst *rstc, unsigned long id,
++				bool write_en)
++{
++	const struct k230_rst_map *rmap = &k230_resets[id];
++	unsigned long flags;
++	u32 reg;
++
++	spin_lock_irqsave(&rstc->lock, flags);
++
++	reg = readl(rstc->base + rmap->offset);
++
++	/* write 1 to clear */
++	reg |= rmap->done;
++	if (write_en)
++		reg |= rmap->done << 16;
++
++	writel(reg, rstc->base + rmap->offset);
++
++	spin_unlock_irqrestore(&rstc->lock, flags);
++}
++
++static int k230_rst_wait_and_clear_done(struct k230_rst *rstc, unsigned long id,
++					bool write_en)
++{
++	const struct k230_rst_map *rmap = &k230_resets[id];
++	u32 reg;
++	int ret;
++
++	ret = readl_poll_timeout(rstc->base + rmap->offset, reg,
++				 reg & rmap->done, 10, 1000);
++	if (ret) {
++		dev_err(rstc->dev, "Wait for reset done timeout\n");
++		return ret;
++	}
++
++	k230_rst_clear_done(rstc, id, write_en);
++
++	return 0;
++}
++
++static void k230_rst_update(struct k230_rst *rstc, unsigned long id,
++			    bool assert, bool write_en, bool active_low)
++{
++	const struct k230_rst_map *rmap = &k230_resets[id];
++	unsigned long flags;
++	u32 reg;
++
++	spin_lock_irqsave(&rstc->lock, flags);
++
++	reg = readl(rstc->base + rmap->offset);
++
++	if (assert ^ active_low)
++		reg |= rmap->reset;
++	else
++		reg &= ~rmap->reset;
++
++	if (write_en)
++		reg |= rmap->reset << 16;
++
++	writel(reg, rstc->base + rmap->offset);
++
++	spin_unlock_irqrestore(&rstc->lock, flags);
++}
++
++static int k230_rst_assert(struct reset_controller_dev *rcdev, unsigned long id)
++{
++	struct k230_rst *rstc = to_k230_rst(rcdev);
++	const struct k230_rst_map *rmap = &k230_resets[id];
++	int ret;
++
++	switch (rmap->type) {
++	case RST_TYPE_CPU0:
++		k230_rst_clear_done(rstc, id, true);
++		k230_rst_update(rstc, id, true, true, false);
++		ret = k230_rst_wait_and_clear_done(rstc, id, true);
++		break;
++	case RST_TYPE_CPU1:
++	case RST_TYPE_FLUSH:
++		k230_rst_update(rstc, id, true, true, false);
++		break;
++	case RST_TYPE_HW_DONE:
++		k230_rst_clear_done(rstc, id, false);
++		k230_rst_update(rstc, id, true, false, false);
++		ret = k230_rst_wait_and_clear_done(rstc, id, false);
++		break;
++	case RST_TYPE_SW_DONE:
++		k230_rst_update(rstc, id, true, false,
++				id == RST_SPI2AXI ? false : true);
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	return ret;
++}
++
++static int k230_rst_deassert(struct reset_controller_dev *rcdev,
++			     unsigned long id)
++{
++	struct k230_rst *rstc = to_k230_rst(rcdev);
++	int ret;
++
++	switch (k230_resets[id].type) {
++	case RST_TYPE_CPU0:
++		break;
++	case RST_TYPE_CPU1:
++		k230_rst_update(rstc, id, false, true, false);
++		ret = k230_rst_wait_and_clear_done(rstc, id, true);
++		break;
++	case RST_TYPE_FLUSH:
++	case RST_TYPE_HW_DONE:
++		break;
++	case RST_TYPE_SW_DONE:
++		k230_rst_update(rstc, id, false, false,
++				id == RST_SPI2AXI ? false : true);
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	return ret;
++}
++
++static int k230_rst_reset(struct reset_controller_dev *rcdev, unsigned long id)
++{
++	int ret;
++
++	ret = k230_rst_assert(rcdev, id);
++	if (ret)
++		return ret;
++
++	udelay(10);
++
++	return k230_rst_deassert(rcdev, id);
++}
++
++static const struct reset_control_ops k230_rst_ops = {
++	.reset		= k230_rst_reset,
++	.assert		= k230_rst_assert,
++	.deassert	= k230_rst_deassert,
++};
++
++static int k230_rst_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct k230_rst *rstc;
++
++	rstc = devm_kzalloc(dev, sizeof(*rstc), GFP_KERNEL);
++	if (!rstc)
++		return -ENOMEM;
++
++	rstc->base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(rstc->base))
++		return PTR_ERR(rstc->base);
++
++	spin_lock_init(&rstc->lock);
++
++	rstc->dev		= dev;
++	rstc->rcdev.owner	= THIS_MODULE;
++	rstc->rcdev.ops		= &k230_rst_ops;
++	rstc->rcdev.nr_resets	= ARRAY_SIZE(k230_resets);
++	rstc->rcdev.of_node	= dev->of_node;
++
++	return devm_reset_controller_register(dev, &rstc->rcdev);
++}
++
++static const struct of_device_id k230_rst_match[] = {
++	{ .compatible = "canaan,k230-rst", },
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, k230_rst_match);
++
++static struct platform_driver k230_rst_driver = {
++	.probe = k230_rst_probe,
++	.driver = {
++		.name = "k230-rst",
++		.of_match_table = k230_rst_match,
++	}
++};
++module_platform_driver(k230_rst_driver);
++
++MODULE_AUTHOR("Junhui Liu <liujh2818@outlook.com>");
++MODULE_DESCRIPTION("Canaan K230 reset driver");
++MODULE_LICENSE("GPL v2");
 
 -- 
 2.46.1
