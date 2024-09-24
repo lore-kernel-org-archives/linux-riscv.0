@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00B0FCF9C71
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Sep 2024 08:24:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B31DCF9C71
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Sep 2024 08:25:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7oDr4VdmB4k50BNRQp+dQbXzWp0Y8Is/IGihGcFqQ7c=; b=VJW/kpWKxifJMC
-	sjxbvYBKXXTrQdrD5MPbs6KBylC2ZPU5WZXCEjQmI1NcVyUAmjncJnAnOJe7JKeJo21sC+YS8Xcxk
-	AElqokTHMY92juEFymjq6p3/VT7a3XZi/r3eQkNinrB+APYz2HyAaupGsPxZxYUx+QGgsMoco8J5p
-	8BPMsJERyhzHoEvOTCyUVgOrz/z5U9/FiGKeH0f8V0qukNQZNgplGStmPs+LCY1tAWrrE6L0sSP6+
-	LKhMdtEB5GxkS4451eyJIp0VjwEHlH+IDxRcXIu+Bsh1PtTzxVBeagV2e/uczOh0X3h4Dq99ck0n9
-	lFcO8IbdkqPtWYvSR0BA==;
+	List-Owner; bh=IA8FkHzigmEk/RY78z1ECZl3bkOR0uX1Uc11F1J/AEg=; b=AJbFhmqwc45+1p
+	1V7XeZvuA8FReYn7pV28n6ariRC26KRaD4VkppippbLAcueO0oUPQsERtLqwGfflrafNGXRfoGSHb
+	atI8tRk2kRBLj6W24y0l9g+Qr6hheuHRORvqKxL72ZnOviONh9PEaOxeum/0ancvoRvqD99tggPMW
+	LRZvhFg0TVQ2tLEcG330y0n9Au2+Sy2SuRN0ZMVeQwvLRjUhVPKBG13Jx1X+/S5BCCeIoQg24iu4G
+	TQA+PJ1iFDk2BhnBh4lQT5ad1hsOe40O4JGkIewTl2Xss1dl8iOWioxWC6z/N8iO8E6J/Y9tuc3JH
+	9Sj7R3J+kM1HkUTwOhPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1st0qq-00000001aBB-2u4Q;
-	Tue, 24 Sep 2024 08:24:52 +0000
+	id 1st0rV-00000001aTf-0DLY;
+	Tue, 24 Sep 2024 08:25:33 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1st0qm-00000001a9m-3yzP
+	id 1st0rT-00000001aSb-0qzA
 	for linux-riscv@lists.infradead.org;
-	Tue, 24 Sep 2024 08:24:50 +0000
+	Tue, 24 Sep 2024 08:25:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7C1545C03EB;
-	Tue, 24 Sep 2024 08:24:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46923C4CEC4;
-	Tue, 24 Sep 2024 08:24:38 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 30BBD5C5B4E;
+	Tue, 24 Sep 2024 08:25:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C32ADC4CEC4;
+	Tue, 24 Sep 2024 08:25:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1727166288;
-	bh=xab4oleZlZfDPXt8BCSlve2MHx+6ZsoercPLK0BOdRk=;
+	s=k20201202; t=1727166329;
+	bh=/gYlrcDZdMKSsmLO9X92V4sEhv3bi4liYec0hiD2jos=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=WzdIKvqR4MvN595ezp6EbdoL/F1XyKSjpNPPAVjK6e3s2NolF+6ksxzaHJHeq3PFR
-	 udf8UiXmeYZFDm6o/72lZyFAodUhmwFyohMA29YYYrrWXbx3rgkuyN+OtuhlfySATz
-	 vD2WEwmIRi9kmtseRJDI7VUFh/IFqnbhKu0fNh7AC11l/yMSZ5O0jHWf2qGeUtaWGA
-	 U9TEUpimCjaNErzTEi6v/6qJdMT591qcIByRETQo4OAn9wbDNmwfRViRf+U5Q8D9DC
-	 F1n8xY68cLtu00vmx/+2jp+zOgUWvAtNTkQNsz0CWvXWMCqi/Hq1jAVta8jhYwJNu3
-	 QathkRGcDejSQ==
-Message-ID: <edfbcf43-60ae-438f-8348-f6a2e6fa31cf@kernel.org>
-Date: Tue, 24 Sep 2024 10:24:36 +0200
+	b=oAjlgUP/Sz9sssdhTF2qPPhG2CrmenC7fq/enAgvjwybiLh04bthenLHkcKUVTuG6
+	 TaNMMtuwc/vaYcJV9K8aI86GPD3Jnn673xv30ygQb1VRf87e/+g4LrjMIRQXZ7/5g0
+	 KkqBiQvaKO/RFh5HcT2c98Lu7yMzhc9iFQngG+zBlp4jU2WrWZhS771XDApyRbQsPT
+	 zN7L2xYNgGh8XZhLptilFVlkNuSSCjC37HiDwgJ2BDjbje5Sdc1bl6Dkwi1BFY73i+
+	 fnc457PEx8NYUvE9P47u+nF5ey4a3bC0eY7LMLF1JMgeYvwaAfS1k/IEmHvu1/UYg7
+	 A3guuyHDp2epw==
+Message-ID: <5dfa7fb9-5b0e-424e-bf53-74a9eaa25bb1@kernel.org>
+Date: Tue, 24 Sep 2024 10:25:18 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [patch v2 3/3] riscv: dts: starfive: add framework dts
+Subject: Re: [patch v2 2/3] dt-bindings: riscv: starfive: add
+ deepcomputing,fm7110
 To: Sandie Cao <sandie.cao@deepcomputing.io>, Conor Dooley <conor@kernel.org>
 Cc: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -60,7 +61,7 @@ Cc: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh@kernel.org>,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, dhs@frame.work,
  ams@frame.work, gregkh@linuxfoundation.org, yuning.liang@deepcomputing.io,
  huiming.qiu@deepcomputing.io
-References: <20240924080650.1345485-4-sandie.cao@deepcomputing.io>
+References: <20240924080650.1345485-3-sandie.cao@deepcomputing.io>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,10 +107,11 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20240924080650.1345485-4-sandie.cao@deepcomputing.io>
+In-Reply-To: <20240924080650.1345485-3-sandie.cao@deepcomputing.io>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240924_012449_116395_6B417427 
-X-CRM114-Status: GOOD (  14.38  )
+X-CRM114-CacheID: sfid-20240924_012531_437700_E911465F 
+X-CRM114-Status: UNSURE (   5.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,74 +129,11 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 24/09/2024 10:06, Sandie Cao wrote:
-> Add framework dts to support RISC-V Framework Laptop 13 Mainboard.
+> Add deepcomputing,fm7110 into compatible list.
+
+This we see from the diff. And commit subject. Describe here the hardware.
 > 
 > Signed-off-by: Sandie Cao <sandie.cao@deepcomputing.io>
-> ---
->  arch/riscv/boot/dts/starfive/Makefile         |  1 +
->  .../boot/dts/starfive/jh7110-framework.dts    | 34 +++++++++++++++++++
->  2 files changed, 35 insertions(+)
->  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-framework.dts
-
-Your threading is entirely broken making applying process more difficult.
-
-
-
-> 
-> diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/starfive/Makefile
-> index 7a163a7d6ba3..3746f7122834 100644
-> --- a/arch/riscv/boot/dts/starfive/Makefile
-> +++ b/arch/riscv/boot/dts/starfive/Makefile
-> @@ -8,6 +8,7 @@ DTC_FLAGS_jh7110-starfive-visionfive-2-v1.3b := -@
->  dtb-$(CONFIG_ARCH_STARFIVE) += jh7100-beaglev-starlight.dtb
->  dtb-$(CONFIG_ARCH_STARFIVE) += jh7100-starfive-visionfive-v1.dtb
->  
-> +dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-framework.dtb
->  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-milkv-mars.dtb
->  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-pine64-star64.dtb
->  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.2a.dtb
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110-framework.dts b/arch/riscv/boot/dts/starfive/jh7110-framework.dts
-> new file mode 100644
-> index 000000000000..ff12c24ebab3
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/starfive/jh7110-framework.dts
-> @@ -0,0 +1,34 @@
-> +// SPDX-License-Identifier: GPL-2.0 OR MIT
-> +/*
-> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
-> + * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
-> + */
-> +
-> +/dts-v1/;
-> +#include "jh7110-common.dtsi"
-> +
-> +/ {
-> +	model = "Framework FRANME0000";
-> +	compatible = "deepcomputing,fm7110", "starfive,jh7110";
-> +};
-> +
-> +&gmac0 {
-> +	status = "disabled";
-> +};
-> +
-> +&gmac1 {
-> +	status = "disabled";
-> +};
-> +
-> +&usb0 {
-> +	dr_mode = "host";
-> +	status = "okay";
-> +};
-> +
-> +&pwmdac {
-> +	status = "disabled";
-> +};
-> +
-> +&pcie0 {
-> +	status = "disabled";
-
-Why PCIE0 is enabled in the DTSI in the first place? The same questions
-about MACs.
 
 Best regards,
 Krzysztof
