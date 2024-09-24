@@ -4,73 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65A4CCF9C6B
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Sep 2024 15:14:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 632C0CF9C6B
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Sep 2024 15:27:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
-	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=gGtYMOZe7GQ3kIcc5DF82FjgphL6hYGtd35HKQ1VKRU=; b=enHqDck/iDx5kg
-	AiXGIcKPVFUtVF3nDGyKLpqLa8danBIDlZk8i/O39TRgUxRuipysEsG2PkjXjCqHhhkPh2UHKou43
-	fWGK4sXOYHE0WfYVueigIU7E8P2+F3PBQhWPxowbJIMN7aYaWWXuFwqSWnzy7O59dtUnIqilUsls8
-	1DShxO7zUl7WInN88vTl+e5x0ewqduzMOeE30ZvDswdDe8iVYRepeYLMBbuWGW3T4uhqiBHCOeHlk
-	O5OtxMergfXDphefVpe+XufNLl6UqqdlVuWD0s4hseY2JqNTNV/spGGajMagJGN91dUz4npJnJu+a
-	nbdcZ/apJ4GJtjEn89dw==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=N6Y+IFU67uzogUXHms+1CVDq2pRK+gCbQ21fs+oy6iM=; b=ehcT+IzemVmwL7
+	ZzrTMan5kaptb7il5lbAyfXXk2M4oNbERBlLcdVNMvh7bvnDpFBk/FjKznxBb/Myap8ZeNJbBWUKn
+	VMqZcTeKvi18b3TySFHH5slhTMKOZxNoYzypEAlNNEA6FimmIMD1kBz9riE5R5f+dm5i5n1o0KuUN
+	fcL6+yUyPsN8+CY8a7y/6xAAkYrDz5Cydewn8aEY+a9nGJ/J5FIXb0czhNYva5xz7aQ66dTUPnnrV
+	XdwjVJjnlPbKfbkgsEQup7WGSxdMG1wGwxVdvbSAjv+4bJSAWJwiblK/i9fZykeWfAqGCqlt3ypU2
+	MdTnXS7VCv4bk8ZIbUAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1st7F9-00000002daR-2cUv;
-	Tue, 24 Sep 2024 15:14:23 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1st7RV-00000002fHp-2zs6;
+	Tue, 24 Sep 2024 15:27:09 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1st7F6-00000002dZw-1fHe
+	id 1st7Qn-00000002fDG-2WX5
 	for linux-riscv@lists.infradead.org;
-	Tue, 24 Sep 2024 15:14:22 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-205909afad3so64610975ad.2
-        for <linux-riscv@lists.infradead.org>; Tue, 24 Sep 2024 08:14:19 -0700 (PDT)
+	Tue, 24 Sep 2024 15:27:07 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-a8d6d0fe021so937295166b.1
+        for <linux-riscv@lists.infradead.org>; Tue, 24 Sep 2024 08:26:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1727190858; x=1727795658; darn=lists.infradead.org;
-        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=F4l+X1VCUBncHtX8uzN7Cxn1jx5yxi3wDCVKx4RZGZw=;
-        b=zIkjlTJU5BOM0NPWZCVx+tDEJgd7ahQe18gUvh9FquT79DVyPEYwxnD65AnD5eXnSN
-         ZHis3ib2I0G0xxNYFBlDyOxBJKY9ilPMlaiDuJiGNo7iwWyQw+pabe5XFSM0Xz3eS/Fh
-         HICdXIMxeDnk6TOhR3/sM8LxJvU3hnBIy3LDMg7lq+YbGOjDmLnGXXL8/I6UTlH9jtRL
-         0daZkO5OncJcJn47GHwuoegD+zZgV2+V/bRqWltlz6F0PJXnlQd24XfB4bStglAQs/lJ
-         y/1LKuPo4N6DKYdUje93FrXITWQ5Fy69kAGviatIMJko+WctzS3lxtLPsLDRtC5u646m
-         tmLA==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1727191584; x=1727796384; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ncpPQi0GfsQJ/MBJNfkrlPviJLNDUK8EobuIbw3pbzs=;
+        b=UZdFIQLLLUI8H33SgvyngoIfOCiKN+IEQODiUKfpjB0VWtCHahLDrhyBwtjiXC0zAg
+         SF3+4/bVXgV4pj4UYEwhxuW0Bov9Os8MXha0jGX4laJRUIm4qk1PYNsxNHnExrC/q6B9
+         fkOX5f/SqFpl0HjWH3zMrlvy+fuSDAMMJ0+DKr1eoyMF7OyNwRMyekK5IWO+fV/Z3pAf
+         Yt/M+cN8uugSs+aJ56L/XA/sst4f3F7P9eHbc/Mr3lAEmqjka+7Y+Hq3XNqjlKVdcRVE
+         uuCxV0hXcCdE0wSOh2lTK6watTzdcJ5G8mp8VBSgwuSKVBJKcPnLpcUIB+C6bSm45sKI
+         QU3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1727190858; x=1727795658;
-        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=F4l+X1VCUBncHtX8uzN7Cxn1jx5yxi3wDCVKx4RZGZw=;
-        b=gAwefoN41xeiA7oIN8TGGT+jfmJg/9FdYIEf8pj/A03Cs4Fax/fOUp1WuNLCoDrdUy
-         IUR4Xf5Ou4n7QPAskKWi0/bOzHq42Ev463dfGFMvnFUnugoNMjAvtwi02yGb9fxpMTVF
-         4O3xdNClSjz/zkLVWraGG+8YuZe4DgNKuOHUMtjqMVdkrJOEmOmYmjFERQssKS/nemf5
-         M8WDfe/ad5ja7Vll+bRyje8vbEW+Wc+/nh1G6A/TV41BwbQZY7shSbmrXrAZhtPODS3f
-         BxPaga2BCJAFbrlNs1L8A0GuvHwHx4xtxlxs243aEa3euuuvFTwqN/ahFouvJG5SGtLs
-         ptzQ==
-X-Gm-Message-State: AOJu0YwFm3YWF7qXcE3ZWz97l+GIIIczFocXg3IH1XODHmtAR5uQ6Nt4
-	UzmqnodEsc4lKshbwIwbWxI2Z5opyA/tEX1sjDp/3jgNnxmEbv9ltxpHI35z89pgMxjXQfSlwpz
-	EYQE=
-X-Google-Smtp-Source: AGHT+IE/WYEdpLh4pu0dqCMPDAARpCPpEI0SeDzovukW3ugTzPsoCmkwVyRLyiS/gYPbFyWh4httig==
-X-Received: by 2002:a17:902:d491:b0:205:5d12:3f24 with SMTP id d9443c01a7336-208d837546emr227270775ad.20.1727190858269;
-        Tue, 24 Sep 2024 08:14:18 -0700 (PDT)
-Received: from localhost ([2a01:e0a:de5:d200:87a:d84a:dff5:3827])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-20af1724ca5sm11453005ad.97.2024.09.24.08.14.17
+        d=1e100.net; s=20230601; t=1727191584; x=1727796384;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ncpPQi0GfsQJ/MBJNfkrlPviJLNDUK8EobuIbw3pbzs=;
+        b=Jo3mFqSe1LOIKJ0blExJCw5Ma1xQSS7RT2cl2KuICU2+aSYP8NqtvxQBv0CkYm6IX/
+         6Teg69r2OtxQ1lYDcXbmE4IUJbLe8lDPz3pEbuxxXy+4dMXmObRbIgJJ+u4EgOdFXHSj
+         HKvJHziEJ53AQPPfD+gIGHZnzC0ayU478OSPFPKSyU4SiTQVzz0AThzzEAy6m7Gs2uik
+         Gkcz/IthQleBQjFYOxIbdpeEesP6T7/7r0sGy+14Cz0j8U8UB3o1khiWnaNt7A/T8ict
+         P0cGBAXmC+Lu9isdv+ETab6uko9Z702cuEDdwdMkhriYUhXdiOoQspqlEOchtI6VmBRO
+         gkdg==
+X-Forwarded-Encrypted: i=1; AJvYcCWlNfOZkRlUREAj/zyby+neljOok9VwNwMFC4pEIwfVG1BDH9CwBp+iJ8q8w1SjHNpWtS8D3Eibrkq5IA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwTbhtHVZpBdQAXE18+MwNV2n3C9c4RS6sLhYpVDS8WxMBHQRto
+	cCSLQPhIp4JqPPYn8mP9fwru3+6fhHxOWps0yqx+Vy3vL9rNiCnymknmPYsPYnk=
+X-Google-Smtp-Source: AGHT+IF1xyHbX88bwTSe6sWCS7atLN8y4aZbve6DCWxrcqs48Q0A0D6t/d/gJw3jgD0Ngjf9HsPanQ==
+X-Received: by 2002:a17:906:bc12:b0:a8f:f799:e7d1 with SMTP id a640c23a62f3a-a90d503430cmr1421808566b.38.1727191583676;
+        Tue, 24 Sep 2024 08:26:23 -0700 (PDT)
+Received: from ghost ([185.30.83.51])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a93930f0ba1sm97280966b.143.2024.09.24.08.26.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Sep 2024 08:14:17 -0700 (PDT)
-Date: Tue, 24 Sep 2024 08:14:17 -0700 (PDT)
-X-Google-Original-Date: Tue, 24 Sep 2024 08:14:04 PDT (-0700)
-Subject: [GIT PULL] RISC-V Patches for the 6.12 Merge Window, Part 1
-CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Message-ID: <mhng-664fc7b8-c82b-414e-9c10-8fe7840f2c76@palmer-ri-x1c9>
+        Tue, 24 Sep 2024 08:26:22 -0700 (PDT)
+Date: Tue, 24 Sep 2024 17:26:19 +0200
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Howard Chu <howardchu95@gmail.com>,
+	David Abdurachmanov <davidlt@rivosinc.com>
+Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] perf syscalltbl: Add syscalltbl__id_at_idx() with no
+ syscall table support
+Message-ID: <ZvLaGy7jRa9Q/5fQ@ghost>
+References: <20240830-perf_syscalltbl_fix-v1-1-e2ff61ee5e8e@rivosinc.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240830-perf_syscalltbl_fix-v1-1-e2ff61ee5e8e@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240924_081420_736194_0DE460F7 
-X-CRM114-Status: GOOD (  22.09  )
+X-CRM114-CacheID: sfid-20240924_082625_670131_11A13237 
+X-CRM114-Status: GOOD (  29.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,229 +99,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 57d76bc51fd80824bcc0c84a5b5ec944f1b51edd:
+On Fri, Aug 30, 2024 at 09:30:50PM -0700, Charlie Jenkins wrote:
+> When HAVE_SYSCALL_TABLE_SUPPORT is not defined, neither is
+> syscalltbl__id_at_idx(). However, this function is expected to be
+> defined when HAVE_BPF_SKEL is defined.
+> 
+> Return -1 from syscalltbl__id_at_idx() to match the other functions when
+> HAVE_SYSCALL_TABLE_SUPPORT is not defined.
+> 
+> Without this, compiling perf on riscv when libtraceevents, libelf, and
+> clang are available will cause the functions trying to call
+> syscalltbl__id_at_idx() to be compiled. This results in the following
+> error:
+> 
+> /usr/bin/ld: perf-in.o: in function `.L0 ':
+> builtin-trace.c:(.text+0x60b14): undefined reference to `syscalltbl__id_at_idx'
+> /usr/bin/ld: builtin-trace.c:(.text+0x60c6c): undefined reference to `syscalltbl__id_at_idx'
+> /usr/bin/ld: perf-in.o: in function `.L2564':
+> builtin-trace.c:(.text+0x60cb6): undefined reference to `syscalltbl__id_at_idx'
+> collect2: error: ld returned 1 exit status
+> make[2]: *** [Makefile.perf:793: perf] Error 1
+> make[1]: *** [Makefile.perf:290: sub-make] Error 2
+> make: *** [Makefile:70: all] Error 2
+> make: Leaving directory '/src/linux-6.11-rc5/tools/perf'
+> 
+> This patch resolves this issue for all architectures which do not define
+> HAVE_SYSCALL_TABLE_SUPPORT.
+> 
+> $ ./perf trace -e syscalls:sys_enter_mmap --max-events=1 ls
+> 0.000 ls/287 syscalls:sys_enter_mmap(__syscall_nr: 222, len: 9939, prot: READ, flags: PRIVATE, fd: 3)
+> 
+> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> Reported-by: David Abdurachmanov <davidlt@rivosinc.com>
+> Suggested-by: David Abdurachmanov <davidlt@rivosinc.com>
+> Fixes: 7a2fb5619cc1 ("perf trace: Fix iteration of syscall ids in syscalltbl->entries")
+> ---
+>  tools/perf/util/syscalltbl.c | 5 +++++
+>  1 file changed, 5 insertions(+)
+> 
+> diff --git a/tools/perf/util/syscalltbl.c b/tools/perf/util/syscalltbl.c
+> index 0dd26b991b3f..12654460428f 100644
+> --- a/tools/perf/util/syscalltbl.c
+> +++ b/tools/perf/util/syscalltbl.c
+> @@ -188,4 +188,9 @@ int syscalltbl__strglobmatch_first(struct syscalltbl *tbl, const char *syscall_g
+>  {
+>  	return syscalltbl__strglobmatch_next(tbl, syscall_glob, idx);
+>  }
+> +
+> +int syscalltbl__id_at_idx(struct syscalltbl *tbl __always_unused, int idx __always_unused)
+> +{
+> +	return -1;
+> +}
+>  #endif /* HAVE_SYSCALL_TABLE_SUPPORT */
+> 
+> ---
+> base-commit: 985bf40edf4343dcb04c33f58b40b4a85c1776d4
+> change-id: 20240830-perf_syscalltbl_fix-4f586221795e
+> -- 
+> - Charlie
+> 
 
-  riscv: change XIP's kernel_map.size to be size of the entire kernel (2024-08-14 13:12:33 -0700)
+Can this please be picked up? Compilation on riscv (along with any of
+the other architectures that don't have syscall table support) is
+broken. The long term solution is to add support for the syscall table
+on riscv. I will send out a patch for that, but in the meantime it would
+be great to have this in the tree.
 
-are available in the Git repository at:
+- Charlie
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.12-mw1
-
-for you to fetch changes up to b3f835cd7339919561866252a11831ead72e7073:
-
-  crash: Fix riscv64 crash memory reserve dead loop (2024-09-20 05:58:12 -0700)
-
-----------------------------------------------------------------
-RISC-V Patches for the 6.12 Merge Window, Part 1
-
-* Support for using Zkr to seed KASLR.
-* Support for IPI-triggered CPU backtracing.
-* Support for generic CPU vulnerabilities reporting to userspace.
-* A few cleanups for missing licenses.
-* The size limit on the XIP kernel has been removed.
-* Support for tracing userspace stacks.
-* Support for the Svvptc extension.
-* Various cleanups and fixes throughout the tree.
-
-----------------------------------------------------------------
-This is a bit small, but I'm not planning on taking anything else for this
-merge window -- we had a few breakages over the last release so having a small
-release probably isn't all that bad, and with all the conferences it's just a
-bad time to be trying to stuff things in late (though I tell myself that every
-cycle).
-
-There are two conflicts here.  The IRQ one seems pretty straight-forward, just
-two features colliding.  The testing one is a bit clunky, as I suppose I
-probably just shouldn't have picked up the 32-bit fix in the first place given
-it just conflicted and resulted in the same code.  Anyway, here's my conflict
-results:
-
-diff --cc arch/riscv/include/asm/irq.h
-index 8330d16b05b5,7e9a84a005ed..000000000000
---- a/arch/riscv/include/asm/irq.h
-+++ b/arch/riscv/include/asm/irq.h
-@@@ -12,11 -12,8 +12,13 @@@
-
-  #include <asm-generic/irq.h>
-
-+ #define INVALID_CONTEXT UINT_MAX
-+
- +#ifdef CONFIG_SMP
- +void arch_trigger_cpumask_backtrace(const cpumask_t *mask, int exclude_cpu);
- +#define arch_trigger_cpumask_backtrace arch_trigger_cpumask_backtrace
- +#endif
- +
-  void riscv_set_intc_hwnode_fn(struct fwnode_handle *(*fn)(void));
-
-  struct fwnode_handle *riscv_get_intc_hwnode(void);
-diff --cc tools/testing/selftests/riscv/mm/mmap_test.h
-index 1c3313c201d5,75918d15919f..000000000000
---- a/tools/testing/selftests/riscv/mm/mmap_test.h
-+++ b/tools/testing/selftests/riscv/mm/mmap_test.h
-
-
-----------------------------------------------------------------
-Alexandre Ghiti (4):
-      riscv: Add ISA extension parsing for Svvptc
-      dt-bindings: riscv: Add Svvptc ISA extension description
-      riscv: Stop emitting preventive sfence.vma for new vmalloc mappings
-      riscv: Stop emitting preventive sfence.vma for new userspace mappings with Svvptc
-
-Changbin Du (1):
-      riscv: vdso: do not strip debugging info for vdso.so.dbg
-
-Charlie Jenkins (6):
-      riscv: Add license to fence.h
-      riscv: Add license to vmalloc.h
-      riscv: Make riscv_isa_vendor_ext_andes array static
-      selftests: riscv: Allow mmap test to compile on 32-bit
-      tools: Add riscv barrier implementation
-      tools: Optimize ring buffer for riscv
-
-Geert Uytterhoeven (1):
-      riscv: defconfig: Disable RZ/Five peripheral support
-
-Haibo Xu (1):
-      ACPI: NUMA: initialize all values of acpi_early_node_map to NUMA_NO_NODE
-
-Hanjun Guo (1):
-      ACPI: RISCV: Make acpi_numa_get_nid() to be static
-
-Jesse Taube (4):
-      RISC-V: pi: Force hidden visibility for all symbol references
-      RISC-V: lib: Add pi aliases for string functions
-      RISC-V: pi: Add kernel/pi/pi.h
-      RISC-V: Use Zkr to seed KASLR base address
-
-Jinjie Ruan (7):
-      riscv: Enable generic CPU vulnerabilites support
-      riscv: Fix fp alignment bug in perf_callchain_user()
-      riscv: stacktrace: Add USER_STACKTRACE support
-      riscv: Remove unused _TIF_WORK_MASK
-      RISC-V: Implement kgdb_roundup_cpus() to enable future NMI Roundup
-      riscv: Use LIST_HEAD() to simplify code
-      crash: Fix riscv64 crash memory reserve dead loop
-
-Jisheng Zhang (4):
-      riscv: errata: sifive: Use SYM_*() assembly macros
-      riscv: select ARCH_USE_SYM_ANNOTATIONS
-      riscv: define ILLEGAL_POINTER_VALUE for 64bit
-      riscv: avoid Imbalance in RAS
-
-Mayuresh Chitale (1):
-      perf/riscv-sbi: Add platform specific firmware event handling
-
-Nam Cao (8):
-      riscv: cleanup XIP_FIXUP macro
-      riscv: don't export va_kernel_pa_offset in vmcoreinfo for XIP kernel
-      riscv: replace misleading va_kernel_pa_offset on XIP kernel
-      riscv: drop the use of XIP_OFFSET in XIP_FIXUP_OFFSET
-      riscv: drop the use of XIP_OFFSET in XIP_FIXUP_FLASH_OFFSET
-      riscv: drop the use of XIP_OFFSET in kernel_mapping_va_to_pa()
-      riscv: drop the use of XIP_OFFSET in create_kernel_page_table()
-      riscv: remove limit on the size of read-only section for XIP kernel
-
-Palmer Dabbelt (8):
-      Merge patch series "RISC-V: Parse DT for Zkr to seed KASLR"
-      Merge patch series "remove size limit on XIP kernel"
-      Merge patch series "riscv: stacktrace: Add USER_STACKTRACE support"
-      Merge patch series "riscv: select ARCH_USE_SYM_ANNOTATIONS"
-      Merge patch series "Svvptc extension to remove preventive sfence.vma"
-      Merge patch series "riscv: Improve KASAN coverage to fix unit tests"
-      RISC-V: Don't have MAX_PHYSMEM_BITS exceed phys_addr_t
-      Merge patch series "tools: Add barrier implementations for riscv"
-
-Ryo Takakura (1):
-      RISC-V: Enable IPI CPU Backtrace
-
-Samuel Holland (2):
-      riscv: Omit optimized string routines when using KASAN
-      riscv: Enable bitops instrumentation
-
-Steffen Persvold (1):
-      riscv: cacheinfo: Add back init_cache_level() function
-
-Stuart Menefy (1):
-      riscv: Remove redundant restriction on memory size
-
-Xiao Wang (1):
-      drivers/perf: riscv: Remove redundant macro check
-
-Ying Sun (1):
-      riscv/kexec_file: Fix relocation type R_RISCV_ADD16 and R_RISCV_SUB16 unknown
-
-Yunhui Cui (1):
-      riscv: Randomize lower bits of stack address
-
- .../devicetree/bindings/riscv/extensions.yaml      |   7 +
- arch/riscv/Kconfig                                 |   8 +
- arch/riscv/configs/defconfig                       |  12 +-
- arch/riscv/errata/sifive/errata_cip_453.S          |   8 +-
- arch/riscv/include/asm/acpi.h                      |   2 -
- arch/riscv/include/asm/bitops.h                    |  43 +++---
- arch/riscv/include/asm/cacheflush.h                |  18 ++-
- arch/riscv/include/asm/exec.h                      |   8 +
- arch/riscv/include/asm/fence.h                     |   1 +
- arch/riscv/include/asm/hwcap.h                     |   1 +
- arch/riscv/include/asm/irq.h                       |   5 +
- arch/riscv/include/asm/page.h                      |  29 +++-
- arch/riscv/include/asm/pgtable.h                   |  28 ++--
- arch/riscv/include/asm/sbi.h                       |   1 +
- arch/riscv/include/asm/set_memory.h                |   2 +-
- arch/riscv/include/asm/sparsemem.h                 |   2 +-
- arch/riscv/include/asm/string.h                    |   2 +
- arch/riscv/include/asm/thread_info.h               |  11 +-
- arch/riscv/include/asm/vmalloc.h                   |   1 +
- arch/riscv/include/asm/xip_fixup.h                 |  30 +++-
- arch/riscv/kernel/acpi_numa.c                      |   4 +-
- arch/riscv/kernel/asm-offsets.c                    |   7 +
- arch/riscv/kernel/cacheinfo.c                      |   5 +
- arch/riscv/kernel/cpufeature.c                     |   1 +
- arch/riscv/kernel/elf_kexec.c                      |   6 +
- arch/riscv/kernel/entry.S                          |  91 ++++++++++-
- arch/riscv/kernel/module.c                         |   4 +-
- arch/riscv/kernel/perf_callchain.c                 |  46 +-----
- arch/riscv/kernel/pi/Makefile                      |   4 +-
- arch/riscv/kernel/pi/archrandom_early.c            |  30 ++++
- arch/riscv/kernel/pi/cmdline_early.c               |  10 +-
- arch/riscv/kernel/pi/fdt_early.c                   | 167 ++++++++++++++++++++-
- arch/riscv/kernel/pi/pi.h                          |  20 +++
- arch/riscv/kernel/process.c                        |   9 ++
- arch/riscv/kernel/riscv_ksyms.c                    |   3 -
- arch/riscv/kernel/smp.c                            |  43 +++++-
- arch/riscv/kernel/stacktrace.c                     |  43 ++++++
- arch/riscv/kernel/vdso/Makefile                    |   2 +-
- arch/riscv/kernel/vendor_extensions/andes.c        |   2 +-
- arch/riscv/kernel/vmcore_info.c                    |   7 +
- arch/riscv/kernel/vmlinux-xip.lds.S                |   5 +-
- arch/riscv/lib/Makefile                            |   2 +
- arch/riscv/lib/memset.S                            |   2 +
- arch/riscv/lib/strcmp.S                            |   2 +
- arch/riscv/lib/strlen.S                            |   1 +
- arch/riscv/lib/strncmp.S                           |   2 +
- arch/riscv/mm/init.c                               |  28 ++--
- arch/riscv/mm/pgtable.c                            |  13 ++
- arch/riscv/purgatory/Makefile                      |   2 +
- drivers/perf/riscv_pmu.c                           |   2 -
- drivers/perf/riscv_pmu_sbi.c                       |  31 ++--
- kernel/crash_reserve.c                             |   3 +-
- tools/arch/riscv/include/asm/barrier.h             |  39 +++++
- tools/arch/riscv/include/asm/fence.h               |  13 ++
- tools/include/asm/barrier.h                        |   2 +
- tools/include/linux/ring_buffer.h                  |   2 +-
- tools/testing/selftests/riscv/mm/mmap_test.h       |   6 +-
- 57 files changed, 707 insertions(+), 171 deletions(-)
- create mode 100644 arch/riscv/include/asm/exec.h
- create mode 100644 arch/riscv/kernel/pi/archrandom_early.c
- create mode 100644 arch/riscv/kernel/pi/pi.h
- create mode 100644 tools/arch/riscv/include/asm/barrier.h
- create mode 100644 tools/arch/riscv/include/asm/fence.h
 
 _______________________________________________
 linux-riscv mailing list
