@@ -4,73 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55D2BCF9C6B
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Sep 2024 20:03:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A757CF9C69
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Sep 2024 21:01:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nYSufutl7PIkTrvPxVqVZ4SOpOTRc+mIbwcPJvF7WqE=; b=nft/2MjKIF2vfO
-	/jPSl1YeKCVfW/pIGLY8KJ6ZjoYFIsmnh30399eUdNz7GeownbpixrKo00DYlWi4YABinrX4FAAwk
-	EyTMQDe+SQNpTVwoSopU3jWY6xVxTgrb+vw/7m5SZKCwo6R7VOFIDmUoxgQZwrK/xkFCdnIALB83p
-	X3ZlSs4sqSACZmZUzUUcwMdqEfM0OIfjEQdYmnYLZMw1/EPbwM4F1/JR+5mvj4IIWzo+0rG8tn5GX
-	lweZOLOhpJqP2VMo1XTFfuiEMB7DlSdUbOiAjFxnM7pWlZbxRR23MzMALV8KEfcjaff5NryUcvFTk
-	b1b2dk/A1+HluQvI0kjA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=VOQ5I2VtVZfigomG1HdnLUoKVODEp1QJr5BlIsJC6/8=; b=bUngo5n4AXfq4M
+	wjE3f+B9ZWvwQEyDmXya1harrMXro+i/NAmN5Ik1nuG47FdAMUdnHmm2AWlpntrBH+6sBYeIsBEeM
+	CaLtUt0OdqnMZSnr0s6VM//MQ446tSgGZde8L4NtUaxUmXIPXIdo67pE41zSatILQgY3R5+cdY5ND
+	9uCFk4WViePwcIrKom6EhqVxwEh5LRyrm5YSywikavDZ1UgJHsy5im8z+FjBxaE7TaW8vT108fWcr
+	Ch8eBM/xsvCLItuuYhYCRIZ2Ks6WXamWCZbvjKxEULAlyiBz7NobPDsERDK4c+reAICTK1cXjISN3
+	4QCKw2GqWYxmJcDGSnDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1stBkf-00000003CXC-3Ehl;
-	Tue, 24 Sep 2024 20:03:14 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1stCf6-00000003InS-49oe;
+	Tue, 24 Sep 2024 21:01:32 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1stBkc-00000003CWb-22Yk
+	id 1stCf3-00000003Imc-31bC
 	for linux-riscv@lists.infradead.org;
-	Tue, 24 Sep 2024 20:03:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5B30AA4385F;
-	Tue, 24 Sep 2024 20:03:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E249DC4CEC5;
-	Tue, 24 Sep 2024 20:03:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1727208189;
-	bh=R0j0vt/5KEvJ6KPsF46C/J5isU7kapggx/Y2JT+dCQ4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=I40NqvGcHj+Ogr7wl2beQyU8lmJAtLl3TjQB1Pbxxmh8vWAMEGGMUtMyCLUV6Sajs
-	 ppX118DSIaKekLOuo7XKToArUJ9yetUjkOa2TlPz1v8Ga/7ptuH5b8NpvICWdMpV9f
-	 iB12NGrdzaeEVyoSH7if/RZs2qG+4wB/wsd19eDk9UcArtHQLEMQTxWkACSUuOsIOk
-	 pUcgXt8hyJh7girLA0b/Lz/V9bUMQ/zm5GFXJT1ZktcelkSoAy0NZsLKQRhXTiJCni
-	 McsvguBvOcwkZ63wf5P0bat4YeOq+L4quZX9GbrNCJ0wyvtcLJXFoiMiLyNQNTKNUa
-	 5PK/eJCBeL9iQ==
-Date: Tue, 24 Sep 2024 15:03:08 -0500
-From: Rob Herring <robh@kernel.org>
-To: Hal Feng <hal.feng@starfivetech.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Marc Kleine-Budde <mkl@pengutronix.de>,
-	Vincent Mailhol <mailhol.vincent@wanadoo.fr>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	William Qiu <william.qiu@starfivetech.com>,
-	devicetree@vger.kernel.org, linux-can@vger.kernel.org,
-	netdev@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/4] dt-bindings: can: Add CAST CAN Bus Controller
-Message-ID: <20240924200308.GA24484-robh@kernel.org>
-References: <20240922145151.130999-1-hal.feng@starfivetech.com>
- <20240922145151.130999-3-hal.feng@starfivetech.com>
+	Tue, 24 Sep 2024 21:01:31 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2068a7c9286so60102295ad.1
+        for <linux-riscv@lists.infradead.org>; Tue, 24 Sep 2024 14:01:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1727211688; x=1727816488; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=MsmwfGIxGDNHXFbLStjjpLFP1XK3C1AVuwxVxIWA5pc=;
+        b=hnusvEpN5gnKISyYHPAEknr0LkQ2pbD3A6iH7CjNd9dYGCl7cdyj6Up6BCYXgcJA6u
+         J1lpbbiVjcoK4zejZ665OhZzj7ePteH+9FgWQNcQgnnmEnRj8TrfyrhSwmfYLY0G2cYe
+         2QXNY74l2+REAFWLptMIzYAnxUNBtmOZDbyjGPV2PK23BMYtUfFKbwI/r91+cbKPQf/r
+         Gp9ushSJImUBiEzrKUjDaQsBv0wzMwVGRU+ai3vnw+Aavk3Sspjf0qKrbXtCovjjkd7S
+         j+ZL0bv2EzcaMxFOSfaoTqkqrbqU+qZIgafBkRu0beyr7W/qqLnwxIBYHj4Z1agrkz1e
+         ePPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1727211688; x=1727816488;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:sender:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MsmwfGIxGDNHXFbLStjjpLFP1XK3C1AVuwxVxIWA5pc=;
+        b=Dhghcm6et2UliW1cmAc1C0rBcszZmras5JbpsbhIS+KHLR/CYWEXCzYxsN1Okww2+8
+         tg+anyfo+cLFbKeo6LzAnegVLzEuJIZuo1euQYPTYp50HjS1n9lp/RRTX1LPjt8J0jB5
+         MQwj3LqZJYtncOTPKS+OBvvWsIxCxIP+jsnG7oPcN4dguZrT0D7LqfXnEG9SustVkjrQ
+         wvDR/JM9PWaVPnFE1/zN/FSID5k7mFVWz7NfPN3zZDBEzkGeWGWN+jW6HSdX57aq5jTr
+         zCP/HTpbmeUU7j83qRG91gFBxY+CnH9j0bUbE3ugb0sHSPxTDqSYWyGvDeax2rZ0hf4A
+         KF+w==
+X-Forwarded-Encrypted: i=1; AJvYcCXbleOmcbOSYGT/hpQtgoE6cJSJwEX/E6EKipoevtjF1y6ytzQt3vq+MBnmNMKg0BDFw2/iv9zbIAxccA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwdaTJxe0DNMYvFsR2vnoHr1YXvy9wfhOuuhZVdduINKsnFvny3
+	DPtYrTxKW0uRJ3XiXqQLFqGIB28rt4GkmiMqjTfCOmppKPNc5Kmt
+X-Google-Smtp-Source: AGHT+IHGAgzTdiIMarbX1EfDyWZlQDo2yhTL6zFfq5FVYuejP7LnAB0RB0L9FOX9jUSKIwY3LsbBrg==
+X-Received: by 2002:a17:902:db0b:b0:205:76d0:563b with SMTP id d9443c01a7336-20afc2d215bmr7394685ad.0.1727211687547;
+        Tue, 24 Sep 2024 14:01:27 -0700 (PDT)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-20af1724163sm13754305ad.66.2024.09.24.14.01.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Sep 2024 14:01:26 -0700 (PDT)
+From: Guenter Roeck <linux@roeck-us.net>
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	linux-mmc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Guenter Roeck <linux@roeck-us.net>,
+	Christoph Hellwig <hch@lst.de>,
+	Robin Murphy <robin.murphy@arm.com>
+Subject: [PATCH] mmc: core: Only set maximum DMA segment size if DMA is supported
+Date: Tue, 24 Sep 2024 14:01:23 -0700
+Message-ID: <20240924210123.2288529-1-linux@roeck-us.net>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240922145151.130999-3-hal.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240924_130310_679877_0468AFBA 
-X-CRM114-Status: GOOD (  18.82  )
+X-CRM114-CacheID: sfid-20240924_140129_786621_188DC4F2 
+X-CRM114-Status: GOOD (  10.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,97 +96,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 22, 2024 at 10:51:48PM +0800, Hal Feng wrote:
-> From: William Qiu <william.qiu@starfivetech.com>
-> 
-> Add bindings for CAST CAN Bus Controller.
-> 
-> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
-> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
-> ---
->  .../bindings/net/can/cast,can-ctrl.yaml       | 106 ++++++++++++++++++
->  1 file changed, 106 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/can/cast,can-ctrl.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/net/can/cast,can-ctrl.yaml b/Documentation/devicetree/bindings/net/can/cast,can-ctrl.yaml
-> new file mode 100644
-> index 000000000000..2870cff80164
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/net/can/cast,can-ctrl.yaml
-> @@ -0,0 +1,106 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/net/can/cast,can-ctrl.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: CAST CAN Bus Controller
-> +
-> +description:
-> +  This CAN Bus Controller, also called CAN-CTRL, implements a highly
-> +  featured and reliable CAN bus controller that performs serial
-> +  communication according to the CAN protocol.
-> +
-> +  The CAN-CTRL comes in three variants, they are CC, FD, and XL.
-> +  The CC variant supports only Classical CAN, the FD variant adds support
-> +  for CAN FD, and the XL variant supports the Classical CAN, CAN FD, and
-> +  CAN XL standards.
-> +
-> +maintainers:
-> +  - William Qiu <william.qiu@starfivetech.com>
-> +  - Hal Feng <hal.feng@starfivetech.com>
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - enum:
-> +        - starfive,jh7110-can
-> +      - const: cast,can-ctrl-fd-7x10N00S00
+Since upstream commit 334304ac2bac ("dma-mapping: don't return errors
+from dma_set_max_seg_size") calling dma_set_max_seg_size() on a device
+not supporting DMA results in a warning traceback. This is seen when
+booting the sifive_u machine from SD. The underlying SPI controller
+(sifive,spi0 compatible) explicitly sets dma_mask to NULL.
 
-What's the 7x10...? Perhaps some explanation on it.
+Avoid the backtrace by only calling dma_set_max_seg_size() if DMA is
+supported.
 
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    minItems: 3
-> +
-> +  clock-names:
-> +    items:
-> +      - const: apb
-> +      - const: timer
-> +      - const: core
-> +
-> +  resets:
-> +    minItems: 3
-> +
-> +  reset-names:
-> +    items:
-> +      - const: apb
-> +      - const: timer
-> +      - const: core
-> +
-> +  starfive,syscon:
-> +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> +    items:
-> +      - items:
-> +          - description: phandle to System Register Controller syscon node
-> +          - description: offset of SYS_SYSCONSAIF__SYSCFG register for CAN controller
-> +          - description: shift of SYS_SYSCONSAIF__SYSCFG register for CAN controller
-> +          - description: mask of SYS_SYSCONSAIF__SYSCFG register for CAN controller
-> +    description:
-> +      Should be four parameters, the phandle to System Register Controller
-> +      syscon node and the offset/shift/mask of SYS_SYSCONSAIF__SYSCFG register
-> +      for CAN controller.
+Cc: Christoph Hellwig <hch@lst.de>
+Cc: Robin Murphy <robin.murphy@arm.com>
+Cc: Ulf Hansson <ulf.hansson@linaro.org>
+Signed-off-by: Guenter Roeck <linux@roeck-us.net>
+---
+ drivers/mmc/core/queue.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-This just repeats what the schema says. More useful would be what you 
-need to access/control in this register.
-
-Rob
+diff --git a/drivers/mmc/core/queue.c b/drivers/mmc/core/queue.c
+index d0b3ca8a11f0..4d6844261912 100644
+--- a/drivers/mmc/core/queue.c
++++ b/drivers/mmc/core/queue.c
+@@ -388,7 +388,8 @@ static struct gendisk *mmc_alloc_disk(struct mmc_queue *mq,
+ 
+ 	blk_queue_rq_timeout(mq->queue, 60 * HZ);
+ 
+-	dma_set_max_seg_size(mmc_dev(host), queue_max_segment_size(mq->queue));
++	if (mmc_dev(host)->dma_parms)
++		dma_set_max_seg_size(mmc_dev(host), queue_max_segment_size(mq->queue));
+ 
+ 	INIT_WORK(&mq->recovery_work, mmc_mq_recovery_handler);
+ 	INIT_WORK(&mq->complete_work, mmc_blk_mq_complete_work);
+-- 
+2.45.2
 
 
 _______________________________________________
