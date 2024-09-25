@@ -4,41 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D21BECF9C71
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Sep 2024 05:32:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DA8BCF9C6C
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Sep 2024 05:32:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Subject:From:Mime-Version:
-	Date:Cc:To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Cc:Subject:Mime-Version
+	:From:To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=7Fku906Nxe1dM2V5FdqUnaAus1hT3qwY+8OLP/QIAnc=; b=cWikH/Ch9EIpDR
-	NqOnIABtm8S2d2SFih58gToC9XYITR7SF6blS43M0KWi21w3LwaSDq9J06eGbUkXUy1HkBFmkXZ27
-	Eu6oqX+fN4g4+e9Px8k00Xbc8Mf0fNmPYVdiBbSUsAKpYYIRWu/aMGNG25/GU4c40p27Y8lK1apPA
-	5KCjWEGPiUNSwppqirKjbMz3Gal9RZrnI6S+tOhmRq9QP1MuRSz/rbK8f1v2NvRJ4jXa5FpxehIIL
-	wCX7UmOOCgJIIq9YSM5mOwnfLQkQmq1FKezJ8bRfFipD9CEDNm2UemzixfcaKElowXANGaQgYB7kI
-	7huvXnB3ObjllHulD/9g==;
+	List-Owner; bh=W3tarJYNA+lT2UP7GBbtpQZ4IY02dUZ8u30POCbw6W8=; b=PZintYj7/cs4AA
+	Sb5ZAN8UNR9tJL4GLIdJfC7wxZbBXr1CFWfmPc6SZd8BG297LgPIXxxVY+RjvOebH5Bn9jl0g7qc9
+	kiZs9n6gPZxMPK9ny5pKVsmCdW6wC/wWORrJJf6nZ0CGjhUcJxUj8+Hosewo7vpW+UMbL1AQ4CLB/
+	dxGvoLWXMC9C0gF8AZWuqMoarIqXx7tRJ1uK+4w98s6CEKs2A9iua0v4Bf7k2TXUjddRIqIOD7vi5
+	mCQOM790jF2EIKvLcvKocrQC81v3qIfsK6D5cgCImmfSDmZYZGSnwhuLRvF0d/dwi9Vg5A5Jhfc+E
+	LcynWh1fYAVQqlDjwflQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1stKdj-000000043lH-36fF;
+	id 1stKdj-000000043l3-08nZ;
 	Wed, 25 Sep 2024 05:32:39 +0000
-Received: from va-1-20.ptr.blmpb.com ([209.127.230.20])
+Received: from va-2-33.ptr.blmpb.com ([209.127.231.33])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1stKd9-000000043cb-2LlI
+	id 1stKd6-000000043bu-17KD
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Sep 2024 05:32:05 +0000
+	Wed, 25 Sep 2024 05:32:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=deepcomputing-io.20200927.dkim.feishu.cn; t=1727242317;
+ s=s1; d=deepcomputing-io.20200927.dkim.feishu.cn; t=1727242314;
   h=from:subject:mime-version:from:date:message-id:subject:to:cc:
  reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=pGWCgDk61rwIBgwBo0KUX98obiQ99nTGhun7/GfXg38=;
- b=piCUif4NF9SJ+UBY6eg0wjhZXap4PtikstBTPmYfyjoK0YMUH4PzaL/amg/qUVC0/NbCR1
- yDsJzIG2NW84YdayC7WeuVepYqglyDyWzT9YhyYwfC/DBhh92MpH4K/78fd9pt4hbTe9Ow
- iU/trsrV5pLVcpgbEU77Ae0s4ambO8XwqqSpNUCEFEdoD5cqbd9WFNte7Ic3LVHYOd4qX3
- 4xMu1hcbixfR/NAhd40NcpdyBpLejLdzS41sRih2QmN5286NK3ImxLGTZJCefu1wz1knjb
- OAors1y5aSGkpu2QevLokLaNdDC1hSKElO6D/+UIbJVKgHxqN6GGG4wqB09gXg==
-X-Mailer: git-send-email 2.34.1
+ bh=iy42TWjLv/vDM34ep/68yh7Y4irPt0UekOnR/gtNfl0=;
+ b=E05DyR1RNb8queUCubKTEN3uMM6XfAn6VsNShwMqcLw1tMfezT7op6z/ZRV2LXHVI9vbm/
+ frqjCWzUyfnYBKV1HBKbFeHM5tEX7s3KOM0mRn9a0ostCmhQvxEWtC4lSHLOTAUQBqLRU3
+ ioSWiL9k04u/QS0q1o73LlqP0q6difjzDIDigvLRmjyTrkZjD3rNdRPd9iX1/wGvhnO6ZL
+ cXnNahRAz1Fkq+bcOSXLrO60oWTYznKr0v9mc6INcz/iiXMqVwXaJhj24HTCMFWo7ltJnf
+ IsGwS1Ezvg25SCGa/nlzhLJGNKH9KDT4Pam0dKRypvkeNl/dyYP5JN804hXdrQ==
 To: "Emil Renner Berthing" <kernel@esmil.dk>
+From: "Sandie Cao" <sandie.cao@deepcomputing.io>
+Mime-Version: 1.0
+X-Lms-Return-Path: <lba+266f3a049+97f8b2+lists.infradead.org+sandie.cao@deepcomputing.io>
+Subject: [PATCH v3 2/3] dt-bindings: riscv: starfive: add deepcomputing,fm7110
+X-Original-From: Sandie Cao <sandie.cao@deepcomputing.io>
+Received: from roma-MacBookPro.. ([61.141.249.39]) by smtp.feishu.cn with ESMTPS; Wed, 25 Sep 2024 13:31:52 +0800
 Cc: "Conor Dooley" <conor@kernel.org>, "Rob Herring" <robh@kernel.org>, 
 	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
 	"Paul Walmsley" <paul.walmsley@sifive.com>, 
@@ -53,17 +58,13 @@ Cc: "Conor Dooley" <conor@kernel.org>, "Rob Herring" <robh@kernel.org>,
 	<dhs@frame.work>, <ams@frame.work>, <gregkh@linuxfoundation.org>, 
 	<yuning.liang@deepcomputing.io>, <huiming.qiu@deepcomputing.io>, 
 	"Sandie Cao" <sandie.cao@deepcomputing.io>
-Date: Wed, 25 Sep 2024 13:31:23 +0800
-Mime-Version: 1.0
-From: "Sandie Cao" <sandie.cao@deepcomputing.io>
-X-Lms-Return-Path: <lba+266f3a04c+64084f+lists.infradead.org+sandie.cao@deepcomputing.io>
-Subject: [PATCH v3 3/3] riscv: dts: starfive: add framework dts
-Message-Id: <20240925053123.1364574-4-sandie.cao@deepcomputing.io>
-Received: from roma-MacBookPro.. ([61.141.249.39]) by smtp.feishu.cn with ESMTPS; Wed, 25 Sep 2024 13:31:55 +0800
-X-Original-From: Sandie Cao <sandie.cao@deepcomputing.io>
+Date: Wed, 25 Sep 2024 13:31:22 +0800
+Message-Id: <20240925053123.1364574-3-sandie.cao@deepcomputing.io>
+X-Mailer: git-send-email 2.34.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240924_223203_791577_48C8BF64 
-X-CRM114-Status: GOOD (  10.44  )
+X-CRM114-CacheID: sfid-20240924_223200_579720_F7388E6F 
+X-CRM114-Status: UNSURE (   6.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,8 +81,7 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add framework dts to support RISC-V Framework Laptop 13 Mainboard.
-
+Add deepcomputing,fm7110 into compatible list.
 
 DeepComputing is creating a RISC-V Framework Laptop 13 Mainboard 
 powered by a StarFive JH7110 processor.This is a developer-focused 
@@ -106,63 +106,21 @@ The board features:
 
 Signed-off-by: Sandie Cao <sandie.cao@deepcomputing.io>
 ---
- arch/riscv/boot/dts/starfive/Makefile         |  1 +
- .../boot/dts/starfive/jh7110-framework.dts    | 34 +++++++++++++++++++
- 2 files changed, 35 insertions(+)
- create mode 100644 arch/riscv/boot/dts/starfive/jh7110-framework.dts
+ Documentation/devicetree/bindings/riscv/starfive.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/starfive/Makefile
-index 7a163a7d6ba3..3746f7122834 100644
---- a/arch/riscv/boot/dts/starfive/Makefile
-+++ b/arch/riscv/boot/dts/starfive/Makefile
-@@ -8,6 +8,7 @@ DTC_FLAGS_jh7110-starfive-visionfive-2-v1.3b := -@
- dtb-$(CONFIG_ARCH_STARFIVE) += jh7100-beaglev-starlight.dtb
- dtb-$(CONFIG_ARCH_STARFIVE) += jh7100-starfive-visionfive-v1.dtb
+diff --git a/Documentation/devicetree/bindings/riscv/starfive.yaml b/Documentation/devicetree/bindings/riscv/starfive.yaml
+index 4d5c857b3cac..778617e1dc43 100644
+--- a/Documentation/devicetree/bindings/riscv/starfive.yaml
++++ b/Documentation/devicetree/bindings/riscv/starfive.yaml
+@@ -26,6 +26,7 @@ properties:
  
-+dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-framework.dtb
- dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-milkv-mars.dtb
- dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-pine64-star64.dtb
- dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.2a.dtb
-diff --git a/arch/riscv/boot/dts/starfive/jh7110-framework.dts b/arch/riscv/boot/dts/starfive/jh7110-framework.dts
-new file mode 100644
-index 000000000000..ff12c24ebab3
---- /dev/null
-+++ b/arch/riscv/boot/dts/starfive/jh7110-framework.dts
-@@ -0,0 +1,34 @@
-+// SPDX-License-Identifier: GPL-2.0 OR MIT
-+/*
-+ * Copyright (C) 2022 StarFive Technology Co., Ltd.
-+ * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
-+ */
-+
-+/dts-v1/;
-+#include "jh7110-common.dtsi"
-+
-+/ {
-+	model = "Framework FRANME0000";
-+	compatible = "deepcomputing,fm7110", "starfive,jh7110";
-+};
-+
-+&gmac0 {
-+	status = "disabled";
-+};
-+
-+&gmac1 {
-+	status = "disabled";
-+};
-+
-+&usb0 {
-+	dr_mode = "host";
-+	status = "okay";
-+};
-+
-+&pwmdac {
-+	status = "disabled";
-+};
-+
-+&pcie0 {
-+	status = "disabled";
-+};
+       - items:
+           - enum:
++              - deepcomputing,fm7110
+               - milkv,mars
+               - pine64,star64
+               - starfive,visionfive-2-v1.2a
 -- 
 2.34.1
 
