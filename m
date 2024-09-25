@@ -4,111 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 112E3CF9C6F
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Sep 2024 14:10:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1B6BCF9C6B
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Sep 2024 14:26:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HKldkyXLDB9sw0sQxcDTxWDLGsbNAraNucKukRtxrk0=; b=a4bRdW1hV1UNdM
-	C3JUmx1wbT2vFi2FKOuXNWJVbrejEXtOjuf2dvWr7dA3W5KAZr+kU95tK1394Ot9L4FTdRdX7R0qz
-	ZQ2OSWknDDrq/ED0H7Dmz6PKTGpaUqgqvkxg5tlGjoYiYzJLndUFJNkmeE8Lmf2NOPimyCVbwEj6i
-	lvpSmKI/Tm6naAuSylwop7GgqGm7lmE7xL/deebj8BODMobaiKNN0RIDTM1Sx1cUBUOI/0O3/VM+0
-	wYBXsLUpbIjqGv6d7PJOoTX9Q2beonP96125NwQ1KRMjNyRDtBTNr6EXlQW9AjJkurBbtBT/8ZeMb
-	rmB+3ZWzUQFM9fYM3v0g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Pu+IZLm/uTD5bDoyOTkIFftoJM2kYrwWz/veLKu9fyQ=; b=X2eo3KO0Bvyq2j
+	hM4bQ+Tyb4uKDWcaZISBRe0UobU8nErffunIilF7LyhXkzgFBFpqLK8KQCT4th1H78f++qO9wKWgq
+	JbfdiWG45Sz7A06/FYPgxkyeK6qExhbFLg8rljEwc2ZWnXjGGteSZ4EtJVdgUT+XZ2VSg85kO4Gqf
+	A7iBhPebzRUKTkpgz6Ss5brXu7PeL0k0jr3/ZmgFEtdNwAHaWZiqXS5OV35+nCDZA2fei89gmT5Sd
+	aLo5ZE2MIj33OMX7KaG4SUIoR5w7FVIQRPONYr6tCQSTrt+z+nBhIyEaO88JNhUObGeade/XutzFp
+	qX4R+hq0f5dJyGrNIwHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1stSii-00000005Y9v-0WMN;
-	Wed, 25 Sep 2024 14:10:20 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1stSyP-00000005cZG-3Ybu;
+	Wed, 25 Sep 2024 14:26:33 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1stSia-00000005Y3j-17iS
+	id 1stSy4-00000005cRU-1WEI
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Sep 2024 14:10:17 +0000
-Received: from hawking.nue2.suse.org (unknown [10.168.4.11])
-	by smtp-out2.suse.de (Postfix) with ESMTP id 057681FD56;
-	Wed, 25 Sep 2024 14:10:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1727273409; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MQXEWldAB6xaGZH6C2X1lgYW1//ghAx2k+LKF41iwao=;
-	b=vbzz3VYhrbDtytL1wqCyg0vtAyAd2YeMTT762AnBwGngo1nKeskqfyEGqSPvzOwMCyxave
-	uxXbEqY5RnR/MkA8ILTwNTxd9/JI/z3/EzLGFwsbR15Mo7s4hQrtyaTygwPd6OdmCZE9at
-	zBWtnSUxSCbvTpD59wuNDqbHSQuzt78=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1727273409;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MQXEWldAB6xaGZH6C2X1lgYW1//ghAx2k+LKF41iwao=;
-	b=VLTgCShXNnNi+/2XV9kM0DA0tXN4A2hL5ic2JLqdf8lAITaNWcoMMcM1v9oAw8ulzz1TC4
-	2Rkv3RZQ8FIuvJAQ==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1727273409; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MQXEWldAB6xaGZH6C2X1lgYW1//ghAx2k+LKF41iwao=;
-	b=vbzz3VYhrbDtytL1wqCyg0vtAyAd2YeMTT762AnBwGngo1nKeskqfyEGqSPvzOwMCyxave
-	uxXbEqY5RnR/MkA8ILTwNTxd9/JI/z3/EzLGFwsbR15Mo7s4hQrtyaTygwPd6OdmCZE9at
-	zBWtnSUxSCbvTpD59wuNDqbHSQuzt78=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1727273409;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MQXEWldAB6xaGZH6C2X1lgYW1//ghAx2k+LKF41iwao=;
-	b=VLTgCShXNnNi+/2XV9kM0DA0tXN4A2hL5ic2JLqdf8lAITaNWcoMMcM1v9oAw8ulzz1TC4
-	2Rkv3RZQ8FIuvJAQ==
-Received: by hawking.nue2.suse.org (Postfix, from userid 17005)
-	id 905914A04E6; Wed, 25 Sep 2024 16:10:08 +0200 (CEST)
-From: Andreas Schwab <schwab@suse.de>
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: Xu Lu <luxu.kernel@bytedance.com>,  paul.walmsley@sifive.com,
-  palmer@dabbelt.com,  aou@eecs.berkeley.edu,  andy.chiu@sifive.com,
-  guoren@kernel.org,  christoph.muellner@vrull.eu,
-  linux-riscv@lists.infradead.org,  linux-kernel@vger.kernel.org,
-  lihangjing@bytedance.com,  dengliang.1214@bytedance.com,
-  xieyongji@bytedance.com,  chaiwen.cc@bytedance.com
-Subject: Re: [PATCH v3 1/2] riscv: process: Introduce idle thread using
- Zawrs extension
-In-Reply-To: <20240925-2acd8d9743cf40b999172b40@orel> (Andrew Jones's message
-	of "Wed, 25 Sep 2024 15:54:28 +0200")
-References: <20240925131547.42396-1-luxu.kernel@bytedance.com>
-	<20240925131547.42396-2-luxu.kernel@bytedance.com>
-	<20240925-2acd8d9743cf40b999172b40@orel>
-X-Yow: On the road, ZIPPY is a pinhead without a purpose, but never
- without a POINT.
-Date: Wed, 25 Sep 2024 16:10:08 +0200
-Message-ID: <mvmbk0b7rjz.fsf@suse.de>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	Wed, 25 Sep 2024 14:26:15 +0000
+From: Nam Cao <namcao@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1727274368;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=py9zJhLKb6mfsbhyVeGc9zy4/v0ahaxaP57U7i4tzLk=;
+	b=nWxD/yez0EBhgfgMJTePjaiFjF/SvuK6EDSugtPEnzo4ubEyw2uGIjjO6h5s4ZclQdvB9e
+	WovUiQOlC1B2tDcoyRr0SK9tqRAhR/jv/xZNvnye2CQVTqJXGPYM4wzz4U7Y7J3+7F+z0y
+	oYl1GN53GRmdVsr4+jqFMULsSfzibb+E90RGeyR/1HHna5144soGImnlNQMrEfayUc0t4l
+	dUxmNfu2sxAkNKBIJvMm+6ljf2irnFU8d4L6R82Iv7JrjdVFoZmTZcMIQhgqxuNXRCDsGa
+	4vqx/Q3BlNSNRygFwsNK2WXPXEdrrxaCXnQ0Jor4mKRAnkX9NMpY0o09bqPuzg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1727274368;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=py9zJhLKb6mfsbhyVeGc9zy4/v0ahaxaP57U7i4tzLk=;
+	b=DmMdUp7g3qZJeIzI+T2Jst17gcvXwcBOpoG9vWUjMH0+Q27U0V/M2dMRj+G5yWmknGViGC
+	lbncjjJTZpWIAFDg==
+To: Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	Evan Green <evan@rivosinc.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	linux-doc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Nam Cao <namcao@linutronix.de>
+Subject: [PATCH] Documentation: riscv: Fix typo MIMPLID -> MIMPID
+Date: Wed, 25 Sep 2024 16:25:32 +0200
+Message-Id: <20240925142532.31808-1-namcao@linutronix.de>
 MIME-Version: 1.0
-X-Spamd-Result: default: False [-4.20 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-0.998];
-	RCVD_NO_TLS_LAST(0.10)[];
-	MIME_GOOD(-0.10)[text/plain];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[14];
-	MIME_TRACE(0.00)[0:+];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_COUNT_ONE(0.00)[1];
-	MID_RHS_MATCH_FROM(0.00)[];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	ARC_NA(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	R_RATELIMIT(0.00)[from(RLajr16mudzow8bnf6sy)];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,suse.de:email]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240925_071012_510732_30039FA2 
-X-CRM114-Status: GOOD (  10.02  )
+X-CRM114-CacheID: sfid-20240925_072612_561756_C29E13E5 
+X-CRM114-Status: UNSURE (   6.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,32 +83,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sep 25 2024, Andrew Jones wrote:
+The macro that is really defined is RISCV_HWPROBE_KEY_MIMPID, not
+RISCV_HWPROBE_KEY_MIMPLID (difference is the 'L').
 
-> On Wed, Sep 25, 2024 at 09:15:46PM GMT, Xu Lu wrote:
->> @@ -148,6 +149,21 @@ static inline void wait_for_interrupt(void)
->>  	__asm__ __volatile__ ("wfi");
->>  }
->>  
->> +static inline void wrs_nto(unsigned long *addr)
->> +{
->> +	int val;
->> +
->> +	__asm__ __volatile__(
->> +#ifdef CONFIG_64BIT
->> +			"lr.d %[p], %[v]\n\t"
->> +#else
->> +			"lr.w %[p], %[v]\n\t"
->> +#endif
->
-> val is always 32-bit since it's an int. We should always use lr.w.
+Also, the riscv privileged specification names the register "mimpid", not
+"mimplid".
 
-Shouldn't val be unsigned long like the pointer that is being read?
+Correct these typos.
 
+Signed-off-by: Nam Cao <namcao@linutronix.de>
+---
+ask me how I found out..
+
+ Documentation/arch/riscv/hwprobe.rst | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
+index 85b709257918..fb0affa61eb9 100644
+--- a/Documentation/arch/riscv/hwprobe.rst
++++ b/Documentation/arch/riscv/hwprobe.rst
+@@ -51,7 +51,7 @@ The following keys are defined:
+ * :c:macro:`RISCV_HWPROBE_KEY_MARCHID`: Contains the value of ``marchid``, as
+   defined by the RISC-V privileged architecture specification.
+ 
+-* :c:macro:`RISCV_HWPROBE_KEY_MIMPLID`: Contains the value of ``mimplid``, as
++* :c:macro:`RISCV_HWPROBE_KEY_MIMPID`: Contains the value of ``mimpid``, as
+   defined by the RISC-V privileged architecture specification.
+ 
+ * :c:macro:`RISCV_HWPROBE_KEY_BASE_BEHAVIOR`: A bitmask containing the base
 -- 
-Andreas Schwab, SUSE Labs, schwab@suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
+2.39.2
+
 
 _______________________________________________
 linux-riscv mailing list
