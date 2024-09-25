@@ -4,113 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5822C369A8
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Sep 2024 07:47:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2656BC369AA
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Sep 2024 08:09:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LGFmmb/4dzuf7HrMWjSrOLSGSSDy5EqO1MyQRmDMMVU=; b=BPiRAshGRfcYxg
-	JM2nxexGnhtticck8K9yu0yDphp9aHBZe0dAbEAdoXAYlomLuP2/zs2+ZHDfe8RrLMIek2IKqCYun
-	pmy0iQd7zmbQa/+HLgjU3PPN1Qm+a98aKQXnBVfz6nY9ci4+3yFeMWCZHEkJ1qihdNAMV62+uNXzE
-	9vtC5JYuXdgsoAhlRPE9sRiwno52vqDJJJvsbJSJqbiabYj7tPpbE8B8TxXOGXA9aZ6sRd1Idm6P1
-	eZ3CFk6iKkIrh1qzdk/HUypExLppqN+xN9u2TEbPzYg94VbSszMB+m0WoH82YEur0TNcsQK/nJBSn
-	0et7ryr19cUEHQ489xgQ==;
+	List-Owner; bh=eRA9iVqVg+Egk0LuDOMXEP2KntvSfpXAp4mdvZJRAxk=; b=D3odDgM5PFn29r
+	zW0tSG3S7mv1vTSwwNn1joIy6WQAWpS0W3ZEAQZ/cxqEHBg3rNK8d7VmcChYS5jIKDQsllfF129gl
+	ejGsNauvWNhuU95ovzZN5SxdHwMrsFOZxsawNG4YYwfUChi5a8diEkXMx2waNWfcSRxQh/HUY+C0V
+	T3V4WxFxuvTRA2LOYM49cgnu+0GnPxS14vKniYR5+5GjM8QbOcypqP2vV+hoQO/zUibSfoJhHWh7g
+	+cQntCv0A17S8D9ADFSXuDlNCQ9efASypv7qRk6CkVA2m3ZNgyP1qNWS/MPyeRTba51fltBVGDNNC
+	RJZ4/qWz51tarKMfYnpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1stMke-00000004NrT-0hAA;
-	Wed, 25 Sep 2024 07:47:56 +0000
+	id 1stN5h-00000004SqF-0X82;
+	Wed, 25 Sep 2024 08:09:41 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1stMVI-00000004LDl-1RKj
+	id 1stN46-00000004SZr-3Iqe
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Sep 2024 07:32:06 +0000
+	Wed, 25 Sep 2024 08:08:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 05CB1A43AB7;
-	Wed, 25 Sep 2024 07:31:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D10CDC4CEC3;
-	Wed, 25 Sep 2024 07:31:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1727249522;
-	bh=Pa/eKunPXqa7ua1z3jU4AbFzjwA+ncdvQpHv+9FTO1o=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=OqA/bsYjgtqEQ+fGJ3zcQXayTcRgpvEFXSNJGG9UkbFyCK0YGvuqjmgYxtx/pGoHK
-	 0QlMHGJrfjwskZGpnfy6F53qQqFNag/IzKuIBRcS2MLtRKF7RAf9uRXyjSo6dQmDJJ
-	 I/MTIYuKHiop5tRnSr2SPj5ro38ES+41IKPenTIMmKaol7j6m9rOfpKpVjlHdhRHGb
-	 EiYYWo+ArBw7yr3SEouODfVG9rnO4k30UJWREJOwO8GvERJ+LH/27fQ3+zdSaHEoXM
-	 LyPD58yjzmlwSA4DG2DGrD+4c+4E2/dtF/S24p3bLRZN4Ax3X/DYo12ejFblfJf3UI
-	 yirTYSIaUtDng==
-Message-ID: <9da1c4c5-8ed7-4dfd-98f8-54616c8576d7@kernel.org>
-Date: Wed, 25 Sep 2024 09:31:53 +0200
+	by nyc.source.kernel.org (Postfix) with ESMTP id B59E6A43C65;
+	Wed, 25 Sep 2024 08:07:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63529C4CEC3;
+	Wed, 25 Sep 2024 08:08:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1727251681;
+	bh=lTFOVzuAlya0UbOyBgHH6STpD6xx219ysmuap5hgg10=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=HE9835vOVFjuYgmNZaecgjKRTThlBL1JXzrDbLYqhVKaP5exW3JMNlq6ZGYUIbs98
+	 A7xvKUj7DqT7euUp/pAsPtRhMSqYiZm5ZMUxMDA45/eVa9BkFHMffcRTPQE1CYjDqf
+	 tNi+ktGqGmZtqYBoryPZcZXf1DbQGV5K+6kQR16s=
+Date: Wed, 25 Sep 2024 10:07:57 +0200
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Michal Simek <michal.simek@amd.com>
+Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, mka@chromium.org,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	wentong.wu@intel.com, oneukum@suse.com,
+	javier.carrasco@wolfvision.net, matthias@kaehlcke.net,
+	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, git@amd.com
+Subject: Re: [PATCH] usb: misc: onboard_usb_dev: introduce new config symbol
+ for usb5744 SMBus support
+Message-ID: <2024092553-conclude-rebuild-5541@gregkh>
+References: <1727187551-3772897-1-git-send-email-radhey.shyam.pandey@amd.com>
+ <2024092551-fiddle-flatterer-e643@gregkh>
+ <4da1353f-1209-43ba-930e-7b4f4a0cb2eb@amd.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/3] Add Framework FRANME0000 dts
-To: Sandie Cao <sandie.cao@deepcomputing.io>,
- Emil Renner Berthing <kernel@esmil.dk>
-Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Heiko Stuebner <heiko.stuebner@cherry.de>,
- Neil Armstrong <neil.armstrong@linaro.org>, rafal@milecki.pl,
- Linus Walleij <linus.walleij@linaro.org>,
- Michael Zhu <michael.zhu@starfivetech.com>,
- Drew Fustini <drew@beagleboard.org>, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, dhs@frame.work,
- ams@frame.work, gregkh@linuxfoundation.org, yuning.liang@deepcomputing.io,
- huiming.qiu@deepcomputing.io
-References: <20240925053123.1364574-1-sandie.cao@deepcomputing.io>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20240925053123.1364574-1-sandie.cao@deepcomputing.io>
+Content-Disposition: inline
+In-Reply-To: <4da1353f-1209-43ba-930e-7b4f4a0cb2eb@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240925_003204_551329_322DE073 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20240925_010803_297871_E5DC0F74 
+X-CRM114-Status: GOOD (  27.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,37 +76,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 25/09/2024 07:31, Sandie Cao wrote:
-> DeepComputing is creating a RISC-V Framework Laptop 13 Mainboard 
-> powered by a StarFive JH7110 processor.This is a developer-focused 
-> product, aimed at making tinkering with RISC-V more accessible.
-> The Mainboard is under development and we'll share more on functionality, 
-> compatibility, and availability as the program progresses.
+On Wed, Sep 25, 2024 at 08:59:00AM +0200, Michal Simek wrote:
 > 
-> Framework Model: Framework FRANME0000
-> DeepComputing Model: DeepComputing fm7110
 > 
-> V1:
-> - Add framework dts and config.
+> On 9/25/24 08:33, Greg KH wrote:
+> > On Tue, Sep 24, 2024 at 07:49:11PM +0530, Radhey Shyam Pandey wrote:
+> > > Introduce new kernel config symbol for Microchip usb5744 SMBus programming
+> > > support. Since usb5744 i2c initialization routine uses i2c SMBus APIs these
+> > > APIs should only be invoked when kernel has I2C support. This new kernel
+> > > config describes the dependency on I2C kernel support and fix the below
+> > > build issues when USB_ONBOARD_DEV=y and CONFIG_I2C=m.
+> > > 
+> > > riscv64-linux-ld: drivers/usb/misc/onboard_usb_dev.o:
+> > > undefined reference to `i2c_find_device_by_fwnode'
+> > > drivers/usb/misc/onboard_usb_dev.c:408:(.text+0xb24): undefined
+> > > reference to `i2c_smbus_write_block_data'
+> > > <snip>
+> > > 
+> > > Parsing of the i2c-bus bus handle is not put under usb5744 kernel config
+> > > check as the intention is to report an error when DT is configured for
+> > > usb5744 SMBus support and kernel has USB_ONBOARD_DEV_USB5744 disabled.
+> > > 
+> > > Fixes: 6782311d04df ("usb: misc: onboard_usb_dev: add Microchip usb5744 SMBus programming support")
+> > > Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+> > > Suggested-by: Matthias Kaehlcke <matthias@kaehlcke.net>
+> > > Reported-by: kernel test robot <lkp@intel.com>
+> > > Closes: https://lore.kernel.org/oe-kbuild-all/202409140539.3Axwv38m-lkp@intel.com/
+> > > ---
+> > >   drivers/usb/misc/Kconfig           | 11 +++++++++++
+> > >   drivers/usb/misc/onboard_usb_dev.c |  6 ++++--
+> > >   2 files changed, 15 insertions(+), 2 deletions(-)
+> > > 
+> > > diff --git a/drivers/usb/misc/Kconfig b/drivers/usb/misc/Kconfig
+> > > index 50b86d531701..29976a93f122 100644
+> > > --- a/drivers/usb/misc/Kconfig
+> > > +++ b/drivers/usb/misc/Kconfig
+> > > @@ -331,3 +331,14 @@ config USB_ONBOARD_DEV
+> > >   	  this config will enable the driver and it will automatically
+> > >   	  match the state of the USB subsystem. If this driver is a
+> > >   	  module it will be called onboard_usb_dev.
+> > > +
+> > > +config USB_ONBOARD_DEV_USB5744
+> > > +	bool "Onboard USB Microchip usb5744 hub with SMBus support"
+> > > +	depends on (USB_ONBOARD_DEV && I2C=y) || (USB_ONBOARD_DEV=m && I2C=m)
+> > > +	default y
+> > 
+> > "default y" is if you can not boot without this option enabled for all
+> > Linux systems.  I doubt that is the case here :(
+> 
+> Intention is to have it enabled when USB_ONBOARD_DEV is enabled with all
+> other conditions. In our case where our HW guys started to use this usb hub
+> with usb-sd convertor where rootfs is on it. Without usb hub initialization
+> via i2c we are not able to boot our system.
 
-You got two times the same feedback - you send patches incorrectly with
-broken threading. Two times you ignored it.
+That's fine, so say so in the Kconfig text and your depends line should
+be fine for that to be correct.  But don't do "default y" as it is not
+normal for drivers.
 
-This is the third time.
+thanks,
 
-Making mistake is fine, we all make. Making same mistake twice is wrong.
-Means you do not learn.
-
-Making same mistake three times, is wasting my time.
-
-NAK.
-
-Start using 'b4' tool if you do not understand how to use 'git
-format-patch'.
-
-Best regards,
-Krzysztof
-
+greg k-h
 
 _______________________________________________
 linux-riscv mailing list
