@@ -4,117 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5172C369D0
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Sep 2024 11:26:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94B37CD5BDF
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Sep 2024 13:17:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Jb/Mpp3IZuf9RUC/G1WGP0N5ZBjo4Cie/FOmlKYqwbY=; b=A0cjjvDi5qLa+i
-	9JNG7H2QTuEXfU7IyF02ImFGISygTgBtuGJK+I5m1wKSxtgMNmvJd5idN9wRXiF5TRoNujpIZrV5s
-	HEhrvN55b25o9zAl0iT06yeKpnUQCueKKwny3wraIqX4aeBSOatNlNGyuO89lXzXZ87HV+vs+IXVx
-	D1W70RtmRlCiFOlPopelihjUtaEXJEPaHyeLoq51WQkwivORgZXBteNr2/Qd7L9av2M3+B1vO6Jtp
-	EVV7FnYJdRLxkKLkpcWBuov3+zRBQZDLoEm3BcNzXQsiswvabwmW5ymLTEa6PLKcXk63uC3CNnQkp
-	qS/+o6ln3aW2OnaUpJPw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=hFChLq/xtjZxHwLfPw9R0wzsbFMiMFm4Ep++5URKddc=; b=Ru3hr5jqjaAcJs
+	ERtKQRIsuy483SHu49rDwHrh7or7qBNp8ihhl9yUTOl5obe/pGOFTCb/hXRYNBF0qfvEIbU0ymqrf
+	fb5kaJftZ3qVBsraBlrASFoYpe7vIksmqrnVm7z5kIJ6YWBzIMr0cV24uuJmBPbHx8UvT0wEVg2WT
+	IIAQLTgm3aSYxme1wr2hZSYcPErBSskHE30yWs8OmtmFVuCRmqUeNdXk2L6oApxdSVgu+2vgDu3lB
+	xCcKsXJxGWIp6ikSbfYDVZkT3rFELD5SpTxMrPwzyFqFY0NI1U7nuQaGZFKcDZpn1jVFM631nLRAO
+	/r/8dKrCuGIwSBxsH9yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1stQ9Z-00000004s8l-3KY3;
-	Wed, 25 Sep 2024 11:25:53 +0000
-Received: from mail-sh0chn02on20709.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::709] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	id 1stRt5-00000005KNv-3ulZ;
+	Wed, 25 Sep 2024 13:16:59 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1stQ9V-00000004s6d-1fRw
+	id 1stRsG-00000005KB3-0tVr
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Sep 2024 11:25:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=KoEHAaCwMdw6b3+n1ACy2R2O5uz9M88/PyaZO+xzl0WSLQQwWR57B5GFevRnoS3C2vvubM0RaCOZg4AYjJOAb+dQOckjidJb/JJatJo2guMpPk6PScenooIK21LAfRZ5ThksGNzWh4KY8z4Ak3Lwd38uo7WqmI9Jp66UnJVncV86iGd/X4Kz6CRYbBzN6HK/doidn9X/BeWeH+Hi4uoQuioGZbFlF56atZaRgI8gHeq/c78WEeRLIntV9ngfVjd/A21rKSBDkDuGq7iokiZUYtKsl9lQZ9bJqIROXtEBlAI+DM67JgaSYOrLB2p1Pykt120RDOWUisFvzqKMOuOnug==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/+Ggpk+s6wFbqIzpTFxqhgIaOAPbPUq3GwvcGUvb+2A=;
- b=oC7BdLAuBQc+5I0ZRuyUYtNrM9o6nhOa8eYbrHq+s8lN8mZT291Lax+pam59DLLi2hIHUzxOiHyY/n2fmXVJ/58GhZsxqTDBhN1Mi174yoed9wysEpzTZqleT6696hL3JDJ3JBp0Abl81O6v2MIyFXxydLS3qe1TuL5eTid+WhcL0o6Y0ePjDJcHsWcSutH/29WfWPatouCygWZsaOw+mr7dMgVXbFE0hx9E6y/xzojHwMDnsXChxUHFP31Cs5wCGiCChFXdk3DbOGu2zdExTzV3GJbQ9RiILf32Pafl8WW2R8CzCSwpv8ViXFzDpJKLpYLVrhNkB+K8vzu6X8QKZQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-Received: from ZQ0PR01MB1302.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:1b::9) by ZQ0PR01MB1320.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:19::11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7962.31; Wed, 25 Sep
- 2024 11:25:25 +0000
-Received: from ZQ0PR01MB1302.CHNPR01.prod.partner.outlook.cn
- ([fe80::64c5:50d8:4f2c:59aa]) by
- ZQ0PR01MB1302.CHNPR01.prod.partner.outlook.cn ([fe80::64c5:50d8:4f2c:59aa%5])
- with mapi id 15.20.7962.029; Wed, 25 Sep 2024 11:25:25 +0000
-From: Changhuang Liang <changhuang.liang@starfivetech.com>
-To: Emil Renner Berthing <kernel@esmil.dk>,
-	Hal Feng <hal.feng@starfivetech.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Changhuang Liang <changhuang.liang@starfivetech.com>,
+	Wed, 25 Sep 2024 13:16:11 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-2da4e84c198so4704246a91.0
+        for <linux-riscv@lists.infradead.org>; Wed, 25 Sep 2024 06:16:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1727270167; x=1727874967; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=15RDYprpYdVhDy/xasnvQ0QTcvqD5okomEeH5wWj5p8=;
+        b=k/tYt6LTKdhnM85VefZNj30D0+45nprCLfmThuMfE/tOIrXSgdjVBtPqVqCRLtsnpF
+         npnUVNPSzjEsxoKiDpRMef1UE9nyBgJd7CCEWyTHLeg71mUexvqkZN+Y3hvNM587KoX+
+         hstyMsEXlph1n9BniSddC2rzCxBRf1w08/obpQqfmR/gJ8omLwDjM12rBY62Vi1a0QDG
+         tqvbU3K+5AMAyf31hUZ04aCzldcfgCbAq6cWm+EQxeyrxFCqiTy3N9ifveBtw1pqnxCO
+         iwnVrVOMORUSkk2J5XgMSSUwfJofMbIKjxsPa0ijOmicfXUCC/CHwHM4dgW9tktfP7da
+         QcIw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1727270167; x=1727874967;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=15RDYprpYdVhDy/xasnvQ0QTcvqD5okomEeH5wWj5p8=;
+        b=EllHk9R+IToAxIBIA+sfq584bfxYnctcWR2gbmpYywuCgWsXvvTe3C811O27FLLX4D
+         AkSEsdtKzdFyEiOsUAyCtqAKBK5p8zOBrKLwTZKNopUS+JtW4AVt2hAlAO3oQGGPhcXx
+         EpwTzoUzlxRxbkNoq2HmYvd8qXEIUGT1v5AlLFvG1tOuCqyA6HSM8qMX/xcrilovwuWN
+         /oDBlK+9zgiHFuA9wMnrlgFwPgvLS/rWM+TR3rj2vAXrC4qYSZDHOAs955bsXZsZT6pg
+         BvGxrsALi/HHIEw9EXv8ef941OPVh1BQPTuCiDSOdSvryfTl58DXhf50EvsJgpEvMUts
+         DeTA==
+X-Gm-Message-State: AOJu0YykbC7QpJ8rUXb1+zCXMWqcDXkBr6xJLXiuyJr/279nE14vecL0
+	s8PxYEulupHjaSMVEztIZXiOJ3LU5KgiGZB2XakcuN+LsFbZXGe58dfKzOgnxg8=
+X-Google-Smtp-Source: AGHT+IHrc/NFnCU0Jc8kKvBO4HGrGQnJ5mkWbHJg29150ArLk5WBYVhRTMj6KqfkBUTSy+sPobbYAA==
+X-Received: by 2002:a17:90a:5589:b0:2da:7b8b:ea0d with SMTP id 98e67ed59e1d1-2e06ae26087mr2605527a91.8.1727270167269;
+        Wed, 25 Sep 2024 06:16:07 -0700 (PDT)
+Received: from J9GPGXL7NT.bytedance.net ([61.213.176.56])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e06e1e09e2sm1479465a91.32.2024.09.25.06.16.03
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 25 Sep 2024 06:16:07 -0700 (PDT)
+From: Xu Lu <luxu.kernel@bytedance.com>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	andy.chiu@sifive.com,
+	guoren@kernel.org,
+	christoph.muellner@vrull.eu,
+	ajones@ventanamicro.com
+Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v3] reset: starfive: jh71x0: Fix accessing the empty member on JH7110 SoC
-Date: Wed, 25 Sep 2024 04:24:42 -0700
-Message-Id: <20240925112442.1732416-1-changhuang.liang@starfivetech.com>
-X-Mailer: git-send-email 2.25.1
-X-ClientProxiedBy: BJSPR01CA0023.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c211:c::35) To ZQ0PR01MB1302.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:1b::9)
+	lihangjing@bytedance.com,
+	dengliang.1214@bytedance.com,
+	xieyongji@bytedance.com,
+	chaiwen.cc@bytedance.com,
+	Xu Lu <luxu.kernel@bytedance.com>
+Subject: [PATCH v3 2/2] riscv: Use Zawrs to accelerate IPI to idle cpu
+Date: Wed, 25 Sep 2024 21:15:47 +0800
+Message-Id: <20240925131547.42396-3-luxu.kernel@bytedance.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <20240925131547.42396-1-luxu.kernel@bytedance.com>
+References: <20240925131547.42396-1-luxu.kernel@bytedance.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: ZQ0PR01MB1302:EE_|ZQ0PR01MB1320:EE_
-X-MS-Office365-Filtering-Correlation-Id: 02c96e45-2a34-48ae-c5ca-08dcdd54c00f
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;ARA:13230040|41320700013|366016|52116014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: jBKv5npDjw43DRvKbLNiQyUAT5tFsByHYsiy5RWrovNyZK9J29Ua8LLuFRRNurC3PfazpIEUYra2i6tL6+bDwyQ6nCz5O51lDJzpioZdAhjXDmci4rxjHUf/wmHyEtNjrGOmezf1iyfjOKBtOBtZJQ5bW5fEpFqINy+Z7c6leiIXxtM9xGbTtfpHnJkExS+9rl3Dr5GFF4eMqrSfSFI4bf7Td1CA+DHIdQCRyubO6RBkM1wCtKq+Cfd1x2Hd0o60fPg6bGGNG7M6AuUpbm24UTuybbQlXZT4mZFUBXrqETqCflEkj3meGITvq9daFgncP4Gcq/NqX84oZ1Q5Xz2O0usB9X/sB7pWgSs5krNOdT1oMst+9EpAkZDy4G118enc1tC8SCqsHPniDkUhM5lAFMVd25tumkcn5zaG8rlaIvxBNuAgWYS25iAuSaL5yL5umVQnO9qZJ7WRoTC/qJ/FsDD8XkEhrBkKkSMnAKkcmCGJmi+4o1cG6M/gdK+eIBNYdnWVBievIq1z/c3pgNukb2UpZkvEi16lIMtvAadQ5j1XKo/SY8wVm771SHXHcUUcwS1mV6GzH4nX3Irm08erl0I+5pFRy+qkP1+nXkDAFzBMS/Zc2sK1HJzigJUsOexv
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ0PR01MB1302.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(41320700013)(366016)(52116014)(1800799024)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1h0FByey1fYWzpkNoOYqhhhn4t3gu8eB+hnV8znghlSEPZH71XXQESDNPkZq?=
- =?us-ascii?Q?a6K3Gag8Tvj0+9wQXF8Uv5xmzu1Ww+fM/bu8TaVmngB5MVmYFRGZFr2omjZf?=
- =?us-ascii?Q?XNaE2xRhj/fqxH/FraNLHunatHhTk7QtS/bzpZkt+LSXWHOBroTQ+oZlyJVb?=
- =?us-ascii?Q?jmwh7gyT1eQ2SPdekNoBMYsHOcn4Q+OaQQzTWd120zMDcbX6Mnx0KjAuhSYN?=
- =?us-ascii?Q?9IxUz1mQft7GK38gnNfks45OCDwFJviFBQJz6kQ2MCwV7EwrbbIN2ODssGZ1?=
- =?us-ascii?Q?XiUS6dhBHsI9qm5Q94fwKwwKWA2lTDL3HoPE1vM9fMKDO9f4Q/KaELAikCIt?=
- =?us-ascii?Q?qiLKCKqd10VRv+CO2pWtkpuqjyHBKgaxr8XfdzoxyMtSVXz0poCeRICByNIy?=
- =?us-ascii?Q?elIfcqmTli9LLoflSNaW8NQ1zKH7xVsl7HImU6kjlq1vjdhEKxn0HNLOP4eK?=
- =?us-ascii?Q?fX/AA9aLm4KoGDeioSnpWyhYDZUTjMezT22dKUTaZxF8qB5kNF3G809zH32e?=
- =?us-ascii?Q?nqgAzYalBoTG3kEzOjyNSqm/KCzEo/HuU9XS4Bj2tU6uqGqdt4VnDDXy79me?=
- =?us-ascii?Q?v8RT1IWZ8hqG1JaSnRmxp8JPjVOCQYQLazvCV+DOVHfY666+sVfbbBeHaf2B?=
- =?us-ascii?Q?iJxDj/JjwY8QZyFXgyQsknX865LO/FPWkaBi5QpiaAqJQDq58uDz0SQ6YGFZ?=
- =?us-ascii?Q?hTx37eqPzM0Rn2cPMSyysL42O3WKJHoFHJNmYDBJDX+VE660+SyNLahgOJWs?=
- =?us-ascii?Q?MAFIGOwh8BWXGrM1hyVqdW8pCEHb1rJv7I2xRZvYEPwHQkZfnUjvfjzRc+NA?=
- =?us-ascii?Q?M5WGlyhjX9oGicgnEF0CNKuZhMz4cXBpsBJe/6l8saI1J9lA5EPjTR30nd0K?=
- =?us-ascii?Q?1tsiYgdar4uMt0C3I3wHniBqEJ+U1TuFOnpFahDhLscjNvUF1J9LxgqK/kKu?=
- =?us-ascii?Q?bGn/XHj9l/JzqZzP5Kn3lSKk8l/+cKaPIudO4G++FwTKMy1nBzKHz6xugaXZ?=
- =?us-ascii?Q?1L1dSVtvtl0WHHEMKqLl82WziQFoSqbWr4EF8Ee/39fQFBvMr7fP74hZkDHR?=
- =?us-ascii?Q?RgKTVkjaFU58Xn+MR0fa8ln9vE8qhjekYvhGUBF3Pb294fVs+4Q0dnKMKEsL?=
- =?us-ascii?Q?bk/b/lE6AEwtw1y+BTn6eVNW3M2xV0+ozm3HQFkDyZqR3emlJYXf7a+bEMrh?=
- =?us-ascii?Q?f+q98CTL6Vtgze7rE4VubsNe3cSzUpauwKVUowj0+5uTSfOydj88PJukgLLL?=
- =?us-ascii?Q?yM716BGVPO0ip6jGR/chrvc3t14t+WfwhlDdKttonFbwRSno24jTytD7Z3S8?=
- =?us-ascii?Q?jSrjksEVjwGmRU3gyYxxbvnxjIfslOPFeLFyIO+uaNu2RlzbBe0IdWCStt5q?=
- =?us-ascii?Q?qIIuDep+o/u/LRou8Ynp7f/tIDd9dw2IbOsBMqKXFtGl6J565ipC6e48xxGx?=
- =?us-ascii?Q?f0WRF139tEdy/K+NqTQRN1NJbJB8TZu/ao4I8efbUpsuxWXPojttWD9g4yWZ?=
- =?us-ascii?Q?yG0RAkGwy51Vurx4wIfNVMYiLDGkZdwn4fpNE7U+0XxwNo0uW8FNpOuS924C?=
- =?us-ascii?Q?/b+Tt0exQc3Ok1y6Pl52BjeG26YPPNB/bNgSUsICvS6SJc8JK7D8tNeC8aRj?=
- =?us-ascii?Q?/R9jdvyWqEwuSRFBYhGnpzw=3D?=
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 02c96e45-2a34-48ae-c5ca-08dcdd54c00f
-X-MS-Exchange-CrossTenant-AuthSource: ZQ0PR01MB1302.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Sep 2024 11:25:24.9742
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ry2t68FKJTDrRk56DK2YczDeXG2UMrqT3Qm9htpoeWvwzW+osJ8siSHQreiyPOheirXdMKZSPNb+8SBC3XzDh41A2Q/VCOsYouHJSJzOXakKbCXe7X+60JpTEiewAG5a
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ0PR01MB1320
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240925_042549_464959_EA36BC3F 
-X-CRM114-Status: UNSURE (   7.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240925_061608_663938_8C606923 
+X-CRM114-Status: GOOD (  15.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,38 +103,281 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-data->asserted will be NULL on JH7110 SoC since commit 82327b127d41
-("reset: starfive: Add StarFive JH7110 reset driver") was added. Add
-the judgment condition to avoid errors when calling reset_control_status
-on JH7110 SoC.
+When sending IPI to a cpu which has entered idle state using Zawrs
+extension, there is no need to send a physical software interrupt.
+Instead, we can write the IPI information to the address reserved by
+target cpu, which will wake it from WRS.NTO. Then the target cpu can
+handle the IPI directly without falling into traditional interrupt
+handling routine.
 
-Fixes: 82327b127d41 ("reset: starfive: Add StarFive JH7110 reset driver")
-Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
-Acked-by: Hal Feng <hal.feng@starfivetech.com>
-Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
+Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
 ---
+ arch/riscv/include/asm/processor.h | 14 +++++++
+ arch/riscv/include/asm/smp.h       | 14 +++++++
+ arch/riscv/kernel/process.c        | 65 +++++++++++++++++++++++++++++-
+ arch/riscv/kernel/smp.c            | 51 ++++++++++++++++++-----
+ 4 files changed, 131 insertions(+), 13 deletions(-)
 
-Add Fixes.
-
- drivers/reset/starfive/reset-starfive-jh71x0.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/drivers/reset/starfive/reset-starfive-jh71x0.c b/drivers/reset/starfive/reset-starfive-jh71x0.c
-index 55bbbd2de52c..29ce3486752f 100644
---- a/drivers/reset/starfive/reset-starfive-jh71x0.c
-+++ b/drivers/reset/starfive/reset-starfive-jh71x0.c
-@@ -94,6 +94,9 @@ static int jh71x0_reset_status(struct reset_controller_dev *rcdev,
- 	void __iomem *reg_status = data->status + offset * sizeof(u32);
- 	u32 value = readl(reg_status);
-
-+	if (!data->asserted)
-+		return !(value & mask);
-+
- 	return !((value ^ data->asserted[offset]) & mask);
+diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+index d0dcdb7e7392..0dbc9390c3b2 100644
+--- a/arch/riscv/include/asm/processor.h
++++ b/arch/riscv/include/asm/processor.h
+@@ -164,6 +164,20 @@ static inline void wrs_nto(unsigned long *addr)
+ 			: : "memory");
  }
+ 
++static inline void wrs_nto_if(int *addr, int val)
++{
++	int prev;
++
++	__asm__ __volatile__(
++			"lr.w %[p], %[a]\n\t"
++			"bne %[p], %[v], 1f\n\t"
++			ZAWRS_WRS_NTO "\n\t"
++			"1:\n\t"
++			: [p] "=&r" (prev), [a] "+A" (*addr)
++			: [v] "r" (val)
++			: "memory");
++}
++
+ extern phys_addr_t dma32_phys_limit;
+ 
+ struct device_node;
+diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
+index 7ac80e9f2288..8f2dfbf20e89 100644
+--- a/arch/riscv/include/asm/smp.h
++++ b/arch/riscv/include/asm/smp.h
+@@ -19,6 +19,20 @@ extern unsigned long boot_cpu_hartid;
+ 
+ #include <linux/jump_label.h>
+ 
++enum ipi_message_type {
++	IPI_RESCHEDULE,
++	IPI_CALL_FUNC,
++	IPI_CPU_STOP,
++	IPI_CPU_CRASH_STOP,
++	IPI_IRQ_WORK,
++	IPI_TIMER,
++	IPI_MAX
++};
++
++int ipi_virq_base_get(void);
++
++irqreturn_t handle_IPI(int irq, void *data);
++
+ /*
+  * Mapping between linux logical cpu index and hartid.
+  */
+diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+index 77769965609e..975b3f28e8c8 100644
+--- a/arch/riscv/kernel/process.c
++++ b/arch/riscv/kernel/process.c
+@@ -16,6 +16,7 @@
+ #include <linux/ptrace.h>
+ #include <linux/uaccess.h>
+ #include <linux/static_call.h>
++#include <linux/hardirq.h>
+ 
+ #include <asm/unistd.h>
+ #include <asm/processor.h>
+@@ -27,6 +28,7 @@
+ #include <asm/cpuidle.h>
+ #include <asm/vector.h>
+ #include <asm/cpufeature.h>
++#include <asm/smp.h>
+ 
+ #if defined(CONFIG_STACKPROTECTOR) && !defined(CONFIG_STACKPROTECTOR_PER_TASK)
+ #include <linux/stackprotector.h>
+@@ -36,6 +38,8 @@ EXPORT_SYMBOL(__stack_chk_guard);
+ 
+ extern asmlinkage void ret_from_fork(void);
+ 
++DEFINE_PER_CPU(atomic_t, idle_ipi_mask);
++
+ static __cpuidle void default_idle(void)
+ {
+ 	/*
+@@ -47,6 +51,16 @@ static __cpuidle void default_idle(void)
+ 	wait_for_interrupt();
+ }
+ 
++static __cpuidle void default_idle_enter(void)
++{
++	/* Do nothing */
++}
++
++static __cpuidle void default_idle_exit(void)
++{
++	/* Do nothing */
++}
++
+ static __cpuidle void wrs_idle(void)
+ {
+ 	/*
+@@ -55,10 +69,42 @@ static __cpuidle void wrs_idle(void)
+ 	 * to entering WRS.NTO.
+ 	 */
+ 	mb();
++#ifdef CONFIG_SMP
++	wrs_nto_if(&this_cpu_ptr(&idle_ipi_mask)->counter, BIT(IPI_MAX));
++#else
+ 	wrs_nto(&current_thread_info()->flags);
++#endif
++}
++
++static __cpuidle void wrs_idle_enter(void)
++{
++#ifdef CONFIG_SMP
++	atomic_set(this_cpu_ptr(&idle_ipi_mask), BIT(IPI_MAX));
++#endif
++}
++
++static __cpuidle void wrs_idle_exit(void)
++{
++#ifdef CONFIG_SMP
++	int pending;
++	unsigned long flags;
++	enum ipi_message_type ipi;
++
++	local_irq_save(flags);
++	pending = atomic_xchg_relaxed(this_cpu_ptr(&idle_ipi_mask), 0);
++	for (ipi = IPI_RESCHEDULE; ipi < IPI_MAX; ipi++)
++		if (pending & BIT(ipi)) {
++			irq_enter();
++			handle_IPI(ipi_virq_base_get() + ipi, NULL);
++			irq_exit();
++		}
++	local_irq_restore(flags);
++#endif
+ }
+ 
+ DEFINE_STATIC_CALL_NULL(riscv_idle, default_idle);
++DEFINE_STATIC_CALL_NULL(riscv_idle_enter, default_idle_enter);
++DEFINE_STATIC_CALL_NULL(riscv_idle_exit, default_idle_exit);
+ 
+ void __cpuidle cpu_do_idle(void)
+ {
+@@ -70,13 +116,28 @@ void __cpuidle arch_cpu_idle(void)
+ 	cpu_do_idle();
+ }
+ 
++void __cpuidle arch_cpu_idle_enter(void)
++{
++	static_call(riscv_idle_enter)();
++}
++
++void __cpuidle arch_cpu_idle_exit(void)
++{
++	static_call(riscv_idle_exit)();
++}
++
+ void __init select_idle_routine(void)
+ {
+ 	if (IS_ENABLED(CONFIG_RISCV_ZAWRS_IDLE) &&
+-			riscv_has_extension_likely(RISCV_ISA_EXT_ZAWRS))
++			riscv_has_extension_likely(RISCV_ISA_EXT_ZAWRS)) {
+ 		static_call_update(riscv_idle, wrs_idle);
+-	else
++		static_call_update(riscv_idle_enter, wrs_idle_enter);
++		static_call_update(riscv_idle_exit, wrs_idle_exit);
++	} else {
+ 		static_call_update(riscv_idle, default_idle);
++		static_call_update(riscv_idle_enter, default_idle_enter);
++		static_call_update(riscv_idle_exit, default_idle_exit);
++	}
+ }
+ 
+ int set_unalign_ctl(struct task_struct *tsk, unsigned int val)
+diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+index 8e6eb64459af..6e7d41ed4144 100644
+--- a/arch/riscv/kernel/smp.c
++++ b/arch/riscv/kernel/smp.c
+@@ -26,16 +26,6 @@
+ #include <asm/cacheflush.h>
+ #include <asm/cpu_ops.h>
+ 
+-enum ipi_message_type {
+-	IPI_RESCHEDULE,
+-	IPI_CALL_FUNC,
+-	IPI_CPU_STOP,
+-	IPI_CPU_CRASH_STOP,
+-	IPI_IRQ_WORK,
+-	IPI_TIMER,
+-	IPI_MAX
+-};
+-
+ unsigned long __cpuid_to_hartid_map[NR_CPUS] __ro_after_init = {
+ 	[0 ... NR_CPUS-1] = INVALID_HARTID
+ };
+@@ -94,13 +84,47 @@ static inline void ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs)
+ }
+ #endif
+ 
++#ifdef CONFIG_RISCV_ZAWRS_IDLE
++DECLARE_PER_CPU(atomic_t, idle_ipi_mask);
++#endif
++
+ static void send_ipi_mask(const struct cpumask *mask, enum ipi_message_type op)
+ {
++#ifdef CONFIG_RISCV_ZAWRS_IDLE
++	int cpu, val;
++
++	asm goto(ALTERNATIVE("j %l[no_zawrs]", "nop", 0, RISCV_ISA_EXT_ZAWRS, 1)
++			: : : : no_zawrs);
++
++	for_each_cpu(cpu, mask) {
++		val = atomic_fetch_or_relaxed(BIT(op), per_cpu_ptr(&idle_ipi_mask, cpu));
++		if (likely(!(val & BIT(IPI_MAX))))
++			__ipi_send_mask(ipi_desc[op], cpumask_of(cpu));
++	}
++
++	return;
++
++no_zawrs:
++#endif
+ 	__ipi_send_mask(ipi_desc[op], mask);
+ }
+ 
+ static void send_ipi_single(int cpu, enum ipi_message_type op)
+ {
++#ifdef CONFIG_RISCV_ZAWRS_IDLE
++	int val;
++
++	asm goto(ALTERNATIVE("j %l[no_zawrs]", "nop", 0, RISCV_ISA_EXT_ZAWRS, 1)
++			: : : : no_zawrs);
++
++	val = atomic_fetch_or_relaxed(BIT(op), per_cpu_ptr(&idle_ipi_mask, cpu));
++	if (likely(!(val & BIT(IPI_MAX))))
++		__ipi_send_mask(ipi_desc[op], cpumask_of(cpu));
++
++	return;
++
++no_zawrs:
++#endif
+ 	__ipi_send_mask(ipi_desc[op], cpumask_of(cpu));
+ }
+ 
+@@ -111,7 +135,7 @@ void arch_irq_work_raise(void)
+ }
+ #endif
+ 
+-static irqreturn_t handle_IPI(int irq, void *data)
++irqreturn_t handle_IPI(int irq, void *data)
+ {
+ 	int ipi = irq - ipi_virq_base;
+ 
+@@ -323,3 +347,8 @@ void arch_smp_send_reschedule(int cpu)
+ 	send_ipi_single(cpu, IPI_RESCHEDULE);
+ }
+ EXPORT_SYMBOL_GPL(arch_smp_send_reschedule);
++
++int ipi_virq_base_get(void)
++{
++	return ipi_virq_base;
++}
+-- 
+2.20.1
 
---
-2.25.1
 
 _______________________________________________
 linux-riscv mailing list
