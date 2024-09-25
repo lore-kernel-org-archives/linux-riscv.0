@@ -4,68 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33ABBCF9C77
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Sep 2024 05:32:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3239DCF9C71
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Sep 2024 06:33:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:From:Message-Id:Cc:Mime-Version
-	:Date:To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=M8VhD9BIT0dILHqLDCymyeOkhluSNAeC6HODLe+TlZw=; b=bG8rI1lpRTYuTG
-	DgXfOdPpJ76vu9dDjyuXfM6gDGKt+a0/z0UfbdTuV7zd3SlUJTVdj8fFzNvt4y867L0nI4OXjqXFH
-	wb43+JoQljIi11PvjTjwxZTYsf8eVOhCOhyqHgvK3H0+YHi//Y56fF6t9nPQwSV4aAvXrR4Cifqpr
-	zJASsGDcCG9Bpz+RQRsgj6LE7b2+gf0WAy+rFGq+vpaM1yvK2NaX37IQKOCQ1sg4Y+e4EHIF71TOw
-	zCsyWqulaO4MkzacDcwjXcQkRC+PA64nC3S64YLvbKbKJWDU+O/HLJ3dd4KPnDnypZtsN3PYsOgj6
-	1UcG5OpXEqHn1G3fTl9g==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=fZ/6U9LSudiRbI4e736VGsDYZyEtOeINvqPqZUASVs8=; b=2VvsIh8fG5YksU
+	nFhGmsdsn23UIELLOiGyaBUWmPXVsHaksBtai8+1ILqLp9I8GHCQ8HFhHGUGZm2SrP2vYxPOeYFTa
+	QNry7ZI7Nu2YpnEW8JvL708EhrtyVBzYM1Vu/MzBdkdivNHkKzTVobB1OITSfNibmEJnlDxAjF9Xs
+	wUJYlA2GKl37+3V64XcvqqqAtBgZMwvV3wuma1loj46g7+kBs80Gs7iTLis25QY3aFsJqOYnIjsGS
+	+/O1RF8ZFcrVOoJJJLDZ4S/Hc1LJWfla6uFVaaEqmiLoGX7+RdBPpm5BV9UimJaYTOYM3dlX7jgsX
+	I8aY38Hjni95zlVExsug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1stKdi-000000043ku-1iK1;
-	Wed, 25 Sep 2024 05:32:38 +0000
-Received: from va-2-31.ptr.blmpb.com ([209.127.231.31])
+	id 1stLaU-00000004BCp-1hW6;
+	Wed, 25 Sep 2024 06:33:22 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1stKcx-000000043ZL-3Xh5
+	id 1stLaS-00000004BCM-1Acy
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Sep 2024 05:31:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=deepcomputing-io.20200927.dkim.feishu.cn; t=1727242300;
-  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
- reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=lr3kdrCW9waJZWJ9AwRYvz8bGtYbn20hiykGW8PKbTQ=;
- b=VG0zoYAyG7R8F9681nz8ry2AqiUK8/7Mqq1ZO8Ugq2+klA203j/fO6rLLrLqSW+uxDmYOl
- 8TE+jmSz6QoZEyOLK3tD7yEAsqH9nsPlI8pmma5DHobMDG9U1PZrOwNPjzeW8jAXUHkjY7
- oCtgZnflyWC9E8fB29uPkTgTqkz5VFN6b/45ZQuEEKvZ3HelTUXlt092DdHSSWoHZxYvZg
- Q/RPx/PwnYvwhBphTNDzrEXxL9YE6rCkxtDaZhRmAECgBPGphGmRjwDWLDhqPfyTY5CNQ6
- lDhFsEw7d3d5MIIosjlsueB2LkmE/fgTCQ7m7VLWnc7Ra2t9m/njeRchUdMaSg==
-To: "Emil Renner Berthing" <kernel@esmil.dk>
-Date: Wed, 25 Sep 2024 13:31:21 +0800
-Mime-Version: 1.0
-Received: from roma-MacBookPro.. ([61.141.249.39]) by smtp.feishu.cn with ESMTPS; Wed, 25 Sep 2024 13:31:38 +0800
-X-Mailer: git-send-email 2.34.1
-Cc: "Conor Dooley" <conor@kernel.org>, "Rob Herring" <robh@kernel.org>, 
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
-	"Paul Walmsley" <paul.walmsley@sifive.com>, 
-	"Palmer Dabbelt" <palmer@dabbelt.com>, 
-	"Albert Ou" <aou@eecs.berkeley.edu>, 
-	"Heiko Stuebner" <heiko.stuebner@cherry.de>, 
-	"Neil Armstrong" <neil.armstrong@linaro.org>, <rafal@milecki.pl>, 
-	"Linus Walleij" <linus.walleij@linaro.org>, 
-	"Michael Zhu" <michael.zhu@starfivetech.com>, 
-	"Drew Fustini" <drew@beagleboard.org>, <linux-riscv@lists.infradead.org>, 
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, 
-	<dhs@frame.work>, <ams@frame.work>, <gregkh@linuxfoundation.org>, 
-	<yuning.liang@deepcomputing.io>, <huiming.qiu@deepcomputing.io>, 
-	"Sandie Cao" <sandie.cao@deepcomputing.io>, 
-	"Krzysztof Kozlowski" <krzk@kernel.org>
-Message-Id: <20240925053123.1364574-2-sandie.cao@deepcomputing.io>
-X-Original-From: Sandie Cao <sandie.cao@deepcomputing.io>
-From: "Sandie Cao" <sandie.cao@deepcomputing.io>
-Subject: [PATCH v3 1/3] dt-bindings: vendor: add deepcomputing
-X-Lms-Return-Path: <lba+266f3a03b+0d3f42+lists.infradead.org+sandie.cao@deepcomputing.io>
+	Wed, 25 Sep 2024 06:33:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1611FA43BDD;
+	Wed, 25 Sep 2024 06:33:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49877C4CEC3;
+	Wed, 25 Sep 2024 06:33:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1727245998;
+	bh=y9G0C2SMaTaMUO5hy0HPIGvfCwhhJGHDIxI2Up6CPGA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=0mhKFVCvSG/DxAMBggBKP8SnPMFh/btOWPIl6l3MD8j7TvIvNRHwORq23GXjXR4zX
+	 6nHUbk01N25Bm+x1C3s1oOGk2+qs6Qlbp4lqyqmMxz6yoJT/otGkVu3fIvtAml8SSv
+	 LsG6/K8btmiI0eoh+P9NNakWlGzpUezifbxacQS0=
+Date: Wed, 25 Sep 2024 08:33:16 +0200
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Cc: mka@chromium.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, wentong.wu@intel.com, oneukum@suse.com,
+	javier.carrasco@wolfvision.net, matthias@kaehlcke.net,
+	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, git@amd.com
+Subject: Re: [PATCH] usb: misc: onboard_usb_dev: introduce new config symbol
+ for usb5744 SMBus support
+Message-ID: <2024092551-fiddle-flatterer-e643@gregkh>
+References: <1727187551-3772897-1-git-send-email-radhey.shyam.pandey@amd.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <1727187551-3772897-1-git-send-email-radhey.shyam.pandey@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240924_223151_994191_97AB9D83 
-X-CRM114-Status: UNSURE (   1.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240924_233320_430553_0E0321DD 
+X-CRM114-Status: GOOD (  19.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,10 +73,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add deepcomputing into vendor list.
+On Tue, Sep 24, 2024 at 07:49:11PM +0530, Radhey Shyam Pandey wrote:
+> Introduce new kernel config symbol for Microchip usb5744 SMBus programming
+> support. Since usb5744 i2c initialization routine uses i2c SMBus APIs these
+> APIs should only be invoked when kernel has I2C support. This new kernel
+> config describes the dependency on I2C kernel support and fix the below
+> build issues when USB_ONBOARD_DEV=y and CONFIG_I2C=m.
+> 
+> riscv64-linux-ld: drivers/usb/misc/onboard_usb_dev.o:
+> undefined reference to `i2c_find_device_by_fwnode'
+> drivers/usb/misc/onboard_usb_dev.c:408:(.text+0xb24): undefined
+> reference to `i2c_smbus_write_block_data'
+> <snip>
+> 
+> Parsing of the i2c-bus bus handle is not put under usb5744 kernel config
+> check as the intention is to report an error when DT is configured for
+> usb5744 SMBus support and kernel has USB_ONBOARD_DEV_USB5744 disabled.
+> 
+> Fixes: 6782311d04df ("usb: misc: onboard_usb_dev: add Microchip usb5744 SMBus programming support")
+> Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+> Suggested-by: Matthias Kaehlcke <matthias@kaehlcke.net>
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202409140539.3Axwv38m-lkp@intel.com/
+> ---
+>  drivers/usb/misc/Kconfig           | 11 +++++++++++
+>  drivers/usb/misc/onboard_usb_dev.c |  6 ++++--
+>  2 files changed, 15 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/usb/misc/Kconfig b/drivers/usb/misc/Kconfig
+> index 50b86d531701..29976a93f122 100644
+> --- a/drivers/usb/misc/Kconfig
+> +++ b/drivers/usb/misc/Kconfig
+> @@ -331,3 +331,14 @@ config USB_ONBOARD_DEV
+>  	  this config will enable the driver and it will automatically
+>  	  match the state of the USB subsystem. If this driver is a
+>  	  module it will be called onboard_usb_dev.
+> +
+> +config USB_ONBOARD_DEV_USB5744
+> +	bool "Onboard USB Microchip usb5744 hub with SMBus support"
+> +	depends on (USB_ONBOARD_DEV && I2C=y) || (USB_ONBOARD_DEV=m && I2C=m)
+> +	default y
 
-Signed-off-by: Sandie Cao <sandie.cao@deepcomputing.io>
-Acked-by: Krzysztof Kozlowski <krzk@kernel.org>
+"default y" is if you can not boot without this option enabled for all
+Linux systems.  I doubt that is the case here :(
+
+thanks,
+
+greg k-h
 
 _______________________________________________
 linux-riscv mailing list
