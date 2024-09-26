@@ -4,64 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70317CDE015
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Sep 2024 15:43:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2596CDE01B
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Sep 2024 15:56:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=zqmZVMUFzujYBKr6ld29Grf7I4op/gjOjZYad2otOEo=; b=a47QoKTClsiKJO
-	Oor1tiZkWmPJy5kYEJmysbEST+tSb+jr+zyFkzi5EQDxeGyIwDY+bUJ2mnrXcYbdIwV56O1m4MEGD
-	Jn80ZL+pCqyNZYsLQbGxDKaOyuxdqexWplTGEvKKEkqZXN0F4dt6ddyvecKxcYm+7EXrdsZM4YZWz
-	EqaQN4MxgyzsjnhpA3dyQ6J8/QfUEUSBCUuOi72yaNbrz34myi6u9hCaJNiIVsa6WZ7J18uyRj5xK
-	Vz3J5ioDcaUMtClhaQgxoY8i/siLfxVzxXjshiTAgrkEfjZYNdKKk253sjwIF8e7b2x1gL47pmclK
-	pSBr40vddYP6E0VMgNIg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ZNNyOES+/FWVBm0VJzaefEzcyQg+D8NLf/WS8Xs6x60=; b=L8ow7n/koR6+xX
+	a/xoEpR3EgFga4iVGT46ivs2m3oEaYoKBLtGGtsSPJikWJMgTG63Ky4GX1AIneRirG5BaJHNZRAEB
+	n6AYxAqhghI4U3hHegUHG4/AgB7l2LuMWtg/sBRETHyV6J4IzTy04n0rjMakxSmSViduYJnGx+xpE
+	umn0H2UcJbQg35lRe36XXE4YkgMzCcMWFL8R8M/QuZOkFGD05YjrjZ6/SD2dR8rxzv6K8L3icw6yn
+	UbIzmjHcLPz9pLr5/0BdL/HhMd0eu4YaBLeV9s5N+m/78TC5zuDREZP7zXn0ZSi49G/E4tPVs8l42
+	OTzPm9vINLxk+NN8Prqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1stqeU-00000008m3m-1yY5;
-	Thu, 26 Sep 2024 15:43:34 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1stqeQ-00000008m2h-1a0J
+	id 1stqqt-00000008oDr-1ZJ7;
+	Thu, 26 Sep 2024 15:56:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1stqqp-00000008oCH-3n00
 	for linux-riscv@lists.infradead.org;
-	Thu, 26 Sep 2024 15:43:33 +0000
-From: Nam Cao <namcao@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1727365406;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=vZ/HKgnyH2HmTsoqiD2jM9GAYr4moWSHAgynrG+F/AQ=;
-	b=vHtxVj2yfehMPNOP5iiUaLPrtxiKreiaFchKIbhXVouWyk4l770aQfemwxS44NUbPTOjyK
-	Y2k1BGYQwyOTU/h2Xm5depaeU0IjAnkyL7DSCT8RLIUyAudKqhVO2g4dZ+aE3BkNo8Hmur
-	ZDHO715TXOYflWj8dc6D/anlY7NQiWCR5G5uP7YzO/EkTC97bF5QiW0I9UU2swsaK8U0rp
-	zKxBZT8IsewPNvb7bW8tY8wdODTwfUWNde4b6Bmkhw+PoBCEazYr2ZzaIRYF5XGBVGbTgX
-	LUhKvTUHoI5RHzhGqvhAntUXf2jpT3ihh6SNbdco/K0fBjm9NlVxije3ZRqNtw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1727365406;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=vZ/HKgnyH2HmTsoqiD2jM9GAYr4moWSHAgynrG+F/AQ=;
-	b=QGp6NLnHhrwLB/1PcErLd2XM1lSocD1JGiXGFmlJtdoqe4XlvnwChgIDEBL+VZcU2WbZil
-	jgoYPvSSG9jFxKAQ==
-To: Thomas Gleixner <tglx@linutronix.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Marc Zyngier <maz@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Cc: Nam Cao <namcao@linutronix.de>,
-	stable@vger.kernel.org
-Subject: [PATCH] irqchip/sifive-plic: Unmask interrupt in plic_irq_enable()
-Date: Thu, 26 Sep 2024 17:43:15 +0200
-Message-Id: <20240926154315.1244200-1-namcao@linutronix.de>
+	Thu, 26 Sep 2024 15:56:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7924D14BF;
+	Thu, 26 Sep 2024 08:56:47 -0700 (PDT)
+Received: from [10.1.196.40] (e121345-lin.cambridge.arm.com [10.1.196.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BE13E3F587;
+	Thu, 26 Sep 2024 08:56:16 -0700 (PDT)
+Message-ID: <c9100637-663a-4307-9d59-deebcf9ad34c@arm.com>
+Date: Thu, 26 Sep 2024 16:56:15 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] mmc: core: Only set maximum DMA segment size if DMA is
+ supported
+To: Guenter Roeck <linux@roeck-us.net>, Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Samuel Holland <samuel.holland@sifive.com>, linux-mmc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Christoph Hellwig <hch@lst.de>
+References: <20240924210123.2288529-1-linux@roeck-us.net>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20240924210123.2288529-1-linux@roeck-us.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240926_084330_586986_F518061C 
-X-CRM114-Status: GOOD (  10.28  )
+X-CRM114-CacheID: sfid-20240926_085620_019026_EBB54E12 
+X-CRM114-Status: GOOD (  15.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,60 +62,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-It is possible that an interrupt is disabled and masked at the same time.
-When the interrupt is enabled again by enable_irq(), only plic_irq_enable()
-is called, not plic_irq_unmask(). The interrupt remains masked and never
-raises.
+On 24/09/2024 10:01 pm, Guenter Roeck wrote:
+> Since upstream commit 334304ac2bac ("dma-mapping: don't return errors
+> from dma_set_max_seg_size") calling dma_set_max_seg_size() on a device
+> not supporting DMA results in a warning traceback. This is seen when
+> booting the sifive_u machine from SD. The underlying SPI controller
+> (sifive,spi0 compatible) explicitly sets dma_mask to NULL.
 
-An example where interrupt is both disabled and masked is when
-handle_fasteoi_irq() is the handler, and IRQS_ONESHOT is set. The interrupt
-handler:
-  1. Mask the interrupt
-  2. Handle the interrupt
-  3. Check if interrupt is still enabled, and unmask it (see
-     cond_unmask_eoi_irq())
+Hmm, that driver probably shouldn't be doing that, but either way it's 
+not actually relevant to this check - what's significant is that when 
+the MMC host device is an "mmc-spi-slot" instance, its mmc_dev() ends up 
+being the SPI *device* itself, not the grandparent SPI controller.
 
-If another task disables the interrupt in the middle of the above steps,
-the interrupt will not get unmasked, and will remain masked when it is
-enabled in the future.
+Thus the patch itself is appropriate on the basis that MMC hosts may 
+exist on non-DMA-capable buses, so the subsystem needs to consider that.
 
-The problem is occasionally observed when PREEMPT_RT is enabled, because
-PREEMPT_RT add the IRQS_ONESHOT flag. But PREEMPT_RT only makes the
-problem more likely to appear, the bug has been around since
-commit a1706a1c5062 ("irqchip/sifive-plic: Separate the enable and mask
-operations").
+Reviewed-by: Robin Murphy <robin.murphy@arm.com>
 
-Fix it by unmasking interrupt in plic_irq_enable().
-
-Fixes: a1706a1c5062 ("irqchip/sifive-plic: Separate the enable and mask operations").
-Signed-off-by: Nam Cao <namcao@linutronix.de>
-Cc: stable@vger.kernel.org
----
- drivers/irqchip/irq-sifive-plic.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index 2f6ef5c495bd..0efbf14ec9fa 100644
---- a/drivers/irqchip/irq-sifive-plic.c
-+++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -128,6 +128,9 @@ static inline void plic_irq_toggle(const struct cpumask *mask,
- 
- static void plic_irq_enable(struct irq_data *d)
- {
-+	struct plic_priv *priv = irq_data_get_irq_chip_data(d);
-+
-+	writel(1, priv->regs + PRIORITY_BASE + d->hwirq * PRIORITY_PER_ID);
- 	plic_irq_toggle(irq_data_get_effective_affinity_mask(d), d, 1);
- }
- 
--- 
-2.39.5
-
+> Avoid the backtrace by only calling dma_set_max_seg_size() if DMA is
+> supported.
+> 
+> Cc: Christoph Hellwig <hch@lst.de>
+> Cc: Robin Murphy <robin.murphy@arm.com>
+> Cc: Ulf Hansson <ulf.hansson@linaro.org>
+> Signed-off-by: Guenter Roeck <linux@roeck-us.net>
+> ---
+>   drivers/mmc/core/queue.c | 3 ++-
+>   1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/mmc/core/queue.c b/drivers/mmc/core/queue.c
+> index d0b3ca8a11f0..4d6844261912 100644
+> --- a/drivers/mmc/core/queue.c
+> +++ b/drivers/mmc/core/queue.c
+> @@ -388,7 +388,8 @@ static struct gendisk *mmc_alloc_disk(struct mmc_queue *mq,
+>   
+>   	blk_queue_rq_timeout(mq->queue, 60 * HZ);
+>   
+> -	dma_set_max_seg_size(mmc_dev(host), queue_max_segment_size(mq->queue));
+> +	if (mmc_dev(host)->dma_parms)
+> +		dma_set_max_seg_size(mmc_dev(host), queue_max_segment_size(mq->queue));
+>   
+>   	INIT_WORK(&mq->recovery_work, mmc_mq_recovery_handler);
+>   	INIT_WORK(&mq->complete_work, mmc_blk_mq_complete_work);
 
 _______________________________________________
 linux-riscv mailing list
