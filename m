@@ -4,80 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E410FCCFA13
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Sep 2024 07:57:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52EF0CCFA13
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Sep 2024 07:59:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PjDJQ7imstGgWbjsiV4YmKkoLFCUYBjHDjDhn0W5NRA=; b=fZSSyVshT/n0W2
-	ccOD/djscXMlTfGnlgjpWPUJwoOtEofyx31FDbmeLbB5rB+RCrbbQ1SwrouR6roIjETPa5ndcqIW4
-	Ao8HdUFuR+iEwE1kE+s+T3tDPI/xHHxo74xXO73JEYx8kWz70FLy/stLPVelECN4DCc4h+DaOe6JG
-	Qn/0PWj/Niex9i0EwfKKj0AdgGs/HebYD4aB5myIoZaQ/6fcL1qHBwcMHTDfjZX1wa/x3kST+PcZG
-	HaQZ2tJvd+Ji/fW4UlobX2eFJhoDwljdCYVnJ53DaKkf2G7uIL1mGBe3YuSulERWVe6fFqQyiuvst
-	Srerb+4fHTk603TEG5RQ==;
+	List-Owner; bh=FbFlOKKOQ7T6BBmVt0b4GTUU5/rDwgCLfwCdsX+t+j0=; b=V21K9emUJVspXq
+	igvgKQHQ6mfN7SY12uaEaujHHJh7k1odE2VW6RaIR8XBKp0jGkUIKt8KCstYV1vupO1cxk47p5Q1Q
+	twAJydM0JVgrRGjM7/FSOpEWo/F8CQ5K9BuF6z+qf5dn5JVQKKvTGseoLxjkam5aoMUKLh4CmpsGV
+	Sz+qSglPbdGsZE61Ui2GMBDnwss1Bp21hs0igZci5P45TiGbC76Hu8m+9mK65U1VY6AwupQ5yuIo5
+	dWa2EPgtII4bCNYuDiKcDl9CPEBhF+iXivKxP0uyKukmLATTrwrBriIAK2LYwx4i0kiz7TFK0jhzt
+	CtHGSLCtnsqV1dm6ebBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1stjNQ-00000007boA-2xim;
-	Thu, 26 Sep 2024 07:57:28 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1stjPZ-00000007cK6-2tD5;
+	Thu, 26 Sep 2024 07:59:41 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1stjLV-00000007bIk-3c6y
+	id 1stjPX-00000007cJ7-0no3
 	for linux-riscv@lists.infradead.org;
-	Thu, 26 Sep 2024 07:55:31 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-2e0a74ce880so125402a91.2
-        for <linux-riscv@lists.infradead.org>; Thu, 26 Sep 2024 00:55:28 -0700 (PDT)
+	Thu, 26 Sep 2024 07:59:40 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-42e5e1e6d37so5982015e9.3
+        for <linux-riscv@lists.infradead.org>; Thu, 26 Sep 2024 00:59:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1727337328; x=1727942128; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=9LgZ47RUL9Q35qhgvnJyIYSeIdz+lshHPal4Oi/Rxhg=;
-        b=BUH9wuLu2x+HBytBy359ut1QCfh9D4sLInGHiTnhYwREZTr29WQKBgKfpJ9IuRfHkH
-         cwHfn0VnoDhkuyKpDn1kpmk7YMevrGvzGuQvpZ/pqhBKEBhPrOfLM8NFI35PQjb9J3gC
-         v88UIQnjn2ojLZD0waIGxSN9ac6onetNbXWFILoFX6y4yGdSUJuIgkVaVceaw2Hq8BDi
-         8/EKUIKfHZJvYjLaFQz7TTus6PxgjZR3KaBMRk0gXuYE6yN8RyNdsRYSgGz/Zcq6RrXD
-         KbZB6RRXzTDLVnEeAwdjTESLuAR0biBRRFt+GW2onrnJ9gcg3fpqs65nuKnTOSJfXvIh
-         QRAw==
+        d=ventanamicro.com; s=google; t=1727337576; x=1727942376; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=PpCiGEBlNu0mNZ7okeDi8cYacva/g1Cbr0GdHobTz6g=;
+        b=DMR3+PIaXeGA9o/hzlQW1gB1WJSvPmD89dt3TZvVgdTW50rMd1V12fb79P7XdCXiIl
+         J5xUUI3qErILgsz8RCqKfAmP+ot4f2F+u1vPS6Wrq22FIqN0OPJQ2wIIK9z0IOojxJQ5
+         MWc1Pjg35p8Ym4uQmqKoE6AEe4Hb/JmEiJf5GoEEoAy2z60ZGefuPo3PPrxG3Pi6Th1S
+         oL3boLhKGJEmdvCz6U640FpAInRN/MkKK7NuwJxHceSB5S2WB9W0pV9+uZejhjQOmJnd
+         b+N+S+FUnLHzU4n4PasPlt9eiJocSieE90Qes4VNBHYIFn1bO5rOdh/HGYwjSeomsXvt
+         yz9g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1727337328; x=1727942128;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=9LgZ47RUL9Q35qhgvnJyIYSeIdz+lshHPal4Oi/Rxhg=;
-        b=MzJEjAV+dGS7Ced439QEcFrQ2me2gGGHMyxhpEb2y8guHNX9kabwvzMNlWeB6eHOHB
-         YC/QRs+IoaKXfW7bSih6jRWzXPnTtz9Ypa7g6pKSi5VAEfttK2CB/b41q1HhfS8E4ReH
-         YD+34u0vZUQ6SmQjlQZG+V1QixOP9C9CXrgawXYSvBt2NNBj9GHTVMbPCI88mhoeDgP+
-         e1XgxK6faNSnISKLJNEogK5gevHSuv/vrLbdxMJGGbfSKncCeUe+DOsm4+4xoRNZlHVf
-         ve4Q6tv5kSWgbfaQcMtTQCii3b8bVpjbkF0/X4ltb/8qcLbssT052WRIDR/vpBZ2qo7L
-         ausw==
-X-Forwarded-Encrypted: i=1; AJvYcCX3fWeamPvUuiJgITnvBgXuWMC8aNHDOxa2RYh+6VlJ51UZzp2pw4g9oIvxnnX1Uxhwn81PtAnzNaexbw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyonIh+hLF8jmDqs4xEpbal7q2VgJrQYqrKsOaJmHuz2//2UOwe
-	417SCBVXAibaXhmCL+k2lhoHnHJ7U0/056u5nNjDTIfwge4TXky23sLn7cNx2j/6tz2PMHiaLHp
-	X00dmPVKdrCTeM97at4STv6TIFlsS1UoAYEV8dA==
-X-Google-Smtp-Source: AGHT+IGfCsPiGE2BFpV4KG5e5VOW6U22ie7unsTyky8krBo2ODZZk3WquPDzFMghPM8+SRvaTcZ5PAFYHsrzAW5xO3k=
-X-Received: by 2002:a17:90b:4ac4:b0:2cf:f3e9:d5c8 with SMTP id
- 98e67ed59e1d1-2e06afc142emr7296939a91.31.1727337327759; Thu, 26 Sep 2024
- 00:55:27 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1727337576; x=1727942376;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PpCiGEBlNu0mNZ7okeDi8cYacva/g1Cbr0GdHobTz6g=;
+        b=SLAXFXV7KOrMEzpkn4oUkZ/WriPV/SmxuPKaROmX2eLSOovGHAchO+fzqA0Ot4LNzp
+         GONlnyvx6Fipb5F1XkxT74cpF4zU98MthjAADM39j8i7i0UatblbwAAJPyk/3ESCK8z7
+         qd9/VWWLp/8xhe0NUOKLYQiKP+vVIHs0a9Jxu6IIwDH+Wfkscy7aU2TO4sP8tnXO0Qab
+         zCnn+terpvTe7bxt3C59FPPanvSth23FzY4terYxR+f+xtpAlVzo5c2K57K50Qs4qXKQ
+         76teTLq4C3L5eAINazZQMsVH2WRCrjKyz5CsOgHd85JbGdfi6HvHa8+nNmhZ3kRQBdiA
+         Te5g==
+X-Forwarded-Encrypted: i=1; AJvYcCX0kAQzdg7ZeDR/lC3VErsv5le7VpxujDY/kFvc4fv6KYcej6Wxem2tK0QUfxG+kZSYy5+rBD7qce9HEg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy/k4V5D+itqolqYRxMsbJnP7jjShdGOougmSoKPCEmYOWb0p3R
+	hhw2TxdjmwYAoSgqu2cMbxFFLTt2si4nv4aWDI9dB9JRcxlFQoWfrU0BmJo/pbY=
+X-Google-Smtp-Source: AGHT+IH7ivAeF8lcHIJrAIXadm6iyognSZRY/aTKpYZz3gkdQWtorWwQDRTmTAf88fh/VevbkacKBg==
+X-Received: by 2002:adf:f64f:0:b0:37c:cbca:fd7c with SMTP id ffacd0b85a97d-37ccbcafe16mr2698906f8f.41.1727337576104;
+        Thu, 26 Sep 2024 00:59:36 -0700 (PDT)
+Received: from localhost (cst2-173-13.cust.vodafone.cz. [31.30.173.13])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-37cd21129e6sm179018f8f.47.2024.09.26.00.59.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Sep 2024 00:59:35 -0700 (PDT)
+Date: Thu, 26 Sep 2024 09:59:32 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Nick Hu <nick.hu@sifive.com>
+Subject: Re: [PATCH v2 1/3] riscv: Add csr_read/write_hi_lo support
+Message-ID: <20240926-b96b7164b51b0be0c732235b@orel>
+References: <20240926065422.226518-1-nick.hu@sifive.com>
+ <20240926065422.226518-2-nick.hu@sifive.com>
 MIME-Version: 1.0
-References: <20240925131547.42396-1-luxu.kernel@bytedance.com>
- <20240925131547.42396-2-luxu.kernel@bytedance.com> <CAJF2gTTzqcNyeSAxg0uTm0JVXvE0PYuKL5qeivVSUh87FTu95w@mail.gmail.com>
-In-Reply-To: <CAJF2gTTzqcNyeSAxg0uTm0JVXvE0PYuKL5qeivVSUh87FTu95w@mail.gmail.com>
-From: Xu Lu <luxu.kernel@bytedance.com>
-Date: Thu, 26 Sep 2024 15:55:16 +0800
-Message-ID: <CAPYmKFsJu8fswWD1da6Bj=GrdNvjnsyF9434e9NNP=4PKz5t6A@mail.gmail.com>
-Subject: Re: [External] Re: [PATCH v3 1/2] riscv: process: Introduce idle
- thread using Zawrs extension
-To: Guo Ren <guoren@kernel.org>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	andy.chiu@sifive.com, christoph.muellner@vrull.eu, ajones@ventanamicro.com, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	lihangjing@bytedance.com, dengliang.1214@bytedance.com, 
-	xieyongji@bytedance.com, chaiwen.cc@bytedance.com
+Content-Disposition: inline
+In-Reply-To: <20240926065422.226518-2-nick.hu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240926_005529_923777_4943D840 
-X-CRM114-Status: GOOD (  14.20  )
+X-CRM114-CacheID: sfid-20240926_005939_260483_CC0D843D 
+X-CRM114-Status: GOOD (  20.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,56 +86,98 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Pavel Machek <pavel@ucw.cz>, "Rafael J. Wysocki" <rafael@kernel.org>, Anup Patel <anup@brainfault.org>, linux-pm@vger.kernel.org, Daniel Lezcano <daniel.lezcano@linaro.org>, Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, zong.li@sifive.com, Paul Walmsley <paul.walmsley@sifive.com>, Mayuresh Chitale <mchitale@ventanamicro.com>, greentime.hu@sifive.com, Thomas Gleixner <tglx@linutronix.de>, Samuel Ortiz <sameo@rivosinc.com>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Guo Ren,
-
-> The hardware implementations of "WFI & WRS" are different.
-> - The WFI could enter a more profound power consumption-saving needed
-> to keep IRQ alive, but the WRS doesn't.
-> - WRS is designed for cond_load, which needs to keep cache coherency alive.
+On Thu, Sep 26, 2024 at 02:54:16PM GMT, Nick Hu wrote:
+> In RV32, we may have the need to read both low 32 bit and high 32 bit of
+> the CSR. Therefore adding the csr_read_hi_lo() and csr_write_hi_lo() to
+> support such case.
+> 
+> Suggested-by: Andrew Jones <ajones@ventanamicro.com>
+> Suggested-by: Zong Li <zong.li@sifive.com>
+> Signed-off-by: Nick Hu <nick.hu@sifive.com>
+> ---
+>  arch/riscv/include/asm/csr.h | 22 ++++++++++++++++++++++
+>  1 file changed, 22 insertions(+)
+> 
+> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+> index 25966995da04..54198284eb22 100644
+> --- a/arch/riscv/include/asm/csr.h
+> +++ b/arch/riscv/include/asm/csr.h
+> @@ -501,6 +501,17 @@
+>  	__v;							\
+>  })
+>  
+> +#if __riscv_xlen < 64
+> +#define csr_read_hi_lo(csr)					\
+> +({								\
+> +	u32 hi = csr_read(csr##H);				\
+> +	u32 lo = csr_read(csr);					\
+> +	lo | ((u64)hi << 32);					\
+> +})
+> +#else
+> +#define csr_read_hi_lo	csr_read
+> +#endif
+> +
+>  #define csr_write(csr, val)					\
+>  ({								\
+>  	unsigned long __v = (unsigned long)(val);		\
+> @@ -509,6 +520,17 @@
+>  			      : "memory");			\
+>  })
+>  
+> +#if __riscv_xlen < 64
+> +#define csr_write_hi_lo(csr, val)				\
+> +({								\
+> +	u64 _v = (u64)(val);					\
+> +	csr_write(csr##H, (_v) >> 32);				\
+> +	csr_write(csr, (_v));					\
+> +})
+> +#else
+> +#define csr_write_hi_lo	csr_write
+> +#endif
+> +
+>  #define csr_read_set(csr, val)					\
+>  ({								\
+>  	unsigned long __v = (unsigned long)(val);		\
+> -- 
+> 2.34.1
 >
-> So, we couldn't simply & statically use an extension check to choose
-> WRS or WFI for idle.
 
-Great comment.
+I know I suggested this, but I'm having second thoughts. The nice thing
+about the
 
-I think maintaining cache coherence is not a big power problem for
-WRS. In a naive implementation, the wrs instruction only needs to
-maintain a valid cache line in L1 and wake up when other cpu wants to
-make it invalid. This behavior won't incur too much power consumption.
+ csr_write(CSR, ...);
+ if (__riscv_xlen < 64)
+    csr_write(CSRH, ...);
 
-And there does exist a power consumption gap if some vendors implement
-WFI instruction to flush and power down the entire L1/L2 cache (for
-example, provide CPUPWRCTLR register to control WFI behavior like
-ARM), while WRS can not do the same thing. Whether WFI will power down
-cache is not mentioned in RISC-V spec and is somehow vendor-customized
-(Please remind me if I missed anything). So it is hard to use a
-unified method to detect or control the cache power down behavior of
-WFI instruction. And that is why we provide a CONFIG to let the user
-choose whether to enable WRS IDLE or not.
+pattern is that it matches the spec. With this helper we'll have
 
->
-> > +}
-> > +
-> >  int set_unalign_ctl(struct task_struct *tsk, unsigned int val)
-> >  {
-> >         if (!unaligned_ctl_available())
-> > --
-> > 2.20.1
-> >
->
->
-> --
-> Best Regards
->  Guo Ren
+ csr_write_hi_lo(CSR, ...);
 
-Best Regards,
+for both rv32 and rv64. That looks odd for rv64 and hides the hi register
+access for rv32.
 
-Xu Lu
+We could avoid the oddness of the helper's name for rv64 if we instead
+added csr_write32 and csr_write64 which do the right things, but that
+still hides the hi register access for rv32. Hiding the hi register
+access is probably fine, though, since we can be pretty certain that
+the spec will rarely, if ever, deviate from naming high registers with
+the H suffix and/or not keep the upper bits compatible.
+
+In summary, I think I'm in favor of just dropping this patch, keeping
+the noisy, but explicit, pattern. Or, if the consensus is to add
+helpers, then I'd rather have all csr_<op>32/64 helpers. Then, code
+would match the spec by choosing the right helper based on the width
+of the CSR being accessed, when the CSR has an explicit width, or still
+use the current helpers for xlen-wide CSRs.
+
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
