@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1120ECDE020
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Sep 2024 16:22:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C33ECDE022
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Sep 2024 16:29:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/ECwlAT4qqYuKeGmxcdarPYa5oKCtu69wsC+o3IhJ5M=; b=gS2DKwc3ttXjAxD56b7FGsZ5Zc
-	lSk1Cfs6byQuL2ks+7Z57+QmaC064FjSe1qTLJfunCL4ZsQfV79c1rQf7qyFMmiT0gCtv7msvpCTf
-	rDDXFpNoBKIXUsKxWzC2y1weDqbpxS2xr5nyWKcVHvWUUBQ8+8zxsFjUda4L25zn+qZ/ox23IwOTT
-	7rG3WlHnDJa603/TwtfxQomolhUDWWjiNx4WSmcPDu79ZNfR97enpvk3JO1rVkK3O/MjivakUDnqj
-	NoZ6PK2Gp7BVTAtq9EnzvVviQhRERnC/9g7qX9+Scrlyp/OyDKDq8L99yNoTSQan1Ei8K7y0iREvo
-	Wwnia96w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=PacrpIa2FNhyd1307+/SSv8TU0wTMM/M1vz3dqPY2zE=; b=F7tLaK4XaEzmbr
+	TeX+bFkiMdsdSnHOO9syku4khh06N37rY0uE5slwR2FXp1Fq2EvHg0gqOaW43vh+/j29nc2ODzX1s
+	CIYHxe3UsjrxzlVmQaM1sE5yyBhExn2iCUVfTRa9KhZ953n+q0g+8clXxutLN9eDHEwVDhfs0N4kU
+	ih1+SY3HkVvBXK+h6zdPEZtKyR1conq/I93KZutA8OjV1TWxNjWapfgbvWlgDQHValW4LmTQ2s9H0
+	zYpNG4jDbOWNgFIgY48kD2Hm4QE/aE5NDl7N+3VxZUF16onmTHeqVvleRFnHtZrnVEXV+H8wn9tUG
+	lvsSwIeeZEYv/K0AcklA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1strFo-00000008sRS-07uv;
-	Thu, 26 Sep 2024 16:22:08 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1strNC-00000008tTj-1RfD;
+	Thu, 26 Sep 2024 16:29:46 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1strF0-00000008sKf-495X
+	id 1strN9-00000008tSv-14A5
 	for linux-riscv@lists.infradead.org;
-	Thu, 26 Sep 2024 16:21:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 752E45C5C95;
-	Thu, 26 Sep 2024 16:21:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01BABC4CEC5;
-	Thu, 26 Sep 2024 16:21:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1727367678;
-	bh=WRsqfac2hKLCDH03X7aLQwER6nnZNkaG9i+aBGCIQlg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=F54g5pPT18+0JmNaLhrAEpuF4IysWci5TcL5035/ctiBgNPeTz87P1CtUJaIgxSuI
-	 FX3lmhfOn5oli5sZOJiMR67i9sXO3tyOu4wZs2m5p0Dby3zyyaGamPl0XcVW6J5CkV
-	 Nm9o95KfD4hPfojrPEXNES7YBNXfM6KRCwTJmgnO5nwDxvRhjastIHO+kMPvkLTyYL
-	 pIO1F/R4efjIrAFWCaQmbWtNFtxN/LfkiyU0ZrBtwcBQspPeDv1EKNCGJsq1Cj9/IY
-	 AmKk7GZHmgF16nX2XiDuftx+k+aB7/Y8yBt7EDmv3jt5hSOAxLVEAIa8yyxeaUMPx5
-	 ZWWSQ1giam7KA==
-Date: Thu, 26 Sep 2024 17:21:11 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Cc: Gary Guo <gary@garyguo.net>, Jason Montleon <jmontleo@redhat.com>,
-	ojeda@kernel.org, alex.gaynor@gmail.com, boqun.feng@gmail.com,
-	bjorn3_gh@protonmail.com, benno.lossin@proton.me,
-	a.hindborg@kernel.org, aliceryhl@google.com,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	nathan@kernel.org, ndesaulniers@google.com, morbo@google.com,
-	justinstitt@google.com, rust-for-linux@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	llvm@lists.linux.dev, stable@vger.kernel.org
-Subject: Re: [PATCH] RISC-V: Fix building rust when using GCC toolchain
-Message-ID: <20240926-battering-revolt-6c6a7827413e@spud>
-References: <20240917000848.720765-1-jmontleo@redhat.com>
- <20240917000848.720765-2-jmontleo@redhat.com>
- <334EBB3A-6ABF-4FBF-89D2-DF3A6DCCCEA2@kernel.org>
- <20240917142950.48d800ac@eugeo>
- <31885EDD-EF6D-4EF1-94CA-276BA7A340B7@kernel.org>
- <CANiq72=KdF2zrcHJEH+YGv9Mn6szsHrZpEWb_y2QkFzButm3Ag@mail.gmail.com>
- <20240926-plated-guts-e84b822c40cc@spud>
- <CANiq72=ShT8O0GcN8G-YRE1CB8Z9Ztr-ZNcQ6cphHYvDGanTKg@mail.gmail.com>
+	Thu, 26 Sep 2024 16:29:44 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-20b0c5895aaso1405615ad.1
+        for <linux-riscv@lists.infradead.org>; Thu, 26 Sep 2024 09:29:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1727368182; x=1727972982; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=enYKeiYzEZuiXlgCfHWUHkKt206E3RtoQkmTSzufcAk=;
+        b=VRkgJSgVZKpfY0Zjion2FTR4HgzqLWcUFGVH3Fi3WbPViydaJZjjT6SoKTT34vx2GW
+         f1aOz3eLXvDXP/trFwmLaFZpP9yM5t06HboF2AVDGtd51ebAV4jE0xdRxZS5i9HWfo5V
+         Y1Q/ttWdZTANZGN4m4XgbeRTieqX+ENZC0wVzBR9tjH2A+E4PARGewmr8AcZZv76Dvz9
+         yRbsYOH3M5Bmb8fHBSEmRHqV34whmDiieiWh+BXMUbfQ6BFozuIx01+JJZSCXavKAr8m
+         r5i3zgh6NOCKN9PcJ5JroCUr1TqlbA9PeaYu6Td1c1/HZpHuw4qMsGr+8qmbr9DaNS2b
+         ipJQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1727368182; x=1727972982;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=enYKeiYzEZuiXlgCfHWUHkKt206E3RtoQkmTSzufcAk=;
+        b=J4PxZVHoiN3QNeYkV0WflQ2iFL4F0Ko+nsG3tLwtIehAeeJnlUkjhfN/CozPYRMUbM
+         XdCIDDh2wsX8M6vd4AGQBqbJlOwENMT3GkOGgquYzkvm6PV66Szu9BkII4eDtYttKmq2
+         9jPLy/hthnkie1yNXw6aHxrfm7821ZukUGQeQcehV4IAdixlirLicJ0jJOYYvwSECQMf
+         Qz6PY+X6El4NoHKDqCv+z/36qmD+NXGyTuXnQ4QwmnMwKIMAOuw73O6lMkDzVQwyjDiI
+         Q2aEzm1I+eelv9o1Qb0wdN5XGDnTxyy5VBj5LjYWbgfd6CQ1thArsloraX7me6u+Q4gD
+         cmyw==
+X-Forwarded-Encrypted: i=1; AJvYcCVK7TfnGN7ksajus3fib25szY4B/TXEX2EVeVWVKnyFoPVaekTWIkDg8CGUbRJObHQsvrMewGs2tLc1hA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzE8jt9I5GmkgqXBvZblFjjMhFGzywVx9vjSpbXws3VcCR4cy0G
+	60jZ5qSXV/sd7qmDc6gcyp7KqthvB7NZwUcQADJyAQp2u46nLfCb+GrftsREaOltEFLO7Whl4wl
+	oBPGyO+A0YlNXlpQvfeGUEI/qJdw=
+X-Google-Smtp-Source: AGHT+IFWnPCIvNcird/b9jtNo2ic1qoJxCG4l3sNzelSgtW5Pt3GkMD1EioV4GRyG3deDzQmsovWpn69wT7w++8wlz0=
+X-Received: by 2002:a17:903:191:b0:20b:9aa:efca with SMTP id
+ d9443c01a7336-20b36adbadamr1866825ad.9.1727368181789; Thu, 26 Sep 2024
+ 09:29:41 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <CANiq72=ShT8O0GcN8G-YRE1CB8Z9Ztr-ZNcQ6cphHYvDGanTKg@mail.gmail.com>
+References: <20240917000848.720765-1-jmontleo@redhat.com> <20240917000848.720765-2-jmontleo@redhat.com>
+ <334EBB3A-6ABF-4FBF-89D2-DF3A6DCCCEA2@kernel.org> <20240917142950.48d800ac@eugeo>
+ <31885EDD-EF6D-4EF1-94CA-276BA7A340B7@kernel.org> <CANiq72=KdF2zrcHJEH+YGv9Mn6szsHrZpEWb_y2QkFzButm3Ag@mail.gmail.com>
+ <20240926-plated-guts-e84b822c40cc@spud> <CANiq72=ShT8O0GcN8G-YRE1CB8Z9Ztr-ZNcQ6cphHYvDGanTKg@mail.gmail.com>
+ <20240926-battering-revolt-6c6a7827413e@spud>
+In-Reply-To: <20240926-battering-revolt-6c6a7827413e@spud>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Thu, 26 Sep 2024 18:29:28 +0200
+Message-ID: <CANiq72=JNS8eaQXJYCTNw8vNymD-0A-g4FmagyLkaH7L1DqhwA@mail.gmail.com>
+Subject: Re: [PATCH] RISC-V: Fix building rust when using GCC toolchain
+To: Conor Dooley <conor@kernel.org>
+Cc: Gary Guo <gary@garyguo.net>, Jason Montleon <jmontleo@redhat.com>, ojeda@kernel.org, 
+	alex.gaynor@gmail.com, boqun.feng@gmail.com, bjorn3_gh@protonmail.com, 
+	benno.lossin@proton.me, a.hindborg@kernel.org, aliceryhl@google.com, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	nathan@kernel.org, ndesaulniers@google.com, morbo@google.com, 
+	justinstitt@google.com, rust-for-linux@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	llvm@lists.linux.dev, stable@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240926_092119_144961_CDC9524B 
-X-CRM114-Status: GOOD (  31.51  )
+X-CRM114-CacheID: sfid-20240926_092943_462246_F3D84F32 
+X-CRM114-Status: GOOD (  10.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,108 +95,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5923451554484762382=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============5923451554484762382==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="jQkvOklAUWnSslpM"
-Content-Disposition: inline
-
-
---jQkvOklAUWnSslpM
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Sep 26, 2024 at 06:11:17PM +0200, Miguel Ojeda wrote:
-> On Thu, Sep 26, 2024 at 5:56=E2=80=AFPM Conor Dooley <conor@kernel.org> w=
-rote:
-> >
-> > Mixed builds are allowed on the c side, since we can figure out what the
->=20
-> I am not sure what you mean by allowed on the C side. For out-of-tree
-> modules you mean?
-
-No. Things like clang + ld & gas.
-I don't care about out of tree modules ;)
-
-> > versions of each tool are. If there's a way to detect the version of
-> > libclang in use by the rust side, then I would be okay with mixed gcc +
-> > rustc builds.
->=20
-> If you mean the libclang used by bindgen, yes, we have such a check
-> (warning) in scripts/rust_is_available.sh. We can also have it as a
-> Kconfig symbol if needed.
-
-Okay. Short term then is deny gcc + rust, longer term is allow it with
-the same caveats as the aforementioned mixed stuff.
-
-> Regarding rustc's LLVM version, I wanted to have a similar check in
-> scripts/rust_is_available.sh (also a warning), but it would have been
-> quite noisy, and if LTO is not enabled it should generally be OK. So
-> we are adding instead a Kconfig symbol for that, which will be used
-> for a couple things. Gary has a WIP patch for this one.
-
-Cool, I'll check that out.
-
-> > Yes, I would rather this was not applied at all. My plan was to send a
-> > patch making HAVE_RUST depend on CC_IS_CLANG, but just ain't got around
-> > to it yet, partly cos I was kinda hoping to mention this to you guys at
-> > LPC last week, but I never got the chance to talk to any rust people (or
-> > go to any rust talks either!).
->=20
-> To be clear, that `depends on` would need to be only for RISC-V, i.e.
-> other architectures are "OK" with those. It is really, really
-> experimental, as we have always warned, but some people is using it
-> successfully, apparently.
-
-Yes, just for riscv. The logic in our Kconfig menu is currently something
-like
-select HAVE_RUST if RUSTC_SUPPORTS_RISCV
-so that would just become
-select HAVE_RUST if RUSTC_SUPPORTS_RISCV && CC_IS_CLANG
-
->=20
-> > Sure, I can add a comment there.
->=20
-> Thanks!
->=20
-> > In sorta related news, is there a plan for config "options" that will
-> > allow us to detect gcc-rs or the gcc rust backend?
->=20
-> gccrs is way too early to even think about that. rustc_codegen_gcc,
-> yeah, if needed, we can add a symbol for that when we start supporting
-> the backend.
-
-Cool, sounds good.
-
---jQkvOklAUWnSslpM
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZvWJ9wAKCRB4tDGHoIJi
-0kYkAQD/k60KM2HCPrXZ+0g/PWrqYoQ0W+csV7fk/qkJR/xxoQEAgfjfobdRiFEJ
-qEEFFmJcu3ccLX2+R1YqyCfedleEfAc=
-=94Il
------END PGP SIGNATURE-----
-
---jQkvOklAUWnSslpM--
-
-
---===============5923451554484762382==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5923451554484762382==--
-
+T24gVGh1LCBTZXAgMjYsIDIwMjQgYXQgNjoyMeKAr1BNIENvbm9yIERvb2xleSA8Y29ub3JAa2Vy
+bmVsLm9yZz4gd3JvdGU6Cj4KPiBOby4gVGhpbmdzIGxpa2UgY2xhbmcgKyBsZCAmIGdhcy4KPiBJ
+IGRvbid0IGNhcmUgYWJvdXQgb3V0IG9mIHRyZWUgbW9kdWxlcyA7KQoKQWgsIG90aGVyIHRvb2xz
+LCBub3QganVzdCB0aGUgQyBjb21waWxlciwgSSBzZWUgLS0gdGhhdCBpcyB3aHkgSQptZW50aW9u
+ZWQgb3V0LW9mLXRyZWUgbW9kdWxlcywgYmVjYXVzZSBvdGhlcndpc2UgSSB3YXMgbm90IHN1cmUg
+aG93CnlvdSB3b3VsZCBnZXQgbWl4IHRoZSBDIGNvbXBpbGVyIGl0c2VsZiwgaS5lLiBHQ0MgYW5k
+IENsYW5nLgoKPiBZZXMsIGp1c3QgZm9yIHJpc2N2LiBUaGUgbG9naWMgaW4gb3VyIEtjb25maWcg
+bWVudSBpcyBjdXJyZW50bHkgc29tZXRoaW5nCj4gbGlrZQo+IHNlbGVjdCBIQVZFX1JVU1QgaWYg
+UlVTVENfU1VQUE9SVFNfUklTQ1YKPiBzbyB0aGF0IHdvdWxkIGp1c3QgYmVjb21lCj4gc2VsZWN0
+IEhBVkVfUlVTVCBpZiBSVVNUQ19TVVBQT1JUU19SSVNDViAmJiBDQ19JU19DTEFORwoKSWYgdGhh
+dCBpcyB3aGF0IHlvdSB0aGluayBpdCBpcyBiZXN0IGZvciBSSVNDLVYsIHRoZW4gc3VyZSwgdXAg
+dG8geW91IC0tIHRoYW5rcyEKCkNoZWVycywKTWlndWVsCgpfX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
+cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
+bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
