@@ -4,55 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9832CCCFA15
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Sep 2024 04:18:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 701DBCCFA15
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Sep 2024 04:35:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4StYQrIPlsjNQQ//lKd/tuPy7mweMW351qHA9mpJGAU=; b=VZ0AaNYW8CPFZI
-	4dAj0gxhbfyq3yoHBA4K17iNKMSqlJPY24l4jmdU1/C4r4x1598rIvDl8H7qkgKZ+QdNL2VlFvPQP
-	4qI76+LHlk5h7o58q+XdGj2usB30GFNZLvdfnEYB70mrxzyITrNVMeRJWrQO2ip9WbAeYk4IK40FD
-	PmEx5ur3rOAndVfJLAMGOwf3t2wLmSBoX1x/wlbW1/H6FdYBkDWRlKmQfMlhJL6Y373HK0s6GbWLT
-	E6vwwQWJldmxjKIEcgkx9mLL61mUF+Ia/w9BgHLESIV9fzobvqc3eI5RZndxM8N4vuzI9Lm76M7k1
-	CAlNakN90+KAJumC8U7g==;
+	List-Owner; bh=tBeTA6Xwfo++XiTFP+GrvbaBpAPkq5x1Gx+kk8PfEXg=; b=HgQC2qsoGL+h+B
+	AB6cBXRTvtt0vFsN1NllORFoXYEiQnpnImz2gHFZsRqDrRuvvdH7R1sES0jRftV5Nc9ob6/Yjvczy
+	2/iYpIqiyh7QhQLmmR660mMGYIQYBcsn0EBoXbRM3Y6m4MsByY2+aMmR+fFU27CIbDSSe4RKHBra5
+	68a6H3f+eeBFN1AL8LhMXP7AgZhBRKCUKgLoWR7BXCJDembjpvPhf6vuYdsUxQVQ1UE9CasrDVahy
+	RVy+/ApZG7Ts3svyRRba/gQTkHPp3lMX+EUMD6L5+gDhBg6im4DMbNaEYaXBNQ+MHtAeDExltZk2p
+	zBvdM+y0c37bfDGw0nPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1stfxH-000000079o0-0Pt3;
-	Thu, 26 Sep 2024 04:18:15 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1stfxC-000000079n3-48o1
+	id 1stgDd-00000007AnH-0mrP;
+	Thu, 26 Sep 2024 04:35:09 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1stgDa-00000007Amq-1GJg
 	for linux-riscv@lists.infradead.org;
-	Thu, 26 Sep 2024 04:18:13 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C367615A1;
-	Wed, 25 Sep 2024 21:18:36 -0700 (PDT)
-Received: from [10.163.35.5] (unknown [10.163.35.5])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1DF693F528;
-	Wed, 25 Sep 2024 21:18:03 -0700 (PDT)
-Message-ID: <97c9f027-0162-4093-a5d7-0dc561ea28c7@arm.com>
-Date: Thu, 26 Sep 2024 09:48:00 +0530
+	Thu, 26 Sep 2024 04:35:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6F59B5C5B6A
+	for <linux-riscv@lists.infradead.org>; Thu, 26 Sep 2024 04:35:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA0ABC4CECF
+	for <linux-riscv@lists.infradead.org>; Thu, 26 Sep 2024 04:35:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1727325304;
+	bh=wfIMvQ4fYnzhH5AygqXMHaEwwRS1TFaeEGjlApjMzo8=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=ZHKoke40UBDxs0/2VBrBn+nAfAe0hH3yM1BY9Xm04+PbB7Hguo4MjxDMBQT2DZf7K
+	 GCREVDNvzEefUMaNrFLz47G6srObooUndlEHetLk5jpeJzyzCywqg4iql2YPFy1i7T
+	 RV/eM+0kO4d0NhQS6lyzB3uAO0QAK5y6FU9NpFtHasmZXMHvNWup4PTNaYdFbyr9y6
+	 eX1WBRETlEtekWo1lfueeQq14dzHaGD17RsDTRidtxyI25w2G1fZ/u/5qDZlf1Rnf2
+	 O8hOhntn+SpTKqiE6K6NjSrsx1vXHc66uJlE9R+yWNXD7EF79D25vH2HkKlgBoTqng
+	 KXx02JN3sKX1w==
+Received: by mail-ed1-f53.google.com with SMTP id 4fb4d7f45d1cf-5c26815e174so587360a12.0
+        for <linux-riscv@lists.infradead.org>; Wed, 25 Sep 2024 21:35:04 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXw+mfvJVPfa/S0mwlLUksP75xHT8HhvVuMwJEp1W74/SifudAJ/1UPdxFK24eUvvK31kpyPVhTNWmLRg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw9EfLAafu4HIWgQpuUI2CjbXHGTHFf5I3wMAzj/DVh8//zn5Iv
+	uLdIhLbIPhI/qjM3Ob2D5IsljIyUmMFiztNpaB2wVNfYrEkMJXYcFbla2BeGjtJ2G3iLoTCN3PH
+	yhRE4dBgYEwEniMLlLltfUrWlJA8=
+X-Google-Smtp-Source: AGHT+IFJqFZ5hxVVQ+qrewZ/Hyj5b46uHkNWoUcVH3QldGJ31Vt5CohlArjDD4sDbq272HTYtMvE2VxeGVq6V0nSuK4=
+X-Received: by 2002:a05:6402:500a:b0:5c3:d18e:fc27 with SMTP id
+ 4fb4d7f45d1cf-5c720750e89mr3176187a12.33.1727325303197; Wed, 25 Sep 2024
+ 21:35:03 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mm: Move set_pxd_safe() helpers from generic to platform
-To: linux-mm@kvack.org, akpm@linux-foundation.org,
- Dave Hansen <dave.hansen@linux.intel.com>,
- Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Thomas Gleixner <tglx@linutronix.de>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- David Hildenbrand <david@redhat.com>, Ryan Roberts <ryan.roberts@arm.com>,
- x86@kernel.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20240920053017.2514920-1-anshuman.khandual@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20240920053017.2514920-1-anshuman.khandual@arm.com>
+References: <20240925131547.42396-1-luxu.kernel@bytedance.com> <20240925131547.42396-2-luxu.kernel@bytedance.com>
+In-Reply-To: <20240925131547.42396-2-luxu.kernel@bytedance.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Thu, 26 Sep 2024 12:34:51 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTTzqcNyeSAxg0uTm0JVXvE0PYuKL5qeivVSUh87FTu95w@mail.gmail.com>
+Message-ID: <CAJF2gTTzqcNyeSAxg0uTm0JVXvE0PYuKL5qeivVSUh87FTu95w@mail.gmail.com>
+Subject: Re: [PATCH v3 1/2] riscv: process: Introduce idle thread using Zawrs extension
+To: Xu Lu <luxu.kernel@bytedance.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	andy.chiu@sifive.com, christoph.muellner@vrull.eu, ajones@ventanamicro.com, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	lihangjing@bytedance.com, dengliang.1214@bytedance.com, 
+	xieyongji@bytedance.com, chaiwen.cc@bytedance.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240925_211811_156925_97BEE55C 
-X-CRM114-Status: GOOD (  19.78  )
+X-CRM114-CacheID: sfid-20240925_213506_522116_804F4849 
+X-CRM114-Status: GOOD (  28.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,174 +80,126 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 9/20/24 11:00, Anshuman Khandual wrote:
-> set_pxd_safe() helpers that serve a specific purpose for both x86 and riscv
-> platforms, do not need to be in the common memory code. Otherwise they just
-> unnecessarily make the common API more complicated. This moves the helpers
-> from common code to platform instead.
-> 
-> Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Dave Hansen <dave.hansen@linux.intel.com>
-> Cc: David Hildenbrand <david@redhat.com>
-> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: x86@kernel.org
-> Cc: linux-mm@kvack.org
-> Cc: linux-riscv@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Suggested-by: David Hildenbrand <david@redhat.com>
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> ---
->  arch/riscv/include/asm/pgtable.h | 19 ++++++++++++++++
->  arch/x86/include/asm/pgtable.h   | 37 +++++++++++++++++++++++++++++++
->  include/linux/pgtable.h          | 38 --------------------------------
->  3 files changed, 56 insertions(+), 38 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index 089f3c9f56a3..39ca652c5ebe 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -957,6 +957,25 @@ void misc_mem_init(void);
->  extern unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)];
->  #define ZERO_PAGE(vaddr) (virt_to_page(empty_zero_page))
->  
-> +/*
-> + * Use set_p*_safe(), and elide TLB flushing, when confident that *no*
-> + * TLB flush will be required as a result of the "set". For example, use
-> + * in scenarios where it is known ahead of time that the routine is
-> + * setting non-present entries, or re-setting an existing entry to the
-> + * same value. Otherwise, use the typical "set" helpers and flush the
-> + * TLB.
-> + */
-> +#define set_p4d_safe(p4dp, p4d) \
-> +({ \
-> +	WARN_ON_ONCE(p4d_present(*p4dp) && !p4d_same(*p4dp, p4d)); \
-> +	set_p4d(p4dp, p4d); \
-> +})
-> +
-> +#define set_pgd_safe(pgdp, pgd) \
-> +({ \
-> +	WARN_ON_ONCE(pgd_present(*pgdp) && !pgd_same(*pgdp, pgd)); \
-> +	set_pgd(pgdp, pgd); \
-> +})
->  #endif /* !__ASSEMBLY__ */
->  
->  #endif /* _ASM_RISCV_PGTABLE_H */
-> diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
-> index e39311a89bf4..fefb52bb6b4d 100644
-> --- a/arch/x86/include/asm/pgtable.h
-> +++ b/arch/x86/include/asm/pgtable.h
-> @@ -1701,6 +1701,43 @@ bool arch_is_platform_page(u64 paddr);
->  #define arch_is_platform_page arch_is_platform_page
->  #endif
->  
-> +/*
-> + * Use set_p*_safe(), and elide TLB flushing, when confident that *no*
-> + * TLB flush will be required as a result of the "set". For example, use
-> + * in scenarios where it is known ahead of time that the routine is
-> + * setting non-present entries, or re-setting an existing entry to the
-> + * same value. Otherwise, use the typical "set" helpers and flush the
-> + * TLB.
-> + */
-> +#define set_pte_safe(ptep, pte) \
-> +({ \
-> +	WARN_ON_ONCE(pte_present(*ptep) && !pte_same(*ptep, pte)); \
-> +	set_pte(ptep, pte); \
-> +})
-> +
-> +#define set_pmd_safe(pmdp, pmd) \
-> +({ \
-> +	WARN_ON_ONCE(pmd_present(*pmdp) && !pmd_same(*pmdp, pmd)); \
-> +	set_pmd(pmdp, pmd); \
-> +})
-> +
-> +#define set_pud_safe(pudp, pud) \
-> +({ \
-> +	WARN_ON_ONCE(pud_present(*pudp) && !pud_same(*pudp, pud)); \
-> +	set_pud(pudp, pud); \
-> +})
-> +
-> +#define set_p4d_safe(p4dp, p4d) \
-> +({ \
-> +	WARN_ON_ONCE(p4d_present(*p4dp) && !p4d_same(*p4dp, p4d)); \
-> +	set_p4d(p4dp, p4d); \
-> +})
-> +
-> +#define set_pgd_safe(pgdp, pgd) \
-> +({ \
-> +	WARN_ON_ONCE(pgd_present(*pgdp) && !pgd_same(*pgdp, pgd)); \
-> +	set_pgd(pgdp, pgd); \
-> +})
->  #endif	/* __ASSEMBLY__ */
->  
->  #endif /* _ASM_X86_PGTABLE_H */
-> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-> index 2a6a3cccfc36..0bf88e505aad 100644
-> --- a/include/linux/pgtable.h
-> +++ b/include/linux/pgtable.h
-> @@ -1050,44 +1050,6 @@ static inline int pgd_same(pgd_t pgd_a, pgd_t pgd_b)
->  }
->  #endif
->  
-> -/*
-> - * Use set_p*_safe(), and elide TLB flushing, when confident that *no*
-> - * TLB flush will be required as a result of the "set". For example, use
-> - * in scenarios where it is known ahead of time that the routine is
-> - * setting non-present entries, or re-setting an existing entry to the
-> - * same value. Otherwise, use the typical "set" helpers and flush the
-> - * TLB.
-> - */
-> -#define set_pte_safe(ptep, pte) \
-> -({ \
-> -	WARN_ON_ONCE(pte_present(*ptep) && !pte_same(*ptep, pte)); \
-> -	set_pte(ptep, pte); \
-> -})
-> -
-> -#define set_pmd_safe(pmdp, pmd) \
-> -({ \
-> -	WARN_ON_ONCE(pmd_present(*pmdp) && !pmd_same(*pmdp, pmd)); \
-> -	set_pmd(pmdp, pmd); \
-> -})
-> -
-> -#define set_pud_safe(pudp, pud) \
-> -({ \
-> -	WARN_ON_ONCE(pud_present(*pudp) && !pud_same(*pudp, pud)); \
-> -	set_pud(pudp, pud); \
-> -})
-> -
-> -#define set_p4d_safe(p4dp, p4d) \
-> -({ \
-> -	WARN_ON_ONCE(p4d_present(*p4dp) && !p4d_same(*p4dp, p4d)); \
-> -	set_p4d(p4dp, p4d); \
-> -})
-> -
-> -#define set_pgd_safe(pgdp, pgd) \
-> -({ \
-> -	WARN_ON_ONCE(pgd_present(*pgdp) && !pgd_same(*pgdp, pgd)); \
-> -	set_pgd(pgdp, pgd); \
-> -})
-> -
->  #ifndef __HAVE_ARCH_DO_SWAP_PAGE
->  static inline void arch_do_swap_page_nr(struct mm_struct *mm,
->  				     struct vm_area_struct *vma,
-
-Hello Dave/Palmer,
-
-Unless there is still any more objection from x86 or riscv, could this
-patch be pulled ?
-
-- Anshuman
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBTZXAgMjUsIDIwMjQgYXQgOToxNuKAr1BNIFh1IEx1IDxsdXh1Lmtlcm5lbEBieXRl
+ZGFuY2UuY29tPiB3cm90ZToKPgo+IFRoZSBaYXdycyBleHRlbnNpb24gaW50cm9kdWNlcyBhIG5l
+dyBpbnN0cnVjdGlvbiBXUlMuTlRPLCB3aGljaCB3aWxsCj4gcmVnaXN0ZXIgYSByZXNlcnZhdGlv
+biBzZXQgYW5kIGNhdXNlcyB0aGUgaGFydCB0byB0ZW1wb3JhcmlseSBzdGFsbAo+IGV4ZWN1dGlv
+biBpbiBhIGxvdy1wb3dlciBzdGF0ZSB1bnRpbCBhIHN0b3JlIG9jY3VycyB0byB0aGUgcmVzZXJ2
+YXRpb24KPiBzZXQgb3IgYW4gaW50ZXJydXB0IGlzIG9ic2VydmVkLgo+Cj4gVGhpcyBjb21taXQg
+aW1wbGVtZW50cyBuZXcgdmVyc2lvbiBvZiBpZGxlIHRocmVhZCBmb3IgUklTQy1WIHZpYSBaYXdy
+cwo+IGV4dGVuc2lvbi4KPgo+IFNpZ25lZC1vZmYtYnk6IFh1IEx1IDxsdXh1Lmtlcm5lbEBieXRl
+ZGFuY2UuY29tPgo+IFJldmlld2VkLWJ5OiBIYW5namluZyBMaSA8bGloYW5namluZ0BieXRlZGFu
+Y2UuY29tPgo+IFJldmlld2VkLWJ5OiBMaWFuZyBEZW5nIDxkZW5nbGlhbmcuMTIxNEBieXRlZGFu
+Y2UuY29tPgo+IFJldmlld2VkLWJ5OiBXZW4gQ2hhaSA8Y2hhaXdlbi5jY0BieXRlZGFuY2UuY29t
+Pgo+IC0tLQo+ICBhcmNoL3Jpc2N2L0tjb25maWcgICAgICAgICAgICAgICAgIHwgMTAgKysrKysr
+KysKPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jcHVpZGxlLmggICB8IDExICstLS0tLS0tCj4g
+IGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vcHJvY2Vzc29yLmggfCAxOCArKysrKysrKysrKysrCj4g
+IGFyY2gvcmlzY3Yva2VybmVsL2NwdS5jICAgICAgICAgICAgfCAgNSArKysrCj4gIGFyY2gvcmlz
+Y3Yva2VybmVsL3Byb2Nlc3MuYyAgICAgICAgfCA0MSArKysrKysrKysrKysrKysrKysrKysrKysr
+KysrKy0KPiAgNSBmaWxlcyBjaGFuZ2VkLCA3NCBpbnNlcnRpb25zKCspLCAxMSBkZWxldGlvbnMo
+LSkKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L0tjb25maWcgYi9hcmNoL3Jpc2N2L0tjb25m
+aWcKPiBpbmRleCA5MzllYTdmNmEyMjguLjU2Y2Y2MDAwZDI4NiAxMDA2NDQKPiAtLS0gYS9hcmNo
+L3Jpc2N2L0tjb25maWcKPiArKysgYi9hcmNoL3Jpc2N2L0tjb25maWcKPiBAQCAtMjMsNiArMjMs
+NyBAQCBjb25maWcgUklTQ1YKPiAgICAgICAgIHNlbGVjdCBBUkNIX0VOQUJMRV9TUExJVF9QTURf
+UFRMT0NLIGlmIFBHVEFCTEVfTEVWRUxTID4gMgo+ICAgICAgICAgc2VsZWN0IEFSQ0hfRU5BQkxF
+X1RIUF9NSUdSQVRJT04gaWYgVFJBTlNQQVJFTlRfSFVHRVBBR0UKPiAgICAgICAgIHNlbGVjdCBB
+UkNIX0hBU19CSU5GTVRfRkxBVAo+ICsgICAgICAgc2VsZWN0IEFSQ0hfSEFTX0NQVV9GSU5BTEla
+RV9JTklUCj4gICAgICAgICBzZWxlY3QgQVJDSF9IQVNfQ1VSUkVOVF9TVEFDS19QT0lOVEVSCj4g
+ICAgICAgICBzZWxlY3QgQVJDSF9IQVNfREVCVUdfVklSVFVBTCBpZiBNTVUKPiAgICAgICAgIHNl
+bGVjdCBBUkNIX0hBU19ERUJVR19WTV9QR1RBQkxFCj4gQEAgLTExNTMsNiArMTE1NCwxNSBAQCBl
+bmRtZW51ICMgIlBvd2VyIG1hbmFnZW1lbnQgb3B0aW9ucyIKPgo+ICBtZW51ICJDUFUgUG93ZXIg
+TWFuYWdlbWVudCIKPgo+ICtjb25maWcgUklTQ1ZfWkFXUlNfSURMRQo+ICsgICAgICAgYm9vbCAi
+SWRsZSB0aHJlYWQgdXNpbmcgWkFXUlMgZXh0ZW5zaW9ucyIKPiArICAgICAgIGRlcGVuZHMgb24g
+UklTQ1ZfSVNBX1pBV1JTCj4gKyAgICAgICBkZWZhdWx0IHkKPiArICAgICAgIGhlbHAKPiArICAg
+ICAgICAgICAgICAgQWRkcyBzdXBwb3J0IHRvIGltcGxlbWVudCBpZGxlIHRocmVhZCB1c2luZyBa
+QVdSUyBleHRlbnNpb24uCj4gKwo+ICsgICAgICAgICAgICAgICBJZiB5b3UgZG9uJ3Qga25vdyB3
+aGF0IHRvIGRvIGhlcmUsIHNheSBZLgo+ICsKPiAgc291cmNlICJkcml2ZXJzL2NwdWlkbGUvS2Nv
+bmZpZyIKPgo+ICBzb3VyY2UgImRyaXZlcnMvY3B1ZnJlcS9LY29uZmlnIgo+IGRpZmYgLS1naXQg
+YS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2NwdWlkbGUuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9h
+c20vY3B1aWRsZS5oCj4gaW5kZXggNzFmZGM2MDdkNGJjLi45NGM5ZWNiNDY1NzEgMTAwNjQ0Cj4g
+LS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jcHVpZGxlLmgKPiArKysgYi9hcmNoL3Jpc2N2
+L2luY2x1ZGUvYXNtL2NwdWlkbGUuaAo+IEBAIC0xMCwxNSArMTAsNiBAQAo+ICAjaW5jbHVkZSA8
+YXNtL2JhcnJpZXIuaD4KPiAgI2luY2x1ZGUgPGFzbS9wcm9jZXNzb3IuaD4KPgo+IC1zdGF0aWMg
+aW5saW5lIHZvaWQgY3B1X2RvX2lkbGUodm9pZCkKPiAtewo+IC0gICAgICAgLyoKPiAtICAgICAg
+ICAqIEFkZCBtYigpIGhlcmUgdG8gZW5zdXJlIHRoYXQgYWxsCj4gLSAgICAgICAgKiBJTy9NRU0g
+YWNjZXNzZXMgYXJlIGNvbXBsZXRlZCBwcmlvcgo+IC0gICAgICAgICogdG8gZW50ZXJpbmcgV0ZJ
+Lgo+IC0gICAgICAgICovCj4gLSAgICAgICBtYigpOwo+IC0gICAgICAgd2FpdF9mb3JfaW50ZXJy
+dXB0KCk7Cj4gLX0KPiArdm9pZCBjcHVfZG9faWRsZSh2b2lkKTsKPgo+ICAjZW5kaWYKPiBkaWZm
+IC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wcm9jZXNzb3IuaCBiL2FyY2gvcmlzY3Yv
+aW5jbHVkZS9hc20vcHJvY2Vzc29yLmgKPiBpbmRleCBlZmExYjM1MTliMjMuLmQwZGNkYjdlNzM5
+MiAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Byb2Nlc3Nvci5oCj4gKysr
+IGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wcm9jZXNzb3IuaAo+IEBAIC0xMiw2ICsxMiw3IEBA
+Cj4KPiAgI2luY2x1ZGUgPHZkc28vcHJvY2Vzc29yLmg+Cj4KPiArI2luY2x1ZGUgPGFzbS9pbnNu
+LWRlZi5oPgo+ICAjaW5jbHVkZSA8YXNtL3B0cmFjZS5oPgo+Cj4gICNkZWZpbmUgYXJjaF9nZXRf
+bW1hcF9lbmQoYWRkciwgbGVuLCBmbGFncykgICAgICAgICAgICAgICAgICAgIFwKPiBAQCAtMTQ4
+LDYgKzE0OSwyMSBAQCBzdGF0aWMgaW5saW5lIHZvaWQgd2FpdF9mb3JfaW50ZXJydXB0KHZvaWQp
+Cj4gICAgICAgICBfX2FzbV9fIF9fdm9sYXRpbGVfXyAoIndmaSIpOwo+ICB9Cj4KPiArc3RhdGlj
+IGlubGluZSB2b2lkIHdyc19udG8odW5zaWduZWQgbG9uZyAqYWRkcikKPiArewo+ICsgICAgICAg
+aW50IHZhbDsKPiArCj4gKyAgICAgICBfX2FzbV9fIF9fdm9sYXRpbGVfXygKPiArI2lmZGVmIENP
+TkZJR182NEJJVAo+ICsgICAgICAgICAgICAgICAgICAgICAgICJsci5kICVbcF0sICVbdl1cblx0
+Igo+ICsjZWxzZQo+ICsgICAgICAgICAgICAgICAgICAgICAgICJsci53ICVbcF0sICVbdl1cblx0
+Igo+ICsjZW5kaWYKPiArICAgICAgICAgICAgICAgICAgICAgICBaQVdSU19XUlNfTlRPICJcblx0
+Igo+ICsgICAgICAgICAgICAgICAgICAgICAgIDogW3BdICI9JnIiICh2YWwpLCBbdl0gIitBIiAo
+KmFkZHIpCj4gKyAgICAgICAgICAgICAgICAgICAgICAgOiA6ICJtZW1vcnkiKTsKPiArfQo+ICsK
+PiAgZXh0ZXJuIHBoeXNfYWRkcl90IGRtYTMyX3BoeXNfbGltaXQ7Cj4KPiAgc3RydWN0IGRldmlj
+ZV9ub2RlOwo+IEBAIC0xNzcsNiArMTkzLDggQEAgZXh0ZXJuIGludCBzZXRfdW5hbGlnbl9jdGwo
+c3RydWN0IHRhc2tfc3RydWN0ICp0c2ssIHVuc2lnbmVkIGludCB2YWwpOwo+ICAjZGVmaW5lIFJJ
+U0NWX1NFVF9JQ0FDSEVfRkxVU0hfQ1RYKGFyZzEsIGFyZzIpIHJpc2N2X3NldF9pY2FjaGVfZmx1
+c2hfY3R4KGFyZzEsIGFyZzIpCj4gIGV4dGVybiBpbnQgcmlzY3Zfc2V0X2ljYWNoZV9mbHVzaF9j
+dHgodW5zaWduZWQgbG9uZyBjdHgsIHVuc2lnbmVkIGxvbmcgcGVyX3RocmVhZCk7Cj4KPiArZXh0
+ZXJuIHZvaWQgc2VsZWN0X2lkbGVfcm91dGluZSh2b2lkKTsKPiArCj4gICNlbmRpZiAvKiBfX0FT
+U0VNQkxZX18gKi8KPgo+ICAjZW5kaWYgLyogX0FTTV9SSVNDVl9QUk9DRVNTT1JfSCAqLwo+IGRp
+ZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9jcHUuYyBiL2FyY2gvcmlzY3Yva2VybmVsL2Nw
+dS5jCj4gaW5kZXggZjZiMTNlOWY1ZTZjLi45N2E3MTQ0ZmE2Y2QgMTAwNjQ0Cj4gLS0tIGEvYXJj
+aC9yaXNjdi9rZXJuZWwvY3B1LmMKPiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9jcHUuYwo+IEBA
+IC0yMyw2ICsyMywxMSBAQCBib29sIGFyY2hfbWF0Y2hfY3B1X3BoeXNfaWQoaW50IGNwdSwgdTY0
+IHBoeXNfaWQpCj4gICAgICAgICByZXR1cm4gcGh5c19pZCA9PSBjcHVpZF90b19oYXJ0aWRfbWFw
+KGNwdSk7Cj4gIH0KPgo+ICt2b2lkIF9faW5pdCBhcmNoX2NwdV9maW5hbGl6ZV9pbml0KHZvaWQp
+Cj4gK3sKPiArICAgICAgIHNlbGVjdF9pZGxlX3JvdXRpbmUoKTsKPiArfQo+ICsKPiAgLyoKPiAg
+ICogUmV0dXJucyB0aGUgaGFydCBJRCBvZiB0aGUgZ2l2ZW4gZGV2aWNlIHRyZWUgbm9kZSwgb3Ig
+LUVOT0RFViBpZiB0aGUgbm9kZQo+ICAgKiBpc24ndCBhbiBlbmFibGVkIGFuZCB2YWxpZCBSSVND
+LVYgaGFydCBub2RlLgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9wcm9jZXNzLmMg
+Yi9hcmNoL3Jpc2N2L2tlcm5lbC9wcm9jZXNzLmMKPiBpbmRleCBlNGJjNjFjNGU1OGEuLjc3NzY5
+OTY1NjA5ZSAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9wcm9jZXNzLmMKPiArKysg
+Yi9hcmNoL3Jpc2N2L2tlcm5lbC9wcm9jZXNzLmMKPiBAQCAtMTUsNiArMTUsNyBAQAo+ICAjaW5j
+bHVkZSA8bGludXgvdGljay5oPgo+ICAjaW5jbHVkZSA8bGludXgvcHRyYWNlLmg+Cj4gICNpbmNs
+dWRlIDxsaW51eC91YWNjZXNzLmg+Cj4gKyNpbmNsdWRlIDxsaW51eC9zdGF0aWNfY2FsbC5oPgo+
+Cj4gICNpbmNsdWRlIDxhc20vdW5pc3RkLmg+Cj4gICNpbmNsdWRlIDxhc20vcHJvY2Vzc29yLmg+
+Cj4gQEAgLTM1LDExICszNiw0OSBAQCBFWFBPUlRfU1lNQk9MKF9fc3RhY2tfY2hrX2d1YXJkKTsK
+Pgo+ICBleHRlcm4gYXNtbGlua2FnZSB2b2lkIHJldF9mcm9tX2Zvcmsodm9pZCk7Cj4KPiAtdm9p
+ZCBub2luc3RyIGFyY2hfY3B1X2lkbGUodm9pZCkKPiArc3RhdGljIF9fY3B1aWRsZSB2b2lkIGRl
+ZmF1bHRfaWRsZSh2b2lkKQo+ICt7Cj4gKyAgICAgICAvKgo+ICsgICAgICAgICogQWRkIG1iKCkg
+aGVyZSB0byBlbnN1cmUgdGhhdCBhbGwKPiArICAgICAgICAqIElPL01FTSBhY2Nlc3NlcyBhcmUg
+Y29tcGxldGVkIHByaW9yCj4gKyAgICAgICAgKiB0byBlbnRlcmluZyBXRkkuCj4gKyAgICAgICAg
+Ki8KPiArICAgICAgIG1iKCk7Cj4gKyAgICAgICB3YWl0X2Zvcl9pbnRlcnJ1cHQoKTsKPiArfQo+
+ICsKPiArc3RhdGljIF9fY3B1aWRsZSB2b2lkIHdyc19pZGxlKHZvaWQpCj4gK3sKPiArICAgICAg
+IC8qCj4gKyAgICAgICAgKiBBZGQgbWIoKSBoZXJlIHRvIGVuc3VyZSB0aGF0IGFsbAo+ICsgICAg
+ICAgICogSU8vTUVNIGFjY2Vzc2VzIGFyZSBjb21wbGV0ZWQgcHJpb3IKPiArICAgICAgICAqIHRv
+IGVudGVyaW5nIFdSUy5OVE8uCj4gKyAgICAgICAgKi8KPiArICAgICAgIG1iKCk7Cj4gKyAgICAg
+ICB3cnNfbnRvKCZjdXJyZW50X3RocmVhZF9pbmZvKCktPmZsYWdzKTsKPiArfQo+ICsKPiArREVG
+SU5FX1NUQVRJQ19DQUxMX05VTEwocmlzY3ZfaWRsZSwgZGVmYXVsdF9pZGxlKTsKPiArCj4gK3Zv
+aWQgX19jcHVpZGxlIGNwdV9kb19pZGxlKHZvaWQpCj4gK3sKPiArICAgICAgIHN0YXRpY19jYWxs
+KHJpc2N2X2lkbGUpKCk7Cj4gK30KPiArCj4gK3ZvaWQgX19jcHVpZGxlIGFyY2hfY3B1X2lkbGUo
+dm9pZCkKPiAgewo+ICAgICAgICAgY3B1X2RvX2lkbGUoKTsKPiAgfQo+Cj4gK3ZvaWQgX19pbml0
+IHNlbGVjdF9pZGxlX3JvdXRpbmUodm9pZCkKPiArewo+ICsgICAgICAgaWYgKElTX0VOQUJMRUQo
+Q09ORklHX1JJU0NWX1pBV1JTX0lETEUpICYmCj4gKyAgICAgICAgICAgICAgICAgICAgICAgcmlz
+Y3ZfaGFzX2V4dGVuc2lvbl9saWtlbHkoUklTQ1ZfSVNBX0VYVF9aQVdSUykpCj4gKyAgICAgICAg
+ICAgICAgIHN0YXRpY19jYWxsX3VwZGF0ZShyaXNjdl9pZGxlLCB3cnNfaWRsZSk7Cj4gKyAgICAg
+ICBlbHNlCj4gKyAgICAgICAgICAgICAgIHN0YXRpY19jYWxsX3VwZGF0ZShyaXNjdl9pZGxlLCBk
+ZWZhdWx0X2lkbGUpOwpUaGUgaGFyZHdhcmUgaW1wbGVtZW50YXRpb25zIG9mICJXRkkgJiBXUlMi
+IGFyZSBkaWZmZXJlbnQuCi0gVGhlIFdGSSBjb3VsZCBlbnRlciBhIG1vcmUgcHJvZm91bmQgcG93
+ZXIgY29uc3VtcHRpb24tc2F2aW5nIG5lZWRlZAp0byBrZWVwIElSUSBhbGl2ZSwgYnV0IHRoZSBX
+UlMgZG9lc24ndC4KLSBXUlMgaXMgZGVzaWduZWQgZm9yIGNvbmRfbG9hZCwgd2hpY2ggbmVlZHMg
+dG8ga2VlcCBjYWNoZSBjb2hlcmVuY3kgYWxpdmUuCgpTbywgd2UgY291bGRuJ3Qgc2ltcGx5ICYg
+c3RhdGljYWxseSB1c2UgYW4gZXh0ZW5zaW9uIGNoZWNrIHRvIGNob29zZQpXUlMgb3IgV0ZJIGZv
+ciBpZGxlLgoKPiArfQo+ICsKPiAgaW50IHNldF91bmFsaWduX2N0bChzdHJ1Y3QgdGFza19zdHJ1
+Y3QgKnRzaywgdW5zaWduZWQgaW50IHZhbCkKPiAgewo+ICAgICAgICAgaWYgKCF1bmFsaWduZWRf
+Y3RsX2F2YWlsYWJsZSgpKQo+IC0tCj4gMi4yMC4xCj4KCgotLSAKQmVzdCBSZWdhcmRzCiBHdW8g
+UmVuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
+eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
+Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
