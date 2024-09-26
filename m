@@ -4,42 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CB72CDE031
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Sep 2024 18:41:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DD32CDE031
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Sep 2024 18:54:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vXdzXL77WhkvH6s7SSwVvlxHasUHBuv/qNJiH3g7RTI=; b=cF0hxj2xMi9bhM
-	0l71kNjK0AFenHdTn/JpUkbod2jvStt96wnSDVzi9RRDmiKTvMreLIT0IH95F6VgLSc5u3RMa8d6O
-	GAUSze3Jj+N0XJH1FyvR5hwbe4nJI1lTk/ce22/gEO8AOAJBOuRys8tAz1dztKXngCrVnrrv1sq+w
-	BkNg1p8ZwMPYei09bihYX6JkHcmWYXOqVowwOjPiR8wuv9kjFziZGoXRzLVos+AJcU+OASiMBhuqF
-	SKU/ODkCrDaVkFLFgTGhwouT+p2y4w94O/bWxgYR2Rj6r3uJ3zWGNaXmGTnx5c+oKsVCpArqC+QAs
-	8d69T3jxwAau/IDGg8zw==;
+	List-Owner; bh=djSMP+xUwbG3sgchxmEPSEkGAkKkdWcA7hBhoyw18xA=; b=mkU0WDx/V0/CjO
+	ayrmQBz6hhTUAI5YmN4saAECxf31hCsRjgq0R2oE8RAM+0/9lGbEKBGh4MfxyqyKBPkXoOYeJlwoA
+	lsIYYsUAacHMcH0GzZBElGz5XndvtU6u2AVBlmXf4beW1ya2l+1lauDfV/1+thLgYIRFdZDPVkWJd
+	FHKXP1FCkFKrR3dAXCWHJEpEjNxi5t0goINgKzcZgqWJ+FpmJazE07IU9hnhqotXIkK5pbhb/i0g6
+	JS6lSv0v4BS2y9oPKAma6Rx6cSI4TRLs5uHi54zi8SDjZvMpACuTfULMoKgPJ7sZ37S7vvGoV668B
+	75olRujl/WmBAfEpBtNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sttQG-000000099Wb-2kpQ;
-	Thu, 26 Sep 2024 18:41:04 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1sttd3-00000009Bbl-1z4j;
+	Thu, 26 Sep 2024 18:54:17 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sttP3-000000099In-3FTw;
-	Thu, 26 Sep 2024 18:39:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=V66/Bzro1T7ZAB1kueHnp/otNZSlwdgDsCDAFqLRcQI=; b=OGsInAtYTpLNQkj5oDDqLHUSxY
-	XnQcY0X4AOCqhw5hWiFERR84HjQGRI0gwC/gPPAJFGjvbv+jN9myx4y2yZiRpaOoLmIscbSS5Q9K1
-	ekiMGkVkjpBraCLyC7+1XqS/lt7IpPByCNxXz2C2wOVcOhbWV8WkTk7xrZdlwlnKMILE=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1sttOj-008P8u-4T; Thu, 26 Sep 2024 20:39:29 +0200
-Date: Thu, 26 Sep 2024 20:39:29 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Drew Fustini <dfustini@tenstorrent.com>
+	id 1sttWp-00000009Aal-1sOX
+	for linux-riscv@lists.infradead.org;
+	Thu, 26 Sep 2024 18:47:52 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-205722ba00cso12542785ad.0
+        for <linux-riscv@lists.infradead.org>; Thu, 26 Sep 2024 11:47:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tenstorrent.com; s=google; t=1727376470; x=1727981270; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=+KusUymBZTpYYnq4WmcbbE/FZsVAjrJbZNZbABf3CAo=;
+        b=ANQnlyiK3mqF4HYlZfumLHsUyftJU0XwuEIWlPBFPYums4pPLVTYbB1qV92OSUIZBQ
+         iniVJjPyt78lwgW1qzz1hQjzklk9KXIrBqyW3jN2/AVsc4AhXnxl5UCbHJTBwM+yJCDj
+         5kPmrYPqkK12gTaHMGQqDtt2JHgiqdoosTmMLX3nwJuCpQDhmD4312U3zEHjpLROQeun
+         HHAvHFdfnG/arYSiehI2LBvJIce5r3AUPOUD0ZW+cVtM5XULniWumoPsHwOoLWmUohQG
+         7LyFRwCqTwLnuk4YR+2mGA5RolS8KbNjyNsTon/mR+ELqy/fjuEkVdCAs0j78hK2zynv
+         TLyA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1727376470; x=1727981270;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+KusUymBZTpYYnq4WmcbbE/FZsVAjrJbZNZbABf3CAo=;
+        b=YP52Fa0cl9nyOVfop9sN5PRSJ42KKqBv4tTB1jK9Orubach9sZIfmUYeMwD75OgSEg
+         uSMwTcQeTZ83ZcD7T11QdTrGj0fR7wiwXJ4Vj25RdoFxfGbFvg5m8qgh3Z72UC2hDUyk
+         FZJeeCuB0UP0Z5DuCL1q6NoZBhdrJf/5+/wZFJpg3g565EtU4qB4Z6BoKI46hJvCzx33
+         YJ82vpkaE0mykgF+k/aLH2ITERcxPJ/N0rK4Q3MCLrF2ld649g20V/h5Fhu2IYXp1kLB
+         oVn16pbps56L1LFapmnsUdAwRLDxtEdoT84QTn0O1aRSUg/yGq0MkW0rczpBvU1r1nVO
+         AI3A==
+X-Forwarded-Encrypted: i=1; AJvYcCWF7uvJ0goPlLqbDrBsD5Cg24p0M24ITep/HsIqESbmbrFP3EsZWTfRGPU30gJLuuQdSTrF0b7ri+apvA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxx1lMvPgSgWiRAuIsJIh5rfQLymKFh8JpKWl/3OJIDS9CaWR1k
+	Luppw7jIw7w9+t1Zdj19ZOl3lqSb3XKtA+xnFrehWnQ1tqVyyWqYD0yd7v24wxQ=
+X-Google-Smtp-Source: AGHT+IGNxuTgkN1leT2RdvlA5PUTH+t79/qJCqmKY/KS0CmrWCtetVvj/vYEI9+Bz4MIXVKD0WkcsQ==
+X-Received: by 2002:a17:903:2285:b0:207:7952:e6d4 with SMTP id d9443c01a7336-20b367ca162mr9258295ad.4.1727376469796;
+        Thu, 26 Sep 2024 11:47:49 -0700 (PDT)
+Received: from x1 (71-34-69-82.ptld.qwest.net. [71.34.69.82])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-20b37e4ee7bsm1571565ad.234.2024.09.26.11.47.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Sep 2024 11:47:49 -0700 (PDT)
+Date: Thu, 26 Sep 2024 11:47:47 -0700
+From: Drew Fustini <dfustini@tenstorrent.com>
+To: Andrew Lunn <andrew@lunn.ch>
 Cc: "David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
 	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
@@ -61,17 +86,17 @@ Cc: "David S. Miller" <davem@davemloft.net>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 3/3] riscv: dts: thead: Add TH1520 ethernet nodes
-Message-ID: <3e26f580-bc5d-448e-b5bd-9b607c33702b@lunn.ch>
+Subject: Re: [PATCH v2 2/3] net: stmmac: Add glue layer for T-HEAD TH1520 SoC
+Message-ID: <ZvWsUxyBoiHws1TE@x1>
 References: <20240926-th1520-dwmac-v2-0-f34f28ad1dc9@tenstorrent.com>
- <20240926-th1520-dwmac-v2-3-f34f28ad1dc9@tenstorrent.com>
+ <20240926-th1520-dwmac-v2-2-f34f28ad1dc9@tenstorrent.com>
+ <a64eb154-30b9-4321-b3ef-2bcb1e861800@lunn.ch>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240926-th1520-dwmac-v2-3-f34f28ad1dc9@tenstorrent.com>
+In-Reply-To: <a64eb154-30b9-4321-b3ef-2bcb1e861800@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240926_113949_835677_64D21FE4 
-X-CRM114-Status: UNSURE (   8.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240926_114751_508528_B45E48FD 
+X-CRM114-Status: GOOD (  24.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,56 +113,109 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> +&mdio0 {
-> +	phy0: ethernet-phy@1 {
-> +		reg = <1>;
-> +	};
-> +
-> +	phy1: ethernet-phy@2 {
-> +		reg = <2>;
-> +	};
-> +};
+On Thu, Sep 26, 2024 at 08:32:00PM +0200, Andrew Lunn wrote:
+> > +static int thead_dwmac_init(struct platform_device *pdev, void *priv)
+> > +{
+> > +	struct thead_dwmac *dwmac = priv;
+> > +	int ret;
+> > +
+> > +	ret = thead_dwmac_set_phy_if(dwmac->plat);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	ret = thead_dwmac_set_txclk_dir(dwmac->plat);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	ret = regmap_write(dwmac->apb_regmap, GMAC_RXCLK_DELAY_CTRL,
+> > +			   GMAC_RXCLK_DELAY_VAL(dwmac->rx_delay));
+> > +	if (ret)
+> > +		return dev_err_probe(dwmac->dev, ret,
+> > +				     "failed to set GMAC RX clock delay\n");
+> > +
+> > +	ret = regmap_write(dwmac->apb_regmap, GMAC_TXCLK_DELAY_CTRL,
+> > +			   GMAC_TXCLK_DELAY_VAL(dwmac->tx_delay));
+> > +	if (ret)
+> > +		return dev_err_probe(dwmac->dev, ret,
+> > +				     "failed to set GMAC TX clock delay\n");
+> > +
+> > +	thead_dwmac_fix_speed(dwmac, SPEED_1000, 0);
+> 
+> Is this needed? I would expect this to be called when the PHY has link
+> and you know the link speed. So why set it here?
 
-Two PHYs on one bus...
+Good point.  I've removed this line and the probe still completes okay
+and the Ethernet connection is working okay.
 
-> +		gmac1: ethernet@ffe7060000 {
-> +			compatible = "thead,th1520-gmac", "snps,dwmac-3.70a";
-> +			reg = <0xff 0xe7060000 0x0 0x2000>, <0xff 0xec004000 0x0 0x1000>;
-> +			reg-names = "dwmac", "apb";
-> +			interrupts = <67 IRQ_TYPE_LEVEL_HIGH>;
-> +			interrupt-names = "macirq";
-> +			clocks = <&clk CLK_GMAC_AXI>, <&clk CLK_GMAC_AXI>;
-> +			clock-names = "stmmaceth", "pclk";
-> +			snps,pbl = <32>;
-> +			snps,fixed-burst;
-> +			snps,multicast-filter-bins = <64>;
-> +			snps,perfect-filter-entries = <32>;
-> +			snps,axi-config = <&stmmac_axi_config>;
-> +			status = "disabled";
-> +
-> +			mdio1: mdio {
-> +				compatible = "snps,dwmac-mdio";
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +			};
-> +		};
-> +
-> +		gmac0: ethernet@ffe7070000 {
-> +			compatible = "thead,th1520-gmac", "snps,dwmac-3.70a";
-> +			reg = <0xff 0xe7070000 0x0 0x2000>, <0xff 0xec003000 0x0 0x1000>;
-> +			reg-names = "dwmac", "apb";
-> +			interrupts = <66 IRQ_TYPE_LEVEL_HIGH>;
-> +			interrupt-names = "macirq";
-> +			clocks = <&clk CLK_GMAC_AXI>, <&clk CLK_GMAC_AXI>;
+> > +
+> > +	return thead_dwmac_enable_clk(dwmac->plat);
+> > +}
+> > +
+> > +static int thead_dwmac_probe(struct platform_device *pdev)
+> > +{
+> > +	struct device_node *np = pdev->dev.of_node;
+> > +	struct stmmac_resources stmmac_res;
+> > +	struct plat_stmmacenet_data *plat;
+> > +	struct thead_dwmac *dwmac;
+> > +	void __iomem *apb;
+> > +	u32 delay;
+> > +	int ret;
+> > +
+> > +	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
+> > +	if (ret)
+> > +		return dev_err_probe(&pdev->dev, ret,
+> > +				     "failed to get resources\n");
+> > +
+> > +	plat = devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
+> > +	if (IS_ERR(plat))
+> > +		return dev_err_probe(&pdev->dev, PTR_ERR(plat),
+> > +				     "dt configuration failed\n");
+> > +
+> > +	dwmac = devm_kzalloc(&pdev->dev, sizeof(*dwmac), GFP_KERNEL);
+> > +	if (!dwmac)
+> > +		return -ENOMEM;
+> > +
+> > +	/* hardware default is 0 for the rx and tx internal clock delay */
+> > +	dwmac->rx_delay = 0;
+> > +	dwmac->tx_delay = 0;
+> > +
+> > +	/* rx and tx internal delay properties are optional */
+> > +	if (!of_property_read_u32(np, "thead,rx-internal-delay", &delay)) {
+> > +		if (delay > GMAC_RXCLK_DELAY_MASK)
+> > +			dev_warn(&pdev->dev,
+> > +				 "thead,rx-internal-delay (%u) exceeds max (%lu)\n",
+> > +				 delay, GMAC_RXCLK_DELAY_MASK);
+> > +		else
+> > +			dwmac->rx_delay = delay;
+> > +	}
+> > +
+> 
+> So you keep going, with an invalid value? It is better to use
+> dev_err() and return -EINVAL. The DT write will then correct their
+> error when the device fails to probe.
 
-And the MACs are listed in opposite order. Does gmac1 probe first,
-find the PHY does not exist, and return -EPROBE_DEFER. Then gmac0
-probes successfully, and then sometime later gmac1 then reprobes?
+My intention was to keep the default of 0 if the dt property exists and
+exceeds the max value. I had considered failing the probe but I wasn't
+sure that was too severe of a reaction to a bad value for the delay.
 
-I know it is normal to list nodes in address order, but you might be
-able to avoid the EPROBE_DEFER if you reverse the order.
+> 
+> If you decide to keep this... I'm not sure these properties are
+> needed.
 
-     Andrew
+Given your reply to the cover letter, I think it does make sense for me
+to remove handling of these delay properties since the units of the
+delay bit field are unknown and the hardware I have is okay with the
+default delay.
+
+> 
+> > +MODULE_AUTHOR("Jisheng Zhang <jszhang@kernel.org>");
+> 
+> Please add a second author, if you have taken over this driver.
+
+Yes, Jisheng is no longer working on it, so I will add myself.
+
+Thanks,
+Drew
 
 _______________________________________________
 linux-riscv mailing list
