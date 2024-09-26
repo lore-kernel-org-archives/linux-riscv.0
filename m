@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5DB9CCF9E9
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Sep 2024 07:15:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DBE6CCF9E9
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Sep 2024 07:16:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0JgDQvxS7d1wa6dsJLA15kz1UfkeOHhq9uJbPDVUjQM=; b=48wXcI/Nty9D9f
-	mcs/q7yfe3i19lDSc64XmCNo79QSiFMjRwJvBjYZr6xmsGMhHC2px/yxRn9E3er2xM9yIBHgZwCf1
-	8jqBJ6Ebq/qG448vyWLpnQ6C83D/1cIQcJD2TbQFtoPzwTDjckKn45KVIFY5JnXZe1b3fptHQN8ih
-	00Zy/7tqoaQZhS5iTUZPrvgP7j5KeS9yfJK2I3Exml4Prs2R5sAXSZoTRS0zT4yXN7elnA4etxnlB
-	rWYlHEhNYqY4eqIfo5EC9NU3xUu/e3WkVnKLl1VwqoxIc2Nj7jgE4ZkF88kJL4gDwBWVl797dwx9W
-	Vc90nv+qCKXLufxwIRQg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wtl9Gdha4d4YOFdxK+wtl4SS8NVSx9jGlMlQ0w1kkPY=; b=JDwpxT+lK5dbf6
+	sydFu0gv1dGFR4+xMiL2jNvi+80ONwrs5oK/o39UAciAN9yF1p9FhERXpEZUurqC7nmr2nk9h523K
+	XamQe693n/ZApeyoIAYM4ClgaV6gL2Thfz7ExOtM0mQ87BdhnBFshxPt5EaGh+JvwIqlRRCKnTRxa
+	g8R1WBg6qFKpb5lkqlRYWEwoACVM4FWuI274Txvu2O3Y7YSnwB+5X2sgP8TUPnigWaeGFWXRwLGOq
+	jV0+Mtb8Vp1bbB7Z4l+Zl/zlFlQ5BXxZja+prlm6pufNpyd1O3dF+ly9KITqlhELC4OMUVGCbD6IT
+	OzVn1tIbsdwNO3MbDApg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1stiir-00000007TOS-3Tnj;
-	Thu, 26 Sep 2024 07:15:33 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1stiip-00000007TO1-3d6U;
+	Thu, 26 Sep 2024 07:15:31 +0000
+Received: from mail-ot1-x335.google.com ([2607:f8b0:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1stiQ4-00000007PZQ-0Oj8
+	id 1stiPg-00000007PR1-33sR
 	for linux-riscv@lists.infradead.org;
-	Thu, 26 Sep 2024 06:56:09 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-7e6d04f74faso467995a12.1
-        for <linux-riscv@lists.infradead.org>; Wed, 25 Sep 2024 23:56:07 -0700 (PDT)
+	Thu, 26 Sep 2024 06:55:46 +0000
+Received: by mail-ot1-x335.google.com with SMTP id 46e09a7af769-71100987d1cso364644a34.2
+        for <linux-riscv@lists.infradead.org>; Wed, 25 Sep 2024 23:55:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1727333767; x=1727938567; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=4Pc22EUqI7DPrVM6a23jwJ8zZFnPa3YTszP9VJN1ZIc=;
-        b=LJroFsv69bZE+zPKKDcIir+1TzKmpOQ6CUpHNLruHxiuZpF9PrlHY5jkRk5D6LHzdo
-         4hlwg+mC/0BdffXpCFNF5bBI+eCDivGSSv0eCgVM45LafeKqO+W5FX3vbV/WEOXG1DBy
-         9xgW/8d7MyFc5W3q4NUslSaA/zmPFYaGXoZqLYvHeLBS2vs9bg7mq3KcH0ic6wH2fBVV
-         aNwVKD397GaVSln2K+JgNQRFyiayDGlgnuWdxGJRPQTwKhnzgTg8REBJCRy8X9uu+TK1
-         kCkhh7Y+EeMdwFi+QKJWs1yCMJ2Op0nWM/QNk2hp58ptIMRtYUfOEn84GQczQ2Ygd5UU
-         sAcA==
+        d=sifive.com; s=google; t=1727333743; x=1727938543; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=MzHfWrObFTebylfAMReMmx0H/fNyKd6EWjjqrhs5YS8=;
+        b=LyRu7nOKucOdeAEU6L8iRxo7VYNzIyZW/WWdhzf7SbR1wq1b6o7jwii0gbI4Xb7xgC
+         9jAS/WtEMPzNL0LTAHpbwGzUOkYRSBet6hOvglO93D2nzK4I05CeeYuivvLkgsPHFJ6i
+         /8+JNed90sNJXerZatiFILZ/fqUvzdDGhmFkSGCIBsXQ9Xjz4cdcCzW8mjWuTLKBi6iw
+         EsxAliyfVkW2c12arD0KN7zDdh355YQPC9/3PrYXmPgs/PCxCoLxufUt7+vPC1u2nNj3
+         TPBYYL4Vv1b4opZ1KorToTNGzdaHjjAofJVfMLy/dp/ue6GV1n4ug5q786oHo3agNbPe
+         5zrw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1727333767; x=1727938567;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=4Pc22EUqI7DPrVM6a23jwJ8zZFnPa3YTszP9VJN1ZIc=;
-        b=XlO9UP3m89REVwniPITQZqLfNJ1NBmCb1d6Y/Nht/11QBXdnIhl7SxNYjPVdAeVjS4
-         SUGzGF2MHPR8S4Nb7+1JYQhC0KpsF7lWo5V1FKkNuOYMS7IAexp+/uV64AKHcwhRMR3P
-         eGb8ReEf8zvUerNMgBTOBLJ1ExVUZLfBP192wX5d6e+gmIbzhNdAAd9v4G+haLSPec41
-         38T37sNvdAy9+9gl+ss8NKh7s9TMNO9ZohBydhTf0YvKRRXTMSpRPOGB1rhbxkbQ4eNw
-         /b5AdwDjqQuFF2AfSWMAY3Swos3KwgO4eVwmfvJb/R48rcS3wn/aXpOD9P2SSfpos+9F
-         qL6Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVrIeimL99FpiysTGrq/sC36w+yW+QMEwFtw1hKU+tU+SDtSnhwgOVUX2bHxxRvlziJSYbAbe3AKTe+vA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7cmO5hHQz9KcHnUnBtWC7dh3sSyvd7WqPTummasNb1WIo9972
-	uo1l/rjaATwEwQ0mJzEospdjxZ8q5hj6mY5z1J6E9YjJ1tiTDfCmjVDy9p+DZxU=
-X-Google-Smtp-Source: AGHT+IEO6HyO9ourHKj89akn4hwO0QEWGH3NS+KxhD+L1x5BptifZgMYW8BoqFjQGO0+rzUQWyRL/Q==
-X-Received: by 2002:a05:6a20:7490:b0:1cc:e71d:ea10 with SMTP id adf61e73a8af0-1d4ebe73f00mr3514567637.14.1727333766880;
-        Wed, 25 Sep 2024 23:56:06 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1727333743; x=1727938543;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=MzHfWrObFTebylfAMReMmx0H/fNyKd6EWjjqrhs5YS8=;
+        b=g9WPi+iPRu4XpJ/nkvjnrmb8bDNBjPJfFUxguKj/8tji2X7KPyoXV5jwIR5orGLc0W
+         TFdF4QLQAA9gg0fhE27Xbr3vRcGnDFryXbNGav8voCjBBruE2wnmVTROtiEURX0Ngrrj
+         cGCdzsmyE/pgbqkg8yVvoIN4FvZBxAp82XqYyDm3/5xPJVMdnAzNZPUo2mrhNA1fTqpM
+         dLpeNiO2z6Y1+yDgAMzUZLAo+BGcwfRc0dFqUoh2DfmiAHnQrJL2kqwQrjW59K5fRc1E
+         Oi/3XE4kQU1aDZmefyKYUxbml2C3USAplOlxmmQKj70AmA4fiMsEVT2WcEPN+Np2HMye
+         p5IQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVQ/dVJvSlEaJL+sZQmHI8o2JKbd5/ro5ldom7p72rWwJWK7O9R65TBRVTjfSNXg2zs1atB3cDIlRYLlw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz1/nd61u+TxCqNJAIzWXk0fmCh7tht5zpXsa35wb8uskBtWfZG
+	KfnoV3tTim4gvRdz+bq0xjv3tg0A0qs1I5UKzIfKrYkUJd1hD1LMneaVYVAQPgE=
+X-Google-Smtp-Source: AGHT+IFJjm9aCyo95+9/VI6IL66etpFOV0OLThx3WyZZ7tnWZyAbNEO+PfCso5aAFQN+3KjsS0OA1A==
+X-Received: by 2002:a05:6830:6e99:b0:711:c8:1a39 with SMTP id 46e09a7af769-713c7dc1258mr4573597a34.16.1727333743142;
+        Wed, 25 Sep 2024 23:55:43 -0700 (PDT)
 Received: from hsinchu35-syssw01.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7e6b7c73120sm3592352a12.68.2024.09.25.23.56.03
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7e6b7c73120sm3592352a12.68.2024.09.25.23.55.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Sep 2024 23:56:06 -0700 (PDT)
+        Wed, 25 Sep 2024 23:55:42 -0700 (PDT)
 From: Nick Hu <nick.hu@sifive.com>
 To: greentime.hu@sifive.com,
 	zong.li@sifive.com,
@@ -75,26 +73,25 @@ To: greentime.hu@sifive.com,
 	Thomas Gleixner <tglx@linutronix.de>,
 	Anup Patel <anup@brainfault.org>,
 	Andrew Jones <ajones@ventanamicro.com>,
-	Mayuresh Chitale <mchitale@ventanamicro.com>,
 	Conor Dooley <conor.dooley@microchip.com>,
+	Mayuresh Chitale <mchitale@ventanamicro.com>,
 	Atish Patra <atishp@rivosinc.com>,
-	Nick Hu <nick.hu@sifive.com>,
 	Samuel Holland <samuel.holland@sifive.com>,
+	Nick Hu <nick.hu@sifive.com>,
 	Samuel Ortiz <sameo@rivosinc.com>,
 	Sunil V L <sunilvl@ventanamicro.com>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-pm@vger.kernel.org
-Subject: [PATCH v2 3/3] clocksource/drivers/timer-riscv: Stop stimecmp when cpu hotplug
-Date: Thu, 26 Sep 2024 14:54:18 +0800
-Message-Id: <20240926065422.226518-4-nick.hu@sifive.com>
+Subject: [PATCH v2 0/3] Support SSTC while PM operations
+Date: Thu, 26 Sep 2024 14:54:15 +0800
+Message-Id: <20240926065422.226518-1-nick.hu@sifive.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20240926065422.226518-1-nick.hu@sifive.com>
-References: <20240926065422.226518-1-nick.hu@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240925_235608_158921_70049D93 
-X-CRM114-Status: GOOD (  10.78  )
+X-CRM114-CacheID: sfid-20240925_235544_802717_00BEA649 
+X-CRM114-Status: UNSURE (   7.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,33 +108,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Stop the stimecmp when the cpu is going to be off otherwise the timer
-stimecmp register while cpu non retention suspend.
+When the cpu is going to be hotplug, stop the stimecmp to prevent pending
+interrupt.
+When the cpu is going to be suspended, save the stimecmp before entering
+the suspend state and restore it in the resume path.
 
-Suggested-by: Anup Patel <anup@brainfault.org>
-Link: https://lore.kernel.org/lkml/20240829033904.477200-3-nick.hu@sifive.com/T/#u
-Signed-off-by: Nick Hu <nick.hu@sifive.com>
----
- drivers/clocksource/timer-riscv.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+changes in v2:
+1. Add csr_read/write_hi_lo operations
+2. Apply the suggestion from Anup.
+link: https://lore.kernel.org/lkml/20240829033904.477200-3-nick.hu@sifive.com/T/#u
 
-diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
-index 48ce50c5f5e6..166dee14e46b 100644
---- a/drivers/clocksource/timer-riscv.c
-+++ b/drivers/clocksource/timer-riscv.c
-@@ -127,6 +127,12 @@ static int riscv_timer_starting_cpu(unsigned int cpu)
- static int riscv_timer_dying_cpu(unsigned int cpu)
- {
- 	disable_percpu_irq(riscv_clock_event_irq);
-+	/*
-+	 * Stop the timer when the cpu is going to be offline otherwise
-+	 * the timer interrupt may be pending while performing power-down.
-+	 */
-+	riscv_clock_event_stop();
-+
- 	return 0;
- }
- 
+Nick Hu (3):
+  riscv: Add csr_read/write_hi_lo support
+  riscv: Add stimecmp save and restore
+  clocksource/drivers/timer-riscv: Stop stimecmp when cpu hotplug
+
+ arch/riscv/include/asm/csr.h      | 22 ++++++++++++++++++++++
+ arch/riscv/include/asm/suspend.h  |  1 +
+ arch/riscv/kernel/suspend.c       |  6 ++++++
+ drivers/clocksource/timer-riscv.c |  6 ++++++
+ 4 files changed, 35 insertions(+)
+
 -- 
 2.34.1
 
