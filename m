@@ -4,82 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 136F8CEBF8C
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Sep 2024 09:24:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DD06CEBF8A
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Sep 2024 09:36:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lnMrxXzT6AWtfQraqK+MqwuogJp50qYJZuE4tLa8DZU=; b=bPL00LgRldwpCz
-	bp8mExdRupZlEndIVqOpHLJicmr/Zg00fLnxe8gnPAU5ZDdIBFDvZc+z0ilNcRkhG1mb6+2wbE0eN
-	Ou/NbkTAYPX+IOi7+YhXHxUkKpjqBQrP2jyhVtBUwO3a33rBSCzmazt1YLmLGy7Yw1fVMwTnzHivP
-	yLuUWb9Sa+EFkya/ioVDk0F8PHYk4PXXksOg7lwCcLhIYQ1f2Q+6H6A3WrnY7NmRhtKH1i+mmHJni
-	2mScEXV7BtQV2vmQ9ISg+2jOmZIWffKVTjk7zrVrBWZfYTyYYV0RpjTkdw273OSp24BzI/J68RyLm
-	3rsF09whdlYxM6EEm6RA==;
+	List-Owner; bh=B8Q1SIVBr65eL/gePuP2QA1/4iNc3wYtjShLyTCDcxA=; b=Eu07aPhFs2WkVl
+	uDqgPJJGhM8lYneMXiLKVIxi0Y0h+N0rBnNWlf4VjhnrM0pXEMlvVwyRf3zNT4pA+cn8Y4nmn5nKI
+	hPkQmInoXWfAXQ/eNGDAB8Y/6ETCoJiSxveqSlYrweZGhpPgFCodha9Mn4N6LWoDDMS7yAwSc4Suw
+	cuAlKUgAehgpArMJ5uLah5zyunoMk+bMP43LVkVBiktGEmrdFqdeF96EtNTAVm5Xp+unnC3f8PscT
+	/2Ti0+GEerFx4BdjazKyMdEIpaws+HGZceZKqbFWb3Xt65YmWyOsvbQ8+j6uU3I+1jdjXygJ6fXii
+	WsN+IMI6BoU9XZa8A7tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1su7DN-0000000Adpe-1CN8;
-	Fri, 27 Sep 2024 09:24:41 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1su7OT-0000000Afpl-3oLo;
+	Fri, 27 Sep 2024 09:36:09 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1su7C0-0000000AdZT-2ZuS
-	for linux-riscv@lists.infradead.org;
-	Fri, 27 Sep 2024 09:23:18 +0000
-Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-5c40942358eso3318627a12.1
-        for <linux-riscv@lists.infradead.org>; Fri, 27 Sep 2024 02:23:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1727428994; x=1728033794; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Nqf7J6uVRTMjV8Mkr5LkK+rt2+orKvSYQp47d/slH6I=;
-        b=ZArS7zO6pkyNDl1toLa9Jh64RfYmVr460MaGD8+all/JKOvHqXNMgnNtD1kkZ0F0pG
-         YQavf5uZoJpkO2mS0GiXjKvDFsLWVzEcmE6twAbVCDlVqkgV+BCXCm5m1ZhcY6aoJqTg
-         ucqgif74Hqn5zljqr0itq18sUIOziRoEoankCByTY3xnpMmpObnDFceRozgbmJ5OOmQy
-         mUNhopLLCRtpZW3JUDp4U/N0xre4udaD/psGAQJRsZCoVtIVWBC9cX/H9RQy4Jd7O2KJ
-         9Nq3xCGyKyyxvsy9b78Q/OvQ4XSjtIH9/ZCrIKZaceowZmSUtdC6V89B+83M7sILY3Or
-         aLqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1727428994; x=1728033794;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Nqf7J6uVRTMjV8Mkr5LkK+rt2+orKvSYQp47d/slH6I=;
-        b=tO93H+ZudI3ID4Wx9FjK2ptkC1UhnYUqdxrNh64UbrwueiqxlDyAZoTNq21jpMPmKE
-         Jkcaairf+KmUYiu6c68y3y6DH4G5Cm28El+6MDvfwISHNnYRiJexLH3KgCC2hYEU9UXJ
-         u7kTEqmTUtxIcULM1jkPOueXCEpufQ8+bhe9IOF02BBRokfgnXrMZlisqRBZ4zYlqZRg
-         nHjSIfjpKDOYnZPnHYnRdA5XKTYGq+HSG4YgMO9oIXXqVt+ZhEn2lulbYLLB4Y6I+GQV
-         gRvNBZZ7zRVD7D4WfnZZ9XiSyppVp0LmDQbEv9kIffhCNgn9fBX3QSsWr2K5XlGgg+Do
-         AFMg==
-X-Forwarded-Encrypted: i=1; AJvYcCUFXypYjir0lOSjhfCUAfdmZcXCH+E4XjWtEjC6c0WhFx5s9ZDOByllzsRIeqvdI5n5dvDz+FfjFPe7QA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwcYUW3Cl5SMhGJuxfEoYze3eQKDHNwqJopsgqKDI/HsMYTMhwl
-	hmX++9cLL0po9Z6gExQExEEyjRrEX25QvtU5Q+/hn9h/TZ4V2G9PpbMUY4pAX8uCDU9+yBw1Ob1
-	L+jA6nbbKAyJiH5PT0WGMKbhg7eQxbJFYIfpJVGFUu0fGlT/1MjA=
-X-Google-Smtp-Source: AGHT+IFGU7PYEBeWJ9XyJiJyw2tA09AFezreXCXdZppeh4nf2YQMIVbOaLNTp72I5G5qbddr12Ia8AF3t2lz4EjKMB4=
-X-Received: by 2002:a05:6402:230e:b0:5c3:cc1c:4d9c with SMTP id
- 4fb4d7f45d1cf-5c8777eae4amr5673166a12.18.1727428993884; Fri, 27 Sep 2024
- 02:23:13 -0700 (PDT)
+	id 1su7NE-0000000Afbh-2XnQ;
+	Fri, 27 Sep 2024 09:34:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 35152A4546E;
+	Fri, 27 Sep 2024 09:34:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48821C4CECD;
+	Fri, 27 Sep 2024 09:34:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1727429691;
+	bh=GxG+tu+21lu0yCzU+ifnIiJI9JUvz1/XTvqf4gwANmM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Lw1IV33snqufyRIefxyv34fx/122R7wwnm+AFm4YXxXC8ZzrLikLv3M5h5GOl4Nru
+	 22dmIY+6IjYvQk1aWxzWRqSvlr68B0W10pufCpST8OJzbksS1m9bsH/BtxTsFg3Xpo
+	 lJpExPQlaTE5gnCqW9Mi+ugyS9DPY+efipl/qCnBzpeS4dNYxdfFBLTjAVWBmkb3aA
+	 8G6I9gsPQP1/yqLRrdEwqaHFrrQ+d4uCeT0Qve8GCqsXgT11TyV3D4iezPLTTnN1oV
+	 qRUIkuxf7H3fghviSq7Aih0hdU+QXNadtj5nDEaKEqCTBhNwRcmHRy3CbkDuIU0si4
+	 lawvIy42bdk0Q==
+Date: Fri, 27 Sep 2024 11:34:48 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Drew Fustini <dfustini@tenstorrent.com>
+Cc: "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
+	Jose Abreu <joabreu@synopsys.com>, Jisheng Zhang <jszhang@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
+	Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
+	Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, netdev@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: net: Add T-HEAD dwmac support
+Message-ID: <4pxpku3btckw7chyxlqw56entdb2s3gqeas4w3owbu5egmq3nf@5v76h4cczv4z>
+References: <20240926-th1520-dwmac-v2-0-f34f28ad1dc9@tenstorrent.com>
+ <20240926-th1520-dwmac-v2-1-f34f28ad1dc9@tenstorrent.com>
 MIME-Version: 1.0
-References: <20240920-dev-maxh-svukte-rebase-v1-0-7864a88a62bd@sifive.com>
- <20240920-dev-maxh-svukte-rebase-v1-1-7864a88a62bd@sifive.com> <20240921-shock-purge-d91482d191a1@spud>
-In-Reply-To: <20240921-shock-purge-d91482d191a1@spud>
-From: Max Hsu <max.hsu@sifive.com>
-Date: Fri, 27 Sep 2024 17:23:02 +0800
-Message-ID: <CAHibDyxcxe87mTLMkWZ9Ko3v7uyEbJd_BP7GSTpZFFO1nfmn0A@mail.gmail.com>
-Subject: Re: [PATCH RFC 1/3] dt-bindings: riscv: Add Svukte entry
-To: Conor Dooley <conor@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, 
-	Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@sifive.com>, 
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, Samuel Holland <samuel.holland@sifive.com>
+Content-Disposition: inline
+In-Reply-To: <20240926-th1520-dwmac-v2-1-f34f28ad1dc9@tenstorrent.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240927_022316_695111_0333DA3B 
-X-CRM114-Status: GOOD (  19.57  )
+X-CRM114-CacheID: sfid-20240927_023452_800326_9E5DC49A 
+X-CRM114-Status: GOOD (  21.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,47 +78,129 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhhbmtzLCBDb25vciwKSSB3aWxsIG1vZGlmeSB0aGUgZm9ybWF0IGFuZCBzZW5kIGl0IGFzIFJG
-QyB2Mi4KClNpbmNlIHRoZSBTdnVrdGUgZXh0ZW5zaW9uIGlzIHN0aWxsIGluIHRoZSByZXZpZXcg
-c3RhZ2UsIEkgd2lsbCBwdXQKdGhlIGxhdGVzdCBjb21taXQgb2YgdGhlIFBSIGluIHRoZSByaXNj
-di1pc2EtbWFudWFsIGFzIGFuIGluZGljYXRpb24sCk9uY2UgdGhlIFN2dWt0ZSBleHRlbnNpb24g
-aXMgcmF0aWZpZWQsIEkgd2lsbCBtb2RpZnkgaXQgYW5kIHNlbmQgaXQgYXMKYSBmb3JtYWwgcGF0
-Y2guCgpCZXN0LApNYXggSHN1CgoKCk9uIFN1biwgU2VwIDIyLCAyMDI0IGF0IDY6MDXigK9BTSBD
-b25vciBEb29sZXkgPGNvbm9yQGtlcm5lbC5vcmc+IHdyb3RlOgo+Cj4gT24gRnJpLCBTZXAgMjAs
-IDIwMjQgYXQgMDM6Mzk6MDNQTSArMDgwMCwgTWF4IEhzdSB3cm90ZToKPiA+IEFkZCBhbiBlbnRy
-eSBmb3IgdGhlIFN2dWt0ZSBleHRlbnNpb24gdG8gdGhlIHJpc2N2LGlzYS1leHRlbnNpb25zCj4g
-PiBwcm9wZXJ0eS4KPiA+Cj4gPiBSZXZpZXdlZC1ieTogU2FtdWVsIEhvbGxhbmQgPHNhbXVlbC5o
-b2xsYW5kQHNpZml2ZS5jb20+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBNYXggSHN1IDxtYXguaHN1QHNp
-Zml2ZS5jb20+Cj4gPiAtLS0KPiA+ICBEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3Mv
-cmlzY3YvZXh0ZW5zaW9ucy55YW1sIHwgNyArKysrKysrCj4gPiAgMSBmaWxlIGNoYW5nZWQsIDcg
-aW5zZXJ0aW9ucygrKQo+ID4KPiA+IGRpZmYgLS1naXQgYS9Eb2N1bWVudGF0aW9uL2RldmljZXRy
-ZWUvYmluZGluZ3MvcmlzY3YvZXh0ZW5zaW9ucy55YW1sIGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0
-cmVlL2JpbmRpbmdzL3Jpc2N2L2V4dGVuc2lvbnMueWFtbAo+ID4gaW5kZXggYTA2ZGJjNmI0OTI4
-OTU4NzA0ODU1Yzg5OTMyOTFiMDM2ZTNkMWE2My4uZGY5NmFlYTVlNTNhNzBiMGNiODkwNTMzMjQ2
-NGE0MmEyNjRlNTZlNiAxMDA2NDQKPiA+IC0tLSBhL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9i
-aW5kaW5ncy9yaXNjdi9leHRlbnNpb25zLnlhbWwKPiA+ICsrKyBiL0RvY3VtZW50YXRpb24vZGV2
-aWNldHJlZS9iaW5kaW5ncy9yaXNjdi9leHRlbnNpb25zLnlhbWwKPiA+IEBAIC0xNzEsNiArMTcx
-LDEzIEBAIHByb3BlcnRpZXM6Cj4gPiAgICAgICAgICAgICAgbWVtb3J5IHR5cGVzIGFzIHJhdGlm
-aWVkIGluIHRoZSAyMDE5MTIxMyB2ZXJzaW9uIG9mIHRoZSBwcml2aWxlZ2VkCj4gPiAgICAgICAg
-ICAgICAgSVNBIHNwZWNpZmljYXRpb24uCj4gPgo+ID4gKyAgICAgICAgLSBjb25zdDogc3Z1a3Rl
-Cj4gPiArICAgICAgICAgIGRlc2NyaXB0aW9uOgo+ID4gKyAgICAgICAgICAgIFRoZSBzdGFuZGFy
-ZCBTdnVrdGUgc3VwZXJ2aXNvci1sZXZlbCBleHRlbnNpb25zIGZvciBtYWtpbmcgdXNlci1tb2Rl
-Cj4gPiArICAgICAgICAgICAgYWNjZXNzZXMgdG8gc3VwZXJ2aXNvciBtZW1vcnkgcmFpc2UgcGFn
-ZSBmYXVsdHMgaW4gY29uc3RhbnQgdGltZSwKPiA+ICsgICAgICAgICAgICBtaXRpZ2F0aW5nIGF0
-dGFja3MgdGhhdCBhdHRlbXB0IHRvIGRpc2NvdmVyIHRoZSBzdXBlcnZpc29yCj4gPiArICAgICAg
-ICAgICAgc29mdHdhcmUncyBhZGRyZXNzLXNwYWNlIGxheW91dCwgYXMgUFIjMTU2NCBvZiByaXNj
-di1pc2EtbWFudWFsLgo+Cj4gSSdtIHN1cnByaXNlZCB0aGlzIGRvZXNuJ3QgZmFpbCBkdF9iaW5k
-aW5nX2NoZWNrLCB3aXRoIHRoZSAjIGluIGl0LiBJJ2QKPiBsaWtlIHRvIHNlZSBhIGNvbW1pdCBo
-YXNoIGhlcmUgdGhvdWdoLCBpbiB0aGUgc2FtZSBmb3JtYXQgYXMgdGhlIG90aGVyCj4gZXh0ZW5z
-aW9ucyB1c2luZyB0aGVtLgo+Cj4gPiArCj4gPiAgICAgICAgICAtIGNvbnN0OiB6YWNhcwo+ID4g
-ICAgICAgICAgICBkZXNjcmlwdGlvbjogfAo+ID4gICAgICAgICAgICAgIFRoZSBaYWNhcyBleHRl
-bnNpb24gZm9yIEF0b21pYyBDb21wYXJlLWFuZC1Td2FwIChDQVMpIGluc3RydWN0aW9ucwo+ID4K
-PiA+IC0tCj4gPiAyLjQzLjIKPiA+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
-aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
-L2xpbnV4LXJpc2N2Cg==
+On Thu, Sep 26, 2024 at 11:15:50AM -0700, Drew Fustini wrote:
+> From: Jisheng Zhang <jszhang@kernel.org>
+> 
+> Add documentation to describe T-HEAD dwmac.
+> 
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+> [drew: change apb registers from syscon to second reg of gmac node]
+> [drew: rename compatible, add thead rx/tx internal delay properties]
+> Signed-off-by: Drew Fustini <dfustini@tenstorrent.com>
+> ---
+>  .../devicetree/bindings/net/snps,dwmac.yaml        |   1 +
+>  .../devicetree/bindings/net/thead,th1520-gmac.yaml | 109 +++++++++++++++++++++
+>  MAINTAINERS                                        |   1 +
+>  3 files changed, 111 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> index 4e2ba1bf788c..474ade185033 100644
+> --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> @@ -99,6 +99,7 @@ properties:
+>          - snps,dwxgmac-2.10
+>          - starfive,jh7100-dwmac
+>          - starfive,jh7110-dwmac
+> +        - thead,th1520-gmac
+>  
+>    reg:
+>      minItems: 1
+> diff --git a/Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml b/Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml
+> new file mode 100644
+> index 000000000000..1070e891c025
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml
+> @@ -0,0 +1,109 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/net/thead,th1520-gmac.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: T-HEAD TH1520 GMAC Ethernet controller
+> +
+> +maintainers:
+> +  - Drew Fustini <dfustini@tenstorrent.com>
+> +
+> +description: |
+> +  The TH1520 GMAC is described in the TH1520 Peripheral Interface User Manual
+> +  https://git.beagleboard.org/beaglev-ahead/beaglev-ahead/-/tree/main/docs
+> +
+> +  Features include
+> +    - Compliant with IEEE802.3 Specification
+> +    - IEEE 1588-2008 standard for precision networked clock synchronization
+> +    - Supports 10/100/1000Mbps data transfer rate
+> +    - Supports RGMII/MII interface
+> +    - Preamble and start of frame data (SFD) insertion in Transmit path
+> +    - Preamble and SFD deletion in the Receive path
+> +    - Automatic CRC and pad generation options for receive frames
+> +    - MDIO master interface for PHY device configuration and management
+> +
+> +  The GMAC Registers consists of two parts
+> +    - APB registers are used to configure clock frequency/clock enable/clock
+> +      direction/PHY interface type.
+> +    - AHB registers are use to configure GMAC core (DesignWare Core part).
+> +      GMAC core register consists of DMA registers and GMAC registers.
+> +
+> +select:
+> +  properties:
+> +    compatible:
+> +      contains:
+> +        enum:
+> +          - thead,th1520-gmac
+> +  required:
+> +    - compatible
+> +
+> +allOf:
+> +  - $ref: snps,dwmac.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - enum:
+> +          - thead,th1520-gmac
+> +      - const: snps,dwmac-3.70a
+> +
+> +  reg:
+> +    items:
+> +      - description: DesignWare GMAC IP core registers
+> +      - description: GMAC APB registers
+> +
+> +  reg-names:
+> +    items:
+> +      - const: dwmac
+> +      - const: apb
+> +
+> +  thead,rx-internal-delay:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    description: |
+> +      RGMII receive clock delay. The value is used for the delay_ctrl
+> +      field in GMAC_RXCLK_DELAY_CTRL. Units are not specified.
+
+What do you mean by "unspecified units"? They are always specified,
+hardware does not work randomly, e.g. once uses clock cycles, but next
+time you run it will use picoseconds.
+
+You also miss default (property is not required) and some sort of constraints.
+
+> +
+> +  thead,tx-internal-delay:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    description: |
+> +      RGMII transmit clock delay. The value is used for the delay_ctrl
+> +      field in GMAC_TXCLK_DELAY_CTRL. Units are not specified.
+
+Best regards,
+Krzysztof
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
