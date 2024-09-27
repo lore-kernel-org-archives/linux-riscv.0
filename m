@@ -4,79 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7BCFCDD1DC
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Sep 2024 20:52:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DB18CF648A
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Sep 2024 22:32:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6k2FvGoAl/9bbB4vvfiSi0QLYs9LoOt7f/2O1pwuWE0=; b=Tb+HD6fs34MYqg
-	RjtYHfhX+QyQ6yK68a0PY5uJqbjflW2LXaWNdErvkwmvT6uYLK/X8eybXbRai/jISi2R54Oe06fUZ
-	nz6IMgGQSsuiH1hugYY+OJTgbrODEnZhXbdzhcWyEHLYIpNApUl+AdyS9bPiVFJRcy39e+NT3F5af
-	qh7rKieOAzfbtjG17dmDEPhvUFy6q3Ov3VWEROoq+U6+NBhafgj9C6YRyTPgK1T4CuEtZHtQdOTti
-	Xwesbpcsi4eMzzM5Nn1mXJ1xgPz+5j9uTsfgTEZBhe19GRMePpRIQWhkKMAV0TRTJjKNrNsJHnZYa
-	BKSyOIC5ma/PYPOD4hMA==;
+	List-Owner; bh=24tN5MN/kZhamuk5VVgJ2ojONQ+P3IUSiDJb4PyyKAY=; b=Oojsk38OSWKWvM
+	NdEGiFKgw1s1tAmfcKPBIMbd0apaZfDNBxk/05AfVgjvEvPPgrTe+26BDKmQweOL05f+N49pD8rzZ
+	2PWp+sSP49A49aMDTJBJHbf0sIMykd+FnV99dgFt65gpSkqgMQnL6OtddcD9ROgDjjO63CIMC8pF6
+	4lQOiX77aaDRsj89rmaEsqDfNqcfPL9DsIo9r5kZUngEjEg1vQ5aKvluhdooefwrP0K320s367SR2
+	hePhTJvv0Lyzu23U0IMBi4VVVJEBIHJsEMcfotu69nLlMZwaKA7iVIdzaI+QtStaRySG4Snt5o+FI
+	qUmc83J7p1WMZr+n27EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1suHxE-0000000C66D-04tR;
-	Fri, 27 Sep 2024 20:52:44 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1suJVn-0000000CESc-2lt8;
+	Fri, 27 Sep 2024 22:32:31 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1suHxB-0000000C65G-1xNM
+	id 1suJVl-0000000CESE-2Nim
 	for linux-riscv@lists.infradead.org;
-	Fri, 27 Sep 2024 20:52:42 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-2e0a060f6e8so1583407a91.1
-        for <linux-riscv@lists.infradead.org>; Fri, 27 Sep 2024 13:52:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1727470360; x=1728075160; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=S3TYipBZ3m1z5f8qjnQDPEJvDOrdajfpoFzHpH9lwD4=;
-        b=Dwyh43bDkZuM1E/njzgHXc5vJrDDNIKZGUGPt6bTaL0rmrMS3+XUL4oTIQLR9SIf5L
-         7RTrHrVwDs6J0wdhosJLhjxDiGwdJFrmVNj4GuGjXUp5HDfA9v1unjuy7GuKexMlwCaT
-         S0Mk7TolnTzSyN+TDMpTyRsGoM2jqSKfh9E2eEJd8ykRo6fahabYN5qPljVd/ClzoWLQ
-         7IPAyEoMigloxH2JI8E7FnHyqODCKbaItUJDMQGAgnW5gVjRScjPuHrDQkGfR9trCbKh
-         GJTF7VWCWdOpZ4Cq3euj0QL8s8eU1dO7boL8Jh49Ebj4x6Q4p88O91pXtsmEr7hmDTy0
-         RieQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1727470360; x=1728075160;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=S3TYipBZ3m1z5f8qjnQDPEJvDOrdajfpoFzHpH9lwD4=;
-        b=I3W3rCEYypGh6rHbZ5rale1w1VEd42Q0BOWBn/tsgU8jNC6i3IhtSrmrnGuPISXsQh
-         6UFw7RQJnrGDlbRQHEHct9+eF8X4/cauYfSqK1AShicg5k37G1yKYn6J2nsq/waOgaGN
-         1dr3yEZgWoMDPqNHA96/iKMLEVl7leN4RPYtTq4ZFZiEike/SkCsMrH4NQPi7aErU9/c
-         yoSEafziXG37NbMg7JIKYZ4GhcqB7+Eda+r7/c2Yh7M8ulyuDrNH4P9c9Uef1zFKeHqP
-         wNbR23p/MQ2Z4RU417BfZfQdmmMhryZ4UlV09IRuyZC60QYhtNmlrtn3eMwCWGtxLWhr
-         x1EQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVbpPvexIRzep8Dcd1IbsFBDmYsSbvW9yA4xp79hpgp4IQh3oBzWDkEJTTFyJB8BcwdgyFzhK47SxZydg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyne8Auqo1Xk1aM9MxquthQp8ErgEdwt9eaeh1XKMpkJr2b+VlH
-	J+4D5UxUdSxEaEePBXFnrPOPQeTIL0IQxbtZZU7JpkBeL0W5n0fFR9YbQFFDNyJ8FzDH/iU8uGz
-	OPttT0luTrA8LeIpvnz91hCDFS4OQSg==
-X-Google-Smtp-Source: AGHT+IEFhFMPeqUPjTgmjT1tXk15Ei+RGYN6cAMgWrzG7SlH7HHLGBUE3WXEHcKrs4bM5vI2Sf3P/hNnxP6niY+vBKE=
-X-Received: by 2002:a17:90b:3587:b0:2d8:94d6:3499 with SMTP id
- 98e67ed59e1d1-2e0b8ed4c1fmr4973657a91.37.1727470360536; Fri, 27 Sep 2024
- 13:52:40 -0700 (PDT)
+	Fri, 27 Sep 2024 22:32:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id B06C15C5AA3;
+	Fri, 27 Sep 2024 22:32:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30D40C4CEC9;
+	Fri, 27 Sep 2024 22:32:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1727476348;
+	bh=saH4LjPEzRLlPysFm5GNlLBTMwG5yytpd3WGfVUXEyo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uZBsGNZuq9MB/AGCvy2dlV0PCwMC6bCDrwHmdtoqUwW9glT8YLYabhE+3KvBu8TFD
+	 wXl0EIkmZw6cJL8G9pYJUpYFXHWuMaNjhJDXBmVFv7fhufOGFlFGGLOIFDfXgErAUu
+	 OPrd35dCrJl7dG1qoMcD//EtqCgVCjahvHh7aA4MwfWsNQdJCoKLVc+LqtF2GJFBCu
+	 7Gc9JesiDOU+R7KQCHluFcTaH0EJzgugNgfmqpaA673/IpXt21sZu7jnMiV8cXtQLb
+	 F4mDHCOxEz09IvMTUlKFz+zLggOrvodQG5sJFItec4dAhoYoz+x6JvYTEAMl2AzoPj
+	 tVWbiyzwa8yjA==
+Date: Fri, 27 Sep 2024 17:32:27 -0500
+From: Rob Herring <robh@kernel.org>
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: drew@pdp7.com, guoren@kernel.org, wefu@redhat.com,
+	jassisinghbrar@gmail.com, krzk+dt@kernel.org, conor+dt@kernel.org,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	m.szyprowski@samsung.com, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH RFC v2 2/3] dt-bindings: mailbox: Add
+ thead,th1520-mailbox bindings
+Message-ID: <20240927223227.GA152909-robh@kernel.org>
+References: <20240927094207.1650085-1-m.wilczynski@samsung.com>
+ <CGME20240927094215eucas1p1be4d58084ff19e47450dcad3e6da5f5e@eucas1p1.samsung.com>
+ <20240927094207.1650085-3-m.wilczynski@samsung.com>
 MIME-Version: 1.0
-References: <20240927131355.350918-1-bjorn@kernel.org> <20240927131355.350918-2-bjorn@kernel.org>
-In-Reply-To: <20240927131355.350918-2-bjorn@kernel.org>
-From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Date: Fri, 27 Sep 2024 13:52:28 -0700
-Message-ID: <CAEf4BzaWneXBv401rOdW8ijBTqRn_Ut4FFvhbsPShh5_pjV33A@mail.gmail.com>
-Subject: Re: [PATCH bpf-next 2/2] selftests: bpf: Add missing per-arch include path
-To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-Cc: Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, 
-	Mykola Lysenko <mykolal@fb.com>, bpf@vger.kernel.org, netdev@vger.kernel.org, 
-	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, Charlie Jenkins <charlie@rivosinc.com>
+Content-Disposition: inline
+In-Reply-To: <20240927094207.1650085-3-m.wilczynski@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240927_135241_531269_FC7612E7 
-X-CRM114-Status: GOOD (  15.48  )
+X-CRM114-CacheID: sfid-20240927_153229_766078_4D4B25F5 
+X-CRM114-Status: GOOD (  21.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,43 +73,141 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBTZXAgMjcsIDIwMjQgYXQgNjoxNOKAr0FNIEJqw7ZybiBUw7ZwZWwgPGJqb3JuQGtl
-cm5lbC5vcmc+IHdyb3RlOgo+Cj4gRnJvbTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMu
-Y29tPgo+Cj4gVGhlIHByb2dfdGVzdHMgcHJvZ3JhbXMgZG8gbm90IGluY2x1ZGUgdGhlIHBlci1h
-cmNoIHRvb2xzIGluY2x1ZGUKPiBwYXRoLCBlLmcuIHRvb2xzL2FyY2gvcmlzY3YvaW5jbHVkZS4g
-U29tZSBhcmNoaXRlY3R1cmVzIGRlcGVuZCB0aG9zZQo+IGZpbGVzIHRvIGJ1aWxkIHByb3Blcmx5
-Lgo+Cj4gSW5jbHVkZSB0b29scy9hcmNoLyQoU1VCQVJDSCkvaW5jbHVkZSBpbiB0aGUgc2VsZnRl
-c3RzIGJwZiBidWlsZC4KPgo+IEZpeGVzOiA2ZDc0ZDE3OGZlNmUgKCJ0b29sczogQWRkIHJpc2N2
-IGJhcnJpZXIgaW1wbGVtZW50YXRpb24iKQo+IFNpZ25lZC1vZmYtYnk6IEJqw7ZybiBUw7ZwZWwg
-PGJqb3JuQHJpdm9zaW5jLmNvbT4KPiAtLS0KPiAgdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMvYnBm
-L01ha2VmaWxlIHwgMyArKy0KPiAgMSBmaWxlIGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygrKSwgMSBk
-ZWxldGlvbigtKQo+Cj4gZGlmZiAtLWdpdCBhL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2JwZi9N
-YWtlZmlsZSBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2JwZi9NYWtlZmlsZQo+IGluZGV4IDM2
-NTc0MGYyNGQyZS4uZDZhNTNhZmE0NDlmIDEwMDY0NAo+IC0tLSBhL3Rvb2xzL3Rlc3Rpbmcvc2Vs
-ZnRlc3RzL2JwZi9NYWtlZmlsZQo+ICsrKyBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2JwZi9N
-YWtlZmlsZQo+IEBAIC0xMCw2ICsxMCw3IEBAIFRPT0xTRElSIDo9ICQoYWJzcGF0aCAuLi8uLi8u
-LikKPiAgTElCRElSIDo9ICQoVE9PTFNESVIpL2xpYgo+ICBCUEZESVIgOj0gJChMSUJESVIpL2Jw
-Zgo+ICBUT09MU0lOQ0RJUiA6PSAkKFRPT0xTRElSKS9pbmNsdWRlCj4gK1RPT0xTQVJDSElOQ0RJ
-UiA6PSAkKFRPT0xTRElSKS9hcmNoLyQoU1JDQVJDSCkvaW5jbHVkZQo+ICBCUEZUT09MRElSIDo9
-ICQoVE9PTFNESVIpL2JwZi9icGZ0b29sCj4gIEFQSURJUiA6PSAkKFRPT0xTSU5DRElSKS91YXBp
-Cj4gIGlmbmVxICgkKE8pLCkKPiBAQCAtNDQsNyArNDUsNyBAQCBDRkxBR1MgKz0gLWcgJChPUFRf
-RkxBR1MpIC1yZHluYW1pYyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+ICAg
-ICAgICAgICAtV2FsbCAtV2Vycm9yIC1mbm8tb21pdC1mcmFtZS1wb2ludGVyICAgICAgICAgICAg
-ICAgICAgICAgICAgIFwKPiAgICAgICAgICAgJChHRU5GTEFHUykgJChTQU5fQ0ZMQUdTKSAkKExJ
-QkVMRl9DRkxBR1MpICAgICAgICAgICAgICAgICAgICBcCj4gICAgICAgICAgIC1JJChDVVJESVIp
-IC1JJChJTkNMVURFX0RJUikgLUkkKEdFTkRJUikgLUkkKExJQkRJUikgICAgICAgICAgXAo+IC0g
-ICAgICAgICAtSSQoVE9PTFNJTkNESVIpIC1JJChBUElESVIpIC1JJChPVVRQVVQpCj4gKyAgICAg
-ICAgIC1JJChUT09MU0lOQ0RJUikgLUkkKFRPT0xTQVJDSElOQ0RJUikgLUkkKEFQSURJUikgLUkk
-KE9VVFBVVCkKCkVkdWFyZCB3YXMgZ29pbmcgdG8gc3dpdGNoIHNlbGZ0ZXN0cyB0byB1c2Uga2Vy
-bmVsIFVBUEkgaGVhZGVycywgSQp3b25kZXIgaWYgd2Ugc2hvdWxkIGRvIGp1c3QgdGhhdCBhbmQg
-dGhlbiBzZXQgdXAgYXJjaC1zcGVjaWZpYwppbmNsdWRlcyBmcm9tIGtlcm5lbCAobm90IGZyb20g
-dG9vbHMvKSBhcyB3ZWxsPwoKPiAgTERGTEFHUyArPSAkKFNBTl9MREZMQUdTKQo+ICBMRExJQlMg
-Kz0gJChMSUJFTEZfTElCUykgLWx6IC1scnQgLWxwdGhyZWFkCj4KPiAtLQo+IDIuNDMuMAo+Cgpf
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
-diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
-dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Fri, Sep 27, 2024 at 11:42:06AM +0200, Michal Wilczynski wrote:
+> Add bindings for the mailbox controller. This work is based on the vendor
+> kernel. [1]
+> 
+> Link: https://github.com/revyos/thead-kernel.git [1]
+> 
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
+>  .../bindings/mailbox/thead,th1520-mbox.yaml   | 84 +++++++++++++++++++
+>  MAINTAINERS                                   |  1 +
+>  2 files changed, 85 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/mailbox/thead,th1520-mbox.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/mailbox/thead,th1520-mbox.yaml b/Documentation/devicetree/bindings/mailbox/thead,th1520-mbox.yaml
+> new file mode 100644
+> index 000000000000..b517d0c6eb12
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/mailbox/thead,th1520-mbox.yaml
+> @@ -0,0 +1,84 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/mailbox/thead,th1520-mbox.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: T-head TH1520 Mailbox Controller
+> +
+> +description:
+> +  The T-head mailbox controller enables communication and coordination between
+> +  cores within the SoC by passing messages (e.g., data, status, and control)
+> +  through mailbox channels. It also allows one core to signal another processor
+> +  using interrupts via the Interrupt Controller Unit (ICU).
+> +
+> +maintainers:
+> +  - Michal Wilczynski <m.wilczynski@samsung.com>
+> +
+> +properties:
+> +  compatible:
+> +    const: thead,th1520-mbox
+> +
+> +  reg:
+> +    items:
+> +      - description: Mailbox local base address
+> +      - description: Remote ICU 0 base address
+> +      - description: Remote ICU 1 base address
+> +      - description: Remote ICU 2 base address
+> +
+> +  reg-names:
+> +    items:
+> +      - const: local
+> +      - const: remote-icu0
+> +      - const: remote-icu1
+> +      - const: remote-icu2
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  thead,icu-cpu-id:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    description: |
+
+Don't need '|' if no formatting.
+
+> +      CPU ID associated with the Interrupt Controller Unit (ICU). This ID should
+> +      correspond to a valid CPU core in the system. The value must be between 0
+> +      and (N - 1), where N is the total number of CPU cores in the SoC.
+> +    minimum: 0
+> +    maximum: 3
+
+The normal way we associate a node with some subset of CPUs is the 
+'cpus' property linking to the CPU node.
+
+Or is this CPUs which are not part of what Linux is running on (i.e. the 
+SMP cores).
+
+> +
+> +  '#mbox-cells':
+> +    const: 2
+> +    description: |
+> +      Specifies the number of cells needed to encode the mailbox specifier.
+> +      The mailbox specifier consists of two cells:
+> +        - The first cell is the destination CPU ID.
+> +        - The second cell is the mailbox channel ID.
+> +
+> +additionalProperties: false
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - reg-names
+> +  - interrupts
+> +  - thead,icu-cpu-id
+> +  - '#mbox-cells'
+> +
+> +examples:
+> +  - |
+> +
+> +    soc {
+> +      #address-cells = <2>;
+> +      #size-cells = <2>;
+> +      mailbox@ffffc38000 {
+> +        compatible = "thead,th1520-mbox";
+> +        reg = <0xff 0xffc38000 0x0 0x4000>,
+> +              <0xff 0xffc44000 0x0 0x1000>,
+> +              <0xff 0xffc4c000 0x0 0x1000>,
+> +              <0xff 0xffc54000 0x0 0x1000>;
+> +        reg-names = "local", "remote-icu0", "remote-icu1", "remote-icu2";
+> +        interrupts = <28>;
+> +        thead,icu-cpu-id = <0>;
+> +        #mbox-cells = <2>;
+> +      };
+> +    };
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index df4d7be6cf35..a6028f850a25 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -19943,6 +19943,7 @@ L:	linux-riscv@lists.infradead.org
+>  S:	Maintained
+>  T:	git https://github.com/pdp7/linux.git
+>  F:	Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
+> +F:	Documentation/devicetree/bindings/mailbox/thead,th1520-mbox.yaml
+>  F:	arch/riscv/boot/dts/thead/
+>  F:	drivers/clk/thead/clk-th1520-ap.c
+>  F:	drivers/mailbox/mailbox-th1520.c
+> -- 
+> 2.34.1
+> 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
