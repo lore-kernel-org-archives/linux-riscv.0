@@ -4,121 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6068FCEBF8C
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Sep 2024 09:42:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11D72CEBF8E
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Sep 2024 09:59:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/5i6Tio/5+/21ZVNIJ+Kpt7JbjyIF/A1TixP7GpKlIk=; b=TXvfeOEpXnEqv6
-	VnjOqyVq6jGKPcl7ME7LAREm2urgdW6AHNIFUSHJCi9eVCKYJcmOKYyXaPJlkbtGlZS0JcvS10tNp
-	m2SksQlANwi2OkpuASsY8UQGx8q7bNdiyxZn+MFrZlsla6ENuj7pAa7SwwVB+yghYEUyjMz+S/BdU
-	N3j/69nI+1Z00QgxsHEXYynRtYylNj+XPPXvQ+B4esTdCMCHHTc2MM58LDGETLmdA32/DRYWhy+T5
-	BL1OIjg48pA0L/qqKgX+BgeStuyNBxEBRtF0pdm0VN6NiVrnkCbA0/gl/CVBWEzUTlhuQpKZu4AFA
-	axuiROruZE9AYv2irf5w==;
+	List-Owner; bh=752MP41xaoLqAqqBcZWfk/Cjgkrv07rwxtXTKE44IuE=; b=qx0B00NamGs4gi
+	6YMzQCul9p8CfKfUUXL8tWeTX2nAdgm8cei86GibslBzPOKfXfAJc4G8iptXaa3sjYZbSa6fKBdMJ
+	mEIyEmyT++9IsnAZ3W6ya2CuN73e6uBArHnf7GceSMDGrLOEBEEbRcp0k+u2ld7WWvDoBBJaqlWQU
+	smCbQZ85yuFNzVJaSyv1lM9p6lhEQxPfUalUrYps8yR/GXt2nXon+ARNYyqQYfb2IBKMqmFeLOH4x
+	Htabc8VwWW+HcWrmp8ukN5BfMM2CeNUZC8gIeydbdIwk2QYByNxmJ4/t2l0DJ+kw5uk1TlWSy+2mw
+	qSJhy52XzSWhIpZ7Dihg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1su7UU-0000000Ah6m-0vf8;
-	Fri, 27 Sep 2024 09:42:22 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1su7l5-0000000Al1A-0AHh;
+	Fri, 27 Sep 2024 09:59:31 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1su7UP-0000000Ah32-1iol
+	id 1su7kl-0000000Akvi-0qF0
 	for linux-riscv@lists.infradead.org;
-	Fri, 27 Sep 2024 09:42:20 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20240927094216euoutp015443d7a58210da86469b2d7da4bf52da~5EI5352du2889128891euoutp01X
-	for <linux-riscv@lists.infradead.org>; Fri, 27 Sep 2024 09:42:16 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20240927094216euoutp015443d7a58210da86469b2d7da4bf52da~5EI5352du2889128891euoutp01X
+	Fri, 27 Sep 2024 09:59:13 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20240927095908euoutp02e46126a9e3bcc85f0a8982e6697b4aa7~5EXobaLbJ2920529205euoutp02P
+	for <linux-riscv@lists.infradead.org>; Fri, 27 Sep 2024 09:59:08 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20240927095908euoutp02e46126a9e3bcc85f0a8982e6697b4aa7~5EXobaLbJ2920529205euoutp02P
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1727430136;
-	bh=GsiL+zmUf4iNfXmNSt/xw4b33PJPFDrzW19XyB8f0w0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CUoadWZe4ykswr5ZVkLsj6k+6cznJ7UGiSpN3oTprY4pu5RmIq+t77EJbvOZ2SbiJ
-	 0rO4BcBR+cx5PPUdHWIHP0FcqkKvNGMFJt9avKBuiuD2tQny8v48v09t4pSOu15CjO
-	 jDr2/BfgASbckws+CDbRHL36VoUBtFN0oKjBjAek=
-Received: from eusmges3new.samsung.com (unknown [203.254.199.245]) by
+	s=mail20170921; t=1727431148;
+	bh=j7PzyRcbV//YpQacJQIeRez+0I/Vcd+wMl5eZe9x8S0=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=bBp2E6OHBKqz1mrq4nyWLARyKuYvBFgRiwIV9xKJJlF/M1ZOUcNMS5PQgJWB0Q+eK
+	 3RP8CySIac5H2Sm1mpxWHI17Q+GfYiXYd9/fu5yPsK6leMFmvTzydyKDKho6JDxBmz
+	 B4yrfXHzCpK2hF5ao6HPb+XZpbgGBQQCpVk3ujeQ=
+Received: from eusmges1new.samsung.com (unknown [203.254.199.242]) by
 	eucas1p1.samsung.com (KnoxPortal) with ESMTP id
-	20240927094215eucas1p125b324f17a41eeb81edfcf20d6f7feb0~5EI5gF1UD0416304163eucas1p1W;
-	Fri, 27 Sep 2024 09:42:15 +0000 (GMT)
+	20240927095907eucas1p1f7eb7595a0e1cae436aa6474804bda4a~5EXn18_Jt2385023850eucas1p1U;
+	Fri, 27 Sep 2024 09:59:07 +0000 (GMT)
 Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
-	eusmges3new.samsung.com (EUCPMTA) with SMTP id 89.A4.09620.7FD76F66; Fri, 27
-	Sep 2024 10:42:15 +0100 (BST)
+	eusmges1new.samsung.com (EUCPMTA) with SMTP id 83.23.09624.BE186F66; Fri, 27
+	Sep 2024 10:59:07 +0100 (BST)
 Received: from eusmtrp2.samsung.com (unknown [182.198.249.139]) by
 	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20240927094215eucas1p1be4d58084ff19e47450dcad3e6da5f5e~5EI5B6WpO0663506635eucas1p1D;
-	Fri, 27 Sep 2024 09:42:15 +0000 (GMT)
-Received: from eusmgms1.samsung.com (unknown [182.198.249.179]) by
+	20240927095907eucas1p1e2d5b2b17548f6998435fd5b02724439~5EXnVoCK32613326133eucas1p1F;
+	Fri, 27 Sep 2024 09:59:07 +0000 (GMT)
+Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
 	eusmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20240927094215eusmtrp21d030cf43ea95c59dc8d23087474d527~5EI43dc262852628526eusmtrp2j;
-	Fri, 27 Sep 2024 09:42:15 +0000 (GMT)
-X-AuditID: cbfec7f5-d1bff70000002594-99-66f67df76a8f
-Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
-	eusmgms1.samsung.com (EUCPMTA) with SMTP id 6D.33.14621.6FD76F66; Fri, 27
-	Sep 2024 10:42:14 +0100 (BST)
-Received: from AMDC4942.home (unknown [106.210.136.40]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20240927094214eusmtip293c23e7ea6fa25482333b480095e795e~5EI4GWvxy3254032540eusmtip2Y;
-	Fri, 27 Sep 2024 09:42:14 +0000 (GMT)
-From: Michal Wilczynski <m.wilczynski@samsung.com>
+	20240927095907eusmtrp227bc16714369bc915d064a998234be5f~5EXnUzRwm0584705847eusmtrp2F;
+	Fri, 27 Sep 2024 09:59:07 +0000 (GMT)
+X-AuditID: cbfec7f2-bfbff70000002598-79-66f681eb4e8a
+Received: from eusmtip1.samsung.com ( [203.254.199.221]) by
+	eusmgms2.samsung.com (EUCPMTA) with SMTP id DF.49.19096.AE186F66; Fri, 27
+	Sep 2024 10:59:06 +0100 (BST)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20240927095906eusmtip1d4f85eac2a19b366f79e8ef0c61978e6~5EXmlsglA1880218802eusmtip1e;
+	Fri, 27 Sep 2024 09:59:06 +0000 (GMT)
+Message-ID: <53a614cd-6dff-40fe-a715-690d37e50f68@samsung.com>
+Date: Fri, 27 Sep 2024 11:59:06 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC v2 0/3] Introduce support for T-head TH1520 Mailbox
 To: drew@pdp7.com, guoren@kernel.org, wefu@redhat.com,
 	jassisinghbrar@gmail.com, robh@kernel.org, krzk+dt@kernel.org,
 	conor+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
 	aou@eecs.berkeley.edu, m.szyprowski@samsung.com
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, Michal Wilczynski <m.wilczynski@samsung.com>
-Subject: [PATCH RFC v2 2/3] dt-bindings: mailbox: Add thead,th1520-mailbox
- bindings
-Date: Fri, 27 Sep 2024 11:42:06 +0200
-Message-Id: <20240927094207.1650085-3-m.wilczynski@samsung.com>
-X-Mailer: git-send-email 2.34.1
+	devicetree@vger.kernel.org
+Content-Language: en-US
+From: Michal Wilczynski <m.wilczynski@samsung.com>
 In-Reply-To: <20240927094207.1650085-1-m.wilczynski@samsung.com>
-MIME-Version: 1.0
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrPKsWRmVeSWpSXmKPExsWy7djPc7rfa7+lGbw4p2qx9fcsdos1e88x
-	Wcw/co7V4t6lLUwWL/Y2slhcWzGX3eLlrHtsFpd3zWGz2Pa5hc1i7ZG77Bbrv85nsnh5uYfZ
-	om0Wv8X/PTvYLVr2T2Fx4Pd48/Ili8fhji/sHjtn3WX32LSqk81j85J6j5a1x5g83u+7yubR
-	t2UVo8el5uvsHp83yQVwRXHZpKTmZJalFunbJXBl7GlsZSuYI1sxufs7WwPjFbEuRk4OCQET
-	iR3vXjF1MXJxCAmsYJTYcPMuK4TzhVHi2PwrzBDOZ0aJaVPeADnsYC2dMiDNQgLLGSUmLeKC
-	KHnDKLGkayc7SIJNwEjiwfL5YINEBN4BFV27DbaCWaCXUWLq3plMIFXCAqESOz8eZQWxWQRU
-	Jda/WswCYvMK2Etcu7GIBeI+eYn9B88yg9icAg4Sn5e+YYWoEZQ4OfMJWA0zUE3z1tlgl0oI
-	zOaUuPF/NzNEs4vEjAOdULawxKvjW9ghbBmJ/zvnM0HY+RIPtn6CqqmR2NlzHMq2lrhz7hdb
-	FyMH0AJNifW79CHCjhJt/4+yg4QlBPgkbrwVhDiBT2LStunMEGFeiY42IYhqNYmpPb1wS8+t
-	2Aa11EPi8Ovf7BMYFWcheWYWkmdmIexdwMi8ilE8tbQ4Nz212DgvtVyvODG3uDQvXS85P3cT
-	IzDNnf53/OsOxhWvPuodYmTiYDzEKMHBrCTCa3Xua5oQb0piZVVqUX58UWlOavEhRmkOFiVx
-	XtUU+VQhgfTEktTs1NSC1CKYLBMHp1QDE9cUjjTF9ZvyLlzcvXb6wrzOvAp27rOrXks2/Tp4
-	9LLI08aayY2vc15e8nPzvtc98f+n/PUn17/K1Vq6M9Yz63i380OTP68/nyp4GOojU3up2TLr
-	6rxPx/PuOopvOH7luvs090QvQ+e97Jveu0xatevBb+l5KaG2i7ql/+bbT7Syt5gSW5IftufE
-	PVWxit2PjHMLXY9995gi+yEm53hKZ+3y6SbBvtOedewrie+w+rREY6HiBrbZHvMmPbjek5jY
-	VJw9Pf/njRWruq5Gvlwa3OBhZ7Pk2Llrn0+Wi5x9JO2jJqu3wOTQtQcilR7rFz88X+GzYUKl
-	Yoiu7us/E58erFL4cnHtgmLpNtdHrf8SZ7UpsRRnJBpqMRcVJwIAiK9UN+IDAAA=
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrPIsWRmVeSWpSXmKPExsVy+t/xe7rfar+lGXQ8tLbY+nsWu8WaveeY
-	LOYfOcdqce/SFiaLF3sbWSyurZjLbvFy1j02i8u75rBZbPvcwmax9shddov1X+czWby83MNs
-	0TaL3+L/nh3sFi37p7A48Hu8efmSxeNwxxd2j52z7rJ7bFrVyeaxeUm9R8vaY0we7/ddZfPo
-	27KK0eNS83V2j8+b5AK4ovRsivJLS1IVMvKLS2yVog0tjPQMLS30jEws9QyNzWOtjEyV9O1s
-	UlJzMstSi/TtEvQy9jS2shXMka2Y3P2drYHxilgXIzuHhICJRKdMFyMXh5DAUkaJI/fXsHcx
-	cgKFZSSudb9kgbCFJf5c62KDKHrFKLF8/kw2kASbgJHEg+XzWUESIgJ/GCWuP3vDCOIwC0xk
-	lLg59z4jSJWwQLDEstn3wcayCKhKrH+1GGwsr4C9xLUbi6BWyEvsP3iWGcTmFHCQ+Lz0DSuI
-	LQRU03F0PztEvaDEyZlPwOqZgeqbt85mnsAoMAtJahaS1AJGplWMIqmlxbnpucWGesWJucWl
-	eel6yfm5mxiBMbnt2M/NOxjnvfqod4iRiYPxEKMEB7OSCK/Vua9pQrwpiZVVqUX58UWlOanF
-	hxhNge6eyCwlmpwPTAp5JfGGZgamhiZmlgamlmbGSuK8bpfPpwkJpCeWpGanphakFsH0MXFw
-	SjUwBR2y9nAUfqEqt8ViQkTCzG2Owto1myaefuxd/u5sitHUbI0oZed908wkXMvPGtssdlz4
-	+Oia+YYZJ2+GuzS8Kj/rMpuB7YSdtZR5triB7PZortdva7R/riurepNZU7L1ycvD/VcsAxQF
-	ZO7e1X6tW37H3FSLoXyNvvLvDZPacl4+cJf1f3Dr1UGrU2aVb8+8sLTcepGpuYb/7jwDmz8H
-	Ap6Urf6ksuJa3IGj9ksDpevD5x5uWT310hKbUwEF909N2cD0b+q/BsdKjptL79sl7i9mfuZS
-	pS1xsEbkfqhFs89C7UdiD4z4xHWLXkmlS15ld51RXLBFdcuWmzuLLN9uYwmW/ufW+CE3ujV8
-	93dnJZbijERDLeai4kQAahoUAFIDAAA=
-X-CMS-MailID: 20240927094215eucas1p1be4d58084ff19e47450dcad3e6da5f5e
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFrrMKsWRmVeSWpSXmKPExsWy7djPc7qvG7+lGTyYomCx9fcsdos1e88x
+	Wcw/co7V4t6lLUwWL/Y2slhcWzGX3eLlrHtsFpd3zWGz2Pa5hc1i7ZG7QLHLPcwWbbP4Lf7v
+	2cFu0bJ/CosDn8ebly9ZPA53fGH32DnrLrvHplWdbB6bl9R7tKw9xuTxft9VNo++LasYPS41
+	X2f3+LxJLoArissmJTUnsyy1SN8ugSvj8Wy/gt8CFc/3T2RpYFzK28XIySEhYCIx98xN5i5G
+	Lg4hgRWMEo+ftrNDOF8YJa60HWCEcD4zSizqOc7SxcgB1jJ9JwdEfDmjxL3Xd1ghnLeMEu1H
+	IYp4Bewk1l4zBFnBIqAqcfziUxYQm1dAUOLkzCdgtqiAvMT9WzPYQWxhAW+JT/232EDmiAi8
+	Y5SYdO02E0iCWSBe4vGUC1C2uMStJ/PBbDYBI4kHy+ezgticAg4Sn5e+YYWokZfY/nYOM8Rv
+	2zkl1nWlQNguEh/272aEsIUlXh3fwg5hy0j83wkxU0IgX+LB1k9QvTUSO3uOQ9nWEnfO/WID
+	+YtZQFNi/S59SDg4Sty6YwFh8knceCsIcQCfxKRt05khwrwSHW1CEDPUJKb29MLtPLdiG9ME
+	RqVZSGEyC8mLs5C8Mgth7QJGllWM4qmlxbnpqcWGeanlesWJucWleel6yfm5mxiB6e70v+Of
+	djDOffVR7xAjEwfjIUYJDmYlEV6rc1/ThHhTEiurUovy44tKc1KLDzFKc7AoifOqpsinCgmk
+	J5akZqemFqQWwWSZODilGpgWdkfVNlSIst1g21z3rH+i7eUbIZuX7Lb9wXJ5R+65x8vEz9Tf
+	d2yX91lSLfru0wr1ycwCvOt+O7pIlv32kjXcNefnxEVr7yunWyXdiVBzPrH30HIvzUluASsl
+	BKcJsMYoOQY0ztUxruXPlFK589XJeJ/9iZSqx4lve3NuGS6669bFK558+60a75wII0v1zeLf
+	QxwDfm0y3tEz+Wbnpo/JKU93mcnduZb5aROLXXKrilrzDT/VBY1xqhtl/y75XqRyc6q605n1
+	cabVov62+9Qf7Ft2RjHETuLxydnxc2c5CkxWSettEPI8o9KnExXx2zzntp3SHI90b95NqhL7
+	5rqYK6Yums/3MC+v7LKgrRJLcUaioRZzUXEiAIw3eB/mAwAA
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrGIsWRmVeSWpSXmKPExsVy+t/xu7qvGr+lGfzYbmmx9fcsdos1e88x
+	Wcw/co7V4t6lLUwWL/Y2slhcWzGX3eLlrHtsFpd3zWGz2Pa5hc1i7ZG7QLHLPcwWbbP4Lf7v
+	2cFu0bJ/CosDn8ebly9ZPA53fGH32DnrLrvHplWdbB6bl9R7tKw9xuTxft9VNo++LasYPS41
+	X2f3+LxJLoArSs+mKL+0JFUhI7+4xFYp2tDCSM/Q0kLPyMRSz9DYPNbKyFRJ384mJTUnsyy1
+	SN8uQS/j8Wy/gt8CFc/3T2RpYFzK28XIwSEhYCIxfSdHFyMXh5DAUkaJRZuXMXYxcgLFZSSu
+	db9kgbCFJf5c62KDKHrNKPHr53EmkGZeATuJtdcMQWpYBFQljl98ClbPKyAocXLmEzBbVEBe
+	4v6tGewgtrCAt8Sn/ltgc0QE3jFKHFk+jxFkDrNAvMSGm8oQ8yczSvze2wZ2BLOAuMStJ/OZ
+	QGw2ASOJB8vns4LYnAIOEp+XvmGF6FWXWD9PCKJcXmL72znMExiFZiE5YxaSSbMQOmYh6VjA
+	yLKKUSS1tDg3PbfYSK84Mbe4NC9dLzk/dxMjMMK3Hfu5ZQfjylcf9Q4xMnEwHmKU4GBWEuG1
+	Ovc1TYg3JbGyKrUoP76oNCe1+BCjKTAoJjJLiSbnA1NMXkm8oZmBqaGJmaWBqaWZsZI4L9uV
+	82lCAumJJanZqakFqUUwfUwcnFINTHPMzFcU+/PZ6e2IFbslki3Y8ye2sOBB+1+tHZmsczXt
+	bin4VTZ9U2t8zVlilfJeavW8/ob/74LM2LbGP+/fZXTMZXnVgYRNzV9PbVl0UHf7N9bfy7/b
+	Lp1h/+GJ8qLlSU2VK2/pSr5ofX/yt6zZ2aUWjRcNCp+tChV7rXP08pQjUY37lnD+2fL/1M0T
+	nZWpq4TaGmb1s/svdbA8PeWG3Hr/w3fr25f9f1H3WNCr7lbtx4Nv4p7tU918YuP9jyHfcv+s
+	uCwatv5o8IszKde5Tqn9nTnvttUs15lvuCKcOxWeeum11t2f7j3DXs3C+tyeNpu0HcK7tO1r
+	rD68MnjC7rht71vxez/Kljh4JxhW5pxXYinOSDTUYi4qTgQAfPhgLHkDAAA=
+X-CMS-MailID: 20240927095907eucas1p1e2d5b2b17548f6998435fd5b02724439
 X-Msg-Generator: CA
-X-RootMTR: 20240927094215eucas1p1be4d58084ff19e47450dcad3e6da5f5e
+X-RootMTR: 20240927094213eucas1p22449c12701e67bc29371a6a6cb6f72a2
 X-EPHeader: CA
 CMS-TYPE: 201P
-X-CMS-RootMailID: 20240927094215eucas1p1be4d58084ff19e47450dcad3e6da5f5e
-References: <20240927094207.1650085-1-m.wilczynski@samsung.com>
-	<CGME20240927094215eucas1p1be4d58084ff19e47450dcad3e6da5f5e@eucas1p1.samsung.com>
+X-CMS-RootMailID: 20240927094213eucas1p22449c12701e67bc29371a6a6cb6f72a2
+References: <CGME20240927094213eucas1p22449c12701e67bc29371a6a6cb6f72a2@eucas1p2.samsung.com>
+	<20240927094207.1650085-1-m.wilczynski@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240927_024217_824655_9A2D8B60 
-X-CRM114-Status: GOOD (  18.57  )
+X-CRM114-CacheID: sfid-20240927_025911_676634_DF42A6FD 
+X-CRM114-Status: GOOD (  16.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,123 +135,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add bindings for the mailbox controller. This work is based on the vendor
-kernel. [1]
 
-Link: https://github.com/revyos/thead-kernel.git [1]
 
-Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
----
- .../bindings/mailbox/thead,th1520-mbox.yaml   | 84 +++++++++++++++++++
- MAINTAINERS                                   |  1 +
- 2 files changed, 85 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/mailbox/thead,th1520-mbox.yaml
+On 9/27/24 11:42, Michal Wilczynski wrote:
+> The T-head TH1520 SoC supports a hardware mailbox that enables two cores
+> within the SoC to communicate and coordinate [1]. One example of such
+> coordination would be cooperation with the T-Head E902 core, which is
+> responsible for power, clock, and resource management. For example, in
+> the specific case of the BXM-4-64 GPU, it needs to be powered on by the
+> E902 core, and the kernel running on the E910 needs to 'ask' the
+> firmware running on the E902 core to enable power to the GPU island.
+> Given recent advancements in work on the upstream GPU driver [2], there
+> is an emerging need to get this code in the mainline kernel.
+> 
+> Link: https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf [1]
+> Link: https://gitlab.freedesktop.org/imagination/linux-firmware/-/issues/1 [2]
+> 
+> Michal Wilczynski (3):
+>   mailbox: Introduce support for T-head TH1520 Mailbox driver
+>   dt-bindings: mailbox: Add thead,th1520-mailbox bindings
+>   riscv: dts: thead: Add mailbox node
 
-diff --git a/Documentation/devicetree/bindings/mailbox/thead,th1520-mbox.yaml b/Documentation/devicetree/bindings/mailbox/thead,th1520-mbox.yaml
-new file mode 100644
-index 000000000000..b517d0c6eb12
---- /dev/null
-+++ b/Documentation/devicetree/bindings/mailbox/thead,th1520-mbox.yaml
-@@ -0,0 +1,84 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/mailbox/thead,th1520-mbox.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: T-head TH1520 Mailbox Controller
-+
-+description:
-+  The T-head mailbox controller enables communication and coordination between
-+  cores within the SoC by passing messages (e.g., data, status, and control)
-+  through mailbox channels. It also allows one core to signal another processor
-+  using interrupts via the Interrupt Controller Unit (ICU).
-+
-+maintainers:
-+  - Michal Wilczynski <m.wilczynski@samsung.com>
-+
-+properties:
-+  compatible:
-+    const: thead,th1520-mbox
-+
-+  reg:
-+    items:
-+      - description: Mailbox local base address
-+      - description: Remote ICU 0 base address
-+      - description: Remote ICU 1 base address
-+      - description: Remote ICU 2 base address
-+
-+  reg-names:
-+    items:
-+      - const: local
-+      - const: remote-icu0
-+      - const: remote-icu1
-+      - const: remote-icu2
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  thead,icu-cpu-id:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description: |
-+      CPU ID associated with the Interrupt Controller Unit (ICU). This ID should
-+      correspond to a valid CPU core in the system. The value must be between 0
-+      and (N - 1), where N is the total number of CPU cores in the SoC.
-+    minimum: 0
-+    maximum: 3
-+
-+  '#mbox-cells':
-+    const: 2
-+    description: |
-+      Specifies the number of cells needed to encode the mailbox specifier.
-+      The mailbox specifier consists of two cells:
-+        - The first cell is the destination CPU ID.
-+        - The second cell is the mailbox channel ID.
-+
-+additionalProperties: false
-+
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - interrupts
-+  - thead,icu-cpu-id
-+  - '#mbox-cells'
-+
-+examples:
-+  - |
-+
-+    soc {
-+      #address-cells = <2>;
-+      #size-cells = <2>;
-+      mailbox@ffffc38000 {
-+        compatible = "thead,th1520-mbox";
-+        reg = <0xff 0xffc38000 0x0 0x4000>,
-+              <0xff 0xffc44000 0x0 0x1000>,
-+              <0xff 0xffc4c000 0x0 0x1000>,
-+              <0xff 0xffc54000 0x0 0x1000>;
-+        reg-names = "local", "remote-icu0", "remote-icu1", "remote-icu2";
-+        interrupts = <28>;
-+        thead,icu-cpu-id = <0>;
-+        #mbox-cells = <2>;
-+      };
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index df4d7be6cf35..a6028f850a25 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -19943,6 +19943,7 @@ L:	linux-riscv@lists.infradead.org
- S:	Maintained
- T:	git https://github.com/pdp7/linux.git
- F:	Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
-+F:	Documentation/devicetree/bindings/mailbox/thead,th1520-mbox.yaml
- F:	arch/riscv/boot/dts/thead/
- F:	drivers/clk/thead/clk-th1520-ap.c
- F:	drivers/mailbox/mailbox-th1520.c
--- 
-2.34.1
+Just realized that I haven't included a summary of changes for v2.
+Here it is:
 
+v2:
+ - fixed thead,th1520-mbox.yaml binding file by dropping redundant
+   descriptions, renaming reg-names, removing unnecessary clocks,
+   providing constraints and defining ICU's
+ - fixed the mailbox driver code to work well with updated binding-file,
+   removed clocks support, as it's not necessary for mailbox to work
+ - adjusted the device tree node instance of mbox_910t so it will work
+   with updated bindings file
+
+> 
+>  .../bindings/mailbox/thead,th1520-mbox.yaml   |  84 +++
+>  MAINTAINERS                                   |   2 +
+>  arch/riscv/boot/dts/thead/th1520.dtsi         |  13 +
+>  drivers/mailbox/Kconfig                       |  10 +
+>  drivers/mailbox/Makefile                      |   2 +
+>  drivers/mailbox/mailbox-th1520.c              | 551 ++++++++++++++++++
+>  6 files changed, 662 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/mailbox/thead,th1520-mbox.yaml
+>  create mode 100644 drivers/mailbox/mailbox-th1520.c
+> 
 
 _______________________________________________
 linux-riscv mailing list
