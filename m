@@ -4,101 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A676BCEBF66
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Sep 2024 01:25:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DF23CEBF8A
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Sep 2024 09:07:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5Ie7L9kvdFCn7nY4xPRrddlWHOqkMgt6iOMSyCNbeZ8=; b=LiF+q5RO11Uf45
-	pSyFGxmbZc7KoKNt5eVtSK0VGOaRwuRhzAJYsym45iIFlQJOkexxINA+Vn5AS9y5UwTKgqitWPBHu
-	Z8qtCTKe/Ap8RTvzFvxHtlXe1OGwNp3/pfRfbbaCaAIiEENV0fihKGoGwSHzww3vh4dV+vM0vinIy
-	145XTR2dKix0pf1LFGh5cgJtq2XkajYUg1/+8+ev8vl1Kx6cJ5Z9sQUF1Fs8xsbchSBABTC9mu9B7
-	y4fmXcqaRBlXZIaPrMv7vMO0V26xnY+n5rBSdWJYsYZk2Yjii23V8e+mKkaGyOSNhGtjsqC59fhXH
-	m3jjodjqhtur9s5Cr1Ug==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=c9BQXOaGj6t7dbY7kk8zkh+Cgw4m4TlK/r8rFQNIPNI=; b=DPhqvG+S/ThyN1fPSRS4XhJPTn
+	XwV50UJvj2W9kvVIU/WujEWhV9RO/5a2FDv6kfiU5TjK0zrBQNIqhopE52pQ9xjO/Inrzl0QGqpd6
+	mRKEfkKALIzLwl0vVg5KG/YJ4+wxmcLdMFcIGAzwYnacxjBC+Tyd98rYjCM6K9P4DQhQhdnfILkTm
+	Gu+9riogorsFGyzB8Rm8VKm5cqlRpqfSPG95eEoKKXiJK+TviGJ9BlbeWvpvqX8i5m7aVe2zoiRGT
+	MBUylp3Qnp/k/aMe1dwvXeV3qdQBBUQ+bUnHqqmBqK0DXg4fnfT5RFuBuLqgddUcU3+hOIFTw2Dlo
+	xkdiyhdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1stzja-00000009jbl-0nSJ;
-	Fri, 27 Sep 2024 01:25:26 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1su6wE-0000000AbuO-0g73;
+	Fri, 27 Sep 2024 09:06:58 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1stzjW-00000009jau-15DT
+	id 1su6wA-0000000AbtK-1Asg
 	for linux-riscv@lists.infradead.org;
-	Fri, 27 Sep 2024 01:25:24 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-20b0b5cdb57so15502595ad.1
-        for <linux-riscv@lists.infradead.org>; Thu, 26 Sep 2024 18:25:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1727400321; x=1728005121; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=jCmcLe0SmYgeEcqqhkJU0Qezbgs/J4u3/7L98eJgBA8=;
-        b=f/Qq9c6zvRaCLPx2gb5UFa3fTgXJuvmk8lZUviZ4lhtrLffw67tDEP//IY2tP9p0GI
-         71rfV+0fQBqqX8fyK8pRkoWn10oOwAuvlBVtW2eQBdhLJO8xifJfSHSvp15IhbHn4e9G
-         /lxhyb6+st6bWZeZ2Zi96bSmRa5mhcTRFM6Q0I/10nvFOF/YKKkZAc8tOXSycLRU4FX2
-         5x+ImYtOom30OPrvHr29AshmR4VRGA7czM4cCQJaacdLHgyAObC9x0dWkJoxFDnA9MTL
-         Pk7vfe9h/jJ7+4MoT92DpOBp9DUUEUfYZkJMETiXAbQhlMUicJLGD/d3tW1kNSSfhbKw
-         RBhQ==
+	Fri, 27 Sep 2024 09:06:56 +0000
+Received: from mail-oo1-f69.google.com (mail-oo1-f69.google.com [209.85.161.69])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id E43E43FA4F
+	for <linux-riscv@lists.infradead.org>; Fri, 27 Sep 2024 09:06:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1727428005;
+	bh=TdWwWyYx3NSL/g/B28NaT9+skLBhcn0OqBIgUz2KJ8c=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=n85DTPIC0H7EIZa0VGA0SUJmvFNW8osi2lsceL7gPV5mNHNNeg71BiCkkf0xR5Fx2
+	 KQ4Lv+cTem8AfE2cPiW7pH0qWXAlgb4rhdsheit14d+QZOCU3vrA0P683u5kn5syih
+	 kEfNQ6s1fakhaAIwS2g2ReQBWm80iFICmig5UHt5FzrGAHbTqB+LEcQuhGIJ3VxJqT
+	 cpq1JOqEk9rZoSRBtrgSJDqnDMGcvj/v9m+vs5sPPImEvViqQSE1LJLNmKb72cKoab
+	 epTpHbVgVcAKRQjNRjfHwOX5e/ToaqQbdm4dwfXoSav3MZAPrxQtNhqeQyHQDne0E4
+	 qnutZAUJZgSxA==
+Received: by mail-oo1-f69.google.com with SMTP id 006d021491bc7-5e1c8fa5032so1296719eaf.1
+        for <linux-riscv@lists.infradead.org>; Fri, 27 Sep 2024 02:06:45 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1727400321; x=1728005121;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jCmcLe0SmYgeEcqqhkJU0Qezbgs/J4u3/7L98eJgBA8=;
-        b=EBXTbgGyJbWzUABKQahZLeqG5zx53q6WjJYpM25NEv+6HK2vgKx/z5BLn7Hc2RZiG7
-         +c7MXYpWJ/8e7S+34yvv63paUef+v0y4LReoZ2IB4fYWVYZ6/wZsvQN1XViQazianPlj
-         a99EWVLgJnknDOFD07byDuxsZnPcoOBgekotGxF6q+lByaTIpBN6jhs8RZBmFStmQoXJ
-         sDdEICaax64S8uGiI+JvvhNj5DxDDCNzMJCj0ZeuykG4cxudeHanuVBAHgAoqYK6LA0k
-         SxQUqila+UExlO7Hcp0KIJS8fGYdzBXENQt5Eeygl4IyEScxnt3n8ow3QbChovVdAsFc
-         W8WA==
-X-Forwarded-Encrypted: i=1; AJvYcCXXICbl67NOYHMMMVVgj+t0LUfkpIoMd4fwAyTXnBOV0grlve9InkL3We+FW3hV/4FqRll09mBwotldwA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwiA0YXSwyjbGZAKODh+fGTwYywWBbYVYCmxWR3PzVcHR6Qvisx
-	tMksFYGrBRsX4rpus8Kcx8jueJePwUMKCyyzUbjf1PxypHrVOhggm9Oix4t9l80=
-X-Google-Smtp-Source: AGHT+IFNIOZRxH8HvJGMbMu1i8sPGpIXAzt+jVyHPQIeV5WglmLr8F5WYqM/TslsbY+ZUY/LOi5w8A==
-X-Received: by 2002:a17:903:2a84:b0:205:8a8b:bd2a with SMTP id d9443c01a7336-20b19cadb22mr63571405ad.22.1727400321286;
-        Thu, 26 Sep 2024 18:25:21 -0700 (PDT)
-Received: from x1 (71-34-69-82.ptld.qwest.net. [71.34.69.82])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-20b37e357e8sm4132645ad.187.2024.09.26.18.25.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Sep 2024 18:25:20 -0700 (PDT)
-Date: Thu, 26 Sep 2024 18:25:18 -0700
-From: Drew Fustini <dfustini@tenstorrent.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>, Conor Dooley <conor@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 3/3] riscv: dts: thead: Add TH1520 ethernet nodes
-Message-ID: <ZvYJfrPx75FA1IFC@x1>
+        d=1e100.net; s=20230601; t=1727427998; x=1728032798;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=TdWwWyYx3NSL/g/B28NaT9+skLBhcn0OqBIgUz2KJ8c=;
+        b=vwsr00xsgGp4TVcOyFrNbtkB74x9mIUoYqtl4BCmEr2gcdrgeetHLiLMnisSS/TyxJ
+         99YZGlSykTqsVOBFBupvmYlObLVTdLMbI7/QCT+IyyNJMl0wYR4bOK240RtMDmpb/u8R
+         13bJZDonvE91pFYzIE559o7lfPESYTxjrV7eCNMerHix705reOrSJNbROYsLq+Cxt2Oo
+         WMbvghIDGnOZbkbXoZH44dwJT9cv7MalpQt9VoMZZX/ZGd2pBnBQxFrw6s4qdCMqLEYD
+         sOrhuxuBbDzIakrBZXUQct9gj5YoMrUb5dt+5lS9xtzsXdEqPfQOAwGXf4rYOl7dJXDZ
+         Xr2g==
+X-Forwarded-Encrypted: i=1; AJvYcCWMGFMmZE2n9sxwltSu0/up33qT82mG0NqHfFmajinlktwMqdmPGvEYdRDtzEfnklyTyPBmdPJgNsshLQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzxiqSUPfZcsIj5wzJWlJFwWcp+9F/6gbml+RywLytHvt00gNbH
+	WT/UwwJBIWdgF0j/bBm9WNFKLrqauPA3RLKGFXTsJIzp9ElKd2buKRYyn7B8//9o7zsIklirMKP
+	AY3JInfZATcnD2ESm9HvvsxTSseCa0B0Hac7AHRGcPi5UQ0ISsC2fKGQSHGcxjEXfmGgP7+Hwv8
+	W++rsqWYOZ7LnDZGrYKYvl/Sr3WtLVbhH0kLqPx41W7ImQ9+Cy6vfZCCqY
+X-Received: by 2002:a05:6871:1c7:b0:277:fd73:8f82 with SMTP id 586e51a60fabf-28710c28d08mr1801235fac.45.1727427998424;
+        Fri, 27 Sep 2024 02:06:38 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGv+HoVG+UamQzP9HYGm4dvtX0uDQArn9ex/l2o6/iZbKaH7H7PMWWqDndToxE25AX6dEyIqQ8K4thbHVn/x+E=
+X-Received: by 2002:a05:6871:1c7:b0:277:fd73:8f82 with SMTP id
+ 586e51a60fabf-28710c28d08mr1801204fac.45.1727427998028; Fri, 27 Sep 2024
+ 02:06:38 -0700 (PDT)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 27 Sep 2024 02:06:37 -0700
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <ZvYJfrPx75FA1IFC@x1>
 References: <20240926-th1520-dwmac-v2-0-f34f28ad1dc9@tenstorrent.com>
- <20240926-th1520-dwmac-v2-3-f34f28ad1dc9@tenstorrent.com>
- <3e26f580-bc5d-448e-b5bd-9b607c33702b@lunn.ch>
- <ZvWyQo+2mwsC1HS6@x1>
- <0b49b681-2289-412a-8969-d134ffcfb7fc@lunn.ch>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <0b49b681-2289-412a-8969-d134ffcfb7fc@lunn.ch>
+ <20240926-th1520-dwmac-v2-3-f34f28ad1dc9@tenstorrent.com> <3e26f580-bc5d-448e-b5bd-9b607c33702b@lunn.ch>
+ <ZvWyQo+2mwsC1HS6@x1> <0b49b681-2289-412a-8969-d134ffcfb7fc@lunn.ch> <ZvYJfrPx75FA1IFC@x1>
+Mime-Version: 1.0
+Date: Fri, 27 Sep 2024 02:06:37 -0700
+Message-ID: <CAJM55Z8DeGJs=ASgdErEVWagy_f8JMWVe_TEWJWAcrUbzoDjOQ@mail.gmail.com>
+Subject: Re: [PATCH v2 3/3] riscv: dts: thead: Add TH1520 ethernet nodes
+To: Drew Fustini <dfustini@tenstorrent.com>, Andrew Lunn <andrew@lunn.ch>
+Cc: "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
+	Jose Abreu <joabreu@synopsys.com>, Jisheng Zhang <jszhang@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>, Drew Fustini <drew@pdp7.com>, 
+	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Conor Dooley <conor@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240926_182522_338812_3FC92120 
-X-CRM114-Status: GOOD (  34.21  )
+X-CRM114-CacheID: sfid-20240927_020654_505727_245C02B5 
+X-CRM114-Status: GOOD (  18.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,135 +112,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 26, 2024 at 09:30:32PM +0200, Andrew Lunn wrote:
-> On Thu, Sep 26, 2024 at 12:13:06PM -0700, Drew Fustini wrote:
-> > On Thu, Sep 26, 2024 at 08:39:29PM +0200, Andrew Lunn wrote:
-> > > > +&mdio0 {
-> > > > +	phy0: ethernet-phy@1 {
-> > > > +		reg = <1>;
-> > > > +	};
-> > > > +
-> > > > +	phy1: ethernet-phy@2 {
-> > > > +		reg = <2>;
-> > > > +	};
-> > > > +};
-> > > 
-> > > Two PHYs on one bus...
-> > 
-> > Thanks for pointing this out. I will move phy1 to mdio1.
-> 
-> ???
-> 
-> Are you saying the two PHYs are not on the same bus?
+Drew Fustini wrote:
+> On Thu, Sep 26, 2024 at 09:30:32PM +0200, Andrew Lunn wrote:
+> > On Thu, Sep 26, 2024 at 12:13:06PM -0700, Drew Fustini wrote:
+> > > On Thu, Sep 26, 2024 at 08:39:29PM +0200, Andrew Lunn wrote:
+> > > > > +&mdio0 {
+> > > > > +	phy0: ethernet-phy@1 {
+> > > > > +		reg = <1>;
+> > > > > +	};
+> > > > > +
+> > > > > +	phy1: ethernet-phy@2 {
+> > > > > +		reg = <2>;
+> > > > > +	};
+> > > > > +};
+> > > >
+> > > > Two PHYs on one bus...
+> > >
+> > > Thanks for pointing this out. I will move phy1 to mdio1.
+> >
+> > ???
+> >
+> > Are you saying the two PHYs are not on the same bus?
+>
+> Sorry, this is my first time working on an Ethernet driver and I
+> misunderstood.
+>
+> Sipeed only shares the schematic of the baseboard for the LPi4a [1].
+> There are pages for GMAC Ethernet0 and GMAC Ethernet1. Each shows 4 MDIO
+> differential pairs going into a SG4301G transformer.
+>
+> I believe that RTL8211F-CG phy chips are on the LM4A SoM board which
+> contains the TH1520 SoC. Unfortunately, Sipeed does not provide a
+> schematic of the SoM so its hard for me to inspect how the phy chips are
+> wired up.
+>
+> Vendor kernel [2] that Sipeed uses has:
+>
+> 	mdio0 {
+> 		#address-cells = <1>;
+> 		#size-cells = <0>;
+> 		compatible = "snps,dwmac-mdio";
+>
+> 		phy_88E1111_0: ethernet-phy@0 {
+> 			reg = <0x1>;
+> 		};
+>
+> 		phy_88E1111_1: ethernet-phy@1 {
+> 			reg = <0x2>;
+> 		};
+> 	};
+>
+> so I think that does mean they are on the same MDIO bus.
 
-Sorry, this is my first time working on an Ethernet driver and I
-misunderstood.
+It depends how you look at it. The SoC has two MACs and they can both
+control their own MDIO bus. However MDIO of both MACs are pinmux'ed to
+the same pins on the SoC. So the solution above just mux the pins to
+GMAC0 and let that control both PHYs. Alternatively I guess one could
+let each GMAC control their own phy on their own MDIO bus and then
+switch pinmux settings everytime you need to need to talk to one or
+the other.
 
-Sipeed only shares the schematic of the baseboard for the LPi4a [1].
-There are pages for GMAC Ethernet0 and GMAC Ethernet1. Each shows 4 MDIO
-differential pairs going into a SG4301G transformer.
-
-I believe that RTL8211F-CG phy chips are on the LM4A SoM board which
-contains the TH1520 SoC. Unfortunately, Sipeed does not provide a
-schematic of the SoM so its hard for me to inspect how the phy chips are
-wired up.
-
-Vendor kernel [2] that Sipeed uses has:
-
-	mdio0 {
-		#address-cells = <1>;
-		#size-cells = <0>;
-		compatible = "snps,dwmac-mdio";
-
-		phy_88E1111_0: ethernet-phy@0 {
-			reg = <0x1>;
-		};
-
-		phy_88E1111_1: ethernet-phy@1 {
-			reg = <0x2>;
-		};
-	};
-
-so I think that does mean they are on the same MDIO bus.
-
-> 
-> > > > +		gmac1: ethernet@ffe7060000 {
-> > > > +			compatible = "thead,th1520-gmac", "snps,dwmac-3.70a";
-> > > > +			reg = <0xff 0xe7060000 0x0 0x2000>, <0xff 0xec004000 0x0 0x1000>;
-> > > > +			reg-names = "dwmac", "apb";
-> > > > +			interrupts = <67 IRQ_TYPE_LEVEL_HIGH>;
-> > > > +			interrupt-names = "macirq";
-> > > > +			clocks = <&clk CLK_GMAC_AXI>, <&clk CLK_GMAC_AXI>;
-> > > > +			clock-names = "stmmaceth", "pclk";
-> > > > +			snps,pbl = <32>;
-> > > > +			snps,fixed-burst;
-> > > > +			snps,multicast-filter-bins = <64>;
-> > > > +			snps,perfect-filter-entries = <32>;
-> > > > +			snps,axi-config = <&stmmac_axi_config>;
-> > > > +			status = "disabled";
-> > > > +
-> > > > +			mdio1: mdio {
-> > > > +				compatible = "snps,dwmac-mdio";
-> > > > +				#address-cells = <1>;
-> > > > +				#size-cells = <0>;
-> > > > +			};
-> > > > +		};
-> > > > +
-> > > > +		gmac0: ethernet@ffe7070000 {
-> > > > +			compatible = "thead,th1520-gmac", "snps,dwmac-3.70a";
-> > > > +			reg = <0xff 0xe7070000 0x0 0x2000>, <0xff 0xec003000 0x0 0x1000>;
-> > > > +			reg-names = "dwmac", "apb";
-> > > > +			interrupts = <66 IRQ_TYPE_LEVEL_HIGH>;
-> > > > +			interrupt-names = "macirq";
-> > > > +			clocks = <&clk CLK_GMAC_AXI>, <&clk CLK_GMAC_AXI>;
-> > > 
-> > > And the MACs are listed in opposite order. Does gmac1 probe first,
-> > > find the PHY does not exist, and return -EPROBE_DEFER. Then gmac0
-> > > probes successfully, and then sometime later gmac1 then reprobes?
-> > > 
-> > > I know it is normal to list nodes in address order, but you might be
-> > > able to avoid the EPROBE_DEFER if you reverse the order.
-> > 
-> > The probe order seems to always be the ethernet@ffe7060000 (gmac1) first
-> > and then ethernet@ffe7070000 (gmac0). I do not see any probe deferral
-> > in the boot log [1].
-> 
-> > [1] https://gist.github.com/pdp7/02a44b024bdb6be5fe61ac21303ab29a
-> 
-> So two PHYs are found, so they must be on the same bus.
-> 
-> It could well be that this MAC driver does not connect to the PHY
-> until the interface is opened. That is a good 30 seconds after the
-> driver probes in this log message. So there has been plenty of time
-> for the PHYs to be found.
-> 
-> What would be interesting is if you used NFS root. Then the interface
-> would be opened much faster, and you might see an EPROBE_DEFER. But
-> i'm just speculating. If it works for you, there is no need to do
-> more.
-> 
->       Andrew
-
-I tried to setup an nfs server with a rootfs on my local network. I can
-mount it okay from my laptop so I think it is working okay. However, it
-does not seem to work on the lpi4a [3]. It appears the rgmii-id
-validation fails and the dwmac driver can not open the phy:
-
- thead-dwmac ffe7060000.ethernet eth0: Register MEM_TYPE_PAGE_POOL RxQ-0
- thead-dwmac ffe7060000.ethernet eth0: validation of rgmii-id with support \
-             00,00000000,00000000,00006280 and advertisementa \
-	     00,00000000,00000000,00006280 failed: -EINVAL
- thead-dwmac ffe7060000.ethernet eth0: __stmmac_open: Cannot attach to PHY (error: -22)
-
-I suppose that this is what you were talking about that NFS will cause
-the interface to be opened much faster.
-
-Thanks,
-Drew
-
-[1] https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/02_Schematic
-[2] https://github.com/revyos/thead-kernel/blob/lpi4a/arch/riscv/boot/dts/thead/th1520-b-product.dts#L758
-[3] https://gist.github.com/pdp7/458eb93509548383beabeb21c8ffc43a
+/Emil
 
 _______________________________________________
 linux-riscv mailing list
