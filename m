@@ -4,77 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75256CF6491
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Sep 2024 15:56:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97201CF6493
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Sep 2024 16:37:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=kusZ/Ln5w9WpUrLM6AY86zZ2aGGzT/qovRViIT+iB98=; b=pcCVmaimxWx7KL
-	D1s/Qkjg4pf2i+E+HCy86qOj/nJG6r0H6trT6ukOeJzZA+lMfWJDbdTEsbPbPxal3zwnlAU/VxUZQ
-	/TLdpmgi6NptN6+FQjkTsX8TzcvBW10pYXHrDoRm4S0WeCezXeNxvN2QuFT/uBGLS06dSlbbEZbz6
-	z2uAzh+vlP96LhVSFSEUrgLPaYSIDhXqOyorJce2KLdXAQPoq5n03AMhWqxg34hF34iytDFsx76ud
-	cws0knf+JG019GOs9jTvLjrU3cM0EKcIILkwJ4CtQhVVerDaNI6lT8xUlXwX86Lf9AxuJG7WKNEoK
-	Z4TbZ7iCYXBj6JkAOaXQ==;
+	List-Owner; bh=E0NDD6Ge2MNyQ8h3RCozR9OQtOn2B8qEBxihUAo0MAw=; b=soAkj/1vf38ajT
+	yEDT1DokMYLGvH5J76WT196hGlfdi0rinq5NQ1lmbaX0R4m0NIFm69D9fWAYfG3BCtDoMCnUFFRI4
+	e/l5X5H7vV0AN8l8ULE+0Ryrtcdl6AWoZTWoU0af58/5zV4TlZfGOsGmyVuXESlSQOZaEBUMYSxub
+	2tHV8RTGBlOaMFqaZyWsC76HXdygvEaFbek4zFl3xVxBkXkM6CsjLoz6kHvGvVhPF+sf3fHUzCLjP
+	cHziz1L72KZtEYy5T9Ok3Wk3jrOMC5U3IMFPZbqs3TICrsFLG1oi6HsXUIuzSN4F+bWi9wCFI2ttD
+	8pmQFfmNfrBjT8jOxGJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1suZoB-0000000DINx-3cIt;
-	Sat, 28 Sep 2024 15:56:35 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1suaRr-0000000DLar-25u5;
+	Sat, 28 Sep 2024 16:37:35 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1suZo8-0000000DINZ-2TmR
+	id 1suaRo-0000000DLZk-2NfR
 	for linux-riscv@lists.infradead.org;
-	Sat, 28 Sep 2024 15:56:33 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-719b17b2da1so2285891b3a.0
-        for <linux-riscv@lists.infradead.org>; Sat, 28 Sep 2024 08:56:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1727538992; x=1728143792; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=hgzUbN9sOzdPJ8bPIQiUVA3fYBKHvaG5w8G2EdpDVeQ=;
-        b=JWf7abd9uWfol23qz4XgMm/mCKIQC45Y5fOxaBgd20ZKou6pwx+O8IaE0YgOih+Fnx
-         EX8WSb9N8x9muMfvZvO06/YSVn8W9HVKq1yKr6SLxApQALRa4krapzWcumt9pnhJvQYt
-         VWHAXj2hYBBfqAXuFiinN7NNzF+sF6AOqkxjwFIc4ERHtUUnHl3PBFACF0VP/P2eseg0
-         UkVP0JA0yI2PFbqjvsxqVAfiOt6Xh3Yaxfc6EvDXiu3xrcvcFTC20xrFM+c498H+JBuH
-         2RbpmquUHrRkly9JiJyCIrL+BCYyWF7Oggg1RHVnrHAZDcWE4yjG93RnClMrXq3ppiNx
-         aWbQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1727538992; x=1728143792;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=hgzUbN9sOzdPJ8bPIQiUVA3fYBKHvaG5w8G2EdpDVeQ=;
-        b=hM11e2WP8PVy8yzI4PnrTq3r81xhGwHaCA7EIWf9Yp7scy+Sw0+HI3XXTtva4rSNp5
-         TYt5XXf1ehC8M+44Ya+kruiE47pIFIlTlwR+XJRb7PbLfJZDkFPXYu9UIkXyiVxFW80E
-         Ae2ciVfyxoH5GrN0r8xCHEX8r53S4Lpm3Kn3YCZS8Q8x3bFAe7qKFWMZU+40q6v+BpDj
-         cg7a5M/eZUFllOwerwAM1kQSicRWXkLLyBLLYI+ZIKWhTnQIQYP8QpJ/VUHs6uDhVi3B
-         ZhcQMdwO5TIGQXBo6kDv9M5Q/sC4xKoIjtomIcg/fUb0dPLchDylR2w7osSCUTYRp81J
-         ayIA==
-X-Gm-Message-State: AOJu0YwWu26FqxptpnvyWiZz0xNubWIEVpCx2/qh5g3tXpGJ+Bfbvr94
-	c7S6kKnTO4spqpFVSivAEoWyN6dZwrdAXAGBZEpAhF2JoxnXa80z
-X-Google-Smtp-Source: AGHT+IEQteoyA0yQ8T5uGYGb3QXZQDEmWiaKrogEmCzQLhrbg/lIBTJ7KLxQriHPv5GSBqBB7MzWnQ==
-X-Received: by 2002:a05:6a00:4612:b0:713:e3f9:b58e with SMTP id d2e1a72fcca58-71b26044023mr12664564b3a.17.1727538991619;
-        Sat, 28 Sep 2024 08:56:31 -0700 (PDT)
-Received: from localhost ([112.13.110.247])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-71b264be276sm3265502b3a.81.2024.09.28.08.56.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Sep 2024 08:56:31 -0700 (PDT)
-From: Cheng Chao <cs.os.kernel@gmail.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu
-Cc: linux-riscv@lists.infradead.org,
-	Cheng Chao <cs.os.kernel@gmail.com>
-Subject: [PATCH] riscv: mm: check the SV39 rule
-Date: Sat, 28 Sep 2024 23:56:26 +0800
-Message-Id: <20240928155626.267348-1-cs.os.kernel@gmail.com>
-X-Mailer: git-send-email 2.26.3
+	Sat, 28 Sep 2024 16:37:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1727541450;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type;
+	bh=h4/gbFBDrb64NLayDMO32ddhI+WMxX/5zmMU1f6Mg4E=;
+	b=HPA1x/JcwpAsrvpqazhBJu0P3IxsmncCGL16SR+RVLoPcB/Sh/CDN2s4IXwhFt1lL4qPQ8
+	/6Z0+xh1zNiefi9AfkQE/AVR/GDvvhb4PMd0dBYVnwuM/iQXtrGOgwa+2N2bHg0p/QJ+YZ
+	MNeWZyWb3lmz7kZ/joD2vRryHNFu4/8=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-220-1ApzooA8MguH4gD5oM1cEw-1; Sat,
+ 28 Sep 2024 12:35:52 -0400
+X-MC-Unique: 1ApzooA8MguH4gD5oM1cEw-1
+Received: from mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (unknown [10.30.177.40])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 8E30718F4984;
+	Sat, 28 Sep 2024 16:35:51 +0000 (UTC)
+Received: from oldenburg.str.redhat.com (unknown [10.45.224.151])
+	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 787201944B21;
+	Sat, 28 Sep 2024 16:35:49 +0000 (UTC)
+From: Florian Weimer <fweimer@redhat.com>
+To: linux-riscv@lists.infradead.org
+Cc: Jeff Law <jeffreyalaw@gmail.com>, Palmer Dabbelt <palmer@rivosinc.com>,
+ Xu Lu <luxu.kernel@bytedance.com>
+Subject: Page sizes supported by RISC-V
+Date: Sat, 28 Sep 2024 18:35:46 +0200
+Message-ID: <878qvbzqfx.fsf@oldenburg.str.redhat.com>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.40
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240928_085632_669456_ED24DADD 
-X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-CacheID: sfid-20240928_093732_700463_81F6EE17 
+X-CRM114-Status: UNSURE (   7.03  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,38 +82,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SV39 rule: the address of bits[63..39] should be the same as bit[38],
-it is easy to violate if configure PAGE_OFFSET too small.
-for instance, PAGE_OFFSET=0xffffffc0_0000_0000,
-the FIXADDR_START will be the 0xfffffffb0_xxxx_xxxx,
-bit[39] == 0'b1, bit[38] == 0'b0, when access the FIXADDR,
-which cause the page fault.
-It's difficult to debug, check it when compile is necessary.
+I'm working on adding a <sys/pagesize.h> header to glibc, so that
+programmers can easily determine the range of possible page sizes for a
+particular target, for things like pointer tagging and mapped file
+alignment requirements.
 
-Signed-off-by: Cheng Chao <cs.os.kernel@gmail.com>
----
- arch/riscv/mm/init.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+Linux currently supports 4 KiB pages only.  I couldn't find anything in
+the RISC-V specifications that mandates a specific page size, but of
+course the way ELF LOAD segments are constructed necessarily imposes a
+maximum page size constraint for particular executables.  Today, the
+toolchain assumes the maximum supported page size is 4 KiB, and this is
+also reflected in arch/riscv/Kconfig in the Linux sources (as far as I
+can read Kconfig).
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index bfa2dea95354..82d112c02662 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -1387,6 +1387,12 @@ static void __init arch_reserve_crashkernel(void)
- 
- void __init paging_init(void)
- {
-+#ifdef CONFIG_64BIT
-+	BUILD_BUG_ON_MSG((VA_BITS == VA_BITS_SV39) &&
-+			(((FIXADDR_START & BIT(39)) >> 39)
-+			 != ((FIXADDR_START & BIT(38)) >> 38)),
-+			"violate SV39 rule: bits[63..39] should be same as bit[38]");
-+#endif
- 	setup_bootmem();
- 	setup_vm_final();
- 
--- 
-2.26.3
+I found a previous proposal for kernel support of 64 KiB pages:
+
+  [RFC PATCH V1 00/11] riscv: Introduce 64K base page
+  <https://lore.kernel.org/linux-riscv/20231123065708.91345-1-luxu.kernel@bytedance.com/>
+
+Is this something we should consider today?
+
+I'm leaning towards teaching glibc that the RISC-V page size is always
+4 KiB because given the current toolchain defaults, it's necessary
+to rebuild the world anyway if supported page sizes ever change.
+
+Thanks,
+Florian
 
 
 _______________________________________________
