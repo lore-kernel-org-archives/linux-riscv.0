@@ -4,64 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A562BCF649A
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Sep 2024 08:01:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16B81CF6493
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Sep 2024 09:11:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3o6wbQnqFsFGiv4r+IHmIvgD/mXrDqODJkwSeDqOe3Y=; b=SlPHW7Ao8itDZY
-	4efqhl1Wjh6TmQaX+NVrXPlaeyOo6xqQQyXrh7da06uKLkYKWQm9RE2i7lRhCfMgbvKR9iTae4ihL
-	ulMYVjC0cut/m03wfxt6VcvCFQV4w6x7xR5hFjMiLUNzoJWWu19Oe0QPBCuRDk6XskWAyhSisn4TS
-	6CpyF/FxRytjzGnbqZCtcSGAOxAzSqGio2urz7D1jmgNwPrqGb4QMt/cg6IT7avDEI3RFKJaCTbtK
-	l23Spaf6iMgLy8FExXRwAY4ot0ZAL95GfFcOWg3LV1G8Wcifch6LxTAUvv6YaUpfIZlGoreqx/FYO
-	069PkBlj6ovd4WryZk+g==;
+	List-Owner; bh=fczZeThyxi5iSwt+Gxtam8cF8klnauo59b/eo2APRm4=; b=CiKwu5MJ52Vb8G
+	2Hw91UQ1nhsMTkOa3adk301EFYLhTf82IOGgKJZ6h20R7+4TIHqI/MmkGhGLAqkLPOsNOotH5N+Ik
+	fmWRQwkcIQehmIor/lRF66E5jReNDuv20PtquknF0aOSmPJkv29VWwiycvHgCc10eIi+5g5lZcqLn
+	Xi/f6yuI0Q0GZa72gkp4yv2d+wPcjw692ZLCf4hpPw14IUXLJzjq4r3z5CKfF4e+rar2EMx1KD/Qi
+	eLtFE++iwClY03vk5A9d7TsmnZrtD1NN1PVjfw48yPJltoFOfweM8/G0SIPcFHKXSfsheEFD3fjFp
+	mw7HxTUjNSzHuX//zegQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1suSO1-0000000CmcX-2HO5;
-	Sat, 28 Sep 2024 08:01:05 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1suTU6-0000000CrON-2fsb;
+	Sat, 28 Sep 2024 09:11:26 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1suSNy-0000000Cmc2-2b7e
+	id 1suTU3-0000000CrNQ-2D4n
 	for linux-riscv@lists.infradead.org;
-	Sat, 28 Sep 2024 08:01:04 +0000
+	Sat, 28 Sep 2024 09:11:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CC6C85C05AD;
-	Sat, 28 Sep 2024 08:00:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FF4FC4CEC3;
-	Sat, 28 Sep 2024 08:01:00 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id A3D975C056B
+	for <linux-riscv@lists.infradead.org>; Sat, 28 Sep 2024 09:11:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2B3AC4CECF
+	for <linux-riscv@lists.infradead.org>; Sat, 28 Sep 2024 09:11:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1727510461;
-	bh=qlJzuJRE9Sn5Kw0Zcfet8Sxavy9TJ8gtErUmJx8vCWM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IrLubET93T+OXdMS+LoTOq9d2NZJU3b2Ekbwwegi5ck8RcOUrkEYa/shXTDNXFHzY
-	 kv5kwXB6ckx/1fOia+/RgM+36ztyPZVU+lK+839m3CfsMBnWWqbHBJ5gpCK9+wDP47
-	 u1cG4xJ530oF/FRmw1ehW/Q6sEDPvTtMvGJnzq1FoQZsX6cIQaHQ5PlHNz7BC/FnQL
-	 PGjtN26mCMfRnkM4OlvFSRlvDGqYbRxGmmRI4NtTBNMPofUX57pkvmFJAF7a2pknxu
-	 Ji+6RrreaGryF4gzKRarRbTvmeku7mqftNHBh8MvHZhaapD/IJSkGB+JCj53nWPACx
-	 hK5eRuNfjjrLQ==
-Date: Sat, 28 Sep 2024 10:00:58 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: drew@pdp7.com, guoren@kernel.org, wefu@redhat.com, 
-	jassisinghbrar@gmail.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	m.szyprowski@samsung.com, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH RFC v2 1/3] mailbox: Introduce support for T-head TH1520
- Mailbox driver
-Message-ID: <vgnd5fbapw2hhjbbtzcmxikzprbnzo6m7dr6tqh7n4yepdlmyd@hs7lkieqtshk>
-References: <20240927094207.1650085-1-m.wilczynski@samsung.com>
- <CGME20240927094214eucas1p272cf99b40344f501cbbfaa91c929c709@eucas1p2.samsung.com>
- <20240927094207.1650085-2-m.wilczynski@samsung.com>
+	s=k20201202; t=1727514682;
+	bh=li0bXHR0TvXcwt8qhQR9j/FFiIA5/ek6EQTh0iCst/Y=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=b1/fXMcyj6RG+4FeYlLcnEoKnbZmjb4NUFZjgiidVyDyPc5ve0S22mvTiw4BTahWd
+	 lVLpFBvsUgtpKwHbj2sQpX3NtP6eiN4yh09Bg7NFhZa8zqs8S1tjQYUOj9+md/sM12
+	 VQ+7+3cXXyXJJ7OVqEUMpPBZc8Jsts+AoISCxUfTrAsb10z4bInevJzE5Kj1arWjxL
+	 jPed5Ds2y87JYWDbq7E6BbbNlgzMDXzglivDwOcaYKervxE/EThFLvDGuiH8hdJq+G
+	 AOaoBRSopNeN+Wm/30PPeSpi4+lfbEbk5rqZMmCFNJAJi8jDQBIkY95cPcHsaM7Ppm
+	 PGkE/TADjw+eA==
+Received: by mail-qk1-f174.google.com with SMTP id af79cd13be357-7a99fd5beb6so328218985a.0
+        for <linux-riscv@lists.infradead.org>; Sat, 28 Sep 2024 02:11:21 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXe2d/XRsmdm9A+fkDGlGNKdVUSOrxBJGA7g0dVV2JW3/UWhX63F+Q/ypHt0BTGfGW/4s7AVfUXKW3YvA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzGTyJG+Vlv46lrDcw5gWPePPQyn1LrDcIYqb6x2f7frkvO+adf
+	4ugQPvu0dD6O/uaU8KXIlE+yEcaaQZ575UT4t6gF85AsWSO5Xe1INz0Sg6bwB0TZ/a8qh8Kmjcd
+	oblAbH1UfxWQTJ+hHhewNr22cxAU=
+X-Google-Smtp-Source: AGHT+IGQzctwOpKFuOtCkRYlVjrpRKVgfRrk5wUSUePsrzDaXpPbQ/kK+OwI+9znW9FBFK+ZV1jb1ra9eyUnKzEamAU=
+X-Received: by 2002:a05:6214:5012:b0:6b5:d90d:ea4f with SMTP id
+ 6a1803df08f44-6cb2f29730emr166967016d6.15.1727514681117; Sat, 28 Sep 2024
+ 02:11:21 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240927094207.1650085-2-m.wilczynski@samsung.com>
+References: <20240927131355.350918-1-bjorn@kernel.org> <CAEf4BzYCf2+8JkCjWZWGaNQcEc_=WO_emP2GPBQGZyrWm8APUg@mail.gmail.com>
+In-Reply-To: <CAEf4BzYCf2+8JkCjWZWGaNQcEc_=WO_emP2GPBQGZyrWm8APUg@mail.gmail.com>
+From: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+Date: Sat, 28 Sep 2024 11:11:10 +0200
+X-Gmail-Original-Message-ID: <CAJ+HfNgrxUmHuY8b1AmWoR+YpBnsNZxSDCeUfBOQcC70POEU_w@mail.gmail.com>
+Message-ID: <CAJ+HfNgrxUmHuY8b1AmWoR+YpBnsNZxSDCeUfBOQcC70POEU_w@mail.gmail.com>
+Subject: Re: [PATCH bpf-next 1/2] libbpf: Add missing per-arch include path
+To: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Cc: Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, 
+	Mykola Lysenko <mykolal@fb.com>, bpf@vger.kernel.org, netdev@vger.kernel.org, 
+	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, Charlie Jenkins <charlie@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240928_010102_781957_3F07EA74 
-X-CRM114-Status: GOOD (  29.94  )
+X-CRM114-CacheID: sfid-20240928_021123_810450_A367D386 
+X-CRM114-Status: GOOD (  18.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,215 +80,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 27, 2024 at 11:42:05AM +0200, Michal Wilczynski wrote:
-> This driver was tested using the drm/imagination GPU driver. It was able
-> to successfully power on the GPU, by passing a command through mailbox
-> from E910 core to E902 that's responsible for powering up the GPU. The
-> GPU driver was able to read the BVC version from control registers,
-> which confirms it was successfully powered on.
-> 
-> [   33.957467] powervr ffef400000.gpu: [drm] loaded firmware
-> powervr/rogue_36.52.104.182_v1.fw
-> [   33.966008] powervr ffef400000.gpu: [drm] FW version v1.0 (build
-> 6621747 OS)
-> [   38.978542] powervr ffef400000.gpu: [drm] *ERROR* Firmware failed to
-> boot
-> 
-> Though the driver still fails to boot the firmware, the mailbox driver
-> works when used with the not-yet-upstreamed firmware AON driver. There
-> is ongoing work to get the BXM-4-64 supported with the drm/imagination
-> driver [1], though it's not completed yet.
-> 
-> This work is based on the driver from the vendor kernel [2].
-> 
-> Link: https://gitlab.freedesktop.org/imagination/linux-firmware/-/issues/2 [1]
-> Link: https://github.com/revyos/thead-kernel.git [2]
-> 
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> ---
->  MAINTAINERS                      |   1 +
->  drivers/mailbox/Kconfig          |  10 +
->  drivers/mailbox/Makefile         |   2 +
->  drivers/mailbox/mailbox-th1520.c | 551 +++++++++++++++++++++++++++++++
->  4 files changed, 564 insertions(+)
->  create mode 100644 drivers/mailbox/mailbox-th1520.c
-
-...
-
-> +static int th1520_mbox_startup(struct mbox_chan *chan)
-> +{
-> +	struct th1520_mbox_priv *priv = to_th1520_mbox_priv(chan->mbox);
-> +	struct th1520_mbox_con_priv *cp = chan->con_priv;
-> +	u32 data[8] = {};
-> +	int mask_bit;
-> +	int ret;
-> +
-> +	/* clear local and remote generate and info0~info7 */
-> +	th1520_mbox_chan_rmw(cp, TH_1520_MBOX_GEN, 0x0, 0xff, true);
-> +	th1520_mbox_chan_rmw(cp, TH_1520_MBOX_GEN, 0x0, 0xff, false);
-> +	th1520_mbox_chan_wr_ack(cp, &data[7], true);
-> +	th1520_mbox_chan_wr_ack(cp, &data[7], false);
-> +	th1520_mbox_chan_wr_data(cp, &data[0], true);
-> +	th1520_mbox_chan_wr_data(cp, &data[0], false);
-> +
-> +	/* enable the chan mask */
-> +	mask_bit = th1520_mbox_chan_id_to_mapbit(cp);
-> +	th1520_mbox_rmw(priv, TH_1520_MBOX_MASK, BIT(mask_bit), 0);
-> +
-> +	if (cp->type == TH_1520_MBOX_TYPE_DB)
-> +		/* tx doorbell doesn't have ACK, rx doorbell requires isr */
-> +		tasklet_init(&cp->txdb_tasklet, th1520_mbox_txdb_tasklet,
-> +			     (unsigned long)cp);
-> +
-> +	ret = request_irq(priv->irq, th1520_mbox_isr,
-> +			  IRQF_SHARED | IRQF_NO_SUSPEND, cp->irq_desc, chan);
-
-Mixing devm- and non-devm with shared interrupts is error-prone (or even
-discouraged). Your code looks here correct, but probably this deserves
-a comment that you investigated the path and it is not possible to
-trigger interrupt from another device while device is unbound.
-
-> +	if (ret) {
-> +		dev_err(priv->dev, "Unable to acquire IRQ %d\n", priv->irq);
-> +		return ret;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static void th1520_mbox_shutdown(struct mbox_chan *chan)
-> +{
-> +	struct th1520_mbox_priv *priv = to_th1520_mbox_priv(chan->mbox);
-> +	struct th1520_mbox_con_priv *cp = chan->con_priv;
-> +	int mask_bit;
-> +
-> +	/* clear the chan mask */
-> +	mask_bit = th1520_mbox_chan_id_to_mapbit(cp);
-> +	th1520_mbox_rmw(priv, TH_1520_MBOX_MASK, 0, BIT(mask_bit));
-> +
-> +	free_irq(priv->irq, chan);
-
-Odd order. This should be reverse order from startup. Why is it not?
-
-> +}
-> +
-> +static const struct mbox_chan_ops th1520_mbox_ops = {
-> +	.send_data = th1520_mbox_send_data,
-> +	.startup = th1520_mbox_startup,
-> +	.shutdown = th1520_mbox_shutdown,
-> +};
-> +
-> +static int th1520_mbox_init_generic(struct th1520_mbox_priv *priv)
-> +{
-> +#ifdef CONFIG_PM_SLEEP
-> +	priv->ctx = devm_kzalloc(priv->dev, sizeof(*priv->ctx), GFP_KERNEL);
-> +	if (!priv->ctx)
-> +		return -ENOMEM;
-> +#endif
-> +	/* Set default configuration */
-> +	th1520_mbox_write(priv, 0xff, TH_1520_MBOX_CLR);
-> +	th1520_mbox_write(priv, 0x0, TH_1520_MBOX_MASK);
-> +	return 0;
-> +}
-> +
-> +static struct mbox_chan *th1520_mbox_xlate(struct mbox_controller *mbox,
-> +					  const struct of_phandle_args *sp)
-> +{
-> +	struct th1520_mbox_priv *priv = to_th1520_mbox_priv(mbox);
-> +	struct th1520_mbox_con_priv *cp;
-> +	u32 chan, type;
-> +
-> +	if (sp->args_count != 2) {
-> +		dev_err(mbox->dev, "Invalid argument count %d\n",
-> +			sp->args_count);
-> +		return ERR_PTR(-EINVAL);
-> +	}
-> +
-> +	chan = sp->args[0]; /* comm remote channel */
-> +	type = sp->args[1]; /* comm channel type */
-> +
-> +	if (chan >= mbox->num_chans) {
-> +		dev_err(mbox->dev, "Not supported channel number: %d\n", chan);
-> +		return ERR_PTR(-EINVAL);
-> +	}
-> +
-> +	if (chan == priv->cur_icu_cpu_id) {
-> +		dev_err(mbox->dev, "Cannot communicate with yourself\n");
-> +		return ERR_PTR(-EINVAL);
-> +	}
-> +
-> +	if (type > TH_1520_MBOX_TYPE_DB) {
-> +		dev_err(mbox->dev, "Not supported the type for channel[%d]\n",
-> +			chan);
-> +		return ERR_PTR(-EINVAL);
-> +	}
-> +
-> +	cp = mbox->chans[chan].con_priv;
-> +	cp->type = type;
-> +
-> +	return &mbox->chans[chan];
-> +}
-> +
-> +static int th1520_mbox_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct device_node *np = dev->of_node;
-> +	struct th1520_mbox_priv *priv;
-> +	struct resource *res;
-> +	unsigned int remote_idx = 0;
-> +	unsigned int i;
-> +	int ret;
-> +
-> +	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-> +	if (!priv)
-> +		return -ENOMEM;
-> +
-> +	if (of_property_read_u32(np, "thead,icu-cpu-id", &priv->cur_icu_cpu_id)) {
-> +		dev_err(dev, "thead,icu-cpu-id is missing\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	if (priv->cur_icu_cpu_id != TH_1520_MBOX_ICU_CPU0 &&
-> +	    priv->cur_icu_cpu_id != TH_1520_MBOX_ICU_CPU3) {
-> +		dev_err(dev, "thead,icu-cpu-id is invalid\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	priv->dev = dev;
-> +
-> +	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "local");
-> +	priv->local_icu[TH_1520_MBOX_ICU_CPU0] = devm_ioremap_resource(dev, res);
-
-Use proper wrapper over these two.
-
-> +	if (IS_ERR(priv->local_icu[TH_1520_MBOX_ICU_CPU0]))
-> +		return PTR_ERR(priv->local_icu[TH_1520_MBOX_ICU_CPU0]);
-> +
-> +	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "remote-icu0");
-> +	priv->remote_icu[0] = devm_ioremap_resource(dev, res);
-> +	if (IS_ERR(priv->remote_icu[0]))
-> +		return PTR_ERR(priv->remote_icu[0]);
-> +
-> +	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "remote-icu1");
-> +	priv->remote_icu[1] = devm_ioremap_resource(dev, res);
-> +	if (IS_ERR(priv->remote_icu[1]))
-> +		return PTR_ERR(priv->remote_icu[1]);
-> +
-> +	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "remote-icu2");
-> +	priv->remote_icu[2] = devm_ioremap_resource(dev, res);
-> +	if (IS_ERR(priv->remote_icu[2]))
-> +		return PTR_ERR(priv->remote_icu[2]);
-
-Best regards,
-Krzysztof
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+QW5kcmlpLAoKT24gRnJpLCAyNyBTZXB0IDIwMjQgYXQgMjI6NTEsIEFuZHJpaSBOYWtyeWlrbwo8
+YW5kcmlpLm5ha3J5aWtvQGdtYWlsLmNvbT4gd3JvdGU6Cj4KPiBPbiBGcmksIFNlcCAyNywgMjAy
+NCBhdCA2OjE04oCvQU0gQmrDtnJuIFTDtnBlbCA8Ympvcm5Aa2VybmVsLm9yZz4gd3JvdGU6Cj4g
+Pgo+ID4gRnJvbTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgo+ID4KPiA+IGxp
+YmJwZiBkb2VzIG5vdCBpbmNsdWRlIHRoZSBwZXItYXJjaCB0b29scyBpbmNsdWRlIHBhdGgsIGUu
+Zy4KPiA+IHRvb2xzL2FyY2gvcmlzY3YvaW5jbHVkZS4gU29tZSBhcmNoaXRlY3R1cmVzIGRlcGVu
+ZCB0aG9zZSBmaWxlcyB0bwo+ID4gYnVpbGQgcHJvcGVybHkuCj4gPgo+ID4gSW5jbHVkZSB0b29s
+cy9hcmNoLyQoU1VCQVJDSCkvaW5jbHVkZSBpbiB0aGUgbGliYnBmIGJ1aWxkLgo+ID4KPiA+IEZp
+eGVzOiA2ZDc0ZDE3OGZlNmUgKCJ0b29sczogQWRkIHJpc2N2IGJhcnJpZXIgaW1wbGVtZW50YXRp
+b24iKQo+ID4gU2lnbmVkLW9mZi1ieTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29t
+Pgo+ID4gLS0tCj4gPiAgdG9vbHMvbGliL2JwZi9NYWtlZmlsZSB8IDMgKystCj4gPiAgMSBmaWxl
+IGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygrKSwgMSBkZWxldGlvbigtKQo+ID4KPiA+IGRpZmYgLS1n
+aXQgYS90b29scy9saWIvYnBmL01ha2VmaWxlIGIvdG9vbHMvbGliL2JwZi9NYWtlZmlsZQo+ID4g
+aW5kZXggMWIyMmYwZjM3Mjg4Li44NTdhNWY3YjQxM2QgMTAwNjQ0Cj4gPiAtLS0gYS90b29scy9s
+aWIvYnBmL01ha2VmaWxlCj4gPiArKysgYi90b29scy9saWIvYnBmL01ha2VmaWxlCj4gPiBAQCAt
+NjEsNyArNjEsOCBAQCBpZm5kZWYgVkVSQk9TRQo+ID4gIGVuZGlmCj4gPgo+ID4gIElOQ0xVREVT
+ID0gLUkkKG9yICQoT1VUUFVUKSwuKSBcCj4gPiAtICAgICAgICAgIC1JJChzcmN0cmVlKS90b29s
+cy9pbmNsdWRlIC1JJChzcmN0cmVlKS90b29scy9pbmNsdWRlL3VhcGkKPiA+ICsgICAgICAgICAg
+LUkkKHNyY3RyZWUpL3Rvb2xzL2luY2x1ZGUgLUkkKHNyY3RyZWUpL3Rvb2xzL2luY2x1ZGUvdWFw
+aSBcCj4gPiArICAgICAgICAgIC1JJChzcmN0cmVlKS90b29scy9hcmNoLyQoU1JDQVJDSCkvaW5j
+bHVkZQo+ID4KPiA+ICBleHBvcnQgcHJlZml4IGxpYmRpciBzcmMgb2JqCj4gPgo+Cj4gRG8geW91
+IGtub3cgd2hhdCBleGFjdGx5IGlzIHVzZWQgZnJvbSB0b29scy9hcmNoLyQoU1JDQVJDSCkvaW5j
+bHVkZQo+IGZvciAoSSBhc3N1bWUpIFJJU0MtVj8gSSdtIGFza2luZyBiZWNhdXNlIHdlJ2QgbmVl
+ZCB0byBtYWtlIHN1cmUgdGhhdAo+IEdpdGh1YiB2ZXJzaW9uIG9mIGxpYmJwZiBNYWtlZmlsZSBh
+bmQgaW5jbHVkZSBkaXJlY3RvcnkgaGFzIGFsbCB0aGUKPiBuZWNlc3NhcnkgcGllY2VzIGFzIHdl
+bGwgKHNvIEknZCBhcHByZWNpYXRlIGlmIHlvdSBjb3VsZCB0YWtlIGEgbG9vawo+IGF0IHRoYXQg
+YXMgd2VsbCwgaWYgeW91IGhhdmVuJ3QgYWxyZWFkeSkuCgpBaCwgYXBvbG9naWVzIGZvciBub3Qg
+c3RhdGluZyB0aGF0IGV4cGxpY2l0bHkuIEl0J3MKdG9vbHMvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
+bS97YmFycmllci5oLGZlbmNlLmh9CgpDaGVlcnMsCkJqw7ZybgoKX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
+bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
+bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
