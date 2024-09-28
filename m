@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CC3CCF6493
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Sep 2024 15:52:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75256CF6491
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Sep 2024 15:56:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=8TZcwQV1x/GNFHri5PC2RILPW9GXGBmtQud1n9Q/cHg=; b=rjuvp17AXEUcar
-	v4QJLF0gB2R7BWyj2M25AoWtXZAvUsEBukARMupYl7yHwp7DPnwyw6wf4dczBCLluhrLh8r+ZeVUM
-	+eafMip4JeF7CpzLlB4zGOi402iRZjHBleILQlKR+CLGisFsVc4VHisEfbfq144W4PG9379TLjnEV
-	fHYsLotyyJY2J4TPEqZdN7BDq3TD9mpYlKfPjZMzx4Cg58yMX08xqoHrtwV+vBLxtJJHTNAc5BTnY
-	Dxt8mSDcNRv1Z/WTvmorQIEtSf3WOuwUiUCI1Od6NxbHqoSKUNvxBxhuQ1+QYgxf5/fR5l5CtrOt9
-	zXkA5uRnFt1z366vDb+A==;
+	List-Owner; bh=kusZ/Ln5w9WpUrLM6AY86zZ2aGGzT/qovRViIT+iB98=; b=pcCVmaimxWx7KL
+	D1s/Qkjg4pf2i+E+HCy86qOj/nJG6r0H6trT6ukOeJzZA+lMfWJDbdTEsbPbPxal3zwnlAU/VxUZQ
+	/TLdpmgi6NptN6+FQjkTsX8TzcvBW10pYXHrDoRm4S0WeCezXeNxvN2QuFT/uBGLS06dSlbbEZbz6
+	z2uAzh+vlP96LhVSFSEUrgLPaYSIDhXqOyorJce2KLdXAQPoq5n03AMhWqxg34hF34iytDFsx76ud
+	cws0knf+JG019GOs9jTvLjrU3cM0EKcIILkwJ4CtQhVVerDaNI6lT8xUlXwX86Lf9AxuJG7WKNEoK
+	Z4TbZ7iCYXBj6JkAOaXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1suZkE-0000000DI6w-1PsY;
-	Sat, 28 Sep 2024 15:52:30 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1suZoB-0000000DINx-3cIt;
+	Sat, 28 Sep 2024 15:56:35 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1suZkC-0000000DI6Z-1e4g
+	id 1suZo8-0000000DINZ-2TmR
 	for linux-riscv@lists.infradead.org;
-	Sat, 28 Sep 2024 15:52:29 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-7191fb54147so2197923b3a.2
-        for <linux-riscv@lists.infradead.org>; Sat, 28 Sep 2024 08:52:27 -0700 (PDT)
+	Sat, 28 Sep 2024 15:56:33 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-719b17b2da1so2285891b3a.0
+        for <linux-riscv@lists.infradead.org>; Sat, 28 Sep 2024 08:56:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1727538747; x=1728143547; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1727538992; x=1728143792; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=31cV6dYT3qidEyqkEa39aDBCfZsli/mE/pREIaRt9hA=;
-        b=T5srIeh6BJF3aqFWUSV2EcPDhQuYxRQ9dPkWT9WlRoOLKzwuOgOVxQ1FHlFqFCa4a5
-         XWQYRWk/mnM4958/G2gPFAPDga7BSgagbM+MNrKUH/Ujhj2bfQWXCoXmVWS9l+WSpjWX
-         hJ/UvcYLz3vOnev4O7YUvTpbpVbKTDL7SeQR/fl+L6WgbvheekQ4gucJ0QYSSQcx2qk2
-         OS6cJw5L7jUPJSsXcrr5hb3TevbGNiA0hUexjg7sU2YEMWGwtMwsiyY2+84fxzqaHZZT
-         MCUzLXREXxcZ/1tD74JHbs6TMjf2LLBYd1NJKVO6Z5gLadcUExpeQJZRlj+9EH5xGyUA
-         g5jA==
+        bh=hgzUbN9sOzdPJ8bPIQiUVA3fYBKHvaG5w8G2EdpDVeQ=;
+        b=JWf7abd9uWfol23qz4XgMm/mCKIQC45Y5fOxaBgd20ZKou6pwx+O8IaE0YgOih+Fnx
+         EX8WSb9N8x9muMfvZvO06/YSVn8W9HVKq1yKr6SLxApQALRa4krapzWcumt9pnhJvQYt
+         VWHAXj2hYBBfqAXuFiinN7NNzF+sF6AOqkxjwFIc4ERHtUUnHl3PBFACF0VP/P2eseg0
+         UkVP0JA0yI2PFbqjvsxqVAfiOt6Xh3Yaxfc6EvDXiu3xrcvcFTC20xrFM+c498H+JBuH
+         2RbpmquUHrRkly9JiJyCIrL+BCYyWF7Oggg1RHVnrHAZDcWE4yjG93RnClMrXq3ppiNx
+         aWbQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1727538747; x=1728143547;
+        d=1e100.net; s=20230601; t=1727538992; x=1728143792;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=31cV6dYT3qidEyqkEa39aDBCfZsli/mE/pREIaRt9hA=;
-        b=WSu3kG12p0ZUHqWhbJ1d0hIExlh5ltQ14u0Qw/yRgyDnZD5QHeGFrnikgnKrSIGMZb
-         1HJOn9EY1ZfQWPs5HzkyBWLz3eZlRgr1nuw4UKO8/mk1sQdcRMS8DI6hLXRklTZ31m95
-         MWgYuEfvTKso9FZbQNdTsxz03NVPY+O0xDfFeH+r9CfnUo0wOEF5RgNDASB3F2e3RRDi
-         frDy+fkPf6cGNoxcvFIi+XCVQj8NGJBT3YeLGSx1IlfvZVR9OHvPgIdMwHNIQ2Vi3YT8
-         /FFegHwUR1L9ckuh2BMlZtqHwKpek1muqIJbxDx8BxNOgAipt+3DEGbBX0XQ5RJVxr/s
-         FH2g==
-X-Gm-Message-State: AOJu0YyXjNXkl+7fGoPXv3qWDf0JGvdph73smiHD45M1ZJmqjIcWR1X5
-	KgIBDbFqpYR1sHTm4XRbGd2o1aWHITH8+VEkor5pKcLhOyWzls/FBH8m/29/gBg=
-X-Google-Smtp-Source: AGHT+IGo41QndVYNPDZ3Gr8xHHyoN6YuGHQoCnDbofTLscHpUFB7Kuy7G9NTs+/akDeIfvAJmAAiow==
-X-Received: by 2002:a05:6a00:3e1b:b0:718:d7ac:6342 with SMTP id d2e1a72fcca58-71b25f6a924mr10055905b3a.13.1727538746821;
-        Sat, 28 Sep 2024 08:52:26 -0700 (PDT)
+        bh=hgzUbN9sOzdPJ8bPIQiUVA3fYBKHvaG5w8G2EdpDVeQ=;
+        b=hM11e2WP8PVy8yzI4PnrTq3r81xhGwHaCA7EIWf9Yp7scy+Sw0+HI3XXTtva4rSNp5
+         TYt5XXf1ehC8M+44Ya+kruiE47pIFIlTlwR+XJRb7PbLfJZDkFPXYu9UIkXyiVxFW80E
+         Ae2ciVfyxoH5GrN0r8xCHEX8r53S4Lpm3Kn3YCZS8Q8x3bFAe7qKFWMZU+40q6v+BpDj
+         cg7a5M/eZUFllOwerwAM1kQSicRWXkLLyBLLYI+ZIKWhTnQIQYP8QpJ/VUHs6uDhVi3B
+         ZhcQMdwO5TIGQXBo6kDv9M5Q/sC4xKoIjtomIcg/fUb0dPLchDylR2w7osSCUTYRp81J
+         ayIA==
+X-Gm-Message-State: AOJu0YwWu26FqxptpnvyWiZz0xNubWIEVpCx2/qh5g3tXpGJ+Bfbvr94
+	c7S6kKnTO4spqpFVSivAEoWyN6dZwrdAXAGBZEpAhF2JoxnXa80z
+X-Google-Smtp-Source: AGHT+IEQteoyA0yQ8T5uGYGb3QXZQDEmWiaKrogEmCzQLhrbg/lIBTJ7KLxQriHPv5GSBqBB7MzWnQ==
+X-Received: by 2002:a05:6a00:4612:b0:713:e3f9:b58e with SMTP id d2e1a72fcca58-71b26044023mr12664564b3a.17.1727538991619;
+        Sat, 28 Sep 2024 08:56:31 -0700 (PDT)
 Received: from localhost ([112.13.110.247])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-71b264c23b6sm3272105b3a.88.2024.09.28.08.52.25
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-71b264be276sm3265502b3a.81.2024.09.28.08.56.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Sep 2024 08:52:26 -0700 (PDT)
+        Sat, 28 Sep 2024 08:56:31 -0700 (PDT)
 From: Cheng Chao <cs.os.kernel@gmail.com>
 To: paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
@@ -68,13 +68,14 @@ To: paul.walmsley@sifive.com,
 Cc: linux-riscv@lists.infradead.org,
 	Cheng Chao <cs.os.kernel@gmail.com>
 Subject: [PATCH] riscv: mm: check the SV39 rule
-Date: Sat, 28 Sep 2024 23:52:19 +0800
-Message-Id: <20240928155219.266866-1-cs.os.kernel@gmail.com>
+Date: Sat, 28 Sep 2024 23:56:26 +0800
+Message-Id: <20240928155626.267348-1-cs.os.kernel@gmail.com>
 X-Mailer: git-send-email 2.26.3
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240928_085228_454995_864787B7 
-X-CRM114-Status: GOOD (  11.78  )
+X-CRM114-CacheID: sfid-20240928_085632_669456_ED24DADD 
+X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,22 +102,13 @@ It's difficult to debug, check it when compile is necessary.
 
 Signed-off-by: Cheng Chao <cs.os.kernel@gmail.com>
 ---
- arch/riscv/mm/init.c | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+ arch/riscv/mm/init.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
 diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index bfa2dea95354..a5fb3fc2b2db 100644
+index bfa2dea95354..82d112c02662 100644
 --- a/arch/riscv/mm/init.c
 +++ b/arch/riscv/mm/init.c
-@@ -119,7 +119,7 @@ static inline void print_mlt(char *name, unsigned long b, unsigned long t)
- 
- static inline void print_ml(char *name, unsigned long b, unsigned long t)
- {
--	unsigned long diff = t - b;
-+	unsigned long diff = t - b + 1;
- 
- 	if (IS_ENABLED(CONFIG_64BIT) && (diff >> LOG2_SZ_1T) >= 10)
- 		print_mlt(name, b, t);
 @@ -1387,6 +1387,12 @@ static void __init arch_reserve_crashkernel(void)
  
  void __init paging_init(void)
