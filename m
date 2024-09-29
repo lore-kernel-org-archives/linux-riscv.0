@@ -4,81 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CE13CF6499
-	for <linux-riscv@archiver.kernel.org>; Sun, 29 Sep 2024 15:18:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A96C5CF6498
+	for <linux-riscv@archiver.kernel.org>; Sun, 29 Sep 2024 15:33:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VC8SmbxDqlICXpZXYK13dOtlGkLq31sYqz8zantCCbQ=; b=vwDGaZhZ+YaNiS
-	sDw3WJ4AeSSnNMRnoeRBcpUfsxU/ATm+S48dzMbERsxu1IQUfPuL6ikk+NWTUjR2/gjq6DMi1MZ+E
-	bbTPKVdU+vRE1Y2V2RdUJLUtzaFXvZUWz5XMwIVW072GsF9VQeJf3H3W9PCDO+T/k4uF74+P40iPC
-	ZlDaLGuXywHIyq4mioOLIMkuxBjP4n6/7yhrrtIOJDZiUexVslcQfwDsbzjO55X7kHyYk8uxOBn3A
-	NVVMd3yK2WvToiNJcpzNqqv/k+1+BIhU/0F+vbNK14TnzI1TTV5wnsFN+f6QvEdn9zRKv7+kMBcu3
-	Q4e94cBqH2AQFvPLk33w==;
+	List-Owner; bh=1bY38n6/bsvSF7B/3GkmFsDGVe+UasCY1sJJkCbpT/c=; b=TOLM9WO5lk4ovZ
+	Je7ThW+nipY4qhjVmrG8soK1leslSfPIqLZMVM92+sYth9D66LdWcrChA/2X6Vdc0lNNmXGe/KbSN
+	+I15lAFs9E0Gev1aDCaoaZowjbgj7KkK6ul8BkGxTStObU6b0jJL7dqNv0TApxSbSISh7yaWv8DP3
+	h5NdRfdjcHkiimHcW2BwMxRvIsRf5wYE23J/eKVtoC6diPm4bkvhJ1YvAPDPygw5nGNoFih8JqDVZ
+	AfrvuC4/bFR82kYpRoR8hLDJVyI3aN7+LxDfO1rGujNiucupEGf7In+GeFCcVQFgIxsyK/XD6vnO6
+	ND7W9FC7LQ7NDpwCwsEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1suvh3-0000000EwhJ-3371;
-	Sun, 29 Sep 2024 15:18:41 +0000
-Received: from mail-oo1-xc2d.google.com ([2607:f8b0:4864:20::c2d])
+	id 1suvvE-0000000ExII-13OF;
+	Sun, 29 Sep 2024 15:33:20 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1suvh1-0000000Ewgt-0IJC
+	id 1suvv9-0000000ExHT-0C8o
 	for linux-riscv@lists.infradead.org;
-	Sun, 29 Sep 2024 15:18:40 +0000
-Received: by mail-oo1-xc2d.google.com with SMTP id 006d021491bc7-5e5568f1baaso2068754eaf.2
-        for <linux-riscv@lists.infradead.org>; Sun, 29 Sep 2024 08:18:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1727623118; x=1728227918; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=imJC1hs8xVR2r/Q+v73yDPCnloHPi54lag+EQ6u1EYw=;
-        b=kjSy9QxdCIp94WAxIJ5WphbVS/SL1DmlbQu2Th/H9ELDETAi5LWVmLtiYg6kSrLrek
-         d0OHBj2L+jOr3+SiERCSCjY9cmxGKySadQqgJ6f3QvUthHpLJRXmPJ/Irar+pEyYRV8e
-         5xyNbHQxX2/MCbqBbJ0GYT44vuJT3kjakUd6xK76W9M9tkeqeiaT38pH8e9ei0K1y7Aq
-         JXgUGk3LAOnUaizkcvCuJi+rloK9CJ65TEu80lctym8fs3ryttZT+jLFzjfwdZUYeF6H
-         dUEew3v4eD2GXDMq5/wO1UmNMkWMwBoxjlUSfDuksn0ZUAAA9ShrbJe40VLcKBooKHEb
-         yaPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1727623118; x=1728227918;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=imJC1hs8xVR2r/Q+v73yDPCnloHPi54lag+EQ6u1EYw=;
-        b=j+qlMym8liI0yVHiILjnJ3WDV93ckB9GoaSRe7X7kXiFrPAOoL/pETFSMz49mTpypk
-         mjkAjd1CPVWpM6UcQ0FTBojqcfZZnhlN1WQoKf1EH0hlI25x9VOXhWyiAeMvymanvcQs
-         9oPOx5dU28a29gbDpZTotdF50viG1w4QmTFs0JHOVx4LtRQ/pTMEOlqhFPPA5ZVSlQke
-         GvtRbeVq2BojvpCIQkCmMnk2z26YrhX3G8n73WbjFxNsMI5Q9CuKwuZDlDmWtp6Ypd0w
-         /0kbJEFo/WHPXL0HRXe4HXzZsPeqp7AqQvdMm6Fahq1pWoG7AR1URLnOXdL2qsnIQAct
-         7NsQ==
-X-Gm-Message-State: AOJu0Yy8XJH1hWlQbTOKyyPRBoxpMgydtOB00FwkavipKgSKJAe2gtug
-	tU/ppDjhW7fBAgw/fQ/2mWv5FTKfmhUiAoRZ2WWyZ7XooeYiTBip
-X-Google-Smtp-Source: AGHT+IHubO/W4m/DhcTaYjbm14mH1csjFESgWKEJzDFHz75oLDhQQl/JJnl+6BeYH+IR7OGTXNjF0A==
-X-Received: by 2002:a05:6820:61e:b0:5c4:144b:1ff9 with SMTP id 006d021491bc7-5e7727c46fdmr5783586eaf.5.1727623117913;
-        Sun, 29 Sep 2024 08:18:37 -0700 (PDT)
-Received: from [172.31.0.109] ([136.36.72.243])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-5e770eaa056sm1686395eaf.31.2024.09.29.08.18.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 29 Sep 2024 08:18:36 -0700 (PDT)
-Message-ID: <cbbc9925-12a5-4043-a6c5-ccd1ef0997c8@gmail.com>
-Date: Sun, 29 Sep 2024 09:18:34 -0600
+	Sun, 29 Sep 2024 15:33:18 +0000
+Date: Sun, 29 Sep 2024 17:33:05 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1727623991;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9gsGi8fTdkDcmJzk7dV7d8IvixwZDjA6Zah8Vb/3I30=;
+	b=M859z1DefwlRKGAU4Q3SEdJZgXQh3ow+SoL9Fivllc9WBMzZErU+cQFJ97VsvpmBuaZsSf
+	IjIqY5lp7/lDseQ5eykOII4yiSyrCKzctUpEzYzXpVM2qhhoMGzN6SSYHjCy2G/TsLGJQ/
+	0tNKULx7gdnAPWDae7TERI8clJshFBVTd5G9vmeQfIygFTqfqv+5GGxIr2qgSKXr++MJIa
+	NaoxjGN3svxh1UpNbsaMALdZ8xaWRujbQtixUnQpbKAP/TMRrrkLUUNnS/Aufp30+x7R1O
+	6MXpY33o/VU8UHjNLtknE7YNC9l/OQ0q/oDAurAzUugJvfwwbwFFpSFH7b5kbA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1727623991;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9gsGi8fTdkDcmJzk7dV7d8IvixwZDjA6Zah8Vb/3I30=;
+	b=VOLfd/bQWzYYXYJ82FqiyEZH/lMqD5rWjq63zTJ/aRHrUcHy5MpK/fSJJL03O7tpRiZ/s4
+	nHEJm9E3zWx2lNCg==
+From: Nam Cao <namcao@linutronix.de>
+To: Jonathan Corbet <corbet@lwn.net>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
+	Evan Green <evan@rivosinc.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Andrew Jones <ajones@ventanamicro.com>, linux-doc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] Documentation: riscv: Fix typo MIMPLID -> MIMPID
+Message-ID: <20240929153305.m8IHY_7l@linutronix.de>
+References: <20240925142532.31808-1-namcao@linutronix.de>
+ <87h6a3fw74.fsf@trenco.lwn.net>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: Page sizes supported by RISC-V
-To: Florian Weimer <fweimer@redhat.com>
-Cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@rivosinc.com>,
- Xu Lu <luxu.kernel@bytedance.com>
-References: <878qvbzqfx.fsf@oldenburg.str.redhat.com>
- <e55950a2-beb0-4f2a-81da-1c66724116d7@gmail.com>
- <8734lixzss.fsf@oldenburg.str.redhat.com>
-Content-Language: en-US
-From: Jeff Law <jeffreyalaw@gmail.com>
-In-Reply-To: <8734lixzss.fsf@oldenburg.str.redhat.com>
+Content-Disposition: inline
+In-Reply-To: <87h6a3fw74.fsf@trenco.lwn.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240929_081839_146807_31B68923 
-X-CRM114-Status: GOOD (  12.03  )
+X-CRM114-CacheID: sfid-20240929_083315_253870_AC94BC0E 
+X-CRM114-Status: GOOD (  18.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,36 +78,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 9/29/24 9:08 AM, Florian Weimer wrote:
+On Wed, Sep 25, 2024 at 12:02:39PM -0600, Jonathan Corbet wrote:
+> Nam Cao <namcao@linutronix.de> writes:
 > 
-> I understand that not making a call in the specifications avoids the
-> need to resolve these conflicts.  But if you don't define a maximum page
-> size there, it is effectively specified as 4096 bytes.  This will cause
-> problems if distributions targeting large systems want a larger page
-> size because it better aligns with the kind of hardware they target.
-> It's really bad for cross-distribution binary compatibility, something
-> that's important outside the embedded space and probably necessary for
-> mainstreaming.
+> > The macro that is really defined is RISCV_HWPROBE_KEY_MIMPID, not
+> > RISCV_HWPROBE_KEY_MIMPLID (difference is the 'L').
+> >
+> > Also, the riscv privileged specification names the register "mimpid", not
+> > "mimplid".
+> >
+> > Correct these typos.
+> >
+> > Signed-off-by: Nam Cao <namcao@linutronix.de>
+> > ---
+> > ask me how I found out..
+> >
+> >  Documentation/arch/riscv/hwprobe.rst | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
+> > index 85b709257918..fb0affa61eb9 100644
+> > --- a/Documentation/arch/riscv/hwprobe.rst
+> > +++ b/Documentation/arch/riscv/hwprobe.rst
+> > @@ -51,7 +51,7 @@ The following keys are defined:
+> >  * :c:macro:`RISCV_HWPROBE_KEY_MARCHID`: Contains the value of ``marchid``, as
+> >    defined by the RISC-V privileged architecture specification.
+> >  
+> > -* :c:macro:`RISCV_HWPROBE_KEY_MIMPLID`: Contains the value of ``mimplid``, as
+> > +* :c:macro:`RISCV_HWPROBE_KEY_MIMPID`: Contains the value of ``mimpid``, as
+> >    defined by the RISC-V privileged architecture specification.
 > 
-> (Of course you know all this. 8-)
-Yup.  Once it's baked into one significant distro, it's doing to be 
-bloody hard to change.  I'm sure we both remember the PPC pagesize stuff 
-from a few years back ;(
+> You should be able to just say RISCV_HWPROBE_KEY_MIMPID() without the
+> :c:macro: markup and have the right thing happen.
 
-I strongly suspect the lack of specification here is mean to give 
-degrees of freedom to the implementors, but sometimes those writing the 
-specs don't really understand the implication of leaving things like 
-this unspecified and how much pain it really causes in the end.
+My .rst knowledge is limited, so I probably miss something obvious, but I
+couldn't get that to work.
 
-Jeff
+Do you mean something like below? The brackets do not seem to do anything
+and get treated as plain text.
 
+Sorry but you probably need to show me what to do exactly :(
+
+Best regards,
+Nam
+
+diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
+index 85b709257918..4b4b4ef0e0f9 100644
+--- a/Documentation/arch/riscv/hwprobe.rst
++++ b/Documentation/arch/riscv/hwprobe.rst
+@@ -51,7 +51,7 @@ The following keys are defined:
+ * :c:macro:`RISCV_HWPROBE_KEY_MARCHID`: Contains the value of ``marchid``, as
+   defined by the RISC-V privileged architecture specification.
+ 
+-* :c:macro:`RISCV_HWPROBE_KEY_MIMPLID`: Contains the value of ``mimplid``, as
++* `RISCV_HWPROBE_KEY_MIMPID()`: Contains the value of ``mimpid``, as
+   defined by the RISC-V privileged architecture specification.
+ 
+ * :c:macro:`RISCV_HWPROBE_KEY_BASE_BEHAVIOR`: A bitmask containing the base
 
 _______________________________________________
 linux-riscv mailing list
