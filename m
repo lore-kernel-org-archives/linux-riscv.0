@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95E15CEB2C1
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Sep 2024 21:00:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D7AECEB2C1
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Sep 2024 21:00:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EvvYARKwJa2q47f/pSWyEkSe4B+pq+8xxRcIiS0u6gY=; b=dp0yrC9lpn6F78
-	IRccmuBJ//lhazEL10g4d/S3zYOg7Ha82hoXJrdtjiMu6doVaJoWGNqNgzOtkpnuFc/gD5eiEyYwn
-	JPLloe8hGW6Vj0mJv9+266BOjSfX8g1h4ZTAv3HNhDT4ZHv4Lal2HJoz0mPdjPQHtRG3Lzn/ylMkN
-	da/DIdBYfLMU5p/c9zvjbYCCvQfMOp7ZXKkkVYEz1BfChiRN9CHuTY7SFYfSXVhEfpxacHVQir7N6
-	zQCWJuaoMj8bNbr4zt/bCNZhiixO52UMuNGiHSxCl9E6s28VnJ2AQ8vWIJJeDY7v/7Ehc2e2DMSVn
-	ND9Z8Sy/Qe3m9UgDYvWw==;
+	List-Owner; bh=F0KhkpknuSsx5J5L/eLj+rIUURHuHF0SgzBLIWZoTfs=; b=EXxcy7f3AukaV3
+	rb5X9mUSFWv8jq6DblARS0QwMUIUYeNaEET3JqsGWX2gCiymJzKq7Te+QnK5GSTMTzGfnF9X1QPAL
+	KxS4hdIkqzIYkX2KGg0B51zoK3cQPEnbRYgcnHnpqVQS/+rfpLe+zJs421dflTUmi9ZAd+byh029p
+	Knzbj1EeDyFmxheNv+S9669q4j0qeDGB17+6rDGU8UxWug3bQ9oaUq5QdmsNRIJGrQODyzAxHhOPS
+	gpAjPENoXZ3GhfTAOPpq6S6GotTCqQ9JCYbisv7UWwBNELR0CyeLybEw2Ux1NxtlHk0WKHBxAOrxV
+	6K6AvmJ6ETnvzWxLFV6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1svNVS-00000000q9v-1juj;
-	Mon, 30 Sep 2024 21:00:34 +0000
+	id 1svNVR-00000000q9k-13bs;
+	Mon, 30 Sep 2024 21:00:33 +0000
 Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1svMQN-00000000g5F-2W4v
+	id 1svMQH-00000000g2v-3WHq
 	for linux-riscv@lists.infradead.org;
-	Mon, 30 Sep 2024 19:52:50 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-718d606726cso3392018b3a.3
-        for <linux-riscv@lists.infradead.org>; Mon, 30 Sep 2024 12:51:15 -0700 (PDT)
+	Mon, 30 Sep 2024 19:52:07 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-718e6299191so2507097b3a.2
+        for <linux-riscv@lists.infradead.org>; Mon, 30 Sep 2024 12:51:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1727725875; x=1728330675; darn=lists.infradead.org;
+        d=tenstorrent.com; s=google; t=1727725869; x=1728330669; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=uZdSF4JqYyS0KQvdy68Lr3bkRoh68PGBl8bGIxtVBZI=;
-        b=DnV5ihypYihoP4rjLOjN4PoqohriIiTBIHWoQS2yhn4Aa26rO1XmYBvKJ4B3d/+C20
-         zRO+X+j3/7M8gyS0b2dajcLKvCTWyq/q5dyn/DIX3OcnVQawQ7il967Eoj2+1doSENWv
-         MY9zMf4YimIv17TS5I+CIjcXriQm27JHP2dc+6afGMwypgJzgA4ZaM75BjFv5a+vlsBq
-         6SjobyLNT66L3y1Jlju5YeXGIEDJRHdCNmUgru9XC8Fe1lLb/M898bWDLHGZW5uO9ZdO
-         1+9jIfbonrhFCW6d1U2v5uR6aZR5tPTs/ec/NQ8I5n8SqTgWbFEpxd+p/YSY1+HTHBsH
-         pRaA==
+        bh=e/6hM/SLg9H5YNHVFJfYKuEoxKPox303WSs6Xqy7+H8=;
+        b=G+mCwXlnCRQox41+L11whBe2eFTwk0lcnNypp161p5vH9MbUR7xIp+dnOe4G6Owzag
+         nm+diwV0EaBhChzuLH05oadrbwSAd0DRaqDltbxmg5sWm/Yzp/n6tYR2ZmmKMcKys2Ow
+         87yUt7xS7jFA0H+dEulmYFViAI9bgOjKskS1xSaXWvEe3cVxdTwusH4RhARAz/mBbaQX
+         2E1lPSS5w00O18E9yw03sraSqjcETP8oXXaxgLCQFtpHUQQfKax+xKV2FSrbcV7/6lHh
+         YA8HUK9hlBrknXi2pI8bnvg/N6rKiNBLnRRJY2X39aDvphV6ZDVDp8ij729JVcc/+5iQ
+         jj7A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1727725875; x=1728330675;
+        d=1e100.net; s=20230601; t=1727725869; x=1728330669;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=uZdSF4JqYyS0KQvdy68Lr3bkRoh68PGBl8bGIxtVBZI=;
-        b=J4IEag8Qw1fzkspOZBFLOr4mtykjdT/5U6WblAAfbElrooB65HXD/YPNReFv/1pgPP
-         plAEqvpsfeqJq9U9MsBmnis0sJ5Moske50+8Jf8LeSJKOF8QznNK0/eFITb7iJmmm8+Y
-         Q4khMVgWYsNXfxG0RtLwiNB0/sPUVyth4FSFkvZPk1WOWrjteFiGCoWq1pBNpqR6yLDC
-         2d0hxunb5+ScsEjI/jyyLtXgAP5/DcCpj7/pcBEMzBy7djelQXl3+MZZOCi9RGuPqO/w
-         N0sDA9QA1jU4ohhWmUwfbu3yRG0ONrzaQU0+mVf9R0GNKoToJiyEyQqRLXycq0KUqEzL
-         By7Q==
-X-Gm-Message-State: AOJu0YwMeDxMpnTYgkveP4VgalNnj5B8/jI7tc3281fUbHIjCEwoXPO5
-	pYkZI50Hj/xfOfcnRTjpSSWmVErxZ9I1dU20V89aLrCVqSbWEzg6/PVRrTAoNs4=
-X-Google-Smtp-Source: AGHT+IH1UWn6GR0PSUwjld9YOqDEPEWUiDR7fiim+3Ls/OwdAW7upk1oDC+Mq7kZcHJ6ZqHR7mr4lQ==
-X-Received: by 2002:a05:6a00:4b13:b0:70d:1b48:e362 with SMTP id d2e1a72fcca58-71b2607a58fmr18203751b3a.26.1727725874895;
-        Mon, 30 Sep 2024 12:51:14 -0700 (PDT)
+        bh=e/6hM/SLg9H5YNHVFJfYKuEoxKPox303WSs6Xqy7+H8=;
+        b=swx/tQJ250IfOR3X4uKs8+iFCUH4uK+1IeFj7XQEmx7OCYd/r+Al/lccXnkeZuk/Dh
+         sSrpL85Y3582nFBoFP3cgKSmTSm2PU6xO7+1/mjTMqydhDNa+Gy1sKxcFVqECo2Izomh
+         ZJf89tjPQV6LNaXHlF7o+WiFFPlCLAhVtCOlbMyMctViO2U27JfQGu5ceINgilyPhSBh
+         mVg4w761Eh2Ughm++0C3p05LKqBNFci3vE0hphbXLO5Smx6iUPXcCjScbbBNImTRHAAI
+         or6u61Qox97JUFSLrmxKOG+vlOR1AztCeioc553CpVB2pWi/9nc1eEIuDcmje2eIJ7Eb
+         vmzw==
+X-Gm-Message-State: AOJu0Yxmb6IQW/mXtpOz584kBPbe7ESf3g4hnadhAzj0kEj60sMzMuWN
+	jW1EzxHAPBOsd66e4X/Jvz4KUpoGDLosUknKRikbjQ/YAr1cBZiSOwqOdPSOjyg=
+X-Google-Smtp-Source: AGHT+IGZD7DzL8afx5Z7kSfSkPKuOCCOcV72lunJpztdT/+HSSzmn2ZPR4/QRqN8EaI/natCvse7mg==
+X-Received: by 2002:a05:6a00:1813:b0:718:dd53:70db with SMTP id d2e1a72fcca58-71b25f448a0mr20158214b3a.11.1727725868868;
+        Mon, 30 Sep 2024 12:51:08 -0700 (PDT)
 Received: from [127.0.1.1] (71-34-69-82.ptld.qwest.net. [71.34.69.82])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-71b26529d4bsm6630213b3a.158.2024.09.30.12.51.14
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-71b26529d4bsm6630213b3a.158.2024.09.30.12.51.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Sep 2024 12:51:14 -0700 (PDT)
+        Mon, 30 Sep 2024 12:51:08 -0700 (PDT)
 From: Drew Fustini <dfustini@tenstorrent.com>
-Date: Mon, 30 Sep 2024 12:50:58 -0700
-Subject: [PATCH v3 8/8] riscv: dtb: thead: Add BeagleV Ahead LEDs
+Date: Mon, 30 Sep 2024 12:50:51 -0700
+Subject: [PATCH v3 1/8] dt-bindings: pinctrl: Add thead,th1520-pinctrl
+ bindings
 MIME-Version: 1.0
-Message-Id: <20240930-th1520-pinctrl-v3-8-32cea2bdbecb@tenstorrent.com>
+Message-Id: <20240930-th1520-pinctrl-v3-1-32cea2bdbecb@tenstorrent.com>
 References: <20240930-th1520-pinctrl-v3-0-32cea2bdbecb@tenstorrent.com>
 In-Reply-To: <20240930-th1520-pinctrl-v3-0-32cea2bdbecb@tenstorrent.com>
 To: Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>, 
@@ -82,8 +83,8 @@ Cc: linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org,
  Drew Fustini <dfustini@tenstorrent.com>
 X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240930_125115_678881_2B63F544 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20240930_125109_927984_54B52EA0 
+X-CRM114-Status: GOOD (  20.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,96 +103,212 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 
-Add nodes for the 5 user controllable LEDs on the BeagleV Ahead board.
+Add bindings for the pin controllers on the T-Head TH1520 RISC-V SoC.
 
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Tested-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
 Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+[dfustini: add thead,pad-group to select the pin controller instance]
 Signed-off-by: Drew Fustini <dfustini@tenstorrent.com>
 ---
- arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts | 55 ++++++++++++++++++++++
- 1 file changed, 55 insertions(+)
+ .../bindings/pinctrl/thead,th1520-pinctrl.yaml     | 176 +++++++++++++++++++++
+ MAINTAINERS                                        |   1 +
+ 2 files changed, 177 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-index 6c0b768e8d17..5a5888f4eda6 100644
---- a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-+++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-@@ -7,6 +7,8 @@
- /dts-v1/;
- 
- #include "th1520.dtsi"
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/leds/common.h>
- 
- / {
- 	model = "BeagleV Ahead";
-@@ -35,7 +37,42 @@ chosen {
- 	memory@0 {
- 		device_type = "memory";
- 		reg = <0x0  0x00000000  0x1 0x00000000>;
-+	};
+diff --git a/Documentation/devicetree/bindings/pinctrl/thead,th1520-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/thead,th1520-pinctrl.yaml
+new file mode 100644
+index 000000000000..21f86740a63d
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pinctrl/thead,th1520-pinctrl.yaml
+@@ -0,0 +1,176 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pinctrl/thead,th1520-pinctrl.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+	leds {
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&led_pins>;
-+		compatible = "gpio-leds";
++title: T-Head TH1520 SoC pin controller
 +
-+		led-1 {
-+			gpios = <&gpio4 8 GPIO_ACTIVE_LOW>;
-+			color = <LED_COLOR_ID_BLUE>;
-+			label = "led1";
-+		};
++maintainers:
++  - Emil Renner Berthing <emil.renner.berthing@canonical.com>
 +
-+		led-2 {
-+			gpios = <&gpio4 9 GPIO_ACTIVE_LOW>;
-+			color = <LED_COLOR_ID_BLUE>;
-+			label = "led2";
-+		};
++description: |
++  Pinmux and pinconf controller in the T-Head TH1520 RISC-V SoC.
 +
-+		led-3 {
-+			gpios = <&gpio4 10 GPIO_ACTIVE_LOW>;
-+			color = <LED_COLOR_ID_BLUE>;
-+			label = "led3";
-+		};
++  The TH1520 has 3 groups of pads each controlled from different memory ranges.
++  Confusingly the memory ranges are named
++    PADCTRL_AOSYS  -> PAD Group 1
++    PADCTRL1_APSYS -> PAD Group 2
++    PADCTRL0_APSYS -> PAD Group 3
 +
-+		led-4 {
-+			gpios = <&gpio4 11 GPIO_ACTIVE_LOW>;
-+			color = <LED_COLOR_ID_BLUE>;
-+			label = "led4";
-+		};
- 
-+		led-5 {
-+			gpios = <&gpio4 12 GPIO_ACTIVE_LOW>;
-+			color = <LED_COLOR_ID_BLUE>;
-+			label = "led5";
-+		};
- 	};
- };
- 
-@@ -71,6 +108,24 @@ &sdio0 {
- 	status = "okay";
- };
- 
-+&padctrl_aosys {
-+	led_pins: led-0 {
-+		led-pins {
-+			pins = "AUDIO_PA8",  /* GPIO4_8 */
-+			       "AUDIO_PA9",  /* GPIO4_9 */
-+			       "AUDIO_PA10", /* GPIO4_10 */
-+			       "AUDIO_PA11", /* GPIO4_11 */
-+			       "AUDIO_PA12"; /* GPIO4_12 */
-+			function = "gpio";
-+			bias-disable;
-+			drive-strength = <3>;
-+			input-disable;
-+			input-schmitt-disable;
-+			slew-rate = <0>;
-+		};
-+	};
-+};
++  Each pad can be muxed individually to up to 6 different functions. For most
++  pads only a few of those 6 configurations are valid though, and a few pads in
++  group 1 does not support muxing at all.
 +
- &padctrl0_apsys {
- 	uart0_pins: uart0-0 {
- 		tx-pins {
++  Pinconf is fairly regular except for a few pads in group 1 that either can't
++  be configured or has some special functions. The rest have configurable drive
++  strength, input enable, schmitt trigger, slew rate, pull-up and pull-down in
++  addition to a special strong pull up.
++
++  Certain pads in group 1 can be muxed to AUDIO_PA0 - AUDIO_PA30 functions and
++  are then meant to be used by the audio co-processor. Each such pad can then
++  be further muxed to either audio GPIO or one of 4 functions such as UART, I2C
++  and I2S. If the audio pad is muxed to one of the 4 functions then pinconf is
++  also configured in different registers. All of this is done from a different
++  AUDIO_IOCTRL memory range and is left to the audio co-processor for now.
++
++properties:
++  compatible:
++    enum:
++      - thead,th1520-pinctrl
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  thead,pad-group:
++    description: |
++      Select the pad group that is associated with the pin controller instance.
++
++        Base Address   Name           Group
++        0xFF_FFF4_A000 PADCTRL_AOSYS  1
++        0xFF_E7F3_C000 PADCTRL1_APSYS 2
++        0xFF_EC00_7000 PADCTRL0_APSYS 3
++
++    $ref: /schemas/types.yaml#/definitions/uint32
++    enum: [1, 2, 3]
++
++required:
++  - compatible
++  - reg
++  - clocks
++
++patternProperties:
++  '-[0-9]+$':
++    type: object
++    additionalProperties: false
++
++    patternProperties:
++      '-pins$':
++        type: object
++        allOf:
++          - $ref: /schemas/pinctrl/pincfg-node.yaml#
++          - $ref: /schemas/pinctrl/pinmux-node.yaml#
++
++        additionalProperties: false
++
++        description:
++          A pinctrl node should contain at least one subnode describing one
++          or more pads and their associated pinmux and pinconf settings.
++
++        properties:
++          pins:
++            description: List of pads that properties in the node apply to.
++
++          function:
++            enum: [ gpio, pwm, uart, ir, i2c, spi, qspi, sdio, audio, i2s,
++                    gmac0, gmac1, dpu0, dpu1, isp, hdmi, bootsel, debug,
++                    clock, jtag, iso7816, efuse, reset ]
++            description: The mux function to select for the given pins.
++
++          bias-disable: true
++
++          bias-pull-up:
++            oneOf:
++              - type: boolean
++                description: Enable the regular 48kOhm pull-up
++              - enum: [ 2100, 48000 ]
++                description: Enable the strong 2.1kOhm pull-up or regular 48kOhm pull-up
++
++          bias-pull-down:
++            oneOf:
++              - type: boolean
++              - const: 44000
++            description: Enable the regular 44kOhm pull-down
++
++          drive-strength:
++            enum: [ 1, 2, 3, 5, 7, 8, 10, 12, 13, 15, 16, 18, 20, 21, 23, 25 ]
++            description: Drive strength in mA
++
++          input-enable: true
++
++          input-disable: true
++
++          input-schmitt-enable: true
++
++          input-schmitt-disable: true
++
++          slew-rate:
++            maximum: 1
++
++        required:
++          - pins
++
++additionalProperties: false
++
++examples:
++  - |
++    padctrl0_apsys: pinctrl@ec007000 {
++        compatible = "thead,th1520-pinctrl";
++        reg = <0xec007000 0x1000>;
++        clocks = <&apb_clk>;
++        thead,pad-group = <3>;
++
++        uart0_pins: uart0-0 {
++            tx-pins {
++                pins = "UART0_TXD";
++                function = "uart";
++                bias-disable;
++                drive-strength = <3>;
++                input-disable;
++                input-schmitt-disable;
++                slew-rate = <0>;
++            };
++
++            rx-pins {
++                pins = "UART0_RXD";
++                function = "uart";
++                bias-disable;
++                drive-strength = <1>;
++                input-enable;
++                input-schmitt-enable;
++                slew-rate = <0>;
++            };
++        };
++    };
++
++    padctrl1_apsys: pinctrl@e7f3c000 {
++        compatible = "thead,th1520-pinctrl";
++        reg = <0xe7f3c000 0x1000>;
++        clocks = <&apb_clk>;
++        thead,pad-group = <2>;
++
++        i2c5_pins: i2c5-0 {
++            i2c-pins {
++                pins = "QSPI1_CSN0",    /* I2C5_SCL */
++                       "QSPI1_D0_MOSI"; /* I2C5_SDA */
++                function = "i2c";
++                bias-pull-up = <2100>;
++                drive-strength = <7>;
++                input-enable;
++                input-schmitt-enable;
++                slew-rate = <0>;
++            };
++        };
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index c27f3190737f..dd74c9aa2009 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -19942,6 +19942,7 @@ L:	linux-riscv@lists.infradead.org
+ S:	Maintained
+ T:	git https://github.com/pdp7/linux.git
+ F:	Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
++F:	Documentation/devicetree/bindings/pinctrl/thead,th1520-pinctrl.yaml
+ F:	arch/riscv/boot/dts/thead/
+ F:	drivers/clk/thead/clk-th1520-ap.c
+ F:	include/dt-bindings/clock/thead,th1520-clk-ap.h
 
 -- 
 2.34.1
