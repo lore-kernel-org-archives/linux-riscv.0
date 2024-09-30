@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14551CE834A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F823CE8347
 	for <linux-riscv@archiver.kernel.org>; Mon, 30 Sep 2024 14:14:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
@@ -12,57 +12,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KqhYFl7Uq7s9bEpxFBv0nRHh+IxcZZXXAigZ1e+ua5w=; b=xTYFf2IUBMrcj5Nc2GYzqFg+Qm
-	u0i8LhacFKJMy7nlgkva2dGrWak0GU2TvFtkaXu1sLvKvNE8C02AFzObR5MHgs5WxmRpigO/6FGqm
-	5DG35qkf7n0NAN1AKbADp4gbUutR7bhUwmq/kC7DsyjrPXlN97n9FmPW08mpGpDSRB7jPg7mnPZ81
-	RaMGsIKr1fNfU9tSyznqa80woHl/MOBeR9NvTHLExwbJbwnsxAQudWng0GGJIjk9j2TuQvhL8CAA8
-	aHZqEkUKhSTMgA42JT1iUWUZRXc18epWSbqDJd8rs5e/cL+bEb+tY/lm3w3IH+q31YYSOFdo6fqUj
-	69EontSA==;
+	bh=RQojBznCaSvVCDNBIoJX7aDZnMD+VyElXxyuLT/LxmE=; b=PpNkJkF8j/0ZMAWdN7XUupHrr8
+	f6QwmhFvdDd/MTRQPF97azg27X9OFzwo1qyzegwUL7i3qD6/KbhTXGagaqFTu94S+6R1kxVPCJdeH
+	Ir8ZDY/zdIOzEHbTnx4rHaqhkBJCh+3leUl/h/mg+JCgXlAUdnDWnJ2jH/lQbQnVLZib+ulcqOOqG
+	OuQHWh26dzmHBrVs/W424OGk39k14OCnBSsoy5I3ihUSq5AEYsoLksmbuUh8KPNKQuwvj02eOmJG8
+	FYKqhjtCtQtPL7ZszJ7b+AxT7n9fx1vwRWhzrc9cS7LOpeHG5reRaSb/VlrbW6hXmd9tB9jn3EaxN
+	mQXvDVog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1svHAC-0000000HSuu-2wHR;
-	Mon, 30 Sep 2024 14:14:12 +0000
+	id 1svHAB-0000000HSuY-48XZ;
+	Mon, 30 Sep 2024 14:14:11 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1svGjE-0000000HMic-0jPi
+	id 1svGi8-0000000HMLd-3yoE
 	for linux-riscv@lists.infradead.org;
-	Mon, 30 Sep 2024 13:46:21 +0000
+	Mon, 30 Sep 2024 13:45:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9843D5C4B50;
-	Mon, 30 Sep 2024 13:46:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC98AC4CEC7;
-	Mon, 30 Sep 2024 13:46:16 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 520D35C4B4B;
+	Mon, 30 Sep 2024 13:45:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8CE4C4CEC7;
+	Mon, 30 Sep 2024 13:45:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1727703979;
-	bh=aMJaYzXY1jg3S4x/G45yWq/QZRII8Ge4YR9ZlqyRsB8=;
+	s=k20201202; t=1727703912;
+	bh=XDMOUbaodttEOjqygaG+KV2OBgc5SWE0zH8P44Ue7g8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=T3ZYtKfyUFS48qvHgbCX7RTJf1ZyWm6pNL1pfytw04oTlnFB/AOTlFL93z46iPwP8
-	 UduAsF/71nTs4Phg+5oPhQMfaBYeEWabmqUEDzx+AoMiCSwyL2MNXeld7T0X6Mvx0F
-	 EPAMvxPL/97ZXqiYd6BkpfcosuV+paPkiQsL8CtQn+lPIxOlDfjItho6vmuxXTUurY
-	 wo+Tll2augLHeF0U65Qz6qFCitBe0NbSycwFT4vS4upHhzbELvouP4aMYAFH2kjyQk
-	 qgMdz6tUsc3nx1dvUMHbrRBqTihE6Utgf+EBEK0jiFrrRMKB+0Tx3XJ2y9giKB65gN
-	 3jK0vFOIV76PQ==
-Date: Mon, 30 Sep 2024 14:46:14 +0100
+	b=GF5vOw9L52CDYPz5WyX7bk1+QI2ylyPu8T3dig7bJZJEH1CZSWfNgXWbzM8Q2GNMf
+	 pV9OIAoE4u1nT6kvC4MOHtr30a1gcxQtetq3od9cyTBbd/4A6bwUU477OZFPdh3/Li
+	 Egk0t4TCatnywg9lhpl9txh8ZXEigHqHUe4v6Zzs/xM+OAMeIm37mNPSrAB27QzX+Q
+	 LLiJyelYZfQqvnT3sOWHsr/PzKgQjLXcCTiPEBi7kOOrG6yV8hgGQAL6Z9vXy/WUxJ
+	 rxDxmcO9PNvJ2TMxhGu6/FmRlCaG7l4g0upXYgLiv2CcgvOKpRg1Wksg6zcKI7KUqb
+	 7pQ2wVYYxI4KA==
+Date: Mon, 30 Sep 2024 14:45:07 +0100
 From: Conor Dooley <conor@kernel.org>
 To: pierre-henry.moussay@microchip.com
 Cc: Linux4Microchip@microchip.com,
 	Conor Dooley <conor.dooley@microchip.com>,
 	Daire McNamara <daire.mcnamara@microchip.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
+	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-spi@vger.kernel.org,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [linux][PATCH v2 05/20] dt-bindings: gpio: mpfs-gpio: Add
- PIC64GX GPIO compatibility
-Message-ID: <20240930-mourner-sharpness-1b049c7e5c85@spud>
+Subject: Re: [linux][PATCH v2 04/20] dt-bindings: spi: add PIC64GX SPI/QSPI
+ compatibility to MPFS SPI/QSPI bindings
+Message-ID: <20240930-undrafted-mammal-0308550b621b@spud>
 References: <20240930095449.1813195-1-pierre-henry.moussay@microchip.com>
- <20240930095449.1813195-6-pierre-henry.moussay@microchip.com>
+ <20240930095449.1813195-5-pierre-henry.moussay@microchip.com>
 MIME-Version: 1.0
-In-Reply-To: <20240930095449.1813195-6-pierre-henry.moussay@microchip.com>
+In-Reply-To: <20240930095449.1813195-5-pierre-henry.moussay@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240930_064620_323102_A6D1DE1D 
-X-CRM114-Status: GOOD (  15.70  )
+X-CRM114-CacheID: sfid-20240930_064513_054742_85745E17 
+X-CRM114-Status: UNSURE (   8.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,94 +74,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5601173897426580740=="
+Content-Type: multipart/mixed; boundary="===============1090735574571561207=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============5601173897426580740==
+--===============1090735574571561207==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="xs4yn0wAy3h5xCya"
+	protocol="application/pgp-signature"; boundary="lTgx9h43bP85ngCk"
 Content-Disposition: inline
 
 
---xs4yn0wAy3h5xCya
+--lTgx9h43bP85ngCk
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Sep 30, 2024 at 10:54:34AM +0100, pierre-henry.moussay@microchip.co=
+On Mon, Sep 30, 2024 at 10:54:33AM +0100, pierre-henry.moussay@microchip.co=
 m wrote:
 > From: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
 >=20
-> PIC64GX GPIO is compatible with mpfs-gpio controller, just add fallback
+> PIC64GX SPI/QSPI are compatible with MPFS SPI/QSPI, just use
+> fallback mechanism
 >=20
 > Signed-off-by: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
-> ---
->  .../bindings/gpio/microchip,mpfs-gpio.yaml        | 15 ++++++++++-----
->  1 file changed, 10 insertions(+), 5 deletions(-)
->=20
-> diff --git a/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.y=
-aml b/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
-> index d61569b3f15b..febe8c2cd70d 100644
-> --- a/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
-> +++ b/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
-> @@ -11,10 +11,14 @@ maintainers:
-> =20
->  properties:
->    compatible:
-> -    items:
-> -      - enum:
-> -          - microchip,mpfs-gpio
-> -          - microchip,coregpio-rtl-v3
-> +    oneOf:
-> +      - items:
-> +          - const: microchip,pic64gx-gpio
-> +          - const: microchip,mpfs-gpio
-> +      - items:
 
-This items shouldn't be required, the enum should suffice alone.
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-> +          - enum:
-> +              - microchip,mpfs-gpio
-> +              - microchip,coregpio-rtl-v3
-> =20
->    reg:
->      maxItems: 1
-
-> @@ -69,7 +73,8 @@ allOf:
->        properties:
->          compatible:
->            contains:
-> -            const: microchip,mpfs-gpio
-> +            enum:
-> +              - microchip,mpfs-gpio
-
-This doesn't need to be changed, it is fine as is, no?
-
->      then:
->        required:
->          - interrupts
-> --=20
-> 2.30.2
->=20
->=20
-
---xs4yn0wAy3h5xCya
+--lTgx9h43bP85ngCk
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZvqrpgAKCRB4tDGHoIJi
-0rDzAP9pyLnXr2ho/eWNw9/JV5Swb++EFvIPKm55QehjzAbh1QEA+DpSQJaEpK8z
-I83zNR0nHiajzvuhxVkKZjofswIbuQ4=
-=Z0/3
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZvqrYwAKCRB4tDGHoIJi
+0pXoAQCxk5D3pG/9f7uU5cG2212GvwpqtVgQJNyOQWAw/SSquwEAr54S7syoA2xX
+mnlENWuNQscB87oEV1z8bQZgsLRdCAw=
+=gOvb
 -----END PGP SIGNATURE-----
 
---xs4yn0wAy3h5xCya--
+--lTgx9h43bP85ngCk--
 
 
---===============5601173897426580740==
+--===============1090735574571561207==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -172,5 +126,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============5601173897426580740==--
+--===============1090735574571561207==--
 
