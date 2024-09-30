@@ -4,79 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99515CE8341
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Sep 2024 13:10:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FC63CE8347
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Sep 2024 14:11:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:Date:References:In-Reply-To:Subject:To:From:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vRZEkz3iWSlZHicVJ0D84l+9k049Ktl66rwruhWaqB8=; b=GTH423mCqsDFCmSV70/l2crfH5
-	6eHU5d9d+PsTsnrpqAc+1tSaNLbMX85KyP80aNfubka6BIaskyRPl2anySYr5LP1MlPLQCub/PwVF
-	roubBHGSOmb/aMCgSXXTXMJ93S88jHgduwfzIy9Fs2ThGrKGYIRmjYKuTEjx0YfvBpc4recVc6+6S
-	FmAA9TgTLS5ksi60VylB2Dsse3HQLT/OJHj5diqHMz+fizhQDUdnQ4w8nIPEn/tuKA30gEz/JzGPb
-	yYiHNntVr2KY69EOveovuR+Ji4fVgJFz10JFzoJh/fIUkrBSoudsA8y1xcI0RhmaiPfayHoX0lOoR
-	A1WCZreA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=8fG1WALzXR8tx2OOCRugESP7ddhXkofN/gWQm02tBQw=; b=mx1GJuve2yxY4z
+	6SHlz2GH/buvK7iy0phUlckd6ih83yAH3WbT87UNSi3y/LKLnHZp7G2JwBx6VyappLbbCO3GZPPxm
+	/dCrxBFe0lKm6SLab8SsmeSumUU1NS9kSOiZPwIHoiQJBnD7shs8zA76YV8PDlIk/s4MR5GfC9GCR
+	Mpj31N7ZTpsOS3FNoF97w+sOFRXqS9GxYr9gtYXxJVQAKWt1r89rxI9xbtN8cnOCB6l5U6SO1T7Cg
+	b9CnTNcAzQouUA5a1Dniuze5FdaqU3faikHAyhYqTRVRCfstYP+M5D6et+fDu8BDe22jyi5HMhzLR
+	vY7qSzpbE8JrhNpNl9nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1svGAc-0000000HDYt-3PN1;
-	Mon, 30 Sep 2024 13:10:34 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1svH7p-0000000HSTw-1xfq;
+	Mon, 30 Sep 2024 14:11:45 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1svFcQ-0000000H4V6-0RTu
+	id 1svGc3-0000000HKf2-2Vn5
 	for linux-riscv@lists.infradead.org;
-	Mon, 30 Sep 2024 12:35:15 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-37cea34cb57so481597f8f.0
-        for <linux-riscv@lists.infradead.org>; Mon, 30 Sep 2024 05:35:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1727699712; x=1728304512; darn=lists.infradead.org;
-        h=mime-version:date:references:organization:in-reply-to:subject:cc:to
-         :from:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=OGgx2QXm49+i80fK6ZIYDqvCO84UtWAPd1Twn8qWUeQ=;
-        b=e3aApdUXTr4Z/5AzYbUYmpIrQHWp2EWDiNgsYyfFow5vSMk11+llI3Us/IPgOufh5e
-         na0MQu2spzfzlzvTCtBiLFSmvI1i8jVPgHkmV9pBK44VEvkETrTGgyDDU/OFeNZEkIC4
-         BEb6uYvBbQclt7SPWoLwVXizTgz1YtjvB3OkBNzbEsEa2SFBOMk7CsMOhr2WwB/k69Rj
-         VST78uSTBgTBwTIwH08APZ8sN8pynmSpPT0yoXh9t1ohmtMV+hieZx2J+4OgLYYzjx8h
-         nXwNkjNQrcMQl6dSAz/TuRdYqoVRt80nX2qVrIpbOyBJSPc+pU7YkWax3IxDX5iEj7bV
-         iexg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1727699712; x=1728304512;
-        h=mime-version:date:references:organization:in-reply-to:subject:cc:to
-         :from:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=OGgx2QXm49+i80fK6ZIYDqvCO84UtWAPd1Twn8qWUeQ=;
-        b=UAeN2BMVmJbYbe28Sto3iH9/VvSOsRmxG9MaFA7SL2zYdx/2J1qpMsraDK5p5LBYke
-         QdHcEvqogsqqj33u0Jpot+64LlPW0QakqZX+0Ht4avrHZoB+5TSNw7G3dZwTpSgFuH6z
-         qwxe6PrA59kSRI7m2kuX6Hk8OOwqOOrA357IVHkJAmNFixSH7on1iFu0AYwuRi0nvvLC
-         E7icK8+sHTGyraycsjfNYeecZIh02bpGfMNEPTgr30BpTvCZE6t7JcKHhMDB0f4H2LH0
-         4w1VfxPYBWO9+dpmXkbc+K1QtwOkLrYEsKohi81KRosOYVDPvg83tlet+rAnMutLRtq0
-         sADw==
-X-Forwarded-Encrypted: i=1; AJvYcCWa+nNOP1iu3n3jX5HFHcDyFqnyTNe/mDJLUFrAFAeJnUXXctqqkLSXbOJsSOQHDYPaoJ3hjnePlZAW/w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxQs+Qltu8pY7YT9ubXdKjhcxahxRsAh69NohDSEo5bE3Xwl3iI
-	Lrxsmc0Hw/0cA2pMG4yALLMWJEyzTX0DOi3HfryRdMHZNNyohTbl
-X-Google-Smtp-Source: AGHT+IGdxnRytaWoXEmdGqzTGQEIqbuCAatF9kA3GstJSTZy0Po9aooxiBqYhVWD0jF4P2dPbGYMew==
-X-Received: by 2002:adf:cd07:0:b0:37c:d20d:447e with SMTP id ffacd0b85a97d-37cd5a81f7emr5754201f8f.21.1727699711355;
-        Mon, 30 Sep 2024 05:35:11 -0700 (PDT)
-Received: from localhost ([37.72.3.43])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-37cd575dd04sm8940397f8f.114.2024.09.30.05.35.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Sep 2024 05:35:10 -0700 (PDT)
-Message-ID: <66fa9afe.5d0a0220.323a97.bfb6@mx.google.com>
-X-Google-Original-Message-ID: <87sethpbeu.fsf@>
-From: =?utf-8?Q?Miquel_Sabat=C3=A9_Sol=C3=A0?= <mikisabate@gmail.com>
-To: paul.walmsley@sifive.com
-Subject: Re: [PATCH] riscv: Prevent a bad reference count on CPU nodes
-In-Reply-To: <20240913080053.36636-1-mikisabate@gmail.com> ("Miquel
- =?utf-8?Q?Sabat=C3=A9=09Sol=C3=A0=22's?= message of "Fri, 13 Sep 2024
- 10:00:52 +0200")
-Organization: Linux Private Site
-References: <20240913080053.36636-1-mikisabate@gmail.com>
-Date: Mon, 30 Sep 2024 14:35:05 +0200
+	Mon, 30 Sep 2024 13:38:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id D62A0A42557;
+	Mon, 30 Sep 2024 13:38:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47E7EC4CECE;
+	Mon, 30 Sep 2024 13:38:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1727703534;
+	bh=B/VV63MwNx1qhR1X4eT8fuNwsJ15t+hyEuKa3vST/cY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=D19Oy0epQowzvqI1yS46db9I9eiWJCdGOieekJ58ZPOsyVU6uBcJUVz2FzfjxeeuZ
+	 FilzAXKmNtMYII33HMumRjKvAqbxyuMPbdyhSTd8E90Q4tx2u8pvuLJ73A77JJQje8
+	 +A3zsa2/xo5qgZJe/LUkae8mVJtxxTaCFCvjCRBzQO9NwGBqheVio4f0/60JeZXleC
+	 So6SvZnMWOcMK8oC05Y/a4JkQ7zdAojvDj9AAsZO8E8+qHhVtGexemv3fBmt23cFGl
+	 taqRwz4KEMmMKh3xTKdt9UGqKvOva9/mtPWwD16t0AVp+X2ReEdzP3KA8aBaJH4qgo
+	 FeOBnsCm4b48w==
+From: Conor Dooley <conor@kernel.org>
+To: linux-i2c@vger.kernel.org
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Wolfram Sang <wsa@kernel.org>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1] i2c: microchip-core: actually use repeated sends
+Date: Mon, 30 Sep 2024 14:38:27 +0100
+Message-ID: <20240930-uneasy-dorsal-1acda9227b0d@spud>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6485; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=QA08FTIV1GTEkwQtjktl709XqeTd7VgIcDB7m2evfOI=; b=kA0DAAgWeLQxh6CCYtIByyZiAGb6qdKj8OVYwTMi2GiRDPV5xfeiplIOanrok0j+sCJEIflJp Yh1BAAWCAAdFiEEYduOhBqv/ES4Q4zteLQxh6CCYtIFAmb6qdIACgkQeLQxh6CCYtIpgQEA/Cwr aP+0h61J4vCrQmBJT5AlI3KcG2su9WiQ2rR5QuEBAIov/ive9dDSq3/lZykZwC+Y23wszVayUhH gKUSlSFMK
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240930_053514_171442_5FADDF01 
-X-CRM114-Status: GOOD (  28.82  )
+X-CRM114-CacheID: sfid-20240930_063855_804381_DB4B4A3C 
+X-CRM114-Status: GOOD (  23.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,111 +72,236 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org, jeremy.linton@arm.com, palmer@dabbelt.com, cuiyunhui@bytedance.com, sudeep.holla@arm.com, linux-riscv@lists.infradead.org
-Content-Type: multipart/mixed; boundary="===============6344800382300306418=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============6344800382300306418==
-Content-Type: multipart/signed; boundary="=-=-=";
-	micalg=pgp-sha512; protocol="application/pgp-signature"
+From: Conor Dooley <conor.dooley@microchip.com>
 
---=-=-=
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+At present, where repeated sends are intended to be used, the
+i2c-microchip-core driver sends a stop followed by a start. Lots of i2c
+devices must not malfunction in the face of this behaviour, because the
+driver has operated like this for years! Try to keep track of whether or
+not a repeated send is required, and suppress sending a stop in these
+cases.
 
-On dv., de set. 13 2024, Miquel Sabat=C3=A9 Sol=C3=A0 wrote:
+Fixes: 64a6f1c4987e ("i2c: add support for microchip fpga i2c controllers")
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+CC: Conor Dooley <conor.dooley@microchip.com>
+CC: Daire McNamara <daire.mcnamara@microchip.com>
+CC: Andi Shyti <andi.shyti@kernel.org>
+CC: Wolfram Sang <wsa@kernel.org>
+CC: linux-riscv@lists.infradead.org
+CC: linux-i2c@vger.kernel.org
+CC: linux-kernel@vger.kernel.org
+---
+ drivers/i2c/busses/i2c-microchip-corei2c.c | 124 ++++++++++++++++-----
+ 1 file changed, 96 insertions(+), 28 deletions(-)
 
-> When populating cache leaves we previously fetched the CPU device node
-> at the very beginning. But when ACPI is enabled we go through a
-> specific branch which returns early and does not call 'of_node_put' for
-> the node that was acquired.
->
-> Since we are not using a CPU device node for the ACPI code anyways, we
-> can simply move the initialization of it just passed the ACPI block, and
-> we are guaranteed to have an 'of_node_put' call for the acquired node.
-> This prevents a bad reference count of the CPU device node.
->
-> Moreover, the previous function did not check for errors when acquiring
-> the device node, so a return -ENOENT has been added for that case.
->
-> Signed-off-by: Miquel Sabat=C3=A9 Sol=C3=A0 <mikisabate@gmail.com>
-> ---
-> I was wondering if this should also be sent to stable, but  I have not se=
-en
-> a report on it, and this is not responsible for an oops or anything like =
-that.
-> So in the end I decided not to, but maybe you consider otherwise.
->
->  arch/riscv/kernel/cacheinfo.c | 7 +++++--
->  1 file changed, 5 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/riscv/kernel/cacheinfo.c b/arch/riscv/kernel/cacheinfo.c
-> index d6c108c50cba..d32dfdba083e 100644
-> --- a/arch/riscv/kernel/cacheinfo.c
-> +++ b/arch/riscv/kernel/cacheinfo.c
-> @@ -75,8 +75,7 @@ int populate_cache_leaves(unsigned int cpu)
->  {
->  	struct cpu_cacheinfo *this_cpu_ci =3D get_cpu_cacheinfo(cpu);
->  	struct cacheinfo *this_leaf =3D this_cpu_ci->info_list;
-> -	struct device_node *np =3D of_cpu_device_node_get(cpu);
-> -	struct device_node *prev =3D NULL;
-> +	struct device_node *np, *prev;
->  	int levels =3D 1, level =3D 1;
->
->  	if (!acpi_disabled) {
-> @@ -100,6 +99,10 @@ int populate_cache_leaves(unsigned int cpu)
->  		return 0;
->  	}
->
-> +	np =3D of_cpu_device_node_get(cpu);
-> +	if (!np)
-> +		return -ENOENT;
-> +
->  	if (of_property_read_bool(np, "cache-size"))
->  		ci_leaf_init(this_leaf++, CACHE_TYPE_UNIFIED, level);
->  	if (of_property_read_bool(np, "i-cache-size"))
+diff --git a/drivers/i2c/busses/i2c-microchip-corei2c.c b/drivers/i2c/busses/i2c-microchip-corei2c.c
+index 0b0a1c4d17cae..332dd14483c05 100644
+--- a/drivers/i2c/busses/i2c-microchip-corei2c.c
++++ b/drivers/i2c/busses/i2c-microchip-corei2c.c
+@@ -93,27 +93,35 @@
+  * @base:		pointer to register struct
+  * @dev:		device reference
+  * @i2c_clk:		clock reference for i2c input clock
++ * @msg_queue:		pointer to the messages requiring sending
+  * @buf:		pointer to msg buffer for easier use
+  * @msg_complete:	xfer completion object
+  * @adapter:		core i2c abstraction
+  * @msg_err:		error code for completed message
+  * @bus_clk_rate:	current i2c bus clock rate
+  * @isr_status:		cached copy of local ISR status
++ * @total_num:		total number of messages to be sent/received
++ * @current_num:	index of the current message being sent/received
+  * @msg_len:		number of bytes transferred in msg
+  * @addr:		address of the current slave
++ * @restart_needed:	whether or not a repeated start is required after current message
+  */
+ struct mchp_corei2c_dev {
+ 	void __iomem *base;
+ 	struct device *dev;
+ 	struct clk *i2c_clk;
++	struct i2c_msg *msg_queue;
+ 	u8 *buf;
+ 	struct completion msg_complete;
+ 	struct i2c_adapter adapter;
+ 	int msg_err;
++	int total_num;
++	int current_num;
+ 	u32 bus_clk_rate;
+ 	u32 isr_status;
+ 	u16 msg_len;
+ 	u8 addr;
++	bool restart_needed;
+ };
+ 
+ static void mchp_corei2c_core_disable(struct mchp_corei2c_dev *idev)
+@@ -222,6 +230,47 @@ static int mchp_corei2c_fill_tx(struct mchp_corei2c_dev *idev)
+ 	return 0;
+ }
+ 
++static void mchp_corei2c_next_msg(struct mchp_corei2c_dev *idev)
++{
++	struct i2c_msg *this_msg;
++	u8 ctrl;
++
++	if (idev->current_num >= idev->total_num) {
++		complete(&idev->msg_complete);
++		return;
++	}
++
++	/*
++	 * If there's been an error, the isr needs to return control
++	 * to the "main" part of the driver, so as not to keep sending
++	 * messages once it completes and clears the SI bit.
++	 */
++	if (idev->msg_err) {
++		complete(&idev->msg_complete);
++		return;
++	}
++
++	this_msg = (idev->msg_queue)++;
++
++	if (idev->current_num < (idev->total_num - 1)) {
++		struct i2c_msg *next_msg = idev->msg_queue;
++
++		idev->restart_needed = next_msg->flags & I2C_M_RD;
++	} else {
++		idev->restart_needed = false;
++	}
++
++	idev->addr = i2c_8bit_addr_from_msg(this_msg);
++	idev->msg_len = this_msg->len;
++	idev->buf = this_msg->buf;
++
++	ctrl = readb(idev->base + CORE_I2C_CTRL);
++	ctrl |= CTRL_STA;
++	writeb(ctrl, idev->base + CORE_I2C_CTRL);
++
++	idev->current_num++;
++}
++
+ static irqreturn_t mchp_corei2c_handle_isr(struct mchp_corei2c_dev *idev)
+ {
+ 	u32 status = idev->isr_status;
+@@ -247,10 +296,14 @@ static irqreturn_t mchp_corei2c_handle_isr(struct mchp_corei2c_dev *idev)
+ 		break;
+ 	case STATUS_M_SLAW_ACK:
+ 	case STATUS_M_TX_DATA_ACK:
+-		if (idev->msg_len > 0)
++		if (idev->msg_len > 0) {
+ 			mchp_corei2c_fill_tx(idev);
+-		else
+-			last_byte = true;
++		} else {
++			if (idev->restart_needed)
++				finished = true;
++			else
++				last_byte = true;
++		}
+ 		break;
+ 	case STATUS_M_TX_DATA_NACK:
+ 	case STATUS_M_SLAR_NACK:
+@@ -287,7 +340,7 @@ static irqreturn_t mchp_corei2c_handle_isr(struct mchp_corei2c_dev *idev)
+ 		mchp_corei2c_stop(idev);
+ 
+ 	if (last_byte || finished)
+-		complete(&idev->msg_complete);
++		mchp_corei2c_next_msg(idev);
+ 
+ 	return IRQ_HANDLED;
+ }
+@@ -311,21 +364,48 @@ static irqreturn_t mchp_corei2c_isr(int irq, void *_dev)
+ 	return ret;
+ }
+ 
+-static int mchp_corei2c_xfer_msg(struct mchp_corei2c_dev *idev,
+-				 struct i2c_msg *msg)
++static int mchp_corei2c_xfer(struct i2c_adapter *adap, struct i2c_msg *msgs,
++			     int num)
+ {
+-	u8 ctrl;
++	struct mchp_corei2c_dev *idev = i2c_get_adapdata(adap);
++	struct i2c_msg *this_msg = msgs;
+ 	unsigned long time_left;
+-
+-	idev->addr = i2c_8bit_addr_from_msg(msg);
+-	idev->msg_len = msg->len;
+-	idev->buf = msg->buf;
+-	idev->msg_err = 0;
+-
+-	reinit_completion(&idev->msg_complete);
++	u8 ctrl;
+ 
+ 	mchp_corei2c_core_enable(idev);
+ 
++	/*
++	 * The isr controls the flow of a transfer, this info needs to be saved
++	 * to a location that it can access the queue information from.
++	 */
++	idev->restart_needed = false;
++	idev->msg_queue = msgs;
++	idev->total_num = num;
++	idev->current_num = 0;
++
++	/*
++	 * But the first entry to the isr is triggered by the start in this
++	 * function, so the first message needs to be "dequeued".
++	 */
++	idev->addr = i2c_8bit_addr_from_msg(this_msg);
++	idev->msg_len = this_msg->len;
++	idev->buf = this_msg->buf;
++	idev->msg_err = 0;
++
++	if (idev->total_num > 1) {
++		struct i2c_msg *next_msg = msgs + 1;
++
++		idev->restart_needed = next_msg->flags & I2C_M_RD;
++	}
++
++	idev->current_num++;
++	idev->msg_queue++;
++
++	reinit_completion(&idev->msg_complete);
++
++	/*
++	 * Send the first start to pass control to the isr
++	 */
+ 	ctrl = readb(idev->base + CORE_I2C_CTRL);
+ 	ctrl |= CTRL_STA;
+ 	writeb(ctrl, idev->base + CORE_I2C_CTRL);
+@@ -335,20 +415,8 @@ static int mchp_corei2c_xfer_msg(struct mchp_corei2c_dev *idev,
+ 	if (!time_left)
+ 		return -ETIMEDOUT;
+ 
+-	return idev->msg_err;
+-}
+-
+-static int mchp_corei2c_xfer(struct i2c_adapter *adap, struct i2c_msg *msgs,
+-			     int num)
+-{
+-	struct mchp_corei2c_dev *idev = i2c_get_adapdata(adap);
+-	int i, ret;
+-
+-	for (i = 0; i < num; i++) {
+-		ret = mchp_corei2c_xfer_msg(idev, msgs++);
+-		if (ret)
+-			return ret;
+-	}
++	if (idev->msg_err)
++		return idev->msg_err;
+ 
+ 	return num;
+ }
+-- 
+2.45.2
 
-Gently ping :)
-
-Could you take a look at this fix?
-
-Thanks,
-Miquel
-
---=-=-=
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQJJBAEBCgAzFiEEG6U8esk9yirP39qXlr6Mb9idZWUFAmb6mvkVHG1pa2lzYWJh
-dGVAZ21haWwuY29tAAoJEJa+jG/YnWVlIz0P/iOz1gxRpTCXjaOBthmKUKJtPEJm
-xj/aakUpA/l/uxRv3vVMs4S6h3Fv3LFL0pTqrpxpH2BKVLrhDTHhMuxLYf+TBeKI
-TY3mUBUbW+YVjzvNNaaUcGjjDdA0PhWWzZUTsrQRrU2afFEJeeK8EbEPfPcMt7sI
-hUIXZ3jm52W+Ifzgp+2za6cJtAodUDtYRRFb/gE3X/BmSFO2WaO0YTd0RRAoj0+M
-qhe6XwfuObJ3nEKMMikqfH9QJ1tpWAX+gMRv8zbEk9GYSbKrg/8QMLiczc73gbq6
-70ppXc7TLmXPO52MiJB6YeXv/TaUplPUVGde5WEbRgUqvLjQv2yEoSsVgQRhEuU6
-CFzDwQU7NVEo+0x9ovZ89d8Hw1xLxGfZE0qpCL1Ir6JF8n5zMI0/eKdB893AToiV
-evgkj3AuWrUV14l85jwLFDqRB7ypv3vBAkKl51iquv3jZ/uW5qdGQQRLP92SW7cZ
-23yjVpxZSowcuacLebaQzPIadzU5b73isc6/szs6wefy8hOUIlpQ4fVd0dSQRyNf
-Vzaxzxl3gN3ENsDVhvxjRTp4o1tu3VkZBRmczVnDAKWvmpaSwIzp4wd5VwanWiIe
-LZ9UM1pCnDDQaqDyIbZA+tPNUXKEvCp0867lqeJCu8JrtpXu+EqY7r8rh/H/w02E
-OKDlOyd+hvSHoGBr
-=UNJG
------END PGP SIGNATURE-----
---=-=-=--
-
-
---===============6344800382300306418==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6344800382300306418==--
-
