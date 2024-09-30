@@ -4,87 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDD06CE835D
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Sep 2024 17:10:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0506CE835D
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Sep 2024 17:18:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KZDFxDHGaPhojWo7hjh7lJfvswaOoOUXIMvbbMgopCM=; b=eym6ajvQrlG/OW2NRJwWgxfZkN
-	L9qj3qLVKePFSdtwNTtSAR4lq6AF4nPFE+8nNK4+BLPV8o1xaH/UoP7tz+EIDwHWx930kXMqoWo/U
-	7Iq+9c063IqcSaVKGf4SEWYsZoZ+KMaVFL/j65XT35sglvo8CyWFQC6/xnEGvDSoCGsyNjSqRC0Hw
-	MDLSx5ASZn60lOb8poOW6r+Q/j+lxtwaD9G0RNra5janJVp41RGz6C+Jx8DVGsA0MX+On5nmLdWfv
-	aQYhvEsTDubEEtk8G/Vepkuz1hZlnyto00EBVUsCz5BSVhqfKmVwsdFw7CyN7puTVx9ecohftq1zM
-	PCPLoe0w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Od87KDvEGVzzQi077duqoV8Q04u7ElAxznhhYa4pQm8=; b=12l7bfsYj4cy3S
+	nQ72a1lAmvFQ8W1oGMTXDcGhm50N8L22jmaMPk8758ngHwGZsZuUQ5bImvQ4x22h9AUX/pNGIcoLX
+	59FbJeRIr+3Eam8VKjDx1y92umEcV+O4TR4WTZZOcEGqvxjZb0LBfn/HjyCWVpICYc5Qun5Qrgujg
+	RrgwlkRVw7GYvnNljqBWXBTR9QpSJEyaCiVO3pxsfEVvxktpYJs+NERp3N4c5AeSF12l4/4ZBwoWI
+	/KBkTOVPpfSLVyGn+0k/zq8F7hULmRt6fEyOL76pgP6JBzpvbbMsK0v5GY7KiGBKFd1usm+Xmq6sW
+	h7yj59Td4KN3zVYDzmCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1svJud-00000000LYY-13CC;
-	Mon, 30 Sep 2024 17:10:19 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1svK2o-00000000Mr1-2V4u;
+	Mon, 30 Sep 2024 17:18:46 +0000
+Received: from imap4.hz.codethink.co.uk ([188.40.203.114])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1svJua-00000000LXk-2irn
+	id 1svJzS-00000000MTF-3FNM
 	for linux-riscv@lists.infradead.org;
-	Mon, 30 Sep 2024 17:10:18 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-20aff65aa37so37713755ad.1
-        for <linux-riscv@lists.infradead.org>; Mon, 30 Sep 2024 10:10:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1727716216; x=1728321016; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Kx5xY759dyUvA9Oa0etxE9VI1UhfQHqL7wndkbURsJU=;
-        b=Is1py1kkTxpUgyOt+v/zMCFNIJhoSfhWmSoZlY4e77caPucmMsShB6++v8VwqX/FRZ
-         qGZY857LGyX87awptER6AxeOeWaAY0i3aRhNBsWps5Ho218J7v5soCiBRIDCGiTRIcUE
-         8PUXwni3uHrKpcaqt6Dift5As6rtBlfE5Dfon6yrTP/m0+HLavf1fdJgMFKB3DtI/LuZ
-         kHR+kM1GkFGu6E/72SREpnoP8kmhwHCUVLuuTGvZezfRc1nFMFmmL0wCjspbVPDk3n7d
-         8JayQG0e6WVVmO6ioZ5MBKKTKA596D3dEv9sG1pNXr3a/AKnErpci0hMIQjBf5VD7RrT
-         +T1g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1727716216; x=1728321016;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Kx5xY759dyUvA9Oa0etxE9VI1UhfQHqL7wndkbURsJU=;
-        b=QJvlOc+liQX9hZl4QqZZJsWKT3+H+ICmn9vilsglE3C20IvagZpp/fKLUWFSZsQZf4
-         Xm/5F1X3xpAKC5eRt0/MB4l5yyQ57AfeH/tgiBtOUt4OafBcG7XoKT5ZRQtourDNMhHO
-         LIubBSMgryjKsRSZ01KZaxpHlt8YEY3sReL8mUsnmTktxLh5gWSxVuS7lpwaR5ZyoKop
-         NHl//sRP60lsKEUoi+yVLgZhf118olZzMqQhRcvyvK/7v3Wqv2q6k6eqa4JDUuERFRik
-         U04FGlFVQ1ZbDlb/JJoEIX3CiJfNYWLS/E9y9ng2hocDWzH/jlZ6R1e7M8wOC6L5WeNp
-         DUmw==
-X-Forwarded-Encrypted: i=1; AJvYcCVVxQ3NL6xRv9vQWc6RAEWQSU8wZZYSKlG7VO6UYIK/+dKtY2ffMkHtydz2Wofjqc/Ga7hi3EcgqNWecA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPkMacSREQcU/wMvmBQsKUdt7VLoCkZwDmEtl6oLcuog+oNn3k
-	Hikc8wRDAl4vK722A/gdTBral26wvsHdqApjRaFSkEfc2WI3uKHKUMkamPRlo9o=
-X-Google-Smtp-Source: AGHT+IHhm9pcVh5+FAyHVsQ1m3+mrrvYcuAeUKlMpqmlUG23x4p++fjWVQHljqdw9xU30Zn1dsMTzg==
-X-Received: by 2002:a17:903:40d1:b0:20b:3f70:2e05 with SMTP id d9443c01a7336-20b3f702f68mr178426175ad.41.1727716215778;
-        Mon, 30 Sep 2024 10:10:15 -0700 (PDT)
-Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-20b533fa125sm42501775ad.141.2024.09.30.10.10.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Sep 2024 10:10:15 -0700 (PDT)
-Date: Mon, 30 Sep 2024 10:10:13 -0700
-From: Deepak Gupta <debug@rivosinc.com>
-To: Max Hsu <max.hsu@sifive.com>
-Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Palmer Dabbelt <palmer@sifive.com>, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
-	Samuel Holland <samuel.holland@sifive.com>
-Subject: Re: [PATCH RFC v2 2/3] riscv: Add Svukte extension support
-Message-ID: <ZvrbdUrU+/L3H+CR@debug.ba.rivosinc.com>
-References: <20240927-dev-maxh-svukte-rebase-2-v2-0-9afe57c33aee@sifive.com>
- <20240927-dev-maxh-svukte-rebase-2-v2-2-9afe57c33aee@sifive.com>
+	Mon, 30 Sep 2024 17:15:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=codethink.co.uk; s=imap4-20230908; h=Sender:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=gtRmv9BrhSGoV+dH/R03FLbWHG3jzP2Ra9nhvo2NjUU=; b=NL7rltQk48pByyUcIuaM8S3GMN
+	w0YaCi+K++zKuwgRWX13R/ELJRIk1nX94Z9C9utKc2nA0BkEsYi+IpO47kJyu44u5eAXZ413XpuoA
+	gWs4KdYHdm3AMG0+C+H9ERtH7FPMSHnxsqTfa1Or4AutU2K0zIkfwbQ+88iEjwHii8TLgWJw4T1D8
+	EMSpuvmSaME3bBY5JpX+SdZ0eCCtRdiOhuQ3tdQjJr/ubY3IkJnFaRSUcbWGKVfF9rSFtRNLfBN8j
+	5SctQRprSTOZxLuT5SGn0YU+CQ1KvFwTVmD4Bpc8ZotX90GCRWyy+JJ2gKboydtSsHFwkASjQ8DeP
+	XYIMX5xw==;
+Received: from [167.98.27.226] (helo=rainbowdash)
+	by imap4.hz.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
+	id 1svJzL-006Txm-Ho; Mon, 30 Sep 2024 18:15:12 +0100
+Received: from ben by rainbowdash with local (Exim 4.98)
+	(envelope-from <ben@rainbowdash>)
+	id 1svJzL-00000002PwP-3GP1;
+	Mon, 30 Sep 2024 18:15:11 +0100
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+To: ben.dooks@codethink.co.uk,
+	linux-riscv@lists.infradead.org
+Cc: aou@eecs.berkeley.edu,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com
+Subject: [PATCH] riscv: traps: make insn fetch common in unknown instruction
+Date: Mon, 30 Sep 2024 18:15:10 +0100
+Message-Id: <20240930171510.576364-1-ben.dooks@codethink.co.uk>
+X-Mailer: git-send-email 2.37.2.352.g3c44437643
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240927-dev-maxh-svukte-rebase-2-v2-2-9afe57c33aee@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240930_101016_719197_F040526A 
-X-CRM114-Status: GOOD (  14.35  )
+X-CRM114-CacheID: sfid-20240930_101518_924582_90767DE4 
+X-CRM114-Status: GOOD (  12.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,98 +71,103 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 27, 2024 at 09:41:44PM +0800, Max Hsu wrote:
->Svukte extension introduce senvcfg.UKTE, hstatus.HUKTE.
->
->This patch add CSR bit definition, and detects if Svukte ISA extension
->is available, cpufeature will set the correspond bit field so the
->svukte-qualified memory accesses are protected in a manner that is
->timing-independent of the faulting virtual address.
->
->Since hstatus.HU is not enabled by linux, enabling hstatus.HUKTE will
->not be affective.
->
->This patch depends on patch "riscv: Per-thread envcfg CSR support" [1]
->
->Link: https://lore.kernel.org/linux-riscv/20240814081126.956287-1-samuel.holland@sifive.com/ [1]
->
->Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
->Signed-off-by: Max Hsu <max.hsu@sifive.com>
->---
-> arch/riscv/include/asm/csr.h   | 2 ++
-> arch/riscv/include/asm/hwcap.h | 1 +
-> arch/riscv/kernel/cpufeature.c | 4 ++++
-> 3 files changed, 7 insertions(+)
->
->diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
->index 25966995da04e090ff22a11e35be9bc24712f1a8..62b50667d539c50a0bfdadd1c6ab06cda948f6a8 100644
->--- a/arch/riscv/include/asm/csr.h
->+++ b/arch/riscv/include/asm/csr.h
->@@ -122,6 +122,7 @@
-> #define HSTATUS_VSXL		_AC(0x300000000, UL)
-> #define HSTATUS_VSXL_SHIFT	32
-> #endif
->+#define HSTATUS_HUKTE		_AC(0x01000000, UL)
-> #define HSTATUS_VTSR		_AC(0x00400000, UL)
-> #define HSTATUS_VTW		_AC(0x00200000, UL)
-> #define HSTATUS_VTVM		_AC(0x00100000, UL)
->@@ -195,6 +196,7 @@
-> /* xENVCFG flags */
-> #define ENVCFG_STCE			(_AC(1, ULL) << 63)
-> #define ENVCFG_PBMTE			(_AC(1, ULL) << 62)
->+#define ENVCFG_UKTE			(_AC(1, UL) << 8)
-> #define ENVCFG_CBZE			(_AC(1, UL) << 7)
-> #define ENVCFG_CBCFE			(_AC(1, UL) << 6)
-> #define ENVCFG_CBIE_SHIFT		4
->diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
->index 46d9de54179ed40aa7b1ea0ec011fd6eea7218df..3591a4f40131ff5958c07857a1bd1624723d6550 100644
->--- a/arch/riscv/include/asm/hwcap.h
->+++ b/arch/riscv/include/asm/hwcap.h
->@@ -93,6 +93,7 @@
-> #define RISCV_ISA_EXT_ZCMOP		84
-> #define RISCV_ISA_EXT_ZAWRS		85
-> #define RISCV_ISA_EXT_SVVPTC		86
->+#define RISCV_ISA_EXT_SVUKTE		87
->
-> #define RISCV_ISA_EXT_XLINUXENVCFG	127
->
->diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
->index 3a8eeaa9310c32fce2141aff534dc4432b32abbe..e0853cae1dc0ba844d5969a42c30d44287e3250a 100644
->--- a/arch/riscv/kernel/cpufeature.c
->+++ b/arch/riscv/kernel/cpufeature.c
->@@ -381,6 +381,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
-> 	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
-> 	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
-> 	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
->+	__RISCV_ISA_EXT_SUPERSET(svukte, RISCV_ISA_EXT_SVUKTE, riscv_xlinuxenvcfg_exts),
-> 	__RISCV_ISA_EXT_DATA(svvptc, RISCV_ISA_EXT_SVVPTC),
-> };
->
->@@ -921,6 +922,9 @@ void riscv_user_isa_enable(void)
-> {
-> 	if (riscv_cpu_has_extension_unlikely(smp_processor_id(), RISCV_ISA_EXT_ZICBOZ))
-> 		csr_set(CSR_ENVCFG, ENVCFG_CBZE);
->+
->+	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SVUKTE))
->+		current->thread.envcfg |= ENVCFG_UKTE;
+Add the insn as the second argument to riscv_v_first_use_handler() form
+the trap handler so when we add more handlers we can do the fetch of the
+instruction just once.
 
-Pending merge of samuel's patches, this looks good to me.
+Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+---
+ arch/riscv/include/asm/vector.h |  4 ++--
+ arch/riscv/kernel/traps.c       | 11 ++++++++++-
+ arch/riscv/kernel/vector.c      | 11 +----------
+ 3 files changed, 13 insertions(+), 13 deletions(-)
 
-Reviewed-by: Deepak Gupta <debug@rivosinc.com>
+diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
+index be7d309cca8a..c9f0b02cd975 100644
+--- a/arch/riscv/include/asm/vector.h
++++ b/arch/riscv/include/asm/vector.h
+@@ -21,7 +21,7 @@
+ 
+ extern unsigned long riscv_v_vsize;
+ int riscv_v_setup_vsize(void);
+-bool riscv_v_first_use_handler(struct pt_regs *regs);
++bool riscv_v_first_use_handler(struct pt_regs *regs, u32 insn);
+ void kernel_vector_begin(void);
+ void kernel_vector_end(void);
+ void get_cpu_vector_context(void);
+@@ -268,7 +268,7 @@ struct pt_regs;
+ 
+ static inline int riscv_v_setup_vsize(void) { return -EOPNOTSUPP; }
+ static __always_inline bool has_vector(void) { return false; }
+-static inline bool riscv_v_first_use_handler(struct pt_regs *regs) { return false; }
++static inline bool riscv_v_first_use_handler(struct pt_regs *regs, u32 insn) { return false; }
+ static inline bool riscv_v_vstate_query(struct pt_regs *regs) { return false; }
+ static inline bool riscv_v_vstate_ctrl_user_allowed(void) { return false; }
+ #define riscv_v_vsize (0)
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index 51ebfd23e007..1c3fab272fd1 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -172,11 +172,20 @@ asmlinkage __visible __trap_section void do_trap_insn_illegal(struct pt_regs *re
+ 	bool handled;
+ 
+ 	if (user_mode(regs)) {
++		u32 __user *epc = (u32 __user *)regs->epc;
++		u32 insn = (u32)regs->badaddr;
++
+ 		irqentry_enter_from_user_mode(regs);
+ 
+ 		local_irq_enable();
+ 
+-		handled = riscv_v_first_use_handler(regs);
++		if (!insn) {
++			if (__get_user(insn, epc)) {
++				/* todo */
++			}
++		}
++
++		handled = riscv_v_first_use_handler(regs, insn);
+ 
+ 		local_irq_disable();
+ 
+diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
+index 682b3feee451..b852648cb8d5 100644
+--- a/arch/riscv/kernel/vector.c
++++ b/arch/riscv/kernel/vector.c
+@@ -168,11 +168,8 @@ bool riscv_v_vstate_ctrl_user_allowed(void)
+ }
+ EXPORT_SYMBOL_GPL(riscv_v_vstate_ctrl_user_allowed);
+ 
+-bool riscv_v_first_use_handler(struct pt_regs *regs)
++bool riscv_v_first_use_handler(struct pt_regs *regs, u32 insn)
+ {
+-	u32 __user *epc = (u32 __user *)regs->epc;
+-	u32 insn = (u32)regs->badaddr;
+-
+ 	if (!has_vector())
+ 		return false;
+ 
+@@ -184,12 +181,6 @@ bool riscv_v_first_use_handler(struct pt_regs *regs)
+ 	if (riscv_v_vstate_query(regs))
+ 		return false;
+ 
+-	/* Get the instruction */
+-	if (!insn) {
+-		if (__get_user(insn, epc))
+-			return false;
+-	}
+-
+ 	/* Filter out non-V instructions */
+ 	if (!insn_is_vector(insn))
+ 		return false;
+-- 
+2.37.2.352.g3c44437643
 
-> }
->
-> #ifdef CONFIG_RISCV_ALTERNATIVE
->
->-- 
->2.43.2
->
->
 
 _______________________________________________
 linux-riscv mailing list
