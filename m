@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FBDECE8349
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Sep 2024 14:13:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 966E5CE8349
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Sep 2024 14:14:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qm2aCA/g6bcAs91Rj14fDjxL4WjO4IHTs4BeJmzVwI8=; b=zqvLpxShiALAPP6MfBxKjW9w8x
-	esWJWOcByYsgII1Oa+jqbfGU4cHsh1dq6IcffyOQcfafABiA5aquIomaJLXwkXjs4c8sOuCR59h1C
-	jTj9n3jjvZwHD0H8g1Lpk6U7MW1QZcfuoZQGuMQSXAMlwJgkXvPRrIWSg7iXXbCB9Gdbfz1r9E6Gy
-	vpW0CQSuQhuAGp7UWlhFE6T/cb4rMR0FeWz1dxaVgUxm+MzpwYT7HsX/c0kJqLYS7jLf417U4jJdP
-	2THFuPv5PpQdimNSOvaGJFmFZqjewprKkcsFPt9KmyO6u15jN1Qi+nNBQQnN+rJbCyqGgwSFdHI9P
-	P+nMjbCA==;
+	bh=oBr86f4Po6FXalG6taXSTvFUj1PFmW24Ra6TA+YPhBU=; b=mAGrxRXGXIv6UUeEZnw4iWCua5
+	RtOqiaVehpXoZxP9CVVsBTAoXKnPiZ8UFTngA/C7z0c4lO5eOjj4B+Ej2W+Jzat/1O+UGRKko/vRP
+	1dx33UTUBhmSQvgFG4boiJmaDR1+eompR0J7Q9AuJVXesia9sCiV6q0g7uRW2O2k1TzUOX7Zovyas
+	aCp5gxWwmoeBVfnlj3lAJHDLIwUlGo9P2cLDq8liIK2XosTCprOHPnnMbp00J+pxObJ2dtd8FGrxm
+	K7liNbHtHqN0EL/myliF9likeZHSBRHYrZYlrMcdjeAtMr90apoAxT3W6+lA9vEFqjUOskKDV8QPA
+	9vzZWNZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1svH90-0000000HSeM-0UR7;
-	Mon, 30 Sep 2024 14:12:58 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1svHAB-0000000HSu9-1K7r;
+	Mon, 30 Sep 2024 14:14:11 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1svGew-0000000HLYb-3i6G
+	id 1svGhZ-0000000HMDH-04cp
 	for linux-riscv@lists.infradead.org;
-	Mon, 30 Sep 2024 13:41:56 +0000
+	Mon, 30 Sep 2024 13:44:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 10C3A5C033B;
-	Mon, 30 Sep 2024 13:41:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C107C4CEC7;
-	Mon, 30 Sep 2024 13:41:49 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7124B5C2705;
+	Mon, 30 Sep 2024 13:44:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D176C4CEC7;
+	Mon, 30 Sep 2024 13:44:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1727703713;
-	bh=kkTbjYmmUtL4o0lZr/q/BfPDhvqxwi4Q0kpgSrt4B54=;
+	s=k20201202; t=1727703876;
+	bh=WII6XIL5oH0khuAitO4UjfztUkSH5Op+eXwv29J9F0k=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QYJO/IKpnHnqxuBvWEZyRrcWjYWYASGSyvReh6IYUyAOGwvUA0AbzUh1a1Wb9u/nF
-	 ymAclTW+qvRnOUHODtsoM4pzXfJLUpKd6HYoDMVNulv9+AQmUBkk7xXxN3t6r49HWp
-	 CMdl0/kVmMxK3Q9GT+s3PuQNsip4DDkZXX0e9i4q9nvsYZNkk3/hQewWlocQT9cDfL
-	 rFwckZKo9C38qkyVOXVPNrtEX+otW0g08F6F4IqpiPoQPkHDgtlbcp96NqvHoYsJTq
-	 GpcjK+PEHbWHzQ6tszEdA9fM6AfPynRehvgNRBrQMRtZuXjn1shwZfccrQ3jqE3O+d
-	 lJFfo9r4ONCPA==
-Date: Mon, 30 Sep 2024 14:41:46 +0100
+	b=DjnP+VHpKy+LxbuIGuetn5TadwJJPcxwPHfHO/T363/vp+vA/BiQZtcd7sKa/I/l4
+	 j4LMuFuOXmmuCWkvu84nqTVG7TSTKgN/43Dvv7V1Pc/2aTlWReObPiplH8nX2X/aDZ
+	 oPIyorQMad8IapFoA6Vz2YmDgWm6a/TXZWneyQrN0wZM9wIATDPp10uikasUvd802y
+	 Q2pihoSViDxkGMgj0sQZIF+pvNGafs3Ab4bVQAhCrGkwfJlfrTsLPJAbxcRz4jMOpm
+	 qcYmBt7rOqt/ox9loPqNhklKu8aRnpbg2eI3y5n/G1Run7zcn7DZiuusKkfckAizMa
+	 cCjZGrlNBPmSw==
+Date: Mon, 30 Sep 2024 14:44:32 +0100
 From: Conor Dooley <conor@kernel.org>
 To: pierre-henry.moussay@microchip.com
 Cc: Linux4Microchip@microchip.com,
 	Conor Dooley <conor.dooley@microchip.com>,
 	Daire McNamara <daire.mcnamara@microchip.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-riscv@lists.infradead.org, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [linux][PATCH v2 02/20] dt-bindings: usb: add PIC64GX
- compatibility to mpfs-musb driver
-Message-ID: <20240930-retake-limpness-e4146e07b5cd@spud>
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [linux][PATCH v2 03/20] dt-bindings: mbox: add PIC64GX mailbox
+ compatibility to MPFS mailbox
+Message-ID: <20240930-undoing-hardener-90cf6b7ec292@spud>
 References: <20240930095449.1813195-1-pierre-henry.moussay@microchip.com>
- <20240930095449.1813195-3-pierre-henry.moussay@microchip.com>
+ <20240930095449.1813195-4-pierre-henry.moussay@microchip.com>
 MIME-Version: 1.0
-In-Reply-To: <20240930095449.1813195-3-pierre-henry.moussay@microchip.com>
+In-Reply-To: <20240930095449.1813195-4-pierre-henry.moussay@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240930_064155_011575_EEFE6896 
-X-CRM114-Status: UNSURE (   9.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240930_064437_120664_064D3CB3 
+X-CRM114-Status: GOOD (  15.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,48 +74,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7715034073587761122=="
+Content-Type: multipart/mixed; boundary="===============6641311428173088359=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============7715034073587761122==
+--===============6641311428173088359==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="ThiFJzVa0Ijeb/Ca"
+	protocol="application/pgp-signature"; boundary="xotCooLs1WDY6rNk"
 Content-Disposition: inline
 
 
---ThiFJzVa0Ijeb/Ca
+--xotCooLs1WDY6rNk
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Sep 30, 2024 at 10:54:31AM +0100, pierre-henry.moussay@microchip.co=
+On Mon, Sep 30, 2024 at 10:54:32AM +0100, pierre-henry.moussay@microchip.co=
 m wrote:
 > From: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
 >=20
-> PIC64GX musb is compatible with mpfs-musb, just update compatibility
-> with fallback
+> PIC64GX mailbox is compatible with MPFS mailbox, just add fallback
 >=20
 > Signed-off-by: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+NAK, needs the stuff that I mentioned on v1 to be done before it is
+applicable.
 
---ThiFJzVa0Ijeb/Ca
+> ---
+>  .../devicetree/bindings/mailbox/microchip,mpfs-mailbox.yaml | 6 +++++-
+>  1 file changed, 5 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/mailbox/microchip,mpfs-mai=
+lbox.yaml b/Documentation/devicetree/bindings/mailbox/microchip,mpfs-mailbo=
+x.yaml
+> index 404477910f02..9e45112e185a 100644
+> --- a/Documentation/devicetree/bindings/mailbox/microchip,mpfs-mailbox.ya=
+ml
+> +++ b/Documentation/devicetree/bindings/mailbox/microchip,mpfs-mailbox.ya=
+ml
+> @@ -11,7 +11,11 @@ maintainers:
+> =20
+>  properties:
+>    compatible:
+> -    const: microchip,mpfs-mailbox
+> +    oneOf:
+> +      - items:
+> +          - const: microchip,pic64gx-mailbox
+> +          - const: microchip,mpfs-mailbox
+> +      - const: microchip,mpfs-mailbox
+> =20
+>    reg:
+>      oneOf:
+> --=20
+> 2.30.2
+>=20
+>=20
+
+--xotCooLs1WDY6rNk
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZvqqmQAKCRB4tDGHoIJi
-0oneAP9p9DNiQsEO0OewaLjqzJNAamer1DJKYTVugtYz1mJ1GwD+JCtZJC6yIA3N
-S0GXaSJQBlLlCemMVODAO4MziXC4HQU=
-=xPIy
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZvqrQAAKCRB4tDGHoIJi
+0nPRAQDFscKG3KN9tD4+0li5RZxHUVxEdMkrdWLN6zamj//N9gD7BHzDW+nGvnfU
+TXaLVumrP6iTqAAcV6CwbDof5BEWdwY=
+=c7Z6
 -----END PGP SIGNATURE-----
 
---ThiFJzVa0Ijeb/Ca--
+--xotCooLs1WDY6rNk--
 
 
---===============7715034073587761122==
+--===============6641311428173088359==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -127,5 +156,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============7715034073587761122==--
+--===============6641311428173088359==--
 
