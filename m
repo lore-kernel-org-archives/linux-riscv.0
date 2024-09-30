@@ -4,74 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9FC4CF6497
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Sep 2024 11:15:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99515CE8341
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Sep 2024 13:10:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R/ZrUFzPhsm/QO0Q7MnpeQK4dhF77dtcdnZuzcbJjgc=; b=G/ABw5H3kn8GAz
-	aJ7SHp0eodr7g+1aa2aG/Zk8MJq7uPm20qkJ1WSsJ0gqqZLwDlJAkO+Bpb+bDUXjSgnXzG62VxnCa
-	HGcMwvELUpGZiWMMo/uaHTOVmxspRubXOc0JuC6ClnH9Dci+YzzN2tTW6zAYMIeJmM4VrsTeUbWPp
-	NjBE2IpoTsvznsrulJI8Qk+zZ5SOHlnN3ENXf0Gr9DoDSrINFfUKQpEk/PwGBCjYUMqM97P6mIQ4G
-	wtm7VVdvw3+brl6k7tbQPuuzqBwRj/SqyfrKAI7jMVKaE5S/JtH4OACXKKCvbIJOaEi/qENWqeJxy
-	LZTO3CixZCNQqQjqSUiA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:Date:References:In-Reply-To:Subject:To:From:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vRZEkz3iWSlZHicVJ0D84l+9k049Ktl66rwruhWaqB8=; b=GTH423mCqsDFCmSV70/l2crfH5
+	6eHU5d9d+PsTsnrpqAc+1tSaNLbMX85KyP80aNfubka6BIaskyRPl2anySYr5LP1MlPLQCub/PwVF
+	roubBHGSOmb/aMCgSXXTXMJ93S88jHgduwfzIy9Fs2ThGrKGYIRmjYKuTEjx0YfvBpc4recVc6+6S
+	FmAA9TgTLS5ksi60VylB2Dsse3HQLT/OJHj5diqHMz+fizhQDUdnQ4w8nIPEn/tuKA30gEz/JzGPb
+	yYiHNntVr2KY69EOveovuR+Ji4fVgJFz10JFzoJh/fIUkrBSoudsA8y1xcI0RhmaiPfayHoX0lOoR
+	A1WCZreA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1svENA-0000000Go7U-3z1H;
-	Mon, 30 Sep 2024 11:15:24 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1svGAc-0000000HDYt-3PN1;
+	Mon, 30 Sep 2024 13:10:34 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1svD8I-0000000Gb9f-1uTS
+	id 1svFcQ-0000000H4V6-0RTu
 	for linux-riscv@lists.infradead.org;
-	Mon, 30 Sep 2024 09:55:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1727690158; x=1759226158;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=+gnY2BBXCWp24vDJrcKppIVkfz801MuXVXF0BOx/W6E=;
-  b=fxhHhQnQl/4AQZRN0Icehd3gCAcNF6PU682VyQgV1gJzUuL6IQvlLSC/
-   43eboFuurmJd6IzODoZTa9EcbzlT4NK47ufCdruNuOQDFVHAzsYK6U6km
-   JtDCeREkB/MIAQitldhwsCb9reRoyowJ8YrKu/RN4tkqWBMREMYWQGxwd
-   74za3uqlg29CVA7ubpbf6vX6u4QycxgUgp2d4cLAp2DX96Kx9gp9/29ef
-   God0WEdqyrsUiIb5JWvGIgisucUtsH0bOUgJmHFC6mjla2UERba+6kqMJ
-   0C2SEJNAUDipvXyrvSWcECSZr4ze5/5JOW7pCWJsaqpXnNjMVvCMRhFQM
-   g==;
-X-CSE-ConnectionGUID: jBRUFo6rTUOCd1OoCerG2A==
-X-CSE-MsgGUID: 5T27A0QYRquAGZjxZbdLLQ==
-X-IronPort-AV: E=Sophos;i="6.11,165,1725346800"; 
-   d="scan'208";a="32997919"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 30 Sep 2024 02:55:57 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Mon, 30 Sep 2024 02:55:38 -0700
-Received: from ph-emdalo.microchip.com (10.10.85.11) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Mon, 30 Sep 2024 02:55:36 -0700
-From: <pierre-henry.moussay@microchip.com>
-To: <Linux4Microchip@microchip.com>, Conor Dooley
-	<conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>,
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>
-CC: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>,
-	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: [linux][PATCH v2 14/20] dt-bindings: soc: microchip: mpfs-sys-controller: Add PIC64GX compatibility
-Date: Mon, 30 Sep 2024 10:54:43 +0100
-Message-ID: <20240930095449.1813195-15-pierre-henry.moussay@microchip.com>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20240930095449.1813195-1-pierre-henry.moussay@microchip.com>
-References: <20240930095449.1813195-1-pierre-henry.moussay@microchip.com>
+	Mon, 30 Sep 2024 12:35:15 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-37cea34cb57so481597f8f.0
+        for <linux-riscv@lists.infradead.org>; Mon, 30 Sep 2024 05:35:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1727699712; x=1728304512; darn=lists.infradead.org;
+        h=mime-version:date:references:organization:in-reply-to:subject:cc:to
+         :from:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=OGgx2QXm49+i80fK6ZIYDqvCO84UtWAPd1Twn8qWUeQ=;
+        b=e3aApdUXTr4Z/5AzYbUYmpIrQHWp2EWDiNgsYyfFow5vSMk11+llI3Us/IPgOufh5e
+         na0MQu2spzfzlzvTCtBiLFSmvI1i8jVPgHkmV9pBK44VEvkETrTGgyDDU/OFeNZEkIC4
+         BEb6uYvBbQclt7SPWoLwVXizTgz1YtjvB3OkBNzbEsEa2SFBOMk7CsMOhr2WwB/k69Rj
+         VST78uSTBgTBwTIwH08APZ8sN8pynmSpPT0yoXh9t1ohmtMV+hieZx2J+4OgLYYzjx8h
+         nXwNkjNQrcMQl6dSAz/TuRdYqoVRt80nX2qVrIpbOyBJSPc+pU7YkWax3IxDX5iEj7bV
+         iexg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1727699712; x=1728304512;
+        h=mime-version:date:references:organization:in-reply-to:subject:cc:to
+         :from:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OGgx2QXm49+i80fK6ZIYDqvCO84UtWAPd1Twn8qWUeQ=;
+        b=UAeN2BMVmJbYbe28Sto3iH9/VvSOsRmxG9MaFA7SL2zYdx/2J1qpMsraDK5p5LBYke
+         QdHcEvqogsqqj33u0Jpot+64LlPW0QakqZX+0Ht4avrHZoB+5TSNw7G3dZwTpSgFuH6z
+         qwxe6PrA59kSRI7m2kuX6Hk8OOwqOOrA357IVHkJAmNFixSH7on1iFu0AYwuRi0nvvLC
+         E7icK8+sHTGyraycsjfNYeecZIh02bpGfMNEPTgr30BpTvCZE6t7JcKHhMDB0f4H2LH0
+         4w1VfxPYBWO9+dpmXkbc+K1QtwOkLrYEsKohi81KRosOYVDPvg83tlet+rAnMutLRtq0
+         sADw==
+X-Forwarded-Encrypted: i=1; AJvYcCWa+nNOP1iu3n3jX5HFHcDyFqnyTNe/mDJLUFrAFAeJnUXXctqqkLSXbOJsSOQHDYPaoJ3hjnePlZAW/w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQs+Qltu8pY7YT9ubXdKjhcxahxRsAh69NohDSEo5bE3Xwl3iI
+	Lrxsmc0Hw/0cA2pMG4yALLMWJEyzTX0DOi3HfryRdMHZNNyohTbl
+X-Google-Smtp-Source: AGHT+IGdxnRytaWoXEmdGqzTGQEIqbuCAatF9kA3GstJSTZy0Po9aooxiBqYhVWD0jF4P2dPbGYMew==
+X-Received: by 2002:adf:cd07:0:b0:37c:d20d:447e with SMTP id ffacd0b85a97d-37cd5a81f7emr5754201f8f.21.1727699711355;
+        Mon, 30 Sep 2024 05:35:11 -0700 (PDT)
+Received: from localhost ([37.72.3.43])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-37cd575dd04sm8940397f8f.114.2024.09.30.05.35.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 30 Sep 2024 05:35:10 -0700 (PDT)
+Message-ID: <66fa9afe.5d0a0220.323a97.bfb6@mx.google.com>
+X-Google-Original-Message-ID: <87sethpbeu.fsf@>
+From: =?utf-8?Q?Miquel_Sabat=C3=A9_Sol=C3=A0?= <mikisabate@gmail.com>
+To: paul.walmsley@sifive.com
+Subject: Re: [PATCH] riscv: Prevent a bad reference count on CPU nodes
+In-Reply-To: <20240913080053.36636-1-mikisabate@gmail.com> ("Miquel
+ =?utf-8?Q?Sabat=C3=A9=09Sol=C3=A0=22's?= message of "Fri, 13 Sep 2024
+ 10:00:52 +0200")
+Organization: Linux Private Site
+References: <20240913080053.36636-1-mikisabate@gmail.com>
+Date: Mon, 30 Sep 2024 14:35:05 +0200
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240930_025558_582291_967DA1EE 
-X-CRM114-Status: UNSURE (   8.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240930_053514_171442_5FADDF01 
+X-CRM114-Status: GOOD (  28.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,43 +88,111 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org, jeremy.linton@arm.com, palmer@dabbelt.com, cuiyunhui@bytedance.com, sudeep.holla@arm.com, linux-riscv@lists.infradead.org
+Content-Type: multipart/mixed; boundary="===============6344800382300306418=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
+--===============6344800382300306418==
+Content-Type: multipart/signed; boundary="=-=-=";
+	micalg=pgp-sha512; protocol="application/pgp-signature"
 
-PIC64GX is compatible with mpfs-sys-controller, without additional
-feature
+--=-=-=
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
----
- .../soc/microchip/microchip,mpfs-sys-controller.yaml        | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+On dv., de set. 13 2024, Miquel Sabat=C3=A9 Sol=C3=A0 wrote:
 
-diff --git a/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-controller.yaml b/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-controller.yaml
-index a3fa04f3a1bd..af89d5959747 100644
---- a/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-controller.yaml
-+++ b/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-controller.yaml
-@@ -24,7 +24,11 @@ properties:
-     maxItems: 1
- 
-   compatible:
--    const: microchip,mpfs-sys-controller
-+    oneOf:
-+      - items:
-+          - const: microchip,pic64gx-sys-controller
-+          - const: microchip,mpfs-sys-controller
-+      - const: microchip,mpfs-sys-controller
- 
-   microchip,bitstream-flash:
-     $ref: /schemas/types.yaml#/definitions/phandle
--- 
-2.30.2
+> When populating cache leaves we previously fetched the CPU device node
+> at the very beginning. But when ACPI is enabled we go through a
+> specific branch which returns early and does not call 'of_node_put' for
+> the node that was acquired.
+>
+> Since we are not using a CPU device node for the ACPI code anyways, we
+> can simply move the initialization of it just passed the ACPI block, and
+> we are guaranteed to have an 'of_node_put' call for the acquired node.
+> This prevents a bad reference count of the CPU device node.
+>
+> Moreover, the previous function did not check for errors when acquiring
+> the device node, so a return -ENOENT has been added for that case.
+>
+> Signed-off-by: Miquel Sabat=C3=A9 Sol=C3=A0 <mikisabate@gmail.com>
+> ---
+> I was wondering if this should also be sent to stable, but  I have not se=
+en
+> a report on it, and this is not responsible for an oops or anything like =
+that.
+> So in the end I decided not to, but maybe you consider otherwise.
+>
+>  arch/riscv/kernel/cacheinfo.c | 7 +++++--
+>  1 file changed, 5 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/riscv/kernel/cacheinfo.c b/arch/riscv/kernel/cacheinfo.c
+> index d6c108c50cba..d32dfdba083e 100644
+> --- a/arch/riscv/kernel/cacheinfo.c
+> +++ b/arch/riscv/kernel/cacheinfo.c
+> @@ -75,8 +75,7 @@ int populate_cache_leaves(unsigned int cpu)
+>  {
+>  	struct cpu_cacheinfo *this_cpu_ci =3D get_cpu_cacheinfo(cpu);
+>  	struct cacheinfo *this_leaf =3D this_cpu_ci->info_list;
+> -	struct device_node *np =3D of_cpu_device_node_get(cpu);
+> -	struct device_node *prev =3D NULL;
+> +	struct device_node *np, *prev;
+>  	int levels =3D 1, level =3D 1;
+>
+>  	if (!acpi_disabled) {
+> @@ -100,6 +99,10 @@ int populate_cache_leaves(unsigned int cpu)
+>  		return 0;
+>  	}
+>
+> +	np =3D of_cpu_device_node_get(cpu);
+> +	if (!np)
+> +		return -ENOENT;
+> +
+>  	if (of_property_read_bool(np, "cache-size"))
+>  		ci_leaf_init(this_leaf++, CACHE_TYPE_UNIFIED, level);
+>  	if (of_property_read_bool(np, "i-cache-size"))
 
+Gently ping :)
+
+Could you take a look at this fix?
+
+Thanks,
+Miquel
+
+--=-=-=
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJJBAEBCgAzFiEEG6U8esk9yirP39qXlr6Mb9idZWUFAmb6mvkVHG1pa2lzYWJh
+dGVAZ21haWwuY29tAAoJEJa+jG/YnWVlIz0P/iOz1gxRpTCXjaOBthmKUKJtPEJm
+xj/aakUpA/l/uxRv3vVMs4S6h3Fv3LFL0pTqrpxpH2BKVLrhDTHhMuxLYf+TBeKI
+TY3mUBUbW+YVjzvNNaaUcGjjDdA0PhWWzZUTsrQRrU2afFEJeeK8EbEPfPcMt7sI
+hUIXZ3jm52W+Ifzgp+2za6cJtAodUDtYRRFb/gE3X/BmSFO2WaO0YTd0RRAoj0+M
+qhe6XwfuObJ3nEKMMikqfH9QJ1tpWAX+gMRv8zbEk9GYSbKrg/8QMLiczc73gbq6
+70ppXc7TLmXPO52MiJB6YeXv/TaUplPUVGde5WEbRgUqvLjQv2yEoSsVgQRhEuU6
+CFzDwQU7NVEo+0x9ovZ89d8Hw1xLxGfZE0qpCL1Ir6JF8n5zMI0/eKdB893AToiV
+evgkj3AuWrUV14l85jwLFDqRB7ypv3vBAkKl51iquv3jZ/uW5qdGQQRLP92SW7cZ
+23yjVpxZSowcuacLebaQzPIadzU5b73isc6/szs6wefy8hOUIlpQ4fVd0dSQRyNf
+Vzaxzxl3gN3ENsDVhvxjRTp4o1tu3VkZBRmczVnDAKWvmpaSwIzp4wd5VwanWiIe
+LZ9UM1pCnDDQaqDyIbZA+tPNUXKEvCp0867lqeJCu8JrtpXu+EqY7r8rh/H/w02E
+OKDlOyd+hvSHoGBr
+=UNJG
+-----END PGP SIGNATURE-----
+--=-=-=--
+
+
+--===============6344800382300306418==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6344800382300306418==--
+
