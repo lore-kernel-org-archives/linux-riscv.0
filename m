@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAF35CEACFA
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Oct 2024 18:55:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99B18CEACFB
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Oct 2024 19:27:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Pbx+UKNKDH5JC7e7s6rvhV9M/fxhuffbfnOmj62aJmg=; b=c5IcqRYxoQYx1w
-	b9GvV277KUbt2AdJJhVhOPWU+dVa9HyPrQIZioQCzWOvODgsPoIu/+1+aVuhAoDY4SC99VZE26D7M
-	dFBC63Sts2oyv/clUCd1M6/IY1kZ8dpwKm7P0nlRojATqFsgkgdPaKdXOip1xsX8YCj6+6Ei0ZKFF
-	TrMDn37TUwhw1b4RvYPXbEyIOUrSj6PqMd8d2vt7fmaGJ5ObcbLXCmomdPIgZ+/vaf+th9QuIRkos
-	8uu/+NMdmm7eY0SEKfSjSIcsGQfL6Aq5FBHKmjjNRgqhjP8mE02nO/9q1aJ02qbxvu4ZtYJodRhK9
-	49hRUbN6m2R3QZOv/psQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5E/mavrRAT7mXY3SMM6txkXnW21spIhq/rzEHYlI0Co=; b=OMWb9O1wIQ5S5BgKHurDcK8RGx
+	ay/P8dIt+QbCeekekOIHRF8Rxi4R17v7PcG8GOjXcD8AvTljgE1xbji4ISfM8enjcfMfkG9FA1e9l
+	z3YkhpHey/Eeokn8rg8gxmmtD2MB5+Z9otW/l1sN0Yfg0l3dyJj/AtKX8LNjva8Dy0+2jqVgmAJQO
+	q2kFBcvpMhsq6bcynOxYeAlftxHFbHvQ9nPZJWG6s4fdlYxxrwb6mJbPrVxYoZZpuQ75M2KD1kD/S
+	T2kIbE3NqEmawwViNmmGze2Mqkxuhrtelyg0V/4dF9ZXrsAhBFryFNNLAS/KQ8P7nHTkkC7lns9Bq
+	J8IsNnRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1svi20-00000003pz4-2wAn;
-	Tue, 01 Oct 2024 18:55:32 +0000
+	id 1sviWx-00000003tBS-3JTP;
+	Tue, 01 Oct 2024 19:27:32 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1svi1x-00000003pyg-0dKv
+	id 1sviWu-00000003tB7-0ebS
 	for linux-riscv@lists.infradead.org;
-	Tue, 01 Oct 2024 18:55:31 +0000
+	Tue, 01 Oct 2024 19:27:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2CA475C54B1;
-	Tue,  1 Oct 2024 18:55:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6391C4CEC6;
-	Tue,  1 Oct 2024 18:55:26 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7593D5C0547;
+	Tue,  1 Oct 2024 19:27:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3A20C4CEC6;
+	Tue,  1 Oct 2024 19:27:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1727808927;
-	bh=QwD3xBfZA0gawSdQWqGNveBRPtYRJsC9peBijbGQt8I=;
+	s=k20201202; t=1727810847;
+	bh=rnSA/NcPwgiGLvd5BCxGGNZTwr+1d1IAzw2KM2zG7Ic=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qU4+RDr+Og6v9NRvLaOvlgYoWD2ZBgH9RUrb3CqldEtlqAODsT04Wh+g9ys/qWQdz
-	 7ZCCu6OoUQd/AgyS7lTBsR4Sa4ND0jKxNTJZ11RGU6IA2Qddh/b7jalokZPuXBUUdd
-	 WX1LWfXXJkKashS/RFLOGkfcCiH62cSDfxnYlaUTrulKHzwgGVe9rql32kJIfoBU56
-	 o2jZIZ1XdxXloa6U9llgnZsgKxSedik61NaTb/j47cy7bF0gQXEGI2xVYPvkDzwX85
-	 RFQOyyAbqCnuygtKA7KqBKHr/bs5GtEHmDszdbEpGFKyRDyPo8FgMQKB5G95exj6rn
-	 BWJU1Q/rhghEw==
-Date: Tue, 1 Oct 2024 11:55:25 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Conor Dooley <conor@kernel.org>
+	b=BwgIKIHKQ8gxnjk6yl03Fc57ZAwxs4tQG19jwmNWWTxQx/6X33+tJAQHASUbE3bB3
+	 dTAWiKzf6KJrCmfrkzm5XsIniZYRr79WWH/RMHfM8D7fhbxwb6McpFQdx+qxMvPGSY
+	 6Ur+HZBuryDNDBXt4wa7tcNUvVZrIS//nVz9AQdoAgvWTDmeH5Xt9lZXT+m6lCy2RR
+	 Y2EsVTgKQjUx+udH1OkFp01q486BP50GQFJlzKHq/dOwTdE2ZT0XGQC5DkghfiBVSS
+	 DIp64nx2d88V1L7h4PavVuiMK6HJ6GMihBHwuxlpapfedsp7/spq9O+UKMTXeSnqOC
+	 xALIDja8pMong==
+Date: Tue, 1 Oct 2024 20:27:21 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Nathan Chancellor <nathan@kernel.org>
 Cc: linux-riscv@lists.infradead.org,
 	Conor Dooley <conor.dooley@microchip.com>,
 	Jason Montleon <jmontleo@redhat.com>, ojeda@kernel.org,
@@ -55,14 +55,14 @@ Cc: linux-riscv@lists.infradead.org,
 	ndesaulniers@google.com, morbo@google.com, justinstitt@google.com,
 	rust-for-linux@vger.kernel.org, llvm@lists.linux.dev
 Subject: Re: [PATCH v1] RISC-V: disallow gcc + rust builds
-Message-ID: <20241001185525.GA29379@thelio-3990X>
+Message-ID: <20241001-partition-family-e862797bad1e@spud>
 References: <20241001-playlist-deceiving-16ece2f440f5@spud>
+ <20241001185525.GA29379@thelio-3990X>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241001-playlist-deceiving-16ece2f440f5@spud>
+In-Reply-To: <20241001185525.GA29379@thelio-3990X>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241001_115529_298919_4A15CDFB 
-X-CRM114-Status: GOOD (  21.79  )
+X-CRM114-CacheID: sfid-20241001_122728_304669_4412395C 
+X-CRM114-Status: GOOD (  21.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,98 +74,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7168647380999826569=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 01, 2024 at 12:28:13PM +0100, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> During the discussion before supporting rust on riscv, it was decided
-> not to support gcc yet, due to differences in extension handling
-> compared to llvm (only the version of libclang matching the c compiler
-> is supported). Recently Jason Montleon reported [1] that building with
-> gcc caused build issues, due to unsupported arguments being passed to
-> libclang. After some discussion between myself and Miguel, it is better
-> to disable gcc + rust builds to match the original intent, and
-> subsequently support it when an appropriate set of extensions can be
-> deduced from the version of libclang.
-> 
-> Closes: https://lore.kernel.org/all/20240917000848.720765-2-jmontleo@redhat.com/ [1]
-> Link: https://lore.kernel.org/all/20240926-battering-revolt-6c6a7827413e@spud/ [2]
-> Fixes: 70a57b247251a ("RISC-V: enable building 64-bit kernels with rust support")
-> Reported-by: Jason Montleon <jmontleo@redhat.com>
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 
-Seems like a reasonable restriction to me.
+--===============7168647380999826569==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="TarOnJ84/zi/70vf"
+Content-Disposition: inline
 
-Reviewed-by: Nathan Chancellor <nathan@kernel.org>
 
-I assume the difficulty is not in getting the libclang version itself
-but actually mapping extensions to the versions and then deciding how to
-make that available to the build system? Or is it more that a solution
-is somewhat known but someone has to actually implement it? Sorry if
-this has been talked about before.
+--TarOnJ84/zi/70vf
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> ---
-> 
-> Palmer, this is yours to take.
-> 
-> CC: jmontleo@redhat.com
-> CC: ojeda@kernel.org
-> CC: alex.gaynor@gmail.com
-> CC: boqun.feng@gmail.com
-> CC: gary@garyguo.net
-> CC: bjorn3_gh@protonmail.com
-> CC: benno.lossin@proton.me
-> CC: a.hindborg@kernel.org
-> CC: aliceryhl@google.com
-> CC: paul.walmsley@sifive.com
-> CC: palmer@dabbelt.com
-> CC: nathan@kernel.org
-> CC: ndesaulniers@google.com
-> CC: morbo@google.com
-> CC: justinstitt@google.com
-> CC: rust-for-linux@vger.kernel.org
-> CC: linux-riscv@lists.infradead.org
-> CC: llvm@lists.linux.dev
-> ---
->  Documentation/rust/arch-support.rst | 2 +-
->  arch/riscv/Kconfig                  | 2 +-
->  2 files changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/Documentation/rust/arch-support.rst b/Documentation/rust/arch-support.rst
-> index 750ff371570a0..54be7ddf3e57a 100644
-> --- a/Documentation/rust/arch-support.rst
-> +++ b/Documentation/rust/arch-support.rst
-> @@ -17,7 +17,7 @@ Architecture   Level of support  Constraints
->  =============  ================  ==============================================
->  ``arm64``      Maintained        Little Endian only.
->  ``loongarch``  Maintained        \-
-> -``riscv``      Maintained        ``riscv64`` only.
-> +``riscv``      Maintained        ``riscv64`` and LLVM/Clang only.
->  ``um``         Maintained        \-
->  ``x86``        Maintained        ``x86_64`` only.
->  =============  ================  ==============================================
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 22dc5ea4196ce..76843584960c2 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -177,7 +177,7 @@ config RISCV
->  	select HAVE_REGS_AND_STACK_ACCESS_API
->  	select HAVE_RETHOOK if !XIP_KERNEL
->  	select HAVE_RSEQ
-> -	select HAVE_RUST if RUSTC_SUPPORTS_RISCV
-> +	select HAVE_RUST if RUSTC_SUPPORTS_RISCV && CC_IS_CLANG
->  	select HAVE_SAMPLE_FTRACE_DIRECT
->  	select HAVE_SAMPLE_FTRACE_DIRECT_MULTI
->  	select HAVE_STACKPROTECTOR
-> -- 
-> 2.45.2
-> 
+On Tue, Oct 01, 2024 at 11:55:25AM -0700, Nathan Chancellor wrote:
+> On Tue, Oct 01, 2024 at 12:28:13PM +0100, Conor Dooley wrote:
+> > From: Conor Dooley <conor.dooley@microchip.com>
+> >=20
+> > During the discussion before supporting rust on riscv, it was decided
+> > not to support gcc yet, due to differences in extension handling
+> > compared to llvm (only the version of libclang matching the c compiler
+> > is supported). Recently Jason Montleon reported [1] that building with
+> > gcc caused build issues, due to unsupported arguments being passed to
+> > libclang. After some discussion between myself and Miguel, it is better
+> > to disable gcc + rust builds to match the original intent, and
+> > subsequently support it when an appropriate set of extensions can be
+> > deduced from the version of libclang.
+> >=20
+> > Closes: https://lore.kernel.org/all/20240917000848.720765-2-jmontleo@re=
+dhat.com/ [1]
+> > Link: https://lore.kernel.org/all/20240926-battering-revolt-6c6a7827413=
+e@spud/ [2]
+> > Fixes: 70a57b247251a ("RISC-V: enable building 64-bit kernels with rust=
+ support")
+> > Reported-by: Jason Montleon <jmontleo@redhat.com>
+> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+>=20
+> Seems like a reasonable restriction to me.
+>=20
+> Reviewed-by: Nathan Chancellor <nathan@kernel.org>
+>=20
+> I assume the difficulty is not in getting the libclang version itself
+> but actually mapping extensions to the versions and then deciding how to
+> make that available to the build system? Or is it more that a solution
+> is somewhat known but someone has to actually implement it? Sorry if
+> this has been talked about before.
+
+It's mostly that someone has to take the time to go and do it. Miguel
+and I discussed getting the libclang version a bit in [2] and mapping
+the versions to extensions is no different (AFAIU) to mapping the
+versions to extensions for Clang, so the work in figuring that out is
+mostly done. It's a matter of going off and doing it, and testing the
+various mixed tool configurations and versions to make sure it works
+correctly.
+
+--TarOnJ84/zi/70vf
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZvxNGQAKCRB4tDGHoIJi
+0lE1AQDWWqq75fBmjONd1vkgn14O3Ry+Wd+YV+mwWrrx2ih/VwEA7vd7SwSL8noq
+/GLsbc3JYDiN4dXJvAyG4VB4ih0/oQk=
+=Yf0+
+-----END PGP SIGNATURE-----
+
+--TarOnJ84/zi/70vf--
+
+
+--===============7168647380999826569==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7168647380999826569==--
+
