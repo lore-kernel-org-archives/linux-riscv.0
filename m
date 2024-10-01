@@ -4,48 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BBBCCF318A
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Oct 2024 23:05:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEA24CF3189
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Oct 2024 23:06:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1ndxTmnLJS4crAiy3s+BvkmPpXzdBrK6eG4wpDcNsz4=; b=jT0IZDCggWcuQn
-	jaE3RTrVLtbCxTlSAg1Te7CR3Xpxt8drV98ZnliUsSFtMz0sr+ioQ82+bOZ2+/nJEmBvzAgAO/1D1
-	ERbhM03r2+zaFQ+oAx9zCPHDf3LqlcvQV75enJkZ7X+LxfCoC7KYkgbFgZzONA3AZ5yy6PTn7OrGn
-	g1H1FxA16SfeA8B0uSwFTKRPQRsnky14WLdpJm0EIMh/8T4nOVkPgcAg/OgmXuJISqSeDb7RpBhMX
-	94W6nGWlFZQ2wUw/+p5aSPKQSVf436WXrd/CFXdgPiwTXGptFT6kCbajgjjGBMI9dPxMiC+SQxZq3
-	cbc2S+5AFXA9gdb6DwfA==;
+	List-Owner; bh=PfECoMbgPLBhg35lrY//MtFU2Mo4n3BGRYe1qfVui6U=; b=fknzsSXcwL9v/p
+	wfyRbcKHJIk392RfenLjw3+BTc3KjMC+P4DXnThfbVK2XBD3V0Cdl/Ex1kd7zxZ+yAAjuiDmi8StE
+	SMgQhmueIOMYDUP73X9aNe1Yc/CUuDrX4vovDZamnONhwV3Sh+L8iNBBtUAcLwjEeq3hc2QH3vz30
+	ZBr7RuaOKKI5Xs5TnyonRpA872CfS5mLpQl5AehQdLTYxQldB+OjAEuaWx8uFfq5uaqpbmVD9hNCi
+	R4mzKnAGVtedh6VLg9eCF2p4q3Yq9wyAdd0KO8vdJpgivDmdn+Xsdm8SpARzG1o6zqN1z62V1VIIj
+	TKQ0hM3MTbE0nMK3zTVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1svlvg-00000004I8W-3sO6;
-	Tue, 01 Oct 2024 23:05:16 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1svlwx-00000004Ifk-0GbL;
+	Tue, 01 Oct 2024 23:06:35 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1svlrG-00000004GBU-375H;
-	Tue, 01 Oct 2024 23:00:44 +0000
+	id 1svlrJ-00000004GDD-3RKh;
+	Tue, 01 Oct 2024 23:00:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=t9JhsxwzGO3El7z9ZOgaTR+4+wFgEhQCbca7NK97jpc=; b=TII6NYM2LXD1GxYBrjclyBMrQ7
+	Hw07x7ZW9KdzLQtr4hh+xyKbtuwGKiQmLxUaZpxRQCsws0uF1vDj6jkXIOi4usDNUN0wxrfONqMKX
+	SB6+q85pxj9rfskZqKT/phTuHeYG9VTNsbuD0GisyjBOaUEe0D+FL4rY2LlQgMPY0LdzCKZbOEfz7
+	PjFERLf2qFbpwHGdx8JOgWg+0OsVWsOOiokyZ72YiGXoSf7BH5Nrp5GqmEeb7G8S58NjOb7iGhoLK
+	X+xQEQzgEGun3m/AQBO9Vzjvj0xPv3WMHF8It8aNvnyTGCiqET0+T8jEne2syYROlNwgHAizPVv9b
+	XYGTPHvg==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1svlr9-00000003KjP-0ghH;
+	Tue, 01 Oct 2024 23:00:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0F6925C5547;
-	Tue,  1 Oct 2024 23:00:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E63EC4CECF;
-	Tue,  1 Oct 2024 23:00:31 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9D9185C555E;
+	Tue,  1 Oct 2024 23:00:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE3DCC4CEC6;
+	Tue,  1 Oct 2024 23:00:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1727823641;
-	bh=QzHtuVcSDaL4Yx9qwbzgbMXiTjYft30F6+HnraYB7I8=;
+	s=k20201202; t=1727823631;
+	bh=is0r9uSxnBrJsURPndZS8euUNnh9hat0c9erNc615eY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=uZYeamrVp2rmyMCQnluYwOnDm4n+Ff//3VOK9nh7fhijWFZSBsIrKKDjAGk/o56ph
-	 TWtU7syb9yzkhscU782HgCKBmfTe8umJChkH7pbpdmrFkFnZKDzEigjtf2MH4Q6h+p
-	 03C4A6BM0Yce+YT95YTjNz7OxrDfGQse/whSczqePqSDu3R0HqcStk54Lkhz+mQEEG
-	 /g6Czt7bYJqEty6YzhPgcA7W0BO47QcNZGVJ0ID0LvsSGOrdMO4RtMtauP6xRfcUf3
-	 TqTDwfiQYc3f0nkcAQpIFVMpBhb6kHSmTpoI4+YPQ4WcHzjP2Dcp9wdpT1PpFQ1JyR
-	 PZHhD65WC/Q5Q==
+	b=OzU3C8wBK2OXHIrGHnNZpdo/rQ6MSb1jHODyDJAoNGG9AyZNy5xOhOnImbc9d60wE
+	 qSXmDByXxXOp7Ghp9V8hGG6xCGWGNhmsxXa6baFwojfTnq9JMUn7NQgzr7ymCVQr9M
+	 xQzltE3MEY3qlx7wv2dUGT9EHgsMa2EePeQK3qEgp//bYFWGY2XK9BHxnCXxy14lsW
+	 y6hOpdEVVsRQOy2lqROKkzEl3teZgHd64wyHyPEWP29kxwJ3TVQ7xEfvLf+sSEt1u3
+	 0tpfKhhLduhLswCXEr93fOz97JzdTpXZH9WZYuRAlc/qi7p3danUp/VqXou6eelRs8
+	 /UTfMxcLCXHGA==
 From: Mark Brown <broonie@kernel.org>
-Date: Tue, 01 Oct 2024 23:58:43 +0100
-Subject: [PATCH v13 04/40] prctl: arch-agnostic prctl for shadow stack
+Date: Tue, 01 Oct 2024 23:58:42 +0100
+Subject: [PATCH v13 03/40] arm64/mm: Restructure arch_validate_flags() for
+ extensibility
 MIME-Version: 1.0
-Message-Id: <20241001-arm64-gcs-v13-4-222b78d87eee@kernel.org>
+Message-Id: <20241001-arm64-gcs-v13-3-222b78d87eee@kernel.org>
 References: <20241001-arm64-gcs-v13-0-222b78d87eee@kernel.org>
 In-Reply-To: <20241001-arm64-gcs-v13-0-222b78d87eee@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -72,20 +87,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-99b12
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4975; i=broonie@kernel.org;
- h=from:subject:message-id; bh=QzHtuVcSDaL4Yx9qwbzgbMXiTjYft30F6+HnraYB7I8=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBm/H7HehyHHZF6+cj8DJo6NxY+7EGNDDBamzVyHc5d
- IEYLGoqJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZvx+xwAKCRAk1otyXVSH0JhiB/
- wO8/ZF+SkRw9d5n/x/2zuP6kLyixcTZ3zAcm+iDEAW8JePX4d66upSGjkAXNAIOYliNpblNkRnl9lW
- /pqQ7K6QEeMennahYz0YD8lnH71QpGSZoYU4Q3TSyJu1ZMKTYlrBAd4xIFAjtTa1dsVtHWMbgc7EYT
- GrpwH5cRB82KnH5mEWaCdoBopZsgFWmMql5OS4Dhig4w/zyRuEBRoxmlgvQxdF3TWFrXD9i1lNVpHx
- CCKN9fjW0cokoWtvsnRvMxrlBAUb+FeHgux5A6Y+EjNCDrNy3dUev6djW59zf6sdiH/eXUqnNhum7i
- C/teDyY09NlgqHrpdzubJx7yX0COoy
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1425; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=is0r9uSxnBrJsURPndZS8euUNnh9hat0c9erNc615eY=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBm/H7GKNZdsoQOiuGpwbETH3V3HnhsUT9brBj4a8sc
+ 0mwQI0yJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZvx+xgAKCRAk1otyXVSH0OpuB/
+ 9pWeD6rdk7JLYO1MPcZh358jd/19/BInjhws/y8H6gPcPEhXrqV3svABMXzkhapPykA0FPynYWJ3Bt
+ CVWT6h4z/az2texWxSamLzYf+NpFxo0KTA6Xs3FbEQNSLhX6NVP5ShtTxUTRPPqC8WQDiw2//sVF1q
+ A/RTUy4F7OXGB7G2mAcnlkzpyemeS4Jdu5U3o6EafIil48jzkrO3jeu/jQIfS8xwQf5UOFkbK7CXEY
+ QU452e6zmm0e9iAjhYcZALFD7pZ3ZjVBk0ZI4cEGACD5cU1doG8qkctAhdvnI0j0Tz4DLaIJl5HJWh
+ sJYxu/Wz7X4HBFgP9tyB+yg3XUAKpC
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241001_160042_916051_F13FAF61 
-X-CRM114-Status: GOOD (  19.08  )
+X-CRM114-CacheID: sfid-20241002_000035_769726_B5C4F52B 
+X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,134 +117,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Three architectures (x86, aarch64, riscv) have announced support for
-shadow stacks with fairly similar functionality.  While x86 is using
-arch_prctl() to control the functionality neither arm64 nor riscv uses
-that interface so this patch adds arch-agnostic prctl() support to
-get and set status of shadow stacks and lock the current configuation to
-prevent further changes, with support for turning on and off individual
-subfeatures so applications can limit their exposure to features that
-they do not need.  The features are:
-
-  - PR_SHADOW_STACK_ENABLE: Tracking and enforcement of shadow stacks,
-    including allocation of a shadow stack if one is not already
-    allocated.
-  - PR_SHADOW_STACK_WRITE: Writes to specific addresses in the shadow
-    stack.
-  - PR_SHADOW_STACK_PUSH: Push additional values onto the shadow stack.
-
-These features are expected to be inherited by new threads and cleared
-on exec(), unknown features should be rejected for enable but accepted
-for locking (in order to allow for future proofing).
-
-This is based on a patch originally written by Deepak Gupta but modified
-fairly heavily, support for indirect landing pads is removed, additional
-modes added and the locking interface reworked.  The set status prctl()
-is also reworked to just set flags, if setting/reading the shadow stack
-pointer is required this could be a separate prctl.
+Currently arch_validate_flags() is written in a very non-extensible
+fashion, returning immediately if MTE is not supported and writing the MTE
+check as a direct return. Since we will want to add more checks for GCS
+refactor the existing code to be more extensible, no functional change
+intended.
 
 Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
 Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-Acked-by: Yury Khrustalev <yury.khrustalev@arm.com>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- include/linux/mm.h         |  4 ++++
- include/uapi/linux/prctl.h | 22 ++++++++++++++++++++++
- kernel/sys.c               | 30 ++++++++++++++++++++++++++++++
- 3 files changed, 56 insertions(+)
+ arch/arm64/include/asm/mman.h | 14 ++++++++++----
+ 1 file changed, 10 insertions(+), 4 deletions(-)
 
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 182bad0c55df..56654306a832 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -4221,4 +4221,8 @@ static inline void pgalloc_tag_copy(struct folio *new, struct folio *old)
+diff --git a/arch/arm64/include/asm/mman.h b/arch/arm64/include/asm/mman.h
+index 9e39217b4afb..03b790fd0ad8 100644
+--- a/arch/arm64/include/asm/mman.h
++++ b/arch/arm64/include/asm/mman.h
+@@ -62,11 +62,17 @@ static inline bool arch_validate_prot(unsigned long prot,
+ 
+ static inline bool arch_validate_flags(unsigned long vm_flags)
+ {
+-	if (!system_supports_mte())
+-		return true;
++	if (system_supports_mte()) {
++		/*
++		 * only allow VM_MTE if VM_MTE_ALLOWED has been set
++		 * previously
++		 */
++		if ((vm_flags & VM_MTE) && !(vm_flags & VM_MTE_ALLOWED))
++			return false;
++	}
++
++	return true;
+ 
+-	/* only allow VM_MTE if VM_MTE_ALLOWED has been set previously */
+-	return !(vm_flags & VM_MTE) || (vm_flags & VM_MTE_ALLOWED);
  }
- #endif /* CONFIG_MEM_ALLOC_PROFILING */
+ #define arch_validate_flags(vm_flags) arch_validate_flags(vm_flags)
  
-+int arch_get_shadow_stack_status(struct task_struct *t, unsigned long __user *status);
-+int arch_set_shadow_stack_status(struct task_struct *t, unsigned long status);
-+int arch_lock_shadow_stack_status(struct task_struct *t, unsigned long status);
-+
- #endif /* _LINUX_MM_H */
-diff --git a/include/uapi/linux/prctl.h b/include/uapi/linux/prctl.h
-index 35791791a879..557a3d2ac1d4 100644
---- a/include/uapi/linux/prctl.h
-+++ b/include/uapi/linux/prctl.h
-@@ -328,4 +328,26 @@ struct prctl_mm_map {
- # define PR_PPC_DEXCR_CTRL_CLEAR_ONEXEC	0x10 /* Clear the aspect on exec */
- # define PR_PPC_DEXCR_CTRL_MASK		0x1f
- 
-+/*
-+ * Get the current shadow stack configuration for the current thread,
-+ * this will be the value configured via PR_SET_SHADOW_STACK_STATUS.
-+ */
-+#define PR_GET_SHADOW_STACK_STATUS      74
-+
-+/*
-+ * Set the current shadow stack configuration.  Enabling the shadow
-+ * stack will cause a shadow stack to be allocated for the thread.
-+ */
-+#define PR_SET_SHADOW_STACK_STATUS      75
-+# define PR_SHADOW_STACK_ENABLE         (1UL << 0)
-+# define PR_SHADOW_STACK_WRITE		(1UL << 1)
-+# define PR_SHADOW_STACK_PUSH		(1UL << 2)
-+
-+/*
-+ * Prevent further changes to the specified shadow stack
-+ * configuration.  All bits may be locked via this call, including
-+ * undefined bits.
-+ */
-+#define PR_LOCK_SHADOW_STACK_STATUS      76
-+
- #endif /* _LINUX_PRCTL_H */
-diff --git a/kernel/sys.c b/kernel/sys.c
-index 4da31f28fda8..3d38a9c7c5c9 100644
---- a/kernel/sys.c
-+++ b/kernel/sys.c
-@@ -2324,6 +2324,21 @@ int __weak arch_prctl_spec_ctrl_set(struct task_struct *t, unsigned long which,
- 	return -EINVAL;
- }
- 
-+int __weak arch_get_shadow_stack_status(struct task_struct *t, unsigned long __user *status)
-+{
-+	return -EINVAL;
-+}
-+
-+int __weak arch_set_shadow_stack_status(struct task_struct *t, unsigned long status)
-+{
-+	return -EINVAL;
-+}
-+
-+int __weak arch_lock_shadow_stack_status(struct task_struct *t, unsigned long status)
-+{
-+	return -EINVAL;
-+}
-+
- #define PR_IO_FLUSHER (PF_MEMALLOC_NOIO | PF_LOCAL_THROTTLE)
- 
- #ifdef CONFIG_ANON_VMA_NAME
-@@ -2784,6 +2799,21 @@ SYSCALL_DEFINE5(prctl, int, option, unsigned long, arg2, unsigned long, arg3,
- 	case PR_RISCV_SET_ICACHE_FLUSH_CTX:
- 		error = RISCV_SET_ICACHE_FLUSH_CTX(arg2, arg3);
- 		break;
-+	case PR_GET_SHADOW_STACK_STATUS:
-+		if (arg3 || arg4 || arg5)
-+			return -EINVAL;
-+		error = arch_get_shadow_stack_status(me, (unsigned long __user *) arg2);
-+		break;
-+	case PR_SET_SHADOW_STACK_STATUS:
-+		if (arg3 || arg4 || arg5)
-+			return -EINVAL;
-+		error = arch_set_shadow_stack_status(me, arg2);
-+		break;
-+	case PR_LOCK_SHADOW_STACK_STATUS:
-+		if (arg3 || arg4 || arg5)
-+			return -EINVAL;
-+		error = arch_lock_shadow_stack_status(me, arg2);
-+		break;
- 	default:
- 		error = -EINVAL;
- 		break;
 
 -- 
 2.39.2
