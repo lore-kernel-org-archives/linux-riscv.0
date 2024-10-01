@@ -4,78 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15A9DCE7D1F
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Oct 2024 13:01:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD642CE8374
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Oct 2024 13:03:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6dYMEOqX7Q5TRQjRi4vbCtiweWX92EIwKf+Hh7tW7Yk=; b=LE7RLeFu97l7+s
-	v11kpOprMHgpO+H7OCwOZpJLVNIXMS+KMDwhVYuo2s04JFeRA5spVLkKMjRPtvILE1ReX3W9CFlCo
-	hdDPrMPbBhLA31l/Bbn/0ZLYfCU8AjY55W09maOMYQPv7e/vZBpXplDsauHyuWA0RDEOxYHWsJe8C
-	TM9lNxBiGEEob3ADJYc81h8Mb4Q4QGLWfpe4BPyAJG1XwUUrJ0C7743TvRSWL4No3SQuC3wzvcPBN
-	oOs0oESZolzKIi2PkOZ5pkdoefVkUJYf0Do6z7da2Kd65hQQyXCjQIUdAmp4EUqjBd7jU29E09y0X
-	iz7igb8xhEw3fdbP8hhg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fuyeWnsQQd45uCD/xPAzGWHTrnXoNFO6D95s25PJHN4=; b=j7zFY2+xVHIEXO5wZBoAnf4rJl
+	6IYxZgoZlZudji7Qso018rwnLItg9Iy3bg+MUcPmtrHu55jhOciw9bwmUp/IrH9ujsTomIZ74PE6A
+	8/6LMb8UplcKx90XoiBT7fYmhVqRFt1k22pMgTVCgoEevEakf52YYUhcPHatnTHDYB2cw/WxaCBQl
+	IeuPWzrEoj1yTNZ+CU1l5xjh9VsW8y8Kw3q6oJY4yMRqFfrYM8LoYel4ZeBN9SzFbm6rkkOCvYCIB
+	JciYpIEkWrrR/EvjMkKVJmbZIfGmJ2hXfXwQOs3vu/MDGxWKpdZd5lr7iK58CvvWgwJ5uEbrnzyCh
+	1HCiDgLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1svcUz-00000002qZM-0FHK;
-	Tue, 01 Oct 2024 13:01:05 +0000
-Received: from mail-io1-xd35.google.com ([2607:f8b0:4864:20::d35])
+	id 1svcWo-00000002r7F-0PRD;
+	Tue, 01 Oct 2024 13:02:58 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1svbSl-00000002bT2-0ZpA
+	id 1svcWG-00000002r1X-28pj
 	for linux-riscv@lists.infradead.org;
-	Tue, 01 Oct 2024 11:54:44 +0000
-Received: by mail-io1-xd35.google.com with SMTP id ca18e2360f4ac-82ceab75c27so335795839f.1
-        for <linux-riscv@lists.infradead.org>; Tue, 01 Oct 2024 04:54:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1727783681; x=1728388481; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mQP2eZATwaIQBSh4BYLJSNDYNoTYQ7d10X28PMhH36I=;
-        b=VVAmKB6AwFKCumL7IFmf+B+yPh7Pg/BaF8/eOSJ7DWKqWfzVsoJpKhE3xgKzJpk1Su
-         nIXR0twzyyljFW1XrNlPc0ZENcxzGBfWSjWFTVDY5NLdBeqo0745IngtT55qysCJOcZ9
-         E14Fyayyb+o2poZfIRoOkFYZpshT4zZNUaVHCUc0ATbX/8zIPzda0PWkFs0lx6b6AmWe
-         7W/Wz/FPs27lMLkHrF9EGbCtQ6zo4JvQd8aGViXcSKL/Oku9lYCpN1Y+vrnTr/fWowor
-         OUbXLZ66pkMXRpMXgWwceg876x5BPdjpq2xQvdvTNFHPJ2w8MJIKvSpwkJNH4uDgagyP
-         h49w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1727783681; x=1728388481;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=mQP2eZATwaIQBSh4BYLJSNDYNoTYQ7d10X28PMhH36I=;
-        b=ademXa7rVOoWTeLwN6rj7CV33curL/rHepPoXEGcGtR5lmGbrMJ+aP/bOsRSdXKL72
-         V9Y2il96ELQqmFNhYf87RKRaH8i7QPXybxbkaz7rs2jhzglH0MO5G0x9VxN9O1dId+5L
-         kTqqPj4Kj8/DoAF/aadk23auzsRH1jM8xK9nxRtaPLC4G/xdC2w5qhDpMbmLwoESsjy7
-         OZ+Gy+cR+VuqU/3m9sN8lCoTE0lOiXWXfdajAwPrwqDbs1DCMVqXgR2zi6j4AtQdj28S
-         nKm34I1ZdunRD3AIs/FA0qatQSJxtJgw4C7fZ7J9K4+Qj5jFHA3H3HLv0pRHaVjga21Y
-         aZwg==
-X-Forwarded-Encrypted: i=1; AJvYcCUA/DJE1dHDT2Rx0YZ8RcKUhg4lx7G0IZSZU6miZYL7qSxanfPpS+ggE8GDj30+xJ8U8YZsYdeBnj7xQQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYK3aEHcKlYuu83N1OI1NDy3IDxKMUjZvF4MF9Qt35plP48enE
-	xHIAQilXc3CST/gs5YYIyjjTv34RN8S/QH2nlbMAL+q5ZBls0kGh56NW9I/SwCilq2hpHI2tt8f
-	fUWZu0UgEPZd11Kloa4qnmp0V7RfQlUF/xajCnA==
-X-Google-Smtp-Source: AGHT+IHO9w1tNfJws5dAu3OtUP0xCbtsEcfYHhj3flsEJDRvG0kU3OBkokYTY3BvOuYT9zYQT3ITjpbWIIBh684lZtA=
-X-Received: by 2002:a05:6e02:17c7:b0:3a3:4164:eec9 with SMTP id
- e9e14a558f8ab-3a34517ab5dmr148340195ab.14.1727783681191; Tue, 01 Oct 2024
- 04:54:41 -0700 (PDT)
+	Tue, 01 Oct 2024 13:02:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id C683E5C5497;
+	Tue,  1 Oct 2024 13:02:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11976C4CEC6;
+	Tue,  1 Oct 2024 13:02:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1727787743;
+	bh=FDEYOUMz0b1sSCN0xc23akav2PoKwzLJxdk7hwEzxU8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=iy7PxeSdnMHlKHoI9tHuh58pt95nktXjk01kOfYQ7xcNBMLeRoZHoD332cpbz/oQ+
+	 Y03uWsisMVZRFmV0H+6bqNeFwBlMzZNYWYyz4Tawv+BQ7DEzTCUeCtQb+IarAnQ4to
+	 yDLM1ogWva9s/OxrXeZkAJyow5CoxV6c8JMx3VFoyRp9Jz9z4argFRfAx6Ak3FGN9x
+	 bnlGP61n/nMSMYRttZkxX1ImURAWZYBoTr01CATwRKX1TCbkl3UVfnRxrhouJXu+re
+	 iAyMoeyGniuud0rpapvN3WqrFaNHWFWCYMkjeWXTa7ZGKEoyUS3EOGTAzhmbfLDoxU
+	 7Y7XwaZsTphOQ==
+Date: Tue, 1 Oct 2024 14:02:18 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Andi Shyti <andi.shyti@kernel.org>
+Cc: linux-i2c@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Wolfram Sang <wsa@kernel.org>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] i2c: microchip-core: actually use repeated sends
+Message-ID: <20241001-boring-livestock-0158ccc3fa88@spud>
+References: <20240930-uneasy-dorsal-1acda9227b0d@spud>
+ <jzkzcnd5rdprxpw734ppcr5ti23qkppfxs55nse36wcqxff7e3@4ea2lyl7feoo>
 MIME-Version: 1.0
-References: <20240903-correct_error_codes_sifive_plic-v1-1-d929b79663a2@rivosinc.com>
-In-Reply-To: <20240903-correct_error_codes_sifive_plic-v1-1-d929b79663a2@rivosinc.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Tue, 1 Oct 2024 17:24:29 +0530
-Message-ID: <CAAhSdy2OXsFx973MnE0LBEzKK0r4OWYWXbKrNnuW6Gbanfo-bQ@mail.gmail.com>
-Subject: Re: [PATCH] irqchip/sifive-plic: Fix error codes
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Samuel Holland <samuel.holland@sifive.com>, Dan Carpenter <dan.carpenter@linaro.org>, 
-	Anup Patel <apatel@ventanamicro.com>, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, kernel test robot <lkp@intel.com>
+In-Reply-To: <jzkzcnd5rdprxpw734ppcr5ti23qkppfxs55nse36wcqxff7e3@4ea2lyl7feoo>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241001_045443_465871_C0E6852A 
-X-CRM114-Status: GOOD (  16.13  )
+X-CRM114-CacheID: sfid-20241001_060224_668170_AE74E2C1 
+X-CRM114-Status: GOOD (  34.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,48 +69,148 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============8017480181427017211=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBTZXAgNCwgMjAyNCBhdCA1OjEx4oCvQU0gQ2hhcmxpZSBKZW5raW5zIDxjaGFybGll
-QHJpdm9zaW5jLmNvbT4gd3JvdGU6Cj4KPiBTZXQgZXJyb3IgdG8gLUVOT01FTSBpZiBrY2FsbG9j
-KCkgZmFpbHMgb3IgaWYgaXJxX2RvbWFpbl9hZGRfbGluZWFyKCkKPiBmYWlscyBpbnNpZGUgb2Yg
-cGxpY19wcm9iZSgpLgo+CgpMaWtlIEFsZXggbWVudGlvbmVkLCBwbGVhc2UgaW5jbHVkZSBhIEZp
-eGVzIHRhZy4KCj4gU2lnbmVkLW9mZi1ieTogQ2hhcmxpZSBKZW5raW5zIDxjaGFybGllQHJpdm9z
-aW5jLmNvbT4KPiBSZXBvcnRlZC1ieToga2VybmVsIHRlc3Qgcm9ib3QgPGxrcEBpbnRlbC5jb20+
-Cj4gUmVwb3J0ZWQtYnk6IERhbiBDYXJwZW50ZXIgPGRhbi5jYXJwZW50ZXJAbGluYXJvLm9yZz4K
-PiBDbG9zZXM6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3IvMjAyNDA5MDMxMTIyLnlCaDhIcnhB
-LWxrcEBpbnRlbC5jb20vCgpMR1RNLgoKUmV2aWV3ZWQtYnk6IEFudXAgUGF0ZWwgPGFudXBAYnJh
-aW5mYXVsdC5vcmc+CgpSZWdhcmRzLApBbnVwCgo+IC0tLQo+ICBkcml2ZXJzL2lycWNoaXAvaXJx
-LXNpZml2ZS1wbGljLmMgfCA4ICsrKysrKy0tCj4gIDEgZmlsZSBjaGFuZ2VkLCA2IGluc2VydGlv
-bnMoKyksIDIgZGVsZXRpb25zKC0pCj4KPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9pcnFjaGlwL2ly
-cS1zaWZpdmUtcGxpYy5jIGIvZHJpdmVycy9pcnFjaGlwL2lycS1zaWZpdmUtcGxpYy5jCj4gaW5k
-ZXggMmY2ZWY1YzQ5NWJkLi4wYjczMGUzMDU3NDggMTAwNjQ0Cj4gLS0tIGEvZHJpdmVycy9pcnFj
-aGlwL2lycS1zaWZpdmUtcGxpYy5jCj4gKysrIGIvZHJpdmVycy9pcnFjaGlwL2lycS1zaWZpdmUt
-cGxpYy5jCj4gQEAgLTYyNiw4ICs2MjYsMTAgQEAgc3RhdGljIGludCBwbGljX3Byb2JlKHN0cnVj
-dCBmd25vZGVfaGFuZGxlICpmd25vZGUpCj4KPiAgICAgICAgICAgICAgICAgaGFuZGxlci0+ZW5h
-YmxlX3NhdmUgPSBrY2FsbG9jKERJVl9ST1VORF9VUChucl9pcnFzLCAzMiksCj4gICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzaXplb2YoKmhhbmRsZXItPmVu
-YWJsZV9zYXZlKSwgR0ZQX0tFUk5FTCk7Cj4gLSAgICAgICAgICAgICAgIGlmICghaGFuZGxlci0+
-ZW5hYmxlX3NhdmUpCj4gKyAgICAgICAgICAgICAgIGlmICghaGFuZGxlci0+ZW5hYmxlX3NhdmUp
-IHsKPiArICAgICAgICAgICAgICAgICAgICAgICBlcnJvciA9IC1FTk9NRU07Cj4gICAgICAgICAg
-ICAgICAgICAgICAgICAgZ290byBmYWlsX2NsZWFudXBfY29udGV4dHM7Cj4gKyAgICAgICAgICAg
-ICAgIH0KPiAgZG9uZToKPiAgICAgICAgICAgICAgICAgZm9yIChod2lycSA9IDE7IGh3aXJxIDw9
-IG5yX2lycXM7IGh3aXJxKyspIHsKPiAgICAgICAgICAgICAgICAgICAgICAgICBwbGljX3RvZ2ds
-ZShoYW5kbGVyLCBod2lycSwgMCk7Cj4gQEAgLTYzOSw4ICs2NDEsMTAgQEAgc3RhdGljIGludCBw
-bGljX3Byb2JlKHN0cnVjdCBmd25vZGVfaGFuZGxlICpmd25vZGUpCj4KPiAgICAgICAgIHByaXYt
-PmlycWRvbWFpbiA9IGlycV9kb21haW5fY3JlYXRlX2xpbmVhcihmd25vZGUsIG5yX2lycXMgKyAx
-LAo+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICZw
-bGljX2lycWRvbWFpbl9vcHMsIHByaXYpOwo+IC0gICAgICAgaWYgKFdBUk5fT04oIXByaXYtPmly
-cWRvbWFpbikpCj4gKyAgICAgICBpZiAoV0FSTl9PTighcHJpdi0+aXJxZG9tYWluKSkgewo+ICsg
-ICAgICAgICAgICAgICBlcnJvciA9IC1FTk9NRU07Cj4gICAgICAgICAgICAgICAgIGdvdG8gZmFp
-bF9jbGVhbnVwX2NvbnRleHRzOwo+ICsgICAgICAgfQo+Cj4gICAgICAgICAvKgo+ICAgICAgICAg
-ICogV2UgY2FuIGhhdmUgbXVsdGlwbGUgUExJQyBpbnN0YW5jZXMgc28gc2V0dXAgZ2xvYmFsIHN0
-YXRlCj4KPiAtLS0KPiBiYXNlLWNvbW1pdDogNjgwNGYwZWRiZTc3NDc3NzRlNmFlNjBmMjBjZWM0
-ZWUzYWQ3YzE4Nwo+IGNoYW5nZS1pZDogMjAyNDA5MDMtY29ycmVjdF9lcnJvcl9jb2Rlc19zaWZp
-dmVfcGxpYy00NjExZjU5MjkxZGYKPiAtLQo+IC0gQ2hhcmxpZQo+Cj4KCl9fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
-dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
-b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+
+--===============8017480181427017211==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="ofQ4KTZDQjzQ4Z5h"
+Content-Disposition: inline
+
+
+--ofQ4KTZDQjzQ4Z5h
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Oct 01, 2024 at 02:45:20PM +0200, Andi Shyti wrote:
+> Hi Conor,
+>=20
+> On Mon, Sep 30, 2024 at 02:38:27PM GMT, Conor Dooley wrote:
+> > From: Conor Dooley <conor.dooley@microchip.com>
+> >=20
+> > At present, where repeated sends are intended to be used, the
+> > i2c-microchip-core driver sends a stop followed by a start. Lots of i2c
+> > devices must not malfunction in the face of this behaviour, because the
+> > driver has operated like this for years! Try to keep track of whether or
+> > not a repeated send is required, and suppress sending a stop in these
+> > cases.
+> >=20
+> > Fixes: 64a6f1c4987e ("i2c: add support for microchip fpga i2c controlle=
+rs")
+>=20
+> I don't think the Fixes tag is needed here if everything worked
+> until now, unless you got some other device that requires this
+> change and you need to explain it.
+
+I think the fixes tag is accurate, because it only happened to work on
+the limited set of devices I and others tried. This patch came about cos
+I got reports of it being broken in 6.6
+
+> If this is more an improvement (because it has worked), then we
+> shouldn't add the Fixes tag.
+>=20
+> In any case, when patches are going to stable, we need to Cc
+> stable too.
+>=20
+> Cc: <stable@vger.kernel.org> # v6.0+
+>=20
+> (This is specified in the
+> Documentation/process/stable-kernel-rules.rst and I'm starting to
+> enforce it here).
+
+Yah, some maintainers want to add the tags themselves, so got into a
+(bad?) habit of leaving them out. I can add it if there's a v2.
+
+>=20
+> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+>=20
+> ...
+>=20
+> > +	/*
+> > +	 * If there's been an error, the isr needs to return control
+> > +	 * to the "main" part of the driver, so as not to keep sending
+> > +	 * messages once it completes and clears the SI bit.
+> > +	 */
+> > +	if (idev->msg_err) {
+> > +		complete(&idev->msg_complete);
+> > +		return;
+> > +	}
+> > +
+> > +	this_msg =3D (idev->msg_queue)++;
+>=20
+> do we need parenthesis here?
+
+I suppose not, do you want a v2 if that's the only change?
+
+>=20
+> ...
+>=20
+> > +	/*
+> > +	 * The isr controls the flow of a transfer, this info needs to be sav=
+ed
+> > +	 * to a location that it can access the queue information from.
+> > +	 */
+> > +	idev->restart_needed =3D false;
+> > +	idev->msg_queue =3D msgs;
+> > +	idev->total_num =3D num;
+> > +	idev->current_num =3D 0;
+> > +
+> > +	/*
+> > +	 * But the first entry to the isr is triggered by the start in this
+> > +	 * function, so the first message needs to be "dequeued".
+> > +	 */
+> > +	idev->addr =3D i2c_8bit_addr_from_msg(this_msg);
+> > +	idev->msg_len =3D this_msg->len;
+> > +	idev->buf =3D this_msg->buf;
+> > +	idev->msg_err =3D 0;
+> > +
+> > +	if (idev->total_num > 1) {
+> > +		struct i2c_msg *next_msg =3D msgs + 1;
+> > +
+> > +		idev->restart_needed =3D next_msg->flags & I2C_M_RD;
+> > +	}
+> > +
+> > +	idev->current_num++;
+> > +	idev->msg_queue++;
+>=20
+> Can we initialize only once? This part is just adding extra code.
+
+I don't agree that it is extra code, I think it is clearer like this as
+I intentionally wrote it this way.
+
+> The rest looks good. I just need to know if Wolfram has some more
+> observations here.
+>=20
+> Thanks,
+> Andi
+
+--ofQ4KTZDQjzQ4Z5h
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZvvy2gAKCRB4tDGHoIJi
+0owyAPwNPsSNLQz2fsZ0hPQ9cGl/6RpVQ71r0aGY6J/e82FtCgEA4mWug7Gd7DiL
+vFdzZiuzu//XelR28bmApIY34+l14AQ=
+=Z9Uz
+-----END PGP SIGNATURE-----
+
+--ofQ4KTZDQjzQ4Z5h--
+
+
+--===============8017480181427017211==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8017480181427017211==--
+
