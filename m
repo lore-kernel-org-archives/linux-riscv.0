@@ -4,73 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63463CE837A
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Oct 2024 13:14:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67362CF64BE
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Oct 2024 13:30:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dPMSwekmxESDygXRrIANRfRAMFOj51COMaM3Twn2BIk=; b=d6HOxryyW0XHTn
-	M+vGQoZ90VJSVVqB/KAzWm/4/yMvVJPeVd7bi7hKzjMC6y7ttJheooR2Gj+A8NZT3hPwtuOLPnKKR
-	zOM+z0Hw8OfBaO1NOXSJG0PU7VFwK7FBChj1hOAKcsuk9R5Z1oIAFKeCPHvbKIjvaRcTQKVe8qOur
-	PwDME2MPwjLwMfSB8VtGvPMu3eB0fbE1H0gteKrcwcdX/x/BnQrON3bNsdkDqugxWV4E50CM6vNso
-	jqNEBxeDeH/gCiql7qBkJW8n6iEUdtfwzJPTBmajS9zybrFMpu8uNUV616inEqLx6Mm5ufSoVcHq5
-	2cjErmD1WXEUxX7yapmg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=/QhFpyXw4R9Ma6MfktxU+tZgQEn5gDqR8ZoRW1oY5e0=; b=VRWuTZukt79w8VTXTNu1ujzIz5
+	HXc0SDMwz6vD6l2XJ5Pzzci19kCuHImvSsjRlcLH3I57esakFDqn4boE5VGiB/LKnQ0KIUf5aTd/h
+	VdQItdPQ8HQ5TSfXNdBl0cbarFxRpPY1QJq4VRkgMsfWNkMI15BWa0Hm+CtNphOpwZ9j9k45nrV0U
+	ny/s8pGmn6x0RdJXcqCUpIzTMOjKumyS/XRDsEk3puNp5Ui3W1+fzOvdtYIdCjkINQWpJakXjM8VR
+	8NPXhIMMlu/U2lQDKnRZSAwfuCyxZK0SC5hhGPvQkuggocBr/Y1cfDkwKtlYkmSVndBPAs3xWQogS
+	Bu3cIAHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1svciI-00000002sQW-1Vzv;
-	Tue, 01 Oct 2024 13:14:50 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1svcxY-00000002wOy-0Obo;
+	Tue, 01 Oct 2024 13:30:36 +0000
+Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1svciD-00000002sNq-40oL;
-	Tue, 01 Oct 2024 13:14:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E9E04A43662;
-	Tue,  1 Oct 2024 13:14:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6112CC4CEC6;
-	Tue,  1 Oct 2024 13:14:38 +0000 (UTC)
-Date: Tue, 1 Oct 2024 09:15:27 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Alice Ryhl <aliceryhl@google.com>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>, Peter Zijlstra <peterz@infradead.org>,
- Josh Poimboeuf <jpoimboe@kernel.org>, Jason Baron <jbaron@akamai.com>, Ard
- Biesheuvel <ardb@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor
- <alex.gaynor@gmail.com>, Wedson Almeida Filho <wedsonaf@gmail.com>, Boqun
- Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, "=?UTF-8?B?Qmo=?=
- =?UTF-8?B?w7Zybg==?= Roy Baron" <bjorn3_gh@protonmail.com>, Benno Lossin
- <benno.lossin@proton.me>, Andreas Hindborg <a.hindborg@samsung.com>,
- linux-trace-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org,
- linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
- linux-arch@vger.kernel.org, Thomas Gleixner <tglx@linutronix.de>, Ingo
- Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
- <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin"
- <hpa@zytor.com>, Sean Christopherson <seanjc@google.com>, Uros Bizjak
- <ubizjak@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
- <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton
- <oliver.upton@linux.dev>, Mark Rutland <mark.rutland@arm.com>, Ryan Roberts
- <ryan.roberts@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-arm-kernel@lists.infradead.org, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Anup Patel <apatel@ventanamicro.com>, Andrew Jones
- <ajones@ventanamicro.com>, Alexandre Ghiti <alexghiti@rivosinc.com>, Conor
- Dooley <conor.dooley@microchip.com>, Samuel Holland
- <samuel.holland@sifive.com>, linux-riscv@lists.infradead.org, Huacai Chen
- <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, Bibo Mao
- <maobibo@loongson.cn>, Tiezhu Yang <yangtiezhu@loongson.cn>, Andrew Morton
- <akpm@linux-foundation.org>, Tianrui Zhao <zhaotianrui@loongson.cn>,
- loongarch@lists.linux.dev, Carlos Llamas <cmllamas@google.com>
-Subject: Re: [PATCH v8 0/5] Tracepoints and static branch in Rust
-Message-ID: <20241001091527.2fe4e039@gandalf.local.home>
-In-Reply-To: <20240822-tracepoint-v8-0-f0c5899e6fd3@google.com>
-References: <20240822-tracepoint-v8-0-f0c5899e6fd3@google.com>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-MIME-Version: 1.0
+	id 1svcxW-00000002wNh-0yu4
+	for linux-riscv@lists.infradead.org;
+	Tue, 01 Oct 2024 13:30:35 +0000
+Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-37ce6262705so895603f8f.1
+        for <linux-riscv@lists.infradead.org>; Tue, 01 Oct 2024 06:30:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1727789432; x=1728394232; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=6NcH/txgm4SoZvRl8jrqK6AfP/r/sFmOakhN5fEYqYs=;
+        b=aSY0CXQUKAP5uBK2/9RCL4P0KOSq9K9F6yiXUW3OTD02v+iaHMagEcsoWv1a13UqCW
+         9LgMTVgMSAYD52aHMZQQ66vdBc4WEtmKNFV4Zup0WTiGPNa/RdLRn5gxIbU0TKpQllUU
+         ccetTAuGpeu3hfTOcce+ZWewMzXi4adw3oHMq8H7hIsuEqYbvCbzlspHHvjnxvaVOro5
+         gKDW+nqYvnzLemPGMXw+6+3UMYRJ0HaZKBXnCVZvP5+aBS5VPyitnjcW5l8WKjxFB30G
+         RXLEuWzyZgrJdPgcZ0VD4ic5bP5Xoc8vEpBV/Zho1FlrnFF92qJJ6bYGyAesjvj/LMwC
+         Bo7g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1727789432; x=1728394232;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=6NcH/txgm4SoZvRl8jrqK6AfP/r/sFmOakhN5fEYqYs=;
+        b=Enu+hzwznusWKFl1p3JKrCv/ASFf4XEqF5H1rv/Hsf8ouS660tAcZZTyrAZu2WPMEh
+         roNNjxKyJx8Re0i/D74PwEpymdQAVs+3S8Vavq3/61WcDer4Zp9vcHWs/p1ZGOz5Gf4d
+         UoGzK8rHmloN8g358NhWI3TYnbNM4xD3pXfbQk46JQbUXZWwrM6BLEFyKqb0KPkRMYPD
+         vCON9UCM+AAqumvSYmrJ6YB8WmMokgBpUKazMXoCcfsxz6oPTJwTeWot3cln9HfXofNa
+         /y06DNEFe+/TvZXkSh6EBXAWJsJKGcFzmbj7YWN/WWrs/6fEX/v+IvzQ5Yg3pDFcQ5vO
+         H2oQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU/l4a9riLpcUAzZsGm5ZOOJ2IQTxSGhxQ414pA/LLcXxRWX8PMoV/+UPWeUbgZM7Sbc13kWLPQXko9aA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxP7w4JPvNY0CiSy0T+sqkJe0AxCS7HaWktsboWqVIPh0e+Tz4W
+	PUuCvyC6DgQuq2FghSSl/kPW4AGtSx32OnMjI+vqsLuuNSuk7S/9SjzsKMzNaKNtWi9IKIezVIe
+	NPYrwhgWlODzQ/Q==
+X-Google-Smtp-Source: AGHT+IHEHR04HLA0/xTKtqy65DSu4rhuHv96KunVk64O/ZW/4J8kBgg9MneRCFsC6zfzdrsaOIeGwwArA+9MwtA=
+X-Received: from aliceryhl.c.googlers.com ([fda3:e722:ac3:cc00:28:9cb1:c0a8:35bd])
+ (user=aliceryhl job=sendgmr) by 2002:a05:6000:e48:b0:37c:d2ed:c51a with SMTP
+ id ffacd0b85a97d-37cd5a9ee86mr8842f8f.5.1727789432081; Tue, 01 Oct 2024
+ 06:30:32 -0700 (PDT)
+Date: Tue, 01 Oct 2024 13:29:58 +0000
+In-Reply-To: <20241001-tracepoint-v9-0-1ad3b7d78acb@google.com>
+Mime-Version: 1.0
+References: <20241001-tracepoint-v9-0-1ad3b7d78acb@google.com>
+X-Developer-Key: i=aliceryhl@google.com; a=openpgp; fpr=49F6C1FAA74960F43A5B86A1EE7A392FDE96209F
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3861; i=aliceryhl@google.com;
+ h=from:subject:message-id; bh=AvPTYbgUDavV8mVnKHm16jwbLov+IgYYrRjsKEF8/Ko=;
+ b=owEBbQKS/ZANAwAKAQRYvu5YxjlGAcsmYgBm+/lwNcJAULBaBeL+Dr8YX6BXARPW8IdrfPDru
+ oHV4BLfmr6JAjMEAAEKAB0WIQSDkqKUTWQHCvFIvbIEWL7uWMY5RgUCZvv5cAAKCRAEWL7uWMY5
+ RrXoD/46qHxmQQefR6J6dxs+nMxE/PeCwUzN+iBASNF6GRFzW+qtSy6GbpoUkBk6lPtMPXIZ21+
+ 7vYAkFVr51pxI/ktD9Q/9G8vTic38vSwXmAw135cEzOw4quHQWf1CcMO8iaNvtmYwwX23i4p90K
+ 7b++yxkkUjapjpbwOMqLk33VOnYXWilNEXsK2owifqR8LngjI5Ybp5rmPx/JbOJaPnog5WGamGz
+ 8vcavGHdPBhs6IxJdmWGacvrmJWdrBe5a5mHtnKnPoAcwtrkGjh1K1xeimz2ARL5bdIUaNTFQeU
+ g33eq/B1bfg9vw3Tn/JLEheM10xngvB1fCfiAFRbRISYHdwywqjZSpz4/RrFVCfMWajI+c0aQ2X
+ Nv1IdKug4kbpyOdrRJs4ZX4KQTVfK3c/ERGMvUmb1BLYpmyyWV+pgrLZ3g5oxw8tEqL41msxdRn
+ rvgFmIp86sYIGFicKbcfzS7pD7DlCREeL00e4mGdetCl2lTUHy31MDOkBY13fi5Yx+G9W9IHdBW
+ OsRW4Tt7wHJlIO8mhtb/JxNTSXdLw5OlZSjC4Vvil4u101yVHeMAtrjGcr99GphInredXfMWI6V
+ WCfcFx7E6cIEpP3GMqvqRWlpH4etvET/oIetiWYjQgwYiKCZl6i0zVMvIZnp49cR9RiKj+ft9Vq XJjgUh3pWF492BQ==
+X-Mailer: b4 0.13.0
+Message-ID: <20241001-tracepoint-v9-1-1ad3b7d78acb@google.com>
+Subject: [PATCH v9 1/5] rust: add generic static_key_false
+From: Alice Ryhl <aliceryhl@google.com>
+To: Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, 
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Josh Poimboeuf <jpoimboe@kernel.org>, Jason Baron <jbaron@akamai.com>, 
+	Ard Biesheuvel <ardb@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
+	Wedson Almeida Filho <wedsonaf@gmail.com>, Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+	"=?utf-8?q?Bj=C3=B6rn_Roy_Baron?=" <bjorn3_gh@protonmail.com>, Benno Lossin <benno.lossin@proton.me>, 
+	Andreas Hindborg <a.hindborg@kernel.org>
+Cc: linux-trace-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, linux-arch@vger.kernel.org, 
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Sean Christopherson <seanjc@google.com>, Uros Bizjak <ubizjak@gmail.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Mark Rutland <mark.rutland@arm.com>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Fuad Tabba <tabba@google.com>, 
+	linux-arm-kernel@lists.infradead.org, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <apatel@ventanamicro.com>, 
+	Andrew Jones <ajones@ventanamicro.com>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
+	Conor Dooley <conor.dooley@microchip.com>, Samuel Holland <samuel.holland@sifive.com>, 
+	linux-riscv@lists.infradead.org, Huacai Chen <chenhuacai@kernel.org>, 
+	WANG Xuerui <kernel@xen0n.name>, Bibo Mao <maobibo@loongson.cn>, 
+	Tiezhu Yang <yangtiezhu@loongson.cn>, Andrew Morton <akpm@linux-foundation.org>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, loongarch@lists.linux.dev, 
+	Alice Ryhl <aliceryhl@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241001_061446_162796_2FFD87B1 
-X-CRM114-Status: GOOD (  41.14  )
+X-CRM114-CacheID: sfid-20241001_063034_305526_220ED7CF 
+X-CRM114-Status: GOOD (  20.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,135 +127,126 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Add just enough support for static key so that we can use it from
+tracepoints. Tracepoints rely on `static_key_false` even though it is
+deprecated, so we add the same functionality to Rust.
 
-Hi Alice,
+This patch only provides a generic implementation without code patching
+(matching the one used when CONFIG_JUMP_LABEL is disabled). Later
+patches add support for inline asm implementations that use runtime
+patching.
 
-Can you rebase this series on v6.12-rc1?
+When CONFIG_JUMP_LABEL is unset, `static_key_count` is a static inline
+function, so a Rust helper is defined for `static_key_count` in this
+case. If Rust is compiled with LTO, this call should get inlined. The
+helper can be eliminated once we have the necessary inline asm to make
+atomic operations from Rust.
 
-Thanks,
+Reviewed-by: Boqun Feng <boqun.feng@gmail.com>
+Signed-off-by: Alice Ryhl <aliceryhl@google.com>
+---
+ rust/bindings/bindings_helper.h |  1 +
+ rust/helpers/helpers.c          |  1 +
+ rust/helpers/jump_label.c       | 15 +++++++++++++++
+ rust/kernel/jump_label.rs       | 29 +++++++++++++++++++++++++++++
+ rust/kernel/lib.rs              |  1 +
+ 5 files changed, 47 insertions(+)
 
--- Steve
+diff --git a/rust/bindings/bindings_helper.h b/rust/bindings/bindings_helper.h
+index ae82e9c941af..e0846e7e93e6 100644
+--- a/rust/bindings/bindings_helper.h
++++ b/rust/bindings/bindings_helper.h
+@@ -14,6 +14,7 @@
+ #include <linux/ethtool.h>
+ #include <linux/firmware.h>
+ #include <linux/jiffies.h>
++#include <linux/jump_label.h>
+ #include <linux/mdio.h>
+ #include <linux/phy.h>
+ #include <linux/refcount.h>
+diff --git a/rust/helpers/helpers.c b/rust/helpers/helpers.c
+index 30f40149f3a9..17e1b60d178f 100644
+--- a/rust/helpers/helpers.c
++++ b/rust/helpers/helpers.c
+@@ -12,6 +12,7 @@
+ #include "build_assert.c"
+ #include "build_bug.c"
+ #include "err.c"
++#include "jump_label.c"
+ #include "kunit.c"
+ #include "mutex.c"
+ #include "page.c"
+diff --git a/rust/helpers/jump_label.c b/rust/helpers/jump_label.c
+new file mode 100644
+index 000000000000..0e9ed15903f6
+--- /dev/null
++++ b/rust/helpers/jump_label.c
+@@ -0,0 +1,15 @@
++// SPDX-License-Identifier: GPL-2.0
++
++/*
++ * Copyright (C) 2024 Google LLC.
++ */
++
++#include <linux/jump_label.h>
++ 
++#ifndef CONFIG_JUMP_LABEL
++int rust_helper_static_key_count(struct static_key *key)
++{
++       return static_key_count(key);
++}
++EXPORT_SYMBOL_GPL(rust_helper_static_key_count);
++#endif
+diff --git a/rust/kernel/jump_label.rs b/rust/kernel/jump_label.rs
+new file mode 100644
+index 000000000000..011e1fc1d19a
+--- /dev/null
++++ b/rust/kernel/jump_label.rs
+@@ -0,0 +1,29 @@
++// SPDX-License-Identifier: GPL-2.0
++
++// Copyright (C) 2024 Google LLC.
++
++//! Logic for static keys.
++//!
++//! C header: [`include/linux/jump_label.h`](srctree/include/linux/jump_label.h).
++
++/// Branch based on a static key.
++///
++/// Takes three arguments:
++///
++/// * `key` - the path to the static variable containing the `static_key`.
++/// * `keytyp` - the type of `key`.
++/// * `field` - the name of the field of `key` that contains the `static_key`.
++///
++/// # Safety
++///
++/// The macro must be used with a real static key defined by C.
++#[macro_export]
++macro_rules! static_key_false {
++    ($key:path, $keytyp:ty, $field:ident) => {{
++        let _key: *const $keytyp = ::core::ptr::addr_of!($key);
++        let _key: *const $crate::bindings::static_key = ::core::ptr::addr_of!((*_key).$field);
++
++        $crate::bindings::static_key_count(_key.cast_mut()) > 0
++    }};
++}
++pub use static_key_false;
+diff --git a/rust/kernel/lib.rs b/rust/kernel/lib.rs
+index 22a3bfa5a9e9..6dfafa69a84e 100644
+--- a/rust/kernel/lib.rs
++++ b/rust/kernel/lib.rs
+@@ -36,6 +36,7 @@
+ pub mod firmware;
+ pub mod init;
+ pub mod ioctl;
++pub mod jump_label;
+ #[cfg(CONFIG_KUNIT)]
+ pub mod kunit;
+ pub mod list;
 
-
-On Thu, 22 Aug 2024 12:04:12 +0000
-Alice Ryhl <aliceryhl@google.com> wrote:
-
-> An important part of a production ready Linux kernel driver is
-> tracepoints. So to write production ready Linux kernel drivers in Rust,
-> we must be able to call tracepoints from Rust code. This patch series
-> adds support for calling tracepoints declared in C from Rust.
-> 
-> This series includes a patch that adds a user of tracepoits to the
-> rust_print sample. Please see that sample for details on what is needed
-> to use this feature in Rust code.
-> 
-> This is intended for use in the Rust Binder driver, which was originally
-> sent as an RFC [1]. The RFC did not include tracepoint support, but you
-> can see how it will be used in Rust Binder at [2]. The author has
-> verified that the tracepoint support works on Android devices.
-> 
-> This implementation implements support for static keys in Rust so that
-> the actual static branch happens in the Rust object file. However, the
-> __DO_TRACE body remains in C code. See v1 for an implementation where
-> __DO_TRACE is also implemented in Rust.
-> 
-> When compiling for x86, this patchset has a dependency on [3] as we need
-> objtool to convert jmp instructions to nop instructions. This patchset
-> is based on top of the series containing [3].
-> 
-> There is also a conflict with splitting up the C helpers [4]. I've
-> included an alternate version of the first patch that shows how to
-> resolve the conflict. When using the alternate version of the first
-> patch, this series applies cleanly on top of rust-next.
-> 
-> Both [3] and [4] are already in rust-next.
-> 
-> Link: https://lore.kernel.org/rust-for-linux/20231101-rust-binder-v1-0-08ba9197f637@google.com/ [1]
-> Link: https://r.android.com/3119993 [2]
-> Link: https://lore.kernel.org/all/20240725183325.122827-7-ojeda@kernel.org/ [3]
-> Link: https://lore.kernel.org/all/20240815103016.2771842-1-nmi@metaspace.dk/ [4]
-> Signed-off-by: Alice Ryhl <aliceryhl@google.com>
-> ---
-> Changes in v8:
-> - Use OBJTREE instead of SRCTREE for temporary asm file.
-> - Adjust comments on `asm!` wrapper to be less confusing.
-> - Include resolution of conflict with helpers splitting.
-> - Link to v7: https://lore.kernel.org/r/20240816-tracepoint-v7-0-d609b916b819@google.com
-> 
-> Changes in v7:
-> - Fix spurious file included in first patch.
-> - Fix issue with riscv asm.
-> - Fix tags on fourth patch to match fifth patch.
-> - Add Reviewed-by/Acked-by tags where appropriate.
-> - Link to v6: https://lore.kernel.org/r/20240808-tracepoint-v6-0-a23f800f1189@google.com
-> 
-> Changes in v6:
-> - Add support for !CONFIG_JUMP_LABEL.
-> - Add tracepoint to rust_print sample.
-> - Deduplicate inline asm.
-> - Require unsafe inside `declare_trace!`.
-> - Fix bug on x86 due to use of intel syntax.
-> - Link to v5: https://lore.kernel.org/r/20240802-tracepoint-v5-0-faa164494dcb@google.com
-> 
-> Changes in v5:
-> - Update first patch regarding inline asm duplication.
-> - Add __rust_do_trace helper to support conditions.
-> - Rename DEFINE_RUST_DO_TRACE_REAL to __DEFINE_RUST_DO_TRACE.
-> - Get rid of glob-import in tracepoint macro.
-> - Address safety requirements on tracepoints in docs.
-> - Link to v4: https://lore.kernel.org/rust-for-linux/20240628-tracepoint-v4-0-353d523a9c15@google.com
-> 
-> Changes in v4:
-> - Move arch-specific code into rust/kernel/arch.
-> - Restore DEFINE_RUST_DO_TRACE at end of define_trace.h
-> - Link to v3: https://lore.kernel.org/r/20240621-tracepoint-v3-0-9e44eeea2b85@google.com
-> 
-> Changes in v3:
-> - Support for Rust static_key on loongarch64 and riscv64.
-> - Avoid failing compilation on architectures that are missing Rust
->   static_key support when the archtectures does not actually use it.
-> - Link to v2: https://lore.kernel.org/r/20240610-tracepoint-v2-0-faebad81b355@google.com
-> 
-> Changes in v2:
-> - Call into C code for __DO_TRACE.
-> - Drop static_call patch, as it is no longer needed.
-> - Link to v1: https://lore.kernel.org/r/20240606-tracepoint-v1-0-6551627bf51b@google.com
-> 
-> ---
-> Alice Ryhl (5):
->       rust: add generic static_key_false
->       rust: add tracepoint support
->       rust: samples: add tracepoint to Rust sample
->       jump_label: adjust inline asm to be consistent
->       rust: add arch_static_branch
-> 
->  MAINTAINERS                             |  1 +
->  arch/arm/include/asm/jump_label.h       | 14 +++--
->  arch/arm64/include/asm/jump_label.h     | 20 +++++---
->  arch/loongarch/include/asm/jump_label.h | 16 +++---
->  arch/riscv/include/asm/jump_label.h     | 50 ++++++++++--------
->  arch/x86/include/asm/jump_label.h       | 38 ++++++--------
->  include/linux/tracepoint.h              | 22 +++++++-
->  include/trace/define_trace.h            | 12 +++++
->  include/trace/events/rust_sample.h      | 31 +++++++++++
->  rust/Makefile                           |  5 +-
->  rust/bindings/bindings_helper.h         |  3 ++
->  rust/helpers.c                          |  9 ++++
->  rust/kernel/.gitignore                  |  3 ++
->  rust/kernel/arch_static_branch_asm.rs.S |  7 +++
->  rust/kernel/jump_label.rs               | 91 +++++++++++++++++++++++++++++++++
->  rust/kernel/lib.rs                      | 37 ++++++++++++++
->  rust/kernel/tracepoint.rs               | 49 ++++++++++++++++++
->  samples/rust/Makefile                   |  3 +-
->  samples/rust/rust_print.rs              | 18 +++++++
->  samples/rust/rust_print_events.c        |  8 +++
->  scripts/Makefile.build                  |  9 +++-
->  21 files changed, 379 insertions(+), 67 deletions(-)
-> ---
-> base-commit: 88359b25b950670432ef1da4352eb6cc62e0fa9f
-> change-id: 20240606-tracepoint-31e15b90e471
-> 
-> Best regards,
+-- 
+2.46.1.824.gd892dcdcdd-goog
 
 
 _______________________________________________
