@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E26CDCF318A
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Oct 2024 23:07:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CBFDCF3189
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Oct 2024 23:10:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0i4lih6l7XvUfNuIfZXEmiChFPAscvrlxMR+ssb5JLU=; b=Lh52oBJKvW3YCt
-	FxSiEjdcE4TlWCw7q0vEi4A1bgcbRu6fqqsmFv+SvOdOT0EpNIToQP+arlQw+5qk5MDAFSL0GKZPj
-	N8TPA4RQi/9GWgDgXtSy6UILOmZUHi6PJ0SKv+Woiu7DmJe5iryytrNHvT2AP1qWUThIi7c2lxCis
-	hioE4UIPY1mJb0AYsAuPXdl0EYHI2FIwUuEt0ULlFXUyh/LOCOrw1rl9i/+FxyuRxHCUZd48mlEup
-	GWg+u+pvzHCYqTRbpzJLrrfga2DQ74wXwM4OQL9R6O0VjEgVgEZz5Ov5ZHAnxwcEHmyl1dldqkWht
-	MRpXXEAt7kcUsbnxAcvQ==;
+	List-Owner; bh=Ap1dth0ULcnUQuygPH9RQCJwQsdJcIT4VBqDFPEpggk=; b=narKstK5GqUp9Y
+	rKneyrE6gZ22MHa98s+/vyb3XdPxioU6xcVwc2XiHDCyGvWRvhXddvIubtQoXpWFm6WTD18jFDegc
+	6a+IEn8lP8NXTzjUfxioiRxEPKPzzMiVk0urCiWzKftrkeZfkye3/8PkDwhOIh0eigQMWcguA7fIm
+	bxV3kQ8hCF1GN0kUWxmIJ6RGkEv+gGFNBiLsFGUxrg6BNAJhdoMLn+mYGvMqIBZ9aoYm+YGIpW0uv
+	kXVOZvHxv7YseB4jmQXU+IdRJs6LfVQJKrkifPTnexnX3gVHYdg52bnxalRUDuoyVS/Mch+Z1AKYy
+	pfT+aIbhBte5NZZ0KZpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1svlyD-00000004J8R-2nHf;
-	Tue, 01 Oct 2024 23:07:53 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1svm0e-00000004Jve-42pB;
+	Tue, 01 Oct 2024 23:10:24 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1svlrT-00000004GHa-0Nde;
-	Tue, 01 Oct 2024 23:00:56 +0000
+	id 1svlrs-00000004GRN-2Uhg;
+	Tue, 01 Oct 2024 23:01:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 65D595C045A;
-	Tue,  1 Oct 2024 23:00:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73BCEC4CECD;
-	Tue,  1 Oct 2024 23:00:42 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 948D55C045A;
+	Tue,  1 Oct 2024 23:01:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1CB2CC4CECF;
+	Tue,  1 Oct 2024 23:01:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1727823653;
-	bh=vL+b/h3WOPYO7SwFl92JA9c0VbV77YwkdcIPJjlNFTs=;
+	s=k20201202; t=1727823679;
+	bh=Vf2uNluHz2rca3mw8TcTX+NsJV/Qh5T4cYUs2i7TXxM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Q9BEblIa6MmA5Xaow7wFPzfAM9zttSOUnO+EtJzN/PX7Huf9lzr++3lNcVEnhbBqz
-	 6dMkhlxPMElbdJeNlV158SBKPlOnHk5LQmhwlqFXihJgYSoqGxl3GLqUDM7DzAG5zc
-	 lvLDejujVe26CNwqEFjY9RC9WxGXrSNkF5G9RyuOCrURHXGYY7+8AA1BJ1SMrCIjZt
-	 BJvDkqRMfZF1cudVdwGq4CDhB5w9OLNa4NOrghTmOJJzwygsOzNNOFDRDlXzt7kKtH
-	 IpBNBwRkNrS1h0eaDjRqb0/mVRIcjwZiyqBZn+jatUlWQ0I77tCcOgDFflvH0cvLXI
-	 3XrtVqCX11mdg==
+	b=jVZM9w2TFPYRXcHqVrP0Qzet5ZimUajVBnGH0EhpBkabdMfLXa+RzCA+jUnjyGM1m
+	 CJ8EFXdP1PgHrC1tKvVGnJWlxMjAFQMP2gFRgwEqZO8N6qSYimU8ejOpwwGHnFZuXY
+	 86DXvpsvB3FWiEMk+ntP0Lha7xlDlV5qpMAZOggrQuJm3djAJfUnCgt713hfxPM+Ev
+	 0BXqsx8xr/0zc257E+hP6isHgW4XTx+znlwISB5hvczbAi1lqyvDXPzJ5/yi8ANzdt
+	 jNLailjxmqcTsawgpffDetmjcAUOgQOmif3/O5yhtJeanlELsfO43OyWb9ZUezbd+v
+	 tN8vKA+l6a/Pg==
 From: Mark Brown <broonie@kernel.org>
-Date: Tue, 01 Oct 2024 23:58:44 +0100
-Subject: [PATCH v13 05/40] mman: Add map_shadow_stack() flags
+Date: Tue, 01 Oct 2024 23:58:46 +0100
+Subject: [PATCH v13 07/40] arm64/gcs: Document the ABI for Guarded Control
+ Stacks
 MIME-Version: 1.0
-Message-Id: <20241001-arm64-gcs-v13-5-222b78d87eee@kernel.org>
+Message-Id: <20241001-arm64-gcs-v13-7-222b78d87eee@kernel.org>
 References: <20241001-arm64-gcs-v13-0-222b78d87eee@kernel.org>
 In-Reply-To: <20241001-arm64-gcs-v13-0-222b78d87eee@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -72,20 +73,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-99b12
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1935; i=broonie@kernel.org;
- h=from:subject:message-id; bh=vL+b/h3WOPYO7SwFl92JA9c0VbV77YwkdcIPJjlNFTs=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBm/H7Ig3nICM+W9H3bCT71LrQPx0TmwN2XrzWIKusU
- qfRtVgmJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZvx+yAAKCRAk1otyXVSH0EIMB/
- 9VAnLOcjD+99k7ouK69WkUZZje02S2hR6fRnCSftnhm+4bz+XAyRnRMAjPkiv0ecgHaTuBtP+MmN6L
- M1BTqr15gkX62ORCMeKqgMig0l5Zm08WyrOD4f/Vf4Zb4phDfeQkEhHthQYNAOzPiw9zjQIJGaypMM
- PJHFuO2ykfazrzqINBCj0D1SCeQt3+5cESSO4XqcDnyaOrpnKPqwWdoWVkNzB98GHx999EQw2iWsOp
- pEi9Zg8ZJFAhJSTayVv1NDY9QzD6ngW3nJCCx7rD/3cbiZd2/Whg25ERj0YbAqlldQVHJfqrX3RCBL
- guH+PVB5PQbczVYykW+F+llt/dznd7
+X-Developer-Signature: v=1; a=openpgp-sha256; l=10660; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=Vf2uNluHz2rca3mw8TcTX+NsJV/Qh5T4cYUs2i7TXxM=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBm/H7Ju1pToDWaUGEp3Hkm5trwDDFmJAt21ggli5wt
+ 1wpFq4aJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZvx+yQAKCRAk1otyXVSH0HYwB/
+ 91P3Xkg8BBGXxh3Fgc894UqDHkhXWVd3t+Pksyai5obwhEVa85s8Wg9ISM+HTQkh460hHADA/xDbFF
+ 2YjD56YVZP5Dg+ORNWhRRVdTKX/eo1sLcWdJvt9xONO7FI9kLgypXqSp630Xos/2fq/AHJy62H/9l8
+ q9RceRohuQOKkPBoI66VYnysha3TgtYDEMxt4978KiJe/JB0aYFC1ixMNEa8hdorjk8s7JUw0RK8wd
+ MbGVvFdRIm33dFehcmpQPYMvJSvBGHAq3ED4DFY8dttj9OB30BGbU64SftZehNJudxSMnvy8NHs8NB
+ dI+RpTjveoc1pWc7Ojpl1gXEDkyEIa
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241001_160055_261104_08BFDF51 
-X-CRM114-Status: GOOD (  13.47  )
+X-CRM114-CacheID: sfid-20241001_160120_823787_750F9F44 
+X-CRM114-Status: GOOD (  40.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,51 +103,265 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In preparation for adding arm64 GCS support make the map_shadow_stack()
-SHADOW_STACK_SET_TOKEN flag generic and add _SET_MARKER. The existing
-flag indicates that a token usable for stack switch should be added to
-the top of the newly mapped GCS region while the new flag indicates that
-a top of stack marker suitable for use by unwinders should be added
-above that.
-
-For arm64 the top of stack marker is all bits 0.
+Add some documentation of the userspace ABI for Guarded Control Stacks.
 
 Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
 Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 Acked-by: Yury Khrustalev <yury.khrustalev@arm.com>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/x86/include/uapi/asm/mman.h | 3 ---
- include/uapi/asm-generic/mman.h  | 4 ++++
- 2 files changed, 4 insertions(+), 3 deletions(-)
+ Documentation/arch/arm64/gcs.rst   | 230 +++++++++++++++++++++++++++++++++++++
+ Documentation/arch/arm64/index.rst |   1 +
+ 2 files changed, 231 insertions(+)
 
-diff --git a/arch/x86/include/uapi/asm/mman.h b/arch/x86/include/uapi/asm/mman.h
-index 46cdc941f958..ac1e6277212b 100644
---- a/arch/x86/include/uapi/asm/mman.h
-+++ b/arch/x86/include/uapi/asm/mman.h
-@@ -5,9 +5,6 @@
- #define MAP_32BIT	0x40		/* only give out 32bit addresses */
- #define MAP_ABOVE4G	0x80		/* only map above 4GB */
- 
--/* Flags for map_shadow_stack(2) */
--#define SHADOW_STACK_SET_TOKEN	(1ULL << 0)	/* Set up a restore token in the shadow stack */
--
- #include <asm-generic/mman.h>
- 
- #endif /* _ASM_X86_MMAN_H */
-diff --git a/include/uapi/asm-generic/mman.h b/include/uapi/asm-generic/mman.h
-index 57e8195d0b53..5e3d61ddbd8c 100644
---- a/include/uapi/asm-generic/mman.h
-+++ b/include/uapi/asm-generic/mman.h
-@@ -19,4 +19,8 @@
- #define MCL_FUTURE	2		/* lock all future mappings */
- #define MCL_ONFAULT	4		/* lock all pages that are faulted in */
- 
-+#define SHADOW_STACK_SET_TOKEN (1ULL << 0)     /* Set up a restore token in the shadow stack */
-+#define SHADOW_STACK_SET_MARKER (1ULL << 1)     /* Set up a top of stack marker in the shadow stack */
+diff --git a/Documentation/arch/arm64/gcs.rst b/Documentation/arch/arm64/gcs.rst
+new file mode 100644
+index 000000000000..af58d9151cb7
+--- /dev/null
++++ b/Documentation/arch/arm64/gcs.rst
+@@ -0,0 +1,230 @@
++===============================================
++Guarded Control Stack support for AArch64 Linux
++===============================================
++
++This document outlines briefly the interface provided to userspace by Linux in
++order to support use of the ARM Guarded Control Stack (GCS) feature.
++
++This is an outline of the most important features and issues only and not
++intended to be exhaustive.
 +
 +
- #endif /* __ASM_GENERIC_MMAN_H */
++
++1.  General
++-----------
++
++* GCS is an architecture feature intended to provide greater protection
++  against return oriented programming (ROP) attacks and to simplify the
++  implementation of features that need to collect stack traces such as
++  profiling.
++
++* When GCS is enabled a separate guarded control stack is maintained by the
++  PE which is writeable only through specific GCS operations.  This
++  stores the call stack only, when a procedure call instruction is
++  performed the current PC is pushed onto the GCS and on RET the
++  address in the LR is verified against that on the top of the GCS.
++
++* When active the current GCS pointer is stored in the system register
++  GCSPR_EL0.  This is readable by userspace but can only be updated
++  via specific GCS instructions.
++
++* The architecture provides instructions for switching between guarded
++  control stacks with checks to ensure that the new stack is a valid
++  target for switching.
++
++* The functionality of GCS is similar to that provided by the x86 Shadow
++  Stack feature, due to sharing of userspace interfaces the ABI refers to
++  shadow stacks rather than GCS.
++
++* Support for GCS is reported to userspace via HWCAP_GCS in the aux vector
++  AT_HWCAP2 entry.
++
++* GCS is enabled per thread.  While there is support for disabling GCS
++  at runtime this should be done with great care.
++
++* GCS memory access faults are reported as normal memory access faults.
++
++* GCS specific errors (those reported with EC 0x2d) will be reported as
++  SIGSEGV with a si_code of SEGV_CPERR (control protection error).
++
++* GCS is supported only for AArch64.
++
++* On systems where GCS is supported GCSPR_EL0 is always readable by EL0
++  regardless of the GCS configuration for the thread.
++
++* The architecture supports enabling GCS without verifying that return values
++  in LR match those in the GCS, the LR will be ignored.  This is not supported
++  by Linux.
++
++
++
++2.  Enabling and disabling Guarded Control Stacks
++-------------------------------------------------
++
++* GCS is enabled and disabled for a thread via the PR_SET_SHADOW_STACK_STATUS
++  prctl(), this takes a single flags argument specifying which GCS features
++  should be used.
++
++* When set PR_SHADOW_STACK_ENABLE flag allocates a Guarded Control Stack
++  and enables GCS for the thread, enabling the functionality controlled by
++  GCSCRE0_EL1.{nTR, RVCHKEN, PCRSEL}.
++
++* When set the PR_SHADOW_STACK_PUSH flag enables the functionality controlled
++  by GCSCRE0_EL1.PUSHMEn, allowing explicit GCS pushes.
++
++* When set the PR_SHADOW_STACK_WRITE flag enables the functionality controlled
++  by GCSCRE0_EL1.STREn, allowing explicit stores to the Guarded Control Stack.
++
++* Any unknown flags will cause PR_SET_SHADOW_STACK_STATUS to return -EINVAL.
++
++* PR_LOCK_SHADOW_STACK_STATUS is passed a bitmask of features with the same
++  values as used for PR_SET_SHADOW_STACK_STATUS.  Any future changes to the
++  status of the specified GCS mode bits will be rejected.
++
++* PR_LOCK_SHADOW_STACK_STATUS allows any bit to be locked, this allows
++  userspace to prevent changes to any future features.
++
++* There is no support for a process to remove a lock that has been set for
++  it.
++
++* PR_SET_SHADOW_STACK_STATUS and PR_LOCK_SHADOW_STACK_STATUS affect only the
++  thread that called them, any other running threads will be unaffected.
++
++* New threads inherit the GCS configuration of the thread that created them.
++
++* GCS is disabled on exec().
++
++* The current GCS configuration for a thread may be read with the
++  PR_GET_SHADOW_STACK_STATUS prctl(), this returns the same flags that
++  are passed to PR_SET_SHADOW_STACK_STATUS.
++
++* If GCS is disabled for a thread after having previously been enabled then
++  the stack will remain allocated for the lifetime of the thread.  At present
++  any attempt to reenable GCS for the thread will be rejected, this may be
++  revisited in future.
++
++* It should be noted that since enabling GCS will result in GCS becoming
++  active immediately it is not normally possible to return from the function
++  that invoked the prctl() that enabled GCS.  It is expected that the normal
++  usage will be that GCS is enabled very early in execution of a program.
++
++
++
++3.  Allocation of Guarded Control Stacks
++----------------------------------------
++
++* When GCS is enabled for a thread a new Guarded Control Stack will be
++  allocated for it of half the standard stack size or 2 gigabytes,
++  whichever is smaller.
++
++* When a new thread is created by a thread which has GCS enabled then a
++  new Guarded Control Stack will be allocated for the new thread with
++  half the size of the standard stack.
++
++* When a stack is allocated by enabling GCS or during thread creation then
++  the top 8 bytes of the stack will be initialised to 0 and GCSPR_EL0 will
++  be set to point to the address of this 0 value, this can be used to
++  detect the top of the stack.
++
++* Additional Guarded Control Stacks can be allocated using the
++  map_shadow_stack() system call.
++
++* Stacks allocated using map_shadow_stack() can optionally have an end of
++  stack marker and cap placed at the top of the stack.  If the flag
++  SHADOW_STACK_SET_TOKEN is specified a cap will be placed on the stack,
++  if SHADOW_STACK_SET_MARKER is not specified the cap will be the top 8
++  bytes of the stack and if it is specified then the cap will be the next
++  8 bytes.  While specifying just SHADOW_STACK_SET_MARKER by itself is
++  valid since the marker is all bits 0 it has no observable effect.
++
++* Stacks allocated using map_shadow_stack() must have a size which is a
++  multiple of 8 bytes larger than 8 bytes and must be 8 bytes aligned.
++
++* An address can be specified to map_shadow_stack(), if one is provided then
++  it must be aligned to a page boundary.
++
++* When a thread is freed the Guarded Control Stack initially allocated for
++  that thread will be freed.  Note carefully that if the stack has been
++  switched this may not be the stack currently in use by the thread.
++
++
++4.  Signal handling
++--------------------
++
++* A new signal frame record gcs_context encodes the current GCS mode and
++  pointer for the interrupted context on signal delivery.  This will always
++  be present on systems that support GCS.
++
++* The record contains a flag field which reports the current GCS configuration
++  for the interrupted context as PR_GET_SHADOW_STACK_STATUS would.
++
++* The signal handler is run with the same GCS configuration as the interrupted
++  context.
++
++* When GCS is enabled for the interrupted thread a signal handling specific
++  GCS cap token will be written to the GCS, this is an architectural GCS cap
++  with the token type (bits 0..11) all clear.  The GCSPR_EL0 reported in the
++  signal frame will point to this cap token.
++
++* The signal handler will use the same GCS as the interrupted context.
++
++* When GCS is enabled on signal entry a frame with the address of the signal
++  return handler will be pushed onto the GCS, allowing return from the signal
++  handler via RET as normal.  This will not be reported in the gcs_context in
++  the signal frame.
++
++
++5.  Signal return
++-----------------
++
++When returning from a signal handler:
++
++* If there is a gcs_context record in the signal frame then the GCS flags
++  and GCSPR_EL0 will be restored from that context prior to further
++  validation.
++
++* If there is no gcs_context record in the signal frame then the GCS
++  configuration will be unchanged.
++
++* If GCS is enabled on return from a signal handler then GCSPR_EL0 must
++  point to a valid GCS signal cap record, this will be popped from the
++  GCS prior to signal return.
++
++* If the GCS configuration is locked when returning from a signal then any
++  attempt to change the GCS configuration will be treated as an error.  This
++  is true even if GCS was not enabled prior to signal entry.
++
++* GCS may be disabled via signal return but any attempt to enable GCS via
++  signal return will be rejected.
++
++
++6.  ptrace extensions
++---------------------
++
++* A new regset NT_ARM_GCS is defined for use with PTRACE_GETREGSET and
++  PTRACE_SETREGSET.
++
++* Due to the complexity surrounding allocation and deallocation of stacks and
++  lack of practical application it is not possible to enable GCS via ptrace.
++  GCS may be disabled via the ptrace interface.
++
++* Other GCS modes may be configured via ptrace.
++
++* Configuration via ptrace ignores locking of GCS mode bits.
++
++
++7.  ELF coredump extensions
++---------------------------
++
++* NT_ARM_GCS notes will be added to each coredump for each thread of the
++  dumped process.  The contents will be equivalent to the data that would
++  have been read if a PTRACE_GETREGSET of the corresponding type were
++  executed for each thread when the coredump was generated.
++
++
++
++8.  /proc extensions
++--------------------
++
++* Guarded Control Stack pages will include "ss" in their VmFlags in
++  /proc/<pid>/smaps.
+diff --git a/Documentation/arch/arm64/index.rst b/Documentation/arch/arm64/index.rst
+index 78544de0a8a9..056f6a739d25 100644
+--- a/Documentation/arch/arm64/index.rst
++++ b/Documentation/arch/arm64/index.rst
+@@ -15,6 +15,7 @@ ARM64 Architecture
+     cpu-feature-registers
+     cpu-hotplug
+     elf_hwcaps
++    gcs
+     hugetlbpage
+     kdump
+     legacy_instructions
 
 -- 
 2.39.2
