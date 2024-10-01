@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BA02CEACE6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E4CFCEACE5
 	for <linux-riscv@archiver.kernel.org>; Tue,  1 Oct 2024 16:20:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,62 +12,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WMwrS7YsPTQWgpKxFzkmU4uVdlkOLELJsC3cRRRFrHI=; b=GcPrfEB4EeJRiy
-	fccMR+cCD8FJR3ikPdZFApKhaQACKovOJt8SFS9TMz5Se42LfWK3ynXklzRkn12CMX24lHqFTfCcu
-	pXMIRzopxUJwCMUioEj22spWwqmM9aWuNdmFhul7lYdQo/J6v4WhvF9EL8NwC5SClWFge8l4JP5fn
-	SB5Gnwc6gxcfQef4uhVEHkGbBmKysAeyQEoMyBVWWa9MI3QO9WI14ky37UduFwiRDH6tu+UNI8iMh
-	WbG44bqoxY/pQiuvMEHT9g2XDpfTs4IrPrwEiwP7rLnCRFrzMNc/XKWCYKdV6WjWtxHpZBFzCCUY/
-	9XkRsyOaHAUaItEFtg5A==;
+	List-Owner; bh=C3MK3WgiyFXNa4TTkCJb+BHIbVq4ftExJR7utKL6EEw=; b=2Cdh9BT7U9w8Ys
+	17qTh5XB+C9racINwGaU0EINLDeRsUlAYMxt/zcRjYsTb012vka1FJmDAPZnyU6ZPDBUgG5u3uM2b
+	yF/+T6vgbE6CqPmeYKBdKQDnF/Q1Mdqgt9yKRgbpCOLsYN2fdN7uEmAKO03j50Bgv7mdtvbp9/zIL
+	SZExR2a40O8Ipm8DteJhMbg3sAvKgZo9guzGEAnke+r4A37bKvk9/TUpAQVNBWq8oDHSSNFyHJRZr
+	csBJcSMJP8LySuIn7Fnzac3mF/j9XrIfVgmDwp0bxCx3We5Sx/FwFfw/JYPJmyuDXnZFQi23frYGH
+	2YpIE/dLSMSVwPpbpcjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1svfbY-00000003VNR-03A1;
-	Tue, 01 Oct 2024 16:20:04 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1svfbW-00000003VNA-31Cf;
+	Tue, 01 Oct 2024 16:20:02 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1svfP5-00000003Qsh-0l8d
+	id 1svfOw-00000003QnW-2gpt
 	for linux-riscv@lists.infradead.org;
-	Tue, 01 Oct 2024 16:07:12 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-20b95359440so19011875ad.0
-        for <linux-riscv@lists.infradead.org>; Tue, 01 Oct 2024 09:07:10 -0700 (PDT)
+	Tue, 01 Oct 2024 16:07:03 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-207115e3056so50469425ad.2
+        for <linux-riscv@lists.infradead.org>; Tue, 01 Oct 2024 09:07:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1727798830; x=1728403630; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1727798821; x=1728403621; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=VSJycIfYc39uVmA0S5cW1xf7lSeeHj3Up0tXaB++17w=;
-        b=xet8qYH6mrR3UkHvbmYy6kjTHrjKcLex11XeuSaEofscOx+bnp1b20QzCnH+HOac/z
-         1qKxue7GbvWJU5H69xb3DEHZgGNKvV99y3deMJTap0MosUpVkWn5Exx0nxTCfYkVd3tu
-         9JShqI9zt2CUH3r69pj0IOqDmNTx6JQAagKr5ANiOtTE81bGkc0QMyPh8ZGXmFtWDipE
-         wr1fXom4WliRM6IeVYBZA6KfRubeENJS8lXbmmZsiaRY+qq5x476vmJAuqnsfAQKfZMg
-         bGJ63NWgvsEnawMLI8dQQCJ8O/HBeh5jJ1OR/xVa7xEE7zjZ7UIep2/25chIQfTXKA/W
-         idmA==
+        bh=pcb1JUl7nxyzCR2L+K51gN2ROJJ8XrFInAPZeivTlr8=;
+        b=DGGTRh1VDaprJV0KRwwDwDLBtIi6scGWgkLEbYXvwRAX4jFDsh/LFpKrcsLYESi4tz
+         28jGnZ9x4dZ7UJXr9ZBLeN2YDJdVInkMarrbwQ+dSJTga12CCKb3wwfRtkHYhxnYgy+e
+         zQ0bf1H4mDOSIlPgReNj1H8wR0bgy5OJjk9wrYg2Bf2qVY+wr1mEbC473fzPqDkxv3OW
+         DQzRW2wutmgJRIZfUWhqrkjppid66jwEVP7+TW4OXwF5uMzz8pn+WX6KOjKqkOBYAsbt
+         VGM35ubmHStvZiDxfNqeO1SHUGhzhu+3n3ZV4KWAsK2Q1tRE9KFE9wqz0V7i2YpuX1FL
+         oGUA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1727798830; x=1728403630;
+        d=1e100.net; s=20230601; t=1727798821; x=1728403621;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=VSJycIfYc39uVmA0S5cW1xf7lSeeHj3Up0tXaB++17w=;
-        b=WrTkRUlVALEpQ06X1EQPL5IPlKKu5G/w2ucNVNmvk3DsfURNOdKE9SQtNC3y4/blV4
-         Fjsfo/uZyA+dv2D8YK3McitRRB9djEHBSr0aOJ4qu5pzccGcKWCL0b434Fb71/65rPXL
-         ytTHkYewo3PIQ9qOvaBjpJSKzxgnok7by57vU63VxpgzEtRyxfb3gv2sR3j6vZSHGrTi
-         u/FWeiOUt0jnhhWwYyNNchQgt8LU50XmeH5Nt2VZ036+s+CchtmlnG1smfRRtnCQFLLq
-         frCEY5dK21QIR+lTh8/6QgsscnD2ZNT8xXBIgOUlYWWZGH5C0fLKxWs/0oX/JA/UDKUq
-         jXUA==
-X-Forwarded-Encrypted: i=1; AJvYcCX+0LoJMmGj5nRju8C4ZaXGmSicybxgffcClO+vQnP5OGjSG19mEFB05THskzDx5qPRI9RNY7iAB9PkUQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzvscFc1MA490XVnGGDo1NwTfWTwWhXdUzWlKbKp/H0nHAFa3wJ
-	tGRTBcvpbotecuaGr/mYFN0xEo+CY9QMrbaHIozfXixvak4S/LbKftAbYTmxsbY=
-X-Google-Smtp-Source: AGHT+IGbxpnW+Ks2YnlHYSaDv2y1WnPDZfQCABjl0RJSI6vizw9vnR0BiVry5CQxYrybXmS518wotA==
-X-Received: by 2002:a17:90b:1bc4:b0:2e0:a77e:8305 with SMTP id 98e67ed59e1d1-2e18496a8c7mr191491a91.39.1727798829693;
-        Tue, 01 Oct 2024 09:07:09 -0700 (PDT)
+        bh=pcb1JUl7nxyzCR2L+K51gN2ROJJ8XrFInAPZeivTlr8=;
+        b=C2kc7CKLMLrkpHJK/4frEW9iEvn6yuuTQD84xYkmvACKkW9OnaSC8zEn5NuPQJRpoP
+         /yPssULfvmm54CML35HMocBktyynC158aqaGYCr3VaYtfTTNOO9kKctFegWvlAYx7N7f
+         ngzjMrip9weibiXqFCFPF9UyAID0Vt6TwhsR95qKxqzz7hwJaLibyClX9xHLIfM5KpoI
+         iNYXLzNczAVwG1IbJ77jvCTNHoGU27gu6+LcBjy1X7adAwxXhphJMj7Y2eqRM7eUt360
+         Koj/UFqovRNqL9nAHoc+hc3igm/Rn16aew5EkMiFTF+t0MMcXqdsBw6Fkjp6PlwIJUU2
+         OlPg==
+X-Forwarded-Encrypted: i=1; AJvYcCXKny9ToR685deKvCgtE9N2x7clAVEnKuhmYdr3CXXuzvKuBRZkO+7lW8TJrlJCaagp5DLs2bRe+LsW+Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy2P0kkMDYG4oi9FJ7vq24mYRkmtl2H5vARZHTc+PKrCZLOG4mW
+	skrOtLaRUIMI/lsnkO82Jr4QzWFeYlAa6qFQHc4jV7I1Xj63heJk7Bkv8o55ehk=
+X-Google-Smtp-Source: AGHT+IG/9AhOFkVlsb1ZH2XMKlQ6f717lLd7IRjhRM+ZTMobdV3S8kdqvcOsBq5NGgSC9+zelAG6Ow==
+X-Received: by 2002:a17:90a:650c:b0:2cc:ff56:5be1 with SMTP id 98e67ed59e1d1-2e184526f71mr233618a91.7.1727798821325;
+        Tue, 01 Oct 2024 09:07:01 -0700 (PDT)
 Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e06e1d7d47sm13843973a91.28.2024.10.01.09.07.07
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e06e1d7d47sm13843973a91.28.2024.10.01.09.06.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Oct 2024 09:07:09 -0700 (PDT)
+        Tue, 01 Oct 2024 09:07:00 -0700 (PDT)
 From: Deepak Gupta <debug@rivosinc.com>
-Date: Tue, 01 Oct 2024 09:06:09 -0700
-Subject: [PATCH 04/33] riscv: Add support for per-thread envcfg CSR values
+Date: Tue, 01 Oct 2024 09:06:06 -0700
+Subject: [PATCH 01/33] mm: Introduce ARCH_HAS_USER_SHADOW_STACK
 MIME-Version: 1.0
-Message-Id: <20241001-v5_user_cfi_series-v1-4-3ba65b6e550f@rivosinc.com>
+Message-Id: <20241001-v5_user_cfi_series-v1-1-3ba65b6e550f@rivosinc.com>
 References: <20241001-v5_user_cfi_series-v1-0-3ba65b6e550f@rivosinc.com>
 In-Reply-To: <20241001-v5_user_cfi_series-v1-0-3ba65b6e550f@rivosinc.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
@@ -94,12 +94,12 @@ Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
  atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com, 
  alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org, 
  rick.p.edgecombe@intel.com, Deepak Gupta <debug@rivosinc.com>, 
- Samuel Holland <samuel.holland@sifive.com>, 
- Andrew Jones <ajones@ventanamicro.com>
+ David Hildenbrand <david@redhat.com>, 
+ Carlos Bilbao <carlos.bilbao.osdev@gmail.com>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241001_090711_290070_2051CA86 
-X-CRM114-Status: GOOD (  18.69  )
+X-CRM114-CacheID: sfid-20241001_090702_752041_E0BFB6F7 
+X-CRM114-Status: GOOD (  15.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,81 +116,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Samuel Holland <samuel.holland@sifive.com>
+From: Mark Brown <broonie@kernel.org>
 
-Some bits in the [ms]envcfg CSR, such as the CFI state and pointer
-masking mode, need to be controlled on a per-thread basis. Support this
-by keeping a copy of the CSR value in struct thread_struct and writing
-it during context switches. It is safe to discard the old CSR value
-during the context switch because the CSR is modified only by software,
-so the CSR will remain in sync with the copy in thread_struct.
+Since multiple architectures have support for shadow stacks and we need to
+select support for this feature in several places in the generic code
+provide a generic config option that the architectures can select.
 
-Use ALTERNATIVE directly instead of riscv_has_extension_unlikely() to
-minimize branchiness in the context switching code.
-
-Since thread_struct is copied during fork(), setting the value for the
-init task sets the default value for all other threads.
-
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Suggested-by: David Hildenbrand <david@redhat.com>
+Acked-by: David Hildenbrand <david@redhat.com>
+Signed-off-by: Mark Brown <broonie@kernel.org>
+Reviewed-by: Rick Edgecombe <rick.p.edgecombe@intel.com>
 Reviewed-by: Deepak Gupta <debug@rivosinc.com>
-Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+Reviewed-by: Carlos Bilbao <carlos.bilbao.osdev@gmail.com>
 ---
- arch/riscv/include/asm/switch_to.h   | 8 ++++++++
- arch/riscv/include/asm/thread_info.h | 1 +
- arch/riscv/kernel/cpufeature.c       | 2 +-
- 3 files changed, 10 insertions(+), 1 deletion(-)
+ arch/x86/Kconfig   | 1 +
+ fs/proc/task_mmu.c | 2 +-
+ include/linux/mm.h | 2 +-
+ mm/Kconfig         | 6 ++++++
+ 4 files changed, 9 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/include/asm/switch_to.h b/arch/riscv/include/asm/switch_to.h
-index 7594df37cc9f..dd4a36ff4356 100644
---- a/arch/riscv/include/asm/switch_to.h
-+++ b/arch/riscv/include/asm/switch_to.h
-@@ -70,6 +70,13 @@ static __always_inline bool has_fpu(void) { return false; }
- #define __switch_to_fpu(__prev, __next) do { } while (0)
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index 2852fcd82cbd..8ccae77d40f7 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -1954,6 +1954,7 @@ config X86_USER_SHADOW_STACK
+ 	depends on AS_WRUSS
+ 	depends on X86_64
+ 	select ARCH_USES_HIGH_VMA_FLAGS
++	select ARCH_HAS_USER_SHADOW_STACK
+ 	select X86_CET
+ 	help
+ 	  Shadow stack protection is a hardware feature that detects function
+diff --git a/fs/proc/task_mmu.c b/fs/proc/task_mmu.c
+index 72f14fd59c2d..23f875e78eae 100644
+--- a/fs/proc/task_mmu.c
++++ b/fs/proc/task_mmu.c
+@@ -971,7 +971,7 @@ static void show_smap_vma_flags(struct seq_file *m, struct vm_area_struct *vma)
+ #ifdef CONFIG_HAVE_ARCH_USERFAULTFD_MINOR
+ 		[ilog2(VM_UFFD_MINOR)]	= "ui",
+ #endif /* CONFIG_HAVE_ARCH_USERFAULTFD_MINOR */
+-#ifdef CONFIG_X86_USER_SHADOW_STACK
++#ifdef CONFIG_ARCH_HAS_USER_SHADOW_STACK
+ 		[ilog2(VM_SHADOW_STACK)] = "ss",
  #endif
+ #if defined(CONFIG_64BIT) || defined(CONFIG_PPC32)
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index ecf63d2b0582..57533b9cae95 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -354,7 +354,7 @@ extern unsigned int kobjsize(const void *objp);
+ #endif
+ #endif /* CONFIG_ARCH_HAS_PKEYS */
  
-+static inline void __switch_to_envcfg(struct task_struct *next)
-+{
-+	asm volatile (ALTERNATIVE("nop", "csrw " __stringify(CSR_ENVCFG) ", %0",
-+				  0, RISCV_ISA_EXT_XLINUXENVCFG, 1)
-+			:: "r" (next->thread_info.envcfg) : "memory");
-+}
+-#ifdef CONFIG_X86_USER_SHADOW_STACK
++#ifdef CONFIG_ARCH_HAS_USER_SHADOW_STACK
+ /*
+  * VM_SHADOW_STACK should not be set with VM_SHARED because of lack of
+  * support core mm.
+diff --git a/mm/Kconfig b/mm/Kconfig
+index 4c9f5ea13271..4b2a1ef9a161 100644
+--- a/mm/Kconfig
++++ b/mm/Kconfig
+@@ -1296,6 +1296,12 @@ config NUMA_EMU
+ 	  into virtual nodes when booted with "numa=fake=N", where N is the
+ 	  number of nodes. This is only useful for debugging.
+ 
++config ARCH_HAS_USER_SHADOW_STACK
++	bool
++	help
++	  The architecture has hardware support for userspace shadow call
++          stacks (eg, x86 CET, arm64 GCS or RISC-V Zicfiss).
 +
- extern struct task_struct *__switch_to(struct task_struct *,
- 				       struct task_struct *);
+ source "mm/damon/Kconfig"
  
-@@ -103,6 +110,7 @@ do {							\
- 		__switch_to_vector(__prev, __next);	\
- 	if (switch_to_should_flush_icache(__next))	\
- 		local_flush_icache_all();		\
-+	__switch_to_envcfg(__next);			\
- 	((last) = __switch_to(__prev, __next));		\
- } while (0)
- 
-diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
-index ebe52f96da34..e494871071da 100644
---- a/arch/riscv/include/asm/thread_info.h
-+++ b/arch/riscv/include/asm/thread_info.h
-@@ -57,6 +57,7 @@ struct thread_info {
- 	long			user_sp;	/* User stack pointer */
- 	int			cpu;
- 	unsigned long		syscall_work;	/* SYSCALL_WORK_ flags */
-+	unsigned long envcfg;
- #ifdef CONFIG_SHADOW_CALL_STACK
- 	void			*scs_base;
- 	void			*scs_sp;
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index e560a253e99b..c0986291696a 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -923,7 +923,7 @@ unsigned long riscv_get_elf_hwcap(void)
- void riscv_user_isa_enable(void)
- {
- 	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_ZICBOZ))
--		csr_set(CSR_ENVCFG, ENVCFG_CBZE);
-+		current->thread_info.envcfg |= ENVCFG_CBZE;
- 	else if (any_cpu_has_zicboz)
- 		pr_warn_once("Zicboz disabled as it is unavailable on some harts\n");
- }
+ endmenu
 
 -- 
 2.45.0
