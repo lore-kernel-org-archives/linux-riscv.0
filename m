@@ -4,104 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 269FFCF3189
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Oct 2024 00:25:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4595CF318A
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Oct 2024 00:46:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lpK6/SHz5IHEPN1e8QKYVJwn0fe9YZuj2Jj6zcNakSA=; b=O4b8KQc1NzPYFv
-	hEswN+3Fb4nz//rqu0pE5GckBaarRQShxxNo+mQOLZVLB/wWylV08aW/xEMcGvGE+/qbRjTexWAk3
-	mb0UQKU2j6R9Vad3tnYWns94Iw6egjCIauIFoNLOl2r2MZguJdwIknODhVBzQcJnJvxuOlOFU/qkD
-	xef53SVXWaXbS4AiRdGuntCaIm80F74aDF+h+5+4bt/v5jKuIjDi36GaQq5+uei6vI0z1Xrn6DtBY
-	CbSsmw+hBDCDeNmksymKjyLoxZcXra8P7bDdxFlmJrUOjOdIirS8KNRA88HiST7X3b6dK/YGdpmPT
-	SD5PPF7ncyZpm6MsfWcw==;
+	List-Owner; bh=DQA1mY38OHTY2hVeWjyeFx5Y+brDsFIhhAy/Y8Lcq5g=; b=nuh0pHnF3GDJ55
+	/auMaMOmNcXL6IMelCOhXHEtecyIk3Cq8gBXKQAmARfA79exi2cDeVgcB2gA2U2WvFSrTbHzGz7jx
+	Ma0HkEN282oNX8hwerM+1lKBbFNR+BJMPRjAggOfj4l9PS4BylUNCHP8mZEjJVndCn/1rk4z1tx4s
+	00WNGY3WKRqitSdQhgTtwP1nhtXoLxAUxEUxpMVOPzVF23krSrsMWVQnoWYQk2CLjTQcdMA5hNt/r
+	aLdxm57Vra0YLP3knjRHbUjnr/w4yLy0ExPq26yoSd80adJt9JJY6tUkoH+5NQ8YxlOXYmQo5fYvv
+	K9GfVqk4jMoMaA8aiEzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1svnBc-00000004SFC-1d7a;
-	Wed, 02 Oct 2024 00:25:48 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1svnVp-00000004TXT-0L3j;
+	Wed, 02 Oct 2024 00:46:41 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1svnAN-00000004S3T-2bv8;
-	Wed, 02 Oct 2024 00:24:32 +0000
+	id 1svlv5-00000004Hu6-0mnh;
+	Tue, 01 Oct 2024 23:04:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7544C5C0068;
-	Wed,  2 Oct 2024 00:24:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BCC6C4CEC6;
-	Wed,  2 Oct 2024 00:24:28 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 596335C53D4;
+	Tue,  1 Oct 2024 23:04:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67207C4CEC6;
+	Tue,  1 Oct 2024 23:04:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1727828668;
-	bh=yV2B67r5ybVBizoo7LUv4X1d+GkzcMv6679G3VZtq1s=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=dYX4ObVKwKoWBdjh48SRSy1HnvnMkmEfMGXnuhaYmXJEVrXOcFND47+IIpayIx6AG
-	 8sJwjCeaYEMfy5rI/+UjDdztZnthevTuWa8syEBmVQvaHan9KVAQ7xF4KsWL8UVy3S
-	 f7TUJwmwj/rs5UDj+DyC5FGZ9ndq6tqKenKd0NdZ/6uYbyN3dEhTgW5P52WDxrFNQk
-	 sUKjEM6YxZqyv/GMXl0obPbj2Fq9UTYIflqhu1WoDRhJ+p2exeP7svHcnvGYFQSdA2
-	 iBKnDzURTchvhl7Ad+WO+z9tdnw3VMd9rk5YMKYPAimIlmyLbb8OA/SY5GBClemozy
-	 qBF01izH6DbfQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1svnAH-00Guuf-MG;
-	Wed, 02 Oct 2024 01:24:25 +0100
-Date: Wed, 02 Oct 2024 01:24:25 +0100
-Message-ID: <86bk0373nq.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Shuah Khan <shuah@kernel.org>,
-	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Deepak Gupta <debug@rivosinc.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
-	Kees Cook <kees@kernel.org>,
-	"H.J. Lu" <hjl.tools@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Florian Weimer <fweimer@redhat.com>,
-	Christian Brauner <brauner@kernel.org>,
-	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
-	Ross Burton <ross.burton@arm.com>,
-	David Spickett <david.spickett@arm.com>,
-	Yury Khrustalev <yury.khrustalev@arm.com>,
-	Wilco Dijkstra <wilco.dijkstra@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v13 16/40] KVM: arm64: Manage GCS access and registers for guests
-In-Reply-To: <20241001-arm64-gcs-v13-16-222b78d87eee@kernel.org>
+	s=k20201202; t=1727823878;
+	bh=M/Cko4L7ycF7EfuRgE9nFrYd9p9UbU51oKSukOYF/3Y=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=TB0n3CPdNHxlLWrrtuwMlV8tMuyagUCpSWBaTpoZK3gtGJcqFir6KLD+BmHv+cAUd
+	 qM/4Gy+3Y18n74iUaE3rzufN3Rl/YESZyphxeSuMvNMijO55mx0tYJmieb9IHxvIqG
+	 lKLPaKvylTHaCFcD3d2EQpZOZ+TUNT51nHrDD5Q/xrHnMKDfBv/rh5RPQozl9dCruQ
+	 0REOF1upnxBvakxy2PWw5L7FCxb1vRcxVUKN6luHbJiTMdFqw5QxkIyTUrxpDEImd+
+	 xjFKxq+oZ20wZuFdNCPOnXd9v4i+GcTRI+IXsg9I4FVuQivvGUdj6CHwInwp+0eTc9
+	 t51dk4u8fx/Cg==
+From: Mark Brown <broonie@kernel.org>
+Date: Tue, 01 Oct 2024 23:59:04 +0100
+Subject: [PATCH v13 25/40] arm64/signal: Set up and restore the GCS context
+ for signal handlers
+MIME-Version: 1.0
+Message-Id: <20241001-arm64-gcs-v13-25-222b78d87eee@kernel.org>
 References: <20241001-arm64-gcs-v13-0-222b78d87eee@kernel.org>
-	<20241001-arm64-gcs-v13-16-222b78d87eee@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: broonie@kernel.org, catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net, akpm@linux-foundation.org, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, arnd@arndb.de, oleg@redhat.com, ebiederm@xmission.com, shuah@kernel.org, rick.p.edgecombe@intel.com, debug@rivosinc.com, ardb@kernel.org, Szabolcs.Nagy@arm.com, kees@kernel.org, hjl.tools@gmail.com, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, fweimer@redhat.com, brauner@kernel.org, thiago.bauermann@linaro.org, ross.burton@arm.com, david.spickett@arm.com, yury.khrustalev@arm.com, wilco.dijkstra@arm.com, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org, linux-arch@vger.kernel.org, linux-mm@kvack.org, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+In-Reply-To: <20241001-arm64-gcs-v13-0-222b78d87eee@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+ Andrew Morton <akpm@linux-foundation.org>, Marc Zyngier <maz@kernel.org>, 
+ Oliver Upton <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Arnd Bergmann <arnd@arndb.de>, 
+ Oleg Nesterov <oleg@redhat.com>, Eric Biederman <ebiederm@xmission.com>, 
+ Shuah Khan <shuah@kernel.org>, 
+ "Rick P. Edgecombe" <rick.p.edgecombe@intel.com>, 
+ Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>, 
+ Szabolcs Nagy <Szabolcs.Nagy@arm.com>, Kees Cook <kees@kernel.org>
+Cc: "H.J. Lu" <hjl.tools@gmail.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Florian Weimer <fweimer@redhat.com>, Christian Brauner <brauner@kernel.org>, 
+ Thiago Jung Bauermann <thiago.bauermann@linaro.org>, 
+ Ross Burton <ross.burton@arm.com>, David Spickett <david.spickett@arm.com>, 
+ Yury Khrustalev <yury.khrustalev@arm.com>, 
+ Wilco Dijkstra <wilco.dijkstra@arm.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
+ kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org, 
+ linux-arch@vger.kernel.org, linux-mm@kvack.org, 
+ linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.15-dev-99b12
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6765; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=M/Cko4L7ycF7EfuRgE9nFrYd9p9UbU51oKSukOYF/3Y=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBm/H7XYlmqI4AVMLQuVzPpNgT/SyMCRjCiznsJGwH4
+ G2vcFFCJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZvx+1wAKCRAk1otyXVSH0KouB/
+ 9Jw3HWKPOwR2aVOZ6u7wPXJwj9zBiar/DXFEbthlVQ/Dr8xLxWr9UILF4cDa6yLfc+rJkYXNX+5RK9
+ BkjxhujnTpn05vvFfUCInty8LTLbn0sywBiP8f8X0Dn2rcVCUbs5Smk8agHmrxbSo76R4SwsFy498d
+ AyoptghwLoECA+CFGXG7VMkZ9S7i+FfAd1v2VUB63hLD5sxJkIEubTmneUSSxYvFVT5b/J37eGA6+z
+ 13qjEBBQxnOjZ9MlEZ5LB/ybEnIQLz1wN87hLvtd7aIz5ZIpPZ8Azclkb+uVeaAc0nEsRgnOd/5R7F
+ 2+kSiCmA0iuGU82ZzrQ9jZqMMl63ti
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241001_172431_818048_77ACCA0C 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20241001_160439_376159_34DF273F 
+X-CRM114-Status: GOOD (  28.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,25 +103,230 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 01 Oct 2024 23:58:55 +0100,
-Mark Brown <broonie@kernel.org> wrote:
+When invoking a signal handler we use the GCS configuration and stack
+for the current thread.
 
-> @@ -4714,6 +4735,10 @@ void kvm_calculate_traps(struct kvm_vcpu *vcpu)
->  		kvm->arch.fgu[HFGxTR_GROUP] |= (HFGxTR_EL2_nPOR_EL1 |
->  						HFGxTR_EL2_nPOR_EL0);
->  
-> +	if (!kvm_has_gcs(kvm))
-> +		kvm->arch.fgu[HFGxTR_GROUP] |= (HFGxTR_EL2_nGCS_EL0 |
-> +						HFGxTR_EL2_nGCS_EL1);
-> +
+Since we implement signal return by calling the signal handler with a
+return address set up pointing to a trampoline in the vDSO we need to
+also configure any active GCS for this by pushing a frame for the
+trampoline onto the GCS.  If we do not do this then signal return will
+generate a GCS protection fault.
 
-Why are you still allowing the GCS instructions when GCS isn't
-enabled?
+In order to guard against attempts to bypass GCS protections via signal
+return we only allow returning with GCSPR_EL0 pointing to an address
+where it was previously preempted by a signal.  We do this by pushing a
+cap onto the GCS, this takes the form of an architectural GCS cap token
+with the top bit set and token type of 0 which we add on signal entry
+and validate and pop off on signal return.  The combination of the top
+bit being set and the token type mean that this can't be interpreted as
+a valid token or address.
 
-	M.
+Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+ arch/arm64/include/asm/gcs.h |   1 +
+ arch/arm64/kernel/signal.c   | 118 +++++++++++++++++++++++++++++++++++++++++--
+ 2 files changed, 114 insertions(+), 5 deletions(-)
+
+diff --git a/arch/arm64/include/asm/gcs.h b/arch/arm64/include/asm/gcs.h
+index 48c97e63e56a..f50660603ecf 100644
+--- a/arch/arm64/include/asm/gcs.h
++++ b/arch/arm64/include/asm/gcs.h
+@@ -9,6 +9,7 @@
+ #include <asm/uaccess.h>
+ 
+ struct kernel_clone_args;
++struct ksignal;
+ 
+ static inline void gcsb_dsync(void)
+ {
+diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
+index 561986947530..b5ab0e229a78 100644
+--- a/arch/arm64/kernel/signal.c
++++ b/arch/arm64/kernel/signal.c
+@@ -25,6 +25,7 @@
+ #include <asm/elf.h>
+ #include <asm/exception.h>
+ #include <asm/cacheflush.h>
++#include <asm/gcs.h>
+ #include <asm/ucontext.h>
+ #include <asm/unistd.h>
+ #include <asm/fpsimd.h>
+@@ -34,6 +35,15 @@
+ #include <asm/traps.h>
+ #include <asm/vdso.h>
+ 
++#ifdef CONFIG_ARM64_GCS
++#define GCS_SIGNAL_CAP(addr) (((unsigned long)addr) & GCS_CAP_ADDR_MASK)
++
++static bool gcs_signal_cap_valid(u64 addr, u64 val)
++{
++	return val == GCS_SIGNAL_CAP(addr);
++}
++#endif
++
+ /*
+  * Do a signal return; undo the signal stack. These are aligned to 128-bit.
+  */
+@@ -904,6 +914,58 @@ static int restore_sigframe(struct pt_regs *regs,
+ 	return err;
+ }
+ 
++#ifdef CONFIG_ARM64_GCS
++static int gcs_restore_signal(void)
++{
++	unsigned long __user *gcspr_el0;
++	u64 cap;
++	int ret;
++
++	if (!system_supports_gcs())
++		return 0;
++
++	if (!(current->thread.gcs_el0_mode & PR_SHADOW_STACK_ENABLE))
++		return 0;
++
++	gcspr_el0 = (unsigned long __user *)read_sysreg_s(SYS_GCSPR_EL0);
++
++	/*
++	 * Ensure that any changes to the GCS done via GCS operations
++	 * are visible to the normal reads we do to validate the
++	 * token.
++	 */
++	gcsb_dsync();
++
++	/*
++	 * GCSPR_EL0 should be pointing at a capped GCS, read the cap.
++	 * We don't enforce that this is in a GCS page, if it is not
++	 * then faults will be generated on GCS operations - the main
++	 * concern is to protect GCS pages.
++	 */
++	ret = copy_from_user(&cap, gcspr_el0, sizeof(cap));
++	if (ret)
++		return -EFAULT;
++
++	/*
++	 * Check that the cap is the actual GCS before replacing it.
++	 */
++	if (!gcs_signal_cap_valid((u64)gcspr_el0, cap))
++		return -EINVAL;
++
++	/* Invalidate the token to prevent reuse */
++	put_user_gcs(0, (__user void*)gcspr_el0, &ret);
++	if (ret != 0)
++		return -EFAULT;
++
++	write_sysreg_s(gcspr_el0 + 1, SYS_GCSPR_EL0);
++
++	return 0;
++}
++
++#else
++static int gcs_restore_signal(void) { return 0; }
++#endif
++
+ SYSCALL_DEFINE0(rt_sigreturn)
+ {
+ 	struct pt_regs *regs = current_pt_regs();
+@@ -927,6 +989,9 @@ SYSCALL_DEFINE0(rt_sigreturn)
+ 	if (restore_sigframe(regs, frame))
+ 		goto badframe;
+ 
++	if (gcs_restore_signal())
++		goto badframe;
++
+ 	if (restore_altstack(&frame->uc.uc_stack))
+ 		goto badframe;
+ 
+@@ -1189,7 +1254,48 @@ static int get_sigframe(struct rt_sigframe_user_layout *user,
+ 	return 0;
+ }
+ 
+-static void setup_return(struct pt_regs *regs, struct k_sigaction *ka,
++#ifdef CONFIG_ARM64_GCS
++
++static int gcs_signal_entry(__sigrestore_t sigtramp, struct ksignal *ksig)
++{
++	unsigned long __user *gcspr_el0;
++	int ret = 0;
++
++	if (!system_supports_gcs())
++		return 0;
++
++	if (!task_gcs_el0_enabled(current))
++		return 0;
++
++	/*
++	 * We are entering a signal handler, current register state is
++	 * active.
++	 */
++	gcspr_el0 = (unsigned long __user *)read_sysreg_s(SYS_GCSPR_EL0);
++
++	/*
++	 * Push a cap and the GCS entry for the trampoline onto the GCS.
++	 */
++	put_user_gcs((unsigned long)sigtramp, gcspr_el0 - 2, &ret);
++	put_user_gcs(GCS_SIGNAL_CAP(gcspr_el0 - 1), gcspr_el0 - 1, &ret);
++	if (ret != 0)
++		return ret;
++
++	gcspr_el0 -= 2;
++	write_sysreg_s((unsigned long)gcspr_el0, SYS_GCSPR_EL0);
++
++	return 0;
++}
++#else
++
++static int gcs_signal_entry(__sigrestore_t sigtramp, struct ksignal *ksig)
++{
++	return 0;
++}
++
++#endif
++
++static int setup_return(struct pt_regs *regs, struct ksignal *ksig,
+ 			 struct rt_sigframe_user_layout *user, int usig)
+ {
+ 	__sigrestore_t sigtramp;
+@@ -1197,7 +1303,7 @@ static void setup_return(struct pt_regs *regs, struct k_sigaction *ka,
+ 	regs->regs[0] = usig;
+ 	regs->sp = (unsigned long)user->sigframe;
+ 	regs->regs[29] = (unsigned long)&user->next_frame->fp;
+-	regs->pc = (unsigned long)ka->sa.sa_handler;
++	regs->pc = (unsigned long)ksig->ka.sa.sa_handler;
+ 
+ 	/*
+ 	 * Signal delivery is a (wacky) indirect function call in
+@@ -1240,12 +1346,14 @@ static void setup_return(struct pt_regs *regs, struct k_sigaction *ka,
+ 	if (system_supports_poe())
+ 		write_sysreg_s(POR_EL0_INIT, SYS_POR_EL0);
+ 
+-	if (ka->sa.sa_flags & SA_RESTORER)
+-		sigtramp = ka->sa.sa_restorer;
++	if (ksig->ka.sa.sa_flags & SA_RESTORER)
++		sigtramp = ksig->ka.sa.sa_restorer;
+ 	else
+ 		sigtramp = VDSO_SYMBOL(current->mm->context.vdso, sigtramp);
+ 
+ 	regs->regs[30] = (unsigned long)sigtramp;
++
++	return gcs_signal_entry(sigtramp, ksig);
+ }
+ 
+ static int setup_rt_frame(int usig, struct ksignal *ksig, sigset_t *set,
+@@ -1268,7 +1376,7 @@ static int setup_rt_frame(int usig, struct ksignal *ksig, sigset_t *set,
+ 	err |= __save_altstack(&frame->uc.uc_stack, regs->sp);
+ 	err |= setup_sigframe(&user, regs, set);
+ 	if (err == 0) {
+-		setup_return(regs, &ksig->ka, &user, usig);
++		err = setup_return(regs, ksig, &user, usig);
+ 		if (ksig->ka.sa.sa_flags & SA_SIGINFO) {
+ 			err |= copy_siginfo_to_user(&frame->info, &ksig->info);
+ 			regs->regs[1] = (unsigned long)&frame->info;
 
 -- 
-Without deviation from the norm, progress is not possible.
+2.39.2
+
 
 _______________________________________________
 linux-riscv mailing list
