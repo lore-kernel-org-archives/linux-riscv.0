@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9949DCF318A
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Oct 2024 23:04:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BBBCCF318A
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Oct 2024 23:05:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sOKiV9rtjgMraw+wxYWmVh+YfGuftZJIzWl/dRxbFgA=; b=1VDYAQVRv+BmKW
-	T8chrJjnGe7QIHB8fkz2M9OYX3yfeiPwfPvPRZwLJjI1PiFGaHC1UsG8dWe9pY/3wO7gw9FUztDpH
-	In+Z2bbVriE+MgkNtpR5QFU6FkggGvxwhCY5KCn+BX7vq8U4lhfQ9OlrX02LtQVemFFevVpYHKHHJ
-	q72gth6D49Y+OOszWcPk00GB+w83vRsuaIRygKN99VGX+MtD6V/wjN/dXu41Vf0URxkvvfDGjPEz+
-	RdyrMBzMxNwk4gEslNhCd9eNe2ipXeyL0+01kjyTnsSDZ9t81tYDr68Byla/XO+CN4rbtdiiy/Den
-	YuGTUhqjoySn6CoDoz1A==;
+	List-Owner; bh=1ndxTmnLJS4crAiy3s+BvkmPpXzdBrK6eG4wpDcNsz4=; b=jT0IZDCggWcuQn
+	jaE3RTrVLtbCxTlSAg1Te7CR3Xpxt8drV98ZnliUsSFtMz0sr+ioQ82+bOZ2+/nJEmBvzAgAO/1D1
+	ERbhM03r2+zaFQ+oAx9zCPHDf3LqlcvQV75enJkZ7X+LxfCoC7KYkgbFgZzONA3AZ5yy6PTn7OrGn
+	g1H1FxA16SfeA8B0uSwFTKRPQRsnky14WLdpJm0EIMh/8T4nOVkPgcAg/OgmXuJISqSeDb7RpBhMX
+	94W6nGWlFZQ2wUw/+p5aSPKQSVf436WXrd/CFXdgPiwTXGptFT6kCbajgjjGBMI9dPxMiC+SQxZq3
+	cbc2S+5AFXA9gdb6DwfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1svluP-00000004Haw-46fU;
-	Tue, 01 Oct 2024 23:03:57 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1svlvg-00000004I8W-3sO6;
+	Tue, 01 Oct 2024 23:05:16 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1svlqv-00000004G42-2CiJ;
-	Tue, 01 Oct 2024 23:00:22 +0000
+	id 1svlrG-00000004GBU-375H;
+	Tue, 01 Oct 2024 23:00:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5A7E65C5547;
-	Tue,  1 Oct 2024 23:00:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00FADC4CECD;
-	Tue,  1 Oct 2024 23:00:06 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0F6925C5547;
+	Tue,  1 Oct 2024 23:00:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E63EC4CECF;
+	Tue,  1 Oct 2024 23:00:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1727823620;
-	bh=E+STpDluPni1qqn1pN34uc0md3Dbr7p50mwxPtfPVv4=;
+	s=k20201202; t=1727823641;
+	bh=QzHtuVcSDaL4Yx9qwbzgbMXiTjYft30F6+HnraYB7I8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=l96NGn7TPurtYSYyEpu0VnZYlAC2GuD2+RbdqPXib+mqQAeBSqqkmnezOKTnlqVjr
-	 HDbSwGS+mgTjMLa07JGqmUfBnR0ypexjQGKJaNBgwajGZwKwRsxdv0AKZ0xRiwe56F
-	 Ao8ZG+9U5OS5Ve6nVTGHYWROxrqGeMoeMc71uZS0QrY0VZUEYy5W2+NhFjwXiCtCim
-	 +Nct63DmkECUz2AZK7Oiyx9s45YrUR/vEgDrJPLoW4fLqNroyzIth5HIga6UfMOvMe
-	 sAugk1xN/dOaAabMo8cz3b3m2WGmTmp5NFmB0lKgERg/V11rLMz3zxPeL1oHAHXyVs
-	 XDfHSOswPd4sQ==
+	b=uZYeamrVp2rmyMCQnluYwOnDm4n+Ff//3VOK9nh7fhijWFZSBsIrKKDjAGk/o56ph
+	 TWtU7syb9yzkhscU782HgCKBmfTe8umJChkH7pbpdmrFkFnZKDzEigjtf2MH4Q6h+p
+	 03C4A6BM0Yce+YT95YTjNz7OxrDfGQse/whSczqePqSDu3R0HqcStk54Lkhz+mQEEG
+	 /g6Czt7bYJqEty6YzhPgcA7W0BO47QcNZGVJ0ID0LvsSGOrdMO4RtMtauP6xRfcUf3
+	 TqTDwfiQYc3f0nkcAQpIFVMpBhb6kHSmTpoI4+YPQ4WcHzjP2Dcp9wdpT1PpFQ1JyR
+	 PZHhD65WC/Q5Q==
 From: Mark Brown <broonie@kernel.org>
-Date: Tue, 01 Oct 2024 23:58:41 +0100
-Subject: [PATCH v13 02/40] mm: Define VM_HIGH_ARCH_6
+Date: Tue, 01 Oct 2024 23:58:43 +0100
+Subject: [PATCH v13 04/40] prctl: arch-agnostic prctl for shadow stack
 MIME-Version: 1.0
-Message-Id: <20241001-arm64-gcs-v13-2-222b78d87eee@kernel.org>
+Message-Id: <20241001-arm64-gcs-v13-4-222b78d87eee@kernel.org>
 References: <20241001-arm64-gcs-v13-0-222b78d87eee@kernel.org>
 In-Reply-To: <20241001-arm64-gcs-v13-0-222b78d87eee@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -72,20 +72,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-99b12
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1285; i=broonie@kernel.org;
- h=from:subject:message-id; bh=E+STpDluPni1qqn1pN34uc0md3Dbr7p50mwxPtfPVv4=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBm/H7FqkbqHSry4P1gTmihgOrWZBFx7sDukTznRbrU
- 2uCRGoCJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZvx+xQAKCRAk1otyXVSH0F4rB/
- 9amfpCTqeJr4oMpmSRZ4U6Ditl6XVFokj/OXg+LAKqsq6EhoA3N+8gdc/aS5cnW13+1ac1jZeWXWrg
- hp3oVPQPuVmteub5aFl3SQzh/BKX8YHEq56dKgJA1udA1tiAkKjASjDqBpIkUH0AFjU0kv0u4Xh+ND
- dJfTfnKT0IzpOCcfSpCSGhidKn7KUnuBFjPPmw40/aRUZF069RKTCk0USiZqlY1TSUbe33MhAVt3hr
- nZ3RYPMnOpZs00/ydAeSFTD1hwI9QE9t6Ah0uenxM/o06Cd1v9n2mS9NMPMdLJpFbndB0W4fQmIG0E
- 3CMqg/lvoOg4PUH/jEwsL0eXZfDCF9
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4975; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=QzHtuVcSDaL4Yx9qwbzgbMXiTjYft30F6+HnraYB7I8=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBm/H7HehyHHZF6+cj8DJo6NxY+7EGNDDBamzVyHc5d
+ IEYLGoqJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZvx+xwAKCRAk1otyXVSH0JhiB/
+ wO8/ZF+SkRw9d5n/x/2zuP6kLyixcTZ3zAcm+iDEAW8JePX4d66upSGjkAXNAIOYliNpblNkRnl9lW
+ /pqQ7K6QEeMennahYz0YD8lnH71QpGSZoYU4Q3TSyJu1ZMKTYlrBAd4xIFAjtTa1dsVtHWMbgc7EYT
+ GrpwH5cRB82KnH5mEWaCdoBopZsgFWmMql5OS4Dhig4w/zyRuEBRoxmlgvQxdF3TWFrXD9i1lNVpHx
+ CCKN9fjW0cokoWtvsnRvMxrlBAUb+FeHgux5A6Y+EjNCDrNy3dUev6djW59zf6sdiH/eXUqnNhum7i
+ C/teDyY09NlgqHrpdzubJx7yX0COoy
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241001_160021_729820_E376A851 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20241001_160042_916051_F13FAF61 
+X-CRM114-Status: GOOD (  19.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,34 +102,134 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The addition of protection keys means that on arm64 we now use all of the
-currently defined VM_HIGH_ARCH_x bits. In order to allow us to allocate a
-new flag for GCS pages define VM_HIGH_ARCH_6.
+Three architectures (x86, aarch64, riscv) have announced support for
+shadow stacks with fairly similar functionality.  While x86 is using
+arch_prctl() to control the functionality neither arm64 nor riscv uses
+that interface so this patch adds arch-agnostic prctl() support to
+get and set status of shadow stacks and lock the current configuation to
+prevent further changes, with support for turning on and off individual
+subfeatures so applications can limit their exposure to features that
+they do not need.  The features are:
 
+  - PR_SHADOW_STACK_ENABLE: Tracking and enforcement of shadow stacks,
+    including allocation of a shadow stack if one is not already
+    allocated.
+  - PR_SHADOW_STACK_WRITE: Writes to specific addresses in the shadow
+    stack.
+  - PR_SHADOW_STACK_PUSH: Push additional values onto the shadow stack.
+
+These features are expected to be inherited by new threads and cleared
+on exec(), unknown features should be rejected for enable but accepted
+for locking (in order to allow for future proofing).
+
+This is based on a patch originally written by Deepak Gupta but modified
+fairly heavily, support for indirect landing pads is removed, additional
+modes added and the locking interface reworked.  The set status prctl()
+is also reworked to just set flags, if setting/reading the shadow stack
+pointer is required this could be a separate prctl.
+
+Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Acked-by: Yury Khrustalev <yury.khrustalev@arm.com>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- include/linux/mm.h | 2 ++
- 1 file changed, 2 insertions(+)
+ include/linux/mm.h         |  4 ++++
+ include/uapi/linux/prctl.h | 22 ++++++++++++++++++++++
+ kernel/sys.c               | 30 ++++++++++++++++++++++++++++++
+ 3 files changed, 56 insertions(+)
 
 diff --git a/include/linux/mm.h b/include/linux/mm.h
-index ecf63d2b0582..182bad0c55df 100644
+index 182bad0c55df..56654306a832 100644
 --- a/include/linux/mm.h
 +++ b/include/linux/mm.h
-@@ -329,12 +329,14 @@ extern unsigned int kobjsize(const void *objp);
- #define VM_HIGH_ARCH_BIT_3	35	/* bit only usable on 64-bit architectures */
- #define VM_HIGH_ARCH_BIT_4	36	/* bit only usable on 64-bit architectures */
- #define VM_HIGH_ARCH_BIT_5	37	/* bit only usable on 64-bit architectures */
-+#define VM_HIGH_ARCH_BIT_6	38	/* bit only usable on 64-bit architectures */
- #define VM_HIGH_ARCH_0	BIT(VM_HIGH_ARCH_BIT_0)
- #define VM_HIGH_ARCH_1	BIT(VM_HIGH_ARCH_BIT_1)
- #define VM_HIGH_ARCH_2	BIT(VM_HIGH_ARCH_BIT_2)
- #define VM_HIGH_ARCH_3	BIT(VM_HIGH_ARCH_BIT_3)
- #define VM_HIGH_ARCH_4	BIT(VM_HIGH_ARCH_BIT_4)
- #define VM_HIGH_ARCH_5	BIT(VM_HIGH_ARCH_BIT_5)
-+#define VM_HIGH_ARCH_6	BIT(VM_HIGH_ARCH_BIT_6)
- #endif /* CONFIG_ARCH_USES_HIGH_VMA_FLAGS */
+@@ -4221,4 +4221,8 @@ static inline void pgalloc_tag_copy(struct folio *new, struct folio *old)
+ }
+ #endif /* CONFIG_MEM_ALLOC_PROFILING */
  
- #ifdef CONFIG_ARCH_HAS_PKEYS
++int arch_get_shadow_stack_status(struct task_struct *t, unsigned long __user *status);
++int arch_set_shadow_stack_status(struct task_struct *t, unsigned long status);
++int arch_lock_shadow_stack_status(struct task_struct *t, unsigned long status);
++
+ #endif /* _LINUX_MM_H */
+diff --git a/include/uapi/linux/prctl.h b/include/uapi/linux/prctl.h
+index 35791791a879..557a3d2ac1d4 100644
+--- a/include/uapi/linux/prctl.h
++++ b/include/uapi/linux/prctl.h
+@@ -328,4 +328,26 @@ struct prctl_mm_map {
+ # define PR_PPC_DEXCR_CTRL_CLEAR_ONEXEC	0x10 /* Clear the aspect on exec */
+ # define PR_PPC_DEXCR_CTRL_MASK		0x1f
+ 
++/*
++ * Get the current shadow stack configuration for the current thread,
++ * this will be the value configured via PR_SET_SHADOW_STACK_STATUS.
++ */
++#define PR_GET_SHADOW_STACK_STATUS      74
++
++/*
++ * Set the current shadow stack configuration.  Enabling the shadow
++ * stack will cause a shadow stack to be allocated for the thread.
++ */
++#define PR_SET_SHADOW_STACK_STATUS      75
++# define PR_SHADOW_STACK_ENABLE         (1UL << 0)
++# define PR_SHADOW_STACK_WRITE		(1UL << 1)
++# define PR_SHADOW_STACK_PUSH		(1UL << 2)
++
++/*
++ * Prevent further changes to the specified shadow stack
++ * configuration.  All bits may be locked via this call, including
++ * undefined bits.
++ */
++#define PR_LOCK_SHADOW_STACK_STATUS      76
++
+ #endif /* _LINUX_PRCTL_H */
+diff --git a/kernel/sys.c b/kernel/sys.c
+index 4da31f28fda8..3d38a9c7c5c9 100644
+--- a/kernel/sys.c
++++ b/kernel/sys.c
+@@ -2324,6 +2324,21 @@ int __weak arch_prctl_spec_ctrl_set(struct task_struct *t, unsigned long which,
+ 	return -EINVAL;
+ }
+ 
++int __weak arch_get_shadow_stack_status(struct task_struct *t, unsigned long __user *status)
++{
++	return -EINVAL;
++}
++
++int __weak arch_set_shadow_stack_status(struct task_struct *t, unsigned long status)
++{
++	return -EINVAL;
++}
++
++int __weak arch_lock_shadow_stack_status(struct task_struct *t, unsigned long status)
++{
++	return -EINVAL;
++}
++
+ #define PR_IO_FLUSHER (PF_MEMALLOC_NOIO | PF_LOCAL_THROTTLE)
+ 
+ #ifdef CONFIG_ANON_VMA_NAME
+@@ -2784,6 +2799,21 @@ SYSCALL_DEFINE5(prctl, int, option, unsigned long, arg2, unsigned long, arg3,
+ 	case PR_RISCV_SET_ICACHE_FLUSH_CTX:
+ 		error = RISCV_SET_ICACHE_FLUSH_CTX(arg2, arg3);
+ 		break;
++	case PR_GET_SHADOW_STACK_STATUS:
++		if (arg3 || arg4 || arg5)
++			return -EINVAL;
++		error = arch_get_shadow_stack_status(me, (unsigned long __user *) arg2);
++		break;
++	case PR_SET_SHADOW_STACK_STATUS:
++		if (arg3 || arg4 || arg5)
++			return -EINVAL;
++		error = arch_set_shadow_stack_status(me, arg2);
++		break;
++	case PR_LOCK_SHADOW_STACK_STATUS:
++		if (arg3 || arg4 || arg5)
++			return -EINVAL;
++		error = arch_lock_shadow_stack_status(me, arg2);
++		break;
+ 	default:
+ 		error = -EINVAL;
+ 		break;
 
 -- 
 2.39.2
