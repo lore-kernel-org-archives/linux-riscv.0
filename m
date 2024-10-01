@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 366C5CE7D14
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Oct 2024 11:51:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9CDFCE7D13
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Oct 2024 11:51:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ojYpFWw9Dfwt5syeEvNmkgBHNJWW0o43Gb6eYaJoPSU=; b=QABm5CWS3bVBvP
-	Ybl1yrOb1bpTnw15wA7k4Q+nYAaqEwZRVdeV07daQbjlo2v9pKErhSsqOV2QGMiy7fR4uPNUi2Mxw
-	9OA+y9yQY1KCCjYmQDgu1Yd93/ApZ0S8owLT4QtOjpPiBECxucbRf+ixfPFnSH1VvTufrOhfa0/yc
-	PmxfI4OS6gUoFgQ4/Rs8pFsV6lDFqxsDrdkF/IqzQRJVKk9fzL7e71aXPfkpTC3B8PhDKaYZ7ZqWB
-	s52PC+v2bQAg7xJWWz9FJfoXrq6GUZXRL9VKGGyrJF6G71sl0XBlR2qDfhRNLhlyOtI87WfE+2kJV
-	41+f3Qj+71VCR4xZy6+g==;
+	List-Owner; bh=yA58jsR+lu3/s913SbrZmHCk8CWWO/I3XByFq5bTefM=; b=eGBS5KIfhq5LFf
+	kvCQ2JQ9Mk8lb+d3GEz5S+FuTyCtwUIagmPwsGxx60fL8TRETGIJrzApd/gYfFArrUZ6LeFfeWs9J
+	E1B+EPP+f/CnT1+sOhn9gP2i8iuLItODLJxBs+BbwmXVu9wwtTpKHgmaHn6aoLwi/ff+RGjDsNpXD
+	bj6DyiKRIOjwyR/7rQU5OiuLyN05me6RDkWW0wHH57XBg/qF00EjH7rRlr2FgK+YdHBG/acy5NPTU
+	de+8njpcG3vtOQ/HukQmqkJhxazNgyiyqFe0e6XRszoEAGNXte4KQnb54Ft5UE+RpSOMGjFnEBPCB
+	L56AJ+mGxm56hQLvvZwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1svbPd-00000002acp-49TN;
-	Tue, 01 Oct 2024 11:51:30 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1svbPh-00000002agG-3ttS;
+	Tue, 01 Oct 2024 11:51:33 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1svb9z-00000002XMv-1dXh;
-	Tue, 01 Oct 2024 11:35:20 +0000
+	id 1svbA0-00000002XNX-2LiK
+	for linux-riscv@lists.infradead.org;
+	Tue, 01 Oct 2024 11:35:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5F267A435AB;
-	Tue,  1 Oct 2024 11:35:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A215C4CEC6;
-	Tue,  1 Oct 2024 11:35:18 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id F361E5C537C
+	for <linux-riscv@lists.infradead.org>; Tue,  1 Oct 2024 11:35:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7ACCC4CED3;
+	Tue,  1 Oct 2024 11:35:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1727782518;
-	bh=PLCfu9k2nrqK0Q23eCcS61S+UCWbhfJU+ryvhWPppaw=;
+	s=k20201202; t=1727782519;
+	bh=0ZFiVCrmS9naVpaACl4Ktl8cNQxxn0tRk7utNPinZeQ=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=cuJGJWOvGtuy95w2CKuaTFpyUid4icwEMHtbAyOEd1SBP7T3ALRPCsctRnLg3yM8P
-	 iCZnl1sN6HzCcahiMymrWhb6zvpjtn7kRTI+CEEV5vNHlGUFG1me+IkGsZZJ/pHaJM
-	 VmW8I3FPpnoErlyQS4+CXDVl3LkmEFfG2MCQMArLnI4/li4dHOUOlcc7imoBT2gMw6
-	 oeosrCrdIEuuAvU11L9j7ri8ih2y/RK4DYUiRqpW0QCgDOrVZht/FuuI59+fG+q7aM
-	 ifEpF9KFVK6ZA11o0c44kU2gjmaVelyl8SG9/cc1ct5ubuW+ARJ2BsAyno5maDgk75
-	 yyroMfbYk1HfQ==
+	b=tvBeCh6QSYdEebeQSSxalYM9wCp8HDT19xOKQvlYfuJqBy7s6mobTBDNiwPIkBfMZ
+	 qmw1N32peSDTgQNpjgtik5LJUf5fec485ugWknbHwtZPq6/eKKaw345dEwPA+eVdEv
+	 8/IOmN7sFegmkCK4Hv6CfuscBQC8qAeM0YboObrtB+nNOfeqQRrmMPJHWrFpro1M6v
+	 mTXaXOp2kTKUhIhDJtxJPuv5zEtwpz9ZUmD/buj/vLY8qZpmU/vfuAecUhw7RnBnlh
+	 TL0CuQyF8EAQfQKSuYf6XE1uSljHCZOJ9qfAVQifWKqd1Ao4KgIomd8ofJ3AVftiiR
+	 VDtK6eS2RBXsA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id AE0F2380DBF7;
-	Tue,  1 Oct 2024 11:35:22 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33DEB380DBF7;
+	Tue,  1 Oct 2024 11:35:24 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] RISC-V: KVM: Don't zero-out PMU snapshot area before freeing
- data
+Subject: Re: [GIT PULL] RISC-V soc driver fixes for v6.11-rc6
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <172778252124.314421.2392376531840304330.git-patchwork-notify@kernel.org>
-Date: Tue, 01 Oct 2024 11:35:21 +0000
-References: <20240815170907.2792229-1-apatel@ventanamicro.com>
-In-Reply-To: <20240815170907.2792229-1-apatel@ventanamicro.com>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
- paul.walmsley@sifive.com, atishp@atishpatra.org, ajones@ventanamicro.com,
- anup@brainfault.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
+Message-Id: <172778252275.314421.12651797029685769171.git-patchwork-notify@kernel.org>
+Date: Tue, 01 Oct 2024 11:35:22 +0000
+References: <20240828-fidelity-almighty-18d5434aaef0@spud>
+In-Reply-To: <20240828-fidelity-almighty-18d5434aaef0@spud>
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org, soc@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241001_043519_590468_0E7E88DA 
-X-CRM114-Status: UNSURE (   8.98  )
+X-CRM114-CacheID: sfid-20241001_043520_662704_0B4206E9 
+X-CRM114-Status: UNSURE (   7.61  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,50 +76,23 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
-by Anup Patel <anup@brainfault.org>:
+This pull request was applied to riscv/linux.git (fixes)
+by Arnd Bergmann <arnd@arndb.de>:
 
-On Thu, 15 Aug 2024 22:39:07 +0530 you wrote:
-> With the latest Linux-6.11-rc3, the below NULL pointer crash is observed
-> when SBI PMU snapshot is enabled for the guest and the guest is forcefully
-> powered-off.
+On Wed, 28 Aug 2024 16:26:40 +0100 you wrote:
+> Hey Arnd,
 > 
->   Unable to handle kernel NULL pointer dereference at virtual address 0000000000000508
->   Oops [#1]
->   Modules linked in: kvm
->   CPU: 0 UID: 0 PID: 61 Comm: term-poll Not tainted 6.11.0-rc3-00018-g44d7178dd77a #3
->   Hardware name: riscv-virtio,qemu (DT)
->   epc : __kvm_write_guest_page+0x94/0xa6 [kvm]
->    ra : __kvm_write_guest_page+0x54/0xa6 [kvm]
->   epc : ffffffff01590e98 ra : ffffffff01590e58 sp : ffff8f80001f39b0
->    gp : ffffffff81512a60 tp : ffffaf80024872c0 t0 : ffffaf800247e000
->    t1 : 00000000000007e0 t2 : 0000000000000000 s0 : ffff8f80001f39f0
->    s1 : 00007fff89ac4000 a0 : ffffffff015dd7e8 a1 : 0000000000000086
->    a2 : 0000000000000000 a3 : ffffaf8000000000 a4 : ffffaf80024882c0
->    a5 : 0000000000000000 a6 : ffffaf800328d780 a7 : 00000000000001cc
->    s2 : ffffaf800197bd00 s3 : 00000000000828c4 s4 : ffffaf800248c000
->    s5 : ffffaf800247d000 s6 : 0000000000001000 s7 : 0000000000001000
->    s8 : 0000000000000000 s9 : 00007fff861fd500 s10: 0000000000000001
->    s11: 0000000000800000 t3 : 00000000000004d3 t4 : 00000000000004d3
->    t5 : ffffffff814126e0 t6 : ffffffff81412700
->   status: 0000000200000120 badaddr: 0000000000000508 cause: 000000000000000d
->   [<ffffffff01590e98>] __kvm_write_guest_page+0x94/0xa6 [kvm]
->   [<ffffffff015943a6>] kvm_vcpu_write_guest+0x56/0x90 [kvm]
->   [<ffffffff015a175c>] kvm_pmu_clear_snapshot_area+0x42/0x7e [kvm]
->   [<ffffffff015a1972>] kvm_riscv_vcpu_pmu_deinit.part.0+0xe0/0x14e [kvm]
->   [<ffffffff015a2ad0>] kvm_riscv_vcpu_pmu_deinit+0x1a/0x24 [kvm]
->   [<ffffffff0159b344>] kvm_arch_vcpu_destroy+0x28/0x4c [kvm]
->   [<ffffffff0158e420>] kvm_destroy_vcpus+0x5a/0xda [kvm]
->   [<ffffffff0159930c>] kvm_arch_destroy_vm+0x14/0x28 [kvm]
->   [<ffffffff01593260>] kvm_destroy_vm+0x168/0x2a0 [kvm]
->   [<ffffffff015933d4>] kvm_put_kvm+0x3c/0x58 [kvm]
->   [<ffffffff01593412>] kvm_vm_release+0x22/0x2e [kvm]
+> Please pull a single fix for 6.11, as things have been rather quiet on
+> this front over the summer.
+> 
+> Cheers,
+> Conor.
 > 
 > [...]
 
 Here is the summary with links:
-  - RISC-V: KVM: Don't zero-out PMU snapshot area before freeing data
-    https://git.kernel.org/riscv/c/47d40d93292d
+  - [GIT,PULL] RISC-V soc driver fixes for v6.11-rc6
+    https://git.kernel.org/riscv/c/3536c01d6577
 
 You are awesome, thank you!
 -- 
