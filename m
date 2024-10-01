@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2404FCF3189
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Oct 2024 23:24:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC12CCF3189
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Oct 2024 23:26:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WgH0aqNzLFDpqzcX7Uqtn3j+45XpaWzh2vceDpee0L4=; b=UMmdaQSxsRGZUt
-	P/KjnMOGH6R5Qh/2DrQXK377xwBLPKm4wDxsiLPmdoUUxCo7VAslO6iAMHRkQ3HNbjoLWdlKiJgMD
-	zJqqkAHuO8sF4kuUar77HvHc682xDu7dJ/zlK976UnYpL3R0drteRvCCxRrBTi6pL8LvF0b5C+J7T
-	ls/eyKZisRmvNjme4EbP4Z5xhXju+3g+2rQ8d1A5D8VGpU5iFKy25JmF7O/BQnntPNqEnQxjBgECR
-	LJAHsCW2OZmzVRpNnMZCrmSpWifMTC30SkwJrV295/V6XtJbgoPTHj23ett8c1C6tSq2FGpWdkLvV
-	G+EYakTLcf/efAg6zOnA==;
+	List-Owner; bh=Lph0uK99Md/Duw9GcQAxIA5aetzkZvbLl0afIftLfaA=; b=hK0zzCajc7rb83
+	n4ogONXuxgDOfMupunxL1vskYmqAw4NvfA/Qk917vSdojyutvoVRsiPYLD9Mw92HjEMFVoxOSuD50
+	VgTVms5TeXiS6Wh92NDzxh/uG0fBwIX8oCG6HPL104I8X7E+TqXcBNGvAHoc4FguoPk+bEm7xs+gJ
+	fkxwsLWyJ4co+2Uf71Jj31xDwl/B/5iWBSoCDG9MV7k2kpVxtMu2lRfM7ne0bkDyDHd3hav9uFpcm
+	fq6PwREDrXbJT2CUeSLOa1wcRfelEFWSe4dTVcHpw7fYzyjVyPshVXLo5dWmAgiC+p9r2/UiInhLL
+	4eQTFg+Kcb4R1IZ2z55g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1svmDn-00000004MG6-2y0J;
-	Tue, 01 Oct 2024 23:23:59 +0000
+	id 1svmGA-00000004MZ1-3hHK;
+	Tue, 01 Oct 2024 23:26:26 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1svltk-00000004HIm-0MUC;
-	Tue, 01 Oct 2024 23:03:17 +0000
+	id 1svlu7-00000004HTl-3ncI;
+	Tue, 01 Oct 2024 23:03:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 19EFD5C4354;
-	Tue,  1 Oct 2024 23:03:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4015C4CEC6;
-	Tue,  1 Oct 2024 23:03:01 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 220F55C1060;
+	Tue,  1 Oct 2024 23:03:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B91A5C4CEC6;
+	Tue,  1 Oct 2024 23:03:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1727823794;
-	bh=2WIrz1ABczNTTuelqfWzt+ZpKm8ek9K3V5zq/uM97Fk=;
+	s=k20201202; t=1727823818;
+	bh=JwTS5J5Kz+XCxYDRc3FG3N1klYZC99PAyz93oxxWHns=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=qN0KFUJ+vti96yhBFnZJAl07br92mY0LG2AqB/XU+lMCE9arSoc22Aihn57FzTPpD
-	 jKKAVLnRC9gZ+jxwJjsmG+liJwo8cYrrojAb2rw7ocfy49cIqq+/HQJ2k+wHQ3azmZ
-	 u3St2TVXL1sZjxGG5DyK1BGF285LX4FW+9/vCWli5B9IDC/htY/ksU3oVbD5fNcrSZ
-	 a1TY6yxP+8vK/arjhFPYY/r10Hn3joDG3THXNeO20pmSm37VOv9GnTCtQ0Fs10weUJ
-	 L+JfGNKPR7XepAB1gZxNt/mU2ePMdt3EoQib1jcflSlJ0/7U8bue3Y1rO4mX5fjIIM
-	 m+gHnS7WPEZoQ==
+	b=h5QOvsyHwmwYJXTikpeXsVEp2A3UPoVjGZRUucHDnIEP8s20RwqCtfvtaEgYASJ3A
+	 4VvT7Z9FkWpjGLRRUyAM0E57+nFfV/1smmkjKGkRZKQARGtcXv4Kr/B1Fg5EqqXPTT
+	 w7iMpC+tcgCrK+qsiDR7XnELMA4PkJgDckI9vpw8SVgbifNvpYEuLSdt70HOnbcLrh
+	 bILOGqSFtZOKo1haHLpTrtPKpk0NC0HS0Pd2sgi3K8cPhb+7HZxIGLJOcB3QJHfl0A
+	 Gos56B/AegT6wsD2YwKq8Ie1aAdRX49w3baVX3709fSna41T6qIRdgrbFb2IW97c4V
+	 0q6PzQ7x+JAPg==
 From: Mark Brown <broonie@kernel.org>
-Date: Tue, 01 Oct 2024 23:58:57 +0100
-Subject: [PATCH v13 18/40] arm64/hwcap: Add hwcap for GCS
+Date: Tue, 01 Oct 2024 23:58:59 +0100
+Subject: [PATCH v13 20/40] arm64/mm: Handle GCS data aborts
 MIME-Version: 1.0
-Message-Id: <20241001-arm64-gcs-v13-18-222b78d87eee@kernel.org>
+Message-Id: <20241001-arm64-gcs-v13-20-222b78d87eee@kernel.org>
 References: <20241001-arm64-gcs-v13-0-222b78d87eee@kernel.org>
 In-Reply-To: <20241001-arm64-gcs-v13-0-222b78d87eee@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -72,20 +72,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-99b12
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3474; i=broonie@kernel.org;
- h=from:subject:message-id; bh=2WIrz1ABczNTTuelqfWzt+ZpKm8ek9K3V5zq/uM97Fk=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBm/H7ScE1JawkHCykL372K9ucQN3HG0LoTpJcod4re
- tJ+zIjyJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZvx+0gAKCRAk1otyXVSH0JQvB/
- oDt7sqH+5NY4WIhDaXR/5vdnxL7JiatcdiiFuj+HShLpNnbvssP8ZvQSkwVv2/FomFWveqRBW43bJG
- P9/eHhKLyOKtyVQL4JAFUypJsyrK1luF9UU6gl9ztYvjWlBwjyVgH2te8uhEl4P5pP+WATtKiIC/Wo
- eul9cxeK7IgMXvQ3/hOCQpTVAHAi71PRnUczqs1r9slmr10NSrFKQiGJ9nq6AzMp/S+cIz4mJeVnEg
- OIUD1mRHZ8TPssXOn4jR4Y54I3iYwHRRUkvIOT/Tr7jH+Vs3/3yPmLGdBY7SEMaLgniP0PYxT8pSec
- FSLL7PSosg+g3RZfNrkb5A1gygvicw
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3733; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=JwTS5J5Kz+XCxYDRc3FG3N1klYZC99PAyz93oxxWHns=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBm/H7TVZ3jDKeIyJFS2xkZycVzFdIgkZ/2MVMSxegg
+ PracWFmJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZvx+0wAKCRAk1otyXVSH0PPFB/
+ 9jOVBZ0sZYLFYt8CYSgFwth5bQAMffCYR65UIbAKTDAZV8czeEm1xDTBVqLzh2y8cJ8L9rksWGRzsa
+ KoNNdusUYbP0WwOzwiB8f26x4k5gKBP8dzKhvHobyjoVwM9dwHJ1P+31Rnk9S2VC0HlJ12ukGOll7A
+ CZczYl0vb1teCaug4ldvi8DJRkAAMotUN8oeVWz1J0E9GwHb+eMDvTL9igdY9wrw4EyL8kkGp2K8aF
+ B+pBMS0HXzUFSpXDbnSX5eVKfGA1myQSsEM0KQsGSA4aaHTZ8Guexvn78tQkU7ofyEMejYY/2DYTmb
+ IZnC/hzjnKbZohafBaYTyRcPVaFiYq
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241001_160316_299510_1AF5F6EF 
-X-CRM114-Status: GOOD (  13.23  )
+X-CRM114-CacheID: sfid-20241001_160340_117366_BC37FE78 
+X-CRM114-Status: GOOD (  19.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,91 +102,108 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Provide a hwcap to enable userspace to detect support for GCS.
+All GCS operations at EL0 must happen on a page which is marked as
+having UnprivGCS access, including read operations.  If a GCS operation
+attempts to access a page without this then it will generate a data
+abort with the GCS bit set in ESR_EL1.ISS2.
 
+EL0 may validly generate such faults, for example due to copy on write
+which will cause the GCS data to be stored in a read only page with no
+GCS permissions until the actual copy happens.  Since UnprivGCS allows
+both reads and writes to the GCS (though only through GCS operations) we
+need to ensure that the memory management subsystem handles GCS accesses
+as writes at all times.  Do this by adding FAULT_FLAG_WRITE to any GCS
+page faults, adding handling to ensure that invalid cases are identfied
+as such early so the memory management core does not think they will
+succeed.  The core cannot distinguish between VMAs which are generally
+writeable and VMAs which are only writeable through GCS operations.
+
+EL1 may validly write to EL0 GCS for management purposes (eg, while
+initialising with cap tokens).
+
+We also report any GCS faults in VMAs not marked as part of a GCS as
+access violations, causing a fault to be delivered to userspace if it
+attempts to do GCS operations outside a GCS.
+
+Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- Documentation/arch/arm64/elf_hwcaps.rst | 4 ++++
- arch/arm64/include/asm/hwcap.h          | 1 +
- arch/arm64/include/uapi/asm/hwcap.h     | 3 ++-
- arch/arm64/kernel/cpufeature.c          | 3 +++
- arch/arm64/kernel/cpuinfo.c             | 1 +
- 5 files changed, 11 insertions(+), 1 deletion(-)
+ arch/arm64/mm/fault.c | 40 ++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 40 insertions(+)
 
-diff --git a/Documentation/arch/arm64/elf_hwcaps.rst b/Documentation/arch/arm64/elf_hwcaps.rst
-index 694f67fa07d1..25b41ff74fa0 100644
---- a/Documentation/arch/arm64/elf_hwcaps.rst
-+++ b/Documentation/arch/arm64/elf_hwcaps.rst
-@@ -170,6 +170,10 @@ HWCAP_PACG
-     ID_AA64ISAR1_EL1.GPI == 0b0001, as described by
-     Documentation/arch/arm64/pointer-authentication.rst.
+diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+index 8b281cf308b3..c2f89a678ac0 100644
+--- a/arch/arm64/mm/fault.c
++++ b/arch/arm64/mm/fault.c
+@@ -504,6 +504,14 @@ static bool fault_from_pkey(unsigned long esr, struct vm_area_struct *vma,
+ 			false);
+ }
  
-+HWCAP_GCS
-+    Functionality implied by ID_AA64PFR1_EL1.GCS == 0b1, as
-+    described by Documentation/arch/arm64/gcs.rst.
++static bool is_gcs_fault(unsigned long esr)
++{
++	if (!esr_is_data_abort(esr))
++		return false;
 +
- HWCAP2_DCPODP
-     Functionality implied by ID_AA64ISAR1_EL1.DPB == 0b0010.
++	return ESR_ELx_ISS2(esr) & ESR_ELx_GCS;
++}
++
+ static bool is_el0_instruction_abort(unsigned long esr)
+ {
+ 	return ESR_ELx_EC(esr) == ESR_ELx_EC_IABT_LOW;
+@@ -518,6 +526,23 @@ static bool is_write_abort(unsigned long esr)
+ 	return (esr & ESR_ELx_WNR) && !(esr & ESR_ELx_CM);
+ }
  
-diff --git a/arch/arm64/include/asm/hwcap.h b/arch/arm64/include/asm/hwcap.h
-index a775adddecf2..7bcf1347ca0b 100644
---- a/arch/arm64/include/asm/hwcap.h
-+++ b/arch/arm64/include/asm/hwcap.h
-@@ -92,6 +92,7 @@
- #define KERNEL_HWCAP_SB			__khwcap_feature(SB)
- #define KERNEL_HWCAP_PACA		__khwcap_feature(PACA)
- #define KERNEL_HWCAP_PACG		__khwcap_feature(PACG)
-+#define KERNEL_HWCAP_GCS		__khwcap_feature(GCS)
++static bool is_invalid_gcs_access(struct vm_area_struct *vma, u64 esr)
++{
++	if (!system_supports_gcs())
++		return false;
++
++	if (unlikely(is_gcs_fault(esr))) {
++		/* GCS accesses must be performed on a GCS page */
++		if (!(vma->vm_flags & VM_SHADOW_STACK))
++			return true;
++	} else if (unlikely(vma->vm_flags & VM_SHADOW_STACK)) {
++		/* Only GCS operations can write to a GCS page */
++		return esr_is_data_abort(esr) && is_write_abort(esr);
++	}
++
++	return false;
++}
++
+ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
+ 				   struct pt_regs *regs)
+ {
+@@ -554,6 +579,14 @@ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
+ 		/* It was exec fault */
+ 		vm_flags = VM_EXEC;
+ 		mm_flags |= FAULT_FLAG_INSTRUCTION;
++	} else if (is_gcs_fault(esr)) {
++		/*
++		 * The GCS permission on a page implies both read and
++		 * write so always handle any GCS fault as a write fault,
++		 * we need to trigger CoW even for GCS reads.
++		 */
++		vm_flags = VM_WRITE;
++		mm_flags |= FAULT_FLAG_WRITE;
+ 	} else if (is_write_abort(esr)) {
+ 		/* It was write fault */
+ 		vm_flags = VM_WRITE;
+@@ -587,6 +620,13 @@ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
+ 	if (!vma)
+ 		goto lock_mmap;
  
- #define __khwcap2_feature(x)		(const_ilog2(HWCAP2_ ## x) + 64)
- #define KERNEL_HWCAP_DCPODP		__khwcap2_feature(DCPODP)
-diff --git a/arch/arm64/include/uapi/asm/hwcap.h b/arch/arm64/include/uapi/asm/hwcap.h
-index 055381b2c615..675642ec4d91 100644
---- a/arch/arm64/include/uapi/asm/hwcap.h
-+++ b/arch/arm64/include/uapi/asm/hwcap.h
-@@ -21,7 +21,7 @@
-  * HWCAP flags - for AT_HWCAP
-  *
-  * Bits 62 and 63 are reserved for use by libc.
-- * Bits 32-61 are unallocated for potential use by libc.
-+ * Bits 33-61 are unallocated for potential use by libc.
-  */
- #define HWCAP_FP		(1 << 0)
- #define HWCAP_ASIMD		(1 << 1)
-@@ -55,6 +55,7 @@
- #define HWCAP_SB		(1 << 29)
- #define HWCAP_PACA		(1 << 30)
- #define HWCAP_PACG		(1UL << 31)
-+#define HWCAP_GCS		(1UL << 32)
- 
- /*
-  * HWCAP2 flags - for AT_HWCAP2
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index d1e758e99e0a..b8655d55f318 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -3025,6 +3025,9 @@ static const struct arm64_cpu_capabilities arm64_elf_hwcaps[] = {
- 	HWCAP_CAP(ID_AA64ZFR0_EL1, I8MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEI8MM),
- 	HWCAP_CAP(ID_AA64ZFR0_EL1, F32MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEF32MM),
- 	HWCAP_CAP(ID_AA64ZFR0_EL1, F64MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEF64MM),
-+#endif
-+#ifdef CONFIG_ARM64_GCS
-+	HWCAP_CAP(ID_AA64PFR1_EL1, GCS, IMP, CAP_HWCAP, KERNEL_HWCAP_GCS),
- #endif
- 	HWCAP_CAP(ID_AA64PFR1_EL1, SSBS, SSBS2, CAP_HWCAP, KERNEL_HWCAP_SSBS),
- #ifdef CONFIG_ARM64_BTI
-diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
-index 44718d0482b3..f2f92c6b1c85 100644
---- a/arch/arm64/kernel/cpuinfo.c
-+++ b/arch/arm64/kernel/cpuinfo.c
-@@ -80,6 +80,7 @@ static const char *const hwcap_str[] = {
- 	[KERNEL_HWCAP_SB]		= "sb",
- 	[KERNEL_HWCAP_PACA]		= "paca",
- 	[KERNEL_HWCAP_PACG]		= "pacg",
-+	[KERNEL_HWCAP_GCS]		= "gcs",
- 	[KERNEL_HWCAP_DCPODP]		= "dcpodp",
- 	[KERNEL_HWCAP_SVE2]		= "sve2",
- 	[KERNEL_HWCAP_SVEAES]		= "sveaes",
++	if (is_invalid_gcs_access(vma, esr)) {
++		vma_end_read(vma);
++		fault = 0;
++		si_code = SEGV_ACCERR;
++		goto bad_area;
++	}
++
+ 	if (!(vma->vm_flags & vm_flags)) {
+ 		vma_end_read(vma);
+ 		fault = 0;
 
 -- 
 2.39.2
