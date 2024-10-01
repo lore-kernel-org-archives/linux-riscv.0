@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E4CFCEACE5
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Oct 2024 16:20:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 735C1CEACE7
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Oct 2024 16:20:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=C3MK3WgiyFXNa4TTkCJb+BHIbVq4ftExJR7utKL6EEw=; b=2Cdh9BT7U9w8Ys
-	17qTh5XB+C9racINwGaU0EINLDeRsUlAYMxt/zcRjYsTb012vka1FJmDAPZnyU6ZPDBUgG5u3uM2b
-	yF/+T6vgbE6CqPmeYKBdKQDnF/Q1Mdqgt9yKRgbpCOLsYN2fdN7uEmAKO03j50Bgv7mdtvbp9/zIL
-	SZExR2a40O8Ipm8DteJhMbg3sAvKgZo9guzGEAnke+r4A37bKvk9/TUpAQVNBWq8oDHSSNFyHJRZr
-	csBJcSMJP8LySuIn7Fnzac3mF/j9XrIfVgmDwp0bxCx3We5Sx/FwFfw/JYPJmyuDXnZFQi23frYGH
-	2YpIE/dLSMSVwPpbpcjA==;
+	List-Owner; bh=SS1FfM7RjOuCpLd4j2rIF+5goVcf+i2CjH7vVNQc6ZE=; b=bvzB0qbHFvdKLK
+	RiLJ1Nrkf1WgcbR7wqjBQ3w4/wn3SIh/AxpZfr00KsOMzWxZOZpCn/iTwqK3/GnS+UY/IBAaUOuJ9
+	ARRrwGUjxaDkhDVYO1CxNWjek/mQF+6fuh5DtfWkv4CrM/Hfw+4RFR0+K39bjMjGaCW3f2hs5w+8W
+	ElQDCfLln2xfL01jXCwUP2TgjxVu7z6Huj63LE7BKkxFAaEGgvnjNS24MyTk5VYj/iBuXDsUx9jgA
+	czj2mbNLpKzcuKQ53u+rdDwq7cklQInn3dSW6LGsZFywaR6QQHV0y75oKLbs/YEuJEzEeTb8MoXwX
+	vyBRRH8dTcBnUGgTsBNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1svfbW-00000003VNA-31Cf;
-	Tue, 01 Oct 2024 16:20:02 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1svfba-00000003VQ3-3Yoq;
+	Tue, 01 Oct 2024 16:20:06 +0000
+Received: from mail-pg1-f182.google.com ([209.85.215.182])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1svfOw-00000003QnW-2gpt
+	id 1svfPA-00000003QwO-1izN
 	for linux-riscv@lists.infradead.org;
-	Tue, 01 Oct 2024 16:07:03 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-207115e3056so50469425ad.2
-        for <linux-riscv@lists.infradead.org>; Tue, 01 Oct 2024 09:07:02 -0700 (PDT)
+	Tue, 01 Oct 2024 16:07:17 +0000
+Received: by mail-pg1-f182.google.com with SMTP id 41be03b00d2f7-7d4f85766f0so4890945a12.2
+        for <linux-riscv@lists.infradead.org>; Tue, 01 Oct 2024 09:07:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1727798821; x=1728403621; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1727798835; x=1728403635; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=pcb1JUl7nxyzCR2L+K51gN2ROJJ8XrFInAPZeivTlr8=;
-        b=DGGTRh1VDaprJV0KRwwDwDLBtIi6scGWgkLEbYXvwRAX4jFDsh/LFpKrcsLYESi4tz
-         28jGnZ9x4dZ7UJXr9ZBLeN2YDJdVInkMarrbwQ+dSJTga12CCKb3wwfRtkHYhxnYgy+e
-         zQ0bf1H4mDOSIlPgReNj1H8wR0bgy5OJjk9wrYg2Bf2qVY+wr1mEbC473fzPqDkxv3OW
-         DQzRW2wutmgJRIZfUWhqrkjppid66jwEVP7+TW4OXwF5uMzz8pn+WX6KOjKqkOBYAsbt
-         VGM35ubmHStvZiDxfNqeO1SHUGhzhu+3n3ZV4KWAsK2Q1tRE9KFE9wqz0V7i2YpuX1FL
-         oGUA==
+        bh=pxvPbFdPQ1tC+j3wFHGGOQBUzN++1F4GTwbS3f8RUbU=;
+        b=Lyq4XugNoWloh3QRaKRLcM0rWNbAe8HlP7A3OnyXld2hHWPRlOc4q+mKj5yPGah7pf
+         Is6ksCI5tOq51991esIyznnPLRJjhYCRVrWEZgLHhXPaViMHjryFMxkNhRflnix8p7Yn
+         9Zrb0IQwJ6V8PL5U7LFs7eGMYe9BvXuTMk7CX1BEaaafuOfGoQA4k/ntQLZSjr3JZ1P1
+         pjurVNHCq4v1fbwnuqd0vO7uBNervejxDseACsFkbtuDmDuVixkMuRmJMQvLfF6ZK7nL
+         E63unLvm3ix/QWFGd607ivttrK5TYRIC3lZ6VQPJRAzuo0Km66aX9YuUgXKzlvnfSgsO
+         sw1w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1727798821; x=1728403621;
+        d=1e100.net; s=20230601; t=1727798835; x=1728403635;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=pcb1JUl7nxyzCR2L+K51gN2ROJJ8XrFInAPZeivTlr8=;
-        b=C2kc7CKLMLrkpHJK/4frEW9iEvn6yuuTQD84xYkmvACKkW9OnaSC8zEn5NuPQJRpoP
-         /yPssULfvmm54CML35HMocBktyynC158aqaGYCr3VaYtfTTNOO9kKctFegWvlAYx7N7f
-         ngzjMrip9weibiXqFCFPF9UyAID0Vt6TwhsR95qKxqzz7hwJaLibyClX9xHLIfM5KpoI
-         iNYXLzNczAVwG1IbJ77jvCTNHoGU27gu6+LcBjy1X7adAwxXhphJMj7Y2eqRM7eUt360
-         Koj/UFqovRNqL9nAHoc+hc3igm/Rn16aew5EkMiFTF+t0MMcXqdsBw6Fkjp6PlwIJUU2
-         OlPg==
-X-Forwarded-Encrypted: i=1; AJvYcCXKny9ToR685deKvCgtE9N2x7clAVEnKuhmYdr3CXXuzvKuBRZkO+7lW8TJrlJCaagp5DLs2bRe+LsW+Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy2P0kkMDYG4oi9FJ7vq24mYRkmtl2H5vARZHTc+PKrCZLOG4mW
-	skrOtLaRUIMI/lsnkO82Jr4QzWFeYlAa6qFQHc4jV7I1Xj63heJk7Bkv8o55ehk=
-X-Google-Smtp-Source: AGHT+IG/9AhOFkVlsb1ZH2XMKlQ6f717lLd7IRjhRM+ZTMobdV3S8kdqvcOsBq5NGgSC9+zelAG6Ow==
-X-Received: by 2002:a17:90a:650c:b0:2cc:ff56:5be1 with SMTP id 98e67ed59e1d1-2e184526f71mr233618a91.7.1727798821325;
-        Tue, 01 Oct 2024 09:07:01 -0700 (PDT)
+        bh=pxvPbFdPQ1tC+j3wFHGGOQBUzN++1F4GTwbS3f8RUbU=;
+        b=Gxvct1aHvRWeCD01yqKqj+Js+iCpqKXbYqdnviCzHzNNjJ0Neng/IduvbmCXY4IYcz
+         sKcWXpfDETvBOgXt7ZgyyQNpDWzsuoe7lcNA5Ho0dailHi+90zJRsGQwfGA8jINaCodv
+         lKrFrj8mQzYP5NZIpd/wAVcozZ6/2XSEOwLumxS+/oILa0NSQBtlnD9iamqBjZc8qcKg
+         KlH9gKiwIn4WyIn/y+6jLw66RFwoVim/9/oyNb+65+LNLeeR3ocrSYjHWKey/p76Y0PH
+         eDFTKGWNSKdxPmfARStlQumLaiLi3UOThnm3wIxYLGgBK6k9DXTOSGnWVvF/lxGFdWyN
+         bBCQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW/TXvmLmqd0wjuLX0u2NHxAcgNN2Z7S7WtakqOkpGBnz70SrSjppyCvKkMptqa6VBg0++ZgP1IyYLUlQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXH4jIos83bFmxWvhcAB6cWhh66Iu6kJTQCaCXoapHCYzJ3sAS
+	+NYJJxs+VwF2sSqay00PCKgQ/vLY5vil0yvKKuzb1CBX3YB7iuAdeZT3X4GgjYpem/gmJx58MfV
+	r
+X-Google-Smtp-Source: AGHT+IH2Sm4Er88BRFmxFtoVQlQZa6M14xX+NOC0OSBp2pCUlTzjnB+u1q8ipbNjt5+sqIq3C7HKbw==
+X-Received: by 2002:a17:90b:3b52:b0:2e0:8784:d420 with SMTP id 98e67ed59e1d1-2e1848013e7mr226286a91.21.1727798835139;
+        Tue, 01 Oct 2024 09:07:15 -0700 (PDT)
 Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e06e1d7d47sm13843973a91.28.2024.10.01.09.06.58
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e06e1d7d47sm13843973a91.28.2024.10.01.09.07.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Oct 2024 09:07:00 -0700 (PDT)
+        Tue, 01 Oct 2024 09:07:14 -0700 (PDT)
 From: Deepak Gupta <debug@rivosinc.com>
-Date: Tue, 01 Oct 2024 09:06:06 -0700
-Subject: [PATCH 01/33] mm: Introduce ARCH_HAS_USER_SHADOW_STACK
+Date: Tue, 01 Oct 2024 09:06:11 -0700
+Subject: [PATCH 06/33] riscv/Kconfig: enable HAVE_EXIT_THREAD for riscv
 MIME-Version: 1.0
-Message-Id: <20241001-v5_user_cfi_series-v1-1-3ba65b6e550f@rivosinc.com>
+Message-Id: <20241001-v5_user_cfi_series-v1-6-3ba65b6e550f@rivosinc.com>
 References: <20241001-v5_user_cfi_series-v1-0-3ba65b6e550f@rivosinc.com>
 In-Reply-To: <20241001-v5_user_cfi_series-v1-0-3ba65b6e550f@rivosinc.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
@@ -93,13 +94,11 @@ Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
  andybnac@gmail.com, kito.cheng@sifive.com, charlie@rivosinc.com, 
  atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com, 
  alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org, 
- rick.p.edgecombe@intel.com, Deepak Gupta <debug@rivosinc.com>, 
- David Hildenbrand <david@redhat.com>, 
- Carlos Bilbao <carlos.bilbao.osdev@gmail.com>
+ rick.p.edgecombe@intel.com, Deepak Gupta <debug@rivosinc.com>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241001_090702_752041_E0BFB6F7 
-X-CRM114-Status: GOOD (  15.07  )
+X-CRM114-CacheID: sfid-20241001_090716_600062_C46589FF 
+X-CRM114-Status: GOOD (  10.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,80 +115,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Mark Brown <broonie@kernel.org>
+riscv will need an implementation for exit_thread to clean up shadow stack
+when thread exits. If current thread had shadow stack enabled, shadow
+stack is allocated by default for any new thread.
 
-Since multiple architectures have support for shadow stacks and we need to
-select support for this feature in several places in the generic code
-provide a generic config option that the architectures can select.
-
-Suggested-by: David Hildenbrand <david@redhat.com>
-Acked-by: David Hildenbrand <david@redhat.com>
-Signed-off-by: Mark Brown <broonie@kernel.org>
-Reviewed-by: Rick Edgecombe <rick.p.edgecombe@intel.com>
-Reviewed-by: Deepak Gupta <debug@rivosinc.com>
-Reviewed-by: Carlos Bilbao <carlos.bilbao.osdev@gmail.com>
+Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
 ---
- arch/x86/Kconfig   | 1 +
- fs/proc/task_mmu.c | 2 +-
- include/linux/mm.h | 2 +-
- mm/Kconfig         | 6 ++++++
- 4 files changed, 9 insertions(+), 2 deletions(-)
+ arch/riscv/Kconfig          | 1 +
+ arch/riscv/kernel/process.c | 5 +++++
+ 2 files changed, 6 insertions(+)
 
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index 2852fcd82cbd..8ccae77d40f7 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -1954,6 +1954,7 @@ config X86_USER_SHADOW_STACK
- 	depends on AS_WRUSS
- 	depends on X86_64
- 	select ARCH_USES_HIGH_VMA_FLAGS
-+	select ARCH_HAS_USER_SHADOW_STACK
- 	select X86_CET
- 	help
- 	  Shadow stack protection is a hardware feature that detects function
-diff --git a/fs/proc/task_mmu.c b/fs/proc/task_mmu.c
-index 72f14fd59c2d..23f875e78eae 100644
---- a/fs/proc/task_mmu.c
-+++ b/fs/proc/task_mmu.c
-@@ -971,7 +971,7 @@ static void show_smap_vma_flags(struct seq_file *m, struct vm_area_struct *vma)
- #ifdef CONFIG_HAVE_ARCH_USERFAULTFD_MINOR
- 		[ilog2(VM_UFFD_MINOR)]	= "ui",
- #endif /* CONFIG_HAVE_ARCH_USERFAULTFD_MINOR */
--#ifdef CONFIG_X86_USER_SHADOW_STACK
-+#ifdef CONFIG_ARCH_HAS_USER_SHADOW_STACK
- 		[ilog2(VM_SHADOW_STACK)] = "ss",
- #endif
- #if defined(CONFIG_64BIT) || defined(CONFIG_PPC32)
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index ecf63d2b0582..57533b9cae95 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -354,7 +354,7 @@ extern unsigned int kobjsize(const void *objp);
- #endif
- #endif /* CONFIG_ARCH_HAS_PKEYS */
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 22dc5ea4196c..808ea66b9537 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -182,6 +182,7 @@ config RISCV
+ 	select HAVE_SAMPLE_FTRACE_DIRECT_MULTI
+ 	select HAVE_STACKPROTECTOR
+ 	select HAVE_SYSCALL_TRACEPOINTS
++	select HAVE_EXIT_THREAD
+ 	select HOTPLUG_CORE_SYNC_DEAD if HOTPLUG_CPU
+ 	select IRQ_DOMAIN
+ 	select IRQ_FORCED_THREADING
+diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+index e3142d8a6e28..1f2574fb2edb 100644
+--- a/arch/riscv/kernel/process.c
++++ b/arch/riscv/kernel/process.c
+@@ -201,6 +201,11 @@ int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
+ 	return 0;
+ }
  
--#ifdef CONFIG_X86_USER_SHADOW_STACK
-+#ifdef CONFIG_ARCH_HAS_USER_SHADOW_STACK
- /*
-  * VM_SHADOW_STACK should not be set with VM_SHARED because of lack of
-  * support core mm.
-diff --git a/mm/Kconfig b/mm/Kconfig
-index 4c9f5ea13271..4b2a1ef9a161 100644
---- a/mm/Kconfig
-+++ b/mm/Kconfig
-@@ -1296,6 +1296,12 @@ config NUMA_EMU
- 	  into virtual nodes when booted with "numa=fake=N", where N is the
- 	  number of nodes. This is only useful for debugging.
- 
-+config ARCH_HAS_USER_SHADOW_STACK
-+	bool
-+	help
-+	  The architecture has hardware support for userspace shadow call
-+          stacks (eg, x86 CET, arm64 GCS or RISC-V Zicfiss).
++void exit_thread(struct task_struct *tsk)
++{
 +
- source "mm/damon/Kconfig"
- 
- endmenu
++}
++
+ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ {
+ 	unsigned long clone_flags = args->flags;
 
 -- 
 2.45.0
