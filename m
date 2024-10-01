@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DAD3CF3189
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Oct 2024 01:31:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15259CF3189
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Oct 2024 01:46:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AkGW9lZa1DPPzE2Ikl1NSUfdtyacxZIESYr2p7B9xQs=; b=WZobO93X9jl/fA
-	FfptYZzfarOzBQW+ViCbIIB+Mqlb+u2S6be3nMDm0F4vNhzv05Al2fNKpCdKiwzyDx+jVc3r1m/sr
-	b2D6gD1ewuXeTVXXtjvP380EM7Dpo+dKBH0/ON9VuatuHDkfiomvNl3lS8Bl7JfXhaAIyu8VD+k6y
-	euD2scjtPHotoVt3V7Xtc+5uTBhVALhm7AzRrABsuDZfQvcx0WHAkFkEJxokUfTl2i96fFMz3vEAu
-	ItgKkFbamXeUvDBs0hwx1gD/ZwQ21R2GaD8n1IB5JH6X2XU6u7T3PmBJoL5MidKh+V4/zfO5YreAN
-	GuepMbPuUpDRj30t6hbg==;
+	List-Owner; bh=aXWlC3lZ4WdkwJmsuF5pn8TQkujZ1XXHgELXCaO0prE=; b=264Zm8X5o5IwHY
+	FvvZ6si3wZjfq+9OBteYNh+BYJh9Hw/bpaGhUTdxP+hLuQsVcotzZBZwBtO6DO7xIy9P/+s9azZqF
+	st1IUvuAfb48W11HlPuNqdcYmZC/f+UBtweKyc+7jrnjmSnIjs70W1NDy8teSldsMpkDFLNRT0KZ1
+	CjJ44ToxYe00IijyzktHfokIrfJykoNT1jS2cbGY6dtF/li1P/cQfqHfPHO+NAdqTI8I7Huf0INTi
+	CGwEJynKqIPpk5uDc/jJoKffIl/AqR28nWHT0xP9pQ7TOTVzv8zFVAr1AtyzWCmbQwBYFEM8kJsSr
+	KnQ6STPaELqvMhy1ijsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1svoDO-00000004YEl-1yL6;
-	Wed, 02 Oct 2024 01:31:42 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1svoRu-00000004ZTk-46Jj;
+	Wed, 02 Oct 2024 01:46:42 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1svltW-00000004HCo-23L6;
-	Tue, 01 Oct 2024 23:03:04 +0000
+	id 1svlut-00000004Hps-2WkS;
+	Tue, 01 Oct 2024 23:04:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1E9A0A4336F;
-	Tue,  1 Oct 2024 23:02:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F414AC4CEC6;
-	Tue,  1 Oct 2024 23:02:49 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id EF91C5C0339;
+	Tue,  1 Oct 2024 23:04:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2731BC4CEC6;
+	Tue,  1 Oct 2024 23:04:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1727823781;
-	bh=zAbUzr1ODeYIke6nRWrxiS99ZR09MpEN2O+JxNln/KQ=;
+	s=k20201202; t=1727823866;
+	bh=qUaWHBHdN5KhPSaC2shYeXLiosV3WxoA3aMO7oZsLVE=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=nwsAukUuBWfza0uW/rUXY3JuaOEaCfpGhqWfdkW4N1gDIkUidRK/hasGJbxinc8n9
-	 aJuU34SmkjIp5dTX+VS2pz6KWmffzyTp6vcj+BHHUSPAxm4MvcCE0UpxaD7Y5fKPkn
-	 ZIouN8Bo132zSXBrDXzBs9KdMFWMGBAL+8NcAJOHtPBextX0bEy24+65ZtcHu2XBQh
-	 4ExV9wc+5W+7nYeRkqGn3uWRbIMhfHZWT4rIQWmnRpTLfUw142l34HvjeorA2Ftp5z
-	 LQR24dMGjVHOKiE8geEw2Dk+GA2M8PK0kQgzok44ktT6EG3tYjPymmKJsyQtX5RU9K
-	 rq1mVjQibGiCQ==
+	b=R5eOO/CwUjlApWCgKSs8nP1G9FbTW6gonLZZKFpKZtiXZTuq5ksbI0wpEZjOTU8yG
+	 xKBo6Dd0I2/GI0kHJEkkXYarMC1cRGNbblyUwlD/NHUJB0gNe2M34+Pvj+i5NMs2oW
+	 AQUVAUxEn0i8MeiNshGyJtj0LUF/KvnAe3Q76pZS78zE69xC5Ne9aYD9h3mJjXX39m
+	 WvwPuQhQeS2KJ4LBzyZMXZmT9HjML+MzgorTHGfC0IFNwyg630Fv4fYif2qm7VlHqP
+	 ieU/iLIRdW7+XBOXwFy6sWKRc9mDVgT4WTb5lVgTRBUoaFCDboJBJV5vPgPvvQHQfu
+	 x3so/N3EBojRw==
 From: Mark Brown <broonie@kernel.org>
-Date: Tue, 01 Oct 2024 23:58:56 +0100
-Subject: [PATCH v13 17/40] arm64/idreg: Add overrride for GCS
+Date: Tue, 01 Oct 2024 23:59:03 +0100
+Subject: [PATCH v13 24/40] arm64/mm: Implement map_shadow_stack()
 MIME-Version: 1.0
-Message-Id: <20241001-arm64-gcs-v13-17-222b78d87eee@kernel.org>
+Message-Id: <20241001-arm64-gcs-v13-24-222b78d87eee@kernel.org>
 References: <20241001-arm64-gcs-v13-0-222b78d87eee@kernel.org>
 In-Reply-To: <20241001-arm64-gcs-v13-0-222b78d87eee@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -72,20 +72,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-99b12
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2008; i=broonie@kernel.org;
- h=from:subject:message-id; bh=zAbUzr1ODeYIke6nRWrxiS99ZR09MpEN2O+JxNln/KQ=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBm/H7REUmBbOjHIbjRTXTBou6dlj2jf+JoQilSMLfb
- 4oamPWaJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZvx+0QAKCRAk1otyXVSH0FP1B/
- 4sD5XnZ55qcZbmL8d240mUgjPiUILjDGICiY1VAzT57XN7KmS4yKXFIBxESjVgvnC8PpI/Y9Zb7sLt
- BoUFcV+Q7U8gNjyR9hza7jtoxvCKcCe9Fn68gwmkX0Q4K0iHv87BggWlo0hChy9JQMvrDNyrRwBnMY
- BQAtnYj8LUX9i5RQKhYnVKqYIz6KT6wIZL3OCytHzA4lDd0VcqnaXlWy8vM+ahKTXCJCH1oxk8LAzG
- 7YIm6HPFMIia0KQmWqlfB//G7jzb5amS/Mc8t2m3DcdvgO2PX0nljBPoA5AgKnG93CQFNxYmlBQ5kG
- 7zXw7oMDda+u457zCFPWYThTod14ro
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3164; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=qUaWHBHdN5KhPSaC2shYeXLiosV3WxoA3aMO7oZsLVE=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBm/H7W5jFfBYx0dD/AiVB3co7PUfmUOb1RGg81DGmy
+ uzTdjduJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZvx+1gAKCRAk1otyXVSH0O7/B/
+ 42dRKw5u6PwVHw5uyGMv0ruX389ObAvdjm3Y36WIttnDUP0tWY+nfpebp14vMHoDi1oOFtcjrptu1r
+ ZlVTVs7h1ekurkDzRQ2XJm89Mop9C4VeausdyagksJAtlGy43yqbrsMZysKPPEPLgeMJrgL+bs0yhY
+ hHpo0pRPoFNGUK3Jzl9WSDCsKobZbzpSDpA+7AdL8f93D4UFUH7XCRkK0oY7mo/u2UCTFOK+8fNwkL
+ CVDcP/EVT9hqzjaMyv4mIH4Ij7rJyU6y/ZXTMMHEPZUQZUOqHuYMaoePQShnA8T4Qw8zPwyZ4dkJZ0
+ KnR47/XLkVLmJuFGlBMHuGsjK6mlZf
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241001_160302_734868_473E80F1 
-X-CRM114-Status: GOOD (  10.77  )
+X-CRM114-CacheID: sfid-20241001_160427_793951_A1AB2419 
+X-CRM114-Status: GOOD (  18.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,52 +102,105 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hook up an override for GCS, allowing it to be disabled from the command
-line by specifying arm64.nogcs in case there are problems.
+As discussed extensively in the changelog for the addition of this
+syscall on x86 ("x86/shstk: Introduce map_shadow_stack syscall") the
+existing mmap() and madvise() syscalls do not map entirely well onto the
+security requirements for guarded control stacks since they lead to
+windows where memory is allocated but not yet protected or stacks which
+are not properly and safely initialised. Instead a new syscall
+map_shadow_stack() has been defined which allocates and initialises a
+shadow stack page.
+
+Implement this for arm64.  Two flags are provided, allowing applications
+to request that the stack be initialised with a valid cap token at the
+top of the stack and optionally also an end of stack marker above that.
+We support requesting an end of stack marker alone but since this is a
+NULL pointer it is indistinguishable from not initialising anything by
+itself.
 
 Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
 Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+Acked-by: Yury Khrustalev <yury.khrustalev@arm.com>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- Documentation/admin-guide/kernel-parameters.txt | 3 +++
- arch/arm64/kernel/pi/idreg-override.c           | 2 ++
- 2 files changed, 5 insertions(+)
+ arch/arm64/mm/gcs.c | 64 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 64 insertions(+)
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index 1518343bbe22..c1b00f709734 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -446,6 +446,9 @@
- 	arm64.nobti	[ARM64] Unconditionally disable Branch Target
- 			Identification support
+diff --git a/arch/arm64/mm/gcs.c b/arch/arm64/mm/gcs.c
+index 61a80de6baf8..5c46ec527b1c 100644
+--- a/arch/arm64/mm/gcs.c
++++ b/arch/arm64/mm/gcs.c
+@@ -68,6 +68,70 @@ unsigned long gcs_alloc_thread_stack(struct task_struct *tsk,
+ 	return addr;
+ }
  
-+	arm64.nogcs	[ARM64] Unconditionally disable Guarded Control Stack
-+			support
++SYSCALL_DEFINE3(map_shadow_stack, unsigned long, addr, unsigned long, size, unsigned int, flags)
++{
++	unsigned long alloc_size;
++	unsigned long __user *cap_ptr;
++	unsigned long cap_val;
++	int ret = 0;
++	int cap_offset;
 +
- 	arm64.nomops	[ARM64] Unconditionally disable Memory Copy and Memory
- 			Set instructions support
- 
-diff --git a/arch/arm64/kernel/pi/idreg-override.c b/arch/arm64/kernel/pi/idreg-override.c
-index 29d4b6244a6f..2bb709d78405 100644
---- a/arch/arm64/kernel/pi/idreg-override.c
-+++ b/arch/arm64/kernel/pi/idreg-override.c
-@@ -133,6 +133,7 @@ static const struct ftr_set_desc pfr1 __prel64_initconst = {
- 	.override	= &id_aa64pfr1_override,
- 	.fields		= {
- 		FIELD("bt", ID_AA64PFR1_EL1_BT_SHIFT, NULL ),
-+		FIELD("gcs", ID_AA64PFR1_EL1_GCS_SHIFT, NULL),
- 		FIELD("mte", ID_AA64PFR1_EL1_MTE_SHIFT, NULL),
- 		FIELD("sme", ID_AA64PFR1_EL1_SME_SHIFT, pfr1_sme_filter),
- 		{}
-@@ -215,6 +216,7 @@ static const struct {
- 	{ "arm64.nosve",		"id_aa64pfr0.sve=0" },
- 	{ "arm64.nosme",		"id_aa64pfr1.sme=0" },
- 	{ "arm64.nobti",		"id_aa64pfr1.bt=0" },
-+	{ "arm64.nogcs",		"id_aa64pfr1.gcs=0" },
- 	{ "arm64.nopauth",
- 	  "id_aa64isar1.gpi=0 id_aa64isar1.gpa=0 "
- 	  "id_aa64isar1.api=0 id_aa64isar1.apa=0 "
++	if (!system_supports_gcs())
++		return -EOPNOTSUPP;
++
++	if (flags & ~(SHADOW_STACK_SET_TOKEN | SHADOW_STACK_SET_MARKER))
++		return -EINVAL;
++
++	if (!PAGE_ALIGNED(addr))
++		return -EINVAL;
++
++	if (size == 8 || !IS_ALIGNED(size, 8))
++		return -EINVAL;
++
++	/*
++	 * An overflow would result in attempting to write the restore token
++	 * to the wrong location. Not catastrophic, but just return the right
++	 * error code and block it.
++	 */
++	alloc_size = PAGE_ALIGN(size);
++	if (alloc_size < size)
++		return -EOVERFLOW;
++
++	addr = alloc_gcs(addr, alloc_size);
++	if (IS_ERR_VALUE(addr))
++		return addr;
++
++	/*
++	 * Put a cap token at the end of the allocated region so it
++	 * can be switched to.
++	 */
++	if (flags & SHADOW_STACK_SET_TOKEN) {
++		/* Leave an extra empty frame as a top of stack marker? */
++		if (flags & SHADOW_STACK_SET_MARKER)
++			cap_offset = 2;
++		else
++			cap_offset = 1;
++
++		cap_ptr = (unsigned long __user *)(addr + size -
++						   (cap_offset * sizeof(unsigned long)));
++		cap_val = GCS_CAP(cap_ptr);
++
++		put_user_gcs(cap_val, cap_ptr, &ret);
++		if (ret != 0) {
++			vm_munmap(addr, size);
++			return -EFAULT;
++		}
++
++		/*
++		 * Ensure the new cap is ordered before standard
++		 * memory accesses to the same location.
++		 */
++		gcsb_dsync();
++	}
++
++	return addr;
++}
++
+ /*
+  * Apply the GCS mode configured for the specified task to the
+  * hardware.
 
 -- 
 2.39.2
