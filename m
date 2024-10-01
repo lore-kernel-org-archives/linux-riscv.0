@@ -4,63 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEA24CF3189
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Oct 2024 23:06:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E26CDCF318A
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Oct 2024 23:07:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PfECoMbgPLBhg35lrY//MtFU2Mo4n3BGRYe1qfVui6U=; b=fknzsSXcwL9v/p
-	wfyRbcKHJIk392RfenLjw3+BTc3KjMC+P4DXnThfbVK2XBD3V0Cdl/Ex1kd7zxZ+yAAjuiDmi8StE
-	SMgQhmueIOMYDUP73X9aNe1Yc/CUuDrX4vovDZamnONhwV3Sh+L8iNBBtUAcLwjEeq3hc2QH3vz30
-	ZBr7RuaOKKI5Xs5TnyonRpA872CfS5mLpQl5AehQdLTYxQldB+OjAEuaWx8uFfq5uaqpbmVD9hNCi
-	R4mzKnAGVtedh6VLg9eCF2p4q3Yq9wyAdd0KO8vdJpgivDmdn+Xsdm8SpARzG1o6zqN1z62V1VIIj
-	TKQ0hM3MTbE0nMK3zTVg==;
+	List-Owner; bh=0i4lih6l7XvUfNuIfZXEmiChFPAscvrlxMR+ssb5JLU=; b=Lh52oBJKvW3YCt
+	FxSiEjdcE4TlWCw7q0vEi4A1bgcbRu6fqqsmFv+SvOdOT0EpNIToQP+arlQw+5qk5MDAFSL0GKZPj
+	N8TPA4RQi/9GWgDgXtSy6UILOmZUHi6PJ0SKv+Woiu7DmJe5iryytrNHvT2AP1qWUThIi7c2lxCis
+	hioE4UIPY1mJb0AYsAuPXdl0EYHI2FIwUuEt0ULlFXUyh/LOCOrw1rl9i/+FxyuRxHCUZd48mlEup
+	GWg+u+pvzHCYqTRbpzJLrrfga2DQ74wXwM4OQL9R6O0VjEgVgEZz5Ov5ZHAnxwcEHmyl1dldqkWht
+	MRpXXEAt7kcUsbnxAcvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1svlwx-00000004Ifk-0GbL;
-	Tue, 01 Oct 2024 23:06:35 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1svlrJ-00000004GDD-3RKh;
-	Tue, 01 Oct 2024 23:00:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=t9JhsxwzGO3El7z9ZOgaTR+4+wFgEhQCbca7NK97jpc=; b=TII6NYM2LXD1GxYBrjclyBMrQ7
-	Hw07x7ZW9KdzLQtr4hh+xyKbtuwGKiQmLxUaZpxRQCsws0uF1vDj6jkXIOi4usDNUN0wxrfONqMKX
-	SB6+q85pxj9rfskZqKT/phTuHeYG9VTNsbuD0GisyjBOaUEe0D+FL4rY2LlQgMPY0LdzCKZbOEfz7
-	PjFERLf2qFbpwHGdx8JOgWg+0OsVWsOOiokyZ72YiGXoSf7BH5Nrp5GqmEeb7G8S58NjOb7iGhoLK
-	X+xQEQzgEGun3m/AQBO9Vzjvj0xPv3WMHF8It8aNvnyTGCiqET0+T8jEne2syYROlNwgHAizPVv9b
-	XYGTPHvg==;
+	id 1svlyD-00000004J8R-2nHf;
+	Tue, 01 Oct 2024 23:07:53 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1svlr9-00000003KjP-0ghH;
-	Tue, 01 Oct 2024 23:00:38 +0000
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1svlrT-00000004GHa-0Nde;
+	Tue, 01 Oct 2024 23:00:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9D9185C555E;
-	Tue,  1 Oct 2024 23:00:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE3DCC4CEC6;
-	Tue,  1 Oct 2024 23:00:20 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 65D595C045A;
+	Tue,  1 Oct 2024 23:00:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73BCEC4CECD;
+	Tue,  1 Oct 2024 23:00:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1727823631;
-	bh=is0r9uSxnBrJsURPndZS8euUNnh9hat0c9erNc615eY=;
+	s=k20201202; t=1727823653;
+	bh=vL+b/h3WOPYO7SwFl92JA9c0VbV77YwkdcIPJjlNFTs=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=OzU3C8wBK2OXHIrGHnNZpdo/rQ6MSb1jHODyDJAoNGG9AyZNy5xOhOnImbc9d60wE
-	 qSXmDByXxXOp7Ghp9V8hGG6xCGWGNhmsxXa6baFwojfTnq9JMUn7NQgzr7ymCVQr9M
-	 xQzltE3MEY3qlx7wv2dUGT9EHgsMa2EePeQK3qEgp//bYFWGY2XK9BHxnCXxy14lsW
-	 y6hOpdEVVsRQOy2lqROKkzEl3teZgHd64wyHyPEWP29kxwJ3TVQ7xEfvLf+sSEt1u3
-	 0tpfKhhLduhLswCXEr93fOz97JzdTpXZH9WZYuRAlc/qi7p3danUp/VqXou6eelRs8
-	 /UTfMxcLCXHGA==
+	b=Q9BEblIa6MmA5Xaow7wFPzfAM9zttSOUnO+EtJzN/PX7Huf9lzr++3lNcVEnhbBqz
+	 6dMkhlxPMElbdJeNlV158SBKPlOnHk5LQmhwlqFXihJgYSoqGxl3GLqUDM7DzAG5zc
+	 lvLDejujVe26CNwqEFjY9RC9WxGXrSNkF5G9RyuOCrURHXGYY7+8AA1BJ1SMrCIjZt
+	 BJvDkqRMfZF1cudVdwGq4CDhB5w9OLNa4NOrghTmOJJzwygsOzNNOFDRDlXzt7kKtH
+	 IpBNBwRkNrS1h0eaDjRqb0/mVRIcjwZiyqBZn+jatUlWQ0I77tCcOgDFflvH0cvLXI
+	 3XrtVqCX11mdg==
 From: Mark Brown <broonie@kernel.org>
-Date: Tue, 01 Oct 2024 23:58:42 +0100
-Subject: [PATCH v13 03/40] arm64/mm: Restructure arch_validate_flags() for
- extensibility
+Date: Tue, 01 Oct 2024 23:58:44 +0100
+Subject: [PATCH v13 05/40] mman: Add map_shadow_stack() flags
 MIME-Version: 1.0
-Message-Id: <20241001-arm64-gcs-v13-3-222b78d87eee@kernel.org>
+Message-Id: <20241001-arm64-gcs-v13-5-222b78d87eee@kernel.org>
 References: <20241001-arm64-gcs-v13-0-222b78d87eee@kernel.org>
 In-Reply-To: <20241001-arm64-gcs-v13-0-222b78d87eee@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -87,20 +72,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-99b12
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1425; i=broonie@kernel.org;
- h=from:subject:message-id; bh=is0r9uSxnBrJsURPndZS8euUNnh9hat0c9erNc615eY=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBm/H7GKNZdsoQOiuGpwbETH3V3HnhsUT9brBj4a8sc
- 0mwQI0yJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZvx+xgAKCRAk1otyXVSH0OpuB/
- 9pWeD6rdk7JLYO1MPcZh358jd/19/BInjhws/y8H6gPcPEhXrqV3svABMXzkhapPykA0FPynYWJ3Bt
- CVWT6h4z/az2texWxSamLzYf+NpFxo0KTA6Xs3FbEQNSLhX6NVP5ShtTxUTRPPqC8WQDiw2//sVF1q
- A/RTUy4F7OXGB7G2mAcnlkzpyemeS4Jdu5U3o6EafIil48jzkrO3jeu/jQIfS8xwQf5UOFkbK7CXEY
- QU452e6zmm0e9iAjhYcZALFD7pZ3ZjVBk0ZI4cEGACD5cU1doG8qkctAhdvnI0j0Tz4DLaIJl5HJWh
- sJYxu/Wz7X4HBFgP9tyB+yg3XUAKpC
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1935; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=vL+b/h3WOPYO7SwFl92JA9c0VbV77YwkdcIPJjlNFTs=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBm/H7Ig3nICM+W9H3bCT71LrQPx0TmwN2XrzWIKusU
+ qfRtVgmJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZvx+yAAKCRAk1otyXVSH0EIMB/
+ 9VAnLOcjD+99k7ouK69WkUZZje02S2hR6fRnCSftnhm+4bz+XAyRnRMAjPkiv0ecgHaTuBtP+MmN6L
+ M1BTqr15gkX62ORCMeKqgMig0l5Zm08WyrOD4f/Vf4Zb4phDfeQkEhHthQYNAOzPiw9zjQIJGaypMM
+ PJHFuO2ykfazrzqINBCj0D1SCeQt3+5cESSO4XqcDnyaOrpnKPqwWdoWVkNzB98GHx999EQw2iWsOp
+ pEi9Zg8ZJFAhJSTayVv1NDY9QzD6ngW3nJCCx7rD/3cbiZd2/Whg25ERj0YbAqlldQVHJfqrX3RCBL
+ guH+PVB5PQbczVYykW+F+llt/dznd7
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241002_000035_769726_B5C4F52B 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20241001_160055_261104_08BFDF51 
+X-CRM114-Status: GOOD (  13.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,45 +102,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently arch_validate_flags() is written in a very non-extensible
-fashion, returning immediately if MTE is not supported and writing the MTE
-check as a direct return. Since we will want to add more checks for GCS
-refactor the existing code to be more extensible, no functional change
-intended.
+In preparation for adding arm64 GCS support make the map_shadow_stack()
+SHADOW_STACK_SET_TOKEN flag generic and add _SET_MARKER. The existing
+flag indicates that a token usable for stack switch should be added to
+the top of the newly mapped GCS region while the new flag indicates that
+a top of stack marker suitable for use by unwinders should be added
+above that.
+
+For arm64 the top of stack marker is all bits 0.
 
 Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
 Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Acked-by: Yury Khrustalev <yury.khrustalev@arm.com>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/include/asm/mman.h | 14 ++++++++++----
- 1 file changed, 10 insertions(+), 4 deletions(-)
+ arch/x86/include/uapi/asm/mman.h | 3 ---
+ include/uapi/asm-generic/mman.h  | 4 ++++
+ 2 files changed, 4 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/include/asm/mman.h b/arch/arm64/include/asm/mman.h
-index 9e39217b4afb..03b790fd0ad8 100644
---- a/arch/arm64/include/asm/mman.h
-+++ b/arch/arm64/include/asm/mman.h
-@@ -62,11 +62,17 @@ static inline bool arch_validate_prot(unsigned long prot,
+diff --git a/arch/x86/include/uapi/asm/mman.h b/arch/x86/include/uapi/asm/mman.h
+index 46cdc941f958..ac1e6277212b 100644
+--- a/arch/x86/include/uapi/asm/mman.h
++++ b/arch/x86/include/uapi/asm/mman.h
+@@ -5,9 +5,6 @@
+ #define MAP_32BIT	0x40		/* only give out 32bit addresses */
+ #define MAP_ABOVE4G	0x80		/* only map above 4GB */
  
- static inline bool arch_validate_flags(unsigned long vm_flags)
- {
--	if (!system_supports_mte())
--		return true;
-+	if (system_supports_mte()) {
-+		/*
-+		 * only allow VM_MTE if VM_MTE_ALLOWED has been set
-+		 * previously
-+		 */
-+		if ((vm_flags & VM_MTE) && !(vm_flags & VM_MTE_ALLOWED))
-+			return false;
-+	}
+-/* Flags for map_shadow_stack(2) */
+-#define SHADOW_STACK_SET_TOKEN	(1ULL << 0)	/* Set up a restore token in the shadow stack */
+-
+ #include <asm-generic/mman.h>
+ 
+ #endif /* _ASM_X86_MMAN_H */
+diff --git a/include/uapi/asm-generic/mman.h b/include/uapi/asm-generic/mman.h
+index 57e8195d0b53..5e3d61ddbd8c 100644
+--- a/include/uapi/asm-generic/mman.h
++++ b/include/uapi/asm-generic/mman.h
+@@ -19,4 +19,8 @@
+ #define MCL_FUTURE	2		/* lock all future mappings */
+ #define MCL_ONFAULT	4		/* lock all pages that are faulted in */
+ 
++#define SHADOW_STACK_SET_TOKEN (1ULL << 0)     /* Set up a restore token in the shadow stack */
++#define SHADOW_STACK_SET_MARKER (1ULL << 1)     /* Set up a top of stack marker in the shadow stack */
 +
-+	return true;
- 
--	/* only allow VM_MTE if VM_MTE_ALLOWED has been set previously */
--	return !(vm_flags & VM_MTE) || (vm_flags & VM_MTE_ALLOWED);
- }
- #define arch_validate_flags(vm_flags) arch_validate_flags(vm_flags)
- 
++
+ #endif /* __ASM_GENERIC_MMAN_H */
 
 -- 
 2.39.2
