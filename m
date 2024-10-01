@@ -4,68 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84246CEB2FE
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Oct 2024 07:00:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50F7DCE7CE7
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Oct 2024 08:53:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O4zT1lMtNDC7AwQd4NQrBgqZ+YOAW/e3UHEBdzLKsp4=; b=MmyjY6uRpw4692
-	7WVKbHExnFimDDojZRCS+nCrMd2S1NLF7Kt8A0DuMkglwoZNmEXLlVw+PyFYHrM0+dK5CzSPgeSFT
-	NrSDwj2VcbFjGtwbtmPTQ60scB0I7TdYBOva/EVuBUI+S7XLst52xhuB4uFf8MH0erFQZ2S2QiLSG
-	ufQOcu4qQ7iqsV7kWBb1KI+Sjrl/HQ1zik5EK9ckdomN5rN2e9RA7UVqJAsDVS+V0kHpvX7rRmoba
-	HDTeSq7M8CzRHe8S2K9CcJ3q67NRmSiEo3Mb9EToK346Ce1sqoAS92o3F6WzYmFssJosIWfix0Q7d
-	7b/Ion6zIArnEdqLmPAw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xRJRNJfDf945AaNBQIyypXUp4m6I1qim3y1EEcP6cMo=; b=PGRG8Y8Irb+KhCeCjAxeDB+m2W
+	P6woRzhYGZlzsrFZ4DNFJjvoiMf3G7HS0ZLBfNLlJILS7eC/YixjeJds8ch8yckdA8DWDA8D8qr1A
+	vRvETBCkdKy1vXGuDHu8oVr9RcgUixZ/f2cDza2VFH8AemZMglcfqRIC05uMkGC7aUoMDHyUeLxpi
+	JfuZwQ3onyk2BxprFHPC+ndfsloSBAV9dac9dNtc/x12YtCBFKG3IGjhy0Uj2jw2lU8HDGwz0tzgK
+	VKDVv0zVh/uDzTaftaXyyzJTaauGUhX5GhRaKwnXhhuxBHKOHn7E6wFOidKS2Z+UooroPrzab72/a
+	UUhHqCxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1svWrV-00000001qCb-1kXy;
-	Tue, 01 Oct 2024 06:59:57 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1svYd0-000000028VE-4A8I;
+	Tue, 01 Oct 2024 08:53:07 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1svWqF-00000001pu4-2eic;
-	Tue, 01 Oct 2024 06:58:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6FB9A5C4B4F;
-	Tue,  1 Oct 2024 06:58:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CD7CC4CEC6;
-	Tue,  1 Oct 2024 06:58:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1727765918;
-	bh=O5YTakodNDe1cIRujrnosQhMNdo3PJWvcNMncXtHV5o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sgv94+nBOTvDk85hEJE4nQhK9YttToSyPnz2hvThSEUArrnY/qEP72+oB6nmnIMQS
-	 3vwqWcEvIVhDByq/Z/X45y33LSHPMiRya4nGpzvnS2vqw25iQjs9Q4ONLndw2U0mX0
-	 1LLwlpcQvqrNTh07IR57+ksIj/4s52MesSzeYMNTgDtKEKeialcVja4ODnHKZelX/J
-	 kzcxVN25K9KGngOBGsPnHBGaf/jXL5qVq1ORfku0CxXMouDPH08ROkKCadcKFDHzMz
-	 YOGjVp98JyELCLJX4Tjy4kdv54kwUePbqNsYTAwgEJIYZ3co89lip2f7j2s7dKSXjx
-	 De3TSuulx58/g==
-Date: Tue, 1 Oct 2024 08:58:34 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Drew Fustini <dfustini@tenstorrent.com>
-Cc: "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
-	Jose Abreu <joabreu@synopsys.com>, Jisheng Zhang <jszhang@kernel.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
-	Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
-	Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 1/3] dt-bindings: net: Add T-HEAD dwmac support
-Message-ID: <wtknsih2yrbylqzanp6k753kklk4myf6iezjz6swnp4nsqr2hl@7mmm6lxhqemu>
-References: <20240930-th1520-dwmac-v3-0-ae3e03c225ab@tenstorrent.com>
- <20240930-th1520-dwmac-v3-1-ae3e03c225ab@tenstorrent.com>
+	id 1svYb2-000000028J5-35sn
+	for linux-riscv@lists.infradead.org;
+	Tue, 01 Oct 2024 08:53:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=vRtU
+	e79gslQ6cPccbZ9Ag935/rQxMyhWN9cftpvLzgE=; b=OR3KXQkEafYTN8dtTzhw
+	eo4IVQbtLztezlazL+Fbpf2B55sRe9eJNlTKzkRoL8S5J1qlctseUvZic10t7KHp
+	QstYrQWVN3NVpx76UuQ5EZ1es6sRH/LMFI72nrkV4RTdQl6Z7bYE8dQXZjs8PgP6
+	jKruKRXoDdNHB4+GZl2V8wc6VImg4WUhQvzgOQQ7j5moabpVFBSKgbCrDxfeONU6
+	NdVKOHY7avxhoGaubYf863atQ2EYKRiZ57NMkUMLHnQTDWz3iFamGQYinTNURDqQ
+	rLt8rQGIhPydxyU7MxGamDhhuoG1RLCUcv0OAmBny28qCMI7uflA93I0UOOBxVnr
+	VQ==
+Received: (qmail 2454730 invoked from network); 1 Oct 2024 10:50:57 +0200
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 1 Oct 2024 10:50:57 +0200
+X-UD-Smtp-Session: l3s3148p1@Sqp7a2YjTq4ujnuV
+Date: Tue, 1 Oct 2024 10:50:56 +0200
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-i2c@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Andi Shyti <andi.shyti@kernel.org>, Wolfram Sang <wsa@kernel.org>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] i2c: microchip-core: actually use repeated sends
+Message-ID: <Zvu38H2Y-pRryFFQ@shikoro>
+Mail-Followup-To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Conor Dooley <conor@kernel.org>, linux-i2c@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Andi Shyti <andi.shyti@kernel.org>, Wolfram Sang <wsa@kernel.org>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20240930-uneasy-dorsal-1acda9227b0d@spud>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240930-th1520-dwmac-v3-1-ae3e03c225ab@tenstorrent.com>
+In-Reply-To: <20240930-uneasy-dorsal-1acda9227b0d@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240930_235839_788918_0A71D795 
-X-CRM114-Status: GOOD (  19.35  )
+X-CRM114-CacheID: sfid-20241001_015105_698937_C2104BC4 
+X-CRM114-Status: GOOD (  14.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,131 +72,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0091954998172286211=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 30, 2024 at 11:23:24PM -0700, Drew Fustini wrote:
-> From: Jisheng Zhang <jszhang@kernel.org>
-> 
-> Add documentation to describe the DesginWare-based GMAC controllers in
-> the T-HEAD TH1520 SoC.
-> 
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-> [drew: rename compatible, add apb registers as second reg of gmac node]
-> Signed-off-by: Drew Fustini <dfustini@tenstorrent.com>
-> ---
->  .../devicetree/bindings/net/snps,dwmac.yaml        |  1 +
->  .../devicetree/bindings/net/thead,th1520-gmac.yaml | 97 ++++++++++++++++++++++
->  MAINTAINERS                                        |  1 +
->  3 files changed, 99 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> index 4e2ba1bf788c..474ade185033 100644
-> --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> @@ -99,6 +99,7 @@ properties:
->          - snps,dwxgmac-2.10
->          - starfive,jh7100-dwmac
->          - starfive,jh7110-dwmac
-> +        - thead,th1520-gmac
->  
->    reg:
->      minItems: 1
-> diff --git a/Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml b/Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml
-> new file mode 100644
-> index 000000000000..fef1810b10c4
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml
-> @@ -0,0 +1,97 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/net/thead,th1520-gmac.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: T-HEAD TH1520 GMAC Ethernet controller
-> +
-> +maintainers:
-> +  - Drew Fustini <dfustini@tenstorrent.com>
-> +
-> +description: |
-> +  The TH1520 GMAC is described in the TH1520 Peripheral Interface User Manual
-> +  https://git.beagleboard.org/beaglev-ahead/beaglev-ahead/-/tree/main/docs
-> +
-> +  Features include
-> +    - Compliant with IEEE802.3 Specification
-> +    - IEEE 1588-2008 standard for precision networked clock synchronization
-> +    - Supports 10/100/1000Mbps data transfer rate
-> +    - Supports RGMII/MII interface
-> +    - Preamble and start of frame data (SFD) insertion in Transmit path
-> +    - Preamble and SFD deletion in the Receive path
-> +    - Automatic CRC and pad generation options for receive frames
-> +    - MDIO master interface for PHY device configuration and management
-> +
-> +  The GMAC Registers consists of two parts
-> +    - APB registers are used to configure clock frequency/clock enable/clock
-> +      direction/PHY interface type.
-> +    - AHB registers are use to configure GMAC core (DesignWare Core part).
-> +      GMAC core register consists of DMA registers and GMAC registers.
-> +
-> +select:
-> +  properties:
-> +    compatible:
-> +      contains:
-> +        enum:
-> +          - thead,th1520-gmac
-> +  required:
-> +    - compatible
-> +
-> +allOf:
-> +  - $ref: snps,dwmac.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - enum:
-> +          - thead,th1520-gmac
-> +      - const: snps,dwmac-3.70a
-> +
-> +  reg:
-> +    items:
-> +      - description: DesignWare GMAC IP core registers
-> +      - description: GMAC APB registers
-> +
-> +  reg-names:
-> +    items:
-> +      - const: dwmac
-> +      - const: apb
 
-I don't get why none of snps,dwmac properties are restricted. How many
-interrupts do you have here? How many clocks? resets?
+--===============0091954998172286211==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="43zjrHNx5Tjwq6OP"
+Content-Disposition: inline
 
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +  - interrupts
 
-Drop
+--43zjrHNx5Tjwq6OP
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> +  - interrupt-names
+Hi Conor,
 
-Drop
+> At present, where repeated sends are intended to be used, the
+> i2c-microchip-core driver sends a stop followed by a start. Lots of i2c
 
-> +  - phy-mode
-> +
-> +unevaluatedProperties: false
+Oh, this is wrong. Was this just overlooked or was maybe older hardware
+not able to generated correct repeated-starts?
 
-Best regards,
-Krzysztof
+> devices must not malfunction in the face of this behaviour, because the
+> driver has operated like this for years! Try to keep track of whether or
+> not a repeated send is required, and suppress sending a stop in these
+> cases.
 
+? I don't get that argument. If the driver is expected to do a repeated
+start, it should do a repeated start. If it didn't, it was a bug and you
+were lucky that the targets could handle this. Because most controllers
+can do repeated starts correctly, we can also argue that this works for
+most targets for years. In the unlikely event that a target fails after
+converting this driver to proper repeated starts, the target is buggy
+and needs fixing. It would not work with the majority of other
+controllers this way.
+
+I didn't look at the code but reading "keeping track whether rep start
+is required" looks wrong from a high level perspective. The driver
+should do repeated start when it should do repeated start.
+
+All the best,
+
+   Wolfram
+
+
+--43zjrHNx5Tjwq6OP
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmb7t/AACgkQFA3kzBSg
+KbbIhA//Ttljy7Uxhv02Sw0YdoqPUtZsFIR23KbjziR44RebbxLRbKt5L+IjUEe+
+Lz+UPgZE+IP7P1FzZacMYA/fMsosbS931LuTn9gWg0m7mIX5NDxfqTXH+SQvzxp3
+RkIiu59iswjYd6t0EXGnajGIxlf9c+Gclw8BMHZ34pDRZ5wtysySDWFhNa6E5Y5q
+rQtcLqUrG1VvzUy/sAh1elOVWGnpvDhnvBEWrnThyOshc09hkmFSTJo3IR5DRkic
+M7ewHZHZ28hpVipEfvC4BuLBUIE2jtvY4jvkcWKY+arkMOsq9AC6kETJv95RDLMW
+OrsgAxUUzPGPSL8BuEgS4e1Pltj1rWQyKR8808Lv+mP/W/MIZb4WJ+DU0TFuPgCz
+siP/DvATuqj+e5wnan6qwxHhk01Mm2jR8B65AiZHUeWZO9OphsbfJZsLr3htg+S5
+kiyrggrnxezIj9rZI1HpJ0MeYGEyRHnnO3oNL1yLoa2O1zNW74oUtBSPprnDjAaD
+lrJeDIf0tQ3demUg20KDQI6S4Y5Ua2mfptOnWSe5gXFVWbteYB9Foe387/mDtRYi
+lT2tElTdDJmTVEasg5t3cyuqpy6lUC0i+NBFhKkkvsLXHAIyZ9Uhfpzh+9eo7fDq
+Lj1I0/4a4UGEgPCZdgZNgVlTAZGMDoBVDEIfqt1uDRy5e6JKg7Y=
+=ORiE
+-----END PGP SIGNATURE-----
+
+--43zjrHNx5Tjwq6OP--
+
+
+--===============0091954998172286211==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0091954998172286211==--
+
