@@ -4,106 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFDB0CF3189
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Oct 2024 23:52:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC50ECF318A
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Oct 2024 00:16:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V5noCff4Fo9na0i8G27MBlGR3N4C8LPfhQCnzN9vKPc=; b=2xc98q9l7/76gzLji3matjRGUD
-	CrxOmbhzqZvsZfgAVay46g5e1W3baS2831dAXPhI7hAeg4j2DuVT/tjqDAn6xkIWYCIoobG+AZV05
-	6IymgdI24ifJN8zoz9d+nXWQjEDTyajGjuS4bTP9q8DZP+CI0rnZ1zGTIRaYCm7xfEQ73JotRAz65
-	oqBKqx5YxCywSoYABBG0AxtQkFRUU/f9WYQVYq8KJLzRNrwpochKP74t9Tqsd0b/C352eIqmTTMG2
-	r6FKBn+gWmtnwB0iUYmLcBUYGlvvCm5SxWAoI/QeJE6KhhmXUEDY+KgJvNXYWDOatu7M40BAJYF12
-	Q/Q60SEg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=PFwzCB2V8ToVd5WfGHLDgiDGzTz7jTZFWRxksKK6iUE=; b=iilBXhDLj5YHk7
+	GjkVB2L8Iq9UxxHdlgSyecOPKIMXogLPttpObWv51bnHdJY/VVSJ8B3H7+SzqqfaJqpEG9LtvjvF2
+	vurenVRSr1yiKYHAzEHSqkr1uF1bLuhnXRUbsR3E7LxnaZt0b1md9LkuKdBahnMUKYE2X1P41S/BQ
+	oTbl3wDOVAqfdH8poLWr6Tuiy2Xl5d8F5gju81S/6PX0abaOy1bzZ/lbQUwft6fyrPfDj7KOBZ6j7
+	r2mXGryaTm6Lw8KyhIs57DdOkFg12FWx1PZdAG+S0CYG8gbf/Sj4LRmfttFQRIj0AefrmO+UVrgGU
+	3fZn82g1oQfoyHaHdl2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1svmf7-00000004PZi-03qe;
-	Tue, 01 Oct 2024 23:52:13 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1svn2l-00000004Rct-2X5r;
+	Wed, 02 Oct 2024 00:16:39 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1svm3T-00000004Km1-3wHY
-	for linux-riscv@lists.infradead.org;
-	Tue, 01 Oct 2024 23:13:21 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-20b9b35c7c3so24605175ad.3
-        for <linux-riscv@lists.infradead.org>; Tue, 01 Oct 2024 16:13:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1727824399; x=1728429199; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=vF28sAx//tve6z0mOEzHepFQAlUB74FiXmJYm/deJzs=;
-        b=1PHAgYKxlisFVF8HKWYQILeP2LmF8bCnz97IXT1zWEJ+vixPTx0XHqRsP4OwOBc5wI
-         nB4onxdT/27oNHz+Q0FsRernrUmEHs+QFSL2DFOsLVbDQrmSDK3zsKpPIB3z+Oz2EaQ1
-         qMb3EsN5xv5IXBkz2crB/Dp8EiPxuP65KW166MIdgx98RpDLLQD2mWbAClYdQjPXq58A
-         6Tn7H2NFDEY9Uv+kdp/OLpoN+MolkBrqAfYgLOgxPhD+3UiyMi9Ex0lH+nGX/NK0YnCH
-         9si0xhco8QDOR5mMccapuZpsYxPv7Ui72RVCQBuDXjta5pc6csnJRf8LgwLW6/aUcvT8
-         4slg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1727824399; x=1728429199;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vF28sAx//tve6z0mOEzHepFQAlUB74FiXmJYm/deJzs=;
-        b=kXcG55Uhm+g8tc0kNNMf9rvbPNtoUwjvz7BGg2n4ygPrlB4dcZ6PNSES7wrYxBQ6ZD
-         IR2d9f1FMBEk3YDU4b1z9I2uikRlBB/+CAWyYv2uGFjD+xEnRA3NNRceq0Sd6aO1Xf8a
-         21MFsOngG128WFRtSLWwIEqAPU0yxZ5E50Es8jJ5VJofY5nzkAN+5cncTU8gQJKGFoED
-         HMXy4HJQPwM9C7b1RJAWY5T6jude2FqJDn/VfZl8lH14sogYO7iV+PhVq328ePvYOvuy
-         mj3U4Gf+sjJ9SfZT4MV1kZixXC+yaO3hxUnT3HsMq05EA08ma6byWrxExtD+jWqydVfL
-         zzTg==
-X-Forwarded-Encrypted: i=1; AJvYcCXNc7sD5UhWr2YdX0owuvFiv/XBuPdzsGAzj3ZpRI7leqcnghWDMdZJrhSa8LbbXmn14R8GjNKzjiE0rQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVkWsT+ZN8n+70b7uhRoSoivtHhbpYDROJHO4XBso0mFToLoVZ
-	7w9qmPYu5FOfq3cQ214xEraFPl0vdfPGpGJb/ORVBtG9nK/aIz1dqD8PzLKnbkg=
-X-Google-Smtp-Source: AGHT+IEIrzHYfjGFMSAlwPPGGJUrbwH3BDEgMMmzhiHFcldc7QLYwSfdGVw09IGHWqEtu37pmMpU7g==
-X-Received: by 2002:a17:903:41c4:b0:20b:a431:8f17 with SMTP id d9443c01a7336-20bc5a887b7mr17332045ad.58.1727824398654;
-        Tue, 01 Oct 2024 16:13:18 -0700 (PDT)
-Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-20b37e37225sm74521465ad.197.2024.10.01.16.13.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Oct 2024 16:13:18 -0700 (PDT)
-Date: Tue, 1 Oct 2024 16:13:15 -0700
-From: Deepak Gupta <debug@rivosinc.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Shuah Khan <shuah@kernel.org>,
-	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Szabolcs Nagy <Szabolcs.Nagy@arm.com>, Kees Cook <kees@kernel.org>,
-	"H.J. Lu" <hjl.tools@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Florian Weimer <fweimer@redhat.com>,
-	Christian Brauner <brauner@kernel.org>,
-	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
-	Ross Burton <ross.burton@arm.com>,
-	David Spickett <david.spickett@arm.com>,
-	Yury Khrustalev <yury.khrustalev@arm.com>,
-	Wilco Dijkstra <wilco.dijkstra@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v13 04/40] prctl: arch-agnostic prctl for shadow stack
-Message-ID: <ZvyCC7tJT7QoKO+D@debug.ba.rivosinc.com>
-References: <20241001-arm64-gcs-v13-0-222b78d87eee@kernel.org>
- <20241001-arm64-gcs-v13-4-222b78d87eee@kernel.org>
+	id 1svlrf-00000004GM7-26wN;
+	Tue, 01 Oct 2024 23:01:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 747F85C045E;
+	Tue,  1 Oct 2024 23:01:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 676C2C4CEC6;
+	Tue,  1 Oct 2024 23:00:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1727823666;
+	bh=rOh4m4fj2wClbocRq0H+LpbzuLewpkO3M5BRFF5QA9g=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=EwJEg0ori93CigiLXfM5nzkzTLmGWgRtXKjPULKcnBgukqJz6P6ymcuAN6ht2YaRy
+	 wgamKhoUMormn2N+/htgu2VlgVf0uTQ1ITD9QDL6rB+P/kcQjVFPWhXZWaet1ichPB
+	 jwEKXZw4fQuWgLCXpPH+LjAXYH3cWDylFR4MTG95fkh3MPrYsKP06PotNeH2zId6oP
+	 uMEww4ujLpbVwMP3AsRdLcu4O2epXPKu6DVSY/UoUX6Y8yOIrjQvEpw0NYbMNA7sA2
+	 PJO1XQACz4QGYf0EaHCYle2qPWNV7t7Ih98KnqImQyQFZMqQEiY9KEOZW9LZtwjalp
+	 KYIHKmBb8YxKg==
+From: Mark Brown <broonie@kernel.org>
+Date: Tue, 01 Oct 2024 23:58:45 +0100
+Subject: [PATCH v13 06/40] arm64: Document boot requirements for Guarded
+ Control Stacks
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241001-arm64-gcs-v13-4-222b78d87eee@kernel.org>
+Message-Id: <20241001-arm64-gcs-v13-6-222b78d87eee@kernel.org>
+References: <20241001-arm64-gcs-v13-0-222b78d87eee@kernel.org>
+In-Reply-To: <20241001-arm64-gcs-v13-0-222b78d87eee@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+ Andrew Morton <akpm@linux-foundation.org>, Marc Zyngier <maz@kernel.org>, 
+ Oliver Upton <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Arnd Bergmann <arnd@arndb.de>, 
+ Oleg Nesterov <oleg@redhat.com>, Eric Biederman <ebiederm@xmission.com>, 
+ Shuah Khan <shuah@kernel.org>, 
+ "Rick P. Edgecombe" <rick.p.edgecombe@intel.com>, 
+ Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>, 
+ Szabolcs Nagy <Szabolcs.Nagy@arm.com>, Kees Cook <kees@kernel.org>
+Cc: "H.J. Lu" <hjl.tools@gmail.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Florian Weimer <fweimer@redhat.com>, Christian Brauner <brauner@kernel.org>, 
+ Thiago Jung Bauermann <thiago.bauermann@linaro.org>, 
+ Ross Burton <ross.burton@arm.com>, David Spickett <david.spickett@arm.com>, 
+ Yury Khrustalev <yury.khrustalev@arm.com>, 
+ Wilco Dijkstra <wilco.dijkstra@arm.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
+ kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org, 
+ linux-arch@vger.kernel.org, linux-mm@kvack.org, 
+ linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.15-dev-99b12
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2380; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=rOh4m4fj2wClbocRq0H+LpbzuLewpkO3M5BRFF5QA9g=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBm/H7I9yk8ghsLdqny2ZV4YER/rGKDoJ0hQxESLaXj
+ e/jW+b6JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZvx+yAAKCRAk1otyXVSH0PQcB/
+ 9/5WoMr0iRfMQ6yNpxH+5BewveQcTTMADtDGZU0k/TPNq9rE3ncWHNxGcjO5lTOdD/EjuYj9w5bEib
+ ie+7XUaGRkJxY29dQJM2fqh9IiDAAoMvM+M9HZzbBonZb0bOU+7VmrkMeOrSR4lCJC6G4P5Ihl5IHb
+ Mad5JNsK7tZaGyxdxnDfBJ1yX3zPURMe+mQYJosdDYot7KoZtGajfg37krRbknWsjD1onnxwYUObrb
+ f5er9ZMlomZ3/7/BsXHsZBpV6lW/DjF7b64sbPvl06kGHxPhZ+slMQUCDMqXOnrfaJaYXc8c5z/cru
+ 3oB24kM87Df0vSL96ajkVILRkQxWGg
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241001_161320_252246_0C12A345 
-X-CRM114-Status: GOOD (  16.48  )
+X-CRM114-CacheID: sfid-20241001_160107_772212_66A8EB4E 
+X-CRM114-Status: GOOD (  11.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,51 +98,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 01, 2024 at 11:58:43PM +0100, Mark Brown wrote:
->Three architectures (x86, aarch64, riscv) have announced support for
->shadow stacks with fairly similar functionality.  While x86 is using
->arch_prctl() to control the functionality neither arm64 nor riscv uses
->that interface so this patch adds arch-agnostic prctl() support to
->get and set status of shadow stacks and lock the current configuation to
->prevent further changes, with support for turning on and off individual
->subfeatures so applications can limit their exposure to features that
->they do not need.  The features are:
->
->  - PR_SHADOW_STACK_ENABLE: Tracking and enforcement of shadow stacks,
->    including allocation of a shadow stack if one is not already
->    allocated.
->  - PR_SHADOW_STACK_WRITE: Writes to specific addresses in the shadow
->    stack.
->  - PR_SHADOW_STACK_PUSH: Push additional values onto the shadow stack.
->
->These features are expected to be inherited by new threads and cleared
->on exec(), unknown features should be rejected for enable but accepted
->for locking (in order to allow for future proofing).
->
->This is based on a patch originally written by Deepak Gupta but modified
->fairly heavily, support for indirect landing pads is removed, additional
->modes added and the locking interface reworked.  The set status prctl()
->is also reworked to just set flags, if setting/reading the shadow stack
->pointer is required this could be a separate prctl.
->
->Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
->Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
->Acked-by: Yury Khrustalev <yury.khrustalev@arm.com>
->Signed-off-by: Mark Brown <broonie@kernel.org>
->---
-> include/linux/mm.h         |  4 ++++
-> include/uapi/linux/prctl.h | 22 ++++++++++++++++++++++
-> kernel/sys.c               | 30 ++++++++++++++++++++++++++++++
-> 3 files changed, 56 insertions(+)
+FEAT_GCS introduces a number of new system registers, we require that
+access to these registers is not trapped when we identify that the feature
+is present.  There is also a HCRX_EL2 control to make GCS operations
+functional.
 
-Reviewed-by: Deepak Gupta <debug@rivosinc.com>
+Since if GCS is enabled any function call instruction will cause a fault
+we also require that the feature be specifically disabled, existing
+kernels implicitly have this requirement and especially given that the
+MMU must be disabled it is difficult to see a situation where leaving
+GCS enabled would be reasonable.
 
->
+Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+ Documentation/arch/arm64/booting.rst | 32 ++++++++++++++++++++++++++++++++
+ 1 file changed, 32 insertions(+)
+
+diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/arch/arm64/booting.rst
+index b57776a68f15..aed6e9f47cf3 100644
+--- a/Documentation/arch/arm64/booting.rst
++++ b/Documentation/arch/arm64/booting.rst
+@@ -411,6 +411,38 @@ Before jumping into the kernel, the following conditions must be met:
+ 
+     - HFGRWR_EL2.nPIRE0_EL1 (bit 57) must be initialised to 0b1.
+ 
++ - For CPUs with Guarded Control Stacks (FEAT_GCS):
++
++  - GCSCR_EL1 must be initialised to 0.
++
++  - GCSCRE0_EL1 must be initialised to 0.
++
++  - If EL3 is present:
++
++    - SCR_EL3.GCSEn (bit 39) must be initialised to 0b1.
++
++  - If EL2 is present:
++
++    - GCSCR_EL2 must be initialised to 0.
++
++ - If the kernel is entered at EL1 and EL2 is present:
++
++    - HCRX_EL2.GCSEn must be initialised to 0b1.
++
++    - HFGITR_EL2.nGCSEPP (bit 59) must be initialised to 0b1.
++
++    - HFGITR_EL2.nGCSSTR_EL1 (bit 58) must be initialised to 0b1.
++
++    - HFGITR_EL2.nGCSPUSHM_EL1 (bit 57) must be initialised to 0b1.
++
++    - HFGRTR_EL2.nGCS_EL1 (bit 53) must be initialised to 0b1.
++
++    - HFGRTR_EL2.nGCS_EL0 (bit 52) must be initialised to 0b1.
++
++    - HFGWTR_EL2.nGCS_EL1 (bit 53) must be initialised to 0b1.
++
++    - HFGWTR_EL2.nGCS_EL0 (bit 52) must be initialised to 0b1.
++
+ The requirements described above for CPU mode, caches, MMUs, architected
+ timers, coherency and system registers apply to all CPUs.  All CPUs must
+ enter the kernel in the same exception level.  Where the values documented
+
+-- 
+2.39.2
+
 
 _______________________________________________
 linux-riscv mailing list
