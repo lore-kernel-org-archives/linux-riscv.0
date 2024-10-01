@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59500CEACE8
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Oct 2024 16:20:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73648CEACEB
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Oct 2024 16:20:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BOeGoOcctbD1bMNicS5cCZbrdoDWYFVCnwzCpnwZxbs=; b=2RygvR3ZSpE1FB
-	QPVGJvF2wn1Jp0kkAiqMAiR3xLT4fdBs4nquvKCVCe1T4bHbm7G2GP4ztSLvPwLQPocIvSV1m0V+J
-	C5bd1lVU4Fs97aNnsnepMr7YFKxQZVQpsQKLAXgxfLlghbaFHkAo4zM4IXDpnbhPOC/x4xcKPnjVY
-	iYTethn7Ri/WcBQCiEz2Gh9xav4vMrXaYxON1XmHA664m/EcOdIxAilcluevh3dpjNBFjORs7hN+d
-	/ZDm/fTOfFujZRc5fxcZt/AwO7/RSv5NtFbwgFWt2MOFqFb7+oU6NH2Mg1xYllvc/cJ6S7GxlK4bU
-	TbdyRR+g/+fU5YjkoIcQ==;
+	List-Owner; bh=6zSHH1D7twgvzw0SBPyto92NF/IWuqlv3Z31WtG/kys=; b=t8IK1rWzth67GE
+	Aoxsx2U7DHW/pytTSU1/a/mifqWhrhhk/7I9zGgOhd7vptmSkhhWA3WpN39rLZ7s8SWvL/MXZ5IMX
+	ieNubNxQJsuyxP2ZOPh4mDotrlVgJYDvEzc8CjjnJybFIhImqHH1GxaVBtExLm66TmzX57cjS1Btm
+	Uv7OgEI4rVx25gt5mA9Nzy81KyetKz+zRwzdfiHHPCM/I8Opyz/4KPjNKf7S2oujsttxKc65ipa6v
+	yjLvZGjaDArICWRB+v/1fP/AePosqQbTMzcXj+vNb9Rh06ZfnmV+QjtHpZum1gEpY7qoiOA4cOKM/
+	sW7wP7iv6/9TUwa53A9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1svfbZ-00000003VPD-2koc;
-	Tue, 01 Oct 2024 16:20:05 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1svfbY-00000003VOJ-3CNR;
+	Tue, 01 Oct 2024 16:20:04 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1svfP7-00000003Qu1-2z3o
+	id 1svfP7-00000003Qtu-2MZQ
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 01 Oct 2024 16:07:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=TN/jwUyrk7nWeXz+2PkcX9PcP6JH0CIrLV6B3SOl4g0=; b=UWXhHt95wdqTDPGTdd2Szeee/R
+	D4VTd9nP8PbLxQngbrM7eY6o4pqeR3lyuQuCNv6UnDoBLXNDBCsQiKCr6PuHbSxd79AQcYYE7jPBr
+	56Zmbi3d0ZMai135O3YbUhrdrk/joWO7ef+HwpsfFIX1VasiFyUkfXtUHVpYTuZ5At42Lrz34YF5S
+	KvDYJvA52ofuxbGSEyoHIuOvuaPP76o2aYE7xR/h5jiLqCtxSaRv+ZfNJlVTL//g05BSUsnZIyLK1
+	UNOl00O1lXFprqWEygUGT6kxziqr0GEE+evYQiB/eiZSH3p/drYCOSZuKplFV9As8vjlXfrmSjds0
+	5CgGpDjA==;
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1svfP4-00000003ByY-0yyz
 	for linux-riscv@lists.infradead.org;
-	Tue, 01 Oct 2024 16:07:15 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-2e06acff261so4203813a91.2
-        for <linux-riscv@lists.infradead.org>; Tue, 01 Oct 2024 09:07:13 -0700 (PDT)
+	Tue, 01 Oct 2024 16:07:12 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-2e0b93157caso3394582a91.0
+        for <linux-riscv@lists.infradead.org>; Tue, 01 Oct 2024 09:07:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1727798832; x=1728403632; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1727798827; x=1728403627; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=FOwX8zEWq9u2vqkDVwGK82xZureIgOdXeRz6EPpdBWc=;
-        b=igtJwrKXI9jRISY2TEoOn0l+IxkYDEf5V5Ou6eFPxsyi3UyYh7uipq5LNRDjc3aDn4
-         695nKhtWKq0WFML22BkWPyKKH4bhA9Kyegb6nq/mETcXLVXfBBZj7bmxSXqOQk3YKYFz
-         Zhf/W2kCTkOAwSUfXOZbpBy/5OteRE9sl/3IdwM2LBCxYx3O++PmA81k80ZFpQgxoJMD
-         cpKsE/S4e29hw9lHjN/Bf7Uj75C2GnQqMpET/G2bYlM7Wf35PAV8Lbqv4Rq0jTjjyYCX
-         Ul71h86M5oxXEijL98dE+VHjwdU0MUgGGWKk6vn2kKjNLqmzXX4pOHyWRT+2VXSGDBsb
-         ljnQ==
+        bh=TN/jwUyrk7nWeXz+2PkcX9PcP6JH0CIrLV6B3SOl4g0=;
+        b=ZhXDS9Mi1eYu3Rxt+aHA5LwwKZJ5FA6/h4VYH6Si3ZZ8MpBH+129Y58rLY8b9g/siJ
+         gk04e8GGHJxPgrSmidprtwzlMl68Cj1QI8Vvg1PEQZkQnRMGu0dXXfg9ddkfOR0emOI9
+         nMrtNlTiOCLhFRXH4kTzCol0CSRJXaQfLv7zuXW/iK0qJkld7hGe4Qs66w1VIS2uFF0P
+         eT8+rtq6N+NQ7rpaE1qjlQtV4FqQ01n8qdskNExIbRPVc7U5ZPSrs/ZZE2KT92uh6z0r
+         VSHpq7Hjasb9u/Lc6IJC87FUfbRvADl/THZ2uJkb7GWja4EQk5KcFVMaHzreTUVeCsAV
+         WSNA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1727798832; x=1728403632;
+        d=1e100.net; s=20230601; t=1727798827; x=1728403627;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=FOwX8zEWq9u2vqkDVwGK82xZureIgOdXeRz6EPpdBWc=;
-        b=oYq3KFpJ/+25Zh6fu8ETaL37m/FVNKFOp4kwVhLhSSmvjjIOhe4y/LcRaVV7iIJU5Q
-         no245+YcIq9ie2plHZJLoZWNn6A7LA/UGzO9Sx/0JWbrBPS9OPODXFYxdV5+7lCZbiY0
-         KRrq93a1jXxUNa7kNTWlN8VK5WQv5SA30elOaHuYUXIJjwtep71yETpyCG7FNHeyv2eE
-         vtcC4GuuhNj3QKYX6osNHA+ebvTtGV+nMrATZZEHgFQ1xl3T1A4NCG3GJC86s8WXXiY1
-         uGdHnAJTRwn0biyjE1rDE0bcuBpCBDnW6Q0PEG7S/VVaaX1TDHJCKwjpj8AGO6JB+eFf
-         t0/g==
-X-Forwarded-Encrypted: i=1; AJvYcCV5MSx6BuiZrMUBgIfXAKSvrUqyaoh9WPZWhQL27P2D2DMVmB1/38IW0/2jjOTp/3pfvgrAH1KKOLd4PA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywjtxqjca+ep2AH9q2+hMlQDRwqnVka05D+ln63GNrQO/41I5Bx
-	ibY+9evRQP5RNseudQcSTUV4aRnktQ6F0L4ragnmQRZahtnRDlLrzttj9kPXd74=
-X-Google-Smtp-Source: AGHT+IG+QoJp6SaYR4NX7gvJQsxk2XpCmBA5X0cJPckGFJwiDNphfS2kILfudd4XZsrEP9ImoMA9pw==
-X-Received: by 2002:a17:90b:4a86:b0:2e0:a9e8:b9c1 with SMTP id 98e67ed59e1d1-2e1846aff84mr236832a91.22.1727798832417;
-        Tue, 01 Oct 2024 09:07:12 -0700 (PDT)
+        bh=TN/jwUyrk7nWeXz+2PkcX9PcP6JH0CIrLV6B3SOl4g0=;
+        b=nUpbQewvlRekO7Yx4OojlTzMnn/Tp5HYz5bzDUnLCTYjfZsSOXR4Y90zvKDjHiL/tt
+         pvMlj0rpiEG3wM0zyI2THAgMXLvEzOmTp6RYLWOCgnHWAVHGnMn/ZmD0bKY9GN3KWY48
+         /KUDqL01BrBgRvEjBA08ZQb9TsO+TdvDOEeO5bHtu2xEZYhVmnf0qBNWcSk6fR/CA0Sh
+         HGIbuRPQfkWRa1sn0op7rPc6S994FD0HPyYHtOGOBZ0lM3HqaH4vAGUWy/UB45JkVGYx
+         1in/mzBaL7bIPGZQOSM/ifJSRt6KnQO6AgKq5Ta6kqNM6JvYuHCBGhojM4tRUHXAf8c0
+         qdEg==
+X-Forwarded-Encrypted: i=1; AJvYcCWtzEhctLFSg669JSD/g9gAcnC1ynpCjwpCyI3MDCEO8dzJxWbdDfkG5EJNRhrlfh1B9AllMCs09WuOYg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyRqQhqd+Ri6Y8eHT6ez5XuePI25roSwK72g05qhI+m9HkUmUJu
+	yjxr2QAAlYVlRT9Xo8f/zu2LWSfPTlCPZdfMb7Fexy7+ZP8GQiBsOXNxJKpHY+4=
+X-Google-Smtp-Source: AGHT+IGqLEH3PdcnOlfVjojRDIDEBcHW24GL0v1kFxG1jIxdQxmcVKqlOntROUvuoUxPrGiWv1Q9yg==
+X-Received: by 2002:a17:90a:cb8f:b0:2c9:36bf:ba6f with SMTP id 98e67ed59e1d1-2e1851496c6mr147502a91.3.1727798826977;
+        Tue, 01 Oct 2024 09:07:06 -0700 (PDT)
 Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e06e1d7d47sm13843973a91.28.2024.10.01.09.07.09
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e06e1d7d47sm13843973a91.28.2024.10.01.09.07.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Oct 2024 09:07:12 -0700 (PDT)
+        Tue, 01 Oct 2024 09:07:06 -0700 (PDT)
 From: Deepak Gupta <debug@rivosinc.com>
-Date: Tue, 01 Oct 2024 09:06:10 -0700
-Subject: [PATCH 05/33] riscv: Call riscv_user_isa_enable() only on the boot
- hart
+Date: Tue, 01 Oct 2024 09:06:08 -0700
+Subject: [PATCH 03/33] riscv: Enable cbo.zero only when all harts support
+ Zicboz
 MIME-Version: 1.0
-Message-Id: <20241001-v5_user_cfi_series-v1-5-3ba65b6e550f@rivosinc.com>
+Message-Id: <20241001-v5_user_cfi_series-v1-3-3ba65b6e550f@rivosinc.com>
 References: <20241001-v5_user_cfi_series-v1-0-3ba65b6e550f@rivosinc.com>
 In-Reply-To: <20241001-v5_user_cfi_series-v1-0-3ba65b6e550f@rivosinc.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
@@ -100,8 +115,8 @@ Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
  Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241001_090713_832641_0CB1CE30 
-X-CRM114-Status: GOOD (  15.48  )
+X-CRM114-CacheID: sfid-20241001_170710_444248_9F1716C8 
+X-CRM114-Status: GOOD (  25.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,66 +135,105 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Samuel Holland <samuel.holland@sifive.com>
 
-Now that the [ms]envcfg CSR value is maintained per thread, not per
-hart, riscv_user_isa_enable() only needs to be called once during boot,
-to set the value for the init task. This also allows it to be marked as
-__init.
+Currently, we enable cbo.zero for usermode on each hart that supports
+the Zicboz extension. This means that the [ms]envcfg CSR value may
+differ between harts. Other features, such as pointer masking and CFI,
+require setting [ms]envcfg bits on a per-thread basis. The combination
+of these two adds quite some complexity and overhead to context
+switching, as we would need to maintain two separate masks for the
+per-hart and per-thread bits. Andrew Jones, who originally added Zicboz
+support, writes[1][2]:
 
+  I've approached Zicboz the same way I would approach all
+  extensions, which is to be per-hart. I'm not currently aware of
+  a platform that is / will be composed of harts where some have
+  Zicboz and others don't, but there's nothing stopping a platform
+  like that from being built.
+
+  So, how about we add code that confirms Zicboz is on all harts.
+  If any hart does not have it, then we complain loudly and disable
+  it on all the other harts. If it was just a hardware description
+  bug, then it'll get fixed. If there's actually a platform which
+  doesn't have Zicboz on all harts, then, when the issue is reported,
+  we can decide to not support it, support it with defconfig, or
+  support it under a Kconfig guard which must be enabled by the user.
+
+Let's follow his suggested solution and require the extension to be
+available on all harts, so the envcfg CSR value does not need to change
+when a thread migrates between harts. Since we are doing this for all
+extensions with fields in envcfg, the CSR itself only needs to be saved/
+restored when it is present on all harts.
+
+This should not be a regression as no known hardware has asymmetric
+Zicboz support, but if anyone reports seeing the warning, we will
+re-evaluate our solution.
+
+Link: https://lore.kernel.org/linux-riscv/20240322-168f191eeb8479b2ea169a5e@orel/ [1]
+Link: https://lore.kernel.org/linux-riscv/20240323-28943722feb57a41fb0ff488@orel/ [2]
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 Reviewed-by: Deepak Gupta <debug@rivosinc.com>
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
- arch/riscv/include/asm/cpufeature.h | 2 +-
- arch/riscv/kernel/cpufeature.c      | 4 ++--
- arch/riscv/kernel/smpboot.c         | 2 --
- 3 files changed, 3 insertions(+), 5 deletions(-)
+ arch/riscv/kernel/cpufeature.c | 7 ++++++-
+ arch/riscv/kernel/suspend.c    | 4 ++--
+ 2 files changed, 8 insertions(+), 3 deletions(-)
 
-diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
-index 45f9c1171a48..ce9a995730c1 100644
---- a/arch/riscv/include/asm/cpufeature.h
-+++ b/arch/riscv/include/asm/cpufeature.h
-@@ -31,7 +31,7 @@ DECLARE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
- /* Per-cpu ISA extensions. */
- extern struct riscv_isainfo hart_isa[NR_CPUS];
- 
--void riscv_user_isa_enable(void);
-+void __init riscv_user_isa_enable(void);
- 
- #define _RISCV_ISA_EXT_DATA(_name, _id, _subset_exts, _subset_exts_size, _validate) {	\
- 	.name = #_name,									\
 diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index c0986291696a..7117366d80db 100644
+index 3a8eeaa9310c..e560a253e99b 100644
 --- a/arch/riscv/kernel/cpufeature.c
 +++ b/arch/riscv/kernel/cpufeature.c
-@@ -920,12 +920,12 @@ unsigned long riscv_get_elf_hwcap(void)
- 	return hwcap;
+@@ -28,6 +28,8 @@
+ 
+ #define NUM_ALPHA_EXTS ('z' - 'a' + 1)
+ 
++static bool any_cpu_has_zicboz;
++
+ unsigned long elf_hwcap __read_mostly;
+ 
+ /* Host ISA bitmap */
+@@ -98,6 +100,7 @@ static int riscv_ext_zicboz_validate(const struct riscv_isa_ext_data *data,
+ 		pr_err("Zicboz disabled as cboz-block-size present, but is not a power-of-2\n");
+ 		return -EINVAL;
+ 	}
++	any_cpu_has_zicboz = true;
+ 	return 0;
  }
  
--void riscv_user_isa_enable(void)
-+void __init riscv_user_isa_enable(void)
+@@ -919,8 +922,10 @@ unsigned long riscv_get_elf_hwcap(void)
+ 
+ void riscv_user_isa_enable(void)
  {
- 	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_ZICBOZ))
- 		current->thread_info.envcfg |= ENVCFG_CBZE;
- 	else if (any_cpu_has_zicboz)
--		pr_warn_once("Zicboz disabled as it is unavailable on some harts\n");
-+		pr_warn("Zicboz disabled as it is unavailable on some harts\n");
+-	if (riscv_cpu_has_extension_unlikely(smp_processor_id(), RISCV_ISA_EXT_ZICBOZ))
++	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_ZICBOZ))
+ 		csr_set(CSR_ENVCFG, ENVCFG_CBZE);
++	else if (any_cpu_has_zicboz)
++		pr_warn_once("Zicboz disabled as it is unavailable on some harts\n");
  }
  
  #ifdef CONFIG_RISCV_ALTERNATIVE
-diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-index 0f8f1c95ac38..e36d20205bd7 100644
---- a/arch/riscv/kernel/smpboot.c
-+++ b/arch/riscv/kernel/smpboot.c
-@@ -233,8 +233,6 @@ asmlinkage __visible void smp_callin(void)
- 	numa_add_cpu(curr_cpuid);
- 	set_cpu_online(curr_cpuid, true);
+diff --git a/arch/riscv/kernel/suspend.c b/arch/riscv/kernel/suspend.c
+index c8cec0cc5833..9a8a0dc035b2 100644
+--- a/arch/riscv/kernel/suspend.c
++++ b/arch/riscv/kernel/suspend.c
+@@ -14,7 +14,7 @@
  
--	riscv_user_isa_enable();
--
- 	/*
- 	 * Remote cache and TLB flushes are ignored while the CPU is offline,
- 	 * so flush them both right now just in case.
+ void suspend_save_csrs(struct suspend_context *context)
+ {
+-	if (riscv_cpu_has_extension_unlikely(smp_processor_id(), RISCV_ISA_EXT_XLINUXENVCFG))
++	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_XLINUXENVCFG))
+ 		context->envcfg = csr_read(CSR_ENVCFG);
+ 	context->tvec = csr_read(CSR_TVEC);
+ 	context->ie = csr_read(CSR_IE);
+@@ -37,7 +37,7 @@ void suspend_save_csrs(struct suspend_context *context)
+ void suspend_restore_csrs(struct suspend_context *context)
+ {
+ 	csr_write(CSR_SCRATCH, 0);
+-	if (riscv_cpu_has_extension_unlikely(smp_processor_id(), RISCV_ISA_EXT_XLINUXENVCFG))
++	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_XLINUXENVCFG))
+ 		csr_write(CSR_ENVCFG, context->envcfg);
+ 	csr_write(CSR_TVEC, context->tvec);
+ 	csr_write(CSR_IE, context->ie);
 
 -- 
 2.45.0
