@@ -4,81 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B407ECF31B7
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Oct 2024 12:01:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77EDDCF31B7
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Oct 2024 12:03:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=anxU8fKz0O4Hw41XwwZzpjpUChbk2sVDevpeSCD5YnM=; b=A+7O2eTk53xBsS
-	FhI3mIgc3Ssz71rIutTGBmlSoftMQnAj/p3v3Fd5e4PELg3lvbRM34FJmoc76GiOeN8gb93UsnkHu
-	KwLU6rn/6lHt0JYWP4laD2XikXieTMCd7iYI5TNPNvEiWwDr7DNJJfbqJvuW+YePsqVHn5AUFmyjw
-	4ZhcEO4rL1RTnRdx2KWBUxcAS4SlP0Ula6aQKwxI0X7+I08JensNwxcTMwmaVS/lFZKtr3itZZTbl
-	+mYJwyLJe0K3UssoY2RqRXsRfu9uKiY6uRYKz/CJ2vWRO6ncTS0q/09S38INp2lcX1O84eL9t/BSc
-	fzxNSUN04nn4phiVBNbQ==;
+	List-Owner; bh=JHhsmn1jSqBBh4+rQ4y2S928tyg2nJkPSr6tLtI/4SA=; b=g+/H5DSZi3Wnej
+	LnvA5D1Ud1G7TFM8fpOaXcpNuZ7tsBJAEMVLv1OpgJHqRWiuavKWDCADxybXp4M2KVl52iHI5mJEF
+	LGoNCMf6lYYsKw9Hm4ZDOA2c4EXfRTVHTupdR9XxlRHhy266Zgbl6dzSRRbThkpFrN0WiBaXj10zw
+	/aPe+FVc8ZJbYPHIY0No1jWgWcQ5ZYQeQgF4dpT7b1iHaW4g4dvYaQJk/4NW3v8BTfyTkAQgxpRPN
+	VW3WEDlDYaAz7OKNdsTumi6aXp/Ny8JZh7Bb4GuLHJwFlVkxxOILdW/qsjPFE93oVWDLwyJo+OOjm
+	YS6yxdk7mtWzzx9IrVSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1svy37-00000005lcG-1oaQ;
-	Wed, 02 Oct 2024 12:01:45 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1svy4S-00000005m3j-31nW;
+	Wed, 02 Oct 2024 12:03:08 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1svwuU-00000005XwA-1n7j;
-	Wed, 02 Oct 2024 10:48:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C86495C0114;
-	Wed,  2 Oct 2024 10:48:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18D35C4CEC5;
-	Wed,  2 Oct 2024 10:48:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1727866125;
-	bh=OO6xrEZafxMp0b36XkiEjc5EYx9OU0Q2uYuiCSv6Bso=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Y3OYByTYNpeaweqY/uQo1qtt3imPJqkjeT1vrakSOBDnNQLT/jEcuii0gSq5E2RLc
-	 xs2kIY++mflSWoyWTNGvVRLs0IVHchAKEMe4SrDR0oUTW+4zX/D7QijdMJQ0Q1ujjH
-	 OdS/Sb7oEiRq2Z8Zxs5HL3fvJvBVD1A3cxPahAsNRUtKnUM1S1olSXeZsqv/2op/Vs
-	 kY6+TCXv9jX59XNQbT3FnGhEWKWieqvbEFQrmUgy05H450DmU/W3uWCAacnqZWJQO+
-	 nwCjNARtdbDZi6xxntkf8LPjDbyCvHGnYn+OrAKlfIb4VtPZ7HpoiMQsm6ZlXfW/m4
-	 Uq6aitmrzDvGw==
-From: Conor Dooley <conor@kernel.org>
-To: linux-kernel@vger.kernel.org
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	pierre-henry.moussay@microchip.com,
-	valentina.fernandezalanis@microchip.com,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Lee Jones <lee@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	linux-riscv@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-amlogic@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v1 07/11] dt-bindings: clk: microchip: mpfs: remove first reg region
-Date: Wed,  2 Oct 2024 11:48:05 +0100
-Message-ID: <20241002-alarm-drop-down-e37c31e50a48@spud>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20241002-private-unequal-33cfa6101338@spud>
+	id 1svy1G-00000005l4y-1CL4
+	for linux-riscv@lists.infradead.org;
+	Wed, 02 Oct 2024 11:59:51 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1svy0q-0001HD-Pn; Wed, 02 Oct 2024 13:59:24 +0200
+Received: from [2a0a:edc0:0:900:1d::4e] (helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1svy0p-0036LM-NJ; Wed, 02 Oct 2024 13:59:23 +0200
+Received: from pza by lupine with local (Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1svy0k-0007fY-1z;
+	Wed, 02 Oct 2024 13:59:18 +0200
+Message-ID: <07764ea71869cc1c1f95200bcb4e0888fd705dec.camel@pengutronix.de>
+Subject: Re: [PATCH v1 06/11] reset: mpfs: add non-auxiliary bus probing
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Conor Dooley <conor@kernel.org>, linux-kernel@vger.kernel.org
+Cc: Conor Dooley <conor.dooley@microchip.com>, Daire McNamara
+ <daire.mcnamara@microchip.com>, pierre-henry.moussay@microchip.com, 
+ valentina.fernandezalanis@microchip.com, Michael Turquette
+ <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Jassi Brar
+ <jassisinghbrar@gmail.com>, Lee Jones <lee@kernel.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Neil Armstrong <neil.armstrong@linaro.org>, Jerome
+ Brunet <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>, Martin
+ Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-riscv@lists.infradead.org,  linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org,  linux-amlogic@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+Date: Wed, 02 Oct 2024 13:59:18 +0200
+In-Reply-To: <20241002-breeze-anywhere-4114da636ec6@spud>
 References: <20241002-private-unequal-33cfa6101338@spud>
+	 <20241002-breeze-anywhere-4114da636ec6@spud>
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3114; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=kST0+2tXhuKzMDOPomFGGrXe4L7ZWEEe3gXv+x0OOeE=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDGl/VR6Wt12Ydeai+CKLbVtPx9pPuv5iTbpzIZ+P1slN1 RwRLDv/dpSyMIhxMMiKKbIk3u5rkVr/x2WHc89bmDmsTCBDGLg4BWAigqsZGe7tOFrA8qh5p8KJ T4m/jBYUd59NnfbRes3F4lm2FRFnC24x/E9tcxaatEbS8bqBJFPxzCTmL1c+1VizrGZfv+mjypw LV1kA
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241002_034846_586389_3A22815D 
-X-CRM114-Status: GOOD (  12.29  )
+X-CRM114-CacheID: sfid-20241002_045950_353266_3CDAF277 
+X-CRM114-Status: GOOD (  20.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,82 +87,94 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+On Mi, 2024-10-02 at 11:48 +0100, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+> 
+> While the auxiliary bus was a nice bandaid, and meant that re-writing
+> the representation of the clock regions in devicetree was not required,
+> it has run its course. The "mss_top_sysreg" region that contains the
+> clock and reset regions, also contains pinctrl and an interrupt
+> controller, so the time has come rewrite the devicetree and probe the
+> reset controller from an mfd devicetree node, rather than implement
+> those drivers using the auxiliary bus. Wanting to avoid propagating this
+> naive/incorrect description of the hardware to the new pic64gx SoC is a
+> major motivating factor here.
+> 
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>  drivers/reset/reset-mpfs.c | 83 ++++++++++++++++++++++++++++++++------
+>  1 file changed, 71 insertions(+), 12 deletions(-)
+> 
+> diff --git a/drivers/reset/reset-mpfs.c b/drivers/reset/reset-mpfs.c
+> index 710f9c1676f93..ac72e0fc405ed 100644
+> --- a/drivers/reset/reset-mpfs.c
+> +++ b/drivers/reset/reset-mpfs.c
+> @@ -9,10 +9,12 @@
+>  #include <linux/auxiliary_bus.h>
+>  #include <linux/delay.h>
+>  #include <linux/io.h>
+> +#include <linux/mfd/syscon.h>
+>  #include <linux/module.h>
+>  #include <linux/of.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/slab.h>
+> +#include <linux/regmap.h>
+>  #include <linux/reset-controller.h>
+>  #include <dt-bindings/clock/microchip,mpfs-clock.h>
+>  #include <soc/microchip/mpfs.h>
+> @@ -27,14 +29,37 @@
+>  #define MPFS_SLEEP_MIN_US	100
+>  #define MPFS_SLEEP_MAX_US	200
+>  
+> +#define REG_SUBBLK_RESET_CR	0x88u
+> +
+>  /* block concurrent access to the soft reset register */
+>  static DEFINE_SPINLOCK(mpfs_reset_lock);
+>  
+>  struct mpfs_reset {
+>  	void __iomem *base;
+> +	struct regmap *regmap;
+>  	struct reset_controller_dev rcdev;
+>  };
+>  
+> +static inline u32 mpfs_reset_read(struct mpfs_reset *rst)
+> +{
+> +	u32 ret;
+> +
+> +	if (rst->regmap)
+> +		regmap_read(rst->regmap, REG_SUBBLK_RESET_CR, &ret);
+> +	else
+> +		ret = readl(rst->base);
+> +
+> +	return ret;
+> +}
+> +
+> +static inline void mpfs_reset_write(struct mpfs_reset *rst, u32 val)
+> +{
+> +	if (rst->regmap)
+> +		regmap_write(rst->regmap, REG_SUBBLK_RESET_CR, val);
+> +	else
+> +		writel(val, rst->base);
+> +}
+> +
+>  static inline struct mpfs_reset *to_mpfs_reset(struct reset_controller_dev *rcdev)
+>  {
+>  	return container_of(rcdev, struct mpfs_reset, rcdev);
+> @@ -51,9 +76,9 @@ static int mpfs_assert(struct reset_controller_dev *rcdev, unsigned long id)
+>  
+>  	spin_lock_irqsave(&mpfs_reset_lock, flags);
+>  
+> -	reg = readl(rst->base);
+> +	reg = mpfs_reset_read(rst);
+>  	reg |= BIT(id);
+> -	writel(reg, rst->base);
+> +	mpfs_reset_write(rst, reg);
 
-The first reg region in this binding is not exclusively for clocks, as
-evidenced by the dual role of this device as a reset controller at
-present. The first region is however better described by a simple-mfd
-syscon, but this would have require a significant re-write of the
-devicetree for the platform, so the easy way out was chosen when reset
-support was first introduced. The region doesn't just contain clock and
-reset registers, it also contains pinctrl and interrupt controller
-functionality, so drop the region from the clock binding so that it can
-be described instead by a simple-mfd syscon rather than propagate this
-incorrect description of the hardware to the new pic64gx SoC.
+This should use regmap_update_bits() in the regmap case, same in
+mpfs_deassert().
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- .../bindings/clock/microchip,mpfs-clkcfg.yaml | 36 +++++++++++--------
- 1 file changed, 22 insertions(+), 14 deletions(-)
-
-diff --git a/Documentation/devicetree/bindings/clock/microchip,mpfs-clkcfg.yaml b/Documentation/devicetree/bindings/clock/microchip,mpfs-clkcfg.yaml
-index e4e1c31267d2a..ee4f31596d978 100644
---- a/Documentation/devicetree/bindings/clock/microchip,mpfs-clkcfg.yaml
-+++ b/Documentation/devicetree/bindings/clock/microchip,mpfs-clkcfg.yaml
-@@ -22,16 +22,23 @@ properties:
-     const: microchip,mpfs-clkcfg
- 
-   reg:
--    items:
--      - description: |
--          clock config registers:
--          These registers contain enable, reset & divider tables for the, cpu,
--          axi, ahb and rtc/mtimer reference clocks as well as enable and reset
--          for the peripheral clocks.
--      - description: |
--          mss pll dri registers:
--          Block of registers responsible for dynamic reconfiguration of the mss
--          pll
-+    oneOf:
-+      - items:
-+          - description: |
-+              clock config registers:
-+              These registers contain enable, reset & divider tables for the, cpu,
-+              axi, ahb and rtc/mtimer reference clocks as well as enable and reset
-+              for the peripheral clocks.
-+          - description: |
-+              mss pll dri registers:
-+              Block of registers responsible for dynamic reconfiguration of the mss
-+              pll
-+        deprecated: true
-+      - items:
-+          - description: |
-+              mss pll dri registers:
-+              Block of registers responsible for dynamic reconfiguration of the mss
-+              pll
- 
-   clocks:
-     maxItems: 1
-@@ -69,11 +76,12 @@ examples:
-   - |
-     #include <dt-bindings/clock/microchip,mpfs-clock.h>
-     soc {
--            #address-cells = <2>;
--            #size-cells = <2>;
--            clkcfg: clock-controller@20002000 {
-+            #address-cells = <1>;
-+            #size-cells = <1>;
-+
-+            clkcfg: clock-controller@3E001000 {
-                 compatible = "microchip,mpfs-clkcfg";
--                reg = <0x0 0x20002000 0x0 0x1000>, <0x0 0x3E001000 0x0 0x1000>;
-+                reg = <0x3E001000 0x1000>;
-                 clocks = <&ref>;
-                 #clock-cells = <1>;
-         };
--- 
-2.45.2
-
+regards
+Philipp
 
 _______________________________________________
 linux-riscv mailing list
