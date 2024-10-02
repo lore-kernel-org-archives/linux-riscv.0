@@ -4,86 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD1CCCF8541
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Oct 2024 21:03:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3A01CF8547
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Oct 2024 23:15:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mzmseByPOPGn445MO7pi4222iHUqch2uzmt72uxDWCQ=; b=GMo4DOTh/OFm1j
-	AAsu6Fv4V2Q2rNEpqwMVI0WnK2QfwEaIbpxTwxrKmzZSdKJzpC/jgCKj6adFUJgyehUcPcmXDRfdt
-	e7V7gjXUgDBQrhTDyGqlZvJLrmz/9CVpLI9zg42t8Aoe+YXsb4lRtuJYmmwBq+gHTAUcKjs0TDh1P
-	4mf03mdR9jlJwPvDG6jQ5Son2vkdQfoPJbT1nE4CzvTkBI4K4T77ZUE83cFNavLkR7yKJ3VB0ZuXN
-	0plid6WVthu7vI4QwH/U+REVaLzqqMst4XvVcf+EX+JxFa3u26aNLghdATxF31ShNj+XuqtGXtvHY
-	XZ47CGsuGbsvSDaW5Vjg==;
+	List-Owner; bh=ghuULn3vHkE7s2y6AzFEpkZaZ+VS9/pblp1ddr8hl3w=; b=FlLNbvynT8V0oL
+	/oppD2qEGFYoXLM7bcs4qg9TyTbrSQ5/VvrN+tmyqj+ImV3NvrNGdTyyBsDB8l+wNbgzC20rsXTlZ
+	jxqEIusnoGqd6JbYPBhzGl7crTE/Lh5a0GsuoIuxEMPUmOeQiLTByYVe7x9ixCgPqmtl5HN/A9UWm
+	IEjtkVJ5ChdEkdvxh6fqfDia8vMLAY5AJhBhWSzZ6uawwM178xCir9OoNt0BlirqLgAm9M3KeXGHw
+	CWOpFup+c+LelHEXccv3cJ30MUDu93QaK913drejg3uDGF7Wuqg7G4P6ZUhZVUkBCIZ8Y/JLXlFOF
+	jfTj/awfpITEGDBdTC4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sw6VY-00000007Suw-0bkl;
-	Wed, 02 Oct 2024 21:03:40 +0000
+	id 1sw8ZS-00000007iUI-2iaD;
+	Wed, 02 Oct 2024 23:15:50 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sw6VV-00000007Stv-2md0
-	for linux-riscv@lists.infradead.org;
-	Wed, 02 Oct 2024 21:03:38 +0000
+	id 1sw8Xi-00000007iDO-0rho;
+	Wed, 02 Oct 2024 23:14:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B00555C410D;
-	Wed,  2 Oct 2024 21:03:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60A9FC4CEC2;
-	Wed,  2 Oct 2024 21:03:36 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 389D25C5679;
+	Wed,  2 Oct 2024 23:13:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71AFEC4CEC2;
+	Wed,  2 Oct 2024 23:13:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1727903016;
-	bh=T/J+bsNsUgw22rlBrYHJdcx0PE1m7ec1tmy77h9yuls=;
+	s=k20201202; t=1727910841;
+	bh=7YYc3tKXWLUFk4DRNKpYVMKBIua9W9e+ZaMQmUrPvjs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Jmwllp6jzRETuClzX6i3XersBeu6pr5GCmFLlKZUoLVMVYp98nR8I1WBsoziE1zwv
-	 EqLtCFWqPGJSD96kzZpm58e3IsTbFS7WDAX/QDivj9IgWJB8G+loz3oUm+b3k+Vvfg
-	 5fJ5j6eLgua8KQ7IIkJDZ4frWJ2mmOyEdrVzJL3Mhhg2OGLV7RgIUBMO+k0lqmw0wT
-	 nTitMwjJNI14VX3a/mC5weH5VNLpjfvsCpIjvdGAv1Jt3ysB1issay1HQfQxnI0rFp
-	 2tniOP6L1zeIj89TM5ZmkNI70CjZOSWSGmwzAhNH9ZgcYj++UnNtpYvJbDk2jxE51K
-	 ILXa6mUOgiYBA==
-Date: Wed, 2 Oct 2024 16:03:35 -0500
-From: Rob Herring <robh@kernel.org>
-To: Deepak Gupta <debug@rivosinc.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	b=qVwAaUa2LFESEmFu1zJ1Wzg+AJn37DVAWFp+xiTwBy9mcgc4iR9He3UQpBwbVTMzf
+	 fisplMEFSlwzBvZR1vHIPVcL8fZdCBN+8ZQw5WDCFISKGZpv4kazuav4ShDEECwWTy
+	 Nbaj16s5mrN38IV1SomH8OHbpMtCN/QqzYhOZOqxewImA0zPBD+4QVyKrhU4p4TxFM
+	 2A9/Xb1UOyUe5ZGBXgWB9Y7yWgaZMKuKZC7G9pDLYvXm/EYsuubOGY/QfEFClFYreT
+	 CEqnSPreSw7RiWM6xk9CCHjUt8RCZ0pvzVcm15OHgz2H/DsTuQyl8+oeu0XLMuifFQ
+	 +BuUUk0k+B/WQ==
+Date: Wed, 2 Oct 2024 18:13:51 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Christian Brauner <brauner@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
-	linux-mm@kvack.org, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	alistair.francis@wdc.com, richard.henderson@linaro.org,
-	jim.shu@sifive.com, andybnac@gmail.com, kito.cheng@sifive.com,
-	charlie@rivosinc.com, atishp@rivosinc.com, evan@rivosinc.com,
-	cleger@rivosinc.com, alexghiti@rivosinc.com,
-	samitolvanen@google.com, broonie@kernel.org,
-	rick.p.edgecombe@intel.com
-Subject: Re: [PATCH 07/33] riscv: zicfilp / zicfiss in dt-bindings
- (extensions.yaml)
-Message-ID: <20241002210335.GA1307114-robh@kernel.org>
-References: <20241001-v5_user_cfi_series-v1-0-3ba65b6e550f@rivosinc.com>
- <20241001-v5_user_cfi_series-v1-7-3ba65b6e550f@rivosinc.com>
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	linux-kernel@vger.kernel.org, pierre-henry.moussay@microchip.com,
+	Stephen Boyd <sboyd@kernel.org>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	valentina.fernandezalanis@microchip.com, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, Lee Jones <lee@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
+	linux-riscv@lists.infradead.org, Albert Ou <aou@eecs.berkeley.edu>,
+	Philipp Zabel <p.zabel@pengutronix.de>
+Subject: Re: [PATCH v1 01/11] dt-bindings: mailbox: mpfs: fix reg properties
+Message-ID: <172791083082.1519634.10076484205246276978.robh@kernel.org>
+References: <20241002-private-unequal-33cfa6101338@spud>
+ <20241002-stingily-condone-576e948e6d67@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20241001-v5_user_cfi_series-v1-7-3ba65b6e550f@rivosinc.com>
+In-Reply-To: <20241002-stingily-condone-576e948e6d67@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241002_140337_821382_01B73847 
-X-CRM114-Status: GOOD (  16.53  )
+X-CRM114-CacheID: sfid-20241002_161402_319723_B86D36D5 
+X-CRM114-Status: GOOD (  18.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,47 +88,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 01, 2024 at 09:06:12AM -0700, Deepak Gupta wrote:
-> Make an entry for cfi extensions in extensions.yaml.
 
-Run "git log --oneline" on the file/subsystem and follow the subject 
-prefix pattern.
-
+On Wed, 02 Oct 2024 11:47:59 +0100, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
 > 
-> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+> When the binding for this was originally written, and later modified,
+> mistakes were made - and the precise nature of the later modification
+> should have been a giveaway, but alas I was naive at the time.
+> 
+> A more correct modelling of the hardware is to use two syscons and have
+> a single reg entry for the mailbox, containing the mailbox region. The
+> two syscons contain the general control/status registers for the mailbox
+> and the interrupt related registers respectively. The reason for two
+> syscons is that the same mailbox is present on the non-SoC version of
+> the FPGA, which has no interrupt controller, and the shared part of the
+> rtl was unchanged between devices.
+> 
+> This is now coming to a head, because the control/status registers share
+> a register region with the "tvs" (temperature & voltage sensors)
+> registers and, as it turns out, people do want to monitor temperatures
+> and voltages...
+> 
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 > ---
->  Documentation/devicetree/bindings/riscv/extensions.yaml | 14 ++++++++++++++
->  1 file changed, 14 insertions(+)
+>  .../bindings/mailbox/microchip,mpfs-mailbox.yaml    | 13 ++++++++-----
+>  1 file changed, 8 insertions(+), 5 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
-> index 2cf2026cff57..356c60fd6cc8 100644
-> --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-> +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-> @@ -368,6 +368,20 @@ properties:
->              The standard Zicboz extension for cache-block zeroing as ratified
->              in commit 3dd606f ("Create cmobase-v1.0.pdf") of riscv-CMOs.
->  
-> +        - const: zicfilp
-> +          description: |
-> +            The standard Zicfilp extension for enforcing forward edge
-> +            control-flow integrity as ratified in commit 3f8e450 ("merge
-> +            pull request #227 from ved-rivos/0709") of riscv-cfi
-> +            github repo.
-> +
-> +        - const: zicfiss
-> +          description: |
-> +            The standard Zicfiss extension for enforcing backward edge
-> +            control-flow integrity as ratified in commit 3f8e450 ("merge
-> +            pull request #227 from ved-rivos/0709") of riscv-cfi
-> +            github repo.
-> +
->          - const: zicntr
->            description:
->              The standard Zicntr extension for base counters and timers, as
-> 
-> -- 
-> 2.45.0
-> 
+
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+
 
 _______________________________________________
 linux-riscv mailing list
