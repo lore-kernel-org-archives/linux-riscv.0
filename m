@@ -4,64 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA8A2CF31AF
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Oct 2024 10:41:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 466B1CF31AF
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Oct 2024 10:50:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hhA9oBbPm2X4fkWjLqIYvvEcb5YOPZBMCUrJbrqZ3j8=; b=tvcyLP6ONfLwzv
-	KrO74f0V/qd7SWqMXW4OavoBELGWBYxTjlBPXmoRQHwz0swUAwoFtZ56ygQBOBpFnv1/sAzoCjQF7
-	WzIvtTRj0EASdCNUjQJ3/Jh7EQtRTjACiMkyfGr/tWI4YOurtsAXsA+vhA+GlHsm4q7LhDz2CTs6S
-	eGJ3d8G/vJUHAzBYuybSLcBkjAq3WJM9MH1+fVIbsH3Rf+Vjs/V9QopH3u8uQlGkFT82+kfK5nGlQ
-	2Fne65bliwVNDRwJGukhcxBGX/fT6K5MxQHSlkRngS4+xIfmpEIDQEkkeBmEJQf6o/AY9lrTvTPfM
-	uZ9ZtiSGyTGKXsnRJ86A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=qqP8bwgeqQ4fT2H8xR37K4cTljYpyK8Z7xU3qVKj3oY=; b=sFnXrcmy/xMT3x
+	M6dsxEtoCjhEOfewXVLf6hz8iSDhFkTKSB+xmTBHppaivxkpFTqaNzznIxXSNKeBggakKIs13GSEi
+	RY2URIVcNa/WeKyCm/VKu8WbVZOTIyHORxG9wBTOPhfnZO5aKH7+BtgsengVaZwCtXvWS3OFC3pxa
+	qNy9yDSYeZlV6VwCEFu7jzGKUnqiKVT7v7FvG34A961hfDqencmxovuY7kgDitCNYKxJeXj+34Kay
+	FMQOVaT+FzB3AoDEPsAf/iVx7PAe9W8954wMATT5wXo5DwogRClPNah+yXzxvP3pt7qbY+MxJJQ8l
+	SebKYdt4q1W/fS0OsqQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1svwnT-00000005Wf0-1OJe;
-	Wed, 02 Oct 2024 10:41:31 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1svwva-00000005YEq-3I3O;
+	Wed, 02 Oct 2024 10:49:54 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1svwn1-00000005WZc-21G7
-	for linux-riscv@lists.infradead.org;
-	Wed, 02 Oct 2024 10:41:04 +0000
+	id 1svwtw-00000005Xlm-0rjV;
+	Wed, 02 Oct 2024 10:48:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2A0295C4186;
-	Wed,  2 Oct 2024 10:40:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 369A9C4CEC5;
-	Wed,  2 Oct 2024 10:41:01 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id B4579A439DF;
+	Wed,  2 Oct 2024 10:48:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 239F7C4CEC5;
+	Wed,  2 Oct 2024 10:48:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1727865662;
-	bh=gvCktZEtJJF77mMB4+YlCM1pW2osgHebmjJ9rKLs1ko=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SqFGTuvXaYWtBQLcNO360jKdNJvdqcvfwX9P6C028HC47aX7BrjSThFhmzZcyDi0l
-	 u14pcFKhtAXzq0XhQdMs452DCPn3AKf9pUSOy2SHidM+DKsLkP8QO+irsi/OXNNO3g
-	 oTbjFtpBIB/G3RbEmza+wmVmfpYjiOJSdJhRvIgBvJR6fg2ii45AYYmGxppJn18jfb
-	 Ois1vyuv51iGlCwkI+JDFDMCcSqwONaRfbb2W/UMPOhgO1BB0ELo/qstJY62Y4S9fj
-	 1v7RCU20S3GSpIj00EnPiL0TwKvesgsgPkPSR/soNPft5Aar/9BYvSEXSdbU5IQA+k
-	 RWddKqRG5A7sQ==
-Date: Wed, 2 Oct 2024 12:40:58 +0200
-From: Andi Shyti <andi.shyti@kernel.org>
-To: pierre-henry.moussay@microchip.com
-Cc: Linux4Microchip@microchip.com, 
-	Conor Dooley <conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	linux-riscv@lists.infradead.org, linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [linux][PATCH v2 10/20] dt-bindings: i2c: microchip: corei2c:
- Add PIC64GX as compatible with driver
-Message-ID: <hcr7smlja6l3cpxjk7vn4qrxqikte4lfd3sl3ginwa4f5xauwz@wg7knjaqkbfg>
-References: <20240930095449.1813195-1-pierre-henry.moussay@microchip.com>
- <20240930095449.1813195-11-pierre-henry.moussay@microchip.com>
+	s=k20201202; t=1727866090;
+	bh=X7o2wPuerOGCcKjMyOjYiFvGvskMQv5ZlFx2sUQSTyE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=J+tKaBe++f7MI+YEFi9xRXJVacjUy4gpilwcIWVBCjk0e9Qu280vFYNxNwbzb80RQ
+	 rAIS1/BTmlc1ORtGfjCOBn41SKKR3ObPBIuUWN8AUfIul5DuRAg2WqxuyFxDGazn3S
+	 Ibaf8ngjEd2S+WjdC6KE2VIwYFLGGvYXxSVYrjiUOSGk5s2/ynMOiWqfL/QPElIL81
+	 DabU3tCrfoptb4QzFD0t7/AP5OZbUSgRm/9VLjBcv/Pxs0p598hQZRKq6ZEAS/v70f
+	 dPttqa2I3YJkIJ4dbvySE8oNGeiR6Y3MzoBkjsbED9ccnWN5hhfNtQb486bEh6xOng
+	 bM19qJfjPRLXQ==
+From: Conor Dooley <conor@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	pierre-henry.moussay@microchip.com,
+	valentina.fernandezalanis@microchip.com,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Lee Jones <lee@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	linux-riscv@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-amlogic@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v1 00/11] Redo PolarFire SoC's mailbox/clock devicestrees and related code
+Date: Wed,  2 Oct 2024 11:47:58 +0100
+Message-ID: <20241002-private-unequal-33cfa6101338@spud>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240930095449.1813195-11-pierre-henry.moussay@microchip.com>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7614; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=ILkJ4IDwKOG9OkiAKoHGKyrbz7aqasANdjxvroygF3c=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDGl/Ve7fWKHz7dmhqS3/ra7fmFY3m+fNok+lEsZuz37b+ 89hbzDo7yhlYRDjYJAVU2RJvN3XIrX+j8sO5563MHNYmUCGMHBxCsBETC4zMiw+d3qtgnWK343M TOsD2m02RTlHWow3bWv43HzXpeb8JhFGhi8rThdIPGi0Xb/nLfvpyWbMe2PlGl9OmrtqWT+/m+L Cy+wA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241002_034103_606404_2C18F51F 
-X-CRM114-Status: UNSURE (   7.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241002_034812_404287_87EA260B 
+X-CRM114-Status: GOOD (  28.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,19 +93,158 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Pierre-Henry,
+From: Conor Dooley <conor.dooley@microchip.com>
 
-On Mon, Sep 30, 2024 at 10:54:39AM GMT, pierre-henry.moussay@microchip.com wrote:
-> From: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
-> 
-> PIC64GX i2c is compatible with the microchip corei2c, just add fallback
-> 
-> Signed-off-by: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
+Yo,
 
-Just this one merged to i2c/i2c-host.
+Here's something that I've been mulling over for a while, since I
+started to understand how devicetree stuff was "meant" to be done.
+There'd been little reason to actually press forward with it, because it
+is fairly disruptive. I've finally opted to do it, because a user has
+come along with a hwmon driver that needs to access the same register
+region as the mailbox and the author is not keen on using the aux bus,
+and because I do not want the new pic64gx SoC that's based on PolarFire
+SoC to use bindings etc that I know to be incorrect.
 
-Thanks,
-Andi
+Given backwards compatibility needs to be maintained, this patch series
+isn't the prettiest thing I have ever written. The reset driver needs to
+retain support for the auxiliary bus, which looks a bit mess, but not
+much can be done there. The mailbox and clock drivers both have to have
+an "old probe" function to handle the old layout. Thankfully in the
+clock driver, the Meson clk-regmap support can be used to identically
+handle both old and new devicetree formats - but using a regmap in the
+mailbox driver was only really possible for the new format, so the code
+there is unfortunately a bit of an if/else mess that I'm both not proud
+of, nor really sure is worth "improving".
+
+The series should be pretty splitable per subsystem, only the dts change
+has some sort of dependency, but I'll not be applying that till
+everything else is in Linus' tree, so that's not a big deal.
+
+I've got all the Meson clock folks on CC, given I am moving their
+clk-regmap implementation to common code. There were one or two things I
+didn't really like about the implementation, but it is better than the
+Qualcomm one IMO and creating a third copy of clk-regmap is certainly
+not an improvement on having two copies!
+
+I don't really want this stuff in stable, hence a lack of cc: stable
+anywhere here, since what's currently in the tree works fine for the
+currently supported hardware.
+
+AFAIK, the only other project affected here is U-Boot - I've got some
+WIP work that I need to rebase and send for it before the dts patches
+here will be applied:
+https://github.com/ConchuOD/u-boot/commits/syscon-clocks/
+
+I previously submitted this as an RFC, only to Lee and the dt list, in
+order to get some feedback on the syscon/mfd bindings:
+https://lore.kernel.org/all/20240815-shindig-bunny-fd42792d638a@spud/
+I'm not really going to bother with a proper changelog, since that was
+submitted with lots of WIP code to get answers to some questions. The
+main change was "removing" some of the child nodes of the syscons.
+
+Cheers,
+Conor.
+
+CC: Conor Dooley <conor.dooley@microchip.com>
+CC: Daire McNamara <daire.mcnamara@microchip.com>
+CC: pierre-henry.moussay@microchip.com
+CC: valentina.fernandezalanis@microchip.com
+CC: Michael Turquette <mturquette@baylibre.com>
+CC: Stephen Boyd <sboyd@kernel.org>
+CC: Rob Herring <robh@kernel.org>
+CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
+CC: Jassi Brar <jassisinghbrar@gmail.com>
+CC: Lee Jones <lee@kernel.org>
+CC: Paul Walmsley <paul.walmsley@sifive.com>
+CC: Palmer Dabbelt <palmer@dabbelt.com>
+CC: Albert Ou <aou@eecs.berkeley.edu>
+CC: Neil Armstrong <neil.armstrong@linaro.org>
+CC: Jerome Brunet <jbrunet@baylibre.com>
+CC: Kevin Hilman <khilman@baylibre.com>
+CC: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+CC: Philipp Zabel <p.zabel@pengutronix.de>
+CC: linux-riscv@lists.infradead.org
+CC: linux-clk@vger.kernel.org
+CC: devicetree@vger.kernel.org
+CC: linux-kernel@vger.kernel.org
+CC: linux-amlogic@lists.infradead.org
+CC: linux-arm-kernel@lists.infradead.org
+
+Conor Dooley (11):
+  dt-bindings: mailbox: mpfs: fix reg properties
+  mailbox: mpfs: support new, syscon based, devicetree configuration
+  dt-bindings: mfd: syscon document the non simple-mfd syscon on
+    PolarFire SoC
+  dt-bindings: soc: microchip: document the two simple-mfd syscons on
+    PolarFire SoC
+  soc: microchip: add mfd drivers for two syscon regions on PolarFire
+    SoC
+  reset: mpfs: add non-auxiliary bus probing
+  dt-bindings: clk: microchip: mpfs: remove first reg region
+  clk: move meson clk-regmap implementation to common code
+  clk: microchip: mpfs: use regmap clock types
+  riscv: dts: microchip: fix mailbox description
+  riscv: dts: microchip: convert clock and reset to use syscon
+
+ .../bindings/clock/microchip,mpfs-clkcfg.yaml |  36 +++---
+ .../mailbox/microchip,mpfs-mailbox.yaml       |  13 +-
+ .../devicetree/bindings/mfd/syscon.yaml       |   2 +
+ .../microchip/microchip,mpfs-control-scb.yaml |  44 +++++++
+ .../microchip,mpfs-mss-top-sysreg.yaml        |  54 +++++++++
+ arch/riscv/boot/dts/microchip/mpfs.dtsi       |  34 ++++--
+ drivers/clk/Kconfig                           |   4 +
+ drivers/clk/Makefile                          |   1 +
+ drivers/clk/{meson => }/clk-regmap.c          |   2 +-
+ drivers/clk/meson/Kconfig                     |  46 ++++---
+ drivers/clk/meson/Makefile                    |   1 -
+ drivers/clk/meson/a1-peripherals.c            |   2 +-
+ drivers/clk/meson/a1-pll.c                    |   2 +-
+ drivers/clk/meson/axg-aoclk.c                 |   2 +-
+ drivers/clk/meson/axg-audio.c                 |   2 +-
+ drivers/clk/meson/axg.c                       |   2 +-
+ drivers/clk/meson/c3-peripherals.c            |   2 +-
+ drivers/clk/meson/c3-pll.c                    |   2 +-
+ drivers/clk/meson/clk-cpu-dyndiv.c            |   2 +-
+ drivers/clk/meson/clk-dualdiv.c               |   2 +-
+ drivers/clk/meson/clk-mpll.c                  |   2 +-
+ drivers/clk/meson/clk-phase.c                 |   2 +-
+ drivers/clk/meson/clk-pll.c                   |   2 +-
+ drivers/clk/meson/g12a-aoclk.c                |   2 +-
+ drivers/clk/meson/g12a.c                      |   2 +-
+ drivers/clk/meson/gxbb-aoclk.c                |   2 +-
+ drivers/clk/meson/gxbb.c                      |   2 +-
+ drivers/clk/meson/meson-aoclk.h               |   2 +-
+ drivers/clk/meson/meson-eeclk.c               |   2 +-
+ drivers/clk/meson/meson-eeclk.h               |   2 +-
+ drivers/clk/meson/meson8-ddr.c                |   2 +-
+ drivers/clk/meson/meson8b.c                   |   2 +-
+ drivers/clk/meson/s4-peripherals.c            |   2 +-
+ drivers/clk/meson/s4-pll.c                    |   2 +-
+ drivers/clk/meson/sclk-div.c                  |   2 +-
+ drivers/clk/meson/vclk.h                      |   2 +-
+ drivers/clk/meson/vid-pll-div.c               |   2 +-
+ drivers/clk/microchip/Kconfig                 |   3 +
+ drivers/clk/microchip/clk-mpfs.c              | 114 +++++++++++++-----
+ drivers/mailbox/Kconfig                       |   1 +
+ drivers/mailbox/mailbox-mpfs.c                |  87 ++++++++++---
+ drivers/reset/reset-mpfs.c                    |  83 +++++++++++--
+ drivers/soc/microchip/Kconfig                 |  13 ++
+ drivers/soc/microchip/Makefile                |   1 +
+ drivers/soc/microchip/mpfs-control-scb.c      |  45 +++++++
+ drivers/soc/microchip/mpfs-mss-top-sysreg.c   |  48 ++++++++
+ .../meson => include/linux/clk}/clk-regmap.h  |   0
+ 47 files changed, 541 insertions(+), 143 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-control-scb.yaml
+ create mode 100644 Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-mss-top-sysreg.yaml
+ rename drivers/clk/{meson => }/clk-regmap.c (99%)
+ create mode 100644 drivers/soc/microchip/mpfs-control-scb.c
+ create mode 100644 drivers/soc/microchip/mpfs-mss-top-sysreg.c
+ rename {drivers/clk/meson => include/linux/clk}/clk-regmap.h (100%)
+
+-- 
+2.45.2
+
 
 _______________________________________________
 linux-riscv mailing list
