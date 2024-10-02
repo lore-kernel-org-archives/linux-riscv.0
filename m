@@ -4,77 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16BB0CF8547
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Oct 2024 23:33:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B020CF8548
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Oct 2024 23:37:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZaC4qud3RLrI6rJPB6YKf9ubNyI37+MzNNLOb4tTloc=; b=RTBLmYdNseuGyy
-	GrQAPMm5M3lCDa0Ggd64TIRFzKekCxMl9y/QfHxXPScQ+fLAqY7HdfAka+yF/rDp8kMYtPZ8VM1fo
-	CA6BLHTt8oOtA3D7Hxr3qNa2DstdEvYlRkEJ84RM3sA6UkYrnERhktBQJMuZJRO5PoKp6DRyc1bOp
-	HhNf/rRSGhOqfWv57RBuYitN0JoNCeV8Ggz4SdgnfcEQjdfdDUiT0pFvyX+b2OZt7eUs+Ad96EspA
-	D6l5HIbf51ZYu33Le0zUUNNCy4FrY9slaCiMWc1SuoLB7pzI/fQEMyUPoD+TavBP1KRBhsB86BQUA
-	FOONsrF3JaqSmOEqnhfA==;
+	List-Owner; bh=lOMLxLsAib9iSe6j9vfvPp62XdB6slJDkZEqCjWjEqs=; b=KwFWYF6UIaEZbA
+	YIxb7SWnH8IQ3lmsdUwuexzs3pSBXLglE4OnAfgMc8fj48zwao3B7HsrQAIkTFVAR+PoIPo9fenTh
+	FsdQ6xWzRvDVhxaOonEei/Nc0WT+IA9+eSANEWKTM0L58l8m+xpAeDoHzeqM2rwkbde1cHAUOjz9p
+	3jEbiuN/i3nFRCS0lw3fNKOGVCCn5fq2Yi9R8QzWbhQ0cp4ZbFwQ8nNEF5oLbhYivBIB2w3G99yoC
+	F/hm34wS8Wa+DyHKE7qPoOWzXL/nzhbow3QNkuvOfy1KD5Q9f+DEQaLqaBPE1ss2gs6uTk/CY/6Kd
+	T6bldEDlowGnxfTOrYkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sw8qD-00000007l9v-00u4;
-	Wed, 02 Oct 2024 23:33:09 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1sw8um-00000007mF8-3pky;
+	Wed, 02 Oct 2024 23:37:52 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sw8lP-00000007kBs-2RJe;
-	Wed, 02 Oct 2024 23:28:13 +0000
+	id 1sw8tW-00000007lwo-1Bt3;
+	Wed, 02 Oct 2024 23:36:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8685BA41682;
-	Wed,  2 Oct 2024 23:28:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BF7BC4CEC2;
-	Wed,  2 Oct 2024 23:28:10 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 93F9E5C57DA;
+	Wed,  2 Oct 2024 23:36:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 461A7C4CEC5;
+	Wed,  2 Oct 2024 23:36:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1727911690;
-	bh=W1lLp2pPTaIJzlX9xAi0bfcKDw6TZrgG4RIG2rCObS8=;
+	s=k20201202; t=1727912191;
+	bh=HyrtHeAPOivtYCgQ4nQSGDVQaHlhKfwSeUxDJUJuZZM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Unr6w84d6DcYViY8Oq8lTRe5r+ynB+qwxQRrN0PXQ21hGMkiKtB4s+zuEuU7KgpYA
-	 TSoyTy9NdgpoDmEXHgf4H9vD54L2mqioM8O8Q55Mz3xFJzmEwYrYIZksMHxmoQ+bx+
-	 TRB6kRjWMye99RRcvujFvNaJjx4Y102A5IOydiG0jgasJ/IDIiNGsA5uq52FGncphq
-	 oPdmA3iZznDTTA3cenmQBNg2ZemPEC8HPwC6hpNUD2Y3M+brqCWLe5wQkeEtzLI6gI
-	 opZq4Y0GK67ARrTe7g6QsUfAFsvzu8szHL4p2v9CTrKgy99FpJHg39Wsbca4gqrL/U
-	 KJ9AX2YFhxvpA==
-Date: Wed, 2 Oct 2024 18:28:09 -0500
+	b=qJSu6RkyIIspeq4fY3ihUa+g0MzP3pEl9wiNEl8UmxuIAxITAbXlSEqZfQmu+5lxq
+	 0Vb1Wkd6vjGP8arRiAH7rjOWD+SbdNG/AcmsakHR5jb23UiV68hRD8h3CfT24FYlSh
+	 vnx49MWym7CKuD3Pu71TnSW5Vr+DnIAAkIrx66eNI4p4M/6ColssFiCmFYLba9R9Ca
+	 fd0Vi0tE8jz4VErPYJ+LezJUSjk0vemGQlVEA5AUreAsorZJxYfLl+UIAtn6C5E0MV
+	 i61aEzBVUhNMKgb+kAcCreN/UAMoQ5qVDcPKG99E7Jm954A0fJVieEZDApWUTeudma
+	 ZGyYtD/LvWbpA==
+Date: Wed, 2 Oct 2024 18:36:30 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Conor Dooley <conor@kernel.org>
-Cc: Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-amlogic@lists.infradead.org,
-	Jassi Brar <jassisinghbrar@gmail.com>, linux-clk@vger.kernel.org,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Lee Jones <lee@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	devicetree@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
+Cc: linux-clk@vger.kernel.org, Neil Armstrong <neil.armstrong@linaro.org>,
 	valentina.fernandezalanis@microchip.com,
-	linux-kernel@vger.kernel.org, pierre-henry.moussay@microchip.com,
-	Paul Walmsley <paul.walmsley@sifive.com>
-Subject: Re: [PATCH v1 03/11] dt-bindings: mfd: syscon document the non
- simple-mfd syscon on PolarFire SoC
-Message-ID: <172791168896.1540364.4847195288763668574.robh@kernel.org>
+	Conor Dooley <conor.dooley@microchip.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	linux-riscv@lists.infradead.org, pierre-henry.moussay@microchip.com,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Michael Turquette <mturquette@baylibre.com>,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	devicetree@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-amlogic@lists.infradead.org, Stephen Boyd <sboyd@kernel.org>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Lee Jones <lee@kernel.org>, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v1 07/11] dt-bindings: clk: microchip: mpfs: remove first
+ reg region
+Message-ID: <172791218968.1549326.10092947836585074554.robh@kernel.org>
 References: <20241002-private-unequal-33cfa6101338@spud>
- <20241002-clambake-raider-a8cbb3a021a8@spud>
+ <20241002-alarm-drop-down-e37c31e50a48@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20241002-clambake-raider-a8cbb3a021a8@spud>
+In-Reply-To: <20241002-alarm-drop-down-e37c31e50a48@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241002_162811_702907_E96EC98F 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20241002_163634_387667_4A4AF616 
+X-CRM114-Status: GOOD (  13.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,19 +90,24 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 02 Oct 2024 11:48:01 +0100, Conor Dooley wrote:
+On Wed, 02 Oct 2024 11:48:05 +0100, Conor Dooley wrote:
 > From: Conor Dooley <conor.dooley@microchip.com>
 > 
-> The "mss_top_scb" register region on PolarFire SoC contains many
-> different functions, including controls for the AXI bus and other things
-> mainly of interest to the bootloader. The interrupt register for the
-> system controller's mailbox is also in here, which is needed by the
-> operating system.
+> The first reg region in this binding is not exclusively for clocks, as
+> evidenced by the dual role of this device as a reset controller at
+> present. The first region is however better described by a simple-mfd
+> syscon, but this would have require a significant re-write of the
+> devicetree for the platform, so the easy way out was chosen when reset
+> support was first introduced. The region doesn't just contain clock and
+> reset registers, it also contains pinctrl and interrupt controller
+> functionality, so drop the region from the clock binding so that it can
+> be described instead by a simple-mfd syscon rather than propagate this
+> incorrect description of the hardware to the new pic64gx SoC.
 > 
 > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 > ---
->  Documentation/devicetree/bindings/mfd/syscon.yaml | 2 ++
->  1 file changed, 2 insertions(+)
+>  .../bindings/clock/microchip,mpfs-clkcfg.yaml | 36 +++++++++++--------
+>  1 file changed, 22 insertions(+), 14 deletions(-)
 > 
 
 Acked-by: Rob Herring (Arm) <robh@kernel.org>
