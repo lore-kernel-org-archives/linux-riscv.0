@@ -4,107 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47895CF319E
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Oct 2024 19:30:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 057E4CF31B9
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Oct 2024 19:37:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jag80TAnx1SvhjkPYpnxrpuUjIUPp/SnzU3VC9QTbgI=; b=Exvx3R/8XUlzjW
-	Qxw0XtBJDqDr1phBlevLhgVlQkyVApZAy65FWujfQT7suf1+lxZarqD5npF038gh/ReOaBVio0HxH
-	jACKXqqwGsYI5zhdO/KoxT3d5d3C5Ub1elCg5sYIbFTygdHioVpGzAQwztns/NAf0jqiVFoyZ24kL
-	aWRGiLILsbmzpOUIM8Mss3UixTD0crACiWgif1vKaOYTOOUHy9Bi0bCP0nnfuIWPAsEcrIQgyxPpj
-	nLL6mSafLPfLHrdYPp8c5+pcul8/fml/vLjZ1Yq8wS4bJRbN2ydlFTYDQhThHoUg2ILFikHekhZZd
-	EOI+Btwx4OTz5KuErEkA==;
+	List-Owner; bh=UVvBdj09wV5vRfyjYGlQ3s14bL2mCgxgmF8W7UqnXX8=; b=NEe53HkizIdJZ0
+	1KFknL3TvwmH588XniHi3oXLTm3W/pgHue5uezWR14ww/h3Zw4mrLQ+On9BMMi1DLHZCNMB99dJd8
+	rZEAfEA5tp2WTm8DidHF0TQRPSjeWcE7JqLK+sgwbdaI4BPXd4jQ2jOEPSgslDp2GlG6dh43DTXB6
+	IAOsZggwUFfc6OoY12Y6T83rghE6BPmnwuRo6y0qp9oD6I2mskiDgdKaWd8VXv4xdmDwuCjRXUGGU
+	U/4whDGjH/dq/AbaBwxR9KomUE2iHuF7knEDjFnyUKemLCyxyR49ug2ffNvlaBzbwtcxNtu12eh/A
+	uJJEdvRKyX2XLSS79VjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sw53j-00000007J03-2nvs;
-	Wed, 02 Oct 2024 19:30:51 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sw52T-00000007IlH-16I4;
-	Wed, 02 Oct 2024 19:29:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 32BBD5C4590;
-	Wed,  2 Oct 2024 19:29:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4E90C4CEC2;
-	Wed,  2 Oct 2024 19:29:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1727897372;
-	bh=8oiK5IU7Qhw1ttezR2j18nH046N1hl/vjVmhxTcZaFY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=sDyp8qd2iGUJbVxlIon1SZp0FoCrNFapbJG6H1XLZJstGoks821loMKlBgRtxS2pt
-	 FRMpM8u13XP2/wZpMtv0JlrO0jXiITzPaCiB72pKFeO+VvHW3+f1LgmulYoBNWB+Wc
-	 q5Ob/UPjxZeQZLg/1xo3xEkj9k47VllAkXb8ds4i7xTjY8QOSXI1pIQRZQc4ZAl7ol
-	 IrbDPhKzw5eOK+NaxfsunNLGLprzo+1j5t5Q0Sqmp/TzkTjPB9+Td2DEYrencPTYwG
-	 WkLUopQgg8gRDgGEaIYV6F8k4PHvmdqIkrvNGMYQZCkTapZ70VoT52gNc1EMmKbZGi
-	 pJC9UA2ziOg9w==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1sw52P-00H99U-5J;
-	Wed, 02 Oct 2024 20:29:29 +0100
-Date: Wed, 02 Oct 2024 20:29:28 +0100
-Message-ID: <868qv6717r.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Shuah Khan <shuah@kernel.org>,
-	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Deepak Gupta <debug@rivosinc.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
-	Kees Cook <kees@kernel.org>,
-	"H.J. Lu" <hjl.tools@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Florian Weimer <fweimer@redhat.com>,
-	Christian Brauner <brauner@kernel.org>,
-	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
-	Ross Burton <ross.burton@arm.com>,
-	David Spickett <david.spickett@arm.com>,
-	Yury Khrustalev <yury.khrustalev@arm.com>,
-	Wilco Dijkstra <wilco.dijkstra@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v13 16/40] KVM: arm64: Manage GCS access and registers for guests
-In-Reply-To: <37fbc082-6bda-46e3-9ee7-9240b41f26fd@sirena.org.uk>
-References: <20241001-arm64-gcs-v13-0-222b78d87eee@kernel.org>
-	<20241001-arm64-gcs-v13-16-222b78d87eee@kernel.org>
-	<86bk0373nq.wl-maz@kernel.org>
-	<86a5fm7b4i.wl-maz@kernel.org>
-	<37fbc082-6bda-46e3-9ee7-9240b41f26fd@sirena.org.uk>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: broonie@kernel.org, catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net, akpm@linux-foundation.org, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, arnd@arndb.de, oleg@redhat.com, ebiederm@xmission.com, shuah@kernel.org, rick.p.edgecombe@intel.com, debug@rivosinc.com, ardb@kernel.org, Szabolcs.Nagy@arm.com, kees@kernel.org, hjl.tools@gmail.com, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, fweimer@redhat.com, brauner@kernel.org, thiago.bauermann@linaro.org, ross.burton@arm.com, david.spickett@arm.com, yury.khrustalev@arm.com, wilco.dijkstra@arm.com, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org, linux-arch@vger.kernel.org, linux-mm@kvack.org, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1sw59x-00000007Jop-1OoF;
+	Wed, 02 Oct 2024 19:37:17 +0000
+Received: from bout3.ijzerbout.nl ([136.144.140.114])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1sw59u-00000007JmP-0cYD
+	for linux-riscv@lists.infradead.org;
+	Wed, 02 Oct 2024 19:37:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ijzerbout.nl; s=key;
+	t=1727897824; bh=RoFKBVRxYfTHWfBz6uS38ckS7VuXYibcgS/2JavRY7E=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=BMFrkAZMQg/Uxb/7vcM4o7BbiH+chLwVFy+EHYXuy+i1aL+Ym2XwSZtj4pEv6yTuY
+	 E1VHLcL0qaaQE4HonN0nDjrHmlPAJUEjZO2tlPnfNpZrpd9qtbRyfT4On7ppjMoYsH
+	 PCeEtRvCO5BXUMpUXs62y5SA4bhom53lY2cL/LzNvX4kldDNdooyPfKoXhTSK4dWxR
+	 eFtC3TuZwDfxSfZ3aLKMgx4Wix0AY+nJgJjGnvK15WxwJCgLxSTFOr0nYhvUPAKqPw
+	 GBmldsRIiaMjpbqlTWwD/zKQilAbHs74x/ovUEjltOwUo8UXewvrK02vWEefcWmH4l
+	 DNlqkfwS5ehiY0X1yIQwLkA6GLCcMR1fpY8IRJCWg3SwnEPlN9pLd0McatOsoZSiFC
+	 xJfnGehxadjFaK9Gs+O7Ib8nKKkOuJesfbh4T8+jtUaAkKhL7fOPQHqhW3DLvnWCzq
+	 FNlGuxcdtBDwV99itYAyW3FHya7oQpoEqGL5crsJGQF334t1ZzSl++drGiK7Yk9f6A
+	 SFFoGwUYYf8DG9b57SeIdcwg5agVDrGTJ3ZE8aOqvCkPAmJpV+2j9VRNZastgS8Glt
+	 GyMxQix/SC1J5wEqMjPBuPrZnKo7GFDdCf2A/mq067rACCL7SLI1Zv6oIeXNZldj9d
+	 KYBhB3vYrU4qWpT2wIJVXstc=
+Received: from [IPV6:2a10:3781:99:1:1ac0:4dff:fea7:ec3a] (racer.ijzerbout.nl [IPv6:2a10:3781:99:1:1ac0:4dff:fea7:ec3a])
+	by bout3.ijzerbout.nl (Postfix) with ESMTPSA id A8660168387;
+	Wed,  2 Oct 2024 21:37:02 +0200 (CEST)
+Message-ID: <87770518-5f63-4adf-b6ea-c7f92b58ce22@ijzerbout.nl>
+Date: Wed, 2 Oct 2024 21:36:59 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/8] pinctrl: Add driver for the T-Head TH1520 SoC
+To: Drew Fustini <dfustini@tenstorrent.com>, Drew Fustini <drew@pdp7.com>,
+ Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+ Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+Cc: linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20240930-th1520-pinctrl-v3-0-32cea2bdbecb@tenstorrent.com>
+ <20240930-th1520-pinctrl-v3-2-32cea2bdbecb@tenstorrent.com>
+Content-Language: en-US
+From: Kees Bakker <kees@ijzerbout.nl>
+In-Reply-To: <20240930-th1520-pinctrl-v3-2-32cea2bdbecb@tenstorrent.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241002_122933_416575_A31185F3 
-X-CRM114-Status: GOOD (  24.20  )
+X-CRM114-CacheID: sfid-20241002_123714_621552_9F9DC30B 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,52 +78,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 02 Oct 2024 19:24:12 +0100,
-Mark Brown <broonie@kernel.org> wrote:
-> 
-> [1  <text/plain; us-ascii (7bit)>]
-> On Wed, Oct 02, 2024 at 04:55:25PM +0100, Marc Zyngier wrote:
-> > Marc Zyngier <maz@kernel.org> wrote:
-> 
-> > > > +	if (!kvm_has_gcs(kvm))
-> > > > +		kvm->arch.fgu[HFGxTR_GROUP] |= (HFGxTR_EL2_nGCS_EL0 |
-> > > > +						HFGxTR_EL2_nGCS_EL1);
-> 
-> > > Why are you still allowing the GCS instructions when GCS isn't
-> > > enabled?
-> 
-> > Scratch that, they are NOPs when GCS isn't enabled, so there shouldn't
-> > be any need for extra traps.
-> 
-> They are, though really they should UNDEF if GCS isn't there (which I
-> had thought was what you were referencing here).  Equally we only have
-> traps for a subset of GCS instructions and it's not like there aren't a
-> whole bunch of untrappable extensions anyway so it's not clear it's
-> worth the effort just for that.
-
-If the encodings UNDEF when GCS is not implemented (i.e. they are not
-in the NOP space), then all trapable instructions should absolutely
-UNDEF (and yes, it is worth the effort, even if it is only to
-demonstrate that the architecture is sub-par).
-
-So I expect the next version to handle traps for GCSPUSHX, GCSPOPX,
-GCSPUSHM, GCSSTR and GCSSTTR when GCS isn't enabled.
-
-I'm also pretty sure this is missing some form of sanitisation for
-PSTATE.EXLOCK, and looking at the pseudocode, you seem to be missing
-the handling of that bit on exception injection.
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T3AgMzAtMDktMjAyNCBvbSAyMTo1MCBzY2hyZWVmIERyZXcgRnVzdGluaToKPiBGcm9tOiBFbWls
+IFJlbm5lciBCZXJ0aGluZyA8ZW1pbC5yZW5uZXIuYmVydGhpbmdAY2Fub25pY2FsLmNvbT4KPgo+
+IEFkZCBwaW5jdHJsIGRyaXZlciBmb3IgdGhlIFQtSGVhZCBUSDE1MjAgUklTQy1WIFNvQy4KPgo+
+IFRlc3RlZC1ieTogVGhvbWFzIEJvbm5lZmlsbGUgPHRob21hcy5ib25uZWZpbGxlQGJvb3RsaW4u
+Y29tPgo+IFNpZ25lZC1vZmYtYnk6IEVtaWwgUmVubmVyIEJlcnRoaW5nIDxlbWlsLnJlbm5lci5i
+ZXJ0aGluZ0BjYW5vbmljYWwuY29tPgo+IFtkZnVzdGluaTogdXNlIHRoZWFkLHBhZC1ncm91cCB0
+byBpZGVudGlmeSB0aGUgcGluIGNvbnRyb2xsZXIgaW5zdGFuY2VdCj4gU2lnbmVkLW9mZi1ieTog
+RHJldyBGdXN0aW5pIDxkZnVzdGluaUB0ZW5zdG9ycmVudC5jb20+Cj4gLS0tCj4gICBNQUlOVEFJ
+TkVSUyAgICAgICAgICAgICAgICAgICAgICB8ICAgMSArCj4gICBkcml2ZXJzL3BpbmN0cmwvS2Nv
+bmZpZyAgICAgICAgICB8ICAxMyArCj4gICBkcml2ZXJzL3BpbmN0cmwvTWFrZWZpbGUgICAgICAg
+ICB8ICAgMSArCj4gICBkcml2ZXJzL3BpbmN0cmwvcGluY3RybC10aDE1MjAuYyB8IDkwNyArKysr
+KysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysKPiAgIDQgZmlsZXMgY2hhbmdlZCwg
+OTIyIGluc2VydGlvbnMoKykKPgo+IFsuLi5dCj4gK3N0YXRpYyBpbnQgdGgxNTIwX3Bpbm11eF9z
+ZXRfbXV4KHN0cnVjdCBwaW5jdHJsX2RldiAqcGN0bGRldiwKPiArCQkJCSB1bnNpZ25lZCBpbnQg
+ZnNlbCwgdW5zaWduZWQgaW50IGdzZWwpCj4gK3sKPiArCXN0cnVjdCB0aDE1MjBfcGluY3RybCAq
+dGhwID0gcGluY3RybF9kZXZfZ2V0X2RydmRhdGEocGN0bGRldik7Cj4gKwljb25zdCBzdHJ1Y3Qg
+ZnVuY3Rpb25fZGVzYyAqZnVuYyA9IHBpbm11eF9nZW5lcmljX2dldF9mdW5jdGlvbihwY3RsZGV2
+LCBmc2VsKTsKZnVuYyBjYW4gYmUgTlVMTCBhZnRlciBjYWxsaW5nIHBpbm11eF9nZW5lcmljX2dl
+dF9mdW5jdGlvbgpQbGVhc2UgYWRkIHNvbWV0aGluZyB0byBhdm9pZCBOVUxMIHBvaW50ZXIgZGVy
+ZWZlcmVuY2luZyBpbiB0aGUgbmV4dCAKc3RhdGVtZW50LgpBbGwgb3RoZXIgY2FsbGVycyBvZiBw
+aW5tdXhfZ2VuZXJpY19nZXRfZnVuY3Rpb24gaGF2ZSBzb21ldGhpbmcgbGlrZSB0aGlzOgogwqDC
+oMKgIGlmICghZnVuYykKIMKgwqDCoMKgwqDCoMKgIHJldHVybiAtRUlOVkFMOwo+ICsKPiArCXJl
+dHVybiB0aDE1MjBfcGlubXV4X3NldCh0aHAsIHRocC0+ZGVzYy5waW5zW2dzZWxdLm51bWJlciwK
+PiArCQkJCSAodWludHB0cl90KXRocC0+ZGVzYy5waW5zW2dzZWxdLmRydl9kYXRhICYgVEgxNTIw
+X1BBRF9NVVhEQVRBLAo+ICsJCQkJICh1aW50cHRyX3QpZnVuYy0+ZGF0YSk7Cj4gK30KPiArCgpf
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
+diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
+dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
