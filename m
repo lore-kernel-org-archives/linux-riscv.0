@@ -4,81 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7F08CF31AF
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Oct 2024 11:05:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43FF1CF31B4
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Oct 2024 11:28:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gMymppqR2Ebc842CQft5yRT7N5f64DJ+bYK4cLANowU=; b=s1ndjfC/bOpQuV
-	lrcshVFWRKJ1p0XQKZQhUMz1rJQp3jJK05s4Sq6bi/bYbJnKMPRnrbpccQ/F2NRT2E0LBsIcAD7c1
-	3T29b3PxzA/F7bIB0bOu7mbCuRwzPIJrpmUpzB7EQpWYDgRslJUeDPpBq8mNLTZqUWK8tordXzaC0
-	x2AAarN5TMFysEZ2wsk6HKYEwZUL+Y4+uvH9t0GgwRAcorVQzC8tvN9jmaXvl1qkOpfS0AbP7Y9fF
-	NvAC6+9YOd4zHVyEGHDXUsoV8iJcDjLOM5Q5IyJN8Pj7EcyTcArzTO5kBEySyrMlNC+Fft+vDrpta
-	C/r9vCXA1K+9XeTONMsg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Reply-To:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IjajJTIimA6sJ3NeKayjKK2z64Zd8V/7QhOSNOQsrcA=; b=V+CJ7LWNlU41UGeHmIRgzPiFQq
+	4OAQt7T5BOlvxucMy4vfrU8tNNJiFRZMdMzf9moxSMD30dSLhGEzZj6mje86H8SFGaboRZGWzDAH6
+	toRNcDKGEhwT3jJpOWEsJsI6P1TiEZU6M02lly1DLnBOdThIG183083xE+HU3TrdkOWoTJFSYZxof
+	rs6YF2tF0gP9J18PRPEpkRqMS8evDL31bN+GlMY/5gGUbnPSeKj1rDj4ml9M27LmUEKqGQIKB6ucE
+	v63s6rKdOvIKZ/jykez8W1yVnAPFCHDfqAvA785wdoAYBKAA7fzREiWAIpDrIEPQR7yVyPwXUEmwa
+	3PIGFzfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1svxAF-00000005bHk-1zZ9;
-	Wed, 02 Oct 2024 11:05:03 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1svxWd-00000005esA-1Azw;
+	Wed, 02 Oct 2024 11:28:11 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1svwuo-00000005Y3f-1Qap;
-	Wed, 02 Oct 2024 10:49:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BB2B85C03CA;
-	Wed,  2 Oct 2024 10:49:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C795C4CEC5;
-	Wed,  2 Oct 2024 10:49:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1727866145;
-	bh=qu+RgAvMKGG6eHj1nt3ZqKEHLWp1YZIU8I35f+U8nJ8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ghbvx+80TtOagxSSx1YVAs9g9hcuxHcr6yLQqp1K5nKrFCl5BE+jQkcvY5Em4LizZ
-	 7TTfyi8Q1r8TcaULi1V78umAH2v2xFGVp7jizdudRRavh7XzSIkt004SYipWNHZHTG
-	 pxNRE7mWBPtSb/DiMBEpYpprx67f+1uZNjJslUZoh3KB5JI0Hz93sHd6cZOtd39/dr
-	 N0siEYxDw/yM27ljqrztpfd7ToSWiyXYdOFd/hCQndIOngs9/gPohQHUsRnCFoWhjf
-	 JjcCU7SDodapmr53g0FNnpZGRx65eKcYekP7qv3pXRoyKT/12Id4B5vvAi77tXDQIK
-	 yXLSJFNQtwPlQ==
-From: Conor Dooley <conor@kernel.org>
-To: linux-kernel@vger.kernel.org
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	pierre-henry.moussay@microchip.com,
-	valentina.fernandezalanis@microchip.com,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Lee Jones <lee@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	linux-riscv@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-amlogic@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v1 11/11] riscv: dts: microchip: convert clock and reset to use syscon
-Date: Wed,  2 Oct 2024 11:48:09 +0100
-Message-ID: <20241002-porous-mangy-4634b6556202@spud>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20241002-private-unequal-33cfa6101338@spud>
-References: <20241002-private-unequal-33cfa6101338@spud>
+	id 1svxPT-00000005dDf-3HlU
+	for linux-riscv@lists.infradead.org;
+	Wed, 02 Oct 2024 11:20:49 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-37cd5016d98so3395196f8f.1
+        for <linux-riscv@lists.infradead.org>; Wed, 02 Oct 2024 04:20:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1727868046; x=1728472846; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=xuMn+uvzgNhXlVl6NvssHiZDUL25KUVzV3NB9k+ro68=;
+        b=fcPvs+C9ANPfGLDTevme/p3sXaF4Oeh321Uh+7UuwbSquNZpE3kuJGiQCG9t8TFmLU
+         /POwhEtyNeCG2KQNztaw6/FqJBZwPp054TYqEt2qn7QmukDmCSkEDgx+ALMb4Jp0vTGZ
+         vpJ4wOtiygmjam6sS782tkF/IL54h2kPdKmcop9kPyQL2OW954RwxhtDfem33BtFXPKJ
+         pUOawgmCx87V08Bl/xcsBZj8RlQM1j/XnVQE+zLe60c9xj+IcF1fsdr251jZfC9/9hEY
+         l1QVSuaWAH0yhp/5l+p2IbUEqi2bLYRCO9fhkWvh5P6adEZCl3pswbsv2XO63Ben+Bga
+         9XxQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1727868046; x=1728472846;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=xuMn+uvzgNhXlVl6NvssHiZDUL25KUVzV3NB9k+ro68=;
+        b=vNWH25y2kDQRqodc/od1FaDiLQ4QoeVkgMLuvksj/0LxgwUhqk+xXpyngOTlr1ol7v
+         pSIQw8qLNoV3gK7T3LPSCtO/3QN17OpHSQVgyjmOIdyFt9let0fWDtXjrnsMz+nN/m3N
+         O/g59pTxpDs8ZkO3uYUfyYze8l64xFLClXqfD/p6ZnYBI9zdlQQcmf/rjuMx8FPCvDDT
+         sLauGHyhtPBib5mY8qCT82PbNkJwKKbIFBHo3yiaPIjzZHTrxYdAHdJXa2XFGE9GL98J
+         AG4F2O8cBmFykDeI/9jKnziDAKVCBjgl+Io4fnBtgjkznf7eae8FiZzGXsciMl1YNbDO
+         PPDw==
+X-Forwarded-Encrypted: i=1; AJvYcCUC2KDGpmL21nHH80KV1MFtq2SYDGv5jzA/korNRdlkRsWiWWBks1+RInWObpeF4rrQ3AJO40ahiKKlmA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVXIQP8Wc8kiUo0J1+MCQ7k3We8X1UKOLdbnCX1kDXEU/rG1Kp
+	VKTmdoGRhFiBmJ/X633JXlFLOE7iEiKdIXMWLMxvulZ10m6sYFApeBXQjpqLCss=
+X-Google-Smtp-Source: AGHT+IG8p3dWVjk/6hZCzmXj39xeg0ImZtG3Merz+EByl/MIpSdWVEPWB/AKs0ghnMfzwQPyYhCtlQ==
+X-Received: by 2002:a5d:4843:0:b0:374:c142:80e7 with SMTP id ffacd0b85a97d-37cfb8b14eamr2128521f8f.1.1727868045945;
+        Wed, 02 Oct 2024 04:20:45 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:982:cbb0:ce64:813c:ca8:36b5? ([2a01:e0a:982:cbb0:ce64:813c:ca8:36b5])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-37cd56e6488sm13786576f8f.46.2024.10.02.04.20.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 02 Oct 2024 04:20:45 -0700 (PDT)
+Message-ID: <2b49c4df-a34a-42c5-8d44-9e47da630fe8@linaro.org>
+Date: Wed, 2 Oct 2024 13:20:44 +0200
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2218; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=BB4R12hb6JJv+m+wU7R6gaxBtVYrpHfMfCCdOaNVhVc=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDGl/VR7pXuTMmWI1dz5P/0rJRftzznEdb7XzW3u7THfu9 qnVD5otO0pZGMQ4GGTFFFkSb/e1SK3/47LDuectzBxWJpAhDFycAjCRZ7sY/nC3+v6yfXGLZ+6S xrl5LvOFDT+JsHXWS37dPPtXKdesKB9GhrsvP9jds1yvfTTPX+HuMX/n3LNWxs83TzT3zGQWk8t 5xw8A
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH v1 08/11] clk: move meson clk-regmap implementation to
+ common code
+To: Conor Dooley <conor@kernel.org>, linux-kernel@vger.kernel.org
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+ Daire McNamara <daire.mcnamara@microchip.com>,
+ pierre-henry.moussay@microchip.com, valentina.fernandezalanis@microchip.com,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Jassi Brar <jassisinghbrar@gmail.com>, Lee Jones <lee@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Jerome Brunet <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, linux-riscv@lists.infradead.org,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+References: <20241002-private-unequal-33cfa6101338@spud>
+ <20241002-hula-unwashed-1c4ddbadbec2@spud>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20241002-hula-unwashed-1c4ddbadbec2@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241002_034906_493740_7BF488D7 
-X-CRM114-Status: GOOD (  11.43  )
+X-CRM114-CacheID: sfid-20241002_042047_901610_1D1D08F9 
+X-CRM114-Status: GOOD (  10.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,79 +130,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
+Reply-To: neil.armstrong@linaro.org
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+On 02/10/2024 12:48, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+> 
+> I like this one better than qualcomms and wish to use it for the
+> PolarFire SoC clock drivers.
+> 
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>   drivers/clk/Kconfig                           |  4 ++
+>   drivers/clk/Makefile                          |  1 +
+>   drivers/clk/{meson => }/clk-regmap.c          |  2 +-
+>   drivers/clk/meson/Kconfig                     | 46 +++++++++----------
+>   drivers/clk/meson/Makefile                    |  1 -
+>   drivers/clk/meson/a1-peripherals.c            |  2 +-
+>   drivers/clk/meson/a1-pll.c                    |  2 +-
+>   drivers/clk/meson/axg-aoclk.c                 |  2 +-
+>   drivers/clk/meson/axg-audio.c                 |  2 +-
+>   drivers/clk/meson/axg.c                       |  2 +-
+>   drivers/clk/meson/c3-peripherals.c            |  2 +-
+>   drivers/clk/meson/c3-pll.c                    |  2 +-
+>   drivers/clk/meson/clk-cpu-dyndiv.c            |  2 +-
+>   drivers/clk/meson/clk-dualdiv.c               |  2 +-
+>   drivers/clk/meson/clk-mpll.c                  |  2 +-
+>   drivers/clk/meson/clk-phase.c                 |  2 +-
+>   drivers/clk/meson/clk-pll.c                   |  2 +-
+>   drivers/clk/meson/g12a-aoclk.c                |  2 +-
+>   drivers/clk/meson/g12a.c                      |  2 +-
+>   drivers/clk/meson/gxbb-aoclk.c                |  2 +-
+>   drivers/clk/meson/gxbb.c                      |  2 +-
+>   drivers/clk/meson/meson-aoclk.h               |  2 +-
+>   drivers/clk/meson/meson-eeclk.c               |  2 +-
+>   drivers/clk/meson/meson-eeclk.h               |  2 +-
+>   drivers/clk/meson/meson8-ddr.c                |  2 +-
+>   drivers/clk/meson/meson8b.c                   |  2 +-
+>   drivers/clk/meson/s4-peripherals.c            |  2 +-
+>   drivers/clk/meson/s4-pll.c                    |  2 +-
+>   drivers/clk/meson/sclk-div.c                  |  2 +-
+>   drivers/clk/meson/vclk.h                      |  2 +-
+>   drivers/clk/meson/vid-pll-div.c               |  2 +-
+>   .../meson => include/linux/clk}/clk-regmap.h  |  0
+>   32 files changed, 53 insertions(+), 53 deletions(-)
+>   rename drivers/clk/{meson => }/clk-regmap.c (99%)
+>   rename {drivers/clk/meson => include/linux/clk}/clk-regmap.h (100%)
+> 
+<snip>
 
-The "subblock" clocks and reset registers on PolarFire SoC are located
-in the mss-top-sysreg region, alongside pinctrl and interrupt control
-functionality. Re-write the devicetree to describe the sys explicitly,
-as its own node, rather than as a region of the clock node.
-Correspondingly, the phandles to the reset controller must be updated to
-the new provider. The drivers will continue to support the old way of
-doing things.
+I don't have objections, but I think Stephen didn't like the idea
+a few years ago, but perhaps it has changed...
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- arch/riscv/boot/dts/microchip/mpfs.dtsi | 19 ++++++++++++-------
- 1 file changed, 12 insertions(+), 7 deletions(-)
+Anyway, take my:
+Acked-by: Neil Armstrong <neil.armstrong@linaro.org>
 
-diff --git a/arch/riscv/boot/dts/microchip/mpfs.dtsi b/arch/riscv/boot/dts/microchip/mpfs.dtsi
-index f8a45e4f00a0d..08aa4fe03fd30 100644
---- a/arch/riscv/boot/dts/microchip/mpfs.dtsi
-+++ b/arch/riscv/boot/dts/microchip/mpfs.dtsi
-@@ -251,11 +251,9 @@ pdma: dma-controller@3000000 {
- 			#dma-cells = <1>;
- 		};
- 
--		clkcfg: clkcfg@20002000 {
--			compatible = "microchip,mpfs-clkcfg";
--			reg = <0x0 0x20002000 0x0 0x1000>, <0x0 0x3E001000 0x0 0x1000>;
--			clocks = <&refclk>;
--			#clock-cells = <1>;
-+		mss_top_sysreg: syscon@20002000 {
-+			compatible = "microchip,mpfs-mss-top-sysreg", "syscon", "simple-mfd";
-+			reg = <0x0 0x20002000 0x0 0x1000>;
- 			#reset-cells = <1>;
- 		};
- 
-@@ -452,7 +450,7 @@ mac0: ethernet@20110000 {
- 			local-mac-address = [00 00 00 00 00 00];
- 			clocks = <&clkcfg CLK_MAC0>, <&clkcfg CLK_AHB>;
- 			clock-names = "pclk", "hclk";
--			resets = <&clkcfg CLK_MAC0>;
-+			resets = <&mss_top_sysreg CLK_MAC0>;
- 			status = "disabled";
- 		};
- 
-@@ -466,7 +464,7 @@ mac1: ethernet@20112000 {
- 			local-mac-address = [00 00 00 00 00 00];
- 			clocks = <&clkcfg CLK_MAC1>, <&clkcfg CLK_AHB>;
- 			clock-names = "pclk", "hclk";
--			resets = <&clkcfg CLK_MAC1>;
-+			resets = <&mss_top_sysreg CLK_MAC1>;
- 			status = "disabled";
- 		};
- 
-@@ -550,5 +548,12 @@ syscontroller_qspi: spi@37020100 {
- 			clocks = <&scbclk>;
- 			status = "disabled";
- 		};
-+
-+		clkcfg: clkcfg@3e001000 {
-+			compatible = "microchip,mpfs-clkcfg";
-+			reg = <0x0 0x3e001000 0x0 0x1000>;
-+			clocks = <&refclk>;
-+			#clock-cells = <1>;
-+		};
- 	};
- };
--- 
-2.45.2
-
+Thanks,
+Neil
 
 _______________________________________________
 linux-riscv mailing list
