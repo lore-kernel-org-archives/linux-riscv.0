@@ -4,78 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15124CF6D38
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Oct 2024 15:25:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98AC3CF6D38
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Oct 2024 15:36:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=2chCyGEcRkI/ojie/gJO3tTG9LmpOOop68NE2t4t9Jg=; b=mPT80YSpDzrz1bBAukMIVgD73R
-	BuX4FCwq85Li1HYYGIqK4PaahvR/1UOWDLIekWR3LRy6Mim3FMjsCxLM43Pp44/rD+8a02Wp1BsWl
-	pU5rbqyGsb+uW6mkH93bF5zlV7sULw5watlp53HlDeN0M7IoQuZ08NV7h1WoSR44OU96Ov1tMV8iI
-	dj5v9VyL3p12l8RtWzoKk79JWNvO8YDm6uUVLgWg3THdYcbyl6E6W5IjzyMXAxYT4gbubdqfVd2Gy
-	iDAgJ+6J3mYGSTyk8B19LRtSOUlQGFZWUXgvuIzUqSGyxHiRST1cgD6bvdzbTM+9lk2zHQdE4rz0t
-	ScGXtn6w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ZsGCuoU3ZbXBrt1saguMD6AO1dGItOHi8ND0kBhWhIU=; b=CVOf8SPoVM245O
+	E1FahtvPYRFsD16o1OX+r6T86tCtFbuhQHganrPlzUk8B6DUrq1/eqeCKPCQX/Mq/s54uNHwW+dRv
+	Uf7jq3CqlzjzzPC/AXwBJcOIWDBfEKrwVq8vkUiw01kPf5C+ZvIBbvCSmKqYeJdnTLWs+a1fhpvm1
+	6rCTskNlQvqLhOpF1tGy3t4E5Q5V9GvFkB5/tj/eLPpw5Pq8pHScevsHR/+U0fWSf+4WJd51eRqLV
+	ilAZ5M4xhh0km7+RYh337yMpBJ2BvmXFtppjxBtXHj60z2m4cNOI7YmwdU0c+7kxG2B0rtR7nYy0D
+	qL+sI7hY3QICZycELSgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sw1EF-00000006dor-3mk9;
-	Wed, 02 Oct 2024 15:25:27 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1sw1Ob-00000006hJx-1RfI;
+	Wed, 02 Oct 2024 15:36:09 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sw1EC-00000006dmR-1p6z
-	for linux-riscv@lists.infradead.org;
-	Wed, 02 Oct 2024 15:25:26 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-2e188185365so814614a91.1
-        for <linux-riscv@lists.infradead.org>; Wed, 02 Oct 2024 08:25:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1727882722; x=1728487522; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=BR5QBB3+PfO9ZNwu2cFCCrdYnY/ZX4Z3G+e0nrn8jsI=;
-        b=HvRsNzpvmofImNSiRQ2EGiLXGiDNaOPoYz9uYvciYmNQszVfVg69e+D20WU3RnCcZw
-         ml7hfTDo5sMXRrhxYEd7b7PAWlQig8hwp423cHPqebvi+eTACyJA4XN0MwMVViXvuUbm
-         IHq2I/yvrVNLrVPiLvcqn1xaKwf+V7Mfye7PZce24EV2LRq/7mZFp4jc8QvHAfBwekI7
-         0ARcKplbe2KeBwtKbQlTJAMsjURM/dZ3byqXztON/QCZEO8a7LsC4rAEhKPJ9dq0e7KK
-         q7A+JoNXNBnReh0G02sPUwuiKg2I8oJkHqwPIjyNqaQRgm+JJa1X4XOyx2njtFOQCxZD
-         7MKg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1727882722; x=1728487522;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BR5QBB3+PfO9ZNwu2cFCCrdYnY/ZX4Z3G+e0nrn8jsI=;
-        b=gfA8NK3B5QZkeo4MAtNVKU14d5mw3TfMuG6jLemoPl1BRag81tYK7WeLLdRZsAUXLP
-         9euHFaxkMyGyzmQc4/8jtOqmhHkoIDIinOPD2ZiyG/AmFlrl3QhF4BLtCOKaI9DHZOIr
-         hhwQtb9BN336isjkmED8MMRSBviRn7NHGNKvlOG264QQpaIYwBQrkiR9h1v4/vfsBoQw
-         e/JCP/6TBe2KofEuk78tkQ7V6fr4sZtTO3ab5/wply4sLxaKObVHDaUSNxUwWMVHvk4L
-         qOOScpencwI4HRYxDZOvqNSOK8ZXzmCGHaskUhZzJ/9jg7YHTZxgXdOFRFE7AzIBlmxx
-         qPJA==
-X-Forwarded-Encrypted: i=1; AJvYcCXW2EegHClbG5XE9tM2w4TS5LrT3PwoR1ByWfSn/p2lJQ3xSd0USGJqnyLL4yaHkjrj4n+CIuMX4ioCdw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwveIb1/yFFfRigQricHnSmNRAovcON6mKdR934UETezYi7G3mG
-	HUs0AbKYai7ntH/eTiQMi88z7kXinSbEDirVvdKOPTkrg1pxdkEFXcHz5562648=
-X-Google-Smtp-Source: AGHT+IFE5uX+FU2pDt/yab+HNUFuVX1mFPUjH/ILE2TfvHghbwT8ASHbfmGmK/2FrFu03J7ZYVzj9w==
-X-Received: by 2002:a17:90b:3ccf:b0:2e1:a81f:5520 with SMTP id 98e67ed59e1d1-2e1a81f5c2dmr1529944a91.1.1727882722140;
-        Wed, 02 Oct 2024 08:25:22 -0700 (PDT)
-Received: from localhost ([50.145.13.30])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e18f92eeb8sm1685692a91.48.2024.10.02.08.25.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Oct 2024 08:25:21 -0700 (PDT)
-Date: Wed, 02 Oct 2024 08:25:21 -0700 (PDT)
-X-Google-Original-Date: Wed, 02 Oct 2024 08:25:19 PDT (-0700)
-Subject: Re: Page sizes supported by RISC-V
-In-Reply-To: <alpine.DEB.2.21.2409291631010.21893@angie.orcam.me.uk>
-CC: jeffreyalaw@gmail.com, fweimer@redhat.com, linux-riscv@lists.infradead.org,
-  luxu.kernel@bytedance.com
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: macro@orcam.me.uk
-Message-ID: <mhng-cf875057-9015-4792-92d4-28db31eedd5e@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+	id 1sw1NB-00000006gp5-2bJ7;
+	Wed, 02 Oct 2024 15:34:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=RF3Yt7mUhMh9oXBfNRlXYo/9TTj+JpEotlqG6mQiyzc=; b=bXHTMLw64O2XzJunhOyTUZn3TK
+	p6e+Z2FtDCcDxvP2FrrMqADCT5p80CU+vWpuRJAN3+95RLNLCv4bGCBxT6iz69fcGWiq8/MgboEtL
+	bANHYwMi5XO1bZ6OnOrpIeCHp4sadfowduY1EmaVqjiqVmi4UKbDvhE6E4ugdNk/zG3o=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1sw1Mr-008sC0-Kh; Wed, 02 Oct 2024 17:34:21 +0200
+Date: Wed, 2 Oct 2024 17:34:21 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Drew Fustini <dfustini@tenstorrent.com>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Conor Dooley <conor@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 0/3] Add the dwmac driver support for T-HEAD TH1520 SoC
+Message-ID: <99af411c-ff40-4396-a6e2-5aac179ba1be@lunn.ch>
+References: <20240930-th1520-dwmac-v3-0-ae3e03c225ab@tenstorrent.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240930-th1520-dwmac-v3-0-ae3e03c225ab@tenstorrent.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241002_082524_699774_49E04BA5 
-X-CRM114-Status: GOOD (  19.04  )
+X-CRM114-CacheID: sfid-20241002_083441_677455_0EBB8C57 
+X-CRM114-Status: GOOD (  10.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,46 +80,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 29 Sep 2024 08:49:34 PDT (-0700), macro@orcam.me.uk wrote:
-> On Sun, 29 Sep 2024, Jeff Law wrote:
->
->> I strongly suspect the lack of specification here is mean to give degrees of
->> freedom to the implementors, but sometimes those writing the specs don't
->> really understand the implication of leaving things like this unspecified and
->> how much pain it really causes in the end.
->
->  But 64KiB pages have already been mentioned, so sanctioning this possible
-> size in binutils (or LD specifically) would be a reasonable thing to do at
-> this time IMHO.
->
->  FWIW out of the plethora sizes (from 1KiB up to 256TiB) possible to have
-> in hardware (and available on a page-by-page basis) the MIPS/Linux port
-> has settled on a fixed for a given kernel configuration page size choice
-> among 4KiB, 16KiB, 64KiB, and this has been reflected in binutils, so
-> perhaps copying the MIPS bits might be the path of least resistance.
+On Mon, Sep 30, 2024 at 11:23:23PM -0700, Drew Fustini wrote:
+> This series is based on 6.12-rc1 and depends on this pinctrl series:
 
-This comes up every once in a while and we end generally end up deciding 
-we're just stuck with a 4KiB base on RISC-V.  We've got 64KiB fused 
-pages in the ISA now, so getting userspace 64KiB aligned whenever 
-possible would be a nice to have, but that doesn't get rid of the 4KiB 
-base page size.
+This is a network driver, so should be based on net-next/main.
 
-When someone wants larger base page sizes then they're going to be stuck 
-with all the pain that every other port had to go through to make that 
-all fit together.  It's a bummer we didn't sort that out ahead of time, 
-but we've got a lot of baggage to unwind ;)
+https://www.kernel.org/doc/html/latest/process/maintainer-netdev.html
 
->   Maciej
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+>  20240930-th1520-pinctrl-v3-0-32cea2bdbecb@tenstorrent.com
+
+Everything should meet up in linux-next, where it should work since
+all the dependencies are there.
+
+    Andrew
+
+---
+pw-bot: cr
 
 _______________________________________________
 linux-riscv mailing list
