@@ -4,64 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28879CF8571
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Oct 2024 09:59:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44A9BCF857A
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Oct 2024 10:43:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0RJZfyWG4pPW6hwahLlbVMnatEw8FV/FleR7W/+a8ro=; b=PUwOEQV3wzD8ZO
-	PM08mwV6qcapKNZQsMOkY5BqF4eLdR+OyqmzcYaqxiNdpa94A6XuUgVUHqJEcq/970mcVD2klCKNs
-	80c2HwN9sDvEuizhcZS9gT4IT/mvoBFcIsIoX3Tm/CfhvNVEM/JiZlhatn99PDqZ0P6okr9PVMDrL
-	j+niB4K9eDAD+/1KYLXUNmvPl8UmIG0cs+lIhbzKtuyHhxrxVvCAEGrx6NK8DgZxIUXGSaKILiBO1
-	epCcg4CoX4biLLJH9BKOlT8WwbCd2/9lMhJmrQw7YyEc2EHoXr/NfnOffDNTU1+6ojp7WBNELMJbu
-	CVD5jAtg8RvJRUkcSfxg==;
+	List-Owner; bh=ciNS8QUkNyv7NsTT6TpTXYVMT4ARYtzBTjqvBEsuE84=; b=h1csNAUuFVVdCy
+	ULqtatx8E7bh35zuVUyoRIHnupVsbHJKlNrOV/no7ZAAm+Awm8iofVkak8snIHpDpLU0Fmf95RIYM
+	HYnKYXXaF7oM2l12mw+V6R6ccCjeW6G/V84b61WT6r6MCuZ8gO0UejcWXh2LL8NbJK1phqy8ZXfDU
+	uQG7WmTsKBej1HGJpxu7jRlMbR7L27Tc4zMUM9y0CAJiVq517PdDN/v3bH5GwlyF7fsf/M2NyZYml
+	NXVYYS3RhSTV5noWRtPYwurF9WW+1Rc1sdpHGD5YBzJHgTP7dsh1rmSekkK0y5YEd3MrFtpQlyA8q
+	u49Rqopwy5ULqvdNO6tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1swIbx-00000008jZs-0R4y;
-	Thu, 03 Oct 2024 09:59:05 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1swJJ5-00000008oXe-2Rse;
+	Thu, 03 Oct 2024 10:43:39 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1swIW5-00000008iqJ-2wMH
-	for linux-riscv@lists.infradead.org;
-	Thu, 03 Oct 2024 09:53:03 +0000
+	id 1swJHn-00000008oJC-0BQY;
+	Thu, 03 Oct 2024 10:42:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8B2CDA43636;
-	Thu,  3 Oct 2024 09:52:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03A0EC4CEC5;
-	Thu,  3 Oct 2024 09:52:59 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6978D5C5128;
+	Thu,  3 Oct 2024 10:42:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A18AC4CEC7;
+	Thu,  3 Oct 2024 10:42:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1727949180;
-	bh=r60vZJZ6L6N7kj/zd/wI6zNB6uYbLdjKz0S6lEoaP5c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bkZZ4uVgWjc0N+61OfaOJSF5I8pztDIEd+CDcaXuqdEAnpBqaVh6K7Mw4Z5zJSnwS
-	 Gr42seg4MFQin24dekGDSosnp4J3fztfBTlCxLMdtZ7MPcBlrEKJN+SquLS0jC9ChI
-	 /FbvltcJ/V1wwdZevbZzFDqHJ0uF6suMGGD8gky030TGu0S3P4gBkPba8m791MKZil
-	 BkLmD73tyZUOhWgFUkioXaEwb/MuTJJbEuXAI+b2cgg6fURIxveDRLPrl649ydxPES
-	 jpy741S3hqtLWiE/0nnHg3FJTn6gxf7zzqpPi0Gn1/aw7n30g6djUiyP2yXn1PhbSG
-	 tjpra4c3WbczQ==
-Date: Thu, 3 Oct 2024 11:52:57 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org, 
-	Conor Dooley <conor.dooley@microchip.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>, 
-	Andy Chiu <andybnac@gmail.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC v1 5/5] dt-bindings: riscv: document vector crypto
- requirements
-Message-ID: <kduc5r2nisteqax3zbxkja6qevdi2pdu6nk4sqabkap7nxtmok@sxq7yhptrvqc>
-References: <20241002-defeat-pavestone-73d712895f0b@spud>
- <20241002-sincerity-urgent-acdb0e8d8a66@spud>
+	s=k20201202; t=1727952138;
+	bh=a9KmoXJsFEjWSCOH7kCcCjD1NTNIR2CLPy5YKmcNJKw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=FYDvPl/7Y3AD+UT7KDhhmsWI/4AqOIYOSg8ZMLsUb/E0o4IHlkZQgQ7PGS4dIPIap
+	 3t721t1RSCZvOrh5q1v8tlqSwlbU3bbZAzktZLuzWngvAA/437w/8PU6vvDjWoLXFt
+	 Krel1zVBGmMqbMXo73G3cmMQZYNWXbP06pSZfdVJ8E3BOPOdemCjodG29d3rKFa18q
+	 o4F+du1pZjTDiajhO8z1Ovw/O8W6xQoEKhzEm4KXQEBrL9lwhQEvEpIUxCawV7EY8I
+	 GUh2bai96Aps1tWETgz2Thzvof08CSsX4IdYr7Y4VLuLKcAu/RxZFxbujjVktkUBEK
+	 REuiz2tGStUAA==
+Message-ID: <8f0a6e27-df0c-41fb-8714-10fdfbe976ab@kernel.org>
+Date: Thu, 3 Oct 2024 12:42:09 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241002-sincerity-urgent-acdb0e8d8a66@spud>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/3] dt-bindings: net: Add T-HEAD dwmac support
+To: Drew Fustini <dfustini@tenstorrent.com>
+Cc: "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+ Jose Abreu <joabreu@synopsys.com>, Jisheng Zhang <jszhang@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+ Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>,
+ Fu Wei <wefu@redhat.com>, Conor Dooley <conor@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-riscv@lists.infradead.org
+References: <20240930-th1520-dwmac-v3-0-ae3e03c225ab@tenstorrent.com>
+ <20240930-th1520-dwmac-v3-1-ae3e03c225ab@tenstorrent.com>
+ <wtknsih2yrbylqzanp6k753kklk4myf6iezjz6swnp4nsqr2hl@7mmm6lxhqemu>
+ <Zv2aE7jmE2awLwcl@x1>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <Zv2aE7jmE2awLwcl@x1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241003_025301_828212_36A76671 
-X-CRM114-Status: UNSURE (   9.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241003_034219_214769_C539D464 
+X-CRM114-Status: GOOD (  22.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,25 +132,145 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 02, 2024 at 05:10:58PM +0100, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
+On 02/10/2024 21:08, Drew Fustini wrote:
+> On Tue, Oct 01, 2024 at 08:58:34AM +0200, Krzysztof Kozlowski wrote:
+>> On Mon, Sep 30, 2024 at 11:23:24PM -0700, Drew Fustini wrote:
+>>> From: Jisheng Zhang <jszhang@kernel.org>
+>>>
+>>> Add documentation to describe the DesginWare-based GMAC controllers in
+>>> the T-HEAD TH1520 SoC.
+>>>
+>>> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+>>> Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+>>> [drew: rename compatible, add apb registers as second reg of gmac node]
+>>> Signed-off-by: Drew Fustini <dfustini@tenstorrent.com>
+>>> ---
+>>>  .../devicetree/bindings/net/snps,dwmac.yaml        |  1 +
+>>>  .../devicetree/bindings/net/thead,th1520-gmac.yaml | 97 ++++++++++++++++++++++
+>>>  MAINTAINERS                                        |  1 +
+>>>  3 files changed, 99 insertions(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+>>> index 4e2ba1bf788c..474ade185033 100644
+>>> --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+>>> +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+>>> @@ -99,6 +99,7 @@ properties:
+>>>          - snps,dwxgmac-2.10
+>>>          - starfive,jh7100-dwmac
+>>>          - starfive,jh7110-dwmac
+>>> +        - thead,th1520-gmac
+>>>  
+>>>    reg:
+>>>      minItems: 1
+>>> diff --git a/Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml b/Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml
+>>> new file mode 100644
+>>> index 000000000000..fef1810b10c4
+>>> --- /dev/null
+>>> +++ b/Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml
+>>> @@ -0,0 +1,97 @@
+>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>>> +%YAML 1.2
+>>> +---
+>>> +$id: http://devicetree.org/schemas/net/thead,th1520-gmac.yaml#
+>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>> +
+>>> +title: T-HEAD TH1520 GMAC Ethernet controller
+>>> +
+>>> +maintainers:
+>>> +  - Drew Fustini <dfustini@tenstorrent.com>
+>>> +
+>>> +description: |
+>>> +  The TH1520 GMAC is described in the TH1520 Peripheral Interface User Manual
+>>> +  https://git.beagleboard.org/beaglev-ahead/beaglev-ahead/-/tree/main/docs
+>>> +
+>>> +  Features include
+>>> +    - Compliant with IEEE802.3 Specification
+>>> +    - IEEE 1588-2008 standard for precision networked clock synchronization
+>>> +    - Supports 10/100/1000Mbps data transfer rate
+>>> +    - Supports RGMII/MII interface
+>>> +    - Preamble and start of frame data (SFD) insertion in Transmit path
+>>> +    - Preamble and SFD deletion in the Receive path
+>>> +    - Automatic CRC and pad generation options for receive frames
+>>> +    - MDIO master interface for PHY device configuration and management
+>>> +
+>>> +  The GMAC Registers consists of two parts
+>>> +    - APB registers are used to configure clock frequency/clock enable/clock
+>>> +      direction/PHY interface type.
+>>> +    - AHB registers are use to configure GMAC core (DesignWare Core part).
+>>> +      GMAC core register consists of DMA registers and GMAC registers.
+>>> +
+>>> +select:
+>>> +  properties:
+>>> +    compatible:
+>>> +      contains:
+>>> +        enum:
+>>> +          - thead,th1520-gmac
+>>> +  required:
+>>> +    - compatible
+>>> +
+>>> +allOf:
+>>> +  - $ref: snps,dwmac.yaml#
+>>> +
+>>> +properties:
+>>> +  compatible:
+>>> +    items:
+>>> +      - enum:
+>>> +          - thead,th1520-gmac
+>>> +      - const: snps,dwmac-3.70a
+>>> +
+>>> +  reg:
+>>> +    items:
+>>> +      - description: DesignWare GMAC IP core registers
+>>> +      - description: GMAC APB registers
+>>> +
+>>> +  reg-names:
+>>> +    items:
+>>> +      - const: dwmac
+>>> +      - const: apb
+>>
+>> I don't get why none of snps,dwmac properties are restricted. How many
+>> interrupts do you have here? How many clocks? resets?
 > 
-> Section 35.2. Extensions Overview of [1] says:
-> | The Zvknhb and Zvbc Vector Crypto Extensions --and accordingly the composite extensions Zvkn and
-> | Zvks-- (sic) require a Zve64x base, or application ("V") base Vector Extension.
-> | All of the other Vector Crypto Extensions can be built on any embedded (Zve*) or application ("V") base
-> | Vector Extension
+> Thanks for pointing this out. Yes, I forgot to document the clocks,
+> interrupts and resets.
 > 
-> Apply these rules in the binding, so that invalid combinations can be
-> avoided.
+> There needs to be 2 clocks (stmmaceth and pclk). There also needs to be
+> 2 resets: each GMAC has a reset plus a seperate reset for the GMAC AXI
+> interface. There is 1 interrupt (macirq) but it is optional. The BeagleV
+> Ahead uses it but the LicheePi 4A does not use the interrupt.
 > 
-> Link: https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-isa-release-698e64a-2024-09-09 [1]
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  .../devicetree/bindings/riscv/extensions.yaml | 32 +++++++++++++++++++
->  1 file changed, 32 insertions(+)
+> However, I'm uncertain about how to restrict the snps,dwmac properties.
+> 
+> I see that starfive,jh7110-dwmac.yaml has the following logic. Should I
+> be adding something like this to restrict the snps,dwmac properties?
+> 
+> ---------------------------------------------------------------------
+> allOf:
+>   - $ref: snps,dwmac.yaml#
+> 
+>   - if:
+>       properties:
+>         compatible:
+>           contains:
+>             const: starfive,jh7100-dwmac
+>     then:
+>       properties:
+>         interrupts:
+>           minItems: 2
+>           maxItems: 2
+> 
+>         interrupt-names:
+>           minItems: 2
+>           maxItems: 2
+> 
+>         resets:
+>           maxItems: 1
+> 
+>         reset-names:
+>           const: ahb
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+No, that's not necessary. You have one device in this binding, so in
+top-level should define how each such property looks like.
 
 Best regards,
 Krzysztof
