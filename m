@@ -4,118 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44A9BCF857A
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Oct 2024 10:43:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2A64CF857C
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Oct 2024 10:57:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ciNS8QUkNyv7NsTT6TpTXYVMT4ARYtzBTjqvBEsuE84=; b=h1csNAUuFVVdCy
-	ULqtatx8E7bh35zuVUyoRIHnupVsbHJKlNrOV/no7ZAAm+Awm8iofVkak8snIHpDpLU0Fmf95RIYM
-	HYnKYXXaF7oM2l12mw+V6R6ccCjeW6G/V84b61WT6r6MCuZ8gO0UejcWXh2LL8NbJK1phqy8ZXfDU
-	uQG7WmTsKBej1HGJpxu7jRlMbR7L27Tc4zMUM9y0CAJiVq517PdDN/v3bH5GwlyF7fsf/M2NyZYml
-	NXVYYS3RhSTV5noWRtPYwurF9WW+1Rc1sdpHGD5YBzJHgTP7dsh1rmSekkK0y5YEd3MrFtpQlyA8q
-	u49Rqopwy5ULqvdNO6tg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VQAlHwTRB8VZbAZJPwXuA6BZ5GNUcPH/3N0y1O3Htgw=; b=RJWk4vCUXEvmLNX5ic/NIqjtVE
+	Fcr0iWrXJy4zsi03I1nz6muAssY9TTe9vdaT/zSWVtJvpPNBdlQVIP08MtYkvUdnxS/FzT2NLhfo0
+	AW11jF6JWD7eHZBLyO2KzEv0ThyRlI5ptpFeJVMlVx4J50F2dTkD2Ib5ykEiuZ8k8gRGb4tGB8ocq
+	Vgt6gpRIMUbmoGjqpd1LRum65xh5r6sLdvrSd7q8oaB4mQfXL4IL+ubEHoPfJ7zhDv4pJFLmmJUGk
+	vHRICXf51VTxnkJ5O67evaTdoESEHPIyupef2Q/FEXS4ntMgO9pY9jw/VZfjhR6T1CN6jfaTwwmmF
+	yfFNGE5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1swJJ5-00000008oXe-2Rse;
-	Thu, 03 Oct 2024 10:43:39 +0000
+	id 1swJWJ-00000008qAQ-2FSb;
+	Thu, 03 Oct 2024 10:57:19 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1swJHn-00000008oJC-0BQY;
-	Thu, 03 Oct 2024 10:42:20 +0000
+	id 1swJWD-00000008q9m-0ykh
+	for linux-riscv@lists.infradead.org;
+	Thu, 03 Oct 2024 10:57:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6978D5C5128;
-	Thu,  3 Oct 2024 10:42:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A18AC4CEC7;
-	Thu,  3 Oct 2024 10:42:11 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 86F135C59CA;
+	Thu,  3 Oct 2024 10:57:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6414BC4CEC5;
+	Thu,  3 Oct 2024 10:57:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1727952138;
-	bh=a9KmoXJsFEjWSCOH7kCcCjD1NTNIR2CLPy5YKmcNJKw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=FYDvPl/7Y3AD+UT7KDhhmsWI/4AqOIYOSg8ZMLsUb/E0o4IHlkZQgQ7PGS4dIPIap
-	 3t721t1RSCZvOrh5q1v8tlqSwlbU3bbZAzktZLuzWngvAA/437w/8PU6vvDjWoLXFt
-	 Krel1zVBGmMqbMXo73G3cmMQZYNWXbP06pSZfdVJ8E3BOPOdemCjodG29d3rKFa18q
-	 o4F+du1pZjTDiajhO8z1Ovw/O8W6xQoEKhzEm4KXQEBrL9lwhQEvEpIUxCawV7EY8I
-	 GUh2bai96Aps1tWETgz2Thzvof08CSsX4IdYr7Y4VLuLKcAu/RxZFxbujjVktkUBEK
-	 REuiz2tGStUAA==
-Message-ID: <8f0a6e27-df0c-41fb-8714-10fdfbe976ab@kernel.org>
-Date: Thu, 3 Oct 2024 12:42:09 +0200
+	s=k20201202; t=1727953032;
+	bh=lW5/aA3G67iZr2w6iM+wouTZ9PieLhmJS7salj68Teo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=N1nOdzJ67ejd17CGrPzr70Q3qDMFfZmk2fH1J86zpfGDFdM2LZ1rm0zYMz2tESZOz
+	 i3aLk3z2ICzgP9siSD76TpY4Z0QnKiPIgbQu4HfEHPmWyk4+pa+HVA8E7B58E+Ywu2
+	 nmssgtX37oKcQGPBrrGnl3RM7LJ1RLLARkOOJec1+6HjCFrL0bMVDdXwtPaPKCddpX
+	 MchD7fKFtxIg3QLnA43C/g9yKjXZTrLE8XLoQJDL5b75sy0jgxcsMIVuGi/9CRG2SY
+	 Ieww/7NLZli6/f60Jd/v/ugOwpEsdpu51LMEmN1C39/+UAnvoEGdG+oQC/19DJOHpA
+	 p3kg6qkHLqvpw==
+Date: Thu, 3 Oct 2024 11:57:08 +0100
+From: Conor Dooley <conor@kernel.org>
+To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Andy Chiu <andybnac@gmail.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [RFC v1 2/5] RISC-V: add f & d extension validation checks
+Message-ID: <20241003-flagship-agreeably-5df992b50618@spud>
+References: <20241002-defeat-pavestone-73d712895f0b@spud>
+ <20241002-stuffed-trance-1323386dd80b@spud>
+ <6b735be2-93d2-4cc2-b690-438f6e71cf0b@rivosinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] dt-bindings: net: Add T-HEAD dwmac support
-To: Drew Fustini <dfustini@tenstorrent.com>
-Cc: "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Giuseppe Cavallaro <peppe.cavallaro@st.com>,
- Jose Abreu <joabreu@synopsys.com>, Jisheng Zhang <jszhang@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>,
- Fu Wei <wefu@redhat.com>, Conor Dooley <conor@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org
-References: <20240930-th1520-dwmac-v3-0-ae3e03c225ab@tenstorrent.com>
- <20240930-th1520-dwmac-v3-1-ae3e03c225ab@tenstorrent.com>
- <wtknsih2yrbylqzanp6k753kklk4myf6iezjz6swnp4nsqr2hl@7mmm6lxhqemu>
- <Zv2aE7jmE2awLwcl@x1>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <Zv2aE7jmE2awLwcl@x1>
+In-Reply-To: <6b735be2-93d2-4cc2-b690-438f6e71cf0b@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241003_034219_214769_C539D464 
-X-CRM114-Status: GOOD (  22.81  )
+X-CRM114-CacheID: sfid-20241003_035713_387485_1889CED0 
+X-CRM114-Status: GOOD (  24.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,156 +73,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8191414527451697989=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 02/10/2024 21:08, Drew Fustini wrote:
-> On Tue, Oct 01, 2024 at 08:58:34AM +0200, Krzysztof Kozlowski wrote:
->> On Mon, Sep 30, 2024 at 11:23:24PM -0700, Drew Fustini wrote:
->>> From: Jisheng Zhang <jszhang@kernel.org>
->>>
->>> Add documentation to describe the DesginWare-based GMAC controllers in
->>> the T-HEAD TH1520 SoC.
->>>
->>> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
->>> Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
->>> [drew: rename compatible, add apb registers as second reg of gmac node]
->>> Signed-off-by: Drew Fustini <dfustini@tenstorrent.com>
->>> ---
->>>  .../devicetree/bindings/net/snps,dwmac.yaml        |  1 +
->>>  .../devicetree/bindings/net/thead,th1520-gmac.yaml | 97 ++++++++++++++++++++++
->>>  MAINTAINERS                                        |  1 +
->>>  3 files changed, 99 insertions(+)
->>>
->>> diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
->>> index 4e2ba1bf788c..474ade185033 100644
->>> --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
->>> +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
->>> @@ -99,6 +99,7 @@ properties:
->>>          - snps,dwxgmac-2.10
->>>          - starfive,jh7100-dwmac
->>>          - starfive,jh7110-dwmac
->>> +        - thead,th1520-gmac
->>>  
->>>    reg:
->>>      minItems: 1
->>> diff --git a/Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml b/Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml
->>> new file mode 100644
->>> index 000000000000..fef1810b10c4
->>> --- /dev/null
->>> +++ b/Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml
->>> @@ -0,0 +1,97 @@
->>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->>> +%YAML 1.2
->>> +---
->>> +$id: http://devicetree.org/schemas/net/thead,th1520-gmac.yaml#
->>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>> +
->>> +title: T-HEAD TH1520 GMAC Ethernet controller
->>> +
->>> +maintainers:
->>> +  - Drew Fustini <dfustini@tenstorrent.com>
->>> +
->>> +description: |
->>> +  The TH1520 GMAC is described in the TH1520 Peripheral Interface User Manual
->>> +  https://git.beagleboard.org/beaglev-ahead/beaglev-ahead/-/tree/main/docs
->>> +
->>> +  Features include
->>> +    - Compliant with IEEE802.3 Specification
->>> +    - IEEE 1588-2008 standard for precision networked clock synchronization
->>> +    - Supports 10/100/1000Mbps data transfer rate
->>> +    - Supports RGMII/MII interface
->>> +    - Preamble and start of frame data (SFD) insertion in Transmit path
->>> +    - Preamble and SFD deletion in the Receive path
->>> +    - Automatic CRC and pad generation options for receive frames
->>> +    - MDIO master interface for PHY device configuration and management
->>> +
->>> +  The GMAC Registers consists of two parts
->>> +    - APB registers are used to configure clock frequency/clock enable/clock
->>> +      direction/PHY interface type.
->>> +    - AHB registers are use to configure GMAC core (DesignWare Core part).
->>> +      GMAC core register consists of DMA registers and GMAC registers.
->>> +
->>> +select:
->>> +  properties:
->>> +    compatible:
->>> +      contains:
->>> +        enum:
->>> +          - thead,th1520-gmac
->>> +  required:
->>> +    - compatible
->>> +
->>> +allOf:
->>> +  - $ref: snps,dwmac.yaml#
->>> +
->>> +properties:
->>> +  compatible:
->>> +    items:
->>> +      - enum:
->>> +          - thead,th1520-gmac
->>> +      - const: snps,dwmac-3.70a
->>> +
->>> +  reg:
->>> +    items:
->>> +      - description: DesignWare GMAC IP core registers
->>> +      - description: GMAC APB registers
->>> +
->>> +  reg-names:
->>> +    items:
->>> +      - const: dwmac
->>> +      - const: apb
->>
->> I don't get why none of snps,dwmac properties are restricted. How many
->> interrupts do you have here? How many clocks? resets?
-> 
-> Thanks for pointing this out. Yes, I forgot to document the clocks,
-> interrupts and resets.
-> 
-> There needs to be 2 clocks (stmmaceth and pclk). There also needs to be
-> 2 resets: each GMAC has a reset plus a seperate reset for the GMAC AXI
-> interface. There is 1 interrupt (macirq) but it is optional. The BeagleV
-> Ahead uses it but the LicheePi 4A does not use the interrupt.
-> 
-> However, I'm uncertain about how to restrict the snps,dwmac properties.
-> 
-> I see that starfive,jh7110-dwmac.yaml has the following logic. Should I
-> be adding something like this to restrict the snps,dwmac properties?
-> 
-> ---------------------------------------------------------------------
-> allOf:
->   - $ref: snps,dwmac.yaml#
-> 
->   - if:
->       properties:
->         compatible:
->           contains:
->             const: starfive,jh7100-dwmac
->     then:
->       properties:
->         interrupts:
->           minItems: 2
->           maxItems: 2
-> 
->         interrupt-names:
->           minItems: 2
->           maxItems: 2
-> 
->         resets:
->           maxItems: 1
-> 
->         reset-names:
->           const: ahb
 
-No, that's not necessary. You have one device in this binding, so in
-top-level should define how each such property looks like.
+--===============8191414527451697989==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="uBRiSkFYYfARJUOC"
+Content-Disposition: inline
 
-Best regards,
-Krzysztof
 
+--uBRiSkFYYfARJUOC
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Thu, Oct 03, 2024 at 09:49:51AM +0200, Cl=E9ment L=E9ger wrote:
+>=20
+>=20
+> On 02/10/2024 18:10, Conor Dooley wrote:
+> > From: Conor Dooley <conor.dooley@microchip.com>
+> >=20
+> > Using Clement's new validation callbacks, support checking that
+> > dependencies have been satisfied for the floating point extensions.
+> >=20
+> > The check for "d" might be slightly confusingly shorter than that of "f=
+",
+> > despite "d" depending on "f". This is because the requirement that a
+> > hart supporting double precision must also support single precision,
+> > should be validated by dt-bindings etc, not the kernel but lack of
+> > support for single precision only is a limitation of the kernel.
+> >=20
+> > Since vector will now be disabled proactively, there's no need to clear
+> > the bit in elf_hwcap in riscv_fill_hwcap() any longer.
+> >=20
+> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> > ---
+> >  arch/riscv/kernel/cpufeature.c | 36 +++++++++++++++++++++++-----------
+> >  1 file changed, 25 insertions(+), 11 deletions(-)
+> >=20
+> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeat=
+ure.c
+> > index 84a2ad2581cb0..b8a22ee76c2ef 100644
+> > --- a/arch/riscv/kernel/cpufeature.c
+> > +++ b/arch/riscv/kernel/cpufeature.c
+> > @@ -101,6 +101,29 @@ static int riscv_ext_zicboz_validate(const struct =
+riscv_isa_ext_data *data,
+> >  	return 0;
+> >  }
+> > =20
+> > +static int riscv_ext_f_validate(const struct riscv_isa_ext_data *data,
+> > +				const unsigned long *isa_bitmap)
+> > +{
+> > +	if (!__riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_d)) {
+> > +		pr_warn_once("This kernel does not support systems with F but not D\=
+n");
+> > +		return -EINVAL;
+> > +	}
+> > +
+> > +	if (IS_ENABLED(CONFIG_FPU))
+> > +		return -EINVAL;
+>=20
+> Shouldn't this be !IS_ENABLED(CONFIG_FPU)) ? I mean, if the f extension
+> is enabled but not CONFIG_FPU, then disable it.
+
+Of course. I wonder how my userspace didn't blow up.
+
+--uBRiSkFYYfARJUOC
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZv54hAAKCRB4tDGHoIJi
+0urMAP9vnpPnNEIzZU6g+gTkhAI3tiTM4cxcg8onIB2X4bm7PAEAwH+RtvErh42o
+oyWpKScFE/nYaxMZCoJlcxn+ZVfsVwI=
+=HwoX
+-----END PGP SIGNATURE-----
+
+--uBRiSkFYYfARJUOC--
+
+
+--===============8191414527451697989==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8191414527451697989==--
+
