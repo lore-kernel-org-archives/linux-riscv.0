@@ -4,60 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 450DFCF854E
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Oct 2024 14:05:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 425A4CFA775
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Oct 2024 14:13:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IjSeH83By8wBevfpM+baCnSphwIOVGqAwD0pZwderd0=; b=C+xw5BEU1C4PUS
-	aOFibZQmerjsiTId02R40FXW0pV8h64tBBLiZClye5QRw3uK0ObvqiKgV1qA6HpfcObTbcObeAOL7
-	QFyS6pMq3lxDPtixVlgZFMrQqIGbe6DBhBw9K6pAbnZ/7h4fNnY5v1Eol71ahwCjSIT04UjkXNW2E
-	S+yg7BIPWz8GL5HtFKy5jHi/e6v+J3otVvSqH6GVyEmGpMBT3W5ndpb3GiDd6ncMA0KEipl9dLg9i
-	MqK3I+ubeh90tQAJ4pF/BsJI37fAT6jvEocCpA4VzgiC0DsNq19e3b0t3ApYF++pzEUBwxIFm1VPs
-	NpUV9v3xqBYC+fD5lbcw==;
+	List-Owner; bh=bZDOtqv9kN7GDl746FlmW+QgJ34MdI1VjnV1uAi06e0=; b=nntRQAEZOG+ORl
+	tGedusKOloMVycub5sXVNmHObptN94bgBZy6tuEtyPNfNOA8qVTKZpzkrkVz3hQ9oYqhWzOhYgB3S
+	XgAMJOVEBDa/FzT3fr2w/jDC7YfCisltxhfDvk95hq83ElHV21avApgR0wgHHOjamB/htHAEGogRj
+	iRN090jIjFR/e9oOCzdMEK1OaRwqsXuQXRQvv4PNsxcBp1MNA0tD3DCEWEjEa1UHY4zuvvXZQdLxx
+	AMH6DIFU9u3oy11u2xPY5HNM3yXXgVOp3O1BIo4BS6MD0W5XlwU3qGroXOyA8ojBACZxfnHOyY283
+	1eEaUxWAs+ACr7WP3VVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1swiw6-0000000CgEv-0nqT;
-	Fri, 04 Oct 2024 14:05:38 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1swj3W-0000000Ci7d-034U;
+	Fri, 04 Oct 2024 14:13:18 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1swiTf-0000000CZ4m-31V3
-	for linux-riscv@lists.infradead.org;
-	Fri, 04 Oct 2024 13:36:17 +0000
+	id 1swijO-0000000CcdO-2JQx;
+	Fri, 04 Oct 2024 13:52:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 33277A4495F;
-	Fri,  4 Oct 2024 13:36:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7E59C567CE;
-	Fri,  4 Oct 2024 13:36:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1728048974;
-	bh=tieUOrrAcHsu5cgnJ00NmvfVHIsqPmrga/Ha+IsjexM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MsFLmbzpKz3CPAO2qC/lphqcsDHvH1td07P6Wb8X/r5qby72k6jzQF26ZP0oiOSkk
-	 Hfq3OSufyYF2TxFuuvVZEBrgXH5+Wdv9wQ6zTUtjcL3PkYsoR9HWpDJV6ehWnsXi6C
-	 +qUzWpaHALDhjNWfV9JojWvT1EaSLHuUX3z6bUhE=
-Date: Fri, 4 Oct 2024 15:36:11 +0200
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-Cc: mka@chromium.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, wentong.wu@intel.com,
-	sakari.ailus@linux.intel.com, javier.carrasco@wolfvision.net,
-	matthias@kaehlcke.net, linux-usb@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	git@amd.com
-Subject: Re: [PATCH v2] usb: misc: onboard_usb_dev: introduce new config
- symbol for usb5744 SMBus support
-Message-ID: <2024100442-yoyo-fifth-2125@gregkh>
-References: <1727529992-476088-1-git-send-email-radhey.shyam.pandey@amd.com>
+	by nyc.source.kernel.org (Postfix) with ESMTP id EF357A449FA;
+	Fri,  4 Oct 2024 13:52:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96531C4CEC6;
+	Fri,  4 Oct 2024 13:52:22 +0000 (UTC)
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Shuah Khan <shuah@kernel.org>,
+	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
+	Deepak Gupta <debug@rivosinc.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
+	Kees Cook <kees@kernel.org>,
+	Mark Brown <broonie@kernel.org>
+Cc: "H.J. Lu" <hjl.tools@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Florian Weimer <fweimer@redhat.com>,
+	Christian Brauner <brauner@kernel.org>,
+	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
+	Ross Burton <ross.burton@arm.com>,
+	David Spickett <david.spickett@arm.com>,
+	Yury Khrustalev <yury.khrustalev@arm.com>,
+	Wilco Dijkstra <wilco.dijkstra@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-fsdevel@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	David Hildenbrand <david@redhat.com>,
+	"Mike Rapoport (IBM)" <rppt@kernel.org>,
+	Shuah Khan <skhan@linuxfoundation.org>
+Subject: Re: (subset) [PATCH v13 00/40] arm64/gcs: Provide support for GCS in userspace
+Date: Fri,  4 Oct 2024 14:52:20 +0100
+Message-Id: <172804948348.2705006.18010706949544079891.b4-ty@arm.com>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20241001-arm64-gcs-v13-0-222b78d87eee@kernel.org>
+References: <20241001-arm64-gcs-v13-0-222b78d87eee@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <1727529992-476088-1-git-send-email-radhey.shyam.pandey@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241004_063615_907528_C3601C0F 
-X-CRM114-Status: GOOD (  24.34  )
+X-CRM114-CacheID: sfid-20241004_065230_754397_980908D3 
+X-CRM114-Status: GOOD (  16.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,88 +98,114 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 28, 2024 at 06:56:32PM +0530, Radhey Shyam Pandey wrote:
-> Introduce new kernel config symbol for Microchip usb5744 SMBus programming
-> support. Since usb5744 i2c initialization routine uses i2c SMBus APIs these
-> APIs should only be invoked when kernel has I2C support. This new kernel
-> config describes the dependency on I2C kernel support and fix the below
-> build issues when USB_ONBOARD_DEV=y and CONFIG_I2C=m.
+On Tue, 01 Oct 2024 23:58:39 +0100, Mark Brown wrote:
+> The arm64 Guarded Control Stack (GCS) feature provides support for
+> hardware protected stacks of return addresses, intended to provide
+> hardening against return oriented programming (ROP) attacks and to make
+> it easier to gather call stacks for applications such as profiling.
 > 
-> riscv64-linux-ld: drivers/usb/misc/onboard_usb_dev.o:
-> undefined reference to `i2c_find_device_by_fwnode'
-> drivers/usb/misc/onboard_usb_dev.c:408:(.text+0xb24): undefined
-> reference to `i2c_smbus_write_block_data'
-> <snip>
+> When GCS is active a secondary stack called the Guarded Control Stack is
+> maintained, protected with a memory attribute which means that it can
+> only be written with specific GCS operations.  The current GCS pointer
+> can not be directly written to by userspace.  When a BL is executed the
+> value stored in LR is also pushed onto the GCS, and when a RET is
+> executed the top of the GCS is popped and compared to LR with a fault
+> being raised if the values do not match.  GCS operations may only be
+> performed on GCS pages, a data abort is generated if they are not.
 > 
-> Parsing of the i2c-bus bus handle is not put under usb5744 kernel config
-> check as the intention is to report an error when DT is configured for
-> usb5744 SMBus support and kernel has USB_ONBOARD_DEV_USB5744 disabled.
-> 
-> Fixes: 6782311d04df ("usb: misc: onboard_usb_dev: add Microchip usb5744 SMBus programming support")
-> Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-> Suggested-by: Matthias Kaehlcke <matthias@kaehlcke.net>
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202409140539.3Axwv38m-lkp@intel.com/
-> Acked-by: Matthias Kaehlcke <matthias@kaehlcke.net>
-> ---
-> Changes for v2:
-> - As suggested by Greg drop default 'y' and instead describe the
->   constraints in the kconfig description.
-> ---
->  drivers/usb/misc/Kconfig           | 12 ++++++++++++
->  drivers/usb/misc/onboard_usb_dev.c |  6 ++++--
->  2 files changed, 16 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/usb/misc/Kconfig b/drivers/usb/misc/Kconfig
-> index 50b86d531701..6497c4e81e95 100644
-> --- a/drivers/usb/misc/Kconfig
-> +++ b/drivers/usb/misc/Kconfig
-> @@ -331,3 +331,15 @@ config USB_ONBOARD_DEV
->  	  this config will enable the driver and it will automatically
->  	  match the state of the USB subsystem. If this driver is a
->  	  module it will be called onboard_usb_dev.
-> +
-> +config USB_ONBOARD_DEV_USB5744
-> +	bool "Onboard USB Microchip usb5744 hub with SMBus support"
-> +	depends on (USB_ONBOARD_DEV && I2C=y) || (USB_ONBOARD_DEV=m && I2C=m)
-> +	help
-> +	  Say Y here if you want to support onboard USB Microchip usb5744
-> +	  hub that requires SMBus initialization.
-> +
-> +	  This options enables usb5744 i2c default initialization sequence
-> +	  during hub start-up configuration stage. It is must to enable this
-> +	  option on AMD Kria KR260 Robotics Starter Kit as this hub is
-> +	  connected to USB-SD converter which mounts the root filesystem.
+> [...]
 
-With this applied I get the following build warning:
+I applied most of the series to arm64 (for-next/gcs), apart from two KVM
+patches - 16 and 40 (the latter is the kselftest). I usually start
+picking patches at -rc3 but the glibc folk are waiting for these patches
+to at least end up in a maintainer's branch. Of course, these patches
+are subject to change until the final 6.13 release.
 
+The KVM patches can go on top once agreed (or they can go in via the KVM
+tree, I don't mind either way).
 
-WARNING: unmet direct dependencies detected for MODVERSIONS
-  Depends on [n]: MODULES [=y] && !COMPILE_TEST [=y]
-  Selected by [y]:
-  - RANDSTRUCT_FULL [=y] && (CC_HAS_RANDSTRUCT [=n] || GCC_PLUGINS [=y]) && MODULES [=y]
+Thanks!
 
-WARNING: unmet direct dependencies detected for MODVERSIONS
-  Depends on [n]: MODULES [=y] && !COMPILE_TEST [=y]
-  Selected by [y]:
-  - RANDSTRUCT_FULL [=y] && (CC_HAS_RANDSTRUCT [=n] || GCC_PLUGINS [=y]) && MODULES [=y]
+[01/40] mm: Introduce ARCH_HAS_USER_SHADOW_STACK
+        https://git.kernel.org/arm64/c/bcc9d04e749a
+[02/40] mm: Define VM_HIGH_ARCH_6
+        https://git.kernel.org/arm64/c/9ab515b18f84
+[03/40] arm64/mm: Restructure arch_validate_flags() for extensibility
+        https://git.kernel.org/arm64/c/f645e888b1a6
+[04/40] prctl: arch-agnostic prctl for shadow stack
+        https://git.kernel.org/arm64/c/91e102e79740
+[05/40] mman: Add map_shadow_stack() flags
+        https://git.kernel.org/arm64/c/3630e82ab6bd
+[06/40] arm64: Document boot requirements for Guarded Control Stacks
+        https://git.kernel.org/arm64/c/830ae8a39685
+[07/40] arm64/gcs: Document the ABI for Guarded Control Stacks
+        https://git.kernel.org/arm64/c/7058bf87cd59
+[08/40] arm64/sysreg: Add definitions for architected GCS caps
+        https://git.kernel.org/arm64/c/ce0641d48ddd
+[09/40] arm64/gcs: Add manual encodings of GCS instructions
+        https://git.kernel.org/arm64/c/dad947cc22cf
+[10/40] arm64/gcs: Provide put_user_gcs()
+        https://git.kernel.org/arm64/c/d0aa2b435186
+[11/40] arm64/gcs: Provide basic EL2 setup to allow GCS usage at EL0 and EL1
+        https://git.kernel.org/arm64/c/ff5181d8a2a8
+[12/40] arm64/cpufeature: Runtime detection of Guarded Control Stack (GCS)
+        https://git.kernel.org/arm64/c/6487c963083c
+[13/40] arm64/mm: Allocate PIE slots for EL0 guarded control stack
+        https://git.kernel.org/arm64/c/092055f1508c
+[14/40] mm: Define VM_SHADOW_STACK for arm64 when we support GCS
+        https://git.kernel.org/arm64/c/ae80e1629aea
+[15/40] arm64/mm: Map pages for guarded control stack
+        https://git.kernel.org/arm64/c/6497b66ba694
+[17/40] arm64/idreg: Add overrride for GCS
+        https://git.kernel.org/arm64/c/a94452112ce4
+[18/40] arm64/hwcap: Add hwcap for GCS
+        https://git.kernel.org/arm64/c/eefc98711f84
+[19/40] arm64/traps: Handle GCS exceptions
+        https://git.kernel.org/arm64/c/8ce71d270536
+[20/40] arm64/mm: Handle GCS data aborts
+        https://git.kernel.org/arm64/c/cfad706e8f6d
+[21/40] arm64/gcs: Context switch GCS state for EL0
+        https://git.kernel.org/arm64/c/fc84bc5378a8
+[22/40] arm64/gcs: Ensure that new threads have a GCS
+        https://git.kernel.org/arm64/c/506496bcbb42
+[23/40] arm64/gcs: Implement shadow stack prctl() interface
+        https://git.kernel.org/arm64/c/b57180c75c7e
+[24/40] arm64/mm: Implement map_shadow_stack()
+        https://git.kernel.org/arm64/c/8f3e750673b2
+[25/40] arm64/signal: Set up and restore the GCS context for signal handlers
+        https://git.kernel.org/arm64/c/eaf62ce1563b
+[26/40] arm64/signal: Expose GCS state in signal frames
+        https://git.kernel.org/arm64/c/16f47bb9ac8a
+[27/40] arm64/ptrace: Expose GCS via ptrace and core files
+        https://git.kernel.org/arm64/c/7ec3b57cb29f
+[28/40] arm64: Add Kconfig for Guarded Control Stack (GCS)
+        https://git.kernel.org/arm64/c/5d8b172e7005
+[29/40] kselftest/arm64: Verify the GCS hwcap
+        https://git.kernel.org/arm64/c/7a2f671db61f
+[30/40] kselftest/arm64: Add GCS as a detected feature in the signal tests
+        https://git.kernel.org/arm64/c/b2d2f11ff5d6
+[31/40] kselftest/arm64: Add framework support for GCS to signal handling tests
+        https://git.kernel.org/arm64/c/0d426f7dd9a0
+[32/40] kselftest/arm64: Allow signals tests to specify an expected si_code
+        https://git.kernel.org/arm64/c/956573ac1890
+[33/40] kselftest/arm64: Always run signals tests with GCS enabled
+        https://git.kernel.org/arm64/c/42155a8eb0f6
+[34/40] kselftest/arm64: Add very basic GCS test program
+        https://git.kernel.org/arm64/c/3d37d4307e0f
+[35/40] kselftest/arm64: Add a GCS test program built with the system libc
+        https://git.kernel.org/arm64/c/a505a52b4e29
+[36/40] kselftest/arm64: Add test coverage for GCS mode locking
+        https://git.kernel.org/arm64/c/58d69a3e3582
+[37/40] kselftest/arm64: Add GCS signal tests
+        https://git.kernel.org/arm64/c/794b64ca5665
+[38/40] kselftest/arm64: Add a GCS stress test
+        https://git.kernel.org/arm64/c/05e6cfff58c4
+[39/40] kselftest/arm64: Enable GCS for the FP stress tests
+        https://git.kernel.org/arm64/c/bb9ae1a66c85
 
-WARNING: unmet direct dependencies detected for MODVERSIONS
-  Depends on [n]: MODULES [=y] && !COMPILE_TEST [=y]
-  Selected by [y]:
-  - RANDSTRUCT_FULL [=y] && (CC_HAS_RANDSTRUCT [=n] || GCC_PLUGINS [=y]) && MODULES [=y]
+-- 
+Catalin
 
-
-Which is odd.
-
-It's one extra "unmet direct ..." message than normal for now, so
-something in this commit is not working properly.
-
-Can you fix this up and send a new version?
-
-thanks,
-
-greg k-h
 
 _______________________________________________
 linux-riscv mailing list
