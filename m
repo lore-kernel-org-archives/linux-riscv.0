@@ -4,75 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 577CFCFA76A
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Oct 2024 11:21:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18C56CFA76A
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Oct 2024 11:23:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EAtp5Zjhf/KnPu4IWQQsbiMN5c7ms6wQ3A3IPm/BvA4=; b=RsWTESxyw0Uhvs
-	u6qGTIGromLmfLgtrxRzkGMyhR0SEtKjbn0xJolqAIaytIDdzIc/99m2/1P/GFXbHPXKpSGjpqJl7
-	PoxFgVanyozdvfDXvqgPpxHdeMLFPLmN0/qZqec9uWRhkSbJTMRQxmc2pCeX6adsXM8Cie+Z+CAO4
-	JizqLT/MAvNIxDADuILwxpFA9y4I4Zp7DAYNRU7DmC5GBZ9Rhef2lWUz/xxIqyPnpx3UYC6c5wa9Z
-	kcOKJ5w92qCzzEmtWYC0znFP1/PCBIGzPyXO1FR8U6FSoxfR2NjZ4TDvwMgcT3Ro+BpZ66QgEDmn3
-	WbL761bAK0g8h1M6bt0A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=uY4IYi5Itn/fsGd+rw9ToSiXoKbsgFpTdOELvM15Nb0=; b=jCr4eUqq7EIoQK
+	MuXFf0aLMXuuDHYCAyi3ShFHC2X5n/yVmCLLaIq1HQimEjE+5/oWq9/8+FB7Obf635u23A//fT/II
+	DenNg68Q4VxPBiTrYxEpxAudmbQZPjveeDg8v62Gtcuefnj8TC/il9qMAdzVx56z2vCrMdPBWbmgz
+	o2WaeShfS7JrfYuORjS1Ey5aMKAqbEkieO7B02YygenVqPrzm8ZVYaS9LbbA2cpO4jnRSIGEPE9fo
+	JQrszc1GWdIs/Y/kufgVXceKcEeJUcfdwNWE7tAjmDaq+mnEUr0HAlcnzlEjUaTd0vJSm2leIlQPn
+	55bfs3c2fCYcF1r+5drw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1swgNJ-0000000C5Za-3GK0;
-	Fri, 04 Oct 2024 11:21:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1swgKl-0000000C4ZP-0oR5;
-	Fri, 04 Oct 2024 11:18:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8DEE0339;
-	Fri,  4 Oct 2024 04:19:23 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0DE1F3F640;
-	Fri,  4 Oct 2024 04:18:47 -0700 (PDT)
-Date: Fri, 4 Oct 2024 14:18:45 +0300
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Shuah Khan <shuah@kernel.org>,
-	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
-	Szabolcs Nagy <Szabolcs.Nagy@arm.com>, Kees Cook <kees@kernel.org>,
-	"H.J. Lu" <hjl.tools@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Florian Weimer <fweimer@redhat.com>,
-	Christian Brauner <brauner@kernel.org>,
-	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
-	Ross Burton <ross.burton@arm.com>,
-	David Spickett <david.spickett@arm.com>,
-	Yury Khrustalev <yury.khrustalev@arm.com>,
-	Wilco Dijkstra <wilco.dijkstra@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v13 22/40] arm64/gcs: Ensure that new threads have a GCS
-Message-ID: <Zv_PFVffwIkKevzE@arm.com>
-References: <20241001-arm64-gcs-v13-0-222b78d87eee@kernel.org>
- <20241001-arm64-gcs-v13-22-222b78d87eee@kernel.org>
+	id 1swgOq-0000000C640-1pAq;
+	Fri, 04 Oct 2024 11:23:08 +0000
+Received: from imap5.colo.codethink.co.uk ([78.40.148.171])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1swgMN-0000000C5Co-2Bj8
+	for linux-riscv@lists.infradead.org;
+	Fri, 04 Oct 2024 11:20:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=codethink.co.uk; s=imap5-20230908; h=Sender:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=ndQVvTzHXT+i+I2ixdEppGGTUj/crNj5V52A15z/KHw=; b=LOHuSvTbUih/iyHTk7rAEirIgS
+	03Da0jmdAE+jys4xN3dTPuXEqkp1R+ic8zboh1Y6ES9gVlFo9nk4vQNkPLbUt1czxJ+B3MYL6BUS7
+	M/2llWaROd/8L9sKRaaBtCFzvqjU7ut2YxPhgjZCDf5cOwpkVatvV4e00XMlnKGt8Ps6eUfIviRqu
+	S/5EVG2RH/LbCbU8pNKUTstFqAC0RP1CMez0uQApQLT2z5zbGKnNJhQLE2Lp2VIwYwvKD9b1L+CVQ
+	RrlGBS4IBsggqS58SSAz3n9QloEXfaOD1IEmybjMX28V1tN7W9S56WW9F4CWa1zAZDTERt41h6+aU
+	vwifp+2Q==;
+Received: from [167.98.27.226] (helo=rainbowdash)
+	by imap5.colo.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
+	id 1swgMG-00AP4b-Lg; Fri, 04 Oct 2024 12:20:28 +0100
+Received: from ben by rainbowdash with local (Exim 4.98)
+	(envelope-from <ben@rainbowdash>)
+	id 1swgMG-0000000B4an-2dWu;
+	Fri, 04 Oct 2024 12:20:28 +0100
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+To: linux-riscv@lists.infradead.org
+Cc: aou@eecs.berkeley.edu,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	Ben Dooks <ben.dooks@codethink.co.uk>
+Subject: [PATCH] riscv: insn: add RV_EXTRACT_FUNCT3()
+Date: Fri,  4 Oct 2024 12:20:27 +0100
+Message-Id: <20241004112027.2639252-1-ben.dooks@codethink.co.uk>
+X-Mailer: git-send-email 2.37.2.352.g3c44437643
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241001-arm64-gcs-v13-22-222b78d87eee@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241004_041855_347142_F4A2A683 
-X-CRM114-Status: GOOD (  13.96  )
+X-CRM114-CacheID: sfid-20241004_042035_663550_6B7E22AF 
+X-CRM114-Status: UNSURE (   7.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,32 +77,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 01, 2024 at 11:59:01PM +0100, Mark Brown wrote:
-> When a new thread is created by a thread with GCS enabled the GCS needs
-> to be specified along with the regular stack.
-> 
-> Unfortunately plain clone() is not extensible and existing clone3()
-> users will not specify a stack so all existing code would be broken if
-> we mandated specifying the stack explicitly.  For compatibility with
-> these cases and also x86 (which did not initially implement clone3()
-> support for shadow stacks) if no GCS is specified we will allocate one
-> so when a thread is created which has GCS enabled allocate one for it.
-> We follow the extensively discussed x86 implementation and allocate
-> min(RLIMIT_STACK/2, 2G).  Since the GCS only stores the call stack and not
-> any variables this should be more than sufficient for most applications.
-> 
-> GCSs allocated via this mechanism will be freed when the thread exits.
+Add extraction for the func3 field of most instructions
+for use with anyone who needs it.
 
-I think Szabolcs mentioned a GCS leak with v12:
+Note, added this for decoding of CSR accesses for
+work we did looking at the RDCYCLE v RDTIME calls.
 
-https://lore.kernel.org/r/ZtrihWQFyb2/XrQV@arm.com
+Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+---
+ arch/riscv/include/asm/insn.h | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-(and in some private messages IIRC)
-
-Has this been identified? The changelog only mentions a leak in v8.
-
+diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
+index 09fde95a5e8f..c67f44ff2066 100644
+--- a/arch/riscv/include/asm/insn.h
++++ b/arch/riscv/include/asm/insn.h
+@@ -299,6 +299,10 @@ static __always_inline bool riscv_insn_is_c_jalr(u32 code)
+ 	({typeof(x) x_ = (x); \
+ 	(RV_X(x_, RVG_RD_OPOFF, RVG_RD_MASK)); })
+ 
++#define RV_EXTRACT_FUNCT3(x) \
++	({typeof(x) x_ = (x); \
++	(RV_X(x_, RV_INSN_FUNCT3_OPOFF, RV_INSN_FUNCT3_MASK)); })
++
+ #define RV_EXTRACT_UTYPE_IMM(x) \
+ 	({typeof(x) x_ = (x); \
+ 	(RV_X(x_, RV_U_IMM_31_12_OPOFF, RV_U_IMM_31_12_MASK)); })
 -- 
-Catalin
+2.37.2.352.g3c44437643
+
 
 _______________________________________________
 linux-riscv mailing list
