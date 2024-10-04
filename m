@@ -4,74 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D5E7CFA77A
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Oct 2024 13:09:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD97ACF854E
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Oct 2024 14:05:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=dBZkXBc/+QjtcqFHtw8vPPp0eJrNdT3bBirckyLzVkQ=; b=Gvyv9EcJKn/i6Q
-	Oz5/KT6sDhZYAAOTgw3GUMxp3PG472YXRSc9WCcSLydBnXEdk5oGUc8bttJsR1FZAMXfP7iYj7rvo
-	4Fc4VnvSEt2LNg/q4ARGePoelXHhBcpLVk+SYJYMrTtw8O1Lt9WddJyylM5UHZK8QAjTVsc0bO+9P
-	Pmy+riW6E1+3avkKrhdSwBpNeGwrUhOXNuSI+ia4I5LlSHcm+7HQjVLpNaZNgwmCC7Cm3Vm0uNQeB
-	n4no/vaCVaWb0NR5A9szs7h+SzC4hPhFWg1OYXw0J4zdenE/QXSwst089zPs0Q4w3/QtJH/bCX1za
-	XJ035hc0EQaldh1EFtXg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qQ1JDTHGGCQOEwrSiEBv8bsqgPiTbz5J6LHdCo5/lHg=; b=bD4/yF042IRsUj
+	gA4xJH3Vy3oYy1OPyGuB7WEYzQyIt2k1Lfj4ClmkuSTtGQCLLohGoIV8n8Lkly1n1eO4iSeWWbSUc
+	HsWaZVzWhzznJTl62G8iWAvexdo/Bw4Ue+6bafJYtKrz4DHClSi4XvZMeE8spSdhoy9FaWK+uxycE
+	S/7NBP6ZTqWI7EyXvHynMS8YzqiKmc2u6QP5GJCsC3SjjFbadds3OcGXp3LqTF9Jg4ZJgddOXtMid
+	ADFetEBMxoK4ezzQHSPU0KgID6TTL9+RyDL3lJ7XT/wFAF0qIv5qnPm7fSD/wCKQIsvTz2jYBM5QK
+	nQooP0OJpOhw2QF2vObw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1swi3x-0000000CRfj-2v7p;
-	Fri, 04 Oct 2024 13:09:41 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1swiw6-0000000CgF9-3e4J;
+	Fri, 04 Oct 2024 14:05:38 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1swi3t-0000000CRcf-2jrm
+	id 1swiUq-0000000CZLf-0qWe
 	for linux-riscv@lists.infradead.org;
-	Fri, 04 Oct 2024 13:09:39 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-71dec222033so59302b3a.0
-        for <linux-riscv@lists.infradead.org>; Fri, 04 Oct 2024 06:09:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1728047376; x=1728652176; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=e4ZhVHNkBAzYmsO0ZGXrAiB+IgektorsBuRogI5Nz5g=;
-        b=kcN6yI3Q7hswmV9msXdhtYoYqU0BKTLRsmcPe2LK92hpXyyAoLGjdgLUpdjUmBkV7u
-         +GJ3sw1x+dkwqYgSJnis19SArKf/hAZqB/X3WDLsqMUV+dKiC8DtyQUinblf/3+fcb78
-         FF+gQbHUlv3RKRkEtR05plwGZqwba/SM/J84rklo+n12Jsw1k2edPzwdpUBqrkUq7Olf
-         l+SXnW6r+8OoTgtPu3Enes5LWOjpsYRdFZzJ+dyXqw25s0ku+0APXhkrLce3CC6cYQus
-         UCmT0Vun2HO65mpgeIFUy8DI8KQxwVNnMFnxXtGmnNACXavWCUTaBjTwJSMWG4VFDfVo
-         LYjQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728047376; x=1728652176;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=e4ZhVHNkBAzYmsO0ZGXrAiB+IgektorsBuRogI5Nz5g=;
-        b=Nd9zh+30ZJw03rj1d/Cq4Z64KEoGzcHDB6IKSfwpruRX2hTKN7u/8g47It8fzwtxXC
-         SUXCP/Cq9vzYaGF94wBqi1grsvgoQCcf+zTXLIBvmql4ZhjDyNjOWAgdjTE2cPgBCHw/
-         R20HX7YVQscNkjIvnRvTxaVsJTvThqvYrOShcPZuVrdb81MFF6mkRIeku23Xu/5NtOIt
-         4TmU3AZ/sD7fcQbhgsnOvHpK3mLsuRO4ZlmONnSsD/Vk1Ny6OK9+lrxbIPWqoJN0rUiV
-         v/vmL5O4N0+RRguT0BpkEnqZMvhVDOp3Kn/aFLo06zprqXQ8GIPBh0nWqIeWKSevXwqR
-         XQvA==
-X-Forwarded-Encrypted: i=1; AJvYcCWuGbvbl7r2SzK9sxWfUFuQ9EisE+6Tyo2Cr7dtr+tThYkc80SQBeWvijjALoidDBWuJATnuy0eZ0R2WQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwmiVmVOPJxPUVO+1Up2VNQDx5sr+nEKbeJLCI35Cb1WM0Tty6X
-	lRVGCqUzEHNRI+csHTcE9Lz4aPhOiMojdN2OR5wOu+GJ/07xSX+XpOt6pzvvZ4BCFLcG3VKN6iP
-	B3gubNd7xDUxiSqLS0wmsprd1oIs=
-X-Google-Smtp-Source: AGHT+IHg+G4TX0kPJfI06ALZgDkNwEzzofGoP8Ha/LpJC21IwlTeMCQUaiHCQ5UVPBFNBp3SNVwbFRCW8Rzlc7A+MmQ=
-X-Received: by 2002:aa7:88ca:0:b0:717:8ee5:e9d2 with SMTP id
- d2e1a72fcca58-71de23a0d3dmr1761038b3a.2.1728047376137; Fri, 04 Oct 2024
- 06:09:36 -0700 (PDT)
+	Fri, 04 Oct 2024 13:37:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id BCAF2A449E2;
+	Fri,  4 Oct 2024 13:37:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 427CFC4CEE9;
+	Fri,  4 Oct 2024 13:37:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1728049043;
+	bh=VCQYCMDeLbPZDcPRtkc1G603J37v7olth2VxaQVhvz4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XpfqaVrs9UxEMSduJFeoUmIKN/iVYISdJ2r0COgFTfBx+hqY0h80HLSFF9ZsWVl0e
+	 /ZEeqjc+4ZA6777fFXNI+cMl4pf1arORMPZmAwiT4SeaVAzKx1rVhUD+2u0xkYXHEM
+	 gjNi6vWGeAmvb3Fgb/rXQI2Raf+cvG4nf0YVPPxU=
+Date: Fri, 4 Oct 2024 15:37:21 +0200
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Cc: mka@chromium.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, wentong.wu@intel.com,
+	sakari.ailus@linux.intel.com, javier.carrasco@wolfvision.net,
+	matthias@kaehlcke.net, linux-usb@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	git@amd.com
+Subject: Re: [PATCH v2] usb: misc: onboard_usb_dev: introduce new config
+ symbol for usb5744 SMBus support
+Message-ID: <2024100406-spyglass-roulette-761d@gregkh>
+References: <1727529992-476088-1-git-send-email-radhey.shyam.pandey@amd.com>
+ <2024100442-yoyo-fifth-2125@gregkh>
 MIME-Version: 1.0
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Fri, 4 Oct 2024 15:09:22 +0200
-Message-ID: <CANiq72k-wbyR=FeBVBPMqqF6Re9eO4LtdHYqvMQgXSe3cHQsGg@mail.gmail.com>
-Subject: VM_BUG_ON_PAGE(PageAnonNotKsm(page)) defconfig riscv64
-To: Matthew Wilcox <willy@infradead.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, Linux-MM <linux-mm@kvack.org>, 
-	linux-kernel <linux-kernel@vger.kernel.org>
+Content-Disposition: inline
+In-Reply-To: <2024100442-yoyo-fifth-2125@gregkh>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241004_060937_870141_3822E800 
-X-CRM114-Status: UNSURE (   5.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241004_063728_651934_4947596F 
+X-CRM114-Status: GOOD (  29.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,59 +75,90 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Matthew,
+On Fri, Oct 04, 2024 at 03:36:11PM +0200, Greg KH wrote:
+> On Sat, Sep 28, 2024 at 06:56:32PM +0530, Radhey Shyam Pandey wrote:
+> > Introduce new kernel config symbol for Microchip usb5744 SMBus programming
+> > support. Since usb5744 i2c initialization routine uses i2c SMBus APIs these
+> > APIs should only be invoked when kernel has I2C support. This new kernel
+> > config describes the dependency on I2C kernel support and fix the below
+> > build issues when USB_ONBOARD_DEV=y and CONFIG_I2C=m.
+> > 
+> > riscv64-linux-ld: drivers/usb/misc/onboard_usb_dev.o:
+> > undefined reference to `i2c_find_device_by_fwnode'
+> > drivers/usb/misc/onboard_usb_dev.c:408:(.text+0xb24): undefined
+> > reference to `i2c_smbus_write_block_data'
+> > <snip>
+> > 
+> > Parsing of the i2c-bus bus handle is not put under usb5744 kernel config
+> > check as the intention is to report an error when DT is configured for
+> > usb5744 SMBus support and kernel has USB_ONBOARD_DEV_USB5744 disabled.
+> > 
+> > Fixes: 6782311d04df ("usb: misc: onboard_usb_dev: add Microchip usb5744 SMBus programming support")
+> > Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+> > Suggested-by: Matthias Kaehlcke <matthias@kaehlcke.net>
+> > Reported-by: kernel test robot <lkp@intel.com>
+> > Closes: https://lore.kernel.org/oe-kbuild-all/202409140539.3Axwv38m-lkp@intel.com/
+> > Acked-by: Matthias Kaehlcke <matthias@kaehlcke.net>
+> > ---
+> > Changes for v2:
+> > - As suggested by Greg drop default 'y' and instead describe the
+> >   constraints in the kconfig description.
+> > ---
+> >  drivers/usb/misc/Kconfig           | 12 ++++++++++++
+> >  drivers/usb/misc/onboard_usb_dev.c |  6 ++++--
+> >  2 files changed, 16 insertions(+), 2 deletions(-)
+> > 
+> > diff --git a/drivers/usb/misc/Kconfig b/drivers/usb/misc/Kconfig
+> > index 50b86d531701..6497c4e81e95 100644
+> > --- a/drivers/usb/misc/Kconfig
+> > +++ b/drivers/usb/misc/Kconfig
+> > @@ -331,3 +331,15 @@ config USB_ONBOARD_DEV
+> >  	  this config will enable the driver and it will automatically
+> >  	  match the state of the USB subsystem. If this driver is a
+> >  	  module it will be called onboard_usb_dev.
+> > +
+> > +config USB_ONBOARD_DEV_USB5744
+> > +	bool "Onboard USB Microchip usb5744 hub with SMBus support"
+> > +	depends on (USB_ONBOARD_DEV && I2C=y) || (USB_ONBOARD_DEV=m && I2C=m)
+> > +	help
+> > +	  Say Y here if you want to support onboard USB Microchip usb5744
+> > +	  hub that requires SMBus initialization.
+> > +
+> > +	  This options enables usb5744 i2c default initialization sequence
+> > +	  during hub start-up configuration stage. It is must to enable this
+> > +	  option on AMD Kria KR260 Robotics Starter Kit as this hub is
+> > +	  connected to USB-SD converter which mounts the root filesystem.
+> 
+> With this applied I get the following build warning:
+> 
+> 
+> WARNING: unmet direct dependencies detected for MODVERSIONS
+>   Depends on [n]: MODULES [=y] && !COMPILE_TEST [=y]
+>   Selected by [y]:
+>   - RANDSTRUCT_FULL [=y] && (CC_HAS_RANDSTRUCT [=n] || GCC_PLUGINS [=y]) && MODULES [=y]
+> 
+> WARNING: unmet direct dependencies detected for MODVERSIONS
+>   Depends on [n]: MODULES [=y] && !COMPILE_TEST [=y]
+>   Selected by [y]:
+>   - RANDSTRUCT_FULL [=y] && (CC_HAS_RANDSTRUCT [=n] || GCC_PLUGINS [=y]) && MODULES [=y]
+> 
+> WARNING: unmet direct dependencies detected for MODVERSIONS
+>   Depends on [n]: MODULES [=y] && !COMPILE_TEST [=y]
+>   Selected by [y]:
+>   - RANDSTRUCT_FULL [=y] && (CC_HAS_RANDSTRUCT [=n] || GCC_PLUGINS [=y]) && MODULES [=y]
+> 
+> 
+> Which is odd.
+> 
+> It's one extra "unmet direct ..." message than normal for now, so
+> something in this commit is not working properly.
+> 
+> Can you fix this up and send a new version?
 
-I noticed riscv64 defconfig seems to reproducibly hit
-`VM_BUG_ON_PAGE(PageAnonNotKsm(page))` in today's next-20241004 --
-please see below.
+Nevermind, it's not this patch's fault, I'll go take this now, sorry for
+the noise...
 
-I hope that helps!
-
-Cheers,
-Miguel
-
-[ 0.676534] Freeing unused kernel image (initmem) memory: 2260K
-[ 0.677337] Run /init as init process
-[ 0.680562] page: refcount:1 mapcount:1 mapping:0000000000000000
-index:0xfffffffffff pfn:0x81034
-[ 0.680882] memcg:ff60000001893000
-[ 0.680993] anon flags: 0x20008(uptodate|swapbacked|zone=0)
-[ 0.681620] raw: 0000000000020008 0000000000000000 dead000000000122
-ff60000002751001
-[ 0.681846] raw: 00000fffffffffff 0000000000000000 0000000100000000
-ff60000001893000
-[ 0.682098] page dumped because: VM_BUG_ON_PAGE(PageAnonNotKsm(page))
-[ 0.682588] ------------[ cut here ]------------
-[ 0.682691] kernel BUG at include/linux/page-flags.h:1134!
-[ 0.682876] Kernel BUG [#1]
-[ 0.682905] Modules linked in:
-[ 0.683094] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted
-6.12.0-rc1-next-20241004 #1
-[ 0.683183] Hardware name: riscv-virtio,qemu (DT)
-[ 0.683261] epc : folio_add_new_anon_rmap+0x330/0x518
-[ 0.683623] ra : folio_add_new_anon_rmap+0x330/0x518
-[ 0.683640] epc : ffffffff801ca72a ra : ffffffff801ca72a sp : ff200000000139d0
-[ 0.683654] gp : ffffffff815223f8 tp : ff600000018a8000 t0 : 00000000000000bf
-[ 0.683667] t1 : ff20000000013768 t2 : 0000000000000018 s0 : ff20000000013a10
-[ 0.683679] s1 : ff1c000000040d00 a0 : 0000000000000039 a1 : f635137454d54500
-[ 0.683691] a2 : f635137454d54500 a3 : 00000000ffffefff a4 : ffffffff8142e8b0
-[ 0.683704] a5 : ffffffff8142e898 a6 : ffffffff8142e8b0 a7 : 0000000000000000
-[ 0.683716] s2 : 0000000000000001 s3 : ff6000000274a000 s4 : 00fffffffffff000
-[ 0.683728] s5 : 0000000000000fff s6 : 0000000000000001 s7 : 0000000000000001
-[ 0.683741] s8 : ffffffff81526090 s9 : 0000000000000000 s10: ffffffff812c13c0
-[ 0.683754] s11: ff6000000274a000 t3 : 0000000000000003 t4 : ff60000001870f00
-[ 0.683766] t5 : ff60000001870000 t6 : ff60000001870f00
-[ 0.683777] status: 0000000000000120 badaddr: 0000000000000000 cause:
-0000000000000003
-[ 0.683855] [<ffffffff801ca72a>] folio_add_new_anon_rmap+0x330/0x518
-[ 0.683924] [<ffffffff801b9f20>] do_anonymous_page+0x2fc/0x4d6
-[ 0.683936] [<ffffffff801bbcdc>] handle_pte_fault+0xe4/0x250
-[ 0.683948] [<ffffffff801b47da>] handle_mm_fault+0x1c4/0x28e
-[ 0.683958] [<ffffffff801aa322>] __get_user_pages+0x33c/0x78e
-[ 0.683968] [<ffffffff801aaee0>] get_user_pages_remote+0x102/0x2da
-[ 0.683977] [<ffffffff80228c7e>] get_arg_page+0xa8/0x14c
-[ 0.683987] [<ffffffff80228a9a>] copy_string_kernel+0xe6/0x222
-[ 0.683997] [<ffffffff8022a136>] kernel_execve+0x198/0x2c6
+greg k-h
 
 _______________________________________________
 linux-riscv mailing list
