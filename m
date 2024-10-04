@@ -4,74 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E74FCCF8552
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Oct 2024 14:17:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A47ECF8853
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Oct 2024 17:10:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
-	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=twUR6m4IeBhatpO58Sm9HtVGrMcZ698nCJ/wwbrNacc=; b=idToX8HbtR5LCs
-	7EZIukLlFaeZEBwmpQXX3SVR77Ac7JaKestUkMd5S3RCSnoZKU1Y7ATOTfLPqsJ92+HSN9VtTSfAA
-	2/0p2AFzNylE8jjVX7LcWhJ4o7DoUV25z/ZalDFQFyPvKJnDpJ/ZbKL9LLFfjg/Whq2wWtw1JGKSl
-	/slChkHoUqDT+23gGtVW1ftk7qTdrYKFWy+Ur0YQOd2B8OeaY1KL9j+LPL+QDh0odyagnMJue5UIC
-	sqipySzb6IobV3k3yVwDxzqNthpi8cCEObHN5S+3zpZwbMNULOlWmLTQekTfL/B0WxhPnSroelkXZ
-	/GMTD5W/5qJt7J7r45UA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xJMO5VMU346JBnlaQxTgv7HuGGvJGsYF1M/VkMiAIH8=; b=1FdlNCGtDZA0PIp1+I6T08SgFe
+	QuSfIfXHB3jeL24ib33e7nVh9WS62UgVyF/J5YrOvn/m+jjaj8J4i6IcRWSAAMAcyq/xwWSBg9TIK
+	yoHa/5y7eG/GTBjSkA1bvRKQaOh8eRH28ho7UuyfD+/5mSPNjIbkI9uCKwS3UTDiYGxY2hiYMOYBt
+	q8Wf+b/Z4QwnB0qMhTMEeuojMdDr+zesLbUts/RQSP1L0QGh1Jixs32ZEh7g3I3UGaIAu8hABoBKM
+	zF4nFSujLXmvLaLPNWiOsQiexUyf/KLJsGr4DT+xEXkh28q2KzusUQQqItB87Q8wwf8C8fPCTlST2
+	tMeQShzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1swj7I-0000000CjP4-36dg;
-	Fri, 04 Oct 2024 14:17:12 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1swlpB-0000000DQtK-3Tye;
+	Fri, 04 Oct 2024 17:10:41 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1swj5N-0000000Cit6-2f5h
+	id 1swkTl-0000000D4Ze-2Lq4
 	for linux-riscv@lists.infradead.org;
-	Fri, 04 Oct 2024 14:15:15 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-71de9e1f374so418626b3a.1
-        for <linux-riscv@lists.infradead.org>; Fri, 04 Oct 2024 07:15:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1728051312; x=1728656112; darn=lists.infradead.org;
-        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=T+q94Vokd3rjGpferr7kuhuwd/CnBEQ9OwvfEy9PEcw=;
-        b=gANYwxI3Uh3UssZ1lYSdOUkk41j1faFg+K8I6PjnPu9AvoSYcH+HMNYyrvQ7CRPsvz
-         BPHGt38bGr7wPeESZY1z5+Igbiz5ilOsZKR9JBijIhMcoPfoizdN/DztIeOBr52SCsMP
-         4JCPCzgDooR33ar0g+GHeeTac8b25ST98pUCZVftuojsilHkRd4Sf7IjjC43WPRNEH7u
-         Bn80ivI4rvUbJmznl+mQWA9rkHlQIGqSxzwBsVxXif8GNPTY9i5lY0TD2z5TEupWSnXk
-         eKmedPw3Cc64mSW2JF5WNvh2msE6ZDkSw5WNiFwYBJK1iJzMncFxBSt3pjqWS1ZvEIka
-         d2cg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728051312; x=1728656112;
-        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=T+q94Vokd3rjGpferr7kuhuwd/CnBEQ9OwvfEy9PEcw=;
-        b=OukrrIWJDDsymS47T+DZLyvnifcezOHzcARVh057cKgeB2mJ1se8ThnLa1KVuHSJ1u
-         AWr2VQVU3uTChSL39w28WrhMghYHQIGwEKLNZl0kKVcZ+0LMjT6HFacjB5oxBEU3saxQ
-         b2QQ2JO/PJTLmOSmeluvBmS15w9Qmt3TdHmzJtnw0auLSlyfTNl3Mq+alXMnyGZOUmvD
-         oeGMp5we5kZ6QG66vMvQIFGGSyfBGtbwFELPj0HuCjkXy1AS+rPjjiYvoEPB5B/3t0ON
-         yNJImJN4xV9AOqPiGGlCEuYYGIoYcX1fS2oBDZ4TJW3OzlhaH3kPmV6N6ceoFV9rJ+pD
-         CtdA==
-X-Gm-Message-State: AOJu0Yx9v5UVPvMVmrkrQ8YIlsUFiFh1fMPjT9/O/LaNvq29f10Unnc6
-	R6Eovy8nJmv+ocqtQHrlPeebbK/LQsPg9MMkfv4iS2X6nP/RjlMkXd6IgSSEloPdoUQkf8NkaKw
-	Y
-X-Google-Smtp-Source: AGHT+IHSG0E+V26Pki2i9IHRaE836zN3/sOY9stDA2Qd5Yl2hUM6tTRVgGNAo8tJT8Zkx9iyB7Do8Q==
-X-Received: by 2002:a05:6a00:1312:b0:714:1bcf:3d93 with SMTP id d2e1a72fcca58-71de239d3e3mr4429615b3a.5.1728051311550;
-        Fri, 04 Oct 2024 07:15:11 -0700 (PDT)
-Received: from localhost ([192.184.165.199])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7e9dcb5da23sm2182238a12.85.2024.10.04.07.15.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Oct 2024 07:15:11 -0700 (PDT)
-Date: Fri, 04 Oct 2024 07:15:11 -0700 (PDT)
-X-Google-Original-Date: Fri, 04 Oct 2024 07:15:04 PDT (-0700)
-Subject: [GIT PULL] RISC-V Fixes for 6.12-rc2
-CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Message-ID: <mhng-06f4491c-e8d5-4713-9342-3470d90d42e7@palmer-ri-x1c9>
+	Fri, 04 Oct 2024 15:44:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id B8D665C5EF5;
+	Fri,  4 Oct 2024 15:44:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1052C4CEC6;
+	Fri,  4 Oct 2024 15:44:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1728056668;
+	bh=g6L2Bd0g3xO/JW7h06BpQ1vhxFqlkDGXgOvZlFB2GyQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nLQGg7Vh/tn2IRTrAxIRn5V40dXDv/GMXOCygwdLW5/hW6DtL+FS5wfMJdHCbwPes
+	 nKxn5p+kX8zYVVkYo9WQyoxISewuFRoNMlqNW4fvEfUD9ExEci9F/ee2tldOKxijZc
+	 2rojaZkJNDEnm28gLd9yZWlG9aFBiau9vfboG/9y8Hvq1NpJ1zXt9d3SMaKYEGHwW0
+	 7yY5tX3omTBSxHnFhLSOWG6Mbf5TcS7Ikj0ZzjCP3GkFEG1ecxRi8ebpD5dwHFcZfM
+	 LxldqVTk36BxwGVn3sCo6v0bakIUVo395jOte76YwrajrY4GD2s/Q4kMtPioe0rSxS
+	 QUf9yaldb85/g==
+Date: Fri, 4 Oct 2024 16:44:22 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Chen Wang <unicorn_wang@outlook.com>,
+	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Inochi Amaoto <inochiama@outlook.com>, Guo Ren <guoren@kernel.org>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Hal Feng <hal.feng@starfivetech.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Yixun Lan <dlan@gentoo.org>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 1/3] dt-bindings: interrupt-controller: Add Sophgo SG2044
+ ACLINT SSWI
+Message-ID: <20241004-patronize-doily-8406fa214347@spud>
+References: <20241004080557.2262872-1-inochiama@gmail.com>
+ <20241004080557.2262872-2-inochiama@gmail.com>
+MIME-Version: 1.0
+In-Reply-To: <20241004080557.2262872-2-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241004_071513_866210_AC2608B1 
-X-CRM114-Status: UNSURE (   6.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241004_084429_727402_E9022832 
+X-CRM114-Status: GOOD (  18.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,46 +81,90 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8963465264400404446=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 9852d85ec9d492ebef56dc5f229416c925758edc:
 
-  Linux 6.12-rc1 (2024-09-29 15:06:19 -0700)
+--===============8963465264400404446==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="wpxj4kbF4P50H8T+"
+Content-Disposition: inline
 
-are available in the Git repository at:
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.12-rc2
+--wpxj4kbF4P50H8T+
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-for you to fetch changes up to cfb10de18538e383dbc4f3ce7f477ce49287ff3d:
+On Fri, Oct 04, 2024 at 04:05:55PM +0800, Inochi Amaoto wrote:
+> Sophgo SG2044 has a new version of T-HEAD C920, which implement
+> a fully featured ACLINT device. This ACLINT has an extra SSWI
+> field to support fast S-mode IPI.
+>=20
+> Add necessary compatible string for the T-HEAD ACLINT sswi device.
+>=20
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> ---
+>  .../thead,c900-aclint-sswi.yaml               | 58 +++++++++++++++++++
+>  1 file changed, 58 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/interrupt-controlle=
+r/thead,c900-aclint-sswi.yaml
+>=20
+> diff --git a/Documentation/devicetree/bindings/interrupt-controller/thead=
+,c900-aclint-sswi.yaml b/Documentation/devicetree/bindings/interrupt-contro=
+ller/thead,c900-aclint-sswi.yaml
+> new file mode 100644
+> index 000000000000..0106fbf3ea1f
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/interrupt-controller/thead,c900-a=
+clint-sswi.yaml
+> @@ -0,0 +1,58 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/interrupt-controller/thead,c900-aclin=
+t-sswi.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Sophgo sg2044 ACLINT Supervisor-level Software Interrupt Device
+> +
+> +maintainers:
+> +  - Inochi Amaoto <inochiama@outlook.com>
+> +
+> +description:
+> +  The SSWI device is a part of the riscv ACLINT device. It provides
+> +  supervisor-level IPI functionality for a set of HARTs on a RISC-V
+> +  platform. It provides a register to set an IPI (SETSSIP) for each
+> +  HART connected to the SSWI device.
 
-  riscv: Fix kernel stack size when KASAN is enabled (2024-10-01 13:08:11 -0700)
+If it is part of the aclint, why should it have a separate node, rather
+than be part of the existing aclint node as a third reg property?
 
-----------------------------------------------------------------
-RISC-V Fixes for 6.12-rc2
+--wpxj4kbF4P50H8T+
+Content-Type: application/pgp-signature; name="signature.asc"
 
-* PERF_TYPE_BREAKPOINT now returns -EOPNOTSUPP instead of -ENOENT, which
-  aligns to other ports and is a saner value.
-* The KASAN-related stack size increasing logic has been moved to a
-  C header, to avoid dependency issues.
+-----BEGIN PGP SIGNATURE-----
 
-----------------------------------------------------------------
-Alexandre Ghiti (1):
-      riscv: Fix kernel stack size when KASAN is enabled
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZwANVgAKCRB4tDGHoIJi
+0l7VAQCcJwp5mlLQUBYVUFyXHgPf8BzF8Or/9vxp2k5AEk6RwQEA3f2kGou1G/QT
+TF05IWT4y9eslPEerl0gzCYGAYvw5Ao=
+=55Uy
+-----END PGP SIGNATURE-----
 
-Pu Lehui (1):
-      drivers/perf: riscv: Align errno for unsupported perf event
+--wpxj4kbF4P50H8T+--
 
- arch/riscv/Kconfig                   | 3 +--
- arch/riscv/include/asm/thread_info.h | 7 ++++++-
- drivers/perf/riscv_pmu_legacy.c      | 4 ++--
- drivers/perf/riscv_pmu_sbi.c         | 4 ++--
- 4 files changed, 11 insertions(+), 7 deletions(-)
+
+--===============8963465264400404446==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8963465264400404446==--
+
