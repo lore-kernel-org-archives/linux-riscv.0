@@ -4,84 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 425A4CFA775
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Oct 2024 14:13:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E74FCCF8552
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Oct 2024 14:17:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bZDOtqv9kN7GDl746FlmW+QgJ34MdI1VjnV1uAi06e0=; b=nntRQAEZOG+ORl
-	tGedusKOloMVycub5sXVNmHObptN94bgBZy6tuEtyPNfNOA8qVTKZpzkrkVz3hQ9oYqhWzOhYgB3S
-	XgAMJOVEBDa/FzT3fr2w/jDC7YfCisltxhfDvk95hq83ElHV21avApgR0wgHHOjamB/htHAEGogRj
-	iRN090jIjFR/e9oOCzdMEK1OaRwqsXuQXRQvv4PNsxcBp1MNA0tD3DCEWEjEa1UHY4zuvvXZQdLxx
-	AMH6DIFU9u3oy11u2xPY5HNM3yXXgVOp3O1BIo4BS6MD0W5XlwU3qGroXOyA8ojBACZxfnHOyY283
-	1eEaUxWAs+ACr7WP3VVA==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=twUR6m4IeBhatpO58Sm9HtVGrMcZ698nCJ/wwbrNacc=; b=idToX8HbtR5LCs
+	7EZIukLlFaeZEBwmpQXX3SVR77Ac7JaKestUkMd5S3RCSnoZKU1Y7ATOTfLPqsJ92+HSN9VtTSfAA
+	2/0p2AFzNylE8jjVX7LcWhJ4o7DoUV25z/ZalDFQFyPvKJnDpJ/ZbKL9LLFfjg/Whq2wWtw1JGKSl
+	/slChkHoUqDT+23gGtVW1ftk7qTdrYKFWy+Ur0YQOd2B8OeaY1KL9j+LPL+QDh0odyagnMJue5UIC
+	sqipySzb6IobV3k3yVwDxzqNthpi8cCEObHN5S+3zpZwbMNULOlWmLTQekTfL/B0WxhPnSroelkXZ
+	/GMTD5W/5qJt7J7r45UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1swj3W-0000000Ci7d-034U;
-	Fri, 04 Oct 2024 14:13:18 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1swj7I-0000000CjP4-36dg;
+	Fri, 04 Oct 2024 14:17:12 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1swijO-0000000CcdO-2JQx;
-	Fri, 04 Oct 2024 13:52:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id EF357A449FA;
-	Fri,  4 Oct 2024 13:52:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96531C4CEC6;
-	Fri,  4 Oct 2024 13:52:22 +0000 (UTC)
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Will Deacon <will@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Shuah Khan <shuah@kernel.org>,
-	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Deepak Gupta <debug@rivosinc.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
-	Kees Cook <kees@kernel.org>,
-	Mark Brown <broonie@kernel.org>
-Cc: "H.J. Lu" <hjl.tools@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Florian Weimer <fweimer@redhat.com>,
-	Christian Brauner <brauner@kernel.org>,
-	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
-	Ross Burton <ross.burton@arm.com>,
-	David Spickett <david.spickett@arm.com>,
-	Yury Khrustalev <yury.khrustalev@arm.com>,
-	Wilco Dijkstra <wilco.dijkstra@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	David Hildenbrand <david@redhat.com>,
-	"Mike Rapoport (IBM)" <rppt@kernel.org>,
-	Shuah Khan <skhan@linuxfoundation.org>
-Subject: Re: (subset) [PATCH v13 00/40] arm64/gcs: Provide support for GCS in userspace
-Date: Fri,  4 Oct 2024 14:52:20 +0100
-Message-Id: <172804948348.2705006.18010706949544079891.b4-ty@arm.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20241001-arm64-gcs-v13-0-222b78d87eee@kernel.org>
-References: <20241001-arm64-gcs-v13-0-222b78d87eee@kernel.org>
-MIME-Version: 1.0
+	id 1swj5N-0000000Cit6-2f5h
+	for linux-riscv@lists.infradead.org;
+	Fri, 04 Oct 2024 14:15:15 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-71de9e1f374so418626b3a.1
+        for <linux-riscv@lists.infradead.org>; Fri, 04 Oct 2024 07:15:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1728051312; x=1728656112; darn=lists.infradead.org;
+        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=T+q94Vokd3rjGpferr7kuhuwd/CnBEQ9OwvfEy9PEcw=;
+        b=gANYwxI3Uh3UssZ1lYSdOUkk41j1faFg+K8I6PjnPu9AvoSYcH+HMNYyrvQ7CRPsvz
+         BPHGt38bGr7wPeESZY1z5+Igbiz5ilOsZKR9JBijIhMcoPfoizdN/DztIeOBr52SCsMP
+         4JCPCzgDooR33ar0g+GHeeTac8b25ST98pUCZVftuojsilHkRd4Sf7IjjC43WPRNEH7u
+         Bn80ivI4rvUbJmznl+mQWA9rkHlQIGqSxzwBsVxXif8GNPTY9i5lY0TD2z5TEupWSnXk
+         eKmedPw3Cc64mSW2JF5WNvh2msE6ZDkSw5WNiFwYBJK1iJzMncFxBSt3pjqWS1ZvEIka
+         d2cg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1728051312; x=1728656112;
+        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=T+q94Vokd3rjGpferr7kuhuwd/CnBEQ9OwvfEy9PEcw=;
+        b=OukrrIWJDDsymS47T+DZLyvnifcezOHzcARVh057cKgeB2mJ1se8ThnLa1KVuHSJ1u
+         AWr2VQVU3uTChSL39w28WrhMghYHQIGwEKLNZl0kKVcZ+0LMjT6HFacjB5oxBEU3saxQ
+         b2QQ2JO/PJTLmOSmeluvBmS15w9Qmt3TdHmzJtnw0auLSlyfTNl3Mq+alXMnyGZOUmvD
+         oeGMp5we5kZ6QG66vMvQIFGGSyfBGtbwFELPj0HuCjkXy1AS+rPjjiYvoEPB5B/3t0ON
+         yNJImJN4xV9AOqPiGGlCEuYYGIoYcX1fS2oBDZ4TJW3OzlhaH3kPmV6N6ceoFV9rJ+pD
+         CtdA==
+X-Gm-Message-State: AOJu0Yx9v5UVPvMVmrkrQ8YIlsUFiFh1fMPjT9/O/LaNvq29f10Unnc6
+	R6Eovy8nJmv+ocqtQHrlPeebbK/LQsPg9MMkfv4iS2X6nP/RjlMkXd6IgSSEloPdoUQkf8NkaKw
+	Y
+X-Google-Smtp-Source: AGHT+IHSG0E+V26Pki2i9IHRaE836zN3/sOY9stDA2Qd5Yl2hUM6tTRVgGNAo8tJT8Zkx9iyB7Do8Q==
+X-Received: by 2002:a05:6a00:1312:b0:714:1bcf:3d93 with SMTP id d2e1a72fcca58-71de239d3e3mr4429615b3a.5.1728051311550;
+        Fri, 04 Oct 2024 07:15:11 -0700 (PDT)
+Received: from localhost ([192.184.165.199])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7e9dcb5da23sm2182238a12.85.2024.10.04.07.15.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 04 Oct 2024 07:15:11 -0700 (PDT)
+Date: Fri, 04 Oct 2024 07:15:11 -0700 (PDT)
+X-Google-Original-Date: Fri, 04 Oct 2024 07:15:04 PDT (-0700)
+Subject: [GIT PULL] RISC-V Fixes for 6.12-rc2
+CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-06f4491c-e8d5-4713-9342-3470d90d42e7@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241004_065230_754397_980908D3 
-X-CRM114-Status: GOOD (  16.86  )
+X-CRM114-CacheID: sfid-20241004_071513_866210_AC2608B1 
+X-CRM114-Status: UNSURE (   6.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,119 +83,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 01 Oct 2024 23:58:39 +0100, Mark Brown wrote:
-> The arm64 Guarded Control Stack (GCS) feature provides support for
-> hardware protected stacks of return addresses, intended to provide
-> hardening against return oriented programming (ROP) attacks and to make
-> it easier to gather call stacks for applications such as profiling.
-> 
-> When GCS is active a secondary stack called the Guarded Control Stack is
-> maintained, protected with a memory attribute which means that it can
-> only be written with specific GCS operations.  The current GCS pointer
-> can not be directly written to by userspace.  When a BL is executed the
-> value stored in LR is also pushed onto the GCS, and when a RET is
-> executed the top of the GCS is popped and compared to LR with a fault
-> being raised if the values do not match.  GCS operations may only be
-> performed on GCS pages, a data abort is generated if they are not.
-> 
-> [...]
+The following changes since commit 9852d85ec9d492ebef56dc5f229416c925758edc:
 
-I applied most of the series to arm64 (for-next/gcs), apart from two KVM
-patches - 16 and 40 (the latter is the kselftest). I usually start
-picking patches at -rc3 but the glibc folk are waiting for these patches
-to at least end up in a maintainer's branch. Of course, these patches
-are subject to change until the final 6.13 release.
+  Linux 6.12-rc1 (2024-09-29 15:06:19 -0700)
 
-The KVM patches can go on top once agreed (or they can go in via the KVM
-tree, I don't mind either way).
+are available in the Git repository at:
 
-Thanks!
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.12-rc2
 
-[01/40] mm: Introduce ARCH_HAS_USER_SHADOW_STACK
-        https://git.kernel.org/arm64/c/bcc9d04e749a
-[02/40] mm: Define VM_HIGH_ARCH_6
-        https://git.kernel.org/arm64/c/9ab515b18f84
-[03/40] arm64/mm: Restructure arch_validate_flags() for extensibility
-        https://git.kernel.org/arm64/c/f645e888b1a6
-[04/40] prctl: arch-agnostic prctl for shadow stack
-        https://git.kernel.org/arm64/c/91e102e79740
-[05/40] mman: Add map_shadow_stack() flags
-        https://git.kernel.org/arm64/c/3630e82ab6bd
-[06/40] arm64: Document boot requirements for Guarded Control Stacks
-        https://git.kernel.org/arm64/c/830ae8a39685
-[07/40] arm64/gcs: Document the ABI for Guarded Control Stacks
-        https://git.kernel.org/arm64/c/7058bf87cd59
-[08/40] arm64/sysreg: Add definitions for architected GCS caps
-        https://git.kernel.org/arm64/c/ce0641d48ddd
-[09/40] arm64/gcs: Add manual encodings of GCS instructions
-        https://git.kernel.org/arm64/c/dad947cc22cf
-[10/40] arm64/gcs: Provide put_user_gcs()
-        https://git.kernel.org/arm64/c/d0aa2b435186
-[11/40] arm64/gcs: Provide basic EL2 setup to allow GCS usage at EL0 and EL1
-        https://git.kernel.org/arm64/c/ff5181d8a2a8
-[12/40] arm64/cpufeature: Runtime detection of Guarded Control Stack (GCS)
-        https://git.kernel.org/arm64/c/6487c963083c
-[13/40] arm64/mm: Allocate PIE slots for EL0 guarded control stack
-        https://git.kernel.org/arm64/c/092055f1508c
-[14/40] mm: Define VM_SHADOW_STACK for arm64 when we support GCS
-        https://git.kernel.org/arm64/c/ae80e1629aea
-[15/40] arm64/mm: Map pages for guarded control stack
-        https://git.kernel.org/arm64/c/6497b66ba694
-[17/40] arm64/idreg: Add overrride for GCS
-        https://git.kernel.org/arm64/c/a94452112ce4
-[18/40] arm64/hwcap: Add hwcap for GCS
-        https://git.kernel.org/arm64/c/eefc98711f84
-[19/40] arm64/traps: Handle GCS exceptions
-        https://git.kernel.org/arm64/c/8ce71d270536
-[20/40] arm64/mm: Handle GCS data aborts
-        https://git.kernel.org/arm64/c/cfad706e8f6d
-[21/40] arm64/gcs: Context switch GCS state for EL0
-        https://git.kernel.org/arm64/c/fc84bc5378a8
-[22/40] arm64/gcs: Ensure that new threads have a GCS
-        https://git.kernel.org/arm64/c/506496bcbb42
-[23/40] arm64/gcs: Implement shadow stack prctl() interface
-        https://git.kernel.org/arm64/c/b57180c75c7e
-[24/40] arm64/mm: Implement map_shadow_stack()
-        https://git.kernel.org/arm64/c/8f3e750673b2
-[25/40] arm64/signal: Set up and restore the GCS context for signal handlers
-        https://git.kernel.org/arm64/c/eaf62ce1563b
-[26/40] arm64/signal: Expose GCS state in signal frames
-        https://git.kernel.org/arm64/c/16f47bb9ac8a
-[27/40] arm64/ptrace: Expose GCS via ptrace and core files
-        https://git.kernel.org/arm64/c/7ec3b57cb29f
-[28/40] arm64: Add Kconfig for Guarded Control Stack (GCS)
-        https://git.kernel.org/arm64/c/5d8b172e7005
-[29/40] kselftest/arm64: Verify the GCS hwcap
-        https://git.kernel.org/arm64/c/7a2f671db61f
-[30/40] kselftest/arm64: Add GCS as a detected feature in the signal tests
-        https://git.kernel.org/arm64/c/b2d2f11ff5d6
-[31/40] kselftest/arm64: Add framework support for GCS to signal handling tests
-        https://git.kernel.org/arm64/c/0d426f7dd9a0
-[32/40] kselftest/arm64: Allow signals tests to specify an expected si_code
-        https://git.kernel.org/arm64/c/956573ac1890
-[33/40] kselftest/arm64: Always run signals tests with GCS enabled
-        https://git.kernel.org/arm64/c/42155a8eb0f6
-[34/40] kselftest/arm64: Add very basic GCS test program
-        https://git.kernel.org/arm64/c/3d37d4307e0f
-[35/40] kselftest/arm64: Add a GCS test program built with the system libc
-        https://git.kernel.org/arm64/c/a505a52b4e29
-[36/40] kselftest/arm64: Add test coverage for GCS mode locking
-        https://git.kernel.org/arm64/c/58d69a3e3582
-[37/40] kselftest/arm64: Add GCS signal tests
-        https://git.kernel.org/arm64/c/794b64ca5665
-[38/40] kselftest/arm64: Add a GCS stress test
-        https://git.kernel.org/arm64/c/05e6cfff58c4
-[39/40] kselftest/arm64: Enable GCS for the FP stress tests
-        https://git.kernel.org/arm64/c/bb9ae1a66c85
+for you to fetch changes up to cfb10de18538e383dbc4f3ce7f477ce49287ff3d:
 
--- 
-Catalin
+  riscv: Fix kernel stack size when KASAN is enabled (2024-10-01 13:08:11 -0700)
 
+----------------------------------------------------------------
+RISC-V Fixes for 6.12-rc2
+
+* PERF_TYPE_BREAKPOINT now returns -EOPNOTSUPP instead of -ENOENT, which
+  aligns to other ports and is a saner value.
+* The KASAN-related stack size increasing logic has been moved to a
+  C header, to avoid dependency issues.
+
+----------------------------------------------------------------
+Alexandre Ghiti (1):
+      riscv: Fix kernel stack size when KASAN is enabled
+
+Pu Lehui (1):
+      drivers/perf: riscv: Align errno for unsupported perf event
+
+ arch/riscv/Kconfig                   | 3 +--
+ arch/riscv/include/asm/thread_info.h | 7 ++++++-
+ drivers/perf/riscv_pmu_legacy.c      | 4 ++--
+ drivers/perf/riscv_pmu_sbi.c         | 4 ++--
+ 4 files changed, 11 insertions(+), 7 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
