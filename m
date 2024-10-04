@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C906CFA753
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Oct 2024 08:14:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEE3ACFA752
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Oct 2024 08:14:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t9pmsKythKjajI3HU+XqyEpP32vh63yb7q9ZF3cTcWI=; b=O3nYgPOUNZXMcl
-	Qzpw1urkF2ApQfE7IMkN7XH/qyLXkA9B2moexHZFriftGn4Q+Qi5slWMz3uW4jkgAeSr7BoZ0oIRN
-	yHx5UBuUt90bRbjwelv+P7tYSzOgEjyDKJrv4lJb7FFKy8jj3FuqTaoK84uukqojCcT0IaO7fyNzl
-	2rAAEggKI953DNVPugIESD0Y52U210YpwKdC34IwhUEhfbOkWlRJ68E1htPTaWJpyiBd++TdFz8MB
-	yoSAsokVF5xM3DGMpDTVeMsqu5pAJNIo8Eqt3vjmMftU5rVyQmXI7L9Qt7hHHMJiuKzN8DFcxUuCs
-	Nf73s83xAXbg80ZZ+I3g==;
+	List-Owner; bh=dptarhNMnKJV3jD5WoM5CLpGZSxjdwQe/gbGvFPh2uc=; b=dDvM9S2UWb4PUc
+	rghw0Ekl+Bc2RTT5u0fv/2b1vyzhI9SlabaEgRHFGYinEJlAgvsw+gpN3FZSw+icLkinsciGELHQr
+	5lf+Mg0CDlmBbBmwIiBg3HQ6MGoUsKxPHFHkRAlWHS5fv8B/Bh/RmcnfId5u3Zos9gDIkWMfGcbwq
+	+/3uiGydTONbgdBe7lJBFQruRJQT6eGldkK9gETTL7LDtNY17hPI8sPLSdh90weqa7Z/kWJUzPnKJ
+	uOVoRCoTtDExnqM8MAF8hv2C4yZBzLs8nGtWg7THOYCGTfCDRkdSq2EAEsyn5fScE4gc01ZBJdfmM
+	30eo1+jKgFTT6kWe4w/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1swdSK-0000000BMYL-1ocA;
-	Fri, 04 Oct 2024 08:14:32 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1swdSI-0000000BMXV-3b6w;
+	Fri, 04 Oct 2024 08:14:30 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1swdKh-0000000BKgX-1Jtl
+	id 1swdKc-0000000BKe7-3dp8
 	for linux-riscv@lists.infradead.org;
-	Fri, 04 Oct 2024 08:06:40 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-2e06acff261so1363836a91.2
-        for <linux-riscv@lists.infradead.org>; Fri, 04 Oct 2024 01:06:38 -0700 (PDT)
+	Fri, 04 Oct 2024 08:06:36 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-71dd2b6cbe6so1547694b3a.1
+        for <linux-riscv@lists.infradead.org>; Fri, 04 Oct 2024 01:06:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1728029198; x=1728633998; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1728029194; x=1728633994; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=y73WDyKyJEYsN8PN22hVxCPugmFrQFKaxxQTk+Xrnpw=;
-        b=humKKOyOHHCcmi5xNENRCiMiP+T4JD7tyqoSA873z/Icao/RtQow8wEl02FUnWaHv/
-         HgOrWyOesLCcTHqFyG5iMwnuGM5GQkayTxD1eszCJaEmWAAp8amWViLWNTr4lGq7PxQx
-         7BUKS0w48o2d8mi9ZX6EJn6oIplcd6LnvXyv71HVpf7+YMPgiEQuJjOz30n4lswBDPk5
-         RTrGtt5w6K9z4EiY5+FOs8ofoRh72yYHkZ142NlGa4SvI13xIAP6iPAvbXlA5LzWvApn
-         SqG9+mZd+I25zaR5GJTX+u1R1GVWniXUv1sTe3snGP/hG/flMPdWME1lcnvorA7Klmyw
-         ddzw==
+        bh=yn7EDiPk8tvD+amgfWsMTbLvOA9JjMtSP1WSiPFeqcM=;
+        b=V+Phqbd6xW7bWMF4cSQLNvkclDnfFGQos1IpGtqzyZWaD3fCOMWkDidt2DgMXIck5t
+         6hZlH1plVn4NAy2n49W3GM+mBb8tRzf2Bf3hFwzA93Rcoy2Bd5+HT0wHzOtcY6kpwOSN
+         tiBgBgMBbpHQDNJ7QfuRcqCXIXN8yY9yhbpjy9nRDUSZKUFSWtxInL0slq3IM1CcrXTx
+         ddtqCSCJOiHAmn/Y6tLtC+vUjFXW4q6HLGlScQZLYivjbHZIwB9XOJmZQR3tYDca8M7x
+         Kcj1VrAFNw+3/CQGjVeD2xw8k0i/6RU/JpAInSCaUyR3VDsl1NEjL3dnA0/oKz7WTly5
+         MpMg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728029198; x=1728633998;
+        d=1e100.net; s=20230601; t=1728029194; x=1728633994;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=y73WDyKyJEYsN8PN22hVxCPugmFrQFKaxxQTk+Xrnpw=;
-        b=O0630SQ8Hsu9TfolnHjcrVm/eF3ZqYbT5RLzPq6vi2QlZAmUR+6aQb/TxL+vRDls+t
-         bGQtBlp3yZS0qv8yyBmEJ8ZU+fafhDq1Dati2Xktq9aTVwX21WH2XSB77R/uMceT6TsV
-         JTIn0atZu8h31X781o2edGqLVZnW+k5ev2DglLzmUHNyFCq4DOEnd9rKWjNSLjnFThA+
-         E+XgHysqm10CkSpiAmBjY5yJuLpBub6vcuKxZoulkOJxnzZMj60A/vxtXWH14/BBpRJj
-         /BAQppze6lckYRH7/HZ1fqkh8JPQbHjnyQHAqucNw1of0pZTUM9BlSCw6HIBwAtfFRAq
-         Evog==
-X-Forwarded-Encrypted: i=1; AJvYcCVqximN8qxM9SlXiDLoteZn+qCm5KGAN3uzQCA5xJkuLLS707Nwc8Olb93HOKTGKTMrN2/987P/fA7E9A==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyz9G17zxrL/hi8gZ6qNdVlM/wt1t2Dxw8GZuuKL0S4vOFW77+H
-	autP6Gr0l/Bws4oA9DSbyA9zEwRN1RspTVJe8+zp7We6lV1yreyX
-X-Google-Smtp-Source: AGHT+IF6O1aW5lW097FsX4Qpu8qZu9bKqcaxB0twSRt7bC2I6twpaDw4gXeZNQiDtRGPSVjNOqKEMA==
-X-Received: by 2002:a17:90b:504:b0:2e1:dcb5:361d with SMTP id 98e67ed59e1d1-2e1e636f4a2mr2337155a91.30.1728029198222;
-        Fri, 04 Oct 2024 01:06:38 -0700 (PDT)
+        bh=yn7EDiPk8tvD+amgfWsMTbLvOA9JjMtSP1WSiPFeqcM=;
+        b=Qo9hiWNfP3LU0dm7naPpHJ6GPwE8GlTSpU2S5VPkidRmr/dRvxB+lxNnTrPfFltjFN
+         WgBNLqw5icX04nU5hES3P3+sLgKI1a+wegprtntB8r+BZjeYhj6MZEOSyVhLcrO0esZ/
+         vT5gpzLiFZzIEek/+Gxf2SbbXwud8hRX8C7RmNtpg5/E/ULVy4oqPGtdDaY3XekX11Rd
+         V5u3CJ9Xk1WRfnD9vE98InciSQyUdtMAgsRgxcXCPB3aoJtOtnEHXe0beeIkaqcxUsB+
+         FxN1H9v1VXslRm9w/0HctnfWl1BhvgQNR5o5+DpabbFN9vEkT/uEYMwBfvrj5sj48Mua
+         Dzbg==
+X-Forwarded-Encrypted: i=1; AJvYcCWSNexRcwW749FmqlcGOgNyRtIifKoElEF0jcJbx/OkcIxzSsMoTl/gKsprsBUcuZfrFoh9mDfBYHZ9pw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywk5vDY+N9w2eRrLhyfn5WGMNQLnUxYrk8s6zHRG2PZMsoSTPdP
+	CSw6Kajia+5ekWJw6sSC8tO7aIIWwbuWYVHyW1NV405eq8kfE0WB
+X-Google-Smtp-Source: AGHT+IEPhKOYkZAH1L27GVScnktHV29Zg6rnYt7Aao9Pj+ivGpNBxOMvq6N+e5012LjWTi4Tl4hdpQ==
+X-Received: by 2002:a05:6a00:3c83:b0:717:8ee0:4ea1 with SMTP id d2e1a72fcca58-71de22e8399mr3349322b3a.0.1728029193671;
+        Fri, 04 Oct 2024 01:06:33 -0700 (PDT)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e1e83cab42sm927448a91.2.2024.10.04.01.06.37
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-71de63d0014sm689798b3a.190.2024.10.04.01.06.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Oct 2024 01:06:37 -0700 (PDT)
+        Fri, 04 Oct 2024 01:06:33 -0700 (PDT)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Chen Wang <unicorn_wang@outlook.com>,
 	Thomas Gleixner <tglx@linutronix.de>,
@@ -84,17 +84,16 @@ Cc: Yixun Lan <dlan@gentoo.org>,
 	linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH 3/3] riscv: defconfig: Enable T-HEAD C900 ACLINT SSWI drivers
-Date: Fri,  4 Oct 2024 16:05:57 +0800
-Message-ID: <20241004080557.2262872-4-inochiama@gmail.com>
+Subject: [PATCH 1/3] dt-bindings: interrupt-controller: Add Sophgo SG2044 ACLINT SSWI
+Date: Fri,  4 Oct 2024 16:05:55 +0800
+Message-ID: <20241004080557.2262872-2-inochiama@gmail.com>
 X-Mailer: git-send-email 2.46.2
 In-Reply-To: <20241004080557.2262872-1-inochiama@gmail.com>
 References: <20241004080557.2262872-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241004_010639_378855_80C9EF4D 
-X-CRM114-Status: UNSURE (   7.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241004_010635_012458_87EFBBA2 
+X-CRM114-Status: GOOD (  14.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,25 +110,82 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add support for T-HEAD C900 ACLINT SSWI irqchip.
+Sophgo SG2044 has a new version of T-HEAD C920, which implement
+a fully featured ACLINT device. This ACLINT has an extra SSWI
+field to support fast S-mode IPI.
+
+Add necessary compatible string for the T-HEAD ACLINT sswi device.
 
 Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 ---
- arch/riscv/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+ .../thead,c900-aclint-sswi.yaml               | 58 +++++++++++++++++++
+ 1 file changed, 58 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-sswi.yaml
 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index 2341393cfac1..5b1d6325df85 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -256,6 +256,7 @@ CONFIG_RPMSG_CTRL=y
- CONFIG_RPMSG_VIRTIO=y
- CONFIG_PM_DEVFREQ=y
- CONFIG_IIO=y
-+CONFIG_THEAD_C900_ACLINT_SSWI=y
- CONFIG_PHY_SUN4I_USB=m
- CONFIG_PHY_STARFIVE_JH7110_DPHY_RX=m
- CONFIG_PHY_STARFIVE_JH7110_PCIE=m
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-sswi.yaml b/Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-sswi.yaml
+new file mode 100644
+index 000000000000..0106fbf3ea1f
+--- /dev/null
++++ b/Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-sswi.yaml
+@@ -0,0 +1,58 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/interrupt-controller/thead,c900-aclint-sswi.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Sophgo sg2044 ACLINT Supervisor-level Software Interrupt Device
++
++maintainers:
++  - Inochi Amaoto <inochiama@outlook.com>
++
++description:
++  The SSWI device is a part of the riscv ACLINT device. It provides
++  supervisor-level IPI functionality for a set of HARTs on a RISC-V
++  platform. It provides a register to set an IPI (SETSSIP) for each
++  HART connected to the SSWI device.
++
++properties:
++  compatible:
++    items:
++      - enum:
++          - sophgo,sg2044-aclint-sswi
++      - const: thead,c900-aclint-sswi
++
++  reg:
++    maxItems: 1
++
++  "#interrupt-cells":
++    const: 0
++
++  interrupt-controller: true
++
++  interrupts-extended:
++    minItems: 1
++    maxItems: 4095
++
++additionalProperties: false
++
++required:
++  - compatible
++  - reg
++  - "#interrupt-cells"
++  - interrupt-controller
++  - interrupts-extended
++
++examples:
++  - |
++    interrupt-controller@94000000 {
++      compatible = "sophgo,sg2044-aclint-sswi", "thead,c900-aclint-sswi";
++      reg = <0x94000000 0x00004000>;
++      #interrupt-cells = <0>;
++      interrupt-controller;
++      interrupts-extended = <&cpu1intc 1>,
++                            <&cpu2intc 1>,
++                            <&cpu3intc 1>,
++                            <&cpu4intc 1>;
++    };
++...
 --
 2.46.2
 
