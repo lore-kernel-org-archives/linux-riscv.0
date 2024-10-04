@@ -4,76 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD73DCF8840
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Oct 2024 18:19:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD2A0CF8854
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Oct 2024 18:23:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1uyfgVByhR8MMN/XRDq9TXA6618wH9UL2APHkDToYBM=; b=NNLVKVHdQaFdij
-	1N9mr4PASpDfc5wJQjanxvUWVk61uXh7m7REJqqz9oRFIlHrJOhYJrTuyw2hwv/W41jIsM1eyCHjI
-	mEEK17PqGDTVQQPba0fka/B8oy4JjgORoHO6xK74EIiowTBmSJuY8qlVdjen8L+Fa5HL/XB7gIHHf
-	Oo6toq3D2OH+fFLlsDja++36htFMDTPRjz2nl2yhEGptyfkCObtRn1XjmWgScrv8Flgbb8A0i6JrV
-	oU9CZz0qhvm3/Dy2DKz5G1pims6SL5faP7Q7F55ceq5VXeJhdhrnTEQf3InnJRj52mMqVUvUqdgDl
-	MeqRU8jieCxBXGHm2U2Q==;
+	List-Owner; bh=jKLzFZCuSdJpbFJbB3DAC+hr81FWmeXX+MDPLYfQ/Co=; b=zvkuo7vZOv2X2h
+	YM27rRRuVcc2OTHLC41Mufejsjgzeou7tPqPQ8dTCNh9KIDtExE+F9zM2dzdewH6q9090CYxcKJUZ
+	vcYdloZxHkLtshlvRDsVyvD4Q3rbxbPqLa1XGlQqPffKnlISyEwawDg2zaqz2kQOA5Xls4d9LvfYe
+	GEpxsGlOi+Q3Bc0Aj+EMoKRyGyVdEHGZbG5xfVz0VlNrNEXUG2lmJ2aEUNpRgfeY55G/AUT31jg8q
+	7J4MR/cRu9on/uNIu1JQZ4KhXSNpk0hxuq1GpT7jJAjxrqZdyhlwrz8YdP6r35cTr1Aw5/NfljSaB
+	SuYoBTVMNe1qU6SDmuWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1swmuA-0000000DfDg-2BMW;
-	Fri, 04 Oct 2024 18:19:54 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1swmy1-0000000DgQu-0U3J;
+	Fri, 04 Oct 2024 18:23:53 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1swmu7-0000000DfCF-3VeL
+	id 1swmx5-0000000DgBs-3psG
 	for linux-riscv@lists.infradead.org;
-	Fri, 04 Oct 2024 18:19:53 +0000
+	Fri, 04 Oct 2024 18:22:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 105835C5F30;
-	Fri,  4 Oct 2024 18:19:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19FCDC4CECC;
-	Fri,  4 Oct 2024 18:19:49 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2A9DC5C0052;
+	Fri,  4 Oct 2024 18:22:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8636C4CECD;
+	Fri,  4 Oct 2024 18:22:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1728065990;
-	bh=DTVQMn5qLMaxZLP5JEkomQkN+Rm1ujTymnl59WAJqOE=;
+	s=k20201202; t=1728066175;
+	bh=lQwW8GvhU7cntpyWPbWqgvJ1TFtT/WD4eXCDKKYmQDA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=mquDRSxRGs8cxl7do36SFdI4kGyJXhys+c/ALO5voWGkKABE/CwCbS0Z0AQjUL7DG
-	 aslAF43fNn2iaT4Ek0dIRerUD4VhLyGaYR9ONBJMqgvjRHyrKqwtRGHcp5wzEXwO45
-	 EdtkyDkr+0hpSn6qi6dXr7+J7NtxaRsSQHC6Lxi4ai2/Of4L5woBsl5Udn7WL9UNp0
-	 UCVmv95Q3L6OWHavUDZJkYuVcdiiPO1uroDjxtevPZxKx9CwQVj9Nfg7nROqbfxBHR
-	 xlUKWAfNm24p3b2T80iXWjgkXYFU9uzgu9Yae+9aE7moxZXp49PK6dJtVLKD+Gf9Ko
-	 KDQdlldhtaFKQ==
+	b=dg9CQuBm6KAlpC1COYDzDVUB8/bXYKVrxvWdyiYn1pyJet9J9nY8TpDuadABRN682
+	 +B/RpLMNUD4YBU6gvDWISfw0zqWdBVSmPXoWHXlnimbzv7XCWDeapGTHCz12L15PFe
+	 4+ME6jWwsvx5PZBrZffuTOklen9Ae5btHPHIeIYPJqKPPglxmpcmkGyHE/hcoPZm+p
+	 VWJvoYGwPAhTKvtkKWFwKtiBIoGF/7x/bFPaftnydHIBJkHmAxWJqhfiDh+aoNDN4X
+	 sSDKmtaGpn6PBSWZJVaA3OiCvFsD6aX/fk/Vo6QJyyY9Tm68gQS1D/RPdKsUPh4WhC
+	 w4bu5ZpAFtC2g==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Ying Sun <sunying@isrc.iscas.ac.cn>,
-	Petr Tesarik <petr@tesarici.cz>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Palmer Dabbelt <palmer@rivosinc.com>,
+Cc: Palmer Dabbelt <palmer@rivosinc.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
 	Sasha Levin <sashal@kernel.org>,
 	paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
 	aou@eecs.berkeley.edu,
-	akpm@linux-foundation.org,
-	bhe@redhat.com,
-	arnd@arndb.de,
-	pasha.tatashin@soleen.com,
-	surenb@google.com,
-	kent.overstreet@linux.dev,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.11 43/76] riscv/kexec_file: Fix relocation type R_RISCV_ADD16 and R_RISCV_SUB16 unknown
-Date: Fri,  4 Oct 2024 14:17:00 -0400
-Message-ID: <20241004181828.3669209-43-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.10 30/70] RISC-V: Don't have MAX_PHYSMEM_BITS exceed phys_addr_t
+Date: Fri,  4 Oct 2024 14:20:28 -0400
+Message-ID: <20241004182200.3670903-30-sashal@kernel.org>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241004181828.3669209-1-sashal@kernel.org>
-References: <20241004181828.3669209-1-sashal@kernel.org>
+In-Reply-To: <20241004182200.3670903-1-sashal@kernel.org>
+References: <20241004182200.3670903-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.11.2
+X-stable-base: Linux 6.10.13
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241004_111951_948173_770AF42F 
-X-CRM114-Status: UNSURE (   7.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241004_112256_044402_90099FCA 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,54 +82,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Ying Sun <sunying@isrc.iscas.ac.cn>
+From: Palmer Dabbelt <palmer@rivosinc.com>
 
-[ Upstream commit c6ebf2c528470a09be77d0d9df2c6617ea037ac5 ]
+[ Upstream commit ad380f6a0a5e82e794b45bb2eaec24ed51a56846 ]
 
-Runs on the kernel with CONFIG_RISCV_ALTERNATIVE enabled:
-  kexec -sl vmlinux
+I recently ended up with a warning on some compilers along the lines of
 
-Error:
-  kexec_image: Unknown rela relocation: 34
-  kexec_image: Error loading purgatory ret=-8
-and
-  kexec_image: Unknown rela relocation: 38
-  kexec_image: Error loading purgatory ret=-8
+      CC      kernel/resource.o
+    In file included from include/linux/ioport.h:16,
+                     from kernel/resource.c:15:
+    kernel/resource.c: In function 'gfr_start':
+    include/linux/minmax.h:49:37: error: conversion from 'long long unsigned int' to 'resource_size_t' {aka 'unsigned int'} changes value from '17179869183' to '4294967295' [-Werror=overflow]
+       49 |         ({ type ux = (x); type uy = (y); __cmp(op, ux, uy); })
+          |                                     ^
+    include/linux/minmax.h:52:9: note: in expansion of macro '__cmp_once_unique'
+       52 |         __cmp_once_unique(op, type, x, y, __UNIQUE_ID(x_), __UNIQUE_ID(y_))
+          |         ^~~~~~~~~~~~~~~~~
+    include/linux/minmax.h:161:27: note: in expansion of macro '__cmp_once'
+      161 | #define min_t(type, x, y) __cmp_once(min, type, x, y)
+          |                           ^~~~~~~~~~
+    kernel/resource.c:1829:23: note: in expansion of macro 'min_t'
+     1829 |                 end = min_t(resource_size_t, base->end,
+          |                       ^~~~~
+    kernel/resource.c: In function 'gfr_continue':
+    include/linux/minmax.h:49:37: error: conversion from 'long long unsigned int' to 'resource_size_t' {aka 'unsigned int'} changes value from '17179869183' to '4294967295' [-Werror=overflow]
+       49 |         ({ type ux = (x); type uy = (y); __cmp(op, ux, uy); })
+          |                                     ^
+    include/linux/minmax.h:52:9: note: in expansion of macro '__cmp_once_unique'
+       52 |         __cmp_once_unique(op, type, x, y, __UNIQUE_ID(x_), __UNIQUE_ID(y_))
+          |         ^~~~~~~~~~~~~~~~~
+    include/linux/minmax.h:161:27: note: in expansion of macro '__cmp_once'
+      161 | #define min_t(type, x, y) __cmp_once(min, type, x, y)
+          |                           ^~~~~~~~~~
+    kernel/resource.c:1847:24: note: in expansion of macro 'min_t'
+     1847 |                addr <= min_t(resource_size_t, base->end,
+          |                        ^~~~~
+    cc1: all warnings being treated as errors
 
-The purgatory code uses the 16-bit addition and subtraction relocation
-type, but not handled, resulting in kexec_file_load failure.
-So add handle to arch_kexec_apply_relocations_add().
+which looks like a real problem: our phys_addr_t is only 32 bits now, so
+having 34-bit masks is just going to result in overflows.
 
-Tested on RISC-V64 Qemu-virt, issue fixed.
-
-Co-developed-by: Petr Tesarik <petr@tesarici.cz>
-Signed-off-by: Petr Tesarik <petr@tesarici.cz>
-Signed-off-by: Ying Sun <sunying@isrc.iscas.ac.cn>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-Link: https://lore.kernel.org/r/20240711083236.2859632-1-sunying@isrc.iscas.ac.cn
+Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Link: https://lore.kernel.org/r/20240731162159.9235-2-palmer@rivosinc.com
 Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- arch/riscv/kernel/elf_kexec.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+ arch/riscv/include/asm/sparsemem.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/kernel/elf_kexec.c b/arch/riscv/kernel/elf_kexec.c
-index 11c0d2e0becfe..3c37661801f95 100644
---- a/arch/riscv/kernel/elf_kexec.c
-+++ b/arch/riscv/kernel/elf_kexec.c
-@@ -451,6 +451,12 @@ int arch_kexec_apply_relocations_add(struct purgatory_info *pi,
- 			*(u32 *)loc = CLEAN_IMM(CJTYPE, *(u32 *)loc) |
- 				 ENCODE_CJTYPE_IMM(val - addr);
- 			break;
-+		case R_RISCV_ADD16:
-+			*(u16 *)loc += val;
-+			break;
-+		case R_RISCV_SUB16:
-+			*(u16 *)loc -= val;
-+			break;
- 		case R_RISCV_ADD32:
- 			*(u32 *)loc += val;
- 			break;
+diff --git a/arch/riscv/include/asm/sparsemem.h b/arch/riscv/include/asm/sparsemem.h
+index 63acaecc33747..2f901a410586d 100644
+--- a/arch/riscv/include/asm/sparsemem.h
++++ b/arch/riscv/include/asm/sparsemem.h
+@@ -7,7 +7,7 @@
+ #ifdef CONFIG_64BIT
+ #define MAX_PHYSMEM_BITS	56
+ #else
+-#define MAX_PHYSMEM_BITS	34
++#define MAX_PHYSMEM_BITS	32
+ #endif /* CONFIG_64BIT */
+ #define SECTION_SIZE_BITS	27
+ #endif /* CONFIG_SPARSEMEM */
 -- 
 2.43.0
 
