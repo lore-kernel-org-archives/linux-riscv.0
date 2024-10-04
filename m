@@ -4,140 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19C31CFA74C
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Oct 2024 07:55:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C906CFA753
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Oct 2024 08:14:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=d7hu8gCPu326eMHHXivF+AxNo+d/4TpvvvCRhjeTzXI=; b=XpQ64y+edActfg
-	cjX+2bNLlmu6YsEdzBPpiadNh85t/NlOAEPq/aVR3JoQdlDIn2Si42fCGoe3Q7DIhVoLZcrdKl853
-	N6DdN1L9bPRTvS4WJksvtGwy52ZylQklwpXhjsDExmqixWKOEXUIFlID//Bn3d29N3WUJz/vaPJ9w
-	bPnAUqcSt5WHDfA6BUmOCBpD7KzESj0awS80C1FN5Y6i+VKjx019Ja1vF2WKVnL9GExoLa7N/62dg
-	MePtpw46oJmrTbWg+pDNb9z5EDywRtvLD5b1Pdijsy7GCwTV2pZTmujunvXZlaQEl9arZpmJzxWQW
-	UTkh7d6IbKjtELiIdUqw==;
+	List-Owner; bh=t9pmsKythKjajI3HU+XqyEpP32vh63yb7q9ZF3cTcWI=; b=O3nYgPOUNZXMcl
+	Qzpw1urkF2ApQfE7IMkN7XH/qyLXkA9B2moexHZFriftGn4Q+Qi5slWMz3uW4jkgAeSr7BoZ0oIRN
+	yHx5UBuUt90bRbjwelv+P7tYSzOgEjyDKJrv4lJb7FFKy8jj3FuqTaoK84uukqojCcT0IaO7fyNzl
+	2rAAEggKI953DNVPugIESD0Y52U210YpwKdC34IwhUEhfbOkWlRJ68E1htPTaWJpyiBd++TdFz8MB
+	yoSAsokVF5xM3DGMpDTVeMsqu5pAJNIo8Eqt3vjmMftU5rVyQmXI7L9Qt7hHHMJiuKzN8DFcxUuCs
+	Nf73s83xAXbg80ZZ+I3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1swdAC-0000000BHlk-0Dvi;
-	Fri, 04 Oct 2024 07:55:48 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1swdSK-0000000BMYL-1ocA;
+	Fri, 04 Oct 2024 08:14:32 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1swdA8-0000000BHjR-3ZTk
+	id 1swdKh-0000000BKgX-1Jtl
 	for linux-riscv@lists.infradead.org;
-	Fri, 04 Oct 2024 07:55:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1728028542;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=lXI+QFEymJCgMCwjjBqS06bwqXvLF6EyWgcZxRtmTRs=;
-	b=RFzNe8UoLDyW8ql7T2ddmMLhTkoBmRQdGmcBjvmAJJNjUTN6VcfeTO6r79J/EVLOzi+Rej
-	LUjyxrVwAfxIrlq0lANTLjPv8a+vcxTZJNlT/Lt7jorbVwAJGdc5vUkU+zw+KHqP+apWDL
-	Ur9/M31msWV9KVGLAWaEpxr7gINkIfM=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-592-sWIbHPt8NCiJI9lBWZlbWQ-1; Fri, 04 Oct 2024 03:55:40 -0400
-X-MC-Unique: sWIbHPt8NCiJI9lBWZlbWQ-1
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-42cb22d396cso13695695e9.0
-        for <linux-riscv@lists.infradead.org>; Fri, 04 Oct 2024 00:55:40 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728028539; x=1728633339;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+	Fri, 04 Oct 2024 08:06:40 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-2e06acff261so1363836a91.2
+        for <linux-riscv@lists.infradead.org>; Fri, 04 Oct 2024 01:06:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1728029198; x=1728633998; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=lXI+QFEymJCgMCwjjBqS06bwqXvLF6EyWgcZxRtmTRs=;
-        b=FtTSaNsdVLR6Hb1yP2MseRsI/AjLw0x35nM+AsuyBtUWoVxVMWZU7g6RWomg5PeIPv
-         bPjkPAt3txA1yZDkHq7x25eMdOSf5weN9Iw8aiFvJVBcOPXLRqSAiyOzB2oWAKknyC9B
-         PbU4mjjwSu49/mtwGJY6ee4GX847Iq1C39KefNwbU+jklB0uxeGdcXb84MIctxlpgG2X
-         Zfw2TRigeDXQqe6OgGgwI2KECPJyR2F/EK3tKSlMO/DFt6OQsTCL0hlKPuDXyfOVM2vW
-         bqzuTYtXWsePd5fxF6O6dQVTDPmpcDoSbmgznsHCVynJgc4M4XKBImOiVxmF6Bhz3ZNS
-         Sg8g==
-X-Forwarded-Encrypted: i=1; AJvYcCVSNfi4ni2i6Q+9OTAK2fxlvb1vT9E3057/qbR7SudZ0G+8UwLRBFln01v3sTHtMsBzf0+eVRF85C8srA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzDwnds6h20Sa/yTUuhQtXt1bGfC3YgrNZSDFhbtED2On8pYM0E
-	FA6qMIAf+fhpNa417nPEos/zkXG3m+3R6FJZ1q9AbF054vAI2Ox2fTjml+3VIENBciB9+1pIMLA
-	rtSqTEwL2dT9XW+HXjVHgmqaC5bOp0PMrNSTPBnc/NOOtELsMqBp/RJ38pz6T0j+/kQ==
-X-Received: by 2002:a05:600c:34cc:b0:42c:d74b:eb26 with SMTP id 5b1f17b1804b1-42f85ab86admr12884525e9.21.1728028539477;
-        Fri, 04 Oct 2024 00:55:39 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHluAvPJdcoOT86RK7BCrUYkmmA4FsnqxFsAT2HM4iLM0p3p4z+cqWiSNeMNGIhg45SZ25bYw==
-X-Received: by 2002:a05:600c:34cc:b0:42c:d74b:eb26 with SMTP id 5b1f17b1804b1-42f85ab86admr12884355e9.21.1728028539092;
-        Fri, 04 Oct 2024 00:55:39 -0700 (PDT)
-Received: from ?IPV6:2003:cb:c714:d00:a1ab:bff4:268f:d7c5? (p200300cbc7140d00a1abbff4268fd7c5.dip0.t-ipconnect.de. [2003:cb:c714:d00:a1ab:bff4:268f:d7c5])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-42f86b2b5dasm9067685e9.38.2024.10.04.00.55.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 04 Oct 2024 00:55:38 -0700 (PDT)
-Message-ID: <841de51d-1a93-4a1f-8096-5876a6695a7e@redhat.com>
-Date: Fri, 4 Oct 2024 09:55:37 +0200
+        bh=y73WDyKyJEYsN8PN22hVxCPugmFrQFKaxxQTk+Xrnpw=;
+        b=humKKOyOHHCcmi5xNENRCiMiP+T4JD7tyqoSA873z/Icao/RtQow8wEl02FUnWaHv/
+         HgOrWyOesLCcTHqFyG5iMwnuGM5GQkayTxD1eszCJaEmWAAp8amWViLWNTr4lGq7PxQx
+         7BUKS0w48o2d8mi9ZX6EJn6oIplcd6LnvXyv71HVpf7+YMPgiEQuJjOz30n4lswBDPk5
+         RTrGtt5w6K9z4EiY5+FOs8ofoRh72yYHkZ142NlGa4SvI13xIAP6iPAvbXlA5LzWvApn
+         SqG9+mZd+I25zaR5GJTX+u1R1GVWniXUv1sTe3snGP/hG/flMPdWME1lcnvorA7Klmyw
+         ddzw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1728029198; x=1728633998;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=y73WDyKyJEYsN8PN22hVxCPugmFrQFKaxxQTk+Xrnpw=;
+        b=O0630SQ8Hsu9TfolnHjcrVm/eF3ZqYbT5RLzPq6vi2QlZAmUR+6aQb/TxL+vRDls+t
+         bGQtBlp3yZS0qv8yyBmEJ8ZU+fafhDq1Dati2Xktq9aTVwX21WH2XSB77R/uMceT6TsV
+         JTIn0atZu8h31X781o2edGqLVZnW+k5ev2DglLzmUHNyFCq4DOEnd9rKWjNSLjnFThA+
+         E+XgHysqm10CkSpiAmBjY5yJuLpBub6vcuKxZoulkOJxnzZMj60A/vxtXWH14/BBpRJj
+         /BAQppze6lckYRH7/HZ1fqkh8JPQbHjnyQHAqucNw1of0pZTUM9BlSCw6HIBwAtfFRAq
+         Evog==
+X-Forwarded-Encrypted: i=1; AJvYcCVqximN8qxM9SlXiDLoteZn+qCm5KGAN3uzQCA5xJkuLLS707Nwc8Olb93HOKTGKTMrN2/987P/fA7E9A==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyz9G17zxrL/hi8gZ6qNdVlM/wt1t2Dxw8GZuuKL0S4vOFW77+H
+	autP6Gr0l/Bws4oA9DSbyA9zEwRN1RspTVJe8+zp7We6lV1yreyX
+X-Google-Smtp-Source: AGHT+IF6O1aW5lW097FsX4Qpu8qZu9bKqcaxB0twSRt7bC2I6twpaDw4gXeZNQiDtRGPSVjNOqKEMA==
+X-Received: by 2002:a17:90b:504:b0:2e1:dcb5:361d with SMTP id 98e67ed59e1d1-2e1e636f4a2mr2337155a91.30.1728029198222;
+        Fri, 04 Oct 2024 01:06:38 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e1e83cab42sm927448a91.2.2024.10.04.01.06.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 04 Oct 2024 01:06:37 -0700 (PDT)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Chen Wang <unicorn_wang@outlook.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Guo Ren <guoren@kernel.org>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Hal Feng <hal.feng@starfivetech.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Yixun Lan <dlan@gentoo.org>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH 3/3] riscv: defconfig: Enable T-HEAD C900 ACLINT SSWI drivers
+Date: Fri,  4 Oct 2024 16:05:57 +0800
+Message-ID: <20241004080557.2262872-4-inochiama@gmail.com>
+X-Mailer: git-send-email 2.46.2
+In-Reply-To: <20241004080557.2262872-1-inochiama@gmail.com>
+References: <20241004080557.2262872-1-inochiama@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND PATCH] mm: Move set_pxd_safe() helpers from generic to
- platform
-To: Dave Hansen <dave.hansen@intel.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>, linux-mm@kvack.org,
- akpm@linux-foundation.org, paul.walmsley@sifive.com,
- dave.hansen@linux.intel.com
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Thomas Gleixner
- <tglx@linutronix.de>, Ryan Roberts <ryan.roberts@arm.com>, x86@kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241003044842.246016-1-anshuman.khandual@arm.com>
- <773d1ac3-51df-4467-9e85-9a3746398dce@intel.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- WNyWQQ==
-Organization: Red Hat
-In-Reply-To: <773d1ac3-51df-4467-9e85-9a3746398dce@intel.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241004_005545_004418_B8A4FC81 
-X-CRM114-Status: GOOD (  12.97  )
+X-CRM114-CacheID: sfid-20241004_010639_378855_80C9EF4D 
+X-CRM114-Status: UNSURE (   7.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,38 +106,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 03.10.24 16:09, Dave Hansen wrote:
-> On 10/2/24 21:48, Anshuman Khandual wrote:
->> set_pxd_safe() helpers that serve a specific purpose for both x86 and riscv
->> platforms, do not need to be in the common memory code. Otherwise they just
->> unnecessarily make the common API more complicated. This moves the helpers
->> from common code to platform instead.
-> 
-> I looked into the x86 side a bit.  I'm pretty sure we can just remove
-> the _safe variants.  All they do is spew warnings that don't seem to be
-> doing any good.  They're not really safer in any meaningful way.
+Add support for T-HEAD C900 ACLINT SSWI irqchip.
 
-Yes, one reason I am happy that we are removing them from core code :)
+Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+---
+ arch/riscv/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-> 
-> I've got a series cooked up to zap them, but I need to get some eyeballs
-> on it.
-
-Feel free to CC me. If you're busy, let me know and I might have someone 
-to tackle this.
-
-
-Acked-by: David Hildenbrand <david@redhat.com>
-
--- 
-Cheers,
-
-David / dhildenb
+diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+index 2341393cfac1..5b1d6325df85 100644
+--- a/arch/riscv/configs/defconfig
++++ b/arch/riscv/configs/defconfig
+@@ -256,6 +256,7 @@ CONFIG_RPMSG_CTRL=y
+ CONFIG_RPMSG_VIRTIO=y
+ CONFIG_PM_DEVFREQ=y
+ CONFIG_IIO=y
++CONFIG_THEAD_C900_ACLINT_SSWI=y
+ CONFIG_PHY_SUN4I_USB=m
+ CONFIG_PHY_STARFIVE_JH7110_DPHY_RX=m
+ CONFIG_PHY_STARFIVE_JH7110_PCIE=m
+--
+2.46.2
 
 
 _______________________________________________
