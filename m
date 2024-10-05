@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 863CFCFB42B
-	for <linux-riscv@archiver.kernel.org>; Sat,  5 Oct 2024 20:07:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A668CFB42C
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Oct 2024 20:14:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:References:Mime-Version
 	:Message-Id:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XwDh1ERzpRIiMogyoNVnApQwPjLhNbjNy7q0wlxlNkk=; b=33iZRMKLkigfLt
-	7vNEQkXNyUcxWBIVVC3gWQy4jDCBP0IiDOLiYMXJU+IAXjXra7zqrmf6rHIrzGsE0IzTVZrkgubxx
-	ezZQCx2H51lhrzDy+F7AOeT2gpI5F2cobhyCk0DroEkrsdBYfhc09fAo6zpOQ30WeObd+YPCf7IcA
-	60QS0bzFqVuPIwGc0be39lVkmYqrpIWFZxiz2A5Sp/KmDuxNk5SSlAAp1sRUzj4Xs1hgIyS610J3s
-	0ffqdNDBGJ3/6ylhRbMh6Ejtd8ehyyQzZkAlYPTWr4R8yYZkwbiv3QV6ocLESq3vP5YxnvY3P0ZqZ
-	kImzhCmtoVVyIYRRq+ZQ==;
+	List-Owner; bh=4bjpfDEDnvwZHeFqsO7pFEtwjR5CnEItx1J4F8G9KKY=; b=S2U7yEJSinQ2Vd
+	Yod+EG5/ljhf8ahHQANQZdc1n/adDwEzI3NEB/sffNmL7ei7kPyNegiNz9IdjZ0q2z5zJ+lnjZTo+
+	oHQa3pi0g3jvWRENAiGYwQPnqNTkxoevGIjq5xo1rJmXeqGESguVKEDqANiQGdQNeXtVAYb+2m4lm
+	aU1m0Z0I6/MEPSZOS9xkDzq6erzGiOBZ/h9iIyP9d3CJTCkDOKAEholLehC/jNWVnxc1pHHZuhfSI
+	vLRmi9GKXShKkUdu41jVKfFqh0BU6n7siLJ/cyv27Ky9N0fxRF++a9V5O5khAjXuIZlbAhqybA68Q
+	yBIYRygB/yz5XYL/U0+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sxB3I-0000000Fsd9-0Cm0;
-	Sat, 05 Oct 2024 20:06:56 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1sxBAe-0000000FtJ9-3Fq4;
+	Sat, 05 Oct 2024 20:14:32 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sxAt2-0000000Fpzz-053i
+	id 1sxAtB-0000000Fq5g-0fqe
 	for linux-riscv@lists.infradead.org;
-	Sat, 05 Oct 2024 19:56:22 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6e251ba2243so39668367b3.1
-        for <linux-riscv@lists.infradead.org>; Sat, 05 Oct 2024 12:56:19 -0700 (PDT)
+	Sat, 05 Oct 2024 19:56:33 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-e02b5792baaso4624951276.2
+        for <linux-riscv@lists.infradead.org>; Sat, 05 Oct 2024 12:56:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1728158178; x=1728762978; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1728158188; x=1728762988; darn=lists.infradead.org;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=YzgTBbpwVzkG0qTRW8O8JNshM/vLbNIleJGInfgSbFs=;
-        b=SiBmPf1qoYEBhBNj7dBl85eSygkpaWIn+F2l0IjE+MXA+BLg/t6ND4Es7oTFWEz1H6
-         GEXuJMJ71SKRtZziLO2PzzBhlYSHUJd+eLBCOMd+E5sTFasHT+TLcbecofvF30zQGEnV
-         vQ131KO3G5uhFz6W2izVx/enD3Di4Yn0XTb31mp3cCoxZQMzJGp7UsXSKSuvs4M2m+m1
-         LX+0fpmMDLIdlniS52+nijJYK3491jctOrZemlgHXOTW7+Ioq5Y9ByoAKG/MvsxZnnVC
-         3YSyRiUhbHmP4p29+1joNVKgCNP9c0HH5WaRiy3ms/L8clBZ80cLoOL+8EKDxH2ksusm
-         iXfA==
+        bh=jZZa/aV5YYBVrQKudC94gshETixiksMke/2tnp/oWsk=;
+        b=jhoglTjn8Ha1Cpz1BdJFT1bQusgeu+Y9/AyXCdTTOlqLzHbpY1hWOEec7zX1mI8n86
+         BQPqlkbbmQEzgku+DKpNUH7GcZY/HdYph0sPa8UxKdYbQGtn/ACw/6oCy97I7STWXSFZ
+         VWHLhoBRKMh4IYP4zqwZiJToJuMpGUj/M4PKHlgTJaxykivd9VbfpBvFBZc9xnN7MkWo
+         H9HkV4trr01JU0DF026FTeakYtQRJQs6XKi5zx0JiFaCjbEYrZE1oixG+itzwTlnLW7c
+         7+FpNeu9rNH1clFmq0xgZwAHyPQ0nlGgW77/AAXHegPFyAuHSw3selXl20SFI9QsLj/e
+         IMqA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728158178; x=1728762978;
+        d=1e100.net; s=20230601; t=1728158188; x=1728762988;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=YzgTBbpwVzkG0qTRW8O8JNshM/vLbNIleJGInfgSbFs=;
-        b=vTsyaWNPxeOQvEq/B+E6SSFVNE19CAMXAvAljekr+CnhrCYfHNJLimfVd73YYSyTf2
-         Z4XN3if0m9LSWJFLuB4y4h6X3NNcFKqyX+ANu3VzXzs96FZVRajvSj9iyWKQ3Qna3D3l
-         FWuArn+iONNGVDfuQnBKyihA8S56szMWPIkNXR9S3Szu2dF9DFCAAbw7DERZpiNYvbXk
-         AFTYYXUP7NzGAYDwqG+HHwn9PR+05sDBbGl1su37qJV4/x5XdzgPIntQAwE4NJ2AuGsH
-         nVVsleQVxKk7d6GtJ6WQj+i6H7LynkPJEW6CIRqOHUwy5GbMmwWEy2cJZpxAVwdpWYe2
-         msRQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWJyakwvRPaXmAyDugEJlfa1jSrn1Ei9xblVv5G7XIZl/fnNlT+Dn/FdezPhSR13XKtFFXEn0EL/1D0oQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwV4UcNxveq00vsFmQEV8zY77y6v1s0W33rBOAKtxtr490n3Qt
-	nK4nqC7pkxtPy3naRjxemh4aVZwSa0FS/vSgfYyGK5lq8eWe+3HDgLyQNr65LkIlFC/wpEtziAJ
-	6khGsew==
-X-Google-Smtp-Source: AGHT+IGiHdIsXBVB+WoPzuiIQsbR1+hzUkQk2RxCJMDxpuguCdw6JxvAyilmRvkhQaU4Z/U38KgUOt+3RklD
+        bh=jZZa/aV5YYBVrQKudC94gshETixiksMke/2tnp/oWsk=;
+        b=CWRGOrmUjA35XeGkQ28/nNw0/ZgDZDVrUBLxi8OKrAV4w+xY+5YuG36yTwv4YV7IP3
+         zpmzEQhJn7l9kMa3BBbh85I6w0AKMMi2HgJr1+RYyUEbuzwpha9Wi/Ic+fvT0oLvtHda
+         kg+lgJ4thHfJFSJ/6lrFtXfCVNF4Q3J8aQ4fTQhDMYA8UvezH4IVG3lEXlC3A8xTvARp
+         GQR66b0rG9+/F77jte5gqMkkZmqHoQTzi/9lpnxDeZ+7u5bwRPNWmjrMRzlOdcmg/KJQ
+         neB9KpI9KXBf8BGmn+i74jXA8fFyTLZhk49UJRTHdc5pQgtA+7pgwe32Ss8k6KZMd6SE
+         tzig==
+X-Forwarded-Encrypted: i=1; AJvYcCVxgcMX9Vxku5wElav461z8Scnfb1sruvOo/173TDBYhngsvNUbUkUUk5yaAmk6wwq2x5FExdaAP/m2RA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzly5uxE2yYmUbGpgjztk5tc0hwPdekOkSH+iOI+Y9/jIAJTrMu
+	Tu0GK5RdIm8OBjIgYq04ETUZ6O/pHDuql7VvvYA7cmfYMfOyUb+sLIJJqAFdgwXu4TQ876YZMG9
+	X1ISYPA==
+X-Google-Smtp-Source: AGHT+IF/k+QTDokkY1K6UtxUUDOjzsW/I4NFq1B+B7blvtXSloVdvbplHl/sSMVN7FmErueZ8sN2R4KkkBKV
 X-Received: from irogers.svl.corp.google.com ([2620:15c:2a3:200:4c2:5b4d:8797:7249])
- (user=irogers job=sendgmr) by 2002:a05:690c:6683:b0:6be:523:af53 with SMTP id
- 00721157ae682-6e2b53d68cemr3650767b3.3.1728158178502; Sat, 05 Oct 2024
- 12:56:18 -0700 (PDT)
-Date: Sat,  5 Oct 2024 12:55:19 -0700
+ (user=irogers job=sendgmr) by 2002:a25:ec09:0:b0:e25:cf7f:a065 with SMTP id
+ 3f1490d57ef6-e289392aee3mr16302276.8.1728158187672; Sat, 05 Oct 2024 12:56:27
+ -0700 (PDT)
+Date: Sat,  5 Oct 2024 12:55:23 -0700
 In-Reply-To: <20241005195541.380070-1-irogers@google.com>
-Message-Id: <20241005195541.380070-10-irogers@google.com>
+Message-Id: <20241005195541.380070-14-irogers@google.com>
 Mime-Version: 1.0
 References: <20241005195541.380070-1-irogers@google.com>
 X-Mailer: git-send-email 2.47.0.rc0.187.ge670bccf7e-goog
-Subject: [PATCH v2 09/31] perf libdw: Remove unnecessary defines
+Subject: [PATCH v2 13/31] perf dwarf-regs: Remove PERF_HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -93,8 +93,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
 	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241005_125620_098068_3B3BB86C 
-X-CRM114-Status: GOOD (  17.36  )
+X-CRM114-CacheID: sfid-20241005_125629_277341_BB9EA6B3 
+X-CRM114-Status: GOOD (  18.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,238 +111,480 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-As HAVE_DWARF_GETLOCATIONS_SUPPORT and HAVE_DWARF_CFI_SUPPORT always
-match HAVE_DWARF_SUPPORT remove the macros and use
-HAVE_DWARF_SUPPORT. If building the file is guarded by CONFIG_DWARF
-then remove all ifs.
+PERF_HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET was used for BPF prologue
+support which was removed in Commit 3d6dfae88917 ("perf parse-events:
+Remove BPF event support"). The code is no longer used so remove.
+
+Remove the offset from various dwarf-regs.c tables and the dependence
+on ptrace.h. Rename structs starting pt_ as the ptrace derived offset is
+now removed.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/Documentation/perf-check.txt |  2 +-
- tools/perf/Makefile.config              |  3 --
- tools/perf/builtin-annotate.c           |  2 +-
- tools/perf/builtin-check.c              |  2 +-
- tools/perf/builtin-report.c             |  2 +-
- tools/perf/util/dwarf-aux.c             |  6 ---
- tools/perf/util/dwarf-aux.h             | 54 -------------------------
- tools/perf/util/probe-finder.c          |  4 --
- 8 files changed, 4 insertions(+), 71 deletions(-)
+ tools/perf/Makefile.config                  |   4 -
+ tools/perf/arch/arm64/Makefile              |   1 -
+ tools/perf/arch/arm64/util/dwarf-regs.c     |  20 +---
+ tools/perf/arch/loongarch/Makefile          |   1 -
+ tools/perf/arch/loongarch/util/dwarf-regs.c |  10 --
+ tools/perf/arch/powerpc/Makefile            |   1 -
+ tools/perf/arch/powerpc/util/dwarf-regs.c   |  26 ++---
+ tools/perf/arch/riscv/Makefile              |   1 -
+ tools/perf/arch/riscv/util/dwarf-regs.c     |  14 +--
+ tools/perf/arch/s390/Makefile               |   1 -
+ tools/perf/arch/s390/util/dwarf-regs.c      |  27 -----
+ tools/perf/arch/x86/Makefile                |   1 -
+ tools/perf/arch/x86/util/dwarf-regs.c       | 109 +++-----------------
+ tools/perf/util/include/dwarf-regs.h        |   8 --
+ 14 files changed, 27 insertions(+), 197 deletions(-)
 
-diff --git a/tools/perf/Documentation/perf-check.txt b/tools/perf/Documentation/perf-check.txt
-index 10f69fb6850b..45101a8e4154 100644
---- a/tools/perf/Documentation/perf-check.txt
-+++ b/tools/perf/Documentation/perf-check.txt
-@@ -48,7 +48,7 @@ feature::
-                 bpf_skeletons           /  HAVE_BPF_SKEL
-                 debuginfod              /  HAVE_DEBUGINFOD_SUPPORT
-                 dwarf                   /  HAVE_DWARF_SUPPORT
--                dwarf_getlocations      /  HAVE_DWARF_GETLOCATIONS_SUPPORT
-+                dwarf_getlocations      /  HAVE_DWARF_SUPPORT
-                 dwarf-unwind            /  HAVE_DWARF_UNWIND_SUPPORT
-                 auxtrace                /  HAVE_AUXTRACE_SUPPORT
-                 libaudit                /  HAVE_LIBAUDIT_SUPPORT
 diff --git a/tools/perf/Makefile.config b/tools/perf/Makefile.config
-index 9da0dc001d98..db79b25ada6f 100644
+index b14430ab2898..00340c6ce3a9 100644
 --- a/tools/perf/Makefile.config
 +++ b/tools/perf/Makefile.config
-@@ -463,9 +463,6 @@ else
-         $(warning No libdw.h found or old libdw.h found or elfutils is older than 0.157, disables dwarf support. Please install new elfutils-devel/libdw-dev)
-         NO_LIBDW := 1
-       endif
--    else
--      CFLAGS += -DHAVE_DWARF_GETLOCATIONS_SUPPORT
--      CFLAGS += -DHAVE_DWARF_CFI_SUPPORT
-     endif # Dwarf support
-   endif # libelf support
- endif # NO_LIBELF
-diff --git a/tools/perf/builtin-annotate.c b/tools/perf/builtin-annotate.c
-index 3dc6197ef3fa..04af13eb4a4c 100644
---- a/tools/perf/builtin-annotate.c
-+++ b/tools/perf/builtin-annotate.c
-@@ -840,7 +840,7 @@ int cmd_annotate(int argc, const char **argv)
- 	}
- #endif
+@@ -200,10 +200,6 @@ FEATURE_CHECK_CFLAGS-bpf = -I. -I$(srctree)/tools/include -I$(srctree)/tools/arc
+ # include ARCH specific config
+ -include $(src-perf)/arch/$(SRCARCH)/Makefile
  
--#ifndef HAVE_DWARF_GETLOCATIONS_SUPPORT
-+#ifndef HAVE_DWARF_SUPPORT
- 	if (annotate.data_type) {
- 		pr_err("Error: Data type profiling is disabled due to missing DWARF support\n");
- 		return -ENOTSUP;
-diff --git a/tools/perf/builtin-check.c b/tools/perf/builtin-check.c
-index 0b76b6e42b78..18c0a815243b 100644
---- a/tools/perf/builtin-check.c
-+++ b/tools/perf/builtin-check.c
-@@ -28,7 +28,7 @@ struct feature_status supported_features[] = {
- 	FEATURE_STATUS("bpf_skeletons", HAVE_BPF_SKEL),
- 	FEATURE_STATUS("debuginfod", HAVE_DEBUGINFOD_SUPPORT),
- 	FEATURE_STATUS("dwarf", HAVE_DWARF_SUPPORT),
--	FEATURE_STATUS("dwarf_getlocations", HAVE_DWARF_GETLOCATIONS_SUPPORT),
-+	FEATURE_STATUS("dwarf_getlocations", HAVE_DWARF_SUPPORT),
- 	FEATURE_STATUS("dwarf-unwind", HAVE_DWARF_UNWIND_SUPPORT),
- 	FEATURE_STATUS("auxtrace", HAVE_AUXTRACE_SUPPORT),
- 	FEATURE_STATUS("libaudit", HAVE_LIBAUDIT_SUPPORT),
-diff --git a/tools/perf/builtin-report.c b/tools/perf/builtin-report.c
-index 5dc17ffee27a..426cbc9110d1 100644
---- a/tools/perf/builtin-report.c
-+++ b/tools/perf/builtin-report.c
-@@ -1701,7 +1701,7 @@ int cmd_report(int argc, const char **argv)
- 		report.data_type = true;
- 		annotate_opts.annotate_src = false;
+-ifdef PERF_HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET
+-  CFLAGS += -DHAVE_ARCH_REGS_QUERY_REGISTER_OFFSET
+-endif
+-
+ include $(srctree)/tools/scripts/utilities.mak
  
--#ifndef HAVE_DWARF_GETLOCATIONS_SUPPORT
-+#ifndef HAVE_DWARF_SUPPORT
- 		pr_err("Error: Data type profiling is disabled due to missing DWARF support\n");
- 		goto error;
- #endif
-diff --git a/tools/perf/util/dwarf-aux.c b/tools/perf/util/dwarf-aux.c
-index 92eb9c8dc3e5..559c953ca172 100644
---- a/tools/perf/util/dwarf-aux.c
-+++ b/tools/perf/util/dwarf-aux.c
-@@ -1182,7 +1182,6 @@ int die_get_varname(Dwarf_Die *vr_die, struct strbuf *buf)
- 	return ret < 0 ? ret : strbuf_addf(buf, "\t%s", dwarf_diename(vr_die));
- }
+ ifeq ($(call get-executable,$(FLEX)),)
+diff --git a/tools/perf/arch/arm64/Makefile b/tools/perf/arch/arm64/Makefile
+index 8a5ffbfe809f..ca2e35961287 100644
+--- a/tools/perf/arch/arm64/Makefile
++++ b/tools/perf/arch/arm64/Makefile
+@@ -3,7 +3,6 @@ ifndef NO_LIBDW
+ PERF_HAVE_DWARF_REGS := 1
+ endif
+ PERF_HAVE_JITDUMP := 1
+-PERF_HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET := 1
+ HAVE_KVM_STAT_SUPPORT := 1
  
--#if defined(HAVE_DWARF_GETLOCATIONS_SUPPORT) || defined(HAVE_DWARF_CFI_SUPPORT)
- static int reg_from_dwarf_op(Dwarf_Op *op)
- {
- 	switch (op->atom) {
-@@ -1245,9 +1244,7 @@ static bool check_allowed_ops(Dwarf_Op *ops, size_t nops)
- 	}
- 	return true;
- }
--#endif /* HAVE_DWARF_GETLOCATIONS_SUPPORT || HAVE_DWARF_CFI_SUPPORT */
+ #
+diff --git a/tools/perf/arch/arm64/util/dwarf-regs.c b/tools/perf/arch/arm64/util/dwarf-regs.c
+index 917b97d7c5d3..343a62fa4199 100644
+--- a/tools/perf/arch/arm64/util/dwarf-regs.c
++++ b/tools/perf/arch/arm64/util/dwarf-regs.c
+@@ -9,10 +9,9 @@
+ #include <stddef.h>
+ #include <string.h>
+ #include <dwarf-regs.h>
+-#include <linux/ptrace.h> /* for struct user_pt_regs */
+ #include <linux/stringify.h>
  
--#ifdef HAVE_DWARF_GETLOCATIONS_SUPPORT
- /**
-  * die_get_var_innermost_scope - Get innermost scope range of given variable DIE
-  * @sp_die: a subprogram DIE
-@@ -1697,9 +1694,7 @@ void die_collect_global_vars(Dwarf_Die *cu_die, struct die_var_type **var_types)
- 
- 	die_find_child(cu_die, __die_collect_global_vars_cb, (void *)var_types, &die_mem);
- }
--#endif /* HAVE_DWARF_GETLOCATIONS_SUPPORT */
- 
--#ifdef HAVE_DWARF_CFI_SUPPORT
- /**
-  * die_get_cfa - Get frame base information
-  * @dwarf: a Dwarf info
-@@ -1732,7 +1727,6 @@ int die_get_cfa(Dwarf *dwarf, u64 pc, int *preg, int *poffset)
- 	}
- 	return -1;
- }
--#endif /* HAVE_DWARF_CFI_SUPPORT */
+-struct pt_regs_dwarfnum {
++struct regs_dwarfnum {
+ 	const char *name;
+ 	unsigned int dwarfnum;
+ };
+@@ -21,14 +20,12 @@ struct pt_regs_dwarfnum {
+ #define GPR_DWARFNUM_NAME(num) \
+ 	{.name = __stringify(%x##num), .dwarfnum = num}
+ #define REG_DWARFNUM_END {.name = NULL, .dwarfnum = 0}
+-#define DWARFNUM2OFFSET(index) \
+-	(index * sizeof((struct user_pt_regs *)0)->regs[0])
  
  /*
-  * die_has_loclist - Check if DW_AT_location of @vr_die is a location list
-diff --git a/tools/perf/util/dwarf-aux.h b/tools/perf/util/dwarf-aux.h
-index 925a9bb9fb15..892c8c5c23fc 100644
---- a/tools/perf/util/dwarf-aux.h
-+++ b/tools/perf/util/dwarf-aux.h
-@@ -156,8 +156,6 @@ Dwarf_Die *die_get_member_type(Dwarf_Die *type_die, int offset, Dwarf_Die *die_m
- /* Return type info where the pointer and offset point to */
- Dwarf_Die *die_deref_ptr_type(Dwarf_Die *ptr_die, int offset, Dwarf_Die *die_mem);
- 
--#ifdef HAVE_DWARF_GETLOCATIONS_SUPPORT
+  * Reference:
+  * http://infocenter.arm.com/help/topic/com.arm.doc.ihi0057b/IHI0057B_aadwarf64.pdf
+  */
+-static const struct pt_regs_dwarfnum regdwarfnum_table[] = {
++static const struct regs_dwarfnum regdwarfnum_table[] = {
+ 	GPR_DWARFNUM_NAME(0),
+ 	GPR_DWARFNUM_NAME(1),
+ 	GPR_DWARFNUM_NAME(2),
+@@ -74,19 +71,10 @@ static const struct pt_regs_dwarfnum regdwarfnum_table[] = {
+  */
+ const char *get_arch_regstr(unsigned int n)
+ {
+-	const struct pt_regs_dwarfnum *roff;
++	const struct regs_dwarfnum *roff;
++
+ 	for (roff = regdwarfnum_table; roff->name != NULL; roff++)
+ 		if (roff->dwarfnum == n)
+ 			return roff->name;
+ 	return NULL;
+ }
 -
- /* Get byte offset range of given variable DIE */
- int die_get_var_range(Dwarf_Die *sp_die, Dwarf_Die *vr_die, struct strbuf *buf);
+-int regs_query_register_offset(const char *name)
+-{
+-	const struct pt_regs_dwarfnum *roff;
+-
+-	for (roff = regdwarfnum_table; roff->name != NULL; roff++)
+-		if (!strcmp(roff->name, name))
+-			return DWARFNUM2OFFSET(roff->dwarfnum);
+-	return -EINVAL;
+-}
+diff --git a/tools/perf/arch/loongarch/Makefile b/tools/perf/arch/loongarch/Makefile
+index 1cc5eb01f32b..79b432744296 100644
+--- a/tools/perf/arch/loongarch/Makefile
++++ b/tools/perf/arch/loongarch/Makefile
+@@ -2,7 +2,6 @@
+ ifndef NO_LIBDW
+ PERF_HAVE_DWARF_REGS := 1
+ endif
+-PERF_HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET := 1
+ PERF_HAVE_JITDUMP := 1
+ HAVE_KVM_STAT_SUPPORT := 1
  
-@@ -176,59 +174,7 @@ void die_collect_vars(Dwarf_Die *sc_die, struct die_var_type **var_types);
- /* Save all global variables in this CU */
- void die_collect_global_vars(Dwarf_Die *cu_die, struct die_var_type **var_types);
+diff --git a/tools/perf/arch/loongarch/util/dwarf-regs.c b/tools/perf/arch/loongarch/util/dwarf-regs.c
+index 0f6ebc387463..bee08fdcf2fd 100644
+--- a/tools/perf/arch/loongarch/util/dwarf-regs.c
++++ b/tools/perf/arch/loongarch/util/dwarf-regs.c
+@@ -32,13 +32,3 @@ const char *get_arch_regstr(unsigned int n)
+ 	n %= 32;
+ 	return loongarch_gpr_table[n].name;
+ }
+-
+-int regs_query_register_offset(const char *name)
+-{
+-	const struct pt_regs_dwarfnum *roff;
+-
+-	for (roff = loongarch_gpr_table; roff->name != NULL; roff++)
+-		if (!strcmp(roff->name, name))
+-			return roff->dwarfnum;
+-	return -EINVAL;
+-}
+diff --git a/tools/perf/arch/powerpc/Makefile b/tools/perf/arch/powerpc/Makefile
+index 7672d555f6cd..ae05727835d8 100644
+--- a/tools/perf/arch/powerpc/Makefile
++++ b/tools/perf/arch/powerpc/Makefile
+@@ -4,7 +4,6 @@ PERF_HAVE_DWARF_REGS := 1
+ endif
  
--#else /*  HAVE_DWARF_GETLOCATIONS_SUPPORT */
+ HAVE_KVM_STAT_SUPPORT := 1
+-PERF_HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET := 1
+ PERF_HAVE_JITDUMP := 1
+ 
+ #
+diff --git a/tools/perf/arch/powerpc/util/dwarf-regs.c b/tools/perf/arch/powerpc/util/dwarf-regs.c
+index 104c7ae5c433..23846c59a522 100644
+--- a/tools/perf/arch/powerpc/util/dwarf-regs.c
++++ b/tools/perf/arch/powerpc/util/dwarf-regs.c
+@@ -9,29 +9,25 @@
+ #include <errno.h>
+ #include <string.h>
+ #include <dwarf-regs.h>
+-#include <linux/ptrace.h>
+ #include <linux/kernel.h>
+ #include <linux/stringify.h>
+ 
+-struct pt_regs_dwarfnum {
++struct regs_dwarfnum {
+ 	const char *name;
+ 	unsigned int dwarfnum;
+-	unsigned int ptregs_offset;
+ };
+ 
+ #define REG_DWARFNUM_NAME(r, num)					\
+-		{.name = __stringify(%)__stringify(r), .dwarfnum = num,			\
+-		.ptregs_offset = offsetof(struct pt_regs, r)}
++	{.name = __stringify(%)__stringify(r), .dwarfnum = num}
+ #define GPR_DWARFNUM_NAME(num)						\
+-		{.name = __stringify(%gpr##num), .dwarfnum = num,		\
+-		.ptregs_offset = offsetof(struct pt_regs, gpr[num])}
+-#define REG_DWARFNUM_END {.name = NULL, .dwarfnum = 0, .ptregs_offset = 0}
++	{.name = __stringify(%gpr##num), .dwarfnum = num}
++#define REG_DWARFNUM_END {.name = NULL, .dwarfnum = 0}
+ 
+ /*
+  * Reference:
+  * http://refspecs.linuxfoundation.org/ELF/ppc64/PPC-elf64abi-1.9.html
+  */
+-static const struct pt_regs_dwarfnum regdwarfnum_table[] = {
++static const struct regs_dwarfnum regdwarfnum_table[] = {
+ 	GPR_DWARFNUM_NAME(0),
+ 	GPR_DWARFNUM_NAME(1),
+ 	GPR_DWARFNUM_NAME(2),
+@@ -83,22 +79,14 @@ static const struct pt_regs_dwarfnum regdwarfnum_table[] = {
+  */
+ const char *get_arch_regstr(unsigned int n)
+ {
+-	const struct pt_regs_dwarfnum *roff;
++	const struct regs_dwarfnum *roff;
++
+ 	for (roff = regdwarfnum_table; roff->name != NULL; roff++)
+ 		if (roff->dwarfnum == n)
+ 			return roff->name;
+ 	return NULL;
+ }
+ 
+-int regs_query_register_offset(const char *name)
+-{
+-	const struct pt_regs_dwarfnum *roff;
+-	for (roff = regdwarfnum_table; roff->name != NULL; roff++)
+-		if (!strcmp(roff->name, name))
+-			return roff->ptregs_offset;
+-	return -EINVAL;
+-}
+-
+ #define PPC_OP(op)	(((op) >> 26) & 0x3F)
+ #define PPC_RA(a)	(((a) >> 16) & 0x1f)
+ #define PPC_RT(t)	(((t) >> 21) & 0x1f)
+diff --git a/tools/perf/arch/riscv/Makefile b/tools/perf/arch/riscv/Makefile
+index 4664a78a1afd..f01ab2171fd0 100644
+--- a/tools/perf/arch/riscv/Makefile
++++ b/tools/perf/arch/riscv/Makefile
+@@ -1,6 +1,5 @@
+ ifndef NO_LIBDW
+ PERF_HAVE_DWARF_REGS := 1
+ endif
+-PERF_HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET := 1
+ PERF_HAVE_JITDUMP := 1
+ HAVE_KVM_STAT_SUPPORT := 1
+diff --git a/tools/perf/arch/riscv/util/dwarf-regs.c b/tools/perf/arch/riscv/util/dwarf-regs.c
+index cd0504c02e2e..a9c4402ae57e 100644
+--- a/tools/perf/arch/riscv/util/dwarf-regs.c
++++ b/tools/perf/arch/riscv/util/dwarf-regs.c
+@@ -9,7 +9,7 @@
+ #include <string.h> /* for strcmp */
+ #include <dwarf-regs.h>
+ 
+-struct pt_regs_dwarfnum {
++struct regs_dwarfnum {
+ 	const char *name;
+ 	unsigned int dwarfnum;
+ };
+@@ -17,7 +17,7 @@ struct pt_regs_dwarfnum {
+ #define REG_DWARFNUM_NAME(r, num) {.name = r, .dwarfnum = num}
+ #define REG_DWARFNUM_END {.name = NULL, .dwarfnum = 0}
+ 
+-struct pt_regs_dwarfnum riscv_dwarf_regs_table[] = {
++struct regs_dwarfnum riscv_dwarf_regs_table[] = {
+ 	REG_DWARFNUM_NAME("%zero", 0),
+ 	REG_DWARFNUM_NAME("%ra", 1),
+ 	REG_DWARFNUM_NAME("%sp", 2),
+@@ -60,13 +60,3 @@ const char *get_arch_regstr(unsigned int n)
+ {
+ 	return (n < RISCV_MAX_REGS) ? riscv_dwarf_regs_table[n].name : NULL;
+ }
+-
+-int regs_query_register_offset(const char *name)
+-{
+-	const struct pt_regs_dwarfnum *roff;
+-
+-	for (roff = riscv_dwarf_regs_table; roff->name; roff++)
+-		if (!strcmp(roff->name, name))
+-			return roff->dwarfnum;
+-	return -EINVAL;
+-}
+diff --git a/tools/perf/arch/s390/Makefile b/tools/perf/arch/s390/Makefile
+index 3f66e2ede3f7..58e79f5b67a4 100644
+--- a/tools/perf/arch/s390/Makefile
++++ b/tools/perf/arch/s390/Makefile
+@@ -3,7 +3,6 @@ ifndef NO_LIBDW
+ PERF_HAVE_DWARF_REGS := 1
+ endif
+ HAVE_KVM_STAT_SUPPORT := 1
+-PERF_HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET := 1
+ PERF_HAVE_JITDUMP := 1
+ 
+ #
+diff --git a/tools/perf/arch/s390/util/dwarf-regs.c b/tools/perf/arch/s390/util/dwarf-regs.c
+index dfddb3099bfa..5bcf3192623a 100644
+--- a/tools/perf/arch/s390/util/dwarf-regs.c
++++ b/tools/perf/arch/s390/util/dwarf-regs.c
+@@ -7,37 +7,10 @@
+  *
+  */
+ 
 -#include <errno.h>
+-#include <stddef.h>
+-#include <stdlib.h>
+ #include <linux/kernel.h>
+-#include <asm/ptrace.h>
+-#include <string.h>
+-#include <dwarf-regs.h>
+ #include "dwarf-regs-table.h"
+ 
+ const char *get_arch_regstr(unsigned int n)
+ {
+ 	return (n >= ARRAY_SIZE(s390_dwarf_regs)) ? NULL : s390_dwarf_regs[n];
+ }
 -
--static inline int die_get_var_range(Dwarf_Die *sp_die __maybe_unused,
--				    Dwarf_Die *vr_die __maybe_unused,
--				    struct strbuf *buf __maybe_unused)
+-/*
+- * Convert the register name into an offset to struct pt_regs (kernel).
+- * This is required by the BPF prologue generator.  The BPF
+- * program is called in the BPF overflow handler in the perf
+- * core.
+- */
+-int regs_query_register_offset(const char *name)
 -{
--	return -ENOTSUP;
+-	unsigned long gpr;
+-
+-	if (!name || strncmp(name, "%r", 2))
+-		return -EINVAL;
+-
+-	errno = 0;
+-	gpr = strtoul(name + 2, NULL, 10);
+-	if (errno || gpr >= 16)
+-		return -EINVAL;
+-
+-	return offsetof(user_pt_regs, gprs) + 8 * gpr;
+-}
+diff --git a/tools/perf/arch/x86/Makefile b/tools/perf/arch/x86/Makefile
+index 9aa58acb5564..51cf267f4d85 100644
+--- a/tools/perf/arch/x86/Makefile
++++ b/tools/perf/arch/x86/Makefile
+@@ -3,7 +3,6 @@ ifndef NO_LIBDW
+ PERF_HAVE_DWARF_REGS := 1
+ endif
+ HAVE_KVM_STAT_SUPPORT := 1
+-PERF_HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET := 1
+ PERF_HAVE_JITDUMP := 1
+ 
+ ###
+diff --git a/tools/perf/arch/x86/util/dwarf-regs.c b/tools/perf/arch/x86/util/dwarf-regs.c
+index 399c4a0a29d8..530905118cd4 100644
+--- a/tools/perf/arch/x86/util/dwarf-regs.c
++++ b/tools/perf/arch/x86/util/dwarf-regs.c
+@@ -6,112 +6,31 @@
+  * Written by Masami Hiramatsu <mhiramat@redhat.com>
+  */
+ 
+-#include <stddef.h>
+ #include <errno.h> /* for EINVAL */
+ #include <string.h> /* for strcmp */
+-#include <linux/ptrace.h> /* for struct pt_regs */
+-#include <linux/kernel.h> /* for offsetof */
++#include <linux/kernel.h> /* for ARRAY_SIZE */
+ #include <dwarf-regs.h>
+ 
+-/*
+- * See arch/x86/kernel/ptrace.c.
+- * Different from it:
+- *
+- *  - Since struct pt_regs is defined differently for user and kernel,
+- *    but we want to use 'ax, bx' instead of 'rax, rbx' (which is struct
+- *    field name of user's pt_regs), we make REG_OFFSET_NAME to accept
+- *    both string name and reg field name.
+- *
+- *  - Since accessing x86_32's pt_regs from x86_64 building is difficult
+- *    and vise versa, we simply fill offset with -1, so
+- *    get_arch_regstr() still works but regs_query_register_offset()
+- *    returns error.
+- *    The only inconvenience caused by it now is that we are not allowed
+- *    to generate BPF prologue for a x86_64 kernel if perf is built for
+- *    x86_32. This is really a rare usecase.
+- *
+- *  - Order is different from kernel's ptrace.c for get_arch_regstr(). Use
+- *    the order defined by dwarf.
+- */
++#define DEFINE_DWARF_REGSTR_TABLE 1
++#include "dwarf-regs-table.h"
+ 
+-struct pt_regs_offset {
+-	const char *name;
+-	int offset;
+-};
+-
+-#define REG_OFFSET_END {.name = NULL, .offset = 0}
+-
+-#ifdef __x86_64__
+-# define REG_OFFSET_NAME_64(n, r) {.name = n, .offset = offsetof(struct pt_regs, r)}
+-# define REG_OFFSET_NAME_32(n, r) {.name = n, .offset = -1}
++/* Return architecture dependent register string (for kprobe-tracer) */
++const char *get_arch_regstr(unsigned int n)
++{
++#if defined(__i386__)
++	size_t len = ARRAY_SIZE(x86_32_regstr_tbl);
+ #else
+-# define REG_OFFSET_NAME_64(n, r) {.name = n, .offset = -1}
+-# define REG_OFFSET_NAME_32(n, r) {.name = n, .offset = offsetof(struct pt_regs, r)}
++	size_t len = ARRAY_SIZE(x86_64_regstr_tbl);
+ #endif
+ 
+-/* TODO: switching by dwarf address size */
+-#ifndef __x86_64__
+-static const struct pt_regs_offset x86_32_regoffset_table[] = {
+-	REG_OFFSET_NAME_32("%ax",	eax),
+-	REG_OFFSET_NAME_32("%cx",	ecx),
+-	REG_OFFSET_NAME_32("%dx",	edx),
+-	REG_OFFSET_NAME_32("%bx",	ebx),
+-	REG_OFFSET_NAME_32("$stack",	esp),	/* Stack address instead of %sp */
+-	REG_OFFSET_NAME_32("%bp",	ebp),
+-	REG_OFFSET_NAME_32("%si",	esi),
+-	REG_OFFSET_NAME_32("%di",	edi),
+-	REG_OFFSET_END,
+-};
++	if (n >= len)
++		return NULL;
+ 
+-#define regoffset_table x86_32_regoffset_table
++#if defined(__i386__)
++	return x86_32_regstr_tbl[n];
+ #else
+-static const struct pt_regs_offset x86_64_regoffset_table[] = {
+-	REG_OFFSET_NAME_64("%ax",	rax),
+-	REG_OFFSET_NAME_64("%dx",	rdx),
+-	REG_OFFSET_NAME_64("%cx",	rcx),
+-	REG_OFFSET_NAME_64("%bx",	rbx),
+-	REG_OFFSET_NAME_64("%si",	rsi),
+-	REG_OFFSET_NAME_64("%di",	rdi),
+-	REG_OFFSET_NAME_64("%bp",	rbp),
+-	REG_OFFSET_NAME_64("%sp",	rsp),
+-	REG_OFFSET_NAME_64("%r8",	r8),
+-	REG_OFFSET_NAME_64("%r9",	r9),
+-	REG_OFFSET_NAME_64("%r10",	r10),
+-	REG_OFFSET_NAME_64("%r11",	r11),
+-	REG_OFFSET_NAME_64("%r12",	r12),
+-	REG_OFFSET_NAME_64("%r13",	r13),
+-	REG_OFFSET_NAME_64("%r14",	r14),
+-	REG_OFFSET_NAME_64("%r15",	r15),
+-	REG_OFFSET_END,
+-};
+-
+-#define regoffset_table x86_64_regoffset_table
++	return x86_64_regstr_tbl[n];
+ #endif
+-
+-/* Minus 1 for the ending REG_OFFSET_END */
+-#define ARCH_MAX_REGS ((sizeof(regoffset_table) / sizeof(regoffset_table[0])) - 1)
+-
+-/* Return architecture dependent register string (for kprobe-tracer) */
+-const char *get_arch_regstr(unsigned int n)
+-{
+-	return (n < ARCH_MAX_REGS) ? regoffset_table[n].name : NULL;
 -}
 -
--static inline Dwarf_Die *die_find_variable_by_reg(Dwarf_Die *sc_die __maybe_unused,
--						  Dwarf_Addr pc __maybe_unused,
--						  int reg __maybe_unused,
--						  int *poffset __maybe_unused,
--						  bool is_fbreg __maybe_unused,
--						  Dwarf_Die *die_mem __maybe_unused)
+-/* Reuse code from arch/x86/kernel/ptrace.c */
+-/**
+- * regs_query_register_offset() - query register offset from its name
+- * @name:	the name of a register
+- *
+- * regs_query_register_offset() returns the offset of a register in struct
+- * pt_regs from its name. If the name is invalid, this returns -EINVAL;
+- */
+-int regs_query_register_offset(const char *name)
 -{
--	return NULL;
--}
--
--static inline Dwarf_Die *die_find_variable_by_addr(Dwarf_Die *sc_die __maybe_unused,
--						   Dwarf_Addr addr __maybe_unused,
--						   Dwarf_Die *die_mem __maybe_unused,
--						   int *offset __maybe_unused)
--{
--	return NULL;
--}
--
--static inline void die_collect_vars(Dwarf_Die *sc_die __maybe_unused,
--				    struct die_var_type **var_types __maybe_unused)
--{
--}
--
--static inline void die_collect_global_vars(Dwarf_Die *cu_die __maybe_unused,
--					   struct die_var_type **var_types __maybe_unused)
--{
--}
--
--#endif /* HAVE_DWARF_GETLOCATIONS_SUPPORT */
--
--#ifdef HAVE_DWARF_CFI_SUPPORT
--
- /* Get the frame base information from CFA */
- int die_get_cfa(Dwarf *dwarf, u64 pc, int *preg, int *poffset);
+-	const struct pt_regs_offset *roff;
+-	for (roff = regoffset_table; roff->name != NULL; roff++)
+-		if (!strcmp(roff->name, name))
+-			return roff->offset;
+-	return -EINVAL;
+ }
  
--#else /* HAVE_DWARF_CFI_SUPPORT */
--
--static inline int die_get_cfa(Dwarf *dwarf __maybe_unused, u64 pc __maybe_unused,
--			      int *preg __maybe_unused, int *poffset __maybe_unused)
--{
--	return -1;
--}
--
--#endif /* HAVE_DWARF_CFI_SUPPORT */
--
- #endif /* _DWARF_AUX_H */
-diff --git a/tools/perf/util/probe-finder.c b/tools/perf/util/probe-finder.c
-index 7434b38596b9..8019d232f515 100644
---- a/tools/perf/util/probe-finder.c
-+++ b/tools/perf/util/probe-finder.c
-@@ -602,7 +602,6 @@ static int call_probe_finder(Dwarf_Die *sc_die, struct probe_finder *pf)
- 	ret = dwarf_getlocation_addr(&fb_attr, pf->addr, &pf->fb_ops, &nops, 1);
- 	if (ret <= 0 || nops == 0) {
- 		pf->fb_ops = NULL;
--#ifdef HAVE_DWARF_CFI_SUPPORT
- 	} else if (nops == 1 && pf->fb_ops[0].atom == DW_OP_call_frame_cfa &&
- 		   (pf->cfi_eh != NULL || pf->cfi_dbg != NULL)) {
- 		if ((dwarf_cfi_addrframe(pf->cfi_eh, pf->addr, &frame) != 0 &&
-@@ -613,7 +612,6 @@ static int call_probe_finder(Dwarf_Die *sc_die, struct probe_finder *pf)
- 			free(frame);
- 			return -ENOENT;
- 		}
--#endif /* HAVE_DWARF_CFI_SUPPORT */
- 	}
+ struct dwarf_regs_idx {
+diff --git a/tools/perf/util/include/dwarf-regs.h b/tools/perf/util/include/dwarf-regs.h
+index 29a7d0546b82..fbdd7307e0c2 100644
+--- a/tools/perf/util/include/dwarf-regs.h
++++ b/tools/perf/util/include/dwarf-regs.h
+@@ -42,12 +42,4 @@ static inline void get_powerpc_regs(u32 raw_insn __maybe_unused, int is_source _
+ void get_powerpc_regs(u32 raw_insn, int is_source, struct annotated_op_loc *op_loc);
+ #endif
  
- 	/* Call finder's callback handler */
-@@ -1138,7 +1136,6 @@ static int debuginfo__find_probes(struct debuginfo *dbg,
- 
- 	pf->machine = ehdr.e_machine;
- 
--#ifdef HAVE_DWARF_CFI_SUPPORT
- 	do {
- 		GElf_Shdr shdr;
- 
-@@ -1148,7 +1145,6 @@ static int debuginfo__find_probes(struct debuginfo *dbg,
- 
- 		pf->cfi_dbg = dwarf_getcfi(dbg->dbg);
- 	} while (0);
--#endif /* HAVE_DWARF_CFI_SUPPORT */
- 
- 	ret = debuginfo__find_probe_location(dbg, pf);
- 	return ret;
+-#ifdef HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET
+-/*
+- * Arch should support fetching the offset of a register in pt_regs
+- * by its name. See kernel's regs_query_register_offset in
+- * arch/xxx/kernel/ptrace.c.
+- */
+-int regs_query_register_offset(const char *name);
+-#endif
+ #endif
 -- 
 2.47.0.rc0.187.ge670bccf7e-goog
 
