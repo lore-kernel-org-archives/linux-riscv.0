@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A668CFB42C
-	for <linux-riscv@archiver.kernel.org>; Sat,  5 Oct 2024 20:14:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE423CFB42C
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Oct 2024 20:15:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:References:Mime-Version
 	:Message-Id:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4bjpfDEDnvwZHeFqsO7pFEtwjR5CnEItx1J4F8G9KKY=; b=S2U7yEJSinQ2Vd
-	Yod+EG5/ljhf8ahHQANQZdc1n/adDwEzI3NEB/sffNmL7ei7kPyNegiNz9IdjZ0q2z5zJ+lnjZTo+
-	oHQa3pi0g3jvWRENAiGYwQPnqNTkxoevGIjq5xo1rJmXeqGESguVKEDqANiQGdQNeXtVAYb+2m4lm
-	aU1m0Z0I6/MEPSZOS9xkDzq6erzGiOBZ/h9iIyP9d3CJTCkDOKAEholLehC/jNWVnxc1pHHZuhfSI
-	vLRmi9GKXShKkUdu41jVKfFqh0BU6n7siLJ/cyv27Ky9N0fxRF++a9V5O5khAjXuIZlbAhqybA68Q
-	yBIYRygB/yz5XYL/U0+Q==;
+	List-Owner; bh=ymT36a4ylHnArXnaOBSKaBOUNz4ZyeF5fO3tpi+IG1Y=; b=Sbq95umBnFPBiw
+	+EeAHRALZQQX4GS17LSETVqg48ECYratBeFW1Wu9oobOP11MFJ3+I9Il+KO3jr0TDYMRIU17TEPlB
+	/klYxHI7YiPw4m3jN1vhFZoJYWji9vGKWOCb+35e6y5vJ7H6Fnhqi269Do2v5GTfPnKkQ3bHZxNcF
+	z+Fzb10GXfgNlVd23mjBrFGlyf51HjRnlbbFBnY7suOAiriH2USGkey/sFuJBYrfAzsJ4W7yrdCV4
+	2jwNjiXt4fAHFuuOcfyeBCBrUcc+HES2EzdOXjMWh4V06xPgdy6hI1DfGae6TO4LvucDVgr3QoEPD
+	u97sEh1bRrtVQzbipojw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sxBAe-0000000FtJ9-3Fq4;
-	Sat, 05 Oct 2024 20:14:32 +0000
+	id 1sxBBt-0000000FtUP-11gZ;
+	Sat, 05 Oct 2024 20:15:49 +0000
 Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sxAtB-0000000Fq5g-0fqe
+	id 1sxAtH-0000000Fq9N-0znb
 	for linux-riscv@lists.infradead.org;
-	Sat, 05 Oct 2024 19:56:33 +0000
-Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-e02b5792baaso4624951276.2
-        for <linux-riscv@lists.infradead.org>; Sat, 05 Oct 2024 12:56:28 -0700 (PDT)
+	Sat, 05 Oct 2024 19:56:36 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-e287876794aso4399586276.0
+        for <linux-riscv@lists.infradead.org>; Sat, 05 Oct 2024 12:56:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1728158188; x=1728762988; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1728158194; x=1728762994; darn=lists.infradead.org;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=jZZa/aV5YYBVrQKudC94gshETixiksMke/2tnp/oWsk=;
-        b=jhoglTjn8Ha1Cpz1BdJFT1bQusgeu+Y9/AyXCdTTOlqLzHbpY1hWOEec7zX1mI8n86
-         BQPqlkbbmQEzgku+DKpNUH7GcZY/HdYph0sPa8UxKdYbQGtn/ACw/6oCy97I7STWXSFZ
-         VWHLhoBRKMh4IYP4zqwZiJToJuMpGUj/M4PKHlgTJaxykivd9VbfpBvFBZc9xnN7MkWo
-         H9HkV4trr01JU0DF026FTeakYtQRJQs6XKi5zx0JiFaCjbEYrZE1oixG+itzwTlnLW7c
-         7+FpNeu9rNH1clFmq0xgZwAHyPQ0nlGgW77/AAXHegPFyAuHSw3selXl20SFI9QsLj/e
-         IMqA==
+        bh=R3VGAHxB6IOEew1cgpVav9xummXJdWF/G2mjihEztk4=;
+        b=H2ciAm3Ow/EHqWQHxq6khwRIlkZVq9Q65LuU8oPXoxY58qxNvs1Sc6j+1TZwc/x73V
+         3XJ3pdUa7d+qgrgC3cnffWyAZyCN3PAZJW4SW1o+4oMeAbufjiST/BdNc0RL5eFTRj6T
+         tcgo2RX6LJJOpObQN4gnmV9R0fZPhMfetOChTWi59mN5kd9PSQgQnxl/Hx87My6+Ozxj
+         jeixLSsvZAl0lTs4J2uzrDWM3ofu3tUhhSW6EDsTKxFl7WEgpa5gFZNXUb1RkNLC0SGA
+         nM0SAdLckpii91g3wMbxHc7EdrRNpIoK6lHYTYua7cjlNM+VhBbKIVGrH1pyc+UqXHoj
+         Yu1g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728158188; x=1728762988;
+        d=1e100.net; s=20230601; t=1728158194; x=1728762994;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=jZZa/aV5YYBVrQKudC94gshETixiksMke/2tnp/oWsk=;
-        b=CWRGOrmUjA35XeGkQ28/nNw0/ZgDZDVrUBLxi8OKrAV4w+xY+5YuG36yTwv4YV7IP3
-         zpmzEQhJn7l9kMa3BBbh85I6w0AKMMi2HgJr1+RYyUEbuzwpha9Wi/Ic+fvT0oLvtHda
-         kg+lgJ4thHfJFSJ/6lrFtXfCVNF4Q3J8aQ4fTQhDMYA8UvezH4IVG3lEXlC3A8xTvARp
-         GQR66b0rG9+/F77jte5gqMkkZmqHoQTzi/9lpnxDeZ+7u5bwRPNWmjrMRzlOdcmg/KJQ
-         neB9KpI9KXBf8BGmn+i74jXA8fFyTLZhk49UJRTHdc5pQgtA+7pgwe32Ss8k6KZMd6SE
-         tzig==
-X-Forwarded-Encrypted: i=1; AJvYcCVxgcMX9Vxku5wElav461z8Scnfb1sruvOo/173TDBYhngsvNUbUkUUk5yaAmk6wwq2x5FExdaAP/m2RA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzly5uxE2yYmUbGpgjztk5tc0hwPdekOkSH+iOI+Y9/jIAJTrMu
-	Tu0GK5RdIm8OBjIgYq04ETUZ6O/pHDuql7VvvYA7cmfYMfOyUb+sLIJJqAFdgwXu4TQ876YZMG9
-	X1ISYPA==
-X-Google-Smtp-Source: AGHT+IF/k+QTDokkY1K6UtxUUDOjzsW/I4NFq1B+B7blvtXSloVdvbplHl/sSMVN7FmErueZ8sN2R4KkkBKV
+        bh=R3VGAHxB6IOEew1cgpVav9xummXJdWF/G2mjihEztk4=;
+        b=O2DkxW7DmD6SATmFohfSOIkwMSB63Yp4XIcYQhCRKWU5NwAjjRAoK5RqHjXLXZGRsl
+         hHADvJG/rrNxlc/1SwRrx073CNBLVlQrNWFRj7hcVguhu0CC9tPTxxrHS4Ykht+hh0CY
+         EwMqJKrP3TpkRpHqRXPgUxYNjGwlBmHxePuKsvSuNJwpl/ULNq0rbuwVy7zM+XVyXlHm
+         cRbdTyha4zr0rjwj7y+Jt91k/QvnNOAdsfcTiQSeXSL9QmvBepJ7WH2odpCrj26R36ZW
+         jnsTRoICvcB6FrJQQsKzF1sdjMU8HeaSWvWfEFPV/rDjX93PHAYlu3kaC32VJpmQwkw3
+         HB4g==
+X-Forwarded-Encrypted: i=1; AJvYcCVGyooU785hI6C2JnyYb3SEit6qYCSTP4GHuntsqK+rCx/BtuCZuMU3+KAb+wJRsMO+07yMSw5hn4Q3mQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwH4F+PVXJFmSBPdTeNCpFoxouLT/vrKyUnIbUzsnb0hRaZsHSz
+	A7Sy+TvR9u5zs2oyM18iuWRPYRK6DdYPRj3Bl4cF2AsSmQR05jcUsKuSo0EhZn310REXm1a/UPI
+	COLmkkg==
+X-Google-Smtp-Source: AGHT+IG2eBp7Cu4lY01+7ZMESWgL5KUK/mw9BioburAuOGjyC47kH+1lSGq6Y6HvKQiIl3R4nAeP9k3OlHFV
 X-Received: from irogers.svl.corp.google.com ([2620:15c:2a3:200:4c2:5b4d:8797:7249])
- (user=irogers job=sendgmr) by 2002:a25:ec09:0:b0:e25:cf7f:a065 with SMTP id
- 3f1490d57ef6-e289392aee3mr16302276.8.1728158187672; Sat, 05 Oct 2024 12:56:27
- -0700 (PDT)
-Date: Sat,  5 Oct 2024 12:55:23 -0700
+ (user=irogers job=sendgmr) by 2002:a05:6902:1817:b0:e24:9f58:dd17 with SMTP
+ id 3f1490d57ef6-e28936bf5d1mr12928276.1.1728158191755; Sat, 05 Oct 2024
+ 12:56:31 -0700 (PDT)
+Date: Sat,  5 Oct 2024 12:55:25 -0700
 In-Reply-To: <20241005195541.380070-1-irogers@google.com>
-Message-Id: <20241005195541.380070-14-irogers@google.com>
+Message-Id: <20241005195541.380070-16-irogers@google.com>
 Mime-Version: 1.0
 References: <20241005195541.380070-1-irogers@google.com>
 X-Mailer: git-send-email 2.47.0.rc0.187.ge670bccf7e-goog
-Subject: [PATCH v2 13/31] perf dwarf-regs: Remove PERF_HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET
+Subject: [PATCH v2 15/31] perf disasm: Add e_machine/e_flags to struct arch
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -93,8 +93,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
 	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241005_125629_277341_BB9EA6B3 
-X-CRM114-Status: GOOD (  18.95  )
+X-CRM114-CacheID: sfid-20241005_125635_350842_4029F0B6 
+X-CRM114-Status: GOOD (  13.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,480 +111,188 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-PERF_HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET was used for BPF prologue
-support which was removed in Commit 3d6dfae88917 ("perf parse-events:
-Remove BPF event support"). The code is no longer used so remove.
-
-Remove the offset from various dwarf-regs.c tables and the dependence
-on ptrace.h. Rename structs starting pt_ as the ptrace derived offset is
-now removed.
+Currently functions like get_dwarf_regnum only work with the host
+architecture. Carry the elf machine and flags in struct arch so that
+in disassembly these can be used to allow cross platform disassembly.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/Makefile.config                  |   4 -
- tools/perf/arch/arm64/Makefile              |   1 -
- tools/perf/arch/arm64/util/dwarf-regs.c     |  20 +---
- tools/perf/arch/loongarch/Makefile          |   1 -
- tools/perf/arch/loongarch/util/dwarf-regs.c |  10 --
- tools/perf/arch/powerpc/Makefile            |   1 -
- tools/perf/arch/powerpc/util/dwarf-regs.c   |  26 ++---
- tools/perf/arch/riscv/Makefile              |   1 -
- tools/perf/arch/riscv/util/dwarf-regs.c     |  14 +--
- tools/perf/arch/s390/Makefile               |   1 -
- tools/perf/arch/s390/util/dwarf-regs.c      |  27 -----
- tools/perf/arch/x86/Makefile                |   1 -
- tools/perf/arch/x86/util/dwarf-regs.c       | 109 +++-----------------
- tools/perf/util/include/dwarf-regs.h        |   8 --
- 14 files changed, 27 insertions(+), 197 deletions(-)
+ tools/perf/arch/arc/annotate/instructions.c       | 2 ++
+ tools/perf/arch/arm/annotate/instructions.c       | 2 ++
+ tools/perf/arch/arm64/annotate/instructions.c     | 2 ++
+ tools/perf/arch/csky/annotate/instructions.c      | 7 ++++++-
+ tools/perf/arch/loongarch/annotate/instructions.c | 2 ++
+ tools/perf/arch/mips/annotate/instructions.c      | 2 ++
+ tools/perf/arch/powerpc/annotate/instructions.c   | 2 ++
+ tools/perf/arch/riscv64/annotate/instructions.c   | 2 ++
+ tools/perf/arch/s390/annotate/instructions.c      | 2 ++
+ tools/perf/arch/sparc/annotate/instructions.c     | 2 ++
+ tools/perf/arch/x86/annotate/instructions.c       | 3 ++-
+ tools/perf/util/disasm.h                          | 4 ++++
+ 12 files changed, 30 insertions(+), 2 deletions(-)
 
-diff --git a/tools/perf/Makefile.config b/tools/perf/Makefile.config
-index b14430ab2898..00340c6ce3a9 100644
---- a/tools/perf/Makefile.config
-+++ b/tools/perf/Makefile.config
-@@ -200,10 +200,6 @@ FEATURE_CHECK_CFLAGS-bpf = -I. -I$(srctree)/tools/include -I$(srctree)/tools/arc
- # include ARCH specific config
- -include $(src-perf)/arch/$(SRCARCH)/Makefile
+diff --git a/tools/perf/arch/arc/annotate/instructions.c b/tools/perf/arch/arc/annotate/instructions.c
+index 2f00e995c7e3..e5619770a1af 100644
+--- a/tools/perf/arch/arc/annotate/instructions.c
++++ b/tools/perf/arch/arc/annotate/instructions.c
+@@ -5,5 +5,7 @@ static int arc__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
+ {
+ 	arch->initialized = true;
+ 	arch->objdump.comment_char = ';';
++	arch->e_machine = EM_ARC;
++	arch->e_flags = 0;
+ 	return 0;
+ }
+diff --git a/tools/perf/arch/arm/annotate/instructions.c b/tools/perf/arch/arm/annotate/instructions.c
+index 2ff6cedeb9c5..cf91a43362b0 100644
+--- a/tools/perf/arch/arm/annotate/instructions.c
++++ b/tools/perf/arch/arm/annotate/instructions.c
+@@ -53,6 +53,8 @@ static int arm__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
+ 	arch->associate_instruction_ops   = arm__associate_instruction_ops;
+ 	arch->objdump.comment_char	  = ';';
+ 	arch->objdump.skip_functions_char = '+';
++	arch->e_machine = EM_ARM;
++	arch->e_flags = 0;
+ 	return 0;
  
--ifdef PERF_HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET
--  CFLAGS += -DHAVE_ARCH_REGS_QUERY_REGISTER_OFFSET
--endif
+ out_free_call:
+diff --git a/tools/perf/arch/arm64/annotate/instructions.c b/tools/perf/arch/arm64/annotate/instructions.c
+index f86d9f4798bd..d465d093e7eb 100644
+--- a/tools/perf/arch/arm64/annotate/instructions.c
++++ b/tools/perf/arch/arm64/annotate/instructions.c
+@@ -113,6 +113,8 @@ static int arm64__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
+ 	arch->associate_instruction_ops   = arm64__associate_instruction_ops;
+ 	arch->objdump.comment_char	  = '/';
+ 	arch->objdump.skip_functions_char = '+';
++	arch->e_machine = EM_AARCH64;
++	arch->e_flags = 0;
+ 	return 0;
+ 
+ out_free_call:
+diff --git a/tools/perf/arch/csky/annotate/instructions.c b/tools/perf/arch/csky/annotate/instructions.c
+index 5337bfb7d5fc..14270311d215 100644
+--- a/tools/perf/arch/csky/annotate/instructions.c
++++ b/tools/perf/arch/csky/annotate/instructions.c
+@@ -43,6 +43,11 @@ static int csky__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
+ 	arch->initialized = true;
+ 	arch->objdump.comment_char = '/';
+ 	arch->associate_instruction_ops = csky__associate_ins_ops;
 -
- include $(srctree)/tools/scripts/utilities.mak
++	arch->e_machine = EM_CSKY;
++#if defined(__CSKYABIV2__)
++	arch->e_flags = EF_CSKY_ABIV2;
++#else
++	arch->e_flags = EF_CSKY_ABIV1;
++#endif
+ 	return 0;
+ }
+diff --git a/tools/perf/arch/loongarch/annotate/instructions.c b/tools/perf/arch/loongarch/annotate/instructions.c
+index ab43b1ab51e3..70262d5f1444 100644
+--- a/tools/perf/arch/loongarch/annotate/instructions.c
++++ b/tools/perf/arch/loongarch/annotate/instructions.c
+@@ -131,6 +131,8 @@ int loongarch__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
+ 		arch->associate_instruction_ops = loongarch__associate_ins_ops;
+ 		arch->initialized = true;
+ 		arch->objdump.comment_char = '#';
++		arch->e_machine = EM_LOONGARCH;
++		arch->e_flags = 0;
+ 	}
  
- ifeq ($(call get-executable,$(FLEX)),)
-diff --git a/tools/perf/arch/arm64/Makefile b/tools/perf/arch/arm64/Makefile
-index 8a5ffbfe809f..ca2e35961287 100644
---- a/tools/perf/arch/arm64/Makefile
-+++ b/tools/perf/arch/arm64/Makefile
-@@ -3,7 +3,6 @@ ifndef NO_LIBDW
- PERF_HAVE_DWARF_REGS := 1
- endif
- PERF_HAVE_JITDUMP := 1
--PERF_HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET := 1
- HAVE_KVM_STAT_SUPPORT := 1
+ 	return 0;
+diff --git a/tools/perf/arch/mips/annotate/instructions.c b/tools/perf/arch/mips/annotate/instructions.c
+index 340993f2a897..b50b46c613d6 100644
+--- a/tools/perf/arch/mips/annotate/instructions.c
++++ b/tools/perf/arch/mips/annotate/instructions.c
+@@ -40,6 +40,8 @@ int mips__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
+ 		arch->associate_instruction_ops = mips__associate_ins_ops;
+ 		arch->initialized = true;
+ 		arch->objdump.comment_char = '#';
++		arch->e_machine = EM_MIPS;
++		arch->e_flags = 0;
+ 	}
  
- #
-diff --git a/tools/perf/arch/arm64/util/dwarf-regs.c b/tools/perf/arch/arm64/util/dwarf-regs.c
-index 917b97d7c5d3..343a62fa4199 100644
---- a/tools/perf/arch/arm64/util/dwarf-regs.c
-+++ b/tools/perf/arch/arm64/util/dwarf-regs.c
-@@ -9,10 +9,9 @@
- #include <stddef.h>
- #include <string.h>
- #include <dwarf-regs.h>
--#include <linux/ptrace.h> /* for struct user_pt_regs */
- #include <linux/stringify.h>
+ 	return 0;
+diff --git a/tools/perf/arch/powerpc/annotate/instructions.c b/tools/perf/arch/powerpc/annotate/instructions.c
+index 54478cf5cccc..ca567cfdcbdb 100644
+--- a/tools/perf/arch/powerpc/annotate/instructions.c
++++ b/tools/perf/arch/powerpc/annotate/instructions.c
+@@ -309,6 +309,8 @@ static int powerpc__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
+ 		arch->associate_instruction_ops = powerpc__associate_instruction_ops;
+ 		arch->objdump.comment_char      = '#';
+ 		annotate_opts.show_asm_raw = true;
++		arch->e_machine = EM_PPC;
++		arch->e_flags = 0;
+ 	}
  
--struct pt_regs_dwarfnum {
-+struct regs_dwarfnum {
- 	const char *name;
- 	unsigned int dwarfnum;
+ 	return 0;
+diff --git a/tools/perf/arch/riscv64/annotate/instructions.c b/tools/perf/arch/riscv64/annotate/instructions.c
+index 869a0eb28953..55cf911633f8 100644
+--- a/tools/perf/arch/riscv64/annotate/instructions.c
++++ b/tools/perf/arch/riscv64/annotate/instructions.c
+@@ -28,6 +28,8 @@ int riscv64__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
+ 		arch->associate_instruction_ops = riscv64__associate_ins_ops;
+ 		arch->initialized = true;
+ 		arch->objdump.comment_char = '#';
++		arch->e_machine = EM_RISCV;
++		arch->e_flags = 0;
+ 	}
+ 
+ 	return 0;
+diff --git a/tools/perf/arch/s390/annotate/instructions.c b/tools/perf/arch/s390/annotate/instructions.c
+index eeac25cca699..c61193f1e096 100644
+--- a/tools/perf/arch/s390/annotate/instructions.c
++++ b/tools/perf/arch/s390/annotate/instructions.c
+@@ -166,6 +166,8 @@ static int s390__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
+ 			if (s390__cpuid_parse(arch, cpuid))
+ 				err = SYMBOL_ANNOTATE_ERRNO__ARCH_INIT_CPUID_PARSING;
+ 		}
++		arch->e_machine = EM_S390;
++		arch->e_flags = 0;
+ 	}
+ 
+ 	return err;
+diff --git a/tools/perf/arch/sparc/annotate/instructions.c b/tools/perf/arch/sparc/annotate/instructions.c
+index 2614c010c235..68c31580ccfc 100644
+--- a/tools/perf/arch/sparc/annotate/instructions.c
++++ b/tools/perf/arch/sparc/annotate/instructions.c
+@@ -163,6 +163,8 @@ static int sparc__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
+ 		arch->initialized = true;
+ 		arch->associate_instruction_ops = sparc__associate_instruction_ops;
+ 		arch->objdump.comment_char = '#';
++		arch->e_machine = EM_SPARC;
++		arch->e_flags = 0;
+ 	}
+ 
+ 	return 0;
+diff --git a/tools/perf/arch/x86/annotate/instructions.c b/tools/perf/arch/x86/annotate/instructions.c
+index c869abe3c31d..ae94b1f0b9cc 100644
+--- a/tools/perf/arch/x86/annotate/instructions.c
++++ b/tools/perf/arch/x86/annotate/instructions.c
+@@ -202,7 +202,8 @@ static int x86__annotate_init(struct arch *arch, char *cpuid)
+ 		if (x86__cpuid_parse(arch, cpuid))
+ 			err = SYMBOL_ANNOTATE_ERRNO__ARCH_INIT_CPUID_PARSING;
+ 	}
+-
++	arch->e_machine = EM_X86_64;
++	arch->e_flags = 0;
+ 	arch->initialized = true;
+ 	return err;
+ }
+diff --git a/tools/perf/util/disasm.h b/tools/perf/util/disasm.h
+index 486c269b29ba..c135db2416b5 100644
+--- a/tools/perf/util/disasm.h
++++ b/tools/perf/util/disasm.h
+@@ -44,6 +44,10 @@ struct arch {
+ 				struct data_loc_info *dloc, Dwarf_Die *cu_die,
+ 				struct disasm_line *dl);
+ #endif
++	/** @e_machine: ELF machine associated with arch. */
++	unsigned int e_machine;
++	/** @e_flags: Optional ELF flags associated with arch. */
++	unsigned int e_flags;
  };
-@@ -21,14 +20,12 @@ struct pt_regs_dwarfnum {
- #define GPR_DWARFNUM_NAME(num) \
- 	{.name = __stringify(%x##num), .dwarfnum = num}
- #define REG_DWARFNUM_END {.name = NULL, .dwarfnum = 0}
--#define DWARFNUM2OFFSET(index) \
--	(index * sizeof((struct user_pt_regs *)0)->regs[0])
  
- /*
-  * Reference:
-  * http://infocenter.arm.com/help/topic/com.arm.doc.ihi0057b/IHI0057B_aadwarf64.pdf
-  */
--static const struct pt_regs_dwarfnum regdwarfnum_table[] = {
-+static const struct regs_dwarfnum regdwarfnum_table[] = {
- 	GPR_DWARFNUM_NAME(0),
- 	GPR_DWARFNUM_NAME(1),
- 	GPR_DWARFNUM_NAME(2),
-@@ -74,19 +71,10 @@ static const struct pt_regs_dwarfnum regdwarfnum_table[] = {
-  */
- const char *get_arch_regstr(unsigned int n)
- {
--	const struct pt_regs_dwarfnum *roff;
-+	const struct regs_dwarfnum *roff;
-+
- 	for (roff = regdwarfnum_table; roff->name != NULL; roff++)
- 		if (roff->dwarfnum == n)
- 			return roff->name;
- 	return NULL;
- }
--
--int regs_query_register_offset(const char *name)
--{
--	const struct pt_regs_dwarfnum *roff;
--
--	for (roff = regdwarfnum_table; roff->name != NULL; roff++)
--		if (!strcmp(roff->name, name))
--			return DWARFNUM2OFFSET(roff->dwarfnum);
--	return -EINVAL;
--}
-diff --git a/tools/perf/arch/loongarch/Makefile b/tools/perf/arch/loongarch/Makefile
-index 1cc5eb01f32b..79b432744296 100644
---- a/tools/perf/arch/loongarch/Makefile
-+++ b/tools/perf/arch/loongarch/Makefile
-@@ -2,7 +2,6 @@
- ifndef NO_LIBDW
- PERF_HAVE_DWARF_REGS := 1
- endif
--PERF_HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET := 1
- PERF_HAVE_JITDUMP := 1
- HAVE_KVM_STAT_SUPPORT := 1
- 
-diff --git a/tools/perf/arch/loongarch/util/dwarf-regs.c b/tools/perf/arch/loongarch/util/dwarf-regs.c
-index 0f6ebc387463..bee08fdcf2fd 100644
---- a/tools/perf/arch/loongarch/util/dwarf-regs.c
-+++ b/tools/perf/arch/loongarch/util/dwarf-regs.c
-@@ -32,13 +32,3 @@ const char *get_arch_regstr(unsigned int n)
- 	n %= 32;
- 	return loongarch_gpr_table[n].name;
- }
--
--int regs_query_register_offset(const char *name)
--{
--	const struct pt_regs_dwarfnum *roff;
--
--	for (roff = loongarch_gpr_table; roff->name != NULL; roff++)
--		if (!strcmp(roff->name, name))
--			return roff->dwarfnum;
--	return -EINVAL;
--}
-diff --git a/tools/perf/arch/powerpc/Makefile b/tools/perf/arch/powerpc/Makefile
-index 7672d555f6cd..ae05727835d8 100644
---- a/tools/perf/arch/powerpc/Makefile
-+++ b/tools/perf/arch/powerpc/Makefile
-@@ -4,7 +4,6 @@ PERF_HAVE_DWARF_REGS := 1
- endif
- 
- HAVE_KVM_STAT_SUPPORT := 1
--PERF_HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET := 1
- PERF_HAVE_JITDUMP := 1
- 
- #
-diff --git a/tools/perf/arch/powerpc/util/dwarf-regs.c b/tools/perf/arch/powerpc/util/dwarf-regs.c
-index 104c7ae5c433..23846c59a522 100644
---- a/tools/perf/arch/powerpc/util/dwarf-regs.c
-+++ b/tools/perf/arch/powerpc/util/dwarf-regs.c
-@@ -9,29 +9,25 @@
- #include <errno.h>
- #include <string.h>
- #include <dwarf-regs.h>
--#include <linux/ptrace.h>
- #include <linux/kernel.h>
- #include <linux/stringify.h>
- 
--struct pt_regs_dwarfnum {
-+struct regs_dwarfnum {
- 	const char *name;
- 	unsigned int dwarfnum;
--	unsigned int ptregs_offset;
- };
- 
- #define REG_DWARFNUM_NAME(r, num)					\
--		{.name = __stringify(%)__stringify(r), .dwarfnum = num,			\
--		.ptregs_offset = offsetof(struct pt_regs, r)}
-+	{.name = __stringify(%)__stringify(r), .dwarfnum = num}
- #define GPR_DWARFNUM_NAME(num)						\
--		{.name = __stringify(%gpr##num), .dwarfnum = num,		\
--		.ptregs_offset = offsetof(struct pt_regs, gpr[num])}
--#define REG_DWARFNUM_END {.name = NULL, .dwarfnum = 0, .ptregs_offset = 0}
-+	{.name = __stringify(%gpr##num), .dwarfnum = num}
-+#define REG_DWARFNUM_END {.name = NULL, .dwarfnum = 0}
- 
- /*
-  * Reference:
-  * http://refspecs.linuxfoundation.org/ELF/ppc64/PPC-elf64abi-1.9.html
-  */
--static const struct pt_regs_dwarfnum regdwarfnum_table[] = {
-+static const struct regs_dwarfnum regdwarfnum_table[] = {
- 	GPR_DWARFNUM_NAME(0),
- 	GPR_DWARFNUM_NAME(1),
- 	GPR_DWARFNUM_NAME(2),
-@@ -83,22 +79,14 @@ static const struct pt_regs_dwarfnum regdwarfnum_table[] = {
-  */
- const char *get_arch_regstr(unsigned int n)
- {
--	const struct pt_regs_dwarfnum *roff;
-+	const struct regs_dwarfnum *roff;
-+
- 	for (roff = regdwarfnum_table; roff->name != NULL; roff++)
- 		if (roff->dwarfnum == n)
- 			return roff->name;
- 	return NULL;
- }
- 
--int regs_query_register_offset(const char *name)
--{
--	const struct pt_regs_dwarfnum *roff;
--	for (roff = regdwarfnum_table; roff->name != NULL; roff++)
--		if (!strcmp(roff->name, name))
--			return roff->ptregs_offset;
--	return -EINVAL;
--}
--
- #define PPC_OP(op)	(((op) >> 26) & 0x3F)
- #define PPC_RA(a)	(((a) >> 16) & 0x1f)
- #define PPC_RT(t)	(((t) >> 21) & 0x1f)
-diff --git a/tools/perf/arch/riscv/Makefile b/tools/perf/arch/riscv/Makefile
-index 4664a78a1afd..f01ab2171fd0 100644
---- a/tools/perf/arch/riscv/Makefile
-+++ b/tools/perf/arch/riscv/Makefile
-@@ -1,6 +1,5 @@
- ifndef NO_LIBDW
- PERF_HAVE_DWARF_REGS := 1
- endif
--PERF_HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET := 1
- PERF_HAVE_JITDUMP := 1
- HAVE_KVM_STAT_SUPPORT := 1
-diff --git a/tools/perf/arch/riscv/util/dwarf-regs.c b/tools/perf/arch/riscv/util/dwarf-regs.c
-index cd0504c02e2e..a9c4402ae57e 100644
---- a/tools/perf/arch/riscv/util/dwarf-regs.c
-+++ b/tools/perf/arch/riscv/util/dwarf-regs.c
-@@ -9,7 +9,7 @@
- #include <string.h> /* for strcmp */
- #include <dwarf-regs.h>
- 
--struct pt_regs_dwarfnum {
-+struct regs_dwarfnum {
- 	const char *name;
- 	unsigned int dwarfnum;
- };
-@@ -17,7 +17,7 @@ struct pt_regs_dwarfnum {
- #define REG_DWARFNUM_NAME(r, num) {.name = r, .dwarfnum = num}
- #define REG_DWARFNUM_END {.name = NULL, .dwarfnum = 0}
- 
--struct pt_regs_dwarfnum riscv_dwarf_regs_table[] = {
-+struct regs_dwarfnum riscv_dwarf_regs_table[] = {
- 	REG_DWARFNUM_NAME("%zero", 0),
- 	REG_DWARFNUM_NAME("%ra", 1),
- 	REG_DWARFNUM_NAME("%sp", 2),
-@@ -60,13 +60,3 @@ const char *get_arch_regstr(unsigned int n)
- {
- 	return (n < RISCV_MAX_REGS) ? riscv_dwarf_regs_table[n].name : NULL;
- }
--
--int regs_query_register_offset(const char *name)
--{
--	const struct pt_regs_dwarfnum *roff;
--
--	for (roff = riscv_dwarf_regs_table; roff->name; roff++)
--		if (!strcmp(roff->name, name))
--			return roff->dwarfnum;
--	return -EINVAL;
--}
-diff --git a/tools/perf/arch/s390/Makefile b/tools/perf/arch/s390/Makefile
-index 3f66e2ede3f7..58e79f5b67a4 100644
---- a/tools/perf/arch/s390/Makefile
-+++ b/tools/perf/arch/s390/Makefile
-@@ -3,7 +3,6 @@ ifndef NO_LIBDW
- PERF_HAVE_DWARF_REGS := 1
- endif
- HAVE_KVM_STAT_SUPPORT := 1
--PERF_HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET := 1
- PERF_HAVE_JITDUMP := 1
- 
- #
-diff --git a/tools/perf/arch/s390/util/dwarf-regs.c b/tools/perf/arch/s390/util/dwarf-regs.c
-index dfddb3099bfa..5bcf3192623a 100644
---- a/tools/perf/arch/s390/util/dwarf-regs.c
-+++ b/tools/perf/arch/s390/util/dwarf-regs.c
-@@ -7,37 +7,10 @@
-  *
-  */
- 
--#include <errno.h>
--#include <stddef.h>
--#include <stdlib.h>
- #include <linux/kernel.h>
--#include <asm/ptrace.h>
--#include <string.h>
--#include <dwarf-regs.h>
- #include "dwarf-regs-table.h"
- 
- const char *get_arch_regstr(unsigned int n)
- {
- 	return (n >= ARRAY_SIZE(s390_dwarf_regs)) ? NULL : s390_dwarf_regs[n];
- }
--
--/*
-- * Convert the register name into an offset to struct pt_regs (kernel).
-- * This is required by the BPF prologue generator.  The BPF
-- * program is called in the BPF overflow handler in the perf
-- * core.
-- */
--int regs_query_register_offset(const char *name)
--{
--	unsigned long gpr;
--
--	if (!name || strncmp(name, "%r", 2))
--		return -EINVAL;
--
--	errno = 0;
--	gpr = strtoul(name + 2, NULL, 10);
--	if (errno || gpr >= 16)
--		return -EINVAL;
--
--	return offsetof(user_pt_regs, gprs) + 8 * gpr;
--}
-diff --git a/tools/perf/arch/x86/Makefile b/tools/perf/arch/x86/Makefile
-index 9aa58acb5564..51cf267f4d85 100644
---- a/tools/perf/arch/x86/Makefile
-+++ b/tools/perf/arch/x86/Makefile
-@@ -3,7 +3,6 @@ ifndef NO_LIBDW
- PERF_HAVE_DWARF_REGS := 1
- endif
- HAVE_KVM_STAT_SUPPORT := 1
--PERF_HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET := 1
- PERF_HAVE_JITDUMP := 1
- 
- ###
-diff --git a/tools/perf/arch/x86/util/dwarf-regs.c b/tools/perf/arch/x86/util/dwarf-regs.c
-index 399c4a0a29d8..530905118cd4 100644
---- a/tools/perf/arch/x86/util/dwarf-regs.c
-+++ b/tools/perf/arch/x86/util/dwarf-regs.c
-@@ -6,112 +6,31 @@
-  * Written by Masami Hiramatsu <mhiramat@redhat.com>
-  */
- 
--#include <stddef.h>
- #include <errno.h> /* for EINVAL */
- #include <string.h> /* for strcmp */
--#include <linux/ptrace.h> /* for struct pt_regs */
--#include <linux/kernel.h> /* for offsetof */
-+#include <linux/kernel.h> /* for ARRAY_SIZE */
- #include <dwarf-regs.h>
- 
--/*
-- * See arch/x86/kernel/ptrace.c.
-- * Different from it:
-- *
-- *  - Since struct pt_regs is defined differently for user and kernel,
-- *    but we want to use 'ax, bx' instead of 'rax, rbx' (which is struct
-- *    field name of user's pt_regs), we make REG_OFFSET_NAME to accept
-- *    both string name and reg field name.
-- *
-- *  - Since accessing x86_32's pt_regs from x86_64 building is difficult
-- *    and vise versa, we simply fill offset with -1, so
-- *    get_arch_regstr() still works but regs_query_register_offset()
-- *    returns error.
-- *    The only inconvenience caused by it now is that we are not allowed
-- *    to generate BPF prologue for a x86_64 kernel if perf is built for
-- *    x86_32. This is really a rare usecase.
-- *
-- *  - Order is different from kernel's ptrace.c for get_arch_regstr(). Use
-- *    the order defined by dwarf.
-- */
-+#define DEFINE_DWARF_REGSTR_TABLE 1
-+#include "dwarf-regs-table.h"
- 
--struct pt_regs_offset {
--	const char *name;
--	int offset;
--};
--
--#define REG_OFFSET_END {.name = NULL, .offset = 0}
--
--#ifdef __x86_64__
--# define REG_OFFSET_NAME_64(n, r) {.name = n, .offset = offsetof(struct pt_regs, r)}
--# define REG_OFFSET_NAME_32(n, r) {.name = n, .offset = -1}
-+/* Return architecture dependent register string (for kprobe-tracer) */
-+const char *get_arch_regstr(unsigned int n)
-+{
-+#if defined(__i386__)
-+	size_t len = ARRAY_SIZE(x86_32_regstr_tbl);
- #else
--# define REG_OFFSET_NAME_64(n, r) {.name = n, .offset = -1}
--# define REG_OFFSET_NAME_32(n, r) {.name = n, .offset = offsetof(struct pt_regs, r)}
-+	size_t len = ARRAY_SIZE(x86_64_regstr_tbl);
- #endif
- 
--/* TODO: switching by dwarf address size */
--#ifndef __x86_64__
--static const struct pt_regs_offset x86_32_regoffset_table[] = {
--	REG_OFFSET_NAME_32("%ax",	eax),
--	REG_OFFSET_NAME_32("%cx",	ecx),
--	REG_OFFSET_NAME_32("%dx",	edx),
--	REG_OFFSET_NAME_32("%bx",	ebx),
--	REG_OFFSET_NAME_32("$stack",	esp),	/* Stack address instead of %sp */
--	REG_OFFSET_NAME_32("%bp",	ebp),
--	REG_OFFSET_NAME_32("%si",	esi),
--	REG_OFFSET_NAME_32("%di",	edi),
--	REG_OFFSET_END,
--};
-+	if (n >= len)
-+		return NULL;
- 
--#define regoffset_table x86_32_regoffset_table
-+#if defined(__i386__)
-+	return x86_32_regstr_tbl[n];
- #else
--static const struct pt_regs_offset x86_64_regoffset_table[] = {
--	REG_OFFSET_NAME_64("%ax",	rax),
--	REG_OFFSET_NAME_64("%dx",	rdx),
--	REG_OFFSET_NAME_64("%cx",	rcx),
--	REG_OFFSET_NAME_64("%bx",	rbx),
--	REG_OFFSET_NAME_64("%si",	rsi),
--	REG_OFFSET_NAME_64("%di",	rdi),
--	REG_OFFSET_NAME_64("%bp",	rbp),
--	REG_OFFSET_NAME_64("%sp",	rsp),
--	REG_OFFSET_NAME_64("%r8",	r8),
--	REG_OFFSET_NAME_64("%r9",	r9),
--	REG_OFFSET_NAME_64("%r10",	r10),
--	REG_OFFSET_NAME_64("%r11",	r11),
--	REG_OFFSET_NAME_64("%r12",	r12),
--	REG_OFFSET_NAME_64("%r13",	r13),
--	REG_OFFSET_NAME_64("%r14",	r14),
--	REG_OFFSET_NAME_64("%r15",	r15),
--	REG_OFFSET_END,
--};
--
--#define regoffset_table x86_64_regoffset_table
-+	return x86_64_regstr_tbl[n];
- #endif
--
--/* Minus 1 for the ending REG_OFFSET_END */
--#define ARCH_MAX_REGS ((sizeof(regoffset_table) / sizeof(regoffset_table[0])) - 1)
--
--/* Return architecture dependent register string (for kprobe-tracer) */
--const char *get_arch_regstr(unsigned int n)
--{
--	return (n < ARCH_MAX_REGS) ? regoffset_table[n].name : NULL;
--}
--
--/* Reuse code from arch/x86/kernel/ptrace.c */
--/**
-- * regs_query_register_offset() - query register offset from its name
-- * @name:	the name of a register
-- *
-- * regs_query_register_offset() returns the offset of a register in struct
-- * pt_regs from its name. If the name is invalid, this returns -EINVAL;
-- */
--int regs_query_register_offset(const char *name)
--{
--	const struct pt_regs_offset *roff;
--	for (roff = regoffset_table; roff->name != NULL; roff++)
--		if (!strcmp(roff->name, name))
--			return roff->offset;
--	return -EINVAL;
- }
- 
- struct dwarf_regs_idx {
-diff --git a/tools/perf/util/include/dwarf-regs.h b/tools/perf/util/include/dwarf-regs.h
-index 29a7d0546b82..fbdd7307e0c2 100644
---- a/tools/perf/util/include/dwarf-regs.h
-+++ b/tools/perf/util/include/dwarf-regs.h
-@@ -42,12 +42,4 @@ static inline void get_powerpc_regs(u32 raw_insn __maybe_unused, int is_source _
- void get_powerpc_regs(u32 raw_insn, int is_source, struct annotated_op_loc *op_loc);
- #endif
- 
--#ifdef HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET
--/*
-- * Arch should support fetching the offset of a register in pt_regs
-- * by its name. See kernel's regs_query_register_offset in
-- * arch/xxx/kernel/ptrace.c.
-- */
--int regs_query_register_offset(const char *name);
--#endif
- #endif
+ struct ins {
 -- 
 2.47.0.rc0.187.ge670bccf7e-goog
 
