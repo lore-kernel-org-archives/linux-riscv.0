@@ -4,84 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0793CCFB43F
-	for <linux-riscv@archiver.kernel.org>; Sat,  5 Oct 2024 21:32:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3961BCFB441
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Oct 2024 21:32:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:References:Mime-Version
 	:Message-Id:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ekzVB19EN7jauLOCJ78wxljSfbURRNAIp7KXfj+okc4=; b=k2eP03BSrORfOf
-	kTtlTlhZ64GoeQR9plDRNc9DqQ+/l1dTenmS1wRbIxy9yRK1NcuSkjLcM2Ukeh4CSwkS9uigIZleO
-	3wg3JiTBYoT9q9hiEO8DzdimfdFCqDdFBiSH4RMY7PDolZJtsohOtau5Yq0DgEaVFk+5pwnKb9j9s
-	g88UREUrC5faQqDSxtegKr8P94b+CKG65KX2uIBC9VjgamrnwU7sti2n1mUUW/nY/D77TwmhdIVMQ
-	ct2o9Y3OuP0M7zRASBXMBAC3pGfuFqSlxWMC4c3qoEADh2yMLsxPfRhKl1ZELvVgp3UEiv1gll3wb
-	h0B+AEHcwb199vOw0Gmg==;
+	List-Owner; bh=mw4DcsZjI2erYxJkizWt3JITeN6bxpKSdL5d82ebs7M=; b=BfsIK7MzocBoOM
+	Pi37p8BwDzYydsU9pzk6h3i9yzx1q+SpmOeNWxuDCPQJOhaexlFNJn87rJngscf2WpCbS5f3pVPm7
+	tK523VpGCJ/f+dKNiN3uq6r5e3m/xabvA9ds31sYPCuXF6vTLr2xnXBsrZUoTl0VUKRdgKPSozzGA
+	Dr3lh5PIOHveNXEPr6pRHBt4fW1VtRz+kx3ISLMLqupSQZmeoj707fSqsULEzo8isUl6g7Q5IpAOF
+	jhSQLnt82sdywMP6VDX6NETHbfvmlFbP1LSxO/1oG1YCzwPPRSSYjdK37sddHLTKxHNyJKbF54JEe
+	IFIa9OdWhfdkr5v6NTBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sxCNv-0000000Fz2b-0o5B;
-	Sat, 05 Oct 2024 21:32:19 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1sxCNw-0000000Fz3i-2qh3;
+	Sat, 05 Oct 2024 21:32:20 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sxAtc-0000000FqLv-0Rtu
-	for linux-riscv@bombadil.infradead.org;
-	Sat, 05 Oct 2024 19:56:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:To:From:Subject:
-	References:Mime-Version:Message-Id:In-Reply-To:Date:Sender:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=3UNBBKLriPYWF4cbzt+fW/Yb0JAtoFXD8tWOi1OErdE=; b=BEHntzWSRMGZGR5Knc8RfpTjTQ
-	cOLVkYy8e2nxaXr/Our067fb2HdDzZy2GHfBSFyYVCpBzAdTCRpsAMMvwhMfwRnPnUAKJ2rq/KQ+1
-	+/N51kYJphR7/axaEcJyoy7H/Cxd3cYU9UY0aoQm1j6gGOPw/Wmp625aX/nDB6poKxvj4kWJkb76Y
-	6xoGyqR6sWzDy1C4opq2Qg7R5UCxMFQoWw3+6gshz7pGC1BNqDiVIOP+e1P7hC+Pw1FpEA436f0Pw
-	sOVqXkhjczvP4Hb3bgkmZq6W+WM2ltN5gdcXQcdnD5qJ4YWwtDUoQj1RPL37lelG7MtIReYEhsTHU
-	aUiWmWxA==;
-Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sxAtX-000000045qT-23MO
+	id 1sxAtc-0000000FqLZ-00kw
 	for linux-riscv@lists.infradead.org;
-	Sat, 05 Oct 2024 19:56:54 +0000
-Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-6e2d1860a62so23748887b3.0
-        for <linux-riscv@lists.infradead.org>; Sat, 05 Oct 2024 12:56:50 -0700 (PDT)
+	Sat, 05 Oct 2024 19:56:57 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-e1159159528so5994379276.1
+        for <linux-riscv@lists.infradead.org>; Sat, 05 Oct 2024 12:56:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1728158209; x=1728763009; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1728158214; x=1728763014; darn=lists.infradead.org;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=3UNBBKLriPYWF4cbzt+fW/Yb0JAtoFXD8tWOi1OErdE=;
-        b=AptQNRsmCVWf/4GNNvIw0Pi4H3lX0U3gh/JIET4ryXij2BPtH/DCvb/21pkTlmR2xz
-         dKCJNGFMIFNgqhZJFwPWRkfAYEETqN+ydcxud1M92UyUGpxBnY2PoDvsDxB0i53WkFih
-         gLLyc0MH75zQtWO5m6QN0oe1t/wLDQAWd1qEh9GHj9uswnEjDwbY+Bfdz+WY11TrEZtA
-         gWFstxs+yNsN+FFZ/2iR9o8peFdFza91Xo3+fIY+L2eJkd2+SruYjxCN1T2Hz2xZwnlm
-         CEx15rzFMn7IxPLxRmAsSY1kDqUZwWEPTMtPkHAgkCtohQcKisToVwnbKgM0dgBzKtz5
-         tddg==
+        bh=LSL2ccbL1zMKXwe4tQXqPGcWrUHTWmz3veARUKGe9SA=;
+        b=OYRV86Oolq/HQpDeAVL2JoYUgHEBDsf0utYpcnn7EYGELvzyiGI8B6qizP1hcRNGB+
+         q7hkAz4oHkP6jM0LJlKNMiba1vpRHFPDjM1nCV9dLNuFtZ0DsUWqtJxN7kIBVj6GPGqU
+         jhh7j6a/xbnzi+b431FfOUKUenbWQrWJLwF5ARfg86X2YpjRKMl5zGJ797MgwV1swyeK
+         m6iCihVIcmwO8U9GOdaQkS51KFVJZtvk45KLQC7l372R04d7FCSyxUSTWd/R2OPUqnnJ
+         0k+MDX2QRlAVykVLWdHNOP2khKFzOvaFBvY5tZriforQVKjPEAUAiB3VY1oeBgbwvRzn
+         YiAw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728158209; x=1728763009;
+        d=1e100.net; s=20230601; t=1728158214; x=1728763014;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=3UNBBKLriPYWF4cbzt+fW/Yb0JAtoFXD8tWOi1OErdE=;
-        b=AbENYGF5f2solG+oy0DG5VK+6DhdFdPJOkLMxudjuP5SSJGW1NLJmK7EnGUGaT4I8G
-         pk7pl84XGivYVnu/liBbMYHu84z/V9U3RXtq5VvHQkvVKsdlQR+s0wGbUG5flmABhP8y
-         mvd2/aXcPRRIiUh3b0UAKbhcl8z3pjIKxErM2R02fFdHc9A4jV2SlRjEC8TKIqSkQyBf
-         +Uk4XWurwtRTAcYulD7Y3fjEyWcaYjc/Jh7j1s3GVoKu3PFozRM8TY0OpAjIc+abaG2Q
-         bx69Vum4kQ/Zw/WlNKhGJQnZS7Ua2uF5p28PjpzUs9IvSVqpTd1L3d6QPOkv4O+ToZAC
-         wRTQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVAd7MopD01DdnauS5Miil+UUAEG1SD1M0CXZwdUq4kO+ZbdoOLzqqwSrjFcMENNW3r6wdGMevhsfv+sg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzL9QnGt6Q0QhfYVHSP3zcyYn4SnSZegX0TAqmwMBLHaYfpaIRp
-	JTHjJUc0jC/YfQpNUyd6owBEPQP08g2f7fh8C/sgHXJ6mt49jSBd8donnca0wJ4ZeDwGlT2jqne
-	xgbKfgA==
-X-Google-Smtp-Source: AGHT+IGd8n4duwoirMvSpqfOv40zKZGdVHyzgM8WiLhDFeOCNQk3EZ65qgcXqmWv7lPgqHaXqfVgKLepfmDX
+        bh=LSL2ccbL1zMKXwe4tQXqPGcWrUHTWmz3veARUKGe9SA=;
+        b=v7uj7WUlwnpyc4MoK8Dh1km0/P9/6le+EFlCNJtSkT9HyN3A5Y4jz9oiGmYfzQJsT1
+         mmBKP7ZfsXFMJfZJPFllXUXgtj2SLBKIscNl53SBXsWxkKw0RcvhTohA9Bt9u72vU5AF
+         mobaX0nMJ3sKQsK1CVQzTfX+98PgctrWi3ZAUQ6p/xuIHuBQxm8McuBcj8bddOWKMTxc
+         w2o4qzk+GkgkpViz3AYUISwB7xFrbcSi4R9EyRLXLBLF8USWCDWYvSzJql7aHYF1S6uJ
+         xtgsH3I3QrzrOjbGL50lXtK9m+1YVBhOVOvpEIoM9m4HUnYYkg5rVbJJlExLMRAabKb+
+         B/Eg==
+X-Forwarded-Encrypted: i=1; AJvYcCUl6K4axsaF8kZi+0EvCG4uPrDRh4lHITrGFuUvqEQLvof3UFiIShp//FXTaHRweLU02WhGPLfJBCLeSw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxV5FRVSw9YZODWWagrTlb/9l6fpHJK/+fk/HGIvcLoIo+JTgKF
+	emxYNiA7pZeQXgB5NQMD59jA3myTN0FDaOhcMdgJq/ZBUKqe223IDzdDSl0Wo/6fBMjKJxFeggw
+	NyWkUlg==
+X-Google-Smtp-Source: AGHT+IFqH49xvkBQa7keg1rzZuWU/08D0ii8FTpSBX6sVpAkmGWs4m8R5YhQwlrDd8JE/onJIqb9MBMS1dlP
 X-Received: from irogers.svl.corp.google.com ([2620:15c:2a3:200:4c2:5b4d:8797:7249])
- (user=irogers job=sendgmr) by 2002:a05:690c:2b8e:b0:6dd:d138:d823 with SMTP
- id 00721157ae682-6e2c72adbdamr920857b3.8.1728158209657; Sat, 05 Oct 2024
- 12:56:49 -0700 (PDT)
-Date: Sat,  5 Oct 2024 12:55:33 -0700
+ (user=irogers job=sendgmr) by 2002:a25:6f05:0:b0:e20:cfc2:a326 with SMTP id
+ 3f1490d57ef6-e28932a484bmr64009276.6.1728158214036; Sat, 05 Oct 2024 12:56:54
+ -0700 (PDT)
+Date: Sat,  5 Oct 2024 12:55:35 -0700
 In-Reply-To: <20241005195541.380070-1-irogers@google.com>
-Message-Id: <20241005195541.380070-24-irogers@google.com>
+Message-Id: <20241005195541.380070-26-irogers@google.com>
 Mime-Version: 1.0
 References: <20241005195541.380070-1-irogers@google.com>
 X-Mailer: git-send-email 2.47.0.rc0.187.ge670bccf7e-goog
-Subject: [PATCH v2 23/31] perf mips: Remove dwarf-regs.c
+Subject: [PATCH v2 25/31] perf riscv: Remove dwarf-regs.c and add dwarf-regs-table.h
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -108,8 +93,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
 	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241005_205651_707830_ACDB1135 
-X-CRM114-Status: GOOD (  19.66  )
+X-CRM114-CacheID: sfid-20241005_125656_360241_C8A67CFC 
+X-CRM114-Status: GOOD (  16.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,103 +112,130 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 The file just provides the function get_arch_regstr, however, if in
-the only caller get_dwarf_regstr EM_HOST is used for the EM_NONE case
-the function can never be called. So remove as dead code. Tidy up the
-EM_NONE cases for mips in dwarf-regs.c.
+the only caller get_dwarf_regstr EM_HOST is used for the EM_NONE case,
+and the register table is provided in a header file, the function can
+never be called. So remove as dead code. Tidy up the EM_NONE cases for
+riscv in dwarf-regs.c.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/arch/mips/util/Build        |  1 -
- tools/perf/arch/mips/util/dwarf-regs.c | 38 --------------------------
- tools/perf/util/dwarf-regs.c           |  4 +--
- tools/perf/util/include/dwarf-regs.h   |  2 +-
- 4 files changed, 3 insertions(+), 42 deletions(-)
- delete mode 100644 tools/perf/arch/mips/util/dwarf-regs.c
+ .../dwarf-regs-table.h}                       | 32 ++++---------------
+ tools/perf/arch/riscv/util/Build              |  1 -
+ tools/perf/util/dwarf-regs.c                  |  7 ++--
+ tools/perf/util/include/dwarf-regs.h          |  2 +-
+ 4 files changed, 12 insertions(+), 30 deletions(-)
+ rename tools/perf/arch/riscv/{util/dwarf-regs.c => include/dwarf-regs-table.h} (56%)
 
-diff --git a/tools/perf/arch/mips/util/Build b/tools/perf/arch/mips/util/Build
-index b328109fc16c..691fa2051958 100644
---- a/tools/perf/arch/mips/util/Build
-+++ b/tools/perf/arch/mips/util/Build
-@@ -1,3 +1,2 @@
- perf-util-y += perf_regs.o
--perf-util-$(CONFIG_LIBDW) += dwarf-regs.o
- perf-util-$(CONFIG_LOCAL_LIBUNWIND) += unwind-libunwind.o
-diff --git a/tools/perf/arch/mips/util/dwarf-regs.c b/tools/perf/arch/mips/util/dwarf-regs.c
-deleted file mode 100644
-index 25c13a91c2a7..000000000000
---- a/tools/perf/arch/mips/util/dwarf-regs.c
-+++ /dev/null
-@@ -1,38 +0,0 @@
+diff --git a/tools/perf/arch/riscv/util/dwarf-regs.c b/tools/perf/arch/riscv/include/dwarf-regs-table.h
+similarity index 56%
+rename from tools/perf/arch/riscv/util/dwarf-regs.c
+rename to tools/perf/arch/riscv/include/dwarf-regs-table.h
+index a9c4402ae57e..a45b63a6d5a8 100644
+--- a/tools/perf/arch/riscv/util/dwarf-regs.c
++++ b/tools/perf/arch/riscv/include/dwarf-regs-table.h
+@@ -1,23 +1,10 @@
 -// SPDX-License-Identifier: GPL-2.0
 -/*
-- * dwarf-regs.c : Mapping of DWARF debug register numbers into register names.
-- *
-- * Copyright (C) 2013 Cavium, Inc.
-- *
-- * This program is free software; you can redistribute it and/or modify
-- * it under the terms of the GNU General Public License as published by
-- * the Free Software Foundation; either version 2 of the License, or
-- * (at your option) any later version.
-- *
-- * This program is distributed in the hope that it will be useful,
-- * but WITHOUT ANY WARRANTY; without even the implied warranty of
-- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-- * GNU General Public License for more details.
-- *
+- * Copyright (C) 2019 Hangzhou C-SKY Microsystems co.,ltd.
+- * Mapping of DWARF debug register numbers into register names.
 - */
--
--#include <stdio.h>
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifdef DEFINE_DWARF_REGSTR_TABLE
++/* This is included in perf/util/dwarf-regs.c */
+ 
+-#include <stddef.h>
+-#include <errno.h> /* for EINVAL */
+-#include <string.h> /* for strcmp */
 -#include <dwarf-regs.h>
--
--static const char *mips_gpr_names[32] = {
--	"$0", "$1", "$2", "$3", "$4", "$5", "$6", "$7", "$8", "$9",
--	"$10", "$11", "$12", "$13", "$14", "$15", "$16", "$17", "$18", "$19",
--	"$20", "$21", "$22", "$23", "$24", "$25", "$26", "$27", "$28", "$29",
--	"$30", "$31"
++#define REG_DWARFNUM_NAME(reg, idx)	[idx] = "%" #reg
+ 
+-struct regs_dwarfnum {
+-	const char *name;
+-	unsigned int dwarfnum;
 -};
+-
+-#define REG_DWARFNUM_NAME(r, num) {.name = r, .dwarfnum = num}
+-#define REG_DWARFNUM_END {.name = NULL, .dwarfnum = 0}
+-
+-struct regs_dwarfnum riscv_dwarf_regs_table[] = {
++static const char * const riscv_regstr_tbl[] = {
+ 	REG_DWARFNUM_NAME("%zero", 0),
+ 	REG_DWARFNUM_NAME("%ra", 1),
+ 	REG_DWARFNUM_NAME("%sp", 2),
+@@ -50,13 +37,6 @@ struct regs_dwarfnum riscv_dwarf_regs_table[] = {
+ 	REG_DWARFNUM_NAME("%t4", 29),
+ 	REG_DWARFNUM_NAME("%t5", 30),
+ 	REG_DWARFNUM_NAME("%t6", 31),
+-	REG_DWARFNUM_END,
+ };
+ 
+-#define RISCV_MAX_REGS ((sizeof(riscv_dwarf_regs_table) / \
+-		 sizeof(riscv_dwarf_regs_table[0])) - 1)
 -
 -const char *get_arch_regstr(unsigned int n)
 -{
--	if (n < 32)
--		return mips_gpr_names[n];
--	if (n == 64)
--		return "hi";
--	if (n == 65)
--		return "lo";
--	return NULL;
+-	return (n < RISCV_MAX_REGS) ? riscv_dwarf_regs_table[n].name : NULL;
 -}
++#endif
+diff --git a/tools/perf/arch/riscv/util/Build b/tools/perf/arch/riscv/util/Build
+index 8f93091b8345..58a672246024 100644
+--- a/tools/perf/arch/riscv/util/Build
++++ b/tools/perf/arch/riscv/util/Build
+@@ -2,5 +2,4 @@ perf-util-y += perf_regs.o
+ perf-util-y += header.o
+ 
+ perf-util-$(CONFIG_LIBTRACEEVENT) += kvm-stat.o
+-perf-util-$(CONFIG_LIBDW) += dwarf-regs.o
+ perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
 diff --git a/tools/perf/util/dwarf-regs.c b/tools/perf/util/dwarf-regs.c
-index efc41d0fbee9..d536964df43c 100644
+index 3d98c2bf6035..2c6b197556dd 100644
 --- a/tools/perf/util/dwarf-regs.c
 +++ b/tools/perf/util/dwarf-regs.c
-@@ -32,7 +32,7 @@
- const char *get_dwarf_regstr(unsigned int n, unsigned int machine, unsigned int flags)
+@@ -20,6 +20,7 @@
+ #include "../arch/arm64/include/dwarf-regs-table.h"
+ #include "../arch/sh/include/dwarf-regs-table.h"
+ #include "../arch/powerpc/include/dwarf-regs-table.h"
++#include "../arch/riscv/include/dwarf-regs-table.h"
+ #include "../arch/s390/include/dwarf-regs-table.h"
+ #include "../arch/sparc/include/dwarf-regs-table.h"
+ #include "../arch/xtensa/include/dwarf-regs-table.h"
+@@ -33,7 +34,7 @@ const char *get_dwarf_regstr(unsigned int n, unsigned int machine, unsigned int
  {
  #if EM_HOST == EM_X86_64 || EM_HOST == EM_386 || EM_HOST == EM_AARCH64 || EM_HOST == EM_ARM \
--    || EM_HOST == EM_CSKY || EM_HOST == EM_LOONGARCH
-+    || EM_HOST == EM_CSKY || EM_HOST == EM_LOONGARCH || EM_HOST == EM_MIPS
+     || EM_HOST == EM_CSKY || EM_HOST == EM_LOONGARCH || EM_HOST == EM_MIPS || EM_HOST == EM_PPC \
+-    || EM_HOST == EM_PPC64
++    || EM_HOST == EM_PPC64 || EM_HOST == EM_RISCV
  	if (machine == EM_NONE) {
  		/* Generic arch - use host arch */
  		machine = EM_HOST;
-@@ -40,7 +40,7 @@ const char *get_dwarf_regstr(unsigned int n, unsigned int machine, unsigned int
- #endif
+@@ -42,7 +43,7 @@ const char *get_dwarf_regstr(unsigned int n, unsigned int machine, unsigned int
  	switch (machine) {
  #if EM_HOST != EM_X86_64 && EM_HOST != EM_386 && EM_HOST != EM_AARCH64 && EM_HOST != EM_ARM \
--    && EM_HOST != EM_CSKY && EM_HOST != EM_LOONGARCH
-+    && EM_HOST != EM_CSKY && EM_HOST != EM_LOONGARCH && EM_HOST != EM_MIPS
+     && EM_HOST != EM_CSKY && EM_HOST != EM_LOONGARCH && EM_HOST != EM_MIPS && EM_HOST != EM_PPC \
+-    && EM_HOST != EM_PPC64
++    && EM_HOST != EM_PPC64 && EM_HOST != EM_RISCV
  	case EM_NONE:	/* Generic arch - use host arch */
  		return get_arch_regstr(n);
  #endif
+@@ -63,6 +64,8 @@ const char *get_dwarf_regstr(unsigned int n, unsigned int machine, unsigned int
+ 	case EM_PPC:
+ 	case EM_PPC64:
+ 		return __get_dwarf_regstr(powerpc_regstr_tbl, n);
++	case EM_RISCV:
++		return __get_dwarf_regstr(riscv_regstr_tbl, n);
+ 	case EM_SPARC:
+ 	case EM_SPARCV9:
+ 		return __get_dwarf_regstr(sparc_regstr_tbl, n);
 diff --git a/tools/perf/util/include/dwarf-regs.h b/tools/perf/util/include/dwarf-regs.h
-index 4f205a58db89..1f771b635789 100644
+index 1763280855ce..35f4f33205da 100644
 --- a/tools/perf/util/include/dwarf-regs.h
 +++ b/tools/perf/util/include/dwarf-regs.h
-@@ -80,7 +80,7 @@
- 
+@@ -81,7 +81,7 @@
  #ifdef HAVE_LIBDW_SUPPORT
  #if !defined(__x86_64__) && !defined(__i386__) && !defined(__aarch64__) && !defined(__arm__) \
--    && !defined(__loongarch__)
-+    && !defined(__loongarch__) && !defined(__mips__)
+     && !defined(__loongarch__) && !defined(__mips__) && !defined(__powerpc__) \
+-    && !defined(__powerpc64__)
++    && !defined(__powerpc64__) && !defined(__riscv__)
  const char *get_arch_regstr(unsigned int n);
  #endif
  
