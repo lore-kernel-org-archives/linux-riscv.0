@@ -4,69 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF26FCFB42E
-	for <linux-riscv@archiver.kernel.org>; Sat,  5 Oct 2024 20:33:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ED36CFB42E
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Oct 2024 20:33:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:References:Mime-Version
 	:Message-Id:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Uai579e+WbFGUc2mtSt4XLLkqdH2KE1cwivT3OHtB5I=; b=EM/R2wQlXX7cwL
-	GyHiFE9YiorMqT10VMgg+4gHscwJ+sQCiAAaNylDPn9XQEUw2zYCfReWprMzMUN5QO89CIFGJp1B1
-	oag7NkHmfhMoFzu4qbpu7LrbH5OR0Y7R/DMZODYNrOtIoNxfdBO6Y3o7GBaylMek+aJG5xLG/cLKz
-	Jr/kU7AQfzGaBzLiJEFUXogsvQekFGHYXC9f0dYdjxloA/j96//oV+/hch9aLiGOE6iq5J8R+xExj
-	hcAIUw7HbVLLDhjtUbp+17GB1vdY8KfOTrIeA6ZVm426vtnnmfYAS4PbaeLE+uUvDJRQDMTPmSR+O
-	I/hZoMc0oBzb0PQKI63w==;
+	List-Owner; bh=gcYSEbkNOMST5+I/wlNCEpa577Vk5jWy3K8AAB30mWM=; b=Z4sE7yGHCCjK82
+	i3TVtYE06CgcMgE1PM/qH7zXdB5j/LVjJrG7xfcfHeyfByASNbsqdeeCV/kmFoWEHgK4en6/cJJSt
+	s3E30LJxewg2i1yfcImpvlYoSVJ1jNTO11R6Hd/4iQiET+GRIgQojl+NdeJcea7aqAEQGfIXT+g5c
+	HGcnibI+GQ7R08SnTcvGEGEIB8BMqu7iQJEdg1+YNbmiI3QN5DC+/JHGzCV9Vc12nAxLdloftj16g
+	Rv6UkJgB945VzzMHH27OOE9JiX3mdacEeNPXkpWjRxei/7xjd/Kk8a/bZEZgZQdrNmK7B4Ngk/BoZ
+	F8ooEnHaH5hNw8YqEaaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sxBT7-0000000Fuxk-36GN;
-	Sat, 05 Oct 2024 20:33:37 +0000
-Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
+	id 1sxBT8-0000000Fuy5-1sw4;
+	Sat, 05 Oct 2024 20:33:38 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sxAtp-0000000FqSE-1cH5
-	for linux-riscv@lists.infradead.org;
+	id 1sxAtq-0000000FqTH-2riy
+	for linux-riscv@bombadil.infradead.org;
 	Sat, 05 Oct 2024 19:57:10 +0000
-Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-e28690bc290so4811026276.1
-        for <linux-riscv@lists.infradead.org>; Sat, 05 Oct 2024 12:57:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:To:From:Subject:
+	References:Mime-Version:Message-Id:In-Reply-To:Date:Sender:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=LSNh7O2trPUtVrtwxznrhYE09HyCzuCy8rukfDtx/KY=; b=bPpA2TbdvGgtycJQbBeWQofRoq
+	R+sqtX3w/nvcmHM67SOYdLFaRiFL8IjcJVTsxMCT01H7koUgVmYit5Yh7xOFF0oYfWnJnF0I5Uzgu
+	6WDHNMYJVQfHsabWdeVipTJdSdlXg5X6cZAcawlJxLtIaeXN7/rF90Ez9agVpNU0mij7rFuUD4yEj
+	kDpbxHxfdrNYgy6g34no3/VKeYKZ7wA8SLfMjjWfY9n9ns639QvxVrKufIY8w3A38KJWVdDUqBHbF
+	gXn/QGdYru5yLWbZ9gcub13UKbA0mTDrGkLwhBHbtnTWHHdoXXIS9JUXDcsK2BQzGbp/vPUnd0cWQ
+	3laz0ZMg==;
+Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1sxAtn-000000045s1-2Wjt
+	for linux-riscv@lists.infradead.org;
+	Sat, 05 Oct 2024 19:57:09 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6e22f0be237so59587297b3.1
+        for <linux-riscv@lists.infradead.org>; Sat, 05 Oct 2024 12:57:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1728158228; x=1728763028; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1728158226; x=1728763026; darn=lists.infradead.org;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=nCot8RtXgODmKw1CZDuIEw0rJqcYXwewbxiKwbR/4js=;
-        b=njbB/JUkFoAh0oqv0Klm7pZNNaupa8U5PpHoxQRJ3GvvSz0lUzQdgVP/8tpWm7+tHM
-         Y25LFiuVtoVXYC80tZVSMKYycK2fexY4cIdZygD3dFLi4LwCS29pNDJV3ja3vbt4SAVP
-         kZFhARXqJmYzyv9Yg3q95fAsPVQu68QNkjTawij/bDUmwwMLUU9/hqcMsV/yyb/IBwbM
-         scxK7Yqb23nzGrBKcZ1FA+RmXGwRdxlfSbGyyyP/gYbNJJ/bgW5zaRIE58avtAsG3Ii9
-         ajwWT4fDMFEZ1YQ6POJC9KQqFhiDjX62Xrlq2BzaGo9/YMUpQEAmuw1egmIKI0se4ppM
-         XlTg==
+        bh=LSNh7O2trPUtVrtwxznrhYE09HyCzuCy8rukfDtx/KY=;
+        b=feus5aMf1Fvc2qQb1W8oUMA326ck1CV0NP6Ks5iy4Qd6UKHP4TGja+FpYo+eLNXygX
+         pzhQZy7RAJ7Za04URUuRYwLKuf1RJJD7EgALsLJf+RlCO11Ii5oWhjOK8TP32I69unid
+         OIFS52MCNFnRnxKyhtOaPg3kOqUNCC1+53w7LavwKTSVylGYfHiszyXutephZW50f7HE
+         H9WG8AAWiA0NvMznLXfb0qcHjUrzUyYji3SqS/5XDoBC1Pmh3qK3lYOlIBb61KX8oY5u
+         IdklXb+SGyAeTGYLM8ATuacG6EYXhQcQ9rZjiIvPbt2B/oAHMd56MqiJid+dw+jdnBtT
+         tvTQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728158228; x=1728763028;
+        d=1e100.net; s=20230601; t=1728158226; x=1728763026;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=nCot8RtXgODmKw1CZDuIEw0rJqcYXwewbxiKwbR/4js=;
-        b=VJbKUjEBbfVIMLbmCtpMQIiK7kd9TlMWEpS/bswNEnjhjSm6GM4tLg6vUOQasZEGWn
-         81s1gVuPSp7l4u50EIePtEYxJiAPK9RLzWQw+28MF9b/vWf/vl32ZDiKbllePu+ZQDsu
-         VCn7f4h2hEOso59x0w0GPs7kJxvpbR7e2Xx1cDLcBnqJK2mNc0yEH6WOMckPdFBh5kPI
-         iS1TGs0AqbMTpkK8JjSGO8uzzc90c2zk8sfNzmqrxfCPzw8zFwfeAjbKr6/BEXrwKkog
-         iDwIZwvNUrN81BXw5WS4jC+pMG3/Acox7DQWeaZM+4v8UHJkZoxDbcTIwsVFnJcZ7wEg
-         Z40Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWjGvNjhbOdAKXSZkqHxx8eEYe96fX7FU8jFmcciIYBFbZsdmb22IfjAXOGzPcRsYk0OHej7vmDQl3wmw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzEiTOzHuIoajKRHH/CkgGDyNWZiJ62SyX2l38xsIkT4gd40grg
-	ZXMtZTFRd55mu4GdF6vRn4lQm2LdZSxrtYi0GYLLO32TScS9r+euHgf4wZ80BlfE22GP0nr46sU
-	HA1sPBg==
-X-Google-Smtp-Source: AGHT+IG4VTvKqB1IWifVabjZBEQn/lThARIXb4Kk+k0+M4seYXfuOdgdzRDz+Pov1wdznx/1s442fbvFWx2c
+        bh=LSNh7O2trPUtVrtwxznrhYE09HyCzuCy8rukfDtx/KY=;
+        b=ZGAhMHwR0ZPtdCraIA2Btux88BS/F2SnnnzCpadC2mckmRO0cC379DHjO6m10C+PJs
+         kWqBMSGTT39yPWrmK3qV1EXG8MpNefa5JrTivb5yZZ9lUpi5Cv1RMVOyoc+weLV9O0Tx
+         Sw+dItsVUvERdZTI+co5vKg8u8wsyZ0qqv/5YHwSdP+0NPRBkUy5ceV6vAEezW+9hxmF
+         eDOSRhVZI5ld22+rjzWW14IM40KOwNLRMhn3pZBTaG8/gkpydo+X8XoJmTAGI1d4xmE6
+         XoHSC7/m4/0srFB9zsM/tJ74OuRy4meHlbOEkiDeMN+88a6sEvsaBDwfMDMQXQILDxTs
+         gHcw==
+X-Forwarded-Encrypted: i=1; AJvYcCUv/PSjkvOqDeN42iVYzMZq8t55q8CKcUQytSJLVsLT4HHojM+J0OGQAN6uWekUk4E/klME42Eja1TELA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxXc5R7FIb6t4dZcTzHuBG0/9ZMQhS51/ipqxbnuVkCSF1KzcZ8
+	NwN9mif1rPZ12OJw5E/Oke1PamEjp7/qJ/A2/SKIWWNjOMvs8INqu5xVWoMHLf8lYjaiKX+VT33
+	7nar1ow==
+X-Google-Smtp-Source: AGHT+IHa7tzQlt8ZfJU9HM6CpUwYm+2RPIugXPlK83fzJL4/DRA+kOB4v30bsPjrBffyPaLJb/8aQ0jYC2TM
 X-Received: from irogers.svl.corp.google.com ([2620:15c:2a3:200:4c2:5b4d:8797:7249])
- (user=irogers job=sendgmr) by 2002:a25:c7d2:0:b0:e20:298c:541 with SMTP id
- 3f1490d57ef6-e2893945553mr4851276.9.1728158227843; Sat, 05 Oct 2024 12:57:07
- -0700 (PDT)
-Date: Sat,  5 Oct 2024 12:55:41 -0700
+ (user=irogers job=sendgmr) by 2002:a05:690c:2b8e:b0:6dd:d138:d823 with SMTP
+ id 00721157ae682-6e2c72adbdamr920947b3.8.1728158225532; Sat, 05 Oct 2024
+ 12:57:05 -0700 (PDT)
+Date: Sat,  5 Oct 2024 12:55:40 -0700
 In-Reply-To: <20241005195541.380070-1-irogers@google.com>
-Message-Id: <20241005195541.380070-32-irogers@google.com>
+Message-Id: <20241005195541.380070-31-irogers@google.com>
 Mime-Version: 1.0
 References: <20241005195541.380070-1-irogers@google.com>
 X-Mailer: git-send-email 2.47.0.rc0.187.ge670bccf7e-goog
-Subject: [PATCH v2 31/31] perf build: Remove PERF_HAVE_DWARF_REGS
+Subject: [PATCH v2 30/31] perf dwarf-regs: Remove get_arch_regstr code
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -93,8 +108,9 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
 	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241005_125709_448191_9CEF68F7 
-X-CRM114-Status: GOOD (  14.80  )
+X-CRM114-CacheID: sfid-20241005_205707_797193_69FA8B19 
+X-CRM114-Status: UNSURE (   9.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,194 +127,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-PERF_HAVE_DWARF_REGS was true when an architecture had a dwarf-regs.c
-file. There are no more architecture dwarf-regs.c files, selection is
-done using constants from the ELF file rather than conditional
-compilation. When removing PERF_HAVE_DWARF_REGS was the only variable
-in the Makefile, remove the Makefile.
-
-Add missing SPDX for RISC-V Makefile.
+get_arch_regstr no longer exists so remove declaration. Associated ifs
+and switches are made unconditional.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/Makefile.config         | 13 ++++---------
- tools/perf/arch/arm/Makefile       |  3 ---
- tools/perf/arch/arm64/Makefile     |  3 ---
- tools/perf/arch/csky/Makefile      |  4 ----
- tools/perf/arch/loongarch/Makefile |  3 ---
- tools/perf/arch/mips/Makefile      |  4 ----
- tools/perf/arch/powerpc/Makefile   |  4 ----
- tools/perf/arch/riscv/Makefile     |  4 +---
- tools/perf/arch/s390/Makefile      |  3 ---
- tools/perf/arch/sh/Makefile        |  4 ----
- tools/perf/arch/sparc/Makefile     |  4 ----
- tools/perf/arch/x86/Makefile       |  3 ---
- tools/perf/arch/xtensa/Makefile    |  4 ----
- 13 files changed, 5 insertions(+), 51 deletions(-)
- delete mode 100644 tools/perf/arch/csky/Makefile
- delete mode 100644 tools/perf/arch/sh/Makefile
- delete mode 100644 tools/perf/arch/xtensa/Makefile
+ tools/perf/util/dwarf-regs.c         | 12 ------------
+ tools/perf/util/include/dwarf-regs.h |  7 -------
+ 2 files changed, 19 deletions(-)
 
-diff --git a/tools/perf/Makefile.config b/tools/perf/Makefile.config
-index 00340c6ce3a9..b5a7e952ad0a 100644
---- a/tools/perf/Makefile.config
-+++ b/tools/perf/Makefile.config
-@@ -548,15 +548,10 @@ ifndef NO_LIBELF
-   endif
+diff --git a/tools/perf/util/dwarf-regs.c b/tools/perf/util/dwarf-regs.c
+index 05fff75a8f59..28a1cfdf26d4 100644
+--- a/tools/perf/util/dwarf-regs.c
++++ b/tools/perf/util/dwarf-regs.c
+@@ -32,23 +32,11 @@
+ /* Return architecture dependent register string (for kprobe-tracer) */
+ const char *get_dwarf_regstr(unsigned int n, unsigned int machine, unsigned int flags)
+ {
+-#if EM_HOST == EM_X86_64 || EM_HOST == EM_386 || EM_HOST == EM_AARCH64 || EM_HOST == EM_ARM \
+-    || EM_HOST == EM_CSKY || EM_HOST == EM_LOONGARCH || EM_HOST == EM_MIPS || EM_HOST == EM_PPC \
+-    || EM_HOST == EM_PPC64 || EM_HOST == EM_RISCV || EM_HOST == EM_S390 || EM_HOST == EM_SH \
+-    || EM_HOST == EM_SPARC || EM_HOST == EM_SPARCV9 || EM_HOST == EM_XTENSA
+ 	if (machine == EM_NONE) {
+ 		/* Generic arch - use host arch */
+ 		machine = EM_HOST;
+ 	}
+-#endif
+ 	switch (machine) {
+-#if EM_HOST != EM_X86_64 && EM_HOST != EM_386 && EM_HOST != EM_AARCH64 && EM_HOST != EM_ARM \
+-    && EM_HOST != EM_CSKY && EM_HOST != EM_LOONGARCH && EM_HOST != EM_MIPS && EM_HOST != EM_PPC \
+-    && EM_HOST != EM_PPC64 && EM_HOST != EM_RISCV && EM_HOST != EM_S390 && EM_HOST != EM_SH \
+-    && EM_HOST != EM_SPARC && EM_HOST != EM_SPARCV9 && EM_HOST != EM_XTENSA
+-	case EM_NONE:	/* Generic arch - use host arch */
+-		return get_arch_regstr(n);
+-#endif
+ 	case EM_386:
+ 		return __get_dwarf_regstr(x86_32_regstr_tbl, n);
+ 	case EM_X86_64:
+diff --git a/tools/perf/util/include/dwarf-regs.h b/tools/perf/util/include/dwarf-regs.h
+index 9dfc9abfdddd..6ee95cc69917 100644
+--- a/tools/perf/util/include/dwarf-regs.h
++++ b/tools/perf/util/include/dwarf-regs.h
+@@ -79,13 +79,6 @@
+ #define DWARF_REG_FB  0xd3affb /* random number */
  
-   ifndef NO_LIBDW
--    ifeq ($(origin PERF_HAVE_DWARF_REGS), undefined)
--      $(warning DWARF register mappings have not been defined for architecture $(SRCARCH), DWARF support disabled)
--      NO_LIBDW := 1
--    else
--      CFLAGS += -DHAVE_LIBDW_SUPPORT $(LIBDW_CFLAGS)
--      LDFLAGS += $(LIBDW_LDFLAGS)
--      EXTLIBS += ${DWARFLIBS}
--      $(call detected,CONFIG_LIBDW)
--    endif # PERF_HAVE_DWARF_REGS
-+    CFLAGS += -DHAVE_LIBDW_SUPPORT $(LIBDW_CFLAGS)
-+    LDFLAGS += $(LIBDW_LDFLAGS)
-+    EXTLIBS += ${DWARFLIBS}
-+    $(call detected,CONFIG_LIBDW)
-   endif # NO_LIBDW
- 
-   ifndef NO_LIBBPF
-diff --git a/tools/perf/arch/arm/Makefile b/tools/perf/arch/arm/Makefile
-index 9b164d379548..8b59ce8efb89 100644
---- a/tools/perf/arch/arm/Makefile
-+++ b/tools/perf/arch/arm/Makefile
-@@ -1,5 +1,2 @@
- # SPDX-License-Identifier: GPL-2.0-only
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
- PERF_HAVE_JITDUMP := 1
-diff --git a/tools/perf/arch/arm64/Makefile b/tools/perf/arch/arm64/Makefile
-index ca2e35961287..91570d5d428e 100644
---- a/tools/perf/arch/arm64/Makefile
-+++ b/tools/perf/arch/arm64/Makefile
-@@ -1,7 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
- PERF_HAVE_JITDUMP := 1
- HAVE_KVM_STAT_SUPPORT := 1
- 
-diff --git a/tools/perf/arch/csky/Makefile b/tools/perf/arch/csky/Makefile
-deleted file mode 100644
-index 119b06a64bed..000000000000
---- a/tools/perf/arch/csky/Makefile
-+++ /dev/null
-@@ -1,4 +0,0 @@
--# SPDX-License-Identifier: GPL-2.0-only
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
-diff --git a/tools/perf/arch/loongarch/Makefile b/tools/perf/arch/loongarch/Makefile
-index 79b432744296..52544d59245b 100644
---- a/tools/perf/arch/loongarch/Makefile
-+++ b/tools/perf/arch/loongarch/Makefile
-@@ -1,7 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
- PERF_HAVE_JITDUMP := 1
- HAVE_KVM_STAT_SUPPORT := 1
- 
-diff --git a/tools/perf/arch/mips/Makefile b/tools/perf/arch/mips/Makefile
-index 733f7b76f52d..827168f1077a 100644
---- a/tools/perf/arch/mips/Makefile
-+++ b/tools/perf/arch/mips/Makefile
-@@ -1,8 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
+ #ifdef HAVE_LIBDW_SUPPORT
+-#if !defined(__x86_64__) && !defined(__i386__) && !defined(__aarch64__) && !defined(__arm__) \
+-    && !defined(__loongarch__) && !defined(__mips__) && !defined(__powerpc__) \
+-    && !defined(__powerpc64__) && !defined(__riscv__) && !defined(__s390x__) && !defined(__sh__) \
+-    && !defined(__sparc64__) && !defined(__sparc__) && !defined(__xtensa__)
+-const char *get_arch_regstr(unsigned int n);
+-#endif
 -
- # Syscall table generation for perf
- out    := $(OUTPUT)arch/mips/include/generated/asm
- header := $(out)/syscalls_n64.c
-diff --git a/tools/perf/arch/powerpc/Makefile b/tools/perf/arch/powerpc/Makefile
-index ae05727835d8..dc8f4fb8e324 100644
---- a/tools/perf/arch/powerpc/Makefile
-+++ b/tools/perf/arch/powerpc/Makefile
-@@ -1,8 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
--
- HAVE_KVM_STAT_SUPPORT := 1
- PERF_HAVE_JITDUMP := 1
+ const char *get_csky_regstr(unsigned int n, unsigned int flags);
  
-diff --git a/tools/perf/arch/riscv/Makefile b/tools/perf/arch/riscv/Makefile
-index f01ab2171fd0..087e099fb453 100644
---- a/tools/perf/arch/riscv/Makefile
-+++ b/tools/perf/arch/riscv/Makefile
-@@ -1,5 +1,3 @@
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
-+# SPDX-License-Identifier: GPL-2.0
- PERF_HAVE_JITDUMP := 1
- HAVE_KVM_STAT_SUPPORT := 1
-diff --git a/tools/perf/arch/s390/Makefile b/tools/perf/arch/s390/Makefile
-index 58e79f5b67a4..c431c21b11ef 100644
---- a/tools/perf/arch/s390/Makefile
-+++ b/tools/perf/arch/s390/Makefile
-@@ -1,7 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0-only
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
- HAVE_KVM_STAT_SUPPORT := 1
- PERF_HAVE_JITDUMP := 1
- 
-diff --git a/tools/perf/arch/sh/Makefile b/tools/perf/arch/sh/Makefile
-deleted file mode 100644
-index 119b06a64bed..000000000000
---- a/tools/perf/arch/sh/Makefile
-+++ /dev/null
-@@ -1,4 +0,0 @@
--# SPDX-License-Identifier: GPL-2.0-only
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
-diff --git a/tools/perf/arch/sparc/Makefile b/tools/perf/arch/sparc/Makefile
-index 7741184894c8..8b59ce8efb89 100644
---- a/tools/perf/arch/sparc/Makefile
-+++ b/tools/perf/arch/sparc/Makefile
-@@ -1,6 +1,2 @@
- # SPDX-License-Identifier: GPL-2.0-only
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
--
- PERF_HAVE_JITDUMP := 1
-diff --git a/tools/perf/arch/x86/Makefile b/tools/perf/arch/x86/Makefile
-index 51cf267f4d85..a6b6e0a9308a 100644
---- a/tools/perf/arch/x86/Makefile
-+++ b/tools/perf/arch/x86/Makefile
-@@ -1,7 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
- HAVE_KVM_STAT_SUPPORT := 1
- PERF_HAVE_JITDUMP := 1
- 
-diff --git a/tools/perf/arch/xtensa/Makefile b/tools/perf/arch/xtensa/Makefile
-deleted file mode 100644
-index 119b06a64bed..000000000000
---- a/tools/perf/arch/xtensa/Makefile
-+++ /dev/null
-@@ -1,4 +0,0 @@
--# SPDX-License-Identifier: GPL-2.0-only
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
+ /**
 -- 
 2.47.0.rc0.187.ge670bccf7e-goog
 
