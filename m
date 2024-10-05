@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F230CFB440
-	for <linux-riscv@archiver.kernel.org>; Sat,  5 Oct 2024 21:17:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ED8CCFB43F
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Oct 2024 21:17:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:References:Mime-Version
 	:Message-Id:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FINL7zL8J0xZRK5K2mlJ+39sbtHGtvXGx+UwYpOyeiE=; b=bYCvnpsTQsqz/c
-	6fE65mzO67EII4GTVKnYPubpid7IBE6S21VFZjoXhZFJU+VWMYo4dzSTZRJKx2MlN0L2C0SfYDdUY
-	Qann4OVJwYv3yxAcSwMLYlVuWPssvfnQDOEsFdBxLnxGD7NI1F05wgcwdoQ3KYo4pL13sodg3HNrj
-	NWjOJRY2V5+Fp8a5EnSfYS6fPDASmkaqpIeLVcDel2AKFUc/ghpX9/ngoehRDTBMG4VLwZWsU8T4Y
-	N9GBMnKsOGjOynQaJbG2xOBCLiFBiyJvENaXElG113JxhoRF4CGbW+SO03nJz1MitvuFLAl1JOQDv
-	tUc7RSpQb07Xg5M2mHRg==;
+	List-Owner; bh=G2TqDlRtj2G/lF69PQsyUSxgMv6bsISMK6Nig781AM4=; b=VJ1jbiXYttWlpy
+	ROFlLZXIXQffs9Tl/wq50iWjzWWI4zTYUb7/F6PUDHRkxa2PGHbRZqGp6NroBAoh0bHPxOJpV2lSH
+	WQETPhuNBBGWwek6bwmUT4zSlHF8mXxRFFYavuEMmC33vk3m0BoyJGUrahbRMpkJzQPxe51Pm0cZ6
+	CslE2A54LX+fJqd6WKdv7YCcS7cBDpWny8pilUdZLIOvLwAjAydIo1Z3+OZq4v1M/RqBrPHww6aFb
+	WAmsjJCwyFz+EEtLzJcg2LmMfblx6BS7rVZ0/fzpGvnrQiiZQazjfPc/AfmYaI667Yayf+wvgudso
+	a9nycafvy8tjTxOk9xyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sxC9L-0000000Fxqd-2UsR;
-	Sat, 05 Oct 2024 21:17:15 +0000
-Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
+	id 1sxC9O-0000000Fxr1-2J1C;
+	Sat, 05 Oct 2024 21:17:18 +0000
+Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sxAt6-0000000Fq3M-31CS
+	id 1sxAtH-0000000Fq9Y-3xjz
 	for linux-riscv@lists.infradead.org;
-	Sat, 05 Oct 2024 19:56:26 +0000
-Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-6e284982a31so55682887b3.3
-        for <linux-riscv@lists.infradead.org>; Sat, 05 Oct 2024 12:56:23 -0700 (PDT)
+	Sat, 05 Oct 2024 19:56:37 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6e22f8dc491so58945637b3.1
+        for <linux-riscv@lists.infradead.org>; Sat, 05 Oct 2024 12:56:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1728158183; x=1728762983; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1728158194; x=1728762994; darn=lists.infradead.org;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=eN4YqIaHUMZV32L2QJLPoP9jsFkxRa+mNTAtqb8Hsas=;
-        b=1J33hZDfk0WopVok0POK74bIF/0EQJYVoN5Pz5nrL3dnWPG2Lgz9UIpIPRtzBd2btz
-         eLxwmqbM7Q+sN5zApWN7J3gRLpFAXNaAafi67L478v92NHA0KmDC00Sm14U7pxmfV2Y9
-         u2U7UwRC+3kH7PLuG//9xgoqD9uwvbz7RwlCxvLj3opKODs9iLCVt8EI96YK3nftDvKd
-         xbwqvenbsAXZeTCnBVg+9rclhaB6CQSnpu/HZGxAxwUmFpdJCHlmd3tUlyoszD4FqjPP
-         Fpj1VA3gYEs47pn350Xx7r7dNzCk8I9oxM/Gi7slhSTT8xk53YMn9K+bdN4PG9bs6bZh
-         qjDg==
+        bh=i2ESjB2YIGNr0kAF0x/rOVXxJN2WJ7SSqyQKEEmQuJA=;
+        b=gpdiRRm/ausCNHVNBy8LWvUmv5D9/qXdSkZjJTtehpkz8Sr3z5x0Dz0CqWAN6RwCPB
+         Fb67xP+qD6GN/MoGzLbVETouXpOe6oR/2Z/iedZu0CB/yEKpLVwT3BI2LIxEDbWywuRt
+         VfnsUvim06Q5Onu8aqlOe0bSH2E1okc962oyyULHTKOP5VJ5turzYCcyRwNqXJBr/WaN
+         v6C7PFCVIcBTOev9VU188rXjSr2aRveTQlVpG8L+UDfYYyQdlUwsALXc8I+L1Z21j1Oi
+         AOh1ZGCKjEtcVRSWpj6nwW430iZ0wk5WsCgints8B94MSzxZUo7c4oxFsIIMAsBGQV0i
+         9yRg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728158183; x=1728762983;
+        d=1e100.net; s=20230601; t=1728158194; x=1728762994;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=eN4YqIaHUMZV32L2QJLPoP9jsFkxRa+mNTAtqb8Hsas=;
-        b=wvBHZ3Vehy3QqdIeY8VopZkVPEwkbCr357FyeIB2VbkScRrRUdmoPQ3i6J++tckNm/
-         nSugoSVlItVJzGE5PVErI2sx8ixfd3sJAuyexGD/8KjLwD7EciLhsnnT/JezAVGQVKny
-         l5jaivZldS9s/SBEUOE5v1qAqbGR62op8iV0Ey1/sTSVPL/W7/guU15lFg4Q1In2j+pM
-         qdVmMQKjhVwIbfzzNu03wBurvpWXRrts2LJpwJxpDSNk4AEJGTeMkoegiNp8IdFzdgUK
-         L1o93ESJkTu3Kkhg4IKhhiZFppJ4/1AoWVC4YujA069cySp+onLU1ARWzL0phxLuWmmn
-         9rDQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVs+w+dacvwmUrXuPKM+59BHHoHayG0wELGy8uUsjkK/WpkB5E9i7RkLQrWl7lAYCtlFKLuEOznilEXHw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy0d+2FWkl92RMAhXUOsLF4BeoGfYReUPgmx5YEvdgUOQxOMR95
-	Hg7n8j8iqyPptCIgrrwNeEEhkLXgotroLe0FDTzc576O8ewk8VpP8atCYjSQVxsu6L/3jX5JHaL
-	9YZMh1A==
-X-Google-Smtp-Source: AGHT+IE37lPO5ROCWh/CimkZxetVnVk7klOqRJ1yUjeH0eyV1XGJ+pwkxL/0BElgh1N3dpXWOd2oLe3lR4T2
+        bh=i2ESjB2YIGNr0kAF0x/rOVXxJN2WJ7SSqyQKEEmQuJA=;
+        b=DLfyXX/aIkEZM91gA71opCQpkIAH1bQibFQTco4clm8wDUI5jlVTPgPWwOnl5EU+d7
+         9CQrLwNLdAVg/r8qjYIX804q5OF1cXLqECH+JZKBXBZEheqcHrTzzmOZSHapjYGKM7eA
+         ufr4dDXZJ4JtQXLQovTE4raDlJKNJFUVxOH7yLaGjEKUFGuUskHspA/Ivc4X4qkFQnoL
+         omzGBhaM7ir9J8vAnb87v4tZ528vscOkcVw9ea5/040/6wIoWfU/x5xOpCqUTMUW/Hk2
+         BzzaywGAesZHhKBs+4esXGC64WIyYfjgfQHug1lJNo4+xhggRIZn3hi+8wPGSixjy65J
+         a9YQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUA6ReyVf3Ir78cV3vHWC+9itl+kpcTO/K3ZUnYeaQjtajDzq186YeeyG00qn9SgCX6NKei1ZKZ0TuBrg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzkLpJku+XHO2uXG7AKkl1wAvAHqfk5/PgHjROBU7WJyfX+l/Mf
+	p0hEEvQx0dAJnAffTVcmsSBlfRUVyVFb/9tF4BpCyWEnHyICivygFywKGGqF6cAf2qU+ay+Nnw4
+	55B/PEg==
+X-Google-Smtp-Source: AGHT+IHEbD4MRwZ2PKCjAUCVKxtlz40qrMSN6DbbdIeVTb8C/0Bd+XGDjYe2Dr3Ix5YBR4/AVrrPnEznaGld
 X-Received: from irogers.svl.corp.google.com ([2620:15c:2a3:200:4c2:5b4d:8797:7249])
- (user=irogers job=sendgmr) by 2002:a05:690c:4502:b0:68d:52a1:bf4 with SMTP id
- 00721157ae682-6e2c6fdd0afmr975947b3.2.1728158183073; Sat, 05 Oct 2024
- 12:56:23 -0700 (PDT)
-Date: Sat,  5 Oct 2024 12:55:21 -0700
+ (user=irogers job=sendgmr) by 2002:a25:c512:0:b0:e28:8f62:e735 with SMTP id
+ 3f1490d57ef6-e28936c055bmr5227276.1.1728158193972; Sat, 05 Oct 2024 12:56:33
+ -0700 (PDT)
+Date: Sat,  5 Oct 2024 12:55:26 -0700
 In-Reply-To: <20241005195541.380070-1-irogers@google.com>
-Message-Id: <20241005195541.380070-12-irogers@google.com>
+Message-Id: <20241005195541.380070-17-irogers@google.com>
 Mime-Version: 1.0
 References: <20241005195541.380070-1-irogers@google.com>
 X-Mailer: git-send-email 2.47.0.rc0.187.ge670bccf7e-goog
-Subject: [PATCH v2 11/31] perf build: Rename CONFIG_DWARF to CONFIG_LIBDW
+Subject: [PATCH v2 16/31] perf dwarf-regs: Pass accurate disassembly machine
+ to get_dwarf_regnum
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -93,8 +94,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
 	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241005_125624_802447_1134493F 
-X-CRM114-Status: GOOD (  11.74  )
+X-CRM114-CacheID: sfid-20241005_125636_078706_DB61D887 
+X-CRM114-Status: GOOD (  15.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,201 +112,96 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In Makefile.config for unwinding the name dwarf implies either
-libunwind or libdw. Make it clearer that CONFIG_DWARF is really just
-defined when libdw is present by renaming to CONFIG_LIBDW.
+Rather than pass 0/EM_NONE, use the value computed in the disasm
+struct arch. Switch the EM_NONE case to EM_HOST, rewriting EM_NONE if
+it were passed to get_dwarf_regnum. Pass a flags value as
+architectures like csky need the flags to determine the ABI variant.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/Makefile.config           |  2 +-
- tools/perf/arch/arm/util/Build       |  2 +-
- tools/perf/arch/arm64/util/Build     |  2 +-
- tools/perf/arch/csky/util/Build      |  2 +-
- tools/perf/arch/loongarch/util/Build |  2 +-
- tools/perf/arch/mips/util/Build      |  2 +-
- tools/perf/arch/powerpc/util/Build   |  4 ++--
- tools/perf/arch/riscv/util/Build     |  2 +-
- tools/perf/arch/s390/util/Build      |  2 +-
- tools/perf/arch/sh/util/Build        |  2 +-
- tools/perf/arch/sparc/util/Build     |  2 +-
- tools/perf/arch/x86/util/Build       |  2 +-
- tools/perf/arch/xtensa/util/Build    |  2 +-
- tools/perf/util/Build                | 12 ++++++------
- 14 files changed, 20 insertions(+), 20 deletions(-)
+ tools/perf/util/annotate.c           | 6 +++---
+ tools/perf/util/dwarf-regs.c         | 8 ++++++--
+ tools/perf/util/include/dwarf-regs.h | 5 +++--
+ 3 files changed, 12 insertions(+), 7 deletions(-)
 
-diff --git a/tools/perf/Makefile.config b/tools/perf/Makefile.config
-index 9ed0909db170..b14430ab2898 100644
---- a/tools/perf/Makefile.config
-+++ b/tools/perf/Makefile.config
-@@ -559,7 +559,7 @@ ifndef NO_LIBELF
-       CFLAGS += -DHAVE_LIBDW_SUPPORT $(LIBDW_CFLAGS)
-       LDFLAGS += $(LIBDW_LDFLAGS)
-       EXTLIBS += ${DWARFLIBS}
--      $(call detected,CONFIG_DWARF)
-+      $(call detected,CONFIG_LIBDW)
-     endif # PERF_HAVE_DWARF_REGS
-   endif # NO_LIBDW
+diff --git a/tools/perf/util/annotate.c b/tools/perf/util/annotate.c
+index 37ce43c4eb8f..b1d98da79be8 100644
+--- a/tools/perf/util/annotate.c
++++ b/tools/perf/util/annotate.c
+@@ -2292,7 +2292,7 @@ static int extract_reg_offset(struct arch *arch, const char *str,
+ 	if (regname == NULL)
+ 		return -1;
  
-diff --git a/tools/perf/arch/arm/util/Build b/tools/perf/arch/arm/util/Build
-index e6dd7cd79ebd..e06fea1ea8ff 100644
---- a/tools/perf/arch/arm/util/Build
-+++ b/tools/perf/arch/arm/util/Build
-@@ -1,6 +1,6 @@
- perf-util-y += perf_regs.o
+-	op_loc->reg1 = get_dwarf_regnum(regname, 0);
++	op_loc->reg1 = get_dwarf_regnum(regname, arch->e_machine, arch->e_flags);
+ 	free(regname);
  
--perf-util-$(CONFIG_DWARF) += dwarf-regs.o
-+perf-util-$(CONFIG_LIBDW) += dwarf-regs.o
+ 	/* Get the second register */
+@@ -2305,7 +2305,7 @@ static int extract_reg_offset(struct arch *arch, const char *str,
+ 		if (regname == NULL)
+ 			return -1;
  
- perf-util-$(CONFIG_LOCAL_LIBUNWIND)    += unwind-libunwind.o
- perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
-diff --git a/tools/perf/arch/arm64/util/Build b/tools/perf/arch/arm64/util/Build
-index 343ef7589a77..4387a6d6a6c3 100644
---- a/tools/perf/arch/arm64/util/Build
-+++ b/tools/perf/arch/arm64/util/Build
-@@ -4,7 +4,7 @@ perf-util-y += perf_regs.o
- perf-util-y += tsc.o
- perf-util-y += pmu.o
- perf-util-$(CONFIG_LIBTRACEEVENT) += kvm-stat.o
--perf-util-$(CONFIG_DWARF)     += dwarf-regs.o
-+perf-util-$(CONFIG_LIBDW)     += dwarf-regs.o
- perf-util-$(CONFIG_LOCAL_LIBUNWIND) += unwind-libunwind.o
- perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
+-		op_loc->reg2 = get_dwarf_regnum(regname, 0);
++		op_loc->reg2 = get_dwarf_regnum(regname, arch->e_machine, arch->e_flags);
+ 		free(regname);
+ 	}
+ 	return 0;
+@@ -2405,7 +2405,7 @@ int annotate_get_insn_location(struct arch *arch, struct disasm_line *dl,
+ 				return -1;
  
-diff --git a/tools/perf/arch/csky/util/Build b/tools/perf/arch/csky/util/Build
-index 99d83f41bf43..1325310cab6a 100644
---- a/tools/perf/arch/csky/util/Build
-+++ b/tools/perf/arch/csky/util/Build
-@@ -1,4 +1,4 @@
- perf-util-y += perf_regs.o
+ 			if (*s == arch->objdump.register_char)
+-				op_loc->reg1 = get_dwarf_regnum(s, 0);
++				op_loc->reg1 = get_dwarf_regnum(s, arch->e_machine, arch->e_flags);
+ 			else if (*s == arch->objdump.imm_char) {
+ 				op_loc->offset = strtol(s + 1, &p, 0);
+ 				if (p && p != s + 1)
+diff --git a/tools/perf/util/dwarf-regs.c b/tools/perf/util/dwarf-regs.c
+index 7c01bc4d7e5b..1321387f6948 100644
+--- a/tools/perf/util/dwarf-regs.c
++++ b/tools/perf/util/dwarf-regs.c
+@@ -70,7 +70,7 @@ __weak int get_arch_regnum(const char *name __maybe_unused)
+ }
  
--perf-util-$(CONFIG_DWARF) += dwarf-regs.o
-+perf-util-$(CONFIG_LIBDW) += dwarf-regs.o
- perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
-diff --git a/tools/perf/arch/loongarch/util/Build b/tools/perf/arch/loongarch/util/Build
-index b6b97de48233..06ff95394921 100644
---- a/tools/perf/arch/loongarch/util/Build
-+++ b/tools/perf/arch/loongarch/util/Build
-@@ -1,7 +1,7 @@
- perf-util-y += header.o
- perf-util-y += perf_regs.o
+ /* Return DWARF register number from architecture register name */
+-int get_dwarf_regnum(const char *name, unsigned int machine)
++int get_dwarf_regnum(const char *name, unsigned int machine, unsigned int flags __maybe_unused)
+ {
+ 	char *regname = strdup(name);
+ 	int reg = -1;
+@@ -84,8 +84,12 @@ int get_dwarf_regnum(const char *name, unsigned int machine)
+ 	if (p)
+ 		*p = '\0';
  
--perf-util-$(CONFIG_DWARF)     += dwarf-regs.o
-+perf-util-$(CONFIG_LIBDW)     += dwarf-regs.o
- perf-util-$(CONFIG_LOCAL_LIBUNWIND) += unwind-libunwind.o
- perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
- perf-util-$(CONFIG_LIBTRACEEVENT) += kvm-stat.o
-diff --git a/tools/perf/arch/mips/util/Build b/tools/perf/arch/mips/util/Build
-index e4644f1e68a0..b328109fc16c 100644
---- a/tools/perf/arch/mips/util/Build
-+++ b/tools/perf/arch/mips/util/Build
-@@ -1,3 +1,3 @@
- perf-util-y += perf_regs.o
--perf-util-$(CONFIG_DWARF) += dwarf-regs.o
-+perf-util-$(CONFIG_LIBDW) += dwarf-regs.o
- perf-util-$(CONFIG_LOCAL_LIBUNWIND) += unwind-libunwind.o
-diff --git a/tools/perf/arch/powerpc/util/Build b/tools/perf/arch/powerpc/util/Build
-index 6c588ecdf3bd..3d979480a188 100644
---- a/tools/perf/arch/powerpc/util/Build
-+++ b/tools/perf/arch/powerpc/util/Build
-@@ -7,8 +7,8 @@ perf-util-y += sym-handling.o
- perf-util-y += evsel.o
- perf-util-y += event.o
++	if (machine == EM_NONE) {
++		/* Generic arch - use host arch */
++		machine = EM_HOST;
++	}
+ 	switch (machine) {
+-	case EM_NONE:	/* Generic arch - use host arch */
++	case EM_HOST:
+ 		reg = get_arch_regnum(regname);
+ 		break;
+ 	default:
+diff --git a/tools/perf/util/include/dwarf-regs.h b/tools/perf/util/include/dwarf-regs.h
+index f4f87ded5e3d..ee0a734564c7 100644
+--- a/tools/perf/util/include/dwarf-regs.h
++++ b/tools/perf/util/include/dwarf-regs.h
+@@ -93,12 +93,13 @@ int get_arch_regnum(const char *name);
+  * name: architecture register name
+  * machine: ELF machine signature (EM_*)
+  */
+-int get_dwarf_regnum(const char *name, unsigned int machine);
++int get_dwarf_regnum(const char *name, unsigned int machine, unsigned int flags);
  
--perf-util-$(CONFIG_DWARF) += dwarf-regs.o
--perf-util-$(CONFIG_DWARF) += skip-callchain-idx.o
-+perf-util-$(CONFIG_LIBDW) += dwarf-regs.o
-+perf-util-$(CONFIG_LIBDW) += skip-callchain-idx.o
+ #else /* HAVE_LIBDW_SUPPORT */
  
- perf-util-$(CONFIG_LIBUNWIND) += unwind-libunwind.o
- perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
-diff --git a/tools/perf/arch/riscv/util/Build b/tools/perf/arch/riscv/util/Build
-index f865cb0489ec..8f93091b8345 100644
---- a/tools/perf/arch/riscv/util/Build
-+++ b/tools/perf/arch/riscv/util/Build
-@@ -2,5 +2,5 @@ perf-util-y += perf_regs.o
- perf-util-y += header.o
- 
- perf-util-$(CONFIG_LIBTRACEEVENT) += kvm-stat.o
--perf-util-$(CONFIG_DWARF) += dwarf-regs.o
-+perf-util-$(CONFIG_LIBDW) += dwarf-regs.o
- perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
-diff --git a/tools/perf/arch/s390/util/Build b/tools/perf/arch/s390/util/Build
-index 1ac830030ff3..787410f99bb3 100644
---- a/tools/perf/arch/s390/util/Build
-+++ b/tools/perf/arch/s390/util/Build
-@@ -2,7 +2,7 @@ perf-util-y += header.o
- perf-util-$(CONFIG_LIBTRACEEVENT) += kvm-stat.o
- perf-util-y += perf_regs.o
- 
--perf-util-$(CONFIG_DWARF) += dwarf-regs.o
-+perf-util-$(CONFIG_LIBDW) += dwarf-regs.o
- perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
- 
- perf-util-y += machine.o
-diff --git a/tools/perf/arch/sh/util/Build b/tools/perf/arch/sh/util/Build
-index 32f44fc4ab98..2337a0b710a2 100644
---- a/tools/perf/arch/sh/util/Build
-+++ b/tools/perf/arch/sh/util/Build
-@@ -1 +1 @@
--perf-util-$(CONFIG_DWARF) += dwarf-regs.o
-+perf-util-$(CONFIG_LIBDW) += dwarf-regs.o
-diff --git a/tools/perf/arch/sparc/util/Build b/tools/perf/arch/sparc/util/Build
-index 32f44fc4ab98..2337a0b710a2 100644
---- a/tools/perf/arch/sparc/util/Build
-+++ b/tools/perf/arch/sparc/util/Build
-@@ -1 +1 @@
--perf-util-$(CONFIG_DWARF) += dwarf-regs.o
-+perf-util-$(CONFIG_LIBDW) += dwarf-regs.o
-diff --git a/tools/perf/arch/x86/util/Build b/tools/perf/arch/x86/util/Build
-index 2607ed5c4296..9705cda4f240 100644
---- a/tools/perf/arch/x86/util/Build
-+++ b/tools/perf/arch/x86/util/Build
-@@ -12,7 +12,7 @@ perf-util-y += evsel.o
- perf-util-y += iostat.o
- perf-util-y += env.o
- 
--perf-util-$(CONFIG_DWARF) += dwarf-regs.o
-+perf-util-$(CONFIG_LIBDW) += dwarf-regs.o
- perf-util-$(CONFIG_BPF_PROLOGUE) += dwarf-regs.o
- 
- perf-util-$(CONFIG_LOCAL_LIBUNWIND)    += unwind-libunwind.o
-diff --git a/tools/perf/arch/xtensa/util/Build b/tools/perf/arch/xtensa/util/Build
-index e813e618954b..2d1a48696ad9 100644
---- a/tools/perf/arch/xtensa/util/Build
-+++ b/tools/perf/arch/xtensa/util/Build
-@@ -1 +1 @@
--perf-$(CONFIG_DWARF) += dwarf-regs.o
-+perf-$(CONFIG_LIBDW) += dwarf-regs.o
-diff --git a/tools/perf/util/Build b/tools/perf/util/Build
-index dc616292b2dd..1d08608b7e1b 100644
---- a/tools/perf/util/Build
-+++ b/tools/perf/util/Build
-@@ -199,11 +199,11 @@ ifndef CONFIG_SETNS
- perf-util-y += setns.o
- endif
- 
--perf-util-$(CONFIG_DWARF) += probe-finder.o
--perf-util-$(CONFIG_DWARF) += dwarf-aux.o
--perf-util-$(CONFIG_DWARF) += dwarf-regs.o
--perf-util-$(CONFIG_DWARF) += debuginfo.o
--perf-util-$(CONFIG_DWARF) += annotate-data.o
-+perf-util-$(CONFIG_LIBDW) += probe-finder.o
-+perf-util-$(CONFIG_LIBDW) += dwarf-aux.o
-+perf-util-$(CONFIG_LIBDW) += dwarf-regs.o
-+perf-util-$(CONFIG_LIBDW) += debuginfo.o
-+perf-util-$(CONFIG_LIBDW) += annotate-data.o
- 
- perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
- perf-util-$(CONFIG_LOCAL_LIBUNWIND)    += unwind-libunwind-local.o
-@@ -234,7 +234,7 @@ perf-util-$(CONFIG_LIBLLVM) += llvm-c-helpers.o
- ifdef CONFIG_JITDUMP
- perf-util-$(CONFIG_LIBELF) += jitdump.o
- perf-util-$(CONFIG_LIBELF) += genelf.o
--perf-util-$(CONFIG_DWARF) += genelf_debug.o
-+perf-util-$(CONFIG_LIBDW) += genelf_debug.o
- endif
- 
- perf-util-y += perf-hooks.o
+ static inline int get_dwarf_regnum(const char *name __maybe_unused,
+-				   unsigned int machine __maybe_unused)
++				   unsigned int machine __maybe_unused,
++				   unsigned int flags __maybe_unused)
+ {
+ 	return -1;
+ }
 -- 
 2.47.0.rc0.187.ge670bccf7e-goog
 
