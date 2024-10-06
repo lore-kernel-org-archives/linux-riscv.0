@@ -4,81 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFF1BCFB43F
-	for <linux-riscv@archiver.kernel.org>; Sun,  6 Oct 2024 17:43:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1BA5CFB442
+	for <linux-riscv@archiver.kernel.org>; Sun,  6 Oct 2024 17:43:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=LpkNEAn88oMBnwOiX0xru4bnlW8AB807gwFds3XleJ8=; b=Qp0fohn7j8k/1q
-	L3Jp858BT26DGRkl4SCtm2E+DAhmXJyl+ph1ruYKuQFeRviFS40a66YTFjuG4P4mMKJLR89lrhJVB
-	nt2hNwe4jybFP7lAys4mttJvJFSJ/dHyTFePYTC/iBr3Jt5xLYy+KIha86uckrU0RMX9uItlMZxpV
-	hKDN5aeVvczcyivdkHXAgqWkhcyZSzfdKFsWz+CGY5fqvAiaNowbSG4nFcQev8sfnIDw//0uPfZUO
-	lGxU98yKdpk1GF9EP+Hf+TurUdIjRzH1aFBfqxgmZSBntsyWqm2806VIVpMSQVzlOBGdKlPFuw9IK
-	3EsUPFxPzMPjTii1usoA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=MJdJfUQYL5DvdI47D2097qNS/SU6791FEl6qFQG7B6s=; b=s36gzBRGMjTnCF
+	fhM7N/b+Jxo2eg0ON7J6ygEN3iikXzBj43IwDsl8ug93idr2Wp8V/7z2tO7xZiwDjjx9ggURj8lZF
+	uma+s8dacM9hBvNVDgGQ3A8LJo8S+qvmA1/fSnBm/FftrefwTXObhv3KoSiuRc8oRKaCSuaS0lBwd
+	gAC9NHrq6rPiFARnIW5iesWE0UJYBM4spQedm/W4U+Tn4w776pQriyJp4p89C1JSuV8JoXcfRYwS/
+	TARKqg24HD4qP7+M+/do1DJexqWJVISFDxAtGKSpHZSfHeawq/QOIMR1DwEuQvVdmgm0T50PiuNoT
+	0iJ4w2+X2HEzAjJpjgXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sxVI1-00000000Lmb-13n9;
+	id 1sxVI1-00000000Lmh-3axn;
 	Sun, 06 Oct 2024 17:43:29 +0000
-Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
+Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sxVHx-00000000Lkx-0Xwo
+	id 1sxVHx-00000000Ll3-2QV0
 	for linux-riscv@lists.infradead.org;
 	Sun, 06 Oct 2024 17:43:27 +0000
-Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-7e9f998e1e4so995159a12.1
-        for <linux-riscv@lists.infradead.org>; Sun, 06 Oct 2024 10:43:23 -0700 (PDT)
+Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-7e9fd82f1a5so496640a12.1
+        for <linux-riscv@lists.infradead.org>; Sun, 06 Oct 2024 10:43:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1728236603; x=1728841403; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=spALRDUsYOwVLjrj+itG5SK1W6mJ4BemNUJT/dXw+2w=;
-        b=YhhM8wd865jZNiFdF2aje9tzLHBqKR/hyCB56gFMcunwemJfIyBs7A56WR3XIB91rx
-         G/Mh2FRI5qKDq5IyOU1n/PSHjVMN3Zil9UaqUHYAavgp6PsR8Eoq/duSl/JS2G4fHCtm
-         jEEpbMgm1mFP5cx9urYzVD+4k+jrL5wjU+OKY2NTYAgXN8KxeGsj1qp+6r9jnnRzlXcx
-         kX68U9Dg2urMUTjBCYOPK+wn6bC1ZD0LCfOm0wp/BxXNU8wbiUt39vBi6fu5PwFnX67G
-         wUaK6Y9Fl9iPp7kMndXI9trOO4TQTGWzdGKR2fYkdSnvfKrexlsnG04/RMx8gic+vQC3
-         XKCg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728236603; x=1728841403;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=tenstorrent.com; s=google; t=1728236604; x=1728841404; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=spALRDUsYOwVLjrj+itG5SK1W6mJ4BemNUJT/dXw+2w=;
-        b=aL1sCjve/IuO9LZKuAyaViLew84ssheqYtzgD//a7M1Jqo807gDIHeb2hpfsQN3mCh
-         SSRaI0oblqiJfqQJTDs9Q/j4pBKxgmZhZtTEAwQ2u1BMDIJ7omCqVEpbCLPw01g5uLsj
-         D8IazzRlK7hspLNyDSeRoMxBueODPJZegYHoUTC8EcTb0iVxhdc/5kpKATuu38yady29
-         z740HeSskvAWvrbwr6kj6FQYShmh0fW4XjBDI0mjY/SX/Uic8N7R8lLhNUVIkVyuz8+J
-         vhZNY9YNiMrfbp0Ajz21qkf+GNKqjaqwbkkFfDHCJLRGfS+YQWPTAyafyYeTsn6Q2vMM
-         E9ZQ==
-X-Gm-Message-State: AOJu0YyAoXOfY5x0Pho7hd+E3KW1MoGpPlcr1qZgcX1jgHlKiSqeo1Pg
-	IOjp/rNFELtCQacYWyWgg4ZUI4H4tO1UJ9Tz2uHvCnN4eDbHh99cELP7Dj5AeF0=
-X-Google-Smtp-Source: AGHT+IGMq3wabIJdCjVaKWXN4FS9fMNNTljNtGBedaNmcPo1nYMUBIfKrJpWTH3HdQf2za7dBdMOLQ==
-X-Received: by 2002:a05:6a20:6f91:b0:1d2:f00e:47bb with SMTP id adf61e73a8af0-1d6dfa417a1mr13006921637.21.1728236602914;
-        Sun, 06 Oct 2024 10:43:22 -0700 (PDT)
+        bh=A0aqH8Nz3YTxyf3WOUwJPMSHP7Sz01anRaWLkW9KhzE=;
+        b=UKd/NlPr4QgNd0aAinV8Sfvg8zZiEIj2PDtiwtAg42Cgx+p/vhjtCfGxCpRdhe9C11
+         +GX4HojJ4y0DNmKBsBA7GGxCBF6ohnwKiRxiC7Mdh0Y7Y0cB1tAkxa0XvQFpC5wRDK58
+         0AiVp7vGz4nVZQP4PFx+NOAmh1KzSxiKVngy8x3cXEkT0xbumJw8zANC4BeMIygnMqvU
+         eR3L2784cmjgbZH/smOLXSVGSJ5XpOZs/tYrhE3r680f9Uddk9stTAo62qEBZOctnnAT
+         weZ2XHJHkZMZBZfG0Ued5kRJJ7o/VzuOv+ORuUmV4Z8HJzrdytyTbTHXDTOpmhFgDiWq
+         U4nQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1728236604; x=1728841404;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=A0aqH8Nz3YTxyf3WOUwJPMSHP7Sz01anRaWLkW9KhzE=;
+        b=eoAdF4b2mXxe/kRF91vwxqXkwTgC4Xl0Ja8XXUhHi8LPem8+UshvXUMiQ7HK8SsFBf
+         zxUNAnKRyu2zFfJbL9Dl+JXBVP/1TINzgS8L6FvgB1agRuodEAFY8QDqNDjBMnTor7gj
+         2KMe+EKGMyZeU5v/CbDbLt1SuhyPawfnS0buozsvG/mCg4oKIIEdMCQ7hBCbADfNZWLn
+         Iv3O9cMFEmaReV9RbI0b+TRZTgNntFHq2+KYH0Tejg7QwiGBgapWsfxJJ8oN30w5UtBo
+         1GYcSRfut/VtsyfKttmXG+j6PamdCG02i7xxkkPcATKN2+dcdSS8TS9Y2rwPtIAGrd8E
+         HU1w==
+X-Gm-Message-State: AOJu0Yz+w0jkoQxhYIfVtspy3dY01PBoTOGjyHkR7LlWEvzith/j3PHT
+	WBBfjTnJBMSijNQTIe8QXIN7d8ouJOsIhbID6sUR58xVSwpC53ja4avNr4NcVyM=
+X-Google-Smtp-Source: AGHT+IHVc4JR7QyWPEo99nCtTOnKJvnv2SE8G5Rtxbg+iGO4JRlQKbzCRbb7fdIDCqesN12taDtiuQ==
+X-Received: by 2002:a05:6a20:1a9d:b0:1d6:e61c:23ec with SMTP id adf61e73a8af0-1d6e61c33e0mr7436331637.6.1728236604624;
+        Sun, 06 Oct 2024 10:43:24 -0700 (PDT)
 Received: from [127.0.1.1] (71-34-69-82.ptld.qwest.net. [71.34.69.82])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-71df0d6526bsm2999591b3a.159.2024.10.06.10.43.22
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-71df0d6526bsm2999591b3a.159.2024.10.06.10.43.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 06 Oct 2024 10:43:22 -0700 (PDT)
+        Sun, 06 Oct 2024 10:43:24 -0700 (PDT)
 From: Drew Fustini <dfustini@tenstorrent.com>
-Subject: [PATCH v2 0/3] pinctrl: th1520: Improve code quality
-Date: Sun, 06 Oct 2024 10:43:20 -0700
-Message-Id: <20241006-th1520-pinctrl-fixes-v2-0-b1822ae3a6d7@tenstorrent.com>
+Date: Sun, 06 Oct 2024 10:43:22 -0700
+Subject: [PATCH v2 2/3] pinctrl: th1520: Convert thp->mutex to guarded
+ mutex
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIADjMAmcC/4WNQQrCMBBFr1Jm7cgkmlhceQ/poiYTO6BpSUJRS
- u9u2gu4fP/z/l8gcxLOcG0WSDxLljFW0IcG3NDHJ6P4yqBJnxWRwTIoowknia6kFwb5cEavyT9
- se2ovbKGqU+K9qOa9qzxILmP67i+z2tI/g7NCQuOs8SH05IluheO2kTiWoxvf0K3r+gPvOrexv
- gAAAA==
+Message-Id: <20241006-th1520-pinctrl-fixes-v2-2-b1822ae3a6d7@tenstorrent.com>
+References: <20241006-th1520-pinctrl-fixes-v2-0-b1822ae3a6d7@tenstorrent.com>
+In-Reply-To: <20241006-th1520-pinctrl-fixes-v2-0-b1822ae3a6d7@tenstorrent.com>
 To: Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>, 
  Fu Wei <wefu@redhat.com>, Linus Walleij <linus.walleij@linaro.org>
 Cc: linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Drew Fustini <dfustini@tenstorrent.com>, 
- Dan Carpenter <dan.carpenter@linaro.org>
+ linux-kernel@vger.kernel.org, Drew Fustini <dfustini@tenstorrent.com>
 X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241006_104325_205983_54A1197E 
-X-CRM114-Status: UNSURE (   8.74  )
+X-CRM114-CacheID: sfid-20241006_104325_663482_2152E418 
+X-CRM114-Status: UNSURE (   8.98  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,42 +95,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series contains code quality improvements for the new TH1520
-pinctrl driver [1]:
+Convert th1520_pinctrl_dt_node_to_map() to use guarded mutex for
+thp->mutex.
 
- - Fix smatch warning that the return value is not correctly set when an
-   unknown pin error occurs
- - Linus suggested using guarded mutexs so I've converted the thp->mutex
-   lock to that usage.
- - Linus also suggested using a scoped iterator for the DT for-each
-   child node loop: for_each_available_child_of_node_scoped.
-
-The series is based on the linusw devel branch [2].
-
-[1] https://lore.kernel.org/lkml/CACRpkdavPAv2sPRREQhx_A7EtOj6Ld_n+NcO+vH0QCnfVedXKw@mail.gmail.com/
-[2] https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-pinctrl.git/log/?h=devel
-
-Changes since v1:
-- Move the scoped iterator conversion to a separate patch and remove the
-  child put operations as they are no longer needed
-- Link: https://lore.kernel.org/lkml/20241005-th1520-pinctrl-fixes-v1-0-5c65dffa0d00@tenstorrent.com/
-
+Suggested-by: Linus Walleij <linus.walleij@linaro.org>
 Signed-off-by: Drew Fustini <dfustini@tenstorrent.com>
 ---
-Drew Fustini (3):
-      pinctrl: th1520: Fix return value for unknown pin error
-      pinctrl: th1520: Convert thp->mutex to guarded mutex
-      pinctrl: th1520: Convert dt child node loop to scoped iterator
+ drivers/pinctrl/pinctrl-th1520.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
- drivers/pinctrl/pinctrl-th1520.c | 17 +++++++----------
- 1 file changed, 7 insertions(+), 10 deletions(-)
----
-base-commit: 2694868880705e8f6bb61b24b1b25adc42a4a217
-change-id: 20241005-th1520-pinctrl-fixes-d20db68387e6
+diff --git a/drivers/pinctrl/pinctrl-th1520.c b/drivers/pinctrl/pinctrl-th1520.c
+index 265a75a78d5a..7ed3f82b9339 100644
+--- a/drivers/pinctrl/pinctrl-th1520.c
++++ b/drivers/pinctrl/pinctrl-th1520.c
+@@ -444,7 +444,7 @@ static int th1520_pinctrl_dt_node_to_map(struct pinctrl_dev *pctldev,
+ 		return -ENOMEM;
+ 
+ 	nmaps = 0;
+-	mutex_lock(&thp->mutex);
++	guard(mutex)(&thp->mutex);
+ 	for_each_available_child_of_node(np, child) {
+ 		unsigned int rollback = nmaps;
+ 		enum th1520_muxtype muxtype;
+@@ -531,7 +531,6 @@ static int th1520_pinctrl_dt_node_to_map(struct pinctrl_dev *pctldev,
+ 
+ 	*maps = map;
+ 	*num_maps = nmaps;
+-	mutex_unlock(&thp->mutex);
+ 	return 0;
+ 
+ free_configs:
+@@ -539,7 +538,6 @@ static int th1520_pinctrl_dt_node_to_map(struct pinctrl_dev *pctldev,
+ put_child:
+ 	of_node_put(child);
+ 	th1520_pinctrl_dt_free_map(pctldev, map, nmaps);
+-	mutex_unlock(&thp->mutex);
+ 	return ret;
+ }
+ 
 
-Best regards,
 -- 
-Drew Fustini <dfustini@tenstorrent.com>
+2.34.1
 
 
 _______________________________________________
