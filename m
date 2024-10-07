@@ -4,80 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3000DCFB440
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Oct 2024 12:46:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF36DCFB43F
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Oct 2024 13:22:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=vIZv3nhW8FOIrkIddpx/9FlM2veOHp5OkL5Hq4W9DRU=; b=n5oDV5Hq1t4aWLe+bQ3OhfKJLC
-	5SzQO0oAPtPtWJp+8gT3+YxiDGzD8Dt0/GWv0nJOO9ST2uzAcLMwn/pGhNika2ckQIGVVImPzF9LP
-	yZv81LTwhq3dnF4gpvXmQB/biICxo0aCIPnMfApTurxD8crNnNO3I7e3FFP6LAQvbQSLditpG4i9V
-	97KfrdcqvXsLhpBmsP3Ml2iqzZFmUStwXSEiaoTVCW7aWS5KFbClcA8RLq303F10L/JMinOkQn1T7
-	H3ibboemOxlW4yPepCoECvkaXd3hOKyFCd2tX7Y5xQ/KPfWKsnEPh/cELBxqnhhU5CtGngPV5h268
-	d+pTb5FA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=s2Xnq1q2fI2ZR0S49pyi9st+FNwlMvVmzViRcA+skJM=; b=AnsnyWgIrO7HEL
+	0fiXt3s391M6tEF+u5IYo/6lm+MjXJsYyKVhd2UKTW4j6E1T3UTM4NMrfyQwvTKKSGSp6Zt6XRTup
+	Ak9iFJ3bzwvg2sKW8EBgJ+67S7aDheRM+GrJRKcQ97S23oqDFUI3UPtHLAd9GPjvYrQdjIX9EBZWD
+	Yy5dYWDltr+EM5fbScQ45fj4+YnOUFtYFhfnYqTShikDBhgSOarF6j1CJsdRbMniIb6aZBxu78rKF
+	Rnrrr5wz5vrgJQXFu4XeabNf+qFxHVWf3KzVQAkHx9Bmu5hZHrouLS3yDwZ0ttscvWtVUe9gOsayw
+	k3V9pEkHsD9A5+c3uByA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sxn7s-00000002OVg-3SyS;
-	Mon, 07 Oct 2024 12:46:12 +0000
-Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
+	id 1sxnhL-00000002UkX-3ML0;
+	Mon, 07 Oct 2024 13:22:51 +0000
+Received: from mail-db8eur05on20601.outbound.protection.outlook.com ([2a01:111:f403:2614::601] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sxmnS-00000002JzP-3Zhm
+	id 1sxnOV-00000002R7R-26Jx
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Oct 2024 12:25:09 +0000
-Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-7e9f998e1e4so1488335a12.1
-        for <linux-riscv@lists.infradead.org>; Mon, 07 Oct 2024 05:25:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1728303905; x=1728908705; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=gM96gy8f618bGBajVDpCaKuepjJ0dpUYbsUw4JQ//R4=;
-        b=Chnho8fcIKWNnuPXHuBaJnaLg+P7U1sG8q9aDByqd6FJR2IKNOM4pMjve5rGFz2afm
-         2oGM77j0jbsnxBNRWCn6dAgA83IjY8lItF7qiJtapOh5kLzpvzOQNpBvMA89L2O3Da27
-         Fl6LuK1SZX9rGddWL0fFKnsO9fUunv7od4rPrJOAIa+VmAJ0Q0gv/V7WzZO4C1lqMilO
-         oakX/bvO1Z6HxrpNF2ghyrsqHkgBZHnxwIEbjcArQ7vzksO6m+H1lfleLZoj7w3NJ5eu
-         /C5Sp1sTIUa7pVbSMleWWs/YUQiPGm5MlTbXs0wCohD2DdnQzQnOKwdvpiuS5aUjKr/z
-         rWiw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728303905; x=1728908705;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gM96gy8f618bGBajVDpCaKuepjJ0dpUYbsUw4JQ//R4=;
-        b=hQwA4dPZMu4VHmeKzGrPFkkHMNtqvHt4vJk+LAg5mXP7WAuxd/bd8vNqCBe0R4vr7P
-         RG9EWz2aZ1QfEfq56qbMJZ/7YalSvJa3opQ1Lrb/ws3J0xNJdQYcGMhK21/pUdxY1vp2
-         uSkipTiU9CmoO4iZhqYoNekl5FX1p4KmcnOctxkKybTkNPxBbQposk3VhASkV1quUVHm
-         e5dxu6xAMAwg5MvnLrO71i5H+rTZstT01XPVgcXQQnVYLJlZeocw1OcMl324m6WicIHm
-         63myMq4abB7z82WcsLmv8DE5E1Igg+MwypQCvs9ktAOwZaUbyF5Qop9X0c/xkY1/dHVK
-         FoMw==
-X-Forwarded-Encrypted: i=1; AJvYcCW1B8ZsMzUCExSiI0kgPbVFAYB+7iNoixEnOpRKTdbgjlMo5PwwPoGRghPc59uM+DywaYRXSs8r1jCh0A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyWhSQZ5dUJUbAwR7qfkGhLT63y3LJIvXZiAU0rVrAa8K8giUH9
-	4zCvswUq+oVxn9lY+QoKKstW18O9hPYbaIVF/mMGEasQLumxGnKgxUldlE3sEg0=
-X-Google-Smtp-Source: AGHT+IHzmdeyk7BcbsepBbIRiOyd9bViCdVFyVoSqlIqtw/HHX0y/avV8U1WcrVmd8PF5MvJp7Tjrg==
-X-Received: by 2002:a05:6a20:d492:b0:1d6:5054:a02 with SMTP id adf61e73a8af0-1d6dfa24d0amr16925290637.2.1728303905288;
-        Mon, 07 Oct 2024 05:25:05 -0700 (PDT)
-Received: from localhost ([192.184.165.199])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-71df0d66695sm4409586b3a.174.2024.10.07.05.25.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Oct 2024 05:25:04 -0700 (PDT)
-Date: Mon, 07 Oct 2024 05:25:04 -0700 (PDT)
-X-Google-Original-Date: Mon, 07 Oct 2024 05:25:03 PDT (-0700)
-Subject: Re: [PATCH v1] dma: fix typo in the comment
-In-Reply-To: <20240918034114.860132-1-yanzhen@vivo.com>
-CC: vkoul@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
-  samuel.holland@sifive.com, michal.simek@amd.com, dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
-  linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, opensource.kernel@vivo.com,
-  yanzhen@vivo.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: yanzhen@vivo.com
-Message-ID: <mhng-8b05e8aa-ec7d-4ccf-883f-5e88cd86ad4f@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+	Mon, 07 Oct 2024 13:03:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ko/qXZjyGZUQyKQH2P3WBhgY19+PRpKRe9KRvd2fa7TSsFbLXxOL2G+2bsrLWCtKZmQItiqBdWcqPmG9yK8+/71ZA6o1xpgI5ydKg50DwqC7B8hySA9H6YOaR6W0tN39QMBaspAK2TRPhsosfIEyHgw+FBdwRbxPrxm3fYz0NvOdE10vZmCexPEtW9J4oWlF7Cr9lhMotysfZKSK20du61wPApRP6/QxZPlRD2X3R9TIoLJxnyVzSVzTHsNBcuEPyHkRwWR7lNx0f9LquwLhztm0euIGPtCC30DSB8Nbm1NQF8qIoHLQQNf9oiM7y4aVgQ9oRzBL3mgHWKDD2+smdg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/Bt0XrPqQB1QSjqguC8HdZ9AbWOtYNi0DT/z4KY8tVw=;
+ b=J78tzBjc7ec8Kohx+8uUW94UTpd+cxIjBdS1e/zXllQyBsMkwAczfBPEp1tHX0iVcVXnYM5dFPmx0zfPRHN4FZHG3lP9C8mm3TlJ0q6OEDhgjfnH9IIpBnBdLuuJ2GBwRUisFMQ/s2KBxwB/SBfF9cz7UEj1eJybCZmUN5LiCmDrUrxW8k6FzDUB71IiCFHynQc+iZU4HH2Xpcq29UQKerZfuy0Z+zEoV582U1qw8/y0G6zJvNqj78ARxrV9zytZPOJnQRormwzSRwdDd28ECrfVVUW5ybcmXWfHY5t/7nbQMe3PV8Pg29krpvIsf3kV561SIkhiyEYOPC4a/2k7lQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mobileye.com; dmarc=pass action=none header.from=mobileye.com;
+ dkim=pass header.d=mobileye.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mobileye.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/Bt0XrPqQB1QSjqguC8HdZ9AbWOtYNi0DT/z4KY8tVw=;
+ b=TJ9Ies8fRv1qcLwPvs6OEHZZkTEjcTB/gtWn+sydK5qqq/MLKh9FttoY92o5eIt3+ikcBZ0PZBVEq8HdZalaY01p76gcLp4hGn9cdcVqQTXYXnv7DyF34ySPYrd79EeQm3frhQzsXDAkYNQjnjnsmwzsopLNTcQsqIY3UMMkumk=
+Received: from VI1PR09MB2333.eurprd09.prod.outlook.com (2603:10a6:803:82::16)
+ by PA1PR09MB6911.eurprd09.prod.outlook.com (2603:10a6:102:45d::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8026.22; Mon, 7 Oct
+ 2024 13:03:18 +0000
+Received: from VI1PR09MB2333.eurprd09.prod.outlook.com
+ ([fe80::fef9:cf7b:cbc2:d3b7]) by VI1PR09MB2333.eurprd09.prod.outlook.com
+ ([fe80::fef9:cf7b:cbc2:d3b7%4]) with mapi id 15.20.8026.016; Mon, 7 Oct 2024
+ 13:03:17 +0000
+From: Vladimir Kondratiev <Vladimir.Kondratiev@mobileye.com>
+To: Christoph Hellwig <hch@infradead.org>
+CC: Alexandre Ghiti <alex@ghiti.fr>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	Andrew Morton <akpm@linux-foundation.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-mm@kvack.org" <linux-mm@kvack.org>
+Subject: Re: [PATCH v1] riscv: make ZONE_DMA32 optional
+Thread-Topic: [PATCH v1] riscv: make ZONE_DMA32 optional
+Thread-Index: AQHbF95IdP/goVPehEObmdWyR1OJkLJ6x3GAgAAIG4aAAAMzgIAAUkNl
+Date: Mon, 7 Oct 2024 13:03:17 +0000
+Message-ID: <VI1PR09MB2333E5C93A7925E4518959B0947D2@VI1PR09MB2333.eurprd09.prod.outlook.com>
+References: <20240827113611.537302-1-vladimir.kondratiev@mobileye.com>
+ <e8f6ed93-d47c-4c07-963c-8f16f498abed@ghiti.fr>
+ <VI1PR09MB2333FEC324AA0B3E5F1D7F98947C2@VI1PR09MB2333.eurprd09.prod.outlook.com>
+ <VI1PR09MB233370D7BD8553E7891EF46F947C2@VI1PR09MB2333.eurprd09.prod.outlook.com>
+ <ZwN0l0Y_oUfDX8jl@infradead.org>
+ <VI1PR09MB23335FF3B1274ED13F24AF06947D2@VI1PR09MB2333.eurprd09.prod.outlook.com>
+ <ZwN-E279o4bUQG26@infradead.org>
+In-Reply-To: <ZwN-E279o4bUQG26@infradead.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mobileye.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: VI1PR09MB2333:EE_|PA1PR09MB6911:EE_
+x-ms-office365-filtering-correlation-id: 22ebafb1-78ba-491a-3310-08dce6d0699d
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|38070700018;
+x-microsoft-antispam-message-info: =?iso-8859-1?Q?swcfhKBbyexRaz6KJJlJldlSB3s6xpRt3Qi2HdJD1El0RABCrpgwxkdrQk?=
+ =?iso-8859-1?Q?lDoWyn75ZhrkZc14svBSZnvll9yz8fA8WkPsQY4DFpRsvoTM/0IUfWa7/v?=
+ =?iso-8859-1?Q?nFB0MiFx6s9lo7DFvSj07P15bxND4YS6+vOBfS6bnVmh8f/zlvoqPftHSJ?=
+ =?iso-8859-1?Q?Q2dmzt5XqScxPmfk8EjrvYzKPCWTSw3TY6/57DwavrJ3gPIBYghx/e0GDh?=
+ =?iso-8859-1?Q?BZlpzhlSYsbuKZo4wMOo/N9EoqYEQXDnFlTXo3jX0UrNRRGlUw8SK1VvI5?=
+ =?iso-8859-1?Q?Dyx5zx6a9sPk7CTVSpNtuaUjWtOxkyu7ApY/+ZA2T4xHEEOqgMXYnmeEy7?=
+ =?iso-8859-1?Q?M5vJHdSmvTP8KmPoBWxYBXOK3YjWTzZ33WIqpssPDakxkzePR2bBIKJoQM?=
+ =?iso-8859-1?Q?XIEuhR+DN4TG/veKBKNtspFIDg9kSuZnshn3tUyxfjvA3/sL5TLQa2fFyT?=
+ =?iso-8859-1?Q?/V7zUrOp6Je/dizhHjEpvFy2Q7k9W27D2BrJUNw9562Vdo/IcF2jbWQc6x?=
+ =?iso-8859-1?Q?fDLkhnSf1yddmEqSGbtfz3Kw/AkNOCFXcGo8ttrZMssqjRK8DqnKWFqa9L?=
+ =?iso-8859-1?Q?JX7BMmfEJHd32aRnk8kela3nQuZqO92aNrnhmeMJigla8kmhtU7dMpAVF5?=
+ =?iso-8859-1?Q?+NdCj6RLqFmp86sNUV85PmuUfTfLeUbdxfS2ChbsRporhlNlsHCrzPIrx0?=
+ =?iso-8859-1?Q?WcGlvgJxS6VK22+Q/JFArh89h1A02zFzt+0+JgjFhUZwl8f5B6Yiw2hrJw?=
+ =?iso-8859-1?Q?FGJuvOl1XaDBWt7cRdyvCm6OMJc96AAWvoelo0E+VQ3xjk+5UaQMdGySeH?=
+ =?iso-8859-1?Q?gqKEGAporMlzDtRn/0aOwJsLJsLmek88cgBikMTMD/rmgXB/KTtF98peJ3?=
+ =?iso-8859-1?Q?8JLKV6SRDPooKDlIlveN+ogkZ3CJh5OW6BoVig6b6Jl7E9Sw65yu1jvk0I?=
+ =?iso-8859-1?Q?DY6kRTmJ8s1+Ql4VQZ8fJrvMCc+6eFdr6JNgFUkKhzFENghRbEi4O0v8kf?=
+ =?iso-8859-1?Q?LgwMxRpWrvKDRRqbNQCRN610rndSO5pkBtaogVGGP+O+r73tBDGXY6RRPD?=
+ =?iso-8859-1?Q?Ymh6+HnxFJPNJU6mMmXkTV1MVQ0w++L1VPZjIiA+2jCYy5aAV7Ga2xV8xO?=
+ =?iso-8859-1?Q?C3VVuS8cOvDEERYa1/njK6pJMoohLpZfNb6AJ7rloYqx0HZWJ6itDGJjKX?=
+ =?iso-8859-1?Q?lmfs67DX7SquJcy8nR1732fOvwRnDvOff/PJKjfe9+8xOEnUIvzXIdUaCt?=
+ =?iso-8859-1?Q?uimOmLw5JQ0itTmXdR8BMXnumwpzMzydq9ycX8qIhM53hShTF9PxxeSRYS?=
+ =?iso-8859-1?Q?7zL5DIeCpoBHEHT5/PJRGjb040/qQ2/OPzszyH5GwpAJjm7bOHx6StWT8p?=
+ =?iso-8859-1?Q?piZAlpYkqhdk+7xzLr4lg2zzMQVOSKhg=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI1PR09MB2333.eurprd09.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?FPRy6y1RYH/nqAR8H0ZPGz8xOKuT8NTC+IM3S5mgE5Homti4vlZLiYNIsj?=
+ =?iso-8859-1?Q?094ck46vlTqGV8DRYs2BPNa+gCvFUDjyUdRaFZaGZf1MtKwVeI0d1BeV9N?=
+ =?iso-8859-1?Q?ijrXXSk+HyD5Ji3dURkyXcdCxWqZmHpr9qzM/YRB0BBRFU7yHNejC23Adx?=
+ =?iso-8859-1?Q?IrJKypJY34gfs9go3/ephRaTtYUe97vksNBqtJMM9hH8KgRMpB7R/kg8Fp?=
+ =?iso-8859-1?Q?sQ6V9haPbEXLbEcKnSMEBvSBoLGGR0hgMykJfNWz7eyWys8+IaWz9ke+X0?=
+ =?iso-8859-1?Q?vnUnEdV84HxURks4jA6RFtm7h7/hmKDX9n/Wnv0i6fV3+tnOciCTrNSZO2?=
+ =?iso-8859-1?Q?E0w4rmv90RYWwuYSJk0vq9cRGNpivTvvQwCBq2L5INMtJ9xRxjJXuyVLYm?=
+ =?iso-8859-1?Q?qqKmL8k/iOL33TMIqlISV+UXyG7QWZRPcxMI5azA7YpQ+hrxHoFAm8Z+OC?=
+ =?iso-8859-1?Q?R9X9OHiuCu5iQNcpX7tm56sHIFx/l81dDw81RvdiGsa7xjGyVjEBq/736V?=
+ =?iso-8859-1?Q?mV6sNoKj1mrZFFuIai7kjfFA0H5SZAGAHB6KdT9gY5ifw3cgNsJpxQLhsE?=
+ =?iso-8859-1?Q?/AzIGvqyVHS7faoQoCq9Ds7j7SLNB7hxPRCewkU2tqwjd10MwYdQnMbwrh?=
+ =?iso-8859-1?Q?twvoAfTYqpFDKKGIDPp7EDCAVYyP5L1ThPE/zkqS9j4B8dyhplDxZdHUSy?=
+ =?iso-8859-1?Q?snWuGhW9rQgGYNojW3fJTScr7fKR4jgHlTPneqxDK0OxFTM8F/jM1TWaTz?=
+ =?iso-8859-1?Q?EBeLmKUljIsCz15U4Y3lmUppEKq+FIDyIFX0xrS/gekxmXNzcWov716k4V?=
+ =?iso-8859-1?Q?9ah0YfS+cT+lJ04kflu9p1GVCSjdsS76KV7Av1CJijAy2QddGyhEyvBojG?=
+ =?iso-8859-1?Q?LlrOaaylP/pTOB4dfrhCsg2QRpUn8VHD+O98X3MEZB7iO5/z1QHTFNQe1o?=
+ =?iso-8859-1?Q?k++FNsYlkgEf8zGXdNWT5+IPGAgpYI6vx57dmSK1HV5cQT2l+xHZlwcYJF?=
+ =?iso-8859-1?Q?r40XXG5vhyd0CFnw+dA+ShYGI1Jzuai5/bSg3G8f1lAq9LZpjyNyltPar7?=
+ =?iso-8859-1?Q?LTHW6zlwi+6Io6QLspbrZrtHp2PhK1fcC1nWeJEfrpsVfCF2IIsXz1QfHC?=
+ =?iso-8859-1?Q?KQQ4j2hpvU1+a8NJko6S7kMsCBlaaWWZMJaIPBbjNpWpjDolBvLD8vleM2?=
+ =?iso-8859-1?Q?ZmXx6w8ZMs/a2h7Jt4MGDY8+3vbWdd1HReCstFEhrvpzt2cpHmQkwA2DmY?=
+ =?iso-8859-1?Q?4wnHWHVUCrBdKCJLn+eP/8QqQuvD5+wjAiHQpblnk/7wA/eK8oGTJjz5iL?=
+ =?iso-8859-1?Q?AHx4sAlKX+dahJkjts5if39qdraRkp4BTxRtjoQWj+deKw6frQJPH9Jjq8?=
+ =?iso-8859-1?Q?ILUiKbmzqWMLOGxnAZSkSDycJc+Ke2N26bg0OaYLkScU0Kpc0JOTQuNtvL?=
+ =?iso-8859-1?Q?fEfsrkHCAw4YFGgb151Vsf1nwH1R/9/lOOjrwPuwsFYUdJ3kcnubkCl+Ly?=
+ =?iso-8859-1?Q?MI7PsK/e17EFbmRaW/yULcaJRxlVUJJs1MFu7iKVmRntw0i+o61TGQW75P?=
+ =?iso-8859-1?Q?/8dDWUJVmqfyj6TaG+o+uyA3engK6GT9VvSN10AYewCgWBONoXdDfJcZ9I?=
+ =?iso-8859-1?Q?ftaikxcFdIT44AgbnjMXnEG5cNlBoZ2QsA?=
+MIME-Version: 1.0
+X-OriginatorOrg: mobileye.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: VI1PR09MB2333.eurprd09.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 22ebafb1-78ba-491a-3310-08dce6d0699d
+X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Oct 2024 13:03:17.8976
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 4f85ba13-6953-46a6-9c5b-7599fd80e9aa
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: wOceHOwfGThaSCsWo0Ww4lbiNw/JOKEEKrcqj03c1NKZxtoJ51XP8bjV2KVtd0/k9VPE+ekAYjuUCAz8haogpg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR09MB6911
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241007_052506_899463_69E098D0 
-X-CRM114-Status: GOOD (  24.09  )
+X-CRM114-CacheID: sfid-20241007_060323_737955_648E579C 
+X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,103 +165,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 17 Sep 2024 20:41:14 PDT (-0700), yanzhen@vivo.com wrote:
-> Correctly spelled comments make it easier for the reader to understand
-> the code.
->
-> Replace 'enngine' with 'engine' in the comment &
-> replace 'trascatioin' with 'transaction' in the comment &
-> replace 'descripter' with 'descriptor' in the comment &
-> replace 'descritpor' with 'descriptor' in the comment &
-> replace 'rgisters' with 'registers' in the comment.
->
-> Signed-off-by: Yan Zhen <yanzhen@vivo.com>
-> ---
->  drivers/dma/mv_xor_v2.c         | 2 +-
->  drivers/dma/sf-pdma/sf-pdma.c   | 2 +-
+>And if there really is not way to provide this, the right way is just
+>to stop the runtime allocation that triggered you to do this if
+>ZONE_DMA32 is empty, not to add a non-portable option.
 
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+I think there's 2 different arrangements:
+1) CONFIG_ZONE_DMA32=Y means ZONE_DMA32 exists but empty.
+  Currently this is a bug. dma_atomic_pool_init() will fail.
+2) CONFIG_ZONE_DMA32=N means ZONE_DMA32 does not exists
+  In this case any code that rely on DMA32 should fail to compile, and this is an intention.
+  Such system can't have drivers that can't work without DMA32 memory
 
-for the SiFive stuff.  I'm happy to pick this up via the RISC-V tree if 
-people want, but it's mostly for other stuff so I'm going to leave it 
-alone for now.
+I understand your suggestion is to go for the option 1, not allocate atomic_pool_dma32 and later
+fail all allocations with GFP_DMA32 if requested by the code. This may be valid option but I don't have a vision how to do it properly. 
+Instead I want realize option 2.
 
-Thanks!
+SOC I am working on is not a general purpose system, it is an automotive
+SOC that will run very restricted software. It is designed for purpose without support for the 32-bit
+devices. I want to avoid any code that assumes DMA32 as this is just not valid on my SOC so I deliberately need to break all such code.
 
->  drivers/dma/sh/shdma-base.c     | 2 +-
->  drivers/dma/sh/usb-dmac.c       | 2 +-
->  drivers/dma/xilinx/zynqmp_dma.c | 2 +-
->  5 files changed, 5 insertions(+), 5 deletions(-)
->
-> diff --git a/drivers/dma/mv_xor_v2.c b/drivers/dma/mv_xor_v2.c
-> index c8c67f4d982c..c6c9702dcca0 100644
-> --- a/drivers/dma/mv_xor_v2.c
-> +++ b/drivers/dma/mv_xor_v2.c
-> @@ -635,7 +635,7 @@ static int mv_xor_v2_descq_init(struct mv_xor_v2_device *xor_dev)
->  	writel(MV_XOR_V2_DESC_NUM,
->  	       xor_dev->dma_base + MV_XOR_V2_DMA_DESQ_SIZE_OFF);
->
-> -	/* write the DESQ address to the DMA enngine*/
-> +	/* write the DESQ address to the DMA engine*/
->  	writel(lower_32_bits(xor_dev->hw_desq),
->  	       xor_dev->dma_base + MV_XOR_V2_DMA_DESQ_BALR_OFF);
->  	writel(upper_32_bits(xor_dev->hw_desq),
-> diff --git a/drivers/dma/sf-pdma/sf-pdma.c b/drivers/dma/sf-pdma/sf-pdma.c
-> index 428473611115..538a7bc58108 100644
-> --- a/drivers/dma/sf-pdma/sf-pdma.c
-> +++ b/drivers/dma/sf-pdma/sf-pdma.c
-> @@ -354,7 +354,7 @@ static irqreturn_t sf_pdma_done_isr(int irq, void *dev_id)
->  	if (!residue) {
->  		tasklet_hi_schedule(&chan->done_tasklet);
->  	} else {
-> -		/* submit next trascatioin if possible */
-> +		/* submit next transaction if possible */
->  		struct sf_pdma_desc *desc = chan->desc;
->
->  		desc->src_addr += desc->xfer_size - residue;
-> diff --git a/drivers/dma/sh/shdma-base.c b/drivers/dma/sh/shdma-base.c
-> index 588c5f409a80..fdd41e1c2263 100644
-> --- a/drivers/dma/sh/shdma-base.c
-> +++ b/drivers/dma/sh/shdma-base.c
-> @@ -961,7 +961,7 @@ void shdma_chan_probe(struct shdma_dev *sdev,
->
->  	spin_lock_init(&schan->chan_lock);
->
-> -	/* Init descripter manage list */
-> +	/* Init descriptor manage list */
->  	INIT_LIST_HEAD(&schan->ld_queue);
->  	INIT_LIST_HEAD(&schan->ld_free);
->
-> diff --git a/drivers/dma/sh/usb-dmac.c b/drivers/dma/sh/usb-dmac.c
-> index f7cd0cad056c..cc7f7ee7f74a 100644
-> --- a/drivers/dma/sh/usb-dmac.c
-> +++ b/drivers/dma/sh/usb-dmac.c
-> @@ -301,7 +301,7 @@ static struct usb_dmac_desc *usb_dmac_desc_get(struct usb_dmac_chan *chan,
->  	struct usb_dmac_desc *desc = NULL;
->  	unsigned long flags;
->
-> -	/* Get a freed descritpor */
-> +	/* Get a freed descriptor */
->  	spin_lock_irqsave(&chan->vc.lock, flags);
->  	list_for_each_entry(desc, &chan->desc_freed, node) {
->  		if (sg_len <= desc->sg_allocated_len) {
-> diff --git a/drivers/dma/xilinx/zynqmp_dma.c b/drivers/dma/xilinx/zynqmp_dma.c
-> index 9ae46f1198fe..18a407975e14 100644
-> --- a/drivers/dma/xilinx/zynqmp_dma.c
-> +++ b/drivers/dma/xilinx/zynqmp_dma.c
-> @@ -366,7 +366,7 @@ static void zynqmp_dma_init(struct zynqmp_dma_chan *chan)
->  	}
->  	writel(val, chan->regs + ZYNQMP_DMA_DATA_ATTR);
->
-> -	/* Clearing the interrupt account rgisters */
-> +	/* Clearing the interrupt account registers */
->  	val = readl(chan->regs + ZYNQMP_DMA_IRQ_SRC_ACCT);
->  	val = readl(chan->regs + ZYNQMP_DMA_IRQ_DST_ACCT);
 
 _______________________________________________
 linux-riscv mailing list
