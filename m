@@ -4,66 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 700EACFB43F
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Oct 2024 12:29:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F790CFB43F
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Oct 2024 12:46:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9WH/ccxOl7SHqimct50spx/ypCFo5fm7cRG0IcZcRU8=; b=gGMRbmc45HQbvC
-	JrCob7lWoq7ngOpB6DgrCZX1Af/8tZTQ4hzm2ZnQCLqstWX09h5g4MIhDxCUimdO5jCYSNXByuiZ3
-	OC+euUW7LM3lRSMTRCjNa3BnwTUj2mRp1Dd3WMFRU0h/Azb84vgpRImyweKV1qqIIybQJGphlBjZa
-	I0UEmyWOMSMYXZYZer1r0x07MRRVWTUAbOxlBGbMgB1J8hejoU0xZ7tMeMR2YHV6ZQAACzPk5qMcg
-	cqrSoccC4turrtxGsvCizarIf3LPxgCVdWD5of5OvYfYwyMryqUygoKzZpXhJTNZ6GtpwxJ56y8rP
-	MDUMf/f5GTxkYpNV2oIQ==;
+	List-Owner; bh=j6GE5jyGse/RGKf2HCilCk76a9n7nKdPVtKAuH9//+4=; b=VLPOlPo25jGeVz
+	OLBwOalQiUdYw6XppPul3adZySZKYWBHENRjr66fDXTW+2VEo7bdW69qiGO+PLhovKKcvIYhyg/YU
+	DHLVnE+JAFO5151w5GVjgjQCESb7bF495aLtbxlxeAqnRFR4WzlJi1peuj5hPmEijgQ0atWjOzoJQ
+	tD2G0DWbIrwIqlYhXCInJNC39b+NtjDd1LiFB/4AYwCS+4QnbB2x2n1SVXRqOQdeoPhTAIOWifeGz
+	P0DCz3iIFd/FJOnDx2+mN12Dvhy8kgYQy+tDYOLh3pX/WTjN2HMRnxAX2fFXo2Xf407AmW0JF7bt2
+	//Pc6nDau2I24EbQ8iog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sxmrD-00000002Kmg-39y8;
-	Mon, 07 Oct 2024 12:28:59 +0000
-Received: from imap4.hz.codethink.co.uk ([188.40.203.114])
+	id 1sxn7t-00000002OVm-2Eb7;
+	Mon, 07 Oct 2024 12:46:13 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sxmfp-00000002IJI-03lr
+	id 1sxmpC-00000002KTW-0vHF
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Oct 2024 12:17:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=codethink.co.uk; s=imap4-20230908; h=Sender:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=b1GIVNxvx5+F1w8uwFX+BMCBEvmeEUB2jrfqPiIRgmE=; b=XvgCYL3RuKZgyPLXt5ZWSTtREd
-	IGUeTq7T8ekDDV09zJb8Qn2Qqt3G5QRycXl73nk49IWLIrosEi8HwO7B6yJOD58rQnaF/TgytmZDN
-	fji2JIW7V3Ahzwdo1r2DObuNuB5ajyY7i4zFPhdo7o3vyRbWcqzkscrqVBlymR6wylV0EqVfimV90
-	NyX+i+lue8XTMrVq+yhn3X+9ddLVhUfBTglWSgDOmjma7aIwhQheguZKx8ABPWFYfqQ7MuQ//gavA
-	6MA3yOJ+U4zTLLAfTP6QJVK0nsqwf222Ffck6Uu19lWqasZTmhxGVZNTwoG3XEbqnnX04fy+nLSfL
-	J1F4SWVw==;
-Received: from [167.98.27.226] (helo=[10.35.6.109])
-	by imap4.hz.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
-	id 1sxmfe-00AAdC-5o; Mon, 07 Oct 2024 13:17:02 +0100
-Message-ID: <37cfd941-f51d-44d8-8283-389ea8d53e69@codethink.co.uk>
-Date: Mon, 7 Oct 2024 13:17:01 +0100
+	Mon, 07 Oct 2024 12:26:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1728304014; x=1759840014;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=qltNE1jfcPpkMTI5bbr0E8CTwqIpjpLdAcNl4yzQxJM=;
+  b=MAGi1UFzKj1qZaZUioM4LCjOIB7znjNMJooN53wwoHY0WjqLSuJyeK06
+   xPK5gmIBuksl2o2NYbTDxn6t8gZ2DRVSVDQzxo853HGKLKxjAyTZF6VI0
+   Jcp8ZMPjJ16aqruuMFb8P0V/YnqFfj4UlmkjC/H9cGkxc8qmEl1ns3TNn
+   a708PI02UTga/+iISUjNtVaFEwNY0ATrbNL+JNA1YgC3dKTfnk7q/ntFS
+   KOW3ODkmK+U5TP377EDlepUl+owzienAwtuI9mhcqjqj1teIjpUa/p/8v
+   KYtXygUPeTpK71Vkiu7DSDMIsmQNdjjI/7LWaENu+TV1AMjh59W2K7kfa
+   A==;
+X-CSE-ConnectionGUID: MK9ZkT58S/K4rNShSSy9Gg==
+X-CSE-MsgGUID: vC4X5OGYQR2JMm823NQRkg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11217"; a="38816051"
+X-IronPort-AV: E=Sophos;i="6.11,184,1725346800"; 
+   d="scan'208";a="38816051"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Oct 2024 05:26:51 -0700
+X-CSE-ConnectionGUID: fMIhzlVSR0GkmjKwWAYCcA==
+X-CSE-MsgGUID: XnyvOv/jS4WveyAgA/52Qw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,184,1725346800"; 
+   d="scan'208";a="75806942"
+Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
+  by fmviesa010.fm.intel.com with ESMTP; 07 Oct 2024 05:26:48 -0700
+Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1sxmp4-0004yF-2b;
+	Mon, 07 Oct 2024 12:26:46 +0000
+Date: Mon, 7 Oct 2024 20:26:28 +0800
+From: kernel test robot <lkp@intel.com>
+To: Drew Fustini <dfustini@tenstorrent.com>, Drew Fustini <drew@pdp7.com>,
+	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
+	Linus Walleij <linus.walleij@linaro.org>
+Cc: oe-kbuild-all@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 3/3] pinctrl: th1520: Convert dt child node loop to
+ scoped iterator
+Message-ID: <202410072033.XpRqZ8nz-lkp@intel.com>
+References: <20241006-th1520-pinctrl-fixes-v2-3-b1822ae3a6d7@tenstorrent.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: make ZONE_DMA32 optional
-To: Vladimir Kondratiev <Vladimir.Kondratiev@mobileye.com>,
- Alexandre Ghiti <alex@ghiti.fr>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-mm@kvack.org" <linux-mm@kvack.org>
-References: <20240827113611.537302-1-vladimir.kondratiev@mobileye.com>
- <e8f6ed93-d47c-4c07-963c-8f16f498abed@ghiti.fr>
- <VI1PR09MB2333FEC324AA0B3E5F1D7F98947C2@VI1PR09MB2333.eurprd09.prod.outlook.com>
-Content-Language: en-GB
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-Organization: Codethink Limited.
-In-Reply-To: <VI1PR09MB2333FEC324AA0B3E5F1D7F98947C2@VI1PR09MB2333.eurprd09.prod.outlook.com>
+Content-Disposition: inline
+In-Reply-To: <20241006-th1520-pinctrl-fixes-v2-3-b1822ae3a6d7@tenstorrent.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241007_051713_173732_99481E73 
-X-CRM114-Status: GOOD (  15.36  )
+X-CRM114-CacheID: sfid-20241007_052654_326489_0AE3448B 
+X-CRM114-Status: GOOD (  12.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,48 +86,173 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 06/10/2024 11:44, Vladimir Kondratiev wrote:
->> I'm wondering how distro kernels will deal with that since some
->> platforms will need the ZONE_DMA32 and some others will break when
->> enabled as you have shown.
-> 
-> I agree platforms with no ZONE_DMA32 is non-portable,
-> to address this I will add dependency on NONPORTABLE and re-submit
-> shortly. Thanks for pointing that.
+Hi Drew,
 
-So the last time I got to looking at this, the SoC had no memory
-in the 32bit space and all the on-chip IP blocks where all 64bit
-DMA capable.
+kernel test robot noticed the following build warnings:
 
-The only thing we didn't sort out was anything connected by the DW
-PCIe core, but we think that could use an inbound  translation window.
+[auto build test WARNING on 2694868880705e8f6bb61b24b1b25adc42a4a217]
 
-However, software wise we didn't have the time to try and either
-hack something into the kernel or write some form of IOMMU for the 
-inbound translation unit. We just removed the warnings to get the
-initial testing through.
+url:    https://github.com/intel-lab-lkp/linux/commits/Drew-Fustini/pinctrl-th1520-Fix-return-value-for-unknown-pin-error/20241007-014953
+base:   2694868880705e8f6bb61b24b1b25adc42a4a217
+patch link:    https://lore.kernel.org/r/20241006-th1520-pinctrl-fixes-v2-3-b1822ae3a6d7%40tenstorrent.com
+patch subject: [PATCH v2 3/3] pinctrl: th1520: Convert dt child node loop to scoped iterator
+config: alpha-allyesconfig (https://download.01.org/0day-ci/archive/20241007/202410072033.XpRqZ8nz-lkp@intel.com/config)
+compiler: alpha-linux-gcc (GCC) 13.3.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241007/202410072033.XpRqZ8nz-lkp@intel.com/reproduce)
 
->> Is there a way to make it optional at runtime instead?
-> Unfortunately no, or at least I see no way to do so
-> 
-> Thanks, Vladimir
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-> 
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202410072033.XpRqZ8nz-lkp@intel.com/
 
+All warnings (new ones prefixed by >>):
+
+   drivers/pinctrl/pinctrl-th1520.c: In function 'th1520_pinctrl_dt_node_to_map':
+>> drivers/pinctrl/pinctrl-th1520.c:420:29: warning: unused variable 'child' [-Wunused-variable]
+     420 |         struct device_node *child;
+         |                             ^~~~~
+
+
+vim +/child +420 drivers/pinctrl/pinctrl-th1520.c
+
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  413  
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  414  static int th1520_pinctrl_dt_node_to_map(struct pinctrl_dev *pctldev,
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  415  					 struct device_node *np,
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  416  					 struct pinctrl_map **maps,
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  417  					 unsigned int *num_maps)
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  418  {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  419  	struct th1520_pinctrl *thp = pinctrl_dev_get_drvdata(pctldev);
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30 @420  	struct device_node *child;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  421  	struct pinctrl_map *map;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  422  	unsigned long *configs;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  423  	unsigned int nconfigs;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  424  	unsigned int nmaps;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  425  	int ret;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  426  
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  427  	nmaps = 0;
+1a1dcc4caac257 Drew Fustini         2024-10-06  428  	for_each_available_child_of_node_scoped(np, child) {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  429  		int npins = of_property_count_strings(child, "pins");
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  430  
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  431  		if (npins <= 0) {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  432  			dev_err(thp->pctl->dev, "no pins selected for %pOFn.%pOFn\n",
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  433  				np, child);
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  434  			return -EINVAL;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  435  		}
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  436  		nmaps += npins;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  437  		if (of_property_present(child, "function"))
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  438  			nmaps += npins;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  439  	}
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  440  
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  441  	map = kcalloc(nmaps, sizeof(*map), GFP_KERNEL);
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  442  	if (!map)
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  443  		return -ENOMEM;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  444  
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  445  	nmaps = 0;
+9aae170bf6c30e Drew Fustini         2024-10-06  446  	guard(mutex)(&thp->mutex);
+1a1dcc4caac257 Drew Fustini         2024-10-06  447  	for_each_available_child_of_node_scoped(np, child) {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  448  		unsigned int rollback = nmaps;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  449  		enum th1520_muxtype muxtype;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  450  		struct property *prop;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  451  		const char *funcname;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  452  		const char **pgnames;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  453  		const char *pinname;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  454  		int npins;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  455  
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  456  		ret = pinconf_generic_parse_dt_config(child, pctldev, &configs, &nconfigs);
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  457  		if (ret) {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  458  			dev_err(thp->pctl->dev, "%pOFn.%pOFn: error parsing pin config\n",
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  459  				np, child);
+1a1dcc4caac257 Drew Fustini         2024-10-06  460  			goto free_map;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  461  		}
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  462  
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  463  		if (!of_property_read_string(child, "function", &funcname)) {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  464  			muxtype = th1520_muxtype_get(funcname);
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  465  			if (!muxtype) {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  466  				dev_err(thp->pctl->dev, "%pOFn.%pOFn: unknown function '%s'\n",
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  467  					np, child, funcname);
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  468  				ret = -EINVAL;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  469  				goto free_configs;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  470  			}
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  471  
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  472  			funcname = devm_kasprintf(thp->pctl->dev, GFP_KERNEL, "%pOFn.%pOFn",
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  473  						  np, child);
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  474  			if (!funcname) {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  475  				ret = -ENOMEM;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  476  				goto free_configs;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  477  			}
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  478  
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  479  			npins = of_property_count_strings(child, "pins");
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  480  			pgnames = devm_kcalloc(thp->pctl->dev, npins, sizeof(*pgnames), GFP_KERNEL);
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  481  			if (!pgnames) {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  482  				ret = -ENOMEM;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  483  				goto free_configs;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  484  			}
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  485  		} else {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  486  			funcname = NULL;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  487  		}
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  488  
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  489  		npins = 0;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  490  		of_property_for_each_string(child, "pins", prop, pinname) {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  491  			unsigned int i;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  492  
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  493  			for (i = 0; i < thp->desc.npins; i++) {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  494  				if (!strcmp(pinname, thp->desc.pins[i].name))
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  495  					break;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  496  			}
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  497  			if (i == thp->desc.npins) {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  498  				nmaps = rollback;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  499  				dev_err(thp->pctl->dev, "%pOFn.%pOFn: unknown pin '%s'\n",
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  500  					np, child, pinname);
+08f5dfea548d37 Drew Fustini         2024-10-06  501  				ret = -EINVAL;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  502  				goto free_configs;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  503  			}
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  504  
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  505  			if (nconfigs) {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  506  				map[nmaps].type = PIN_MAP_TYPE_CONFIGS_PIN;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  507  				map[nmaps].data.configs.group_or_pin = thp->desc.pins[i].name;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  508  				map[nmaps].data.configs.configs = configs;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  509  				map[nmaps].data.configs.num_configs = nconfigs;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  510  				nmaps += 1;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  511  			}
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  512  			if (funcname) {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  513  				pgnames[npins++] = thp->desc.pins[i].name;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  514  				map[nmaps].type = PIN_MAP_TYPE_MUX_GROUP;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  515  				map[nmaps].data.mux.function = funcname;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  516  				map[nmaps].data.mux.group = thp->desc.pins[i].name;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  517  				nmaps += 1;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  518  			}
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  519  		}
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  520  
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  521  		if (funcname) {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  522  			ret = pinmux_generic_add_function(pctldev, funcname, pgnames,
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  523  							  npins, (void *)muxtype);
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  524  			if (ret < 0) {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  525  				dev_err(thp->pctl->dev, "error adding function %s\n", funcname);
+1a1dcc4caac257 Drew Fustini         2024-10-06  526  				goto free_map;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  527  			}
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  528  		}
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  529  	}
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  530  
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  531  	*maps = map;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  532  	*num_maps = nmaps;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  533  	return 0;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  534  
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  535  free_configs:
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  536  	kfree(configs);
+1a1dcc4caac257 Drew Fustini         2024-10-06  537  free_map:
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  538  	th1520_pinctrl_dt_free_map(pctldev, map, nmaps);
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  539  	return ret;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  540  }
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  541  
 
 -- 
-Ben Dooks				http://www.codethink.co.uk/
-Senior Engineer				Codethink - Providing Genius
-
-https://www.codethink.co.uk/privacy.html
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
