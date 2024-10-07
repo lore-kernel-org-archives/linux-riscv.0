@@ -4,63 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36A45CFB446
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Oct 2024 16:01:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87511CFB449
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Oct 2024 16:12:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hrUGbPElEt7c6g76We7Eg2sK1wqYFXi/753zidXPufU=; b=FpbCDl9BKbcbZr
-	1ViCvPQSDl76y10gT2XVaWHzkOiC8e0VAfEqr1Qv8Rz7+XeAccFbJqlhGBRzriJ7YsFZGBNRr8nd/
-	D+zNIasbHwl0/V7oL4T66VdM8vwwb6DUCQ8WbDHSzB55NXHqO0KnoAfxuA8/t1eHK1Tv3aCjCjiGh
-	0ULSQ58g9QMMK2FVQR/uzdJ4JuR8RMn+pjxcObZU+LexnPvv55G8d5wby0UiqlZ+WMIUYnx8etybG
-	5nWnZ/lL+rszRhjFPc4ExYGMKBhSQ8OtfnSPeu0808x6YbnxfoT3HFktLeB3VfnSJ7zP+M5h9kV2X
-	NG4cdww5BLIl6wfS6K/A==;
+	List-Owner; bh=v4YahAAIe512PrhKKBpcXJPb/bngVbHk3y8Jfzd8FSE=; b=i2u8jqX7nTDloS
+	pC0lY1BmApi1Ry9YHRLhfy5q8Gg4Z7sLrEkeNLAor1Xl/X7wj32n5w8DMQUnlzty5bipRBBcbcDdA
+	3nUUBZfH4ILVlgOkRlWE6bVj6m4FZFkuRBX+xrNx/poeoCBooe0JQjkTOr6sreoWzDIeqblCmXq9v
+	6niokADpIQMKTzZ988PAVIPNUM2pX6qFFNT1epkyNTSnBpQim9HxaKDja/9Siuc79tJGe0AZd0mJK
+	3xmWFrKasGDDxYlFR1KkGx39uAGun2J1EvANznsjHxPRpBFU7K2WFG7GqZYH6Oth6Lu3Fxbd1plTS
+	JLZskeh8+YnjfksO48LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sxqAW-000000034NL-2qdM;
-	Mon, 07 Oct 2024 16:01:08 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1sxqLD-000000036ab-3VQY;
+	Mon, 07 Oct 2024 16:12:11 +0000
+Received: from mgamail.intel.com ([198.175.65.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sxqAU-000000034LE-0ISf
+	id 1sxqJ7-000000035tc-3ncZ
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Oct 2024 16:01:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 473E8A418B4;
-	Mon,  7 Oct 2024 16:00:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C2E7C4CEC7;
-	Mon,  7 Oct 2024 16:01:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1728316861;
-	bh=e2NBHTw6PPvjULzXCQpYbFWcRNCqsXQxPgENG33mKoQ=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=WMvlMyGgn0mENSHuioUpratdm0Fb72jH/kyBzfNDdc11bZdmf3uNCn5qkmZiqgAjA
-	 3ZgPvnDTMA/gDx07PgsHCfRvUUnLr1IBUyvMZ73Abl/ur+HQ14iEqXtKy3vXr7JRjM
-	 MlB7ynIIb4SOzxaNenMQFfx2laXFSRsI2HH+0ndsfY+NTFJPjHQ3ymJFsy9YDIATXv
-	 1jtvMsLJyLpwgwK83CxA/HKgkJ6cyX8TtM7h2AJixNYiNMj41W9xuQ6F3C+aVJxI8I
-	 JjVsW2EV//PdyPUejWOFFV/pJMg95M+X3wSlsdtlmRGY82RB4OEnPrvcmEPr8wLw0W
-	 OPYet1W0eHtfA==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Tejun Heo <tj@kernel.org>, David Vernet <void@manifault.com>, Shuah Khan
- <shuah@kernel.org>, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@rivosinc.com>,
- bpf@vger.kernel.org, linux-riscv@lists.infradead.org, Anders Roxell
- <anders.roxell@linaro.org>
-Subject: Re: [PATCH v2] selftests: sched_ext: Add sched_ext as proper
- selftest target
-In-Reply-To: <ZwQBqlG6MShCkNrU@finisterre.sirena.org.uk>
-References: <20241007073133.989166-1-bjorn@kernel.org>
- <ZwQBqlG6MShCkNrU@finisterre.sirena.org.uk>
-Date: Mon, 07 Oct 2024 18:00:57 +0200
-Message-ID: <87r08rnbra.fsf@all.your.base.are.belong.to.us>
+	Mon, 07 Oct 2024 16:10:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1728317401; x=1759853401;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=0ckgttVVxx/A8mJwmIbK5+m1JqwAMDJpayDNo47JfVE=;
+  b=Eo6yFVDOfI1Do9+pyo6xucsznYiacNml9e/kEvhVC/Mkl2cqPOjRKt8G
+   KkH5+T4VQl4rKxbgYtKP+cwr0URZwZ+Hy5fsKFi0bNglncwHpGX3tVyyK
+   BQkKAeW5jrMLc7nMUy8DvtyjeRnZjRVgQ+/duV5ZFZHhSR8WdmpTucYlG
+   heJ+GOEOb1lEN7jn54NJQ5BOL1U12LG+wzJEWci6sjpO4RYwQoOWdv7fe
+   Qd+QTa4lTRKa74teqHYwIyX37N+3Evv3jyayBG4aEXA+ruAdA+kQGVPZw
+   tsJR5Y5T/vOPuYUTBEQh1+EDVDzW5ajI5ok8p8ohOEflEZ0wirPpOqoLK
+   g==;
+X-CSE-ConnectionGUID: 8Dyf7TzgRwiYqKAu6Gg6TA==
+X-CSE-MsgGUID: Ef5kznrlSBKHLG5UgX9ODw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11218"; a="27601953"
+X-IronPort-AV: E=Sophos;i="6.11,184,1725346800"; 
+   d="scan'208";a="27601953"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Oct 2024 09:10:00 -0700
+X-CSE-ConnectionGUID: wdpEStqeSjSYOgDBfzvrQA==
+X-CSE-MsgGUID: WKnje6DdSwyOpBOrQ8e+BA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,184,1725346800"; 
+   d="scan'208";a="75478775"
+Received: from ahunter6-mobl1.ger.corp.intel.com (HELO [10.0.2.15]) ([10.245.89.141])
+  by orviesa009-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Oct 2024 09:09:55 -0700
+Message-ID: <51b6cee1-d23f-475e-bfe0-979e96e687c6@intel.com>
+Date: Mon, 7 Oct 2024 19:09:48 +0300
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1] mmc: sdhci: Prevent stale command and data interrupt
+ handling
+To: Michal Wilczynski <m.wilczynski@samsung.com>, ulf.hansson@linaro.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ m.szyprowski@samsung.com
+Cc: linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <CGME20241003161012eucas1p2ab704a8771869e142b024cc95d5ecb5d@eucas1p2.samsung.com>
+ <20241003161007.3485810-1-m.wilczynski@samsung.com>
+Content-Language: en-US
+From: Adrian Hunter <adrian.hunter@intel.com>
+Organization: Intel Finland Oy, Registered Address: PL 281, 00181 Helsinki,
+ Business Identity Code: 0357606 - 4, Domiciled in Helsinki
+In-Reply-To: <20241003161007.3485810-1-m.wilczynski@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241007_090106_263220_0FCB5C08 
-X-CRM114-Status: GOOD (  19.38  )
+X-CRM114-CacheID: sfid-20241007_091002_576524_74712890 
+X-CRM114-Status: GOOD (  23.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,73 +86,131 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-TWFyayBCcm93biA8YnJvb25pZUBrZXJuZWwub3JnPiB3cml0ZXM6Cgo+IE9uIE1vbiwgT2N0IDA3
-LCAyMDI0IGF0IDA5OjMxOjMyQU0gKzAyMDAsIEJqw7ZybiBUw7ZwZWwgd3JvdGU6Cj4KPj4gV2hl
-biBidWlsZGluZyB0aGUga3NlbGZ0ZXN0IHN1aXRlLCBlLmcuOgo+Cj4+ICAgbWFrZSBBUkNIPXJp
-c2N2IENST1NTX0NPTVBJTEU9cmlzY3Y2NC1saW51eC1nbnUtIFwKPj4gICAgIFNLSVBfVEFSR0VU
-Uz0iIiBPPS9vdXRwdXQvZm9vIC1DIHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzIGluc3RhbGwKPgo+
-PiBUaGUgZXhwZWN0YXRpb24gaXMgdGhhdCB0aGUgc2NoZWRfZXh0IGlzIGluY2x1ZGVkLCBjcm9z
-cy1idWlsdCwgYW5kCj4+IHBsYWNlZCBpbnRvIC9vdXRwdXQvZm9vLgo+Cj4gV2hlbiBidWlsZGlu
-ZyBmb3IgYXJtNjQgd2l0aCB0aGlzIGFwcGxpZWQgb24gdG9wIG9mIG1haW5saW5lIG9yIC1uZXh0
-Cj4gSSdtIHNlZWluZzoKClRoYW5rcyBmb3IgdGFraW5nIGl0IGZvciBhIHNwaW4hCgo+ICAgIG1h
-a2UgQVJDSD1hcm02NCBDUk9TU19DT01QSUxFPWFhcmNoNjQtbGludXgtZ251LSAtQyB0b29scy90
-ZXN0aW5nL3NlbGZ0ZXN0cyBUQVJHRVRTPXNjaGVkX2V4dCBTS0lQX1RBUkdFVFM9Igo+Cj4gZ2l2
-ZQo+Cj4gICBDTE5HLUJQRiBjcmVhdGVfZHNxLmJwZi5vCj4gSW4gZmlsZSBpbmNsdWRlZCBmcm9t
-IGNyZWF0ZV9kc3EuYnBmLmM6OToKPiAvaG9tZS9icm9vbmllL2dpdC9saW51eC90b29scy9zY2hl
-ZF9leHQvaW5jbHVkZS9zY3gvY29tbW9uLmJwZi5oOjMzOjE3OiBlcnJvcjogdXNlIG9mIHVuZGVj
-bGFyZWQgaWRlbnRpZmllciAnU0NYX0RTUV9GTEFHX0JVSUxUSU4nCj4gICAgMzMgfCAgICAgICAg
-IF9TdGF0aWNfYXNzZXJ0KFNDWF9EU1FfRkxBR19CVUlMVElOLAo+ICAgICAgIHwgICAgICAgICAg
-ICAgICAgICAgICAgICBeCgpUaGlzIGlzIG1vc3QgbGlrZWx5IGR1ZSB0byBpbmNvcnJlY3QgVk1M
-SU5VWF9CVEZfUEFUSFMsIHNvIHRoYXQKdm1saW51eC5oIGlzIGluY29ycmVjdGx5IGdlbmVyYXRl
-ZC4gVHJ5IGdyZXBwaW5nIGZvcgpTQ1hfRFNRX0ZMQUdfQlVJTFRJTiBpbiB2bWxpbnV4LmguCgo+
-IGFuZCBtb3JlIChteSBzeXN0ZW0gY2xhbmcgaXMgY2xhbmcgMjApLiAgSXQncyBhbHNvIGZhaWxp
-bmcgd2l0aCBhIG5hdGl2ZQo+IHg4Nl82NCBidWlsZCBpbiB0aGUgc2FtZSB3YXkuICBJJ3ZlIHJ1
-biAibWFrZSBoZWFkZXJzX2luc3RhbGwiLCBpdCBsb29rcwo+IGxpa2UgY2xhbmcgaXMgbm90IGdl
-dHRpbmcgdG9sZCBhYm91dCB0aGUgY29weSBvZiB0aGUgaGVhZGVycyBpbnN0YWxsZWQKPiBpbiAu
-L3Vzci9pbmNsdWRlOgo+Cj4gY2xhbmcgLWcgLURfX1RBUkdFVF9BUkNIX3g4NiAtbWxpdHRsZS1l
-bmRpYW4gLUkvaG9tZS9icm9vbmllL2dpdC9saW51eC90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9z
-Y2hlZF9leHQvaW5jbHVkZSAtSS9ob21lL2Jyb29uaWUvZ2l0L2xpbnV4L3Rvb2xzL3Rlc3Rpbmcv
-c2VsZnRlc3RzL3NjaGVkX2V4dC9pbmNsdWRlL2JwZi1jb21wYXQgLUkvaG9tZS9icm9vbmllL2dp
-dC9saW51eC90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9zY2hlZF9leHQvYnVpbGQvaW5jbHVkZSAt
-SS9ob21lL2Jyb29uaWUvZ2l0L2xpbnV4L3Rvb2xzL2luY2x1ZGUvdWFwaSAtSS9ob21lL2Jyb29u
-aWUvZ2l0L2xpbnV4L3Rvb2xzL3NjaGVkX2V4dC9pbmNsdWRlIC1JL2hvbWUvYnJvb25pZS9naXQv
-bGludXgvaW5jbHVkZSAtaWRpcmFmdGVyIC91c3IvbGliL2xsdm0tMjAvbGliL2NsYW5nLzIwL2lu
-Y2x1ZGUgLWlkaXJhZnRlciAvdXNyL2xvY2FsL2luY2x1ZGUgLWlkaXJhZnRlciAvdXNyL2luY2x1
-ZGUveDg2XzY0LWxpbnV4LWdudSAtaWRpcmFmdGVyIC91c3IvaW5jbHVkZSAgLVdhbGwgLVduby1j
-b21wYXJlLWRpc3RpbmN0LXBvaW50ZXItdHlwZXMgLVduby1pbmNvbXBhdGlibGUtZnVuY3Rpb24t
-cG9pbnRlci10eXBlcyAtTzIgLW1jcHU9djMgLXRhcmdldCBicGYgLWMgY3JlYXRlX2RzcS5icGYu
-YyAtbyAvaG9tZS9icm9vbmllL2dpdC9saW51eC90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9zY2hl
-ZF9leHQvYnVpbGQvb2JqL3NjaGVkX2V4dC9jcmVhdGVfZHNxLmJwZi5vCgpUaGUgc2NoZWRfZXh0
-IEJQRiBwcm9ncmFtcyByZWxpZXMgb24gYSB2bWxpbnV4LmgsIHdoaWNoIGlzIGdlbmVyYXRlZAp1
-c2luZyBicGZ0b29sIGFuZCB0aGUgdm1saW51eCB3aXRoIEJURiBpbmZvcm1hdGlvbi4gSGF2ZSB5
-b3UgYnVpbHQgYQprZXJuZWwgd2l0aCBCVEYgc3VwcG9ydD8KCj4+IEFkZCBDUk9TU19DT01QSUxF
-LCBPVVRQVVQsIGFuZCBUQVJHRVRTIHN1cHBvcnQgdG8gdGhlIHNjaGVkX2V4dAo+PiBzZWxmdGVz
-dC4gQWxzbywgcmVtb3ZlIHNvbWUgdmFyaWFibGVzIHRoYXQgd2VyZSB1bnVzZWQgYnkgdGhlCj4+
-IE1ha2VmaWxlLgo+Cj4+ICtpZm5lcSAoJChDUk9TU19DT01QSUxFKSwpCj4+ICtERUZBVUxUX0JQ
-RlRPT0wgOj0gJChPVVRQVVRfRElSKS9ob3N0L3NiaW4vYnBmdG9vbAo+PiArSE9TVF9PQkpfRElS
-IDo9ICQoT0JKX0RJUikvaG9zdC9icGZ0b29sCj4+ICtIT1NUX0xJQkJQRl9PVVRQVVQgOj0gJChP
-QkpfRElSKS9ob3N0L2xpYmJwZi8KPj4gK0hPU1RfTElCQlBGX0RFU1RESVIgOj0gJChPVVRQVVRf
-RElSKS9ob3N0Lwo+PiArSE9TVF9ERVNURElSIDo9ICQoT1VUUFVUX0RJUikvaG9zdC8KPj4gK2Vs
-c2UKPj4gK0RFRkFVTFRfQlBGVE9PTCA6PSAkKE9VVFBVVF9ESVIpL3NiaW4vYnBmdG9vbAo+PiAr
-SE9TVF9PQkpfRElSIDo9ICQoT0JKX0RJUikvYnBmdG9vbAo+PiArSE9TVF9MSUJCUEZfT1VUUFVU
-IDo9ICQoT0JKX0RJUikvbGliYnBmLwo+PiArSE9TVF9MSUJCUEZfREVTVERJUiA6PSAkKE9VVFBV
-VF9ESVIpLwo+PiArSE9TVF9ERVNURElSIDo9ICQoT1VUUFVUX0RJUikvCj4+ICtlbmRpZgo+Cj4g
-VGhpcyB3b24ndCBkZXRlY3QgYSBjcm9zcyBjb21waWxlIHdoZW4gYnVpbGRpbmcgdXNpbmcgTExW
-TSBhcyB0aGF0Cj4gZG9lc24ndCBuZWVkIHRvIHNldCBDUk9TU19DT01QSUxFLCBpdCBjYW4gdXNl
-IHRoZSBzYW1lIGJpbmFyaWVzIGZvciBhbGwKPiB0YXJnZXRzLiAgVGhlcmUncyBydW5lcyBpbiB0
-aGUgTWFrZWZpbGUgZm9yIHRoZSBtbSBzZWxmdGVzdHMgZm9yCj4gaWRlbnRpZnlpbmcgdGhlIHRh
-cmdldCBhcmNoaXRlY3R1cmUsIHRob3VnaCBhY3R1YWxseSBJJ20gd29uZGVyaW5nIGlmCj4gaXQn
-cyB3b3J0aCBqdXN0IGFsd2F5cyBidWlsZGluZyB0aGUgaG9zdCBjb3B5IGFuZCBuZXZlciBoYXZp
-bmcgdG8gd29ycnkKPiBpZiB0aGUgdGFyZ2V0IGJ1aWxkIGlzIGEgY3Jvc3MgYnVpbGQgb3Igbm90
-PyAgSXQncyBvYnZpb3VzIG92ZXJoZWFkIGluCj4gdGhlIG5hdGl2ZSBjYXNlIHRob3VnaCBpZiB3
-ZSBhY3R1YWxseSBuZWVkIHRoZSB0YXJnZXQgY29weS4KClllYWgsIHRoYXQgd291bGQgaW5kZWVk
-IHNpbXBsaWZ5IHRoaW5ncyEgSSdsbCBzcGluIGEgdjMgd2l0aCB0aGF0IChhbmQKd2FpdCBmb3Ig
-bW9yZSBmZWVkYmFjaykuCgoKVGhhbmtzIGZvciB0ZXN0aW5nIHRoZSBwYXRjaCEKQmrDtnJuCgpf
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
-diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
-dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On 3/10/24 19:10, Michal Wilczynski wrote:
+> While working with the T-Head 1520 LicheePi4A SoC, certain conditions
+> arose that allowed me to reproduce a race issue in the sdhci code.
+> 
+> To reproduce the bug, you need to enable the sdio1 controller in the
+> device tree file
+> `arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi` as follows:
+> 
+> &sdio1 {
+> 	bus-width = <4>;
+> 	max-frequency = <100000000>;
+> 	no-sd;
+> 	no-mmc;
+> 	broken-cd;
+> 	cap-sd-highspeed;
+> 	post-power-on-delay-ms = <50>;
+> 	status = "okay";
+> 	wakeup-source;
+> 	keep-power-in-suspend;
+> };
+> 
+> When resetting the SoC using the reset button, the following messages
+> appear in the dmesg log:
+> 
+> [    8.164898] mmc2: Got command interrupt 0x00000001 even though no
+> command operation was in progress.
+> [    8.174054] mmc2: sdhci: ============ SDHCI REGISTER DUMP ===========
+> [    8.180503] mmc2: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+> [    8.186950] mmc2: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+> [    8.193395] mmc2: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+> [    8.199841] mmc2: sdhci: Present:   0x03da0000 | Host ctl: 0x00000000
+> [    8.206287] mmc2: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+> [    8.212733] mmc2: sdhci: Wake-up:   0x00000000 | Clock:    0x0000decf
+> [    8.219178] mmc2: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+> [    8.225622] mmc2: sdhci: Int enab:  0x00ff1003 | Sig enab: 0x00ff1003
+> [    8.232068] mmc2: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+> [    8.238513] mmc2: sdhci: Caps:      0x3f69c881 | Caps_1:   0x08008177
+> [    8.244959] mmc2: sdhci: Cmd:       0x00000502 | Max curr: 0x00191919
+> [    8.254115] mmc2: sdhci: Resp[0]:   0x00001009 | Resp[1]:  0x00000000
+> [    8.260561] mmc2: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+> [    8.267005] mmc2: sdhci: Host ctl2: 0x00001000
+> [    8.271453] mmc2: sdhci: ADMA Err:  0x00000000 | ADMA Ptr:
+> 0x0000000000000000
+> [    8.278594] mmc2: sdhci: ============================================
+> 
+> I also enabled some traces to better understand the problem:
+> 
+>      kworker/3:1-62      [003] .....     8.163538: mmc_request_start:
+> mmc2: start struct mmc_request[000000000d30cc0c]: cmd_opcode=5
+> cmd_arg=0x0 cmd_flags=0x2e1 cmd_retries=0 stop_opcode=0 stop_arg=0x0
+> stop_flags=0x0 stop_retries=0 sbc_opcode=0 sbc_arg=0x0 sbc_flags=0x0
+> sbc_retires=0 blocks=0 block_size=0 blk_addr=0 data_flags=0x0 tag=0
+> can_retune=0 doing_retune=0 retune_now=0 need_retune=0 hold_retune=1
+> retune_period=0
+>           <idle>-0       [000] d.h2.     8.164816: sdhci_cmd_irq:
+> hw_name=ffe70a0000.mmc quirks=0x2008008 quirks2=0x8 intmask=0x10000
+> intmask_p=0x18000
+>      irq/24-mmc2-96      [000] .....     8.164840: sdhci_thread_irq:
+> msg=
+>      irq/24-mmc2-96      [000] d.h2.     8.164896: sdhci_cmd_irq:
+> hw_name=ffe70a0000.mmc quirks=0x2008008 quirks2=0x8 intmask=0x1
+> intmask_p=0x1
+>      irq/24-mmc2-96      [000] .....     8.285142: mmc_request_done:
+> mmc2: end struct mmc_request[000000000d30cc0c]: cmd_opcode=5
+> cmd_err=-110 cmd_resp=0x0 0x0 0x0 0x0 cmd_retries=0 stop_opcode=0
+> stop_err=0 stop_resp=0x0 0x0 0x0 0x0 stop_retries=0 sbc_opcode=0
+> sbc_err=0 sbc_resp=0x0 0x0 0x0 0x0 sbc_retries=0 bytes_xfered=0
+> data_err=0 tag=0 can_retune=0 doing_retune=0 retune_now=0 need_retune=0
+> hold_retune=1 retune_period=0
+> 
+> Here's what happens: the __mmc_start_request function is called with
+> opcode 5. Since the power to the Wi-Fi card, which resides on this SDIO
+> bus, is initially off after the reset, an interrupt SDHCI_INT_TIMEOUT is
+> triggered. Immediately after that, a second interrupt SDHCI_INT_RESPONSE
+> is triggered. Depending on the exact timing, these conditions can
+> trigger the following race problem:
+> 
+> 1) The sdhci_cmd_irq top half handles the command as an error. It sets
+>    host->cmd to NULL and host->pending_reset to true.
+> 2) The sdhci_thread_irq bottom half is scheduled next and executes faster
+>    than the second interrupt handler for SDHCI_INT_RESPONSE. It clears
+>    host->pending_reset before the SDHCI_INT_RESPONSE handler runs.
+> 3) The pending interrupt SDHCI_INT_RESPONSE handler gets called, triggering
+>    a code path that prints: "mmc2: Got command interrupt 0x00000001 even
+>    though no command operation was in progress."
+> 
+> To solve this issue, we need to clear pending interrupts when resetting
+> host->pending_reset. This ensures that after sdhci_threaded_irq restores
+> interrupts, there are no pending stale interrupts.
+> 
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
+>  drivers/mmc/host/sdhci.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/drivers/mmc/host/sdhci.c b/drivers/mmc/host/sdhci.c
+> index 4b91c9e96635..b91a6076c332 100644
+> --- a/drivers/mmc/host/sdhci.c
+> +++ b/drivers/mmc/host/sdhci.c
+> @@ -3098,6 +3098,10 @@ static bool sdhci_request_done(struct sdhci_host *host)
+>  		sdhci_reset_for(host, REQUEST_ERROR);
+>  
+>  		host->pending_reset = false;
+> +
+> +		/* Clear any pending interrupts after reset */
+> +		sdhci_writel(host, SDHCI_INT_CMD_MASK | SDHCI_INT_DATA_MASK,
+> +			     SDHCI_INT_STATUS);
+
+According to SDHCI spec, "Software Reset For CMD Line" clears
+"Command Complete" in "Normal Interrupt Status register", so the
+interrupt status should not need to be cleared again.
+
+Which SDHCI driver is it?
+
+>  	}
+>  
+>  	/*
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
