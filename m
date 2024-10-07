@@ -4,65 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 446BBCFB44A
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Oct 2024 16:31:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D318ACFB449
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Oct 2024 16:34:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S65ByVUHfhKUqqYEaOL2d7tVcjw/0TGLc6FMYIL4ICA=; b=3TG9AHRTQl5ZT+0eWTJQ31FVRS
-	Gi3z9EMwbWr3tP5k4cnC/417oaBdNVuF5+bjkRKEdY9wocqzg9IeZbKMkf4/hyIsxw0jS33r3G2oL
-	lXiHVNYBHY6EN/X/QeyvZKeo1vRHRLyZ3v81XZx/PZQtQndg77FGb3MTPNMhRBu/jkGXREBq04k7V
-	Z81bOUACjO5Nzrvvc/VWNmhGXxpPx9fGvOk9z0V/ws08qRO/GKHi7y5Yc+HLQJbqc+2sG+MpRLGaX
-	jHv/CZqjQ0fN10oBiZuO7V93EN+ufAGKnZUAfWFg3n4PvxSyMqFndsTd9c3rbjWc4AgKEdKLw14ch
-	zmSx/MtQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=M0omeg4PN7ZCa84YVzeimuVDry3AOQK+xxp6Guw1A7g=; b=GVnua8L+N1WP6R
+	MwALfiwxrsYc5NAjGerW9IYePwnVLhExFby9IHCuioZWuK8XnF4RHllRyOPyoCURDl1VOl0ntlgBG
+	/CLjbrAFOqoBTOKwkLofVaIRR0LpU30AosTfP1OnohAHRyd2AIVFEtO1xlUF8UOgvBRMXp72ygKRJ
+	lZEzfzQwyhrt2I1HBDweZTmOj/KirsqxMYH6Fp904u1ycH8Yfe7pFl8XxhNHiXEqW0yUofWlX6nTr
+	exas4PD9Nq4HQ22dqiY8y7r3yTHB6Gv/H8RKdQ6wb8VnDFOaUXLeMHTLh/00g6XKsa/3SQ76qgl6f
+	qt4yt731sE0M5G6P/3eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sxqdd-00000003ANK-1sHG;
-	Mon, 07 Oct 2024 16:31:13 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1sxqgM-00000003Ahv-3m1K;
+	Mon, 07 Oct 2024 16:34:02 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sxqaO-000000039fZ-3WNz
+	id 1sxqgJ-00000003Agn-0ygY
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Oct 2024 16:27:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 013365C5BAE;
-	Mon,  7 Oct 2024 16:27:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5458EC4CEC6;
-	Mon,  7 Oct 2024 16:27:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1728318471;
-	bh=x1oW3n5t/b/A2xKX8m3gu11wJ95kYfjdEVRLVlS5QSw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RbgKcnUnSFcRGlJ2vo+Z+PJk+mif54xbmJEmk3uVpQR9NUY7fImgKI8VvfYxkeHy1
-	 iaJ5q16l5+PnYHR0+ZvtdRK3gE2v0SBQWPetWRsYWovrildMOGZK2nz1NEMFa6rcI7
-	 33kgosgwEW424iwoC42WYUjgvF6OVviW5YGwZ61bKFmLlojv9KcjIt0jji/2mhSbij
-	 /tv5fPzeNdoZl3EFbwLdWM0FmKv8L9DNmWUwmVYbfws8waZXZAlNxnNE8Nl3BfFWqr
-	 lPe+GCYmDjuld0XCNLRK+H8nyc2UqRc9VwIofrCFMz9ciQG/BqjK9RsJQwjFHhtcoV
-	 UfqNJpDmi09RA==
-Date: Mon, 7 Oct 2024 17:27:01 +0100
-From: Mark Brown <broonie@kernel.org>
-To: =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>
-Cc: Tejun Heo <tj@kernel.org>, David Vernet <void@manifault.com>,
-	Shuah Khan <shuah@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
-	Anders Roxell <anders.roxell@linaro.org>
-Subject: Re: [PATCH v2] selftests: sched_ext: Add sched_ext as proper
- selftest target
-Message-ID: <ZwQL1RkyCwNxyqVE@finisterre.sirena.org.uk>
-References: <20241007073133.989166-1-bjorn@kernel.org>
- <ZwQBqlG6MShCkNrU@finisterre.sirena.org.uk>
- <87r08rnbra.fsf@all.your.base.are.belong.to.us>
+	Mon, 07 Oct 2024 16:34:00 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-71e029efecdso1023306b3a.3
+        for <linux-riscv@lists.infradead.org>; Mon, 07 Oct 2024 09:33:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tenstorrent.com; s=google; t=1728318838; x=1728923638; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=YZWM6QTmBe9B09ML2vqXCSoB0/AzhE/+M2NioGDzKy8=;
+        b=X4Lc+Q0uWGMpxeR0Am8408fuCz/ZTOVbm9MQUlr8I5xELQi2MBh0E51zM3DCnD/pCt
+         1sZzFAh0WwiURCgY0KJSJ5u/GZV/Qh19/kLLEaVnNSwkqNi6qxjN/ncOinGiyhaihdYo
+         WzcVvIA9wDquAdj6nhHg4snBleMhesRh4EGVeG+nKWH62ZfVldbM6+huBpUslfeT4K90
+         58yMun+6n1v5tZ+4HVMYxX+RULDND2Pq6P6yHJeWQO4Ma0LfWdfFFF5/Sj3tGS/DQ0IR
+         Uw8/UosIK1taYk/M8LJVyB5F5ThVRM0ZoWICLAysgQXQ2FUeV6OFNXF0wtAPSQbG/dtw
+         vuvg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1728318838; x=1728923638;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=YZWM6QTmBe9B09ML2vqXCSoB0/AzhE/+M2NioGDzKy8=;
+        b=HO/REkomsyojGUEx35SDlas1AgNVx4e6uG3BWNUzGyCr3aC6tpBVgbIA9H+pn6gwa5
+         zMoCkpD+mt2zQR+ay8nG4RTSdBct2bcJjElGEadfb7zaYNY+UvGVfVD0Eb1QyXJsWvuq
+         fQ0lZi07dwEJ6FtJUrMlg4eF86uHypFyHz0NkGzOFPc7d2b89kuWNvNMdpKwQZrrThjr
+         3e+vCfgKzXLks4vp6h0B7na+9dEGj6Fl0JLysAUMysxY942a2Vyc3ePQ5AR5cUEz0Q8A
+         BAM4CRtKvUTRlU0KUFZS8jyMQ6zvd++5DwaSnbQPBeexpAvimZBeB65GrDtF7zajiTy9
+         z2gg==
+X-Forwarded-Encrypted: i=1; AJvYcCX9tyE67V5V6KuGLEu0v9J5XEdV6mN3HAnGypuo4SaU5qI0oBlHfyy4X2RntTc9//9p+9n4W0J2pI4baw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwhPkQJlNWj/jwLppruV0Rj4VA1FQ5AAJv4um0RlwdoVMhwFVwm
+	TB/EuMyyDS1zkldfaFP7bhjnyeYu14IfyRNgUHblGRKZ/Uw6lQ5BKnq/FcdLepI=
+X-Google-Smtp-Source: AGHT+IEOn2aNJRc6PNcmA1E8hHomUDAvzvN8DoqLjg4IGSM4t5x9BXT+gVd7xFtvp6ibMbgO/sW9JA==
+X-Received: by 2002:a05:6a00:1ad0:b0:717:8044:3169 with SMTP id d2e1a72fcca58-71de23b5f19mr17937448b3a.9.1728318837846;
+        Mon, 07 Oct 2024 09:33:57 -0700 (PDT)
+Received: from x1 (71-34-69-82.ptld.qwest.net. [71.34.69.82])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-71df0d4a1f4sm4590147b3a.113.2024.10.07.09.33.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Oct 2024 09:33:57 -0700 (PDT)
+Date: Mon, 7 Oct 2024 09:33:55 -0700
+From: Drew Fustini <dfustini@tenstorrent.com>
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: oe-kbuild@lists.linux.dev, Drew Fustini <drew@pdp7.com>,
+	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
+	Linus Walleij <linus.walleij@linaro.org>, lkp@intel.com,
+	oe-kbuild-all@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] pinctrl: th1520: Convert to thp->mutex to guarded
+ mutex
+Message-ID: <ZwQNc9/sO9lhUvmw@x1>
+References: <20241005-th1520-pinctrl-fixes-v1-1-5c65dffa0d00@tenstorrent.com>
+ <6b3d9f7a-c87b-4ef5-8571-77276f3896a1@stanley.mountain>
 MIME-Version: 1.0
-In-Reply-To: <87r08rnbra.fsf@all.your.base.are.belong.to.us>
-X-Cookie: Editing is a rewording activity.
+Content-Disposition: inline
+In-Reply-To: <6b3d9f7a-c87b-4ef5-8571-77276f3896a1@stanley.mountain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241007_092752_946641_1A8D3F1D 
-X-CRM114-Status: GOOD (  10.54  )
+X-CRM114-CacheID: sfid-20241007_093359_300635_380CE18B 
+X-CRM114-Status: GOOD (  11.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,84 +92,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4785369551113284010=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, Oct 07, 2024 at 06:41:36PM +0300, Dan Carpenter wrote:
+> Hi Drew,
+> 
+> kernel test robot noticed the following build warnings:
+> 
+> url:    https://github.com/intel-lab-lkp/linux/commits/Drew-Fustini/pinctrl-th1520-Convert-to-thp-mutex-to-guarded-mutex/20241006-033647
+> base:   2694868880705e8f6bb61b24b1b25adc42a4a217
+> patch link:    https://lore.kernel.org/r/20241005-th1520-pinctrl-fixes-v1-1-5c65dffa0d00%40tenstorrent.com
+> patch subject: [PATCH 1/2] pinctrl: th1520: Convert to thp->mutex to guarded mutex
+> config: parisc-randconfig-r072-20241007 (https://download.01.org/0day-ci/archive/20241007/202410072108.uG2sVTN4-lkp@intel.com/config)
+> compiler: hppa-linux-gcc (GCC) 14.1.0
+> 
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
+> | Closes: https://lore.kernel.org/r/202410072108.uG2sVTN4-lkp@intel.com/
+> 
+> New smatch warnings:
+> drivers/pinctrl/pinctrl-th1520.c:538 th1520_pinctrl_dt_node_to_map() error: uninitialized symbol 'child'.
 
---===============4785369551113284010==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="5SqJr+ARYPJxKn7Z"
-Content-Disposition: inline
+It seems this is because the scoped iterator declares *child in the
+macro and thus no separate declaration is needed:
 
+#define for_each_available_child_of_node_scoped(parent, child) \
+	for (struct device_node *child __free(device_node) =		\
+	     of_get_next_available_child(parent, NULL);			\
+	     child != NULL;						\
+	     child = of_get_next_available_child(parent, child))
 
---5SqJr+ARYPJxKn7Z
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I'll fix in future revision.
 
-On Mon, Oct 07, 2024 at 06:00:57PM +0200, Bj=F6rn T=F6pel wrote:
-> Mark Brown <broonie@kernel.org> writes:
+> 
+> Old smatch warnings:
+> drivers/pinctrl/pinctrl-th1520.c:502 th1520_pinctrl_dt_node_to_map() warn: missing error code 'ret'
 
-> > When building for arm64 with this applied on top of mainline or -next
-> > I'm seeing:
+This has been fixed in the v2 series [1]
 
-> Thanks for taking it for a spin!
+Thanks,
+Drew
 
-> >    make ARCH=3Darm64 CROSS_COMPILE=3Daarch64-linux-gnu- -C tools/testin=
-g/selftests TARGETS=3Dsched_ext SKIP_TARGETS=3D"
-
-Oh, and for arm64 as previously noted the sched_ext config fragment
-odesn't DTRT, merge_config.sh says:
-
-Value requested for CONFIG_SCHED_DEBUG not in final .config
-Requested value:  CONFIG_SCHED_DEBUG=3Dy
-Actual value:    =20
-
-Value requested for CONFIG_SCHED_CLASS_EXT not in final .config
-Requested value:  CONFIG_SCHED_CLASS_EXT=3Dy
-Actual value:    =20
-
-Value requested for CONFIG_EXT_GROUP_SCHED not in final .config
-Requested value:  CONFIG_EXT_GROUP_SCHED=3Dy
-Actual value:    =20
-
-Value requested for CONFIG_DEBUG_INFO not in final .config
-Requested value:  CONFIG_DEBUG_INFO=3Dy
-Actual value:    =20
-
-Value requested for CONFIG_DEBUG_INFO_BTF not in final .config
-Requested value:  CONFIG_DEBUG_INFO_BTF=3Dy
-Actual value:    =20
-
---5SqJr+ARYPJxKn7Z
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmcEC9QACgkQJNaLcl1U
-h9C3xAf6AwFHej9Yp+45Zx7N58Nweo6FPmkTT+Jshlja6vZYMeVf82rFI2+n5p3w
-8bTCQ/Nf9OgyFrbJF9lDXUVCNAWh7/VnQvhvnINGTmNKLhsjQpWdCcTcHsuVR+Lt
-g14lxMDvrqzE5t9UowfeB1CtFQDPyGzItMwFmZkXGmY+MBRUDTuw9Men4cTafqCr
-025RguRmgBO6cbNhDkxEdbC41ZUbnNwGt/pV0P75EZxHqyjuUkFj3ajGEeXcJAP6
-TpVIWd/2YR9RTAZMVLm0uth7Zi7zlmqxn4bKu19QYiKj6YQKQKjrZWaOWjxYA0UG
-jLrjYvwY89ZEwnRNtI/ESEaqjJm+Vw==
-=So6V
------END PGP SIGNATURE-----
-
---5SqJr+ARYPJxKn7Z--
-
-
---===============4785369551113284010==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+[1] https://lore.kernel.org/linux-riscv/20241006-th1520-pinctrl-fixes-v2-0-b1822ae3a6d7@tenstorrent.com/
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4785369551113284010==--
-
