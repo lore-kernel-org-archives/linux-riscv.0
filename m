@@ -4,91 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6A60CFB43F
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Oct 2024 11:39:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66A5ECFB43F
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Oct 2024 12:04:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zTowOCCLNcvEdg5hzsPHBAMiJgACsbl5cIVvIydXBpE=; b=rZlqeFJN1oF9ba
-	AjWI6ooxbkoERMEw5GvVLEwYJe1OnhqFsd3jF+FshX0aN8L+xeH5dXf8mhhnLPa2l/mG6lZHly86K
-	JUzea3QG7+FZ1o1uVG02eSeMcy4x4My7f9rxr1G25ScQ9526PwPTLt2jxPUt08YbQ4z2FFLV8jQmY
-	HDcuuLWPNHo0vK4zOUWIBO/nzZTxnXC0oU5rkj1iXSb6vAO+SnoAgl6RtKKlGQGmvPhMdTrhtSZ+O
-	nfl2ykAssz6bvmaotzcrcIr/alVUgQ0f7T7gcx8np5BmfPedDzlLyLfEEUkgfjbtokGGy8ri+kugL
-	bsvdIHpU2IGd3vNvFlCQ==;
+	List-Owner; bh=hBXcQjVWpUlo4ai5j19HtTOgr16+/qVVd0gOwrjkRTA=; b=bPu3Ong6cwz3ur
+	QZFWN6MGiOU5q6D1PFO/U8LNshrueJi+QBb2rm/c1HfmXLLtlm91EhMV29KJjw01CqLUutuvmxQp7
+	wKGOH6c/P6Pt4r0/2ZReNv6R/zTSKmGdofmeg4NZ2yqYarQ+WLkGI+USGLLqixHi7A8XSyhUwR5nx
+	ZmoWM55UTCf2n0/oDpI0Vh7bMad6XFgc8JLH+wzqEVfxA+kOxvhwu4mQReser3Pbg3SUMfU4xh4pW
+	6g9b2Uqfsy+22Xz3aTDH88EreplBvbJTy8CbjqZGoot4gzHTfsiep6wz0Uqge0PMHCaf6cXn3+qcZ
+	KnV4NPBViFKGgvlIXLpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sxm5S-00000002CkN-1oAA;
-	Mon, 07 Oct 2024 11:39:38 +0000
-Received: from mailgate.ics.forth.gr ([139.91.1.2])
+	id 1sxmTf-00000002G84-0hor;
+	Mon, 07 Oct 2024 12:04:39 +0000
+Received: from mail-yw1-f178.google.com ([209.85.128.178])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sxm5P-00000002CiZ-0CLF
+	id 1sxmTc-00000002G7c-1aWX
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Oct 2024 11:39:37 +0000
-Received: from av3.ics.forth.gr (av3in.ics.forth.gr [139.91.1.77])
-	by mailgate.ics.forth.gr (8.15.2/ICS-FORTH/V10-1.8-GATE) with ESMTP id 497BdLM1064118
-	for <linux-riscv@lists.infradead.org>; Mon, 7 Oct 2024 14:39:21 +0300 (EEST)
-DKIM-Signature: v=1; a=rsa-sha256; d=ics.forth.gr; s=av; c=relaxed/simple;
-	q=dns/txt; i=@ics.forth.gr; t=1728301155; x=1730893155;
-	h=From:Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=590uzh9aLzLznOyhna0jGhP/FiZRHlR8TiU5dwNYA6I=;
-	b=MJYOtxH9Div6bQIZa9NK4X/T3QCqEu/1zVp0Uf277XRKoosoO8RCB/cJ6siwUSNs
-	vA09F1Q9A5BB0lbpdC9I0fcpzLpA2PQk0S8QXqT/h8dmANwqL/M2sfxMDwQbtm1L
-	8Gb44nMSHLKubZhqhsdzIFRa5A3OJ8yjL6HjZSeM/CuFOFYzG3d5l0Bpr3HD8p+W
-	eUwuJE7JFTcG4Nqn/jw+kOtuEVGcOsj0m3qHofknxZH/T85+yB4QWNAPYnsVoNsp
-	1QIHGL0deo6+9TiGt9Yf8d3PJ4xZohNGJc7burJHD2OhNdmGxTDHUNH+9ZF0L3Ux
-	3+zuIvuvCG09PQLaltarbA==;
-X-AuditID: 8b5b014d-271fa70000001e4e-26-6703c863c44a
-Received: from enigma.ics.forth.gr (enigma-2.ics.forth.gr [139.91.151.35])
-	by av3.ics.forth.gr (Symantec Messaging Gateway) with SMTP id D3.43.07758.368C3076; Mon,  7 Oct 2024 14:39:15 +0300 (EEST)
-X-ICS-AUTH-INFO: Authenticated user: mick at ics.forth.gr
-Message-ID: <21feac2d-24e9-43f4-8a1b-728d4af6c4c7@ics.forth.gr>
-Date: Mon, 7 Oct 2024 14:39:00 +0300
+	Mon, 07 Oct 2024 12:04:37 +0000
+Received: by mail-yw1-f178.google.com with SMTP id 00721157ae682-6e2e41bd08bso12551987b3.2
+        for <linux-riscv@lists.infradead.org>; Mon, 07 Oct 2024 05:04:35 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1728302674; x=1728907474;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=tHR+VjwhqLd7anH5JbP5AfAXaIeHrCmlq5Jd4+j8LMo=;
+        b=vUBVsDmOAI9XWTuEFfQB5cTHBaenHJinC3g4JL2tZKtZexHYhUsJIO8fMRTPvoW7jJ
+         gip41t84dHMGl6MzEbcuwr6DLoT+GbgdX5pdYSoNnHvcs1Otr/6wqI8q3lfW6vHDmSuQ
+         Br0iNaHjNZPyygB7JyovMfxiKdCj2aRVRKUg3s8Q+JMw3qJPTBKHtCODJ8Crr1xJsw7b
+         nFVDobjgw+IApO0yhy9Fd3GxXP4nqjDDXAvS2o4mWlsTV2DM62Tx693XBOf4OPsfAuYz
+         z6Ra1RDQYID47o/Xo8BTHb7Ulvm+dX6f2Lw0LKyYNIchNYjUZwH6WvW/F7Xb6oGhgP2k
+         nkXA==
+X-Forwarded-Encrypted: i=1; AJvYcCUVs9ka9wIBjlLnBanTsG+O3Wz6v2msHhqTrq+aHurcbxjHPElbvDlkZKXfTBcDfXu2sCz8e1w1RQxfQg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx4jsEjjRFkNi+PAVJ2k4HVG7SUfqEQcTUpnvNTskmAkwckUvIQ
+	CE3cahwYcExlSyDWFEcQwoDrKGF2j29KEThSXToaUdl0rujlmS1VVn3fpTCR
+X-Google-Smtp-Source: AGHT+IG8odMdpHH2Smo2L7wmwS4z1Ofh+OUJyskZ6C5MGGqWv5la2NFaCdtV3jyOQx1Rqvl/zzfKhQ==
+X-Received: by 2002:a05:690c:ec5:b0:6e2:c13e:208b with SMTP id 00721157ae682-6e2c6fdeb41mr100111867b3.8.1728302673791;
+        Mon, 07 Oct 2024 05:04:33 -0700 (PDT)
+Received: from mail-yw1-f173.google.com (mail-yw1-f173.google.com. [209.85.128.173])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-6e2d927f55csm10075117b3.47.2024.10.07.05.04.33
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 07 Oct 2024 05:04:33 -0700 (PDT)
+Received: by mail-yw1-f173.google.com with SMTP id 00721157ae682-6e214c3d045so31849587b3.0
+        for <linux-riscv@lists.infradead.org>; Mon, 07 Oct 2024 05:04:33 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCX2CQv5wO2yiuzEScujAqCjV3Bv1FaKFEw8sVK94C/NehkwgnjvBMPNywAIj1rGYP7bjFyf+BAXyMDnMA==@lists.infradead.org
+X-Received: by 2002:a05:690c:2a41:b0:699:7d04:c7b4 with SMTP id
+ 00721157ae682-6e2c7295014mr63104137b3.31.1728302673050; Mon, 07 Oct 2024
+ 05:04:33 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] riscv: make ZONE_DMA32 optional
-To: Christoph Hellwig <hch@infradead.org>,
-        Vladimir Kondratiev <Vladimir.Kondratiev@mobileye.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Paul Walmsley
- <paul.walmsley@sifive.com>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-        Andrew Morton
- <akpm@linux-foundation.org>,
-        "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-        "linux-mm@kvack.org" <linux-mm@kvack.org>
-References: <20240827113611.537302-1-vladimir.kondratiev@mobileye.com>
- <e8f6ed93-d47c-4c07-963c-8f16f498abed@ghiti.fr>
- <VI1PR09MB2333FEC324AA0B3E5F1D7F98947C2@VI1PR09MB2333.eurprd09.prod.outlook.com>
- <VI1PR09MB233370D7BD8553E7891EF46F947C2@VI1PR09MB2333.eurprd09.prod.outlook.com>
- <ZwN0l0Y_oUfDX8jl@infradead.org>
- <VI1PR09MB23335FF3B1274ED13F24AF06947D2@VI1PR09MB2333.eurprd09.prod.outlook.com>
- <ZwN-E279o4bUQG26@infradead.org>
-Content-Language: el-GR, en-US
-From: Nick Kossifidis <mick@ics.forth.gr>
-In-Reply-To: <ZwN-E279o4bUQG26@infradead.org>
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrFLMWRmVeSWpSXmKPExsXSHT1dWTf5BHO6QeNnE4s569ewWTy785XV
-	YuvvWewWpycsYrK4vGsOm8W9Nf9ZLbZ9bmGzeHm5h9mibRa/xe1FL9gcuDzevHzJ4nG44wu7
-	x70T01g9Nq/Q8tj0aRK7x4kZv1k8Ni+p92ibspHR41LzdXaPz5vkAriiuGxSUnMyy1KL9O0S
-	uDImztvCXHBJoOLVyelMDYwHebsYOTkkBEwkZt76ytzFyMUhJHCcUWLG56dMEAlLic2fXrKA
-	2LwC9hLvTi5kB7FZBFQkrm79yw4RF5Q4OfMJWI2ogLzE/VszwOLCAuYS7/svAcU5OEQEsiR2
-	HaoFmc8ssIBZYu71+4wQy7YzS7xfcw+sgVlATuL9s+2sIDabgKbE/EsHwZo5BXQlVr6MgCgx
-	k+ja2sUIYctLbH87h3kCo8AsJGfMQjJpFpKWWUhaFjCyrGIUSCwz1stMLtZLyy8qydBLL9rE
-	CI4eRt8djLc3v9U7xMjEwXiIUYKDWUmEN2INY7oQb0piZVVqUX58UWlOavEhRmkOFiVx3hO2
-	C5KFBNITS1KzU1MLUotgskwcnFINTAxTe9h4qgTe5pw68Cr5lNQRjvmmH909hHpkMwqFmH9V
-	L0gTUiyzWOK/QJi/N8lpg4/+ssk+unHp6rz2jf+ON/x6UzJRx8uqzyT9ROv1ylUNevELJIVv
-	TsiZPGW5zJ7uXVO/xkX/EWt54nai5b9O+abDpyZ9fML8utuxWfue5NWuOs8vahaFRlHXWBx4
-	ny55czXP/c3epHvSns+XFG9sjDQ+LqfT+kak0MvjYLXypFzLZ1cZWha7FV2pWGEQcrWDreg9
-	R4RNje0pmco57bKPM1ij19w6c3LBpzdis53/md53CAlZNW3moZwHSWsetlUfnuGsvHYxe8gM
-	q+f7roifLn/TPn3y9YlPJ77W3tu/RYmlOCPRUIu5qDgRAJ8lHyMNAwAA
+References: <20241004173235.74307-1-biju.das.jz@bp.renesas.com> <20241004173235.74307-2-biju.das.jz@bp.renesas.com>
+In-Reply-To: <20241004173235.74307-2-biju.das.jz@bp.renesas.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 7 Oct 2024 14:04:20 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdWiHAfZ8=USSiC+mwG7czcBHizCc16GMmrJ0R6EUNihdQ@mail.gmail.com>
+Message-ID: <CAMuHMdWiHAfZ8=USSiC+mwG7czcBHizCc16GMmrJ0R6EUNihdQ@mail.gmail.com>
+Subject: Re: [PATCH v5 1/2] arm64: dts: renesas: rzg2ul-smarc-som: Enable
+ serial NOR flash
+To: Biju Das <biju.das.jz@bp.renesas.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, linux-renesas-soc@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>, Biju Das <biju.das.au@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241007_043935_486394_E2C2E13E 
-X-CRM114-Status: GOOD (  19.71  )
+X-CRM114-CacheID: sfid-20241007_050436_437226_C00DA39E 
+X-CRM114-Status: GOOD (  15.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,57 +88,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/7/24 09:22, Christoph Hellwig wrote:
-> On Mon, Oct 07, 2024 at 06:17:14AM +0000, Vladimir Kondratiev wrote:
->>> Well, this doesn't get any more true by just irgnoring the previous
->>> discussion and just reposting :(
->>
->> Sorry, this wasn't the intention. Perhaps I messed with the message-id, I see my "patch v1" in one mail thread together with the previous discussion, but not in the other thread.
->>
->> Anyway, I think making ZONE_DMA32 selection depend on NONPORTABLE answers the concern
->> that was raised
-> 
-> It doesn't at all.
-> 
-> For one not having ZONE_DMA32 is going to break a lot of things.
-> Drivers do expect 32-bit addressable memory.  And because SOC designers
-> know this there usually is a way to provide it, e.g. by doing window
-> translations between cpu physical and bus physical address.  Please go
-> back to your data sheet or talk to the designers.
-> 
-> And if there really is not way to provide this, the right way is just
-> to stop the runtime allocation that triggered you to do this if
-> ZONE_DMA32 is empty, not to add a non-portable option.
-> 
-
-I agree with Christoph on this one, by the time dma_atomic_pool_init() 
-gets called we already know the system's DRAM base for example and if we 
-have 32bit addressable regions (or aliases / translation windows as 
-Christoph mentioned) or not. We could use this info to skip ZONE_DMA32, 
-or just use a command line argument like this RFC proposed:
-https://lore.kernel.org/linux-arm-kernel/20230201040913.GA4959@hu-cgoldswo-sd.qualcomm.com/T/
-
-There is no reason to configure this at compile time, and completely 
-remove support for ZONE_DMA32. Also NONPORTABLE doesn't address Alex's 
-point on distro kernels, since distro kernels won't set NONPORTABLE.
-
-BTW I tried reproducing this with a recent 6.10 kernel and couldn't, our 
-system also has DRAM way above 32bits and this is also on a modified 
-QEMU machine, here is the full log:
-https://pastebin.com/9HLcphgY
-
-You can use this script to reproduce our QEMU setup if interested:
-https://github.com/CARV-ICS-FORTH/yarvt/tree/eupilot
-
-Regards,
-Nick
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBPY3QgNCwgMjAyNCBhdCA3OjMy4oCvUE0gQmlqdSBEYXMgPGJpanUuZGFzLmp6QGJw
+LnJlbmVzYXMuY29tPiB3cm90ZToKPiBFbmFibGUgUmVuZXNhcyBhdDI1cWwxMjhhIGZsYXNoIGNv
+bm5lY3RlZCB0byBRU1BJMC4gQWxzbyBkaXNhYmxlCj4gdGhlIG5vZGUgZnJvbSByemZpdmUtc21h
+cmMtc29tIGFzIGl0IGlzIHVudGVzdGVkLgo+Cj4gVGVzdGVkIHRoZSBmbGFzaCBieSBmbGFzaGlu
+ZyBib290bG9hZGVyczoKPiBmbGFzaF9lcmFzZSAvZGV2L210ZDAgIDAgMAo+IGZsYXNoX2VyYXNl
+IC9kZXYvbXRkMSAgMCAwCj4gbXRkX2RlYnVnIHdyaXRlIC9kZXYvbXRkMCAwICR7QkwyX0ZJTEVf
+U0laRX0gJHtCTDJfSU1BR0V9Cj4gbXRkX2RlYnVnIHdyaXRlIC9kZXYvbXRkMSA1MTIgJHtGSVBf
+RklMRV9TSVpFfSAke0ZJUF9JTUFHRX0KPgo+IFNpZ25lZC1vZmYtYnk6IEJpanUgRGFzIDxiaWp1
+LmRhcy5qekBicC5yZW5lc2FzLmNvbT4KPiAtLS0KPiB2NC0+djU6Cj4gICogVXBkYXRlZCBibDIg
+c2l6ZSB0byAweDFkMDAwCgpSZXZpZXdlZC1ieTogR2VlcnQgVXl0dGVyaG9ldmVuIDxnZWVydCty
+ZW5lc2FzQGdsaWRlci5iZT4KaS5lLiB3aWxsIHF1ZXVlIGluIHJlbmVzYXMtZGV2ZWwgZm9yIHY2
+LjEzLgoKR3J7b2V0amUsZWV0aW5nfXMsCgogICAgICAgICAgICAgICAgICAgICAgICBHZWVydAoK
+LS0gCkdlZXJ0IFV5dHRlcmhvZXZlbiAtLSBUaGVyZSdzIGxvdHMgb2YgTGludXggYmV5b25kIGlh
+MzIgLS0gZ2VlcnRAbGludXgtbTY4ay5vcmcKCkluIHBlcnNvbmFsIGNvbnZlcnNhdGlvbnMgd2l0
+aCB0ZWNobmljYWwgcGVvcGxlLCBJIGNhbGwgbXlzZWxmIGEgaGFja2VyLiBCdXQKd2hlbiBJJ20g
+dGFsa2luZyB0byBqb3VybmFsaXN0cyBJIGp1c3Qgc2F5ICJwcm9ncmFtbWVyIiBvciBzb21ldGhp
+bmcgbGlrZSB0aGF0LgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC0tIExpbnVzIFRv
+cnZhbGRzCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
+aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
+dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
