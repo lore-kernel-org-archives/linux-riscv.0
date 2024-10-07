@@ -4,118 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B1D1CFB445
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Oct 2024 07:45:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51503CFB43F
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Oct 2024 08:20:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qyRdYIGzS3zGw5Sv0GqNwStBDRqnP9waJXxXHfJdR1c=; b=GHg5CneJW8Yo1O
-	PxUvhluRTNgs15rA8gGNlv8Lk9DHAi8Dy0nso1lfxaZJeGaf2mOu4FQFthdKDnuOZBfkHz+fZLGyO
-	2IEVXfFz2dR6PgQwUoIlVyArJtCcccd6RjgvqBihrb+YDm7H37vQn3rEoOtU3w0iSUDqmLBab0z95
-	TMr8XqQL+jLjuR/3jXDeT/waAm1URwA2w4h3J+bOfemz7sRGTivS0aHduFJ5NPGGjjQDQUHPb++VE
-	gU1vcZ9bP8vE88CMBZFZYTL+0wPoMUt7yP72Ld7g5gtazl0MMGVQfBF09CVsSt4DqIwsXgUgetGZN
-	WNLGGRS4bAq4/CjiVz/Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=qx7EUQdCw8sjxHAiF3F1rQw98gxVrU6wvhFOuT9TFfY=; b=Rs0UXXJi7W3Pfn
+	he/vVhy/Bl6wScDlkw/HrMv5w9AxNSdVXGpb1p+dUxKc49u15CLZJPSLCjbysJf6JIs5ZDODIiQCf
+	79cRt7Fkr0AhZ/smiQrkrnElypTYIYGbv1CM9ANpQWQ6vL97iWtkuZ9HHTT+/dY+l5CN0rx5VulYD
+	TL7xil/QDVpT1bGir6ynIuo2/02XoolSBXw1mR+hPx5K5N7TjuDjvT4daPMFd5sZZxarAL0z71kCU
+	mTkH1n2SfE4uF2oYLgRMEpa1dg70cuvg1gablJRH7A5LE79zuIUjec7P1Otvr7Ub3hm28mYFqn1Q6
+	HHFJTPiwKpf/a0Zay3jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sxiQj-00000001dNW-1anO;
-	Mon, 07 Oct 2024 07:45:21 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1sxiyc-00000001jNm-3YVS;
+	Mon, 07 Oct 2024 08:20:22 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sxhGj-00000001QpW-2ImJ;
-	Mon, 07 Oct 2024 06:31:00 +0000
+	id 1sxiDV-00000001bYQ-49Ik
+	for linux-riscv@lists.infradead.org;
+	Mon, 07 Oct 2024 07:31:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 73E405C5B98;
-	Mon,  7 Oct 2024 06:30:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F59CC4CECF;
-	Mon,  7 Oct 2024 06:30:41 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2B56EA415F1;
+	Mon,  7 Oct 2024 07:31:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE4A1C4CEC6;
+	Mon,  7 Oct 2024 07:31:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1728282656;
-	bh=Ax4VXUUK487+iOr8SxFFqUBHtKPyMu4ZOopc26VJUvE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=eebVpLj5IjuSeKSZxR8GXIPXUYPW99h2s6eaxKt7+fg0k7FbDXqjJEfutI3Ugewy+
-	 HF0PdUCQ7f/qxM1eFgOhFku6hDRhWpf4ykh9Jpru/FVIY07qBB2BiXG5AdKm0Ziqm3
-	 gnIa14568rh8yZGj13GHY1ZJfnVziA9ivhSbvEFyiPYFXbhPFlrm9/6f1rKcMy+NH+
-	 SorTr8WYYPK900aZwqUXmVqHytAUkre1kPFBLzQnHIo01Rh39/qm3bumCfgeKl/gZ5
-	 NPnB52b/6VBged7uw7Wa+4Obv+c/OqMoaU7TipxH3XmeRRV7b4NkRrU1jLVbPE8dq6
-	 ctErRbtUayHuA==
-From: Mike Rapoport <rppt@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Andreas Larsson <andreas@gaisler.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Borislav Petkov <bp@alien8.de>,
-	Brian Cain <bcain@quicinc.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christoph Hellwig <hch@infradead.org>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Guo Ren <guoren@kernel.org>,
-	Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Kent Overstreet <kent.overstreet@linux.dev>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Matt Turner <mattst88@gmail.com>,
-	Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Simek <monstr@monstr.eu>,
-	Mike Rapoport <rppt@kernel.org>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>,
-	Song Liu <song@kernel.org>,
-	Stafford Horne <shorne@gmail.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Vineet Gupta <vgupta@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org,
-	linux-alpha@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org,
+	s=k20201202; t=1728286300;
+	bh=MQvwg8vb9dS8GngN/GkkuavJEoeBFMRsx6M3qD2yGik=;
+	h=From:To:Cc:Subject:Date:From;
+	b=SLNFMf52qee2NT2FJBw+6q2wuOMrRwDdMT9RM/QC5e2BstAUBj1Hc6Vr72M6IG11g
+	 djun7MKPdqc0Kr/PJEVHYIoosQ/oLZkHEjjziMtAgf5dl6A3AYdR92JqT9jc9MIfH3
+	 AeVt6XCeXoMtV8pARxhMIXcCftCy82uoiZXMLtUl4qQkVWNE3po9fLfY3QR3bvJrc9
+	 J0qSd1HdIhIhDBnUoySKUfOjM6hd05YmpbnrVvs80B0EBAxZiq/JO9VTEFPsFzmmup
+	 BpqN4Xtq6M1vtmyGrphbZrfa7H3AhxPbserL89mENsKTAXKY3ZQwiJz7RdNyezNLLG
+	 2uhJB0raF5AqA==
+From: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>
+To: Tejun Heo <tj@kernel.org>,
+	David Vernet <void@manifault.com>,
+	Shuah Khan <shuah@kernel.org>,
 	linux-kernel@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-modules@vger.kernel.org,
-	linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Mark Brown <broonie@kernel.org>
+Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
+	bpf@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	linux-sh@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org,
-	linux-um@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org
-Subject: [PATCH v4 6/8] x86/module: perpare module loading for ROX allocations of text
-Date: Mon,  7 Oct 2024 09:28:56 +0300
-Message-ID: <20241007062858.44248-7-rppt@kernel.org>
+	Anders Roxell <anders.roxell@linaro.org>
+Subject: [PATCH v2] selftests: sched_ext: Add sched_ext as proper selftest target
+Date: Mon,  7 Oct 2024 09:31:32 +0200
+Message-ID: <20241007073133.989166-1-bjorn@kernel.org>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241007062858.44248-1-rppt@kernel.org>
-References: <20241007062858.44248-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241006_233057_846550_6E3AC836 
-X-CRM114-Status: GOOD (  20.92  )
+X-CRM114-CacheID: sfid-20241007_003142_193578_7F492A80 
+X-CRM114-Status: UNSURE (   9.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,910 +73,152 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-
-When module text memory will be allocated with ROX permissions, the
-memory at the actual address where the module will live will contain
-invalid instructions and there will be a writable copy that contains the
-actual module code.
-
-Update relocations and alternatives patching to deal with it.
-
-Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
----
- arch/um/kernel/um_arch.c           |  11 +-
- arch/x86/entry/vdso/vma.c          |   3 +-
- arch/x86/include/asm/alternative.h |  14 +--
- arch/x86/kernel/alternative.c      | 160 +++++++++++++++++------------
- arch/x86/kernel/ftrace.c           |  30 +++---
- arch/x86/kernel/module.c           |  45 +++++---
- include/linux/module.h             |  16 ++-
- 7 files changed, 161 insertions(+), 118 deletions(-)
-
-diff --git a/arch/um/kernel/um_arch.c b/arch/um/kernel/um_arch.c
-index f8de31a0c5d1..e8e8b54b3037 100644
---- a/arch/um/kernel/um_arch.c
-+++ b/arch/um/kernel/um_arch.c
-@@ -435,24 +435,25 @@ void __init arch_cpu_finalize_init(void)
- 	os_check_bugs();
- }
- 
--void apply_seal_endbr(s32 *start, s32 *end)
-+void apply_seal_endbr(s32 *start, s32 *end, struct module *mod)
- {
- }
- 
--void apply_retpolines(s32 *start, s32 *end)
-+void apply_retpolines(s32 *start, s32 *end, struct module *mod)
- {
- }
- 
--void apply_returns(s32 *start, s32 *end)
-+void apply_returns(s32 *start, s32 *end, struct module *mod)
- {
- }
- 
- void apply_fineibt(s32 *start_retpoline, s32 *end_retpoline,
--		   s32 *start_cfi, s32 *end_cfi)
-+		   s32 *start_cfi, s32 *end_cfi, struct module *mod)
- {
- }
- 
--void apply_alternatives(struct alt_instr *start, struct alt_instr *end)
-+void apply_alternatives(struct alt_instr *start, struct alt_instr *end,
-+			struct module *mod)
- {
- }
- 
-diff --git a/arch/x86/entry/vdso/vma.c b/arch/x86/entry/vdso/vma.c
-index b8fed8b8b9cc..ed21151923c3 100644
---- a/arch/x86/entry/vdso/vma.c
-+++ b/arch/x86/entry/vdso/vma.c
-@@ -54,7 +54,8 @@ int __init init_vdso_image(const struct vdso_image *image)
- 
- 	apply_alternatives((struct alt_instr *)(image->data + image->alt),
- 			   (struct alt_instr *)(image->data + image->alt +
--						image->alt_len));
-+						image->alt_len),
-+			   NULL);
- 
- 	return 0;
- }
-diff --git a/arch/x86/include/asm/alternative.h b/arch/x86/include/asm/alternative.h
-index ca9ae606aab9..dc03a647776d 100644
---- a/arch/x86/include/asm/alternative.h
-+++ b/arch/x86/include/asm/alternative.h
-@@ -96,16 +96,16 @@ extern struct alt_instr __alt_instructions[], __alt_instructions_end[];
-  * instructions were patched in already:
-  */
- extern int alternatives_patched;
-+struct module;
- 
- extern void alternative_instructions(void);
--extern void apply_alternatives(struct alt_instr *start, struct alt_instr *end);
--extern void apply_retpolines(s32 *start, s32 *end);
--extern void apply_returns(s32 *start, s32 *end);
--extern void apply_seal_endbr(s32 *start, s32 *end);
-+extern void apply_alternatives(struct alt_instr *start, struct alt_instr *end,
-+			       struct module *mod);
-+extern void apply_retpolines(s32 *start, s32 *end, struct module *mod);
-+extern void apply_returns(s32 *start, s32 *end, struct module *mod);
-+extern void apply_seal_endbr(s32 *start, s32 *end, struct module *mod);
- extern void apply_fineibt(s32 *start_retpoline, s32 *end_retpoine,
--			  s32 *start_cfi, s32 *end_cfi);
--
--struct module;
-+			  s32 *start_cfi, s32 *end_cfi, struct module *mod);
- 
- struct callthunk_sites {
- 	s32				*call_start, *call_end;
-diff --git a/arch/x86/kernel/alternative.c b/arch/x86/kernel/alternative.c
-index d17518ca19b8..3b3fa93af3b1 100644
---- a/arch/x86/kernel/alternative.c
-+++ b/arch/x86/kernel/alternative.c
-@@ -392,8 +392,10 @@ EXPORT_SYMBOL(BUG_func);
-  * Rewrite the "call BUG_func" replacement to point to the target of the
-  * indirect pv_ops call "call *disp(%ip)".
-  */
--static int alt_replace_call(u8 *instr, u8 *insn_buff, struct alt_instr *a)
-+static int alt_replace_call(u8 *instr, u8 *insn_buff, struct alt_instr *a,
-+			    struct module *mod)
- {
-+	u8 *wr_instr = module_writable_address(mod, instr);
- 	void *target, *bug = &BUG_func;
- 	s32 disp;
- 
-@@ -403,14 +405,14 @@ static int alt_replace_call(u8 *instr, u8 *insn_buff, struct alt_instr *a)
- 	}
- 
- 	if (a->instrlen != 6 ||
--	    instr[0] != CALL_RIP_REL_OPCODE ||
--	    instr[1] != CALL_RIP_REL_MODRM) {
-+	    wr_instr[0] != CALL_RIP_REL_OPCODE ||
-+	    wr_instr[1] != CALL_RIP_REL_MODRM) {
- 		pr_err("ALT_FLAG_DIRECT_CALL set for unrecognized indirect call\n");
- 		BUG();
- 	}
- 
- 	/* Skip CALL_RIP_REL_OPCODE and CALL_RIP_REL_MODRM */
--	disp = *(s32 *)(instr + 2);
-+	disp = *(s32 *)(wr_instr + 2);
- #ifdef CONFIG_X86_64
- 	/* ff 15 00 00 00 00   call   *0x0(%rip) */
- 	/* target address is stored at "next instruction + disp". */
-@@ -448,7 +450,8 @@ static inline u8 * instr_va(struct alt_instr *i)
-  * to refetch changed I$ lines.
-  */
- void __init_or_module noinline apply_alternatives(struct alt_instr *start,
--						  struct alt_instr *end)
-+						  struct alt_instr *end,
-+						  struct module *mod)
- {
- 	u8 insn_buff[MAX_PATCH_LEN];
- 	u8 *instr, *replacement;
-@@ -477,6 +480,7 @@ void __init_or_module noinline apply_alternatives(struct alt_instr *start,
- 	 */
- 	for (a = start; a < end; a++) {
- 		int insn_buff_sz = 0;
-+		u8 *wr_instr, *wr_replacement;
- 
- 		/*
- 		 * In case of nested ALTERNATIVE()s the outer alternative might
-@@ -490,7 +494,11 @@ void __init_or_module noinline apply_alternatives(struct alt_instr *start,
- 		}
- 
- 		instr = instr_va(a);
-+		wr_instr = module_writable_address(mod, instr);
-+
- 		replacement = (u8 *)&a->repl_offset + a->repl_offset;
-+		wr_replacement = module_writable_address(mod, replacement);
-+
- 		BUG_ON(a->instrlen > sizeof(insn_buff));
- 		BUG_ON(a->cpuid >= (NCAPINTS + NBUGINTS) * 32);
- 
-@@ -501,9 +509,9 @@ void __init_or_module noinline apply_alternatives(struct alt_instr *start,
- 		 *   patch if feature is *NOT* present.
- 		 */
- 		if (!boot_cpu_has(a->cpuid) == !(a->flags & ALT_FLAG_NOT)) {
--			memcpy(insn_buff, instr, a->instrlen);
-+			memcpy(insn_buff, wr_instr, a->instrlen);
- 			optimize_nops(instr, insn_buff, a->instrlen);
--			text_poke_early(instr, insn_buff, a->instrlen);
-+			text_poke_early(wr_instr, insn_buff, a->instrlen);
- 			continue;
- 		}
- 
-@@ -513,11 +521,12 @@ void __init_or_module noinline apply_alternatives(struct alt_instr *start,
- 			instr, instr, a->instrlen,
- 			replacement, a->replacementlen, a->flags);
- 
--		memcpy(insn_buff, replacement, a->replacementlen);
-+		memcpy(insn_buff, wr_replacement, a->replacementlen);
- 		insn_buff_sz = a->replacementlen;
- 
- 		if (a->flags & ALT_FLAG_DIRECT_CALL) {
--			insn_buff_sz = alt_replace_call(instr, insn_buff, a);
-+			insn_buff_sz = alt_replace_call(instr, insn_buff, a,
-+							mod);
- 			if (insn_buff_sz < 0)
- 				continue;
- 		}
-@@ -527,11 +536,11 @@ void __init_or_module noinline apply_alternatives(struct alt_instr *start,
- 
- 		apply_relocation(insn_buff, instr, a->instrlen, replacement, a->replacementlen);
- 
--		DUMP_BYTES(ALT, instr, a->instrlen, "%px:   old_insn: ", instr);
-+		DUMP_BYTES(ALT, wr_instr, a->instrlen, "%px:   old_insn: ", instr);
- 		DUMP_BYTES(ALT, replacement, a->replacementlen, "%px:   rpl_insn: ", replacement);
- 		DUMP_BYTES(ALT, insn_buff, insn_buff_sz, "%px: final_insn: ", instr);
- 
--		text_poke_early(instr, insn_buff, insn_buff_sz);
-+		text_poke_early(wr_instr, insn_buff, insn_buff_sz);
- 	}
- 
- 	kasan_enable_current();
-@@ -722,18 +731,20 @@ static int patch_retpoline(void *addr, struct insn *insn, u8 *bytes)
- /*
-  * Generated by 'objtool --retpoline'.
-  */
--void __init_or_module noinline apply_retpolines(s32 *start, s32 *end)
-+void __init_or_module noinline apply_retpolines(s32 *start, s32 *end,
-+						struct module *mod)
- {
- 	s32 *s;
- 
- 	for (s = start; s < end; s++) {
- 		void *addr = (void *)s + *s;
-+		void *wr_addr = module_writable_address(mod, addr);
- 		struct insn insn;
- 		int len, ret;
- 		u8 bytes[16];
- 		u8 op1, op2;
- 
--		ret = insn_decode_kernel(&insn, addr);
-+		ret = insn_decode_kernel(&insn, wr_addr);
- 		if (WARN_ON_ONCE(ret < 0))
- 			continue;
- 
-@@ -761,9 +772,9 @@ void __init_or_module noinline apply_retpolines(s32 *start, s32 *end)
- 		len = patch_retpoline(addr, &insn, bytes);
- 		if (len == insn.length) {
- 			optimize_nops(addr, bytes, len);
--			DUMP_BYTES(RETPOLINE, ((u8*)addr),  len, "%px: orig: ", addr);
-+			DUMP_BYTES(RETPOLINE, ((u8*)wr_addr),  len, "%px: orig: ", addr);
- 			DUMP_BYTES(RETPOLINE, ((u8*)bytes), len, "%px: repl: ", addr);
--			text_poke_early(addr, bytes, len);
-+			text_poke_early(wr_addr, bytes, len);
- 		}
- 	}
- }
-@@ -799,7 +810,8 @@ static int patch_return(void *addr, struct insn *insn, u8 *bytes)
- 	return i;
- }
- 
--void __init_or_module noinline apply_returns(s32 *start, s32 *end)
-+void __init_or_module noinline apply_returns(s32 *start, s32 *end,
-+					     struct module *mod)
- {
- 	s32 *s;
- 
-@@ -808,12 +820,13 @@ void __init_or_module noinline apply_returns(s32 *start, s32 *end)
- 
- 	for (s = start; s < end; s++) {
- 		void *dest = NULL, *addr = (void *)s + *s;
-+		void *wr_addr = module_writable_address(mod, addr);
- 		struct insn insn;
- 		int len, ret;
- 		u8 bytes[16];
- 		u8 op;
- 
--		ret = insn_decode_kernel(&insn, addr);
-+		ret = insn_decode_kernel(&insn, wr_addr);
- 		if (WARN_ON_ONCE(ret < 0))
- 			continue;
- 
-@@ -833,32 +846,35 @@ void __init_or_module noinline apply_returns(s32 *start, s32 *end)
- 
- 		len = patch_return(addr, &insn, bytes);
- 		if (len == insn.length) {
--			DUMP_BYTES(RET, ((u8*)addr),  len, "%px: orig: ", addr);
-+			DUMP_BYTES(RET, ((u8*)wr_addr),  len, "%px: orig: ", addr);
- 			DUMP_BYTES(RET, ((u8*)bytes), len, "%px: repl: ", addr);
--			text_poke_early(addr, bytes, len);
-+			text_poke_early(wr_addr, bytes, len);
- 		}
- 	}
- }
- #else
--void __init_or_module noinline apply_returns(s32 *start, s32 *end) { }
-+void __init_or_module noinline apply_returns(s32 *start, s32 *end,
-+					     struct module *mod) { }
- #endif /* CONFIG_MITIGATION_RETHUNK */
- 
- #else /* !CONFIG_MITIGATION_RETPOLINE || !CONFIG_OBJTOOL */
- 
--void __init_or_module noinline apply_retpolines(s32 *start, s32 *end) { }
--void __init_or_module noinline apply_returns(s32 *start, s32 *end) { }
-+void __init_or_module noinline apply_retpolines(s32 *start, s32 *end,
-+						struct module *mod) { }
-+void __init_or_module noinline apply_returns(s32 *start, s32 *end,
-+					     struct module *mod) { }
- 
- #endif /* CONFIG_MITIGATION_RETPOLINE && CONFIG_OBJTOOL */
- 
- #ifdef CONFIG_X86_KERNEL_IBT
- 
--static void poison_cfi(void *addr);
-+static void poison_cfi(void *addr, void *wr_addr);
- 
--static void __init_or_module poison_endbr(void *addr, bool warn)
-+static void __init_or_module poison_endbr(void *addr, void *wr_addr, bool warn)
- {
- 	u32 endbr, poison = gen_endbr_poison();
- 
--	if (WARN_ON_ONCE(get_kernel_nofault(endbr, addr)))
-+	if (WARN_ON_ONCE(get_kernel_nofault(endbr, wr_addr)))
- 		return;
- 
- 	if (!is_endbr(endbr)) {
-@@ -873,7 +889,7 @@ static void __init_or_module poison_endbr(void *addr, bool warn)
- 	 */
- 	DUMP_BYTES(ENDBR, ((u8*)addr), 4, "%px: orig: ", addr);
- 	DUMP_BYTES(ENDBR, ((u8*)&poison), 4, "%px: repl: ", addr);
--	text_poke_early(addr, &poison, 4);
-+	text_poke_early(wr_addr, &poison, 4);
- }
- 
- /*
-@@ -882,22 +898,23 @@ static void __init_or_module poison_endbr(void *addr, bool warn)
-  * Seal the functions for indirect calls by clobbering the ENDBR instructions
-  * and the kCFI hash value.
-  */
--void __init_or_module noinline apply_seal_endbr(s32 *start, s32 *end)
-+void __init_or_module noinline apply_seal_endbr(s32 *start, s32 *end, struct module *mod)
- {
- 	s32 *s;
- 
- 	for (s = start; s < end; s++) {
- 		void *addr = (void *)s + *s;
-+		void *wr_addr = module_writable_address(mod, addr);
- 
--		poison_endbr(addr, true);
-+		poison_endbr(addr, wr_addr, true);
- 		if (IS_ENABLED(CONFIG_FINEIBT))
--			poison_cfi(addr - 16);
-+			poison_cfi(addr - 16, wr_addr - 16);
- 	}
- }
- 
- #else
- 
--void __init_or_module apply_seal_endbr(s32 *start, s32 *end) { }
-+void __init_or_module apply_seal_endbr(s32 *start, s32 *end, struct module *mod) { }
- 
- #endif /* CONFIG_X86_KERNEL_IBT */
- 
-@@ -1119,7 +1136,7 @@ static u32 decode_caller_hash(void *addr)
- }
- 
- /* .retpoline_sites */
--static int cfi_disable_callers(s32 *start, s32 *end)
-+static int cfi_disable_callers(s32 *start, s32 *end, struct module *mod)
- {
- 	/*
- 	 * Disable kCFI by patching in a JMP.d8, this leaves the hash immediate
-@@ -1131,6 +1148,7 @@ static int cfi_disable_callers(s32 *start, s32 *end)
- 
- 	for (s = start; s < end; s++) {
- 		void *addr = (void *)s + *s;
-+		void *wr_addr = module_writable_address(mod, addr);
- 		u32 hash;
- 
- 		addr -= fineibt_caller_size;
-@@ -1138,13 +1156,13 @@ static int cfi_disable_callers(s32 *start, s32 *end)
- 		if (!hash) /* nocfi callers */
- 			continue;
- 
--		text_poke_early(addr, jmp, 2);
-+		text_poke_early(wr_addr, jmp, 2);
- 	}
- 
- 	return 0;
- }
- 
--static int cfi_enable_callers(s32 *start, s32 *end)
-+static int cfi_enable_callers(s32 *start, s32 *end, struct module *mod)
- {
- 	/*
- 	 * Re-enable kCFI, undo what cfi_disable_callers() did.
-@@ -1154,6 +1172,7 @@ static int cfi_enable_callers(s32 *start, s32 *end)
- 
- 	for (s = start; s < end; s++) {
- 		void *addr = (void *)s + *s;
-+		void *wr_addr = module_writable_address(mod, addr);
- 		u32 hash;
- 
- 		addr -= fineibt_caller_size;
-@@ -1161,19 +1180,20 @@ static int cfi_enable_callers(s32 *start, s32 *end)
- 		if (!hash) /* nocfi callers */
- 			continue;
- 
--		text_poke_early(addr, mov, 2);
-+		text_poke_early(wr_addr, mov, 2);
- 	}
- 
- 	return 0;
- }
- 
- /* .cfi_sites */
--static int cfi_rand_preamble(s32 *start, s32 *end)
-+static int cfi_rand_preamble(s32 *start, s32 *end, struct module *mod)
- {
- 	s32 *s;
- 
- 	for (s = start; s < end; s++) {
- 		void *addr = (void *)s + *s;
-+		void *wr_addr = module_writable_address(mod, addr);
- 		u32 hash;
- 
- 		hash = decode_preamble_hash(addr);
-@@ -1182,18 +1202,19 @@ static int cfi_rand_preamble(s32 *start, s32 *end)
- 			return -EINVAL;
- 
- 		hash = cfi_rehash(hash);
--		text_poke_early(addr + 1, &hash, 4);
-+		text_poke_early(wr_addr + 1, &hash, 4);
- 	}
- 
- 	return 0;
- }
- 
--static int cfi_rewrite_preamble(s32 *start, s32 *end)
-+static int cfi_rewrite_preamble(s32 *start, s32 *end, struct module *mod)
- {
- 	s32 *s;
- 
- 	for (s = start; s < end; s++) {
- 		void *addr = (void *)s + *s;
-+		void *wr_addr = module_writable_address(mod, addr);
- 		u32 hash;
- 
- 		hash = decode_preamble_hash(addr);
-@@ -1201,59 +1222,62 @@ static int cfi_rewrite_preamble(s32 *start, s32 *end)
- 			 addr, addr, 5, addr))
- 			return -EINVAL;
- 
--		text_poke_early(addr, fineibt_preamble_start, fineibt_preamble_size);
-+		text_poke_early(wr_addr, fineibt_preamble_start, fineibt_preamble_size);
- 		WARN_ON(*(u32 *)(addr + fineibt_preamble_hash) != 0x12345678);
--		text_poke_early(addr + fineibt_preamble_hash, &hash, 4);
-+		text_poke_early(wr_addr + fineibt_preamble_hash, &hash, 4);
- 	}
- 
- 	return 0;
- }
- 
--static void cfi_rewrite_endbr(s32 *start, s32 *end)
-+static void cfi_rewrite_endbr(s32 *start, s32 *end, struct module *mod)
- {
- 	s32 *s;
- 
- 	for (s = start; s < end; s++) {
- 		void *addr = (void *)s + *s;
-+		void *wr_addr = module_writable_address(mod, addr);
- 
--		poison_endbr(addr+16, false);
-+		poison_endbr(addr+16, wr_addr, false);
- 	}
- }
- 
- /* .retpoline_sites */
--static int cfi_rand_callers(s32 *start, s32 *end)
-+static int cfi_rand_callers(s32 *start, s32 *end, struct module *mod)
- {
- 	s32 *s;
- 
- 	for (s = start; s < end; s++) {
- 		void *addr = (void *)s + *s;
-+		void *wr_addr = module_writable_address(mod, addr);
- 		u32 hash;
- 
- 		addr -= fineibt_caller_size;
- 		hash = decode_caller_hash(addr);
- 		if (hash) {
- 			hash = -cfi_rehash(hash);
--			text_poke_early(addr + 2, &hash, 4);
-+			text_poke_early(wr_addr + 2, &hash, 4);
- 		}
- 	}
- 
- 	return 0;
- }
- 
--static int cfi_rewrite_callers(s32 *start, s32 *end)
-+static int cfi_rewrite_callers(s32 *start, s32 *end, struct module *mod)
- {
- 	s32 *s;
- 
- 	for (s = start; s < end; s++) {
- 		void *addr = (void *)s + *s;
-+		void *wr_addr = module_writable_address(mod, addr);
- 		u32 hash;
- 
- 		addr -= fineibt_caller_size;
- 		hash = decode_caller_hash(addr);
- 		if (hash) {
--			text_poke_early(addr, fineibt_caller_start, fineibt_caller_size);
-+			text_poke_early(wr_addr, fineibt_caller_start, fineibt_caller_size);
- 			WARN_ON(*(u32 *)(addr + fineibt_caller_hash) != 0x12345678);
--			text_poke_early(addr + fineibt_caller_hash, &hash, 4);
-+			text_poke_early(wr_addr + fineibt_caller_hash, &hash, 4);
- 		}
- 		/* rely on apply_retpolines() */
- 	}
-@@ -1262,8 +1286,9 @@ static int cfi_rewrite_callers(s32 *start, s32 *end)
- }
- 
- static void __apply_fineibt(s32 *start_retpoline, s32 *end_retpoline,
--			    s32 *start_cfi, s32 *end_cfi, bool builtin)
-+			    s32 *start_cfi, s32 *end_cfi, struct module *mod)
- {
-+	bool builtin = mod ? false : true;
- 	int ret;
- 
- 	if (WARN_ONCE(fineibt_preamble_size != 16,
-@@ -1281,7 +1306,7 @@ static void __apply_fineibt(s32 *start_retpoline, s32 *end_retpoline,
- 	 * rewrite them. This disables all CFI. If this succeeds but any of the
- 	 * later stages fails, we're without CFI.
- 	 */
--	ret = cfi_disable_callers(start_retpoline, end_retpoline);
-+	ret = cfi_disable_callers(start_retpoline, end_retpoline, mod);
- 	if (ret)
- 		goto err;
- 
-@@ -1292,11 +1317,11 @@ static void __apply_fineibt(s32 *start_retpoline, s32 *end_retpoline,
- 			cfi_bpf_subprog_hash = cfi_rehash(cfi_bpf_subprog_hash);
- 		}
- 
--		ret = cfi_rand_preamble(start_cfi, end_cfi);
-+		ret = cfi_rand_preamble(start_cfi, end_cfi, mod);
- 		if (ret)
- 			goto err;
- 
--		ret = cfi_rand_callers(start_retpoline, end_retpoline);
-+		ret = cfi_rand_callers(start_retpoline, end_retpoline, mod);
- 		if (ret)
- 			goto err;
- 	}
-@@ -1308,7 +1333,7 @@ static void __apply_fineibt(s32 *start_retpoline, s32 *end_retpoline,
- 		return;
- 
- 	case CFI_KCFI:
--		ret = cfi_enable_callers(start_retpoline, end_retpoline);
-+		ret = cfi_enable_callers(start_retpoline, end_retpoline, mod);
- 		if (ret)
- 			goto err;
- 
-@@ -1318,17 +1343,17 @@ static void __apply_fineibt(s32 *start_retpoline, s32 *end_retpoline,
- 
- 	case CFI_FINEIBT:
- 		/* place the FineIBT preamble at func()-16 */
--		ret = cfi_rewrite_preamble(start_cfi, end_cfi);
-+		ret = cfi_rewrite_preamble(start_cfi, end_cfi, mod);
- 		if (ret)
- 			goto err;
- 
- 		/* rewrite the callers to target func()-16 */
--		ret = cfi_rewrite_callers(start_retpoline, end_retpoline);
-+		ret = cfi_rewrite_callers(start_retpoline, end_retpoline, mod);
- 		if (ret)
- 			goto err;
- 
- 		/* now that nobody targets func()+0, remove ENDBR there */
--		cfi_rewrite_endbr(start_cfi, end_cfi);
-+		cfi_rewrite_endbr(start_cfi, end_cfi, mod);
- 
- 		if (builtin)
- 			pr_info("Using FineIBT CFI\n");
-@@ -1347,7 +1372,7 @@ static inline void poison_hash(void *addr)
- 	*(u32 *)addr = 0;
- }
- 
--static void poison_cfi(void *addr)
-+static void poison_cfi(void *addr, void *wr_addr)
- {
- 	switch (cfi_mode) {
- 	case CFI_FINEIBT:
-@@ -1359,8 +1384,8 @@ static void poison_cfi(void *addr)
- 		 *	ud2
- 		 * 1:	nop
- 		 */
--		poison_endbr(addr, false);
--		poison_hash(addr + fineibt_preamble_hash);
-+		poison_endbr(addr, wr_addr, false);
-+		poison_hash(wr_addr + fineibt_preamble_hash);
- 		break;
- 
- 	case CFI_KCFI:
-@@ -1369,7 +1394,7 @@ static void poison_cfi(void *addr)
- 		 *	movl	$0, %eax
- 		 *	.skip	11, 0x90
- 		 */
--		poison_hash(addr + 1);
-+		poison_hash(wr_addr + 1);
- 		break;
- 
- 	default:
-@@ -1380,22 +1405,21 @@ static void poison_cfi(void *addr)
- #else
- 
- static void __apply_fineibt(s32 *start_retpoline, s32 *end_retpoline,
--			    s32 *start_cfi, s32 *end_cfi, bool builtin)
-+			    s32 *start_cfi, s32 *end_cfi, struct module *mod)
- {
- }
- 
- #ifdef CONFIG_X86_KERNEL_IBT
--static void poison_cfi(void *addr) { }
-+static void poison_cfi(void *addr, void *wr_addr) { }
- #endif
- 
- #endif
- 
- void apply_fineibt(s32 *start_retpoline, s32 *end_retpoline,
--		   s32 *start_cfi, s32 *end_cfi)
-+		   s32 *start_cfi, s32 *end_cfi, struct module *mod)
- {
- 	return __apply_fineibt(start_retpoline, end_retpoline,
--			       start_cfi, end_cfi,
--			       /* .builtin = */ false);
-+			       start_cfi, end_cfi, mod);
- }
- 
- #ifdef CONFIG_SMP
-@@ -1692,16 +1716,16 @@ void __init alternative_instructions(void)
- 	paravirt_set_cap();
- 
- 	__apply_fineibt(__retpoline_sites, __retpoline_sites_end,
--			__cfi_sites, __cfi_sites_end, true);
-+			__cfi_sites, __cfi_sites_end, NULL);
- 
- 	/*
- 	 * Rewrite the retpolines, must be done before alternatives since
- 	 * those can rewrite the retpoline thunks.
- 	 */
--	apply_retpolines(__retpoline_sites, __retpoline_sites_end);
--	apply_returns(__return_sites, __return_sites_end);
-+	apply_retpolines(__retpoline_sites, __retpoline_sites_end, NULL);
-+	apply_returns(__return_sites, __return_sites_end, NULL);
- 
--	apply_alternatives(__alt_instructions, __alt_instructions_end);
-+	apply_alternatives(__alt_instructions, __alt_instructions_end, NULL);
- 
- 	/*
- 	 * Now all calls are established. Apply the call thunks if
-@@ -1712,7 +1736,7 @@ void __init alternative_instructions(void)
- 	/*
- 	 * Seal all functions that do not have their address taken.
- 	 */
--	apply_seal_endbr(__ibt_endbr_seal, __ibt_endbr_seal_end);
-+	apply_seal_endbr(__ibt_endbr_seal, __ibt_endbr_seal_end, NULL);
- 
- #ifdef CONFIG_SMP
- 	/* Patch to UP if other cpus not imminent. */
-diff --git a/arch/x86/kernel/ftrace.c b/arch/x86/kernel/ftrace.c
-index 8da0e66ca22d..b498897b213c 100644
---- a/arch/x86/kernel/ftrace.c
-+++ b/arch/x86/kernel/ftrace.c
-@@ -118,10 +118,13 @@ ftrace_modify_code_direct(unsigned long ip, const char *old_code,
- 		return ret;
- 
- 	/* replace the text with the new text */
--	if (ftrace_poke_late)
-+	if (ftrace_poke_late) {
- 		text_poke_queue((void *)ip, new_code, MCOUNT_INSN_SIZE, NULL);
--	else
--		text_poke_early((void *)ip, new_code, MCOUNT_INSN_SIZE);
-+	} else {
-+		mutex_lock(&text_mutex);
-+		text_poke((void *)ip, new_code, MCOUNT_INSN_SIZE);
-+		mutex_unlock(&text_mutex);
-+	}
- 	return 0;
- }
- 
-@@ -318,7 +321,7 @@ create_trampoline(struct ftrace_ops *ops, unsigned int *tramp_size)
- 	unsigned const char op_ref[] = { 0x48, 0x8b, 0x15 };
- 	unsigned const char retq[] = { RET_INSN_OPCODE, INT3_INSN_OPCODE };
- 	union ftrace_op_code_union op_ptr;
--	int ret;
-+	void *ret;
- 
- 	if (ops->flags & FTRACE_OPS_FL_SAVE_REGS) {
- 		start_offset = (unsigned long)ftrace_regs_caller;
-@@ -349,15 +352,15 @@ create_trampoline(struct ftrace_ops *ops, unsigned int *tramp_size)
- 	npages = DIV_ROUND_UP(*tramp_size, PAGE_SIZE);
- 
- 	/* Copy ftrace_caller onto the trampoline memory */
--	ret = copy_from_kernel_nofault(trampoline, (void *)start_offset, size);
--	if (WARN_ON(ret < 0))
-+	ret = text_poke_copy(trampoline, (void *)start_offset, size);
-+	if (WARN_ON(!ret))
- 		goto fail;
- 
- 	ip = trampoline + size;
- 	if (cpu_feature_enabled(X86_FEATURE_RETHUNK))
- 		__text_gen_insn(ip, JMP32_INSN_OPCODE, ip, x86_return_thunk, JMP32_INSN_SIZE);
- 	else
--		memcpy(ip, retq, sizeof(retq));
-+		text_poke_copy(ip, retq, sizeof(retq));
- 
- 	/* No need to test direct calls on created trampolines */
- 	if (ops->flags & FTRACE_OPS_FL_SAVE_REGS) {
-@@ -365,8 +368,7 @@ create_trampoline(struct ftrace_ops *ops, unsigned int *tramp_size)
- 		ip = trampoline + (jmp_offset - start_offset);
- 		if (WARN_ON(*(char *)ip != 0x75))
- 			goto fail;
--		ret = copy_from_kernel_nofault(ip, x86_nops[2], 2);
--		if (ret < 0)
-+		if (!text_poke_copy(ip, x86_nops[2], 2))
- 			goto fail;
- 	}
- 
-@@ -379,7 +381,7 @@ create_trampoline(struct ftrace_ops *ops, unsigned int *tramp_size)
- 	 */
- 
- 	ptr = (unsigned long *)(trampoline + size + RET_SIZE);
--	*ptr = (unsigned long)ops;
-+	text_poke_copy(ptr, &ops, sizeof(unsigned long));
- 
- 	op_offset -= start_offset;
- 	memcpy(&op_ptr, trampoline + op_offset, OP_REF_SIZE);
-@@ -395,7 +397,7 @@ create_trampoline(struct ftrace_ops *ops, unsigned int *tramp_size)
- 	op_ptr.offset = offset;
- 
- 	/* put in the new offset to the ftrace_ops */
--	memcpy(trampoline + op_offset, &op_ptr, OP_REF_SIZE);
-+	text_poke_copy(trampoline + op_offset, &op_ptr, OP_REF_SIZE);
- 
- 	/* put in the call to the function */
- 	mutex_lock(&text_mutex);
-@@ -405,9 +407,9 @@ create_trampoline(struct ftrace_ops *ops, unsigned int *tramp_size)
- 	 * the depth accounting before the call already.
- 	 */
- 	dest = ftrace_ops_get_func(ops);
--	memcpy(trampoline + call_offset,
--	       text_gen_insn(CALL_INSN_OPCODE, trampoline + call_offset, dest),
--	       CALL_INSN_SIZE);
-+	text_poke_copy_locked(trampoline + call_offset,
-+	      text_gen_insn(CALL_INSN_OPCODE, trampoline + call_offset, dest),
-+	      CALL_INSN_SIZE, false);
- 	mutex_unlock(&text_mutex);
- 
- 	/* ALLOC_TRAMP flags lets us know we created it */
-diff --git a/arch/x86/kernel/module.c b/arch/x86/kernel/module.c
-index 837450b6e882..8984abd91c00 100644
---- a/arch/x86/kernel/module.c
-+++ b/arch/x86/kernel/module.c
-@@ -146,18 +146,21 @@ static int __write_relocate_add(Elf64_Shdr *sechdrs,
- 		}
- 
- 		if (apply) {
--			if (memcmp(loc, &zero, size)) {
-+			void *wr_loc = module_writable_address(me, loc);
-+
-+			if (memcmp(wr_loc, &zero, size)) {
- 				pr_err("x86/modules: Invalid relocation target, existing value is nonzero for type %d, loc %p, val %Lx\n",
- 				       (int)ELF64_R_TYPE(rel[i].r_info), loc, val);
- 				return -ENOEXEC;
- 			}
--			write(loc, &val, size);
-+			write(wr_loc, &val, size);
- 		} else {
- 			if (memcmp(loc, &val, size)) {
- 				pr_warn("x86/modules: Invalid relocation target, existing value does not match expected value for type %d, loc %p, val %Lx\n",
- 					(int)ELF64_R_TYPE(rel[i].r_info), loc, val);
- 				return -ENOEXEC;
- 			}
-+			/* FIXME: needs care for ROX module allocations */
- 			write(loc, &zero, size);
- 		}
- 	}
-@@ -224,7 +227,7 @@ int module_finalize(const Elf_Ehdr *hdr,
- 		    const Elf_Shdr *sechdrs,
- 		    struct module *me)
- {
--	const Elf_Shdr *s, *alt = NULL, *locks = NULL,
-+	const Elf_Shdr *s, *alt = NULL,
- 		*orc = NULL, *orc_ip = NULL,
- 		*retpolines = NULL, *returns = NULL, *ibt_endbr = NULL,
- 		*calls = NULL, *cfi = NULL;
-@@ -233,8 +236,6 @@ int module_finalize(const Elf_Ehdr *hdr,
- 	for (s = sechdrs; s < sechdrs + hdr->e_shnum; s++) {
- 		if (!strcmp(".altinstructions", secstrings + s->sh_name))
- 			alt = s;
--		if (!strcmp(".smp_locks", secstrings + s->sh_name))
--			locks = s;
- 		if (!strcmp(".orc_unwind", secstrings + s->sh_name))
- 			orc = s;
- 		if (!strcmp(".orc_unwind_ip", secstrings + s->sh_name))
-@@ -265,20 +266,20 @@ int module_finalize(const Elf_Ehdr *hdr,
- 			csize = cfi->sh_size;
- 		}
- 
--		apply_fineibt(rseg, rseg + rsize, cseg, cseg + csize);
-+		apply_fineibt(rseg, rseg + rsize, cseg, cseg + csize, me);
- 	}
- 	if (retpolines) {
- 		void *rseg = (void *)retpolines->sh_addr;
--		apply_retpolines(rseg, rseg + retpolines->sh_size);
-+		apply_retpolines(rseg, rseg + retpolines->sh_size, me);
- 	}
- 	if (returns) {
- 		void *rseg = (void *)returns->sh_addr;
--		apply_returns(rseg, rseg + returns->sh_size);
-+		apply_returns(rseg, rseg + returns->sh_size, me);
- 	}
- 	if (alt) {
- 		/* patch .altinstructions */
- 		void *aseg = (void *)alt->sh_addr;
--		apply_alternatives(aseg, aseg + alt->sh_size);
-+		apply_alternatives(aseg, aseg + alt->sh_size, me);
- 	}
- 	if (calls || alt) {
- 		struct callthunk_sites cs = {};
-@@ -297,8 +298,28 @@ int module_finalize(const Elf_Ehdr *hdr,
- 	}
- 	if (ibt_endbr) {
- 		void *iseg = (void *)ibt_endbr->sh_addr;
--		apply_seal_endbr(iseg, iseg + ibt_endbr->sh_size);
-+		apply_seal_endbr(iseg, iseg + ibt_endbr->sh_size, me);
- 	}
-+
-+	if (orc && orc_ip)
-+		unwind_module_init(me, (void *)orc_ip->sh_addr, orc_ip->sh_size,
-+				   (void *)orc->sh_addr, orc->sh_size);
-+
-+	return 0;
-+}
-+
-+int module_post_finalize(const Elf_Ehdr *hdr,
-+			 const Elf_Shdr *sechdrs,
-+			 struct module *me)
-+{
-+	const Elf_Shdr *s, *locks = NULL;
-+	char *secstrings = (void *)hdr + sechdrs[hdr->e_shstrndx].sh_offset;
-+
-+	for (s = sechdrs; s < sechdrs + hdr->e_shnum; s++) {
-+		if (!strcmp(".smp_locks", secstrings + s->sh_name))
-+			locks = s;
-+	}
-+
- 	if (locks) {
- 		void *lseg = (void *)locks->sh_addr;
- 		void *text = me->mem[MOD_TEXT].base;
-@@ -308,10 +329,6 @@ int module_finalize(const Elf_Ehdr *hdr,
- 					    text, text_end);
- 	}
- 
--	if (orc && orc_ip)
--		unwind_module_init(me, (void *)orc_ip->sh_addr, orc_ip->sh_size,
--				   (void *)orc->sh_addr, orc->sh_size);
--
- 	return 0;
- }
- 
-diff --git a/include/linux/module.h b/include/linux/module.h
-index 7039f609c6ef..2c1a24ba99a3 100644
---- a/include/linux/module.h
-+++ b/include/linux/module.h
-@@ -376,15 +376,6 @@ struct module_memory {
- #endif
- };
- 
--#ifdef CONFIG_MODULES
--void *module_writable_address(struct module *mod, void *loc);
--#else
--static inline void *module_writable_address(struct module *mod, void *loc)
--{
--	return loc;
--}
--#endif
--
- #ifdef CONFIG_MODULES_TREE_LOOKUP
- /* Only touch one cacheline for common rbtree-for-core-layout case. */
- #define __module_memory_align ____cacheline_aligned
-@@ -778,6 +769,8 @@ static inline bool is_livepatch_module(struct module *mod)
- 
- void set_module_sig_enforced(void);
- 
-+void *module_writable_address(struct module *mod, void *loc);
-+
- #else /* !CONFIG_MODULES... */
- 
- static inline struct module *__module_address(unsigned long addr)
-@@ -885,6 +878,11 @@ static inline bool module_is_coming(struct module *mod)
- {
- 	return false;
- }
-+
-+static inline void *module_writable_address(struct module *mod, void *loc)
-+{
-+	return loc;
-+}
- #endif /* CONFIG_MODULES */
- 
- #ifdef CONFIG_SYSFS
--- 
-2.43.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgoKVGhlIHNjaGVkX2V4dCBz
+ZWxmdGVzdHMgaXMgbWlzc2luZyBwcm9wZXIgY3Jvc3MtY29tcGlsYXRpb24gc3VwcG9ydCwgYQpw
+cm9wZXIgdGFyZ2V0IGVudHJ5LCBhbmQgb3V0LW9mLXRyZWUgYnVpbGQgc3VwcG9ydC4KCldoZW4g
+YnVpbGRpbmcgdGhlIGtzZWxmdGVzdCBzdWl0ZSwgZS5nLjoKCiAgbWFrZSBBUkNIPXJpc2N2IENS
+T1NTX0NPTVBJTEU9cmlzY3Y2NC1saW51eC1nbnUtIFwKICAgIFNLSVBfVEFSR0VUUz0iIiBPPS9v
+dXRwdXQvZm9vIC1DIHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzIGluc3RhbGwKClRoZSBleHBlY3Rh
+dGlvbiBpcyB0aGF0IHRoZSBzY2hlZF9leHQgaXMgaW5jbHVkZWQsIGNyb3NzLWJ1aWx0LCBhbmQK
+cGxhY2VkIGludG8gL291dHB1dC9mb28uCgpBZGQgQ1JPU1NfQ09NUElMRSwgT1VUUFVULCBhbmQg
+VEFSR0VUUyBzdXBwb3J0IHRvIHRoZSBzY2hlZF9leHQKc2VsZnRlc3QuIEFsc28sIHJlbW92ZSBz
+b21lIHZhcmlhYmxlcyB0aGF0IHdlcmUgdW51c2VkIGJ5IHRoZQpNYWtlZmlsZS4KClNpZ25lZC1v
+ZmYtYnk6IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQHJpdm9zaW5jLmNvbT4KLS0tCnYyOiAqIFJlbW92
+ZWQgdGhlIGR1cGxpY2F0ZWQgTExWTSBwcmVmaXggcGFyc2luZyAoRGF2aWQpCiAgICAqIE1hZGUg
+c3VyZSBtYWtlIGNsZWFuIGRpZG4ndCBkbyBhIGNvbXBsZXRlIG1lc3MgKERhdmlkKQogICAgKiBB
+ZGRlZCBzY2hlZF9leHQgdG8gZGVmYXVsdCBza2lwIChTaHVhaCkKLS0tCnRvb2xzL3Rlc3Rpbmcv
+c2VsZnRlc3RzL01ha2VmaWxlICAgICAgICAgICB8ICA5ICstLQogdG9vbHMvdGVzdGluZy9zZWxm
+dGVzdHMvc2NoZWRfZXh0L01ha2VmaWxlIHwgODAgKysrKysrKysrKystLS0tLS0tLS0tLQogMiBm
+aWxlcyBjaGFuZ2VkLCA0NSBpbnNlcnRpb25zKCspLCA0NCBkZWxldGlvbnMoLSkKCmRpZmYgLS1n
+aXQgYS90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9NYWtlZmlsZSBiL3Rvb2xzL3Rlc3Rpbmcvc2Vs
+ZnRlc3RzL01ha2VmaWxlCmluZGV4IGIzODE5OTk2NWY5OS4uMzYzZDAzMWExNmY3IDEwMDY0NAot
+LS0gYS90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9NYWtlZmlsZQorKysgYi90b29scy90ZXN0aW5n
+L3NlbGZ0ZXN0cy9NYWtlZmlsZQpAQCAtODgsNiArODgsNyBAQCBUQVJHRVRTICs9IHJsaW1pdHMK
+IFRBUkdFVFMgKz0gcnNlcQogVEFSR0VUUyArPSBydGMKIFRBUkdFVFMgKz0gcnVzdAorVEFSR0VU
+UyArPSBzY2hlZF9leHQKIFRBUkdFVFMgKz0gc2VjY29tcAogVEFSR0VUUyArPSBzZ3gKIFRBUkdF
+VFMgKz0gc2lnYWx0c3RhY2sKQEAgLTEyOSwxMCArMTMwLDEwIEBAIGlmZXEgKCQoZmlsdGVyIG5l
+dC9saWIsJChUQVJHRVRTKSksKQogZW5kaWYKIGVuZGlmCiAKLSMgVXNlciBjYW4gb3B0aW9uYWxs
+eSBwcm92aWRlIGEgVEFSR0VUUyBza2lwbGlzdC4gIEJ5IGRlZmF1bHQgd2Ugc2tpcAotIyBCUEYg
+c2luY2UgaXQgaGFzIGN1dHRpbmcgZWRnZSBidWlsZCB0aW1lIGRlcGVuZGVuY2llcyB3aGljaCBy
+ZXF1aXJlCi0jIG1vcmUgZWZmb3J0IHRvIGluc3RhbGwuCi1TS0lQX1RBUkdFVFMgPz0gYnBmCisj
+IFVzZXIgY2FuIG9wdGlvbmFsbHkgcHJvdmlkZSBhIFRBUkdFVFMgc2tpcGxpc3QuIEJ5IGRlZmF1
+bHQgd2Ugc2tpcAorIyB0YXJnZXRzIHVzaW5nIEJQRiBzaW5jZSBpdCBoYXMgY3V0dGluZyBlZGdl
+IGJ1aWxkIHRpbWUgZGVwZW5kZW5jaWVzCisjIHdoaWNoIHJlcXVpcmUgbW9yZSBlZmZvcnQgdG8g
+aW5zdGFsbC4KK1NLSVBfVEFSR0VUUyA/PSBicGYgc2NoZWRfZXh0CiBpZm5lcSAoJChTS0lQX1RB
+UkdFVFMpLCkKIAlUTVAgOj0gJChmaWx0ZXItb3V0ICQoU0tJUF9UQVJHRVRTKSwgJChUQVJHRVRT
+KSkKIAlvdmVycmlkZSBUQVJHRVRTIDo9ICQoVE1QKQpkaWZmIC0tZ2l0IGEvdG9vbHMvdGVzdGlu
+Zy9zZWxmdGVzdHMvc2NoZWRfZXh0L01ha2VmaWxlIGIvdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMv
+c2NoZWRfZXh0L01ha2VmaWxlCmluZGV4IDA3NTRhMmMxMTBhMS4uYWNhYjk3MzJiMjNlIDEwMDY0
+NAotLS0gYS90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9zY2hlZF9leHQvTWFrZWZpbGUKKysrIGIv
+dG9vbHMvdGVzdGluZy9zZWxmdGVzdHMvc2NoZWRfZXh0L01ha2VmaWxlCkBAIC0zLDI0ICszLDEz
+IEBACiBpbmNsdWRlIC4uLy4uLy4uL2J1aWxkL0J1aWxkLmluY2x1ZGUKIGluY2x1ZGUgLi4vLi4v
+Li4vc2NyaXB0cy9NYWtlZmlsZS5hcmNoCiBpbmNsdWRlIC4uLy4uLy4uL3NjcmlwdHMvTWFrZWZp
+bGUuaW5jbHVkZQorCitURVNUX0dFTl9QUk9HUyA6PSBydW5uZXIKKworIyBvdmVycmlkZSBsaWIu
+bWsncyBkZWZhdWx0IHJ1bGVzCitPVkVSUklERV9UQVJHRVRTIDo9IDEKIGluY2x1ZGUgLi4vbGli
+Lm1rCiAKLWlmbmVxICgkKExMVk0pLCkKLWlmbmVxICgkKGZpbHRlciAlLywkKExMVk0pKSwpCi1M
+TFZNX1BSRUZJWCA6PSAkKExMVk0pCi1lbHNlIGlmbmVxICgkKGZpbHRlciAtJSwkKExMVk0pKSwp
+Ci1MTFZNX1NVRkZJWCA6PSAkKExMVk0pCi1lbmRpZgotCi1DQyA6PSAkKExMVk1fUFJFRklYKWNs
+YW5nJChMTFZNX1NVRkZJWCkgJChDTEFOR19GTEFHUykgLWZpbnRlZ3JhdGVkLWFzCi1lbHNlCi1D
+QyA6PSBnY2MKLWVuZGlmICMgTExWTQotCi1pZm5lcSAoJChDUk9TU19DT01QSUxFKSwpCi0kKGVy
+cm9yIENST1NTX0NPTVBJTEUgbm90IHN1cHBvcnRlZCBmb3Igc2N4IHNlbGZ0ZXN0cykKLWVuZGlm
+ICMgQ1JPU1NfQ09NUElMRQotCiBDVVJESVIgOj0gJChhYnNwYXRoIC4pCiBSRVBPUk9PVCA6PSAk
+KGFic3BhdGggLi4vLi4vLi4vLi4pCiBUT09MU0RJUiA6PSAkKFJFUE9ST09UKS90b29scwpAQCAt
+MzQsMTggKzIzLDMxIEBAIEdFTkhEUiA6PSAkKEdFTkRJUikvYXV0b2NvbmYuaAogU0NYVE9PTFNE
+SVIgOj0gJChUT09MU0RJUikvc2NoZWRfZXh0CiBTQ1hUT09MU0lOQ0RJUiA6PSAkKFRPT0xTRElS
+KS9zY2hlZF9leHQvaW5jbHVkZQogCi1PVVRQVVRfRElSIDo9ICQoQ1VSRElSKS9idWlsZAorT1VU
+UFVUX0RJUiA6PSAkKE9VVFBVVCkvYnVpbGQKIE9CSl9ESVIgOj0gJChPVVRQVVRfRElSKS9vYmoK
+IElOQ0xVREVfRElSIDo9ICQoT1VUUFVUX0RJUikvaW5jbHVkZQogQlBGT0JKX0RJUiA6PSAkKE9C
+Sl9ESVIpL2xpYmJwZgogU0NYT0JKX0RJUiA6PSAkKE9CSl9ESVIpL3NjaGVkX2V4dAogQlBGT0JK
+IDo9ICQoQlBGT0JKX0RJUikvbGliYnBmLmEKIExJQkJQRl9PVVRQVVQgOj0gJChPQkpfRElSKS9s
+aWJicGYvbGliYnBmLmEKLURFRkFVTFRfQlBGVE9PTCA6PSAkKE9VVFBVVF9ESVIpL3NiaW4vYnBm
+dG9vbAotSE9TVF9CVUlMRF9ESVIgOj0gJChPQkpfRElSKQotSE9TVF9PVVRQVVRfRElSIDo9ICQo
+T1VUUFVUX0RJUikKIAotVk1MSU5VWF9CVEZfUEFUSFMgPz0gLi4vLi4vLi4vLi4vdm1saW51eAkJ
+CQkJXAoraWZuZXEgKCQoQ1JPU1NfQ09NUElMRSksKQorREVGQVVMVF9CUEZUT09MIDo9ICQoT1VU
+UFVUX0RJUikvaG9zdC9zYmluL2JwZnRvb2wKK0hPU1RfT0JKX0RJUiA6PSAkKE9CSl9ESVIpL2hv
+c3QvYnBmdG9vbAorSE9TVF9MSUJCUEZfT1VUUFVUIDo9ICQoT0JKX0RJUikvaG9zdC9saWJicGYv
+CitIT1NUX0xJQkJQRl9ERVNURElSIDo9ICQoT1VUUFVUX0RJUikvaG9zdC8KK0hPU1RfREVTVERJ
+UiA6PSAkKE9VVFBVVF9ESVIpL2hvc3QvCitlbHNlCitERUZBVUxUX0JQRlRPT0wgOj0gJChPVVRQ
+VVRfRElSKS9zYmluL2JwZnRvb2wKK0hPU1RfT0JKX0RJUiA6PSAkKE9CSl9ESVIpL2JwZnRvb2wK
+K0hPU1RfTElCQlBGX09VVFBVVCA6PSAkKE9CSl9ESVIpL2xpYmJwZi8KK0hPU1RfTElCQlBGX0RF
+U1RESVIgOj0gJChPVVRQVVRfRElSKS8KK0hPU1RfREVTVERJUiA6PSAkKE9VVFBVVF9ESVIpLwor
+ZW5kaWYKKworVk1MSU5VWF9CVEZfUEFUSFMgPz0gJChpZiAkKE8pLCQoTykvdm1saW51eCkJCQkJ
+CVwKKwkJICAgICAkKGlmICQoS0JVSUxEX09VVFBVVCksJChLQlVJTERfT1VUUFVUKS92bWxpbnV4
+KQkJXAorCQkgICAgIC4uLy4uLy4uLy4uL3ZtbGludXgJCQkJCVwKIAkJICAgICAvc3lzL2tlcm5l
+bC9idGYvdm1saW51eAkJCQkJXAogCQkgICAgIC9ib290L3ZtbGludXgtJChzaGVsbCB1bmFtZSAt
+cikKIFZNTElOVVhfQlRGID89ICQoYWJzcGF0aCAkKGZpcnN0d29yZCAkKHdpbGRjYXJkICQoVk1M
+SU5VWF9CVEZfUEFUSFMpKSkpCkBAIC04MCwxNyArODIsMjMgQEAgSVNfTElUVExFX0VORElBTiA9
+ICQoc2hlbGwgJChDQykgLWRNIC1FIC0gPC9kZXYvbnVsbCB8CQkJCVwKICMgVXNlICctaWRpcmFm
+dGVyJzogRG9uJ3QgaW50ZXJmZXJlIHdpdGggaW5jbHVkZSBtZWNoYW5pY3MgZXhjZXB0IHdoZXJl
+IHRoZQogIyBidWlsZCB3b3VsZCBoYXZlIGZhaWxlZCBhbnl3YXlzLgogZGVmaW5lIGdldF9zeXNf
+aW5jbHVkZXMKLSQoc2hlbGwgJCgxKSAtdiAtRSAtIDwvZGV2L251bGwgMj4mMSBcCiskKHNoZWxs
+ICQoMSkgJCgyKSAtdiAtRSAtIDwvZGV2L251bGwgMj4mMSBcCiAJfCBzZWQgLW4gJy88Li4uPiBz
+ZWFyY2ggc3RhcnRzIGhlcmU6LywvRW5kIG9mIHNlYXJjaCBsaXN0Li97IHN8IFwoLy4qXCl8LWlk
+aXJhZnRlciBcMXxwIH0nKSBcCi0kKHNoZWxsICQoMSkgLWRNIC1FIC0gPC9kZXYvbnVsbCB8IGdy
+ZXAgJ19fcmlzY3ZfeGxlbiAnIHwgYXdrICd7cHJpbnRmKCItRF9fcmlzY3ZfeGxlbj0lZCAtRF9f
+QklUU19QRVJfTE9ORz0lZCIsICQkMywgJCQzKX0nKQorJChzaGVsbCAkKDEpICQoMikgLWRNIC1F
+IC0gPC9kZXYvbnVsbCB8IGdyZXAgJ19fcmlzY3ZfeGxlbiAnIHwgYXdrICd7cHJpbnRmKCItRF9f
+cmlzY3ZfeGxlbj0lZCAtRF9fQklUU19QRVJfTE9ORz0lZCIsICQkMywgJCQzKX0nKQogZW5kZWYK
+IAoraWZuZXEgKCQoQ1JPU1NfQ09NUElMRSksKQorQ0xBTkdfVEFSR0VUX0FSQ0ggPSAtLXRhcmdl
+dD0kKG5vdGRpciAkKENST1NTX0NPTVBJTEU6JS09JSkpCitlbmRpZgorCitDTEFOR19TWVNfSU5D
+TFVERVMgPSAkKGNhbGwgZ2V0X3N5c19pbmNsdWRlcywkKENMQU5HKSwkKENMQU5HX1RBUkdFVF9B
+UkNIKSkKKwogQlBGX0NGTEFHUyA9IC1nIC1EX19UQVJHRVRfQVJDSF8kKFNSQ0FSQ0gpCQkJCQlc
+CiAJICAgICAkKGlmICQoSVNfTElUVExFX0VORElBTiksLW1saXR0bGUtZW5kaWFuLC1tYmlnLWVu
+ZGlhbikJCVwKIAkgICAgIC1JJChDVVJESVIpL2luY2x1ZGUgLUkkKENVUkRJUikvaW5jbHVkZS9i
+cGYtY29tcGF0CQkJXAogCSAgICAgLUkkKElOQ0xVREVfRElSKSAtSSQoQVBJRElSKSAtSSQoU0NY
+VE9PTFNJTkNESVIpCQkJXAogCSAgICAgLUkkKFJFUE9ST09UKS9pbmNsdWRlCQkJCQkJXAotCSAg
+ICAgJChjYWxsIGdldF9zeXNfaW5jbHVkZXMsJChDTEFORykpCQkJCQlcCisJICAgICAkKENMQU5H
+X1NZU19JTkNMVURFUykgCQkJCQkJXAogCSAgICAgLVdhbGwgLVduby1jb21wYXJlLWRpc3RpbmN0
+LXBvaW50ZXItdHlwZXMJCQkJXAogCSAgICAgLVduby1pbmNvbXBhdGlibGUtZnVuY3Rpb24tcG9p
+bnRlci10eXBlcwkJCQlcCiAJICAgICAtTzIgLW1jcHU9djMKQEAgLTk4LDcgKzEwNiw3IEBAIEJQ
+Rl9DRkxBR1MgPSAtZyAtRF9fVEFSR0VUX0FSQ0hfJChTUkNBUkNIKQkJCQkJXAogIyBzb3J0IHJl
+bW92ZXMgbGliYnBmIGR1cGxpY2F0ZXMgd2hlbiBub3QgY3Jvc3MtYnVpbGRpbmcKIE1BS0VfRElS
+UyA6PSAkKHNvcnQgJChPQkpfRElSKS9saWJicGYgJChPQkpfRElSKS9saWJicGYJCQkJXAogCSAg
+ICAgICAkKE9CSl9ESVIpL2JwZnRvb2wgJChPQkpfRElSKS9yZXNvbHZlX2J0ZmlkcwkJCVwKLQkg
+ICAgICAgJChJTkNMVURFX0RJUikgJChTQ1hPQkpfRElSKSkKKwkgICAgICAgJChIT1NUX09CSl9E
+SVIpICQoSU5DTFVERV9ESVIpICQoU0NYT0JKX0RJUikpCiAKICQoTUFLRV9ESVJTKToKIAkkKGNh
+bGwgbXNnLE1LRElSLCwkQCkKQEAgLTExMiwxNCArMTIwLDE0IEBAICQoQlBGT0JKKTogJCh3aWxk
+Y2FyZCAkKEJQRkRJUikvKi5bY2hdICQoQlBGRElSKS9NYWtlZmlsZSkJCQlcCiAJCSAgICBERVNU
+RElSPSQoT1VUUFVUX0RJUikgcHJlZml4PSBhbGwgaW5zdGFsbF9oZWFkZXJzCiAKICQoREVGQVVM
+VF9CUEZUT09MKTogJCh3aWxkY2FyZCAkKEJQRlRPT0xESVIpLyouW2NoXSAkKEJQRlRPT0xESVIp
+L01ha2VmaWxlKQlcCi0JCSAgICAkKExJQkJQRl9PVVRQVVQpIHwgJChPQkpfRElSKS9icGZ0b29s
+CisJCSAgICAkKExJQkJQRl9PVVRQVVQpIHwgJChIT1NUX09CSl9ESVIpCiAJJChRKSQoTUFLRSkg
+JChzdWJtYWtlX2V4dHJhcykgIC1DICQoQlBGVE9PTERJUikJCQkJXAogCQkgICAgQVJDSD0gQ1JP
+U1NfQ09NUElMRT0gQ0M9JChIT1NUQ0MpIExEPSQoSE9TVExEKQkJXAogCQkgICAgRVhUUkFfQ0ZM
+QUdTPSctZyAtTzAnCQkJCQlcCi0JCSAgICBPVVRQVVQ9JChPQkpfRElSKS9icGZ0b29sLwkJCQkJ
+XAotCQkgICAgTElCQlBGX09VVFBVVD0kKE9CSl9ESVIpL2xpYmJwZi8JCQkJXAotCQkgICAgTElC
+QlBGX0RFU1RESVI9JChPVVRQVVRfRElSKS8JCQkJXAotCQkgICAgcHJlZml4PSBERVNURElSPSQo
+T1VUUFVUX0RJUikvIGluc3RhbGwtYmluCisJCSAgICBPVVRQVVQ9JChIT1NUX09CSl9ESVIpLwkJ
+CQkJXAorCQkgICAgTElCQlBGX09VVFBVVD0kKEhPU1RfTElCQlBGX09VVFBVVCkJCQkJXAorCQkg
+ICAgTElCQlBGX0RFU1RESVI9JChIT1NUX0xJQkJQRl9ERVNURElSKQkJCVwKKwkJICAgIHByZWZp
+eD0gREVTVERJUj0kKEhPU1RfREVTVERJUikgaW5zdGFsbC1iaW4KIAogJChJTkNMVURFX0RJUikv
+dm1saW51eC5oOiAkKFZNTElOVVhfQlRGKSAkKEJQRlRPT0wpIHwgJChJTkNMVURFX0RJUikKIGlm
+ZXEgKCQoVk1MSU5VWF9IKSwpCkBAIC0xNTAsOSArMTU4LDcgQEAgJChJTkNMVURFX0RJUikvJS5i
+cGYuc2tlbC5oOiAkKFNDWE9CSl9ESVIpLyUuYnBmLm8gJChJTkNMVURFX0RJUikvdm1saW51eC5o
+ICQoQlAKIAogb3ZlcnJpZGUgZGVmaW5lIENMRUFOCiAJcm0gLXJmICQoT1VUUFVUX0RJUikKLQly
+bSAtZiAqLm8gKi5icGYubyAqLmJwZi5za2VsLmggKi5icGYuc3Vic2tlbC5oCiAJcm0gLWYgJChU
+RVNUX0dFTl9QUk9HUykKLQlybSAtZiBydW5uZXIKIGVuZGVmCiAKICMgRXZlcnkgdGVzdGNhc2Ug
+dGFrZXMgYWxsIG9mIHRoZSBCUEYgcHJvZ3MgYXJlIGRlcGVuZGVuY2llcyBieSBkZWZhdWx0LiBU
+aGlzCkBAIC0xOTYsMjEgKzIwMiwxNSBAQCAkKFNDWE9CSl9ESVIpL3J1bm5lci5vOiBydW5uZXIu
+YyB8ICQoU0NYT0JKX0RJUikKICMgZnVuY3Rpb24gZG9lc24ndCBzdXBwb3J0IHVzaW5nIGltcGxp
+Y2l0IHJ1bGVzIG90aGVyd2lzZS4KICQodGVzdGNhc2UtdGFyZ2V0cyk6ICQoU0NYT0JKX0RJUikv
+JS5vOiAlLmMgJChTQ1hPQkpfRElSKS9ydW5uZXIubyAkKGFsbF90ZXN0X2JwZnByb2dzKSB8ICQo
+U0NYT0JKX0RJUikKIAkkKGV2YWwgdGVzdD0kKHBhdHN1YnN0ICUubywlLmMsJChub3RkaXIgJEAp
+KSkKLQkkKENDKSAkKENGTEFHUykgLWMgJDwgLW8gJEAgJChTQ1hPQkpfRElSKS9ydW5uZXIubwor
+CSQoQ0MpICQoQ0ZMQUdTKSAtYyAkPCAtbyAkQAogCiAkKFNDWE9CSl9ESVIpL3V0aWwubzogdXRp
+bC5jIHwgJChTQ1hPQkpfRElSKQogCSQoQ0MpICQoQ0ZMQUdTKSAtYyAkPCAtbyAkQAogCi1ydW5u
+ZXI6ICQoU0NYT0JKX0RJUikvcnVubmVyLm8gJChTQ1hPQkpfRElSKS91dGlsLm8gJChCUEZPQkop
+ICQodGVzdGNhc2UtdGFyZ2V0cykKKyQoT1VUUFVUKS9ydW5uZXI6ICQoU0NYT0JKX0RJUikvcnVu
+bmVyLm8gJChTQ1hPQkpfRElSKS91dGlsLm8gJChCUEZPQkopICQodGVzdGNhc2UtdGFyZ2V0cykK
+IAlAZWNobyAiJCh0ZXN0Y2FzZS10YXJnZXRzKSIKIAkkKENDKSAkKENGTEFHUykgLW8gJEAgJF4g
+JChMREZMQUdTKQogCi1URVNUX0dFTl9QUk9HUyA6PSBydW5uZXIKLQotYWxsOiBydW5uZXIKLQot
+LlBIT05ZOiBhbGwgY2xlYW4gaGVscAotCiAuREVGQVVMVF9HT0FMIDo9IGFsbAogCiAuREVMRVRF
+X09OX0VSUk9SOgoKYmFzZS1jb21taXQ6IDhjZjBiOTM5MTllMTNkMWU4ZDQ0NjZlYjQwODBhNGM0
+ZDlkNjZkN2IKLS0gCjIuNDMuMAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YK
