@@ -4,98 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 721D1CFB448
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Oct 2024 15:32:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92182CFB448
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Oct 2024 15:43:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=p6jJKWGfpe9NzHB0ekg/XBjp9xRZlumkiGpjtrBO7Ss=; b=4PThKlBIa009Xa
-	1wex4jZv7tFyPJNw050BBfFyNTloN1tBsBnsPpD748Lw/bdFu/xZyUNzghL9EmGdQga4X5L0ofigV
-	UVIKUu8xBQO1S2vXo2aUpiIN9XP9U+OF5eD/jDi8jjso8/jGRsirHmdjMF1lTLyv8M+GDo72o0hfC
-	qqqUa1FsVjCvMH0NV8b1pxZQa8R7MSLpD6PqNY+vG1ubm4qxj+vGr1IZm1TRkrXpU+6LW0FtGBQO0
-	vje9pcog14QiUL9OEcwJsUJPtGDIWn+SOGPfO4Rt+23k0bIgj3mgGXG+3hTTTgVGWZASO9QsLPO0W
-	9bha5vMciB8SyYXeAxkA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=Gb3wXcivLqC6N2maKPrMvts4+pJ5x5ACtjizB5rfsW8=; b=kfL6CPTdSWARWd
+	kG3/59ryLFkCk7/RJISWw9DhVsY69gKX2EDGsQ5JRf4ORNbgJQhiyHLiQ/umIDOrBUDWtjKGKgKZG
+	z77T4Qe75+EqIaC0ThepGcUQIkV6AUnkEKJGz7tQm4Br403iza6PzFCNBTlK8Tf6F94Ytc7n1Fwx5
+	aTrwOoCrFVNYhYWfu2kobCCYEYOIccohSGoOIH2LPRf/eDCLuzrsFhD4CPDy5O+jmNCs36NDTjyhV
+	ijxKcw1c66mbhN3e562zFtU76J2Y8OcmjQxNVJj2bDKU7cRPEAr2v4olNpaVVbihPnRc0DthEtPW3
+	tfSbeFM5jOurqLZ3Ax3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sxpjB-00000002xi7-2rSR;
-	Mon, 07 Oct 2024 15:32:53 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1sxptl-00000003068-40Op;
+	Mon, 07 Oct 2024 15:43:49 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sxpih-00000002xaW-218e
+	id 1sxpri-00000002zbo-17ax
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Oct 2024 15:32:25 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-20b4a090f3eso259905ad.1
-        for <linux-riscv@lists.infradead.org>; Mon, 07 Oct 2024 08:32:22 -0700 (PDT)
+	Mon, 07 Oct 2024 15:41:43 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-42cb58d810eso33852415e9.0
+        for <linux-riscv@lists.infradead.org>; Mon, 07 Oct 2024 08:41:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1728315142; x=1728919942; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0gMzLm6GeDyitzticM5hzWB6E5aII3zloFuT3pmuk5o=;
-        b=k/ijYExVMnik3/O+dPfXc8b2kP5G/s/lQLRoHAERAiZ+75Qml8zCEV8/bgWE87EmW6
-         ct2OumIEP3kujHAj3z9AbEGIZ0hsyX965hiGmOmbwhNo4xx4BM+h5R0+YxQh9eqzdxZG
-         K4EQ5nSYtGB+/CY0MYLoTosuHDPUR8wzj/okyND6VlDRBnjMJJ0EC4EJTxr8Z2m39LqX
-         8z0xhU/1hh4hVOiZHqEj4Jtw9CTM1g0GOQXpFv+KMvhPgGbRzVKkNH5k6rj0Ot7CeOVb
-         vXe/UTHxd6T9y+Rzo70RasiCX7X0KZJ57O8XuXb41ukREwpvaBHiuVtDCo79+I6NV2Qk
-         9ybg==
+        d=linaro.org; s=google; t=1728315700; x=1728920500; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
+         :to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ARnoMCvCgsltYrhS969hYFyeA9hTUUb55Rt7GByaSkU=;
+        b=I0yScFUi2kiY0HUmA7+z9iN+75C9EWTkbSKSXakM1LC3Iw924xMDl85a2QVEhD2mw/
+         ud5lnz8u0jv7x79jASvWfL7H2o2K2J8D3KX/Tpp10HzRkmLoL+jAWcK7mUD39jK9Y4iO
+         tJ6FYlrgMLNdutw+UD91afxANgoPN7Ze4GbuPlJvFgzxw8mg3PqkKCyqPDulsqutbb+B
+         HKfY7YYG99kVfcAzgjOzKYJWBFiaUUbkPXUw81KWdYAvQ+lQ00PHqMvBc9ReKARZrt9T
+         TGEQwkdCoYYMNt66xOdYElsqZKC1a6Vf9hVleOR8kV+nRUHlzU3hBab/mxdlG4ZCLTe9
+         DliQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728315142; x=1728919942;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0gMzLm6GeDyitzticM5hzWB6E5aII3zloFuT3pmuk5o=;
-        b=Qu6TH799jZQTnKhoTGOCm0pjx3bFrSJpbuQrlorshIFaFNmxbID6IWdJQIl6No6Zd8
-         M1XptHBinGvWE7q+haCLOzr7lLN/FH85epbod9kKkC036xXjB+UKAaVUN9X3Va86Il6D
-         hFv2bye7r1QvsMfHVXa7gmjoIjOE0FGJ2s7wKNQ/buPw/JhdBoaVHCi/fpDWFRA1U0bk
-         27/z10UCD6PX3TWZP0I99WGSW1yZE0D3pFGXd7U47U/GBQdaXi4eF54p6AHTuPd2y12i
-         XrraIr0fbDOyRo6taK5G63mWG+KaP4HfCFdKAPkyE/bZY35wqS6zkI4aw3DGW5ayb16z
-         imTA==
-X-Forwarded-Encrypted: i=1; AJvYcCVK1Dv3uLIf0DiueR4WFXdDk785ZEqLK8+L4h9mtHS0KFjXprn69zvSeoPzO9+DXN9trY8++11eUfT/6w==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw7D5NzfIL202gzcTbyyVdxctkPZe2t22Wlb0y6IxbH5op7DSXb
-	TaNh3n80IW6m1SrKN9R7iNv9VC9ROvKt1L9zB4Uo1FDaEntB8qyVgMoPehUlsdQLavIyJYZcacu
-	cHVvqrdfaeQDVX1doywSFtzLaYKj5DQPdsTEq
-X-Google-Smtp-Source: AGHT+IE8EjFttm1Va0WqG8l2f0/amiuCoYKfQShIturGToYPzv43NL3LOmdB4U0J5gpFN+f+JaXzkWQhd+QZ2gG/RJM=
-X-Received: by 2002:a17:903:24f:b0:1fc:60f2:a089 with SMTP id
- d9443c01a7336-20c192b9989mr2909975ad.17.1728315141788; Mon, 07 Oct 2024
- 08:32:21 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1728315700; x=1728920500;
+        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
+         :to:from:date:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ARnoMCvCgsltYrhS969hYFyeA9hTUUb55Rt7GByaSkU=;
+        b=Gy5gOSkZVYcrsC9gh1sCNHOvsjiEAlLfnNU1y9a14BDW5p0KV2FczX+0LJOuOW85NJ
+         P3i7hf1oZVJpYmH2XoCkg0Amg9+pK9FNpoSuXjvAtJwILBRDGxyZF4cBTTw+roDEzTt2
+         7xA0tArvrIqZVt30Q4VJU8q3rk0dt5Y+5ygxzVhP+X2iQJFDpJOSMiTVJftKeDMsThBP
+         FSHazzarggKs7t4nNJgYusMkF/oLlUAvIAlf+dat4Wj+mAMTq0KjeXcLXfmCas5izggT
+         sbcJHhBFPmZAatMmwRQ0pvBgHQh2Wz0HEilJNljjgGFiCnvUwfVeSxYzB29RQB+UBWX7
+         AmRg==
+X-Forwarded-Encrypted: i=1; AJvYcCX4wMuffSdef46Gy1vD8G5804FGImKCCMYSIt78zyJqISNSt42ZSS5mYe6V1MVi6y1RVvhxaa6xTsSi2Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzhMLbofcgffGAR6Ebs0oGkqhmCPNHOTPzUVDDaQ46N2k0cG7kT
+	H1hxryKmFpl2x8V3KzLKi5bsA86Y74ayNDeQrFrmVjuhz6yQBP7xV+ggxXN1WEaCmIXrsJfhyMG
+	R
+X-Google-Smtp-Source: AGHT+IGxdXlmz5LN0TfcS0dSRYiTJFmNIAm6S0b8unbbg55LXrbI7bW+Sh4iR6+s5sUk666P5da4mQ==
+X-Received: by 2002:adf:e352:0:b0:37c:ccba:8c93 with SMTP id ffacd0b85a97d-37d291de79cmr31745f8f.11.1728315700329;
+        Mon, 07 Oct 2024 08:41:40 -0700 (PDT)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-37d16920549sm5967065f8f.54.2024.10.07.08.41.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Oct 2024 08:41:40 -0700 (PDT)
+Date: Mon, 7 Oct 2024 18:41:36 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: oe-kbuild@lists.linux.dev, Drew Fustini <dfustini@tenstorrent.com>,
+	Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Linus Walleij <linus.walleij@linaro.org>
+Cc: lkp@intel.com, oe-kbuild-all@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] pinctrl: th1520: Convert to thp->mutex to guarded
+ mutex
+Message-ID: <6b3d9f7a-c87b-4ef5-8571-77276f3896a1@stanley.mountain>
 MIME-Version: 1.0
-References: <20241005195541.380070-1-irogers@google.com> <20241005195541.380070-19-irogers@google.com>
- <20241007173453.288ec1580855c29af0863d89@kernel.org>
-In-Reply-To: <20241007173453.288ec1580855c29af0863d89@kernel.org>
-From: Ian Rogers <irogers@google.com>
-Date: Mon, 7 Oct 2024 08:32:09 -0700
-Message-ID: <CAP-5=fV29jLxFUDwMFvnaV6R4ZkQg=KZ_FwU+ueQQLof1R3tRw@mail.gmail.com>
-Subject: Re: [PATCH v2 18/31] perf dwarf-regs: Move x86 dwarf-regs out of arch
-To: Masami Hiramatsu <mhiramat@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, Kan Liang <kan.liang@linux.intel.com>, 
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
-	James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
-	Leo Yan <leo.yan@linux.dev>, Guo Ren <guoren@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Nick Terrell <terrelln@fb.com>, 
-	"Steven Rostedt (Google)" <rostedt@goodmis.org>, Guilherme Amadio <amadio@gentoo.org>, 
-	Changbin Du <changbin.du@huawei.com>, Daniel Bristot de Oliveira <bristot@kernel.org>, 
-	Daniel Wagner <dwagner@suse.de>, Aditya Gupta <adityag@linux.ibm.com>, 
-	Athira Rajeev <atrajeev@linux.vnet.ibm.com>, Masahiro Yamada <masahiroy@kernel.org>, 
-	Kajol Jain <kjain@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>, 
-	Bibo Mao <maobibo@loongson.cn>, Anup Patel <anup@brainfault.org>, 
-	Atish Patra <atishp@rivosinc.com>, Shenlin Liang <liangshenlin@eswincomputing.com>, 
-	Oliver Upton <oliver.upton@linux.dev>, "Steinar H. Gunderson" <sesse@google.com>, 
-	"Dr. David Alan Gilbert" <linux@treblig.org>, Chen Pei <cp0613@linux.alibaba.com>, 
-	Dima Kogan <dima@secretsauce.net>, Yury Norov <yury.norov@gmail.com>, 
-	Alexander Lobakin <aleksander.lobakin@intel.com>, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
+Content-Disposition: inline
+In-Reply-To: <20241005-th1520-pinctrl-fixes-v1-1-5c65dffa0d00@tenstorrent.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241007_083223_780592_821B27D1 
-X-CRM114-Status: GOOD (  42.60  )
+X-CRM114-CacheID: sfid-20241007_084142_350150_EF14127D 
+X-CRM114-Status: GOOD (  10.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,182 +91,177 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBPY3QgNywgMjAyNCBhdCAxOjM14oCvQU0gTWFzYW1pIEhpcmFtYXRzdSA8bWhpcmFt
-YXRAa2VybmVsLm9yZz4gd3JvdGU6Cj4KPiBPbiBTYXQsICA1IE9jdCAyMDI0IDEyOjU1OjI4IC0w
-NzAwCj4gSWFuIFJvZ2VycyA8aXJvZ2Vyc0Bnb29nbGUuY29tPiB3cm90ZToKPgo+ID4gTW92ZSBh
-cmNoL3g4Ni91dGlsL2R3YXJmLXJlZ3MuYyB0byB1dGlsL2R3YXJmLXJlZ3MteDg2LmMgYW5kIGNv
-bXBpbGUKPiA+IGluIHVuY29uZGl0aW9uYWxseS4gVG8gYXZvaWQgZ2V0X2FyY2hfcmVnbnVtIGJl
-aW5nIGR1cGxpY2F0ZWQsIHJlbmFtZQo+ID4gdG8gZ2V0X3g4Nl9yZWdudW0gYW5kIGFkZCB0byBn
-ZXRfZHdhcmZfcmVnbnVtIHN3aXRjaC4KPiA+Cj4gPiBGb3IgZ2V0X2FyY2hfcmVnc3RyLCB0aGlz
-IHdhcyB1bnVzZWQgb24geDg2IHVubGVzcyB0aGUgbWFjaGluZSB0eXBlCj4gPiB3YXMgRU1fTk9O
-RS4gTWFwIHRoYXQgY2FzZSB0byBFTV9IT1NUIGFuZCByZW1vdmUgZ2V0X2FyY2hfcmVnc3RyIGZy
-b20KPiA+IGR3YXJmLXJlZ3MteDg2LmMuCj4gPgo+Cj4gSG1tLCBJJ20gbm90IHN1cmUgdGhpcyBj
-aGFuZ2UuIEkgZmVlbCBsaWtlIHRvIGtlZXAgdGhlIGFyY2ggZGVwZW5kZW50Cj4gcGFydCB1bmRl
-ciBhcmNoLyBkaXJlY3RvcnkKCkNvZGUgaW4gdGhlIGFyY2ggZGlyZWN0b3J5IGlzIGJ1aWx0IHdp
-dGggdGhpcyBjb25kaXRpb246Cmh0dHBzOi8vZ2l0Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51eC9r
-ZXJuZWwvZ2l0L3BlcmYvcGVyZi10b29scy1uZXh0LmdpdC90cmVlL3Rvb2xzL3BlcmYvYXJjaC9C
-dWlsZD9oPXBlcmYtdG9vbHMtbmV4dApwZXJmLXV0aWwteSArPSAkKFNSQ0FSQ0gpLwpUaGF0IGlz
-IHdlIG9ubHkgZW50ZXIgYW4gYXJjaCBkaXJlY3RvcnkgaWYgaXQgbWF0Y2hlcyB0aGUgYXJjaGl0
-ZWN0dXJlCndlJ3JlIGJ1aWxkaW5nIGZvci4KSSB0aGluayB3aGF0IHlvdSBhcmUgc2F5aW5nIGlz
-IHRoYXQgaXQnZCBiZSBuaWNlIGlmIHg4NiByZWxhdGVkIGNvZGUKd2VyZSBpbiB0aGUgYXJjaCBk
-aXJlY3RvcnksIGJ1dCB3aXRoIHRoaW5ncyBhcyB0aGV5IGFyZSB0aGF0IG1lYW5zIHRoZQp4ODYg
-cmVsYXRlZCBjb2RlIHdvdWxkbid0IGJlIGJ1aWx0IG9uIHNheSBBUk0uCgpUbyB3b3JrYXJvdW5k
-IHRoaXMgdGhlcmUgaXMgcGxlbnR5IG9mIGFyY2hpdGVjdHVyZSBzcGVjaWZpYyBjb2RlIGluCnRv
-b2xzL3BlcmYvdXRpbDoKaHR0cHM6Ly9naXQua2VybmVsLm9yZy9wdWIvc2NtL2xpbnV4L2tlcm5l
-bC9naXQvcGVyZi9wZXJmLXRvb2xzLW5leHQuZ2l0L3RyZWUvdG9vbHMvcGVyZi91dGlsP2g9cGVy
-Zi10b29scy1uZXh0CmFtZC1zYW1wbGUtcmF3LmMKYXJtNjQtZnJhbWUtcG9pbnRlci11bndpbmQt
-c3VwcG9ydC5jCmFybTY0LWZyYW1lLXBvaW50ZXItdW53aW5kLXN1cHBvcnQuaAphcm0tc3BlLmMK
-YXJtLXNwZS1kZWNvZGVyCmFybS1zcGUuaAppbnRlbC1idHMuYwppbnRlbC1idHMuaAppbnRlbC1w
-dC5jCmludGVsLXB0LWRlY29kZXIKaW50ZWwtcHQuaAppbnRlbC10cGVicy5jCmludGVsLXRwZWJz
-LmgKczM5MC1jcHVtY2Yta2VybmVsLmgKczM5MC1jcHVtc2YuYwpzMzkwLWNwdW1zZi5oCnMzOTAt
-Y3B1bXNmLWtlcm5lbC5oCnMzOTAtc2FtcGxlLXJhdy5jCgpXaXRoIHRoaXMgY2hhbmdlIGFkZGVk
-IGFyZToKZHdhcmYtcmVncy1jc2t5LmMKZHdhcmYtcmVncy1wb3dlcnBjLmMKZHdhcmYtcmVncy14
-ODYuYwoKU28gSSBmZWVsIHRoaXMgd2F5IG9mIGRvaW5nIHRoaW5ncyBpcyBtb3N0IGNvbnNpc3Rl
-bnQgYW5kIGFjaGlldmVzIHRoZQpiZXN0IHJlc3VsdC4KCkluIGdlbmVyYWwgSSB0aGluayB0aGUg
-YXJjaCBkaXJlY3RvcnkgaW4gcGVyZiBpcyBhIG1pc3Rha2U6CjEpIGl0IGJyZWFrcyB0aGUgcHJv
-ZmlsZSBvbiBvbmUgcGxhdGZvcm0sIGFuYWx5emUgb24gYW5vdGhlciBtb2RlbCAtCmluIHRoaXMg
-c2VyaWVzIGl0IGlzIHNob3duIHRoYXQgdXNpbmcgdGhlIEVMRiBtYWNoaW5lIGlzIGp1c3QgYmV0
-dGVyCnRoYW4gaGFyZCBjb2RpbmcgdG8gdGhlIGhvc3QgYXJjaGl0ZWN0dXJlOwoyKSBpdCBpcyB1
-c2VkIGFzIHNvbWV0aGluZyBvZiBhbiBpZmRlZiBfXzxhcmNoPl9fIHJlcGxhY2VtZW50IGJ1dCBp
-biBhCndheSB0aGF0IG1ha2VzIHVuZGVyc3RhbmRpbmcgYmVoYXZpb3IgaW4gdGhlIGNvZGUgaGFy
-ZGVyIHRvIGZhdGhvbSBhcwp5b3UgbmVlZCB0byB1bmRlcnN0YW5kIHdlYWsgZnVuY3Rpb25zIChu
-b3QgYSBDIGZlYXR1cmUpIGFuZCB0aGUgYnVpbGQKbG9naWM7CjMpIG11Y2ggb2YgdGhlIGNvZGUg
-aXMgcmVhbGx5IFBNVSBkcml2ZXIgZGVwZW5kZW50IHJhdGhlciB0aGFuCmFyY2hpdGVjdHVyZSBk
-ZXBlbmRlbnQsIG1vdmluZyBzdWNoIGNvZGUgb3V0IG9mIGFyY2ggd291bGQgZW5hYmxlCnRoaW5n
-cyBsaWtlIHVzZXIgc3BhY2UgZW11bGF0aW9uIG9mIHRoZSBwZXJmIHRvb2wuCgo+IEJ1dCBpZiB0
-aGlzIGlzIGp1c3QgZm9yIHJldmVyc2UgbWFwcGluZyBvZgo+IHJlZ25hbWUgLT4gcmVnbnVtLCBz
-aW5jZSB3ZSBhbHJlYWR5IGhhdmUgcmVnbnVtIC0+IHJlZ25hbWUgbWFwcyBpbiB0aGUKPiBoZWFk
-ZXIgZmlsZSwgd2UgY2FuIHJlaW1wbGVtZW50IGdldF9kd2FyZl9yZWdudW0oKSBhcyBhIGdlbmVy
-aWMgZnVuY3Rpb24uCj4gQW5kIHRoYXQgaXMgd2hhdCB5b3UgZG9lcyBpbiB0aGlzIHNlcmllcywg
-Y29ycmVjdD8KClRoYXQgd29yayBjb3VsZCBiZSBkb25lIGZvciBnZXRfZHdhcmZfcmVnbnVtIGJ1
-dCBpc24ndCBkb25lIGluIHRoaXMKc2VyaWVzLiBNb3N0IGFyY2hpdGVjdHVyZXMgYXJlIG1pc3Np
-bmcgZ2V0X2FyY2hfcmVnbnVtLgpGb3IgZ2V0X2R3YXJmX3JlZ3N0ciBhbmQgZ2V0X2FyY2hfcmVn
-c3RyIHRoZXJlIHdhcyB0aGUgcmVkdW5kYW5jeSBhcwpnZXRfZHdhcmZfcmVnc3RyIHdvdWxkIGNv
-bXB1dGUgYSByZWdzdHIgaWYgdGhlIG1hY2hpbmUgd2Fzbid0IEVfTk9ORQppbiBtb3N0IGNhc2Vz
-LiBnZXRfYXJjaF9yZWdzdHIgd2FzIG9ubHkgdXNlZCBmb3IgRV9OT05FLiBUaGlzIGNvZGUKY2hh
-bmdlcyBFX05PTkUgdG8gRV9IT1NUIGFuZCB0aGVuIHRoZSBnZXRfYXJjaF9yZWdzdHIgY29kZSBp
-c24ndApuZWVkZWQuIFRoZXJlIGFyZSAjaWZkZWZzIGFkZGluZyBjb21wbGV4aXR5IGFzIEkgZGlk
-bid0IGRvIGEgc2luZ2xlCm1vbm9saXRoaWMgcGF0Y2ggLSB0aGUgbWFpbnRhaW5lcnMgdXN1YWxs
-eSBjb21wbGFpbiBpZiB5b3UgZG8gYmlnCm1vbm9saXRoaWMgcGF0Y2hlcy4gUGF0Y2hlcyBhdCB0
-aGUgZW5kIG9mIHRoZSBzZXJpZXMgcmVtb3ZlIGFsbCB0aGUKI2lmZGVmcywgaXQgaXMganVzdCB3
-aXRob3V0IHRoZW0gdGhlIHNlcmllcyB3aWxsIGJyZWFrIGNyb3NzCmNvbXBpbGF0aW9uIGlmIHlv
-dSBiaXNlY3QgaW50byB0aGUgbWlkZGxlIG9mIGl0LgoKPiBJZiBzbywgY2FuIHlvdSBtYWtlIGEg
-Z2VuZXJpYyBnZXRfZHdhcmZfcmVnbnVtKCkgYXQgZmlyc3QsIGFuZCByZW1vdmUKPiB0aGUgYXJj
-aGl0ZWN0dXJlIGRlcGVuZGVudCBwYXJ0IHdoaWNoIGlzIG5vdCBuZWVkZWQgYW55bW9yZS4KPiBU
-aGF0IHNob3VsZCBiZSBtb3JlIHNpbXBsZXIgdG8gcmV2aWV3LgoKSSB0aGluayB0aGlzIGlzIG91
-dCBvZiBzY29wZSBmb3IgdGhpcyBzZXJpZXMsIG5vdCBsZWFzdCBiZWNhdXNlIG9mIHRoZQp0ZXN0
-aW5nIGNoYWxsZW5nZSwgYnV0IGNvdWxkIGJlIGZvbGxvdyB1cCB3b3JrLgoKVGhhbmtzLApJYW4K
-Cj4gPiBTaWduZWQtb2ZmLWJ5OiBJYW4gUm9nZXJzIDxpcm9nZXJzQGdvb2dsZS5jb20+Cj4gPiAt
-LS0KPiA+ICB0b29scy9wZXJmL2FyY2gveDg2L3V0aWwvQnVpbGQgICAgICAgICAgICAgICAgfCAg
-MyAtLS0KPiA+ICB0b29scy9wZXJmL3V0aWwvQnVpbGQgICAgICAgICAgICAgICAgICAgICAgICAg
-fCAgMSArCj4gPiAgLi4uL2R3YXJmLXJlZ3MuYyA9PiB1dGlsL2R3YXJmLXJlZ3MteDg2LmN9ICAg
-IHwgMjQgKy0tLS0tLS0tLS0tLS0tLS0tLQo+ID4gIHRvb2xzL3BlcmYvdXRpbC9kd2FyZi1yZWdz
-LmMgICAgICAgICAgICAgICAgICB8IDE3ICsrKysrKysrKysrKysKPiA+ICB0b29scy9wZXJmL3V0
-aWwvaW5jbHVkZS9kd2FyZi1yZWdzLmggICAgICAgICAgfCAgOCArKysrKysrCj4gPiAgNSBmaWxl
-cyBjaGFuZ2VkLCAyNyBpbnNlcnRpb25zKCspLCAyNiBkZWxldGlvbnMoLSkKPiA+ICByZW5hbWUg
-dG9vbHMvcGVyZi97YXJjaC94ODYvdXRpbC9kd2FyZi1yZWdzLmMgPT4gdXRpbC9kd2FyZi1yZWdz
-LXg4Ni5jfSAoNzclKQo+ID4KPiA+IGRpZmYgLS1naXQgYS90b29scy9wZXJmL2FyY2gveDg2L3V0
-aWwvQnVpbGQgYi90b29scy9wZXJmL2FyY2gveDg2L3V0aWwvQnVpbGQKPiA+IGluZGV4IDk3MDVj
-ZGE0ZjI0MC4uNzBhZjQ5MWE2ZGQ3IDEwMDY0NAo+ID4gLS0tIGEvdG9vbHMvcGVyZi9hcmNoL3g4
-Ni91dGlsL0J1aWxkCj4gPiArKysgYi90b29scy9wZXJmL2FyY2gveDg2L3V0aWwvQnVpbGQKPiA+
-IEBAIC0xMiw5ICsxMiw2IEBAIHBlcmYtdXRpbC15ICs9IGV2c2VsLm8KPiA+ICBwZXJmLXV0aWwt
-eSArPSBpb3N0YXQubwo+ID4gIHBlcmYtdXRpbC15ICs9IGVudi5vCj4gPgo+ID4gLXBlcmYtdXRp
-bC0kKENPTkZJR19MSUJEVykgKz0gZHdhcmYtcmVncy5vCj4gPiAtcGVyZi11dGlsLSQoQ09ORklH
-X0JQRl9QUk9MT0dVRSkgKz0gZHdhcmYtcmVncy5vCj4gPiAtCj4gPiAgcGVyZi11dGlsLSQoQ09O
-RklHX0xPQ0FMX0xJQlVOV0lORCkgICAgKz0gdW53aW5kLWxpYnVud2luZC5vCj4gPiAgcGVyZi11
-dGlsLSQoQ09ORklHX0xJQkRXX0RXQVJGX1VOV0lORCkgKz0gdW53aW5kLWxpYmR3Lm8KPiA+Cj4g
-PiBkaWZmIC0tZ2l0IGEvdG9vbHMvcGVyZi91dGlsL0J1aWxkIGIvdG9vbHMvcGVyZi91dGlsL0J1
-aWxkCj4gPiBpbmRleCAxZDA4NjA4YjdlMWIuLmMyMjIxZWY0MzFmMyAxMDA2NDQKPiA+IC0tLSBh
-L3Rvb2xzL3BlcmYvdXRpbC9CdWlsZAo+ID4gKysrIGIvdG9vbHMvcGVyZi91dGlsL0J1aWxkCj4g
-PiBAQCAtMjAyLDYgKzIwMiw3IEBAIGVuZGlmCj4gPiAgcGVyZi11dGlsLSQoQ09ORklHX0xJQkRX
-KSArPSBwcm9iZS1maW5kZXIubwo+ID4gIHBlcmYtdXRpbC0kKENPTkZJR19MSUJEVykgKz0gZHdh
-cmYtYXV4Lm8KPiA+ICBwZXJmLXV0aWwtJChDT05GSUdfTElCRFcpICs9IGR3YXJmLXJlZ3Mubwo+
-ID4gK3BlcmYtdXRpbC0kKENPTkZJR19MSUJEVykgKz0gZHdhcmYtcmVncy14ODYubwo+ID4gIHBl
-cmYtdXRpbC0kKENPTkZJR19MSUJEVykgKz0gZGVidWdpbmZvLm8KPiA+ICBwZXJmLXV0aWwtJChD
-T05GSUdfTElCRFcpICs9IGFubm90YXRlLWRhdGEubwo+ID4KPiA+IGRpZmYgLS1naXQgYS90b29s
-cy9wZXJmL2FyY2gveDg2L3V0aWwvZHdhcmYtcmVncy5jIGIvdG9vbHMvcGVyZi91dGlsL2R3YXJm
-LXJlZ3MteDg2LmMKPiA+IHNpbWlsYXJpdHkgaW5kZXggNzclCj4gPiByZW5hbWUgZnJvbSB0b29s
-cy9wZXJmL2FyY2gveDg2L3V0aWwvZHdhcmYtcmVncy5jCj4gPiByZW5hbWUgdG8gdG9vbHMvcGVy
-Zi91dGlsL2R3YXJmLXJlZ3MteDg2LmMKPiA+IGluZGV4IDUzMDkwNTExOGNkNC4uN2E1NWM2NWU4
-ZGE2IDEwMDY0NAo+ID4gLS0tIGEvdG9vbHMvcGVyZi9hcmNoL3g4Ni91dGlsL2R3YXJmLXJlZ3Mu
-Ywo+ID4gKysrIGIvdG9vbHMvcGVyZi91dGlsL2R3YXJmLXJlZ3MteDg2LmMKPiA+IEBAIC0xMSwy
-OCArMTEsNiBAQAo+ID4gICNpbmNsdWRlIDxsaW51eC9rZXJuZWwuaD4gLyogZm9yIEFSUkFZX1NJ
-WkUgKi8KPiA+ICAjaW5jbHVkZSA8ZHdhcmYtcmVncy5oPgo+ID4KPiA+IC0jZGVmaW5lIERFRklO
-RV9EV0FSRl9SRUdTVFJfVEFCTEUgMQo+ID4gLSNpbmNsdWRlICJkd2FyZi1yZWdzLXRhYmxlLmgi
-Cj4gPiAtCj4gPiAtLyogUmV0dXJuIGFyY2hpdGVjdHVyZSBkZXBlbmRlbnQgcmVnaXN0ZXIgc3Ry
-aW5nIChmb3Iga3Byb2JlLXRyYWNlcikgKi8KPiA+IC1jb25zdCBjaGFyICpnZXRfYXJjaF9yZWdz
-dHIodW5zaWduZWQgaW50IG4pCj4gPiAtewo+ID4gLSNpZiBkZWZpbmVkKF9faTM4Nl9fKQo+ID4g
-LSAgICAgc2l6ZV90IGxlbiA9IEFSUkFZX1NJWkUoeDg2XzMyX3JlZ3N0cl90YmwpOwo+ID4gLSNl
-bHNlCj4gPiAtICAgICBzaXplX3QgbGVuID0gQVJSQVlfU0laRSh4ODZfNjRfcmVnc3RyX3RibCk7
-Cj4gPiAtI2VuZGlmCj4gPiAtCj4gPiAtICAgICBpZiAobiA+PSBsZW4pCj4gPiAtICAgICAgICAg
-ICAgIHJldHVybiBOVUxMOwo+ID4gLQo+ID4gLSNpZiBkZWZpbmVkKF9faTM4Nl9fKQo+ID4gLSAg
-ICAgcmV0dXJuIHg4Nl8zMl9yZWdzdHJfdGJsW25dOwo+ID4gLSNlbHNlCj4gPiAtICAgICByZXR1
-cm4geDg2XzY0X3JlZ3N0cl90Ymxbbl07Cj4gPiAtI2VuZGlmCj4gPiAtfQo+ID4gLQo+ID4gIHN0
-cnVjdCBkd2FyZl9yZWdzX2lkeCB7Cj4gPiAgICAgICBjb25zdCBjaGFyICpuYW1lOwo+ID4gICAg
-ICAgaW50IGlkeDsKPiA+IEBAIC01OCw3ICszNiw3IEBAIHN0YXRpYyBjb25zdCBzdHJ1Y3QgZHdh
-cmZfcmVnc19pZHggeDg2X3JlZ2lkeF90YWJsZVtdID0gewo+ID4gICAgICAgeyAicmlwIiwgRFdB
-UkZfUkVHX1BDIH0sCj4gPiAgfTsKPiA+Cj4gPiAtaW50IGdldF9hcmNoX3JlZ251bShjb25zdCBj
-aGFyICpuYW1lKQo+ID4gK2ludCBnZXRfeDg2X3JlZ251bShjb25zdCBjaGFyICpuYW1lKQo+ID4g
-IHsKPiA+ICAgICAgIHVuc2lnbmVkIGludCBpOwo+ID4KPiA+IGRpZmYgLS1naXQgYS90b29scy9w
-ZXJmL3V0aWwvZHdhcmYtcmVncy5jIGIvdG9vbHMvcGVyZi91dGlsL2R3YXJmLXJlZ3MuYwo+ID4g
-aW5kZXggODZiM2VmNjM4ZmJiLi5lYWM5OWEyNDY3MzcgMTAwNjQ0Cj4gPiAtLS0gYS90b29scy9w
-ZXJmL3V0aWwvZHdhcmYtcmVncy5jCj4gPiArKysgYi90b29scy9wZXJmL3V0aWwvZHdhcmYtcmVn
-cy5jCj4gPiBAQCAtMzIsOSArMzIsMTcgQEAKPiA+ICBjb25zdCBjaGFyICpnZXRfZHdhcmZfcmVn
-c3RyKHVuc2lnbmVkIGludCBuLCB1bnNpZ25lZCBpbnQgbWFjaGluZSwKPiA+ICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgIHVuc2lnbmVkIGludCBmbGFncyBfX21heWJlX3VudXNlZCkKPiA+ICB7
-Cj4gPiArI2lmIEVNX0hPU1QgPT0gRU1fWDg2XzY0IHx8IEVNX0hPU1QgPT0gRU1fMzg2Cj4gPiAr
-ICAgICBpZiAobWFjaGluZSA9PSBFTV9OT05FKSB7Cj4gPiArICAgICAgICAgICAgIC8qIEdlbmVy
-aWMgYXJjaCAtIHVzZSBob3N0IGFyY2ggKi8KPiA+ICsgICAgICAgICAgICAgbWFjaGluZSA9IEVN
-X0hPU1Q7Cj4gPiArICAgICB9Cj4gPiArI2VuZGlmCj4gPiAgICAgICBzd2l0Y2ggKG1hY2hpbmUp
-IHsKPiA+ICsjaWYgRU1fSE9TVCAhPSBFTV9YODZfNjQgJiYgRU1fSE9TVCAhPSBFTV8zODYKPiA+
-ICAgICAgIGNhc2UgRU1fTk9ORTogICAvKiBHZW5lcmljIGFyY2ggLSB1c2UgaG9zdCBhcmNoICov
-Cj4gPiAgICAgICAgICAgICAgIHJldHVybiBnZXRfYXJjaF9yZWdzdHIobik7Cj4gPiArI2VuZGlm
-Cj4gPiAgICAgICBjYXNlIEVNXzM4NjoKPiA+ICAgICAgICAgICAgICAgcmV0dXJuIF9fZ2V0X2R3
-YXJmX3JlZ3N0cih4ODZfMzJfcmVnc3RyX3RibCwgbik7Cj4gPiAgICAgICBjYXNlIEVNX1g4Nl82
-NDoKPiA+IEBAIC02NSwxMCArNzMsMTIgQEAgY29uc3QgY2hhciAqZ2V0X2R3YXJmX3JlZ3N0cih1
-bnNpZ25lZCBpbnQgbiwgdW5zaWduZWQgaW50IG1hY2hpbmUsCj4gPiAgICAgICByZXR1cm4gTlVM
-TDsKPiA+ICB9Cj4gPgo+ID4gKyNpZiBFTV9IT1NUICE9IEVNX1g4Nl82NCAmJiBFTV9IT1NUICE9
-IEVNXzM4Ngo+ID4gIF9fd2VhayBpbnQgZ2V0X2FyY2hfcmVnbnVtKGNvbnN0IGNoYXIgKm5hbWUg
-X19tYXliZV91bnVzZWQpCj4gPiAgewo+ID4gICAgICAgcmV0dXJuIC1FTk9UU1VQOwo+ID4gIH0K
-PiA+ICsjZW5kaWYKPiA+Cj4gPiAgLyogUmV0dXJuIERXQVJGIHJlZ2lzdGVyIG51bWJlciBmcm9t
-IGFyY2hpdGVjdHVyZSByZWdpc3RlciBuYW1lICovCj4gPiAgaW50IGdldF9kd2FyZl9yZWdudW0o
-Y29uc3QgY2hhciAqbmFtZSwgdW5zaWduZWQgaW50IG1hY2hpbmUsIHVuc2lnbmVkIGludCBmbGFn
-cyBfX21heWJlX3VudXNlZCkKPiA+IEBAIC05MCw5ICsxMDAsMTYgQEAgaW50IGdldF9kd2FyZl9y
-ZWdudW0oY29uc3QgY2hhciAqbmFtZSwgdW5zaWduZWQgaW50IG1hY2hpbmUsIHVuc2lnbmVkIGlu
-dCBmbGFncwo+ID4gICAgICAgICAgICAgICBtYWNoaW5lID0gRU1fSE9TVDsKPiA+ICAgICAgIH0K
-PiA+ICAgICAgIHN3aXRjaCAobWFjaGluZSkgewo+ID4gKyNpZiBFTV9IT1NUICE9IEVNX1g4Nl82
-NCAmJiBFTV9IT1NUICE9IEVNXzM4Ngo+ID4gICAgICAgY2FzZSBFTV9IT1NUOgo+ID4gICAgICAg
-ICAgICAgICByZWcgPSBnZXRfYXJjaF9yZWdudW0ocmVnbmFtZSk7Cj4gPiAgICAgICAgICAgICAg
-IGJyZWFrOwo+ID4gKyNlbmRpZgo+ID4gKyAgICAgY2FzZSBFTV9YODZfNjQ6Cj4gPiArICAgICAg
-ICAgICAgIGZhbGx0aHJvdWdoOwo+ID4gKyAgICAgY2FzZSBFTV8zODY6Cj4gPiArICAgICAgICAg
-ICAgIHJlZyA9IGdldF94ODZfcmVnbnVtKHJlZ25hbWUpOwo+ID4gKyAgICAgICAgICAgICBicmVh
-azsKPiA+ICAgICAgIGRlZmF1bHQ6Cj4gPiAgICAgICAgICAgICAgIHByX2VycigiRUxGIE1BQ0hJ
-TkUgJXggaXMgbm90IHN1cHBvcnRlZC5cbiIsIG1hY2hpbmUpOwo+ID4gICAgICAgfQo+ID4gZGlm
-ZiAtLWdpdCBhL3Rvb2xzL3BlcmYvdXRpbC9pbmNsdWRlL2R3YXJmLXJlZ3MuaCBiL3Rvb2xzL3Bl
-cmYvdXRpbC9pbmNsdWRlL2R3YXJmLXJlZ3MuaAo+ID4gaW5kZXggOTI1NTI1NDA1ZTJkLi4wNjI2
-MjNhZWZkNWEgMTAwNjQ0Cj4gPiAtLS0gYS90b29scy9wZXJmL3V0aWwvaW5jbHVkZS9kd2FyZi1y
-ZWdzLmgKPiA+ICsrKyBiL3Rvb2xzL3BlcmYvdXRpbC9pbmNsdWRlL2R3YXJmLXJlZ3MuaAo+ID4g
-QEAgLTc5LDcgKzc5LDEwIEBACj4gPiAgI2RlZmluZSBEV0FSRl9SRUdfRkIgIDB4ZDNhZmZiIC8q
-IHJhbmRvbSBudW1iZXIgKi8KPiA+Cj4gPiAgI2lmZGVmIEhBVkVfTElCRFdfU1VQUE9SVAo+ID4g
-KyNpZiAhZGVmaW5lZChfX3g4Nl82NF9fKSAmJiAhZGVmaW5lZChfX2kzODZfXykKPiA+ICBjb25z
-dCBjaGFyICpnZXRfYXJjaF9yZWdzdHIodW5zaWduZWQgaW50IG4pOwo+ID4gKyNlbmRpZgo+ID4g
-Kwo+ID4gIC8qKgo+ID4gICAqIGdldF9kd2FyZl9yZWdzdHIoKSAtIFJldHVybnMgZnRyYWNlIHJl
-Z2lzdGVyIHN0cmluZyBmcm9tIERXQVJGIHJlZ251bS4KPiA+ICAgKiBAbjogRFdBUkYgcmVnaXN0
-ZXIgbnVtYmVyLgo+ID4gQEAgLTg4LDcgKzkxLDEyIEBAIGNvbnN0IGNoYXIgKmdldF9hcmNoX3Jl
-Z3N0cih1bnNpZ25lZCBpbnQgbik7Cj4gPiAgICovCj4gPiAgY29uc3QgY2hhciAqZ2V0X2R3YXJm
-X3JlZ3N0cih1bnNpZ25lZCBpbnQgbiwgdW5zaWduZWQgaW50IG1hY2hpbmUsIHVuc2lnbmVkIGlu
-dCBmbGFncyk7Cj4gPgo+ID4gK2ludCBnZXRfeDg2X3JlZ251bShjb25zdCBjaGFyICpuYW1lKTsK
-PiA+ICsKPiA+ICsjaWYgIWRlZmluZWQoX194ODZfNjRfXykgJiYgIWRlZmluZWQoX19pMzg2X18p
-Cj4gPiAgaW50IGdldF9hcmNoX3JlZ251bShjb25zdCBjaGFyICpuYW1lKTsKPiA+ICsjZW5kaWYK
-PiA+ICsKPiA+ICAvKgo+ID4gICAqIGdldF9kd2FyZl9yZWdudW0gLSBSZXR1cm5zIERXQVJGIHJl
-Z251bSBmcm9tIHJlZ2lzdGVyIG5hbWUKPiA+ICAgKiBuYW1lOiBhcmNoaXRlY3R1cmUgcmVnaXN0
-ZXIgbmFtZQo+ID4gLS0KPiA+IDIuNDcuMC5yYzAuMTg3LmdlNjcwYmNjZjdlLWdvb2cKPiA+Cj4K
-Pgo+IC0tCj4gTWFzYW1pIEhpcmFtYXRzdSAoR29vZ2xlKSA8bWhpcmFtYXRAa2VybmVsLm9yZz4K
-Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
-c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
-aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Drew,
+
+kernel test robot noticed the following build warnings:
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Drew-Fustini/pinctrl-th1520-Convert-to-thp-mutex-to-guarded-mutex/20241006-033647
+base:   2694868880705e8f6bb61b24b1b25adc42a4a217
+patch link:    https://lore.kernel.org/r/20241005-th1520-pinctrl-fixes-v1-1-5c65dffa0d00%40tenstorrent.com
+patch subject: [PATCH 1/2] pinctrl: th1520: Convert to thp->mutex to guarded mutex
+config: parisc-randconfig-r072-20241007 (https://download.01.org/0day-ci/archive/20241007/202410072108.uG2sVTN4-lkp@intel.com/config)
+compiler: hppa-linux-gcc (GCC) 14.1.0
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
+| Closes: https://lore.kernel.org/r/202410072108.uG2sVTN4-lkp@intel.com/
+
+New smatch warnings:
+drivers/pinctrl/pinctrl-th1520.c:538 th1520_pinctrl_dt_node_to_map() error: uninitialized symbol 'child'.
+
+Old smatch warnings:
+drivers/pinctrl/pinctrl-th1520.c:502 th1520_pinctrl_dt_node_to_map() warn: missing error code 'ret'
+
+vim +/child +538 drivers/pinctrl/pinctrl-th1520.c
+
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  414  static int th1520_pinctrl_dt_node_to_map(struct pinctrl_dev *pctldev,
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  415  					 struct device_node *np,
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  416  					 struct pinctrl_map **maps,
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  417  					 unsigned int *num_maps)
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  418  {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  419  	struct th1520_pinctrl *thp = pinctrl_dev_get_drvdata(pctldev);
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  420  	struct device_node *child;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  421  	struct pinctrl_map *map;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  422  	unsigned long *configs;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  423  	unsigned int nconfigs;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  424  	unsigned int nmaps;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  425  	int ret;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  426  
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  427  	nmaps = 0;
+fb310b5cb13ad2 Drew Fustini         2024-10-05  428  	for_each_available_child_of_node_scoped(np, child) {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  429  		int npins = of_property_count_strings(child, "pins");
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  430  
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  431  		if (npins <= 0) {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  432  			of_node_put(child);
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  433  			dev_err(thp->pctl->dev, "no pins selected for %pOFn.%pOFn\n",
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  434  				np, child);
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  435  			return -EINVAL;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  436  		}
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  437  		nmaps += npins;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  438  		if (of_property_present(child, "function"))
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  439  			nmaps += npins;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  440  	}
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  441  
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  442  	map = kcalloc(nmaps, sizeof(*map), GFP_KERNEL);
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  443  	if (!map)
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  444  		return -ENOMEM;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  445  
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  446  	nmaps = 0;
+fb310b5cb13ad2 Drew Fustini         2024-10-05  447  	guard(mutex)(&thp->mutex);
+fb310b5cb13ad2 Drew Fustini         2024-10-05  448  	for_each_available_child_of_node_scoped(np, child) {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  449  		unsigned int rollback = nmaps;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  450  		enum th1520_muxtype muxtype;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  451  		struct property *prop;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  452  		const char *funcname;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  453  		const char **pgnames;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  454  		const char *pinname;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  455  		int npins;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  456  
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  457  		ret = pinconf_generic_parse_dt_config(child, pctldev, &configs, &nconfigs);
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  458  		if (ret) {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  459  			dev_err(thp->pctl->dev, "%pOFn.%pOFn: error parsing pin config\n",
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  460  				np, child);
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  461  			goto put_child;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  462  		}
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  463  
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  464  		if (!of_property_read_string(child, "function", &funcname)) {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  465  			muxtype = th1520_muxtype_get(funcname);
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  466  			if (!muxtype) {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  467  				dev_err(thp->pctl->dev, "%pOFn.%pOFn: unknown function '%s'\n",
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  468  					np, child, funcname);
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  469  				ret = -EINVAL;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  470  				goto free_configs;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  471  			}
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  472  
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  473  			funcname = devm_kasprintf(thp->pctl->dev, GFP_KERNEL, "%pOFn.%pOFn",
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  474  						  np, child);
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  475  			if (!funcname) {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  476  				ret = -ENOMEM;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  477  				goto free_configs;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  478  			}
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  479  
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  480  			npins = of_property_count_strings(child, "pins");
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  481  			pgnames = devm_kcalloc(thp->pctl->dev, npins, sizeof(*pgnames), GFP_KERNEL);
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  482  			if (!pgnames) {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  483  				ret = -ENOMEM;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  484  				goto free_configs;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  485  			}
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  486  		} else {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  487  			funcname = NULL;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  488  		}
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  489  
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  490  		npins = 0;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  491  		of_property_for_each_string(child, "pins", prop, pinname) {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  492  			unsigned int i;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  493  
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  494  			for (i = 0; i < thp->desc.npins; i++) {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  495  				if (!strcmp(pinname, thp->desc.pins[i].name))
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  496  					break;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  497  			}
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  498  			if (i == thp->desc.npins) {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  499  				nmaps = rollback;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  500  				dev_err(thp->pctl->dev, "%pOFn.%pOFn: unknown pin '%s'\n",
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  501  					np, child, pinname);
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  502  				goto free_configs;
+
+err = -EINVAL?
+
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  503  			}
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  504  
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  505  			if (nconfigs) {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  506  				map[nmaps].type = PIN_MAP_TYPE_CONFIGS_PIN;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  507  				map[nmaps].data.configs.group_or_pin = thp->desc.pins[i].name;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  508  				map[nmaps].data.configs.configs = configs;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  509  				map[nmaps].data.configs.num_configs = nconfigs;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  510  				nmaps += 1;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  511  			}
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  512  			if (funcname) {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  513  				pgnames[npins++] = thp->desc.pins[i].name;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  514  				map[nmaps].type = PIN_MAP_TYPE_MUX_GROUP;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  515  				map[nmaps].data.mux.function = funcname;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  516  				map[nmaps].data.mux.group = thp->desc.pins[i].name;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  517  				nmaps += 1;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  518  			}
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  519  		}
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  520  
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  521  		if (funcname) {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  522  			ret = pinmux_generic_add_function(pctldev, funcname, pgnames,
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  523  							  npins, (void *)muxtype);
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  524  			if (ret < 0) {
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  525  				dev_err(thp->pctl->dev, "error adding function %s\n", funcname);
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  526  				goto put_child;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  527  			}
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  528  		}
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  529  	}
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  530  
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  531  	*maps = map;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  532  	*num_maps = nmaps;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  533  	return 0;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  534  
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  535  free_configs:
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  536  	kfree(configs);
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  537  put_child:
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30 @538  	of_node_put(child);
+
+We're using _scoped() loops so this is a double put.
+
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  539  	th1520_pinctrl_dt_free_map(pctldev, map, nmaps);
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  540  	return ret;
+bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  541  }
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
