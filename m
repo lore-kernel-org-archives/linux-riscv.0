@@ -4,82 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92182CFB448
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Oct 2024 15:43:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAF07CFB448
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Oct 2024 15:45:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=Gb3wXcivLqC6N2maKPrMvts4+pJ5x5ACtjizB5rfsW8=; b=kfL6CPTdSWARWd
-	kG3/59ryLFkCk7/RJISWw9DhVsY69gKX2EDGsQ5JRf4ORNbgJQhiyHLiQ/umIDOrBUDWtjKGKgKZG
-	z77T4Qe75+EqIaC0ThepGcUQIkV6AUnkEKJGz7tQm4Br403iza6PzFCNBTlK8Tf6F94Ytc7n1Fwx5
-	aTrwOoCrFVNYhYWfu2kobCCYEYOIccohSGoOIH2LPRf/eDCLuzrsFhD4CPDy5O+jmNCs36NDTjyhV
-	ijxKcw1c66mbhN3e562zFtU76J2Y8OcmjQxNVJj2bDKU7cRPEAr2v4olNpaVVbihPnRc0DthEtPW3
-	tfSbeFM5jOurqLZ3Ax3A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JxHW6ukU20r0M2pfSTkmHycNr8zjGfWvMJhM6gqQp9g=; b=0t/bMetHaL0AKs3wved8Y1muyV
+	uk2uOdy64uTk0Yf2Fdmg7vCVZYKdJMlkSUP2tuUXK7zS30fcPa0ex/bG+59VksWyr03luf9M8Tx5O
+	cXS5fD9Pglg/imiT+5STKn96TCL9lE4iwNh1pD7f0u/WwUXC+9AxvjQrCIJPZxs0OVghV0UmjZgmJ
+	Y1za8EWt0255sazaAAmbri6GirwzHxga7rBKp7d9Wj7BjOvLOmSYmmnVrj5TvsxLHGzwlg9vZ7D7r
+	aQfR0T/A4NV9Q5Tc2vrxeRF7/s7eqmxJFhZxiK+4aVvRJtoZjBMlVamhaQuN5miyky1y775zCNUMV
+	ac0b2oXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sxptl-00000003068-40Op;
-	Mon, 07 Oct 2024 15:43:49 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1sxpv9-000000030Ro-2ZfZ;
+	Mon, 07 Oct 2024 15:45:15 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sxpri-00000002zbo-17ax
+	id 1sxpte-0000000302r-0cWY
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Oct 2024 15:41:43 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-42cb58d810eso33852415e9.0
-        for <linux-riscv@lists.infradead.org>; Mon, 07 Oct 2024 08:41:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1728315700; x=1728920500; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ARnoMCvCgsltYrhS969hYFyeA9hTUUb55Rt7GByaSkU=;
-        b=I0yScFUi2kiY0HUmA7+z9iN+75C9EWTkbSKSXakM1LC3Iw924xMDl85a2QVEhD2mw/
-         ud5lnz8u0jv7x79jASvWfL7H2o2K2J8D3KX/Tpp10HzRkmLoL+jAWcK7mUD39jK9Y4iO
-         tJ6FYlrgMLNdutw+UD91afxANgoPN7Ze4GbuPlJvFgzxw8mg3PqkKCyqPDulsqutbb+B
-         HKfY7YYG99kVfcAzgjOzKYJWBFiaUUbkPXUw81KWdYAvQ+lQ00PHqMvBc9ReKARZrt9T
-         TGEQwkdCoYYMNt66xOdYElsqZKC1a6Vf9hVleOR8kV+nRUHlzU3hBab/mxdlG4ZCLTe9
-         DliQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728315700; x=1728920500;
-        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ARnoMCvCgsltYrhS969hYFyeA9hTUUb55Rt7GByaSkU=;
-        b=Gy5gOSkZVYcrsC9gh1sCNHOvsjiEAlLfnNU1y9a14BDW5p0KV2FczX+0LJOuOW85NJ
-         P3i7hf1oZVJpYmH2XoCkg0Amg9+pK9FNpoSuXjvAtJwILBRDGxyZF4cBTTw+roDEzTt2
-         7xA0tArvrIqZVt30Q4VJU8q3rk0dt5Y+5ygxzVhP+X2iQJFDpJOSMiTVJftKeDMsThBP
-         FSHazzarggKs7t4nNJgYusMkF/oLlUAvIAlf+dat4Wj+mAMTq0KjeXcLXfmCas5izggT
-         sbcJHhBFPmZAatMmwRQ0pvBgHQh2Wz0HEilJNljjgGFiCnvUwfVeSxYzB29RQB+UBWX7
-         AmRg==
-X-Forwarded-Encrypted: i=1; AJvYcCX4wMuffSdef46Gy1vD8G5804FGImKCCMYSIt78zyJqISNSt42ZSS5mYe6V1MVi6y1RVvhxaa6xTsSi2Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzhMLbofcgffGAR6Ebs0oGkqhmCPNHOTPzUVDDaQ46N2k0cG7kT
-	H1hxryKmFpl2x8V3KzLKi5bsA86Y74ayNDeQrFrmVjuhz6yQBP7xV+ggxXN1WEaCmIXrsJfhyMG
-	R
-X-Google-Smtp-Source: AGHT+IGxdXlmz5LN0TfcS0dSRYiTJFmNIAm6S0b8unbbg55LXrbI7bW+Sh4iR6+s5sUk666P5da4mQ==
-X-Received: by 2002:adf:e352:0:b0:37c:ccba:8c93 with SMTP id ffacd0b85a97d-37d291de79cmr31745f8f.11.1728315700329;
-        Mon, 07 Oct 2024 08:41:40 -0700 (PDT)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-37d16920549sm5967065f8f.54.2024.10.07.08.41.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Oct 2024 08:41:40 -0700 (PDT)
-Date: Mon, 7 Oct 2024 18:41:36 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: oe-kbuild@lists.linux.dev, Drew Fustini <dfustini@tenstorrent.com>,
-	Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>, Linus Walleij <linus.walleij@linaro.org>
-Cc: lkp@intel.com, oe-kbuild-all@lists.linux.dev,
-	linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] pinctrl: th1520: Convert to thp->mutex to guarded
- mutex
-Message-ID: <6b3d9f7a-c87b-4ef5-8571-77276f3896a1@stanley.mountain>
+	Mon, 07 Oct 2024 15:43:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 569C95C5745;
+	Mon,  7 Oct 2024 15:43:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE75DC4CEC7;
+	Mon,  7 Oct 2024 15:43:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1728315821;
+	bh=AhsZq1BsiII0roJalW8IMhJQxXPA+0/dIC/qxDCsip8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=b9adUiYl58rRZbT3kDUBY17RMvFVmouBxn0VmyNNzJWlJRSW/CMXs8+fGBEbXejri
+	 4qvJulkvLjZSGMjWVCfg2JE6gFEfyEx6vXkX0TD/hKV+WiPfwyWSvK0hcJZOVyOqvB
+	 cixv2XPtCiH5gV+QbdzfbCmQb8JnJhzlwtapr6T2ZA9PuU/2VW/w/uGKh3daOjqvcB
+	 /vtTRvaZ9T5oR0UYUOHFMxHGbKHWUTIr3hC5gc85EiEJci8myOCNZdfXoCgr1N7SVy
+	 W2jzN4bKPbf30tk3F2HquhENaQbSkq6PZfzqyFZAl2PIas00qRs0ep2XUXUkyAb2yj
+	 Kcdlb9C8Sz9AQ==
+Date: Mon, 7 Oct 2024 16:43:38 +0100
+From: Mark Brown <broonie@kernel.org>
+To: =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>
+Cc: Tejun Heo <tj@kernel.org>, David Vernet <void@manifault.com>,
+	Shuah Khan <shuah@kernel.org>, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Anders Roxell <anders.roxell@linaro.org>
+Subject: Re: [PATCH v2] selftests: sched_ext: Add sched_ext as proper
+ selftest target
+Message-ID: <ZwQBqlG6MShCkNrU@finisterre.sirena.org.uk>
+References: <20241007073133.989166-1-bjorn@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241005-th1520-pinctrl-fixes-v1-1-5c65dffa0d00@tenstorrent.com>
+In-Reply-To: <20241007073133.989166-1-bjorn@kernel.org>
+X-Cookie: Editing is a rewording activity.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241007_084142_350150_EF14127D 
-X-CRM114-Status: GOOD (  10.10  )
+X-CRM114-CacheID: sfid-20241007_084342_298337_1629BD1A 
+X-CRM114-Status: GOOD (  16.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,177 +72,118 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7537434184243538197=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Drew,
 
-kernel test robot noticed the following build warnings:
+--===============7537434184243538197==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="RQTX0C3QpGBx/Yar"
+Content-Disposition: inline
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Drew-Fustini/pinctrl-th1520-Convert-to-thp-mutex-to-guarded-mutex/20241006-033647
-base:   2694868880705e8f6bb61b24b1b25adc42a4a217
-patch link:    https://lore.kernel.org/r/20241005-th1520-pinctrl-fixes-v1-1-5c65dffa0d00%40tenstorrent.com
-patch subject: [PATCH 1/2] pinctrl: th1520: Convert to thp->mutex to guarded mutex
-config: parisc-randconfig-r072-20241007 (https://download.01.org/0day-ci/archive/20241007/202410072108.uG2sVTN4-lkp@intel.com/config)
-compiler: hppa-linux-gcc (GCC) 14.1.0
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-| Closes: https://lore.kernel.org/r/202410072108.uG2sVTN4-lkp@intel.com/
+--RQTX0C3QpGBx/Yar
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-New smatch warnings:
-drivers/pinctrl/pinctrl-th1520.c:538 th1520_pinctrl_dt_node_to_map() error: uninitialized symbol 'child'.
+On Mon, Oct 07, 2024 at 09:31:32AM +0200, Bj=F6rn T=F6pel wrote:
 
-Old smatch warnings:
-drivers/pinctrl/pinctrl-th1520.c:502 th1520_pinctrl_dt_node_to_map() warn: missing error code 'ret'
+> When building the kselftest suite, e.g.:
 
-vim +/child +538 drivers/pinctrl/pinctrl-th1520.c
+>   make ARCH=3Driscv CROSS_COMPILE=3Driscv64-linux-gnu- \
+>     SKIP_TARGETS=3D"" O=3D/output/foo -C tools/testing/selftests install
 
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  414  static int th1520_pinctrl_dt_node_to_map(struct pinctrl_dev *pctldev,
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  415  					 struct device_node *np,
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  416  					 struct pinctrl_map **maps,
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  417  					 unsigned int *num_maps)
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  418  {
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  419  	struct th1520_pinctrl *thp = pinctrl_dev_get_drvdata(pctldev);
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  420  	struct device_node *child;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  421  	struct pinctrl_map *map;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  422  	unsigned long *configs;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  423  	unsigned int nconfigs;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  424  	unsigned int nmaps;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  425  	int ret;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  426  
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  427  	nmaps = 0;
-fb310b5cb13ad2 Drew Fustini         2024-10-05  428  	for_each_available_child_of_node_scoped(np, child) {
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  429  		int npins = of_property_count_strings(child, "pins");
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  430  
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  431  		if (npins <= 0) {
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  432  			of_node_put(child);
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  433  			dev_err(thp->pctl->dev, "no pins selected for %pOFn.%pOFn\n",
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  434  				np, child);
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  435  			return -EINVAL;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  436  		}
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  437  		nmaps += npins;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  438  		if (of_property_present(child, "function"))
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  439  			nmaps += npins;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  440  	}
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  441  
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  442  	map = kcalloc(nmaps, sizeof(*map), GFP_KERNEL);
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  443  	if (!map)
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  444  		return -ENOMEM;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  445  
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  446  	nmaps = 0;
-fb310b5cb13ad2 Drew Fustini         2024-10-05  447  	guard(mutex)(&thp->mutex);
-fb310b5cb13ad2 Drew Fustini         2024-10-05  448  	for_each_available_child_of_node_scoped(np, child) {
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  449  		unsigned int rollback = nmaps;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  450  		enum th1520_muxtype muxtype;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  451  		struct property *prop;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  452  		const char *funcname;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  453  		const char **pgnames;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  454  		const char *pinname;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  455  		int npins;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  456  
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  457  		ret = pinconf_generic_parse_dt_config(child, pctldev, &configs, &nconfigs);
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  458  		if (ret) {
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  459  			dev_err(thp->pctl->dev, "%pOFn.%pOFn: error parsing pin config\n",
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  460  				np, child);
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  461  			goto put_child;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  462  		}
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  463  
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  464  		if (!of_property_read_string(child, "function", &funcname)) {
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  465  			muxtype = th1520_muxtype_get(funcname);
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  466  			if (!muxtype) {
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  467  				dev_err(thp->pctl->dev, "%pOFn.%pOFn: unknown function '%s'\n",
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  468  					np, child, funcname);
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  469  				ret = -EINVAL;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  470  				goto free_configs;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  471  			}
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  472  
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  473  			funcname = devm_kasprintf(thp->pctl->dev, GFP_KERNEL, "%pOFn.%pOFn",
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  474  						  np, child);
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  475  			if (!funcname) {
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  476  				ret = -ENOMEM;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  477  				goto free_configs;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  478  			}
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  479  
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  480  			npins = of_property_count_strings(child, "pins");
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  481  			pgnames = devm_kcalloc(thp->pctl->dev, npins, sizeof(*pgnames), GFP_KERNEL);
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  482  			if (!pgnames) {
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  483  				ret = -ENOMEM;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  484  				goto free_configs;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  485  			}
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  486  		} else {
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  487  			funcname = NULL;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  488  		}
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  489  
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  490  		npins = 0;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  491  		of_property_for_each_string(child, "pins", prop, pinname) {
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  492  			unsigned int i;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  493  
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  494  			for (i = 0; i < thp->desc.npins; i++) {
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  495  				if (!strcmp(pinname, thp->desc.pins[i].name))
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  496  					break;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  497  			}
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  498  			if (i == thp->desc.npins) {
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  499  				nmaps = rollback;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  500  				dev_err(thp->pctl->dev, "%pOFn.%pOFn: unknown pin '%s'\n",
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  501  					np, child, pinname);
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  502  				goto free_configs;
+> The expectation is that the sched_ext is included, cross-built, and
+> placed into /output/foo.
 
-err = -EINVAL?
+When building for arm64 with this applied on top of mainline or -next
+I'm seeing:
 
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  503  			}
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  504  
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  505  			if (nconfigs) {
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  506  				map[nmaps].type = PIN_MAP_TYPE_CONFIGS_PIN;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  507  				map[nmaps].data.configs.group_or_pin = thp->desc.pins[i].name;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  508  				map[nmaps].data.configs.configs = configs;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  509  				map[nmaps].data.configs.num_configs = nconfigs;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  510  				nmaps += 1;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  511  			}
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  512  			if (funcname) {
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  513  				pgnames[npins++] = thp->desc.pins[i].name;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  514  				map[nmaps].type = PIN_MAP_TYPE_MUX_GROUP;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  515  				map[nmaps].data.mux.function = funcname;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  516  				map[nmaps].data.mux.group = thp->desc.pins[i].name;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  517  				nmaps += 1;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  518  			}
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  519  		}
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  520  
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  521  		if (funcname) {
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  522  			ret = pinmux_generic_add_function(pctldev, funcname, pgnames,
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  523  							  npins, (void *)muxtype);
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  524  			if (ret < 0) {
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  525  				dev_err(thp->pctl->dev, "error adding function %s\n", funcname);
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  526  				goto put_child;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  527  			}
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  528  		}
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  529  	}
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  530  
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  531  	*maps = map;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  532  	*num_maps = nmaps;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  533  	return 0;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  534  
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  535  free_configs:
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  536  	kfree(configs);
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  537  put_child:
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30 @538  	of_node_put(child);
+   make ARCH=3Darm64 CROSS_COMPILE=3Daarch64-linux-gnu- -C tools/testing/se=
+lftests TARGETS=3Dsched_ext SKIP_TARGETS=3D"
 
-We're using _scoped() loops so this is a double put.
+give
 
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  539  	th1520_pinctrl_dt_free_map(pctldev, map, nmaps);
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  540  	return ret;
-bed5cd6f8a9883 Emil Renner Berthing 2024-09-30  541  }
+  CLNG-BPF create_dsq.bpf.o
+In file included from create_dsq.bpf.c:9:
+/home/broonie/git/linux/tools/sched_ext/include/scx/common.bpf.h:33:17: err=
+or: use of undeclared identifier 'SCX_DSQ_FLAG_BUILTIN'
+   33 |         _Static_assert(SCX_DSQ_FLAG_BUILTIN,
+      |                        ^
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+and more (my system clang is clang 20).  It's also failing with a native
+x86_64 build in the same way.  I've run "make headers_install", it looks
+like clang is not getting told about the copy of the headers installed
+in ./usr/include:
 
+clang -g -D__TARGET_ARCH_x86 -mlittle-endian -I/home/broonie/git/linux/tool=
+s/testing/selftests/sched_ext/include -I/home/broonie/git/linux/tools/testi=
+ng/selftests/sched_ext/include/bpf-compat -I/home/broonie/git/linux/tools/t=
+esting/selftests/sched_ext/build/include -I/home/broonie/git/linux/tools/in=
+clude/uapi -I/home/broonie/git/linux/tools/sched_ext/include -I/home/brooni=
+e/git/linux/include -idirafter /usr/lib/llvm-20/lib/clang/20/include -idira=
+fter /usr/local/include -idirafter /usr/include/x86_64-linux-gnu -idirafter=
+ /usr/include  -Wall -Wno-compare-distinct-pointer-types -Wno-incompatible-=
+function-pointer-types -O2 -mcpu=3Dv3 -target bpf -c create_dsq.bpf.c -o /h=
+ome/broonie/git/linux/tools/testing/selftests/sched_ext/build/obj/sched_ext=
+/create_dsq.bpf.o
+
+> Add CROSS_COMPILE, OUTPUT, and TARGETS support to the sched_ext
+> selftest. Also, remove some variables that were unused by the
+> Makefile.
+
+> +ifneq ($(CROSS_COMPILE),)
+> +DEFAULT_BPFTOOL :=3D $(OUTPUT_DIR)/host/sbin/bpftool
+> +HOST_OBJ_DIR :=3D $(OBJ_DIR)/host/bpftool
+> +HOST_LIBBPF_OUTPUT :=3D $(OBJ_DIR)/host/libbpf/
+> +HOST_LIBBPF_DESTDIR :=3D $(OUTPUT_DIR)/host/
+> +HOST_DESTDIR :=3D $(OUTPUT_DIR)/host/
+> +else
+> +DEFAULT_BPFTOOL :=3D $(OUTPUT_DIR)/sbin/bpftool
+> +HOST_OBJ_DIR :=3D $(OBJ_DIR)/bpftool
+> +HOST_LIBBPF_OUTPUT :=3D $(OBJ_DIR)/libbpf/
+> +HOST_LIBBPF_DESTDIR :=3D $(OUTPUT_DIR)/
+> +HOST_DESTDIR :=3D $(OUTPUT_DIR)/
+> +endif
+
+This won't detect a cross compile when building using LLVM as that
+doesn't need to set CROSS_COMPILE, it can use the same binaries for all
+targets.  There's runes in the Makefile for the mm selftests for
+identifying the target architecture, though actually I'm wondering if
+it's worth just always building the host copy and never having to worry
+if the target build is a cross build or not?  It's obvious overhead in
+the native case though if we actually need the target copy.
+
+--RQTX0C3QpGBx/Yar
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmcEAakACgkQJNaLcl1U
+h9An1wf9HtCpL0qKu0Mw8tfGrwi5hcoQz4t6Hk0itley1H29WYnc2QdzBCtkJ23x
+XqySN35gxSHfydFAIZmO7/OZA6pBn5Ip1hp0F4BL7HpwsV5ee4mUI3DryMAkRIYX
+DZGQRcUPa+638ozn/Q6QPgfBt61GlgvJQJJKkF3tzuG12ky7+9flumeFjogWkCoB
+FSA6Cmh3rrDbSEuCaSeylc60Xq0vaxZmj3xTtwuoAvQbdD+JI9b5PTA3PYgrL8JR
+rG/Msmf/++9rlZK3zn9O0U/H4OXt9J6A2BEd+79oc2ZVLnfzi8ajqH/NG+XkZZBC
+hibi6Md/pXB2ZNbvaYQw+iRkck7Tlg==
+=xhLq
+-----END PGP SIGNATURE-----
+
+--RQTX0C3QpGBx/Yar--
+
+
+--===============7537434184243538197==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7537434184243538197==--
+
