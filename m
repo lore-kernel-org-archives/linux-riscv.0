@@ -4,64 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3BAACED24E
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Oct 2024 00:56:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80972CED24D
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Oct 2024 01:43:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ufW+pqiRiwKYohit3c743Rium3oqOG8CoHMnNgbU68U=; b=JDAcyKwQdaYyEg
-	yzA+j/Vd+apuvlW1yO5Vg3lpihODNoJ5Rae+JomcgB6iRNQQeZ7FI4MmoRm6kCcNdb8HUWk3TMg2B
-	/4bXjt9t7xx7kfvvc/O9/WA3HMXLgROIxyiMK0aF8OM8mC8C98Mh7pjmqjwIHlbJNfQu8c91nGwNm
-	hIkPuE6Dju7Fq9CKPwENtYCzUPCNJljgIRv0o3glSsduf1Z0kBJpJQeZSpzu44c5/rWimLHUpTLKy
-	bUvT9AQLkqPZ4c2LPbXcmF9JH5rSP50iTsVSbjN5gZ7aRuNNGXHFiDqVTQThHw98FKnM+owAuzzUh
-	Ushy/SKm+7qt2hLYc0Sw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+8YBG9ohxsGhjnb/++8KrBv56sa7kYbj0h4OzlF3V7w=; b=nDimkHQ89vWhwy
+	JQ1T3j9MlexGM6Whs6VpeFUQnTOVQCQ8qNp7JgbKXiqCvBvTEOOaw3cLVDD9vIf6PQ00s5bGYXqrw
+	i2JpWH4gmbFRgtKuY5TjV7pMgBoaUw5ZfUn0Uq+iz/SDcDtSXhqkUwY4h2GO5U71nfPTkKahsBkUJ
+	Ar/XipPtCPDicewZrpw4NliarjVdh3tvfTYov/Nx2+YzbArOf4o4V3rEfn7wUuEH22sxCB3T4lmtn
+	/Ppo08UQbaY5iRapzBims+hLc/C68w4P5aeaVnuJZnckQtSAQCWJxYgSxUoMhdogqQU/qwBqAcAmu
+	L2PTyowkNEftNQZPpzLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sxyWV-000000049Jl-3Kqy;
-	Tue, 08 Oct 2024 00:56:23 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sxzGM-00000004DHi-0OP5;
+	Tue, 08 Oct 2024 01:43:46 +0000
+Received: from mail-oo1-xc29.google.com ([2607:f8b0:4864:20::c29])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sxyVC-000000049CU-2ALP;
-	Tue, 08 Oct 2024 00:55:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0C9975C5D9A;
-	Tue,  8 Oct 2024 00:54:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36669C4CEC6;
-	Tue,  8 Oct 2024 00:54:57 +0000 (UTC)
-Date: Mon, 7 Oct 2024 20:54:58 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: LKML <linux-kernel@vger.kernel.org>, Linux Trace Kernel
- <linux-trace-kernel@vger.kernel.org>, linux-arm-kernel@lists.infradead.org,
- loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>, "x86@kernel.org"
- <x86@kernel.org>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>, Mark Rutland <mark.rutland@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>, Naveen N Rao
- <naveen@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Heiko Carstens <hca@linux.ibm.com>,
- Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev
- <agordeev@linux.ibm.com>, Christian Borntraeger
- <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, Thomas
- Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@kernel.org>, Borislav
- Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>
-Subject: Re: [PATCH] ftrace: Make ftrace_regs abstract from direct use
-Message-ID: <20241007205458.2bbdf736@gandalf.local.home>
-In-Reply-To: <20241007204743.41314f1d@gandalf.local.home>
-References: <20241007204743.41314f1d@gandalf.local.home>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	id 1sxzGJ-00000004DGL-1BG4
+	for linux-riscv@lists.infradead.org;
+	Tue, 08 Oct 2024 01:43:44 +0000
+Received: by mail-oo1-xc29.google.com with SMTP id 006d021491bc7-5e77a1c5ec6so3013374eaf.2
+        for <linux-riscv@lists.infradead.org>; Mon, 07 Oct 2024 18:43:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1728351822; x=1728956622; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=jhudap/e3GFJwj1GIVucRxNplIWeVCeDgboG8FiJJq8=;
+        b=KQ1t/+us3gsqGtSYN8mgH9XJjBIPLvR3io2e2IbTAyzfRhmKmEvzaDqG3W365SFmP8
+         6CHNNtXEHjP/XfPk16itpPdoofdbz1ERPDYHmI017JtSeeXq7sL0zXdGdH+N8cyfthWt
+         Au2gAfMSwrDQy4trAhkx/xZpYY85Oc30mnzEbDYRJP0mtOc+Z+6DSMsho/Q7gOPPUjN7
+         GYTsMYcTloQ36whYURk3Rsq9hFFDjrEVnD7T7inRG4TdIqVLVKfnXfKKORrMglzb8Ebo
+         x3SOegVwRbSRxqAq4Tv8bxI4Z1HOl9Kf5BMvMCtPT0JaEvRhCmBagmztwa9XjzeeO9jw
+         g0QA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1728351822; x=1728956622;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=jhudap/e3GFJwj1GIVucRxNplIWeVCeDgboG8FiJJq8=;
+        b=ptITP2m/8K2zuYabK4Iz9IyvM2iq7LWpprSB+94hX1x2S27aL2kEf3qlzwh1PYabqm
+         BO1fCpcnTzeMgUdG8CbFgHh7nchOUEdGat+7jvLtcCF6Ed/BmkMQjBYC/j8kLUlhWxhc
+         kZy6nkY+wKNEC7ldvKsnFVfHNpcMI94C5VOFi+BDOaR/PvRKgXHtto3Xtpj5Zze82bqJ
+         2MJCLKFQONUQJdmKt6ZeaZrPMiqOtXXMLHFqs2esYcA/cU9E/HHtvhKGH2hFXlZKOHlv
+         qTdA+YC5bt4Kwk9j5spSEMpCk6Q7t+0zO+A6S/z0/bthgn3cpfHBLsOUhH3N5tEUdvRt
+         Zlsw==
+X-Forwarded-Encrypted: i=1; AJvYcCUM+A37FGefxdIs3KLR+ixk1e31cqLukX+fRZ8BAqUEmM/yxA8i+O2iG1NBQNjYz6tWKXGuuH5n17L5EQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4Za/Q+jcAPg549jzv9fCy7CZHVgtP1cNXYQxe14J7zLxk42tu
+	8ywgMue1PUxqfYdvy5wwnCjHfocS+pwr5lYDNoa65/leEU3lSuMC
+X-Google-Smtp-Source: AGHT+IGIYq93CKi8OSj8ClnvKD36PL+CeAVrFU0fxaJlJ3lvOtN58r2VCxwx5Kha5hH09rJI6fEg3A==
+X-Received: by 2002:a05:6870:96aa:b0:277:e7bc:69fd with SMTP id 586e51a60fabf-287c1dafc27mr10088239fac.13.1728351821709;
+        Mon, 07 Oct 2024 18:43:41 -0700 (PDT)
+Received: from localhost.localdomain ([122.8.183.87])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-287d70eb210sm2593033fac.23.2024.10.07.18.43.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Oct 2024 18:43:40 -0700 (PDT)
+From: Chen Wang <unicornxw@gmail.com>
+To: aou@eecs.berkeley.edu,
+	unicorn_wang@outlook.com,
+	conor+dt@kernel.org,
+	guoren@kernel.org,
+	inochiama@outlook.com,
+	krzk+dt@kernel.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	robh@kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	chao.wei@sophgo.com,
+	haijiao.liu@sophgo.com,
+	xiaoguang.xing@sophgo.com,
+	chunzhi.lin@sophgo.com
+Subject: [PATCH 0/1] Add power key for pioneer box
+Date: Tue,  8 Oct 2024 09:43:32 +0800
+Message-Id: <cover.1728350655.git.unicorn_wang@outlook.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241007_175502_840585_73480C6E 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20241007_184343_344211_19E7A327 
+X-CRM114-Status: UNSURE (   5.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,33 +103,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 7 Oct 2024 20:47:43 -0400
-Steven Rostedt <rostedt@goodmis.org> wrote:
+From: Chen Wang <unicorn_wang@outlook.com>
 
-> +#ifndef CONFIG_HAVE_DYNAMIC_FTRACE_WITH_ARGS
-> +struct __arch_ftrace_regs {
-> +	struct pt_regs		regs;
-> +};
-> +
-> +#define arch_ftrace_get_regs(fregs)					\
-> +	({ struct __arch_fregs_regs *__f = (struct __arch_ftrace_regs *)(fregs); \
-> +		&__f->regs;						\
-> +	})
+Add power key for pioneer box.
 
-I wrote the arch_ftrace_get_regs() at the start of creating this patch.
+Thanks,
+Chen
 
-> +
-> +struct ftrace_regs;
-> +#define arch_ftrace_regs(fregs) ((struct __arch_ftrace_regs *)(fregs))
-> +
+---
 
-I just realized I can simplify it with:
+Changes in v1:
+  The patch is based on v6.12-rc1.
 
-#define arch_ftrace_get_regs(fregs)	({ &arch_ftrace_regs(fregs)->regs; })
+---
 
-I may send a v2 (tomorrow).
+Chen Wang (1):
+  riscv: sophgo: dts: add power key for pioneer box
 
--- Steve
+ .../boot/dts/sophgo/sg2042-milkv-pioneer.dts      | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+
+base-commit: 9852d85ec9d492ebef56dc5f229416c925758edc
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
