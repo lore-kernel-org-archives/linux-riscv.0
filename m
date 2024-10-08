@@ -4,72 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 184A1CEFC56
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Oct 2024 20:39:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64206CF0429
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Oct 2024 22:38:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YI5/1nvrhPkiuTZ5FWYXsa46Msql+XZX37STUnVhvTU=; b=i58fC1tOTgBAgJ+lyRdo4lEI11
-	5+CNXig7Y3IW+x0vqkoytHpchND1DHGlPzqc0gS7jvlYFmsxj7SdqXv7hr7BsdN3a4wvVBgcG//pB
-	KogxYIVep5SKZHmoBxHzpcSBv1udOWnSsaHO2KevxoSnjiNHzqkX5FJNfhxlQcFCwPoELunJjWhv6
-	trKNMbNvoS/BraRH7C23T8aecgSHawJAe/C7mh7YmCmXJjfMvbJwCDtFDW5Sa8iMPLU1nbzoUMYHR
-	hVntw8OpW7gVa9Z291gi3Y/nlXCdxk35OkbSfXxrN4O88LNkI4WoCuvqYIsqGPv4YRuGXCecSrhOb
-	RquMxENA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=C3MK3WgiyFXNa4TTkCJb+BHIbVq4ftExJR7utKL6EEw=; b=rzNG4Q53izrwLF
+	j7YvaHPNmUzf7GcNvlPBefoiBI33T8J19gdA0TU9JxRwavaZmqd5G8qOxcBObl6LRwnPQJPe/iCWQ
+	LT0/QD7h6kkZoD0th+msyXRiZ/W7uoCgvae+qRkZNPSkep9r9fux0IEYMqg58CWIjjc3XlcI7bodX
+	NWTeSnsPdanhQziaDJbJxXEKl+gt8Yu1vq+zEpJ2fjWwlM2c15qbQQ9v6JD35phZOJx9DRaVy/P3a
+	coBvSKJeX6cExWKjkXFHVJScaIlKidnO1cjErPLV53YyTCt7jekJuE1NJth7IIS0P4qtoOZwqYG8G
+	Cp2WPYNbSUgtk7pxAd2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1syGzV-0000000753U-14Tm;
-	Tue, 08 Oct 2024 20:39:33 +0000
-Received: from mail-yw1-f178.google.com ([209.85.128.178])
+	id 1syIq2-00000007IBp-0Z5r;
+	Tue, 08 Oct 2024 22:37:54 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1syGyA-000000074mN-2HsR
+	id 1syIpy-00000007I8K-3I0k
 	for linux-riscv@lists.infradead.org;
-	Tue, 08 Oct 2024 20:38:12 +0000
-Received: by mail-yw1-f178.google.com with SMTP id 00721157ae682-6e23aa29408so2530047b3.0
-        for <linux-riscv@lists.infradead.org>; Tue, 08 Oct 2024 13:38:09 -0700 (PDT)
+	Tue, 08 Oct 2024 22:37:52 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-71e1a715c72so554394b3a.1
+        for <linux-riscv@lists.infradead.org>; Tue, 08 Oct 2024 15:37:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1728427070; x=1729031870; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=pcb1JUl7nxyzCR2L+K51gN2ROJJ8XrFInAPZeivTlr8=;
+        b=OBVIPmxMAVtt8I/NJVQwolMlBykRWRPjn3nvzlSULhR/BDdo2RVztYN+G6mwZN9iek
+         gb4DsYzT9SjTBdIClMS5bTF0ZGYGzynieXviXHSB1HajAjOmWXx/flbMJ/ClgVuyvHf4
+         DmHKJztb/K6IqrPyjSWQz4RsAe0/stQBQCuMbKq2LRhpIragRXaxQwm0oEr2Ec8iJthy
+         LPKdpk/VYDKmJAyZE3wBI2RfUsUI4Md6p9SCR/RvBSVGtLWRFU/2Nn/KpX6CUEy6q/oF
+         VrYXrY5nznCGiIqbJSIhAsNkVJNwDkKPR4IdQNUMX69Z8cigWV4BvrCSCvIaS8YxsTUH
+         iPPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728419889; x=1729024689;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1728427070; x=1729031870;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=HLQWcbSeACwcvaqhHPxSN1w4SwChShyv5tLpM/fC9Yk=;
-        b=DzFJHTsmeIUPe9xE4yp27RDSlmM95zguUo4vYU5qnqxfhty6KFapc1tCBd0LSXBeaI
-         ivRvtmm+h9w2S5ZTouTBhTgSuMVgEOoM9omOhB0sPnI2CIfi5vas7SwAxqe0n6Z56y8Q
-         UU3EazjkkBofo1vPQBMonb9te7EOBQh9aGJI3iWthNg6B1cizShPUloTAXTgQ3ThFdzw
-         ih+m0WWQB25J/K39oWz4LcxKz6ryGbvpYlzGD6Ix8U67aoiGVob5LrExxyij/a/cCOEH
-         XW0Am2PBa7N667jSzpJuXW5FkXNf8Krzc712ZatPYS1Le3euivY1iNGh7i9TcWdkb4vL
-         zwmQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWK7DM2hUobHgbDY035dMG96RAMQCVf2GK3REsrcREr8NJejAGzXALQ2mgnumlAMLOy/WgMgpPnOmInDw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwM6wXv8ZkJG5bmS2DeSVPGx7+r1ItXHr5WPGTtN3DC2QSD0GPD
-	9PZNObDc5+K/dG9GGtg7W01kzBayQknhM/3YeWt4rhekFj+uFbzX
-X-Google-Smtp-Source: AGHT+IH/wdL65vivp7PfrfQVA0fDIsUhc54pvWm6lDQKZwpUQZzp6PARgfrfCuhPvLMyd4Pc0FL/nQ==
-X-Received: by 2002:a05:690c:f90:b0:6dd:ddf6:90aa with SMTP id 00721157ae682-6e3221994f1mr3766917b3.5.1728419888888;
-        Tue, 08 Oct 2024 13:38:08 -0700 (PDT)
-Received: from maniforge (c-76-141-129-107.hsd1.il.comcast.net. [76.141.129.107])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-6e2d927f2ecsm15876017b3.45.2024.10.08.13.38.07
+        bh=pcb1JUl7nxyzCR2L+K51gN2ROJJ8XrFInAPZeivTlr8=;
+        b=tiDkc0uEpFlFTFH6OSTbH5bN0NAcaFbC7Lj5O27vIqq983dhzKd3aDHQMDTnyJT9qG
+         gP5eVhqbTCDA4Dycg3cGWcQFvF5sd/s8yascU54TwBzstRrJKft8luQtXvibTLrZvCVE
+         LoEuroeHsiXSnt+EiFBAur0rBtErODINa2Si8SPNA2PyVG64oFYadLJLwoklMXueeGNw
+         pROcWd1xEdKpiSkYiSNIEMMYv+89uRlo8uv6rBEplD/xuVESkHquzG5QI5z09krbmyZC
+         RPYm5zadSg4/GgUBGP2bFQKoDgHqREP+pdUjmGw8seJY/mfA0pOyfXN6yLriVELTianS
+         jgmw==
+X-Forwarded-Encrypted: i=1; AJvYcCWI91Dz2fnZQZWnQq2ma4P9Oq7hjwbdKvxs4K+Imj/PTF/UbbsSup7uo1/HYaY6seOwTKNKBbQBmqFhVA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwTcKfAeXOEN6F2Qste3qER5yG+PN4dKbQpLPaOk84I6Q5ju9jG
+	xGeaaRRj/+EiPKUb3ekUdgJ6+8LEczHiX7HmCNxCNUr+jC7bk8tYwlAweQCuwjU=
+X-Google-Smtp-Source: AGHT+IE5CiqwVffKftT0HA19xNjp1IZD35v50IRAA/ePwNS8IKwtnn3GofL/f9wWS1jXg+8c2GVgUA==
+X-Received: by 2002:a05:6a00:a8c:b0:71e:210:be12 with SMTP id d2e1a72fcca58-71e1dbb87bdmr617949b3a.21.1728427069795;
+        Tue, 08 Oct 2024 15:37:49 -0700 (PDT)
+Received: from debug.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-71df0ccc4b2sm6591270b3a.45.2024.10.08.15.37.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Oct 2024 13:38:08 -0700 (PDT)
-Date: Tue, 8 Oct 2024 15:38:05 -0500
-From: David Vernet <void@manifault.com>
-To: =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>
-Cc: Tejun Heo <tj@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	Mark Brown <broonie@kernel.org>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
-	Anders Roxell <anders.roxell@linaro.org>
-Subject: Re: [PATCH v3] selftests: sched_ext: Add sched_ext as proper
- selftest target
-Message-ID: <20241008203805.GA11867@maniforge>
-References: <20241008153519.1270862-1-bjorn@kernel.org>
+        Tue, 08 Oct 2024 15:37:49 -0700 (PDT)
+From: Deepak Gupta <debug@rivosinc.com>
+Date: Tue, 08 Oct 2024 15:36:43 -0700
+Subject: [PATCH v6 01/33] mm: Introduce ARCH_HAS_USER_SHADOW_STACK
 MIME-Version: 1.0
-In-Reply-To: <20241008153519.1270862-1-bjorn@kernel.org>
-User-Agent: Mutt/2.2.13 (00d56288) (2024-03-09)
+Message-Id: <20241008-v5_user_cfi_series-v6-1-60d9fe073f37@rivosinc.com>
+References: <20241008-v5_user_cfi_series-v6-0-60d9fe073f37@rivosinc.com>
+In-Reply-To: <20241008-v5_user_cfi_series-v6-0-60d9fe073f37@rivosinc.com>
+To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+ Vlastimil Babka <vbabka@suse.cz>, 
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+ Christian Brauner <brauner@kernel.org>, 
+ Peter Zijlstra <peterz@infradead.org>, Oleg Nesterov <oleg@redhat.com>, 
+ Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>, 
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+ linux-mm@kvack.org, linux-riscv@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-arch@vger.kernel.org, 
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ alistair.francis@wdc.com, richard.henderson@linaro.org, jim.shu@sifive.com, 
+ andybnac@gmail.com, kito.cheng@sifive.com, charlie@rivosinc.com, 
+ atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com, 
+ alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org, 
+ rick.p.edgecombe@intel.com, Deepak Gupta <debug@rivosinc.com>, 
+ David Hildenbrand <david@redhat.com>, 
+ Carlos Bilbao <carlos.bilbao.osdev@gmail.com>
+X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241008_133810_606976_07B66305 
-X-CRM114-Status: GOOD (  14.24  )
+X-CRM114-CacheID: sfid-20241008_153750_913723_3C705386 
+X-CRM114-Status: GOOD (  15.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,80 +111,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4061745244204324326=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Mark Brown <broonie@kernel.org>
 
---===============4061745244204324326==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="FfRfl7W5WtKub8Po"
-Content-Disposition: inline
+Since multiple architectures have support for shadow stacks and we need to
+select support for this feature in several places in the generic code
+provide a generic config option that the architectures can select.
 
+Suggested-by: David Hildenbrand <david@redhat.com>
+Acked-by: David Hildenbrand <david@redhat.com>
+Signed-off-by: Mark Brown <broonie@kernel.org>
+Reviewed-by: Rick Edgecombe <rick.p.edgecombe@intel.com>
+Reviewed-by: Deepak Gupta <debug@rivosinc.com>
+Reviewed-by: Carlos Bilbao <carlos.bilbao.osdev@gmail.com>
+---
+ arch/x86/Kconfig   | 1 +
+ fs/proc/task_mmu.c | 2 +-
+ include/linux/mm.h | 2 +-
+ mm/Kconfig         | 6 ++++++
+ 4 files changed, 9 insertions(+), 2 deletions(-)
 
---FfRfl7W5WtKub8Po
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index 2852fcd82cbd..8ccae77d40f7 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -1954,6 +1954,7 @@ config X86_USER_SHADOW_STACK
+ 	depends on AS_WRUSS
+ 	depends on X86_64
+ 	select ARCH_USES_HIGH_VMA_FLAGS
++	select ARCH_HAS_USER_SHADOW_STACK
+ 	select X86_CET
+ 	help
+ 	  Shadow stack protection is a hardware feature that detects function
+diff --git a/fs/proc/task_mmu.c b/fs/proc/task_mmu.c
+index 72f14fd59c2d..23f875e78eae 100644
+--- a/fs/proc/task_mmu.c
++++ b/fs/proc/task_mmu.c
+@@ -971,7 +971,7 @@ static void show_smap_vma_flags(struct seq_file *m, struct vm_area_struct *vma)
+ #ifdef CONFIG_HAVE_ARCH_USERFAULTFD_MINOR
+ 		[ilog2(VM_UFFD_MINOR)]	= "ui",
+ #endif /* CONFIG_HAVE_ARCH_USERFAULTFD_MINOR */
+-#ifdef CONFIG_X86_USER_SHADOW_STACK
++#ifdef CONFIG_ARCH_HAS_USER_SHADOW_STACK
+ 		[ilog2(VM_SHADOW_STACK)] = "ss",
+ #endif
+ #if defined(CONFIG_64BIT) || defined(CONFIG_PPC32)
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index ecf63d2b0582..57533b9cae95 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -354,7 +354,7 @@ extern unsigned int kobjsize(const void *objp);
+ #endif
+ #endif /* CONFIG_ARCH_HAS_PKEYS */
+ 
+-#ifdef CONFIG_X86_USER_SHADOW_STACK
++#ifdef CONFIG_ARCH_HAS_USER_SHADOW_STACK
+ /*
+  * VM_SHADOW_STACK should not be set with VM_SHARED because of lack of
+  * support core mm.
+diff --git a/mm/Kconfig b/mm/Kconfig
+index 4c9f5ea13271..4b2a1ef9a161 100644
+--- a/mm/Kconfig
++++ b/mm/Kconfig
+@@ -1296,6 +1296,12 @@ config NUMA_EMU
+ 	  into virtual nodes when booted with "numa=fake=N", where N is the
+ 	  number of nodes. This is only useful for debugging.
+ 
++config ARCH_HAS_USER_SHADOW_STACK
++	bool
++	help
++	  The architecture has hardware support for userspace shadow call
++          stacks (eg, x86 CET, arm64 GCS or RISC-V Zicfiss).
++
+ source "mm/damon/Kconfig"
+ 
+ endmenu
 
-On Tue, Oct 08, 2024 at 05:35:18PM +0200, Bj=F6rn T=F6pel wrote:
-> From: Bj=F6rn T=F6pel <bjorn@rivosinc.com>
->=20
-> The sched_ext selftests is missing proper cross-compilation support, a
-> proper target entry, and out-of-tree build support.
->=20
-> When building the kselftest suite, e.g.:
->=20
->   make ARCH=3Driscv CROSS_COMPILE=3Driscv64-linux-gnu-  \
->     TARGETS=3Dsched_ext SKIP_TARGETS=3D"" O=3D/output/foo \
->     -C tools/testing/selftests install
->=20
-> or:
->=20
->   make ARCH=3Darm64 LLVM=3D1 TARGETS=3Dsched_ext SKIP_TARGETS=3D"" \
->     O=3D/output/foo -C tools/testing/selftests install
->=20
-> The expectation is that the sched_ext is included, cross-built, the
-> correct toolchain is picked up, and placed into /output/foo.
->=20
-> In contrast to the BPF selftests, the sched_ext suite does not use
-> bpftool at test run-time, so it is sufficient to build bpftool for the
-> build host only.
->=20
-> Add ARCH, CROSS_COMPILE, OUTPUT, and TARGETS support to the sched_ext
-> selftest. Also, remove some variables that were unused by the
-> Makefile.
->=20
-> Signed-off-by: Bj=F6rn T=F6pel <bjorn@rivosinc.com>
+-- 
+2.45.0
 
-Thanks for the improvements!
-
-Acked-by: David Vernet <void@manifault.com>
-
---FfRfl7W5WtKub8Po
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEARYKAB0WIQRBxU1So5MTLwphjdFZ5LhpZcTzZAUCZwWYLQAKCRBZ5LhpZcTz
-ZDTXAQDSgn0IREF4p0liOsz0dF24wvDTIcPiy6zuQUC34R1nsAD9GP2nfWYYpCdx
-qskgLUrRlX6L0gBF46rOzWbDdyOGFgQ=
-=gM1q
------END PGP SIGNATURE-----
-
---FfRfl7W5WtKub8Po--
-
-
---===============4061745244204324326==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4061745244204324326==--
-
