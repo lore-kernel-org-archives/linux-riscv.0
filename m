@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00A05CEFC3A
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Oct 2024 17:53:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B17D6CEFC38
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Oct 2024 17:53:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KtwFU/rxFtYkb+ddyRE2Dudn99zgiKaw5looKwp4SAA=; b=4Jratyn8AOaZQX
-	ZKCvp0Gesyh4O2V+PE4WeYF9GUSheiQFORo7GYAo1us3VQQJkxDzJojvZNiEyulwi7Bpl9Q23Jamh
-	EnVwBfjMSfJ71mmhGddVs13pape5KiMvQDgBxB2u/ab8xUaMJXoiCX0iFfIsm48m2JiMOCmwroW5l
-	FKKCdXL2rMzInzAp975KsCD18O5wk5B9MmN29JvTIwTVkVymU+e4J19ouH+RCr9wAOxsfFkoy2qXE
-	GglWCmxwqNqPUoVqMtiZgjBjgQ5PcIOdIzzG1BlxOBQHrNrgKPhTZOx47fs7c8kMJnmGTMOYcse4S
-	+3gSInw4pwPiO/Zjj0Dg==;
+	List-Owner; bh=WNn24MWmnknk/Ro7Z5zljiZW7RwlfDfBgsutqpu0Sqk=; b=yo+LFpP1GuYWPe
+	95Pmb/1cbR4HFS4PUDJB1c6srdmjBjbR7j/IDAZZySJxQSOjnOT7SD0Jn0LGNmXkEzh/tV+bHVtQA
+	a3u1HnccwnN2xUynlh+yjq41AP/X9XdahL3tVy/ddrUxx69tY4D1u6k9XwiarCVvZNzekglqX4xS+
+	ZbWgDzeQ2c04A3tpzJiytDb1fe6KzrfHzvT2jwqZof86z/cPP9rd7KXTm8AoIbXdpP4kb4qNFl8Tj
+	MgruyJEc6GLvvGYexSjGtqJEd6EHm/NXFJcJF+9nmLbyIIBTNqPleOXiivKcJkg7rS4uqOi6FJZMz
+	d31yGQkPyx5jlsptBGVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1syEON-00000006iX3-3Dem;
+	id 1syEON-00000006iWa-08AD;
 	Tue, 08 Oct 2024 17:53:03 +0000
 Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1syEKe-00000006hta-0pKV
+	id 1syEKf-00000006htp-0DYY
 	for linux-riscv@lists.infradead.org;
-	Tue, 08 Oct 2024 17:49:16 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20241008174909euoutp017f86b87ce31066a0833d445695a23029~8i4KG0KZE3186531865euoutp01H
-	for <linux-riscv@lists.infradead.org>; Tue,  8 Oct 2024 17:49:09 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20241008174909euoutp017f86b87ce31066a0833d445695a23029~8i4KG0KZE3186531865euoutp01H
+	Tue, 08 Oct 2024 17:49:15 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20241008174911euoutp0143393cfc1c734c35ea58b1772858cc2b~8i4MFiXum3163931639euoutp01a
+	for <linux-riscv@lists.infradead.org>; Tue,  8 Oct 2024 17:49:11 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20241008174911euoutp0143393cfc1c734c35ea58b1772858cc2b~8i4MFiXum3163931639euoutp01a
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1728409749;
-	bh=CdPQKYJPkbOTYMlUFaWCx+cAJkzBVbnZM4mOHZHFQk4=;
+	s=mail20170921; t=1728409751;
+	bh=k5bx/+S6KDMkK8Imq/hflrXf6RmrkhVBbi73CyaDrlQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qviN2QPQz97rQq5M1t4vCrJcAxztJ3kUX5F7MuB2qVM8HkychlqJrqXqKDAOs7m9N
-	 mDc1SwWTeMtYnCOIMXeQzJWPYCw4Qc2zz7FJXVQ7NN4LhEe79LoNPQM4vgnY30p+Gg
-	 /Fv40Xh1gYERTW7fwiLl4ZuoSfAc+dmVzH2sxYI4=
+	b=Br28VT5Sd1vRP8ryX/E+YDWJmsPZb/Z0KD647msQGbdPg+ju5/Yih7i+wIY6FGm1E
+	 cV2HF9+kMSc6qgnarzMWad83uj5uZ6XMnK4hfFfAAvMrORlWYuIGMgLTYbumXBvOnI
+	 wlhsWBWrIvMyeCqsZJx3Vy2uo04AQj+5Y+33afD0=
 Received: from eusmges3new.samsung.com (unknown [203.254.199.245]) by
 	eucas1p2.samsung.com (KnoxPortal) with ESMTP id
-	20241008174909eucas1p2135a0cd74ed16f98bf21e193edddcccb~8i4JskgpH0826108261eucas1p2u;
-	Tue,  8 Oct 2024 17:49:09 +0000 (GMT)
+	20241008174911eucas1p207f10116056604fdb66a505394a0ba9a~8i4Ld3CSP0826108261eucas1p2w;
+	Tue,  8 Oct 2024 17:49:11 +0000 (GMT)
 Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
-	eusmges3new.samsung.com (EUCPMTA) with SMTP id B1.43.09620.59075076; Tue,  8
-	Oct 2024 18:49:09 +0100 (BST)
+	eusmges3new.samsung.com (EUCPMTA) with SMTP id B3.43.09620.79075076; Tue,  8
+	Oct 2024 18:49:11 +0100 (BST)
 Received: from eusmtrp2.samsung.com (unknown [182.198.249.139]) by
 	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20241008174908eucas1p235351687f0475a877c7248cc2bf9dbd4~8i4JEKjiq3070730707eucas1p2L;
-	Tue,  8 Oct 2024 17:49:08 +0000 (GMT)
-Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
+	20241008174910eucas1p2e832dd68ad6b2ef1420ce211fc849fba~8i4KYvOEu1811118111eucas1p2h;
+	Tue,  8 Oct 2024 17:49:10 +0000 (GMT)
+Received: from eusmgms1.samsung.com (unknown [182.198.249.179]) by
 	eusmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20241008174908eusmtrp257d8d6f60c05a0245c8e7b029d54df6f~8i4JDipzQ2980729807eusmtrp2n;
-	Tue,  8 Oct 2024 17:49:08 +0000 (GMT)
-X-AuditID: cbfec7f5-d31ff70000002594-62-670570958fda
+	20241008174910eusmtrp2635ab7bb5836b25fb982aad4b45b32e5~8i4KYDVLj3011330113eusmtrp2Z;
+	Tue,  8 Oct 2024 17:49:10 +0000 (GMT)
+X-AuditID: cbfec7f5-d31ff70000002594-66-67057097b322
 Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
-	eusmgms2.samsung.com (EUCPMTA) with SMTP id 89.40.19096.49075076; Tue,  8
-	Oct 2024 18:49:08 +0100 (BST)
+	eusmgms1.samsung.com (EUCPMTA) with SMTP id 13.FD.14621.59075076; Tue,  8
+	Oct 2024 18:49:09 +0100 (BST)
 Received: from AMDC4942.home (unknown [106.210.136.40]) by
 	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20241008174907eusmtip28ca698e48dccec6281ade67fb1ca6673~8i4IOCqWn2350023500eusmtip2D;
-	Tue,  8 Oct 2024 17:49:07 +0000 (GMT)
+	20241008174909eusmtip2c1fea8c67365df2bf2b8a8a00a5b1425~8i4Jmf0RS2916929169eusmtip2L;
+	Tue,  8 Oct 2024 17:49:09 +0000 (GMT)
 From: Michal Wilczynski <m.wilczynski@samsung.com>
 To: drew@pdp7.com, guoren@kernel.org, wefu@redhat.com,
 	jassisinghbrar@gmail.com, robh@kernel.org, krzk+dt@kernel.org,
@@ -68,57 +68,56 @@ To: drew@pdp7.com, guoren@kernel.org, wefu@redhat.com,
 	aou@eecs.berkeley.edu, m.szyprowski@samsung.com
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org, Michal Wilczynski <m.wilczynski@samsung.com>
-Subject: [PATCH v3 1/3] mailbox: Introduce support for T-head TH1520 Mailbox
- driver
-Date: Tue,  8 Oct 2024 19:48:50 +0200
-Message-Id: <20241008174852.222374-2-m.wilczynski@samsung.com>
+Subject: [PATCH v3 3/3] riscv: dts: thead: Add mailbox node
+Date: Tue,  8 Oct 2024 19:48:52 +0200
+Message-Id: <20241008174852.222374-4-m.wilczynski@samsung.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241008174852.222374-1-m.wilczynski@samsung.com>
 MIME-Version: 1.0
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFrrCKsWRmVeSWpSXmKPExsWy7djPc7pTC1jTDd4fZrfY+nsWu8WaveeY
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFrrAKsWRmVeSWpSXmKPExsWy7djPc7rTC1jTDe6cZrXY+nsWu8WaveeY
 	LOYfOcdqce/SFiaLF3sbWSyurZjLbvFy1j02i8u75rBZbPvcwmax9shddov1X+czWby83MNs
 	0TaL3+L/nh3sFi37p7A48Hu8efmSxeNwxxd2j52z7rJ7bFrVyeaxeUm9R8vaY0we7/ddZfPo
-	27KK0eNS83V2j8+b5AK4orhsUlJzMstSi/TtErgypm5ezFTwcTZjxZmV19kbGHsaGbsYOTkk
-	BEwkdnydwNLFyMUhJLCCUWL9jl2MEM4XRon2TaehMp8ZJR7M/MEC0zKjeTpUYjmjxIR57awQ
-	zhtGicNz2sAGswkYSTxYPh8sISLwjlFi0rXbTCAOs0Avo8TUvTOZQKqEBUIl/l84yAZiswio
-	Sjy5PZUVxOYVsJO49Wo71InyEvsPnmUGsTkF7CXe/lrEDFEjKHFy5hOwm5iBapq3zmYGWSAh
-	MJtTYtafc6wQzS4Sk2beZ4KwhSVeHd/CDmHLSPzfOR8qni/xYOsnZgi7RmJnz3Eo21rizrlf
-	QMdxAC3QlFi/Sx8i7ChxZNZfJpCwhACfxI23ghAn8ElM2jadGSLMK9HRJgRRrSYxtacXbum5
-	FduglnpINN2cxzKBUXEWkmdmIXlmFsLeBYzMqxjFU0uLc9NTi43zUsv1ihNzi0vz0vWS83M3
-	MQIT3ul/x7/uYFzx6qPeIUYmDsZDjBIczEoivBFrGNOFeFMSK6tSi/Lji0pzUosPMUpzsCiJ
-	86qmyKcKCaQnlqRmp6YWpBbBZJk4OKUamDj7jLW66zaVRm/1D2Zg7xE5UGb8u1O/+9XXmPfv
-	tfa1S7x7snQ76y+T0m3rGgJrn0/98sBAcHXfh8LgTd6nrrB6Tvxw9GSo8AJ2ljUxEp4d04ub
-	lM00Jx5drryc8YaIxuWqRKMi+YpD/D+33li1OXq6W5jrqaPt8/5F/HWOXmeq8TGn8teqCR28
-	y5zlZol9v7814d6uXclJvA01X50F+27ck9evt3za+SHTuFt2Ul27XctlbQ7JS5NyLRfP8fHl
-	djpw1m3l6t1HrR9WxC6ZObHmeVi9dfe11aoz/ilolf9IYhPcME9nufLS/gnWPOw//bQVUmP0
-	PTIOMTJmRj2/knjT6JBwXfG2E78yGh/qK7EUZyQaajEXFScCAN4NZhjnAwAA
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrMIsWRmVeSWpSXmKPExsVy+t/xe7pTCljTDW6+krLY+nsWu8WaveeY
-	LOYfOcdqce/SFiaLF3sbWSyurZjLbvFy1j02i8u75rBZbPvcwmax9shddov1X+czWby83MNs
-	0TaL3+L/nh3sFi37p7A48Hu8efmSxeNwxxd2j52z7rJ7bFrVyeaxeUm9R8vaY0we7/ddZfPo
-	27KK0eNS83V2j8+b5AK4ovRsivJLS1IVMvKLS2yVog0tjPQMLS30jEws9QyNzWOtjEyV9O1s
-	UlJzMstSi/TtEvQypm5ezFTwcTZjxZmV19kbGHsaGbsYOTkkBEwkZjRPZ+li5OIQEljKKHFs
-	zR4WiISMxLXul1C2sMSfa11sEEWvGCVuXG8CS7AJGEk8WD6fFSQhIvCHUeL6szeMIA6zwERG
-	iZtz74PtEBYIlji46TgbiM0ioCrx5PZUVhCbV8BO4tar7VB3yEvsP3iWGcTmFLCXePtrEZgt
-	BFRzZEcfO0S9oMTJmU/ANjMD1Tdvnc08gVFgFpLULCSpBYxMqxhFUkuLc9Nzi430ihNzi0vz
-	0vWS83M3MQJjc9uxn1t2MK589VHvECMTB+MhRgkOZiUR3og1jOlCvCmJlVWpRfnxRaU5qcWH
-	GE2B7p7ILCWanA9MDnkl8YZmBqaGJmaWBqaWZsZK4rxsV86nCQmkJ5akZqemFqQWwfQxcXBK
-	NTDNjbTwmpvp237P4+iPWVtddv248yPolvFShvOnNpSIfp4yRZrBsFI0qp5VbV7dWc6j1VGP
-	T1uvr3DenOf25ML2N1xz12Qkf50tcbvrqvXDkGRb0Z+veXnnXZfTfzPpzM6r6ZOkO4xsc+bX
-	2TrfcWDfczrU6aSgYJJg3mSuaJaQyV9nJIhOvLC9kHem1Pf10gmpGRrzg44Vhm+4f4c1ucDq
-	l+AS0dvTNHTWWS60U9y47d2J1pS5Uxcbtp76nTdr2rfz07jMXgoqFX23VKhlCdkrXD9vRmdC
-	1juhpR9SHzez37x3c0LNF5/qmuNRNn+TGLVapn00r623PJ2ob5G8/rlowpENZ27PlVK//FKx
-	+PUpJZbijERDLeai4kQAq93kRVYDAAA=
-X-CMS-MailID: 20241008174908eucas1p235351687f0475a877c7248cc2bf9dbd4
+	27KK0eNS83V2j8+b5AK4orhsUlJzMstSi/TtErgylt35zFZwmaNix6SfjA2MT9i6GDk5JARM
+	JF7fXQNkc3EICaxglPh3eSUzhPOFUeL76kUsEM5nRolry74wwrScObGJESKxnFFi2e5jUP1v
+	GCXerPsANphNwEjiwfL5rCAJEYF3jBKTrt1mAnGYBXoZJabunckEUiUsYC1xdNIFVhCbRUBV
+	4uzC98wgNq+AnUTL/uesEPvkJfYfPAsW5xSwl3j7axFUjaDEyZlPWEBsZqCa5q2zgeIcQPXT
+	OSWeBUG0ukj8WtMAdbawxKvjW9ghbBmJ/zvnM0HY+RIPtn5ihrBrJHb2HIeyrSXunPvFBjKS
+	WUBTYv0ufYiwo8TyhyDfg2zik7jxVhDiAD6JSdumQx3AK9HRJgRRrSYxtacXbum5FduglnpI
+	3J4+mWkCo+IsJK/MQvLKLIS9CxiZVzGKp5YW56anFhvnpZbrFSfmFpfmpesl5+duYgQmutP/
+	jn/dwbji1Ue9Q4xMHIyHGCU4mJVEeCPWMKYL8aYkVlalFuXHF5XmpBYfYpTmYFES51VNkU8V
+	EkhPLEnNTk0tSC2CyTJxcEo1MEU8OFJjsruU/0dM7Y8zUr/qpm3jvmK0Tkt48vcNj2c8DvA4
+	EnVW8Lf38/1yX78aLZe1LnR7cX/5z32run59n7HpfkymuMDxa+f6rLYbvDF6EJH7eH5WUtSb
+	rzcC+2bm3J/I3WF2NnGXtOAxcQ02rlKhWyq3fgR2LVNT/phj9qnA5Uoew+Gc13vZX6d+3HmF
+	cdP9yOo7Vq2rJR70LpQ49Gv1U85L+/pF4564Xu//UfxlqUdlmsFnX++Ls6VaQ17pzHEJEb64
+	2dCBK7PuiOiuusknTWb8OvtBV9pJ/Y6qvfS9R1xRDSq/G81lt7J0rLjWcVWmMuH481u3D1eu
+	D1hofYnh/fnHE/5avb676JNzxKkHSizFGYmGWsxFxYkAiohriuMDAAA=
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrIIsWRmVeSWpSXmKPExsVy+t/xe7pTC1jTDf51WVps/T2L3WLN3nNM
+	FvOPnGO1uHdpC5PFi72NLBbXVsxlt3g56x6bxeVdc9gstn1uYbNYe+Quu8X6r/OZLF5e7mG2
+	aJvFb/F/zw52i5b9U1gc+D3evHzJ4nG44wu7x85Zd9k9Nq3qZPPYvKTeo2XtMSaP9/uusnn0
+	bVnF6HGp+Tq7x+dNcgFcUXo2RfmlJakKGfnFJbZK0YYWRnqGlhZ6RiaWeobG5rFWRqZK+nY2
+	Kak5mWWpRfp2CXoZy+58Ziu4zFGxY9JPxgbGJ2xdjJwcEgImEmdObGLsYuTiEBJYyihxetop
+	ZoiEjMS17pcsELawxJ9rXWwQRa8YJbo6n7OCJNgEjCQeLJ/PCpIQEfjDKHH92RuwUcwCExkl
+	bs69zwhSJSxgLXF00gWwDhYBVYmzC9+DreAVsJNo2Q8xSUJAXmL/wbNgcU4Be4m3vxaB2UJA
+	NUd29LFD1AtKnJz5BOwkZqD65q2zmScwCsxCkpqFJLWAkWkVo0hqaXFuem6xoV5xYm5xaV66
+	XnJ+7iZGYFxuO/Zz8w7Gea8+6h1iZOJgPMQowcGsJMIbsYYxXYg3JbGyKrUoP76oNCe1+BCj
+	KdDdE5mlRJPzgYkhryTe0MzA1NDEzNLA1NLMWEmc1+3y+TQhgfTEktTs1NSC1CKYPiYOTqkG
+	JvcHRYvSCwrj6rT+xSz7/1jRd5HDHOan37ce0p6hynPn+YqlHlOqHjmtiZi8+dk/T73LQVuS
+	3b4dPfI4kOP4j41/mLbb+jLtm6bUtKi9nMkszF1y5UzhklK2zyz/rp/lkvBgy1K87/Vuew6X
+	O4PN63tMjEym+WeF/6blV07ij7CwqHi79+0NKbdY5TTHrYzShwtO/o6b1HqqpVx6enPaGcmb
+	8bPmT39iuZhD0yOi6PuNX2rcH/8+WSfbLRLPyl2YuMBw9QWViU/kGWLbGitWSQgzfv6U+EHR
+	21Kz8OlZw5sbFWzWuLj+n3TW3EOs845jm84Py5qumR3zOfPesssash00ld2w3vybx9U/ygqx
+	SizFGYmGWsxFxYkA6J2DyFQDAAA=
+X-CMS-MailID: 20241008174910eucas1p2e832dd68ad6b2ef1420ce211fc849fba
 X-Msg-Generator: CA
-X-RootMTR: 20241008174908eucas1p235351687f0475a877c7248cc2bf9dbd4
+X-RootMTR: 20241008174910eucas1p2e832dd68ad6b2ef1420ce211fc849fba
 X-EPHeader: CA
 CMS-TYPE: 201P
-X-CMS-RootMailID: 20241008174908eucas1p235351687f0475a877c7248cc2bf9dbd4
+X-CMS-RootMailID: 20241008174910eucas1p2e832dd68ad6b2ef1420ce211fc849fba
 References: <20241008174852.222374-1-m.wilczynski@samsung.com>
-	<CGME20241008174908eucas1p235351687f0475a877c7248cc2bf9dbd4@eucas1p2.samsung.com>
+	<CGME20241008174910eucas1p2e832dd68ad6b2ef1420ce211fc849fba@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241008_104912_701629_762EE816 
-X-CRM114-Status: GOOD (  31.30  )
+X-CRM114-CacheID: sfid-20241008_104913_386897_ABCCA83E 
+X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,661 +134,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This driver was tested using the drm/imagination GPU driver. It was able
-to successfully power on the GPU, by passing a command through mailbox
-from E910 core to E902 that's responsible for powering up the GPU. The
-GPU driver was able to read the BVC version from control registers,
-which confirms it was successfully powered on.
+Add mailbox device tree node. This work is based on the vendor kernel [1].
 
-[   33.957467] powervr ffef400000.gpu: [drm] loaded firmware
-powervr/rogue_36.52.104.182_v1.fw
-[   33.966008] powervr ffef400000.gpu: [drm] FW version v1.0 (build
-6621747 OS)
-[   38.978542] powervr ffef400000.gpu: [drm] *ERROR* Firmware failed to
-boot
-
-Though the driver still fails to boot the firmware, the mailbox driver
-works when used with the not-yet-upstreamed firmware AON driver. There
-is ongoing work to get the BXM-4-64 supported with the drm/imagination
-driver [1], though it's not completed yet.
-
-This work is based on the driver from the vendor kernel [2].
-
-Link: https://gitlab.freedesktop.org/imagination/linux-firmware/-/issues/2 [1]
-Link: https://github.com/revyos/thead-kernel.git [2]
+Link: https://github.com/revyos/thead-kernel.git [1]
 
 Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 ---
- MAINTAINERS                      |   1 +
- drivers/mailbox/Kconfig          |  10 +
- drivers/mailbox/Makefile         |   2 +
- drivers/mailbox/mailbox-th1520.c | 576 +++++++++++++++++++++++++++++++
- 4 files changed, 589 insertions(+)
- create mode 100644 drivers/mailbox/mailbox-th1520.c
+ arch/riscv/boot/dts/thead/th1520.dtsi | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 00716c1faff6..df4d7be6cf35 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -19945,6 +19945,7 @@ T:	git https://github.com/pdp7/linux.git
- F:	Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
- F:	arch/riscv/boot/dts/thead/
- F:	drivers/clk/thead/clk-th1520-ap.c
-+F:	drivers/mailbox/mailbox-th1520.c
- F:	include/dt-bindings/clock/thead,th1520-clk-ap.h
- 
- RNBD BLOCK DRIVERS
-diff --git a/drivers/mailbox/Kconfig b/drivers/mailbox/Kconfig
-index 4eed97295927..1c87a6b6b607 100644
---- a/drivers/mailbox/Kconfig
-+++ b/drivers/mailbox/Kconfig
-@@ -294,4 +294,14 @@ config QCOM_IPCC
- 	  acts as an interrupt controller for receiving interrupts from clients.
- 	  Say Y here if you want to build this driver.
- 
-+config THEAD_TH1520_MBOX
-+	tristate "T-head TH1520 Mailbox"
-+	depends on ARCH_THEAD || COMPILE_TEST
-+	help
-+	  Mailbox driver implementation for the Thead TH-1520 platform. Enables
-+	  two cores within the SoC to communicate and coordinate by passing
-+	  messages. Could be used to communicate between E910 core, on which the
-+	  kernel is running, and E902 core used for power management among other
-+	  things.
-+
- endif
-diff --git a/drivers/mailbox/Makefile b/drivers/mailbox/Makefile
-index 3c3c27d54c13..5f4f5b0ce2cc 100644
---- a/drivers/mailbox/Makefile
-+++ b/drivers/mailbox/Makefile
-@@ -64,3 +64,5 @@ obj-$(CONFIG_SPRD_MBOX)		+= sprd-mailbox.o
- obj-$(CONFIG_QCOM_CPUCP_MBOX)	+= qcom-cpucp-mbox.o
- 
- obj-$(CONFIG_QCOM_IPCC)		+= qcom-ipcc.o
-+
-+obj-$(CONFIG_THEAD_TH1520_MBOX)	+= mailbox-th1520.o
-diff --git a/drivers/mailbox/mailbox-th1520.c b/drivers/mailbox/mailbox-th1520.c
-new file mode 100644
-index 000000000000..6cf69507e959
---- /dev/null
-+++ b/drivers/mailbox/mailbox-th1520.c
-@@ -0,0 +1,576 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2021 Alibaba Group Holding Limited.
-+ */
-+
-+#include <linux/interrupt.h>
-+#include <linux/io.h>
-+#include <linux/kernel.h>
-+#include <linux/mailbox_controller.h>
-+#include <linux/module.h>
-+#include <linux/of_device.h>
-+#include <linux/platform_device.h>
-+#include <linux/slab.h>
-+
-+/* Status Register */
-+#define TH_1520_MBOX_STA 0x0
-+#define TH_1520_MBOX_CLR 0x4
-+#define TH_1520_MBOX_MASK 0xc
-+
-+/* Transmit/receive data register:
-+ * INFO0 ~ INFO6
-+ */
-+#define TH_1520_MBOX_INFO_NUM 8
-+#define TH_1520_MBOX_DATA_INFO_NUM 7
-+#define TH_1520_MBOX_INFO0 0x14
-+/* Transmit ack register: INFO7 */
-+#define TH_1520_MBOX_INFO7 0x30
-+
-+/* Generate remote icu IRQ Register */
-+#define TH_1520_MBOX_GEN 0x10
-+#define TH_1520_MBOX_GEN_RX_DATA BIT(6)
-+#define TH_1520_MBOX_GEN_TX_ACK BIT(7)
-+
-+#define TH_1520_MBOX_CHAN_RES_SIZE 0x1000
-+#define TH_1520_MBOX_CHANS 4
-+#define TH_1520_MBOX_CHAN_NAME_SIZE 20
-+
-+#define TH_1520_MBOX_ACK_MAGIC 0xdeadbeaf
-+
-+#ifdef CONFIG_PM_SLEEP
-+/* store MBOX context across system-wide suspend/resume transitions */
-+struct th1520_mbox_context {
-+	u32 intr_mask[TH_1520_MBOX_CHANS - 1];
-+};
-+#endif
-+
-+enum th1520_mbox_chan_type {
-+	TH_1520_MBOX_TYPE_TXRX, /* Tx & Rx chan */
-+	TH_1520_MBOX_TYPE_DB, /* Tx & Rx doorbell */
-+};
-+
-+enum th1520_mbox_icu_cpu_id {
-+	TH_1520_MBOX_ICU_KERNEL_CPU0, /* 910T */
-+	TH_1520_MBOX_ICU_CPU1, /* 902 */
-+	TH_1520_MBOX_ICU_CPU2, /* 906 */
-+	TH_1520_MBOX_ICU_CPU3, /* 910R */
-+};
-+
-+struct th1520_mbox_con_priv {
-+	enum th1520_mbox_icu_cpu_id idx;
-+	enum th1520_mbox_chan_type type;
-+	void __iomem *comm_local_base;
-+	void __iomem *comm_remote_base;
-+	char irq_desc[TH_1520_MBOX_CHAN_NAME_SIZE];
-+	struct mbox_chan *chan;
-+	struct tasklet_struct txdb_tasklet;
-+};
-+
-+struct th1520_mbox_priv {
-+	struct device *dev;
-+	void __iomem *local_icu[TH_1520_MBOX_CHANS];
-+	void __iomem *remote_icu[TH_1520_MBOX_CHANS - 1];
-+	void __iomem *cur_cpu_ch_base;
-+	spinlock_t mbox_lock; /* control register lock */
-+
-+	struct mbox_controller mbox;
-+	struct mbox_chan mbox_chans[TH_1520_MBOX_CHANS];
-+
-+	struct th1520_mbox_con_priv con_priv[TH_1520_MBOX_CHANS];
-+	int irq;
-+#ifdef CONFIG_PM_SLEEP
-+	struct th1520_mbox_context *ctx;
-+#endif
-+};
-+
-+static struct th1520_mbox_priv *
-+to_th1520_mbox_priv(struct mbox_controller *mbox)
-+{
-+	return container_of(mbox, struct th1520_mbox_priv, mbox);
-+}
-+
-+static void th1520_mbox_write(struct th1520_mbox_priv *priv, u32 val, u32 offs)
-+{
-+	iowrite32(val, priv->cur_cpu_ch_base + offs);
-+}
-+
-+static u32 th1520_mbox_read(struct th1520_mbox_priv *priv, u32 offs)
-+{
-+	return ioread32(priv->cur_cpu_ch_base + offs);
-+}
-+
-+static u32 th1520_mbox_rmw(struct th1520_mbox_priv *priv, u32 off, u32 set,
-+			   u32 clr)
-+{
-+	unsigned long flags;
-+	u32 val;
-+
-+	spin_lock_irqsave(&priv->mbox_lock, flags);
-+	val = th1520_mbox_read(priv, off);
-+	val &= ~clr;
-+	val |= set;
-+	th1520_mbox_write(priv, val, off);
-+	spin_unlock_irqrestore(&priv->mbox_lock, flags);
-+
-+	return val;
-+}
-+
-+static void th1520_mbox_chan_write(struct th1520_mbox_con_priv *cp, u32 val,
-+				   u32 offs, bool is_remote)
-+{
-+	if (is_remote)
-+		iowrite32(val, cp->comm_remote_base + offs);
-+	else
-+		iowrite32(val, cp->comm_local_base + offs);
-+}
-+
-+static u32 th1520_mbox_chan_read(struct th1520_mbox_con_priv *cp, u32 offs,
-+				 bool is_remote)
-+{
-+	if (is_remote)
-+		return ioread32(cp->comm_remote_base + offs);
-+	else
-+		return ioread32(cp->comm_local_base + offs);
-+}
-+
-+static void th1520_mbox_chan_rmw(struct th1520_mbox_con_priv *cp, u32 off,
-+				 u32 set, u32 clr, bool is_remote)
-+{
-+	struct th1520_mbox_priv *priv = to_th1520_mbox_priv(cp->chan->mbox);
-+	unsigned long flags;
-+	u32 val;
-+
-+	spin_lock_irqsave(&priv->mbox_lock, flags);
-+	val = th1520_mbox_chan_read(cp, off, is_remote);
-+	val &= ~clr;
-+	val |= set;
-+	th1520_mbox_chan_write(cp, val, off, is_remote);
-+	spin_unlock_irqrestore(&priv->mbox_lock, flags);
-+}
-+
-+static void th1520_mbox_chan_rd_data(struct th1520_mbox_con_priv *cp,
-+				     void *data, bool is_remote)
-+{
-+	u32 off = TH_1520_MBOX_INFO0;
-+	u32 *arg = data;
-+	u32 i;
-+
-+	/* read info0 ~ info6, totally 28 bytes
-+	 * requires data memory size is 28 bytes
-+	 */
-+	for (i = 0; i < TH_1520_MBOX_DATA_INFO_NUM; i++) {
-+		*arg = th1520_mbox_chan_read(cp, off, is_remote);
-+		off += 4;
-+		arg++;
-+	}
-+}
-+
-+static void th1520_mbox_chan_wr_data(struct th1520_mbox_con_priv *cp,
-+				     void *data, bool is_remote)
-+{
-+	u32 off = TH_1520_MBOX_INFO0;
-+	u32 *arg = data;
-+	u32 i;
-+
-+	/* write info0 ~ info6, totally 28 bytes
-+	 * requires data memory is 28 bytes valid data
-+	 */
-+	for (i = 0; i < TH_1520_MBOX_DATA_INFO_NUM; i++) {
-+		th1520_mbox_chan_write(cp, *arg, off, is_remote);
-+		off += 4;
-+		arg++;
-+	}
-+}
-+
-+static void th1520_mbox_chan_wr_ack(struct th1520_mbox_con_priv *cp, void *data,
-+				    bool is_remote)
-+{
-+	u32 off = TH_1520_MBOX_INFO7;
-+	u32 *arg = data;
-+
-+	th1520_mbox_chan_write(cp, *arg, off, is_remote);
-+}
-+
-+static int th1520_mbox_chan_id_to_mapbit(struct th1520_mbox_con_priv *cp)
-+{
-+	struct th1520_mbox_priv *priv = to_th1520_mbox_priv(cp->chan->mbox);
-+	int mapbit = 0;
-+	int i;
-+
-+	for (i = 0; i < TH_1520_MBOX_CHANS; i++) {
-+		if (i == cp->idx)
-+			return mapbit;
-+
-+		if (i != TH_1520_MBOX_ICU_KERNEL_CPU0)
-+			mapbit++;
-+	}
-+
-+	if (i == TH_1520_MBOX_CHANS)
-+		dev_err(cp->chan->mbox->dev, "convert to mapbit failed\n");
-+
-+	return 0;
-+}
-+
-+static void th1520_mbox_txdb_tasklet(unsigned long data)
-+{
-+	struct th1520_mbox_con_priv *cp = (struct th1520_mbox_con_priv *)data;
-+
-+	mbox_chan_txdone(cp->chan, 0);
-+}
-+
-+static irqreturn_t th1520_mbox_isr(int irq, void *p)
-+{
-+	struct mbox_chan *chan = p;
-+	struct th1520_mbox_priv *priv = to_th1520_mbox_priv(chan->mbox);
-+	struct th1520_mbox_con_priv *cp = chan->con_priv;
-+	int mapbit = th1520_mbox_chan_id_to_mapbit(cp);
-+	u32 sta, dat[TH_1520_MBOX_DATA_INFO_NUM];
-+	u32 ack_magic = TH_1520_MBOX_ACK_MAGIC;
-+	u32 info0_data, info7_data;
-+
-+	sta = th1520_mbox_read(priv, TH_1520_MBOX_STA);
-+	if (!(sta & BIT(mapbit)))
-+		return IRQ_NONE;
-+
-+	/* clear chan irq bit in STA register */
-+	th1520_mbox_rmw(priv, TH_1520_MBOX_CLR, BIT(mapbit), 0);
-+
-+	/* rx doorbell */
-+	if (cp->type == TH_1520_MBOX_TYPE_DB) {
-+		mbox_chan_received_data(cp->chan, NULL);
-+		return IRQ_HANDLED;
-+	}
-+
-+	/* info0 is the protocol word, should not be zero! */
-+	info0_data = th1520_mbox_chan_read(cp, TH_1520_MBOX_INFO0, false);
-+	if (info0_data) {
-+		/* read info0~info6 data */
-+		th1520_mbox_chan_rd_data(cp, dat, false);
-+
-+		/* clear local info0 */
-+		th1520_mbox_chan_write(cp, 0x0, TH_1520_MBOX_INFO0, false);
-+
-+		/* notify remote cpu */
-+		th1520_mbox_chan_wr_ack(cp, &ack_magic, true);
-+		/* CPU1 902/906 use polling mode to monitor info7 */
-+		if (cp->idx != TH_1520_MBOX_ICU_CPU1 &&
-+		    cp->idx != TH_1520_MBOX_ICU_CPU2)
-+			th1520_mbox_chan_rmw(cp, TH_1520_MBOX_GEN,
-+					     TH_1520_MBOX_GEN_TX_ACK, 0, true);
-+
-+		/* transfer the data to client */
-+		mbox_chan_received_data(chan, (void *)dat);
-+	}
-+
-+	/* info7 magic value mean the real ack signal, not generate bit7 */
-+	info7_data = th1520_mbox_chan_read(cp, TH_1520_MBOX_INFO7, false);
-+	if (info7_data == TH_1520_MBOX_ACK_MAGIC) {
-+		/* clear local info7 */
-+		th1520_mbox_chan_write(cp, 0x0, TH_1520_MBOX_INFO7, false);
-+
-+		/* notify framework the last TX has completed */
-+		mbox_chan_txdone(chan, 0);
-+	}
-+
-+	if (!info0_data && !info7_data)
-+		return IRQ_NONE;
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static int th1520_mbox_send_data(struct mbox_chan *chan, void *data)
-+{
-+	struct th1520_mbox_con_priv *cp = chan->con_priv;
-+
-+	if (cp->type == TH_1520_MBOX_TYPE_DB)
-+		tasklet_schedule(&cp->txdb_tasklet);
-+	else
-+		th1520_mbox_chan_wr_data(cp, data, true);
-+
-+	th1520_mbox_chan_rmw(cp, TH_1520_MBOX_GEN, TH_1520_MBOX_GEN_RX_DATA, 0,
-+			     true);
-+	return 0;
-+}
-+
-+static int th1520_mbox_startup(struct mbox_chan *chan)
-+{
-+	struct th1520_mbox_priv *priv = to_th1520_mbox_priv(chan->mbox);
-+	struct th1520_mbox_con_priv *cp = chan->con_priv;
-+	u32 data[8] = {};
-+	int mask_bit;
-+	int ret;
-+
-+	/* clear local and remote generate and info0~info7 */
-+	th1520_mbox_chan_rmw(cp, TH_1520_MBOX_GEN, 0x0, 0xff, true);
-+	th1520_mbox_chan_rmw(cp, TH_1520_MBOX_GEN, 0x0, 0xff, false);
-+	th1520_mbox_chan_wr_ack(cp, &data[7], true);
-+	th1520_mbox_chan_wr_ack(cp, &data[7], false);
-+	th1520_mbox_chan_wr_data(cp, &data[0], true);
-+	th1520_mbox_chan_wr_data(cp, &data[0], false);
-+
-+	/* enable the chan mask */
-+	mask_bit = th1520_mbox_chan_id_to_mapbit(cp);
-+	th1520_mbox_rmw(priv, TH_1520_MBOX_MASK, BIT(mask_bit), 0);
-+
-+	if (cp->type == TH_1520_MBOX_TYPE_DB)
-+		/* tx doorbell doesn't have ACK, rx doorbell requires isr */
-+		tasklet_init(&cp->txdb_tasklet, th1520_mbox_txdb_tasklet,
-+			     (unsigned long)cp);
-+
-+	/*
-+	 * Mixing devm_ managed resources with manual IRQ handling is generally
-+	 * discouraged due to potential complexities with resource management,
-+	 * especially when dealing with shared interrupts. However, in this case,
-+	 * the approach is safe and effective because:
-+	 *
-+	 * 1. Each mailbox channel requests its IRQ within the .startup() callback
-+	 *    and frees it within the .shutdown() callback.
-+	 * 2. During device unbinding, the devm_ managed mailbox controller first
-+	 *    iterates through all channels, ensuring that their IRQs are freed before
-+	 *    any other devm_ resources are released.
-+	 *
-+	 * This ordering guarantees that no interrupts can be triggered from the device
-+	 * while it is being unbound, preventing race conditions and ensuring system
-+	 * stability.
-+	 */
-+	ret = request_irq(priv->irq, th1520_mbox_isr,
-+			  IRQF_SHARED | IRQF_NO_SUSPEND, cp->irq_desc, chan);
-+	if (ret) {
-+		dev_err(priv->dev, "Unable to acquire IRQ %d\n", priv->irq);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static void th1520_mbox_shutdown(struct mbox_chan *chan)
-+{
-+	struct th1520_mbox_priv *priv = to_th1520_mbox_priv(chan->mbox);
-+	struct th1520_mbox_con_priv *cp = chan->con_priv;
-+	int mask_bit;
-+
-+	free_irq(priv->irq, chan);
-+
-+	/* clear the chan mask */
-+	mask_bit = th1520_mbox_chan_id_to_mapbit(cp);
-+	th1520_mbox_rmw(priv, TH_1520_MBOX_MASK, 0, BIT(mask_bit));
-+}
-+
-+static const struct mbox_chan_ops th1520_mbox_ops = {
-+	.send_data = th1520_mbox_send_data,
-+	.startup = th1520_mbox_startup,
-+	.shutdown = th1520_mbox_shutdown,
-+};
-+
-+static int th1520_mbox_init_generic(struct th1520_mbox_priv *priv)
-+{
-+#ifdef CONFIG_PM_SLEEP
-+	priv->ctx = devm_kzalloc(priv->dev, sizeof(*priv->ctx), GFP_KERNEL);
-+	if (!priv->ctx)
-+		return -ENOMEM;
-+#endif
-+	/* Set default configuration */
-+	th1520_mbox_write(priv, 0xff, TH_1520_MBOX_CLR);
-+	th1520_mbox_write(priv, 0x0, TH_1520_MBOX_MASK);
-+	return 0;
-+}
-+
-+static struct mbox_chan *th1520_mbox_xlate(struct mbox_controller *mbox,
-+					   const struct of_phandle_args *sp)
-+{
-+	struct th1520_mbox_priv *priv = to_th1520_mbox_priv(mbox);
-+	struct th1520_mbox_con_priv *cp;
-+	u32 chan, type;
-+
-+	if (sp->args_count != 2) {
-+		dev_err(mbox->dev, "Invalid argument count %d\n",
-+			sp->args_count);
-+		return ERR_PTR(-EINVAL);
-+	}
-+
-+	chan = sp->args[0]; /* comm remote channel */
-+	type = sp->args[1]; /* comm channel type */
-+
-+	if (chan >= mbox->num_chans) {
-+		dev_err(mbox->dev, "Not supported channel number: %d\n", chan);
-+		return ERR_PTR(-EINVAL);
-+	}
-+
-+	if (chan == TH_1520_MBOX_ICU_KERNEL_CPU0) {
-+		dev_err(mbox->dev, "Cannot communicate with yourself\n");
-+		return ERR_PTR(-EINVAL);
-+	}
-+
-+	if (type > TH_1520_MBOX_TYPE_DB) {
-+		dev_err(mbox->dev, "Not supported the type for channel[%d]\n",
-+			chan);
-+		return ERR_PTR(-EINVAL);
-+	}
-+
-+	cp = mbox->chans[chan].con_priv;
-+	cp->type = type;
-+
-+	return &mbox->chans[chan];
-+}
-+
-+static void __iomem *th1520_map_mmio(struct platform_device *pdev,
-+				     char *res_name)
-+{
-+	void __iomem *mapped;
-+	struct resource *res;
-+
-+	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, res_name);
-+
-+	if (!res) {
-+		dev_err(&pdev->dev, "Failed to get resource: %s\n", res_name);
-+		return ERR_PTR(-EINVAL);
-+	}
-+
-+	mapped = devm_ioremap_resource(&pdev->dev, res);
-+	if (IS_ERR(mapped))
-+		dev_err(&pdev->dev, "Failed to map resource: %s\n", res_name);
-+
-+	return mapped;
-+}
-+
-+static int th1520_mbox_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct device_node *np = dev->of_node;
-+	struct th1520_mbox_priv *priv;
-+	struct resource *res;
-+	unsigned int remote_idx = 0;
-+	unsigned int i;
-+	int ret;
-+
-+	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+
-+	priv->dev = dev;
-+
-+	priv->local_icu[TH_1520_MBOX_ICU_KERNEL_CPU0] =
-+		th1520_map_mmio(pdev, "local");
-+	if (IS_ERR(priv->local_icu[TH_1520_MBOX_ICU_KERNEL_CPU0]))
-+		return PTR_ERR(priv->local_icu[TH_1520_MBOX_ICU_KERNEL_CPU0]);
-+
-+	priv->remote_icu[0] = th1520_map_mmio(pdev, "remote-icu0");
-+	if (IS_ERR(priv->remote_icu[0]))
-+		return PTR_ERR(priv->remote_icu[0]);
-+
-+	priv->remote_icu[1] = th1520_map_mmio(pdev, "remote-icu1");
-+	if (IS_ERR(priv->remote_icu[1]))
-+		return PTR_ERR(priv->remote_icu[1]);
-+
-+	priv->remote_icu[2] = th1520_map_mmio(pdev, "remote-icu2");
-+	if (IS_ERR(priv->remote_icu[2]))
-+		return PTR_ERR(priv->remote_icu[2]);
-+
-+	priv->local_icu[TH_1520_MBOX_ICU_CPU1] =
-+		priv->local_icu[TH_1520_MBOX_ICU_KERNEL_CPU0] +
-+		TH_1520_MBOX_CHAN_RES_SIZE;
-+	priv->local_icu[TH_1520_MBOX_ICU_CPU2] =
-+		priv->local_icu[TH_1520_MBOX_ICU_CPU1] +
-+		TH_1520_MBOX_CHAN_RES_SIZE;
-+	priv->local_icu[TH_1520_MBOX_ICU_CPU3] =
-+		priv->local_icu[TH_1520_MBOX_ICU_CPU2] +
-+		TH_1520_MBOX_CHAN_RES_SIZE;
-+
-+	priv->cur_cpu_ch_base = priv->local_icu[TH_1520_MBOX_ICU_KERNEL_CPU0];
-+
-+	priv->irq = platform_get_irq(pdev, 0);
-+	if (priv->irq < 0)
-+		return priv->irq;
-+
-+	/* init the chans */
-+	for (i = 0; i < TH_1520_MBOX_CHANS; i++) {
-+		struct th1520_mbox_con_priv *cp = &priv->con_priv[i];
-+
-+		cp->idx = i;
-+		cp->chan = &priv->mbox_chans[i];
-+		priv->mbox_chans[i].con_priv = cp;
-+		snprintf(cp->irq_desc, sizeof(cp->irq_desc),
-+			 "th1520_mbox_chan[%i]", cp->idx);
-+
-+		cp->comm_local_base = priv->local_icu[i];
-+		if (i != TH_1520_MBOX_ICU_KERNEL_CPU0) {
-+			cp->comm_remote_base = priv->remote_icu[remote_idx];
-+			remote_idx++;
-+		}
-+	}
-+
-+	spin_lock_init(&priv->mbox_lock);
-+
-+	priv->mbox.dev = dev;
-+	priv->mbox.ops = &th1520_mbox_ops;
-+	priv->mbox.chans = priv->mbox_chans;
-+	priv->mbox.num_chans = TH_1520_MBOX_CHANS;
-+	priv->mbox.of_xlate = th1520_mbox_xlate;
-+	priv->mbox.txdone_irq = true;
-+
-+	platform_set_drvdata(pdev, priv);
-+
-+	ret = th1520_mbox_init_generic(priv);
-+	if (ret) {
-+		dev_err(dev, "Failed to init mailbox context\n");
-+		return ret;
-+	}
-+
-+	return devm_mbox_controller_register(dev, &priv->mbox);
-+}
-+
-+static const struct of_device_id th1520_mbox_dt_ids[] = {
-+	{ .compatible = "thead,th1520-mbox" },
-+	{}
-+};
-+MODULE_DEVICE_TABLE(of, th1520_mbox_dt_ids);
-+
-+#ifdef CONFIG_PM_SLEEP
-+static int __maybe_unused th1520_mbox_suspend_noirq(struct device *dev)
-+{
-+	struct th1520_mbox_priv *priv = dev_get_drvdata(dev);
-+	struct th1520_mbox_context *ctx = priv->ctx;
-+	u32 i;
-+	/*
-+	 * ONLY interrupt mask bit should be stored and restores.
-+	 * INFO data all assumed to be lost.
-+	 */
-+	for (i = 0; i < TH_1520_MBOX_CHANS; i++) {
-+		ctx->intr_mask[i] =
-+			ioread32(priv->local_icu[i] + TH_1520_MBOX_MASK);
-+	}
-+	return 0;
-+}
-+
-+static int __maybe_unused th1520_mbox_resume_noirq(struct device *dev)
-+{
-+	struct th1520_mbox_priv *priv = dev_get_drvdata(dev);
-+	struct th1520_mbox_context *ctx = priv->ctx;
-+	u32 i;
-+
-+	for (i = 0; i < TH_1520_MBOX_CHANS; i++) {
-+		iowrite32(ctx->intr_mask[i],
-+			  priv->local_icu[i] + TH_1520_MBOX_MASK);
-+	}
-+
-+	return 0;
-+}
-+#endif
-+
-+static const struct dev_pm_ops th1520_mbox_pm_ops = {
-+	SET_NOIRQ_SYSTEM_SLEEP_PM_OPS(th1520_mbox_suspend_noirq,
-+				      th1520_mbox_resume_noirq)
-+};
-+
-+static struct platform_driver th1520_mbox_driver = {
-+	.probe		= th1520_mbox_probe,
-+	.driver = {
-+		.name	= "th1520-mbox",
-+		.of_match_table = th1520_mbox_dt_ids,
-+		.pm = &th1520_mbox_pm_ops,
-+	},
-+};
-+module_platform_driver(th1520_mbox_driver);
-+
-+MODULE_DESCRIPTION("Thead Light mailbox IPC driver");
-+MODULE_LICENSE("GPL");
+diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
+index 6992060e6a54..435f0ab0174d 100644
+--- a/arch/riscv/boot/dts/thead/th1520.dtsi
++++ b/arch/riscv/boot/dts/thead/th1520.dtsi
+@@ -555,5 +555,17 @@ portf: gpio-controller@0 {
+ 				interrupts = <55 IRQ_TYPE_LEVEL_HIGH>;
+ 			};
+ 		};
++
++		mbox_910t: mailbox@ffffc38000 {
++		       compatible = "thead,th1520-mbox";
++		       reg = <0xff 0xffc38000 0x0 0x4000>,
++			     <0xff 0xffc44000 0x0 0x1000>,
++			     <0xff 0xffc4c000 0x0 0x1000>,
++			     <0xff 0xffc54000 0x0 0x1000>;
++		       reg-names = "local", "remote-icu0", "remote-icu1", "remote-icu2";
++		       interrupt-parent = <&plic>;
++		       interrupts = <28 IRQ_TYPE_LEVEL_HIGH>;
++		       #mbox-cells = <2>;
++		};
+ 	};
+ };
 -- 
 2.34.1
 
