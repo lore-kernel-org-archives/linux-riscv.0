@@ -4,108 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEC4DCEF142
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Oct 2024 09:28:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF6CCCEF147
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Oct 2024 09:43:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MkbUBIM0AoVTtWX5FnVXRYnkXUyuuQhIVBns8do7kdk=; b=BAWco6bDksz06z
-	tF+SX7kTzPn3d8D5ra+vDehnsP3o5Q5YcA0IilWQKCofI4784WjWojlIkF23YuLHW5iuy4pyRro4Q
-	HwQXB2N/XeCtwYIiEB1WBG4T5W3AqJ+6yQBF+9b5HIhToxP+HjXaSvJ6PC5i9I7QWi9QgU8uN10yv
-	/6PJi6UsUewDRYwG6FBYoo3Bj5LxipZHgbLzabIMHLfaG1/ib8jFH3lZmk26484faTMuUR2bjuqam
-	xjMpwbpb6Xcqu5ZOTqYzeRjho/lnS7LDDLDdynAZd8S/LScuYJRST6WKi0YGuNnMzwRp1pqAn/ql5
-	71qXSuEGfx6ZdaUZFogQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9xGkIJ0+5ETXWPX67QqOWzKEcNBUtz1Vd3iRlPOzwqE=; b=16LMBQgswSgPgY
+	xYmBvP/Fr77Gh6E46qsu7h4Xa4gojSRWIDGU/hkq/Je0tjXXsXFaEn0T5pPyuX3L+w1SIQ6+OmnVq
+	Vh85gYx/dkiCZfnlOgyekIPHH/9Xar6j7p/Suk2MlMwDVJEc37L+AMlnJ8cBA1IHdpFv348X0NLii
+	tL7XO54kgJz7itfcug5pnIuCdERrdl9hY9QOfRbNBHrA1XXt5wNIngy0YAPrGd4UURh3bEVM5P080
+	5joDiRrqT6C7wGe0v/7roInwmrqnpX8KdExfVz9/0VxtQu3X4bA/gyqDwPGI91RvLK6SSigVbNIrb
+	1WpeAOyXBOV6VOHW9rxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sy6WA-00000005J9r-2y56;
-	Tue, 08 Oct 2024 09:28:34 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1sy6kG-00000005LVt-0yzp;
+	Tue, 08 Oct 2024 09:43:08 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sy6W7-00000005J7j-27Lt
+	id 1sy6jI-00000005LL0-3IBF
 	for linux-riscv@lists.infradead.org;
-	Tue, 08 Oct 2024 09:28:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B687CA43405;
-	Tue,  8 Oct 2024 09:28:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17DC4C4CEC7;
-	Tue,  8 Oct 2024 09:28:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1728379710;
-	bh=JyelCuQCMPlZWVVTklLnqNbgbrlSJ9neBU08TXsuY4w=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=ngNLo/vmUxyz/NwMkg/Qy4zbe09ET1XccIn7A72Fk+NnptO2e7PY2ThVkcnMfDOAn
-	 S56zVCe62heUVcPF9y3B9gkA06AYLcEoszMxWeaTZRU36oVLvykyHWXOwOaJayzQs3
-	 KRhTaCuQUFaSjZWMw64bt0HBEA8h99yxfwCy03Hzv2GmrgwSlVTa5ISUWoZ8Tvg7Eq
-	 JDqKfIQEd0woEP4tZvmaCKLPdaPQqgF7FhxJIU3Ol6/8SjvicYBdo0tW5AO41dbv8c
-	 x7/UMxy5pMm/t7IFVli6rU5nBTdRM6Vj3zzTmLEy47cM8GfjaZ/hSUYpUWKNpv+1Ri
-	 Vk9cIvUGBEoXg==
-Message-ID: <0cad37dd-772e-4dc2-9943-a473bf21d55a@kernel.org>
-Date: Tue, 8 Oct 2024 11:28:24 +0200
+	Tue, 08 Oct 2024 09:42:11 +0000
+Received: from ubt.. (unknown [210.73.53.31])
+	by APP-01 (Coremail) with SMTP id qwCowAAH7nxf_gRnEkoDBQ--.54511S2;
+	Tue, 08 Oct 2024 17:41:52 +0800 (CST)
+From: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Chunyan Zhang <zhang.lyra@gmail.com>
+Subject: [PATCH V2 0/4] A few fixes for RISC-V
+Date: Tue,  8 Oct 2024 17:41:37 +0800
+Message-Id: <20241008094141.549248-1-zhangchunyan@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/1] riscv: sophgo: dts: add power key for pioneer box
-To: Inochi Amaoto <inochiama@gmail.com>, Chen Wang <unicornxw@gmail.com>,
- aou@eecs.berkeley.edu, unicorn_wang@outlook.com, conor+dt@kernel.org,
- guoren@kernel.org, inochiama@outlook.com, krzk+dt@kernel.org,
- palmer@dabbelt.com, paul.walmsley@sifive.com, robh@kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, chao.wei@sophgo.com,
- haijiao.liu@sophgo.com, xiaoguang.xing@sophgo.com, chunzhi.lin@sophgo.com
-References: <cover.1728350655.git.unicorn_wang@outlook.com>
- <12e65a99f1b52c52b7372e900a203063b30c74b5.1728350655.git.unicorn_wang@outlook.com>
- <aixuis25v56xwnc6zd2ost5yhho5soznpa2pf6fya6orvwwke4@6n3nhzrd7kio>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <aixuis25v56xwnc6zd2ost5yhho5soznpa2pf6fya6orvwwke4@6n3nhzrd7kio>
+X-CM-TRANSID: qwCowAAH7nxf_gRnEkoDBQ--.54511S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrtF1DZw13Wr43Kw1xWw15Arb_yoWxKwb_WF
+	WxK3s7GF4kua48CFy3X3W5WrZYy3yF9FWkAryYqr93AryUZF15JF4ktr1jvw1ru3y5Ja9F
+	vFW5ta93Zr129jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUb-AYjsxI4VWxJwAYFVCjjxCrM7AC8VAFwI0_Gr0_Xr1l1xkIjI8I
+	6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
+	8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0
+	cI8IcVCY1x0267AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwV
+	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
+	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Gr0_Cr
+	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4IIrI8v6xkF7I0E8cxan2IY
+	04v7MxkF7I0En4kS14v26r1q6r43MxkIecxEwVAFwVW8uwCF04k20xvY0x0EwIxGrwCFx2
+	IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v2
+	6r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67
+	AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IY
+	s7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr
+	0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07jzLvtUUUUU=
+X-Originating-IP: [210.73.53.31]
+X-CM-SenderInfo: x2kd0wxfkx051dq6x2xfdvhtffof0/1tbiDAcEB2cExhT4rwAAsu
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241008_022831_728144_D3463C5B 
-X-CRM114-Status: GOOD (  10.61  )
+X-CRM114-CacheID: sfid-20241008_024209_220126_0EB11080 
+X-CRM114-Status: UNSURE (   6.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,39 +86,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 08/10/2024 07:18, Inochi Amaoto wrote:
-> On Tue, Oct 08, 2024 at 09:43:52AM +0800, Chen Wang wrote:
->> From: Chen Wang <unicorn_wang@outlook.com>
->>
->> There is a power button on the front panel of the pioneer box.
->> Short pressing the button will trigger the onboard MCU to
->> notify SG2042 through GPIO22 to enter the power-off process.
->>
->> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
->> ---
->>  .../boot/dts/sophgo/sg2042-milkv-pioneer.dts      | 15 +++++++++++++++
->>  1 file changed, 15 insertions(+)
->>
->> diff --git a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
->> index a3f9d6f22566..be596d01ff8d 100644
->> --- a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
->> +++ b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
->> @@ -5,6 +5,9 @@
->>  
->>  #include "sg2042.dtsi"
->>  
->> +#include <dt-bindings/gpio/gpio.h>
-> 
-> Just move this include into sg204.dtsi. It seems you forgot to
+These patches are all simple fixes with no strong dependency though,
+I hope that making them a patchset will be more convenient for merge.
 
-sg204.dtsi does not use this header, so why it should be there?
+The patchset are based on v6.12-rc2.
 
-DTS does not differ here from C. You include only what is being directly
-used.
+Chunyan Zhang (4):
+  riscv: Remove unused GENERATING_ASM_OFFSETS
+  riscv: Remove duplicated GET_RM
+  selftest/mm: Fix typo in virtual_address_range
+  selftests/mm: skip virtual_address_range tests on riscv
 
+ arch/riscv/kernel/asm-offsets.c                    |  2 --
+ arch/riscv/kernel/traps_misaligned.c               |  2 --
+ tools/testing/selftests/mm/Makefile                |  2 ++
+ tools/testing/selftests/mm/run_vmtests.sh          | 10 ++++++----
+ tools/testing/selftests/mm/virtual_address_range.c |  4 ++--
+ 5 files changed, 10 insertions(+), 10 deletions(-)
 
-Best regards,
-Krzysztof
+-- 
+2.34.1
 
 
 _______________________________________________
