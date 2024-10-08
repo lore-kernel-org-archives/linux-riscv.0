@@ -4,96 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53CD5CED268
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Oct 2024 05:16:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5FC6CED266
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Oct 2024 05:19:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=J/g3RX35GpwEYywjETphOZzSayudj3o5rr8PgjENsZo=; b=Zz81XcsngkLfly
-	8TndgadAt7zS9/316BUOo1hzUdvPpq3/vNcE/8H5i1DJMiwVKGWBH+8ZfAUXHZxSgSmAvfxt5WN3f
-	A5NSXNz7vmI46bit0BYpfPHfMwoGjHZelp8oS1FG5VlixiBfKQbHVFzxP4I0X1A8xM7iFTc7Zifkx
-	jdW7gqMgXF5W+9hiZLV2pRao1DfmlRaAGp7C0Ymbz4Rit2qf9kM/NtpUN5PKSnuc74xBm/O8EiaLo
-	zQWx28i5XpQP7LmFGE8XkeDEE5I71VeP7WYI5hhP5ExxR0m+Av68CPoRNh07yWekV5RIDfsrIklDz
-	2+Wxjh90ShzbvlJBf/4A==;
+	List-Owner; bh=Af6/9UsVozTqs+G8ozGzZFjCe1sxFvkoJVizM3h371g=; b=FPL4TOuXdEcT9X
+	mlRUeNKgjwNy7IzkZVdrVrHij5Z+17vg5YoDABRcm5xN3F+jRHh4pE6C0l5cUeRAtbS3+//lZ7XsS
+	yLF6RBeLO/rGakYcEbzoN9x7oXgE2hL0nx81qLBJIa5L3aPKjwFNtuEIsPDqygsSEI7QHhQntXROS
+	uj7FdBUScvWYtuQCIf2wbxL/ehvJm6NMtNmxvBhNbbnPEujezF3sbL3EB0QimVOyCmDfKf2CrZe8N
+	3hqoNLfb1VKFu+Vy37oFwN8Pg6tkmxhQfNF+x/cj0MbXxVUTRc/PyHIjca7+dA6nnDMoD1eJNJOu5
+	Z0g3JeufDTui62QWYnpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sy2aH-00000004XLv-2Vj7;
-	Tue, 08 Oct 2024 05:16:33 +0000
-Received: from mail-io1-xd2a.google.com ([2607:f8b0:4864:20::d2a])
+	id 1sy2cc-00000004Xd8-47eq;
+	Tue, 08 Oct 2024 05:18:58 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sy2aE-00000004XL5-18T0
+	id 1sy2ca-00000004Xcm-1rdV
 	for linux-riscv@lists.infradead.org;
-	Tue, 08 Oct 2024 05:16:31 +0000
-Received: by mail-io1-xd2a.google.com with SMTP id ca18e2360f4ac-82aa3f65864so238170439f.2
-        for <linux-riscv@lists.infradead.org>; Mon, 07 Oct 2024 22:16:29 -0700 (PDT)
+	Tue, 08 Oct 2024 05:18:57 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-20b49ee353cso48794245ad.2
+        for <linux-riscv@lists.infradead.org>; Mon, 07 Oct 2024 22:18:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1728364589; x=1728969389; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=w4w/TdKOPPfwgKMj85c6/te+TDmMrhbBdxi4k1LLIvc=;
-        b=ClHHmy6qFKNIs5/cjJNsdM+seOj+MU0E6hdruCNkS5NzNbtfmIjNeU+JTlbx6QyXzG
-         EC/EIGdCAHz15n64SVPeq/uKC0bCnOgfxqb6aYTJJCwqFEob73n4DZTHj91lCaU5yIhO
-         3hf7atQUwjDhn1VFbp8F2aZTs49Qmx5V9Ev1ccC/1BPc4qCGWvCyE9gpKAnf1XT4kzBi
-         r9/qEgApVCGXO9C/Vxz3n51Y+s6cRze+ztCFEuDMKitXaQyf1j2zEFE/w05INgj0PbeY
-         ii2hezAbndLEVjCREl5fkrwV2cxTq78d7LyfzRWFLj/FGKWqAZnnOxD17tLAE+nqUQjJ
-         Tfjw==
+        d=gmail.com; s=20230601; t=1728364735; x=1728969535; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=YQO0zvw9KnkYprXk/usa3JnN+eWxXRiy1TqyGCHK6FM=;
+        b=RRRwbDQC9xCA1shsAAYLO2ZozAogQ70h9cfpI+ecICO32zV8OEJQRgDJntk7eHhSEr
+         P8S+Ln1TK0rKm8MdUYIzICKI8yM3Y02OKwgySp+/dcPCuCPAtLYK6UpgSMe9LYJwipCh
+         iwCA9Rq07n0lIdbtg0oUlMqBzqyeYlZJe+2ch8yFP1Z2h5sen0Qqp2t5JAkskRkhvTSO
+         beL4TqQC8+lSZrzrXgPhEvUQ/EK45zKTDmihQqz4a1nkwgPwk3f3CWfXbZX0qOQpfY9f
+         q5gbPYzP+a/J4iai5PXPDuWUGnYl7cFw3kyNIKf5ZjWmpOi+Z7KyXIj8bRGJdZhntqP8
+         UdZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728364589; x=1728969389;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=w4w/TdKOPPfwgKMj85c6/te+TDmMrhbBdxi4k1LLIvc=;
-        b=r4j7godouCO6jIh/tPkQiNS4AoIraP5eCJe/O4ceiprVIUK8PFYcaJd/pAD6wuPSBG
-         PT1Xa5hcveC4sjS9YUXn+dUpGen+6y6mFUX7z4PJARMzyxkwPBw0zL4GcBlTvkihDpjj
-         3ivbNomSo43JeakyMRMyqjkavf2k1VSVpvKrHZeN7QoISuom+RBWAxZtFJkZgb8T0mNP
-         N6MxWp52G71XvWnmjCGEdKdOz5iH/U3clkvkdKWnK8RIqVilztc8tdOTjhhGD4sTqeQo
-         KtLK13Ii+DeQZHatblDeWvi7B/x4TA4wpLsdmNV/Az0OIx8A7tS4hSlOVCKBTrcGbZ8n
-         +pIQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXdD/kzy0xx9B3P9/RsYOLSrh7TxcccsGHb1XIYMznIRgdfWwCXJqo6Txtyof7OYexuUJBJayD1mLrqQw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyioJ2L72kUdOd6mh2WEf33Tdsa9hqrLIrjEdNwccagPs8BgpKY
-	sxU6qyRQPs3iXF0iSYAVRaRmm/qwN30XtCoR36P1ZtFCG9HR06pMMxBnsUV/j+7AzjB4Fj8/9Xm
-	wyqhWCqjqybpe+nEQBiRBNKue2H6y5Gt+seIHew==
-X-Google-Smtp-Source: AGHT+IHj+3nyjDRUlzo6HU3+Ye4UA98AMbnjv3+zlmAvnKbqvLOrOys0YnN7vCUlZP6Nh+cnnTYFiH4anmDFOKj+zMw=
-X-Received: by 2002:a05:6602:14c1:b0:82a:2143:8 with SMTP id
- ca18e2360f4ac-834f7d65974mr1658309439f.10.1728364589159; Mon, 07 Oct 2024
- 22:16:29 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1728364735; x=1728969535;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=YQO0zvw9KnkYprXk/usa3JnN+eWxXRiy1TqyGCHK6FM=;
+        b=KxXH1dcPAqJZIhOcxCQxvRzOjFBX2+fukvGnjDmaIQnbOlXnJPdgC7fcCQrdIpPme+
+         ChL5Ke/oiYxg2LLOBt85xR7xTAmHrsiXAy28xqceZsMIYWISybmfpZEC0BOaKu4j/wB7
+         KekLpKgyAxwF5uP3MHBneCHLN9S2SWcaTcBK9t7uRLnowoltXU0GqXh1C/ZJpd4Q4dKS
+         ZftqEEzoO4tC2dzN+vGFzWJ3tk6YX4BPfZmdvOQZd6Skvr0jI5oVs+8JN4DdE8V1OmfJ
+         8Ok1PETAYc0Tf6yRWyJothyRphd9kLn889nUx2qJtexfBj/X9mBp6laEp9Ddk4fmRIq4
+         ZZHQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUGniWbrPgkBH6F1eQa21OAB/zc26AmV9S7yUznDWMPxavKsYELG8uwjU+B9p8mVU+Gyp8LBnAHa26nPg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxvhbuwOGKtAq8VThYcm0laFKfPAJlv9C4flZnCIldv2NpQ80ko
+	DMFXWyNCN12Eo9D0acsP7srO2Sd36h+JUoLXwaOL+LBDo/wHm72v
+X-Google-Smtp-Source: AGHT+IEJ7tiXzNbXz43iRKpy9kKwG7dH8WSlBskbZXuh6zvWYGqu/6a4ih5eqS1AOLgEJJOllhxQQQ==
+X-Received: by 2002:a17:903:32c4:b0:20b:9098:4693 with SMTP id d9443c01a7336-20bfde659c8mr200667015ad.5.1728364735090;
+        Mon, 07 Oct 2024 22:18:55 -0700 (PDT)
+Received: from inochi.infowork ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-20c138b13a0sm48211415ad.50.2024.10.07.22.18.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Oct 2024 22:18:54 -0700 (PDT)
+Date: Tue, 8 Oct 2024 13:18:46 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu, 
+	unicorn_wang@outlook.com, conor+dt@kernel.org, guoren@kernel.org, inochiama@outlook.com, 
+	krzk+dt@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com, robh@kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	chao.wei@sophgo.com, haijiao.liu@sophgo.com, xiaoguang.xing@sophgo.com, 
+	chunzhi.lin@sophgo.com
+Cc: Inochi Amaoto <inochiama@gmail.com>
+Subject: Re: [PATCH 1/1] riscv: sophgo: dts: add power key for pioneer box
+Message-ID: <aixuis25v56xwnc6zd2ost5yhho5soznpa2pf6fya6orvwwke4@6n3nhzrd7kio>
+References: <cover.1728350655.git.unicorn_wang@outlook.com>
+ <12e65a99f1b52c52b7372e900a203063b30c74b5.1728350655.git.unicorn_wang@outlook.com>
 MIME-Version: 1.0
-References: <20241001-v5_user_cfi_series-v1-0-3ba65b6e550f@rivosinc.com>
- <20241001-v5_user_cfi_series-v1-16-3ba65b6e550f@rivosinc.com>
- <CANXhq0rpwQkZ9+mZLGVUq=r4WiA8BbZ-eeTDogf3fzeEPqeeqA@mail.gmail.com> <ZwRvAEwFbrpq3zZq@debug.ba.rivosinc.com>
-In-Reply-To: <ZwRvAEwFbrpq3zZq@debug.ba.rivosinc.com>
-From: Zong Li <zong.li@sifive.com>
-Date: Tue, 8 Oct 2024 13:16:17 +0800
-Message-ID: <CANXhq0qaokjDC9hb75_dpGuyOd_ex8+q7YNe8pAg7dbTcxuLSg@mail.gmail.com>
-Subject: Re: [PATCH 16/33] riscv/shstk: If needed allocate a new shadow stack
- on clone
-To: Deepak Gupta <debug@rivosinc.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@suse.cz>, 
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Christian Brauner <brauner@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Oleg Nesterov <oleg@redhat.com>, Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-arch@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, alistair.francis@wdc.com, 
-	richard.henderson@linaro.org, jim.shu@sifive.com, andybnac@gmail.com, 
-	kito.cheng@sifive.com, charlie@rivosinc.com, atishp@rivosinc.com, 
-	evan@rivosinc.com, cleger@rivosinc.com, alexghiti@rivosinc.com, 
-	samitolvanen@google.com, broonie@kernel.org, rick.p.edgecombe@intel.com
+Content-Disposition: inline
+In-Reply-To: <12e65a99f1b52c52b7372e900a203063b30c74b5.1728350655.git.unicorn_wang@outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241007_221630_371504_9E95D53B 
-X-CRM114-Status: GOOD (  33.05  )
+X-CRM114-CacheID: sfid-20241007_221856_508975_90918439 
+X-CRM114-Status: GOOD (  16.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,65 +92,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBPY3QgOCwgMjAyNCBhdCA3OjMw4oCvQU0gRGVlcGFrIEd1cHRhIDxkZWJ1Z0ByaXZv
-c2luYy5jb20+IHdyb3RlOgo+Cj4gT24gTW9uLCBPY3QgMDcsIDIwMjQgYXQgMDQ6MTc6NDdQTSAr
-MDgwMCwgWm9uZyBMaSB3cm90ZToKPiA+T24gV2VkLCBPY3QgMiwgMjAyNCBhdCAxMjoyMOKAr0FN
-IERlZXBhayBHdXB0YSA8ZGVidWdAcml2b3NpbmMuY29tPiB3cm90ZToKPiA+Pgo+ID4+IFVzZXJz
-cGFjZSBzcGVjaWZpZXMgQ0xPTkVfVk0gdG8gc2hhcmUgYWRkcmVzcyBzcGFjZSBhbmQgc3Bhd24g
-bmV3IHRocmVhZC4KPiA+PiBgY2xvbmVgIGFsbG93IHVzZXJzcGFjZSB0byBzcGVjaWZ5IGEgbmV3
-IHN0YWNrIGZvciBuZXcgdGhyZWFkLiBIb3dldmVyCj4gPj4gdGhlcmUgaXMgbm8gd2F5IHRvIHNw
-ZWNpZnkgbmV3IHNoYWRvdyBzdGFjayBiYXNlIGFkZHJlc3Mgd2l0aG91dCBjaGFuZ2luZwo+ID4+
-IEFQSS4gVGhpcyBwYXRjaCBhbGxvY2F0ZXMgYSBuZXcgc2hhZG93IHN0YWNrIHdoZW5ldmVyIENM
-T05FX1ZNIGlzIGdpdmVuLgo+ID4+Cj4gPj4gSW4gY2FzZSBvZiBDTE9ORV9WRk9SSywgcGFyZW50
-IGlzIHN1c3BlbmRlZCB1bnRpbCBjaGlsZCBmaW5pc2hlcyBhbmQgdGh1cwo+ID4+IGNhbiBjaGls
-ZCB1c2UgcGFyZW50IHNoYWRvdyBzdGFjay4gSW4gY2FzZSBvZiAhQ0xPTkVfVk0sIENPVyBraWNr
-cyBpbgo+ID4+IGJlY2F1c2UgZW50aXJlIGFkZHJlc3Mgc3BhY2UgaXMgY29waWVkIGZyb20gcGFy
-ZW50IHRvIGNoaWxkLgo+ID4+Cj4gPj4gYGNsb25lM2AgaXMgZXh0ZW5zaWJsZSBhbmQgY2FuIHBy
-b3ZpZGUgbWVjaGFuaXNtcyB1c2luZyB3aGljaCBzaGFkb3cgc3RhY2sKPiA+PiBhcyBhbiBpbnB1
-dCBwYXJhbWV0ZXIgY2FuIGJlIHByb3ZpZGVkLiBUaGlzIGlzIG5vdCBzZXR0bGVkIHlldCBhbmQg
-YmVpbmcKPiA+PiBleHRlbnNpdmVseSBkaXNjdXNzZWQgb24gbWFpbGluZyBsaXN0LiBPbmNlIHRo
-YXQncyBzZXR0bGVkLCB0aGlzIGNvbW1pdAo+ID4+IHdpbGwgYWRhcHQgdG8gdGhhdC4KPiA+Pgo+
-ID4+IFNpZ25lZC1vZmYtYnk6IERlZXBhayBHdXB0YSA8ZGVidWdAcml2b3NpbmMuY29tPgo+ID4+
-IC0tLQo+ID4+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3VzZXJjZmkuaCB8ICAyNSArKysrKysr
-Kwo+Cj4gLi4uIHNuaXBwZWQuLi4KPgo+ID4+ICsKPiA+PiArLyoKPiA+PiArICogVGhpcyBnZXRz
-IGNhbGxlZCBkdXJpbmcgY2xvbmUvY2xvbmUzL2ZvcmsuIEFuZCBpcyBuZWVkZWQgdG8gYWxsb2Nh
-dGUgYSBzaGFkb3cgc3RhY2sgZm9yCj4gPj4gKyAqIGNhc2VzIHdoZXJlIENMT05FX1ZNIGlzIHNw
-ZWNpZmllZCBhbmQgdGh1cyBhIGRpZmZlcmVudCBzdGFjayBpcyBzcGVjaWZpZWQgYnkgdXNlci4g
-V2UKPiA+PiArICogdGh1cyBuZWVkIGEgc2VwYXJhdGUgc2hhZG93IHN0YWNrIHRvby4gSG93IGRv
-ZXMgc2VwYXJhdGUgc2hhZG93IHN0YWNrIGlzIHNwZWNpZmllZCBieQo+ID4+ICsgKiB1c2VyIGlz
-IHN0aWxsIGJlaW5nIGRlYmF0ZWQuIE9uY2UgdGhhdCdzIHNldHRsZWQsIHJlbW92ZSB0aGlzIHBh
-cnQgb2YgdGhlIGNvbW1lbnQuCj4gPj4gKyAqIFRoaXMgZnVuY3Rpb24gc2ltcGx5IHJldHVybnMg
-MCBpZiBzaGFkb3cgc3RhY2sgYXJlIG5vdCBzdXBwb3J0ZWQgb3IgaWYgc2VwYXJhdGUgc2hhZG93
-Cj4gPj4gKyAqIHN0YWNrIGFsbG9jYXRpb24gaXMgbm90IG5lZWRlZCAobGlrZSBpbiBjYXNlIG9m
-ICFDTE9ORV9WTSkKPiA+PiArICovCj4gPj4gK3Vuc2lnbmVkIGxvbmcgc2hzdGtfYWxsb2NfdGhy
-ZWFkX3N0YWNrKHN0cnVjdCB0YXNrX3N0cnVjdCAqdHNrLAo+ID4+ICsgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICBjb25zdCBzdHJ1Y3Qga2VybmVsX2Nsb25lX2FyZ3Mg
-KmFyZ3MpCj4gPj4gK3sKPiA+PiArICAgICAgIHVuc2lnbmVkIGxvbmcgYWRkciwgc2l6ZTsKPiA+
-PiArCj4gPj4gKyAgICAgICAvKiBJZiBzaGFkb3cgc3RhY2sgaXMgbm90IHN1cHBvcnRlZCwgcmV0
-dXJuIDAgKi8KPiA+PiArICAgICAgIGlmICghY3B1X3N1cHBvcnRzX3NoYWRvd19zdGFjaygpKQo+
-ID4+ICsgICAgICAgICAgICAgICByZXR1cm4gMDsKPiA+PiArCj4gPj4gKyAgICAgICAvKgo+ID4+
-ICsgICAgICAgICogSWYgc2hhZG93IHN0YWNrIGlzIG5vdCBlbmFibGVkIG9uIHRoZSBuZXcgdGhy
-ZWFkLCBza2lwIGFueQo+ID4+ICsgICAgICAgICogc3dpdGNoIHRvIGEgbmV3IHNoYWRvdyBzdGFj
-ay4KPiA+PiArICAgICAgICAqLwo+ID4+ICsgICAgICAgaWYgKGlzX3Noc3RrX2VuYWJsZWQodHNr
-KSkKPiA+Cj4gPkhpIERlZXBhaywKPiA+U2hvdWxkIGl0IGJlICchJyBpc19zaHN0a19lbmFibGVk
-KHRzayk/Cj4KPiBZZXMgaXQgaXMgYSBidWcuIEl0IHNlZW1zIGxpa2UgZm9yayB3aXRob3V0IENM
-T05FX1ZNIG9yIHdpdGggQ0xPTkVfVkZPUkssIGl0IHdhcyByZXR1cm5pbmcKPiAwIGFueXdheXMu
-IEFuZCBpbiB0aGUgY2FzZSBvZiBDTE9ORV9WTSAodXNlZCBieSBwdGhyZWFkKSwgaXQgd2FzIG5v
-dCBkb2luZyB0aGUgcmlnaHQgdGhpbmcuCgpIaSBEZWVwYWssCkknZCBsaWtlIHRvIGtub3cgaWYg
-SSB1bmRlcnN0YW5kIGNvcnJlY3RseS4gQ291bGQgSSBrbm93IHdoZXRoZXIgdGhlcmUKbWlnaHQg
-YWxzbyBiZSBhIHJpc2sgd2hlbiB0aGUgdXNlciBwcm9ncmFtIGRvZXNuJ3QgZW5hYmxlIHRoZSBD
-RkkgYW5kCnRoZSBrZXJuZWwgZG9lc24ndCBhY3RpdmF0ZSBDRkkuIEJlY2F1c2UgdGhpcyBmbG93
-IHdpbGwgc3RpbGwgdHJ5IHRvCmFsbG9jYXRlIHRoZSBzaGFkb3cgc3RhY2sgYW5kIGV4ZWN1dGUg
-dGhlIHNzYW1vd2FwIGNvbW1hbmQuIFRoYW5rcwoKPiBNb3N0IG9mIHRoZSB0ZXN0aW5nIGhhcyBi
-ZWVuIHdpdGggYnVzeWJveCBidWlsZCAoaW5kZXBlbmRlbnQgYmluYXJpZXMwIGRyaXZlbiB2aWEg
-YnVpbGRyb290Cj4gc2V0dXAuIFdvbmRlcmluZyB3aHkgaXQgd2Fzbid0IGNhdWdodC4KPgo+IEFu
-eXdheXMsIHdpbGwgZml4IGl0LiBUaGFua3MgZm9yIGNhdGNoaW5nIGl0Lgo+Cj4gPgo+ID4+ICsg
-ICAgICAgICAgICAgICByZXR1cm4gMDsKPiA+PiArCj4gPj4gKyAgICAgICAvKgoKX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGlu
-ZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJh
-ZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Tue, Oct 08, 2024 at 09:43:52AM +0800, Chen Wang wrote:
+> From: Chen Wang <unicorn_wang@outlook.com>
+> 
+> There is a power button on the front panel of the pioneer box.
+> Short pressing the button will trigger the onboard MCU to
+> notify SG2042 through GPIO22 to enter the power-off process.
+> 
+> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
+> ---
+>  .../boot/dts/sophgo/sg2042-milkv-pioneer.dts      | 15 +++++++++++++++
+>  1 file changed, 15 insertions(+)
+> 
+> diff --git a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+> index a3f9d6f22566..be596d01ff8d 100644
+> --- a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+> +++ b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+> @@ -5,6 +5,9 @@
+>  
+>  #include "sg2042.dtsi"
+>  
+> +#include <dt-bindings/gpio/gpio.h>
+
+Just move this include into sg204.dtsi. It seems you forgot to
+add include when sumbitting GPIO dt patch.
+
+> +#include <dt-bindings/input/input.h>
+> +
+>  / {
+>  	model = "Milk-V Pioneer";
+>  	compatible = "milkv,pioneer", "sophgo,sg2042";
+> @@ -12,6 +15,18 @@ / {
+>  	chosen {
+>  		stdout-path = "serial0";
+>  	};
+> +
+> +	gpio-power {
+> +		compatible = "gpio-keys";
+> +
+> +		key-power {
+> +			label = "Power Key";
+> +			linux,code = <KEY_POWER>;
+> +			gpios = <&port0a 22 GPIO_ACTIVE_HIGH>;
+> +			linux,input-type = <EV_KEY>;
+> +			debounce-interval = <100>;
+> +		};
+> +	};
+>  };
+>  
+>  &cgi_main {
+> -- 
+> 2.34.1
+> 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
