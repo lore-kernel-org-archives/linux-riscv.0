@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E77F9CF042B
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Oct 2024 23:45:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD9BBCF042D
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Oct 2024 23:45:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WbvU1EgzZiyT9v2XjXT3K5WtdbnAbj2av1/reXJLYwU=; b=UsSCKOwW7ghLl6
-	NW2TTrAxLl4ODqfVcGc6DkIUHaAOIckLaCm8dp7+oU+dklh9tbVbKOAKVsatcS7THFT1AZqYjDcH6
-	L+OeNekL+FTCaOA1h0jWsTvoiDT3+hUZ234TIOB9cJVQDZsT0/C0eYSXr/OAPRtZAUNFKbKOXXSbh
-	FpOVMOEr+rRH1lF8B74qhuI1IkschiXivmfLqFLX6BRGOyFJIQHtBz6aFZROp2HKk6bzkyF9w7rqS
-	YMHOadBvL9wx7HO0KMJaQj7FTOEP7ZpoGeP8bNtwjsaBS5d9EdlWg4m0Ql4fEQoGLLSLzhzoKVolE
-	B4ay6dFThjeSvpLgVdzg==;
+	List-Owner; bh=X/2OWOTmMMxumpM+SiyMosT08VugchrIYPwWQ0h1fPo=; b=0PGSaxN1ZAciSb
+	3pei0ZBi9zSBhQ3wRffdRcZsZfa+7/V1GWwRVBMB/nPFBRQwPoprQkAn0JdbB3eRW+LP/tMYSjA5C
+	MSwku9mCPY/mmcyeJ4lYxIusiPc+Cc1E7dlbeQ35RLXQaMPHs0bQBi5N6H2yQ2tMo43RmwSo2/yQa
+	FITONbkojCHFpJptsoFxg1uNQL+HoQoKfgMYcr9iA1GSpKYvJZciWSTWYY2xLMrN+KSrmlSM4ulyq
+	BqMVVUW2Bw9lj3D0xQ3zyL/aALngXCKOg7z2/GRaycCPzsEoWcWLoY5Mi6iyeb0PXba7Y1bRfEiBn
+	GS14jSlND1czxaUHmqsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1syJtf-00000007SF1-0dPe;
-	Tue, 08 Oct 2024 23:45:43 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1syJtg-00000007SFw-4AZw;
+	Tue, 08 Oct 2024 23:45:44 +0000
+Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1syIqL-00000007ITd-3MxR
+	id 1syIqX-00000007IeR-0lYH
 	for linux-riscv@lists.infradead.org;
-	Tue, 08 Oct 2024 22:38:21 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-718e9c8bd83so164863b3a.1
-        for <linux-riscv@lists.infradead.org>; Tue, 08 Oct 2024 15:38:13 -0700 (PDT)
+	Tue, 08 Oct 2024 22:38:34 +0000
+Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-7163489149eso5379074a12.1
+        for <linux-riscv@lists.infradead.org>; Tue, 08 Oct 2024 15:38:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1728427093; x=1729031893; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1728427104; x=1729031904; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=YzRPf3gSm1oBJZUnyk2tQznTd/0pm5tuC+PNjTYOgOw=;
-        b=GpHNBLtmO79/ggKhrJaXJeVEPpuOjYcqoxfoRCZqojRWSvSpHr9fTuHLtubjn6xE35
-         wYy1f0QpVhs4LlQIUXt4Av3ExPezPoK1+3+Uvc3Y4vDNPueeXuDU/F7EXM40gWjsHk2N
-         YqLT/3n7gtheIBjv+ZSnIPi6hDIXcyAL36kb7LiBwMSS6V6O/DiUzKDv1HtQP74qS6+R
-         Ywlq6JXygzw4v2/VlPUlMhW1+viqAjHEsvPSu/NOIJLCpZNi181XM7NynikAzdrOqUzr
-         EdsyImoXp9M2FY83mIK3+orZkp4M1pxGnsdLTlMLMpnsuWJP774IY7eksUBgGiCv+NC+
-         iQlg==
+        bh=I6L9CXOfGC8FGkDgNo32YOnEr2hJuvgG2CDkhLFheFM=;
+        b=OhjrcNn90Dq34Za6C0Un/qGhjyeNqkSMVsYFZRmqrGsz4hzvzJFvhxrXXN3p1fDQkQ
+         ux3TZlkowXHCEetzfhEUv6Lnjxrr0BeYEyFXzXN1xG4e13IxlWNhfONyW36HrL1ZUxkz
+         nIzylqJFOam9Jk7U2mi4ZgyQu7LpV6Hdc83J0tL2xTa4fLkPMGVHWz94nD18QcRp/839
+         C2RKLyOoh3G60ezf+uN2jABi3VWnMFKvTJsZ9XSIeYFsf8z3afm8mL0Rv98NLuvzMFH9
+         esjoSOEMkrVx2ZA9FQe5jsttzOmtmgkt1xRWgJrch1rFaHjTsbVCOAy7vd2Wmdv6u/tA
+         W+sw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728427093; x=1729031893;
+        d=1e100.net; s=20230601; t=1728427104; x=1729031904;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=YzRPf3gSm1oBJZUnyk2tQznTd/0pm5tuC+PNjTYOgOw=;
-        b=u9rNNwQ2mLPYcO97YLKulore0iiBuFJ8oo+ASghp3feQsBmNOuFonWHOUl5woHpiPE
-         XZRli11pXrk73afAk2Iot+sOYf8qe+3tbX67tKrLmbwgUQ4G/xSvpOAmAxiz9ZJYuyeL
-         wVHlpiAaEms91N7mauvYoLiOHh5zbgSVSLaJyhvcCuYm+3wJ+ZZM6UkIob3XCK3x3Ijx
-         zFnh2ZhqSh2bmG93wxbc4Ob0QxMvu2CJXnePi4QDT3YY0D8MDNlSnn2XMeUEnAV6ouEX
-         K2aFWBQwJ7Oym8H5Qh89njPoaPOIdaRYjQiIZ7KKAoeim98/pKyFb3bgIF8lS2ujbkwA
-         wdiA==
-X-Forwarded-Encrypted: i=1; AJvYcCXlrrOV+WdvgaGo4xJ8mz2XMkGBkV8kSI1x2NEvpToPR4I6BTyThmgfeNuvwZTSBAdlthvgwQ86ovVBZw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yww3oQ0zXSgVu8Ht72Wjbgb+6H2A1z5vu1JrhmdtTI0IGLunOGj
-	rAAcjgLzpO3599pUKJwNa8GTxtLRAA7pPbo95ttzrsicCqbigj80asUix0X2MuY=
-X-Google-Smtp-Source: AGHT+IHJXkTKywlrqzkXfqvL2/GTskz4hDTJPpvFgwQjWfvgYkv2MchiugGtJMvE5DvtJQZv+TfEgg==
-X-Received: by 2002:a05:6a21:1192:b0:1d5:118a:b53a with SMTP id adf61e73a8af0-1d8a35401e9mr1074844637.21.1728427092833;
-        Tue, 08 Oct 2024 15:38:12 -0700 (PDT)
+        bh=I6L9CXOfGC8FGkDgNo32YOnEr2hJuvgG2CDkhLFheFM=;
+        b=fIpEIEG296hJr0EssGb+BKoIfYMzoJGbgGeik9PpKTiFRgruhbUqfzIXk5YzMPh9Uq
+         Nqh7qjcmX8Zc5TlmSab8j8avZWVhc/2QFma/OEj/gemI6LV+BXqeB8qsXb1tBCu3flih
+         kXbxD/yc5tnoeIZzxM+Wdi1256B3oboxvuOuJZzsL5XfHUxw77ORbceaiQTJQoe3GogB
+         Bc/n12viV8DFsJ3VuybWWD1YbLK7nbT6Q508PQaWj9xSbURRdt5LlHnz9nC2MCUshJbb
+         EQ90g1R2OhCEUdm6VsOovEfawaHmbXJcdTBVLcK49GpDbTwmu+qfSQt/cpKdRwldPjHm
+         N2BQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWZokRvkg+PSPowGnHLtghPlLNlfwI4UElew7vnAYJxsUcJjnQIykYHMHpQTJfZqXotQ+MZsDn22PD/1Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyqxFebn5EIjIIR3zTv39W/1rjJb5oKPb5q0aAXbhqIDtwcYjNU
+	bRnH2CGmT4STXFqCSB2riSyNMjQBh2d5/0A895a1X7xgya61lU+aQqktrWe9uiI=
+X-Google-Smtp-Source: AGHT+IH2MMc22LEfeLpFr/+vzLpFm6wThOwZwpheAqw6wq1Vnq109QUbVNEO0CejcV+v5vQMgM/88g==
+X-Received: by 2002:a05:6a21:1192:b0:1d8:a3ab:720d with SMTP id adf61e73a8af0-1d8a3b5cafamr1049827637.0.1728427103894;
+        Tue, 08 Oct 2024 15:38:23 -0700 (PDT)
 Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-71df0ccc4b2sm6591270b3a.45.2024.10.08.15.38.10
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-71df0ccc4b2sm6591270b3a.45.2024.10.08.15.38.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Oct 2024 15:38:12 -0700 (PDT)
+        Tue, 08 Oct 2024 15:38:23 -0700 (PDT)
 From: Deepak Gupta <debug@rivosinc.com>
-Date: Tue, 08 Oct 2024 15:36:51 -0700
-Subject: [PATCH v6 09/33] riscv: zicfiss / zicfilp extension csr and bit
- definitions
+Date: Tue, 08 Oct 2024 15:36:55 -0700
+Subject: [PATCH v6 13/33] riscv mmu: teach pte_mkwrite to manufacture
+ shadow stack PTEs
 MIME-Version: 1.0
-Message-Id: <20241008-v5_user_cfi_series-v6-9-60d9fe073f37@rivosinc.com>
+Message-Id: <20241008-v5_user_cfi_series-v6-13-60d9fe073f37@rivosinc.com>
 References: <20241008-v5_user_cfi_series-v6-0-60d9fe073f37@rivosinc.com>
 In-Reply-To: <20241008-v5_user_cfi_series-v6-0-60d9fe073f37@rivosinc.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
@@ -97,8 +97,8 @@ Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
  rick.p.edgecombe@intel.com, Deepak Gupta <debug@rivosinc.com>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241008_153814_355595_23D9EF37 
-X-CRM114-Status: GOOD (  10.82  )
+X-CRM114-CacheID: sfid-20241008_153825_563421_5F47B753 
+X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,66 +115,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-zicfiss and zicfilp extension gets enabled via b3 and b2 in *envcfg CSR.
-menvcfg controls enabling for S/HS mode. henvcfg control enabling for VS
-while senvcfg controls enabling for U/VU mode.
-
-zicfilp extension extends *status CSR to hold `expected landing pad` bit.
-A trap or interrupt can occur between an indirect jmp/call and target
-instr. `expected landing pad` bit from CPU is recorded into xstatus CSR so
-that when supervisor performs xret, `expected landing pad` state of CPU can
-be restored.
-
-zicfiss adds one new CSR
-- CSR_SSP: CSR_SSP contains current shadow stack pointer.
+pte_mkwrite creates PTEs with WRITE encodings for underlying arch.
+Underlying arch can have two types of writeable mappings. One that can be
+written using regular store instructions. Another one that can only be
+written using specialized store instructions (like shadow stack stores).
+pte_mkwrite can select write PTE encoding based on VMA range (i.e.
+VM_SHADOW_STACK)
 
 Signed-off-by: Deepak Gupta <debug@rivosinc.com>
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 ---
- arch/riscv/include/asm/csr.h | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ arch/riscv/include/asm/pgtable.h |  7 +++++++
+ arch/riscv/mm/pgtable.c          | 17 +++++++++++++++++
+ 2 files changed, 24 insertions(+)
 
-diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-index 25966995da04..af7ed9bedaee 100644
---- a/arch/riscv/include/asm/csr.h
-+++ b/arch/riscv/include/asm/csr.h
-@@ -18,6 +18,15 @@
- #define SR_MPP		_AC(0x00001800, UL) /* Previously Machine */
- #define SR_SUM		_AC(0x00040000, UL) /* Supervisor User Memory Access */
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 2c6edc8d04a3..7963ab11d924 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -416,6 +416,10 @@ static inline pte_t pte_wrprotect(pte_t pte)
  
-+/* zicfilp landing pad status bit */
-+#define SR_SPELP	_AC(0x00800000, UL)
-+#define SR_MPELP	_AC(0x020000000000, UL)
-+#ifdef CONFIG_RISCV_M_MODE
-+#define SR_ELP		SR_MPELP
-+#else
-+#define SR_ELP		SR_SPELP
-+#endif
+ /* static inline pte_t pte_mkread(pte_t pte) */
+ 
++struct vm_area_struct;
++pte_t pte_mkwrite(pte_t pte, struct vm_area_struct *vma);
++#define pte_mkwrite pte_mkwrite
 +
- #define SR_FS		_AC(0x00006000, UL) /* Floating-point Status */
- #define SR_FS_OFF	_AC(0x00000000, UL)
- #define SR_FS_INITIAL	_AC(0x00002000, UL)
-@@ -197,6 +206,8 @@
- #define ENVCFG_PBMTE			(_AC(1, ULL) << 62)
- #define ENVCFG_CBZE			(_AC(1, UL) << 7)
- #define ENVCFG_CBCFE			(_AC(1, UL) << 6)
-+#define ENVCFG_LPE			(_AC(1, UL) << 2)
-+#define ENVCFG_SSE			(_AC(1, UL) << 3)
- #define ENVCFG_CBIE_SHIFT		4
- #define ENVCFG_CBIE			(_AC(0x3, UL) << ENVCFG_CBIE_SHIFT)
- #define ENVCFG_CBIE_ILL			_AC(0x0, UL)
-@@ -215,6 +226,11 @@
- #define SMSTATEEN0_HSENVCFG		(_ULL(1) << SMSTATEEN0_HSENVCFG_SHIFT)
- #define SMSTATEEN0_SSTATEEN0_SHIFT	63
- #define SMSTATEEN0_SSTATEEN0		(_ULL(1) << SMSTATEEN0_SSTATEEN0_SHIFT)
-+/*
-+ * zicfiss user mode csr
-+ * CSR_SSP holds current shadow stack pointer.
-+ */
-+#define CSR_SSP                 0x011
+ static inline pte_t pte_mkwrite_novma(pte_t pte)
+ {
+ 	return __pte(pte_val(pte) | _PAGE_WRITE);
+@@ -738,6 +742,9 @@ static inline pmd_t pmd_mkyoung(pmd_t pmd)
+ 	return pte_pmd(pte_mkyoung(pmd_pte(pmd)));
+ }
  
- /* symbolic CSR names: */
- #define CSR_CYCLE		0xc00
++pmd_t pmd_mkwrite(pmd_t pmd, struct vm_area_struct *vma);
++#define pmd_mkwrite pmd_mkwrite
++
+ static inline pmd_t pmd_mkwrite_novma(pmd_t pmd)
+ {
+ 	return pte_pmd(pte_mkwrite_novma(pmd_pte(pmd)));
+diff --git a/arch/riscv/mm/pgtable.c b/arch/riscv/mm/pgtable.c
+index 4ae67324f992..be5d38546bb3 100644
+--- a/arch/riscv/mm/pgtable.c
++++ b/arch/riscv/mm/pgtable.c
+@@ -155,3 +155,20 @@ pmd_t pmdp_collapse_flush(struct vm_area_struct *vma,
+ 	return pmd;
+ }
+ #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
++
++pte_t pte_mkwrite(pte_t pte, struct vm_area_struct *vma)
++{
++	if (vma->vm_flags & VM_SHADOW_STACK)
++		return pte_mkwrite_shstk(pte);
++
++	return pte_mkwrite_novma(pte);
++}
++
++pmd_t pmd_mkwrite(pmd_t pmd, struct vm_area_struct *vma)
++{
++	if (vma->vm_flags & VM_SHADOW_STACK)
++		return pmd_mkwrite_shstk(pmd);
++
++	return pmd_mkwrite_novma(pmd);
++}
++
 
 -- 
 2.45.0
