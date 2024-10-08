@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93A47CF042F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DC3BCF042B
 	for <linux-riscv@archiver.kernel.org>; Tue,  8 Oct 2024 23:45:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,78 +12,77 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LGUkz1gxVjt+irq/D3dGNpAegxf/xfpV45LCzQ2dvTs=; b=Jx9J9GWbgP9G2T
-	i/ra+N0Uo4xOfWA3EmtLvqpPhhQpqRxk4Iz1iwIXwwTSG9+pculkW2AVL+1goegS796gMkHRcknjB
-	9jGVsONQaq5YIrF00J0NQtTtAzEYwL/D0ze71tnDI8ZB25Ln/U8EfWTV89mCs9v1WpRQZJvryOP7v
-	mfTGK60WvgHqb983kSq6a1y1ibqU2bNfZWPlmsVHq66vhLF2qkgdeVWmDkafMST6pRpzb3jCLZYlk
-	L1Vu1wf0omtAnMi9xZVWC8iB4pjazL1fyFcGAA3ZBASzStapx1JOE8BQ1MXtmOh0SdKe8m3Eolxbi
-	Lf0QMGehvMJ3knX6IgvQ==;
+	List-Owner; bh=Fnf8ml63PXIsf9XAvgI+q6cuxnf9UFO0924d9DVUxgM=; b=KN4lksNVpxc3Yf
+	yB07SYTPoaOIhhLLCTNHattBVotQWb8hhG0shSpeA2UDMP5Y/Ey9ly26LN14Qd5ATxBa96/1ahX6f
+	IM3oe49lVfrn9AHe0D0+wUcoOC0nWRHDOb6QlDd8MZegWcBnsgwUCCSgdIfNMyFaTyf7gDM7UoD4W
+	PQBbyPp/x30u8fT25nUvkwqC5TB/ULuT+USNa83owQs5diBDls8C8g0kWqEqFUq0U/I/sHd2bwjqp
+	FM1aYia9Akwyz7BXptvegcKGBu/ThjgAiUiO4JgivKauHarz4kLTWnV4QK3fixKIBDuXTxZRzRiqD
+	UEddk0sO+8HgTz/H9KcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1syJte-00000007SEt-1v1P;
-	Tue, 08 Oct 2024 23:45:42 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1syJto-00000007SK7-0ahx;
+	Tue, 08 Oct 2024 23:45:52 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1syIqP-00000007IXf-2ica
+	id 1syIrb-00000007Jeb-0kWS
 	for linux-riscv@bombadil.infradead.org;
-	Tue, 08 Oct 2024 22:38:17 +0000
+	Tue, 08 Oct 2024 22:39:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=aVxR1oWgZ2k5hHFq9uLsQO1od960zXed/8DpSx7GGdM=; b=ULHW0Eekp33pM90ZT6YNxBbllQ
-	ZIbvKDEY4rgd04rltoUFNZY0ERuqeFmXfnkP1USveJ8B690jTIuXe2V793l8iXh9tFgPNaSlQKCEE
-	uqnabfSQlaKgxEwC0SQH2zsrwfjCUZfBcvmxSVqhoYoYpYciH2/754tmu3A0kJHrgsquHxJGaWAX8
-	GaRL3fcrCNinJbZtUtwSd7TqW2RElGp415qcsacs95Mwdr4Z8Y2mdQLUXbPL0I8L58P2Ax/JvnAsj
-	SXU8Q69deUfYZ5R+2pDtAtjAbIRfoOLiOeMmr3pE7rhY0TfM6JKeuZDITP5vJ7VoEYiooIdZ5ZyKg
-	QKf2DJmA==;
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1syIqH-00000004hR9-1Wpu
+	d=infradead.org; s=casper.20170209; h=Cc:To:In-Reply-To:References:Message-Id
+	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=NYP5wvilXBl9e2AdD/12DI5Fd1eAjNDT/0JkZD4bKgk=; b=Z4ycIDCYkUB6ppcXk2kxwMerc0
+	cmsjPBnHXSJscclzr8GRuc3I8CbkoplNgKu4WJrBou1IMaQWR/d94NFjWKSMMc4Sz3rIAax8Elmu0
+	NZ9zEmnXqZZaQqJcCJpOnwwgh5ktjN6AxL5KKMQ/0PbMqlamj0NcR0Ys47MUD21td3eH5e6Zie0Hv
+	/xQjNtIS+v7x9ZuF/E+ZanoGFfn//z1hEAb4PaDDnHyY53wfXftU2T1v1s0ZWkqEL0cg4jfrhwMrL
+	Btv+DrinaayflfFdUays6R8iXugfxaJUISUuil0s4iqez96pRyNIMih0cJhgOhI+zNHBvzrO4rJLZ
+	w6RgAneg==;
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1syIrS-00000003NoI-2Hk4
 	for linux-riscv@lists.infradead.org;
-	Tue, 08 Oct 2024 22:38:12 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-71df468496fso3482263b3a.1
-        for <linux-riscv@lists.infradead.org>; Tue, 08 Oct 2024 15:38:04 -0700 (PDT)
+	Tue, 08 Oct 2024 22:39:29 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-71def715ebdso3029624b3a.2
+        for <linux-riscv@lists.infradead.org>; Tue, 08 Oct 2024 15:39:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1728427081; x=1729031881; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1728427157; x=1729031957; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=aVxR1oWgZ2k5hHFq9uLsQO1od960zXed/8DpSx7GGdM=;
-        b=PTHLwi+i5Nv0W9CpGbywms0UgMebd4dEyuUCwrNH4YGJVzwo0aBPuMhYjjx7h4GBwS
-         NEvqDhLmSira2hIdKCJSRz7x2udcBGXCtVPAuidp++HGVRY8pGsllk1lrqr6tQqU83lB
-         K5wNitEr6Yz8VANz9LiFUgmQW4sH0sFBGzCH3Pro3y0A+AceZaARB765HgFZf8IaDE84
-         N55U/HFJDWyW03QaSadma9G0Cx06nmTe8i7vSyX3U+kHAx55m8RUk+51TlJbscWisBBe
-         WZurkta0YL+U+bfTmbOmW+BNqyWvtt6shVNC12ZFsfXHxg07nAaxi6ChkTShhnSCWZAD
-         GIAg==
+        bh=NYP5wvilXBl9e2AdD/12DI5Fd1eAjNDT/0JkZD4bKgk=;
+        b=DMw9ks5/f5fGsZ3pr7YkOB0RLhb/sxa4pl7dE+ounHwk6VeT5WMVhNwZAbPCEcAeJc
+         92/ezCCwKd5afGX8IonlbYE+54S/yr4nki/liJoiUxshGCQQoavZADCV9/baHQ98wlXn
+         bZhsYhIXobnTXRUxX98wf4edcfBxnotfS6snTZ7G9+1q1NpCBXw/ezQDeW6PyASwjviI
+         JUKKk/RMyQ2vUrj2ILE3xNuqNj4Qv8rT+S0h8vEGNChuvFZusW21+IE93UjQMfwYVqR0
+         RHMieDScw8XlloH1nKIv4a0d+8HXDtvKSvkuJ1Up7aCRuRqVLNs4uLpbl5HyYHsRcZbY
+         PHKg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728427081; x=1729031881;
+        d=1e100.net; s=20230601; t=1728427157; x=1729031957;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=aVxR1oWgZ2k5hHFq9uLsQO1od960zXed/8DpSx7GGdM=;
-        b=iHbLAV7djwTnfmlswvKZggdklh0+A+z/crzmxtO/j+MbyijsNPEXhOdlY+3fpNzut/
-         Xbvk7wo+Eehs8Cjz4/5q3UUQ+6DotiuOuchsd9Ta2AZOSI/s0y2tTYyoQAi9xBwODTm1
-         ANr6QH/Y4yJswTX1+7+4fbGe5m+VMp3126TFHGVfzDA7G08ybm5SmsRCOSnik7zndTt+
-         mCDkOLlGBHPoj1XnT7b/5Trpbdme6hRid8j0TH06tvkXvjpgzJBxaKka0f0pOTXUTxvM
-         AzpJg2BxK1MYq7CRWc15V7N00ZlPEcIR6bVR7zNgYs3bGceMo1CpMhyQwHvYhEy399T5
-         HN/w==
-X-Forwarded-Encrypted: i=1; AJvYcCXj1vGrbHuFwGdMGqMF552mhrsyMeC/0K+GOVYLcUo5zrC+XlyCbxo/vUDabdlmamPQwJPIn6goIhrKQg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwIQX0w9gMMjSyYdh9R++PwIRuGmC4YAploV7okom8Fp12+FkMP
-	bfzwzHAwmnGiIYCvkyAvPX9R1OLsdRbcN/5V7CseKv7VgrsFwV6Hm7Nl84STU9g=
-X-Google-Smtp-Source: AGHT+IE/RTGphmtify7ZaBGz4r8U96xtkLO6P3lDZmR5UXWHj3NjFx9egQQunrEc3RZFFoV8wwYuqg==
-X-Received: by 2002:a05:6a20:929d:b0:1d7:5a8:379d with SMTP id adf61e73a8af0-1d8a3bff07bmr624695637.15.1728427081301;
-        Tue, 08 Oct 2024 15:38:01 -0700 (PDT)
+        bh=NYP5wvilXBl9e2AdD/12DI5Fd1eAjNDT/0JkZD4bKgk=;
+        b=Ip9XsxYLbLSQ88vyr7gyuzTwbMglFntmyYgJY/7ulK9niY8HFf5PDLiTC3bM7qHR/C
+         DZzxb5BrWdVMOn/d5xYszeRClYKHkI/a1Gej7KOxvsyDW2v/59MNjeWeg5JVcLzzujPU
+         Q6PAh/Q0ep3HwIn8OpcRDx8Syd1QkBBCyyZgRUCQSegtkrHVI1o9xF2GeDZaedFFeuS8
+         qe4MpmgvQYVrYhpwzwBWSdvu92a/HjNxWFIExpX2YVt7Gqkgzv9FW5DjMvG7oX4xY5xk
+         qCScuXcQwrYXfYiMQfjvGcFoVLsd48mt/pi17XAGpMHdc3Iep+vNZYm6oJJkFns+t+mU
+         1vqA==
+X-Forwarded-Encrypted: i=1; AJvYcCU2UA7zzM2f2AMpg+DUg/AISRDK7Tjp63YusEPhyKxignlel9R4GNe1OISTXHn/zRALtPjbXY/AbsTt1w==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz4wA8m8XiOCAwOCo4E5nwhod92a/P1y1GBFrBwMdjQL5EiKmIk
+	9BKE5C4QtSUSc3i4jjv6LpGQBLpgvbg+A6HT7kfMZCjGL+ZZivBamsj/YXHwDgM=
+X-Google-Smtp-Source: AGHT+IEF+hZ8cFpEbHxK77l5nSPNL0l3e1unluSpt6JIy+85sceEzMd/bxxFkjVH5urq0w0ZUmcKkw==
+X-Received: by 2002:a05:6a00:178c:b0:71e:179f:e8c4 with SMTP id d2e1a72fcca58-71e1db85907mr588322b3a.14.1728427156969;
+        Tue, 08 Oct 2024 15:39:16 -0700 (PDT)
 Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-71df0ccc4b2sm6591270b3a.45.2024.10.08.15.37.58
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-71df0ccc4b2sm6591270b3a.45.2024.10.08.15.39.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Oct 2024 15:38:00 -0700 (PDT)
+        Tue, 08 Oct 2024 15:39:16 -0700 (PDT)
 From: Deepak Gupta <debug@rivosinc.com>
-Date: Tue, 08 Oct 2024 15:36:47 -0700
-Subject: [PATCH v6 05/33] riscv: Call riscv_user_isa_enable() only on the
- boot hart
+Date: Tue, 08 Oct 2024 15:37:14 -0700
+Subject: [PATCH v6 32/33] riscv: Documentation for shadow stack on riscv
 MIME-Version: 1.0
-Message-Id: <20241008-v5_user_cfi_series-v6-5-60d9fe073f37@rivosinc.com>
+Message-Id: <20241008-v5_user_cfi_series-v6-32-60d9fe073f37@rivosinc.com>
 References: <20241008-v5_user_cfi_series-v6-0-60d9fe073f37@rivosinc.com>
 In-Reply-To: <20241008-v5_user_cfi_series-v6-0-60d9fe073f37@rivosinc.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
@@ -109,14 +108,11 @@ Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
  andybnac@gmail.com, kito.cheng@sifive.com, charlie@rivosinc.com, 
  atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com, 
  alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org, 
- rick.p.edgecombe@intel.com, Deepak Gupta <debug@rivosinc.com>, 
- Samuel Holland <samuel.holland@sifive.com>, 
- Andrew Jones <ajones@ventanamicro.com>, 
- Conor Dooley <conor.dooley@microchip.com>
+ rick.p.edgecombe@intel.com, Deepak Gupta <debug@rivosinc.com>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241008_233809_772062_66D3E37C 
-X-CRM114-Status: GOOD (  15.35  )
+X-CRM114-CacheID: sfid-20241008_233923_274305_0B550776 
+X-CRM114-Status: GOOD (  23.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,68 +129,209 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Samuel Holland <samuel.holland@sifive.com>
+Adding documentation on shadow stack for user mode on riscv and kernel
+interfaces exposed so that user tasks can enable it.
 
-Now that the [ms]envcfg CSR value is maintained per thread, not per
-hart, riscv_user_isa_enable() only needs to be called once during boot,
-to set the value for the init task. This also allows it to be marked as
-__init.
-
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Deepak Gupta <debug@rivosinc.com>
-Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+Signed-off-by: Deepak Gupta <debug@rivosinc.com>
 ---
- arch/riscv/include/asm/cpufeature.h | 2 +-
- arch/riscv/kernel/cpufeature.c      | 4 ++--
- arch/riscv/kernel/smpboot.c         | 2 --
- 3 files changed, 3 insertions(+), 5 deletions(-)
+ Documentation/arch/riscv/index.rst   |   1 +
+ Documentation/arch/riscv/zicfiss.rst | 176 +++++++++++++++++++++++++++++++++++
+ 2 files changed, 177 insertions(+)
 
-diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
-index 45f9c1171a48..ce9a995730c1 100644
---- a/arch/riscv/include/asm/cpufeature.h
-+++ b/arch/riscv/include/asm/cpufeature.h
-@@ -31,7 +31,7 @@ DECLARE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
- /* Per-cpu ISA extensions. */
- extern struct riscv_isainfo hart_isa[NR_CPUS];
+diff --git a/Documentation/arch/riscv/index.rst b/Documentation/arch/riscv/index.rst
+index be7237b69682..e240eb0ceb70 100644
+--- a/Documentation/arch/riscv/index.rst
++++ b/Documentation/arch/riscv/index.rst
+@@ -15,6 +15,7 @@ RISC-V architecture
+     vector
+     cmodx
+     zicfilp
++    zicfiss
  
--void riscv_user_isa_enable(void);
-+void __init riscv_user_isa_enable(void);
+     features
  
- #define _RISCV_ISA_EXT_DATA(_name, _id, _subset_exts, _subset_exts_size, _validate) {	\
- 	.name = #_name,									\
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 27bafc5dd62d..b3a057c36996 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -920,12 +920,12 @@ unsigned long riscv_get_elf_hwcap(void)
- 	return hwcap;
- }
- 
--void riscv_user_isa_enable(void)
-+void __init riscv_user_isa_enable(void)
- {
- 	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_ZICBOZ))
- 		current->thread.envcfg |= ENVCFG_CBZE;
- 	else if (any_cpu_has_zicboz)
--		pr_warn_once("Zicboz disabled as it is unavailable on some harts\n");
-+		pr_warn("Zicboz disabled as it is unavailable on some harts\n");
- }
- 
- #ifdef CONFIG_RISCV_ALTERNATIVE
-diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-index 0f8f1c95ac38..e36d20205bd7 100644
---- a/arch/riscv/kernel/smpboot.c
-+++ b/arch/riscv/kernel/smpboot.c
-@@ -233,8 +233,6 @@ asmlinkage __visible void smp_callin(void)
- 	numa_add_cpu(curr_cpuid);
- 	set_cpu_online(curr_cpuid, true);
- 
--	riscv_user_isa_enable();
--
- 	/*
- 	 * Remote cache and TLB flushes are ignored while the CPU is offline,
- 	 * so flush them both right now just in case.
+diff --git a/Documentation/arch/riscv/zicfiss.rst b/Documentation/arch/riscv/zicfiss.rst
+new file mode 100644
+index 000000000000..5ba389f15b3f
+--- /dev/null
++++ b/Documentation/arch/riscv/zicfiss.rst
+@@ -0,0 +1,176 @@
++.. SPDX-License-Identifier: GPL-2.0
++
++:Author: Deepak Gupta <debug@rivosinc.com>
++:Date:   12 January 2024
++
++=========================================================
++Shadow stack to protect function returns on RISC-V Linux
++=========================================================
++
++This document briefly describes the interface provided to userspace by Linux
++to enable shadow stack for user mode applications on RISV-V
++
++1. Feature Overview
++--------------------
++
++Memory corruption issues usually result in to crashes, however when in hands of
++an adversary and if used creatively can result into variety security issues.
++
++One of those security issues can be code re-use attacks on program where
++adversary can use corrupt return addresses present on stack and chain them
++together to perform return oriented programming (ROP) and thus compromising
++control flow integrity (CFI) of the program.
++
++Return addresses live on stack and thus in read-write memory and thus are
++susceptible to corruption and allows an adversary to reach any program counter
++(PC) in address space. On RISC-V ``zicfiss`` extension provides an alternate
++stack termed as shadow stack on which return addresses can be safely placed in
++prolog of the function and retrieved in epilog. ``zicfiss`` extension makes
++following changes:
++
++- PTE encodings for shadow stack virtual memory
++  An earlier reserved encoding in first stage translation i.e.
++  PTE.R=0, PTE.W=1, PTE.X=0  becomes PTE encoding for shadow stack pages.
++
++- ``sspush x1/x5`` instruction pushes (stores) ``x1/x5`` to shadow stack.
++
++- ``sspopchk x1/x5`` instruction pops (loads) from shadow stack and compares
++  with ``x1/x5`` and if un-equal, CPU raises ``software check exception`` with
++  ``*tval = 3``
++
++Compiler toolchain makes sure that function prologue have ``sspush x1/x5`` to
++save return address on shadow stack in addition to regular stack. Similarly
++function epilogs have ``ld x5, offset(x2)`` followed by ``sspopchk x5`` to
++ensure that popped value from regular stack matches with popped value from
++shadow stack.
++
++2. Shadow stack protections and linux memory manager
++-----------------------------------------------------
++
++As mentioned earlier, shadow stack get new page table encodings and thus have
++some special properties assigned to them and instructions that operate on them
++as below:
++
++- Regular stores to shadow stack memory raises access store faults. This way
++  shadow stack memory is protected from stray inadvertant writes.
++
++- Regular loads to shadow stack memory are allowed. This allows stack trace
++  utilities or backtrace functions to read true callstack (not tampered).
++
++- Only shadow stack instructions can generate shadow stack load or shadow stack
++  store.
++
++- Shadow stack load / shadow stack store on read-only memory raises AMO/store
++  page fault. Thus both ``sspush x1/x5`` and ``sspopchk x1/x5`` will raise AMO/
++  store page fault. This simplies COW handling in kernel During fork, kernel
++  can convert shadow stack pages into read-only memory (as it does for regular
++  read-write memory) and as soon as subsequent ``sspush`` or ``sspopchk`` in
++  userspace is encountered, then kernel can perform COW.
++
++- Shadow stack load / shadow stack store on read-write, read-write-execute
++  memory raises an access fault. This is a fatal condition because shadow stack
++  should never be operating on read-write, read-write-execute memory.
++
++3. ELF and psABI
++-----------------
++
++Toolchain sets up :c:macro:`GNU_PROPERTY_RISCV_FEATURE_1_BCFI` for property
++:c:macro:`GNU_PROPERTY_RISCV_FEATURE_1_AND` in notes section of the object file.
++
++4. Linux enabling
++------------------
++
++User space programs can have multiple shared objects loaded in its address space
++and it's a difficult task to make sure all the dependencies have been compiled
++with support of shadow stack. Thus it's left to dynamic loader to enable
++shadow stack for the program.
++
++5. prctl() enabling
++--------------------
++
++:c:macro:`PR_SET_SHADOW_STACK_STATUS` / :c:macro:`PR_GET_SHADOW_STACK_STATUS` /
++:c:macro:`PR_LOCK_SHADOW_STACK_STATUS` are three prctls added to manage shadow
++stack enabling for tasks. prctls are arch agnostic and returns -EINVAL on other
++arches.
++
++* prctl(PR_SET_SHADOW_STACK_STATUS, unsigned long arg)
++
++If arg1 :c:macro:`PR_SHADOW_STACK_ENABLE` and if CPU supports ``zicfiss`` then
++kernel will enable shadow stack for the task. Dynamic loader can issue this
++:c:macro:`prctl` once it has determined that all the objects loaded in address
++space have support for shadow stack. Additionally if there is a
++:c:macro:`dlopen` to an object which wasn't compiled with ``zicfiss``, dynamic
++loader can issue this prctl with arg1 set to 0 (i.e.
++:c:macro:`PR_SHADOW_STACK_ENABLE` being clear)
++
++* prctl(PR_GET_SHADOW_STACK_STATUS, unsigned long *arg)
++
++Returns current status of indirect branch tracking. If enabled it'll return
++:c:macro:`PR_SHADOW_STACK_ENABLE`.
++
++* prctl(PR_LOCK_SHADOW_STACK_STATUS, unsigned long arg)
++
++Locks current status of shadow stack enabling on the task. User space may want
++to run with strict security posture and wouldn't want loading of objects
++without ``zicfiss`` support in it and thus would want to disallow disabling of
++shadow stack on current task. In that case user space can use this prctl to
++lock current settings.
++
++5. violations related to returns with shadow stack enabled
++-----------------------------------------------------------
++
++Pertaining to shadow stack, CPU raises software check exception in following
++condition:
++
++- On execution of ``sspopchk x1/x5``, ``x1/x5`` didn't match top of shadow
++  stack. If mismatch happens then cpu does ``*tval = 3`` and raise software
++  check exception.
++
++Linux kernel will treat this as :c:macro:`SIGSEV`` with code =
++:c:macro:`SEGV_CPERR` and follow normal course of signal delivery.
++
++6. Shadow stack tokens
++-----------------------
++Regular stores on shadow stacks are not allowed and thus can't be tampered
++with via arbitrary stray writes due to bugs. Method of pivoting / switching to
++shadow stack is simply writing to csr ``CSR_SSP`` changes active shadow stack.
++This can be problematic because usually value to be written to ``CSR_SSP`` will
++be loaded somewhere in writeable memory and thus allows an adversary to
++corruption bug in software to pivot to an any address in shadow stack range.
++Shadow stack tokens can help mitigate this problem by making sure that:
++
++- When software is switching away from a shadow stack, shadow stack pointer
++  should be saved on shadow stack itself and call it ``shadow stack token``
++
++- When software is switching to a shadow stack, it should read the
++  ``shadow stack token`` from shadow stack pointer and verify that
++  ``shadow stack token`` itself is pointer to shadow stack itself.
++
++- Once the token verification is done, software can perform the write to
++  ``CSR_SSP`` to switch shadow stack.
++
++Here software can be user mode task runtime itself which is managing various
++contexts as part of single thread. Software can be kernel as well when kernel
++has to deliver a signal to user task and must save shadow stack pointer. Kernel
++can perform similar procedure by saving a token on user shadow stack itself.
++This way whenever :c:macro:`sigreturn` happens, kernel can read the token and
++verify the token and then switch to shadow stack. Using this mechanism, kernel
++helps user task so that any corruption issue in user task is not exploited by
++adversary by arbitrarily using :c:macro:`sigreturn`. Adversary will have to
++make sure that there is a ``shadow stack token`` in addition to invoking
++:c:macro:`sigreturn`
++
++7. Signal shadow stack
++-----------------------
++Following structure has been added to sigcontext for RISC-V::
++
++    struct __sc_riscv_cfi_state {
++        unsigned long ss_ptr;
++    };
++
++As part of signal delivery, shadow stack token is saved on current shadow stack
++itself and updated pointer is saved away in :c:macro:`ss_ptr` field in
++:c:macro:`__sc_riscv_cfi_state` under :c:macro:`sigcontext`. Existing shadow
++stack allocation is used for signal delivery. During :c:macro:`sigreturn`,
++kernel will obtain :c:macro:`ss_ptr` from :c:macro:`sigcontext` and verify the
++saved token on shadow stack itself and switch shadow stack.
 
 -- 
 2.45.0
