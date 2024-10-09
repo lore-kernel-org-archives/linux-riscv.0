@@ -4,66 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73C82CEDD91
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Oct 2024 13:44:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0FB1CEDD9B
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Oct 2024 14:16:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=boAZVw18gwcdx6guuEdNri5kg6f8FIZFKv9bFmimoJQ=; b=d326ZAV7jpC3Wa
-	fZKGqQJoArkD1DyKWPqJUa1pd37dHoIbimHuFcPchw0z1g83cFbMlG0x9UOt5L1PEGaprAGO8EzLT
-	1MxMylU/JL5uo/HZLU6qOvuBXxuXeKevm03eUsOgV/8czjZQvsJW4qr3H5aighX9vqTBnKI9rtEfN
-	3DiiQTYZOGsVjXRqvcce6cmBBmk7sG4YGQXVpj+SHM5VnZpRUek0eKuBmx6BK7u5vjatXc0MPzSFm
-	3+JREJKUnmaHf1P3g4hT/0vyMSjmYcfGNJgBWw4n9Jm/1AJclSTQz0gAo4vkFalnP0Zf5GtiMVM9K
-	PCY2P821EDTwALxNXNDQ==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
+	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=5CSCeWCstIYTzB4PJh6PVGLqEsaZPKIn7TKnki3umUI=; b=YNJwjR528AaUsA2VWSAyqJGhNg
+	JPGcQfK8CH+2WaoBlk+Lqg05rtWp7svcflFZqSar9kKsAW90e5/VL3ZEOnbXnItZxlt4S85qAZSXl
+	V7HEgAmOOFOwU3AllbjgOH+NonIieMVl4lXRWohttyH7sZrKBuYNH6POTpW4QsyX7U2RntVyMCCKP
+	dUXyoM8uYTc0fi32GkSxL5XFJqUWGBUcF3c/ew1LGqaXMim7TLkit3YQqtpF1IspdyYYGNYYYbqTn
+	KFT+p7kQ4jkXyrxXzPjrOzPZ204FviWXDP0vmYW+hwoCnXdVCQb6d9V35lhJBIRpwpD2oKngu1l93
+	q+TXoUtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1syWze-00000009SbC-2w3C;
-	Wed, 09 Oct 2024 13:44:46 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1syXUR-00000009YZZ-3Mxv;
+	Wed, 09 Oct 2024 14:16:35 +0000
+Received: from fout-a3-smtp.messagingengine.com ([103.168.172.146])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1syWyH-00000009S7Q-3Glp;
-	Wed, 09 Oct 2024 13:43:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 84E145C5AA9;
-	Wed,  9 Oct 2024 13:43:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C62A7C4CECD;
-	Wed,  9 Oct 2024 13:43:16 +0000 (UTC)
-Date: Wed, 9 Oct 2024 09:43:21 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, "linux-arch@vger.kernel.org"
- <linux-arch@vger.kernel.org>, "x86@kernel.org" <x86@kernel.org>, Mathieu
- Desnoyers <mathieu.desnoyers@efficios.com>, Mark Rutland
- <mark.rutland@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, Will
- Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui
- <kernel@xen0n.name>, Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin
- <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, Naveen
- N Rao <naveen@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, Paul
-  Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Heiko Carstens <hca@linux.ibm.com>,
- Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev
- <agordeev@linux.ibm.com>, Christian Borntraeger
- <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, Thomas 
- Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@kernel.org>, Borislav 
- Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>
-Subject: Re: [PATCH v2 2/2] ftrace: Consolidate ftrace_regs accessor
- functions for archs using pt_regs
-Message-ID: <20241009094321.3f41f8a4@gandalf.local.home>
-In-Reply-To: <20241009134723.6b9eabfdc3cfee10f3757d85@kernel.org>
-References: <20241008230527.674939311@goodmis.org>
-	<20241008230629.118325673@goodmis.org>
-	<20241009134723.6b9eabfdc3cfee10f3757d85@kernel.org>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	id 1syXL2-00000009WlL-2MCC;
+	Wed, 09 Oct 2024 14:06:54 +0000
+Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
+	by mailfout.phl.internal (Postfix) with ESMTP id EEAA61380261;
+	Wed,  9 Oct 2024 10:06:48 -0400 (EDT)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-10.internal (MEProxy); Wed, 09 Oct 2024 10:06:48 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1728482808;
+	 x=1728569208; bh=7AEiig9c/7wiIG97Hr2tulDdk8lJo3CwPWgfvG3cqr0=; b=
+	oQOs8kCK/NnoDFbeh8NYIFgnU7EWDJq210AZ17pgPcVr0s8t4Vq4QjsRC0QOkm8Q
+	jU6UCfS39M7vux56KrOng2F6Y0yrmrZzpWAKeXdUH11BGy73irTZQZopAtPBoIkT
+	1qC9nbDwA8/QYmCZINeI38PZMF52GH342I+9Xx4uF8HHCQoNYhw+Gl6pC0Fq/eRT
+	sKFmEByr3o62fi0DvAiYokJQUdQeXxzYLELzNb+wrIAU5eDcakrfFxQHKQxdH1O9
+	SfHAqBhlAMLApF0BxQP2CZcSwupwtvb+I4PNSyMIrfCHzthssd5U3WwMYy/6epDW
+	rVBtFbK/Zt7gxM1+EguZpg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1728482808; x=
+	1728569208; bh=7AEiig9c/7wiIG97Hr2tulDdk8lJo3CwPWgfvG3cqr0=; b=o
+	MeceCAtz/bmQ10Z5D2RfVpXPfnSZkZguqJBx9lKa+IB8SFlwBCPlk5eEgsedk1Ie
+	lXF69pWqnMlOmP8/el8nzFs+N+NKzBsmp91Bivm/h9eXpymcH4Zmlqw+RhggqN5v
+	usMX3ePPR7QMH2UIKTSUK5NKiCsVomo/cryyyOEe4cHwZWQ8kdXYlrry93U9sDmP
+	SfRh7XW/SZAqG14pXP1hy4afWVVe8+b+b1MEnAvf/sRjrbTolgC7ZYkemBMpUUMw
+	AKYoXUl+0OsZy23/NtcODfuTUpj4FP4ZVjVxsYouXmnW5e1V615fvPw2n3qtF3rL
+	qCd2RQ66eCJAJaUhMoWfw==
+X-ME-Sender: <xms:-I0GZwkgABMbFhbjz5TAOeVpoKCpcWalQaX4IdSNB_nP5VmiOxElgw>
+    <xme:-I0GZ_3VF9LLk4LXZvZCIUX45tmeF4wKrKwW8xtPlyIdYcfa4bEIMHpaaENRKTmSm
+    4hUYMbpzfQANV3Cbyg>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddrvdeffedgjeehucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
+    rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
+    htshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddt
+    necuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrd
+    guvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefg
+    gfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpe
+    hmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepudel
+    pdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnh
+    gvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhig
+    qdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplh
+    hinhhugidqshhnphhsqdgrrhgtsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhr
+    tghpthhtoheplhhinhhugidquhhmsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpd
+    hrtghpthhtoheplhhinhhugidqmheikehksehlihhsthhsrdhlihhnuhigqdhmieekkhdr
+    ohhrghdprhgtphhtthhopehlohhonhhgrghrtghhsehlihhsthhsrdhlihhnuhigrdguvg
+    hvpdhrtghpthhtoheplhhinhhugihpphgtqdguvghvsehlihhsthhsrdhoiihlrggsshdr
+    ohhrghdprhgtphhtthhopehhtghhsehlshhtrdguvgdprhgtphhtthhopehlihhnuhigqd
+    grlhhphhgrsehvghgvrhdrkhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:-I0GZ-rCA4Fl-YeMz1EBuIcKDdpCuuOpo3T0vD4P-oZf1RDDpjgaqQ>
+    <xmx:-I0GZ8mlUzBY8q2JinIfwPVZi9LXVI32mxMdmVvdp7L9Ai9Y55jtVA>
+    <xmx:-I0GZ-3wHxqRWliSbYlqcPrqe2D1EgoLFl-IXjLV57dSVwzcK3wCfg>
+    <xmx:-I0GZzsfcfMxXvtiXOnA8c6Djn-ORiK0A1lBW73Gqi1mdoezKwNZiQ>
+    <xmx:-I0GZ1v-G53-56c9PHxvQsMFLRDeTrW4Vm6CR0BrqtzB4K1yF0i2ERan>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 6D3232220071; Wed,  9 Oct 2024 10:06:48 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
+Date: Wed, 09 Oct 2024 14:06:27 +0000
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Christoph Hellwig" <hch@lst.de>
+Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+ linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ "linux-openrisc@vger.kernel.org" <linux-openrisc@vger.kernel.org>,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-um@lists.infradead.org, Linux-Arch <linux-arch@vger.kernel.org>
+Message-Id: <3e12014e-47a7-4cae-bcd1-87d301e1f80c@app.fastmail.com>
+In-Reply-To: <20241009114334.558004-2-hch@lst.de>
+References: <20241009114334.558004-1-hch@lst.de>
+ <20241009114334.558004-2-hch@lst.de>
+Subject: Re: [PATCH] asm-generic: provide generic page_to_phys and phys_to_page
+ implementations
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241009_064321_937290_DBC669AE 
-X-CRM114-Status: GOOD (  18.06  )
+X-CRM114-CacheID: sfid-20241009_070653_035231_AD28E324 
+X-CRM114-Status: GOOD (  18.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,69 +125,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 9 Oct 2024 13:47:23 +0900
-Masami Hiramatsu (Google) <mhiramat@kernel.org> wrote:
+On Wed, Oct 9, 2024, at 11:43, Christoph Hellwig wrote:
+> page_to_phys is duplicated by all architectures, and from some strange
+> reason placed in <asm/io.h> where it doesn't fit at all.
+>
+> phys_to_page is only provided by a few architectures despite having a lot
+> of open coded users.
+>
+> Provide generic versions in <asm-generic/memory_model.h> to make these
+> helpers more easily usable.
+>
+> Signed-off-by: Christoph Hellwig <hch@lst.de>
 
-> > --- /dev/null
-> > +++ b/include/linux/ftrace_regs.h
-> > @@ -0,0 +1,36 @@
-> > +/* SPDX-License-Identifier: GPL-2.0 */
-> > +#ifndef _LINUX_FTRACE_TYPES_H
-> > +#define _LINUX_FTRACE_TYPES_H  
->                ^^^^^^^^^^^^^^^^  Is this _LINUX_FTRACE_REGS_H?
+This is clearly a good idea, and I'm happy to take that through
+the asm-generic tree if there are no complaints.
 
-Ah, I originally called it ftrace_types.h, but later decided that name
-didn't really fit. I changed all references to it but this one.
+Do you have any other patches that depend on it?
 
-Thanks for catching this.
+> -/*
+> - * Change "struct page" to physical address.
+> - */
+> -static inline phys_addr_t page_to_phys(struct page *page)
+> -{
+> -	unsigned long pfn = page_to_pfn(page);
+> -
+> -	WARN_ON(IS_ENABLED(CONFIG_DEBUG_VIRTUAL) && !pfn_valid(pfn));
+> -
+> -	return PFN_PHYS(pfn);
+> -}
 
+This part is technically a change in behavior, not sure how
+much anyone cares.
+
+> diff --git a/include/asm-generic/memory_model.h 
+> b/include/asm-generic/memory_model.h
+> index 6796abe1900e30..3d51066f88f819 100644
+> --- a/include/asm-generic/memory_model.h
+> +++ b/include/asm-generic/memory_model.h
+> @@ -64,6 +64,9 @@ static inline int pfn_valid(unsigned long pfn)
+>  #define page_to_pfn __page_to_pfn
+>  #define pfn_to_page __pfn_to_page
 > 
-> 
-> > +
-> > +/*
-> > + * For archs that just copy pt_regs in ftrace regs, it can use this default.
-> > + * If an architecture does not use pt_regs, it must define all the below
-> > + * accessor functions.
-> > + */
-> > +#ifndef HAVE_ARCH_FTRACE_REGS
-> > +struct __arch_ftrace_regs {
-> > +	struct pt_regs		regs;
-> > +};
-> > +
-> > +#define arch_ftrace_regs(fregs) ((struct __arch_ftrace_regs *)(fregs))
-> > +
-> > +struct ftrace_regs;
-> > +
-> > +#define ftrace_regs_get_instruction_pointer(fregs) \
-> > +	instruction_pointer(arch_ftrace_get_regs(fregs))
-> > +#define ftrace_regs_get_argument(fregs, n) \
-> > +	regs_get_kernel_argument(arch_ftrace_get_regs(fregs), n)
-> > +#define ftrace_regs_get_stack_pointer(fregs) \
-> > +	kernel_stack_pointer(arch_ftrace_get_regs(fregs))
-> > +#define ftrace_regs_return_value(fregs) \
-> > +	regs_return_value(arch_ftrace_get_regs(fregs))
-> > +#define ftrace_regs_set_return_value(fregs, ret) \
-> > +	regs_set_return_value(arch_ftrace_get_regs(fregs), ret)
-> > +#define ftrace_override_function_with_return(fregs) \
-> > +	override_function_with_return(arch_ftrace_get_regs(fregs))
-> > +#define ftrace_regs_query_register_offset(name) \
-> > +	regs_query_register_offset(name)
-> > +
-> > +#endif /* HAVE_ARCH_FTRACE_REGS */
-> > +
-> > +#endif /* _LINUX_FTRACE_TYPES_H */  
-> 
-> Ditto.
-> 
-> Others looks good to me.
-> 
-> Acked-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+> +#define page_to_phys(page)	__pfn_to_phys(page_to_pfn(page))
+> +#define phys_to_page(phys)	pfn_to_page(__phys_to_pfn(phys))
 
-Thanks,
+I think we should try to have a little fewer nested macros
+to evaluate here, right now this ends up expanding
+__pfn_to_phys, PFN_PHYS, PAGE_SHIFT, CONFIG_PAGE_SHIFT,
+page_to_pfn and __page_to_pfn. While the behavior is fine,
+modern gcc versions list all of those in an warning message
+if someone passes the wrong arguments.
 
-I'll send a v2 with this update.
+Changing the two macros above into inline functions
+would help as well, but may cause other problems.
 
--- Steve
+On a related note, it would be even better if we could come
+up with a generic definition for either __pa/__va or
+virt_to_phys/phys_to_virt. Most architectures define one
+of the two pairs in terms of the other, which leads to
+confusion with header include order.
+
+      Arnd
 
 _______________________________________________
 linux-riscv mailing list
