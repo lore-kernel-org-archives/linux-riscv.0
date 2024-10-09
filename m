@@ -4,63 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D90B2CEE330
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Oct 2024 17:31:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81E2DCEE336
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Oct 2024 17:32:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HLGstsVhfYbW8ANODNfGODVOD0XfMo+t5sNj1xgK4yI=; b=VpT7wHpOP7BrcL
-	F8Vqabu0F7mzr60ju2VW9ugbPAtoA5+RVjCnpKMZ8axY7gu9KVruIdOhd+t/OzRoWzpnnrvta2my5
-	pmiD/bFt+l8sWIG+SooPghPnzBgpob+bRQqlTFbO8Qy/DZnXY5pwownaMwIzIr3U3Ot57Ssa3rm2T
-	jaS7qsyu5BArYMkiUNy8h8F9OicowIH7ufbj4IqrMgKj1dEZ0kU40eYOgNLb0bJyZDXM1Se+Qm1gh
-	lvhsh3coDstsLfksOegdM/o4EE0q7QLk1aRtkZXlBhlCDZMzu+QIP99VMDyynLnLLivEPjdbJ+C8v
-	DRmhm1Jn6yiifI408wgQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=SG5RHQrnSWJfr0SXc6zdKPAEQm3HKCeKHjFJg59BDaQ=; b=Tbslp1gE3wjo5GP4c9Amwd0kvx
+	uagHyX8Z9rDN79WProayhhsSl8NebZXB0bT/QYyLfRiC2XmZujzkhAmjxmvI/oy0Q3tdl2Zdf9r1V
+	799Z7PRo/HFCMjXXK9UoDldObnC9RdUdCDdII9qSb8SGjKGB0JVRHL+L6uXEsudlUAiJ7f52VntHD
+	9tvb2Rm4h5pRpF28bm/cc8Yyk/rznQvq7q5SLT1K1nBAD421X/Pv8obtgB0fmpzI+/QtCcTg3u0VV
+	7Dv/h2Mmzm/1SJKgBOdvKMmN99cJXolTSakLi3wPblQjAwndDIx0meRmRh8mcAhzQPw4cX+fWlnHK
+	7gAjxl2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1syaX6-0000000ABQE-3T4W;
-	Wed, 09 Oct 2024 17:31:32 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1syaYP-0000000ABiN-0Z1u;
+	Wed, 09 Oct 2024 17:32:53 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1syZpw-0000000A3Kq-06Ks
+	id 1syZqQ-0000000A3UQ-0g1d
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 09 Oct 2024 16:47:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Mime-Version:Message-ID:To:From:CC:In-Reply-To:Subject:Date:Sender:Reply-To:
+	Content-ID:Content-Description:References;
+	bh=QfiegqTqluk30uW9InRvZdJt/6Vj6WI5QVJzRzWcgJs=; b=kWBq4VfGElZoyuhg0wHRZIOv51
+	xo38W4uPr6/e3m5XZU2M3smuGNuuNkQBck/GhO9A6otPE8jJybYnfiuwVNyAxY9pgoQHkRVQu7hH8
+	GC0dWZV8ydy4ZvB0KctMVcgmjPvMiWyU7utZH6s1VO8IfKaHk6mA9/9JZIm5Ji2cOaJoRSbS0jzHq
+	HiaQZyg74qBb9IsSxSYTE6GFCoS4lnDeBln5kjGAWwKzBZcZcPHi+fVkeQtLvBX72oqvil+dJvHaC
+	pgRPi0uSd1zrL4n6QFebYKfXMpMyDV6n4FRpjZkmKcB9M9RsN2jMHqZP90o9hQ0qAV3Jfv/oc/rLx
+	ZzUQTz/A==;
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1syZqN-000000052vr-0Wa1
 	for linux-riscv@lists.infradead.org;
-	Wed, 09 Oct 2024 16:46:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 09AD95C5B10;
-	Wed,  9 Oct 2024 16:46:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 568BAC4CECF;
-	Wed,  9 Oct 2024 16:46:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1728492414;
-	bh=OmUs304wMc8OK5lHEiBWvh96Qrjet1ngSTlBlstJqAo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iF5Mti5m4olXLIOVYHM8rSy1xq5UqaFJPLryvEwEvnBQouEZRNjhtRp5b3D1mV+hD
-	 EmRdFaGTXK09hR3XM1UeEPopJlTvjvOiX3Ffg9hzg/TZFwUy1Vd0s1YNgkjqc7yRt2
-	 xnHtgSgFHKp3LmRMQ2xaZdzNZGgfnjfD96055vhPBT4IM+9cQu+ERhGNO0UBhcVx8F
-	 ye0Q+1txEcNEOhA7KR5FOKonT9gE8DmTJjnnfWzqbQ5RRBy8vuuDzO1tFSthAV90ud
-	 PAbn8/ERxvU49bKoXta+9B9x+tRI3k8xkjnzD/r/IMBF787TKZ6Xc5abuBRxhBFLgi
-	 i1kiey/20DKMA==
-Date: Wed, 9 Oct 2024 06:46:53 -1000
-From: Tejun Heo <tj@kernel.org>
-To: =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>
-Cc: David Vernet <void@manifault.com>, Shuah Khan <shuah@kernel.org>,
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	Mark Brown <broonie@kernel.org>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
-	Anders Roxell <anders.roxell@linaro.org>
-Subject: Re: [PATCH v3] selftests: sched_ext: Add sched_ext as proper
- selftest target
-Message-ID: <ZwazfdmNiPmCnWUK@slm.duckdns.org>
-References: <20241008153519.1270862-1-bjorn@kernel.org>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241008153519.1270862-1-bjorn@kernel.org>
+	Wed, 09 Oct 2024 16:47:24 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-20c70abba48so5594735ad.0
+        for <linux-riscv@lists.infradead.org>; Wed, 09 Oct 2024 09:47:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1728492441; x=1729097241; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=QfiegqTqluk30uW9InRvZdJt/6Vj6WI5QVJzRzWcgJs=;
+        b=poyPFmch+pf5Yc9MeOlFmtJQByfKsRFfiZlPnpNtQaTcg37CHfoCBtt9utXmRwuPsw
+         hYy2UJz/uAZy27KxxW6S82qVYZVjVpEHaGAuNxPq7DkpZgIA9nX0HxTg2wQHMekt94Cj
+         XiReJ4kxuQVgK4xIrZCtlyIA9kH+i/hr/QJfftKjb7Gdj76kF5tW0tP+F3hwb8x72vxV
+         vQEGtdq+J4Yc6ZRJSUAviAOliVwyzzwdDEkEthjnb4yFkXT8mpWN33JX5boLNAnPuUpO
+         s9HrZ/g15U9hKgC54L4eXC7zj4y0SEKc15ttUZ+iz86ZPPZy2ihCjDMFzAHJm4Sla3W4
+         I3lA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1728492441; x=1729097241;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QfiegqTqluk30uW9InRvZdJt/6Vj6WI5QVJzRzWcgJs=;
+        b=VnsJIIyl+hIM462WIfniAiIjfLi34uqs/5B1z3ABTWU8DhQPa3iZ6GVLJMOZAtzQQw
+         snRS2tNsp5g831LlYsGqfrGTTvwsSPDHU+XFFhXcOAaguvZPPH3cLxU2va3C5MgORA35
+         SNa1YaAHpcojBja8pIEWZC5gok3MQKixrJ6xQZNybohC1F9VXfTgUmam6DNzfepReCZt
+         2o8HJ0NRYWmClknqxIo3dDaPOLDelaEMqtKaj2O4TH2fDPsOXiCQvdHdU81AD2aGLQYv
+         SL6JC/D1qxWQZ6t190YeZ8NDZp9tO6J99ipp+rWi69vgN0+OXrUXnbKwq9qWhz6bWW+Q
+         7kkg==
+X-Forwarded-Encrypted: i=1; AJvYcCWlmP+FxwClPea9XB1EJ7FsSLGACFS+onhFwJVIBGog58XtpwB5MoehrNnjz4MmcafkCDT+hu4UzJ4pkg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyvxsut7owzXD543KZ07G9otJ4j2HTHPNZMU209Q6HpKmPaSuMV
+	zxDjNMF7HP9QjMsZ93NvMKNDUzSrH42bsN2/vZ+YeHJcq7gz0kxsQLw99XoyjAc=
+X-Google-Smtp-Source: AGHT+IGro+ekaLb+vYWsCnr5zKEX15a+MHGaD6eX5gY1Apv6RjvWXyRZ3YU9RjBVYsXxt0KV9OJLKA==
+X-Received: by 2002:a17:902:e892:b0:20c:62e1:6361 with SMTP id d9443c01a7336-20c6374101cmr43814475ad.25.1728492440634;
+        Wed, 09 Oct 2024 09:47:20 -0700 (PDT)
+Received: from localhost ([192.184.165.199])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-20c13988d4csm72448945ad.260.2024.10.09.09.47.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 09 Oct 2024 09:47:20 -0700 (PDT)
+Date: Wed, 09 Oct 2024 09:47:20 -0700 (PDT)
+X-Google-Original-Date: Wed, 09 Oct 2024 09:47:18 PDT (-0700)
+Subject: Re: [PATCH 3/3] riscv: Allow to enable PREEMPT_RT.
+In-Reply-To: <20240917104409.b9nGBsc8@linutronix.de>
+CC: namcao@linutronix.de, tglx@linutronix.de, linux-arm-kernel@lists.infradead.org,
+  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, x86@kernel.org, hpa@zytor.com,
+  aou@eecs.berkeley.edu, bp@alien8.de, Catalin Marinas <catalin.marinas@arm.com>, williams@redhat.com,
+  dave.hansen@linux.intel.com, mingo@redhat.com, john.ogness@linutronix.de,
+  Paul Walmsley <paul.walmsley@sifive.com>, pmladek@suse.com, senozhatsky@chromium.org, rostedt@goodmis.org,
+  Will Deacon <will@kernel.org>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: bigeasy@linutronix.de
+Message-ID: <mhng-5582a629-6b81-4a32-bcbe-02f2e177fe99@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241009_094656_128733_976AF500 
-X-CRM114-Status: GOOD (  11.88  )
+X-CRM114-CacheID: sfid-20241009_174723_366106_04DC583D 
+X-CRM114-Status: GOOD (  17.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,57 +106,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 08, 2024 at 05:35:18PM +0200, Bj=F6rn T=F6pel wrote:
-> From: Bj=F6rn T=F6pel <bjorn@rivosinc.com>
-> =
+On Tue, 17 Sep 2024 03:44:09 PDT (-0700), bigeasy@linutronix.de wrote:
+> On 2024-09-06 11:48:03 [-0700], Palmer Dabbelt wrote:
+>> I don't have a test setup yet, but I figure it's a new feature so I'll just
+>> flip it on as a config post-rc1.  Presumably this just works in the QEMU
+>> virt board, or is there some wizardry I'll need to copy?
+>
+> I don't think you want to enable it by default for everyone. The riscv
+> defconfig sets CONFIG_PREEMPT_NONE=y by default. For testing you need to
+> flip this to CONFIG_PREEMPT_RT=y and since CONFIG_EXPERT=y is already
+> set this option is available.
+> And yes, it works on the virt board and there is no wizardry needed ;)
 
-> The sched_ext selftests is missing proper cross-compilation support, a
-> proper target entry, and out-of-tree build support.
-> =
+Sorry I missed this.  Just in case anyone's curious: I'm not flipping it 
+on by default or anything, just adding a CONFIG_PREEMPT_RT=y 
+configuration to the list of things I test before pushing to 
+for-next or fixes.
 
-> When building the kselftest suite, e.g.:
-> =
-
->   make ARCH=3Driscv CROSS_COMPILE=3Driscv64-linux-gnu-  \
->     TARGETS=3Dsched_ext SKIP_TARGETS=3D"" O=3D/output/foo \
->     -C tools/testing/selftests install
-> =
-
-> or:
-> =
-
->   make ARCH=3Darm64 LLVM=3D1 TARGETS=3Dsched_ext SKIP_TARGETS=3D"" \
->     O=3D/output/foo -C tools/testing/selftests install
-> =
-
-> The expectation is that the sched_ext is included, cross-built, the
-> correct toolchain is picked up, and placed into /output/foo.
-> =
-
-> In contrast to the BPF selftests, the sched_ext suite does not use
-> bpftool at test run-time, so it is sufficient to build bpftool for the
-> build host only.
-> =
-
-> Add ARCH, CROSS_COMPILE, OUTPUT, and TARGETS support to the sched_ext
-> selftest. Also, remove some variables that were unused by the
-> Makefile.
-> =
-
-> Signed-off-by: Bj=F6rn T=F6pel <bjorn@rivosinc.com>
-
-Applied to sched_ext/for-6.12-fixes.
-
-Thanks.
-
--- =
-
-tejun
+>
+> Sebastian
 
 _______________________________________________
 linux-riscv mailing list
