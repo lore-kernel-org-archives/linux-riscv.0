@@ -4,78 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59861CEE339
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Oct 2024 17:49:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29C08CEE339
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Oct 2024 17:53:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=SVJomMHDPREWZC0G409y8yw1V+7o5930kuKtL+Mhfh4=; b=1xmeeoBDGEcVGxUZ2W5TiH31dy
-	KfIq89XroPZn8aInM0AYslxdYA0V/zAgvTaoA4gap9HTqm0vF4v9goFL/1rKvZFEJjhFFFmvVBG3e
-	ipYkPDxVhWlKgmArbscmunZwpdVxST8OQ+GWMVC9J8ufHtz5ZJXY0Vkcn194tK/WnRCgMSP51r8hI
-	xBVSJQN223OKaxpsakGsQ+tiGm+XxnGED1m4cvLdOd7f3/UM8Qqvs9PBsByHOQ4OPTCjTlHXww68y
-	I3FZH/gjjCDWa8itGhdy0PnbKPPJsfzZIsp1H1cW3e+Qydv6WKenBMi61Fr24SmJCIe73CT3T3Ce5
-	FtgX3Zmw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=hL5hXy7gd4Ftwqmuyu2GHmlF8/ZQlx3ylyCPFGiKMQY=; b=LwiiGnFUlF0xh8
+	dnrs8fp72VwIKdhKgcUqsScaKzN/9Q+fYF0xZZOFv+K/c6LhPgvMpNMiAIa08S3wtF+D/LYuA/1j1
+	loH+T775aMv0NIHfsDatmuEXNSbk+ADKwZA3vT2qctC3pUB3IEumgJLCxR9eyoWaxsCK9Qea1IE14
+	vsBvEXdJBhftjM+pX+0NN0Yt2e3RdbFrT4O0w2gquYl6XV7w9uZ6im4JD0Bxumq0pK6atf7ii8rtK
+	jyzriQhIQYLmSYz6hXkzeyo4cuLsBhR4wnuYNUtJji1YiEUEXXSdG2UrAXNW5DAtbPitl6K6/RADp
+	TMvPB3OAyX9dRxGQtGzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1syaoM-0000000AGMF-1GEj;
-	Wed, 09 Oct 2024 17:49:22 +0000
-Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
+	id 1syasO-0000000AHS9-3WUp;
+	Wed, 09 Oct 2024 17:53:33 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1syaKg-0000000A9Ia-2uj2
-	for linux-riscv@lists.infradead.org;
-	Wed, 09 Oct 2024 17:18:44 +0000
-Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-7ea0728475dso66616a12.0
-        for <linux-riscv@lists.infradead.org>; Wed, 09 Oct 2024 10:18:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1728494321; x=1729099121; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=tE15ibMGDi+NxxTDjcKlwgS0dglI70fk+X+ersajG3M=;
-        b=kNiedU2uZ6rouuUsjQEHuj4ZudgqsHN3ihTfgsgDRQ92w5S2seZxjr3naFjMeeKKfc
-         QHn2ip+k/5VOSwni3t9RfERh5c1qg3wjUrzpn4d0WoRjIK57mr3f6dLMeNKbVpyxRayI
-         66lV0p5yJxlxEhJhTSOJOaaouNB46UGohwXureFtF6xv1E2RdP9exVb3XLe1lS5PjJFY
-         1hpapW4shd7hBJWGcg0HWTRM2IMhNHuug5IRN/40XXxc75ROldS3aJ69nOHsl5btmAwH
-         YBCRXgM+IHStx6ZqlFinpgFndRajDXaW/CTu3Fm7aNJolTQcVDgbXn4H2hwG5N6DVpQE
-         63xw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728494321; x=1729099121;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tE15ibMGDi+NxxTDjcKlwgS0dglI70fk+X+ersajG3M=;
-        b=JyBKEMx9s83uI8PFuEh0gVdR74qtn+m9wzNf7OddGmLeIDvnr4TZQlEpalmikKMHBC
-         5WOO2lZPCKM4RetTGX9VfY2PgyzYmPAoobwvYEDQG5i4pGe99tLW+DCUq2ozmIY9jtDg
-         x1wjbRY3ay1BVEDr7sVKnMfTOO+0prO8DQhpYrphnDnXSYCE//w6DdJ+EdotcDvA5qPW
-         kn0+AJfSqEyGXMFc2QrSmPe7Nteyf1eUzt2+QIeH3Q0sJ9ToAxca6VZbITGjuF5dRbuX
-         NDyFfjGHvFGrrg2jJRdtjH8LwpMhoCHXgSTOomFNaxzTApnJYqZUT91DN3KVxVD2joIb
-         xJGg==
-X-Gm-Message-State: AOJu0YxvFgzpcvAFDQKOqdbDLfv28gOVhgNIHggWKOhKQoBjKaFs1TRR
-	7WTMGUWu7TUZlX/sxUjdjGJ8iuO+FG8O8bKLoCNHT/KbEwBuKYug1s75dzSZatFgpQpYcEWAg8A
-	d
-X-Google-Smtp-Source: AGHT+IH+dUdqWJdilHkcfNrwnO/4bpYGAbPTeUc897OZzGRUfL0r6Othkiqnq9rjY7iXezEC0dz7jw==
-X-Received: by 2002:a17:90a:d913:b0:2e0:89f2:f60c with SMTP id 98e67ed59e1d1-2e2c805fe05mr543826a91.11.1728494320877;
-        Wed, 09 Oct 2024 10:18:40 -0700 (PDT)
-Received: from localhost ([192.184.165.199])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e2a8dd0fa9sm1849185a91.50.2024.10.09.10.18.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Oct 2024 10:18:40 -0700 (PDT)
-Date: Wed, 09 Oct 2024 10:18:40 -0700 (PDT)
-X-Google-Original-Date: Wed, 09 Oct 2024 10:18:38 PDT (-0700)
-Subject: Re: [PATCH] tools: add forwarding header for arch/riscv/include/asm/fence.h
-In-Reply-To: <mvm5xq44bqh.fsf@suse.de>
-CC: linux-riscv@lists.infradead.org, Charlie Jenkins <charlie@rivosinc.com>,
-  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, parri.andrea@gmail.com, linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: schwab@suse.de
-Message-ID: <mhng-adb76a44-07c8-442c-8bcf-6f29d061c031@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+	id 1syahK-0000000ADia-0w23;
+	Wed, 09 Oct 2024 17:42:09 +0000
+Date: Wed, 9 Oct 2024 19:41:53 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1728495721;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=F4NzPkzSamq4wPYIyI+V3fbrjzREE47+0T16MjDevhc=;
+	b=idoToPjW9IIZDH/PieIO/xxWGI8o2a+8YKU9EqXIGvgD4bK9DJWpyIR91/icnaVlAVJ/cs
+	hvy9Xf2eOZaFWG1V33MriNkIp6WfyRe4n2LD2agxMzks3JRrc135cJxP8HYXvndmwodjDL
+	pQ8madiYCpyO19nV3/IFPWvojj8fRnzCWr9DAN6/1r5YoqDdSa7aumXTco8TBmNuqv5nDR
+	agxiBOhRXz2P+XKKOsnhcbph9u7DNiO0gCcoiL4OSPPdrqZUoo0vwTx1p9lmjbkkfNlW1y
+	ZidEgGlHPeLFPK5RfT+OlSeINWEaGpb5oH6xnetNXtYkyv0XgYlnoQ9ek08bEQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1728495721;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=F4NzPkzSamq4wPYIyI+V3fbrjzREE47+0T16MjDevhc=;
+	b=LwR2683q1ylEqzRdIPdSCiWK0i6OwtiwyUSJV+XPu9jSgQYG19E8HY0FpS4GTHltIOHTFP
+	A3UfX/d5ECyPvfDg==
+From: Nam Cao <namcao@linutronix.de>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: bigeasy@linutronix.de, tglx@linutronix.de,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, x86@kernel.org, hpa@zytor.com,
+	aou@eecs.berkeley.edu, bp@alien8.de,
+	Catalin Marinas <catalin.marinas@arm.com>, williams@redhat.com,
+	dave.hansen@linux.intel.com, mingo@redhat.com,
+	john.ogness@linutronix.de, Paul Walmsley <paul.walmsley@sifive.com>,
+	pmladek@suse.com, senozhatsky@chromium.org, rostedt@goodmis.org,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH 3/3] riscv: Allow to enable PREEMPT_RT.
+Message-ID: <20241009174153.Hk5MGakp@linutronix.de>
+References: <mhng-64eec780-df98-4e8d-bf6c-0aa07a8d85da@palmer-ri-x1c9>
+ <mhng-f0f516a0-6774-4c87-b8da-313601bad133@palmer-ri-x1c9>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <mhng-f0f516a0-6774-4c87-b8da-313601bad133@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241009_101842_752090_565D6BB6 
-X-CRM114-Status: GOOD (  15.79  )
+X-CRM114-CacheID: sfid-20241009_104206_665113_F813BB84 
+X-CRM114-Status: GOOD (  23.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,35 +78,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 07 Oct 2024 00:24:06 PDT (-0700), schwab@suse.de wrote:
-> This is needed so that <asm/barrier.h> can find <asm/fence.h> on riscv.
->
-> Fixes: 6d74d178fe6e ("tools: Add riscv barrier implementation")
-> Signed-off-by: Andreas Schwab <schwab@suse.de>
-> ---
->  tools/include/asm/fence.h | 3 +++
->  1 file changed, 3 insertions(+)
->  create mode 100644 tools/include/asm/fence.h
->
-> diff --git a/tools/include/asm/fence.h b/tools/include/asm/fence.h
-> new file mode 100644
-> index 000000000000..917a173059a4
-> --- /dev/null
-> +++ b/tools/include/asm/fence.h
-> @@ -0,0 +1,3 @@
-> +#if defined(__riscv)
-> +#include "../../arch/riscv/include/asm/fence.h"
-> +#endif
+On Wed, Oct 09, 2024 at 09:44:59AM -0700, Palmer Dabbelt wrote:
+> On Fri, 06 Sep 2024 11:48:03 PDT (-0700), Palmer Dabbelt wrote:
+> > On Fri, 06 Sep 2024 08:13:24 PDT (-0700), namcao@linutronix.de wrote:
+> > > On Fri, Sep 06, 2024 at 12:59:06PM +0200, Sebastian Andrzej Siewior wrote:
+> > > > It is really time.
+> > > > 
+> > > > riscv has all the required architecture related changes, that have been
+> > > > identified over time, in order to enable PREEMPT_RT. With the recent
+> > > > printk changes, the last known road block has been addressed.
+> > > > 
+> > > > Allow to enable PREEMPT_RT on riscv.
+> > > > 
+> > > > Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+> > > 
+> > > With the printk patches applied:
+> > > 
+> > > Tested-by: Nam Cao <namcao@linutronix.de> # Visionfive 2
+> > 
+> > 
+> > Thanks.  LMK if you guys want me to take this through the RISC-V tree,
+> > but no big deal if you want it somewhere else -- and if there's some
+> > dependencies already going in through some sort of RT tree maybe that's
+> > just easier.  So
+> > 
+> > Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+> > 
+> > I don't have a test setup yet, but I figure it's a new feature so I'll
+> > just flip it on as a config post-rc1.  Presumably this just works in the
+> > QEMU virt board, or is there some wizardry I'll need to copy?
+> 
+> and it breaks my boot test script.  Looks like it's actually working mostly
+> fine, I'm just not getting the "reboot: System halted" message that I'm
+> checking for to make sure the system actually went down cleanly.
+> 
+> I'm not sure if this is expected behavior in RT land, or if we've got some
+> sort of bug.  It sort of smells like we're losing the last printk() line...
 
-Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+I also had some occasional problem with rebooting my Visionfive 2 board,
+which was fixed with:
+https://lore.kernel.org/lkml/20241003084152.2422969-1-namcao@linutronix.de/
 
-Happy to pick this up via the RISC-V tree if you want.  Thanks!
+Any chance this fixes your issue as well?
+
+Best regards,
+Nam
 
 _______________________________________________
 linux-riscv mailing list
