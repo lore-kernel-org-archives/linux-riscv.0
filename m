@@ -4,60 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76B6ACED61D
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Oct 2024 07:58:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5B9BCED61D
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Oct 2024 07:58:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=r6M4UJsifOywS0u6DJ7FJRxV212GvcCQWH2/59LRnBA=; b=YIHhS0aTPqRujw
-	g1Y2JqWi8fEA6lZc55vUrLgp69TXu8+WXB75DOUwulzITM2sEbZQRX/JGArkjvSVL4vJCAlqPpgiE
-	P824Et/7DPR6qXOjJs6QqQvxNjEtgVTm+xatkV2RKeWgdBj9MzQiWw1MRTYHlBtAmWzhuIYOHlh8W
-	8OXDhkcFj/iH952vfK+Sh9P/eZyD3gCWsx/8GlCeVzFq5rjUEYiLNgChM2ijX21k1h7iilP/dqUBg
-	5UmwzYWo+Aie7yMQITvJ90wpc20neXCNjf3itgBF/iZ+yGREPWszomvQgzbwPajjl3TAnRLHnoXg+
-	P+/WZ9BvsnoeU0gQeNkg==;
+	List-Owner; bh=S/6ymEvj8k1kGFZ0ahTtghegT98puzptCSOeLVFWn08=; b=yYMG3hJAhK/Tj2
+	793Z0vh1Sxt9ouSHZQ5iRIw5LXI1XD8owTpf5ipms176FvbPCBq2wq66NwUCOEqDSMRMaT0tEIHOR
+	tAZMjrOd31KTguvJSBAD377ySGBa3KEaO27ZVgskvjDNtQWrTOalF2zTxVz6JpIq6oW4/G1HCxPez
+	CJMHBmZ89FkHRDZ/rsLtgyUZ2wUkJOA+mTV49Pqt4W5VB6uYOOuG36jEkQObIMgvUCI5J86nOyO5u
+	xnTy1mbC4gf+gAqMgPVLbLbJ0GqYLkNg4LRBdGc9I5Z+JOo8ikFrgrujECzcCEUbeOLtmVsLoG5tV
+	ze9X1pbmslgqhgpI/Yiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1syRa5-00000008L4o-0Z9G;
-	Wed, 09 Oct 2024 07:58:01 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	id 1syRaD-00000008L93-0SFk;
+	Wed, 09 Oct 2024 07:58:09 +0000
+Received: from relay8-d.mail.gandi.net ([217.70.183.201])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1syRRy-00000008JHg-1iYb
+	id 1syRVD-00000008JuS-3KcY
 	for linux-riscv@lists.infradead.org;
-	Wed, 09 Oct 2024 07:49:41 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.194])
-	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4XNlPq48ZTzCt77;
-	Wed,  9 Oct 2024 15:48:47 +0800 (CST)
-Received: from kwepemh500013.china.huawei.com (unknown [7.202.181.146])
-	by mail.maildlp.com (Postfix) with ESMTPS id 327D8140123;
-	Wed,  9 Oct 2024 15:49:24 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- kwepemh500013.china.huawei.com (7.202.181.146) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 9 Oct 2024 15:49:23 +0800
-Message-ID: <2ff5834d-cb88-39f5-168d-8e179f152757@huawei.com>
-Date: Wed, 9 Oct 2024 15:49:22 +0800
+	Wed, 09 Oct 2024 07:53:01 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id D808D1BF208;
+	Wed,  9 Oct 2024 07:52:56 +0000 (UTC)
+Message-ID: <c5cd71d1-8779-45d9-965d-8459d060857b@ghiti.fr>
+Date: Wed, 9 Oct 2024 09:52:56 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.0
-Subject: Re: [PATCH] net/9p/usbg: Fix build error
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/1] riscv: efi: Set NX compat flag in PE/COFF header
 Content-Language: en-US
-To: <ericvh@kernel.org>, <lucho@ionkov.net>, <asmadeus@codewreck.org>,
-	<linux_oss@crudebyte.com>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
-	<aou@eecs.berkeley.edu>, <m.grzeschik@pengutronix.de>,
-	<gregkh@linuxfoundation.org>, <v9fs@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-References: <20240930081520.2371424-1-ruanjinjie@huawei.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20240930081520.2371424-1-ruanjinjie@huawei.com>
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
- kwepemh500013.china.huawei.com (7.202.181.146)
+To: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>,
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+References: <20240929140233.211800-1-heinrich.schuchardt@canonical.com>
+ <3c2ff70d-a580-4bba-b6e2-1b66b0a98c5d@ghiti.fr>
+ <811ea10e-3bf1-45a5-a407-c09ec5756b48@canonical.com>
+ <2d907c14-5b43-446e-9640-efb0fa0ba385@ghiti.fr>
+ <a3308767-eb30-446b-8c70-32b36a3075e4@canonical.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <a3308767-eb30-446b-8c70-32b36a3075e4@canonical.com>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241009_004939_570921_3B7A1EEF 
-X-CRM114-Status: GOOD (  10.48  )
+X-CRM114-CacheID: sfid-20241009_005300_121789_A6BD2705 
+X-CRM114-Status: GOOD (  16.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,63 +63,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ping.
-
-On 2024/9/30 16:15, Jinjie Ruan wrote:
-> When CONFIG_NET_9P_USBG=y but CONFIG_USB_LIBCOMPOSITE=m and
-> CONFIG_CONFIGFS_FS=m, the following build error occurs:
-> 
-> 	riscv64-unknown-linux-gnu-ld: net/9p/trans_usbg.o: in function `usb9pfs_free_func':
-> 	trans_usbg.c:(.text+0x124): undefined reference to `usb_free_all_descriptors'
-> 	riscv64-unknown-linux-gnu-ld: net/9p/trans_usbg.o: in function `usb9pfs_rx_complete':
-> 	trans_usbg.c:(.text+0x2d8): undefined reference to `usb_interface_id'
-> 	riscv64-unknown-linux-gnu-ld: trans_usbg.c:(.text+0x2f6): undefined reference to `usb_string_id'
-> 	riscv64-unknown-linux-gnu-ld: net/9p/trans_usbg.o: in function `usb9pfs_func_bind':
-> 	trans_usbg.c:(.text+0x31c): undefined reference to `usb_ep_autoconfig'
-> 	riscv64-unknown-linux-gnu-ld: trans_usbg.c:(.text+0x336): undefined reference to `usb_ep_autoconfig'
-> 	riscv64-unknown-linux-gnu-ld: trans_usbg.c:(.text+0x378): undefined reference to `usb_assign_descriptors'
-> 	riscv64-unknown-linux-gnu-ld: net/9p/trans_usbg.o: in function `f_usb9pfs_opts_buflen_store':
-> 	trans_usbg.c:(.text+0x49e): undefined reference to `usb_put_function_instance'
-> 	riscv64-unknown-linux-gnu-ld: net/9p/trans_usbg.o: in function `usb9pfs_alloc_instance':
-> 	trans_usbg.c:(.text+0x5fe): undefined reference to `config_group_init_type_name'
-> 	riscv64-unknown-linux-gnu-ld: net/9p/trans_usbg.o: in function `usb9pfs_alloc':
-> 	trans_usbg.c:(.text+0x7aa): undefined reference to `config_ep_by_speed'
-> 	riscv64-unknown-linux-gnu-ld: trans_usbg.c:(.text+0x7ea): undefined reference to `config_ep_by_speed'
-> 	riscv64-unknown-linux-gnu-ld: net/9p/trans_usbg.o: in function `usb9pfs_set_alt':
-> 	trans_usbg.c:(.text+0x828): undefined reference to `alloc_ep_req'
-> 	riscv64-unknown-linux-gnu-ld: net/9p/trans_usbg.o: in function `usb9pfs_modexit':
-> 	trans_usbg.c:(.exit.text+0x10): undefined reference to `usb_function_unregister'
-> 	riscv64-unknown-linux-gnu-ld: net/9p/trans_usbg.o: in function `usb9pfs_modinit':
-> 	trans_usbg.c:(.init.text+0x1e): undefined reference to `usb_function_register'
-> 
-> Select the config for NET_9P_USBG to fix it.
-> 
-> Fixes: a3be076dc174 ("net/9p/usbg: Add new usb gadget function transport")
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> ---
->  net/9p/Kconfig | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/net/9p/Kconfig b/net/9p/Kconfig
-> index 63f988f0c9e8..ee967fd25312 100644
-> --- a/net/9p/Kconfig
-> +++ b/net/9p/Kconfig
-> @@ -43,6 +43,8 @@ config NET_9P_XEN
->  config NET_9P_USBG
->  	bool "9P USB Gadget Transport"
->  	depends on USB_GADGET=y || USB_GADGET=NET_9P
-> +	select CONFIGFS_FS
-> +	select USB_LIBCOMPOSITE
->  	help
->  	  This builds support for a transport for 9pfs over
->  	  usb gadget.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMDkvMTAvMjAyNCAwOTo0NywgSGVpbnJpY2ggU2NodWNoYXJkdCB3cm90ZToKPiBPbiAwOS4x
+MC4yNCAwOTozNCwgQWxleGFuZHJlIEdoaXRpIHdyb3RlOgo+PiBIaSBIZWlucmljaCwKPj4KPj4g
+T24gMDEvMTAvMjAyNCAxNzoyNCwgSGVpbnJpY2ggU2NodWNoYXJkdCB3cm90ZToKPj4+IE9uIDAx
+LjEwLjI0IDE1OjUxLCBBbGV4YW5kcmUgR2hpdGkgd3JvdGU6Cj4+Pj4gSGkgSGVpbnJpY2gsCj4+
+Pj4KPj4+PiBPbiAyOS8wOS8yMDI0IDE2OjAyLCBIZWlucmljaCBTY2h1Y2hhcmR0IHdyb3RlOgo+
+Pj4+PiBUaGUgSU1BR0VfRExMQ0hBUkFDVEVSSVNUSUNTX05YX0NPTVBBVCBpbmZvcm1zIHRoZSBm
+aXJtd2FyZSB0aGF0IHRoZQo+Pj4+PiBFRkkgYmluYXJ5IGRvZXMgbm90IHJlbHkgb24gcGFnZXMg
+dGhhdCBhcmUgYm90aCBleGVjdXRhYmxlIGFuZAo+Pj4+PiB3cml0YWJsZS4KPj4+Pj4KPj4+Pj4g
+VGhlIGZsYWcgaXMgdXNlZCBieSBzb21lIGRpc3RybyB2ZXJzaW9ucyBvZiBHUlVCIHRvIGRlY2lk
+ZSBpZiB0aGUgRUZJCj4+Pj4+IGJpbmFyeSBtYXkgYmUgZXhlY3V0ZWQuCj4+Pj4+Cj4+Pj4+IEFz
+IHRoZSBMaW51eCBrZXJuZWwgbmVpdGhlciBoYXMgUldYIHNlY3Rpb25zIG5vciBuZWVkcyBSV1gg
+cGFnZXMgZm9yCj4+Pj4+IHJlbG9jYXRpb24gd2Ugc2hvdWxkIHNldCB0aGUgZmxhZy4KPj4+Pj4K
+Pj4+Pj4gQ2M6IEFyZCBCaWVzaGV1dmVsIDxhcmRiQGtlcm5lbC5vcmc+Cj4+Pj4+IENjOiA8c3Rh
+YmxlQHZnZXIua2VybmVsLm9yZz4KPj4+Pj4gU2lnbmVkLW9mZi1ieTogSGVpbnJpY2ggU2NodWNo
+YXJkdCAKPj4+Pj4gPGhlaW5yaWNoLnNjaHVjaGFyZHRAY2Fub25pY2FsLmNvbT4KPj4+Pj4gLS0t
+Cj4+Pj4+IMKgIGFyY2gvcmlzY3Yva2VybmVsL2VmaS1oZWFkZXIuUyB8IDIgKy0KPj4+Pj4gwqAg
+MSBmaWxlIGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCspLCAxIGRlbGV0aW9uKC0pCj4+Pj4+Cj4+Pj4+
+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9lZmktaGVhZGVyLlMgCj4+Pj4+IGIvYXJj
+aC9yaXNjdi9rZXJuZWwvZWZpLSBoZWFkZXIuUwo+Pj4+PiBpbmRleCA1MTViMmRmYmNhNzUuLmM1
+ZjE3YzI3MTBiNSAxMDA2NDQKPj4+Pj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvZWZpLWhlYWRl
+ci5TCj4+Pj4+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL2VmaS1oZWFkZXIuUwo+Pj4+PiBAQCAt
+NjQsNyArNjQsNyBAQCBleHRyYV9oZWFkZXJfZmllbGRzOgo+Pj4+PiDCoMKgwqDCoMKgIC5sb25n
+wqDCoMKgIGVmaV9oZWFkZXJfZW5kIC0gX3N0YXJ0wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAvLyBT
+aXplT2ZIZWFkZXJzCj4+Pj4+IMKgwqDCoMKgwqAgLmxvbmfCoMKgwqAgMMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIC8vIENoZWNrU3VtCj4+Pj4+IMKgwqDCoMKgwqAgLnNo
+b3J0wqDCoMKgIElNQUdFX1NVQlNZU1RFTV9FRklfQVBQTElDQVRJT07CoMKgwqDCoMKgwqDCoCAv
+LyBTdWJzeXN0ZW0KPj4+Pj4gLcKgwqDCoCAuc2hvcnTCoMKgwqAgMMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgIC8vIERsbENoYXJhY3RlcmlzdGljcwo+Pj4+PiArwqDCoMKg
+IC5zaG9ydMKgwqDCoCBJTUFHRV9ETExfQ0hBUkFDVEVSSVNUSUNTX05YX0NPTVBBVMKgwqDCoCAv
+LyAKPj4+Pj4gRGxsQ2hhcmFjdGVyaXN0aWNzCj4+Pj4+IMKgwqDCoMKgwqAgLnF1YWTCoMKgwqAg
+MMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIC8vIFNpemVPZlN0YWNrUmVz
+ZXJ2ZQo+Pj4+PiDCoMKgwqDCoMKgIC5xdWFkwqDCoMKgIDDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoCAvLyBTaXplT2ZTdGFja0NvbW1pdAo+Pj4+PiDCoMKgwqDCoMKgIC5x
+dWFkwqDCoMKgIDDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAvLyBTaXpl
+T2ZIZWFwUmVzZXJ2ZQo+Pj4+Cj4+Pj4KPj4+PiBJIGRvbid0IHVuZGVyc3RhbmQgaWYgdGhpcyBm
+aXhlcyBzb21ldGhpbmcgb3Igbm90OiB3aGF0IGNvdWxkIGdvIAo+Pj4+IHdyb25nIGlmIHdlIGRv
+bid0IGRvIHRoaXM/Cj4+Pj4KPj4+PiBUaGFua3MsCj4+Pj4KPj4+PiBBbGV4Cj4+Pj4KPj4+Cj4+
+Pgo+Pj4gSGVsbG8gQWxleGFuZHJlLAo+Pj4KPj4+IGh0dHBzOi8vbGVhcm4ubWljcm9zb2Z0LmNv
+bS9lbi11cy93aW5kb3dzLWhhcmR3YXJlL2RyaXZlcnMvYnJpbmd1cC8gCj4+PiB1ZWZpLWNhLW1l
+bW9yeS1taXRpZ2F0aW9uLXJlcXVpcmVtZW50cwo+Pj4gZGVzY3JpYmVzIE1pY3Jvc29mdCdzIGVm
+Zm9ydCB0byBpbXByb3ZlIHNlY3VyaXR5IGJ5IGF2b2lkaW5nIG1lbW9yeSAKPj4+IHBhZ2VzIHRo
+YXQgYXJlIGJvdGggZXhlY3V0YWJsZSBhbmQgd3JpdGFibGUuCj4+Pgo+Pj4gSU1BR0VfRExMX0NI
+QVJBQ1RFUklTVElDU19OWF9DT01QQVQgaXMgYW4gYXNzZXJ0aW9uIGJ5IHRoZSBFRkkgCj4+PiBi
+aW5hcnkgdGhhdCBpdCBkb2VzIG5vdCB1c2UgUldYIHBhZ2VzLiBJdCBtYXkgdXNlIHRoZSAKPj4+
+IEVGSV9NRU1PUllfQVRUUklCVVRFX1BST1RPQ09MIHRvIHNldCB3aGV0aGVyIGEgcGFnZSBpcyB3
+cml0YWJsZSBvciAKPj4+IGV4ZWN1dGFibGUgKGJ1dCBub3QgYm90aCkuCj4+Pgo+Pj4gV2hlbiB1
+c2luZyBzZWN1cmUgYm9vdCwgY29tcGxpYW50IGZpcm13YXJlIHdpbGwgbm90IGFsbG93IGxvYWRp
+bmcgYSAKPj4+IGJpbmFyeSBpZiB0aGUgZmxhZyBpcyBub3Qgc2V0Lgo+Pgo+Pgo+PiBHcmVhdCwg
+c28gdGhhdCdzIGEgbmVjZXNzYXJ5IGZpeCwgaXQgd2lsbCBnZXQgbWVyZ2VkIGluIHRoZSBuZXh0
+IHJjIAo+PiBvciBzbzoKPj4KPj4gRml4ZXM6IGNiN2QyZGQ1NjEyYSAoIlJJU0MtVjogQWRkIFBF
+L0NPRkYgaGVhZGVyIGZvciBFRkkgc3R1YiIpCj4KPiBUaGFua3MgZm9yIHJldmlld2luZy4KPgo+
+IEF0IHRoZSB0aW1lIG9mIGNvbW1pdCBjYjdkMmRkNTYxMmEgKDIwMjAtMTAtMDIpIHRoZSByZXF1
+aXJlbWVudCBkaWQgCj4gbm90IGV4aXN0LiBJIGd1ZXNzIGEgRml4ZXM6IHRhZyBpcyBub3QgYXBw
+bGljYWJsZSB1bmRlciB0aGVzZSAKPiBjaXJjdW1zdGFuY2VzLgoKCkhtbSBvaywgaW5kZWVkIHRo
+YXQgd291bGQgYmUgd2VpcmQgc2luY2UgaXQgaXMgbm90IHRoZSBjdWxwcml0LCBJJ2xsIApyZW1v
+dmUgaXQgYW5kIGl0IHdpbGwgc2ltcGx5IGZhaWwgdG8gYXBwbHkgZm9yIGtlcm5lbHMgYmVmb3Jl
+IHRoaXMgCmNvbW1pdCwgbm8gYmlnIGRlYWwgSSBndWVzcy4KClRoYW5rcyBhZ2FpbiBIZWlucmlj
+aCEKCkFsZXgKCgo+Cj4gQmVzdCByZWdhcmRzCj4KPiBIZWlucmljaAoKX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
+CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
+cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
