@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57FF1CEE32A
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Oct 2024 16:10:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 175C8CEE326
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Oct 2024 16:10:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=r9tJQ0gZQEHHpYMWMvaC69K2slDVFjcI5w6Ge0tLa28=; b=hw6uue29UJY+LH
-	0707OC1ocEeNkgOvIoUObvm9BtdtcAJIFIp/KWa53XpscPUhg5wah2PCnxXuCY/6gwoRVSrnmJ2Fa
-	9zJ9EGEhnJdIcfpEJS459LbAfusQSHWwf3EG/5eawQXEL+Oq5wNMLEQZpZ1nE7QOc4e5AM8Racr3H
-	AHoq3MVetCnn7LohvuPq4XD0rT+HTiJYVD5nacAODvuT8qY1GqBYyGA1wQHr94x1liNYcZqUCdKAe
-	alU/5TbnH145AEuouB2z/Ye1xokRZvN3wPMqXZaU+gLDuDiWcp+snuDzXVnvFLOr3gUiq5aZylwJc
-	HDT0bOQIDC3/QiApx3WA==;
+	List-Owner; bh=OlierwfQZkEwi6pcot84/vJrpuPWfOvoop79xlg1k3w=; b=qi0KyIrPh5eqJh
+	dwstOz9J1xI46m4IhJ6JC85Ek1PdBYjJ5Dk4/KSmCXEFGRikKlSFD7F3oX7x6orVNUCrq1/+wZryq
+	KLpE6u0UJ5A+gGLz22wAXivPJBFmiOTEkaPj+fh4imRQMI01m1IS/Hq5fEqGFF1GuRN7sO44UCrqT
+	MZ8joJIGjbtD1ABGAMQrDfAXwGrnjGP1JRCSZc6/A9UBakyAC6Tb60x8QM41er9twBZcG3Ymn5xl8
+	OofSfXJhf21NwXFK+0QJMgmwge0IL2lj/EkoFhhBx5d+zmXbf3SxjAJnIoyd5QsejmTcCjBLkddWE
+	xs8dDBiENRObrXrGZqQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1syZGN-00000009sza-0jkg;
+	id 1syZGN-00000009szz-3T1V;
 	Wed, 09 Oct 2024 16:10:11 +0000
-Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
+Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1syYxC-00000009oEO-01xu
+	id 1syYxE-00000009oFn-1mOi
 	for linux-riscv@lists.infradead.org;
-	Wed, 09 Oct 2024 15:50:23 +0000
-Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-6e3231725c9so103857b3.1
-        for <linux-riscv@lists.infradead.org>; Wed, 09 Oct 2024 08:50:21 -0700 (PDT)
+	Wed, 09 Oct 2024 15:50:25 +0000
+Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-7e9b2d75d6dso5319268a12.1
+        for <linux-riscv@lists.infradead.org>; Wed, 09 Oct 2024 08:50:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1728489020; x=1729093820; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1728489023; x=1729093823; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=HIeWF4AKDrrEZVf143SgWaofUVl00+qhbF3Z20PXTUE=;
-        b=mNQZhTT/nIcpqDSE6yF1oaMMlUClm8MURuk7DtsQnYdRlW6UDYRDs7KgE29Ors4XVe
-         ssjLr06ATxKTPe0keijiTMwbtvlBQkl9++wLiIOekcXceifScc3sea4DETyd7FU51Cso
-         evzAfNpyyeCnDZh6bQkwiG/jo4+J7D63f98gWbnp7q48xu3lR55vVI0S5It2AvVAg12b
-         PdzJZ5PR4iC908H90CZV3WZuFH8AorasLKOPhYavma8fZSexiu2BhF0Ipyhd5KUcdiL9
-         M2Pz4g9AFazB12wTkqDnW/LeQW/v6Coq7DV+zH3e48lP8/MWHObtAX0Mt61rBlYIzcqA
-         f4jg==
+        bh=EGuxTu/doK/WQ641h0uZhH1HM6LHjGgjZS75tNbw6SU=;
+        b=iwb9EdFFySSuLf0USm+3X7FdBCzO6t4jXcJaBkkls/dV3S+trgbQ/zCwbS+SfkQzXR
+         nceGp18l6xNVFjwEZxQ8/CXEjdd+sqgfAOb6kaAxUUJrrVMMJqD5gQ4a7A7X1R6tsNHW
+         TWJSC8N4mHR8ImpIvEwquskOCHp4d2B0MmBAh2YiZyBVPOblXpbGErVlNk2oImq64VTe
+         zyIQBoyvmwyXCawjEqTHtKX7fUfQSwWk01bKwhLZSxhrUYKMw2yxFw5VAIpRJbyUQZHo
+         ol45pxlnBQ/go/frGovgtcuvBNB4Gj9SAEYuZd9q6dswyw09sd9mExF8wvOVF+KSamj7
+         Z9mg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728489020; x=1729093820;
+        d=1e100.net; s=20230601; t=1728489023; x=1729093823;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=HIeWF4AKDrrEZVf143SgWaofUVl00+qhbF3Z20PXTUE=;
-        b=RyAK3vD+kD5WraZkCH0LPgny3X4rgo5gsD4iFkgx1hpQWUhMw1wgxHxnrCVl9xl6g8
-         ceSyZ+y9RM62jMyK0IXaMgeJ+rRrjzbiQeNXC7S+3H+uYVMX7Hg5zShXr8p7JME3C9EU
-         2WrnQMfAaOdG38hsP5GeXVrYGQVZu4cNI1/CWnHSDo9IyMlPgAxaa7wrm3JvbVQPLlhz
-         X55iP8X6sZ+M8sJ7Xim9QKSVFqdNpWYyT4cpialiTxM7AOum/HR2aDbbKbNZ2twXIlgA
-         iOtSCVje1iy+dZnkLmCRMtrGZXovP4TplKX2YxAUV6GW8qM2R1eqewrJgR/nbA/hSDOW
-         MZXQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWm+QMaL0hou3CfsX8XXOxXvVfcLmFubvqvMEYwkmWbK42hb40MaMHxAhcQ1DPHouQ4DisHqmWc3g1+mg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxhPE7imVAauHocSx2sGDy336Iu8wcWqmPSOlT5FamYS6Ij2AHJ
-	N6bkmr61JBMp/zTOXO+PEdJoC7hwKn06d5r/rDlfuZrQpqtnf/F/0LuLw/505k4piKAL4/lc/VT
-	BnQ==
-X-Google-Smtp-Source: AGHT+IGckGzXTau4NGP/kAJ156CIPWl2QZt/eqMK5BUWyK8KyKg1g8Tc1FgMI3mqgA8yRsZ3clSiNLLsE+M=
+        bh=EGuxTu/doK/WQ641h0uZhH1HM6LHjGgjZS75tNbw6SU=;
+        b=ETsvI8+ofHC7GlNZ/hYAPtgfYnmngCZ5VmsB0eIhWmiaafz8NgpQkKlCj/Z2aXl0eh
+         Jgj4WyfDMgGXXXrnTyXialDdtc/SYZDgUERBMXSPR6HobB2aoEzCeGEyCy4GxO/t07CA
+         SKvcFjyQCviRFEDYmEe/aV5Qsb+WbUA3J3xuySm8fpnOHFbLX1sjfj4L+WniwtukIvHm
+         Tmh4ckvAteJjG+0ET6GfC3Rkmva9e4eYB3gm6a7wJ3+rXu+ulXPJBNnFmjN1dO70LC+Q
+         Be1cD5m5nsyy3xC0+s40lJ2dLpSWuq3YEFGXhUva4jGpnpYB8g3uLdCTKkogUX2MSRzc
+         mWIA==
+X-Forwarded-Encrypted: i=1; AJvYcCXGK8GNjlj5FBkZPSFZxO++WLgV1YOwTqQgPlz75wlQonW44yyx21el9EbQqvL7w9c3vNVHVCCvAnthYA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxBp08SNYEvukX9YuEyuuWjgwc6C6tv88W9RO6Sy7dh3r6ko4wS
+	Aob4IaMTDzgvoLbaF0OEyjiVMAR3Zz0Aitv3RBb4ZlGA16DJYWMGW5qwUHeNWc8RPAD2LpVpDCN
+	/rQ==
+X-Google-Smtp-Source: AGHT+IG8czWnoykzOejAJo4GJw9hcMcaR/sDDZx+5vRUFyaEmI5qH9Oe9i56gZjLIllNwEPwjpmEWoICf38=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:9d:3983:ac13:c240])
- (user=seanjc job=sendgmr) by 2002:a05:690c:2093:b0:6d4:30f0:3a74 with SMTP id
- 00721157ae682-6e322171640mr503647b3.6.1728489020502; Wed, 09 Oct 2024
- 08:50:20 -0700 (PDT)
-Date: Wed,  9 Oct 2024 08:49:51 -0700
+ (user=seanjc job=sendgmr) by 2002:a63:704c:0:b0:7cd:8363:9f29 with SMTP id
+ 41be03b00d2f7-7ea320345ffmr3164a12.2.1728489022361; Wed, 09 Oct 2024 08:50:22
+ -0700 (PDT)
+Date: Wed,  9 Oct 2024 08:49:52 -0700
 In-Reply-To: <20241009154953.1073471-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20241009154953.1073471-1-seanjc@google.com>
 X-Mailer: git-send-email 2.47.0.rc0.187.ge670bccf7e-goog
-Message-ID: <20241009154953.1073471-13-seanjc@google.com>
-Subject: [PATCH v3 12/14] KVM: selftests: Precisely limit the number of guest
- loops in mmu_stress_test
+Message-ID: <20241009154953.1073471-14-seanjc@google.com>
+Subject: [PATCH v3 13/14] KVM: selftests: Add a read-only mprotect() phase to mmu_stress_test
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -81,8 +80,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Sean Christopherson <seanjc@google.com>, Andrew Jones <ajones@ventanamicro.com>, 
 	James Houghton <jthoughton@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241009_085022_114031_517084C0 
-X-CRM114-Status: GOOD (  11.14  )
+X-CRM114-CacheID: sfid-20241009_085024_526555_2B2695E5 
+X-CRM114-Status: GOOD (  10.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,79 +99,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Run the exact number of guest loops required in mmu_stress_test instead
-of looping indefinitely in anticipation of adding more stages that run
-different code (e.g. reads instead of writes).
+Add a third phase of mmu_stress_test to verify that mprotect()ing guest
+memory to make it read-only doesn't cause explosions, e.g. to verify KVM
+correctly handles the resulting mmu_notifier invalidations.
 
 Reviewed-by: James Houghton <jthoughton@google.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- tools/testing/selftests/kvm/mmu_stress_test.c | 25 ++++++++++++++-----
- 1 file changed, 19 insertions(+), 6 deletions(-)
+ tools/testing/selftests/kvm/mmu_stress_test.c | 22 +++++++++++++++----
+ 1 file changed, 18 insertions(+), 4 deletions(-)
 
 diff --git a/tools/testing/selftests/kvm/mmu_stress_test.c b/tools/testing/selftests/kvm/mmu_stress_test.c
-index 656a837c7f49..c6bf18cb7c89 100644
+index c6bf18cb7c89..0918fade9267 100644
 --- a/tools/testing/selftests/kvm/mmu_stress_test.c
 +++ b/tools/testing/selftests/kvm/mmu_stress_test.c
-@@ -20,12 +20,15 @@
- static void guest_code(uint64_t start_gpa, uint64_t end_gpa, uint64_t stride)
- {
- 	uint64_t gpa;
-+	int i;
- 
--	for (;;) {
-+	for (i = 0; i < 2; i++) {
- 		for (gpa = start_gpa; gpa < end_gpa; gpa += stride)
- 			vcpu_arch_put_guest(*((volatile uint64_t *)gpa), gpa);
--		GUEST_SYNC(0);
-+		GUEST_SYNC(i);
+@@ -28,6 +28,10 @@ static void guest_code(uint64_t start_gpa, uint64_t end_gpa, uint64_t stride)
+ 		GUEST_SYNC(i);
  	}
+ 
++	for (gpa = start_gpa; gpa < end_gpa; gpa += stride)
++		*((volatile uint64_t *)gpa);
++	GUEST_SYNC(2);
 +
-+	GUEST_ASSERT(0);
+ 	GUEST_ASSERT(0);
  }
  
- struct vcpu_info {
-@@ -52,10 +55,18 @@ static void rendezvous_with_boss(void)
- 	}
- }
+@@ -95,6 +99,10 @@ static void *vcpu_worker(void *data)
+ 	run_vcpu(vcpu, 1);
+ 	rendezvous_with_boss();
  
--static void run_vcpu(struct kvm_vcpu *vcpu)
-+static void assert_sync_stage(struct kvm_vcpu *vcpu, int stage)
-+{
-+	struct ucall uc;
++	/* Stage 2, read all of guest memory, which is now read-only. */
++	run_vcpu(vcpu, 2);
++	rendezvous_with_boss();
 +
-+	TEST_ASSERT_EQ(get_ucall(vcpu, &uc), UCALL_SYNC);
-+	TEST_ASSERT_EQ(uc.args[1], stage);
-+}
-+
-+static void run_vcpu(struct kvm_vcpu *vcpu, int stage)
- {
- 	vcpu_run(vcpu);
--	TEST_ASSERT_EQ(get_ucall(vcpu, NULL), UCALL_SYNC);
-+	assert_sync_stage(vcpu, stage);
- }
- 
- static void *vcpu_worker(void *data)
-@@ -69,7 +80,8 @@ static void *vcpu_worker(void *data)
- 
- 	rendezvous_with_boss();
- 
--	run_vcpu(vcpu);
-+	/* Stage 0, write all of guest memory. */
-+	run_vcpu(vcpu, 0);
- 	rendezvous_with_boss();
- #ifdef __x86_64__
- 	vcpu_sregs_get(vcpu, &sregs);
-@@ -79,7 +91,8 @@ static void *vcpu_worker(void *data)
- #endif
- 	rendezvous_with_boss();
- 
--	run_vcpu(vcpu);
-+	/* Stage 1, re-write all of guest memory. */
-+	run_vcpu(vcpu, 1);
- 	rendezvous_with_boss();
- 
  	return NULL;
+ }
+ 
+@@ -175,7 +183,7 @@ int main(int argc, char *argv[])
+ 	const uint64_t start_gpa = SZ_4G;
+ 	const int first_slot = 1;
+ 
+-	struct timespec time_start, time_run1, time_reset, time_run2;
++	struct timespec time_start, time_run1, time_reset, time_run2, time_ro;
+ 	uint64_t max_gpa, gpa, slot_size, max_mem, i;
+ 	int max_slots, slot, opt, fd;
+ 	bool hugepages = false;
+@@ -279,14 +287,20 @@ int main(int argc, char *argv[])
+ 	rendezvous_with_vcpus(&time_reset, "reset");
+ 	rendezvous_with_vcpus(&time_run2, "run 2");
+ 
++	mprotect(mem, slot_size, PROT_READ);
++	rendezvous_with_vcpus(&time_ro, "mprotect RO");
++
++	time_ro    = timespec_sub(time_ro,     time_run2);
+ 	time_run2  = timespec_sub(time_run2,   time_reset);
+-	time_reset = timespec_sub(time_reset, time_run1);
++	time_reset = timespec_sub(time_reset,  time_run1);
+ 	time_run1  = timespec_sub(time_run1,   time_start);
+ 
+-	pr_info("run1 = %ld.%.9lds, reset = %ld.%.9lds, run2 =  %ld.%.9lds\n",
++	pr_info("run1 = %ld.%.9lds, reset = %ld.%.9lds, run2 = %ld.%.9lds, "
++		"ro = %ld.%.9lds\n",
+ 		time_run1.tv_sec, time_run1.tv_nsec,
+ 		time_reset.tv_sec, time_reset.tv_nsec,
+-		time_run2.tv_sec, time_run2.tv_nsec);
++		time_run2.tv_sec, time_run2.tv_nsec,
++		time_ro.tv_sec, time_ro.tv_nsec);
+ 
+ 	/*
+ 	 * Delete even numbered slots (arbitrary) and unmap the first half of
 -- 
 2.47.0.rc0.187.ge670bccf7e-goog
 
