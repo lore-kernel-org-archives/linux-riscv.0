@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30697CEE330
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Oct 2024 17:01:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50F83CEE330
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Oct 2024 17:15:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AOVPMHun+siT7NYGJS7tePc2LlHJ0ExpXC+yf7rRllM=; b=JXV77APRya0l7D
-	Y+ptloaws7uCNLiVCQpfubeies5lgXhGRkF3bAo33ebsK3lUMFL3c67y7VLBO0WO/q5g3Ld+22L1e
-	wj0LYiZawAC5gkUL6AqFfww0SpfCPOMxocLNumNPVEtsNs2Z6RohaR/qFue9GQqX5QKJh8WBI4Fgc
-	/kvD6S5+LSuDpz2RMORk8AUgW4ODfcbCSfGoqUivR+ZF90uTOEKQfX5Rj5jWl0Regu8DB24VDqKq+
-	p6LI/yR38GgFmdHgAmRiTNgmHmB/OVyfmQ2C2F/cL3h3LDUPTYtGsMusL8LA08YODc92UJi36h1Ox
-	v8+IDM3UQ2dq7AfMMY2A==;
+	List-Owner; bh=QVz7s4WGbmB8FaeAqGQCwq5ZiqK1nwao9Zn3RHSwnEs=; b=j2BV02JbxhPm7k
+	UCOXhVWTp2b3n70QQm0xKfzoejdbZqUUrJPnF4mx4aZvM0ZhB+IgEw0dDAD7UAhIrKd4PFkmacLv5
+	MNxH+teZXDDdKiBp67o+iEkqw8/x2qgbkFYcXlFtjQ3ratVwYucKaQYN5ZFgKvo6Gh8Ne7M/2SVy9
+	Rkj2t5QDH3F2IG5HLhuwcD6J9MO/sG9QbKauaBlzdccC6nBVJvCuKsrr5yAPDEo+O91/xuATtJE/X
+	RsHlBqlhS+Wmt+3N2VLBjZR+nYuFux+RMeifl+/9BgUpMl2RSm71OnaHCAgV1jtaJMV1aZll264zE
+	Q6JxfeK81dQp9L21d72A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sya3O-0000000A61J-1i3W;
-	Wed, 09 Oct 2024 17:00:50 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1syaHw-0000000A8nD-0kJ8;
+	Wed, 09 Oct 2024 17:15:52 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1syYwt-00000009o30-3Wzw
+	id 1syYxG-00000009oGq-2DZ8
 	for linux-riscv@lists.infradead.org;
-	Wed, 09 Oct 2024 15:50:06 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6e22f8dc491so127237b3.1
-        for <linux-riscv@lists.infradead.org>; Wed, 09 Oct 2024 08:50:02 -0700 (PDT)
+	Wed, 09 Oct 2024 15:50:28 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-20b61ec80a2so78991475ad.3
+        for <linux-riscv@lists.infradead.org>; Wed, 09 Oct 2024 08:50:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1728489002; x=1729093802; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1728489025; x=1729093825; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=EiPL5cI8NvF0twMUG6Y300Z+LBOp/l7tSBViVr6g/nI=;
-        b=pdF7ddPECsk5tcxvbfaAL7xijWmkUfXE0BoJQPvsJWQeIMSnxELiX+0G00l/KCkVJf
-         OC3fTaqFtvU2SHRVAdSOrrdbGZuzwY2S5ASexDOlXBTzsAR9mNDuYwC3wSDYtC4ci4ew
-         yjsFHV+q6HFtuancvrgSRSb6n/nHssXP+5XhDM1OJxgYSYeBWVNkrM2QREAcB0SRjTD5
-         +GQZhn10bdLLr7O9i3r1TwE/ozekNyWhhU3gMcCk/63gWsI9gaciSgPcwHc2k8RXWIMF
-         p7JM4HSyOkc+RiQ+OmBEt7z8o9E1b/AyQMR403j45Nw9i5MllrGTctGjxY7XvTlo410/
-         y73w==
+        bh=pdirxHCOZgZcScGJrji1f7MunRQ6Bg++3PkXMCIJLoA=;
+        b=ehWBh0nZ+3Kc09JWFcYq4NkZxZJTiboeS4gDIgMG29reWa5RWQlf0t9bTZ92gPe+ud
+         jX5jpzHuTwZwDOLS34xJYPgNxRonYwG2h4h5Vj8rG65579amXLk0wmi5cgVQOJtF4Pg8
+         2GCANT7yX2anbLjzWqgccdfCPNDiehbliEkEN3TrXO0tb/ZmXuexyn6falPiSU0LoNc3
+         pIQHEZYF5Yn9spMvnXpBQp0mkIAEpTr+6kx35gT5mNLf7ox3618rHluVEamPCJDkbAX+
+         n6J685g0HupVahlZiCiZ9ZitoyHXqQ5KbgXuOWMNpQHK6rA/7XqVsVhyfZSu7drwnWOv
+         2URQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728489002; x=1729093802;
+        d=1e100.net; s=20230601; t=1728489025; x=1729093825;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=EiPL5cI8NvF0twMUG6Y300Z+LBOp/l7tSBViVr6g/nI=;
-        b=S35PD0zlRJQG1M2N31u+WFRKjCE5UCX08P5en1bVOujTE2latzltxPkQ79NUy96fuB
-         j2RTxZKwJB5xMFAm103Ad7F7dNmpdQ0IkHTFaK97qOpcbpsG75Y9G8Do+E19fWaCnads
-         ryOON8O4ucPjUvSV3Q7Ixu7qRZqiLf3qKE6HJpIZVuytGnKSGZPy7b6U3QlaUnIfWc5H
-         dnDvLcOPERn2O0w1ODACKJjbWWHSW2x/mW7aYE82reNzLnuaVJeyHHpvV9mLxnetHRTD
-         +78+P2XjvDdhqm7fKwvgFB1i8g8xBrsvm4iSn8asDU4pfViti41bzJdUAp2Bt+7B6xzi
-         pvBA==
-X-Forwarded-Encrypted: i=1; AJvYcCVtwBIhioaSXP9C/QQulSQ8py37q4rBb6V/2MxVMJvgrTsPHAYcbImSrlJnz+KtnZALQ/uoiKUzEzLiCw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwoNcFxjJFgxRGu9j/b/O6/+XU3nhf4WGESxRMbG2Wo3dg+W40g
-	o07Qn28+1oFIPDuatx3f3E9C29oE9RjjF9g2eihPI2agJRqNsct2+FuLD5lJ3Zio3UBPkIiXrdY
-	FZw==
-X-Google-Smtp-Source: AGHT+IHkLjmdUrZYhhm5eRcfFOqOUhABNFF7PuEYH6Y5okDTpmSWv2NhEiyKmUQ7vk7izRkmLFjJAO6m578=
+        bh=pdirxHCOZgZcScGJrji1f7MunRQ6Bg++3PkXMCIJLoA=;
+        b=EjR1Btg9kZ5VvIc6SxiyJCRGSlYTx5feGHBGXh29WA6Sx0kE5MWV7wU9u9nZBVmv/a
+         Ab5JKy2wSzHpDQk7/LScb1gHhS49aX9vhsfA8Sy4b9ciFGe4ksj4rbt0MwS7plY18OjA
+         JVUVPEf4uFVqhOfgKS8trLlu3rN+iTSPCZrtlc8/+mY/gCn853Wm5ETLCtKOqWcMpuTz
+         Ni95RQzhH2g+H8wfNfbuhE+zSMVm7R9nSkYwCMgM+vj8+h74RAlVg8Sk0xJ/4lk5asyU
+         G2Vd6b60fU7RABhcwIjopW7Ldux6FvzpsqFxl2K3oA9yssmRbUf1+szs4ANk2NCpJBem
+         ZEUQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU+s9MOJABz5t40skKA2CNlvisFuoeTq0w7bfgx01VDQlLwb1MgXNvLfzz4X79mtR4vkx9+d4l6VreITw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxsweWWUzDyyZhatmozdv0H278CBnIeRSzLzrEa7b9txNe7xWwl
+	Ta+8NmrSytpV8wkDUVUBTptPHC6/+GOq7j+PX5dabS8CsB+Pvjn48DKZiVi/iMCbdRcH71hVM6W
+	mEg==
+X-Google-Smtp-Source: AGHT+IF06EOvabba1YpY/m+9TdddfKJv+phXMs6xFxlGn64HlbjifXqL0d0/QpkP5vVUJng9o1/hHhmQcTE=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:9d:3983:ac13:c240])
- (user=seanjc job=sendgmr) by 2002:a05:690c:987:b0:6e2:1842:c2e9 with SMTP id
- 00721157ae682-6e32244b67dmr225727b3.4.1728489001806; Wed, 09 Oct 2024
- 08:50:01 -0700 (PDT)
-Date: Wed,  9 Oct 2024 08:49:42 -0700
+ (user=seanjc job=sendgmr) by 2002:a17:902:d2c2:b0:20b:ad74:c83d with SMTP id
+ d9443c01a7336-20c6377b2e8mr457555ad.8.1728489024593; Wed, 09 Oct 2024
+ 08:50:24 -0700 (PDT)
+Date: Wed,  9 Oct 2024 08:49:53 -0700
 In-Reply-To: <20241009154953.1073471-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20241009154953.1073471-1-seanjc@google.com>
 X-Mailer: git-send-email 2.47.0.rc0.187.ge670bccf7e-goog
-Message-ID: <20241009154953.1073471-4-seanjc@google.com>
-Subject: [PATCH v3 03/14] KVM: selftests: Return a value from vcpu_get_reg()
- instead of using an out-param
+Message-ID: <20241009154953.1073471-15-seanjc@google.com>
+Subject: [PATCH v3 14/14] KVM: selftests: Verify KVM correctly handles mprotect(PROT_READ)
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -81,8 +80,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Sean Christopherson <seanjc@google.com>, Andrew Jones <ajones@ventanamicro.com>, 
 	James Houghton <jthoughton@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241009_085003_938516_4A6CDBA3 
-X-CRM114-Status: GOOD (  16.35  )
+X-CRM114-CacheID: sfid-20241009_085026_653872_2468F8CC 
+X-CRM114-Status: GOOD (  18.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,527 +99,182 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Return a uint64_t from vcpu_get_reg() instead of having the caller provide
-a pointer to storage, as none of the vcpu_get_reg() usage in KVM selftests
-accesses a register larger than 64 bits, and vcpu_set_reg() only accepts a
-64-bit value.  If a use case comes along that needs to get a register that
-is larger than 64 bits, then a utility can be added to assert success and
-take a void pointer, but until then, forcing an out param yields ugly code
-and prevents feeding the output of vcpu_get_reg() into vcpu_set_reg().
+Add two phases to mmu_stress_test to verify that KVM correctly handles
+guest memory that was writable, and then made read-only in the primary MMU,
+and then made writable again.
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Add bonus coverage for x86 and arm64 to verify that all of guest memory was
+marked read-only.  Making forward progress (without making memory writable)
+requires arch specific code to skip over the faulting instruction, but the
+test can at least verify each vCPU's starting page was made read-only for
+other architectures.
+
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- .../selftests/kvm/aarch64/aarch32_id_regs.c   | 10 +--
- .../selftests/kvm/aarch64/debug-exceptions.c  |  4 +-
- .../selftests/kvm/aarch64/hypercalls.c        |  6 +-
- .../selftests/kvm/aarch64/no-vgic-v3.c        |  2 +-
- .../testing/selftests/kvm/aarch64/psci_test.c |  6 +-
- .../selftests/kvm/aarch64/set_id_regs.c       | 18 ++---
- .../kvm/aarch64/vpmu_counter_access.c         | 19 +++---
- .../testing/selftests/kvm/include/kvm_util.h  |  6 +-
- .../selftests/kvm/lib/aarch64/processor.c     |  8 +--
- .../selftests/kvm/lib/riscv/processor.c       | 66 +++++++++----------
- .../testing/selftests/kvm/riscv/arch_timer.c  |  2 +-
- .../testing/selftests/kvm/riscv/ebreak_test.c |  2 +-
- .../selftests/kvm/riscv/sbi_pmu_test.c        |  2 +-
- tools/testing/selftests/kvm/s390x/resets.c    |  2 +-
- tools/testing/selftests/kvm/steal_time.c      |  3 +-
- 15 files changed, 78 insertions(+), 78 deletions(-)
+ tools/testing/selftests/kvm/mmu_stress_test.c | 104 +++++++++++++++++-
+ 1 file changed, 101 insertions(+), 3 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/aarch64/aarch32_id_regs.c b/tools/testing/selftests/kvm/aarch64/aarch32_id_regs.c
-index 8e5bd07a3727..447d61cae4db 100644
---- a/tools/testing/selftests/kvm/aarch64/aarch32_id_regs.c
-+++ b/tools/testing/selftests/kvm/aarch64/aarch32_id_regs.c
-@@ -97,7 +97,7 @@ static void test_user_raz_wi(struct kvm_vcpu *vcpu)
- 		uint64_t reg_id = raz_wi_reg_ids[i];
- 		uint64_t val;
+diff --git a/tools/testing/selftests/kvm/mmu_stress_test.c b/tools/testing/selftests/kvm/mmu_stress_test.c
+index 0918fade9267..d9c76b4c0d88 100644
+--- a/tools/testing/selftests/kvm/mmu_stress_test.c
++++ b/tools/testing/selftests/kvm/mmu_stress_test.c
+@@ -17,6 +17,8 @@
+ #include "processor.h"
+ #include "ucall_common.h"
  
--		vcpu_get_reg(vcpu, reg_id, &val);
-+		val = vcpu_get_reg(vcpu, reg_id);
- 		TEST_ASSERT_EQ(val, 0);
- 
- 		/*
-@@ -106,7 +106,7 @@ static void test_user_raz_wi(struct kvm_vcpu *vcpu)
- 		 */
- 		vcpu_set_reg(vcpu, reg_id, BAD_ID_REG_VAL);
- 
--		vcpu_get_reg(vcpu, reg_id, &val);
-+		val = vcpu_get_reg(vcpu, reg_id);
- 		TEST_ASSERT_EQ(val, 0);
- 	}
- }
-@@ -126,14 +126,14 @@ static void test_user_raz_invariant(struct kvm_vcpu *vcpu)
- 		uint64_t reg_id = raz_invariant_reg_ids[i];
- 		uint64_t val;
- 
--		vcpu_get_reg(vcpu, reg_id, &val);
-+		val = vcpu_get_reg(vcpu, reg_id);
- 		TEST_ASSERT_EQ(val, 0);
- 
- 		r = __vcpu_set_reg(vcpu, reg_id, BAD_ID_REG_VAL);
- 		TEST_ASSERT(r < 0 && errno == EINVAL,
- 			    "unexpected KVM_SET_ONE_REG error: r=%d, errno=%d", r, errno);
- 
--		vcpu_get_reg(vcpu, reg_id, &val);
-+		val = vcpu_get_reg(vcpu, reg_id);
- 		TEST_ASSERT_EQ(val, 0);
- 	}
- }
-@@ -144,7 +144,7 @@ static bool vcpu_aarch64_only(struct kvm_vcpu *vcpu)
++static bool mprotect_ro_done;
++
+ static void guest_code(uint64_t start_gpa, uint64_t end_gpa, uint64_t stride)
  {
- 	uint64_t val, el0;
+ 	uint64_t gpa;
+@@ -32,6 +34,42 @@ static void guest_code(uint64_t start_gpa, uint64_t end_gpa, uint64_t stride)
+ 		*((volatile uint64_t *)gpa);
+ 	GUEST_SYNC(2);
  
--	vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64PFR0_EL1), &val);
-+	val = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64PFR0_EL1));
- 
- 	el0 = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_EL0), val);
- 	return el0 == ID_AA64PFR0_EL1_ELx_64BIT_ONLY;
-diff --git a/tools/testing/selftests/kvm/aarch64/debug-exceptions.c b/tools/testing/selftests/kvm/aarch64/debug-exceptions.c
-index 2582c49e525a..b3f3025d2f02 100644
---- a/tools/testing/selftests/kvm/aarch64/debug-exceptions.c
-+++ b/tools/testing/selftests/kvm/aarch64/debug-exceptions.c
-@@ -501,7 +501,7 @@ void test_single_step_from_userspace(int test_cnt)
- 		TEST_ASSERT(ss_enable, "Unexpected KVM_EXIT_DEBUG");
- 
- 		/* Check if the current pc is expected. */
--		vcpu_get_reg(vcpu, ARM64_CORE_REG(regs.pc), &pc);
-+		pc = vcpu_get_reg(vcpu, ARM64_CORE_REG(regs.pc));
- 		TEST_ASSERT(!test_pc || pc == test_pc,
- 			    "Unexpected pc 0x%lx (expected 0x%lx)",
- 			    pc, test_pc);
-@@ -583,7 +583,7 @@ int main(int argc, char *argv[])
- 	uint64_t aa64dfr0;
- 
- 	vm = vm_create_with_one_vcpu(&vcpu, guest_code);
--	vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64DFR0_EL1), &aa64dfr0);
-+	aa64dfr0 = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64DFR0_EL1));
- 	__TEST_REQUIRE(debug_version(aa64dfr0) >= 6,
- 		       "Armv8 debug architecture not supported.");
- 	kvm_vm_free(vm);
-diff --git a/tools/testing/selftests/kvm/aarch64/hypercalls.c b/tools/testing/selftests/kvm/aarch64/hypercalls.c
-index 9d192ce0078d..ec54ec7726e9 100644
---- a/tools/testing/selftests/kvm/aarch64/hypercalls.c
-+++ b/tools/testing/selftests/kvm/aarch64/hypercalls.c
-@@ -173,7 +173,7 @@ static void test_fw_regs_before_vm_start(struct kvm_vcpu *vcpu)
- 		const struct kvm_fw_reg_info *reg_info = &fw_reg_info[i];
- 
- 		/* First 'read' should be an upper limit of the features supported */
--		vcpu_get_reg(vcpu, reg_info->reg, &val);
-+		val = vcpu_get_reg(vcpu, reg_info->reg);
- 		TEST_ASSERT(val == FW_REG_ULIMIT_VAL(reg_info->max_feat_bit),
- 			"Expected all the features to be set for reg: 0x%lx; expected: 0x%lx; read: 0x%lx",
- 			reg_info->reg, FW_REG_ULIMIT_VAL(reg_info->max_feat_bit), val);
-@@ -184,7 +184,7 @@ static void test_fw_regs_before_vm_start(struct kvm_vcpu *vcpu)
- 			"Failed to clear all the features of reg: 0x%lx; ret: %d",
- 			reg_info->reg, errno);
- 
--		vcpu_get_reg(vcpu, reg_info->reg, &val);
-+		val = vcpu_get_reg(vcpu, reg_info->reg);
- 		TEST_ASSERT(val == 0,
- 			"Expected all the features to be cleared for reg: 0x%lx", reg_info->reg);
- 
-@@ -214,7 +214,7 @@ static void test_fw_regs_after_vm_start(struct kvm_vcpu *vcpu)
- 		 * Before starting the VM, the test clears all the bits.
- 		 * Check if that's still the case.
- 		 */
--		vcpu_get_reg(vcpu, reg_info->reg, &val);
-+		val = vcpu_get_reg(vcpu, reg_info->reg);
- 		TEST_ASSERT(val == 0,
- 			"Expected all the features to be cleared for reg: 0x%lx",
- 			reg_info->reg);
-diff --git a/tools/testing/selftests/kvm/aarch64/no-vgic-v3.c b/tools/testing/selftests/kvm/aarch64/no-vgic-v3.c
-index 943d65fc6b0b..f80a519f73bb 100644
---- a/tools/testing/selftests/kvm/aarch64/no-vgic-v3.c
-+++ b/tools/testing/selftests/kvm/aarch64/no-vgic-v3.c
-@@ -164,7 +164,7 @@ int main(int argc, char *argv[])
- 	uint64_t pfr0;
- 
- 	vm = vm_create_with_one_vcpu(&vcpu, NULL);
--	vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64PFR0_EL1), &pfr0);
-+	pfr0 = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64PFR0_EL1));
- 	__TEST_REQUIRE(FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_GIC), pfr0),
- 		       "GICv3 not supported.");
- 	kvm_vm_free(vm);
-diff --git a/tools/testing/selftests/kvm/aarch64/psci_test.c b/tools/testing/selftests/kvm/aarch64/psci_test.c
-index 61731a950def..544ebd2b121b 100644
---- a/tools/testing/selftests/kvm/aarch64/psci_test.c
-+++ b/tools/testing/selftests/kvm/aarch64/psci_test.c
-@@ -102,8 +102,8 @@ static void assert_vcpu_reset(struct kvm_vcpu *vcpu)
- {
- 	uint64_t obs_pc, obs_x0;
- 
--	vcpu_get_reg(vcpu, ARM64_CORE_REG(regs.pc), &obs_pc);
--	vcpu_get_reg(vcpu, ARM64_CORE_REG(regs.regs[0]), &obs_x0);
-+	obs_pc = vcpu_get_reg(vcpu, ARM64_CORE_REG(regs.pc));
-+	obs_x0 = vcpu_get_reg(vcpu, ARM64_CORE_REG(regs.regs[0]));
- 
- 	TEST_ASSERT(obs_pc == CPU_ON_ENTRY_ADDR,
- 		    "unexpected target cpu pc: %lx (expected: %lx)",
-@@ -143,7 +143,7 @@ static void host_test_cpu_on(void)
- 	 */
- 	vcpu_power_off(target);
- 
--	vcpu_get_reg(target, KVM_ARM64_SYS_REG(SYS_MPIDR_EL1), &target_mpidr);
-+	target_mpidr = vcpu_get_reg(target, KVM_ARM64_SYS_REG(SYS_MPIDR_EL1));
- 	vcpu_args_set(source, 1, target_mpidr & MPIDR_HWID_BITMASK);
- 	enter_guest(source);
- 
-diff --git a/tools/testing/selftests/kvm/aarch64/set_id_regs.c b/tools/testing/selftests/kvm/aarch64/set_id_regs.c
-index 2a3fe7914b72..8a1d92048aef 100644
---- a/tools/testing/selftests/kvm/aarch64/set_id_regs.c
-+++ b/tools/testing/selftests/kvm/aarch64/set_id_regs.c
-@@ -336,7 +336,7 @@ static uint64_t test_reg_set_success(struct kvm_vcpu *vcpu, uint64_t reg,
- 	uint64_t mask = ftr_bits->mask;
- 	uint64_t val, new_val, ftr;
- 
--	vcpu_get_reg(vcpu, reg, &val);
-+	val = vcpu_get_reg(vcpu, reg);
- 	ftr = (val & mask) >> shift;
- 
- 	ftr = get_safe_value(ftr_bits, ftr);
-@@ -346,7 +346,7 @@ static uint64_t test_reg_set_success(struct kvm_vcpu *vcpu, uint64_t reg,
- 	val |= ftr;
- 
- 	vcpu_set_reg(vcpu, reg, val);
--	vcpu_get_reg(vcpu, reg, &new_val);
-+	new_val = vcpu_get_reg(vcpu, reg);
- 	TEST_ASSERT_EQ(new_val, val);
- 
- 	return new_val;
-@@ -360,7 +360,7 @@ static void test_reg_set_fail(struct kvm_vcpu *vcpu, uint64_t reg,
- 	uint64_t val, old_val, ftr;
- 	int r;
- 
--	vcpu_get_reg(vcpu, reg, &val);
-+	val = vcpu_get_reg(vcpu, reg);
- 	ftr = (val & mask) >> shift;
- 
- 	ftr = get_invalid_value(ftr_bits, ftr);
-@@ -374,7 +374,7 @@ static void test_reg_set_fail(struct kvm_vcpu *vcpu, uint64_t reg,
- 	TEST_ASSERT(r < 0 && errno == EINVAL,
- 		    "Unexpected KVM_SET_ONE_REG error: r=%d, errno=%d", r, errno);
- 
--	vcpu_get_reg(vcpu, reg, &val);
-+	val = vcpu_get_reg(vcpu, reg);
- 	TEST_ASSERT_EQ(val, old_val);
++	/*
++	 * Write to the region while mprotect(PROT_READ) is underway.  Keep
++	 * looping until the memory is guaranteed to be read-only, otherwise
++	 * vCPUs may complete their writes and advance to the next stage
++	 * prematurely.
++	 *
++	 * For architectures that support skipping the faulting instruction,
++	 * generate the store via inline assembly to ensure the exact length
++	 * of the instruction is known and stable (vcpu_arch_put_guest() on
++	 * fixed-length architectures should work, but the cost of paranoia
++	 * is low in this case).  For x86, hand-code the exact opcode so that
++	 * there is no room for variability in the generated instruction.
++	 */
++	do {
++		for (gpa = start_gpa; gpa < end_gpa; gpa += stride)
++#ifdef __x86_64__
++			asm volatile(".byte 0x48,0x89,0x00" :: "a"(gpa) : "memory"); /* mov %rax, (%rax) */
++#elif defined(__aarch64__)
++			asm volatile("str %0, [%0]" :: "r" (gpa) : "memory");
++#else
++			vcpu_arch_put_guest(*((volatile uint64_t *)gpa), gpa);
++#endif
++	} while (!READ_ONCE(mprotect_ro_done));
++
++	/*
++	 * Only architectures that write the entire range can explicitly sync,
++	 * as other architectures will be stuck on the write fault.
++	 */
++#if defined(__x86_64__) || defined(__aarch64__)
++	GUEST_SYNC(3);
++#endif
++
++	for (gpa = start_gpa; gpa < end_gpa; gpa += stride)
++		vcpu_arch_put_guest(*((volatile uint64_t *)gpa), gpa);
++	GUEST_SYNC(4);
++
+ 	GUEST_ASSERT(0);
  }
  
-@@ -471,7 +471,7 @@ static void test_clidr(struct kvm_vcpu *vcpu)
- 	uint64_t clidr;
- 	int level;
+@@ -79,6 +117,7 @@ static void *vcpu_worker(void *data)
+ 	struct vcpu_info *info = data;
+ 	struct kvm_vcpu *vcpu = info->vcpu;
+ 	struct kvm_vm *vm = vcpu->vm;
++	int r;
  
--	vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_CLIDR_EL1), &clidr);
-+	clidr = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_CLIDR_EL1));
+ 	vcpu_args_set(vcpu, 3, info->start_gpa, info->end_gpa, vm->page_size);
  
- 	/* find the first empty level in the cache hierarchy */
- 	for (level = 1; level < 7; level++) {
-@@ -496,7 +496,7 @@ static void test_ctr(struct kvm_vcpu *vcpu)
- {
- 	u64 ctr;
+@@ -101,6 +140,57 @@ static void *vcpu_worker(void *data)
  
--	vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_CTR_EL0), &ctr);
-+	ctr = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_CTR_EL0));
- 	ctr &= ~CTR_EL0_DIC_MASK;
- 	if (ctr & CTR_EL0_IminLine_MASK)
- 		ctr--;
-@@ -512,7 +512,7 @@ static void test_vcpu_ftr_id_regs(struct kvm_vcpu *vcpu)
- 	test_clidr(vcpu);
- 	test_ctr(vcpu);
+ 	/* Stage 2, read all of guest memory, which is now read-only. */
+ 	run_vcpu(vcpu, 2);
++
++	/*
++	 * Stage 3, write guest memory and verify KVM returns -EFAULT for once
++	 * the mprotect(PROT_READ) lands.  Only architectures that support
++	 * validating *all* of guest memory sync for this stage, as vCPUs will
++	 * be stuck on the faulting instruction for other architectures.  Go to
++	 * stage 3 without a rendezvous
++	 */
++	do {
++		r = _vcpu_run(vcpu);
++	} while (!r);
++	TEST_ASSERT(r == -1 && errno == EFAULT,
++		    "Expected EFAULT on write to RO memory, got r = %d, errno = %d", r, errno);
++
++#if defined(__x86_64__) || defined(__aarch64__)
++	/*
++	 * Verify *all* writes from the guest hit EFAULT due to the VMA now
++	 * being read-only.  x86 and arm64 only at this time as skipping the
++	 * instruction that hits the EFAULT requires advancing the program
++	 * counter, which is arch specific and relies on inline assembly.
++	 */
++#ifdef __x86_64__
++	vcpu->run->kvm_valid_regs = KVM_SYNC_X86_REGS;
++#endif
++	for (;;) {
++		r = _vcpu_run(vcpu);
++		if (!r)
++			break;
++		TEST_ASSERT_EQ(errno, EFAULT);
++#if defined(__x86_64__)
++		WRITE_ONCE(vcpu->run->kvm_dirty_regs, KVM_SYNC_X86_REGS);
++		vcpu->run->s.regs.regs.rip += 3;
++#elif defined(__aarch64__)
++		vcpu_set_reg(vcpu, ARM64_CORE_REG(regs.pc),
++			     vcpu_get_reg(vcpu, ARM64_CORE_REG(regs.pc)) + 4);
++#endif
++
++	}
++	assert_sync_stage(vcpu, 3);
++#endif /* __x86_64__ || __aarch64__ */
++	rendezvous_with_boss();
++
++	/*
++	 * Stage 4.  Run to completion, waiting for mprotect(PROT_WRITE) to
++	 * make the memory writable again.
++	 */
++	do {
++		r = _vcpu_run(vcpu);
++	} while (r && errno == EFAULT);
++	TEST_ASSERT_EQ(r, 0);
++	assert_sync_stage(vcpu, 4);
+ 	rendezvous_with_boss();
  
--	vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_MPIDR_EL1), &val);
-+	val = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_MPIDR_EL1));
- 	val++;
- 	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_MPIDR_EL1), val);
+ 	return NULL;
+@@ -183,7 +273,7 @@ int main(int argc, char *argv[])
+ 	const uint64_t start_gpa = SZ_4G;
+ 	const int first_slot = 1;
  
-@@ -525,7 +525,7 @@ static void test_assert_id_reg_unchanged(struct kvm_vcpu *vcpu, uint32_t encodin
- 	size_t idx = encoding_to_range_idx(encoding);
- 	uint64_t observed;
+-	struct timespec time_start, time_run1, time_reset, time_run2, time_ro;
++	struct timespec time_start, time_run1, time_reset, time_run2, time_ro, time_rw;
+ 	uint64_t max_gpa, gpa, slot_size, max_mem, i;
+ 	int max_slots, slot, opt, fd;
+ 	bool hugepages = false;
+@@ -288,19 +378,27 @@ int main(int argc, char *argv[])
+ 	rendezvous_with_vcpus(&time_run2, "run 2");
  
--	vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(encoding), &observed);
-+	observed = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(encoding));
- 	TEST_ASSERT_EQ(test_reg_vals[idx], observed);
- }
+ 	mprotect(mem, slot_size, PROT_READ);
++	usleep(10);
++	mprotect_ro_done = true;
++	sync_global_to_guest(vm, mprotect_ro_done);
++
+ 	rendezvous_with_vcpus(&time_ro, "mprotect RO");
++	mprotect(mem, slot_size, PROT_READ | PROT_WRITE);
++	rendezvous_with_vcpus(&time_rw, "mprotect RW");
  
-@@ -560,7 +560,7 @@ int main(void)
- 	vm = vm_create_with_one_vcpu(&vcpu, guest_code);
++	time_rw    = timespec_sub(time_rw,     time_ro);
+ 	time_ro    = timespec_sub(time_ro,     time_run2);
+ 	time_run2  = timespec_sub(time_run2,   time_reset);
+ 	time_reset = timespec_sub(time_reset,  time_run1);
+ 	time_run1  = timespec_sub(time_run1,   time_start);
  
- 	/* Check for AARCH64 only system */
--	vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64PFR0_EL1), &val);
-+	val = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64PFR0_EL1));
- 	el0 = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_EL0), val);
- 	aarch64_only = (el0 == ID_AA64PFR0_EL1_ELx_64BIT_ONLY);
- 
-diff --git a/tools/testing/selftests/kvm/aarch64/vpmu_counter_access.c b/tools/testing/selftests/kvm/aarch64/vpmu_counter_access.c
-index d31b9f64ba14..30d9c9e7ae35 100644
---- a/tools/testing/selftests/kvm/aarch64/vpmu_counter_access.c
-+++ b/tools/testing/selftests/kvm/aarch64/vpmu_counter_access.c
-@@ -440,8 +440,7 @@ static void create_vpmu_vm(void *guest_code)
- 		       "Failed to create vgic-v3, skipping");
- 
- 	/* Make sure that PMUv3 support is indicated in the ID register */
--	vcpu_get_reg(vpmu_vm.vcpu,
--		     KVM_ARM64_SYS_REG(SYS_ID_AA64DFR0_EL1), &dfr0);
-+	dfr0 = vcpu_get_reg(vpmu_vm.vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64DFR0_EL1));
- 	pmuver = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_PMUVer), dfr0);
- 	TEST_ASSERT(pmuver != ID_AA64DFR0_EL1_PMUVer_IMP_DEF &&
- 		    pmuver >= ID_AA64DFR0_EL1_PMUVer_IMP,
-@@ -484,7 +483,7 @@ static void test_create_vpmu_vm_with_pmcr_n(uint64_t pmcr_n, bool expect_fail)
- 	create_vpmu_vm(guest_code);
- 	vcpu = vpmu_vm.vcpu;
- 
--	vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_PMCR_EL0), &pmcr_orig);
-+	pmcr_orig = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_PMCR_EL0));
- 	pmcr = pmcr_orig;
+ 	pr_info("run1 = %ld.%.9lds, reset = %ld.%.9lds, run2 = %ld.%.9lds, "
+-		"ro = %ld.%.9lds\n",
++		"ro = %ld.%.9lds, rw = %ld.%.9lds\n",
+ 		time_run1.tv_sec, time_run1.tv_nsec,
+ 		time_reset.tv_sec, time_reset.tv_nsec,
+ 		time_run2.tv_sec, time_run2.tv_nsec,
+-		time_ro.tv_sec, time_ro.tv_nsec);
++		time_ro.tv_sec, time_ro.tv_nsec,
++		time_rw.tv_sec, time_rw.tv_nsec);
  
  	/*
-@@ -493,7 +492,7 @@ static void test_create_vpmu_vm_with_pmcr_n(uint64_t pmcr_n, bool expect_fail)
- 	 */
- 	set_pmcr_n(&pmcr, pmcr_n);
- 	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_PMCR_EL0), pmcr);
--	vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_PMCR_EL0), &pmcr);
-+	pmcr = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_PMCR_EL0));
- 
- 	if (expect_fail)
- 		TEST_ASSERT(pmcr_orig == pmcr,
-@@ -521,7 +520,7 @@ static void run_access_test(uint64_t pmcr_n)
- 	vcpu = vpmu_vm.vcpu;
- 
- 	/* Save the initial sp to restore them later to run the guest again */
--	vcpu_get_reg(vcpu, ARM64_CORE_REG(sp_el1), &sp);
-+	sp = vcpu_get_reg(vcpu, ARM64_CORE_REG(sp_el1));
- 
- 	run_vcpu(vcpu, pmcr_n);
- 
-@@ -572,12 +571,12 @@ static void run_pmregs_validity_test(uint64_t pmcr_n)
- 		 * Test if the 'set' and 'clr' variants of the registers
- 		 * are initialized based on the number of valid counters.
- 		 */
--		vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(set_reg_id), &reg_val);
-+		reg_val = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(set_reg_id));
- 		TEST_ASSERT((reg_val & (~valid_counters_mask)) == 0,
- 			    "Initial read of set_reg: 0x%llx has unimplemented counters enabled: 0x%lx",
- 			    KVM_ARM64_SYS_REG(set_reg_id), reg_val);
- 
--		vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(clr_reg_id), &reg_val);
-+		reg_val = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(clr_reg_id));
- 		TEST_ASSERT((reg_val & (~valid_counters_mask)) == 0,
- 			    "Initial read of clr_reg: 0x%llx has unimplemented counters enabled: 0x%lx",
- 			    KVM_ARM64_SYS_REG(clr_reg_id), reg_val);
-@@ -589,12 +588,12 @@ static void run_pmregs_validity_test(uint64_t pmcr_n)
- 		 */
- 		vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(set_reg_id), max_counters_mask);
- 
--		vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(set_reg_id), &reg_val);
-+		reg_val = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(set_reg_id));
- 		TEST_ASSERT((reg_val & (~valid_counters_mask)) == 0,
- 			    "Read of set_reg: 0x%llx has unimplemented counters enabled: 0x%lx",
- 			    KVM_ARM64_SYS_REG(set_reg_id), reg_val);
- 
--		vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(clr_reg_id), &reg_val);
-+		reg_val = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(clr_reg_id));
- 		TEST_ASSERT((reg_val & (~valid_counters_mask)) == 0,
- 			    "Read of clr_reg: 0x%llx has unimplemented counters enabled: 0x%lx",
- 			    KVM_ARM64_SYS_REG(clr_reg_id), reg_val);
-@@ -625,7 +624,7 @@ static uint64_t get_pmcr_n_limit(void)
- 	uint64_t pmcr;
- 
- 	create_vpmu_vm(guest_code);
--	vcpu_get_reg(vpmu_vm.vcpu, KVM_ARM64_SYS_REG(SYS_PMCR_EL0), &pmcr);
-+	pmcr = vcpu_get_reg(vpmu_vm.vcpu, KVM_ARM64_SYS_REG(SYS_PMCR_EL0));
- 	destroy_vpmu_vm();
- 	return get_pmcr_n(pmcr);
- }
-diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
-index bc7c242480d6..287a3ec06df4 100644
---- a/tools/testing/selftests/kvm/include/kvm_util.h
-+++ b/tools/testing/selftests/kvm/include/kvm_util.h
-@@ -702,11 +702,13 @@ static inline int __vcpu_set_reg(struct kvm_vcpu *vcpu, uint64_t id, uint64_t va
- 
- 	return __vcpu_ioctl(vcpu, KVM_SET_ONE_REG, &reg);
- }
--static inline void vcpu_get_reg(struct kvm_vcpu *vcpu, uint64_t id, void *addr)
-+static inline uint64_t vcpu_get_reg(struct kvm_vcpu *vcpu, uint64_t id)
- {
--	struct kvm_one_reg reg = { .id = id, .addr = (uint64_t)addr };
-+	uint64_t val;
-+	struct kvm_one_reg reg = { .id = id, .addr = (uint64_t)&val };
- 
- 	vcpu_ioctl(vcpu, KVM_GET_ONE_REG, &reg);
-+	return val;
- }
- static inline void vcpu_set_reg(struct kvm_vcpu *vcpu, uint64_t id, uint64_t val)
- {
-diff --git a/tools/testing/selftests/kvm/lib/aarch64/processor.c b/tools/testing/selftests/kvm/lib/aarch64/processor.c
-index fe4dc3693112..4af94272a758 100644
---- a/tools/testing/selftests/kvm/lib/aarch64/processor.c
-+++ b/tools/testing/selftests/kvm/lib/aarch64/processor.c
-@@ -281,8 +281,8 @@ void aarch64_vcpu_setup(struct kvm_vcpu *vcpu, struct kvm_vcpu_init *init)
- 	 */
- 	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_CPACR_EL1), 3 << 20);
- 
--	vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_SCTLR_EL1), &sctlr_el1);
--	vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_TCR_EL1), &tcr_el1);
-+	sctlr_el1 = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_SCTLR_EL1));
-+	tcr_el1 = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_TCR_EL1));
- 
- 	/* Configure base granule size */
- 	switch (vm->mode) {
-@@ -360,8 +360,8 @@ void vcpu_arch_dump(FILE *stream, struct kvm_vcpu *vcpu, uint8_t indent)
- {
- 	uint64_t pstate, pc;
- 
--	vcpu_get_reg(vcpu, ARM64_CORE_REG(regs.pstate), &pstate);
--	vcpu_get_reg(vcpu, ARM64_CORE_REG(regs.pc), &pc);
-+	pstate = vcpu_get_reg(vcpu, ARM64_CORE_REG(regs.pstate));
-+	pc = vcpu_get_reg(vcpu, ARM64_CORE_REG(regs.pc));
- 
- 	fprintf(stream, "%*spstate: 0x%.16lx pc: 0x%.16lx\n",
- 		indent, "", pstate, pc);
-diff --git a/tools/testing/selftests/kvm/lib/riscv/processor.c b/tools/testing/selftests/kvm/lib/riscv/processor.c
-index 6ae47b3d6b25..dd663bcf0cc0 100644
---- a/tools/testing/selftests/kvm/lib/riscv/processor.c
-+++ b/tools/testing/selftests/kvm/lib/riscv/processor.c
-@@ -221,39 +221,39 @@ void vcpu_arch_dump(FILE *stream, struct kvm_vcpu *vcpu, uint8_t indent)
- {
- 	struct kvm_riscv_core core;
- 
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(mode), &core.mode);
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.pc), &core.regs.pc);
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.ra), &core.regs.ra);
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.sp), &core.regs.sp);
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.gp), &core.regs.gp);
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.tp), &core.regs.tp);
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.t0), &core.regs.t0);
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.t1), &core.regs.t1);
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.t2), &core.regs.t2);
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.s0), &core.regs.s0);
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.s1), &core.regs.s1);
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.a0), &core.regs.a0);
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.a1), &core.regs.a1);
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.a2), &core.regs.a2);
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.a3), &core.regs.a3);
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.a4), &core.regs.a4);
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.a5), &core.regs.a5);
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.a6), &core.regs.a6);
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.a7), &core.regs.a7);
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.s2), &core.regs.s2);
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.s3), &core.regs.s3);
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.s4), &core.regs.s4);
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.s5), &core.regs.s5);
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.s6), &core.regs.s6);
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.s7), &core.regs.s7);
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.s8), &core.regs.s8);
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.s9), &core.regs.s9);
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.s10), &core.regs.s10);
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.s11), &core.regs.s11);
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.t3), &core.regs.t3);
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.t4), &core.regs.t4);
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.t5), &core.regs.t5);
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.t6), &core.regs.t6);
-+	core.mode = vcpu_get_reg(vcpu, RISCV_CORE_REG(mode));
-+	core.regs.pc = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.pc));
-+	core.regs.ra = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.ra));
-+	core.regs.sp = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.sp));
-+	core.regs.gp = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.gp));
-+	core.regs.tp = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.tp));
-+	core.regs.t0 = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.t0));
-+	core.regs.t1 = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.t1));
-+	core.regs.t2 = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.t2));
-+	core.regs.s0 = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.s0));
-+	core.regs.s1 = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.s1));
-+	core.regs.a0 = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.a0));
-+	core.regs.a1 = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.a1));
-+	core.regs.a2 = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.a2));
-+	core.regs.a3 = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.a3));
-+	core.regs.a4 = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.a4));
-+	core.regs.a5 = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.a5));
-+	core.regs.a6 = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.a6));
-+	core.regs.a7 = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.a7));
-+	core.regs.s2 = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.s2));
-+	core.regs.s3 = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.s3));
-+	core.regs.s4 = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.s4));
-+	core.regs.s5 = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.s5));
-+	core.regs.s6 = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.s6));
-+	core.regs.s7 = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.s7));
-+	core.regs.s8 = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.s8));
-+	core.regs.s9 = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.s9));
-+	core.regs.s10 = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.s10));
-+	core.regs.s11 = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.s11));
-+	core.regs.t3 = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.t3));
-+	core.regs.t4 = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.t4));
-+	core.regs.t5 = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.t5));
-+	core.regs.t6 = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.t6));
- 
- 	fprintf(stream,
- 		" MODE:  0x%lx\n", core.mode);
-diff --git a/tools/testing/selftests/kvm/riscv/arch_timer.c b/tools/testing/selftests/kvm/riscv/arch_timer.c
-index 2c792228ac0b..9e370800a6a2 100644
---- a/tools/testing/selftests/kvm/riscv/arch_timer.c
-+++ b/tools/testing/selftests/kvm/riscv/arch_timer.c
-@@ -93,7 +93,7 @@ struct kvm_vm *test_vm_create(void)
- 		vcpu_init_vector_tables(vcpus[i]);
- 
- 	/* Initialize guest timer frequency. */
--	vcpu_get_reg(vcpus[0], RISCV_TIMER_REG(frequency), &timer_freq);
-+	timer_freq = vcpu_get_reg(vcpus[0], RISCV_TIMER_REG(frequency));
- 	sync_global_to_guest(vm, timer_freq);
- 	pr_debug("timer_freq: %lu\n", timer_freq);
- 
-diff --git a/tools/testing/selftests/kvm/riscv/ebreak_test.c b/tools/testing/selftests/kvm/riscv/ebreak_test.c
-index 0e0712854953..cfed6c727bfc 100644
---- a/tools/testing/selftests/kvm/riscv/ebreak_test.c
-+++ b/tools/testing/selftests/kvm/riscv/ebreak_test.c
-@@ -60,7 +60,7 @@ int main(void)
- 
- 	TEST_ASSERT_KVM_EXIT_REASON(vcpu, KVM_EXIT_DEBUG);
- 
--	vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.pc), &pc);
-+	pc = vcpu_get_reg(vcpu, RISCV_CORE_REG(regs.pc));
- 	TEST_ASSERT_EQ(pc, LABEL_ADDRESS(sw_bp_1));
- 
- 	/* skip sw_bp_1 */
-diff --git a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
-index f299cbfd23ca..f45c0ecc902d 100644
---- a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
-+++ b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
-@@ -608,7 +608,7 @@ static void test_vm_events_overflow(void *guest_code)
- 
- 	vcpu_init_vector_tables(vcpu);
- 	/* Initialize guest timer frequency. */
--	vcpu_get_reg(vcpu, RISCV_TIMER_REG(frequency), &timer_freq);
-+	timer_freq = vcpu_get_reg(vcpu, RISCV_TIMER_REG(frequency));
- 	sync_global_to_guest(vm, timer_freq);
- 
- 	run_vcpu(vcpu);
-diff --git a/tools/testing/selftests/kvm/s390x/resets.c b/tools/testing/selftests/kvm/s390x/resets.c
-index 357943f2bea8..b58f75b381e5 100644
---- a/tools/testing/selftests/kvm/s390x/resets.c
-+++ b/tools/testing/selftests/kvm/s390x/resets.c
-@@ -61,7 +61,7 @@ static void test_one_reg(struct kvm_vcpu *vcpu, uint64_t id, uint64_t value)
- {
- 	uint64_t eval_reg;
- 
--	vcpu_get_reg(vcpu, id, &eval_reg);
-+	eval_reg = vcpu_get_reg(vcpu, id);
- 	TEST_ASSERT(eval_reg == value, "value == 0x%lx", value);
- }
- 
-diff --git a/tools/testing/selftests/kvm/steal_time.c b/tools/testing/selftests/kvm/steal_time.c
-index a8d3afa0b86b..cce2520af720 100644
---- a/tools/testing/selftests/kvm/steal_time.c
-+++ b/tools/testing/selftests/kvm/steal_time.c
-@@ -269,9 +269,8 @@ static void guest_code(int cpu)
- static bool is_steal_time_supported(struct kvm_vcpu *vcpu)
- {
- 	uint64_t id = RISCV_SBI_EXT_REG(KVM_RISCV_SBI_EXT_STA);
--	unsigned long enabled;
-+	unsigned long enabled = vcpu_get_reg(vcpu, id);
- 
--	vcpu_get_reg(vcpu, id, &enabled);
- 	TEST_ASSERT(enabled == 0 || enabled == 1, "Expected boolean result");
- 
- 	return enabled;
+ 	 * Delete even numbered slots (arbitrary) and unmap the first half of
 -- 
 2.47.0.rc0.187.ge670bccf7e-goog
 
