@@ -4,70 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12A7BCED63E
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Oct 2024 09:43:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3466DCF0438
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Oct 2024 09:45:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=tW2ds9jpdiKsjY6gM9Fm5ml4fG8iATXiQXhEbetY94U=; b=xAN
-	JTEwoaSk5rQ5kjNe9f8WL0T04n+coOgflmi4rm/OdIV+22Q7tfPVsc0+NnLkQzLH6x4MgG/e3JP7F
-	T40AEX7yhM7uWRKOfVbe74n+MUfqD/JtySQtpErrJxvdcLD1bSadNSfLPVOoUGQvGnnmJMdyLestn
-	K58ADCi1WNSc4Fpbgk5SwX4/7eXyh6koqXkw/CkCtp/bf+67woqJE5Z6AFB51NgB+ZdSOtfwHNf37
-	J80frBDvgP2ktaVSMCmxT9HX6ngs/DB+msSt2RKKe8g1vn8CJnz/UEwsBH/WXykTg0T3LrDeMjKAP
-	mQO5kZNZ574GmmX/eDONDm7atvpWW6w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rVNNbLenQUJPFsMIqVYaG2dWT1z4swRQXDQziRXo9kw=; b=n7McbMYuMCuCfB
+	Zsl0V1mluN4f0eKW4ydmUODDsvFDDOXT6WYP5ASvwX2rvgpUGi0Pw3M7zQ5UocloFYb04+5zWfZ1Q
+	jmtkXxEEZgPb3NSv6q3xqAU9O89IeIwI4EOBrs3Odhp6nt/PbWA9WMVnRzpxChjYrud5DxFS3AZjW
+	WdSm0O5vkr+NGcdLBuFpnW0Cz+uuGAFIlhmoQDEBlynoIDPDEUhQH1Kwzi5iyu/LrbBCsiif5vqpB
+	om/LqJGwNQNoGZZpJPKP9nirev3FSQWi6tY+hK5v4yxzq8F2s04JRmyj5hfBClxIlmC9pVtOWkWqT
+	KU1LBQxyLuNij9BYHRXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1syTEN-00000008jTS-1TOZ;
-	Wed, 09 Oct 2024 09:43:43 +0000
-Received: from mail-oa1-x32.google.com ([2001:4860:4864:20::32])
+	id 1syTGO-00000008jqe-0Tam;
+	Wed, 09 Oct 2024 09:45:48 +0000
+Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1syTEL-00000008jT8-003W
+	id 1syS95-00000008Trq-2mzj
 	for linux-riscv@lists.infradead.org;
-	Wed, 09 Oct 2024 09:43:42 +0000
-Received: by mail-oa1-x32.google.com with SMTP id 586e51a60fabf-287b8444ff3so2998081fac.1
-        for <linux-riscv@lists.infradead.org>; Wed, 09 Oct 2024 02:43:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1728467020; x=1729071820; darn=lists.infradead.org;
-        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=QB3YYJj7uC7H5yzkkix/m2UznupWTcGjD476x/KJcI4=;
-        b=Yd8Y/ry1mtCgA/r2ve1qKXNdKCN84o5ZTXAgaCOLX0sT2RVkuxrOAI+VDDo3hAwVl4
-         LIQHM0Orn+2cUK94P79OcPzTr1ePg6SXTb1/8ztRvernuNXaupoV9i/R1N8ip8c5lSeI
-         cMmXBsnzxSSOZXm2CaXDIXdv6ELpp9cVgmqhRKfCnF21VOrC6fn5iR5Wj7YN2sn+cMo0
-         wFwEpov3H1eBOJGxrX+SjtSK++y8szknh1j/mz9BWgKP7nCv8YLWy1dQ50Jd50aYczco
-         PMY2ILXjmj5C+Yt3tm2OuLxPdeKn39uo+l34964/r5sb+Ki82AJv7nkbeJXC02oYAyLg
-         jgXQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728467020; x=1729071820;
-        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=QB3YYJj7uC7H5yzkkix/m2UznupWTcGjD476x/KJcI4=;
-        b=f8dHoOWLoouyYh2itnpcPb/aJOcipUprjEOcath4/OyNtFkkXj8TqQwM90owugIKMo
-         enHx8VJeJ/BqZ4R2xq3+nsdHIr0x/QD3mcCyVHDli0YT7SQ9elTY4tOTWi8veWeAkup4
-         RCpYwgIuNgl+xnTWjTjwuUq1WBIB9NGkN0jdwtyFCKQPm9pOpe5Ovc3652nU8K1pTWCq
-         lkwW4nDi9q9lerQg4zxmWTzgv8T9trl3MsK1sOmZsYxC15TFlbyrY++MF3aw2AyToiQ+
-         dBbtruFLMik3j6EFOJ8aLtd2aOdaGaNeEFX5TK0t6q3sps8CgZRLdFhxQzIsi6NyIRKR
-         2oEQ==
-X-Gm-Message-State: AOJu0Yz0lt/Dg789BMtFCmAlPpCaYCqKCu1b5gmA3zzZM4lnlfgT/a2u
-	sWw/Ykb4w8BbJTXN1Oml+6wxLGvxKaPTMuldaJV5pFwoQOT4IJG6jarXtvIH+vZsJCx0mVQg2TT
-	tMT4Ad1iQt4GURNdF7mYcC00GCLsSEvU=
-X-Google-Smtp-Source: AGHT+IH2Inh4M4Tvdg2p9kn2sofU8LQxP9Un+GbQax4AZa+sx9rsyXkcBejzzTfU1Qm1UJrPs9vdNmU+OoTNzV/42EQ=
-X-Received: by 2002:a05:6870:4402:b0:270:6ec0:c00 with SMTP id
- 586e51a60fabf-288342b2981mr1635549fac.12.1728467019697; Wed, 09 Oct 2024
- 02:43:39 -0700 (PDT)
+	Wed, 09 Oct 2024 08:34:14 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 2958560009;
+	Wed,  9 Oct 2024 08:34:05 +0000 (UTC)
+Message-ID: <850ede17-6eb3-4269-bec6-2a2a0a629eee@ghiti.fr>
+Date: Wed, 9 Oct 2024 10:34:05 +0200
 MIME-Version: 1.0
-From: Guillem Senabre <guillemsenabre@gmail.com>
-Date: Wed, 9 Oct 2024 11:43:28 +0200
-Message-ID: <CAE30jh3Wa_imwKQ78wTW8E8D4JMoWtCY2TbJAO0-gz7sHceYFg@mail.gmail.com>
-Subject: [RISCV] [BUG] CPU topology issue on TH1520 on Kernel 5.10.113-th15020
-To: linux-riscv@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1] RISC-V: disallow gcc + rust builds
+Content-Language: en-US
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org, Conor Dooley
+ <conor.dooley@microchip.com>, Jason Montleon <jmontleo@redhat.com>,
+ ojeda@kernel.org, alex.gaynor@gmail.com, boqun.feng@gmail.com,
+ gary@garyguo.net, bjorn3_gh@protonmail.com, benno.lossin@proton.me,
+ a.hindborg@kernel.org, aliceryhl@google.com, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, nathan@kernel.org, ndesaulniers@google.com,
+ morbo@google.com, justinstitt@google.com, rust-for-linux@vger.kernel.org,
+ llvm@lists.linux.dev
+References: <20241001-playlist-deceiving-16ece2f440f5@spud>
+ <250e1e5d-5110-414f-abbd-fb002e715f32@ghiti.fr>
+ <c4906bfc-5bc1-428e-a76f-3fb0bb8711ac@ghiti.fr>
+ <20241009-tamale-revisit-7d2606c5fdf3@spud>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20241009-tamale-revisit-7d2606c5fdf3@spud>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241009_024341_058118_6CA7DDC6 
-X-CRM114-Status: UNSURE (   5.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241009_013412_184412_687E728C 
+X-CRM114-Status: GOOD (  13.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,49 +65,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Dear Linux kernel developers, `sysfs` shows unexpected values when
-listing CPU topology for a TH1520 RISC-V CPU.
-
-In particular, the following commands output always -1:
-
-cat /sys/devices/system/cpu/cpu0/topology/{core_id,die_id,physical_package_id}
-cat /sys/devices/system/cpu/cpu1/topology/{core_id,die_id,physical_package_id}
-cat /sys/devices/system/cpu/cpu2/topology/{core_id,die_id,physical_package_id}
-cat /sys/devices/system/cpu/cpu3/topology/{core_id,die_id,physical_package_id}
-
-The expected outputs would be a positive integer, rather than the -1
-currently obtained for all.
-
-For more context: We are testing qemu on top of libvirt. This issue is
-blocking us since libvirt aborts after calling "virHostCPUGetCore()",
-which reads: /sys/devices/system/cpu/cpu0/topology/core_id and obtain
-a "-1".
-
-We have resources allocated to debug this issue, but we'd appreciate
-guidance on where to focus our efforts.
-
-Hardware:
-- Board: Sipeed LicheePi4a
-- Processor: TH1520
-- Architecture: riscv64
-
-Software:
-- OS: Debian GNU/Linux trixie/sid
-- Kernel: Linux 5.10.113-th15020
-- libvirt: 10.6.0
-
-Thank you for your time and assistance. Please let us know if you need
-any additional information to help diagnose this issue.
-
-Best regards,
-Guillem
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMDkvMTAvMjAyNCAxMDoyMywgQ29ub3IgRG9vbGV5IHdyb3RlOgo+IE9uIFdlZCwgT2N0IDA5
+LCAyMDI0IGF0IDEwOjEwOjE0QU0gKzAyMDAsIEFsZXhhbmRyZSBHaGl0aSB3cm90ZToKPgo+Pj4+
+ICwgaXQgaXMgYmV0dGVyCj4+Pj4gdG8gZGlzYWJsZSBnY2MgKyBydXN0IGJ1aWxkcyB0byBtYXRj
+aCB0aGUgb3JpZ2luYWwgaW50ZW50LCBhbmQKPj4+PiBzdWJzZXF1ZW50bHkgc3VwcG9ydCBpdCB3
+aGVuIGFuIGFwcHJvcHJpYXRlIHNldCBvZiBleHRlbnNpb25zIGNhbiBiZQo+Pj4+IGRlZHVjZWQg
+ZnJvbSB0aGUgdmVyc2lvbiBvZiBsaWJjbGFuZy4KPj4+Pgo+Pj4+IENsb3NlczoKPj4+PiBodHRw
+czovL2xvcmUua2VybmVsLm9yZy9hbGwvMjAyNDA5MTcwMDA4NDguNzIwNzY1LTItam1vbnRsZW9A
+cmVkaGF0LmNvbS8KPj4+PiBbMV0KPj4+PiBMaW5rOgo+Pj4+IGh0dHBzOi8vbG9yZS5rZXJuZWwu
+b3JnL2FsbC8yMDI0MDkyNi1iYXR0ZXJpbmctcmV2b2x0LTZjNmE3ODI3NDEzZUBzcHVkLwo+Pj4+
+IFsyXQo+Pj4+IEZpeGVzOiA3MGE1N2IyNDcyNTFhICgiUklTQy1WOiBlbmFibGUgYnVpbGRpbmcg
+NjQtYml0IGtlcm5lbHMgd2l0aAo+Pj4+IHJ1c3Qgc3VwcG9ydCIpCj4+Cj4+IEkgYWxzbyBmaXhl
+ZCB0aGUgRml4ZXMgdGFnIF4sIGl0IGNvbnRhaW5zIDEzIGNoYXJhY3RlcnMgaW5zdGVhZCBvZiAx
+MiBhbmQKPj4gYWRkZWQgYSBjYzogc3RhYmxlIHRhZy4KPiBGWUksIGNoZWNrcGF0Y2ggaXMgbm90
+IGFuIGFyYml0ZXIgb2YgdHJ1dGgsIGFuZCBJIGludGVudGlvbmFsbHkgbGVmdCB0aGUKPiAxM3Ro
+IGNoYXJhY3RlciB0aGF0IGdpdCBkZXRlcm1pbmVkIGl0IG5lZWRlZCB0byBoYXZlIHRoZXJlLiBB
+cHBhcmVudGx5Cj4gdGhlIGtlcm5lbCBub3cgaGFzIGVub3VnaCBvYmplY3RzIHRoYXQgdGhlcmUg
+Y2FuIGJlIDEyIGNoYXJhY3Rlcgo+IGNvbGxpc2lvbnMuCgoKT2ssIHRoYW5rcyBmb3IgdGhlIGV4
+cGxhbmF0aW9uOiBkbyBjaGVja3BhdGNoIGFuZCB0aGUgZG9jdW1lbnRhdGlvbiBuZWVkIAp0byBi
+ZSB1cGRhdGVkIHRoZW4/IElzIHRoYXQgYSBrbm93biBpc3N1ZT8KCiBGcm9tIGh0dHBzOi8vZG9j
+cy5rZXJuZWwub3JnL3Byb2Nlc3Mvc3VibWl0dGluZy1wYXRjaGVzLmh0bWw6CgoiSWYgeW91ciBw
+YXRjaCBmaXhlcyBhIGJ1ZyBpbiBhIHNwZWNpZmljIGNvbW1pdCwgZS5nLiB5b3UgZm91bmQgYW4g
+aXNzdWUgCnVzaW5nIGdpdCBiaXNlY3QsIHBsZWFzZSB1c2UgdGhlIOKAmEZpeGVzOuKAmSB0YWcg
+d2l0aCB0aGUgZmlyc3QgMTIgCmNoYXJhY3RlcnMgb2YgdGhlIFNIQS0xIElELCBhbmQgdGhlIG9u
+ZSBsaW5lIHN1bW1hcnkuIgoKCj4KPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwo+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+IGxpbnV4LXJpc2N2QGxp
+c3RzLmluZnJhZGVhZC5vcmcKPiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
+c3RpbmZvL2xpbnV4LXJpc2N2CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
+cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
+bnV4LXJpc2N2Cg==
