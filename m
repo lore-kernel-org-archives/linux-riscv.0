@@ -4,66 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4592CED628
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Oct 2024 08:23:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D7BECED63E
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Oct 2024 09:38:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yiGt3cd26DhNTjkZKC5Jz4a3wHGI6vxnUrm5Lwzq1M4=; b=upG/Mi8g8dYe9EK7sF9lCQggt+
-	p6tQJfSenLNlbEzCq4QdgKl29bJT/pBMWRV6qLQo1CN14dzd6MrlNR8n9jzWDJYiYmdBqgJceNBnd
-	FZmnmx+9p0VytFDl8MvTQSFZLiIM67s/uYJ8p6cfzYCIVx3gI0lrtJsMNGT0SUqBao+oiaUYhAPR7
-	OiD6CtNtOx5ZX7YHgckq6ddd4xkY15kJ9lCsszjrzWqbzccEEjY3DRORLxHSHVSAMQmqarPoXI8xZ
-	rEBHii0DfZZJX0G4TqBp7XQl45VJ1/iwEXAZTpMCgJw5JurkJSg+zcBeH1hhuMYCbPX1B2OdmND2J
-	04Xh7AEg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=OWJLfcev84Ya526pSdEn6X+6JA6nh4m+NxcLO+6wV0I=; b=lni/ogitNn/b7g
+	8yryJ5Z/vvktvs0aeYhJ1sYPQivX6FYzIQz5Z/Pitdg+KuSjnOkUbnfx9mLoV1Qq8CX9uuYoXsdcN
+	ieKIGDQnqr5MRYWnst3nBTboZTpLCkhzxsJUPewM8A7zFtZ93jP2tISlTRMfMidC12cDT0IGULWUy
+	rABRw5lXu7Hktqu9ZUvKRW2swaDG2ovSnR5WfygQi5SRhWQjxQjOyo40G28oYOwCw3sfCoGQlwPJU
+	NTasfo2d3HRkt/uSjKMYAjOGXvJSjqM24JLo98+ZH4wnyatZox40GhRmBrPylHs1lS2Sef0t5m5Ju
+	S8vHB68arXLp5H2+Ojkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1syRz7-00000008ROo-16TC;
-	Wed, 09 Oct 2024 08:23:53 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1syT93-00000008i9x-2Zff;
+	Wed, 09 Oct 2024 09:38:13 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1syRz2-00000008ROM-2yhN
-	for linux-riscv@lists.infradead.org;
-	Wed, 09 Oct 2024 08:23:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8271AA41AD0;
-	Wed,  9 Oct 2024 08:23:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F038DC4CEC5;
-	Wed,  9 Oct 2024 08:23:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1728462226;
-	bh=tf9M2MlC4GQ+rXRXyfjKzifuwRwBlSOhhIUUVgfhJ7k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BDFaQMJOLjfxzs4l6rDWtLLI6a1AV4e4frrw90C0fI2R6dzfy6mfjd0Hg3yJkg81F
-	 O/LI2Ij8ywLd2HySu6eZGd6n6JkdcxbLqYFwhgvE7r16SQtbFeQJ4QahSsYO9Gq6hU
-	 oTsFWCaeoe8umjHXfR1lBOC0IhRQsLGeQ4/Wx5rEb7LaPSTzqfXc04ABgcsLtEspqa
-	 /va7AE4H0AvL6m4kMBAPJA+mzgIplmrAU9pH0WgmEYux03H6cxrTwqkFZmCxTr9Leq
-	 7ONUN6CjxA5PrPbr3qi1qgvLYqWsAOYDQuA+o/xzuy7WZY2TGkvfAO3jM2toZhrd+u
-	 v+0uiY2Nbku1A==
-Date: Wed, 9 Oct 2024 09:23:40 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-riscv@lists.infradead.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Jason Montleon <jmontleo@redhat.com>, ojeda@kernel.org,
-	alex.gaynor@gmail.com, boqun.feng@gmail.com, gary@garyguo.net,
-	bjorn3_gh@protonmail.com, benno.lossin@proton.me,
-	a.hindborg@kernel.org, aliceryhl@google.com,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, nathan@kernel.org,
-	ndesaulniers@google.com, morbo@google.com, justinstitt@google.com,
-	rust-for-linux@vger.kernel.org, llvm@lists.linux.dev
-Subject: Re: [PATCH v1] RISC-V: disallow gcc + rust builds
-Message-ID: <20241009-tamale-revisit-7d2606c5fdf3@spud>
-References: <20241001-playlist-deceiving-16ece2f440f5@spud>
- <250e1e5d-5110-414f-abbd-fb002e715f32@ghiti.fr>
- <c4906bfc-5bc1-428e-a76f-3fb0bb8711ac@ghiti.fr>
+	id 1syT7h-00000008hnq-1qr8;
+	Wed, 09 Oct 2024 09:36:51 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4998sjTA001582;
+	Wed, 9 Oct 2024 09:36:15 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=date
+	:from:to:cc:subject:message-id:references:content-type
+	:in-reply-to:mime-version; s=pp1; bh=/KRpb8zcw131KFpG0zawx6jslbJ
+	XCySZOnhN/pbyBoY=; b=o1Z1OCDCy87dqeYp4gOCmTovg+fJc06qUC9TZPqVxYN
+	BpC3WcA02AEKbX0KnpVcRpe1KvGi1JKoU5RYiW8izcIX5d6FuKtfiAkuJkj/GqbS
+	iC4v6X0HwlnsmitRsjSs4EfT0tpO+z1N3QzY4xL+O+qHRblqNb0iFbkDVEvzq+lY
+	xLfleYE0kPm67FWB80KKFjNRGyYk9+CeRTXOF2QRFOhophedOYes7F54OolBsAzQ
+	bNSB301yHb4GiX+gu7m/pfw489Lgf5GUDvJygX7VAmdnVI6p3PQQeVXJoKzqZekW
+	94/4cicQqYt8Fr8Hul4GUOH+Zxb07zZkvAJeaGzkISQ==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 425pqw85c5-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 09 Oct 2024 09:36:15 +0000 (GMT)
+Received: from m0360072.ppops.net (m0360072.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 4999aE65031934;
+	Wed, 9 Oct 2024 09:36:14 GMT
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 425pqw85c1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 09 Oct 2024 09:36:14 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 4997SUcV013790;
+	Wed, 9 Oct 2024 09:36:13 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 423fss95x3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 09 Oct 2024 09:36:13 +0000
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 4999a9Rw56885668
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 9 Oct 2024 09:36:09 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 5D6182004B;
+	Wed,  9 Oct 2024 09:36:09 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 956BF20040;
+	Wed,  9 Oct 2024 09:36:08 +0000 (GMT)
+Received: from osiris (unknown [9.152.212.60])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Wed,  9 Oct 2024 09:36:08 +0000 (GMT)
+Date: Wed, 9 Oct 2024 11:36:06 +0200
+From: Heiko Carstens <hca@linux.ibm.com>
+To: Steven Rostedt <rostedt@goodmis.org>
+Cc: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+        linux-s390@vger.kernel.org,
+        "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+        "x86@kernel.org" <x86@kernel.org>,
+        Masami Hiramatsu <mhiramat@kernel.org>,
+        Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+        WANG Xuerui <kernel@xen0n.name>, Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        Christophe Leroy <christophe.leroy@csgroup.eu>,
+        Naveen N Rao <naveen@kernel.org>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Paul Walmsley <paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+        Vasily Gorbik <gor@linux.ibm.com>,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@kernel.org>,
+        Borislav Petkov <bp@alien8.de>,
+        Dave Hansen <dave.hansen@linux.intel.com>
+Subject: Re: [PATCH v2 0/2] ftrace: Make ftrace_regs abstract and consolidate
+ code
+Message-ID: <20241009093606.8007-B-hca@linux.ibm.com>
+References: <20241008230527.674939311@goodmis.org>
+Content-Disposition: inline
+In-Reply-To: <20241008230527.674939311@goodmis.org>
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: blRXi90ehFSdmaBi91d1C7PKbODuT15R
+X-Proofpoint-GUID: ts_V-pIkFtxTWzK5FdoMQ7BilExQIxn3
+X-Proofpoint-UnRewURL: 0 URL was un-rewritten
 MIME-Version: 1.0
-In-Reply-To: <c4906bfc-5bc1-428e-a76f-3fb0bb8711ac@ghiti.fr>
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
+ definitions=2024-10-09_08,2024-10-08_01,2024-09-30_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501 mlxscore=0
+ impostorscore=0 suspectscore=0 spamscore=0 phishscore=0 bulkscore=0
+ clxscore=1015 malwarescore=0 mlxlogscore=577 adultscore=0
+ lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2409260000 definitions=main-2410090061
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241009_012348_854898_716613F9 
-X-CRM114-Status: GOOD (  14.81  )
+X-CRM114-CacheID: sfid-20241009_023649_609884_C7B707B7 
+X-CRM114-Status: GOOD (  19.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,73 +130,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6475211495340983959=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Tue, Oct 08, 2024 at 07:05:27PM -0400, Steven Rostedt wrote:
+> 
+> This is based on:
+> 
+>   https://git.kernel.org/pub/scm/linux/kernel/git/trace/linux-trace.git/
+>      ftrace/for-next
+> 
+> ftrace_regs was created to hold registers that store information to save
+> function parameters, return value and stack. Since it is a subset of
+> pt_regs, it should only be used by its accessor functions. But because
+> pt_regs can easily be taken from ftrace_regs (on most archs), it is
+> tempting to use it directly. But when running on other architectures, it
+> may fail to build or worse, build but crash the kernel!
+> 
+> Instead, make struct ftrace_regs an empty structure and have the
+> architectures define __arch_ftrace_regs and all the accessor functions
+> will typecast to it to get to the actual fields. This will help avoid
+> usage of ftrace_regs directly.
+> 
+> I again compiled all the affected architectures (except for 32bit ppc).
+> I got s390 built when disabling bcachefs.
 
---===============6475211495340983959==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Mdl99oyu/ETgEZlW"
-Content-Disposition: inline
-
-
---Mdl99oyu/ETgEZlW
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Oct 09, 2024 at 10:10:14AM +0200, Alexandre Ghiti wrote:
-
-> > > , it is better
-> > > to disable gcc + rust builds to match the original intent, and
-> > > subsequently support it when an appropriate set of extensions can be
-> > > deduced from the version of libclang.
-> > >=20
-> > > Closes:
-> > > https://lore.kernel.org/all/20240917000848.720765-2-jmontleo@redhat.c=
-om/
-> > > [1]
-> > > Link:
-> > > https://lore.kernel.org/all/20240926-battering-revolt-6c6a7827413e@sp=
-ud/
-> > > [2]
-> > > Fixes: 70a57b247251a ("RISC-V: enable building 64-bit kernels with
-> > > rust support")
->=20
->=20
-> I also fixed the Fixes tag ^, it contains 13 characters instead of 12 and
-> added a cc: stable tag.
-
-FYI, checkpatch is not an arbiter of truth, and I intentionally left the
-13th character that git determined it needed to have there. Apparently
-the kernel now has enough objects that there can be 12 character
-collisions.
-
---Mdl99oyu/ETgEZlW
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZwY9jAAKCRB4tDGHoIJi
-0jz9APsGDsRXizGa8lwr7kwUr5aboz4Zn4SpVJbVATWgXGgBFAD/aIl8X+A4kSNE
-Zn3m0e/BumphE8b7xn/rF6HQW+zOywY=
-=qF7b
------END PGP SIGNATURE-----
-
---Mdl99oyu/ETgEZlW--
-
-
---===============6475211495340983959==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Build fix for this problem is commit 2007d28ec009 ("bcachefs: rename
+version -> bversion for big endian builds").
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6475211495340983959==--
-
