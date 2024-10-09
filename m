@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D1DDCEE343
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Oct 2024 20:09:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C880CEE349
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Oct 2024 20:09:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ss+oE7ep/dp0b5mR0rnKcOviFabGB8owGECcsKZtW/g=; b=OwlZtnkIptmT87
-	df1W1LoEuGtnzhO4xG6Uzq332y7Z6k1hSfk+Y/cR3YoJqEW6gLCZ3+r9GQp+OkezdWPtpjbUinDAi
-	0MqwMAAHGkpgp2cQVB8JcSRIXtd+xrGo73/5EzI7wFQWSvnaAW4PMwn8C6+ajQ691w0mZk2xL62K8
-	DPCEoLJSxBI36SNrKfTQzZ6Fa96VQBhSjPoxxXxJjztCUukYhBWhjzFXOyoLxpK0sC8hG5WEfVoTQ
-	f5qe09e87sVRpWAHv/2R/CqtPkDaieUrWsr5WAW2dCXJ0pDy0OjA78fW1UTkwKZ5n6iWFofUmS4XH
-	gLX1TgXVvZszOyDqhDGw==;
+	List-Owner; bh=E/JQiOLyTD577XHDv7CHYKogh5DFnVcr7tD/WeJQCkw=; b=CKX8rXlEGBNCcL
+	852Zt9ha/16zpwrvMUByRFzWpqf8V259oanO+cQwWlo+0tzhpAEoY1M32akUzmg10FGCcpKcgAzsz
+	hd5cH0nsSnvzVVxeyI0RIr/qu9C0lfDQqu9C52B0tfZ82XTFNbc+pMpeKmGP+YNthatcCgqbGtNYu
+	xNkJtjNMl+1oV1n5opX1c7C2GXu4VBkDajrj7t2JAgngaNBvBhHa2OPlILTsvmA3vUv4ZEWEWffnO
+	p7CadbZ3uerCPjKAfWSWG2nPhcazhP4E4RzoHqztCxpn3hZVJnKlQnDUcSXV6LD13eTy77HSpfUNq
+	uCDMES78+u6uZQW0VlCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1syd01-0000000AZQT-2fT1;
-	Wed, 09 Oct 2024 20:09:33 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1syczw-0000000AZMn-3gjj;
+	Wed, 09 Oct 2024 20:09:28 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1syb8c-0000000ALHR-24zH;
-	Wed, 09 Oct 2024 18:10:20 +0000
+	id 1syb7l-0000000AL2H-1pDd;
+	Wed, 09 Oct 2024 18:09:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0A8CE5C5B7B;
-	Wed,  9 Oct 2024 18:10:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E09CC4CED1;
-	Wed,  9 Oct 2024 18:09:59 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id A5737A443F5;
+	Wed,  9 Oct 2024 18:09:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E241CC4CED1;
+	Wed,  9 Oct 2024 18:09:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1728497416;
-	bh=CJNZAFYUZGFiG9zQtgqhZLu00qF2UvbEHTlMVQ5+bqg=;
+	s=k20201202; t=1728497363;
+	bh=FFXSlSIenlvc/JFQhdQdJ8pK7321CYQcMdI24yMcjAo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=UepqTtkhXATBOqzTMuyxuSc8potEL4CjAsu+IWHn4bpf4ST2NaAsTblUwEw0TgYJA
-	 UJ3+Op4vvR1HDSMGyiZJjyyO8qiNkp0KOJBiYj8rAxUKrwUiauQlLSC5VtEnulub5Q
-	 QoWYG/UZHPixS8iNMG+m6suxbTLTLv2CsErcmYv8O901AoLeHNhFFTzcQ73+mdlBBD
-	 fwlazyEdvRkAfS1HpDYdzUxUEBrZ9roeiULD3Sa2y9g5WjQVeDF7srJ5agMZTAsnma
-	 8z34ayY5uHLx1v+iGT+VijDSfyhlMvvlSmx+7PjhIl6kH0Q8Ipxo6f0ynLZImMXcvP
-	 Jne3IiLXv0Hfw==
+	b=G0kX8d++3ohcTFZeqD0eAoQ74MtboyreAdFmzFvR9aRtbuXWN3SDchQhtM+5RkLBG
+	 jqX7ke47OEJex/CacTt4waa6QacCyJ81RiJRPVr8QqyaDiR8H8hYjx0XTtmyIdnCFG
+	 axjODV2+3RwN38yxLyaULcbcJt/U99s04WlG8/Z//h5p001Y3IE3heiFH0uYuCQMJ7
+	 mNBhnDqVayh43rZ21MdGN+lW1QzQwynTVOihJ4leLccP0wbDZ9aKt14dLeFlNvrA6H
+	 v0V/WDpoydXU23CoF5XBB201VERoxT8fqH1mP+j/B4wZaAW5cApavv7k/ZamamfcQ5
+	 jt5HNV5iXydvQ==
 From: Mike Rapoport <rppt@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: Andreas Larsson <andreas@gaisler.com>,
@@ -106,16 +106,16 @@ Cc: Andreas Larsson <andreas@gaisler.com>,
 	loongarch@lists.linux.dev,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org
-Subject: [PATCH v5 5/8] arch: introduce set_direct_map_valid_noflush()
-Date: Wed,  9 Oct 2024 21:08:13 +0300
-Message-ID: <20241009180816.83591-6-rppt@kernel.org>
+Subject: [PATCH v5 2/8] mm: vmalloc: don't account for number of nodes for HUGE_VMAP allocations
+Date: Wed,  9 Oct 2024 21:08:10 +0300
+Message-ID: <20241009180816.83591-3-rppt@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20241009180816.83591-1-rppt@kernel.org>
 References: <20241009180816.83591-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241009_111019_035819_77278D69 
-X-CRM114-Status: GOOD (  15.90  )
+X-CRM114-CacheID: sfid-20241009_110925_611783_58B6626A 
+X-CRM114-Status: GOOD (  12.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,216 +134,52 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 
-Add an API that will allow updates of the direct/linear map for a set of
-physically contiguous pages.
+vmalloc allocations with VM_ALLOW_HUGE_VMAP that do not explicitly
+specify node ID will use huge pages only if size_per_node is larger than
+a huge page.
+Still the actual allocated memory is not distributed between nodes and
+there is no advantage in such approach.
+On the contrary, BPF allocates SZ_2M * num_possible_nodes() for each
+new bpf_prog_pack, while it could do with a single huge page per pack.
 
-It will be used in the following patches.
+Don't account for number of nodes for VM_ALLOW_HUGE_VMAP with
+NUMA_NO_NODE and use huge pages whenever the requested allocation size
+is larger than a huge page.
 
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- arch/arm64/include/asm/set_memory.h     |  1 +
- arch/arm64/mm/pageattr.c                | 10 ++++++++++
- arch/loongarch/include/asm/set_memory.h |  1 +
- arch/loongarch/mm/pageattr.c            | 19 +++++++++++++++++++
- arch/riscv/include/asm/set_memory.h     |  1 +
- arch/riscv/mm/pageattr.c                | 15 +++++++++++++++
- arch/s390/include/asm/set_memory.h      |  1 +
- arch/s390/mm/pageattr.c                 | 11 +++++++++++
- arch/x86/include/asm/set_memory.h       |  1 +
- arch/x86/mm/pat/set_memory.c            |  8 ++++++++
- include/linux/set_memory.h              |  6 ++++++
- 11 files changed, 74 insertions(+)
+ mm/vmalloc.c | 9 ++-------
+ 1 file changed, 2 insertions(+), 7 deletions(-)
 
-diff --git a/arch/arm64/include/asm/set_memory.h b/arch/arm64/include/asm/set_memory.h
-index 917761feeffd..98088c043606 100644
---- a/arch/arm64/include/asm/set_memory.h
-+++ b/arch/arm64/include/asm/set_memory.h
-@@ -13,6 +13,7 @@ int set_memory_valid(unsigned long addr, int numpages, int enable);
+diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+index 634162271c00..86b2344d7461 100644
+--- a/mm/vmalloc.c
++++ b/mm/vmalloc.c
+@@ -3763,8 +3763,6 @@ void *__vmalloc_node_range_noprof(unsigned long size, unsigned long align,
+ 	}
  
- int set_direct_map_invalid_noflush(struct page *page);
- int set_direct_map_default_noflush(struct page *page);
-+int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid);
- bool kernel_page_present(struct page *page);
+ 	if (vmap_allow_huge && (vm_flags & VM_ALLOW_HUGE_VMAP)) {
+-		unsigned long size_per_node;
+-
+ 		/*
+ 		 * Try huge pages. Only try for PAGE_KERNEL allocations,
+ 		 * others like modules don't yet expect huge pages in
+@@ -3772,13 +3770,10 @@ void *__vmalloc_node_range_noprof(unsigned long size, unsigned long align,
+ 		 * supporting them.
+ 		 */
  
- #endif /* _ASM_ARM64_SET_MEMORY_H */
-diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-index 0e270a1c51e6..01225900293a 100644
---- a/arch/arm64/mm/pageattr.c
-+++ b/arch/arm64/mm/pageattr.c
-@@ -192,6 +192,16 @@ int set_direct_map_default_noflush(struct page *page)
- 				   PAGE_SIZE, change_page_range, &data);
- }
+-		size_per_node = size;
+-		if (node == NUMA_NO_NODE)
+-			size_per_node /= num_online_nodes();
+-		if (arch_vmap_pmd_supported(prot) && size_per_node >= PMD_SIZE)
++		if (arch_vmap_pmd_supported(prot) && size >= PMD_SIZE)
+ 			shift = PMD_SHIFT;
+ 		else
+-			shift = arch_vmap_pte_supported_shift(size_per_node);
++			shift = arch_vmap_pte_supported_shift(size);
  
-+int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
-+{
-+	unsigned long addr = (unsigned long)page_address(page);
-+
-+	if (!can_set_direct_map())
-+		return 0;
-+
-+	return set_memory_valid(addr, nr, valid);
-+}
-+
- #ifdef CONFIG_DEBUG_PAGEALLOC
- void __kernel_map_pages(struct page *page, int numpages, int enable)
- {
-diff --git a/arch/loongarch/include/asm/set_memory.h b/arch/loongarch/include/asm/set_memory.h
-index d70505b6676c..55dfaefd02c8 100644
---- a/arch/loongarch/include/asm/set_memory.h
-+++ b/arch/loongarch/include/asm/set_memory.h
-@@ -17,5 +17,6 @@ int set_memory_rw(unsigned long addr, int numpages);
- bool kernel_page_present(struct page *page);
- int set_direct_map_default_noflush(struct page *page);
- int set_direct_map_invalid_noflush(struct page *page);
-+int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid);
- 
- #endif /* _ASM_LOONGARCH_SET_MEMORY_H */
-diff --git a/arch/loongarch/mm/pageattr.c b/arch/loongarch/mm/pageattr.c
-index ffd8d76021d4..bf8678248444 100644
---- a/arch/loongarch/mm/pageattr.c
-+++ b/arch/loongarch/mm/pageattr.c
-@@ -216,3 +216,22 @@ int set_direct_map_invalid_noflush(struct page *page)
- 
- 	return __set_memory(addr, 1, __pgprot(0), __pgprot(_PAGE_PRESENT | _PAGE_VALID));
- }
-+
-+int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
-+{
-+	unsigned long addr = (unsigned long)page_address(page);
-+	pgprot_t set, clear;
-+
-+	if (addr < vm_map_base)
-+		return 0;
-+
-+	if (valid) {
-+		set = PAGE_KERNEL;
-+		clear = __pgprot(0);
-+	} else {
-+		set = __pgprot(0);
-+		clear = __pgprot(_PAGE_PRESENT | _PAGE_VALID);
-+	}
-+
-+	return __set_memory(addr, 1, set, clear);
-+}
-diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
-index ab92fc84e1fc..ea263d3683ef 100644
---- a/arch/riscv/include/asm/set_memory.h
-+++ b/arch/riscv/include/asm/set_memory.h
-@@ -42,6 +42,7 @@ static inline int set_kernel_memory(char *startp, char *endp,
- 
- int set_direct_map_invalid_noflush(struct page *page);
- int set_direct_map_default_noflush(struct page *page);
-+int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid);
- bool kernel_page_present(struct page *page);
- 
- #endif /* __ASSEMBLY__ */
-diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
-index 271d01a5ba4d..d815448758a1 100644
---- a/arch/riscv/mm/pageattr.c
-+++ b/arch/riscv/mm/pageattr.c
-@@ -386,6 +386,21 @@ int set_direct_map_default_noflush(struct page *page)
- 			    PAGE_KERNEL, __pgprot(_PAGE_EXEC));
- }
- 
-+int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
-+{
-+	pgprot_t set, clear;
-+
-+	if (valid) {
-+		set = PAGE_KERNEL;
-+		clear = __pgprot(_PAGE_EXEC);
-+	} else {
-+		set = __pgprot(0);
-+		clear = __pgprot(_PAGE_PRESENT);
-+	}
-+
-+	return __set_memory((unsigned long)page_address(page), nr, set, clear);
-+}
-+
- #ifdef CONFIG_DEBUG_PAGEALLOC
- static int debug_pagealloc_set_page(pte_t *pte, unsigned long addr, void *data)
- {
-diff --git a/arch/s390/include/asm/set_memory.h b/arch/s390/include/asm/set_memory.h
-index 06fbabe2f66c..240bcfbdcdce 100644
---- a/arch/s390/include/asm/set_memory.h
-+++ b/arch/s390/include/asm/set_memory.h
-@@ -62,5 +62,6 @@ __SET_MEMORY_FUNC(set_memory_4k, SET_MEMORY_4K)
- 
- int set_direct_map_invalid_noflush(struct page *page);
- int set_direct_map_default_noflush(struct page *page);
-+int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid);
- 
- #endif
-diff --git a/arch/s390/mm/pageattr.c b/arch/s390/mm/pageattr.c
-index 5f805ad42d4c..4c7ee74aa130 100644
---- a/arch/s390/mm/pageattr.c
-+++ b/arch/s390/mm/pageattr.c
-@@ -406,6 +406,17 @@ int set_direct_map_default_noflush(struct page *page)
- 	return __set_memory((unsigned long)page_to_virt(page), 1, SET_MEMORY_DEF);
- }
- 
-+int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
-+{
-+	unsigned long flags;
-+
-+	if (valid)
-+		flags = SET_MEMORY_DEF;
-+	else
-+		flags = SET_MEMORY_INV;
-+
-+	return __set_memory((unsigned long)page_to_virt(page), nr, flags);
-+}
- #if defined(CONFIG_DEBUG_PAGEALLOC) || defined(CONFIG_KFENCE)
- 
- static void ipte_range(pte_t *pte, unsigned long address, int nr)
-diff --git a/arch/x86/include/asm/set_memory.h b/arch/x86/include/asm/set_memory.h
-index 4b2abce2e3e7..cc62ef70ccc0 100644
---- a/arch/x86/include/asm/set_memory.h
-+++ b/arch/x86/include/asm/set_memory.h
-@@ -89,6 +89,7 @@ int set_pages_rw(struct page *page, int numpages);
- 
- int set_direct_map_invalid_noflush(struct page *page);
- int set_direct_map_default_noflush(struct page *page);
-+int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid);
- bool kernel_page_present(struct page *page);
- 
- extern int kernel_set_to_readonly;
-diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-index 44f7b2ea6a07..069e421c2247 100644
---- a/arch/x86/mm/pat/set_memory.c
-+++ b/arch/x86/mm/pat/set_memory.c
-@@ -2444,6 +2444,14 @@ int set_direct_map_default_noflush(struct page *page)
- 	return __set_pages_p(page, 1);
- }
- 
-+int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
-+{
-+	if (valid)
-+		return __set_pages_p(page, nr);
-+
-+	return __set_pages_np(page, nr);
-+}
-+
- #ifdef CONFIG_DEBUG_PAGEALLOC
- void __kernel_map_pages(struct page *page, int numpages, int enable)
- {
-diff --git a/include/linux/set_memory.h b/include/linux/set_memory.h
-index e7aec20fb44f..3030d9245f5a 100644
---- a/include/linux/set_memory.h
-+++ b/include/linux/set_memory.h
-@@ -34,6 +34,12 @@ static inline int set_direct_map_default_noflush(struct page *page)
- 	return 0;
- }
- 
-+static inline int set_direct_map_valid_noflush(struct page *page,
-+					       unsigned nr, bool valid)
-+{
-+	return 0;
-+}
-+
- static inline bool kernel_page_present(struct page *page)
- {
- 	return true;
+ 		align = max(real_align, 1UL << shift);
+ 		size = ALIGN(real_size, 1UL << shift);
 -- 
 2.43.0
 
