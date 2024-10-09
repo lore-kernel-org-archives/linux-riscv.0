@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36EFFCF0453
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Oct 2024 11:11:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40088CEDD87
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Oct 2024 11:58:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y5VxZ8fviPQucsOeTt8QN8VCELwijB3FCpJ9yKMxgQg=; b=49sgNkiJ7tAfnEsIvTLVzoPkaJ
-	tApKz++sOQWunrBKpMUgM5MWYEaS+GmgyJpkwKMhJN22Z7PbIm2MJCkAUVaMLZfodzOzCtZq6HQPz
-	ZY9nA/qK0Kf2NUo0loyJBQdKYqz+oMiUeqkArcGnmRyld2hpKCfFeaggr3Ylt7N6tUzNmaQyfF3iW
-	dNxr+G8j9zUuoQrM1wLvxNRV5Mhia7kiYGnVJNZVZ3rLpT3eYYMJ1umpw3o9xkBWP2iukBzxAwPwF
-	fIpz7rgMPPVfbHC+ov9OyTf97cmv5Nz7dVA9FKd9/ee90eewUSJ4sNASlCglblDTzAI/sou9WEiIs
-	DY40FIpw==;
+	bh=eF8zPP8Jk91hpNcPUG/fG5Iw9Sye9ISKeEfR/QQXPXE=; b=y4R9iKQP3UxAQFqsKDK/raqd6a
+	CBBIC3swl/9hNAKYNrZiUILI2BP6PiPVc2c3WN+ZVP8MI+sHUohyoWCpyAgvnjxj+/AhdQGjUtBNx
+	/c6STtiD+LJ3duDsYOtE7hj8r+IM1yOeQbF7qvEGy0UQZtD4oMHmUdUCL1V3oRbKv/M4EMnMsoPda
+	/NVop3rAVcVT13P3onxQ+Bqbo8bgrELj+tU1nYeU/FrkN8ZKepzjSALL05O061YzbTUkdYV+fGPku
+	kuvA3YWYbjZR8Np+8hKSP+qd7Y3v867IqFyqzdN834eMc14KUzBwLUAgyMX6n2AMGqvh+A3a3gC4s
+	uhSbPLfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1syUbU-000000090X5-3pg4;
-	Wed, 09 Oct 2024 11:11:40 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1syVKI-000000097bt-0u6d;
+	Wed, 09 Oct 2024 11:57:58 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1syUbR-000000090Vk-2bSU
+	id 1syUrQ-0000000941h-2D3Q
 	for linux-riscv@lists.infradead.org;
-	Wed, 09 Oct 2024 11:11:39 +0000
+	Wed, 09 Oct 2024 11:28:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7AA9AA43DC2;
-	Wed,  9 Oct 2024 11:11:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9AD7C4CEC5;
-	Wed,  9 Oct 2024 11:11:34 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9A24C5C5A48;
+	Wed,  9 Oct 2024 11:28:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07B6FC4CECE;
+	Wed,  9 Oct 2024 11:28:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1728472295;
-	bh=e3rviv3TJdVjm4yn7ziTk9KSuLclDXQUchWzo7AyiA4=;
+	s=k20201202; t=1728473286;
+	bh=dWTLORjqnX0opGzmksVLTfrOi3GuFaEPiMCBg13ML94=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Mz7RtfQhCZ0uNCUFMWKtrHAFeascQPu/ebICZ3tR6PzNzrHFcc/TnETf+OJkJge90
-	 ZR7BDjTr/iiEplJZ/McnERDIbJoo4Ruuko8yzXydymmHZercGjMUXR86WYDdDQJwhN
-	 TIfk2Qog/C8fAdxxpVjiYALqqIduKNgy3iaiEe9KNN0SWuIast05sUg34l4uHjyfCn
-	 xXgrJNWDslnX8A3zp1HtNtRwrw3gHZjBDPwqOjvfkIBTkKfvKyla22qr1n5qra8it0
-	 9Vmmpa2HsBpKn4+LhSFP4gryYnJ0bcZMuKDcHnX9tTYsHSPZplMSMCHVO1DIZeMxqN
-	 C2HFPzUeHbo7w==
-Date: Wed, 9 Oct 2024 12:11:32 +0100
+	b=ESNF0aTxqPGkFJ5uOkrMRuhf0nlBFaTeES0hVQIDeqopdDRPJVAzKH0+3aSdmILae
+	 vtwodVcPPDS7pgfpH1bBd3bVJLwIgc+/7SdrGpDphN7VxRcaGiAok6K0I7+QlU8n6J
+	 +sNtUViL66G8sWAvpOYUcNcMVlS1wPbgmFu4exaCJwNH4If+V8t55jrp7xC5O7KEGU
+	 puQWxirrHiL8pa8xl5cqNc09b0XVmRU882HBh9wZOTRb1Ity4/rNiN2fH27v5lE7xc
+	 BMLj2LN1Zcyy1BgDa51Cq6vQsXvhkpiTCMyuTqkxbgmKXqmG5/aAhu8Mk4DYFedsfF
+	 vJ19Vz3FHtsXQ==
+Date: Wed, 9 Oct 2024 12:28:03 +0100
 From: Mark Brown <broonie@kernel.org>
 To: Deepak Gupta <debug@rivosinc.com>
 Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
@@ -73,17 +73,16 @@ Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
 	charlie@rivosinc.com, atishp@rivosinc.com, evan@rivosinc.com,
 	cleger@rivosinc.com, alexghiti@rivosinc.com,
 	samitolvanen@google.com, rick.p.edgecombe@intel.com
-Subject: Re: [PATCH v6 02/33] mm: helper `is_shadow_stack_vma` to check
- shadow stack vma
-Message-ID: <ZwZk5LufEv-7GLlf@finisterre.sirena.org.uk>
+Subject: Re: [PATCH v6 06/33] riscv/Kconfig: enable HAVE_EXIT_THREAD for riscv
+Message-ID: <ZwZow-L3d_ZeONvq@finisterre.sirena.org.uk>
 References: <20241008-v5_user_cfi_series-v6-0-60d9fe073f37@rivosinc.com>
- <20241008-v5_user_cfi_series-v6-2-60d9fe073f37@rivosinc.com>
+ <20241008-v5_user_cfi_series-v6-6-60d9fe073f37@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <20241008-v5_user_cfi_series-v6-2-60d9fe073f37@rivosinc.com>
+In-Reply-To: <20241008-v5_user_cfi_series-v6-6-60d9fe073f37@rivosinc.com>
 X-Cookie: Editing is a rewording activity.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241009_041137_971077_2AE04BAB 
-X-CRM114-Status: GOOD (  16.54  )
+X-CRM114-CacheID: sfid-20241009_042808_693745_4BF36546 
+X-CRM114-Status: GOOD (  12.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,73 +94,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4963358860043329025=="
+Content-Type: multipart/mixed; boundary="===============5403850901988746442=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============4963358860043329025==
+--===============5403850901988746442==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="RiYacTSmJWPXVleE"
+	protocol="application/pgp-signature"; boundary="/9TOr5Y7hc2IlgPC"
 Content-Disposition: inline
 
 
---RiYacTSmJWPXVleE
+--/9TOr5Y7hc2IlgPC
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Tue, Oct 08, 2024 at 03:36:44PM -0700, Deepak Gupta wrote:
-> VM_SHADOW_STACK (alias to VM_HIGH_ARCH_5) is used to encode shadow stack
-> VMA on three architectures (x86 shadow stack, arm GCS and RISC-V shadow
-> stack). In case architecture doesn't implement shadow stack, it's VM_NONE
-> Introducing a helper `is_shadow_stack_vma` to determine shadow stack vma
-> or not.
+On Tue, Oct 08, 2024 at 03:36:48PM -0700, Deepak Gupta wrote:
 
-Not that it makes any difference but the arm64 eneded up defining
-VM_SHADOW_STACK to VM_HIGH_ARCH_6.
+> riscv will need an implementation for exit_thread to clean up shadow stack
+> when thread exits. If current thread had shadow stack enabled, shadow
+> stack is allocated by default for any new thread.
 
-> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
-> ---
->  mm/gup.c |  2 +-
->  mm/vma.h | 10 +++++++---
->  2 files changed, 8 insertions(+), 4 deletions(-)
+FWIW both arm64 and x86 do this via deactivate_mm().  ISTR there's some
+case where exit_thread() doesn't quite do the right thing but I can't
+remember the specifics right now, possibly the vfork() case but ICBW?
+In any case like Rick said factoring out the common patterns would be
+good, keeping things aligned would support that.
 
-There's another test of VM_SHADOW_STACK in mainline now, added by my
-change df7e1286b1dc3d6c ("mm: care about shadow stack guard gap when
-getting an unmapped area") - sorry, I should've remembered this change
-=66rom your series and pulled it into mine.
-
-> @@ -387,7 +392,6 @@ static inline bool is_data_mapping(vm_flags_t flags)
->         return (flags & (VM_WRITE | VM_SHARED | VM_STACK)) =3D=3D VM_WRIT=
-E;
->  }
->=20
-> -
->  static inline void vma_iter_config(struct vma_iterator *vmi,
->                 unsigned long index, unsigned long last)
-
-Unrelated whitespace change.
-
---RiYacTSmJWPXVleE
+--/9TOr5Y7hc2IlgPC
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmcGZOMACgkQJNaLcl1U
-h9Dh9Qf/V2pf5NwELa5AFo32pS+UvPU+55Sn73YaN7CJwHb51fe8tNSKG9c3Gq8e
-E/N5zPxVN7izgYi2vXXf1GVM/Hm9oZUxNyU4BrkNeRLh7ofy0CsGwspy7Xp+k4LH
-mUZX01pPjiQ71euc4oxfaUpZT85PVe/Tj1pYyNSulKwk2My4BSuW+eHt+kD4v9uC
-TSSp4NrtEi8xN29WICLiOfJQ/GZnusdljjbOEDauW3H02lVyqsi9vr5nCUlViEqu
-A60ZAzYJ9XrQQEJXK6n0FL2ebd7wJH0RvYRKMCNrFBpLRUs7kiFCcczFV8QfnPTN
-B9GbsQB+3EaHLl6oGV2gv6QyQgmoCw==
-=uBsi
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmcGaMIACgkQJNaLcl1U
+h9Bs/gf9HkwcB6ukqOUKkOcYZY6n2S7Ff9T2G7eFz/ljV9gwDrw11zKI1p4fKARy
+gsDFv12wYltPNps64PSegFC4tGyb/8zKIBD59rx/dGB3YWqWj1pf8NRcuaz/e9d1
+9CEu2M/MTcoJi7Qvy6QV8rnWvyzcjsSIsDVfLUnKuFlsXdDQsEO4wqpVGTl7rQbY
+2SKHvMozADQAumDuaffjOMn+fZhriCKhVgUBRXgknSBRdCVDm4uhx1QVWWQ9hqS/
+tCieIUs0gB3WbL3znar2cMjWT1QQJODw58V0/j7+VJVZFMhxBItdY9UVvgjyDOe9
+q+3j1W1soyWnVa895qI78ooiYZcR0A==
+=7QkF
 -----END PGP SIGNATURE-----
 
---RiYacTSmJWPXVleE--
+--/9TOr5Y7hc2IlgPC--
 
 
---===============4963358860043329025==
+--===============5403850901988746442==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -172,5 +150,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============4963358860043329025==--
+--===============5403850901988746442==--
 
