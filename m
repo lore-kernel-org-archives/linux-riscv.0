@@ -4,72 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFB4BCFC5EC
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Oct 2024 18:37:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95BC5CFC5EC
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Oct 2024 18:39:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MTKe1beU7gaOEt5N0uCG5+dvHKG2PDFM6i+SzQjP9lI=; b=mOMLiR9tAhx5lL
-	oyON5Y7i1LLu2XdQKU/ydzglqa4mu+0/xv8dvTxcefI/6ZKTfaoWHA/VnV0uat3qL/biIvvIBPbhU
-	5eOprBmKNVGq0ZnmWzSRTGaWVVTssQ1bkn8998B7Lxj+PJHD5tw2VqIqeX1PvM2xI40YuYBuepu9r
-	BO9kBy4JAFPlREUWUx/YWfdboxegPHzvCpvPsk4+yHgIxu5qwyeQ38sx7V8iQgZgUFMLjQuE7zygC
-	UZtXdAATbqVWPE9H1v2nLJ+g/Cq4ZRHsCapC7ZJjEsoXQjEb8spjzcej2R/vMxQ267lS0qAyJ/TFG
-	Oa1uTFFDPEW7FNlv9eMA==;
+	List-Owner; bh=sZen87NPBVBI+6yLvUfIheMPNtB+PniZzA1i3kCPIA8=; b=nKfBiSCJjMnamn
+	qT9vzNpW/C5KBnsVuD2uan4hQXV3Fct03/BXXGC05qgO/bXpy/giz1+9eHNAYkiHvpB8pH+fYD9pY
+	PJ0DdrQ5FtbwsHY+eZYMXS6fqX/B18quN6awUTxxtLbQA49TlLzyFpdpkqLsFFEE/yJ0zCTJPTiV8
+	N9LorpvaxdAH81RxqwctkXdFtBVe7/lVoJXOfvKCuOMY5P2E0+lWRedlevaF7Ir8o6hrA/DCtAacY
+	wvmhFuWrjPVBUc0tH7L5BnS0KGUZNmdTjDvQLXZIx1MV9oFYlJlvDdaYusi+XjOH2he9C9MqajHN0
+	x0n3+fwJVg4t28DWAQXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1syy2e-0000000Dw4H-2SSy;
-	Thu, 10 Oct 2024 18:37:40 +0000
-Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
+	id 1syy42-0000000DwW0-31iR;
+	Thu, 10 Oct 2024 18:39:06 +0000
+Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1syxqM-0000000DpfE-2L6Q
+	id 1syxqT-0000000Dpjz-0Rn0
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Oct 2024 18:24:59 +0000
-Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-6e26ba37314so24841917b3.0
-        for <linux-riscv@lists.infradead.org>; Thu, 10 Oct 2024 11:24:57 -0700 (PDT)
+	Thu, 10 Oct 2024 18:25:08 +0000
+Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-e290d41291bso1588430276.1
+        for <linux-riscv@lists.infradead.org>; Thu, 10 Oct 2024 11:25:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1728584697; x=1729189497; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:reply-to:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=X4CpCR2xmh5xLGpBn2Bl3P0Y4RCeyU3sCMc2ynGYEmk=;
-        b=M7Snr5N22pikPCYYXMJYsOlgIEBf4+x3Uqg6sVxeZVadYTICrG4ulpFRgPtXVG0X0n
-         JZ2/nX9phcaEtKWHj1yPru+AarfrxgYbtzXswb2v92ZPGKNmtdah06jEFW/mllb+oibh
-         CBKgB1cMUdcgVGm+aTjLPjjrmXe2Hfze6XuIV0ZeaSFds53FKVgiaPzajxfWki+VusBG
-         0ZxzebIV31ZFXuzuGmx7TJqF8oZ/P8kgCd05nBiQQ6We33hwrDG5iyqppNKEN7BXJoyY
-         U1tRYYoYlyeYl0xm2A4lPSen0EvpIggWblDdQu+MQKURLXfflhNdB/DNtQyuAg89xkyJ
-         7Jtw==
+        d=google.com; s=20230601; t=1728584704; x=1729189504; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=zmCOkT+wuJeT9H1MjXHCrAkGhLQoiMWK376kHF4kwCg=;
+        b=Kq1WOn3ILTCesOLo5TwG98ce4X4S2wBk+Zed3w07pth0mmR27m6+zcIyUDuJ90K+tm
+         H+FQy9IEhYfF0RVk1sN+uPV9VcfkmlC388brN9oIUwZNBfslQrpSLQpjPEekeKwAECAW
+         2yGteXV6Zs9Ai7X0iKtDFBT6EI5+bcL0iQSZm+JwuYIL/GZ6kqokrCisnWfZI2cp/w52
+         DNf/U/JvuC2w3tIklSm+kpLK8DDwtz7HtLUb62f7F49qPLWneNZV6W3Chjdfb5rxikNY
+         YWlXE+zrdqJb3OTa3cM6srJ+EqsaVuKwpF+4ltKq8VJKibN0Sh4+lO62nT1rXvo2yqGY
+         OoRg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728584697; x=1729189497;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:reply-to:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=X4CpCR2xmh5xLGpBn2Bl3P0Y4RCeyU3sCMc2ynGYEmk=;
-        b=HQlOybqBxZtTAd788lqNVwBs+W8K+dUAgRMhE7JBP/KeEe/oizCG6Vh19LoAB2WmwO
-         G7kGNO10oGIPLLbh8kSYHLgKWalotUD0AkH4sffOcjqjZDOBo+SYo/6s4V+iqrt3RFzJ
-         yBMODAJHj84U+QvxV7N290ffyoB9i5y5UY2Ni2HfajCu9xX5dJDyEXFbFj1pL78JGPgs
-         5OLoqMJ3pk9qcBRp2OP+jKtOl3Cvg4wEQ26KBUFa6h8ZGS5n+VWWC3SnpU0Td18HNy8y
-         yqr3KDrUcpWQWyXtwucV8MAGlD99Zwr5Vw6Npb0QQ+MOLzEHeAZBPmRDL+KNCrKmzGNV
-         gTPA==
-X-Forwarded-Encrypted: i=1; AJvYcCWcwY32ODg1EzKgd1N0WCEkHElAu6EsAXrJenGJH499ajikO5qZ8Uqiq4tndRMKNZx16eYhzeJC9hKADA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxchsze+JlWmzL/lIcYoPbo7OyFe4IkGEUfBNV4cw28a0GrU5UU
-	wth7ATydSMfMv9cSPEchfE8C3OiPyVGAh3f6NI3vvaOBIb/iGMXaL5t/OxcT2Ne4Yof/IRHPFQO
-	zww==
-X-Google-Smtp-Source: AGHT+IGrULPD5dT5NWC9dFAfgTsoL9JIWGzHU9t8+6e7flVyO5QHPCRlr/jDUZCu+nhXBHYl+WGzejB3KuQ=
+        d=1e100.net; s=20230601; t=1728584704; x=1729189504;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=zmCOkT+wuJeT9H1MjXHCrAkGhLQoiMWK376kHF4kwCg=;
+        b=vGDoIriAV4iFJou7wCfdHtNlx3zUd1S9bSW2XCZClJ4+IoZDQuhM2R/lh/zGAGzE5x
+         PR9nkq74kBCD0OIsI7ckW+daYozYietpvn5KFSqaw45rAcbKvyefHQBao9GZkQZ++jZK
+         rdQWPKAOHV1L9iyIUu8H7n6qJAtp3dKPiZjoh6rPWawMLMl/Xud5ja5+nzLEj4Cua67E
+         O5wt4FPDqlPnNwJgnRSJSxO/YVJRokBOkUoDh6PzpmR4pXtXRqOFMLnUjE5aRsS4CCXb
+         1V6RyjwMte/ByDOrOaMmsyfo+4ebNNLEptH5auG+2gr6b34QCUEj7+h1g1LavnVqL9+0
+         NLHw==
+X-Forwarded-Encrypted: i=1; AJvYcCWuxFt4rJqc+eMflQO4k/bxDaa+N1xZxN0DAR0K63YbY3qe0vwEXqSjioJjwNNkhcKT+KaLcjmNSdN75A==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxw61JDUMFnMZfbOopsuDQdLKRvrcN8U7z59lBPcGoecECpTN0c
+	sBHu8Wnhmzrvm6/MU74ZbZotGeTsIh1aNvPBDY/upPp3i+nPmcboFEnIqg6bOc5Gqs6QEvDVWyw
+	Ffw==
+X-Google-Smtp-Source: AGHT+IHLS32ZnUy4bY0gdVqRjJSlR5N1zmb3UxYk5drKGwVtxhq/Y8NIZIwMp1duovDzYwXPQsOfO5WBu4o=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:9d:3983:ac13:c240])
- (user=seanjc job=sendgmr) by 2002:a0d:e486:0:b0:6e2:371f:4aef with SMTP id
- 00721157ae682-6e322168931mr204147b3.3.1728584696651; Thu, 10 Oct 2024
- 11:24:56 -0700 (PDT)
-Date: Thu, 10 Oct 2024 11:23:06 -0700
+ (user=seanjc job=sendgmr) by 2002:a05:6902:1812:b0:e24:9f58:dd17 with SMTP id
+ 3f1490d57ef6-e28fe32f042mr66754276.1.1728584702932; Thu, 10 Oct 2024 11:25:02
+ -0700 (PDT)
+Date: Thu, 10 Oct 2024 11:23:08 -0700
 In-Reply-To: <20241010182427.1434605-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20241010182427.1434605-1-seanjc@google.com>
 X-Mailer: git-send-email 2.47.0.rc1.288.g06298d1525-goog
-Message-ID: <20241010182427.1434605-5-seanjc@google.com>
-Subject: [PATCH v13 04/85] KVM: x86/mmu: Skip the "try unsync" path iff the
- old SPTE was a leaf SPTE
+Message-ID: <20241010182427.1434605-7-seanjc@google.com>
+Subject: [PATCH v13 06/85] KVM: x86/mmu: Invert @can_unsync and renamed to @synchronizing
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
@@ -87,8 +85,8 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	David Matlack <dmatlack@google.com>, David Stevens <stevensd@chromium.org>, 
 	Andrew Jones <ajones@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241010_112458_676789_343792F5 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20241010_112505_245091_7124CC70 
+X-CRM114-Status: GOOD (  15.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,52 +99,147 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Reply-To: Sean Christopherson <seanjc@google.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QXBwbHkgbWFrZV9zcHRlKCkncyBvcHRpbWl6YXRpb24gdG8gc2tpcCB0cnlpbmcgdG8gdW5zeW5j
-IHNoYWRvdyBwYWdlcyBpZgphbmQgb25seSBpZiB0aGUgb2xkIFNQVEUgd2FzIGEgbGVhZiBTUFRF
-LCBhcyBub24tbGVhZiBTUFRFcyBpbiBkaXJlY3QgTU1VcwphcmUgYWx3YXlzIHdyaXRhYmxlLCBp
-LmUuIGNvdWxkIHRyaWdnZXIgYSBmYWxzZSBwb3NpdGl2ZSBhbmQgaW5jb3JyZWN0bHkKbGVhZCB0
-byBLVk0gY3JlYXRpbmcgYSBTUFRFIHdpdGhvdXQgd3JpdGUtcHJvdGVjdGluZyBvciBtYXJraW5n
-IHNoYWRvdwpwYWdlcyB1bnN5bmMuCgpUaGlzIGJ1ZyBvbmx5IGFmZmVjdHMgdGhlIFREUCBNTVUs
-IGFzIHRoZSBzaGFkb3cgTU1VIG9ubHkgb3ZlcndyaXRlcyBhCnNoYWRvdy1wcmVzZW50IFNQVEUg
-d2hlbiBzeW5jaHJvbml6aW5nIFNQVEVzIChhbmQgb25seSA0S2lCIFNQVEVzIGNhbiBiZQp1bnN5
-bmMpLiAgU3BlY2lmaWNhbGx5LCBtbXVfc2V0X3NwdGUoKSBkcm9wcyBhbnkgbm9uLWxlYWYgU1BU
-RXMgKmJlZm9yZSoKY2FsbGluZyBtYWtlX3NwdGUoKSwgd2hlcmVhcyB0aGUgVERQIE1NVSBjYW4g
-ZG8gYSBkaXJlY3QgcmVwbGFjZW1lbnQgb2YgYQpwYWdlIHRhYmxlIHdpdGggdGhlIGxlYWYgU1BU
-RS4KCk9wcG9ydHVuaXN0aWNhbGx5IHVwZGF0ZSB0aGUgY29tbWVudCB0byBleHBsYWluIHdoeSBz
-a2lwcGluZyB0aGUgdW5zeW5jCnN0dWZmIGlzIHNhZmUsIGFzIG9wcG9zZWQgdG8gc2ltcGx5IHNh
-eWluZyAiaXQncyBzb21lb25lIGVsc2UncyBwcm9ibGVtIi4KCkNjOiBzdGFibGVAdmdlci5rZXJu
-ZWwub3JnClRlc3RlZC1ieTogQWxleCBCZW5uw6llIDxhbGV4LmJlbm5lZUBsaW5hcm8ub3JnPgpT
-aWduZWQtb2ZmLWJ5OiBTZWFuIENocmlzdG9waGVyc29uIDxzZWFuamNAZ29vZ2xlLmNvbT4KLS0t
-CiBhcmNoL3g4Ni9rdm0vbW11L3NwdGUuYyB8IDE4ICsrKysrKysrKysrKystLS0tLQogMSBmaWxl
-IGNoYW5nZWQsIDEzIGluc2VydGlvbnMoKyksIDUgZGVsZXRpb25zKC0pCgpkaWZmIC0tZ2l0IGEv
-YXJjaC94ODYva3ZtL21tdS9zcHRlLmMgYi9hcmNoL3g4Ni9rdm0vbW11L3NwdGUuYwppbmRleCA4
-ZjdlYjNhZDg4ZmMuLjU1MjE2MDgwNzdlYyAxMDA2NDQKLS0tIGEvYXJjaC94ODYva3ZtL21tdS9z
-cHRlLmMKKysrIGIvYXJjaC94ODYva3ZtL21tdS9zcHRlLmMKQEAgLTIyNiwxMiArMjI2LDIwIEBA
-IGJvb2wgbWFrZV9zcHRlKHN0cnVjdCBrdm1fdmNwdSAqdmNwdSwgc3RydWN0IGt2bV9tbXVfcGFn
-ZSAqc3AsCiAJCXNwdGUgfD0gUFRfV1JJVEFCTEVfTUFTSyB8IHNoYWRvd19tbXVfd3JpdGFibGVf
-bWFzazsKIAogCQkvKgotCQkgKiBPcHRpbWl6YXRpb246IGZvciBwdGUgc3luYywgaWYgc3B0ZSB3
-YXMgd3JpdGFibGUgdGhlIGhhc2gKLQkJICogbG9va3VwIGlzIHVubmVjZXNzYXJ5IChhbmQgZXhw
-ZW5zaXZlKS4gV3JpdGUgcHJvdGVjdGlvbgotCQkgKiBpcyByZXNwb25zaWJpbGl0eSBvZiBrdm1f
-bW11X2dldF9wYWdlIC8ga3ZtX21tdV9zeW5jX3Jvb3RzLgotCQkgKiBTYW1lIHJlYXNvbmluZyBj
-YW4gYmUgYXBwbGllZCB0byBkaXJ0eSBwYWdlIGFjY291bnRpbmcuCisJCSAqIFdoZW4gb3Zlcndy
-aXRpbmcgYW4gZXhpc3RpbmcgbGVhZiBTUFRFLCBhbmQgdGhlIG9sZCBTUFRFIHdhcworCQkgKiB3
-cml0YWJsZSwgc2tpcCB0cnlpbmcgdG8gdW5zeW5jIHNoYWRvdyBwYWdlcyBhcyBhbnkgcmVsZXZh
-bnQKKwkJICogc2hhZG93IHBhZ2VzIG11c3QgYWxyZWFkeSBiZSB1bnN5bmMsIGkuZS4gdGhlIGhh
-c2ggbG9va3VwIGlzCisJCSAqIHVubmVjZXNzYXJ5IChhbmQgZXhwZW5zaXZlKS4KKwkJICoKKwkJ
-ICogVGhlIHNhbWUgcmVhc29uaW5nIGFwcGxpZXMgdG8gZGlydHkgcGFnZS9mb2xpbyBhY2NvdW50
-aW5nOworCQkgKiBLVk0gd2lsbCBtYXJrIHRoZSBmb2xpbyBkaXJ0eSB1c2luZyB0aGUgb2xkIFNQ
-VEUsIHRodXMKKwkJICogdGhlcmUncyBubyBuZWVkIHRvIGltbWVkaWF0ZWx5IG1hcmsgdGhlIG5l
-dyBTUFRFIGFzIGRpcnR5LgorCQkgKgorCQkgKiBOb3RlLCBib3RoIGNhc2VzIHJlbHkgb24gS1ZN
-IG5vdCBjaGFuZ2luZyBQRk5zIHdpdGhvdXQgZmlyc3QKKwkJICogemFwcGluZyB0aGUgb2xkIFNQ
-VEUsIHdoaWNoIGlzIGd1YXJhbnRlZWQgYnkgYm90aCB0aGUgc2hhZG93CisJCSAqIE1NVSBhbmQg
-dGhlIFREUCBNTVUuCiAJCSAqLwotCQlpZiAoaXNfd3JpdGFibGVfcHRlKG9sZF9zcHRlKSkKKwkJ
-aWYgKGlzX2xhc3Rfc3B0ZShvbGRfc3B0ZSwgbGV2ZWwpICYmIGlzX3dyaXRhYmxlX3B0ZShvbGRf
-c3B0ZSkpCiAJCQlnb3RvIG91dDsKIAogCQkvKgotLSAKMi40Ny4wLnJjMS4yODguZzA2Mjk4ZDE1
-MjUtZ29vZwoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Invert the polarity of "can_unsync" and rename the parameter to
+"synchronizing" to allow a future change to set the Accessed bit if KVM
+is synchronizing an existing SPTE.  Querying "can_unsync" in that case is
+nonsensical, as the fact that KVM can't unsync SPTEs doesn't provide any
+justification for setting the Accessed bit.
+
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ arch/x86/kvm/mmu/mmu.c          | 12 ++++++------
+ arch/x86/kvm/mmu/mmu_internal.h |  2 +-
+ arch/x86/kvm/mmu/paging_tmpl.h  |  2 +-
+ arch/x86/kvm/mmu/spte.c         |  4 ++--
+ arch/x86/kvm/mmu/spte.h         |  2 +-
+ arch/x86/kvm/mmu/tdp_mmu.c      |  4 ++--
+ 6 files changed, 13 insertions(+), 13 deletions(-)
+
+diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
+index a8c64069aa89..0f21d6f76cab 100644
+--- a/arch/x86/kvm/mmu/mmu.c
++++ b/arch/x86/kvm/mmu/mmu.c
+@@ -2795,7 +2795,7 @@ static void kvm_unsync_page(struct kvm *kvm, struct kvm_mmu_page *sp)
+  * be write-protected.
+  */
+ int mmu_try_to_unsync_pages(struct kvm *kvm, const struct kvm_memory_slot *slot,
+-			    gfn_t gfn, bool can_unsync, bool prefetch)
++			    gfn_t gfn, bool synchronizing, bool prefetch)
+ {
+ 	struct kvm_mmu_page *sp;
+ 	bool locked = false;
+@@ -2810,12 +2810,12 @@ int mmu_try_to_unsync_pages(struct kvm *kvm, const struct kvm_memory_slot *slot,
+ 
+ 	/*
+ 	 * The page is not write-tracked, mark existing shadow pages unsync
+-	 * unless KVM is synchronizing an unsync SP (can_unsync = false).  In
+-	 * that case, KVM must complete emulation of the guest TLB flush before
+-	 * allowing shadow pages to become unsync (writable by the guest).
++	 * unless KVM is synchronizing an unsync SP.  In that case, KVM must
++	 * complete emulation of the guest TLB flush before allowing shadow
++	 * pages to become unsync (writable by the guest).
+ 	 */
+ 	for_each_gfn_valid_sp_with_gptes(kvm, sp, gfn) {
+-		if (!can_unsync)
++		if (synchronizing)
+ 			return -EPERM;
+ 
+ 		if (sp->unsync)
+@@ -2941,7 +2941,7 @@ static int mmu_set_spte(struct kvm_vcpu *vcpu, struct kvm_memory_slot *slot,
+ 	}
+ 
+ 	wrprot = make_spte(vcpu, sp, slot, pte_access, gfn, pfn, *sptep, prefetch,
+-			   true, host_writable, &spte);
++			   false, host_writable, &spte);
+ 
+ 	if (*sptep == spte) {
+ 		ret = RET_PF_SPURIOUS;
+diff --git a/arch/x86/kvm/mmu/mmu_internal.h b/arch/x86/kvm/mmu/mmu_internal.h
+index c98827840e07..4da83544c4e1 100644
+--- a/arch/x86/kvm/mmu/mmu_internal.h
++++ b/arch/x86/kvm/mmu/mmu_internal.h
+@@ -164,7 +164,7 @@ static inline gfn_t gfn_round_for_level(gfn_t gfn, int level)
+ }
+ 
+ int mmu_try_to_unsync_pages(struct kvm *kvm, const struct kvm_memory_slot *slot,
+-			    gfn_t gfn, bool can_unsync, bool prefetch);
++			    gfn_t gfn, bool synchronizing, bool prefetch);
+ 
+ void kvm_mmu_gfn_disallow_lpage(const struct kvm_memory_slot *slot, gfn_t gfn);
+ void kvm_mmu_gfn_allow_lpage(const struct kvm_memory_slot *slot, gfn_t gfn);
+diff --git a/arch/x86/kvm/mmu/paging_tmpl.h b/arch/x86/kvm/mmu/paging_tmpl.h
+index ae7d39ff2d07..6e7bd8921c6f 100644
+--- a/arch/x86/kvm/mmu/paging_tmpl.h
++++ b/arch/x86/kvm/mmu/paging_tmpl.h
+@@ -963,7 +963,7 @@ static int FNAME(sync_spte)(struct kvm_vcpu *vcpu, struct kvm_mmu_page *sp, int
+ 	host_writable = spte & shadow_host_writable_mask;
+ 	slot = kvm_vcpu_gfn_to_memslot(vcpu, gfn);
+ 	make_spte(vcpu, sp, slot, pte_access, gfn,
+-		  spte_to_pfn(spte), spte, true, false,
++		  spte_to_pfn(spte), spte, true, true,
+ 		  host_writable, &spte);
+ 
+ 	return mmu_spte_update(sptep, spte);
+diff --git a/arch/x86/kvm/mmu/spte.c b/arch/x86/kvm/mmu/spte.c
+index 5521608077ec..0e47fea1a2d9 100644
+--- a/arch/x86/kvm/mmu/spte.c
++++ b/arch/x86/kvm/mmu/spte.c
+@@ -157,7 +157,7 @@ bool spte_has_volatile_bits(u64 spte)
+ bool make_spte(struct kvm_vcpu *vcpu, struct kvm_mmu_page *sp,
+ 	       const struct kvm_memory_slot *slot,
+ 	       unsigned int pte_access, gfn_t gfn, kvm_pfn_t pfn,
+-	       u64 old_spte, bool prefetch, bool can_unsync,
++	       u64 old_spte, bool prefetch, bool synchronizing,
+ 	       bool host_writable, u64 *new_spte)
+ {
+ 	int level = sp->role.level;
+@@ -248,7 +248,7 @@ bool make_spte(struct kvm_vcpu *vcpu, struct kvm_mmu_page *sp,
+ 		 * e.g. it's write-tracked (upper-level SPs) or has one or more
+ 		 * shadow pages and unsync'ing pages is not allowed.
+ 		 */
+-		if (mmu_try_to_unsync_pages(vcpu->kvm, slot, gfn, can_unsync, prefetch)) {
++		if (mmu_try_to_unsync_pages(vcpu->kvm, slot, gfn, synchronizing, prefetch)) {
+ 			wrprot = true;
+ 			pte_access &= ~ACC_WRITE_MASK;
+ 			spte &= ~(PT_WRITABLE_MASK | shadow_mmu_writable_mask);
+diff --git a/arch/x86/kvm/mmu/spte.h b/arch/x86/kvm/mmu/spte.h
+index 2cb816ea2430..c81cac9358e0 100644
+--- a/arch/x86/kvm/mmu/spte.h
++++ b/arch/x86/kvm/mmu/spte.h
+@@ -499,7 +499,7 @@ bool spte_has_volatile_bits(u64 spte);
+ bool make_spte(struct kvm_vcpu *vcpu, struct kvm_mmu_page *sp,
+ 	       const struct kvm_memory_slot *slot,
+ 	       unsigned int pte_access, gfn_t gfn, kvm_pfn_t pfn,
+-	       u64 old_spte, bool prefetch, bool can_unsync,
++	       u64 old_spte, bool prefetch, bool synchronizing,
+ 	       bool host_writable, u64 *new_spte);
+ u64 make_huge_page_split_spte(struct kvm *kvm, u64 huge_spte,
+ 		      	      union kvm_mmu_page_role role, int index);
+diff --git a/arch/x86/kvm/mmu/tdp_mmu.c b/arch/x86/kvm/mmu/tdp_mmu.c
+index 3c6583468742..76bca7a726c1 100644
+--- a/arch/x86/kvm/mmu/tdp_mmu.c
++++ b/arch/x86/kvm/mmu/tdp_mmu.c
+@@ -1033,8 +1033,8 @@ static int tdp_mmu_map_handle_target_level(struct kvm_vcpu *vcpu,
+ 		new_spte = make_mmio_spte(vcpu, iter->gfn, ACC_ALL);
+ 	else
+ 		wrprot = make_spte(vcpu, sp, fault->slot, ACC_ALL, iter->gfn,
+-					 fault->pfn, iter->old_spte, fault->prefetch, true,
+-					 fault->map_writable, &new_spte);
++				   fault->pfn, iter->old_spte, fault->prefetch,
++				   false, fault->map_writable, &new_spte);
+ 
+ 	if (new_spte == iter->old_spte)
+ 		ret = RET_PF_SPURIOUS;
+-- 
+2.47.0.rc1.288.g06298d1525-goog
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
