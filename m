@@ -4,100 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEE7ECF11E9
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Oct 2024 13:14:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF928CF11F4
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Oct 2024 13:18:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ggx32krck60/vxBPnwWXuP6cgZwicmJYGBCfAzeORVM=; b=c5luZvzk6mNO1H
-	pcKHrVH1jIsqdz+kNZCMolDIRkMDPyhS+1YffTw6M62uIywKVEfWlkG/fXTHVukVzrQyoHxi3J/Nf
-	BDVBKpPC+5eLX0HGK99RzW0zf+FxaG2yiT3cGyc9pr4ah2qlZ74CwXNsBFQpQifIJP16k9nEKzsUn
-	xrPr+bt1krtlfxriTTOZJLtdmNK0xyS0Oen8Gn/d51LiPVddJTc7gAhqQtDI0GNBdMkzjN3uuTUMA
-	4BXA0CsNvatriBbWk1LM1yCszDqKpAw0sFTuis4FRbtCvtESx2lu/jWejQVteS5pQ3nR56QrxjGDz
-	j/OFCUC5ckcef+B/3zJA==;
+	List-Owner; bh=aWsGN2pKsgRSIEKFN/imdxxMMy3wluiMEYdgciGCSkU=; b=QYMjvzCO9tM7ot
+	YF58gZizYVqwkCbmNfLtHtqS0X7AnHKH7V2XEAylUn0HUCxQF0s6F4p+A9mJQDkvrphiBPf7PpjgT
+	ijCqUVJG/wEeophjw+CgBMpSq7eIiZMXmihgi6Ibp6ZiZuJrWlt/na9w5/7vojhO6OLh5lWqngggX
+	78fKm0Qiew/2HNfqq50w0wvZh9Ua571fOGJrVcOQB4q2gU14xqTmMqzdaXBihpDFQfqad86Lqih0z
+	KWOaQGiNU0fWr7IEqp35jcHIQOWIlgpsihPHTsU6UMSdtAHI+Gi5C0rEjGDCiwkdg6oDU/GkYXy9Y
+	kiR1+kjb3gA8IHDWXj+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1syszW-0000000CsEw-3dnh;
-	Thu, 10 Oct 2024 13:14:06 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1syt3W-0000000Ct2x-1R2K;
+	Thu, 10 Oct 2024 13:18:14 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sysnF-0000000CpdO-0bZv;
-	Thu, 10 Oct 2024 13:01:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 645C55C57C3;
-	Thu, 10 Oct 2024 13:01:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3F0EC4CEC5;
-	Thu, 10 Oct 2024 13:01:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1728565283;
-	bh=0gFND+MAHX6q3fPU9Dm7aa3AX+VkNdk2ZdK9663ePGM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=i15xpEq/kuFAv6DlXG15A1e80Zkeyfpm7KcH2z/4b7LHy0huNtJIfhTPl8l4m2Thz
-	 DrC+EerzAtj77QkSwvdLuoM9HsdVcSXAYblfY52ni7z3rWCwNvYecLnzzamyv05TxQ
-	 MvyRQw4iBhqZGVncP0l5I4u44ZK9GkUbVv2NjZJ1KmbX6KkRkPzCVKd/P5aEdD5W04
-	 r/juMpxct8TYbYtPQygo8mwFvlF95PkeOYNJV8aiyjpOL0HlbI0t0P6KYVnwxFYXRs
-	 bP4FdthxlHe3zfpEHTln3UXCWui5XHPdWaBkcJjwrkqkqBVwNb4EXbX5FI3Wx8W6oT
-	 ueyyZehAwF8+A==
-Date: Thu, 10 Oct 2024 15:57:33 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Christoph Hellwig <hch@infradead.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Andy Lutomirski <luto@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>,
-	Brian Cain <bcain@quicinc.com>,
+	id 1sysqA-0000000CqNV-1149;
+	Thu, 10 Oct 2024 13:04:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=wMnFvbWqz9ropUMoiz6qWqM0+CHEQh7yRoQngEhXc1s=; b=cXB7wkFLBivDS3yBosTgcBVjU6
+	lMPFx3K7BkWFhNLTa16uFn6XlZU0eHjss6Ee8gkUFIsapaHNiTK6YpSuHALbpfDhGYjj77gU4bMT9
+	pU+GTrH25gyFcySYj67rPaKKI/ZJ7U5VzengieZwvzMk9jmn16Pv6McPaZKwbFfTaYyh9saZTLL3n
+	WpiIp+LPfiahsmV19nxBYwB8bJSvJlVuOD+abV1ApyZu26RucMtFLZo+fLh0jIm4v6ga18+kb2Dk1
+	FqZGGVAxFR/BjIR82IthqADcUKulfUiQJLcw7mEPBjAR3vOli2BxKdhib0ev/Ra/zJ+THUdNvIxs2
+	8sVA23KA==;
+Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
+	id 1sysq5-00000007dHZ-31rL;
+	Thu, 10 Oct 2024 13:04:22 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 93A3030088D; Thu, 10 Oct 2024 15:04:21 +0200 (CEST)
+Date: Thu, 10 Oct 2024 15:04:21 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Cc: Mark Rutland <mark.rutland@arm.com>, Alice Ryhl <aliceryhl@google.com>,
+	Matthew Maurer <mmaurer@google.com>,
+	Sami Tolvanen <samitolvanen@google.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Kent Overstreet <kent.overstreet@linux.dev>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Simek <monstr@monstr.eu>, Oleg Nesterov <oleg@redhat.com>,
+	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
-	Stafford Horne <shorne@gmail.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linux-mm@kvack.org,
-	linux-modules@vger.kernel.org, linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org, linux-um@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v5 7/8] execmem: add support for cache of large ROX pages
-Message-ID: <ZwfPPZrxHzQgYfx7@kernel.org>
-References: <20241009180816.83591-1-rppt@kernel.org>
- <20241009180816.83591-8-rppt@kernel.org>
- <Zwd7GRyBtCwiAv1v@infradead.org>
+	Albert Ou <aou@eecs.berkeley.edu>, Miguel Ojeda <ojeda@kernel.org>,
+	Alex Gaynor <alex.gaynor@gmail.com>,
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <benno.lossin@proton.me>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Trevor Gross <tmgross@umich.edu>, Kees Cook <kees@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+	rust-for-linux@vger.kernel.org
+Subject: Re: [PATCH] cfi: rust: pass -Zpatchable-function-entry on all
+ architectures
+Message-ID: <20241010130421.GG17263@noisy.programming.kicks-ass.net>
+References: <20241008-cfi-patchable-all-v1-1-512481fd731d@google.com>
+ <ZwbAvEnrzu6UUgGl@J2N7QTR9R3>
+ <CAH5fLgipBfd5pNKqniXqFudruyGaJG=LDc5MEf3Yxq1yRMmQcw@mail.gmail.com>
+ <ZwewMw8jBh6OU-L_@J2N7QTR9R3>
+ <20241010110344.GL14587@noisy.programming.kicks-ass.net>
+ <20241010113748.GL33184@noisy.programming.kicks-ass.net>
+ <CANiq72=kT9RFcQ3h5U+wAY0pDQQqGU7BTtiPJ-oiHNUG00z3=w@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <Zwd7GRyBtCwiAv1v@infradead.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241010_060125_282552_764E61A0 
-X-CRM114-Status: GOOD (  14.79  )
+In-Reply-To: <CANiq72=kT9RFcQ3h5U+wAY0pDQQqGU7BTtiPJ-oiHNUG00z3=w@mail.gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,36 +87,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 09, 2024 at 11:58:33PM -0700, Christoph Hellwig wrote:
-> On Wed, Oct 09, 2024 at 09:08:15PM +0300, Mike Rapoport wrote:
-> >  /**
-> >   * struct execmem_info - architecture parameters for code allocations
-> > + * @fill_trapping_insns: set memory to contain instructions that will trap
-> >   * @ranges: array of parameter sets defining architecture specific
-> >   * parameters for executable memory allocations. The ranges that are not
-> >   * explicitly initialized by an architecture use parameters defined for
-> >   * @EXECMEM_DEFAULT.
-> >   */
-> >  struct execmem_info {
-> > +	void (*fill_trapping_insns)(void *ptr, size_t size, bool writable);
-> >  	struct execmem_range	ranges[EXECMEM_TYPE_MAX];
-> 
-> Why is the filler an indirect function call and not an architecture
-> hook?
-
-The idea is to keep everything together and have execmem_info describe all
-that architecture needs. 
-
--- 
-Sincerely yours,
-Mike.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBPY3QgMTAsIDIwMjQgYXQgMDE6NDQ6MTRQTSArMDIwMCwgTWlndWVsIE9qZWRhIHdy
+b3RlOgo+IE9uIFRodSwgT2N0IDEwLCAyMDI0IGF0IDE6MzfigK9QTSBQZXRlciBaaWpsc3RyYSA8
+cGV0ZXJ6QGluZnJhZGVhZC5vcmc+IHdyb3RlOgo+ID4KPiA+IFNvIG11Y2ggZm9yIHRoZSBkZWJp
+YW4gJ3J1c3QtYWxsJyBwYWNrYWdlIGFjdHVhbGx5IGluY2x1ZGluZyBhbGwuIFRoYW5rcwo+ID4g
+Qm9xdW4gZm9yIHRlbGxpbmcgbWUgYWJvdXQgdGhlIHJ1c3RhdmFpbGFibGUgbWFrZSB0YXJnZXQu
+Cj4gCj4gWWVhaCwgYHJ1c3QtYWxsYCBkb2VzIG5vdCBzZWVtIHRvIGluY2x1ZGUgYGJpbmRnZW5g
+LCB3aGljaCBJIGd1ZXNzIHdhcwo+IHRoZSBpc3N1ZSAoPykuCgpBbHNvIG5vdCBydXN0LXNyYywg
+YmVjYXVzZSBmb3Igc29tZSByZWFzb24geW91J3JlIG5vdCBhY3R1YWxseQpmcmVlc3RhbmRpbmcg
+Oi8KCj4gSSBndWVzcyB5b3UgaGF2ZSBpdCB3b3JraW5nIG5vdywgYnV0IGZvciB0aGUgbmV4dCB0
+aW1lIC8gb3RoZXJzLCB3ZQo+IGhhdmUgdGhlIGBhcHRgIGxpbmUgZm9yIERlYmlhbiBhdAo+IGh0
+dHBzOi8vZG9jcy5rZXJuZWwub3JnL3J1c3QvcXVpY2stc3RhcnQuaHRtbCNkZWJpYW4uCgpZZWFo
+LCBidXQgdGhlbiB5b3UgaGF2ZSB0byBmaXJzdCBrbm93IHRoYXQgd2UgaGF2ZSB0aGlzIGZpbGUg
+dG8gYmVnaW4Kd2l0aC4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
+YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
+cmlzY3YK
