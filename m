@@ -4,28 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C569CF07B5
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Oct 2024 06:56:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ACEBCF07B9
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Oct 2024 06:58:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9fGL9C0Tqt4xFoa4GzZeY/VD2Pyf4tW2dzsVB52lO0w=; b=PuNPw+bVOLM++N
-	vL8VSJ3BZ77lkh1sN5Kl7FedQ/yz7JOu6YmrCMT23hsu6QGtxpwUU1Tt0I/AxVPNNvnHXnzWZSY2Q
-	hpYuLLiS/8KGZnm9KADnMstfbbn0PGgAly1HB4ktOfwN8ffRHHFm1r86AwIq0sDHNxWaMl+H6xSCy
-	1fR+BWa3lWgBULaqCqC57kM26abTbURGT3iwWHUTGotKma3YLXmWtKDjwzVTXroOuyGXdu6pwEuwr
-	fN45nom2outVwk8/sYzMALFtlDY6cSD/WrcI+adFF+BbsqTGVWYpmIzqSYR+v4lSWWaTX86NgH6HJ
-	oQqNzC+e1zAJ3E5S8NXQ==;
+	List-Owner; bh=WzaS7tfY+XspBkbvRtdDoUyBS53mIMAH5XLp3Gow2v8=; b=jlmBM+rXDizKg2
+	JkOT9wzbNe2Z6kll1hv6mXdobuIZqtsUVwq6qeEKpNrqiCiUjOCKXOThuhD1Qd3MOk1wO7ExgzSwu
+	iCw7TgyNfEXRpsG3qug1MuWTh6ZVbgBOF+kNmTMET6+yb3McezMdSdJSPj84bEF7nV4tVtepuFDjv
+	pW6Ou1te2wJbGKIVoHudCcTzHQiHxfM1HNEm70GQv24t8STMXm6u1smc6NpTNqBgu4ZZBGLhaVV3K
+	KBp9yfVIfV9lGQ8uAgvuslCxlzwTekDGQehM9Dao9/vN5+4IrK4aLVnTPKA+1kgcIbm7cVeYU7est
+	tNFsaa+EgB7+g0eSOk7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1syn5f-0000000Bkpv-067E;
-	Thu, 10 Oct 2024 06:56:03 +0000
+	id 1syn88-0000000BlFM-0XXq;
+	Thu, 10 Oct 2024 06:58:36 +0000
 Received: from hch by bombadil.infradead.org with local (Exim 4.98 #2 (Red Hat Linux))
-	id 1syn5c-0000000Bkoc-2sjD;
-	Thu, 10 Oct 2024 06:56:00 +0000
-Date: Wed, 9 Oct 2024 23:56:00 -0700
+	id 1syn85-0000000BlEq-1dyW;
+	Thu, 10 Oct 2024 06:58:33 +0000
+Date: Wed, 9 Oct 2024 23:58:33 -0700
 From: Christoph Hellwig <hch@infradead.org>
 To: Mike Rapoport <rppt@kernel.org>
 Cc: Andrew Morton <akpm@linux-foundation.org>,
@@ -72,13 +72,13 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
 	linux-trace-kernel@vger.kernel.org, linux-um@lists.infradead.org,
 	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
 	sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v5 5/8] arch: introduce set_direct_map_valid_noflush()
-Message-ID: <Zwd6gDYEvjOwQ5wJ@infradead.org>
+Subject: Re: [PATCH v5 7/8] execmem: add support for cache of large ROX pages
+Message-ID: <Zwd7GRyBtCwiAv1v@infradead.org>
 References: <20241009180816.83591-1-rppt@kernel.org>
- <20241009180816.83591-6-rppt@kernel.org>
+ <20241009180816.83591-8-rppt@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20241009180816.83591-6-rppt@kernel.org>
+In-Reply-To: <20241009180816.83591-8-rppt@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,9 +95,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Looks good:
+On Wed, Oct 09, 2024 at 09:08:15PM +0300, Mike Rapoport wrote:
+>  /**
+>   * struct execmem_info - architecture parameters for code allocations
+> + * @fill_trapping_insns: set memory to contain instructions that will trap
+>   * @ranges: array of parameter sets defining architecture specific
+>   * parameters for executable memory allocations. The ranges that are not
+>   * explicitly initialized by an architecture use parameters defined for
+>   * @EXECMEM_DEFAULT.
+>   */
+>  struct execmem_info {
+> +	void (*fill_trapping_insns)(void *ptr, size_t size, bool writable);
+>  	struct execmem_range	ranges[EXECMEM_TYPE_MAX];
 
-Reviewed-by: Christoph Hellwig <hch@lst.de>
+Why is the filler an indirect function call and not an architecture
+hook?
+
 
 _______________________________________________
 linux-riscv mailing list
