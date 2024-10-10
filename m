@@ -4,106 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D594CF11FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Oct 2024 15:40:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0BADCF11FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Oct 2024 15:43:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=I37Ts15gy1/ys+ZTehvckKt8bqAlxs0OhT7ixM8Ra5w=; b=MfPDLT6SS1vkVE
-	LyHymnip75kJQ+9Wvh9tkP6hKe1gC+Piq0BsdmLzzJVeMd+sGjf8D+cjYkmNR11s8hhk4E6+nFcTa
-	q28cEAmgJCHPqCg3DtyA8ocSaJzZBCP2oMu7dbdYFxxwEYMKaFhkYjCvliqTfBUs+OqFlQrt1H7Hg
-	HOzD7mMl3oArMiC09GblIqlyx9InVqnY2lRgHi+y64nTba6NTgsnBEKoZXf5+fNZPJ0M2Hms7EJ1E
-	pUZkLjTXdZdeoFt3LpIPcHBIyYO2nRylR8BFMCEhvHjdzreeSvZVW/KWqdb/SgheGDS4nJ2a6hnfI
-	Jjc1pcL10QYVU2Iyt1lQ==;
+	List-Owner; bh=aZdtaW+LXz2mKzC6KJXaO7DjapKb2RKDKrIyyPvQvdw=; b=aM/tlC9MndqLKw
+	LpafnRcsFEdXaLGqvB7Q421xIQ+ztCrU+4xNJwREBRrWrCqGJhixnjrhDXOXwZtBZ5TaPzHpisZjh
+	YPSHCEXCLjLoNihqC/9p3xkvWh9EtjGUR243lbC4EmPj8EAqWHGkEipZZWdI3xB50R8VNkCyddLoH
+	JDGA3LFm6aAuHt0zsKZxQ6LQpt/ISBWhYZGRvjuXyx7v/qxhDgya8uscKCLGIAsQcQOJnUh0T907G
+	HaNr/CoVaKaqXe18sASykfFc/8dGBiKp/GhrsCRUJkgnykaQiExtHH9ciIG6aORWvuPAFW22sQOiq
+	P5ZCN0PKLm3elr6PB4hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1syvHS-0000000DNFL-0bzn;
-	Thu, 10 Oct 2024 15:40:46 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1syvK6-0000000DNv6-1APC;
+	Thu, 10 Oct 2024 15:43:30 +0000
+Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1syuvj-0000000DICR-1PFc;
-	Thu, 10 Oct 2024 15:18:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5677CA44A1E;
-	Thu, 10 Oct 2024 15:18:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D004C4CEC5;
-	Thu, 10 Oct 2024 15:18:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1728573497;
-	bh=6dvKTY2cy/sodJ8sieN7BO/TIIO+P82VgqdOgk5UcTA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=JJJWVitmpvLvarMUPZUkuoB8gP29XOw0sXNcXNa5kByyDAx7zTpXCXE3HAPvwucIc
-	 nqKSjxxqVqe/grf/6yTnmqZ60aylmorsMhYnLl/p7veN8L+6Z6UpBle4GJuML4f7xb
-	 i4kReeFAE20WpHLaj8KfSAKT2u3eSPxMo5z1CNQJcQfr/ga40kbvqrkDBDHrIhHoXF
-	 Fx9jWKSkz74XO4oqeZAS85rWP/9HC/v2M1aUJUQw6PW1C+qyBOnY/aeVO+soSpZuga
-	 63WABLS/bqHPf7/DMKi/vZmUVhEJ5IYzs9ZH3gGYScj5D1kIistrSeFfZCohaujqqN
-	 f91Lx8662bKcA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1syuve-002Eqs-J7;
-	Thu, 10 Oct 2024 16:18:14 +0100
-Date: Thu, 10 Oct 2024 16:18:13 +0100
-Message-ID: <86msjc56mi.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Shuah Khan <shuah@kernel.org>,
-	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Deepak Gupta <debug@rivosinc.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
-	Kees Cook <kees@kernel.org>,
-	"H.J. Lu" <hjl.tools@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Florian Weimer <fweimer@redhat.com>,
-	Christian Brauner <brauner@kernel.org>,
-	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
-	Ross Burton <ross.burton@arm.com>,
-	David Spickett <david.spickett@arm.com>,
-	Yury Khrustalev <yury.khrustalev@arm.com>,
-	Wilco Dijkstra <wilco.dijkstra@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v13 11/40] arm64/gcs: Provide basic EL2 setup to allow GCS usage at EL0 and EL1
-In-Reply-To: <20241009204903.GA3353168@thelio-3990X>
-References: <20241001-arm64-gcs-v13-0-222b78d87eee@kernel.org>
-	<20241001-arm64-gcs-v13-11-222b78d87eee@kernel.org>
-	<20241009204903.GA3353168@thelio-3990X>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: nathan@kernel.org, broonie@kernel.org, catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net, akpm@linux-foundation.org, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, arnd@arndb.de, oleg@redhat.com, ebiederm@xmission.com, shuah@kernel.org, rick.p.edgecombe@intel.com, debug@rivosinc.com, ardb@kernel.org, Szabolcs.Nagy@arm.com, kees@kernel.org, hjl.tools@gmail.com, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, fweimer@redhat.com, brauner@kernel.org, thiago.bauermann@linaro.org, ross.burton@arm.com, david.spickett@arm.com, yury.khrustalev@arm.com, wilco.dijkstra@arm.com, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org, linux-arch@vger.kernel.org, linux-mm@kvack.org, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1syv1D-0000000DJVZ-1J9C
+	for linux-riscv@lists.infradead.org;
+	Thu, 10 Oct 2024 15:24:01 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 4D03F1C0007;
+	Thu, 10 Oct 2024 15:23:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1728573837;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=7g+xGPfmPtCVDE9/xOLezbAJ5PFRDtUwPFyP2N7f7H4=;
+	b=fgeC9S65MDOezx4kw/I8xvjGqVf75HS8eJ720599rICrC2/T5ED7OzZcfP9mCAJkzdQh6I
+	mi3SWrzuD3dtS2fbHm9Nq2eGko4IpJ9Q3gJ70tvC0moYWQKms2Ubks9XdqrydtFcYpZLhc
+	YXMIl8q4KprrZz4a5HXoUZXzijQWaKRR3d+R/g1pB6cilen8oox5Jrar//ycffIs4RjzhI
+	bHq8MbSWHZic4BNH1iRV0GawpScgW7Ou0i8hghzESz9mVDjb8bweKnK6M8FKgKv5BZCxLU
+	HCn5Q2AYGtqvWhl3EENgwntFRpXZrE8lJFx1EP+TIh7tv3WAJ/X2C3GzBmEgYA==
+Message-ID: <d7b32bed-2078-4f5b-80c6-681b7d67302a@bootlin.com>
+Date: Thu, 10 Oct 2024 17:23:55 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 1/2] riscv: dts: sophgo: Add initial SG2002 SoC device
+ tree
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Chen Wang <unicorn_wang@outlook.com>,
+ Inochi Amaoto <inochiama@outlook.com>, Chao Wei <chao.wei@sophgo.com>,
+ Conor Dooley <conor@kernel.org>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Samuel Holland <samuel.holland@sifive.com>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ =?UTF-8?Q?Miqu=C3=A8l_Raynal?= <miquel.raynal@bootlin.com>,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <20241010-sg2002-v5-0-a0f2e582b932@bootlin.com>
+ <20241010-sg2002-v5-1-a0f2e582b932@bootlin.com>
+Content-Language: en-US
+From: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+In-Reply-To: <20241010-sg2002-v5-1-a0f2e582b932@bootlin.com>
+X-GND-Sasl: thomas.bonnefille@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241010_081819_533607_5B84B589 
-X-CRM114-Status: GOOD (  32.26  )
+X-CRM114-CacheID: sfid-20241010_082359_719083_35108A0E 
+X-CRM114-Status: UNSURE (   8.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,194 +81,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 09 Oct 2024 21:49:03 +0100,
-Nathan Chancellor <nathan@kernel.org> wrote:
+Hello, sorry for the double email.
+
+On 10/10/24 5:07 PM, Thomas Bonnefille wrote:
+> Add initial device tree for the SG2002 RISC-V SoC by SOPHGO.
 > 
-> Hi Mark,
-> 
-> On Tue, Oct 01, 2024 at 11:58:50PM +0100, Mark Brown wrote:
-> > There is a control HCRX_EL2.GCSEn which must be set to allow GCS
-> > features to take effect at lower ELs and also fine grained traps for GCS
-> > usage at EL0 and EL1.  Configure all these to allow GCS usage by EL0 and
-> > EL1.
-> > 
-> > We also initialise GCSCR_EL1 and GCSCRE0_EL1 to ensure that we can
-> > execute function call instructions without faulting regardless of the
-> > state when the kernel is started.
-> > 
-> > Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
-> > Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-> > Signed-off-by: Mark Brown <broonie@kernel.org>
-> 
-> I just bisected a build failure from a failed linker script assertion
-> that I see with allmodconfig to this change in -next as commit
-> ff5181d8a2a8 ("arm64/gcs: Provide basic EL2 setup to allow GCS usage at
-> EL0 and EL1"):
-> 
->   $ make -skj"$(nproc)" ARCH=arm64 CROSS_COMPILE=aarch64-linux- mrproper allmodconfig vmlinux
->   aarch64-linux-ld: HYP init code too big
->   make[4]: *** [scripts/Makefile.vmlinux:34: vmlinux] Error 1
->   ...
-> 
-> I see this with both GCC 14 and clang 19, in case toolchain version
-> matters. Bisect log included as well.
+> Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+> ---
+> The commit adding the bindings for the compatible "sophgo,sg2002-clint"
+> has been applied to Daniel Lezcano git tree. This commit may trigger the
+> bots because of this missing binding.
+> ---
 
-Grmbl... 16 bytes too big. The hack below buys us about ~600 bytes by
-removing some duplication, but we're losing half of the space to the
-vectors.
+I wanted to say, that the comment above is no longer relevant because 
+Daniel Lezcano's branch was applied in 6.11.
 
-Anyway, this is very lightly tested and it may eat your box.
-
-Thanks,
-
-	M.
-
-From 20c98d2647c11db1e40768f92c5998ff5d764a3a Mon Sep 17 00:00:00 2001
-From: Marc Zyngier <maz@kernel.org>
-Date: Thu, 10 Oct 2024 16:13:26 +0100
-Subject: [PATCH] KVM: arm64: Shave a few bytes from the EL2 idmap code
-
-Our idmap is becoming too big, to the point where it doesn't fit in
-a 4kB page anymore.
-
-There are some low-hanging fruits though, such as the el2_init_state
-horror that is expanded 3 times in the kernel. Let's at least limit
-ourselves to two copies, which makes the kernel link again.
-
-At some point, we'll have to have a better way of doing this.
-
-Reported-by: Nathan Chancellor <nathan@kernel.org>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-Link: https://lore.kernel.org/r/20241009204903.GA3353168@thelio-3990X
----
- arch/arm64/include/asm/kvm_asm.h   |  1 +
- arch/arm64/kernel/asm-offsets.c    |  1 +
- arch/arm64/kvm/hyp/nvhe/hyp-init.S | 52 +++++++++++++++++-------------
- 3 files changed, 31 insertions(+), 23 deletions(-)
-
-diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-index b36a3b6cc0116..67afac659231e 100644
---- a/arch/arm64/include/asm/kvm_asm.h
-+++ b/arch/arm64/include/asm/kvm_asm.h
-@@ -178,6 +178,7 @@ struct kvm_nvhe_init_params {
- 	unsigned long hcr_el2;
- 	unsigned long vttbr;
- 	unsigned long vtcr;
-+	unsigned long tmp;
- };
- 
- /*
-diff --git a/arch/arm64/kernel/asm-offsets.c b/arch/arm64/kernel/asm-offsets.c
-index 27de1dddb0abe..b21dd24b8efc3 100644
---- a/arch/arm64/kernel/asm-offsets.c
-+++ b/arch/arm64/kernel/asm-offsets.c
-@@ -146,6 +146,7 @@ int main(void)
-   DEFINE(NVHE_INIT_HCR_EL2,	offsetof(struct kvm_nvhe_init_params, hcr_el2));
-   DEFINE(NVHE_INIT_VTTBR,	offsetof(struct kvm_nvhe_init_params, vttbr));
-   DEFINE(NVHE_INIT_VTCR,	offsetof(struct kvm_nvhe_init_params, vtcr));
-+  DEFINE(NVHE_INIT_TMP,		offsetof(struct kvm_nvhe_init_params, tmp));
- #endif
- #ifdef CONFIG_CPU_PM
-   DEFINE(CPU_CTX_SP,		offsetof(struct cpu_suspend_ctx, sp));
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-init.S b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
-index 401af1835be6b..fc18662260676 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-init.S
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
-@@ -24,28 +24,25 @@
- 	.align	11
- 
- SYM_CODE_START(__kvm_hyp_init)
--	ventry	__invalid		// Synchronous EL2t
--	ventry	__invalid		// IRQ EL2t
--	ventry	__invalid		// FIQ EL2t
--	ventry	__invalid		// Error EL2t
-+	ventry	.			// Synchronous EL2t
-+	ventry	.			// IRQ EL2t
-+	ventry	.			// FIQ EL2t
-+	ventry	.			// Error EL2t
- 
--	ventry	__invalid		// Synchronous EL2h
--	ventry	__invalid		// IRQ EL2h
--	ventry	__invalid		// FIQ EL2h
--	ventry	__invalid		// Error EL2h
-+	ventry	.			// Synchronous EL2h
-+	ventry	.			// IRQ EL2h
-+	ventry	.			// FIQ EL2h
-+	ventry	.			// Error EL2h
- 
- 	ventry	__do_hyp_init		// Synchronous 64-bit EL1
--	ventry	__invalid		// IRQ 64-bit EL1
--	ventry	__invalid		// FIQ 64-bit EL1
--	ventry	__invalid		// Error 64-bit EL1
-+	ventry	.			// IRQ 64-bit EL1
-+	ventry	.			// FIQ 64-bit EL1
-+	ventry	.			// Error 64-bit EL1
- 
--	ventry	__invalid		// Synchronous 32-bit EL1
--	ventry	__invalid		// IRQ 32-bit EL1
--	ventry	__invalid		// FIQ 32-bit EL1
--	ventry	__invalid		// Error 32-bit EL1
--
--__invalid:
--	b	.
-+	ventry	.			// Synchronous 32-bit EL1
-+	ventry	.			// IRQ 32-bit EL1
-+	ventry	.			// FIQ 32-bit EL1
-+	ventry	.			// Error 32-bit EL1
- 
- 	/*
- 	 * Only uses x0..x3 so as to not clobber callee-saved SMCCC registers.
-@@ -76,6 +73,13 @@ __do_hyp_init:
- 	eret
- SYM_CODE_END(__kvm_hyp_init)
- 
-+SYM_CODE_START_LOCAL(__kvm_init_el2_state)
-+	/* Initialize EL2 CPU state to sane values. */
-+	init_el2_state				// Clobbers x0..x2
-+	finalise_el2_state
-+	ret
-+SYM_CODE_END(__kvm_init_el2_state)
-+
- /*
-  * Initialize the hypervisor in EL2.
-  *
-@@ -102,9 +106,12 @@ SYM_CODE_START_LOCAL(___kvm_hyp_init)
- 	// TPIDR_EL2 is used to preserve x0 across the macro maze...
- 	isb
- 	msr	tpidr_el2, x0
--	init_el2_state
--	finalise_el2_state
-+	str	lr, [x0, #NVHE_INIT_TMP]
-+
-+	bl	__kvm_init_el2_state
-+
- 	mrs	x0, tpidr_el2
-+	ldr	lr, [x0, #NVHE_INIT_TMP]
- 
- 1:
- 	ldr	x1, [x0, #NVHE_INIT_TPIDR_EL2]
-@@ -199,9 +206,8 @@ SYM_CODE_START_LOCAL(__kvm_hyp_init_cpu)
- 
- 2:	msr	SPsel, #1			// We want to use SP_EL{1,2}
- 
--	/* Initialize EL2 CPU state to sane values. */
--	init_el2_state				// Clobbers x0..x2
--	finalise_el2_state
-+	bl	__kvm_init_el2_state
-+
- 	__init_el2_nvhe_prepare_eret
- 
- 	/* Enable MMU, set vectors and stack. */
--- 
-2.39.2
-
--- 
-Without deviation from the norm, progress is not possible.
+Best regards,
+Thomas
 
 _______________________________________________
 linux-riscv mailing list
