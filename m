@@ -4,98 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 533AFCF07BD
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Oct 2024 07:48:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83290CF07C2
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Oct 2024 08:17:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6qlpedR7B3+5egD7HRGF4DDAbMs3XLrrlOwmQXXcuY4=; b=dub8U+wIQMf16m
-	HqxT7DKg3vTc5cAJRPZBFKJB5LrnhHf/mnqH25IJMrRhxivNtC0qHuZDDXhwNuuiNvscSEgh7+mkS
-	lkUX3lSKxqT0l7siDXIUqpRayOcGB7ObB1xMsw7/tfzDwlrMeFPta3t8NUciq306BWquMkrEmbYeq
-	vONdKGEmIJFfzw+wH9IMPaCMgesKylMIuP331vlLWuUcTOewfqa4TU5NFIrgXFbUsMXAwmpNLqtRk
-	0fIfo+2RIPP6I6z2uVPcMSCzO55//4PYREcBmPwfGIf/k2MdDE8bFhrKo3uOR5xleolqFCtllsh7f
-	y6oPtaNTmNrOfq+vx3kg==;
+	List-Owner; bh=TcqEBpIaqO8blQDinH5YTcjp+mTm8y5097ScGmkZtqo=; b=CCxCcAEHZh0llt
+	NzMeKmdrBpNsPnPPOb7/sZ9Jxq5laycdStZ9hy8jmaJoftlv57EoofNMBe4Rtq+aNvqp5ip7a9iqQ
+	ZlpZ+qYWPSjZ2W1sPWb5R/Wni1arKDfcXWe3ZOnjUBGfxaUAVmuz4J91AshRPeQQ6b489ES0cvsuw
+	YhaQFNwa/oIYD1+OFH2fzEGqZVON/9bSYPuBhaCYNT/Dd7SagIc7HoTsgaJvYMUF7TrFa3u5MmpO0
+	3Ij2R7qqHQAIy0HRDNOTe+o7TmBzWmA24Q/p6n9ivHXh0Ba7rq9sktxHScLnmbjJKCI3zk7ftevPE
+	Bn1UfmpYfIrmSvDb0HjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1synuZ-0000000BsF5-1l7v;
-	Thu, 10 Oct 2024 07:48:39 +0000
-Received: from mail-pl1-f170.google.com ([209.85.214.170])
+	id 1syoMo-0000000BxEQ-0tXR;
+	Thu, 10 Oct 2024 08:17:50 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1synaQ-0000000Bpsa-1C5J;
-	Thu, 10 Oct 2024 07:27:51 +0000
-Received: by mail-pl1-f170.google.com with SMTP id d9443c01a7336-20c71603217so4598185ad.3;
-        Thu, 10 Oct 2024 00:27:49 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728545268; x=1729150068;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=7cEkDPRbXErPkgoWEGdbZCw32b468GFBk0qa08gpGWY=;
-        b=JL3PXmYAxKpKK7eJcH21a2iULrhmFnhaJHSoD2C8JlKlbA0kkDz+nIU0qQCTLshzdg
-         NMJGTIRWnqb991IAY3TONZ+gYxf5nGwdaCI9DSIi/U4DG+98d5mvtLaZBviF+WT5OnEE
-         C+RtpZp5d+ZxOhwQDWa/GVd+Tm8+QY+9xZu9nnbR8DBGkhgSIUrat8pEl8Msj8Cw68Pe
-         MtTGaeKP/batrQ1ZJ2pINLe+O25s09MW/+UuBDev7BIA1uBfNzf5NopNjw71RIXOkU49
-         Yuat9BVP+7jQ5oH8yNxcffBN6kszmnvx1L0/Wyf3TFgZgCBMkuvHayw8c0C4hIfQfVxa
-         HZLA==
-X-Forwarded-Encrypted: i=1; AJvYcCV+f0XL1e1J/jfZyAyvmyWDFzOYUkkrVPmKzsXxr9GUBqf352ouAHcJjuCMjs3Z5YpUyqaYJ6YJ1sk=@lists.infradead.org, AJvYcCV/6y58OX5huADWLxzNEU4r/7rTj0f8bzonqmKEPrbjtvYfmqgnHfnYYjbRlRDSoNBCDSk5MkzQPYvWEzE=@lists.infradead.org, AJvYcCWSW3agXZxKFG8kxZtAOX4qscy7Gs2pj/v77xSy8q5tlLH6V4hCl4CJxgQoDjvsIOHbhTtPyt67TxeYU2mGQzVu@lists.infradead.org, AJvYcCX2wxCfGeDxp59yyjpomdUHfHZfoTQlb3ZuqGuwbPePbPUc2qI0nm/hm1KGB5SyVNmK4lR6UYEApi/5Bcc+k40=@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYNnnBWlG0bhcbeE/BtgwKHJFVPs++Ge6G1nY1bWPlvaNGlydZ
-	cw3SyvQA+7ZbXS/KMAXD8B1A9WUNOCycS8X4wVbTmIE5sO7h4QjnmObUK9Jo
-X-Google-Smtp-Source: AGHT+IGEAkoNIuAMVc1Kkymuz1Dp4pBnT9ffPI8C4o0lwtwRYuJ9ebA/QgoriRGd/OI2S7pc9rOiZQ==
-X-Received: by 2002:a17:903:2ac6:b0:20c:5da9:edff with SMTP id d9443c01a7336-20c6377dbb8mr63654695ad.47.1728545268466;
-        Thu, 10 Oct 2024 00:27:48 -0700 (PDT)
-Received: from mail-pf1-f172.google.com (mail-pf1-f172.google.com. [209.85.210.172])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-20c8c215edfsm4477065ad.210.2024.10.10.00.27.48
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 10 Oct 2024 00:27:48 -0700 (PDT)
-Received: by mail-pf1-f172.google.com with SMTP id d2e1a72fcca58-71e038f3835so629997b3a.0;
-        Thu, 10 Oct 2024 00:27:48 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVvXisdW/jB0p/k5+tM+NAZLkAvdc+dyxjIQLKs9bBpynAr0mw5kJ743Gm35w4Ie19wk3mEKMjf3RmeWIlXR8Q=@lists.infradead.org, AJvYcCX6Y1mMVBQcinESJcnX2y29oLkdZ37/cFase+dJDdUcXm0z/owjz5ScBRKJeTO+uyq95gBgU4uegUM8Pzw=@lists.infradead.org, AJvYcCX7AUj/b/dBdix8zn6PJ03RA8uplYd6lV9+xwtnrQ3N/tjdbPowLX9jpCTyeVDz9BSaIjBS76IzO6k=@lists.infradead.org, AJvYcCXNMQ0sUiefI14z2HKG8LC0YKKC5ym6xHm4IiAeVS2qwFjKgpyxtMakYEdYmWBcSAZvBO8GkfaNynOLJOhsF5Et@lists.infradead.org
-X-Received: by 2002:a05:690c:60c2:b0:6b3:a6ff:7676 with SMTP id
- 00721157ae682-6e3221867cemr55553697b3.3.1728544955686; Thu, 10 Oct 2024
- 00:22:35 -0700 (PDT)
+	id 1syo1l-0000000Bszo-3jUO;
+	Thu, 10 Oct 2024 07:56:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=0yVn8tI3lyhXM3ZeiBQKCb5kXwilQgq2bp9dwcfLyYI=; b=o/zwFs4ROwIU/DA73He7O74q9t
+	7n2B1ug4uN158r/Z1Y5Cdq7n/Pl9TxH64uiwa0GxZfUJ2GZMnOEH72Jl3UQyo9ZZzodMyoO6Wcunr
+	YFblBcEKy1lEPGXoWTc62afofE7DYVEPxRSJkGauCBWVe0uZpXRa/lr9oTXXUnkmw5p/vyrSrzWY4
+	Al++BbBakjVEcjaUhYaAgdHWjwTh2KsgPBwWA2p92N/6Ugje7thtbxv1tj4Jx2r8qhG2wrhfGmYV4
+	buKUwsKMqxjgWSdKwiwRtispY9RuY0TUzNeRiaPdldFZHis1qkvMMq1nV0m1AYbKVBG3AhH9ICaF2
+	3r4AtBzA==;
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1syo1a-00000005EFM-2QSv;
+	Thu, 10 Oct 2024 07:56:01 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49A7YT0q005037;
+	Thu, 10 Oct 2024 07:55:18 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=date
+	:from:to:cc:subject:message-id:references:mime-version
+	:content-type:content-transfer-encoding:in-reply-to; s=pp1; bh=0
+	yVn8tI3lyhXM3ZeiBQKCb5kXwilQgq2bp9dwcfLyYI=; b=Q5pjE1ERdXenpwSx9
+	H+3tZabSr8DH7Beyxy8drvLqU3Ht7Ga5XyW6C2PTL3fPAuIoZz3HzJyiSMoG5gdj
+	JjsNnDX89G4/TG2MQ2BW0D7oNe96JjJi5G8uZ9mB/IapFOPGaPI969vLuEtTw6gE
+	D6w8jekAr6Nzp3HaTEja4FUr8tp1ftTFqMfyfMTZNpMqVCBoXY9zpXfp1OYNxpHv
+	kbP2c54yz9Ep1Dqaj3eGZkuA+jhRxDx4QQwAhzA66Rkp22oRkrTbO5vLbuYRFTlL
+	+Pd5u72MCl/j+dMSEbRW7gnpYCpEOaMHPSE7LD2eBuG5IA3bgsjtNp/LMzgsdAiG
+	yYq+A==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 426anb82uq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 10 Oct 2024 07:55:18 +0000 (GMT)
+Received: from m0356516.ppops.net (m0356516.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 49A7tHik016153;
+	Thu, 10 Oct 2024 07:55:17 GMT
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 426anb82uf-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 10 Oct 2024 07:55:17 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 49A544L3013784;
+	Thu, 10 Oct 2024 07:55:16 GMT
+Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 423fssen8b-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 10 Oct 2024 07:55:16 +0000
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 49A7tCoY59048420
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 10 Oct 2024 07:55:13 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id AC8702004B;
+	Thu, 10 Oct 2024 07:55:12 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id BCECD2004E;
+	Thu, 10 Oct 2024 07:55:11 +0000 (GMT)
+Received: from osiris (unknown [9.152.212.60])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Thu, 10 Oct 2024 07:55:11 +0000 (GMT)
+Date: Thu, 10 Oct 2024 09:55:10 +0200
+From: Heiko Carstens <hca@linux.ibm.com>
+To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
+Cc: Guo Ren <guoren@kernel.org>, Vasily Gorbik <gor@linux.ibm.com>,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Paul Walmsley <paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+        Russell King <linux@armlinux.org.uk>,
+        Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+        "Theodore Ts'o" <tytso@mit.edu>,
+        "Jason A. Donenfeld" <Jason@zx2c4.com>,
+        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+        Dave Hansen <dave.hansen@linux.intel.com>,
+        Andy Lutomirski <luto@kernel.org>,
+        Peter Zijlstra <peterz@infradead.org>,
+        Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+        Borislav Petkov <bp@alien8.de>, x86@kernel.org,
+        "H. Peter Anvin" <hpa@zytor.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        Christophe Leroy <christophe.leroy@csgroup.eu>,
+        Naveen N Rao <naveen@kernel.org>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Vincenzo Frascino <vincenzo.frascino@arm.com>,
+        linux-csky@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-riscv@lists.infradead.org, loongarch@lists.linux.dev,
+        linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+        Nam Cao <namcao@linutronix.de>
+Subject: Re: [PATCH 28/28] vdso: Rename struct arch_vdso_data to
+ arch_vdso_time_data
+Message-ID: <20241010075510.6997-C-hca@linux.ibm.com>
+References: <20241010-vdso-generic-base-v1-0-b64f0842d512@linutronix.de>
+ <20241010-vdso-generic-base-v1-28-b64f0842d512@linutronix.de>
 MIME-Version: 1.0
-References: <20241009180816.83591-1-rppt@kernel.org> <20241009180816.83591-4-rppt@kernel.org>
-In-Reply-To: <20241009180816.83591-4-rppt@kernel.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 10 Oct 2024 09:22:23 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdV9TPH+mDJvvuRO3RBYfgWRwvv1kwyr_iLNju+iumb96Q@mail.gmail.com>
-Message-ID: <CAMuHMdV9TPH+mDJvvuRO3RBYfgWRwvv1kwyr_iLNju+iumb96Q@mail.gmail.com>
-Subject: Re: [PATCH v5 3/8] asm-generic: introduce text-patching.h
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Andreas Larsson <andreas@gaisler.com>, 
-	Andy Lutomirski <luto@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@quicinc.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Christoph Hellwig <hch@infradead.org>, 
-	Christophe Leroy <christophe.leroy@csgroup.eu>, Dave Hansen <dave.hansen@linux.intel.com>, 
-	Dinh Nguyen <dinguyen@kernel.org>, Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>, 
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
-	Johannes Berg <johannes@sipsolutions.net>, 
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Kent Overstreet <kent.overstreet@linux.dev>, 
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Luis Chamberlain <mcgrof@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Masami Hiramatsu <mhiramat@kernel.org>, 
-	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Michal Simek <monstr@monstr.eu>, Oleg Nesterov <oleg@redhat.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Richard Weinberger <richard@nod.at>, Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>, 
-	Stafford Horne <shorne@gmail.com>, Steven Rostedt <rostedt@goodmis.org>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Thomas Gleixner <tglx@linutronix.de>, 
-	Uladzislau Rezki <urezki@gmail.com>, Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>, 
-	bpf@vger.kernel.org, linux-alpha@vger.kernel.org, linux-arch@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
-	linux-hexagon@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
-	linux-mm@kvack.org, linux-modules@vger.kernel.org, 
-	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org, 
-	linux-snps-arc@lists.infradead.org, linux-trace-kernel@vger.kernel.org, 
-	linux-um@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
-	loongarch@lists.linux.dev, sparclinux@vger.kernel.org, x86@kernel.org
+Content-Disposition: inline
+In-Reply-To: <20241010-vdso-generic-base-v1-28-b64f0842d512@linutronix.de>
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: txKjIm6oMyh-bYlrWVbJ8zIUfT6c90P5
+X-Proofpoint-GUID: EzJFZF0xHPJktynCv2z269EPy5OXcKam
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
+ definitions=2024-10-10_04,2024-10-09_02,2024-09-30_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
+ bulkscore=0 adultscore=0 mlxscore=0 mlxlogscore=644 priorityscore=1501
+ clxscore=1011 phishscore=0 suspectscore=0 impostorscore=0 malwarescore=0
+ spamscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2409260000 definitions=main-2410100049
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241010_002750_368956_85F40F82 
-X-CRM114-Status: GOOD (  17.23  )
+X-CRM114-CacheID: sfid-20241010_085559_683589_AA0EC1DB 
+X-CRM114-Status: GOOD (  15.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,28 +150,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBPY3QgOSwgMjAyNCBhdCA4OjA54oCvUE0gTWlrZSBSYXBvcG9ydCA8cnBwdEBrZXJu
-ZWwub3JnPiB3cm90ZToKPiBGcm9tOiAiTWlrZSBSYXBvcG9ydCAoTWljcm9zb2Z0KSIgPHJwcHRA
-a2VybmVsLm9yZz4KPgo+IFNldmVyYWwgYXJjaGl0ZWN0dXJlcyBzdXBwb3J0IHRleHQgcGF0Y2hp
-bmcsIGJ1dCB0aGV5IG5hbWUgdGhlIGhlYWRlcgo+IGZpbGVzIHRoYXQgZGVjbGFyZSBwYXRjaGlu
-ZyBmdW5jdGlvbnMgZGlmZmVyZW50bHkuCj4KPiBNYWtlIGFsbCBzdWNoIGhlYWRlcnMgY29uc2lz
-dGVudGx5IG5hbWVkIHRleHQtcGF0Y2hpbmcuaCBhbmQgYWRkIGFuIGVtcHR5Cj4gaGVhZGVyIGlu
-IGFzbS1nZW5lcmljIGZvciBhcmNoaXRlY3R1cmVzIHRoYXQgZG8gbm90IHN1cHBvcnQgdGV4dCBw
-YXRjaGluZy4KPgo+IFNpZ25lZC1vZmYtYnk6IE1pa2UgUmFwb3BvcnQgKE1pY3Jvc29mdCkgPHJw
-cHRAa2VybmVsLm9yZz4KCj4gIGFyY2gvbTY4ay9pbmNsdWRlL2FzbS9LYnVpbGQgICAgICAgICAg
-ICAgICAgICAgICAgfCAgMSArCgpBY2tlZC1ieTogR2VlcnQgVXl0dGVyaG9ldmVuIDxnZWVydEBs
-aW51eC1tNjhrLm9yZz4gIyBtNjhrCgpHcntvZXRqZSxlZXRpbmd9cywKCiAgICAgICAgICAgICAg
-ICAgICAgICAgIEdlZXJ0CgotLSAKR2VlcnQgVXl0dGVyaG9ldmVuIC0tIFRoZXJlJ3MgbG90cyBv
-ZiBMaW51eCBiZXlvbmQgaWEzMiAtLSBnZWVydEBsaW51eC1tNjhrLm9yZwoKSW4gcGVyc29uYWwg
-Y29udmVyc2F0aW9ucyB3aXRoIHRlY2huaWNhbCBwZW9wbGUsIEkgY2FsbCBteXNlbGYgYSBoYWNr
-ZXIuIEJ1dAp3aGVuIEknbSB0YWxraW5nIHRvIGpvdXJuYWxpc3RzIEkganVzdCBzYXkgInByb2dy
-YW1tZXIiIG9yIHNvbWV0aGluZyBsaWtlIHRoYXQuCiAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgLS0gTGludXMgVG9ydmFsZHMKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
-cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
-Zm8vbGludXgtcmlzY3YK
+On Thu, Oct 10, 2024 at 09:01:30AM +0200, Thomas Wei=DFschuh wrote:
+> From: Nam Cao <namcao@linutronix.de>
+> =
+
+> The struct arch_vdso_data is only about vdso time data. So rename it to
+> arch_vdso_time_data to make it obvious.
+> Non time-related data will be migrated out of these structs soon.
+> =
+
+> Signed-off-by: Nam Cao <namcao@linutronix.de>
+> ---
+>  arch/Kconfig                                        |  2 +-
+>  arch/riscv/Kconfig                                  |  2 +-
+>  arch/riscv/include/asm/vdso/{data.h =3D> time_data.h} |  8 ++++----
+>  arch/riscv/kernel/sys_hwprobe.c                     |  2 +-
+>  arch/riscv/kernel/vdso/hwprobe.c                    |  4 ++--
+>  arch/s390/Kconfig                                   |  2 +-
+>  arch/s390/include/asm/vdso/data.h                   | 12 ------------
+>  arch/s390/include/asm/vdso/time_data.h              | 12 ++++++++++++
+>  include/vdso/datapage.h                             |  8 ++++----
+>  9 files changed, 26 insertions(+), 26 deletions(-)
+
+Acked-by: Heiko Carstens <hca@linux.ibm.com> # s390
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
