@@ -4,32 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E70ABCF11CC
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Oct 2024 10:36:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64325CF11CD
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Oct 2024 10:46:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WCyYQZ8qTO9I3bFS3+YtOLfGslcVPOC4n1kYEFCNp8E=; b=4x7SVSU3b+adP+
-	G9dsk+6qNMqZAEmQgSQDihi/Rk6BQiiGS4gOuuAy4cjFyQi7u9sN/X3BPP9ieOeduu4pyHqyT0FP2
-	wv1BslDdXnAtJexk8vNRFipvfa3i630PNw4mv3bZlQ67rGZmeeGE2NV+VY08Zo1l3vhfF2kwWsMW+
-	sorpEyzct87TKu3s5JLJdr+P6m6EM+mdAoWSLQVSgoTmnpc4mtGWBb5/xqGYzn4iR1YvGQlznZFi4
-	2jl3coo49x+As7DcYIQ6iTNjxhCaZrkuWRWv5b3nwo/uHtSw6mNkEYJqL3OqRxJynT+XdwWGkFD3I
-	J93hSUoxhXL2+PgUkURQ==;
+	List-Owner; bh=6KSTX55hnfSSmM9ArW7irIp3IUFMFaWFzgm4oERXx3A=; b=ptymEEuK0YdWUU
+	V9uA5Dk40q15244mVFlbUzsQloaR+MxMCA5rPILAmDCX4aSnImFthBvixXgLinwenD8UjRrtGL9Ds
+	Ig4wEFeM003NSpC5ZqaAqrmcxhLw3q157mTpdXYjz7LDls/92/m3FZHnq9mbej0nwwbbtqGSFWciF
+	ThlYVq2VgziidywM1ZGm7Nrty0EaTZXkmMCU3rT/smCLGe6eCfvGqPs83C47i9ZWj7nlaw/w26hcs
+	d0FVkge+E2TNpLdPGCCAVolkqIL1V1Vb4tkLE9STn8+MsTxY92R5pefIWmxQknUh8tcWmVhodPgC3
+	Lk11VUQxQpiBrrga+7TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1syqXJ-0000000CPHU-0Q6k;
-	Thu, 10 Oct 2024 10:36:49 +0000
-Received: from hch by bombadil.infradead.org with local (Exim 4.98 #2 (Red Hat Linux))
-	id 1syn6b-0000000Bl2f-08gV;
-	Thu, 10 Oct 2024 06:57:01 +0000
-Date: Wed, 9 Oct 2024 23:57:00 -0700
-From: Christoph Hellwig <hch@infradead.org>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Andreas Larsson <andreas@gaisler.com>,
+	id 1syqgI-0000000CRtw-08Ym;
+	Thu, 10 Oct 2024 10:46:06 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1sypY1-0000000CFUR-47zz;
+	Thu, 10 Oct 2024 09:33:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3129CA43782;
+	Thu, 10 Oct 2024 09:33:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18111C4CEC5;
+	Thu, 10 Oct 2024 09:33:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1728552807;
+	bh=IHjj8Pm1cvim8ImsaUaQl0ADY0QKS9kDKJZxcyI9510=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TOVNNKtrf8daQuuMacjY7pAlRlt/k4vb7wjQCQYF0aVuw/4MxtY1IEDmecYy869WA
+	 eL70bjSLCWzeSg87onzBIfUU+BSv9+MhwYkC/eIJ924jg8Lyc5Ubk1r7GreDoZptDJ
+	 teVpdajxre4MsBPJA9mql4sRA7irY3J0uloNZaSVW+zDmxt4CzZVh6D1UOnW7YD45l
+	 /XMlYCHBMS9YgkvBhtdnENr2FDWIvohUoNzgrqIpRpXIOWraQQuc8IrP9OJlfmnsWJ
+	 /Y7TcehyVVbI3ky02lFC2Bu9TlmKaTridXnO8cdxvFKPK24cuDB2/RZZ9PsqYrxZV2
+	 Py4W9D9Jti/XA==
+Date: Thu, 10 Oct 2024 12:29:39 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Andreas Larsson <andreas@gaisler.com>,
 	Andy Lutomirski <luto@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
 	Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>,
 	Brian Cain <bcain@quicinc.com>,
@@ -72,14 +87,17 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
 	linux-trace-kernel@vger.kernel.org, linux-um@lists.infradead.org,
 	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
 	sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v5 6/8] x86/module: perpare module loading for ROX
- allocations of text
-Message-ID: <Zwd6vH0rz0PVedLI@infradead.org>
+Subject: Re: [PATCH v5 7/8] execmem: add support for cache of large ROX pages
+Message-ID: <Zweeg3oc-zrrG_D9@kernel.org>
 References: <20241009180816.83591-1-rppt@kernel.org>
- <20241009180816.83591-7-rppt@kernel.org>
+ <20241009180816.83591-8-rppt@kernel.org>
+ <20241009132427.5c94fb5942bae3832446bca5@linux-foundation.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20241009180816.83591-7-rppt@kernel.org>
+In-Reply-To: <20241009132427.5c94fb5942bae3832446bca5@linux-foundation.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20241010_023330_184985_0FEE732D 
+X-CRM114-Status: GOOD (  15.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,22 +114,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> +extern void apply_alternatives(struct alt_instr *start, struct alt_instr *end,
-> +			       struct module *mod);
-> +extern void apply_retpolines(s32 *start, s32 *end, struct module *mod);
-> +extern void apply_returns(s32 *start, s32 *end, struct module *mod);
-> +extern void apply_seal_endbr(s32 *start, s32 *end, struct module *mod);
->  extern void apply_fineibt(s32 *start_retpoline, s32 *end_retpoine,
-> -			  s32 *start_cfi, s32 *end_cfi);
-> -
-> -struct module;
-> +			  s32 *start_cfi, s32 *end_cfi, struct module *mod);
+On Wed, Oct 09, 2024 at 01:24:27PM -0700, Andrew Morton wrote:
+> On Wed,  9 Oct 2024 21:08:15 +0300 Mike Rapoport <rppt@kernel.org> wrote:
+> 
+> > Using large pages to map text areas reduces iTLB pressure and improves
+> > performance.
+> 
+> Are there any measurable performance improvements?
 
-Please drop all the pointless externs while you're at it.
+I don't have any numbers, I just followed the common sense of "less TLB
+entries is better" and relied on Thomas comments from previous discussions.
+ 
+> What are the effects of this series upon overall memory consumption?
+ 
+There will be some execmem cache fragmentation and an increase in memory
+consumption. It depends on the actual modules loaded and how large it the
+fragmentation.
 
-Otherwise looks good:
+For a set of pretty randomly chosen modules where most come from
+net/netfilter I see an increase from 19M to 25M.
 
-Reviewed-by: Christoph Hellwig <hch@lst.de>
+> The lack of acks is a bit surprising for a v5 patch, but I'll add all
+> this to mm.git for some testing, thanks.
+> 
+
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
