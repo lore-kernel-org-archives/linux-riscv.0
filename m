@@ -4,158 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41BDFCF07BF
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Oct 2024 08:23:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DA7DCF07C3
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Oct 2024 08:31:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
-	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=14HWDZxY+Qdx3L5C4cjmp24Ytt87qk8XT2lqrjGkoUw=; b=zb26EfMteeGsFA70/YeIVIb8Kk
-	2Ny53my7qv+de5YRJ/pbPbcoJGL3PNdZI04skVgAcGecYZGxvpIThu7BvwsypOt6IX5G3bZUtsGol
-	ks9z4X8myLv6k8aYAOJ7lhUTGcxcKqpSATow3MiDQDzP2p7HFdriuzLlVIZBfA7TtD5bRTUrgNleC
-	yOcH1GJ228Jb7UfQczFYaJoxR9MQjhaCC5/CoztLwUwnL4Px3qByI5sJKP4K/vetYg17A/jEqejn6
-	qRJNXOH7Xn3/dk4gyTjVyePMHR8Ds5gYk28poaRKnb5yLT4KWjDqPimILPS+lfrQr2PcpKgDukKJR
-	R/cUdYxg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=AJvEk0AZ68MxU8NZyDl05Vh6+VZuIKfc6xw0/N43mSk=; b=p+mH0pUqIwDhjc
+	ND0y4i3i/169hbpxY6oxwmlp5RbvWmXASExvYW1UhvFJsvwPrZ6dIMpWIXtK1GQKmfDqPj2BMZDyX
+	QEQXdoMTdiCFWm6IVH+uOrLDhDO2h4ScN20RXlQpmuyX+rlKLiNVjxrdYKnKMD7Zn/7u4lR7ED4qT
+	PJO9acs2Brp/qFgz8VSzhPOF85TmghFwQjFvTFt7k0ZY+cg3btUoiHj2dxKjs+OOzHTfZYsQXCarg
+	XuvuXTGACOhTObjwV0SFFuWojKw6d/CE+lv5gCuu94uh6wyXPBJszChScG/ZpqRRehkdmIODaIQNy
+	9ZAuKZGAcqVaae5EZnsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1syoSE-0000000Bysv-2iro;
-	Thu, 10 Oct 2024 08:23:26 +0000
+	id 1syoZZ-0000000C0vN-2LlG;
+	Thu, 10 Oct 2024 08:31:01 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1syoAK-0000000Btp2-3BCF;
-	Thu, 10 Oct 2024 08:04:56 +0000
+	id 1synBg-0000000Blko-2jgL;
+	Thu, 10 Oct 2024 07:02:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=NOnTXEDf/afk98+qld6jjp5+THx/CJ1WRioKL/FDWFo=; b=S24vmXOc8DchKl5WEdMdTyQcRg
-	l+Mpd8V5zecJBIoa8SNi3CyNtee0U4SvkQ6FPqJkambIoFg8LyZNdRQxBP/v6vb/s2Qg960ljHn5C
-	Ool25USV4NoHq3gLUq8FGAe6ScFRjxJuc/4XHOJG1MhZZMt/8GEJa3PnrdyGjVZ/Ni6u3mE9+jhpA
-	TYBgor2SVlUjwoImk6jvmSJTgmA3hS1JI6Uss5MUtbZGDoYAvkoF2Sc/SM19nMPmbcThnHVPwOAw9
-	hL/pNWju5iGJPUx/s+MUvJpEZ0Ag2YaLIRplJ2Cr0jjuvrkpiNWutGIjYe51hbvEXEjJCNkMWz523
-	RaOEAL1w==;
-Received: from flow-a1-smtp.messagingengine.com ([103.168.172.136])
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=iDYhkJLEk/wNM8RHtmH5cLtwxKP5hseONhnLJBEEc0o=; b=B/IqAMoNsziDIyT/6FBEVpsQ4q
+	MyWslgtYILAP4yEGwx8YWDzVpbo2VQbtm+3THAzBmWxcaPTvlYLSZJFA3YOs0CdplEe4TMhfng92u
+	UPv2kIbjFxU24nibDr+TGJBE6L73yzzpHA4c4KZtW0QxyNsgIs73l0Qxwo28QIvMUi3blBEVDXw+o
+	gOg382Yy7gw5QKcXK8B1y9ynpcdHjQ/0j5Yl4yOOeYw7LVNT3CfPJf9Dj4RY9zuUuWbA4Vs8JhEbP
+	yZIzz3TtXdbBEl90vY51A1oBVP2xGRrxcxDqSJvgioIO0LEg3/6Q1CKxJhbbVbbAikEkre/nGbGyb
+	A8d/w9Ig==;
+Received: from galois.linutronix.de ([193.142.43.55])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1syoAF-00000005EOj-3zOu;
-	Thu, 10 Oct 2024 08:04:54 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailflow.phl.internal (Postfix) with ESMTP id C3AA3200A98;
-	Thu, 10 Oct 2024 04:04:44 -0400 (EDT)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-10.internal (MEProxy); Thu, 10 Oct 2024 04:04:44 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1728547484;
-	 x=1728554684; bh=NOnTXEDf/afk98+qld6jjp5+THx/CJ1WRioKL/FDWFo=; b=
-	Uq033xlPTV7M/2uADh7Kio9qjd66ffU4q3GcfraER8vEa/TBgbChQu94tgVW0uaK
-	pXY7jozzVwbQ8Ya36E7u9iUkDuo5YKVHqAZ8bHnde4FQoignkUnpk3n4zM1Ow7W7
-	pqkYrDZJUqyVDWnJ/e/orVEawEFi2NxcxOe913glChgeWvLRHFRCYg7PLmzNjjTS
-	eSePOXQiJ2tCm9PNXyY7XJEA1kK+QuyoayK9ccHLMT9vYJQf1obOma6+WcgoQiTZ
-	rCO/F2/Av72l6mSdBDEcAONo4x3AsOj40QNPpgTyYIxpD0N35b0FMfAq0nEvPIBl
-	9rL8hDdfC/9PQ9TN9ntljg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1728547484; x=
-	1728554684; bh=NOnTXEDf/afk98+qld6jjp5+THx/CJ1WRioKL/FDWFo=; b=N
-	j9Aq3SQVxi0yJVoBcl9i4fPvQOr9zt3y3795lzIArZwRKLf5/Q4w5GwQVfCcJjw2
-	fHBLG+SEwHxA6W6BHiC/PPRnfw/euhehOZaf1xv113bZQ6zyMXXYbDK6HO5DfYdH
-	Eibe00/t7mBIfHVB6NfWSDQPb17/YR6D9/nYP8ncvwtzg1w0SRhao1eVbOXUQoCD
-	BQ+bgHLpleoD/Ofkz0V77beK07p6f9+Z/PpeHiddKV5esYAsuKTALWIUlHtErlpZ
-	nSRNyhpVsNrMAg/4A5we5y/Ae60B3fLfum5QuK2YeIDPuniByaQX2mlXBuk9KrEB
-	oU607EYkl/nEhh1Im4Dyg==
-X-ME-Sender: <xms:mIoHZxVyt1tzNiI4VJY1hNYpmWyw-lXg-LHPAPcu29enEAwaGYpqdA>
-    <xme:mIoHZxmN7IaxN68cMSMreDSNvBHBsgqtLH3A4g9n2w8VJYGvEAjgnDn4AOFyZU_QE
-    vsBIt0UiYw5NwZFtgA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddrvdefgedguddvkecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredt
-    tdenucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusg
-    druggvqeenucggtffrrghtthgvrhhnpefhtdfhvddtfeehudekteeggffghfejgeegteef
-    gffgvedugeduveelvdekhfdvieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmh
-    epmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopeeh
-    tddpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepsghpsegrlhhivghnkedruggvpd
-    hrtghpthhtohepthhssghoghgvnhgusegrlhhphhgrrdhfrhgrnhhkvghnrdguvgdprhgt
-    phhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtoh
-    epmhgrrhhkrdhruhhtlhgrnhgusegrrhhmrdgtohhmpdhrtghpthhtoheplhhinhhugies
-    rghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthhopegthhhrihhsthhophhhvgdrlh
-    gvrhhohiestghsghhrohhuphdrvghupdhrtghpthhtohepphgrlhhmvghrsegurggssggv
-    lhhtrdgtohhmpdhrtghpthhtohepmhhpvgesvghllhgvrhhmrghnrdhiugdrrghupdhrtg
-    hpthhtoheprghnughrvggrshesghgrihhslhgvrhdrtghomh
-X-ME-Proxy: <xmx:mYoHZ9bh6LF6KTO2BKN2BnO9EXila2P_h8xeEQcBucXDkGl-bl9M-A>
-    <xmx:mYoHZ0XYOQUAKIkavDKienaDsb5i4U1ta4trA0rVHTXe2DqfK7yLqQ>
-    <xmx:mYoHZ7nXzqM8PLVuQ-B9brlPZ_nY2zs1QH5-EF9GuGkQq2-TUCF-GQ>
-    <xmx:mYoHZxesVGLkHmAI7smOEC31KKa8BnCQ7b4ijWZBlvNC6nhTWQi3Ig>
-    <xmx:nIoHZ80_2WZbSEQjfuSnNnJS_LZIqjsOIz7pD44c1pM-ycg_PtUcKHaT>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id D17622220071; Thu, 10 Oct 2024 04:04:40 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1synBa-00000005CsA-2j1h;
+	Thu, 10 Oct 2024 07:02:15 +0000
+From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1728543726;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=iDYhkJLEk/wNM8RHtmH5cLtwxKP5hseONhnLJBEEc0o=;
+	b=DlOxxwETZAxA9RhV/JznUypAblffACAwmhmbzWihKTz6AoOeLhwRnA1ukaJoAnRtozKk26
+	DlbvYyplIjBFkbxJypcleV9ML9vwxUDVv/g+9gCL9qmBbsFnAi0SfOMKflBkLNFsATVS40
+	BR0/LBnPUS+8jbGZlbJZq16s2s1+l2ZsznjzDOB5pvzlWqP3mgUeBOEadfANZHOKL6B1JT
+	C8ZBNqILWkhCxqxwPwivhO0T8fVwHmMeEsMW7j7YRAniTcVCr9Kss3aGKxedaEpObq32hP
+	y/Xw7Y7vnw7KWQiNy1c11xFD2KpQzMkoXx5vzuV7pYNCXdw/FGHyFM7vLSDrzQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1728543726;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=iDYhkJLEk/wNM8RHtmH5cLtwxKP5hseONhnLJBEEc0o=;
+	b=/5YBI8zMSmdgRX+tzQmAYFuw+rKVOSXC6dss2zODxuOwAxU8/niqmHv7dePR8JKJCXe+bE
+	3l94qY6mRiWTU/BA==
+Date: Thu, 10 Oct 2024 09:01:13 +0200
+Subject: [PATCH 11/28] x86: vdso: Use __arch_get_vdso_data() to access vdso
+ data
 MIME-Version: 1.0
-Date: Thu, 10 Oct 2024 08:04:19 +0000
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Mike Rapoport" <rppt@kernel.org>,
- "Andrew Morton" <akpm@linux-foundation.org>
-Cc: "Andreas Larsson" <andreas@gaisler.com>,
- "Andy Lutomirski" <luto@kernel.org>, "Ard Biesheuvel" <ardb@kernel.org>,
- "Borislav Petkov" <bp@alien8.de>, "Brian Cain" <bcain@quicinc.com>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Christoph Hellwig" <hch@infradead.org>,
- "Christophe Leroy" <christophe.leroy@csgroup.eu>,
- "Dave Hansen" <dave.hansen@linux.intel.com>,
- "Dinh Nguyen" <dinguyen@kernel.org>,
- "Geert Uytterhoeven" <geert@linux-m68k.org>, guoren <guoren@kernel.org>,
- "Helge Deller" <deller@gmx.de>, "Huacai Chen" <chenhuacai@kernel.org>,
- "Ingo Molnar" <mingo@redhat.com>,
- "Johannes Berg" <johannes@sipsolutions.net>,
- "John Paul Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>,
- "Kent Overstreet" <kent.overstreet@linux.dev>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- "Luis Chamberlain" <mcgrof@kernel.org>,
- "Mark Rutland" <mark.rutland@arm.com>,
- "Masami Hiramatsu" <mhiramat@kernel.org>,
- "Matt Turner" <mattst88@gmail.com>, "Max Filippov" <jcmvbkbc@gmail.com>,
- "Michael Ellerman" <mpe@ellerman.id.au>,
- "Michal Simek" <monstr@monstr.eu>, "Oleg Nesterov" <oleg@redhat.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Peter Zijlstra" <peterz@infradead.org>,
- "Richard Weinberger" <richard@nod.at>,
- "Russell King" <linux@armlinux.org.uk>, "Song Liu" <song@kernel.org>,
- "Stafford Horne" <shorne@gmail.com>,
- "Steven Rostedt" <rostedt@goodmis.org>,
- "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
- "Thomas Gleixner" <tglx@linutronix.de>,
- "Uladzislau Rezki (Sony)" <urezki@gmail.com>,
- "Vineet Gupta" <vgupta@kernel.org>, "Will Deacon" <will@kernel.org>,
- bpf@vger.kernel.org, linux-alpha@vger.kernel.org,
- Linux-Arch <linux-arch@vger.kernel.org>,
- linux-arm-kernel@lists.infradead.org,
- "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
- linux-hexagon@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-mm@kvack.org, linux-modules@vger.kernel.org,
- "linux-openrisc@vger.kernel.org" <linux-openrisc@vger.kernel.org>,
- linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-trace-kernel@vger.kernel.org, linux-um@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
- sparclinux@vger.kernel.org, x86@kernel.org
-Message-Id: <e1ba5ab2-a7e2-4f2c-8e2d-4788656ef695@app.fastmail.com>
-In-Reply-To: <20241009180816.83591-4-rppt@kernel.org>
-References: <20241009180816.83591-1-rppt@kernel.org>
- <20241009180816.83591-4-rppt@kernel.org>
-Subject: Re: [PATCH v5 3/8] asm-generic: introduce text-patching.h
+Message-Id: <20241010-vdso-generic-base-v1-11-b64f0842d512@linutronix.de>
+References: <20241010-vdso-generic-base-v1-0-b64f0842d512@linutronix.de>
+In-Reply-To: <20241010-vdso-generic-base-v1-0-b64f0842d512@linutronix.de>
+To: Guo Ren <guoren@kernel.org>, Heiko Carstens <hca@linux.ibm.com>, 
+ Vasily Gorbik <gor@linux.ibm.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Christian Borntraeger <borntraeger@linux.ibm.com>, 
+ Sven Schnelle <svens@linux.ibm.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Russell King <linux@armlinux.org.uk>, Huacai Chen <chenhuacai@kernel.org>, 
+ WANG Xuerui <kernel@xen0n.name>, Theodore Ts'o <tytso@mit.edu>, 
+ "Jason A. Donenfeld" <Jason@zx2c4.com>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, 
+ Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, x86@kernel.org, 
+ "H. Peter Anvin" <hpa@zytor.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+ Nicholas Piggin <npiggin@gmail.com>, 
+ Christophe Leroy <christophe.leroy@csgroup.eu>, 
+ Naveen N Rao <naveen@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Vincenzo Frascino <vincenzo.frascino@arm.com>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>, 
+ linux-csky@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-s390@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-riscv@lists.infradead.org, loongarch@lists.linux.dev, 
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1728543717; l=1197;
+ i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
+ bh=l5D8fVN3aaA8131sEeFVg9vgV5lu/zKv8tftufGa+9s=;
+ b=yMtNmStMkDOKrNizRAIE2blEjN7roFN5utdJ25lrGaymlV+mNbkoLLCg0uck8P2iyvgDKwB45
+ x92w3Z4p27QBEyzr4NDw5s4XKataw8016PEsD81PtJ1XALVRg28suWI
+X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
+ pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241010_090452_899262_A997A295 
-X-CRM114-Status: UNSURE (   6.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241010_080210_919957_23C885A7 
+X-CRM114-Status: GOOD (  10.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,25 +117,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 9, 2024, at 18:08, Mike Rapoport wrote:
-> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
->
-> Several architectures support text patching, but they name the header
-> files that declare patching functions differently.
->
-> Make all such headers consistently named text-patching.h and add an empty
-> header in asm-generic for architectures that do not support text patching.
->
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-
-Acked-by: Arnd Bergmann <arnd@arndb.de>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VGhlIGltcGxlbWVudGF0aW9uIGRldGFpbHMgb2YgdGhlIHZkc29fZGF0YSBhY2Nlc3Mgd2lsbCBj
+aGFuZ2UuClByZXBhcmUgZm9yIHRoYXQgYnkgdXNpbmcgdGhlIGV4aXN0aW5nIGhlbHBlciBmdW5j
+dGlvbi4KClNpZ25lZC1vZmYtYnk6IFRob21hcyBXZWnDn3NjaHVoIDx0aG9tYXMud2Vpc3NzY2h1
+aEBsaW51dHJvbml4LmRlPgotLS0KIGFyY2gveDg2L2luY2x1ZGUvYXNtL3Zkc28vZ2V0cmFuZG9t
+LmggfCA0ICsrLS0KIDEgZmlsZSBjaGFuZ2VkLCAyIGluc2VydGlvbnMoKyksIDIgZGVsZXRpb25z
+KC0pCgpkaWZmIC0tZ2l0IGEvYXJjaC94ODYvaW5jbHVkZS9hc20vdmRzby9nZXRyYW5kb20uaCBi
+L2FyY2gveDg2L2luY2x1ZGUvYXNtL3Zkc28vZ2V0cmFuZG9tLmgKaW5kZXggZmY1MzM0YWQzMmEw
+ZjU2YjJkNDI2NWZkMzhkOWMyODdkZTNkZmFhMS4uZWNkY2RiY2QzMzkyNTMzZTU2MTlkN2YwOTQw
+M2Q2MGE5ODEwY2VhYiAxMDA2NDQKLS0tIGEvYXJjaC94ODYvaW5jbHVkZS9hc20vdmRzby9nZXRy
+YW5kb20uaAorKysgYi9hcmNoL3g4Ni9pbmNsdWRlL2FzbS92ZHNvL2dldHJhbmRvbS5oCkBAIC0z
+Miw4ICszMiw4IEBAIHN0YXRpYyBfX2Fsd2F5c19pbmxpbmUgc3NpemVfdCBnZXRyYW5kb21fc3lz
+Y2FsbCh2b2lkICpidWZmZXIsIHNpemVfdCBsZW4sIHVuc2lnCiAKIHN0YXRpYyBfX2Fsd2F5c19p
+bmxpbmUgY29uc3Qgc3RydWN0IHZkc29fcm5nX2RhdGEgKl9fYXJjaF9nZXRfdmRzb19ybmdfZGF0
+YSh2b2lkKQogewotCWlmIChJU19FTkFCTEVEKENPTkZJR19USU1FX05TKSAmJiBfX3Zkc29fZGF0
+YS0+Y2xvY2tfbW9kZSA9PSBWRFNPX0NMT0NLTU9ERV9USU1FTlMpCi0JCXJldHVybiAodm9pZCAq
+KSZfX3Zkc29fcm5nX2RhdGEgKyAoKHZvaWQgKikmX190aW1lbnNfdmRzb19kYXRhIC0gKHZvaWQg
+KikmX192ZHNvX2RhdGEpOworCWlmIChJU19FTkFCTEVEKENPTkZJR19USU1FX05TKSAmJiBfX2Fy
+Y2hfZ2V0X3Zkc29fZGF0YSgpLT5jbG9ja19tb2RlID09IFZEU09fQ0xPQ0tNT0RFX1RJTUVOUykK
+KwkJcmV0dXJuICh2b2lkICopJl9fdmRzb19ybmdfZGF0YSArICgodm9pZCAqKSZfX3RpbWVuc192
+ZHNvX2RhdGEgLSAodm9pZCAqKV9fYXJjaF9nZXRfdmRzb19kYXRhKCkpOwogCXJldHVybiAmX192
+ZHNvX3JuZ19kYXRhOwogfQogCgotLSAKMi40Ny4wCgoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgo=
