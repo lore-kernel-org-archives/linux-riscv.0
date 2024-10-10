@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 216D0D24447
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Oct 2024 19:46:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3B21D24442
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Oct 2024 19:46:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VLGDBnmINk9iNIHfMt/nQmLojOk5Man65yV0msS6bCA=; b=L7aP0wFrYwTcXI
-	E8fd97bHqAfXDOTUwP5XfbmXy/PDIiMpBOP8sducQuA554pp6A72Ul1q+KRVCKGYI8mjJMNPoLtjP
-	t4E4YpzBrCbMwTMIyUyhNpUcTDlph6YYF9Y93UjP2lZ4Ic7Ser7XgqS9y4yi2sOo3BAc88PWmOq5L
-	D6P0uy/KHBnbFElL7xd3yMF3sFKm2W8mDUYrRJKOeTl+t2pVeJPDxZHVeIv4ba+E0aivcH2yYYs9X
-	amzZ5KsjoXuK8pLSYBMQ1vin8iGrvwnnIQtWA9X9q81dT3vbjIpp00B4Kcxx+111VszX219pLgIhQ
-	0uqnSWXlt99G+FxoVTnw==;
+	List-Owner; bh=LU5s+KB2Nmh6nl6V6rE3YW8uNys1tnFcjDpY+vGsEAE=; b=ykYOgQN7Hf8/WA
+	tqa54YLLbVIwvZTnMJWxUOGa8kuoReT4ShjE0Xa9fL46u4aCfRLywWN8MHf0h7XEeuEe4tfY6lpU4
+	mmRXU5TZqmrezUtJ3o+93XXjMhMbDM7MvuTY6NUN8xAbXz8hWMFhujhHwmKm6cZbV8cgk2jfi0Ls8
+	k4Wbxg5Zyl7XRzTN41tCFREdezs524yzw20mI7SttLyq+oHb/+2Ls8VCGcbbjd6+bDC/8DVaOgLkv
+	7qoMTz3ekRvAaihc2svNXup928NOflezuLeMIty/6FS+fhMwvIeeOyHoGHyHItxgyvdKmR2vudAMp
+	m5BJ0mCY/FklFUvJeolQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1syz6v-0000000EAeX-0og4;
-	Thu, 10 Oct 2024 19:46:09 +0000
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	id 1syz76-0000000EAk6-2Na2;
+	Thu, 10 Oct 2024 19:46:20 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1syxsr-0000000Dri6-0f4k
+	id 1syxqW-0000000DpmI-1u0w
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Oct 2024 18:27:34 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-71dff575924so1544123b3a.1
-        for <linux-riscv@lists.infradead.org>; Thu, 10 Oct 2024 11:27:32 -0700 (PDT)
+	Thu, 10 Oct 2024 18:25:11 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2e295559c37so1096520a91.0
+        for <linux-riscv@lists.infradead.org>; Thu, 10 Oct 2024 11:25:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1728584852; x=1729189652; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:reply-to:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fZpnWf51XalE5JTpUzeqj9xBy85lPuBTlHLH/3crpzM=;
-        b=cLJk3d4tBFRZOiFs+6bQQUgL9+5XLv36ZxgTPI3j7N9jPbVYQn5UYEHXG30q5cZAtp
-         iLoVd863iI6QslfhR4bSkprz1688JE5LF2FO2gSOhcM+IGJX0QpjdBnRDdMQ62ouC3oJ
-         bplSy/qMe21l7Xy1xG1IlCZN2yro1FWFNRNmv6sS9NMfZSUFAnJgg0EuPch5URNPcMG1
-         EWbkSmQF0LU/UoEnI63VnExMYr/1qn9aDn18jIArJhfw+WuPYh6KtbBICRCY7K4lBcNN
-         jSLMr/sBO077LKQZMCJI/BZ+oDjzP6wnkJ4048tQ5WDcVuMAxNcfuoW2taX/zjS5bjPT
-         jaEQ==
+        d=google.com; s=20230601; t=1728584707; x=1729189507; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=GZoCfd92gqYHwqsSYOai9KQfQ7K6dxh+JWKccmiJTPU=;
+        b=h8kgmq5KMhiBhtsbuTJw6kU2LJ3f2iQP13uN81By+PdbuW2nwg9GE7cWKJK4SIKxe9
+         aqQXNd0DGyY4m+d5ZAQ6AwjC5GPE0e8hdo5ZQn8POJbht1P2W0EOFPEf/SqHVj9VIEPG
+         mTauj/V2pKKa8GfckVKm8AicpL2PyF2yZCj6/iuFPJChYGGr7qKDGMKW02z+t4+bIiJY
+         2yCoRqfFPRISvLKxNhzo+zUQG2ARex/YqnovbrM3qvS88K07YwkBncJVeTp3tRusFkom
+         BIOx4xdIwVY9lgLVDyE6HEqvbD5bvi0UkH09epNU5s/AYlbnV/veBkjfvxbSlpss22U0
+         qsAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728584852; x=1729189652;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:reply-to:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=fZpnWf51XalE5JTpUzeqj9xBy85lPuBTlHLH/3crpzM=;
-        b=SSzFQKsrTT52kN18edqmrZYJFfZrNwjQqLcXpb7C2tTcYfwLNrnUNZZQcZMWhbpOLj
-         YgWUDJLnDmh1xaXd1o7gZVz+9ZzPyJFWVWvM4pNVY/Ls0PfAdgeLWHkCYbYqS6YTqR9F
-         rYXydc0CW0iZyGcSko9Rr086ugMKud9hdsDL37UoET9IpHb1qJg+Na1B4WMIGints38S
-         T+A8XRaYW5F1IG2D6fI4P5EAeC9I3agaETdOqmA3TXwi6nca+megCOBtXNFmDi/dLggu
-         VWqcgg9g37P2Jo7PWZ9twesBsd4iZTG2MnK67IiFALJ4yVHbvh+QstCH9Fi9pBoChAeA
-         8QtA==
-X-Forwarded-Encrypted: i=1; AJvYcCVX5J7yNABiJpAaVJfG+9k5SjqJ72XS3AtxGQ3VKLsRRUGrE1E+3hl/2CPS8N8OC/fv0bRykef9uCWVww==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywuz19H/V2unOyEhg2xz5WTz6iaiLbFp2wfNOHSuEOrlaFZawym
-	KF4mUqFs47hSDKO44ICLwufaZdev3OX5GQwEtl9xou5rdRngL4qgGGZpV0/at8BO1Iu6/IhhQdU
-	1kA==
-X-Google-Smtp-Source: AGHT+IHVUYgAS8Gi1OfHaumBjOVs/68U//Xc3NGlK2wEye9l2w1SuCdDQ/WQfsMbBzqgGqsCESzcy3AUxv4=
+        d=1e100.net; s=20230601; t=1728584707; x=1729189507;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=GZoCfd92gqYHwqsSYOai9KQfQ7K6dxh+JWKccmiJTPU=;
+        b=ZQAcfOlAh5UwGnVbqusItCDIWV1ggN4OBvp14N1CGheKwT2Z2pwSOh0aD00hO2a7YX
+         fxeBghpraFNRnX1TeKO0Vdckfy/30I6FBNp8kgCr6a5GLCdrE6grpE/06z0bzoLDNU5c
+         b00rp/cASfSesIYPxqymySi5qWeU8p5lnNggSjc91QhHMDhmOOTzmiftnz7xsXXFOSeN
+         N7KzJrILCSLCFGzNvaZpOWcqJzWT4OMsG16TqKBO320TkiLkC8KqZ/Nb9X9FPOXiDqHe
+         fibNSVvzoLiK4BxWxITgU7Udg3NNxwlH2xhRmT3PzsZVYn6WtM8Y3OZoR38En2jeRwSE
+         7USg==
+X-Forwarded-Encrypted: i=1; AJvYcCUcYS/4ALlx6GuZW8QWA3Vmj/FPvtm6Xo9JopZD65okTY8xG5MxE/9hWP4oP5ZLKIKMvNQtnk5+jaftzQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzkU0+GSjxPD7K0aALBeO2q/JRm7+f9qi/sk/kSHFkVTmQAmrxj
+	SnSSa91p+NgGC86gvUqZw3TpQWHOP80j1yf4zJyzlwdfWpYOQdWJH5AvYCO32MGbpm0bwaJ7KOJ
+	Now==
+X-Google-Smtp-Source: AGHT+IH8UDk7ruln14ZDsSWqbj1uDcx7028dIle1wpc1As3ec3XNWN4cizl8I1jAsp9rsgJdiTjtCNc1iNw=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:9d:3983:ac13:c240])
- (user=seanjc job=sendgmr) by 2002:aa7:93b4:0:b0:71d:f64d:712c with SMTP id
- d2e1a72fcca58-71e1db65a16mr7365b3a.1.1728584851459; Thu, 10 Oct 2024 11:27:31
+ (user=seanjc job=sendgmr) by 2002:a17:90a:fa84:b0:2e2:da81:40c6 with SMTP id
+ 98e67ed59e1d1-2e2f0a524d4mr44a91.2.1728584705592; Thu, 10 Oct 2024 11:25:05
  -0700 (PDT)
-Date: Thu, 10 Oct 2024 11:24:17 -0700
+Date: Thu, 10 Oct 2024 11:23:09 -0700
 In-Reply-To: <20241010182427.1434605-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20241010182427.1434605-1-seanjc@google.com>
 X-Mailer: git-send-email 2.47.0.rc1.288.g06298d1525-goog
-Message-ID: <20241010182427.1434605-76-seanjc@google.com>
-Subject: [PATCH v13 75/85] KVM: Convert gfn_to_page() to use kvm_follow_pfn()
+Message-ID: <20241010182427.1434605-8-seanjc@google.com>
+Subject: [PATCH v13 07/85] KVM: x86/mmu: Mark new SPTE as Accessed when
+ synchronizing existing SPTE
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
@@ -86,9 +86,8 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	David Matlack <dmatlack@google.com>, David Stevens <stevensd@chromium.org>, 
 	Andrew Jones <ajones@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241010_112733_323638_D767D447 
-X-CRM114-Status: UNSURE (   8.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241010_112508_586377_41A6A042 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,30 +100,71 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Reply-To: Sean Christopherson <seanjc@google.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Q29udmVydCBnZm5fdG9fcGFnZSgpIHRvIHRoZSBuZXcga3ZtX2ZvbGxvd19wZm4oKSBpbnRlcm5h
-bCBBUEksIHdoaWNoIHdpbGwKZXZlbnR1YWxseSBhbGxvdyByZW1vdmluZyBnZm5fdG9fcGZuKCkg
-YW5kIGt2bV9wZm5fdG9fcmVmY291bnRlZF9wYWdlKCkuCgpUZXN0ZWQtYnk6IEFsZXggQmVubsOp
-ZSA8YWxleC5iZW5uZWVAbGluYXJvLm9yZz4KU2lnbmVkLW9mZi1ieTogU2VhbiBDaHJpc3RvcGhl
-cnNvbiA8c2VhbmpjQGdvb2dsZS5jb20+Ci0tLQogdmlydC9rdm0va3ZtX21haW4uYyB8IDE2ICsr
-KysrKysrKy0tLS0tLS0KIDEgZmlsZSBjaGFuZ2VkLCA5IGluc2VydGlvbnMoKyksIDcgZGVsZXRp
-b25zKC0pCgpkaWZmIC0tZ2l0IGEvdmlydC9rdm0va3ZtX21haW4uYyBiL3ZpcnQva3ZtL2t2bV9t
-YWluLmMKaW5kZXggNjk2ZDVlNDI5YjNlLi4xNzgyMjQyYTQ4MDAgMTAwNjQ0Ci0tLSBhL3ZpcnQv
-a3ZtL2t2bV9tYWluLmMKKysrIGIvdmlydC9rdm0va3ZtX21haW4uYwpAQCAtMzE0NSwxNCArMzE0
-NSwxNiBAQCBFWFBPUlRfU1lNQk9MX0dQTChrdm1fcHJlZmV0Y2hfcGFnZXMpOwogICovCiBzdHJ1
-Y3QgcGFnZSAqZ2ZuX3RvX3BhZ2Uoc3RydWN0IGt2bSAqa3ZtLCBnZm5fdCBnZm4pCiB7Ci0Ja3Zt
-X3Bmbl90IHBmbjsKKwlzdHJ1Y3QgcGFnZSAqcmVmY291bnRlZF9wYWdlID0gTlVMTDsKKwlzdHJ1
-Y3Qga3ZtX2ZvbGxvd19wZm4ga2ZwID0geworCQkuc2xvdCA9IGdmbl90b19tZW1zbG90KGt2bSwg
-Z2ZuKSwKKwkJLmdmbiA9IGdmbiwKKwkJLmZsYWdzID0gRk9MTF9XUklURSwKKwkJLnJlZmNvdW50
-ZWRfcGFnZSA9ICZyZWZjb3VudGVkX3BhZ2UsCisJfTsKIAotCXBmbiA9IGdmbl90b19wZm4oa3Zt
-LCBnZm4pOwotCi0JaWYgKGlzX2Vycm9yX25vc2xvdF9wZm4ocGZuKSkKLQkJcmV0dXJuIE5VTEw7
-Ci0KLQlyZXR1cm4ga3ZtX3Bmbl90b19yZWZjb3VudGVkX3BhZ2UocGZuKTsKKwkodm9pZClrdm1f
-Zm9sbG93X3Bmbigma2ZwKTsKKwlyZXR1cm4gcmVmY291bnRlZF9wYWdlOwogfQogRVhQT1JUX1NZ
-TUJPTF9HUEwoZ2ZuX3RvX3BhZ2UpOwogCi0tIAoyLjQ3LjAucmMxLjI4OC5nMDYyOThkMTUyNS1n
-b29nCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
-dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
-cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Set the Accessed bit when making a "new" SPTE during SPTE synchronization,
+as _clearing_ the Accessed bit is counter-productive, and even if the
+Accessed bit wasn't set in the old SPTE, odds are very good the guest will
+access the page in the near future, as the most common case where KVM
+synchronizes a shadow-present SPTE is when the guest is making the gPTE
+read-only for Copy-on-Write (CoW).
+
+Preserving the Accessed bit will allow dropping the logic that propagates
+the Accessed bit to the underlying struct page when overwriting an existing
+SPTE, without undue risk of regressing page aging.
+
+Note, KVM's current behavior is very deliberate, as SPTE synchronization
+was the only "speculative" access type as of commit 947da5383069 ("KVM:
+MMU: Set the accessed bit on non-speculative shadow ptes").
+
+But, much has changed since 2008, and more changes are on the horizon.
+Spurious clearing of the Accessed (and Dirty) was mitigated by commit
+e6722d9211b2 ("KVM: x86/mmu: Reduce the update to the spte in
+FNAME(sync_spte)"), which changed FNAME(sync_spte) to only overwrite SPTEs
+if the protections are actually changing.  I.e. KVM is already preserving
+Accessed information for SPTEs that aren't dropping protections.
+
+And with the aforementioned future change to NOT mark the page/folio as
+accessed, KVM's SPTEs will become the "source of truth" so to speak, in
+which case clearing the Accessed bit outside of page aging becomes very
+undesirable.
+
+Suggested-by: Yan Zhao <yan.y.zhao@intel.com>
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ arch/x86/kvm/mmu/spte.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/x86/kvm/mmu/spte.c b/arch/x86/kvm/mmu/spte.c
+index 0e47fea1a2d9..618059b30b8b 100644
+--- a/arch/x86/kvm/mmu/spte.c
++++ b/arch/x86/kvm/mmu/spte.c
+@@ -178,7 +178,7 @@ bool make_spte(struct kvm_vcpu *vcpu, struct kvm_mmu_page *sp,
+ 		spte |= SPTE_TDP_AD_WRPROT_ONLY;
+ 
+ 	spte |= shadow_present_mask;
+-	if (!prefetch)
++	if (!prefetch || synchronizing)
+ 		spte |= spte_shadow_accessed_mask(spte);
+ 
+ 	/*
+@@ -259,7 +259,7 @@ bool make_spte(struct kvm_vcpu *vcpu, struct kvm_mmu_page *sp,
+ 		spte |= spte_shadow_dirty_mask(spte);
+ 
+ out:
+-	if (prefetch)
++	if (prefetch && !synchronizing)
+ 		spte = mark_spte_for_access_track(spte);
+ 
+ 	WARN_ONCE(is_rsvd_spte(&vcpu->arch.mmu->shadow_zero_check, spte, level),
+-- 
+2.47.0.rc1.288.g06298d1525-goog
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
