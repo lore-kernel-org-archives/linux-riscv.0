@@ -4,92 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF832CFC5E2
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Oct 2024 17:16:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3758ECFC5E9
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Oct 2024 17:19:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JWfuRy6BpDIQOoXmunjXe6wqaWl9XvPeTPEYFoiRaZQ=; b=FmAgneVx6Oj5uv
-	kX5wTRQWkFytw/IE4sFuq23NAbBHpDdH9IzWiR3jbgKcxIJTwuyoTIcxQm8LLaa2SjQHLDFCSluIt
-	V6eeoU2CaKp+0jCyr9q9o1+exp1nGd5ZDYYwXVSfmr3zCTNyOah2xjlkNd3UONeNX7cT/t+1l82Hw
-	jhKBhQp5xDEKM3Omq3gpegaqSZC2u0/Th8ZBsaOU9J+H+4SHYatGtmwiEmhY/Fws9tryIk44hM31E
-	LxFWKDfcRfgUeCP8fjqnro2iai6hyFVuWLztA3LP6b40EoWzmetal54+YQpRvbZW1/nFCR9/m7T19
-	jgv03XSrl+0398bU5fcQ==;
+	List-Owner; bh=jNSPAJb0VUHuKRpFFtAuudCU5SIxo341vS4Gsbn4638=; b=2iyAiVXh2h5xMF
+	qSRFt65A5TrJ1UOS8kKoXe7qfk/aJXe0E2Hmq2rHIhirUk0pr+NxY6abOSF5G1fzPguh89ge69NKS
+	nk7Fl/PTCh4u4gFMN81539ZB4K3zvAg6H2NiAueF/ZeOBElab0I7oHh0KVnof8MH1dxOUpJ0F6m0/
+	GXcqwjXkIXq7ynjrJ0nlWQDH8UboWMlKBSI0aqZox2UrMpm6hjIwfaWuK9z+AgT1XxcHS/T4bEkmC
+	irsiOCoS23UWzLpnacc8jFV3jB2rhSa0Dn73Ws2i6gsvaS069NQFzFkN8Szl5vI+EsMeHtKy2NrHL
+	3UdqQZrVIB6sobGSX/zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sywm4-0000000DdxS-2k9R;
-	Thu, 10 Oct 2024 17:16:28 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1sywot-0000000DfHd-0hRK;
+	Thu, 10 Oct 2024 17:19:23 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1syvLZ-0000000DOcI-0Kpz;
-	Thu, 10 Oct 2024 15:45:24 +0000
-From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1728575096;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8CaseVhBtdpQtjTcTpmIfibKjxpzap/T9WUWXl9xwak=;
-	b=pMtaSsQ8UrCsbp0jWIphuw/8nDX6xrSAMhkuRxGYx7ednp2ZohFYZNLSwmRC6nGSe96v2R
-	myIxY30VOOL+YKTv4KEKjTFAQTFXZxKDzvwO0vdUUx1QOQbBpCECJmfsfCyqDvsc5ltoSf
-	sxlDi8TJSOv1F5Xd+LjfoHO7JYjK2etzhLqqeqj4MV6ncu885QuT2gk989A8np/TdqjLeJ
-	sAi5Fuo7FllnsTpDwTgpwZDaBvRpi59Lio6+uH2rkZaGgKPjDroa4CVten3bk1oOk52Hzw
-	23NiNwtZgS+25/KXZ/e4rP7stFRyMr/IejAb2q1gfs4+vnoDCdiO/hPnPzLaFg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1728575096;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8CaseVhBtdpQtjTcTpmIfibKjxpzap/T9WUWXl9xwak=;
-	b=aF5YLex66+lKNdsdoeGgHL1V07NVdOH+rxgXzLe0/EuBdxw2xWHmfdy3blPVHY68rEImru
-	Q6CrxNOILwfKytBg==
-Date: Thu, 10 Oct 2024 17:44:49 +0200
-Subject: [PATCH 6/9] s390/vdso: Remove timekeeper includes
+	id 1sywmi-0000000DeS8-3swr;
+	Thu, 10 Oct 2024 17:17:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=uUXwx+8x5Cz+4d0Je9KlGs+DHXYYd+Mrap2dE87CUQM=; b=Bc0wh0lHMv2CEd6iurAN/Dqwot
+	CoanXaVbzBbjKXsx5TkPHS6qjBst/j5nlDdhmzCYpNWpLu8lLfPIIv3v84ItLnvMitUCYVGPyxiVz
+	I5VPW18WASGnoB1kITABUals6nGtQn1m4OAnHNL3LMWYfTMbEyCX7zF1vXphLUHQRJB2+0skkp/o2
+	v2lKHF5omCUHxivmcpRlR3rJxI9oVEzOqpe4ts+XjSCR9zhzG4MbFw/bB1rbVSjGpHdRAxs8Hcg6t
+	imbCTrWyWUIvGR2IVhbHfoH4067tPV2GYXAWjiZRMHEZlkaalbaiLFBXwF/OFtRI5EbyMexAhKtpk
+	RT0LHS1w==;
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1sywmf-00000005SsF-2Djm;
+	Thu, 10 Oct 2024 17:17:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id A7183A44C0F;
+	Thu, 10 Oct 2024 17:16:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBCEAC4CEC5;
+	Thu, 10 Oct 2024 17:16:54 +0000 (UTC)
+Date: Thu, 10 Oct 2024 18:16:52 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Nathan Chancellor <nathan@kernel.org>, Mark Brown <broonie@kernel.org>,
+	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Shuah Khan <shuah@kernel.org>,
+	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
+	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
+	Szabolcs Nagy <Szabolcs.Nagy@arm.com>, Kees Cook <kees@kernel.org>,
+	"H.J. Lu" <hjl.tools@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Florian Weimer <fweimer@redhat.com>,
+	Christian Brauner <brauner@kernel.org>,
+	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
+	Ross Burton <ross.burton@arm.com>,
+	David Spickett <david.spickett@arm.com>,
+	Yury Khrustalev <yury.khrustalev@arm.com>,
+	Wilco Dijkstra <wilco.dijkstra@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v13 11/40] arm64/gcs: Provide basic EL2 setup to allow
+ GCS usage at EL0 and EL1
+Message-ID: <ZwgMBAhR5-5R5EYC@arm.com>
+References: <20241001-arm64-gcs-v13-0-222b78d87eee@kernel.org>
+ <20241001-arm64-gcs-v13-11-222b78d87eee@kernel.org>
+ <20241009204903.GA3353168@thelio-3990X>
+ <86msjc56mi.wl-maz@kernel.org>
 MIME-Version: 1.0
-Message-Id: <20241010-vdso-generic-arch_update_vsyscall-v1-6-7fe5a3ea4382@linutronix.de>
-References: <20241010-vdso-generic-arch_update_vsyscall-v1-0-7fe5a3ea4382@linutronix.de>
-In-Reply-To: <20241010-vdso-generic-arch_update_vsyscall-v1-0-7fe5a3ea4382@linutronix.de>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Andy Lutomirski <luto@kernel.org>, 
- Thomas Gleixner <tglx@linutronix.de>, 
- Vincenzo Frascino <vincenzo.frascino@arm.com>, 
- Arnd Bergmann <arnd@arndb.de>, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
- "H. Peter Anvin" <hpa@zytor.com>, Heiko Carstens <hca@linux.ibm.com>, 
- Vasily Gorbik <gor@linux.ibm.com>, 
- Alexander Gordeev <agordeev@linux.ibm.com>, 
- Christian Borntraeger <borntraeger@linux.ibm.com>, 
- Sven Schnelle <svens@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>, 
- WANG Xuerui <kernel@xen0n.name>, Michael Ellerman <mpe@ellerman.id.au>, 
- Nicholas Piggin <npiggin@gmail.com>, 
- Christophe Leroy <christophe.leroy@csgroup.eu>, 
- Naveen N Rao <naveen@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Russell King <linux@armlinux.org.uk>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-arch@vger.kernel.org, linux-mips@vger.kernel.org, 
- linux-s390@vger.kernel.org, loongarch@lists.linux.dev, 
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1728575090; l=1648;
- i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=Yn7KlHbEU0MJ+dl8y9vpCiJdVRBNRAPzXohBNMI7g0A=;
- b=U2qMs1WEZtI+3Gz7n0ZlWNu0+kuRgmXI0J5su635wqTf1yCSL0UPUdTMPKc+UQDEA1H6FwQAV
- QZnsg/j8477BGlLQZ+LPIOF96Iz9MwCJvbWAUGHv/zuGibQhhFvb0Mo
-X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
- pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
+Content-Disposition: inline
+In-Reply-To: <86msjc56mi.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241010_084501_357425_46FFC84F 
-X-CRM114-Status: UNSURE (   9.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241010_181705_821458_6ACCFAAA 
+X-CRM114-Status: GOOD (  17.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,39 +100,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-U2luY2UgdGhlIGdlbmVyaWMgVkRTTyBjbG9jayBtb2RlIHN0b3JhZ2UgaXMgdXNlZCwgdGhpcyBo
-ZWFkZXIgZmlsZSBpcwp1bnVzZWQgYW5kIGNhbiBiZSByZW1vdmVkLgoKVGhpcyBhdm9pZHMgaW5j
-bHVkaW5nIGEgbm9uLVZEU08gaGVhZGVyIHdoaWxlIGJ1aWxkaW5nIHRoZSBWRFNPLAp3aGljaCBj
-YW4gbGVhZCB0byBjb21waWxhdGlvbiBlcnJvcnMuCgpBbHNvIGRyb3AgdGhlIGNvbW1lbnQgd2hp
-Y2ggaXMgb3V0IG9mIGRhdGUgYW5kIGluIHRoZSB3cm9uZyBwbGFjZS4KClNpZ25lZC1vZmYtYnk6
-IFRob21hcyBXZWnDn3NjaHVoIDx0aG9tYXMud2Vpc3NzY2h1aEBsaW51dHJvbml4LmRlPgotLS0K
-IGFyY2gvczM5MC9pbmNsdWRlL2FzbS92ZHNvL3ZzeXNjYWxsLmggfCA1IC0tLS0tCiBhcmNoL3Mz
-OTAva2VybmVsL3RpbWUuYyAgICAgICAgICAgICAgIHwgMSAtCiAyIGZpbGVzIGNoYW5nZWQsIDYg
-ZGVsZXRpb25zKC0pCgpkaWZmIC0tZ2l0IGEvYXJjaC9zMzkwL2luY2x1ZGUvYXNtL3Zkc28vdnN5
-c2NhbGwuaCBiL2FyY2gvczM5MC9pbmNsdWRlL2FzbS92ZHNvL3ZzeXNjYWxsLmgKaW5kZXggM2M1
-ZDVlNDc4MTRlMTZkY2ZjMjBmOTkwMTQ4MTEyNzI0NmU4ZjM0OC4uM2ViNTc2ZWNkM2JkOTk4ZGFm
-OTM3MmE1MmJlZmE4Yjc2ZDUyZjJiZiAxMDA2NDQKLS0tIGEvYXJjaC9zMzkwL2luY2x1ZGUvYXNt
-L3Zkc28vdnN5c2NhbGwuaAorKysgYi9hcmNoL3MzOTAvaW5jbHVkZS9hc20vdmRzby92c3lzY2Fs
-bC5oCkBAIC03LDcgKzcsNiBAQAogI2lmbmRlZiBfX0FTU0VNQkxZX18KIAogI2luY2x1ZGUgPGxp
-bnV4L2hydGltZXIuaD4KLSNpbmNsdWRlIDxsaW51eC90aW1la2VlcGVyX2ludGVybmFsLmg+CiAj
-aW5jbHVkZSA8dmRzby9kYXRhcGFnZS5oPgogI2luY2x1ZGUgPGFzbS92ZHNvLmg+CiAKQEAgLTE3
-LDEwICsxNiw2IEBAIGVudW0gdnZhcl9wYWdlcyB7CiAJVlZBUl9OUl9QQUdFUwogfTsKIAotLyoK
-LSAqIFVwZGF0ZSB0aGUgdkRTTyBkYXRhIHBhZ2UgdG8ga2VlcCBpbiBzeW5jIHdpdGgga2VybmVs
-IHRpbWVrZWVwaW5nLgotICovCi0KIHN0YXRpYyBfX2Fsd2F5c19pbmxpbmUgc3RydWN0IHZkc29f
-ZGF0YSAqX19zMzkwX2dldF9rX3Zkc29fZGF0YSh2b2lkKQogewogCXJldHVybiB2ZHNvX2RhdGE7
-CmRpZmYgLS1naXQgYS9hcmNoL3MzOTAva2VybmVsL3RpbWUuYyBiL2FyY2gvczM5MC9rZXJuZWwv
-dGltZS5jCmluZGV4IGI3MTNlZmZlMDU3OTY3NjIzZjY0ZGE4Mjk3MzE0ZmNjNDJmZjFhZjIuLjRm
-YWU2YzcwMTc4NDc0NjUxOWJhYjBiMjk1NDI5MDgyNTI5ZTQ1MDEgMTAwNjQ0Ci0tLSBhL2FyY2gv
-czM5MC9rZXJuZWwvdGltZS5jCisrKyBiL2FyY2gvczM5MC9rZXJuZWwvdGltZS5jCkBAIC0zNiw3
-ICszNiw2IEBACiAjaW5jbHVkZSA8bGludXgvcHJvZmlsZS5oPgogI2luY2x1ZGUgPGxpbnV4L3Rp
-bWV4Lmg+CiAjaW5jbHVkZSA8bGludXgvbm90aWZpZXIuaD4KLSNpbmNsdWRlIDxsaW51eC90aW1l
-a2VlcGVyX2ludGVybmFsLmg+CiAjaW5jbHVkZSA8bGludXgvY2xvY2tjaGlwcy5oPgogI2luY2x1
-ZGUgPGxpbnV4L2dmcC5oPgogI2luY2x1ZGUgPGxpbnV4L2twcm9iZXMuaD4KCi0tIAoyLjQ3LjAK
-CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
-aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
-bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Thu, Oct 10, 2024 at 04:18:13PM +0100, Marc Zyngier wrote:
+> From 20c98d2647c11db1e40768f92c5998ff5d764a3a Mon Sep 17 00:00:00 2001
+> From: Marc Zyngier <maz@kernel.org>
+> Date: Thu, 10 Oct 2024 16:13:26 +0100
+> Subject: [PATCH] KVM: arm64: Shave a few bytes from the EL2 idmap code
+> 
+> Our idmap is becoming too big, to the point where it doesn't fit in
+> a 4kB page anymore.
+> 
+> There are some low-hanging fruits though, such as the el2_init_state
+> horror that is expanded 3 times in the kernel. Let's at least limit
+> ourselves to two copies, which makes the kernel link again.
+> 
+> At some point, we'll have to have a better way of doing this.
+> 
+> Reported-by: Nathan Chancellor <nathan@kernel.org>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> Link: https://lore.kernel.org/r/20241009204903.GA3353168@thelio-3990X
+
+Thanks Marc for the quick fix. It looks fine to me, it will keep the
+linker quiet for a while. I pushed it to arm64 for-kernelci for the time
+being, see if anything falls apart. I'll apply it properly once it gets
+a bit more testing.
+
+-- 
+Catalin
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
