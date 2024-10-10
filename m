@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDD62CEDDA9
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Oct 2024 01:30:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D78FCEDDB7
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Oct 2024 02:06:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ApiPR6qZwBr/Tr34D6JkWf6svBjxGJuPM5VNCwHsjZw=; b=n1cPVdO+22H26S
-	uLT8S/ea3LEcGNKVXc0DtboeaDduY2o/pwBYF8+7iA5+5VAqT7rOnLxQRpUjljAPxyHfu1zdjljeT
-	SVOC6eylQ4n3SsUT6p6jc614nfigO+9kuP3ZMuP703Sl7ojtXGKfR1GyphG2CBR031Y0uLHmQrGfh
-	6vXdB+rrONMzWBkNxfvSRQi+2AZif334yEODT6IqVc6dCa6g836VA+lHr9nW/QqvrPCUdD0wCNd/X
-	P2gWZ9ofExMhOOPi0iC2g0wuyOemmRehDJCnTwukAuMvfjQu4NmIeffgA75vFggqc9kM0ceu20A8Q
-	OoRwny92m7IbFbY/5VFQ==;
+	List-Owner; bh=n2HAOGfr4mmdpxt432C1oKUERkRS88m2mnU0HWEYsSQ=; b=lMTp0QpmUR6SX0
+	8w/9PzT4kpB+lXFcmkwlqFJYFxPgOZXV05gktsHePkWzBoDrxFQ8m+hhHrWztBlAHK/S0FpK9B+XN
+	93+TErUZWBhJvxEB2eG20U3IGP+PnfQVPZyJ8e1GWKxl2TcyJshJEPm6+586kkIfK/xiusC1DrKn4
+	4zbxzHvxAbia6HnAc7/5F4fTbN/o6flm+WCIIh+xbBY7vfhEC05xjdXvIkVXD2TIGNMTWucHI52bK
+	iKY8mS5wrt7R4pQMbMMhMBIL2F7PPJL522WCp6X0xwBb0QMrwhw3dvpvQO/g1mrijzEsmHaGlVziu
+	60hPsld3U5Jq3TqclTTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1syi0d-0000000BDcp-110Y;
-	Thu, 10 Oct 2024 01:30:31 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1syiZO-0000000BGQL-3peU;
+	Thu, 10 Oct 2024 02:06:26 +0000
+Received: from szxga06-in.huawei.com ([45.249.212.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1syi0a-0000000BDcO-0jhx
+	id 1syiZK-0000000BGOs-2qME
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Oct 2024 01:30:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C66585C4BAA;
-	Thu, 10 Oct 2024 01:30:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EE64C4CECE;
-	Thu, 10 Oct 2024 01:30:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1728523825;
-	bh=QLp0IT+USLybtIEn9rosf67rYcbk9sKmf9oRcZt4NGA=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=Hua9PJVtuJX/DNJFfBdnSZv+Hsf74Z0Fo42dgBwfETPvhiV4vfjDSVfvftOF+oJ2S
-	 13BEHeb9EDTrHDledEcub+1YY3oMQeuTGC81PvijgO5KJt/cKMQyarT30cjTw3M/TZ
-	 nLIXsrGNVhfamLgC6GMuSYUrZofz40J9WDXub7IGn4yXOH8nJDzKpxlb2buqAT0lf0
-	 a44m/jxo0NkASm0flaeptTL2lDXuDli05k5iohdJ7g/71WOLwmOIsikbdKzkQDeZSS
-	 mnRPC6IAk0OMH4AdNxZNuJi0HfUbEeXldn5m0B5SiQkvhQWr1jJCvuw4WcdgQBUmqd
-	 tTRZ8Bc4p9utw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id AE3473806644;
-	Thu, 10 Oct 2024 01:30:30 +0000 (UTC)
+	Thu, 10 Oct 2024 02:06:25 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.234])
+	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4XPCmC43s3z26gbb;
+	Thu, 10 Oct 2024 10:06:19 +0800 (CST)
+Received: from kwepemh500013.china.huawei.com (unknown [7.202.181.146])
+	by mail.maildlp.com (Postfix) with ESMTPS id F17B5140120;
+	Thu, 10 Oct 2024 10:06:14 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ kwepemh500013.china.huawei.com (7.202.181.146) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 10 Oct 2024 10:06:14 +0800
+Message-ID: <7e29e022-eae6-4a93-f7f1-841febab0988@huawei.com>
+Date: Thu, 10 Oct 2024 10:06:13 +0800
 MIME-Version: 1.0
-Subject: Re: [PATCH bpf] riscv,
- bpf: Fix possible infinite tailcall when CONFIG_CFI_CLANG is enabled
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <172852382954.1532001.10566819180554959939.git-patchwork-notify@kernel.org>
-Date: Thu, 10 Oct 2024 01:30:29 +0000
-References: <20241008124544.171161-1-pulehui@huaweicloud.com>
-In-Reply-To: <20241008124544.171161-1-pulehui@huaweicloud.com>
-To: Pu Lehui <pulehui@huaweicloud.com>
-Cc: bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
- netdev@vger.kernel.org, bjorn@kernel.org, puranjay@kernel.org,
- ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org,
- martin.lau@linux.dev, eddyz87@gmail.com, song@kernel.org,
- yonghong.song@linux.dev, john.fastabend@gmail.com, kpsingh@kernel.org,
- sdf@fomichev.me, haoluo@google.com, jolsa@kernel.org, palmer@dabbelt.com,
- paul.walmsley@sifive.com, aou@eecs.berkeley.edu
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.0
+Subject: Re: [PATCH] net/9p/usbg: Fix build error
+Content-Language: en-US
+To: Greg KH <gregkh@linuxfoundation.org>
+CC: <ericvh@kernel.org>, <lucho@ionkov.net>, <asmadeus@codewreck.org>,
+	<linux_oss@crudebyte.com>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
+	<aou@eecs.berkeley.edu>, <m.grzeschik@pengutronix.de>,
+	<v9fs@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>
+References: <20240930081520.2371424-1-ruanjinjie@huawei.com>
+ <2ff5834d-cb88-39f5-168d-8e179f152757@huawei.com>
+ <2024100910-distrust-cornhusk-a8bd@gregkh>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <2024100910-distrust-cornhusk-a8bd@gregkh>
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
+ kwepemh500013.china.huawei.com (7.202.181.146)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241009_183028_276616_F83AFED9 
-X-CRM114-Status: UNSURE (   7.65  )
+X-CRM114-CacheID: sfid-20241009_190623_248931_867A1093 
+X-CRM114-Status: UNSURE (   9.90  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,31 +78,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
 
-This patch was applied to bpf/bpf.git (master)
-by Alexei Starovoitov <ast@kernel.org>:
 
-On Tue,  8 Oct 2024 12:45:44 +0000 you wrote:
-> From: Pu Lehui <pulehui@huawei.com>
+On 2024/10/9 15:55, Greg KH wrote:
+> On Wed, Oct 09, 2024 at 03:49:22PM +0800, Jinjie Ruan wrote:
+>> Ping.
+>>
+>> On 2024/9/30 16:15, Jinjie Ruan wrote:
+>>> When CONFIG_NET_9P_USBG=y but CONFIG_USB_LIBCOMPOSITE=m and
+>>> CONFIG_CONFIGFS_FS=m, the following build error occurs:
+>>>
+>>> 	riscv64-unknown-linux-gnu-ld: net/9p/trans_usbg.o: in function `usb9pfs_free_func':
+>>> 	trans_usbg.c:(.text+0x124): undefined reference to `usb_free_all_descriptors'
+>>> 	riscv64-unknown-linux-gnu-ld: net/9p/trans_usbg.o: in function `usb9pfs_rx_complete':
+>>> 	trans_usbg.c:(.text+0x2d8): undefined reference to `usb_interface_id'
+>>> 	riscv64-unknown-linux-gnu-ld: trans_usbg.c:(.text+0x2f6): undefined reference to `usb_string_id'
+>>> 	riscv64-unknown-linux-gnu-ld: net/9p/trans_usbg.o: in function `usb9pfs_func_bind':
+>>> 	trans_usbg.c:(.text+0x31c): undefined reference to `usb_ep_autoconfig'
+>>> 	riscv64-unknown-linux-gnu-ld: trans_usbg.c:(.text+0x336): undefined reference to `usb_ep_autoconfig'
+>>> 	riscv64-unknown-linux-gnu-ld: trans_usbg.c:(.text+0x378): undefined reference to `usb_assign_descriptors'
+>>> 	riscv64-unknown-linux-gnu-ld: net/9p/trans_usbg.o: in function `f_usb9pfs_opts_buflen_store':
+>>> 	trans_usbg.c:(.text+0x49e): undefined reference to `usb_put_function_instance'
+>>> 	riscv64-unknown-linux-gnu-ld: net/9p/trans_usbg.o: in function `usb9pfs_alloc_instance':
+>>> 	trans_usbg.c:(.text+0x5fe): undefined reference to `config_group_init_type_name'
+>>> 	riscv64-unknown-linux-gnu-ld: net/9p/trans_usbg.o: in function `usb9pfs_alloc':
+>>> 	trans_usbg.c:(.text+0x7aa): undefined reference to `config_ep_by_speed'
+>>> 	riscv64-unknown-linux-gnu-ld: trans_usbg.c:(.text+0x7ea): undefined reference to `config_ep_by_speed'
+>>> 	riscv64-unknown-linux-gnu-ld: net/9p/trans_usbg.o: in function `usb9pfs_set_alt':
+>>> 	trans_usbg.c:(.text+0x828): undefined reference to `alloc_ep_req'
+>>> 	riscv64-unknown-linux-gnu-ld: net/9p/trans_usbg.o: in function `usb9pfs_modexit':
+>>> 	trans_usbg.c:(.exit.text+0x10): undefined reference to `usb_function_unregister'
+>>> 	riscv64-unknown-linux-gnu-ld: net/9p/trans_usbg.o: in function `usb9pfs_modinit':
+>>> 	trans_usbg.c:(.init.text+0x1e): undefined reference to `usb_function_register'
+>>>
+>>> Select the config for NET_9P_USBG to fix it.
+>>>
+>>> Fixes: a3be076dc174 ("net/9p/usbg: Add new usb gadget function transport")
+>>> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+>>> ---
+>>>  net/9p/Kconfig | 2 ++
+>>>  1 file changed, 2 insertions(+)
+>>>
+>>> diff --git a/net/9p/Kconfig b/net/9p/Kconfig
+>>> index 63f988f0c9e8..ee967fd25312 100644
+>>> --- a/net/9p/Kconfig
+>>> +++ b/net/9p/Kconfig
+>>> @@ -43,6 +43,8 @@ config NET_9P_XEN
+>>>  config NET_9P_USBG
+>>>  	bool "9P USB Gadget Transport"
+>>>  	depends on USB_GADGET=y || USB_GADGET=NET_9P
+>>> +	select CONFIGFS_FS
+>>> +	select USB_LIBCOMPOSITE
+>>>  	help
+>>>  	  This builds support for a transport for 9pfs over
+>>>  	  usb gadget.
 > 
-> When CONFIG_CFI_CLANG is enabled, the number of prologue instructions
-> skipped by tailcall needs to include the kcfi instruction, otherwise the
-> TCC will be initialized every tailcall is called, which may result in
-> infinite tailcalls.
+> Ah, I can take this through the USB tree as it fixes a bug that came in
+> through there.
+
+Hi, Greg
+Thank you very much!
+
 > 
-> [...]
-
-Here is the summary with links:
-  - [bpf] riscv, bpf: Fix possible infinite tailcall when CONFIG_CFI_CLANG is enabled
-    https://git.kernel.org/bpf/bpf/c/30a59cc79754
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+> thanks,
+> 
+> greg k-h
 
 _______________________________________________
 linux-riscv mailing list
