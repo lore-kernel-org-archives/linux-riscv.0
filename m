@@ -4,91 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3758ECFC5E9
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Oct 2024 17:19:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19890CFC5E7
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Oct 2024 17:19:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jNSPAJb0VUHuKRpFFtAuudCU5SIxo341vS4Gsbn4638=; b=2iyAiVXh2h5xMF
-	qSRFt65A5TrJ1UOS8kKoXe7qfk/aJXe0E2Hmq2rHIhirUk0pr+NxY6abOSF5G1fzPguh89ge69NKS
-	nk7Fl/PTCh4u4gFMN81539ZB4K3zvAg6H2NiAueF/ZeOBElab0I7oHh0KVnof8MH1dxOUpJ0F6m0/
-	GXcqwjXkIXq7ynjrJ0nlWQDH8UboWMlKBSI0aqZox2UrMpm6hjIwfaWuK9z+AgT1XxcHS/T4bEkmC
-	irsiOCoS23UWzLpnacc8jFV3jB2rhSa0Dn73Ws2i6gsvaS069NQFzFkN8Szl5vI+EsMeHtKy2NrHL
-	3UdqQZrVIB6sobGSX/zw==;
+	List-Owner; bh=E8p4RJOWMDJJQjSHfCRveOkwN3UBJMnyVR+fHeyu204=; b=icHO+pZqjj+tSZ
+	/CiS1hdgA21CgzZ4OMao65kZiInl+nXUxs1EoyMko7B8Vc8gp7B8sY+dDBW2hogVPXqz0YlX2HfWg
+	T1xxCgBs293aM1yJMe6q27aOCVBJeKcsWjamd3pGWoRuuWbi4tCmEcGX/IDxBgvmAtrp/yhR6zroc
+	5lF+Zoq362UiatYA4uGEDHFmpg47e/ieVdQQSR6ATD7fwl2Lxq6mD89HPPTWItXKE21SN4WakS2mD
+	ucv6jAwH4mzXA0lDFya8DtzcNS8THntcU/8je/CtnYYibC0Ep9vUb5kxUIJN6piu+LPIbxvviDsmp
+	LWYRK0kD35RnNSjCrw8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1sywot-0000000DfHd-0hRK;
+	id 1sywot-0000000DfHv-3KPU;
 	Thu, 10 Oct 2024 17:19:23 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sywmi-0000000DeS8-3swr;
-	Thu, 10 Oct 2024 17:17:08 +0000
+	id 1sywoF-0000000Df6q-06Qi;
+	Thu, 10 Oct 2024 17:18:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=uUXwx+8x5Cz+4d0Je9KlGs+DHXYYd+Mrap2dE87CUQM=; b=Bc0wh0lHMv2CEd6iurAN/Dqwot
-	CoanXaVbzBbjKXsx5TkPHS6qjBst/j5nlDdhmzCYpNWpLu8lLfPIIv3v84ItLnvMitUCYVGPyxiVz
-	I5VPW18WASGnoB1kITABUals6nGtQn1m4OAnHNL3LMWYfTMbEyCX7zF1vXphLUHQRJB2+0skkp/o2
-	v2lKHF5omCUHxivmcpRlR3rJxI9oVEzOqpe4ts+XjSCR9zhzG4MbFw/bB1rbVSjGpHdRAxs8Hcg6t
-	imbCTrWyWUIvGR2IVhbHfoH4067tPV2GYXAWjiZRMHEZlkaalbaiLFBXwF/OFtRI5EbyMexAhKtpk
-	RT0LHS1w==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=YWTfDGJOVIcVIWG5RKfiNKmMCfgGLl0hOHgzmSzW7HE=; b=QuSZoO2TBDAExKucwr5fRH3C9k
+	0W+HjyTI3VjC4JgrTExoFVPT5MF2PJVdxb95MZS0QTbSDQhQ/xgGOkQvn3lpq/BncrCV8dSAJHtnj
+	4Z+/MaJbbfGrVUuvFVgUDWBHNX4mOoGmUtAGUAbrJGTaLdpcqBJj8RjUjQwLowWLyv0VU8tDY2G5j
+	e7goae5ZfmhkO3/1FJSk6dnKG+vWEp0FgQ+B+9Qi4mgGyNHvfZNRgxgDdWIIwkrD3zr92UH2bYM5A
+	oaR0fQhs26aI+PeGEsYZMu040YAjH1MXDRobX7KSFbibr7JM28H7Zwv5cetInO0Dx9HX6RGhN3Yh8
+	0oZiVuNw==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1sywmf-00000005SsF-2Djm;
-	Thu, 10 Oct 2024 17:17:07 +0000
+	id 1sywoC-00000005T0q-02Hb;
+	Thu, 10 Oct 2024 17:18:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A7183A44C0F;
-	Thu, 10 Oct 2024 17:16:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBCEAC4CEC5;
-	Thu, 10 Oct 2024 17:16:54 +0000 (UTC)
-Date: Thu, 10 Oct 2024 18:16:52 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Nathan Chancellor <nathan@kernel.org>, Mark Brown <broonie@kernel.org>,
-	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Shuah Khan <shuah@kernel.org>,
-	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
-	Szabolcs Nagy <Szabolcs.Nagy@arm.com>, Kees Cook <kees@kernel.org>,
-	"H.J. Lu" <hjl.tools@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Florian Weimer <fweimer@redhat.com>,
-	Christian Brauner <brauner@kernel.org>,
-	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
-	Ross Burton <ross.burton@arm.com>,
-	David Spickett <david.spickett@arm.com>,
-	Yury Khrustalev <yury.khrustalev@arm.com>,
-	Wilco Dijkstra <wilco.dijkstra@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v13 11/40] arm64/gcs: Provide basic EL2 setup to allow
- GCS usage at EL0 and EL1
-Message-ID: <ZwgMBAhR5-5R5EYC@arm.com>
-References: <20241001-arm64-gcs-v13-0-222b78d87eee@kernel.org>
- <20241001-arm64-gcs-v13-11-222b78d87eee@kernel.org>
- <20241009204903.GA3353168@thelio-3990X>
- <86msjc56mi.wl-maz@kernel.org>
+	by nyc.source.kernel.org (Postfix) with ESMTP id E7F71A44C1F;
+	Thu, 10 Oct 2024 17:18:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4A01C4CEDB;
+	Thu, 10 Oct 2024 17:18:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1728580711;
+	bh=vaucBuX2fMrEpT3kygwI4CcFnWG5blOdj+4yYIH1/lc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=YGQC3YGTpIM/Tv02Vn7usGJD/6tt+x+KTKu3UxnMO5NCC8+C7ZPh5ezrehFriglwe
+	 0kHT558np8Wr8rw+tHrk6iFdI6TYZzj/XuDQyl1ohCHGBlLvqRKvMY9o2gFo+NuycW
+	 y20uvBOD9Gdu+xnvXvzrx2PBIPwMfqD7Kk74Y5ZM4wURiZxI3kabAPnyXgltKV5Te8
+	 nLgYuMl0XB6UP3CI6ocVV8lyp79EB210TDlqZm0fWRLk96yJAx28fczirFRv8Ok4xn
+	 g28YaYfndtMh2lJkpow1r3uH0m1V9UcGEfvj2KBq6mV0UhVTJerIhIuFum/RTZvtMI
+	 Z12HDd0NC/l1Q==
+Received: by mail-io1-f42.google.com with SMTP id ca18e2360f4ac-8354851fcabso48912239f.2;
+        Thu, 10 Oct 2024 10:18:31 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUBmQEpbLW3U1XhBNmLaF6RumPEExPMY3tn4qTyIhDVeLOwVTaxw77R/34G7hmQrVorGWtqaFyZpJ4=@lists.infradead.org, AJvYcCUrkLH7sK73Qwxx3CCzwEhAzTMOzuH8kq7Q41392q6zpo0Miz5cXB24oPUHwm8BUnm1mVH8eLounez/QyQ=@lists.infradead.org, AJvYcCWiedAUlsaIB7MOu0/uxOgh7+Eolg3TaYj2OBhPp9LQwn0rgJ5qSPVrahsKG608t6xIVjqZTT5hGFhmuw0xB3um@lists.infradead.org, AJvYcCWo8jD5Cb2TpzVzbQGNORTn8iSBhbz0/Wv3ppJMUHa95y5W6aG+MyWzfxQ8Ou65A6NCjA6CdjTX40qErDAswJ8=@lists.infradead.org
+X-Gm-Message-State: AOJu0YyTgs93AkkUgpc/zNMrHDw24mgTAQUnu1aq/cfCuar48cCE6O6v
+	8LMZ+h8JgQhXqHS9p6B3yg/PhR2lgfZLam4jO4JI5ftPDEkG+CEkwnM1JiLVq7iSHuwnzI499LM
+	3QZpfd7/zbloM1iNA7F6qf/F5eaU=
+X-Google-Smtp-Source: AGHT+IGszKBBrf1gYsUhslMqcPNpC/f6sAFFbsmL+u+zGmeEd2sYZs3+7Tvb9T+CKCsx/nhk3yidKvoEgysxI18Lmn4=
+X-Received: by 2002:a05:6e02:144d:b0:3a0:92e5:af68 with SMTP id
+ e9e14a558f8ab-3a3b51daa94mr2839515ab.15.1728580710921; Thu, 10 Oct 2024
+ 10:18:30 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <86msjc56mi.wl-maz@kernel.org>
+References: <20241009180816.83591-1-rppt@kernel.org> <20241009180816.83591-5-rppt@kernel.org>
+ <CAPhsuW66etfdU3Fvk0KsELXcgWD6_TkBFjJ-BTHQu5OejDsP2w@mail.gmail.com> <ZwdpnPKKQGF5DtSv@kernel.org>
+In-Reply-To: <ZwdpnPKKQGF5DtSv@kernel.org>
+From: Song Liu <song@kernel.org>
+Date: Thu, 10 Oct 2024 10:18:19 -0700
+X-Gmail-Original-Message-ID: <CAPhsuW6gb76T_75TPzb-AvfyAcYE83iYhDpjJNHJQWDd3Fki_Q@mail.gmail.com>
+Message-ID: <CAPhsuW6gb76T_75TPzb-AvfyAcYE83iYhDpjJNHJQWDd3Fki_Q@mail.gmail.com>
+Subject: Re: [PATCH v5 4/8] module: prepare to handle ROX allocations for text
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Andreas Larsson <andreas@gaisler.com>, 
+	Andy Lutomirski <luto@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@quicinc.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Christoph Hellwig <hch@infradead.org>, 
+	Christophe Leroy <christophe.leroy@csgroup.eu>, Dave Hansen <dave.hansen@linux.intel.com>, 
+	Dinh Nguyen <dinguyen@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>, Guo Ren <guoren@kernel.org>, 
+	Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+	Johannes Berg <johannes@sipsolutions.net>, 
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Kent Overstreet <kent.overstreet@linux.dev>, 
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Luis Chamberlain <mcgrof@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Masami Hiramatsu <mhiramat@kernel.org>, 
+	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Michal Simek <monstr@monstr.eu>, Oleg Nesterov <oleg@redhat.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Richard Weinberger <richard@nod.at>, Russell King <linux@armlinux.org.uk>, 
+	Stafford Horne <shorne@gmail.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Thomas Gleixner <tglx@linutronix.de>, 
+	Uladzislau Rezki <urezki@gmail.com>, Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>, 
+	bpf@vger.kernel.org, linux-alpha@vger.kernel.org, linux-arch@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
+	linux-hexagon@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
+	linux-mm@kvack.org, linux-modules@vger.kernel.org, 
+	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org, 
+	linux-snps-arc@lists.infradead.org, linux-trace-kernel@vger.kernel.org, 
+	linux-um@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
+	loongarch@lists.linux.dev, sparclinux@vger.kernel.org, x86@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241010_181705_821458_6ACCFAAA 
-X-CRM114-Status: GOOD (  17.44  )
+X-CRM114-CacheID: sfid-20241010_181840_381660_955DAF9A 
+X-CRM114-Status: GOOD (  15.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,39 +117,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 10, 2024 at 04:18:13PM +0100, Marc Zyngier wrote:
-> From 20c98d2647c11db1e40768f92c5998ff5d764a3a Mon Sep 17 00:00:00 2001
-> From: Marc Zyngier <maz@kernel.org>
-> Date: Thu, 10 Oct 2024 16:13:26 +0100
-> Subject: [PATCH] KVM: arm64: Shave a few bytes from the EL2 idmap code
-> 
-> Our idmap is becoming too big, to the point where it doesn't fit in
-> a 4kB page anymore.
-> 
-> There are some low-hanging fruits though, such as the el2_init_state
-> horror that is expanded 3 times in the kernel. Let's at least limit
-> ourselves to two copies, which makes the kernel link again.
-> 
-> At some point, we'll have to have a better way of doing this.
-> 
-> Reported-by: Nathan Chancellor <nathan@kernel.org>
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> Link: https://lore.kernel.org/r/20241009204903.GA3353168@thelio-3990X
-
-Thanks Marc for the quick fix. It looks fine to me, it will keep the
-linker quiet for a while. I pushed it to arm64 for-kernelci for the time
-being, see if anything falls apart. I'll apply it properly once it gets
-a bit more testing.
-
--- 
-Catalin
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBPY3QgOSwgMjAyNCBhdCAxMDo0N+KAr1BNIE1pa2UgUmFwb3BvcnQgPHJwcHRAa2Vy
+bmVsLm9yZz4gd3JvdGU6Cj4KPiBPbiBXZWQsIE9jdCAwOSwgMjAyNCBhdCAwMzoyMzo0MFBNIC0w
+NzAwLCBTb25nIExpdSB3cm90ZToKPiA+IE9uIFdlZCwgT2N0IDksIDIwMjQgYXQgMTE6MTDigK9B
+TSBNaWtlIFJhcG9wb3J0IDxycHB0QGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4gWy4uLl0KPiA+ID4g
+ZGlmZiAtLWdpdCBhL2luY2x1ZGUvbGludXgvbW9kdWxlLmggYi9pbmNsdWRlL2xpbnV4L21vZHVs
+ZS5oCj4gPiA+IGluZGV4IDg4ZWNjNWU5ZjUyMy4uNzAzOWY2MDljNmVmIDEwMDY0NAo+ID4gPiAt
+LS0gYS9pbmNsdWRlL2xpbnV4L21vZHVsZS5oCj4gPiA+ICsrKyBiL2luY2x1ZGUvbGludXgvbW9k
+dWxlLmgKPiA+ID4gQEAgLTM2Nyw2ICszNjcsOCBAQCBlbnVtIG1vZF9tZW1fdHlwZSB7Cj4gPiA+
+Cj4gPiA+ICBzdHJ1Y3QgbW9kdWxlX21lbW9yeSB7Cj4gPiA+ICAgICAgICAgdm9pZCAqYmFzZTsK
+PiA+ID4gKyAgICAgICB2b2lkICpyd19jb3B5Owo+ID4gPiArICAgICAgIGJvb2wgaXNfcm94Owo+
+ID4gPiAgICAgICAgIHVuc2lnbmVkIGludCBzaXplOwo+ID4KPiA+IERvIHdlIHJlYWxseSBuZWVk
+IHRvIGhvbGQgdGhlIHJ3X2NvcHkgYWxsIHRoZSB0aW1lPwo+Cj4gV2UgaG9sZCBpdCBvbmx5IGR1
+cmluZyBtb2R1bGUgaW5pdGlhbGl6YXRpb24sIGl0J3MgZnJlZWQgaW4KPiBwb3N0X3JlbG9jYXRp
+b24uCgpBaCwgSSBtaXNzZWQgdGhpcyBwYXJ0LiBTb3JyeSBmb3IgdGhlIG5vaXNlLgoKU29uZwoK
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
+Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
+c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
