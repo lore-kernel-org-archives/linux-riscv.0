@@ -4,67 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A4ADCFC5EC
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Oct 2024 18:31:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C2E9CFC5EC
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Oct 2024 18:33:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
-	:Mime-Version:Date:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=PkeDlQ6AMSjNzGXY9TLeqJonk1vWMRq8wrvoByPfdzU=; b=EWdWXyNFUmgDWc
-	8HPNBDTFkwSDl3j3RimGDhxOskx9t5OMLMS/sHo+geSlXC4ACXXXdUsNmCXvRQs5f+c8sUts7mVIj
-	G/xcwoECKyEMPniBQH1shnilizGVBSMNPxy2gBcmfGojhoF3xE/WHpq/T2apXZTM2+2RrAgvMM8/X
-	FMVl0ONiKnT/Zo4i6u85PRJ6tUzWL0uXKNWO9VWgUaxrBAYJnsx2ruMyPuW+NKTWCSQPun1c+oWce
-	H5Y5cAShxuBXciR6+IVexY4EsQgMf1SuX1YujzLu+NKO33s2yWPtlTtHo5yWLA8d5UOZTIPmeDbaT
-	qu1p0j4Bg6y3MRRsOCkw==;
+	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=YxrYeQ29bTb2udoxQtf7r/ekFVNOr4pMlk2GbU44JeY=; b=ow5f3s1RZamOVy
+	egXEpKN37EYTJEhw5yrEaokkkvx971bE38jlAUhbp1qU4aaWp4wvQQn0pFyAoiXiV8zbvj+J4J2Q8
+	ts4Qk4O8RjGQ/eyyUcTX+8sY4VfBTRQ0D/kePJYu11CNG3JutzWnNRgSX0eHDW++uc0ZZ+qgT7xVv
+	LRHHugEC3QcySCsDZmD4cxvEOYENkQUrgHGXwynkPrL6rjthCXrPIpAKheWRgM7ky4iUpcfI0FyMi
+	Ff1CG24NTTuxTE2dR8T67P4i/bZmFejw7QSua6U0IFoSu0ZRXLTHtTnMn/4kej7g5uuknhwS0vHbb
+	3pfa9JpMJ7ckSU4sWTlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1syxwd-0000000Dtht-1Tht;
-	Thu, 10 Oct 2024 18:31:27 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1syxyF-0000000DuRp-1xT7;
+	Thu, 10 Oct 2024 18:33:07 +0000
+Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1syxqE-0000000Dpb4-3XvK
+	id 1syxqH-0000000Dpc4-15jY
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Oct 2024 18:24:53 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6e28b624bfcso20355627b3.2
-        for <linux-riscv@lists.infradead.org>; Thu, 10 Oct 2024 11:24:49 -0700 (PDT)
+	Thu, 10 Oct 2024 18:24:55 +0000
+Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-7ea0dbb7cc1so2052586a12.0
+        for <linux-riscv@lists.infradead.org>; Thu, 10 Oct 2024 11:24:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1728584688; x=1729189488; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:reply-to:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=PBRfCittAXjccGkBtqBU7H4iPRP62jjV6+4PwlptPDA=;
-        b=V5FW3JcZrSn1h+naAFlk3KBT5/T5frlese0fDkjAzRHSYa65GjXTE/DG2hdpQWtehA
-         Fow3dDP8hJR8e3yGvU74FO6kDOQzQMKWnObjE9ttPj69002L8aZw4F8QW8EyS5G7V7vy
-         0QCIMH4zB4Qb8VFStHww/xVzArTB51n6h/72YX3K1drKCN2GmIdtI3PfFHfh6H4SN9f+
-         M/YUl26tF7/MtDyylmMV9EXR+ffCZEmA2M5TkCf1bfAfYDxeVMTpzxdEMAfYr8vncjXz
-         pS6fbFFxp+E2YVUUOS9CGyCyBjbLpAfdLI2qMEVCsv8+FXd4CteIXMTEXOe3FxaCy2Sj
-         Y8nQ==
+        d=google.com; s=20230601; t=1728584691; x=1729189491; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:reply-to:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Om/x5O1cFoCu45xFQlZl7muX4OGvvwFhFfu/OqGssvQ=;
+        b=tCsBk8HaNFJgE7k6da8O+927jDUhAdilLbD6Ct0HgJr6ILzIqoH7HqDbdGX3904isM
+         mgjRlaLXsMfuyAoxkw1WPhJdK3pB5VO/dxbxxKMIal5c9Z8EWR5FbmnyBwNxrl584hj8
+         llhunBIIUNFcrX/3VjyNPRQ3o0OsEX7z8X0VE4Bgz/2ziMssp34F8oGWo+58KaUGxXnp
+         GgSspRdccjVn7EAlku3QQ/kf2DmnFRd4xHkQRA0RG2GhInoi/RZeZJ1lmT5zInJExN8C
+         nubiDEnlewvl8u2EFKmo4455ddHS15hNF7FMoQlwgmnzw50YNrRY+bHWh95QruI1FQ0a
+         A0vA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728584688; x=1729189488;
-        h=cc:to:from:subject:message-id:mime-version:date:reply-to
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=PBRfCittAXjccGkBtqBU7H4iPRP62jjV6+4PwlptPDA=;
-        b=vev269Zq+P5DRlQJDSs9kjFB40OHoN4SRv6iUe4D+cRT37gOamSyo1HFooF8pGKF+h
-         bjo9rf99w0vlhg77ZkjxU8xcrCMTe3vcfW0zPgYPidQLdRVomBBLR/J/H8TWvTcJQxT4
-         I7am+Fr4sntSQFlmimqvxxXHIRJqPOizCIYySndDD18/g4PcMpV8GBglzh1YBUF3WHbw
-         qmdwzg8G92HLmlagUQsKPS5eErhDY/UPTLaTDyea4oHj8dcnOfHg6gBd5gY6tk0fdY9p
-         iW9EcZ70bvR9j3ZsmPg5/NlBOz7Gl3DEG2CQrmZZHgvnF9JX66n4pX4sC/qCaVpizJgh
-         nkrA==
-X-Forwarded-Encrypted: i=1; AJvYcCU0b8QX+WSbE8FMFJ0bNgdTTl7ZU5SvaQe1VnAyNDZPdNbdJ/c0o05yfk8lR+unOvh+7F8XPKC/PaE8/g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJxhqttALujTUuCMuPO/F82Lg44oVaM0Y5b5wgq4mXfVtaXEpp
-	w4s1ut51MlEq8YN9/2tr+GVD3/Bl5mUu5w0gNG3GaFU5QRQTuAcAz0KSZhAvIgfsm5kS8KPlEpO
-	pBg==
-X-Google-Smtp-Source: AGHT+IFVWhSyNvZCWHkSlnUyMVGf0mcCDs6zWifUN6uyeZ0ix6vlXwCyyjUyA4S+yzba7AHFzz2C9NUEgCs=
+        d=1e100.net; s=20230601; t=1728584691; x=1729189491;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:reply-to:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=Om/x5O1cFoCu45xFQlZl7muX4OGvvwFhFfu/OqGssvQ=;
+        b=OxXJCLlmnvAYzOTu7matjitzzYr917el1p1y3JoaZ6GIMGkXDHkb7KljEw4PM2vBRw
+         GOILxwINZ7ecfk47TqNLcbC94VJJZA1+j8ESWo1Aqfdi7EitkgjnifRlCQfnQRFjOky6
+         zWwh6v5VF3ks7P88aA/SrdDkU0MNucjUPnIKphLWslQ0bIsIPLbdnZPQlpHNoeZK76rS
+         D0V/qeh0tou8rsFsD/C9rhz/B3aKSjLGzTw9FUzQWSs3tac+HM4+hr1QG8/GHv5eJ2hd
+         KGNaKf79VXxs9l1x/X7/gkopgvKGMwZ1vK6m8zfDnwExdX1tRkiY3ZCrFKSdBkythaUP
+         jWMA==
+X-Forwarded-Encrypted: i=1; AJvYcCU60EdINAEdovJtoaTQzGKSFFwPFoLOy07HUSxs14TDVzHHwFYnjWRsXc4uV+gECwoQSvKv0GpOz8ruaA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwM09C364RN3mobcVSALkqN9kuUsTLbLhX/kgHMkPgcyVSy+ra5
+	ovJ1M1LGOGHHHtkHp5t990iejmAtLkkgEZyYYdwOpAJB5EHELdGIgwtPgjjlMm2mFJQCufyV8sd
+	d8g==
+X-Google-Smtp-Source: AGHT+IG89v4lIFRhnNqxe9hFvIIxqDvldHGwH//6ib2L4odxYyk8SJA2JGOjXIHuxBeh8ylp7HgA6abaBbM=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:9d:3983:ac13:c240])
- (user=seanjc job=sendgmr) by 2002:a05:690c:3006:b0:6e2:1b8c:39bf with SMTP id
- 00721157ae682-6e32213b1b4mr226037b3.2.1728584688198; Thu, 10 Oct 2024
- 11:24:48 -0700 (PDT)
-Date: Thu, 10 Oct 2024 11:23:02 -0700
+ (user=seanjc job=sendgmr) by 2002:a17:90a:eac4:b0:2e2:8f4d:457 with SMTP id
+ 98e67ed59e1d1-2e2c80b5015mr7266a91.2.1728584689990; Thu, 10 Oct 2024 11:24:49
+ -0700 (PDT)
+Date: Thu, 10 Oct 2024 11:23:03 -0700
+In-Reply-To: <20241010182427.1434605-1-seanjc@google.com>
 Mime-Version: 1.0
+References: <20241010182427.1434605-1-seanjc@google.com>
 X-Mailer: git-send-email 2.47.0.rc1.288.g06298d1525-goog
-Message-ID: <20241010182427.1434605-1-seanjc@google.com>
-Subject: [PATCH v13 00/85] KVM: Stop grabbing references to PFNMAP'd pages
+Message-ID: <20241010182427.1434605-2-seanjc@google.com>
+Subject: [PATCH v13 01/85] KVM: Drop KVM_ERR_PTR_BAD_PAGE and instead return
+ NULL to indicate an error
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
@@ -82,8 +87,8 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	David Matlack <dmatlack@google.com>, David Stevens <stevensd@chromium.org>, 
 	Andrew Jones <ajones@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241010_112450_932396_FFC83E1E 
-X-CRM114-Status: GOOD (  16.85  )
+X-CRM114-CacheID: sfid-20241010_112453_380243_83DC830D 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,215 +101,86 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Reply-To: Sean Christopherson <seanjc@google.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-TL;DR: Eliminate KVM's long-standing (and heinous) behavior of essentially
-guessing which pfns are refcounted pages (see kvm_pfn_to_refcounted_page()).
-
-Getting there requires "fixing" arch code that isn't obviously broken.
-Specifically, to get rid of kvm_pfn_to_refcounted_page(), KVM needs to
-stop marking pages/folios dirty/accessed based solely on the pfn that's
-stored in KVM's stage-2 page tables.
-
-Instead of tracking which SPTEs correspond to refcounted pages, simply
-remove all of the code that operates on "struct page" based ona the pfn
-in stage-2 PTEs.  This is the back ~40-50% of the series.
- 
-For x86 in particular, which sets accessed/dirty status when that info
-would be "lost", e.g. when SPTEs are zapped or KVM clears the dirty flag
-in a SPTE, foregoing the updates provides very measurable performance
-improvements for related operations.  E.g. when clearing dirty bits as
-part of dirty logging, and zapping SPTEs to reconstitue huge pages when
-disabling dirty logging.
-
-The front ~40% of the series is cleanups and prep work, and most of it is
-x86 focused (purely because x86 added the most special cases, *sigh*).
-E.g. several of the inputs to hva_to_pfn() (and it's myriad wrappers),
-can be removed by cleaning up and deduplicating x86 code.
-
-v13:
- - Rebased onto v6.12-rc2
- - Collect reviews. [Alex and others]
- - Fix a transient bug in arm64 and RISC-V where KVM would leak a page
-   refcount. [Oliver]
- - Fix a dangling comment. [Alex]
- - Drop kvm_lookup_pfn(), as the x86 that "needed" it was stupid and is (was?)
-   eliminated in v6.12.
- - Drop check_user_page_hwpoison(). [Paolo]
- - Drop the arm64 MTE fixes that went into 6.12.
- - Slightly redo the guest_memfd interaction to account for 6.12 changes.
-
-v12: https://lore.kernel.org/all/20240726235234.228822-1-seanjc@google.com
-
-David Stevens (3):
-  KVM: Replace "async" pointer in gfn=>pfn with "no_wait" and error code
-  KVM: Introduce kvm_follow_pfn() to eventually replace "gfn_to_pfn"
-    APIs
-  KVM: Migrate kvm_vcpu_map() to kvm_follow_pfn()
-
-Sean Christopherson (82):
-  KVM: Drop KVM_ERR_PTR_BAD_PAGE and instead return NULL to indicate an
-    error
-  KVM: Allow calling kvm_release_page_{clean,dirty}() on a NULL page
-    pointer
-  KVM: Add kvm_release_page_unused() API to put pages that KVM never
-    consumes
-  KVM: x86/mmu: Skip the "try unsync" path iff the old SPTE was a leaf
-    SPTE
-  KVM: x86/mmu: Don't overwrite shadow-present MMU SPTEs when
-    prefaulting
-  KVM: x86/mmu: Invert @can_unsync and renamed to @synchronizing
-  KVM: x86/mmu: Mark new SPTE as Accessed when synchronizing existing
-    SPTE
-  KVM: x86/mmu: Mark folio dirty when creating SPTE, not when
-    zapping/modifying
-  KVM: x86/mmu: Mark page/folio accessed only when zapping leaf SPTEs
-  KVM: x86/mmu: Use gfn_to_page_many_atomic() when prefetching indirect
-    PTEs
-  KVM: Rename gfn_to_page_many_atomic() to kvm_prefetch_pages()
-  KVM: Drop @atomic param from gfn=>pfn and hva=>pfn APIs
-  KVM: Annotate that all paths in hva_to_pfn() might sleep
-  KVM: Return ERR_SIGPENDING from hva_to_pfn() if GUP returns -EGAIN
-  KVM: Drop extra GUP (via check_user_page_hwpoison()) to detect
-    poisoned page
-  KVM: x86/mmu: Drop kvm_page_fault.hva, i.e. don't track intermediate
-    hva
-  KVM: Drop unused "hva" pointer from __gfn_to_pfn_memslot()
-  KVM: Remove pointless sanity check on @map param to kvm_vcpu_(un)map()
-  KVM: Explicitly initialize all fields at the start of kvm_vcpu_map()
-  KVM: Use NULL for struct page pointer to indicate mremapped memory
-  KVM: nVMX: Rely on kvm_vcpu_unmap() to track validity of eVMCS mapping
-  KVM: nVMX: Drop pointless msr_bitmap_map field from struct nested_vmx
-  KVM: nVMX: Add helper to put (unmap) vmcs12 pages
-  KVM: Use plain "struct page" pointer instead of single-entry array
-  KVM: Provide refcounted page as output field in struct kvm_follow_pfn
-  KVM: Move kvm_{set,release}_page_{clean,dirty}() helpers up in
-    kvm_main.c
-  KVM: pfncache: Precisely track refcounted pages
-  KVM: Pin (as in FOLL_PIN) pages during kvm_vcpu_map()
-  KVM: nVMX: Mark vmcs12's APIC access page dirty when unmapping
-  KVM: Pass in write/dirty to kvm_vcpu_map(), not kvm_vcpu_unmap()
-  KVM: Get writable mapping for __kvm_vcpu_map() only when necessary
-  KVM: Disallow direct access (w/o mmu_notifier) to unpinned pfn by
-    default
-  KVM: x86: Don't fault-in APIC access page during initial allocation
-  KVM: x86/mmu: Add "mmu" prefix fault-in helpers to free up generic
-    names
-  KVM: x86/mmu: Put direct prefetched pages via kvm_release_page_clean()
-  KVM: x86/mmu: Add common helper to handle prefetching SPTEs
-  KVM: x86/mmu: Add helper to "finish" handling a guest page fault
-  KVM: x86/mmu: Mark pages/folios dirty at the origin of make_spte()
-  KVM: Move declarations of memslot accessors up in kvm_host.h
-  KVM: Add kvm_faultin_pfn() to specifically service guest page faults
-  KVM: x86/mmu: Convert page fault paths to kvm_faultin_pfn()
-  KVM: guest_memfd: Pass index, not gfn, to __kvm_gmem_get_pfn()
-  KVM: guest_memfd: Provide "struct page" as output from
-    kvm_gmem_get_pfn()
-  KVM: x86/mmu: Put refcounted pages instead of blindly releasing pfns
-  KVM: x86/mmu: Don't mark unused faultin pages as accessed
-  KVM: Move x86's API to release a faultin page to common KVM
-  KVM: VMX: Hold mmu_lock until page is released when updating APIC
-    access page
-  KVM: VMX: Use __kvm_faultin_page() to get APIC access page/pfn
-  KVM: PPC: e500: Mark "struct page" dirty in kvmppc_e500_shadow_map()
-  KVM: PPC: e500: Mark "struct page" pfn accessed before dropping
-    mmu_lock
-  KVM: PPC: e500: Use __kvm_faultin_pfn() to handle page faults
-  KVM: arm64: Mark "struct page" pfns accessed/dirty before dropping
-    mmu_lock
-  KVM: arm64: Use __kvm_faultin_pfn() to handle memory aborts
-  KVM: RISC-V: Mark "struct page" pfns dirty iff a stage-2 PTE is
-    installed
-  KVM: RISC-V: Mark "struct page" pfns accessed before dropping mmu_lock
-  KVM: RISC-V: Use kvm_faultin_pfn() when mapping pfns into the guest
-  KVM: PPC: Use __kvm_faultin_pfn() to handle page faults on Book3s HV
-  KVM: PPC: Use __kvm_faultin_pfn() to handle page faults on Book3s
-    Radix
-  KVM: PPC: Drop unused @kvm_ro param from
-    kvmppc_book3s_instantiate_page()
-  KVM: PPC: Book3S: Mark "struct page" pfns dirty/accessed after
-    installing PTE
-  KVM: PPC: Use kvm_faultin_pfn() to handle page faults on Book3s PR
-  KVM: LoongArch: Mark "struct page" pfns dirty only in "slow" page
-    fault path
-  KVM: LoongArch: Mark "struct page" pfns accessed only in "slow" page
-    fault path
-  KVM: LoongArch: Mark "struct page" pfn accessed before dropping
-    mmu_lock
-  KVM: LoongArch: Use kvm_faultin_pfn() to map pfns into the guest
-  KVM: MIPS: Mark "struct page" pfns dirty only in "slow" page fault
-    path
-  KVM: MIPS: Mark "struct page" pfns accessed only in "slow" page fault
-    path
-  KVM: MIPS: Mark "struct page" pfns accessed prior to dropping mmu_lock
-  KVM: MIPS: Use kvm_faultin_pfn() to map pfns into the guest
-  KVM: PPC: Remove extra get_page() to fix page refcount leak
-  KVM: PPC: Use kvm_vcpu_map() to map guest memory to patch dcbz
-    instructions
-  KVM: Convert gfn_to_page() to use kvm_follow_pfn()
-  KVM: Add support for read-only usage of gfn_to_page()
-  KVM: arm64: Use __gfn_to_page() when copying MTE tags to/from
-    userspace
-  KVM: PPC: Explicitly require struct page memory for Ultravisor sharing
-  KVM: Drop gfn_to_pfn() APIs now that all users are gone
-  KVM: s390: Use kvm_release_page_dirty() to unpin "struct page" memory
-  KVM: Make kvm_follow_pfn.refcounted_page a required field
-  KVM: x86/mmu: Don't mark "struct page" accessed when zapping SPTEs
-  KVM: arm64: Don't mark "struct page" accessed when making SPTE young
-  KVM: Drop APIs that manipulate "struct page" via pfns
-  KVM: Don't grab reference on VM_MIXEDMAP pfns that have a "struct
-    page"
-
- Documentation/virt/kvm/locking.rst     |  80 ++--
- arch/arm64/include/asm/kvm_pgtable.h   |   4 +-
- arch/arm64/kvm/guest.c                 |  21 +-
- arch/arm64/kvm/hyp/pgtable.c           |   7 +-
- arch/arm64/kvm/mmu.c                   |  21 +-
- arch/loongarch/kvm/mmu.c               |  40 +-
- arch/mips/kvm/mmu.c                    |  26 +-
- arch/powerpc/include/asm/kvm_book3s.h  |   4 +-
- arch/powerpc/kvm/book3s.c              |   7 +-
- arch/powerpc/kvm/book3s_32_mmu_host.c  |   7 +-
- arch/powerpc/kvm/book3s_64_mmu_host.c  |  12 +-
- arch/powerpc/kvm/book3s_64_mmu_hv.c    |  25 +-
- arch/powerpc/kvm/book3s_64_mmu_radix.c |  35 +-
- arch/powerpc/kvm/book3s_hv_nested.c    |   4 +-
- arch/powerpc/kvm/book3s_hv_uvmem.c     |  25 +-
- arch/powerpc/kvm/book3s_pr.c           |  14 +-
- arch/powerpc/kvm/book3s_xive_native.c  |   2 +-
- arch/powerpc/kvm/e500_mmu_host.c       |  19 +-
- arch/riscv/kvm/mmu.c                   |   9 +-
- arch/s390/kvm/vsie.c                   |   4 +-
- arch/x86/kvm/lapic.c                   |  12 -
- arch/x86/kvm/mmu/mmu.c                 | 181 ++++----
- arch/x86/kvm/mmu/mmu_internal.h        |   7 +-
- arch/x86/kvm/mmu/paging_tmpl.h         |  31 +-
- arch/x86/kvm/mmu/spte.c                |  31 +-
- arch/x86/kvm/mmu/spte.h                |   2 +-
- arch/x86/kvm/mmu/tdp_mmu.c             |  23 +-
- arch/x86/kvm/svm/nested.c              |   4 +-
- arch/x86/kvm/svm/sev.c                 |  12 +-
- arch/x86/kvm/svm/svm.c                 |   8 +-
- arch/x86/kvm/vmx/nested.c              |  42 +-
- arch/x86/kvm/vmx/vmx.c                 |  28 +-
- arch/x86/kvm/vmx/vmx.h                 |   2 -
- include/linux/kvm_host.h               | 123 +++--
- virt/kvm/guest_memfd.c                 |  28 +-
- virt/kvm/kvm_main.c                    | 602 +++++++++----------------
- virt/kvm/kvm_mm.h                      |  36 +-
- virt/kvm/pfncache.c                    |  20 +-
- 38 files changed, 689 insertions(+), 869 deletions(-)
-
-
-base-commit: 8cf0b93919e13d1e8d4466eb4080a4c4d9d66d7b
--- 
-2.47.0.rc1.288.g06298d1525-goog
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+UmVtb3ZlIEtWTV9FUlJfUFRSX0JBRF9QQUdFIGFuZCBpbnN0ZWFkIHJldHVybiBOVUxMLCBhcyAi
+YmFkIHBhZ2UiIGlzIGp1c3QKYSBsZWZ0b3ZlciBiaXQgb2Ygd2VpcmRuZXNzIGZyb20gZGF5cyBv
+ZiBvbGQgd2hlbiBLVk0gc3R1ZmZlZCBhICJiYWQiIHBhZ2UKaW50byB0aGUgZ3Vlc3QgaW5zdGVh
+ZCBvZiBhY3R1YWxseSBoYW5kbGluZyBtaXNzaW5nIHBhZ2VzLiAgU2VlIGNvbW1pdApjZWE3YmIy
+MTI4MGUgKCJLVk06IE1NVTogTWFrZSBnZm5fdG9fcGFnZSgpIGFsd2F5cyBzYWZlIikuCgpSZXZp
+ZXdlZC1ieTogQWxleCBCZW5uw6llIDxhbGV4LmJlbm5lZUBsaW5hcm8ub3JnPgpUZXN0ZWQtYnk6
+IEFsZXggQmVubsOpZSA8YWxleC5iZW5uZWVAbGluYXJvLm9yZz4KU2lnbmVkLW9mZi1ieTogU2Vh
+biBDaHJpc3RvcGhlcnNvbiA8c2VhbmpjQGdvb2dsZS5jb20+Ci0tLQogYXJjaC9wb3dlcnBjL2t2
+bS9ib29rM3NfcHIuYyAgICAgICAgICB8ICAyICstCiBhcmNoL3Bvd2VycGMva3ZtL2Jvb2szc194
+aXZlX25hdGl2ZS5jIHwgIDIgKy0KIGFyY2gvczM5MC9rdm0vdnNpZS5jICAgICAgICAgICAgICAg
+ICAgfCAgMiArLQogYXJjaC94ODYva3ZtL2xhcGljLmMgICAgICAgICAgICAgICAgICB8ICAyICst
+CiBpbmNsdWRlL2xpbnV4L2t2bV9ob3N0LmggICAgICAgICAgICAgIHwgIDcgLS0tLS0tLQogdmly
+dC9rdm0va3ZtX21haW4uYyAgICAgICAgICAgICAgICAgICB8IDE1ICsrKysrKy0tLS0tLS0tLQog
+NiBmaWxlcyBjaGFuZ2VkLCAxMCBpbnNlcnRpb25zKCspLCAyMCBkZWxldGlvbnMoLSkKCmRpZmYg
+LS1naXQgYS9hcmNoL3Bvd2VycGMva3ZtL2Jvb2szc19wci5jIGIvYXJjaC9wb3dlcnBjL2t2bS9i
+b29rM3NfcHIuYwppbmRleCA3YjhhZTUwOTMyOGYuLmQ3NzIxMjk3YjliNiAxMDA2NDQKLS0tIGEv
+YXJjaC9wb3dlcnBjL2t2bS9ib29rM3NfcHIuYworKysgYi9hcmNoL3Bvd2VycGMva3ZtL2Jvb2sz
+c19wci5jCkBAIC02NDUsNyArNjQ1LDcgQEAgc3RhdGljIHZvaWQga3ZtcHBjX3BhdGNoX2RjYnoo
+c3RydWN0IGt2bV92Y3B1ICp2Y3B1LCBzdHJ1Y3Qga3ZtcHBjX3B0ZSAqcHRlKQogCWludCBpOwog
+CiAJaHBhZ2UgPSBnZm5fdG9fcGFnZSh2Y3B1LT5rdm0sIHB0ZS0+cmFkZHIgPj4gUEFHRV9TSElG
+VCk7Ci0JaWYgKGlzX2Vycm9yX3BhZ2UoaHBhZ2UpKQorCWlmICghaHBhZ2UpCiAJCXJldHVybjsK
+IAogCWhwYWdlX29mZnNldCA9IHB0ZS0+cmFkZHIgJiB+UEFHRV9NQVNLOwpkaWZmIC0tZ2l0IGEv
+YXJjaC9wb3dlcnBjL2t2bS9ib29rM3NfeGl2ZV9uYXRpdmUuYyBiL2FyY2gvcG93ZXJwYy9rdm0v
+Ym9vazNzX3hpdmVfbmF0aXZlLmMKaW5kZXggNmUyZWJiZDhhYWFjLi5kOWJmMWJjM2ZmNjEgMTAw
+NjQ0Ci0tLSBhL2FyY2gvcG93ZXJwYy9rdm0vYm9vazNzX3hpdmVfbmF0aXZlLmMKKysrIGIvYXJj
+aC9wb3dlcnBjL2t2bS9ib29rM3NfeGl2ZV9uYXRpdmUuYwpAQCAtNjU0LDcgKzY1NCw3IEBAIHN0
+YXRpYyBpbnQga3ZtcHBjX3hpdmVfbmF0aXZlX3NldF9xdWV1ZV9jb25maWcoc3RydWN0IGt2bXBw
+Y194aXZlICp4aXZlLAogCX0KIAogCXBhZ2UgPSBnZm5fdG9fcGFnZShrdm0sIGdmbik7Ci0JaWYg
+KGlzX2Vycm9yX3BhZ2UocGFnZSkpIHsKKwlpZiAoIXBhZ2UpIHsKIAkJc3JjdV9yZWFkX3VubG9j
+aygma3ZtLT5zcmN1LCBzcmN1X2lkeCk7CiAJCXByX2VycigiQ291bGRuJ3QgZ2V0IHF1ZXVlIHBh
+Z2UgJWxseCFcbiIsIGt2bV9lcS5xYWRkcik7CiAJCXJldHVybiAtRUlOVkFMOwpkaWZmIC0tZ2l0
+IGEvYXJjaC9zMzkwL2t2bS92c2llLmMgYi9hcmNoL3MzOTAva3ZtL3ZzaWUuYwppbmRleCA4OWNh
+ZmVhNGM0MWYuLjc2M2EwNzBmNTk1NSAxMDA2NDQKLS0tIGEvYXJjaC9zMzkwL2t2bS92c2llLmMK
+KysrIGIvYXJjaC9zMzkwL2t2bS92c2llLmMKQEAgLTY2MSw3ICs2NjEsNyBAQCBzdGF0aWMgaW50
+IHBpbl9ndWVzdF9wYWdlKHN0cnVjdCBrdm0gKmt2bSwgZ3BhX3QgZ3BhLCBocGFfdCAqaHBhKQog
+CXN0cnVjdCBwYWdlICpwYWdlOwogCiAJcGFnZSA9IGdmbl90b19wYWdlKGt2bSwgZ3BhX3RvX2dm
+bihncGEpKTsKLQlpZiAoaXNfZXJyb3JfcGFnZShwYWdlKSkKKwlpZiAoIXBhZ2UpCiAJCXJldHVy
+biAtRUlOVkFMOwogCSpocGEgPSAoaHBhX3QpcGFnZV90b19waHlzKHBhZ2UpICsgKGdwYSAmIH5Q
+QUdFX01BU0spOwogCXJldHVybiAwOwpkaWZmIC0tZ2l0IGEvYXJjaC94ODYva3ZtL2xhcGljLmMg
+Yi9hcmNoL3g4Ni9rdm0vbGFwaWMuYwppbmRleCAyMDk4ZGM2ODkwODguLjIwNTI2ZTRkNmM2MiAx
+MDA2NDQKLS0tIGEvYXJjaC94ODYva3ZtL2xhcGljLmMKKysrIGIvYXJjaC94ODYva3ZtL2xhcGlj
+LmMKQEAgLTI2NjQsNyArMjY2NCw3IEBAIGludCBrdm1fYWxsb2NfYXBpY19hY2Nlc3NfcGFnZShz
+dHJ1Y3Qga3ZtICprdm0pCiAJfQogCiAJcGFnZSA9IGdmbl90b19wYWdlKGt2bSwgQVBJQ19ERUZB
+VUxUX1BIWVNfQkFTRSA+PiBQQUdFX1NISUZUKTsKLQlpZiAoaXNfZXJyb3JfcGFnZShwYWdlKSkg
+eworCWlmICghcGFnZSkgewogCQlyZXQgPSAtRUZBVUxUOwogCQlnb3RvIG91dDsKIAl9CmRpZmYg
+LS1naXQgYS9pbmNsdWRlL2xpbnV4L2t2bV9ob3N0LmggYi9pbmNsdWRlL2xpbnV4L2t2bV9ob3N0
+LmgKaW5kZXggZGI1NjdkMjZmN2I5Li5lZTE4NmExZmJhYWQgMTAwNjQ0Ci0tLSBhL2luY2x1ZGUv
+bGludXgva3ZtX2hvc3QuaAorKysgYi9pbmNsdWRlL2xpbnV4L2t2bV9ob3N0LmgKQEAgLTE1Mywx
+MyArMTUzLDYgQEAgc3RhdGljIGlubGluZSBib29sIGt2bV9pc19lcnJvcl9ncGEoZ3BhX3QgZ3Bh
+KQogCXJldHVybiBncGEgPT0gSU5WQUxJRF9HUEE7CiB9CiAKLSNkZWZpbmUgS1ZNX0VSUl9QVFJf
+QkFEX1BBR0UJKEVSUl9QVFIoLUVOT0VOVCkpCi0KLXN0YXRpYyBpbmxpbmUgYm9vbCBpc19lcnJv
+cl9wYWdlKHN0cnVjdCBwYWdlICpwYWdlKQotewotCXJldHVybiBJU19FUlIocGFnZSk7Ci19Ci0K
+ICNkZWZpbmUgS1ZNX1JFUVVFU1RfTUFTSyAgICAgICAgICAgR0VOTUFTSyg3LDApCiAjZGVmaW5l
+IEtWTV9SRVFVRVNUX05PX1dBS0VVUCAgICAgIEJJVCg4KQogI2RlZmluZSBLVk1fUkVRVUVTVF9X
+QUlUICAgICAgICAgICBCSVQoOSkKZGlmZiAtLWdpdCBhL3ZpcnQva3ZtL2t2bV9tYWluLmMgYi92
+aXJ0L2t2bS9rdm1fbWFpbi5jCmluZGV4IDA1Y2JiMjU0OGQ5OS4uNGI2NTlhNjQ5ZGZhIDEwMDY0
+NAotLS0gYS92aXJ0L2t2bS9rdm1fbWFpbi5jCisrKyBiL3ZpcnQva3ZtL2t2bV9tYWluLmMKQEAg
+LTMwNzgsMTkgKzMwNzgsMTQgQEAgRVhQT1JUX1NZTUJPTF9HUEwoZ2ZuX3RvX3BhZ2VfbWFueV9h
+dG9taWMpOwogICovCiBzdHJ1Y3QgcGFnZSAqZ2ZuX3RvX3BhZ2Uoc3RydWN0IGt2bSAqa3ZtLCBn
+Zm5fdCBnZm4pCiB7Ci0Jc3RydWN0IHBhZ2UgKnBhZ2U7CiAJa3ZtX3Bmbl90IHBmbjsKIAogCXBm
+biA9IGdmbl90b19wZm4oa3ZtLCBnZm4pOwogCiAJaWYgKGlzX2Vycm9yX25vc2xvdF9wZm4ocGZu
+KSkKLQkJcmV0dXJuIEtWTV9FUlJfUFRSX0JBRF9QQUdFOworCQlyZXR1cm4gTlVMTDsKIAotCXBh
+Z2UgPSBrdm1fcGZuX3RvX3JlZmNvdW50ZWRfcGFnZShwZm4pOwotCWlmICghcGFnZSkKLQkJcmV0
+dXJuIEtWTV9FUlJfUFRSX0JBRF9QQUdFOwotCi0JcmV0dXJuIHBhZ2U7CisJcmV0dXJuIGt2bV9w
+Zm5fdG9fcmVmY291bnRlZF9wYWdlKHBmbik7CiB9CiBFWFBPUlRfU1lNQk9MX0dQTChnZm5fdG9f
+cGFnZSk7CiAKQEAgLTMxODQsNyArMzE3OSw4IEBAIHN0YXRpYyB2b2lkIGt2bV9zZXRfcGFnZV9h
+Y2Nlc3NlZChzdHJ1Y3QgcGFnZSAqcGFnZSkKIAogdm9pZCBrdm1fcmVsZWFzZV9wYWdlX2NsZWFu
+KHN0cnVjdCBwYWdlICpwYWdlKQogewotCVdBUk5fT04oaXNfZXJyb3JfcGFnZShwYWdlKSk7CisJ
+aWYgKFdBUk5fT04oIXBhZ2UpKQorCQlyZXR1cm47CiAKIAlrdm1fc2V0X3BhZ2VfYWNjZXNzZWQo
+cGFnZSk7CiAJcHV0X3BhZ2UocGFnZSk7CkBAIC0zMjA4LDcgKzMyMDQsOCBAQCBFWFBPUlRfU1lN
+Qk9MX0dQTChrdm1fcmVsZWFzZV9wZm5fY2xlYW4pOwogCiB2b2lkIGt2bV9yZWxlYXNlX3BhZ2Vf
+ZGlydHkoc3RydWN0IHBhZ2UgKnBhZ2UpCiB7Ci0JV0FSTl9PTihpc19lcnJvcl9wYWdlKHBhZ2Up
+KTsKKwlpZiAoV0FSTl9PTighcGFnZSkpCisJCXJldHVybjsKIAogCWt2bV9zZXRfcGFnZV9kaXJ0
+eShwYWdlKTsKIAlrdm1fcmVsZWFzZV9wYWdlX2NsZWFuKHBhZ2UpOwotLSAKMi40Ny4wLnJjMS4y
+ODguZzA2Mjk4ZDE1MjUtZ29vZwoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YK
