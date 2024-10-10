@@ -4,81 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ACEBCF07B9
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Oct 2024 06:58:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1B8FCF07B9
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Oct 2024 07:05:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WzaS7tfY+XspBkbvRtdDoUyBS53mIMAH5XLp3Gow2v8=; b=jlmBM+rXDizKg2
-	JkOT9wzbNe2Z6kll1hv6mXdobuIZqtsUVwq6qeEKpNrqiCiUjOCKXOThuhD1Qd3MOk1wO7ExgzSwu
-	iCw7TgyNfEXRpsG3qug1MuWTh6ZVbgBOF+kNmTMET6+yb3McezMdSdJSPj84bEF7nV4tVtepuFDjv
-	pW6Ou1te2wJbGKIVoHudCcTzHQiHxfM1HNEm70GQv24t8STMXm6u1smc6NpTNqBgu4ZZBGLhaVV3K
-	KBp9yfVIfV9lGQ8uAgvuslCxlzwTekDGQehM9Dao9/vN5+4IrK4aLVnTPKA+1kgcIbm7cVeYU7est
-	tNFsaa+EgB7+g0eSOk7g==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2EjHxSmss99RtbQfq4ZK7gzSk/jqcmegO+UCkjFVFUM=; b=RuxaVSgAY7gEmE
+	2JSb9nUXY5RqVK52dh1epIZXQEgrTPDdu8nuGFFWffJu+5PSBrhrOEarsUZsyYdWEpf332BZJvRCt
+	SMYof5FrfHIJtPNjosq/3+/rjj5lx8ycmZmQLx+UvnWEq5QVbsgULzTdbCyDzKO/6VfaZx/ljGcEe
+	bzSjB3kuDcoWD7hclLQgnIAGOiVlAVLxjgP71A+4YI28wKbXbbVjA3LTtZ2mO9hCbBLyqCNoUmh/A
+	8VO7WLkJMqX6NQU/m5A1tcCKdTk1KU99eQVS+RnQrbaxaN/Yndy9dLQAtIEEvCui8kB0GwznB09mw
+	ZL+0mWZGYcBlnzwGO+WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1syn88-0000000BlFM-0XXq;
-	Thu, 10 Oct 2024 06:58:36 +0000
-Received: from hch by bombadil.infradead.org with local (Exim 4.98 #2 (Red Hat Linux))
-	id 1syn85-0000000BlEq-1dyW;
-	Thu, 10 Oct 2024 06:58:33 +0000
-Date: Wed, 9 Oct 2024 23:58:33 -0700
-From: Christoph Hellwig <hch@infradead.org>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Andy Lutomirski <luto@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>,
-	Brian Cain <bcain@quicinc.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christoph Hellwig <hch@infradead.org>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Kent Overstreet <kent.overstreet@linux.dev>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Simek <monstr@monstr.eu>, Oleg Nesterov <oleg@redhat.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
-	Stafford Horne <shorne@gmail.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linux-mm@kvack.org,
-	linux-modules@vger.kernel.org, linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org, linux-um@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v5 7/8] execmem: add support for cache of large ROX pages
-Message-ID: <Zwd7GRyBtCwiAv1v@infradead.org>
-References: <20241009180816.83591-1-rppt@kernel.org>
- <20241009180816.83591-8-rppt@kernel.org>
+	id 1synEL-0000000Bmi3-2G9X;
+	Thu, 10 Oct 2024 07:05:01 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1synBS-0000000BleO-2EWK;
+	Thu, 10 Oct 2024 07:02:06 +0000
+From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1728543719;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=E4T95t+t5uIUSPRmbXi3insr6gkvL1A7vX9/M6uzeAI=;
+	b=lmsrwGd/o99KSttwJ8sgkfe3ORDOYVzQtieE7kyC4+m+vRZ/tzWpxPQ8ePTZNQ19EFjx5I
+	u3jGvagoJGW/qx9g2bUpnmEq8JoWczBHMUhDC79C1JomHxY98uotRFX+A96CPPno1gMwIu
+	LyvrdSpMcdSsFeE5AWm4OzXxE/cIgCQiWE+WdzqZBRdbXLSt+FADnIPVu13PJJKh43s3lM
+	jr/MVOD7fv5IDZjXZMEa9QSGaKAlyNTcMqwQmtVyZLRsNdOIMbYmcRsayg4uNcNoVlIB15
+	aYyMd6cpaCwNPFx2oScFtCmRqL8D8perF6lVmPIECmor4hdzn03+zzeo55ZhLA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1728543719;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=E4T95t+t5uIUSPRmbXi3insr6gkvL1A7vX9/M6uzeAI=;
+	b=jky3v+I1IC+JVC8fX81ewpslVewnrQMUfSlcSSaPKvbXwS/AgvfDy+/FHxXQi6ThcgvJUH
+	9VEhGdOBmWvD01CA==
+Subject: [PATCH 00/28] vdso: Preparations for generic data storage
+Date: Thu, 10 Oct 2024 09:01:02 +0200
+Message-Id: <20241010-vdso-generic-base-v1-0-b64f0842d512@linutronix.de>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241009180816.83591-8-rppt@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAK57B2cC/x3MMQqAMAxA0atIZgNRa0WvIg5qY83SSgMiFO9uc
+ fzD+xmUk7DCVGVIfItKDCWauoL9XINnFFcaWmpNQzTi7TSi51DYjtuqjLYjaw9nBrP1UNyV+JD
+ nf87L+37En2/PYwAAAA==
+X-Change-ID: 20241009-vdso-generic-base-63066fd474b5
+To: Guo Ren <guoren@kernel.org>, Heiko Carstens <hca@linux.ibm.com>, 
+ Vasily Gorbik <gor@linux.ibm.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Christian Borntraeger <borntraeger@linux.ibm.com>, 
+ Sven Schnelle <svens@linux.ibm.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Russell King <linux@armlinux.org.uk>, Huacai Chen <chenhuacai@kernel.org>, 
+ WANG Xuerui <kernel@xen0n.name>, Theodore Ts'o <tytso@mit.edu>, 
+ "Jason A. Donenfeld" <Jason@zx2c4.com>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, 
+ Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, x86@kernel.org, 
+ "H. Peter Anvin" <hpa@zytor.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+ Nicholas Piggin <npiggin@gmail.com>, 
+ Christophe Leroy <christophe.leroy@csgroup.eu>, 
+ Naveen N Rao <naveen@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Vincenzo Frascino <vincenzo.frascino@arm.com>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>, 
+ linux-csky@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-s390@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-riscv@lists.infradead.org, loongarch@lists.linux.dev, 
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, 
+ Nam Cao <namcao@linutronix.de>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1728543717; l=6636;
+ i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
+ bh=QNcCT8xdhsRdpIEe1ZjNJ7WuU4tLNw9Mj2qA/M/7NLg=;
+ b=sQhdCAF4J2xGSbM7JksLHLhcrVflNnqDCh5fiBcZROnY5OCOWlamlaJcSOTO9oiyIYtO50MPw
+ 565h0NVu1OkDw1F3hJlaEbk39HsimcY4lNzgNEvSbhPhR8U0cTPGVTN
+X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
+ pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20241010_000202_879922_0DA6FECF 
+X-CRM114-Status: GOOD (  14.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,29 +103,126 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 09, 2024 at 09:08:15PM +0300, Mike Rapoport wrote:
->  /**
->   * struct execmem_info - architecture parameters for code allocations
-> + * @fill_trapping_insns: set memory to contain instructions that will trap
->   * @ranges: array of parameter sets defining architecture specific
->   * parameters for executable memory allocations. The ranges that are not
->   * explicitly initialized by an architecture use parameters defined for
->   * @EXECMEM_DEFAULT.
->   */
->  struct execmem_info {
-> +	void (*fill_trapping_insns)(void *ptr, size_t size, bool writable);
->  	struct execmem_range	ranges[EXECMEM_TYPE_MAX];
-
-Why is the filler an indirect function call and not an architecture
-hook?
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGlzdG9yaWNhbGx5IGVhY2ggYXJjaGl0ZWN0dXJlIGRlZmluZWQgdGhlaXIgb3duIGRhdGFwYWdl
+IHRvIHN0b3JlIHRoZQpWRFNPIGRhdGEuIFRoaXMgc3RhbmRzIGluIGNvbnRyYXN0IHRvIHRoZSBn
+ZW5lcmljIG5hdHVyZSBvZiB0aGUgVkRTTwpjb2RlIGl0c2VsZi4KV2UgcGxhbiB0byBpbnRyb2R1
+Y2UgYSBnZW5lcmljIGZyYW1ld29yayBmb3IgdGhlIG1hbmFnZW1lbnQgb2YgdGhlIFZEU08KZGF0
+YSBzdG9yYWdlIHRoYXQgY2FuIGJlIHVzZWQgYnkgYWxsIGFyY2hpdGVjdHVyZXMgYW5kIHdoaWNo
+IHdvcmtzCnRvZ2V0aGVyIHdpdGggdGhlIGV4aXN0aW5nIGdlbmVyaWMgVkRTTyBjb2RlLgoKQmVm
+b3JlIHRoYXQgaXMgcG9zc2libGUgYWxpZ24gdGhlIGRpZmZlcmVudCBhcmNoaXRlY3R1cmVzIGJ5
+CnN0YW5kYXJkaXppbmcgb24gdGhlIGV4aXN0aW5nIGdlbmVyaWMgaW5mcmFzdHJ1Y3R1cmUgYW5k
+IG1vdmluZyB0aGluZ3MKb3V0IG9mIHRoZSBWRFNPIGRhdGEgcGFnZSB3aGljaCBkb2VzIG5vdCBi
+ZWxvbmcgdGhlcmUuCgpQYXRjaGVzCSAxLSAyOgljc2t5ClBhdGNoCSAgICAzOglzMzkwClBhdGNo
+ZXMJIDQtIDU6CWFybTY0ClBhdGNoCSAgICA2OglyaXNjdgpQYXRjaAkgICAgNzoJYXJtClBhdGNo
+CSAgICA4OglMb29uZ0FyY2gKUGF0Y2gJICAgIDk6CU1JUFMKUGF0Y2hlcyAxMC0yMDoJeDg2ClBh
+dGNoZXMgMjEtMjc6CXBvd2VycGMKUGF0Y2ggICAgICAyODogCVJlbmFtaW5ncyB0byBhdm9pZCBh
+IG5hbWUgY2xhc2ggd2l0aCB0aGUgbmV3IGNvZGUuCgpUaGVzZSBwYXRjaGVzIGFyZSBpbnRlbmRl
+ZCB0byBiZSBtZXJnZWQgdmlhIHRoZSB0aXAgdHJlZSwKc28gdGhlIGZvbGxvd2luZyBwYXRjaGVz
+IGNhbiBiZSBiYXNlZCBvbiBhIHVuaWZpZWQgYmFzZS4KClRoZSBxdWV1ZSwgaW5jbHVkaW5nIHRo
+ZSBmdWxsIGdlbmVyaWMgc3RvcmFnZSwgaXMgYXZhaWxhYmxlIGF0CgogIGdpdDovL2dpdC5rZXJu
+ZWwub3JnL3B1Yi9zY20vbGludXgva2VybmVsL2dpdC90aG9tYXMud2Vpc3NzY2h1aC9saW51eC5n
+aXQgdmRzby9zdG9yZQoKU2lnbmVkLW9mZi1ieTogVGhvbWFzIFdlacOfc2NodWggPHRob21hcy53
+ZWlzc3NjaHVoQGxpbnV0cm9uaXguZGU+Ci0tLQpOYW0gQ2FvICgxKToKICAgICAgdmRzbzogUmVu
+YW1lIHN0cnVjdCBhcmNoX3Zkc29fZGF0YSB0byBhcmNoX3Zkc29fdGltZV9kYXRhCgpUaG9tYXMg
+V2Vpw59zY2h1aCAoMjcpOgogICAgICBjc2t5L3Zkc286IFJlbW92ZSBnZXR0aW1lb2ZkYXkoKSBh
+bmQgZnJpZW5kcyBmcm9tIFZEU08KICAgICAgY3NreS92ZHNvOiBSZW1vdmUgYXJjaF92bWFfbmFt
+ZSgpCiAgICAgIHMzOTAvdmRzbzogRHJvcCBMQkFTRV9WRFNPCiAgICAgIGFybTY0OiB2ZHNvOiBE
+cm9wIExCQVNFX1ZEU08KICAgICAgYXJtNjQ6IHZkc286IFVzZSBvbmx5IG9uZSBzaW5nbGUgdnZh
+ciBtYXBwaW5nCiAgICAgIHJpc2N2OiB2ZHNvOiBVc2Ugb25seSBvbmUgc2luZ2xlIHZ2YXIgbWFw
+cGluZwogICAgICBhcm06IHZkc286IFJlbW92ZSBhc3NlbWJseSBmb3IgZGF0YXBhZ2UgYWNjZXNz
+CiAgICAgIExvb25nQXJjaDogdkRTTzogVXNlIHZkc28vZGF0YXBhZ2UuaCB0byBhY2Nlc3MgdkRT
+TyBkYXRhCiAgICAgIE1JUFM6IHZkc286IEF2b2lkIG5hbWUgY29uZmxpY3QgYXJvdW5kICJ2ZHNv
+X2RhdGEiCiAgICAgIHg4Ni9tbS9tbWFwOiBSZW1vdmUgYXJjaF92bWFfbmFtZSgpCiAgICAgIHg4
+NjogdmRzbzogVXNlIF9fYXJjaF9nZXRfdmRzb19kYXRhKCkgdG8gYWNjZXNzIHZkc28gZGF0YQog
+ICAgICB4ODY6IHZkc286IFBsYWNlIHZkc29fZGF0YSBhdCBiZWdpbm5pbmcgb2YgdnZhciBwYWdl
+CiAgICAgIHg4NjogdmRzbzogQWNjZXNzIHJuZyBkYXRhIGZyb20ga2VybmVsIHdpdGhvdXQgdnZh
+cgogICAgICB4ODY6IHZkc286IEFsbG9jYXRlIHZ2YXIgcGFnZSBmcm9tIEMgY29kZQogICAgICB4
+ODY6IHZkc286IEFjY2VzcyB0aW1lbnMgdmRzbyBkYXRhIHdpdGhvdXQgdnZhci5oCiAgICAgIHg4
+NjogdmRzbzogQWNjZXNzIHJuZyB2ZHNvIGRhdGEgd2l0aG91dCB2dmFyLmgKICAgICAgeDg2OiB2
+ZHNvOiBNb3ZlIHRoZSBybmcgb2Zmc2V0IHRvIHZzeXNjYWxsLmgKICAgICAgeDg2OiB2ZHNvOiBB
+Y2Nlc3MgdmRzbyBkYXRhIHdpdGhvdXQgdnZhci5oCiAgICAgIHg4NjogdmRzbzogRGVsZXRlIHZ2
+YXIuaAogICAgICB4ODY6IHZkc286IFNwbGl0IHZpcnR1YWwgY2xvY2sgcGFnZXMgaW50byBkZWRp
+Y2F0ZWQgbWFwcGluZwogICAgICBwb3dlcnBjOiB2ZHNvOiBSZW1vdmUgb2Zmc2V0IGNvbW1lbnQg
+ZnJvbSAzMmJpdCB2ZHNvX2FyY2hfZGF0YQogICAgICBwb3dlcnBjOiBwcm9jZnM6IFByb3BhZ2F0
+ZSBlcnJvciBvZiByZW1hcF9wZm5fcmFuZ2UoKQogICAgICBwb3dlcnBjL3BzZXJpZXMvbHBhcmNm
+ZzogRml4IHByaW50aW5nIG9mIHN5c3RlbV9hY3RpdmVfcHJvY2Vzc29ycwogICAgICBwb3dlcnBj
+L3BzZXJpZXMvbHBhcmNmZzogVXNlIG51bV9wb3NzaWJsZV9jcHVzKCkgZm9yIHBvdGVudGlhbCBw
+cm9jZXNzb3JzCiAgICAgIHBvd2VycGM6IEFkZCBrY29uZmlnIG9wdGlvbiBmb3IgdGhlIHN5c3Rl
+bWNmZyBwYWdlCiAgICAgIHBvd2VycGM6IFNwbGl0IHN5c3RlbWNmZyBkYXRhIG91dCBvZiB2ZHNv
+IGRhdGEgcGFnZQogICAgICBwb3dlcnBjOiBTcGxpdCBzeXN0ZW1jZmcgc3RydWN0IGRlZmluaXRp
+b25zIG91dCBmcm9tIHZkc28KCiBhcmNoL0tjb25maWcgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICB8ICAgMiArLQogYXJjaC9hcm0vaW5jbHVkZS9hc20vdmRzby9nZXR0aW1l
+b2ZkYXkuaCAgICAgICAgICAgfCAgIDQgKy0KIGFyY2gvYXJtL3Zkc28vTWFrZWZpbGUgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIHwgICAyICstCiBhcmNoL2FybS92ZHNvL2RhdGFwYWdlLlMg
+ICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAxNiAtLS0KIGFyY2gvYXJtL3Zkc28vdmRzby5s
+ZHMuUyAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgICAzICstCiBhcmNoL2FybTY0L2luY2x1
+ZGUvYXNtL3Zkc28uaCAgICAgICAgICAgICAgICAgICAgICB8ICAgOSArLQogYXJjaC9hcm02NC9r
+ZXJuZWwvdmRzby5jICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgNDMgKysrLS0tLS0KIGFy
+Y2gvYXJtNjQva2VybmVsL3Zkc28vdmRzby5sZHMuUyAgICAgICAgICAgICAgICAgIHwgICAyICst
+CiBhcmNoL2FybTY0L2tlcm5lbC92ZHNvMzIvdmRzby5sZHMuUyAgICAgICAgICAgICAgICB8ICAg
+MiArLQogYXJjaC9jc2t5L0tjb25maWcgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+fCAgIDQgLQogYXJjaC9jc2t5L2luY2x1ZGUvYXNtL3Zkc28vY2xvY2tzb3VyY2UuaCAgICAgICAg
+ICAgfCAgIDkgLS0KIGFyY2gvY3NreS9pbmNsdWRlL2FzbS92ZHNvL2dldHRpbWVvZmRheS5oICAg
+ICAgICAgIHwgMTE0IC0tLS0tLS0tLS0tLS0tLS0tLS0tLQogYXJjaC9jc2t5L2luY2x1ZGUvYXNt
+L3Zkc28vcHJvY2Vzc29yLmggICAgICAgICAgICAgfCAgMTIgLS0tCiBhcmNoL2Nza3kvaW5jbHVk
+ZS9hc20vdmRzby92c3lzY2FsbC5oICAgICAgICAgICAgICB8ICAyMiAtLS0tCiBhcmNoL2Nza3kv
+a2VybmVsL3Zkc28uYyAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAzMSArLS0tLS0KIGFy
+Y2gvY3NreS9rZXJuZWwvdmRzby9NYWtlZmlsZSAgICAgICAgICAgICAgICAgICAgIHwgICAxIC0K
+IGFyY2gvY3NreS9rZXJuZWwvdmRzby92ZHNvLmxkcy5TICAgICAgICAgICAgICAgICAgIHwgICA0
+IC0KIGFyY2gvY3NreS9rZXJuZWwvdmRzby92Z2V0dGltZW9mZGF5LmMgICAgICAgICAgICAgIHwg
+IDMwIC0tLS0tLQogYXJjaC9sb29uZ2FyY2gvaW5jbHVkZS9hc20vdmRzby9nZXRyYW5kb20uaCAg
+ICAgICAgfCAgIDMgKy0KIGFyY2gvbG9vbmdhcmNoL2luY2x1ZGUvYXNtL3Zkc28vZ2V0dGltZW9m
+ZGF5LmggICAgIHwgICA0ICstCiBhcmNoL2xvb25nYXJjaC9pbmNsdWRlL2FzbS92ZHNvL3Zkc28u
+aCAgICAgICAgICAgICB8ICAxOCArLS0tCiBhcmNoL2xvb25nYXJjaC9rZXJuZWwvYXNtLW9mZnNl
+dHMuYyAgICAgICAgICAgICAgICB8ICAgOSArKwogYXJjaC9sb29uZ2FyY2gvdmRzby92ZHNvLmxk
+cy5TICAgICAgICAgICAgICAgICAgICAgfCAgIDggKy0KIGFyY2gvbG9vbmdhcmNoL3Zkc28vdmdl
+dGNwdS5jICAgICAgICAgICAgICAgICAgICAgIHwgICAyICstCiBhcmNoL21pcHMvdmRzby9nZW52
+ZHNvLmMgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgNCArLQogYXJjaC9wb3dlcnBjL0tj
+b25maWcgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgIDggKysKIGFyY2gvcG93ZXJw
+Yy9pbmNsdWRlL2FzbS9zeXN0ZW1jZmcuaCAgICAgICAgICAgICAgIHwgIDUyICsrKysrKysrKysK
+IGFyY2gvcG93ZXJwYy9pbmNsdWRlL2FzbS92ZHNvX2RhdGFwYWdlLmggICAgICAgICAgIHwgIDYx
+ICstLS0tLS0tLS0tCiBhcmNoL3Bvd2VycGMva2VybmVsL3Byb2NfcG93ZXJwYy5jICAgICAgICAg
+ICAgICAgICB8ICAzNyArKysrKy0tCiBhcmNoL3Bvd2VycGMva2VybmVsL3NldHVwLWNvbW1vbi5j
+ICAgICAgICAgICAgICAgICB8ICAgNSArLQogYXJjaC9wb3dlcnBjL2tlcm5lbC9zbXAuYyAgICAg
+ICAgICAgICAgICAgICAgICAgICAgfCAgMTEgKy0KIGFyY2gvcG93ZXJwYy9rZXJuZWwvdGltZS5j
+ICAgICAgICAgICAgICAgICAgICAgICAgIHwgICA0ICsKIGFyY2gvcG93ZXJwYy9rZXJuZWwvdmRz
+by5jICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDIwIC0tLS0KIGFyY2gvcG93ZXJwYy9wbGF0
+Zm9ybXMvcG93ZXJudi9zbXAuYyAgICAgICAgICAgICAgIHwgICA1ICstCiBhcmNoL3Bvd2VycGMv
+cGxhdGZvcm1zL3BzZXJpZXMvaG90cGx1Zy1jcHUuYyAgICAgICB8ICAgNSArLQogYXJjaC9wb3dl
+cnBjL3BsYXRmb3Jtcy9wc2VyaWVzL2xwYXJjZmcuYyAgICAgICAgICAgfCAgIDUgKy0KIGFyY2gv
+cmlzY3YvS2NvbmZpZyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgICAyICstCiAu
+Li4vcmlzY3YvaW5jbHVkZS9hc20vdmRzby97ZGF0YS5oID0+IHRpbWVfZGF0YS5ofSB8ICAgOCAr
+LQogYXJjaC9yaXNjdi9rZXJuZWwvc3lzX2h3cHJvYmUuYyAgICAgICAgICAgICAgICAgICAgfCAg
+IDIgKy0KIGFyY2gvcmlzY3Yva2VybmVsL3Zkc28uYyAgICAgICAgICAgICAgICAgICAgICAgICAg
+IHwgIDUyICsrKy0tLS0tLS0KIGFyY2gvcmlzY3Yva2VybmVsL3Zkc28vaHdwcm9iZS5jICAgICAg
+ICAgICAgICAgICAgIHwgICA0ICstCiBhcmNoL3MzOTAvS2NvbmZpZyAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICB8ICAgMiArLQogYXJjaC9zMzkwL2luY2x1ZGUvYXNtL3Zkc28uaCAg
+ICAgICAgICAgICAgICAgICAgICAgfCAgIDMgLQogYXJjaC9zMzkwL2luY2x1ZGUvYXNtL3Zkc28v
+ZGF0YS5oICAgICAgICAgICAgICAgICAgfCAgMTIgLS0tCiBhcmNoL3MzOTAvaW5jbHVkZS9hc20v
+dmRzby90aW1lX2RhdGEuaCAgICAgICAgICAgICB8ICAxMiArKysKIGFyY2gvczM5MC9rZXJuZWwv
+dmRzbzMyL3Zkc28zMi5sZHMuUyAgICAgICAgICAgICAgIHwgICAyICstCiBhcmNoL3MzOTAva2Vy
+bmVsL3Zkc282NC92ZHNvNjQubGRzLlMgICAgICAgICAgICAgICB8ICAgMiArLQogYXJjaC94ODYv
+ZW50cnkvdmRzby92ZHNvLWxheW91dC5sZHMuUyAgICAgICAgICAgICAgfCAgMjAgKystLQogYXJj
+aC94ODYvZW50cnkvdmRzby92bWEuYyAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgODcgKysr
+KysrKysrKy0tLS0tLQogYXJjaC94ODYvaW5jbHVkZS9hc20vdmRzby9nZXRyYW5kb20uaCAgICAg
+ICAgICAgICAgfCAgMTAgKy0KIGFyY2gveDg2L2luY2x1ZGUvYXNtL3Zkc28vZ2V0dGltZW9mZGF5
+LmggICAgICAgICAgIHwgIDEyICsrLQogYXJjaC94ODYvaW5jbHVkZS9hc20vdmRzby92c3lzY2Fs
+bC5oICAgICAgICAgICAgICAgfCAgMTQgKystCiBhcmNoL3g4Ni9pbmNsdWRlL2FzbS92dmFyLmgg
+ICAgICAgICAgICAgICAgICAgICAgICB8ICA3MSAtLS0tLS0tLS0tLS0tCiBhcmNoL3g4Ni9rZXJu
+ZWwvdm1saW51eC5sZHMuUyAgICAgICAgICAgICAgICAgICAgICB8ICAyMyAtLS0tLQogYXJjaC94
+ODYvbW0vbW1hcC5jICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgIDUgLQogYXJj
+aC94ODYvdG9vbHMvcmVsb2NzLmMgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgIDEgLQog
+aW5jbHVkZS92ZHNvL2RhdGFwYWdlLmggICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgIDgg
+Ky0KIDU3IGZpbGVzIGNoYW5nZWQsIDI5NSBpbnNlcnRpb25zKCspLCA2MjggZGVsZXRpb25zKC0p
+Ci0tLQpiYXNlLWNvbW1pdDogOGNmMGI5MzkxOWUxM2QxZThkNDQ2NmViNDA4MGE0YzRkOWQ2NmQ3
+YgpjaGFuZ2UtaWQ6IDIwMjQxMDA5LXZkc28tZ2VuZXJpYy1iYXNlLTYzMDY2ZmQ0NzRiNQoKQmVz
+dCByZWdhcmRzLAotLSAKVGhvbWFzIFdlacOfc2NodWggPHRob21hcy53ZWlzc3NjaHVoQGxpbnV0
+cm9uaXguZGU+CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
+cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
+dgo=
