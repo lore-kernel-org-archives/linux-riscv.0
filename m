@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33CCDD2444F
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Oct 2024 20:31:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D5ACD24450
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Oct 2024 20:31:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RG7hhddPRSH0dwciXHH8gfzMg7L6eFvrYNkkp1ctLlI=; b=se3bkDwE9j60IJ
-	QvnOF0VtKL1NWVfP+y7nPMaxgpYlK7uV097OjDGpDUbBuzKRDmyNBgvEqoMM7pXS+vi2WaNAKggbn
-	xk9wvFpqxcNOGMGYZXjt9aB9YO9Obd7T6KUGp4n0CdME9+QAMQsd3l0HRROKPpXaG0SYSA//DmbiJ
-	rKP1M6KocN07OnW2UtexcUBlKK0HxGmX2FZcz/qvZR32St8ijqkq2Cr2IXob1/nWsStD360M9WTvE
-	747qNqoSMAjcJQmCkXwPhCoYdAvTFcjhN9ZsVl5RNxmbmhScYBKeHEsOZ77OcjP594xTm4EQBcAzE
-	dtotOIMu+fm8TULs8IJA==;
+	List-Owner; bh=MPaz6imQoa1VkT+pK3kB9rJlmjGBgz55q5ibS634j14=; b=pCoqnHLZIoPtAj
+	QVuGj88r0+NU5K8yOboIts1xh0Ew9A2eZJCwEH3DVCtSk67TvfzkQmenNASe5rbgxrMtbFz3VNzyi
+	FzGk1fG8OE7UxoqCNf5g2nugzeQUP1hFpY6c+z5MPsoSIGCB62ZJ6ak9lUDks4OnpFS2owhXLY/wB
+	e3KKAQdU7gyzh8//cdLb2iRa569OsOzd7Mm4zPsTYPmBd8dCDVY5mSjtBwchMjoXdjvKMKILcf6G2
+	KISO1zlv/zYMDOsgJ2gb5nBToKmtExQGKFYRT5GoZ0UG2Wb7M1iNKs5U1V7WVkAVEq2kQJPphisTE
+	hGgB7QedI72YOVz8bXIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1syzoi-0000000EGmQ-48lw;
-	Thu, 10 Oct 2024 20:31:24 +0000
-Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
+	id 1syzok-0000000EGnW-22j3;
+	Thu, 10 Oct 2024 20:31:26 +0000
+Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1syxrk-0000000Dqnp-32Cn
+	id 1syxro-0000000Dqq0-01in
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Oct 2024 18:26:26 +0000
-Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-7e6e98892e1so1288241a12.0
-        for <linux-riscv@lists.infradead.org>; Thu, 10 Oct 2024 11:26:24 -0700 (PDT)
+	Thu, 10 Oct 2024 18:26:30 +0000
+Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-71e0228d71dso1225534b3a.0
+        for <linux-riscv@lists.infradead.org>; Thu, 10 Oct 2024 11:26:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1728584784; x=1729189584; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:reply-to:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=O48RmE1hmLPs0qNEdPIh+k/rpCPu+e8A6GC4+tMXVMw=;
-        b=tUX4W6o8HRVDNg2p6vKzVqKv4QtBGye1jr9W70enPs3WfdHdg/DAX4SGK3PXyvt/PU
-         b7AYI/CL/BlJ+quKCLDQWnwM3l+DwmoJ38wzIZ0AUR/5qG3XbJ6uKyGqIGs7af000tzu
-         Yw5mLr5FCn/tAEl9m+rbmGRIlmBjOVsDrIb/34VVROnkoIFIZoc77UW/hjwsWuFMrKWu
-         /akxlANMKK8Zni3hn6A1as9i+vAkfXKoaefSt+xnuNgimIQ5h/U2840t3CpBs4rUac96
-         3v9uJ9pPCbO+EtZ7MI416Oy4vh2RW3JLQnyfGXSyS7FkCqEOQLvRezcMeq0XiOM0Uyrt
-         IWbg==
+        d=google.com; s=20230601; t=1728584787; x=1729189587; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=uRLwC7za7TRhyOe/CfUzhvpHD8RlodmrAsAEh9/RrLY=;
+        b=PKoD/wJAb5njzUtpsWhaiNM2r+OCsHfWtiV/apSkhgK99vTei83ZnneTKYniaGobtS
+         J45i/TolbRzdp5c0H22Luy6Rs4kKlLJaRGcpt/l3Ev+zc3SHfJ9EHEt2Wsh5CiYgVmOL
+         SGYSWmYIMPQNWdysyBr7Fl4AZNrhGBJq/a7zAXoeKDXdLH9srkAQl32RTPc6myO/6pT+
+         +U1xZ7bie0Oj+11nv8QY/+JxDm6Kylusn84ikqXYk1Ql5f+RfVxJAVfljbZTD77+jbRg
+         HvSzJHmdhjQLWIuP1P/nY+XLd0JF6+Ao5kyRK9GS8cjA6e6dQHUvz3M5OWWBXCiJa34T
+         JjjA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728584784; x=1729189584;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:reply-to:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=O48RmE1hmLPs0qNEdPIh+k/rpCPu+e8A6GC4+tMXVMw=;
-        b=Bq7D6UBMGklSijpwdIeacKsnPnU34c9sMHXlo9Es/Xe55MiM/E1LvHb+PkfpHE5sUl
-         Z0aLmfq63DwzrWBq332t9sHYidveTIEC19I3nsulsnnJ2uhx/bcvWFCmKVhb7/PvaWtF
-         xC7nrR+SrYMWTwO6tFPRYJT/35OF5c6h6dLKHmVDJgmWcXkf9a1X0rZjLdg9TlbBoj2m
-         t56tDsA+Hd6jh0wxyA+8kmvtYcvUmAj9zibg8mrBjAnp98kMip9hUjYSpDUp1rHiSDCh
-         EC3OvbAZIwXnKnYvcZNOpFbIJJTZmgG8m6jiU9t9hVPiWI/W8Xz4/VXjd5XljmHQh1hM
-         AfXA==
-X-Forwarded-Encrypted: i=1; AJvYcCWbYXbSB37C/qel0ToL4NzJGFRiHb+G8m+QR2SUW/uICgYryilhysYCzQPAEx0fJRIbZDcRaxywgO8qLQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXc3HZ8PjHlGJgmNtpL7RnRJAPCAjFc1xq68jNKmyD+5cqOBCP
-	Chp9EF9HEmYM5oe33Ej0Ihq6iaL8UY6J5pLLeYIVl0woyjNvzi60R2cfzzLp2iykXWHoBY+tZmA
-	SmA==
-X-Google-Smtp-Source: AGHT+IGY3J0AFIsOlJbVDrqn6majLeEUOkcp3LAakwsbgSwDXT3SnAGgA9L20idMLdLGQvBeoRsHZDJxo50=
+        d=1e100.net; s=20230601; t=1728584787; x=1729189587;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=uRLwC7za7TRhyOe/CfUzhvpHD8RlodmrAsAEh9/RrLY=;
+        b=uWM+bqWBNbIyJwUhotCbdX1PCYMMOKgPUAe/qH+8gB8l9SH2I2kv8Ua6JVuHD6soh5
+         td9I1i9TWyR7TpFGke2EtCHZ6QMoyyrdQIn6ilTOEfOVhLVIh9B4HsNd025C0HV/rTSK
+         uKRlufQVartrl1+QvC5Kjgby/6d93iaMxEhfiATnF7jCclAYdx+axn3IcBOn2+N/Z+5k
+         G4q2jumtaBt6x2twcg4cFKyenqb4WSsx1ha3AUkGrVFmqQz2l3CENdylHWhMQhCME+TV
+         qlixBSp0nk9XL0kNUYeq/FThFtX1VogdGbPp8/rmVXU3JqF/PJBFzgIdBhNgOh+jO+A1
+         D7Rw==
+X-Forwarded-Encrypted: i=1; AJvYcCUrW7mPdbg/dclLL6pRsj+tv1pZFScU/436ByESqCANbl8ll5tNafphBA5fJE/P8cZXj+NlJZvZlF+kTQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxe7FuRM8PMhyFkGbGE3OeNzHzP8Ri9AMbITOSZ/jAfB5dOYcEU
+	lvTC8OpYlS6uwOa3okVbHVuJBCqOC45STru/4irVQy0F/g6nrBkZt+FUxShuyD9ZwK3nPATv49h
+	ZxQ==
+X-Google-Smtp-Source: AGHT+IHljZntO7iRsDkdAW1llbbIMc26iesy/7PCA9rtG6130gQpp6naB/6JGeYrnZXaXdo41CPgD6F3FKs=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:9d:3983:ac13:c240])
- (user=seanjc job=sendgmr) by 2002:a63:2445:0:b0:75d:16f9:c075 with SMTP id
- 41be03b00d2f7-7ea5359cd2amr19a12.9.1728584783356; Thu, 10 Oct 2024 11:26:23
+ (user=seanjc job=sendgmr) by 2002:aa7:9184:0:b0:71d:f7c9:8cb3 with SMTP id
+ d2e1a72fcca58-71e1dbf1ab5mr7795b3a.5.1728584785442; Thu, 10 Oct 2024 11:26:25
  -0700 (PDT)
-Date: Thu, 10 Oct 2024 11:23:46 -0700
+Date: Thu, 10 Oct 2024 11:23:47 -0700
 In-Reply-To: <20241010182427.1434605-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20241010182427.1434605-1-seanjc@google.com>
 X-Mailer: git-send-email 2.47.0.rc1.288.g06298d1525-goog
-Message-ID: <20241010182427.1434605-45-seanjc@google.com>
-Subject: [PATCH v13 44/85] KVM: x86/mmu: Convert page fault paths to kvm_faultin_pfn()
+Message-ID: <20241010182427.1434605-46-seanjc@google.com>
+Subject: [PATCH v13 45/85] KVM: guest_memfd: Pass index, not gfn, to __kvm_gmem_get_pfn()
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
@@ -86,8 +85,8 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	David Matlack <dmatlack@google.com>, David Stevens <stevensd@chromium.org>, 
 	Andrew Jones <ajones@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241010_112624_810591_D76A17CA 
-X-CRM114-Status: GOOD (  12.96  )
+X-CRM114-CacheID: sfid-20241010_112628_103491_9E1FA2B7 
+X-CRM114-Status: GOOD (  14.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,50 +99,98 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Reply-To: Sean Christopherson <seanjc@google.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Q29udmVydCBLVk0geDg2IHRvIHVzZSB0aGUgcmVjZW50bHkgaW50cm9kdWNlZCBfX2t2bV9mYXVs
-dGluX3BmbigpLgpPcHBvcnR1bnN0aWNhbGx5IGNhcHR1cmUgdGhlIHJlZmNvdW50ZWRfcGFnZSBn
-cmFiYmVkIGJ5IEtWTSBmb3IgdXNlIGluCmZ1dHVyZSBjaGFuZ2VzLgoKTm8gZnVuY3Rpb25hbCBj
-aGFuZ2UgaW50ZW5kZWQuCgpUZXN0ZWQtYnk6IEFsZXggQmVubsOpZSA8YWxleC5iZW5uZWVAbGlu
-YXJvLm9yZz4KU2lnbmVkLW9mZi1ieTogU2VhbiBDaHJpc3RvcGhlcnNvbiA8c2VhbmpjQGdvb2ds
-ZS5jb20+Ci0tLQogYXJjaC94ODYva3ZtL21tdS9tbXUuYyAgICAgICAgICB8IDE0ICsrKysrKysr
-KystLS0tCiBhcmNoL3g4Ni9rdm0vbW11L21tdV9pbnRlcm5hbC5oIHwgIDEgKwogMiBmaWxlcyBj
-aGFuZ2VkLCAxMSBpbnNlcnRpb25zKCspLCA0IGRlbGV0aW9ucygtKQoKZGlmZiAtLWdpdCBhL2Fy
-Y2gveDg2L2t2bS9tbXUvbW11LmMgYi9hcmNoL3g4Ni9rdm0vbW11L21tdS5jCmluZGV4IGY3MzA4
-NzA4ODdkZC4uMmUyMDc2Mjg3YWFmIDEwMDY0NAotLS0gYS9hcmNoL3g4Ni9rdm0vbW11L21tdS5j
-CisrKyBiL2FyY2gveDg2L2t2bS9tbXUvbW11LmMKQEAgLTQ0MTYsMTEgKzQ0MTYsMTQgQEAgc3Rh
-dGljIGludCBrdm1fbW11X2ZhdWx0aW5fcGZuX3ByaXZhdGUoc3RydWN0IGt2bV92Y3B1ICp2Y3B1
-LAogc3RhdGljIGludCBfX2t2bV9tbXVfZmF1bHRpbl9wZm4oc3RydWN0IGt2bV92Y3B1ICp2Y3B1
-LAogCQkJCSBzdHJ1Y3Qga3ZtX3BhZ2VfZmF1bHQgKmZhdWx0KQogeworCXVuc2lnbmVkIGludCBm
-b2xsID0gZmF1bHQtPndyaXRlID8gRk9MTF9XUklURSA6IDA7CisKIAlpZiAoZmF1bHQtPmlzX3By
-aXZhdGUpCiAJCXJldHVybiBrdm1fbW11X2ZhdWx0aW5fcGZuX3ByaXZhdGUodmNwdSwgZmF1bHQp
-OwogCi0JZmF1bHQtPnBmbiA9IF9fZ2ZuX3RvX3Bmbl9tZW1zbG90KGZhdWx0LT5zbG90LCBmYXVs
-dC0+Z2ZuLCBmYWxzZSwgdHJ1ZSwKLQkJCQkJICBmYXVsdC0+d3JpdGUsICZmYXVsdC0+bWFwX3dy
-aXRhYmxlKTsKKwlmb2xsIHw9IEZPTExfTk9XQUlUOworCWZhdWx0LT5wZm4gPSBfX2t2bV9mYXVs
-dGluX3BmbihmYXVsdC0+c2xvdCwgZmF1bHQtPmdmbiwgZm9sbCwKKwkJCQkgICAgICAgJmZhdWx0
-LT5tYXBfd3JpdGFibGUsICZmYXVsdC0+cmVmY291bnRlZF9wYWdlKTsKIAogCS8qCiAJICogSWYg
-cmVzb2x2aW5nIHRoZSBwYWdlIGZhaWxlZCBiZWNhdXNlIEkvTyBpcyBuZWVkZWQgdG8gZmF1bHQt
-aW4gdGhlCkBAIC00NDQ3LDggKzQ0NTAsMTEgQEAgc3RhdGljIGludCBfX2t2bV9tbXVfZmF1bHRp
-bl9wZm4oc3RydWN0IGt2bV92Y3B1ICp2Y3B1LAogCSAqIHRvIHdhaXQgZm9yIElPLiAgTm90ZSwg
-Z3VwIGFsd2F5cyBiYWlscyBpZiBpdCBpcyB1bmFibGUgdG8gcXVpY2tseQogCSAqIGdldCBhIHBh
-Z2UgYW5kIGEgZmF0YWwgc2lnbmFsLCBpLmUuIFNJR0tJTEwsIGlzIHBlbmRpbmcuCiAJICovCi0J
-ZmF1bHQtPnBmbiA9IF9fZ2ZuX3RvX3Bmbl9tZW1zbG90KGZhdWx0LT5zbG90LCBmYXVsdC0+Z2Zu
-LCB0cnVlLCB0cnVlLAotCQkJCQkgIGZhdWx0LT53cml0ZSwgJmZhdWx0LT5tYXBfd3JpdGFibGUp
-OworCWZvbGwgfD0gRk9MTF9JTlRFUlJVUFRJQkxFOworCWZvbGwgJj0gfkZPTExfTk9XQUlUOwor
-CWZhdWx0LT5wZm4gPSBfX2t2bV9mYXVsdGluX3BmbihmYXVsdC0+c2xvdCwgZmF1bHQtPmdmbiwg
-Zm9sbCwKKwkJCQkgICAgICAgJmZhdWx0LT5tYXBfd3JpdGFibGUsICZmYXVsdC0+cmVmY291bnRl
-ZF9wYWdlKTsKKwogCXJldHVybiBSRVRfUEZfQ09OVElOVUU7CiB9CiAKZGlmZiAtLWdpdCBhL2Fy
-Y2gveDg2L2t2bS9tbXUvbW11X2ludGVybmFsLmggYi9hcmNoL3g4Ni9rdm0vbW11L21tdV9pbnRl
-cm5hbC5oCmluZGV4IDU5ZTYwMGY2ZmY5ZC4uZmFiYmVhNTA0YTY5IDEwMDY0NAotLS0gYS9hcmNo
-L3g4Ni9rdm0vbW11L21tdV9pbnRlcm5hbC5oCisrKyBiL2FyY2gveDg2L2t2bS9tbXUvbW11X2lu
-dGVybmFsLmgKQEAgLTIzOCw2ICsyMzgsNyBAQCBzdHJ1Y3Qga3ZtX3BhZ2VfZmF1bHQgewogCS8q
-IE91dHB1dHMgb2Yga3ZtX21tdV9mYXVsdGluX3BmbigpLiAgKi8KIAl1bnNpZ25lZCBsb25nIG1t
-dV9zZXE7CiAJa3ZtX3Bmbl90IHBmbjsKKwlzdHJ1Y3QgcGFnZSAqcmVmY291bnRlZF9wYWdlOwog
-CWJvb2wgbWFwX3dyaXRhYmxlOwogCiAJLyoKLS0gCjIuNDcuMC5yYzEuMjg4LmcwNjI5OGQxNTI1
-LWdvb2cKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
-aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
-dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Refactor guest_memfd usage of __kvm_gmem_get_pfn() to pass the index into
+the guest_memfd file instead of the gfn, i.e. resolve the index based on
+the slot+gfn in the caller instead of in __kvm_gmem_get_pfn().  This will
+allow kvm_gmem_get_pfn() to retrieve and return the specific "struct page",
+which requires the index into the folio, without a redoing the index
+calculation multiple times (which isn't costly, just hard to follow).
+
+Opportunistically add a kvm_gmem_get_index() helper to make the copy+pasted
+code easier to understand.
+
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ virt/kvm/guest_memfd.c | 20 +++++++++++++-------
+ 1 file changed, 13 insertions(+), 7 deletions(-)
+
+diff --git a/virt/kvm/guest_memfd.c b/virt/kvm/guest_memfd.c
+index 8f079a61a56d..8a878e57c5d4 100644
+--- a/virt/kvm/guest_memfd.c
++++ b/virt/kvm/guest_memfd.c
+@@ -302,6 +302,11 @@ static inline struct file *kvm_gmem_get_file(struct kvm_memory_slot *slot)
+ 	return get_file_active(&slot->gmem.file);
+ }
+ 
++static pgoff_t kvm_gmem_get_index(struct kvm_memory_slot *slot, gfn_t gfn)
++{
++	return gfn - slot->base_gfn + slot->gmem.pgoff;
++}
++
+ static struct file_operations kvm_gmem_fops = {
+ 	.open		= generic_file_open,
+ 	.release	= kvm_gmem_release,
+@@ -551,12 +556,11 @@ void kvm_gmem_unbind(struct kvm_memory_slot *slot)
+ }
+ 
+ /* Returns a locked folio on success.  */
+-static struct folio *
+-__kvm_gmem_get_pfn(struct file *file, struct kvm_memory_slot *slot,
+-		   gfn_t gfn, kvm_pfn_t *pfn, bool *is_prepared,
+-		   int *max_order)
++static struct folio *__kvm_gmem_get_pfn(struct file *file,
++					struct kvm_memory_slot *slot,
++					pgoff_t index, kvm_pfn_t *pfn,
++					bool *is_prepared, int *max_order)
+ {
+-	pgoff_t index = gfn - slot->base_gfn + slot->gmem.pgoff;
+ 	struct kvm_gmem *gmem = file->private_data;
+ 	struct folio *folio;
+ 
+@@ -592,6 +596,7 @@ __kvm_gmem_get_pfn(struct file *file, struct kvm_memory_slot *slot,
+ int kvm_gmem_get_pfn(struct kvm *kvm, struct kvm_memory_slot *slot,
+ 		     gfn_t gfn, kvm_pfn_t *pfn, int *max_order)
+ {
++	pgoff_t index = kvm_gmem_get_index(slot, gfn);
+ 	struct file *file = kvm_gmem_get_file(slot);
+ 	struct folio *folio;
+ 	bool is_prepared = false;
+@@ -600,7 +605,7 @@ int kvm_gmem_get_pfn(struct kvm *kvm, struct kvm_memory_slot *slot,
+ 	if (!file)
+ 		return -EFAULT;
+ 
+-	folio = __kvm_gmem_get_pfn(file, slot, gfn, pfn, &is_prepared, max_order);
++	folio = __kvm_gmem_get_pfn(file, slot, index, pfn, &is_prepared, max_order);
+ 	if (IS_ERR(folio)) {
+ 		r = PTR_ERR(folio);
+ 		goto out;
+@@ -648,6 +653,7 @@ long kvm_gmem_populate(struct kvm *kvm, gfn_t start_gfn, void __user *src, long
+ 	for (i = 0; i < npages; i += (1 << max_order)) {
+ 		struct folio *folio;
+ 		gfn_t gfn = start_gfn + i;
++		pgoff_t index = kvm_gmem_get_index(slot, gfn);
+ 		bool is_prepared = false;
+ 		kvm_pfn_t pfn;
+ 
+@@ -656,7 +662,7 @@ long kvm_gmem_populate(struct kvm *kvm, gfn_t start_gfn, void __user *src, long
+ 			break;
+ 		}
+ 
+-		folio = __kvm_gmem_get_pfn(file, slot, gfn, &pfn, &is_prepared, &max_order);
++		folio = __kvm_gmem_get_pfn(file, slot, index, &pfn, &is_prepared, &max_order);
+ 		if (IS_ERR(folio)) {
+ 			ret = PTR_ERR(folio);
+ 			break;
+-- 
+2.47.0.rc1.288.g06298d1525-goog
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
