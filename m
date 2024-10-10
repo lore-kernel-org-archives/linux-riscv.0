@@ -4,119 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08194CF07BF
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Oct 2024 08:32:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 416A1CF07C7
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Oct 2024 08:46:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SBX70ZvFdCVcH0bmpjJOHL3V+84lIq4zcS73FIEdLKc=; b=yjq/aksIUJOELb
-	4lTLkqABrC8c9LF9t0HR9JzaOeIqoG03LR67oqfOITPYI9iO34BBCL/3xVfCplohO2yynnh3CxGXj
-	r21ordXJb28oj6FVVvfKGvK1dRocsny0/n92kxvqDPTOakQZd/p/P4CYXsyCV7v9kJUo0BKduBP+w
-	sJmgW8AtCTIFP1CDQgoxggToMQZRGSDJzxNX5jQlOJboHmtJa6pmNuhZjvvPeeQKja5vSidYptzDk
-	eT+78EXo71Ela552By9kg3bZ0SjC4Qd87ekb2b8UVMxNgPEyijcH5CZYVSE5M62C0RE4S+8fnte/m
-	avW8R6JuwsyYOQfkJmwQ==;
+	List-Owner; bh=oUiJRSUqybr+wPY8DeB9GOXhx5XPRE8TOKbeo0CJscA=; b=kUFIvKlxlgOzkw
+	lPNOHH0/ZlJcRJS7/HxlBMDW1CuxArt8gofzupxO9ExAISSTtWyAgUj03IE8lRz4ilYY5+8ZIRGVt
+	xix+7Ao+p7jnmxVx6VglLB8OpqbGIXiLnv1pz+2okbLw797LqF1HaUZf5H0SwRzycxixAi5CaLCPN
+	WDFKXM5l9H3Xhz8c2fp9Hi3pHCfJSWG13crY7U0sHiXCyzN7qro9Q+Wp27mGUAjKkFMtfsxYEzALT
+	RGVP5rcKweRCktWDPQki5r2SzJkCRqD86r2YNoM5KmL7hmVmBa+Lp6dH3CiPfjfWFhWYJUMbsF/UG
+	ynjXSLTR5f0zJ4+lr8mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1syoai-0000000C1We-1vrI;
-	Thu, 10 Oct 2024 08:32:12 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1syoo9-0000000C4BW-1fa1;
+	Thu, 10 Oct 2024 08:46:05 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1syoZN-0000000C0no-1ctS
-	for linux-riscv@lists.infradead.org;
-	Thu, 10 Oct 2024 08:30:51 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-2e2d73e6a9fso246225a91.2
-        for <linux-riscv@lists.infradead.org>; Thu, 10 Oct 2024 01:30:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1728549047; x=1729153847; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=xjRgM2erkgK9qh8AbT3u9Jz1xqlQ+SHokymxxsnkwPs=;
-        b=lWD5ZF4paS+CPNvk5I0Q3vgmZaGbjHo0e8O542C2/6vcDhO2sNFFKyncHpuzkNK2nL
-         LvMyZaLh8yJLLf8yMcKKBKYNjMTRbHBy9aQxBVpfI3584oaLa/d9Ie1TVY8s1Ilhk3to
-         X98/gHRANduq1YEJ5pSnV1S+jg0kaTf0ujZPo=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728549047; x=1729153847;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xjRgM2erkgK9qh8AbT3u9Jz1xqlQ+SHokymxxsnkwPs=;
-        b=Cb82iLtbjw+tQdWLjb2mIoDcvsjNlfdB1xP8Xa0MjC1S2nUQ3dAtAIaVt6KArQS/Jx
-         A1UseKafLbwe61EiTHFE6rW/KsEbOes45VKT8oTYZ4GxzrcC+55sNnKbNAaxg7z02bcv
-         zC5N/nk9ZUScw6N2PZGOiSQhFZD1uP8r+0wkijVNUVXMZs0u0+csJ0G/07LfGy1cs++B
-         z1z0KjKudHF4YDwc4V9me7z40tqVmuaLRID0cgYVTGxUHOis25o5cSrlIRP2RpiqyPXr
-         Z6VWyM6FIPcwmuopTgsN4KJzf5rL5fvBl6GYr74n8wouDd812kcvSMxx7shLFxsM8r+P
-         3acQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW1t5zXfKmJ1QvhGl5RYZK7HSb9+B8z8v93x3EtwuQ3PKXLAxliPkfAU8j2Uf2iK6ydUo1x1yQlsJKmoA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQhI+LX5pCBSJzjZpvWVKo3qrtGT8eiKF0KoRzpR8HB6N8pnwm
-	o97s1oUztjOgC/YFkkgxjFkmmq3ahzy5vo6Vp/dsjoC0tFxSPKyP4+Jv5URytg==
-X-Google-Smtp-Source: AGHT+IGiHJLVn7EEJZoiHDg1IHJwEmo5BKI2W3X+EqMqHJDA19Xi8bq+M3epyy60EICvZVegJa7iQQ==
-X-Received: by 2002:a17:90a:178e:b0:2e2:cc47:ce1a with SMTP id 98e67ed59e1d1-2e2cc47ce65mr2245610a91.1.1728549047177;
-        Thu, 10 Oct 2024 01:30:47 -0700 (PDT)
-Received: from google.com ([2401:fa00:8f:203:c13a:abb0:1c8:a3c3])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e2d5f0a424sm730808a91.28.2024.10.10.01.30.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Oct 2024 01:30:46 -0700 (PDT)
-Date: Thu, 10 Oct 2024 17:30:33 +0900
-From: Sergey Senozhatsky <senozhatsky@chromium.org>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Andy Lutomirski <luto@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>,
-	Brian Cain <bcain@quicinc.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christoph Hellwig <hch@infradead.org>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Kent Overstreet <kent.overstreet@linux.dev>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Simek <monstr@monstr.eu>, Oleg Nesterov <oleg@redhat.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
-	Stafford Horne <shorne@gmail.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linux-mm@kvack.org,
-	linux-modules@vger.kernel.org, linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org, linux-um@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Bisected: [PATCH v5 8/8] x86/module: enable ROX caches for module
- text
-Message-ID: <20241010083033.GA1279924@google.com>
-References: <20241009180816.83591-1-rppt@kernel.org>
- <20241009180816.83591-9-rppt@kernel.org>
+	id 1synBq-0000000BlqJ-2YKy;
+	Thu, 10 Oct 2024 07:02:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=K/qRGvuOAyfRD/y9Hw9vI8MnAlUye5M5TSGqQF5eFfA=; b=fgFhSjv1wJ2iKEPZFAFQCNDHZb
+	6AvQBeHr0C9GMBElkZgqpWOHtDXLnHQuGw5tKytcWEsxjhNuW1MaPeRpcfZeng5TRdS97yiMRauC0
+	O6DgQG5VkWkAFR+yT98ot5w2IOAeaswz5JRl2E9gd5iWikSkFGybVObEVkoVQz5FqsA1cwqNFUu2P
+	9TSaU4hsP76harhG6RnTblbgqyclkVv7lOhtoH6JZ8v0mSX8f9kfnuCoPo4ta6vSpdX8q0DxsOr9f
+	Q9twL5ddG6EVfXqjUSOCjZxqGqv5emd4cWBgKdgfHW/CgrRMI/DqjFIfuQIyf/euocAVlOlXakDha
+	gODzNatg==;
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1synBj-00000005D04-3s6i;
+	Thu, 10 Oct 2024 07:02:23 +0000
+From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1728543734;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=K/qRGvuOAyfRD/y9Hw9vI8MnAlUye5M5TSGqQF5eFfA=;
+	b=lOtgRqrvkWhHs5FDIZhLs96p61mNiVNt6t9AYoLa1thljfyyRleywPXqjeoScsCAYmTDWv
+	0r24GjB2ulGnJkoTNTjKVsfA+qpBbIlUHVuwLRLvSg88aafASg37t3FvSAYJKTDkrEFMCF
+	Q5L0Cf2OrOk89w2nbzDgMcSfACgIJSovpms7P8XAGOW3atwPhKJxWF47+FzFTW5N/EG7Yg
+	2HRzhNr/4GYMtRtie63QKRml5xYibGYWTE6BlzE/8/BbDmr8Rpeyjiyozaei/60X/TdWdk
+	tpOmuMYwEhnBlSzBYpZ2bYOmey08TelkMPNRC3g4oVQhOg4Po+4u5KTFktMPbA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1728543734;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=K/qRGvuOAyfRD/y9Hw9vI8MnAlUye5M5TSGqQF5eFfA=;
+	b=YPIBKS6fUErLq7tLoUgds5pLbK4UX7EnE/rx00rRDYWatFVJ7tNFzgNAHim8WYkolJMXyq
+	eaBMgmb4NJ1+7MBA==
+Date: Thu, 10 Oct 2024 09:01:27 +0200
+Subject: [PATCH 25/28] powerpc: Add kconfig option for the systemcfg page
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241009180816.83591-9-rppt@kernel.org>
+Message-Id: <20241010-vdso-generic-base-v1-25-b64f0842d512@linutronix.de>
+References: <20241010-vdso-generic-base-v1-0-b64f0842d512@linutronix.de>
+In-Reply-To: <20241010-vdso-generic-base-v1-0-b64f0842d512@linutronix.de>
+To: Guo Ren <guoren@kernel.org>, Heiko Carstens <hca@linux.ibm.com>, 
+ Vasily Gorbik <gor@linux.ibm.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Christian Borntraeger <borntraeger@linux.ibm.com>, 
+ Sven Schnelle <svens@linux.ibm.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Russell King <linux@armlinux.org.uk>, Huacai Chen <chenhuacai@kernel.org>, 
+ WANG Xuerui <kernel@xen0n.name>, Theodore Ts'o <tytso@mit.edu>, 
+ "Jason A. Donenfeld" <Jason@zx2c4.com>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, 
+ Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, x86@kernel.org, 
+ "H. Peter Anvin" <hpa@zytor.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+ Nicholas Piggin <npiggin@gmail.com>, 
+ Christophe Leroy <christophe.leroy@csgroup.eu>, 
+ Naveen N Rao <naveen@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Vincenzo Frascino <vincenzo.frascino@arm.com>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>, 
+ linux-csky@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-s390@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-riscv@lists.infradead.org, loongarch@lists.linux.dev, 
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1728543717; l=1852;
+ i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
+ bh=ignJMWvkz6E09b32wojexZ5aYHvKHJxJ66AG8ULzy/s=;
+ b=C1rNttCPnaP1zlaUjv7iMx0innkkyXvxyKgVYJIFWgJtuaN0zt8AzArXt/OrnrBtT3yS8PQGE
+ o07lV8IsHQkADjaSA/YIbNTpmAdiIx+Hy0BA1bX+qUHzEj/ePQM5Dd2
+X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
+ pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241010_013049_496572_7BA3F62E 
-X-CRM114-Status: GOOD (  10.56  )
+X-CRM114-CacheID: sfid-20241010_080220_260454_1AF88A2B 
+X-CRM114-Status: GOOD (  12.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,81 +116,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On (24/10/09 21:08), Mike Rapoport wrote:
-> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-> 
-> Enable execmem's cache of PMD_SIZE'ed pages mapped as ROX for module
-> text allocations.
-> 
-
-With this modprobe disappoints kmemleak
-
-[   12.700128] kmemleak: Found object by alias at 0xffffffffa000a000
-[   12.702179] CPU: 5 UID: 0 PID: 410 Comm: modprobe Tainted: G                 N 6.12.0-rc2+ #760
-[   12.704656] Tainted: [N]=TEST
-[   12.705526] Call Trace:
-[   12.706250]  <TASK>
-[   12.706888]  dump_stack_lvl+0x3e/0xdb
-[   12.707961]  __find_and_get_object+0x100/0x110
-[   12.709256]  kmemleak_no_scan+0x2e/0xb0
-[   12.710354]  kmemleak_load_module+0xad/0xe0
-[   12.711557]  load_module+0x2391/0x45a0
-[   12.712507]  __se_sys_finit_module+0x4e0/0x7a0
-[   12.713599]  do_syscall_64+0x54/0xf0
-[   12.714477]  ? irqentry_exit_to_user_mode+0x33/0x100
-[   12.715696]  entry_SYSCALL_64_after_hwframe+0x4b/0x53
-[   12.716931] RIP: 0033:0x7fc7af51f059
-[   12.717816] Code: 08 89 e8 5b 5d c3 66 2e 0f 1f 84 00 00 00 00 00 90 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 1d 0d 00 f7 d8 64 89 01 48
-[   12.722324] RSP: 002b:00007ffc1d0b0c18 EFLAGS: 00000246 ORIG_RAX: 0000000000000139
-[   12.724173] RAX: ffffffffffffffda RBX: 00005618a9439b20 RCX: 00007fc7af51f059
-[   12.725884] RDX: 0000000000000000 RSI: 000056187aea098b RDI: 0000000000000003
-[   12.727617] RBP: 0000000000000000 R08: 0000000000000060 R09: 00005618a943af60
-[   12.729361] R10: 0000000000000038 R11: 0000000000000246 R12: 000056187aea098b
-[   12.731101] R13: 0000000000040000 R14: 00005618a9439ac0 R15: 0000000000000000
-[   12.732814]  </TASK>
-[   12.733362] kmemleak: Object 0xffffffffa0000000 (size 2097152):
-[   12.734800] kmemleak:   comm "modprobe", pid 410, jiffies 4294880489
-[   12.736334] kmemleak:   min_count = 2
-[   12.737228] kmemleak:   count = 0
-[   12.738043] kmemleak:   flags = 0x5
-[   12.738917] kmemleak:   checksum = 0
-[   12.739783] kmemleak:   backtrace:
-[   12.740606]  kmemleak_vmalloc+0x29/0xc0
-[   12.741532]  kasan_alloc_module_shadow+0xbe/0xe0
-[   12.742649]  execmem_vmalloc+0x116/0x220
-[   12.743596]  execmem_alloc+0xfb/0x3d0
-[   12.744479]  load_module+0x1e84/0x45a0
-[   12.745383]  __se_sys_finit_module+0x4e0/0x7a0
-[   12.746452]  do_syscall_64+0x54/0xf0
-[   12.747319]  entry_SYSCALL_64_after_hwframe+0x4b/0x53
-[   12.748772] kmemleak: Not scanning unknown object at 0xffffffffa000a000
-[   12.750364] CPU: 5 UID: 0 PID: 410 Comm: modprobe Tainted: G                 N 6.12.0-rc2+ #760
-[   12.752441] Tainted: [N]=TEST
-[   12.753165] Call Trace:
-[   12.753760]  <TASK>
-[   12.754279]  dump_stack_lvl+0x3e/0xdb
-[   12.755165]  kmemleak_load_module+0xad/0xe0
-[   12.756165]  load_module+0x2391/0x45a0
-[   12.757068]  __se_sys_finit_module+0x4e0/0x7a0
-[   12.758135]  do_syscall_64+0x54/0xf0
-[   12.759099]  ? irqentry_exit_to_user_mode+0x33/0x100
-[   12.760292]  entry_SYSCALL_64_after_hwframe+0x4b/0x53
-[   12.761508] RIP: 0033:0x7fc7af51f059
-[   12.762372] Code: 08 89 e8 5b 5d c3 66 2e 0f 1f 84 00 00 00 00 00 90 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 1d 0d 00 f7 d8 64 89 01 48
-[   12.772361] RSP: 002b:00007ffc1d0b0c18 EFLAGS: 00000246 ORIG_RAX: 0000000000000139
-[   12.774957] RAX: ffffffffffffffda RBX: 00005618a9439b20 RCX: 00007fc7af51f059
-[   12.776635] RDX: 0000000000000000 RSI: 000056187aea098b RDI: 0000000000000003
-[   12.778283] RBP: 0000000000000000 R08: 0000000000000060 R09: 00005618a943af60
-[   12.779949] R10: 0000000000000038 R11: 0000000000000246 R12: 000056187aea098b
-[   12.781619] R13: 0000000000040000 R14: 00005618a9439ac0 R15: 0000000000000000
-[   12.783319]  </TASK>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VGhlIHN5c3RlbWNmZyBwYWdlIHRocm91Z2ggcHJvY2ZzIGlzIG9ubHkgYSBiYWNrd2FyZHMtY29t
+cGF0aWJsZQppbnRlcmZhY2UgZm9yIHZlcnkgb2xkIGFwcGxpY2F0aW9ucy4KTWFrZSBpdCBwb3Nz
+aWJsZSB0byBiZSBkaXNhYmxlZC4KClRoaXMgYWxzbyBjcmVhdGVzIGEgY29udmVuaWVudCBjb25m
+aWcgI2RlZmluZSB0byBndWFyZCBhbnkgYWNjZXNzZXMgdG8KdGhlIHN5c3RlbWNmZyBwYWdlLgoK
+U2lnbmVkLW9mZi1ieTogVGhvbWFzIFdlacOfc2NodWggPHRob21hcy53ZWlzc3NjaHVoQGxpbnV0
+cm9uaXguZGU+Ci0tLQogYXJjaC9wb3dlcnBjL0tjb25maWcgICAgICAgICAgICAgICB8IDggKysr
+KysrKysKIGFyY2gvcG93ZXJwYy9rZXJuZWwvcHJvY19wb3dlcnBjLmMgfCA0ICsrLS0KIDIgZmls
+ZXMgY2hhbmdlZCwgMTAgaW5zZXJ0aW9ucygrKSwgMiBkZWxldGlvbnMoLSkKCmRpZmYgLS1naXQg
+YS9hcmNoL3Bvd2VycGMvS2NvbmZpZyBiL2FyY2gvcG93ZXJwYy9LY29uZmlnCmluZGV4IDgwOTRh
+MDE5NzRjY2ExZDI3MDAyNzIwZTcwNmY2NmJlYzJhMmQwMzUuLjVkMzQ4ZTFmMDlkNzMwMDAyZWVl
+OTg5NGEwYjI4NDdlMWRhYzE1ZDUgMTAwNjQ0Ci0tLSBhL2FyY2gvcG93ZXJwYy9LY29uZmlnCisr
+KyBiL2FyY2gvcG93ZXJwYy9LY29uZmlnCkBAIC0xMjk4LDYgKzEyOTgsMTQgQEAgY29uZmlnIE1P
+RFVMRVNfU0laRQogCiBlbmRtZW51CiAKK2NvbmZpZyBQUEM2NF9QUk9DX1NZU1RFTUNGRworCWRl
+Zl9ib29sIHkKKwlkZXBlbmRzIG9uIFBQQzY0ICYmIFBST0NfRlMKKwloZWxwCisJICBUaGlzIG9w
+dGlvbiBlbmFibGVzIHRoZSBwcmVzZW5jZSBvZiAvcHJvYy9wcGM2NC9zeXN0ZW1jZmcgdGhyb3Vn
+aAorCSAgd2hpY2ggdGhlIHN5c3RlbWNmZyBwYWdlIGNhbiBiZSBhY2Nlc3NlZC4KKwkgIFRoaXMg
+aW50ZXJmYWNlIG9ubHkgZXhpc3RzIGZvciBiYWNrd2FyZHMtY29tcGF0aWJpbGl0eS4KKwogaWYg
+UFBDNjQKICMgVGhpcyB2YWx1ZSBtdXN0IGhhdmUgemVyb2VzIGluIHRoZSBib3R0b20gNjAgYml0
+cyBvdGhlcndpc2UgbG90cyB3aWxsIGJyZWFrCiBjb25maWcgUEFHRV9PRkZTRVQKZGlmZiAtLWdp
+dCBhL2FyY2gvcG93ZXJwYy9rZXJuZWwvcHJvY19wb3dlcnBjLmMgYi9hcmNoL3Bvd2VycGMva2Vy
+bmVsL3Byb2NfcG93ZXJwYy5jCmluZGV4IDkxMGQyMDgyZTA1ZmQ4NmJkMTE0NjgxNWQ0YjY3NjMz
+YTZmMmI0NTkuLjNiZGEzNjU4NDNlNDQzNTc1Mzg2NTFjNmMyNGMxMWE0MWRlMmViMDYgMTAwNjQ0
+Ci0tLSBhL2FyY2gvcG93ZXJwYy9rZXJuZWwvcHJvY19wb3dlcnBjLmMKKysrIGIvYXJjaC9wb3dl
+cnBjL2tlcm5lbC9wcm9jX3Bvd2VycGMuYwpAQCAtMTQsNyArMTQsNyBAQAogI2luY2x1ZGUgPGFz
+bS9ydGFzLmg+CiAjaW5jbHVkZSA8bGludXgvdWFjY2Vzcy5oPgogCi0jaWZkZWYgQ09ORklHX1BQ
+QzY0CisjaWZkZWYgQ09ORklHX1BQQzY0X1BST0NfU1lTVEVNQ0ZHCiAKIHN0YXRpYyBsb2ZmX3Qg
+cGFnZV9tYXBfc2VlayhzdHJ1Y3QgZmlsZSAqZmlsZSwgbG9mZl90IG9mZiwgaW50IHdoZW5jZSkK
+IHsKQEAgLTU5LDcgKzU5LDcgQEAgc3RhdGljIGludCBfX2luaXQgcHJvY19wcGM2NF9pbml0KHZv
+aWQpCiB9CiBfX2luaXRjYWxsKHByb2NfcHBjNjRfaW5pdCk7CiAKLSNlbmRpZiAvKiBDT05GSUdf
+UFBDNjQgKi8KKyNlbmRpZiAvKiBDT05GSUdfUFBDNjRfUFJPQ19TWVNURU1DRkcgKi8KIAogLyoK
+ICAqIENyZWF0ZSB0aGUgcHBjNjQgYW5kIHBwYzY0L3J0YXMgZGlyZWN0b3JpZXMgZWFybHkuIFRo
+aXMgYWxsb3dzIHVzIHRvCgotLSAKMi40Ny4wCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
+QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
+aXN0aW5mby9saW51eC1yaXNjdgo=
