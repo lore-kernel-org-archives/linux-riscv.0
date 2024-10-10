@@ -4,70 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB971CEE323
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Oct 2024 15:27:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D594CF11FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Oct 2024 15:40:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=b4KDGF4TgjbHw+WB+IyWpy6cRrkJgoOsOVJPEIQlb70=; b=rHKExoDkb9xSwA
-	r2SgwH/HptAFYsr4EOv/I1sM4b61eie8VAYhHXuvntJ+UhVS6Qftv752FAtK2Wv7i607t8vlMkTTN
-	cJeeh5jYimBalgpGUL32GD2nnL1Gg493chWwPZ6po6DdDb8EB3JiYTWqm2gSjLKDkrqjngKamHqv0
-	pwHDIDYb31ayAd5JaNvffxk8oPiiScXfisft1ktMYLW1T0aSA/YrxAGOkR1QtqLLn7z3rP/Qqcg5B
-	0x1C024vkQpJ63UL8fG6/JZ0WGVtV1ndNAIomXc+I8uG0vUMQ9TG5tSmhYlB4LP8zWTAE7snwThZF
-	xo7nVGuKMJnUxBB5hntg==;
+	List-Owner; bh=I37Ts15gy1/ys+ZTehvckKt8bqAlxs0OhT7ixM8Ra5w=; b=MfPDLT6SS1vkVE
+	LyHymnip75kJQ+9Wvh9tkP6hKe1gC+Piq0BsdmLzzJVeMd+sGjf8D+cjYkmNR11s8hhk4E6+nFcTa
+	q28cEAmgJCHPqCg3DtyA8ocSaJzZBCP2oMu7dbdYFxxwEYMKaFhkYjCvliqTfBUs+OqFlQrt1H7Hg
+	HOzD7mMl3oArMiC09GblIqlyx9InVqnY2lRgHi+y64nTba6NTgsnBEKoZXf5+fNZPJ0M2Hms7EJ1E
+	pUZkLjTXdZdeoFt3LpIPcHBIyYO2nRylR8BFMCEhvHjdzreeSvZVW/KWqdb/SgheGDS4nJ2a6hnfI
+	Jjc1pcL10QYVU2Iyt1lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1syv4n-0000000DKS4-1Q65;
-	Thu, 10 Oct 2024 15:27:41 +0000
-Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
+	id 1syvHS-0000000DNFL-0bzn;
+	Thu, 10 Oct 2024 15:40:46 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1syulv-0000000DGDO-3Frd
-	for linux-riscv@lists.infradead.org;
-	Thu, 10 Oct 2024 15:08:13 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id DF13A1C0004;
-	Thu, 10 Oct 2024 15:08:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1728572888;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0YNBiAIMY5vY73m87Shuq7HuEaUnsKbDGfj0sIKXoEg=;
-	b=iTf8Wn0aGkGTEZdNtHdcMECbuLWCy9mXdN8rCdsruUa1+g4zBODdhyUXZoFRdvJDtvvt87
-	Nzh7HHBaWT8QXnm1/z49JFihNcJ9aQ/SCbpb0m93dkF68PnhvMnw0hQAOA2I0eQRYxm2Zb
-	r/qPGrk8ixKWlIEZ7JTC95k5hWLIOW6iGrU4zuKwbakrqWd70lo5bfK4sUooS/8F9mcXmS
-	wXoInCNNoehbvzwWOUf/yMVrVW+f0f0NxOCLWARhfkw89kNru5wURMmRmo13NxL+abQmvQ
-	SA+wlS6riQ2M/mK+ZaNn/sJqwafhRdY8dbYNV122Emz+smEnn9NYVO0qeu3Z5Q==
-From: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-Date: Thu, 10 Oct 2024 17:07:07 +0200
-Subject: [PATCH v5 2/2] riscv: dts: sophgo: Add LicheeRV Nano board device
- tree
-MIME-Version: 1.0
-Message-Id: <20241010-sg2002-v5-2-a0f2e582b932@bootlin.com>
-References: <20241010-sg2002-v5-0-a0f2e582b932@bootlin.com>
-In-Reply-To: <20241010-sg2002-v5-0-a0f2e582b932@bootlin.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@outlook.com>, 
- Chao Wei <chao.wei@sophgo.com>, Conor Dooley <conor@kernel.org>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Samuel Holland <samuel.holland@sifive.com>, 
- Thomas Gleixner <tglx@linutronix.de>, 
- Daniel Lezcano <daniel.lezcano@linaro.org>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- =?utf-8?q?Miqu=C3=A8l_Raynal?= <miquel.raynal@bootlin.com>, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org, 
- Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-X-Mailer: b4 0.14.2
-X-GND-Sasl: thomas.bonnefille@bootlin.com
+	id 1syuvj-0000000DICR-1PFc;
+	Thu, 10 Oct 2024 15:18:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5677CA44A1E;
+	Thu, 10 Oct 2024 15:18:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D004C4CEC5;
+	Thu, 10 Oct 2024 15:18:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1728573497;
+	bh=6dvKTY2cy/sodJ8sieN7BO/TIIO+P82VgqdOgk5UcTA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=JJJWVitmpvLvarMUPZUkuoB8gP29XOw0sXNcXNa5kByyDAx7zTpXCXE3HAPvwucIc
+	 nqKSjxxqVqe/grf/6yTnmqZ60aylmorsMhYnLl/p7veN8L+6Z6UpBle4GJuML4f7xb
+	 i4kReeFAE20WpHLaj8KfSAKT2u3eSPxMo5z1CNQJcQfr/ga40kbvqrkDBDHrIhHoXF
+	 Fx9jWKSkz74XO4oqeZAS85rWP/9HC/v2M1aUJUQw6PW1C+qyBOnY/aeVO+soSpZuga
+	 63WABLS/bqHPf7/DMKi/vZmUVhEJ5IYzs9ZH3gGYScj5D1kIistrSeFfZCohaujqqN
+	 f91Lx8662bKcA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1syuve-002Eqs-J7;
+	Thu, 10 Oct 2024 16:18:14 +0100
+Date: Thu, 10 Oct 2024 16:18:13 +0100
+Message-ID: <86msjc56mi.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Shuah Khan <shuah@kernel.org>,
+	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
+	Deepak Gupta <debug@rivosinc.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
+	Kees Cook <kees@kernel.org>,
+	"H.J. Lu" <hjl.tools@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Florian Weimer <fweimer@redhat.com>,
+	Christian Brauner <brauner@kernel.org>,
+	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
+	Ross Burton <ross.burton@arm.com>,
+	David Spickett <david.spickett@arm.com>,
+	Yury Khrustalev <yury.khrustalev@arm.com>,
+	Wilco Dijkstra <wilco.dijkstra@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-fsdevel@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v13 11/40] arm64/gcs: Provide basic EL2 setup to allow GCS usage at EL0 and EL1
+In-Reply-To: <20241009204903.GA3353168@thelio-3990X>
+References: <20241001-arm64-gcs-v13-0-222b78d87eee@kernel.org>
+	<20241001-arm64-gcs-v13-11-222b78d87eee@kernel.org>
+	<20241009204903.GA3353168@thelio-3990X>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: nathan@kernel.org, broonie@kernel.org, catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net, akpm@linux-foundation.org, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, arnd@arndb.de, oleg@redhat.com, ebiederm@xmission.com, shuah@kernel.org, rick.p.edgecombe@intel.com, debug@rivosinc.com, ardb@kernel.org, Szabolcs.Nagy@arm.com, kees@kernel.org, hjl.tools@gmail.com, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, fweimer@redhat.com, brauner@kernel.org, thiago.bauermann@linaro.org, ross.burton@arm.com, david.spickett@arm.com, yury.khrustalev@arm.com, wilco.dijkstra@arm.com, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org, linux-arch@vger.kernel.org, linux-mm@kvack.org, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241010_080812_160135_4EB018B9 
-X-CRM114-Status: GOOD (  11.97  )
+X-CRM114-CacheID: sfid-20241010_081819_533607_5B84B589 
+X-CRM114-Status: GOOD (  32.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,134 +120,189 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-LicheeRV Nano B [1] is an embedded development platform based on the SOPHGO
-SG2002 chip, the B(ase) version is deprived of Wifi/Bluetooth and Ethernet.
+On Wed, 09 Oct 2024 21:49:03 +0100,
+Nathan Chancellor <nathan@kernel.org> wrote:
+> 
+> Hi Mark,
+> 
+> On Tue, Oct 01, 2024 at 11:58:50PM +0100, Mark Brown wrote:
+> > There is a control HCRX_EL2.GCSEn which must be set to allow GCS
+> > features to take effect at lower ELs and also fine grained traps for GCS
+> > usage at EL0 and EL1.  Configure all these to allow GCS usage by EL0 and
+> > EL1.
+> > 
+> > We also initialise GCSCR_EL1 and GCSCRE0_EL1 to ensure that we can
+> > execute function call instructions without faulting regardless of the
+> > state when the kernel is started.
+> > 
+> > Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
+> > Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+> > Signed-off-by: Mark Brown <broonie@kernel.org>
+> 
+> I just bisected a build failure from a failed linker script assertion
+> that I see with allmodconfig to this change in -next as commit
+> ff5181d8a2a8 ("arm64/gcs: Provide basic EL2 setup to allow GCS usage at
+> EL0 and EL1"):
+> 
+>   $ make -skj"$(nproc)" ARCH=arm64 CROSS_COMPILE=aarch64-linux- mrproper allmodconfig vmlinux
+>   aarch64-linux-ld: HYP init code too big
+>   make[4]: *** [scripts/Makefile.vmlinux:34: vmlinux] Error 1
+>   ...
+> 
+> I see this with both GCC 14 and clang 19, in case toolchain version
+> matters. Bisect log included as well.
 
-Add only support for UART and SDHCI.
+Grmbl... 16 bytes too big. The hack below buys us about ~600 bytes by
+removing some duplication, but we're losing half of the space to the
+vectors.
 
-Link: https://wiki.sipeed.com/hardware/en/lichee/RV_Nano/1_intro.html [1]
+Anyway, this is very lightly tested and it may eat your box.
 
-Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+Thanks,
+
+	M.
+
+From 20c98d2647c11db1e40768f92c5998ff5d764a3a Mon Sep 17 00:00:00 2001
+From: Marc Zyngier <maz@kernel.org>
+Date: Thu, 10 Oct 2024 16:13:26 +0100
+Subject: [PATCH] KVM: arm64: Shave a few bytes from the EL2 idmap code
+
+Our idmap is becoming too big, to the point where it doesn't fit in
+a 4kB page anymore.
+
+There are some low-hanging fruits though, such as the el2_init_state
+horror that is expanded 3 times in the kernel. Let's at least limit
+ourselves to two copies, which makes the kernel link again.
+
+At some point, we'll have to have a better way of doing this.
+
+Reported-by: Nathan Chancellor <nathan@kernel.org>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Link: https://lore.kernel.org/r/20241009204903.GA3353168@thelio-3990X
 ---
- arch/riscv/boot/dts/sophgo/Makefile                |  1 +
- .../boot/dts/sophgo/sg2002-licheerv-nano-b.dts     | 95 ++++++++++++++++++++++
- 2 files changed, 96 insertions(+)
+ arch/arm64/include/asm/kvm_asm.h   |  1 +
+ arch/arm64/kernel/asm-offsets.c    |  1 +
+ arch/arm64/kvm/hyp/nvhe/hyp-init.S | 52 +++++++++++++++++-------------
+ 3 files changed, 31 insertions(+), 23 deletions(-)
 
-diff --git a/arch/riscv/boot/dts/sophgo/Makefile b/arch/riscv/boot/dts/sophgo/Makefile
-index 57ad82a61ea6fc25f72d0ade991e33feaa53266e..47d4243a8f35a7d5572dbf5ef9899297b908afde 100644
---- a/arch/riscv/boot/dts/sophgo/Makefile
-+++ b/arch/riscv/boot/dts/sophgo/Makefile
-@@ -1,4 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0
- dtb-$(CONFIG_ARCH_SOPHGO) += cv1800b-milkv-duo.dtb
- dtb-$(CONFIG_ARCH_SOPHGO) += cv1812h-huashan-pi.dtb
-+dtb-$(CONFIG_ARCH_SOPHGO) += sg2002-licheerv-nano-b.dtb
- dtb-$(CONFIG_ARCH_SOPHGO) += sg2042-milkv-pioneer.dtb
-diff --git a/arch/riscv/boot/dts/sophgo/sg2002-licheerv-nano-b.dts b/arch/riscv/boot/dts/sophgo/sg2002-licheerv-nano-b.dts
-new file mode 100644
-index 0000000000000000000000000000000000000000..86a712b953a5acd5926120db61354243f5580a05
---- /dev/null
-+++ b/arch/riscv/boot/dts/sophgo/sg2002-licheerv-nano-b.dts
-@@ -0,0 +1,95 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Copyright (C) 2024 Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-+ */
+diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+index b36a3b6cc0116..67afac659231e 100644
+--- a/arch/arm64/include/asm/kvm_asm.h
++++ b/arch/arm64/include/asm/kvm_asm.h
+@@ -178,6 +178,7 @@ struct kvm_nvhe_init_params {
+ 	unsigned long hcr_el2;
+ 	unsigned long vttbr;
+ 	unsigned long vtcr;
++	unsigned long tmp;
+ };
+ 
+ /*
+diff --git a/arch/arm64/kernel/asm-offsets.c b/arch/arm64/kernel/asm-offsets.c
+index 27de1dddb0abe..b21dd24b8efc3 100644
+--- a/arch/arm64/kernel/asm-offsets.c
++++ b/arch/arm64/kernel/asm-offsets.c
+@@ -146,6 +146,7 @@ int main(void)
+   DEFINE(NVHE_INIT_HCR_EL2,	offsetof(struct kvm_nvhe_init_params, hcr_el2));
+   DEFINE(NVHE_INIT_VTTBR,	offsetof(struct kvm_nvhe_init_params, vttbr));
+   DEFINE(NVHE_INIT_VTCR,	offsetof(struct kvm_nvhe_init_params, vtcr));
++  DEFINE(NVHE_INIT_TMP,		offsetof(struct kvm_nvhe_init_params, tmp));
+ #endif
+ #ifdef CONFIG_CPU_PM
+   DEFINE(CPU_CTX_SP,		offsetof(struct cpu_suspend_ctx, sp));
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-init.S b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
+index 401af1835be6b..fc18662260676 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-init.S
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
+@@ -24,28 +24,25 @@
+ 	.align	11
+ 
+ SYM_CODE_START(__kvm_hyp_init)
+-	ventry	__invalid		// Synchronous EL2t
+-	ventry	__invalid		// IRQ EL2t
+-	ventry	__invalid		// FIQ EL2t
+-	ventry	__invalid		// Error EL2t
++	ventry	.			// Synchronous EL2t
++	ventry	.			// IRQ EL2t
++	ventry	.			// FIQ EL2t
++	ventry	.			// Error EL2t
+ 
+-	ventry	__invalid		// Synchronous EL2h
+-	ventry	__invalid		// IRQ EL2h
+-	ventry	__invalid		// FIQ EL2h
+-	ventry	__invalid		// Error EL2h
++	ventry	.			// Synchronous EL2h
++	ventry	.			// IRQ EL2h
++	ventry	.			// FIQ EL2h
++	ventry	.			// Error EL2h
+ 
+ 	ventry	__do_hyp_init		// Synchronous 64-bit EL1
+-	ventry	__invalid		// IRQ 64-bit EL1
+-	ventry	__invalid		// FIQ 64-bit EL1
+-	ventry	__invalid		// Error 64-bit EL1
++	ventry	.			// IRQ 64-bit EL1
++	ventry	.			// FIQ 64-bit EL1
++	ventry	.			// Error 64-bit EL1
+ 
+-	ventry	__invalid		// Synchronous 32-bit EL1
+-	ventry	__invalid		// IRQ 32-bit EL1
+-	ventry	__invalid		// FIQ 32-bit EL1
+-	ventry	__invalid		// Error 32-bit EL1
+-
+-__invalid:
+-	b	.
++	ventry	.			// Synchronous 32-bit EL1
++	ventry	.			// IRQ 32-bit EL1
++	ventry	.			// FIQ 32-bit EL1
++	ventry	.			// Error 32-bit EL1
+ 
+ 	/*
+ 	 * Only uses x0..x3 so as to not clobber callee-saved SMCCC registers.
+@@ -76,6 +73,13 @@ __do_hyp_init:
+ 	eret
+ SYM_CODE_END(__kvm_hyp_init)
+ 
++SYM_CODE_START_LOCAL(__kvm_init_el2_state)
++	/* Initialize EL2 CPU state to sane values. */
++	init_el2_state				// Clobbers x0..x2
++	finalise_el2_state
++	ret
++SYM_CODE_END(__kvm_init_el2_state)
 +
-+/dts-v1/;
+ /*
+  * Initialize the hypervisor in EL2.
+  *
+@@ -102,9 +106,12 @@ SYM_CODE_START_LOCAL(___kvm_hyp_init)
+ 	// TPIDR_EL2 is used to preserve x0 across the macro maze...
+ 	isb
+ 	msr	tpidr_el2, x0
+-	init_el2_state
+-	finalise_el2_state
++	str	lr, [x0, #NVHE_INIT_TMP]
 +
-+#include "sg2002.dtsi"
++	bl	__kvm_init_el2_state
 +
-+/ {
-+	model = "LicheeRV Nano B";
-+	compatible = "sipeed,licheerv-nano-b", "sipeed,licheerv-nano", "sophgo,sg2002";
+ 	mrs	x0, tpidr_el2
++	ldr	lr, [x0, #NVHE_INIT_TMP]
+ 
+ 1:
+ 	ldr	x1, [x0, #NVHE_INIT_TPIDR_EL2]
+@@ -199,9 +206,8 @@ SYM_CODE_START_LOCAL(__kvm_hyp_init_cpu)
+ 
+ 2:	msr	SPsel, #1			// We want to use SP_EL{1,2}
+ 
+-	/* Initialize EL2 CPU state to sane values. */
+-	init_el2_state				// Clobbers x0..x2
+-	finalise_el2_state
++	bl	__kvm_init_el2_state
 +
-+	aliases {
-+		gpio0 = &gpio0;
-+		gpio1 = &gpio1;
-+		gpio2 = &gpio2;
-+		gpio3 = &gpio3;
-+		serial0 = &uart0;
-+		serial1 = &uart1;
-+		serial2 = &uart2;
-+		serial3 = &uart3;
-+		serial4 = &uart4;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+};
-+
-+&osc {
-+	clock-frequency = <25000000>;
-+};
-+
-+&pinctrl {
-+	uart0_cfg: uart0-cfg {
-+		uart0-pins {
-+			pinmux = <PINMUX(PIN_UART0_TX, 0)>,
-+				 <PINMUX(PIN_UART0_RX, 0)>;
-+			bias-pull-up;
-+			drive-strength-microamp = <10800>;
-+			power-source = <3300>;
-+		};
-+	};
-+
-+	sdhci0_cfg: sdhci0-cfg {
-+		sdhci0-clk-pins {
-+			pinmux = <PINMUX(PIN_SD0_CLK, 0)>;
-+			bias-pull-up;
-+			drive-strength-microamp = <16100>;
-+			power-source = <3300>;
-+		};
-+
-+		sdhci0-cmd-pins {
-+			pinmux = <PINMUX(PIN_SD0_CMD, 0)>;
-+			bias-pull-up;
-+			drive-strength-microamp = <10800>;
-+			power-source = <3300>;
-+		};
-+
-+		sdhci0-data-pins {
-+			pinmux = <PINMUX(PIN_SD0_D0, 0)>,
-+				 <PINMUX(PIN_SD0_D1, 0)>,
-+				 <PINMUX(PIN_SD0_D2, 0)>,
-+				 <PINMUX(PIN_SD0_D3, 0)>;
-+			bias-pull-up;
-+			drive-strength-microamp = <10800>;
-+			power-source = <3300>;
-+		};
-+
-+		sdhci0-cd-pins {
-+			pinmux = <PINMUX(PIN_SD0_CD, 0)>;
-+			bias-pull-up;
-+			drive-strength-microamp = <10800>;
-+			power-source = <3300>;
-+		};
-+	};
-+};
-+
-+&sdhci0 {
-+	pinctrl-0 = <&sdhci0_cfg>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+	bus-width = <4>;
-+	no-1-8-v;
-+	no-mmc;
-+	no-sdio;
-+	disable-wp;
-+};
-+
-+&uart0 {
-+	pinctrl-0 = <&uart0_cfg>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
+ 	__init_el2_nvhe_prepare_eret
+ 
+ 	/* Enable MMU, set vectors and stack. */
+-- 
+2.39.2
 
 -- 
-2.47.0
-
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
