@@ -4,108 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51736D0D785
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Oct 2024 12:56:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53FCFD0D791
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Oct 2024 13:42:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ojP9/PpQyxlHXwhP+Ff1DRLkTPP/tiegSSPQwgOzrq0=; b=HIAlA2k1Idb5to
-	qTTM3gUCux79DpCXXMTDKnQKFixp8HSHqgsfguM7mNDKOZ1ntWaAqRwoKatDNXSTKsh7YWZltkghD
-	GygPRPipxU0kf4P/AIpLs2zV9XmdLnAlbk3fAbgo2NQBJmU99qGYYJtmiGPa1sneT5vceNrJzUpg6
-	laQ24BjzeN2PDiAVjNbi8m6eXh3nfnUkBv7GQO3Kl8156MqVAIfrOjt2ar3S5Lakq+og6v7C9GddL
-	J/I6qdKcB4RDl4bKynJtHiHhL02z5TyGeQYwjoUYVpd9BGdpzaVH+wPcJR9+AesCcpDCvHYtBVkIQ
-	JZ+TGL3Z57/vP7ERct4g==;
+	List-Owner; bh=QGdezAr7TBk58atJawIQrq5BDLohRjNW4qHM9JZlAyQ=; b=sB0Fx/HPwtB5/j
+	6S6m0CYBlWcGTlCc29kZOmzbEEglFAqgDrAceEyI23TInts7wPsP+hT0UxRehHTlaVx7b+FuXDUg6
+	7HGXhlQkjlauieT+DdDinAaNmi1Upm8YJ/jw6TIdcLZyfvwwca5Zrbx2EyCirtWPV7aklfoit9u9h
+	WWcr04ajre9VG6nmaZCJ4+glJxD+9Bmjn6Fp/9fY6Yght+uJcuJgK3gxLv74BH2yGmVuaxrxSNE7G
+	VLedp31Fr9OzLabOcl/M5Daob24T52rs11S81T/xQj3ts+bH043qB6y8QhZK5RvClsVkso4xkZjT8
+	9lZYK8JySMP3xAnHwbmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1szFCK-0000000GMqw-2aF4;
-	Fri, 11 Oct 2024 12:56:48 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1szFuK-0000000GU4v-3WTN;
+	Fri, 11 Oct 2024 13:42:16 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1szFAm-0000000GMal-0xO5;
-	Fri, 11 Oct 2024 12:55:13 +0000
+	id 1szFfh-0000000GRmv-3by4;
+	Fri, 11 Oct 2024 13:27:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 630FD5C5D11;
-	Fri, 11 Oct 2024 12:55:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 253F4C4CEC3;
-	Fri, 11 Oct 2024 12:55:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1728651310;
-	bh=XT4qnBUKa3a1vSK5tJQUDSalL8lZA3BStEeYDOxhiyE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=bxKmURlSi26SJe+QK4PGRX/Ogihvq7QIVMr0xUkNhvMtAINqZYYntZBEmNvBhXPzx
-	 xaQCgdyiANh8t3XzU1lUElo5+68IFooOi7w967UeZ4uBwr6loXlVb5zk3DL1pKqXt6
-	 HBAY4AsSFxH7PoAyDc6zDcqNdJdwwUxb24R7cB1INpTJWpCOEqUw6OP69pfvqNeZbC
-	 Vp88tRv635qLdAkY5kchac2l6VKVhUPnICZg2BkQ2S5Mw0CUWfwf+IM4MLzHLqZKMT
-	 pfBsODaZQhvykSctTNHB5AQS0tLN6OjiebakwN3EDPLMXixs4xCDyUOUGpJp+oxxoE
-	 dWSEZjuQ+PXGA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1szFAg-002Y12-L7;
-	Fri, 11 Oct 2024 13:55:06 +0100
-Date: Fri, 11 Oct 2024 13:55:05 +0100
-Message-ID: <86h69i6bpy.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
+	by nyc.source.kernel.org (Postfix) with ESMTP id EBDC7A444B4;
+	Fri, 11 Oct 2024 13:26:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1D23C4CEC7;
+	Fri, 11 Oct 2024 13:27:04 +0000 (UTC)
+Date: Fri, 11 Oct 2024 09:27:14 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
 To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Nathan Chancellor <nathan@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Shuah Khan <shuah@kernel.org>,
-	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Deepak Gupta <debug@rivosinc.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
-	Kees Cook <kees@kernel.org>,
-	"H.J. Lu" <hjl.tools@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Florian Weimer <fweimer@redhat.com>,
-	Christian Brauner <brauner@kernel.org>,
-	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
-	Ross Burton <ross.burton@arm.com>,
-	David Spickett <david.spickett@arm.com>,
-	Yury Khrustalev <yury.khrustalev@arm.com>,
-	Wilco Dijkstra <wilco.dijkstra@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v13 11/40] arm64/gcs: Provide basic EL2 setup to allow GCS usage at EL0 and EL1
-In-Reply-To: <ZwgMBAhR5-5R5EYC@arm.com>
-References: <20241001-arm64-gcs-v13-0-222b78d87eee@kernel.org>
-	<20241001-arm64-gcs-v13-11-222b78d87eee@kernel.org>
-	<20241009204903.GA3353168@thelio-3990X>
-	<86msjc56mi.wl-maz@kernel.org>
-	<ZwgMBAhR5-5R5EYC@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: catalin.marinas@arm.com, nathan@kernel.org, broonie@kernel.org, will@kernel.org, corbet@lwn.net, akpm@linux-foundation.org, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, arnd@arndb.de, oleg@redhat.com, ebiederm@xmission.com, shuah@kernel.org, rick.p.edgecombe@intel.com, debug@rivosinc.com, ardb@kernel.org, Szabolcs.Nagy@arm.com, kees@kernel.org, hjl.tools@gmail.com, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, fweimer@redhat.com, brauner@kernel.org, thiago.bauermann@linaro.org, ross.burton@arm.com, david.spickett@arm.com, yury.khrustalev@arm.com, wilco.dijkstra@arm.com, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org, linux-arch@vger.kernel.org, linux-mm@kvack.org, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Cc: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, "linux-arch@vger.kernel.org"
+ <linux-arch@vger.kernel.org>, "x86@kernel.org" <x86@kernel.org>, Masami
+ Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, Mark Rutland <mark.rutland@arm.com>, Will
+ Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui
+ <kernel@xen0n.name>, Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin
+ <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, Naveen
+ N Rao <naveen@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Heiko Carstens <hca@linux.ibm.com>,
+ Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev
+ <agordeev@linux.ibm.com>, Christian Borntraeger
+ <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, Thomas
+ Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@kernel.org>, Borislav
+ Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>
+Subject: Re: [PATCH v3] ftrace: Consolidate ftrace_regs accessor functions
+ for archs using pt_regs
+Message-ID: <20241011092714.71074a2b@gandalf.local.home>
+In-Reply-To: <Zwj9QocrEVtgraHp@arm.com>
+References: <20241010202114.2289f6fd@gandalf.local.home>
+	<Zwj9QocrEVtgraHp@arm.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241011_055512_382467_C3C97600 
-X-CRM114-Status: GOOD (  25.17  )
+X-CRM114-CacheID: sfid-20241011_062710_016210_8977AD8B 
+X-CRM114-Status: GOOD (  13.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,40 +79,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 10 Oct 2024 18:16:52 +0100,
+On Fri, 11 Oct 2024 11:26:10 +0100
 Catalin Marinas <catalin.marinas@arm.com> wrote:
+
+> On Thu, Oct 10, 2024 at 08:21:14PM -0400, Steven Rostedt wrote:
+> > diff --git a/arch/arm64/include/asm/ftrace.h b/arch/arm64/include/asm/ftrace.h
+> > index bbb69c7751b9..5ccff4de7f09 100644
+> > --- a/arch/arm64/include/asm/ftrace.h
+> > +++ b/arch/arm64/include/asm/ftrace.h
+> > @@ -54,6 +54,7 @@ extern void return_to_handler(void);
+> >  unsigned long ftrace_call_adjust(unsigned long addr);
+> >  
+> >  #ifdef CONFIG_DYNAMIC_FTRACE_WITH_ARGS
+> > +#define HAVE_ARCH_FTRACE_REGS
+> >  struct dyn_ftrace;
+> >  struct ftrace_ops;
+> >  struct ftrace_regs;  
 > 
-> On Thu, Oct 10, 2024 at 04:18:13PM +0100, Marc Zyngier wrote:
-> > From 20c98d2647c11db1e40768f92c5998ff5d764a3a Mon Sep 17 00:00:00 2001
-> > From: Marc Zyngier <maz@kernel.org>
-> > Date: Thu, 10 Oct 2024 16:13:26 +0100
-> > Subject: [PATCH] KVM: arm64: Shave a few bytes from the EL2 idmap code
-> > 
-> > Our idmap is becoming too big, to the point where it doesn't fit in
-> > a 4kB page anymore.
-> > 
-> > There are some low-hanging fruits though, such as the el2_init_state
-> > horror that is expanded 3 times in the kernel. Let's at least limit
-> > ourselves to two copies, which makes the kernel link again.
-> > 
-> > At some point, we'll have to have a better way of doing this.
-> > 
-> > Reported-by: Nathan Chancellor <nathan@kernel.org>
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> > Link: https://lore.kernel.org/r/20241009204903.GA3353168@thelio-3990X
+> In case you need an ack for the arm64 change
 > 
-> Thanks Marc for the quick fix. It looks fine to me, it will keep the
-> linker quiet for a while. I pushed it to arm64 for-kernelci for the time
-> being, see if anything falls apart. I'll apply it properly once it gets
-> a bit more testing.
+> Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 
-Works for me. Bu if that helps, I can also queue it as a KVM fix for
-6.12, leaving the GCS branch unencumbered. Just let me know.
+Thanks, appreciate it.
 
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+-- Steve
 
 _______________________________________________
 linux-riscv mailing list
