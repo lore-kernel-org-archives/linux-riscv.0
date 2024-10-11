@@ -4,168 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2898D0D78C
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Oct 2024 12:25:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51736D0D785
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Oct 2024 12:56:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tl40LlYKlwM8L8UFsE8Q+/s/ZYn6/M7GIoTDmV0zzPI=; b=uB25FJdBNnd8zp
-	eUKIPm3Zj0pc/2z+cOK9ESoGQeIJDZK+pxuLXqRkpDWhZwSIIE6qU5LDe3xOQqVhcKSJLXbZqWpB3
-	MCpcN2go1rZivFjLGRwU+R5AIsluRwcH9grXrBvifHhfwXXOXTb0Sz5klhFTK1maEwssg7asvNuRD
-	TuwChRmnpgSxCKy5x/OysRcLH0l9dHQZm0T8/gy1/urIRifyHt6pAbvJVEE2U9S8Z8toGuV8kbz0o
-	z0xxWZczgf7CShzYPQRTS8OgZ49kezGzCtjGSHzy2cOgz4H/t+T1jh8CXe0X93MefSLKGvTVSQv6v
-	60Sg7q4S5IXQxbnsnGqw==;
+	List-Owner; bh=ojP9/PpQyxlHXwhP+Ff1DRLkTPP/tiegSSPQwgOzrq0=; b=HIAlA2k1Idb5to
+	qTTM3gUCux79DpCXXMTDKnQKFixp8HSHqgsfguM7mNDKOZ1ntWaAqRwoKatDNXSTKsh7YWZltkghD
+	GygPRPipxU0kf4P/AIpLs2zV9XmdLnAlbk3fAbgo2NQBJmU99qGYYJtmiGPa1sneT5vceNrJzUpg6
+	laQ24BjzeN2PDiAVjNbi8m6eXh3nfnUkBv7GQO3Kl8156MqVAIfrOjt2ar3S5Lakq+og6v7C9GddL
+	J/I6qdKcB4RDl4bKynJtHiHhL02z5TyGeQYwjoUYVpd9BGdpzaVH+wPcJR9+AesCcpDCvHYtBVkIQ
+	JZ+TGL3Z57/vP7ERct4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1szEhb-0000000GHrO-1ZTW;
-	Fri, 11 Oct 2024 12:25:03 +0000
-Received: from mail-cwxgbr01on20730.outbound.protection.outlook.com ([2a01:111:f403:261b::730] helo=GBR01-CWX-obe.outbound.protection.outlook.com)
+	id 1szFCK-0000000GMqw-2aF4;
+	Fri, 11 Oct 2024 12:56:48 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1szEWN-0000000GFYH-15wx;
-	Fri, 11 Oct 2024 12:13:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=EzYC0uPxcOlWNviNH7x9xIWyTraI2XgloWvh3c8Gloom7etjsN03lV9zIGh2EEkEUK+2RhbOpIuV6wp5dPEakLpsdwjYNUHei6uzP1XGrqGwnQH5O9ARdjDVrD06XrsXIRQkdz4GEV/J+0OYl/UeRrIp7HvyfYcgyRWdC0NFPzV/cb1glPxUMY85xjgsMJytXY1pQnXl84xHRRVBSNKoy3rPvJP53BkQvo1ssLxQOzKYnmJheHBIXffl4E+2eeNawCXKxOuHLeJ8pfqPXwJAObHWGTsc9myPjbvtd3qEGjdRVuac/Mx712Xu/XgbXdGvoR76ggyz7OdsgCGp46FdEQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4DDq+WoksRSvViNEEuG0Aq4sek7ulKuTsXTctEeA4ds=;
- b=VutUZ6OC5TPcAq8vwuXBg5hrdHkShEU3+f9MiLLTy/6eyGuWZaepJleJYhUJs/kNTaIZ+q9pggxyPlzhhn88R7AjKLpPeSF1PAnWP98zRZyBexJkPnq3ENFIXXMS6x/VswKLyJn7P/HXLgmZ1HqLwdaRtcRXKuFUMuPMe1y3TAGuEfBujG9p40k+pB+7bQkRBszF4DdQjMzs6iIn3jBNt+l147/4FEBMnIyLsdTOmazM2hWHzOTsgiUHHvJYl+P5wGdT1eJXvU1sxIdvpx9Qz484kMVxx0L7sq0HXJBtIiXaQJ4gNdBDLZ05pl3VBsmSjZ5gCVjnDp9IQHV4SvDzcw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
- dkim=pass header.d=garyguo.net; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4DDq+WoksRSvViNEEuG0Aq4sek7ulKuTsXTctEeA4ds=;
- b=qnVAhyz17o0GN+MJ/M1UCcjojgVCA4OuJOWs2C2BT4AfboW+qLLo+nYrjRF4UdsVJeJ2lC7UZs0vSgx9iq9aZGkGoO7H3Jbcnt/R8W0bPcVo6jw8CfnO+Dqb+arbp2xrBfWHjqLq8z6AVTy8KuR+wpUMTta/q6o7uKpgPnmVUyc=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=garyguo.net;
-Received: from LO2P265MB5183.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:253::10)
- by LO2P265MB7220.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:31d::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8048.18; Fri, 11 Oct
- 2024 12:13:20 +0000
-Received: from LO2P265MB5183.GBRP265.PROD.OUTLOOK.COM
- ([fe80::1818:a2bf:38a7:a1e7]) by LO2P265MB5183.GBRP265.PROD.OUTLOOK.COM
- ([fe80::1818:a2bf:38a7:a1e7%3]) with mapi id 15.20.8048.013; Fri, 11 Oct 2024
- 12:13:20 +0000
-Date: Fri, 11 Oct 2024 13:13:16 +0100
-From: Gary Guo <gary@garyguo.net>
-To: Alice Ryhl <aliceryhl@google.com>
-Cc: Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu
- <mhiramat@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Peter Zijlstra <peterz@infradead.org>, Josh Poimboeuf
- <jpoimboe@kernel.org>, Jason Baron <jbaron@akamai.com>, Ard Biesheuvel
- <ardb@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor
- <alex.gaynor@gmail.com>, Wedson Almeida Filho <wedsonaf@gmail.com>, Boqun
- Feng <boqun.feng@gmail.com>, "=?UTF-8?B?QmrDtnJu?= Roy Baron"
- <bjorn3_gh@protonmail.com>, Benno Lossin <benno.lossin@proton.me>, Andreas
- Hindborg <a.hindborg@kernel.org>, linux-trace-kernel@vger.kernel.org,
- rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org, Arnd Bergmann
- <arnd@arndb.de>, linux-arch@vger.kernel.org, Thomas Gleixner
- <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
- <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, Sean Christopherson <seanjc@google.com>,
- Uros Bizjak <ubizjak@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton
- <oliver.upton@linux.dev>, Mark Rutland <mark.rutland@arm.com>, Ryan Roberts
- <ryan.roberts@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-arm-kernel@lists.infradead.org, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Anup Patel <apatel@ventanamicro.com>, Andrew Jones
- <ajones@ventanamicro.com>, Alexandre Ghiti <alexghiti@rivosinc.com>, Conor
- Dooley <conor.dooley@microchip.com>, Samuel Holland
- <samuel.holland@sifive.com>, linux-riscv@lists.infradead.org, Huacai Chen
- <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, Bibo Mao
- <maobibo@loongson.cn>, Tiezhu Yang <yangtiezhu@loongson.cn>, Andrew Morton
- <akpm@linux-foundation.org>, Tianrui Zhao <zhaotianrui@loongson.cn>,
- loongarch@lists.linux.dev
-Subject: Re: [PATCH v10 1/5] rust: add static_branch_unlikely for
- static_key_false
-Message-ID: <20241011131316.5d6e5d10@eugeo>
-In-Reply-To: <20241011-tracepoint-v10-1-7fbde4d6b525@google.com>
-References: <20241011-tracepoint-v10-0-7fbde4d6b525@google.com>
-	<20241011-tracepoint-v10-1-7fbde4d6b525@google.com>
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.43; x86_64-pc-linux-gnu)
-X-ClientProxiedBy: LO4P265CA0147.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:2c4::20) To LO2P265MB5183.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:253::10)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LO2P265MB5183:EE_|LO2P265MB7220:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3c607e1f-375d-4803-d0ab-08dce9ee1888
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|10070799003;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?4KmlhvFrBP+lj8H48hDcT2TITHOKv8hRseuNwNm2hRXEveDdPzHhzxsH2CdF?=
- =?us-ascii?Q?xH7zrifqryJ9IqKjf0UNUBzsF+ibsOd4j5Keo82JkRxlgNi3e2NvBquWSVTP?=
- =?us-ascii?Q?tQALpF1hKYLEZjavxJSzYA032BgL3zmD43CPLR4DSZkMS3IAgiTyodg/tn8m?=
- =?us-ascii?Q?fM+q0FOjm7A+lMVIN3VvoLwKs6Fc8sWEWWgJ0dM2A0eAsakxEzCeePzlKlgl?=
- =?us-ascii?Q?d3sVpUHlW4EDz55yI449jRmRhH5wX0falpS3DpBbd9bZs/HJnCa8x8emzP11?=
- =?us-ascii?Q?+cycVBccsxr+9FwXYSLaf4NKsedQWxuLyj+bAW0tsfK8dbgFzjirTmQSzWdW?=
- =?us-ascii?Q?ygLrzc+aa3+VsHxA0N13glIqqIN1LJA/Dlz/Je+hQGxJo1BJpE3H5mo1AfiM?=
- =?us-ascii?Q?dyIQpyQ6UNQDx7d6lZxZBUnMF0nAQ04oDXjC9a8cdKF+sI5OCLfk5NR/6XWh?=
- =?us-ascii?Q?VfWongQ5iCTE5NdPPFwgv1aPy0GhXkfn7q+vFMSmOSJcrH1dxh4e+KbBn7pl?=
- =?us-ascii?Q?REzGg76+0QfTph3oLvi8rl13sWaxU4FjNddkpRVQA04LIEIe4WSebw55frSq?=
- =?us-ascii?Q?mbsTQeeGUtksyW3wpVeywtPgZLMmbiGPJShwMHW397/hmY3cFLFFeEQ8XN5k?=
- =?us-ascii?Q?2kT5D9EEL81r+G+V4rmE9D1PjrN7Dp42bKzlUNgYqC08T7EwVRGiyer+upCc?=
- =?us-ascii?Q?Hk+/GXTNo3QUapo9NwUnfpzy8PaJV9lD6ojlZDr8pqqPM4vGl+dE370scUJ9?=
- =?us-ascii?Q?DdOMlhpYGxJUQ8IEjV51BiqRF3ARV/HeqLjLYdfBAeG4hcTeS73iKI+ZzLg/?=
- =?us-ascii?Q?UY7gi+MCEDOmBNbhgZcfVWBdJ3PysMaByyp/5LwjwaP+vV3HG5m2uo3ASejI?=
- =?us-ascii?Q?xbcX3FmP0DXQWLrqifgnBxkQJYfTTCTaYWffZjtsFBcKqG0K2jDEJzn7ngwM?=
- =?us-ascii?Q?/MOV34smDdl0EzB5qRwZLNsJa5NdvqkRW+k99kSG5YxB8ftTxtWYPos/x2ek?=
- =?us-ascii?Q?y96P4tMHlayNO0A66jjZdarsadl2x5b3NozAatiFIf8+UY0a7Hldc4/jEq2Y?=
- =?us-ascii?Q?qoxdD/MVNMkmkiYQ2X05LEjudjwSNr07HhCtVEMZ16QTQkI1rD5r7PM0QnzP?=
- =?us-ascii?Q?McWNeHVDLgJVn9uFLL0/SEuN7jMOwtpYRwXtKtQvNSe1Bo8QdpCekV+pE3Rs?=
- =?us-ascii?Q?uWux4h3sl5mv74lgc57XTFm9215zYI8hYyTJ8eV+hfTOcsX2eJtyvSucAGO2?=
- =?us-ascii?Q?H+En+ONv1J256CFLG9VYOcON2ussfTN8w4vYC4qREA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LO2P265MB5183.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(10070799003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?j91FfNDrTiFiRpiVXy2lWKofa/oTZHu3IkvBmMmuHU5lNac290UkOWCR9AOV?=
- =?us-ascii?Q?xrhmR/W+WdEk+qVYsn8wD9xVkFbIIqHMoA7KYUvmwTJyYoNCkbolMppekQzl?=
- =?us-ascii?Q?HqyirYc8oKHEDe1zngxKVxObEHtOpsZssXpkxJu/WJx/a3jNHYz+lYAlVgfH?=
- =?us-ascii?Q?HaCW14OA4XXZQqlRy75UoILqmlbRIUASOdLPOgKsigD1W3Rrd9Gtg6WUZjT7?=
- =?us-ascii?Q?ZO5dPNg4rh0GovoWlkFe6jR7ACcqqGo4/P0ipWopjoFgz7IxrKUC1gLOASM4?=
- =?us-ascii?Q?GVhiu3aM9ygQ31kb/yNyoi+cHskFYRMVQI8cCHRLyE40cFpn9B+wBBO4C3Ng?=
- =?us-ascii?Q?/ZphUT9IPL81W7TTFSOEA1LLdlYjqfsiTsaBl3PB0PTakC8IbE8NdVP7l9TY?=
- =?us-ascii?Q?YHH7EfvuWpSkv9PyH7QtfGH+6E1orcA5bOGmZ1PuVLBmTGSobpF0seI6rbQm?=
- =?us-ascii?Q?L5PKHejWEn9UxYGK/g9dLuf8j0E1ZdZjuGrXX2PMbiONub5rzreTZ+MJWC/F?=
- =?us-ascii?Q?kn7netWg2aF1DoXTNPiCksOim9N8bLJVUJZOd3jUHVGf7FNo+KPKgmI433D/?=
- =?us-ascii?Q?EAC/2Mo3X44KppThGpgU/gI3O7F7m8U9asvtKn8S83oMdQkJr5/dpSnmBO8a?=
- =?us-ascii?Q?2TkPOHfedtZtk13FGPpI/HcOEvxvKRTnb982Rye6q4Kxmtbm3jLlwO83UCXs?=
- =?us-ascii?Q?oT5neN7Vh+PhRCj1pcLvqXGZTkGBu2cp2lzNHHnzPZkPVDzxRR7AnnQbjKWf?=
- =?us-ascii?Q?J5V9PuG6bFkmN8v9FXGposERROnTzoxnIURp/DYjbz5JE0ijreiPnoJnuc5U?=
- =?us-ascii?Q?ZglaZLBkL1oqX2fVOLGDAFnlKTCk7hhK0LVraW+C78uXMnx5OyZjd63bsVMy?=
- =?us-ascii?Q?0RStUOyrhZAgo1ID95reyVpWU262XM0Qq7IKX7LpTOf4O7Zuc13ua0UI1PyJ?=
- =?us-ascii?Q?mgUMS/f+zFnSvqLQHFEqsMH5Wcq+k176WXL0K8aV48zRQQvxIrjkZF6UeOlt?=
- =?us-ascii?Q?kTpj5M7euc8ieV+tWtRAsEsMIt9nkNBRSBUGkvGe1N9hJ+/wVZuf09gcB3/7?=
- =?us-ascii?Q?jjI7TcYPhHjdc//p2LJ5AAb2jU6Wx6o4azx+ZtG83sXRIWpC3zjZ3u2+1cBZ?=
- =?us-ascii?Q?CuUSQJmV1/BcHHUyAMP9qUPxr5EI/jtlerWh3WrR5CUQiLu5xcn6R1n3bgti?=
- =?us-ascii?Q?JSZziZDBN7FZziex/fszn4QNNfDOy9faXhk/iQFrZ0Ku5OnJO+J1MKfhOAdw?=
- =?us-ascii?Q?F12GkWCYZ8kNUKLhV55dd9ptqFXIC0pwcmXBJpH68ns80pr7WqXPmKhmmH69?=
- =?us-ascii?Q?lPnJmGnkaSt/nEZD7moQW76HReAo8uc/X3tK9ymIjD3fw+NyQp17J/hYdMYi?=
- =?us-ascii?Q?WR+A75qwMD3KDYcoQR1Ia1d9RUsXFZoYIqFGuBKA8iDGfb/TI4gd0z4qF/VZ?=
- =?us-ascii?Q?aou2DNiO+UqPuK/9si5gRHml1yFgiq8M0fDMS/SV8Ztd/+AalRofXMgY/4qG?=
- =?us-ascii?Q?RvsCCDg6btT2UYH72hmCSBPgiHfufTkIZffTumoDM/42SVz1Xd1J6SSDtl5P?=
- =?us-ascii?Q?y+/9G6tmhLjbQOimPiD3InDQyaBphSFyZs9hbqZ7Wjs/byOwOfJyVupMoaO6?=
- =?us-ascii?Q?2YlOy3Lw3rY2UcnMjyt7172YPE89IUmx8Ofuy62lsMLj?=
-X-OriginatorOrg: garyguo.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3c607e1f-375d-4803-d0ab-08dce9ee1888
-X-MS-Exchange-CrossTenant-AuthSource: LO2P265MB5183.GBRP265.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Oct 2024 12:13:20.4375
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2iCnu3LGOlsfDjHddHxOIqzT/oSYetllUbLhkmG76LI+BaTdHOuI+OePGmQ0GWJG6UQFt6hiPw7Wohb4SSLLXQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO2P265MB7220
+	id 1szFAm-0000000GMal-0xO5;
+	Fri, 11 Oct 2024 12:55:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 630FD5C5D11;
+	Fri, 11 Oct 2024 12:55:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 253F4C4CEC3;
+	Fri, 11 Oct 2024 12:55:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1728651310;
+	bh=XT4qnBUKa3a1vSK5tJQUDSalL8lZA3BStEeYDOxhiyE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=bxKmURlSi26SJe+QK4PGRX/Ogihvq7QIVMr0xUkNhvMtAINqZYYntZBEmNvBhXPzx
+	 xaQCgdyiANh8t3XzU1lUElo5+68IFooOi7w967UeZ4uBwr6loXlVb5zk3DL1pKqXt6
+	 HBAY4AsSFxH7PoAyDc6zDcqNdJdwwUxb24R7cB1INpTJWpCOEqUw6OP69pfvqNeZbC
+	 Vp88tRv635qLdAkY5kchac2l6VKVhUPnICZg2BkQ2S5Mw0CUWfwf+IM4MLzHLqZKMT
+	 pfBsODaZQhvykSctTNHB5AQS0tLN6OjiebakwN3EDPLMXixs4xCDyUOUGpJp+oxxoE
+	 dWSEZjuQ+PXGA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1szFAg-002Y12-L7;
+	Fri, 11 Oct 2024 13:55:06 +0100
+Date: Fri, 11 Oct 2024 13:55:05 +0100
+Message-ID: <86h69i6bpy.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Nathan Chancellor <nathan@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Shuah Khan <shuah@kernel.org>,
+	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
+	Deepak Gupta <debug@rivosinc.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
+	Kees Cook <kees@kernel.org>,
+	"H.J. Lu" <hjl.tools@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Florian Weimer <fweimer@redhat.com>,
+	Christian Brauner <brauner@kernel.org>,
+	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
+	Ross Burton <ross.burton@arm.com>,
+	David Spickett <david.spickett@arm.com>,
+	Yury Khrustalev <yury.khrustalev@arm.com>,
+	Wilco Dijkstra <wilco.dijkstra@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-fsdevel@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v13 11/40] arm64/gcs: Provide basic EL2 setup to allow GCS usage at EL0 and EL1
+In-Reply-To: <ZwgMBAhR5-5R5EYC@arm.com>
+References: <20241001-arm64-gcs-v13-0-222b78d87eee@kernel.org>
+	<20241001-arm64-gcs-v13-11-222b78d87eee@kernel.org>
+	<20241009204903.GA3353168@thelio-3990X>
+	<86msjc56mi.wl-maz@kernel.org>
+	<ZwgMBAhR5-5R5EYC@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: catalin.marinas@arm.com, nathan@kernel.org, broonie@kernel.org, will@kernel.org, corbet@lwn.net, akpm@linux-foundation.org, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, arnd@arndb.de, oleg@redhat.com, ebiederm@xmission.com, shuah@kernel.org, rick.p.edgecombe@intel.com, debug@rivosinc.com, ardb@kernel.org, Szabolcs.Nagy@arm.com, kees@kernel.org, hjl.tools@gmail.com, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, fweimer@redhat.com, brauner@kernel.org, thiago.bauermann@linaro.org, ross.burton@arm.com, david.spickett@arm.com, yury.khrustalev@arm.com, wilco.dijkstra@arm.com, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org, linux-arch@vger.kernel.org, linux-mm@kvack.org, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241011_051327_350815_5ED61974 
-X-CRM114-Status: GOOD (  29.48  )
+X-CRM114-CacheID: sfid-20241011_055512_382467_C3C97600 
+X-CRM114-Status: GOOD (  25.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,136 +122,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 11 Oct 2024 10:13:34 +0000
-Alice Ryhl <aliceryhl@google.com> wrote:
-
-> Add just enough support for static key so that we can use it from
-> tracepoints. Tracepoints rely on `static_branch_unlikely` with a `struct
-> static_key_false`, so we add the same functionality to Rust.
+On Thu, 10 Oct 2024 18:16:52 +0100,
+Catalin Marinas <catalin.marinas@arm.com> wrote:
 > 
-> This patch only provides a generic implementation without code patching
-> (matching the one used when CONFIG_JUMP_LABEL is disabled). Later
-> patches add support for inline asm implementations that use runtime
-> patching.
+> On Thu, Oct 10, 2024 at 04:18:13PM +0100, Marc Zyngier wrote:
+> > From 20c98d2647c11db1e40768f92c5998ff5d764a3a Mon Sep 17 00:00:00 2001
+> > From: Marc Zyngier <maz@kernel.org>
+> > Date: Thu, 10 Oct 2024 16:13:26 +0100
+> > Subject: [PATCH] KVM: arm64: Shave a few bytes from the EL2 idmap code
+> > 
+> > Our idmap is becoming too big, to the point where it doesn't fit in
+> > a 4kB page anymore.
+> > 
+> > There are some low-hanging fruits though, such as the el2_init_state
+> > horror that is expanded 3 times in the kernel. Let's at least limit
+> > ourselves to two copies, which makes the kernel link again.
+> > 
+> > At some point, we'll have to have a better way of doing this.
+> > 
+> > Reported-by: Nathan Chancellor <nathan@kernel.org>
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > Link: https://lore.kernel.org/r/20241009204903.GA3353168@thelio-3990X
 > 
-> When CONFIG_JUMP_LABEL is unset, `static_key_count` is a static inline
-> function, so a Rust helper is defined for `static_key_count` in this
-> case. If Rust is compiled with LTO, this call should get inlined. The
-> helper can be eliminated once we have the necessary inline asm to make
-> atomic operations from Rust.
-> 
-> Reviewed-by: Boqun Feng <boqun.feng@gmail.com>
-> Signed-off-by: Alice Ryhl <aliceryhl@google.com>
-> ---
->  rust/bindings/bindings_helper.h |  1 +
->  rust/helpers/helpers.c          |  1 +
->  rust/helpers/jump_label.c       | 15 +++++++++++++++
->  rust/kernel/jump_label.rs       | 30 ++++++++++++++++++++++++++++++
->  rust/kernel/lib.rs              |  1 +
->  5 files changed, 48 insertions(+)
-> 
-> diff --git a/rust/bindings/bindings_helper.h b/rust/bindings/bindings_helper.h
-> index ae82e9c941af..e0846e7e93e6 100644
-> --- a/rust/bindings/bindings_helper.h
-> +++ b/rust/bindings/bindings_helper.h
-> @@ -14,6 +14,7 @@
->  #include <linux/ethtool.h>
->  #include <linux/firmware.h>
->  #include <linux/jiffies.h>
-> +#include <linux/jump_label.h>
->  #include <linux/mdio.h>
->  #include <linux/phy.h>
->  #include <linux/refcount.h>
-> diff --git a/rust/helpers/helpers.c b/rust/helpers/helpers.c
-> index 30f40149f3a9..17e1b60d178f 100644
-> --- a/rust/helpers/helpers.c
-> +++ b/rust/helpers/helpers.c
-> @@ -12,6 +12,7 @@
->  #include "build_assert.c"
->  #include "build_bug.c"
->  #include "err.c"
-> +#include "jump_label.c"
->  #include "kunit.c"
->  #include "mutex.c"
->  #include "page.c"
-> diff --git a/rust/helpers/jump_label.c b/rust/helpers/jump_label.c
-> new file mode 100644
-> index 000000000000..6948cae5738f
-> --- /dev/null
-> +++ b/rust/helpers/jump_label.c
-> @@ -0,0 +1,15 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +
-> +/*
-> + * Copyright (C) 2024 Google LLC.
-> + */
-> +
-> +#include <linux/jump_label.h>
-> +
-> +#ifndef CONFIG_JUMP_LABEL
-> +int rust_helper_static_key_count(struct static_key *key)
-> +{
-> +	return static_key_count(key);
-> +}
-> +EXPORT_SYMBOL_GPL(rust_helper_static_key_count);
+> Thanks Marc for the quick fix. It looks fine to me, it will keep the
+> linker quiet for a while. I pushed it to arm64 for-kernelci for the time
+> being, see if anything falls apart. I'll apply it properly once it gets
+> a bit more testing.
 
-^ Explicit export should be removed. This only works because we didn't
-remove export.h from all helpers.c yet, but there's a patch to do
-that and this will stop working.
+Works for me. Bu if that helps, I can also queue it as a KVM fix for
+6.12, leaving the GCS branch unencumbered. Just let me know.
 
-You can add a Reviewed-by from me with this fixed.
+	M.
 
-> +#endif
-> diff --git a/rust/kernel/jump_label.rs b/rust/kernel/jump_label.rs
-> new file mode 100644
-> index 000000000000..4b7655b2a022
-> --- /dev/null
-> +++ b/rust/kernel/jump_label.rs
-> @@ -0,0 +1,30 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +
-> +// Copyright (C) 2024 Google LLC.
-> +
-> +//! Logic for static keys.
-> +//!
-> +//! C header: [`include/linux/jump_label.h`](srctree/include/linux/jump_label.h).
-> +
-> +/// Branch based on a static key.
-> +///
-> +/// Takes three arguments:
-> +///
-> +/// * `key` - the path to the static variable containing the `static_key`.
-> +/// * `keytyp` - the type of `key`.
-> +/// * `field` - the name of the field of `key` that contains the `static_key`.
-> +///
-> +/// # Safety
-> +///
-> +/// The macro must be used with a real static key defined by C.
-> +#[macro_export]
-> +macro_rules! static_branch_unlikely {
-> +    ($key:path, $keytyp:ty, $field:ident) => {{
-> +        let _key: *const $keytyp = ::core::ptr::addr_of!($key);
-> +        let _key: *const $crate::bindings::static_key_false = ::core::ptr::addr_of!((*_key).$field);
-> +        let _key: *const $crate::bindings::static_key = _key.cast();
-> +
-> +        $crate::bindings::static_key_count(_key.cast_mut()) > 0
-> +    }};
-> +}
-> +pub use static_branch_unlikely;
-> diff --git a/rust/kernel/lib.rs b/rust/kernel/lib.rs
-> index b5f4b3ce6b48..708ff817ccc3 100644
-> --- a/rust/kernel/lib.rs
-> +++ b/rust/kernel/lib.rs
-> @@ -36,6 +36,7 @@
->  pub mod firmware;
->  pub mod init;
->  pub mod ioctl;
-> +pub mod jump_label;
->  #[cfg(CONFIG_KUNIT)]
->  pub mod kunit;
->  pub mod list;
-> 
-
+-- 
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
