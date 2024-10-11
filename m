@@ -4,73 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51D80D0D7B3
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Oct 2024 14:52:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ACC7D0D7B8
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Oct 2024 14:52:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=6YrSIDIeFRUK3e8O5PlJso/LvljF8N6aEhLzBlAK9uM=; b=iz0A9/P5A5A5sp
-	DwxvsOIJNW5ISdXUQxn4oaHC37M9AJE9WBX7jfzFJs9kAFejpBxHcAEHYPlfs54TMK51/0znkkXuK
-	wXBMG2EFEDq+Aa0LVZqxChE0y4gG+PHXZsh1Nokq8WuQQh62eJIDI4sG8p33xBnqmm4J0YF9r+yRn
-	43Ch2XXAj2Td++oIx4JSXobBJeG1VBLMFK0HtGSuWOXPgbP8mHrBMi57+7wsxO1xFeffM0fFCXvOL
-	fowgSAL5XWcYSQjwL5T8RVAjs7gdrjv56ycHxUst2R8NDpRj3xw2GsIE4VqBP2BN+cpS4hoiihvJ6
-	R4byNmkFUcw2/xQTGPSw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4CocuXx3dGhoN5YTSCVsE/lIRg3vKC8mcWa00/lwLSo=; b=IkugbOSyzLdLQ6
+	tlT/y78WgsbSGmgNXJME2i6LGtMAN7akPuvG/dpXtO8ICh19D4L9PgJAM5oH6BsKwwKgW6KHEZYgp
+	x2BhvHWe983Q9/bqdq7t1AcX6PYsiNvT0ypL1ijs1jLx8Kn84HEsKIY7CTaAtKAPPypZDQt9nNWek
+	NAz2RPtUTuaM714spXzmyNPlLitjcewnNKYxMC4l891AigUFArXrsgs22KILQepY0Mjeq66l9Fgxt
+	YhbzOFYx8yAJ2/QCNY26eo7QV3MpfCzeloIXQNGkvYKlB3lZnLxP+ClSRjQbALj0Ont0GAwiqviAW
+	FIUK5p5Mi3xDAYOC6JqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1szGzk-0000000Ggr6-2kjS;
-	Fri, 11 Oct 2024 14:51:56 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1szGzl-0000000GgrU-1Vmi;
+	Fri, 11 Oct 2024 14:51:57 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1szGwS-0000000Gg2i-2F6e
+	id 1szGwT-0000000Gg2l-049q
 	for linux-riscv@lists.infradead.org;
 	Fri, 11 Oct 2024 14:48:34 +0000
-Received: from mail-ej1-f69.google.com (mail-ej1-f69.google.com [209.85.218.69])
+Received: from mail-ej1-f71.google.com (mail-ej1-f71.google.com [209.85.218.71])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id E942C3FA4D
-	for <linux-riscv@lists.infradead.org>; Fri, 11 Oct 2024 14:48:28 +0000 (UTC)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 1538B40AFD
+	for <linux-riscv@lists.infradead.org>; Fri, 11 Oct 2024 14:48:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1728658108;
-	bh=ZeYY7hZCtG5ZzblFqjablxTznhCvL1wjc9Tgelu4NWY=;
-	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version;
-	b=q/M4lEjZI4uRSEKV2YVrad3D5aTpa9UMtcvTsildKLkO1OGSVGPXFC8RxsGhLTUoB
-	 nvf28af8bXmetr0yFJARdzM0GmJOxINTXR1HoJTWI+VAf/npkOzrfvlIYGJ6c7X9h0
-	 4O2KmbFaQdW90LDOBAl7CNJHy+RmPuIzixmz1/VSu+byQtJaIW+nIA6SfUud1pehEg
-	 hstbOPlG5DQEpOVbpF2gFHeF06TF9399xH1h/+mVtcljmX60b6KCALFkHczRAFa5Fk
-	 +x2T2I3+iRy8s7nWnintAFDO9EixBo78SRrC2LOvzmnQ+lZz1yypdi4IuxkUr+DM4N
-	 MgFGqBSChTLeQ==
-Received: by mail-ej1-f69.google.com with SMTP id a640c23a62f3a-a99592b5f27so329505566b.1
-        for <linux-riscv@lists.infradead.org>; Fri, 11 Oct 2024 07:48:28 -0700 (PDT)
+	s=20210705; t=1728658110;
+	bh=y7+YQmnss41fm/ukNbmPDdCc/cnUksMm9Me8dFSJczY=;
+	h=From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version;
+	b=tO7urpHai9TgRLytvr2cpvkKCBCkgK0ucKPuStnCyyMnxffSkGgNdxmG2N6ix2b2K
+	 GxtlblntzDpT+0PTGxGpfPLY3eztqpthbRR4LrRe6S+eG0I67loPiWRw9iWkrC/YZ3
+	 PEm6fRk1GmC79muFGJK84Ki9owH7AKLulWFb34knVLUhnqF//s3M/jmpiURHBRGsI1
+	 1P1ZZatY4rvlZR4rDw91sB/8eqaL2Bt0vSRzqycCVk3y+bzh2MvHsaFlPBVrwShZFZ
+	 G8gLUBF8iIlkMoZmsthnTIJFc1YLknBtWW/LcGtgZjxTVEQE0+z8dnVud8r1o0ZYTM
+	 9ogd4res6x4ng==
+Received: by mail-ej1-f71.google.com with SMTP id a640c23a62f3a-a994a22d6b9so139144566b.1
+        for <linux-riscv@lists.infradead.org>; Fri, 11 Oct 2024 07:48:30 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728658108; x=1729262908;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ZeYY7hZCtG5ZzblFqjablxTznhCvL1wjc9Tgelu4NWY=;
-        b=sMTCqBaSJ9TIYzO74osMopc6R+I4yXevqUtAP0U2jBKZ5T/7NlgSlahjP2i30CdWVq
-         K5cTmYG5PpcZ6jNn0g+kxacBwyWlfUGalMDiEWWFovAnw9qrYKRdazC9NtW/e07uHmi6
-         agSH0/eZrcUcijVvXjOM4wv2BHSB8IWJRw72Dkahs9Ddgesr5vlSBcu/KeOUEKdzLFMg
-         Hrk3vm4IEhDxLllBd9vuQ1hA8F911I3nvnqp1GjagBM6JqRo6+FzC/noKi2ES1SJ/V6I
-         VINUBRjmpdJ3yFHAyHkQmwRkuopXICDo6B7oBCZBX6l301V0lIwLCyCyU+L4zMzfvEBJ
-         zRjw==
-X-Forwarded-Encrypted: i=1; AJvYcCVRXXIDEZqeTxPHp2tkuibvxpq1F8YDX7xVrGGkvGKG4c4wigoRXrvv6bc7avfPW8Z4H9XoCoHyrF5ejw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyBMGkwLtTwZWuxieQveLShv8BJ1+V6JJbOXZ8+QfHVdXFGDsgY
-	xQgvjB3xpF5Km09jm/JZgfOlA3yu4v1js/AX/ZYBIcGal8ZzR394FsuLzYjxQLAWSG88fK953OS
-	yyfkpTlBBDW0SwG+AqqGcmZqk1kogBPjYmHDLvPGHhv815n5zKBYoJWlU2ZWdH9PimSDac/UHZg
-	RMeh4C1Q==
-X-Received: by 2002:a17:906:cae5:b0:a99:4ad2:acb7 with SMTP id a640c23a62f3a-a99b885cd31mr293766366b.18.1728658108448;
+        d=1e100.net; s=20230601; t=1728658109; x=1729262909;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=y7+YQmnss41fm/ukNbmPDdCc/cnUksMm9Me8dFSJczY=;
+        b=It+gS93iB5I8skgWV5BEFnO9iJEOT8SfLlEaDdGcCtWVXxB0TqO/lSHvAhi/tYqkUo
+         WJx6SPSqFsH3PIKYkJIcM7N/kzkMyd8PM/Lr04aMaSvNPvSufbmYszl9yhABPb6lGeiA
+         hIS+EWwl0J2hRtd5ih0T71gLF4ZvXbf4GGzKFVCMVfB64bhlQnGNiGhbP0KZF98VBptp
+         lFsBse+Pbrrif75nPDCFq2islZQFsp8xE/3ymxiWQO3k2OerXhgIA4s1Oq5Z0uJFh5Rq
+         NsdkRDw04QaFcH4LT9dwvei7Y7mXi0U/wcOhDWEs6wXpxS/eqKTcFCDhize+UXnE9asz
+         GoYw==
+X-Forwarded-Encrypted: i=1; AJvYcCWkj4mbyAZgh2Ps4FvEExA14nzh7zOzrXLo05oCoDc0wVZEv/sMJfThZAh9p2W4M4VdWdVF033ZnqNdiQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9jk3ILcvd10ZFoyAkJXCRqJBgsQoxlvMtjvR3fD4Kv3nDLuzd
+	PB41LUjzwOS+aZaLOLVLwhNQym6z7Ah/dIoHnenLdpnykQKbv8EdCV14kwu7/FOEm0MXrUezLuy
+	+zyS8IbTURqPVuf87LP+9IJ84IXzSjeViOD8h/Y1j09joRcADuCBbFXzd9yju+bTwKdbzOeiTNw
+	3bfUA0oA==
+X-Received: by 2002:a17:907:f796:b0:a99:5cb5:6175 with SMTP id a640c23a62f3a-a99b9436b1dmr254243566b.35.1728658109124;
+        Fri, 11 Oct 2024 07:48:29 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IE1I4NMn4gYPdo3MbVQwrz/uYAefwMxC5m+RAElwaCH4bD85EDqoY9JLmmWjwDhkrc8lxHdRw==
+X-Received: by 2002:a17:907:f796:b0:a99:5cb5:6175 with SMTP id a640c23a62f3a-a99b9436b1dmr254242066b.35.1728658108783;
         Fri, 11 Oct 2024 07:48:28 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFZJ/O4DI06C56//3e90y9WubgT52G8l84SnKYNplOkm6YFyYikVWRaSx0ajYVuWo5Sc8h+Ig==
-X-Received: by 2002:a17:906:cae5:b0:a99:4ad2:acb7 with SMTP id a640c23a62f3a-a99b885cd31mr293763666b.18.1728658107892;
-        Fri, 11 Oct 2024 07:48:27 -0700 (PDT)
 Received: from stitch.. ([194.62.169.86])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a99c0c89bfasm54134666b.162.2024.10.11.07.48.27
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a99c0c89bfasm54134666b.162.2024.10.11.07.48.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Oct 2024 07:48:27 -0700 (PDT)
+        Fri, 11 Oct 2024 07:48:28 -0700 (PDT)
 From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 To: linux-kernel@vger.kernel.org,
 	linux-gpio@vger.kernel.org,
@@ -83,15 +84,16 @@ Cc: Linus Walleij <linus.walleij@linaro.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-Subject: [PATCH v1 0/3] pinctrl: th1520: Unbreak the driver
-Date: Fri, 11 Oct 2024 16:48:22 +0200
-Message-ID: <20241011144826.381104-1-emil.renner.berthing@canonical.com>
+Subject: [PATCH v1 1/3] pinctrl: th1520: Fix pinconf return values
+Date: Fri, 11 Oct 2024 16:48:23 +0200
+Message-ID: <20241011144826.381104-2-emil.renner.berthing@canonical.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20241011144826.381104-1-emil.renner.berthing@canonical.com>
+References: <20241011144826.381104-1-emil.renner.berthing@canonical.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241011_074832_798161_98DB3911 
-X-CRM114-Status: UNSURE (   7.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241011_074833_215140_F3829893 
+X-CRM114-Status: GOOD (  12.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,24 +110,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+When Drew took over the pinctrl driver he must have changed
+all the -ENOTSUPP returns into -EOPNOTSUPP. This subtle change
+was most likely not spotted because it was never mentioned in the
+changelog of the patchset, but it breaks all the places in the
+pin control and GPIO frameworks where -ENOTSUPP is expected.
 
-Here are 2 important fixes and a code improvement to the T-Head TH1520
-pinctrl driver that was either introduced or missed when Drew took over
-upstreaming it.
+Fixes: bed5cd6f8a98 ("pinctrl: Add driver for the T-Head TH1520 SoC")
+Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+---
+ drivers/pinctrl/pinctrl-th1520.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
-It is based on Linus' pinctrl/for-next:
-
-  6dbd1577b7dc ("Merge branch 'devel' into for-next")
-
-Emil Renner Berthing (3):
-  pinctrl: th1520: Fix pinconf return values
-  pinctrl: th1520: Update pinmux tables
-  pinctrl: th1520: Factor out casts
-
- drivers/pinctrl/pinctrl-th1520.c | 52 ++++++++++++++++++++------------
- 1 file changed, 32 insertions(+), 20 deletions(-)
-
+diff --git a/drivers/pinctrl/pinctrl-th1520.c b/drivers/pinctrl/pinctrl-th1520.c
+index c8d2ee6defa7..03326df69668 100644
+--- a/drivers/pinctrl/pinctrl-th1520.c
++++ b/drivers/pinctrl/pinctrl-th1520.c
+@@ -591,7 +591,7 @@ static int th1520_pinconf_get(struct pinctrl_dev *pctldev,
+ 	u32 arg;
+ 
+ 	if ((uintptr_t)desc->drv_data & TH1520_PAD_NO_PADCFG)
+-		return -EOPNOTSUPP;
++		return -ENOTSUPP;
+ 
+ 	value = readl_relaxed(th1520_padcfg(thp, pin));
+ 	value = (value >> th1520_padcfg_shift(pin)) & GENMASK(9, 0);
+@@ -636,7 +636,7 @@ static int th1520_pinconf_get(struct pinctrl_dev *pctldev,
+ 		arg = enabled ? 1 : 0;
+ 		break;
+ 	default:
+-		return -EOPNOTSUPP;
++		return -ENOTSUPP;
+ 	}
+ 
+ 	*config = pinconf_to_config_packed(param, arg);
+@@ -661,7 +661,7 @@ static int th1520_pinconf_set(struct pinctrl_dev *pctldev, unsigned int pin,
+ 	u16 mask, value;
+ 
+ 	if ((uintptr_t)desc->drv_data & TH1520_PAD_NO_PADCFG)
+-		return -EOPNOTSUPP;
++		return -ENOTSUPP;
+ 
+ 	mask = 0;
+ 	value = 0;
+@@ -676,14 +676,14 @@ static int th1520_pinconf_set(struct pinctrl_dev *pctldev, unsigned int pin,
+ 			break;
+ 		case PIN_CONFIG_BIAS_PULL_DOWN:
+ 			if (arg == 0)
+-				return -EOPNOTSUPP;
++				return -ENOTSUPP;
+ 			mask |= TH1520_PADCFG_BIAS;
+ 			value &= ~TH1520_PADCFG_BIAS;
+ 			value |= TH1520_PADCFG_PE;
+ 			break;
+ 		case PIN_CONFIG_BIAS_PULL_UP:
+ 			if (arg == 0)
+-				return -EOPNOTSUPP;
++				return -ENOTSUPP;
+ 			mask |= TH1520_PADCFG_BIAS;
+ 			value &= ~TH1520_PADCFG_BIAS;
+ 			if (arg == TH1520_PULL_STRONG_OHM)
+@@ -718,7 +718,7 @@ static int th1520_pinconf_set(struct pinctrl_dev *pctldev, unsigned int pin,
+ 				value &= ~TH1520_PADCFG_SL;
+ 			break;
+ 		default:
+-			return -EOPNOTSUPP;
++			return -ENOTSUPP;
+ 		}
+ 	}
+ 
 -- 
 2.43.0
 
