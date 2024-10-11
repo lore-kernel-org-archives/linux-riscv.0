@@ -4,116 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4783BD0D791
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Oct 2024 14:16:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5790BD0D795
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Oct 2024 14:37:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u3zv5o/pUiHqANVc8z3tn9pmQuFVBhwOFqbsnvOWXHg=; b=v1cY7QLzc127Gq
-	9dzVL1xZ/yIgTmMb3+OrllpUZZCPeR5F5wUetowxwVg8k1ILeVLwLIRVNwKmo7cixm0XSEhb3q9Wj
-	6p1wnnOpMh5x4pgSwcZo2nLacdJt/UG8XqKAO4UgE46UmYn3AFbV28je07w/NqbieWlqRayfhOI40
-	KFA1jzYFuaeyv9FQ4FpVWKHWNFMQIDsZtJBhCGr8NEdIdKqTWloRHlbE88speIlwW0EPL51p0Bf1u
-	ov0zJs7HmQHOoErDM0shpWP+RVHT6ETrYOwg6iqtju9lzf2zFLJbJZBD9l7XH4Xjo3SSIn4TlxdOu
-	G6LndKOJteQLsK3qWnkg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Subject:From:Cc:To:MIME-Version:Date:Message-ID:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oxGJd6XsPEvOtVpgbwwQnylqSQmOQEQHUJaH6ePMRHk=; b=Masldx4IjGyOX+2Z+BSy4BargJ
+	nSGUHB6ERnOREQXm/rY6DxzzAqGMw+HiZWvhPH3A0azfEhBMF3BjZetOylV+AJ4ojnsUWqLipO9HH
+	/VtqtUCZ2Y26s//0SrYMnFkP5O5FxLDkE9e2nh94NaTs13QSX6ICe/5AY644ayxnMidns2KleCAd6
+	9qRHURs6uIM47ggPQsh4M0WSatRTpSvdwTyQC7IKAxcp4yfGllq4ECfhGRaNcCtV0nQ/MDOiuYWS0
+	WVIHnwuqq1iYW/IvrYGJw7DdjCnH0JJQHZ1OO2HEmIjdtRUKxiyIlQEc2gaEi/9NsHIXQ++YRGLnG
+	hPts0kKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1szGRX-0000000GZXf-2FWp;
-	Fri, 11 Oct 2024 14:16:35 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1szGm9-0000000Gd43-2YkU;
+	Fri, 11 Oct 2024 14:37:53 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1szFHN-0000000GNqw-3qPJ;
-	Fri, 11 Oct 2024 13:02:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=QR96X5me7JPEdxmex0+cq4Kl2Zr+RXQlVgevmpU+1i0=; b=p4AI8/kKqv+9NZrBGdYQ3bOLHr
-	Pw0sCZdj8l0CW/QpRr44+ZlTSUh0Cr0fdSsAbdT5VXvi4LRLx+8M/qWdEw+s0rC4xzZ/yEmS4gzFp
-	h0KK+vTMDM43S6qkJkaeayH/5j0g8flyL2rowaUcRvABzPIZP5oCBMkS+lifzJlfORP0OVA/RPMij
-	hqVsrK5k9iZ5aFc87uGnYKsjSzqI1WmiHehOp3XA3kvRyTEKc5H/qRBy/7DrEREjYuI4qh8K+A3cJ
-	PaG4QAzECdYF8HcgKBkP9BuMSxgrF6EeXn6UvHbZDIk626ZPLgGNZW3eNmovJBbKvBjInYnlnUJ/c
-	Tz9WH4UA==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1szFHK-00000005tKM-2GhP;
-	Fri, 11 Oct 2024 13:02:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5723D5C5D87;
-	Fri, 11 Oct 2024 13:01:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DABE8C4CECC;
-	Fri, 11 Oct 2024 13:01:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1728651714;
-	bh=j6FIkJsgrJb7Fy59tSRAkzfdThNSkDRiwl7mc5Gyfrs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oaq6u26xuDAEns7R2BMHzk4mIfr5FvGiVAeZZthgyUlPcz06DFRl95J0wmkdOT54S
-	 YxSAeidiUzjAm9FHVkdDWMVY0Rbrih0bi/ggL0JYHKzOopKm6PqY7SOiicdRP66yLH
-	 5VGXr5I3OyVhwrNf1s3DsezlYqKELPmsDJA9V5PkevyRbR9c/cPzuOfoCS+m2Co7l0
-	 +b6MYlu7b05Tu5XRA7HGcdEBXgbkMUXnasokDLcI2U83NwvkTB9/gQY3jZ2G5u5tvh
-	 AFQJNhIyJak3q6KuqIiMeMoh+g8h6wyqQ854Avo5pBLLyOPI6RqZBJ4HC26lw54SRH
-	 zUMItw7kbSuLg==
-Date: Fri, 11 Oct 2024 15:58:04 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Andy Lutomirski <luto@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>,
-	Brian Cain <bcain@quicinc.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christoph Hellwig <hch@infradead.org>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Kent Overstreet <kent.overstreet@linux.dev>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Simek <monstr@monstr.eu>, Oleg Nesterov <oleg@redhat.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
-	Stafford Horne <shorne@gmail.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linux-mm@kvack.org,
-	linux-modules@vger.kernel.org, linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org, linux-um@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v5 6/8] x86/module: perpare module loading for ROX
- allocations of text
-Message-ID: <Zwkg3LwlNJOwNWZh@kernel.org>
-References: <20241009180816.83591-1-rppt@kernel.org>
- <20241009180816.83591-7-rppt@kernel.org>
- <20241010225411.GA922684@thelio-3990X>
+	id 1szGeW-0000000Gbtj-0HpZ
+	for linux-riscv@lists.infradead.org;
+	Fri, 11 Oct 2024 14:30:02 +0000
+Received: from mail-lf1-f69.google.com (mail-lf1-f69.google.com [209.85.167.69])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 686CC3F371
+	for <linux-riscv@lists.infradead.org>; Fri, 11 Oct 2024 14:29:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1728656995;
+	bh=vwO3jmVMZ7ui6iaiD0TV8NuJtopueyiUboqUU847GRo=;
+	h=Message-ID:Date:MIME-Version:To:Cc:From:Subject:Content-Type;
+	b=U1NRcsax8FSAvnBEFRZOc8HF4INfQ/foXk97bIhG0PPsUbmIJk2U3ZZaNDx80kGa7
+	 rhYkFuntZ4JxqKj9T0w6R89cB+2Q1tCoRwejeqfF1R6JmUNDTHO08IvlA3iXlV7+p5
+	 QQyLENIGpWVDPjRz9JPXz7qG/4ZbLFOv1iUFyyORhJPSvpafxPnwA+yuXApbK6hppw
+	 AlvQkfDZPA6EjblMmMEwdd+Mdw+rQdlV2vgQ0gTB/QCa90uCXEUJqaJWgOKstMBA7H
+	 jTKqm7D/ilT7cIToU65p0h+Ni1EmzcFB9jb/u61ZE+B0MycQkYwXnrjiG17E9UDXKo
+	 SN/oQ8e2Re/4g==
+Received: by mail-lf1-f69.google.com with SMTP id 2adb3069b0e04-539947ac1e8so1974798e87.2
+        for <linux-riscv@lists.infradead.org>; Fri, 11 Oct 2024 07:29:55 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1728656995; x=1729261795;
+        h=content-transfer-encoding:subject:from:cc:to:content-language
+         :user-agent:mime-version:date:message-id:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=vwO3jmVMZ7ui6iaiD0TV8NuJtopueyiUboqUU847GRo=;
+        b=ZaE1wO32nmsBAkdBDndnwixZisq8eenFL3s9OlYS0nr3tvWA6DkDW3kLD/JvR2udVW
+         OdoNyobf13sKT/h9h0eX4RfYhobSO10c2PIqj6T5jJv8I1absQ3k5MPTMBPEMHXyBzP/
+         y1OBXS+hJePXA0cmTLcLAQhhNOcKXPzZMcic09UffvYHOQptKfmo4swoP5j76LMnHIHA
+         aSlH1j0Qcx1kBj0odIIi3EWao7xawUYck0DteCYN0RLLYfEFUoWCc26kKFzERqpm78ky
+         MSyeH0PAVpU/cLtmsuQ7wNM03QfRDX5vxAW07Ud/Sl16fJHHMHDz71LWbbRygrweBI6w
+         1CLQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWD/zq6ckZx8b05VugvLWLXJaWeapA5M0o7Q+fcnQGX8ZWHtEXT12UN1bhunS4/pzO4N8mBIX3vMcmCnw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyBGt+yCDJwQ65CdKOBSifq6tLYLw11r8rTrs0UZHQ0n+2WEnqg
+	6uB/a7wjl7huC/l3KnT/w1Bco37HBbaxd93xvMbSXE9K+wVXZfRkoXzIQ0letGybojkBLEd6yFL
+	H9/upc3myJOOeD+9dtHgRKYgsUb1377kVyIKi4aZd49r0ckxtz05tIOczykAnbNve0OYpC6HKvV
+	ulkxNuhA==
+X-Received: by 2002:a05:6512:ad4:b0:52e:9b92:4990 with SMTP id 2adb3069b0e04-539da4eb2d2mr1326201e87.32.1728656994631;
+        Fri, 11 Oct 2024 07:29:54 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IETCnloaF8yL4RTVBTXsSTo4FXahxxMpz0gwquhY3iNMOBS3HJp2pAR5srONzAyXoDbdzV81g==
+X-Received: by 2002:a05:6512:ad4:b0:52e:9b92:4990 with SMTP id 2adb3069b0e04-539da4eb2d2mr1326170e87.32.1728656994043;
+        Fri, 11 Oct 2024 07:29:54 -0700 (PDT)
+Received: from ?IPV6:2a02:3035:6e0:6374:1a8a:f93c:bf3e:37da? ([2a02:3035:6e0:6374:1a8a:f93c:bf3e:37da])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-431183065e2sm44191925e9.28.2024.10.11.07.29.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 11 Oct 2024 07:29:52 -0700 (PDT)
+Message-ID: <98e7abdc-f7d0-4b97-b9d8-89a9534d4ccb@canonical.com>
+Date: Fri, 11 Oct 2024 16:29:51 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241010225411.GA922684@thelio-3990X>
+User-Agent: Mozilla Thunderbird
+Content-Language: en-US
+To: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>,
+ Jeegar Lakhani <jeegar.lakhani@sifive.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Huawei Dong <donghuawei@eswincomputing.com>,
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Cc: Gordan Markus <gordan.markus@canonical.com>
+From: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+Subject: Updated SD-card image for P550
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241011_140158_970445_D8D8C15C 
-X-CRM114-Status: GOOD (  24.71  )
+X-CRM114-CacheID: sfid-20241011_073000_464654_BEB8BF88 
+X-CRM114-Status: UNSURE (   4.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,134 +99,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 10, 2024 at 03:54:11PM -0700, Nathan Chancellor wrote:
-> Hi Mike,
-> 
-> On Wed, Oct 09, 2024 at 09:08:14PM +0300, Mike Rapoport wrote:
-> > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-> > 
-> > When module text memory will be allocated with ROX permissions, the
-> > memory at the actual address where the module will live will contain
-> > invalid instructions and there will be a writable copy that contains the
-> > actual module code.
-> > 
-> > Update relocations and alternatives patching to deal with it.
-> > 
-> > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> 
-> I bisected a boot failure that I see with CONFIG_CFI_CLANG enabled to
-> this change as commit be712757cabd ("x86/module: perpare module loading
-> for ROX allocations of text") in -next.
- 
->   [    0.000000] Linux version 6.12.0-rc2-00140-gbe712757cabd (nathan@n3-xlarge-x86) (ClangBuiltLinux clang version 19.1.0 (https://github.com/llvm/llvm-project.git a4bf6cd7cfb1a1421ba92bca9d017b49936c55e4), ClangBuiltLinux LLD 19.1.0 (https://github.com/llvm/llvm-project.git a4bf6cd7cfb1a1421ba92bca9d017b49936c55e4)) #1 SMP PREEMPT_DYNAMIC Thu Oct 10 22:42:57 UTC 2024
->   ...
->   [    0.092204] Speculative Store Bypass: Mitigation: Speculative Store Bypass disabled via prctl
->   [    0.093207] TAA: Mitigation: TSX disabled
->   [    0.093711] MMIO Stale Data: Mitigation: Clear CPU buffers
->   [    0.094228] x86/fpu: Supporting XSAVE feature 0x001: 'x87 floating point registers'
->   [    0.095203] x86/fpu: Supporting XSAVE feature 0x002: 'SSE registers'
->   [    0.096203] x86/fpu: Supporting XSAVE feature 0x004: 'AVX registers'
->   [    0.097203] x86/fpu: Supporting XSAVE feature 0x020: 'AVX-512 opmask'
->   [    0.098003] x86/fpu: Supporting XSAVE feature 0x040: 'AVX-512 Hi256'
->   [    0.098203] x86/fpu: Supporting XSAVE feature 0x080: 'AVX-512 ZMM_Hi256'
->   [    0.099203] x86/fpu: Supporting XSAVE feature 0x200: 'Protection Keys User registers'
->   [    0.100204] x86/fpu: xstate_offset[2]:  576, xstate_sizes[2]:  256
->   [    0.101204] x86/fpu: xstate_offset[5]:  832, xstate_sizes[5]:   64
->   [    0.102203] x86/fpu: xstate_offset[6]:  896, xstate_sizes[6]:  512
->   [    0.103204] x86/fpu: xstate_offset[7]: 1408, xstate_sizes[7]: 1024
->   [    0.104051] x86/fpu: xstate_offset[9]: 2432, xstate_sizes[9]:    8
->   [    0.104204] x86/fpu: Enabled xstate features 0x2e7, context size is 2440 bytes, using 'compacted' format.
-> 
-> then nothing after that. Boot is successful if CFI is not enabled (the
-> initrd will just shutdown the machine after printing the version string).
-> 
-> If there is any further information I can provide or patches I can test,
-> I am more than happy to do so.
+Hello,
 
-I overlooked how cfi_*_callers routines update addr.
-This patch should fix it:
+I have uploaded an updated image to
+http://people.ubuntu.com/~xypron/hifive_premier_p550/20241011/
 
-diff --git a/arch/x86/kernel/alternative.c b/arch/x86/kernel/alternative.c
-index 3b3fa93af3b1..cf782f431110 100644
---- a/arch/x86/kernel/alternative.c
-+++ b/arch/x86/kernel/alternative.c
-@@ -1148,11 +1148,13 @@ static int cfi_disable_callers(s32 *start, s32 *end, struct module *mod)
- 
- 	for (s = start; s < end; s++) {
- 		void *addr = (void *)s + *s;
--		void *wr_addr = module_writable_address(mod, addr);
-+		void *wr_addr;
- 		u32 hash;
- 
- 		addr -= fineibt_caller_size;
--		hash = decode_caller_hash(addr);
-+		wr_addr = module_writable_address(mod, addr);
-+		hash = decode_caller_hash(wr_addr);
-+
- 		if (!hash) /* nocfi callers */
- 			continue;
- 
-@@ -1172,11 +1174,12 @@ static int cfi_enable_callers(s32 *start, s32 *end, struct module *mod)
- 
- 	for (s = start; s < end; s++) {
- 		void *addr = (void *)s + *s;
--		void *wr_addr = module_writable_address(mod, addr);
-+		void *wr_addr;
- 		u32 hash;
- 
- 		addr -= fineibt_caller_size;
--		hash = decode_caller_hash(addr);
-+		wr_addr = module_writable_address(mod, addr);
-+		hash = decode_caller_hash(wr_addr);
- 		if (!hash) /* nocfi callers */
- 			continue;
- 
-@@ -1249,11 +1252,12 @@ static int cfi_rand_callers(s32 *start, s32 *end, struct module *mod)
- 
- 	for (s = start; s < end; s++) {
- 		void *addr = (void *)s + *s;
--		void *wr_addr = module_writable_address(mod, addr);
-+		void *wr_addr;
- 		u32 hash;
- 
- 		addr -= fineibt_caller_size;
--		hash = decode_caller_hash(addr);
-+		wr_addr = module_writable_address(mod, addr);
-+		hash = decode_caller_hash(wr_addr);
- 		if (hash) {
- 			hash = -cfi_rehash(hash);
- 			text_poke_early(wr_addr + 2, &hash, 4);
-@@ -1269,14 +1273,15 @@ static int cfi_rewrite_callers(s32 *start, s32 *end, struct module *mod)
- 
- 	for (s = start; s < end; s++) {
- 		void *addr = (void *)s + *s;
--		void *wr_addr = module_writable_address(mod, addr);
-+		void *wr_addr;
- 		u32 hash;
- 
- 		addr -= fineibt_caller_size;
--		hash = decode_caller_hash(addr);
-+		wr_addr = module_writable_address(mod, addr);
-+		hash = decode_caller_hash(wr_addr);
- 		if (hash) {
- 			text_poke_early(wr_addr, fineibt_caller_start, fineibt_caller_size);
--			WARN_ON(*(u32 *)(addr + fineibt_caller_hash) != 0x12345678);
-+			WARN_ON(*(u32 *)(wr_addr + fineibt_caller_hash) != 0x12345678);
- 			text_poke_early(wr_addr + fineibt_caller_hash, &hash, 4);
- 		}
- 		/* rely on apply_retpolines() */
- 
-> Cheers,
-> Nathan
+With Pinkesh's updated kernel the crashes in Gnome seem to be gone.
 
--- 
-Sincerely yours,
-Mike.
+But OpenGL is still not working. glxgears gives me:
+
+Error: glXCreateContext failed
+
+Best regards
+
+Heinrich
 
 _______________________________________________
 linux-riscv mailing list
