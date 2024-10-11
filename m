@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97156D0D7B9
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Oct 2024 14:52:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFC1ED0D7B0
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Oct 2024 14:52:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PBY94a7eUqDWVc5EoMEU10dcLd0Tji8y8XF+tR2VXdQ=; b=y76rtOugq9RAzD
-	DIkW0O0rHC1lLewS1UYs4zd7a569Kq5MZ1OB73GS6/1b/1OsGcGgJa+E+QZhiTDS9BG6KQj1Ztc62
-	0cpKLxM5M6zvdgSwco8nKv0/sjCZDuxv9DBdsw3tHaAMjiJUzSzeyhVfD+du/U7t+SU6fZ15YearX
-	bOzUW94stmDMny9NR4Qgx0qV4RGEsWxFeGgeW/LfNc79tqccZJ8a8sESiGpWYETB+yB+Sr+fVLh2Y
-	jEg2twCwO5R3QdLIqCQtHkWnvkozd6eaJ+pbtrwDKLxxPhOIrWk+UslDQtYSl5gQTKN16BWKa1+q8
-	4nTJhyknYhcy+PMAvPOg==;
+	List-Owner; bh=8Dy3pCwIltSh60Rq0y6GDc0WnM4dqtmXymZpyd4ewC4=; b=Z8o9iXvfbQyGvB
+	iqVmnuvtXDdgDLI+JXTwwcVMZCH9Ktnm0+yiWHjlnuKWCjZ9Rx1BHKVD2bw8TDtVrHVau7JSqWaH9
+	nMAxZg8trUjH7DhtpvSQSN8LecQyjwxpSKH5xiJwE8IZ5vZAGg2wmqHOIlHxnX/mHCuOKWpIjSvXm
+	IKTuJ9TtrYVjxGMq7oY8CAvwqXgHnAzzlNPfZ7O/PkkZmgwu5kIR5dyBdtKCc1BZGd9qyPYpo1/tv
+	Cqki7lkicNc0stJp+A0s6RcLLUbGopfqhbY31AKPtLTADLLpTzpDU4Mt5pk1S8fYx+BruPmPHJU7S
+	7ZZeOxrJ4diuKfHkz/ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1szGzn-0000000Ggsh-0w2p;
-	Fri, 11 Oct 2024 14:51:59 +0000
+	id 1szGzm-0000000Ggs6-0yXY;
+	Fri, 11 Oct 2024 14:51:58 +0000
 Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1szGwU-0000000Gg3K-1l55
+	id 1szGwT-0000000Gg2r-1ZIs
 	for linux-riscv@lists.infradead.org;
-	Fri, 11 Oct 2024 14:48:36 +0000
-Received: from mail-ej1-f69.google.com (mail-ej1-f69.google.com [209.85.218.69])
+	Fri, 11 Oct 2024 14:48:35 +0000
+Received: from mail-ej1-f70.google.com (mail-ej1-f70.google.com [209.85.218.70])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 253BE40B07
-	for <linux-riscv@lists.infradead.org>; Fri, 11 Oct 2024 14:48:33 +0000 (UTC)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id D922D40B04
+	for <linux-riscv@lists.infradead.org>; Fri, 11 Oct 2024 14:48:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1728658113;
-	bh=iqBh7nzoh4RgidcVzY4detvGARn0I3+5VA/OmJU1Iu8=;
+	s=20210705; t=1728658111;
+	bh=edTlAYc3Etm4OL8N3s7LjWMKxX64MYHgvFT+kJvdV7k=;
 	h=From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
 	 MIME-Version;
-	b=efParbGWB01VrjoKWpz/zHaR/jKQjfxq8jGGzHc+H2nPhNGpic6Xuk/vzmYkk3qJb
-	 xNY0B/ytkO1bePO/rg/gtfE2+yog5n//h0QjeFgtpAovHErreu4MwlD5AyuBRQ+z6O
-	 NieG3BSYGXd2+YP7b9UhC5btzNtQ75wbI8AGVPiy8nZM1HgUD1yLs+jNlOgJv+1UW+
-	 wHYPU/UHRw5JsVTaR0plpXBP7+uHhMHRe3EQYFLkl17jcmr1XFRQPNEAh+cC05cB9l
-	 D6dMRCveDiTdEOkAWQkFSYL8D9MCPx5Z5IKarXZ8EzudWue6ANhlm65iiWozTqEyCL
-	 MDKJanLrW67WQ==
-Received: by mail-ej1-f69.google.com with SMTP id a640c23a62f3a-a99d308c147so24975466b.0
-        for <linux-riscv@lists.infradead.org>; Fri, 11 Oct 2024 07:48:33 -0700 (PDT)
+	b=n+EEY74DTohVzCbCXPye0HnxB89O5QvFYUhE8YXNFd0ABpJ991oktURPDIj7otQoK
+	 Y9Jf8J8TPkbL5wiUJg21VwvwX2Q22WVl7W+DV8arIQlxiYHAzJpvs1P3s5xM9Z78WY
+	 R1o8Tixv0fmgvZ54ftLlexeR/Bu+eNn0uXBbCEUa8WHZHDmgbIssv+S01JOyQhDMqv
+	 ghDQrLLFeVIOWjYwdetAmtdZ4COlsnB6SmMPrGf8oxtwzSTy7UevSbUN1H2e7eX0MB
+	 eAtqXoJ2ODlOwTCkygJh9YL2WazckRho3HgdZWFDfa8RkPWGt5fsVRVsVOFAC5jdnH
+	 ESr0my6fSL6bA==
+Received: by mail-ej1-f70.google.com with SMTP id a640c23a62f3a-a8711c48990so166386066b.2
+        for <linux-riscv@lists.infradead.org>; Fri, 11 Oct 2024 07:48:31 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728658112; x=1729262912;
+        d=1e100.net; s=20230601; t=1728658111; x=1729262911;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=iqBh7nzoh4RgidcVzY4detvGARn0I3+5VA/OmJU1Iu8=;
-        b=OvGmM92T40JOH9+qzbZQy6+fw64Fw07buyMTkWfeTkJVelpxKNGKevxCAQePcJ7PXY
-         Eqi9hXq58zmbqwGb3GxxKhNG+PY6Swa7ElTr85hnB2bSJ37TL6r9SM5uzzl3yqAGfsm4
-         3Z8Waw4d2OcXlxosadMdfY629xrUp10vC6QmL1U2Mq69rGKByoaa3ajPXtI18H6eew8I
-         J7kw3cRRQc4pAoOaw4QKeIUe8XTynsKwPbOFTAUAtG/t81bByznQETmkf4IVHyc2ZQtv
-         e3LKOZpEBhsqeoCm6OmVoJVIaewT2PGistTzAUA4mRx+9lndCansIGE8mYo1ZlOEcAjX
-         mGIQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXzdnxkBrgcxAXZ0REOmYldCUoazWLZn9jGA5XHXL/R5exLSU5oY77iJ6zvPbrfMu9n+nbxUgGRoN6/VA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw2ltL4A0aEjf4qpUHGR0vwcEIKOVhI6UQRGl9aMxnjg2mKt/S2
-	7GbuDAemULzWdT7qwnTJVR/JmosrsexasxSNYsINFl9lwxX/BgeUQNXItnTJEYz62POgSOJJnCt
-	vKt6uPCxfQmYuFdFlktMDcvAk+IGPePEH9Q8EJZCFGmI4kgcLus7FtzH7xeQOpsf/UwXzDz2yvc
-	l0aexrbQ==
-X-Received: by 2002:a17:906:dc8e:b0:a8a:6bd8:b671 with SMTP id a640c23a62f3a-a99a0eb825dmr782895866b.5.1728658112559;
-        Fri, 11 Oct 2024 07:48:32 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGjQsLbc6u+mCW6UAgHzZ7I5ogU9vr//qu3BpEYvisyFo1ZiWCcvFSN+KbnXtVt+gsG6NG3Rw==
-X-Received: by 2002:a17:906:dc8e:b0:a8a:6bd8:b671 with SMTP id a640c23a62f3a-a99a0eb825dmr782893866b.5.1728658112081;
-        Fri, 11 Oct 2024 07:48:32 -0700 (PDT)
-Received: from stitch.. ([194.62.169.86])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a99c0c89bfasm54134666b.162.2024.10.11.07.48.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        bh=edTlAYc3Etm4OL8N3s7LjWMKxX64MYHgvFT+kJvdV7k=;
+        b=StHx8o8aZa1+tL1OKU29gQ8IlHUeo9PP7tRHDg0NslZkLCGKRzZM7Ptfu/1kAt/Fkl
+         xVGMWORRMU5Pw1K8Af8+eXHkmBUsgKiLdicsrzdvXU+NyQ3HDBn5gd36SbgQl2LVLPc5
+         64bJoBwrFrwagr7KF7u5iall7zRidiXJb15lsnIsARXVdb3d/u7TLOh1WdkYtJrc3Gkt
+         7Y3DoNmuBidb6nh+nHlgjagprsV2ugLq4uWAX2LfV8RoR3UIfIQVH23JNQpQVqlmxq3o
+         5dTbs70Hnuz+ENUVIm1JM+l1s5VlbGpD/jXExm4ePq4g2IB/cT8GKoe33In64BrcD8cL
+         Xt2w==
+X-Forwarded-Encrypted: i=1; AJvYcCUlfxE6RtRASfoiS6bXl8swPYnIA89SxIfXmvPRM4UvVjpR2mBHDxwz5OIqaqdAlpwdjuzxQainCnxcXg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzBNprT/Vkllmo00bb1EhqLzgWT+ddwnAg2WqrYd9tZKdKyszWs
+	2USZVpfcrjCHjthX4Socuf7Ssy6G8eiaJsFP1VDPfFimWt0pTVFqDEbpgmDilfmJWFUM2aJ7FB4
+	NxAmsnfQCXEDzrv5FLFKWKUtdPGkQOHBQyuPNz6fisSspSp661y0BF8v6kAt7VJwjOq3j/8uUk7
+	pnveh3H3VrXl5jyw==
+X-Received: by 2002:a17:907:e287:b0:a77:b01b:f949 with SMTP id a640c23a62f3a-a99b9583aa5mr263420166b.35.1728658111059;
         Fri, 11 Oct 2024 07:48:31 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHkuB7p0e37v0WSrhn4e56VJqCLcOD3kU94S7P3YLvQ43FyUGl3Ul06zTz/mWY0Fzz4R0bA2g==
+X-Received: by 2002:a17:907:e287:b0:a77:b01b:f949 with SMTP id a640c23a62f3a-a99b9583aa5mr263417766b.35.1728658110680;
+        Fri, 11 Oct 2024 07:48:30 -0700 (PDT)
+Received: from stitch.. ([194.62.169.86])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a99c0c89bfasm54134666b.162.2024.10.11.07.48.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 11 Oct 2024 07:48:30 -0700 (PDT)
 From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 To: linux-kernel@vger.kernel.org,
 	linux-gpio@vger.kernel.org,
@@ -84,16 +84,16 @@ Cc: Linus Walleij <linus.walleij@linaro.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-Subject: [PATCH v1 3/3] pinctrl: th1520: Factor out casts
-Date: Fri, 11 Oct 2024 16:48:25 +0200
-Message-ID: <20241011144826.381104-4-emil.renner.berthing@canonical.com>
+Subject: [PATCH v1 2/3] pinctrl: th1520: Update pinmux tables
+Date: Fri, 11 Oct 2024 16:48:24 +0200
+Message-ID: <20241011144826.381104-3-emil.renner.berthing@canonical.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20241011144826.381104-1-emil.renner.berthing@canonical.com>
 References: <20241011144826.381104-1-emil.renner.berthing@canonical.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241011_074834_645805_A1EE9A2D 
-X-CRM114-Status: GOOD (  13.25  )
+X-CRM114-CacheID: sfid-20241011_074833_628546_FC6EE79D 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,80 +110,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Limit the casts to get the mux data and flags from the driver data
-pointer with each pin to two inline functions as requested by Andy
-during review.
+When Drew took over the pinctrl driver it seems like he didn't use the
+git tree I pointed him at and thus missed some important fixes to the
+tables describing valid pinmux settings.
 
+The documentation has a nice overview table of these settings but
+unfortunately it doesn't fully match the register descriptions, which
+seem to be the correct version.
+
+Fixes: bed5cd6f8a98 ("pinctrl: Add driver for the T-Head TH1520 SoC")
 Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 ---
- drivers/pinctrl/pinctrl-th1520.c | 22 +++++++++++++++++-----
- 1 file changed, 17 insertions(+), 5 deletions(-)
+ drivers/pinctrl/pinctrl-th1520.c | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
 
 diff --git a/drivers/pinctrl/pinctrl-th1520.c b/drivers/pinctrl/pinctrl-th1520.c
-index 8bd40cb2f013..7474d8da32f9 100644
+index 03326df69668..8bd40cb2f013 100644
 --- a/drivers/pinctrl/pinctrl-th1520.c
 +++ b/drivers/pinctrl/pinctrl-th1520.c
-@@ -152,6 +152,16 @@ static enum th1520_muxtype th1520_muxtype_get(const char *str)
- 		(TH1520_MUX_##m0 <<  0) | (TH1520_MUX_##m1 <<  5) | (TH1520_MUX_##m2 << 10) | \
- 		(TH1520_MUX_##m3 << 15) | (TH1520_MUX_##m4 << 20) | (TH1520_MUX_##m5 << 25)) }
- 
-+static unsigned long th1520_pad_muxdata(void *drv_data)
-+{
-+	return (uintptr_t)drv_data & TH1520_PAD_MUXDATA;
-+}
-+
-+static bool th1520_pad_no_padcfg(void *drv_data)
-+{
-+	return (uintptr_t)drv_data & TH1520_PAD_NO_PADCFG;
-+}
-+
- static const struct pinctrl_pin_desc th1520_group1_pins[] = {
- 	TH1520_PAD(0,  OSC_CLK_IN,    ____, ____, ____, ____, ____, ____, TH1520_PAD_NO_PADCFG),
- 	TH1520_PAD(1,  OSC_CLK_OUT,   ____, ____, ____, ____, ____, ____, TH1520_PAD_NO_PADCFG),
-@@ -590,7 +600,7 @@ static int th1520_pinconf_get(struct pinctrl_dev *pctldev,
- 	u32 value;
- 	u32 arg;
- 
--	if ((uintptr_t)desc->drv_data & TH1520_PAD_NO_PADCFG)
-+	if (th1520_pad_no_padcfg(desc->drv_data))
- 		return -ENOTSUPP;
- 
- 	value = readl_relaxed(th1520_padcfg(thp, pin));
-@@ -660,7 +670,7 @@ static int th1520_pinconf_set(struct pinctrl_dev *pctldev, unsigned int pin,
- 	unsigned int i;
- 	u16 mask, value;
- 
--	if ((uintptr_t)desc->drv_data & TH1520_PAD_NO_PADCFG)
-+	if (th1520_pad_no_padcfg(desc->drv_data))
- 		return -ENOTSUPP;
- 
- 	mask = 0;
-@@ -793,12 +803,14 @@ static int th1520_pinmux_set_mux(struct pinctrl_dev *pctldev,
- {
- 	struct th1520_pinctrl *thp = pinctrl_dev_get_drvdata(pctldev);
- 	const struct function_desc *func = pinmux_generic_get_function(pctldev, fsel);
-+	enum th1520_muxtype muxtype = (uintptr_t)func->data;
- 
- 	if (!func)
- 		return -EINVAL;
-+
- 	return th1520_pinmux_set(thp, thp->desc.pins[gsel].number,
--				 (uintptr_t)thp->desc.pins[gsel].drv_data & TH1520_PAD_MUXDATA,
--				 (uintptr_t)func->data);
-+				 th1520_pad_muxdata(thp->desc.pins[gsel].drv_data),
-+				 muxtype);
- }
- 
- static int th1520_gpio_request_enable(struct pinctrl_dev *pctldev,
-@@ -809,7 +821,7 @@ static int th1520_gpio_request_enable(struct pinctrl_dev *pctldev,
- 	const struct pin_desc *desc = pin_desc_get(pctldev, offset);
- 
- 	return th1520_pinmux_set(thp, offset,
--				 (uintptr_t)desc->drv_data & TH1520_PAD_MUXDATA,
-+				 th1520_pad_muxdata(desc->drv_data),
- 				 TH1520_MUX_GPIO);
- }
- 
+@@ -221,9 +221,9 @@ static const struct pinctrl_pin_desc th1520_group2_pins[] = {
+ 	TH1520_PAD(15, UART4_RTSN,    UART, ____, ____, GPIO, ____, ____, 0),
+ 	TH1520_PAD(16, UART3_TXD,     DBG,  UART, ____, GPIO, ____, ____, 0),
+ 	TH1520_PAD(17, UART3_RXD,     DBG,  UART, ____, GPIO, ____, ____, 0),
+-	TH1520_PAD(18, GPIO0_18,      GPIO, I2C,  ____, ____, ____, ____, 0),
+-	TH1520_PAD(19, GPIO0_19,      GPIO, I2C,  ____, ____, ____, ____, 0),
+-	TH1520_PAD(20, GPIO0_20,      GPIO, UART, IR,   ____, ____, ____, 0),
++	TH1520_PAD(18, GPIO0_18,      GPIO, I2C,  ____, ____, DPU0, DPU1, 0),
++	TH1520_PAD(19, GPIO0_19,      GPIO, I2C,  ____, ____, DPU0, DPU1, 0),
++	TH1520_PAD(20, GPIO0_20,      GPIO, UART, IR,   ____, DPU0, DPU1, 0),
+ 	TH1520_PAD(21, GPIO0_21,      GPIO, UART, IR,   ____, DPU0, DPU1, 0),
+ 	TH1520_PAD(22, GPIO0_22,      GPIO, JTAG, I2C,  ____, DPU0, DPU1, 0),
+ 	TH1520_PAD(23, GPIO0_23,      GPIO, JTAG, I2C,  ____, DPU0, DPU1, 0),
+@@ -241,7 +241,7 @@ static const struct pinctrl_pin_desc th1520_group2_pins[] = {
+ 	TH1520_PAD(35, GPIO1_3,       GPIO, JTAG, ____, ____, DPU0, DPU1, 0),
+ 	TH1520_PAD(36, GPIO1_4,       GPIO, JTAG, ____, ____, DPU0, DPU1, 0),
+ 	TH1520_PAD(37, GPIO1_5,       GPIO, ____, ____, ____, DPU0, DPU1, 0),
+-	TH1520_PAD(38, GPIO1_6,       GPIO, ____, ____, ____, DPU0, DPU1, 0),
++	TH1520_PAD(38, GPIO1_6,       GPIO, QSPI, ____, ____, DPU0, DPU1, 0),
+ 	TH1520_PAD(39, GPIO1_7,       GPIO, QSPI, ____, ____, DPU0, DPU1, 0),
+ 	TH1520_PAD(40, GPIO1_8,       GPIO, QSPI, ____, ____, DPU0, DPU1, 0),
+ 	TH1520_PAD(41, GPIO1_9,       GPIO, QSPI, ____, ____, DPU0, DPU1, 0),
+@@ -256,11 +256,11 @@ static const struct pinctrl_pin_desc th1520_group2_pins[] = {
+ 	TH1520_PAD(50, CLK_OUT_1,     BSEL, CLK,  ____, GPIO, ____, ____, 0),
+ 	TH1520_PAD(51, CLK_OUT_2,     BSEL, CLK,  ____, GPIO, ____, ____, 0),
+ 	TH1520_PAD(52, CLK_OUT_3,     BSEL, CLK,  ____, GPIO, ____, ____, 0),
+-	TH1520_PAD(53, GPIO1_21,      GPIO, ____, ISP,  ____, ____, ____, 0),
+-	TH1520_PAD(54, GPIO1_22,      GPIO, ____, ISP,  ____, ____, ____, 0),
+-	TH1520_PAD(55, GPIO1_23,      GPIO, ____, ISP,  ____, ____, ____, 0),
+-	TH1520_PAD(56, GPIO1_24,      GPIO, ____, ISP,  ____, ____, ____, 0),
+-	TH1520_PAD(57, GPIO1_25,      GPIO, ____, ISP,  ____, ____, ____, 0),
++	TH1520_PAD(53, GPIO1_21,      JTAG, ____, ISP,  GPIO, ____, ____, 0),
++	TH1520_PAD(54, GPIO1_22,      JTAG, ____, ISP,  GPIO, ____, ____, 0),
++	TH1520_PAD(55, GPIO1_23,      JTAG, ____, ISP,  GPIO, ____, ____, 0),
++	TH1520_PAD(56, GPIO1_24,      JTAG, ____, ISP,  GPIO, ____, ____, 0),
++	TH1520_PAD(57, GPIO1_25,      JTAG, ____, ISP,  GPIO, ____, ____, 0),
+ 	TH1520_PAD(58, GPIO1_26,      GPIO, ____, ISP,  ____, ____, ____, 0),
+ 	TH1520_PAD(59, GPIO1_27,      GPIO, ____, ISP,  ____, ____, ____, 0),
+ 	TH1520_PAD(60, GPIO1_28,      GPIO, ____, ISP,  ____, ____, ____, 0),
 -- 
 2.43.0
 
