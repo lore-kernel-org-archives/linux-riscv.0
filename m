@@ -4,67 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A386BCF2566
-	for <linux-riscv@archiver.kernel.org>; Sat, 12 Oct 2024 13:29:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0175CCF2566
+	for <linux-riscv@archiver.kernel.org>; Sat, 12 Oct 2024 13:46:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Cs//XiWkegH2Jg5QejBI8u64gHR4vqDcQGE4OIIzQXk=; b=rJcU64th4rHCcg
-	wYd7p7jEaH3wNfD/wFB8KxbqdCS3N6qakqSZOTOEL5wv7JMzuJCVf0/08x6/ZmqpbwaLifafQGY4o
-	RIALbT8fHkZXZrnD2WZ/TzKPbj7K2qJBQCRPlC5pN0YBneEdYG7swzbBZvPBfijuknoVN1AMqhbQG
-	GVpEF0WAMixBvhM7+Ah63+6LplFAJr6SrFJlJu2jF2q/zDiuDvL2QkeJs2L7F6DDaPjmTs8gzQjX1
-	dxMTR/k0x0imlhK64F/5CF+TqzO+Dm7x1HYPMC9Z7Rs/Ti91FVtInWVM3qonoPbRkyTputfX8AzZ0
-	n/OjQSsRHMiiWrWrUFHg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=iRt93WH2jlTd9gjwEvxgzROX6lIcBwXgUXajg+/txMo=; b=nZSWqiCYLEmtCz/dUwW8KI/KkR
+	ZWfBbSnaN3/Vbkcdb544Gt6MXsHsTI6VztlK6Qo634iADULdc2r0HWYELVM1TgsmT37tBQOS2NQmI
+	o4llnP5L0fL2JrW7OQySl6iXyy05iTT6ahws7Yy1+TZkxdBOdYrtIstqPmoIv3VVMxTrTkxSi9Ew3
+	1RvftHx3xyRyqxOI8c6G4jZFgycL+3VkNyUBpe4YfPpJ/vqy7nqvWni+InDXaFRXYSsihhdCpZt+V
+	1y3imzDo2qWcYr02ORcCLdrFFEFi63YVa+f6WSQe1KJjIKP/TWThHK59yq6Iwf0oyV42jbTAN2rOo
+	dxIchuzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1szcBm-00000001FY3-2dn4;
-	Sat, 12 Oct 2024 13:29:46 +0000
-Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
+	id 1szcRh-00000001Hjl-0DkW;
+	Sat, 12 Oct 2024 13:46:13 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1szcBj-00000001FXO-1VsX
+	id 1szcRc-00000001HiP-23i0
 	for linux-riscv@lists.infradead.org;
-	Sat, 12 Oct 2024 13:29:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
-	; s=202004.hall; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:Reply-To:
-	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=86LUFeiSctauCmIBlqHrJmZxrAIYPqEdqsSwFAfU0sE=; b=zZyBVo6BMQP1cuNJ6PGdOOkOVo
-	ypvs/AkLg6J+QUOI6bBBIAxsFKMy1cfReTMN6clE7w0+77K4uGRINpQQfUGAAt2qqg/S5zunkUHh6
-	uwsrsThwmHi/OsUz/w5E0TaWs+jfgyoTPWpVTHTH/2Xtwd5cxwUjUvR4M+UUJMZif/9p98mLAs+9G
-	Fa8Z88v1Io4Ir1/1Pbe4AfOz+UFIGK7yT+ZGtbJl+/Xpn/g7pasfUzPJn9CFuV1mL949km3xx42VX
-	ED6524KlLqGBqX39OOWN3q1ABwJMSkzxg7Fcy4aCa06yP8ebAAEHWsyHA/dbsrbeY2X/Pe+ZgUJ4b
-	Ayo0vBAQ==;
-Received: from ohm.aurel32.net ([2001:bc8:30d7:111::2] helo=ohm.rr44.fr)
-	by hall.aurel32.net with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <aurelien@aurel32.net>)
-	id 1szcBV-000lVG-0Q;
-	Sat, 12 Oct 2024 15:29:29 +0200
-Date: Sat, 12 Oct 2024 15:29:28 +0200
-From: Aurelien Jarno <aurelien@aurel32.net>
-To: Changhuang Liang <changhuang.liang@starfivetech.com>
-Cc: Conor Dooley <conor+dt@kernel.org>,
-	Jack Zhu <jack.zhu@starfivetech.com>, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	E Shattow <lucent@gmail.com>
-Subject: Re: [v3] riscv: dts: starfive: jh7110: Add camera subsystem nodes
-Message-ID: <Zwp5uFiGqxQa-yC9@aurel32.net>
-Mail-Followup-To: Changhuang Liang <changhuang.liang@starfivetech.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jack Zhu <jack.zhu@starfivetech.com>, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	E Shattow <lucent@gmail.com>
-References: <20240219032741.18387-1-changhuang.liang@starfivetech.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240219032741.18387-1-changhuang.liang@starfivetech.com>
-User-Agent: Mutt/2.2.13 (2024-03-09)
+	Sat, 12 Oct 2024 13:46:11 +0000
+Received: from mail-oa1-f69.google.com (mail-oa1-f69.google.com [209.85.160.69])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 105DB3FE51
+	for <linux-riscv@lists.infradead.org>; Sat, 12 Oct 2024 13:46:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1728740766;
+	bh=wX2+LM1EIphUiY8L+Ud8kXahS9GWghUjKo8VomtJpRE=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=hmhcZH02omw/3HLqYobtQvxFInoMxRIiPIr91uXFjK15jfbje0xsbxYXqzxAh6IvP
+	 ab7hDpnuwbGAdmd+maNz6FzpB5FZz6xz/HkElRSnmDHc1Erv4FEbi1mGx9sWQMz6A9
+	 AkTBVBNrAd8twkCdgidO1EPhHXt7OPklfxKNqAdR/6eF7/G/8HKBnErWraUUSZOt34
+	 QZvtajwNF6p8X/uKGGpHgVOUUDozZxLQBGaX+Gp7nCBVq9vxfRZyH56pj12JLkRDyo
+	 77F+TiACgLrbdRZqJPk8n5VsA4CTVYuUUW8UcbkkIyox+4B4/UUlhwJvvzf7wXluSt
+	 Q9Eom84VT2zCQ==
+Received: by mail-oa1-f69.google.com with SMTP id 586e51a60fabf-288996e6b66so200129fac.1
+        for <linux-riscv@lists.infradead.org>; Sat, 12 Oct 2024 06:46:06 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1728740765; x=1729345565;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=wX2+LM1EIphUiY8L+Ud8kXahS9GWghUjKo8VomtJpRE=;
+        b=bEXP598TrtvCd82JvMscjZF+X2yhJe1ZVUWdkvVBmTlvU1P+mpQx6BKCwKOwFvhLrs
+         UWlcamstXt8/ctfMxKkrjKBbxp92u6EOmGnUBJANAMatoXDxV/k/1fFz90c/bNoQZqqp
+         nb/CDX9wCiEn5GTHCDjq54pEtT6PAuubXgHE5WEQ2CPQXSzIUTw1796TmrtR9Ye+nZEO
+         1usLFRPcHGrlvIax5QwfkLAPUgvVaMbjDLFpD26U1i61PghQnFHb6o4k/I4ROPGU5UB9
+         Yi0D5zstI5yuBCb04QsZ209LbO5z2lQ451wgGmEbeaR/GCVFyRL0u1ff3HDBseK1a05R
+         svtA==
+X-Gm-Message-State: AOJu0YwkizpFtBzRZJ6rXWx+zqTAQCQ5CbGk/Ex0Q4E4ZjQ4mPP2gc5F
+	kHzo+VdhsIFMlX4xZtv+83QCHrxFBP1NPNKCfEuisE50qXfIwHhCN15q9RBLRYsy2it7ZIPnDhv
+	mTRqpBs6NCoA23YVwJJxnQfW8Tfg0MZ0F3f/cUUmy+Zq7nJhyohzmDtUsD2MMAuzfoaXIhfse04
+	vrsgg0qjAbqbqSq2eNEPelzuSi18+9xu1sQjNxyd3Ccc8nSut10f5suVod
+X-Received: by 2002:a05:6870:9a20:b0:261:17e7:59b3 with SMTP id 586e51a60fabf-2886dd63017mr3691934fac.3.1728740764928;
+        Sat, 12 Oct 2024 06:46:04 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGP4R8o1xTNt9NnlgIKlLHoYXBR+jmFI4otlWWTHp9Xr17E6cIWspGpN8K84jN8jnyBWovayalZRE70svxjXkQ=
+X-Received: by 2002:a05:6870:9a20:b0:261:17e7:59b3 with SMTP id
+ 586e51a60fabf-2886dd63017mr3691884fac.3.1728740763638; Sat, 12 Oct 2024
+ 06:46:03 -0700 (PDT)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Sat, 12 Oct 2024 06:46:03 -0700
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <20240930-th1520-pinctrl-v3-6-32cea2bdbecb@tenstorrent.com>
+References: <20240930-th1520-pinctrl-v3-0-32cea2bdbecb@tenstorrent.com> <20240930-th1520-pinctrl-v3-6-32cea2bdbecb@tenstorrent.com>
+Mime-Version: 1.0
+Date: Sat, 12 Oct 2024 06:46:02 -0700
+Message-ID: <CAJM55Z_8d10_8g8D_WwYqi_D36JVs+7UdooO9p81Vuwd8odSyw@mail.gmail.com>
+Subject: Re: [PATCH v3 6/8] riscv: dts: thead: Add Lichee Pi 4M GPIO line names
+To: Drew Fustini <dfustini@tenstorrent.com>, Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>, 
+	Fu Wei <wefu@redhat.com>, Linus Walleij <linus.walleij@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, 
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
+	Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+Cc: linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241012_062943_872896_0A1D2F3E 
-X-CRM114-Status: GOOD (  12.67  )
+X-CRM114-CacheID: sfid-20241012_064608_918492_78421479 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,96 +105,82 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 2024-02-18 19:27, Changhuang Liang wrote:
-> Add camera subsystem nodes for the StarFive JH7110 SoC. They contain the
-> dphy-rx, csi2rx, camss nodes.
-> 
-> Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+Drew Fustini wrote:
+> From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+>
+> Add names for the GPIO00-GPIO14 lines of the SO-DIMM module.
+>
+> Tested-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+> Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+> Signed-off-by: Drew Fustini <dfustini@tenstorrent.com>
 > ---
->  .../jh7110-starfive-visionfive-2.dtsi         | 49 ++++++++++++++
->  arch/riscv/boot/dts/starfive/jh7110.dtsi      | 67 +++++++++++++++++++
->  2 files changed, 116 insertions(+)
-
-We have been asked to enable CONFIG_VIDEO_STARFIVE_CAMSS in the Debian
-kernel, which from my understanding and given the device tree shown
-below also requires enabling CONFIG_VIDEO_CADENCE_CSI2RX. That said
-doing so triggers the following error in dmesg:
-
-[   25.143282] cdns-csi2rx 19800000.csi: probe with driver cdns-csi2rx failed with error -22
-
-From a quick look it seems there is something in the port@0 csi2rx
-entry. Do you happen to know what is wrong?
-
-Thanks
-Aurelien
-
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> index b89e9791efa7..737ee97a3577 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> @@ -125,6 +125,55 @@ &tdm_ext {
->  	clock-frequency = <49152000>;
+>  .../boot/dts/thead/th1520-lichee-module-4a.dtsi    | 39 ++++++++++++++++++++++
+>  1 file changed, 39 insertions(+)
+>
+> diff --git a/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi b/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
+> index bf1c639072b8..ca84bc2039ef 100644
+> --- a/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
+> +++ b/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
+> @@ -29,6 +29,12 @@ &aonsys_clk {
+>  	clock-frequency = <73728000>;
 >  };
-> 
-> +&camss {
-> +	assigned-clocks = <&ispcrg JH7110_ISPCLK_DOM4_APB_FUNC>,
-> +			  <&ispcrg JH7110_ISPCLK_MIPI_RX0_PXL>;
-> +	assigned-clock-rates = <49500000>, <198000000>;
-> +	status = "okay";
-> +
-> +	ports {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		port@0 {
-> +			reg = <0>;
-> +		};
-> +
-> +		port@1 {
-> +			reg = <1>;
-> +
-> +			camss_from_csi2rx: endpoint {
-> +				remote-endpoint = <&csi2rx_to_camss>;
-> +			};
-> +		};
-> +	};
+>
+> +&aogpio {
+> +	gpio-line-names = "", "", "",
+> +			  "GPIO00",
+> +			  "GPIO04";
 > +};
 > +
-> +&csi2rx {
-> +	assigned-clocks = <&ispcrg JH7110_ISPCLK_VIN_SYS>;
-> +	assigned-clock-rates = <297000000>;
-> +	status = "okay";
+>  &dmac0 {
+>  	status = "okay";
+>  };
+> @@ -48,3 +54,36 @@ &sdio0 {
+>  	max-frequency = <198000000>;
+>  	status = "okay";
+>  };
 > +
-> +	ports {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		port@0 {
-> +			reg = <0>;
-> +
-> +			/* remote MIPI sensor endpoint */
-> +		};
-> +
-> +		port@1 {
-> +			reg = <1>;
-> +
-> +			csi2rx_to_camss: endpoint {
-> +				remote-endpoint = <&camss_from_csi2rx>;
-> +			};
-> +		};
-> +	};
+> +&gpio0 {
+> +	gpio-line-names = "", "", "", "", "", "", "", "", "", "",
+> +			  "", "", "", "", "", "", "", "", "", "",
+> +			  "", "", "", "",
+> +			  "GPIO07",
+> +			  "GPIO08",
+> +			  "",
+> +			  "GPIO01",
+> +			  "GPIO02";
 > +};
 > +
->  &gmac0 {
->  	phy-handle = <&phy0>;
->  	phy-mode = "rgmii-id";
- 
+> +&gpio1 {
+> +	gpio-line-names = "", "", "",
+> +			  "GPIO11",
+> +			  "GPIO12",
+> +			  "GPIO13",
+> +			  "GPIO14",
+> +			  "", "", "", "", "", "", "", "", "", "",
+> +			  "", "", "", "", "",
+> +			  "GPIO06";
+> +};
+> +
+> +&gpio2 {
+> +	gpio-line-names = "GPIO03",
+> +			  "GPIO05";
+> +};
+> +
+> +&gpio3 {
+> +	gpio-line-names = "", "",
+> +			  "GPIO09",
+> +			  "GPIO10";
+> +};
 
--- 
-Aurelien Jarno                          GPG: 4096R/1DDD8C9B
-aurelien@aurel32.net                     http://aurel32.net
+Hi Drew,
+
+I just noticed you've moved these entries compared to my original patches, so
+they're no longer sorted alphabetically. Why?
+
+Please see https://docs.kernel.org/devicetree/bindings/dts-coding-style.html
+under "Order of Nodes".
+
+/Emil
 
 _______________________________________________
 linux-riscv mailing list
