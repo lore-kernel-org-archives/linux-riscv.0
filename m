@@ -4,91 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40362CF2568
-	for <linux-riscv@archiver.kernel.org>; Sat, 12 Oct 2024 14:52:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92607CF2579
+	for <linux-riscv@archiver.kernel.org>; Sun, 13 Oct 2024 08:50:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=dRlEQm2TSOayYzHaAoHoLEEU4kb+FZvftIuNnzmXuT8=; b=as4l+lDgII8TZfDdd9CR0aJ3TY
-	vt0WcEaMkuA0fbzKvqyncYW/lefzBQIoM7l1yrPFx6mPU7YmE7gINqksAJA5zjaUMTCHlCa0fUzuD
-	F9D7RTPl09HBzsSN+eYYLunGKI1d+ynqm2Kv36rxsF1E2anfxhYnEG2h3fucwGAz0fHA8PnlhcaUD
-	i3WVm+udioBKfKAtts1zWH7abfHK9s2lKmFaubHNWRHwihVl+5XoLkk0dv8SmO0xPnZHlo9Ib1Wr+
-	Hy6fuLv2e/1Do5PVYLE/OBbbp1qif8BEvO9Z5sSups4q8YNCS/9e7Hv8fiBtGrLgpkrxwD4ACfx3l
-	NxZscDkg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=wYgx9NKD9q6yg6JOHjHyxyKVBXVjusNxIiYeKVMKrgk=; b=QfadHQIwkMVC0+
+	s2/hpCm1pgeg3C7ipwo7m4NXw1ITBYXJFICIaf/X3VKxqW+6GJLrYOFXvMps+oiUOt56hRkNje2u/
+	yDsgDwchxwVjBZ9feWNBh95WnVZD7nZxt/tWPF3cPZ5NTsOt0i5yCgM4BnNzHdfgw2hpZXldNR31o
+	Qr/snEQNfr7QltROg3uw7rYqmqNkbSMr2TWXitDNzPWTR3aP1M/SsnTDvcQmKhkRB6bPj4at9tOIR
+	i0aCxRNo0c23/b6TrXnY03+miuZwhrTcee+T+axLR727Q2+ttIRhlHBvJA7ZwDmvYAykpghfBYT8F
+	NcjoKG66YwCYnznCz5hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1szdTv-00000001O2D-3Pvv;
-	Sat, 12 Oct 2024 14:52:35 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1szuIj-00000002Qev-2wqo;
+	Sun, 13 Oct 2024 08:50:09 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1szdIw-00000001Lxu-2tWs
-	for linux-riscv@lists.infradead.org;
-	Sat, 12 Oct 2024 14:41:17 +0000
-Received: from mail-oa1-f72.google.com (mail-oa1-f72.google.com [209.85.160.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 5816A3F8E3
-	for <linux-riscv@lists.infradead.org>; Sat, 12 Oct 2024 14:41:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1728744072;
-	bh=u14OejdbWcG0velVojMwkvgHAoWWwEN6ANeyU44dL4U=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=YJCBOV1FxLgxMQxpF8Y1iSsfyYfccXfjAHyotS01tv0QxuWTTmaTWivkL+zwZ05EB
-	 EA4z6Oy7YA6MlcJQhRivWBZFYKuaoVkKEYAp9ETB8cwIxMj7oNMkRoSN5hXM/91MLC
-	 uNxwWqahK2iaSzny33oWWXT959jAKsISqK62MqL7vzvFP9xBiUWccM0YMKDeUFtpu/
-	 9ymJX349XKG4ThIObs7e6lfPazv+uc49nP7QoTwpZJpnZD74DxgzuSYnbVoF1n0MRG
-	 UJwFV5U7NRICI0zZU1Pe7v4aF8psQa0mecV2fBixEh/RPvo8yZN3cVytGLD6jJo65Q
-	 hFhjOt9T8i2FQ==
-Received: by mail-oa1-f72.google.com with SMTP id 586e51a60fabf-2877e9bb313so2827093fac.1
-        for <linux-riscv@lists.infradead.org>; Sat, 12 Oct 2024 07:41:12 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728744071; x=1729348871;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=u14OejdbWcG0velVojMwkvgHAoWWwEN6ANeyU44dL4U=;
-        b=qzqt2pEjessOVAwrBSVjsHEhinWo+Hw//4p+xIAp+hOjfTwP+jA0yLb0d/6283Uj+8
-         XTm6ADbz2LAoSLm18d55sBoCAx6zAAaBVS0K+5D3pbCJm5SR6cjuEabUfbxRLBvvl0Hs
-         ddLkoJFD6SGutGoIDTw6+Z3PpHBDkBOeu2RTcrAgrhe/K3cGyOQVto41EVQ+dfISWjpp
-         lTe19qYiEpXb7qqCLzOAxy22sx/Kmi+BZLt13MTDV/xPfMWa18lc+dgBi91k7dfrVCgT
-         EbIR6rRJJhkuuWciveZIu56t2Sz1m3CB2kr8COavcsZOAUfZPSjY04YVfWI4FIII5kA3
-         2COQ==
-X-Gm-Message-State: AOJu0Yy3zKmg1E9qpK3xaC5otJfyxNjgmqsjyQHP53+eyfyU13Ioh3jS
-	jIYLO4y/cx7bw3lgzF1vtuHA5ZN+soedmWtSs7m9I//sTfpC/qtxEpKYK38X+8N4/6ZKQPAtOrH
-	mlCjFrnhwHTtQx6umEj6seb8vUEIzzFfmHwcpM4uHbiFKigBMIjuRFuKeGzitqPFwKDPqlNZEtk
-	0XxjuDArdEjoOWZPVMXxV90yhkFMzGY2d6TojVP++d2PwckUy5OpRCaLzL
-X-Received: by 2002:a05:6870:b514:b0:261:1046:66fc with SMTP id 586e51a60fabf-2886dd3fac0mr3280047fac.4.1728744070948;
-        Sat, 12 Oct 2024 07:41:10 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGXUlMb3PnnEigp7yJsQv44SPpz2ujpyO0GZEe1m7y1otwwP5hPxCneu5J0+02C3ypjxxd7ArzHX3GpPmZvsRE=
-X-Received: by 2002:a05:6870:b514:b0:261:1046:66fc with SMTP id
- 586e51a60fabf-2886dd3fac0mr3280035fac.4.1728744070551; Sat, 12 Oct 2024
- 07:41:10 -0700 (PDT)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Sat, 12 Oct 2024 10:41:09 -0400
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20240930-th1520-pinctrl-v3-8-32cea2bdbecb@tenstorrent.com>
-References: <20240930-th1520-pinctrl-v3-0-32cea2bdbecb@tenstorrent.com> <20240930-th1520-pinctrl-v3-8-32cea2bdbecb@tenstorrent.com>
-Mime-Version: 1.0
-Date: Sat, 12 Oct 2024 10:41:09 -0400
-Message-ID: <CAJM55Z8rv587qAtiMoc5i4+ZkQk6DwQJQVmDP=3gG+wVe7h0EA@mail.gmail.com>
-Subject: Re: [PATCH v3 8/8] riscv: dtb: thead: Add BeagleV Ahead LEDs
-To: Drew Fustini <dfustini@tenstorrent.com>, Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>, 
-	Fu Wei <wefu@redhat.com>, Linus Walleij <linus.walleij@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, 
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
-	Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-Cc: linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+	id 1szuGE-00000002QH2-2WjZ;
+	Sun, 13 Oct 2024 08:47:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id DDA245C4CBB;
+	Sun, 13 Oct 2024 08:47:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00D61C4CECD;
+	Sun, 13 Oct 2024 08:47:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1728809253;
+	bh=oCkJ2115ozRiZPDG4YoFw9nArbpLGJybX01Iv//69uE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=E8OMxiMEktF+GQmyT4EDIYDJPag5y6VDyo/Ga7wsRXJJ99cwzji7jLF1sUHlppQrC
+	 kfjLbesywWMnxfXjdxF/ttfJW0S6OCnAeNyYzQJk2u4D3I/IHI9w4eKpfc6/PVtfuE
+	 WndRqsL5ofKVGyFE9G/gSdQ0nGfWKHlQ3BhJP58mfPjvLaZMFmHfTrH7D6YY90Mj1Y
+	 Bf6s6/XciGtUwI6Emh7Lkdsn+ce052geMCuH5U+Tb+yPiRy+C2Qz+9+N2Qx0N42A/1
+	 /daXS+24OOYM/5Gk5f/vkwwYyUK7ykCQAd22G6E+/Xf2yKVuhiVY41QpTSBy6H62Ks
+	 p+MyUT+rRu6SQ==
+Date: Sun, 13 Oct 2024 11:43:41 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Christoph Hellwig <hch@infradead.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Andy Lutomirski <luto@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>,
+	Brian Cain <bcain@quicinc.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Kent Overstreet <kent.overstreet@linux.dev>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Simek <monstr@monstr.eu>, Oleg Nesterov <oleg@redhat.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Richard Weinberger <richard@nod.at>,
+	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
+	Stafford Horne <shorne@gmail.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org, linux-alpha@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, linux-mm@kvack.org,
+	linux-modules@vger.kernel.org, linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+	linux-trace-kernel@vger.kernel.org, linux-um@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
+	sparclinux@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH v5 7/8] execmem: add support for cache of large ROX pages
+Message-ID: <ZwuIPZkjX0CfzhjS@kernel.org>
+References: <20241009180816.83591-1-rppt@kernel.org>
+ <20241009180816.83591-8-rppt@kernel.org>
+ <Zwd7GRyBtCwiAv1v@infradead.org>
+ <ZwfPPZrxHzQgYfx7@kernel.org>
+ <ZwjXz0dz-RldVNx0@infradead.org>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <ZwjXz0dz-RldVNx0@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241012_074115_630973_3128C0B0 
-X-CRM114-Status: GOOD (  14.31  )
+X-CRM114-CacheID: sfid-20241013_014735_214088_C81AD619 
+X-CRM114-Status: GOOD (  17.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,118 +116,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Drew Fustini wrote:
-> From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
->
-> Add nodes for the 5 user controllable LEDs on the BeagleV Ahead board.
->
-> Tested-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-> Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-> Signed-off-by: Drew Fustini <dfustini@tenstorrent.com>
-> ---
->  arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts | 55 ++++++++++++++++++++++
->  1 file changed, 55 insertions(+)
->
-> diff --git a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-> index 6c0b768e8d17..5a5888f4eda6 100644
-> --- a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-> +++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-> @@ -7,6 +7,8 @@
->  /dts-v1/;
->
->  #include "th1520.dtsi"
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/leds/common.h>
->
->  / {
->  	model = "BeagleV Ahead";
-> @@ -35,7 +37,42 @@ chosen {
->  	memory@0 {
->  		device_type = "memory";
->  		reg = <0x0  0x00000000  0x1 0x00000000>;
-> +	};
-> +
-> +	leds {
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&led_pins>;
-> +		compatible = "gpio-leds";
-> +
-> +		led-1 {
-> +			gpios = <&gpio4 8 GPIO_ACTIVE_LOW>;
+On Fri, Oct 11, 2024 at 12:46:23AM -0700, Christoph Hellwig wrote:
+> On Thu, Oct 10, 2024 at 03:57:33PM +0300, Mike Rapoport wrote:
+> > On Wed, Oct 09, 2024 at 11:58:33PM -0700, Christoph Hellwig wrote:
+> > > On Wed, Oct 09, 2024 at 09:08:15PM +0300, Mike Rapoport wrote:
+> > > >  /**
+> > > >   * struct execmem_info - architecture parameters for code allocations
+> > > > + * @fill_trapping_insns: set memory to contain instructions that will trap
+> > > >   * @ranges: array of parameter sets defining architecture specific
+> > > >   * parameters for executable memory allocations. The ranges that are not
+> > > >   * explicitly initialized by an architecture use parameters defined for
+> > > >   * @EXECMEM_DEFAULT.
+> > > >   */
+> > > >  struct execmem_info {
+> > > > +	void (*fill_trapping_insns)(void *ptr, size_t size, bool writable);
+> > > >  	struct execmem_range	ranges[EXECMEM_TYPE_MAX];
+> > > 
+> > > Why is the filler an indirect function call and not an architecture
+> > > hook?
+> > 
+> > The idea is to keep everything together and have execmem_info describe all
+> > that architecture needs. 
+> 
+> But why?  That's pretty different from our normal style of arch hooks,
+> and introduces an indirect call in a security sensitive area.
 
-Here you're also missing important changes from the tree I told you to use.
-These should be GPIO_ACTIVE_HIGH otherwise the LEDs will be on when they should
-be off.
+Will change to __weak hook. 
 
-> +			color = <LED_COLOR_ID_BLUE>;
-> +			label = "led1";
-> +		};
-> +
-> +		led-2 {
-> +			gpios = <&gpio4 9 GPIO_ACTIVE_LOW>;
-> +			color = <LED_COLOR_ID_BLUE>;
-> +			label = "led2";
-> +		};
-> +
-> +		led-3 {
-> +			gpios = <&gpio4 10 GPIO_ACTIVE_LOW>;
-> +			color = <LED_COLOR_ID_BLUE>;
-> +			label = "led3";
-> +		};
-> +
-> +		led-4 {
-> +			gpios = <&gpio4 11 GPIO_ACTIVE_LOW>;
-> +			color = <LED_COLOR_ID_BLUE>;
-> +			label = "led4";
-> +		};
->
-> +		led-5 {
-> +			gpios = <&gpio4 12 GPIO_ACTIVE_LOW>;
-> +			color = <LED_COLOR_ID_BLUE>;
-> +			label = "led5";
-> +		};
->  	};
->  };
->
-> @@ -71,6 +108,24 @@ &sdio0 {
->  	status = "okay";
->  };
->
-> +&padctrl_aosys {
-> +	led_pins: led-0 {
-> +		led-pins {
-> +			pins = "AUDIO_PA8",  /* GPIO4_8 */
-> +			       "AUDIO_PA9",  /* GPIO4_9 */
-> +			       "AUDIO_PA10", /* GPIO4_10 */
-> +			       "AUDIO_PA11", /* GPIO4_11 */
-> +			       "AUDIO_PA12"; /* GPIO4_12 */
-> +			function = "gpio";
-
-You've also added this line which results in an error like this:
-
-  pinctrl-th1520 fffff4a000.pinctrl: pin AUDIO_PA8 already requested
-by leds; cannot claim for fffff52000.gpio:536
-
-Did you run this on your BeagleV Ahead?
-
-/Emil
-
-> +			bias-disable;
-> +			drive-strength = <3>;
-> +			input-disable;
-> +			input-schmitt-disable;
-> +			slew-rate = <0>;
-> +		};
-> +	};
-> +};
-> +
->  &padctrl0_apsys {
->  	uart0_pins: uart0-0 {
->  		tx-pins {
->
-> --
-> 2.34.1
->
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
