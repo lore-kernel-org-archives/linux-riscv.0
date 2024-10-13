@@ -4,102 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92607CF2579
-	for <linux-riscv@archiver.kernel.org>; Sun, 13 Oct 2024 08:50:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62E36CF2576
+	for <linux-riscv@archiver.kernel.org>; Sun, 13 Oct 2024 17:18:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wYgx9NKD9q6yg6JOHjHyxyKVBXVjusNxIiYeKVMKrgk=; b=QfadHQIwkMVC0+
-	s2/hpCm1pgeg3C7ipwo7m4NXw1ITBYXJFICIaf/X3VKxqW+6GJLrYOFXvMps+oiUOt56hRkNje2u/
-	yDsgDwchxwVjBZ9feWNBh95WnVZD7nZxt/tWPF3cPZ5NTsOt0i5yCgM4BnNzHdfgw2hpZXldNR31o
-	Qr/snEQNfr7QltROg3uw7rYqmqNkbSMr2TWXitDNzPWTR3aP1M/SsnTDvcQmKhkRB6bPj4at9tOIR
-	i0aCxRNo0c23/b6TrXnY03+miuZwhrTcee+T+axLR727Q2+ttIRhlHBvJA7ZwDmvYAykpghfBYT8F
-	NcjoKG66YwCYnznCz5hQ==;
+	List-Owner; bh=1qYzJ61OdZGIXTLlgOh4bqXgJkVqlreStdqfm/DOcj8=; b=MpJ8owCUqZqJqe
+	wP8XyTLqLFE6n0jod4xWeVKA14RQ1Uuw5ZHgyWbFDpYREFlZSXwXvIeVUouEzqyDWFgLn3+8MbuSc
+	sC8LS1MgglVJYsvktOBzEqRCl8Cd3J53DvcQeiulm/gsPYMSqai9vp7YUoBzP1KspiugQVEL6nMqc
+	HpqCB6JLk/Lm4yfJiz2q7lJankSSL16jAMJHhy3avitWSQ3tI7De8fA4qYux8jahrIxSMs88dsCf4
+	zeF7RH5X9XDzmJ+I3fVJmmYj+5Noh6BdPKaQ02omkmyQVHOPRo4jOOZyIzCpylXFNZdOJXMf5+F19
+	oEDFI4W0ZFAzjIe1eIFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1szuIj-00000002Qev-2wqo;
-	Sun, 13 Oct 2024 08:50:09 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t02EQ-00000002xYl-06Km;
+	Sun, 13 Oct 2024 17:18:14 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1szuGE-00000002QH2-2WjZ;
-	Sun, 13 Oct 2024 08:47:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DDA245C4CBB;
-	Sun, 13 Oct 2024 08:47:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00D61C4CECD;
-	Sun, 13 Oct 2024 08:47:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1728809253;
-	bh=oCkJ2115ozRiZPDG4YoFw9nArbpLGJybX01Iv//69uE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=E8OMxiMEktF+GQmyT4EDIYDJPag5y6VDyo/Ga7wsRXJJ99cwzji7jLF1sUHlppQrC
-	 kfjLbesywWMnxfXjdxF/ttfJW0S6OCnAeNyYzQJk2u4D3I/IHI9w4eKpfc6/PVtfuE
-	 WndRqsL5ofKVGyFE9G/gSdQ0nGfWKHlQ3BhJP58mfPjvLaZMFmHfTrH7D6YY90Mj1Y
-	 Bf6s6/XciGtUwI6Emh7Lkdsn+ce052geMCuH5U+Tb+yPiRy+C2Qz+9+N2Qx0N42A/1
-	 /daXS+24OOYM/5Gk5f/vkwwYyUK7ykCQAd22G6E+/Xf2yKVuhiVY41QpTSBy6H62Ks
-	 p+MyUT+rRu6SQ==
-Date: Sun, 13 Oct 2024 11:43:41 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Christoph Hellwig <hch@infradead.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Andy Lutomirski <luto@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>,
-	Brian Cain <bcain@quicinc.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Kent Overstreet <kent.overstreet@linux.dev>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Simek <monstr@monstr.eu>, Oleg Nesterov <oleg@redhat.com>,
+	id 1t02EM-00000002xXi-0eo7
+	for linux-riscv@lists.infradead.org;
+	Sun, 13 Oct 2024 17:18:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1728839890; x=1760375890;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=WbydFYAz5ZoV3Bxyd7+H0mgxO9Ixg4pDxJOa+O7WmhM=;
+  b=Nqvv+NCAaParZgUw3HgU6ABGiLIPPmj1GSUaInFYvdibpa5nbRcrz3By
+   MRkasG+pa7qhA9/eaikxd9A2lrqfrYq1PPLejzZIdKi0ST/jTUMMIeKx5
+   Kr7R6QLkKcu0YBVvj8cTQEn0YmaH1+Su2N+Q7mTfdAmrG/68Bj4GMVL3n
+   o5G0hmBXgI29guGp8+k9/2GQGf0IWr6kf3C5XxBBFS3HfiZXlZJgSksGe
+   8haCAT2PHVRe1WS3u7zoqHhadDlVNDbauzNd/X/WHndzarLo4OBynLpR9
+   QEZhoRpwg5OO5FKy6Khgj164XihIBbuc7zc2UpW6Qd/GNzKDGPEQZoVn9
+   w==;
+X-CSE-ConnectionGUID: 8G3nHn4/Q6CYRZxrBPKMnA==
+X-CSE-MsgGUID: ojtS2lh0RsaZUblK8fHrKA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="28315577"
+X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
+   d="scan'208";a="28315577"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Oct 2024 10:18:04 -0700
+X-CSE-ConnectionGUID: McE/a4jjRLeIzbeAIDSdXw==
+X-CSE-MsgGUID: T73fj4mGSc+AlQGTXdLMtw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,201,1725346800"; 
+   d="scan'208";a="77228813"
+Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
+  by orviesa009.jf.intel.com with ESMTP; 13 Oct 2024 10:17:59 -0700
+Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1t02E8-000EYh-1W;
+	Sun, 13 Oct 2024 17:17:56 +0000
+Date: Mon, 14 Oct 2024 01:17:48 +0800
+From: kernel test robot <lkp@intel.com>
+To: Inochi Amaoto <inochiama@gmail.com>,
+	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
 	Peter Zijlstra <peterz@infradead.org>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
-	Stafford Horne <shorne@gmail.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linux-mm@kvack.org,
-	linux-modules@vger.kernel.org, linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org, linux-um@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v5 7/8] execmem: add support for cache of large ROX pages
-Message-ID: <ZwuIPZkjX0CfzhjS@kernel.org>
-References: <20241009180816.83591-1-rppt@kernel.org>
- <20241009180816.83591-8-rppt@kernel.org>
- <Zwd7GRyBtCwiAv1v@infradead.org>
- <ZwfPPZrxHzQgYfx7@kernel.org>
- <ZwjXz0dz-RldVNx0@infradead.org>
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@outlook.com>, Guo Ren <guoren@kernel.org>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Yangyu Chen <cyy@cyyself.name>, Jinyu Tang <tangjinyu@tinylab.org>,
+	Hal Feng <hal.feng@starfivetech.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: oe-kbuild-all@lists.linux.dev, Yixun Lan <dlan@gentoo.org>,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 2/3] irqchip: add T-HEAD C900 ACLINT SSWI driver
+Message-ID: <202410140004.WwnrCUnq-lkp@intel.com>
+References: <20241009224410.53188-3-inochiama@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <ZwjXz0dz-RldVNx0@infradead.org>
+In-Reply-To: <20241009224410.53188-3-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241013_014735_214088_C81AD619 
-X-CRM114-Status: GOOD (  17.81  )
+X-CRM114-CacheID: sfid-20241013_101810_277937_C7241700 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,36 +103,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 11, 2024 at 12:46:23AM -0700, Christoph Hellwig wrote:
-> On Thu, Oct 10, 2024 at 03:57:33PM +0300, Mike Rapoport wrote:
-> > On Wed, Oct 09, 2024 at 11:58:33PM -0700, Christoph Hellwig wrote:
-> > > On Wed, Oct 09, 2024 at 09:08:15PM +0300, Mike Rapoport wrote:
-> > > >  /**
-> > > >   * struct execmem_info - architecture parameters for code allocations
-> > > > + * @fill_trapping_insns: set memory to contain instructions that will trap
-> > > >   * @ranges: array of parameter sets defining architecture specific
-> > > >   * parameters for executable memory allocations. The ranges that are not
-> > > >   * explicitly initialized by an architecture use parameters defined for
-> > > >   * @EXECMEM_DEFAULT.
-> > > >   */
-> > > >  struct execmem_info {
-> > > > +	void (*fill_trapping_insns)(void *ptr, size_t size, bool writable);
-> > > >  	struct execmem_range	ranges[EXECMEM_TYPE_MAX];
-> > > 
-> > > Why is the filler an indirect function call and not an architecture
-> > > hook?
-> > 
-> > The idea is to keep everything together and have execmem_info describe all
-> > that architecture needs. 
-> 
-> But why?  That's pretty different from our normal style of arch hooks,
-> and introduces an indirect call in a security sensitive area.
+Hi Inochi,
 
-Will change to __weak hook. 
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on tip/irq/core]
+[also build test ERROR on robh/for-next tip/smp/core linus/master v6.12-rc2 next-20241011]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Inochi-Amaoto/dt-bindings-interrupt-controller-Add-Sophgo-SG2044-ACLINT-SSWI/20241010-064628
+base:   tip/irq/core
+patch link:    https://lore.kernel.org/r/20241009224410.53188-3-inochiama%40gmail.com
+patch subject: [PATCH v2 2/3] irqchip: add T-HEAD C900 ACLINT SSWI driver
+config: riscv-randconfig-r054-20241013 (https://download.01.org/0day-ci/archive/20241014/202410140004.WwnrCUnq-lkp@intel.com/config)
+compiler: clang version 17.0.6 (https://github.com/llvm/llvm-project 6009708b4367171ccdbf4b5905cb6a803753fe18)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241014/202410140004.WwnrCUnq-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202410140004.WwnrCUnq-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> ld.lld: error: undefined symbol: ipi_mux_process
+   >>> referenced by irq-thead-c900-aclint-sswi.c:38 (drivers/irqchip/irq-thead-c900-aclint-sswi.c:38)
+   >>>               drivers/irqchip/irq-thead-c900-aclint-sswi.o:(thead_aclint_sswi_ipi_handle) in archive vmlinux.a
+--
+>> ld.lld: error: undefined symbol: ipi_mux_create
+   >>> referenced by err.h:81 (include/linux/err.h:81)
+   >>>               drivers/irqchip/irq-thead-c900-aclint-sswi.o:(aclint_sswi_probe) in archive vmlinux.a
 
 -- 
-Sincerely yours,
-Mike.
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
