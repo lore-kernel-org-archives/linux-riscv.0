@@ -4,50 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 886BFD1625B
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Oct 2024 12:52:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE7DFD16260
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Oct 2024 13:24:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6NopsO9tVsPpmjs7Oln9FjvbaFnPy6ju+dLAEQTdMzE=; b=RDjCtMiag9cT4g
-	2iVyM1aEy5+w96jyfwuLch9TrqTPNxHPZosDc1rvv788IJmOAb7Z3pfhMt7HIpVDBugP9XSd5AvXn
-	PNka3yLWi8+D94DnmfqobZ09qmtfw2bwQZOJNFpy0YptO+0M7gNmjFFGJY5eHuRZ4xTrOzbDofE9U
-	mBpPbqaEXQS5RGskzpO8xND0oMQ4mlYr2VdTOZ7vIS8geXwcu6QOWBG0fCX5nVjO0DVLSZGRj1cu8
-	B+JI5LVYbOlIItvsW6xMet2o8Zh+pkEASrEmqIg+J8iB5487ZVgQFgpB1vn44HAI2tqPBwrfqYyIh
-	UcO7WRDvVF1YRUaHvPzA==;
+	List-Owner; bh=l7RsAVVlGoYKzK6x4K1d3V1a7ptmj/zU65s3UKSMQd0=; b=nTa77YUXGelSpJ
+	IItR5LJgP90QqEhLjRpcf4pUrQWEC47ESQWaEFiewES4qfKInpVs1EAP19zW4CeBVaXZ5EQ30E5dA
+	hLaIuPcGU3wn0hmKb8E+UUkRQaZsaKQl4j8f/0p64p2G3FQ96WjTCGs8jDENnDnagXCMQAaIRPzRy
+	bBwraaNAOXCOGiMQU+pwMyYdPyB1AFNgPSz0P7CvmLAZ+N8uRug/Bvh5v6XgemyrxrnHOkkZXoMep
+	9J8B9dZ4vrSSaVts0Kd4vjXh6lc6DAT9+/LFsny3oNXF5LBqDKcy0UiIc5RAs5NIYoInohQ9CEJte
+	nn1wxe9FGlm72MLMTWLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t0KZ9-000000059NA-1Qi6;
-	Mon, 14 Oct 2024 12:52:51 +0000
-Received: from relay5-d.mail.gandi.net ([217.70.183.197])
+	id 1t0L3f-00000005Fzc-2QbG;
+	Mon, 14 Oct 2024 13:24:23 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t0J0Z-00000004rrb-1MLU
+	id 1t0JM3-00000004wdY-2q8y
 	for linux-riscv@lists.infradead.org;
-	Mon, 14 Oct 2024 11:13:05 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id A82F01C0003;
-	Mon, 14 Oct 2024 11:12:53 +0000 (UTC)
-Message-ID: <8138c729-8a30-454d-8422-234cead415ab@ghiti.fr>
-Date: Mon, 14 Oct 2024 13:12:52 +0200
+	Mon, 14 Oct 2024 11:35:17 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-20ce65c8e13so8094325ad.1
+        for <linux-riscv@lists.infradead.org>; Mon, 14 Oct 2024 04:35:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1728905715; x=1729510515; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=snz/6shGNFzAdeteNvkrsQdTR7sYmyEMdXJIej7ZazI=;
+        b=Pr03yYLm+wq6TvsITFj2DiJwiA5DYT1srubQJAPP6+dlUwayoDY0iSdvcll4jN5KyL
+         UWUUZLAbyOuYoschgBmy3ttPc5uT8F91am7r38ZPupjrZVM8ebq3NyT4ax74ZFJ0ccMR
+         LeV3/pq47gbzo6EqP8unayb4pRGK0K5A8YC6rP8/CMHzXTePvpqN0Lr7u7QLkZUmJBuI
+         YgYf+lHwtDlXt8Tr2T4tdbxdXXJiNmzBCUny9I6CUi09QMYg1NmFHftdj5dHTSzH+QHW
+         K4WvFAE/L2FMVGtfnQjQWGnrrIlU4kk1w78c4CX0o4Rw6Ax3bQ4HETnhR3DOPi6fY+ZL
+         LzKQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1728905715; x=1729510515;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=snz/6shGNFzAdeteNvkrsQdTR7sYmyEMdXJIej7ZazI=;
+        b=I+RBO+1qAUsJueG3kBMsAiGyex2gG4qtWF4m7fPNtk3jeQujHGKHQUbmcS4PmrcGkm
+         vs4lo7/thjOT+ZyjZleYyipCWPulasppAj2eSBh20MUzrHQ54nhKDv3RBwDpIsPCruPx
+         wAN11RoWHuBuIuXSEwPryTnH6vIjSWZRskzjv2Unfh7peKWwy4ELUjdagD9db3zWR3QV
+         qGOwnNuW8ldA1V8W0gSH6VOIVLSRI2OkPsFpoPE3A0IZorBYbz9K07UtJtL5ZFa8RTwH
+         ufi4JSPkHzhZT4NBl2TyPdMRT5NrJ0HU1JX5mM3Jvy38I4nZu49Hjs51At93gvXleweG
+         NTkg==
+X-Forwarded-Encrypted: i=1; AJvYcCXXB4sHISAzZNbFBntV3Fot62mjfg2eSE455+BIvIK4iugdUUg2iPhuG3MhEYVdOOtx3UH6dPlXfO1vOA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxty4N+0de/OLqtM8fGO8hViJOY0UsK35+bLHQo7cv0GFdXpRN7
+	I5QRagpsbkJN8jCLarSnENKcN146jFmb9NWU2oW3jS7B6pLfRdgBYOiL6YunExY=
+X-Google-Smtp-Source: AGHT+IGKqFRVq7FAJ5tVZzOxYuKOJPgD+oJeoyWNOgNGtSMTpyAoZrNEO24fTtipgTDktQfY/8QGaQ==
+X-Received: by 2002:a17:903:40ce:b0:20c:5c6b:2eac with SMTP id d9443c01a7336-20ca16d2da4mr154491475ad.49.1728905714839;
+        Mon, 14 Oct 2024 04:35:14 -0700 (PDT)
+Received: from sunil-laptop ([106.51.192.229])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-20c8bad3385sm63925665ad.42.2024.10.14.04.35.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 14 Oct 2024 04:35:14 -0700 (PDT)
+Date: Mon, 14 Oct 2024 17:05:07 +0530
+From: Sunil V L <sunilvl@ventanamicro.com>
+To: Yunhui Cui <cuiyunhui@bytedance.com>
+Cc: punit.agrawal@bytedance.com, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, ajones@ventanamicro.com,
+	alexghiti@rivosinc.com, jeeheng.sia@starfivetech.com,
+	haibo1.xu@intel.com, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] RISC-V: ACPI: fix early_ioremap to early_memremap
+Message-ID: <Zw0B6_k7ejVtBTRC@sunil-laptop>
+References: <20241014094705.71775-1-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] riscv: vdso: Prevent gcc from inserting calls to
- memset()
-Content-Language: en-US
-To: Palmer Dabbelt <palmer@dabbelt.com>, alexghiti@rivosinc.com
-Cc: vladimir.isaev@syntacore.com, roman.artemev@syntacore.com,
- guoren@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
- aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <mhng-b17acfa9-03e8-4ef7-a24f-a133b2dbf31a@palmer-ri-x1c9>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <mhng-b17acfa9-03e8-4ef7-a24f-a133b2dbf31a@palmer-ri-x1c9>
-X-GND-Sasl: alex@ghiti.fr
+Content-Disposition: inline
+In-Reply-To: <20241014094705.71775-1-cuiyunhui@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241014_041303_523842_899E28DD 
-X-CRM114-Status: GOOD (  17.33  )
+X-CRM114-CacheID: sfid-20241014_043515_746659_38D26F99 
+X-CRM114-Status: GOOD (  17.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,48 +90,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgUGFsbWVyLAoKT24gMTcvMDkvMjAyNCAxNzo0MSwgUGFsbWVyIERhYmJlbHQgd3JvdGU6Cj4g
-T24gVGh1LCAwNCBKdWwgMjAyNCAyMzowOTowMSBQRFQgKC0wNzAwKSwgYWxleGdoaXRpQHJpdm9z
-aW5jLmNvbSB3cm90ZToKPj4gZ2NjIGlzIHNtYXJ0IGVub3VnaCB0byBpbnNlcnQgYSBjYWxsIHRv
-IG1lbXNldCgpIGluCj4+IHJpc2N2X3Zkc29fZ2V0X2NwdXMoKSwgd2hpY2ggZ2VuZXJhdGVzIGEg
-ZHluYW1pYyByZWxvY2F0aW9uLgo+Pgo+PiBTbyBwcmV2ZW50IGdjYyBmcm9tIGRvaW5nIHRoYXQg
-YnkgdXNpbmcgdGhlCj4+IC1mbm8tdHJlZS1sb29wLWRpc3RyaWJ1dGUtcGF0dGVybnMgb3B0aW9u
-Lgo+Cj4gVGhpcyBvcHRpb24gZG9lc24ndCBleGlzdCBvbiBMTFZNIChhdCBsZWFzdCBvbiB3aGF0
-ZXZlciB2ZXJzaW9uIEknbSAKPiB1c2luZyksIGFuZCBJJ20gbm90IGdldHRpbmcgYW55IG1lbXNl
-dCgpcyBnZW5lcmF0ZWQgbG9jYWxseSBzbyBJJ20gbm90IAo+IHN1cmUgd2hhdCB0byBsb29rIGZv
-ciBvdmVyIHRoZXJlLgo+CgpXaGVuIGNvbXBpbGluZyBhIHJ2MzJfZGVmY29uZmlnIChzdGlsbCBv
-biA2LjEyKSwgSSBnZXQ6Cgp+L2xpbnV4JCByaXNjdjY0LXVua25vd24tZWxmLXJlYWRlbGYgLXIg
-CmJ1aWxkX2RlZmNvbmZpZ19ydjMyL2FyY2gvcmlzY3Yva2VybmVsL3Zkc28vdmRzby5zbwoKUmVs
-b2NhdGlvbiBzZWN0aW9uICcucmVsYS5keW4nIGF0IG9mZnNldCAweDVhMCBjb250YWlucyAxIGVu
-dHJ5OgogwqBPZmZzZXTCoMKgwqDCoCBJbmZvwqDCoMKgIFR5cGXCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgIFN5bS5WYWx1ZcKgIFN5bS4gTmFtZSArIEFkZGVuZAowMDAwMDMxNMKgIDAwMDAwMjA1IFJf
-UklTQ1ZfSlVNUF9TTE9UIDAwMDAwMDAwwqDCoCBtZW1zZXQgKyAwCgoKPiBGcm9tIHBva2luZyBh
-cm91bmQgR0NDIGl0IGxvb2tzIGxpa2Ugd2UgbWlnaHQgd2FudCAtZm5vLXRyZWUtY2NwIHRvbz8g
-Cj4gVGhhdCBzZWVtcyB0byBiZSBhYmxlIHRvIGNvbnZlcnQgYXNzaWdubWVudHMgaW50byBidWls
-dGlucyBhcyB3ZWxsLi4uCgoKSSBnYXZlIGEgdHJ5IGF0IC1mbm8tdHJlZS1jY3AsIGJ1dCBpdCBk
-aWQgbm90IHJlbW92ZSB0aGlzIHJlbG9jYXRpb24uCgpJIG5vdyBzZWUgdGhpcyByZWxvY2F0aW9u
-IGluIGxsdm0gdG9vLCBzbyBpdCB3b3VsZCBiZSBuaWNlIHRvIGZpbmQgYSAKY29tbW9uIG9wdGlv
-biBvciBhbm90aGVyIHdheSB0byBkbyBpdCwgYW55IGlkZWEgaXMgd2VsY29tZSEKClRoYW5rcywK
-CkFsZXgKCgo+Cj4+IFNpZ25lZC1vZmYtYnk6IEFsZXhhbmRyZSBHaGl0aSA8YWxleGdoaXRpQHJp
-dm9zaW5jLmNvbT4KPj4gLS0tCj4+IMKgYXJjaC9yaXNjdi9rZXJuZWwvdmRzby9NYWtlZmlsZSB8
-IDEgKwo+PiDCoDEgZmlsZSBjaGFuZ2VkLCAxIGluc2VydGlvbigrKQo+Pgo+PiBkaWZmIC0tZ2l0
-IGEvYXJjaC9yaXNjdi9rZXJuZWwvdmRzby9NYWtlZmlsZSAKPj4gYi9hcmNoL3Jpc2N2L2tlcm5l
-bC92ZHNvL01ha2VmaWxlCj4+IGluZGV4IGY3ZWY4YWQ5YjU1MC4uYzdlNDBiZjM2MzcxIDEwMDY0
-NAo+PiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC92ZHNvL01ha2VmaWxlCj4+ICsrKyBiL2FyY2gv
-cmlzY3Yva2VybmVsL3Zkc28vTWFrZWZpbGUKPj4gQEAgLTE4LDYgKzE4LDcgQEAgb2JqLXZkc28g
-PSAkKHBhdHN1YnN0ICUsICUubywgJCh2ZHNvLXN5bXMpKSBub3RlLm8KPj4KPj4gwqBjY2ZsYWdz
-LXkgOj0gLWZuby1zdGFjay1wcm90ZWN0b3IKPj4gwqBjY2ZsYWdzLXkgKz0gLURESVNBQkxFX0JS
-QU5DSF9QUk9GSUxJTkcKPj4gK2NjZmxhZ3MteSArPSAtZm5vLXRyZWUtbG9vcC1kaXN0cmlidXRl
-LXBhdHRlcm5zCj4+Cj4+IMKgaWZuZXEgKCQoYy1nZXR0aW1lb2ZkYXkteSksKQo+PiDCoMKgIENG
-TEFHU192Z2V0dGltZW9mZGF5Lm8gKz0gLWZQSUMgLWluY2x1ZGUgJChjLWdldHRpbWVvZmRheS15
-KQo+Cj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPiBs
-aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKPiBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cj4gaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
-dgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
-cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hi Yunhui,
+On Mon, Oct 14, 2024 at 05:47:05PM +0800, Yunhui Cui wrote:
+> When SVPBMT is enabled, __acpi_map_table() will directly access the
+> data in DDR through the IO attribute, rather than through hardware
+> cache consistency, resulting in incorrect data in the obtained ACPI
+> table.
+> 
+> The log: ACPI: [ACPI:0x18] Invalid zero length.
+> 
+> We do not assume whether the bootloader flushes or not. We should
+> access in a cacheable way instead of maintaining cache consistency
+> by software.
+> 
+> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+> ---
+>  arch/riscv/kernel/acpi.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/kernel/acpi.c b/arch/riscv/kernel/acpi.c
+> index 6e0d333f57e5..3177c9af8764 100644
+> --- a/arch/riscv/kernel/acpi.c
+> +++ b/arch/riscv/kernel/acpi.c
+> @@ -210,7 +210,7 @@ void __init __iomem *__acpi_map_table(unsigned long phys, unsigned long size)
+>  	if (!size)
+>  		return NULL;
+>  
+> -	return early_ioremap(phys, size);
+> +	return early_memremap(phys, size);
+>  }
+> 
+I think __acpi_unmap_table() also needs similar change. You might need
+to typecast to suppress the sparse error [1] then.
+
+[1] - https://lore.kernel.org/oe-kbuild-all/202305201427.I7QhPjNW-lkp@intel.com/#r
+
+Thanks,
+Sunil
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
