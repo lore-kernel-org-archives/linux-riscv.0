@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63D20CFC503
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Oct 2024 07:45:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B112CCFC502
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Oct 2024 07:45:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2UCORu6DSN6ftOV4j71oy+S9Q7KYHZ6Jomet7r5W/LA=; b=HWxkPmYepmINQr
-	2f1crY2GUlRYefkDEcfazD2uhU9XR4h73XjOjaBXzPm+L2lNBcXSttxv9y/3eQNgUO7yDYiUVGhmv
-	lU5Qvu+N3I088JmRGQR2vaWzeKZUVG5BgwnR17JuktoF3eSHujHZQZnebWrVxSy7vlSJgyp83utqO
-	VL+XRo7YoV6/+p+XV+Ww0wloFRz9j9fsoqrNwH6+6JPDpAZG/ui+ENvnm0kjQRJ1BWyUE0dXKLRXy
-	uX633gfXd4NMl428B05d0mvE0ADDqBXVGfYOcBdB+MgJmIzfWI4Hb7TK7rQ37Q/FFEN4ZFwSVsoSk
-	hMIuNM81nG64GdVP1tTA==;
+	List-Owner; bh=n+GocUwadepZXkvaZBlMMrEzKu8tHciKJSw5X54rAc0=; b=d2XIHBhPZ2Lskm
+	wBHlxSwxPUa7c20vUdEr5jZnSkcAFrkirc7TJjO4Np3JOkjbGGN7cqcHi7xAq7CRIkCu0NQgmxgV9
+	KqzINzep52896+pnOdcjoUjLCcQOdBLkkRTK+cg4Xpr6/f8ZMJ4ZnE7owcR0s77YcY4k07N8GCKsz
+	60yQkNdk54iDlMGODYhoNyJI6CXk7guf6jgzjFjD/8jAIbRgwFsyAj5faAtHb/xoa/e0YS9wI+0Cs
+	gmAyNYXMIgdN4qIUFPaQXrRMTG47b8rCQjIZ/w/7QO2zseT9O6r+ugyhnU+jBvCVyZ5pPihcq3mqQ
+	MTXn3AO91sIjvu/+Ak1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t0FlL-0000000479a-0KgA;
-	Mon, 14 Oct 2024 07:45:07 +0000
+	id 1t0FlJ-0000000478y-127P;
+	Mon, 14 Oct 2024 07:45:05 +0000
 Received: from bayard.4d2.org ([5.78.89.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t0FfK-000000045Zg-1oNE
+	id 1t0FfF-000000045YX-2oGn
 	for linux-riscv@lists.infradead.org;
-	Mon, 14 Oct 2024 07:38:55 +0000
+	Mon, 14 Oct 2024 07:38:51 +0000
 Received: from bayard.4d2.org (bayard.4d2.org [127.0.0.1])
-	by bayard.4d2.org (Postfix) with ESMTP id D1357122FE1E;
-	Mon, 14 Oct 2024 00:38:53 -0700 (PDT)
+	by bayard.4d2.org (Postfix) with ESMTP id 319C5122FE29;
+	Mon, 14 Oct 2024 00:38:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
-	t=1728891533; bh=DwDhlRnfpNqUwydKjC1DfKRcf6/WtjZO99jAwo/5zu0=;
+	t=1728891529; bh=hXwiaJsujF57M9a4+lPqhF/DWZkT5Kmxxr871kS+4m4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=y1916qdSUQSOFUWoMsWsKiK+hPQ9abzy46MMb+1BK7HiIzjV+YkPmX0kMXsCMN4oZ
-	 nt55DEO0RHjD4Y5yzgnYGjj/1rgOBu1x2dgvVouuuPVYAJeVaNB9/16fxzCYq9DuKX
-	 tXumTql/PSWyIllPnLqHSDm3U+JdJ55N4mENBoYNFfswHEPmsw57vIDA+kz0vuwhG7
-	 Mu+vVjVk+YIj+nddSMQHtKwNy4rKrgIeyp18Yd5AFea4mGmgTKRDxRrur/mbT73sDV
-	 KwftQJFPGnFE71ByhL6yc4+DnOaAVpTHUi00X6YPpUUEhcMOtp31BxULUMs76mnkDH
-	 ROQ3gXcYYLYQw==
+	b=js8fchSsHCLMxHgABXht3UMHSh+fVlRBGmE9PAYQrykNw0xY2UdJJv4r/jkdTvBo3
+	 bYRZEyeYcA8+Rp9Jao8iHpNoAz0wkVZ7V6R+BU4XXB5+TyW5A3HHS3nebOlMeU0V+b
+	 oREwAt5oRfMyAUvKGC7qvyecmxqUIp1Xm4lxpyz6y6H5Q+AWAelnBneECoCl3Vqko+
+	 x4182UMv5+8EHPInVUHDvzyHYPg15TIRKPWLRQHyfDWHuSCPgIyW7fL38dvVCYP5U9
+	 qdyJAUGOg1HMyrzlUR1J5F6vQbTyHvmiBvfXDgTo5JCzV/6aCOqh4AMwn1VXHFoPuu
+	 ilnYH7LZ3Ek1A==
 X-Virus-Scanned: amavisd-new at 4d2.org
 Authentication-Results: bayard.4d2.org (amavisd-new); dkim=pass (2048-bit key)
  header.d=4d2.org
 Received: from bayard.4d2.org ([127.0.0.1])
  by bayard.4d2.org (bayard.4d2.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id bJZxxpwYIaA4; Mon, 14 Oct 2024 00:38:53 -0700 (PDT)
+ with ESMTP id qAbo-MGPcEAK; Mon, 14 Oct 2024 00:38:48 -0700 (PDT)
 Received: from localhost.localdomain (unknown [110.52.220.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: heylenay@4d2.org)
-	by bayard.4d2.org (Postfix) with ESMTPSA id 1679B122FE21;
-	Mon, 14 Oct 2024 00:38:48 -0700 (PDT)
+	by bayard.4d2.org (Postfix) with ESMTPSA id 2E178122FE1E;
+	Mon, 14 Oct 2024 00:38:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
-	t=1728891533; bh=DwDhlRnfpNqUwydKjC1DfKRcf6/WtjZO99jAwo/5zu0=;
+	t=1728891528; bh=hXwiaJsujF57M9a4+lPqhF/DWZkT5Kmxxr871kS+4m4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=y1916qdSUQSOFUWoMsWsKiK+hPQ9abzy46MMb+1BK7HiIzjV+YkPmX0kMXsCMN4oZ
-	 nt55DEO0RHjD4Y5yzgnYGjj/1rgOBu1x2dgvVouuuPVYAJeVaNB9/16fxzCYq9DuKX
-	 tXumTql/PSWyIllPnLqHSDm3U+JdJ55N4mENBoYNFfswHEPmsw57vIDA+kz0vuwhG7
-	 Mu+vVjVk+YIj+nddSMQHtKwNy4rKrgIeyp18Yd5AFea4mGmgTKRDxRrur/mbT73sDV
-	 KwftQJFPGnFE71ByhL6yc4+DnOaAVpTHUi00X6YPpUUEhcMOtp31BxULUMs76mnkDH
-	 ROQ3gXcYYLYQw==
+	b=YKLOVGQvU0R48d6tO5iwOzL3uJJCNt0EjD6HMOFreq49tlzwhZsRVmpgzflRvqZMc
+	 7mqw3B9MGMAh3kETQv/E8qD2dMp5WCZZvPOkKmuT02zAmXo5PWKtz6o4r0x/W5jsfp
+	 lBpCSNWGK5grihw4U3PvvzRjwJtbqiXFXzSxOVExpo5NXocrgqYNFi5QICOhR+JdHd
+	 p+QZ4FbYKcCmCGi1tF4ab6HiSQAgm/Asyk8eYvhLTmh2jGs7D6QO0r9D9uX6+aJKqb
+	 YHkQ0rqVU/VWXq/AKVWED3jS5rQd2+/Cz1CPp7KpWRslToRTS7H7KHD8AxndlrqyeG
+	 ObjoOZvXPOYYg==
 From: Haylen Chu <heylenay@4d2.org>
 To: "Rafael J. Wysocki" <rafael@kernel.org>,
 	Daniel Lezcano <daniel.lezcano@linaro.org>,
@@ -80,17 +80,16 @@ Cc: linux-pm@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Haylen Chu <heylenay@4d2.org>
-Subject: [PATCH v5 3/3] riscv: dts: sophgo: cv18xx: Add sensor device and thermal zone
-Date: Mon, 14 Oct 2024 07:38:13 +0000
-Message-ID: <20241014073813.23984-4-heylenay@4d2.org>
+Subject: [PATCH v5 2/3] thermal: cv1800: Add cv1800 thermal driver support
+Date: Mon, 14 Oct 2024 07:38:12 +0000
+Message-ID: <20241014073813.23984-3-heylenay@4d2.org>
 X-Mailer: git-send-email 2.46.2
 In-Reply-To: <20241014073813.23984-1-heylenay@4d2.org>
 References: <20241014073813.23984-1-heylenay@4d2.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241014_003854_511814_84FEF005 
-X-CRM114-Status: UNSURE (   9.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241014_003849_755149_6D17F3A1 
+X-CRM114-Status: GOOD (  21.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,73 +106,346 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add common sensor device for Sophgo CV18xx SoCs and thermal zone for
-CV1800b SoC.
+Add support for cv1800 SoC integrated thermal sensors. Temperature is
+calculated with a curve-fitted formula. Threshold registers are set as
+specified by trip points and the thermal zone will be updated on
+threshold violation interrupts.
 
 Signed-off-by: Haylen Chu <heylenay@4d2.org>
 ---
- arch/riscv/boot/dts/sophgo/cv1800b.dtsi | 28 +++++++++++++++++++++++++
- arch/riscv/boot/dts/sophgo/cv18xx.dtsi  |  8 +++++++
- 2 files changed, 36 insertions(+)
+ drivers/thermal/Kconfig          |   6 +
+ drivers/thermal/Makefile         |   1 +
+ drivers/thermal/cv1800_thermal.c | 296 +++++++++++++++++++++++++++++++
+ 3 files changed, 303 insertions(+)
+ create mode 100644 drivers/thermal/cv1800_thermal.c
 
-diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-index ec9530972ae2..af53c9ec3197 100644
---- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-+++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-@@ -12,6 +12,34 @@ memory@80000000 {
- 		device_type = "memory";
- 		reg = <0x80000000 0x4000000>;
- 	};
-+
-+	thermal-zones {
-+		soc-thermal {
-+			polling-delay-passive   = <1000>;
-+			polling-delay           = <1000>;
-+			thermal-sensors         = <&soc_temp>;
-+
-+			trips {
-+				soc_passive: soc-passive {
-+					temperature     = <75000>;
-+					hysteresis      = <5000>;
-+					type            = "passive";
-+				};
-+
-+				soc_hot: soc-hot {
-+					temperature     = <85000>;
-+					hysteresis      = <5000>;
-+					type            = "hot";
-+				};
-+
-+				soc_critical: soc-critical {
-+					temperature     = <100000>;
-+					hysteresis      = <0>;
-+					type            = "critical";
-+				};
-+			};
-+		};
-+	};
- };
+diff --git a/drivers/thermal/Kconfig b/drivers/thermal/Kconfig
+index 61e7ae524b1f..901524ba8b38 100644
+--- a/drivers/thermal/Kconfig
++++ b/drivers/thermal/Kconfig
+@@ -499,4 +499,10 @@ config LOONGSON2_THERMAL
+ 	  is higher than the high temperature threshold or lower than the low
+ 	  temperature threshold, the interrupt will occur.
  
- &plic {
-diff --git a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
-index b724fb6d9689..0465561f7043 100644
---- a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
-+++ b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
-@@ -133,6 +133,14 @@ portd: gpio-controller@0 {
- 			};
- 		};
- 
-+		soc_temp: thermal-sensor@30e0000 {
-+			compatible = "sophgo,cv1800-thermal";
-+			reg = <0x30e0000 0x100>;
-+			clocks = <&clk CLK_TEMPSEN>;
-+			interrupts = <16 IRQ_TYPE_LEVEL_HIGH>;
-+			#thermal-sensor-cells = <0>;
-+		};
++config CV1800_THERMAL
++	tristate "Temperature sensor driver for Sophgo CV1800"
++	help
++	  If you say yes here you get support for thermal sensor integrated in
++	  Sophgo CV1800 SoC.
 +
- 		i2c0: i2c@4000000 {
- 			compatible = "snps,designware-i2c";
- 			reg = <0x04000000 0x10000>;
+ endif
+diff --git a/drivers/thermal/Makefile b/drivers/thermal/Makefile
+index 41c4d56beb40..b1890b570f9b 100644
+--- a/drivers/thermal/Makefile
++++ b/drivers/thermal/Makefile
+@@ -63,4 +63,5 @@ obj-$(CONFIG_AMLOGIC_THERMAL)     += amlogic_thermal.o
+ obj-$(CONFIG_SPRD_THERMAL)	+= sprd_thermal.o
+ obj-$(CONFIG_KHADAS_MCU_FAN_THERMAL)	+= khadas_mcu_fan.o
+ obj-$(CONFIG_LOONGSON2_THERMAL)	+= loongson2_thermal.o
++obj-$(CONFIG_CV1800_THERMAL)	+= cv1800_thermal.o
+ obj-$(CONFIG_THERMAL_CORE_TESTING)	+= testing/
+diff --git a/drivers/thermal/cv1800_thermal.c b/drivers/thermal/cv1800_thermal.c
+new file mode 100644
+index 000000000000..588fc2da06e1
+--- /dev/null
++++ b/drivers/thermal/cv1800_thermal.c
+@@ -0,0 +1,296 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2021 Sophgo Inc.
++ * Copyright (C) 2024 Haylen Chu <heylenay@4d2.org>
++ */
++
++#include <linux/bits.h>
++#include <linux/clk.h>
++#include <linux/io.h>
++#include <linux/interrupt.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/platform_device.h>
++#include <linux/thermal.h>
++#include <linux/units.h>
++
++#define TEMPSEN_VERSION					0x0
++#define TEMPSEN_CTRL					0x4
++#define  TEMPSEN_CTRL_EN				BIT(0)
++#define  TEMPSEN_CTRL_SEL_MASK				GENMASK(7, 4)
++#define  TEMPSEN_CTRL_SEL_OFFSET			4
++#define TEMPSEN_STATUS					0x8
++#define TEMPSEN_SET					0xc
++#define  TEMPSEN_SET_CHOPSEL_MASK			GENMASK(5, 4)
++#define  TEMPSEN_SET_CHOPSEL_OFFSET			4
++#define  TEMPSEN_SET_CHOPSEL_128T			0
++#define  TEMPSEN_SET_CHOPSEL_256T			1
++#define  TEMPSEN_SET_CHOPSEL_512T			2
++#define  TEMPSEN_SET_CHOPSEL_1024T			3
++#define  TEMPSEN_SET_ACCSEL_MASK			GENMASK(7, 6)
++#define  TEMPSEN_SET_ACCSEL_OFFSET			6
++#define  TEMPSEN_SET_ACCSEL_512T			0
++#define  TEMPSEN_SET_ACCSEL_1024T			1
++#define  TEMPSEN_SET_ACCSEL_2048T			2
++#define  TEMPSEN_SET_ACCSEL_4096T			3
++#define  TEMPSEN_SET_CYC_CLKDIV_MASK			GENMASK(15, 8)
++#define  TEMPSEN_SET_CYC_CLKDIV_OFFSET			8
++#define TEMPSEN_INTR_EN					0x10
++#define TEMPSEN_INTR_CLR				0x14
++#define TEMPSEN_INTR_STA				0x18
++#define TEMPSEN_INTR_RAW				0x1c
++#define  TEMPSEN_INTR_THRESHOLD_HIGH(n)			BIT(4 + (n))
++#define  TEMPSEN_INTR_THRESHOLD_LOW(n)			BIT(8 + (n))
++#define TEMPSEN_RESULT(n)				(0x20 + (n) * 4)
++#define  TEMPSEN_RESULT_RESULT_MASK			GENMASK(12, 0)
++#define  TEMPSEN_RESULT_MAX_RESULT_MASK			GENMASK(28, 16)
++#define  TEMPSEN_RESULT_CLR_MAX_RESULT			BIT(31)
++#define TEMPSEN_THRESHOLD(n)				(0x40 + (n) * 4)
++#define  TEMPSEN_THRESHOLD_HIGH_OFFSET			0
++#define  TEMPSEN_THRESHOLD_LOW_OFFSET			16
++#define TEMPSEN_AUTO_PERIOD				0x64
++#define  TEMPSEN_AUTO_PERIOD_AUTO_CYCLE_MASK		GENMASK(23, 0)
++#define  TEMPSEN_AUTO_PERIOD_AUTO_CYCLE_OFFSET		0
++
++struct cv1800_thermal_zone {
++	struct device *dev;
++	void __iomem *base;
++	struct clk *clk_tempsen;
++	u32 sample_cycle;
++};
++
++static void cv1800_thermal_init(struct cv1800_thermal_zone *ctz)
++{
++	void __iomem *base = ctz->base;
++	u32 regval;
++
++	writel(readl(base + TEMPSEN_INTR_RAW), base + TEMPSEN_INTR_CLR);
++	writel(TEMPSEN_RESULT_CLR_MAX_RESULT, base + TEMPSEN_RESULT(0));
++
++	regval = readl(base + TEMPSEN_SET);
++	regval &= ~TEMPSEN_SET_CHOPSEL_MASK;
++	regval &= ~TEMPSEN_SET_ACCSEL_MASK;
++	regval &= ~TEMPSEN_SET_CYC_CLKDIV_MASK;
++	regval |= TEMPSEN_SET_CHOPSEL_1024T << TEMPSEN_SET_CHOPSEL_OFFSET;
++	regval |= TEMPSEN_SET_ACCSEL_2048T << TEMPSEN_SET_ACCSEL_OFFSET;
++	regval |= 0x31 << TEMPSEN_SET_CYC_CLKDIV_OFFSET;
++	writel(regval, base + TEMPSEN_SET);
++
++	regval = readl(base + TEMPSEN_AUTO_PERIOD);
++	regval &= ~TEMPSEN_AUTO_PERIOD_AUTO_CYCLE_MASK;
++	regval |= ctz->sample_cycle << TEMPSEN_AUTO_PERIOD_AUTO_CYCLE_OFFSET;
++	writel(regval, base + TEMPSEN_AUTO_PERIOD);
++
++	regval = readl(base + TEMPSEN_CTRL);
++	regval &= ~TEMPSEN_CTRL_SEL_MASK;
++	regval |= 1 << TEMPSEN_CTRL_SEL_OFFSET;
++	regval |= TEMPSEN_CTRL_EN;
++	writel(regval, base + TEMPSEN_CTRL);
++}
++
++static void cv1800_thermal_deinit(struct cv1800_thermal_zone *ctz)
++{
++	void __iomem *base = ctz->base;
++	u32 regval;
++
++	regval = readl(base + TEMPSEN_CTRL);
++	regval &= ~(TEMPSEN_CTRL_SEL_MASK | TEMPSEN_CTRL_EN);
++	writel(regval, base + TEMPSEN_CTRL);
++
++	writel(0, base + TEMPSEN_INTR_EN);
++}
++
++/*
++ *	Raw register value to temperature (mC) formula:
++ *
++ *		       read_val * 1000 * 716
++ *	Temperature = ----------------------- - 273000
++ *				divider
++ *
++ *	where divider should be ticks number of accumulation period,
++ *	e.g. 2048 for TEMPSEN_CTRL_ACCSEL_2048T
++ */
++static int cv1800_calc_temp(u32 result)
++{
++	return (result * 1000) * 716 / 2048 - 273000;
++}
++
++static u32 cv1800_calc_raw(int temp)
++{
++	return (temp + 273000) * 2048 / (1000 * 716);
++}
++
++static int cv1800_set_threshold(struct cv1800_thermal_zone *ctz,
++				int low, int high)
++{
++	writel((cv1800_calc_raw(low) << TEMPSEN_THRESHOLD_LOW_OFFSET) |
++	       (cv1800_calc_raw(high) << TEMPSEN_THRESHOLD_HIGH_OFFSET),
++	       ctz->base + TEMPSEN_THRESHOLD(0));
++	writel(TEMPSEN_INTR_THRESHOLD_LOW(0) | TEMPSEN_INTR_THRESHOLD_HIGH(0),
++	       ctz->base + TEMPSEN_INTR_EN);
++
++	return 0;
++}
++
++static irqreturn_t cv1800_irq_thread(int irq, void *dev)
++{
++	struct thermal_zone_device *tdev = dev;
++	struct cv1800_thermal_zone *ctz = thermal_zone_device_priv(tdev);
++
++	writel(readl(ctz->base + TEMPSEN_INTR_RAW),
++	       ctz->base + TEMPSEN_INTR_CLR);
++
++	thermal_zone_device_update(tdev, THERMAL_EVENT_UNSPECIFIED);
++
++	return IRQ_HANDLED;
++}
++
++static int cv1800_get_temp(struct thermal_zone_device *tdev, int *temperature)
++{
++	struct cv1800_thermal_zone *ctz = thermal_zone_device_priv(tdev);
++	void __iomem *base = ctz->base;
++	u32 result;
++
++	result = readl(base + TEMPSEN_RESULT(0)) & TEMPSEN_RESULT_RESULT_MASK;
++	*temperature = cv1800_calc_temp(result);
++
++	return 0;
++}
++
++static int cv1800_set_trips(struct thermal_zone_device *tdev, int low, int high)
++{
++	struct cv1800_thermal_zone *ctz = thermal_zone_device_priv(tdev);
++
++	return cv1800_set_threshold(ctz,
++				    clamp(low, -273 * 1000, 200 * 1000),
++				    clamp(high, -273 * 1000, 200 * 1000));
++}
++
++static const struct thermal_zone_device_ops cv1800_thermal_ops = {
++	.get_temp	= cv1800_get_temp,
++	.set_trips	= cv1800_set_trips,
++};
++
++static const struct of_device_id cv1800_thermal_of_match[] = {
++	{ .compatible = "sophgo,cv1800-thermal" },
++	{},
++};
++MODULE_DEVICE_TABLE(of, cv1800_thermal_of_match);
++
++static int
++cv1800_parse_dt(struct cv1800_thermal_zone *ctz)
++{
++	struct device_node *np = ctz->dev->of_node;
++	u32 tmp;
++
++	if (of_property_read_u32(np, "sample-rate-hz", &tmp)) {
++		ctz->sample_cycle = 1000000;
++	} else {
++		/* sample cycle should be at least 524us */
++		if (tmp > 1000000 / 524) {
++			dev_err(ctz->dev, "invalid sample rate %d\n", tmp);
++			return -EINVAL;
++		}
++
++		ctz->sample_cycle = 1000000 / tmp;
++	}
++
++	return 0;
++}
++
++static int cv1800_thermal_probe(struct platform_device *pdev)
++{
++	struct thermal_zone_device *tdev;
++	struct cv1800_thermal_zone *ctz;
++	struct resource *res;
++	int ret, irq;
++
++	ctz = devm_kzalloc(&pdev->dev, sizeof(*ctz), GFP_KERNEL);
++	if (!ctz)
++		return -ENOMEM;
++
++	ctz->dev = &pdev->dev;
++
++	ret = cv1800_parse_dt(ctz);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret, "failed to parse dt\n");
++
++	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
++	ctz->base = devm_ioremap_resource(&pdev->dev, res);
++	if (IS_ERR(ctz->base))
++		return dev_err_probe(&pdev->dev, PTR_ERR(ctz->base),
++				     "failed to map tempsen registers\n");
++
++	ctz->clk_tempsen = devm_clk_get_enabled(&pdev->dev, NULL);
++	if (IS_ERR(ctz->clk_tempsen))
++		return dev_err_probe(&pdev->dev, PTR_ERR(ctz->clk_tempsen),
++				     "failed to get clk_tempsen\n");
++
++	irq = platform_get_irq(pdev, 0);
++	if (irq < 0)
++		return irq;
++
++	cv1800_thermal_init(ctz);
++
++	tdev = devm_thermal_of_zone_register(&pdev->dev, 0, ctz,
++					     &cv1800_thermal_ops);
++	if (IS_ERR(tdev))
++		return dev_err_probe(&pdev->dev, PTR_ERR(tdev),
++				     "failed to register thermal zone\n");
++
++	ret = devm_request_threaded_irq(&pdev->dev, irq, NULL,
++					cv1800_irq_thread, IRQF_ONESHOT,
++					"cv1800_thermal", tdev);
++	if (ret < 0)
++		return dev_err_probe(&pdev->dev, ret, "failed to request irq\n");
++
++	platform_set_drvdata(pdev, ctz);
++
++	return 0;
++}
++
++static void cv1800_thermal_remove(struct platform_device *pdev)
++{
++	struct cv1800_thermal_zone *ctz = platform_get_drvdata(pdev);
++
++	cv1800_thermal_deinit(ctz);
++}
++
++static int __maybe_unused cv1800_thermal_suspend(struct device *dev)
++{
++	struct cv1800_thermal_zone *ctz = dev_get_drvdata(dev);
++
++	cv1800_thermal_deinit(ctz);
++	clk_disable_unprepare(ctz->clk_tempsen);
++
++	return 0;
++}
++
++static int __maybe_unused cv1800_thermal_resume(struct device *dev)
++{
++	struct cv1800_thermal_zone *ctz = dev_get_drvdata(dev);
++
++	clk_prepare_enable(ctz->clk_tempsen);
++	cv1800_thermal_init(ctz);
++
++	return 0;
++}
++
++static SIMPLE_DEV_PM_OPS(cv1800_thermal_pm_ops,
++			 cv1800_thermal_suspend, cv1800_thermal_resume);
++
++static struct platform_driver cv1800_thermal_driver = {
++	.probe = cv1800_thermal_probe,
++	.remove = cv1800_thermal_remove,
++	.driver = {
++		.name = "cv1800-thermal",
++		.pm = &cv1800_thermal_pm_ops,
++		.of_match_table = cv1800_thermal_of_match,
++	},
++};
++
++module_platform_driver(cv1800_thermal_driver);
++
++MODULE_DESCRIPTION("Sophgo CV1800 thermal driver");
++MODULE_AUTHOR("Haylen Chu <heylenay@4d2.org>");
++MODULE_LICENSE("GPL");
 -- 
 2.46.2
 
