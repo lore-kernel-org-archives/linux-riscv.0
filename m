@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EDAAD18138
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Oct 2024 17:54:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D70B9D18138
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Oct 2024 17:54:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Te+wOcYXzAqXC2yYyNLUOy7vFZmANLIM1v5WfT360K8=; b=Rz5XaJFYWAMqNO
-	ehEsWz4VHobGZV6UuErKOXODINhFFjtnheb2WqCZgH80bRxYFwpARehSqklFlaSpEDoGKL6Ma7c1o
-	uJAw4GpOUPTzIRSLD49WfaxHm+Rc8fqoTt/F+FW8HGehN4Cg4HiN+VuHjaggrMzIcQCsbGqsXatYi
-	sPPi7CW3CwyYlrl8zI0a0TEU7X5wQj30VjHcjSVNusMIHOR+ILNuTtBpx5JBdfa24PSGdF1PJQn3Z
-	wxi5DfNS8l1Wc0oChDdIy0EpB22u360rfIigS5z+K4USnf3AOaSuBnA0Dg5TAl+G22VJXlPEGkOUN
-	A1dQtpisrXgLyVzs2g5w==;
+	List-Owner; bh=FihhDynbzkOrxOtjoYuyvAJ/enbqSulEwcGJpN0jTWE=; b=JfC47FgKOd3yWA
+	fCrZHo8rJQnKfJQWPrQH2D6TurpVUX7si3P7jr+6SQuYxW7G1xOCrdUcNEZ/1dpp0gGzdPk5n97jH
+	c5iIbL+WwFkMoSQGABXorNNJUj9OA5MGT6+t7nAXu9FgXrQHt+LGJ1GwyaBAIOJPXz79VgCtgssPB
+	PLhn08k1h49QZix3ArM7S3aCFUu1GQZStIMaUm63ooEq8GNFFciGxt5f3hHvfX3g/Sut8zesilLMZ
+	C+4YUAj3jbvQA5w7acWTA4MGAqH4NO2iZ61aa0Y9lRlj7o//JuGWIVQEDQQiTt3ib8eMSvn1E6aFQ
+	iCvOoa1CsqYqQcCs+kVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t0PHM-000000066hK-1hmp;
-	Mon, 14 Oct 2024 17:54:48 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1t0PHR-000000066kl-2IQ4;
+	Mon, 14 Oct 2024 17:54:53 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t0PHG-000000066cj-3AeF
+	id 1t0PHJ-000000066dv-1d7M
 	for linux-riscv@lists.infradead.org;
-	Mon, 14 Oct 2024 17:54:44 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-71e5130832aso1294241b3a.0
-        for <linux-riscv@lists.infradead.org>; Mon, 14 Oct 2024 10:54:42 -0700 (PDT)
+	Mon, 14 Oct 2024 17:54:48 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-71e67d12d04so895082b3a.1
+        for <linux-riscv@lists.infradead.org>; Mon, 14 Oct 2024 10:54:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1728928482; x=1729533282; darn=lists.infradead.org;
+        d=tenstorrent.com; s=google; t=1728928484; x=1729533284; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=x8k+Ak70OWe9Icimvivr1l9WRiR6s756j4FbBxJKO5A=;
-        b=RzPNMqqw4qYANZW3RaGRNN+z3C6ZtiQpTgfAguaDGYUKt9ryYTLCVWH6VsTQtvUzBq
-         qK3iiyUmWZ8/1wGbWDmbqUOT1+/N0WFqRrCdtAP5b8mQu8OvPW2c1Zync8Lu6uqPyzpl
-         G1tIXxG+kC/5nh75lRW/QkRX4068iJKYk5d8T2h7YmNrgx6LjYuZq4HqqWJExL/rOPWw
-         reAUyhQHvfO9ed4lp3ySmKs6GAz2glFfY9Yw0/K8l8/AekDFgkm6ohy5nOUCWpUMnKc9
-         kelWBg8xjDSUn4m8KvwF+1JzFkM+Zm9CV3WWoQDePutjhRP4ZmIM99kEPj2aAgL/Bv9n
-         73vQ==
+        bh=qxQK+n9uvqhf6yQ2qTxF/yuzmEwFlzvtchBbUqK4Amk=;
+        b=avY95sesu4OyG3jEEYcR9AONC6XLWtAv7dD5WghiA3ZKPshU16Vmnd0Nksp9qXvA5s
+         c9Yi6zXEQDYr3+2CfzOzWwbJyL5/omfE9xCYkHlG1dO/dehOd7Gk/sehxmoIXM1YMltS
+         SD1KHlEoU52KYdj/PCXqvimgaLs0HMXFE/vNKntiQPORx7e/VgUZ9x8u3FysUAUSQElW
+         azBniGdReqzMKHzt56ozezbAytpkaFS3WryBKGu3kmfr2FoogG0gYKnctTGYMIkxPi+b
+         sOrUDbbvwoP2ZRf1fYn+PigxYCrntFIZw6IeAA3MbYFlLFhazX8syr/BQZfodYieAQQ2
+         TauA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728928482; x=1729533282;
+        d=1e100.net; s=20230601; t=1728928484; x=1729533284;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=x8k+Ak70OWe9Icimvivr1l9WRiR6s756j4FbBxJKO5A=;
-        b=szi8msR6lRnaV8nqRxD7itYGJLSkA8krUbFB6Ks26vPuTmTIe3JncRY1jPHZNWdzLk
-         kppfohGtMwUnFyQCdtXBKADtxLRkiNgHMqiQO92lLQwMtuQJnYS2mxtug72RBIAUu/Gj
-         iwyuGo9hqVRgX8e7HGovorpb9OILaD12/rePy8x5hdwkRVnXobx5hHZGGv+AfDYkELtS
-         1oZWEVTXdRP2nOt9iGCeAGFgXwSEPbVtDw3jgURTSbTl9fbNkNC0Lwbsx6P53oOgxmIc
-         MmDqt3zTmktbdjjcA7NncoecAlzjWaDxRVvpBliRfQ76b2RSlEuBMu/NkXusrmGhzKM1
-         tbbg==
-X-Gm-Message-State: AOJu0YzLXWUghyU5i3xACtTmJjWfRnGsCmfRqn5R5WcF1shF0GXjYJmh
-	uyvyvh8euSqLYEAc8Qh9ZVIRvzVvtZF6MwdmnnkcGBjPkhFTqFbGIMA3Hn1GTNc=
-X-Google-Smtp-Source: AGHT+IHqJLvucWLAGZ5AzhHinp9PbSR2cpVHqdqttcjIU+06NfsllWY/kPZKL7TywtCJgFpTSeOOxg==
-X-Received: by 2002:aa7:8890:0:b0:71d:e93e:f542 with SMTP id d2e1a72fcca58-71e4c1cfdffmr15523167b3a.21.1728928482095;
-        Mon, 14 Oct 2024 10:54:42 -0700 (PDT)
+        bh=qxQK+n9uvqhf6yQ2qTxF/yuzmEwFlzvtchBbUqK4Amk=;
+        b=olX635QNA2yNfD7cKW2CX7vPbJwzlYm9kT0IRBLg7ssif6su1Rfq25BTEZMUdU0bEm
+         dvKidobsjWyCCnAJRhoBizw7KKruLneLjpv6z2gvDlvThNZjV6WSdH+mVGTDSvOz0QzD
+         dW/LLYzwif4hZ0gx9xU2b7z8UyuKd7kv3piuSYhlBik2DiBN0Ghgr5JhG1I74BY5IiGC
+         Ll9M7wWGgsCC3Ek3YBhW1hTC1jQYJemeNE9oRumlq8pcL1mXep+7grKJahB1KuLstCLv
+         rF2EurxCc+lVic1T7q0O0NVU6daTY32RKEcOu6N1v9JZwG4XCrSzIqh5gtk+tkcPPOvU
+         VOjg==
+X-Gm-Message-State: AOJu0YwIz2k/QjhtcJdKysL6Q3tm4Zx+Ed3IsibknkGg5gdZ3DIcHdKn
+	JxoGswW4T93A5nkDx7DNuH+VlNFUO7Ang+CeQ4018qux0wBT6PYTFZjgrQ6Sg/g=
+X-Google-Smtp-Source: AGHT+IFZUMYy9vf9WX9eJFZ1DI5EcPS1iVJ1rtk3ygNh04bgPoR2FuxlgA7ZyP+WLjWOVGFidWnbzQ==
+X-Received: by 2002:a05:6a00:2e11:b0:71e:4c34:e294 with SMTP id d2e1a72fcca58-71e4c34e41bmr13808172b3a.7.1728928483815;
+        Mon, 14 Oct 2024 10:54:43 -0700 (PDT)
 Received: from [127.0.1.1] (71-34-69-82.ptld.qwest.net. [71.34.69.82])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-71e49a7e5e7sm5611109b3a.179.2024.10.14.10.54.40
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-71e49a7e5e7sm5611109b3a.179.2024.10.14.10.54.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Oct 2024 10:54:41 -0700 (PDT)
+        Mon, 14 Oct 2024 10:54:43 -0700 (PDT)
 From: Drew Fustini <dfustini@tenstorrent.com>
-Date: Mon, 14 Oct 2024 10:54:23 -0700
-Subject: [PATCH 6/8] riscv: dtb: thead: Add BeagleV Ahead LEDs
+Date: Mon, 14 Oct 2024 10:54:24 -0700
+Subject: [PATCH 7/8] riscv: dts: thead: Add missing GPIO clock-names
 MIME-Version: 1.0
-Message-Id: <20241014-th1520-pinctrl-dts-v1-6-268592ca786e@tenstorrent.com>
+Message-Id: <20241014-th1520-pinctrl-dts-v1-7-268592ca786e@tenstorrent.com>
 References: <20241014-th1520-pinctrl-dts-v1-0-268592ca786e@tenstorrent.com>
 In-Reply-To: <20241014-th1520-pinctrl-dts-v1-0-268592ca786e@tenstorrent.com>
 To: Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
@@ -82,8 +82,8 @@ Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, Drew Fustini <dfustini@tenstorrent.com>
 X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241014_105442_837977_21326A40 
-X-CRM114-Status: UNSURE (   9.79  )
+X-CRM114-CacheID: sfid-20241014_105445_549349_67A94230 
+X-CRM114-Status: UNSURE (   9.28  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -103,96 +103,52 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 
-Add nodes for the 5 user controllable LEDs on the BeagleV Ahead board.
+The gpio-dwapb looks for clock named "bus" so add clock-names property
+for the gpio controller nodes.
 
-Acked-by: Linus Walleij <linus.walleij@linaro.org>
-Tested-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
 Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+[dfustini: add two more lines to the commit message]
 Signed-off-by: Drew Fustini <dfustini@tenstorrent.com>
 ---
- arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts | 54 ++++++++++++++++++++++
- 1 file changed, 54 insertions(+)
+ arch/riscv/boot/dts/thead/th1520.dtsi | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-index 0484fb390be4..c0cf9b086f81 100644
---- a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-+++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-@@ -7,6 +7,8 @@
- /dts-v1/;
+diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
+index 31725c3a13d7..cd835aea07d2 100644
+--- a/arch/riscv/boot/dts/thead/th1520.dtsi
++++ b/arch/riscv/boot/dts/thead/th1520.dtsi
+@@ -329,6 +329,7 @@ gpio@ffe7f34000 {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			clocks = <&clk CLK_GPIO2>;
++			clock-names = "bus";
  
- #include "th1520.dtsi"
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/leds/common.h>
+ 			gpio2: gpio-controller@0 {
+ 				compatible = "snps,dw-apb-gpio-port";
+@@ -349,6 +350,7 @@ gpio@ffe7f38000 {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			clocks = <&clk CLK_GPIO3>;
++			clock-names = "bus";
  
- / {
- 	model = "BeagleV Ahead";
-@@ -35,7 +37,42 @@ chosen {
- 	memory@0 {
- 		device_type = "memory";
- 		reg = <0x0  0x00000000  0x1 0x00000000>;
-+	};
-+
-+	leds {
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&led_pins>;
-+		compatible = "gpio-leds";
-+
-+		led-1 {
-+			gpios = <&gpio4 8 GPIO_ACTIVE_HIGH>;
-+			color = <LED_COLOR_ID_BLUE>;
-+			label = "led1";
-+		};
-+
-+		led-2 {
-+			gpios = <&gpio4 9 GPIO_ACTIVE_HIGH>;
-+			color = <LED_COLOR_ID_BLUE>;
-+			label = "led2";
-+		};
-+
-+		led-3 {
-+			gpios = <&gpio4 10 GPIO_ACTIVE_HIGH>;
-+			color = <LED_COLOR_ID_BLUE>;
-+			label = "led3";
-+		};
-+
-+		led-4 {
-+			gpios = <&gpio4 11 GPIO_ACTIVE_HIGH>;
-+			color = <LED_COLOR_ID_BLUE>;
-+			label = "led4";
-+		};
+ 			gpio3: gpio-controller@0 {
+ 				compatible = "snps,dw-apb-gpio-port";
+@@ -376,6 +378,7 @@ gpio@ffec005000 {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			clocks = <&clk CLK_GPIO0>;
++			clock-names = "bus";
  
-+		led-5 {
-+			gpios = <&gpio4 12 GPIO_ACTIVE_HIGH>;
-+			color = <LED_COLOR_ID_BLUE>;
-+			label = "led5";
-+		};
- 	};
- };
+ 			gpio0: gpio-controller@0 {
+ 				compatible = "snps,dw-apb-gpio-port";
+@@ -396,6 +399,7 @@ gpio@ffec006000 {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			clocks = <&clk CLK_GPIO1>;
++			clock-names = "bus";
  
-@@ -61,6 +98,23 @@ &emmc {
- 	status = "okay";
- };
- 
-+&padctrl_aosys {
-+	led_pins: led-0 {
-+		led-pins {
-+			pins = "AUDIO_PA8",  /* GPIO4_8 */
-+			       "AUDIO_PA9",  /* GPIO4_9 */
-+			       "AUDIO_PA10", /* GPIO4_10 */
-+			       "AUDIO_PA11", /* GPIO4_11 */
-+			       "AUDIO_PA12"; /* GPIO4_12 */
-+			bias-disable;
-+			drive-strength = <3>;
-+			input-disable;
-+			input-schmitt-disable;
-+			slew-rate = <0>;
-+		};
-+	};
-+};
-+
- &padctrl0_apsys {
- 	uart0_pins: uart0-0 {
- 		tx-pins {
+ 			gpio1: gpio-controller@0 {
+ 				compatible = "snps,dw-apb-gpio-port";
 
 -- 
 2.34.1
