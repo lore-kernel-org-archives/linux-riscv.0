@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D06E6D1813A
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Oct 2024 17:54:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7968AD18138
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Oct 2024 17:54:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5dDsQf8Fm07hnntbI0vmX9nCkG8pSePE4/MdIu9Yq0g=; b=snhviadSNpGxIf
-	eWxh3Mxm7rWcsYWLoXgSf38OAz3eXaLR18MGjWbCfl8fTdQWgH0S09qOjgoB+bYJQn0rvrMF6Vx8d
-	2gKQ5Nqctm/7fiKZSU+jP8X2Knfj/HCJz7ljC2YXwh+zWFIihFar00IPEk8JKMqRXFzmPkIJWDiwc
-	0Mc5lLcnP1vQPdP8EKujGmhFBACWUauZNUtPEL16x/ZgbwmIlAQgPvhz5eRQ0Dfj848sfKEHrmA3u
-	PqXAvGCEXcW8pKBOgOP+2paZ3KM3sBqwxreB0w65TuJXAAwGJjPcrRcJeiw6t5txUPN+nkRxchTEA
-	HzFJGRz0zzB3tMirFiUQ==;
+	List-Owner; bh=qNurWOF5zqIhyh4xuW7mMxxceHqU9MEeBcRfTk7HWTI=; b=y70E7NoO5flEUg
+	Z04c1WyYBKjynD37qjIH+RIKnqc1FQ9WNi8L/TXsUs7wNsw4inDB1TOxcePBexazMsqeAG8yP5yU8
+	GklC9lbMRonrdv8aL5fJklpkdJa7aIBwx0ijQ6n0fw69IlOSnOB6Tz/AnvSFOpgsrq2bv0wd0i8TY
+	JcmpXN+FJHj5GfsTwCEnXQ4IiapwhXIoHwQ6sfnXfABQ7W4AiQ5yihQPSTTwgwfojx9nFbWJ/88wl
+	QAqdU35f9nsZJdp33HyRmEhLQHpQj31UsQ7bKFzpzeZq9tCIzOR1zvcYF9wZ6Ac6ptnIo7bVLkJFP
+	Sul2nnvqe0/uAAy7wo/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t0PHH-000000066dW-3HBa;
-	Mon, 14 Oct 2024 17:54:43 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1t0PHI-000000066dz-3FG9;
+	Mon, 14 Oct 2024 17:54:44 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t0PHC-000000066aj-49BG
+	id 1t0PHF-000000066cI-3eRT
 	for linux-riscv@lists.infradead.org;
-	Mon, 14 Oct 2024 17:54:40 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-7e6ed072cdaso2857529a12.0
-        for <linux-riscv@lists.infradead.org>; Mon, 14 Oct 2024 10:54:38 -0700 (PDT)
+	Mon, 14 Oct 2024 17:54:43 +0000
+Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-7e6d04f74faso2829738a12.1
+        for <linux-riscv@lists.infradead.org>; Mon, 14 Oct 2024 10:54:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1728928478; x=1729533278; darn=lists.infradead.org;
+        d=tenstorrent.com; s=google; t=1728928481; x=1729533281; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Uos7I1D3jQNEa1jYD68wgLK0dLonPjDnha9WpKrjRLs=;
-        b=Cqa277C8TDkwO9+q3l9uj9BC+GMqtAqvDnoOoC6Uhf5uNkywpE+Iy9J+wQ4MbjbxA8
-         bGdN2ChmK7W22Vi+PRChZiv6LXmiD/WstEii6SbyRFy6/vodqP7TtdLSrn0/s9meMia0
-         a3cge8CJ0sm1eZfvfV95oeUNYcTTfY6qcxjOzplrJuBzugCAIJ+qDb0o5m5INTFwxRJl
-         M7IBtuIoZLAvIUhi37WMWL40k1peYXTLTFQW4PKPIjZuWTlTBB2U5CFXw4gzae6tUlHH
-         PLL2+vQTzrHFyvJX4yu6iInu7CewqAjVRAWWW1imnsRXeJVg055n7Kc0yXTf8Zto3XkI
-         FlHg==
+        bh=7m8GT3iOgjI/IPeeAm/PS7DBYs1L+bHOJpi9gTXeTlU=;
+        b=ROK9uqZmfqVOZ/lGpJ6vw6bpkKJxeqfp8YdM9bm37PBDb/wFfPP/zudy7RxJ1G3IgV
+         Ulh5GTzcVcFOjMgy2rEpgb4NoqIzjVPkjbSQtWTldFNfWZHHS33Dxdgj2xUEHJLh3pQW
+         MFJkhFpSbAud1G207oCsf/gePp/HTlxAtRwNEcAzIiSXbdpjz7JDC1sYCzpOHi0q22qk
+         mGmyj5LeNW5AtbFjhpXpY2zqWQRvXPCF29emwK3og1A1iMUNRV0kvr9aHNZbosF9dHuT
+         FG6Ygdlrf7iMUj+0wr0KquISK92ux03TCZKIYKQ8G0ZtlQH7oLflSH0t6cpqtATagC6a
+         gZPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728928478; x=1729533278;
+        d=1e100.net; s=20230601; t=1728928481; x=1729533281;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Uos7I1D3jQNEa1jYD68wgLK0dLonPjDnha9WpKrjRLs=;
-        b=P4CZChPQdUT398/xzuPhESHrOVOo4XwTkNApHKOVDzTeueegdjkWOl4xnnTrNozHJj
-         lOUSGA93RCbECIRw+MR75W3qQCuvTCf41rJBOAhIEm2PyDUF+SspITXXiS8M3vDm89ZA
-         KPjdnTTtzx0aSdXApKDVZcGJc4E6inLO98zSxJWygRlGKf0W7bIRQIowFBYit2NF66CN
-         MX2IxoQkXGitKSybCVLgH+zXsibyLlaavtdJSd383IgSocEPrac3vkY4hQFJCLj4mqeb
-         hHgxYpn5mYdgYd8wBoRmvDKjY/Ypv2FoI6Ntl/7wbKFfsOHoocdcDebe09f47pNiXOB+
-         RwHg==
-X-Gm-Message-State: AOJu0Yx+5m4vQ6xauyJohX9u0ta/mJX1bOpa+3bRSJcj1CaCAmyiU0BY
-	pu2toixMlNMe7sf3fRwz22qWc4mN2P2U2QfZF/wYplE4yr4iiK2brs0f0WYhrMxsvdsxQtZZ1ZG
-	G
-X-Google-Smtp-Source: AGHT+IEf0p5oqGrtyTppCsRYCXH5JSV8D2MTmtTJC5hsQzJwO0qFZtTU9t9TmbxbmQs9qouXaju6Zw==
-X-Received: by 2002:a05:6a21:38f:b0:1cf:7123:86a6 with SMTP id adf61e73a8af0-1d8c96ba856mr15379776637.49.1728928477812;
-        Mon, 14 Oct 2024 10:54:37 -0700 (PDT)
+        bh=7m8GT3iOgjI/IPeeAm/PS7DBYs1L+bHOJpi9gTXeTlU=;
+        b=ULXxIcwe9LQHxBBRHthu0bHfGtosvLpUeJpczDEzC4hpNBGwduKN9qTBy5A+CaixgH
+         Obe+Vpm1EMkPxupASN/FivS7S2CRzWx8jYxx8zd/tvpfTbGThu4FneHpaCgQJBTmrEp5
+         TC20/UKRUIp2zGtuvtzG3foMzhjdXtKTDCVFFckSTe9cnJw0cNzofeIsDqTud1oYsI9X
+         EYjHbHX9KeMvFr11NPbzEnLGZ4NeUaKhtYf8LAyxXy1jg8MYYbsMJYRk6x5lkkZUQAUm
+         Uy6oVJYMuJmlE9mKxzSZy7memyOHIySHhEcIG5rBmICSzsBnVfHBTTT6eMVIzJRYY164
+         s2dQ==
+X-Gm-Message-State: AOJu0YymwLExMfiKwmw1MO70XFs6huvx12dcqRGlzzrLnKczDgt5DafN
+	QBI/D6nTOgjWhrqCQUyT9dx1rfRamVpr0e+EaOYlxNIbR3jC5av/cmHsLxUQMmA=
+X-Google-Smtp-Source: AGHT+IFubZZsgfE7zPBcM+amVvU61DR9WiXpW7a/nxs9sPE09jRp+jNHKlzxRB5yg+eKUqCa8ihbtA==
+X-Received: by 2002:a05:6a21:3942:b0:1cf:1250:80a7 with SMTP id adf61e73a8af0-1d8bc85d2abmr19634037637.12.1728928480675;
+        Mon, 14 Oct 2024 10:54:40 -0700 (PDT)
 Received: from [127.0.1.1] (71-34-69-82.ptld.qwest.net. [71.34.69.82])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-71e49a7e5e7sm5611109b3a.179.2024.10.14.10.54.35
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-71e49a7e5e7sm5611109b3a.179.2024.10.14.10.54.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Oct 2024 10:54:37 -0700 (PDT)
+        Mon, 14 Oct 2024 10:54:39 -0700 (PDT)
 From: Drew Fustini <dfustini@tenstorrent.com>
-Date: Mon, 14 Oct 2024 10:54:21 -0700
-Subject: [PATCH 4/8] riscv: dts: thead: Add Lichee Pi 4M GPIO line names
+Date: Mon, 14 Oct 2024 10:54:22 -0700
+Subject: [PATCH 5/8] riscv: dts: thead: Add TH1520 pinctrl settings for
+ UART0
 MIME-Version: 1.0
-Message-Id: <20241014-th1520-pinctrl-dts-v1-4-268592ca786e@tenstorrent.com>
+Message-Id: <20241014-th1520-pinctrl-dts-v1-5-268592ca786e@tenstorrent.com>
 References: <20241014-th1520-pinctrl-dts-v1-0-268592ca786e@tenstorrent.com>
 In-Reply-To: <20241014-th1520-pinctrl-dts-v1-0-268592ca786e@tenstorrent.com>
 To: Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
@@ -83,8 +83,8 @@ Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, Drew Fustini <dfustini@tenstorrent.com>
 X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241014_105439_080292_DD566250 
-X-CRM114-Status: UNSURE (   7.99  )
+X-CRM114-CacheID: sfid-20241014_105441_950124_CE8CB53D 
+X-CRM114-Status: UNSURE (   9.27  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,73 +104,100 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 
-Add names for the GPIO00-GPIO14 lines of the SO-DIMM module.
+Add pinctrl settings for UART0 used as the default debug console on
+both the Lichee Pi 4A and BeagleV Ahead boards.
 
 Acked-by: Linus Walleij <linus.walleij@linaro.org>
 Tested-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
 Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 Signed-off-by: Drew Fustini <dfustini@tenstorrent.com>
 ---
- .../boot/dts/thead/th1520-lichee-module-4a.dtsi    | 39 ++++++++++++++++++++++
- 1 file changed, 39 insertions(+)
+ arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts | 26 ++++++++++++++++++++++
+ arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts  | 26 ++++++++++++++++++++++
+ 2 files changed, 52 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi b/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
-index 78977bdbbe3d..724d9645471d 100644
---- a/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
-+++ b/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
-@@ -25,6 +25,12 @@ &osc_32k {
- 	clock-frequency = <32768>;
- };
- 
-+&aogpio {
-+	gpio-line-names = "", "", "",
-+			  "GPIO00",
-+			  "GPIO04";
-+};
-+
- &dmac0 {
- 	status = "okay";
- };
-@@ -39,6 +45,39 @@ &emmc {
+diff --git a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+index 1a4154a6ff3b..0484fb390be4 100644
+--- a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
++++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+@@ -61,6 +61,30 @@ &emmc {
  	status = "okay";
  };
  
-+&gpio0 {
-+	gpio-line-names = "", "", "", "", "", "", "", "", "", "",
-+			  "", "", "", "", "", "", "", "", "", "",
-+			  "", "", "", "",
-+			  "GPIO07",
-+			  "GPIO08",
-+			  "",
-+			  "GPIO01",
-+			  "GPIO02";
-+};
++&padctrl0_apsys {
++	uart0_pins: uart0-0 {
++		tx-pins {
++			pins = "UART0_TXD";
++			function = "uart";
++			bias-disable;
++			drive-strength = <3>;
++			input-disable;
++			input-schmitt-disable;
++			slew-rate = <0>;
++		};
 +
-+&gpio1 {
-+	gpio-line-names = "", "", "",
-+			  "GPIO11",
-+			  "GPIO12",
-+			  "GPIO13",
-+			  "GPIO14",
-+			  "", "", "", "", "", "", "", "", "", "",
-+			  "", "", "", "", "",
-+			  "GPIO06";
-+};
-+
-+&gpio2 {
-+	gpio-line-names = "GPIO03",
-+			  "GPIO05";
-+};
-+
-+&gpio3 {
-+	gpio-line-names = "", "",
-+			  "GPIO09",
-+			  "GPIO10";
++		rx-pins {
++			pins = "UART0_RXD";
++			function = "uart";
++			bias-pull-up;
++			drive-strength = <1>;
++			input-enable;
++			input-schmitt-enable;
++			slew-rate = <0>;
++		};
++	};
 +};
 +
  &sdio0 {
  	bus-width = <4>;
  	max-frequency = <198000000>;
+@@ -68,6 +92,8 @@ &sdio0 {
+ };
+ 
+ &uart0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&uart0_pins>;
+ 	status = "okay";
+ };
+ 
+diff --git a/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts b/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
+index 58ad381fc1c3..f60b1879192d 100644
+--- a/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
++++ b/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
+@@ -30,7 +30,33 @@ chosen {
+ 	};
+ };
+ 
++&padctrl0_apsys {
++	uart0_pins: uart0-0 {
++		tx-pins {
++			pins = "UART0_TXD";
++			function = "uart";
++			bias-disable;
++			drive-strength = <3>;
++			input-disable;
++			input-schmitt-disable;
++			slew-rate = <0>;
++		};
++
++		rx-pins {
++			pins = "UART0_RXD";
++			function = "uart";
++			bias-disable;
++			drive-strength = <1>;
++			input-enable;
++			input-schmitt-enable;
++			slew-rate = <0>;
++		};
++	};
++};
++
+ &uart0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&uart0_pins>;
+ 	status = "okay";
+ };
+ 
 
 -- 
 2.34.1
