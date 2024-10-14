@@ -4,105 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E026D1813A
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Oct 2024 19:16:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91805D18144
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Oct 2024 20:28:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vy+xusbnq/IJg9lIsmVf3Vh4mzsu+Ut9Dty1yqZctcc=; b=B8EttAlpWFxvg8
-	NEHjpEaG55pky2vsPbrB+zsru5hRhdRnhlL6MYk/d2lzAtTHCQUjjYdFxdMYYSere2ZZoSbbiLZWK
-	ATkvSinTPOL0BKQN+UyxPn2n4/I/a1N/AhKU8qSgKQKXuY8IfbnT0Avhe1SreRVMqab9OE1wZpjAo
-	X2QLzL4kgYUElI8cA40ljSccWyNbAAkwa53wZuZUzYpvms5IzoClpTXpXsL6HtzXR6MQBsRPFm2wC
-	nQ4VI6eqK8U5vodYmjiWcYc2hMuB++lP8nTdRAu3bxhp/7wacpFzeEdSBvmpo3VLKyDvQpw+JnrFp
-	QRQpvFb7yvODAquaNSgA==;
+	List-Owner; bh=pgK/ZA6WBe/0Ec3h4RJNFD/qg914dGYHXvBT+7jsfNE=; b=q9KkvVYsW/TiFM
+	8dkvwTogr6rAx+0onxeVoBsMYenHoC4bySSXonkullWhUcofTkmn0nvcYPVXPV3LiY5Fh4aJt8v/x
+	+lOKjlBhXmwXUNJMyLQePLST5AOuYmq65Qr9zmJ8f4m8470aCmy8wo0JlM5JBN8cZm7h4zrqoCF+R
+	6tAjabJej//QdAcQmDAIxYNeOtsz/vEmGoH01etTRgs8Oi0vSEIbQmVOkGneM1abCHu0gAgIS+GWq
+	5qFEWm4VlDEVmHqllLYi6ap5vYn3iIv/d0z8+O+Q8uVh/zu9U6ypjb73IIUBUOeEESFeULuPySDeE
+	tsap0ROtWYB4YgU57QMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t0QYP-00000006Guk-1Btf;
-	Mon, 14 Oct 2024 19:16:29 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t0Rfb-00000006O52-1yNu;
+	Mon, 14 Oct 2024 20:27:59 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t0QYL-00000006Gsx-3bMD;
-	Mon, 14 Oct 2024 19:16:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 3E184A4271A;
-	Mon, 14 Oct 2024 19:16:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DC60C4CEC3;
-	Mon, 14 Oct 2024 19:16:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1728933383;
-	bh=UuppSLaM0kOzMrDSh2RloHR9IgCcKKb57FBSLEkEUWY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EjG/5WZADaXhvwARHnqKg67eiuXX7gTWxPoitBNELLTxxDNviuMSsmlu/en6P6ED8
-	 zpJ52uHjqiz/g2IcIGwuziTngHnAXDzicRERzVAAIDP4l2L6y33KAuyIagMcpMXzl4
-	 9dBRK2tjgLlrX3Ons9R5vBST3i3yiewblKFLfAI64WB5+23Fn5KkJljDLeTWRKDZ84
-	 jnexNcW9vYFK3px9crwCiVYgH/8ctiyb/DdHjxU96pqWdOL1lwHrwqpz6qzLtvvsU8
-	 7pmIeyrMmskmV1mcXKss65BVVX6VBxafQdYx2gdNsA2KwzhcBEiTj2VcG0YSmjPMmN
-	 oCmkdGtrERExg==
-Date: Mon, 14 Oct 2024 12:16:20 -0700
-From: Luis Chamberlain <mcgrof@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>,
-	Petr Pavlu <petr.pavlu@suse.com>,
-	Sami Tolvanen <samitolvanen@google.com>
-Cc: Mike Rapoport <rppt@kernel.org>, Christoph Hellwig <hch@infradead.org>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Andy Lutomirski <luto@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>,
-	Brian Cain <bcain@quicinc.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Kent Overstreet <kent.overstreet@linux.dev>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Simek <monstr@monstr.eu>, Oleg Nesterov <oleg@redhat.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
-	Stafford Horne <shorne@gmail.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linux-mm@kvack.org,
-	linux-modules@vger.kernel.org, linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org, linux-um@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v5 7/8] execmem: add support for cache of large ROX pages
-Message-ID: <Zw1uBBcG-jAgxF_t@bombadil.infradead.org>
-References: <20241009180816.83591-1-rppt@kernel.org>
- <20241009180816.83591-8-rppt@kernel.org>
- <Zwd7GRyBtCwiAv1v@infradead.org>
- <ZwfPPZrxHzQgYfx7@kernel.org>
- <ZwjXz0dz-RldVNx0@infradead.org>
- <ZwuIPZkjX0CfzhjS@kernel.org>
- <20241013202626.81f430a16750af0d2f40d683@linux-foundation.org>
+	id 1t0RfX-00000006O4b-0huw
+	for linux-riscv@lists.infradead.org;
+	Mon, 14 Oct 2024 20:27:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=HhkcX725e/3oAWjz9xZVWQiKXqdRkr07/xexm6SenoI=; b=lZYwal+FxlOb7aLLzWJsDONhrL
+	DaHhLlN9YQQTB/thexylNscem+ElDuw8zEc3SrbSzTkisNiWjYaS7PA3CI+3eFVdX9iN5uBwGKbCx
+	3TDR/OQZresaAepfP/oNvjtP0yELldkRAdKnyY+7ybzBumz1SwW+qitha/+yGjd/lcbbNpStIypmZ
+	rxJ+et0dfo3mF8MEqvBHTrCXU2hq379X5FY8c+Nr1IG7Yo6bC77jAuPwYrwRedLfAHyNwaZzn0st0
+	PUzlKWtFNf4f4SUQ/LGnmS7FdE/xD7rdyFxvhSNdOo/DHIPhRaWq25++4RJGOkbbxGY2BO6Vyt9lR
+	DY5Udb0A==;
+Received: from ohm.aurel32.net ([2001:bc8:30d7:111::2] helo=ohm.rr44.fr)
+	by hall.aurel32.net with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1t0RfJ-003pXv-2A;
+	Mon, 14 Oct 2024 22:27:41 +0200
+Date: Mon, 14 Oct 2024 22:27:41 +0200
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: Changhuang Liang <changhuang.liang@starfivetech.com>
+Cc: Conor Dooley <conor+dt@kernel.org>,
+	Jack Zhu <jack.zhu@starfivetech.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	E Shattow <lucent@gmail.com>
+Subject: Re: =?utf-8?B?5Zue5aSNOiBbdjM=?= =?utf-8?Q?=5D?= riscv: dts:
+ starfive: jh7110: Add camera subsystem nodes
+Message-ID: <Zw1-vcN4CoVkfLjU@aurel32.net>
+Mail-Followup-To: Changhuang Liang <changhuang.liang@starfivetech.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jack Zhu <jack.zhu@starfivetech.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	E Shattow <lucent@gmail.com>
+References: <ZQ0PR01MB13026F78B2580376095AF7E7F2442@ZQ0PR01MB1302.CHNPR01.prod.partner.outlook.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20241013202626.81f430a16750af0d2f40d683@linux-foundation.org>
+In-Reply-To: <ZQ0PR01MB13026F78B2580376095AF7E7F2442@ZQ0PR01MB1302.CHNPR01.prod.partner.outlook.cn>
+User-Agent: Mutt/2.2.13 (2024-03-09)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241014_121626_053486_1D01AF4B 
-X-CRM114-Status: GOOD (  13.79  )
+X-CRM114-CacheID: sfid-20241014_132755_661072_A7C9D48E 
+X-CRM114-Status: GOOD (  20.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,32 +86,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Oct 13, 2024 at 08:26:26PM -0700, Andrew Morton wrote:
-> On Sun, 13 Oct 2024 11:43:41 +0300 Mike Rapoport <rppt@kernel.org> wrote:
-> 
-> > > > The idea is to keep everything together and have execmem_info describe all
-> > > > that architecture needs. 
-> > > 
-> > > But why?  That's pretty different from our normal style of arch hooks,
-> > > and introduces an indirect call in a security sensitive area.
-> > 
-> > Will change to __weak hook. 
-> > 
-> 
-> Thanks, I'll drop the v1 series;
-> 
-> The todos which I collected are:
-> 
-> https://lkml.kernel.org/r/CAPhsuW66etfdU3Fvk0KsELXcgWD6_TkBFjJ-BTHQu5OejDsP2w@mail.gmail.com
-> https://lkml.kernel.org/r/Zwd6vH0rz0PVedLI@infradead.org
-> https://lkml.kernel.org/r/ZwjXz0dz-RldVNx0@infradead.org
-> https://lkml.kernel.org/r/202410111408.8fe6f604-lkp@intel.com
+Hi,
 
-BTW Andrew I'd like to pick this up through the modules tree, and while
-at it, also beat it up with some more testing as we're expanding also
-with the modversions stuff for Rust modules.
+On 2024-10-14 01:08, Changhuang Liang wrote:
+> Hi, Aurelien
+> 
+> > 
+> > Hi,
+> > 
+> > On 2024-02-18 19:27, Changhuang Liang wrote:
+> > > Add camera subsystem nodes for the StarFive JH7110 SoC. They contain
+> > > the dphy-rx, csi2rx, camss nodes.
+> > >
+> > > Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+> > > ---
+> > >  .../jh7110-starfive-visionfive-2.dtsi         | 49 ++++++++++++++
+> > >  arch/riscv/boot/dts/starfive/jh7110.dtsi      | 67
+> > +++++++++++++++++++
+> > >  2 files changed, 116 insertions(+)
+> > 
+> > We have been asked to enable CONFIG_VIDEO_STARFIVE_CAMSS in the
+> > Debian kernel, which from my understanding and given the device tree shown
+> > below also requires enabling CONFIG_VIDEO_CADENCE_CSI2RX. That said
+> > doing so triggers the following error in dmesg:
+> > 
+> > [   25.143282] cdns-csi2rx 19800000.csi: probe with driver cdns-csi2rx
+> > failed with error -22
+> > 
+> > From a quick look it seems there is something in the port@0 csi2rx entry. Do
+> > you happen to know what is wrong?
+> > 
+> 
+> You need to add your sensor node. You can refer to this patch:
+> https://patchwork.kernel.org/project/linux-riscv/patch/20240119100639.84029-3-changhuang.liang@starfivetech.com/
+> 
+> We suggest that using the imx219
 
-  Luis
+Thanks for your answer. I do not have any sensor attached, the goal is
+to build a generic kernel, and people can use overlays or patch their
+device tree to add support for additional devices.
+
+In that regard, I have the impression that csi2rx device (and maybe the
+camss device?) should not be marked as enabled in the default device
+tree. I think they could be enabled by users as part of the change need
+to add the sensor node.
+
+Regards
+Aurelien
+
+-- 
+Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+aurelien@aurel32.net                     http://aurel32.net
 
 _______________________________________________
 linux-riscv mailing list
