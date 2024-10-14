@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97526D16268
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Oct 2024 14:27:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 508FCD16277
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Oct 2024 14:29:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Iw2q1r58GhFRfZvPjuv9ws5z/2yj6g2/5XNI4H437bY=; b=QcHURa3XC638KV
-	JgJfKQsYv3hJAjno8JxY1+iYA3LsWYT5QHHmXE99zpqZYPOtaa4dQH1PNPfhf5D3huzDXAyAFXsj6
-	PQGTZmdzRiGq2rYsZUklfJ+4CL7Xj3mq0d81Wtfz/K5wEhtgM42RY/R1RHrOiMmFjP9Fn6pf0Z777
-	fwdNuCfj0SPeckxGqfvUSjmOijuYNn/F3hG/xkvKrJzBwQ+AKEj8b4u3A9AlnfavQqsr+3UjWIzIA
-	8cZSaIxYA8OWjBiY3XNe4pR0Z2Oa1btMAiy+bjeAIaAWH31YkcKnahtZH044I7v2hWhkIdbtFHW/Z
-	g1+5Atg851fddb8FKNDQ==;
+	List-Owner; bh=xOe1UKn3+aJ1+2QjLtfaRQNQu6/7SIWbSaM/HIxBqLs=; b=Ze9RqyZcgHnOt/
+	oOyDO2O5HlBXoIvRfEzQLb0xgzvcOI3urnxkHqZ1WJcwwpZusrTQB4AmuQCoRVnCPjTet4DXV7t4R
+	7DGFvwvAqLeAdno9BocBYA1qX5kp+2otIxJNbRdpG2bjA1oSj+aeqXAXrL7CdIj2XVGVEy3KLF5qy
+	4BuLVBVq/9GgeOav354FFHH6284ok5vPfFbMdCHZk9GRBoKcT3R4NaDdNdAwwk0M2oHiM0+t1ybbb
+	LpptFgtm7EB9aIM6BL+mojLdLkhIp77hdWi8gsDo7sQ3hdVuF6b4xvWci/OpwhT1jtARZUR3/8sim
+	fipE46Ov/IMVTAE4OZuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t0M2o-00000005T2s-0WkX;
-	Mon, 14 Oct 2024 14:27:34 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t0M4B-00000005TJq-2Kf4;
+	Mon, 14 Oct 2024 14:28:59 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t0LbW-00000005OYV-3aIJ;
-	Mon, 14 Oct 2024 13:59:24 +0000
+	id 1t0Lby-00000005OjC-3QPq;
+	Mon, 14 Oct 2024 13:59:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 0C15BA41049;
-	Mon, 14 Oct 2024 13:59:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93215C4CEC3;
-	Mon, 14 Oct 2024 13:59:15 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2CFD0A40EB8;
+	Mon, 14 Oct 2024 13:59:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DE44C4CEC3;
+	Mon, 14 Oct 2024 13:59:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1728914361;
-	bh=OFpg+lOM6lZXKg41f2jamDsHYXkihHB1FSkYSOpNp7M=;
+	s=k20201202; t=1728914388;
+	bh=H9P82NUHjzhSG+q03ylKXcErnfke+kcbkRkAXEXtqss=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XLiQSRnyrpGh3KeRNqwVQin1xwWw8rjBh6YtiIP+ymVkvW8PlGuD4VtJIxOmpdA7B
-	 kLkCXSdWO7/FV7LDmeiT3sDuHbEWfE+uDkzGg9u0jQtgPxwbFMt+IYVBxBrs8U2LC1
-	 9Nadzv3qkoFqNSpWKUSyaxfFzYjt/ZSWSsyITg1OKm1SPfPzUCVpR3eToqy/TZ6K43
-	 5XWZnSHQHQ7upIBccE716ZkFnzDKlzLGLucKHqBxRdpjzBny2jaw725EkRJ1uOMeI1
-	 0f+RlmDrO9MpoT9zo3HWfgQn1fmyMap2Almoz8XozNC3KcwbCpAd0AZ4ckWWNQjHHO
-	 bhyzWaJbPd0OQ==
-Date: Mon, 14 Oct 2024 14:59:12 +0100
+	b=NSUyMHM312ILKPLeoDrkDB5PqqmMcQXJGNf/rrrQ0VjEAD4ebiRUhrIyozWQ2eGPN
+	 K4ege7WiwKlk46bvSDbx03kr9XUeKzrIYI4sHwciGOxO0WMzPdKSJ6ENhrZWuDWWeY
+	 GLi+EB0emlojuZERgAdKWUPgzjI84Bo+t6HxU4mNonaA5w49WHQf50KtXnMSmKMsWX
+	 VOXG+zGYmKJPumw9ypG4H8TIPF5FA1wC7F43lKOpZWuVLy+l+3UHOeD0LqDjmxV0Su
+	 7VJ4wdZCBX9uUsoWFr9xRbWSzq4LDNiwWQS7Z9d2YGbMNLUObt8UqFKWlzg4mwT3bi
+	 W27SYygaZmeJQ==
+Date: Mon, 14 Oct 2024 14:59:39 +0100
 From: Will Deacon <will@kernel.org>
 To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
 Cc: Catalin Marinas <catalin.marinas@arm.com>,
@@ -73,18 +73,17 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	linux-arch@vger.kernel.org, linux-mips@vger.kernel.org,
 	linux-s390@vger.kernel.org, loongarch@lists.linux.dev,
 	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 1/9] vdso: Remove timekeeper argument of
- __arch_update_vsyscall()
-Message-ID: <20241014135911.GB17505@willie-the-truck>
+Subject: Re: [PATCH 3/9] arm64: vdso: Remove timekeeper include
+Message-ID: <20241014135939.GC17505@willie-the-truck>
 References: <20241010-vdso-generic-arch_update_vsyscall-v1-0-7fe5a3ea4382@linutronix.de>
- <20241010-vdso-generic-arch_update_vsyscall-v1-1-7fe5a3ea4382@linutronix.de>
+ <20241010-vdso-generic-arch_update_vsyscall-v1-3-7fe5a3ea4382@linutronix.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20241010-vdso-generic-arch_update_vsyscall-v1-1-7fe5a3ea4382@linutronix.de>
+In-Reply-To: <20241010-vdso-generic-arch_update_vsyscall-v1-3-7fe5a3ea4382@linutronix.de>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241014_065922_980406_516CF86A 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20241014_065950_934618_462BA9B1 
+X-CRM114-Status: GOOD (  13.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,20 +100,30 @@ Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 10, 2024 at 05:44:44PM +0200, Thomas Wei=DFschuh wrote:
-> No implementation of this hook uses the passed in timekeeper anymore.
-> =
-
-> This avoids including a non-VDSO header while building the VDSO,
-> which can lead to compilation errors.
+On Thu, Oct 10, 2024 at 05:44:46PM +0200, Thomas Wei=DFschuh wrote:
+> Since the generic VDSO clock mode storage is used, this header file is
+> unused and can be removed.
 > =
 
 > Signed-off-by: Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
 > ---
->  arch/arm64/include/asm/vdso/vsyscall.h | 3 +--
->  include/asm-generic/vdso/vsyscall.h    | 3 +--
->  kernel/time/vsyscall.c                 | 2 +-
->  3 files changed, 3 insertions(+), 5 deletions(-)
+>  arch/arm64/kernel/vdso.c | 1 -
+>  1 file changed, 1 deletion(-)
+> =
+
+> diff --git a/arch/arm64/kernel/vdso.c b/arch/arm64/kernel/vdso.c
+> index 706c9c3a7a50a4574e77da296e9c83e1e2a9f5ab..8ef20c16bc482e92de8098d55=
+000c9999b89830e 100644
+> --- a/arch/arm64/kernel/vdso.c
+> +++ b/arch/arm64/kernel/vdso.c
+> @@ -19,7 +19,6 @@
+>  #include <linux/signal.h>
+>  #include <linux/slab.h>
+>  #include <linux/time_namespace.h>
+> -#include <linux/timekeeper_internal.h>
+>  #include <linux/vmalloc.h>
+>  #include <vdso/datapage.h>
+>  #include <vdso/helpers.h>
 
 Acked-by: Will Deacon <will@kernel.org>
 
