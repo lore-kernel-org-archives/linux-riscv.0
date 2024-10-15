@@ -4,110 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FCDDD216BC
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Oct 2024 14:45:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D36BD1D88B
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Oct 2024 16:20:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yXxWN4LbHKQtHNACgJLXBc3AWAjpoPHhmzJDzpfSEx0=; b=0x34HTGopij7Ox
-	qjFqCzTFb02sNSHBeQC+HOqXUk0HhFzbO5IQT9uHXvSj7E21wfxqwb7pR5FPvGrGlzGdwEWEC23Wq
-	kTfmWzEl41RMgFz+GJChxtplqmm8Ojw4vQf9uuTrFVaAihtOSCDM008mYdb0PEGPQ3CzrJGTb/PEV
-	ZwXhgZ33Gtk6y1+0/v+bOYxTBs7cuFWj3D9nllf4bnZ2xd440Bln6eijssmIViP7ZypmbeBWUd7cq
-	fKGHMe0QFJDtRtcXDBNfffQoYDuHUY0s5GkQRt5HBYpOh2HZD5f4T+I8g1eQnZ50oCxV4IuB7XyO1
-	okmGtp8D4ZmaXwx6HTwg==;
+	List-Owner; bh=VcclD6QefzQSHC/udn2dgJe79fJiJS6oIDsYqS4uFJY=; b=UBlUQq9kpmVDIn
+	tbne8TjgqBL5KTTGSFnQD7dXU0d4uzcKa1vKp9LylxGCDmW60pH+NUHKi8P/vAkF28VB2o9bCQlP9
+	c1zK4AQbDFKjbf8mBGGMhUk5Pcug2KIA/FxOf8tsk4sdmkAmLkZhCCPOZm96/vk231ulhDxzTuNTm
+	RKCNWKeMGc4UtOIQWtQM88D+2bYROJqBZmzMk2ImxNemlmeFCJeuXdjPqG48bl1H5ZVRm+n7I/J3Y
+	gDKSg5z0SknEnKm0/hhKpRr1CXtI/lEhm0Ej0fe60WS6fkl7EJzv9N0yugtHUPn53tHsXTp8L5E1Y
+	4hgtJ+ywEP3NqCzn24IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t0inl-00000008YyI-3ShD;
-	Tue, 15 Oct 2024 14:45:33 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t0kHy-00000008rCW-22ey;
+	Tue, 15 Oct 2024 16:20:50 +0000
+Received: from mail-qv1-xf2b.google.com ([2607:f8b0:4864:20::f2b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t0hiL-00000008NZo-1xQA
+	id 1t0kHv-00000008rBn-3pv6
 	for linux-riscv@lists.infradead.org;
-	Tue, 15 Oct 2024 13:35:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 84F7AA42577;
-	Tue, 15 Oct 2024 13:35:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A65FC4CEC6;
-	Tue, 15 Oct 2024 13:35:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1728999352;
-	bh=iWqukihIetnXFxIMSRJf6mjrnCnlfxnayzBqiz8bRnY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Mtlw3P1bWQYcQxdXci7wwOz8Hy1DkvnYOvYplfMHvTejdKnUeG+pS6hmL8bPYpNDN
-	 GAyFx/ZYwZYi82WmEesfcrXljVPTuXcq597/C4Tucja62HoghI26C52oPaRC0F1XVS
-	 IZ7BSGjzXuyIYLy9MeB9n6nSDDboWFD3jjYH0pxkREuZUnY2Gdb8HPfWlj3xqXdQfi
-	 Sy/QScWmSgpezN2rlj7c4nzsMmgALGB1SXyHJCtouCPy8KyCuwwIvnXQHmxw7aK122
-	 Y17hkhyrmE3Ia0zoQxIaPVnlJAcuAA7B/gcu3g7kLqAyTMIxIu18RRijpRedPnZYNd
-	 SDuEzpSjXnTRA==
-Message-ID: <f0da1029-c8df-40e7-8312-a41a87b7b940@kernel.org>
-Date: Tue, 15 Oct 2024 15:35:46 +0200
+	Tue, 15 Oct 2024 16:20:49 +0000
+Received: by mail-qv1-xf2b.google.com with SMTP id 6a1803df08f44-6cbe68f787dso34860476d6.2
+        for <linux-riscv@lists.infradead.org>; Tue, 15 Oct 2024 09:20:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1729009246; x=1729614046; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=DtJ+WCcZlnqJEtBJ5ahUedtheIBoZsN5YCfn7xZAGeE=;
+        b=b8SOCHGiEBLiGIqI34Pa8zjfy53ixVn7IR3Zp00j+Ka7U1RfpCeOxe50GD55/+wCsa
+         DZHzQlWWBur/uRWDiCGWbZnVwLW8pK2Ou28Pjb4mGkwky5FCFx9bmHCJRzGS5sla8hDM
+         Ma4YqS7aWR+Bhk8YbFFZY7e/ApKikyeuWrphUhEQ2NkBvXnZ+fSqX4u53Kt9vZ94I4vB
+         5jlbfshhw8URAdiyq4tOEnG+yMovRU/nKKtNWynrUMCkWZ4BsPkSZ501oLPvqvhE/9xA
+         WyAjd02E40a4ji35cKLCwhr4sC5IhFwiyhZLlVefCxdGGEkaDBcoSyrv1f1tzR69Zny0
+         8u2Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729009246; x=1729614046;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DtJ+WCcZlnqJEtBJ5ahUedtheIBoZsN5YCfn7xZAGeE=;
+        b=BPnD/C1l0qiB7224h1sUc+Qz9cl+a5GY580GXxlyjBYLAVnhOnu3endEh0xIuIBd0B
+         pJzaoyjcKc0zS6DQyd5WdB1DRSXYm4VIHpcCjwOoO144TM64IScPExFm3uoBsAXmJFUB
+         +0V6sfMYs+wiiCQdcPSPoouGmAO7hicv3B/kSBEa+cuQvnCwTk9ZF/6vadoeqdLsghba
+         snrVaxzH/mL+aONQYhnIbEIf312qJUdXtc8CP6Gr4P/qwSv5gq1KS7V7I0RSxbtncYle
+         D8mdpXhw/G4BViWGSnwbhtCp2Z2WiHl6vw3oqt4VFC6XDLxyPbEhwUXBpDKM8YBQklOu
+         BpPg==
+X-Forwarded-Encrypted: i=1; AJvYcCVRslMa6cYKxTunLSmJzl/yN7T5RjYyStTF8YzgV6hJTf1kcjp3la/qI9Y+H0POiOOsDie+oJMmB4bZaA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw7xvD6JIzM398rNWf8tFQrdaL63ehrOAVZVGJU004kqXLvCrg6
+	U0YKbvBa+yzdnGWdNZdSm0HodTCP1JBDA5vPLk26+2T1P7NnZz5chiTuuYbB4kA=
+X-Google-Smtp-Source: AGHT+IEOm3RZ0qr3XQeoZ584E3gMolo8dla+rxJiMl2IgTVjvh9zKfMlP0bSl5xGgTacD1zRpQZ8Zg==
+X-Received: by 2002:a05:6214:4345:b0:6cb:ead8:c53b with SMTP id 6a1803df08f44-6cbf009b929mr198694786d6.31.1729009246110;
+        Tue, 15 Oct 2024 09:20:46 -0700 (PDT)
+Received: from ziepe.ca (hlfxns017vw-142-68-128-5.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.68.128.5])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6cc2291da47sm8321016d6.48.2024.10.15.09.20.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 15 Oct 2024 09:20:45 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.95)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1t0kHt-00Dw7g-4A;
+	Tue, 15 Oct 2024 13:20:45 -0300
+Date: Tue, 15 Oct 2024 13:20:45 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Tomasz Jeznach <tjeznach@rivosinc.com>
+Subject: Re: [PATCH v9 7/7] iommu/riscv: Paging domain support
+Message-ID: <20241015162045.GO1825128@ziepe.ca>
+References: <cover.1728579958.git.tjeznach@rivosinc.com>
+ <3d0f71ee9178c9fcb9d62db135776895a91c3d70.1728579958.git.tjeznach@rivosinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 4/5] dt-bindings: remoteproc: add binding for Microchip
- IPC remoteproc
-To: Valentina.FernandezAlanis@microchip.com, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, peterlin@andestech.com,
- dminus@andestech.com, Conor.Dooley@microchip.com, conor+dt@kernel.org,
- ycliang@andestech.com, jassisinghbrar@gmail.com, robh@kernel.org,
- krzk+dt@kernel.org, andersson@kernel.org, mathieu.poirier@linaro.org
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org
-References: <20240912170025.455167-1-valentina.fernandezalanis@microchip.com>
- <20240912170025.455167-5-valentina.fernandezalanis@microchip.com>
- <fc541e78-5304-42be-a844-70935d66f151@kernel.org>
- <82eae461-3cce-4e36-905c-34c147fabcb3@microchip.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <82eae461-3cce-4e36-905c-34c147fabcb3@microchip.com>
+Content-Disposition: inline
+In-Reply-To: <3d0f71ee9178c9fcb9d62db135776895a91c3d70.1728579958.git.tjeznach@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241015_063553_673585_848C7243 
-X-CRM114-Status: GOOD (  16.40  )
+X-CRM114-CacheID: sfid-20241015_092047_974568_3B2CAE41 
+X-CRM114-Status: GOOD (  11.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,91 +90,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, linux@rivosinc.com, Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>, Zong Li <zong.li@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>, Nick Kossifidis <mick@ics.forth.gr>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Robin Murphy <robin.murphy@arm.com>, linux-riscv@lists.infradead.org, Lu Baolu <baolu.lu@linux.intel.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 15/10/2024 14:09, Valentina.FernandezAlanis@microchip.com wrote:
-> On 16/09/2024 21:14, Krzysztof Kozlowski wrote:
->> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
->>
->> On 12/09/2024 19:00, Valentina Fernandez wrote:
->>> Microchip family of RISC-V SoCs typically has or more clusters. These
->>> clusters can be configured to run in Asymmetric Multi Processing (AMP)
->>> mode
->>
->> A nit, subject: drop second/last, redundant "binding for". The
->> "dt-bindings" prefix is already stating that these are bindings.
->> See also:
->> https://elixir.bootlin.com/linux/v6.7-rc8/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
->>
->>>
->>> Add a dt-binding for the Microchip IPC Remoteproc platform driver.
->>>
->>
->> Binding is for hardware, not driver. Please rephrase it to describe
->> hardware.
->>
->>
->>> Signed-off-by: Valentina Fernandez <valentina.fernandezalanis@microchip.com>
->>> ---
->>>   .../remoteproc/microchip,ipc-remoteproc.yaml  | 84 +++++++++++++++++++
->>>   1 file changed, 84 insertions(+)
->>>   create mode 100644 Documentation/devicetree/bindings/remoteproc/microchip,ipc-remoteproc.yaml
->>>
->>> diff --git a/Documentation/devicetree/bindings/remoteproc/microchip,ipc-remoteproc.yaml b/Documentation/devicetree/bindings/remoteproc/microchip,ipc-remoteproc.yaml
->>> new file mode 100644
->>> index 000000000000..1765c68d22cf
->>> --- /dev/null
->>> +++ b/Documentation/devicetree/bindings/remoteproc/microchip,ipc-remoteproc.yaml
->>> @@ -0,0 +1,84 @@
->>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->>> +%YAML 1.2
->>> +---
->>> +$id: http://devicetree.org/schemas/remoteproc/microchip,ipc-remoteproc.yaml#
->>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>> +
->>> +title: Microchip IPC Remote Processor
->>> +
->>> +description:
->>> +  Microchip family of RISC-V SoCs typically have one or more
->>> +  clusters. These clusters can be configured to run in an Asymmetric
->>> +  Multi Processing (AMP) mode where clusters are split in independent
->>> +  software contexts.
->>> +
->>> +  This document defines the binding for the remoteproc component that
->>> +  loads and boots firmwares on remote clusters.
->>
->> Don't say that binding is a binding for. Say what this hardware piece is.
->>
->>> +
->>> +  This SBI interface is compatible with the Mi-V Inter-hart
->>> +  Communication (IHC) IP.
->>> +
->>> +maintainers:
->>> +  - Valentina Fernandez <valentina.fernandezalanis@microchip.com>
->>> +
->>> +properties:
->>> +  compatible:
->>> +    const: microchip,ipc-remoteproc
->>
->> That's quite generic. Basically this says it will handle IPC of all
->> possible Microchip SoCs, not only RISC-V but also ARM and whatever you
->> come up with.
-> IPC is the actual name of the hardware block described in this binding. 
-> I'll update the description of the binding in v2 to mention this.
-> 
-> Additionally, I'll rename the compatible to microchip,ipc-sbi-remoteproc 
-> to further clarify that this binding is intended for devices using the 
-> Microchip IPC hardware block and for devices with an SBI interface (RISC-V).
+On Thu, Oct 10, 2024 at 12:48:10PM -0700, Tomasz Jeznach wrote:
 
-Well, still generic. Explain why this deserves exception from specific
-SoC compatibles.
+> @@ -856,7 +1445,7 @@ static struct iommu_domain riscv_iommu_identity_domain = {
+>  
+>  static int riscv_iommu_device_domain_type(struct device *dev)
+>  {
+> -	return IOMMU_DOMAIN_IDENTITY;
+> +	return 0;
+>  }
 
-Best regards,
-Krzysztof
+Remove the function please instead of returning 0
 
+> +static void riscv_iommu_release_device(struct device *dev)
+> +{
+> +	struct riscv_iommu_info *info = dev_iommu_priv_get(dev);
+> +
+> +	synchronize_rcu();
+> +	kfree(info);
+> +}
+
+Just call kfree_rcu() ? We have a variation that doesn't require the
+rcu_head now.
+
+Jason
 
 _______________________________________________
 linux-riscv mailing list
