@@ -4,140 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70FD7CFC267
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Oct 2024 05:46:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 798D8CFC268
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Oct 2024 05:52:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2coppsmvy9z4G7ngeb4SN3F9V46qUtdAhpYy1//9y9E=; b=TD+7IlH1mBiktT
-	YQAAAqIqT2oNIWRhjPjgVG6v8+HsiwjThHSFF08QJoK75UjJ3D2bo2vRKdqQvn2pnfNWOcXUgCrJP
-	kP0/IiSRW/SSWZCHZ19qiCyYWlvqfh+9H0g08PDUXGklWgS2j+ZGjdD+Dy7ts5VPVEMe2RXGdHcke
-	E2a4zm1C4/X+puCcHp6+yo64qU07S7bFw6QFJJhAeGiH01AAU+CXSzzDMEn6AYDQOf0KlLRiTL91W
-	dVxneV/FnnJM59LPPEvjXuiK//pKTbzwcKGDsUjW2SUq5pWlI3m/CgaEplyQd4psAs3KnU/MlhcVX
-	Uh8CjwG7e7xFxDMbhqKg==;
+	List-Owner; bh=77PIBdslw84XSkDMjbSLlKB5+90SYOPGAgkPKhszO2Y=; b=UVPJ8lxy5RfWTS
+	X3N+0mTPy7uB2TptH99zXoLlgAId+mHuT+bAW+YJSLMC0MPZ5nTH1GOp8xlm4hAT1NHbPGPNR5Wq8
+	PWEMYka33KC/4nEG0iawGP+GptVAQppmwtIhIjBM9t5CyzNNsWejI/whH16G8BTtX3BO00KthhvXu
+	hwCDwPtb5Vu1JXGkjF4dfz50rw4T+PYpDOS7z8XuzM9BzRIz8Io2GamRcdTUiIx8ZSbwp0tNk+0+B
+	bKGa5cvPgEdGTAAHxNViX/9cLYslAhhV7jtpnbjfhYVdBuv3c8XVqDwKkx10zurSqSZSBibWzRenq
+	OrCDFqMbbfpdsoV9j68w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t0aNe-000000077xc-0ytD;
-	Tue, 15 Oct 2024 05:46:02 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1t0aU5-000000078pB-3uYy;
+	Tue, 15 Oct 2024 05:52:42 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t0aME-000000077lg-0UmA
+	id 1t0aU2-000000078op-3mKw
 	for linux-riscv@lists.infradead.org;
-	Tue, 15 Oct 2024 05:44:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1728971072;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=rqDVypNeTlyROBtcFAcxa7fIkYW5RvLiVqxfFzE+jtk=;
-	b=eJTcH3D3Tm+qN8R6XnqfdRokGUZjB1iy2KtrGtFtafRqk3yCcgdN2aZGcIvyqshx0KwkyN
-	F+I6arU+HuEU9a2pZnxWb/y61PChI7nihNe6aTA8LROG6KfCuj9m3uQMjHpTb0/kbV6ICy
-	loRIethSZdASZck4HomVCzcQ4W2anCk=
-Received: from mail-ed1-f71.google.com (mail-ed1-f71.google.com
- [209.85.208.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-259-4TdjuSPoM0mczgeExInQ3Q-1; Tue, 15 Oct 2024 01:44:29 -0400
-X-MC-Unique: 4TdjuSPoM0mczgeExInQ3Q-1
-Received: by mail-ed1-f71.google.com with SMTP id 4fb4d7f45d1cf-5c92e8b8101so3693392a12.2
-        for <linux-riscv@lists.infradead.org>; Mon, 14 Oct 2024 22:44:28 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1728971068; x=1729575868;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rqDVypNeTlyROBtcFAcxa7fIkYW5RvLiVqxfFzE+jtk=;
-        b=Ik54UW18bgLrFEe7lx6W2HtlVzWi3KmiUYq9bI4cu7EpG4Q83cN6xGqty5fuBgH3XE
-         dhMQAv6JsyEgRKV3+X5HJiLWWTXUONPtMJ+s1Mh2SDjI4FKDJotHGYnBojtaiM1OcEKU
-         z0mvlMC2fvUVZdfCRazbkoZ79syfWYtFJUN9M2LBRMCPmP/GLT4xCAKsbL7+3fhT/JOP
-         zy/zLnqB9AQM2LFUuLKEtMU04RRmzfaAtttWPle0pa17QpTi8K6OzUHvFaj5eabICx5/
-         AG15MDe6MwCrwoNGgPbSSYFPhLEAXcE8LypdGrSSPw6vvLdsrvamDu2e2dEdMOvOY+cK
-         xc4Q==
-X-Forwarded-Encrypted: i=1; AJvYcCV9pwWKJmwZyoKH90RlCBHoahJKYUVLIQ08UHLIUkVXrgUaiIOE0B8R/4avYWXonxwmtHx/DtvKyJ802Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxxSpj2D0sOr6zspU2eVVHlk2EEs3TAy3mLYuqbdnaYtG8FVVsv
-	OzAlzQw/eYWwV3CcQnNoCbujY1wtosgZpr8Vb1F2TTSUCCtqtO6f4ZoIv2rNrBM+9o9sShh+F9T
-	2GxyUypuuIOo9C96AQ8a3ldg3uE/h8wvAlNCd1NtRIe6VfRfqEJhgPJx56FO1EoFQOA==
-X-Received: by 2002:a05:6402:2547:b0:5c9:5dff:c059 with SMTP id 4fb4d7f45d1cf-5c95dffc856mr6694743a12.33.1728971067798;
-        Mon, 14 Oct 2024 22:44:27 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHphJL5D9sYrOvCoKG6zISeYBgA11R+H0fJZX97o5TSea54XK259kqw1/JPqXeoKRwu0LnFcw==
-X-Received: by 2002:a05:6402:2547:b0:5c9:5dff:c059 with SMTP id 4fb4d7f45d1cf-5c95dffc856mr6694718a12.33.1728971067197;
-        Mon, 14 Oct 2024 22:44:27 -0700 (PDT)
-Received: from [192.168.0.7] (ip-109-42-48-109.web.vodafone.de. [109.42.48.109])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5c98d7b7a96sm283304a12.93.2024.10.14.22.44.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 14 Oct 2024 22:44:26 -0700 (PDT)
-Message-ID: <c5c5f85b-06aa-46c1-8a2f-439ae5e90f11@redhat.com>
-Date: Tue, 15 Oct 2024 07:44:22 +0200
+	Tue, 15 Oct 2024 05:52:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1C2F4A401EC;
+	Tue, 15 Oct 2024 05:52:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5050C4CEC7;
+	Tue, 15 Oct 2024 05:52:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1728971557;
+	bh=gjwGiR+lw8swhi0FBcZZp7bPpunXeeBui+cUFrOI3EA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=a3cH8pKRcQm+R7SqtNvAwMWjn5Hja1PiemGxo5EFTe88ND22q0ULdIBCFVwvJh1+r
+	 eYUxLZ9zD8nIRIx0bN7dfLTj6JHDCiLvuyrkC1P/JDTpvqF9Ud7lT2GP1E5X2teQuX
+	 zgsVuXL0VlMWmckhsYn2G8AUWWC4tIjqGFBebWx2LxQb1gUIPU4oPMyiERrQazD9IA
+	 Qno6aUjATKNr9gS3TnV4RSqPmhLUaPQ36kt/dKq4klLNlm0r9Y+4h0dLqpkR6/vOHP
+	 V1HkZsN1Nf0KSjERkBY+2vKPBrrVeUqvrTF9PaQoAnkITjQJyrH67W5O+K2JR9vYgR
+	 oV8oTtV67DNkg==
+Date: Tue, 15 Oct 2024 07:52:33 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Haylen Chu <heylenay@4d2.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
+	Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@outlook.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Jisheng Zhang <jszhang@kernel.org>, linux-pm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v5 1/3] dt-bindings: thermal: sophgo,cv1800-thermal: Add
+ Sophgo CV1800 thermal
+Message-ID: <cycdlsi3tb6nqgbzzmypmblpcxxqmn3slqcbf5mq2okw3lqrdr@ghvswymvnslp>
+References: <20241014073813.23984-1-heylenay@4d2.org>
+ <20241014073813.23984-2-heylenay@4d2.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] asm-generic: add an optional pfn_valid check to
- pfn_valid
-To: Christoph Hellwig <hch@lst.de>, Arnd Bergmann <arnd@arndb.de>
-Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
- loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-um@lists.infradead.org, linux-arch@vger.kernel.org
-References: <20241014144506.51754-1-hch@lst.de>
- <20241014144506.51754-3-hch@lst.de>
-From: Thomas Huth <thuth@redhat.com>
-Autocrypt: addr=thuth@redhat.com; keydata=
- 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
-In-Reply-To: <20241014144506.51754-3-hch@lst.de>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+Content-Disposition: inline
+In-Reply-To: <20241014073813.23984-2-heylenay@4d2.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241014_224434_259765_571C6A20 
-X-CRM114-Status: GOOD (  16.12  )
+X-CRM114-CacheID: sfid-20241014_225239_026792_E54540C5 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,52 +75,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 14/10/2024 16.44, Christoph Hellwig wrote:
-> page_to_pfn is usually implemented by pointer arithmetics on the memory
-> map, which means that bogus input can lead to even more bogus output.
+On Mon, Oct 14, 2024 at 07:38:11AM +0000, Haylen Chu wrote:
+> Add devicetree binding documentation for thermal sensors integrated in
+> Sophgo CV1800 SoCs.
 > 
-> Powerpc had a pfn_valid check on the regult to it's page_to_phys
-
-s/regult/result/
-
-> implementation when CONFIG_DEBUG_VIRTUAL is defined, which seems
-> generally useful, so add that to the generic version.
-> 
-> Signed-off-by: Christoph Hellwig <hch@lst.de>
+> Signed-off-by: Haylen Chu <heylenay@4d2.org>
 > ---
->   include/asm-generic/memory_model.h | 10 ++++++++++
->   1 file changed, 10 insertions(+)
+>  .../thermal/sophgo,cv1800-thermal.yaml        | 57 +++++++++++++++++++
+>  1 file changed, 57 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/thermal/sophgo,cv1800-thermal.yaml
 > 
-> diff --git a/include/asm-generic/memory_model.h b/include/asm-generic/memory_model.h
-> index a73a140cbecdd7..6d1fb6162ac1a6 100644
-> --- a/include/asm-generic/memory_model.h
-> +++ b/include/asm-generic/memory_model.h
-> @@ -64,7 +64,17 @@ static inline int pfn_valid(unsigned long pfn)
->   #define page_to_pfn __page_to_pfn
->   #define pfn_to_page __pfn_to_page
->   
-> +#ifdef CONFIG_DEBUG_VIRTUAL
-> +#define page_to_phys(page)						\
-> +({									\
-> +	unsigned long __pfn = page_to_pfn(page);			\
-> +									\
-> +	WARN_ON_ONCE(!pfn_valid(__pfn));				\
-> +	PFN_PHYS(__pfn);						\
-> +})
-> +#else
->   #define page_to_phys(page)	PFN_PHYS(page_to_pfn(page))
-> +#endif /* CONFIG_DEBUG_VIRTUAL */
->   #define phys_to_page(phys)	pfn_to_page(PHYS_PFN(phys))
->   
->   #endif /* __ASSEMBLY__ */
+> diff --git a/Documentation/devicetree/bindings/thermal/sophgo,cv1800-thermal.yaml b/Documentation/devicetree/bindings/thermal/sophgo,cv1800-thermal.yaml
+> new file mode 100644
+> index 000000000000..14abeb7a272a
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/thermal/sophgo,cv1800-thermal.yaml
+> @@ -0,0 +1,57 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/thermal/sophgo,cv1800-thermal.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Sophgo CV1800 on-SoC Thermal Sensor
+> +
+> +maintainers:
+> +  - Haylen Chu <heylenay@4d2.org>
+> +
+> +description: Sophgo CV1800 on-SoC thermal sensor
+> +
+> +$ref: thermal-sensor.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - sophgo,cv1800-thermal
 
-With the typo fixed:
-Reviewed-by: Thomas Huth <thuth@redhat.com>
+Not much improved, judging by other patches there is no "CV1800" SoC,
+but that's a family name.  Otherwise please point us to bindings or DTS
+using this SoC.
+
+Best regards,
+Krzysztof
 
 
 _______________________________________________
