@@ -4,108 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83CEDD1F9C6
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Oct 2024 20:13:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E95B4D1F9C6
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Oct 2024 20:22:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3Vomjk9oK5o3myTxG2kV0QkIQryZUqzAIccF8X5s0Uc=; b=PhwxWLm2MgzzNv
-	NOCbDNwjHuuhrxK/2YhWcwHT4R64TkLJv0sm21HcTVgf5HTkn7j10Ka/ZdO34HqSVzKc6ikTeIbKa
-	3aCLMf+9R/H1yUoAvjtVGaPnpjVNyDl0kGEE+60C2cm3B1t5Is8t5nwUha7UOUzBiMUPRMMEZeJN4
-	KJMgMhn3WP4zfg3bvA9dIOY3PJEdaDt8YQEQl1Kf0903JmuxxVlaePnPce/KwAsqGUAOpydHAywxY
-	X+GnfEkMSRGMF4LDl/4jj6+pv57QIupgaKh0yl35y13D7UeuDQnNWtoYdQcSL9rdAi5lkDOIZOqAN
-	TbTb8oubj2GvovtkTK9A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YI1IpX2AqM7xRSn1NCkSSTeEJX1fjFe17sj/qfoKvnw=; b=TdzVPVP/IJXMNYlg3DjTR/V3qh
+	Y3enhXf0yziiQDJP8mfEHab+W7qhKaZc0x7y6xyEQPQScf9WlYnJzL5sJFJusENLraiw7oBtW4mBI
+	S6jo0B7GVxGeZsQaxEsAvlJLDDSaYvxeg+bEdlZSOct7DbNYGNCbAjThjmuHyflKpnkIVBfwB4XP1
+	3Nj2XbEHKYuZfFOVBEwEtezNUjcIr0gWBcwYp0NPsUdiOgrBEM4lok2RIde+LMS+dYUU0UbCEpOE3
+	CFEa2kguuE14bFuCOnm198AcyRrHviyY7QZsG2HcEvSjLGoI6PEltgKIEZcTc11jTvMC1j11EkQ3f
+	8PwCivJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t0nuw-00000009USB-2XuP;
-	Tue, 15 Oct 2024 20:13:18 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t0o3t-00000009VWx-0Zl4;
+	Tue, 15 Oct 2024 20:22:33 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t0ntg-00000009UES-1oVM;
-	Tue, 15 Oct 2024 20:12:02 +0000
+	id 1t0o3q-00000009VVV-24Un
+	for linux-riscv@lists.infradead.org;
+	Tue, 15 Oct 2024 20:22:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 99C9DA435A9;
-	Tue, 15 Oct 2024 20:11:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAB4EC4CEC6;
-	Tue, 15 Oct 2024 20:11:56 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 56CEB5C4A9C;
+	Tue, 15 Oct 2024 20:22:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC606C4CEC6;
+	Tue, 15 Oct 2024 20:22:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729023118;
-	bh=Y6PhmBa/nN+iDUxTFqcR/Mb33RbOlJl9A4RsS6bV0b4=;
+	s=k20201202; t=1729023749;
+	bh=UWUU6krJtOL9KGlFLqj3zzr7nr2dBDOvGvKhRL72vuM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NeA6yj5hajfLYEdkGLWG8XB5N4aid73nUjDZb/ugsyZ3AQoALVnXt8x2U69teh7bp
-	 +Jxn6eME2rpnC6+5s7BU9sn0TueSyVekqQmYatz9jkvCTO794aSB0wivMugKOyBQcF
-	 f12fUI4D7cG8AqwuNBz90ooW8BLJGSzfYerkziVJS4gVWwzpr6llRoBCSoxKz8d+Fs
-	 0rPGTZgvQEw9IByGG03TdQUKWcviEE7gexwsotoi1Pu3fbgseCJrzYVZZZHzQHsDOS
-	 xg878mky4sIBNDtU8Y7CZD0UtD4jLkQQWx+cO7Oq3WKQ8DmXAZc3hC28g+NG7SbCgU
-	 uBbk2RUOwLABQ==
-Date: Tue, 15 Oct 2024 13:11:54 -0700
-From: Luis Chamberlain <mcgrof@kernel.org>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Christoph Hellwig <hch@infradead.org>, Petr Pavlu <petr.pavlu@suse.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Andy Lutomirski <luto@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>,
-	Brian Cain <bcain@quicinc.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Kent Overstreet <kent.overstreet@linux.dev>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Simek <monstr@monstr.eu>, Oleg Nesterov <oleg@redhat.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
-	Stafford Horne <shorne@gmail.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linux-mm@kvack.org,
-	linux-modules@vger.kernel.org, linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org, linux-um@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org, x86@kernel.org, kdevops@lists.linux.dev
-Subject: Re: [PATCH v5 7/8] execmem: add support for cache of large ROX pages
-Message-ID: <Zw7MirnsHnhRveBB@bombadil.infradead.org>
-References: <20241009180816.83591-1-rppt@kernel.org>
- <20241009180816.83591-8-rppt@kernel.org>
- <Zwd7GRyBtCwiAv1v@infradead.org>
- <ZwfPPZrxHzQgYfx7@kernel.org>
- <ZwjXz0dz-RldVNx0@infradead.org>
- <ZwuIPZkjX0CfzhjS@kernel.org>
- <20241013202626.81f430a16750af0d2f40d683@linux-foundation.org>
- <Zw1uBBcG-jAgxF_t@bombadil.infradead.org>
- <Zw3rDS3GRWZe4CBu@bombadil.infradead.org>
- <Zw4DlTTbz4QwhOvU@kernel.org>
+	b=XlbSFO4OQmdQ3fvTeEO3evC3mD+52YdtCglGkm7L6/rSZzSbinNRsdjlSJTRJnAA9
+	 3c4sjjT+sSvPx9FKbv90E4DidlbynVYS90pURjYWdHy7Ym1w81nxyNjxxPZSer/WBF
+	 KIcbUJToExlcTjoXmJFDbVirNmajbbk2DyW1eCBZdW2PXe7nXvuqknhxBKfGGcAKG7
+	 Wx1xpcGvtsUtXtdAtbtAIdFKGb/0252Pw0/M8wIKn5Y0q/BdmTtEwUEYOhusBzxSeV
+	 5lPF7Ga0eHLW8UkP35jNlvMYL/atfKUDBin+UVa113hxZcFN3waUFqMwPw/6/OnMFh
+	 h1t2fTPW+DVDA==
+Date: Tue, 15 Oct 2024 21:22:23 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Valentina.FernandezAlanis@microchip.com, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, peterlin@andestech.com,
+	dminus@andestech.com, Conor.Dooley@microchip.com,
+	conor+dt@kernel.org, ycliang@andestech.com,
+	jassisinghbrar@gmail.com, robh@kernel.org, krzk+dt@kernel.org,
+	andersson@kernel.org, mathieu.poirier@linaro.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org
+Subject: Re: [PATCH v1 4/5] dt-bindings: remoteproc: add binding for
+ Microchip IPC remoteproc
+Message-ID: <20241015-distrust-chatty-9e723e670fef@spud>
+References: <20240912170025.455167-1-valentina.fernandezalanis@microchip.com>
+ <20240912170025.455167-5-valentina.fernandezalanis@microchip.com>
+ <fc541e78-5304-42be-a844-70935d66f151@kernel.org>
+ <82eae461-3cce-4e36-905c-34c147fabcb3@microchip.com>
+ <f0da1029-c8df-40e7-8312-a41a87b7b940@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Zw4DlTTbz4QwhOvU@kernel.org>
+In-Reply-To: <f0da1029-c8df-40e7-8312-a41a87b7b940@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241015_131200_632265_88E1DA2B 
-X-CRM114-Status: GOOD (  16.33  )
+X-CRM114-CacheID: sfid-20241015_132230_644343_062ADCCF 
+X-CRM114-Status: GOOD (  35.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,44 +77,162 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3883943075183772433=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 15, 2024 at 08:54:29AM +0300, Mike Rapoport wrote:
-> On Mon, Oct 14, 2024 at 09:09:49PM -0700, Luis Chamberlain wrote:
-> > Mike, please run this with kmemleak enabled and running, and also try to get
-> > tools/testing/selftests/kmod/kmod.sh to pass.
-> 
-> There was an issue with kmemleak, I fixed it here:
-> 
-> https://lore.kernel.org/linux-mm/20241009180816.83591-1-rppt@kernel.org/T/#m020884c1795218cc2be245e8091fead1cda3f3e4
 
-Ah, so this was a side fix, not part of this series, thanks.
+--===============3883943075183772433==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="ebRKqoIVG18m2cC+"
+Content-Disposition: inline
 
-> > I run into silly boot issues with just a guest.
-> 
-> Was it kmemleak or something else?
 
-Both kmemleak and the kmod selftest failed, here is a run of the test
-with this patch series:
+--ebRKqoIVG18m2cC+
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-https://github.com/linux-kdevops/linux-modules-kpd/actions/runs/11352286624/job/31574722735
+On Tue, Oct 15, 2024 at 03:35:46PM +0200, Krzysztof Kozlowski wrote:
+> On 15/10/2024 14:09, Valentina.FernandezAlanis@microchip.com wrote:
+> > On 16/09/2024 21:14, Krzysztof Kozlowski wrote:
+> >> EXTERNAL EMAIL: Do not click links or open attachments unless you know=
+ the content is safe
+> >>
+> >> On 12/09/2024 19:00, Valentina Fernandez wrote:
+> >>> Microchip family of RISC-V SoCs typically has or more clusters. These
+> >>> clusters can be configured to run in Asymmetric Multi Processing (AMP)
+> >>> mode
+> >>
+> >> A nit, subject: drop second/last, redundant "binding for". The
+> >> "dt-bindings" prefix is already stating that these are bindings.
+> >> See also:
+> >> https://elixir.bootlin.com/linux/v6.7-rc8/source/Documentation/devicet=
+ree/bindings/submitting-patches.rst#L18
+> >>
+> >>>
+> >>> Add a dt-binding for the Microchip IPC Remoteproc platform driver.
+> >>>
+> >>
+> >> Binding is for hardware, not driver. Please rephrase it to describe
+> >> hardware.
+> >>
+> >>
+> >>> Signed-off-by: Valentina Fernandez <valentina.fernandezalanis@microch=
+ip.com>
+> >>> ---
+> >>>   .../remoteproc/microchip,ipc-remoteproc.yaml  | 84 ++++++++++++++++=
++++
+> >>>   1 file changed, 84 insertions(+)
+> >>>   create mode 100644 Documentation/devicetree/bindings/remoteproc/mic=
+rochip,ipc-remoteproc.yaml
+> >>>
+> >>> diff --git a/Documentation/devicetree/bindings/remoteproc/microchip,i=
+pc-remoteproc.yaml b/Documentation/devicetree/bindings/remoteproc/microchip=
+,ipc-remoteproc.yaml
+> >>> new file mode 100644
+> >>> index 000000000000..1765c68d22cf
+> >>> --- /dev/null
+> >>> +++ b/Documentation/devicetree/bindings/remoteproc/microchip,ipc-remo=
+teproc.yaml
+> >>> @@ -0,0 +1,84 @@
+> >>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> >>> +%YAML 1.2
+> >>> +---
+> >>> +$id: http://devicetree.org/schemas/remoteproc/microchip,ipc-remotepr=
+oc.yaml#
+> >>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> >>> +
+> >>> +title: Microchip IPC Remote Processor
+> >>> +
+> >>> +description:
+> >>> +  Microchip family of RISC-V SoCs typically have one or more
+> >>> +  clusters. These clusters can be configured to run in an Asymmetric
+> >>> +  Multi Processing (AMP) mode where clusters are split in independent
+> >>> +  software contexts.
+> >>> +
+> >>> +  This document defines the binding for the remoteproc component that
+> >>> +  loads and boots firmwares on remote clusters.
+> >>
+> >> Don't say that binding is a binding for. Say what this hardware piece =
+is.
+> >>
+> >>> +
+> >>> +  This SBI interface is compatible with the Mi-V Inter-hart
+> >>> +  Communication (IHC) IP.
+> >>> +
+> >>> +maintainers:
+> >>> +  - Valentina Fernandez <valentina.fernandezalanis@microchip.com>
+> >>> +
+> >>> +properties:
+> >>> +  compatible:
+> >>> +    const: microchip,ipc-remoteproc
+> >>
+> >> That's quite generic. Basically this says it will handle IPC of all
+> >> possible Microchip SoCs, not only RISC-V but also ARM and whatever you
+> >> come up with.
+> > IPC is the actual name of the hardware block described in this binding.=
+=20
+> > I'll update the description of the binding in v2 to mention this.
+> >=20
+> > Additionally, I'll rename the compatible to microchip,ipc-sbi-remotepro=
+c=20
+> > to further clarify that this binding is intended for devices using the=
+=20
+> > Microchip IPC hardware block and for devices with an SBI interface (RIS=
+C-V).
+>=20
+> Well, still generic. Explain why this deserves exception from specific
+> SoC compatibles.
 
-We now have automated tests generated when people post patches to
-linux-modules, but if you give me your github username you can push
-onto the linux-kdevops/linux-modules-kpd [0] repo a random branch once you
-have it ready, just cp -a the linux-ci-modules/.github [1] directory onto
-your branch before a push and that'll trigger a test run (you need to
-git add -f .github on your Linux branch) with our self-hosted runners.
+If I understand this correctly, some degree of generic-ness is actually
+intended here. The IPC/IHC (the name depends on whether or not it is RTL
+for the FPGA fabric or a hardened version) isn't quite like some of the
+other remoteproc things here, that are intended for programming a DSP or
+similar with some firmware - it's intended for asymmetric
+multiprocessing stuff, where some of the CPU cores run Linux and the
+others are running something like freertos or zephyr, with an abstracted
+interface provided by the firmware/SBI implementation. The mailbox side
+of this is also implemented using an SBI abstraction (similar to PSCI or
+SCMI, I never recall which) and also has a compatible that isn't tied to
+specific soc.
+Granted, the mailbox side does also have a IP core specific version, but
+that is not intended to be consumed by the OS, but rather by the SBI
+implementation (e.g. OpenSBI).
 
-[0] https://github.com/linux-kdevops/linux-modules-kpd
-[1] https://github.com/linux-kdevops/kdevops-ci-modules
+What this binding is supposed to be describing is the "generic" ecall
+interface to a set of remote processors provided by the SBI
+implementation. The platform you're running on is meant to be abstracted
+away by use of ecalls etc, just as the mailbox is - which is why
+Valentina went something not soc-specific here. I can see much more of
+an argument for encoding the version of the protocol that is implemented
+by the SBI firmware than for having a soc-specific set of compatibles
+here.
 
-  Luis
+--ebRKqoIVG18m2cC+
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZw7O/wAKCRB4tDGHoIJi
+0oHaAQDcB66qUv/rZ3n4eYXFQNmW6lkghVITam7nzpZJFxq/nwD+L/jTBBJxvAEo
+mBKnoOyDEsehaMsVOUCJivIg7hy1NQc=
+=uuwh
+-----END PGP SIGNATURE-----
+
+--ebRKqoIVG18m2cC+--
+
+
+--===============3883943075183772433==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3883943075183772433==--
+
