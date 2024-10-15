@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26974D1814C
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Oct 2024 02:59:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A098AD1814C
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Oct 2024 02:59:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=/9t1owrbq9XHQifsgMbAGbAMWc1h5msr5PnQAoGc7bk=; b=qO1RcxTKfT8JQH
-	fpVriRkDGcismlzw784WdwsbPyWp8UcQivYssxdqDAa4uG/W8pdOnRSYo3GZ2E7owDe43tTRxDzlF
-	42CbXk3/ONK7UhLdR08elKQF9BpG9CzKolqFc6Lwj1g0VYYqgSa1t0YWXYjfQasP1yrMrNYq2hKo9
-	ntKe5AsrA4hrQ8m4dQuaCebVeJvULIqyANRSCkeBKB6ByeVq15WFzCtH+wnbeF7SYDCb2b7szQ8q+
-	RZ8zPvOgQadJh/O/mRsHXVPppjmFiDSsAzq5i9qIy5Crc95W1Wx3s5W+IQ0EUhr+U2uAzKFYg4qb5
-	b/mzfqmazW6uAgzBq+Gw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=JeyF+6p6jw903EVe+IFR2Fx22pvkqukisR+0o4WS/b4=; b=ZguSvwXC9e+f+K
+	fDe4Ahr5U2iSmdnYd6vubDhgfy+Dd4m1HIE7JfB0sL2MU5ADrNF58zCSd2X2XspIfjRpbzDCEsSDJ
+	FCKTQEHNcrfYErK2kpnpYn9B0W1+mbNGPlssHZ38/ZJa2wNOzfGURQxSi/63MTeKlfTNvW1Dsi++U
+	CMJv/d6rruY+xcavKO11uXZbmMG0HiJZSpH9+Ajbu2VniHyvQfHPUmkonNqXxKI5o06kz1NQ3iJ4V
+	i996xzf2Ky0XVFWpRtgFN+5gAF96IdLVS+JAyLrrBl/+yTVGeeyl9p9/QErKDSwZuoFhk4LxK6JWm
+	RBRO0KKa7w3Wi1ZBfaKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t0XmB-00000006wAo-2B5l;
-	Tue, 15 Oct 2024 02:59:11 +0000
+	id 1t0XmT-00000006wFA-1OWe;
+	Tue, 15 Oct 2024 02:59:29 +0000
 Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t0Xm6-00000006wAD-3qrl;
-	Tue, 15 Oct 2024 02:59:09 +0000
+	id 1t0XmP-00000006wDc-3FAW;
+	Tue, 15 Oct 2024 02:59:27 +0000
 Received: from zq-Legion-Y7000.. (unknown [121.237.44.89])
-	by APP-01 (Coremail) with SMTP id qwCowABXXipl2g1nHjicBw--.43054S2;
-	Tue, 15 Oct 2024 10:58:46 +0800 (CST)
+	by APP-01 (Coremail) with SMTP id qwCowABnT36E2g1n1j+cBw--.30815S2;
+	Tue, 15 Oct 2024 10:59:17 +0800 (CST)
 From: zhouquan@iscas.ac.cn
 To: anup@brainfault.org,
 	ajones@ventanamicro.com,
@@ -45,35 +45,36 @@ Cc: linux-kernel@vger.kernel.org,
 	kvm-riscv@lists.infradead.org,
 	linux-perf-users@vger.kernel.org,
 	Quan Zhou <zhouquan@iscas.ac.cn>
-Subject: [PATCH v4 0/2] riscv: Add perf support to collect KVM guest statistics from host side
-Date: Tue, 15 Oct 2024 10:58:05 +0800
-Message-Id: <cover.1728957131.git.zhouquan@iscas.ac.cn>
+Subject: [PATCH v4 2/2] riscv: KVM: add basic support for host vs guest profiling
+Date: Tue, 15 Oct 2024 10:58:37 +0800
+Message-Id: <00342d535311eb0629b9ba4f1e457a48e2abee33.1728957131.git.zhouquan@iscas.ac.cn>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <cover.1728957131.git.zhouquan@iscas.ac.cn>
+References: <cover.1728957131.git.zhouquan@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowABXXipl2g1nHjicBw--.43054S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxuw1xJw15CF13uryDCF45KFg_yoW7XrWrpr
-	43Crsxtr4YyryIqw4Iyr1Y9ry5J397Xrn3GrnxXw4rAr4jvaykZwnFgw4xZrW0qryvgryf
-	Xr1vqFy3Kas0yFUanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBE14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+X-CM-TRANSID: qwCowABnT36E2g1n1j+cBw--.30815S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxJFW7KrWUtFWxAryrGF15Arb_yoW5ZF4xpF
+	Z8ur9Y93yrKr97C34ayr1v9r45WFsYgw13Xry7uFy5Gr45try8Jr4vg34DAry5JFW8Xa4S
+	kFyrKFyruwn8Aw7anT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPj14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr
-	1j6F4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv
-	7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Cr0_Gr1UMcvjeVCFs4IE7xkEbV
-	WUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7Cj
-	xVA2Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26r1q6r43MxkIecxEwVAFwV
-	W8JwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v2
-	6r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2
-	Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_
-	Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMI
-	IF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUXBM_UUUUU
-	=
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
+	6r4UJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r
+	4UJVWxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2Wl
+	Yx0E2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26F4j6r4UJwAm72CE4IkC6x0Yz7
+	v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF
+	7I0E8cxan2IY04v7M4kE6xkIj40Ew7xC0wCY1x0262kKe7AKxVWUtVW8ZwCY02Avz4vE14
+	v_Gr1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AK
+	xVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrx
+	kI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v2
+	6r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8Jw
+	CI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUFVbkUUUU
+	U
 X-Originating-IP: [121.237.44.89]
-X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiDAgLBmcNsJGSrAAAs8
+X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiDAgLBmcNsJGTIAAAsx
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241014_195907_521481_9058ECD5 
-X-CRM114-Status: UNSURE (   8.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241014_195926_376936_180B0095 
+X-CRM114-Status: GOOD (  12.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,129 +93,109 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Quan Zhou <zhouquan@iscas.ac.cn>
 
-Add basic guest support to RISC-V perf, enabling it to distinguish
-whether PMU interrupts occur in the host or the guest, and then
-collect some basic guest information from the host side
-(guest os callchain is not supported for now).
+For the information collected on the host side, we need to
+identify which data originates from the guest and record
+these events separately, this can be achieved by having
+KVM register perf callbacks.
 
-Based on the x86/arm implementation, tested with kvm-riscv.
-test env:
-- host: qemu-9.0.0
-- guest: qemu-9.0.0 --enable-kvm (only start one guest and run top)
-
------------------------------------------
-1) perf kvm top
-./perf kvm --host --guest \
-  --guestkallsyms=/<path-to-kallsyms> \
-  --guestmodules=/<path-to-modules> top
-
-PerfTop:      41 irqs/sec  kernel:97.6% us: 0.0% guest kernel: 0.0% guest us: 0.0% exact:  0.0% [250Hz cycles:P],  (all, 4 CPUs)
--------------------------------------------------------------------------------
-
-    64.57%  [kernel]        [k] default_idle_call
-     3.12%  [kernel]        [k] _raw_spin_unlock_irqrestore
-     3.03%  [guest.kernel]  [g] mem_serial_out
-     2.61%  [kernel]        [k] handle_softirqs
-     2.32%  [kernel]        [k] do_trap_ecall_u
-     1.71%  [kernel]        [k] _raw_spin_unlock_irq
-     1.26%  [guest.kernel]  [g] do_raw_spin_lock
-     1.25%  [kernel]        [k] finish_task_switch.isra.0
-     1.16%  [kernel]        [k] do_idle
-     0.77%  libc.so.6       [.] ioctl
-     0.76%  [kernel]        [k] queue_work_on
-     0.69%  [kernel]        [k] __local_bh_enable_ip
-     0.67%  [guest.kernel]  [g] __noinstr_text_start
-     0.64%  [guest.kernel]  [g] mem_serial_in
-     0.41%  libc.so.6       [.] pthread_sigmask
-     0.39%  [kernel]        [k] mem_cgroup_uncharge_skmem
-     0.39%  [kernel]        [k] __might_resched
-     0.39%  [guest.kernel]  [g] _nohz_idle_balance.isra.0
-     0.37%  [kernel]        [k] sched_balance_update_blocked_averages
-     0.34%  [kernel]        [k] sched_balance_rq
-
-2) perf kvm record
-./perf kvm --host --guest \
-  --guestkallsyms=/<path-to-kallsyms> \
-  --guestmodules=/<path-to-modules> record -a sleep 60
-
-[ perf record: Woken up 3 times to write data ]
-[ perf record: Captured and wrote 1.292 MB perf.data.kvm (17990 samples) ]
-
-3) perf kvm report
-./perf kvm --host --guest \
-  --guestkallsyms=/<path-to-kallsyms> \
-  --guestmodules=/<path-to-modules> report -i perf.data.kvm
-
-# Total Lost Samples: 0
-#
-# Samples: 17K of event 'cycles:P'
-# Event count (approx.): 269968947184
-#
-# Overhead  Command          Shared Object            Symbol                                        
-# ........  ...............  .......................  ..............................................
-#
-    61.86%  swapper          [kernel.kallsyms]        [k] default_idle_call
-     2.93%  :6463            [guest.kernel.kallsyms]  [g] do_raw_spin_lock
-     2.82%  :6462            [guest.kernel.kallsyms]  [g] mem_serial_out
-     2.11%  sshd             [kernel.kallsyms]        [k] _raw_spin_unlock_irqrestore
-     1.78%  :6462            [guest.kernel.kallsyms]  [g] do_raw_spin_lock
-     1.37%  swapper          [kernel.kallsyms]        [k] handle_softirqs
-     1.36%  swapper          [kernel.kallsyms]        [k] do_idle
-     1.21%  sshd             [kernel.kallsyms]        [k] do_trap_ecall_u
-     1.21%  sshd             [kernel.kallsyms]        [k] _raw_spin_unlock_irq
-     1.11%  qemu-system-ris  [kernel.kallsyms]        [k] do_trap_ecall_u
-     0.93%  qemu-system-ris  libc.so.6                [.] ioctl
-     0.89%  sshd             [kernel.kallsyms]        [k] __local_bh_enable_ip
-     0.77%  qemu-system-ris  [kernel.kallsyms]        [k] _raw_spin_unlock_irqrestore
-     0.68%  qemu-system-ris  [kernel.kallsyms]        [k] queue_work_on
-     0.65%  sshd             [kernel.kallsyms]        [k] handle_softirqs
-     0.44%  :6462            [guest.kernel.kallsyms]  [g] mem_serial_in
-     0.42%  sshd             libc.so.6                [.] pthread_sigmask
-     0.34%  :6462            [guest.kernel.kallsyms]  [g] serial8250_tx_chars
-     0.30%  swapper          [kernel.kallsyms]        [k] finish_task_switch.isra.0
-     0.29%  swapper          [kernel.kallsyms]        [k] sched_balance_rq
-     0.29%  sshd             [kernel.kallsyms]        [k] __might_resched
-     0.26%  swapper          [kernel.kallsyms]        [k] tick_nohz_idle_exit
-     0.26%  swapper          [kernel.kallsyms]        [k] sched_balance_update_blocked_averages
-     0.26%  swapper          [kernel.kallsyms]        [k] _nohz_idle_balance.isra.0
-     0.24%  qemu-system-ris  [kernel.kallsyms]        [k] finish_task_switch.isra.0
-     0.23%  :6462            [guest.kernel.kallsyms]  [g] __noinstr_text_start
-
+Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
 ---
-Change since v3:
-- Rebased on v6.12-rc3
+ arch/riscv/include/asm/kvm_host.h | 10 ++++++++++
+ arch/riscv/kvm/Kconfig            |  1 +
+ arch/riscv/kvm/main.c             | 12 ++++++++++--
+ arch/riscv/kvm/vcpu.c             |  7 +++++++
+ 4 files changed, 28 insertions(+), 2 deletions(-)
 
-Change since v2:
-- Rebased on v6.11-rc7
-- Keep the misc type consistent with other architectures as `unsigned long` (Andrew)
-- Add the same comment for `kvm_arch_pmi_in_guest` as in arm64. (Andrew)
-
-Change since v1:
-- Rebased on v6.11-rc3
-- Fix incorrect misc type (Andrew)
-
----
-v3 link:
-https://lore.kernel.org/all/cover.1726126795.git.zhouquan@iscas.ac.cn/
-v2 link:
-https://lore.kernel.org/all/cover.1723518282.git.zhouquan@iscas.ac.cn/
-v1 link:
-https://lore.kernel.org/all/cover.1721271251.git.zhouquan@iscas.ac.cn/
-
-Quan Zhou (2):
-  riscv: perf: add guest vs host distinction
-  riscv: KVM: add basic support for host vs guest profiling
-
- arch/riscv/include/asm/kvm_host.h   | 10 ++++++++
- arch/riscv/include/asm/perf_event.h |  6 +++++
- arch/riscv/kernel/perf_callchain.c  | 38 +++++++++++++++++++++++++++++
- arch/riscv/kvm/Kconfig              |  1 +
- arch/riscv/kvm/main.c               | 12 +++++++--
- arch/riscv/kvm/vcpu.c               |  7 ++++++
- 6 files changed, 72 insertions(+), 2 deletions(-)
-
-
-base-commit: 8e929cb546ee42c9a61d24fae60605e9e3192354
+diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
+index 2e2254fd2a2a..35eab6e0f4ae 100644
+--- a/arch/riscv/include/asm/kvm_host.h
++++ b/arch/riscv/include/asm/kvm_host.h
+@@ -286,6 +286,16 @@ struct kvm_vcpu_arch {
+ 	} sta;
+ };
+ 
++/*
++ * Returns true if a Performance Monitoring Interrupt (PMI), a.k.a. perf event,
++ * arrived in guest context.  For riscv, any event that arrives while a vCPU is
++ * loaded is considered to be "in guest".
++ */
++static inline bool kvm_arch_pmi_in_guest(struct kvm_vcpu *vcpu)
++{
++	return IS_ENABLED(CONFIG_GUEST_PERF_EVENTS) && !!vcpu;
++}
++
+ static inline void kvm_arch_sync_events(struct kvm *kvm) {}
+ 
+ #define KVM_RISCV_GSTAGE_TLB_MIN_ORDER		12
+diff --git a/arch/riscv/kvm/Kconfig b/arch/riscv/kvm/Kconfig
+index 26d1727f0550..0c3cbb0915ff 100644
+--- a/arch/riscv/kvm/Kconfig
++++ b/arch/riscv/kvm/Kconfig
+@@ -32,6 +32,7 @@ config KVM
+ 	select KVM_XFER_TO_GUEST_WORK
+ 	select KVM_GENERIC_MMU_NOTIFIER
+ 	select SCHED_INFO
++	select GUEST_PERF_EVENTS if PERF_EVENTS
+ 	help
+ 	  Support hosting virtualized guest machines.
+ 
+diff --git a/arch/riscv/kvm/main.c b/arch/riscv/kvm/main.c
+index f3427f6de608..5682e338ae6d 100644
+--- a/arch/riscv/kvm/main.c
++++ b/arch/riscv/kvm/main.c
+@@ -51,6 +51,12 @@ void kvm_arch_disable_virtualization_cpu(void)
+ 	csr_write(CSR_HIDELEG, 0);
+ }
+ 
++static void kvm_riscv_teardown(void)
++{
++	kvm_riscv_aia_exit();
++	kvm_unregister_perf_callbacks();
++}
++
+ static int __init riscv_kvm_init(void)
+ {
+ 	int rc;
+@@ -105,9 +111,11 @@ static int __init riscv_kvm_init(void)
+ 		kvm_info("AIA available with %d guest external interrupts\n",
+ 			 kvm_riscv_aia_nr_hgei);
+ 
++	kvm_register_perf_callbacks(NULL);
++
+ 	rc = kvm_init(sizeof(struct kvm_vcpu), 0, THIS_MODULE);
+ 	if (rc) {
+-		kvm_riscv_aia_exit();
++		kvm_riscv_teardown();
+ 		return rc;
+ 	}
+ 
+@@ -117,7 +125,7 @@ module_init(riscv_kvm_init);
+ 
+ static void __exit riscv_kvm_exit(void)
+ {
+-	kvm_riscv_aia_exit();
++	kvm_riscv_teardown();
+ 
+ 	kvm_exit();
+ }
+diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+index 8d7d381737ee..e8ffb3456898 100644
+--- a/arch/riscv/kvm/vcpu.c
++++ b/arch/riscv/kvm/vcpu.c
+@@ -226,6 +226,13 @@ bool kvm_arch_vcpu_in_kernel(struct kvm_vcpu *vcpu)
+ 	return (vcpu->arch.guest_context.sstatus & SR_SPP) ? true : false;
+ }
+ 
++#ifdef CONFIG_GUEST_PERF_EVENTS
++unsigned long kvm_arch_vcpu_get_ip(struct kvm_vcpu *vcpu)
++{
++	return vcpu->arch.guest_context.sepc;
++}
++#endif
++
+ vm_fault_t kvm_arch_vcpu_fault(struct kvm_vcpu *vcpu, struct vm_fault *vmf)
+ {
+ 	return VM_FAULT_SIGBUS;
 -- 
 2.34.1
 
