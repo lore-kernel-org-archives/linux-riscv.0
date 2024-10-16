@@ -4,81 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E811D2A543
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 19:33:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 678D1D2A555
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 19:44:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZH3QzyHSZ4QzNdCBDPMo+YFis3u3X6x5leyosZxzQhE=; b=riVKhKX13CrGpG
-	dznkpQR/byqiaX9m0jYPi8tbWNz7JaILcQt37I0t5JSMAyCeMa82p6asiFwi7BhMKPIcBAzOU5l8+
-	1d5cv4ArtWQktSJNAn2lyL6tnf/L85/R+tYEBJ89H2/3WOfv0kB64qhiKOY0eTwdC66OYZ7xhRHwC
-	UNmIa55Oax/VQPm6etXOqyiZyQGsO6WYJl5H88RN6iQR5MSPvwUJTg84vUBWKHAYKyjSbWo7zIQ5C
-	nizb26WJ81aPB/9tna3Wkk5UItDrQ165anmuXZJd5onBFyTtnVbEwHftF/7bJO+jovfIOAB03ZMfQ
-	OARGNExzQGb1wLGTHOAA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v8gsXkk6SQBan8oi6eDPO5gYrXgJoeWzLCKDaWiM5F4=; b=IP5w9H3SNU/oO19jVmN56K8Zf0
+	q1+grYbjqYdWTaSfPY45Q9XtRknFE+CSsKZePJtXJZEPt1F6hgN0ZIM0SPowj6LvE2JVkkn4n92uR
+	lMBZYfpNCX8RXvye0p+dRA76TbwX7dZyx4WXwg6USUm25Q88XZp+V33I0zFr30i6G5S2AMVX0z3B1
+	ut7OJeXWQQ5goQvQ/QFhmJ88YMLkk24kL0GL6o50+dgC0mw4GNrryse57qQew6zRnEPr88O6UJDWi
+	8ZE4v7tX/+JZtTaFdi822kjjB5tvQM5MnsWfPETkDv2RvEigLHT+URiox7hExpXrC/tnJzq5lMWZ/
+	VEDPIczw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t19lf-0000000Cop1-1uph;
-	Wed, 16 Oct 2024 19:33:11 +0000
-Received: from mail-yw1-x112d.google.com ([2607:f8b0:4864:20::112d])
+	id 1t19wD-0000000CqVf-3QlA;
+	Wed, 16 Oct 2024 19:44:05 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t19lc-0000000CooA-1r5p
+	id 1t19v8-0000000CqAn-0UVo
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Oct 2024 19:33:09 +0000
-Received: by mail-yw1-x112d.google.com with SMTP id 00721157ae682-6e1f48e7c18so2299377b3.3
-        for <linux-riscv@lists.infradead.org>; Wed, 16 Oct 2024 12:33:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1729107187; x=1729711987; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=A0/ojgL2fvBi172Wbp3BrgprcWdWI/pifihLOrfrqFU=;
-        b=rLneQ7GjsS5MEGwGOHVwgetPKEFpPmpho//krfxP77Mfcre+6UlcEe/SQCKE97xar7
-         YpLSxfFCrTk/Hy7QIyJnVEnqZGW/wsW5SufhEDJ5jdqUPn/x41QmgUP9hZS/Hbc7m9Sm
-         4O8AfLGOjzb1r+8c05tPwx7SDIdfJXdfjKnw5BrjPFKEBfstuhLkQfPtZMQUwoCZtvBH
-         erCVQrQ5Yq31oKVVupULmcaPLEx5NburCnjAgiJkI8Teix6bwCXI662fWssN0/N3UoNN
-         NWRrjCyyfaK1V6wKIDt6Z+yB+sMtNYTEFoo+7+qDYV+a20RiYfDaQLTmTmWoaU37pKeC
-         ny4A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729107187; x=1729711987;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=A0/ojgL2fvBi172Wbp3BrgprcWdWI/pifihLOrfrqFU=;
-        b=p9TTPRSEQG7vXDNwMjuVU15Uk5fKWnZkrs26BThtxorYcp2M9wZsNnY3VbWp/eIqUg
-         4H4SUvMQ3hK7TgCrxmyjvsaFlXWflhsYbKNTFmsiUodVLK9VQ4hkaskfcx6/am5/Py7V
-         58OCfoTOKfdwqQIzjTprqIggirwwRCcDqEqAFBuY5l/weR8tdeL0U8Wm1BL3NHAKTRLk
-         AzKueEFMqDZTtWGsV8tO6oZRePiih2fGjejDoXCljGGv2TKkDt/urzJQF8MdJzeHCVyM
-         EOqBKDLklFGoTeb+0wTCyeP+uM4PhR0SeiZYGxWTZnciPjQdYFEkx+TQ2itjsiJYcD6X
-         21fQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUEwDac/KI+Z7NR/cJx2/Eq3u19fX5pDuuCaasg2GJEVzuG2PjGG6221Se8KxfXhxtec6Csyo66l5y1Ig==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxRISWGlhudktIU8OnsVl/W5+orDx2JoMbElx4fEG5z9MTJDxNc
-	ubnOKz+z2XLWF4ttl9E+WoUDVlw6LVJW+cUnEPIc2QAU4P3Xx8bkbuxqTK7nh5C7wpVbGvMGkVt
-	/47w+o+G3Q0iidFGM0U3ymOXASDg+1C4wmkVc8w==
-X-Google-Smtp-Source: AGHT+IGX07jif9j6w8MTv7ARHJ9/+lXGQIE504CDxiXkTKXqPtoikEAqB670DW1Rp7uFgjkSTFhaEJvJ5+tdTlNVD8w=
-X-Received: by 2002:a05:690c:388:b0:6e2:e22:12d9 with SMTP id
- 00721157ae682-6e3d41d08c3mr58083187b3.35.1729107187330; Wed, 16 Oct 2024
- 12:33:07 -0700 (PDT)
+	Wed, 16 Oct 2024 19:42:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id D96B6A420FF;
+	Wed, 16 Oct 2024 19:42:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91584C4CEC5;
+	Wed, 16 Oct 2024 19:42:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729107776;
+	bh=mZzMcn9MbCczzX11J8+TKZRX7Uh7hjxyr0xf7rLHKQI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=I4iLvASZXoBveFjv8+9epyZ3FYoC2LL6NapNNmpAOzXB1KJ3kRDc54jMETDXw5YHS
+	 cmetoNHDqC83Ujklx02sR7d6YPdtEsJX5sMGdATx+U3+cDPwfgAc1gvl+PuSAe9njh
+	 ELlGAyeUVVU/xGLXeFmsssQFPdtGat14Jmru1f4Orr/1vhi/vSCXXIo6Zr8SS2d000
+	 Mva4ajJUqiYHsHTXMc1ZpThEAbr50ZKVBF+yNXLzB7rlofSfQFnRQf6CGVPcw7AKWK
+	 NKj+a23iHPnKFXmQU5SZoI1K1zw+scRrPeY6seTsFfRxCbuLA35vvQJe6Q1R7Ma1ls
+	 gen+M4eGWLaaQ==
+Date: Wed, 16 Oct 2024 20:42:51 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: Conor Dooley <conor.dooley@microchip.com>, linux-kernel@vger.kernel.org,
+	Marc Zyngier <maz@kernel.org>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org, Lewis Hanly <lewis.hanly@microchip.com>
+Subject: Re: [RFC v7 4/6] gpio: mpfs: add polarfire soc gpio support
+Message-ID: <20241016-cobbler-connector-9b17ec158e3a@spud>
+References: <20240723-supervise-drown-d5d3b303e7fd@wendy>
+ <20240723-underage-wheat-7dd65c2158e7@wendy>
+ <CACRpkdbRE695f-+do1HYpOZ6e4qxgUBWJzEPO2hTCuZ3xxYHQg@mail.gmail.com>
+ <20241016-shallot-nerd-51eeba039ba0@spud>
+ <20241016-dandelion-hypnosis-9d989bb2fdd1@spud>
+ <CACRpkdbJKWcjBG5ejwsNEgnnGWj69TAtKbgaHP3NiPM5GbiGQw@mail.gmail.com>
 MIME-Version: 1.0
-References: <20241016155655.334518-1-colin.i.king@gmail.com> <CACRpkdYhsnRSOgdrDKp7BNqE4TpY3r--cPByFMsq0VRRjW-sAA@mail.gmail.com>
-In-Reply-To: <CACRpkdYhsnRSOgdrDKp7BNqE4TpY3r--cPByFMsq0VRRjW-sAA@mail.gmail.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 16 Oct 2024 21:32:55 +0200
-Message-ID: <CACRpkdYxsGC5Yay0dOaQEegrLKKkLrcivX7_GVpfQsEa=psdDA@mail.gmail.com>
-Subject: Re: [PATCH][next] pinctrl: th1520: Fix potential null pointer
- dereference on func
-To: Colin Ian King <colin.i.king@gmail.com>, Kees Cook <kees@kernel.org>, 
-	Kees Bakker <kees@ijzerbout.nl>
-Cc: Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>, linux-riscv@lists.infradead.org, 
-	linux-gpio@vger.kernel.org, kernel-janitors@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
+In-Reply-To: <CACRpkdbJKWcjBG5ejwsNEgnnGWj69TAtKbgaHP3NiPM5GbiGQw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241016_123308_502237_AD8E38E9 
-X-CRM114-Status: UNSURE (   9.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241016_124258_242379_23138404 
+X-CRM114-Status: GOOD (  16.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,25 +79,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============4277730142851996854=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBPY3QgMTYsIDIwMjQgYXQgOTozMeKAr1BNIExpbnVzIFdhbGxlaWogPGxpbnVzLndh
-bGxlaWpAbGluYXJvLm9yZz4gd3JvdGU6Cj4gT24gV2VkLCBPY3QgMTYsIDIwMjQgYXQgNTo1NuKA
-r1BNIENvbGluIElhbiBLaW5nIDxjb2xpbi5pLmtpbmdAZ21haWwuY29tPiB3cm90ZToKPgo+ID4g
-VGhlIGluaXRpYWxpemF0aW9uIG9mIG11eHR5cGUgZGVmZXJlbmNlcyBwb2ludGVyIGZ1bmMgYmVm
-b3JlIGZ1bmMKPiA+IGlzIHNhbml0eSBjaGVja2VkIHdpdGggYSBudWxsIHBvaW50ZXIgY2hlY2ss
-IGhlbmNlIHdlIGhhdmUgYSBudWxsCj4gPiBwb2ludGVyIGRlZmVyZW5jZSBpc3N1ZS4gRml4IHRo
-aXMgYnkgb25seSBkZWZlcmVuY2luZyBmdW5jIHdpdGgKPiA+IHRoZSBhc3NpZ25tZW50IHRvIG11
-eHR5cGUgYWZ0ZXIgZnVuYyBoYXMgYmVlbiBudWxsIHBvaW50ZXIgY2hlY2tlZC4KPiA+Cj4gPiBG
-aXhlczogMWZjMzBjZDkyNzcwICgicGluY3RybDogdGgxNTIwOiBGYWN0b3Igb3V0IGNhc3RzIikK
-PiA+IFNpZ25lZC1vZmYtYnk6IENvbGluIElhbiBLaW5nIDxjb2xpbi5pLmtpbmdAZ21haWwuY29t
-Pgo+Cj4gUGF0Y2ggYXBwbGllZCwgYWRkZWQgUmVwb3J0ZWQtYnkgS2VlcyBzaW5jZSBoZSBtYWls
-ZWQgYWJvdXQgdGhpcyB0b28uCgouLi53aGljaCB3YXMgYWN0dWFsbHkgdGhlICJvdGhlciBLZWVz
-IiAoQmFra2VyKSwgbm90IHRoZSBvbmUgdGhlIG1haWxlcgpzdWdnZXN0ZWQuCgpZb3VycywKTGlu
-dXMgV2FsbGVpagoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
-cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
-dgo=
+
+--===============4277730142851996854==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="A7dnOTkzHLL/fEWQ"
+Content-Disposition: inline
+
+
+--A7dnOTkzHLL/fEWQ
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Oct 16, 2024 at 09:26:13PM +0200, Linus Walleij wrote:
+> On Wed, Oct 16, 2024 at 12:29=E2=80=AFPM Conor Dooley <conor@kernel.org> =
+wrote:
+>=20
+> > What does bring a nice simplification though, IMO, is regmap. I am
+> > pretty sure that using it was one of the suggestions made last time
+> > Lewis submitted this - so I think I'm going to do that instead.
+>=20
+> If you have the time. Using GPIO_REGMAP for MMIO is not that
+> common and I think the driver is pretty neat as it stands.
+
+As with using the common MMIO stuff, I don't think GPIO_REGMAP provides
+that much value as I cannot use the direction stuff from it. I was
+thinking of using regmap directly, like:
+https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/commit/?h=
+=3Dgpio-no-irq&id=3Dc8933e1e3600e3fa29efe28fbb2e343e133f9d67
+which I think reduces how ugly the two direction functions look.
+
+--A7dnOTkzHLL/fEWQ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZxAXOwAKCRB4tDGHoIJi
+0nzLAP97X5rdMU9SMZrBe1Wh3xgBP+5nGo+g7+4bYyVhUFNghQD9HYvVX4AGihOk
+4WFF1ruWtm4KhgoJOTAXVyYdsz6M4Ak=
+=uvpR
+-----END PGP SIGNATURE-----
+
+--A7dnOTkzHLL/fEWQ--
+
+
+--===============4277730142851996854==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4277730142851996854==--
+
