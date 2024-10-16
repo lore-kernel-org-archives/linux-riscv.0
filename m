@@ -4,79 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92881D1AD45
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 21:00:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6A1DD2F7C2
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 21:01:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AZ3c2/3x2KTPz/TzViqhV28EwT/TH0oYgCY9Ao23wHQ=; b=nfmH6OJ/nYbUmc
-	ZBljQV9CkwMegN8vZswPeCJVoEvWpqStVIupxPn0kL91XRC99ulE5FVxSF3ETZZdc56buUeodEEp3
-	7PCsP98UaWj8Ny54HxzRByjtzoWQ/WUlZGROI8y4Z+4LDqiyW/xUekBU5YMiZ2X3Bd5osoJvXKCtO
-	qRoI0nM9OP2oYH9rZlfmDJLkp4HfgNHO7jqwfK8TGs6nlilCbG9QKgxcOKv1nmNulsGOaUV8js0Ru
-	ew+wDLdcHbXxDqSQa7GiQyR75LDjJaU6aW5Kh29hBNRssrhIDxT7yex/mb54hYav9dVpAaPvNrvAn
-	VaUGx8MUApO91xWFr48Q==;
+	List-Owner; bh=5eLzqOJ6cDZcVC8XHqrZSr3QpYwljAYsjP0daYNtdcM=; b=Rjcs/EEiShbe8W
+	o2tayKl6Avn+r2VxSz61wSse30Hdz+m88kqBFdyOwDDzeYEKeBPiHoDVnZsqt1k4kq1+tXtao4AkH
+	gYEbPUrcmaFrYg4i45Hgq8SXXQr/EPDuv0rU8o1WLsEem7sKA1u9McA3Jn61TTtlWMqSCawts2zJF
+	3InE5gDbMbjJucAUEaWnymkblNxtlh5CC5vLrqEr9yxd9VJXZk+4j+qA2y0tEhQiBYrCs8QhcRihY
+	LNoh04HkqHugNoJSuldkmcjuJPCYpdR9dV0rCLYeTkCLQXbQ0KrERva0rVZgqHvwRsFFwNjxqwgsw
+	xGMZCZu7iDOtktkF5csQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t1B8N-0000000D0ZA-3Ho5;
-	Wed, 16 Oct 2024 21:00:43 +0000
-Received: from mail-io1-xd2e.google.com ([2607:f8b0:4864:20::d2e])
+	id 1t1B8w-0000000D0k1-0uZl;
+	Wed, 16 Oct 2024 21:01:18 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t1B8K-0000000D0Xa-1q2R
-	for linux-riscv@lists.infradead.org;
-	Wed, 16 Oct 2024 21:00:41 +0000
-Received: by mail-io1-xd2e.google.com with SMTP id ca18e2360f4ac-83a9317f93dso10485939f.3
-        for <linux-riscv@lists.infradead.org>; Wed, 16 Oct 2024 14:00:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linuxfoundation.org; s=google; t=1729112439; x=1729717239; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=KQkUyFxL6KPO58jEIgRqgtkUgZXFKeeIN5h6kSZxcRY=;
-        b=BHepStzd4JwWq8bp8Z4wCSo2PHeiKwNdcAdZ//FkUvoN9f+X5VaxOo6Nco1AawVKNB
-         py8QvDC6tQUIGtbJEJARgkn9AmUyEtpQXkB84d6DRXtxuouen7ogTnnq9OSpgfzxPtyx
-         cBi3JAvjHlS9QzIXD0rN2sHubet3donR2yYoQ=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729112439; x=1729717239;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=KQkUyFxL6KPO58jEIgRqgtkUgZXFKeeIN5h6kSZxcRY=;
-        b=dY5HHyEYiXkhc1+QOCUmTTRguRvOZsCzod2gG+Eqle6leUrlbjssWj2aAyHrbvhGxz
-         66nL2CkLIjHbZVxM7jb4OBqZNNouY0qRNngUv6O+L8KhkPXhq6Xe3XOMk7kQoHiZnLLN
-         BWSuj7bsKhc+5zScWG2WcK7gU2qWI5Pjzb92SfGfnFTR/UTmkYVVBlXHImVoTpc8T4wE
-         y/vlf9FYsMYsSkVCSujKc3DtoECosd5o+UjV22lq8lGN14AVLiw/25emsZcOmzdJHZL6
-         jubyU5VezmmdrtRCMkdCvXNps/ZbEp+vSASGKj+1praSV0u8TxsVVpIPac/VQQCVZrJl
-         IZ9g==
-X-Gm-Message-State: AOJu0Yyb+Fq346+znUN3x+2rQPRr6igm07snq8qxWokKFsQCVSRDnTaL
-	zr8WNk7Db7jOLNIClrav3+6AnVwDUv/APhwnzuLwnJ0F65uawO1f3ySL6LS0w7k=
-X-Google-Smtp-Source: AGHT+IEr/mLDFSHaahfcbR6Ju6YahNPQWbFH52bUJmc8ClQuj82clhMLrKIsGaKx1CqLOFpCh6SR8A==
-X-Received: by 2002:a05:6602:3f92:b0:82a:48c5:4d04 with SMTP id ca18e2360f4ac-83a64ce007amr1258719239f.6.1729112438477;
-        Wed, 16 Oct 2024 14:00:38 -0700 (PDT)
-Received: from [192.168.1.128] ([38.175.170.29])
-        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-83a8b53c85asm97470939f.51.2024.10.16.14.00.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 16 Oct 2024 14:00:37 -0700 (PDT)
-Message-ID: <2f82fbcb-4a3c-4dfe-8852-7fc0b27c38e4@linuxfoundation.org>
-Date: Wed, 16 Oct 2024 15:00:37 -0600
+	id 1t1B8t-0000000D0iE-36na;
+	Wed, 16 Oct 2024 21:01:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7A965A427EA;
+	Wed, 16 Oct 2024 21:01:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 368BFC4CEC5;
+	Wed, 16 Oct 2024 21:01:07 +0000 (UTC)
+Date: Wed, 16 Oct 2024 17:01:28 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Luis Chamberlain
+ <mcgrof@kernel.org>, Andreas Larsson <andreas@gaisler.com>, Andy Lutomirski
+ <luto@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann
+ <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>, Brian Cain
+ <bcain@quicinc.com>, Catalin Marinas <catalin.marinas@arm.com>, Christoph
+ Hellwig <hch@infradead.org>, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Dinh Nguyen <dinguyen@kernel.org>, Geert Uytterhoeven
+ <geert@linux-m68k.org>, Guo Ren <guoren@kernel.org>, Helge Deller
+ <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar
+ <mingo@redhat.com>, Johannes Berg <johannes@sipsolutions.net>, John Paul
+ Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Kent Overstreet
+ <kent.overstreet@linux.dev>, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Mark Rutland <mark.rutland@arm.com>, Masami Hiramatsu
+ <mhiramat@kernel.org>, Matt Turner <mattst88@gmail.com>, Max Filippov
+ <jcmvbkbc@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>, Michal Simek
+ <monstr@monstr.eu>, Oleg Nesterov <oleg@redhat.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Peter Zijlstra <peterz@infradead.org>, Richard
+ Weinberger <richard@nod.at>, Russell King <linux@armlinux.org.uk>, Song Liu
+ <song@kernel.org>, Stafford Horne <shorne@gmail.com>, Suren Baghdasaryan
+ <surenb@google.com>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Thomas Gleixner <tglx@linutronix.de>, Uladzislau Rezki <urezki@gmail.com>,
+ Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>,
+ bpf@vger.kernel.org, linux-alpha@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, linux-mm@kvack.org,
+ linux-modules@vger.kernel.org, linux-openrisc@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+ linux-trace-kernel@vger.kernel.org, linux-um@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
+ sparclinux@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH v6 6/8] x86/module: prepare module loading for ROX
+ allocations of text
+Message-ID: <20241016170128.7afeb8b0@gandalf.local.home>
+In-Reply-To: <20241016122424.1655560-7-rppt@kernel.org>
+References: <20241016122424.1655560-1-rppt@kernel.org>
+	<20241016122424.1655560-7-rppt@kernel.org>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH][next] pinctrl: th1520: Dereference pointer only after
- NULL check
-To: "Everest K.C." <everestkc@everestkc.com.np>, drew@pdp7.com,
- guoren@kernel.org, wefu@redhat.com, linus.walleij@linaro.org
-Cc: linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org,
- kernel-janitors@vger.kernel.org, linux-kernel@vger.kernel.org,
- Shuah Khan <skhan@linuxfoundation.org>
-References: <20241016134223.4079-1-everestkc@everestkc.com.np>
-Content-Language: en-US
-From: Shuah Khan <skhan@linuxfoundation.org>
-In-Reply-To: <20241016134223.4079-1-everestkc@everestkc.com.np>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241016_140040_760197_E14428A0 
-X-CRM114-Status: GOOD (  16.56  )
+X-CRM114-CacheID: sfid-20241016_140115_917979_D08E17D8 
+X-CRM114-Status: GOOD (  23.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,63 +90,126 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/16/24 07:42, Everest K.C. wrote:
-> The pointer `func` is dereferenced before NULL check.
-> Move the dereference after the NULL check.
+On Wed, 16 Oct 2024 15:24:22 +0300
+Mike Rapoport <rppt@kernel.org> wrote:
 
-Change log looks fine.
+> diff --git a/arch/x86/kernel/ftrace.c b/arch/x86/kernel/ftrace.c
+> index 8da0e66ca22d..b498897b213c 100644
+> --- a/arch/x86/kernel/ftrace.c
+> +++ b/arch/x86/kernel/ftrace.c
+> @@ -118,10 +118,13 @@ ftrace_modify_code_direct(unsigned long ip, const char *old_code,
+>  		return ret;
+>  
+>  	/* replace the text with the new text */
+> -	if (ftrace_poke_late)
+> +	if (ftrace_poke_late) {
+>  		text_poke_queue((void *)ip, new_code, MCOUNT_INSN_SIZE, NULL);
+> -	else
+> -		text_poke_early((void *)ip, new_code, MCOUNT_INSN_SIZE);
+> +	} else {
+> +		mutex_lock(&text_mutex);
+> +		text_poke((void *)ip, new_code, MCOUNT_INSN_SIZE);
+> +		mutex_unlock(&text_mutex);
+> +	}
+>  	return 0;
+>  }
 
-Short log that clearly says it is a fix would be better:
+So this slows down the boot by over 30ms. That may not sound like much, but
+we care very much about boot times. This code is serialized with boot and
+runs whenever ftrace is configured in the kernel. The way I measured this,
+was that I added:
 
-Fix potential null pointer defereference
+diff --git a/arch/x86/kernel/ftrace.c b/arch/x86/kernel/ftrace.c
+index 4dd0ad6c94d6..b72bb9943140 100644
+--- a/arch/x86/kernel/ftrace.c
++++ b/arch/x86/kernel/ftrace.c
+@@ -104,6 +104,8 @@ static int ftrace_verify_code(unsigned long ip, const char *old_code)
+ 	return 0;
+ }
+ 
++u64 sdr_total;
++
+ /*
+  * Marked __ref because it calls text_poke_early() which is .init.text. That is
+  * ok because that call will happen early, during boot, when .init sections are
+@@ -114,6 +116,8 @@ ftrace_modify_code_direct(unsigned long ip, const char *old_code,
+ 			  const char *new_code)
+ {
+ 	int ret = ftrace_verify_code(ip, old_code);
++	u64 start, stop;
++
+ 	if (ret)
+ 		return ret;
+ 
+@@ -121,9 +125,12 @@ ftrace_modify_code_direct(unsigned long ip, const char *old_code,
+ 	if (ftrace_poke_late) {
+ 		text_poke_queue((void *)ip, new_code, MCOUNT_INSN_SIZE, NULL);
+ 	} else {
++		start = trace_clock_local();
+ 		mutex_lock(&text_mutex);
+ 		text_poke((void *)ip, new_code, MCOUNT_INSN_SIZE);
+ 		mutex_unlock(&text_mutex);
++		stop = trace_clock_local();
++		sdr_total += stop - start;
+ 	}
+ 	return 0;
+ }
+diff --git a/kernel/trace/trace.c b/kernel/trace/trace.c
+index c01375adc471..93284557144d 100644
+--- a/kernel/trace/trace.c
++++ b/kernel/trace/trace.c
+@@ -10738,6 +10738,11 @@ __init static int tracer_alloc_buffers(void)
+ 
+ 	register_snapshot_cmd();
+ 
++	{
++		extern u64 sdr_total;
++		printk("SDR TOTAL: %lld\n", sdr_total);
++	}
++
+ 	test_can_verify();
+ 
+ 	return 0;
 
-> 
-> This issue was reported by Coverity Scan.
-> Report:
-> CID 1600802: (#1 of 1): Dereference before null check
-> (REVERSE_INULL)
-> check_after_deref: Null-checking func suggests that it
-> may be null, but it has already been dereferenced on all
-> paths leading to the check.
-> 
-> Fixes: 1fc30cd92770 ("pinctrl: th1520: Factor out casts")
-> Signed-off-by: Everest K.C. <everestkc@everestkc.com.np>
-> ---
->   drivers/pinctrl/pinctrl-th1520.c | 4 +++-
->   1 file changed, 3 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/pinctrl/pinctrl-th1520.c b/drivers/pinctrl/pinctrl-th1520.c
-> index 7474d8da32f9..07f8b51fb294 100644
-> --- a/drivers/pinctrl/pinctrl-th1520.c
-> +++ b/drivers/pinctrl/pinctrl-th1520.c
-> @@ -803,11 +803,13 @@ static int th1520_pinmux_set_mux(struct pinctrl_dev *pctldev,
->   {
->   	struct th1520_pinctrl *thp = pinctrl_dev_get_drvdata(pctldev);
->   	const struct function_desc *func = pinmux_generic_get_function(pctldev, fsel);
-> -	enum th1520_muxtype muxtype = (uintptr_t)func->data;
-> +	enum th1520_muxtype muxtype;
->   
->   	if (!func)
->   		return -EINVAL;
->   
-> +	muxtype = (uintptr_t)func->data;
-> +
->   	return th1520_pinmux_set(thp, thp->desc.pins[gsel].number,
->   				 th1520_pad_muxdata(thp->desc.pins[gsel].drv_data),
->   				 muxtype);
 
-Otherwise looks good to me. With the change to short log:
+And did the same before this patch. I ran it three times and have the
+following numbers (all in nanoseconds):
 
-Reviewed-by: Shuah Khan <skhan@linuxfoundation.org>
+before: 11356637	11863526	11507750
+ after: 43978750	41293162	42741067
 
-thanks,
--- Shuah
+Before this patch, the total updates took 11ms. After the patch it takes
+around 42ms. This is because we are patching 59 thousand sites with this.
 
+# dmesg |grep ftrace
+[    1.620569] ftrace: allocating 59475 entries in 233 pages
+[    1.667178] ftrace: allocated 233 pages with 5 groups
+
+
+If this is only needed for module load, can we at least still use the
+text_poke_early() at boot up?
+
+ 	if (ftrace_poke_late) {
+ 		text_poke_queue((void *)ip, new_code, MCOUNT_INSN_SIZE, NULL);
+	} else if (system_state == SYSTEM_BOOTING) {
+		text_poke_early((void *)ip, new_code, MCOUNT_INSN_SIZE);
+ 	} else {
+ 		mutex_lock(&text_mutex);
+ 		text_poke((void *)ip, new_code, MCOUNT_INSN_SIZE);
+ 		mutex_unlock(&text_mutex);
+ 	}
+
+?
+
+The above if statement looks to slow things down just slightly, but only by
+2ms, which is more reasonable.
+
+-- Steve
 
 _______________________________________________
 linux-riscv mailing list
