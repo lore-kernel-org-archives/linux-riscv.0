@@ -4,75 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A53CD2069D
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 05:06:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33499D2069A
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 05:26:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7i0LV2SnxBrHvNx0F6DTtUinu5mzgs70bXcq+C6CHaU=; b=yRQqo9PHAbGpKA
-	6tnhcgCRYwgJGva/RcPyRB3jaNvZQfRPxRiLdT4371/EbMtCRkNtAHsvfIz9fItbBU378To0Jy2xh
-	RjqCYF8rE/dECNFutw/7HecvvlROEJ5Uxpqh5nO/wsYxe8MfyNiyC4JkwKyvsEHjbWm0UkOY44oNk
-	Ml59CRgXODQZ1rQ4y3mLKhpPByYE0HhuVP1vD0wSDe3iV7NvZJtxOVrzmygPBqLFCtsZr2fFErzDp
-	vDiq22Ns15N++LcIFye0LTRbGooIa+tf2lnonL5fSVcG9B6N9S2S6d/za6maQXHZkRfZ3s5UFLMjr
-	hUVLJ7OfievqklDNRj4A==;
+	List-Owner; bh=Vq41xKiydU5OqD1ZFDkIirFTZVxRyfaS5nlJgNdvVgg=; b=r/OX0vmJBhIHhm
+	kORrAfwcxv0yksY3C28Ay1Gm8mL2KZwaTnH/C/i5WvTnJ7G1yIAJGc0N9BgIwCOYM0Tjkum3NdHgq
+	V6grl9FVsbzpCVvnz6KcalK5LM0Q9/C2zLIYNkShAwKh8bpIZpkt7Nw4+m5xY+G3RCd2SEYcWOHzq
+	renSbWvYHT8RV8PX21rFWUZksmqmKyA5Bpw6r71GtozP1ocDfOW8mY8YYrISZV1p2T1t33JzmljdW
+	a/coTNFUaia+PO5o40j7vPQ7obOPaCNAfja/SyloAoSdRsRNoRsEawc8ufE2PKNrXKq4k4reC8rXS
+	EkYzUnYDeMTEQ/2U2GdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t0wEh-0000000AXSo-2SMP;
-	Wed, 16 Oct 2024 05:06:15 +0000
-Received: from mail-ej1-f47.google.com ([209.85.218.47])
+	id 1t0wYC-0000000AZBn-0eeY;
+	Wed, 16 Oct 2024 05:26:24 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t0wEd-0000000AXS1-42wn
+	id 1t0wY8-0000000AZBJ-0lz4
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Oct 2024 05:06:14 +0000
-Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-a99eb8b607aso497580466b.2
-        for <linux-riscv@lists.infradead.org>; Tue, 15 Oct 2024 22:06:10 -0700 (PDT)
+	Wed, 16 Oct 2024 05:26:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1729056377;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rdIG8bdON8eg0upmdIZgzqWAZ14iwo7fh0+LLx9BfdA=;
+	b=aj9/QCdsLMjhEBtGqGHxWegl68YpbfU5q6qgNDQu90qGYfyuTqoef0blNDsmbSV2Rsi6Fe
+	stdRD20ImavG4LfFVgQKTOdK2Sq6JH+kKTvEHp/8KE9M35N3p6YHjlIGFUyy7eefCXqQWN
+	xSNjhfYHmqpkDrkhHy7qdADc5P5Ao24=
+Received: from mail-oa1-f72.google.com (mail-oa1-f72.google.com
+ [209.85.160.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-126-l_vnbI9jPKWiFRo7FxTthg-1; Wed, 16 Oct 2024 01:26:15 -0400
+X-MC-Unique: l_vnbI9jPKWiFRo7FxTthg-1
+Received: by mail-oa1-f72.google.com with SMTP id 586e51a60fabf-2889e4e9a62so2813273fac.2
+        for <linux-riscv@lists.infradead.org>; Tue, 15 Oct 2024 22:26:14 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729055169; x=1729659969;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=aJpmoZDHNXOCQ0hPtAG85Btn1S/XrnkL2QxgMJLjgU0=;
-        b=DpkbKF31have8XDwWGSvTKGrFlWG/fJmJtdWAM9pmsbcN6B4kX2GU/YE/LEQJ7MLWu
-         moh8Jgqxf0zfjYjMwyEPNMxfGPgwfw9bv8VdhzU/QvgIwa9eJ4qnmP15UpAb1ZnhjagX
-         fatfmO04KoelgRKpqHZDfaP3Wcp8VAOiSIDtsp4/KGFY/X5mKROTlRByjyYS+40tBU1f
-         kH1V1CUP7ZeJdsGWVL2vLO9NZfn04ZCuJChkCG67uetujQQLk9gdiJD2cBjRw6RRT8PP
-         7TspwLq9s79OqKPqtaqH7BgICoz5SWkFoI/ok4Ll4Nf2tdCHnYZYX6uT4vZqR5CO+pxT
-         o7ag==
-X-Forwarded-Encrypted: i=1; AJvYcCUIsBbTR7tn9JHZUN/87qQoy0sXncB1h3dO3gpkCADJB60ciB7X8mII+x3uy1YoOx0XCHfBJGCiWx5LBQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyHGpxe5qzEIP43m0TxjybHFgRC26Y46WvUZTRvP1DsMGplFWvN
-	KiXJOSwZy/W+6E7oxNIYluM1yyEKougCDaSFAh1lkXg00VzZW1TOve/lj8Cx5HjpGcH6BC4HAe+
-	1H+jTYgnhYGpGDfgNWS6JIWuuubI=
-X-Google-Smtp-Source: AGHT+IH74YJJx49nsFhkFyT1RiTJLRloxAcb38iBw6/nz//HY/ZNyBiPGvMCwwwDAg2enWh0s8igaco8Z4E7VnmPpHo=
-X-Received: by 2002:a17:907:e216:b0:a99:7c14:9197 with SMTP id
- a640c23a62f3a-a9a34e9b0a6mr190098066b.64.1729055169080; Tue, 15 Oct 2024
- 22:06:09 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1729056374; x=1729661174;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=rdIG8bdON8eg0upmdIZgzqWAZ14iwo7fh0+LLx9BfdA=;
+        b=dp9TMZTJ3ZjsmRBqKMPepg/4sL8GHBCSHOB5ELWmpa6J2NHKvrglvtdLbX6vScgZnE
+         5YdGUTFwV2gIWi5NjW6UGlcnVi4aVQiABaaSM3AdqBiizqo1QhkS9Cx89BLlAtHzZNy/
+         G8PJK1nG8Tx+9Ts7rQooqZUIIr+d9RBRD+wQ4EDcfveEPsaTPgInlBSPbZrRkla5sxLR
+         swQmUYuz55zd/kcDxQAXDShhJcP3nRT7idN+hcsG2UP4FEAZwGzjmqRY4U9IIrrMmIwj
+         I1g9pINzijTlgGO3IU6WbaJ2Ssgu1lZxGZqAD/UD2TBKUw/nG8N72Tv12+tw+vG1yqtt
+         acNA==
+X-Forwarded-Encrypted: i=1; AJvYcCXY2gMPmw3t5E0D9oeF/0xT1/rUrtiMuzBCOIpLYTRfaTPoSbnZao5qrObnWZE1zvuXoyRWRnjOqZzomA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzMBZsWlQTykJ9TS/9x1NK5y/JMnSAu+5vveoAWZiUKHpvoFbxV
+	Cll1l1uzW+YjxU+DpIdckV/M2QtEoI1PFc9QGK3HwEpTc7j1XWI1zboR+Iu7w9QaH+PIML2xzN4
+	yMMfU4yF6HpUO7DnsoBwqmesfhbBaqpvVNjR2dpe0Hw6ok/avXaS1rrKOjSC+awZdinuUiGTVmA
+	SM76dD0hn9mEd79H38M/TTLv6IPlWH3Ss0bIslim7F
+X-Received: by 2002:a05:6870:3295:b0:277:eea4:a436 with SMTP id 586e51a60fabf-2886dce9923mr11714432fac.7.1729056374282;
+        Tue, 15 Oct 2024 22:26:14 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEHiwn4RE3PioCKXl96uz0dXLqcSvrhpM0cdTcTe9wx/x5I/zORO0z5prrIEan+L0+LNFhQwIPGrANg5wAyQEA=
+X-Received: by 2002:a05:6870:3295:b0:277:eea4:a436 with SMTP id
+ 586e51a60fabf-2886dce9923mr11714422fac.7.1729056374017; Tue, 15 Oct 2024
+ 22:26:14 -0700 (PDT)
 MIME-Version: 1.0
-References: <20240922145151.130999-1-hal.feng@starfivetech.com>
- <20240922145151.130999-4-hal.feng@starfivetech.com> <CAMZ6Rq+EM37Gvx8bLEwvhn+kUC9yGDiapwD0KX31-x-e-Rm3yQ@mail.gmail.com>
- <EAC60558E0B6E4BB+e5384c3c-ba45-48f5-a86f-a74e84309a14@linux.starfivetech.com>
-In-Reply-To: <EAC60558E0B6E4BB+e5384c3c-ba45-48f5-a86f-a74e84309a14@linux.starfivetech.com>
-From: Vincent MAILHOL <mailhol.vincent@wanadoo.fr>
-Date: Wed, 16 Oct 2024 14:05:57 +0900
-Message-ID: <CAMZ6RqLvzvttbCMFbZiY9v=nGcH+O3EV91c+x7GxTbkKhdTcwg@mail.gmail.com>
-Subject: Re: [PATCH v2 3/4] can: Add driver for CAST CAN Bus Controller
-To: Hal Feng <hal.feng@linux.starfivetech.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Marc Kleine-Budde <mkl@pengutronix.de>, 
-	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
-	William Qiu <william.qiu@starfivetech.com>, devicetree@vger.kernel.org, 
-	linux-can@vger.kernel.org, netdev@vger.kernel.org, 
+References: <20241009072749.45006-1-alexghiti@rivosinc.com> <1CA19FB3-C1E3-4C2F-A4FB-05B69EC66D2F@jrtc27.com>
+In-Reply-To: <1CA19FB3-C1E3-4C2F-A4FB-05B69EC66D2F@jrtc27.com>
+From: Jason Montleon <jmontleo@redhat.com>
+Date: Wed, 16 Oct 2024 01:26:02 -0400
+Message-ID: <CAJD_bPLcKX+U1k60mgsB_==qrQE+jnLMXSotq3rMrH_o+FtOQQ@mail.gmail.com>
+Subject: Re: [PATCH -fixes] riscv: Do not use fortify in early code
+To: Jessica Clarke <jrtc27@jrtc27.com>
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Heiko Stuebner <heiko@sntech.de>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Hal Feng <hal.feng@starfivetech.com>
+	stable@vger.kernel.org
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241015_220612_027363_4277C500 
-X-CRM114-Status: GOOD (  23.77  )
+X-CRM114-CacheID: sfid-20241015_222620_323052_3B562CD8 
+X-CRM114-Status: GOOD (  21.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,94 +96,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue. 15 Oct. 2024 at 18:33, Hal Feng <hal.feng@linux.starfivetech.com> wrote:
-> On 9/23/2024 11:41 AM, Vincent MAILHOL wrote:
-> > Hi Hal,
-> >
-> > A few more comments on top of what Andrew already wrote.
-> >
-> > On Mon. 23 Sep. 2024 at 00:09, Hal Feng <hal.feng@starfivetech.com> wrote:
-> >> From: William Qiu <william.qiu@starfivetech.com>
-> >>
-> >> Add driver for CAST CAN Bus Controller used on
-> >> StarFive JH7110 SoC.
-> >>
-> >> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
-> >> Co-developed-by: Hal Feng <hal.feng@starfivetech.com>
-> >> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
-> >> ---
-
-(...)
-
-> >> +       stats->rx_packets++;
-> >> +       netif_receive_skb(skb);
-> >> +
-> >> +       return 1;
-> >
-> > Why return 1 on success and 0 on failure? The convention in the kernel
-> > is that 0 means success. If you really want to keep 0 for failure, at
-> > least make this return boolean true or boolean false, but overall, try
-> > to follow the return conventions.
->
-> The return value here represents the number of successfully received packets.
-> It is used in ccan_rx_poll() for counting the number of successfully
-> received packets.
-
-Ack. I guess this will become more clear after you implement the queue logic.
-
-(...)
-
-> >> +
-> >> +       if (priv->cantype == CAST_CAN_TYPE_CANFD) {
-> >> +               priv->can.ctrlmode_supported = CAN_CTRLMODE_LOOPBACK | CAN_CTRLMODE_FD;
-> >> +               priv->can.data_bittiming_const = &ccan_data_bittiming_const_canfd;
-> >> +       } else {
-> >> +               priv->can.ctrlmode_supported = CAN_CTRLMODE_LOOPBACK;
-> >> +       }
-> >
-> > Nitpick, consider doing this:
-> >
-> >   priv->can.ctrlmode_supported = CAN_CTRLMODE_LOOPBACK;
-> >   if (priv->cantype == CAST_CAN_TYPE_CANFD) {
-> >           priv->can.ctrlmode_supported |= CAN_CTRLMODE_FD;
-> >           priv->can.data_bittiming_const = &ccan_data_bittiming_const_canfd;
-> >   }
->
-> OK.
->
-> >
-> > Also, does you hardware support dlc greater than 8 (c.f.
-> > CAN_CTRLMODE_CC_LEN8_DLC)?
->
-> The class CAN (CC) mode does not support, but the CAN FD mode supports.
-
-So, CAN_CTRLMODE_CC_LEN8_DLC is a Classical CAN feature. Strictly
-speaking, this does not exist in CAN FD. Do you mean that only the
-CAST_CAN_TYPE_CANFD supports sending Classical CAN frames with a DLC
-greater than 8?
-
-If none of the Classical CAN or CAN FD variants of your device is able
-to send Classical CAN frames with a DLC greater than 8, then this is
-just not supported by your device.
-
-Could you share the datasheet so that I can double check this?
-
-(...)
-
-> Sorry for the late reply. Thank you for your detailed review.
-
-No problem, take your time!
-
-
-Yours sincerely,
-Vincent Mailhol
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBPY3QgMTUsIDIwMjQgYXQgNjowNeKAr1BNIEplc3NpY2EgQ2xhcmtlIDxqcnRjMjdA
+anJ0YzI3LmNvbT4gd3JvdGU6Cj4KPiBPbiA5IE9jdCAyMDI0LCBhdCAwODoyNywgQWxleGFuZHJl
+IEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPiB3cm90ZToKPiA+Cj4gPiBFYXJseSBjb2Rl
+IGRlc2lnbmF0ZXMgdGhlIGNvZGUgZXhlY3V0ZWQgd2hlbiB0aGUgTU1VIGlzIG5vdCB5ZXQgZW5h
+YmxlZCwKPiA+IGFuZCB0aGlzIGNvbWVzIHdpdGggc29tZSBsaW1pdGF0aW9ucyAoc2VlCj4gPiBE
+b2N1bWVudGF0aW9uL2FyY2gvcmlzY3YvYm9vdC5yc3QsIHNlY3Rpb24gIlByZS1NTVUgZXhlY3V0
+aW9uIikuCj4gPgo+ID4gRk9SVElGWV9TT1VSQ0UgbXVzdCBiZSBkaXNhYmxlZCB0aGVuIHNpbmNl
+IGl0IGNhbiB0cmlnZ2VyIGtlcm5lbCBwYW5pY3MKPiA+IGFzIHJlcG9ydGVkIGluIFsxXS4KPiA+
+Cj4gPiBSZXBvcnRlZC1ieTogSmFzb24gTW9udGxlb24gPGptb250bGVvQHJlZGhhdC5jb20+Cj4g
+PiBDbG9zZXM6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2L0NBSkRfYlBKZXM0
+UWhtWFk1ZjYzR0hWOUI5SEZrU0NvYVpqay1xQ1QyTkdTN1E5SE9EZ0BtYWlsLmdtYWlsLmNvbS8g
+WzFdCj4gPiBGaXhlczogYTM1NzA3YzNkODUwICgicmlzY3Y6IGFkZCBtZW1vcnktdHlwZSBlcnJh
+dGEgZm9yIFQtSGVhZCIpCj4gPiBGaXhlczogMjZlN2FhY2I4M2RmICgicmlzY3Y6IEFsbG93IHRv
+IGRvd25ncmFkZSBwYWdpbmcgbW9kZSBmcm9tIHRoZSBjb21tYW5kIGxpbmUiKQo+ID4gQ2M6IHN0
+YWJsZUB2Z2VyLmtlcm5lbC5vcmcKPiA+IFNpZ25lZC1vZmYtYnk6IEFsZXhhbmRyZSBHaGl0aSA8
+YWxleGdoaXRpQHJpdm9zaW5jLmNvbT4KPgo+IElzIHRoZSBwcm9ibGVtIGluIFsxXSBub3QganVz
+dCB0aGF0IHRoZSBlYXJseSBib290IHBhdGggdXNlcyBtZW1jcHkgb24KPiB0aGUgcmVzdWx0IG9m
+IEFMVF9PTERfUFRSLCB3aGljaCBpcyBhIHdpbGRseSBvdXQtb2YtYm91bmRzIHBvaW50ZXIgZnJv
+bQo+IHRoZSBjb21waWxlcuKAmXMgcGVyc3BlY3RpdmU/IElmIHNvLCBpdCB3b3VsZCBzZWVtIGJl
+dHRlciB0byB1c2UKPiB1bnNhZmVfbWVtY3B5IGZvciB0aGF0IG9uZSBjYWxsIHNpdGUgcmF0aGVy
+IHRoYW4gdXNlIHRoZSBiaWcKPiBfX05PX0ZPUlRJRlkgaGFtbWVyLCBzdXJlbHk/Cj4KCkkgY2Fu
+IGFkZCB0aGF0IHJlcGxhY2luZyBtZW1jcHkgd2l0aCB1bnNhZmVfbWVtY3B5IGRpZCBhbHNvIHdv
+cmsgZm9yCm1lLiBPbmNlIGl0IHdhcyBuYXJyb3dlZCBkb3duLCB0aGlzIGlzIHdoYXQgSSBvcmln
+aW5hbGx5IGRpZCBpbiBvcmRlcgp0byBib290LgoKSmFzb24KCj4gUHJlc3VtYWJseSB0aGUgbm9u
+LWVhcmx5IHBhdGggaXMganVzdCBhcyBiYWQgdG8gdGhlIGNvbXBpbGVyLCBidXQgd29ya3MKPiBi
+ZWNhdXNlIHBhdGNoX3RleHRfbm9zeW5jIGlzbuKAmXQgaW5zdHJ1bWVudGVkLCBzbyB0aGF0IHdv
+dWxkIGp1c3QgYWxpZ24KPiB0aGUgdHdvLgo+Cj4gR2V0dGluZyB0aGUgaW1wbGVtZW50YXRpb24g
+dG8gbm90IGJlIHNpbGVudCBvbiBmYWlsdXJlIGR1cmluZyBlYXJseQo+IGJvb3Qgd291bGQgYWxz
+byBiZSBhIGdvb2QgaWRlYSwgYnV0IGl04oCZcyBzdXJlbHkgYmV0dGVyIHRvIGhhdmUKPiBGT1JU
+SUZZX1NPVVJDRSBlbmFibGVkIHdpdGggbm8gb3V0cHV0IGZvciBwb3NpdGl2ZXMgdGhhbiBkaXNh
+YmxlIHRoZQo+IGNoZWNraW5nIGluIHRoZSBmaXJzdCBwbGFjZSBhbmQgcmlzayB1bmNhdWdodCBj
+b3JydXB0aW9uLgo+Cj4gSmVzcwo+CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
+LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
+by9saW51eC1yaXNjdgo=
