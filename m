@@ -4,70 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 678D1D2A555
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 19:44:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8564D2A559
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 20:16:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v8gsXkk6SQBan8oi6eDPO5gYrXgJoeWzLCKDaWiM5F4=; b=IP5w9H3SNU/oO19jVmN56K8Zf0
-	q1+grYbjqYdWTaSfPY45Q9XtRknFE+CSsKZePJtXJZEPt1F6hgN0ZIM0SPowj6LvE2JVkkn4n92uR
-	lMBZYfpNCX8RXvye0p+dRA76TbwX7dZyx4WXwg6USUm25Q88XZp+V33I0zFr30i6G5S2AMVX0z3B1
-	ut7OJeXWQQ5goQvQ/QFhmJ88YMLkk24kL0GL6o50+dgC0mw4GNrryse57qQew6zRnEPr88O6UJDWi
-	8ZE4v7tX/+JZtTaFdi822kjjB5tvQM5MnsWfPETkDv2RvEigLHT+URiox7hExpXrC/tnJzq5lMWZ/
-	VEDPIczw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=YqpYMw7UoUx88vg4OcJadGh8w0167NNwpBA2hjzJ9jU=; b=2g5A4tPz+vGlLk
+	MgKrg6HCVZdcox6MFLX4OphAHu5iKvTiVyJbZCUJZ1KI/lMoiStd8mYVKqpPtTGPOUirR/EDe5ho4
+	LubSmKiTLQ2/fre5dfNLz9JpMb4agH4WxfiDOYSbPRE8XEsBisEAYyPR1lX5X3wPcA99kr2gkrz99
+	SIk/YdFgHbPi/brqdp6HWmQsvqaNP8LBpchnt2thcJ1ls08+bBFUDIh2Z2Bszbw084gytSHxks5+l
+	zyuFUaEYFn2sdW2MqR14FCAgPsic2Xrvi9m2QXo2T7ylEEOvv/SdBtoSdn/wzs4xnq2PO6ge0XB80
+	L2Z4b4AC3LqYaGjQBkCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t19wD-0000000CqVf-3QlA;
-	Wed, 16 Oct 2024 19:44:05 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t1ARL-0000000Cv00-2Mlz;
+	Wed, 16 Oct 2024 20:16:15 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t19v8-0000000CqAn-0UVo
+	id 1t1ANM-0000000CuWI-3WND
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 16 Oct 2024 20:12:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=vDXX/yNI2tCbx6ZFS2q5jIH5AkrsKobfGXpQGHMz1fY=; b=BwcRclok+oswvqxuDJ8DSKDM8z
+	I/l3NFgxlvdtHKw1kTQwGJyLSWBMKb086hX/8Djwj7JiAmXbrlXQvScvfY9MFSk5S9016/SUp45ce
+	oik4BYO5a8J2xgwANDzJtmSS3XEQKm5A1zLFY1kD9axyvK966ET0QK0CctI9N5cOLcGubwfbQpm9L
+	OiHq9en7BMDFLP62Z3QHaWI9Vka2/EtRS67vj5WiZrEJFOxzKWBDX4XTqzZ6RXzRtTQbUXip7K7Ma
+	5F2D63jhdcBAbW0nadLRvybEnGZofUD/Mruz0TLtCMsIwyVHB+NlHyEV+/rZ3CRhcQEjeFG/qDFI8
+	k1qwT08w==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t1ANE-00000006tj2-047p
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Oct 2024 19:42:59 +0000
+	Wed, 16 Oct 2024 20:12:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D96B6A420FF;
-	Wed, 16 Oct 2024 19:42:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91584C4CEC5;
-	Wed, 16 Oct 2024 19:42:53 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 40B7A5C5B12;
+	Wed, 16 Oct 2024 20:11:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C64B9C4CECD;
+	Wed, 16 Oct 2024 20:11:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729107776;
-	bh=mZzMcn9MbCczzX11J8+TKZRX7Uh7hjxyr0xf7rLHKQI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=I4iLvASZXoBveFjv8+9epyZ3FYoC2LL6NapNNmpAOzXB1KJ3kRDc54jMETDXw5YHS
-	 cmetoNHDqC83Ujklx02sR7d6YPdtEsJX5sMGdATx+U3+cDPwfgAc1gvl+PuSAe9njh
-	 ELlGAyeUVVU/xGLXeFmsssQFPdtGat14Jmru1f4Orr/1vhi/vSCXXIo6Zr8SS2d000
-	 Mva4ajJUqiYHsHTXMc1ZpThEAbr50ZKVBF+yNXLzB7rlofSfQFnRQf6CGVPcw7AKWK
-	 NKj+a23iHPnKFXmQU5SZoI1K1zw+scRrPeY6seTsFfRxCbuLA35vvQJe6Q1R7Ma1ls
-	 gen+M4eGWLaaQ==
-Date: Wed, 16 Oct 2024 20:42:51 +0100
+	s=k20201202; t=1729109511;
+	bh=/oKzWw2ZchUbmSx4FqbycrbLNA28FbIKpIdth/FxkZU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=enF1OaRAmshe0lg/6tiN+mah5QpoJPjKW5zBn1kYI0+swr65LsDQQlW92iPFhJAZC
+	 8SRgAats42h+luFJ76cG0gRmi++uGOS5xpYTQcIhirin0we10bT03PAAa/xB3Yhvoq
+	 yJ4ctGJ/r8TMN/Gms0k+psOQ/45yuZZ3Z3rauLbmX+0+/w/HAbZITSMmg7C5/Z3Bc7
+	 qkacJL1lNt+22ACyWIJNjcMkpsKbZnkv6UeRulbg/AvGEkZnx0vVCP4chVDwPAnU9z
+	 Zyz361q7ibbcHBNi8NoaVFFMtRItcDzQSa6zByV6Xecg1brFXw/3RpV1/pxcbnHo8g
+	 9I4zyKTZVGh/w==
 From: Conor Dooley <conor@kernel.org>
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>, linux-kernel@vger.kernel.org,
-	Marc Zyngier <maz@kernel.org>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
+To: linux-riscv@lists.infradead.org
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	stable@vger.kernel.org,
+	Aurelien Jarno <aurelien@aurel32.net>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org, Lewis Hanly <lewis.hanly@microchip.com>
-Subject: Re: [RFC v7 4/6] gpio: mpfs: add polarfire soc gpio support
-Message-ID: <20241016-cobbler-connector-9b17ec158e3a@spud>
-References: <20240723-supervise-drown-d5d3b303e7fd@wendy>
- <20240723-underage-wheat-7dd65c2158e7@wendy>
- <CACRpkdbRE695f-+do1HYpOZ6e4qxgUBWJzEPO2hTCuZ3xxYHQg@mail.gmail.com>
- <20241016-shallot-nerd-51eeba039ba0@spud>
- <20241016-dandelion-hypnosis-9d989bb2fdd1@spud>
- <CACRpkdbJKWcjBG5ejwsNEgnnGWj69TAtKbgaHP3NiPM5GbiGQw@mail.gmail.com>
+	Conor Dooley <conor+dt@kernel.org>,
+	Changhuang Liang <changhuang.liang@starfivetech.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1] riscv: dts: starfive: disable unused csi/camss nodes
+Date: Wed, 16 Oct 2024 21:11:15 +0100
+Message-ID: <20241016-moonscape-tremor-8d41e6f741ff@spud>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-In-Reply-To: <CACRpkdbJKWcjBG5ejwsNEgnnGWj69TAtKbgaHP3NiPM5GbiGQw@mail.gmail.com>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1904; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=TA23QI9GhTHMBm0fZ2HR8Y0W1keRXmxZDdgD37cIfRw=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDOkCso82dF42Ed7CmCvqcONVtdMn5qNmDH/uPvV7M1uGc amwaIVbRykLgxgHg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACbiZMjwi2lSNEPwXIu3lTpT ztzSqOVXnGN5baXA7hfN+2ZHbazhMmP4X9DaJ1e9+8XqnReSheZY2C078rcw+3funWcBNj2tEVW TuQE=
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241016_124258_242379_23138404 
-X-CRM114-Status: GOOD (  16.37  )
+X-CRM114-CacheID: sfid-20241016_211202_214640_D3F3F8A7 
+X-CRM114-Status: GOOD (  10.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,64 +91,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4277730142851996854=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Conor Dooley <conor.dooley@microchip.com>
 
---===============4277730142851996854==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="A7dnOTkzHLL/fEWQ"
-Content-Disposition: inline
+Aurelien reported probe failures due to the csi node being enabled
+without having a camera attached to it. A camera was in the initial
+submissions, but was removed from the dts, as it had not actually been
+present on the board, but was from an addon board used by the
+developer of the relevant drivers. The non-camera pipeline nodes were
+not disabled when this happened and the probe failures are problematic
+for Debian. Disable them.
 
+CC: stable@vger.kernel.org
+Fixes: 28ecaaa5af192 ("riscv: dts: starfive: jh7110: Add camera subsystem nodes")
+Closes: https://lore.kernel.org/all/Zw1-vcN4CoVkfLjU@aurel32.net/
+Reported-by: Aurelien Jarno <aurelien@aurel32.net>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+CC: Emil Renner Berthing <kernel@esmil.dk>
+CC: Rob Herring <robh@kernel.org>
+CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
+CC: Conor Dooley <conor+dt@kernel.org>
+CC: Changhuang Liang <changhuang.liang@starfivetech.com>
+CC: devicetree@vger.kernel.org
+CC: linux-riscv@lists.infradead.org
+CC: linux-kernel@vger.kernel.org
+---
+ arch/riscv/boot/dts/starfive/jh7110-common.dtsi | 2 --
+ 1 file changed, 2 deletions(-)
 
---A7dnOTkzHLL/fEWQ
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+index c7771b3b64758..d6c55f1cc96a9 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+@@ -128,7 +128,6 @@ &camss {
+ 	assigned-clocks = <&ispcrg JH7110_ISPCLK_DOM4_APB_FUNC>,
+ 			  <&ispcrg JH7110_ISPCLK_MIPI_RX0_PXL>;
+ 	assigned-clock-rates = <49500000>, <198000000>;
+-	status = "okay";
+ 
+ 	ports {
+ 		#address-cells = <1>;
+@@ -151,7 +150,6 @@ camss_from_csi2rx: endpoint {
+ &csi2rx {
+ 	assigned-clocks = <&ispcrg JH7110_ISPCLK_VIN_SYS>;
+ 	assigned-clock-rates = <297000000>;
+-	status = "okay";
+ 
+ 	ports {
+ 		#address-cells = <1>;
+-- 
+2.45.2
 
-On Wed, Oct 16, 2024 at 09:26:13PM +0200, Linus Walleij wrote:
-> On Wed, Oct 16, 2024 at 12:29=E2=80=AFPM Conor Dooley <conor@kernel.org> =
-wrote:
->=20
-> > What does bring a nice simplification though, IMO, is regmap. I am
-> > pretty sure that using it was one of the suggestions made last time
-> > Lewis submitted this - so I think I'm going to do that instead.
->=20
-> If you have the time. Using GPIO_REGMAP for MMIO is not that
-> common and I think the driver is pretty neat as it stands.
-
-As with using the common MMIO stuff, I don't think GPIO_REGMAP provides
-that much value as I cannot use the direction stuff from it. I was
-thinking of using regmap directly, like:
-https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/commit/?h=
-=3Dgpio-no-irq&id=3Dc8933e1e3600e3fa29efe28fbb2e343e133f9d67
-which I think reduces how ugly the two direction functions look.
-
---A7dnOTkzHLL/fEWQ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZxAXOwAKCRB4tDGHoIJi
-0nzLAP97X5rdMU9SMZrBe1Wh3xgBP+5nGo+g7+4bYyVhUFNghQD9HYvVX4AGihOk
-4WFF1ruWtm4KhgoJOTAXVyYdsz6M4Ak=
-=uvpR
------END PGP SIGNATURE-----
-
---A7dnOTkzHLL/fEWQ--
-
-
---===============4277730142851996854==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4277730142851996854==--
-
