@@ -4,85 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C77BCD1AD4F
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 12:11:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E40D8D1AD51
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 12:23:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ooFx1zL55ShoAz65dx9PRqcuImj/fb0gYQGJyEG+zD0=; b=olmmqdthFSjoj+
-	Go9J106PiwFgIhFjNdNJPE2Rdjgi/YYBiq1qZ2584XNFlwnmYmqPMp9+MPUiXsN9POuxnMmP07xhd
-	PRtMbcsPI1yclN2RNFv4fpCGJlwqGOs55GjDVOrzbqWPrBKToOu+55HucGt8Jt18K51rD0UiAk4+1
-	hF+ktBZ0R9jjeGCC/XxktKaMm7cz80K6R8Tpuuz7gR2S5GV3Wgf5nAQgDMKGo3xRX9Bi8C1YVQnWt
-	usnjRRh9ImCQriBtBVl1u74HUrRG1gFCUEsygd05kwJnoZtuQQcyALXyZ5sYPCGA6Q/FlnRKk2U4w
-	iIdgiCfboAj8C7Ll9T4g==;
+	List-Owner; bh=rHb8dsJBU3gf+urjDn/CxJimrTVfqy8lQwPcqwEWiAE=; b=Qi4NWo/w8Pa/zn
+	T0/FQXGx58PNanwhLVaMDFJP4T/E0eELjoe2so9siwLsjHz9VeeE0HqEWzPS8dKraE+C8/EtBfCz8
+	SYuTuASfijgKegnN4b3jO5iZCm1aLiShJ9tEmtI0po8iWyF3x3wMYK8rGQzIZ+1wgHGDlZtnJyt9v
+	JzlI9bgtXRWWVXrTp/XG/+nhA4WG0ymQ8+vLAaxfQl2/LJkG6D8p0fsKqMaH+JfSOLOphDibOED/W
+	JWtmNuui+/+yy8mlR14NG4pKpP19akMFQH/6+jh9sVwKRyXuIOLIKaKrtRuVsSik3Sa0HKTSn0/JO
+	YGGzSzk2XrLh67FLccYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t12s1-0000000Bgv7-3lSZ;
-	Wed, 16 Oct 2024 12:11:17 +0000
-Received: from bayard.4d2.org ([5.78.89.93])
+	id 1t133u-0000000BiUu-0CGz;
+	Wed, 16 Oct 2024 12:23:34 +0000
+Received: from mail-pl1-x642.google.com ([2607:f8b0:4864:20::642])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t12ry-0000000BguR-1asF
+	id 1t133q-0000000BiU6-3Gwa
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Oct 2024 12:11:15 +0000
-Received: from bayard.4d2.org (bayard.4d2.org [127.0.0.1])
-	by bayard.4d2.org (Postfix) with ESMTP id 8DD8E122FE21;
-	Wed, 16 Oct 2024 05:11:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
-	t=1729080672; bh=5au/Y6lHx9RILAX4XAzjvna8Dcwx0ccjy4QV4i4w1h8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UqEFLH55uaSOX/NeuD3TfOJu5iWZLazr0D5+gLMdSSMHupSAZ79soHUA7Q84COpdh
-	 KAWJQVaT3W5sgPWnB09fC8D/kREVaiYmeOyhfgvhVWFMKE5Z2nEs3KpOM+aa8oIgy9
-	 6GejQQrBkj+qxjIY88l8pLXZHXlMRjE5wj4UCu0890+9CJimxROb4oQg33ANIGTjGk
-	 iOzimKfk3CiUPPrOo1/6fTkG1Ef4dzaPO4BOM0WBGCcZ7v/8loT7aTDoUe8V2n+Hhr
-	 S+CivcllVybAe6i/EoYV4XfxPN86E4qzNzxvInADvgNMmjRLTL04WQtGqWEmTOuwcI
-	 /0bvTdkgF+/XA==
-X-Virus-Scanned: amavisd-new at 4d2.org
-Received: from bayard.4d2.org ([127.0.0.1])
- by bayard.4d2.org (bayard.4d2.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id HfPDK2MCEsy1; Wed, 16 Oct 2024 05:11:05 -0700 (PDT)
-Received: from ketchup (unknown [110.52.220.241])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: heylenay@4d2.org)
-	by bayard.4d2.org (Postfix) with ESMTPSA id 573C5122FE1A;
-	Wed, 16 Oct 2024 05:11:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
-	t=1729080665; bh=5au/Y6lHx9RILAX4XAzjvna8Dcwx0ccjy4QV4i4w1h8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fLjWDXVydOzI2+TjesEQT1OGRb+Fga4ioSMX4+jV+dPMTUhYGL1SHxeJgp7V1+Csj
-	 AoTEKw7+GVe6YQfmQgiGklKuc11pgcE1Jwpu8RPhfVtis/zUiGDqo3ZpTySTmZrAKh
-	 RhNV5dK2gg9oloym95LE6a/QH3/wllbdrfI7Wl8a30riesx5HxwnFZtc6BEGsHU7E+
-	 eYGn62p/W2lJc9lyel7pXUiKKxst/QmIV97gCKs6GdzH8PcZK962cpQ1JxyvFUoOSs
-	 J4ewNTnXZmRz5maFWo6kNx0L0CAjTgOLE/8kCoYl2EGsMxupBHxjbQVPGWAfCQTcuz
-	 BI+Afi1mVbqAQ==
-Date: Wed, 16 Oct 2024 12:10:52 +0000
-From: Haylen Chu <heylenay@4d2.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-	Haylen Chu <heylenay@outlook.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-riscv@lists.infradead.org,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Inochi Amaoto <inochiama@outlook.com>,
-	Chen Wang <unicornxdotw@foxmail.com>,
-	Jisheng Zhang <jszhang@kernel.org>
-Subject: Re: [PATCH v2 2/3] dt-bindings: clock: spacemit: Add clock
- controllers of Spacemit K1 SoC
-Message-ID: <Zw-tTEViagJFPFtv@ketchup>
-References: <SEYPR01MB4221829A2CD4D4C1704BABD7D7602@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
- <SEYPR01MB4221BDC11EE244C7D70C229DD7602@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
- <zsayhliz4a4fauzmvkimd4uzucuunt6gmkypjlqh4omle4uqx4@cbknudobc57g>
+	Wed, 16 Oct 2024 12:23:32 +0000
+Received: by mail-pl1-x642.google.com with SMTP id d9443c01a7336-20c8c50fdd9so5861825ad.0
+        for <linux-riscv@lists.infradead.org>; Wed, 16 Oct 2024 05:23:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1729081409; x=1729686209; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=vBHY9FAs4NKP1GiY+95UW1AiDL4Xgv00XpHW2Wn26lc=;
+        b=VusXwIGL9I5oq032bdu3BOFCObZrH6DixrgT3RwmIV2pM+rgv8seW5SSpdZOpxLvpb
+         vMExaHt51gCYNvC8nIBlwM7ouwULwz+r0ciW8K1t/sbSgjrvV/h9RGAu+X6D+8lYx4pj
+         UwAKGeG8ZMyU4yjzWuQMOfv23T/WpE0EO3/fbVxjLHBGZpxqng1naNRsx1ooJeLID+W9
+         h4sKJr+L1Y+J5z4sV4MQPeLQZVWMsjCo46i2uCMJyNnZoaKTdFfdsfMtAiSBOpkxSVzk
+         nrJwRxaW0lqBZqf3fmBRK19kZkTgxI0rWStL9M6gTf0SY/5r2oEXrXTgpeE2Zn/GHdQJ
+         kJig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729081409; x=1729686209;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=vBHY9FAs4NKP1GiY+95UW1AiDL4Xgv00XpHW2Wn26lc=;
+        b=Fr0haagJOW5YEa5kmqTcDtCm/t7KEZBfrSFmr1r/tL1rY0URvVbxxF3O15P7lTUKAe
+         n/UhySQrxDWDDNqZ5pEdyhxzn6v+I+wMiqWtY6wXuLN3IaZMqShzl9BaUuia3KrAzSIo
+         WhgoRhsQr0rDWlOwgUzkm+OE9rCXttGYQoNN/QbqSIyr4bEjzk4Bc8SEgDiDGigeMGmt
+         tzSUfoOueOrZVXrDa7oSSn5AlVBhDpQ+aiwU5ICJs9kbOLer/10vE9ZROZGroJwfhn5g
+         3jfvxAJ5bkvkJplxDBVZbnVpBLQ2wqPLvG40T4Ri5kNCsBSz2sGdMo1QaFd6uUBhd8WN
+         ewEQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWOoZMBY8Jpe1Z67c3v+CDw8AvR8+CPfDkYZsGLQirU69hb8Ie6PkrkjbU/bZL59a5yBfF+9zbTXD29mw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+WjvRJut7AMZ5RqP9cxjwhVxeHa3yd2KCzQdpBzzIgwgG6V74
+	52r1uLKLIxzGirc7yhCECd6a/9gpn4EO1Xx9ImnJs9pk9jblsE80
+X-Google-Smtp-Source: AGHT+IEsjKep+XuZi/4hkoXyjUhcayMiOzuTHUGs9KI3P6LwYZQDTOdYKVJeidhCZGkdLA/RHzGGuw==
+X-Received: by 2002:a17:902:da91:b0:20c:5ffe:3ef1 with SMTP id d9443c01a7336-20ca03a07damr279907725ad.17.1729081409337;
+        Wed, 16 Oct 2024 05:23:29 -0700 (PDT)
+Received: from [127.0.0.1] ([103.156.242.194])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-20d1805b005sm27444905ad.240.2024.10.16.05.23.24
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 16 Oct 2024 05:23:28 -0700 (PDT)
+From: Celeste Liu <coelacanthushex@gmail.com>
+X-Google-Original-From: Celeste Liu <CoelacanthusHex@gmail.com>
+Message-ID: <6b744fa3-5c1d-460d-bb09-5bc48379d598@gmail.com>
+Date: Wed, 16 Oct 2024 20:23:22 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <zsayhliz4a4fauzmvkimd4uzucuunt6gmkypjlqh4omle4uqx4@cbknudobc57g>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC] riscv/entry: issue about a0/orig_a0 register and ENOSYS
+To: Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Oleg Nesterov <oleg@redhat.com>, "Dmitry V. Levin" <ldv@strace.io>
+Cc: Andrea Bolognani <abologna@redhat.com>, WANG Xuerui <git@xen0n.name>,
+ Jiaxun Yang <jiaxun.yang@flygoat.com>, Huacai Chen <chenhuacai@kernel.org>,
+ Felix Yan <felixonmars@archlinux.org>, Ruizhe Pan <c141028@gmail.com>,
+ Shiqi Zhang <shiqi@isrc.iscas.ac.cn>, Guo Ren <guoren@kernel.org>,
+ Yao Zi <ziyao@disroot.org>, Yangyu Chen <cyy@cyyself.name>,
+ Han Gao <gaohan@iscas.ac.cn>, linux-kernel@vger.kernel.org,
+ rsworktech@outlook.com
+References: <59505464-c84a-403d-972f-d4b2055eeaac@gmail.com>
+ <6b2ff48a-ab43-4866-af5a-b8b7d3c23582@ghiti.fr>
+Content-Language: en-GB-large
+In-Reply-To: <6b2ff48a-ab43-4866-af5a-b8b7d3c23582@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241016_051114_593888_2441D654 
-X-CRM114-Status: GOOD (  24.72  )
+X-CRM114-CacheID: sfid-20241016_052330_862982_2711875E 
+X-CRM114-Status: GOOD (  37.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,148 +104,152 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 17, 2024 at 08:39:37AM +0200, Krzysztof Kozlowski wrote:
-> On Mon, Sep 16, 2024 at 10:23:09PM +0000, Haylen Chu wrote:
-> > Add definition for the clock controllers of Spacemit K1 SoC. The clock
-> > tree is managed by several SoC parts, thus different compatible strings
-> > are added for each.
-> > 
-> > spacemit,k1-syscon.yaml is updated as well to allow clock controller
-> > being its subnode.
-> > 
-> > Signed-off-by: Haylen Chu <heylenay@outlook.com>
+On 2024-10-16 20:00, Alexandre Ghiti wrote:
+> Hi Celeste,
 > 
-> Please order patches correctly. First this, then the parent so you will
-> not submit incomplete binding.
->
-> You still must test it, though :(
+> Thank you for looking into this and really sorry about the late response.
+> 
+> On 17/09/2024 06:09, Celeste Liu wrote:
+>> Before PTRACE_GET_SYSCALL_INFO was implemented in v5.3, the only way to
+>> get syscall arguments was to get user_regs_struct via PTRACE_GETREGSET.
+>> On some architectures where a register is used as both the first
+>> argument and the return value and thus will be changed at some stage of
+>> the syscall process, something like orig_a0 is provided to save the
+>> original argument register value. But RISC-V doesn't export orig_a0 in
+>> user_regs_struct (This ABI was designed at e2c0cdfba7f6 ("RISC-V:
+>> User-facing API").) so userspace application like strace will get the
+>> right or wrong result depends on the operation order in do_trap_ecall_u()
+>> function.
+>>
+>> This requires we put the ENOSYS process after syscall_enter_from_user_mode()
+>> or syscall_handler()[1]. Unfortunately, the generic entry API
+>> syscall_enter_from_user_mode() requires we
+>>
+>> *  process ENOSYS before syscall_enter_from_user_mode()
+> 
+> 
+> Where does this requirement come from?
+> 
+> 
+>> *  or only set a0 to ENOSYS when the return value of
+>>     syscall_enter_from_user_mode() != -1
+>>
+>> Again, if we choose the latter way to avoid conflict with the first
+>> issue, we will meet the third problem: strace depends on that kernel
+>> will return ENOSYS when syscall nr is -1 to implement their syscall
+>> tampering feature[2].
+> 
+> 
+> IIUC, seccomp and others in syscall_enter_from_user_mode() could return -1 and then we could not differentiate with the syscall number being -1.
+> 
+> But could we imagine, to distinguish between an error and the syscall number being -1, checking again the syscall number after we call syscall_enter_from_user_mode()? If the syscall number is -1, then we set ENOSYS otherwise we don't do anything (a bit like what you did in 52449c17bdd1 ("riscv: entry: set a0 = -ENOSYS only when syscall != -1")).
+> 
+> Let me know if I completely misunderstood here!
 
-Thanks for the tip.
+Yeah. I found this a bit later after I post this RFC. I include it in a update reply,
+copy here as well:
 
-> > ---
-> >  .../bindings/clock/spacemit,k1-ccu.yaml       |  71 +++++++
-> >  .../soc/spacemit/spacemit,k1-syscon.yaml      |   4 +
-> >  include/dt-bindings/clock/spacemit,k1-ccu.h   | 198 ++++++++++++++++++
-> >  3 files changed, 273 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/clock/spacemit,k1-ccu.yaml
-> >  create mode 100644 include/dt-bindings/clock/spacemit,k1-ccu.h
-> > 
-> > diff --git a/Documentation/devicetree/bindings/clock/spacemit,k1-ccu.yaml b/Documentation/devicetree/bindings/clock/spacemit,k1-ccu.yaml
-> > new file mode 100644
-> > index 000000000000..0186722cfd87
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/clock/spacemit,k1-ccu.yaml
-> > @@ -0,0 +1,71 @@
-> > +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/clock/spacemit,k1-ccu.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: Spacemit K1 SoC Clock Controller
-> > +
-> > +maintainers:
-> > +  - Haylen Chu <heylenay@outlook.com>
-> > +
-> > +properties:
-> > +  compatible:
-> > +    enum:
-> > +      - spacemit,k1-ccu-apbs
-> > +      - spacemit,k1-ccu-mpmu
-> > +      - spacemit,k1-ccu-apbc
-> > +      - spacemit,k1-ccu-apmu
-> > +
-> > +  clocks:
-> > +    minItems: 4
-> 
-> Drop
-> 
-> > +    maxItems: 4
-> > +
-> > +  clock-names:
-> > +    items:
-> > +      - const: clk_32k
-> > +      - const: vctcxo_1
-> > +      - const: vctcxo_24
-> > +      - const: vctcxo_3
-> > +
-> > +  spacemit,mpmu:
-> > +    $ref: /schemas/types.yaml#/definitions/phandle
-> > +    description:
-> > +      Phandle to the syscon managing "Main PMU (MPMU)" registers. It is used to
-> > +      check PLL lock status.
-> > +
-> > +  "#clock-cells":
-> > +    const: 1
-> > +    description:
-> > +      See <dt-bindings/clock/spacemit,k1-ccu.h> for valid indices.
-> > +
-> > +required:
-> > +  - compatible
-> > +  - "#clock-cells"
-> > +
-> > +additionalProperties: false
-> 
-> Move it after allOf block
-> 
-> > +
-> > +allOf:
-> > +  - if:
-> > +      properties:
-> > +        compatible:
-> > +          contains:
-> > +            const: spacemit,k1-ccu-apbs
-> > +    then:
-> > +      required:
-> > +        - compatible
-> > +        - "#clock-cells"
-> 
-> Drop both, redundant
-> 
-> 
-> > +        - spacemit,mpmu
-> > +
-> > +examples:
-> > +  - |
-> > +    syscon_apbs: system-control@d4090000 {
-> 
-> Only one example, keep it in parent node.
+> But from another angle, syscall number is in a7 register, so we can call the 
+> get_syscall_nr() after calling the syscall_enter_from_user_mode() to bypass the 
+> information lost of the return value of the syscall_enter_from_user_mode(). But 
+> in this way, the syscall number in the syscall_enter_from_user_mode() return 
+> value is useless, and we can remove it directly.
 
-Should I drop the example block in this binding completely and move it
-to its parent's binding (the syscon) or just drop the parent here?
+So if we get syscall number from a7 register again, the syscall number part of 
+the return value of syscall_enter_from_user_mode() is useless completely. 
+I think it's better to drop it so the later new architecture developer will not 
+run into the same issue. (Actually, the syscall number returned by 
+syscall_enter_from_user_mode() is also the result of get_syscall_nr() at the end 
+of it.) But it will affect other architecture's code so I think there still need 
+some discussions.
 
-> > +        compatible = "spacemit,k1-apbs-syscon", "syscon", "simple-mfd";
-> > +        reg = <0x0 0xd4090000 0x0 0x1000>;
-> > +
-> > +        clk_apbs: clock-controller {
-> > +            compatible = "spacemit,k1-ccu-apbs";
-> > +            #clock-cells = <1>;
-> > +            spacemit,mpmu = <&syscon_mpmu>;
-> > +        };
-> > +    };
-> > diff --git a/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml b/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
-> > index 4e3a72b48aff..08efda207101 100644
-> > --- a/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
-> > +++ b/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
-> > @@ -27,6 +27,10 @@ properties:
-> >    reg:
-> >      maxItems: 1
-> >  
-> > +  clock-controller:
-> > +    $ref: /schemas/clock/spacemit,k1-ccu.yaml#
-> > +    type: object
-> > +
+Or if you think it's better to post a patch and then discuss in patch thread 
+directly, I'm glad to do this.
+
 > 
-> This MUST be part of other patch.
+> Thanks again for the thorough explanation,
 > 
-> Best regards,
-> Krzysztof
->
-
-I will adapt all the comments in next version.
-
-Best regards,
-Haylen Chu
+> Alex
+> 
+> 
+>>
+>> Actually, we tried the both ways in 52449c17bdd1 ("riscv: entry: set
+>> a0 = -ENOSYS only when syscall != -1") and 61119394631f ("riscv: entry:
+>> always initialize regs->a0 to -ENOSYS") before.
+>>
+>> Naturally, there is a solution:
+>>
+>> 1. Just add orig_a0 in user_regs_struct and let strace use it as
+>>     loongarch does. So only two problems, which can be resolved without
+>>     conflict, are left here.
+>>
+>> The conflicts are the direct result of the limitation of generic entry
+>> API, so we have another two solutions:
+>>
+>> 2. Give up the generic entry API, and switch back to the
+>>     architecture-specific standardalone implementation.
+>> 3. Redesign the generic entry API: the problem was caused by
+>>     syscall_enter_from_user_mode() using the value -1 (which is unused
+>>     normally) of syscall nr to inform syscall was reject by seccomp/bpf.
+>>
+>> In theory, the Solution 1 is best:
+>>
+>> *  a0 was used for two purposes in ABI, so using two variables to store
+>>     it is natural.
+>> *  Userspace can implement features without depending on the internal
+>>     behavior of the kernel.
+>>
+>> Unfortunately, it's difficult to implement based on the current code.
+>> The RISC-V defined struct pt_regs as below:
+>>
+>>          struct pt_regs {
+>>                  unsigned long epc;
+>>          ...
+>>                  unsigned long t6;
+>>                  /* Supervisor/Machine CSRs */
+>>                  unsigned long status;
+>>                  unsigned long badaddr;
+>>                  unsigned long cause;
+>>                  /* a0 value before the syscall */
+>>                  unsigned long orig_a0;
+>>          };
+>>
+>> And user_regs_struct needs to be a prefix of struct pt_regs, so if we
+>> want to include orig_a0 in user_regs_struct, we will need to include
+>> Supervisor/Machine CSRs as well. It's not a big problem. Since
+>> struct pt_regs is the internal ABI of the kernel, we can reorder it.
+>> Unfortunately, struct user_regs_struct is defined as below:
+>>
+>>          struct user_regs_struct {
+>>                  unsigned long pc;
+>>          ...
+>>                  unsigned long t6;
+>>          };
+>>
+>> It doesn't contain something like reserved[] as padding to leave the
+>> space to add more registers from struct pt_regs!
+>> The loongarch do the right thing as below:
+>>
+>>          struct user_pt_regs {
+>>                  /* Main processor registers. */
+>>                  unsigned long regs[32];
+>>          ...
+>>                  unsigned long reserved[10];
+>>          } __attribute__((aligned(8)));
+>>
+>> RISC-V can't include orig_a0 in user_regs_struct without breaking UABI.
+>>
+>> Need a discussion to decide to use which solution, or is there any
+>> other better solution?
+>>
+>> [1]: https://github.com/strace/strace/issues/315
+>> [2]: https://lore.kernel.org/linux-riscv/20240627071422.GA2626@altlinux.org/
+>>
+>>
+>> _______________________________________________
+>> linux-riscv mailing list
+>> linux-riscv@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
