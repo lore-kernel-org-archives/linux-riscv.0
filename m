@@ -4,122 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A909D1AD43
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 10:50:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D447D1AD48
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 11:26:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=za6yNokzg6gvaNli2zRi5YmDyxK22WOVBvMRvR6DLpI=; b=y28zqIwQTL+B8w
-	mNxM0KT7attL+kpVewosdpBYYhIK5FZgpSX8c8SnaNkCm/y387+WTLdnzfJDdBDbmNwOOpx4oP0dK
-	eHtUeXJsJAwt2wl3Df0yAfJCYurz86DzO5zKHAidOhvuPEIUNUPw7aPBKRD1PvACTPVPwBcZFz4m6
-	jlly2VwjyBZ+hh58rj/cl3H4KzYaKT/b+bDv41RiLv/YkjK671DWx1ibERJksOgdk5HqjFtR9eoCd
-	/HXMzuNzlu9iq74OUcDlWsJEhNJFvWhRqjYXAiGaTnhjLoVf5hVp1BJU6X8Y/A/2p1WZFP7dhlSQT
-	vKd5VwFAd4EAyjkBMT2w==;
+	List-Owner; bh=UZoVok9OG/iFG1PuR2+X464TPdfoJH8eq2gC5cYW23E=; b=3JiV+JVpOMWpFf
+	jlLdrqRGNpvJcdsg13+T/qjLHd6zAiWK342et91W4n/XC359CL/fG6hO7SPkFW3HW1thbSjXeJ25t
+	7IJ5SBbORSM+cMOtppLxv1mAv31SqJiMzuwCEnpCpLAivLSOrHYRNe3f7aO4jaK46m4kyL4RnwdU0
+	eiD1Wvq2d8Z64YeX7nQuBE/YB+waAa1wJaoZNf6zlpjzX5WkSJVZpOEdvFtGUXIWi3650nHaW5DKY
+	WjOdaix//sFPewn3qTKPv2ftMGnjoZjHpm+cCab9jKr3fjHY6T0/MZKiTeuve7cnjw35keOXqxWsY
+	dT+Ha3QSsaO+oRURmOQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t11cA-0000000BVzt-3bUV;
-	Wed, 16 Oct 2024 10:50:50 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t12Al-0000000BaPT-0d7u;
+	Wed, 16 Oct 2024 11:26:35 +0000
+Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t11WW-0000000BV1U-0ylR;
-	Wed, 16 Oct 2024 10:45:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=IJ/fbmZrOQ0WiBQGxvnDjUBF5iSxmGU1H7rV7VMVhIM=; b=jHzZDTmmYRrJqRoJQjYF1n/2+b
-	JgT5640NnSj3TPWEDol4JMoiduV1zBIovFdidX5dkhR5tbtxlWq2ZCkZgujx0mHXtEEeOS0GXML5h
-	1Aa1mzeaW+a0zPkiFkrC0dmaJO9gwzqN1z3PMCTUgEoeAP1eknrTeqGtsdosk2qw9LwA3GVVfXo8a
-	64lPSsSua+m8bpz16swDYPb5ENmVNeetUr1Rl2hx6rzvHYL/R3jq3/LsVQNCVgxZmpBx7V+kLG5X+
-	nWGixouf+idx+60zNbsFHVOLN5VMgQhmgxnvZZUpoa5M22oudqk4NQ5zU06zKfTuvld5e4JMqZaeK
-	RmW5DhGQ==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t11WR-00000006mCl-3SZ7;
-	Wed, 16 Oct 2024 10:44:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D240E5C5FDD;
-	Wed, 16 Oct 2024 10:44:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A439EC4CEC5;
-	Wed, 16 Oct 2024 10:44:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729075491;
-	bh=REY0yUs/eb8jGqS7iPmNLu0O7M3zjCPm2K1uOQnlIfY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tu7R+TE5l4rMjxEyzDDIH6fpt5ZNmC1c7xJx7SQDlI9CzDxMt5yOQnVYNAW9hdV8J
-	 OeaDo9Hr12xvhUKQgId1tm4/CewmMpWCLOk3wgiUJwXyvWq4QlFB+Uh/pOgd95q0F1
-	 zyNekZpzro5oJZ2JEUpyorUNUZLep/wgUFWwzFdkGHL+BF7JNIRifDS33KF/5qGC2v
-	 jYrUvBLfr/xZZ4LfL7bWflm1YPeuIUzgGbLP+eWNj7AbuOUcsPGdhrgXCl4uUGrO38
-	 j9PqqivnqqmoYQsjfU9edkgWUJ3Ic8/MVLUiY8xlv+pKvbZQmwKQdokHEcp8hCdCUB
-	 nLnfE4mx3UK6g==
-Date: Wed, 16 Oct 2024 13:40:55 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Luis Chamberlain <mcgrof@kernel.org>
-Cc: Christoph Hellwig <hch@infradead.org>, Petr Pavlu <petr.pavlu@suse.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Andy Lutomirski <luto@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>,
-	Brian Cain <bcain@quicinc.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Kent Overstreet <kent.overstreet@linux.dev>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Simek <monstr@monstr.eu>, Oleg Nesterov <oleg@redhat.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
-	Stafford Horne <shorne@gmail.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linux-mm@kvack.org,
-	linux-modules@vger.kernel.org, linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org, linux-um@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org, x86@kernel.org, kdevops@lists.linux.dev
-Subject: Re: [PATCH v5 7/8] execmem: add support for cache of large ROX pages
-Message-ID: <Zw-YN4JIltntY52Y@kernel.org>
-References: <20241009180816.83591-8-rppt@kernel.org>
- <Zwd7GRyBtCwiAv1v@infradead.org>
- <ZwfPPZrxHzQgYfx7@kernel.org>
- <ZwjXz0dz-RldVNx0@infradead.org>
- <ZwuIPZkjX0CfzhjS@kernel.org>
- <20241013202626.81f430a16750af0d2f40d683@linux-foundation.org>
- <Zw1uBBcG-jAgxF_t@bombadil.infradead.org>
- <Zw3rDS3GRWZe4CBu@bombadil.infradead.org>
- <Zw4DlTTbz4QwhOvU@kernel.org>
- <Zw7MirnsHnhRveBB@bombadil.infradead.org>
+	id 1t12Ah-0000000BaOl-3bdW
+	for linux-riscv@lists.infradead.org;
+	Wed, 16 Oct 2024 11:26:33 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id B55BF40004;
+	Wed, 16 Oct 2024 11:26:24 +0000 (UTC)
+Message-ID: <3fe1e610-c863-4fbf-85cb-6e83ba7684af@ghiti.fr>
+Date: Wed, 16 Oct 2024 13:26:24 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Zw7MirnsHnhRveBB@bombadil.infradead.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH -fixes] riscv: Do not use fortify in early code
+Content-Language: en-US
+To: Jessica Clarke <jrtc27@jrtc27.com>,
+ Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Heiko Stuebner <heiko@sntech.de>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@rivosinc.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Jason Montleon <jmontleo@redhat.com>,
+ stable@vger.kernel.org, Kees Cook <keescook@chromium.org>
+References: <20241009072749.45006-1-alexghiti@rivosinc.com>
+ <1CA19FB3-C1E3-4C2F-A4FB-05B69EC66D2F@jrtc27.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <1CA19FB3-C1E3-4C2F-A4FB-05B69EC66D2F@jrtc27.com>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241016_114456_228896_E060DDB2 
-X-CRM114-Status: GOOD (  19.59  )
+X-CRM114-CacheID: sfid-20241016_042632_068424_F977BD35 
+X-CRM114-Status: GOOD (  20.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,41 +62,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 15, 2024 at 01:11:54PM -0700, Luis Chamberlain wrote:
-> On Tue, Oct 15, 2024 at 08:54:29AM +0300, Mike Rapoport wrote:
-> > On Mon, Oct 14, 2024 at 09:09:49PM -0700, Luis Chamberlain wrote:
-> > > Mike, please run this with kmemleak enabled and running, and also try to get
-> > > tools/testing/selftests/kmod/kmod.sh to pass.
-> > 
-> > There was an issue with kmemleak, I fixed it here:
-> > 
-> > https://lore.kernel.org/linux-mm/20241009180816.83591-1-rppt@kernel.org/T/#m020884c1795218cc2be245e8091fead1cda3f3e4
-> 
-> Ah, so this was a side fix, not part of this series, thanks.
-> 
-> > > I run into silly boot issues with just a guest.
-> > 
-> > Was it kmemleak or something else?
-> 
-> Both kmemleak and the kmod selftest failed, here is a run of the test
-> with this patch series:
-> 
-> https://github.com/linux-kdevops/linux-modules-kpd/actions/runs/11352286624/job/31574722735
-
-Is there a kernel log to look at? Could not find it in the run report
- 
->   Luis
-
--- 
-Sincerely yours,
-Mike.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgSmVzc2ljYSwKCk9uIDE2LzEwLzIwMjQgMDA6MDQsIEplc3NpY2EgQ2xhcmtlIHdyb3RlOgo+
+IE9uIDkgT2N0IDIwMjQsIGF0IDA4OjI3LCBBbGV4YW5kcmUgR2hpdGkgPGFsZXhnaGl0aUByaXZv
+c2luYy5jb20+IHdyb3RlOgo+PiBFYXJseSBjb2RlIGRlc2lnbmF0ZXMgdGhlIGNvZGUgZXhlY3V0
+ZWQgd2hlbiB0aGUgTU1VIGlzIG5vdCB5ZXQgZW5hYmxlZCwKPj4gYW5kIHRoaXMgY29tZXMgd2l0
+aCBzb21lIGxpbWl0YXRpb25zIChzZWUKPj4gRG9jdW1lbnRhdGlvbi9hcmNoL3Jpc2N2L2Jvb3Qu
+cnN0LCBzZWN0aW9uICJQcmUtTU1VIGV4ZWN1dGlvbiIpLgo+Pgo+PiBGT1JUSUZZX1NPVVJDRSBt
+dXN0IGJlIGRpc2FibGVkIHRoZW4gc2luY2UgaXQgY2FuIHRyaWdnZXIga2VybmVsIHBhbmljcwo+
+PiBhcyByZXBvcnRlZCBpbiBbMV0uCj4+Cj4+IFJlcG9ydGVkLWJ5OiBKYXNvbiBNb250bGVvbiA8
+am1vbnRsZW9AcmVkaGF0LmNvbT4KPj4gQ2xvc2VzOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9s
+aW51eC1yaXNjdi9DQUpEX2JQSmVzNFFobVhZNWY2M0dIVjlCOUhGa1NDb2FaamstcUNUMk5HUzdR
+OUhPRGdAbWFpbC5nbWFpbC5jb20vIFsxXQo+PiBGaXhlczogYTM1NzA3YzNkODUwICgicmlzY3Y6
+IGFkZCBtZW1vcnktdHlwZSBlcnJhdGEgZm9yIFQtSGVhZCIpCj4+IEZpeGVzOiAyNmU3YWFjYjgz
+ZGYgKCJyaXNjdjogQWxsb3cgdG8gZG93bmdyYWRlIHBhZ2luZyBtb2RlIGZyb20gdGhlIGNvbW1h
+bmQgbGluZSIpCj4+IENjOiBzdGFibGVAdmdlci5rZXJuZWwub3JnCj4+IFNpZ25lZC1vZmYtYnk6
+IEFsZXhhbmRyZSBHaGl0aSA8YWxleGdoaXRpQHJpdm9zaW5jLmNvbT4KPiBJcyB0aGUgcHJvYmxl
+bSBpbiBbMV0gbm90IGp1c3QgdGhhdCB0aGUgZWFybHkgYm9vdCBwYXRoIHVzZXMgbWVtY3B5IG9u
+Cj4gdGhlIHJlc3VsdCBvZiBBTFRfT0xEX1BUUiwgd2hpY2ggaXMgYSB3aWxkbHkgb3V0LW9mLWJv
+dW5kcyBwb2ludGVyIGZyb20KPiB0aGUgY29tcGlsZXLigJlzIHBlcnNwZWN0aXZlPyBJZiBzbywg
+aXQgd291bGQgc2VlbSBiZXR0ZXIgdG8gdXNlCj4gdW5zYWZlX21lbWNweSBmb3IgdGhhdCBvbmUg
+Y2FsbCBzaXRlIHJhdGhlciB0aGFuIHVzZSB0aGUgYmlnCj4gX19OT19GT1JUSUZZIGhhbW1lciwg
+c3VyZWx5PwoKCk5vdCBzdXJlIHdoeSBmb3J0aWZ5IGNvbXBsYWlucyBoZXJlLCBhbmQgSSBoYXZl
+IGp1c3Qgc2VlbiB0aGF0IEkgZm9yZ290IAp0byBjYyBLZWVzIChkb25lIG5vdykuCgoKPgo+IFBy
+ZXN1bWFibHkgdGhlIG5vbi1lYXJseSBwYXRoIGlzIGp1c3QgYXMgYmFkIHRvIHRoZSBjb21waWxl
+ciwgYnV0IHdvcmtzCj4gYmVjYXVzZSBwYXRjaF90ZXh0X25vc3luYyBpc27igJl0IGluc3RydW1l
+bnRlZCwgc28gdGhhdCB3b3VsZCBqdXN0IGFsaWduCj4gdGhlIHR3by4KPgo+IEdldHRpbmcgdGhl
+IGltcGxlbWVudGF0aW9uIHRvIG5vdCBiZSBzaWxlbnQgb24gZmFpbHVyZSBkdXJpbmcgZWFybHkK
+PiBib290IHdvdWxkIGFsc28gYmUgYSBnb29kIGlkZWEsIGJ1dCBpdOKAmXMgc3VyZWx5IGJldHRl
+ciB0byBoYXZlCj4gRk9SVElGWV9TT1VSQ0UgZW5hYmxlZCB3aXRoIG5vIG91dHB1dCBmb3IgcG9z
+aXRpdmVzIHRoYW4gZGlzYWJsZSB0aGUKPiBjaGVja2luZyBpbiB0aGUgZmlyc3QgcGxhY2UgYW5k
+IHJpc2sgdW5jYXVnaHQgY29ycnVwdGlvbi4KCgpJJ20gbm90IHN1cmUgdG8gZm9sbG93OiB5b3Ug
+cHJvcG9zZSB0byB1c2UgdW5zYWZlX21lbWNweSgpIGluc3RlYWQgb2YgCmRpc2FibGluZyBmb3J0
+aWZ5IGVudGlyZWx5LCBzbyB3ZSB3b3VsZCBub3QgZ2V0IGFueSB3YXJuaW5nIGluIGNhc2Ugb2Yg
+CmZhaWx1cmUgYW55d2F5IHJpZ2h0PyBPciBkbyB5b3UgcHJvcG9zZSB0byBtb2RpZnkgdGhlIGZv
+cnRpZnkgY29kZSB0byAKc29tZWhvdyBwcmludCBhIHdhcm5pbmc/IElmIHRoZSBsYXR0ZXIsIGl0
+J3MgaGFyZCB0aGlzIHNvb24gaW4gdGhlIGJvb3QgCnByb2Nlc3MgKHdoZXJlIHRoZSBtbXUgaXMg
+ZGlzYWJsZWQpIHRvIG1ha2Ugc3VyZSB0aGF0IHRoZSBwcmludGluZyAKd2FybmluZyBwYXRoIGRv
+ZXMgbm90IHRyeSB0byBhY2Nlc3MgYW55IHZpcnR1YWwgYWRkcmVzcyAod2hpY2ggaXMgd2h5IAp0
+aGUgYm9vdCBmYWlsZWQgaW4gdGhlIGZpcnN0IHBsYWNlKSBidXQgbWF5YmUgS2VlcyBoYXMgYW4g
+aWRlYS4KCkFuZCBJIGJlbGlldmUgdGhhdCBlbmFibGluZyBmb3J0aWZ5IGFuZCB1c2luZyB0aGUg
+dW5zYWZlXyooKSB2YXJpYW50cyBpcyAKZXJyb3ItcHJvbmUgc2luY2Ugd2UnZCBoYXZlIHRvIG1h
+a2Ugc3VyZSB0aGF0IGFsbCB0aGUgImZvcnRpZmllZCIgCmZ1bmN0aW9ucyB1c2VkIGluIHRoYXQg
+Y29kZSB1c2UgdGhlIHVuc2FmZV8qKCkgdmFyaWFudHMuCgpTbyB0byBtZSwgaXQncyB3YXkgZWFz
+aWVyIGluIHRlcm1zIG9mIG1haW50ZW5hbmNlIHRvIGp1c3QgZGlzYWJsaW5nIGZvcnRpZnkuCgpU
+aGFua3MsCgpBbGV4CgoKPiBKZXNzCj4KPgo+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fCj4gbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cj4gbGludXgtcmlz
+Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
+YW4vbGlzdGluZm8vbGludXgtcmlzY3YKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YK
