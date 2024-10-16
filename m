@@ -4,81 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 128E7D1AD2E
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 08:51:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10BA5D1AD32
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 09:01:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AXDyIdLhkDqV4Zi2brG+D8WL7dlzkoo+HAmY/2crbT8=; b=IOcIqtRyOzS+/N
-	t93bMdvAm74KSjy2FYXdEpSA6G2HyCs5FUg5Zei8dXfLdbI7ud4ZH2hsSA6zQd2DzdU2bLdn7dp7c
-	mYkoJQW1UBWw2TdpMtByWxkcKIy8KlQVA1e5TxImSDizKYQMZlMCldjJ7aUL12D3HfHdXqbsGKfh/
-	X17n/FfO8uniGf3D3soTsak6X2iDegAQ0lV/lkHyTyUkOWxK8REu2cQ7VuTvCkAjDzMbVQbzJp0WI
-	dgZtt8/5jyOE5YT9kDUT0Xx7RK/iXr/KWDbx1rlb4coMgP8uyjObh+ihQI/G9uUq0l6EqZZnQSpSU
-	CtcMzdNkuyWmytvPYttA==;
+	List-Owner; bh=S+FcPpHtwrxv2do4JtV6l3TPErYxK95BpoiTAfX4sMs=; b=u9Cag9W4K60KZL
+	QtJgJPafjCyGATiCDoDAzVUJwt+EKxBrQUdHt0Kd4ouP1sVaRhQSs/9SUrSgnYew6TN60N+1Ro/Qf
+	kEnPMjuIfosmXEGb70s6yLIO7nSUv7a3NLFmtR7D0mHDU7O5SK5tTueId7KerVbwZKlJticFi8agG
+	4/YkjvoKbGUXVkVMjOMoNbZeAH/mUA27kjnVjSvtUQov9zTNPeCUFwmV4uMUqhY2EVPHFIEHgJs4U
+	m71UgUBL2PwnvACJyo8RPmQURoaF+AsMNCcI/Mx5+aoH0H/RnR2njvQFU0lVShyEBFSQ/FxRGvQlY
+	X/s1Cerf4MBBkvkY7nRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t0zkg-0000000B6m8-0S5Q;
-	Wed, 16 Oct 2024 08:51:30 +0000
-Received: from mail-ot1-x32a.google.com ([2607:f8b0:4864:20::32a])
+	id 1t0zuK-0000000B90X-0pll;
+	Wed, 16 Oct 2024 09:01:28 +0000
+Received: from gofer.mess.org ([2a02:8011:d000:212::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t0ziO-0000000B6BR-3LzK
+	id 1t0ztY-0000000B8o8-13sS
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Oct 2024 08:49:10 +0000
-Received: by mail-ot1-x32a.google.com with SMTP id 46e09a7af769-7157c329d93so3170610a34.3
-        for <linux-riscv@lists.infradead.org>; Wed, 16 Oct 2024 01:49:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1729068547; x=1729673347; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=yhbVQyfRkW94fc9SRqBIvGYEHn8LmJMPO3GJTuoNbLk=;
-        b=N6qWVEglpELDKDD5/Ir/wLuo+JPuGEref3litT19V+MG5hVTiExHBigaY5COhkr9LS
-         4JeaJI4QgGjzgUmjJslNY8yKvYc6aR3cGs6OHgZNu3WzXVP3DKiwibjsr+IVLBn1bver
-         UQo9C8VXHfG1IB3ZDjZ3icUEqZF1WPG2dj1zYtgJiy9pWEkeYG+wBli9rONR3CBwPEr7
-         vLv2T6pByWgEtgs5Bb8pESWIVA3nPaFKxVuABNUrChopKY/6klT7tzRXc/iCIs9otMvx
-         5NLUMj03rfk+lQXzRLJAXOZkb2i9X29gxRlRP4AXc4cQMi70ZYS9vhdCmkbXMyOJ1NWr
-         zOxw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729068547; x=1729673347;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yhbVQyfRkW94fc9SRqBIvGYEHn8LmJMPO3GJTuoNbLk=;
-        b=Ij6bCB1UvgzfHriQvWwW+HgoM/yOivE+GvjMRk2QsvYGJagottUdsycuWi9hH2veE+
-         XIOWnteIrHm7weTtLdSKbsguvI0618AnuW7koHIt4G6VJVIoYI5EpFMRSgdCEFUKPFgQ
-         Uum2Kd39DfRGBOI0iaKkKEjuulpMdSzKtYZS6H5P2ZhCsN78CWN9MnxcbEw/YHpoT0fT
-         juGQowPEEl4FNyI5ZsOs50P0HaOXwWr0pa8FgjD278avJmdn8B4G7y3efzq/5dmpNSXF
-         w7YeFevFzLZAyR8bTTvgA5U+2Xrii1+lDLc32HvjpCg6YDNmk3gXAgYKIBhEg3fBn8np
-         lbjQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUscVb/ZtvxMBZkjlu9gCWEf/m5varHjj3bPdyrf2q4GlMJUrMmidnBZOMjG0JDHI2yfHt7VBP4V4dRbw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx0hmAKwe+abnMLMtRho40isGF9JUc3hPhu8fZ8vAs5g3N2nNid
-	q+cS3K+CxoC2UJkKrBnW5GApBWsraw9BYu91kWPYr0Pqxl1Blo8GaareKNd446o=
-X-Google-Smtp-Source: AGHT+IHX6rhmfA7N9aepcCXGWg+aLVBjn3PwoP8vJv4Eo4/lvnu7ZU5x91ThivPntsl/7ggjwaAxNw==
-X-Received: by 2002:a05:6830:63cb:b0:710:f38a:191c with SMTP id 46e09a7af769-717d6411af5mr16721457a34.11.1729068546855;
-        Wed, 16 Oct 2024 01:49:06 -0700 (PDT)
-Received: from sunil-laptop ([106.51.192.229])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-5eb4eee7f3csm651965eaf.47.2024.10.16.01.48.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Oct 2024 01:49:05 -0700 (PDT)
-Date: Wed, 16 Oct 2024 14:18:55 +0530
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: Yunhui Cui <cuiyunhui@bytedance.com>
-Cc: punit.agrawal@bytedance.com, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alexghiti@rivosinc.com,
-	conor.dooley@microchip.com, rafael.j.wysocki@intel.com,
-	haibo1.xu@intel.com, jeeheng.sia@starfivetech.com,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] RISC-V: ACPI: fix early_ioremap to early_memremap
-Message-ID: <Zw9991h7QtX2S__m@sunil-laptop>
-References: <20241014130141.86426-1-cuiyunhui@bytedance.com>
+	Wed, 16 Oct 2024 09:00:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mess.org; s=2020;
+	t=1729069232; bh=6IGxvc6NwaVw4PEo4Yzm/DjnoysdqVlUpzuzFQ9taw0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jddibJ96eXrb9Oku2KNGvGmJCESxJDcSf2TDnUU9GNm8gqlFHYeywhhBLPuLXQMEy
+	 36ZjXsQeg7Uqr5lRKBXwxtGhkK546EQ3hkcmS88OzOCCpzupKO+9a6uNrDJqSkTLIx
+	 Uh7e2BSA1MuDSaIsC7EzT4Gj/K7yKX9TOKitwEjogsomP5+meiRhxl6a4nRIt78h4v
+	 24PKd7sAhYi0tuUJFtqgosSGAWea4YnG94eDaXWJnESzPLpeVmYyn0uxEMrLYiYVVq
+	 MOHZUSQEV6ncrJnd2uGO0UK9oLZdLgVRreVtpMdKpOlRLWx53p5BnRjVSajYXFB2Me
+	 eyRp4obaqiyRg==
+Received: by gofer.mess.org (Postfix, from userid 1000)
+	id 6600A1002B3; Wed, 16 Oct 2024 10:00:32 +0100 (BST)
+Date: Wed, 16 Oct 2024 10:00:32 +0100
+From: Sean Young <sean@mess.org>
+To: Chen Wang <unicornxw@gmail.com>
+Cc: ukleinek@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, unicorn_wang@outlook.com,
+	inochiama@outlook.com, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
+	linux-riscv@lists.infradead.org, chao.wei@sophgo.com,
+	haijiao.liu@sophgo.com, xiaoguang.xing@sophgo.com,
+	chunzhi.lin@sophgo.com
+Subject: Re: [PATCH v4 2/3] pwm: sophgo: add driver for Sophgo SG2042 PWM
+Message-ID: <Zw-AsJjZIaa_OIfq@gofer.mess.org>
+References: <cover.1729037302.git.unicorn_wang@outlook.com>
+ <cc69b47d068ff339db4c93d3103ed80d10a172d0.1729037302.git.unicorn_wang@outlook.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20241014130141.86426-1-cuiyunhui@bytedance.com>
+In-Reply-To: <cc69b47d068ff339db4c93d3103ed80d10a172d0.1729037302.git.unicorn_wang@outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241016_014908_862553_FDD0BDDD 
-X-CRM114-Status: GOOD (  17.30  )
+X-CRM114-CacheID: sfid-20241016_020040_594571_714EE99C 
+X-CRM114-Status: GOOD (  32.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,50 +74,247 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 14, 2024 at 09:01:41PM +0800, Yunhui Cui wrote:
-> When SVPBMT is enabled, __acpi_map_table() will directly access the
-> data in DDR through the IO attribute, rather than through hardware
-> cache consistency, resulting in incorrect data in the obtained ACPI
-> table.
+On Wed, Oct 16, 2024 at 08:20:18AM +0800, Chen Wang wrote:
+> From: Chen Wang <unicorn_wang@outlook.com>
 > 
-> The log: ACPI: [ACPI:0x18] Invalid zero length.
+> Add a PWM driver for PWM controller in Sophgo SG2042 SoC.
 > 
-> We do not assume whether the bootloader flushes or not. We should
-> access in a cacheable way instead of maintaining cache consistency
-> by software.
-> 
-> Fixes: 3b426d4b5b14 ("RISC-V: ACPI : Fix for usage of pointers in different address space")
-> Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
-> ---
->  arch/riscv/kernel/acpi.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/riscv/kernel/acpi.c b/arch/riscv/kernel/acpi.c
-> index 6e0d333f57e5..2fd29695a788 100644
-> --- a/arch/riscv/kernel/acpi.c
-> +++ b/arch/riscv/kernel/acpi.c
-> @@ -210,7 +210,7 @@ void __init __iomem *__acpi_map_table(unsigned long phys, unsigned long size)
->  	if (!size)
->  		return NULL;
->  
-> -	return early_ioremap(phys, size);
-> +	return early_memremap(phys, size);
->  }
->  
->  void __init __acpi_unmap_table(void __iomem *map, unsigned long size)
-> @@ -218,7 +218,7 @@ void __init __acpi_unmap_table(void __iomem *map, unsigned long size)
->  	if (!map || !size)
->  		return;
->  
-> -	early_iounmap(map, size);
-> +	early_memunmap(map, size);
->  }
->  
-Reviewed-by: Sunil V L <sunilvl@ventanamicro.com>
+> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
 
-Thanks,
-Sunil
+LGTM.
+
+Signed-off-by: Sean Young <sean@mess.org>
+
+> ---
+>  drivers/pwm/Kconfig             |  10 ++
+>  drivers/pwm/Makefile            |   1 +
+>  drivers/pwm/pwm-sophgo-sg2042.c | 181 ++++++++++++++++++++++++++++++++
+>  3 files changed, 192 insertions(+)
+>  create mode 100644 drivers/pwm/pwm-sophgo-sg2042.c
+> 
+> diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
+> index 0915c1e7df16..ec85f3895936 100644
+> --- a/drivers/pwm/Kconfig
+> +++ b/drivers/pwm/Kconfig
+> @@ -584,6 +584,16 @@ config PWM_SL28CPLD
+>  	  To compile this driver as a module, choose M here: the module
+>  	  will be called pwm-sl28cpld.
+>  
+> +config PWM_SOPHGO_SG2042
+> +	tristate "Sophgo SG2042 PWM support"
+> +	depends on ARCH_SOPHGO || COMPILE_TEST
+> +	help
+> +	  PWM driver for the PWM controller on Sophgo SG2042 SoC. The PWM
+> +	  controller supports outputing 4 channels of PWM waveforms.
+> +
+> +	  To compile this driver as a module, choose M here: the module
+> +	  will be called pwm_sophgo_sg2042.
+> +
+>  config PWM_SPEAR
+>  	tristate "STMicroelectronics SPEAr PWM support"
+>  	depends on PLAT_SPEAR || COMPILE_TEST
+> diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
+> index 9081e0c0e9e0..539e0def3f82 100644
+> --- a/drivers/pwm/Makefile
+> +++ b/drivers/pwm/Makefile
+> @@ -53,6 +53,7 @@ obj-$(CONFIG_PWM_RZ_MTU3)	+= pwm-rz-mtu3.o
+>  obj-$(CONFIG_PWM_SAMSUNG)	+= pwm-samsung.o
+>  obj-$(CONFIG_PWM_SIFIVE)	+= pwm-sifive.o
+>  obj-$(CONFIG_PWM_SL28CPLD)	+= pwm-sl28cpld.o
+> +obj-$(CONFIG_PWM_SOPHGO_SG2042)	+= pwm-sophgo-sg2042.o
+>  obj-$(CONFIG_PWM_SPEAR)		+= pwm-spear.o
+>  obj-$(CONFIG_PWM_SPRD)		+= pwm-sprd.o
+>  obj-$(CONFIG_PWM_STI)		+= pwm-sti.o
+> diff --git a/drivers/pwm/pwm-sophgo-sg2042.c b/drivers/pwm/pwm-sophgo-sg2042.c
+> new file mode 100644
+> index 000000000000..bed753877851
+> --- /dev/null
+> +++ b/drivers/pwm/pwm-sophgo-sg2042.c
+> @@ -0,0 +1,181 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Sophgo SG2042 PWM Controller Driver
+> + *
+> + * Copyright (C) 2024 Sophgo Technology Inc.
+> + * Copyright (C) 2024 Chen Wang <unicorn_wang@outlook.com>
+> + *
+> + * Limitations:
+> + * - After reset, the output of the PWM channel is always high.
+> + *   The value of HLPERIOD/PERIOD is 0.
+> + * - When HLPERIOD or PERIOD is reconfigured, PWM will start to
+> + *   output waveforms with the new configuration after completing
+> + *   the running period.
+> + * - When PERIOD and HLPERIOD is set to 0, the PWM wave output will
+> + *   be stopped and the output is pulled to high.
+> + */
+> +
+> +#include <linux/clk.h>
+> +#include <linux/err.h>
+> +#include <linux/io.h>
+> +#include <linux/module.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/pwm.h>
+> +
+> +#include <asm/div64.h>
+> +
+> +/*
+> + * Offset RegisterName
+> + * 0x0000 HLPERIOD0
+> + * 0x0004 PERIOD0
+> + * 0x0008 HLPERIOD1
+> + * 0x000C PERIOD1
+> + * 0x0010 HLPERIOD2
+> + * 0x0014 PERIOD2
+> + * 0x0018 HLPERIOD3
+> + * 0x001C PERIOD3
+> + * Four groups and every group is composed of HLPERIOD & PERIOD
+> + */
+> +#define SG2042_HLPERIOD(chan) ((chan) * 8 + 0)
+> +#define SG2042_PERIOD(chan) ((chan) * 8 + 4)
+> +
+> +#define SG2042_PWM_CHANNELNUM	4
+> +
+> +/**
+> + * struct sg2042_pwm_ddata - private driver data
+> + * @base:		base address of mapped PWM registers
+> + * @clk_rate_hz:	rate of base clock in HZ
+> + */
+> +struct sg2042_pwm_ddata {
+> +	void __iomem *base;
+> +	unsigned long clk_rate_hz;
+> +};
+> +
+> +static void pwm_sg2042_config(void __iomem *base, unsigned int chan, u32 period, u32 hlperiod)
+> +{
+> +	writel(period, base + SG2042_PERIOD(chan));
+> +	writel(hlperiod, base + SG2042_HLPERIOD(chan));
+> +}
+> +
+> +static int pwm_sg2042_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+> +			    const struct pwm_state *state)
+> +{
+> +	struct sg2042_pwm_ddata *ddata = pwmchip_get_drvdata(chip);
+> +	u32 hlperiod;
+> +	u32 period;
+> +
+> +	if (state->polarity == PWM_POLARITY_INVERSED)
+> +		return -EINVAL;
+> +
+> +	if (!state->enabled) {
+> +		pwm_sg2042_config(ddata->base, pwm->hwpwm, 0, 0);
+> +		return 0;
+> +	}
+> +
+> +	/*
+> +	 * Period of High level (duty_cycle) = HLPERIOD x Period_clk
+> +	 * Period of One Cycle (period) = PERIOD x Period_clk
+> +	 */
+> +	period = min(mul_u64_u64_div_u64(ddata->clk_rate_hz, state->period, NSEC_PER_SEC), U32_MAX);
+> +	hlperiod = min(mul_u64_u64_div_u64(ddata->clk_rate_hz, state->duty_cycle, NSEC_PER_SEC), U32_MAX);
+> +
+> +	if (hlperiod > period) {
+> +		dev_err(pwmchip_parent(chip), "period < hlperiod, failed to apply current setting\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	dev_dbg(pwmchip_parent(chip), "chan[%u]: period=%u, hlperiod=%u\n",
+> +		pwm->hwpwm, period, hlperiod);
+> +
+> +	pwm_sg2042_config(ddata->base, pwm->hwpwm, period, hlperiod);
+> +
+> +	return 0;
+> +}
+> +
+> +static int pwm_sg2042_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
+> +				struct pwm_state *state)
+> +{
+> +	struct sg2042_pwm_ddata *ddata = pwmchip_get_drvdata(chip);
+> +	unsigned int chan = pwm->hwpwm;
+> +	u32 hlperiod;
+> +	u32 period;
+> +
+> +	period = readl(ddata->base + SG2042_PERIOD(chan));
+> +	hlperiod = readl(ddata->base + SG2042_HLPERIOD(chan));
+> +
+> +	if (!period && !hlperiod)
+> +		state->enabled = false;
+> +	else
+> +		state->enabled = true;
+> +
+> +	state->period = DIV_ROUND_UP_ULL((u64)period * NSEC_PER_SEC, ddata->clk_rate_hz);
+> +	state->duty_cycle = DIV_ROUND_UP_ULL((u64)hlperiod * NSEC_PER_SEC, ddata->clk_rate_hz);
+> +
+> +	state->polarity = PWM_POLARITY_NORMAL;
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct pwm_ops pwm_sg2042_ops = {
+> +	.apply = pwm_sg2042_apply,
+> +	.get_state = pwm_sg2042_get_state,
+> +};
+> +
+> +static const struct of_device_id sg2042_pwm_ids[] = {
+> +	{ .compatible = "sophgo,sg2042-pwm" },
+> +	{ }
+> +};
+> +MODULE_DEVICE_TABLE(of, sg2042_pwm_ids);
+> +
+> +static int pwm_sg2042_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct sg2042_pwm_ddata *ddata;
+> +	struct pwm_chip *chip;
+> +	struct clk *clk;
+> +	int ret;
+> +
+> +	chip = devm_pwmchip_alloc(dev, SG2042_PWM_CHANNELNUM, sizeof(*ddata));
+> +	if (IS_ERR(chip))
+> +		return PTR_ERR(chip);
+> +	ddata = pwmchip_get_drvdata(chip);
+> +
+> +	ddata->base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(ddata->base))
+> +		return PTR_ERR(ddata->base);
+> +
+> +	clk = devm_clk_get_enabled(dev, "apb");
+> +	if (IS_ERR(clk))
+> +		return dev_err_probe(dev, PTR_ERR(clk), "failed to get base clk\n");
+> +
+> +	ret = devm_clk_rate_exclusive_get(dev, clk);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to get exclusive rate\n");
+> +
+> +	ddata->clk_rate_hz = clk_get_rate(clk);
+> +	if (!ddata->clk_rate_hz || ddata->clk_rate_hz > NSEC_PER_SEC)
+> +		return dev_err_probe(dev, -EINVAL,
+> +				     "Invalid clock rate: %lu\n", ddata->clk_rate_hz);
+> +
+> +	chip->ops = &pwm_sg2042_ops;
+> +	chip->atomic = true;
+> +
+> +	ret = devm_pwmchip_add(dev, chip);
+> +	if (ret < 0)
+> +		return dev_err_probe(dev, ret, "failed to register PWM chip\n");
+> +
+> +	return 0;
+> +}
+> +
+> +static struct platform_driver pwm_sg2042_driver = {
+> +	.driver	= {
+> +		.name = "sg2042-pwm",
+> +		.of_match_table = sg2042_pwm_ids,
+> +	},
+> +	.probe = pwm_sg2042_probe,
+> +};
+> +module_platform_driver(pwm_sg2042_driver);
+> +
+> +MODULE_AUTHOR("Chen Wang");
+> +MODULE_DESCRIPTION("Sophgo SG2042 PWM driver");
+> +MODULE_LICENSE("GPL");
+> -- 
+> 2.34.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
