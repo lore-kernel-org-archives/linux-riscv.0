@@ -4,87 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92541D1AD2E
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 08:45:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 128E7D1AD2E
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 08:51:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=amZncS/LSZeWMHznNIh2bpgfo0CMYZA45BX3wBg0wqI=; b=20V4/MPvrAixHB
-	J0UMF418mzMeu32xCbShah9vyB/WJ8YxhDpO3f2zcI7KGbJl9pBKqo/WiE9lIfYEpl0X1I6UjAObq
-	ccYFSARdt+0eVbcJ8P9mbSjCX6duAvV5dO/7SbvLg+HuYL5OeKQpsNxI2U2AfntDj+j0WHgW97QeJ
-	35u5O214rhygQffL7W5biDKnhWDfzbYb8t9om4Q4T1p3xq/KfC2np0IwC/5lX6sueROAmcEGQDWlh
-	BPlRjTay3+0RpXxpEk3twmzRnxOS9F4AVwo8RCkvsXj4KExIqaKx5QNPo8dDwMFG/GN0APaARpnlO
-	9Jl0DE7wK6UIhwcvnISg==;
+	List-Owner; bh=AXDyIdLhkDqV4Zi2brG+D8WL7dlzkoo+HAmY/2crbT8=; b=IOcIqtRyOzS+/N
+	t93bMdvAm74KSjy2FYXdEpSA6G2HyCs5FUg5Zei8dXfLdbI7ud4ZH2hsSA6zQd2DzdU2bLdn7dp7c
+	mYkoJQW1UBWw2TdpMtByWxkcKIy8KlQVA1e5TxImSDizKYQMZlMCldjJ7aUL12D3HfHdXqbsGKfh/
+	X17n/FfO8uniGf3D3soTsak6X2iDegAQ0lV/lkHyTyUkOWxK8REu2cQ7VuTvCkAjDzMbVQbzJp0WI
+	dgZtt8/5jyOE5YT9kDUT0Xx7RK/iXr/KWDbx1rlb4coMgP8uyjObh+ihQI/G9uUq0l6EqZZnQSpSU
+	CtcMzdNkuyWmytvPYttA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t0zez-0000000B5M4-0E4I;
-	Wed, 16 Oct 2024 08:45:37 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1t0zkg-0000000B6m8-0S5Q;
+	Wed, 16 Oct 2024 08:51:30 +0000
+Received: from mail-ot1-x32a.google.com ([2607:f8b0:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t0zY8-0000000B42S-0TQH
+	id 1t0ziO-0000000B6BR-3LzK
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Oct 2024 08:38:34 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-42f6bec84b5so60731555e9.1
-        for <linux-riscv@lists.infradead.org>; Wed, 16 Oct 2024 01:38:31 -0700 (PDT)
+	Wed, 16 Oct 2024 08:49:10 +0000
+Received: by mail-ot1-x32a.google.com with SMTP id 46e09a7af769-7157c329d93so3170610a34.3
+        for <linux-riscv@lists.infradead.org>; Wed, 16 Oct 2024 01:49:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1729067910; x=1729672710; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=FmChZIcn3ram5DrPXLsJi2oFdsO/Sp5E7s6oakOpriw=;
-        b=yzTf3DogRLzDKx8VUSSESIiV0qnecr0VZXpk3oH3LY5BWw7+fwBXD6uNqZ145oQNnU
-         OFOm0pPj5hKjMuZitAUsleuw4WJfDgR2iKE5i+XiDd8iintihy6dgfHHnAPRIm1awUZh
-         lWU81mhqkfsHdyzud2r6FwzwbxKwXOHJRif530oESq0SnFiN3fZQmFKl4lTg/xviI0bl
-         oQRhmGsVBxsAiQCveGEow4OaRf3JZUaQ4pUk25YvHuXz1JPCwl6eFh19W5/DjKRhXDg4
-         ItqX2v1AWh04fCDIuXHIa2Y7eX39BouO3ruDzAVyelgRTG1lkGOOtNhr7+sIFK80mXg1
-         qJlw==
+        d=ventanamicro.com; s=google; t=1729068547; x=1729673347; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=yhbVQyfRkW94fc9SRqBIvGYEHn8LmJMPO3GJTuoNbLk=;
+        b=N6qWVEglpELDKDD5/Ir/wLuo+JPuGEref3litT19V+MG5hVTiExHBigaY5COhkr9LS
+         4JeaJI4QgGjzgUmjJslNY8yKvYc6aR3cGs6OHgZNu3WzXVP3DKiwibjsr+IVLBn1bver
+         UQo9C8VXHfG1IB3ZDjZ3icUEqZF1WPG2dj1zYtgJiy9pWEkeYG+wBli9rONR3CBwPEr7
+         vLv2T6pByWgEtgs5Bb8pESWIVA3nPaFKxVuABNUrChopKY/6klT7tzRXc/iCIs9otMvx
+         5NLUMj03rfk+lQXzRLJAXOZkb2i9X29gxRlRP4AXc4cQMi70ZYS9vhdCmkbXMyOJ1NWr
+         zOxw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729067910; x=1729672710;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=FmChZIcn3ram5DrPXLsJi2oFdsO/Sp5E7s6oakOpriw=;
-        b=wL2oPVNnZM3WFlhZbpHUelE0m96jJX+0GPEimTkIbtOFBizRt69TSWSHKD+j+eWeES
-         K0oCD8FyUbf5pI+OYEuE7OlK8okGAkd6j6cFGYENgiRlImX4hCI8j+01ORnOB683JwHb
-         JOIRWhgbBWOnUGKaRsTcEQveQifYNn0PTU99mryAQFSpvEaaO3CgqWlTtGhI+49wbt83
-         hm82dRU3ek7Gqr6X0Y3t7Vho7bv9hAqg378zHM0ZQE9p7HY95NWkKPn1GYYeJKitoBav
-         x7WmiqHjA7MBAhuv5SgwtVe1eo+wVqoU4IuRnOPImbrxoKG5gc3msXHN1CSmuchPba7j
-         I/OQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUVfISPkBOCv2Fd+yOD5a/Am+t0hSdKWJ9FmHnkB0nrJ0Ihogh6xSwtlqtOoj0dhOaSepMB9dg0y38nRw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwmjeLEnlrMNXB98OCRFp+w6/DoTwIjgALGF74cFT8DCwdFKZZg
-	OFfYa0L4oRb23KQTF1GcoGF33vbXBDDpaKeWVMDfYQzTilewT7Et/Z4FHQdVJYY=
-X-Google-Smtp-Source: AGHT+IGR0n+c7XSqnCHxTJU2G9C304U+ZAi49P3/9N45hFLnwx6sLPhF+8rNeg2KuWiIJB7D9B4i+g==
-X-Received: by 2002:a05:600c:1906:b0:42c:b45d:4a7b with SMTP id 5b1f17b1804b1-4314a37bb99mr28526255e9.25.1729067910135;
-        Wed, 16 Oct 2024 01:38:30 -0700 (PDT)
-Received: from alex-rivos.ba.rivosinc.com (lfbn-lyo-1-472-36.w2-7.abo.wanadoo.fr. [2.7.62.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4313f6b3c72sm42449965e9.35.2024.10.16.01.38.29
+        d=1e100.net; s=20230601; t=1729068547; x=1729673347;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yhbVQyfRkW94fc9SRqBIvGYEHn8LmJMPO3GJTuoNbLk=;
+        b=Ij6bCB1UvgzfHriQvWwW+HgoM/yOivE+GvjMRk2QsvYGJagottUdsycuWi9hH2veE+
+         XIOWnteIrHm7weTtLdSKbsguvI0618AnuW7koHIt4G6VJVIoYI5EpFMRSgdCEFUKPFgQ
+         Uum2Kd39DfRGBOI0iaKkKEjuulpMdSzKtYZS6H5P2ZhCsN78CWN9MnxcbEw/YHpoT0fT
+         juGQowPEEl4FNyI5ZsOs50P0HaOXwWr0pa8FgjD278avJmdn8B4G7y3efzq/5dmpNSXF
+         w7YeFevFzLZAyR8bTTvgA5U+2Xrii1+lDLc32HvjpCg6YDNmk3gXAgYKIBhEg3fBn8np
+         lbjQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUscVb/ZtvxMBZkjlu9gCWEf/m5varHjj3bPdyrf2q4GlMJUrMmidnBZOMjG0JDHI2yfHt7VBP4V4dRbw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx0hmAKwe+abnMLMtRho40isGF9JUc3hPhu8fZ8vAs5g3N2nNid
+	q+cS3K+CxoC2UJkKrBnW5GApBWsraw9BYu91kWPYr0Pqxl1Blo8GaareKNd446o=
+X-Google-Smtp-Source: AGHT+IHX6rhmfA7N9aepcCXGWg+aLVBjn3PwoP8vJv4Eo4/lvnu7ZU5x91ThivPntsl/7ggjwaAxNw==
+X-Received: by 2002:a05:6830:63cb:b0:710:f38a:191c with SMTP id 46e09a7af769-717d6411af5mr16721457a34.11.1729068546855;
+        Wed, 16 Oct 2024 01:49:06 -0700 (PDT)
+Received: from sunil-laptop ([106.51.192.229])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-5eb4eee7f3csm651965eaf.47.2024.10.16.01.48.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Oct 2024 01:38:29 -0700 (PDT)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Vladimir Isaev <vladimir.isaev@syntacore.com>,
-	Roman Artemev <roman.artemev@syntacore.com>,
-	Guo Ren <guoren@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>
-Subject: [PATCH v3 2/2] riscv: Check that vdso does not contain any dynamic relocations
-Date: Wed, 16 Oct 2024 10:36:25 +0200
-Message-Id: <20241016083625.136311-3-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20241016083625.136311-1-alexghiti@rivosinc.com>
-References: <20241016083625.136311-1-alexghiti@rivosinc.com>
+        Wed, 16 Oct 2024 01:49:05 -0700 (PDT)
+Date: Wed, 16 Oct 2024 14:18:55 +0530
+From: Sunil V L <sunilvl@ventanamicro.com>
+To: Yunhui Cui <cuiyunhui@bytedance.com>
+Cc: punit.agrawal@bytedance.com, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alexghiti@rivosinc.com,
+	conor.dooley@microchip.com, rafael.j.wysocki@intel.com,
+	haibo1.xu@intel.com, jeeheng.sia@starfivetech.com,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] RISC-V: ACPI: fix early_ioremap to early_memremap
+Message-ID: <Zw9991h7QtX2S__m@sunil-laptop>
+References: <20241014130141.86426-1-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20241014130141.86426-1-cuiyunhui@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241016_013832_175355_79CB5652 
-X-CRM114-Status: UNSURE (   8.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241016_014908_862553_FDD0BDDD 
+X-CRM114-Status: GOOD (  17.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,38 +90,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-TGlrZSBvdGhlciBhcmNoaXRlY3R1cmVzLCB1c2UgdGhlIGNvbW1vbiBjbWRfdmRzb19jaGVjayB0
-byBtYWtlIHN1cmUgb2YKdGhhdC4KClJldmlld2VkLWJ5OiBCasO2cm4gVMO2cGVsIDxiam9ybkBy
-aXZvc2luYy5jb20+ClRlc3RlZC1ieTogVmxhZGltaXIgSXNhZXYgPHZsYWRpbWlyLmlzYWV2QHN5
-bnRhY29yZS5jb20+ClNpZ25lZC1vZmYtYnk6IEFsZXhhbmRyZSBHaGl0aSA8YWxleGdoaXRpQHJp
-dm9zaW5jLmNvbT4KLS0tCiBhcmNoL3Jpc2N2L2tlcm5lbC92ZHNvL01ha2VmaWxlIHwgOSArKysr
-Ky0tLS0KIDEgZmlsZSBjaGFuZ2VkLCA1IGluc2VydGlvbnMoKyksIDQgZGVsZXRpb25zKC0pCgpk
-aWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvdmRzby9NYWtlZmlsZSBiL2FyY2gvcmlzY3Yv
-a2VybmVsL3Zkc28vTWFrZWZpbGUKaW5kZXggM2YxYzRiMmQwYjA2Li45YTFiNTU1ZTg3MzMgMTAw
-NjQ0Ci0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL3Zkc28vTWFrZWZpbGUKKysrIGIvYXJjaC9yaXNj
-di9rZXJuZWwvdmRzby9NYWtlZmlsZQpAQCAtNDUsNyArNDUsNyBAQCAkKG9iaikvdmRzby5vOiAk
-KG9iaikvdmRzby5zbwogCiAjIGxpbmsgcnVsZSBmb3IgdGhlIC5zbyBmaWxlLCAubGRzIGhhcyB0
-byBiZSBmaXJzdAogJChvYmopL3Zkc28uc28uZGJnOiAkKG9iaikvdmRzby5sZHMgJChvYmotdmRz
-bykgRk9SQ0UKLQkkKGNhbGwgaWZfY2hhbmdlZCx2ZHNvbGQpCisJJChjYWxsIGlmX2NoYW5nZWQs
-dmRzb2xkX2FuZF9jaGVjaykKIExERkxBR1NfdmRzby5zby5kYmcgPSAtc2hhcmVkIC1zb25hbWU9
-bGludXgtdmRzby5zby4xIFwKIAktLWJ1aWxkLWlkPXNoYTEgLS1oYXNoLXN0eWxlPWJvdGggLS1l
-aC1mcmFtZS1oZHIKIApAQCAtNjUsNyArNjUsOCBAQCBpbmNsdWRlL2dlbmVyYXRlZC92ZHNvLW9m
-ZnNldHMuaDogJChvYmopL3Zkc28uc28uZGJnIEZPUkNFCiAjIGFjdHVhbCBidWlsZCBjb21tYW5k
-cwogIyBUaGUgRFNPIGltYWdlcyBhcmUgYnVpbHQgdXNpbmcgYSBzcGVjaWFsIGxpbmtlciBzY3Jp
-cHQKICMgTWFrZSBzdXJlIG9ubHkgdG8gZXhwb3J0IHRoZSBpbnRlbmRlZCBfX3Zkc29feHh4IHN5
-bWJvbCBvZmZzZXRzLgotcXVpZXRfY21kX3Zkc29sZCA9IFZEU09MRCAgJEAKLSAgICAgIGNtZF92
-ZHNvbGQgPSAkKExEKSAkKGxkX2ZsYWdzKSAtVCAkKGZpbHRlci1vdXQgRk9SQ0UsJF4pIC1vICRA
-LnRtcCAmJiBcCitxdWlldF9jbWRfdmRzb2xkX2FuZF9jaGVjayA9IFZEU09MRCAgJEAKKyAgICAg
-IGNtZF92ZHNvbGRfYW5kX2NoZWNrID0gJChMRCkgJChsZF9mbGFncykgLVQgJChmaWx0ZXItb3V0
-IEZPUkNFLCReKSAtbyAkQC50bXAgJiYgXAogICAgICAgICAgICAgICAgICAgICQoT0JKQ09QWSkg
-JChwYXRzdWJzdCAlLCAtRyBfX3Zkc29fJSwgJCh2ZHNvLXN5bXMpKSAkQC50bXAgJEAgJiYgXAot
-ICAgICAgICAgICAgICAgICAgIHJtICRALnRtcAorICAgICAgICAgICAgICAgICAgIHJtICRALnRt
-cCAmJiBcCisgICAgICAgICAgICAgICAgICAgJChjbWRfdmRzb19jaGVjaykKLS0gCjIuMzkuMgoK
-Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
-c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
-aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Mon, Oct 14, 2024 at 09:01:41PM +0800, Yunhui Cui wrote:
+> When SVPBMT is enabled, __acpi_map_table() will directly access the
+> data in DDR through the IO attribute, rather than through hardware
+> cache consistency, resulting in incorrect data in the obtained ACPI
+> table.
+> 
+> The log: ACPI: [ACPI:0x18] Invalid zero length.
+> 
+> We do not assume whether the bootloader flushes or not. We should
+> access in a cacheable way instead of maintaining cache consistency
+> by software.
+> 
+> Fixes: 3b426d4b5b14 ("RISC-V: ACPI : Fix for usage of pointers in different address space")
+> Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+> ---
+>  arch/riscv/kernel/acpi.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/riscv/kernel/acpi.c b/arch/riscv/kernel/acpi.c
+> index 6e0d333f57e5..2fd29695a788 100644
+> --- a/arch/riscv/kernel/acpi.c
+> +++ b/arch/riscv/kernel/acpi.c
+> @@ -210,7 +210,7 @@ void __init __iomem *__acpi_map_table(unsigned long phys, unsigned long size)
+>  	if (!size)
+>  		return NULL;
+>  
+> -	return early_ioremap(phys, size);
+> +	return early_memremap(phys, size);
+>  }
+>  
+>  void __init __acpi_unmap_table(void __iomem *map, unsigned long size)
+> @@ -218,7 +218,7 @@ void __init __acpi_unmap_table(void __iomem *map, unsigned long size)
+>  	if (!map || !size)
+>  		return;
+>  
+> -	early_iounmap(map, size);
+> +	early_memunmap(map, size);
+>  }
+>  
+Reviewed-by: Sunil V L <sunilvl@ventanamicro.com>
+
+Thanks,
+Sunil
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
