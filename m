@@ -4,88 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05AB0D2A538
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 17:50:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77A8FD2A538
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 17:51:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=llmboLiDP3wAaeHAb6PWbNHIGtwlM9gGaNlbjZoNf5w=; b=V3BfEIu+rfhJb4
-	C4zYEowi2Su/d5/RCNhU01J2Hs1/GX6dY4CF+HUdVrwkw34AJNMREhDpF0qfr1yF+hxB4F9OwkCnd
-	BjK7T/gv0hzhuvKPLVqdU/KHcPFgjbX2Ll8mL+xS0GCsg5BEgHtKsFxTb9o5A9Iv+1WMEgYKA4NQk
-	atXNYx0xYqKSIjGTYDLfuGZGjU78uR+nN9TBo4zz42tu5rKjcYCYouL/aRqZCSfnbAfKk0XoS/n0l
-	TgQU3STHcOLYkqNIDX4Jz77TiAO8rg7hU8rI4dVjLml0SLbS0qyCVzyQreUt85PUuhqJ0ypEVU+b4
-	8eJ9RdepZRC7NJuy0LEw==;
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version
+	:Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=09hTkXMjt94qKT1Cvy1MEdaVU6GvzfWsONFk+PKtsdw=; b=cmlH/K0f1Xs0vd
+	VEb0q68dY2GEB1L2hPrVH7Odmq5etdfF6AMQlLW3Dn8GyBGwga2hghDSh4C2kbIE+0+vF9nGd+TXE
+	bKOFFqNfmIaWDQ9KZ8riUf2Lt0ZtyyaREGAo1etOxrMmvjQGAp2lxCKr4OQqB79WfGUAsgtBUmUwD
+	jPpOPlIrD0ePkiT0gGih9GSrjZJghPAFtVpw+I/EzWGjcxc0nT6xbyw83dleJN6z8PEe8vSrcEgxk
+	QBy7h3/tKnyHU4xxH1fNLEnqbYjGtZnd9F6IMANrFtXjR4MZnTKTojLFwvG+L8rqr426ZhI+l8tu5
+	/APNZTXIPvKvh5n5v1/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t18AU-0000000CbAU-3bWg;
-	Wed, 16 Oct 2024 17:50:42 +0000
-Received: from mail-oo1-xc41.google.com ([2607:f8b0:4864:20::c41])
+	id 1t18Al-0000000CbEn-43Oc;
+	Wed, 16 Oct 2024 17:51:00 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t18AQ-0000000CbA8-3ZFn
+	id 1t18Aj-0000000CbEA-1IA5
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Oct 2024 17:50:40 +0000
-Received: by mail-oo1-xc41.google.com with SMTP id 006d021491bc7-5e56759e6d7so93767eaf.3
-        for <linux-riscv@lists.infradead.org>; Wed, 16 Oct 2024 10:50:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1729101037; x=1729705837; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=lCcgXYhcr1eYAzXAtgbojySY9FznxIOauj/4HQBvgNM=;
-        b=BY96tG1xiOKfHRUvzEqZnA4+u9C9yvE3AM7hVJdKt3rFugThf0SlMM2YhQ+2fXuDUk
-         L5yagoPdE1W7YyqX8C9sM6P/e1ZyTMQoDmkXbLn28K9qRCLshgilaIX1+VsRgjsz0jZP
-         y8J/OHup9AKBimikY4ysB3TioWEOKLdIz/c/nDBkeJ3Iav+zdgBOZcvnjbZo0oS9YsuP
-         AW6n+zZOU+Ftu2ZlwtaMVqUJs8OL3Si7c/vr4YcQ9GqDf0WO5+zpmI0Y5KfNbsYU8Whp
-         koalhrU9IqMswljuYDq6uw060AAsgmhfJE8USGbeWYVcXg7IajvT5ydXpi2adMS9Iqm6
-         7THg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729101037; x=1729705837;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=lCcgXYhcr1eYAzXAtgbojySY9FznxIOauj/4HQBvgNM=;
-        b=iLUvjQfvdXflPlqaxHViYlnM+mNUGxyhzM5FaAV+6XpD0ZIMooMQqAYRLKS2GR+lQ/
-         kzQj7dvvMKfQk9UrF1/PsW2j37l4mqZ+Wtd88+7YNeM1mWVfLf6Aq92k2g8V7B/wwdSi
-         DfYTjcq4pAiPSSUqTlv3j0f6gGUdn/wX2y/2qNJzsIyp2ehXPWsCwAfqdW8OVXD/TBLQ
-         XbTniAipoRkoSx4sqo+8rbqwDLZSvWyqyExlC1e9+3GrDmBChTeakISTPuGyVd1KnWoy
-         2CY/mm9alDVvyo8CvHWmEI7CCKHiXtSj/fC0yPBtPhfNTr2+3wKvdjrS2OKZmTDFyRrK
-         T9mA==
-X-Forwarded-Encrypted: i=1; AJvYcCU2hcAKr9FYf3Kr0KitZAlgVh3ft5SLSOH4EfcdBFqIKhJC6I6wa0noCwN8/k9o/kGOcHq/b7umyszDnA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyLSEwZNnJjAMPUgQxoDffIz9+2w/j+eLf7sVI6jQZl82MX3Xb1
-	V2nQZDGVarp/ACu8O2ell1XsvVZ0Viogr4M0MBaR6xV26hxvyyrbDTiOlZ6DH7A=
-X-Google-Smtp-Source: AGHT+IEf67VIalr0j/WhSRDBXq34/L7p37bnPDz/zkchcrv8dP9aBwLxPOYp06Fr1fQrz3FrmybhpA==
-X-Received: by 2002:a05:6820:2212:b0:5e7:cb2e:e01c with SMTP id 006d021491bc7-5eb1a2da0f0mr11488027eaf.7.1729101036963;
-        Wed, 16 Oct 2024 10:50:36 -0700 (PDT)
-Received: from [100.64.0.1] ([147.124.94.167])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-5eb4edbcf06sm802586eaf.2.2024.10.16.10.50.33
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 16 Oct 2024 10:50:36 -0700 (PDT)
-Message-ID: <2e25597c-6278-4bc6-a0c2-3826841c2ac0@sifive.com>
-Date: Wed, 16 Oct 2024 12:50:32 -0500
+	Wed, 16 Oct 2024 17:50:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2D967A41325;
+	Wed, 16 Oct 2024 17:50:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id ABC9DC4CEC5;
+	Wed, 16 Oct 2024 17:50:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729101055;
+	bh=hoU5DGRfSi0AM7CKet0iYo9j9GdgPMDGPjGhM0wKSno=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=joOpKlSdtlsK+cPFx91M0RfLr0zarS7AmroBAKCdc8Q0ejrq0O/uRX2Mu9NC69TJb
+	 90m/iOJ7ngKXjE2R3rVK14kxb2xf/jX+804QGx5HtIz8ekCC6OcEMeL57nGtBeMQ+l
+	 uXJY/BIcUov2zz9PloLHWdp1t8eOJaV/H6+m36YFc+C9ha0hMKMGhU4p02/TdMLgpW
+	 aHiSQ3SEWNrl2yLA8NHES50JcGH5DUZSz7jBO8l9/nJh/hNnh0Pj7mABKTouS7pL8Q
+	 5ihxkPJcb4XwKMhV7jBOzA/EFFhEilcwOjjhNM2Kej/J61y3LsSASiwrHgpIvTxvy+
+	 Frer/KfZFs/tA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 97252D2A53B;
+	Wed, 16 Oct 2024 17:50:55 +0000 (UTC)
+From: Celeste Liu via B4 Relay <devnull+CoelacanthusHex.gmail.com@kernel.org>
+Date: Thu, 17 Oct 2024 01:49:49 +0800
+Subject: [PATCH] riscv/entry: get correct syscall number from
+ syscall_get_nr()
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 06/10] riscv: Allow ptrace control of the tagged
- address ABI
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
- linux-kernel@vger.kernel.org, Anup Patel <anup@brainfault.org>,
- Conor Dooley <conor@kernel.org>, kasan-dev@googlegroups.com,
- Atish Patra <atishp@atishpatra.org>, Evgenii Stepanov <eugenis@google.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Rob Herring <robh+dt@kernel.org>,
- "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
-References: <20240829010151.2813377-1-samuel.holland@sifive.com>
- <20240829010151.2813377-7-samuel.holland@sifive.com> <ZuOoqTfKs/7G075O@ghost>
-Content-Language: en-US
-From: Samuel Holland <samuel.holland@sifive.com>
-In-Reply-To: <ZuOoqTfKs/7G075O@ghost>
+Message-Id: <20241017-fix-riscv-syscall-nr-v1-1-4edb4ca07f07@gmail.com>
+X-B4-Tracking: v=1; b=H4sIALz8D2cC/x2MSQqAMAwAvyI5G7AuFf2KeNCaakCqJFAU8e8Wj
+ wMz84CSMCn02QNCkZWPkMDkGbhtCishL4mhLMraFMai5wuF1UXUW9207xgEO9POjbW+a30FKT2
+ Fkvdvh/F9P1Mix5BmAAAA
+X-Change-ID: 20241016-fix-riscv-syscall-nr-917b566f97f3
+To: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@rivosinc.com>, 
+ Celeste Liu <coelacanthushex@gmail.com>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, Alexandre Ghiti <alex@ghiti.fr>, 
+ "Dmitry V. Levin" <ldv@strace.io>, Andrea Bolognani <abologna@redhat.com>, 
+ Felix Yan <felixonmars@archlinux.org>, Ruizhe Pan <c141028@gmail.com>, 
+ Shiqi Zhang <shiqi@isrc.iscas.ac.cn>, Guo Ren <guoren@kernel.org>, 
+ Yao Zi <ziyao@disroot.org>, Han Gao <gaohan@iscas.ac.cn>, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org, Celeste Liu <CoelacanthusHex@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2366;
+ i=CoelacanthusHex@gmail.com; h=from:subject:message-id;
+ bh=lQHWH4mdPxR6fSPtGuLhEmZBLbEpDpJ9XVmyzF+kIjU=;
+ b=owJ4nJvAy8zAJfY4pvNJRPo6U8bTakkM6fx//rDbHWUTjFeQ1lxc+evTyrQnVWz7ZnMl5gXGN
+ bKeX89itrCjlIVBjItBVkyRRWzn09fLSh99WMZrMgNmDisTyBAGLk4BmIiTFyPDhFnn9dIvunfM
+ ezeRcxLDm791Uyo+aE9KqdXql5lxwCePn5HhUrLiJuNJhmd61+wIi3naMVdOfk7c5X/cwk3Xt4c
+ 4mnjxAQABV0jh
+X-Developer-Key: i=CoelacanthusHex@gmail.com; a=openpgp;
+ fpr=892EBC7DC392DFF9C9C03F1D15F4180E73787863
+X-Endpoint-Received: by B4 Relay for CoelacanthusHex@gmail.com/default with
+ auth_id=84
+X-Original-From: Celeste Liu <CoelacanthusHex@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241016_105038_955813_7FB2D5B6 
-X-CRM114-Status: GOOD (  19.85  )
+X-CRM114-CacheID: sfid-20241016_105057_516337_5158BE09 
+X-CRM114-Status: GOOD (  12.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,126 +93,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: CoelacanthusHex@gmail.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Charlie,
+From: Celeste Liu <CoelacanthusHex@gmail.com>
 
-On 2024-09-12 9:51 PM, Charlie Jenkins wrote:
-> On Wed, Aug 28, 2024 at 06:01:28PM -0700, Samuel Holland wrote:
->> This allows a tracer to control the ABI of the tracee, as on arm64.
->>
->> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
->> ---
-> 
-> Since this code is identical to the arm64 port, could it be extracted
-> out into the generic ptrace.c and ifdef on either CONFIG_RISCV_ISA_SUPM
-> or CONFIG_ARM64_TAGGED_ADDR_ABI by adding some generic flag like
-> CONFIG_HAVE_ARCH_TAGGED_ADDR_ABI?
+The return value of syscall_enter_from_user_mode() is always -1 when the
+syscall was filtered. We can't know whether syscall_nr is -1 when we get -1
+from syscall_enter_from_user_mode(). And the old syscall variable is
+unusable because syscall_enter_from_user_mode() may change a7 register.
+So get correct syscall number from syscall_get_nr().
 
-Yes, it could be factored out, though I don't know if it is worth the overhead
-for these two trivial functions. I don't see any other code like this outside of
-arch/.
+So syscall number part of return value of syscall_enter_from_user_mode()
+is completely useless. We can remove it from API and require caller to
+get syscall number from syscall_get_nr(). But this change affect more
+architectures and will block more time. So we split it into another
+patchset to avoid block this fix. (Other architectures can works
+without this change but riscv need it, see Link: tag below)
 
-Regards,
-Samuel
+Fixes: 61119394631f ("riscv: entry: always initialize regs->a0 to -ENOSYS")
+Reported-by: Andrea Bolognani <abologna@redhat.com>
+Closes: https://github.com/strace/strace/issues/315
+Link: https://lore.kernel.org/all/59505464-c84a-403d-972f-d4b2055eeaac@gmail.com/
+Signed-off-by: Celeste Liu <CoelacanthusHex@gmail.com>
+---
+ arch/riscv/kernel/traps.c | 13 ++++++++++---
+ 1 file changed, 10 insertions(+), 3 deletions(-)
 
->>
->> (no changes since v1)
->>
->>  arch/riscv/kernel/ptrace.c | 42 ++++++++++++++++++++++++++++++++++++++
->>  include/uapi/linux/elf.h   |  1 +
->>  2 files changed, 43 insertions(+)
->>
->> diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
->> index 92731ff8c79a..ea67e9fb7a58 100644
->> --- a/arch/riscv/kernel/ptrace.c
->> +++ b/arch/riscv/kernel/ptrace.c
->> @@ -28,6 +28,9 @@ enum riscv_regset {
->>  #ifdef CONFIG_RISCV_ISA_V
->>  	REGSET_V,
->>  #endif
->> +#ifdef CONFIG_RISCV_ISA_SUPM
->> +	REGSET_TAGGED_ADDR_CTRL,
->> +#endif
->>  };
->>  
->>  static int riscv_gpr_get(struct task_struct *target,
->> @@ -152,6 +155,35 @@ static int riscv_vr_set(struct task_struct *target,
->>  }
->>  #endif
->>  
->> +#ifdef CONFIG_RISCV_ISA_SUPM
->> +static int tagged_addr_ctrl_get(struct task_struct *target,
->> +				const struct user_regset *regset,
->> +				struct membuf to)
->> +{
->> +	long ctrl = get_tagged_addr_ctrl(target);
->> +
->> +	if (IS_ERR_VALUE(ctrl))
->> +		return ctrl;
->> +
->> +	return membuf_write(&to, &ctrl, sizeof(ctrl));
->> +}
->> +
->> +static int tagged_addr_ctrl_set(struct task_struct *target,
->> +				const struct user_regset *regset,
->> +				unsigned int pos, unsigned int count,
->> +				const void *kbuf, const void __user *ubuf)
->> +{
->> +	int ret;
->> +	long ctrl;
->> +
->> +	ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, &ctrl, 0, -1);
->> +	if (ret)
->> +		return ret;
->> +
->> +	return set_tagged_addr_ctrl(target, ctrl);
->> +}
->> +#endif
->> +
->>  static const struct user_regset riscv_user_regset[] = {
->>  	[REGSET_X] = {
->>  		.core_note_type = NT_PRSTATUS,
->> @@ -182,6 +214,16 @@ static const struct user_regset riscv_user_regset[] = {
->>  		.set = riscv_vr_set,
->>  	},
->>  #endif
->> +#ifdef CONFIG_RISCV_ISA_SUPM
->> +	[REGSET_TAGGED_ADDR_CTRL] = {
->> +		.core_note_type = NT_RISCV_TAGGED_ADDR_CTRL,
->> +		.n = 1,
->> +		.size = sizeof(long),
->> +		.align = sizeof(long),
->> +		.regset_get = tagged_addr_ctrl_get,
->> +		.set = tagged_addr_ctrl_set,
->> +	},
->> +#endif
->>  };
->>  
->>  static const struct user_regset_view riscv_user_native_view = {
->> diff --git a/include/uapi/linux/elf.h b/include/uapi/linux/elf.h
->> index b54b313bcf07..9a32532d7264 100644
->> --- a/include/uapi/linux/elf.h
->> +++ b/include/uapi/linux/elf.h
->> @@ -448,6 +448,7 @@ typedef struct elf64_shdr {
->>  #define NT_MIPS_MSA	0x802		/* MIPS SIMD registers */
->>  #define NT_RISCV_CSR	0x900		/* RISC-V Control and Status Registers */
->>  #define NT_RISCV_VECTOR	0x901		/* RISC-V vector registers */
->> +#define NT_RISCV_TAGGED_ADDR_CTRL 0x902	/* RISC-V tagged address control (prctl()) */
->>  #define NT_LOONGARCH_CPUCFG	0xa00	/* LoongArch CPU config registers */
->>  #define NT_LOONGARCH_CSR	0xa01	/* LoongArch control and status registers */
->>  #define NT_LOONGARCH_LSX	0xa02	/* LoongArch Loongson SIMD Extension registers */
->> -- 
->> 2.45.1
->>
->>
->> _______________________________________________
->> linux-riscv mailing list
->> linux-riscv@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-riscv
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index 51ebfd23e0076447518081d137102a9a11ff2e45..3125fab8ee4af468ace9f692dd34e1797555cce3 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -316,18 +316,25 @@ void do_trap_ecall_u(struct pt_regs *regs)
+ {
+ 	if (user_mode(regs)) {
+ 		long syscall = regs->a7;
++		long res;
+ 
+ 		regs->epc += 4;
+ 		regs->orig_a0 = regs->a0;
+-		regs->a0 = -ENOSYS;
+ 
+ 		riscv_v_vstate_discard(regs);
+ 
+-		syscall = syscall_enter_from_user_mode(regs, syscall);
++		res = syscall_enter_from_user_mode(regs, syscall);
++		/*
++		 * Call syscall_get_nr() again because syscall_enter_from_user_mode()
++		 * may change a7 register.
++		 */
++		syscall = syscall_get_nr(current, regs);
+ 
+ 		add_random_kstack_offset();
+ 
+-		if (syscall >= 0 && syscall < NR_syscalls)
++		if (syscall < 0 || syscall >= NR_syscalls)
++			regs->a0 = -ENOSYS;
++		else if (res != -1)
+ 			syscall_handler(regs, syscall);
+ 
+ 		/*
+
+---
+base-commit: 2f87d0916ce0d2925cedbc9e8f5d6291ba2ac7b2
+change-id: 20241016-fix-riscv-syscall-nr-917b566f97f3
+
+Best regards,
+-- 
+Celeste Liu <CoelacanthusHex@gmail.com>
+
 
 
 _______________________________________________
