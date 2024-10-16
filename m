@@ -4,85 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FFD9D2A53C
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 18:08:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FFF1D2A53C
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 18:16:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FjxdPi/O9br4RNrWMhRbRV1YIdsiRwDG7ZWSghn0Vn4=; b=YhpfwEwILBh13k
-	4svmMStCDcc9yvvSbDqs6gptgQeFVOL9rhHsraUNCoCtlpupAwn2eVrCEgPj3jQjUKukljI1spsuP
-	xV0xh2lSz0oxsxqrA3Z5Y3sjpAf7fJLYLvLxTQ2SQ1kvM5yLcdMfFnf8Eil+ih5pMfcHq3LmF/Csh
-	O2dAot1/faVDrRVqSArJrvXMYDWCZhOOpSdyfsQn1sDuNmfhg33Gfw6ndFALp2o6DHxqHmeMvyRCn
-	ThIjqqdjEQSMpkw6dG+SaAc0e1z43ubFks39b7LGupMAuEsnMhIo0Or+DgU0lsj1RUQW8bCaxHqA7
-	wuJY0Eyy24Tq+kfVKgfQ==;
+	List-Owner; bh=DaVwrvPNvj8wHwrHIWeDLf/AU6ED+xFxz2Gf9qdOKO4=; b=ISy9UyNA3mESTa
+	ScH4kX1RxvaZJmx0s2vsz5D+ddsk+qRYWsHTHSKYr4oyrnfb2u7OIfhNv7xCXIkuk2QnT/WYBCQyt
+	bq/bHFDr+BmsFNFppBVDNa04+TsGOEnqyfvBvGvPTlaVP8KnAxmzRRI5ZOxRQQs+ziudIbjxsT3hV
+	+586PLphcFuPjOUJqM3rDbiQ9Eb3Oqsct7yGhi1I7q3FC7QPeqsATY3MfWHXG7OV3PqCRd8HseHvQ
+	11m9r+zyhjjHG4dds1S1zzKIVdqvz+kF7/iuXa8mNchAkljA9nFZhHbgH+y8vGQNfAANSluGezFct
+	Q9vnblZOo1MGUpUJ6TxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t18RS-0000000Cdnz-3zuA;
-	Wed, 16 Oct 2024 18:08:14 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1t18ZT-0000000Cesn-2uXC;
+	Wed, 16 Oct 2024 18:16:31 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t18RP-0000000CdnW-2qYf
+	id 1t18YD-0000000Cei8-2u45
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Oct 2024 18:08:13 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-20cdb889222so945595ad.3
-        for <linux-riscv@lists.infradead.org>; Wed, 16 Oct 2024 11:08:10 -0700 (PDT)
+	Wed, 16 Oct 2024 18:15:15 +0000
+Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-7ea79711fd4so71767a12.0
+        for <linux-riscv@lists.infradead.org>; Wed, 16 Oct 2024 11:15:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1729102090; x=1729706890; darn=lists.infradead.org;
+        d=tenstorrent.com; s=google; t=1729102512; x=1729707312; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=6Do5NZzoXtrPkRCkHPB7RbxDjXCyCXzT+J3lpLdQhsU=;
-        b=TKZ4/bAxyU48UoSHe1I6anIl+Kzyrkq/kLpUfRhDYusMhl34D/JkuVyelmlhBt7JR+
-         p0mhRzAV/aNyBhdQQeUw/zvYdSd8RaItazOuX2kGyx2lwI4Y1fLhGKd+f/WIRbKe/okq
-         QUosiaIwjzZFw/MdfbDadr1xnoduxqoDbWvK1XJhFUas8Ifpg9vGAvJj1YFHbolxb88H
-         2teMG29TrVN3mo44MwJ8pnm6dfgt5+4L4X9es1yR3zVwSKt53Jh0SnWskwud6flwPJ6R
-         5mQZo94gmSfh8F088Nxtd0G3fdLCXAzhLD772xip1bdd0QGFqYxtFSoO8PkJzY6rAKA+
-         spig==
+        bh=fkgg/XiYmuwxuU0YWtVe0AMhNojrUfbhQVkInOv4lBU=;
+        b=FkNW1qU03AkEF/+2EvXmiNd151kfg9QR5lWY9I2f7YANEOUe2AXMa5y8sYv7ija39e
+         Xh5ZYGomIJIjuruLhdRy7hvZazNRNFLq60A3KA0zURjneyrXQngYaxhVqXRzDNwOjFgf
+         skXWt5qT2zdVgFG/Xp+jtluE9wDx0LYd7fzGiyWRbhEkqKR1Yafmy7bGcS1DmYxr6bt6
+         dJry+rppkJinu9wouppfoG1X3K6NmD3ccIRa54zhXgvvDT+eRNNPgtyQcb2yy78Jdb/P
+         9eU46/F1jB5p/ZvHueBrdflwbLCknFEJ14+hYmRhtjbYUHXmhk9qY4BDO2/stYFkrxW8
+         j8mA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729102090; x=1729706890;
+        d=1e100.net; s=20230601; t=1729102512; x=1729707312;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=6Do5NZzoXtrPkRCkHPB7RbxDjXCyCXzT+J3lpLdQhsU=;
-        b=wP3JRl5K9lES5/89R+edfGJm9CWu8v0e0ov1jI87NGRbNVh2PG5JPUDf87VOF/WtFU
-         jpeOB/rqHtvPmpOHJgYMCy8ToAvPrWkF1OpB7g6bmTfJCLNUskZumg3R6wpesCaPh0YT
-         6geh4hrMQOAuCcES/pmDSfAc3CK/IPBZSuqRycuTAR+lzjlrAumiRLU3lwfvrKgTqnaE
-         fS/VUhjMOX8brxG8cHNbCfgsCfAXxlWsQjB5RYusWy1DznuinqYdrl6Ct+kMOj7wzyyF
-         CRF2UoilixtOSwluqbJwTBKKqlEU4Iz3wu1YR+j3nNsa4xkFxlPQbqlw/Qi0IegrTb+s
-         6zBg==
-X-Forwarded-Encrypted: i=1; AJvYcCV1K+SQvHL6Tc+J1pE2zfMNfZPRg9oa2KTMYhpK5Koobj6kUg+Xr4bW4rhmemH128neldSEV0yd3aYpyg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxw/X8a+ePCWFpDrPYBQjoL5OXkSfY0bGAuxNAafH7fKgc4evNc
-	RDyXTYMAdTCQj222pN+b0rWDwOVOaHAEXSxbGFfkLlAaadzdwMws9lIIfufrINA=
-X-Google-Smtp-Source: AGHT+IHk7EqhzNNVg4OZzagkiI9u/M85Rdln26E/pLQmb1Zz13C4O48RJDEyeV5O9x9KbH9fTQkQcg==
-X-Received: by 2002:a17:903:41c5:b0:20c:c482:1d66 with SMTP id d9443c01a7336-20cc4821f85mr213342205ad.35.1729102090025;
-        Wed, 16 Oct 2024 11:08:10 -0700 (PDT)
+        bh=fkgg/XiYmuwxuU0YWtVe0AMhNojrUfbhQVkInOv4lBU=;
+        b=TwMMyd15uGmcmh9+fD3kmq10xTqNoTLMAxdNpzQ3zTwR4fAMVfxGLfPG4+G10erohw
+         85BC6b7GXqouFXB2gb/+ysTzbpKyJbdXrnN0i3cZPNtZ3cGYCpdo7eV2UgKuy30tSos/
+         +FCXxamLEtH32gop+tB38XPhiiywW2s1B7bg4U0jesVgWOpfXyPrsBoDdPOIZeLv1QAL
+         g+76Q4csi4DBtPhxhBJbJTtCCJYr5oVHsKR575q0YMGEb2de6PSjIKusX8uZ1HPiLx/D
+         xQJ4jPQ6ET5A/aTcqpVtdsXLa1LJgi7J+MUzF3heFFxmgdxcpAWtfXla719hmbGxa4KU
+         qMqw==
+X-Forwarded-Encrypted: i=1; AJvYcCVdeVAiWhyoHV2q7UXcJM2GfzYiUMoaNIYmqv2g2+O+vWe4Jbpvb2viZrIv5hYUst4PeaIAZvyEow1wxA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwItliRxKSw0PzNIW+wX2sxu66zOF95cMH9noxHE4EDZQCKLC3x
+	ocH1TBdQZ1M603mAvg1x2B+F2/NB3VpVYh7n5bQVceXkXqeEMcY+osBAsUB13v0=
+X-Google-Smtp-Source: AGHT+IFPs/1VOYlgs8ynT/CESZBXXAGDk0R6M8OaJ6CAurUUdtWENPzhZVi9D9E3OSJvDP5dBev+bQ==
+X-Received: by 2002:a17:90a:5647:b0:2e1:682b:361a with SMTP id 98e67ed59e1d1-2e3ab8bb22bmr5177503a91.28.1729102512217;
+        Wed, 16 Oct 2024 11:15:12 -0700 (PDT)
 Received: from x1 (71-34-69-82.ptld.qwest.net. [71.34.69.82])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-20d18036714sm31306885ad.152.2024.10.16.11.08.09
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e3e08d082dsm79600a91.23.2024.10.16.11.15.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Oct 2024 11:08:09 -0700 (PDT)
-Date: Wed, 16 Oct 2024 11:08:08 -0700
+        Wed, 16 Oct 2024 11:15:11 -0700 (PDT)
+Date: Wed, 16 Oct 2024 11:15:10 -0700
 From: Drew Fustini <dfustini@tenstorrent.com>
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: drew@pdp7.com, guoren@kernel.org, wefu@redhat.com,
-	jassisinghbrar@gmail.com, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, m.szyprowski@samsung.com,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v4 0/3] Introduce support for T-head TH1520 Mailbox
-Message-ID: <ZxABCCJcoTmxiRXB@x1>
-References: <CGME20241014123409eucas1p2a3a3f085c0630073326ca299a870f3ee@eucas1p2.samsung.com>
- <20241014123314.1231517-1-m.wilczynski@samsung.com>
- <Zw1jdl64f5l8N+Km@x1>
- <431e98cd-6c53-4478-86a6-e532be4ed58e@samsung.com>
+To: Colin Ian King <colin.i.king@gmail.com>
+Cc: Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Linus Walleij <linus.walleij@linaro.org>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org,
+	kernel-janitors@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH][next] pinctrl: th1520: Fix potential null pointer
+ dereference on func
+Message-ID: <ZxACrl/0hUE62eGN@x1>
+References: <20241016155655.334518-1-colin.i.king@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <431e98cd-6c53-4478-86a6-e532be4ed58e@samsung.com>
+In-Reply-To: <20241016155655.334518-1-colin.i.king@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241016_110811_750446_1644A7A4 
-X-CRM114-Status: GOOD (  29.65  )
+X-CRM114-CacheID: sfid-20241016_111513_770957_F2F15DB0 
+X-CRM114-Status: GOOD (  16.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,57 +96,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 16, 2024 at 12:03:05AM +0200, Michal Wilczynski wrote:
+On Wed, Oct 16, 2024 at 04:56:55PM +0100, Colin Ian King wrote:
+> The initialization of muxtype deferences pointer func before func
+> is sanity checked with a null pointer check, hence we have a null
+> pointer deference issue. Fix this by only deferencing func with
+> the assignment to muxtype after func has been null pointer checked.
 > 
+> Fixes: 1fc30cd92770 ("pinctrl: th1520: Factor out casts")
+> Signed-off-by: Colin Ian King <colin.i.king@gmail.com>
+> ---
+>  drivers/pinctrl/pinctrl-th1520.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
 > 
-> On 10/14/24 20:31, Drew Fustini wrote:
-> > On Mon, Oct 14, 2024 at 02:33:11PM +0200, Michal Wilczynski wrote:
-> >> The T-head TH1520 SoC supports a hardware mailbox that enables two cores
-> >> within the SoC to communicate and coordinate [1]. One example of such
-> >> coordination would be cooperation with the T-Head E902 core, which is
-> >> responsible for power, clock, and resource management. For example, in
-> >> the specific case of the BXM-4-64 GPU, it needs to be powered on by the
-> >> E902 core, and the kernel running on the E910 needs to 'ask' the
-> >> firmware running on the E902 core to enable power to the GPU island.
-> >> Given recent advancements in work on the upstream GPU driver [2], there
-> >> is an emerging need to get this code in the mainline kernel.
-> >>
-> >> Link: https://protect2.fireeye.com/v1/url?k=2021d256-7fbdfb7c-20205919-000babe598f7-ca654d1a9bc866ac&q=1&e=11e97355-e6e9-4aac-a996-cc475156b3c8&u=https%3A%2F%2Fopenbeagle.org%2Fbeaglev-ahead%2Fbeaglev-ahead%2F-%2Fblob%2Fmain%2Fdocs%2FTH1520%2520System%2520User%2520Manual.pdf [1]
-> >> Link: https://gitlab.freedesktop.org/imagination/linux-firmware/-/issues/1 [2]
-> >>
-> >> Thanks, Krzysztof and Rob, for your review! Since this series is gaining
-> >> some interest, I've dropped the RFC prefix with the v3 update.
-> > 
-> > I've applied this series and booted okay. I see the driver loaded:
-> > 
-> >  /sys/devices/platform/soc/ffffc38000.mailbox/driver points to
-> >  /sys/bus/platform/drivers/th1520-mbox
-> > 
-> > How do you test that the communication with the E902 is working
-> > correctly?
+> diff --git a/drivers/pinctrl/pinctrl-th1520.c b/drivers/pinctrl/pinctrl-th1520.c
+> index 7474d8da32f9..e641bad6728c 100644
+> --- a/drivers/pinctrl/pinctrl-th1520.c
+> +++ b/drivers/pinctrl/pinctrl-th1520.c
+> @@ -803,11 +803,12 @@ static int th1520_pinmux_set_mux(struct pinctrl_dev *pctldev,
+>  {
+>  	struct th1520_pinctrl *thp = pinctrl_dev_get_drvdata(pctldev);
+>  	const struct function_desc *func = pinmux_generic_get_function(pctldev, fsel);
+> -	enum th1520_muxtype muxtype = (uintptr_t)func->data;
+> +	enum th1520_muxtype muxtype;
+>  
+>  	if (!func)
+>  		return -EINVAL;
+>  
+> +	muxtype = (uintptr_t)func->data;
+>  	return th1520_pinmux_set(thp, thp->desc.pins[gsel].number,
+>  				 th1520_pad_muxdata(thp->desc.pins[gsel].drv_data),
+>  				 muxtype);
+> -- 
+> 2.39.5
 > 
-> Thank you for your interest. To test this, I've prepared a diff that
-> includes the missing drivers utilizing the mailbox and enabled the GPU
-> node in the device tree to use the drm/imagination driver.
-> 
-> I've observed that when the power was turned off through the E902 core
-> using the mailbox, the drm/imagination driver would hang in
-> pvr_load_gpu_id() while attempting to read its BVNC from the register.
-> However, when the GPU was turned on via the mailbox, the BVNC could be
-> read correctly. Still, the firmware fails to boot due to some missing
-> programming in the drm/imagination driver, which is currently being
-> worked on. I've briefly explained this in the first commit of this
-> series.
-> 
-> If you'd like to try this yourself, I'd be happy to push these setups to
-> a GitHub repository and provide you with a link, so you can see the
-> setup in action.
 
-I think that would be helpful for myself and others to be able to see
-the interaction.
+Acked-by: Drew Fustini <dfustini@tenstorrent.com>
 
-Thanks,
-Drew
+I've tested this on top of next-20241016 on the BeagleV Ahead and
+LicheePi 4A.
+
+thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
