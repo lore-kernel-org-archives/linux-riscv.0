@@ -4,65 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D58CD2A555
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 20:28:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8097D2A55A
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 20:28:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ek0Xobrgmf9BqBYdk9jn8E2Pcdlji4sWhgMpXndVjrg=; b=VQEyHBc4wzvDug
-	h9zKFoxZGzsgE5HG8g3ryk1amDUBDxY1xt1LZAC1fFrYbZGN1Y98Uaamm8OaVn1P0AXKZxTGrbfA8
-	r0ZePvyq7IhRko4Nxyu7HTPtJB3QPj0CBd7nIg7SYjBgz8z5nvKV8T1FUr3tsYlFLhvFByqR9B5kK
-	WrP53MMAa09ZUpuQHpBQAfaK1y0erPydDK7vOg/YW6CNODOaYONKZqLeKYj4X6z8xm+3Ymt0nwiGC
-	MdOygyzHFH/nZ7hO1yZz2ioy74+d3Gfcaoul8HCvizvfBjOpWbFvYL6TO/L2DzP5+CbvQmGUP6jzy
-	LTe5MOc7pMwxNUBJeROQ==;
+	List-Owner; bh=mxTpqhqW93UKyrk7ImHvDwMdLwhhIkh+1WRsoqlSYO4=; b=BxP/rrsBiibRhV
+	Bdw6om1/n59ZdF1uPkb3YzKwvai/1XkAE8svVj/qYRYg4Z0C7EGHph+0ZxbxXhGWczGafYsErEDfJ
+	ilXlTiQOOA1zKaAzg5Ex4miW+MtRmZLFFJ2dv3NMXOsgHlO3Qja6Iy1A9idv6Ku7Ojn8B28aiXxdS
+	dgPdRnetBK/M5gEFvEfCCP7CY2CxITHHMDh3d35WkKupD0R+h9Ae458vccGPP0JnueaI48cuLi57D
+	LMKrD961O4obht95AmhfYAuCLZtGtX1JB2eQBCIpErnEessAEI91ABIg09OtarIhBYNUvhkeQIBkb
+	Ch3XvAn59jLfD/2+LWtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t1AdL-0000000CwZt-0M26;
-	Wed, 16 Oct 2024 20:28:39 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1t1AdM-0000000CwaZ-23qJ;
+	Wed, 16 Oct 2024 20:28:40 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t1AdI-0000000CwYU-0Kir
+	id 1t1AdJ-0000000CwZO-445W
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 16 Oct 2024 20:28:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=1uGi1aMTi7US+D+u4yTVB4/InTmfvX6ggJnfvqiu44I=; b=koJDEWgxNTrvwQHwHf+bRLHeOD
+	7Our+Eans6H68mdfN+Bc1uqt7YOglL/eUsOYCz3UuE431m4W/GGhhobL7iK6kwvZPGzRrS8O9nkhW
+	OacsdozcBQ5VWyFHh1sP94qH2xHo/P3MfT0ZZecfpp7h59WzSZvanxAzZ3EADus1xPpecjSuXoQX7
+	Wr41GWeV1HxiLZsl/vowAEqLk0+yrrqSCQ0EDIGiK/GLyI+6wOV4cr4ouBpxkozrJ8HvUP45NwG+1
+	TEHjSypKPAsqPtXCzzfhZguDx7igpgoESAErUmluyuIkqxXDx7tsBR+UylKlmoRd3ozOzsmhNeCZN
+	qNrzYiDw==;
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t1AdC-00000006u6s-39Gl
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Oct 2024 20:28:37 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-2e28b75dbd6so173805a91.0
-        for <linux-riscv@lists.infradead.org>; Wed, 16 Oct 2024 13:28:35 -0700 (PDT)
+	Wed, 16 Oct 2024 20:28:33 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-2e2e8c8915eso176540a91.3
+        for <linux-riscv@lists.infradead.org>; Wed, 16 Oct 2024 13:28:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1729110515; x=1729715315; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1729110508; x=1729715308; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=5WI0PfAqEvWugCZ5STUUK7Rk7SGo8azDpX4lf/J5+9s=;
-        b=Agdp0yhLpC4YsnpKiBOz3ZTJmbwN7pS2rmK5FEFT/CC2COI7lhsso6yob+CqUzWqoj
-         japKE8rtOhVO1PSeTdV7fVnkh2n8hdvtuc52JpkUC2givhTBmkBPrrRS9Zb8peWLX4W+
-         R9n/1U4E54OVSoM8i+WfAXHh/Ju+D93VabHQDal8wn9ZECajgAzPEHNe2bHMgnAvr3rZ
-         1yyKv62dWaw3pGNrK22kxuKKmzUnC4yWCPA/LcyGuIubcYpVRC/LM9+cMSyUVA2reDuM
-         arDCf/W75OQjYkNlfHsRUlbNTBAFZPwQjWmPoyYAfW+V6GAfdVkcomUcqHGS5zJyXQJL
-         zYUA==
+        bh=1uGi1aMTi7US+D+u4yTVB4/InTmfvX6ggJnfvqiu44I=;
+        b=CCkG8uvhqxM4UrqWo0LSKo7pqVAMNo6yBrbgiVzapsZOOhyqH+IecVf5K0zBKLkRqQ
+         F4co1ROr5jX1Pp7dFhyJRMCfCX1Gp7lfo6o3C3vpi1ls4g5UxhZEPv/St8Qihk/LpZci
+         GT0H75gJIw7a9hENFZu2FVi52xw3Dwm8DNB91ZZFWJR8ZmV34U0xUzr+z86yy6Dr90P6
+         qVWClkNLC4FMnAY7v41OOb2I2jAJT1sxnFZjpxZ7E62HA2igw9pL1rZcFMvvjax0tRs6
+         CGPRzsIHzsay3pbIXIrdOAT5KLhPj46A+JXtXjcORj34obY1vLU7wjA3sfBq/nGhsf5a
+         tPQw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729110515; x=1729715315;
+        d=1e100.net; s=20230601; t=1729110508; x=1729715308;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=5WI0PfAqEvWugCZ5STUUK7Rk7SGo8azDpX4lf/J5+9s=;
-        b=xB0xhN0hB9vEDJ5E7gX/KbfV56N2i9TSiKqbDf5TFSrEPpTM7R2/LXrjcYWLzMPucy
-         Yya525LthGA5wdS2gasIq3PmPvSz2PnpBNp0QMyLGfcYzFSk9gCwH7JDjn042xPBct34
-         R7h0c9qFIX8BUUE16etybTS5dTm3yXHPDkNiaJb+rM3eINGW6pqoPp9ZMP6L8rmPSzcJ
-         OzDBeC17d517kJVKVjvEq+vfNsjKZnMCsu6pb0LuEDJN5Q+vTfGTBCJNyFUpjF5nsBXN
-         VPMZkQQR2VZuANqytpojR0LBZ9bqRfLBdoEhlNxdpcsSYMegmvQy6cT06zsBc0Utvu4b
-         bwwQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU699ObfbFWIkznhF7Fche89Q4d8ahnXUGe60ZDveRxezWMJp8UxLxkvPk8/PJhU96PfUkgpSswo67XDQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyDo7BoMPtX8LSDObjH2i2lj28TU9T2HQ91xDZSZX1L+MypZHxI
-	rKeLEQUoQI3fyWjgGqkMHX2a8awoFHuhM5DgLAEHimcz64q6/XPCh9vgJBPVvfw=
-X-Google-Smtp-Source: AGHT+IGcSXANWUtxTrqBQY826KCMZtK9Mvi3eTSETMPgwJlkMpZfT0sjFjvzgcJsn91FjGVwM3cBqA==
-X-Received: by 2002:a17:90b:802:b0:2e1:ce7b:6069 with SMTP id 98e67ed59e1d1-2e31538f1camr20096845a91.33.1729110515177;
-        Wed, 16 Oct 2024 13:28:35 -0700 (PDT)
+        bh=1uGi1aMTi7US+D+u4yTVB4/InTmfvX6ggJnfvqiu44I=;
+        b=eS2x747dMl++MDorRF3tM2YFheIR85w9A2IOpy9ZgewvLVt/008HKmGENztlv7E14w
+         6/CldlxwHAt3gLBM7kqX7CICmXcHQDCkdSIl1KgvU7C61ggOgWk4yv18GBPghyohZN+c
+         k+XjE96Ad/oB75QQ9Vj60pH8qDYHoqfFqqHhkm6gOWQhwVU4axfLMB7jomAPeIWbAnbj
+         FYPUb1ZNBgQLDAPn3Tza4+N6+m5DtBkSrHUXP9OakovIdvkiDJPHlR9reQB3NCd0K2FB
+         EijI2dYvOI7T9s/esKz/MNrgFT9VtKk1yVS37CGJDa/8mZQWTj9d8OIezZuf/YZqqPit
+         2BdQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVR6ebEAWLTyIF98R9SlBBrTE9WAkYXgKE1KIATfsKpUhS+i5uybIWk/m2NISCU25XZDaEOpvFsQHL8cw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz4p+zgzcqNT/uRMWsTDmZ8WroeXCVx7ZaCLXZrUauYz62eGnpF
+	8TdYJJPXS83YFab0Axtid6ixBeV0pGD5JT+EhG9dhRMd0R3s76apPpsK1NkBXxg=
+X-Google-Smtp-Source: AGHT+IGSEnrSg4Mtd2QlgC0KM50/DbbUFup+f+Rpyjxlo7a/auHeGt420O/OiC9CP9awld5TXTH74g==
+X-Received: by 2002:a17:90b:104d:b0:2cb:5aaf:c12e with SMTP id 98e67ed59e1d1-2e315371d8emr21626897a91.37.1729110508003;
+        Wed, 16 Oct 2024 13:28:28 -0700 (PDT)
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e3e08f8f89sm228613a91.38.2024.10.16.13.28.33
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e3e08f8f89sm228613a91.38.2024.10.16.13.28.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Oct 2024 13:28:34 -0700 (PDT)
+        Wed, 16 Oct 2024 13:28:27 -0700 (PDT)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	linux-riscv@lists.infradead.org
@@ -84,17 +99,16 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Charlie Jenkins <charlie@rivosinc.com>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
 	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH v5 10/10] KVM: riscv: selftests: Add Smnpm and Ssnpm to get-reg-list test
-Date: Wed, 16 Oct 2024 13:27:51 -0700
-Message-ID: <20241016202814.4061541-11-samuel.holland@sifive.com>
+Subject: [PATCH v5 06/10] riscv: Allow ptrace control of the tagged address ABI
+Date: Wed, 16 Oct 2024 13:27:47 -0700
+Message-ID: <20241016202814.4061541-7-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.45.1
 In-Reply-To: <20241016202814.4061541-1-samuel.holland@sifive.com>
 References: <20241016202814.4061541-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241016_132836_137913_F78D0BB6 
-X-CRM114-Status: UNSURE (   9.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241016_212831_131349_6738C609 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,70 +125,96 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add testing for the pointer masking extensions exposed to KVM guests.
+This allows a tracer to control the ABI of the tracee, as on arm64.
 
-Reviewed-by: Anup Patel <anup@brainfault.org>
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
 
-(no changes since v2)
+(no changes since v1)
 
-Changes in v2:
- - New patch for v2
+ arch/riscv/kernel/ptrace.c | 42 ++++++++++++++++++++++++++++++++++++++
+ include/uapi/linux/elf.h   |  1 +
+ 2 files changed, 43 insertions(+)
 
- tools/testing/selftests/kvm/riscv/get-reg-list.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
-
-diff --git a/tools/testing/selftests/kvm/riscv/get-reg-list.c b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-index 8e34f7fa44e9..54ab484d0000 100644
---- a/tools/testing/selftests/kvm/riscv/get-reg-list.c
-+++ b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-@@ -41,9 +41,11 @@ bool filter_reg(__u64 reg)
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_I:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_M:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_V:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SMNPM:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SMSTATEEN:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SSAIA:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SSCOFPMF:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SSNPM:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SSTC:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SVINVAL:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SVNAPOT:
-@@ -414,9 +416,11 @@ static const char *isa_ext_single_id_to_str(__u64 reg_off)
- 		KVM_ISA_EXT_ARR(I),
- 		KVM_ISA_EXT_ARR(M),
- 		KVM_ISA_EXT_ARR(V),
-+		KVM_ISA_EXT_ARR(SMNPM),
- 		KVM_ISA_EXT_ARR(SMSTATEEN),
- 		KVM_ISA_EXT_ARR(SSAIA),
- 		KVM_ISA_EXT_ARR(SSCOFPMF),
-+		KVM_ISA_EXT_ARR(SSNPM),
- 		KVM_ISA_EXT_ARR(SSTC),
- 		KVM_ISA_EXT_ARR(SVINVAL),
- 		KVM_ISA_EXT_ARR(SVNAPOT),
-@@ -946,8 +950,10 @@ KVM_ISA_EXT_SUBLIST_CONFIG(aia, AIA);
- KVM_ISA_EXT_SUBLIST_CONFIG(fp_f, FP_F);
- KVM_ISA_EXT_SUBLIST_CONFIG(fp_d, FP_D);
- KVM_ISA_EXT_SIMPLE_CONFIG(h, H);
-+KVM_ISA_EXT_SIMPLE_CONFIG(smnpm, SMNPM);
- KVM_ISA_EXT_SUBLIST_CONFIG(smstateen, SMSTATEEN);
- KVM_ISA_EXT_SIMPLE_CONFIG(sscofpmf, SSCOFPMF);
-+KVM_ISA_EXT_SIMPLE_CONFIG(ssnpm, SSNPM);
- KVM_ISA_EXT_SIMPLE_CONFIG(sstc, SSTC);
- KVM_ISA_EXT_SIMPLE_CONFIG(svinval, SVINVAL);
- KVM_ISA_EXT_SIMPLE_CONFIG(svnapot, SVNAPOT);
-@@ -1009,8 +1015,10 @@ struct vcpu_reg_list *vcpu_configs[] = {
- 	&config_fp_f,
- 	&config_fp_d,
- 	&config_h,
-+	&config_smnpm,
- 	&config_smstateen,
- 	&config_sscofpmf,
-+	&config_ssnpm,
- 	&config_sstc,
- 	&config_svinval,
- 	&config_svnapot,
+diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
+index 92731ff8c79a..ea67e9fb7a58 100644
+--- a/arch/riscv/kernel/ptrace.c
++++ b/arch/riscv/kernel/ptrace.c
+@@ -28,6 +28,9 @@ enum riscv_regset {
+ #ifdef CONFIG_RISCV_ISA_V
+ 	REGSET_V,
+ #endif
++#ifdef CONFIG_RISCV_ISA_SUPM
++	REGSET_TAGGED_ADDR_CTRL,
++#endif
+ };
+ 
+ static int riscv_gpr_get(struct task_struct *target,
+@@ -152,6 +155,35 @@ static int riscv_vr_set(struct task_struct *target,
+ }
+ #endif
+ 
++#ifdef CONFIG_RISCV_ISA_SUPM
++static int tagged_addr_ctrl_get(struct task_struct *target,
++				const struct user_regset *regset,
++				struct membuf to)
++{
++	long ctrl = get_tagged_addr_ctrl(target);
++
++	if (IS_ERR_VALUE(ctrl))
++		return ctrl;
++
++	return membuf_write(&to, &ctrl, sizeof(ctrl));
++}
++
++static int tagged_addr_ctrl_set(struct task_struct *target,
++				const struct user_regset *regset,
++				unsigned int pos, unsigned int count,
++				const void *kbuf, const void __user *ubuf)
++{
++	int ret;
++	long ctrl;
++
++	ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, &ctrl, 0, -1);
++	if (ret)
++		return ret;
++
++	return set_tagged_addr_ctrl(target, ctrl);
++}
++#endif
++
+ static const struct user_regset riscv_user_regset[] = {
+ 	[REGSET_X] = {
+ 		.core_note_type = NT_PRSTATUS,
+@@ -182,6 +214,16 @@ static const struct user_regset riscv_user_regset[] = {
+ 		.set = riscv_vr_set,
+ 	},
+ #endif
++#ifdef CONFIG_RISCV_ISA_SUPM
++	[REGSET_TAGGED_ADDR_CTRL] = {
++		.core_note_type = NT_RISCV_TAGGED_ADDR_CTRL,
++		.n = 1,
++		.size = sizeof(long),
++		.align = sizeof(long),
++		.regset_get = tagged_addr_ctrl_get,
++		.set = tagged_addr_ctrl_set,
++	},
++#endif
+ };
+ 
+ static const struct user_regset_view riscv_user_native_view = {
+diff --git a/include/uapi/linux/elf.h b/include/uapi/linux/elf.h
+index b9935988da5c..a920cf8934dc 100644
+--- a/include/uapi/linux/elf.h
++++ b/include/uapi/linux/elf.h
+@@ -450,6 +450,7 @@ typedef struct elf64_shdr {
+ #define NT_MIPS_MSA	0x802		/* MIPS SIMD registers */
+ #define NT_RISCV_CSR	0x900		/* RISC-V Control and Status Registers */
+ #define NT_RISCV_VECTOR	0x901		/* RISC-V vector registers */
++#define NT_RISCV_TAGGED_ADDR_CTRL 0x902	/* RISC-V tagged address control (prctl()) */
+ #define NT_LOONGARCH_CPUCFG	0xa00	/* LoongArch CPU config registers */
+ #define NT_LOONGARCH_CSR	0xa01	/* LoongArch control and status registers */
+ #define NT_LOONGARCH_LSX	0xa02	/* LoongArch Loongson SIMD Extension registers */
 -- 
 2.45.1
 
