@@ -4,82 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8564D2A559
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 20:16:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B0D4D2A555
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 20:28:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=YqpYMw7UoUx88vg4OcJadGh8w0167NNwpBA2hjzJ9jU=; b=2g5A4tPz+vGlLk
-	MgKrg6HCVZdcox6MFLX4OphAHu5iKvTiVyJbZCUJZ1KI/lMoiStd8mYVKqpPtTGPOUirR/EDe5ho4
-	LubSmKiTLQ2/fre5dfNLz9JpMb4agH4WxfiDOYSbPRE8XEsBisEAYyPR1lX5X3wPcA99kr2gkrz99
-	SIk/YdFgHbPi/brqdp6HWmQsvqaNP8LBpchnt2thcJ1ls08+bBFUDIh2Z2Bszbw084gytSHxks5+l
-	zyuFUaEYFn2sdW2MqR14FCAgPsic2Xrvi9m2QXo2T7ylEEOvv/SdBtoSdn/wzs4xnq2PO6ge0XB80
-	L2Z4b4AC3LqYaGjQBkCQ==;
+	List-Owner; bh=u1vhWkuWzqLJxpbRUo7hQuPt9QBm3RCybdBi443IgLg=; b=of++oipZSR36gO
+	nRnhxOVjs9M78zzwSU139De6iNWgAr3z25ilthF3kSpOCp8rXo555a4nZmTav3uz7gmwja4ju/r/w
+	EcST/qZ9pF3XyWiRx4ySfIBX9AJs427eehMvvVvwEFf8QelJC84ajhpK9fU8KY7NqI8CiR8WuywjG
+	1hFGLdZNrjMD6RpR/01b8Ar7FJ+MzH3jupDSm36bZ9g4tBhm1YiMdjqISw3ucwDCtZ/Q/ovaY5o8y
+	B6Dq2u3RNnfLmg4AH3zQkn2ffvRIyeiBkbqm7HALtOEQ7MbwUefHkUH+zcC8ShpAdGWIWRUVYH1cl
+	FW/oDuB79+G1AZUqzy+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t1ARL-0000000Cv00-2Mlz;
-	Wed, 16 Oct 2024 20:16:15 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t1Ad3-0000000CwQg-3iu5;
+	Wed, 16 Oct 2024 20:28:21 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t1ANM-0000000CuWI-3WND
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 16 Oct 2024 20:12:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=vDXX/yNI2tCbx6ZFS2q5jIH5AkrsKobfGXpQGHMz1fY=; b=BwcRclok+oswvqxuDJ8DSKDM8z
-	I/l3NFgxlvdtHKw1kTQwGJyLSWBMKb086hX/8Djwj7JiAmXbrlXQvScvfY9MFSk5S9016/SUp45ce
-	oik4BYO5a8J2xgwANDzJtmSS3XEQKm5A1zLFY1kD9axyvK966ET0QK0CctI9N5cOLcGubwfbQpm9L
-	OiHq9en7BMDFLP62Z3QHaWI9Vka2/EtRS67vj5WiZrEJFOxzKWBDX4XTqzZ6RXzRtTQbUXip7K7Ma
-	5F2D63jhdcBAbW0nadLRvybEnGZofUD/Mruz0TLtCMsIwyVHB+NlHyEV+/rZ3CRhcQEjeFG/qDFI8
-	k1qwT08w==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t1ANE-00000006tj2-047p
+	id 1t1Ad0-0000000CwPM-2Tvc
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Oct 2024 20:12:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 40B7A5C5B12;
-	Wed, 16 Oct 2024 20:11:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C64B9C4CECD;
-	Wed, 16 Oct 2024 20:11:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729109511;
-	bh=/oKzWw2ZchUbmSx4FqbycrbLNA28FbIKpIdth/FxkZU=;
-	h=From:To:Cc:Subject:Date:From;
-	b=enF1OaRAmshe0lg/6tiN+mah5QpoJPjKW5zBn1kYI0+swr65LsDQQlW92iPFhJAZC
-	 8SRgAats42h+luFJ76cG0gRmi++uGOS5xpYTQcIhirin0we10bT03PAAa/xB3Yhvoq
-	 yJ4ctGJ/r8TMN/Gms0k+psOQ/45yuZZ3Z3rauLbmX+0+/w/HAbZITSMmg7C5/Z3Bc7
-	 qkacJL1lNt+22ACyWIJNjcMkpsKbZnkv6UeRulbg/AvGEkZnx0vVCP4chVDwPAnU9z
-	 Zyz361q7ibbcHBNi8NoaVFFMtRItcDzQSa6zByV6Xecg1brFXw/3RpV1/pxcbnHo8g
-	 9I4zyKTZVGh/w==
-From: Conor Dooley <conor@kernel.org>
-To: linux-riscv@lists.infradead.org
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	stable@vger.kernel.org,
-	Aurelien Jarno <aurelien@aurel32.net>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Changhuang Liang <changhuang.liang@starfivetech.com>,
+	Wed, 16 Oct 2024 20:28:20 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-2e2b549799eso164381a91.3
+        for <linux-riscv@lists.infradead.org>; Wed, 16 Oct 2024 13:28:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1729110497; x=1729715297; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=hEUhwJlktvJ9XLTxaEULHD6mXOGpKAbrtbb51ie7J44=;
+        b=GOv+u6GzGRT+XB8P4/5i1k5ux5P/TchbcrHieSoziLQsruhqxTPh6g39cYI0VotooE
+         3TTAFWni7DPdtvwLmUvW936SpG1Q3hg6SOnlWXgyf0c6xzIeCLmtLay4p4IK0bAYRdY6
+         rogt9TQbp3zmbxRDWD5cvGPH9/mzpYqTC/fImTLGm4j2OCRxAYtTQUnlUI7PNnOsJFCG
+         UgVdgFMbK3m3+yRHtv+jVIxuhpzeHUxQviznx3D2SlACPvRKw0qzfA8HkLiKHi5IkWLl
+         M8jWxJPXNiKlkjPi/PRIGOUgPyJC/AhVM2UXArrDKO238EhPP8VRjhQkgfKElcAfcNkR
+         9sbg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729110497; x=1729715297;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hEUhwJlktvJ9XLTxaEULHD6mXOGpKAbrtbb51ie7J44=;
+        b=ChpC/PR4WUGhXeO04yETQ4A+EgJu5UNvYru+A86eHMLgj8QkAW/9esU3KuawMW93vM
+         +5EZeA3OMrFE8YONiNnbzNcRENcr3B35NJHjVqr8RBGwpcP81iMoohZEkTbEuMKXTniB
+         C7Tu8g7v4xFc43czd6+zRMUEtycawmOUTsXmzHEOZrjN7FZzvCeNv5VbvllTbfK5LXyy
+         SxjhdBVrt2DSSDxDaRr0HDElbPf5ae0AVo+Xx3/jpHNqmgBO9mUPIVn4ilW5ShFeJ1Co
+         JrxF7Ih4UWUG7WSZoyqnVIibjYJg6uGSTV4sElVU9UqAsWptkVhajhOyW4vcFSLI7aTE
+         FCnQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVHIXTD8mh79djZXY7n7HN0jqEnAEG4bGD+fIdvQ25MTUKqru2Diez52kYpuSg6aZIgN2xqAXZsELDwFw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzLRsNefxPTD1WvZIXASP5HdPowEykt+maEYAAo0BxfVfUalPAx
+	uzw7ymAUCNMs1xno1zbd3B9tCVQ9Pwe4qwBmWW5rTEI4RcHNaTMoUFvVKrBPe4s=
+X-Google-Smtp-Source: AGHT+IGllzymcOAYJ4F9gGwGiLHbUJdPlvukCb/zqDKpUvzRbezJlnGn7CSqgSzw6TP5Nt2/LjKHnQ==
+X-Received: by 2002:a17:90b:4b8b:b0:2e2:9077:a3b4 with SMTP id 98e67ed59e1d1-2e3151b8a44mr21167547a91.7.1729110497313;
+        Wed, 16 Oct 2024 13:28:17 -0700 (PDT)
+Received: from sw06.internal.sifive.com ([4.53.31.132])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e3e08f8f89sm228613a91.38.2024.10.16.13.28.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 16 Oct 2024 13:28:16 -0700 (PDT)
+From: Samuel Holland <samuel.holland@sifive.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Atish Patra <atishp@atishpatra.org>,
+	linux-kselftest@vger.kernel.org,
+	Rob Herring <robh+dt@kernel.org>,
+	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>,
+	Shuah Khan <shuah@kernel.org>,
 	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1] riscv: dts: starfive: disable unused csi/camss nodes
-Date: Wed, 16 Oct 2024 21:11:15 +0100
-Message-ID: <20241016-moonscape-tremor-8d41e6f741ff@spud>
-X-Mailer: git-send-email 2.45.2
+	Anup Patel <anup@brainfault.org>,
+	linux-kernel@vger.kernel.org,
+	Jonathan Corbet <corbet@lwn.net>,
+	kvm-riscv@lists.infradead.org,
+	Conor Dooley <conor@kernel.org>,
+	kasan-dev@googlegroups.com,
+	linux-doc@vger.kernel.org,
+	Evgenii Stepanov <eugenis@google.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Samuel Holland <samuel.holland@sifive.com>
+Subject: [PATCH v5 00/10] riscv: Userspace pointer masking and tagged address ABI
+Date: Wed, 16 Oct 2024 13:27:41 -0700
+Message-ID: <20241016202814.4061541-1-samuel.holland@sifive.com>
+X-Mailer: git-send-email 2.45.1
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1904; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=TA23QI9GhTHMBm0fZ2HR8Y0W1keRXmxZDdgD37cIfRw=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDOkCso82dF42Ed7CmCvqcONVtdMn5qNmDH/uPvV7M1uGc amwaIVbRykLgxgHg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACbiZMjwi2lSNEPwXIu3lTpT ztzSqOVXnGN5baXA7hfN+2ZHbazhMmP4X9DaJ1e9+8XqnReSheZY2C078rcw+3funWcBNj2tEVW TuQE=
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241016_211202_214640_D3F3F8A7 
-X-CRM114-Status: GOOD (  10.61  )
+X-CRM114-CacheID: sfid-20241016_132818_671392_71C9B0B8 
+X-CRM114-Status: GOOD (  24.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,56 +107,128 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+RISC-V defines three extensions for pointer masking[1]:
+ - Smmpm: configured in M-mode, affects M-mode
+ - Smnpm: configured in M-mode, affects the next lower mode (S or U-mode)
+ - Ssnpm: configured in S-mode, affects the next lower mode (VS, VU, or U-mode)
 
-Aurelien reported probe failures due to the csi node being enabled
-without having a camera attached to it. A camera was in the initial
-submissions, but was removed from the dts, as it had not actually been
-present on the board, but was from an addon board used by the
-developer of the relevant drivers. The non-camera pipeline nodes were
-not disabled when this happened and the probe failures are problematic
-for Debian. Disable them.
+This series adds support for configuring Smnpm or Ssnpm (depending on
+which privilege mode the kernel is running in) to allow pointer masking
+in userspace (VU or U-mode), extending the PR_SET_TAGGED_ADDR_CTRL API
+from arm64. Unlike arm64 TBI, userspace pointer masking is not enabled
+by default on RISC-V. Additionally, the tag width (referred to as PMLEN)
+is variable, so userspace needs to ask the kernel for a specific tag
+width, which is interpreted as a lower bound on the number of tag bits.
 
-CC: stable@vger.kernel.org
-Fixes: 28ecaaa5af192 ("riscv: dts: starfive: jh7110: Add camera subsystem nodes")
-Closes: https://lore.kernel.org/all/Zw1-vcN4CoVkfLjU@aurel32.net/
-Reported-by: Aurelien Jarno <aurelien@aurel32.net>
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+This series also adds support for a tagged address ABI similar to arm64
+and x86. Since accesses from the kernel to user memory use the kernel's
+pointer masking configuration, not the user's, the kernel must untag
+user pointers in software before dereferencing them. And since the tag
+width is variable, as with LAM on x86, it must be kept the same across
+all threads in a process so untagged_addr_remote() can work.
+
+[1]: https://github.com/riscv/riscv-j-extension/raw/d70011dde6c2/zjpm-spec.pdf
 ---
-CC: Emil Renner Berthing <kernel@esmil.dk>
-CC: Rob Herring <robh@kernel.org>
-CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
-CC: Conor Dooley <conor+dt@kernel.org>
-CC: Changhuang Liang <changhuang.liang@starfivetech.com>
-CC: devicetree@vger.kernel.org
-CC: linux-riscv@lists.infradead.org
-CC: linux-kernel@vger.kernel.org
----
- arch/riscv/boot/dts/starfive/jh7110-common.dtsi | 2 --
- 1 file changed, 2 deletions(-)
+This series depends on the per-thread envcfg series in riscv/for-next.
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
-index c7771b3b64758..d6c55f1cc96a9 100644
---- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
-@@ -128,7 +128,6 @@ &camss {
- 	assigned-clocks = <&ispcrg JH7110_ISPCLK_DOM4_APB_FUNC>,
- 			  <&ispcrg JH7110_ISPCLK_MIPI_RX0_PXL>;
- 	assigned-clock-rates = <49500000>, <198000000>;
--	status = "okay";
- 
- 	ports {
- 		#address-cells = <1>;
-@@ -151,7 +150,6 @@ camss_from_csi2rx: endpoint {
- &csi2rx {
- 	assigned-clocks = <&ispcrg JH7110_ISPCLK_VIN_SYS>;
- 	assigned-clock-rates = <297000000>;
--	status = "okay";
- 
- 	ports {
- 		#address-cells = <1>;
+This series can be tested in QEMU by applying a patch set[2].
+
+KASAN_SW_TAGS using pointer masking is an independent patch series[3].
+
+[2]: https://lore.kernel.org/qemu-devel/20240511101053.1875596-1-me@deliversmonkey.space/
+[3]: https://lore.kernel.org/linux-riscv/20240814085618.968833-1-samuel.holland@sifive.com/
+
+Changes in v5:
+ - Update pointer masking spec version to 1.0 and state to ratified
+ - Document how PR_[SG]ET_TAGGED_ADDR_CTRL are used on RISC-V
+ - Document that the RISC-V tagged address ABI is the same as AArch64
+ - Rename "pm" selftests directory to "abi" to be more generic
+ - Fix -Wparentheses warnings
+ - Fix order of operations when writing via the tagged pointer
+ - Update pointer masking spec version to 1.0 in hwprobe documentation
+
+Changes in v4:
+ - Switch IS_ENABLED back to #ifdef to fix riscv32 build
+ - Combine __untagged_addr() and __untagged_addr_remote()
+
+Changes in v3:
+ - Note in the commit message that the ISA extension spec is frozen
+ - Rebase on riscv/for-next (ISA extension list conflicts)
+ - Remove RISCV_ISA_EXT_SxPM, which was not used anywhere
+ - Use shifts instead of large numbers in ENVCFG_PMM* macro definitions
+ - Rename CONFIG_RISCV_ISA_POINTER_MASKING to CONFIG_RISCV_ISA_SUPM,
+   since it only controls the userspace part of pointer masking
+ - Use IS_ENABLED instead of #ifdef when possible
+ - Use an enum for the supported PMLEN values
+ - Simplify the logic in set_tagged_addr_ctrl()
+ - Use IS_ENABLED instead of #ifdef when possible
+ - Implement mm_untag_mask()
+ - Remove pmlen from struct thread_info (now only in mm_context_t)
+
+Changes in v2:
+ - Drop patch 4 ("riscv: Define is_compat_thread()"), as an equivalent
+   patch was already applied
+ - Move patch 5 ("riscv: Split per-CPU and per-thread envcfg bits") to a
+   different series[3]
+ - Update pointer masking specification version reference
+ - Provide macros for the extension affecting the kernel and userspace
+ - Use the correct name for the hstatus.HUPMM field
+ - Rebase on riscv/linux.git for-next
+ - Add and use the envcfg_update_bits() helper function
+ - Inline flush_tagged_addr_state()
+ - Implement untagged_addr_remote()
+ - Restrict PMLEN changes once a process is multithreaded
+ - Rename "tags" directory to "pm" to avoid .gitignore rules
+ - Add .gitignore file to ignore the compiled selftest binary
+ - Write to a pipe to force dereferencing the user pointer
+ - Handle SIGSEGV in the child process to reduce dmesg noise
+ - Export Supm via hwprobe
+ - Export Smnpm and Ssnpm to KVM guests
+
+Samuel Holland (10):
+  dt-bindings: riscv: Add pointer masking ISA extensions
+  riscv: Add ISA extension parsing for pointer masking
+  riscv: Add CSR definitions for pointer masking
+  riscv: Add support for userspace pointer masking
+  riscv: Add support for the tagged address ABI
+  riscv: Allow ptrace control of the tagged address ABI
+  riscv: selftests: Add a pointer masking test
+  riscv: hwprobe: Export the Supm ISA extension
+  RISC-V: KVM: Allow Smnpm and Ssnpm extensions for guests
+  KVM: riscv: selftests: Add Smnpm and Ssnpm to get-reg-list test
+
+ Documentation/arch/riscv/hwprobe.rst          |   3 +
+ Documentation/arch/riscv/uabi.rst             |  16 +
+ .../devicetree/bindings/riscv/extensions.yaml |  18 +
+ arch/riscv/Kconfig                            |  11 +
+ arch/riscv/include/asm/csr.h                  |  16 +
+ arch/riscv/include/asm/hwcap.h                |   5 +
+ arch/riscv/include/asm/mmu.h                  |   7 +
+ arch/riscv/include/asm/mmu_context.h          |  13 +
+ arch/riscv/include/asm/processor.h            |   8 +
+ arch/riscv/include/asm/switch_to.h            |  11 +
+ arch/riscv/include/asm/uaccess.h              |  43 ++-
+ arch/riscv/include/uapi/asm/hwprobe.h         |   1 +
+ arch/riscv/include/uapi/asm/kvm.h             |   2 +
+ arch/riscv/kernel/cpufeature.c                |   3 +
+ arch/riscv/kernel/process.c                   | 154 ++++++++
+ arch/riscv/kernel/ptrace.c                    |  42 +++
+ arch/riscv/kernel/sys_hwprobe.c               |   3 +
+ arch/riscv/kvm/vcpu_onereg.c                  |   4 +
+ include/uapi/linux/elf.h                      |   1 +
+ include/uapi/linux/prctl.h                    |   5 +-
+ .../selftests/kvm/riscv/get-reg-list.c        |   8 +
+ tools/testing/selftests/riscv/Makefile        |   2 +-
+ tools/testing/selftests/riscv/abi/.gitignore  |   1 +
+ tools/testing/selftests/riscv/abi/Makefile    |  10 +
+ .../selftests/riscv/abi/pointer_masking.c     | 332 ++++++++++++++++++
+ 25 files changed, 712 insertions(+), 7 deletions(-)
+ create mode 100644 tools/testing/selftests/riscv/abi/.gitignore
+ create mode 100644 tools/testing/selftests/riscv/abi/Makefile
+ create mode 100644 tools/testing/selftests/riscv/abi/pointer_masking.c
+
 -- 
-2.45.2
+2.45.1
 
 
 _______________________________________________
