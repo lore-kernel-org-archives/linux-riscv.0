@@ -4,68 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A5C7D1AD46
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 10:43:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A909D1AD43
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 10:50:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KoA+JkhI1CTHjYB+AsvAb0IlSh8ddLwfU5lus6niUtQ=; b=yVWLEjxQuCE/065oKtT3z8KvKY
-	NLEgXfvu9lbJEZDbGzmJMkmfXCqh08xVMlRs50ZXxx3qbovfLLFPeXRyISnnrKJvyJ4vUYpQ7SWs7
-	ljBfO4ID1ZmAFIFGivsVYw6/qEmXswNbyfTMgW9Iel4Z8+uuI3fNA2VXW1NQH3cw6dt3dXjf5lYgu
-	XhOTRmfTO6qTWSxdQ+2nPWS+/9A8jQMd/2bqwmz41pseqFFTwCy69abpSmaChanWITsXmvIg8IARn
-	Cva98l3SIydonFdVJhhGMcO8Yzb7upZ+nEopffdR+ur2vQx5WTZ6lViwJSJX22v+q2pR7VTLGUOc1
-	8HqMuqdw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=za6yNokzg6gvaNli2zRi5YmDyxK22WOVBvMRvR6DLpI=; b=y28zqIwQTL+B8w
+	mNxM0KT7attL+kpVewosdpBYYhIK5FZgpSX8c8SnaNkCm/y387+WTLdnzfJDdBDbmNwOOpx4oP0dK
+	eHtUeXJsJAwt2wl3Df0yAfJCYurz86DzO5zKHAidOhvuPEIUNUPw7aPBKRD1PvACTPVPwBcZFz4m6
+	jlly2VwjyBZ+hh58rj/cl3H4KzYaKT/b+bDv41RiLv/YkjK671DWx1ibERJksOgdk5HqjFtR9eoCd
+	/HXMzuNzlu9iq74OUcDlWsJEhNJFvWhRqjYXAiGaTnhjLoVf5hVp1BJU6X8Y/A/2p1WZFP7dhlSQT
+	vKd5VwFAd4EAyjkBMT2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t11V4-0000000BUmT-1LfK;
-	Wed, 16 Oct 2024 10:43:30 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t11cA-0000000BVzt-3bUV;
+	Wed, 16 Oct 2024 10:50:50 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t11HB-0000000BRvI-0nuw
-	for linux-riscv@lists.infradead.org;
-	Wed, 16 Oct 2024 10:29:10 +0000
+	id 1t11WW-0000000BV1U-0ylR;
+	Wed, 16 Oct 2024 10:45:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=IJ/fbmZrOQ0WiBQGxvnDjUBF5iSxmGU1H7rV7VMVhIM=; b=jHzZDTmmYRrJqRoJQjYF1n/2+b
+	JgT5640NnSj3TPWEDol4JMoiduV1zBIovFdidX5dkhR5tbtxlWq2ZCkZgujx0mHXtEEeOS0GXML5h
+	1Aa1mzeaW+a0zPkiFkrC0dmaJO9gwzqN1z3PMCTUgEoeAP1eknrTeqGtsdosk2qw9LwA3GVVfXo8a
+	64lPSsSua+m8bpz16swDYPb5ENmVNeetUr1Rl2hx6rzvHYL/R3jq3/LsVQNCVgxZmpBx7V+kLG5X+
+	nWGixouf+idx+60zNbsFHVOLN5VMgQhmgxnvZZUpoa5M22oudqk4NQ5zU06zKfTuvld5e4JMqZaeK
+	RmW5DhGQ==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t11WR-00000006mCl-3SZ7;
+	Wed, 16 Oct 2024 10:44:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 66A04A43A02;
-	Wed, 16 Oct 2024 10:28:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CD37C4CECF;
-	Wed, 16 Oct 2024 10:29:04 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id D240E5C5FDD;
+	Wed, 16 Oct 2024 10:44:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A439EC4CEC5;
+	Wed, 16 Oct 2024 10:44:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729074548;
-	bh=pg7UYaMPx4mTb52bLj7hgV55+1gGge6GzAJdln6ov9c=;
+	s=k20201202; t=1729075491;
+	bh=REY0yUs/eb8jGqS7iPmNLu0O7M3zjCPm2K1uOQnlIfY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=b2yf4lTx8ojmaCj5oBgFI44qnJKC5wieTTwoGMja4nTY6AiQoxiYgyEUvOgdFEM7q
-	 bXxyuRZ/LirXoOcJSfOKuO8+KWJJo/qIgTxUlehM2AUjxKpu2XHwOdcC/BVXLQ8wUM
-	 ZYIXRSxoPONaAsPDvg/FoiVNVK8MSHr+kXzcMp3rlG+VAtFApYOKOcA5o7/RkB/cuW
-	 eOOmjf7chYKDaPRIEHIz+pfla4DE4cDTrxOZSaehnHPCVibyBHK1Qp6fssXWEAQ8XV
-	 kTC5ggwOXEh6heECxbBz8/BZyo7eXll3sjtb1LBudmPZ/2wx67n1g22dYaMpcK9AZl
-	 lCTcoL2gr+GwA==
-Date: Wed, 16 Oct 2024 11:29:03 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>, linux-kernel@vger.kernel.org,
-	Marc Zyngier <maz@kernel.org>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	b=tu7R+TE5l4rMjxEyzDDIH6fpt5ZNmC1c7xJx7SQDlI9CzDxMt5yOQnVYNAW9hdV8J
+	 OeaDo9Hr12xvhUKQgId1tm4/CewmMpWCLOk3wgiUJwXyvWq4QlFB+Uh/pOgd95q0F1
+	 zyNekZpzro5oJZ2JEUpyorUNUZLep/wgUFWwzFdkGHL+BF7JNIRifDS33KF/5qGC2v
+	 jYrUvBLfr/xZZ4LfL7bWflm1YPeuIUzgGbLP+eWNj7AbuOUcsPGdhrgXCl4uUGrO38
+	 j9PqqivnqqmoYQsjfU9edkgWUJ3Ic8/MVLUiY8xlv+pKvbZQmwKQdokHEcp8hCdCUB
+	 nLnfE4mx3UK6g==
+Date: Wed, 16 Oct 2024 13:40:55 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Luis Chamberlain <mcgrof@kernel.org>
+Cc: Christoph Hellwig <hch@infradead.org>, Petr Pavlu <petr.pavlu@suse.com>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Andy Lutomirski <luto@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>,
+	Brian Cain <bcain@quicinc.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Kent Overstreet <kent.overstreet@linux.dev>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Simek <monstr@monstr.eu>, Oleg Nesterov <oleg@redhat.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org, Lewis Hanly <lewis.hanly@microchip.com>
-Subject: Re: [RFC v7 4/6] gpio: mpfs: add polarfire soc gpio support
-Message-ID: <20241016-dandelion-hypnosis-9d989bb2fdd1@spud>
-References: <20240723-supervise-drown-d5d3b303e7fd@wendy>
- <20240723-underage-wheat-7dd65c2158e7@wendy>
- <CACRpkdbRE695f-+do1HYpOZ6e4qxgUBWJzEPO2hTCuZ3xxYHQg@mail.gmail.com>
- <20241016-shallot-nerd-51eeba039ba0@spud>
+	Peter Zijlstra <peterz@infradead.org>,
+	Richard Weinberger <richard@nod.at>,
+	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
+	Stafford Horne <shorne@gmail.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org, linux-alpha@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, linux-mm@kvack.org,
+	linux-modules@vger.kernel.org, linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+	linux-trace-kernel@vger.kernel.org, linux-um@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
+	sparclinux@vger.kernel.org, x86@kernel.org, kdevops@lists.linux.dev
+Subject: Re: [PATCH v5 7/8] execmem: add support for cache of large ROX pages
+Message-ID: <Zw-YN4JIltntY52Y@kernel.org>
+References: <20241009180816.83591-8-rppt@kernel.org>
+ <Zwd7GRyBtCwiAv1v@infradead.org>
+ <ZwfPPZrxHzQgYfx7@kernel.org>
+ <ZwjXz0dz-RldVNx0@infradead.org>
+ <ZwuIPZkjX0CfzhjS@kernel.org>
+ <20241013202626.81f430a16750af0d2f40d683@linux-foundation.org>
+ <Zw1uBBcG-jAgxF_t@bombadil.infradead.org>
+ <Zw3rDS3GRWZe4CBu@bombadil.infradead.org>
+ <Zw4DlTTbz4QwhOvU@kernel.org>
+ <Zw7MirnsHnhRveBB@bombadil.infradead.org>
 MIME-Version: 1.0
-In-Reply-To: <20241016-shallot-nerd-51eeba039ba0@spud>
+Content-Disposition: inline
+In-Reply-To: <Zw7MirnsHnhRveBB@bombadil.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241016_032909_386482_5D1E758F 
-X-CRM114-Status: GOOD (  30.95  )
+X-CRM114-CacheID: sfid-20241016_114456_228896_E060DDB2 
+X-CRM114-Status: GOOD (  19.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,128 +131,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2589420550316013329=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Tue, Oct 15, 2024 at 01:11:54PM -0700, Luis Chamberlain wrote:
+> On Tue, Oct 15, 2024 at 08:54:29AM +0300, Mike Rapoport wrote:
+> > On Mon, Oct 14, 2024 at 09:09:49PM -0700, Luis Chamberlain wrote:
+> > > Mike, please run this with kmemleak enabled and running, and also try to get
+> > > tools/testing/selftests/kmod/kmod.sh to pass.
+> > 
+> > There was an issue with kmemleak, I fixed it here:
+> > 
+> > https://lore.kernel.org/linux-mm/20241009180816.83591-1-rppt@kernel.org/T/#m020884c1795218cc2be245e8091fead1cda3f3e4
+> 
+> Ah, so this was a side fix, not part of this series, thanks.
+> 
+> > > I run into silly boot issues with just a guest.
+> > 
+> > Was it kmemleak or something else?
+> 
+> Both kmemleak and the kmod selftest failed, here is a run of the test
+> with this patch series:
+> 
+> https://github.com/linux-kdevops/linux-modules-kpd/actions/runs/11352286624/job/31574722735
 
---===============2589420550316013329==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="CmBUU6+EmCtmkoM0"
-Content-Disposition: inline
+Is there a kernel log to look at? Could not find it in the run report
+ 
+>   Luis
 
-
---CmBUU6+EmCtmkoM0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Oct 16, 2024 at 10:56:32AM +0100, Conor Dooley wrote:
-> On Mon, Aug 05, 2024 at 10:04:53AM +0200, Linus Walleij wrote:
-> > On Tue, Jul 23, 2024 at 1:28=E2=80=AFPM Conor Dooley <conor.dooley@micr=
-ochip.com> wrote:
-> >=20
-> >=20
-> > > From: Lewis Hanly <lewis.hanly@microchip.com>
-> > >
-> > > Add a driver to support the Polarfire SoC gpio controller
-> > >
-> > > Signed-off-by: Lewis Hanly <lewis.hanly@microchip.com>
-> > > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> >=20
-> > Just a comment on second thought:
-> >=20
-> > > +config GPIO_POLARFIRE_SOC
-> > > +       bool "Microchip FPGA GPIO support"
-> > > +       depends on OF_GPIO
-> > > +       select GPIOLIB_IRQCHIP
-> >=20
-> > select GPIO_GENERIC?
-> >=20
-> > > +static int mpfs_gpio_direction_input(struct gpio_chip *gc, unsigned =
-int gpio_index)
-> > > +{
-> > > +       struct mpfs_gpio_chip *mpfs_gpio =3D gpiochip_get_data(gc);
-> > > +       u32 gpio_cfg;
-> > > +       unsigned long flags;
-> > > +
-> > > +       raw_spin_lock_irqsave(&mpfs_gpio->lock, flags);
-> > > +
-> > > +       gpio_cfg =3D readl(mpfs_gpio->base + MPFS_GPIO_CTRL(gpio_inde=
-x));
-> > > +       gpio_cfg |=3D MPFS_GPIO_EN_IN;
-> > > +       gpio_cfg &=3D ~(MPFS_GPIO_EN_OUT | MPFS_GPIO_EN_OUT_BUF);
-> >=20
-> > OK this part is unique...
-> >=20
-> > > +static int mpfs_gpio_direction_output(struct gpio_chip *gc, unsigned=
- int gpio_index, int value)
-> > > +{
-> > > +       struct mpfs_gpio_chip *mpfs_gpio =3D gpiochip_get_data(gc);
-> > > +       u32 gpio_cfg;
-> > > +       unsigned long flags;
-> > > +
-> > > +       raw_spin_lock_irqsave(&mpfs_gpio->lock, flags);
-> > > +
-> > > +       gpio_cfg =3D readl(mpfs_gpio->base + MPFS_GPIO_CTRL(gpio_inde=
-x));
-> > > +       gpio_cfg |=3D MPFS_GPIO_EN_OUT | MPFS_GPIO_EN_OUT_BUF;
-> >=20
-> > Also here
-> >=20
-> > > +static int mpfs_gpio_get_direction(struct gpio_chip *gc,
-> > > +                                  unsigned int gpio_index)
-> > > +static int mpfs_gpio_get(struct gpio_chip *gc,
-> > > +                        unsigned int gpio_index)
-> > > +static void mpfs_gpio_set(struct gpio_chip *gc, unsigned int gpio_in=
-dex, int value)
-> >=20
-> > But these are just MMIO functions.
-> >=20
-> > Is it possible to use augmented generic MMIO, i.e just override these
-> > two functions that
-> > need special handling?
->=20
-> So, I've been looking into this again (finally), with an eye to stripping
-> the interrupt handling bits out, and trying to upstream this in pieces.
-> I dunno if I'm making a mistake here, but I don't know if there's much
-> value in implementing this suggestion - as far as I can tell only the
-> get()/set() functions can be replaced by what's provided by gpio-mmio.c.
-> There are no controller wide registers that control direction and so
-> bgpio_get_dir() can't be used - direction is read from the same
-> mpfs_gpio->base + MPFS_GPIO_CTRL(gpio_index) registers that it is set
-> using. Adding bgpio stuff, to just go ahead and overwrite it, to save on
-> trivial get()/set() implementations seems to me like adding complication
-> rather than removing it. What am I missing here?
-
-What does bring a nice simplification though, IMO, is regmap. I am
-pretty sure that using it was one of the suggestions made last time
-Lewis submitted this - so I think I'm going to do that instead.
-
---CmBUU6+EmCtmkoM0
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZw+VbgAKCRB4tDGHoIJi
-0lJSAP4z+obM5BYOKqwKB2PbdE1VqVeBD3ETy6L0njmh6AlwGwD+Py5sBR753oNR
-tRfAkzrBjAI+sykx7zgTzwgeYg8adQg=
-=wRDg
------END PGP SIGNATURE-----
-
---CmBUU6+EmCtmkoM0--
-
-
---===============2589420550316013329==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2589420550316013329==--
-
