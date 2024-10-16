@@ -4,77 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6FC5D206A0
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 07:00:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B1DAD206A2
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 07:00:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=JDLuN8TFwnusP/243eKYNQKjmpfY6MCZfGvkC4vyAJ4=; b=aX7kCE0+Ef6qyy
-	tbqkGoaSo4DBEU+v9insrIUTqH1sZrB74wxQb4n4hTkCf9HGhN2OYdJn7esCD3E7xPPs1trpENZLa
-	tv79VPAqHpKEKYlcJ5Oy70ZIO6mz73wy+ct3kKi6zSGItqKTqSaEF9l/5DbSWToelidg1oriBnm/1
-	U6YY72Z7pUohV5HD1/2igL3IpIfK8JkzkJ3A5PWb+Qelw9qZJZ1m7m8EIK5yIJmLSaJv7r/F+fKS6
-	BxXCinsnfiWhNzzCHxMUF1RV4P1hHk2U8b7eJBKdyu5JB0JbENHC+YaZsosvlE63AKs4gRctd/Q+9
-	MZFFspeoZgZ6OA1nF5Wg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zR48uWCO5gvKjwMpEnGVVqj2gwdoUXlvMlbOYW8JF0I=; b=X9SnkYgjKkUgoU
+	2RBlrZNlikda/49InKdxX5hzNvyBM3jQNhpqgOdrRW0Q8I7ggHvtTjNHF/w+JJXy2UoUbzoYd4a94
+	OXRkvlRxRsemYwG17yTaQaaTBaWkmZht17iqsz704jHv/iBL06g6NS8Jhi5WV9QVWWWttFUMCrvXo
+	sGvNkbnSQJnTp4Vc1XC8yF+xPfG5c3aZV6twGYtfCROXrxvxdFmeV2Fv7G0rKBGAUA2NgrKeLOmxc
+	9TQIO01WIlLrNNOYzr0w3YZ0SrP7DcNvOdkHro1muei2hjGA3JTuZGlA06gFxsJ0/Igp3iRMsv4vj
+	l7nxRaSbQM4+fcuL6Mew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t0y1Z-0000000AlS0-42uP;
-	Wed, 16 Oct 2024 07:00:49 +0000
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	id 1t0y1a-0000000AlST-2bs0;
+	Wed, 16 Oct 2024 07:00:50 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t0xtT-0000000AjmT-3QH3
+	id 1t0xtV-0000000Ajnc-3m3X
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Oct 2024 06:52:29 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-7e6cbf6cd1dso4326628a12.3
-        for <linux-riscv@lists.infradead.org>; Tue, 15 Oct 2024 23:52:27 -0700 (PDT)
+	Wed, 16 Oct 2024 06:52:31 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-7db1f13b14aso5178378a12.1
+        for <linux-riscv@lists.infradead.org>; Tue, 15 Oct 2024 23:52:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1729061547; x=1729666347; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=edrP7O7a6NncjkyeVVAJ0jiJhAYB2+mktJx+SnmTMmo=;
-        b=DvNOTmHRvVNEB4Oh3D0kBRaZYLHP0AwLzysm0gXly379maJpYAYjmRTWo/kGOPB1KZ
-         UVFUS0sTsAJuslQ6ahUKuirHwIaK0xI8UJA4wwWtiBDNCyKMo13h90Rct6BFxy33GI6G
-         YdQxn40sDHs+QchJaKIjLIsMUImRLjjCjXXKkL+WCUvBSfk1HrKJdTMllxDNPmqkobZz
-         AdSmIEf37xZderOEJ9XYAFo2OcgUFT5MVfvofLc75dZffmxAeJsHZqIdVstjuHU9+BaL
-         EPLVXExzGlgC3129V4lB0tXk54oTCiCta5ZsoIe5+nitlEy26xZz8YlhP8kxhFqn4sp5
-         KfKw==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1729061549; x=1729666349; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=IBZ3Mry6R0CSRRw76cyOT/ZuRl4jtXL0NnmmVv3FUPE=;
+        b=wDf9xK0x2ULsnHSrtVfP/5HhuRRZ83fn3q4AoZA2Fai8y4DoMWUaPlYPW1ypaotvfn
+         Eo/O4kW+48JyK1FTYsCsmi+WsgcH894WFCPL0K7RwlI/KgaP9zlfjKYTxWqkjUVTIIXS
+         gYb4IpO37xxtGiCWCYS/bRh8LJBuzGEmtrRUlgAzB0n2947/6aJzP3Xfe1822QMJuVn6
+         OyaBjrjwv2VW3laC18XN/7fvAzzK3Tb4iu1Q6AXtuDe1sPRCoHzSHWBPnMb3UHh/4Ws0
+         0lJKEDU6kFyutiXSEJqYTvwXMm+QALXd8VWhiVD3SyxgaPI6UIJmg53ljm9qDKEI4LUp
+         27lg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729061547; x=1729666347;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=edrP7O7a6NncjkyeVVAJ0jiJhAYB2+mktJx+SnmTMmo=;
-        b=cx8n6XMbIjAcrwPZb0kfUUkg4MFL84K1ueR1ClS4QQ6pyTgA6FDFodSYnMvRHkxozx
-         TcaZIi6Siw7rr9EUBMvLHJB+TGKEJr27Ivu7SAT3CmV3vHUp/+tagCZhG75UDl2VEWnv
-         c5C2aqHjuCch6Pitz/H98MECLK2IFSy4bc+vHrvBOR7+Yp1Tpf3Wz9GfoslX7bka7I68
-         2p1CyBS3NXUd4ZDo8ji3LUbio2pO1CDnirCGUnZXwQgyCO8i9RKkwWCtUFyeDYBPEDM6
-         b0kbadeoTiTXubFXHpExQ034mLoulWojaFsQNGmqIsEy/dhSRDmk0CZfK5bF9srg7Jiw
-         TZCA==
-X-Forwarded-Encrypted: i=1; AJvYcCVFmY5aQYj8UvvtR/BACGB5m+34Xpr3nihIHQDLqCBmxiHNGVqa+wMpnT5ueYATU3W6PFchxf/lKM4ygg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy70UkcXOveHXeCJOpgSfXYSDAHKVM5+OMMSRbofNAs8CzbJagy
-	eo5FmCfspgQIxeawXceQStKsC+hw9v3dapfK2bSSJ7lOP/h8odcIm0dtYjYgIbI=
-X-Google-Smtp-Source: AGHT+IHFpMiQBbiEBTkmPNQuDjgrwQrsX5LcLAK0wa6OKlIr/7npj2NUGYvuYiUcx/vU1hhIAlG0YA==
-X-Received: by 2002:a05:6a20:c888:b0:1d0:3a32:c3f8 with SMTP id adf61e73a8af0-1d8bcfaa0ffmr23847001637.39.1729061546751;
-        Tue, 15 Oct 2024 23:52:26 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1729061549; x=1729666349;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=IBZ3Mry6R0CSRRw76cyOT/ZuRl4jtXL0NnmmVv3FUPE=;
+        b=PSFzG1tnb6RisJfoJt3hHWlkRCisCcfhwzpskuBi7Ys/LI92LVsPp6/YV5VIKH1khY
+         TGW9UMc2GCz2dY7cVAQPrHlDEYwnvnszlavqgbBrqi1XfQGV+PNlbyq+PqM0JVbgx1NL
+         rmMZwrDTJiLjTcZfc3SN3HZ5pvgxVkillMYT61SXpMhB2mhi+m/cxy+ZHd69ksZhG5zx
+         E7zy+wkccVLCI01UuvSdVpP4DRtwg9blI6VQ8xtSOMjRzDU1y0oIt5Ggtg7Lip24NWQ7
+         yHfCfFv6vtE0QJMF6zOX1DyF2pbtHb4wz2nAEKWJeDy6LnUK8gLkaN3qR4yf8OK2I/6w
+         6igA==
+X-Forwarded-Encrypted: i=1; AJvYcCV6IoGhurN31NXl6AjI5gGSTbL7ZAqmbQbfKDSUsj0UNv6ZhLPg+onycLo5PwEoChhGWzJMAZnmel3MDw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxDlT2UFPZG0bZNErJMxrD1c5kzloabMBlLYRlLSxRWbHu+xTQZ
+	SCdmirGpVNah4Q2Yp3KZtLHhhUi7tbeAyPKH7uAv1QPZYSz6Yk2F0NqnbvJITVg=
+X-Google-Smtp-Source: AGHT+IF4FPffxtmQR9t5EZMbd+1PD+tfMLop2oLUu4PzlpvPJKV8Cf+CHLosQyW1+af6eeMKw1OQIg==
+X-Received: by 2002:a05:6a20:d818:b0:1cf:2a35:6d21 with SMTP id adf61e73a8af0-1d905f69115mr4473754637.45.1729061548715;
+        Tue, 15 Oct 2024 23:52:28 -0700 (PDT)
 Received: from tjeznach.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-71e77370a83sm2410762b3a.5.2024.10.15.23.52.25
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-71e77370a83sm2410762b3a.5.2024.10.15.23.52.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Oct 2024 23:52:26 -0700 (PDT)
+        Tue, 15 Oct 2024 23:52:27 -0700 (PDT)
 From: Tomasz Jeznach <tjeznach@rivosinc.com>
 To: Joerg Roedel <joro@8bytes.org>,
 	Will Deacon <will@kernel.org>,
 	Robin Murphy <robin.murphy@arm.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>
-Subject: [PATCH v10 0/7] Linux RISC-V IOMMU Support
-Date: Tue, 15 Oct 2024 23:52:12 -0700
-Message-Id: <cover.1729059707.git.tjeznach@rivosinc.com>
+Subject: [PATCH v10 1/7] dt-bindings: iommu: riscv: Add bindings for RISC-V IOMMU
+Date: Tue, 15 Oct 2024 23:52:13 -0700
+Message-Id: <6c255602e296feaf0f005b498de4e6fdf8686ff7.1729059707.git.tjeznach@rivosinc.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <cover.1729059707.git.tjeznach@rivosinc.com>
+References: <cover.1729059707.git.tjeznach@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241015_235227_894078_D21A6D9C 
-X-CRM114-Status: GOOD (  15.74  )
+X-CRM114-CacheID: sfid-20241015_235229_992178_BDC617BE 
+X-CRM114-Status: GOOD (  17.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,107 +89,201 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Tomasz Jeznach <tjeznach@rivosinc.com>, linux@rivosinc.com, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>, Nick Kossifidis <mick@ics.forth.gr>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Tomasz Jeznach <tjeznach@rivosinc.com>, linux@rivosinc.com, Rob Herring <robh@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>, Nick Kossifidis <mick@ics.forth.gr>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhpcyBwYXRjaCBzZXJpZXMgaW50cm9kdWNlcyBzdXBwb3J0IGZvciBSSVNDLVYgSU9NTVUgYXJj
-aGl0ZWN0ZWQKaGFyZHdhcmUgaW50byB0aGUgTGludXgga2VybmVsLgoKVGhlIFJJU0MtViBJT01N
-VSBzcGVjaWZpY2F0aW9uLCB3aGljaCB0aGlzIHNlcmllcyBpcyBiYXNlZCBvbiwgaXMKcmF0aWZp
-ZWQgYW5kIGF2YWlsYWJsZSBhdCBHaXRIdWIvcmlzY3Ytbm9uLWlzYSBbMV0uCgpBdCBhIGhpZ2gg
-bGV2ZWwsIHRoZSBSSVNDLVYgSU9NTVUgc3BlY2lmaWNhdGlvbiBkZWZpbmVzOgoKMSkgRGF0YSBz
-dHJ1Y3R1cmVzOgogIC0gRGV2aWNlLWNvbnRleHQ6IEFzc29jaWF0ZXMgZGV2aWNlcyB3aXRoIGFk
-ZHJlc3Mgc3BhY2VzIGFuZCBob2xkcwogICAgcGVyLWRldmljZSBwYXJhbWV0ZXJzIGZvciBhZGRy
-ZXNzIHRyYW5zbGF0aW9ucy4KICAtIFByb2Nlc3MtY29udGV4dHM6IEFzc29jaWF0ZXMgZGlmZmVy
-ZW50IHZpcnR1YWwgYWRkcmVzcyBzcGFjZXMgYmFzZWQKICAgIG9uIGRldmljZS1wcm92aWRlZCBw
-cm9jZXNzIGlkZW50aWZpY2F0aW9uIG51bWJlcnMuCiAgLSBNU0kgcGFnZSB0YWJsZSBjb25maWd1
-cmF0aW9uIHVzZWQgdG8gZGlyZWN0IGFuIE1TSSB0byBhIGd1ZXN0CiAgICBpbnRlcnJ1cHQgZmls
-ZSBpbiBhbiBJTVNJQy4KMikgSW4tbWVtb3J5IHF1ZXVlIGludGVyZmFjZToKICAtIENvbW1hbmQt
-cXVldWUgZm9yIGlzc3VpbmcgY29tbWFuZHMgdG8gdGhlIElPTU1VLgogIC0gRmF1bHQvZXZlbnQg
-cXVldWUgZm9yIHJlcG9ydGluZyBmYXVsdHMgYW5kIGV2ZW50cy4KICAtIFBhZ2UtcmVxdWVzdCBx
-dWV1ZSBmb3IgcmVwb3J0aW5nICJQYWdlIFJlcXVlc3QiIG1lc3NhZ2VzIHJlY2VpdmVkCiAgICBm
-cm9tIFBDSWUgZGV2aWNlcy4KICAtIE1lc3NhZ2Utc2lnbmFsZWQgYW5kIHdpcmUtc2lnbmFsZWQg
-aW50ZXJydXB0IG1lY2hhbmlzbXMuCjMpIE1lbW9yeS1tYXBwZWQgcHJvZ3JhbW1pbmcgaW50ZXJm
-YWNlOgogIC0gTWFuZGF0b3J5IGFuZCBvcHRpb25hbCByZWdpc3RlciBsYXlvdXQgYW5kIGRlc2Ny
-aXB0aW9uLgogIC0gU29mdHdhcmUgZ3VpZGVsaW5lcyBmb3IgZGV2aWNlIGluaXRpYWxpemF0aW9u
-IGFuZCBjYXBhYmlsaXRpZXMgZGlzY292ZXJ5LgoKClRoaXMgc2VyaWVzIGludHJvZHVjZXMgUklT
-Qy1WIElPTU1VIGhhcmR3YXJlIGluaXRpYWxpemF0aW9uIGFuZCBjb21wbGV0ZQpzaW5nbGUtc3Rh
-Z2UgdHJhbnNsYXRpb24gd2l0aCBwYWdpbmcgZG9tYWluIHN1cHBvcnQuCgpUaGUgcGF0Y2hlcyBh
-cmUgb3JnYW5pemVkIGFzIGZvbGxvd3M6CgpQYXRjaCAxOiBJbnRyb2R1Y2VzIG1pbmltYWwgcmVx
-dWlyZWQgZGV2aWNlIHRyZWUgYmluZGluZ3MgZm9yIHRoZSBkcml2ZXIuClBhdGNoIDI6IERlZmlu
-ZXMgUklTQy1WIElPTU1VIGRhdGEgc3RydWN0dXJlcywgaGFyZHdhcmUgcHJvZ3JhbW1pbmcgaW50
-ZXJmYWNlCiAgICAgICAgIHJlZ2lzdGVycyBsYXlvdXQsIGFuZCBtaW5pbWFsIGluaXRpYWxpemF0
-aW9uIGNvZGUgZm9yIGVuYWJsaW5nIGdsb2JhbAogICAgICAgICBwYXNzLXRocm91Z2ggZm9yIGFs
-bCBjb25uZWN0ZWQgbWFzdGVycy4KUGF0Y2ggMzogSW1wbGVtZW50cyB0aGUgZGV2aWNlIGRyaXZl
-ciBmb3IgUENJZSBpbXBsZW1lbnRhdGlvbiBvZiBSSVNDLVYgSU9NTVUKICAgICAgICAgYXJjaGl0
-ZWN0ZWQgaGFyZHdhcmUuClBhdGNoIDQ6IEludHJvZHVjZXMgSU9NTVUgaW50ZXJmYWNlcyB0byB0
-aGUga2VybmVsIHN1YnN5c3RlbS4KUGF0Y2ggNTogSW1wbGVtZW50cyBkZXZpY2UgZGlyZWN0b3J5
-IG1hbmFnZW1lbnQgd2l0aCBkaXNjb3Zlcnkgc2VxdWVuY2VzIGZvcgogICAgICAgICBJL08gbWFw
-cGVkIG9yIGluLW1lbW9yeSBkZXZpY2UgZGlyZWN0b3J5IHRhYmxlIGxvY2F0aW9uLCBoYXJkd2Fy
-ZQogICAgICAgICBjYXBhYmlsaXRpZXMgZGlzY292ZXJ5LCBhbmQgZGV2aWNlIHRvIGRvbWFpbiBh
-dHRhY2ggaW1wbGVtZW50YXRpb24uClBhdGNoIDY6IEltcGxlbWVudHMgY29tbWFuZCBhbmQgZmF1
-bHQgcXVldWUsIGFuZCBpbnRyb2R1Y2VzIGRpcmVjdG9yeSBjYWNoZQogICAgICAgICBpbnZhbGlk
-YXRpb24gc2VxdWVuY2VzLgpQYXRjaCA3OiBJbXBsZW1lbnRzIHBhZ2luZyBkb21haW4sIHVzaW5n
-IGhpZ2hlc3QgcGFnZS10YWJsZSBtb2RlIGFkdmVydGlzZWQKICAgICAgICAgYnkgdGhlIGhhcmR3
-YXJlLiBUaGlzIHNlcmllcyBlbmFibGVzIG9ubHkgNEsgbWFwcGluZ3M7IGNvbXBsZXRlIHN1cHBv
-cnQKICAgICAgICAgZm9yIGxhcmdlIHBhZ2UgbWFwcGluZ3Mgd2lsbCBiZSBpbnRyb2R1Y2VkIGlu
-IGZvbGxvdy11cCBwYXRjaCBzZXJpZXMuCgpGb2xsb3ctdXAgcGF0Y2ggc2VyaWVzIHByb3ZpZGlu
-ZyBNU0kgaW50ZXJydXB0IHJlbWFwcGluZywgY29tcGxldGUgQVRTL1BSSS9TVkEKYW5kIFZGSU8v
-SU9NTVVGRCBzdXBwb3J0IGFyZSBhdmFpbGFibGUgYXQgdGhlIEdpdEh1YiBbMl0sIGFuZCBoYXMg
-YmVlbiB0ZXN0ZWQKd2l0aCBwdWJsaXNoZWQgUUVNVSBSSVNDLVYgSU9NTVUgZGV2aWNlIG1vZGVs
-IFszXS4KCkNoYW5nZXMgZnJvbSB2OToKLSByZWJhc2Ugb24gdjYuMTItcmMzCi0gIzYgTWVtb3J5
-IG9yZGVyaW5nIGZpeCBhbmQgdXBkYXRlZCBjb21tZW50YXJ5LCBiYXNlZCBvbiBXaWxs4oCZcyBz
-dWdnZXN0aW9ucy4KLSAjNyBSZW1vdmUgcmlzY3ZfaW9tbXVfZGV2aWNlX2RvbWFpbl90eXBlKCkg
-YW5kIHVzZSBoZWFkLWxlc3Mga2ZyZWVfcmN1IGluCiAgICAgcmlzY3ZfaW9tbXVfcmVsZWFzZV9k
-ZXZpY2UoKSwgYmFzZWQgb24gSmFzb24ncyBzdWdnZXN0aW9ucy4KCkJlc3QgcmVnYXJkcywKIFRv
-bWFzeiBKZXpuYWNoCgpbMV0gbGluazogaHR0cHM6Ly9naXRodWIuY29tL3Jpc2N2LW5vbi1pc2Ev
-cmlzY3YtaW9tbXUKWzJdIGxpbms6IGh0dHBzOi8vZ2l0aHViLmNvbS90amV6bmFjaC9saW51eC9y
-aXNjdl9pb21tdS5uZXh0ClszXSBsaW5rOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9xZW11LWRl
-dmVsLzIwMjQxMDA0MTU1NzIxLjIxNTQ2MjYtMS1kYmFyYm96YUB2ZW50YW5hbWljcm8uY29tLwp2
-OSBsaW5rOiAgaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtaW9tbXUvY292ZXIuMTcyODU3
-OTk1OC5naXQudGplem5hY2hAcml2b3NpbmMuY29tLwp2OCBsaW5rOiAgaHR0cHM6Ly9sb3JlLmtl
-cm5lbC5vcmcvbGludXgtaW9tbXUvY292ZXIuMTcxODM4ODkwOC5naXQudGplem5hY2hAcml2b3Np
-bmMuY29tLwp2NyBsaW5rOiAgaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtaW9tbXUvY292
-ZXIuMTcxNzYxMjI5OC5naXQudGplem5hY2hAcml2b3NpbmMuY29tLwp2NiBsaW5rOiAgaHR0cHM6
-Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtaW9tbXUvY292ZXIuMTcxNjU3ODQ1MC5naXQudGplem5h
-Y2hAcml2b3NpbmMuY29tLwp2NSBsaW5rOiAgaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgt
-aW9tbXUvY292ZXIuMTcxNTcwODY3OS5naXQudGplem5hY2hAcml2b3NpbmMuY29tLwp2NCBsaW5r
-OiAgaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtaW9tbXUvY292ZXIuMTcxNDc1MjI5My5n
-aXQudGplem5hY2hAcml2b3NpbmMuY29tLwp2MyBsaW5rOiAgaHR0cHM6Ly9sb3JlLmtlcm5lbC5v
-cmcvbGludXgtaW9tbXUvY292ZXIuMTcxNDQ5NDY1My5naXQudGplem5hY2hAcml2b3NpbmMuY29t
-Lwp2MiBsaW5rOiAgaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtaW9tbXUvY292ZXIuMTcx
-MzQ1NjU5Ny5naXQudGplem5hY2hAcml2b3NpbmMuY29tLwp2MSBsaW5rOiAgaHR0cHM6Ly9sb3Jl
-Lmtlcm5lbC5vcmcvbGludXgtaW9tbXUvY292ZXIuMTY4OTc5MjgyNS5naXQudGplem5hY2hAcml2
-b3NpbmMuY29tLwoKVG9tYXN6IEplem5hY2ggKDcpOgogIGR0LWJpbmRpbmdzOiBpb21tdTogcmlz
-Y3Y6IEFkZCBiaW5kaW5ncyBmb3IgUklTQy1WIElPTU1VCiAgaW9tbXUvcmlzY3Y6IEFkZCBSSVND
-LVYgSU9NTVUgcGxhdGZvcm0gZGV2aWNlIGRyaXZlcgogIGlvbW11L3Jpc2N2OiBBZGQgUklTQy1W
-IElPTU1VIFBDSWUgZGV2aWNlIGRyaXZlcgogIGlvbW11L3Jpc2N2OiBFbmFibGUgSU9NTVUgcmVn
-aXN0cmF0aW9uIGFuZCBkZXZpY2UgcHJvYmUuCiAgaW9tbXUvcmlzY3Y6IERldmljZSBkaXJlY3Rv
-cnkgbWFuYWdlbWVudC4KICBpb21tdS9yaXNjdjogQ29tbWFuZCBhbmQgZmF1bHQgcXVldWUgc3Vw
-cG9ydAogIGlvbW11L3Jpc2N2OiBQYWdpbmcgZG9tYWluIHN1cHBvcnQKCiAuLi4vYmluZGluZ3Mv
-aW9tbXUvcmlzY3YsaW9tbXUueWFtbCAgICAgICAgICAgfCAgMTQ3ICsrCiBNQUlOVEFJTkVSUyAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgICA5ICsKIGRyaXZlcnMvaW9tbXUv
-S2NvbmZpZyAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgIDEgKwogZHJpdmVycy9pb21tdS9N
-YWtlZmlsZSAgICAgICAgICAgICAgICAgICAgICAgIHwgICAgMiArLQogZHJpdmVycy9pb21tdS9y
-aXNjdi9LY29uZmlnICAgICAgICAgICAgICAgICAgIHwgICAyMCArCiBkcml2ZXJzL2lvbW11L3Jp
-c2N2L01ha2VmaWxlICAgICAgICAgICAgICAgICAgfCAgICAzICsKIGRyaXZlcnMvaW9tbXUvcmlz
-Y3YvaW9tbXUtYml0cy5oICAgICAgICAgICAgICB8ICA3ODQgKysrKysrKysKIGRyaXZlcnMvaW9t
-bXUvcmlzY3YvaW9tbXUtcGNpLmMgICAgICAgICAgICAgICB8ICAxMjAgKysKIGRyaXZlcnMvaW9t
-bXUvcmlzY3YvaW9tbXUtcGxhdGZvcm0uYyAgICAgICAgICB8ICAgOTIgKwogZHJpdmVycy9pb21t
-dS9yaXNjdi9pb21tdS5jICAgICAgICAgICAgICAgICAgIHwgMTY2MSArKysrKysrKysrKysrKysr
-KwogZHJpdmVycy9pb21tdS9yaXNjdi9pb21tdS5oICAgICAgICAgICAgICAgICAgIHwgICA4OCAr
-CiAxMSBmaWxlcyBjaGFuZ2VkLCAyOTI2IGluc2VydGlvbnMoKyksIDEgZGVsZXRpb24oLSkKIGNy
-ZWF0ZSBtb2RlIDEwMDY0NCBEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvaW9tbXUv
-cmlzY3YsaW9tbXUueWFtbAogY3JlYXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMvaW9tbXUvcmlzY3Yv
-S2NvbmZpZwogY3JlYXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMvaW9tbXUvcmlzY3YvTWFrZWZpbGUK
-IGNyZWF0ZSBtb2RlIDEwMDY0NCBkcml2ZXJzL2lvbW11L3Jpc2N2L2lvbW11LWJpdHMuaAogY3Jl
-YXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMvaW9tbXUvcmlzY3YvaW9tbXUtcGNpLmMKIGNyZWF0ZSBt
-b2RlIDEwMDY0NCBkcml2ZXJzL2lvbW11L3Jpc2N2L2lvbW11LXBsYXRmb3JtLmMKIGNyZWF0ZSBt
-b2RlIDEwMDY0NCBkcml2ZXJzL2lvbW11L3Jpc2N2L2lvbW11LmMKIGNyZWF0ZSBtb2RlIDEwMDY0
-NCBkcml2ZXJzL2lvbW11L3Jpc2N2L2lvbW11LmgKCgpiYXNlLWNvbW1pdDogOGU5MjljYjU0NmVl
-NDJjOWE2MWQyNGZhZTYwNjA1ZTllMzE5MjM1NAotLSAKMi4zNC4xCgoKX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
-CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
-cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Add bindings for the RISC-V IOMMU device drivers.
+
+Co-developed-by: Anup Patel <apatel@ventanamicro.com>
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Tomasz Jeznach <tjeznach@rivosinc.com>
+---
+ .../bindings/iommu/riscv,iommu.yaml           | 147 ++++++++++++++++++
+ MAINTAINERS                                   |   7 +
+ 2 files changed, 154 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
+
+diff --git a/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml b/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
+new file mode 100644
+index 000000000000..5d015eeb06d0
+--- /dev/null
++++ b/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
+@@ -0,0 +1,147 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/iommu/riscv,iommu.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: RISC-V IOMMU Architecture Implementation
++
++maintainers:
++  - Tomasz Jeznach <tjeznach@rivosinc.com>
++
++description: |
++  The RISC-V IOMMU provides memory address translation and isolation for
++  input and output devices, supporting per-device translation context,
++  shared process address spaces including the ATS and PRI components of
++  the PCIe specification, two stage address translation and MSI remapping.
++  It supports identical translation table format to the RISC-V address
++  translation tables with page level access and protection attributes.
++  Hardware uses in-memory command and fault reporting queues with wired
++  interrupt or MSI notifications.
++
++  Visit https://github.com/riscv-non-isa/riscv-iommu for more details.
++
++  For information on assigning RISC-V IOMMU to its peripheral devices,
++  see generic IOMMU bindings.
++
++properties:
++  # For PCIe IOMMU hardware compatible property should contain the vendor
++  # and device ID according to the PCI Bus Binding specification.
++  # Since PCI provides built-in identification methods, compatible is not
++  # actually required. For non-PCIe hardware implementations 'riscv,iommu'
++  # should be specified along with 'reg' property providing MMIO location.
++  compatible:
++    oneOf:
++      - items:
++          - enum:
++              - qemu,riscv-iommu
++          - const: riscv,iommu
++      - items:
++          - enum:
++              - pci1efd,edf1
++          - const: riscv,pci-iommu
++
++  reg:
++    maxItems: 1
++    description:
++      For non-PCI devices this represents base address and size of for the
++      IOMMU memory mapped registers interface.
++      For PCI IOMMU hardware implementation this should represent an address
++      of the IOMMU, as defined in the PCI Bus Binding reference.
++
++  '#iommu-cells':
++    const: 1
++    description:
++      The single cell describes the requester id emitted by a master to the
++      IOMMU.
++
++  interrupts:
++    minItems: 1
++    maxItems: 4
++    description:
++      Wired interrupt vectors available for RISC-V IOMMU to notify the
++      RISC-V HARTS. The cause to interrupt vector is software defined
++      using IVEC IOMMU register.
++
++  msi-parent: true
++
++  power-domains:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++  - '#iommu-cells'
++
++additionalProperties: false
++
++examples:
++  - |+
++    /* Example 1 (IOMMU device with wired interrupts) */
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    iommu1: iommu@1bccd000 {
++        compatible = "qemu,riscv-iommu", "riscv,iommu";
++        reg = <0x1bccd000 0x1000>;
++        interrupt-parent = <&aplic_smode>;
++        interrupts = <32 IRQ_TYPE_LEVEL_HIGH>,
++                     <33 IRQ_TYPE_LEVEL_HIGH>,
++                     <34 IRQ_TYPE_LEVEL_HIGH>,
++                     <35 IRQ_TYPE_LEVEL_HIGH>;
++        #iommu-cells = <1>;
++    };
++
++    /* Device with two IOMMU device IDs, 0 and 7 */
++    master1 {
++        iommus = <&iommu1 0>, <&iommu1 7>;
++    };
++
++  - |+
++    /* Example 2 (IOMMU device with shared wired interrupt) */
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    iommu2: iommu@1bccd000 {
++        compatible = "qemu,riscv-iommu", "riscv,iommu";
++        reg = <0x1bccd000 0x1000>;
++        interrupt-parent = <&aplic_smode>;
++        interrupts = <32 IRQ_TYPE_LEVEL_HIGH>;
++        #iommu-cells = <1>;
++    };
++
++  - |+
++    /* Example 3 (IOMMU device with MSIs) */
++    iommu3: iommu@1bcdd000 {
++        compatible = "qemu,riscv-iommu", "riscv,iommu";
++        reg = <0x1bccd000 0x1000>;
++        msi-parent = <&imsics_smode>;
++        #iommu-cells = <1>;
++    };
++
++  - |+
++    /* Example 4 (IOMMU PCIe device with MSIs) */
++    bus {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        pcie@30000000 {
++            device_type = "pci";
++            #address-cells = <3>;
++            #size-cells = <2>;
++            reg = <0x0 0x30000000  0x0 0x1000000>;
++            ranges = <0x02000000 0x0 0x41000000  0x0 0x41000000  0x0 0x0f000000>;
++
++            /*
++             * The IOMMU manages all functions in this PCI domain except
++             * itself. Omit BDF 00:01.0.
++             */
++            iommu-map = <0x0 &iommu0 0x0 0x8>,
++                        <0x9 &iommu0 0x9 0xfff7>;
++
++            /* The IOMMU programming interface uses slot 00:01.0 */
++            iommu0: iommu@1,0 {
++               compatible = "pci1efd,edf1", "riscv,pci-iommu";
++               reg = <0x800 0 0 0 0>;
++               #iommu-cells = <1>;
++            };
++        };
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 7ad507f49324..18b4d9b44115 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -19890,6 +19890,13 @@ F:	arch/riscv/
+ N:	riscv
+ K:	riscv
+ 
++RISC-V IOMMU
++M:	Tomasz Jeznach <tjeznach@rivosinc.com>
++L:	iommu@lists.linux.dev
++L:	linux-riscv@lists.infradead.org
++S:	Maintained
++F:	Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
++
+ RISC-V MICROCHIP FPGA SUPPORT
+ M:	Conor Dooley <conor.dooley@microchip.com>
+ M:	Daire McNamara <daire.mcnamara@microchip.com>
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
