@@ -4,64 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C03CD2068A
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 01:00:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A53CD2069D
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 05:06:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Message-Id:
-	MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xxFciF8GdlmXRgC8J8UKrN3l7dQ/Fet5W6szkzfXstk=; b=fTzrZGv69Izbbp
-	CygWXt6c14lYGh8dV5tTihUgunBPk3NeH8bRneX5J9ZY+hA5XdDQyvZYPs7o/Grx/l/I2Y83d4Sps
-	gRo8pVruFXh5Zs/JU8FHKH7eahyGDkVjIzCX3O9xUwDIiTNQXhcP/cjHtSV6fG8nz1kN+xpbVFhVg
-	1s54cJcqrDd7I4qcS/SCkTdTckDlRVGjiEZaPIUqs6jmf3bKAjPx88sMQAxgcvQ+etqPRWSU89LOM
-	UZJSl5DBGRvbxbxttkPObaXfGphTorVGz0KP1b6kQThHJGx7KqzUDgKfjbIBJE9RTmtJq57Qul5Yo
-	UZuJPFRHMpv/4s/I1PQw==;
+	List-Owner; bh=7i0LV2SnxBrHvNx0F6DTtUinu5mzgs70bXcq+C6CHaU=; b=yRQqo9PHAbGpKA
+	6tnhcgCRYwgJGva/RcPyRB3jaNvZQfRPxRiLdT4371/EbMtCRkNtAHsvfIz9fItbBU378To0Jy2xh
+	RjqCYF8rE/dECNFutw/7HecvvlROEJ5Uxpqh5nO/wsYxe8MfyNiyC4JkwKyvsEHjbWm0UkOY44oNk
+	Ml59CRgXODQZ1rQ4y3mLKhpPByYE0HhuVP1vD0wSDe3iV7NvZJtxOVrzmygPBqLFCtsZr2fFErzDp
+	vDiq22Ns15N++LcIFye0LTRbGooIa+tf2lnonL5fSVcG9B6N9S2S6d/za6maQXHZkRfZ3s5UFLMjr
+	hUVLJ7OfievqklDNRj4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t0sOo-0000000A3ev-2chr;
-	Wed, 16 Oct 2024 01:00:26 +0000
-Received: from smtp.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4])
+	id 1t0wEh-0000000AXSo-2SMP;
+	Wed, 16 Oct 2024 05:06:15 +0000
+Received: from mail-ej1-f47.google.com ([209.85.218.47])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t0sOm-0000000A3dk-0DMC
+	id 1t0wEd-0000000AXS1-42wn
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Oct 2024 01:00:25 +0000
-From: Yixun Lan <dlan@gentoo.org>
-Date: Wed, 16 Oct 2024 08:59:43 +0800
-Subject: [PATCH v5 3/3] riscv: dts: spacemit: add pinctrl property to uart0
- in BPI-F3
+	Wed, 16 Oct 2024 05:06:14 +0000
+Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-a99eb8b607aso497580466b.2
+        for <linux-riscv@lists.infradead.org>; Tue, 15 Oct 2024 22:06:10 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729055169; x=1729659969;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=aJpmoZDHNXOCQ0hPtAG85Btn1S/XrnkL2QxgMJLjgU0=;
+        b=DpkbKF31have8XDwWGSvTKGrFlWG/fJmJtdWAM9pmsbcN6B4kX2GU/YE/LEQJ7MLWu
+         moh8Jgqxf0zfjYjMwyEPNMxfGPgwfw9bv8VdhzU/QvgIwa9eJ4qnmP15UpAb1ZnhjagX
+         fatfmO04KoelgRKpqHZDfaP3Wcp8VAOiSIDtsp4/KGFY/X5mKROTlRByjyYS+40tBU1f
+         kH1V1CUP7ZeJdsGWVL2vLO9NZfn04ZCuJChkCG67uetujQQLk9gdiJD2cBjRw6RRT8PP
+         7TspwLq9s79OqKPqtaqH7BgICoz5SWkFoI/ok4Ll4Nf2tdCHnYZYX6uT4vZqR5CO+pxT
+         o7ag==
+X-Forwarded-Encrypted: i=1; AJvYcCUIsBbTR7tn9JHZUN/87qQoy0sXncB1h3dO3gpkCADJB60ciB7X8mII+x3uy1YoOx0XCHfBJGCiWx5LBQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHGpxe5qzEIP43m0TxjybHFgRC26Y46WvUZTRvP1DsMGplFWvN
+	KiXJOSwZy/W+6E7oxNIYluM1yyEKougCDaSFAh1lkXg00VzZW1TOve/lj8Cx5HjpGcH6BC4HAe+
+	1H+jTYgnhYGpGDfgNWS6JIWuuubI=
+X-Google-Smtp-Source: AGHT+IH74YJJx49nsFhkFyT1RiTJLRloxAcb38iBw6/nz//HY/ZNyBiPGvMCwwwDAg2enWh0s8igaco8Z4E7VnmPpHo=
+X-Received: by 2002:a17:907:e216:b0:a99:7c14:9197 with SMTP id
+ a640c23a62f3a-a9a34e9b0a6mr190098066b.64.1729055169080; Tue, 15 Oct 2024
+ 22:06:09 -0700 (PDT)
 MIME-Version: 1.0
-Message-Id: <20241016-02-k1-pinctrl-v5-3-03d395222e4f@gentoo.org>
-References: <20241016-02-k1-pinctrl-v5-0-03d395222e4f@gentoo.org>
-In-Reply-To: <20241016-02-k1-pinctrl-v5-0-03d395222e4f@gentoo.org>
-To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Conor Dooley <conor@kernel.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2397; i=dlan@gentoo.org;
- h=from:subject:message-id; bh=3f4GLOsluvHuCgnEd7+tScd/3iBGplIPsNtjui2V1jw=;
- b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBnDxAUXO1zc9Ta5tpeIyJ2hq8POoNXUp36J5SWW
- j325v/ZbzCJApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCZw8QFF8UgAAAAAAuAChp
- c3N1ZXItZnByQG5vdGF0aW9ucy5vcGVucGdwLmZpZnRoaG9yc2VtYW4ubmV0QjVCQUI4QzlDMzF
- CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277fn2EACeD6FHKXHz5bLlk9
- YMe230S4sl1NDB31Ct1jK3fgjJv4E1eKpGO3Wjj696e/f13vBKIfW1VLXzncYCifOQqV1yfGrRX
- wSdZOgA8RYiq8JGNn7DBvENGHjkDcQulGNZo7kac8SpHmLTeucu3R8BuQ1hj9nY+ABgYxp/dvhV
- PQKt35+Vxnd3PqVqt6HAl3sEpzFH4JnRBPKn2SDRa65UgWJ2BDQIm2UiMVcNO5uqx0cvZZlhxVg
- XTJd24XxFH8jlv/SNIXVRebnT1AN8yzs0Gspzk4EV2p5gz1VgSoLk0u94hYE8Vkz/s3+75Fk+vY
- 2T0H4CgfhfhL0GQvWy0zOPSVNE75TdV/YAnKIkL/afOaNowm5af/l8FFHssDjcg8CKN/wIKN4N/
- y5e2hIb1oIKYs+cuLuTjT4uKq8b1p6OsGwmdDmn9X+r/69YNIrsebG8M4F5TVAQNDV2W7ZkXoMo
- Q7D0xOjUjmZmD5Y5TWJOZKkYxOd/7pZ88thSKMzUUCSGl2sqK3fjY4/j2ZBElqCnEvt8AVuM7kH
- PQKXdaU3I6yuqADx9JuGNHFMJkyTG1c2pIxqKxbdAvRqtVrdD6D6o1q0e7qiQne6jesgzewwvsI
- 35yS9RaH5xf8S+3giwv3APN7oyMvrdawRvUGCytnYFl0j8W4qOe4Ijuwh1d4rIgces0w==
-X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
- fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
+References: <20240922145151.130999-1-hal.feng@starfivetech.com>
+ <20240922145151.130999-4-hal.feng@starfivetech.com> <CAMZ6Rq+EM37Gvx8bLEwvhn+kUC9yGDiapwD0KX31-x-e-Rm3yQ@mail.gmail.com>
+ <EAC60558E0B6E4BB+e5384c3c-ba45-48f5-a86f-a74e84309a14@linux.starfivetech.com>
+In-Reply-To: <EAC60558E0B6E4BB+e5384c3c-ba45-48f5-a86f-a74e84309a14@linux.starfivetech.com>
+From: Vincent MAILHOL <mailhol.vincent@wanadoo.fr>
+Date: Wed, 16 Oct 2024 14:05:57 +0900
+Message-ID: <CAMZ6RqLvzvttbCMFbZiY9v=nGcH+O3EV91c+x7GxTbkKhdTcwg@mail.gmail.com>
+Subject: Re: [PATCH v2 3/4] can: Add driver for CAST CAN Bus Controller
+To: Hal Feng <hal.feng@linux.starfivetech.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Marc Kleine-Budde <mkl@pengutronix.de>, 
+	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
+	William Qiu <william.qiu@starfivetech.com>, devicetree@vger.kernel.org, 
+	linux-can@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Hal Feng <hal.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241015_180024_165522_77CEC586 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20241015_220612_027363_4277C500 
+X-CRM114-Status: GOOD (  23.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,90 +84,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Yixun Lan <dlan@gentoo.org>, Meng Zhang <zhangmeng.kevin@spacemit.com>, linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, Jesse Taube <mr.bossman075@gmail.com>, Yangyu Chen <cyy@cyyself.name>, Inochi Amaoto <inochiama@outlook.com>, Jisheng Zhang <jszhang@kernel.org>, Meng Zhang <kevin.z.m@hotmail.com>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Before pinctrl driver implemented, the uart0 controller reply on
-bootloader for setting correct pin mux and configurations.
+On Tue. 15 Oct. 2024 at 18:33, Hal Feng <hal.feng@linux.starfivetech.com> wrote:
+> On 9/23/2024 11:41 AM, Vincent MAILHOL wrote:
+> > Hi Hal,
+> >
+> > A few more comments on top of what Andrew already wrote.
+> >
+> > On Mon. 23 Sep. 2024 at 00:09, Hal Feng <hal.feng@starfivetech.com> wrote:
+> >> From: William Qiu <william.qiu@starfivetech.com>
+> >>
+> >> Add driver for CAST CAN Bus Controller used on
+> >> StarFive JH7110 SoC.
+> >>
+> >> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+> >> Co-developed-by: Hal Feng <hal.feng@starfivetech.com>
+> >> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+> >> ---
 
-Now, let's add pinctrl property to uart0 of Bananapi-F3 board.
+(...)
 
-Signed-off-by: Yixun Lan <dlan@gentoo.org>
----
- arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts |  3 +++
- arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi    | 20 ++++++++++++++++++++
- arch/riscv/boot/dts/spacemit/k1.dtsi            |  5 +++++
- 3 files changed, 28 insertions(+)
+> >> +       stats->rx_packets++;
+> >> +       netif_receive_skb(skb);
+> >> +
+> >> +       return 1;
+> >
+> > Why return 1 on success and 0 on failure? The convention in the kernel
+> > is that 0 means success. If you really want to keep 0 for failure, at
+> > least make this return boolean true or boolean false, but overall, try
+> > to follow the return conventions.
+>
+> The return value here represents the number of successfully received packets.
+> It is used in ccan_rx_poll() for counting the number of successfully
+> received packets.
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-index 023274189b492598b312d27609051a855c021d40..bc88d4de25a621f1baa5b2b96cfa0083144847af 100644
---- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-@@ -4,6 +4,7 @@
-  */
- 
- #include "k1.dtsi"
-+#include "k1-pinctrl.dtsi"
- 
- / {
- 	model = "Banana Pi BPI-F3";
-@@ -15,5 +16,7 @@ chosen {
- };
- 
- &uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart0_2_cfg>;
- 	status = "okay";
- };
-diff --git a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
-new file mode 100644
-index 0000000000000000000000000000000000000000..a8eac5517f8578d60cb45214589ccb45ac376b9a
---- /dev/null
-+++ b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
-@@ -0,0 +1,20 @@
-+// SPDX-License-Identifier: GPL-2.0 OR MIT
-+/*
-+ * Copyright (c) 2024 Yixun Lan <dlan@gentoo.org>
-+ */
-+
-+#include <dt-bindings/gpio/gpio.h>
-+
-+#define K1_PADCONF(pin, func) (((pin) << 16) | (func))
-+
-+&pinctrl {
-+	uart0_2_cfg: uart0-2-cfg {
-+		uart0-2-pins {
-+			pinmux = <K1_PADCONF(68, 2)>,
-+				 <K1_PADCONF(69, 2)>;
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <32>;
-+		};
-+	};
-+};
-diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
-index 0777bf9e01183f34c1eb82525418fe1a660b25a9..a2d5f7d4a942af26b3ba991928f23b2d9943366a 100644
---- a/arch/riscv/boot/dts/spacemit/k1.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
-@@ -416,6 +416,11 @@ uart9: serial@d4017800 {
- 			status = "disabled";
- 		};
- 
-+		pinctrl: pinctrl@d401e000 {
-+			compatible = "spacemit,k1-pinctrl";
-+			reg = <0x0 0xd401e000 0x0 0x400>;
-+		};
-+
- 		plic: interrupt-controller@e0000000 {
- 			compatible = "spacemit,k1-plic", "sifive,plic-1.0.0";
- 			reg = <0x0 0xe0000000 0x0 0x4000000>;
+Ack. I guess this will become more clear after you implement the queue logic.
 
--- 
-2.47.0
+(...)
 
+> >> +
+> >> +       if (priv->cantype == CAST_CAN_TYPE_CANFD) {
+> >> +               priv->can.ctrlmode_supported = CAN_CTRLMODE_LOOPBACK | CAN_CTRLMODE_FD;
+> >> +               priv->can.data_bittiming_const = &ccan_data_bittiming_const_canfd;
+> >> +       } else {
+> >> +               priv->can.ctrlmode_supported = CAN_CTRLMODE_LOOPBACK;
+> >> +       }
+> >
+> > Nitpick, consider doing this:
+> >
+> >   priv->can.ctrlmode_supported = CAN_CTRLMODE_LOOPBACK;
+> >   if (priv->cantype == CAST_CAN_TYPE_CANFD) {
+> >           priv->can.ctrlmode_supported |= CAN_CTRLMODE_FD;
+> >           priv->can.data_bittiming_const = &ccan_data_bittiming_const_canfd;
+> >   }
+>
+> OK.
+>
+> >
+> > Also, does you hardware support dlc greater than 8 (c.f.
+> > CAN_CTRLMODE_CC_LEN8_DLC)?
+>
+> The class CAN (CC) mode does not support, but the CAN FD mode supports.
+
+So, CAN_CTRLMODE_CC_LEN8_DLC is a Classical CAN feature. Strictly
+speaking, this does not exist in CAN FD. Do you mean that only the
+CAST_CAN_TYPE_CANFD supports sending Classical CAN frames with a DLC
+greater than 8?
+
+If none of the Classical CAN or CAN FD variants of your device is able
+to send Classical CAN frames with a DLC greater than 8, then this is
+just not supported by your device.
+
+Could you share the datasheet so that I can double check this?
+
+(...)
+
+> Sorry for the late reply. Thank you for your detailed review.
+
+No problem, take your time!
+
+
+Yours sincerely,
+Vincent Mailhol
 
 _______________________________________________
 linux-riscv mailing list
