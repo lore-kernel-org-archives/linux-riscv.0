@@ -4,55 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C3E4D1AD4F
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 12:00:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CD7CD1AD4F
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 12:04:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gqHBUN2QUppr/mMTxg2zl2PminTMS1VWnQlS07Zx1Q8=; b=3g0XvblZ5MiyOF
-	oOQZR5MUAmB1vrhut8fHKwUnF5Fs7EMXKIJlijCnSTqp4I6RLGY3qQKl+zN7ncGtVJE/Aw6TIEl6l
-	kgFMh+4PU4A06xZUeSw85V9x9ZuLwhq3aBVfmUfdFQIsZOdiOIsi27OVGhUU3AHcCz0d7VzvTNvpf
-	OtzxodgHWbK2CxNNFeRHX33C48LEP/7G04RiM401xAqXGdkF7tAIbsfbj7AfsiBuy1Z1nHPxtCcW5
-	ZrBL6YybExRpOVzp5uMSHZGq046VIJ6vvosCL0s5TosYH2VdEy8bQ+4/xbaLW6WYxb2zuQVBLGELg
-	xqXLI4yTu8I6eo9uP59g==;
+	List-Owner; bh=ViGkX2/YxzMngN7yAzSWlmDYNq00EJPgaGxCtVv+Sz0=; b=UkmrzgWhNjSBU4
+	hCQKKOcUnJE9jJJhRFM8Y9gLd7qdR7FZhsIP8nsTdSQF1HmNg7Gp3Vhl6IIiTYMslx5oMj6dY5OEp
+	5U0lsmkKWKW3pbmeJPBZWMrqEo4dfGbTD3uq/o4ymQL9Pq5nYklDL4UVM88baRSX3L1ZBZMzI7pge
+	SsrQj/234Y0sVdmiogurdoltZdF0KzKsZFKg0QtUjAcM7hGKrnvIDyd+mrlG0L15nCF597GiE8N9V
+	CzGZ4PC4BhzoaI9hI03PSIsDBkRCS1C1teK5MN09yezLVkkoHg7Ei9pLEr5eZGYsU5vz/xX5DE7mX
+	aTNxXmjHCHwJNbz6/0mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t12hP-0000000BflV-01oI;
-	Wed, 16 Oct 2024 12:00:19 +0000
-Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
+	id 1t12l4-0000000BgQ5-46lz;
+	Wed, 16 Oct 2024 12:04:07 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t12hJ-0000000Bfkh-1rRK
+	id 1t12l2-0000000BgPk-3aAw
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Oct 2024 12:00:17 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id A6DFB1C0003;
-	Wed, 16 Oct 2024 12:00:05 +0000 (UTC)
-Message-ID: <6b2ff48a-ab43-4866-af5a-b8b7d3c23582@ghiti.fr>
-Date: Wed, 16 Oct 2024 14:00:03 +0200
+	Wed, 16 Oct 2024 12:04:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 73D3F5C60E0;
+	Wed, 16 Oct 2024 12:03:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9679C4CEC5;
+	Wed, 16 Oct 2024 12:03:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729080243;
+	bh=JsKFcB8f/aLo1ZGyXuBIwNbuZC04BdMumuWwsvU+Bx8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=A3ZnN3EXczMdEAJFoIiX0I3SZBaYqk1DKrBdC6eygU5SHoVfAcyEaesaq+lVKhdmG
+	 MZTO3jHjJpDAhMzEeTNQHYvyOMhduLV6sNC1UuM0D8MM89WopWYM1O3GIiEFX3l37y
+	 4WFhdkiRrptLI3xtnK/v6r9MVm6IMn0vkvEFMEeZ7H6d5pJ3W/KR6+n4ch4HucPhh5
+	 fMSH/DvD0Wem+Sym6ecuIMIkq8m/NS2wBjtW81vzQOc17F0UYsyXQhDLdCSNHpIUqA
+	 hbi8GJVkpeWcMSWn4l2QA//WV3RU1rFz03UzX9/gGjOURFPqc23mg5bmk2WgTd7YxL
+	 c6R6uAbXjWoBQ==
+Message-ID: <26514aa5-c835-41d4-b0bc-862f3181cb8c@kernel.org>
+Date: Wed, 16 Oct 2024 14:03:54 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC] riscv/entry: issue about a0/orig_a0 register and ENOSYS
-Content-Language: en-US
-To: Celeste Liu <coelacanthushex@gmail.com>, linux-riscv@lists.infradead.org,
+Subject: Re: [PATCH v5 1/3] dt-bindings: thermal: sophgo,cv1800-thermal: Add
+ Sophgo CV1800 thermal
+To: Haylen Chu <heylenay@4d2.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
+ Inochi Amaoto <inochiama@outlook.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
  <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Oleg Nesterov <oleg@redhat.com>, "Dmitry V. Levin" <ldv@strace.io>
-Cc: Andrea Bolognani <abologna@redhat.com>, WANG Xuerui <git@xen0n.name>,
- Jiaxun Yang <jiaxun.yang@flygoat.com>, Huacai Chen <chenhuacai@kernel.org>,
- Felix Yan <felixonmars@archlinux.org>, Ruizhe Pan <c141028@gmail.com>,
- Shiqi Zhang <shiqi@isrc.iscas.ac.cn>, Guo Ren <guoren@kernel.org>,
- Yao Zi <ziyao@disroot.org>, Yangyu Chen <cyy@cyyself.name>,
- Han Gao <gaohan@iscas.ac.cn>, linux-kernel@vger.kernel.org,
- rsworktech@outlook.com
-References: <59505464-c84a-403d-972f-d4b2055eeaac@gmail.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <59505464-c84a-403d-972f-d4b2055eeaac@gmail.com>
-X-GND-Sasl: alex@ghiti.fr
+ Jisheng Zhang <jszhang@kernel.org>, linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <20241014073813.23984-1-heylenay@4d2.org>
+ <20241014073813.23984-2-heylenay@4d2.org>
+ <cycdlsi3tb6nqgbzzmypmblpcxxqmn3slqcbf5mq2okw3lqrdr@ghvswymvnslp>
+ <Zw5pB_tPuOgIbaxV@ketchup> <e6012be3-01c8-4ff8-bb52-9334c7490c78@kernel.org>
+ <Zw-pJZ0jhxR8Oggk@ketchup>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <Zw-pJZ0jhxR8Oggk@ketchup>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241016_050013_816134_1FB09196 
-X-CRM114-Status: GOOD (  32.41  )
+X-CRM114-CacheID: sfid-20241016_050405_014093_8A261C4A 
+X-CRM114-Status: UNSURE (   6.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,140 +126,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Celeste,
+On 16/10/2024 13:53, Haylen Chu wrote:
+>>>>> +
+>>>>> +properties:
+>>>>> +  compatible:
+>>>>> +    enum:
+>>>>> +      - sophgo,cv1800-thermal
+>>>>
+>>>> Not much improved, judging by other patches there is no "CV1800" SoC,
+>>>> but that's a family name.  Otherwise please point us to bindings or DTS
+>>>> using this SoC.
+>>>
+>>> "cv1800" is referenced in the clock binding[1] and usb binding[2]. I
+>>> don't think there are other CV1800 SoC variants. Usage of "CV1800"
+>>
+>> There are. git grep cv1800
+>>
+>>> should be specific and unambiguous.
+>>
+>> And other places have different name.
+> 
+> Okay, will use cv1800b in the next revision instead. Thanks.
 
-Thank you for looking into this and really sorry about the late response.
+Just to clarify: I assume the name of the SoC is cv1800b.
 
-On 17/09/2024 06:09, Celeste Liu wrote:
-> Before PTRACE_GET_SYSCALL_INFO was implemented in v5.3, the only way to
-> get syscall arguments was to get user_regs_struct via PTRACE_GETREGSET.
-> On some architectures where a register is used as both the first
-> argument and the return value and thus will be changed at some stage of
-> the syscall process, something like orig_a0 is provided to save the
-> original argument register value. But RISC-V doesn't export orig_a0 in
-> user_regs_struct (This ABI was designed at e2c0cdfba7f6 ("RISC-V:
-> User-facing API").) so userspace application like strace will get the
-> right or wrong result depends on the operation order in do_trap_ecall_u()
-> function.
->
-> This requires we put the ENOSYS process after syscall_enter_from_user_mode()
-> or syscall_handler()[1]. Unfortunately, the generic entry API
-> syscall_enter_from_user_mode() requires we
->
-> *  process ENOSYS before syscall_enter_from_user_mode()
+Best regards,
+Krzysztof
 
-
-Where does this requirement come from?
-
-
-> *  or only set a0 to ENOSYS when the return value of
->     syscall_enter_from_user_mode() != -1
->
-> Again, if we choose the latter way to avoid conflict with the first
-> issue, we will meet the third problem: strace depends on that kernel
-> will return ENOSYS when syscall nr is -1 to implement their syscall
-> tampering feature[2].
-
-
-IIUC, seccomp and others in syscall_enter_from_user_mode() could return 
--1 and then we could not differentiate with the syscall number being -1.
-
-But could we imagine, to distinguish between an error and the syscall 
-number being -1, checking again the syscall number after we call 
-syscall_enter_from_user_mode()? If the syscall number is -1, then we set 
-ENOSYS otherwise we don't do anything (a bit like what you did in 
-52449c17bdd1 ("riscv: entry: set a0 = -ENOSYS only when syscall != -1")).
-
-Let me know if I completely misunderstood here!
-
-Thanks again for the thorough explanation,
-
-Alex
-
-
->
-> Actually, we tried the both ways in 52449c17bdd1 ("riscv: entry: set
-> a0 = -ENOSYS only when syscall != -1") and 61119394631f ("riscv: entry:
-> always initialize regs->a0 to -ENOSYS") before.
->
-> Naturally, there is a solution:
->
-> 1. Just add orig_a0 in user_regs_struct and let strace use it as
->     loongarch does. So only two problems, which can be resolved without
->     conflict, are left here.
->
-> The conflicts are the direct result of the limitation of generic entry
-> API, so we have another two solutions:
->
-> 2. Give up the generic entry API, and switch back to the
->     architecture-specific standardalone implementation.
-> 3. Redesign the generic entry API: the problem was caused by
->     syscall_enter_from_user_mode() using the value -1 (which is unused
->     normally) of syscall nr to inform syscall was reject by seccomp/bpf.
->
-> In theory, the Solution 1 is best:
->
-> *  a0 was used for two purposes in ABI, so using two variables to store
->     it is natural.
-> *  Userspace can implement features without depending on the internal
->     behavior of the kernel.
->
-> Unfortunately, it's difficult to implement based on the current code.
-> The RISC-V defined struct pt_regs as below:
->
->          struct pt_regs {
->                  unsigned long epc;
->          ...
->                  unsigned long t6;
->                  /* Supervisor/Machine CSRs */
->                  unsigned long status;
->                  unsigned long badaddr;
->                  unsigned long cause;
->                  /* a0 value before the syscall */
->                  unsigned long orig_a0;
->          };
->
-> And user_regs_struct needs to be a prefix of struct pt_regs, so if we
-> want to include orig_a0 in user_regs_struct, we will need to include
-> Supervisor/Machine CSRs as well. It's not a big problem. Since
-> struct pt_regs is the internal ABI of the kernel, we can reorder it.
-> Unfortunately, struct user_regs_struct is defined as below:
->
->          struct user_regs_struct {
->                  unsigned long pc;
->          ...
->                  unsigned long t6;
->          };
->
-> It doesn't contain something like reserved[] as padding to leave the
-> space to add more registers from struct pt_regs!
-> The loongarch do the right thing as below:
->
->          struct user_pt_regs {
->                  /* Main processor registers. */
->                  unsigned long regs[32];
->          ...
->                  unsigned long reserved[10];
->          } __attribute__((aligned(8)));
->
-> RISC-V can't include orig_a0 in user_regs_struct without breaking UABI.
->
-> Need a discussion to decide to use which solution, or is there any
-> other better solution?
->
-> [1]: https://github.com/strace/strace/issues/315
-> [2]: https://lore.kernel.org/linux-riscv/20240627071422.GA2626@altlinux.org/
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
