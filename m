@@ -4,82 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A22A2D2A52F
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 16:04:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0694BD2A52F
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 16:45:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=P3EFsfM1E8h4DFfyDn9mhP1D3pdWGe/uEdARUt5r5vQ=; b=nkkkkaLnpeQCTk
-	n8SXaGrsgxMv1ApbQVNI75W24i9sAx8gdGybr8z8wXG85So7zG39wHyflty21Kr+7FlI8YAwxE7fe
-	QfsguS9zIel63k5XtdUw5UhyBOh65cESPv7oLf30rQUCeEv9gCJN181HUVJ0RmxMAIlltixJ18Jvm
-	j9vQ9yY2ktdHmz0wh1f562NsdVscBexgiQ42STcICvBWTuPfh2mnr4EkTITxow2MTC+D1Fne8AqDt
-	/U7KOYI+2ZQw7AeeCifqUfisE/9twOPayb1sQ6MG5P5MmChgcMzrlroZMLuVtYiFxg0uXg6BO6eR6
-	TM8dGHcvnSeZ4tUWJQjA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VTWHX9+akLUPuoW53EVbfeYFffsEEM0hJMi+QZ48cTE=; b=rUqyzobKYIG2FgXy/9V0P2p1cq
+	A9mRcAUUmV5vKPdI1wKPj5re3gMDuyaUT8N9ANbHkqj7irWwGqvY8tple+VDUrdRYXSaWrnCnb8so
+	zde9sygnuia2Q1eKf+uQfP2SNYa+TL5ETVJr9LU/SG1O1gocit77qxk4fpkP7NeGagJLmDl+GIYfb
+	CUHDLraGMAEfP+TASUCz3LjBj3e3wJVpkz1Z34LB6WWoEhuZz18Zp2EEZepgqraa4UctzFoytII5E
+	Fk8iYVHxAEZ2I7wlYibL+OxRBfw5Q2xWmU7M8Ib/33yG/x1XfQ1mzzg/uz4PsvZSFKxMyqgXa45mF
+	k7tYBBOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t16VS-0000000CLaY-3BTB;
-	Wed, 16 Oct 2024 16:04:14 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1t179F-0000000CSw0-35Ey;
+	Wed, 16 Oct 2024 16:45:21 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t16OR-0000000CKZf-2O2O
+	id 1t170b-0000000CRee-35X7
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Oct 2024 15:57:01 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4311c285bc9so51126865e9.3
-        for <linux-riscv@lists.infradead.org>; Wed, 16 Oct 2024 08:56:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729094217; x=1729699017; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=LSV2gT6gYSM6is+LiuMw8VyGopCJDfUv1Rz7V5M5H8Q=;
-        b=NU9yLIEUhm/kRiG2dh1VJMXIK048HgZAAOr7IiMZrb2X3RlyS3eYkSfWNyGjcyfLqp
-         vac8uv583rRHb9hsLlF8PUFjkM5ALOponHJquJ2lCsWUHiZ1tDlFJ6l4MR2S+q2G3dbk
-         A3xmj4IuSj6vvq0FSF6pNZ/s/l7s5WSnJj9ayMqnkRmADSckMU0TbchLeEUvRZ6+TzZs
-         qxZep/9j8nbAvBshHED1bE3bDP9xnooPUbjMjZbwtg5KYFxfGaFQnHNKilJJNiBe/hP5
-         Qf7//Z7rXuge/t2lPUgthZIlBxd+JcMVG+49Ggmm4JdVA0jjU9a43pIUk/H3YEySIFhp
-         F4pQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729094217; x=1729699017;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=LSV2gT6gYSM6is+LiuMw8VyGopCJDfUv1Rz7V5M5H8Q=;
-        b=C1SI65nAKe137QpEMvo3pJbn8jGxZwTps6klGVm7UxO4BMXp2naXEL4o4t7BS3k6mq
-         qd9Ld+q2KbIUCSn9vqH/JarplU/9vpkf0BZPVcpyaHG0piCEyUEzCBcAViJc0r2bKJog
-         nXLn6S4S7gR7Kqj5M4UHNqewpxKGLBbrdMSP0L6/5TLOnEIrwLeqavAR4cYbFG3oIfDg
-         E2Ec2AegPE0rA1puJe56QdTPJwhJ5omHk78cMf1qRGcIWSG5ccFclSpprVq6RJxae4g7
-         pj+Ign0xdbh0EknDX4xdNAMmc3fiNHEcNHIVQ6G+vkap6R0oqhPrLb4vLWnMbp9itaKL
-         UueA==
-X-Forwarded-Encrypted: i=1; AJvYcCWZRemBxNcRwvVuVB9gcxweIXgVb+AgiamINvh87uM2dz9oGzby9L0tfHusg2dRQe8khFWY0funebWSIQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5xYtR+K1SPdS/sCCJ6gwY66tafVGwzRIeuiLUaYAuV3qD/GFY
-	q/iet4xBu/cxvh8AtsXIoz9gtADo6VLZMBYubR3xqf4Unf9EYxNn
-X-Google-Smtp-Source: AGHT+IHOR2UNT7/i2C2WfH9ZYqyeeZvzUE5Gft4JCEzBjsMC2BFhtrQ3WsW8dmMbkRpoEtmcH7dsMg==
-X-Received: by 2002:a5d:48c4:0:b0:37c:d2f3:b3af with SMTP id ffacd0b85a97d-37d551847e0mr14768048f8f.5.1729094217047;
-        Wed, 16 Oct 2024 08:56:57 -0700 (PDT)
-Received: from localhost ([194.120.133.34])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-37d7fbf8567sm4661078f8f.76.2024.10.16.08.56.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Oct 2024 08:56:56 -0700 (PDT)
-From: Colin Ian King <colin.i.king@gmail.com>
-To: Drew Fustini <drew@pdp7.com>,
-	Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	linux-riscv@lists.infradead.org,
-	linux-gpio@vger.kernel.org
-Cc: kernel-janitors@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH][next] pinctrl: th1520: Fix potential null pointer dereference on func
-Date: Wed, 16 Oct 2024 16:56:55 +0100
-Message-Id: <20241016155655.334518-1-colin.i.king@gmail.com>
-X-Mailer: git-send-email 2.39.5
+	Wed, 16 Oct 2024 16:38:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id BA3385C5F16;
+	Wed, 16 Oct 2024 16:36:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67A9DC4CEC5;
+	Wed, 16 Oct 2024 16:36:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729096584;
+	bh=tEgVuItg9cKERlMvE79FjV7ymN+CZ6ZP2s9MIK145nM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Kb4jm9TV6i5pyRvbIxxFyJ36GfgAdlGlmUeIfkQchmXlTcTyC2z9w3lCBBynL2U5t
+	 oR4Ss5dvNlX54np68CO6aHHro1SP1G1asBe9wNZY3OoYosxS7kQ4sqYDD0p2b7Tetx
+	 uOmUV6wepZd0piOPbXFxmLE2a4wf2taN9BLkUMBcoZ6zp8Kl80OYGrBqzCsf3nrfSs
+	 AmHdXvDKqgyqyyJXKJVce8y23bfxLER9G8bSmY7mG33JA6nHkiv+a8CoXNvylEuTLy
+	 p1u9kaEBwPc2fvD2Z8jViCKBUYMAJxBUEPhn/WqaSZihaHCMccQellatM1kTCXBEhq
+	 +w3smA0r9gRdw==
+Date: Wed, 16 Oct 2024 17:36:21 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Jamie Gibbons <jamie.gibbons@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] firmware: microchip: auto-update: fix poll_complete()
+ to not report spurious timeout errors
+Message-ID: <20241016-abdomen-agent-4f24e0f68fbf@spud>
+References: <20241016-slouching-excess-d7a62fc926a1@spud>
 MIME-Version: 1.0
+In-Reply-To: <20241016-slouching-excess-d7a62fc926a1@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241016_085659_938939_05B769F4 
-X-CRM114-Status: GOOD (  10.68  )
+X-CRM114-CacheID: sfid-20241016_093625_836637_8DC9B6A0 
+X-CRM114-Status: GOOD (  16.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,45 +68,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2728069721170009480=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The initialization of muxtype deferences pointer func before func
-is sanity checked with a null pointer check, hence we have a null
-pointer deference issue. Fix this by only deferencing func with
-the assignment to muxtype after func has been null pointer checked.
 
-Fixes: 1fc30cd92770 ("pinctrl: th1520: Factor out casts")
-Signed-off-by: Colin Ian King <colin.i.king@gmail.com>
----
- drivers/pinctrl/pinctrl-th1520.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+--===============2728069721170009480==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="PllR1fdHlubf9A7B"
+Content-Disposition: inline
 
-diff --git a/drivers/pinctrl/pinctrl-th1520.c b/drivers/pinctrl/pinctrl-th1520.c
-index 7474d8da32f9..e641bad6728c 100644
---- a/drivers/pinctrl/pinctrl-th1520.c
-+++ b/drivers/pinctrl/pinctrl-th1520.c
-@@ -803,11 +803,12 @@ static int th1520_pinmux_set_mux(struct pinctrl_dev *pctldev,
- {
- 	struct th1520_pinctrl *thp = pinctrl_dev_get_drvdata(pctldev);
- 	const struct function_desc *func = pinmux_generic_get_function(pctldev, fsel);
--	enum th1520_muxtype muxtype = (uintptr_t)func->data;
-+	enum th1520_muxtype muxtype;
- 
- 	if (!func)
- 		return -EINVAL;
- 
-+	muxtype = (uintptr_t)func->data;
- 	return th1520_pinmux_set(thp, thp->desc.pins[gsel].number,
- 				 th1520_pad_muxdata(thp->desc.pins[gsel].drv_data),
- 				 muxtype);
--- 
-2.39.5
 
+--PllR1fdHlubf9A7B
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Oct 16, 2024 at 05:35:06PM +0100, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+>=20
+> fw_upload's poll_complete() is really intended for use with
+> asynchronous write() implementations - or at least those where the
+> write() loop may terminate without the kernel yet being aware of whether
+> or not the firmware upload has succeeded. For auto-update, write() is
+> only ever called once and will only return when uploading has completed,
+> be that by passing or failing. The core fw_upload code only calls
+> poll_complete() after the final call to write() has returned.
+>=20
+> However, the poll_complete() implementation in the auto-update driver
+> was written to expect poll_complete() to be called from another context,
+> and it waits for a completion signalled from write(). Since
+> poll_complete() is actually called from the same context, after the
+> write() loop has terminated, wait_for_completion() never sees the
+> completion get signalled and always times out, causing programming to
+> always report a failing.
+>=20
+> Since write() is full synchronous, and its return value will indicate
+> whether or not programming passed or failed, poll_complete() serves no
+> purpose and can be cut down to simply return FW_UPLOAD_ERR_NONE.
+>=20
+> Fixes: ec5b0f1193ad4 ("firmware: microchip: add PolarFire SoC Auto Update=
+ support")
+> Reported-by: Jamie Gibbons <jamie.gibbons@microchip.com>
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+
+note to self
+CC: stable@vger.kernel.org
+
+--PllR1fdHlubf9A7B
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZw/rhQAKCRB4tDGHoIJi
+0miUAP9DZg+s4X9HStNvKpoT3C/o+qTS33CtyQ6GFiSOaEq8dgEAy7LnQJb1n9Kn
+0KOH/EpfS+kx4vlKWk0/60nK48nH8wU=
+=ZYWB
+-----END PGP SIGNATURE-----
+
+--PllR1fdHlubf9A7B--
+
+
+--===============2728069721170009480==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2728069721170009480==--
+
