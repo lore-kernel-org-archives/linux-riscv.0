@@ -4,77 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA576D1AD38
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 09:42:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63251D1AD39
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 09:59:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1X1rR5j6DO5122CilIAW+prBdF1BcD1GUBR7070PMiw=; b=BT7/TgC7kGPRSHCQHB3+dv/Cbp
-	u835Pc1Cvh8430rXyQJ8PgiZNs9c99zfem0ULtl8eT2AE4Bnv+VYJ8d2N+vsLv5kAlgtieRKGM5h3
-	t/tGEPuHzMNqyS2FlQA4rLlmNzgnwB+x2jhziTNf5KOZ34ziTYCUed+1LWsPovSXwP7H0hqf6e5UF
-	nyiV0tRooDRYt5YsoP3uqlsPIeqpLRliXPk3Ilx2AsIV1V0dfh6mMlesgxGAtTfsYa0hVi6oC/pqN
-	bAOCdWXJgfcgzb+beJ5mFu9u8YhL9qcKt0dlDbWrsurXmLVycYjCQFPLuSxlov0am2HU40cV0QmKN
-	MeryU6SQ==;
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=33IsBzXtO0gScdDJ6wSMXCC0KalP0FCfIOIlmq3BJWs=; b=WG3BpoOsctE0e8jxVI69ulJUd1
+	ybC15j+RV5clqOFfu/vX9XxXRB1NJlV4Wrk83F2TwRobVzNxtGWfgmcoCInpItyCC7CuH8qtxutEU
+	tDWEGd8rHcdbi5j5h7emTppwBP4tE7JQDZ9OUeZYBAruoFh/yONQXnXN+bmgnawMCFeLGs3CPSbAs
+	jdjAX1P3iz7KB9mRzOOm/kaFk13lg46ntGJmdgYCy/r25/FffnYy+Qq/96p2YLtCONFdDNlL/BUyx
+	P/kuXZnksXZTumwYYeWWlH+KiSNm5v4PpSPecHmQZUEn4uJkbrqSG72Ge0lWLkwCq1OgDRsdYIPUd
+	ZMt9zddQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t10Xk-0000000BH8B-1QIq;
-	Wed, 16 Oct 2024 09:42:12 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1t10om-0000000BKxu-2rOf;
+	Wed, 16 Oct 2024 09:59:48 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t10RB-0000000BFbn-2hLT
+	id 1t10li-0000000BK99-0Z9G
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Oct 2024 09:35:27 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-539f72c913aso3586969e87.1
-        for <linux-riscv@lists.infradead.org>; Wed, 16 Oct 2024 02:35:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1729071324; x=1729676124; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=icikz+noVT+A1IghOr2dEkNmSwULz+YkGpQA6euzKVk=;
-        b=nUJelArCTqUalZ12UDwBfQmw8is1NHEnm215HJb8cECfU77WIbv7hnFBzQ/Fo2TyLR
-         IYoNW4TyNKiHDTwXEpIutEOdCOKVFFl07y9+wA0OFjEBoTcgG7mGH/FKEl+vHee94yT5
-         qv9J6F7d189ZFN+jq2fCuAY6HbU9khKbAPahrkrr9dLSzDwaFZjWm56pWDkwktyhbVRA
-         zlfsvIVp0JhMIsuzu/U+t9lPpLYBgRRYo+luVL37F1B4Dg2hlBNSIiB+B5PvL0VO3b/W
-         r2hpUHhuGynAVj7f0NM1O1iT82fzGKlsZ9L/UCJSohi/sdIJcvObuBuqz6IPDl+q19RM
-         wMiw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729071324; x=1729676124;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=icikz+noVT+A1IghOr2dEkNmSwULz+YkGpQA6euzKVk=;
-        b=xK7fmhRrylLjyCD/csK0zaRXLH6wtRw8OZxxsA/mLikh/a7OzZxq3M8fkO21ZZvxJX
-         rqRwa1ITZcyH265HftUVUG0jiGvXb47DgKs1RH1U5v/53lm1ig4VeG4PYcgRfwIS3WjY
-         CUoIVm14Ip2Uz5wdb3N2kb43WRR1010no4CI5DtIBtXgRamxql52cO+r45DTgVTFNsi7
-         /Z1iSODVH9xVKMbBfHl5iDAerx9iOP5Jji6di1s98Meu+jh9kfo3YOJpzDWVAuRFrMMH
-         MlaFO9X2qtelu5bvAL3m3HFNhK1V7bdm0xj/EVIvGfyA+daoHlim6Suzy78YL3IsFmFx
-         /awA==
-X-Forwarded-Encrypted: i=1; AJvYcCVYckWzwCE2O6naBn842FlpTDi2mzFpHRlhjKM/RrDCur6he3upJ/RdfEqGj/3onNgA9e0nnSEBKm9r9Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyldf/ODnKqW4UrRtK/uuBwVfyL0tCDflRkstzpjzeD9ffBdUyB
-	A6trCk/zqQpUlrTQ3fpfufPSdZbpRX183d6Nj/TrM4xv7mVO7bTDUNF62sXO+gw=
-X-Google-Smtp-Source: AGHT+IGdsTFBiZLsx7xeTyOWkTfBtsndYobtBU/I5Fi4D8Vk3Mbkp1GQJDuJHZgpcIfqpPb22hA7XQ==
-X-Received: by 2002:a05:6512:3d23:b0:52c:dd3d:85af with SMTP id 2adb3069b0e04-53a03f2f1ccmr2175646e87.25.1729071323803;
-        Wed, 16 Oct 2024 02:35:23 -0700 (PDT)
-Received: from localhost (p200300f65f19e3002f38cf427133ca7b.dip0.t-ipconnect.de. [2003:f6:5f19:e300:2f38:cf42:7133:ca7b])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4314bf60fc4sm26528075e9.38.2024.10.16.02.35.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Oct 2024 02:35:23 -0700 (PDT)
-Date: Wed, 16 Oct 2024 11:35:22 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Tomasz Jeznach <tjeznach@rivosinc.com>
-Subject: Re: [PATCH v9 2/7] iommu/riscv: Add RISC-V IOMMU platform device
- driver
-Message-ID: <lagj6ljulmfjogrzhfd3jrf5fnngev63q2g3bmvftwfzc3s6mb@gw6oz4yriyjf>
-References: <cover.1728579958.git.tjeznach@rivosinc.com>
- <b8da2b00aec3f7b4b2e3a7cc194f7961bf656f24.1728579958.git.tjeznach@rivosinc.com>
+	Wed, 16 Oct 2024 09:56:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 51E7AA43C80;
+	Wed, 16 Oct 2024 09:56:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43752C4CECD;
+	Wed, 16 Oct 2024 09:56:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729072597;
+	bh=uHq88diJm1dWVxmjE2s3IC5aG27pU9tVf1Cdl6SO7SA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZMGuS0Z82CFjZ/mSuxpZsQ4WNn5OYkcC/UShO3npG9FAWIjCi9p3dpvGhvFMN16N0
+	 LA/IJiRA6dpp40RyTJ2ZypXwstUzmOzwR3W061jldmzlNkQhZpmBrG7Fh62PCGgU4o
+	 C/X4VmlaFpel8ZKOWznCKTyDskr4ACAnMSBa1KGRHJsfLufx1mWgIv12U/6KhNarh1
+	 rGNBHEayWjBNZcB2v/ruk9BJ+f7bYDU+Xu3J8XeB2owI0salOZ32epGLEWGJnUhXTM
+	 DLcflSfzpGBH5qHgZO0ah4D3AQGfMOIQOIlIMCwAjt8/pKSJSGBEmfrbIb8IWuODKq
+	 HYC/cFR4OO0dw==
+Date: Wed, 16 Oct 2024 10:56:32 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: Conor Dooley <conor.dooley@microchip.com>, linux-kernel@vger.kernel.org,
+	Marc Zyngier <maz@kernel.org>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org, Lewis Hanly <lewis.hanly@microchip.com>
+Subject: Re: [RFC v7 4/6] gpio: mpfs: add polarfire soc gpio support
+Message-ID: <20241016-shallot-nerd-51eeba039ba0@spud>
+References: <20240723-supervise-drown-d5d3b303e7fd@wendy>
+ <20240723-underage-wheat-7dd65c2158e7@wendy>
+ <CACRpkdbRE695f-+do1HYpOZ6e4qxgUBWJzEPO2hTCuZ3xxYHQg@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <b8da2b00aec3f7b4b2e3a7cc194f7961bf656f24.1728579958.git.tjeznach@rivosinc.com>
+In-Reply-To: <CACRpkdbRE695f-+do1HYpOZ6e4qxgUBWJzEPO2hTCuZ3xxYHQg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241016_023525_706225_27F0C1B3 
-X-CRM114-Status: GOOD (  13.37  )
+X-CRM114-CacheID: sfid-20241016_025638_328133_8399FB2A 
+X-CRM114-Status: GOOD (  23.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,82 +76,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, linux@rivosinc.com, Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Nick Kossifidis <mick@ics.forth.gr>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Robin Murphy <robin.murphy@arm.com>, linux-riscv@lists.infradead.org, Lu Baolu <baolu.lu@linux.intel.com>
-Content-Type: multipart/mixed; boundary="===============9033658271179295425=="
+Content-Type: multipart/mixed; boundary="===============4002781491312481280=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============9033658271179295425==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="3vc2emncsrj4cjb2"
+--===============4002781491312481280==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="8DGd6hZF1FungGf/"
 Content-Disposition: inline
 
 
---3vc2emncsrj4cjb2
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+--8DGd6hZF1FungGf/
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Subject: Re: [PATCH v9 2/7] iommu/riscv: Add RISC-V IOMMU platform device
- driver
-MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 
-Hello,
+On Mon, Aug 05, 2024 at 10:04:53AM +0200, Linus Walleij wrote:
+> On Tue, Jul 23, 2024 at 1:28=E2=80=AFPM Conor Dooley <conor.dooley@microc=
+hip.com> wrote:
+>=20
+>=20
+> > From: Lewis Hanly <lewis.hanly@microchip.com>
+> >
+> > Add a driver to support the Polarfire SoC gpio controller
+> >
+> > Signed-off-by: Lewis Hanly <lewis.hanly@microchip.com>
+> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+>=20
+> Just a comment on second thought:
+>=20
+> > +config GPIO_POLARFIRE_SOC
+> > +       bool "Microchip FPGA GPIO support"
+> > +       depends on OF_GPIO
+> > +       select GPIOLIB_IRQCHIP
+>=20
+> select GPIO_GENERIC?
+>=20
+> > +static int mpfs_gpio_direction_input(struct gpio_chip *gc, unsigned in=
+t gpio_index)
+> > +{
+> > +       struct mpfs_gpio_chip *mpfs_gpio =3D gpiochip_get_data(gc);
+> > +       u32 gpio_cfg;
+> > +       unsigned long flags;
+> > +
+> > +       raw_spin_lock_irqsave(&mpfs_gpio->lock, flags);
+> > +
+> > +       gpio_cfg =3D readl(mpfs_gpio->base + MPFS_GPIO_CTRL(gpio_index)=
+);
+> > +       gpio_cfg |=3D MPFS_GPIO_EN_IN;
+> > +       gpio_cfg &=3D ~(MPFS_GPIO_EN_OUT | MPFS_GPIO_EN_OUT_BUF);
+>=20
+> OK this part is unique...
+>=20
+> > +static int mpfs_gpio_direction_output(struct gpio_chip *gc, unsigned i=
+nt gpio_index, int value)
+> > +{
+> > +       struct mpfs_gpio_chip *mpfs_gpio =3D gpiochip_get_data(gc);
+> > +       u32 gpio_cfg;
+> > +       unsigned long flags;
+> > +
+> > +       raw_spin_lock_irqsave(&mpfs_gpio->lock, flags);
+> > +
+> > +       gpio_cfg =3D readl(mpfs_gpio->base + MPFS_GPIO_CTRL(gpio_index)=
+);
+> > +       gpio_cfg |=3D MPFS_GPIO_EN_OUT | MPFS_GPIO_EN_OUT_BUF;
+>=20
+> Also here
+>=20
+> > +static int mpfs_gpio_get_direction(struct gpio_chip *gc,
+> > +                                  unsigned int gpio_index)
+> > +static int mpfs_gpio_get(struct gpio_chip *gc,
+> > +                        unsigned int gpio_index)
+> > +static void mpfs_gpio_set(struct gpio_chip *gc, unsigned int gpio_inde=
+x, int value)
+>=20
+> But these are just MMIO functions.
+>=20
+> Is it possible to use augmented generic MMIO, i.e just override these
+> two functions that
+> need special handling?
 
-On Thu, Oct 10, 2024 at 12:48:05PM -0700, Tomasz Jeznach wrote:
-> +static const struct of_device_id riscv_iommu_of_match[] = {
-> +	{.compatible = "riscv,iommu",},
+So, I've been looking into this again (finally), with an eye to stripping
+the interrupt handling bits out, and trying to upstream this in pieces.
+I dunno if I'm making a mistake here, but I don't know if there's much
+value in implementing this suggestion - as far as I can tell only the
+get()/set() functions can be replaced by what's provided by gpio-mmio.c.
+There are no controller wide registers that control direction and so
+bgpio_get_dir() can't be used - direction is read from the same
+mpfs_gpio->base + MPFS_GPIO_CTRL(gpio_index) registers that it is set
+using. Adding bgpio stuff, to just go ahead and overwrite it, to save on
+trivial get()/set() implementations seems to me like adding complication
+rather than removing it. What am I missing here?
 
-nitpick: Unusual indention:
+Cheers,
+Conor.
 
-uwe@taurus:~/gsrc/linux$ git grep -l '{.compatible =' | wc -l
-192
-uwe@taurus:~/gsrc/linux$ git grep -l '{ .compatible =' | wc -l
-4197
-
-(Hu, I expected the difference to be bigger than a factor of ~20.)
-
-I'd go for a space before ".compatible" and one after the trailing
-comma.
-
-> +	{},
-> +};
-> +
-> +static struct platform_driver riscv_iommu_platform_driver = {
-> +	.probe = riscv_iommu_platform_probe,
-> +	.remove_new = riscv_iommu_platform_remove,
-> +	.driver = {
-> +		.name = "riscv,iommu",
-> +		.of_match_table = riscv_iommu_of_match,
-> +		.suppress_bind_attrs = true,
-> +	},
-> +};
-
-After commit 0edb555a65d1 ("platform: Make platform_driver::remove()
-return void") .remove() is (again) the right callback to implement for
-platform drivers. Please just drop "_new".
-
-Best regards
-Uwe
-
---3vc2emncsrj4cjb2
+--8DGd6hZF1FungGf/
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmcPiNcACgkQj4D7WH0S
-/k7leggAlsgDNwa3KOwBku5V/0eQ57YS6VqfeJom1rXbWx9kfuKXyA1X2FD5V6eH
-DEc2IdXEIy1pM/AxZbbt5gNqs2UR6L9VfWToyK+unN62it0PTXxp21dUmdjRXH6e
-1nb0PRAAknig82wzfc7EedPJZgp6E46w229pZbiIwOpDbgQOko+r7X3qBB/g9qUh
-EHzEVCZ61ySvWWlo5n6mglBmMAiAOB1K/j13oLIp5Em2ym2r+J5/Tq4FmLhe3Evb
-auslSx2a/QBlMF2jpdrxRBiCYjlDXbcU27NkVEimEgu/56llOuhZisOYCTlmnMYR
-Cr+0vmUBG3jSXmSBeNr4sS9tAy0J6g==
-=+mcI
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZw+N0AAKCRB4tDGHoIJi
+0ky/AQDkGqoBAGYEZCFxxWUyqZ4vmPR3ldX2O9Zq2lny2GgGNQD/bK8MIRUqZSos
+inSPCxcBYpf1M6iVGSB5AkOOp0NPcQs=
+=EK75
 -----END PGP SIGNATURE-----
 
---3vc2emncsrj4cjb2--
+--8DGd6hZF1FungGf/--
 
 
---===============9033658271179295425==
+--===============4002781491312481280==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -172,5 +197,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============9033658271179295425==--
+--===============4002781491312481280==--
 
