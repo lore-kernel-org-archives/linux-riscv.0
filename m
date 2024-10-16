@@ -4,83 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B8DAD1AD5B
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 13:43:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB9C3D206B3
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Oct 2024 14:16:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=PRqCJvxEj0JWrs2adZgnEs6he0Gw5aw708/W50c4ml8=; b=jWAifmlW3LpR/E
-	uiAxxJ1BFE0vwHFR63jHWuuGFnxtuohHhmhhaxQnrQJ2tJzOQvIWK7Y9u6SrNYLCvI3fwjmtthbWk
-	KYHeI83L6ea0nAH29PWnozvQOI3H+VMPkTElMkBX8UMnnhuoULvcWn8+rQYgMzImPRWbSkB0eUlFL
-	xxB5osHiRYmHQ+C9xTSZANuU3Dyec8f6EtNUDUUTpKyB+hz07d2t0gAn/70Ro1OzXj7WYf9Dwjg1d
-	y9B7EWxSSn4KhG2mSUWWfLAoOmEXFxoSrF+wxaIDq1z2I5Mev8oq12kswx8mIghdK1Cef7JSuJjkX
-	fGk8xpHGjws89Mp4uCPQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=DKeps2Pc1WP1SilLhxq3NIShAhhgqN1hOTDQgaeSNb8=; b=Gh2Cu3GHBzEDOV
+	UOgPNy6lmawApHRN8yz/IzZ9C3XDFsgBV5ONkmRLzEATiRJMimkK7cCrBZIAo+d5K86W0izqKgqAY
+	s9tLGqVozQGIhj8wqsXXiN9RZOHf8vwIHf1RozLDnIbRTvNXT6tjzmykAL3hnlpPkASRC13H8G+zX
+	uJU8r62n6zwVgXtjsx0FzLRSSRPX+auzNZPlUvpeAtGriBLkFh53viipx97U+qPqOfUfu2GLttzgT
+	zOd3oO+UNnOIgE2a3YdNXPtgQ6kEHM+/oH1VNX0kglpFM/gYaUAjjAV8JcnOL05v3p/vaq5Yny/kx
+	sFG9zg/oXXGiJNRKd/Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t14Jc-0000000BxjN-3jt8;
-	Wed, 16 Oct 2024 13:43:52 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	id 1t14p3-0000000C2Wn-0Mn8;
+	Wed, 16 Oct 2024 14:16:21 +0000
+Received: from mail-lf1-f48.google.com ([209.85.167.48])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t14JZ-0000000Bxiz-26eT
+	id 1t14oy-0000000C2UZ-3I7S
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Oct 2024 13:43:51 +0000
-Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-7ea6a4f287bso2757817a12.3
-        for <linux-riscv@lists.infradead.org>; Wed, 16 Oct 2024 06:43:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=everestkc-com-np.20230601.gappssmtp.com; s=20230601; t=1729086228; x=1729691028; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=hPSkU20Itc6yAh+bZBbT2R0RT9oB/wml9mSdgooTOww=;
-        b=uVh74eF+R12IvRn2bUHGAgDEvv30WUsGW4JH5FCXtYlq6WdT73y9RuQ91S0qrVFR/8
-         TsNreN8+pnsmPVZ7aXmuWvM30aMk2vA6bc5k2Fa7UnbRZG6smOw7dAfmWVwjSAs4xP3f
-         gNJUB8oUG56rf4XB4RFYJvRt6IB+PX6y3jMP8K6lu353nJae9qD6dKw2XAWAnu/UJFDP
-         rKvyUKS4O3uYQifDsgm12wKgMcfOQ7DoEwAo//hZeK/XEkskeIEz18Sj8M72GuO5qopI
-         kvVyt73NdXxeZ5gLR8oPDxtZadqKeYOAKYknUOQC3dqM02uR2QBVmr3jwSK8XnOOtkP2
-         ORaA==
+	Wed, 16 Oct 2024 14:16:19 +0000
+Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-539fb49c64aso4762204e87.0
+        for <linux-riscv@lists.infradead.org>; Wed, 16 Oct 2024 07:16:15 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729086228; x=1729691028;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1729088174; x=1729692974;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=hPSkU20Itc6yAh+bZBbT2R0RT9oB/wml9mSdgooTOww=;
-        b=o2516RdJExaEZKdwVHTH4f37FGd076jl+ezTHGkiTP512/f6GS8Mrq5fB4y+PBZ9N4
-         KSQom/A7Jrt7Aopc7X9jsZgGUGwOQzYH/elWF4HMLeTXhDrwQZoTx4GV68BjdOUqIJW6
-         wdUXdqnMe0VLqG12+nPau+cSARJ5YugKn3ls4sZRlTkxm/IcJgmaeNJ8aeIUby6+GnCw
-         YX5tThqa4QXiHDUvfWluzXFJ68j+iQYAsq1QESwoRgBq97PvTaN12qGsmCFo4pXdplzI
-         as4kKSHlB8hlFq4KIH/NBTQ7EG8LqzVa6f8/n5n5+NyAR7F0HLe4KLqjV0TrnHlK73pC
-         0zkQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUuymHUJLdJZAVPYcZtEw+U3CKNG0Pd000Em1LsTe1jegwUzF887pXVctEACqjtRhAFo4e4zf1OLBC9YQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzv2yECRUxze9l5n98b03CVi3TFkbVAmEoJ2zpKL3Af6t8K+6jI
-	iQfvb6LfWB4iOOpHzFdbpd3TK0ee5RyZwlNa3oDHzaDbVVCb+7lWpQmlNn3lIpc=
-X-Google-Smtp-Source: AGHT+IE1Q+vPA30KNlMFxGEt9h2r7Mf4JtaF8VKYh5yzDNUyMZMQT+8Yyx33/wO8c5gt6uUjOIGAxw==
-X-Received: by 2002:a05:6a20:d49b:b0:1d7:cc6:53d0 with SMTP id adf61e73a8af0-1d8c9576f83mr22762980637.5.1729086227779;
-        Wed, 16 Oct 2024 06:43:47 -0700 (PDT)
-Received: from localhost.localdomain ([132.178.238.27])
-        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-20d17f84e9bsm28977495ad.19.2024.10.16.06.43.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Oct 2024 06:43:47 -0700 (PDT)
-From: "Everest K.C." <everestkc@everestkc.com.np>
-To: drew@pdp7.com,
-	guoren@kernel.org,
-	wefu@redhat.com,
-	linus.walleij@linaro.org
-Cc: "Everest K.C." <everestkc@everestkc.com.np>,
-	skhan@linuxfoundation.org,
-	linux-riscv@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
-	kernel-janitors@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH][next] pinctrl: th1520: Dereference pointer only after NULL check
-Date: Wed, 16 Oct 2024 07:42:21 -0600
-Message-ID: <20241016134223.4079-1-everestkc@everestkc.com.np>
-X-Mailer: git-send-email 2.43.0
+        bh=Zji2jjc7lmYCBaxDKjU5IirMGrQxMUOMfum9ROWevj4=;
+        b=H3dfpo/X11Sy7qwb/1q0mUrM5RIxzT9fWAPPF4YSF+Ihwcc4zcIlPAs6If0IJtOKHa
+         bN6HyaAQX1Wi73cG/pT/PHz4++sXQoe/8j4O0c8JoBPAa95cmZ6ybJK9ht22B8qU/z2G
+         9h3ndpNRsSUVqlvlk6hONjJA680BCmEF8uOEf6sLfIYhwfcm+HiDwCWHBkK3AvH60PEs
+         FfLrNuXxf5QWYM6DmO9UK7EIF7dytCBCdS6Q2AibJ5C9vme3UM3ROyvUme7LDEP8opDv
+         so6cODfsTMh1EGgy0u/Z6k12Ew5JkcyHXsGC73mJjwPNin7p5qmwT7Yr6r6VyGPKNDtV
+         NkDg==
+X-Forwarded-Encrypted: i=1; AJvYcCUY5LU+U59C/69gzriAjQqkWP6vv006qe+cJlK8HkSZ1J0e7Zec/uDAUP42QjByolD84YG8YoQKXlIddQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw9I3CgqxkZTQGjhAG7maVk0mpaMNbLPaYbbsIxRqGj9jnNlIDO
+	kJIdmnRxHntXxdXyczwauWBszG/Q88lHavBEU5rBFvmi8ah7c+3P57DmZx2NAkSMUvp6fe6wqdL
+	K22Fvivsm+oN1KeO9J6uCWhAmoII=
+X-Google-Smtp-Source: AGHT+IE98DjXYsvonEn7MnmPN+JCagURuswXEjP6x9DsDz5MmxRBUXYi+4++5nWYQ8Ogm2EWnbuG+myw2gPNuaM96Gw=
+X-Received: by 2002:a05:6512:1598:b0:539:905c:15c5 with SMTP id
+ 2adb3069b0e04-539e5521da6mr11043400e87.35.1729088173959; Wed, 16 Oct 2024
+ 07:16:13 -0700 (PDT)
 MIME-Version: 1.0
+References: <20240922145151.130999-1-hal.feng@starfivetech.com>
+ <20240922145151.130999-4-hal.feng@starfivetech.com> <CAMZ6Rq+EM37Gvx8bLEwvhn+kUC9yGDiapwD0KX31-x-e-Rm3yQ@mail.gmail.com>
+ <EAC60558E0B6E4BB+e5384c3c-ba45-48f5-a86f-a74e84309a14@linux.starfivetech.com>
+ <CAMZ6RqLvzvttbCMFbZiY9v=nGcH+O3EV91c+x7GxTbkKhdTcwg@mail.gmail.com>
+In-Reply-To: <CAMZ6RqLvzvttbCMFbZiY9v=nGcH+O3EV91c+x7GxTbkKhdTcwg@mail.gmail.com>
+From: Vincent MAILHOL <mailhol.vincent@wanadoo.fr>
+Date: Wed, 16 Oct 2024 23:16:03 +0900
+Message-ID: <CAMZ6RqK428Pvwrgc=KPKjetZaTC8R55HzypMooOTziM8eMMxHg@mail.gmail.com>
+Subject: Re: [PATCH v2 3/4] can: Add driver for CAST CAN Bus Controller
+To: Hal Feng <hal.feng@linux.starfivetech.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Marc Kleine-Budde <mkl@pengutronix.de>, 
+	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
+	William Qiu <william.qiu@starfivetech.com>, devicetree@vger.kernel.org, 
+	linux-can@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Hal Feng <hal.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241016_064349_564288_91600309 
-X-CRM114-Status: GOOD (  10.61  )
+X-CRM114-CacheID: sfid-20241016_071616_846179_E089EFB7 
+X-CRM114-Status: GOOD (  25.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,45 +90,129 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The pointer `func` is dereferenced before NULL check.
-Move the dereference after the NULL check.
+On Wed. 16 Oct. 2024 at 14:05, Vincent MAILHOL
+<mailhol.vincent@wanadoo.fr> wrote:
+> On Tue. 15 Oct. 2024 at 18:33, Hal Feng <hal.feng@linux.starfivetech.com> wrote:
+> > On 9/23/2024 11:41 AM, Vincent MAILHOL wrote:
+> > > Hi Hal,
+> > >
+> > > A few more comments on top of what Andrew already wrote.
+> > >
+> > > On Mon. 23 Sep. 2024 at 00:09, Hal Feng <hal.feng@starfivetech.com> wrote:
+> > >> From: William Qiu <william.qiu@starfivetech.com>
+> > >>
+> > >> Add driver for CAST CAN Bus Controller used on
+> > >> StarFive JH7110 SoC.
+> > >>
+> > >> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+> > >> Co-developed-by: Hal Feng <hal.feng@starfivetech.com>
+> > >> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+> > >> ---
 
-This issue was reported by Coverity Scan.
-Report:
-CID 1600802: (#1 of 1): Dereference before null check
-(REVERSE_INULL)
-check_after_deref: Null-checking func suggests that it
-may be null, but it has already been dereferenced on all
-paths leading to the check.
+(...)
 
-Fixes: 1fc30cd92770 ("pinctrl: th1520: Factor out casts")
-Signed-off-by: Everest K.C. <everestkc@everestkc.com.np>
----
- drivers/pinctrl/pinctrl-th1520.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+> > >> +
+> > >> +       if (priv->cantype == CAST_CAN_TYPE_CANFD) {
+> > >> +               priv->can.ctrlmode_supported = CAN_CTRLMODE_LOOPBACK | CAN_CTRLMODE_FD;
+> > >> +               priv->can.data_bittiming_const = &ccan_data_bittiming_const_canfd;
+> > >> +       } else {
+> > >> +               priv->can.ctrlmode_supported = CAN_CTRLMODE_LOOPBACK;
+> > >> +       }
+> > >
+> > > Nitpick, consider doing this:
+> > >
+> > >   priv->can.ctrlmode_supported = CAN_CTRLMODE_LOOPBACK;
+> > >   if (priv->cantype == CAST_CAN_TYPE_CANFD) {
+> > >           priv->can.ctrlmode_supported |= CAN_CTRLMODE_FD;
+> > >           priv->can.data_bittiming_const = &ccan_data_bittiming_const_canfd;
+> > >   }
+> >
+> > OK.
+> >
+> > >
+> > > Also, does you hardware support dlc greater than 8 (c.f.
+> > > CAN_CTRLMODE_CC_LEN8_DLC)?
+> >
+> > The class CAN (CC) mode does not support, but the CAN FD mode supports.
+>
+> So, CAN_CTRLMODE_CC_LEN8_DLC is a Classical CAN feature. Strictly
+> speaking, this does not exist in CAN FD. Do you mean that only the
+> CAST_CAN_TYPE_CANFD supports sending Classical CAN frames with a DLC
+> greater than 8?
+>
+> If none of the Classical CAN or CAN FD variants of your device is able
+> to send Classical CAN frames with a DLC greater than 8, then this is
+> just not supported by your device.
+>
+> Could you share the datasheet so that I can double check this?
 
-diff --git a/drivers/pinctrl/pinctrl-th1520.c b/drivers/pinctrl/pinctrl-th1520.c
-index 7474d8da32f9..07f8b51fb294 100644
---- a/drivers/pinctrl/pinctrl-th1520.c
-+++ b/drivers/pinctrl/pinctrl-th1520.c
-@@ -803,11 +803,13 @@ static int th1520_pinmux_set_mux(struct pinctrl_dev *pctldev,
- {
- 	struct th1520_pinctrl *thp = pinctrl_dev_get_drvdata(pctldev);
- 	const struct function_desc *func = pinmux_generic_get_function(pctldev, fsel);
--	enum th1520_muxtype muxtype = (uintptr_t)func->data;
-+	enum th1520_muxtype muxtype;
- 
- 	if (!func)
- 		return -EINVAL;
- 
-+	muxtype = (uintptr_t)func->data;
-+
- 	return th1520_pinmux_set(thp, thp->desc.pins[gsel].number,
- 				 th1520_pad_muxdata(thp->desc.pins[gsel].drv_data),
- 				 muxtype);
--- 
-2.43.0
+I received the datasheet from a good samaritan. With this, I was able
+to confirm a few things.
 
+1/ Your device can support CAN_CTRLMODE_CC_LEN8_DLC:
+
+This is shown in the datasheet at:
+
+  Table 3-52 Definition of the DLC (according to the CAN 2.0 / FD specification)
+
+DLC values 9 to 15 (binary 1001 to 1111) are accepted by the device.
+When sending and receiving such frames, can_frame->len is set to 8 and
+can_frame->len8_dlc is set to the actual DLC value. Use the
+can_cc_dlc2len() and can_get_cc_dlc() helpers for this.
+
+
+2/ Your device can support CAN_CTRLMODE_TDC_AUTO:
+
+This is documented in the datasheet at:
+
+  8.8 TDC and RDC
+
+This will allow the use of higher bitrates (e.g. 4 Mbits/s) in CAN-FD.
+You can refer to this commit for an example of how to implement it:
+
+  https://git.kernel.org/torvalds/c/1010a8fa9608
+
+
+3/ Your device can support CAN_CTRLMODE_3_SAMPLES:
+
+This is called triple mode redundancy (TMR) in your datasheet.
+
+
+4/ Your device can support CAN_CTRLMODE_LISTENONLY:
+
+This is documented in the datasheet at:
+
+  3.9.10.2. Listen Only Mode (LOM)
+
+
+5/ Your device can support CAN_CTRLMODE_ONE_SHOT:
+
+This is documented in the datasheet at:
+
+  6.5.3 Single Shot Transmit Trigger
+
+
+6/ Your device can support CAN_CTRLMODE_BERR_REPORTING:
+
+This is shown in the datasheet at:
+
+  Table 3-24 Error Counter Registers RECNT (0xb2) and TECNT (0xb3)
+
+
+7/ Your device can support CAN_CTRLMODE_PRESUME_ACK:
+
+c.f. the SACK (self acknowledge) register
+
+
+So your device comes with MANY features. I would like to see those
+implemented in your driver. Most of the time, adding a feature just
+means writing one value to a register.
+
+Please let me know if any of this is unclear.
+
+
+Yours sincerely,
+Vincent Mailhol
 
 _______________________________________________
 linux-riscv mailing list
