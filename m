@@ -4,68 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A42AD2F7FD
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Oct 2024 08:18:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 104A8D21270
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Oct 2024 09:55:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:To:From:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=z/zPbP+ZN3r08t/h1RM6U3AZ1VUtr4BGofg2NS1Pxic=; b=3/ZOcyxfOz1+89
-	Jc5UUTqiho2ChwfqI5DzAWySoHy4fjSoiZt68AGF6bDVRTxz+A1B9aTPkc2iEXVos36KgUrN4F70L
-	PY2CMgzrdz4Fk6huTXL5ANkUsUJaQDMpYQV8ExacOTf1EGv3dOIuk8crccO4ITYX7ExopDzbSs8Qc
-	itoSzn/cvm6qbwfYUEazhctcjJSXve4ODIC87uW887UdmcV81LBH4bg1mK35Fig5set4yU1YwpM9S
-	cYXFXvUaQTBXKLRC+RTTpKHHEviMWaSLPgIhi6JMAcC4Z4O/CkEqZs7em5xWobTz3B8edgXeUnH6m
-	9Q7tbLuKEPRmndZDs8pw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=5uRWsGUqZCfjsFlkqtQFpZzKHj2boc+2sJ0RYWTBoBI=; b=F51wRW5TCgTaXD
+	qvqb44BV2iKTFFMeeV/XB2q73vDEmHk7x6sDpjiwAb4Nd4t2af+VAmuPSMAIcStupSC4H/xPaWAWC
+	MBW92691+uxXehvmHspOzp2ldGIlThDEce+dO0bEaZ/DhIOV7aNuMYmJTbg8rL/dKbjAywAFwO7xH
+	z3HRDV34ULfMJBSLhSA2u53Ls/CrLEIuLOHqbNo1xQou2L69lAqFtjtxSbDgE87KZilu8ivITU85n
+	AmuOWBW8XkuRTHXz8I60k5SFOZ+zhuNGRMSz7lU7QpAn2D9KiVC2GC30nfADAApUe2h6pZ9jyA0YZ
+	7J+ikAkomurPubswNJ2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t1Lho-0000000E9B6-3Fy2;
-	Thu, 17 Oct 2024 08:18:00 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1t1NDv-0000000EQuC-3KGi;
+	Thu, 17 Oct 2024 09:55:15 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t1Lh6-0000000E8sH-2FeS
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 17 Oct 2024 08:17:17 +0000
+	id 1t1Mun-0000000EMWI-2ere;
+	Thu, 17 Oct 2024 09:35:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Subject:To:From:Date:Message-ID:Sender:Reply-To:Cc:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=dqx6etWJTU7o7oR1uR2aRBCwaPXPl4dirwwzUCFBDcc=; b=hAGs9E74rGReBdDXvNpTiXjuFW
-	hswFc9+U2erEsRccC0pvDq3GCtON3mpxPg9uue7MAo4wfPZKWieaIy0LhATMiSLMMLCHFTp1M4yHd
-	jnmYSubcFDnkh8INq1+SAXc5cJjpf+dUw8v4oSmpeA1jDCSU/G355EmneZi2UupnKrXfWHnAjuRSd
-	KNXVbRYGxh479L0p3Z02aENMJ7yWp0Ckx/LvYjM7BhJHpEjQRduaYikVFqL6PYKjaiw/JMorHhx8R
-	EzEjv1G32R+0axjNjkz2SVH51rUxizgkZzfXyMht+JfLAfvCeywmkrcNNv4YRTA2i/nG+6P5OemjN
-	YPqq6uNg==;
-Received: from mail.completesolutions.pl ([51.91.254.67])
-	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t1Lgz-0000000AVIl-3BUn
-	for linux-riscv@lists.infradead.org;
-	Thu, 17 Oct 2024 08:17:14 +0000
-Received: by mail.completesolutions.pl (Postfix, from userid 1002)
-	id 7DCFB2634F; Thu, 17 Oct 2024 10:16:00 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=completesolutions.pl;
-	s=mail; t=1729153016;
-	bh=dqx6etWJTU7o7oR1uR2aRBCwaPXPl4dirwwzUCFBDcc=;
-	h=Date:From:To:Subject:From;
-	b=qTXRyiGJV2E2YlDkQS8AWh8voYpA+EjhK6bTwquASlHbf2FQ4MS1p+v/qW13fafN/
-	 WyqG8FKhN/laQRUB2x0u/Zxzei85pJ7f7eUFDPQcT25SmyH3P3JRM3nUkGklmPf9m8
-	 9t8kfPRIYKaCnA1pVc/HXQj6LrVabu/yUdywGw3yF5f6vXoXOFeKy+1bC49l9LY6Nm
-	 BFBRkFyT5lJ3N4DaWkgf+DC+XbThSvG+9IGPMp4OmHhjTduYCFPMakdU5Qma8+lTkQ
-	 9K5F+rUUJAMV6+Fo2au6dzmOwt5GEbIR7BUDtZaaM0Mq1y1zELiLHSymtTK1X/H5n7
-	 YoMCrPi7GX7LQ==
-Received: by mail.completesolutions.pl for <linux-riscv@lists.infradead.org>; Thu, 17 Oct 2024 08:15:44 GMT
-Message-ID: <20241017084500-0.1.e9.1imas.0.lm1dryiwen@completesolutions.pl>
-Date: Thu, 17 Oct 2024 08:15:44 GMT
-From: "Marcin Gard" <marcin.grad@completesolutions.pl>
-To: <linux-riscv@lists.infradead.org>
-Subject: =?UTF-8?Q?Prosz=C4=99_o_kontakt?=
-X-Mailer: mail.completesolutions.pl
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=VVu7cX1SI2+XfnYlKmwbrDG3+CJWOAmt2jAl9wbUo9k=; b=XiFI8B0ovduSIe40JjuY242meO
+	1tWdoXPB8Y4u6FvdJlkOh0pr/b+ptTLEARYM4Fz0YcPpgeZ6S8vIFL3pv7C67je495kkW38x9jgPx
+	kZcvMosNEICP21MaeTfL4OcNrqj3D/g6hBzGdP9sE2b36zBWvYJp4QWDybwMxKdlcL3ZpeYi7ki7+
+	suQtk2YIywEtSE8+GUQPkWxddDo9J2uY+LZoII7Oa4V1WDt8U55u9QC4d2zaOtcNPZVh6JsT6n2VV
+	yz3mabQVBKOF3bVpb3D/1s3d5tFfjBLa1mZAU7RdfOnmovvB/POi51RCfYsgOa7ik7FCs2q+EK5D6
+	fjlJqizw==;
+Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
+	id 1t1Mua-000000075pE-1Ofh;
+	Thu, 17 Oct 2024 09:35:17 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id EF73A3005AF; Thu, 17 Oct 2024 11:35:15 +0200 (CEST)
+Date: Thu, 17 Oct 2024 11:35:15 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Steven Rostedt <rostedt@goodmis.org>
+Cc: Mike Rapoport <rppt@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Andy Lutomirski <luto@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>,
+	Brian Cain <bcain@quicinc.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christoph Hellwig <hch@infradead.org>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Kent Overstreet <kent.overstreet@linux.dev>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Simek <monstr@monstr.eu>, Oleg Nesterov <oleg@redhat.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Richard Weinberger <richard@nod.at>,
+	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
+	Stafford Horne <shorne@gmail.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org, linux-alpha@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, linux-mm@kvack.org,
+	linux-modules@vger.kernel.org, linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+	linux-trace-kernel@vger.kernel.org, linux-um@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
+	sparclinux@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH v6 6/8] x86/module: prepare module loading for ROX
+ allocations of text
+Message-ID: <20241017093515.GU16066@noisy.programming.kicks-ass.net>
+References: <20241016122424.1655560-1-rppt@kernel.org>
+ <20241016122424.1655560-7-rppt@kernel.org>
+ <20241016170128.7afeb8b0@gandalf.local.home>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241017_091710_844180_FF4EC5F3 
-X-CRM114-Status: UNSURE (   0.24  )
-X-CRM114-Notice: Please train this message.
+Content-Disposition: inline
+In-Reply-To: <20241016170128.7afeb8b0@gandalf.local.home>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,16 +109,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RHppZcWEIGRvYnJ5LAoKQ3p5IGplc3QgbW/FvGxpd2/Fm8SHIG5hd2nEhXphbmlhIHdzcMOzxYJw
-cmFjeSB6IFBhxYRzdHdlbT8KClogY2jEmWNpxIUgcG9yb3ptYXdpYW0geiBvc29ixIUgemFqbXVq
-xIVjxIUgc2nEmSBkemlhxYJhbmlhbWkgendpxIV6YW55bWkgemUgc3ByemVkYcW8xIUuCgpQb21h
-Z2FteSBza3V0ZWN6bmllIHBvenlza2l3YcSHIG5vd3ljaCBrbGllbnTDs3cuCgpaYXByYXN6YW0g
-ZG8ga29udGFrdHUuCgoKUG96ZHJhd2lhbSBzZXJkZWN6bmllCk1hcmNpbiBHYXJkCgpfX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
-aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
-cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Wed, Oct 16, 2024 at 05:01:28PM -0400, Steven Rostedt wrote:
+> On Wed, 16 Oct 2024 15:24:22 +0300
+> Mike Rapoport <rppt@kernel.org> wrote:
+> 
+> > diff --git a/arch/x86/kernel/ftrace.c b/arch/x86/kernel/ftrace.c
+> > index 8da0e66ca22d..b498897b213c 100644
+> > --- a/arch/x86/kernel/ftrace.c
+> > +++ b/arch/x86/kernel/ftrace.c
+> > @@ -118,10 +118,13 @@ ftrace_modify_code_direct(unsigned long ip, const char *old_code,
+> >  		return ret;
+> >  
+> >  	/* replace the text with the new text */
+> > -	if (ftrace_poke_late)
+> > +	if (ftrace_poke_late) {
+> >  		text_poke_queue((void *)ip, new_code, MCOUNT_INSN_SIZE, NULL);
+> > -	else
+> > -		text_poke_early((void *)ip, new_code, MCOUNT_INSN_SIZE);
+> > +	} else {
+> > +		mutex_lock(&text_mutex);
+> > +		text_poke((void *)ip, new_code, MCOUNT_INSN_SIZE);
+> > +		mutex_unlock(&text_mutex);
+> > +	}
+> >  	return 0;
+> >  }
+> 
+> So this slows down the boot by over 30ms. That may not sound like much, but
+> we care very much about boot times. This code is serialized with boot and
+> runs whenever ftrace is configured in the kernel. The way I measured this,
+> was that I added:
+> 
+
+> If this is only needed for module load, can we at least still use the
+> text_poke_early() at boot up?
+
+Right, so I don't understand why this is needed at all.
+ftrace_module_init() runs before complete_formation() which normally
+switches to ROX, as such ftrace should be able to continue to do direct
+modifications here.
+
+Which reminds me, at some point I did patches adding a
+MODULE_STATE_UNFORMED callback in order for static_call / jump_label to
+be able to avoid the expensive patching on module load as well (arguably
+ftrace should be using that too, instead of a custom callback).
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
