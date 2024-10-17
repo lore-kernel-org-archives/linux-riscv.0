@@ -4,83 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F246D37499
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Oct 2024 15:37:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D632D3C522
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Oct 2024 16:30:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KtEQp+tBRiNLYevwb5lQxe5VCxoDL5Z0VuZqZYOTlYo=; b=QgXCk6h0H156hB
-	dNX0QfWLPzAjhPjYx1zFWVOQu+Vei5ay04F15mF1iGEDL0YdkKr6aLy6LRp2NaqbJt6LWpijvPZfL
-	oiiSOEgF+Zsx5QYoYOOjc97nXZsk+xLS24yEGA4M34+jj1cHj1a0y7ofn8pBVsDHcn24G8wH+lQxI
-	q9qdsdTov0/5wI+JIen6doTKxs6OhT2M4XR5KoGyfg1/FWASNcpZNGcXKWmCh8Jd7+ApHEmFQkut6
-	q3juOBTjAuYsA5/Q0+Z/g25UNUJlpbYOquFJCl5uLfdE1K9z93g/j2SZivYP9fqNGVwrIU57CVC5G
-	LVgGZZA8Y5/WzZL8gW6w==;
+	List-Owner; bh=V6vBNuSrhuxNqrFygmL2t20YlMaNGZenqt/igWb9ynY=; b=JvjRQjJc009IzF
+	6uMXhKOuqTYmJqYk/nd1dAdC9neyK+LGEOsViSSMVftWqQ1gAOgvIt+rsVVjEJt5PKlZ+dCuD597/
+	SbFZuBOxoGg78n8VFIvgUAS585s2ZuKHWXAqETNI2veOWAcMnAt/ldv68E7m4gLS0DKDMJ3yr4IqS
+	qr4vOVjTivcm++rgI4JLtSle+ueyvrhN/EwXcYAj/Ot/6CbpKogfzgITjSJiYXtOoftVIaM8YUgBf
+	r13x6FW5FGywbiI0oaTQmtTwskQi4qUWWvjjuYEhe79UOdmGfQEiQl5Z0/Phs3R0LE0EAQTNYVQ4Z
+	y6tJLclQZ/Iy5/bNCXMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t1SZD-0000000FJNL-3kwn;
-	Thu, 17 Oct 2024 15:37:35 +0000
+	id 1t1TOm-0000000FUzr-0DLH;
+	Thu, 17 Oct 2024 16:30:52 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t1SWV-0000000FIUq-0Grn;
-	Thu, 17 Oct 2024 15:34:48 +0000
+	id 1t1TOP-0000000FUrg-0Prr
+	for linux-riscv@lists.infradead.org;
+	Thu, 17 Oct 2024 16:30:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 492E1A4412A;
-	Thu, 17 Oct 2024 15:34:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1027DC4CECD;
-	Thu, 17 Oct 2024 15:34:38 +0000 (UTC)
-Date: Thu, 17 Oct 2024 11:35:02 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Andrew Morton
- <akpm@linux-foundation.org>, Luis Chamberlain <mcgrof@kernel.org>, Andreas
- Larsson <andreas@gaisler.com>, Andy Lutomirski <luto@kernel.org>, Ard
- Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Borislav
- Petkov <bp@alien8.de>, Brian Cain <bcain@quicinc.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Christoph Hellwig <hch@infradead.org>,
- Christophe Leroy <christophe.leroy@csgroup.eu>, Dave Hansen
- <dave.hansen@linux.intel.com>, Dinh Nguyen <dinguyen@kernel.org>, Geert
- Uytterhoeven <geert@linux-m68k.org>, Guo Ren <guoren@kernel.org>, Helge
- Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar
- <mingo@redhat.com>, Johannes Berg <johannes@sipsolutions.net>, John Paul
- Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Kent Overstreet
- <kent.overstreet@linux.dev>, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Mark Rutland <mark.rutland@arm.com>, Masami Hiramatsu
- <mhiramat@kernel.org>, Matt Turner <mattst88@gmail.com>, Max Filippov
- <jcmvbkbc@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>, Michal Simek
- <monstr@monstr.eu>, Oleg Nesterov <oleg@redhat.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Richard Weinberger <richard@nod.at>, Russell King
- <linux@armlinux.org.uk>, Song Liu <song@kernel.org>, Stafford Horne
- <shorne@gmail.com>, Suren Baghdasaryan <surenb@google.com>, Thomas
- Bogendoerfer <tsbogend@alpha.franken.de>, Thomas Gleixner
- <tglx@linutronix.de>, Uladzislau Rezki <urezki@gmail.com>, Vineet Gupta
- <vgupta@kernel.org>, Will Deacon <will@kernel.org>, bpf@vger.kernel.org,
- linux-alpha@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
- linux-hexagon@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-mm@kvack.org, linux-modules@vger.kernel.org,
- linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-trace-kernel@vger.kernel.org,
- linux-um@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- loongarch@lists.linux.dev, sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v6 6/8] x86/module: prepare module loading for ROX
- allocations of text
-Message-ID: <20241017113453.685ba175@gandalf.local.home>
-In-Reply-To: <ZxD0EVBoO-jcxEGE@kernel.org>
-References: <20241016122424.1655560-1-rppt@kernel.org>
-	<20241016122424.1655560-7-rppt@kernel.org>
-	<20241016170128.7afeb8b0@gandalf.local.home>
-	<20241017093515.GU16066@noisy.programming.kicks-ass.net>
-	<ZxD0EVBoO-jcxEGE@kernel.org>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 55A66A441A3;
+	Thu, 17 Oct 2024 16:30:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0196FC4CECD;
+	Thu, 17 Oct 2024 16:30:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729182628;
+	bh=aVA2QxSCVNkbqcq/em21m98qo2fV/FVrPCoqpZFeCX0=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=D5bcYVI4iz5awwcJLIZXc55uINJNgXz6l2CrClolPGsE5BVdZ0e4RqRRb1/W2Noiy
+	 FsO/fQRWV7g7Dx8K0p5sBmED+nNLZEpSZ6FKHGy6LJgZMJRoFrrmoEWcvXNpNWPije
+	 h0N/zRZn7/iFOkNNCk3VMY64Ss6RWYYGTlpRV1lEWZscy2xwR4+7F4eU9P7cM/bPuw
+	 JxjCX1EFD1d7FPFErP6kDMmhrY49k8MrY5IfXvFw0h68FtvTyX//fo4j/4JJm8/raf
+	 LSIjxnGJwEOPFK9DUNL/KynOga6RqQqU5bhIwdGOtvSalivmS08HLWXHuwspSA4QUH
+	 hcsLybHss/Pqw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADB9C3809A8A;
+	Thu, 17 Oct 2024 16:30:34 +0000 (UTC)
 MIME-Version: 1.0
+Subject: Re: [PATCH v3 0/2] Prevent dynamic relocations in vDSO
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <172918263324.2528145.12860614136206368233.git-patchwork-notify@kernel.org>
+Date: Thu, 17 Oct 2024 16:30:33 +0000
+References: <20241016083625.136311-1-alexghiti@rivosinc.com>
+In-Reply-To: <20241016083625.136311-1-alexghiti@rivosinc.com>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, vladimir.isaev@syntacore.com,
+ roman.artemev@syntacore.com, guoren@kernel.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241017_083447_209290_5B2C1B9F 
-X-CRM114-Status: GOOD (  13.90  )
+X-CRM114-CacheID: sfid-20241017_093029_288417_A6A8EC77 
+X-CRM114-Status: UNSURE (   7.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,27 +76,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 17 Oct 2024 14:25:05 +0300
-Mike Rapoport <rppt@kernel.org> wrote:
+Hello:
 
-> With this series the module text is allocated as ROX at the first place, so
-> the modifications ftrace does to module text have to either use text poking
-> even before complete_formation() or deal with a writable copy like I did
-> for relocations and alternatives.
+This series was applied to riscv/linux.git (fixes)
+by Palmer Dabbelt <palmer@rivosinc.com>:
+
+On Wed, 16 Oct 2024 10:36:23 +0200 you wrote:
+> Patch 2 uses a generic function to make sure the vDSO object does not
+> contain any dynamic relocations.
 > 
-> I've been carrying the ftrace changes from a very old prototype and
-> didn't pay enough attention to them them until Steve's complaint.
+> Patch 1 removes a dynamic relocation from vDSO in rv32 found with patch
+> 2.
 > 
-> I'll look into it.
+> v2: https://lore.kernel.org/linux-riscv/20240705060902.113294-1-alexghiti@rivosinc.com/
+> v1: https://lore.kernel.org/linux-riscv/20240326113831.283025-1-alexghiti@rivosinc.com/
+> 
+> [...]
 
-I just posted a patch where you can see the effects of these changes with
-respect to ftrace patching times.
+Here is the summary with links:
+  - [v3,1/2] riscv: vdso: Prevent the compiler from inserting calls to memset()
+    https://git.kernel.org/riscv/c/f431f67ff6c2
+  - [v3,2/2] riscv: Check that vdso does not contain any dynamic relocations
+    https://git.kernel.org/riscv/c/fcb5dcb789a2
 
-  https://lore.kernel.org/all/20241017113105.1edfa943@gandalf.local.home/
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-I'll be adding this to the next merge window.
 
--- Steve
 
 _______________________________________________
 linux-riscv mailing list
