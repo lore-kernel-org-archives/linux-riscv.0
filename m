@@ -4,62 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D632D3C522
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Oct 2024 16:30:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2C35D3C524
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Oct 2024 16:30:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V6vBNuSrhuxNqrFygmL2t20YlMaNGZenqt/igWb9ynY=; b=JvjRQjJc009IzF
-	6uMXhKOuqTYmJqYk/nd1dAdC9neyK+LGEOsViSSMVftWqQ1gAOgvIt+rsVVjEJt5PKlZ+dCuD597/
-	SbFZuBOxoGg78n8VFIvgUAS585s2ZuKHWXAqETNI2veOWAcMnAt/ldv68E7m4gLS0DKDMJ3yr4IqS
-	qr4vOVjTivcm++rgI4JLtSle+ueyvrhN/EwXcYAj/Ot/6CbpKogfzgITjSJiYXtOoftVIaM8YUgBf
-	r13x6FW5FGywbiI0oaTQmtTwskQi4qUWWvjjuYEhe79UOdmGfQEiQl5Z0/Phs3R0LE0EAQTNYVQ4Z
-	y6tJLclQZ/Iy5/bNCXMQ==;
+	List-Owner; bh=m1FVkkv/S3QxIGC3Mmpn1mDbtK2N4P2TyfwLCJ6NkWg=; b=ocg5wvd7HLZjFz
+	WLaNK6SGaa7e3GiDDrTP/JedE9GqmPafNXKV6ITM8wHRr2mPWF1SrCjs9cPjPHpgUSjBUv73VOpFC
+	twA8YAG8anGRRBLjIFl+bAzRDbV7NqfeN6bPavrkdUu8ytB7bHZZSV5/sOcoVRK95GrvJuQWgToqb
+	ynLCAGbsskJoScazcHOyXYzMismivx3lbxjsNjlC95jn3gCdhT/Js9LFmsDVHDJAtkztBvjlCA75Q
+	uJmql9b+Y1wQ65Mp0WVzVI5edhOKBfesNl45QbC/zzW36hxKedO7J+dvKofjlj6bR2Vm1KYG5cHFk
+	S3bQ87EKv7FF7LMaeMeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t1TOm-0000000FUzr-0DLH;
-	Thu, 17 Oct 2024 16:30:52 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t1TOo-0000000FV1I-15Y4;
+	Thu, 17 Oct 2024 16:30:54 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t1TOP-0000000FUrg-0Prr
+	id 1t1TOR-0000000FUsP-2ZKI
 	for linux-riscv@lists.infradead.org;
-	Thu, 17 Oct 2024 16:30:31 +0000
+	Thu, 17 Oct 2024 16:30:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 55A66A441A3;
-	Thu, 17 Oct 2024 16:30:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0196FC4CECD;
-	Thu, 17 Oct 2024 16:30:28 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8E70D5C6156;
+	Thu, 17 Oct 2024 16:30:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4D6EC4CECD;
+	Thu, 17 Oct 2024 16:30:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729182628;
-	bh=aVA2QxSCVNkbqcq/em21m98qo2fV/FVrPCoqpZFeCX0=;
+	s=k20201202; t=1729182630;
+	bh=KH8o1h7M6XpFzHWRszjgrArk3aExRlRWHv7xNLYme7Q=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=D5bcYVI4iz5awwcJLIZXc55uINJNgXz6l2CrClolPGsE5BVdZ0e4RqRRb1/W2Noiy
-	 FsO/fQRWV7g7Dx8K0p5sBmED+nNLZEpSZ6FKHGy6LJgZMJRoFrrmoEWcvXNpNWPije
-	 h0N/zRZn7/iFOkNNCk3VMY64Ss6RWYYGTlpRV1lEWZscy2xwR4+7F4eU9P7cM/bPuw
-	 JxjCX1EFD1d7FPFErP6kDMmhrY49k8MrY5IfXvFw0h68FtvTyX//fo4j/4JJm8/raf
-	 LSIjxnGJwEOPFK9DUNL/KynOga6RqQqU5bhIwdGOtvSalivmS08HLWXHuwspSA4QUH
-	 hcsLybHss/Pqw==
+	b=ArAZ9c+IdoghXXrlY3tLFBAVCWiI0Y3XQYprK57xOgHXiKn4jyful/WcYoqBjSZeX
+	 /Jj3r0ZKrKmX0ogEX3MyMXQ+4B1bl9H74dRlNsJxZCRmTT+V8oYWV9IsPPlzcvqVEv
+	 JRAm8kRzDsarLBLsL5Pk+Zi/f2rLCwGSH1AQqSGdzc4JEuf+Kt/8vAtUH6iUwvcjRG
+	 UZiqx7UKH1OsV4pqUORI8BM5+YiA9q8qmsLvzaLSSGqJpH10EFTVSls+E/KcUQrE2Z
+	 7eDoZHJsqSSk9VQJ8i9rWEciGlGlZWkJlMRHWOdSnT7N0J7UFzVJh36kvJDy8xq+ju
+	 zrqmkVk67DpEw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADB9C3809A8A;
-	Thu, 17 Oct 2024 16:30:34 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 715943809A8A;
+	Thu, 17 Oct 2024 16:30:37 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v3 0/2] Prevent dynamic relocations in vDSO
+Subject: Re: [PATCH v1] RISC-V: disallow gcc + rust builds
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <172918263324.2528145.12860614136206368233.git-patchwork-notify@kernel.org>
-Date: Thu, 17 Oct 2024 16:30:33 +0000
-References: <20241016083625.136311-1-alexghiti@rivosinc.com>
-In-Reply-To: <20241016083625.136311-1-alexghiti@rivosinc.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, vladimir.isaev@syntacore.com,
- roman.artemev@syntacore.com, guoren@kernel.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org
+Message-Id: <172918263598.2528145.14698302036420162335.git-patchwork-notify@kernel.org>
+Date: Thu, 17 Oct 2024 16:30:35 +0000
+References: <20241001-playlist-deceiving-16ece2f440f5@spud>
+In-Reply-To: <20241001-playlist-deceiving-16ece2f440f5@spud>
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org, conor.dooley@microchip.com,
+ jmontleo@redhat.com, ojeda@kernel.org, alex.gaynor@gmail.com,
+ boqun.feng@gmail.com, gary@garyguo.net, bjorn3_gh@protonmail.com,
+ benno.lossin@proton.me, a.hindborg@kernel.org, aliceryhl@google.com,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, nathan@kernel.org,
+ ndesaulniers@google.com, morbo@google.com, justinstitt@google.com,
+ rust-for-linux@vger.kernel.org, llvm@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241017_093029_288417_A6A8EC77 
-X-CRM114-Status: UNSURE (   7.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241017_093031_727992_D1C83069 
+X-CRM114-Status: GOOD (  10.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,26 +81,27 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to riscv/linux.git (fixes)
+This patch was applied to riscv/linux.git (fixes)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Wed, 16 Oct 2024 10:36:23 +0200 you wrote:
-> Patch 2 uses a generic function to make sure the vDSO object does not
-> contain any dynamic relocations.
+On Tue,  1 Oct 2024 12:28:13 +0100 you wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
 > 
-> Patch 1 removes a dynamic relocation from vDSO in rv32 found with patch
-> 2.
-> 
-> v2: https://lore.kernel.org/linux-riscv/20240705060902.113294-1-alexghiti@rivosinc.com/
-> v1: https://lore.kernel.org/linux-riscv/20240326113831.283025-1-alexghiti@rivosinc.com/
+> During the discussion before supporting rust on riscv, it was decided
+> not to support gcc yet, due to differences in extension handling
+> compared to llvm (only the version of libclang matching the c compiler
+> is supported). Recently Jason Montleon reported [1] that building with
+> gcc caused build issues, due to unsupported arguments being passed to
+> libclang. After some discussion between myself and Miguel, it is better
+> to disable gcc + rust builds to match the original intent, and
+> subsequently support it when an appropriate set of extensions can be
+> deduced from the version of libclang.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v3,1/2] riscv: vdso: Prevent the compiler from inserting calls to memset()
-    https://git.kernel.org/riscv/c/f431f67ff6c2
-  - [v3,2/2] riscv: Check that vdso does not contain any dynamic relocations
-    https://git.kernel.org/riscv/c/fcb5dcb789a2
+  - [v1] RISC-V: disallow gcc + rust builds
+    https://git.kernel.org/riscv/c/e52d5050a0d2
 
 You are awesome, thank you!
 -- 
