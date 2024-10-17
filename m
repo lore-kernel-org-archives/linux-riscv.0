@@ -4,62 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DB78D3C525
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Oct 2024 16:30:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9349CD3C523
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Oct 2024 16:31:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UOLQK05GlhJqXtyT1ntuLd691a+3w+9TiT6ELLzMF/M=; b=WPF1WdYD+8aSSm
-	1TYVLa7pB8Nq9fHDKzNAMeBUI/hym0RcJhSXCPOYinkKTtOnJRYnUS8jKHL6eD6+d+zl+NTUTXO1e
-	iRwPtfB9ytOzFFKph7e85UDNhoC2TA7pnV7IIWNNfR7v98TsVgC9uZAFCQolnrckNMfl9JU0brAI9
-	maDViRJo7r4pnQVpKh0dbkLQSm5bpiuQdBaWy/lkNUqZPgJH1oiJztALyD7+X2TrBaNRK5qhMgh05
-	1akVFusRUhQZc8OMPizf7G9zwEH4lVDarGrwdeNgqQB1Veyaewf6jK5aVpW7klIvRT9jwYJGSA/Vp
-	CXX8m32oUggWXAfRyy/Q==;
+	List-Owner; bh=B+AGBYyp6/vrsjidFJXoSoDFjWGauy9sc19CYJaZkIM=; b=0bywksYTpcrmvd
+	SPV9xRhssQcMedkfka5nx+9dBD6+/f9ZQU5hbGS07GZ1Ul6gQrk0o25vyah6I+DUHd97YsLZou50f
+	T3dt1G1tl6ZwZgxeAqKdtka+PjGtamCmPqn2J3zd3dNegPI6VnZHSAxXlokazngO4nEw01i1Mb8BD
+	QcqTK66wOJSd/QU2GCT/YhiMBI6y0hqFQ/oDeM921qEOKja7QYgVIJl6uFO8EFqmUzH2gN2KjxP3m
+	hlywOwbXVjDxIBif5LwdjynG6bp/uAAjMEKnaj39aw2eZy5UFch9yvuM/Gw/z+iEpgFIMVam/fU+N
+	5RCKlY+oSFokaTLcWShQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t1TOp-0000000FV1p-1mzS;
-	Thu, 17 Oct 2024 16:30:55 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t1TOl-0000000FUzd-0kq1;
+	Thu, 17 Oct 2024 16:30:51 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t1TOS-0000000FUsw-4Bfq
+	id 1t1TON-0000000FUrS-3Kuc
 	for linux-riscv@lists.infradead.org;
-	Thu, 17 Oct 2024 16:30:34 +0000
+	Thu, 17 Oct 2024 16:30:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 12DA85C0C38;
-	Thu, 17 Oct 2024 16:30:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B773C4CECD;
-	Thu, 17 Oct 2024 16:30:32 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7AB1E5C6128;
+	Thu, 17 Oct 2024 16:30:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83C04C4CEC3;
+	Thu, 17 Oct 2024 16:30:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729182632;
-	bh=MAHHxQS0eKTGEp4J515FyxJMcIxGuOSNzAHq4WtWGpQ=;
+	s=k20201202; t=1729182626;
+	bh=ReJ5uhQRcBg/1XL59l+RmpDPJh/BYKyOS8QEpIqsA7U=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=cVIJDfZswfdnadPqf0l/Gvj5Ex2Pc4431RNASOYjwrgbvbbKvCoQK121owGo4XrIC
-	 adcHjXeMnSjASvCMEykvTPhhkBRYB0oDzEaO5z+lbhZc/diqCbs4cFrHfrCcrd6/pT
-	 Cda4+GAxpf/CotLV1aiofGKl4N/tdUALp3pqDggmDxLAoZGvIN1FgauGtrJS0svWH1
-	 wwPvf7+Yn4d3Oid1vc7pNo1XCbx8mVydqbUvsDlK+d7Kh7AEzYZa1fYK6deACzk9Fo
-	 J/oj8o39PXeQS7qakIf4WucyAZZcjsY4+bPX8RTxZlMUGffmhv7bMdrmbAwtsP+7oj
-	 9afBaMBwq0CzQ==
+	b=Vipj3Th0pCqGVCEiHcQf5AabDrH4AI6EPjqq3Fk/BRFd5qhrXSnedIxqrFZQSIAxb
+	 QljU3VEBzxxSqSe7+3YGTITwmz42hcOUAFUzpsQfzM9ncLTzUuPcPN66cvl2ouE74h
+	 uSCxsdxSnMYvodA+mQSOSDFrPk1UiyZJ7RmF1TWv8FVhhe6C+4sGxcEC8XttwDmRya
+	 7zkDdCfAH9ZjHExb7Bzh0bNkbsLpS4mpsuFz4i0apri5fw9TlXJWA9nSik1QkmYa8q
+	 4rvUIXlSIB4ebxuQpON7uarHX16LDD4MZqzA9TkhBqSP7iYxe0m+dlUqQzwHcTDBp6
+	 zej/6d4JJRtcw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB12B3809A8A;
-	Thu, 17 Oct 2024 16:30:38 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33E8C3809A8A;
+	Thu, 17 Oct 2024 16:30:33 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH -fixes] riscv: Do not use fortify in early code
+Subject: Re: [PATCH v2] RISC-V: ACPI: fix early_ioremap to early_memremap
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <172918263750.2528145.8683172772221919308.git-patchwork-notify@kernel.org>
-Date: Thu, 17 Oct 2024 16:30:37 +0000
-References: <20241009072749.45006-1-alexghiti@rivosinc.com>
-In-Reply-To: <20241009072749.45006-1-alexghiti@rivosinc.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, heiko@sntech.de,
- bjorn@rivosinc.com, linux-kernel@vger.kernel.org, jmontleo@redhat.com,
- stable@vger.kernel.org
+Message-Id: <172918263201.2528145.6233563101425140097.git-patchwork-notify@kernel.org>
+Date: Thu, 17 Oct 2024 16:30:32 +0000
+References: <20241014130141.86426-1-cuiyunhui@bytedance.com>
+In-Reply-To: <20241014130141.86426-1-cuiyunhui@bytedance.com>
+To: Yunhui Cui <cuiyunhui@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241017_093033_114123_BCB8B625 
-X-CRM114-Status: UNSURE (   8.59  )
+X-CRM114-CacheID: sfid-20241017_093027_910309_6C4CFDAE 
+X-CRM114-Status: UNSURE (   7.20  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,6 +68,7 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: aou@eecs.berkeley.edu, alexghiti@rivosinc.com, jeeheng.sia@starfivetech.com, rafael.j.wysocki@intel.com, linux-kernel@vger.kernel.org, conor.dooley@microchip.com, palmer@dabbelt.com, paul.walmsley@sifive.com, punit.agrawal@bytedance.com, linux-riscv@lists.infradead.org, haibo1.xu@intel.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
@@ -82,19 +79,19 @@ Hello:
 This patch was applied to riscv/linux.git (fixes)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Wed,  9 Oct 2024 09:27:49 +0200 you wrote:
-> Early code designates the code executed when the MMU is not yet enabled,
-> and this comes with some limitations (see
-> Documentation/arch/riscv/boot.rst, section "Pre-MMU execution").
+On Mon, 14 Oct 2024 21:01:41 +0800 you wrote:
+> When SVPBMT is enabled, __acpi_map_table() will directly access the
+> data in DDR through the IO attribute, rather than through hardware
+> cache consistency, resulting in incorrect data in the obtained ACPI
+> table.
 > 
-> FORTIFY_SOURCE must be disabled then since it can trigger kernel panics
-> as reported in [1].
+> The log: ACPI: [ACPI:0x18] Invalid zero length.
 > 
 > [...]
 
 Here is the summary with links:
-  - [-fixes] riscv: Do not use fortify in early code
-    https://git.kernel.org/riscv/c/d49320974c4e
+  - [v2] RISC-V: ACPI: fix early_ioremap to early_memremap
+    https://git.kernel.org/riscv/c/0dcf8269ecee
 
 You are awesome, thank you!
 -- 
