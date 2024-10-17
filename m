@@ -4,96 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54204D2F7DD
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Oct 2024 02:16:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83CFCD2F7DE
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Oct 2024 02:31:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:References:Mime-Version
-	:Message-Id:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cLeQ7cXrRR2b1ba3ToNe9SItA2DBfRLur0hL06pBKTw=; b=ICiNFaD5F9JD2J
-	uajxx2RKRuTXaPDfN0dPykZCD7tmORa3MiTu1jO6itDKtwHUL81F3diYUeEG3Q1LD5IpdQLCPPHdR
-	dgscWa3fXnHm88+d9+z0L8gENiznogNAvpYoUB5ctt3/ewQSoBOoFsdIvMTPXpVWKfaO+nlAoyPWx
-	zY1n7mSk4zxu9S2K7BvKZChq+i2rrghon04Wqp7fcKELJwMs0Hbcd0Btpqt9jVAzQQ0Es7HnWDJvO
-	flgkM9OgH/MAhYt7mJ2bwJes9VrrVozRGimCbuPTc4/hVRlbJH5PMksWjGa2xRV6GgfaIk6COWEPX
-	zAH/P+QsWsepqUi5it3g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=K3TBEq416319Z1oJoDy1kK4rZRzb7U3D7FGchhsj6vc=; b=Af8xpN32Hesc1l
+	+rZW9jNo9QVBFw29R3rVaW5f6oFra9D6Q5kiC6GlSRTCb/FHHbaJ1BkvdTk3d4Wi4ZWjIHaRDAGLM
+	YFY3yKNnUg7Nm4WqrRR6ELAXwH3o4y+Fo4SpU6Vu0IOoCpDxbGE3lqoFuCMCt6jQBUKro2iYFQT/G
+	ZeEMh5u+uaU4SN/GvBxS/GuETwz2pvGEF02RPTd6Nukc1+Ttt7huw8Hxl1yuW0XtPqPWUSjvIkSzu
+	edPfiIaBytNpznI+aSkbpUcBHfp5BxknoWzIha7+1szlyIEZJC1rnDfD+Z+L1mMfSWjd3pCw8e2hs
+	ZtHSdXl06n5GRVYO5r6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t1G3R-0000000DWuq-3FC8;
-	Thu, 17 Oct 2024 02:15:57 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1t1GHy-0000000DYgl-3xmE;
+	Thu, 17 Oct 2024 02:30:58 +0000
+Received: from mail-sh0chn02on20716.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::716] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t1EL6-0000000DKNj-2Mnq
+	id 1t1F97-0000000DQua-2lcy
 	for linux-riscv@lists.infradead.org;
-	Thu, 17 Oct 2024 00:26:06 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6e35199eb2bso8983887b3.3
-        for <linux-riscv@lists.infradead.org>; Wed, 16 Oct 2024 17:26:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1729124762; x=1729729562; darn=lists.infradead.org;
-        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=f+6tiaKaV6HvKOoydGJA88FSVOYPAhxZOHcfM2Yk7U8=;
-        b=Paybn0vJdtPVp1+DED9V21p9a3JO84ykGRuLXyh9NXHgft5/g8jjQcAHztgwB8FkNr
-         IaTgTj9l4+Myp3dbYqa2Xabq9CfVnvjRstPrl62nJKlIoayPI+JNoAAjawMWkN/x4lug
-         WHqHfKCcj4Wpe7gCt/99+Cb7iUt3BAtXsw2yV98PUy1ih35Meigz6ecQEzlQIZhpk33R
-         xaveJdP5LONn9bX3PdBABHykffjyNgxbucILSX3EoIdvBQD+ecsFVm9v5Mdp8iTUbC79
-         XYDuZtD+mzXbCbbJ+vn6JPt2ySz23YxhLki5BQ9D6IeMpM9OuXVhTINgsfxMBc6JPc9g
-         kCgA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729124762; x=1729729562;
-        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=f+6tiaKaV6HvKOoydGJA88FSVOYPAhxZOHcfM2Yk7U8=;
-        b=gAo19TIXsMvNbFo+igxNYbyW/tykMn0AOH9Kj1/cZcqDcNPbzEkxTt1tAPwGtdCsHL
-         V3NJsV8wU0mDE7ZNzA6Em9maw+suO3fk9iR4P5O5Ku288wPfD1gqlqgVpZs2sPhjsKnB
-         D0TcFeyn6pKhhV7VokgQeBOXbTBeKnlYMluOCHe8y1qEj6x/3oSi00w3AdjniSzVkDR6
-         uxa9jjFfFpHKs6QhatubjHQzhWol9WBbFE0L5ffcaPRcd5f1Cqs5s+f0MvxCmnwHYiVF
-         5xpV989r4XNS82bg2VWlN+m6UX+vIx/3vmn19wp+ABgLudtIJh8gAiVN8OUrK3UWmFWl
-         Vwvg==
-X-Forwarded-Encrypted: i=1; AJvYcCWNtWFpEEz+xZoonDpOq+Cnt/UTVDWjKDUH1xOXEXV6EsQv6Da3sH2XW47qNbdV8qpRJVoPQJxnyf2WIQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxP5b+vALvWMzmZuad0KrdQeH0d+zJdf91UJ8KmJRjn3pAXxzBJ
-	B1CUbmuyepuS3gSHqLZ38299R0W3xRzHDryCcpMnI5kXB5ltDl6gGdzXVuO2YztkXRY4pREri98
-	QmtSfOw==
-X-Google-Smtp-Source: AGHT+IF8vR2ODszdvUkiRs2C6hBOma5C+iYC6PWCAbaWDyF1xQHgEj5TqToGlUQxetf5HbIY0PdC8v7iaIAq
-X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:a00a:f237:9bc0:79c])
- (user=irogers job=sendgmr) by 2002:a25:870c:0:b0:e25:5cb1:77cd with SMTP id
- 3f1490d57ef6-e2978585305mr4689276.10.1729124761924; Wed, 16 Oct 2024 17:26:01
- -0700 (PDT)
-Date: Wed, 16 Oct 2024 17:25:14 -0700
-In-Reply-To: <20241017002520.59124-1-irogers@google.com>
-Message-Id: <20241017002520.59124-15-irogers@google.com>
-Mime-Version: 1.0
-References: <20241017002520.59124-1-irogers@google.com>
-X-Mailer: git-send-email 2.47.0.105.g07ac214952-goog
-Subject: [PATCH v3 14/20] perf riscv: Remove dwarf-regs.c and add dwarf-regs-table.h
-From: Ian Rogers <irogers@google.com>
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
-	Kan Liang <kan.liang@linux.intel.com>, John Garry <john.g.garry@oracle.com>, 
-	Will Deacon <will@kernel.org>, James Clark <james.clark@linaro.org>, 
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>, Guo Ren <guoren@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Nick Terrell <terrelln@fb.com>, 
-	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>, Changbin Du <changbin.du@huawei.com>, 
-	Guilherme Amadio <amadio@gentoo.org>, Yang Jihong <yangjihong@bytedance.com>, 
-	Aditya Gupta <adityag@linux.ibm.com>, Athira Rajeev <atrajeev@linux.vnet.ibm.com>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Kajol Jain <kjain@linux.ibm.com>, 
-	Atish Patra <atishp@rivosinc.com>, Shenlin Liang <liangshenlin@eswincomputing.com>, 
-	Anup Patel <anup@brainfault.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	"Steinar H. Gunderson" <sesse@google.com>, "Dr. David Alan Gilbert" <linux@treblig.org>, 
-	Chen Pei <cp0613@linux.alibaba.com>, Dima Kogan <dima@secretsauce.net>, 
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>, "David S. Miller" <davem@davemloft.net>, 
-	Alexander Lobakin <aleksander.lobakin@intel.com>, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
+	Thu, 17 Oct 2024 01:17:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=m/v4U1FgEV5gp93HVwRwO1WcAK9kYAM0LaAKs+Lu2eq3qqAFX6MvzBtMi1nTflFGsYIWSP+Dg+pJ/au7PNw2SoGx2Sjb8nES598TCoUheJ4res9FaEaWklF9FV4MRNW15lPa2ZvxtoXFcx6vKsYXIslc/lLeE2UHQ/pcVQoWtlBxzCil6Qv9+PE+8sLqvL43ZrF+ZFe4hqB1I0Y75g4xjyc8oxm2L/kTfspwToliS/RQJ9Dxm5HGTFQq33UYxGsF/l2qP5g3HIxy+Qoszgc/XumjofHibSiNAqdrUv8gfL5wRXc5mHloNjbLvXE64wMAU/k5qsYH4TMYL68hBLD1Yg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YSuFOGKm/krP4D1hWb3iaW8COC9iL2tsI07K1ylB/Bw=;
+ b=kSbSV0Xk/0+Y5X5Zgz50td74Ad4M5SPBoO0CPBfYlwSY8TrNuh1fTM/ch9LkCL+GFI9HMWVBUO00BdXyCxCx6X71v+qH0YBHys0duQ/8XGnUE6Lhu/0iDyw8PGw0rmoa/gouEGkWm6PFrZpa3GKKDutXnc0dOS8RQ+M51apHYmlpsTlsjTlgJKxsaoQDPtcUeTk1Z9QcigDZaRypAnF16AGk8e2+DRNdhtYIy/eD0QBePzcr9JnlZIy3mrI3JiYOzDWSYZi+kP43cQ7EFX2ir3qenjWRur+UHEGCVu02O2EPrZU+KyfY8mg4aEYDO3Z09fOeZUeZHMYF8XtjlUjjUQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from ZQ0PR01MB1302.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:1b::9) by ZQ0PR01MB1221.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:1a::11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8048.29; Thu, 17 Oct
+ 2024 01:17:36 +0000
+Received: from ZQ0PR01MB1302.CHNPR01.prod.partner.outlook.cn
+ ([fe80::64c5:50d8:4f2c:59aa]) by
+ ZQ0PR01MB1302.CHNPR01.prod.partner.outlook.cn ([fe80::64c5:50d8:4f2c:59aa%5])
+ with mapi id 15.20.8069.016; Thu, 17 Oct 2024 01:17:36 +0000
+From: Changhuang Liang <changhuang.liang@starfivetech.com>
+To: Conor Dooley <conor@kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>
+CC: Conor Dooley <conor.dooley@microchip.com>, "stable@vger.kernel.org"
+	<stable@vger.kernel.org>, Aurelien Jarno <aurelien@aurel32.net>, Emil Renner
+ Berthing <kernel@esmil.dk>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: =?gb2312?B?u9i4tDogW1BBVENIIHYxXSByaXNjdjogZHRzOiBzdGFyZml2ZTogZGlzYWJs?=
+ =?gb2312?Q?e_unused_csi/camss_nodes?=
+Thread-Index: AQHbIAerDCyRJ1WJg0mmvQeCtV44grKKI3cg
+Date: Thu, 17 Oct 2024 01:17:36 +0000
+Message-ID: <ZQ0PR01MB1302A45C24808A6067928BB8F2472@ZQ0PR01MB1302.CHNPR01.prod.partner.outlook.cn>
+Accept-Language: zh-CN, en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: ZQ0PR01MB1302:EE_|ZQ0PR01MB1221:EE_
+x-ms-office365-filtering-correlation-id: 3bc433d0-7163-45aa-c274-08dcee497c0e
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|7416014|41320700013|1800799024|38070700018;
+x-microsoft-antispam-message-info: ecK10G+17k+OC3uplEgV+XF/r+X3dHtvKCZKoZfPBxW+1fIS33KSkR2qLR1VvaGareybGwf31VgT+AQShPihCRyi5Yz96HJRSXCQwse8tcUWvUX5dJSW8mpGwd4+Mdp/utyuw5WZLTXrOeuKX6lZYn7lL4XpN1twxbN4ypnOvbFHL93tz7qqfLIT7BYUJLmWUF8A4O/WajsOoNg2NSzDM7KanvdWhyvVFjIRcOAxaQjLEt/z2PIz+uyi+jO9xMV6I51e/icO0mLyZsrYGOFSlGe6P0jtX24twShCjurJKbZ9lt95k0W8iHUEorERI1YXYQrC1UeCeNBcpmyij4FuwT2UcOQB14OHRNrCnVkBKRdSutXZOgj0CTCwWNGUeKbb9/bycjvEvPzM8vRQfS0BaSGM5cJrIn03XNxQn+WrsqV5ndSM72tZO51juqsE2YdS5XxU3Kt6J/HzPKViIrt+BdsLhegNXkfRNcoJwm15EeYNisjuTjLmfWCgM5GzPPj/Ueog22DJOVBfb7YX0CAuhUiFwXhsY7Wqh/kjDN42J3rzsV0oBUYXImotql8yExBWFLnpI4PPgChc3eIJ6fD43OXpOH2MiwdH82/yOmRiv7MNevqpXql0tLOp90fDOV6X
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ0PR01MB1302.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(41320700013)(1800799024)(38070700018);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?gb2312?B?a2R4QlVwcnZYSXp6WVk2U2plVjNFWjRYaDdwY1R3VnM1YjRhZmpEbE83NVd5?=
+ =?gb2312?B?MHU4WnZtTlc0N1N3VDJYL01BUkt2dUVQcExTZXVBV3FUSnFTUDQ3THZLemNy?=
+ =?gb2312?B?NGhZcFhrZkdyODMzK1VmUW1zNUhyZVFMc3dxQjRrMDFZQ2pwbTVYUEdLcW5F?=
+ =?gb2312?B?K2J5bGswVTRIR2RSMGsyQjdEdW9hN2FqRVorV2ZYaEhhUFprZjhubXRSOGoy?=
+ =?gb2312?B?a2VYREpxd2xSUlk3ci93dzVhblVvOVNFMnBxeVlnc0hvcVpia2t4NUhvdUsv?=
+ =?gb2312?B?Nm9QSTZyVnFuTjdnOURYemxqR21uTU1iOGhJczYxbTZ1MVhLNG9CakVtbXFN?=
+ =?gb2312?B?L1A1Y0lzMWZQaTZNV0F3ZnVYR3UwYjkzTmJJM0t5cTdoMUVFSDRrc2h0bkJm?=
+ =?gb2312?B?aGFMUzRZT3JIZ0hEd0NYNzgrY29Pa2Uxc2QyeWJUeVp4Q1ZIc1g1bGd0YmR2?=
+ =?gb2312?B?ZENOUGFhOVRCM21wUTZvL2pjTnUvSHpnOUpxVGdTeUk1VlpmZHhUTGgwSUsz?=
+ =?gb2312?B?QjF3c01BbVIxTUlzZHArdjFrelp5SStmTk9oSUJhSUFmTWIwSnVXYUoyRXFr?=
+ =?gb2312?B?VStjVmNzYk8ybDBZZS9XcytxZmtQbmh3MFdqZ0JNS1VkRFhrbHh4VlBGTllR?=
+ =?gb2312?B?M25UT3V1S2pDVzAyNHc4VnI2elFtalZWOTNsZjJtQ3dqZVI1andHNDBnS1FP?=
+ =?gb2312?B?dVdwMmIxT3JiNFZPbVFYOW05QVhyQ3l5WDlNZjl3a1lkbldWcUFTc2M4Wm9u?=
+ =?gb2312?B?VGhERjROQ25XR2psS3crbjJYMHBVZk92Vnh1OFhwNG5LYUw2WDgyR0pCdXRs?=
+ =?gb2312?B?OU5kc0FESGtuNjRiS3kxL3lyc0lTM0hmbUorUDQ0alExcGI2MUdxemM0dG0w?=
+ =?gb2312?B?TmxEejQxeUkrWXA0aUpCc3o5WnhWQ2tyZFNURHRvSWVxdDlxdURxTXBITnFN?=
+ =?gb2312?B?Z2lLM3JFa2ltbUxRNGQxSmkyYndPRDNlRUh1aTVSK05HaWU5RTNCa1lHY2Rx?=
+ =?gb2312?B?VTFiaVk0WVQ5VjRpTzZsc3dMOFlIOFBzb3lGSVZLU3dXalM5YTlwV0VoZTZy?=
+ =?gb2312?B?ajlabjgwZmRiQytCQjBrUDZKem1jZ01jSUJieHhnaGF5bHVRdWZLUGNiVGY0?=
+ =?gb2312?B?cTgzcHI0TUJoUlJPQURlbFFFY3JIYkc5YlAwbzFUN21pSWZLenNzWXIvLzUy?=
+ =?gb2312?B?UHBCUEYyNVBWRVgwSERGOXZVaU5vWWlzVE5xYzhBMUNGNC83STI0TkZoRFhC?=
+ =?gb2312?B?ZTlNY3NOZVpqN2RaZ1hyS1duZXY0YzdVcXNmZ0VocXcweC9lcHBOM2p4cTl5?=
+ =?gb2312?B?dnZsRzdrUzd0TEZDdExaYjRwUjZ5ajFZejFMWDNhM21HdkRQSWxaajFkVUJB?=
+ =?gb2312?B?UTRucUkwWlpxaTlzaUorUENQSkhxMXZNZmsrZlhOWkZYb0RMdWx3WElXa3ZW?=
+ =?gb2312?B?aHlsTTMyUnluQTVWdmdLTk0zM21XcnhnbHV0b1lWRXpOYVZ6OVpkdzFMWUZD?=
+ =?gb2312?B?TEh2R090RndpYVdRVUhiVUo0MW11MFMwcW4vai9jc3ZxaCtCUTdzNmtWcENv?=
+ =?gb2312?B?OWs1NTNHVzhxcmwraXAzT2VOWWNhNWtpcUtYSHNPdHNZSXVjeEhOakpoR0lP?=
+ =?gb2312?B?Q3U1eXNEakFUTDlYRzZvL0g4QTRXczZacXJPNjRxTEdTcmVOR21sYTl3bTRy?=
+ =?gb2312?B?Z1hqZ1Z4ZEViS3cwaFNuZ2k1ZmJqTC80NkZ4MGJCQVFXWkJXak11MGM3TTZM?=
+ =?gb2312?B?bmZoSlRJSGpTc0RyNDFmYjNRaTZZVEp2M1FYTE5McEc1bVFOQTh5Y096bFFK?=
+ =?gb2312?B?L1RQMjFsT2JDL01nQWxmcW9zdzN6MTVnbjZvUVkwLy9JS1BOdmxIZHVGUkRC?=
+ =?gb2312?B?TDBlNDBNVmNITkdqaEVPaG90bEtXN0RKUVRWRmR6UWMzK2E3dkNOSTAzbEJD?=
+ =?gb2312?B?enA0b1NhK0xCYzA2WUdZcWZaeUREblBVVUdsV2VmeDF2ZVVQV3pDZmZxQ1JH?=
+ =?gb2312?B?NXE1VFBDNHB2Qno3ZVgrNkxZd1ZQb1gxRXhYK0xYdE1xcWtNcGZHc2xDZFli?=
+ =?gb2312?B?MXBqOWxWMG1VSFdNR1FzZ1pqTy9NKzc3R3ZaSmd5eG1XWk1BTy9tampzUmY2?=
+ =?gb2312?B?RysvNnNoSVFiL296c2FYaHd4N3AzMjhBdkVYSTBBRUpXUE16NUtsc20wblhC?=
+ =?gb2312?B?RkE9PQ==?=
+MIME-Version: 1.0
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: ZQ0PR01MB1302.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3bc433d0-7163-45aa-c274-08dcee497c0e
+X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Oct 2024 01:17:36.0792
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: mnhMflEo/WNHEixaGXb4Q8UZ279B1bcCmixUlzm6Z7kRTV80mES7Lqmnzoif+OgdCTQ1iz1Ivea/aNxBfLg7EBG897ZH1RFo6gtFfYkmi6/xMmmMQ1ghVGNhD6CibbBU
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ0PR01MB1221
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241016_172604_633942_059B1989 
-X-CRM114-Status: GOOD (  16.80  )
+X-CRM114-CacheID: sfid-20241016_181745_723896_8D99D3AD 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,137 +142,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The file just provides the function get_arch_regstr, however, if in
-the only caller get_dwarf_regstr EM_HOST is used for the EM_NONE case,
-and the register table is provided in a header file, the function can
-never be called. So remove as dead code. Tidy up the EM_NONE cases for
-riscv in dwarf-regs.c.
+Hi, Conor
 
-Signed-off-by: Ian Rogers <irogers@google.com>
----
- .../dwarf-regs-table.h}                       | 32 ++++---------------
- tools/perf/arch/riscv/util/Build              |  1 -
- tools/perf/util/dwarf-regs.c                  |  7 ++--
- tools/perf/util/include/dwarf-regs.h          |  2 +-
- 4 files changed, 12 insertions(+), 30 deletions(-)
- rename tools/perf/arch/riscv/{util/dwarf-regs.c => include/dwarf-regs-table.h} (56%)
+Thanks for your patch.
 
-diff --git a/tools/perf/arch/riscv/util/dwarf-regs.c b/tools/perf/arch/riscv/include/dwarf-regs-table.h
-similarity index 56%
-rename from tools/perf/arch/riscv/util/dwarf-regs.c
-rename to tools/perf/arch/riscv/include/dwarf-regs-table.h
-index a9c4402ae57e..a45b63a6d5a8 100644
---- a/tools/perf/arch/riscv/util/dwarf-regs.c
-+++ b/tools/perf/arch/riscv/include/dwarf-regs-table.h
-@@ -1,23 +1,10 @@
--// SPDX-License-Identifier: GPL-2.0
--/*
-- * Copyright (C) 2019 Hangzhou C-SKY Microsystems co.,ltd.
-- * Mapping of DWARF debug register numbers into register names.
-- */
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifdef DEFINE_DWARF_REGSTR_TABLE
-+/* This is included in perf/util/dwarf-regs.c */
- 
--#include <stddef.h>
--#include <errno.h> /* for EINVAL */
--#include <string.h> /* for strcmp */
--#include <dwarf-regs.h>
-+#define REG_DWARFNUM_NAME(reg, idx)	[idx] = "%" #reg
- 
--struct regs_dwarfnum {
--	const char *name;
--	unsigned int dwarfnum;
--};
--
--#define REG_DWARFNUM_NAME(r, num) {.name = r, .dwarfnum = num}
--#define REG_DWARFNUM_END {.name = NULL, .dwarfnum = 0}
--
--struct regs_dwarfnum riscv_dwarf_regs_table[] = {
-+static const char * const riscv_regstr_tbl[] = {
- 	REG_DWARFNUM_NAME("%zero", 0),
- 	REG_DWARFNUM_NAME("%ra", 1),
- 	REG_DWARFNUM_NAME("%sp", 2),
-@@ -50,13 +37,6 @@ struct regs_dwarfnum riscv_dwarf_regs_table[] = {
- 	REG_DWARFNUM_NAME("%t4", 29),
- 	REG_DWARFNUM_NAME("%t5", 30),
- 	REG_DWARFNUM_NAME("%t6", 31),
--	REG_DWARFNUM_END,
- };
- 
--#define RISCV_MAX_REGS ((sizeof(riscv_dwarf_regs_table) / \
--		 sizeof(riscv_dwarf_regs_table[0])) - 1)
--
--const char *get_arch_regstr(unsigned int n)
--{
--	return (n < RISCV_MAX_REGS) ? riscv_dwarf_regs_table[n].name : NULL;
--}
-+#endif
-diff --git a/tools/perf/arch/riscv/util/Build b/tools/perf/arch/riscv/util/Build
-index 8f93091b8345..58a672246024 100644
---- a/tools/perf/arch/riscv/util/Build
-+++ b/tools/perf/arch/riscv/util/Build
-@@ -2,5 +2,4 @@ perf-util-y += perf_regs.o
- perf-util-y += header.o
- 
- perf-util-$(CONFIG_LIBTRACEEVENT) += kvm-stat.o
--perf-util-$(CONFIG_LIBDW) += dwarf-regs.o
- perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
-diff --git a/tools/perf/util/dwarf-regs.c b/tools/perf/util/dwarf-regs.c
-index 3d98c2bf6035..2c6b197556dd 100644
---- a/tools/perf/util/dwarf-regs.c
-+++ b/tools/perf/util/dwarf-regs.c
-@@ -20,6 +20,7 @@
- #include "../arch/arm64/include/dwarf-regs-table.h"
- #include "../arch/sh/include/dwarf-regs-table.h"
- #include "../arch/powerpc/include/dwarf-regs-table.h"
-+#include "../arch/riscv/include/dwarf-regs-table.h"
- #include "../arch/s390/include/dwarf-regs-table.h"
- #include "../arch/sparc/include/dwarf-regs-table.h"
- #include "../arch/xtensa/include/dwarf-regs-table.h"
-@@ -33,7 +34,7 @@ const char *get_dwarf_regstr(unsigned int n, unsigned int machine, unsigned int
- {
- #if EM_HOST == EM_X86_64 || EM_HOST == EM_386 || EM_HOST == EM_AARCH64 || EM_HOST == EM_ARM \
-     || EM_HOST == EM_CSKY || EM_HOST == EM_LOONGARCH || EM_HOST == EM_MIPS || EM_HOST == EM_PPC \
--    || EM_HOST == EM_PPC64
-+    || EM_HOST == EM_PPC64 || EM_HOST == EM_RISCV
- 	if (machine == EM_NONE) {
- 		/* Generic arch - use host arch */
- 		machine = EM_HOST;
-@@ -42,7 +43,7 @@ const char *get_dwarf_regstr(unsigned int n, unsigned int machine, unsigned int
- 	switch (machine) {
- #if EM_HOST != EM_X86_64 && EM_HOST != EM_386 && EM_HOST != EM_AARCH64 && EM_HOST != EM_ARM \
-     && EM_HOST != EM_CSKY && EM_HOST != EM_LOONGARCH && EM_HOST != EM_MIPS && EM_HOST != EM_PPC \
--    && EM_HOST != EM_PPC64
-+    && EM_HOST != EM_PPC64 && EM_HOST != EM_RISCV
- 	case EM_NONE:	/* Generic arch - use host arch */
- 		return get_arch_regstr(n);
- #endif
-@@ -63,6 +64,8 @@ const char *get_dwarf_regstr(unsigned int n, unsigned int machine, unsigned int
- 	case EM_PPC:
- 	case EM_PPC64:
- 		return __get_dwarf_regstr(powerpc_regstr_tbl, n);
-+	case EM_RISCV:
-+		return __get_dwarf_regstr(riscv_regstr_tbl, n);
- 	case EM_SPARC:
- 	case EM_SPARCV9:
- 		return __get_dwarf_regstr(sparc_regstr_tbl, n);
-diff --git a/tools/perf/util/include/dwarf-regs.h b/tools/perf/util/include/dwarf-regs.h
-index 1763280855ce..35f4f33205da 100644
---- a/tools/perf/util/include/dwarf-regs.h
-+++ b/tools/perf/util/include/dwarf-regs.h
-@@ -81,7 +81,7 @@
- #ifdef HAVE_LIBDW_SUPPORT
- #if !defined(__x86_64__) && !defined(__i386__) && !defined(__aarch64__) && !defined(__arm__) \
-     && !defined(__loongarch__) && !defined(__mips__) && !defined(__powerpc__) \
--    && !defined(__powerpc64__)
-+    && !defined(__powerpc64__) && !defined(__riscv__)
- const char *get_arch_regstr(unsigned int n);
- #endif
- 
--- 
-2.47.0.105.g07ac214952-goog
+> From: Conor Dooley <conor.dooley@microchip.com>
+> 
+> Aurelien reported probe failures due to the csi node being enabled without
+> having a camera attached to it. A camera was in the initial submissions, but
+> was removed from the dts, as it had not actually been present on the board,
+> but was from an addon board used by the developer of the relevant drivers.
+> The non-camera pipeline nodes were not disabled when this happened and
+> the probe failures are problematic for Debian. Disable them.
+> 
+> CC: stable@vger.kernel.org
+> Fixes: 28ecaaa5af192 ("riscv: dts: starfive: jh7110: Add camera subsystem
+> nodes")
 
+Here you write it in 13 characters, should be "Fixes: 28ecaaa5af19 ..." 
+
+Best Regards
+Changhuang.
+
+> Closes: https://lore.kernel.org/all/Zw1-vcN4CoVkfLjU@aurel32.net/
+> Reported-by: Aurelien Jarno <aurelien@aurel32.net>
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+> CC: Emil Renner Berthing <kernel@esmil.dk>
+> CC: Rob Herring <robh@kernel.org>
+> CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> CC: Conor Dooley <conor+dt@kernel.org>
+> CC: Changhuang Liang <changhuang.liang@starfivetech.com>
+> CC: devicetree@vger.kernel.org
+> CC: linux-riscv@lists.infradead.org
+> CC: linux-kernel@vger.kernel.org
+> ---
+>  arch/riscv/boot/dts/starfive/jh7110-common.dtsi | 2 --
+>  1 file changed, 2 deletions(-)
+> 
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> index c7771b3b64758..d6c55f1cc96a9 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> @@ -128,7 +128,6 @@ &camss {
+>  	assigned-clocks = <&ispcrg JH7110_ISPCLK_DOM4_APB_FUNC>,
+>  			  <&ispcrg JH7110_ISPCLK_MIPI_RX0_PXL>;
+>  	assigned-clock-rates = <49500000>, <198000000>;
+> -	status = "okay";
+> 
+>  	ports {
+>  		#address-cells = <1>;
+> @@ -151,7 +150,6 @@ camss_from_csi2rx: endpoint {  &csi2rx {
+>  	assigned-clocks = <&ispcrg JH7110_ISPCLK_VIN_SYS>;
+>  	assigned-clock-rates = <297000000>;
+> -	status = "okay";
+> 
+>  	ports {
+>  		#address-cells = <1>;
+> --
+> 2.45.2
 
 _______________________________________________
 linux-riscv mailing list
