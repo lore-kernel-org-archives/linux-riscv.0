@@ -4,106 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65E01D2F7E1
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Oct 2024 03:22:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC4A4D2F7EC
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Oct 2024 05:42:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=WNGy1wEPwhi+Ca+iINnI3FeppI75fLddQ0rCWbDjPJQ=; b=phqtUG5zHu/4T7
-	O++X+ZQN03t5aso1ri2EgvORPd8X0LNXQN2AFPxBzQqAiaP3Aj9cvOq1nzlkt/rvgzI4hOiiliTPv
-	YJ97i/JDsgt49ketDRxzf/Uy4yKi63hi9WBRVDNDuBDQ+bJNLVIM8B/C8vBfQk0O4gRN/B2ViLO/l
-	4JWmbuqnIQ4sGCaPl31WBEEhf1E0cgqUwZjy7tq2QTbh5lDoQrJQ4n/y/khb1UXaLaZNPD/+rN370
-	NMlUb5hWrXZaViIgbz3uov7HzUQiSjJkeh+uismoyIWNuj8GxoJu6dNHBQcuKDwwVRPTIPtVqam7p
-	KOv4HWyDePOGmNkiEY3A==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Q0nVewDm6cy1gsHrTfG/AAODyndFfWC0iY8ShwWChsg=; b=jJMqgmBdMTYJkd
+	FLY2Ng6vFCyRwk9edIBipzn9QINiGccPTWc6+DQ5t6t0fVku75S8rthIKfacoH50qKe2Mk2HCgySy
+	N+GL0kPjHIntxHUr7BLlaBxEBEfhvSY7F/+ZfUNq5IQVEiaKsXsYR8T85cGNpTc7Oeu7VeuXZVHFN
+	gFS7jLlz29QTuHyOkoIdGEVKAPdYsmPnmoT41DJnkg1Or3ZGZbJB50mVklgnIKjSuAAZeO81Sk+Sv
+	5f1IhQmwdpugqXGJxlR3a7PVkIxqWQdywDpLJeyABHmA8vGSJFWgVUI6ggbilKghItoICrqNWgXmT
+	NwYPFe7xVddfnTtFH/Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t1H5I-0000000DeHa-04hY;
-	Thu, 17 Oct 2024 03:21:56 +0000
-Received: from smtpbguseast3.qq.com ([54.243.244.52])
+	id 1t1JHN-0000000DncT-3brC;
+	Thu, 17 Oct 2024 05:42:33 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t1H5C-0000000DeEn-13H1
+	id 1t1JHI-0000000DnbB-2Stl
 	for linux-riscv@lists.infradead.org;
-	Thu, 17 Oct 2024 03:21:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1729135255;
-	bh=SgCHUiz82lndKjTeNsmeInw+/PdasPiFZ+8EYbiHHVQ=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=Fmc0G5RtjStkT3aLU45yNNVh3xnuNiUvtXdd9NwMt2+15NmWmy5lRs11Tv/zuf9KI
-	 dODDvuAZoe+dL1WBkPjkn114Wna2P6tvWH6GprPGwoL5TVuEOvVqtI3glF2NdJrJyD
-	 pXXxhbsfPN7OMTYOeOKqtUmlRvXFsrocqtVm3hDU=
-X-QQ-mid: bizesmtp90t1729135217tx872kpv
-X-QQ-Originating-IP: T+ZWv92ZAhy3mBu2f6pTzPydIDKegYzrt3xG8YNpoGw=
-Received: from localhost.localdomain ( [113.57.152.160])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 17 Oct 2024 11:20:13 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 6572493434624532531
-From: WangYuli <wangyuli@uniontech.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	samuel.holland@sifive.com,
-	conor.dooley@microchip.com,
-	charlie@rivosinc.com,
-	macro@orcam.me.uk,
-	palmer@rivosinc.com
+	Thu, 17 Oct 2024 05:42:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=RaHIq55a6LBnXV+LFWzeAoe5CFUFd3OQ+yom3QaYLeE=; b=Vm3ZbYyti3LQ+4nHe4w2Uw33rz
+	W4fx4Q+BywNaLd/qtX41BGm4xv/QS1icXKnvcFQEYm5EDMfR+7S5/VS9vnseyw424NG/qTuwFOciE
+	rLVW2po83O0dSK0t+qOQzwcc9qopsxQ5FEBf7LkWn9IUupx/R9p4UHzELkou+XJC192pix2xX6SM2
+	912fiBzS/jYm9rmLMRtpLrZFOR/RAUVUSzGIzSpTcV+MPnPTk0KnKbu/78xNo3i0aXmwSVHbP5r5r
+	iYdijfPyhhBVFPflvuASPBLoZ6ifehVPvv49qVHQikJnPbT3WAF8RzIxjwWNrE1R2S/QrUnnZfwSb
+	46kv3WkQ==;
+Received: from ohm.aurel32.net ([2001:bc8:30d7:111::2] helo=ohm.rr44.fr)
+	by hall.aurel32.net with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1t1JH4-0076ml-2m;
+	Thu, 17 Oct 2024 07:42:14 +0200
+Date: Thu, 17 Oct 2024 07:42:12 +0200
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: Conor Dooley <conor@kernel.org>
 Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	atish.patra@wdc.com,
-	anup@brainfault.org,
-	guanwentao@uniontech.com,
-	zhanjun@uniontech.com,
-	tglx@linutronix.de,
-	peterz@infradead.org,
-	mikelley@microsoft.com,
-	oleksandr@natalenko.name,
-	deller@gmx.de,
-	gpiccoli@igalia.com,
-	apatel@ventanamicro.com,
-	maz@kernel.org,
-	kernelfans@gmail.com,
-	jszhang@kernel.org,
-	daniel.lezcano@linaro.org,
-	Alistair.Francis@wdc.com,
-	atishp@atishpatra.org,
-	dwmw2@infradead.org,
-	mark.rutland@arm.com,
-	sabrapan@amazon.com,
-	ross.philipson@oracle.com,
-	WangYuli <wangyuli@uniontech.com>
-Subject: [RESEND. PATCH v2] riscv: Use '%u' to format the output of 'cpu'
-Date: Thu, 17 Oct 2024 11:20:10 +0800
-Message-ID: <4C127DEECDA287C8+20241017032010.96772-1-wangyuli@uniontech.com>
-X-Mailer: git-send-email 2.45.2
+	Conor Dooley <conor.dooley@microchip.com>, stable@vger.kernel.org,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Changhuang Liang <changhuang.liang@starfivetech.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] riscv: dts: starfive: disable unused csi/camss nodes
+Message-ID: <ZxCjtK5rE0SZuFvf@aurel32.net>
+Mail-Followup-To: Conor Dooley <conor@kernel.org>,
+	linux-riscv@lists.infradead.org,
+	Conor Dooley <conor.dooley@microchip.com>, stable@vger.kernel.org,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Changhuang Liang <changhuang.liang@starfivetech.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20241016-moonscape-tremor-8d41e6f741ff@spud>
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:uniontech.com:qybglogicsvrgz:qybglogicsvrgz8a-1
-X-QQ-XMAILINFO: OP01qWhGSBjQR1yNlRZmXWD8KzbKmq6RgbpqA9JFLilTwklOiGvvUbOe
-	HlJ5Q51J7vE8xZ1TjmDdDYLZK6kTqsBgncLlBIv1HvO+bk4K7gf0IxPUGrhZ5pc+2SiaXZo
-	MykxtdrUG0pLyPpS3e4x0QS57b2Ycn8q0DHWKkSFvx0n2rX/ezVRx14WJCR+m9+HKVnjq/T
-	+ldGhLfgyNg203V9/BGpwaRFv4tpX8KMKX3lm33kLHUDS35Q3vOXuleXFCTTXMWM98ko2s7
-	XYfFvQZM6l8ePgfC1bHaaPnTZ3Eka5U/F9jDn6Zx4hq6ZFhqeho69NByCXyGRdHDk4h8yG4
-	mV/pCQte3iWxdctVVkBozzSLifmMpdlEgOYiZu4dWTmu2pEc3EIHUX1BZIxTneDc8gzTg8R
-	r9zG8uvrxRMqYJl6uARSfwISBU7Bvsm+sT0xMKYJNSFH/Bpd2En3VdOuATLsdPj3Jj4RZrK
-	9ciGBobGRURHWm9PZbtExIkVNYCIED+BRGyHNZh8V/G/jx0phGotYoG8n/ZX0lmPN6Z/VtD
-	ayWfqVwkx6jX1rVSs55dxCi3TSXFxmNZ02URylxYv/rXY7AqsgDAaU7QwaumyI+rebPRWcW
-	JdIz9N2c2EozrqNKbvgH1sRldZOK5U2JyEwkpR8o0y6gFnxrYp/nS6yfvCqQfIE2CIRwoAx
-	Y4tram+j5Vs2ojCArDo5jnRkBTso4INDUZ7ZyHYHwgMcLiEGFAt9s3HzMRS9ZtNJgLP7m1w
-	uV3t7BEtJdjxmQBjVBKG7WTHXQOr3QkrccOMbimCruwLhegSw4NlrmxnIG68whoNfOL6VlM
-	YiXnL7e3iJGKg7maVIRZM8ShO86qrAi7rPL1pV27NCx5z2vEeVHAEnN6e3yvS+IRMxCuLIP
-	mSY+l6gOZ/MKo3mMF5CQwUlS2XOGY7MdGB3DEIxQYuGSODNuPREHKflJRM4bhxnOFfyzspu
-	MpaczAHy995wFP28a2V2uf9TzXAsvTAzvMzWUKJ0XsATTdxqV/aD9cualBg+E7jmmdON92i
-	TNWaee2/1HZD2MTqhflVMBl6sP1QfaGU8m5QEdlo+O2iJQcbquSNWbOIEvCFk=
-X-QQ-XMRINFO: Mp0Kj//9VHAxr69bL5MkOOs=
-X-QQ-RECHKSPAM: 0
+Content-Disposition: inline
+In-Reply-To: <20241016-moonscape-tremor-8d41e6f741ff@spud>
+User-Agent: Mutt/2.2.13 (2024-03-09)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241016_202150_851990_FF32CCAC 
-X-CRM114-Status: UNSURE (   8.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241016_224229_093757_F6B1186D 
+X-CRM114-Status: GOOD (  15.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,35 +89,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-'cpu' is an unsigned integer, so its conversion specifier should
-be %u, not %d.
+Hi,
 
-Suggested-by: Wentao Guan <guanwentao@uniontech.com>
-Suggested-by: Maciej W. Rozycki <macro@orcam.me.uk>
-Link: https://lore.kernel.org/all/alpine.DEB.2.21.2409122309090.40372@angie.orcam.me.uk/
-Signed-off-by: WangYuli <wangyuli@uniontech.com>
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
-Tested-by: Charlie Jenkins <charlie@rivosinc.com>
----
- arch/riscv/kernel/cpu-hotplug.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+On 2024-10-16 21:11, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+> 
+> Aurelien reported probe failures due to the csi node being enabled
+> without having a camera attached to it. A camera was in the initial
+> submissions, but was removed from the dts, as it had not actually been
+> present on the board, but was from an addon board used by the
+> developer of the relevant drivers. The non-camera pipeline nodes were
+> not disabled when this happened and the probe failures are problematic
+> for Debian. Disable them.
+> 
+> CC: stable@vger.kernel.org
+> Fixes: 28ecaaa5af192 ("riscv: dts: starfive: jh7110: Add camera subsystem nodes")
+> Closes: https://lore.kernel.org/all/Zw1-vcN4CoVkfLjU@aurel32.net/
+> Reported-by: Aurelien Jarno <aurelien@aurel32.net>
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+> CC: Emil Renner Berthing <kernel@esmil.dk>
+> CC: Rob Herring <robh@kernel.org>
+> CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> CC: Conor Dooley <conor+dt@kernel.org>
+> CC: Changhuang Liang <changhuang.liang@starfivetech.com>
+> CC: devicetree@vger.kernel.org
+> CC: linux-riscv@lists.infradead.org
+> CC: linux-kernel@vger.kernel.org
+> ---
+>  arch/riscv/boot/dts/starfive/jh7110-common.dtsi | 2 --
+>  1 file changed, 2 deletions(-)
 
-diff --git a/arch/riscv/kernel/cpu-hotplug.c b/arch/riscv/kernel/cpu-hotplug.c
-index 28b58fc5ad19..a1e38ecfc8be 100644
---- a/arch/riscv/kernel/cpu-hotplug.c
-+++ b/arch/riscv/kernel/cpu-hotplug.c
-@@ -58,7 +58,7 @@ void arch_cpuhp_cleanup_dead_cpu(unsigned int cpu)
- 	if (cpu_ops->cpu_is_stopped)
- 		ret = cpu_ops->cpu_is_stopped(cpu);
- 	if (ret)
--		pr_warn("CPU%d may not have stopped: %d\n", cpu, ret);
-+		pr_warn("CPU%u may not have stopped: %d\n", cpu, ret);
- }
+Thanks for picking up that issue. I confirm this fix the "problem".
+
+To give some more details, the problem for Debian is that it appears as
+an error, with the line in red in dmesg or journalctl. However we would
+like to be able to provide a kernel with such drivers enabled so that
+users with a camera can just use an overlay or patch their device tree.
+
+Tested-by: Aurelien Jarno <aurelien@aurel32.net>
+Reviewed-by: Aurelien Jarno <aurelien@aurel32.net>
+
+Regards
+Aurelien
  
- /*
--- 
-2.45.2
 
+-- 
+Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+aurelien@aurel32.net                     http://aurel32.net
 
 _______________________________________________
 linux-riscv mailing list
