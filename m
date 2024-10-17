@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C914ED2F7DA
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Oct 2024 02:01:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6809D2F7E0
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Oct 2024 02:01:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:References:Mime-Version
 	:Message-Id:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Lj/7bBeGa3jPQr5yXPKc14T2TTY4bCkouzO+I5nUvoc=; b=AKvJfXfDu2+DHd
-	TQXvlI52nA3F4IZWWjvUT4OwdWPgoZJchje9neC5mRd+vnvuB5SpTIvgNM4AptGscDBPdt3Snu7tW
-	vJHyhDXqMhEl0LTqTtfib9ygiRolEJyfwjitkglqcalY+xWLDnSZMJWDeyEawYl51lr7KvIhuh7JC
-	GSqLT3+L6yrqeTIcFI4VJ8L3odPKm2taeBd7I5XhoM8cEbMgrINxht3dvOGeg8bRx0Vs99ewbJRed
-	hq+uB+SIMiORbfS/LFjbkLnfFJK42wArDJCVTw0EDZ/KCN+PiI/hSUq0yoA4UieSZQMZ3wJmWhE5o
-	buUsN71V6LntLEHjmBlA==;
+	List-Owner; bh=HNXlEDLcNPDEJqkaXUa84qWqNZJcwogaZmtTmnTymYU=; b=2N5Vy3gzvllzL1
+	v3//g2wS28mQjge6JFztl/K2kTXoSq9ZFG8JKCwIFJhr/1ro27qwKg6PXOaq6etMnFVBF+I6wXxzG
+	Agx/MJO+zeqaPk7ePDpUT6tBXvnQ3lEunzzGhCZOHJph4iRkO6Mff5l45gq3KACwiBGbDy4rv3AmV
+	s8FTX0ueqDrlBvjFux0E74IpxgAZr7ZmeYy5fVJz3vxFNtt59GkdH3f9+2uLs/Pct9EFiQQWaAQUN
+	O24J5T1HN7H6nU2ePUIJJG7FZ54rrX5nmm05w5pXl7LiIr0OgpKARiJEbGc3M4nCDZQyrfFoWt4Gu
+	wy1CX4+Ij0CW3Rq1TVsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t1Fow-0000000DVL5-2eZo;
-	Thu, 17 Oct 2024 02:00:58 +0000
-Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
+	id 1t1Fov-0000000DVKW-1eFC;
+	Thu, 17 Oct 2024 02:00:57 +0000
+Received: from mail-yb1-f201.google.com ([209.85.219.201])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t1EKo-0000000DKDU-03eZ
+	id 1t1EKk-0000000DKAc-0qZM
 	for linux-riscv@lists.infradead.org;
-	Thu, 17 Oct 2024 00:25:48 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-e291ac8dcf3so625983276.3
-        for <linux-riscv@lists.infradead.org>; Wed, 16 Oct 2024 17:25:45 -0700 (PDT)
+	Thu, 17 Oct 2024 00:25:43 +0000
+Received: by mail-yb1-f201.google.com with SMTP id 3f1490d57ef6-e2928d9e615so642466276.0
+        for <linux-riscv@lists.infradead.org>; Wed, 16 Oct 2024 17:25:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1729124745; x=1729729545; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1729124740; x=1729729540; darn=lists.infradead.org;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=XkIA/FyfXW8ws5sjRdf4oBh+1+aldg/GVrUyDFRat30=;
-        b=nM1BnWBLCsC0lh5r4MEWrkhrCee1r5QGWhGqqYztohymCf9ge+ZYsHGdWROgtm755M
-         hSxQaqlh2qvyaWsTxIWNlXiseIF8QqliA5k7Uo4COyj1HCdkmDgqTaUum28KHc0egYU4
-         OpP93JDDFwWReZk9ckLv+UC5n0ft6MsPnZqJxsApdcZOb1dbdg2vMXU5pO/cMpjplS2v
-         8jcqFyZVL2QHAJ6U46cacNoM9fOjuZJAqYSDNX4K5rlmw8lYhJIzt05dTtJy9EXwTVZX
-         vhqflZJHWxhdL/iRuSSk32FRT2r1rQ7olykmPU5YKCsqXZUpP01qixFks8XFw1kuCenu
-         tR2g==
+        bh=48mjrfomMuomFB22b093k885CPaCWm0H0utyyG5sq/o=;
+        b=qjylob124mXRvzPYW8GbgmoDVEl3PMToR9ysRtKT36ttVGYBqwJeuZl+bZhmrOBzm4
+         MZS284IP8HvFOWPr9mm8V4dyiPebzsNfS6BUwI+eqWQehkqh8sa0Wglv1DhCpcHYKefF
+         36mES/kd3w7PZzY8HzBYZz7v9eeysJSnhAkqK01YWXqG/ztJjxsA7OeulsMyx/ex4L9O
+         hxe+lRrnSoVdQvDaO93LoF/8yc+tMIO2zmB0hbZgP0eltWt8ceabnlAKNtHCRFknC72a
+         7tqxexO0vQXOhktw5ldKL2JQuBuI33VTo1TKZnKn8LpUAfLuXZ/EHQVHcCQ4AX12vZcQ
+         PeAQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729124745; x=1729729545;
+        d=1e100.net; s=20230601; t=1729124740; x=1729729540;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=XkIA/FyfXW8ws5sjRdf4oBh+1+aldg/GVrUyDFRat30=;
-        b=C2zez0IKBikgbwHNWbb44nCEyaDZPwZaOnP8UezjtYitFfMw49Q7/eXKrq9PxHqUER
-         S9FFld+JZtA+IdBNmWZctLwHG/EkG722ouncNZNgPVlZPplMW7WlCuLRxuJsF/7n8Ugu
-         don/KoYJlrvgbCtnAaLCVwwoU5g0oQev5YJtJw7Kfyb3ra0GQHGRomPiKqozi2tgERCw
-         JtOMEGFoMKutAPWCSEpmVNI+6RpmYpQBpJ2hZhTP8aSVlbcpAREaMgnlNjYjBF3PNOMk
-         3j2GeqB1GpOlBUgTySPxx4J0SqrFGAJZiPDCxL8IYI6U4mPx2rLcKY4fjTTJNhyz5pXP
-         jR5w==
-X-Forwarded-Encrypted: i=1; AJvYcCWezJ5Fjdngar7ZxM4YQbL1lkzEJ4wMHdBcDU8PUOZ51/dYVQ/pbeasMJIN7UOii4b04th6OZswGK9/bQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxrOUficyfMWy0g4md9blwPeIQbNZC/TttbHITpHuRjWeA6r2Sc
-	qOT5GqdELQ2s5Hp384qMwbDQ6vE1y6olv2337ofjtnvLQTEOkjsY4GlNflLr/gfvfRH3G7pEoRH
-	FtueIew==
-X-Google-Smtp-Source: AGHT+IFe1Hb6lpRahuVZ4DDC/bHM6yCUrUEOQ+AJ0+tNqmO08JGP6ePh7fxc0X0rMoFvoFsezm94Q0V+zEE6
+        bh=48mjrfomMuomFB22b093k885CPaCWm0H0utyyG5sq/o=;
+        b=Cci7v/2S9PHvxivw8h/tbAU4aRsit9bJvysJFvPMAER1MbAzP3Z/+GT9CEQBBEMh4W
+         SpISmARKnHOAmW2SkhNH8bi87MZMSwNzLansa1xSxkZ/3K/XC4ekSVzjLr1cOg/1sPFX
+         48YLO14dxBgsZ522Xy0LI/88YizIZicHYEwbp87V0Zm1xiqD/zKm95+LLeStnCTn5dOR
+         mzV4IZjiNJQZvvHABD8pV3tyem1ViY7MmP9gAEWljiOOCoV7geCgXLe+Z36x46u3N5xH
+         BL9aXqFXCF9LS3U8FPr7b6snQYchRNyiLohsHOf80fJ1GXWFMF0SUpd9CxvOZnhXeLC3
+         AvEA==
+X-Forwarded-Encrypted: i=1; AJvYcCXFBBx+pAQ5Jwz2DwZ5EPNrWBNPN6L/MmcS1oT5tdwluohB1q/sICz1F6IlOoz0JpT7J+Hc4GmIsv8KMA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxGvrLjMPz+A5h19XdKWFH01ysEa1SSm10tkSzPswoPk5oTHSsz
+	wFtCpV4l74uml3LAB1RJOjLdGgS5GvfRZjEUGbdWgDG3f/usWP1pYlWoXaHwCx/10koKIRCEiil
+	GA92Dig==
+X-Google-Smtp-Source: AGHT+IG8JiIQK8uXOvPdoaWI2mxht6B92+7n0NisCZoM8iJKAkzjyBLEa7nUOj+aZg/H9XU8lHqJJagHTx/j
 X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:a00a:f237:9bc0:79c])
- (user=irogers job=sendgmr) by 2002:a25:a267:0:b0:e28:ec75:75ed with SMTP id
- 3f1490d57ef6-e29780ec57amr6223276.0.1729124744652; Wed, 16 Oct 2024 17:25:44
+ (user=irogers job=sendgmr) by 2002:a25:dc4e:0:b0:e28:f231:1aa8 with SMTP id
+ 3f1490d57ef6-e29782bbb03mr7731276.2.1729124739976; Wed, 16 Oct 2024 17:25:39
  -0700 (PDT)
-Date: Wed, 16 Oct 2024 17:25:07 -0700
+Date: Wed, 16 Oct 2024 17:25:05 -0700
 In-Reply-To: <20241017002520.59124-1-irogers@google.com>
-Message-Id: <20241017002520.59124-8-irogers@google.com>
+Message-Id: <20241017002520.59124-6-irogers@google.com>
 Mime-Version: 1.0
 References: <20241017002520.59124-1-irogers@google.com>
 X-Mailer: git-send-email 2.47.0.105.g07ac214952-goog
-Subject: [PATCH v3 07/20] perf dwarf-regs: Move x86 dwarf-regs out of arch
+Subject: [PATCH v3 05/20] perf dwarf-regs: Pass accurate disassembly machine
+ to get_dwarf_regnum
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -92,8 +93,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241016_172546_101167_3271A24F 
-X-CRM114-Status: GOOD (  15.26  )
+X-CRM114-CacheID: sfid-20241016_172542_257216_5E06C7A4 
+X-CRM114-Status: GOOD (  15.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,175 +111,96 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move arch/x86/util/dwarf-regs.c to util/dwarf-regs-x86.c and compile
-in unconditionally. To avoid get_arch_regnum being duplicated, rename
-to get_x86_regnum and add to get_dwarf_regnum switch.
-
-For get_arch_regstr, this was unused on x86 unless the machine type
-was EM_NONE. Map that case to EM_HOST and remove get_arch_regstr from
-dwarf-regs-x86.c.
+Rather than pass 0/EM_NONE, use the value computed in the disasm
+struct arch. Switch the EM_NONE case to EM_HOST, rewriting EM_NONE if
+it were passed to get_dwarf_regnum. Pass a flags value as
+architectures like csky need the flags to determine the ABI variant.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/arch/x86/util/Build                |  3 ---
- tools/perf/util/Build                         |  1 +
- .../dwarf-regs.c => util/dwarf-regs-x86.c}    | 24 +------------------
- tools/perf/util/dwarf-regs.c                  | 17 +++++++++++++
- tools/perf/util/include/dwarf-regs.h          |  8 +++++++
- 5 files changed, 27 insertions(+), 26 deletions(-)
- rename tools/perf/{arch/x86/util/dwarf-regs.c => util/dwarf-regs-x86.c} (77%)
+ tools/perf/util/annotate.c           | 6 +++---
+ tools/perf/util/dwarf-regs.c         | 8 ++++++--
+ tools/perf/util/include/dwarf-regs.h | 5 +++--
+ 3 files changed, 12 insertions(+), 7 deletions(-)
 
-diff --git a/tools/perf/arch/x86/util/Build b/tools/perf/arch/x86/util/Build
-index 9705cda4f240..70af491a6dd7 100644
---- a/tools/perf/arch/x86/util/Build
-+++ b/tools/perf/arch/x86/util/Build
-@@ -12,9 +12,6 @@ perf-util-y += evsel.o
- perf-util-y += iostat.o
- perf-util-y += env.o
+diff --git a/tools/perf/util/annotate.c b/tools/perf/util/annotate.c
+index 37ce43c4eb8f..b1d98da79be8 100644
+--- a/tools/perf/util/annotate.c
++++ b/tools/perf/util/annotate.c
+@@ -2292,7 +2292,7 @@ static int extract_reg_offset(struct arch *arch, const char *str,
+ 	if (regname == NULL)
+ 		return -1;
  
--perf-util-$(CONFIG_LIBDW) += dwarf-regs.o
--perf-util-$(CONFIG_BPF_PROLOGUE) += dwarf-regs.o
--
- perf-util-$(CONFIG_LOCAL_LIBUNWIND)    += unwind-libunwind.o
- perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
+-	op_loc->reg1 = get_dwarf_regnum(regname, 0);
++	op_loc->reg1 = get_dwarf_regnum(regname, arch->e_machine, arch->e_flags);
+ 	free(regname);
  
-diff --git a/tools/perf/util/Build b/tools/perf/util/Build
-index 1eedead5f2f2..4c615611b9d7 100644
---- a/tools/perf/util/Build
-+++ b/tools/perf/util/Build
-@@ -203,6 +203,7 @@ endif
- perf-util-$(CONFIG_LIBDW) += probe-finder.o
- perf-util-$(CONFIG_LIBDW) += dwarf-aux.o
- perf-util-$(CONFIG_LIBDW) += dwarf-regs.o
-+perf-util-$(CONFIG_LIBDW) += dwarf-regs-x86.o
- perf-util-$(CONFIG_LIBDW) += debuginfo.o
- perf-util-$(CONFIG_LIBDW) += annotate-data.o
+ 	/* Get the second register */
+@@ -2305,7 +2305,7 @@ static int extract_reg_offset(struct arch *arch, const char *str,
+ 		if (regname == NULL)
+ 			return -1;
  
-diff --git a/tools/perf/arch/x86/util/dwarf-regs.c b/tools/perf/util/dwarf-regs-x86.c
-similarity index 77%
-rename from tools/perf/arch/x86/util/dwarf-regs.c
-rename to tools/perf/util/dwarf-regs-x86.c
-index 530905118cd4..7a55c65e8da6 100644
---- a/tools/perf/arch/x86/util/dwarf-regs.c
-+++ b/tools/perf/util/dwarf-regs-x86.c
-@@ -11,28 +11,6 @@
- #include <linux/kernel.h> /* for ARRAY_SIZE */
- #include <dwarf-regs.h>
+-		op_loc->reg2 = get_dwarf_regnum(regname, 0);
++		op_loc->reg2 = get_dwarf_regnum(regname, arch->e_machine, arch->e_flags);
+ 		free(regname);
+ 	}
+ 	return 0;
+@@ -2405,7 +2405,7 @@ int annotate_get_insn_location(struct arch *arch, struct disasm_line *dl,
+ 				return -1;
  
--#define DEFINE_DWARF_REGSTR_TABLE 1
--#include "dwarf-regs-table.h"
--
--/* Return architecture dependent register string (for kprobe-tracer) */
--const char *get_arch_regstr(unsigned int n)
--{
--#if defined(__i386__)
--	size_t len = ARRAY_SIZE(x86_32_regstr_tbl);
--#else
--	size_t len = ARRAY_SIZE(x86_64_regstr_tbl);
--#endif
--
--	if (n >= len)
--		return NULL;
--
--#if defined(__i386__)
--	return x86_32_regstr_tbl[n];
--#else
--	return x86_64_regstr_tbl[n];
--#endif
--}
--
- struct dwarf_regs_idx {
- 	const char *name;
- 	int idx;
-@@ -58,7 +36,7 @@ static const struct dwarf_regs_idx x86_regidx_table[] = {
- 	{ "rip", DWARF_REG_PC },
- };
- 
--int get_arch_regnum(const char *name)
-+int get_x86_regnum(const char *name)
- {
- 	unsigned int i;
- 
+ 			if (*s == arch->objdump.register_char)
+-				op_loc->reg1 = get_dwarf_regnum(s, 0);
++				op_loc->reg1 = get_dwarf_regnum(s, arch->e_machine, arch->e_flags);
+ 			else if (*s == arch->objdump.imm_char) {
+ 				op_loc->offset = strtol(s + 1, &p, 0);
+ 				if (p && p != s + 1)
 diff --git a/tools/perf/util/dwarf-regs.c b/tools/perf/util/dwarf-regs.c
-index 86b3ef638fbb..eac99a246737 100644
+index 7c01bc4d7e5b..1321387f6948 100644
 --- a/tools/perf/util/dwarf-regs.c
 +++ b/tools/perf/util/dwarf-regs.c
-@@ -32,9 +32,17 @@
- const char *get_dwarf_regstr(unsigned int n, unsigned int machine,
- 			     unsigned int flags __maybe_unused)
+@@ -70,7 +70,7 @@ __weak int get_arch_regnum(const char *name __maybe_unused)
+ }
+ 
+ /* Return DWARF register number from architecture register name */
+-int get_dwarf_regnum(const char *name, unsigned int machine)
++int get_dwarf_regnum(const char *name, unsigned int machine, unsigned int flags __maybe_unused)
  {
-+#if EM_HOST == EM_X86_64 || EM_HOST == EM_386
+ 	char *regname = strdup(name);
+ 	int reg = -1;
+@@ -84,8 +84,12 @@ int get_dwarf_regnum(const char *name, unsigned int machine)
+ 	if (p)
+ 		*p = '\0';
+ 
 +	if (machine == EM_NONE) {
 +		/* Generic arch - use host arch */
 +		machine = EM_HOST;
 +	}
-+#endif
  	switch (machine) {
-+#if EM_HOST != EM_X86_64 && EM_HOST != EM_386
- 	case EM_NONE:	/* Generic arch - use host arch */
- 		return get_arch_regstr(n);
-+#endif
- 	case EM_386:
- 		return __get_dwarf_regstr(x86_32_regstr_tbl, n);
- 	case EM_X86_64:
-@@ -65,10 +73,12 @@ const char *get_dwarf_regstr(unsigned int n, unsigned int machine,
- 	return NULL;
- }
- 
-+#if EM_HOST != EM_X86_64 && EM_HOST != EM_386
- __weak int get_arch_regnum(const char *name __maybe_unused)
- {
- 	return -ENOTSUP;
- }
-+#endif
- 
- /* Return DWARF register number from architecture register name */
- int get_dwarf_regnum(const char *name, unsigned int machine, unsigned int flags __maybe_unused)
-@@ -90,9 +100,16 @@ int get_dwarf_regnum(const char *name, unsigned int machine, unsigned int flags
- 		machine = EM_HOST;
- 	}
- 	switch (machine) {
-+#if EM_HOST != EM_X86_64 && EM_HOST != EM_386
- 	case EM_HOST:
+-	case EM_NONE:	/* Generic arch - use host arch */
++	case EM_HOST:
  		reg = get_arch_regnum(regname);
  		break;
-+#endif
-+	case EM_X86_64:
-+		fallthrough;
-+	case EM_386:
-+		reg = get_x86_regnum(regname);
-+		break;
  	default:
- 		pr_err("ELF MACHINE %x is not supported.\n", machine);
- 	}
 diff --git a/tools/perf/util/include/dwarf-regs.h b/tools/perf/util/include/dwarf-regs.h
-index 925525405e2d..062623aefd5a 100644
+index f4f87ded5e3d..ee0a734564c7 100644
 --- a/tools/perf/util/include/dwarf-regs.h
 +++ b/tools/perf/util/include/dwarf-regs.h
-@@ -79,7 +79,10 @@
- #define DWARF_REG_FB  0xd3affb /* random number */
- 
- #ifdef HAVE_LIBDW_SUPPORT
-+#if !defined(__x86_64__) && !defined(__i386__)
- const char *get_arch_regstr(unsigned int n);
-+#endif
-+
- /**
-  * get_dwarf_regstr() - Returns ftrace register string from DWARF regnum.
-  * @n: DWARF register number.
-@@ -88,7 +91,12 @@ const char *get_arch_regstr(unsigned int n);
-  */
- const char *get_dwarf_regstr(unsigned int n, unsigned int machine, unsigned int flags);
- 
-+int get_x86_regnum(const char *name);
-+
-+#if !defined(__x86_64__) && !defined(__i386__)
- int get_arch_regnum(const char *name);
-+#endif
-+
- /*
-  * get_dwarf_regnum - Returns DWARF regnum from register name
+@@ -93,12 +93,13 @@ int get_arch_regnum(const char *name);
   * name: architecture register name
+  * machine: ELF machine signature (EM_*)
+  */
+-int get_dwarf_regnum(const char *name, unsigned int machine);
++int get_dwarf_regnum(const char *name, unsigned int machine, unsigned int flags);
+ 
+ #else /* HAVE_LIBDW_SUPPORT */
+ 
+ static inline int get_dwarf_regnum(const char *name __maybe_unused,
+-				   unsigned int machine __maybe_unused)
++				   unsigned int machine __maybe_unused,
++				   unsigned int flags __maybe_unused)
+ {
+ 	return -1;
+ }
 -- 
 2.47.0.105.g07ac214952-goog
 
