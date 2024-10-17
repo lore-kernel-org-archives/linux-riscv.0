@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57094D2F7D8
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Oct 2024 00:53:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89729D2F7D7
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Oct 2024 00:56:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Mime-Version:Message-Id
-	:Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=LbbSI1nE3GqoVoh5wRApZg3oE42EhF9s+X2eZJrkZd4=; b=TIR8hzpRO5WDHc
-	eduMb7Ffh5036qhpGQij/x5Pv2UWt8JRrd9Grph1nwPVWYI+wdQt5LLNi9+VMzBsNUAE0z2C76EIq
-	Z6q3vmh5rjzft1c/s+HQLLaWonNetV2szvSYbVYgW5jdtITMZr0vU8jFsUNw2D0tb3veRUhj+wmjA
-	vTbsq8bvdNW5zRPY7lfiNkgDSgIEMktGo/t9UU8/dZV7EC473fka3A83u3KegyDUGSMORD/i55hpC
-	HVFA5mCkNig9IkRDe1PFDsBw7Nu8ITn2pXwIrmzqsm9SzrDOaxnVAiJekmNd0X8kDOGtGJsOGgioL
-	y+ou37Ax0gh2Uc0e8+VA==;
+	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:References:Mime-Version
+	:Message-Id:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=MYcBSaB503xXn+wU1B6W9TlesS51cC0T7urXBdxB7Hk=; b=qXfj4Telenc5GE
+	bD3gGj144y8+8qHzcglE0IDT42Ep2poUAJ5eXCG7nU8amoI1LUktS4KFGgn/JoiyX9i+DQdZ+rT/8
+	ww7CrT1sJd56m8nY/j5g0eZnFUK/lzGJ4+sZbJiVfachblYPAZ/hi+hL6tE2fEbI8d9DF+X3MR0AS
+	i6e/Swipi2JONoWWJ2LilJOwL8JKCA/GaLAn3lnZTIuFQ2o8m88TyfRhs8wu16fV5XclNPH56wFul
+	yeWhDtIMdT5L6+OXBUMdjFAsKRyvlc5KLzllHp5XlkdP4QL/EJ3V25S9zY5o8gxej7IrZPZK2EqSA
+	MKBbj59yT2jXDexHx9BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t1ElD-0000000DOXI-4B06;
-	Thu, 17 Oct 2024 00:53:04 +0000
-Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
+	id 1t1Eo3-0000000DOpz-21JU;
+	Thu, 17 Oct 2024 00:55:59 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t1EKW-0000000DK4m-0pnF
+	id 1t1EKZ-0000000DK5t-375a
 	for linux-riscv@lists.infradead.org;
-	Thu, 17 Oct 2024 00:25:30 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-e28ef71f0d8so755887276.0
-        for <linux-riscv@lists.infradead.org>; Wed, 16 Oct 2024 17:25:27 -0700 (PDT)
+	Thu, 17 Oct 2024 00:25:32 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-e293150c2c6so814614276.1
+        for <linux-riscv@lists.infradead.org>; Wed, 16 Oct 2024 17:25:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1729124726; x=1729729526; darn=lists.infradead.org;
-        h=to:from:subject:mime-version:message-id:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=0MVEopwQelkynI+vONSt1eNqCP+P10MdFmkRWcj813Q=;
-        b=fOI8Xq30P/CpTlH3hukoh3b5ggUNoufXa2SlyceQ0uaB4ViNZAAOLtALfqcUs7AZtA
-         taru1cRwk+K/XEKXi9mQWyEFzlnOy7O3UXO4pecx2ADEvdlC5QaGP3CQus+Am/2bQqx8
-         /uxw0iwO8harv8qzbEbmHR3LqRr3CMVvObnAS4WCNNt2MmCOH3TwqPuY9pT+6sU5XBEB
-         6L2e0JtcwILh6o/dAN//wvgJ37taq0lnAqeIRZ1zUkycKpL4e56sPR6Vg6ycn7hL9iBz
-         gmXuueoe2WJC3rfCnI//eOMxWETuRmLeSk7kklO1HR3i3S97Z3Z8hb5tR4bNWI3YsPAS
-         eUhA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729124726; x=1729729526;
-        h=to:from:subject:mime-version:message-id:date:x-gm-message-state
+        d=google.com; s=20230601; t=1729124730; x=1729729530; darn=lists.infradead.org;
+        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=0MVEopwQelkynI+vONSt1eNqCP+P10MdFmkRWcj813Q=;
-        b=EwZhivm2ayOfW/O8sr2Sy1ffYGb62gupwCOWpJSvRUmln7Ojr1sK1TsUsvHXL98bGK
-         LirIu7tL40mkw2khOuCl9xb7bn435I0utaUAf1gaV2bYADZqltVAHslF4t5JuwlkFU5y
-         3k6kuyFNFNSRbrZBjka1yeNqtvn/m891aJIKk+N/Qi1CmJIyxPLbavB5hKB/DsSzSUxX
-         M1sQyTV/zejaBTwpSlLtXwC+FQmg+m6iuafsiFxVdjrf3tZcZlG5eA94x2uB49sCfPjh
-         Aeeb9RCmMfzBhvC2qCu8VxdhaMazMjbRap5/Hqla7YC3jgUCZ86o3XlWyhB3zDm6/cMe
-         nxKA==
-X-Forwarded-Encrypted: i=1; AJvYcCWy8OUAwJSP8o+YxTaVkB8IYEVjeo6u8xkI8GXHnalUAp8Eq/wPOMO0LEfMAmAHLeLECoQQz/dv+YNEAg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzw7tLSZ3zMhw0UEtrCtG4JSv0zF1K4Enw1kcnUT5Jo5y0r+uON
-	cjO8ZPAsSnV4Fbn2/hQX7UiPfZ7w8KtRjkyNklsQTIYjh7jwx0Hlvlj4NTP3X3lgV1k5h5VSxZA
-	6007xEQ==
-X-Google-Smtp-Source: AGHT+IGs6rtJljCigsHxy+gP6Zvfa6mMr4o1JCjh56mqE4HiFoyek51h2OZvh4lGlezQ3sjgUNIEEbqKPWUq
+        bh=mFoNBRLqrUgqoIcVjkPQD2Pr1/YcjMFPTvmF3zk2fK4=;
+        b=DKrTBCBHPRm2Vf3vJPq8x4VXldbYLqH8PpND4AKcCc5pYVkrtdiW+BKHtfa2139/zP
+         O4hS7G5Z0FrNpKOP//20do1i4eqjDu0nXMJ3x+7pR1OVupuEDBA37nnPC4+8T+YPa9pc
+         V1FSwTkyBL2MqdzlaExPRjV/iwFbLtj+GcMoOMR+cHsuqjxBy9Da59MUufstwU70Up1O
+         xUheCGW2kI+uphcySGmQE1Ebve+k+KeJNSmmNEvstEktquhjDM1kT0YtfPUlYod2rIOW
+         AqBejBvGOnG/B03hpZTicSIVL0hnAXqQQ7SPXmhzf0x+0lBIt1P14wYHT4q2PkoYIUbH
+         5KCg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729124730; x=1729729530;
+        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=mFoNBRLqrUgqoIcVjkPQD2Pr1/YcjMFPTvmF3zk2fK4=;
+        b=GBY51ZLObuPN1RgHHt+sStw582zx0XyVS8y4eSPPoJpeACqYS5mE7ObJtGzKKuQDU7
+         G/gQBU7aaN2JaoFOV8p4zyMqplZNcv8YEmelVwJtyk2l/H+AW3wXLnZy2WmpbFSYeoqa
+         BMyph2y2Z1qDIGal937GQfiO5OIoyLzVyeSPgvO9HydYA5Cc2SeTkuTrKigoNpWkmVxR
+         K5Brc/QmYOcN6ZjL0juwutncjwF3pHtWSRgj0A3agY6N3dN1R4XPQ2pBzUZf8gjTjbKU
+         0M+IpZsH0BhvoRw5TZB+rWTuS1WQfpi+OCymbQeUcFxJNIQkmNN9j9nWGAwjpRnEkDdx
+         zS7w==
+X-Forwarded-Encrypted: i=1; AJvYcCX88FSpfwU37Z3H1yQ4eBIrHZtl9lgeVdrJOJ7CR8GAJl//4y2VC8yOb0fYSjY8ayq7sU0a5c5qhrTIlA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyf2uWSvDUuPp0KaSI1kdOY9kGK1DWTrNJ8cevRY7l8qJi9p52d
+	nSE60DGU+M+YvuNIiRqxR4Xak1gKdhqypo3/7FKpwk9/Reu9cWnuZxW3P+266+3pChu8JIljXOO
+	jvrMLug==
+X-Google-Smtp-Source: AGHT+IH7A47NlLkmI7JyY+lLOU6RNU024zTixWHwEAwzVgMoGJoUi31CPQwu7Zqb3utm3XVl/ZEc2m8pfELj
 X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:a00a:f237:9bc0:79c])
- (user=irogers job=sendgmr) by 2002:a05:6902:2d08:b0:e28:f6b3:3666 with SMTP
- id 3f1490d57ef6-e2978567367mr4642276.7.1729124726404; Wed, 16 Oct 2024
- 17:25:26 -0700 (PDT)
-Date: Wed, 16 Oct 2024 17:25:00 -0700
-Message-Id: <20241017002520.59124-1-irogers@google.com>
+ (user=irogers job=sendgmr) by 2002:a05:6902:50d:b0:e28:eee0:aaa1 with SMTP id
+ 3f1490d57ef6-e29782e9f6fmr3106276.4.1729124729872; Wed, 16 Oct 2024 17:25:29
+ -0700 (PDT)
+Date: Wed, 16 Oct 2024 17:25:01 -0700
+In-Reply-To: <20241017002520.59124-1-irogers@google.com>
+Message-Id: <20241017002520.59124-2-irogers@google.com>
 Mime-Version: 1.0
+References: <20241017002520.59124-1-irogers@google.com>
 X-Mailer: git-send-email 2.47.0.105.g07ac214952-goog
-Subject: [PATCH v3 00/20] Remove PERF_HAVE_DWARF_REGS
+Subject: [PATCH v3 01/20] perf bpf-prologue: Remove unused file
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -90,8 +92,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241016_172528_277954_96D4A1D9 
-X-CRM114-Status: GOOD (  20.44  )
+X-CRM114-CacheID: sfid-20241016_172531_787728_586BF831 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,154 +110,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-These changes are on top of:
-https://lore.kernel.org/lkml/20241017001354.56973-1-irogers@google.com/
+Commit 4a73fca22692 ("perf bpf-prologue: Remove unused file") missed
+cleaning up the header file. The code was unnecessary as Commit
+3d6dfae88917 ("perf parse-events: Remove BPF event support") removed
+building bpf-prologue.c.
 
-Prior to these patches PERF_HAVE_DWARF_REGS indicated the presence of
-dwarf-regs.c in the arch directory. dwarf-regs.c provided upto 4
-functions:
-
-1) regs_query_register_offset would translate a register name into a
-pt_regs offset and was used by BPF prologues. BPF prologues existed
-for BPF events and support for these was removed many releases ago.
-This code was dead and could be removed.
-
-2) get_arch_regstr duplicated get_dwarf_regstr and so it could be
-removed.  The case for csky was a little more complicated as the ABI
-controlled the string. The callers of get_dwarf_regstr were updated to
-also pass the ELF flags so that on csky the ABI appropriate table
-could be used. As the argument is only used on csky this a no-op for
-everything else.
-
-3) get_arch_regnum translated a register name back to a dwarf number
-and only existed on x86 where "al", "ax", "eax" and "rax" could all
-mean register 0. This code was moved to util with similar
-machine/flags logic to get_arch_regstr and for consistency with it.
-
-4) get_powerpc_regs a PowerPC specific function used by annotate that
-should really be in util.
-
-2 and 3 required the wiring through of the ELF machine and flags in
-callers to get_dwarf_regstr and get_dwarf_regnum. When these values
-weren't dependent on an ELF file a new EM_HOST and EF_HOST were added
-to give the host ELF machine and flags. These 2 #defines got rid of
-the existing separate arch files and #ifdefs.
-
-v3: These files were separated from the rest of the v2 libdw clean up
-    in:
-https://lore.kernel.org/lkml/CAP-5=fVZH3L-6y_sxLwSmT8WyMXDMFnuqUksNULdQYJCPNBFYw@mail.gmail.com/
-
-Ian Rogers (20):
-  perf bpf-prologue: Remove unused file
-  perf dwarf-regs: Remove PERF_HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET
-  perf dwarf-regs: Add EM_HOST and EF_HOST defines
-  perf disasm: Add e_machine/e_flags to struct arch
-  perf dwarf-regs: Pass accurate disassembly machine to get_dwarf_regnum
-  perf dwarf-regs: Pass ELF flags to get_dwarf_regstr
-  perf dwarf-regs: Move x86 dwarf-regs out of arch
-  perf arm64: Remove dwarf-regs.c
-  perf arm: Remove dwarf-regs.c
-  perf dwarf-regs: Move csky dwarf-regs out of arch
-  perf loongarch: Remove dwarf-regs.c
-  perf mips: Remove dwarf-regs.c
-  perf dwarf-regs: Move powerpc dwarf-regs out of arch
-  perf riscv: Remove dwarf-regs.c and add dwarf-regs-table.h
-  perf s390: Remove dwarf-regs.c
-  perf sh: Remove dwarf-regs.c
-  perf sparc: Remove dwarf-regs.c
-  perf xtensa: Remove dwarf-regs.c
-  perf dwarf-regs: Remove get_arch_regstr code
-  perf build: Remove PERF_HAVE_DWARF_REGS
-
- tools/perf/Makefile.config                    |  17 +-
- tools/perf/arch/arc/annotate/instructions.c   |   2 +
- tools/perf/arch/arm/Makefile                  |   3 -
- tools/perf/arch/arm/annotate/instructions.c   |   2 +
- tools/perf/arch/arm/util/Build                |   2 -
- tools/perf/arch/arm/util/dwarf-regs.c         |  61 -------
- tools/perf/arch/arm64/Makefile                |   4 -
- tools/perf/arch/arm64/annotate/instructions.c |   2 +
- tools/perf/arch/arm64/util/Build              |   1 -
- tools/perf/arch/arm64/util/dwarf-regs.c       |  92 -----------
- tools/perf/arch/csky/Makefile                 |   4 -
- tools/perf/arch/csky/annotate/instructions.c  |   7 +-
- tools/perf/arch/csky/util/Build               |   1 -
- tools/perf/arch/loongarch/Makefile            |   4 -
- .../arch/loongarch/annotate/instructions.c    |   2 +
- tools/perf/arch/loongarch/util/Build          |   1 -
- tools/perf/arch/loongarch/util/dwarf-regs.c   |  44 -----
- tools/perf/arch/mips/Makefile                 |   4 -
- tools/perf/arch/mips/annotate/instructions.c  |   2 +
- tools/perf/arch/mips/util/Build               |   1 -
- tools/perf/arch/mips/util/dwarf-regs.c        |  38 -----
- tools/perf/arch/powerpc/Makefile              |   5 -
- .../perf/arch/powerpc/annotate/instructions.c |   2 +
- tools/perf/arch/powerpc/util/Build            |   1 -
- tools/perf/arch/powerpc/util/dwarf-regs.c     | 153 ------------------
- tools/perf/arch/riscv/Makefile                |   5 +-
- .../arch/riscv/include/dwarf-regs-table.h     |  42 +++++
- tools/perf/arch/riscv/util/Build              |   1 -
- tools/perf/arch/riscv/util/dwarf-regs.c       |  72 ---------
- .../perf/arch/riscv64/annotate/instructions.c |   2 +
- tools/perf/arch/s390/Makefile                 |   4 -
- tools/perf/arch/s390/annotate/instructions.c  |   2 +
- tools/perf/arch/s390/util/Build               |   1 -
- tools/perf/arch/s390/util/dwarf-regs.c        |  43 -----
- tools/perf/arch/sh/Build                      |   1 -
- tools/perf/arch/sh/Makefile                   |   4 -
- tools/perf/arch/sh/util/Build                 |   1 -
- tools/perf/arch/sh/util/dwarf-regs.c          |  41 -----
- tools/perf/arch/sparc/Build                   |   1 -
- tools/perf/arch/sparc/Makefile                |   4 -
- tools/perf/arch/sparc/annotate/instructions.c |   2 +
- tools/perf/arch/sparc/util/Build              |   1 -
- tools/perf/arch/sparc/util/dwarf-regs.c       |  39 -----
- tools/perf/arch/x86/Makefile                  |   4 -
- tools/perf/arch/x86/annotate/instructions.c   |   3 +-
- tools/perf/arch/x86/util/Build                |   3 -
- tools/perf/arch/x86/util/dwarf-regs.c         | 153 ------------------
- tools/perf/arch/xtensa/Build                  |   1 -
- tools/perf/arch/xtensa/Makefile               |   4 -
- tools/perf/arch/xtensa/util/Build             |   1 -
- tools/perf/arch/xtensa/util/dwarf-regs.c      |  21 ---
- tools/perf/util/Build                         |   3 +
- tools/perf/util/annotate.c                    |   6 +-
- tools/perf/util/bpf-prologue.h                |  37 -----
- tools/perf/util/disasm.h                      |   4 +
- .../dwarf-regs.c => util/dwarf-regs-csky.c}   |  19 +--
- tools/perf/util/dwarf-regs-powerpc.c          |  61 +++++++
- tools/perf/util/dwarf-regs-x86.c              |  50 ++++++
- tools/perf/util/dwarf-regs.c                  |  38 +++--
- tools/perf/util/include/dwarf-regs.h          | 110 ++++++++++---
- tools/perf/util/probe-finder.c                |  13 +-
- tools/perf/util/probe-finder.h                |   3 +-
- 62 files changed, 328 insertions(+), 927 deletions(-)
- delete mode 100644 tools/perf/arch/arm/util/dwarf-regs.c
- delete mode 100644 tools/perf/arch/arm64/util/dwarf-regs.c
- delete mode 100644 tools/perf/arch/csky/Makefile
- delete mode 100644 tools/perf/arch/loongarch/util/dwarf-regs.c
- delete mode 100644 tools/perf/arch/mips/util/dwarf-regs.c
- delete mode 100644 tools/perf/arch/powerpc/util/dwarf-regs.c
- create mode 100644 tools/perf/arch/riscv/include/dwarf-regs-table.h
- delete mode 100644 tools/perf/arch/riscv/util/dwarf-regs.c
- delete mode 100644 tools/perf/arch/s390/util/dwarf-regs.c
- delete mode 100644 tools/perf/arch/sh/Build
- delete mode 100644 tools/perf/arch/sh/Makefile
- delete mode 100644 tools/perf/arch/sh/util/Build
- delete mode 100644 tools/perf/arch/sh/util/dwarf-regs.c
- delete mode 100644 tools/perf/arch/sparc/Build
- delete mode 100644 tools/perf/arch/sparc/util/Build
- delete mode 100644 tools/perf/arch/sparc/util/dwarf-regs.c
- delete mode 100644 tools/perf/arch/x86/util/dwarf-regs.c
- delete mode 100644 tools/perf/arch/xtensa/Build
- delete mode 100644 tools/perf/arch/xtensa/Makefile
- delete mode 100644 tools/perf/arch/xtensa/util/Build
- delete mode 100644 tools/perf/arch/xtensa/util/dwarf-regs.c
+Fixes: 4a73fca22692 ("perf bpf-prologue: Remove unused file")
+Signed-off-by: Ian Rogers <irogers@google.com>
+---
+ tools/perf/util/bpf-prologue.h | 37 ----------------------------------
+ 1 file changed, 37 deletions(-)
  delete mode 100644 tools/perf/util/bpf-prologue.h
- rename tools/perf/{arch/csky/util/dwarf-regs.c => util/dwarf-regs-csky.c} (74%)
- create mode 100644 tools/perf/util/dwarf-regs-powerpc.c
- create mode 100644 tools/perf/util/dwarf-regs-x86.c
 
+diff --git a/tools/perf/util/bpf-prologue.h b/tools/perf/util/bpf-prologue.h
+deleted file mode 100644
+index 66dcf751ef65..000000000000
+--- a/tools/perf/util/bpf-prologue.h
++++ /dev/null
+@@ -1,37 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
+-/*
+- * Copyright (C) 2015, He Kuang <hekuang@huawei.com>
+- * Copyright (C) 2015, Huawei Inc.
+- */
+-#ifndef __BPF_PROLOGUE_H
+-#define __BPF_PROLOGUE_H
+-
+-struct probe_trace_arg;
+-struct bpf_insn;
+-
+-#define BPF_PROLOGUE_MAX_ARGS 3
+-#define BPF_PROLOGUE_START_ARG_REG BPF_REG_3
+-#define BPF_PROLOGUE_FETCH_RESULT_REG BPF_REG_2
+-
+-#ifdef HAVE_BPF_PROLOGUE
+-int bpf__gen_prologue(struct probe_trace_arg *args, int nargs,
+-		      struct bpf_insn *new_prog, size_t *new_cnt,
+-		      size_t cnt_space);
+-#else
+-#include <linux/compiler.h>
+-#include <errno.h>
+-
+-static inline int
+-bpf__gen_prologue(struct probe_trace_arg *args __maybe_unused,
+-		  int nargs __maybe_unused,
+-		  struct bpf_insn *new_prog __maybe_unused,
+-		  size_t *new_cnt,
+-		  size_t cnt_space __maybe_unused)
+-{
+-	if (!new_cnt)
+-		return -EINVAL;
+-	*new_cnt = 0;
+-	return -ENOTSUP;
+-}
+-#endif
+-#endif /* __BPF_PROLOGUE_H */
 -- 
 2.47.0.105.g07ac214952-goog
 
