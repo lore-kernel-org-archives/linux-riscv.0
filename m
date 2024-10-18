@@ -4,89 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6A77D3E18A
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Oct 2024 19:46:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F29F0D3F283
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Oct 2024 19:59:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=mP35TmEv7I3hDNIVDbmYTTbBJ1auRwAbD8JewWV8Hnk=; b=qZhp7pbbmKepg6bRwHCKayZY/J
-	+vu2OUtgKsCHPxi0aLyROZZT6oI1ru5kipBjgcvb7Bq1yj1w5iguyKF24PUXDsIYZO0dbsC6Qd0Qw
-	qFjPMSxH+mrv8ATVeOkanQkXz/h+RNlylS9aGaZT/hstFCj56xNe0FcprRk1q20MF6NSe9NsEd6xF
-	n3aRqnEFFZW/mr/C9ChPO8LrHTQiq6YZa7CO8biNVBscnuxcDVj8qsU75PKg3Ykll2ZshKIz3DhhT
-	QtcimE+QlviX3/0m7JxejxmLKY+KYXl8N9IlR95BITfrBl8noo6tlo5ddWcUm3pLyyzd4rWdrbM2t
-	+7LfGPSg==;
+	bh=bboetIFo2V2+odXwE8zsFeWB5YPi7Bn46z2XTV37Ykk=; b=VpVlOAqubumYdqCn6U69qHx2er
+	O5ZxYmSpCLEr5N/vxJvsehyc4354kuSuahJM/wnsggz1ts0VKnorwglspkAFRmIA7AoTg7Mog8jFu
+	R3rHAHWQz+pma0h2/ejLrnAaBkYiFodP3kAJm1HKnASSgj425+I7Smmo/0YqvLSirNXUG3dM2e2tL
+	0iuz5582hjPsRy5rq6nVprIoabQMWPc6bFTOE/I2HrbXCnb3RED3MQP2gqCA9aBoWse6xwH148uJo
+	1bPVF+nyedmsPDhtBiFB0TPbtSYcL/ObAzEFQ0PJ7/fdhAYX/1cZtFK9m8Ezy5nLR5A4IEzOPIpBn
+	5+2x3cfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t1svT-00000001qsC-0KSq;
-	Fri, 18 Oct 2024 19:46:19 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1t1t8P-00000001sjM-0Wyy;
+	Fri, 18 Oct 2024 19:59:41 +0000
+Received: from mail-oa1-x2a.google.com ([2001:4860:4864:20::2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t1soQ-00000001pDK-0LHh
+	id 1t1t4J-00000001sE7-12Zo
 	for linux-riscv@lists.infradead.org;
-	Fri, 18 Oct 2024 19:39:04 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-71e52582d0bso1938433b3a.3
-        for <linux-riscv@lists.infradead.org>; Fri, 18 Oct 2024 12:39:01 -0700 (PDT)
+	Fri, 18 Oct 2024 19:55:28 +0000
+Received: by mail-oa1-x2a.google.com with SMTP id 586e51a60fabf-28847f4207dso1231956fac.0
+        for <linux-riscv@lists.infradead.org>; Fri, 18 Oct 2024 12:55:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1729280341; x=1729885141; darn=lists.infradead.org;
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1729281326; x=1729886126; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=FiT5fWlA/ERvmoNoGd6vO/wEcabREvD5vErT274A8nM=;
-        b=HBz1KXdrpsfqH+71MlGOD34k1kwYMh1wk/uSe+cv3IeeS5xDzX8b8A05r2mGBHfFsI
-         pgnusZXtFQ9bSR/k/MfYyMf4b4r+hDBN1SsPzz3PDEgXqn4+UhEplkkSpACC3++2R+D/
-         KUrs/GyyVIYXL5nvxvwJe8tAAb1ni9QNmXEYwwRjAiPp42p1dSskoL9Hp7oX1IWJv+0w
-         g2zQ9iTjEG1jfi4DroDWfUZON2DscuUy7ynYyso9DLnpvXqKpbY9BzQDhox1sJ/4OPOI
-         GH3jD/KLglwASGGo0iWhkihKo6y7yNPpyQAYoliF9zSxm76gZHcR9il3d+HLXnRR/5zl
-         mrGw==
+        bh=g7oEArfVPSnqpsijZaXynZDVD27FkpdWWYcqDGTZCjw=;
+        b=i+3mMwLO99I8zLYLxHuv794H/A1cvtHpvjQvA9ikSwmT0dkgsITYRkKuesOzQETZCt
+         2L6KpvKvr3ASWz43Z9MVI7W4c1EaLEmMYffw04C7pUB2D8hvXIO+pIzaIYUrM9YLVjC/
+         1C5EAKPNOAkIQAP41Ko10g3F8mH5fzrlelroAjeh/bYh1neiauQB4D/5vG+QTAwcWVDe
+         y8EInj58mKbZAdusYo3l6RzOT33o26xAFcNr3zZZgC7DqeTT8z2h0QAjE2v69OOTz88t
+         JB0qcvUlRRMBGJsL1RwHPLOsKHf16wmS5mTyiqilA+bkXzZ3cBmBphFxWiqnHzBm0ES/
+         PRsw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729280341; x=1729885141;
+        d=1e100.net; s=20230601; t=1729281326; x=1729886126;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=FiT5fWlA/ERvmoNoGd6vO/wEcabREvD5vErT274A8nM=;
-        b=Y+kXVlrJ/dia6tUFTdo/nrSRieuyEQE7g8OG9MUGWBDmFUkOwE/HPSXft/kPFbOpJI
-         PJTDn1vVXfYGkzJQbPsBUCLsMIBhfldYLb++uUAO0AyxOBNbNR3XOROkZGrri/qGX+mg
-         sRmpGM6ezh3mX5O8yoAIE0O+3wdQA2vn7Zk001eghwgD6BpHAr3SHjbQjnwsijXWtlKJ
-         xjaJxTjSDBtO3uALCynf1w8bRk8//hwkgyMYsFuYv53tpqgxDNXb/td8MryuF7PDMOi1
-         fDl0Yx3VHk6o0nKP7702/zb3tjJStM8S9XQWTxz+ThieK+yspFecbhDIyS3Q3GMgWjML
-         /Lxw==
-X-Forwarded-Encrypted: i=1; AJvYcCWb/nXAPzR1JpeXw/98/LULJzEOd8kq9WO2cog/gtyR6bVjhcCqOtKF+OXrjfsYkma4P31bj8QS8HVSxA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzfKr3XgPhLicty3k2CXXL2plb7staDnGTeFbXlQ0Hb1VlfzYew
-	SB4LeyOuyY/Mmy+VkNK868mDYxK3PxMH0NUlagMbc5nKNFVLyOAxVGm0/55kdBc=
-X-Google-Smtp-Source: AGHT+IEaz8xK2W5RjSu2Q9b6C4y0O26xQFCdJyP2lVmFbBHXT7gzr62PkAtdtybkW4AY+Kl/19589g==
-X-Received: by 2002:a05:6a00:1989:b0:70d:14d1:1bb7 with SMTP id d2e1a72fcca58-71ea331c750mr4761453b3a.28.1729280340869;
-        Fri, 18 Oct 2024 12:39:00 -0700 (PDT)
+        bh=g7oEArfVPSnqpsijZaXynZDVD27FkpdWWYcqDGTZCjw=;
+        b=JCRBtLbUSQ2+Zg1YZY5Rns9QDefw9ItmfIbU8GJlV9s3+vjggCkzz7YuUCvfPh2+MJ
+         bPS8rCUqb+9g9CQM6eE+r6AkrOoJbYfnioDT7PnV9KTb6z6FN9BUwH4e6J3/KbtD4J2c
+         bHJGy96okUAJANLlcM78f2a9t4b6RQW5/vDoppUhO3HiWUeNYJwtdOaHbY7IAQXQ3juz
+         91MDWY4iAHtwSQQkIJbxSJ8RL+iBFj2YcWiyeCxDG4/DeMzneUa0RcCRh78AptaCgQEd
+         ZoSK4xap23WvWVenCQc0AlPE2I2uIb7Voqit41e9tNL78D8K1ZYLXOWxZtIj1t71Z3SZ
+         GH2g==
+X-Forwarded-Encrypted: i=1; AJvYcCWpVyClI4Or9TODzhuwVNGgvdGPA44w+fVl+OJPExd+Jr4wieWNaY3aipi4n2vS9w8xo8HJwYgSu2Ak8w==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx3CQsoQx9FqrZuwRPjZlROZ1gO5Sfn4Ffb3OOyAweG8w4kME5g
+	gLeIlGh5MDkdsIPqjxV/EENOJwsxt6ORC9eGixmIOLnNVgzNb5Pc4Y79B0NkGn8=
+X-Google-Smtp-Source: AGHT+IGY1tzB8tvAIhD1Nhz0GdPFPRb4Y+29JKXvh/Pt6G+JZiqk0pPm8ialvF1A0Tuv6DdzKtllhw==
+X-Received: by 2002:a05:6870:82a0:b0:277:d360:8971 with SMTP id 586e51a60fabf-2892c549c2amr3875076fac.43.1729281325632;
+        Fri, 18 Oct 2024 12:55:25 -0700 (PDT)
 Received: from localhost ([50.145.13.30])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-71ea33663e1sm1837071b3a.89.2024.10.18.12.38.59
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7eacc226816sm1742765a12.24.2024.10.18.12.55.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Oct 2024 12:39:00 -0700 (PDT)
-Date: Fri, 18 Oct 2024 12:39:00 -0700 (PDT)
-X-Google-Original-Date: Fri, 18 Oct 2024 12:38:57 PDT (-0700)
-Subject: Re: [PATCH v3 14/20] perf riscv: Remove dwarf-regs.c and add dwarf-regs-table.h
-In-Reply-To: <20241017002520.59124-15-irogers@google.com>
-CC: peterz@infradead.org, mingo@redhat.com, acme@kernel.org, namhyung@kernel.org,
-  Mark Rutland <mark.rutland@arm.com>, alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com,
-  adrian.hunter@intel.com, kan.liang@linux.intel.com, john.g.garry@oracle.com,
-  Will Deacon <will@kernel.org>, james.clark@linaro.org, mike.leach@linaro.org, leo.yan@linux.dev,
-  guoren@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-  terrelln@fb.com, mhiramat@kernel.org, changbin.du@huawei.com, amadio@gentoo.org,
-  yangjihong@bytedance.com, adityag@linux.ibm.com, atrajeev@linux.vnet.ibm.com, masahiroy@kernel.org,
-  maobibo@loongson.cn, chenhuacai@kernel.org, kjain@linux.ibm.com, Atish Patra <atishp@rivosinc.com>,
-  liangshenlin@eswincomputing.com, anup@brainfault.org, oliver.upton@linux.dev, sesse@google.com,
-  linux@treblig.org, cp0613@linux.alibaba.com, dima@secretsauce.net, przemyslaw.kitszel@intel.com,
-  davem@davemloft.net, aleksander.lobakin@intel.com, linux-kernel@vger.kernel.org,
-  linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-  linux-riscv@lists.infradead.org
+        Fri, 18 Oct 2024 12:55:25 -0700 (PDT)
+Date: Fri, 18 Oct 2024 12:55:25 -0700 (PDT)
+X-Google-Original-Date: Fri, 18 Oct 2024 12:55:21 PDT (-0700)
+Subject: Re: [PATCH v5 1/2] riscv: perf: add guest vs host distinction
+In-Reply-To: <a67d527dc1b11493fe11f7f53584772fdd983744.1728980031.git.zhouquan@iscas.ac.cn>
+CC: anup@brainfault.org, ajones@ventanamicro.com, atishp@atishpatra.org,
+  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, Mark Rutland <mark.rutland@arm.com>,
+  alexander.shishkin@linux.intel.com, jolsa@kernel.org, linux-kernel@vger.kernel.org,
+  linux-riscv@lists.infradead.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+  linux-perf-users@vger.kernel.org, zhouquan@iscas.ac.cn
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: irogers@google.com
-Message-ID: <mhng-77fefb3c-c270-471c-b71b-ef3ab65d8b79@palmer-ri-x1c9a>
+To: zhouquan@iscas.ac.cn, Marc Zyngier <maz@kernel.org>
+Message-ID: <mhng-c9ba919e-b4a4-4bb9-bdba-f4d3295a930b@palmer-ri-x1c9a>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241018_123902_416854_58E069E1 
-X-CRM114-Status: GOOD (  24.39  )
+X-CRM114-CacheID: sfid-20241018_125527_393731_ED7D8DC1 
+X-CRM114-Status: GOOD (  21.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,136 +95,107 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 16 Oct 2024 17:25:14 PDT (-0700), irogers@google.com wrote:
-> The file just provides the function get_arch_regstr, however, if in
-> the only caller get_dwarf_regstr EM_HOST is used for the EM_NONE case,
-> and the register table is provided in a header file, the function can
-> never be called. So remove as dead code. Tidy up the EM_NONE cases for
-> riscv in dwarf-regs.c.
+On Tue, 15 Oct 2024 01:42:50 PDT (-0700), zhouquan@iscas.ac.cn wrote:
+> From: Quan Zhou <zhouquan@iscas.ac.cn>
 >
-> Signed-off-by: Ian Rogers <irogers@google.com>
+> Introduce basic guest support in perf, enabling it to distinguish
+> between PMU interrupts in the host or guest, and collect
+> fundamental information.
+>
+> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
 > ---
->  .../dwarf-regs-table.h}                       | 32 ++++---------------
->  tools/perf/arch/riscv/util/Build              |  1 -
->  tools/perf/util/dwarf-regs.c                  |  7 ++--
->  tools/perf/util/include/dwarf-regs.h          |  2 +-
->  4 files changed, 12 insertions(+), 30 deletions(-)
->  rename tools/perf/arch/riscv/{util/dwarf-regs.c => include/dwarf-regs-table.h} (56%)
+>  arch/riscv/include/asm/perf_event.h |  6 +++++
+>  arch/riscv/kernel/perf_callchain.c  | 38 +++++++++++++++++++++++++++++
+>  2 files changed, 44 insertions(+)
 >
-> diff --git a/tools/perf/arch/riscv/util/dwarf-regs.c b/tools/perf/arch/riscv/include/dwarf-regs-table.h
-> similarity index 56%
-> rename from tools/perf/arch/riscv/util/dwarf-regs.c
-> rename to tools/perf/arch/riscv/include/dwarf-regs-table.h
-> index a9c4402ae57e..a45b63a6d5a8 100644
-> --- a/tools/perf/arch/riscv/util/dwarf-regs.c
-> +++ b/tools/perf/arch/riscv/include/dwarf-regs-table.h
-> @@ -1,23 +1,10 @@
-> -// SPDX-License-Identifier: GPL-2.0
-> -/*
-> - * Copyright (C) 2019 Hangzhou C-SKY Microsystems co.,ltd.
-> - * Mapping of DWARF debug register numbers into register names.
-> - */
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifdef DEFINE_DWARF_REGSTR_TABLE
-> +/* This is included in perf/util/dwarf-regs.c */
+> diff --git a/arch/riscv/include/asm/perf_event.h b/arch/riscv/include/asm/perf_event.h
+> index 665bbc9b2f84..38926b4a902d 100644
+> --- a/arch/riscv/include/asm/perf_event.h
+> +++ b/arch/riscv/include/asm/perf_event.h
+> @@ -8,7 +8,11 @@
+>  #ifndef _ASM_RISCV_PERF_EVENT_H
+>  #define _ASM_RISCV_PERF_EVENT_H
 >
-> -#include <stddef.h>
-> -#include <errno.h> /* for EINVAL */
-> -#include <string.h> /* for strcmp */
-> -#include <dwarf-regs.h>
-> +#define REG_DWARFNUM_NAME(reg, idx)	[idx] = "%" #reg
+> +#ifdef CONFIG_PERF_EVENTS
+>  #include <linux/perf_event.h>
+> +extern unsigned long perf_instruction_pointer(struct pt_regs *regs);
+> +extern unsigned long perf_misc_flags(struct pt_regs *regs);
+> +#define perf_misc_flags(regs) perf_misc_flags(regs)
+>  #define perf_arch_bpf_user_pt_regs(regs) (struct user_regs_struct *)regs
 >
-> -struct regs_dwarfnum {
-> -	const char *name;
-> -	unsigned int dwarfnum;
-> -};
-> -
-> -#define REG_DWARFNUM_NAME(r, num) {.name = r, .dwarfnum = num}
-> -#define REG_DWARFNUM_END {.name = NULL, .dwarfnum = 0}
-> -
-> -struct regs_dwarfnum riscv_dwarf_regs_table[] = {
-> +static const char * const riscv_regstr_tbl[] = {
->  	REG_DWARFNUM_NAME("%zero", 0),
->  	REG_DWARFNUM_NAME("%ra", 1),
->  	REG_DWARFNUM_NAME("%sp", 2),
-> @@ -50,13 +37,6 @@ struct regs_dwarfnum riscv_dwarf_regs_table[] = {
->  	REG_DWARFNUM_NAME("%t4", 29),
->  	REG_DWARFNUM_NAME("%t5", 30),
->  	REG_DWARFNUM_NAME("%t6", 31),
-> -	REG_DWARFNUM_END,
->  };
->
-> -#define RISCV_MAX_REGS ((sizeof(riscv_dwarf_regs_table) / \
-> -		 sizeof(riscv_dwarf_regs_table[0])) - 1)
-> -
-> -const char *get_arch_regstr(unsigned int n)
-> -{
-> -	return (n < RISCV_MAX_REGS) ? riscv_dwarf_regs_table[n].name : NULL;
-> -}
+>  #define perf_arch_fetch_caller_regs(regs, __ip) { \
+> @@ -17,4 +21,6 @@
+>  	(regs)->sp = current_stack_pointer; \
+>  	(regs)->status = SR_PP; \
+>  }
 > +#endif
-> diff --git a/tools/perf/arch/riscv/util/Build b/tools/perf/arch/riscv/util/Build
-> index 8f93091b8345..58a672246024 100644
-> --- a/tools/perf/arch/riscv/util/Build
-> +++ b/tools/perf/arch/riscv/util/Build
-> @@ -2,5 +2,4 @@ perf-util-y += perf_regs.o
->  perf-util-y += header.o
->
->  perf-util-$(CONFIG_LIBTRACEEVENT) += kvm-stat.o
-> -perf-util-$(CONFIG_LIBDW) += dwarf-regs.o
->  perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
-> diff --git a/tools/perf/util/dwarf-regs.c b/tools/perf/util/dwarf-regs.c
-> index 3d98c2bf6035..2c6b197556dd 100644
-> --- a/tools/perf/util/dwarf-regs.c
-> +++ b/tools/perf/util/dwarf-regs.c
-> @@ -20,6 +20,7 @@
->  #include "../arch/arm64/include/dwarf-regs-table.h"
->  #include "../arch/sh/include/dwarf-regs-table.h"
->  #include "../arch/powerpc/include/dwarf-regs-table.h"
-> +#include "../arch/riscv/include/dwarf-regs-table.h"
->  #include "../arch/s390/include/dwarf-regs-table.h"
->  #include "../arch/sparc/include/dwarf-regs-table.h"
->  #include "../arch/xtensa/include/dwarf-regs-table.h"
-> @@ -33,7 +34,7 @@ const char *get_dwarf_regstr(unsigned int n, unsigned int machine, unsigned int
+> +
+>  #endif /* _ASM_RISCV_PERF_EVENT_H */
+> diff --git a/arch/riscv/kernel/perf_callchain.c b/arch/riscv/kernel/perf_callchain.c
+> index c7468af77c66..c2c81a80f816 100644
+> --- a/arch/riscv/kernel/perf_callchain.c
+> +++ b/arch/riscv/kernel/perf_callchain.c
+> @@ -28,11 +28,49 @@ static bool fill_callchain(void *entry, unsigned long pc)
+>  void perf_callchain_user(struct perf_callchain_entry_ctx *entry,
+>  			 struct pt_regs *regs)
 >  {
->  #if EM_HOST == EM_X86_64 || EM_HOST == EM_386 || EM_HOST == EM_AARCH64 || EM_HOST == EM_ARM \
->      || EM_HOST == EM_CSKY || EM_HOST == EM_LOONGARCH || EM_HOST == EM_MIPS || EM_HOST == EM_PPC \
-> -    || EM_HOST == EM_PPC64
-> +    || EM_HOST == EM_PPC64 || EM_HOST == EM_RISCV
->  	if (machine == EM_NONE) {
->  		/* Generic arch - use host arch */
->  		machine = EM_HOST;
-> @@ -42,7 +43,7 @@ const char *get_dwarf_regstr(unsigned int n, unsigned int machine, unsigned int
->  	switch (machine) {
->  #if EM_HOST != EM_X86_64 && EM_HOST != EM_386 && EM_HOST != EM_AARCH64 && EM_HOST != EM_ARM \
->      && EM_HOST != EM_CSKY && EM_HOST != EM_LOONGARCH && EM_HOST != EM_MIPS && EM_HOST != EM_PPC \
-> -    && EM_HOST != EM_PPC64
-> +    && EM_HOST != EM_PPC64 && EM_HOST != EM_RISCV
->  	case EM_NONE:	/* Generic arch - use host arch */
->  		return get_arch_regstr(n);
->  #endif
-> @@ -63,6 +64,8 @@ const char *get_dwarf_regstr(unsigned int n, unsigned int machine, unsigned int
->  	case EM_PPC:
->  	case EM_PPC64:
->  		return __get_dwarf_regstr(powerpc_regstr_tbl, n);
-> +	case EM_RISCV:
-> +		return __get_dwarf_regstr(riscv_regstr_tbl, n);
->  	case EM_SPARC:
->  	case EM_SPARCV9:
->  		return __get_dwarf_regstr(sparc_regstr_tbl, n);
-> diff --git a/tools/perf/util/include/dwarf-regs.h b/tools/perf/util/include/dwarf-regs.h
-> index 1763280855ce..35f4f33205da 100644
-> --- a/tools/perf/util/include/dwarf-regs.h
-> +++ b/tools/perf/util/include/dwarf-regs.h
-> @@ -81,7 +81,7 @@
->  #ifdef HAVE_LIBDW_SUPPORT
->  #if !defined(__x86_64__) && !defined(__i386__) && !defined(__aarch64__) && !defined(__arm__) \
->      && !defined(__loongarch__) && !defined(__mips__) && !defined(__powerpc__) \
-> -    && !defined(__powerpc64__)
-> +    && !defined(__powerpc64__) && !defined(__riscv__)
->  const char *get_arch_regstr(unsigned int n);
->  #endif
+> +	if (perf_guest_state()) {
+> +		/* TODO: We don't support guest os callchain now */
+> +		return;
 
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+That seems kind of weird, but it looks like almost exactly the same 
+thing Marc did in 75e424620a4f ("arm64: perf: add guest vs host 
+discrimination").  I think it's safe, as we'll basically just silently 
+display no backtrace and we can always just fail to backtrace.
+
+That said: I don't understand why we can't backtrace inside a guest?  If 
+we can get the registers and memory it seems like we should be able to.  
+Maybe I'm missing something?
+
+> +	}
+> +
+>  	arch_stack_walk_user(fill_callchain, entry, regs);
+>  }
+>
+>  void perf_callchain_kernel(struct perf_callchain_entry_ctx *entry,
+>  			   struct pt_regs *regs)
+>  {
+> +	if (perf_guest_state()) {
+> +		/* TODO: We don't support guest os callchain now */
+> +		return;
+> +	}
+> +
+>  	walk_stackframe(NULL, regs, fill_callchain, entry);
+>  }
+> +
+> +unsigned long perf_instruction_pointer(struct pt_regs *regs)
+> +{
+> +	if (perf_guest_state())
+> +		return perf_guest_get_ip();
+> +
+> +	return instruction_pointer(regs);
+> +}
+> +
+> +unsigned long perf_misc_flags(struct pt_regs *regs)
+> +{
+> +	unsigned int guest_state = perf_guest_state();
+> +	unsigned long misc = 0;
+> +
+> +	if (guest_state) {
+> +		if (guest_state & PERF_GUEST_USER)
+> +			misc |= PERF_RECORD_MISC_GUEST_USER;
+> +		else
+> +			misc |= PERF_RECORD_MISC_GUEST_KERNEL;
+> +	} else {
+> +		if (user_mode(regs))
+> +			misc |= PERF_RECORD_MISC_USER;
+> +		else
+> +			misc |= PERF_RECORD_MISC_KERNEL;
+> +	}
+> +
+> +	return misc;
+> +}
 
 _______________________________________________
 linux-riscv mailing list
