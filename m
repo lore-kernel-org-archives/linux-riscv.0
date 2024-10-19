@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CB35D3C92E
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Oct 2024 22:32:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C164D3C92D
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Oct 2024 22:46:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Y3YNF19YoFtX1d4gleubZrDGhoK9gaI7IxMmgnv1PMs=; b=dnZRnL2JLJuXZ7
-	nVHW392HkWhN/gU0g4fXakedh+Nuh64pxlduVGG3qxmgMTXIEngavYqfi9xVS9RqSuO/Upc42dc3W
-	GepDtNQCXMbGA+LaLtSqyAqVBjJUJ5A14/q+F9vgyfErd9OwyS6fsSVsh2e2rMwvOcXo9A/VmRv9Z
-	Q3kJQuV7vmzRW2nVhCgtJQBUGdOXur6xJK6ULith16N01vRBmE5WrJtyafoBqEycpOFhk+GXC6U4U
-	28Cm03IxJQXw/Fva8oR9ZJuhsMZCA28TbOGmPYDhS/3ildBSH6hbpX7kwiYiBAUz1M/H2P0VS5OV8
-	RNNZQkXf8zZU69kZS9sA==;
+	List-Owner; bh=W/XF2RUSVDhUhDVVHCRo8z+Wk2sftwHc0oLNZWBCaYo=; b=YsT2ECoLSDjs+f
+	A+jBpYb7Afaz9lV9SYsH9347tNBQKZSkR9McAOxnN9xr8UfkmXknKUga+FYVKaDSXTqqJQdyGfe5U
+	cpghMs2BYINLXEip8uYR23+bM+9d4uwYvLu5GMvU6fmf2yTZ1rxUh463EFUdVubfkWCFSoIzSgqZ3
+	bA5oMm7X5p3d1auhVSh/GZU9507jvTlEIbzgv0Dpk339r3Xv7JCj8BP58WXiCA2mJx5Rv/zDnROJJ
+	+V/MjBWCKJPi2FmV73SG046V/qCYgyjVhACIqyiGfaTgP7u3S0dHa8tvC0aE8zm65g53vGl3QiXhl
+	XkeBmTqAIf4l1GIiCZiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2I0E-0000000419U-1frs;
-	Sat, 19 Oct 2024 22:32:54 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t2IDC-000000042Iw-0o40;
+	Sat, 19 Oct 2024 22:46:18 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2I0A-0000000417Y-2yPX;
-	Sat, 19 Oct 2024 22:32:52 +0000
+	id 1t2ID8-000000042GK-3a2F;
+	Sat, 19 Oct 2024 22:46:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id F1013A403C4;
-	Sat, 19 Oct 2024 22:32:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08CB8C4CEC5;
-	Sat, 19 Oct 2024 22:32:46 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id BF9575C5444;
+	Sat, 19 Oct 2024 22:46:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A187C4CEC5;
+	Sat, 19 Oct 2024 22:46:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729377168;
-	bh=tXAHb3/33MongE4AilsDsGXF/gFBIt2F2QSYX1Ig+Ds=;
+	s=k20201202; t=1729377972;
+	bh=cD5eaMzUFo7t+XYDnFM25WIUwCFcdwXaz1SfpP4a6SE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tFrPQGZG5ks5EiB9Mnc/4AmJdwPhHC/bJiwRWWIfX818gCaPcWQh1XlbBHiE/H5xN
-	 F0xn4R9NyrCX5rbT4E/r2bI3eWePDaxoGl02Glr8IDOcawqbsqwcHEy31pJkVKsHd1
-	 R80j5rV7rbUbChGdgHidqCABQhZUdpYtq1OU/j70YJ0eKHQEKfqrNrOXLJ6Lhywvvk
-	 lEeXyrtVkQ3cXx2b3vA47dSohi5i4ZoSOIVgfvjj1oOSBCAm7WZjXI5kAP0Q/IpH9F
-	 aRnwWgNhVNQVUt/uiOOxM+3soGdJDEHOHKUHGach+M7x6L3jzPDjXMTepSfZKjSd31
-	 DPfJEVpKd5tKQ==
-Date: Sat, 19 Oct 2024 15:32:45 -0700
+	b=raBET/eqnMHymvQ7ghoiJNJzhJfHKuWETI4KcodqrLn6OQ/Y9CKtRyA2t4EAlqgdL
+	 hZ8GXfGOFi/KBP9oOEyOznfd0G9uHgQFOCCAyoXDyjtw5nXygFTG2CrK0T0RFUBMS3
+	 dw6lBjU8rrQg3O+nhowKfheReV2QdNr7rWdr90u1jL/xItyfqX/Q3Me8KZXxc+SLgs
+	 Bgsl1ciX2BowyzgKq/taZpeBj4IacVWutv5wVHimbHiaNsgZE0UEMAbBKocO0BFYoV
+	 nD2awtEWshprtgJwrLo1F7dN4Asn2HkQ91l7gW0Dv7NafPgx9Qm2IawXuSLgLc1IAt
+	 hvIMZRfR3Mm9A==
+Date: Sat, 19 Oct 2024 15:46:09 -0700
 From: Luis Chamberlain <mcgrof@kernel.org>
 To: Mike Rapoport <rppt@kernel.org>
 Cc: Andrew Morton <akpm@linux-foundation.org>,
@@ -87,18 +87,17 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
 	linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
 	linux-trace-kernel@vger.kernel.org, linux-um@lists.infradead.org,
 	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org, x86@kernel.org,
-	Christoph Hellwig <hch@lst.de>
-Subject: Re: [PATCH v6 5/8] arch: introduce set_direct_map_valid_noflush()
-Message-ID: <ZxQzjWVTi1lvOQnT@bombadil.infradead.org>
+	sparclinux@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH v6 7/8] execmem: add support for cache of large ROX pages
+Message-ID: <ZxQ2saulzeSkUsEh@bombadil.infradead.org>
 References: <20241016122424.1655560-1-rppt@kernel.org>
- <20241016122424.1655560-6-rppt@kernel.org>
+ <20241016122424.1655560-8-rppt@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20241016122424.1655560-6-rppt@kernel.org>
+In-Reply-To: <20241016122424.1655560-8-rppt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241019_153250_880142_3BBDD541 
-X-CRM114-Status: GOOD (  13.06  )
+X-CRM114-CacheID: sfid-20241019_154615_078266_274ED7FC 
+X-CRM114-Status: GOOD (  17.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,16 +114,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 16, 2024 at 03:24:21PM +0300, Mike Rapoport wrote:
+On Wed, Oct 16, 2024 at 03:24:23PM +0300, Mike Rapoport wrote:
 > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 > 
-> Add an API that will allow updates of the direct/linear map for a set of
-> physically contiguous pages.
+> Using large pages to map text areas reduces iTLB pressure and improves
+> performance.
 > 
-> It will be used in the following patches.
+> Extend execmem_alloc() with an ability to use huge pages with ROX
+> permissions as a cache for smaller allocations.
+> 
+> To populate the cache, a writable large page is allocated from vmalloc with
+> VM_ALLOW_HUGE_VMAP, filled with invalid instructions and then remapped as
+> ROX.
+> 
+> The direct map alias of that large page is exculded from the direct map.
+> 
+> Portions of that large page are handed out to execmem_alloc() callers
+> without any changes to the permissions.
+> 
+> When the memory is freed with execmem_free() it is invalidated again so
+> that it won't contain stale instructions.
+> 
+> An architecture has to implement execmem_fill_trapping_insns() callback
+> and select ARCH_HAS_EXECMEM_ROX configuration option to be able to use
+> the ROX cache.
+> 
+> The cache is enabled on per-range basis when an architecture sets
+> EXECMEM_ROX_CACHE flag in definition of an execmem_range.
 > 
 > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> Reviewed-by: Christoph Hellwig <hch@lst.de>
 
 Reviewed-by: Luis Chamberlain <mcgrof@kernel.org>
 
