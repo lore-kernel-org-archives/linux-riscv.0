@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01B4CD3C921
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Oct 2024 16:27:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07690D3C920
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Oct 2024 16:28:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QxydxPlNwbrfTSrByYVu5JJhOyM5ME9Vh9kZ61LGiC4=; b=4IvKBJ95iwDxe2
-	6hBNHb9cpztkYIAQwOHNUypgNrmR2Morz0sXY59fpCEVaZJJpDSKnuSSTFER0SOb0CdFEXw+nScmR
-	UE08zhQFkFJt5oiylxQ9hpkT8G9F5Zr+koDyrA0jdnHkVhu7NxsY5vyDUN4EtCQw6uL3Tz4h2T3D5
-	r7bbvMUMWvTtH7hlHE7EgrBWovYQM8QMbv9CfNgX/oAsFCRtn8RCxgm3kx6+kyjVXWnXORh50rjv/
-	ha/qjhoJr7wGl3RFkSM7qypyrmeuJTprMV5yGieRQWoP02/yvwUojO79vWiSdlR+CstMtEWYkVbLb
-	R9s7dL0x94KVVIg7T2oQ==;
+	List-Owner; bh=ZL2mC5/Kp2yxdguzaGPKGZP9DN+DGi7JoM/XMn+GX/g=; b=3brXd7yha1LNXJ
+	OftHxgYlY8X5AcdzxSEn0XCLRW8u1yyPIS9mzZPtDzXVbW51QT1QBB4PUcEIvKcDWCVvf6UFGfKtJ
+	qLW9O/Scp1bWUW3ZiA4W036YKeYUNyJH+op4sy34Y8N42eDGypLNaKvhzTmQWULdwtiqoy8bxiA6O
+	0SqOq/nxYXTbh5UPMvQPps7ixNewqADl/F5XvdnizBe9kV7avFMyqgfhFxtbHnuqTZIn/gqLy8aJC
+	2TG6rNjDw4JozREpl+C/tSygjNkCM09cSgMEzF3aBpRapsls0Pf9KjRcn4r2ebkJCZqwSsmpZRGIw
+	cRiCrt2K0nNx3IKrOijg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2CIx-00000003bIb-1vSm;
-	Sat, 19 Oct 2024 16:27:51 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1t2CJJ-00000003bRv-3WQe;
+	Sat, 19 Oct 2024 16:28:13 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2CIu-00000003bHa-2CvQ
+	id 1t2CJH-00000003bR3-23Yr
 	for linux-riscv@lists.infradead.org;
-	Sat, 19 Oct 2024 16:27:49 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-20caea61132so25269725ad.2
-        for <linux-riscv@lists.infradead.org>; Sat, 19 Oct 2024 09:27:47 -0700 (PDT)
+	Sat, 19 Oct 2024 16:28:12 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-20c693b68f5so34269165ad.1
+        for <linux-riscv@lists.infradead.org>; Sat, 19 Oct 2024 09:28:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1729355267; x=1729960067; darn=lists.infradead.org;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1729355290; x=1729960090; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=PSdP3C8YdR1jmbqfSauKDLLYk+KUcp0Cb8mVBlRfeWA=;
-        b=J+wMEjw4doa44yZE/PCTOfxqCTWqWKe5y99P0KDmwthU4E3GPquec0zNVAQNfzraD9
-         1dzA0mJy/M5RjMInPDAf2h5FjJporX464ESIP9QCIxw8SWvh+rZ2Nf8ocJyRf/Dz/mnG
-         rEnlyjM/bZIhmd23ndZRJCdSj6mEImpXRqRmOuVvuGL3VXXUzdbJYfzGnDL3F2Ej5Pt9
-         RARs9OedgHTEyPhEPoMI+Ixfkg7x7m3jL4m/Ll2DYWuAvwzyGay0AbU/4Du4HADmOv8o
-         MUsqiexXKfnCI1oecF5eArTa5+VGn5s3oeUp9PPCHO7biHEt7qtH07PozoBUb+5OMqrc
-         lA4A==
+        bh=OsH0cNinQslXDyIRyfl/9O7pxc4UGpoe6shl8RLD0+8=;
+        b=SSHf3Fp6+rycBdcmXU11JO9mKn7ltPl4/zBzbYxkiTI3OyBIax+dIoeuo2cb2XwyRp
+         r6Cigz72w91rJyJL9zDYdxND2oBRy8gsN3Odwku90ab6nhhSCudEVzaZXmWvTSd0V2D2
+         o2zwllJTZF2rGaZglz3yZNuD/nVinB42IcKrKl2DYZGqcMhiEDFyu32L/TMxG9/eMNVR
+         T+UwzYSkCFvnaVbZexYLzeV/CB52LqetpTcOsilzpHjIVpLdHoE05HepzEAmGVWV6E+b
+         IQm7spVZkE+dKec439Na0kBxIzjvsJuQ1W4+Bk/YA7dCaq3DwQ07Zhe0diRetiGlM16i
+         LRfg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729355267; x=1729960067;
+        d=1e100.net; s=20230601; t=1729355290; x=1729960090;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=PSdP3C8YdR1jmbqfSauKDLLYk+KUcp0Cb8mVBlRfeWA=;
-        b=DCWIS7S7L53aEFegn9oHky9JxP72cY9A8xI1UWCtEaSICW8EO/eqe/+cou3zJCRZir
-         0+YBeZSgoSyBsasFCKfpaxsMnalxNGAJWTfN0dijyBXzS2Yl2GvQFA2MlM0cbIdACwuW
-         67hXHszi/h4+CLl0s9qV0P3gpV+K8uhYCAr462TGCzroQqqaL+ymhPgZ7M16lAG4U1RI
-         T6dE4hyuBDPMNn5tlxK+QOoDhK6y4fbHEByVdvHoXbJ5LTdbOjSIbtoMxUzf9U/C12kZ
-         YvxMSozD1yyn4+4zWEJjP1iM9Dlp1RqbjPKCjXNVQEHy3gEO7C6WJbOg2iAZu3zE+FFz
-         lBtA==
-X-Forwarded-Encrypted: i=1; AJvYcCUeqKP8G+5jcKpjvPGaNx+U/ZXi14R5orRoPooTT1KFBeCowTq1cUwvMIRkeWvdr1yesOcPbK5eE6Wbqw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwMoCyKnC9ZDdxyQzOlC8D3rmWC6Ly0xN+F1U3AfwJPprccaB0k
-	EmetJeotx+BQdiz/SdI9dBNzmGFKjup6JHDsxDHKi40yHmFKXaltkDnEROaMZVo=
-X-Google-Smtp-Source: AGHT+IFB/lgLKenWFczXSTZ1QqSP6gxMxesJeEKkKsnhxr1xTnsZpi3fsqyNQ8NSXbyKQ9CWcBpXjA==
-X-Received: by 2002:a17:902:db04:b0:20c:9062:fb88 with SMTP id d9443c01a7336-20e5a70d863mr80409155ad.1.1729355267302;
-        Sat, 19 Oct 2024 09:27:47 -0700 (PDT)
+        bh=OsH0cNinQslXDyIRyfl/9O7pxc4UGpoe6shl8RLD0+8=;
+        b=jkcgtv9/eEva9RjWRKJWW2CGntnNuguG7kPgj5RmQhjgKBue3EQxvx42ojVXhR2YmG
+         rkCHCxwCodoaQZyWPyuwz30Gu3lZnxil8NmTbkCp7YrLhjCIrwYV8vKGPMt1IUOdMTle
+         KK63CoH+YBzNWO2kwczzTXiQijzvk8A1Kyoxa+pzuwUv3InCIDuZbxSGV7NRrtfCmnbA
+         mG8bxkJxv5pqYyYaNG6Xmi/HMVyPbQJvXwdsoEoxIDMZR+PwusW6Hy5Z5dcS2fVYoSpH
+         hMbk+XS22yt5TRPySXNXVPoLvjuPntZeSh5QDIVYM3xESUZT7G/ydNY/s0TPR13dNMU+
+         u0uw==
+X-Forwarded-Encrypted: i=1; AJvYcCVN7Sl9yiuOki/oadOTD83S7todxFqLgIxWesw20y0vQkoHpuY/uLydvONhrpL9so7x0qsGrNCL3PLBTA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwyrAt8Z1nmgYfRuLPLUm4EohujhsnnTYKWXk8tiG14VzLx8+JR
+	nrAgztuHLUgjcwUIFzdoh95R/IDSqxGwW78Kvnf6msqjHfmYo0yJKJ+STAtaokc=
+X-Google-Smtp-Source: AGHT+IGYR5eUJwXGMxy7HdyPRDQKE3DHw/4XPlT1k5OHVZitlhHw/yWOFKmVSy270AIpQ0J0HATvDg==
+X-Received: by 2002:a17:902:e892:b0:20b:bac2:88f3 with SMTP id d9443c01a7336-20e5a93ab46mr65799075ad.53.1729355290154;
+        Sat, 19 Oct 2024 09:28:10 -0700 (PDT)
 Received: from localhost.localdomain ([2a11:3:200::30df])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-20e5a8de4bdsm29567625ad.180.2024.10.19.09.27.30
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-20e5a8de4bdsm29567625ad.180.2024.10.19.09.27.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 19 Oct 2024 09:27:46 -0700 (PDT)
+        Sat, 19 Oct 2024 09:28:09 -0700 (PDT)
 From: Guodong Xu <guodong@riscstar.com>
 To: Conor Dooley <conor@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -88,17 +88,16 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Guodong Xu <guodong@riscstar.com>
-Subject: [PATCH v4 2/3] dt-bindings: riscv: starfive: add deepcomputing,fml13v01
-Date: Sun, 20 Oct 2024 00:26:04 +0800
-Message-Id: <20241019162605.308475-3-guodong@riscstar.com>
+Subject: [PATCH v4 3/3] riscv: dts: starfive: add DeepComputing FML13V01 board device tree
+Date: Sun, 20 Oct 2024 00:26:05 +0800
+Message-Id: <20241019162605.308475-4-guodong@riscstar.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241019162605.308475-1-guodong@riscstar.com>
 References: <20241019162605.308475-1-guodong@riscstar.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241019_092748_595196_935142CB 
-X-CRM114-Status: UNSURE (   9.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241019_092811_560210_5D199FCC 
+X-CRM114-Status: GOOD (  14.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,41 +116,107 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Sandie Cao <sandie.cao@deepcomputing.io>
 
-From: Sandie Cao <sandie.cao@deepcomputing.io>
+The FML13V01 board from DeepComputing incorporates a StarFive JH7110 SoC.
+It is a mainboard designed for the Framework Laptop 13 Chassis, which has
+(Framework) SKU FRANHQ0001.
 
-Add "deepcomputing,fml13v01" as a StarFive SoC-based board.
+The FML13V01 board features:
+- StarFive JH7110 SoC
+- LPDDR4 8GB
+- eMMC 32GB or 128GB
+- QSPI Flash
+- MicroSD Slot
+- PCIe-based Wi-Fi
+- 4 USB-C Ports
+ - Port 1: PD 3.0 (60W Max), USB 3.2 Gen 1, DP 1.4 (4K@30Hz/2.5K@60Hz)
+ - Port 2: PD 3.0 (60W Max), USB 3.2 Gen 1
+ - Port 3 & 4: USB 3.2 Gen 1
 
-The DeepComputing FML13V01 board incorporates a StarFive JH7110 SoC, and
-it's designed for the Framework Laptop 13 Chassis, which has (Framework)
-SKU FRANHQ0001.
+Create the DTS file for the DeepComputing FML13V01 board. Seven device
+nodes have been verified functional and remain enabled: i2c2, i2c5, i2c6
+qspi, mmc0, mmc1 and usb0.  All others remain disabled, or are disabled
+by nodes in "jh7110-deepcomputing-fml13v01.dts".
 
 Signed-off-by: Sandie Cao <sandie.cao@deepcomputing.io>
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
-[elder@riscstar.com: considerably shortened the description]
+[elder@riscstar.com: revised the description, updated some nodes]
 Signed-off-by: Alex Elder <elder@riscstar.com>
 Signed-off-by: Guodong Xu <guodong@riscstar.com>
 ---
-v4: Added Rob's Ack
-    Updated description
-    Changed board name from fm7110 to fml13v01
-v3: No change
-v2: Add deepcomputing,fm7110 into model compatible list
+v4: Changed model string to "DeepComputing FML13V01"
+    Changed dts filename and Makefile accordingly to reflect the change
+    Updated device nodes status, and verified functional
+    Revised the commit message
+v3: Updated the commit message
+v2: Changed the model and copmatible strings
+    Updated the commit message with board features
 
- Documentation/devicetree/bindings/riscv/starfive.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ arch/riscv/boot/dts/starfive/Makefile         |  1 +
+ .../jh7110-deepcomputing-fml13v01.dts         | 44 +++++++++++++++++++
+ 2 files changed, 45 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/starfive/jh7110-deepcomputing-fml13v01.dts
 
-diff --git a/Documentation/devicetree/bindings/riscv/starfive.yaml b/Documentation/devicetree/bindings/riscv/starfive.yaml
-index 4d5c857b3cac..7ef85174353d 100644
---- a/Documentation/devicetree/bindings/riscv/starfive.yaml
-+++ b/Documentation/devicetree/bindings/riscv/starfive.yaml
-@@ -26,6 +26,7 @@ properties:
+diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/starfive/Makefile
+index 7a163a7d6ba3..b3bb12f78e7d 100644
+--- a/arch/riscv/boot/dts/starfive/Makefile
++++ b/arch/riscv/boot/dts/starfive/Makefile
+@@ -8,6 +8,7 @@ DTC_FLAGS_jh7110-starfive-visionfive-2-v1.3b := -@
+ dtb-$(CONFIG_ARCH_STARFIVE) += jh7100-beaglev-starlight.dtb
+ dtb-$(CONFIG_ARCH_STARFIVE) += jh7100-starfive-visionfive-v1.dtb
  
-       - items:
-           - enum:
-+              - deepcomputing,fml13v01
-               - milkv,mars
-               - pine64,star64
-               - starfive,visionfive-2-v1.2a
++dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-deepcomputing-fml13v01.dtb
+ dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-milkv-mars.dtb
+ dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-pine64-star64.dtb
+ dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.2a.dtb
+diff --git a/arch/riscv/boot/dts/starfive/jh7110-deepcomputing-fml13v01.dts b/arch/riscv/boot/dts/starfive/jh7110-deepcomputing-fml13v01.dts
+new file mode 100644
+index 000000000000..b515b7d04c37
+--- /dev/null
++++ b/arch/riscv/boot/dts/starfive/jh7110-deepcomputing-fml13v01.dts
+@@ -0,0 +1,44 @@
++// SPDX-License-Identifier: GPL-2.0 OR MIT
++/*
++ * Copyright (C) 2024 DeepComputing (HK) Limited
++ */
++
++/dts-v1/;
++#include "jh7110-common.dtsi"
++
++/ {
++	model = "DeepComputing FML13V01";
++	compatible = "deepcomputing,fml13v01", "starfive,jh7110";
++};
++
++&camss {
++	status = "disabled";
++};
++
++&csi2rx {
++	status = "disabled";
++};
++
++&gmac0 {
++	status = "disabled";
++};
++
++&i2c0 {
++	status = "disabled";
++};
++
++&pwm {
++	status = "disabled";
++};
++
++&pwmdac {
++	status = "disabled";
++};
++
++&spi0 {
++	status = "disabled";
++};
++
++&usb0 {
++	dr_mode = "host";
++};
 -- 
 2.34.1
 
