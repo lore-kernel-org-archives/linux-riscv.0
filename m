@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22C1FD3C92D
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Oct 2024 22:19:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44950D3C92E
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Oct 2024 22:21:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qQxuPvy12Jdz7amTdhFRXcYcfbe3VRVVxf6U8H6Jx3g=; b=Wvg3ZH6GzBMgfs
-	DStedgeEOUGGI5Y8tECIt/1A7Kqd5AD7sqXGry8VseeX/sC2QSXxiaIXYOCfpmCIDLmJrOHm6L0hw
-	CNSTxfqbSuCo0QprDtGjxhc3z3pH7YYdU4d8XPY5D3iN/M6ts6DmxcNJUHa4HmP5zMSPHK6XSsPr3
-	dx8JAxqnUbia42703W3j8NIbSYx6BBw+E8qWB98Kk9LOB/a6B5A3sv5lOKz/3zy4kNxO9s+l7WWmF
-	rmuB/z1aUe5Jh/8IhO93XILgoOB62RJ+ybWf37uzzCJdqcJZgZAFRVRHz5a3JgERsVeFN0wVGBAC3
-	anyyo/i6YR85aE5UqSDg==;
+	List-Owner; bh=r/Bk8Q2+Al3P8+KxGF/gOQUOXV7HZ9OKT//led6cC2s=; b=OtaJt6gRDnnQfM
+	nGJeyXL5drZv7WJTeJaDZhhzO8oRyjgjJk1wr2ptn/tQ95snr+7xhE4Fpbd7/ixK9VVF3PEwIa4iD
+	5Hxiq5sGn2chAQwPunFcAOeUI1z1bx8yIg4oflI0tkJL4SHuJRaJz/07HJezo6OdfXkU6cdOirEo3
+	qDiEYKY/nWthpB7gMx3d0+M5XWE4UxLXvX4El3kiDllGiTOESqmapmJSQbMkAUcP5l3WihFkxgg3E
+	swdGZxrSpPw1B2P2drn0MZ2pJJQJZ3YDxJy4EdtNrRW69PV2jl/RhFVN9X05mREXlqudOJbv+ZJ6R
+	ombr4SvB6+NkGm+V9BeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2HnI-00000003zuh-3P3C;
-	Sat, 19 Oct 2024 22:19:32 +0000
+	id 1t2Hop-000000040Do-1jZy;
+	Sat, 19 Oct 2024 22:21:07 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2HnG-00000003ztE-1kip;
-	Sat, 19 Oct 2024 22:19:31 +0000
+	id 1t2Hom-000000040C3-0iW8;
+	Sat, 19 Oct 2024 22:21:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B22E35C5419;
-	Sat, 19 Oct 2024 22:19:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B925C4CEC5;
-	Sat, 19 Oct 2024 22:19:26 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id F41A65C541C;
+	Sat, 19 Oct 2024 22:20:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C8C7C4CEC5;
+	Sat, 19 Oct 2024 22:21:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729376368;
-	bh=daUc5xecu7xI5c+UkC320lN7WO6Pv9zdDCfjUjy8L1U=;
+	s=k20201202; t=1729376463;
+	bh=5gQmz1RIfovnudLGPoWTTrhu31GiNk6o17nNTgx35kU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=vNM1wyZQW4Fo3UYmtYtZPgjiHgu/H4XI/+27SeHDRGuyHhrsjIEj389botXDz7xzU
-	 oRoliDromsIEdrwgMdf3d6+NrBy7bXYMTE2T/8I1/d4kB9gjHsLS/MIoIKs8EASeaT
-	 aBxIiobIWyjFiwv9/poZDmy2HqvjFhixH+91U8zwdcdRhqXgTkEFbn2iL08Ol1J7ou
-	 HP420DfIrrmCeqEBftQC/r/u9iEdCqnooHwASpRmuOZ6oVBWARW5PE0Gis4BiiIMsJ
-	 95hjSW/bv4/gU/7p/7MsytMe7tkh0nWplVzjhpV678uD6QoJdFyqaGyiUG8CRghoje
-	 30qArBjHZQnlg==
-Date: Sat, 19 Oct 2024 15:19:25 -0700
+	b=d9THhAssNHC3TkkEIP32NhnxtjGCvkrF8IMK7gfPE5R73nlCYNjpfi7UU/mvrzeyk
+	 GvKGSqwp9shJLliIAKLLtja9DuBkQWG41Cw78nVYptDdzjOkl5S/+ZSbL0Y5Qrfcp3
+	 W83fHGgimj3quObRBksH/QbuKViyT7Wt1OnrHbP2p+yA26C8rFrD3HPgtYKX1j+BmS
+	 WCIL91KqYeCu/6mSc7J/+nGvIGlsG5mBPltfJujjx4oyzw3GBHjVE21Kxk+4M79bKm
+	 MFk4YVLCYLYdXNDHKLddhtWdWe08pTL2h0q7BLwFmfcTBDoJzrjAafMJK9hPJYq33V
+	 1krzp7/nDUHgw==
+Date: Sat, 19 Oct 2024 15:21:00 -0700
 From: Luis Chamberlain <mcgrof@kernel.org>
 To: Mike Rapoport <rppt@kernel.org>
 Cc: Andrew Morton <akpm@linux-foundation.org>,
@@ -89,17 +89,16 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
 	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
 	sparclinux@vger.kernel.org, x86@kernel.org,
 	Christoph Hellwig <hch@lst.de>
-Subject: Re: [PATCH v6 2/8] mm: vmalloc: don't account for number of nodes
- for HUGE_VMAP allocations
-Message-ID: <ZxQwbXh5v7eJmuyh@bombadil.infradead.org>
+Subject: Re: [PATCH v6 3/8] asm-generic: introduce text-patching.h
+Message-ID: <ZxQwzGlyJOC2-DcG@bombadil.infradead.org>
 References: <20241016122424.1655560-1-rppt@kernel.org>
- <20241016122424.1655560-3-rppt@kernel.org>
+ <20241016122424.1655560-4-rppt@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20241016122424.1655560-3-rppt@kernel.org>
+In-Reply-To: <20241016122424.1655560-4-rppt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241019_151930_582123_E31B640E 
-X-CRM114-Status: GOOD (  14.41  )
+X-CRM114-CacheID: sfid-20241019_152104_341467_19123F4E 
+X-CRM114-Status: GOOD (  12.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,23 +115,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 16, 2024 at 03:24:18PM +0300, Mike Rapoport wrote:
+On Wed, Oct 16, 2024 at 03:24:19PM +0300, Mike Rapoport wrote:
 > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 > 
-> vmalloc allocations with VM_ALLOW_HUGE_VMAP that do not explicitly
-> specify node ID will use huge pages only if size_per_node is larger than
-> a huge page.
-> Still the actual allocated memory is not distributed between nodes and
-> there is no advantage in such approach.
-> On the contrary, BPF allocates SZ_2M * num_possible_nodes() for each
-> new bpf_prog_pack, while it could do with a single huge page per pack.
+> Several architectures support text patching, but they name the header
+> files that declare patching functions differently.
 > 
-> Don't account for number of nodes for VM_ALLOW_HUGE_VMAP with
-> NUMA_NO_NODE and use huge pages whenever the requested allocation size
-> is larger than a huge page.
+> Make all such headers consistently named text-patching.h and add an empty
+> header in asm-generic for architectures that do not support text patching.
 > 
 > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 > Reviewed-by: Christoph Hellwig <hch@lst.de>
+> Acked-by: Geert Uytterhoeven <geert@linux-m68k.org> # m68k
+> Acked-by: Arnd Bergmann <arnd@arndb.de>
 
 Reviewed-by: Luis Chamberlain <mcgrof@kernel.org>
 
