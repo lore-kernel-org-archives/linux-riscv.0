@@ -4,44 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F80AD3C92D
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Oct 2024 22:46:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C39D2D3C92E
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Oct 2024 22:52:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LDi19KaexzhNJ6ciwlRFdGMAuM35lE+HLuT/Gmv9HyE=; b=x/fOa6ny931HyC
-	urapeftHExDoPlE2mdCo1AqMQqk1SR7mmBUHwgRcumAGj87H/W8pZpciMex4q4X2BLoDn8PER1P3/
-	+2tGWhswKFmfSb2CSOaPwqHDA/+XHpttCCcZ8yrbLkv78ciOhrW0WEoHGIFqSytymwQoHyeWe6aYR
-	cAhXuVajlMSp45ZFUo7LjmFo222/W1g4X1KlmmD2ganCdefOotapIX8uxFOOhh78jZHqCcxu47bGT
-	7588EeeFKTvexMsZPSL7dVSk2wCdPOacJ/SRqtMKMAJP+4NAs8S7EpNhdHG0I43Ml8SBTJm8go6D3
-	HvyfmqbXaBpd9VtvS99Q==;
+	List-Owner; bh=QiClG2czlARFh5td0u++muzlU5nQ6omy+962YS0jrVU=; b=fAcuOVkgqEjQC/
+	4iNrqldLUcYLu3M3z3yJTWUhFd3xk2YmiXri2iMf1cNavootJDNPd5t6AaYFId4zBzriTzCBU32rS
+	2BsAKPM9yyJzGUCyU7nWFCK3vPB0mCJU5Yu+BNfZM5CIQVIFADFUpN55WRkoSHqKLN470xFidmBUD
+	bjI6X0FHrKInkwns1SgiovNx4NVcDrKr8ZTQDs1WKFQUJDFgW/Uq5ACMhWC9g/O1SMoKAPru6RrAd
+	UHyNJ7CnEb6jpSvjpDtY0Cphoz5IfSnC4FJDRn+D0Z306dE2FAbcZj0KZeM7361/gyR+uO8xqlnq+
+	46nq/Mud/OZgyHXuuUMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2IDZ-000000042Ww-2CYS;
-	Sat, 19 Oct 2024 22:46:41 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t2IIg-000000043IC-0vkE;
+	Sat, 19 Oct 2024 22:51:58 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2IDV-000000042Tb-29J8;
-	Sat, 19 Oct 2024 22:46:38 +0000
+	id 1t2IIe-000000043HA-3Nr1;
+	Sat, 19 Oct 2024 22:51:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=7zUTFOALmvJecWb9wB6YiXPzPNuTlzsgzqq4AD+I6Bk=; b=Zs7HVgr75quueuGjRc4nNKtmO2
+	PMvYeEylscL8oHTKxFrHLXoFgTXro9jh4CFsWa2tYPf4Pb1DWlGt/8n3EEoJC8NJDt4vssaj4NG4E
+	5uA4EZrVYTndKnsdA+LPmUVYEBKBT893zZxojkcQy0kdfwmAh1WC47hsx3xjXpBx5ed1LlRVsZeUI
+	SzYXcFmbdfGV0TDiF9J8KS/F757N0aHrzZnJIrFIKvs16p8xM5D4ET2be+GhJaRon0tGcaJcRpm2C
+	2GClzYkbAMth7jIx0wyrQqiXGgUQa7Dofc/LlIp7yonhkr83QkraPsgjrafEJTR8lqafweGPchG2G
+	qFbJkOKA==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t2IIa-00000007bbK-3NkU;
+	Sat, 19 Oct 2024 22:51:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 33F055C4818;
-	Sat, 19 Oct 2024 22:46:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D541DC4CEC5;
-	Sat, 19 Oct 2024 22:46:34 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id D5BAF5C1627;
+	Sat, 19 Oct 2024 22:51:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A509C4CEC5;
+	Sat, 19 Oct 2024 22:51:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729377996;
-	bh=dleiBE3DRHjc0T5DFKoso12VqwoykDzNi68HaltnD+Q=;
+	s=k20201202; t=1729378307;
+	bh=iaKyJYsgDj5oq6LrolQ8TT/cIGmsXYFI9lXbWUpr55Y=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=E/HcNmd7ed6EfnQjDeLvwQq16g+Vsiv91/gyx/y3TItNr4YkOF+9xlSWM0ng70Enb
-	 EfQ6W4qibdSpAat3tAcZGmRc2fYXuiLLcBLOJtlO4aLao4cugNUMhYe3/mMMvmvtmy
-	 krht2xWJJkTziTYXrwNtx86c1tpAc1wx4O+74a08EUURK7gKF4cC83WTcGcLjOwACN
-	 n9SpaJ43uCBmVLtR63Yq/0dZR6w3adjYhhvHR3c4gz6MmpunQYU1/SMh4aCN+n+wuE
-	 IRlpcRBMlqjvJmJuEblyO3hK3/FE9x/BIX1JtKqvt7PVEBtM1ZKA1cHBB7OuMGy6AB
-	 uYsHEV9N9bs9Q==
-Date: Sat, 19 Oct 2024 15:46:33 -0700
+	b=PWWcwFHRKAv10UFeMWidR+oArwiG2+r721GO7uSmTpQx0pOBJf1X5cPUKD4gQg0+v
+	 evgCS5YusRtKfCXFwytoJRX7ZRENJRAMHCt8HvG03nMPWzjaJDvjdrgLKvwNx81i5w
+	 NIzDOiB7M0V+Ul7Gwqxo7hFP4wjCIx8CdeY/s0mZyLShSAGZB3TOEh3ca9PA+vMo3W
+	 q8+DRfeiSbEMT2pfBoZx2+ts1c/ZoMbSDOpbvF1L4SRM4K2S0rC8EknH09OaDU5jzH
+	 5NBzulTpDRDsAwrp/w7GYCrOs4CtagANrNUd5w9SX4IoQrxyUxMdI/Mnop054oa6hH
+	 EFlkfWan9WOpw==
+Date: Sat, 19 Oct 2024 15:51:43 -0700
 From: Luis Chamberlain <mcgrof@kernel.org>
 To: Mike Rapoport <rppt@kernel.org>
 Cc: Andrew Morton <akpm@linux-foundation.org>,
@@ -88,18 +102,16 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
 	linux-trace-kernel@vger.kernel.org, linux-um@lists.infradead.org,
 	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
 	sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v6 8/8] x86/module: enable ROX caches for module text on
- 64 bit
-Message-ID: <ZxQ2yddv8blWOFDY@bombadil.infradead.org>
+Subject: Re: [PATCH v6 0/8] x86/module: use large ROX pages for text
+ allocations
+Message-ID: <ZxQ3_8xNPYsQA5GH@bombadil.infradead.org>
 References: <20241016122424.1655560-1-rppt@kernel.org>
- <20241016122424.1655560-9-rppt@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20241016122424.1655560-9-rppt@kernel.org>
+In-Reply-To: <20241016122424.1655560-1-rppt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241019_154637_635444_47C3F182 
-X-CRM114-Status: UNSURE (   9.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241019_235153_268877_C99B02A0 
+X-CRM114-Status: GOOD (  12.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,15 +128,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 16, 2024 at 03:24:24PM +0300, Mike Rapoport wrote:
+On Wed, Oct 16, 2024 at 03:24:16PM +0300, Mike Rapoport wrote:
 > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 > 
-> Enable execmem's cache of PMD_SIZE'ed pages mapped as ROX for module
-> text allocations on 64 bit.
+> Hi,
 > 
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> This is an updated version of execmem ROX caches.
+> 
+> Andrew, Luis, there is a conflict with Suren's "page allocation tag
+> compression" patches:
+> 
+> https://lore.kernel.org/all/20241014203646.1952505-1-surenb@google.com
+> 
+> Probably taking this via mmotm would be more convenient.
 
-Reviewed-by: Luis Chamberlain <mcgrof@kernel.org>
+Yeah, it's already there on Andrew's tree, fine with me to go through there.
+
+The linux modules KPD [0] has picked this up from the mailing list and
+tested with kdevops, and this series passes our modules test now [1], and so:
+
+Tested-by: kdevops <kdevops@lists.linux.dev> [1]
+
+Link https://github.com/linux-kdevops/linux-modules-kpd/actions/runs/11420097546 # [0]
 
   Luis
 
