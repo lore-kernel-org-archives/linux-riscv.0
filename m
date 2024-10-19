@@ -4,103 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C09B3D3C90B
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Oct 2024 12:11:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5551D3C91F
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Oct 2024 16:24:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ONlf6f7rqO5OYB3mjceO7WOWpvPj+aLitqnL50PGDEA=; b=g2XTnGCPBRmtiJ
-	9N4LFK3W+3jnN2TmUFsg942WccqX6OqNk5n/1FQIfkxUpXYo9syTJGGNEHAHnN6zU4Le4uxc2Afyu
-	yEN0K9cHXRChaYC9TrCdLk+w6yioYmJ7IdWIMBAlrv3I94laE/rf2kxxx0meEFkTGfgYkmDDOiG+S
-	hx5+adjZej/GFGbrJaaz6uAJDsJSz+hUnbhrI7cFTqPonxhjtd9xNMlKhNlJqkZx3eGXWo/of8NTy
-	40JTpInqBoUfyPRzXd79s95NnOWBxuojXBfxg4LkP7MuKOCVd+zcXVcwfJs99k7+uAbA1HZEGnhAw
-	iHbPn14Liz+8t4y8upzw==;
+	List-Owner; bh=Q/vSWpUej9WT/KDDi/AaFwkSb6cEAkegfJXvb+gNFb4=; b=2Xa1qQ6SIQuTZ5
+	4dwYx235PTFzcL0xPOK7LdKZ04Csk4D4r1mDuvcPaMjwr3JQzQXrRjzTz+ToKV+POLSyXZBqQjkW8
+	or+qvAdUlhKBPs7aQZ1k29f2HEsQ65w80oU7j5X11L5iJcINR70zjti11Pa7aXO8o273Ymhkqyof+
+	/8CdEi1LUHS4XkELvU0k5DKDdkYGzDu0h+3KfQch5M6DytVAGG2nlHRbofANwyeekYz2THGsJIv5g
+	Xf82Dcm8RJpm2vIerJZGhneOJ/yrlx2TVkGoxX3NyOD763VFS7mDS46MxIt7lRw94FGqeUaw8QFTA
+	190rV2XSbNLVoAFTOTFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t28IV-00000003GVo-3kYg;
-	Sat, 19 Oct 2024 12:11:07 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t2CFx-00000003alh-3RYp;
+	Sat, 19 Oct 2024 16:24:45 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t28IS-00000003GTy-161G;
-	Sat, 19 Oct 2024 12:11:05 +0000
+	id 1t2CET-00000003afg-3Nfh;
+	Sat, 19 Oct 2024 16:23:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EE9435C5C74;
-	Sat, 19 Oct 2024 12:10:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C444C4CEC5;
-	Sat, 19 Oct 2024 12:10:42 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 19D2DA40B29;
+	Sat, 19 Oct 2024 16:23:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2A9FC4CEC5;
+	Sat, 19 Oct 2024 16:23:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729339862;
-	bh=FSuVpxp8ZC8+I9iOSenx9AlHNi52QSz7zz+w4xwBZFU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ji+u5mIf1nBg2Nj6gLisAF5MRqi/wx3vBw5aJxxyqXCZq6i3mNEIjudfG3JajAqFI
-	 WJRVPOIUQSQMsfw+JO35XVRk0koV9Zi9I3YAvvjqBLsmrQOq5ay1ac5pdb0lvGGzR1
-	 j08uXL+V5r/xzvXwZInMDzkCPiTd8EFrbVzmdTCt/13Ip6ENRmE+El1EXUc14T5/hg
-	 fuuSACJI10Sa/jG2tlc11AxV3tkbudw+OnnTaatlKtiS8TlF8dKP0jJBWpV4zxhOjz
-	 kxntgxyzd/tCBOSTcO89LQ6Xv/hweCp+LHVMbTjkYPRC9v5XPDgpwR4Gn2FpyhtFiC
-	 QsF+azFAwnoMg==
-Date: Sat, 19 Oct 2024 15:07:00 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Andy Lutomirski <luto@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>,
-	Brian Cain <bcain@quicinc.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christoph Hellwig <hch@infradead.org>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Kent Overstreet <kent.overstreet@linux.dev>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Simek <monstr@monstr.eu>, Oleg Nesterov <oleg@redhat.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
-	Stafford Horne <shorne@gmail.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linux-mm@kvack.org,
-	linux-modules@vger.kernel.org, linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org, linux-um@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v6 6/8] x86/module: prepare module loading for ROX
- allocations of text
-Message-ID: <ZxOg5MEXzH4qPq-s@kernel.org>
-References: <20241016122424.1655560-1-rppt@kernel.org>
- <20241016122424.1655560-7-rppt@kernel.org>
- <20241016170128.7afeb8b0@gandalf.local.home>
- <20241017101712.5a052712@gandalf.local.home>
+	s=k20201202; t=1729354991;
+	bh=mcuO5wxNXqpn40QCC+5ATBwUwZ6THwiREuzChC5wZhg=;
+	h=From:To:In-Reply-To:References:Subject:Date:From;
+	b=ONVh/KVYXZcbyCX/rGFoDGAHAX3cUfatQe9BIzEkW+srF3i+8XT6QIvCdSwdNzqEz
+	 MbZOTgy4C072BCeXEi4Wfu/m8yZtoGKyDfdOnvm3H0LaTuAybHagzmeMZ+CFRU7JWY
+	 pEqPPi0nN/lCLuWzZPfl+xIb3U/Q60wlGIE1V266vBIgYCRvgfpuUOJMg7JNhhz87H
+	 DNTdS/m4JXnQyl33iR2w8kR/VZrXqzJa2/6J6rVSZksA0cUPjQEwclbMwzU2gCLFuA
+	 cBgXefQujb3z7+czO9JNqnzMR7vkM1ETIMHbDb45LRDR1axbTB9bHrWm648TMQh1gX
+	 OVzrGzTyPOqyg==
+From: Namhyung Kim <namhyung@kernel.org>
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, 
+ Kan Liang <kan.liang@linux.intel.com>, John Garry <john.g.garry@oracle.com>, 
+ Will Deacon <will@kernel.org>, James Clark <james.clark@linaro.org>, 
+ Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>, 
+ Guo Ren <guoren@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Nick Terrell <terrelln@fb.com>, 
+ "Masami Hiramatsu (Google)" <mhiramat@kernel.org>, 
+ Changbin Du <changbin.du@huawei.com>, Guilherme Amadio <amadio@gentoo.org>, 
+ Yang Jihong <yangjihong@bytedance.com>, 
+ Aditya Gupta <adityag@linux.ibm.com>, 
+ Athira Rajeev <atrajeev@linux.vnet.ibm.com>, 
+ Masahiro Yamada <masahiroy@kernel.org>, Bibo Mao <maobibo@loongson.cn>, 
+ Huacai Chen <chenhuacai@kernel.org>, Kajol Jain <kjain@linux.ibm.com>, 
+ Atish Patra <atishp@rivosinc.com>, 
+ Shenlin Liang <liangshenlin@eswincomputing.com>, 
+ Anup Patel <anup@brainfault.org>, Oliver Upton <oliver.upton@linux.dev>, 
+ "Steinar H. Gunderson" <sesse@google.com>, 
+ "Dr. David Alan Gilbert" <linux@treblig.org>, 
+ Chen Pei <cp0613@linux.alibaba.com>, Dima Kogan <dima@secretsauce.net>, 
+ Przemek Kitszel <przemyslaw.kitszel@intel.com>, 
+ "David S. Miller" <davem@davemloft.net>, 
+ Alexander Lobakin <aleksander.lobakin@intel.com>, 
+ linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, Ian Rogers <irogers@google.com>
+In-Reply-To: <20241017001354.56973-1-irogers@google.com>
+References: <20241017001354.56973-1-irogers@google.com>
+Subject: Re: [PATCH v3 00/11] Libdw/dwarf build clean up
+Message-Id: <172935499069.2388898.6689149497765145884.b4-ty@kernel.org>
+Date: Sat, 19 Oct 2024 09:23:10 -0700
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241017101712.5a052712@gandalf.local.home>
+X-Mailer: b4 0.15-dev-c04d2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241019_051104_453862_3D06B46D 
-X-CRM114-Status: GOOD (  26.65  )
+X-CRM114-CacheID: sfid-20241019_092313_945061_292EB760 
+X-CRM114-Status: GOOD (  10.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,99 +98,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 17, 2024 at 10:17:12AM -0400, Steven Rostedt wrote:
-> On Wed, 16 Oct 2024 17:01:28 -0400
-> Steven Rostedt <rostedt@goodmis.org> wrote:
-> 
-> > If this is only needed for module load, can we at least still use the
-> > text_poke_early() at boot up?
-> > 
-> >  	if (ftrace_poke_late) {
-> >  		text_poke_queue((void *)ip, new_code, MCOUNT_INSN_SIZE, NULL);
-> > 	} else if (system_state == SYSTEM_BOOTING) {
-> > 		text_poke_early((void *)ip, new_code, MCOUNT_INSN_SIZE);
-> >  	} else {
-> >  		mutex_lock(&text_mutex);
-> >  		text_poke((void *)ip, new_code, MCOUNT_INSN_SIZE);
-> >  		mutex_unlock(&text_mutex);
-> >  	}
-> > 
-> > ?
-> > 
-> > The above if statement looks to slow things down just slightly, but only by
-> > 2ms, which is more reasonable.
-> 
-> I changed the above to this (yes it's a little hacky) and got my 2ms back!
-> 
-> -- Steve
-> 
-> DEFINE_STATIC_KEY_TRUE(ftrace_modify_boot);
-> 
-> static int __init ftrace_boot_init_done(void)
-> {
-> 	static_branch_disable(&ftrace_modify_boot);
-> 	return 0;
-> }
-> /* Ftrace updates happen before core init */
-> core_initcall(ftrace_boot_init_done);
+On Wed, 16 Oct 2024 17:13:43 -0700, Ian Rogers wrote:
 
-We can also pass mod to ftrace_modify_code_direct() and use that to
-distinguish early boot and ftrace_module_init.
-With this I get very similar numbers like with the static branch
+> These patches were originally on top of:
+> https://lore.kernel.org/lkml/20240924003720.617258-1-irogers@google.com/
+> where it was pointed out that a lot of the libdw conditional
+> compilation was due to features that have now been standard for 10 or
+> 15 years. The patches remove the conditional compilation assuming the
+> features are in libdw where the feature test is expanded to check
+> there pressence. The patch series is now on top of:
+> https://lore.kernel.org/lkml/20241016235622.52166-1-irogers@google.com/
+> 
+> [...]
 
-diff --git a/arch/x86/kernel/ftrace.c b/arch/x86/kernel/ftrace.c
-index 8da0e66ca22d..859902dd06fc 100644
---- a/arch/x86/kernel/ftrace.c
-+++ b/arch/x86/kernel/ftrace.c
-@@ -111,17 +111,22 @@ static int ftrace_verify_code(unsigned long ip, const char *old_code)
-  */
- static int __ref
- ftrace_modify_code_direct(unsigned long ip, const char *old_code,
--			  const char *new_code)
-+			  const char *new_code, struct module *mod)
- {
- 	int ret = ftrace_verify_code(ip, old_code);
- 	if (ret)
- 		return ret;
- 
- 	/* replace the text with the new text */
--	if (ftrace_poke_late)
-+	if (ftrace_poke_late) {
- 		text_poke_queue((void *)ip, new_code, MCOUNT_INSN_SIZE, NULL);
--	else
-+	} else if (!mod) {
- 		text_poke_early((void *)ip, new_code, MCOUNT_INSN_SIZE);
-+	} else {
-+		mutex_lock(&text_mutex);
-+		text_poke((void *)ip, new_code, MCOUNT_INSN_SIZE);
-+		mutex_unlock(&text_mutex);
-+	}
- 	return 0;
- }
- 
-@@ -142,7 +147,7 @@ int ftrace_make_nop(struct module *mod, struct dyn_ftrace *rec, unsigned long ad
- 	 * just modify the code directly.
- 	 */
- 	if (addr == MCOUNT_ADDR)
--		return ftrace_modify_code_direct(ip, old, new);
-+		return ftrace_modify_code_direct(ip, old, new, mod);
- 
- 	/*
- 	 * x86 overrides ftrace_replace_code -- this function will never be used
-@@ -161,7 +166,7 @@ int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr)
- 	new = ftrace_call_replace(ip, addr);
- 
- 	/* Should only be called when module is loaded */
--	return ftrace_modify_code_direct(rec->ip, old, new);
-+	return ftrace_modify_code_direct(rec->ip, old, new, NULL);
- }
- 
- /*
- 
+Applied to perf-tools-next, thanks!
 
--- 
-Sincerely yours,
-Mike.
+Best regards,
+Namhyung
+
 
 _______________________________________________
 linux-riscv mailing list
