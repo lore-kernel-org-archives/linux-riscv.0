@@ -4,97 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19B9FD3C926
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Oct 2024 17:37:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8E90D3C923
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Oct 2024 18:17:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PytAKHo4/6oJycw+qNkzNnSFTyMgQ2FoN8gDc+hirpI=; b=KXHRWD36sLa7lP
-	mheUHNIGLErYfyYBZtf58iQfYgAeVZl9IZLrgNdibUv4nYVxvoA1kyBAbB76NexRpJWEnr9UE+5V0
-	lxWpRKHaZnkw992pKkiG1um/ZS3xoN9GrM35AWGQOyzYd4u4EYjO84tmY4moRw4CjAgGE64jqvn1n
-	6/PhAkkt1y+47drfptiGFiCK1n5GPPqDX8HgerGdUrZSUOUSatDYp2qPM4GeVm9dUM5qC7BjvYFCk
-	Ii7VaZvxz7LRW2LWRLeliWOERVve4Ide4jP3r/L5YLVl6ut8JW+NmOicuOzvUTP2+Aa69NaYb4Uej
-	iVUk2BlatdfrJTiF70sQ==;
+	List-Owner; bh=GJttP7/vB3HvLSJSWlLhLHGFFl5YsJQ1AghFVJ6jZ30=; b=DY7SKD1Kqp/48V
+	1g7j43k8aRj0GvjBjiMoiidjeSAdENFCEMxDmTGkgb/L/9lFTSMWCJ9lgiFBefmK7TvkzI2E+SVAe
+	6+DqUoKL8bY+7RbGv2HLoGVkMNibjrs0q0UhU38MhTGbS352Vmj+ry8ApuG7nFeUf60eclGW9WSIn
+	/QGhUWPQmN/88cT2lZ3lgJZFj7dF1lDjbXTC37HLzr3XJNQe++Si57zsm1dkUAwrQYHIvAruivT7z
+	rTPWmdSVSL5r1wWKujBPieraQa9SffZ9xxYOEzzyU0qvbFlCtO+S+7OjS7Nu8CsuRz2Ol60qgN2ZU
+	lHa6OgAaT7zb6cmxqcjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2DNw-00000003hVA-0ikB;
-	Sat, 19 Oct 2024 17:37:04 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1t2E0X-00000003lKt-0oOg;
+	Sat, 19 Oct 2024 18:16:57 +0000
+Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2DGz-00000003gmA-1AGo;
-	Sat, 19 Oct 2024 17:29:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1729358993; x=1760894993;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=MFhNPISShuBCTSvLSqLqLUm7Mu6JuRwmhaAZNqzQcBY=;
-  b=UqmSGliuk8atN76rZY7eamrzVwKyo5CpOI5kcN3JNS2tx85RZ4Z2/8cl
-   W1d+mYQFzyxFLgECM5sDkaA0TdbRRSvQpaHoRIwP/w0cjDCb/GLstxqpH
-   5V30zbZnrk1ugN1nDwy/9o7OcP8tFxkbB6XG304S0zLgeNhb5wqZ0k0a3
-   7PUbLKNn8bSJH7f9ENYlygwpTn33B8FZUbT6g2ZaoV8F0KhbDlAImF+ff
-   eLv15wbegKgnaP9T89nwCIluiN61Lz04dQw6iyfe/QXnlT+/C9DbYdu3/
-   AI4CbeJ3zyZ7NzXzpfc4ZCa9UUkq1K6gmgk4JRNgkzMjRplTCXjqTU0TL
-   Q==;
-X-CSE-ConnectionGUID: RbaOeqdVSuyHZ4ktYT3vLw==
-X-CSE-MsgGUID: /8UBmaiFS4aE5UJu+sKMfQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11230"; a="16495182"
-X-IronPort-AV: E=Sophos;i="6.11,216,1725346800"; 
-   d="scan'208";a="16495182"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Oct 2024 10:29:51 -0700
-X-CSE-ConnectionGUID: bqOwgFENTIm0tJ3lJKJ5Hw==
-X-CSE-MsgGUID: VcT2kwryQNe84o/CsNutQw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,216,1725346800"; 
-   d="scan'208";a="79290935"
-Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by orviesa006.jf.intel.com with ESMTP; 19 Oct 2024 10:29:45 -0700
-Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1t2DGo-000PHe-0H;
-	Sat, 19 Oct 2024 17:29:42 +0000
-Date: Sun, 20 Oct 2024 01:28:59 +0800
-From: kernel test robot <lkp@intel.com>
-To: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, Albert Ou <aou@eecs.berkeley.edu>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Andrea Parri <parri.andrea@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Eric Chan <ericchancf@google.com>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Kai Huang <kai.huang@intel.com>,
-	Kefeng Wang <wangkefeng.wang@huawei.com>,
-	Kent Overstreet <kent.overstreet@linux.dev>,
-	Palmer Dabbelt <palmer@rivosinc.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Yuntao Wang <ytcoode@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Ashish Kalra <ashish.kalra@amd.com>,
-	"Maciej W. Rozycki" <macro@orcam.me.uk>
-Subject: Re: [PATCH 2/2] x86/mm: Make memremap(MEMREMAP_WB) map memory as
- encrypted by default
-Message-ID: <202410200112.Ut6HtXKD-lkp@intel.com>
-References: <20241017155642.1942514-3-kirill.shutemov@linux.intel.com>
+	id 1t2E0G-00000003lIA-3uZ9
+	for linux-riscv@lists.infradead.org;
+	Sat, 19 Oct 2024 18:16:42 +0000
+Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-2fb5014e2daso33345221fa.0
+        for <linux-riscv@lists.infradead.org>; Sat, 19 Oct 2024 11:16:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1729361799; x=1729966599; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fm4/TW/XP6VyjNkR7aVNVPKpRM/+37sn/T2jS9WV0ik=;
+        b=WxdOtCgRi30ByZASvE0ueirgM0fFH1iOKc4WgvZ/PIgqxhykW5HxpGsvmBzxsyKfPJ
+         VtyK5t/wGzn+rVWeyX4a7Z+wUsZlj0A4/eJlbS3v84XtKv7XRpQOMeijAscs6ul1TQWn
+         36/dDOI6hcE/UkOpAO7XpFuEew1oyur/48nu9hre3M3p+DKL9iGrn63MmWocutPYXP4z
+         uodGA4G00qQw7js9uSthJ/fE5XsO/LScZQCbkRc+SJf8U/T4/tAzk6bkk+S+casLYaD1
+         CLJ6YedFlg3pffrTNZUzVUCWnfpNRAB/Wl9dP3nzjXI3HeA3Q14gnmS0xVQM7UbyGtor
+         cOAw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729361799; x=1729966599;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=fm4/TW/XP6VyjNkR7aVNVPKpRM/+37sn/T2jS9WV0ik=;
+        b=J78H737yRIHzvEwdtJXC1hbwuBg84CBjPycr9RUESeGUYjOAR+8YTZXLK/89StrHKj
+         83i2vXsyBno1QUexoMyCShF0/Q3B/CMeCaU2GHaFsxKSTVhlztfM5RRL+9/sfaCCQSYp
+         aLS4U8vGB9kcId5KlaWB9p3fSctWxkqEhn6GR5Uz6+jdmrcSwJ1n+X1LCttFcpujOGnl
+         LIfNNEKMQ8MljxKSRi+TDMiW6DmOS0EZko2+8h8Ru6+c1gRaHJhV3Wb5MIcWrSwCLRlC
+         /SyWD89wUmWGsVwoGqiwxTcJ95rRaDYhFiY4kMChAZlN7jENB0oYkqwsJOp7Z/jz7FZ1
+         AjlA==
+X-Forwarded-Encrypted: i=1; AJvYcCVBy258X8Yr5NUFxGcT3POlZpSgR4kKiTOndl8s2h7cdGR/zPheK9tPlXT0p5zO3DBgyimI2HjeiCzVBA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxvQIxOeOndl3C+s22tEoqu0FFf6lQ48cpGi6aVzQdKpp7Dwprz
+	JjmKU5sfUMJl7rNjLSguA+tFs/ZbYOwsDCXxYbndbU3XfbupC8541sNNreKFXfeuTQ/iixXwLfo
+	UnPd9rkWeipKowDsOwx/8DxRPN23nJfUc0sjWHA==
+X-Google-Smtp-Source: AGHT+IGUIof/qmUxPJlydOgfWxZ3IUmvMmAPDvHqH5LTK6/M1DHw70PzZPpjH+qyF5nhY1Ls17fpniLDuexAWk7NRWk=
+X-Received: by 2002:a05:6512:1582:b0:52c:9e82:a971 with SMTP id
+ 2adb3069b0e04-53a15441e9bmr3361553e87.7.1729361798914; Sat, 19 Oct 2024
+ 11:16:38 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241017155642.1942514-3-kirill.shutemov@linux.intel.com>
+References: <20241016-02-k1-pinctrl-v5-0-03d395222e4f@gentoo.org>
+In-Reply-To: <20241016-02-k1-pinctrl-v5-0-03d395222e4f@gentoo.org>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Sat, 19 Oct 2024 20:16:28 +0200
+Message-ID: <CACRpkdYnaJsKKfcdhHeMGTTp86M+wNODzZx2e=OYbxQ4Jc4Rjw@mail.gmail.com>
+Subject: Re: [PATCH v5 0/3] riscv: spacemit: add pinctrl support to K1 SoC
+To: Yixun Lan <dlan@gentoo.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241019_102953_395772_7EE18A9A 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20241019_111640_995657_2388411C 
+X-CRM114-Status: GOOD (  13.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,59 +83,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Meng Zhang <kevin.z.m@hotmail.com>, linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Yangyu Chen <cyy@cyyself.name>, devicetree@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Jesse Taube <mr.bossman075@gmail.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Inochi Amaoto <inochiama@outlook.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org, Meng Zhang <zhangmeng.kevin@spacemit.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Kirill,
-
-kernel test robot noticed the following build warnings:
-
-[auto build test WARNING on tip/master]
-[also build test WARNING on tip/x86/mm linus/master tip/auto-latest tip/x86/core v6.12-rc3 next-20241018]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Kirill-A-Shutemov/memremap-Pass-down-MEMREMAP_-flags-to-arch_memremap_wb/20241018-001138
-base:   tip/master
-patch link:    https://lore.kernel.org/r/20241017155642.1942514-3-kirill.shutemov%40linux.intel.com
-patch subject: [PATCH 2/2] x86/mm: Make memremap(MEMREMAP_WB) map memory as encrypted by default
-config: i386-randconfig-061-20241019 (https://download.01.org/0day-ci/archive/20241020/202410200112.Ut6HtXKD-lkp@intel.com/config)
-compiler: gcc-12 (Debian 12.2.0-14) 12.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241020/202410200112.Ut6HtXKD-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202410200112.Ut6HtXKD-lkp@intel.com/
-
-sparse warnings: (new ones prefixed by >>)
->> arch/x86/mm/ioremap.c:509:37: sparse: sparse: incorrect type in return expression (different address spaces) @@     expected void * @@     got void [noderef] __iomem * @@
-   arch/x86/mm/ioremap.c:509:37: sparse:     expected void *
-   arch/x86/mm/ioremap.c:509:37: sparse:     got void [noderef] __iomem *
-   arch/x86/mm/ioremap.c:511:33: sparse: sparse: incorrect type in return expression (different address spaces) @@     expected void * @@     got void [noderef] __iomem * @@
-   arch/x86/mm/ioremap.c:511:33: sparse:     expected void *
-   arch/x86/mm/ioremap.c:511:33: sparse:     got void [noderef] __iomem *
-
-vim +509 arch/x86/mm/ioremap.c
-
-   505	
-   506	void *arch_memremap_wb(phys_addr_t phys_addr, size_t size, unsigned long flags)
-   507	{
-   508		if (flags & MEMREMAP_DEC)
- > 509			return ioremap_cache(phys_addr, size);
-   510	
-   511		return ioremap_encrypted(phys_addr, size);
-   512	}
-   513	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBPY3QgMTYsIDIwMjQgYXQgMzowMOKAr0FNIFlpeHVuIExhbiA8ZGxhbkBnZW50b28u
+b3JnPiB3cm90ZToKCj4gVGhpcyBzZXJpZXMgYWRkcyBwaW5jdHJsIHN1cHBvcnQgdG8gU3BhY2Vt
+aVQncyBLMSBTb0MsIHRoZSBjb250cm9sbGVyCj4gdXNlcyBhIHNpbmdsZSByZWdpc3RlciB0byBk
+ZXNjcmliZSBhbGwgcGluIGZ1bmN0aW9ucywgaW5jbHVkaW5nCj4gYmlhcyBwdWxsIHVwL2Rvd24s
+IGRyaXZlIHN0cmVuZ3RoLCBzY2htaXR0ZXIgdHJpZ2dlciwgc2xldyByYXRlLAo+IHN0cm9uZyBw
+dWxsLXVwLCBtdXggbW9kZS4gSW4gcGF0Y2ggIzMsIHdlIGFkZCB0aGUgcGluY3RybCBwcm9wZXJ0
+eSBvZgo+IHVhcnQgZGV2aWNlIGZvciB0aGUgQmFuYW5hcGktRjMgYm9hcmQuCj4KPiBZb3UgY2Fu
+IGZpbmQgdGhlIHBpbmN0cmwgZG9jcyBvZiBLMSBoZXJlWzFdLCBhbmQgdGhlIG9yaWdpbmFsIHZl
+bmRvcidzCj4gcGluY3RybCBkdHMgZGF0YSBoZXJlWzJdLgo+Cj4gTm90ZSwgd2UgcmV3cml0ZSB0
+aGlzIHNlcmllcyBhcyBhbiBpbmRlcGVuZGVudCBwaW5jdHJsIGRyaXZlciBmb3IgSzEgU29DLAo+
+IHdoaWNoIG1lYW5zIGl0IGRvZXMgbm90IHVzZSBwaW5jdHJsLXNpbmdsZSBkcml2ZXIgYXMgdGhl
+IG1vZGVsIGFueW1vcmUsCj4gc2VlIHRoZSBzdWdnZXN0aW9uIGZyb20gS3J6eXN6dG9mIGF0IFsz
+XS4KPgo+IExpbms6IGh0dHBzOi8vZGV2ZWxvcGVyLnNwYWNlbWl0LmNvbS9kb2N1bWVudGF0aW9u
+P3Rva2VuPUFuMXZ3VHdLYWlnYVhSa1lmd21jem5UWG5lZCBbMV0KPiBMaW5rOiBodHRwczovL2dp
+dGVlLmNvbS9iaWFuYnUtbGludXgvbGludXgtNi4xL2Jsb2IvYmwtdjEuMC55L2FyY2gvcmlzY3Yv
+Ym9vdC9kdHMvc3BhY2VtaXQvazEteF9waW5jdHJsLmR0c2kgWzJdCj4gTGluazogaHR0cHM6Ly9s
+b3JlLmtlcm5lbC5vcmcvYWxsL2I3YTAxY2JhLTlmNjgtNGE2Zi05Nzk1LWI5MTAzZWU4MWQ4YkBr
+ZXJuZWwub3JnLyBbM10KPiBTaWduZWQtb2ZmLWJ5OiBZaXh1biBMYW4gPGRsYW5AZ2VudG9vLm9y
+Zz4KClBhdGNoZXMgMSAmIDIgYXBwbGllZCB0byB0aGUgcGluIGNvbnRyb2wgdHJlZSBmb3IgdjYu
+MTMhCgpQbGVhc2UgdGFrZSBwYXRjaCAzIHRocm91Z2ggdGhlIFNvQyB0cmVlLgoKWW91cnMsCkxp
+bnVzIFdhbGxlaWoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
+b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
+Y3YK
