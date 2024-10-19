@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F461D3C921
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Oct 2024 16:27:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01B4CD3C921
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Oct 2024 16:27:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MyPfrhI4dqG4GytpoX2eIAbIKh4l+pqAG++iq1T17IM=; b=MrXx0g6QgEj1al
-	0inmYRQe6cA3LG7SDk1ri7driAZASaCIR+L9K8QTK/d8byuzGmUxazBo7itJJ7nNXwLzn9E++sFqB
-	isx6gUOA8fa/lVGm9R0EgfA02webA2AD2xUGJSR671NSxDXUoAWcP3aEmO7OFB6fXv07NQUMLAXmT
-	DElx+1KNvOAI9VNaYeslYoBXopQSWU1H9V5Uu9Q6hLzLyKMNobZsn+XpLJYx3a4ucpDaeAOb/Zpg1
-	sR+X5g5YBm5xYtO/cjGw27zEHcKoDA2qK9x/owjNXzBtraF4RCV+AjTWUMwUgRSbaj/n8jDo+15oA
-	rW4wJfwKAIRYp6VSZDkA==;
+	List-Owner; bh=QxydxPlNwbrfTSrByYVu5JJhOyM5ME9Vh9kZ61LGiC4=; b=4IvKBJ95iwDxe2
+	6hBNHb9cpztkYIAQwOHNUypgNrmR2Morz0sXY59fpCEVaZJJpDSKnuSSTFER0SOb0CdFEXw+nScmR
+	UE08zhQFkFJt5oiylxQ9hpkT8G9F5Zr+koDyrA0jdnHkVhu7NxsY5vyDUN4EtCQw6uL3Tz4h2T3D5
+	r7bbvMUMWvTtH7hlHE7EgrBWovYQM8QMbv9CfNgX/oAsFCRtn8RCxgm3kx6+kyjVXWnXORh50rjv/
+	ha/qjhoJr7wGl3RFkSM7qypyrmeuJTprMV5yGieRQWoP02/yvwUojO79vWiSdlR+CstMtEWYkVbLb
+	R9s7dL0x94KVVIg7T2oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2CIZ-00000003bA7-0fLx;
-	Sat, 19 Oct 2024 16:27:27 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1t2CIx-00000003bIb-1vSm;
+	Sat, 19 Oct 2024 16:27:51 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2CIW-00000003b96-1jp9
+	id 1t2CIu-00000003bHa-2CvQ
 	for linux-riscv@lists.infradead.org;
-	Sat, 19 Oct 2024 16:27:25 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-20bb39d97d1so30108735ad.2
-        for <linux-riscv@lists.infradead.org>; Sat, 19 Oct 2024 09:27:23 -0700 (PDT)
+	Sat, 19 Oct 2024 16:27:49 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-20caea61132so25269725ad.2
+        for <linux-riscv@lists.infradead.org>; Sat, 19 Oct 2024 09:27:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1729355243; x=1729960043; darn=lists.infradead.org;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1729355267; x=1729960067; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ayyCub6qQl7nB8NfvKhUdob3RBjft3xPo4E//xagIW0=;
-        b=IV5Oj3pX3qog16cBTzEWh85uCDtQgHB4gSlSYjOfcz+Q1wrUdDgi92wCVeWtFEZTwu
-         GjxSGE75O+LnS0nbzbygcxd0SZtBemDNJEzCUwkvftl9KBhDw47z7fMZxIJb78yZuruw
-         PE3OWUqEpXgMcbiO+AEV8cO/kKl61avjDaGtbOU7UikEPwkR9QfWzfflpv5QW7OJYJ6M
-         cYLKRFL6WtZ7m1eX8uKKIdkFn6OhkNijPyqF9gKARPF+sTwmn0zQ0mowMRMTDpoulD2w
-         XITLeEOrfZ/QCS8HV2wyVCQMVyzIkFN/vfE/eKMvBLf7STxAonZLfPlKTlwTR9eh2rSq
-         BL3g==
+        bh=PSdP3C8YdR1jmbqfSauKDLLYk+KUcp0Cb8mVBlRfeWA=;
+        b=J+wMEjw4doa44yZE/PCTOfxqCTWqWKe5y99P0KDmwthU4E3GPquec0zNVAQNfzraD9
+         1dzA0mJy/M5RjMInPDAf2h5FjJporX464ESIP9QCIxw8SWvh+rZ2Nf8ocJyRf/Dz/mnG
+         rEnlyjM/bZIhmd23ndZRJCdSj6mEImpXRqRmOuVvuGL3VXXUzdbJYfzGnDL3F2Ej5Pt9
+         RARs9OedgHTEyPhEPoMI+Ixfkg7x7m3jL4m/Ll2DYWuAvwzyGay0AbU/4Du4HADmOv8o
+         MUsqiexXKfnCI1oecF5eArTa5+VGn5s3oeUp9PPCHO7biHEt7qtH07PozoBUb+5OMqrc
+         lA4A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729355243; x=1729960043;
+        d=1e100.net; s=20230601; t=1729355267; x=1729960067;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ayyCub6qQl7nB8NfvKhUdob3RBjft3xPo4E//xagIW0=;
-        b=g/uBF/ddb8oBLpBRqOCXv/cdiNXbt4UoxSruVDl/2D076qiVWg7LMGjThDhehHe9np
-         SJKiMJfUBzXrn0lYyLNMmoDIQ4RdhQ99g+8Se9pAWP2NUiif7D0DCC014KUJMm6UlTDC
-         67seLQ3r0HyA/YijTC1zWc4IfpCu4W5wTfwX/rfxVtmhb1pQLLzBbtieG/tDoMspD5Lc
-         Az0HrM6ET1ZRlLAuQk80qwpxiGqDdCRcjyH3HIM6u1akUX8b0ig2pZGFCwjcFk8K08O5
-         G5NsVem2ToS4/nmGbZjEDJya4b3WSi+up2/YUy6MP2vDlwPmKXahriI+Mk6W1ZptorRW
-         j8ZA==
-X-Forwarded-Encrypted: i=1; AJvYcCUAWhBoBEIbfGXL+LZt2Kj81XQfL196uulcwXOwMdOCtM0eoeFITGDf0fkVnU8O9uPhHLIugfd9IRTOaw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzU22oxihpkTvfCdy0jn7sz+7evrpPFdQzsvkAkXur5ZY+agjD4
-	Xj2IFtgrt6xYccWy0suM4WhfARcljeyMHn78XrSWbwuCoLJdao3juC5AhJE5fZI=
-X-Google-Smtp-Source: AGHT+IGRiLKGL85dRLzDgmFfmI4bKce+qOy+rBWCEkJrRSeKD6oaU3345MPGRp8gkNXz5lOalMXPMQ==
-X-Received: by 2002:a17:903:32cb:b0:20c:9da6:65af with SMTP id d9443c01a7336-20e5a9581d1mr88430965ad.57.1729355243177;
-        Sat, 19 Oct 2024 09:27:23 -0700 (PDT)
+        bh=PSdP3C8YdR1jmbqfSauKDLLYk+KUcp0Cb8mVBlRfeWA=;
+        b=DCWIS7S7L53aEFegn9oHky9JxP72cY9A8xI1UWCtEaSICW8EO/eqe/+cou3zJCRZir
+         0+YBeZSgoSyBsasFCKfpaxsMnalxNGAJWTfN0dijyBXzS2Yl2GvQFA2MlM0cbIdACwuW
+         67hXHszi/h4+CLl0s9qV0P3gpV+K8uhYCAr462TGCzroQqqaL+ymhPgZ7M16lAG4U1RI
+         T6dE4hyuBDPMNn5tlxK+QOoDhK6y4fbHEByVdvHoXbJ5LTdbOjSIbtoMxUzf9U/C12kZ
+         YvxMSozD1yyn4+4zWEJjP1iM9Dlp1RqbjPKCjXNVQEHy3gEO7C6WJbOg2iAZu3zE+FFz
+         lBtA==
+X-Forwarded-Encrypted: i=1; AJvYcCUeqKP8G+5jcKpjvPGaNx+U/ZXi14R5orRoPooTT1KFBeCowTq1cUwvMIRkeWvdr1yesOcPbK5eE6Wbqw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwMoCyKnC9ZDdxyQzOlC8D3rmWC6Ly0xN+F1U3AfwJPprccaB0k
+	EmetJeotx+BQdiz/SdI9dBNzmGFKjup6JHDsxDHKi40yHmFKXaltkDnEROaMZVo=
+X-Google-Smtp-Source: AGHT+IFB/lgLKenWFczXSTZ1QqSP6gxMxesJeEKkKsnhxr1xTnsZpi3fsqyNQ8NSXbyKQ9CWcBpXjA==
+X-Received: by 2002:a17:902:db04:b0:20c:9062:fb88 with SMTP id d9443c01a7336-20e5a70d863mr80409155ad.1.1729355267302;
+        Sat, 19 Oct 2024 09:27:47 -0700 (PDT)
 Received: from localhost.localdomain ([2a11:3:200::30df])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-20e5a8de4bdsm29567625ad.180.2024.10.19.09.27.03
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-20e5a8de4bdsm29567625ad.180.2024.10.19.09.27.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 19 Oct 2024 09:27:22 -0700 (PDT)
+        Sat, 19 Oct 2024 09:27:46 -0700 (PDT)
 From: Guodong Xu <guodong@riscstar.com>
 To: Conor Dooley <conor@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -87,18 +87,17 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk@kernel.org>,
 	Guodong Xu <guodong@riscstar.com>
-Subject: [PATCH v4 1/3] dt-bindings: vendor: add deepcomputing
-Date: Sun, 20 Oct 2024 00:26:03 +0800
-Message-Id: <20241019162605.308475-2-guodong@riscstar.com>
+Subject: [PATCH v4 2/3] dt-bindings: riscv: starfive: add deepcomputing,fml13v01
+Date: Sun, 20 Oct 2024 00:26:04 +0800
+Message-Id: <20241019162605.308475-3-guodong@riscstar.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241019162605.308475-1-guodong@riscstar.com>
 References: <20241019162605.308475-1-guodong@riscstar.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241019_092724_483463_FF652319 
-X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-CacheID: sfid-20241019_092748_595196_935142CB 
+X-CRM114-Status: UNSURE (   9.18  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -120,34 +119,39 @@ From: Sandie Cao <sandie.cao@deepcomputing.io>
 
 From: Sandie Cao <sandie.cao@deepcomputing.io>
 
-Add "deepcomputing" to the Devicetree Vendor Prefix Registry.
+Add "deepcomputing,fml13v01" as a StarFive SoC-based board.
+
+The DeepComputing FML13V01 board incorporates a StarFive JH7110 SoC, and
+it's designed for the Framework Laptop 13 Chassis, which has (Framework)
+SKU FRANHQ0001.
 
 Signed-off-by: Sandie Cao <sandie.cao@deepcomputing.io>
-Acked-by: Krzysztof Kozlowski <krzk@kernel.org>
-[elder@riscstar.com: revised the description]
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+[elder@riscstar.com: considerably shortened the description]
 Signed-off-by: Alex Elder <elder@riscstar.com>
 Signed-off-by: Guodong Xu <guodong@riscstar.com>
 ---
-v4: Updated description
-v3: Add Krzysztof's ack
-v2: Add deepcomputing into Vendor Prefix Registery
+v4: Added Rob's Ack
+    Updated description
+    Changed board name from fm7110 to fml13v01
+v3: No change
+v2: Add deepcomputing,fm7110 into model compatible list
 
- Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+ Documentation/devicetree/bindings/riscv/starfive.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-index b320a39de7fe..f8bb3df65797 100644
---- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-+++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-@@ -356,6 +356,8 @@ patternProperties:
-     description: DataImage, Inc.
-   "^davicom,.*":
-     description: DAVICOM Semiconductor, Inc.
-+  "^deepcomputing,.*":
-+    description: DeepComputing (HK) Limited
-   "^dell,.*":
-     description: Dell Inc.
-   "^delta,.*":
+diff --git a/Documentation/devicetree/bindings/riscv/starfive.yaml b/Documentation/devicetree/bindings/riscv/starfive.yaml
+index 4d5c857b3cac..7ef85174353d 100644
+--- a/Documentation/devicetree/bindings/riscv/starfive.yaml
++++ b/Documentation/devicetree/bindings/riscv/starfive.yaml
+@@ -26,6 +26,7 @@ properties:
+ 
+       - items:
+           - enum:
++              - deepcomputing,fml13v01
+               - milkv,mars
+               - pine64,star64
+               - starfive,visionfive-2-v1.2a
 -- 
 2.34.1
 
