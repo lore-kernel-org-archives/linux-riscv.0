@@ -4,100 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB1C6D3C92D
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Oct 2024 23:31:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9265D3C927
+	for <linux-riscv@archiver.kernel.org>; Sun, 20 Oct 2024 04:02:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tAR6C6C1OZDKECuygY7Zh19zdjl9qLEMJwnu/6ZicK4=; b=MCWzItvW2tmkYV
-	42PQGSsO5PD7eM4AbPzdswWoORZEujqgANasl+QypVym0SgAtV6NX3pLJIAwWuBKFRLyGTJpISGEe
-	bQbAps543ZVsJwrZ+VPZmvdRFTrhRLC5J/wTfGW7FPnHwHt7m2TnehGHNJas2agQdNy+TyKp4QarY
-	HmNeLvHDLkPrBfE4uhWzi6+0jbYOgvZLD0x9alEPD9HWI+4q7FxxSVbAn8rr/fkK8fRa6Bo8n6Nkg
-	7x60PH/dgldH+A5q+vKFhHk6RYD9jnvKfSm4tMCn6M4WWMHq5LUhnHwK+NPBw0i/3nJrw+pS4lmMn
-	+p0+hITnKqMRB65creVA==;
+	List-Owner; bh=EJNck6Yx7aKAEBrMHTBWpBm198LMC2zys2Sw+8rmoow=; b=jIszYcJFSucNHf
+	NFT2DI1MxII1jaxLyQeLIrG4Cd377N56hK/L4oeWy1Pehraip5P5qwPcCPjGq9U5IMInve1jmDlxj
+	Mec7dKH0JwuUm+DN7dRbkbCDIdWqxclE9obhM/kSWxdWvvrbGeU0WJhJ2u6cDJBrYvBYXmRMU7YFf
+	N1YyqrpI/KN4hfwq6BEovIDnM0ZTdv8+KR7vmJ2eFP1mcspRyLdAqzXHkx0TU4IvEjypqFkvknBn8
+	uajiiVkfjXfmPRUlJta5tQzFdf4WzxUe1XQQY+SUUAJMN6RRCPR2ckcYaJX2fjX9ZV3ZP85XPzEq4
+	JE9YKUY/frNoskQDCZPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2Iut-000000046BA-0PRc;
-	Sat, 19 Oct 2024 23:31:27 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t2N9U-00000004M6y-14Ve;
+	Sun, 20 Oct 2024 04:02:48 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2HyA-000000040uO-1hId;
-	Sat, 19 Oct 2024 22:30:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 0111FA40448;
-	Sat, 19 Oct 2024 22:30:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF36EC4CEC5;
-	Sat, 19 Oct 2024 22:30:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729377044;
-	bh=QyfIXk+096xDFBJfNhGtA+h7+x144NJyXqGZEWCxEbA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CErL8/nta/6r/1WJkkwG/t5evnd+rztuMKPvEAcvD2SnHlbG8tiM8oebQum4YnbtM
-	 jKRTZBaC+ATcd4VCxL5682bSGxbHvqjRzPrn6cR/xecdWEBWr3gweQycvt1RfyCGs7
-	 MiXNOy+V4Fewi4RfizJAsZmsup5CQWNXqWmaamyVMyXGW/hUqx3sW49nhqNlGd3ZzY
-	 ETj4BkT4BYSwhfn/AQ96YSvs+Sq6IlTIlZXVNMpeHMX+0ZQjv+FZRA/RKrz+t3dZ4u
-	 1qH1N38SWuCE3fte75V0TIkKwCKF9lts668sBgQlwW5eAV1dEKJXhxg+1WEdnmmBQI
-	 jKYmcc+lcknEw==
-Date: Sat, 19 Oct 2024 15:30:41 -0700
-From: Luis Chamberlain <mcgrof@kernel.org>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Andy Lutomirski <luto@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>,
-	Brian Cain <bcain@quicinc.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christoph Hellwig <hch@infradead.org>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Kent Overstreet <kent.overstreet@linux.dev>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Simek <monstr@monstr.eu>, Oleg Nesterov <oleg@redhat.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
-	Stafford Horne <shorne@gmail.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linux-mm@kvack.org,
-	linux-modules@vger.kernel.org, linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org, linux-um@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v6 4/8] module: prepare to handle ROX allocations for text
-Message-ID: <ZxQzEdJqU6TCEH5f@bombadil.infradead.org>
-References: <20241016122424.1655560-1-rppt@kernel.org>
- <20241016122424.1655560-5-rppt@kernel.org>
+	id 1t2N8j-00000004LtI-1ndW
+	for linux-riscv@lists.infradead.org;
+	Sun, 20 Oct 2024 04:02:03 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-2e30db524c2so2522350a91.1
+        for <linux-riscv@lists.infradead.org>; Sat, 19 Oct 2024 21:02:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1729396920; x=1730001720; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=MSzJap4VF2arKN21AI1bmmuABr739UlYYr388X/kIrU=;
+        b=UydzSm705MKATtLNFbrO1s5oV4tfWI3gCHQ/EA2QT1jzMFLPRG7eRKkhPeTdLUrSan
+         ywpxoruLT8LYOVgmIui2YAxhBj1NB3ANEbFRHZNGAI6B16grAYfJ7/xkq2W88J/MeJ6t
+         q2tPuop9Rsco+Xs/bBl+n6U1dC6O/+0b/CfjhvVNcuW9rcSTHU5WTF1o/wZbTK3Pk6x3
+         6c32hP2rPBE1pgN6uakAFiW0X7ZfvhpxJc4P6vcKGGhEQuHvlxaOvw5nPjUXA4RFbzav
+         QH6z5+KkdwmHwCShIfDBCHe6HxXRfS6ebH56KTTaPv+Udi+WSwXKYwNFKTBPs0xiQM2Q
+         fmCg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729396920; x=1730001720;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MSzJap4VF2arKN21AI1bmmuABr739UlYYr388X/kIrU=;
+        b=fh9QzrL8D0kzJXUiCUu10dF0mGR5hFpaWFwEM5th/TW4HIrPwd+i5/C9nmb4AdF+Ra
+         1EIfjbfzML8wLNYDUEb+fA95+mFoMI+Ft0hSjfAeSRTReUTN+ExozlyUNeUir3hV5uxx
+         hzS7HOSnhXLhx8fa9vCi8DurvrJFrQkuQfKZAMM7+GkY52odRczHgsdylawqcX5Xfypp
+         /gEyBaxmYWcTGPUqRcFXs/qCCz4QrNNfjU9V6V3HmNEZcvtxxFftBxmKYiMY6uQpeZkC
+         rsvoDNBoLAjT83fbb3xULuNofQicF+taRuMxz5Mh7yyZW90hXTpR+w834UnPsA2pub2G
+         18Yg==
+X-Forwarded-Encrypted: i=1; AJvYcCX6B2DBvfzdCI3+bTb5kv9GbjWYn7pk56UR2Ge89GaBx7NBp/xHR1TWWgUmw+WfHz3CvBHqxmUCu+trBg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzmjt5OPMzurEIQTKw9tswI/ZpPrjiI5tH5+E+e6Oey/SIKaBnl
+	KzW4ZueXJ5NgCZqtHjNeNjtIWiuvtfAHbrU3k/bUl+uvJVN+oRfa
+X-Google-Smtp-Source: AGHT+IHa+/R1vOcy9hZbasSKlAuCSaJeX7+ZMoIp2v7OaYhwl8lZwwRMRQmeQuppLOJHDpVMbB4EOA==
+X-Received: by 2002:a17:90b:4c0b:b0:2e2:a667:1a18 with SMTP id 98e67ed59e1d1-2e5616c4509mr9915506a91.5.1729396920043;
+        Sat, 19 Oct 2024 21:02:00 -0700 (PDT)
+Received: from localhost ([121.250.214.124])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e5ad25caf5sm636425a91.8.2024.10.19.21.01.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 19 Oct 2024 21:01:59 -0700 (PDT)
+Date: Sun, 20 Oct 2024 12:01:43 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Samuel Holland <samuel.holland@sifive.com>, 
+	Inochi Amaoto <inochiama@gmail.com>
+Cc: Yixun Lan <dlan@gentoo.org>, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Peter Zijlstra <peterz@infradead.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@outlook.com>, 
+	Guo Ren <guoren@kernel.org>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, Yangyu Chen <cyy@cyyself.name>, 
+	Jinyu Tang <tangjinyu@tinylab.org>, Hal Feng <hal.feng@starfivetech.com>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: Re: [PATCH v2 2/3] irqchip: add T-HEAD C900 ACLINT SSWI driver
+Message-ID: <tgkep7hurskxfgsfe7qogmxmym3im5isfkwhv6qvpa35uzzvkg@7gkplu67ohwf>
+References: <20241009224410.53188-1-inochiama@gmail.com>
+ <20241009224410.53188-3-inochiama@gmail.com>
+ <35d288d3-56dd-4018-8b98-78311c29a25d@sifive.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20241016122424.1655560-5-rppt@kernel.org>
+In-Reply-To: <35d288d3-56dd-4018-8b98-78311c29a25d@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241019_153046_600636_D7E90C0A 
-X-CRM114-Status: GOOD (  17.53  )
+X-CRM114-CacheID: sfid-20241019_210201_507189_75397030 
+X-CRM114-Status: GOOD (  44.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,31 +104,276 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 16, 2024 at 03:24:20PM +0300, Mike Rapoport wrote:
-> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+On Tue, Oct 15, 2024 at 05:43:16PM -0500, Samuel Holland wrote:
+> Hi Inochi,
 > 
-> In order to support ROX allocations for module text, it is necessary to
-> handle modifications to the code, such as relocations and alternatives
-> patching, without write access to that memory.
+> On 2024-10-09 5:44 PM, Inochi Amaoto wrote:
+> > Add a driver for the T-HEAD C900 ACLINT SSWI device, which is an
+> > enhanced implementation of the RISC-V ACLINT SSWI specification.
+> > This device allows the system to send ipi via fast device interface.
+> > 
+> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> > ---
+> >  drivers/irqchip/Kconfig                      |  10 ++
+> >  drivers/irqchip/Makefile                     |   1 +
+> >  drivers/irqchip/irq-thead-c900-aclint-sswi.c | 166 +++++++++++++++++++
+> >  include/linux/cpuhotplug.h                   |   1 +
+> >  4 files changed, 178 insertions(+)
+> >  create mode 100644 drivers/irqchip/irq-thead-c900-aclint-sswi.c
+> > 
+> > diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
+> > index 341cd9ca5a05..32671385cbb7 100644
+> > --- a/drivers/irqchip/Kconfig
+> > +++ b/drivers/irqchip/Kconfig
+> > @@ -611,6 +611,16 @@ config STARFIVE_JH8100_INTC
+> >  
+> >  	  If you don't know what to do here, say Y.
+> >  
+> > +config THEAD_C900_ACLINT_SSWI
+> > +	bool "THEAD C9XX ACLINT S-mode IPI Interrupt Controller"
+> > +	depends on RISCV
+> > +	select IRQ_DOMAIN_HIERARCHY
+> > +	help
+> > +	  This enables support for T-HEAD specific ACLINT SSWI device
+> > +	  support.
+> > +
+> > +	  If you don't know what to do here, say Y.
+> > +
+> >  config EXYNOS_IRQ_COMBINER
+> >  	bool "Samsung Exynos IRQ combiner support" if COMPILE_TEST
+> >  	depends on (ARCH_EXYNOS && ARM) || COMPILE_TEST
+> > diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
+> > index e3679ec2b9f7..583418261253 100644
+> > --- a/drivers/irqchip/Makefile
+> > +++ b/drivers/irqchip/Makefile
+> > @@ -101,6 +101,7 @@ obj-$(CONFIG_RISCV_APLIC_MSI)		+= irq-riscv-aplic-msi.o
+> >  obj-$(CONFIG_RISCV_IMSIC)		+= irq-riscv-imsic-state.o irq-riscv-imsic-early.o irq-riscv-imsic-platform.o
+> >  obj-$(CONFIG_SIFIVE_PLIC)		+= irq-sifive-plic.o
+> >  obj-$(CONFIG_STARFIVE_JH8100_INTC)	+= irq-starfive-jh8100-intc.o
+> > +obj-$(CONFIG_THEAD_C900_ACLINT_SSWI)	+= irq-thead-c900-aclint-sswi.o
+> >  obj-$(CONFIG_IMX_IRQSTEER)		+= irq-imx-irqsteer.o
+> >  obj-$(CONFIG_IMX_INTMUX)		+= irq-imx-intmux.o
+> >  obj-$(CONFIG_IMX_MU_MSI)		+= irq-imx-mu-msi.o
+> > diff --git a/drivers/irqchip/irq-thead-c900-aclint-sswi.c b/drivers/irqchip/irq-thead-c900-aclint-sswi.c
+> > new file mode 100644
+> > index 000000000000..b96d3b81dc14
+> > --- /dev/null
+> > +++ b/drivers/irqchip/irq-thead-c900-aclint-sswi.c
+> > @@ -0,0 +1,166 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +/*
+> > + * Copyright (C) 2024 Inochi Amaoto <inochiama@gmail.com>
+> > + */
+> > +
+> > +#define pr_fmt(fmt) "thead-c900-aclint-sswi: " fmt
+> > +#include <linux/cpu.h>
+> > +#include <linux/interrupt.h>
+> > +#include <linux/io.h>
+> > +#include <linux/irq.h>
+> > +#include <linux/irqchip.h>
+> > +#include <linux/irqchip/chained_irq.h>
+> > +#include <linux/module.h>
+> > +#include <linux/of.h>
+> > +#include <linux/of_address.h>
+> > +#include <linux/of_irq.h>
+> > +#include <linux/pci.h>
+> > +#include <linux/spinlock.h>
+> > +#include <linux/smp.h>
+> > +#include <linux/string_choices.h>
+> > +
+> > +#define ACLINT_xSWI_REGISTER_SIZE	4
+> > +
+> > +static int sswi_ipi_virq __ro_after_init;
+> > +static DEFINE_PER_CPU(void __iomem *, sswi_cpu_regs);
+> > +
+> > +static void thead_aclint_sswi_ipi_send(unsigned int cpu)
+> > +{
+> > +	writel_relaxed(0x1, per_cpu(sswi_cpu_regs, cpu));
+> > +}
+> > +
+> > +static void thead_aclint_sswi_ipi_clear(void)
+> > +{
+> > +	writel_relaxed(0x0, this_cpu_read(sswi_cpu_regs));
 > 
-> One option is to use text patching, but this would make module loading
-> extremely slow and will expose executable code that is not finally formed.
+> This isn't quite compliant with the ACLINT spec[1], which states: "Writing 0 to
+> the least significant bit of a SETSSIP register has no effect". In a RISC-V
+> ACLINT, only the CSR write is required to clear the interrupt.
 > 
-> A better way is to have memory allocated with ROX permissions contain
-> invalid instructions and keep a writable, but not executable copy of the
-> module text. The relocations and alternative patches would be done on the
-> writable copy using the addresses of the ROX memory.
-> Once the module is completely ready, the updated text will be copied to ROX
-> memory using text patching in one go and the writable copy will be freed.
+> This implementation does match the behavior of the T-HEAD CLINT extensions which
+> are also present in C906/C910[2][3][4].
 > 
-> Add support for that to module initialization code and provide necessary
-> interfaces in execmem.
-> 
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 
-Reviewd-by: Luis Chamberlain <mcgrof@kernel.org>
+Yes, this is T-HEAD specific one, it does not match the spec exactly. 
+This is why I add "thead" prefix.
 
-  Luis
+> This raises the question: in the older CPUs, using this functionality requires
+> setting the mxstatus.CLINTEE bit from M-mode. Is this still the case for the
+> C920 CPU in SG2044? If so, the driver should check sxstatus.CLINTEE when probing.
+> 
+
+It seems that I forgot this. The SG2044 also needs to check the CLINTEE bit when
+probing, it just set this bit in its zsbl. I will fix this in the next version. 
+Thanks for points it.
+
+> It would also be ideal if we could support the other SoCs that use this same IP
+> block, but with the other CLINT binding.
+> 
+> Regards,
+> Samuel
+> 
+> [1]: https://github.com/riscv/riscv-aclint/blob/main/riscv-aclint.adoc
+> [2]:
+> https://occ-intl-prod.oss-ap-southeast-1.aliyuncs.com/resource/XuanTie-OpenC906-UserManual.pdf
+> [3]:
+> https://github.com/XUANTIE-RV/openc906/blob/main/C906_RTL_FACTORY/gen_rtl/clint/rtl/clint_func.v#L285
+> [4]:
+> https://github.com/XUANTIE-RV/openc906/blob/main/C906_RTL_FACTORY/gen_rtl/cp0/rtl/aq_cp0_trap_csr.v#L1240
+> 
+> > +}
+> > +
+> > +static void thead_aclint_sswi_ipi_handle(struct irq_desc *desc)
+> > +{
+> > +	struct irq_chip *chip = irq_desc_get_chip(desc);
+> > +
+> > +	chained_irq_enter(chip, desc);
+> > +
+> > +	csr_clear(CSR_IP, IE_SIE);
+> > +	thead_aclint_sswi_ipi_clear();
+> > +
+> > +	ipi_mux_process();
+> > +
+> > +	chained_irq_exit(chip, desc);
+> > +}
+> > +
+> > +static int thead_aclint_sswi_starting_cpu(unsigned int cpu)
+> > +{
+> > +	enable_percpu_irq(sswi_ipi_virq, irq_get_trigger_type(sswi_ipi_virq));
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static int thead_aclint_sswi_dying_cpu(unsigned int cpu)
+> > +{
+> > +	thead_aclint_sswi_ipi_clear();
+> > +
+> > +	disable_percpu_irq(sswi_ipi_virq);
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static int __init aclint_sswi_parse_irq(struct fwnode_handle *fwnode,
+> > +					void __iomem *reg)
+> > +{
+> > +	struct of_phandle_args parent;
+> > +	unsigned long hartid;
+> > +	u32 contexts, i;
+> > +	int rc, cpu;
+> > +
+> > +	contexts = of_irq_count(to_of_node(fwnode));
+> > +	if (!(contexts)) {
+> > +		pr_err("%pfwP: no ACLINT SSWI context available\n", fwnode);
+> > +		return -EINVAL;
+> > +	}
+> > +
+> > +	for (i = 0; i < contexts; i++) {
+> > +		rc = of_irq_parse_one(to_of_node(fwnode), i, &parent);
+> > +		if (rc)
+> > +			return rc;
+> > +
+> > +		rc = riscv_of_parent_hartid(parent.np, &hartid);
+> > +		if (rc)
+> > +			return rc;
+> > +
+> > +		if (parent.args[0] != RV_IRQ_SOFT)
+> > +			return -ENOTSUPP;
+> > +
+> > +		cpu = riscv_hartid_to_cpuid(hartid);
+> > +
+> > +		per_cpu(sswi_cpu_regs, cpu) = reg + i * ACLINT_xSWI_REGISTER_SIZE;
+> > +	}
+> > +
+> > +	pr_info("%pfwP: register %u CPU%s\n", fwnode, contexts, str_plural(contexts));
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static int __init aclint_sswi_probe(struct fwnode_handle *fwnode)
+> > +{
+> > +	struct irq_domain *domain;
+> > +	void __iomem *reg;
+> > +	int virq, rc;
+> > +
+> > +	if (!is_of_node(fwnode))
+> > +		return -EINVAL;
+> > +
+> > +	reg = of_iomap(to_of_node(fwnode), 0);
+> > +	if (!reg)
+> > +		return -ENOMEM;
+> > +
+> > +	/* Parse SSWI setting */
+> > +	rc = aclint_sswi_parse_irq(fwnode, reg);
+> > +	if (rc < 0)
+> > +		return rc;
+> > +
+> > +	/* If mulitple SSWI devices are present, do not register irq again */
+> > +	if (sswi_ipi_virq)
+> > +		return 0;
+> > +
+> > +	/* Find riscv intc domain and create IPI irq mapping */
+> > +	domain = irq_find_matching_fwnode(riscv_get_intc_hwnode(), DOMAIN_BUS_ANY);
+> > +	if (!domain) {
+> > +		pr_err("%pfwP: Failed to find INTC domain\n", fwnode);
+> > +		return -ENOENT;
+> > +	}
+> > +
+> > +	sswi_ipi_virq = irq_create_mapping(domain, RV_IRQ_SOFT);
+> > +	if (!sswi_ipi_virq) {
+> > +		pr_err("unable to create ACLINT SSWI IRQ mapping\n");
+> > +		return -ENOMEM;
+> > +	}
+> > +
+> > +	/* Register SSWI irq and handler */
+> > +	virq = ipi_mux_create(BITS_PER_BYTE, thead_aclint_sswi_ipi_send);
+> > +	if (virq <= 0) {
+> > +		pr_err("unable to create muxed IPIs\n");
+> > +		irq_dispose_mapping(sswi_ipi_virq);
+> > +		return virq < 0 ? virq : -ENOMEM;
+> > +	}
+> > +
+> > +	irq_set_chained_handler(sswi_ipi_virq, thead_aclint_sswi_ipi_handle);
+> > +
+> > +	cpuhp_setup_state(CPUHP_AP_IRQ_THEAD_ACLINT_SSWI_STARTING,
+> > +			  "irqchip/thead-aclint-sswi:starting",
+> > +			  thead_aclint_sswi_starting_cpu,
+> > +			  thead_aclint_sswi_dying_cpu);
+> > +
+> > +	riscv_ipi_set_virq_range(virq, BITS_PER_BYTE);
+> > +
+> > +	/* Announce that SSWI is providing IPIs */
+> > +	pr_info("providing IPIs using THEAD ACLINT SSWI\n");
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static int __init aclint_sswi_early_probe(struct device_node *node,
+> > +					  struct device_node *parent)
+> > +{
+> > +	return aclint_sswi_probe(&node->fwnode);
+> > +}
+> > +IRQCHIP_DECLARE(thead_aclint_sswi, "thead,c900-aclint-sswi", aclint_sswi_early_probe);
+> > diff --git a/include/linux/cpuhotplug.h b/include/linux/cpuhotplug.h
+> > index 2361ed4d2b15..799052249c7b 100644
+> > --- a/include/linux/cpuhotplug.h
+> > +++ b/include/linux/cpuhotplug.h
+> > @@ -147,6 +147,7 @@ enum cpuhp_state {
+> >  	CPUHP_AP_IRQ_EIOINTC_STARTING,
+> >  	CPUHP_AP_IRQ_AVECINTC_STARTING,
+> >  	CPUHP_AP_IRQ_SIFIVE_PLIC_STARTING,
+> > +	CPUHP_AP_IRQ_THEAD_ACLINT_SSWI_STARTING,
+> >  	CPUHP_AP_IRQ_RISCV_IMSIC_STARTING,
+> >  	CPUHP_AP_IRQ_RISCV_SBI_IPI_STARTING,
+> >  	CPUHP_AP_ARM_MVEBU_COHERENCY,
+> 
 
 _______________________________________________
 linux-riscv mailing list
