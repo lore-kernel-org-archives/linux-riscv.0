@@ -4,98 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 457E7D3C92A
-	for <linux-riscv@archiver.kernel.org>; Sun, 20 Oct 2024 12:11:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A58AD3C92A
+	for <linux-riscv@archiver.kernel.org>; Sun, 20 Oct 2024 13:27:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mqD4gjq9EtfuWfMKrqbD+ligcOZAE1ZVSILHqKX+Ues=; b=DXMsH6RKm6MQpZ
-	jdQGt2+cG6HiRN7Fmyf4UaFpN9cv05NMQkR/OH0KisMTJr1SSBGTH13zlPuliqxBCHI/TxWZvFCEH
-	rzLQWL9W66leBhGLrPRzBqiSrHnQ0yDVREpoC3cghL/HuLAvDjWyzR3YN/A1WUjicmzuGUAQYA/js
-	RHuIiz6rLqpHQACtorkuBloPpv/a6rqkq2YbGfocLfgTT+HWFyd66NDGpU82wI/y45nwEa+gBMuWf
-	qfand4j1jxW77oUsxl7d80J5KALakw2YqF8qyEbr1ludjCKeKhj8tKozWZG+iTB2Nf9UHafvZsveb
-	UN5fvJmdACAsL+tND6sg==;
+	List-Owner; bh=AbhQwS1O3HP5rmjSbvsw2o0/5y80SNhcwCK/bYrzZqM=; b=iEGofi7V5SE3iD
+	YActHu+8n788TXNXTMrP5KPLTR2f37SOsbi9D8oX6kfe0ENa2HZYU0lsruLKLAxn6a78M16yL98+H
+	tv50bmKrB4c9iI7zFnC6k2jg2kga73tpDyRUFg+yshUjum4gDq6vwGEgV+o6/0vBRYagfntdoUNZk
+	A8tt+TkdneS1NGPEPzggRRgvwEUJPgHNjlVMB95/uBpmY9+vyIXzaYd8k0DnrVVn9xYLpQZhMTldW
+	mY3rnpWz7YMTkmcj8MFO/W/dad3HUDbml14m0Ws1ObsWQz0cfRUuyttWgtp7iR5Tl6t51fGjO6Z3H
+	9RrTAzMjTYM75Q5gbs7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2Ulr-00000004rAT-0uIi;
-	Sun, 20 Oct 2024 12:10:55 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	id 1t2Vxj-00000004vOA-12xI;
+	Sun, 20 Oct 2024 13:27:15 +0000
+Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2Ulo-00000004r9A-0wed
+	id 1t2Vxf-00000004vNn-2zm3
 	for linux-riscv@lists.infradead.org;
-	Sun, 20 Oct 2024 12:10:53 +0000
-Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-71e72db7bb1so2649401b3a.0
-        for <linux-riscv@lists.infradead.org>; Sun, 20 Oct 2024 05:10:51 -0700 (PDT)
+	Sun, 20 Oct 2024 13:27:13 +0000
+Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-4608e389407so43503841cf.2
+        for <linux-riscv@lists.infradead.org>; Sun, 20 Oct 2024 06:27:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729426251; x=1730031051; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1729430830; x=1730035630; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ESpVDdqvWArJZ/zn9KV45HICoQoUKaqzB0C6fhXH0e8=;
-        b=ZWvtzw3MtVL61RQZJ0qmiIHAsgrDDpzxsz7vYLaUR1xZxRQzM3CHkHqWHbSxLWT1tb
-         xCJuEwlYMddkQwMbpnjMitDm7fBZ/0v/Y6X6mmBdFig+0AGzQzrDl+kf3hrXuvIFNhum
-         TxQ7jLP67sY0FYDHuzBRoiOL7FMfO8tUKDMajxhx8QfXldFr9Q0XRKn1QDZ6dlcMsdB/
-         tEz0yG8zK7TfcDo7awS3FeH3oOoLNVlOTrLq0DfJhexxlTwlED+kUwpaPb/jhUw1aCJM
-         H0tUBjoFi1C0FEg95YOghWYzLmcEIfbDtMVUuBkrShzbIS+9v7mWVSmWXBG9MATLqGIW
-         q+Ow==
+        bh=eBJzOYlqjsdcPdk0yMInJK2l8n0pk3Q6fRoZHJOBNDg=;
+        b=rGNzmzSJjw2ThXqopYa38kbsEdpuzqfAATKkLtaDBm+OJKJGJaEinoe3x1e/T1Z7kA
+         fMY6PNZCV9lB64V/kKgvuOW7t/DCApkOdJJTjSMEoBTpp2Tmluywqe6uNYC2gcCVB8vH
+         azVi8XSbHcUGIjg/Zn36k7yEoMdH37G9R3IGy1eO3VhIfWXHjwzspUbj/eC0IqMTdkQF
+         xpYvxVUK4GOe+6kJqflY9b3W/8uhc9rzmy2iizEMY/KJUk1i1TwFKNt44BUxFuqGsi6R
+         AdpbUeWHLXR5kCelEPw/c51ZHbmIolErqYJbYuls3u8eUTYhcLuy4fv2ikdThJu4fZZX
+         JSBQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729426251; x=1730031051;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1729430830; x=1730035630;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ESpVDdqvWArJZ/zn9KV45HICoQoUKaqzB0C6fhXH0e8=;
-        b=NNr/e/gBTMUt/K03CC0EN0z6hfPUmr4sfrWNcAbsVNfqukpAumngWuATBIUvSR3ArY
-         lBOy2VCE+wExmZFXpdi5Xw2s2DWBTJqUKzr7Sa7jVeTgv2uKryqw7nKuAGQVXF7jKTVl
-         8t16rPvvFTVo+/hIGRBobIZFFwn0NgioG8Jf0+bMXhHQNk4kiFwTrtthOsQ4cQKsfl6U
-         b9D16cN3xPRzlcWZk0UdD+LkqcvpvXtEqLLzUL0BEhgFvbb6TEJAY5j9gxZEz+tkpbKm
-         lRYohQHwVfFMjd7+XbsqDg+RYtpvPa0aQ2UHAH7X/RwuaRAgzFscY8AgFa+5nYAfNh6G
-         PVdg==
-X-Forwarded-Encrypted: i=1; AJvYcCX8w++LNPfY2uy9iRCaHHVqPg2hGZNbjt+wQXroNgff4gxa+Vv6zEM0YVJf3jVQ4K2tK/gi1zuMjcmqcQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxlQM01g9kpBOeo50K4onxjBddIRlAbkS0GsXNINRaCE7KoZ0rI
-	jOMWXoGF9mLYOIVHPvrYXAPjXNYkbAN09cSCOMbEkffHnVPOPjgj
-X-Google-Smtp-Source: AGHT+IFxdNKHpEyAEhs+OtgWVnS/3mbcUWbugIHe2isaXwnze/x4LhRIbxctqs3KZKUSftj8na/ugw==
-X-Received: by 2002:a05:6a00:21ce:b0:71e:8023:c718 with SMTP id d2e1a72fcca58-71ea31f627bmr10972565b3a.8.1729426251183;
-        Sun, 20 Oct 2024 05:10:51 -0700 (PDT)
-Received: from localhost ([121.250.214.124])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-71ec13eb08asm1097140b3a.173.2024.10.20.05.10.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 20 Oct 2024 05:10:50 -0700 (PDT)
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Chen Wang <unicorn_wang@outlook.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Guo Ren <guoren@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Yangyu Chen <cyy@cyyself.name>,
-	Hal Feng <hal.feng@starfivetech.com>
-Cc: Yixun Lan <dlan@gentoo.org>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v3 1/3] dt-bindings: interrupt-controller: Add Sophgo SG2044 ACLINT SSWI
-Date: Sun, 20 Oct 2024 20:10:28 +0800
-Message-ID: <20241020121030.1012572-2-inochiama@gmail.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241020121030.1012572-1-inochiama@gmail.com>
-References: <20241020121030.1012572-1-inochiama@gmail.com>
+        bh=eBJzOYlqjsdcPdk0yMInJK2l8n0pk3Q6fRoZHJOBNDg=;
+        b=NQciuN8GVj6ctSc2Yyk3YEcrka8DM0suCnQ/UzLNXKrqP2G/UdaM1FjOOfd91PIsD4
+         RFAREM2arojmmL1gNQdbsiRh2Bz9W5bdjJX13gYCgaXVNn76JPFRtTUT+APlb3XvApD/
+         3idjaDQq1yDSzyXkUXKC4LS/KldREt1N6/bMAEbqeRxr3W3xsTt1I6pgKO/E9fTukzE5
+         VhmZdHKAdIJkjY8h/+pbOCQrFnXo4jyQ7IDA182vLjUamdDU5ce9GTn8EcUhwTVpx0BH
+         mp2BZiCXBUe1IJyFpfSMu+N0HItAzXPYGvu3VUMPpzLvzj3P/y93POj/JIFmkb+Op9f3
+         lMJw==
+X-Forwarded-Encrypted: i=1; AJvYcCVwzAV1ql7RvNS+OwCqVtfrlw0uxsjJZ+eXBC9YlLpckVIHAG7WkAW/5VdQPh1f6jGhLH9hEQGeBSaM5Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz3WY2RRizAMl8PK8jSd8wfkH3lvf5Vk0MsmCz0tYRUV1WtZ9IS
+	vWhAT1xoeWx3uTCQCWJzjoVCxZWxSFqePN4MpgBY6h5BSEmH507IECAumC5R4hHH4aUGdkseODt
+	R8JKF8HVivap34KOJUllJra6cm/P1N8qAulz7lA==
+X-Google-Smtp-Source: AGHT+IGnWYenAH+ICS/UFFfkdYgfxAxxgdD8o/QX9kkC8wcWWq8eVoZ/61fjMkC/c+9rFwRbkiM8CbwF/i+45YR+acg=
+X-Received: by 2002:a05:622a:4d2:b0:460:92fa:f72e with SMTP id
+ d75a77b69052e-460aed75b47mr141603281cf.33.1729430830268; Sun, 20 Oct 2024
+ 06:27:10 -0700 (PDT)
 MIME-Version: 1.0
+References: <20241019162605.308475-1-guodong@riscstar.com> <20241019162605.308475-2-guodong@riscstar.com>
+ <2024102029-populate-footage-755a@gregkh>
+In-Reply-To: <2024102029-populate-footage-755a@gregkh>
+From: Guodong Xu <guodong@riscstar.com>
+Date: Sun, 20 Oct 2024 21:26:57 +0800
+Message-ID: <CAH1PCMa4BK2eaVYSmckSDtGr6uhMEF12jHzHwqz-hnKFbQrFRw@mail.gmail.com>
+Subject: Re: [PATCH v4 1/3] dt-bindings: vendor: add deepcomputing
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, rafal@milecki.pl, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Heiko Stuebner <heiko.stuebner@cherry.de>, Michael Zhu <michael.zhu@starfivetech.com>, 
+	Drew Fustini <drew@beagleboard.org>, Alexandru Stan <ams@frame.work>, Daniel Schaefer <dhs@frame.work>, 
+	Sandie Cao <sandie.cao@deepcomputing.io>, Yuning Liang <yuning.liang@deepcomputing.io>, 
+	Huiming Qiu <huiming.qiu@deepcomputing.io>, Alex Elder <elder@riscstar.com>, linux@frame.work, 
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241020_051052_291246_485E70F5 
-X-CRM114-Status: GOOD (  14.42  )
+X-CRM114-CacheID: sfid-20241020_062712_038317_CBF066A9 
+X-CRM114-Status: UNSURE (   7.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,93 +95,17 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Sophgo SG2044 has a new version of T-HEAD C920, which implement
-a fully featured ACLINT device. This ACLINT has an extra SSWI
-field to support fast S-mode IPI.
-
-Add necessary compatible string for the T-HEAD ACLINT sswi device.
-
-Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
----
- .../thead,c900-aclint-sswi.yaml               | 58 +++++++++++++++++++
- 1 file changed, 58 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-sswi.yaml
-
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-sswi.yaml b/Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-sswi.yaml
-new file mode 100644
-index 000000000000..0106fbf3ea1f
---- /dev/null
-+++ b/Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-sswi.yaml
-@@ -0,0 +1,58 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/interrupt-controller/thead,c900-aclint-sswi.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Sophgo sg2044 ACLINT Supervisor-level Software Interrupt Device
-+
-+maintainers:
-+  - Inochi Amaoto <inochiama@outlook.com>
-+
-+description:
-+  The SSWI device is a part of the riscv ACLINT device. It provides
-+  supervisor-level IPI functionality for a set of HARTs on a RISC-V
-+  platform. It provides a register to set an IPI (SETSSIP) for each
-+  HART connected to the SSWI device.
-+
-+properties:
-+  compatible:
-+    items:
-+      - enum:
-+          - sophgo,sg2044-aclint-sswi
-+      - const: thead,c900-aclint-sswi
-+
-+  reg:
-+    maxItems: 1
-+
-+  "#interrupt-cells":
-+    const: 0
-+
-+  interrupt-controller: true
-+
-+  interrupts-extended:
-+    minItems: 1
-+    maxItems: 4095
-+
-+additionalProperties: false
-+
-+required:
-+  - compatible
-+  - reg
-+  - "#interrupt-cells"
-+  - interrupt-controller
-+  - interrupts-extended
-+
-+examples:
-+  - |
-+    interrupt-controller@94000000 {
-+      compatible = "sophgo,sg2044-aclint-sswi", "thead,c900-aclint-sswi";
-+      reg = <0x94000000 0x00004000>;
-+      #interrupt-cells = <0>;
-+      interrupt-controller;
-+      interrupts-extended = <&cpu1intc 1>,
-+                            <&cpu2intc 1>,
-+                            <&cpu3intc 1>,
-+                            <&cpu4intc 1>;
-+    };
-+...
--- 
-2.47.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU3VuLCBPY3QgMjAsIDIwMjQgYXQgMjoyMeKAr1BNIEdyZWcgS3JvYWgtSGFydG1hbiB3cm90
+ZToKPgo+IE9uIFN1biwgT2N0IDIwLCAyMDI0IGF0IDEyOjI2OjAzQU0gKzA4MDAsIEd1b2Rvbmcg
+WHUgd3JvdGU6Cj4gPiBGcm9tOiBTYW5kaWUgQ2FvIDxzYW5kaWUuY2FvQGRlZXBjb21wdXRpbmcu
+aW8+Cj4gPgo+ID4gRnJvbTogU2FuZGllIENhbyA8c2FuZGllLmNhb0BkZWVwY29tcHV0aW5nLmlv
+Pgo+Cj4gTml0LCBmb3Igc29tZSByZWFzb24gdGhpcyBzaG93cyB1cCB0d2ljZSwgc2FtZSBmb3Ig
+cGF0Y2ggMi8zIDooCj4KClRoYW5rcyBHcmVnLgpJIHdpbGwgZml4IHRoYXQuCgpfX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
+IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
+ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
