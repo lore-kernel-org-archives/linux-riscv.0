@@ -4,125 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B46FED3C92A
-	for <linux-riscv@archiver.kernel.org>; Sun, 20 Oct 2024 07:33:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D340D3C92A
+	for <linux-riscv@archiver.kernel.org>; Sun, 20 Oct 2024 12:11:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zmKm3Yj/Vzsu0qwRXw/elkQ4Kydhu2qDO1P78u7aMR4=; b=FIJ6CNpQhF+CMh
-	js1rOH9/Ww29zE5FcaNnuJsnbjE2Tr8oX5uaIehqE+ZwipgLqIaS+hz5aHcG3aexzlMDUu+ExajZU
-	nfg4qVD2ohlufCh1vHFHRmuhn8/K6oNeVsLDVkCtGBkkiwpuC4O0Y2yXL1kacNbrD60qmVPIynM/L
-	x8xMXAkqSqrSsSWJw44kE2oXrURBL2o2KC2tIv64idppstNUDBzmfZCxpys6fw1j5W0qBZsvEyK62
-	ZiU+Nk3Imff3ff+h93lscCMjt6wBG8T63s8FXwG0NTfN0+0bKSysq54INlTLl+SObCNLspOmN4eKG
-	t41JLvGUl4ZZwb0e36WA==;
+	List-Owner; bh=XAyeFQCZBnYoLRGlYoUhENkntSIEFMCTGcXwv7z8X4w=; b=ftVZ2BXw4ZtA4u
+	pP2eRaQyYqPWsehvrmh55jcWQ6maYbXGuGsr5I5d5kGStVwyRszvYchRSclFuJp3g3MfTxLGvHd9m
+	z+Ke0MgKVNMI1Mjdeo05hZGNmpl2zVCyy0YJ4h+TmZyL7ufl6bzC2K+JFmIJ3ecfieBkrhEImdydF
+	Hk3hylnGyFocRYQ/2yX2h9ww8OFyMD5cSI97f+an7v/hN6UnxgMeeLD3JGQ7Ec+wOjtWLalKgetca
+	mjOmXqSj9u76IIXKLPC1ojexVun4O4HvMe1Ju9JdpBS7k4ewbO5sGjlelTKWHub4PD9BIAZevH6WH
+	9FGJZq6hN/Wl0TIEHnPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2QQv-00000004Z3Y-1qfE;
-	Sun, 20 Oct 2024 07:33:01 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1t2Uls-00000004rB8-3qbY;
+	Sun, 20 Oct 2024 12:10:56 +0000
+Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2QQr-00000004Z2n-2ssZ
+	id 1t2Ulq-00000004r9p-11x5
 	for linux-riscv@lists.infradead.org;
-	Sun, 20 Oct 2024 07:33:00 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20241020073254euoutp0210081962f433ade69f134be6cf6ad0fd~AGNhrpP4a2203622036euoutp02k
-	for <linux-riscv@lists.infradead.org>; Sun, 20 Oct 2024 07:32:54 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20241020073254euoutp0210081962f433ade69f134be6cf6ad0fd~AGNhrpP4a2203622036euoutp02k
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1729409574;
-	bh=Xt9eRXbiKHfuofQrQEnr1oCw438o/WGpb2oUH6mhKcM=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=MdeLOVNdNb24ImRfOMI+VFInSjpJBH+EluCYif0wOUQD55u7KmRtprGTznA4ko5RA
-	 Cujffc/MSXm3TYfs1P6z6B1mgErChg19UKFkJxGPtQqqirOb4luXF41WhSXJa8vkuV
-	 vkrz5mW9ZU4+ayc1ln0HDxtQySDGfH/wwsCxTNas=
-Received: from eusmges1new.samsung.com (unknown [203.254.199.242]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTP id
-	20241020073253eucas1p2f4493ae60f61259b3444f8dc4d664619~AGNg9G6O80808008080eucas1p29;
-	Sun, 20 Oct 2024 07:32:53 +0000 (GMT)
-Received: from eucas1p2.samsung.com ( [182.198.249.207]) by
-	eusmges1new.samsung.com (EUCPMTA) with SMTP id 09.24.20821.522B4176; Sun, 20
-	Oct 2024 08:32:53 +0100 (BST)
-Received: from eusmtrp2.samsung.com (unknown [182.198.249.139]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20241020073252eucas1p26f85a05022f8e471fe858f8cdece8bac~AGNfzmnA22432024320eucas1p2K;
-	Sun, 20 Oct 2024 07:32:52 +0000 (GMT)
-Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
-	eusmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20241020073252eusmtrp239577aa8f199dead2e9bd0bac20db4fb~AGNfy4chg1126911269eusmtrp2e;
-	Sun, 20 Oct 2024 07:32:52 +0000 (GMT)
-X-AuditID: cbfec7f2-b09c370000005155-ea-6714b225d869
-Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
-	eusmgms2.samsung.com (EUCPMTA) with SMTP id E9.C2.19654.422B4176; Sun, 20
-	Oct 2024 08:32:52 +0100 (BST)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20241020073251eusmtip285d33bdd94a788e4c94a375d329ddf0f~AGNe-3l7C2853928539eusmtip2G;
-	Sun, 20 Oct 2024 07:32:51 +0000 (GMT)
-Message-ID: <5707ef09-c447-40ec-ba3a-44630d165f63@samsung.com>
-Date: Sun, 20 Oct 2024 09:32:51 +0200
+	Sun, 20 Oct 2024 12:10:56 +0000
+Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-7db54269325so2823359a12.2
+        for <linux-riscv@lists.infradead.org>; Sun, 20 Oct 2024 05:10:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1729426253; x=1730031053; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WJUZDfPGMsPohetX3rHb/vzm82hr14fr71VUu/V5jEk=;
+        b=QVZvd5Ocq25yUZ8AVzFRCVVdsUQkjOn6DBzfXD+76ty7n+YXHt8Z2Mdt1WRcCKXtoH
+         OQczMlez4cq47Auhj1NHaRktpmQHqc68V/+JYx/JYSE9TIEOilqnmNq2SfSJdFj/GyYb
+         pOS40oFtu8ITWVcOw0i5rIn85MS6PIDqenJVFO4Z3Vr8rFu2om29MSHWrj7WHe67/7HB
+         4ImxCew76LHE4Eg0eY3K5WvkNMvvRxEu9RdQjaW2K4etO2xLkmape/kkEvbagRsDbhRP
+         2D9pWyEHTFaORtka7vjZow0nY6aqgaE2YQ2c1uw93oTL2ityqUeES996ve4OtG8NjpUC
+         X3ZQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729426253; x=1730031053;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=WJUZDfPGMsPohetX3rHb/vzm82hr14fr71VUu/V5jEk=;
+        b=IR9C9T5YhYzDI6OJLni9rUG4Fxsb1P1KBNZrssJ8c8214eOcDClGwJOTo3PeVVRKZ3
+         H7inv9qYRW6TtCmmnm/ECEkxtOOIUd+xcfGD4G67jvMbrN/sJTzoXHhcVCnrkvIQBCur
+         22n9nJ/r668g3+lNMtrNP8gjU1onpQj13iGZ0iRGy3NLzdS34GIDL44HUhXzUpzCREh2
+         ZvU32wNw3uK7Xkwrt7om6rkPAKKujt4/vcxkclGz+NaAeMMBXJFTAPw/XfrzXybDjtJS
+         DBiU2VD8RTKcSR/rsD1i91YBNdizoyWVcDgYDgSqYLrrUpGQNc/ZF77msa3QRBUZl5Uk
+         Ezdw==
+X-Forwarded-Encrypted: i=1; AJvYcCUXpTFmAcW+9VFXhK8mfhSE3PqxQHDO6ffehwgICPFaAfgP9w95yWdpfe1pqszrTln54Rzlw6Xpk80/Jg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJXRkyUFshqDtRGojYSn6LhbsGSnUeZ1Ojhzbt6/9oHooGvxDV
+	Cz2uS5m+WTunxjuz6bQfqNWFto896R0GUl8hPnWKUyBKr0k92L+Z
+X-Google-Smtp-Source: AGHT+IGKrfnANcHT/kKewWxFYZgp60q7EOuoSAUPn/SfSX6iLEYlxf5LTDRLpvNSxjnXvAXlLyrnrw==
+X-Received: by 2002:a05:6a20:b283:b0:1d9:3955:6e6a with SMTP id adf61e73a8af0-1d939556e8emr6699446637.22.1729426253127;
+        Sun, 20 Oct 2024 05:10:53 -0700 (PDT)
+Received: from localhost ([121.250.214.124])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-71ec13d760esm1065471b3a.108.2024.10.20.05.10.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 20 Oct 2024 05:10:52 -0700 (PDT)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Chen Wang <unicorn_wang@outlook.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Guo Ren <guoren@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Yangyu Chen <cyy@cyyself.name>,
+	Hal Feng <hal.feng@starfivetech.com>
+Cc: Yixun Lan <dlan@gentoo.org>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v3 2/3] irqchip: add T-HEAD C900 ACLINT SSWI driver
+Date: Sun, 20 Oct 2024 20:10:29 +0800
+Message-ID: <20241020121030.1012572-3-inochiama@gmail.com>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20241020121030.1012572-1-inochiama@gmail.com>
+References: <20241020121030.1012572-1-inochiama@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/3] dt-bindings: mailbox: Add thead,th1520-mailbox
- bindings
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>, drew@pdp7.com, guoren@kernel.org,
-	wefu@redhat.com, jassisinghbrar@gmail.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, m.szyprowski@samsung.com
-Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <f1c1af8c-18e0-433d-a61c-90080919378f@sifive.com>
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrGKsWRmVeSWpSXmKPExsWy7djP87qqm0TSDfYdMrHY+nsWu8WaveeY
-	LOYfOcdqce/SFiaLF3sbWSyurZjLbvFy1j02i72vt7JbXN41h81i2+cWNou1R+4CJS73MFu0
-	zeK3+L9nB7vF6nNXWCxa9k9hcRDwePPyJYvH4Y4v7B47Z91l99i0qpPN4861PWwem5fUe7Ss
-	Pcbk8X7fVTaPvi2rGD0uNV9n9/i8SS6AO4rLJiU1J7MstUjfLoEr4/3DO6wFR20rLr45ytLA
-	ONewi5GTQ0LAROLCx2vMXYxcHEICKxgl/v6Ecb4wSly4sp4ZpEpI4DOjxMwr3DAd66/chCpa
-	zijRvn0SlPOWUWLJ753sIFW8AnYSU2ZuAbNZBFQlep5/ZoSIC0qcnPmEBcQWFZCXuH9rBliN
-	sECoxIETT8BsEQE9iQvrv7CCDGUWaGaWOHnnCxtIgllAXOLWk/lMIDabgJHEg+XzWUFsTqBl
-	jSteMEHUyEs0b50NdpGEwGFOiYMX/zFB3O0i0dx7mR3CFpZ4dXwLlC0j8X/nfKiafIkHWz8x
-	Q9g1Ejt7jkPZ1hJ3zv0COoIDaIGmxPpd+hBhR4k9zRcZQcISAnwSN94KQpzAJzFp23RmiDCv
-	REebEES1msTUnl64pedWbGOawKg0CylUZiF5chaSZ2Yh7F3AyLKKUTy1tDg3PbXYMC+1XK84
-	Mbe4NC9dLzk/dxMjMCme/nf80w7Gua8+6h1iZOJgPMQowcGsJMKbVC+YLsSbklhZlVqUH19U
-	mpNafIhRmoNFSZxXNUU+VUggPbEkNTs1tSC1CCbLxMEp1cAk8a/72V0ZoShrofU6U0u/vXU/
-	pcfke8fVoWTPPYaSVXu1VDzKroV8FJWvOPPdS+jKy8uZfaKvnaZY7w7t8asqtVM+JPawPTGS
-	rU2aN48xpoRrkw+7SPuhO/maOibW8pdypupbC/XEdnz+zcFeUn6F58GE8Op1hssX5qlqNH3t
-	2lXP/X/Poogq55/L9xyc+f+IvvmkQHbHmOdlnKFS4bM4NutZeIUUtC9Zz2y/0edax4tNdfLL
-	J824GFzIsmh9SHeyhpBWmflRzjorUZM8y/svXq5eZuR/yMb59nvv+FmXtxlvNdCyPVOScMb+
-	dv+7pHdzv3Pxyu+bmrZEk+Ouwd4rB71FBer3zt+pOPFgkRJLcUaioRZzUXEiAGHQ09n5AwAA
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrBIsWRmVeSWpSXmKPExsVy+t/xe7oqm0TSDX48VLTY+nsWu8WaveeY
-	LOYfOcdqce/SFiaLF3sbWSyurZjLbvFy1j02i72vt7JbXN41h81i2+cWNou1R+4CJS73MFu0
-	zeK3+L9nB7vF6nNXWCxa9k9hcRDwePPyJYvH4Y4v7B47Z91l99i0qpPN4861PWwem5fUe7Ss
-	Pcbk8X7fVTaPvi2rGD0uNV9n9/i8SS6AO0rPpii/tCRVISO/uMRWKdrQwkjP0NJCz8jEUs/Q
-	2DzWyshUSd/OJiU1J7MstUjfLkEv4/3DO6wFR20rLr45ytLAONewi5GTQ0LARGL9lZvMXYxc
-	HEICSxklXk88zQSRkJG41v2SBcIWlvhzrYsNoug1o0TP5C1gCV4BO4kpM7ewg9gsAqoSPc8/
-	M0LEBSVOznwCViMqIC9x/9YMsBphgVCJAyeegNkiAnoSF9Z/YQWxmQVamSXuT5aHWPCXUaL9
-	xWt2iIS4xK0n88EuYhMwkniwfD5YAyfQ4sYVL4DiHEA16hLr5wlBlMtLNG+dzTyBUWgWkjNm
-	IZk0C6FjFpKOBYwsqxhFUkuLc9Nzi430ihNzi0vz0vWS83M3MQKTwLZjP7fsYFz56qPeIUYm
-	DsZDjBIczEoivEn1gulCvCmJlVWpRfnxRaU5qcWHGE2BQTGRWUo0OR+YhvJK4g3NDEwNTcws
-	DUwtzYyVxHnZrpxPExJITyxJzU5NLUgtgulj4uCUamCadfR99EPVL5d89trOSDzPbqPW0Ze+
-	yH/HFP8J/or6UUuPH1t/woC5+dScrWKHv0974Kk5f59v8PbGvp0nQ8503uTP+9MXMzlIRMJk
-	lvXR4zzO+flaEf6cjh28t2V/acULmIkytuqb6S+ZP2Ff0MR/2yt6Wf2mzTZaMiWzONSp4Oz1
-	QN3KL+3L2PikP0VdeO4p+CAgtcFFf/21met5ZQLZ9zuU/v64892rK5vlXEol42JU1iibB0ga
-	lD9/cTRsMaOe896d/DbeCl6xDDkPXX4ufR4s3Nc987b0Zqc9mvqfvbTE+mdGN4QZLZgXxf/3
-	WcAmqZVPDs/Wsax/N+uuc1KjxIMNb7g/Lvk5+Z5yvr0SS3FGoqEWc1FxIgAy2tM0iwMAAA==
-X-CMS-MailID: 20241020073252eucas1p26f85a05022f8e471fe858f8cdece8bac
-X-Msg-Generator: CA
-X-RootMTR: 20241014123411eucas1p1f93d64ac9db9a6f77982500d4a0157f7
-X-EPHeader: CA
-CMS-TYPE: 201P
-X-CMS-RootMailID: 20241014123411eucas1p1f93d64ac9db9a6f77982500d4a0157f7
-References: <20241014123314.1231517-1-m.wilczynski@samsung.com>
-	<CGME20241014123411eucas1p1f93d64ac9db9a6f77982500d4a0157f7@eucas1p1.samsung.com>
-	<20241014123314.1231517-3-m.wilczynski@samsung.com>
-	<f1c1af8c-18e0-433d-a61c-90080919378f@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241020_003258_025850_750291B5 
-X-CRM114-Status: GOOD (  33.83  )
+X-CRM114-CacheID: sfid-20241020_051054_318471_0EF426A5 
+X-CRM114-Status: GOOD (  23.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,146 +106,257 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAxMC8xNi8yNCAwMToxNCwgU2FtdWVsIEhvbGxhbmQgd3JvdGU6Cj4gSGkgTWljaGFsLAo+
-IAo+IE9uIDIwMjQtMTAtMTQgNzozMyBBTSwgTWljaGFsIFdpbGN6eW5za2kgd3JvdGU6Cj4+IEFk
-ZCBiaW5kaW5ncyBmb3IgdGhlIG1haWxib3ggY29udHJvbGxlci4gVGhpcyB3b3JrIGlzIGJhc2Vk
-IG9uIHRoZSB2ZW5kb3IKPj4ga2VybmVsLiBbMV0KPj4KPj4gTGluazogaHR0cHM6Ly9wcm90ZWN0
-Mi5maXJlZXllLmNvbS92MS91cmw/az1kZWNjYzlhOC04MTU3MDdjYy1kZWNkNDJlNy0wMDBiYWJk
-YTAyMDEtZmY3OWQ0YWFmZjczZjM2YyZxPTEmZT03MDI4YzFlZi0xYzNkLTRlMTctYjdlZC03NmQz
-NjJiODBjYWYmdT1odHRwcyUzQSUyRiUyRmdpdGh1Yi5jb20lMkZyZXZ5b3MlMkZ0aGVhZC1rZXJu
-ZWwuZ2l0IFsxXQo+Pgo+PiBTaWduZWQtb2ZmLWJ5OiBNaWNoYWwgV2lsY3p5bnNraSA8bS53aWxj
-enluc2tpQHNhbXN1bmcuY29tPgo+PiBSZXZpZXdlZC1ieTogS3J6eXN6dG9mIEtvemxvd3NraSA8
-a3J6eXN6dG9mLmtvemxvd3NraUBsaW5hcm8ub3JnPgo+PiAtLS0KPj4gIC4uLi9iaW5kaW5ncy9t
-YWlsYm94L3RoZWFkLHRoMTUyMC1tYm94LnlhbWwgICB8IDgwICsrKysrKysrKysrKysrKysrKysK
-Pj4gIE1BSU5UQUlORVJTICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAxICsK
-Pj4gIDIgZmlsZXMgY2hhbmdlZCwgODEgaW5zZXJ0aW9ucygrKQo+PiAgY3JlYXRlIG1vZGUgMTAw
-NjQ0IERvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9tYWlsYm94L3RoZWFkLHRoMTUy
-MC1tYm94LnlhbWwKPj4KPj4gZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9i
-aW5kaW5ncy9tYWlsYm94L3RoZWFkLHRoMTUyMC1tYm94LnlhbWwgYi9Eb2N1bWVudGF0aW9uL2Rl
-dmljZXRyZWUvYmluZGluZ3MvbWFpbGJveC90aGVhZCx0aDE1MjAtbWJveC55YW1sCj4+IG5ldyBm
-aWxlIG1vZGUgMTAwNjQ0Cj4+IGluZGV4IDAwMDAwMDAwMDAwMC4uMTI1MDdjNDI2NjkxCj4+IC0t
-LSAvZGV2L251bGwKPj4gKysrIGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL21h
-aWxib3gvdGhlYWQsdGgxNTIwLW1ib3gueWFtbAo+PiBAQCAtMCwwICsxLDgwIEBACj4+ICsjIFNQ
-RFgtTGljZW5zZS1JZGVudGlmaWVyOiAoR1BMLTIuMC1vbmx5IE9SIEJTRC0yLUNsYXVzZSkKPj4g
-KyVZQU1MIDEuMgo+PiArLS0tCj4+ICskaWQ6IGh0dHBzOi8vcHJvdGVjdDIuZmlyZWV5ZS5jb20v
-djEvdXJsP2s9N2ZjZGE5MmEtMjA1NjY3NGUtN2ZjYzIyNjUtMDAwYmFiZGEwMjAxLWM1ZDU0MWJk
-ZDRjYzVmMzUmcT0xJmU9NzAyOGMxZWYtMWMzZC00ZTE3LWI3ZWQtNzZkMzYyYjgwY2FmJnU9aHR0
-cCUzQSUyRiUyRmRldmljZXRyZWUub3JnJTJGc2NoZW1hcyUyRm1haWxib3glMkZ0aGVhZCUyQ3Ro
-MTUyMC1tYm94LnlhbWwlMjMKPj4gKyRzY2hlbWE6IGh0dHBzOi8vcHJvdGVjdDIuZmlyZWV5ZS5j
-b20vdjEvdXJsP2s9MDY4Yzc4ODEtNTkxN2I2ZTUtMDY4ZGYzY2UtMDAwYmFiZGEwMjAxLWIwNDVi
-ZDcyOTBlNjRmMGUmcT0xJmU9NzAyOGMxZWYtMWMzZC00ZTE3LWI3ZWQtNzZkMzYyYjgwY2FmJnU9
-aHR0cCUzQSUyRiUyRmRldmljZXRyZWUub3JnJTJGbWV0YS1zY2hlbWFzJTJGY29yZS55YW1sJTIz
-Cj4+ICsKPj4gK3RpdGxlOiBULWhlYWQgVEgxNTIwIE1haWxib3ggQ29udHJvbGxlcgo+PiArCj4+
-ICtkZXNjcmlwdGlvbjoKPj4gKyAgVGhlIFQtaGVhZCBtYWlsYm94IGNvbnRyb2xsZXIgZW5hYmxl
-cyBjb21tdW5pY2F0aW9uIGFuZCBjb29yZGluYXRpb24gYmV0d2Vlbgo+PiArICBjb3JlcyB3aXRo
-aW4gdGhlIFNvQyBieSBwYXNzaW5nIG1lc3NhZ2VzIChlLmcuLCBkYXRhLCBzdGF0dXMsIGFuZCBj
-b250cm9sKQo+PiArICB0aHJvdWdoIG1haWxib3ggY2hhbm5lbHMuIEl0IGFsc28gYWxsb3dzIG9u
-ZSBjb3JlIHRvIHNpZ25hbCBhbm90aGVyIHByb2Nlc3Nvcgo+PiArICB1c2luZyBpbnRlcnJ1cHRz
-IHZpYSB0aGUgSW50ZXJydXB0IENvbnRyb2xsZXIgVW5pdCAoSUNVKS4KPj4gKwo+PiArbWFpbnRh
-aW5lcnM6Cj4+ICsgIC0gTWljaGFsIFdpbGN6eW5za2kgPG0ud2lsY3p5bnNraUBzYW1zdW5nLmNv
-bT4KPj4gKwo+PiArcHJvcGVydGllczoKPj4gKyAgY29tcGF0aWJsZToKPj4gKyAgICBjb25zdDog
-dGhlYWQsdGgxNTIwLW1ib3gKPj4gKwo+PiArICByZWc6Cj4+ICsgICAgaXRlbXM6Cj4+ICsgICAg
-ICAtIGRlc2NyaXB0aW9uOiBNYWlsYm94IGxvY2FsIGJhc2UgYWRkcmVzcwo+PiArICAgICAgLSBk
-ZXNjcmlwdGlvbjogUmVtb3RlIElDVSAwIGJhc2UgYWRkcmVzcwo+PiArICAgICAgLSBkZXNjcmlw
-dGlvbjogUmVtb3RlIElDVSAxIGJhc2UgYWRkcmVzcwo+PiArICAgICAgLSBkZXNjcmlwdGlvbjog
-UmVtb3RlIElDVSAyIGJhc2UgYWRkcmVzcwo+IAo+PkZyb20gdGhlIFNvQyBkb2N1bWVudGF0aW9u
-LCBpdCBsb29rcyBsaWtlIHRoZXNlIGFyZSBmb3VyIGRpZmZlcmVudCBpbnN0YW5jZXMgb2YKPiB0
-aGUgc2FtZSBJUCBibG9jaywgZWFjaCBjb250YWluaW5nIDQgdW5pZGlyZWN0aW9uYWwgbWFpbGJv
-eCBjaGFubmVscyBhbmQgYW4KPiBpbnRlcnJ1cHQgb3V0cHV0LiBTbyB0aGVzZSBzaG91bGQgYmUg
-Zm91ciBzZXBhcmF0ZSBub2Rlcywgbm8/IFRoZSBDOTEwIHdvdWxkCj4gcmVjZWl2ZSBvbiBjaGFu
-bmVscyAxLTMgb2YgaW5zdGFuY2UgMCwgYW5kIHNlbmQgb24gY2hhbm5lbCAwIG9mIGluc3RhbmNl
-cyAxLTMuCj4gCgpIaSwgYW5kIHRoYW5rIHlvdSBmb3IgeW91ciByZXZpZXcuCgpJIHdhbnRlZCB0
-byB0YWtlIHNvbWUgdGltZSB0byBmYW1pbGlhcml6ZSBteXNlbGYgd2l0aCB0aGUgZGV2aWNlIHRy
-ZWUKZG9jdW1lbnRhdGlvbiBhbmQgcmV2aWV3IGJlc3QgcHJhY3RpY2VzIGZvciBtYWlsYm94IGRy
-aXZlcnMgYmVmb3JlCnJlc3BvbmRpbmcuCgpVcG9uIHJldmlld2luZyB0aGUgTGludXggZGV2aWNl
-IHRyZWUgZG9jdW1lbnRhdGlvbiwgSSBjb3VsZG7igJl0IGZpbmQgYW55CnNwZWNpZmljIHJ1bGUg
-dGhhdCBtYW5kYXRlcyBoYXZpbmcgb25lIGRldmljZSBub2RlIHBlciBJUCBibG9jayBpbiB0aGUK
-aGFyZHdhcmUuIFRoZSBULUhlYWQgbWFudWFsIGlzIG1vcmUgZm9jdXNlZCBvbiB0aGUgaGFyZHdh
-cmUgZnJvbSBhCnByb2dyYW1tZXLigJlzIHBlcnNwZWN0aXZlIHJhdGhlciB0aGFuIGRlc2NyaWJp
-bmcgaG93IGV4YWNsdHkgdGhlIElDVSdzCmFyZSBpbXBsZW1lbnRlZCBpbiB0aGUgSFcuIFRoZSBk
-ZXZpY2UgdHJlZSBkb2N1bWVudGF0aW9uIHByb3ZpZGVzCmd1aWRlbGluZXMgZm9yIGhvdyBoYXJk
-d2FyZSBibG9ja3Mgc2hvdWxkIGJlIHJlcHJlc2VudGVkLCBidXQgaXQgZG9lc24ndAppbXBvc2Ug
-YSBzdHJpY3QgcmVxdWlyZW1lbnQgZm9yIHNlcGFyYXRlIGRldmljZSBub2RlcyBwZXIgaGFyZHdh
-cmUKYmxvY2ssIGVzcGVjaWFsbHkgd2hlbiBpdCBjb21lcyB0byBkZXZpY2VzIGxpa2UgbWFpbGJv
-eCBjb250cm9sbGVycy4KClRlY2huaWNhbGx5LCB5b3VyIHN1Z2dlc3Rpb24gdG8gY3JlYXRlIHNl
-cGFyYXRlIG5vZGVzIGZvciBlYWNoIElDVQppbnN0YW5jZSBpcyBwb3NzaWJsZS4gSG93ZXZlciwg
-ZG9pbmcgc28gd291bGQgcmVxdWlyZSBhZGRpdGlvbmFsCmNvbXBsZXhpdHkgaW4gdGhlIGRyaXZl
-ciwgYXMgaXQgd291bGQgbmVlZCB0byBoYW5kbGUgZWFjaCBub2RlCmluZGl2aWR1YWxseS4gRm9y
-IGluc3RhbmNlLCB0aGUgZHJpdmVyIHdvdWxkIG5lZWQgdG8gcmVxdWVzdCBpbnRlcnJ1cHRzCm9u
-bHkgaW4gdGhlIGNhc2Ugb2YgbWFpbGJveDkxMF90XzAsIHdoaWxlIGhhbmRsaW5nIG90aGVyIGRl
-dmljZSBub2RlcwpsaWtlIG1haWxib3g5MTBfdF8xLCBtYWlsYm94OTEwX3RfMiwgYW5kIG1haWxi
-b3g5MTBfdF8zIHNlcGFyYXRlbHkuCgpJbiBteSBvcGluaW9uLCB0aGlzIGFwcHJvYWNoIHdvdWxk
-IGFkZCB1bm5lY2Vzc2FyeSBjb21wbGV4aXR5IHRvIHRoZQpkcml2ZXIgY29kZS4gVGhlIGN1cnJl
-bnQgYXBwcm9hY2gg4oCUIHVzaW5nIGEgc2luZ2xlIGRldmljZSBub2RlIGZvciB0aGUKbWFpbGJv
-eCBjb250cm9sbGVyIGFuZCB1dGlsaXppbmcgY2hhbm5lbHMgdG8gc3RlZXIgbWVzc2FnZXMgc2Vl
-bXMgdG8KYWxpZ24gYmV0dGVyIHdpdGggZXhpc3RpbmcgYmVzdCBwcmFjdGljZXMgZm9yIG1haWxi
-b3ggZHJpdmVycy4gTWFueQptYWlsYm94IGRyaXZlcnMgY3JlYXRlIGEgc2luZ2xlIG1haWxib3gg
-Y29udHJvbGxlciBhbmQgbGV2ZXJhZ2UgbXVsdGlwbGUKY2hhbm5lbHMgZm9yIGRpZmZlcmVudCBj
-b21tdW5pY2F0aW9uIHBhdGhzLCB3aGljaCBzaW1wbGlmaWVzIGJvdGggdGhlCmRldmljZSB0cmVl
-IGFuZCB0aGUgZHJpdmVyIGltcGxlbWVudGF0aW9uLgoKSSBob3BlIHRoaXMgZXhwbGFuYXRpb24g
-Y2xhcmlmaWVzIG15IHBlcnNwZWN0aXZlLCBhbmQgSeKAmWQgbGlrZSB0bwpwcm9wb3NlIGtlZXBp
-bmcgdGhlIGN1cnJlbnQgZGVzaWduIGFzIGl0IHN0YW5kcy4KCj4+ICsKPj4gKyAgcmVnLW5hbWVz
-Ogo+PiArICAgIGl0ZW1zOgo+PiArICAgICAgLSBjb25zdDogbG9jYWwKPj4gKyAgICAgIC0gY29u
-c3Q6IHJlbW90ZS1pY3UwCj4+ICsgICAgICAtIGNvbnN0OiByZW1vdGUtaWN1MQo+PiArICAgICAg
-LSBjb25zdDogcmVtb3RlLWljdTIKPj4gKwo+PiArICBpbnRlcnJ1cHRzOgo+PiArICAgIG1heEl0
-ZW1zOiAxCj4+ICsKPj4gKyAgJyNtYm94LWNlbGxzJzoKPj4gKyAgICBjb25zdDogMgo+PiArICAg
-IGRlc2NyaXB0aW9uOiB8Cj4+ICsgICAgICBTcGVjaWZpZXMgdGhlIG51bWJlciBvZiBjZWxscyBu
-ZWVkZWQgdG8gZW5jb2RlIHRoZSBtYWlsYm94IHNwZWNpZmllci4KPj4gKyAgICAgIFRoZSBtYWls
-Ym94IHNwZWNpZmllciBjb25zaXN0cyBvZiB0d28gY2VsbHM6Cj4+ICsgICAgICAgIC0gRGVzdGlu
-YXRpb24gQ1BVIElELgo+PiArICAgICAgICAtIFR5cGUsIHdoaWNoIGNhbiBiZSBvbmUgb2YgdGhl
-IGZvbGxvd2luZzoKPj4gKyAgICAgICAgICAgIC0gMDoKPj4gKyAgICAgICAgICAgICAgICAtIFRY
-ICYgUlggY2hhbm5lbHMgc2hhcmUgdGhlIHNhbWUgY2hhbm5lbC4KPj4gKyAgICAgICAgICAgICAg
-ICAtIEVxdWlwcGVkIHdpdGggNyBpbmZvIHJlZ2lzdGVycyB0byBmYWNpbGl0YXRlIGRhdGEgc2hh
-cmluZy4KPj4gKyAgICAgICAgICAgICAgICAtIFN1cHBvcnRzIElSUSBmb3Igc2lnbmFsaW5nLgo+
-PiArICAgICAgICAgICAgLSAxOgo+PiArICAgICAgICAgICAgICAgIC0gVFggJiBSWCBvcGVyYXRl
-IGFzIGRvb3JiZWxsIGNoYW5uZWxzLgo+PiArICAgICAgICAgICAgICAgIC0gRG9lcyBub3QgaGF2
-ZSBkZWRpY2F0ZWQgaW5mbyByZWdpc3RlcnMuCj4+ICsgICAgICAgICAgICAgICAgLSBMYWNrcyBB
-Q0sgc3VwcG9ydC4KPiAKPiBJdCBhcHBlYXJzIHRoYXQgdGhlc2UgdHlwZXMgYXJlIG5vdCBkZXNj
-cmliaW5nIGhhcmR3YXJlLCBidXQgdGhlIHByb3RvY29sIHVzZWQKPiBieSB0aGUgTGludXggZHJp
-dmVyIHRvIGdsdWUgdHdvIHVuaWRpcmVjdGlvbmFsIGhhcmR3YXJlIGNoYW5uZWxzIHRvZ2V0aGVy
-IHRvCj4gbWFrZSBhIHZpcnR1YWwgYmlkaXJlY3Rpb25hbCBjaGFubmVsLiBUaGlzIGlzIHJlYWxs
-eSB0aGUgcmVzcG9uc2liaWxpdHkgb2YgdGhlCj4gbWFpbGJveCBjbGllbnQgdG8ga25vdyB3aGF0
-IHByb3RvY29sIGl0IG5lZWRzLCBub3QgdGhlIGRldmljZXRyZWUuCj4gCgpUaGUgcHJvdG9jb2xz
-IGluIHF1ZXN0aW9uIGFyZSBhY3R1YWxseSBoYW5kbGVkIGJ5IHRoZSBmaXJtd2FyZSBydW5uaW5n
-Cm9uIHRoZSBvdGhlciBjb3JlcywgbGlrZSB0aGUgRTkwMi4gSSBjb3VsZG7igJl0IGZpbmQgdGhl
-IGZpcm13YXJlIHNvdXJjZQpjb2RlLCBhcyBpdOKAmXMgZGlzdHJpYnV0ZWQgYXMgYmluYXJ5IGJs
-b2JzLiBGb3IgZXhhbXBsZSwgdGhlIGZpcm13YXJlCmJpbmFyeSBbMV0gZ2V0cyBsb2FkZWQgYnkg
-VS1Cb290IGF0IHNwZWNpZmljIGFkZHJlc3Nlcy4KCkZvciB0aGUgY3VycmVudCBjYXNlIOKAlCBj
-b21tdW5pY2F0aW5nIHdpdGggdGhlIEU5MDIgY29yZSDigJQgdGhlIFR5cGUg4oCYMOKAmQpwcm90
-b2NvbCBpcyBhbGwgd2UgbmVlZC4gU28sIEkgZG9u4oCZdCBzZWUgYW55IGlzc3VlIGluIHJlbW92
-aW5nIHRoZQpzZWNvbmQgY2VsbCwgc2luY2Ugd2XigJlyZSBvbmx5IHVzaW5nIG9uZSBwcm90b2Nv
-bCBoZXJlLiAKClsxXSAtCmh0dHBzOi8vZ2l0LmJlYWdsZWJvYXJkLm9yZy9iZWFnbGV2LWFoZWFk
-L3h1YW50aWUtdWJ1bnR1Ly0vYmxvYi80OGJjNTEyODY0ODMyNTdmMTUzYmE1ODgxM2JiNjAxMjY3
-ZDBmMDg3L2JpbnMvbGlnaHRfYW9uX2ZwZ2EuYmluCgpUaGFua3MsCk1pY2hhxYIKCj4gUmVnYXJk
-cywKPiBTYW11ZWwKPiAKPj4gKwo+PiArcmVxdWlyZWQ6Cj4+ICsgIC0gY29tcGF0aWJsZQo+PiAr
-ICAtIHJlZwo+PiArICAtIHJlZy1uYW1lcwo+PiArICAtIGludGVycnVwdHMKPj4gKyAgLSAnI21i
-b3gtY2VsbHMnCj4+ICsKPj4gK2FkZGl0aW9uYWxQcm9wZXJ0aWVzOiBmYWxzZQo+PiArCj4+ICtl
-eGFtcGxlczoKPj4gKyAgLSB8Cj4+ICsKPj4gKyAgICBzb2Mgewo+PiArICAgICAgI2FkZHJlc3Mt
-Y2VsbHMgPSA8Mj47Cj4+ICsgICAgICAjc2l6ZS1jZWxscyA9IDwyPjsKPj4gKyAgICAgIG1haWxi
-b3hAZmZmZmMzODAwMCB7Cj4+ICsgICAgICAgIGNvbXBhdGlibGUgPSAidGhlYWQsdGgxNTIwLW1i
-b3giOwo+PiArICAgICAgICByZWcgPSA8MHhmZiAweGZmYzM4MDAwIDB4MCAweDQwMDA+LAo+PiAr
-ICAgICAgICAgICAgICA8MHhmZiAweGZmYzQ0MDAwIDB4MCAweDEwMDA+LAo+PiArICAgICAgICAg
-ICAgICA8MHhmZiAweGZmYzRjMDAwIDB4MCAweDEwMDA+LAo+PiArICAgICAgICAgICAgICA8MHhm
-ZiAweGZmYzU0MDAwIDB4MCAweDEwMDA+Owo+PiArICAgICAgICByZWctbmFtZXMgPSAibG9jYWwi
-LCAicmVtb3RlLWljdTAiLCAicmVtb3RlLWljdTEiLCAicmVtb3RlLWljdTIiOwo+PiArICAgICAg
-ICBpbnRlcnJ1cHRzID0gPDI4PjsKPj4gKyAgICAgICAgI21ib3gtY2VsbHMgPSA8Mj47Cj4+ICsg
-ICAgICB9Owo+PiArICAgIH07Cj4+IGRpZmYgLS1naXQgYS9NQUlOVEFJTkVSUyBiL01BSU5UQUlO
-RVJTCj4+IGluZGV4IDA2NTVjNmJhNTQzNS4uNzQwMWM3Y2I2NTMzIDEwMDY0NAo+PiAtLS0gYS9N
-QUlOVEFJTkVSUwo+PiArKysgYi9NQUlOVEFJTkVSUwo+PiBAQCAtMTk5NTEsNiArMTk5NTEsNyBA
-QCBMOglsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj4+ICBTOglNYWludGFpbmVkCj4+
-ICBUOglnaXQgaHR0cHM6Ly9wcm90ZWN0Mi5maXJlZXllLmNvbS92MS91cmw/az05YjIzYjZiMC1j
-NGI4NzhkNC05YjIyM2RmZi0wMDBiYWJkYTAyMDEtNjgzNjZmN2M2NTQ0MmI4ZiZxPTEmZT03MDI4
-YzFlZi0xYzNkLTRlMTctYjdlZC03NmQzNjJiODBjYWYmdT1odHRwcyUzQSUyRiUyRmdpdGh1Yi5j
-b20lMkZwZHA3JTJGbGludXguZ2l0Cj4+ICBGOglEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmlu
-ZGluZ3MvY2xvY2svdGhlYWQsdGgxNTIwLWNsay1hcC55YW1sCj4+ICtGOglEb2N1bWVudGF0aW9u
-L2RldmljZXRyZWUvYmluZGluZ3MvbWFpbGJveC90aGVhZCx0aDE1MjAtbWJveC55YW1sCj4+ICBG
-OglhcmNoL3Jpc2N2L2Jvb3QvZHRzL3RoZWFkLwo+PiAgRjoJZHJpdmVycy9jbGsvdGhlYWQvY2xr
-LXRoMTUyMC1hcC5jCj4+ICBGOglkcml2ZXJzL21haWxib3gvbWFpbGJveC10aDE1MjAuYwo+IAo+
-IAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
-cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Add a driver for the T-HEAD C900 ACLINT SSWI device, which is an
+enhanced implementation of the RISC-V ACLINT SSWI specification.
+This device allows the system to send ipi via fast device interface.
+
+Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+---
+ drivers/irqchip/Kconfig                      |  11 ++
+ drivers/irqchip/Makefile                     |   1 +
+ drivers/irqchip/irq-thead-c900-aclint-sswi.c | 176 +++++++++++++++++++
+ include/linux/cpuhotplug.h                   |   1 +
+ 4 files changed, 189 insertions(+)
+ create mode 100644 drivers/irqchip/irq-thead-c900-aclint-sswi.c
+
+diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
+index 341cd9ca5a05..465c9607d0b0 100644
+--- a/drivers/irqchip/Kconfig
++++ b/drivers/irqchip/Kconfig
+@@ -611,6 +611,17 @@ config STARFIVE_JH8100_INTC
+ 
+ 	  If you don't know what to do here, say Y.
+ 
++config THEAD_C900_ACLINT_SSWI
++	bool "THEAD C9XX ACLINT S-mode IPI Interrupt Controller"
++	depends on RISCV
++	select IRQ_DOMAIN_HIERARCHY
++	select GENERIC_IRQ_IPI_MUX
++	help
++	  This enables support for T-HEAD specific ACLINT SSWI device
++	  support.
++
++	  If you don't know what to do here, say Y.
++
+ config EXYNOS_IRQ_COMBINER
+ 	bool "Samsung Exynos IRQ combiner support" if COMPILE_TEST
+ 	depends on (ARCH_EXYNOS && ARM) || COMPILE_TEST
+diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
+index e3679ec2b9f7..583418261253 100644
+--- a/drivers/irqchip/Makefile
++++ b/drivers/irqchip/Makefile
+@@ -101,6 +101,7 @@ obj-$(CONFIG_RISCV_APLIC_MSI)		+= irq-riscv-aplic-msi.o
+ obj-$(CONFIG_RISCV_IMSIC)		+= irq-riscv-imsic-state.o irq-riscv-imsic-early.o irq-riscv-imsic-platform.o
+ obj-$(CONFIG_SIFIVE_PLIC)		+= irq-sifive-plic.o
+ obj-$(CONFIG_STARFIVE_JH8100_INTC)	+= irq-starfive-jh8100-intc.o
++obj-$(CONFIG_THEAD_C900_ACLINT_SSWI)	+= irq-thead-c900-aclint-sswi.o
+ obj-$(CONFIG_IMX_IRQSTEER)		+= irq-imx-irqsteer.o
+ obj-$(CONFIG_IMX_INTMUX)		+= irq-imx-intmux.o
+ obj-$(CONFIG_IMX_MU_MSI)		+= irq-imx-mu-msi.o
+diff --git a/drivers/irqchip/irq-thead-c900-aclint-sswi.c b/drivers/irqchip/irq-thead-c900-aclint-sswi.c
+new file mode 100644
+index 000000000000..e1051869a7ab
+--- /dev/null
++++ b/drivers/irqchip/irq-thead-c900-aclint-sswi.c
+@@ -0,0 +1,176 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2024 Inochi Amaoto <inochiama@gmail.com>
++ */
++
++#define pr_fmt(fmt) "thead-c900-aclint-sswi: " fmt
++#include <linux/cpu.h>
++#include <linux/interrupt.h>
++#include <linux/io.h>
++#include <linux/irq.h>
++#include <linux/irqchip.h>
++#include <linux/irqchip/chained_irq.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/of_address.h>
++#include <linux/of_irq.h>
++#include <linux/pci.h>
++#include <linux/spinlock.h>
++#include <linux/smp.h>
++#include <linux/string_choices.h>
++#include <asm/sbi.h>
++#include <asm/vendorid_list.h>
++
++#define ACLINT_xSWI_REGISTER_SIZE	4
++
++#define THEAD_C9XX_CSR_SXSTATUS		0x5c0
++#define THEAD_C9XX_SXSTATUS_CLINTEE	BIT(17)
++
++static int sswi_ipi_virq __ro_after_init;
++static DEFINE_PER_CPU(void __iomem *, sswi_cpu_regs);
++
++static void thead_aclint_sswi_ipi_send(unsigned int cpu)
++{
++	writel_relaxed(0x1, per_cpu(sswi_cpu_regs, cpu));
++}
++
++static void thead_aclint_sswi_ipi_clear(void)
++{
++	writel_relaxed(0x0, this_cpu_read(sswi_cpu_regs));
++}
++
++static void thead_aclint_sswi_ipi_handle(struct irq_desc *desc)
++{
++	struct irq_chip *chip = irq_desc_get_chip(desc);
++
++	chained_irq_enter(chip, desc);
++
++	csr_clear(CSR_IP, IE_SIE);
++	thead_aclint_sswi_ipi_clear();
++
++	ipi_mux_process();
++
++	chained_irq_exit(chip, desc);
++}
++
++static int thead_aclint_sswi_starting_cpu(unsigned int cpu)
++{
++	enable_percpu_irq(sswi_ipi_virq, irq_get_trigger_type(sswi_ipi_virq));
++
++	return 0;
++}
++
++static int thead_aclint_sswi_dying_cpu(unsigned int cpu)
++{
++	thead_aclint_sswi_ipi_clear();
++
++	disable_percpu_irq(sswi_ipi_virq);
++
++	return 0;
++}
++
++static int __init aclint_sswi_parse_irq(struct fwnode_handle *fwnode,
++					void __iomem *reg)
++{
++	struct of_phandle_args parent;
++	unsigned long hartid;
++	u32 contexts, i;
++	int rc, cpu;
++
++	contexts = of_irq_count(to_of_node(fwnode));
++	if (!(contexts)) {
++		pr_err("%pfwP: no ACLINT SSWI context available\n", fwnode);
++		return -EINVAL;
++	}
++
++	for (i = 0; i < contexts; i++) {
++		rc = of_irq_parse_one(to_of_node(fwnode), i, &parent);
++		if (rc)
++			return rc;
++
++		rc = riscv_of_parent_hartid(parent.np, &hartid);
++		if (rc)
++			return rc;
++
++		if (parent.args[0] != RV_IRQ_SOFT)
++			return -ENOTSUPP;
++
++		cpu = riscv_hartid_to_cpuid(hartid);
++
++		per_cpu(sswi_cpu_regs, cpu) = reg + i * ACLINT_xSWI_REGISTER_SIZE;
++	}
++
++	pr_info("%pfwP: register %u CPU%s\n", fwnode, contexts, str_plural(contexts));
++
++	return 0;
++}
++
++static int __init aclint_sswi_probe(struct fwnode_handle *fwnode)
++{
++	struct irq_domain *domain;
++	void __iomem *reg;
++	int virq, rc;
++
++	/* If it is T-HEAD CPU, check whether SSWI is enabled */
++	if (riscv_cached_mvendorid(0) == THEAD_VENDOR_ID &&
++	    !(csr_read(THEAD_C9XX_CSR_SXSTATUS) & THEAD_C9XX_SXSTATUS_CLINTEE))
++		return -ENOTSUPP;
++
++	if (!is_of_node(fwnode))
++		return -EINVAL;
++
++	reg = of_iomap(to_of_node(fwnode), 0);
++	if (!reg)
++		return -ENOMEM;
++
++	/* Parse SSWI setting */
++	rc = aclint_sswi_parse_irq(fwnode, reg);
++	if (rc < 0)
++		return rc;
++
++	/* If mulitple SSWI devices are present, do not register irq again */
++	if (sswi_ipi_virq)
++		return 0;
++
++	/* Find riscv intc domain and create IPI irq mapping */
++	domain = irq_find_matching_fwnode(riscv_get_intc_hwnode(), DOMAIN_BUS_ANY);
++	if (!domain) {
++		pr_err("%pfwP: Failed to find INTC domain\n", fwnode);
++		return -ENOENT;
++	}
++
++	sswi_ipi_virq = irq_create_mapping(domain, RV_IRQ_SOFT);
++	if (!sswi_ipi_virq) {
++		pr_err("unable to create ACLINT SSWI IRQ mapping\n");
++		return -ENOMEM;
++	}
++
++	/* Register SSWI irq and handler */
++	virq = ipi_mux_create(BITS_PER_BYTE, thead_aclint_sswi_ipi_send);
++	if (virq <= 0) {
++		pr_err("unable to create muxed IPIs\n");
++		irq_dispose_mapping(sswi_ipi_virq);
++		return virq < 0 ? virq : -ENOMEM;
++	}
++
++	irq_set_chained_handler(sswi_ipi_virq, thead_aclint_sswi_ipi_handle);
++
++	cpuhp_setup_state(CPUHP_AP_IRQ_THEAD_ACLINT_SSWI_STARTING,
++			  "irqchip/thead-aclint-sswi:starting",
++			  thead_aclint_sswi_starting_cpu,
++			  thead_aclint_sswi_dying_cpu);
++
++	riscv_ipi_set_virq_range(virq, BITS_PER_BYTE);
++
++	/* Announce that SSWI is providing IPIs */
++	pr_info("providing IPIs using THEAD ACLINT SSWI\n");
++
++	return 0;
++}
++
++static int __init aclint_sswi_early_probe(struct device_node *node,
++					  struct device_node *parent)
++{
++	return aclint_sswi_probe(&node->fwnode);
++}
++IRQCHIP_DECLARE(thead_aclint_sswi, "thead,c900-aclint-sswi", aclint_sswi_early_probe);
+diff --git a/include/linux/cpuhotplug.h b/include/linux/cpuhotplug.h
+index 2361ed4d2b15..799052249c7b 100644
+--- a/include/linux/cpuhotplug.h
++++ b/include/linux/cpuhotplug.h
+@@ -147,6 +147,7 @@ enum cpuhp_state {
+ 	CPUHP_AP_IRQ_EIOINTC_STARTING,
+ 	CPUHP_AP_IRQ_AVECINTC_STARTING,
+ 	CPUHP_AP_IRQ_SIFIVE_PLIC_STARTING,
++	CPUHP_AP_IRQ_THEAD_ACLINT_SSWI_STARTING,
+ 	CPUHP_AP_IRQ_RISCV_IMSIC_STARTING,
+ 	CPUHP_AP_IRQ_RISCV_SBI_IPI_STARTING,
+ 	CPUHP_AP_ARM_MVEBU_COHERENCY,
+-- 
+2.47.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
