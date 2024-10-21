@@ -4,87 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B55CD0E6C8
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Oct 2024 08:30:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B5C1D0E6D2
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Oct 2024 08:45:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ud+YldEdAmtjtIlkLVaz8/mfRtuKL1+zgqXQRPDk5JA=; b=CC5COEvfc7jrF0
-	VS3a3t5ry77nqW0wzvLLSGGuOkM64RU85kQ5xaTOItpuXuYhnsTpsUjA5SNIOZnL9IDoSEX8aPm5E
-	uxZtI8oo7g+86cLcRza3jsuPbxNXmOhH1zByBQZgM2LxwDPaZbFNjZaGfbT8h5ldp0rIbdqEwhrXj
-	KNk3bE8imN2Y9SFRlX9ib0WRWl1K3LewpzfP7WUQQOfz+DKTxSdiNMIItA7RBgSD9SKn8eNTrxFA2
-	CuQtjYtR9twSHgfQW6+koHRVNA4B5QhE1sjtclW+TZ7UNCydF0QxWY0uVPgYCSMprMnitq0mEzY/g
-	rYwZHMewPco7DicpmU7g==;
+	List-Owner; bh=/Pd3n9Q4e2z7BOmi6v0OWM66fMQheohMFJQKuD7/RFI=; b=oi0EtJeeSwMgtF
+	Ev2n5UryGHmOD12M3eHXukvOPtUO7P9XnQ7rlF3/qJPPqK6Rd45mrTVt2I8sBvmOixECVBbBSNgQl
+	xUxSoPWqp75dyVvkQX0Svtztet4Ch2IG+BnFFo3Ro/OHYpb+OLymetkPbBspdd4vXPREnvbN99zlC
+	urx3dTkxqX05d2/jLnLcjag36b9YNY05Pvv+8OjH+B5SycgY3RXKrXqk4HXjtOGz1lBZAsJaoNKhj
+	5gR327oDhPoTpsctSc+gTL94AAAR/XtfjM7/+Ef2RwGTQkZrFFXplR4aXRglUq60+uLkG4uCyhb20
+	H1/8+nIW8APZAqyAQUeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2nny-00000006Y3h-0Fvp;
-	Mon, 21 Oct 2024 08:30:22 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1t2o2W-00000006bFO-2Iop;
+	Mon, 21 Oct 2024 08:45:24 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2nmu-00000006Xu3-2YRC
+	id 1t2mob-00000006N75-0tAp
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 21 Oct 2024 07:26:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=CXvcCpfsJOPp154vFwKXQKRadddvDYDxZELGpa9JLd4=; b=NdCIU5w6sJjC+ClfUBxonfwrkX
+	InnK0DbzT+OkXkFbcac33hwvHMImaFAkap4DcFYuYBv5FhDNQ3w3qMhy8wKzvAJ3e01M1oUajkERs
+	GjdfRyEWwH/cAJTWuOfyjLC/u/KYBku5X09hHZ50tMAomSuX4Blnacvr7pMbVun7NttfPdxUIxTgg
+	rlZeQnZ7MK1sl7T8DNK1IH+XqOwVAJ4AsGQ7bKvpbgE0IAZhWgKZe0k48q/ydyCM21fPaIjNxZJmw
+	zgQXW2nzbr0dj3vpOj9glDIMYQKzXI1dg341I2//A2HBjqcYFuL79JBiAVSiKRTKrgyNjz8Qn2mXq
+	3Rm40LyA==;
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t2moX-00000007qZz-2LDu
 	for linux-riscv@lists.infradead.org;
-	Mon, 21 Oct 2024 08:29:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1729499356; x=1761035356;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=/zePlugoobNxm+sBHhUrdXCSLuE+lS4wRijxDZIkJbQ=;
-  b=OZ01roiNB53qJ7WEBlqWCiKuuZhZnVNYm3+4PrM1oxxTEW183tBPMvTz
-   zZmJHdBZn5kszGxcCtIItflzy0MH923lWu0G8+WrPTacYsMYFi5qTs37U
-   YaA0/eGSBQ2u2nL0a+gX1EzbaV/BWb8g6WKJXIXYtwnSDj5y5m9eoXy1P
-   +loNY7feaMic/sMipB9+N7moOzaYbkSiF5TrdODToBaZBGsGrB0T9Ajuw
-   0rh1Z5hunTQl4y+lpzQ1ba/NTGdp/L2HrSdPe6PrHMZ6XMdfIbcVooGyW
-   xv04wy6gkuDbBKbxrHuJygSHbEZousA8PAIIkIfgF8yiwIKgPW3gnIsEo
-   Q==;
-X-CSE-ConnectionGUID: VXHkId25SQ+u0kYKj+a8HQ==
-X-CSE-MsgGUID: 7Ixub/p2TgK/dfHdueytRg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11231"; a="29181713"
-X-IronPort-AV: E=Sophos;i="6.11,220,1725346800"; 
-   d="scan'208";a="29181713"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Oct 2024 01:29:15 -0700
-X-CSE-ConnectionGUID: YErJoinJQ4aG2lyxkEghjg==
-X-CSE-MsgGUID: 5NSCvMZRTjCnP+C+W3NSiw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,220,1725346800"; 
-   d="scan'208";a="79052574"
-Received: from smile.fi.intel.com ([10.237.72.154])
-  by fmviesa006.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Oct 2024 01:29:12 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1t2nmn-00000005QWt-0eGk;
-	Mon, 21 Oct 2024 11:29:09 +0300
-Date: Mon, 21 Oct 2024 11:29:08 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Chen Wang <unicorn_wang@outlook.com>,
+	Mon, 21 Oct 2024 07:26:55 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-20c805a0753so34697935ad.0
+        for <linux-riscv@lists.infradead.org>; Mon, 21 Oct 2024 00:26:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1729495611; x=1730100411; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CXvcCpfsJOPp154vFwKXQKRadddvDYDxZELGpa9JLd4=;
+        b=k6nLoxUbNWlhwBghyeJHdGPt0i41fkEHIf4PhA0U600nLBU5wUjWPR7iQf54ApfJlV
+         nKj9AiSUU6OPetbObln7kgn9cuZqN7epyDP90StuiuejO1QnX+Nr5fBgTCrrwMJ0nEEg
+         4/DX81UEnx5pVZ2mYGCEyiaS1ukqwFCxMfq0xFxjOZin9miq7gWEYL21IBiianh/la8e
+         xeQ7YHf/A4RK1V2hzbm0INYOkz6gUQZ2h29BJXWcww23aZqk2YFxPnHjWtZJdLW7KNgg
+         pet/QGkEG4Z7FKi+pxH+S5DiJ5QOM2U7+NlZljwUIkSybFbM1hAfSEVjq0vQxDOUIg4o
+         LmZw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729495611; x=1730100411;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=CXvcCpfsJOPp154vFwKXQKRadddvDYDxZELGpa9JLd4=;
+        b=P91MnIhPBoOqLNVVjO07NpMkcz2mDFfL/agA15pDsbwmobq6oYdJIYNspNmhur+4cw
+         mrWTkBIlM95LxNK2Ejn3RyYrqNhl9GNxLPL5NZjdmx65ID5Azm2Yryuc6fzUzsKYVKeC
+         hk2VfHLxdUu1OdNm9tlgz3qkRF3FUQggGMgeGIPZSkavGNdxAzGd02lCcNMlenZdASnj
+         xzJSCyTEaxZNZtyDUJeYrsfX9/MJeupPIEHspalY4jiVFXtC5JuKBXkP2Q6P6zGQ16sj
+         mnULFrdxQbxj5M7XnkovaQ/rK7imqeSqZZJlRre6gt3Jgx2i5p6gQnweOCYnDdXH2kgi
+         NuJg==
+X-Forwarded-Encrypted: i=1; AJvYcCXzJb+VBNH1tZABA/HjSzt0ca+LJvXtxLpEpaRJz+mHZDlUUi/zrIvZEZXa72vvNepHJHlN3ADZifzfWA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwzRooSw/zd8N64RyZIl/MPg5dVr7zNtGXWIeTEsriyNbEDsLlB
+	9NI8k1g5rXRk9jQR8U9Y7Z58z9fsHcPkbbpk+hnPYKoOB3A7yJ5c
+X-Google-Smtp-Source: AGHT+IEsGe+lBz2zwyzbRMjnO083MGG92UylU4sVnq+SoC37wyN6vFExnIVCz0Vn/kD0D2CooUtaXQ==
+X-Received: by 2002:a17:902:db04:b0:20e:5997:c107 with SMTP id d9443c01a7336-20e5a8fb320mr151344175ad.39.1729495610968;
+        Mon, 21 Oct 2024 00:26:50 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-20e7eee884dsm19919975ad.9.2024.10.21.00.26.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 21 Oct 2024 00:26:50 -0700 (PDT)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Chen Wang <unicorn_wang@outlook.com>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Inochi Amaoto <inochiama@outlook.com>, Yixun Lan <dlan@gentoo.org>,
-	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 2/2] serial: 8250_dw: Add Sophgo SG2044 quirk
-Message-ID: <ZxYQ1FKtloHPnjb_@smile.fi.intel.com>
+	Inochi Amaoto <inochiama@outlook.com>
+Cc: Yixun Lan <dlan@gentoo.org>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	linux-serial@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v2 2/2] serial: 8250_dw: Add Sophgo SG2044 quirk
+Date: Mon, 21 Oct 2024 15:26:06 +0800
+Message-ID: <20241021072606.585878-3-inochiama@gmail.com>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20241021072606.585878-1-inochiama@gmail.com>
 References: <20241021072606.585878-1-inochiama@gmail.com>
- <20241021072606.585878-3-inochiama@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241021072606.585878-3-inochiama@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241021_012916_680033_45EC0057 
-X-CRM114-Status: UNSURE (   8.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241021_082654_359904_BD2FCE74 
+X-CRM114-Status: GOOD (  12.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,19 +123,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 21, 2024 at 03:26:06PM +0800, Inochi Amaoto wrote:
-> SG2044 relys on an internal divisor when calculating bitrate, which
-> means a wrong clock for the most common bitrates. So add a quirk for
-> this uart device to skip the set rate call and only relys on the
-> internal UART divisor.
+SG2044 relys on an internal divisor when calculating bitrate, which
+means a wrong clock for the most common bitrates. So add a quirk for
+this uart device to skip the set rate call and only relys on the
+internal UART divisor.
 
-Assuming DT bindings are okay,
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+---
+ drivers/tty/serial/8250/8250_dw.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
+diff --git a/drivers/tty/serial/8250/8250_dw.c b/drivers/tty/serial/8250/8250_dw.c
+index ab9e7f204260..51894c93c8a3 100644
+--- a/drivers/tty/serial/8250/8250_dw.c
++++ b/drivers/tty/serial/8250/8250_dw.c
+@@ -750,7 +750,7 @@ static const struct dw8250_platform_data dw8250_renesas_rzn1_data = {
+ 	.quirks = DW_UART_QUIRK_CPR_VALUE | DW_UART_QUIRK_IS_DMA_FC,
+ };
+ 
+-static const struct dw8250_platform_data dw8250_starfive_jh7100_data = {
++static const struct dw8250_platform_data dw8250_skip_set_rate_data = {
+ 	.usr_reg = DW_UART_USR,
+ 	.quirks = DW_UART_QUIRK_SKIP_SET_RATE,
+ };
+@@ -760,7 +760,8 @@ static const struct of_device_id dw8250_of_match[] = {
+ 	{ .compatible = "cavium,octeon-3860-uart", .data = &dw8250_octeon_3860_data },
+ 	{ .compatible = "marvell,armada-38x-uart", .data = &dw8250_armada_38x_data },
+ 	{ .compatible = "renesas,rzn1-uart", .data = &dw8250_renesas_rzn1_data },
+-	{ .compatible = "starfive,jh7100-uart", .data = &dw8250_starfive_jh7100_data },
++	{ .compatible = "sophgo,sg2044-uart", .data = &dw8250_skip_set_rate_data },
++	{ .compatible = "starfive,jh7100-uart", .data = &dw8250_skip_set_rate_data },
+ 	{ /* Sentinel */ }
+ };
+ MODULE_DEVICE_TABLE(of, dw8250_of_match);
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.47.0
 
 
 _______________________________________________
