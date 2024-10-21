@@ -4,53 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FD52D15D98
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Oct 2024 14:09:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8904D15D98
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Oct 2024 14:25:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
 	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qcmOYlNLxkJ3EHcqNQjIhoocElNGtiIt0fxYkkeMzvY=; b=Zj3CDpC8Ma/XB65S5N/MD62TJ+
-	VGF9vvyf7ILsEzlyJY99rRjmTa6mCmMbwV1ARm4TvdEbT2hIfTR2WDqiHiLU4MplLJ8W9ltHhU8VT
-	XKyyhxBrxEYicWoIbfybaCe2XyIUrRF+BiP9DAiIOj/Wpi6Uicn2Ev+0e65Zfz5S0/45LBJ8MtPIj
-	w9vBjWW5vZachxbffREwKTsadlxHGkCPt0z/TGVfdiZF6K/I/RfI6fykxKp9fqUJAeamK6Pkaral/
-	6qcS/kyIvqA/8tS65UpbaigEGgGcxT4GKWgcPLEMcaSc9t7ZOt1a01v6tML0Quo8lrDR2KJ88DZEN
-	ZJJfZCaA==;
+	bh=LSb3Yl4Mqdpp1kz+lTt2w6fzAuDt1+JKdCv9opd+nq8=; b=E/ENQTChz+gYqBjydJNLj0Ss5Z
+	WgeVOWuZrN5bJYBCnDFYZUHXtHLVv6zpdXJiWpjIiIyI8dMnEJh4mhHJ2U8Onh8e6BPLsGHpmlwmi
+	f1+zMdynWLDdQMbRLPdIvcrBZujiDIsYf68SGjPOOmWQHtqUsTLyZSrD/twZsrLUQJ4ly0aptRt6x
+	zZrPjGmpNv7nRoifdNYbqoGEjguN0PYqXbUTO8CU9h/fH4lKTxwgMH5kq4QQj6bsG0dKaXkB3pQb1
+	Cv38Yx9WsWd1WK7QfRo+Q/YihgsRJ5MNVqcUS7k450mlnzho5sOr9ejXNt5DnwmGuq0HaOGtez0xl
+	SM2pvhiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2t63-00000007Z6y-1PeL;
-	Mon, 21 Oct 2024 14:09:23 +0000
-Received: from www62.your-server.de ([213.133.104.62])
+	id 1t2tLc-00000007bsa-19eT;
+	Mon, 21 Oct 2024 14:25:28 +0000
+Received: from mout.gmx.net ([212.227.15.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2sgU-00000007Spz-0dxD
+	id 1t2t1i-00000007Y9E-34CG
 	for linux-riscv@lists.infradead.org;
-	Mon, 21 Oct 2024 13:42:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=iogearbox.net; s=default2302; h=Content-Transfer-Encoding:Content-Type:
-	In-Reply-To:From:References:To:Subject:MIME-Version:Date:Message-ID:Sender:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=V0Rz+s2UMQZZUbBwMOi0xc0EzjSiC5bazSEf6CTQyDc=; b=UsEgYq0M6rFkAoaTh2da3XfwYt
-	0gxE5aEIn/cM4W4X1Q7whLOv7Sn/qMjciUKyRCrIFnH5NxUrAxUUcw8a1x4H+898jrJ+ghWxaFptD
-	iEwb42nxpFXxFHUok9K49ETgqh3UdjSo8uKqsBWx3l85ihwHX9wopDU1MH2c25//AyC0L9NWxgm79
-	yfB49HmKfADVYMFVozGbAcrLr0+IMd3dKp4tnZWBwqZVGEvUQeKW14z2/ILA7yIoI/9SZ6L0XbsGK
-	yJKKAg92GY0WU21jC+IkgzO+CkCd9eG+A9Sa9VNHFhiINz1fyFOK0vsp2VSEDz5tsNxql6uvHbCBO
-	8Jz++kUg==;
-Received: from sslproxy06.your-server.de ([78.46.172.3])
-	by www62.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <daniel@iogearbox.net>)
-	id 1t2sgE-00093z-3T; Mon, 21 Oct 2024 15:42:42 +0200
-Received: from [178.197.248.43] (helo=[192.168.1.114])
-	by sslproxy06.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <daniel@iogearbox.net>)
-	id 1t2sgC-000PVJ-1M;
-	Mon, 21 Oct 2024 15:42:40 +0200
-Message-ID: <528402c7-fec4-4a35-923a-f8375749296f@iogearbox.net>
-Date: Mon, 21 Oct 2024 15:42:39 +0200
+	Mon, 21 Oct 2024 14:04:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
+	s=s31663417; t=1729519466; x=1730124266; i=deller@gmx.de;
+	bh=KHEHhgl3vT2qa4XlTJ64Ck+WkTzRu0oSpPZLUl326jE=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=pdGRBy7XwsouqsLdYc7G5M1qa5UoGswFupmj2UQAxuH9EXyJcv/gkpHgXthvvrv+
+	 2LelATXe8AQUx9w0qtwANm35+1wxOmLjclJ1RMhK/W4gI212eXYDYUgZWKwwG93wT
+	 mLjaXJi3US4JsYwffySS/FrgSaE/X3uOmk9x7oi43dZlrIFmiDHA4xnjLK3mxwheC
+	 uFSlCNvvtBsR9f30IuTsA3uzlZZC22aE27oK009fe5gd8Pz88UGH5nJOaKis+x0Xv
+	 8Zz+dCpt31rR0fjgY6g0KRjXUgRWlkpLETnHg22ocjdHlIYtMQsEUTF1Bq9cZOMDK
+	 dOix/CnkEr+jJ7tfQA==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [10.8.0.6] ([78.94.87.245]) by mail.gmx.net (mrgmx005
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1M3lY1-1t2blp04OZ-004rkb; Mon, 21
+ Oct 2024 16:04:26 +0200
+Message-ID: <aef97e2b-f845-4b2e-bb35-cf89e4a7af6c@gmx.de>
+Date: Mon, 21 Oct 2024 16:04:22 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH bpf-next 3/5] selftests/bpf: don't mask result of
@@ -59,9 +55,9 @@ To: Puranjay Mohan <puranjay@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
  Alexei Starovoitov <ast@kernel.org>,
  Andrew Morton <akpm@linux-foundation.org>,
  Andrii Nakryiko <andrii@kernel.org>, bpf@vger.kernel.org,
- "David S. Miller" <davem@davemloft.net>, Eduard Zingerman
- <eddyz87@gmail.com>, Eric Dumazet <edumazet@google.com>,
- Hao Luo <haoluo@google.com>, Helge Deller <deller@gmx.de>,
+ Daniel Borkmann <daniel@iogearbox.net>, "David S. Miller"
+ <davem@davemloft.net>, Eduard Zingerman <eddyz87@gmail.com>,
+ Eric Dumazet <edumazet@google.com>, Hao Luo <haoluo@google.com>,
  Jakub Kicinski <kuba@kernel.org>,
  "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
  Jiri Olsa <jolsa@kernel.org>, John Fastabend <john.fastabend@gmail.com>,
@@ -70,63 +66,77 @@ To: Puranjay Mohan <puranjay@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
  Martin KaFai Lau <martin.lau@linux.dev>, Mykola Lysenko <mykolal@fb.com>,
  netdev@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>,
  Paolo Abeni <pabeni@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Puranjay Mohan <puranjay12@gmail.com>, Shuah Khan <shuah@kernel.org>,
- Song Liu <song@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>,
- Yonghong Song <yonghong.song@linux.dev>
+ Shuah Khan <shuah@kernel.org>, Song Liu <song@kernel.org>,
+ Stanislav Fomichev <sdf@fomichev.me>, Yonghong Song <yonghong.song@linux.dev>
 References: <20241021122112.101513-1-puranjay@kernel.org>
  <20241021122112.101513-4-puranjay@kernel.org>
+ <31b8ea3b-f765-43c0-9cee-49bc13064f04@gmx.de> <mb61p1q09d2eb.fsf@kernel.org>
 Content-Language: en-US
-From: Daniel Borkmann <daniel@iogearbox.net>
-Autocrypt: addr=daniel@iogearbox.net; keydata=
- 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
-In-Reply-To: <20241021122112.101513-4-puranjay@kernel.org>
-X-Authenticated-Sender: daniel@iogearbox.net
-X-Virus-Scanned: Clear (ClamAV 0.103.10/27434/Mon Oct 21 10:49:31 2024)
+From: Helge Deller <deller@gmx.de>
+Autocrypt: addr=deller@gmx.de; keydata=
+ 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
+In-Reply-To: <mb61p1q09d2eb.fsf@kernel.org>
+X-Provags-ID: V03:K1:uk4z+Tqi+SiUY+nEn2TK7BhJ0ZpV9jMDshA/W528bXZKEkkNaZ4
+ JMf6Xd5p8sIfmm0L7rAKVRwVSVhtl7pa5iVTSrBl3GnC87Ntt6iq3mm6dfEIr2y6Xg4P88K
+ xYEWaOPOOk1C9ckmm7/bKS/YRRCfbB7+0zs6RN229wxmZ0PoCLh+Dzn0kKkHvhMIxWtIDzY
+ K5e9rOgqkCvYC5qThd6Tg==
+UI-OutboundReport: notjunk:1;M01:P0:wcd4v2NSwZw=;UtD5g5TLmzKEUxPdvj7ZFt7oKDD
+ IGWXP+UcG1t6DSUGhW3EVgEYfaojtGkv77LssLRlsRuRBYPP4wlLq+Pd2ZLo/vy9h5pTkl8Ff
+ Ivp3PnHsJJ/h/PqNWEWvAHToWOYeIqh0F5TWBNooPK4O8nOOweiMTrqubXfZ0Xl+eW0vwnXVN
+ sBXsPUgiZ8ffSTTjek3vXQ1Yx7AaEDbZcqdXwzCbSaij4cB08EXsxC3SZhC94Kv6kFtr9pfif
+ Fwy1oCgwuv6ptvD6ypc4tD1BduiXSWNXf0lyTZUyjn+bw3IQXLoambBXhbgjFGrSY5B1uvL+p
+ 0QTPfShfMrb42BBn6gk5hM/XyNUSD4klSYpa6sp7xRVQJ1l4ho3741Mpcl39CWVQn/zHDu6nx
+ MWxcNZXlXaWloQY9qcnLatEC0lEeisq60RGZyJEpteN4TlmFktfyfER6EuHQZiXFFYuugHEOz
+ JfLNDi15xWmN+qHfVmiXipV95hCY8xikSvJzDRny8enhOG5drVDhBsmzqK936we2kPp5IH7E4
+ o4BQ9rkE4V+XK8ODIfrROaPDSbk078vFAIrTx0I8WbbzwOI2v+HRqujta3MJu5dLQjj4MC3MW
+ 18w7i/hhYtHXkp7LZxVj/a/eXLmPfAu7GouPWMLcQJ9//4MLRT9aAzhDiGB0yT43OVVJyqLhl
+ AAdb872De7AD0mXWCaiFykeZeRRorT0AP65KRwECzAlOfuCKDJk5v+tVjZVIoFTZEUW0xpgZ/
+ t25VbUyIr22rln/DPHMrfXuhNbK6sMY14p9sPS0Oze0w1w2+SZeUYGl+8s6AzrTws1d82uxP3
+ CR+UQIiXd0roAPrshDWivJbg==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241021_064258_228370_D60ACF37 
-X-CRM114-Status: UNSURE (   5.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241021_070455_081733_336580EB 
+X-CRM114-Status: GOOD (  11.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,18 +153,47 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/21/24 2:21 PM, Puranjay Mohan wrote:
-> The bpf_csum_diff() helper has been fixed to return a 16-bit value for
-> all archs, so now we don't need to mask the result.
-> 
-> This commit is basically reverting the below:
-> 
-> commit 6185266c5a85 ("selftests/bpf: Mask bpf_csum_diff() return value
-> to 16 bits in test_verifier")
-> 
-> Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
+On 10/21/24 15:14, Puranjay Mohan wrote:
+> Helge Deller <deller@gmx.de> writes:
+>
+>> On 10/21/24 14:21, Puranjay Mohan wrote:
+>>> The bpf_csum_diff() helper has been fixed to return a 16-bit value for
+>>> all archs, so now we don't need to mask the result.
+>>>
+>>> ...
+>>> --- a/tools/testing/selftests/bpf/progs/verifier_array_access.c
+>>> +++ b/tools/testing/selftests/bpf/progs/verifier_array_access.c
+>>> @@ -368,8 +368,7 @@ __naked void a_read_only_array_2_1(void)
+>>>    	r4 = 0;						\
+>>>    	r5 = 0;						\
+>>>    	call %[bpf_csum_diff];				\
+>>> -l0_%=:	r0 &= 0xffff;					\
+>>> -	exit;						\
+>>> +l0_%=:	exit;						\
+>>
+>> Instead of dropping the masking, would it make sense to
+>> check here if (r0 >> 16) == 0 ?
+>
+> We define the expected value in R0 to be 65507(0xffe3) in the line at the top:
+> __success __retval(65507)
+>
+> So, we should just not do anything to R0 and it should contain this value
+> after returning from bpf_csum_diff()
+>
+> This masking hack was added in:
+>
+> 6185266c5a853 ("selftests/bpf: Mask bpf_csum_diff() return value to 16 bits in test_verifier")
+>
+> because without the fix in patch 2 bpf_csum_diff() would return the
+> following for this test:
+>
+> x86                    :    -29 : 0xffffffe3
+> generic (arm64, riscv) :  65507 : 0x0000ffe3
 
-Acked-by: Daniel Borkmann <daniel@iogearbox.net>
+You're right.
+Thanks for explaining.
+
+Helge
 
 _______________________________________________
 linux-riscv mailing list
