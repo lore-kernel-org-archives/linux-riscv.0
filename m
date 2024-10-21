@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20AEDD15D88
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Oct 2024 12:37:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8414D15D8A
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Oct 2024 12:37:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4pHAU0ePh8fPYVPIGP3uTlXZ/8IsL0eVtiaIXmuGBSM=; b=t8U2wgUC80Pkkj
-	VW3sVTuU/e0gT6TD62nVMxVwmuDPRYmM/c0kNVQQBP/j8lj+p1bxudYTmDgNyIF0kmQOIGJCHLhcE
-	7eaTrxypTPGpxXzy10jDXWIxT5z6CezgnGeASzgfZFACdY9peWoXV6HJgcyoSbguiyMaLPGRKccwr
-	SdDIihZO/tEPSCzEIq5ynPyfXpPoJmMcEMnVvHr24FLbKFbt/rfFlE6POYRtjtjSCY0uKRHWJ/b2t
-	1uFE1PRbHqT4qYtwxPu9ck0KND3zXgAvanlB6RpjFvb3EctFhwhWJPVPIXloy8ekMB6mocURXMdFT
-	FVdIEP4VjXSwmMK12Big==;
+	List-Owner; bh=VqREekJne3MNzllfww6oYR8mtTonn29KLajV+Hu81OU=; b=iqpPdH1eNLEuHf
+	As1ADrL0AkLxgOlpo1qgdCAgTs/w04Bl+grvp4en3giKk05l9fwYQG+5Xulu5OU50XbqnMlLfJogB
+	mvVKe2M9UvGkq0g8Es1dbqmKuCJob7nLqwCTuxia0YtW8mGMKUhCVxKXlnWApfhrmTjC7i3tdIGgv
+	QyDCwkC+uU7OFk0G2PTw1HwcXYzb/PwsuJTW7BNRzyCWrWsMfy+aZy+LFlxQ0wywr0h/YftJsatWO
+	ZaK3PSlJFv/ieG3cpkTPIiLvOx8Dq/4BZ543PKOwOxXOmdVIL2lokMNXYbrP2ytBCTQGRkxr5/9hJ
+	jcVQ1ZrWwpOj/VkBue7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2rf8-00000007H6u-02ir;
+	id 1t2rf8-00000007H7G-2r4z;
 	Mon, 21 Oct 2024 12:37:30 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2rQ8-00000007DYn-17g9
+	id 1t2rQC-00000007DZo-2blx
 	for linux-riscv@lists.infradead.org;
-	Mon, 21 Oct 2024 12:22:01 +0000
+	Mon, 21 Oct 2024 12:22:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id F17505C5AB7;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 51041A429BD;
 	Mon, 21 Oct 2024 12:21:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67E0BC4CEC3;
-	Mon, 21 Oct 2024 12:21:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE604C4CEE4;
+	Mon, 21 Oct 2024 12:22:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729513318;
-	bh=DksjoWr3zi3vNlUAvCVzy7Y3/lqTinQGR/Ze6AaMZC4=;
+	s=k20201202; t=1729513323;
+	bh=gJ2hfEV44PPxvxKXpZF+JkBcTX9tTBF4IaZx7SCOMZ8=;
 	h=From:To:Subject:Date:In-Reply-To:References:From;
-	b=nHEQ1/Jq4CEIn/6XFUcJ5UljN17WywRBZBPUwCPExk2/YXfvLhbx7jsTrL/5yA76S
-	 mUE6v/rv1LKMZ8kiHWDvGn5hc075ANSZQgMxLAh+LP5FWo0LYM9zDn0k4CJ6oZNgU6
-	 bYqFFOutWCFWwbMcXMIiNjK7I+BYqp9khSA2hiVcHVTCy3g1PrUX+BTaNAYlVi/h8d
-	 vfN2pXpglXa+9KVGnf472OwHoRoKaNQ7YtDm46sRAmYGH6t5nrd6T2mKAICHZYH8xF
-	 GFuOyXgPh4RUfiRgY0e2KUp4Q6uoIe12F21/CAf7ZtPHLXpzr4m2loCAFDERDmupBT
-	 bobVeaSc/4f5w==
+	b=H7u8hf1BlS2So8vQ1TSFGFD05iAr9Ps6b4H9FJhaHFS9M+hlJmUh9+4Os2jqFP/Q/
+	 bdW2TEwQ6IxHTfkeXZwOtrm+b+57z5pFqqUi7KpQsoVGrI69x9j8DQ1ePmPrWMd3et
+	 RAhnxCxeEHjH3SoqZdayL+7a7ffLzisilXVatTyfXD39jrD/P8rZxi8OKIW00B/9H2
+	 oUU9jI0zkAx42RmuN6Nya/uLvsYiNMKR1A5rAUCwNqvEVwJRK5JcwcQdmtgVbhuyrz
+	 YAh2aD+a1EAy5H4ucA6ux8jJyITT7IkQ/ZPolYVTZGf3iI8YRWfzg4UjRGupy9Bghv
+	 s1kjJbP9utYdw==
 From: Puranjay Mohan <puranjay@kernel.org>
 To: Albert Ou <aou@eecs.berkeley.edu>,
 	Alexei Starovoitov <ast@kernel.org>,
@@ -74,16 +74,16 @@ To: Albert Ou <aou@eecs.berkeley.edu>,
 	Song Liu <song@kernel.org>,
 	Stanislav Fomichev <sdf@fomichev.me>,
 	Yonghong Song <yonghong.song@linux.dev>
-Subject: [PATCH bpf-next 1/5] net: checksum: move from32to16() to generic header
-Date: Mon, 21 Oct 2024 12:21:08 +0000
-Message-Id: <20241021122112.101513-2-puranjay@kernel.org>
+Subject: [PATCH bpf-next 2/5] bpf: bpf_csum_diff: optimize and homogenize for all archs
+Date: Mon, 21 Oct 2024 12:21:09 +0000
+Message-Id: <20241021122112.101513-3-puranjay@kernel.org>
 X-Mailer: git-send-email 2.40.1
 In-Reply-To: <20241021122112.101513-1-puranjay@kernel.org>
 References: <20241021122112.101513-1-puranjay@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241021_052200_431376_CDA67DAF 
-X-CRM114-Status: GOOD (  11.14  )
+X-CRM114-CacheID: sfid-20241021_052204_821999_BDD93417 
+X-CRM114-Status: GOOD (  19.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,104 +100,135 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-from32to16() is used by lib/checksum.c and also by
-arch/parisc/lib/checksum.c. The next patch will use it in the
-bpf_csum_diff helper.
+1. Optimization
+   ------------
 
-Move from32to16() to the include/net/checksum.h as csum_from32to16() and
-remove other implementations.
+The current implementation copies the 'from' and 'to' buffers to a
+scratchpad and it takes the bitwise NOT of 'from' buffer while copying.
+In the next step csum_partial() is called with this scratchpad.
+
+so, mathematically, the current implementation is doing:
+
+	result = csum(to - from)
+
+Here, 'to'  and '~ from' are copied in to the scratchpad buffer, we need
+it in the scratchpad buffer because csum_partial() takes a single
+contiguous buffer and not two disjoint buffers like 'to' and 'from'.
+
+We can re write this equation to:
+
+	result = csum(to) - csum(from)
+
+using the distributive property of csum().
+
+this allows 'to' and 'from' to be at different locations and therefore
+this scratchpad and copying is not needed.
+
+This in C code will look like:
+
+result = csum_sub(csum_partial(to, to_size, seed),
+                  csum_partial(from, from_size, 0));
+
+2. Homogenization
+   --------------
+
+The bpf_csum_diff() helper calls csum_partial() which is implemented by
+some architectures like arm and x86 but other architectures rely on the
+generic implementation in lib/checksum.c
+
+The generic implementation in lib/checksum.c returns a 16 bit value but
+the arch specific implementations can return more than 16 bits, this
+works out in most places because before the result is used, it is passed
+through csum_fold() that turns it into a 16-bit value.
+
+bpf_csum_diff() directly returns the value from csum_partial() and
+therefore the returned values could be different on different
+architectures. see discussion in [1]:
+
+for the int value 28 the calculated checksums are:
+
+x86                    :    -29 : 0xffffffe3
+generic (arm64, riscv) :  65507 : 0x0000ffe3
+arm                    : 131042 : 0x0001ffe2
+
+Pass the result of bpf_csum_diff() through from32to16() before returning
+to homogenize this result for all architectures.
+
+NOTE: from32to16() is used instead of csum_fold() because csum_fold()
+does from32to16() + bitwise NOT of the result, which is not what we want
+to do here.
+
+[1] https://lore.kernel.org/bpf/CAJ+HfNiQbOcqCLxFUP2FMm5QrLXUUaj852Fxe3hn_2JNiucn6g@mail.gmail.com/
 
 Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
 ---
- arch/parisc/lib/checksum.c | 13 ++-----------
- include/net/checksum.h     |  6 ++++++
- lib/checksum.c             | 11 +----------
- 3 files changed, 9 insertions(+), 21 deletions(-)
+ net/core/filter.c | 37 +++++++++----------------------------
+ 1 file changed, 9 insertions(+), 28 deletions(-)
 
-diff --git a/arch/parisc/lib/checksum.c b/arch/parisc/lib/checksum.c
-index 4818f3db84a5c..59d8c15d81bd0 100644
---- a/arch/parisc/lib/checksum.c
-+++ b/arch/parisc/lib/checksum.c
-@@ -25,15 +25,6 @@
- 	: "=r"(_t)                      \
- 	: "r"(_r), "0"(_t));
+diff --git a/net/core/filter.c b/net/core/filter.c
+index bd0d08bf76bb8..e00bec7de9edd 100644
+--- a/net/core/filter.c
++++ b/net/core/filter.c
+@@ -1654,18 +1654,6 @@ void sk_reuseport_prog_free(struct bpf_prog *prog)
+ 		bpf_prog_destroy(prog);
+ }
  
--static inline unsigned short from32to16(unsigned int x)
--{
--	/* 32 bits --> 16 bits + carry */
--	x = (x & 0xffff) + (x >> 16);
--	/* 16 bits + carry --> 16 bits including carry */
--	x = (x & 0xffff) + (x >> 16);
--	return (unsigned short)x;
--}
+-struct bpf_scratchpad {
+-	union {
+-		__be32 diff[MAX_BPF_STACK / sizeof(__be32)];
+-		u8     buff[MAX_BPF_STACK];
+-	};
+-	local_lock_t	bh_lock;
+-};
 -
- static inline unsigned int do_csum(const unsigned char * buff, int len)
+-static DEFINE_PER_CPU(struct bpf_scratchpad, bpf_sp) = {
+-	.bh_lock	= INIT_LOCAL_LOCK(bh_lock),
+-};
+-
+ static inline int __bpf_try_make_writable(struct sk_buff *skb,
+ 					  unsigned int write_len)
  {
- 	int odd, count;
-@@ -85,7 +76,7 @@ static inline unsigned int do_csum(const unsigned char * buff, int len)
- 	}
- 	if (len & 1)
- 		result += le16_to_cpu(*buff);
--	result = from32to16(result);
-+	result = csum_from32to16(result);
- 	if (odd)
- 		result = swab16(result);
- out:
-@@ -102,7 +93,7 @@ __wsum csum_partial(const void *buff, int len, __wsum sum)
+@@ -2022,11 +2010,6 @@ static const struct bpf_func_proto bpf_l4_csum_replace_proto = {
+ BPF_CALL_5(bpf_csum_diff, __be32 *, from, u32, from_size,
+ 	   __be32 *, to, u32, to_size, __wsum, seed)
  {
- 	unsigned int result = do_csum(buff, len);
- 	addc(result, sum);
--	return (__force __wsum)from32to16(result);
-+	return (__force __wsum)csum_from32to16(result);
- }
+-	struct bpf_scratchpad *sp = this_cpu_ptr(&bpf_sp);
+-	u32 diff_size = from_size + to_size;
+-	int i, j = 0;
+-	__wsum ret;
+-
+ 	/* This is quite flexible, some examples:
+ 	 *
+ 	 * from_size == 0, to_size > 0,  seed := csum --> pushing data
+@@ -2035,19 +2018,17 @@ BPF_CALL_5(bpf_csum_diff, __be32 *, from, u32, from_size,
+ 	 *
+ 	 * Even for diffing, from_size and to_size don't need to be equal.
+ 	 */
+-	if (unlikely(((from_size | to_size) & (sizeof(__be32) - 1)) ||
+-		     diff_size > sizeof(sp->diff)))
+-		return -EINVAL;
  
- EXPORT_SYMBOL(csum_partial);
-diff --git a/include/net/checksum.h b/include/net/checksum.h
-index 1338cb92c8e72..0d082febfead4 100644
---- a/include/net/checksum.h
-+++ b/include/net/checksum.h
-@@ -151,6 +151,12 @@ static inline void csum_replace(__wsum *csum, __wsum old, __wsum new)
- 	*csum = csum_add(csum_sub(*csum, old), new);
- }
+-	local_lock_nested_bh(&bpf_sp.bh_lock);
+-	for (i = 0; i < from_size / sizeof(__be32); i++, j++)
+-		sp->diff[j] = ~from[i];
+-	for (i = 0; i <   to_size / sizeof(__be32); i++, j++)
+-		sp->diff[j] = to[i];
++	if (from_size && to_size)
++		return csum_from32to16(csum_sub(csum_partial(to, to_size, seed),
++						csum_partial(from, from_size, 0)));
++	if (to_size)
++		return csum_from32to16(csum_partial(to, to_size, seed));
  
-+static inline __sum16 csum_from32to16(__wsum sum)
-+{
-+	sum += (sum >> 16) | (sum << 16);
-+	return (__force __sum16)(sum >> 16);
-+}
+-	ret = csum_partial(sp->diff, diff_size, seed);
+-	local_unlock_nested_bh(&bpf_sp.bh_lock);
+-	return ret;
++	if (from_size)
++		return csum_from32to16(~csum_partial(from, from_size, ~seed));
 +
- struct sk_buff;
- void inet_proto_csum_replace4(__sum16 *sum, struct sk_buff *skb,
- 			      __be32 from, __be32 to, bool pseudohdr);
-diff --git a/lib/checksum.c b/lib/checksum.c
-index 6860d6b05a171..025ba546e1ec6 100644
---- a/lib/checksum.c
-+++ b/lib/checksum.c
-@@ -34,15 +34,6 @@
- #include <asm/byteorder.h>
++	return seed;
+ }
  
- #ifndef do_csum
--static inline unsigned short from32to16(unsigned int x)
--{
--	/* add up 16-bit and 16-bit for 16+c bit */
--	x = (x & 0xffff) + (x >> 16);
--	/* add up carry.. */
--	x = (x & 0xffff) + (x >> 16);
--	return x;
--}
--
- static unsigned int do_csum(const unsigned char *buff, int len)
- {
- 	int odd;
-@@ -90,7 +81,7 @@ static unsigned int do_csum(const unsigned char *buff, int len)
- #else
- 		result += (*buff << 8);
- #endif
--	result = from32to16(result);
-+	result = csum_from32to16(result);
- 	if (odd)
- 		result = ((result >> 8) & 0xff) | ((result & 0xff) << 8);
- out:
+ static const struct bpf_func_proto bpf_csum_diff_proto = {
 -- 
 2.40.1
 
