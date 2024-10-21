@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C19B5D15D96
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Oct 2024 14:06:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FD52D15D98
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Oct 2024 14:09:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
 	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=syFRcT2htkyXFqHo27iZgGDCqmEGmlIwLUa9DK6RtO4=; b=HubTPfW16z0faASS0v4xWhJbrl
-	JaUBo0wxy0U3sg2UXYfZ+yIcI4JATaT05KLmvjCKm4kERAX5sxpdeARtVJ8bAMHXsaFn6hdfvYX1m
-	QrWodzlP8vAF+KGVXW8FS0exJF7ro0vXJHgvUZKHqSHk8I4epNSqp+3It1XXzNF6+vKfXkjyCWZtc
-	enWnvXASBc6RHl2Zp9gR5sx6GnqPcfviMZQSf1yaIb8W0gPqL+JGfemkaHjC+/NyEVEy0qEup5k/i
-	M4CkeFil16KVPEL7N8MIxqb45WqTJAKu+bW07AzM4eizjWPjBLqmFI0QyTDNz7o6bPaggHVdDQ0QZ
-	7g0USAJQ==;
+	bh=qcmOYlNLxkJ3EHcqNQjIhoocElNGtiIt0fxYkkeMzvY=; b=Zj3CDpC8Ma/XB65S5N/MD62TJ+
+	VGF9vvyf7ILsEzlyJY99rRjmTa6mCmMbwV1ARm4TvdEbT2hIfTR2WDqiHiLU4MplLJ8W9ltHhU8VT
+	XKyyhxBrxEYicWoIbfybaCe2XyIUrRF+BiP9DAiIOj/Wpi6Uicn2Ev+0e65Zfz5S0/45LBJ8MtPIj
+	w9vBjWW5vZachxbffREwKTsadlxHGkCPt0z/TGVfdiZF6K/I/RfI6fykxKp9fqUJAeamK6Pkaral/
+	6qcS/kyIvqA/8tS65UpbaigEGgGcxT4GKWgcPLEMcaSc9t7ZOt1a01v6tML0Quo8lrDR2KJ88DZEN
+	ZJJfZCaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2t36-00000007YUn-025r;
-	Mon, 21 Oct 2024 14:06:20 +0000
+	id 1t2t63-00000007Z6y-1PeL;
+	Mon, 21 Oct 2024 14:09:23 +0000
 Received: from www62.your-server.de ([213.133.104.62])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2sgC-00000007Shw-16Xq
+	id 1t2sgU-00000007Spz-0dxD
 	for linux-riscv@lists.infradead.org;
-	Mon, 21 Oct 2024 13:42:41 +0000
+	Mon, 21 Oct 2024 13:42:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=iogearbox.net; s=default2302; h=Content-Transfer-Encoding:Content-Type:
 	In-Reply-To:From:References:To:Subject:MIME-Version:Date:Message-ID:Sender:
 	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=OTW+gRV9XkUSSac2kAcw14CF8LgLZ6BAZc8WKMMXBsQ=; b=FxR+iWzchl+ZJgDSa++jVnhS7t
-	l9ctm7spgDp9ATYptfoZPtB7yfI08ccbPJ3JBu08veeVCm/FP28TDXgWvG/H2a68aoLS7vI/uuD9A
-	BRp/Lzxyeie1L8upq2msXdUd6jq0KlsPaauLakP8I9cVADs1ijv6sNeBS12fyOR/Oye94SXiFqPJN
-	jl2l5Chct6N3nzUcbHqZ/sbNdOyfmk6h5d7DrPojLjXNYmyDNr1mwp5QvoNx/IyRU9v+Ztvg4GjGQ
-	0nBJOn2r7XxImg4bNzSMKQhbW7irDk9joAPyHsFbZee78l1gBFsN9N0k57cP/IR1ql3gu44bc9EiJ
-	a9IUZDsg==;
+	bh=V0Rz+s2UMQZZUbBwMOi0xc0EzjSiC5bazSEf6CTQyDc=; b=UsEgYq0M6rFkAoaTh2da3XfwYt
+	0gxE5aEIn/cM4W4X1Q7whLOv7Sn/qMjciUKyRCrIFnH5NxUrAxUUcw8a1x4H+898jrJ+ghWxaFptD
+	iEwb42nxpFXxFHUok9K49ETgqh3UdjSo8uKqsBWx3l85ihwHX9wopDU1MH2c25//AyC0L9NWxgm79
+	yfB49HmKfADVYMFVozGbAcrLr0+IMd3dKp4tnZWBwqZVGEvUQeKW14z2/ILA7yIoI/9SZ6L0XbsGK
+	yJKKAg92GY0WU21jC+IkgzO+CkCd9eG+A9Sa9VNHFhiINz1fyFOK0vsp2VSEDz5tsNxql6uvHbCBO
+	8Jz++kUg==;
 Received: from sslproxy06.your-server.de ([78.46.172.3])
 	by www62.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <daniel@iogearbox.net>)
-	id 1t2sfx-00091Y-Qb; Mon, 21 Oct 2024 15:42:25 +0200
+	id 1t2sgE-00093z-3T; Mon, 21 Oct 2024 15:42:42 +0200
 Received: from [178.197.248.43] (helo=[192.168.1.114])
 	by sslproxy06.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <daniel@iogearbox.net>)
-	id 1t2sfw-000O0W-0O;
-	Mon, 21 Oct 2024 15:42:24 +0200
-Message-ID: <b51c07f4-8987-429b-acf7-1509e649e8c0@iogearbox.net>
-Date: Mon, 21 Oct 2024 15:42:23 +0200
+	id 1t2sgC-000PVJ-1M;
+	Mon, 21 Oct 2024 15:42:40 +0200
+Message-ID: <528402c7-fec4-4a35-923a-f8375749296f@iogearbox.net>
+Date: Mon, 21 Oct 2024 15:42:39 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next 2/5] bpf: bpf_csum_diff: optimize and homogenize
- for all archs
+Subject: Re: [PATCH bpf-next 3/5] selftests/bpf: don't mask result of
+ bpf_csum_diff() in test_verifier
 To: Puranjay Mohan <puranjay@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
  Alexei Starovoitov <ast@kernel.org>,
  Andrew Morton <akpm@linux-foundation.org>,
@@ -74,7 +74,7 @@ To: Puranjay Mohan <puranjay@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
  Song Liu <song@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>,
  Yonghong Song <yonghong.song@linux.dev>
 References: <20241021122112.101513-1-puranjay@kernel.org>
- <20241021122112.101513-3-puranjay@kernel.org>
+ <20241021122112.101513-4-puranjay@kernel.org>
 Content-Language: en-US
 From: Daniel Borkmann <daniel@iogearbox.net>
 Autocrypt: addr=daniel@iogearbox.net; keydata=
@@ -120,12 +120,13 @@ Autocrypt: addr=daniel@iogearbox.net; keydata=
  rUD9YI1Je/WifL/HbIubHCCdK8/N7rblgUrZJMG3W+7vAvZsOh/6VTZeP4wCe7Gs/cJhE2gI
  DmGcR+7rQvbFQC4zQxEjo8fNaTwjpzLM9NIp4vG9SDIqAm20MXzLBAeVkofixCsosUWUODxP
  owLbpg7pFRJGL9YyEHpS7MGPb3jSLzucMAFXgoI8rVqoq6si2sxr2l0VsNH5o3NgoAgJNIg=
-In-Reply-To: <20241021122112.101513-3-puranjay@kernel.org>
+In-Reply-To: <20241021122112.101513-4-puranjay@kernel.org>
 X-Authenticated-Sender: daniel@iogearbox.net
 X-Virus-Scanned: Clear (ClamAV 0.103.10/27434/Mon Oct 21 10:49:31 2024)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241021_064240_512329_513866A6 
-X-CRM114-Status: GOOD (  21.29  )
+X-CRM114-CacheID: sfid-20241021_064258_228370_D60ACF37 
+X-CRM114-Status: UNSURE (   5.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,69 +144,15 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 10/21/24 2:21 PM, Puranjay Mohan wrote:
-> 1. Optimization
->     ------------
+> The bpf_csum_diff() helper has been fixed to return a 16-bit value for
+> all archs, so now we don't need to mask the result.
 > 
-> The current implementation copies the 'from' and 'to' buffers to a
-> scratchpad and it takes the bitwise NOT of 'from' buffer while copying.
-> In the next step csum_partial() is called with this scratchpad.
+> This commit is basically reverting the below:
 > 
-> so, mathematically, the current implementation is doing:
-> 
-> 	result = csum(to - from)
-> 
-> Here, 'to'  and '~ from' are copied in to the scratchpad buffer, we need
-> it in the scratchpad buffer because csum_partial() takes a single
-> contiguous buffer and not two disjoint buffers like 'to' and 'from'.
-> 
-> We can re write this equation to:
-> 
-> 	result = csum(to) - csum(from)
-> 
-> using the distributive property of csum().
-> 
-> this allows 'to' and 'from' to be at different locations and therefore
-> this scratchpad and copying is not needed.
-> 
-> This in C code will look like:
-> 
-> result = csum_sub(csum_partial(to, to_size, seed),
->                    csum_partial(from, from_size, 0));
-> 
-> 2. Homogenization
->     --------------
-> 
-> The bpf_csum_diff() helper calls csum_partial() which is implemented by
-> some architectures like arm and x86 but other architectures rely on the
-> generic implementation in lib/checksum.c
-> 
-> The generic implementation in lib/checksum.c returns a 16 bit value but
-> the arch specific implementations can return more than 16 bits, this
-> works out in most places because before the result is used, it is passed
-> through csum_fold() that turns it into a 16-bit value.
-> 
-> bpf_csum_diff() directly returns the value from csum_partial() and
-> therefore the returned values could be different on different
-> architectures. see discussion in [1]:
-> 
-> for the int value 28 the calculated checksums are:
-> 
-> x86                    :    -29 : 0xffffffe3
-> generic (arm64, riscv) :  65507 : 0x0000ffe3
-> arm                    : 131042 : 0x0001ffe2
-> 
-> Pass the result of bpf_csum_diff() through from32to16() before returning
-> to homogenize this result for all architectures.
-> 
-> NOTE: from32to16() is used instead of csum_fold() because csum_fold()
-> does from32to16() + bitwise NOT of the result, which is not what we want
-> to do here.
-> 
-> [1] https://lore.kernel.org/bpf/CAJ+HfNiQbOcqCLxFUP2FMm5QrLXUUaj852Fxe3hn_2JNiucn6g@mail.gmail.com/
+> commit 6185266c5a85 ("selftests/bpf: Mask bpf_csum_diff() return value
+> to 16 bits in test_verifier")
 > 
 > Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
-
-Thanks for looking into this!
 
 Acked-by: Daniel Borkmann <daniel@iogearbox.net>
 
