@@ -4,91 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F6A7D3C53F
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Oct 2024 06:03:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA803D3C53F
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Oct 2024 06:08:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HSk7y2hM3nRjeYcmHNz4KMT0H/OGgNtEjlAE3WoxXmE=; b=TvVYjaEdQ1z/kn
-	rMdUMW5BJ/zHpYWuq71uILtBvqydcC7ec9lMpsKQbzYtJn7Qz0VCCEupOJXGNHSkWL3EfWA8v459b
-	Hw1VrxYHjGFZQ/abwiBJaXJBX4y3i+pS97Cpqnnur5L0I0PloXprG1eu1BRFnDjvjhIBvPvNZ8k8S
-	17Hchrh+8JzqnzF1god2VkcuxIJ+hulXOT1dBrVHGWEcc49rMcMato1I73M8PVvToY6NwOyich8PD
-	5ovKLA/Z+cT4rF/CDmT5djk/dPbUaiXbrOZ4lywEiHbSKbvjF2ZiOYQ2ckCq1W1KB2jXdG/jWpO4c
-	kxQXtkEJ2ZtzWhNv1KJQ==;
+	List-Owner; bh=WgUFyjYdkn35XTX7Vd9eLo+9USm4BYYn+k/QDkdmUl8=; b=D873glscnG9zV2
+	h/nVR1qc/RpxGZH7tXCOZAOtYBRcJ066HQo+4tK4XwvV8O07TB2e/eBpIJuGxflzdI93Ei8MzENqt
+	q9i7d1eU3rkniyVo6rFW2zZBt7dnUIDQP4uRMKD81XasSSjLpgNWSh/XjH77H6T8GQvJMKyvAQSvq
+	CmLulQEuxmlgWKU3oYv9PJ6kueaHNGPehcBzUfvNrnSl41f6u0wABm/S4V0OEWoeFYYSY5689JzZf
+	KHUgqP8c28WDcexmTIUCiFeMH+9bb51hlUIHAkokoc9SK+11ZZLemPdOJKJ9XxK2KDRpr+76hKwUA
+	CGvipWXJm12JKiDgUMEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2lVE-000000069kU-3wgz;
-	Mon, 21 Oct 2024 06:02:52 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1t2law-00000006Aj8-34BN;
+	Mon, 21 Oct 2024 06:08:46 +0000
+Received: from mail-oa1-x29.google.com ([2001:4860:4864:20::29])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2lVA-000000069iM-46jY
+	id 1t2la8-00000006Abi-0SVK
 	for linux-riscv@lists.infradead.org;
-	Mon, 21 Oct 2024 06:02:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1729490569; x=1761026569;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=vu4RT3On7XnbTi5GEYXuD7VfT612YLOO9q2H7/dwXMk=;
-  b=it4XXUveHkGElbmpZX7T3OLz73cL61fk/hn7F5ySLQF2XPTktzyLps3/
-   /ZHMbVB3irKUof/Ga2D3Sr8uKdCUaY8eop5wUHAJM7boWMSSrbo2+kZIz
-   YDlT76hdT6pQp4EqFkkouyF7q9Nm8bFw0fNn9ob+aWxcwIWu1ewjQoBj6
-   aU9FKatrdKwwR+nmsd+ajO3jiFMOqDrDtwdwe5BeUqbt2QWQ709z8D03j
-   Gr10+8ZlEBWQjJu3KtoFverXKirrt6GRlKwe5hnoutTPBRMyX0j60PnPY
-   6JJqQqWbxIMuAQ64O/i0cBhvsZIEoU9mbs4eHpirjOJgQa9GmwBFYleZ3
-   g==;
-X-CSE-ConnectionGUID: qW6ycpOnQGm4PAfz2gxcZg==
-X-CSE-MsgGUID: IS3LqUinTyWF73J344Steg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="32641222"
-X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
-   d="scan'208";a="32641222"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Oct 2024 23:02:48 -0700
-X-CSE-ConnectionGUID: 3RVbadbzQXiJFfRCWoMknA==
-X-CSE-MsgGUID: Aho/sbD2QMWKcyndR5WT4g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,220,1725346800"; 
-   d="scan'208";a="84214852"
-Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by orviesa005.jf.intel.com with ESMTP; 20 Oct 2024 23:02:43 -0700
-Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1t2lV2-000RFj-2h;
-	Mon, 21 Oct 2024 06:02:40 +0000
-Date: Mon, 21 Oct 2024 14:02:34 +0800
-From: kernel test robot <lkp@intel.com>
-To: Inochi Amaoto <inochiama@gmail.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Inochi Amaoto <inochiama@outlook.com>, Guo Ren <guoren@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Yangyu Chen <cyy@cyyself.name>,
-	Hal Feng <hal.feng@starfivetech.com>
-Cc: Paul Gazzillo <paul@pgazz.com>,
-	Necip Fazil Yildiran <fazilyildiran@gmail.com>,
-	oe-kbuild-all@lists.linux.dev, Yixun Lan <dlan@gentoo.org>,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 2/3] irqchip: add T-HEAD C900 ACLINT SSWI driver
-Message-ID: <202410211310.9jsZOb1L-lkp@intel.com>
-References: <20241020121030.1012572-3-inochiama@gmail.com>
+	Mon, 21 Oct 2024 06:07:57 +0000
+Received: by mail-oa1-x29.google.com with SMTP id 586e51a60fabf-288d4da7221so1927899fac.1
+        for <linux-riscv@lists.infradead.org>; Sun, 20 Oct 2024 23:07:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1729490875; x=1730095675; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=FsHV1DeqWJoj2ZcYbTpaphYAWXw5LJS8G2+p8MKU1jM=;
+        b=bMPgBwNtae3ByNb1hs1iHJS5swQ+cSNgCzLDShHAKFiO6ner0Ff7ppquvv005Ibtxn
+         2R+ba7dr5BX5kCSdnF1npwbUqzKNLluD7i664UGY2Mww7YiCE3RZr96GjyuJvuYOts0F
+         Ggq3G/brm0vrx2JVZ0Qu2udv93S5z2+zh99Ct+W5fPZhOj2926JPsmFfQtc+Yqr7o8VP
+         2TAzV5VrYeghlDCqACefujJZv7usMyrwXc/A3poiMnClXe8fUPcAc589t95yf6lHoPUU
+         GUbSPU3VP1KK1XFMmwqE7XSJFSp4uk61mig77dKUBhK0M3CR6Y688E6EOMY5oANdXUF0
+         GHcw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729490875; x=1730095675;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FsHV1DeqWJoj2ZcYbTpaphYAWXw5LJS8G2+p8MKU1jM=;
+        b=c5lWwyV/iZqLVCXwPkYj55VTjgWApioX4k52ptJnFiXJ2iBLJbeXCXIHf+OnpbNMP9
+         cuWZiuNIOafde3OilwhHUFU6w7kLUAlmd/4REpjhuIdYGgM8iiQEeb4uecrhaQae2Oth
+         wcv3qLX75R7bHgbXiRllSCzutz7Q3IAU5mVN9HjCDqqQ4Mj9b0oB7FcMGQjzkwD20VpO
+         d1MUDfaQRy7giTx43arjbMViPgwP2/jg8nMaUN1EF1usOOaS+xbfHYlu69MSgphzbGmK
+         6gD+3Ii8BroU8mkT53kIDa7Lq1I4OTnUw/SS3x2xf+w7ihB1YDN2mbL8w1+8igdN72WJ
+         903Q==
+X-Forwarded-Encrypted: i=1; AJvYcCU81tzw3S8l9RKbgI36lInfJSUdcj+Orqbr189xiqhGYjEYHSVWozlyZXLUFspNWo+U0Kpc2WzjKZC7yw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy/pPyu+7pm6p+B1bYq4gbqbJs6KEG/9fXbE0oqdTrbUCvjeT90
+	QZeVpsUE8grmbAHmCUEhkaSx4ddJyTF4uH+zJWz6hOk7tCWh7hckCVgx6Noz3xD2N3PqYxrTjiM
+	uM/U1eVdUtw3OkPaySHuMO5P0k8k=
+X-Google-Smtp-Source: AGHT+IHpPFqsJuCvsJFqshBiSlkp52VkseK6tb4r+rc6MrPKp4rcWkL3ThHr5jpGe6dSRrP2Uk6AQnrmJjxXvN8NsHg=
+X-Received: by 2002:a05:6870:6394:b0:270:1b79:ccbc with SMTP id
+ 586e51a60fabf-2892c24db1bmr7442706fac.5.1729490872798; Sun, 20 Oct 2024
+ 23:07:52 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241020121030.1012572-3-inochiama@gmail.com>
+References: <20241020142931.138277-1-aurelien@aurel32.net>
+In-Reply-To: <20241020142931.138277-1-aurelien@aurel32.net>
+From: Anand Moon <linux.amoon@gmail.com>
+Date: Mon, 21 Oct 2024 11:37:37 +0530
+Message-ID: <CANAwSgR1ks_L94QPSCOsL4ATX=3HA59LHK1GdJTctUsM_f_DuQ@mail.gmail.com>
+Subject: Re: [PATCH] mmc: dw_mmc: take SWIOTLB memory size limitation into account
+To: Aurelien Jarno <aurelien@aurel32.net>
+Cc: William Qiu <william.qiu@starfivetech.com>, 
+	"open list:RISC-V MISC SOC SUPPORT" <linux-riscv@lists.infradead.org>, Jaehoon Chung <jh80.chung@samsung.com>, 
+	Ulf Hansson <ulf.hansson@linaro.org>, Sam Protsenko <semen.protsenko@linaro.org>, 
+	"open list:SYNOPSYS DESIGNWARE MMC/SD/SDIO DRIVER" <linux-mmc@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>, 
+	Ron Economos <re@w6rz.net>, Jing Luo <jing@jing.rocks>, stable@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241020_230249_113254_E6C39276 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20241020_230756_173654_F1318EAB 
+X-CRM114-Status: GOOD (  22.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,38 +92,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Inochi,
+Hi Aurelien,
 
-kernel test robot noticed the following build warnings:
+On Sun, 20 Oct 2024 at 20:01, Aurelien Jarno <aurelien@aurel32.net> wrote:
+>
+> The Synopsys DesignWare mmc controller on the JH7110 SoC
+> (dw_mmc-starfive.c driver) is using a 32-bit IDMAC address bus width,
+> and thus requires the use of SWIOTLB.
+>
+> The commit 8396c793ffdf ("mmc: dw_mmc: Fix IDMAC operation with pages
+> bigger than 4K") increased the max_seq_size, even for 4K pages, causing
+> "swiotlb buffer is full" to happen because swiotlb can only handle a
+> memory size up to 256kB only.
+>
+> Fix the issue, by making sure the dw_mmc driver doesn't use segments
+> bigger than what SWIOTLB can handle.
+>
+> Reported-by: Ron Economos <re@w6rz.net>
+> Reported-by: Jing Luo <jing@jing.rocks>
+> Fixes: 8396c793ffdf ("mmc: dw_mmc: Fix IDMAC operation with pages bigger than 4K")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
+> ---
+Please add my
 
-[auto build test WARNING on tip/irq/core]
-[also build test WARNING on sophgo/for-next sophgo/fixes tip/smp/core robh/for-next linus/master v6.12-rc4 next-20241018]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Tested-by: Anand Moon <linux.amoon@gmail.com>
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Inochi-Amaoto/dt-bindings-interrupt-controller-Add-Sophgo-SG2044-ACLINT-SSWI/20241020-201209
-base:   tip/irq/core
-patch link:    https://lore.kernel.org/r/20241020121030.1012572-3-inochiama%40gmail.com
-patch subject: [PATCH v3 2/3] irqchip: add T-HEAD C900 ACLINT SSWI driver
-config: riscv-kismet-CONFIG_GENERIC_IRQ_IPI_MUX-CONFIG_THEAD_C900_ACLINT_SSWI-0-0 (https://download.01.org/0day-ci/archive/20241021/202410211310.9jsZOb1L-lkp@intel.com/config)
-reproduce: (https://download.01.org/0day-ci/archive/20241021/202410211310.9jsZOb1L-lkp@intel.com/reproduce)
+Thanks for fixing the warning below.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202410211310.9jsZOb1L-lkp@intel.com/
+[  511.837216][  T148] dwmmc_starfive 16020000.mmc: swiotlb buffer is
+full (sz: 290816 bytes), total 65536 (slots), used 246 (slots)
+[  511.837423][    C0] dwmmc_starfive 16020000.mmc: swiotlb buffer is
+full (sz: 278528 bytes), total 65536 (slots), used 222 (slots)
+[  511.916951][    C0] dwmmc_starfive 16020000.mmc: swiotlb buffer is
+full (sz: 290816 bytes), total 65536 (slots), used 24 (slots)
+[  516.803916][  T575] dwmmc_starfive 16020000.mmc: swiotlb buffer is
+full (sz: 507904 bytes), total 65536 (slots), used 122 (slots)
+[  516.805450][    C0] dwmmc_starfive 16020000.mmc: swiotlb buffer is
+full (sz: 507904 bytes), total 65536 (slots), used 364 (slots)
 
-kismet warnings: (new ones prefixed by >>)
->> kismet: WARNING: unmet direct dependencies detected for GENERIC_IRQ_IPI_MUX when selected by THEAD_C900_ACLINT_SSWI
-   WARNING: unmet direct dependencies detected for GENERIC_IRQ_IPI_MUX
-     Depends on [n]: SMP [=n]
-     Selected by [y]:
-     - THEAD_C900_ACLINT_SSWI [=y] && RISCV [=y]
+Thanks
+-Anand
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+>  drivers/mmc/host/dw_mmc.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/mmc/host/dw_mmc.c b/drivers/mmc/host/dw_mmc.c
+> index 41e451235f637..dc0d6201f7b73 100644
+> --- a/drivers/mmc/host/dw_mmc.c
+> +++ b/drivers/mmc/host/dw_mmc.c
+> @@ -2958,7 +2958,8 @@ static int dw_mci_init_slot(struct dw_mci *host)
+>                 mmc->max_segs = host->ring_size;
+>                 mmc->max_blk_size = 65535;
+>                 mmc->max_req_size = DW_MCI_DESC_DATA_LENGTH * host->ring_size;
+> -               mmc->max_seg_size = mmc->max_req_size;
+> +               mmc->max_seg_size =
+> +                   min_t(size_t, mmc->max_req_size, dma_max_mapping_size(host->dev));
+>                 mmc->max_blk_count = mmc->max_req_size / 512;
+>         } else if (host->use_dma == TRANS_MODE_EDMAC) {
+>                 mmc->max_segs = 64;
+> --
+> 2.45.2
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
