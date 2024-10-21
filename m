@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 227A8D0E6EC
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Oct 2024 10:38:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E291ED0E6EE
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Oct 2024 10:41:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=GoJBRcVhqdL7wU053u+VSz8KAGhA/kjEU+sT6zGwXFA=; b=FhXGBn+zq2C8QK
-	J9plIq1YdatLqZZBunh+mO/koWDz8Y9PoHwlZJLru3/pEBj6myinLrXBTjw8btjHXmg0ulSlsmk2n
-	9zOCbG1f/ckkRlRN49SLPrYOp95UH3jwYQ6UF/VT7ZRpr0YYx2rW1EBSNw6++TGab44Iy5Mcvg+hC
-	c3/jXZcgN1Jexsm1jtnZTJodcKqCNrQm/wfpjpY7jjPXmq8st+eX8Xle4AWqxnNcEaSrRXTZRSPzL
-	zD/R5b5GCe+CunVqrsAYdVSgPX6t8eh8tGtGKQomzFHj3ztm3JfQaveZ0Ub8wck5Z69Lyf1r5q6uw
-	omRuRML+gXZSNsZqfeuA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=3NVLghayt+Kqpdd3MNfljvMduZg7XscX8f4vPBxl+NI=; b=IHcMpjilRWqa5O
+	BqKrmMD8Sg+crnwU0o+pcteDuUyO17wGzs3o112gWG5Ukmxoon2vF5hGo/Vsvx0a71NbJbzDE1AMc
+	rPZj6gV7d4oDRN8LRnedmEJQ5njIVcyFuvgaDbAOo6mN6zirC9H7kRiryTVYAvwyi70QIeZBDgacB
+	T01X9OpEbwqYu5RJmayoIHBfBu9Lr+nIYFwfg8tlNHTncDniXia332hdDTDu3Ib+JCmVhKSA8M6lt
+	Gzp3YKFWh1eQP79X8PIOcBeNCmmeBuo/6aS5oPqOHWrtgYAC09tW6eNnnwEaRdrLfcCRao30Ie+BC
+	7zujK+MyttSQA2G4H74g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2pnp-00000006ugL-2BYb;
-	Mon, 21 Oct 2024 10:38:21 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1t2pql-00000006vGX-1b6T;
+	Mon, 21 Oct 2024 10:41:23 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2pmK-00000006uTY-0UML;
-	Mon, 21 Oct 2024 10:36:49 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-71ec997ad06so522562b3a.3;
-        Mon, 21 Oct 2024 03:36:47 -0700 (PDT)
+	id 1t2pmO-00000006uUl-1Ulq;
+	Mon, 21 Oct 2024 10:36:54 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-20cdbe608b3so34641135ad.1;
+        Mon, 21 Oct 2024 03:36:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729507007; x=1730111807; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=h3w+t/hy92F7//9WIWnn/8qnkcbEZ1S9KDEWZUEAsd8=;
-        b=bE+odaOzEY9m68DNPAk9EyG85+ap0KfpbBCs2spuw3VptEJBOsTJBMqGS2Gq2e1PU0
-         m1JNPk9UtAa2ZVmeAgDNiPhC7fClzx4R6klmRBVgKqwKbvASAQ5XWd6Xmckx723bNr3Z
-         g/RjXY83INROvo3pZZZfnsiuk+XOw9rB4d7IOcU49KmEHS1OJaxhePRdMRcm5/2t9PY6
-         lxcClekWaiX6H+DqtNTdajHnyMRGb374vq7TQd2wR+Ppq/7pdUscZdSNh12xvkn+ej6H
-         O9hVotpIJr7sAb6Kte5GPECsVxA19bsE7io6N+lMfJWj0XD+F01cOfx+hl3aD7jQk0Pr
-         RVjA==
+        d=gmail.com; s=20230601; t=1729507011; x=1730111811; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ROalFAeuv2FT5XJcCDsa2eyjiagS1IAfhK+ybSBBNOk=;
+        b=FjjyGw0oZdTC1EfxciLl8HB6w1iFiegonUvD/kdiUTVY4d//NbEB/hqlAPDCcN2EHC
+         dy3XWDJCgNsmRtn5YuZ9wZo1P7aMuun2pJREK7uuhFmjdhPeROn4x3B1wtS0StHMSsXx
+         3RwNQcFXFT2sA5lNujlotvdz9eKk431hrJxLh1c8kVctIEMfhy57azZByxQp5pNmtz4u
+         iuX3Bde4FyVUfy3iqhvFVPmYCMH0V4g/Zu9RLgCjDACWZLhacZjqFhA9QrB3pLMkunj2
+         1mq1pFHgL/O+OHP34may2cxcIJ1aV1jpbprqsLzXIAHRQSDjihedpwD8x1D93GmpndX1
+         G0fw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729507007; x=1730111807;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=h3w+t/hy92F7//9WIWnn/8qnkcbEZ1S9KDEWZUEAsd8=;
-        b=SXStW7seASehpzN+HOZ+z0FPROMnYCZ1qcS6rPF3t6tp4Cq6h5qjX2Fg8YdwAWDTC4
-         Evb1zEqMlsh+5PpbkIAxN7fJ8S5zJunBfEsCckccmToVR0RrxZjafq5hTVdd/+6HsaQp
-         y6qNQv89w+DQbNXNeylanQtpcWHSN/N5azCmX4LfzijnoZjuNst6fUB5Vyy5JJKoTNFI
-         z1gNrqxTCAcIUgzu6WCVK1/z3OF7B1i82xgolaergvTWfHRlqKhO5eEttwkTdBqaKpIO
-         F6woNIZYhL5URQNagyZAyOFO5n2HaJG4Mw3hkVzbSaO10ceBXGv6qsR2/B/VbrBcPQ30
-         ktvQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVhmb/VZtvDavXzX2xllEReUFXucoyvX8YI24OjIxP4kVesF8LfuqWgTzGTn94ep7aiJ/cmi3wlH08F97g=@lists.infradead.org, AJvYcCWVkxpOM0eFYMCV8fDU1Hw3SdMDC99c9TSPLGekw6FjIpkgO5+xrb3nm4KWi4OOe3w+76wWpaQCRtDqVjvEd5el@lists.infradead.org
-X-Gm-Message-State: AOJu0YyWKfRoh8BXYt4/0saHwgIUv7a5Y5Jr6rEnrtVF3c9/fZ4Nm//C
-	AWYQj+5S8EZ5WqwVhzYbwBgLJqXz3/QemgcOWvg/xHqM8+BBmr0G
-X-Google-Smtp-Source: AGHT+IElGNzKYcyHQUiYzNuX8VzKK9Yqlu7dfkHxfLYn3GyJigsTd7wxPDUfyzl4ltkknkIdKtCRXQ==
-X-Received: by 2002:a05:6a21:710a:b0:1d9:1aa0:10b6 with SMTP id adf61e73a8af0-1d92c4baa97mr14744680637.3.1729507007228;
-        Mon, 21 Oct 2024 03:36:47 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1729507011; x=1730111811;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ROalFAeuv2FT5XJcCDsa2eyjiagS1IAfhK+ybSBBNOk=;
+        b=YfZFf3Digv3z/MwXyeCuZp0GqiT2rwX1jBUNqBgre9Cal5X2b4+gJZ4LhbLldJ/QOM
+         wtPficlMXziiyvh6reaqUddWF6gPAJ+rric5V1XkFkhpfGOeSoft60wfVKzUaBM78qMy
+         9r+6rMGLbbHakg+xgGMeuacYTmvHYccv5z1YnzxcoFJfQjQAlcnyY8Z9Cs1cwxxq1wvh
+         Jj60tUsk0XLHZHIUG/4dyV4uIn2PJS+GuRg6wl2uOnHLn8sdQBliYTa+Q0o/g7PwK2Qw
+         LD+cavFxE2061Qwt9AWmkX7wbUSZKmPEUnZuoZO1LkZDl5gaCTfZAgimBSjKCSLfXuzQ
+         wAkg==
+X-Forwarded-Encrypted: i=1; AJvYcCVJhe2hO26YCTieyFLc4r686qDMIcdglYoKgCWMDJxlUPKpDVIz9mx8mmHyu/LsRDqht9+ka6LqOEPYHEXmlIje@lists.infradead.org, AJvYcCXct8MhyXSzRoVTuhcweGRsEMoXcaOujp6HRjAESLeySjYdQd7Xie24sEDvp6ayCPPHgLtgXylJMYKK84c=@lists.infradead.org
+X-Gm-Message-State: AOJu0YycJ/xIMCmZBnEeajhTP+dvjLvnlmgA9f5zVh6IrvkFLejfcFVh
+	hQaZ7X+ad+WVrVBIDVqpAydLlutPmvpfDqRsdkB/xCeib9a7yFfG
+X-Google-Smtp-Source: AGHT+IGtGQdZs96OgFnH+jxQO02blnd9Mr30IOhQfnSRFPAMbUhlzzNhum28G7bu+yZXf1ru9cnQAw==
+X-Received: by 2002:a17:902:e846:b0:20c:a8cf:fa25 with SMTP id d9443c01a7336-20e5a9339efmr140267755ad.46.1729507011181;
+        Mon, 21 Oct 2024 03:36:51 -0700 (PDT)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e5ad3677efsm3354501a91.17.2024.10.21.03.36.46
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-20e7f0c0e5asm22850335ad.167.2024.10.21.03.36.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Oct 2024 03:36:46 -0700 (PDT)
+        Mon, 21 Oct 2024 03:36:50 -0700 (PDT)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Chen Wang <unicorn_wang@outlook.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -88,15 +89,16 @@ Cc: Yixun Lan <dlan@gentoo.org>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH 0/4] riscv: sophgo: Add ethernet support for SG2044
-Date: Mon, 21 Oct 2024 18:36:13 +0800
-Message-ID: <20241021103617.653386-1-inochiama@gmail.com>
+Subject: [PATCH 2/4] dt-bindings: net: Add support for Sophgo SG2044 dwmac
+Date: Mon, 21 Oct 2024 18:36:15 +0800
+Message-ID: <20241021103617.653386-3-inochiama@gmail.com>
 X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20241021103617.653386-1-inochiama@gmail.com>
+References: <20241021103617.653386-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241021_033648_178090_E38F6735 
-X-CRM114-Status: UNSURE (   9.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241021_033652_423694_1AF69B4D 
+X-CRM114-Status: GOOD (  16.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,26 +115,182 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The ethernet controller of SG2044 is Synopsys DesignWare IP with
-custom clock. Add glue layer for it.
+The GMAC IP on SG2044 is almost a standard Synopsys DesignWare MAC
+with some extra clock.
 
-Inochi Amaoto (4):
-  dt-bindings: net: snps,dwmac: Add dwmac-5.30a version
-  dt-bindings: net: Add support for Sophgo SG2044 dwmac
-  net: stmmac: platform: Add snps,dwmac-5.30a IP compatible string
-  net: stmmac: Add glue layer for Sophgo SG2044 SoC
+Add necessary compatible string for this device.
 
- .../devicetree/bindings/net/snps,dwmac.yaml   |   4 +
+Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+---
+ .../devicetree/bindings/net/snps,dwmac.yaml   |   1 +
  .../bindings/net/sophgo,sg2044-dwmac.yaml     | 145 ++++++++++++++++++
- drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 ++
- drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
- .../ethernet/stmicro/stmmac/dwmac-sophgo.c    | 132 ++++++++++++++++
- .../ethernet/stmicro/stmmac/stmmac_platform.c |   3 +-
- 6 files changed, 295 insertions(+), 1 deletion(-)
+ 2 files changed, 146 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
- create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
 
---
+diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+index 3c4007cb65f8..69f6bb36970b 100644
+--- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+@@ -99,6 +99,7 @@ properties:
+         - snps,dwmac-5.30a
+         - snps,dwxgmac
+         - snps,dwxgmac-2.10
++        - sophgo,sg2044-dwmac
+         - starfive,jh7100-dwmac
+         - starfive,jh7110-dwmac
+ 
+diff --git a/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml b/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
+new file mode 100644
+index 000000000000..93c41550b0b6
+--- /dev/null
++++ b/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
+@@ -0,0 +1,145 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/sophgo,sg2044-dwmac.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: StarFive JH7110 DWMAC glue layer
++
++maintainers:
++  - Inochi Amaoto <inochiama@gmail.com>
++
++select:
++  properties:
++    compatible:
++      contains:
++        enum:
++          - sophgo,sg2044-dwmac
++  required:
++    - compatible
++
++properties:
++  compatible:
++    items:
++      - const: sophgo,sg2044-dwmac
++      - const: snps,dwmac-5.30a
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: GMAC main clock
++      - description: PTP clock
++      - description: TX clock
++
++  clock-names:
++    items:
++      - const: stmmaceth
++      - const: ptp_ref
++      - const: tx
++
++  sophgo,syscon:
++    $ref: /schemas/types.yaml#/definitions/phandle-array
++    items:
++      - items:
++          - description: phandle to syscon that configures phy
++          - description: offset of phy mode register
++          - description: length of the phy mode register
++    description:
++      A phandle to syscon with two arguments that configure phy mode.
++      The argument one is the offset of phy mode register, the
++      argument two is the length of phy mode register.
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - interrupts
++  - interrupt-names
++  - resets
++  - reset-names
++
++allOf:
++  - $ref: snps,dwmac.yaml#
++
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: sophgo,sg2044-dwmac
++    then:
++      properties:
++        interrupts:
++          minItems: 1
++          maxItems: 1
++
++        interrupt-names:
++          minItems: 1
++          maxItems: 1
++
++        resets:
++          maxItems: 1
++
++        reset-names:
++          const: stmmaceth
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    ethernet@30006000 {
++      compatible = "sophgo,sg2044-dwmac", "snps,dwmac-5.30a";
++      reg = <0x30006000 0x4000>;
++      clocks = <&clk 151>, <&clk 152>, <&clk 154>;
++      clock-names = "stmmaceth", "ptp_ref", "tx";
++      interrupt-parent = <&intc>;
++      interrupts = <296 IRQ_TYPE_LEVEL_HIGH>;
++      interrupt-names = "macirq";
++      resets = <&rst 30>;
++      reset-names = "stmmaceth";
++      snps,multicast-filter-bins = <0>;
++      snps,perfect-filter-entries = <1>;
++      snps,aal;
++      snps,tso;
++      snps,txpbl = <32>;
++      snps,rxpbl = <32>;
++      snps,mtl-rx-config = <&gmac0_mtl_rx_setup>;
++      snps,mtl-tx-config = <&gmac0_mtl_tx_setup>;
++      snps,axi-config = <&gmac0_stmmac_axi_setup>;
++      status = "disabled";
++
++      gmac0_mtl_rx_setup: rx-queues-config {
++        snps,rx-queues-to-use = <8>;
++        snps,rx-sched-wsp;
++        queue0 {};
++        queue1 {};
++        queue2 {};
++        queue3 {};
++        queue4 {};
++        queue5 {};
++        queue6 {};
++        queue7 {};
++      };
++
++      gmac0_mtl_tx_setup: tx-queues-config {
++        snps,tx-queues-to-use = <8>;
++        queue0 {};
++        queue1 {};
++        queue2 {};
++        queue3 {};
++        queue4 {};
++        queue5 {};
++        queue6 {};
++        queue7 {};
++      };
++
++      gmac0_stmmac_axi_setup: stmmac-axi-config {
++        snps,blen = <16 8 4 0 0 0 0>;
++        snps,wr_osr_lmt = <1>;
++        snps,rd_osr_lmt = <2>;
++      };
++    };
+-- 
 2.47.0
 
 
