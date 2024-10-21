@@ -4,95 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40A7ED3C92F
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Oct 2024 02:40:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F6A7D3C53F
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Oct 2024 06:03:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AD8IEsq98buvjJ5NiEhZnvU0vxD9w083Xs/4mZyjw6I=; b=NpH8r39GfeyImT
-	zdNJxN/tLLcL5sP7sbyv9SdJwHDnpzaSl/bUyAdWCRgjBR2gpdftISXLXtpAYH5dy/GC93uKc7trb
-	1cGXf/q4OrP+ubl+WIUsoNCY4wF2Gu+afuoD1uMADNCGzjqfczlqFVpYYy6tMpQCzmFRB3JkfgVYL
-	C3oWQfU24Z8hT6TRxLxXufyoeIQjGv6cuTe7wUaN/Yg8CpFUUSZHXWEZqrO0Cu43LjWo7b6O+9sMR
-	WUkYP8qi3kKwCnaHugCFHHFzBwnQRxnvwurut3BdOE0x7etHLtWgjZTTjoNzRj+Qj/JWVA3ReZF1k
-	NTbNpMz2joh/UZDVMKbQ==;
+	List-Owner; bh=HSk7y2hM3nRjeYcmHNz4KMT0H/OGgNtEjlAE3WoxXmE=; b=TvVYjaEdQ1z/kn
+	rMdUMW5BJ/zHpYWuq71uILtBvqydcC7ec9lMpsKQbzYtJn7Qz0VCCEupOJXGNHSkWL3EfWA8v459b
+	Hw1VrxYHjGFZQ/abwiBJaXJBX4y3i+pS97Cpqnnur5L0I0PloXprG1eu1BRFnDjvjhIBvPvNZ8k8S
+	17Hchrh+8JzqnzF1god2VkcuxIJ+hulXOT1dBrVHGWEcc49rMcMato1I73M8PVvToY6NwOyich8PD
+	5ovKLA/Z+cT4rF/CDmT5djk/dPbUaiXbrOZ4lywEiHbSKbvjF2ZiOYQ2ckCq1W1KB2jXdG/jWpO4c
+	kxQXtkEJ2ZtzWhNv1KJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2iL6-00000005swE-23vL;
-	Mon, 21 Oct 2024 02:40:12 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1t2lVE-000000069kU-3wgz;
+	Mon, 21 Oct 2024 06:02:52 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2iHy-00000005sK1-0IsX
+	id 1t2lVA-000000069iM-46jY
 	for linux-riscv@lists.infradead.org;
-	Mon, 21 Oct 2024 02:37:00 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-2e3010478e6so3210469a91.1
-        for <linux-riscv@lists.infradead.org>; Sun, 20 Oct 2024 19:36:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1729478217; x=1730083017; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=cpB4SGCIeSgOHi4GAfWFQLQaRfuQIHN8X6QFz6Ac0bA=;
-        b=AOmJRummLRJnvI5UXHlryg5n5tOOW6ndC5ki1Y1CEOWXjYHle1GU0tyriiGpFozdPS
-         /RguGPBsr2LTcAyVxv3QVr4oG8fOq4i/NcsoM2/nLW1uMywdd4T7oabbV7ITGtfGp5H0
-         WCkZzcygIxtmQc3jLp1kIRp3uqc3naUqPcwiUKrnKVdrmk8Wz1aXRMgS1ITC/XrKJegz
-         UBwnL19RMT8M855FSWH5jm0kLywmIQh6ISwpx6KbMIPaYi1lkYx25C5XogAiXmwCRDhO
-         xS8EbWgrNhGXrDRkTmIsqSOc+4VTSRflrNwN+Zxma/BcjWZYATKsDoZ0B0HWacF89lxf
-         ZU9A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729478217; x=1730083017;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=cpB4SGCIeSgOHi4GAfWFQLQaRfuQIHN8X6QFz6Ac0bA=;
-        b=GLbgtO0lkSTTQUcapLHHeIgSAuSKpbgTg9lSA2vkGnC/5MbMwJx3M56tj/THvH4g79
-         8EvuBuyAIVSvDtRBl0m4K/za0fqnULGyKp6v+bgI5d5fAgP9SN6kquN/HE2mBKaYp/34
-         jcl8JMoUJTx609WdokIPPGivfD5ZUXrqz8Q5jvm768DUt7h3loGZKa4ny9G+FKyn5LVx
-         c8jLoAkqR8Vt9+sE31V6DxkxgzELG/Hhe5SOaIz8BO27hrJfaUYItN3jcWxNG7vbkTaL
-         buP0XujzePjClaudv7zOg1dg2rMPQQPchjmksSiwPzB3nxH2d7n8XdLq/aW1aNPkTCGW
-         ptxg==
-X-Forwarded-Encrypted: i=1; AJvYcCUca/ivv1G9eKd1plSMwmz4gl6QYcUBObG5dt+ho0KiOv2C+Y/01+Ery6mBbvZ/LqPtgNuo28fCEVORVw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxKtCd6TWF6NoIpGLtx1m3/6p/nmI5OOS3c/IqKRmeZ8slSfXBn
-	D5+xp39YkHq83bNI9n7YkulM0cbr0XYK2KAEndAcPCUwFq5BV2I2ERMKo/8mxis=
-X-Google-Smtp-Source: AGHT+IFGbydOXmGzIHn0XKTbAZLEsEq4quEoN7Z1OoyKNVLLVQfviwYejctpSw0y9SIN33Gglp8CQg==
-X-Received: by 2002:a17:90a:1157:b0:2e2:d87f:3cc with SMTP id 98e67ed59e1d1-2e5617571eamr13042332a91.23.1729478217290;
-        Sun, 20 Oct 2024 19:36:57 -0700 (PDT)
-Received: from [127.0.1.1] (71-34-69-82.ptld.qwest.net. [71.34.69.82])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e5ad355bebsm2337008a91.7.2024.10.20.19.36.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 20 Oct 2024 19:36:56 -0700 (PDT)
-From: Drew Fustini <dfustini@tenstorrent.com>
-Date: Sun, 20 Oct 2024 19:36:02 -0700
-Subject: [PATCH net-next v4 3/3] riscv: dts: thead: Add TH1520 ethernet
- nodes
+	Mon, 21 Oct 2024 06:02:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1729490569; x=1761026569;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=vu4RT3On7XnbTi5GEYXuD7VfT612YLOO9q2H7/dwXMk=;
+  b=it4XXUveHkGElbmpZX7T3OLz73cL61fk/hn7F5ySLQF2XPTktzyLps3/
+   /ZHMbVB3irKUof/Ga2D3Sr8uKdCUaY8eop5wUHAJM7boWMSSrbo2+kZIz
+   YDlT76hdT6pQp4EqFkkouyF7q9Nm8bFw0fNn9ob+aWxcwIWu1ewjQoBj6
+   aU9FKatrdKwwR+nmsd+ajO3jiFMOqDrDtwdwe5BeUqbt2QWQ709z8D03j
+   Gr10+8ZlEBWQjJu3KtoFverXKirrt6GRlKwe5hnoutTPBRMyX0j60PnPY
+   6JJqQqWbxIMuAQ64O/i0cBhvsZIEoU9mbs4eHpirjOJgQa9GmwBFYleZ3
+   g==;
+X-CSE-ConnectionGUID: qW6ycpOnQGm4PAfz2gxcZg==
+X-CSE-MsgGUID: IS3LqUinTyWF73J344Steg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="32641222"
+X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
+   d="scan'208";a="32641222"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Oct 2024 23:02:48 -0700
+X-CSE-ConnectionGUID: 3RVbadbzQXiJFfRCWoMknA==
+X-CSE-MsgGUID: Aho/sbD2QMWKcyndR5WT4g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,220,1725346800"; 
+   d="scan'208";a="84214852"
+Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
+  by orviesa005.jf.intel.com with ESMTP; 20 Oct 2024 23:02:43 -0700
+Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1t2lV2-000RFj-2h;
+	Mon, 21 Oct 2024 06:02:40 +0000
+Date: Mon, 21 Oct 2024 14:02:34 +0800
+From: kernel test robot <lkp@intel.com>
+To: Inochi Amaoto <inochiama@gmail.com>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Inochi Amaoto <inochiama@outlook.com>, Guo Ren <guoren@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Yangyu Chen <cyy@cyyself.name>,
+	Hal Feng <hal.feng@starfivetech.com>
+Cc: Paul Gazzillo <paul@pgazz.com>,
+	Necip Fazil Yildiran <fazilyildiran@gmail.com>,
+	oe-kbuild-all@lists.linux.dev, Yixun Lan <dlan@gentoo.org>,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 2/3] irqchip: add T-HEAD C900 ACLINT SSWI driver
+Message-ID: <202410211310.9jsZOb1L-lkp@intel.com>
+References: <20241020121030.1012572-3-inochiama@gmail.com>
 MIME-Version: 1.0
-Message-Id: <20241020-th1520-dwmac-v4-3-c77acd33ccef@tenstorrent.com>
-References: <20241020-th1520-dwmac-v4-0-c77acd33ccef@tenstorrent.com>
-In-Reply-To: <20241020-th1520-dwmac-v4-0-c77acd33ccef@tenstorrent.com>
-To: Andrew Lunn <andrew@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
- Jose Abreu <joabreu@synopsys.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
- Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>, 
- Fu Wei <wefu@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, Drew Fustini <drew@pdp7.com>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-riscv@lists.infradead.org, Drew Fustini <dfustini@tenstorrent.com>, 
- linux-stm32@st-md-mailman.stormreply.com
-X-Mailer: b4 0.14.1
+Content-Disposition: inline
+In-Reply-To: <20241020121030.1012572-3-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241020_193658_294403_19F67F84 
-X-CRM114-Status: GOOD (  10.15  )
+X-CRM114-CacheID: sfid-20241020_230249_113254_E6C39276 
+X-CRM114-Status: GOOD (  10.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,353 +105,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Hi Inochi,
 
-Add gmac, mdio, and phy nodes to enable the gigabit Ethernet ports on
-the BeagleV Ahead and Sipeed Lichee Pi 4a boards.
+kernel test robot noticed the following build warnings:
 
-Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-[drew: change apb registers from syscon to second reg of gmac node,
-       add phy reset delay properties for beaglev ahead]
-Signed-off-by: Drew Fustini <dfustini@tenstorrent.com>
----
- arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts |  91 ++++++++++++++++
- .../boot/dts/thead/th1520-lichee-module-4a.dtsi    | 119 +++++++++++++++++++++
- arch/riscv/boot/dts/thead/th1520.dtsi              |  50 +++++++++
- 3 files changed, 260 insertions(+)
+[auto build test WARNING on tip/irq/core]
+[also build test WARNING on sophgo/for-next sophgo/fixes tip/smp/core robh/for-next linus/master v6.12-rc4 next-20241018]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-diff --git a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-index 86feb3df02c8..21c33f165ba9 100644
---- a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-+++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-@@ -15,6 +15,7 @@ / {
- 	compatible = "beagle,beaglev-ahead", "thead,th1520";
- 
- 	aliases {
-+		ethernet0 = &gmac0;
- 		gpio0 = &gpio0;
- 		gpio1 = &gpio1;
- 		gpio2 = &gpio2;
-@@ -98,6 +99,25 @@ &emmc {
- 	status = "okay";
- };
- 
-+&gmac0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&gmac0_pins>;
-+	phy-handle = <&phy0>;
-+	phy-mode = "rgmii-id";
-+	status = "okay";
-+};
-+
-+&mdio0 {
-+	phy0: ethernet-phy@1 {
-+		reg = <1>;
-+		interrupt-parent = <&gpio3>;
-+		interrupts = <22 IRQ_TYPE_LEVEL_LOW>;
-+		reset-gpios = <&gpio3 21 GPIO_ACTIVE_LOW>;
-+		reset-delay-us = <10000>;
-+		reset-post-delay-us = <50000>;
-+	};
-+};
-+
- &padctrl_aosys {
- 	led_pins: led-0 {
- 		led-pins {
-@@ -116,6 +136,77 @@ led-pins {
- };
- 
- &padctrl0_apsys {
-+	gmac0_pins: gmac0-0 {
-+		tx-pins {
-+			pins = "GMAC0_TX_CLK",
-+			       "GMAC0_TXEN",
-+			       "GMAC0_TXD0",
-+			       "GMAC0_TXD1",
-+			       "GMAC0_TXD2",
-+			       "GMAC0_TXD3";
-+			function = "gmac0";
-+			bias-disable;
-+			drive-strength = <25>;
-+			input-disable;
-+			input-schmitt-disable;
-+			slew-rate = <0>;
-+		};
-+
-+		rx-pins {
-+			pins = "GMAC0_RX_CLK",
-+			       "GMAC0_RXDV",
-+			       "GMAC0_RXD0",
-+			       "GMAC0_RXD1",
-+			       "GMAC0_RXD2",
-+			       "GMAC0_RXD3";
-+			function = "gmac0";
-+			bias-disable;
-+			drive-strength = <1>;
-+			input-enable;
-+			input-schmitt-disable;
-+			slew-rate = <0>;
-+		};
-+
-+		mdc-pins {
-+			pins = "GMAC0_MDC";
-+			function = "gmac0";
-+			bias-disable;
-+			drive-strength = <13>;
-+			input-disable;
-+			input-schmitt-disable;
-+			slew-rate = <0>;
-+		};
-+
-+		mdio-pins {
-+			pins = "GMAC0_MDIO";
-+			function = "gmac0";
-+			bias-disable;
-+			drive-strength = <13>;
-+			input-enable;
-+			input-schmitt-enable;
-+			slew-rate = <0>;
-+		};
-+
-+		phy-reset-pins {
-+			pins = "GMAC0_COL"; /* GPIO3_21 */
-+			bias-disable;
-+			drive-strength = <3>;
-+			input-disable;
-+			input-schmitt-disable;
-+			slew-rate = <0>;
-+		};
-+
-+		phy-interrupt-pins {
-+			pins = "GMAC0_CRS"; /* GPIO3_22 */
-+			function = "gpio";
-+			bias-pull-up;
-+			drive-strength = <1>;
-+			input-enable;
-+			input-schmitt-enable;
-+			slew-rate = <0>;
-+		};
-+	};
-+
- 	uart0_pins: uart0-0 {
- 		tx-pins {
- 			pins = "UART0_TXD";
-diff --git a/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi b/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
-index 724d9645471d..8e76b63e0100 100644
---- a/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
-+++ b/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
-@@ -11,6 +11,11 @@ / {
- 	model = "Sipeed Lichee Module 4A";
- 	compatible = "sipeed,lichee-module-4a", "thead,th1520";
- 
-+	aliases {
-+		ethernet0 = &gmac0;
-+		ethernet1 = &gmac1;
-+	};
-+
- 	memory@0 {
- 		device_type = "memory";
- 		reg = <0x0 0x00000000 0x2 0x00000000>;
-@@ -45,6 +50,22 @@ &emmc {
- 	status = "okay";
- };
- 
-+&gmac0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&gmac0_pins>, <&mdio0_pins>;
-+	phy-handle = <&phy0>;
-+	phy-mode = "rgmii-id";
-+	status = "okay";
-+};
-+
-+&gmac1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&gmac1_pins>;
-+	phy-handle = <&phy1>;
-+	phy-mode = "rgmii-id";
-+	status = "okay";
-+};
-+
- &gpio0 {
- 	gpio-line-names = "", "", "", "", "", "", "", "", "", "",
- 			  "", "", "", "", "", "", "", "", "", "",
-@@ -78,6 +99,104 @@ &gpio3 {
- 			  "GPIO10";
- };
- 
-+&mdio0 {
-+	phy0: ethernet-phy@1 {
-+		reg = <1>;
-+	};
-+
-+	phy1: ethernet-phy@2 {
-+		reg = <2>;
-+	};
-+};
-+
-+&padctrl0_apsys {
-+	gmac0_pins: gmac0-0 {
-+		tx-pins {
-+			pins = "GMAC0_TX_CLK",
-+			       "GMAC0_TXEN",
-+			       "GMAC0_TXD0",
-+			       "GMAC0_TXD1",
-+			       "GMAC0_TXD2",
-+			       "GMAC0_TXD3";
-+			function = "gmac0";
-+			bias-disable;
-+			drive-strength = <25>;
-+			input-disable;
-+			input-schmitt-disable;
-+			slew-rate = <0>;
-+		};
-+
-+		rx-pins {
-+			pins = "GMAC0_RX_CLK",
-+			       "GMAC0_RXDV",
-+			       "GMAC0_RXD0",
-+			       "GMAC0_RXD1",
-+			       "GMAC0_RXD2",
-+			       "GMAC0_RXD3";
-+			function = "gmac0";
-+			bias-disable;
-+			drive-strength = <1>;
-+			input-enable;
-+			input-schmitt-disable;
-+			slew-rate = <0>;
-+		};
-+	};
-+
-+	gmac1_pins: gmac1-0 {
-+		tx-pins {
-+			pins = "GPIO2_18", /* GMAC1_TX_CLK */
-+			       "GPIO2_20", /* GMAC1_TXEN */
-+			       "GPIO2_21", /* GMAC1_TXD0 */
-+			       "GPIO2_22", /* GMAC1_TXD1 */
-+			       "GPIO2_23", /* GMAC1_TXD2 */
-+			       "GPIO2_24"; /* GMAC1_TXD3 */
-+			function = "gmac1";
-+			bias-disable;
-+			drive-strength = <25>;
-+			input-disable;
-+			input-schmitt-disable;
-+			slew-rate = <0>;
-+		};
-+
-+		rx-pins {
-+			pins = "GPIO2_19", /* GMAC1_RX_CLK */
-+			       "GPIO2_25", /* GMAC1_RXDV */
-+			       "GPIO2_30", /* GMAC1_RXD0 */
-+			       "GPIO2_31", /* GMAC1_RXD1 */
-+			       "GPIO3_0",  /* GMAC1_RXD2 */
-+			       "GPIO3_1";  /* GMAC1_RXD3 */
-+			function = "gmac1";
-+			bias-disable;
-+			drive-strength = <1>;
-+			input-enable;
-+			input-schmitt-disable;
-+			slew-rate = <0>;
-+		};
-+	};
-+
-+	mdio0_pins: mdio0-0 {
-+		mdc-pins {
-+			pins = "GMAC0_MDC";
-+			function = "gmac0";
-+			bias-disable;
-+			drive-strength = <13>;
-+			input-disable;
-+			input-schmitt-disable;
-+			slew-rate = <0>;
-+		};
-+
-+		mdio-pins {
-+			pins = "GMAC0_MDIO";
-+			function = "gmac0";
-+			bias-disable;
-+			drive-strength = <13>;
-+			input-enable;
-+			input-schmitt-enable;
-+			slew-rate = <0>;
-+		};
-+	};
-+};
-+
- &sdio0 {
- 	bus-width = <4>;
- 	max-frequency = <198000000>;
-diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-index cd835aea07d2..acfe030e803a 100644
---- a/arch/riscv/boot/dts/thead/th1520.dtsi
-+++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-@@ -223,6 +223,12 @@ aonsys_clk: clock-73728000 {
- 		#clock-cells = <0>;
- 	};
- 
-+	stmmac_axi_config: stmmac-axi-config {
-+		snps,wr_osr_lmt = <15>;
-+		snps,rd_osr_lmt = <15>;
-+		snps,blen = <0 0 64 32 0 0 0>;
-+	};
-+
- 	soc {
- 		compatible = "simple-bus";
- 		interrupt-parent = <&plic>;
-@@ -274,6 +280,50 @@ uart0: serial@ffe7014000 {
- 			status = "disabled";
- 		};
- 
-+		gmac1: ethernet@ffe7060000 {
-+			compatible = "thead,th1520-gmac", "snps,dwmac-3.70a";
-+			reg = <0xff 0xe7060000 0x0 0x2000>, <0xff 0xec004000 0x0 0x1000>;
-+			reg-names = "dwmac", "apb";
-+			interrupts = <67 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "macirq";
-+			clocks = <&clk CLK_GMAC_AXI>, <&clk CLK_GMAC1>;
-+			clock-names = "stmmaceth", "pclk";
-+			snps,pbl = <32>;
-+			snps,fixed-burst;
-+			snps,multicast-filter-bins = <64>;
-+			snps,perfect-filter-entries = <32>;
-+			snps,axi-config = <&stmmac_axi_config>;
-+			status = "disabled";
-+
-+			mdio1: mdio {
-+				compatible = "snps,dwmac-mdio";
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+			};
-+		};
-+
-+		gmac0: ethernet@ffe7070000 {
-+			compatible = "thead,th1520-gmac", "snps,dwmac-3.70a";
-+			reg = <0xff 0xe7070000 0x0 0x2000>, <0xff 0xec003000 0x0 0x1000>;
-+			reg-names = "dwmac", "apb";
-+			interrupts = <66 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "macirq";
-+			clocks = <&clk CLK_GMAC_AXI>, <&clk CLK_GMAC0>;
-+			clock-names = "stmmaceth", "pclk";
-+			snps,pbl = <32>;
-+			snps,fixed-burst;
-+			snps,multicast-filter-bins = <64>;
-+			snps,perfect-filter-entries = <32>;
-+			snps,axi-config = <&stmmac_axi_config>;
-+			status = "disabled";
-+
-+			mdio0: mdio {
-+				compatible = "snps,dwmac-mdio";
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+			};
-+		};
-+
- 		emmc: mmc@ffe7080000 {
- 			compatible = "thead,th1520-dwcmshc";
- 			reg = <0xff 0xe7080000 0x0 0x10000>;
+url:    https://github.com/intel-lab-lkp/linux/commits/Inochi-Amaoto/dt-bindings-interrupt-controller-Add-Sophgo-SG2044-ACLINT-SSWI/20241020-201209
+base:   tip/irq/core
+patch link:    https://lore.kernel.org/r/20241020121030.1012572-3-inochiama%40gmail.com
+patch subject: [PATCH v3 2/3] irqchip: add T-HEAD C900 ACLINT SSWI driver
+config: riscv-kismet-CONFIG_GENERIC_IRQ_IPI_MUX-CONFIG_THEAD_C900_ACLINT_SSWI-0-0 (https://download.01.org/0day-ci/archive/20241021/202410211310.9jsZOb1L-lkp@intel.com/config)
+reproduce: (https://download.01.org/0day-ci/archive/20241021/202410211310.9jsZOb1L-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202410211310.9jsZOb1L-lkp@intel.com/
+
+kismet warnings: (new ones prefixed by >>)
+>> kismet: WARNING: unmet direct dependencies detected for GENERIC_IRQ_IPI_MUX when selected by THEAD_C900_ACLINT_SSWI
+   WARNING: unmet direct dependencies detected for GENERIC_IRQ_IPI_MUX
+     Depends on [n]: SMP [=n]
+     Selected by [y]:
+     - THEAD_C900_ACLINT_SSWI [=y] && RISCV [=y]
 
 -- 
-2.34.1
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
