@@ -4,90 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F38F1D15D82
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Oct 2024 12:04:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37566D15D82
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Oct 2024 12:11:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pmuRzgMF1TjxNv640MA5+3xHpbzYCfwj7UlYqHAXQP0=; b=dhawJhcYeSvZ4l
-	8NeDJANSG5rFzOxSj4AqRP7bNHR6l+03aUQhySDwl/RH4GqKbi+DwcXozwWH5M5NHKyOwroJ1DSKg
-	z3ID/Aww7Bl9oCkX4ZH0sthfh7mg67Yz3o3cxC+tiYw3hE77BdHa4C28ZjquHjLnpWoXnI+2TO+DT
-	GMFFhJPcPjkampBzznr2NuALP9IKHnd/9e7aAsyIsLAdqvKTxmYk4J4xajM0DeIvEcclzQtfjCLT0
-	BIte2QfX2ZGE1AwjD8S/acG355jYDc25pHjsad+WF4O99IOmx3srPgGTGZvzpPv4n9SfSkzceqIHd
-	RNucnwETog1ajDA1pMAg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U+q3q4G8MKcecLLUdS+oNgoiT9/J5uphBlokI9KAzHw=; b=g4AtERsyRMMqKZyQaIcEBXvbu2
+	MjU1nz5k5/KQtgsZE/Eb7OxvnQBLHfIdTka2rT3Qw6y7aicxpNvfbEy4v7M2pUWKc4cpeWOr9NTNX
+	iRYfh6OZA3RrmVdo/zU4KqpjvvWholge+fhYwTGNmxXQl04nG959A4VfrAIc8o18TO7TEEMyXtKoV
+	9jA+yKkDtvShUwsucKIwzgcuxiP/Omsx/5/sPm2O/jVt18yFjsdQiQ1mKNJnZUiL0tE8d4jVZehZY
+	0Xznq2TkGTwj98ujH0/r7OI+lkdnNAxRdRIfU0XKAjlYFmHBCRCbeUgBGH1pY34m871p6o1rEOdCo
+	9YnggRAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2r9N-00000007A71-0ZVV;
-	Mon, 21 Oct 2024 12:04:41 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1t2rFg-00000007BJc-3Fza;
+	Mon, 21 Oct 2024 12:11:12 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2r8a-000000079tz-449K
+	id 1t2rFS-00000007BGQ-1yZB
 	for linux-riscv@lists.infradead.org;
-	Mon, 21 Oct 2024 12:03:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1729512233; x=1761048233;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=64w73gIGV4oF+vq2Rcl+l60DIPus9XsF4mUZMhA7ah8=;
-  b=Qo7LrAp1gXHyOwCVs//Lf3nLu1g37jH7E/mAmfOzrIuPreAmHKBfdweL
-   NpieOCxrHXpoq6KMdc9REQTOpL24i2lvzbInZzPXwEzNtDcrxToC6NK8/
-   j/JkwMWwIAYwOBiasKbdHCjr4xRS7Qo6V86GstaG6ZrPhl6oTMLoEIQGi
-   zJAL207qIpBGaDeIN7XKSC5lc4tSiIAMly1ciLZIOhdTVQhtf2f+8Y+Nm
-   fbZAnaxOwqlyrrjARXJpVvYc7uD2ZcnIk9ATgsHCvp1u3pnbEDV/MFM8/
-   eGVA+FMyxCx8cU9nbi91ctdgyR0rsKYHjmdiMDHDEcw+vkU13cQqnf03p
-   w==;
-X-CSE-ConnectionGUID: aTW9bRR/Tg+aqVbUG5Kz+w==
-X-CSE-MsgGUID: mzKNd/rUQa+s1l1ZU1geAQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11231"; a="31855352"
-X-IronPort-AV: E=Sophos;i="6.11,220,1725346800"; 
-   d="scan'208";a="31855352"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Oct 2024 05:03:43 -0700
-X-CSE-ConnectionGUID: l0ULbCs3Qqmf1AxmMyh5ow==
-X-CSE-MsgGUID: rf2wPc2FSPOFTqBlYa6gWA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,220,1725346800"; 
-   d="scan'208";a="79456680"
-Received: from smile.fi.intel.com ([10.237.72.154])
-  by orviesa010.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Oct 2024 05:03:38 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1t2r8I-00000005US1-2Urn;
-	Mon, 21 Oct 2024 15:03:34 +0300
-Date: Mon, 21 Oct 2024 15:03:34 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Cc: Inochi Amaoto <inochiama@gmail.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
+	Mon, 21 Oct 2024 12:11:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6E9015C5988;
+	Mon, 21 Oct 2024 12:10:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EBF0C4CEC3;
+	Mon, 21 Oct 2024 12:10:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729512657;
+	bh=wI2COY0sgnb3AcZsuJwcmJ7QtHSQix2hOpVbezvb57I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fLRy0UKkgYzfx4ixS8Yme76364PkYK418L4pbZHahJH/vnawAKS0PzPRh317ovaxX
+	 xL2x9d26HDfooouaeGLUCscg+8irbizuNmo66iD1BIMuewtH81CEUrLIjWkZ6YJ88d
+	 n3WkF7HsBQXd+8kNChdqZ4uP4Aghb7ujX6onw5uwycsIvF5ZYRLdd3SKR9MMCZv4XZ
+	 BcjiUDWizxBeM32rGwX8tpKqG+klHsCQFYFtvW0gFE4853fc1d3A/t3nFgIJrHLya8
+	 2dZ13OWGLFZRiAOsRvQA+04vX8VUu58aSBDm9Q49QYNJUR+4TVHsqDfrZX+iIjqL4g
+	 UBG1crBORz8kQ==
+Date: Mon, 21 Oct 2024 13:10:52 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Chen Wang <unicorn_wang@outlook.com>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Inochi Amaoto <inochiama@outlook.com>, Yixun Lan <dlan@gentoo.org>,
-	LKML <linux-kernel@vger.kernel.org>,
-	linux-serial <linux-serial@vger.kernel.org>,
+	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
 	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 2/2] serial: 8250_dw: Add Sophgo SG2044 quirk
-Message-ID: <ZxZDFiUANo0Jqaai@smile.fi.intel.com>
+Subject: Re: [PATCH v2 1/2] dt-bindings: serial: snps-dw-apb-uart: Add Sophgo
+ SG2044 uarts
+Message-ID: <20241021-outlying-washday-8f171dedc703@spud>
 References: <20241021072606.585878-1-inochiama@gmail.com>
- <20241021072606.585878-3-inochiama@gmail.com>
- <29d8e2a6-d0e7-0f74-1f5c-4f285ec1e9ee@linux.intel.com>
- <tm7jtf3swggiilznwo3xcqjlhd2a7cguwk3nay3bhmaxo23mf5@qw2fyjwapoxe>
- <3dafd285-f56f-de2a-1544-b6ce092607b5@linux.intel.com>
+ <20241021072606.585878-2-inochiama@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <3dafd285-f56f-de2a-1544-b6ce092607b5@linux.intel.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+In-Reply-To: <20241021072606.585878-2-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241021_050353_056476_6A6EE574 
-X-CRM114-Status: GOOD (  16.46  )
+X-CRM114-CacheID: sfid-20241021_051058_578493_DF7E160B 
+X-CRM114-Status: GOOD (  14.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,53 +79,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/mixed; boundary="===============2237106718735161722=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 21, 2024 at 01:17:55PM +0300, Ilpo J=E4rvinen wrote:
-> On Mon, 21 Oct 2024, Inochi Amaoto wrote:
-> > On Mon, Oct 21, 2024 at 11:52:38AM +0300, Ilpo J=E4rvinen wrote:
-> > > On Mon, 21 Oct 2024, Inochi Amaoto wrote:
 
-> > > > SG2044 relys on an internal divisor when calculating bitrate, which
-> > > > means a wrong clock for the most common bitrates. So add a quirk for
-> > > > this uart device to skip the set rate call and only relys on the
-> > > > internal UART divisor.
-> > > > =
-
-> > > > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> > > =
-
-> > > Reviewed-by: Ilpo J=E4rvinen <ilpo.jarvinen@linux.intel.com>
-> > > =
-
-> > > I wonder though does this mean the numbers userspace can read from ke=
-rnel =
-
-> > > are bogus and if something can be done about that?
-> > =
-
-> > I am not sure whether the clock rate can be read by the userspace.
-> > At least it report the right baud speed by using stty.
-> =
-
-> Okay, I meant baud & other settings. Thanks for checking it.
-
-oBut there is clock rate for user space. I think Ilpo has a point.
-
-Documentation/ABI/testing/sysfs-tty:21:What:            /sys/class/tty/ttyS=
-<x>/uartclk
-
--- =
-
-With Best Regards,
-Andy Shevchenko
+--===============2237106718735161722==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="l5KL92mOVjkHqDBj"
+Content-Disposition: inline
 
 
+--l5KL92mOVjkHqDBj
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, Oct 21, 2024 at 03:26:05PM +0800, Inochi Amaoto wrote:
+> The UART of SG2044 is modified version of the standard Synopsys
+> DesignWare UART. The UART on SG2044 relys on the internal divisor
+> and can not set right clock rate for the common bitrates.
+>=20
+> Add compatibles string for the Sophgo SG2044 uarts.
+>=20
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> ---
+>  .../devicetree/bindings/serial/snps-dw-apb-uart.yaml          | 4 ++++
+>  1 file changed, 4 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.ya=
+ml b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
+> index 4cdb0dcaccf3..6963f89a1848 100644
+> --- a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
+> +++ b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
+> @@ -58,6 +58,10 @@ properties:
+>                - brcm,bcm11351-dw-apb-uart
+>                - brcm,bcm21664-dw-apb-uart
+>            - const: snps,dw-apb-uart
+> +      - items:
+> +          - enum:
+> +              - sophgo,sg2044-uart
+> +          - const: snps,dw-apb-uart
+
+Why does each vendor have an items entry of its own? Seems like needless
+clutter of the file IMO, except for the renesas bit.
+
+
+Cheers,
+Conor.
+
+--l5KL92mOVjkHqDBj
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZxZEywAKCRB4tDGHoIJi
+0tcSAP9Cg0qOqBlYu4GM4FXNjZvQgfXWi5L9u7SJpQum8USXVgEAtJ5xlHYm9l/w
+MiHYei67Y3U+RmvBGpDDkiNm9VwiuQ0=
+=YTSF
+-----END PGP SIGNATURE-----
+
+--l5KL92mOVjkHqDBj--
+
+
+--===============2237106718735161722==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2237106718735161722==--
+
