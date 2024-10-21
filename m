@@ -4,72 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE350D15D88
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Oct 2024 12:37:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43B75D15D89
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Oct 2024 12:37:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u27eYP3OodkMdiLA/QhIwl/pAeOywJOeM19GiaE46nw=; b=JyIY81j9o5fLg4Eoszg/9i7tdQ
-	QxeYnaiAixp9IR0ffcBtTAjOxKqCLCZjajRS6RUPQ691X8YziP4OaIVzaQTcD8hvwEbITPS3i6ZRk
-	gqJUbMBhl7O9YzKqb3XlrLwyOxAKbBozH/cBhtGehZ225h9F5mqomul3wo+6QAi5T70z82EFOuJFs
-	H+Rf5YpE/W2RjmfMQedR9mqLI3kueXOKIN58AK6mX9vCsRXNkSZEAjzmjGDGs6MlNwcBsjFiomy8x
-	ZKiipXt4+Nc9BsinYI82HW0o5/8nobOhbpFc22brw0Oo4LozMvTKilYPK64P1ypG14QBPS8FT98eB
-	a1UTycuA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=IdsM+rQ6Js9UDapAaxYrWkJ1U9RxGPBGET3pUyU057M=; b=TemTghwOrj1Vos
+	U6cVhsMp0teqMSl8axXDGIYwuR6VHzpsS8+ngHY0FBmaaM9lR54fVknssqZKlgdtZam9edd9F9p7R
+	RdXSnkt5IZFrFNTNzv97lLsChzdR3ual3/oRsAup7AJd+92bd36Wapv0GMdqxBYFX3mM1lAJPrj9r
+	Q+ikH64cJ/cfG9RUpCs9Y7Ld9jXs+xo+e7segaiuHknPUYw0Zlim0YgV9dymr/osNz/j+LmZdP5lw
+	q6AEMYYjb/Hy+eR9Vq3kQWK7c1o7XSJYC1xrGucypO/mYGk5rEYdcLnHAYbDQoNbrxMH8Pb5Bs+L8
+	uN152ghewo0Dj7DPwmcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2rf9-00000007H7Z-1hOJ;
-	Mon, 21 Oct 2024 12:37:31 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t2rfA-00000007H8e-3HF8;
+	Mon, 21 Oct 2024 12:37:32 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2rQD-00000007Da7-0jWT
+	id 1t2rQG-00000007DbX-0daV
 	for linux-riscv@lists.infradead.org;
-	Mon, 21 Oct 2024 12:22:06 +0000
+	Mon, 21 Oct 2024 12:22:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 3DF62A429BF;
-	Mon, 21 Oct 2024 12:21:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CD70C4CEC3;
-	Mon, 21 Oct 2024 12:22:00 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id D5D1BA4297B;
+	Mon, 21 Oct 2024 12:21:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A248C4CEC3;
+	Mon, 21 Oct 2024 12:22:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729513323;
-	bh=VogxaHDr5VXDt3OXG/BgBX3+80NJA3EfEloZ63QiD7w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=n463WHQm9i8QVjyGeh3YMoJAcfrGatS7n1qqFasYQonh5m/Mv+Aw4akG/ZG52sgMn
-	 uHZ624sQoxRDJkxYuuRyxr/XYKvIgU5UsQ7Q6nEhpkGrtOg7QSsYo3/i5F+XcY0LLL
-	 FSgczerOI7oh76JDaCb4Fyom1SwfsuA5Dk176E91UH1J2hCwzcezor9fIgjTqr/Sf5
-	 CPaDMPai/0yREpBwkh6RmHKiDq9G/WHxQfQVPiZ/3qlHCq/jJrd7imk6naNUvy2rP8
-	 Iq3BokG3RtcKePOODcI93PdumSJj32OZnqAFlZoc0JxBxvV9r+HvWAB8/w8HxLgTLW
-	 qZ7AFh9PYsE+w==
-Date: Mon, 21 Oct 2024 13:21:58 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Chen Wang <unicorn_wang@outlook.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	s=k20201202; t=1729513326;
+	bh=q9r41TUNdBdaXSTHRnEB4GOxd1xBEVJa+omNwYCjQ9g=;
+	h=From:To:Subject:Date:In-Reply-To:References:From;
+	b=K2s47iFpNxrXBD19bu1MVAodC8qAnRBq0DYV2+zoAoelVjDzHq34KIcYHkvE/jHWi
+	 CDiDHlRCjvOZqIIjIZO0MEQCQZFiVIb63p7V8pfIRpzXQHXzM62S0hGnJMqmVhgQQY
+	 LuIVyNVIuMPtcui6PykJbw0VJs6Tg5+OpAldA/XTxeLVTvLcu+KkTXYNwGroOypmLJ
+	 AqHAzWmluEL6R1UHGwCvc7yAxP+XivHBshqAG9qRft8BKEwcwEwmKqMLJDS/6Zov3R
+	 GimBTQLOAe7/H/QRhRZwfgM7ha0qmbdQotEtL7otQ9AZOQRJRJYhcrtm0YW8ae7DeB
+	 +2rGIQLxsS3dg==
+From: Puranjay Mohan <puranjay@kernel.org>
+To: Albert Ou <aou@eecs.berkeley.edu>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	bpf@vger.kernel.org,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Eric Dumazet <edumazet@google.com>,
+	Hao Luo <haoluo@google.com>,
+	Helge Deller <deller@gmx.de>,
+	Jakub Kicinski <kuba@kernel.org>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Mykola Lysenko <mykolal@fb.com>,
+	netdev@vger.kernel.org,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Inochi Amaoto <inochiama@outlook.com>, Yixun Lan <dlan@gentoo.org>,
-	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 1/2] dt-bindings: serial: snps-dw-apb-uart: Add Sophgo
- SG2044 uarts
-Message-ID: <20241021-rosy-drove-1ae3c8985405@spud>
-References: <20241021072606.585878-1-inochiama@gmail.com>
- <20241021072606.585878-2-inochiama@gmail.com>
- <20241021-outlying-washday-8f171dedc703@spud>
- <r5ngs2j776jcy6sfirwzmtsoljotatfvgmlmv4sj4xksye2bff@xtn7adafbpfz>
+	Paolo Abeni <pabeni@redhat.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Puranjay Mohan <puranjay12@gmail.com>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Song Liu <song@kernel.org>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Yonghong Song <yonghong.song@linux.dev>
+Subject: [PATCH bpf-next 3/5] selftests/bpf: don't mask result of bpf_csum_diff() in test_verifier
+Date: Mon, 21 Oct 2024 12:21:10 +0000
+Message-Id: <20241021122112.101513-4-puranjay@kernel.org>
+X-Mailer: git-send-email 2.40.1
+In-Reply-To: <20241021122112.101513-1-puranjay@kernel.org>
+References: <20241021122112.101513-1-puranjay@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <r5ngs2j776jcy6sfirwzmtsoljotatfvgmlmv4sj4xksye2bff@xtn7adafbpfz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241021_052205_381995_6B733616 
-X-CRM114-Status: GOOD (  20.65  )
+X-CRM114-CacheID: sfid-20241021_052208_295133_BD254105 
+X-CRM114-Status: UNSURE (   8.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,86 +96,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7557787033744608556=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The bpf_csum_diff() helper has been fixed to return a 16-bit value for
+all archs, so now we don't need to mask the result.
 
---===============7557787033744608556==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="vROro1MZrp9CSqQL"
-Content-Disposition: inline
+This commit is basically reverting the below:
 
+commit 6185266c5a85 ("selftests/bpf: Mask bpf_csum_diff() return value
+to 16 bits in test_verifier")
 
---vROro1MZrp9CSqQL
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
+---
+ tools/testing/selftests/bpf/progs/verifier_array_access.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-On Mon, Oct 21, 2024 at 08:18:58PM +0800, Inochi Amaoto wrote:
-> On Mon, Oct 21, 2024 at 01:10:52PM +0100, Conor Dooley wrote:
-> > On Mon, Oct 21, 2024 at 03:26:05PM +0800, Inochi Amaoto wrote:
-> > > The UART of SG2044 is modified version of the standard Synopsys
-> > > DesignWare UART. The UART on SG2044 relys on the internal divisor
-> > > and can not set right clock rate for the common bitrates.
-> > >=20
-> > > Add compatibles string for the Sophgo SG2044 uarts.
-> > >=20
-> > > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> > > ---
-> > >  .../devicetree/bindings/serial/snps-dw-apb-uart.yaml          | 4 ++=
-++
-> > >  1 file changed, 4 insertions(+)
-> > >=20
-> > > diff --git a/Documentation/devicetree/bindings/serial/snps-dw-apb-uar=
-t.yaml b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-> > > index 4cdb0dcaccf3..6963f89a1848 100644
-> > > --- a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-> > > +++ b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-> > > @@ -58,6 +58,10 @@ properties:
-> > >                - brcm,bcm11351-dw-apb-uart
-> > >                - brcm,bcm21664-dw-apb-uart
-> > >            - const: snps,dw-apb-uart
-> > > +      - items:
-> > > +          - enum:
-> > > +              - sophgo,sg2044-uart
-> > > +          - const: snps,dw-apb-uart
-> >=20
-> > Why does each vendor have an items entry of its own? Seems like needless
-> > clutter of the file IMO, except for the renesas bit.
->=20
-> I just follow others when writing this binding. I think it may need
-> another patch to fix this problem, right?
+diff --git a/tools/testing/selftests/bpf/progs/verifier_array_access.c b/tools/testing/selftests/bpf/progs/verifier_array_access.c
+index 95d7ecc12963b..4195aa824ba55 100644
+--- a/tools/testing/selftests/bpf/progs/verifier_array_access.c
++++ b/tools/testing/selftests/bpf/progs/verifier_array_access.c
+@@ -368,8 +368,7 @@ __naked void a_read_only_array_2_1(void)
+ 	r4 = 0;						\
+ 	r5 = 0;						\
+ 	call %[bpf_csum_diff];				\
+-l0_%=:	r0 &= 0xffff;					\
+-	exit;						\
++l0_%=:	exit;						\
+ "	:
+ 	: __imm(bpf_csum_diff),
+ 	  __imm(bpf_map_lookup_elem),
+-- 
+2.40.1
 
-Yeah. But I'd hold off to see if someone gives a rationale for it being
-done this way before sending that. I've not deleted this thread, and
-will send an ack if someone justifies why the binding is written like
-this.
-
---vROro1MZrp9CSqQL
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZxZHZgAKCRB4tDGHoIJi
-0rj+AP44waD9B7Jd/XToGUQfeog3xWZy/JWbqvcVrrp8HiNOBQD8CTzmD0lxAnQx
-KSwr6YOPFc2LF2eursvFE/afDgddUwk=
-=3xW3
------END PGP SIGNATURE-----
-
---vROro1MZrp9CSqQL--
-
-
---===============7557787033744608556==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7557787033744608556==--
-
