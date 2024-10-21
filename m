@@ -4,68 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC9D0D3E18D
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Oct 2024 07:24:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83001D0E6C3
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Oct 2024 07:46:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mBr5kYS+4tF2W5A6UbBVZx+L8WF8cJPXwLOyEAECH+M=; b=TwSsrPK0wuITRi
-	ErEHztqtqYKzUyeKT6emAn3f6EqHVrDO4O1OQ3pPFBFsB1E6Vl+AcFyayu2emu7ApuCtQYA+3FDDk
-	rF/JU7nWI8rQ6FG/+O3FTVTKY/OPyb7rf06QRm/ZoMGzs3gNaRrAgpMzSgQKSI9zaLFqB5dUpPyvS
-	nK40mqEn0ZraKWPblBOMS0us/skMwfqte/aDR5kP+qEaQaYSe9arLbCTaNsqWEWs/0S/1taz2OLsW
-	+re6bPbzn6GD3YzJOiNFPigr49t5diKyrXqwb5qbdiqq+IBth33NpcoBr3BeftIJMWrwZ9ujcQw3h
-	LsqxXGB6T+4VG8kg+VYQ==;
+	List-Owner; bh=xzuNgyJsI4Lbv+qV3b07ba6ha09zb822UkpMqdAKpFQ=; b=jJQvK74YOPOZrs
+	Lvn6ALnmTcSE2MuFd/LRdOzuiOC7FVHj0zCeHPz1VNG9eeRhrO0GwARjEcLcWYWPJBi6GtjmsnxHd
+	SBprMZcgUElkd9YKyvSP3c3aK4D9nb9Bzd+mXsBb/jQoCA55ufxZCBCJk2vjdJKNw41PQao5IJibd
+	bcln8ePeJ6V9kENvnxsM2X9g+eQ48RY3zH7yw9++LJAE49HdouStT9Y9W4QuOm4xJi1K73qhVtuOD
+	wZfJD0rVDyluyHAt8r4euV40HAhBM4S9pk61LH4a7y+7/Pilf16rMWDb1eJ1n8a+9saDu3uiG5NjQ
+	DWE8LrBfQdvsOqoNZ4gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2mmG-00000006MXR-1ORa;
-	Mon, 21 Oct 2024 07:24:32 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t2n7F-00000006QzS-02fB;
+	Mon, 21 Oct 2024 07:46:13 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2mg0-00000006L1y-1QHF
-	for linux-riscv@lists.infradead.org;
-	Mon, 21 Oct 2024 07:18:06 +0000
+	id 1t2myk-00000006Obw-1qWX;
+	Mon, 21 Oct 2024 07:37:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 204615C58B1;
-	Mon, 21 Oct 2024 07:17:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 981D3C4CECD;
-	Mon, 21 Oct 2024 07:18:02 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 47EC3A41B7B;
+	Mon, 21 Oct 2024 07:37:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5693BC4CEC3;
+	Mon, 21 Oct 2024 07:37:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729495083;
-	bh=uoS5XTRMeT/gGcLkJRtVlVTCHjy0kWjFGMleEtECSvY=;
+	s=k20201202; t=1729496245;
+	bh=2gy3du6vsKAJ+C9iOq3ZQ9oB1KOFdx7EruIwXtjFbKQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Hi/+coWyQ9HmJR2rIZDA/xoftFHtg9qrhjwgY0bLSCiU1tgTvgeuj64tM8eRO1S8l
-	 IheLgBTBKvn8hvDU6IEki0p99LvUDFrzP2/WPv34WDkXFCdSTCOT0f7P1VHI62p0E/
-	 zwKZdJpwzjQvcyO0xlgwG0QsPWTn1/JjgV8yQmXMmmmfj/oBiyWeDegZKci10h/5to
-	 oA1UfgTIfWXv/tBfj3NnI5EHD824CyBf9gL3Iw4XpVg8lIiXEV0M0VOsKrf5LIMbuL
-	 5Q+3hAV/qh3+ZTEvzk0MLLKMQtv5BdcOIHZNShkNMC5TM51BpAmAmjKq/JBNyY8ioU
-	 66UQTEsEkWOhg==
-Date: Mon, 21 Oct 2024 09:17:59 +0200
+	b=nR/GULq/+kGrI0Fv7mYTKOVQ46vxfvEI40yJL7e5Y4YTVk114dLmmXRkMfSMvlaCR
+	 jm/AZdEUwHMvpq16IG2LtxPx0XPUPadQkx4hs7KFD1dcgtrGAk4KxZNvUtr5G6ATYt
+	 IzYlpv6Dx6yHHVfT39ni80lFapHZcVaeqckYZSUjYgudsEzuUAQ0U89Onr3P9z2SY/
+	 ZFD2sy/o5pf+DGgj3ZPpqk255+EpxbmExaksbrK0jGq2Zcg4hIrrozf/aO3A0qefT5
+	 fuiXwVnEBbZOOOt9kGN9BIFlWjZzP36rs2TeCYlLSgxW18YgdchDgR3AflfX2PcK0q
+	 0+y21zYamQkSw==
+Date: Mon, 21 Oct 2024 09:37:21 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Guodong Xu <guodong@riscstar.com>
-Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, rafal@milecki.pl, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+To: Drew Fustini <dfustini@tenstorrent.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
+	Jose Abreu <joabreu@synopsys.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>, Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>, 
+	Fu Wei <wefu@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
 	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Heiko Stuebner <heiko.stuebner@cherry.de>, 
-	Michael Zhu <michael.zhu@starfivetech.com>, Drew Fustini <drew@beagleboard.org>, 
-	Alexandru Stan <ams@frame.work>, Daniel Schaefer <dhs@frame.work>, 
-	Sandie Cao <sandie.cao@deepcomputing.io>, Yuning Liang <yuning.liang@deepcomputing.io>, 
-	Huiming Qiu <huiming.qiu@deepcomputing.io>, Alex Elder <elder@riscstar.com>, linux@frame.work, 
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 3/3] riscv: dts: starfive: add DeepComputing FML13V01
- board device tree
-Message-ID: <ae5gels34ozgzrcrwz53wj22hoy5cq3crn3dmkhitxlffmnavt@6lbmrcpjmqyd>
-References: <20241020134959.519462-1-guodong@riscstar.com>
- <20241020134959.519462-4-guodong@riscstar.com>
+	Andrew Lunn <andrew+netdev@lunn.ch>, Drew Fustini <drew@pdp7.com>, netdev@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH net-next v4 1/3] dt-bindings: net: Add T-HEAD dwmac
+ support
+Message-ID: <bv2ao6oxrpbg3hihe6lb66h7bf2d47pg3dcv4c7mrfue26s7br@hsnqynh2ujyj>
+References: <20241020-th1520-dwmac-v4-0-c77acd33ccef@tenstorrent.com>
+ <20241020-th1520-dwmac-v4-1-c77acd33ccef@tenstorrent.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20241020134959.519462-4-guodong@riscstar.com>
+In-Reply-To: <20241020-th1520-dwmac-v4-1-c77acd33ccef@tenstorrent.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241021_001804_493298_A6FE53FE 
-X-CRM114-Status: GOOD (  21.31  )
+X-CRM114-CacheID: sfid-20241021_003726_562235_298593A6 
+X-CRM114-Status: UNSURE (   9.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,112 +85,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Oct 20, 2024 at 09:49:59PM +0800, Guodong Xu wrote:
-> From: Sandie Cao <sandie.cao@deepcomputing.io>
+On Sun, Oct 20, 2024 at 07:36:00PM -0700, Drew Fustini wrote:
+> From: Jisheng Zhang <jszhang@kernel.org>
 > 
-> The FML13V01 board from DeepComputing incorporates a StarFive JH7110 SoC.
-> It is a mainboard designed for the Framework Laptop 13 Chassis, which has
-> (Framework) SKU FRANHQ0001.
+> Add documentation to describe the DesginWare-based GMAC controllers in
+> the T-HEAD TH1520 SoC.
 > 
-> The FML13V01 board features:
-> - StarFive JH7110 SoC
-> - LPDDR4 8GB
-> - eMMC 32GB or 128GB
-> - QSPI Flash
-> - MicroSD Slot
-> - PCIe-based Wi-Fi
-> - 4 USB-C Ports
->  - Port 1: PD 3.0 (60W Max), USB 3.2 Gen 1, DP 1.4 (4K@30Hz/2.5K@60Hz)
->  - Port 2: PD 3.0 (60W Max), USB 3.2 Gen 1
->  - Port 3 & 4: USB 3.2 Gen 1
-> 
-> Create the DTS file for the DeepComputing FML13V01 board. Seven device
-> nodes have been verified functional and remain enabled: i2c2, i2c5, i2c6
-> qspi, mmc0, mmc1 and usb0.  All others remain disabled, or are disabled
-> by nodes in "jh7110-deepcomputing-fml13v01.dts".
-> 
-> Signed-off-by: Sandie Cao <sandie.cao@deepcomputing.io>
-> [elder@riscstar.com: revised the description, updated some nodes]
-> Signed-off-by: Alex Elder <elder@riscstar.com>
-> Signed-off-by: Guodong Xu <guodong@riscstar.com>
-> ---
-> v5: No change
-> v4: Changed model string to "DeepComputing FML13V01"
->     Changed dts filename and Makefile accordingly to reflect the change
->     Updated device nodes status, and verified functional
->     Revised the commit message
-> v3: Updated the commit message
-> v2: Changed the model and copmatible strings
->     Updated the commit message with board features
-> 
->  arch/riscv/boot/dts/starfive/Makefile         |  1 +
->  .../jh7110-deepcomputing-fml13v01.dts         | 44 +++++++++++++++++++
->  2 files changed, 45 insertions(+)
->  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-deepcomputing-fml13v01.dts
-> 
-> diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/starfive/Makefile
-> index 7a163a7d6ba3..b3bb12f78e7d 100644
-> --- a/arch/riscv/boot/dts/starfive/Makefile
-> +++ b/arch/riscv/boot/dts/starfive/Makefile
-> @@ -8,6 +8,7 @@ DTC_FLAGS_jh7110-starfive-visionfive-2-v1.3b := -@
->  dtb-$(CONFIG_ARCH_STARFIVE) += jh7100-beaglev-starlight.dtb
->  dtb-$(CONFIG_ARCH_STARFIVE) += jh7100-starfive-visionfive-v1.dtb
->  
-> +dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-deepcomputing-fml13v01.dtb
->  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-milkv-mars.dtb
->  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-pine64-star64.dtb
->  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.2a.dtb
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110-deepcomputing-fml13v01.dts b/arch/riscv/boot/dts/starfive/jh7110-deepcomputing-fml13v01.dts
-> new file mode 100644
-> index 000000000000..b515b7d04c37
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/starfive/jh7110-deepcomputing-fml13v01.dts
-> @@ -0,0 +1,44 @@
-> +// SPDX-License-Identifier: GPL-2.0 OR MIT
-> +/*
-> + * Copyright (C) 2024 DeepComputing (HK) Limited
-> + */
-> +
-> +/dts-v1/;
-> +#include "jh7110-common.dtsi"
-> +
-> +/ {
-> +	model = "DeepComputing FML13V01";
-> +	compatible = "deepcomputing,fml13v01", "starfive,jh7110";
-> +};
-> +
-> +&camss {
-> +	status = "disabled";
-> +};
-> +
-> +&csi2rx {
-> +	status = "disabled";
-> +};
-> +
-> +&gmac0 {
-> +	status = "disabled";
-> +};
-> +
-> +&i2c0 {
-> +	status = "disabled";
-> +};
-> +
-> +&pwm {
-> +	status = "disabled";
-> +};
-> +
-> +&pwmdac {
-> +	status = "disabled";
-> +};
-> +
-> +&spi0 {
-> +	status = "disabled";
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+> [drew: rename compatible, add apb registers as second reg of gmac node,
+>        add clocks and interrupts poroperties]
+> Signed-off-by: Drew Fustini <dfustini@tenstorrent.com>
 
-If your board has to disable all these, then they should not have been
-enabled in DTSI in the first place. Only blocks present and working in
-the SoC (without amny external needs) should be enabled.
+...
 
-I suggest to fix that aspect first.
+> +  interrupts:
+> +    items:
+> +      - description: Combined signal for various interrupt events
+> +
+> +  interrupt-names:
+> +    items:
+> +      - const: macirq
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +  - interrupts
+> +  - interrupt-names
+
+I asked to drop these, because referenced schema already requires these.
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
