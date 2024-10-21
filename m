@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E136AD15D89
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Oct 2024 12:36:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20AEDD15D88
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Oct 2024 12:37:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=DdqDrDSwJaVBJtNyDMqLg+lKolHXBiXJlWhkkvf3B5A=; b=aFEjzRq1HnGwpe
-	PRcrbV0vDMy9E4NShCkO8n2O2upWNq+y4ul4dgkBdY0PBStT1QKkRXuXRwm1XBVLeEOJjSdyieVRN
-	jGRRXcSdTjftmwNwefFlXjCFnUoMFQvsMUzXWyIpomPGZhR82q1b/xFjm4LpLw6rs7GlpzzLpFI4m
-	I+ddaU/m79CwDexwYoRHbzFnGmnE7RfVG1pyTvvc703tVPidp/a+QZVusRDfezYxy9U//3Vkusf7h
-	PKGWHACCJR8oAYdgFI7JX0wegn5/2xwM02BKZW2av2SnbHk4alyyWotpHdb+YsYqjdfbHRfdpzPT8
-	/pO2mbuneIDtRiWyrcDA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4pHAU0ePh8fPYVPIGP3uTlXZ/8IsL0eVtiaIXmuGBSM=; b=t8U2wgUC80Pkkj
+	VW3sVTuU/e0gT6TD62nVMxVwmuDPRYmM/c0kNVQQBP/j8lj+p1bxudYTmDgNyIF0kmQOIGJCHLhcE
+	7eaTrxypTPGpxXzy10jDXWIxT5z6CezgnGeASzgfZFACdY9peWoXV6HJgcyoSbguiyMaLPGRKccwr
+	SdDIihZO/tEPSCzEIq5ynPyfXpPoJmMcEMnVvHr24FLbKFbt/rfFlE6POYRtjtjSCY0uKRHWJ/b2t
+	1uFE1PRbHqT4qYtwxPu9ck0KND3zXgAvanlB6RpjFvb3EctFhwhWJPVPIXloy8ekMB6mocURXMdFT
+	FVdIEP4VjXSwmMK12Big==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2rdd-00000007Gl0-2yIK;
-	Mon, 21 Oct 2024 12:35:57 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t2rf8-00000007H6u-02ir;
+	Mon, 21 Oct 2024 12:37:30 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2rPy-00000007DVg-3LxG
+	id 1t2rQ8-00000007DYn-17g9
 	for linux-riscv@lists.infradead.org;
-	Mon, 21 Oct 2024 12:21:52 +0000
+	Mon, 21 Oct 2024 12:22:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8F80BA42923;
-	Mon, 21 Oct 2024 12:21:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E698DC4CEE7;
-	Mon, 21 Oct 2024 12:21:48 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id F17505C5AB7;
+	Mon, 21 Oct 2024 12:21:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67E0BC4CEC3;
+	Mon, 21 Oct 2024 12:21:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729513309;
-	bh=B+VLaGzReOrXQUVLIvCM19MOqgqdL54YeTdVPYr1sHM=;
-	h=From:To:Subject:Date:From;
-	b=tVl0pom3rlQe9aM/hjZ2mYpEz9YDCN23RGwaN9xZrSTEM2rUBrH15X28wEw3PBlIm
-	 qRuLpl0iHy18hzGeMt2rGGufKslkKulrKhttEx1kmWCanhwkkTkUTeKzxMmxVGIkva
-	 hlGnv6PW2rwYgMsQsXxnVVn5a8k+S5yXKvZ8S61dHW6V8Oh3a4jKGJnC9MqDoPQ/u9
-	 6Zj6PuEW+UMpWRIYGbjIcrX0t3aqzSVaNpAJWrulIgJTPsj1ShjMQBCeOLvDNoMP8u
-	 C4sR0vQ0mQVbUvB2yT27z3AGXxlnJvrQ71jlY6EQMVKKpryk7Nst7E/i9TA0rYC3oa
-	 18svTXbxvvipw==
+	s=k20201202; t=1729513318;
+	bh=DksjoWr3zi3vNlUAvCVzy7Y3/lqTinQGR/Ze6AaMZC4=;
+	h=From:To:Subject:Date:In-Reply-To:References:From;
+	b=nHEQ1/Jq4CEIn/6XFUcJ5UljN17WywRBZBPUwCPExk2/YXfvLhbx7jsTrL/5yA76S
+	 mUE6v/rv1LKMZ8kiHWDvGn5hc075ANSZQgMxLAh+LP5FWo0LYM9zDn0k4CJ6oZNgU6
+	 bYqFFOutWCFWwbMcXMIiNjK7I+BYqp9khSA2hiVcHVTCy3g1PrUX+BTaNAYlVi/h8d
+	 vfN2pXpglXa+9KVGnf472OwHoRoKaNQ7YtDm46sRAmYGH6t5nrd6T2mKAICHZYH8xF
+	 GFuOyXgPh4RUfiRgY0e2KUp4Q6uoIe12F21/CAf7ZtPHLXpzr4m2loCAFDERDmupBT
+	 bobVeaSc/4f5w==
 From: Puranjay Mohan <puranjay@kernel.org>
 To: Albert Ou <aou@eecs.berkeley.edu>,
 	Alexei Starovoitov <ast@kernel.org>,
@@ -74,14 +74,16 @@ To: Albert Ou <aou@eecs.berkeley.edu>,
 	Song Liu <song@kernel.org>,
 	Stanislav Fomichev <sdf@fomichev.me>,
 	Yonghong Song <yonghong.song@linux.dev>
-Subject: [PATCH bpf-next 0/5] Optimize bpf_csum_diff() and homogenize for all archs
-Date: Mon, 21 Oct 2024 12:21:07 +0000
-Message-Id: <20241021122112.101513-1-puranjay@kernel.org>
+Subject: [PATCH bpf-next 1/5] net: checksum: move from32to16() to generic header
+Date: Mon, 21 Oct 2024 12:21:08 +0000
+Message-Id: <20241021122112.101513-2-puranjay@kernel.org>
 X-Mailer: git-send-email 2.40.1
+In-Reply-To: <20241021122112.101513-1-puranjay@kernel.org>
+References: <20241021122112.101513-1-puranjay@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241021_052150_995180_F5E3AD4B 
-X-CRM114-Status: GOOD (  13.81  )
+X-CRM114-CacheID: sfid-20241021_052200_431376_CDA67DAF 
+X-CRM114-Status: GOOD (  11.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,91 +95,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhlIGJwZl9jc3VtX2RpZmYoKSBoZWxwZXIgY3VycmVudGx5IHJldHVybnMgZGlmZmVyZW50IHZh
-bHVlcyBvbiBkaWZmZXJlbnQKYXJjaGl0ZWN0dXJlcyBiZWNhdXNlIGl0IGNhbGxzIGNzdW1fcGFy
-dGlhbCgpIHRoYXQgaXMgZWl0aGVyIGltcGxlbWVudGVkIGJ5CnRoZSBhcmNoaXRlY3R1cmUgbGlr
-ZSB4ODZfNjQsIGFybSwgZXRjIG9yIHVzZXMgdGhlIGdlbmVyaWMgaW1wbGVtZW50YXRpb24KaW4g
-bGliL2NoZWNrc3VtLmMgbGlrZSBhcm02NCwgcmlzY3YsIGV0Yy4KClRoZSBpbXBsZW1lbnRhdGlv
-biBpbiBsaWIvY2hlY2tzdW0uYyByZXR1cm5zIHRoZSBmb2xkZWQgcmVzdWx0IHRoYXQgaXMKMTYt
-Yml0IGxvbmcsIGJ1dCB0aGUgYXJjaGl0ZWN0dXJlIHNwZWNpZmljIGltcGxlbWVudGF0aW9uIGNh
-biByZXR1cm4gYW4KdW5mb2xkZWQgdmFsdWUgdGhhdCBpcyBsYXJnZXIgdGhhbiAxNi1iaXRzLgoK
-VGhlIGhlbHBlciB1c2VzIGEgcGVyLWNwdSBzY3JhdGNocGFkIGJ1ZmZlciBmb3IgY29weWluZyB0
-aGUgZGF0YSBhbmQgdGhlbgpjb21wdXRpbmcgdGhlIGNzdW0gb24gdGhpcyBidWZmZXIuIFRoaXMg
-Y2FuIGJlIG9wdGltaXNlZCBieSB1dGlsaXNpbmcgc29tZQptYXRoZW1hdGljYWwgcHJvcGVydGll
-cyBvZiBjc3VtLgoKVGhlIHBhdGNoIDEgaW4gdGhpcyBzZXJpZXMgZG9lcyBwcmVwYXJhdG9yeSB3
-b3JrIGZvciBob21vZ2VuaXppbmcgdGhlCmhlbHBlci4gcGF0Y2ggMiBkb2VzIHRoZSBjaGFuZ2Vz
-IHRvIHRoZSBoZWxwZXIgaXRzZWxmLiBUaGUgcGVyZm9ybWFuY2UgZ2FpbgpjYW4gYmUgc2VlbiBp
-biB0aGUgdGFibGVzIGJlbG93IHRoYXQgYXJlIGdlbmVyYXRlZCB1c2luZyB0aGUgYmVuY2htYXJr
-CmJ1aWx0IGluIHBhdGNoIDQ6CgogIHg4Ni02NDoKICArLS0tLS0tLS0tLS0tLSstLS0tLS0tLS0t
-LS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0rCiAgfCBCdWZmZXIgU2l6
-ZSB8ICAgICAgQmVmb3JlICAgICAgfCAgICAgIEFmdGVyICAgICAgIHwgSW1wcm92ZW1lbnQgfAog
-ICstLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0tLS0tLS0rLS0t
-LS0tLS0tLS0tLSsKICB8ICAgICAgNCAgICAgIHwgMi4yOTYgwrEgMC4wNjZNL3MgfCAzLjQxNSDC
-sSAwLjAwMU0vcyB8ICAgNDguNzMgICUgIHwKICB8ICAgICAgOCAgICAgIHwgMi4zMjAgwrEgMC4w
-MDNNL3MgfCAzLjQwOSDCsSAwLjAwM00vcyB8ICAgNDYuOTMgICUgIHwKICB8ICAgICAgMTYgICAg
-IHwgMi4zMTUgwrEgMC4wMDFNL3MgfCAzLjQxNCDCsSAwLjAwM00vcyB8ICAgNDcuNDcgICUgIHwK
-ICB8ICAgICAgMjAgICAgIHwgMi4zMTggwrEgMC4wMDFNL3MgfCAzLjQxNiDCsSAwLjAwMU0vcyB8
-ICAgNDcuMzYgICUgIHwKICB8ICAgICAgMzIgICAgIHwgMi4zMDggwrEgMC4wMDNNL3MgfCAzLjQx
-MyDCsSAwLjAwM00vcyB8ICAgNDcuODcgICUgIHwKICB8ICAgICAgNDAgICAgIHwgMi4zMDAgwrEg
-MC4wMjlNL3MgfCAzLjQxMyDCsSAwLjAwM00vcyB8ICAgNDguMzkgICUgIHwKICB8ICAgICAgNjQg
-ICAgIHwgMi4yODYgwrEgMC4wMDFNL3MgfCAzLjQxMCDCsSAwLjAwMU0vcyB8ICAgNDkuMTYgICUg
-IHwKICB8ICAgICAgMTI4ICAgIHwgMi4yNTAgwrEgMC4wMDFNL3MgfCAzLjQwNCDCsSAwLjAwMU0v
-cyB8ICAgNTEuMjggICUgIHwKICB8ICAgICAgMjU2ICAgIHwgMi4xNzMgwrEgMC4wMDFNL3MgfCAz
-LjM4MyDCsSAwLjAwMU0vcyB8ICAgNTUuNjggICUgIHwKICB8ICAgICAgNTEyICAgIHwgMi4wMjMg
-wrEgMC4wNTVNL3MgfCAzLjM0MCDCsSAwLjAwMU0vcyB8ICAgNjUuMTAgICUgIHwKICArLS0tLS0t
-LS0tLS0tLSstLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0t
-LS0rCgogIEFSTTY0OgogICstLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLSstLS0tLS0t
-LS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLSsKICB8IEJ1ZmZlciBTaXplIHwgICAgICBCZWZvcmUg
-ICAgICB8ICAgICAgQWZ0ZXIgICAgICAgfCBJbXByb3ZlbWVudCB8CiAgKy0tLS0tLS0tLS0tLS0r
-LS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0tKwogIHwg
-ICAgICA0ICAgICAgfCAxLjM5NyDCsSAwLjAwNU0vcyB8IDEuNDkzIMKxIDAuMDA1TS9zIHwgICAg
-Ni44NyAgJSAgfAogIHwgICAgICA4ICAgICAgfCAxLjQwMiDCsSAwLjAwMk0vcyB8IDEuNDg5IMKx
-IDAuMDAyTS9zIHwgICAgNi4yMCAgJSAgfAogIHwgICAgICAxNiAgICAgfCAxLjM5MSDCsSAwLjAw
-MU0vcyB8IDEuNDgxIMKxIDAuMDAxTS9zIHwgICAgNi40NyAgJSAgfAogIHwgICAgICAyMCAgICAg
-fCAxLjM3OSDCsSAwLjAwMU0vcyB8IDEuNDc3IMKxIDAuMDAxTS9zIHwgICAgNy4xMCAgJSAgfAog
-IHwgICAgICAzMiAgICAgfCAxLjM1OCDCsSAwLjAwMU0vcyB8IDEuNDY5IMKxIDAuMDAyTS9zIHwg
-ICAgOC4xNyAgJSAgfAogIHwgICAgICA0MCAgICAgfCAxLjMzOSDCsSAwLjAwMU0vcyB8IDEuNDYy
-IMKxIDAuMDAyTS9zIHwgICAgOS4xOCAgJSAgfAogIHwgICAgICA2NCAgICAgfCAxLjMwMiDCsSAw
-LjAwMk0vcyB8IDEuNDQ5IMKxIDAuMDAzTS9zIHwgICAgMTEuMjkgJSAgfAogIHwgICAgICAxMjgg
-ICAgfCAxLjIxNCDCsSAwLjAwMU0vcyB8IDEuNDQzIMKxIDAuMDAzTS9zIHwgICAgMTguODYgJSAg
-fAogIHwgICAgICAyNTYgICAgfCAxLjA4MCDCsSAwLjAwMU0vcyB8IDEuNDIzIMKxIDAuMDAxTS9z
-IHwgICAgMzEuNzUgJSAgfAogIHwgICAgICA1MTIgICAgfCAwLjg4NyDCsSAwLjAwMU0vcyB8IDEu
-NDExIMKxIDAuMDAyTS9zIHwgICAgNTkuMDcgJSAgfAogICstLS0tLS0tLS0tLS0tKy0tLS0tLS0t
-LS0tLS0tLS0tLSstLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLSsKClBhdGNoIDUgYWRk
-cyBhIHNlbGZ0ZXN0IGZvciB0aGlzIGhlbHBlciB0byB2ZXJpZnkgdGhlIHJlc3VsdHMgcHJvZHVj
-ZWQgYnkKdGhpcyBoZWxwZXIgaW4gbXVsdGlwbGUgbW9kZXMgYW5kIGVkZ2UgY2FzZXMuCgpQYXRj
-aCAzIHJldmVydHMgYSBoYWNrIHRoYXQgd2FzIGRvbmUgdG8gbWFrZSB0aGUgc2VsZnRlc3QgcGFz
-cyBvbiBhbGwKYXJjaGl0ZWN0dXJlcy4KClB1cmFuamF5IE1vaGFuICg1KToKICBuZXQ6IGNoZWNr
-c3VtOiBtb3ZlIGZyb20zMnRvMTYoKSB0byBnZW5lcmljIGhlYWRlcgogIGJwZjogYnBmX2NzdW1f
-ZGlmZjogb3B0aW1pemUgYW5kIGhvbW9nZW5pemUgZm9yIGFsbCBhcmNocwogIHNlbGZ0ZXN0cy9i
-cGY6IGRvbid0IG1hc2sgcmVzdWx0IG9mIGJwZl9jc3VtX2RpZmYoKSBpbiB0ZXN0X3ZlcmlmaWVy
-CiAgc2VsZnRlc3RzL2JwZjogQWRkIGJlbmNobWFyayBmb3IgYnBmX2NzdW1fZGlmZigpIGhlbHBl
-cgogIHNlbGZ0ZXN0cy9icGY6IEFkZCBhIHNlbGZ0ZXN0IGZvciBicGZfY3N1bV9kaWZmKCkKCiBh
-cmNoL3BhcmlzYy9saWIvY2hlY2tzdW0uYyAgICAgICAgICAgICAgICAgICAgfCAgMTMgKy0KIGlu
-Y2x1ZGUvbmV0L2NoZWNrc3VtLmggICAgICAgICAgICAgICAgICAgICAgICB8ICAgNiArCiBsaWIv
-Y2hlY2tzdW0uYyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgMTEgKy0KIG5ldC9j
-b3JlL2ZpbHRlci5jICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAzNyArLQogdG9vbHMv
-dGVzdGluZy9zZWxmdGVzdHMvYnBmL01ha2VmaWxlICAgICAgICAgIHwgICAyICsKIHRvb2xzL3Rl
-c3Rpbmcvc2VsZnRlc3RzL2JwZi9iZW5jaC5jICAgICAgICAgICB8ICAgNCArCiAuLi4vc2VsZnRl
-c3RzL2JwZi9iZW5jaHMvYmVuY2hfY3N1bV9kaWZmLmMgICAgfCAxNjQgKysrKysrKwogLi4uL2Jw
-Zi9iZW5jaHMvcnVuX2JlbmNoX2NzdW1fZGlmZi5zaCAgICAgICAgIHwgIDEwICsKIC4uLi9zZWxm
-dGVzdHMvYnBmL3Byb2dfdGVzdHMvdGVzdF9jc3VtX2RpZmYuYyB8IDQwOCArKysrKysrKysrKysr
-KysrKysKIC4uLi9zZWxmdGVzdHMvYnBmL3Byb2dzL2NzdW1fZGlmZl9iZW5jaC5jICAgICB8ICAy
-NSArKwogLi4uL3NlbGZ0ZXN0cy9icGYvcHJvZ3MvY3N1bV9kaWZmX3Rlc3QuYyAgICAgIHwgIDQy
-ICsrCiAuLi4vYnBmL3Byb2dzL3ZlcmlmaWVyX2FycmF5X2FjY2Vzcy5jICAgICAgICAgfCAgIDMg
-Ky0KIDEyIGZpbGVzIGNoYW5nZWQsIDY3NCBpbnNlcnRpb25zKCspLCA1MSBkZWxldGlvbnMoLSkK
-IGNyZWF0ZSBtb2RlIDEwMDY0NCB0b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9icGYvYmVuY2hzL2Jl
-bmNoX2NzdW1fZGlmZi5jCiBjcmVhdGUgbW9kZSAxMDA3NTUgdG9vbHMvdGVzdGluZy9zZWxmdGVz
-dHMvYnBmL2JlbmNocy9ydW5fYmVuY2hfY3N1bV9kaWZmLnNoCiBjcmVhdGUgbW9kZSAxMDA2NDQg
-dG9vbHMvdGVzdGluZy9zZWxmdGVzdHMvYnBmL3Byb2dfdGVzdHMvdGVzdF9jc3VtX2RpZmYuYwog
-Y3JlYXRlIG1vZGUgMTAwNjQ0IHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2JwZi9wcm9ncy9jc3Vt
-X2RpZmZfYmVuY2guYwogY3JlYXRlIG1vZGUgMTAwNjQ0IHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3Rz
-L2JwZi9wcm9ncy9jc3VtX2RpZmZfdGVzdC5jCgotLSAKMi40MC4xCgoKX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
-CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
-cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+from32to16() is used by lib/checksum.c and also by
+arch/parisc/lib/checksum.c. The next patch will use it in the
+bpf_csum_diff helper.
+
+Move from32to16() to the include/net/checksum.h as csum_from32to16() and
+remove other implementations.
+
+Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
+---
+ arch/parisc/lib/checksum.c | 13 ++-----------
+ include/net/checksum.h     |  6 ++++++
+ lib/checksum.c             | 11 +----------
+ 3 files changed, 9 insertions(+), 21 deletions(-)
+
+diff --git a/arch/parisc/lib/checksum.c b/arch/parisc/lib/checksum.c
+index 4818f3db84a5c..59d8c15d81bd0 100644
+--- a/arch/parisc/lib/checksum.c
++++ b/arch/parisc/lib/checksum.c
+@@ -25,15 +25,6 @@
+ 	: "=r"(_t)                      \
+ 	: "r"(_r), "0"(_t));
+ 
+-static inline unsigned short from32to16(unsigned int x)
+-{
+-	/* 32 bits --> 16 bits + carry */
+-	x = (x & 0xffff) + (x >> 16);
+-	/* 16 bits + carry --> 16 bits including carry */
+-	x = (x & 0xffff) + (x >> 16);
+-	return (unsigned short)x;
+-}
+-
+ static inline unsigned int do_csum(const unsigned char * buff, int len)
+ {
+ 	int odd, count;
+@@ -85,7 +76,7 @@ static inline unsigned int do_csum(const unsigned char * buff, int len)
+ 	}
+ 	if (len & 1)
+ 		result += le16_to_cpu(*buff);
+-	result = from32to16(result);
++	result = csum_from32to16(result);
+ 	if (odd)
+ 		result = swab16(result);
+ out:
+@@ -102,7 +93,7 @@ __wsum csum_partial(const void *buff, int len, __wsum sum)
+ {
+ 	unsigned int result = do_csum(buff, len);
+ 	addc(result, sum);
+-	return (__force __wsum)from32to16(result);
++	return (__force __wsum)csum_from32to16(result);
+ }
+ 
+ EXPORT_SYMBOL(csum_partial);
+diff --git a/include/net/checksum.h b/include/net/checksum.h
+index 1338cb92c8e72..0d082febfead4 100644
+--- a/include/net/checksum.h
++++ b/include/net/checksum.h
+@@ -151,6 +151,12 @@ static inline void csum_replace(__wsum *csum, __wsum old, __wsum new)
+ 	*csum = csum_add(csum_sub(*csum, old), new);
+ }
+ 
++static inline __sum16 csum_from32to16(__wsum sum)
++{
++	sum += (sum >> 16) | (sum << 16);
++	return (__force __sum16)(sum >> 16);
++}
++
+ struct sk_buff;
+ void inet_proto_csum_replace4(__sum16 *sum, struct sk_buff *skb,
+ 			      __be32 from, __be32 to, bool pseudohdr);
+diff --git a/lib/checksum.c b/lib/checksum.c
+index 6860d6b05a171..025ba546e1ec6 100644
+--- a/lib/checksum.c
++++ b/lib/checksum.c
+@@ -34,15 +34,6 @@
+ #include <asm/byteorder.h>
+ 
+ #ifndef do_csum
+-static inline unsigned short from32to16(unsigned int x)
+-{
+-	/* add up 16-bit and 16-bit for 16+c bit */
+-	x = (x & 0xffff) + (x >> 16);
+-	/* add up carry.. */
+-	x = (x & 0xffff) + (x >> 16);
+-	return x;
+-}
+-
+ static unsigned int do_csum(const unsigned char *buff, int len)
+ {
+ 	int odd;
+@@ -90,7 +81,7 @@ static unsigned int do_csum(const unsigned char *buff, int len)
+ #else
+ 		result += (*buff << 8);
+ #endif
+-	result = from32to16(result);
++	result = csum_from32to16(result);
+ 	if (odd)
+ 		result = ((result >> 8) & 0xff) | ((result & 0xff) << 8);
+ out:
+-- 
+2.40.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
