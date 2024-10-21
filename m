@@ -4,87 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4CA1D3C930
-	for <linux-riscv@archiver.kernel.org>; Sun, 20 Oct 2024 21:00:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE923D3C935
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Oct 2024 00:31:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O/0kJG8qWipDqmc8dgQn5rVBt9QAZTMcB3xpP9KpUFY=; b=BGOl+JxxpJlKxS
-	o2lF5t457RX6V/NRZ0fs9uxBP/rTKLkab4NSSvyY9Oo38rOAcbqSz4uDprzcnwP4OJE5/UKe8AR1o
-	3cx9ok1/ZYlwMtbVJm2n7trMVbrXblAx5WIofhzuozzigo8aMDIRbN7PQDiIeHiPAhu22AJC35iWa
-	AI5t/ggoQADKT66gfcWVqkBNgndWKSkLtjeMiij1pj1h4ICCYTiVOV99iYwbRck/HWXPPb+aKx9Ht
-	WuQ4hMeUF4e8cBNS7/FfwJ5dcnAO9At0N8hCdo44J8RI5DbEORMGQVay/rpcsrjb35PinYrfD+LMD
-	NbtQhEPVOzfhYwyJXBOA==;
+	List-Owner; bh=aR+zLgy4WvHg977rF+Ozk5NsWLdPeFR36pWgTSCYAnw=; b=YBH8q4L+an4aYV
+	QTGSHHuSSHkl/t+JiD/BIO0yXM1iDgdE0BV748l1/CP9HGbZ52HA0WQnLXbrzMLAesjZAXrXHD+K+
+	s19jrdxH6DXLFq12eQ2sJr/1aSzLCExEK8P6W9g96KHuQqidKDia+S4vwVEJmLAvcjiRSLk6BZ1wN
+	STrMAPG+yT2RZ192zduK7AehokI+EibQqIEGPLSFAsu2Kov4hwij79vKxwFXUG8vFMJ6sQUoVrxvA
+	lhIi2ZNDZBJUkD8BbstT7DQ81G+PAh9/FavmroQ1d1uGb+AG6NhvMZGg+n+GxeOdmOHY6/40FY6Ew
+	f9DhriqR7IE2cnbKYk+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2d29-00000005SKp-0WKe;
-	Sun, 20 Oct 2024 21:00:17 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1t2gKn-00000005iHR-1NS5;
+	Mon, 21 Oct 2024 00:31:45 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2buJ-00000005MuW-31C2
-	for linux-riscv@lists.infradead.org;
-	Sun, 20 Oct 2024 19:48:12 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-2e2bd347124so2731335a91.1
-        for <linux-riscv@lists.infradead.org>; Sun, 20 Oct 2024 12:48:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1729453687; x=1730058487; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Yr2xZkoHB0nVswj42oFFwW3NpuvwZ9N4MbvDwoyulOQ=;
-        b=miDqsvxzE94SWGpC5ftuo+1hiPwrRyMVVg3W6JO6Zg4Wa35BxQnmg/NcZZBtUVgKAn
-         HFT5/vsPpg623ZFAka6ZN9sufni+U9VVpoh6esp3UWm5KJVyVjrYwz7nHhlR4Vck+SkU
-         7677z1FoUUG/PLvc972G8t9KGIp/doc/WY2wl5GuCj1itcg3cWS5PbWVo942RVg/zm/4
-         ar/VR/mHgYIFVD12aMfoArQCL7JJSOuVLBkpnL4YeT8U8kvcO2MOfp0s+Ao7+ksJWVNG
-         A2pX/hMIXZ6IcUd8rhsjCcATvBhQdhtNvp2GRhnBNc5W5e27N9t5mdu+R8VuQuUK9WBz
-         YyFg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729453687; x=1730058487;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Yr2xZkoHB0nVswj42oFFwW3NpuvwZ9N4MbvDwoyulOQ=;
-        b=JPaT0C7wp7KGgzbqzzwZUbfV0dAzaHku1KGCwzBd38VzdYPX+h/RmDx4Jm9f85vyt6
-         6vS86Dk/maVgxMCwrFFYg91cP1an/SJ1SHMkTA923hypE8UXP/XBb3T5sQQ4/Y8hTwEG
-         0XaNfOa9d9KqwEC8czkmGYzH1udvR2cjSfIo9d87pop2LA6QJYXejGvWWQmpw98lBl3R
-         qwnIMESq8UXa5Hl9oYlNGFvtliwiFV///jhZNpqeh4mvZYHvq8ViRdAoPAHhjynH/9Z3
-         04YTNg0rCcro63jqlkQaPmNI8PhKoSJwh+7Yk4bzD5fw8an1xtijGSFwleAXGMGBWvfI
-         7pKw==
-X-Forwarded-Encrypted: i=1; AJvYcCUr2z3/bc8VOv4I3rqGhDLIFcdCrQuK3C0cSk3OSeb0pUcrNQRvaMUeTrvxKaPj4uzhM5iYfc2MVgb8VQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzkGUGofLgBcVtZ3UauhDInrKQdJfYc/Hg1Dv5I/Ydw5HBaSyLo
-	l0WJ7LtDebfJf1IyHWR+IY2dEASpNR6NJE/qzRl074vuYDEcIkzmBhTI6geJv0U=
-X-Google-Smtp-Source: AGHT+IGOwsMImEEUFZ7X9qPpWtzyIIzNSFMp0fMdMzDbnnBwV6JmeAnM7Csv5DyXHIZDDlryM2Wx1g==
-X-Received: by 2002:a17:90a:5147:b0:2e2:c6a6:84da with SMTP id 98e67ed59e1d1-2e5617269c6mr10776191a91.34.1729453686738;
-        Sun, 20 Oct 2024 12:48:06 -0700 (PDT)
-Received: from anup-ubuntu-vm.localdomain ([50.238.223.131])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e5ad365d4dsm1933188a91.14.2024.10.20.12.48.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 20 Oct 2024 12:48:06 -0700 (PDT)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Atish Patra <atishp@atishpatra.org>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Anup Patel <anup@brainfault.org>,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
+	id 1t2gIy-00000005hTn-2uc1;
+	Mon, 21 Oct 2024 00:29:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4530A5C580F;
+	Mon, 21 Oct 2024 00:29:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AC21C4CEC7;
+	Mon, 21 Oct 2024 00:29:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729470591;
+	bh=4oZ1Q3tWbzwSP9RLFVgxu8DMcPqFYU+tdgCV67sxyr0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=dkF1gI1TEowluxz74dX7OKbuaCDeRq+XpeD/bfQlGdd/ID5XHN7W9L1BrNaGFJkmv
+	 7GDJ7X6cdmxo1p5lXFpXwvCTWfOr+PnCZDgUAc3FwfL0WXZKA+Sh3GmXyK76Ow8LNm
+	 UPZ360jg78H90tFxQCk3DKP5itwXmJrSwZ6eKkHOQM1TQZcCj18DY9joSClQ4Yvh+S
+	 N9xTgDGPTE4Mmt537gJGtS2VTuPEnTM02PpAgSpTZ5ICdbTpqT/RoQvl5N/O0yFdVh
+	 MBDhvKQm8r63D4IIQ0qc744pF1Idy2e8hKBAf189TJlD3+3WzD/8AlM5FSWTtGJgCg
+	 6vmlxD+6wMUhw==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org,
+	linux-ext4@vger.kernel.org,
+	linux-f2fs-devel@lists.sourceforge.net,
+	linux-mips@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Anup Patel <apatel@ventanamicro.com>,
-	Atish Patra <atishp@rivosinc.com>
-Subject: [PATCH v2 12/13] RISC-V: KVM: Save trap CSRs in kvm_riscv_vcpu_enter_exit()
-Date: Mon, 21 Oct 2024 01:17:33 +0530
-Message-ID: <20241020194734.58686-13-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241020194734.58686-1-apatel@ventanamicro.com>
-References: <20241020194734.58686-1-apatel@ventanamicro.com>
+	linux-s390@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org
+Subject: [PATCH 01/15] lib/crc32: drop leading underscores from __crc32c_le_base
+Date: Sun, 20 Oct 2024 17:29:21 -0700
+Message-ID: <20241021002935.325878-2-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20241021002935.325878-1-ebiggers@kernel.org>
+References: <20241021002935.325878-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241020_124808_334812_96A73D50 
-X-CRM114-Status: GOOD (  11.87  )
+X-CRM114-CacheID: sfid-20241020_172952_853287_0F486615 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,95 +81,161 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Save trap CSRs in the kvm_riscv_vcpu_enter_exit() function instead of
-the kvm_arch_vcpu_ioctl_run() function so that HTVAL and HTINST CSRs
-are accessed in more optimized manner while running under some other
-hypervisor.
+From: Eric Biggers <ebiggers@google.com>
 
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-Reviewed-by: Atish Patra <atishp@rivosinc.com>
+Remove the leading underscores from __crc32c_le_base().
+
+This is in preparation for adding crc32c_le_arch() and eventually
+renaming __crc32c_le() to crc32c_le().
+
+Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- arch/riscv/kvm/vcpu.c | 34 +++++++++++++++++++++-------------
- 1 file changed, 21 insertions(+), 13 deletions(-)
+ arch/arm64/lib/crc32-glue.c | 2 +-
+ arch/riscv/lib/crc32.c      | 2 +-
+ crypto/crc32c_generic.c     | 8 ++++----
+ include/linux/crc32.h       | 2 +-
+ lib/crc32.c                 | 4 ++--
+ lib/crc32test.c             | 2 +-
+ 6 files changed, 10 insertions(+), 10 deletions(-)
 
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index e191e6eae0c0..e048dcc6e65e 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -768,12 +768,21 @@ static __always_inline void kvm_riscv_vcpu_swap_in_host_state(struct kvm_vcpu *v
-  * This must be noinstr as instrumentation may make use of RCU, and this is not
-  * safe during the EQS.
-  */
--static void noinstr kvm_riscv_vcpu_enter_exit(struct kvm_vcpu *vcpu)
-+static void noinstr kvm_riscv_vcpu_enter_exit(struct kvm_vcpu *vcpu,
-+					      struct kvm_cpu_trap *trap)
+diff --git a/arch/arm64/lib/crc32-glue.c b/arch/arm64/lib/crc32-glue.c
+index 295ae3e6b997a..ad015223d15df 100644
+--- a/arch/arm64/lib/crc32-glue.c
++++ b/arch/arm64/lib/crc32-glue.c
+@@ -42,11 +42,11 @@ u32 __pure crc32_le(u32 crc, unsigned char const *p, size_t len)
+ }
+ 
+ u32 __pure __crc32c_le(u32 crc, unsigned char const *p, size_t len)
  {
- 	void *nsh;
- 	struct kvm_cpu_context *gcntx = &vcpu->arch.guest_context;
- 	struct kvm_cpu_context *hcntx = &vcpu->arch.host_context;
+ 	if (!alternative_has_cap_likely(ARM64_HAS_CRC32))
+-		return __crc32c_le_base(crc, p, len);
++		return crc32c_le_base(crc, p, len);
  
-+	/*
-+	 * We save trap CSRs (such as SEPC, SCAUSE, STVAL, HTVAL, and
-+	 * HTINST) here because we do local_irq_enable() after this
-+	 * function in kvm_arch_vcpu_ioctl_run() which can result in
-+	 * an interrupt immediately after local_irq_enable() and can
-+	 * potentially change trap CSRs.
-+	 */
-+
- 	kvm_riscv_vcpu_swap_in_guest_state(vcpu);
- 	guest_state_enter_irqoff();
+ 	if (len >= min_len && cpu_have_named_feature(PMULL) && crypto_simd_usable()) {
+ 		kernel_neon_begin();
+ 		crc = crc32c_le_arm64_4way(crc, p, len);
+ 		kernel_neon_end();
+diff --git a/arch/riscv/lib/crc32.c b/arch/riscv/lib/crc32.c
+index d7dc599af3ef6..333fb7af11922 100644
+--- a/arch/riscv/lib/crc32.c
++++ b/arch/riscv/lib/crc32.c
+@@ -224,11 +224,11 @@ u32 __pure crc32_le(u32 crc, unsigned char const *p, size_t len)
+ }
  
-@@ -816,14 +825,24 @@ static void noinstr kvm_riscv_vcpu_enter_exit(struct kvm_vcpu *vcpu)
- 		} else {
- 			gcntx->hstatus = csr_swap(CSR_HSTATUS, hcntx->hstatus);
- 		}
-+
-+		trap->htval = nacl_csr_read(nsh, CSR_HTVAL);
-+		trap->htinst = nacl_csr_read(nsh, CSR_HTINST);
- 	} else {
- 		hcntx->hstatus = csr_swap(CSR_HSTATUS, gcntx->hstatus);
+ u32 __pure __crc32c_le(u32 crc, unsigned char const *p, size_t len)
+ {
+ 	return crc32_le_generic(crc, p, len, CRC32C_POLY_LE,
+-				CRC32C_POLY_QT_LE, __crc32c_le_base);
++				CRC32C_POLY_QT_LE, crc32c_le_base);
+ }
  
- 		__kvm_riscv_switch_to(&vcpu->arch);
+ static inline u32 crc32_be_unaligned(u32 crc, unsigned char const *p,
+ 				     size_t len)
+ {
+diff --git a/crypto/crc32c_generic.c b/crypto/crc32c_generic.c
+index 7c2357c30fdf7..635599b255ec0 100644
+--- a/crypto/crc32c_generic.c
++++ b/crypto/crc32c_generic.c
+@@ -83,11 +83,11 @@ static int chksum_setkey(struct crypto_shash *tfm, const u8 *key,
+ static int chksum_update(struct shash_desc *desc, const u8 *data,
+ 			 unsigned int length)
+ {
+ 	struct chksum_desc_ctx *ctx = shash_desc_ctx(desc);
  
- 		gcntx->hstatus = csr_swap(CSR_HSTATUS, hcntx->hstatus);
-+
-+		trap->htval = csr_read(CSR_HTVAL);
-+		trap->htinst = csr_read(CSR_HTINST);
+-	ctx->crc = __crc32c_le_base(ctx->crc, data, length);
++	ctx->crc = crc32c_le_base(ctx->crc, data, length);
+ 	return 0;
+ }
+ 
+ static int chksum_update_arch(struct shash_desc *desc, const u8 *data,
+ 			      unsigned int length)
+@@ -106,11 +106,11 @@ static int chksum_final(struct shash_desc *desc, u8 *out)
+ 	return 0;
+ }
+ 
+ static int __chksum_finup(u32 *crcp, const u8 *data, unsigned int len, u8 *out)
+ {
+-	put_unaligned_le32(~__crc32c_le_base(*crcp, data, len), out);
++	put_unaligned_le32(~crc32c_le_base(*crcp, data, len), out);
+ 	return 0;
+ }
+ 
+ static int __chksum_finup_arch(u32 *crcp, const u8 *data, unsigned int len,
+ 			       u8 *out)
+@@ -198,16 +198,16 @@ static struct shash_alg algs[] = {{
+ }};
+ 
+ static int __init crc32c_mod_init(void)
+ {
+ 	/* register the arch flavor only if it differs from the generic one */
+-	return crypto_register_shashes(algs, 1 + (&__crc32c_le != &__crc32c_le_base));
++	return crypto_register_shashes(algs, 1 + (&__crc32c_le != &crc32c_le_base));
+ }
+ 
+ static void __exit crc32c_mod_fini(void)
+ {
+-	crypto_unregister_shashes(algs, 1 + (&__crc32c_le != &__crc32c_le_base));
++	crypto_unregister_shashes(algs, 1 + (&__crc32c_le != &crc32c_le_base));
+ }
+ 
+ subsys_initcall(crc32c_mod_init);
+ module_exit(crc32c_mod_fini);
+ 
+diff --git a/include/linux/crc32.h b/include/linux/crc32.h
+index 87f788c0d607b..5b07fc9081c47 100644
+--- a/include/linux/crc32.h
++++ b/include/linux/crc32.h
+@@ -37,11 +37,11 @@ static inline u32 crc32_le_combine(u32 crc1, u32 crc2, size_t len2)
+ {
+ 	return crc32_le_shift(crc1, len2) ^ crc2;
+ }
+ 
+ u32 __pure __crc32c_le(u32 crc, unsigned char const *p, size_t len);
+-u32 __pure __crc32c_le_base(u32 crc, unsigned char const *p, size_t len);
++u32 __pure crc32c_le_base(u32 crc, unsigned char const *p, size_t len);
+ 
+ /**
+  * __crc32c_le_combine - Combine two crc32c check values into one. For two
+  * 			 sequences of bytes, seq1 and seq2 with lengths len1
+  * 			 and len2, __crc32c_le() check values were calculated
+diff --git a/lib/crc32.c b/lib/crc32.c
+index ff587fee3893d..c67059b0082b4 100644
+--- a/lib/crc32.c
++++ b/lib/crc32.c
+@@ -205,12 +205,12 @@ EXPORT_SYMBOL(crc32_le);
+ EXPORT_SYMBOL(__crc32c_le);
+ 
+ u32 __pure crc32_le_base(u32, unsigned char const *, size_t) __alias(crc32_le);
+ EXPORT_SYMBOL(crc32_le_base);
+ 
+-u32 __pure __crc32c_le_base(u32, unsigned char const *, size_t) __alias(__crc32c_le);
+-EXPORT_SYMBOL(__crc32c_le_base);
++u32 __pure crc32c_le_base(u32, unsigned char const *, size_t) __alias(__crc32c_le);
++EXPORT_SYMBOL(crc32c_le_base);
+ 
+ u32 __pure crc32_be_base(u32, unsigned char const *, size_t) __alias(crc32_be);
+ 
+ /*
+  * This multiplies the polynomials x and y modulo the given modulus.
+diff --git a/lib/crc32test.c b/lib/crc32test.c
+index 03cf5c1f2f5dc..30b8da4d8be46 100644
+--- a/lib/crc32test.c
++++ b/lib/crc32test.c
+@@ -824,11 +824,11 @@ static void crc32test_regenerate(void)
+ 	for (i = 0; i < ARRAY_SIZE(test); i++) {
+ 		pr_info("{0x%08x, 0x%08x, 0x%08x, 0x%08x, 0x%08x, 0x%08x},\n",
+ 			test[i].crc, test[i].start, test[i].length,
+ 			crc32_le_base(test[i].crc, test_buf + test[i].start, test[i].length),
+ 			crc32_be_base(test[i].crc, test_buf + test[i].start, test[i].length),
+-			__crc32c_le_base(test[i].crc, test_buf + test[i].start, test[i].length));
++			crc32c_le_base(test[i].crc, test_buf + test[i].start, test[i].length));
  	}
+ }
  
-+	trap->sepc = gcntx->sepc;
-+	trap->scause = csr_read(CSR_SCAUSE);
-+	trap->stval = csr_read(CSR_STVAL);
-+
- 	vcpu->arch.last_exit_cpu = vcpu->cpu;
- 	guest_state_exit_irqoff();
- 	kvm_riscv_vcpu_swap_in_host_state(vcpu);
-@@ -940,22 +959,11 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
- 
- 		guest_timing_enter_irqoff();
- 
--		kvm_riscv_vcpu_enter_exit(vcpu);
-+		kvm_riscv_vcpu_enter_exit(vcpu, &trap);
- 
- 		vcpu->mode = OUTSIDE_GUEST_MODE;
- 		vcpu->stat.exits++;
- 
--		/*
--		 * Save SCAUSE, STVAL, HTVAL, and HTINST because we might
--		 * get an interrupt between __kvm_riscv_switch_to() and
--		 * local_irq_enable() which can potentially change CSRs.
--		 */
--		trap.sepc = vcpu->arch.guest_context.sepc;
--		trap.scause = csr_read(CSR_SCAUSE);
--		trap.stval = csr_read(CSR_STVAL);
--		trap.htval = ncsr_read(CSR_HTVAL);
--		trap.htinst = ncsr_read(CSR_HTINST);
--
- 		/* Syncup interrupts state with HW */
- 		kvm_riscv_vcpu_sync_interrupts(vcpu);
- 
+ static int __init crc32test_init(void)
+ {
 -- 
-2.43.0
+2.47.0
 
 
 _______________________________________________
