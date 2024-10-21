@@ -4,81 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FF4ED3C92F
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Oct 2024 02:00:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C518D3C927
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Oct 2024 02:37:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=L26l+ZFFz7uiN1XR68z3h3FYEIYBaYDkuEW9wY8BcUk=; b=fP//+qLJtYCJp8
-	58jdew0QTNFruQ417q5d9ek7DZuEe2T74QVHLeiK7mf0itnzkFvmmT23KWdHxPCe3H7eel5yy9x6K
-	UblSD3HR6ZnvgRJYzXBQRFwwSmBQn24WnVmYXeNtnn+b6ZmgKcUL+yXHdJkzqzW/zfXld6gLCUTh9
-	RowERUozpIljc/XE5i5+tUxlNvdKVthEwzrz9mX2yKwvz/MoG/PxANNg2kQ5k2Z1FplAnpvny4GWH
-	qYvgDlwtODR1nHsMvv6w6BNQjTnfEK+CRj82pYEnaMTA8TMUkXbQIQBgzBBZSaatNpBlxNFVk1q3D
-	4s4lBKpbAgTyiASfpY2Q==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=b+170c9jL/Y8Y00mR+7l3Xlibyt48/xNViPSGI/af4E=; b=vqbEbsoA+jjpb/
+	b/ybz2xOFx6UL6X4XXXyGKNf8/hCHbI5c2aLLBjgEcSQqMWRztIGsQ8q1f4cmXW7b/jktxzN1cGFU
+	qCiu7JJsh3i0ce93wDvAoH53e2HG+BrjL+XxG/htT4Kql0vqV0qp2HK7XoVWRpvxH5X4A7OaYiDyv
+	c+MW520UsPZtAkI1JDwVt03flNqRgdQ5b6WhZeDrJ9Lup26VYqMhG7LHMdpLDzf++FEMfsHAw9SXu
+	UsEGWOrFCYojxDlmBjyXk0o6DUHbQxe8M+bQcFUfc5KercPvzgsKhs1X/pOpAh5Zceda/sYa4p/q4
+	IohzzupGm9hm8Z/CklRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2hiX-00000005q5a-0Wmd;
-	Mon, 21 Oct 2024 02:00:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t2iHx-00000005sJc-2M1k;
+	Mon, 21 Oct 2024 02:36:57 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2gJQ-00000005hi9-1tMh;
-	Mon, 21 Oct 2024 00:30:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=ROWei38DhlLZDYredTbVAm43GoyAX6cIJhcUBGY+NrE=; b=ZEDrof0dHtWbPF7gayOuctDKA1
-	lWN4lyDLZ5V1X2z1Gl7PqwJq3rXMQFk9FErHMhWVDMf0iYBZ9Ret3oVXEoB86SrPlpsMAqM05HO79
-	n94KlBlVSFb+vVfwkHUz7/jOxehbJTcMoy5sPvqi0HoeMqy+gYlj8n0x5Lmyk+GoMzqTyIoZiE3Tp
-	PZuzeZrlYWK3iX1FCEFvI0rlFskSqbJvnMx/1iiSw+tI9z00tikLUzY4zVeV7XozCOCPHH6gAecmu
-	wfIfvRPol764YqLntTdJXLIvvKln53pqqZw4gKbk7tk+7TfnTf78mcRz0Ga0yf+E7qD6r/1z1Qkhy
-	R86pQ01w==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2gJA-00000007n1b-0ARJ;
-	Mon, 21 Oct 2024 00:30:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id DBDFEA40CD9;
-	Mon, 21 Oct 2024 00:29:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F9DCC4CEF8;
-	Mon, 21 Oct 2024 00:29:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729470594;
-	bh=oHN4Jm8KAp+40wEWTPzgeuvgj07tFEJ9e7R5m6FX/oQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=VTNr9Iy+61iOYLM3FA1i9/px61Rl+8yq33ofmvw43Lts03dEvrJF89F5yrpAThjT+
-	 z1OeNMtray6VYJehHbOQ0cgSFExYuI+rAOjwvEoCnupSxkh57l3bVixVpDqFN4mJvW
-	 K8rSCD9z8DqO8L+WH38POcwcqya/HVOHn4rDOniVMcIj5/6TThna0w9igpHk8JvZk+
-	 FI2K5BaQDDL3ABLQ89KXTB1h2SszCm6RNS9GYKhPO/WpOr0mvhvee/9XMbJ9xrtSrj
-	 Js81xp7GkFh4PlxZB/7jF40VjlLzW4s66eY0dMS2UXHC3mpeW0iwt9xYK2yr26ZZgI
-	 yYQpVghFxOGnA==
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-kernel@vger.kernel.org
-Cc: linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-crypto@vger.kernel.org,
-	linux-ext4@vger.kernel.org,
-	linux-f2fs-devel@lists.sourceforge.net,
-	linux-mips@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org
-Subject: [PATCH 07/15] s390/crc32: expose CRC32 functions through lib
-Date: Sun, 20 Oct 2024 17:29:27 -0700
-Message-ID: <20241021002935.325878-8-ebiggers@kernel.org>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241021002935.325878-1-ebiggers@kernel.org>
-References: <20241021002935.325878-1-ebiggers@kernel.org>
+	id 1t2iHv-00000005sIL-0b1B
+	for linux-riscv@lists.infradead.org;
+	Mon, 21 Oct 2024 02:36:56 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-2e2bb1efe78so2591520a91.1
+        for <linux-riscv@lists.infradead.org>; Sun, 20 Oct 2024 19:36:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tenstorrent.com; s=google; t=1729478214; x=1730083014; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=SDwVvRsmB8PgMAF9NalbRCBobUSoLoKxM6gCOMAKho0=;
+        b=WPjqVrlI6U7z9Al6M6Kc5tNEf4NRKMsJvuTWKW2vrQlgJzd3CiMUjcSp/e9ILtJUGA
+         CoW0rZR8WGPvNib5BoNCAyKWg3jz8UwCfKgeOSh6WT8Nj7oMY7LwGEgSdNxtKbUwi+Wt
+         HYAlW8evpQejOPJRRe2wirPGhmMQ5VHbDwU8mIuOL7sxlGFDPnGMF5FOkdUvEQhQw984
+         LjcKiSOndSPB+lRBS1ZeIG6zh1csKYJ0H/W2UzTQEHKMPMjFY29ZPkX+Ie/g8e4XCApq
+         H43JG+j6lHFRiAt/wSk/2Jjyx+Lp4A2mHsidilsOtbRsciDOsXSTtEwZQ0E2radthbEl
+         TNyw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729478214; x=1730083014;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=SDwVvRsmB8PgMAF9NalbRCBobUSoLoKxM6gCOMAKho0=;
+        b=mnLjmtsDSs3txOCQ4G3wQunLsuV0X+uFx7jwApXNVt5+6BpPtS+1elz2fLuim8WgT+
+         sVeI94Z4rw1gI8wPyfUGj59rhAprCQGFocOSiCjyc5Hgrc8XN6+0RlAJ2eA6/oMuvHuJ
+         bn+vdiCAMHwVtV6bIfCn/KdYXyBUH/bNmE7zQQMCJWJs7qYd2hPDM/uU8HbxsTUN6s4/
+         18KoDMOO2Et7SpkUgwUX1mLRnuIlS4XNUsaU9CCKiT7fK+fvaCMkg6G9fwv1snZA+qm2
+         FWTgJuqoY1/qXu6LSE5MqMjiA9X2LdflMZSQrcGnDcGogAjSi86JjYJFrM8CywmnzMBU
+         dAnw==
+X-Forwarded-Encrypted: i=1; AJvYcCWxPZUvSglkF1B4AkiTfx4gEZ5bU00ZWZA0BzJM3b9QKOA12CMuZ/w99r3UQrD3uKHEA68Y4bzB1IokGg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwLbJB2QBGZA8qeBch/afY6XoXjtpXd2o5NyrbvfDwdZ/FzQuVG
+	V4nziWm309Zd+XcZ2bPWnRTHaCVM48+SSGnAv6qons7hsD8H1LIZKzXX+eTRSCQ=
+X-Google-Smtp-Source: AGHT+IGNXTzbHIjYscMQc1FyHJL74YRfT9c4LzptWN49IdWjspBw/dUxnVD8S9MWaYzR1JmG3gfNjA==
+X-Received: by 2002:a17:90a:bc9:b0:2d8:7a63:f9c8 with SMTP id 98e67ed59e1d1-2e3dc2d22f0mr20946491a91.14.1729478213703;
+        Sun, 20 Oct 2024 19:36:53 -0700 (PDT)
+Received: from [127.0.1.1] (71-34-69-82.ptld.qwest.net. [71.34.69.82])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e5ad355bebsm2337008a91.7.2024.10.20.19.36.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 20 Oct 2024 19:36:53 -0700 (PDT)
+From: Drew Fustini <dfustini@tenstorrent.com>
+Subject: [PATCH net-next v4 0/3] Add the dwmac driver support for T-HEAD
+ TH1520 SoC
+Date: Sun, 20 Oct 2024 19:35:59 -0700
+Message-Id: <20241020-th1520-dwmac-v4-0-c77acd33ccef@tenstorrent.com>
 MIME-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIAA++FWcC/x2MQQqAIBAAvyJ7TlAxkr4SHUq33EMWKiWEf086D
+ XOYeSFhJEwwshci3pToDE10x8D6JezIyTUHJZSWQgmevewb3HMslqPU1prNaDWs0JIr4kbl300
+ QMPOAJcNc6wd0tB++aAAAAA==
+To: Andrew Lunn <andrew@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
+ Jose Abreu <joabreu@synopsys.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
+ Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>, 
+ Fu Wei <wefu@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, Drew Fustini <drew@pdp7.com>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-riscv@lists.infradead.org, Drew Fustini <dfustini@tenstorrent.com>, 
+ linux-stm32@st-md-mailman.stormreply.com
+X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241021_013006_924354_6BE75470 
-X-CRM114-Status: GOOD (  22.59  )
+X-CRM114-CacheID: sfid-20241020_193655_232547_35DF05DB 
+X-CRM114-Status: GOOD (  16.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,554 +109,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Eric Biggers <ebiggers@google.com>
+This series adds support for dwmac gigabit ethernet in the T-Head TH1520
+RISC-V SoC along with dts patches to enable the ethernet ports on the
+BeagleV Ahead and the LicheePi 4A.
 
-Move the s390 CRC32 assembly code into the lib directory and wire it up
-to the library interface.  This allows it to be used without going
-through the crypto API.  It remains usable via the crypto API too via
-the shash algorithms that use the library interface.  Thus all the
-arch-specific "shash" code becomes unnecessary and is removed.
+The pinctrl-th1520 driver, pinctrl binding, and related dts patches are
+in linux-next so there are no longer any prerequisite series that need
+to be applied first.
 
-Note: to see the diff from arch/s390/crypto/crc32-vx.c to
-arch/s390/lib/crc32-glue.c, view this commit with 'git show -M10'.
+Changes in v4:
+ - Rebase on next for pinctrl dependency
+ - Add 'net-next' prefix to subject per maintainer-netdev.rst
+ - Add clocks, clock-names, interrupts and interrupt-names to binding
+ - Simplify driver code by switching from regmap to regualar mmio
 
-Signed-off-by: Eric Biggers <ebiggers@google.com>
+Changes in v3:
+ - Rebase on v6.12-rc1
+ - Remove thead,rx-internal-delay and thead,tx-internal-delay properties
+ - Remove unneeded call to thead_dwmac_fix_speed() during probe
+ - Fix filename for the yaml file in MAINTAINERS patch
+ - Link: https://lore.kernel.org/linux-riscv/20240930-th1520-dwmac-v3-0-ae3e03c225ab@tenstorrent.com/
+
+Changes in v2:
+ - Drop the first patch as it is no longer needed due to upstream commit
+   d01e0e98de31 ("dt-bindings: net: dwmac: Validate PBL for all IP-cores")
+ - Rename compatible from "thead,th1520-dwmac" to "thead,th1520-gmac"
+ - Add thead,rx-internal-delay and thead,tx-internal-delay properties
+   and check that it does not exceed the maximum value
+ - Convert from stmmac_dvr_probe() to devm_stmmac_pltfr_probe() and
+   delete the .remove_new hook as it is no longer needed
+ - Handle return value of regmap_write() in case it fails
+ - Add phy reset delay properties to the BeagleV Ahead device tree
+ - Link: https://lore.kernel.org/linux-riscv/20240926-th1520-dwmac-v2-0-f34f28ad1dc9@tenstorrent.com/
+
+Changes in v1:
+ - remove thead,gmacapb that references syscon for APB registers
+ - add a second memory region to gmac nodes for the APB registers
+ - Link: https://lore.kernel.org/all/20240713-thead-dwmac-v1-0-81f04480cd31@tenstorrent.com/
+
 ---
- arch/s390/Kconfig                      |   1 +
- arch/s390/configs/debug_defconfig      |   1 -
- arch/s390/configs/defconfig            |   1 -
- arch/s390/crypto/Kconfig               |  12 -
- arch/s390/crypto/Makefile              |   2 -
- arch/s390/crypto/crc32-vx.c            | 306 -------------------------
- arch/s390/lib/Makefile                 |   3 +
- arch/s390/lib/crc32-glue.c             |  82 +++++++
- arch/s390/{crypto => lib}/crc32-vx.h   |   0
- arch/s390/{crypto => lib}/crc32be-vx.c |   0
- arch/s390/{crypto => lib}/crc32le-vx.c |   0
- 11 files changed, 86 insertions(+), 322 deletions(-)
- delete mode 100644 arch/s390/crypto/crc32-vx.c
- create mode 100644 arch/s390/lib/crc32-glue.c
- rename arch/s390/{crypto => lib}/crc32-vx.h (100%)
- rename arch/s390/{crypto => lib}/crc32be-vx.c (100%)
- rename arch/s390/{crypto => lib}/crc32le-vx.c (100%)
+Emil Renner Berthing (1):
+      riscv: dts: thead: Add TH1520 ethernet nodes
 
-diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
-index d339fe4fdedf8..d1fde8b941d2f 100644
---- a/arch/s390/Kconfig
-+++ b/arch/s390/Kconfig
-@@ -63,10 +63,11 @@ config S390
- 	select ARCH_BINFMT_ELF_STATE
- 	select ARCH_CORRECT_STACKTRACE_ON_KRETPROBE
- 	select ARCH_ENABLE_MEMORY_HOTPLUG if SPARSEMEM
- 	select ARCH_ENABLE_MEMORY_HOTREMOVE
- 	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
-+	select ARCH_HAS_CRC32
- 	select ARCH_HAS_CURRENT_STACK_POINTER
- 	select ARCH_HAS_DEBUG_VIRTUAL
- 	select ARCH_HAS_DEBUG_VM_PGTABLE
- 	select ARCH_HAS_DEBUG_WX
- 	select ARCH_HAS_DEVMEM_IS_ALLOWED
-diff --git a/arch/s390/configs/debug_defconfig b/arch/s390/configs/debug_defconfig
-index fb0e9a1d9be25..fd83d8958f0bb 100644
---- a/arch/s390/configs/debug_defconfig
-+++ b/arch/s390/configs/debug_defconfig
-@@ -792,11 +792,10 @@ CONFIG_CRYPTO_ZSTD=m
- CONFIG_CRYPTO_ANSI_CPRNG=m
- CONFIG_CRYPTO_USER_API_HASH=m
- CONFIG_CRYPTO_USER_API_SKCIPHER=m
- CONFIG_CRYPTO_USER_API_RNG=m
- CONFIG_CRYPTO_USER_API_AEAD=m
--CONFIG_CRYPTO_CRC32_S390=y
- CONFIG_CRYPTO_SHA512_S390=m
- CONFIG_CRYPTO_SHA1_S390=m
- CONFIG_CRYPTO_SHA256_S390=m
- CONFIG_CRYPTO_SHA3_256_S390=m
- CONFIG_CRYPTO_SHA3_512_S390=m
-diff --git a/arch/s390/configs/defconfig b/arch/s390/configs/defconfig
-index 88be0a734b60f..3bdeb6d5cbd95 100644
---- a/arch/s390/configs/defconfig
-+++ b/arch/s390/configs/defconfig
-@@ -779,11 +779,10 @@ CONFIG_CRYPTO_ANSI_CPRNG=m
- CONFIG_CRYPTO_JITTERENTROPY_OSR=1
- CONFIG_CRYPTO_USER_API_HASH=m
- CONFIG_CRYPTO_USER_API_SKCIPHER=m
- CONFIG_CRYPTO_USER_API_RNG=m
- CONFIG_CRYPTO_USER_API_AEAD=m
--CONFIG_CRYPTO_CRC32_S390=y
- CONFIG_CRYPTO_SHA512_S390=m
- CONFIG_CRYPTO_SHA1_S390=m
- CONFIG_CRYPTO_SHA256_S390=m
- CONFIG_CRYPTO_SHA3_256_S390=m
- CONFIG_CRYPTO_SHA3_512_S390=m
-diff --git a/arch/s390/crypto/Kconfig b/arch/s390/crypto/Kconfig
-index d3eb3a2336932..b760232537f1c 100644
---- a/arch/s390/crypto/Kconfig
-+++ b/arch/s390/crypto/Kconfig
-@@ -1,21 +1,9 @@
- # SPDX-License-Identifier: GPL-2.0
- 
- menu "Accelerated Cryptographic Algorithms for CPU (s390)"
- 
--config CRYPTO_CRC32_S390
--	tristate "CRC32c and CRC32"
--	depends on S390
--	select CRYPTO_HASH
--	select CRC32
--	help
--	  CRC32c and CRC32 CRC algorithms
--
--	  Architecture: s390
--
--	  It is available with IBM z13 or later.
--
- config CRYPTO_SHA512_S390
- 	tristate "Hash functions: SHA-384 and SHA-512"
- 	depends on S390
- 	select CRYPTO_HASH
- 	help
-diff --git a/arch/s390/crypto/Makefile b/arch/s390/crypto/Makefile
-index a0cb96937c3de..14dafadbcbed4 100644
---- a/arch/s390/crypto/Makefile
-+++ b/arch/s390/crypto/Makefile
-@@ -12,11 +12,9 @@ obj-$(CONFIG_CRYPTO_DES_S390) += des_s390.o
- obj-$(CONFIG_CRYPTO_AES_S390) += aes_s390.o
- obj-$(CONFIG_CRYPTO_PAES_S390) += paes_s390.o
- obj-$(CONFIG_CRYPTO_CHACHA_S390) += chacha_s390.o
- obj-$(CONFIG_S390_PRNG) += prng.o
- obj-$(CONFIG_CRYPTO_GHASH_S390) += ghash_s390.o
--obj-$(CONFIG_CRYPTO_CRC32_S390) += crc32-vx_s390.o
- obj-$(CONFIG_CRYPTO_HMAC_S390) += hmac_s390.o
- obj-y += arch_random.o
- 
--crc32-vx_s390-y := crc32-vx.o crc32le-vx.o crc32be-vx.o
- chacha_s390-y := chacha-glue.o chacha-s390.o
-diff --git a/arch/s390/crypto/crc32-vx.c b/arch/s390/crypto/crc32-vx.c
-deleted file mode 100644
-index 89a10337e6ea9..0000000000000
---- a/arch/s390/crypto/crc32-vx.c
-+++ /dev/null
-@@ -1,306 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0
--/*
-- * Crypto-API module for CRC-32 algorithms implemented with the
-- * z/Architecture Vector Extension Facility.
-- *
-- * Copyright IBM Corp. 2015
-- * Author(s): Hendrik Brueckner <brueckner@linux.vnet.ibm.com>
-- */
--#define KMSG_COMPONENT	"crc32-vx"
--#define pr_fmt(fmt)	KMSG_COMPONENT ": " fmt
--
--#include <linux/module.h>
--#include <linux/cpufeature.h>
--#include <linux/crc32.h>
--#include <crypto/internal/hash.h>
--#include <asm/fpu.h>
--#include "crc32-vx.h"
--
--#define CRC32_BLOCK_SIZE	1
--#define CRC32_DIGEST_SIZE	4
--
--#define VX_MIN_LEN		64
--#define VX_ALIGNMENT		16L
--#define VX_ALIGN_MASK		(VX_ALIGNMENT - 1)
--
--struct crc_ctx {
--	u32 key;
--};
--
--struct crc_desc_ctx {
--	u32 crc;
--};
--
--/*
-- * DEFINE_CRC32_VX() - Define a CRC-32 function using the vector extension
-- *
-- * Creates a function to perform a particular CRC-32 computation. Depending
-- * on the message buffer, the hardware-accelerated or software implementation
-- * is used.   Note that the message buffer is aligned to improve fetch
-- * operations of VECTOR LOAD MULTIPLE instructions.
-- *
-- */
--#define DEFINE_CRC32_VX(___fname, ___crc32_vx, ___crc32_sw)		    \
--	static u32 __pure ___fname(u32 crc,				    \
--				unsigned char const *data, size_t datalen)  \
--	{								    \
--		unsigned long prealign, aligned, remaining;		    \
--		DECLARE_KERNEL_FPU_ONSTACK16(vxstate);			    \
--									    \
--		if (datalen < VX_MIN_LEN + VX_ALIGN_MASK)		    \
--			return ___crc32_sw(crc, data, datalen);		    \
--									    \
--		if ((unsigned long)data & VX_ALIGN_MASK) {		    \
--			prealign = VX_ALIGNMENT -			    \
--				  ((unsigned long)data & VX_ALIGN_MASK);    \
--			datalen -= prealign;				    \
--			crc = ___crc32_sw(crc, data, prealign);		    \
--			data = (void *)((unsigned long)data + prealign);    \
--		}							    \
--									    \
--		aligned = datalen & ~VX_ALIGN_MASK;			    \
--		remaining = datalen & VX_ALIGN_MASK;			    \
--									    \
--		kernel_fpu_begin(&vxstate, KERNEL_VXR_LOW);		    \
--		crc = ___crc32_vx(crc, data, aligned);			    \
--		kernel_fpu_end(&vxstate, KERNEL_VXR_LOW);		    \
--									    \
--		if (remaining)						    \
--			crc = ___crc32_sw(crc, data + aligned, remaining);  \
--									    \
--		return crc;						    \
--	}
--
--DEFINE_CRC32_VX(crc32_le_vx, crc32_le_vgfm_16, crc32_le)
--DEFINE_CRC32_VX(crc32_be_vx, crc32_be_vgfm_16, crc32_be)
--DEFINE_CRC32_VX(crc32c_le_vx, crc32c_le_vgfm_16, __crc32c_le)
--
--
--static int crc32_vx_cra_init_zero(struct crypto_tfm *tfm)
--{
--	struct crc_ctx *mctx = crypto_tfm_ctx(tfm);
--
--	mctx->key = 0;
--	return 0;
--}
--
--static int crc32_vx_cra_init_invert(struct crypto_tfm *tfm)
--{
--	struct crc_ctx *mctx = crypto_tfm_ctx(tfm);
--
--	mctx->key = ~0;
--	return 0;
--}
--
--static int crc32_vx_init(struct shash_desc *desc)
--{
--	struct crc_ctx *mctx = crypto_shash_ctx(desc->tfm);
--	struct crc_desc_ctx *ctx = shash_desc_ctx(desc);
--
--	ctx->crc = mctx->key;
--	return 0;
--}
--
--static int crc32_vx_setkey(struct crypto_shash *tfm, const u8 *newkey,
--			   unsigned int newkeylen)
--{
--	struct crc_ctx *mctx = crypto_shash_ctx(tfm);
--
--	if (newkeylen != sizeof(mctx->key))
--		return -EINVAL;
--	mctx->key = le32_to_cpu(*(__le32 *)newkey);
--	return 0;
--}
--
--static int crc32be_vx_setkey(struct crypto_shash *tfm, const u8 *newkey,
--			     unsigned int newkeylen)
--{
--	struct crc_ctx *mctx = crypto_shash_ctx(tfm);
--
--	if (newkeylen != sizeof(mctx->key))
--		return -EINVAL;
--	mctx->key = be32_to_cpu(*(__be32 *)newkey);
--	return 0;
--}
--
--static int crc32le_vx_final(struct shash_desc *desc, u8 *out)
--{
--	struct crc_desc_ctx *ctx = shash_desc_ctx(desc);
--
--	*(__le32 *)out = cpu_to_le32p(&ctx->crc);
--	return 0;
--}
--
--static int crc32be_vx_final(struct shash_desc *desc, u8 *out)
--{
--	struct crc_desc_ctx *ctx = shash_desc_ctx(desc);
--
--	*(__be32 *)out = cpu_to_be32p(&ctx->crc);
--	return 0;
--}
--
--static int crc32c_vx_final(struct shash_desc *desc, u8 *out)
--{
--	struct crc_desc_ctx *ctx = shash_desc_ctx(desc);
--
--	/*
--	 * Perform a final XOR with 0xFFFFFFFF to be in sync
--	 * with the generic crc32c shash implementation.
--	 */
--	*(__le32 *)out = ~cpu_to_le32p(&ctx->crc);
--	return 0;
--}
--
--static int __crc32le_vx_finup(u32 *crc, const u8 *data, unsigned int len,
--			      u8 *out)
--{
--	*(__le32 *)out = cpu_to_le32(crc32_le_vx(*crc, data, len));
--	return 0;
--}
--
--static int __crc32be_vx_finup(u32 *crc, const u8 *data, unsigned int len,
--			      u8 *out)
--{
--	*(__be32 *)out = cpu_to_be32(crc32_be_vx(*crc, data, len));
--	return 0;
--}
--
--static int __crc32c_vx_finup(u32 *crc, const u8 *data, unsigned int len,
--			     u8 *out)
--{
--	/*
--	 * Perform a final XOR with 0xFFFFFFFF to be in sync
--	 * with the generic crc32c shash implementation.
--	 */
--	*(__le32 *)out = ~cpu_to_le32(crc32c_le_vx(*crc, data, len));
--	return 0;
--}
--
--
--#define CRC32_VX_FINUP(alg, func)					      \
--	static int alg ## _vx_finup(struct shash_desc *desc, const u8 *data,  \
--				   unsigned int datalen, u8 *out)	      \
--	{								      \
--		return __ ## alg ## _vx_finup(shash_desc_ctx(desc),	      \
--					      data, datalen, out);	      \
--	}
--
--CRC32_VX_FINUP(crc32le, crc32_le_vx)
--CRC32_VX_FINUP(crc32be, crc32_be_vx)
--CRC32_VX_FINUP(crc32c, crc32c_le_vx)
--
--#define CRC32_VX_DIGEST(alg, func)					      \
--	static int alg ## _vx_digest(struct shash_desc *desc, const u8 *data, \
--				     unsigned int len, u8 *out)		      \
--	{								      \
--		return __ ## alg ## _vx_finup(crypto_shash_ctx(desc->tfm),    \
--					      data, len, out);		      \
--	}
--
--CRC32_VX_DIGEST(crc32le, crc32_le_vx)
--CRC32_VX_DIGEST(crc32be, crc32_be_vx)
--CRC32_VX_DIGEST(crc32c, crc32c_le_vx)
--
--#define CRC32_VX_UPDATE(alg, func)					      \
--	static int alg ## _vx_update(struct shash_desc *desc, const u8 *data, \
--				     unsigned int datalen)		      \
--	{								      \
--		struct crc_desc_ctx *ctx = shash_desc_ctx(desc);	      \
--		ctx->crc = func(ctx->crc, data, datalen);		      \
--		return 0;						      \
--	}
--
--CRC32_VX_UPDATE(crc32le, crc32_le_vx)
--CRC32_VX_UPDATE(crc32be, crc32_be_vx)
--CRC32_VX_UPDATE(crc32c, crc32c_le_vx)
--
--
--static struct shash_alg crc32_vx_algs[] = {
--	/* CRC-32 LE */
--	{
--		.init		=	crc32_vx_init,
--		.setkey		=	crc32_vx_setkey,
--		.update		=	crc32le_vx_update,
--		.final		=	crc32le_vx_final,
--		.finup		=	crc32le_vx_finup,
--		.digest		=	crc32le_vx_digest,
--		.descsize	=	sizeof(struct crc_desc_ctx),
--		.digestsize	=	CRC32_DIGEST_SIZE,
--		.base		=	{
--			.cra_name	 = "crc32",
--			.cra_driver_name = "crc32-vx",
--			.cra_priority	 = 200,
--			.cra_flags	 = CRYPTO_ALG_OPTIONAL_KEY,
--			.cra_blocksize	 = CRC32_BLOCK_SIZE,
--			.cra_ctxsize	 = sizeof(struct crc_ctx),
--			.cra_module	 = THIS_MODULE,
--			.cra_init	 = crc32_vx_cra_init_zero,
--		},
--	},
--	/* CRC-32 BE */
--	{
--		.init		=	crc32_vx_init,
--		.setkey		=	crc32be_vx_setkey,
--		.update		=	crc32be_vx_update,
--		.final		=	crc32be_vx_final,
--		.finup		=	crc32be_vx_finup,
--		.digest		=	crc32be_vx_digest,
--		.descsize	=	sizeof(struct crc_desc_ctx),
--		.digestsize	=	CRC32_DIGEST_SIZE,
--		.base		=	{
--			.cra_name	 = "crc32be",
--			.cra_driver_name = "crc32be-vx",
--			.cra_priority	 = 200,
--			.cra_flags	 = CRYPTO_ALG_OPTIONAL_KEY,
--			.cra_blocksize	 = CRC32_BLOCK_SIZE,
--			.cra_ctxsize	 = sizeof(struct crc_ctx),
--			.cra_module	 = THIS_MODULE,
--			.cra_init	 = crc32_vx_cra_init_zero,
--		},
--	},
--	/* CRC-32C LE */
--	{
--		.init		=	crc32_vx_init,
--		.setkey		=	crc32_vx_setkey,
--		.update		=	crc32c_vx_update,
--		.final		=	crc32c_vx_final,
--		.finup		=	crc32c_vx_finup,
--		.digest		=	crc32c_vx_digest,
--		.descsize	=	sizeof(struct crc_desc_ctx),
--		.digestsize	=	CRC32_DIGEST_SIZE,
--		.base		=	{
--			.cra_name	 = "crc32c",
--			.cra_driver_name = "crc32c-vx",
--			.cra_priority	 = 200,
--			.cra_flags	 = CRYPTO_ALG_OPTIONAL_KEY,
--			.cra_blocksize	 = CRC32_BLOCK_SIZE,
--			.cra_ctxsize	 = sizeof(struct crc_ctx),
--			.cra_module	 = THIS_MODULE,
--			.cra_init	 = crc32_vx_cra_init_invert,
--		},
--	},
--};
--
--
--static int __init crc_vx_mod_init(void)
--{
--	return crypto_register_shashes(crc32_vx_algs,
--				       ARRAY_SIZE(crc32_vx_algs));
--}
--
--static void __exit crc_vx_mod_exit(void)
--{
--	crypto_unregister_shashes(crc32_vx_algs, ARRAY_SIZE(crc32_vx_algs));
--}
--
--module_cpu_feature_match(S390_CPU_FEATURE_VXRS, crc_vx_mod_init);
--module_exit(crc_vx_mod_exit);
--
--MODULE_AUTHOR("Hendrik Brueckner <brueckner@linux.vnet.ibm.com>");
--MODULE_DESCRIPTION("CRC-32 algorithms using z/Architecture Vector Extension Facility");
--MODULE_LICENSE("GPL");
--
--MODULE_ALIAS_CRYPTO("crc32");
--MODULE_ALIAS_CRYPTO("crc32-vx");
--MODULE_ALIAS_CRYPTO("crc32c");
--MODULE_ALIAS_CRYPTO("crc32c-vx");
-diff --git a/arch/s390/lib/Makefile b/arch/s390/lib/Makefile
-index f43f897d3fc02..14bbfe50033c7 100644
---- a/arch/s390/lib/Makefile
-+++ b/arch/s390/lib/Makefile
-@@ -22,5 +22,8 @@ obj-$(CONFIG_S390_MODULES_SANITY_TEST) += test_modules.o
- obj-$(CONFIG_S390_MODULES_SANITY_TEST_HELPERS) += test_modules_helpers.o
- 
- lib-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
- 
- obj-$(CONFIG_EXPOLINE_EXTERN) += expoline.o
-+
-+obj-$(CONFIG_CRC32_ARCH) += crc32-s390.o
-+crc32-s390-y := crc32-glue.o crc32le-vx.o crc32be-vx.o
-diff --git a/arch/s390/lib/crc32-glue.c b/arch/s390/lib/crc32-glue.c
-new file mode 100644
-index 0000000000000..6243132633aab
---- /dev/null
-+++ b/arch/s390/lib/crc32-glue.c
-@@ -0,0 +1,82 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * CRC-32 implemented with the z/Architecture Vector Extension Facility.
-+ *
-+ * Copyright IBM Corp. 2015
-+ * Author(s): Hendrik Brueckner <brueckner@linux.vnet.ibm.com>
-+ */
-+#define KMSG_COMPONENT	"crc32-vx"
-+#define pr_fmt(fmt)	KMSG_COMPONENT ": " fmt
-+
-+#include <linux/module.h>
-+#include <linux/cpufeature.h>
-+#include <linux/crc32.h>
-+#include <asm/fpu.h>
-+#include "crc32-vx.h"
-+
-+#define VX_MIN_LEN		64
-+#define VX_ALIGNMENT		16L
-+#define VX_ALIGN_MASK		(VX_ALIGNMENT - 1)
-+
-+static DEFINE_STATIC_KEY_FALSE(have_vxrs);
-+
-+/*
-+ * DEFINE_CRC32_VX() - Define a CRC-32 function using the vector extension
-+ *
-+ * Creates a function to perform a particular CRC-32 computation. Depending
-+ * on the message buffer, the hardware-accelerated or software implementation
-+ * is used.   Note that the message buffer is aligned to improve fetch
-+ * operations of VECTOR LOAD MULTIPLE instructions.
-+ */
-+#define DEFINE_CRC32_VX(___fname, ___crc32_vx, ___crc32_sw)		    \
-+	u32 ___fname(u32 crc, const u8 *data, size_t datalen)		    \
-+	{								    \
-+		unsigned long prealign, aligned, remaining;		    \
-+		DECLARE_KERNEL_FPU_ONSTACK16(vxstate);			    \
-+									    \
-+		if (datalen < VX_MIN_LEN + VX_ALIGN_MASK ||		    \
-+		    !static_branch_likely(&have_vxrs))			    \
-+			return ___crc32_sw(crc, data, datalen);		    \
-+									    \
-+		if ((unsigned long)data & VX_ALIGN_MASK) {		    \
-+			prealign = VX_ALIGNMENT -			    \
-+				  ((unsigned long)data & VX_ALIGN_MASK);    \
-+			datalen -= prealign;				    \
-+			crc = ___crc32_sw(crc, data, prealign);		    \
-+			data = (void *)((unsigned long)data + prealign);    \
-+		}							    \
-+									    \
-+		aligned = datalen & ~VX_ALIGN_MASK;			    \
-+		remaining = datalen & VX_ALIGN_MASK;			    \
-+									    \
-+		kernel_fpu_begin(&vxstate, KERNEL_VXR_LOW);		    \
-+		crc = ___crc32_vx(crc, data, aligned);			    \
-+		kernel_fpu_end(&vxstate, KERNEL_VXR_LOW);		    \
-+									    \
-+		if (remaining)						    \
-+			crc = ___crc32_sw(crc, data + aligned, remaining);  \
-+									    \
-+		return crc;						    \
-+	}								    \
-+	EXPORT_SYMBOL(___fname);
-+
-+DEFINE_CRC32_VX(crc32_le_arch, crc32_le_vgfm_16, crc32_le_base)
-+DEFINE_CRC32_VX(crc32_be_arch, crc32_be_vgfm_16, crc32_be_base)
-+DEFINE_CRC32_VX(crc32c_le_arch, crc32c_le_vgfm_16, crc32c_le_base)
-+
-+static int __init crc32_s390_init(void)
-+{
-+	if (cpu_have_feature(S390_CPU_FEATURE_VXRS))
-+		static_branch_enable(&have_vxrs);
-+	return 0;
-+}
-+arch_initcall(crc32_s390_init);
-+
-+static void __exit crc32_s390_exit(void)
-+{
-+}
-+module_exit(crc32_s390_exit);
-+
-+MODULE_AUTHOR("Hendrik Brueckner <brueckner@linux.vnet.ibm.com>");
-+MODULE_DESCRIPTION("CRC-32 algorithms using z/Architecture Vector Extension Facility");
-+MODULE_LICENSE("GPL");
-diff --git a/arch/s390/crypto/crc32-vx.h b/arch/s390/lib/crc32-vx.h
-similarity index 100%
-rename from arch/s390/crypto/crc32-vx.h
-rename to arch/s390/lib/crc32-vx.h
-diff --git a/arch/s390/crypto/crc32be-vx.c b/arch/s390/lib/crc32be-vx.c
-similarity index 100%
-rename from arch/s390/crypto/crc32be-vx.c
-rename to arch/s390/lib/crc32be-vx.c
-diff --git a/arch/s390/crypto/crc32le-vx.c b/arch/s390/lib/crc32le-vx.c
-similarity index 100%
-rename from arch/s390/crypto/crc32le-vx.c
-rename to arch/s390/lib/crc32le-vx.c
+Jisheng Zhang (2):
+      dt-bindings: net: Add T-HEAD dwmac support
+      net: stmmac: Add glue layer for T-HEAD TH1520 SoC
+
+ .../devicetree/bindings/net/snps,dwmac.yaml        |   1 +
+ .../devicetree/bindings/net/thead,th1520-gmac.yaml | 115 +++++++++
+ MAINTAINERS                                        |   2 +
+ arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts |  91 +++++++
+ .../boot/dts/thead/th1520-lichee-module-4a.dtsi    | 119 +++++++++
+ arch/riscv/boot/dts/thead/th1520.dtsi              |  50 ++++
+ drivers/net/ethernet/stmicro/stmmac/Kconfig        |  10 +
+ drivers/net/ethernet/stmicro/stmmac/Makefile       |   1 +
+ drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c  | 268 +++++++++++++++++++++
+ 9 files changed, 657 insertions(+)
+---
+base-commit: f2493655d2d3d5c6958ed996b043c821c23ae8d3
+change-id: 20241020-th1520-dwmac-e14cc8f8427b
+
+Best regards,
 -- 
-2.47.0
+Drew Fustini <dfustini@tenstorrent.com>
 
 
 _______________________________________________
