@@ -4,76 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0282DD0E6F1
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Oct 2024 11:16:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 810E3D0E6FB
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Oct 2024 11:45:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H5jHx8lJCt/JV2iG3Dn/lmGjqNQTgzI5GycpQecA7KA=; b=UypbSvS/y+JcCJdhIUeKLiGqk0
-	BSsNu2CFqQT2OlMEXcNn35Nj5cCGEkE7BhdtS62IVMKeTTVBlD3zOq+i5FoOtqw81q+QgvKvh93Xv
-	msdu76EG0pddJ4v7xMGbnGTiPzI2G8BmQuqjUh+JoC/WQywE+sQu/D/aoYiB3D5gQ4mcn7hhnI1m6
-	3LZ4VTK1r2iskpvhtcYDBlZRCzgnbaBABpdeJasp+feNz3tFQl0PjDkvYgHgv0XZ8nk8/3SpZdCJk
-	DxiUsa5IlXesT+xb6stU2ET3Lnvu60o4yWmLYRGlPzDRBZHoGfPDtHMVgvwccBM8jHxn9dUBwHbAi
-	+siFNBNw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=5Jd4n2D6hj5sjOOv6udfDzspHNW58N2/UrieesjnKMw=; b=13xvcevANOCRIa
+	jSrHC+seBGM79cO850cbeV4KCFfTQCukZfwa4pgi8Gy+ebVRtTRD4tPG6qsp+Iuk5eXBEb7aLz5BQ
+	AXv84AsD7EJGQQi42pJoIP/tEh5D8OMjSuaMixbxWRNlLPjgH0YqkY2PLje5S0AmG+P3JXTnDGKEG
+	PFE8E+iF83a0W9r5JsBNfHtt8w8ru7Qx5vcfazAt8HOb6ma1TEE9awxVwtLzvr2BmLWusbsXVvNjw
+	SVJ+EeejlneltgcC/RX+OwdS//AJuGjMV62zzzvtGZqw8BH29v1shfmVD81Z7h5uE+TUV5zFTAyyE
+	Zaxo969ycD0PLlBzHs5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2qP6-000000071oE-3zNX;
-	Mon, 21 Oct 2024 11:16:52 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t2qqn-000000075qT-15RJ;
+	Mon, 21 Oct 2024 11:45:29 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2qP4-000000071nW-2Str
-	for linux-riscv@lists.infradead.org;
-	Mon, 21 Oct 2024 11:16:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 123215C48DC;
-	Mon, 21 Oct 2024 11:16:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8717C4CEC3;
-	Mon, 21 Oct 2024 11:16:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729509409;
-	bh=2f93h3fB4LLkd11DyIv9Y0/XNE6yLB6WyRy24xVgmlY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nfom7GnGD1cB5+8lbtj2U35qRULIN35Q5wNvCT+cPuje4/lsjyjdKydoruv6X3gCH
-	 ZcVTe9YBem9ZKJCeyW6hUp7vMJW32WabUtneH8/ngK3Jv4uYXdeJQbyQghsgoQ80LL
-	 mVcpPd46XYpRna5Cf4m0cDaOwUcJgQSNzeB7Sb94uhQneT1ROzlG8kQz4vRyfqlSJY
-	 ZtHndxS2qpOYQeg4JVXYgzcIHSmvw6f+7AbkVxK45e1rIwFbHulH9v27bPyde8BXly
-	 6uF/mf+dOfSW+mkXepO77BHYxPaQdmcsYmfT6mqUeua4LJLmKeGaayRay9Ee5YkkSd
-	 jN+AErlxgfjDw==
-Date: Mon, 21 Oct 2024 12:16:42 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Guodong Xu <guodong@riscstar.com>, Rob Herring <robh@kernel.org>,
+	id 1t2pmM-00000006uU4-19wN;
+	Mon, 21 Oct 2024 10:36:51 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-7d4fa972cbeso3358178a12.2;
+        Mon, 21 Oct 2024 03:36:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1729507009; x=1730111809; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zgTXpRaa0CS94DWebND0XpyXT65bwzGX/MVLfeTayUc=;
+        b=DatMdYIs2RNY622C1jKymWL4S3QmrJo/i6Kbx6e6iuG0OkE2cfKWpVmdr/lZBvxeQd
+         WFnSmwvKYk8uZKqtFcgu/5v/g0y9QAihhY3vYnjiDuK68o7WZZM0NXSdCY5fWM0Vu3/O
+         WFHxVMwQ+6ZyC4B9/bxeQnLn30DByJglwzsN5I+sEjTdP32edqMpHn1otFqY5CKcxOl2
+         WmyIGayVffgu1M43r7lV1wV87W8Rm29P6IQ+WLRsm/3DM4xZKBZeNXxSXamzleWfP1rZ
+         WQY+0v2PMQAFly1ukVITk5xiWk+6Gq9nK2ozDeGomJ3w6uAl7daaWcq6e9wjMO2X6Os1
+         /Bzw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729507009; x=1730111809;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=zgTXpRaa0CS94DWebND0XpyXT65bwzGX/MVLfeTayUc=;
+        b=HkL9bLZzvGeAMQkqJJZLe/X/ZSuSgqOuqixQb2VqFCduGZGHcYMI64UbR6bsuzbJxx
+         tUqqD60FfUBe3sl85aKFuBJLWJKGLx9YIyKQKmkJBCsDxsqxA8tkBOjAufx4a+6K1csC
+         omqK3nxPNxB7COLQAj2DV5wuZhe0UTBYerxFUnXRu8c07XZ4xNbrmcDPj+Nx5hT/23Nu
+         2yQgqfCu+a6P/BDQQqgqlvUQzOl8nEf7trDFv3VsowBh+8i5so9WSPLnzKghFTGb/MDt
+         pKPhmQb0M5RmYgVuKB42lJ4RY35QnAMTbNj4wyOdtTpStJDum8ORAd/0cJyJYEL/Fcum
+         RLAA==
+X-Forwarded-Encrypted: i=1; AJvYcCV6CmelGJcxtPZ0YSAWadXh5QMzRQpNvy7BOZoz9qD3GNn+fs9b2pBWJLn0mKi9UGkxlU0vzf7jCjcIgDw=@lists.infradead.org, AJvYcCVaV+1+6tcR8kVMxSCBS7IlG28YnyAfgsrCyvtwNteKwvbNeajR5F7QJQW72YpzKgj+/NQsCAwA3BSCInofs/wQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJa277HZI3Daa5jPxFnViIj0woryoh4a564aumOfryfw02OSRc
+	mljnjqqJ+41rlK/8xz4F0MnyqNrlm2JttcbjOHGy81Wh3zFv++Im
+X-Google-Smtp-Source: AGHT+IHcfOB8KvzIPdr/4gmQUpcTvuERKiXFCsr6Yz6aTePpzQBGy3C9mW284sw41jWu8/yv/Ub+BA==
+X-Received: by 2002:a05:6300:44:b0:1d8:a759:525c with SMTP id adf61e73a8af0-1d92c572670mr15063786637.39.1729507009210;
+        Mon, 21 Oct 2024 03:36:49 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-20e7eee63a1sm23044785ad.18.2024.10.21.03.36.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 21 Oct 2024 03:36:48 -0700 (PDT)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Chen Wang <unicorn_wang@outlook.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Emil Renner Berthing <kernel@esmil.dk>, rafal@milecki.pl,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Richard Cochran <richardcochran@gmail.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Heiko Stuebner <heiko.stuebner@cherry.de>,
-	Michael Zhu <michael.zhu@starfivetech.com>,
-	Drew Fustini <drew@beagleboard.org>,
-	Alexandru Stan <ams@frame.work>, Daniel Schaefer <dhs@frame.work>,
-	Sandie Cao <sandie.cao@deepcomputing.io>,
-	Yuning Liang <yuning.liang@deepcomputing.io>,
-	Huiming Qiu <huiming.qiu@deepcomputing.io>,
-	Alex Elder <elder@riscstar.com>, linux@frame.work,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 3/3] riscv: dts: starfive: add DeepComputing FML13V01
- board device tree
-Message-ID: <20241021-unroll-empower-3ab903615d6d@spud>
-References: <20241020134959.519462-1-guodong@riscstar.com>
- <20241020134959.519462-4-guodong@riscstar.com>
- <ae5gels34ozgzrcrwz53wj22hoy5cq3crn3dmkhitxlffmnavt@6lbmrcpjmqyd>
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>
+Cc: Yixun Lan <dlan@gentoo.org>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH 1/4] dt-bindings: net: snps,dwmac: Add dwmac-5.30a version
+Date: Mon, 21 Oct 2024 18:36:14 +0800
+Message-ID: <20241021103617.653386-2-inochiama@gmail.com>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20241021103617.653386-1-inochiama@gmail.com>
+References: <20241021103617.653386-1-inochiama@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <ae5gels34ozgzrcrwz53wj22hoy5cq3crn3dmkhitxlffmnavt@6lbmrcpjmqyd>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241021_041650_691701_58A02AAA 
-X-CRM114-Status: GOOD (  15.49  )
+X-CRM114-CacheID: sfid-20241021_033650_337660_BE9880A9 
+X-CRM114-Status: UNSURE (   8.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,90 +111,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2929492358405300108=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Add compatible string for dwmac-5.30a IP.
 
---===============2929492358405300108==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="VVnw05SnzZXMvGzA"
-Content-Disposition: inline
+Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+---
+ Documentation/devicetree/bindings/net/snps,dwmac.yaml | 3 +++
+ 1 file changed, 3 insertions(+)
 
+diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+index 4e2ba1bf788c..3c4007cb65f8 100644
+--- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+@@ -31,6 +31,7 @@ select:
+           - snps,dwmac-4.20a
+           - snps,dwmac-5.10a
+           - snps,dwmac-5.20
++          - snps,dwmac-5.30a
+           - snps,dwxgmac
+           - snps,dwxgmac-2.10
+ 
+@@ -95,6 +96,7 @@ properties:
+         - snps,dwmac-4.20a
+         - snps,dwmac-5.10a
+         - snps,dwmac-5.20
++        - snps,dwmac-5.30a
+         - snps,dwxgmac
+         - snps,dwxgmac-2.10
+         - starfive,jh7100-dwmac
+@@ -627,6 +629,7 @@ allOf:
+                 - snps,dwmac-4.20a
+                 - snps,dwmac-5.10a
+                 - snps,dwmac-5.20
++                - snps,dwmac-5.30a
+                 - snps,dwxgmac
+                 - snps,dwxgmac-2.10
+                 - st,spear600-gmac
+-- 
+2.47.0
 
---VVnw05SnzZXMvGzA
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Mon, Oct 21, 2024 at 09:17:59AM +0200, Krzysztof Kozlowski wrote:
-> On Sun, Oct 20, 2024 at 09:49:59PM +0800, Guodong Xu wrote:
-> > From: Sandie Cao <sandie.cao@deepcomputing.io>
-> > +&camss {
-> > +	status =3D "disabled";
-> > +};
-> > +
-> > +&csi2rx {
-> > +	status =3D "disabled";
-> > +};
-
-You can drop these two, I marked them disabled in the common file
-earlier this week.
-1
-> > +
-> > +&gmac0 {
-> > +	status =3D "disabled";
-> > +};
-> > +
-> > +&i2c0 {
-> > +	status =3D "disabled";
-> > +};
-> > +
-> > +&pwm {
-> > +	status =3D "disabled";
-> > +};
-> > +
-> > +&pwmdac {
-> > +	status =3D "disabled";
-> > +};
-> > +
-> > +&spi0 {
-> > +	status =3D "disabled";
->=20
-> If your board has to disable all these, then they should not have been
-> enabled in DTSI in the first place. Only blocks present and working in
-> the SoC (without amny external needs) should be enabled.
->=20
-> I suggest to fix that aspect first.
-
-Eh, I don't think I agree. Having 5 disables here is a lesser evil than
-reproducing 90% of jh7110-common.dtsi or shunting a bunch of stuff
-around. Emil?
-
---VVnw05SnzZXMvGzA
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZxY4GgAKCRB4tDGHoIJi
-0ryMAQDylSPIecFs5rj5VL8jUi+nAFss0Y7ZYLW2+cgjnnNluQD/VG1+cJIt0h8u
-syL+09/AjgZAeUOS6/+AmUIafMx6oQg=
-=JCPq
------END PGP SIGNATURE-----
-
---VVnw05SnzZXMvGzA--
-
-
---===============2929492358405300108==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2929492358405300108==--
-
