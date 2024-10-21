@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AA25D15D8B
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA48ED15D88
 	for <linux-riscv@archiver.kernel.org>; Mon, 21 Oct 2024 12:37:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rlSwYUJjH2p4CBl0HvOmedGTjzhqksmWSq6VnXJ2/1M=; b=No7FFIrdui+ba+
-	MuLsrI5XkB2+WqKSTOpV10+DlHWJo0z+kwipDC4y/ymCz7zBq/SIb1nqze1waylshF3sIiiN2vXz2
-	0drLNLsYXNtkCLsB2ZsMmYa03hBa/snDQtZbNhspXTeSl4n1eT5rfWD96gVfCHSHOCw2l+ZhZprQA
-	3zzx4XFQBQWRmLbmdzsMmR0r0gsr8UF62bI8V4sL8xp1gKt5kBzEIMnJ+FhImVBVTVOYh7XhWjg+j
-	R9pOI546p/pFpIDf/+n5tEvdjbRZau50fnbNIxDA5ximRRoEHv1sw9wgPmQQcxl5pVPnSYhuze7lA
-	sxZSMMl7G7TpHmyXMnXA==;
+	List-Owner; bh=6X3fcr/TmJkpjH6A3wfkFmMaUt2p7AA6TUdUrfxz/Ns=; b=pUZeO0SJDDK64s
+	z5PExeYcD97E7FFVirtas/vA79TlzOFoUrlT1NZHjlG3quPuw3CFcl9mNYZ77ewG7c1jPHyer2VQg
+	fvGacQXDUnUJccxQZndfQmj2EVULowXWfSBauAMz4E1yXHMvXAuIGerk5UJBRk8qZbVtDLpAzuezy
+	LojHlPMr2q56JFRzhRJ0zdurYwy1ftKRNDcLex0ZvyHLFtlOx3Pmz6fUjU4UFxBDnmd1CF5CSTp4H
+	xB2dxSYcB+ch3EH+qVRNTDoAyyEcnuEvK/6ZdkDO2sCdv04O3B+45vuCT170fG/9KHWhdHJv8pMbo
+	oW0YVQnlo0FZPJyLyn9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2rfC-00000007H9h-0Dk2;
-	Mon, 21 Oct 2024 12:37:34 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t2rfD-00000007HAa-10qV;
+	Mon, 21 Oct 2024 12:37:35 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2rQI-00000007DdJ-3ZUP
+	id 1t2rQL-00000007DeD-2No1
 	for linux-riscv@lists.infradead.org;
-	Mon, 21 Oct 2024 12:22:12 +0000
+	Mon, 21 Oct 2024 12:22:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E63AFA429B9;
-	Mon, 21 Oct 2024 12:22:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E900C4CEE4;
-	Mon, 21 Oct 2024 12:22:09 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 885C3A429C2;
+	Mon, 21 Oct 2024 12:22:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F17C7C4CEE4;
+	Mon, 21 Oct 2024 12:22:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729513329;
-	bh=Hoeel4AJqQq2OzQsQRr98YOviBg6J0xi4VZmo07O8iI=;
+	s=k20201202; t=1729513332;
+	bh=c8L0VpdriMONmtoRlW2frKvu4VJmvuZBqyXENZuKGNQ=;
 	h=From:To:Subject:Date:In-Reply-To:References:From;
-	b=D1AYD7oAoLtZtsFdvDU5FzWG4lsH1F/PM+Cdwy1cUfzVb3WYM4HMfuct2zqZy07z6
-	 eksC6bLBWZaNPzqH7Bj+smPXujXXYwNn5GcPJyXqQfWhO3qOwnXVGJ1F1mVdv7bnNK
-	 lm03s8xuAuNaCx1t3HQjDMb2g+kwuzV1owdQ3c67TjrKEhgiQcqofWaM9+sdrG86uJ
-	 nTBsN9NKPAXFY0CxKMZARZijQLSvb+nGvVyChjPgtFiX+KdZnZfgijuyhlGYpwNbcY
-	 r4gqdSt+53SPeZtaN582mtK8arN455hJ+/aywirgG4X6sqlj9URJbha0fBv4ANYc/e
-	 VYkr8ABbyYz6Q==
+	b=nNHdQ0fGTbVmymWgcizfMY7q1QsD0sF12JAOVPKoGuq6hX7e57v+sBc+UxNwunBAD
+	 dOXDgrU6SBfbvt5PW04qoQZXeoUInUq4ie9jpi7kfNjtNpav/7OWrdBFkqHaePe7kn
+	 Nbs7T3X/2WICOqFOfoLYjSEQ04f0l9ddY+57yUH8KcTvy9qzRq4AiErk61F0fb+L58
+	 PetUVz/TWk2V6OK4mz3PkxqPmnsnV5hKT9rFKlXGXZCh0yk7fR24OmruakqRHMPvh/
+	 Kpa4SlIRe4B/NS/a3w6LA3vHUituYKv+HeZOsUJD6oEO2rSZaspwNbro7rKjWLwjep
+	 2x/TxXL1Nn5rA==
 From: Puranjay Mohan <puranjay@kernel.org>
 To: Albert Ou <aou@eecs.berkeley.edu>,
 	Alexei Starovoitov <ast@kernel.org>,
@@ -74,16 +74,16 @@ To: Albert Ou <aou@eecs.berkeley.edu>,
 	Song Liu <song@kernel.org>,
 	Stanislav Fomichev <sdf@fomichev.me>,
 	Yonghong Song <yonghong.song@linux.dev>
-Subject: [PATCH bpf-next 4/5] selftests/bpf: Add benchmark for bpf_csum_diff() helper
-Date: Mon, 21 Oct 2024 12:21:11 +0000
-Message-Id: <20241021122112.101513-5-puranjay@kernel.org>
+Subject: [PATCH bpf-next 5/5] selftests/bpf: Add a selftest for bpf_csum_diff()
+Date: Mon, 21 Oct 2024 12:21:12 +0000
+Message-Id: <20241021122112.101513-6-puranjay@kernel.org>
 X-Mailer: git-send-email 2.40.1
 In-Reply-To: <20241021122112.101513-1-puranjay@kernel.org>
 References: <20241021122112.101513-1-puranjay@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241021_052211_044635_ED6ABF21 
-X-CRM114-Status: GOOD (  24.13  )
+X-CRM114-CacheID: sfid-20241021_052213_768577_C42FF5B1 
+X-CRM114-Status: GOOD (  16.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,187 +95,491 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QWRkIGEgbWljcm9iZW5jaG1hcmsgZm9yIGJwZl9jc3VtX2RpZmYoKSBoZWxwZXIuIFRoaXMgYmVu
-Y2htYXJrIHdvcmtzIGJ5CmZpbGxpbmcgYSA0S0IgYnVmZmVyIHdpdGggcmFuZG9tIGRhdGEgYW5k
-IGNhbGN1bGF0aW5nIHRoZSBpbnRlcm5ldApjaGVja3N1bSBvbiBkaWZmZXJlbnQgcGFydHMgb2Yg
-dGhpcyBidWZmZXIgdXNpbmcgYnBmX2NzdW1fZGlmZigpLgoKRXhhbXBsZSBydW4gdXNpbmcgLi9i
-ZW5jaHMvcnVuX2JlbmNoX2NzdW1fZGlmZi5zaCBvbiB4ODZfNjQ6CgpbYnBmXSQgLi9iZW5jaHMv
-cnVuX2JlbmNoX2NzdW1fZGlmZi5zaAo0ICAgICAgICAgICAgICAgICAgICAyLjI5NiDCsSAwLjA2
-Nk0vcyAoZHJvcHMgMC4wMDAgwrEgMC4wMDBNL3MpCjggICAgICAgICAgICAgICAgICAgIDIuMzIw
-IMKxIDAuMDAzTS9zIChkcm9wcyAwLjAwMCDCsSAwLjAwME0vcykKMTYgICAgICAgICAgICAgICAg
-ICAgMi4zMTUgwrEgMC4wMDFNL3MgKGRyb3BzIDAuMDAwIMKxIDAuMDAwTS9zKQoyMCAgICAgICAg
-ICAgICAgICAgICAyLjMxOCDCsSAwLjAwMU0vcyAoZHJvcHMgMC4wMDAgwrEgMC4wMDBNL3MpCjMy
-ICAgICAgICAgICAgICAgICAgIDIuMzA4IMKxIDAuMDAzTS9zIChkcm9wcyAwLjAwMCDCsSAwLjAw
-ME0vcykKNDAgICAgICAgICAgICAgICAgICAgMi4zMDAgwrEgMC4wMjlNL3MgKGRyb3BzIDAuMDAw
-IMKxIDAuMDAwTS9zKQo2NCAgICAgICAgICAgICAgICAgICAyLjI4NiDCsSAwLjAwMU0vcyAoZHJv
-cHMgMC4wMDAgwrEgMC4wMDBNL3MpCjEyOCAgICAgICAgICAgICAgICAgIDIuMjUwIMKxIDAuMDAx
-TS9zIChkcm9wcyAwLjAwMCDCsSAwLjAwME0vcykKMjU2ICAgICAgICAgICAgICAgICAgMi4xNzMg
-wrEgMC4wMDFNL3MgKGRyb3BzIDAuMDAwIMKxIDAuMDAwTS9zKQo1MTIgICAgICAgICAgICAgICAg
-ICAyLjAyMyDCsSAwLjA1NU0vcyAoZHJvcHMgMC4wMDAgwrEgMC4wMDBNL3MpCgpTaWduZWQtb2Zm
-LWJ5OiBQdXJhbmpheSBNb2hhbiA8cHVyYW5qYXlAa2VybmVsLm9yZz4KLS0tCiB0b29scy90ZXN0
-aW5nL3NlbGZ0ZXN0cy9icGYvTWFrZWZpbGUgICAgICAgICAgfCAgIDIgKwogdG9vbHMvdGVzdGlu
-Zy9zZWxmdGVzdHMvYnBmL2JlbmNoLmMgICAgICAgICAgIHwgICA0ICsKIC4uLi9zZWxmdGVzdHMv
-YnBmL2JlbmNocy9iZW5jaF9jc3VtX2RpZmYuYyAgICB8IDE2NCArKysrKysrKysrKysrKysrKysK
-IC4uLi9icGYvYmVuY2hzL3J1bl9iZW5jaF9jc3VtX2RpZmYuc2ggICAgICAgICB8ICAxMCArKwog
-Li4uL3NlbGZ0ZXN0cy9icGYvcHJvZ3MvY3N1bV9kaWZmX2JlbmNoLmMgICAgIHwgIDI1ICsrKwog
-NSBmaWxlcyBjaGFuZ2VkLCAyMDUgaW5zZXJ0aW9ucygrKQogY3JlYXRlIG1vZGUgMTAwNjQ0IHRv
-b2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2JwZi9iZW5jaHMvYmVuY2hfY3N1bV9kaWZmLmMKIGNyZWF0
-ZSBtb2RlIDEwMDc1NSB0b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9icGYvYmVuY2hzL3J1bl9iZW5j
-aF9jc3VtX2RpZmYuc2gKIGNyZWF0ZSBtb2RlIDEwMDY0NCB0b29scy90ZXN0aW5nL3NlbGZ0ZXN0
-cy9icGYvcHJvZ3MvY3N1bV9kaWZmX2JlbmNoLmMKCmRpZmYgLS1naXQgYS90b29scy90ZXN0aW5n
-L3NlbGZ0ZXN0cy9icGYvTWFrZWZpbGUgYi90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9icGYvTWFr
-ZWZpbGUKaW5kZXggMjhhNzZiYWE4NTRkMy4uYTBkODZkZDQ1M2UxNiAxMDA2NDQKLS0tIGEvdG9v
-bHMvdGVzdGluZy9zZWxmdGVzdHMvYnBmL01ha2VmaWxlCisrKyBiL3Rvb2xzL3Rlc3Rpbmcvc2Vs
-ZnRlc3RzL2JwZi9NYWtlZmlsZQpAQCAtODA5LDYgKzgwOSw3IEBAICQoT1VUUFVUKS9iZW5jaF9y
-aW5nYnVmcy5vOiAkKE9VVFBVVCkvcmluZ2J1Zl9iZW5jaC5za2VsLmggXAogJChPVVRQVVQpL2Jl
-bmNoX2Jsb29tX2ZpbHRlcl9tYXAubzogJChPVVRQVVQpL2Jsb29tX2ZpbHRlcl9iZW5jaC5za2Vs
-LmgKICQoT1VUUFVUKS9iZW5jaF9icGZfbG9vcC5vOiAkKE9VVFBVVCkvYnBmX2xvb3BfYmVuY2gu
-c2tlbC5oCiAkKE9VVFBVVCkvYmVuY2hfc3RybmNtcC5vOiAkKE9VVFBVVCkvc3RybmNtcF9iZW5j
-aC5za2VsLmgKKyQoT1VUUFVUKS9iZW5jaF9jc3VtX2RpZmYubzogJChPVVRQVVQpL2NzdW1fZGlm
-Zl9iZW5jaC5za2VsLmgKICQoT1VUUFVUKS9iZW5jaF9icGZfaGFzaG1hcF9mdWxsX3VwZGF0ZS5v
-OiAkKE9VVFBVVCkvYnBmX2hhc2htYXBfZnVsbF91cGRhdGVfYmVuY2guc2tlbC5oCiAkKE9VVFBV
-VCkvYmVuY2hfbG9jYWxfc3RvcmFnZS5vOiAkKE9VVFBVVCkvbG9jYWxfc3RvcmFnZV9iZW5jaC5z
-a2VsLmgKICQoT1VUUFVUKS9iZW5jaF9sb2NhbF9zdG9yYWdlX3JjdV90YXNrc190cmFjZS5vOiAk
-KE9VVFBVVCkvbG9jYWxfc3RvcmFnZV9yY3VfdGFza3NfdHJhY2VfYmVuY2guc2tlbC5oCkBAIC04
-MjksNiArODMwLDcgQEAgJChPVVRQVVQpL2JlbmNoOiAkKE9VVFBVVCkvYmVuY2gubyBcCiAJCSAk
-KE9VVFBVVCkvYmVuY2hfYmxvb21fZmlsdGVyX21hcC5vIFwKIAkJICQoT1VUUFVUKS9iZW5jaF9i
-cGZfbG9vcC5vIFwKIAkJICQoT1VUUFVUKS9iZW5jaF9zdHJuY21wLm8gXAorCQkgJChPVVRQVVQp
-L2JlbmNoX2NzdW1fZGlmZi5vIFwKIAkJICQoT1VUUFVUKS9iZW5jaF9icGZfaGFzaG1hcF9mdWxs
-X3VwZGF0ZS5vIFwKIAkJICQoT1VUUFVUKS9iZW5jaF9sb2NhbF9zdG9yYWdlLm8gXAogCQkgJChP
-VVRQVVQpL2JlbmNoX2xvY2FsX3N0b3JhZ2VfcmN1X3Rhc2tzX3RyYWNlLm8gXApkaWZmIC0tZ2l0
-IGEvdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMvYnBmL2JlbmNoLmMgYi90b29scy90ZXN0aW5nL3Nl
-bGZ0ZXN0cy9icGYvYmVuY2guYwppbmRleCAxYmQ0MDNhNWVmN2IzLi4yOWJkNmY0NDk4ZWJjIDEw
-MDY0NAotLS0gYS90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9icGYvYmVuY2guYworKysgYi90b29s
-cy90ZXN0aW5nL3NlbGZ0ZXN0cy9icGYvYmVuY2guYwpAQCAtMjc4LDYgKzI3OCw3IEBAIGV4dGVy
-biBzdHJ1Y3QgYXJncCBiZW5jaF9icGZfbG9vcF9hcmdwOwogZXh0ZXJuIHN0cnVjdCBhcmdwIGJl
-bmNoX2xvY2FsX3N0b3JhZ2VfYXJncDsKIGV4dGVybiBzdHJ1Y3QgYXJncCBiZW5jaF9sb2NhbF9z
-dG9yYWdlX3JjdV90YXNrc190cmFjZV9hcmdwOwogZXh0ZXJuIHN0cnVjdCBhcmdwIGJlbmNoX3N0
-cm5jbXBfYXJncDsKK2V4dGVybiBzdHJ1Y3QgYXJncCBiZW5jaF9jc3VtX2RpZmZfYXJncDsKIGV4
-dGVybiBzdHJ1Y3QgYXJncCBiZW5jaF9oYXNobWFwX2xvb2t1cF9hcmdwOwogZXh0ZXJuIHN0cnVj
-dCBhcmdwIGJlbmNoX2xvY2FsX3N0b3JhZ2VfY3JlYXRlX2FyZ3A7CiBleHRlcm4gc3RydWN0IGFy
-Z3AgYmVuY2hfaHRhYl9tZW1fYXJncDsKQEAgLTI5MCw2ICsyOTEsNyBAQCBzdGF0aWMgY29uc3Qg
-c3RydWN0IGFyZ3BfY2hpbGQgYmVuY2hfcGFyc2Vyc1tdID0gewogCXsgJmJlbmNoX2JwZl9sb29w
-X2FyZ3AsIDAsICJicGZfbG9vcCBoZWxwZXIgYmVuY2htYXJrIiwgMCB9LAogCXsgJmJlbmNoX2xv
-Y2FsX3N0b3JhZ2VfYXJncCwgMCwgImxvY2FsX3N0b3JhZ2UgYmVuY2htYXJrIiwgMCB9LAogCXsg
-JmJlbmNoX3N0cm5jbXBfYXJncCwgMCwgImJwZl9zdHJuY21wIGhlbHBlciBiZW5jaG1hcmsiLCAw
-IH0sCisJeyAmYmVuY2hfY3N1bV9kaWZmX2FyZ3AsIDAsICJicGZfY3N1bV9kaWZmIGhlbHBlciBi
-ZW5jaG1hcmsiLCAwIH0sCiAJeyAmYmVuY2hfbG9jYWxfc3RvcmFnZV9yY3VfdGFza3NfdHJhY2Vf
-YXJncCwgMCwKIAkJImxvY2FsX3N0b3JhZ2UgUkNVIFRhc2tzIFRyYWNlIHNsb3dkb3duIGJlbmNo
-bWFyayIsIDAgfSwKIAl7ICZiZW5jaF9oYXNobWFwX2xvb2t1cF9hcmdwLCAwLCAiSGFzaG1hcCBs
-b29rdXAgYmVuY2htYXJrIiwgMCB9LApAQCAtNTM5LDYgKzU0MSw3IEBAIGV4dGVybiBjb25zdCBz
-dHJ1Y3QgYmVuY2ggYmVuY2hfaGFzaG1hcF93aXRoX2Jsb29tOwogZXh0ZXJuIGNvbnN0IHN0cnVj
-dCBiZW5jaCBiZW5jaF9icGZfbG9vcDsKIGV4dGVybiBjb25zdCBzdHJ1Y3QgYmVuY2ggYmVuY2hf
-c3RybmNtcF9ub19oZWxwZXI7CiBleHRlcm4gY29uc3Qgc3RydWN0IGJlbmNoIGJlbmNoX3N0cm5j
-bXBfaGVscGVyOworZXh0ZXJuIGNvbnN0IHN0cnVjdCBiZW5jaCBiZW5jaF9jc3VtX2RpZmY7CiBl
-eHRlcm4gY29uc3Qgc3RydWN0IGJlbmNoIGJlbmNoX2JwZl9oYXNobWFwX2Z1bGxfdXBkYXRlOwog
-ZXh0ZXJuIGNvbnN0IHN0cnVjdCBiZW5jaCBiZW5jaF9sb2NhbF9zdG9yYWdlX2NhY2hlX3NlcV9n
-ZXQ7CiBleHRlcm4gY29uc3Qgc3RydWN0IGJlbmNoIGJlbmNoX2xvY2FsX3N0b3JhZ2VfY2FjaGVf
-aW50ZXJsZWF2ZWRfZ2V0OwpAQCAtNTk5LDYgKzYwMiw3IEBAIHN0YXRpYyBjb25zdCBzdHJ1Y3Qg
-YmVuY2ggKmJlbmNoc1tdID0gewogCSZiZW5jaF9icGZfbG9vcCwKIAkmYmVuY2hfc3RybmNtcF9u
-b19oZWxwZXIsCiAJJmJlbmNoX3N0cm5jbXBfaGVscGVyLAorCSZiZW5jaF9jc3VtX2RpZmYsCiAJ
-JmJlbmNoX2JwZl9oYXNobWFwX2Z1bGxfdXBkYXRlLAogCSZiZW5jaF9sb2NhbF9zdG9yYWdlX2Nh
-Y2hlX3NlcV9nZXQsCiAJJmJlbmNoX2xvY2FsX3N0b3JhZ2VfY2FjaGVfaW50ZXJsZWF2ZWRfZ2V0
-LApkaWZmIC0tZ2l0IGEvdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMvYnBmL2JlbmNocy9iZW5jaF9j
-c3VtX2RpZmYuYyBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2JwZi9iZW5jaHMvYmVuY2hfY3N1
-bV9kaWZmLmMKbmV3IGZpbGUgbW9kZSAxMDA2NDQKaW5kZXggMDAwMDAwMDAwMDAwMC4uMmMzMGM4
-YjU0ZDliYwotLS0gL2Rldi9udWxsCisrKyBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2JwZi9i
-ZW5jaHMvYmVuY2hfY3N1bV9kaWZmLmMKQEAgLTAsMCArMSwxNjQgQEAKKy8vIFNQRFgtTGljZW5z
-ZS1JZGVudGlmaWVyOiBHUEwtMi4wCisvKiBDb3B5cmlnaHQgQW1hem9uLmNvbSBJbmMuIG9yIGl0
-cyBhZmZpbGlhdGVzICovCisjaW5jbHVkZSA8YXJncC5oPgorI2luY2x1ZGUgImJlbmNoLmgiCisj
-aW5jbHVkZSAiY3N1bV9kaWZmX2JlbmNoLnNrZWwuaCIKKworc3RhdGljIHN0cnVjdCBjc3VtX2Rp
-ZmZfY3R4IHsKKwlzdHJ1Y3QgY3N1bV9kaWZmX2JlbmNoICpza2VsOworCWludCBwZmQ7Cit9IGN0
-eDsKKworc3RhdGljIHN0cnVjdCBjc3VtX2RpZmZfYXJncyB7CisJdTMyIGJ1ZmZfbGVuOworfSBh
-cmdzID0geworCS5idWZmX2xlbiA9IDMyLAorfTsKKworZW51bSB7CisJQVJHX0JVRkZfTEVOID0g
-NTAwMCwKK307CisKK3N0YXRpYyBjb25zdCBzdHJ1Y3QgYXJncF9vcHRpb24gb3B0c1tdID0gewor
-CXsgImJ1ZmYtbGVuIiwgQVJHX0JVRkZfTEVOLCAiQlVGRl9MRU4iLCAwLAorCSAgIlNldCB0aGUg
-bGVuZ3RoIG9mIHRoZSBidWZmZXIiIH0sCisJe30sCit9OworCitzdGF0aWMgZXJyb3JfdCBjc3Vt
-X2RpZmZfcGFyc2VfYXJnKGludCBrZXksIGNoYXIgKmFyZywgc3RydWN0IGFyZ3Bfc3RhdGUgKnN0
-YXRlKQoreworCXN3aXRjaCAoa2V5KSB7CisJY2FzZSBBUkdfQlVGRl9MRU46CisJCWFyZ3MuYnVm
-Zl9sZW4gPSBzdHJ0b3VsKGFyZywgTlVMTCwgMTApOworCQlpZiAoIWFyZ3MuYnVmZl9sZW4gfHwK
-KwkJICAgIGFyZ3MuYnVmZl9sZW4gPj0gc2l6ZW9mKGN0eC5za2VsLT5yb2RhdGEtPmJ1ZmYpKSB7
-CisJCQlmcHJpbnRmKHN0ZGVyciwgIkludmFsaWQgYnVmZiBsZW4gKGxpbWl0ICV6dSlcbiIsCisJ
-CQkJc2l6ZW9mKGN0eC5za2VsLT5yb2RhdGEtPmJ1ZmYpKTsKKwkJCWFyZ3BfdXNhZ2Uoc3RhdGUp
-OworCQl9CisJCWJyZWFrOworCWRlZmF1bHQ6CisJCXJldHVybiBBUkdQX0VSUl9VTktOT1dOOwor
-CX0KKworCXJldHVybiAwOworfQorCitjb25zdCBzdHJ1Y3QgYXJncCBiZW5jaF9jc3VtX2RpZmZf
-YXJncCA9IHsKKwkub3B0aW9ucyA9IG9wdHMsCisJLnBhcnNlciA9IGNzdW1fZGlmZl9wYXJzZV9h
-cmcsCit9OworCitzdGF0aWMgdm9pZCBjc3VtX2RpZmZfdmFsaWRhdGUodm9pZCkKK3sKKwlpZiAo
-ZW52LmNvbnN1bWVyX2NudCAhPSAwKSB7CisJCWZwcmludGYoc3RkZXJyLCAiY3N1bV9kaWZmIGJl
-bmNobWFyayBkb2Vzbid0IHN1cHBvcnQgY29uc3VtZXIhXG4iKTsKKwkJZXhpdCgxKTsKKwl9Cit9
-CisKK3N0YXRpYyB2b2lkIGNzdW1fZGlmZl9zZXR1cCh2b2lkKQoreworCWludCBlcnI7CisJY2hh
-ciAqYnVmZjsKKwlzaXplX3QgaSwgc3o7CisKKwlzeiA9IHNpemVvZihjdHguc2tlbC0+cm9kYXRh
-LT5idWZmKTsKKworCXNldHVwX2xpYmJwZigpOworCisJY3R4LnNrZWwgPSBjc3VtX2RpZmZfYmVu
-Y2hfX29wZW4oKTsKKwlpZiAoIWN0eC5za2VsKSB7CisJCWZwcmludGYoc3RkZXJyLCAiZmFpbGVk
-IHRvIG9wZW4gc2tlbGV0b25cbiIpOworCQlleGl0KDEpOworCX0KKworCXNyYW5kb20odGltZShO
-VUxMKSk7CisJYnVmZiA9IGN0eC5za2VsLT5yb2RhdGEtPmJ1ZmY7CisKKwkvKgorCSAqIFNldCBm
-aXJzdCA4IGJ5dGVzIG9mIGJ1ZmZlciB0byAweGRlYWRiZWVmZGVhZGJlZWYsIHRoaXMgaXMgbGF0
-ZXIgdXNlZCB0byB2ZXJpZnkgdGhlCisJICogY29ycmVjdG5lc3Mgb2YgdGhlIGhlbHBlciBieSBj
-b21wYXJpbmcgdGhlIGNoZWNrc3VtIHJlc3VsdCBmb3IgMHhkZWFkYmVlZmRlYWRiZWVmIHRoYXQK
-KwkgKiBzaG91bGQgYmUgMHgzYjNiCisJICovCisKKwkqKHU2NCAqKWJ1ZmYgPSAweGRlYWRiZWVm
-ZGVhZGJlZWY7CisKKwlmb3IgKGkgPSA4OyBpIDwgc3o7IGkrKykKKwkJYnVmZltpXSA9ICcxJyAr
-IHJhbmRvbSgpICUgOTsKKworCWN0eC5za2VsLT5yb2RhdGEtPmJ1ZmZfbGVuID0gYXJncy5idWZm
-X2xlbjsKKworCWVyciA9IGNzdW1fZGlmZl9iZW5jaF9fbG9hZChjdHguc2tlbCk7CisJaWYgKGVy
-cikgeworCQlmcHJpbnRmKHN0ZGVyciwgImZhaWxlZCB0byBsb2FkIHNrZWxldG9uXG4iKTsKKwkJ
-Y3N1bV9kaWZmX2JlbmNoX19kZXN0cm95KGN0eC5za2VsKTsKKwkJZXhpdCgxKTsKKwl9Cit9CisK
-K3N0YXRpYyB2b2lkIGNzdW1fZGlmZl9oZWxwZXJfc2V0dXAodm9pZCkKK3sKKwl1OCB0bXBfb3V0
-WzY0IDw8IDJdID0ge307CisJdTggdG1wX2luWzY0XSA9IHt9OworCWludCBlcnIsIHNhdmVkX2Vy
-cm5vOworCisJTElCQlBGX09QVFMoYnBmX3Rlc3RfcnVuX29wdHMsIHRvcHRzLAorCQkuZGF0YV9p
-biA9IHRtcF9pbiwKKwkJLmRhdGFfc2l6ZV9pbiA9IHNpemVvZih0bXBfaW4pLAorCQkuZGF0YV9v
-dXQgPSB0bXBfb3V0LAorCQkuZGF0YV9zaXplX291dCA9IHNpemVvZih0bXBfb3V0KSwKKwkJLnJl
-cGVhdCA9IDEsCisJKTsKKwljc3VtX2RpZmZfc2V0dXAoKTsKKwljdHgucGZkID0gYnBmX3Byb2dy
-YW1fX2ZkKGN0eC5za2VsLT5wcm9ncy5jb21wdXRlX2NoZWNrc3VtKTsKKworCWVyciA9IGJwZl9w
-cm9nX3Rlc3RfcnVuX29wdHMoY3R4LnBmZCwgJnRvcHRzKTsKKwlzYXZlZF9lcnJubyA9IGVycm5v
-OworCisJaWYgKGVycikgeworCQlmcHJpbnRmKHN0ZGVyciwgImZhaWxlZCB0byBydW4gc2V0dXAg
-cHJvZzogZXJyICVkLCByZXN1bHQgJWQsIHNlcnJvciAlZFxuIiwKKwkJCWVyciwgY3R4LnNrZWwt
-PmJzcy0+cmVzdWx0LCBzYXZlZF9lcnJubyk7CisJCWNzdW1fZGlmZl9iZW5jaF9fZGVzdHJveShj
-dHguc2tlbCk7CisJCWV4aXQoMSk7CisJfQorCisJLyogU2FuaXR5IGNoZWNrIGZvciBjb3JyZWN0
-bmVzcyBvZiBoZWxwZXIgKi8KKwlpZiAoYXJncy5idWZmX2xlbiA9PSA4ICYmIGN0eC5za2VsLT5i
-c3MtPnJlc3VsdCAhPSAweDNiM2IpIHsKKwkJZnByaW50ZihzdGRlcnIsICJjc3VtX2RpZmYgaGVs
-cGVyIGJyb2tlbjogYnVmZjogJWx4LCByZXN1bHQ6ICV4LCBleHBlY3RlZDogJXhcbiIsCisJCQkq
-KHU2NCAqKWN0eC5za2VsLT5yb2RhdGEtPmJ1ZmYsIGN0eC5za2VsLT5ic3MtPnJlc3VsdCwgMHgz
-YjNiKTsKKwl9Cit9CisKK3N0YXRpYyB2b2lkICpjc3VtX2RpZmZfcHJvZHVjZXIodm9pZCAqdW51
-c2VkKQoreworCXU4IHRtcF9vdXRbNjQgPDwgMl0gPSB7fTsKKwl1OCB0bXBfaW5bNjRdID0ge307
-CisKKwlMSUJCUEZfT1BUUyhicGZfdGVzdF9ydW5fb3B0cywgdG9wdHMsCisJCS5kYXRhX2luID0g
-dG1wX2luLAorCQkuZGF0YV9zaXplX2luID0gc2l6ZW9mKHRtcF9pbiksCisJCS5kYXRhX291dCA9
-IHRtcF9vdXQsCisJCS5kYXRhX3NpemVfb3V0ID0gc2l6ZW9mKHRtcF9vdXQpLAorCQkucmVwZWF0
-ID0gNjQsCisJKTsKKwl3aGlsZSAodHJ1ZSkKKwkJKHZvaWQpYnBmX3Byb2dfdGVzdF9ydW5fb3B0
-cyhjdHgucGZkLCAmdG9wdHMpOworCXJldHVybiBOVUxMOworfQorCitzdGF0aWMgdm9pZCBjc3Vt
-X2RpZmZfbWVhc3VyZShzdHJ1Y3QgYmVuY2hfcmVzICpyZXMpCit7CisJcmVzLT5oaXRzID0gYXRv
-bWljX3N3YXAoJmN0eC5za2VsLT5ic3MtPmhpdHMsIDApOworfQorCitjb25zdCBzdHJ1Y3QgYmVu
-Y2ggYmVuY2hfY3N1bV9kaWZmID0geworCS5uYW1lID0gImNzdW0tZGlmZi1oZWxwZXIiLAorCS5h
-cmdwID0gJmJlbmNoX2NzdW1fZGlmZl9hcmdwLAorCS52YWxpZGF0ZSA9IGNzdW1fZGlmZl92YWxp
-ZGF0ZSwKKwkuc2V0dXAgPSBjc3VtX2RpZmZfaGVscGVyX3NldHVwLAorCS5wcm9kdWNlcl90aHJl
-YWQgPSBjc3VtX2RpZmZfcHJvZHVjZXIsCisJLm1lYXN1cmUgPSBjc3VtX2RpZmZfbWVhc3VyZSwK
-KwkucmVwb3J0X3Byb2dyZXNzID0gaGl0c19kcm9wc19yZXBvcnRfcHJvZ3Jlc3MsCisJLnJlcG9y
-dF9maW5hbCA9IGhpdHNfZHJvcHNfcmVwb3J0X2ZpbmFsLAorfTsKZGlmZiAtLWdpdCBhL3Rvb2xz
-L3Rlc3Rpbmcvc2VsZnRlc3RzL2JwZi9iZW5jaHMvcnVuX2JlbmNoX2NzdW1fZGlmZi5zaCBiL3Rv
-b2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2JwZi9iZW5jaHMvcnVuX2JlbmNoX2NzdW1fZGlmZi5zaApu
-ZXcgZmlsZSBtb2RlIDEwMDc1NQppbmRleCAwMDAwMDAwMDAwMDAwLi5jNGUxNDdmYmYyZjk4Ci0t
-LSAvZGV2L251bGwKKysrIGIvdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMvYnBmL2JlbmNocy9ydW5f
-YmVuY2hfY3N1bV9kaWZmLnNoCkBAIC0wLDAgKzEsMTAgQEAKKyMhL2Jpbi9iYXNoCisjIFNQRFgt
-TGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wCisKK3NvdXJjZSAuL2JlbmNocy9ydW5fY29tbW9u
-LnNoCisKK3NldCAtZXVmbyBwaXBlZmFpbAorCitmb3IgcyBpbiA0IDggMTYgMjAgMzIgNDAgNjQg
-MTI4IDI1NiA1MTI7IGRvCisJc3VtbWFyaXplICR7c30gIiQoJFJVTl9CRU5DSCAtLWJ1ZmYtbGVu
-PSRzIGNzdW0tZGlmZi1oZWxwZXIpIgorZG9uZQpkaWZmIC0tZ2l0IGEvdG9vbHMvdGVzdGluZy9z
-ZWxmdGVzdHMvYnBmL3Byb2dzL2NzdW1fZGlmZl9iZW5jaC5jIGIvdG9vbHMvdGVzdGluZy9zZWxm
-dGVzdHMvYnBmL3Byb2dzL2NzdW1fZGlmZl9iZW5jaC5jCm5ldyBmaWxlIG1vZGUgMTAwNjQ0Cmlu
-ZGV4IDAwMDAwMDAwMDAwMDAuLjg1MjQ1ZWRkNmY5ZGMKLS0tIC9kZXYvbnVsbAorKysgYi90b29s
-cy90ZXN0aW5nL3NlbGZ0ZXN0cy9icGYvcHJvZ3MvY3N1bV9kaWZmX2JlbmNoLmMKQEAgLTAsMCAr
-MSwyNSBAQAorLy8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAKKy8qIENvcHlyaWdo
-dCBBbWF6b24uY29tIEluYy4gb3IgaXRzIGFmZmlsaWF0ZXMgKi8KKyNpbmNsdWRlIDxsaW51eC90
-eXBlcy5oPgorI2luY2x1ZGUgPGxpbnV4L2JwZi5oPgorI2luY2x1ZGUgPGJwZi9icGZfaGVscGVy
-cy5oPgorI2luY2x1ZGUgPGJwZi9icGZfdHJhY2luZy5oPgorCisjZGVmaW5lIEJVRkZfU1ogNDA5
-NgorCisvKiBXaWxsIGJlIHVwZGF0ZWQgYnkgYmVuY2htYXJrIGJlZm9yZSBwcm9ncmFtIGxvYWRp
-bmcgKi8KK2NvbnN0IGNoYXIgYnVmZltCVUZGX1NaXTsKK2NvbnN0IHZvbGF0aWxlIHVuc2lnbmVk
-IGludCBidWZmX2xlbiA9IDQ7CisKK2xvbmcgaGl0cyA9IDA7CitzaG9ydCByZXN1bHQ7CisKK2No
-YXIgX2xpY2Vuc2VbXSBTRUMoImxpY2Vuc2UiKSA9ICJHUEwiOworCitTRUMoInRjIikKK2ludCBj
-b21wdXRlX2NoZWNrc3VtKHZvaWQgKmN0eCkKK3sKKwlyZXN1bHQgPSBicGZfY3N1bV9kaWZmKDAs
-IDAsICh2b2lkICopYnVmZiwgYnVmZl9sZW4sIDApOworCV9fc3luY19hZGRfYW5kX2ZldGNoKCZo
-aXRzLCAxKTsKKwlyZXR1cm4gMDsKK30KLS0gCjIuNDAuMQoKCl9fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
-eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
-aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Add a selftest for the bpf_csum_diff() helper. This selftests runs the
+helper in all three configurations(push, pull, and diff) and verifies
+its output. The correct results have been computed by hand and by the
+helper's older implementation.
+
+Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
+---
+ .../selftests/bpf/prog_tests/test_csum_diff.c | 408 ++++++++++++++++++
+ .../selftests/bpf/progs/csum_diff_test.c      |  42 ++
+ 2 files changed, 450 insertions(+)
+ create mode 100644 tools/testing/selftests/bpf/prog_tests/test_csum_diff.c
+ create mode 100644 tools/testing/selftests/bpf/progs/csum_diff_test.c
+
+diff --git a/tools/testing/selftests/bpf/prog_tests/test_csum_diff.c b/tools/testing/selftests/bpf/prog_tests/test_csum_diff.c
+new file mode 100644
+index 0000000000000..107b20d43e839
+--- /dev/null
++++ b/tools/testing/selftests/bpf/prog_tests/test_csum_diff.c
+@@ -0,0 +1,408 @@
++// SPDX-License-Identifier: GPL-2.0
++/* Copyright Amazon.com Inc. or its affiliates */
++#include <test_progs.h>
++#include "csum_diff_test.skel.h"
++
++#define BUFF_SZ 512
++
++struct testcase {
++	unsigned long long to_buff[BUFF_SZ / 8];
++	unsigned int to_buff_len;
++	unsigned long long from_buff[BUFF_SZ / 8];
++	unsigned int from_buff_len;
++	unsigned short seed;
++	unsigned short result;
++};
++
++#define NUM_PUSH_TESTS 4
++
++struct testcase push_tests[NUM_PUSH_TESTS] = {
++	{
++		.to_buff = {
++			0xdeadbeefdeadbeef,
++		},
++		.to_buff_len = 8,
++		.from_buff = {},
++		.from_buff_len = 0,
++		.seed = 0,
++		.result = 0x3b3b
++	},
++	{
++		.to_buff = {
++			0xdeadbeefdeadbeef,
++			0xbeefdeadbeefdead,
++		},
++		.to_buff_len = 16,
++		.from_buff = {},
++		.from_buff_len = 0,
++		.seed = 0x1234,
++		.result = 0x88aa
++	},
++	{
++		.to_buff = {
++			0xdeadbeefdeadbeef,
++			0xbeefdeadbeefdead,
++		},
++		.to_buff_len = 15,
++		.from_buff = {},
++		.from_buff_len = 0,
++		.seed = 0x1234,
++#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
++		.result = 0xcaa9
++#else
++		.result = 0x87fd
++#endif
++	},
++	{
++		.to_buff = {
++			0x327b23c66b8b4567,
++			0x66334873643c9869,
++			0x19495cff74b0dc51,
++			0x625558ec2ae8944a,
++			0x46e87ccd238e1f29,
++			0x507ed7ab3d1b58ba,
++			0x41b71efb2eb141f2,
++			0x7545e14679e2a9e3,
++			0x5bd062c2515f007c,
++			0x4db127f812200854,
++			0x1f16e9e80216231b,
++			0x66ef438d1190cde7,
++			0x3352255a140e0f76,
++			0x0ded7263109cf92e,
++			0x1befd79f7fdcc233,
++			0x6b68079a41a7c4c9,
++			0x25e45d324e6afb66,
++			0x431bd7b7519b500d,
++			0x7c83e4583f2dba31,
++			0x62bbd95a257130a3,
++			0x628c895d436c6125,
++			0x721da317333ab105,
++			0x2d1d5ae92443a858,
++			0x75a2a8d46763845e,
++			0x79838cb208edbdab,
++			0x0b03e0c64353d0cd,
++			0x54e49eb4189a769b,
++			0x2ca8861171f32454,
++			0x02901d820836c40e,
++			0x081386413a95f874,
++			0x7c3dbd3d1e7ff521,
++			0x6ceaf087737b8ddc,
++			0x4516dde922221a70,
++			0x614fd4a13006c83e,
++			0x5577f8e1419ac241,
++			0x05072367440badfc,
++			0x77465f013804823e,
++			0x5c482a977724c67e,
++			0x5e884adc2463b9ea,
++			0x2d51779651ead36b,
++			0x153ea438580bd78f,
++			0x70a64e2a3855585c,
++			0x2a487cb06a2342ec,
++			0x725a06fb1d4ed43b,
++			0x57e4ccaf2cd89a32,
++			0x4b588f547a6d8d3c,
++			0x6de91b18542289ec,
++			0x7644a45c38437fdb,
++			0x684a481a32fff902,
++			0x749abb43579478fe,
++			0x1ba026fa3dc240fb,
++			0x75c6c33a79a1deaa,
++			0x70c6a52912e685fb,
++			0x374a3fe6520eedd1,
++			0x23f9c13c4f4ef005,
++			0x275ac794649bb77c,
++			0x1cf10fd839386575,
++			0x235ba861180115be,
++			0x354fe9f947398c89,
++			0x741226bb15b5af5c,
++			0x10233c990d34b6a8,
++			0x615740953f6ab60f,
++			0x77ae35eb7e0c57b1,
++			0x310c50b3579be4f1,
++		},
++		.to_buff_len = 512,
++		.from_buff = {},
++		.from_buff_len = 0,
++		.seed = 0xffff,
++		.result = 0xca45
++	},
++};
++
++#define NUM_PULL_TESTS 4
++
++struct testcase pull_tests[NUM_PULL_TESTS] = {
++	{
++		.from_buff = {
++			0xdeadbeefdeadbeef,
++		},
++		.from_buff_len = 8,
++		.to_buff = {},
++		.to_buff_len = 0,
++		.seed = 0,
++		.result = 0xc4c4
++	},
++	{
++		.from_buff = {
++			0xdeadbeefdeadbeef,
++			0xbeefdeadbeefdead,
++		},
++		.from_buff_len = 16,
++		.to_buff = {},
++		.to_buff_len = 0,
++		.seed = 0x1234,
++		.result = 0x9bbd
++	},
++	{
++		.from_buff = {
++			0xdeadbeefdeadbeef,
++			0xbeefdeadbeefdead,
++		},
++		.from_buff_len = 15,
++		.to_buff = {},
++		.to_buff_len = 0,
++		.seed = 0x1234,
++#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
++		.result = 0x59be
++#else
++		.result = 0x9c6a
++#endif
++	},
++	{
++		.from_buff = {
++			0x327b23c66b8b4567,
++			0x66334873643c9869,
++			0x19495cff74b0dc51,
++			0x625558ec2ae8944a,
++			0x46e87ccd238e1f29,
++			0x507ed7ab3d1b58ba,
++			0x41b71efb2eb141f2,
++			0x7545e14679e2a9e3,
++			0x5bd062c2515f007c,
++			0x4db127f812200854,
++			0x1f16e9e80216231b,
++			0x66ef438d1190cde7,
++			0x3352255a140e0f76,
++			0x0ded7263109cf92e,
++			0x1befd79f7fdcc233,
++			0x6b68079a41a7c4c9,
++			0x25e45d324e6afb66,
++			0x431bd7b7519b500d,
++			0x7c83e4583f2dba31,
++			0x62bbd95a257130a3,
++			0x628c895d436c6125,
++			0x721da317333ab105,
++			0x2d1d5ae92443a858,
++			0x75a2a8d46763845e,
++			0x79838cb208edbdab,
++			0x0b03e0c64353d0cd,
++			0x54e49eb4189a769b,
++			0x2ca8861171f32454,
++			0x02901d820836c40e,
++			0x081386413a95f874,
++			0x7c3dbd3d1e7ff521,
++			0x6ceaf087737b8ddc,
++			0x4516dde922221a70,
++			0x614fd4a13006c83e,
++			0x5577f8e1419ac241,
++			0x05072367440badfc,
++			0x77465f013804823e,
++			0x5c482a977724c67e,
++			0x5e884adc2463b9ea,
++			0x2d51779651ead36b,
++			0x153ea438580bd78f,
++			0x70a64e2a3855585c,
++			0x2a487cb06a2342ec,
++			0x725a06fb1d4ed43b,
++			0x57e4ccaf2cd89a32,
++			0x4b588f547a6d8d3c,
++			0x6de91b18542289ec,
++			0x7644a45c38437fdb,
++			0x684a481a32fff902,
++			0x749abb43579478fe,
++			0x1ba026fa3dc240fb,
++			0x75c6c33a79a1deaa,
++			0x70c6a52912e685fb,
++			0x374a3fe6520eedd1,
++			0x23f9c13c4f4ef005,
++			0x275ac794649bb77c,
++			0x1cf10fd839386575,
++			0x235ba861180115be,
++			0x354fe9f947398c89,
++			0x741226bb15b5af5c,
++			0x10233c990d34b6a8,
++			0x615740953f6ab60f,
++			0x77ae35eb7e0c57b1,
++			0x310c50b3579be4f1,
++		},
++		.from_buff_len = 512,
++		.to_buff = {},
++		.to_buff_len = 0,
++		.seed = 0xffff,
++		.result = 0x35ba
++	},
++};
++
++#define NUM_DIFF_TESTS 4
++
++struct testcase diff_tests[NUM_DIFF_TESTS] = {
++	{
++		.from_buff = {
++			0xdeadbeefdeadbeef,
++		},
++		.from_buff_len = 8,
++		.to_buff = {
++			0xabababababababab,
++		},
++		.to_buff_len = 8,
++		.seed = 0,
++		.result = 0x7373
++	},
++	{
++		.from_buff = {
++			0xdeadbeefdeadbeef,
++		},
++		.from_buff_len = 7,
++		.to_buff = {
++			0xabababababababab,
++		},
++		.to_buff_len = 7,
++		.seed = 0,
++#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
++		.result = 0xa673
++#else
++		.result = 0x73b7
++#endif
++	},
++	{
++		.from_buff = {
++			0,
++		},
++		.from_buff_len = 8,
++		.to_buff = {
++			0xabababababababab,
++		},
++		.to_buff_len = 8,
++		.seed = 0,
++		.result = 0xaeae
++	},
++	{
++		.from_buff = {
++			0xdeadbeefdeadbeef
++		},
++		.from_buff_len = 8,
++		.to_buff = {
++			0,
++		},
++		.to_buff_len = 8,
++		.seed = 0xffff,
++		.result = 0xc4c4
++	},
++};
++
++#define NUM_EDGE_TESTS 4
++
++struct testcase edge_tests[NUM_EDGE_TESTS] = {
++	{
++		.from_buff = {},
++		.from_buff_len = 0,
++		.to_buff = {},
++		.to_buff_len = 0,
++		.seed = 0,
++		.result = 0
++	},
++	{
++		.from_buff = {
++			0x1234
++		},
++		.from_buff_len = 0,
++		.to_buff = {
++			0x1234
++		},
++		.to_buff_len = 0,
++		.seed = 0,
++		.result = 0
++	},
++	{
++		.from_buff = {},
++		.from_buff_len = 0,
++		.to_buff = {},
++		.to_buff_len = 0,
++		.seed = 0x1234,
++		.result = 0x1234
++	},
++	{
++		.from_buff = {},
++		.from_buff_len = 512,
++		.to_buff = {},
++		.to_buff_len = 0,
++		.seed = 0xffff,
++		.result = 0xffff
++	},
++};
++
++static unsigned short trigger_csum_diff(const struct csum_diff_test *skel)
++{
++	u8 tmp_out[64 << 2] = {};
++	u8 tmp_in[64] = {};
++	int err;
++	int pfd;
++
++	LIBBPF_OPTS(bpf_test_run_opts, topts,
++		.data_in = tmp_in,
++		.data_size_in = sizeof(tmp_in),
++		.data_out = tmp_out,
++		.data_size_out = sizeof(tmp_out),
++		.repeat = 1,
++	);
++	pfd = bpf_program__fd(skel->progs.compute_checksum);
++	err = bpf_prog_test_run_opts(pfd, &topts);
++	if (err)
++		return -1;
++
++	return skel->bss->result;
++}
++
++static void test_csum_diff(struct testcase *tests, int num_tests)
++{
++	struct csum_diff_test *skel;
++	unsigned short got;
++	int err;
++
++	for (int i = 0; i < num_tests; i++) {
++		skel = csum_diff_test__open();
++		if (!ASSERT_OK_PTR(skel, "csum_diff_test open"))
++			return;
++
++		skel->rodata->to_buff_len = tests[i].to_buff_len;
++		skel->rodata->from_buff_len = tests[i].from_buff_len;
++
++		err = csum_diff_test__load(skel);
++		if (!ASSERT_EQ(err, 0, "csum_diff_test load"))
++			goto out;
++
++		memcpy(skel->bss->to_buff, tests[i].to_buff, tests[i].to_buff_len);
++		memcpy(skel->bss->from_buff, tests[i].from_buff, tests[i].from_buff_len);
++		skel->bss->seed = tests[i].seed;
++
++		got = trigger_csum_diff(skel);
++		ASSERT_EQ(got, tests[i].result, "csum_diff result");
++
++		csum_diff_test__destroy(skel);
++	}
++
++	return;
++out:
++	csum_diff_test__destroy(skel);
++}
++
++void test_test_csum_diff(void)
++{
++	if (test__start_subtest("csum_diff_push"))
++		test_csum_diff(push_tests, NUM_PUSH_TESTS);
++	if (test__start_subtest("csum_diff_pull"))
++		test_csum_diff(pull_tests, NUM_PULL_TESTS);
++	if (test__start_subtest("csum_diff_diff"))
++		test_csum_diff(diff_tests, NUM_DIFF_TESTS);
++	if (test__start_subtest("csum_diff_edge"))
++		test_csum_diff(edge_tests, NUM_EDGE_TESTS);
++}
+diff --git a/tools/testing/selftests/bpf/progs/csum_diff_test.c b/tools/testing/selftests/bpf/progs/csum_diff_test.c
+new file mode 100644
+index 0000000000000..9438f1773a589
+--- /dev/null
++++ b/tools/testing/selftests/bpf/progs/csum_diff_test.c
+@@ -0,0 +1,42 @@
++// SPDX-License-Identifier: GPL-2.0
++/* Copyright Amazon.com Inc. or its affiliates */
++#include <linux/types.h>
++#include <linux/bpf.h>
++#include <bpf/bpf_helpers.h>
++#include <bpf/bpf_tracing.h>
++
++#define BUFF_SZ 512
++
++/* Will be updated by benchmark before program loading */
++char to_buff[BUFF_SZ];
++const volatile unsigned int to_buff_len = 0;
++char from_buff[BUFF_SZ];
++const volatile unsigned int from_buff_len = 0;
++unsigned short seed = 0;
++
++short result;
++
++char _license[] SEC("license") = "GPL";
++
++SEC("tc")
++int compute_checksum(void *ctx)
++{
++	int to_len_half = to_buff_len / 2;
++	int from_len_half = from_buff_len / 2;
++	short result2;
++
++	/* Calculate checksum in one go */
++	result2 = bpf_csum_diff((void *)from_buff, from_buff_len,
++				(void *)to_buff, to_buff_len, seed);
++
++	/* Calculate checksum by concatenating bpf_csum_diff()*/
++	result = bpf_csum_diff((void *)from_buff, from_buff_len - from_len_half,
++			       (void *)to_buff, to_buff_len - to_len_half, seed);
++
++	result = bpf_csum_diff((void *)from_buff + (from_buff_len - from_len_half), from_len_half,
++			       (void *)to_buff + (to_buff_len - to_len_half), to_len_half, result);
++
++	result = (result == result2) ? result : 0;
++
++	return 0;
++}
+-- 
+2.40.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
