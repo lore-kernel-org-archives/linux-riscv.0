@@ -4,189 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3699AD0E6D6
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Oct 2024 09:32:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6992ED0E6E0
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Oct 2024 10:16:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	References:Message-ID:Subject:CC:To:From:Date:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ThBlt/x2w4HldDJTd4/TidhmTm+nbgJWsBi+L1bBBQs=; b=jk8z/qhZ44JxG4
-	C9gMwAXK8Hz+Snpv5n3ndGtHi1oCg5hxQBfcp4p8zTfDBhP4KU0YRyYSQa5ikbPskoywkZ8mlvR/u
-	xj9qYO93aYuoGVrh3ufSOB8PLcL90UuwzGDVlIMYXg5mDKt4bPfGvifeYDVqpA6Q1vYBHnMZaeWgn
-	Fvr3iaLLxM9YSKZseXPYCFGBE+GFEYLFMppyJoFtvjiHNA9iU1V5u9dBbO+jXEGnRp06kPYupEM50
-	TgXuHaxRxnpMQcCd12/rTGowmIJ+dbSK6ST+3bKasvg9GG+TDuTDrjFcBRCHXmLDD6U9g1Mx3CzrR
-	68KSwzkM4u8vMmSllLxA==;
+	List-Owner; bh=1KzDSm0lw906G1tJQqLbw/N0mLfbXBZOVPaOgdmbuEw=; b=C5MrLGGtV1quKs
+	iIirV2Np2vx/JPqWVx+toCD91fPyrk6j3FitU35vGFBk3D89qw77N2tE+Jq+9zf7+NKGGPQbVgb8U
+	s5f/T9pR/trvuxu2qmBTMrLMO/h0eV/9rNnkcBsW0auVxdutjS7j4hQOE3QufUGL7fZ9QQfC6/quy
+	8Yd7VKdNbmjdNMiv19tlbg1q/QcpB+PMBWrIFTqN6IbwtQN5JInJlwC5S9dx4FAKCywpCHOCKbBuh
+	Mlm9tP1YxEvkK6PSNsMq0UXveTM6rqhdRWwmqCknVrFb2TSbYMWvjFhsUZt6TxxWB2kCAQpZk064D
+	nsN0rGkwwBsGUNG1VLYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2olz-00000006i2k-1HAy;
-	Mon, 21 Oct 2024 09:32:23 +0000
-Received: from mgamail.intel.com ([198.175.65.20])
+	id 1t2pSx-00000006rGl-17Hg;
+	Mon, 21 Oct 2024 10:16:47 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2oiF-00000006hUv-24I5;
-	Mon, 21 Oct 2024 09:28:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1729502911; x=1761038911;
-  h=date:from:to:cc:subject:message-id:reply-to:references:
-   content-transfer-encoding:in-reply-to:mime-version;
-  bh=Epds4+2pgtkwhr6rBnNnQTiKg8e55kPAlcatmgRKBL4=;
-  b=nxvWLEQk5FR/AshLMIFUgsKmjdquozLce3lRhZ+N8H5aHy9zY9RJqhwb
-   IDEo7VpVg6KpwbPa8MMgJNkxWaPP9X1L3OpcEiS3o4/tG9Ta4YEp9GG70
-   a2xtqRTSGZdMmvHYuLE8ErjHTth73tTKNnwPTCYX8hj3PfhwWwTgb91+I
-   COncm7YGu5PnCZv3WaCPvb2xBYnx+9wNgWvllVjbbK9A4ZnZPmKafKh8v
-   A8L865c5RrTKQsTt0SS+SNrzugsyibcnf9bOtK3i1iS7T/uYvbJRCCJbT
-   cArRwNKDXfLoE/m1ubZsnfRZzsVg4gUWlUQozaGEpy8xR7CSlfYKW1Jrf
-   Q==;
-X-CSE-ConnectionGUID: /7z/kR+kRK+eXic8WFDcbQ==
-X-CSE-MsgGUID: SFkt2FclThyEODNipgsrnA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="28755955"
-X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
-   d="scan'208";a="28755955"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Oct 2024 02:28:09 -0700
-X-CSE-ConnectionGUID: beSpOexKStaBOoDPdQyJmA==
-X-CSE-MsgGUID: Exur2xPsQA2+9BS/AGT4rA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,220,1725346800"; 
-   d="scan'208";a="79819252"
-Received: from orsmsx602.amr.corp.intel.com ([10.22.229.15])
-  by fmviesa010.fm.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 21 Oct 2024 02:28:09 -0700
-Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
- ORSMSX602.amr.corp.intel.com (10.22.229.15) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39; Mon, 21 Oct 2024 02:28:08 -0700
-Received: from ORSEDG602.ED.cps.intel.com (10.7.248.7) by
- orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39 via Frontend Transport; Mon, 21 Oct 2024 02:28:08 -0700
-Received: from NAM12-MW2-obe.outbound.protection.outlook.com (104.47.66.40) by
- edgegateway.intel.com (134.134.137.103) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Mon, 21 Oct 2024 02:28:08 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FFy2wIpMlvgQktZxFrmw7VjD6zdjYqOoEuIYP++LPvZl2ttG/XhWboYDvbJbuVfu7pKAkjYjMgfnNUi2HwpmDck1BlGJGUaR1lJl8/6yt5eu5WG2COcdH7z8SCcdP5rCkzwq5pJy2rnMjgCrEIzgCQpUbSJFmGAm3GJV7xWA8AOVzfPWhkfjRbe5OP7hP1Hc3nCHa+fQ3CejEC0EsUocf1EOpVjEW0fZrZ+GAbLv2N4CbtlIns36C1uoUEcuWqqHN1R7/og/XUn+PjBmt0do3IAT9TA73NW3f+y+lUttxblobG9RLijBrypwxeXtGqnse+TuKktSjkmMnwgHKpYMKA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NTkgXDOF0scUTiBsHdrGGjuURL3Pf+Tp+TC0z+VbsWM=;
- b=G7l2ggLVVIhPBgLkr7x2FIaN/7d4Cf1Oo6fIaYyBVzZzUQJsdoi4Gd2B55h5nTKEwwDJ1Cw6HGOj91xcHSLtM7cpLZSZwCMZt5YNn2w2xhIMhfnJfhyZmMz58ud09xKqfiPlazSVpLBMRMriGO9udiIH9oAw9JpzVJpKpRluPlmak/estYpOWSNvBDT76dUtJYsEXsCVIHENr54qEc28/YjqCgo3BDO4dE21lLQ0bk80lX3bKlh2dkVDXUJJAimO2/djp4sl1Tuenr9LiLwwDu1SIytnJwatF6gDZPrKwn+8628D3LzEVIbu8DwLKUQHGNIem/MRY24uhZoQ1ZHzFg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from DS7PR11MB5966.namprd11.prod.outlook.com (2603:10b6:8:71::6) by
- DM6PR11MB4532.namprd11.prod.outlook.com (2603:10b6:5:2aa::21) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8069.28; Mon, 21 Oct 2024 09:28:06 +0000
-Received: from DS7PR11MB5966.namprd11.prod.outlook.com
- ([fe80::e971:d8f4:66c4:12ca]) by DS7PR11MB5966.namprd11.prod.outlook.com
- ([fe80::e971:d8f4:66c4:12ca%5]) with mapi id 15.20.8069.027; Mon, 21 Oct 2024
- 09:28:06 +0000
-Date: Mon, 21 Oct 2024 17:25:40 +0800
-From: Yan Zhao <yan.y.zhao@intel.com>
-To: Sean Christopherson <seanjc@google.com>
-CC: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
-	"Oliver Upton" <oliver.upton@linux.dev>, Tianrui Zhao
-	<zhaotianrui@loongson.cn>, "Bibo Mao" <maobibo@loongson.cn>, Huacai Chen
-	<chenhuacai@kernel.org>, "Michael Ellerman" <mpe@ellerman.id.au>, Anup Patel
-	<anup@brainfault.org>, "Paul Walmsley" <paul.walmsley@sifive.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Christian
- Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank
-	<frankja@linux.ibm.com>, "Claudio Imbrenda" <imbrenda@linux.ibm.com>,
-	<kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<kvmarm@lists.linux.dev>, <loongarch@lists.linux.dev>,
-	<linux-mips@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
-	<kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Alex =?iso-8859-1?Q?Benn=E9e?=
-	<alex.bennee@linaro.org>, David Matlack <dmatlack@google.com>, David Stevens
-	<stevensd@chromium.org>, Andrew Jones <ajones@ventanamicro.com>
-Subject: Re: [PATCH v13 34/85] KVM: Get writable mapping for __kvm_vcpu_map()
- only when necessary
-Message-ID: <ZxYeFKl2KbZ3Ila1@yzhao56-desk.sh.intel.com>
-References: <20241010182427.1434605-1-seanjc@google.com>
- <20241010182427.1434605-35-seanjc@google.com>
-Content-Disposition: inline
-In-Reply-To: <20241010182427.1434605-35-seanjc@google.com>
-X-ClientProxiedBy: SG2PR01CA0129.apcprd01.prod.exchangelabs.com
- (2603:1096:4:40::33) To DS7PR11MB5966.namprd11.prod.outlook.com
- (2603:10b6:8:71::6)
+	id 1t2pLk-00000006q3E-0dFX
+	for linux-riscv@lists.infradead.org;
+	Mon, 21 Oct 2024 10:09:23 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-20cb47387ceso36913595ad.1
+        for <linux-riscv@lists.infradead.org>; Mon, 21 Oct 2024 03:09:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1729505359; x=1730110159; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=Yeq8CDDkDOrSnhrxHij8VmLVC6Z1DWY5RzKY0fBvsb4=;
+        b=ENGjM8zNGu1US7k4Q5lvsHHwkf5Viqid0hATIGS/Cr3Qz3KWASW3VRYomgDd77P/51
+         0KjwfcszjwoJjteFSktCO/ZVjTR18Ee32QI95/2UDITfZ2d9xZ/8z00Fy7nitO2e9b9e
+         H9Q7CTRU+jDmaxcCa1KfhJVeWEqKjP495mq1/e+pUXrZrjzdwOZ+L++W2PUIbm3VKulF
+         fGW0H0Qm6K299t3BY2RfNCTsTQLssxx4kFfqacQhmM+V6e7kG0mrj5TRN9q1E1tnTO1b
+         q03fz63tgseOLjN3PIwtTloV3o6CGHjGUIAg397kq6fWARB/qN2KDBA5Kce/EtZybkKJ
+         7UVA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729505359; x=1730110159;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Yeq8CDDkDOrSnhrxHij8VmLVC6Z1DWY5RzKY0fBvsb4=;
+        b=B89f1P3WP5qtKncypBwX+rVEIAgBcUDKiis6hvgZQAFlZPjl9D2JPYm6L+mfUyF8iN
+         u1W0IvyU6fl53K1bMit2s554TDSk8xQXnWQgVQ2orHSd9GQmjTlfu4mKJO7wL3hEdxXD
+         KSSNIDegAX/PSzaE6ztToScSDmWWU9ssK1OJshwlhlK1qQPCO5MKdhcbYszf4fZ/Rl6k
+         8bKm2sn9IYsnIou9QMMZkE/53AAsuID4cT/cZzZiOy5JqXlDjsDGXQpKF9bNPORp5IWo
+         DXDWZ86KBTs27X7bK3ufEfSVRPuVCV9n5W61CB6/o2AMR3mbtRvetYP5e6NI5E4hLGIi
+         0+Kg==
+X-Forwarded-Encrypted: i=1; AJvYcCW8UGJm9NQQAuqM2L8Z3bhz3hS3p8XSIjJYf8YzbMQqP0JoWdMaG6Pxc2pWfylImcXhIQcG5/Mj7xtYeA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwNkb6xqB+oo1u8rfStXyjGmvG6Em13lhqPHUkWXgKiIIjO7gx9
+	D+EnYUpT63V26cO0QF+om27bhfZCWZeb+xLYsHAkArmKuABNTjbK
+X-Google-Smtp-Source: AGHT+IGBVSe3fGC8jwkNg83HVZynlz+8eS6hkHiMJMQb3ltPpok70fN7+VYi13IU+PQuxS5Q2gB9RQ==
+X-Received: by 2002:a17:903:2342:b0:20c:7a0b:74a5 with SMTP id d9443c01a7336-20e5a9055e3mr143289685ad.39.1729505358749;
+        Mon, 21 Oct 2024 03:09:18 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-20e7ef0e0ecsm22543135ad.109.2024.10.21.03.09.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 21 Oct 2024 03:09:18 -0700 (PDT)
+Date: Mon, 21 Oct 2024 18:08:59 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>, 
+	Inochi Amaoto <inochiama@gmail.com>
+Cc: Chen Wang <unicorn_wang@outlook.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Inochi Amaoto <inochiama@outlook.com>, Yixun Lan <dlan@gentoo.org>, LKML <linux-kernel@vger.kernel.org>, 
+	linux-serial <linux-serial@vger.kernel.org>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 2/2] serial: 8250_dw: Add Sophgo SG2044 quirk
+Message-ID: <tm7jtf3swggiilznwo3xcqjlhd2a7cguwk3nay3bhmaxo23mf5@qw2fyjwapoxe>
+References: <20241021072606.585878-1-inochiama@gmail.com>
+ <20241021072606.585878-3-inochiama@gmail.com>
+ <29d8e2a6-d0e7-0f74-1f5c-4f285ec1e9ee@linux.intel.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS7PR11MB5966:EE_|DM6PR11MB4532:EE_
-X-MS-Office365-Filtering-Correlation-Id: 59c9706a-6f7c-43d2-4905-08dcf1b2ab8e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?63GSDnQpMLyG4vDxagETWz//ScdtoD7cdrBW0mv/3z/dtRmgG+WANa8ib3?=
- =?iso-8859-1?Q?qvmCwhDQg8quxg3xceghLuw3LTIl3m6KEmrsk5m8kFRDZx+6Ouh6xoVY/Y?=
- =?iso-8859-1?Q?EPL1X1ROzqGxwbDjyLyEp8UWMgwWRTN3/I256caJLeFpWQKJhd8AJ1iIlW?=
- =?iso-8859-1?Q?aoXI5n8TnniyTKj194HoHC2/eBCC6icEzcqezmeSqHJsAlEfyOihltcbXX?=
- =?iso-8859-1?Q?v9xNAlhkvVy7IpZNs4Ms+TlPt+N+0yK0awhAfMOa84kHNbu+XvJ30s8JCP?=
- =?iso-8859-1?Q?4PngkZcpgHWHUEl4Wog9DE8tNfvQ3XDLq0zKd9ImO9PfAfa8rGXZ6THeG5?=
- =?iso-8859-1?Q?4etlGk/LhPzf3dgFBvqUPHVLAWuwqcSLCqEWfpBrlgnsg4YW9px8s4GZFi?=
- =?iso-8859-1?Q?+baBOpJnyJCY6rk/VfzKEPUpaMN61Cfg/5qSJKYrfdftQ3bMT/f9I26XOe?=
- =?iso-8859-1?Q?QydYlKfHbCkNBOdMl1sT0YiXvGFsIyTHmbx3AaJydbmgbHUDiFCyrOW/MM?=
- =?iso-8859-1?Q?41V2zs/TW038dEdKtdfvH0O4RvPWo/lUVJ4lUVPVDdwUF6tVXzzCeX/vCq?=
- =?iso-8859-1?Q?V9xV4O21oqn3/HJgmIIBxAZ7+NZqGXomxuAGySy/iQisTbMobhmEZO6Moz?=
- =?iso-8859-1?Q?DdAeOkBeRYyPzQBRuYnkj9U790LSMt/g66f1kJIORBI6/pnGpATh/yWiYB?=
- =?iso-8859-1?Q?VVehzl+ag+dzBmqwZPrH6peyNvsrZSDejVRAxQZgtQAMnFQzRHQUk6uLn8?=
- =?iso-8859-1?Q?P11y+/bTZmTjbpHaruQj4UeNpHFk0o+8ourWvK5OniRS5rLkslAWtiyxT9?=
- =?iso-8859-1?Q?zRqEluBAZmLcxmTYi5rJpTsHw8BIcNlEgYTKpe/lDATnHnjo0IVBhK5OaF?=
- =?iso-8859-1?Q?95FDQ8Bu5PP4uUDezhMrgcLGHmkjlkBy4qf7ywT/rYHyiKJLKIc6D4Ioga?=
- =?iso-8859-1?Q?wpWxHAeIsITLsDjcsoPtT9y7OlseE22105+ZilFOCkuM5GFSZREW0x8hW/?=
- =?iso-8859-1?Q?jlxVCeEOhNnAFTpsxXKIYKEm0IcJhqQiXFIey9nVtf3qOQCr05riva+gi1?=
- =?iso-8859-1?Q?Abitw30s6bT2p31g82pn7vEPv/lqEM2bfvnS5A207xsiZ6OJlJmVo1DjTJ?=
- =?iso-8859-1?Q?lFRTf+A8tHhOFjPSn2Q8QfECbipJZ5LZ95jyEGDx6g0tS/bJHOsO+3kC9a?=
- =?iso-8859-1?Q?PbxUU4c9r6GOrTokLjkuru/wjmsHEK/ouzrPY3DCPNtPGnAZ75hgUbgG59?=
- =?iso-8859-1?Q?RPSe6k9XJcSCQJ/2SAwOyeifCKyiYSRv3LV4w3PvbQJ64RoeviVOclXG+S?=
- =?iso-8859-1?Q?isDU9158mRW6t0rNTjA2/2jZ/URSjOX/qsSaUplUzBpMN7o=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR11MB5966.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?1ouk1zxM0cFvlg5i6PlS5Gfl846MLwAVu04bDdanHF2oGS/Y1ytsLsF3P+?=
- =?iso-8859-1?Q?pBlfRmKQLnNNQQP8LkX/6emf+89e7IM3x2czOFALrSTHiMA0ehwjmnWPm9?=
- =?iso-8859-1?Q?qPZ+0voDwS0ObswHJMgHETB3KLRR2Evap0opWa7EgicSBXlihS2ThOFg5k?=
- =?iso-8859-1?Q?Ut56wLqWC3WIp3mlAM2XdqSKffGA9tBMWrM1+B4GNJh0eMTgpUhvelhZrW?=
- =?iso-8859-1?Q?svOoGkkbl5nF4kD3OJcQVcfn4CmYMUpSkGqA5gQ7mQSKkZWXRI1MhzozAF?=
- =?iso-8859-1?Q?7oVC5lSTGjeblPhd4+iwMXk8FSHtGlcp/4rFOL6bEjmZakb/qxnI1j6pZ1?=
- =?iso-8859-1?Q?FRiJnuXfT9W1gaZ9nVcbBt0OR2X3OfRybKul4QzSumF8/C6M1LhVjOvfnn?=
- =?iso-8859-1?Q?Il7DcOJv/5M9YfdJGWTJG4qC649MyW/rtFr+bUdxdDSoiVBzA/VB7eWNYA?=
- =?iso-8859-1?Q?1LQfXfX2V9sXCUCbq1vVvV8+0pRV0rtddC/H8UiwKMJsi9FWu1ev/W5PDp?=
- =?iso-8859-1?Q?b/Hc77xUsJNjullQJPl+LL2fXBVNhD0dWkf7WOi9mdVx3A4tb5nx4uL88t?=
- =?iso-8859-1?Q?GIb2EurAtbDC9eWhg4md3EJTM6HGByY7L+9rDESA5EMCjtKBFgaSXgIzf4?=
- =?iso-8859-1?Q?tzcBf9lrAEuQCkjv40aapbbMbOPzgNv3JlAHtgv7EpEh7k9CWE6bxjd5TP?=
- =?iso-8859-1?Q?SHQieafY7ovs4MNCxqCcyebvVHmTmZ9GbmPNsNy+jo4zL6zmupTg/GvOkW?=
- =?iso-8859-1?Q?QLd0/9LK/hWtdtCKoA1RLAOJJ/V9MpMJ+JJDmp15h6PIEWvTXPF2PBWucS?=
- =?iso-8859-1?Q?iLY8gh2828fDcM533Ry4eN/ASTHISDG4RATVnl+goqXzN3Ux1o3VnhhoD/?=
- =?iso-8859-1?Q?++5xj17lECd0k2I2U+5pQbAP0XBKQgz6kHFzSNN4tlxtT69qLh7MRcEEFj?=
- =?iso-8859-1?Q?Cx2XGAqkADiFul4WRCkQlXm6tskKeDKuZfeLhtlu7s1g7krfnNQZI9pS+/?=
- =?iso-8859-1?Q?gkWWHJzG7PwKQsFsQBVHbZdSiGkY4VTfIQp9mgi33f1oT2+RAdoyEdlDX+?=
- =?iso-8859-1?Q?EZVDRlwQtbqgCKScMXPpYzVCw89x4VOsKFb9uRENMWeSdRtMH/T4uTH1gn?=
- =?iso-8859-1?Q?R8S5V+d+4g8kDAIwo/2If8ouLC3kXT2jUowx4/inHWoC6E3JXz8K7zmNGy?=
- =?iso-8859-1?Q?7Yy5Vpe08vS+QL/VezYSOLVopv/rangoe+Amn1WpRcw5yaLuGNQuA6TZdU?=
- =?iso-8859-1?Q?gE9Yc4Xe0cA3Kg90RDbAAK3KI5WnSzcnA5ld50VVgzzMFkxIURBWR9W9Vh?=
- =?iso-8859-1?Q?+7pTR/wJqwftm0o+dK0Maf4crMJQ33w4swkAGLMgSw7hFZYofbPNHETKkB?=
- =?iso-8859-1?Q?fn5y7iA8l/WVGQstVHToYMBmY8Z/9szgV+akRIVjinL8DsMeFGsNRKaxwb?=
- =?iso-8859-1?Q?NrGbfZgsrjkvLhUzX/V449Bwk2O9zwNfic81iBB/VUTT9nEOXUlBTguOTE?=
- =?iso-8859-1?Q?GxZO8Az851UWfC16pp1doEIijgVJpf7FYCSh4dL+CabVSx4ur/Vb0Gi+EG?=
- =?iso-8859-1?Q?J6xdmbHBCBHwYTvnla7Yii34vnpGOc0XWeWc2FJW6R/81KTavdgNeS8XSH?=
- =?iso-8859-1?Q?BbxhP8hxcYTA64HoE6QAWhCrCAF9ZL4cec?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 59c9706a-6f7c-43d2-4905-08dcf1b2ab8e
-X-MS-Exchange-CrossTenant-AuthSource: DS7PR11MB5966.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Oct 2024 09:28:06.5947
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: a8vFIqIIcO/JeYMeI9XYx0f2oNHcbxflot6Nu1kY4QHtjO6daUpQhBJdOqeMhopyQca1AHBa2SOnxO/AuJJkdg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR11MB4532
-X-OriginatorOrg: intel.com
+Content-Disposition: inline
+In-Reply-To: <29d8e2a6-d0e7-0f74-1f5c-4f285ec1e9ee@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241021_022831_603467_F2B07F5C 
-X-CRM114-Status: GOOD (  17.02  )
+X-CRM114-CacheID: sfid-20241021_030920_219920_2CE19827 
+X-CRM114-Status: GOOD (  21.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -198,46 +96,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Yan Zhao <yan.y.zhao@intel.com>
 Content-Type: text/plain; charset="iso-8859-1"
 Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 10, 2024 at 11:23:36AM -0700, Sean Christopherson wrote:
-> When creating a memory map for read, don't request a writable pfn from the
-> primary MMU.  While creating read-only mappings can be theoretically slow=
-er,
-> as they don't play nice with fast GUP due to the need to break CoW before
-> mapping the underlying PFN, practically speaking, creating a mapping isn't
-> a super hot path, and getting a writable mapping for reading is weird and
-> confusing.
+On Mon, Oct 21, 2024 at 11:52:38AM +0300, Ilpo J=E4rvinen wrote:
+> On Mon, 21 Oct 2024, Inochi Amaoto wrote:
 > =
 
-> Tested-by: Alex Benn=E9e <alex.bennee@linaro.org>
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  virt/kvm/kvm_main.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> > SG2044 relys on an internal divisor when calculating bitrate, which
+> > means a wrong clock for the most common bitrates. So add a quirk for
+> > this uart device to skip the set rate call and only relys on the
+> > internal UART divisor.
+> > =
+
+> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 > =
 
-> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-> index 080740f65061..b845e9252633 100644
-> --- a/virt/kvm/kvm_main.c
-> +++ b/virt/kvm/kvm_main.c
-> @@ -3122,7 +3122,7 @@ int __kvm_vcpu_map(struct kvm_vcpu *vcpu, gfn_t gfn=
-, struct kvm_host_map *map,
->  	struct kvm_follow_pfn kfp =3D {
->  		.slot =3D gfn_to_memslot(vcpu->kvm, gfn),
->  		.gfn =3D gfn,
-> -		.flags =3D FOLL_WRITE,
-> +		.flags =3D writable ? FOLL_WRITE : 0,
->  		.refcounted_page =3D &map->pinned_page,
->  		.pin =3D true,
->  	};
-When writable is false, could we set ".pin =3D false," ?
+> Reviewed-by: Ilpo J=E4rvinen <ilpo.jarvinen@linux.intel.com>
+> =
 
-Also not sure if ".map_writable =3D NULL" is missing.
+> I wonder though does this mean the numbers userspace can read from kernel =
+
+> are bogus and if something can be done about that?
+> =
+
+
+I am not sure whether the clock rate can be read by the userspace.
+At least it report the right baud speed by using stty.
+
+Regards,
+Inochi
+
+> =
+
+> > ---
+> >  drivers/tty/serial/8250/8250_dw.c | 5 +++--
+> >  1 file changed, 3 insertions(+), 2 deletions(-)
+> > =
+
+> > diff --git a/drivers/tty/serial/8250/8250_dw.c b/drivers/tty/serial/825=
+0/8250_dw.c
+> > index ab9e7f204260..51894c93c8a3 100644
+> > --- a/drivers/tty/serial/8250/8250_dw.c
+> > +++ b/drivers/tty/serial/8250/8250_dw.c
+> > @@ -750,7 +750,7 @@ static const struct dw8250_platform_data dw8250_ren=
+esas_rzn1_data =3D {
+> >  	.quirks =3D DW_UART_QUIRK_CPR_VALUE | DW_UART_QUIRK_IS_DMA_FC,
+> >  };
+> >  =
+
+> > -static const struct dw8250_platform_data dw8250_starfive_jh7100_data =
+=3D {
+> > +static const struct dw8250_platform_data dw8250_skip_set_rate_data =3D=
+ {
+> >  	.usr_reg =3D DW_UART_USR,
+> >  	.quirks =3D DW_UART_QUIRK_SKIP_SET_RATE,
+> >  };
+> > @@ -760,7 +760,8 @@ static const struct of_device_id dw8250_of_match[] =
+=3D {
+> >  	{ .compatible =3D "cavium,octeon-3860-uart", .data =3D &dw8250_octeon=
+_3860_data },
+> >  	{ .compatible =3D "marvell,armada-38x-uart", .data =3D &dw8250_armada=
+_38x_data },
+> >  	{ .compatible =3D "renesas,rzn1-uart", .data =3D &dw8250_renesas_rzn1=
+_data },
+> > -	{ .compatible =3D "starfive,jh7100-uart", .data =3D &dw8250_starfive_=
+jh7100_data },
+> > +	{ .compatible =3D "sophgo,sg2044-uart", .data =3D &dw8250_skip_set_ra=
+te_data },
+> > +	{ .compatible =3D "starfive,jh7100-uart", .data =3D &dw8250_skip_set_=
+rate_data },
+> >  	{ /* Sentinel */ }
+> >  };
+> >  MODULE_DEVICE_TABLE(of, dw8250_of_match);
+> > =
+
+
 
 _______________________________________________
 linux-riscv mailing list
