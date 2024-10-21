@@ -4,129 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F620D15DAA
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Oct 2024 15:15:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B07F2D15DAC
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Oct 2024 15:15:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iZ8qHcLOJ2WDZf2L4weuHxrJZxXamIBhIPYJF/bW0uA=; b=4DK40TPD3vhcS9TzL2LRh9C58i
-	RN4KOys43L68jp4JR+O1m0aE+S+weA0uRbpd/QjRJXLj5KcCvNx+EeoU4taVhWGKsCd0FjHX6Nk/u
-	s+2FZhfgsbfnyZmdbgbzdRB2g4RYRz7UXNo4VH883qvQVwfswPGzElDFzN05vg+uU5JK5nUuMxOEj
-	X997ZnrFtzq9BU4UQC6x8joydFwpzkz2VwNl6tTTPpqFvX1hqkuR+fSanoQSZ7dVzYQMcur0E2vPP
-	Vu3avJiHu7Ol7e2TdhDKPvMd/zXuTq02YWHNTdQ+LRM2GUrDIppHTC9EG8/RrLdwrzy2mN64df9ED
-	gWuR8kNA==;
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=mrxyTx6Mz0DdvA975bAVKbxCtpLMTQJBAe5BKLHPFdA=; b=ZyH9LsbXkR5Dxz
+	jlsdATA0jbYf6Qovc+K92A7vuEK+Bsq2JYyOgQLeRyD28JZ0cPWaU1ewOtNhyY4rY7j5OfIjA8UCG
+	6/hwcOVdkRYJvTr5zek/06jJOGOu5oawURtHe2ovbIMC0k+10dNaPMUXtyxU6uPfKyRzY6+bi4+Se
+	X+SiTdRvUUY7qugmeEnlGLHIBSQvQGePflrFF0uyauiiEihPx7+9OdCdU2lzLsfeIe9/klo30TZRD
+	UIGMRFPzCIKUPKug3LIkGrv+qp2xwvLVOTjgyU0ZmxYpGoGShdaVtdYuES3qZhFAcsM8k40PEtnKG
+	9AbW+2oRD1CI3kmYfVQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2u85-00000007ke5-272e;
-	Mon, 21 Oct 2024 15:15:33 +0000
-Received: from www62.your-server.de ([213.133.104.62])
+	id 1t2u86-00000007keZ-15TJ;
+	Mon, 21 Oct 2024 15:15:34 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t2shY-00000007TBh-2X6n
+	id 1t2shp-00000007TEy-2vKs
 	for linux-riscv@lists.infradead.org;
-	Mon, 21 Oct 2024 13:44:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=iogearbox.net; s=default2302; h=Content-Transfer-Encoding:Content-Type:
-	In-Reply-To:From:References:To:Subject:MIME-Version:Date:Message-ID:Sender:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=r0U5qY1RbHzQQEwUflnA4yMD8feh9Y4PyDFIDo7ToMM=; b=IfhBOrGgeLwKsvWLkZ2rA7cM33
-	NUnHuhnKjswRKgjXXZna3MSYRzqaAEzBkaHwoZmOCwSuEc5UbLSaX5iPn3SF+9w5Yafg9odI2pNmj
-	Hc+68KEX8ZF5m8tMiFDSUJ3Ae0daWMdj8Yzv2ByyXp7ULhvmsj7KNjMKNdSSR5ZtbcMcxfm+uT0f/
-	/SaHqzFHeo2culz1OiOz/QnJH+lHY1FNxoDjIMTA8SSmhoGIwX1nIc/RKfL2E98eC90+b0exlvUGY
-	XxYoR5fY1MLG00NzjNG1YgOvDcCkifoEml1l9IOAZyHsFmcO9Y30g4XrEInpbTaHrqq3xUQL2Z2xg
-	2b5M+W3A==;
-Received: from sslproxy06.your-server.de ([78.46.172.3])
-	by www62.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <daniel@iogearbox.net>)
-	id 1t2shN-0009CS-0t; Mon, 21 Oct 2024 15:43:53 +0200
-Received: from [178.197.248.43] (helo=[192.168.1.114])
-	by sslproxy06.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <daniel@iogearbox.net>)
-	id 1t2shL-0007GT-1B;
-	Mon, 21 Oct 2024 15:43:51 +0200
-Message-ID: <4ca8a746-263f-450d-af8d-64ba181a443f@iogearbox.net>
-Date: Mon, 21 Oct 2024 15:43:50 +0200
+	Mon, 21 Oct 2024 13:44:23 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-20c7ee8fe6bso42231955ad.2
+        for <linux-riscv@lists.infradead.org>; Mon, 21 Oct 2024 06:44:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1729518260; x=1730123060; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=rEnajADAbGhm3M1pNyKurdElPnt+aWsHL33PQ0Q7Gvs=;
+        b=qX4/L0RNDzuNjgI1TUmbUMfTQrgo2i4FQI1Adsnz8btVRVXsEv6F9ZhwVWKmqXZwpc
+         DOJN0r45Ds01C90Y50PTPAJuIzFEHf0bQVj4vXoZXn6zGxWBCtjPe64sW+4x36k9m/aj
+         bIH/BDLIqGuOG8hyL/jnfu+ooNFuORbskyIzGDbjycop5uxb1Wac6PJzxi5NMrLeAbHn
+         Jrkyz3MpSdXuk9nntoqY2VDoMdTX/5SzPDQgtjQRNNG5dTqaGVs4/V9km+8iN/Bdcdwz
+         SXSy7uGMR6p7aMjVOzcrvApFKxgtsKWEd8weAgmUmdhMRpMNiYXBtOp6QQ0S0zWKcZoR
+         XFkA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729518260; x=1730123060;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=rEnajADAbGhm3M1pNyKurdElPnt+aWsHL33PQ0Q7Gvs=;
+        b=uZy6TguybWcMhm9noldAhm6TVLXrybgRdzRvs21XdW8FcK4CD+yhzObPKOZF2exwo1
+         IY0VG4SqrwSjZGIOn1bTVjRyeZa8GAuamYY/DpWmXYTaEVOWDy8sZ33S3dwuihxjcrt8
+         6nxaVfBV/4jPM5M5NscWDloHqyRtDUlGgBWoHvsxZ9CSUx/puJxQ5t1pk7X6y6z0Ph6p
+         yjbzs5QgP4EJzLTYkjzFw4qEkpSx03xI+w2bP9+hbq4Iz6WcQ/R4QNCbk3k5akHiuCvJ
+         w/rtAm7WFv8LoCbnsZxX6Et6U0mgf6UkH7kVNCMyLf7Ep3OqcoFab/RZnDbmbras7tDx
+         jlVw==
+X-Forwarded-Encrypted: i=1; AJvYcCXMCp0rTNk/VJxVEsrG3ZhLwR7d4HqOF7IMoKVoDkLACDbQkNFouZ/ianS/PDQeKAd7x2UEG3YN89PYKQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxcVFE8vYPmwrS+VF7KVtiUuG3+ECApl4IgIcwIQVhE2MH1RfQC
+	KXbSWBfw+yO586yLe9sIjSBm33gRUhsmCwo6LD1i7/Lxz73COXzNFImpL/zVUKQ=
+X-Google-Smtp-Source: AGHT+IHN/ehUoWz4nWNTcpRpWVKsXcIc7vWF74OZtujCoQlKZC39nGhEfqrrlaKVy+NS5GzpK/RF+Q==
+X-Received: by 2002:a17:903:1d1:b0:20c:e262:2580 with SMTP id d9443c01a7336-20e5a8fb25amr172757925ad.44.1729518260070;
+        Mon, 21 Oct 2024 06:44:20 -0700 (PDT)
+Received: from [10.211.55.3] ([4.28.11.157])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-20e7ef1a953sm26029185ad.112.2024.10.21.06.44.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 21 Oct 2024 06:44:19 -0700 (PDT)
+Message-ID: <2b449955-6596-4c9a-9799-f15d186e260f@riscstar.com>
+Date: Mon, 21 Oct 2024 08:44:16 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next 4/5] selftests/bpf: Add benchmark for
- bpf_csum_diff() helper
-To: Puranjay Mohan <puranjay@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexei Starovoitov <ast@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Andrii Nakryiko <andrii@kernel.org>, bpf@vger.kernel.org,
- "David S. Miller" <davem@davemloft.net>, Eduard Zingerman
- <eddyz87@gmail.com>, Eric Dumazet <edumazet@google.com>,
- Hao Luo <haoluo@google.com>, Helge Deller <deller@gmx.de>,
- Jakub Kicinski <kuba@kernel.org>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Jiri Olsa <jolsa@kernel.org>, John Fastabend <john.fastabend@gmail.com>,
- KP Singh <kpsingh@kernel.org>, linux-kernel@vger.kernel.org,
- linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
- Martin KaFai Lau <martin.lau@linux.dev>, Mykola Lysenko <mykolal@fb.com>,
- netdev@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>,
- Paolo Abeni <pabeni@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Puranjay Mohan <puranjay12@gmail.com>, Shuah Khan <shuah@kernel.org>,
- Song Liu <song@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>,
- Yonghong Song <yonghong.song@linux.dev>
-References: <20241021122112.101513-1-puranjay@kernel.org>
- <20241021122112.101513-5-puranjay@kernel.org>
+Subject: Re: [PATCH v5 3/3] riscv: dts: starfive: add DeepComputing FML13V01
+ board device tree
+To: Krzysztof Kozlowski <krzk@kernel.org>, Conor Dooley <conor@kernel.org>
+Cc: Guodong Xu <guodong@riscstar.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Emil Renner Berthing <kernel@esmil.dk>, rafal@milecki.pl,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Heiko Stuebner <heiko.stuebner@cherry.de>,
+ Michael Zhu <michael.zhu@starfivetech.com>,
+ Drew Fustini <drew@beagleboard.org>, Alexandru Stan <ams@frame.work>,
+ Daniel Schaefer <dhs@frame.work>, Sandie Cao <sandie.cao@deepcomputing.io>,
+ Yuning Liang <yuning.liang@deepcomputing.io>,
+ Huiming Qiu <huiming.qiu@deepcomputing.io>, linux@frame.work,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20241020134959.519462-1-guodong@riscstar.com>
+ <20241020134959.519462-4-guodong@riscstar.com>
+ <ae5gels34ozgzrcrwz53wj22hoy5cq3crn3dmkhitxlffmnavt@6lbmrcpjmqyd>
+ <20241021-unroll-empower-3ab903615d6d@spud>
+ <c048d270-7a07-4807-b816-0f4e0aeb67f7@kernel.org>
 Content-Language: en-US
-From: Daniel Borkmann <daniel@iogearbox.net>
-Autocrypt: addr=daniel@iogearbox.net; keydata=
- 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
-In-Reply-To: <20241021122112.101513-5-puranjay@kernel.org>
-X-Authenticated-Sender: daniel@iogearbox.net
-X-Virus-Scanned: Clear (ClamAV 0.103.10/27434/Mon Oct 21 10:49:31 2024)
+From: Alex Elder <elder@riscstar.com>
+In-Reply-To: <c048d270-7a07-4807-b816-0f4e0aeb67f7@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241021_064404_662949_69964024 
-X-CRM114-Status: UNSURE (   5.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241021_064421_976578_E713B447 
+X-CRM114-Status: GOOD (  18.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,31 +107,93 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMTAvMjEvMjQgMjoyMSBQTSwgUHVyYW5qYXkgTW9oYW4gd3JvdGU6Cj4gQWRkIGEgbWljcm9i
-ZW5jaG1hcmsgZm9yIGJwZl9jc3VtX2RpZmYoKSBoZWxwZXIuIFRoaXMgYmVuY2htYXJrIHdvcmtz
-IGJ5Cj4gZmlsbGluZyBhIDRLQiBidWZmZXIgd2l0aCByYW5kb20gZGF0YSBhbmQgY2FsY3VsYXRp
-bmcgdGhlIGludGVybmV0Cj4gY2hlY2tzdW0gb24gZGlmZmVyZW50IHBhcnRzIG9mIHRoaXMgYnVm
-ZmVyIHVzaW5nIGJwZl9jc3VtX2RpZmYoKS4KPiAKPiBFeGFtcGxlIHJ1biB1c2luZyAuL2JlbmNo
-cy9ydW5fYmVuY2hfY3N1bV9kaWZmLnNoIG9uIHg4Nl82NDoKPiAKPiBbYnBmXSQgLi9iZW5jaHMv
-cnVuX2JlbmNoX2NzdW1fZGlmZi5zaAo+IDQgICAgICAgICAgICAgICAgICAgIDIuMjk2IMKxIDAu
-MDY2TS9zIChkcm9wcyAwLjAwMCDCsSAwLjAwME0vcykKPiA4ICAgICAgICAgICAgICAgICAgICAy
-LjMyMCDCsSAwLjAwM00vcyAoZHJvcHMgMC4wMDAgwrEgMC4wMDBNL3MpCj4gMTYgICAgICAgICAg
-ICAgICAgICAgMi4zMTUgwrEgMC4wMDFNL3MgKGRyb3BzIDAuMDAwIMKxIDAuMDAwTS9zKQo+IDIw
-ICAgICAgICAgICAgICAgICAgIDIuMzE4IMKxIDAuMDAxTS9zIChkcm9wcyAwLjAwMCDCsSAwLjAw
-ME0vcykKPiAzMiAgICAgICAgICAgICAgICAgICAyLjMwOCDCsSAwLjAwM00vcyAoZHJvcHMgMC4w
-MDAgwrEgMC4wMDBNL3MpCj4gNDAgICAgICAgICAgICAgICAgICAgMi4zMDAgwrEgMC4wMjlNL3Mg
-KGRyb3BzIDAuMDAwIMKxIDAuMDAwTS9zKQo+IDY0ICAgICAgICAgICAgICAgICAgIDIuMjg2IMKx
-IDAuMDAxTS9zIChkcm9wcyAwLjAwMCDCsSAwLjAwME0vcykKPiAxMjggICAgICAgICAgICAgICAg
-ICAyLjI1MCDCsSAwLjAwMU0vcyAoZHJvcHMgMC4wMDAgwrEgMC4wMDBNL3MpCj4gMjU2ICAgICAg
-ICAgICAgICAgICAgMi4xNzMgwrEgMC4wMDFNL3MgKGRyb3BzIDAuMDAwIMKxIDAuMDAwTS9zKQo+
-IDUxMiAgICAgICAgICAgICAgICAgIDIuMDIzIMKxIDAuMDU1TS9zIChkcm9wcyAwLjAwMCDCsSAw
-LjAwME0vcykKPiAKPiBTaWduZWQtb2ZmLWJ5OiBQdXJhbmpheSBNb2hhbiA8cHVyYW5qYXlAa2Vy
-bmVsLm9yZz4KCkFja2VkLWJ5OiBEYW5pZWwgQm9ya21hbm4gPGRhbmllbEBpb2dlYXJib3gubmV0
-PgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
-cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On 10/21/24 7:47 AM, Krzysztof Kozlowski wrote:
+> On 21/10/2024 13:16, Conor Dooley wrote:
+>> On Mon, Oct 21, 2024 at 09:17:59AM +0200, Krzysztof Kozlowski wrote:
+>>> On Sun, Oct 20, 2024 at 09:49:59PM +0800, Guodong Xu wrote:
+>>>> From: Sandie Cao <sandie.cao@deepcomputing.io>
+>>>> +&camss {
+>>>> +	status = "disabled";
+>>>> +};
+>>>> +
+>>>> +&csi2rx {
+>>>> +	status = "disabled";
+>>>> +};
+>>
+>> You can drop these two, I marked them disabled in the common file
+>> earlier this week.
+>> 1
+>>>> +
+>>>> +&gmac0 {
+>>>> +	status = "disabled";
+>>>> +};
+>>>> +
+>>>> +&i2c0 {
+>>>> +	status = "disabled";
+>>>> +};
+>>>> +
+>>>> +&pwm {
+>>>> +	status = "disabled";
+>>>> +};
+>>>> +
+>>>> +&pwmdac {
+>>>> +	status = "disabled";
+>>>> +};
+>>>> +
+>>>> +&spi0 {
+>>>> +	status = "disabled";
+>>>
+>>> If your board has to disable all these, then they should not have been
+>>> enabled in DTSI in the first place. Only blocks present and working in
+>>> the SoC (without amny external needs) should be enabled.
+>>>
+>>> I suggest to fix that aspect first.
+>>
+>> Eh, I don't think I agree. Having 5 disables here is a lesser evil than
+>> reproducing 90% of jh7110-common.dtsi or shunting a bunch of stuff
+>> around. Emil?
+> 
+> Why reproducing 90%? Only enable would be here, no? Or you want to say
+> the common DTSI has things which do not exist?
+
+For what it's worth, I agree with Krzysztof.  In the (long) cover
+page we pointed this out, and offered to do it in a followup patch.
+But if requested we can do it now.
+
+So in v6, a new patch would be inserted before the other three,
+and it would:
+- Remove the status = "okay" lines for those nodes that are not enabled
+   in this new platform, in "jh7110-common.dtsi"
+- Add nodes where appropriate in:
+     jh7110-milkv-mars.dts
+     jh7110-pine64-star64.dts
+     jh7110-starfive-visionfive-2.dtsi
+   They'll look like this, to enable the ones disabled above, e.g.:
+     &gmac0 {
+         status = "okay";
+     };
+
+     &i2c0 {
+         status = "okay";
+     };
+
+You guys should come to agreement, but I do think what Krzysztof says
+is the right approach.  And unless convinced otherwise, this will be
+what shows up in the next version of this series.
+
+					-Alex
+
+> Best regards,
+> Krzysztof
+> 
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
