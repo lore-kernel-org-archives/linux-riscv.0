@@ -4,66 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF910D2CE05
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Oct 2024 17:01:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B41ED2CE0D
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Oct 2024 17:43:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/VzUxgA2ruvvBzMme6NVZpfPBEb/0st7XHn3+P2QW7M=; b=IibWyq1dQf7nTSPea0A2wMxcFc
-	2oD58M44DlqDUomrPY1ziEt4KNUZ+4fLCZAt+WEXiZySF+/AUgXG+pqUEVZ7ydHCAqrzU4fr3wDPB
-	MQggQv+w1U7EnZbf61LwGxe/Abku08PEuMJwI52eFWD5Pw1hCHnCbFxa0+07TSO190s6L91eiFZ6F
-	bs8kFNUu8uSsDtIXOFMiUgZOJLcpiSy6MvVxmDWCDW+B2fMI+KXB6hNU7S59HBeyqrCfaiZ1/lTBq
-	8KncRqwI31aLXNS2ORnr6883xuRkYeHo5jGDnQm1yUR8c0BfA6VDuHlKigBd/U6U4yRqY6Br5/+lO
-	VJT8/jaA==;
+	bh=wPE+qEUiL3Up9bEMcXbY/Aop4tk+YFZ/+vMebLP6Ah0=; b=vyjvCUo0jhPA0R6bx3JS+AR0g5
+	RuCZLOZGEdAQtTRl4qjQxgBW2agvINqR/3Syw71tmT4HSzj/E7QtJyfyS+AgGe/6c1iCADCWJIATI
+	zA4kiBk/1Bf9/KlqcZww7GCnXx+hjjXAsC5Aw+mEwXtlPtbtWMxWHkRQj5nvTmhbMqacrWalkQLux
+	aA/EJxH5IHEd1O71lAbeNb+rS12o2VZzhoe4/Sfh806ACu4BMid2ynyyWJhCyfw+NrLkfP8A5UAnr
+	kQqE/D5DcZX0bkP7/DoZ9AFqLQ61MaT5HGGzce9S7ibuZfVdW3FxmIDxSNyJ/1M4MYLuWhiqxLj0V
+	0sJCFzbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3IFx-0000000BZvp-1fJ8;
-	Tue, 22 Oct 2024 17:01:17 +0000
+	id 1t3Iv2-0000000BhJC-363t;
+	Tue, 22 Oct 2024 17:43:44 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3Hx9-0000000BVja-2tMQ
+	id 1t3Id1-0000000Bdjb-3osO
 	for linux-riscv@lists.infradead.org;
-	Tue, 22 Oct 2024 16:41:55 +0000
+	Tue, 22 Oct 2024 17:25:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2721F5C4C65;
-	Tue, 22 Oct 2024 16:41:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEDA7C4CEC3;
-	Tue, 22 Oct 2024 16:41:47 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 99EFE5C3F87;
+	Tue, 22 Oct 2024 17:25:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAE3DC4CEC7;
+	Tue, 22 Oct 2024 17:25:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729615310;
-	bh=EoHMsRQGMuLx+P7zRHzX1qTnz0At3UXNDcHYzQo11LA=;
+	s=k20201202; t=1729617906;
+	bh=J2g2Yu6XyCY4XxVZm/Amweebvid8FNKBJjTzHEntF58=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mheeIFrWDVR6zmPu0VxTdfTU066+am26va4z7qSRWIwYCxL1Ju1pY+feu1JqItBri
-	 OQjuVtqZKV0JnHWd14mLckTWO9g6x5LupHnBFWIfBSOMMKtVEp+OBKCiRVz0Ahx/tu
-	 ku4+UawUcLC12gH6Qs28lUYrc0kra27LFEYX2Fwv42mqos4hZvJyiUvTE+txNrMDlH
-	 /7NWRvRkWjk7/CEoyTRuyRQUjYKUvheJF+Khb+krEKvhFAsrRCkeS7/N9P+FznIJR7
-	 Rzk6zGvnhXjIAuh+xWsOLWcIiOMhI2wFEBU+kJcyGX5DqrVT2jKcmz1DUBHUzOA5Q7
-	 DQA0nT7UXk+zQ==
-Date: Tue, 22 Oct 2024 17:41:45 +0100
+	b=JeQzAJXGWXioB0cHPEFbrENDMSeYJUT03aeULihkKQElFB6xnYz1EOYWyKa6WrQpk
+	 WNcCZKfWABw93ZSg7IRsJpU/cxYxfyA+Am4Lt+EDh7vTPeW9TQa7uMiLYwJg9uVP3A
+	 2D2RsgFnaxZYsmTRxWgxNtJrltZx+CcTzkqtw+pt+oWPKdeFCrSQ7jrZmT4BkSupLw
+	 zgZ3pXZ2yoth+v6ThAGGnx8SSKEXF1ml2kgN7enbFdh/hEt1nTQzT80Db9/xa60aOR
+	 PAasYmEBq13zODGSBBg3njNkaCJt1uECwCLgzCl7ulobqiqR/jLlMP3ZNkwHSyVO9Q
+	 NZ3EDGtCdhAqA==
+Date: Tue, 22 Oct 2024 18:25:00 +0100
 From: Conor Dooley <conor@kernel.org>
-To: E Shattow <e@freeshell.de>
-Cc: Henry Bell <dmoo_dv@protonmail.com>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Rob Herring <robh@kernel.org>,
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Chen Wang <unicorn_wang@outlook.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: dts: starfive: Update ethernet phy0 delay
- parameter values for Star64
-Message-ID: <20241022-amusement-overreach-c5d1d7fd797b@spud>
-References: <20241022061004.62812-1-e@freeshell.de>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Inochi Amaoto <inochiama@outlook.com>, Yixun Lan <dlan@gentoo.org>,
+	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 1/2] dt-bindings: serial: snps-dw-apb-uart: Add Sophgo
+ SG2044 uarts
+Message-ID: <20241022-washday-glass-3db9f6a2cd27@spud>
+References: <20241021072606.585878-1-inochiama@gmail.com>
+ <20241021072606.585878-2-inochiama@gmail.com>
+ <20241021-outlying-washday-8f171dedc703@spud>
+ <r5ngs2j776jcy6sfirwzmtsoljotatfvgmlmv4sj4xksye2bff@xtn7adafbpfz>
+ <20241021-rosy-drove-1ae3c8985405@spud>
+ <2zawe64brm3sfuslh443352wfupgnhb4xw7jragkzxu6kgg6t7@b4qiya3jdij4>
 MIME-Version: 1.0
-In-Reply-To: <20241022061004.62812-1-e@freeshell.de>
+In-Reply-To: <2zawe64brm3sfuslh443352wfupgnhb4xw7jragkzxu6kgg6t7@b4qiya3jdij4>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241022_094152_466991_19471D8C 
-X-CRM114-Status: UNSURE (   9.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241022_102508_077214_457D15AF 
+X-CRM114-Status: GOOD (  26.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,49 +83,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0918231453386993960=="
+Content-Type: multipart/mixed; boundary="===============4477188918340250452=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============0918231453386993960==
+--===============4477188918340250452==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="5v1eMG7g4H4NB0I9"
+	protocol="application/pgp-signature"; boundary="IG32fQA576T6oNHT"
 Content-Disposition: inline
 
 
---5v1eMG7g4H4NB0I9
+--IG32fQA576T6oNHT
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Mon, Oct 21, 2024 at 11:09:51PM -0700, E Shattow wrote:
-> Improve function of Star64 bottom network port phy0 with updated delay values.
-> Initial upstream patches supporting Star64 use the same vendor board support
-> package parameters known to result in an unreliable bottom network port.
+On Mon, Oct 21, 2024 at 08:23:30PM +0800, Inochi Amaoto wrote:
+> On Mon, Oct 21, 2024 at 01:21:58PM +0100, Conor Dooley wrote:
+> > On Mon, Oct 21, 2024 at 08:18:58PM +0800, Inochi Amaoto wrote:
+> > > On Mon, Oct 21, 2024 at 01:10:52PM +0100, Conor Dooley wrote:
+> > > > On Mon, Oct 21, 2024 at 03:26:05PM +0800, Inochi Amaoto wrote:
+> > > > > The UART of SG2044 is modified version of the standard Synopsys
+> > > > > DesignWare UART. The UART on SG2044 relys on the internal divisor
+> > > > > and can not set right clock rate for the common bitrates.
+> > > > >=20
+> > > > > Add compatibles string for the Sophgo SG2044 uarts.
+> > > > >=20
+> > > > > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> > > > > ---
+> > > > >  .../devicetree/bindings/serial/snps-dw-apb-uart.yaml          | =
+4 ++++
+> > > > >  1 file changed, 4 insertions(+)
+> > > > >=20
+> > > > > diff --git a/Documentation/devicetree/bindings/serial/snps-dw-apb=
+-uart.yaml b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
+> > > > > index 4cdb0dcaccf3..6963f89a1848 100644
+> > > > > --- a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.y=
+aml
+> > > > > +++ b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.y=
+aml
+> > > > > @@ -58,6 +58,10 @@ properties:
+> > > > >                - brcm,bcm11351-dw-apb-uart
+> > > > >                - brcm,bcm21664-dw-apb-uart
+> > > > >            - const: snps,dw-apb-uart
+> > > > > +      - items:
+> > > > > +          - enum:
+> > > > > +              - sophgo,sg2044-uart
+> > > > > +          - const: snps,dw-apb-uart
+> > > >=20
+> > > > Why does each vendor have an items entry of its own? Seems like nee=
+dless
+> > > > clutter of the file IMO, except for the renesas bit.
+> > >=20
+> > > I just follow others when writing this binding. I think it may need
+> > > another patch to fix this problem, right?
+> >=20
+> > Yeah. But I'd hold off to see if someone gives a rationale for it being
+> > done this way before sending that. I've not deleted this thread, and
+> > will send an ack if someone justifies why the binding is written like
+> > this.
 
-Should I add:
-Fixes: 2606bf583b962 ("riscv: dts: starfive: add Star64 board devicetree")
-CC: stable@vger.kernel.org
-?
+Well, Rob doesn't think they should be separate so please add that
+additional patch in your next version.
 
-"unreliable" sounds to me like something that is worthy of going to
-fixes/stable
+Thanks,
+Conor.
 
---5v1eMG7g4H4NB0I9
+--IG32fQA576T6oNHT
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZxfVyQAKCRB4tDGHoIJi
-0mXyAP4hE8X6wR9mN1YBx29ScBPlWDTvKS+zXqMNQTvwHnCExgEAmFDWhu4p3Ljj
-9iV7Tk8QmQBu2ixOzU6EvXethK5Y3A4=
-=ZbHC
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZxff7AAKCRB4tDGHoIJi
+0tUyAP4uTBvEkU56jMMlkmGFlti+ugxYK6+lqTVuXMm0srEjLwEA20y1lnrqE8Vh
+eeC6n/MJPkUuZNkNk3KAqX3EZkGfQQg=
+=blFm
 -----END PGP SIGNATURE-----
 
---5v1eMG7g4H4NB0I9--
+--IG32fQA576T6oNHT--
 
 
---===============0918231453386993960==
+--===============4477188918340250452==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -128,5 +175,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============0918231453386993960==--
+--===============4477188918340250452==--
 
