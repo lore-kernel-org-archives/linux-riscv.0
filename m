@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E12D1D17157
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Oct 2024 02:06:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62A7DD17159
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Oct 2024 02:06:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3buJizr6zp+20ueZuq4KJMoa/fq9056gyhwQuKUI93Q=; b=1vSLN01j9oWblb
-	ElZi1vfHWBp+Iagycmvxk9QMKhUHfuVUYHW5l/R9yaFf82XkZ5qQSs83Z5EpcNyB7h36ZYpssttfy
-	V0qRGUVLfb7Ulw5Pg0figgAgO2U+GpScb4AnIA+FrZqKVaCCxby6SOINc/5X+QK6NcTI4N+3mQnKI
-	KF/+PSx4Rlzc+Fxh9P7K6ngpTGemak9ohvwCLHcTPCfEXkorp2yzHsxqs4JEGcBjGOimVtJv3pmxM
-	eQiOPygmaAeogCXui5FlO1fNKNfh3YXWNzRB+xZFQ3AcizRJn1e2v7sGb9Ns1yBQgRmNVpUVJAkuq
-	XvTeQRCn0DPMlLLrNq9g==;
+	List-Owner; bh=G9LawshEgGECAB7BBSg+rr5kZDt9hXm5iCKZOa6q5sk=; b=BJGBmE8LJTI7ai
+	d/otIssufbA3GZ6HmgJZSen3igFJtonolGZx+VING6WY84EP2VkCg+xnMmBoHxzkh7xBwsN2xuulP
+	uf7PZasK368AoovzjKkFkzrp7KjrUjGVnnbt8QRlExR/LFHp8tM5dJuHiW2iJOm8ktJF8IFTB5by6
+	WQ8XHIkRWiDkBY2KhzrvJlspYgyMqEjNNovH0tmEZol3NJrM1yJTu6UKUPzXLc9wnBuv2DYIrXqpV
+	EtPI+nypZsZ1y+jIsZ8yRAqb+RpsFy3/tRM4iwjBU8lLx8ErEMmCJ8rY3X/Lk3R+ke9yzX8SaXCl9
+	iFzXyGMQj5lK3zKqLi7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t34HO-00000009HRy-3k1n;
-	Tue, 22 Oct 2024 02:05:50 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1t34HY-00000009HTe-39xN;
+	Tue, 22 Oct 2024 02:06:00 +0000
+Received: from mail-oa1-x2c.google.com ([2001:4860:4864:20::2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t34BA-00000009Fnw-151e
+	id 1t34BC-00000009Fpg-1xB3
 	for linux-riscv@lists.infradead.org;
-	Tue, 22 Oct 2024 01:59:26 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-71e592d7f6eso3282621b3a.3
-        for <linux-riscv@lists.infradead.org>; Mon, 21 Oct 2024 18:59:24 -0700 (PDT)
+	Tue, 22 Oct 2024 01:59:30 +0000
+Received: by mail-oa1-x2c.google.com with SMTP id 586e51a60fabf-28854674160so2183061fac.2
+        for <linux-riscv@lists.infradead.org>; Mon, 21 Oct 2024 18:59:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1729562363; x=1730167163; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1729562365; x=1730167165; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Y/iY9Y4RpcnWjc25xyItwxMbRygrVUaVLlWUhwxh2UQ=;
-        b=MC0lpBtVc/H1rPTiBpCclnBzMwb69GoX0JsjIJjBqRm6djKgawCf2w21i7BBbMN6Rd
-         jjdt97OPhVAPadhplc9SqQQu5kxTjqV2WQX66+KV4Niy8Y7RyLMl6p13uWVmpNNys/Jd
-         +pBsQAv+W2VMPnOquk9ovVy1NIe6zfs6JRD9qDlJyWaf74eGIkRv9f8vIJNoaMcDtqKC
-         txDhoKGQ1TvOJXjCwI81ZFl/Wo9va2BvHlfTxXy9eJ/CCAutWQyWm8jMaX5dfbOyCler
-         JjPGbLAb654oEI1lHfDBh5t5j97nJ5XhMRqggeEoHUUdIR4E897LxZf28SKvkMbWEsup
-         XJRw==
+        bh=FpfVj+cCklKKT0meu9E3X+82meKkLqCR+uZsOKWdYis=;
+        b=jCEEWbD+pBmj/uOGMfuv0a8K+j5ICzpIS/uqQ4INYdwT0THATDzH7LS5pxNOjUQ56N
+         IQ6T5Bt+YHECRommxvBNb4LDuG0/MZf41725nhVzjLYYUQkTO/StNcRGeo7NkVhJpa0+
+         O7KWdhWuF6C+Ny9apF3XliwXeqgyE/alSPu/kAYPbv2B1YrJV+GOt26a/NLVy/xT9R1v
+         4DiylQKiKV7dR+HqwPfbfc74RvkztHQAXm6Cnfptmv10ywShAqtzxWAFcv6JypRuM3VK
+         4jaAw95CvOAMAHka9KqevNcu9mIpFIUHY+fEU0+Jk8jw4rUxLFIEXrkhsPD7mAQvK6xu
+         LP6A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729562363; x=1730167163;
+        d=1e100.net; s=20230601; t=1729562365; x=1730167165;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Y/iY9Y4RpcnWjc25xyItwxMbRygrVUaVLlWUhwxh2UQ=;
-        b=Id2NufWVFaKv0C3l8Bkdd34UMFYMJ3MqBuxjWiqnbAcWqPdIDSsyFTh/L/AeFLbi80
-         Xao4UAPUb3fm9lzRd4+4b91eAZkkkgCUmDShBGFDoy4ACCrH0l9s+q4gRKuE+a/PEoOW
-         pZ9/S4G4uwJwA+ctd3uB+lxbfMoI3G3aBRRJreMPWCnG3z+APyDG7Y6jjwEBg1y4bCQ7
-         8HjepdUE0NvFT/N8EUTMEx0Zf8bNs4hvGTdGBT9Tqj5QUL6n6qIb4QEdBEVAP8hIzi4U
-         eaAUFpQFdjzwnaKDwONP01zT2b4rNSZ6d6WPut80jLqPzhjO8Xd7g7ce1gzVbGscQym2
-         MLew==
-X-Forwarded-Encrypted: i=1; AJvYcCU1I1iTM5M1xGy4W8JsuZsnRhFCnTk2t01/XUK9Xj/SJXVua4PrgYgFTrzPyNzft0omRUM+jWFjEOI2xg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwdJtZS3Jizg2a/uEkypK6kUhenxdx6bS0kc/CoiAehsZ3V78zK
-	Cues2s6FD9h4XSiTLmCbs2R7D8TdVk4rNR9bHBdq/BCTG0wxpzhiJJ6hQ2Q/5RU=
-X-Google-Smtp-Source: AGHT+IFB0AudxwQCUfX+B+Q1Nd/kKdWsIXk3CQ+Qmrq1W4iGhp3wWHffFzDvMvs7eDfgOIFmgokQfg==
-X-Received: by 2002:a05:6a00:9298:b0:71e:5de:ad6d with SMTP id d2e1a72fcca58-71ea323b91dmr19028480b3a.24.1729562363415;
-        Mon, 21 Oct 2024 18:59:23 -0700 (PDT)
+        bh=FpfVj+cCklKKT0meu9E3X+82meKkLqCR+uZsOKWdYis=;
+        b=iFK7t5UBPhv3nklopbLWWVcCfd3TQ4Oo6Tfkjy3q3U3WdQeBLkj1UGMnj40oeNOfrG
+         gYAhDUBKpvYsGjm1kbaYjiA/dp4QRJzYsmSTb4xXJJfYQaNuHl5AxESCPvLzFYTTD9xa
+         hcdeSN+7vU5/aaGsm7lpwjSxEAkQw9EOLKrWTdK9JPjErbIbn7DqehOpe8Rhk5wGAcX2
+         rr6rDNsZAn+wG+5z6YB8KJEz4ZcCDwkJQoKe57gemxmIZmy0M73G3cNDThdycoBHRhqr
+         CREsZTAVMdJVLgplGGdopGebUn556Q/Lz2uJan05fw7CWHp4W4Z0ijdY6wSMLdGaMkmm
+         n/5Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUk1JJTde03ss0CTNx2Qq2Z0XdA+u+bwQJY7D0ThSYBY9Qo1aXgw7q8S7+TYJ0CuYVT+iBTMJur0TkN/Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzdN9uTT6aaRa4SnCj10/y4GxP3/QXaQ9efZgSUTh8cTT09edfY
+	LWaAJek5qHYEyRjc79BED7QOxwhCb5IGXVqs5DTmXHHUMMo+fq2egD1bTjko+So=
+X-Google-Smtp-Source: AGHT+IF8mODh9IAJs797PRe4iXy3b/dNIvInfpWpmRrPkiuy4gHecBRUAsqzv6T0/gnC7v7yNiNl4Q==
+X-Received: by 2002:a05:6870:148f:b0:27b:61df:2160 with SMTP id 586e51a60fabf-28cb010575fmr1017968fac.31.1729562365145;
+        Mon, 21 Oct 2024 18:59:25 -0700 (PDT)
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-71ec132ffdcsm3600710b3a.46.2024.10.21.18.59.22
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-71ec132ffdcsm3600710b3a.46.2024.10.21.18.59.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Oct 2024 18:59:23 -0700 (PDT)
+        Mon, 21 Oct 2024 18:59:24 -0700 (PDT)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	linux-riscv@lists.infradead.org,
@@ -82,16 +82,16 @@ Cc: llvm@lists.linux.dev,
 	Andrew Morton <akpm@linux-foundation.org>,
 	linux-arm-kernel@lists.infradead.org,
 	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH v2 4/9] kasan: sw_tags: Support tag widths less than 8 bits
-Date: Mon, 21 Oct 2024 18:57:12 -0700
-Message-ID: <20241022015913.3524425-5-samuel.holland@sifive.com>
+Subject: [PATCH v2 5/9] riscv: mm: Log potential KASAN shadow alias
+Date: Mon, 21 Oct 2024 18:57:13 -0700
+Message-ID: <20241022015913.3524425-6-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.45.1
 In-Reply-To: <20241022015913.3524425-1-samuel.holland@sifive.com>
 References: <20241022015913.3524425-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241021_185924_379692_F210174F 
-X-CRM114-Status: GOOD (  11.11  )
+X-CRM114-CacheID: sfid-20241021_185926_721151_7EF59601 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,79 +108,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Allow architectures to override KASAN_TAG_KERNEL in asm/kasan.h. This
-is needed on RISC-V, which supports 57-bit virtual addresses and 7-bit
-pointer tags. For consistency, move the arm64 MTE definition of
-KASAN_TAG_MIN to asm/kasan.h, since it is also architecture-dependent;
-RISC-V's equivalent extension is expected to support 7-bit hardware
-memory tags.
+When KASAN is enabled, shadow memory is allocated and mapped for all
+legitimate kernel addresses, but not for the entire address space. As a
+result, the kernel can fault when accessing a shadow address computed
+from a bogus pointer. This can be confusing, because the shadow address
+computed for (e.g.) NULL looks nothing like a NULL pointer. To assist
+debugging, if the faulting address might be the result of a KASAN shadow
+memory address computation, report the range of original memory
+addresses that would map to the faulting address.
 
-Reviewed-by: Andrey Konovalov <andreyknvl@gmail.com>
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
 
-(no changes since v1)
+Changes in v2:
+ - New patch for v2
 
- arch/arm64/include/asm/kasan.h   |  6 ++++--
- arch/arm64/include/asm/uaccess.h |  1 +
- include/linux/kasan-tags.h       | 13 ++++++++-----
- 3 files changed, 13 insertions(+), 7 deletions(-)
+ arch/riscv/mm/fault.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/arch/arm64/include/asm/kasan.h b/arch/arm64/include/asm/kasan.h
-index e1b57c13f8a4..4ab419df8b93 100644
---- a/arch/arm64/include/asm/kasan.h
-+++ b/arch/arm64/include/asm/kasan.h
-@@ -6,8 +6,10 @@
+diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
+index a9f2b4af8f3f..dae1131221b7 100644
+--- a/arch/riscv/mm/fault.c
++++ b/arch/riscv/mm/fault.c
+@@ -8,6 +8,7 @@
  
- #include <linux/linkage.h>
- #include <asm/memory.h>
--#include <asm/mte-kasan.h>
--#include <asm/pgtable-types.h>
+ 
+ #include <linux/mm.h>
++#include <linux/kasan.h>
+ #include <linux/kernel.h>
+ #include <linux/interrupt.h>
+ #include <linux/perf_event.h>
+@@ -30,6 +31,8 @@ static void die_kernel_fault(const char *msg, unsigned long addr,
+ 	pr_alert("Unable to handle kernel %s at virtual address " REG_FMT "\n", msg,
+ 		addr);
+ 
++	kasan_non_canonical_hook(addr);
 +
-+#ifdef CONFIG_KASAN_HW_TAGS
-+#define KASAN_TAG_MIN			0xF0 /* minimum value for random tags */
-+#endif
- 
- #define arch_kasan_set_tag(addr, tag)	__tag_set(addr, tag)
- #define arch_kasan_reset_tag(addr)	__tag_reset(addr)
-diff --git a/arch/arm64/include/asm/uaccess.h b/arch/arm64/include/asm/uaccess.h
-index 1aa4ecb73429..8f700a7dd2cd 100644
---- a/arch/arm64/include/asm/uaccess.h
-+++ b/arch/arm64/include/asm/uaccess.h
-@@ -22,6 +22,7 @@
- #include <asm/cpufeature.h>
- #include <asm/mmu.h>
- #include <asm/mte.h>
-+#include <asm/mte-kasan.h>
- #include <asm/ptrace.h>
- #include <asm/memory.h>
- #include <asm/extable.h>
-diff --git a/include/linux/kasan-tags.h b/include/linux/kasan-tags.h
-index 4f85f562512c..e07c896f95d3 100644
---- a/include/linux/kasan-tags.h
-+++ b/include/linux/kasan-tags.h
-@@ -2,13 +2,16 @@
- #ifndef _LINUX_KASAN_TAGS_H
- #define _LINUX_KASAN_TAGS_H
- 
-+#include <asm/kasan.h>
-+
-+#ifndef KASAN_TAG_KERNEL
- #define KASAN_TAG_KERNEL	0xFF /* native kernel pointers tag */
--#define KASAN_TAG_INVALID	0xFE /* inaccessible memory tag */
--#define KASAN_TAG_MAX		0xFD /* maximum value for random tags */
-+#endif
-+
-+#define KASAN_TAG_INVALID	(KASAN_TAG_KERNEL - 1) /* inaccessible memory tag */
-+#define KASAN_TAG_MAX		(KASAN_TAG_KERNEL - 2) /* maximum value for random tags */
- 
--#ifdef CONFIG_KASAN_HW_TAGS
--#define KASAN_TAG_MIN		0xF0 /* minimum value for random tags */
--#else
-+#ifndef KASAN_TAG_MIN
- #define KASAN_TAG_MIN		0x00 /* minimum value for random tags */
- #endif
- 
+ 	bust_spinlocks(0);
+ 	die(regs, "Oops");
+ 	make_task_dead(SIGKILL);
 -- 
 2.45.1
 
