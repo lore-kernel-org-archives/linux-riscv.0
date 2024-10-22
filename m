@@ -4,95 +4,190 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEF19D17151
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Oct 2024 01:06:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DE17D1714E
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Oct 2024 01:29:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	References:Message-ID:Subject:CC:To:From:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YwYKuGsA/m520qA6ZSu7RtPa2Yx9w8qRQCrXf8CYiZ4=; b=0HkYwk8sGuu4Jb
-	CbhHm825Z+te1KKOB486lUJIT5qGfIiH9MbeSq28Pax+nf55lD7/GfU2QU/rH9ngvtScSewgpaOMD
-	IYCHfIEzFxMaN7ZgOwUlFW/afXgNSai5F6MySm13sfQ9c3NlKryJ+r8c8X7vwzLipkMUiMN0apJRh
-	6TfuyDVoQkRiLHXhtElR66U6mODhWCOfPGyM518Q6CUO2cw4XWqgi6RkQL5VH0gZIaKK6hmLmTLou
-	eXfl4joMlcHakGa7YhlsBWTzFUVo1MimT2HIHzJ/JaHK6Lu1DC5j8nIHub01RpgUGrRzYy//FCsQ/
-	kOZUyampjw8RPCFiaBew==;
+	List-Owner; bh=NBMEKYM0xS3vjLOREXNQtx3S95HX2U0bq+5s0k594z0=; b=dKcUDLLYM/MQux
+	9Dq+2my0mNkyRL4hj/7KFtTAE2vmsdy+ggiwQ8tdDzWEao77J+nvg25ydAqsW1o6c7Rz2K6PPupzp
+	2RR2/ee6jH4aLyY+a8OAeR5yZjsd/RQaqwPUEwC6H3r05gMDfIc1DnbDt/ynccqt5c72kuFPRJDqx
+	GFpmbCxmf26a5JY4MrDBLDozKCnU/z+SlwTF+lmpVotqK/hbBt7KdReiJjC5Xb/9uczFxs6hSq5Qr
+	XGzOp35MD7vHTLuN97jNU6OifwjD/DUDko7u+DkukMw/cVPYZj7O9ms/R10mNF1wDwmYhza//mNJR
+	uMTxTKXYA3i8BEM53vJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t33MI-000000099WH-3wjj;
-	Tue, 22 Oct 2024 01:06:50 +0000
-Received: from mail-oi1-x230.google.com ([2607:f8b0:4864:20::230])
+	id 1t33i9-00000009C5d-0aSU;
+	Tue, 22 Oct 2024 01:29:25 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t334v-000000097Me-1HFI
-	for linux-riscv@lists.infradead.org;
-	Tue, 22 Oct 2024 00:48:54 +0000
-Received: by mail-oi1-x230.google.com with SMTP id 5614622812f47-3e5ffbc6acbso2330169b6e.3
-        for <linux-riscv@lists.infradead.org>; Mon, 21 Oct 2024 17:48:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729558132; x=1730162932; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ho9z0/EYibqNU6D6zg4eN1k82sn+fVQ2QwMUjuMq4Kc=;
-        b=aq7sYy6/QL2Aww+ihgbbdoi81jWqj2GZ2EoxXP6ABt03Sa5NlqWKop8reHivlzUyAm
-         EwFJr1mxQ5c51DN0qr61AsuOk/1Awj2LgLQ/XNPROaTmi1AWtCQJSb+kNR/7SXWO+i5P
-         AYO5q28njXhoMPvUOcjqEsc8fDrflo8zfxFV1vOYeKKyF2paaCI5hbFizlgjJkBGte4h
-         ugPksVGQTq4bhrYgcxIvT9VQr22CPrSb4xfkxndZ3iaqo6ruIEFqe142zJQijyPwhqWu
-         2DNyFlg4zSW34PcUFvBlCaBbtwi7LUhiCuqGjcUkZu63vb2YXJ2nUtZ0l9WDD9FcvAPC
-         M6xQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729558132; x=1730162932;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ho9z0/EYibqNU6D6zg4eN1k82sn+fVQ2QwMUjuMq4Kc=;
-        b=X9+zgRCmX2t19s4KM8MSN8Aw5M0pY8hcXA8dRxrZbCDoIiR95jDy0BKsMsMexQ0PqX
-         TNzO2E3FbCAwVYB+Xj/uDLH6/pVmXOHHYzsMMD3/dt90KrEeKKseODP3lDQkUk7rTWp4
-         4ezZPSxMndHMQTPJwxx0zQhILPJ2LmIkFSm3+U1OpiiWrKMVxJMAbubn2ICGFoZD/f79
-         x6xaT7li+3fR6OLd2sTGtHjbHxpXGhgI2kN0qaxQrJ0if42mO826PHUJYQbJ1vBvlNR2
-         Uf8qQasWPc80cN85I8BJzuzNFPDyWLXNvs4uMrrZQM7c7P//PO7WzQm+NwA+cWb3ABOV
-         9lbg==
-X-Forwarded-Encrypted: i=1; AJvYcCWLomUEpQF5IynzSUyib0+N7hTbFMXyChyCbJTsHXEbayzaQYoJvYbWnQcP0xUDB4JcrVMES8EZc+9IUw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywhj79WrhIu3yeLSMSEvYg26vCRzSqy8mA2vf2yoSTS7aV71nUU
-	KAg8LjYnN65FSRrGwhRSe4wOA4GfU9bLdKmkCI61eIln4S42bRpA
-X-Google-Smtp-Source: AGHT+IHR8vksB3qvtmCF54R+Y3XoqQ3hLdiVVfiCsrYy9GdmGCJexTpDrdDYjcOCmNRujUWqNNrwiQ==
-X-Received: by 2002:a05:6808:2020:b0:3e5:d8b9:fcff with SMTP id 5614622812f47-3e602da1233mr8951179b6e.42.1729558132067;
-        Mon, 21 Oct 2024 17:48:52 -0700 (PDT)
-Received: from localhost ([121.250.214.124])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7eaeab48f46sm3785613a12.41.2024.10.21.17.48.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Oct 2024 17:48:51 -0700 (PDT)
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Jonathan Cameron <jic23@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-Cc: Inochi Amaoto <inochiama@gmail.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	=?UTF-8?q?Miqu=C3=A8l=20Raynal?= <miquel.raynal@bootlin.com>,
-	linux-iio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: (subset) [PATCH v5 0/3] Add SARADC support on Sophgo CV18XX series
-Date: Tue, 22 Oct 2024 08:48:30 +0800
-Message-ID: <172955777486.235966.17435293788419031097.b4-ty@gmail.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20240829-sg2002-adc-v5-0-aacb381e869b@bootlin.com>
-References: <20240829-sg2002-adc-v5-0-aacb381e869b@bootlin.com>
+	id 1t33gi-00000009Bs5-49JQ;
+	Tue, 22 Oct 2024 01:27:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1729560478; x=1761096478;
+  h=date:from:to:cc:subject:message-id:reply-to:references:
+   in-reply-to:mime-version;
+  bh=QLRjpoZt0MMyFlYOMTDMme+R5s8kDMEjjf3thWdcMsM=;
+  b=JSRPcWX/Ywt5ZbzdrO/aOdGXxdpYNAiRuDw2oYdGnUr8FOvospgEE0QL
+   YYcQloG861jv+ru4oyMuFWD6DjZcY0s3DpSGxBrh8I1Y+yeCcMD8zdoJ8
+   mN1VL8hN8XAn0OwncmfU+N7LT7qpxF8vKyGCe+0Ch+Zvt6z1DF1uT2wOS
+   8Su2PxkseBHIO/P+VQCw5FZ+VqQ32gVvbNLpbdMJWxX4Bu/WkQdLnMu3S
+   Gd94ldd+xTYN2OFzbIE09JpViqBpT/A0bjxnih5NGyVQUBjyawoCB3G15
+   QyF/2MjLJuJNgpG5zOFNraq+KypVAVXezL4CEyifIn2sARqaVmL1JCKFk
+   w==;
+X-CSE-ConnectionGUID: Wdt6wr0UTeSMZA0qJ7BFDw==
+X-CSE-MsgGUID: 8TMgsooKRfqdYqTWuDFoJQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="46539350"
+X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
+   d="scan'208";a="46539350"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Oct 2024 18:27:52 -0700
+X-CSE-ConnectionGUID: x1LBae+KSSulWMb1mld9gQ==
+X-CSE-MsgGUID: 3OdbdqeqRzK976lVhgejAQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,221,1725346800"; 
+   d="scan'208";a="79634105"
+Received: from orsmsx602.amr.corp.intel.com ([10.22.229.15])
+  by orviesa010.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 21 Oct 2024 18:27:51 -0700
+Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
+ ORSMSX602.amr.corp.intel.com (10.22.229.15) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.39; Mon, 21 Oct 2024 18:27:50 -0700
+Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
+ orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.39 via Frontend Transport; Mon, 21 Oct 2024 18:27:50 -0700
+Received: from NAM10-BN7-obe.outbound.protection.outlook.com (104.47.70.43) by
+ edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.39; Mon, 21 Oct 2024 18:27:50 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bCLSIufmLY0Ln7ZLh3/10KD9RPyr0Ht26uy+0xHKZO1Z8di8tkaZkdYiGZKtKkWHQ9Gky3WPS9O51OcssVVkbZLVc+WhCbJcyHLhMItXB6cXw78ZfWGlrnaTsYZJY7kHN72B8IDdZTjp/B1f+MZTPFT9QO7DYPHPFYl8hz+BEANf3o04RWlNjHr3gU4oZmrCg7P6JpqmL/UUVOGS05KU4s3Q/wtWRjhxL0Q15V+Y5jo1pBqIvotqztrve9BVqyBObKvU5NOV/SYlmV3TVjmuAOnbZN3Jq0I580PzYWRGszX4JBQkW3ZLjFM3/JWKAhY27907veI79bP5sKOMeYodVg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8wiZMJMqOHn5d7VwEfIIQSOtpMAYOkJZve6CdQ5hjd4=;
+ b=KHSTm1YMpLkJemP8innwUGlHM2H+ojIECP5hcxhWcbs6I3QVybeW8VgRNfVJuRNZMakYmAjH2tv1CNAzjUmeVdO0esemqIkQ80p97mmhwZDTLbU+zeJ2fw2kEI1/boWg17rKyHqL4eYn3JJFn03c7m/JSNm2T37hx7RTx/24Z4CHk/r/ye9EzWNHO3R+Q3uX8JTbbYRKzh2kkYmO8m7hRn4gH0YSIAslXtnzDUENxNBxj2hVxZ0CeHNtBBqSbPwyux71TWWj9+sWHFIPkQqzjOot9VMnTH1sanjpKrHtlOuVv/b+uNjA196WrI2ib7v7Zd7V2hTIxvbo3jqUzMm/5Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from DS7PR11MB5966.namprd11.prod.outlook.com (2603:10b6:8:71::6) by
+ SJ2PR11MB7647.namprd11.prod.outlook.com (2603:10b6:a03:4c3::8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8069.17; Tue, 22 Oct 2024 01:27:47 +0000
+Received: from DS7PR11MB5966.namprd11.prod.outlook.com
+ ([fe80::e971:d8f4:66c4:12ca]) by DS7PR11MB5966.namprd11.prod.outlook.com
+ ([fe80::e971:d8f4:66c4:12ca%5]) with mapi id 15.20.8069.027; Tue, 22 Oct 2024
+ 01:27:47 +0000
+Date: Tue, 22 Oct 2024 09:25:21 +0800
+From: Yan Zhao <yan.y.zhao@intel.com>
+To: Sean Christopherson <seanjc@google.com>
+CC: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	"Oliver Upton" <oliver.upton@linux.dev>, Tianrui Zhao
+	<zhaotianrui@loongson.cn>, "Bibo Mao" <maobibo@loongson.cn>, Huacai Chen
+	<chenhuacai@kernel.org>, "Michael Ellerman" <mpe@ellerman.id.au>, Anup Patel
+	<anup@brainfault.org>, "Paul Walmsley" <paul.walmsley@sifive.com>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Christian
+ Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank
+	<frankja@linux.ibm.com>, "Claudio Imbrenda" <imbrenda@linux.ibm.com>,
+	<kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>, <loongarch@lists.linux.dev>,
+	<linux-mips@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
+	<kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Alex =?iso-8859-1?Q?Benn=E9e?=
+	<alex.bennee@linaro.org>, David Matlack <dmatlack@google.com>, David Stevens
+	<stevensd@chromium.org>, Andrew Jones <ajones@ventanamicro.com>
+Subject: Re: [PATCH v13 19/85] KVM: Introduce kvm_follow_pfn() to eventually
+ replace "gfn_to_pfn" APIs
+Message-ID: <Zxb/AZVD6wvk28OY@yzhao56-desk.sh.intel.com>
+References: <20241010182427.1434605-1-seanjc@google.com>
+ <20241010182427.1434605-20-seanjc@google.com>
+ <ZxYVnsW9WF1Wp8mx@yzhao56-desk.sh.intel.com>
+ <ZxaYsfc0m6UHmi10@google.com>
+Content-Disposition: inline
+In-Reply-To: <ZxaYsfc0m6UHmi10@google.com>
+X-ClientProxiedBy: SG2PR06CA0210.apcprd06.prod.outlook.com
+ (2603:1096:4:68::18) To DS7PR11MB5966.namprd11.prod.outlook.com
+ (2603:10b6:8:71::6)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS7PR11MB5966:EE_|SJ2PR11MB7647:EE_
+X-MS-Office365-Filtering-Correlation-Id: f9b29d12-d235-4d1e-b758-08dcf238bc21
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?EZf0lpQLySVQiGoyrRjvxWJkC5IVMq8mYWCsCIaZiNJ5rAyUYLfIrSF/HcHp?=
+ =?us-ascii?Q?fvEIQD2OKUhETd6XGYuaLcV8+7sksuqn886Oxn6UeT27yA3hrs3TKH1xBXXE?=
+ =?us-ascii?Q?OEOmRYBO5ruxrnnTZqz/MR2LGfOAltCzfo28gfAtofI9VK6grhukmTNfyhYB?=
+ =?us-ascii?Q?74iqLC/54LN0MYJMyGmrmdNYcJSbgw79WZu0leWb3ydX0CCB/peiFUepL+qn?=
+ =?us-ascii?Q?4UGUPzQj6RcuLt5ByIy0lwhLEStc3euoPmjIpeHsDM6WvIL4xryNMmnqc0QG?=
+ =?us-ascii?Q?Mze/gWmmqClDqckQ+Fh9bF2VTenhwauQi7+7ulRgEhIMaDWd97AUgSMH9I24?=
+ =?us-ascii?Q?ui1gjxeCxnLI/u1JzspEhaVM7AdsDyIE/gMp4x6kB6rz4nENAo/I3jUSqs0T?=
+ =?us-ascii?Q?94C8mzzDlg/qjrNrgY9nhkz/wGCTa8prEqjbSJ+R7iWToVyIZjk22L1UEKQS?=
+ =?us-ascii?Q?/i0EHbiCUFSjEKSG8Zr46e9IQBWKBmLn7YSPSXwYk2+VHO7Rgk35SiXQL3Ry?=
+ =?us-ascii?Q?Wz+m2a2IKFyQWqwHyZGiSlXi32tKcFJYuyk7LjvnI9KjSVaFBnK0yqVppbNh?=
+ =?us-ascii?Q?juK3RQ2gtgAk3FcovdRzjc51fsPz5fqrrIgcUY8YZCiULGBAiT+/DSYQmNCX?=
+ =?us-ascii?Q?DnVC1hxwMNRtYp+JtzEDynpbZJftmpVAAJIaXsfaOMTzM7Il/rsyxDxUmSP/?=
+ =?us-ascii?Q?hJ8iCWJCfpnkDJCtQglwelCIjeZxq26dA6qzV7FKE+IXFfxcNk4dBO2w8AS9?=
+ =?us-ascii?Q?YachnGzP5bGdMQ+Xz0b4WHF7wwXZZzrucyd35zGdKS3FFc+fKLzj8munbQOF?=
+ =?us-ascii?Q?g+I/zgEarCTZyvVFQIVLTBnqVGn/Snx5AVvvQuyQyaTkggUCzg39rE7gtSBS?=
+ =?us-ascii?Q?hL+adCbEgJrfjc94yS0F+SArASQYjC0yazDUXjduEBwf1nKQIWeb/JXd333E?=
+ =?us-ascii?Q?9hCfma6PSuvwj+KsMsqAYWz3sjHKioZf6gaskj+tsosdarFkfPpd9kI8Ss5j?=
+ =?us-ascii?Q?M2yTI1qPrJHwSiMLl1TFHZJT0COjOMbmRXdPDP1cO604/xc9H/xgSgdV/68o?=
+ =?us-ascii?Q?ZsjecjFY05Lz2CPEyibncC/xmAmPNzh0Koq3Kz+0P6DYPDFBair86BzlwdPZ?=
+ =?us-ascii?Q?Vh7CUVQG8arKZrJT/aVuYux6fLBvZUlRVrVyausYNDfNuMj6CBlu6/L+vQWw?=
+ =?us-ascii?Q?NiRAXgzw4cDxWgXv2WtWLYxC8aj4u6BTg1J9aZj9HaZAsuMoJf1T62G8NUqN?=
+ =?us-ascii?Q?c9kDiuiY1q8BgjeKDUiVFOmCdBPQcJMPrbkcCCAizsY77ZQLLgXSz0632Xuh?=
+ =?us-ascii?Q?91XFFiMxtWt8h6OrGRwZZ4wY?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR11MB5966.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?dLTNuZgnb+xfQcm1PSYaib6X1ryu93LLLO/vaXe1Zkf37/l9gSGU2hwI7NyQ?=
+ =?us-ascii?Q?ZX+e7bR09rO2fbKYJe/LTq+17QHfwdroUu9iyxxeXF01/UbcmLBAP1BElJff?=
+ =?us-ascii?Q?etXWZWKV31RhDW5ZvabtLb+XhUja4S60oI4bwcPmUi4BaGxcq8u1srSRmIor?=
+ =?us-ascii?Q?WPCuHvU7x4D+jUkOxoASCSYg9fVlkJJaC+uuEVTpCHYWPpckcvVhjY//lfF1?=
+ =?us-ascii?Q?mfUJYMft0kzJIuwdgsCjd1ekBeR+7r+qxh5h9IkwNU8Yy7VZnXj8dFGG6vNP?=
+ =?us-ascii?Q?QxFKoIgBk7QIAj6ihhYhRmvMQjjgAX4ZM0AYq6xVquKgFFLSbMzn9a1H5ddx?=
+ =?us-ascii?Q?C1HmBSiGcewD+k/tjuLNMPGAEaV4FGz35BulOigGImRR0zQRtoN3mzhyfqsZ?=
+ =?us-ascii?Q?qUf8i2qr5vKaQMttNqLWKnWM/4dROz6bBbhlHgy9ED16X4A3GlVGDYAZdnjj?=
+ =?us-ascii?Q?+eB41Pqfg3kTdr80qaYNjvazWyRQNo8p73pHMG7TWFllSOX97YcGZZ/zsKCO?=
+ =?us-ascii?Q?HYbiyoab7OEGL8dJi8S6l3tuTjzZlKlQu3eqHS+OOCmsX0yOnoD+Crb6Agkm?=
+ =?us-ascii?Q?buF4L7tq6jBDGg2qTTaeT6aaC7TYPFzFgLK6wMSFYQATWseprX00PSCqyR+s?=
+ =?us-ascii?Q?07iPTRbo1NyqKZSbdGzXpwiyf772dgVwC/REtTZuUM0lr9mrMTak20TNhSWQ?=
+ =?us-ascii?Q?VFHozfchWAuDYBtbfAlr7EUM+TZ3CN3DH5LFGU7FyCke0CdplWiGVHV5ok4A?=
+ =?us-ascii?Q?B/jDnD6egEmq5p88Ezk9uvrD32MMoGWad5sJ9BIoR2N41RrhW1rmruK6k86x?=
+ =?us-ascii?Q?T1h5Wnp+GDO674pZnzArU/5QyujI8dGrmFLXhqnITEn0RlOa0OxVc3V8AjCN?=
+ =?us-ascii?Q?9Wvse2vqIhyKHpMx25dhPh4pi81P+kpBoIwVDsj/q0gwIc4tuImL38kNRMpP?=
+ =?us-ascii?Q?9xadnk7axIKZqgPen8tKVitjtFMDuu2qrAcLUcXlIIZ5wnQILX7SgzXKi8D0?=
+ =?us-ascii?Q?uL0jlUj9z4X1J0liwQrp9nnh1ciPntnS11s65DTwxTR2KgnDmMbnNJkWPeP7?=
+ =?us-ascii?Q?FRe+ZdVzD2P7glKdnjJMOJzQbnLl0w/qxo+R0s/lNIiIlRdaNYJ5GZiuDHdA?=
+ =?us-ascii?Q?AjP6ZBHixSq0HYaw6B5kqakUrCXhnqBftCffhF182158slGx0EPw19RT9XkF?=
+ =?us-ascii?Q?BCohql+NXyXKIYyFr8ZiLj7ttDU2umI//Nh208yZMzb7c6UQCTX/aoEaw9YD?=
+ =?us-ascii?Q?i7XfvM+Mi35ipJSwM8I++BRctIKXgtogbYP3LrghjwTegg/6rkSIANDkpGfr?=
+ =?us-ascii?Q?RQo5cXSZ2gMioGHEYshfA7vJEky1HeP96Q0UEZv+bu/GKB0ZvXqYnZknfxyp?=
+ =?us-ascii?Q?+MwRAjO+/go334tsnkbTgLvUNAO/Zeb3Y39ZkO+i4fYOd1uqj1/PA3/KyLOf?=
+ =?us-ascii?Q?C+sNMq9wgLLg+qQTiRshsXAaEpfngSHpfntaJJ/QX2aSY1ucRf2MXjZmCkyJ?=
+ =?us-ascii?Q?B8X2bWNZX6Whhf3lWSxqgRAbQmCM5qr+MjVnssmB+y/c16mLhF0DaY/LN76D?=
+ =?us-ascii?Q?TRNVMnVIDp+D0Ck61hpEge7sxlUPWvHs6HnF+hZr?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: f9b29d12-d235-4d1e-b758-08dcf238bc21
+X-MS-Exchange-CrossTenant-AuthSource: DS7PR11MB5966.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Oct 2024 01:27:46.9728
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 4aq+Plh0qZNyyvHtrprHC62R11Ejd7B8pOzkWLXAkpkbsBEommWXMdTk9q46AgLU8Bg/HalfuxrS8JOSLwRW2g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR11MB7647
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241021_174853_361924_2A89738F 
-X-CRM114-Status: UNSURE (   8.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241021_182757_109528_B8C1D142 
+X-CRM114-Status: GOOD (  10.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,27 +199,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: Yan Zhao <yan.y.zhao@intel.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 29 Aug 2024 14:31:49 +0200, Thomas Bonnefille wrote:
-> This patchset adds initial ADC support for Sophgo CV18XX series SoC. This driver can
-> work with or without interrupt.
+On Mon, Oct 21, 2024 at 11:08:49AM -0700, Sean Christopherson wrote:
+> On Mon, Oct 21, 2024, Yan Zhao wrote:
+> > On Thu, Oct 10, 2024 at 11:23:21AM -0700, Sean Christopherson wrote:
+> > > --- a/virt/kvm/pfncache.c
+> > > +++ b/virt/kvm/pfncache.c
+> > > @@ -159,6 +159,12 @@ static kvm_pfn_t hva_to_pfn_retry(struct gfn_to_pfn_cache *gpc)
+> > >  	kvm_pfn_t new_pfn = KVM_PFN_ERR_FAULT;
+> > >  	void *new_khva = NULL;
+> > >  	unsigned long mmu_seq;
+> > > +	struct kvm_follow_pfn kfp = {
+> > > +		.slot = gpc->memslot,
+> > > +		.gfn = gpa_to_gfn(gpc->gpa),
+> > > +		.flags = FOLL_WRITE,
+> > > +		.hva = gpc->uhva,
+> > > +	};
+> > Is .map_writable uninitialized?
 > 
-> Link: https://github.com/sophgo/sophgo-doc/releases/download/sg2002-trm-v1.0/sg2002_trm_en.pdf
-> 
-> 
-
-Applied to for-next, thanks!
-
-[3/3] riscv: dts: sophgo: Add SARADC description for Sophgo CV1800B
-      https://github.com/sophgo/linux/commit/45a544a62ef7cac9ecc69585a90da72ca68af898
-
-Thanks,
-Inochi
-
+> Nope, per C99, "subobjects without explicit initializers are initialized to zero",
+> i.e. map_writable is initialized to "false".
+Ah, thanks, good to know that!
 
 _______________________________________________
 linux-riscv mailing list
