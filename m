@@ -4,90 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CED8D17151
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Oct 2024 01:03:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0DD6D17151
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Oct 2024 01:04:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=gf07fphGEmuObE4MqvFvx80XybakeN7QzDdOOmExtIY=; b=Nu9YmU23f1jv4POyH4EzSu2Y9T
-	6BXB4JzX9bnBIdXNDZsKtmf08rojkCXnrHTgFmEcbAWeh7HMqsnnKTBCbqLWT0S3XRZM1oKH/MlAv
-	qT1E31mhN1I1YpztHOJyPjkHzhFzBgJ6Vij4Ltt89HVZg7f5hJkaHqaGNhK2MAyGEHuHk7R50N+gk
-	gVTHl1r8/UCYReRT1HVkstf0TzZaEfLiR7fGAk96cGlnntaqhl9aHTCmYgjZn6ELctbLNdrYTvno+
-	moux3tLj7hnwe8khIWUoCBjxfseJ616QGPAufF9QH5NUwwRx4R+9eUomiNL5mwUhBC5EjopwlkuYG
-	A3QX0gog==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=5nA0r4eT4CguhOiwqElnQIoHxODI/V+XJMoH/556ctI=; b=wM518Ai/lUf2du
+	f5llbi7Dt3ZPsnJEi91jitM/lMewTz30JfcBu9x57TYCyPwfWQqpyfnbqYwq8WZc/s7Rwni8Yg3ia
+	9det8S1L+g8vI1+yU2GOuQ13FymF9NSgiMx8ukCvBFuhpr0b2uSdNF/0vMYt2ZMoKy5CpHuMxc08w
+	IYU4WVfdXf7hc28LaosXVPyzTHeM+tctxVJB3toZex1d8gM5Ixjqj9ZHykP+eJp/pIQ7A2LyjFs3t
+	/6poAze71/KjjAM/5x8ylrOClFJ3sclSWxXuluUZXwEqigPUmPLYiVyNJrOd2WDm9AldP6473oI7f
+	o9lWF4cVi0M8+v0NoPrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t33Id-000000098ru-3feQ;
-	Tue, 22 Oct 2024 01:03:03 +0000
-Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
+	id 1t33K9-0000000996f-16KD;
+	Tue, 22 Oct 2024 01:04:37 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t32iI-000000093cl-0JuI
+	id 1t32pD-000000095FD-3KiI
 	for linux-riscv@lists.infradead.org;
-	Tue, 22 Oct 2024 00:25:32 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-e0b8fa94718so8131789276.0
-        for <linux-riscv@lists.infradead.org>; Mon, 21 Oct 2024 17:25:29 -0700 (PDT)
+	Tue, 22 Oct 2024 00:32:41 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-71e7086c231so3812450b3a.0
+        for <linux-riscv@lists.infradead.org>; Mon, 21 Oct 2024 17:32:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1729556727; x=1730161527; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=MsmHAIiTKT1PsAHJrcn3wc4lWOtEN6U6cuZlArYcGvA=;
-        b=UxrE7+E9NrxVM8sCIENJV5N5VAJkDJSnFwCF+AihPUHX+tE1VRtYw6FkQ4l3a4kzAM
-         HwsSMQ2o54r3od83tUFqbrdhsMD+XPl1FMRChKBs5n09Vjh5pwWG+Q/MzGgYWlMOe9+B
-         p0oiYSN7Q1d2KQVl9DBh/4WSNQIbnCZ8hW2p9pSpnRzsl6Q3IeQOsUUwnpYTkziaIbj7
-         0rGrGIsapSAeIHuQGWGBqLL4dxLpuBl7dmYf7Epo18lzMp8S9Mdt3+sombzZpZmdz1Id
-         aFAq1ChD7J9MdBMZOD7ABgVkh8ei1ufI4L+sHR1AcswpeaXEzd6gfvBim7IrxAdLm1pk
-         0NLA==
+        d=gmail.com; s=20230601; t=1729557158; x=1730161958; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=WE4OCeGrEarxaIJLsEWYczNlBhDxq64y4K7wEYrbCx8=;
+        b=hvHmLhIoKzoUKz6v8JgTs4US+fMWvPZCYEirZ5XPGh20aqAZHU0SR962iyffdL2t/0
+         rgHeqvvvNsNeexUpYTOLNDFhMBUtSPG3WmRsdzT0zyalRU+Wp0Y3LhKklgBx6Ab6kPer
+         otKtMQHW7t+lcqohme9NzmGTtGmBOqkihJYYUVKUzuf1/8APTZ26tHKGpX1qlQEXFxom
+         z60dnHy1lbi253X/zS4IhTJMfUYRuvwXZkfhxocsolgUixLzVCuZYZx1AuZuNaCmxBOO
+         HBf59VlkOyPa7FMqPe6xSNupTuvmv4UAo1gQP+yxczRENuR+tlmfuXP8hhhVuVb8PTbN
+         Zuig==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729556727; x=1730161527;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=MsmHAIiTKT1PsAHJrcn3wc4lWOtEN6U6cuZlArYcGvA=;
-        b=QVkboZGnX5sw/oG6MzkvbQOv2JKbThaBQ4LHWXfo7YcRfUvCTzdjOPzdsn3EHILgfL
-         BZE2jkF9VGCIr+4M5V2ebxI72oFGpJ9u3VX+Pa4vKSDI6UYFR4wKB9ujH/EtZaxw9nAf
-         39iqlzdkfvlRl973Q8edH9A+cOzB0B4eQV9siczRir6SqDEah2DGf6I5SAYTFYVQVN1J
-         I7VY4Oh5vFyNyt1PzeJiMoOTvxng6hZbV6kfGxnj/UBf8wZwglsyXZgwH2Gtqlgdw/eA
-         dqQl+5iKt1tPau/x3Sc3MCThcSLliW92XsN9fJQo78Ak/WInSoeW+UnEXxe3VSwWgi3w
-         e/Vw==
-X-Forwarded-Encrypted: i=1; AJvYcCVTArrnz0GPqqnJaLUVPmiJgWg0YyG31O+hliPYuL6K3+VYrWGF37MRFzUfKo2AX647v2ttGXK72BEq0w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwXK7ANTG2KwTxqVP2RDDoZcow1FA/q4OQUFqTryct3HnPzWFWf
-	/Oo/n1YA4n6vEW6XfRy36xFwVNnAlVG9zqPhw1wmqt1gGZzw3GXsFksNzMJfEG306AowooM9oQN
-	Rzw==
-X-Google-Smtp-Source: AGHT+IFt751p/7pq+BSWT0h/wj8dy6pof7dpapFjoV1RFsMPc4iJ6WxDdC7RwTVAow0VYtv4igk8p4vJkHM=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:9d:3983:ac13:c240])
- (user=seanjc job=sendgmr) by 2002:a25:aae9:0:b0:e29:1893:f461 with SMTP id
- 3f1490d57ef6-e2bb0feddc7mr22594276.0.1729556726690; Mon, 21 Oct 2024 17:25:26
- -0700 (PDT)
-Date: Mon, 21 Oct 2024 17:25:25 -0700
-In-Reply-To: <CABgObfbQW-3vp=mNcR4giUGZ_gxhuRykvKj8gzBDY7pOg6xdBQ@mail.gmail.com>
-Mime-Version: 1.0
-References: <20241010182427.1434605-1-seanjc@google.com> <CABgObfbQW-3vp=mNcR4giUGZ_gxhuRykvKj8gzBDY7pOg6xdBQ@mail.gmail.com>
-Message-ID: <Zxbw9XcFCHYR1Ald@google.com>
-Subject: Re: [PATCH v13 00/85] KVM: Stop grabbing references to PFNMAP'd pages
-From: Sean Christopherson <seanjc@google.com>
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	"Alex =?utf-8?Q?Benn=C3=A9e?=" <alex.bennee@linaro.org>, Yan Zhao <yan.y.zhao@intel.com>, 
-	David Matlack <dmatlack@google.com>, David Stevens <stevensd@chromium.org>, 
-	Andrew Jones <ajones@ventanamicro.com>
+        d=1e100.net; s=20230601; t=1729557158; x=1730161958;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WE4OCeGrEarxaIJLsEWYczNlBhDxq64y4K7wEYrbCx8=;
+        b=HMsztH9AXCF/xZXtmNWfGG6hpjHackQDTcHJLfUAuaTVMvzgt+tfCAW2N9/utHJGg0
+         8ytUoi/gTuvTlo25ReKp+Vh+00xORSvSr+cSaYHw/2qWuE7spst5RxG/oBqIK3S41uw6
+         xCD9dL9Yb2hOiydbMkanIUU77S1sSkB3ZL+bVeZUmpN5dx+7GSs0nPqi2iM/IbDXXQqT
+         p7Bau17MvZp/gKE6s44zzhuxqrYwpfL86/pWdNdCSSqyIIQO0AqKLLm+jrYv5m8bJszP
+         6TPsHFtvmr2foxDp9Z85Z5MeJJDhnGv/7KKyGQnsPsdHiA0sccSSjJHdQOoPOUnRST1H
+         kweQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVYf3yXHv5j6zGdIELadZMaXZcnfp3yemq/PRlH2xmTeohsAD2Ps5y6PRGlWzd5CUv+CheJP1Hh6TAtrg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwMskDa1b7rXs+6tU4d8yJIhb+8D7R0tv6TGOCXm76/i2BM6DIG
+	xJL8Aa8+YWdDXS5Z73D+ZKKTu5UzjbvHi/xEmIBm3DTh2HJ+w8WI
+X-Google-Smtp-Source: AGHT+IGRvtwT49FWz7kNEaS3v8Wbc/KWtCjRiHMEU5H4U/gU9VJLLNUgtlNoDFiUyPMBYSalal22xQ==
+X-Received: by 2002:a05:6a00:3d15:b0:71e:76ac:4fc4 with SMTP id d2e1a72fcca58-71ea332ab76mr19694997b3a.21.1729557158051;
+        Mon, 21 Oct 2024 17:32:38 -0700 (PDT)
+Received: from localhost ([121.250.214.124])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7eaeab58aadsm3747124a12.53.2024.10.21.17.32.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 21 Oct 2024 17:32:37 -0700 (PDT)
+Date: Tue, 22 Oct 2024 08:32:19 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Chen Wang <unicorn_wang@outlook.com>, 
+	Inochi Amaoto <inochiama@outlook.com>, Chao Wei <chao.wei@sophgo.com>, Conor Dooley <conor@kernel.org>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Samuel Holland <samuel.holland@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	=?utf-8?Q?Miqu=C3=A8l?= Raynal <miquel.raynal@bootlin.com>, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v5 0/2] Add board support for Sipeed LicheeRV Nano
+Message-ID: <luq5c3nkj6mcnmfah5gethcud5iikaayyt4e4tiw7fh7e67zou@bkuzbt7kiztp>
+References: <20241010-sg2002-v5-0-a0f2e582b932@bootlin.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20241010-sg2002-v5-0-a0f2e582b932@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241021_172530_132136_B201895A 
-X-CRM114-Status: GOOD (  14.07  )
+X-CRM114-CacheID: sfid-20241021_173239_860725_EC7ACDD3 
+X-CRM114-Status: GOOD (  20.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,38 +94,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBPY3QgMTcsIDIwMjQsIFBhb2xvIEJvbnppbmkgd3JvdGU6Cj4gT24gVGh1LCBPY3Qg
-MTAsIDIwMjQgYXQgODoyNOKAr1BNIFNlYW4gQ2hyaXN0b3BoZXJzb24gPHNlYW5qY0Bnb29nbGUu
-Y29tPiB3cm90ZToKPiA+IHYxMzoKPiA+ICAtIFJlYmFzZWQgb250byB2Ni4xMi1yYzIKPiA+ICAt
-IENvbGxlY3QgcmV2aWV3cy4gW0FsZXggYW5kIG90aGVyc10KPiA+ICAtIEZpeCBhIHRyYW5zaWVu
-dCBidWcgaW4gYXJtNjQgYW5kIFJJU0MtViB3aGVyZSBLVk0gd291bGQgbGVhayBhIHBhZ2UKPiA+
-ICAgIHJlZmNvdW50LiBbT2xpdmVyXQo+ID4gIC0gRml4IGEgZGFuZ2xpbmcgY29tbWVudC4gW0Fs
-ZXhdCj4gPiAgLSBEcm9wIGt2bV9sb29rdXBfcGZuKCksIGFzIHRoZSB4ODYgdGhhdCAibmVlZGVk
-IiBpdCB3YXMgc3R1cGlkIGFuZCBpcyAod2FzPykKPiA+ICAgIGVsaW1pbmF0ZWQgaW4gdjYuMTIu
-Cj4gPiAgLSBEcm9wIGNoZWNrX3VzZXJfcGFnZV9od3BvaXNvbigpLiBbUGFvbG9dCj4gPiAgLSBE
-cm9wIHRoZSBhcm02NCBNVEUgZml4ZXMgdGhhdCB3ZW50IGludG8gNi4xMi4KPiA+ICAtIFNsaWdo
-dGx5IHJlZG8gdGhlIGd1ZXN0X21lbWZkIGludGVyYWN0aW9uIHRvIGFjY291bnQgZm9yIDYuMTIg
-Y2hhbmdlcy4KPiAKPiBIZXJlIGlzIG15IG93biBzdW1tYXJ5IG9mIHRoZSBjaGFuZ2VzOgoKWWVw
-LCBsb29rcyByaWdodCB0byBtZS4KCj4gcGF0Y2hlcyByZW1vdmVkIGZyb20gdjEyOgo+IDAxLzAy
-IC0gYWxyZWFkeSB1cHN0cmVhbQo+IDA5IC0gbW92ZWQgdG8gc2VwYXJhdGUgQS9EIHNlcmllcyBb
-MV0KPiAzNCAtIG5vdCBuZWVkZWQgZHVlIHRvIG5ldyBwYXRjaCAzNgo+IDM1IC0gZ29uZSBhZnRl
-ciA2MjA1MjU3Mzk1MjEzNzZhNjVhNjkwZGY4OTllMTU5NmQ1Njc5MWY4Cj4gCj4gcGF0Y2hlcyBh
-ZGRlZCBvciBzdWJzdGFudGlhbGx5IGNoYW5nZWQgaW4gdjEzOgo+IDA1LzA2LzA3IC0gbmV3LCBz
-dWdnZXN0ZWQgYnkgWWFuIFpoYW8KPiAwOCAtIGNvZGUgd2FzIGZvbGRlZCBmcm9tIG1tdV9zcHRl
-X2FnZSBpbnRvIGt2bV9ybWFwX2FnZV9nZm5fcmFuZ2UKPiAxNCAtIG5ldywgc3VnZ2VzdGVkIGJ5
-IG1lIGluIHJlcGx5IHRvIDg0Lzg0ICh5dWNrKQo+IDE1IC0gbmV3LCBzdWdnZXN0ZWQgYnkgbWUg
-aW4gcmVwbHkgdG8gODQvODQKPiAxOSAtIHNvbWV3aGF0IHJld3JpdHRlbiBmb3IgbmV3IGZvbGxv
-d19wZm5tYXAgQVBJCj4gMjcgLSBzbWFsbGVyIGNoYW5nZXMgZHVlIHRvIG5ldyBmb2xsb3dfcGZu
-bWFwIEFQSQo+IDM2IC0gcmV3cml0dGVuLCBzdWdnZXN0ZWQgYnkgbWUKPiA0NSAtIG5ldywgY2xl
-YW51cAo+IDQ2IC0gbXVjaCBzaW1wbGlmaWVkIGR1ZSB0byBuZXcgcGF0Y2ggNDUKPiAKPiBMb29r
-cyBnb29kIHRvIG1lLCB0aGFua3MgYW5kIGNvbmdyYXR1bGF0aW9ucyEhIFNob3VsZCB3ZSBtZXJn
-ZSBpdCBpbgo+IGt2bS9uZXh0IGFzYXA/CgpUaGF0IGhhcyBteSB2b3RlLCB0aG91Z2ggSSdtIG9i
-dmlvdXMgZXh0cmVtZWx5IGJpYXNlZCA6LSkKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
-aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcmlzY3YK
+On Thu, Oct 10, 2024 at 05:07:05PM +0200, Thomas Bonnefille wrote:
+> The LicheeRV Nano is a RISC-V SBC based on the Sophgo SG2002 chip. Adds
+> minimal device tree files for this board to make it boot to a basic
+> shell.
+> 
+> Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+> ---
+> Changes in v5:
+> - Add support for pinctrl
+> - Remove nodes for i2c0 and uart1
+> - Drop dt-bindings patch that are already applied
+> - Link to v4: https://lore.kernel.org/r/20240711-sg2002-v4-0-d97ec2367095@bootlin.com
+> 
+> Changes in v4:
+> - Add correct bindings configuration for SG2002 sdhci
+> - Drop commit "dt-bindings: timer: Add SOPHGO SG2002 clint" because it
+>   has already been merged in Daniel Lezcano git tree.
+> - Link to v3: https://lore.kernel.org/r/20240709-sg2002-v3-0-af779c3d139d@bootlin.com
+> 
+> Changes in v3:
+> - Remove /dts-v1/ directive from sg2002.dtsi file
+> - Add disable-wp property to sdhci node to avoid having a write
+>   protected SD card
+> - Drop changes in cv18xx.dtsi and cv1800b.dtsi
+> - Add fallback compatible to cv1800b in SDHCI node of sg2002.dtsi
+> - Link to v2: https://lore.kernel.org/r/20240612-sg2002-v2-0-19a585af6846@bootlin.com
+> 
+> Changes in v2:
+> - Add SDHCI support
+> - Change device tree name to match the Makefile
+> - Add oscillator frequency
+> - Add aliases to other UARTs
+> - Add aliases to GPIOs
+> - Move compatible for SDHCI from common DT to specific DT 
+> - Link to v1: https://lore.kernel.org/r/20240527-sg2002-v1-0-1b6cb38ce8f4@bootlin.com
+> 
+> ---
+> Thomas Bonnefille (2):
+>       riscv: dts: sophgo: Add initial SG2002 SoC device tree
+>       riscv: dts: sophgo: Add LicheeRV Nano board device tree
+> 
+>  arch/riscv/boot/dts/sophgo/Makefile                |  1 +
+>  .../boot/dts/sophgo/sg2002-licheerv-nano-b.dts     | 95 ++++++++++++++++++++++
+>  arch/riscv/boot/dts/sophgo/sg2002.dtsi             | 42 ++++++++++
+>  3 files changed, 138 insertions(+)
+> ---
+> base-commit: 9852d85ec9d492ebef56dc5f229416c925758edc
+> change-id: 20240515-sg2002-93dce1d263be
+> 
+> Best regards,
+> -- 
+> Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+> 
+
+LGTM.
+
+Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
