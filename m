@@ -4,95 +4,207 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5379DD17159
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Oct 2024 02:12:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8041D17157
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Oct 2024 02:23:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	References:Message-ID:Subject:CC:To:From:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8/QbyCqBRX9GdHKWJZOLfsG53SjeQAGpo7dCmUKobZE=; b=FrOje/qnFL4pCo
-	i64WB5TtJ6MnbeIsmd+YIxPtyqWl7yPobG/DV8fUhRJdbo/RDgRDa8o+knB2B2q5Yin4Wi0pRxruY
-	o326c/8oaH9Ls3TeWSDEucYphwjbE3CpU3S12TvVmVC+E54iPxoPH59veHmZcOouaVJgkwKjnoMVZ
-	8mdAl26MzPHMloPQb5OPJGtjg9Y2YwGSQczRypalb064v8+Q4Qt3omozH9MUKQrdkwJnB4CFXAANq
-	1RdNXVlIhvp82Xop7sWegXYzR6EtCnyJ6SpZiD951O9glIfy1WLWLKtEsqAQGcYBa6b59Np+Z3Dbc
-	repyjCmDjf0i6TEsJnwQ==;
+	List-Owner; bh=c4w+qpT9UT0aptv18rIneix9J5i9Ky4/fAzpyZXtsmo=; b=3z8Xh2yhIDdjZV
+	IbaAI0kigXA4RCAW0gRM9HTmDqk45uuRxsD1GeXfZaSz8RmGIOCiai0rptcfU+9ac6T3hCxkV/w7D
+	eeciDcFC/1pOiBWcTh7MbUDbO0IVzOJxo0AK8khinDxJWZiBUmFdFCQqzBfiQsyL90KGY/2RT5wTF
+	gpqJfmfsL68b0tOKeGYsd+uZxh9exK2yErvxyHb5528sBKFIG0ugeE7lJ+6u6jk5KTFuo+fn3zLio
+	d5z9w2kBo8j1sqFzLtBLB3aD9rJfYwd4TFC7XMo1RVFFD1cA8FJl28LzG5kkMzTNbwhA6OcDlzjJ6
+	eKJxi73jr+yDK4RK/OaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t34Nn-00000009IUB-3jti;
-	Tue, 22 Oct 2024 02:12:27 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	id 1t34Y4-00000009JrV-24EH;
+	Tue, 22 Oct 2024 02:23:04 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t34BJ-00000009Fvg-3e3A
-	for linux-riscv@lists.infradead.org;
-	Tue, 22 Oct 2024 01:59:40 +0000
-Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-7ea8ecacf16so3480523a12.1
-        for <linux-riscv@lists.infradead.org>; Mon, 21 Oct 2024 18:59:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1729562373; x=1730167173; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=71aQqKWMHXYc2akd1hnznLqXP6CqCFxBPNX0wi4YbCg=;
-        b=V++WUq8zJRddTI1tTy4vRdjuzsBLw2n3tIRGdCjqqTXciJDGlOxepi8XS9bt0gNsD9
-         kmQmCfVQaD8/8/QPQVdrQH0kndpqrQ1uN9rBwog0zBNyQanBcB5LTcyVILljkom25bvV
-         c/X2Ai6RucabkZ4nmqasdPo6YRZgk8qBhyTCl4RQSibAdwIXAdhEM0eEYwhIOdtKos6r
-         y+Ul/q2QGk7LxVB7Rv0vfFPZ6kbDbhgEWW+SGvCFmiMrzf53ylXkzeU5egSO1/HJ5sns
-         UbfPmhIg4cT1Wqb96uoxol+y/X2gwK7hQBNpo8jByWYK+Y0YD5s1Y0CrehTv/LVNhc+a
-         dYng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729562373; x=1730167173;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=71aQqKWMHXYc2akd1hnznLqXP6CqCFxBPNX0wi4YbCg=;
-        b=dxGUfaxP0LwmNDlxJTFHNL9YoooKTTh3gYBiH89JHYW1Mi4NRTqfEocp8z5kOTlUIn
-         eGf29zM9hAoLUpdbyPNXhsyYtA49s2Jc1pi9KU3DNLq8W6KZ5jS5TTmZcCvt3URYmS7v
-         wY+JwT5Wzpl1fqYmnM3k/YhAK9sM51r6f8JuxYJ5ifkge/04lz1Jg77dqWyBQvxpGZQG
-         j8n1efZikv2WJqtmp8IBg27YtaGk9LRB4v6vBPVJGjNjFBZhpL8m0grS+UeZ+WSmU1tT
-         kNd0yU9kXocw8fBBVW8W4f40noN1hZdS5hP4vxglX7vRhhlEtaY9xcJwA+q7jp3ki8Up
-         UhCg==
-X-Forwarded-Encrypted: i=1; AJvYcCWVPfaEMISSpY+neZF/GDcWq2hWQwaGtv2L8cOudmjJ5jRJgKzQ+NmoBkfeAswT21DlXNc//qVpb9qWtQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzTUpiNBVNt6Dx9aigVFghWOyZg7Sklz7v4dukHI2Lq0fR4+Wxs
-	eAkidgrrLFpj+tky/f2Fc06/1+quUe96PlQnDIpw0sagr1TGFJv1b0XkI9Liu6cr7BNcxqjf/mT
-	b
-X-Google-Smtp-Source: AGHT+IFV2z0GV96s/ePkXg1tapAZlwikiDMmkPYrz9DE1sLSgHPnQXvAoedURgE4MOGtScwinFMLZA==
-X-Received: by 2002:a05:6a21:2d08:b0:1d9:1906:a68e with SMTP id adf61e73a8af0-1d92c56cd23mr19203945637.34.1729562372514;
-        Mon, 21 Oct 2024 18:59:32 -0700 (PDT)
-Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-71ec132ffdcsm3600710b3a.46.2024.10.21.18.59.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Oct 2024 18:59:32 -0700 (PDT)
-From: Samuel Holland <samuel.holland@sifive.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	linux-riscv@lists.infradead.org,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Alexander Potapenko <glider@google.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	kasan-dev@googlegroups.com
-Cc: llvm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Will Deacon <will@kernel.org>,
-	Evgenii Stepanov <eugenis@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH v2 9/9] riscv: Implement KASAN_SW_TAGS
-Date: Mon, 21 Oct 2024 18:57:17 -0700
-Message-ID: <20241022015913.3524425-10-samuel.holland@sifive.com>
-X-Mailer: git-send-email 2.45.1
-In-Reply-To: <20241022015913.3524425-1-samuel.holland@sifive.com>
-References: <20241022015913.3524425-1-samuel.holland@sifive.com>
+	id 1t34TV-00000009JEV-1Yz3;
+	Tue, 22 Oct 2024 02:18:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Reply-To:Message-ID:Subject
+	:CC:To:From:Date:Sender:Content-ID:Content-Description;
+	bh=r5riHM0wqGsKYuycMjcMkVDeU+VdnlB3XjyQ9kQ6j3Y=; b=Ays7rA6APOgdcqkeEqfZt9K+oM
+	/L2DbhCUZpBkPfDUqbIne/CiDm9xBfa95Ih5h5pZXu2ZfM8wiMQ8Y4CvIZ1/QhZ8doaBbESnUUzso
+	RokRlTncnOQrKBJz9oGZF7AK9niqBs5WiI6UIVnxYcLuleZsxmqOF+cWqU93cK1oKokZeCe1YriXy
+	Kj17N6l5NXQEvYfsSHiE269tlVUeKTYgvoBY7WZDHf84S3V5ZQow/U5zFCbmvbdAYZoFMyOafovWs
+	6YfMat+SnX9W5xUZHOrZ4LhNmW84EMPqTNaFsXSwrFYjegefP2Qv2Fn0X2QNZ0ZvyUMKunLq/wDkA
+	B8n3aFsQ==;
+Received: from mgamail.intel.com ([198.175.65.16])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t34TN-000000085xU-3AYA;
+	Tue, 22 Oct 2024 02:18:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1729563493; x=1761099493;
+  h=date:from:to:cc:subject:message-id:reply-to:references:
+   content-transfer-encoding:in-reply-to:mime-version;
+  bh=cxXppXtGAKODj/Dz5lVFdrUWwNnxTqAF2wno/AHcOhs=;
+  b=LcaoAUQ4sbKf4nBgzvjW0628p5wsB94fgp0fLKkImLB0JFd40NSqf5tf
+   ZhWx2gTm0uIk5qazqa2EaOmwAvMRVGdEDKlnQA+Aa6zhdK5bTM0BtauUt
+   nUp+LrjoWgfvdqusckMT9nSqvZhoLwWBUBamXAyFvi1tNHL6C21qs8mxL
+   gXSu49reqrPiAQRzhPgmYxxjZo/usFIP7nnOPBznTCvxZRd4xQQ/Z2ZRN
+   mwhroIhYUm2lRVH8Q8xLQFucsqt6gksdBoGoMCV21H2PY86IVz1wbtzD4
+   tGBioLNT1t0lRSKMpPvJhQWIM/E+7EnU8bPF0F3ljE0IX1vePz3+lNHSk
+   A==;
+X-CSE-ConnectionGUID: EuSsvmTnR1S+PK3SO2pDdw==
+X-CSE-MsgGUID: L80zE/pXRqyr1D+mpD1hQQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="29187518"
+X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
+   d="scan'208";a="29187518"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Oct 2024 19:18:03 -0700
+X-CSE-ConnectionGUID: 8Bm0wcxmTWOYXKLCwKQNlg==
+X-CSE-MsgGUID: ZXwfsRY+S2SKTe1GOXD1zw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,222,1725346800"; 
+   d="scan'208";a="84316920"
+Received: from fmsmsx603.amr.corp.intel.com ([10.18.126.83])
+  by fmviesa004.fm.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 21 Oct 2024 19:17:43 -0700
+Received: from fmsmsx603.amr.corp.intel.com (10.18.126.83) by
+ fmsmsx603.amr.corp.intel.com (10.18.126.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.39; Mon, 21 Oct 2024 19:17:42 -0700
+Received: from FMSEDG603.ED.cps.intel.com (10.1.192.133) by
+ fmsmsx603.amr.corp.intel.com (10.18.126.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.39 via Frontend Transport; Mon, 21 Oct 2024 19:17:42 -0700
+Received: from NAM04-MW2-obe.outbound.protection.outlook.com (104.47.73.173)
+ by edgegateway.intel.com (192.55.55.68) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.39; Mon, 21 Oct 2024 19:17:42 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GIgwSSfJKuhfXzYZDJikaGPbrxZSWs+8zqi7VkNetU0Qay07yXBsnANfPLNIRTwB4/KT4rK3r3Hh4egMYfVr3vDuvVil2y8k872dqUJNz4eYfWed8CM6cZKqXuF+8wCeAqH17YHBZUb/fsUPgnSdq/UUi/CdECX/Qs1UrwgzbFlTSSXHNkqvuCGnmSnZoAJ259aPItxhbmQco/yOBFWpLIl+ljO7NS7Zpv3636txSrypUnVlrrVAFMvLTJNGrEWLEtma+e3cbiBSU+3hc11qwh9BYqc5qmgCfX11jH8+C+iMLGviK0+LcyotFPVexMy+B44gl/bWZ9aezRmDcZeLGQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0WUfe6xPA67zy94ksi3gX5T07DJSxAjjDB/zLQYMCeE=;
+ b=MTdOU4/lph3rH9aCLe6xUkVJ3OANtLwWaPbM5jDeF3Ml2Pss9tVPuj/VF5uIhpEh8J/DbAIqpUwwYe8svxgkq9Qjyajc7JoR4lzEzgNx6WwvxePv8bbWP27WNoa7CaeP7ECbZ1MNd1SnJj2E/GDgFZGCAa/S8bazXJioTOKgx4L8mIvIGdU/NlXt4Lwa5DMF3svncEuyamGhYN4TeEIop46ktYCvh7TZk88ghRjp92xZP1+bfFWI8F7zIUaFQG0Qn2hvOiYo7FgmjpqjhoiNwYjyZGgG5CqCM6Vum25F76HBS3T+f9XZh+Qn2h3hdmdwtXzuxCJk7t/OKBU6kNs+SQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from DS7PR11MB5966.namprd11.prod.outlook.com (2603:10b6:8:71::6) by
+ SJ0PR11MB6741.namprd11.prod.outlook.com (2603:10b6:a03:47a::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8069.23; Tue, 22 Oct
+ 2024 02:17:39 +0000
+Received: from DS7PR11MB5966.namprd11.prod.outlook.com
+ ([fe80::e971:d8f4:66c4:12ca]) by DS7PR11MB5966.namprd11.prod.outlook.com
+ ([fe80::e971:d8f4:66c4:12ca%5]) with mapi id 15.20.8069.027; Tue, 22 Oct 2024
+ 02:17:39 +0000
+Date: Tue, 22 Oct 2024 10:15:14 +0800
+From: Yan Zhao <yan.y.zhao@intel.com>
+To: Sean Christopherson <seanjc@google.com>
+CC: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	"Oliver Upton" <oliver.upton@linux.dev>, Tianrui Zhao
+	<zhaotianrui@loongson.cn>, "Bibo Mao" <maobibo@loongson.cn>, Huacai Chen
+	<chenhuacai@kernel.org>, "Michael Ellerman" <mpe@ellerman.id.au>, Anup Patel
+	<anup@brainfault.org>, "Paul Walmsley" <paul.walmsley@sifive.com>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Christian
+ Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank
+	<frankja@linux.ibm.com>, "Claudio Imbrenda" <imbrenda@linux.ibm.com>,
+	<kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>, <loongarch@lists.linux.dev>,
+	<linux-mips@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
+	<kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Alex =?iso-8859-1?Q?Benn=E9e?=
+	<alex.bennee@linaro.org>, David Matlack <dmatlack@google.com>, David Stevens
+	<stevensd@chromium.org>, Andrew Jones <ajones@ventanamicro.com>
+Subject: Re: [PATCH v13 51/85] KVM: VMX: Use __kvm_faultin_page() to get APIC
+ access page/pfn
+Message-ID: <ZxcKsmvPkKJgsp2l@yzhao56-desk.sh.intel.com>
+References: <20241010182427.1434605-1-seanjc@google.com>
+ <20241010182427.1434605-52-seanjc@google.com>
+ <ZxYrYe/WN8XoB+fI@yzhao56-desk.sh.intel.com>
+ <ZxakJr_jWkU-Y54e@google.com>
+Content-Disposition: inline
+In-Reply-To: <ZxakJr_jWkU-Y54e@google.com>
+X-ClientProxiedBy: SG2PR02CA0043.apcprd02.prod.outlook.com
+ (2603:1096:3:18::31) To DS7PR11MB5966.namprd11.prod.outlook.com
+ (2603:10b6:8:71::6)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS7PR11MB5966:EE_|SJ0PR11MB6741:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5f69f8a1-de78-41da-9118-08dcf23fb3f4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?YYU3xXtJ/axg02ntt+lgXaUZzT7DnWKwNDXi1XmzODAlH4Q1RMBTfUu3KW?=
+ =?iso-8859-1?Q?nvqITIVdOc5ugpPEpydofWtNhZucNzImnF/UFuOgYL3AC/NLlqguydMgMG?=
+ =?iso-8859-1?Q?cnZyN7or2r23WyTZYY0H0i47pycec7BUbxEqNrosGK+4WnrIoDpEShuMkO?=
+ =?iso-8859-1?Q?+QZdHKoXcck55UZuHtQ+6Pxd8K0FNrSQ8q/Z5tUE/YOoDfQtqkf0nHrUFG?=
+ =?iso-8859-1?Q?Uokp3j9nwZM3Dc4QeCUxhX4o9R4FtVve70Yg0B0LaWkeVLQY4ibzpD12AV?=
+ =?iso-8859-1?Q?+y4awil5ZczImdkd00kphWrXKY9btimib/DVEq0YXyNJTv4ELu6Oe8SO9c?=
+ =?iso-8859-1?Q?qOsGO0rIiWaGdN6JLd0ecNkYDkhnQliOqvIgc4xL9wH+luEuDdSATkI63B?=
+ =?iso-8859-1?Q?ppspvI4o7EVKgPPpxkz5eW2oFIraLxnnPJqexw//jVi9P0xQiL48U70Bo3?=
+ =?iso-8859-1?Q?gf3Mxm/jXLTMDkbz5VFDzH4Tsx4OuPh0fvkzt+3PdsQSDBzTNicJ3DPxQM?=
+ =?iso-8859-1?Q?fp3Ooz6K1SdHkxaZr4qKyS8sO7p4v0RZCo6nyTv49qrm2xASqMTw8SBwNN?=
+ =?iso-8859-1?Q?loPHBpmaMnYDwjVOiWVOfXimQQEuVuySHisJUfBrj4ZGTN2w/e6uJN2dpE?=
+ =?iso-8859-1?Q?Hx6cuu43onGlwsgA8IqaDFYbFMkxyNiEUDOpZhSetTJxaFkA0ZZjMjtDOt?=
+ =?iso-8859-1?Q?K+1EQhSuRZkR7NOHrTQ502YNdDh/SI8tZSTJ8vqB331TcxH8WuBe43Z4fX?=
+ =?iso-8859-1?Q?vbcJGDd/2avQLd/mbwqLaEf1BfrIPgGZG3dpXXWJzuENdQ0u4oNCZduv3J?=
+ =?iso-8859-1?Q?IrlxWHmIyidF9l5nOCj3R8y/nahkkHFvNT42wmmUNhx6y5+5ufbrQqOXgp?=
+ =?iso-8859-1?Q?N7DwDescBnbpskMsn4f3GsyuNsc53WdMm5+wr983Q2c+ohuef5+9ZmheE8?=
+ =?iso-8859-1?Q?4Jy4PxoAuLrykEGL+6SDyl/U+HJpxP8irSnS5TDV3+ijTcZhxTsEVqHJDn?=
+ =?iso-8859-1?Q?Y1m8NWXmFODPvEhI4inow+te6YzAjiZZLub1KcoeNclM0OXfEX/qDuW02J?=
+ =?iso-8859-1?Q?Z7ML8+eqcFfX5RCC6Jn7dpZQFmqf96TmtuK2OGIiralrhAjQJcQS0cXewH?=
+ =?iso-8859-1?Q?oTvUmGNVmdzsbkRKaxTQr8TEKyFdqEmnuMZxW6stVvBO97rrvmbnrmbkHg?=
+ =?iso-8859-1?Q?5SII6Sz6SNnMYeuQGaDsqtr3lTdypWMlPxFNsvhxJhTej/kIFf59qo3qpx?=
+ =?iso-8859-1?Q?ow4kr0MHVeLXp/nsE5d9VPohHSJt9AAouBn06myzW8VWRQY/tyltimH3Y4?=
+ =?iso-8859-1?Q?S9HUJ6MfCn3UwmQzJ/oxcPsoI3y9GTgzwPyNUMHERNrdNdvsBVm36P1MUC?=
+ =?iso-8859-1?Q?Pq8yxQ1vWb?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR11MB5966.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?6DLUB00Yr6T0mmhI/A4MInP/S2icT36tbm2xcSzOd8iS2ZzWES7KOTckCa?=
+ =?iso-8859-1?Q?1A/dQa2fKcPK4Zo2zBpZjsnWRjszpstu+rOYDHWwA5dIfIdRbS40TkTKox?=
+ =?iso-8859-1?Q?5SrmqwRhlXUfK5ZlSEwdVTCYD4ebUqDehJlKyQdXMmPddhuSHaJkICDSZ9?=
+ =?iso-8859-1?Q?5Hp5vwoHqkK94Dwg0mLwxE+DEYzrGQl/Z+i8RN9DCMCoPsegKd1IOEeCto?=
+ =?iso-8859-1?Q?VE6Cl/YsOp56Tq4GoQivjnxT2IzREcLwHvU26ebiZBGfbF+BVjNfLiTJMO?=
+ =?iso-8859-1?Q?jXEyNG0MdUFPMsLGp1Q+KF7WdrQvQh/Qso4Jjit5t/TDvS9TPQjQYZWEDA?=
+ =?iso-8859-1?Q?poazA/5r2XFoUdVuUiX5hh+lPc+gsrzQteJb9fr+vthGw7dmpa+Y4T/vkz?=
+ =?iso-8859-1?Q?tYC1xpoKNRG2ItbrY0kuBzbnhmBRIllfYlN31daSDscZyK7jQWj31WdJkL?=
+ =?iso-8859-1?Q?F8FYJODQmMt9/wNiFpRmgZUMNsP9hOzhHHcjJZzqCS7LrU3OE518toTadn?=
+ =?iso-8859-1?Q?3SKMsaGGAZrqbw2kh3uUyUc/z1g6BeYauf4p4UscQMD89ktX+iXYwjpbOp?=
+ =?iso-8859-1?Q?DEMR0bRPxw6ak93MLP9mvpVSfOLLiGD6PwB60tH/w07VBBBN4J4hGo3dC6?=
+ =?iso-8859-1?Q?QKJiWhC69CtR1H+1XofbPOb8mFD6Kv7gyPtPSkqA1G6OuIGAfy4j9XxT6W?=
+ =?iso-8859-1?Q?lgeJYeCr+BN3vbKzK/1Eftk6nvO9GhH8vT+YjLfz+Pk8PuC8iw+KsvueDC?=
+ =?iso-8859-1?Q?GuVSMfOkR70RVwEimmdPWz7xAFKGaeQB1rzp+1ZBVQdDR+Pym/+nNbpBcl?=
+ =?iso-8859-1?Q?6lY7fEibKF5HI6TDSLKvJWZC/iGECHDVciILJmNyRXt/u7rTtOukBDsZCi?=
+ =?iso-8859-1?Q?16qm6F4B/k8Fi4yHz7ULW/Q/geJqEGTImL4+nl8FIpsAvlMfW6zt365pZy?=
+ =?iso-8859-1?Q?qzlWS1Vk60sGlIdDJ/nKrQhCS3NTdadQHX19n6volOjdd3rsbVowvWIWDi?=
+ =?iso-8859-1?Q?rkKhqluUmiJnvEbowDPoWrKr0H76HPKy5YsjJaTYg6vcdvH+FZgBDxZsJU?=
+ =?iso-8859-1?Q?gcQNud6fPwEohjE7BiVgexb3pGTRUFCBbddTcLUIOPLlLRpBKMRWp+2ltw?=
+ =?iso-8859-1?Q?Sr1Mp+mqSiLukplTsMtK6W7LdtZD4ZpdAslxaaLHJHvwrRc4uPdFOjz4Og?=
+ =?iso-8859-1?Q?vd4PXCPdq8P/JQgfAX3v4Chy1L20dW0LyNYtPlwUqi961cUmkb1GZ573G9?=
+ =?iso-8859-1?Q?g2E0fdvdIZnzjvCyTtykwa1PSaXW3qGggwkmgHxIqAW8Nmacf0pDKKKYCf?=
+ =?iso-8859-1?Q?gMIDIzdqtxHAA1VMOeCK8H+M8MscG/5GakKCJplNm1dJFLO6yg4+Mqur14?=
+ =?iso-8859-1?Q?hePGjawAoclqLLH9tMd7g8X3t5y4cjDQ2knaaXt8ZdULcugwVeYarhdtmA?=
+ =?iso-8859-1?Q?p1QtI4BafPAiG0sKCh67xOyZNoO1Csh+lLuiN6rHVqTFN1uj1rB+8SfafA?=
+ =?iso-8859-1?Q?o02SKbq2U9zToroS5efY6R5OVcAYdh/qVti3ilEFcJ1Lc4v68irfJ56owB?=
+ =?iso-8859-1?Q?6XITIgrTFDxQvgjjSlROnozx+VFOiE+I7UFPRg9OmKB1842GHCi5uuSgEO?=
+ =?iso-8859-1?Q?9kHDG6rUVxFJ8+HEXxCUhJjzeTRpfsX0ZV?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5f69f8a1-de78-41da-9118-08dcf23fb3f4
+X-MS-Exchange-CrossTenant-AuthSource: DS7PR11MB5966.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Oct 2024 02:17:39.6889
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: AWOGmujqE9pfftZiM3RptWupsn9Hkra9RXbmT0ABJCFzCj4Efo1juf86ymRU33+Svpw78BOteFP95/JhnjgZ5g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR11MB6741
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241021_185934_184522_6171A3FC 
-X-CRM114-Status: GOOD (  31.65  )
+X-CRM114-CacheID: sfid-20241022_031816_348254_4BFA9693 
+X-CRM114-Status: GOOD (  27.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,496 +216,98 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Reply-To: Yan Zhao <yan.y.zhao@intel.com>
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Implement support for software tag-based KASAN using the RISC-V pointer
-masking extension, which supports 7 and/or 16-bit tags. This implemen-
-tation uses 7-bit tags, so it is compatible with either hardware mode.
+On Mon, Oct 21, 2024 at 11:57:42AM -0700, Sean Christopherson wrote:
+> On Mon, Oct 21, 2024, Yan Zhao wrote:
+> > On Thu, Oct 10, 2024 at 11:23:53AM -0700, Sean Christopherson wrote:
+> > > Use __kvm_faultin_page() get the APIC access page so that KVM can
+> > > precisely release the refcounted page, i.e. to remove yet another user
+> > > of kvm_pfn_to_refcounted_page().  While the path isn't handling a gue=
+st
+> > > page fault, the semantics are effectively the same; KVM just happens =
+to
+> > > be mapping the pfn into a VMCS field instead of a secondary MMU.
+> > > =
 
-Pointer masking is an optional ISA extension, and it must be enabled
-using an SBI call to firmware on each CPU. This SBI call must be made
-very early in smp_callin(), as dereferencing any tagged pointers before
-that point will crash the kernel. If the SBI call fails on the boot CPU,
-then KASAN is globally disabled, and the kernel boots normally (unless
-stack tagging is enabled). If the SBI call fails on any other CPU, that
-CPU is excluded from the system.
+> > > Tested-by: Alex Benn=E9e <alex.bennee@linaro.org>
+> > > Signed-off-by: Sean Christopherson <seanjc@google.com>
+> > > ---
+> =
 
-When pointer masking is enabled for the kernel's privilege mode, it must
-be more careful about accepting tagged pointers from userspace.
-Normally, __access_ok() accepts tagged aliases of kernel memory as long
-as the MSB is zero, since those addresses cannot be dereferenced -- they
-will cause a page fault in the uaccess routines. But when the kernel is
-using pointer masking, those addresses are dereferenceable, so
-__access_ok() must specifically check the most-significant non-tag bit
-instead of the MSB.
+> ...
+> =
 
-Pointer masking does not apply to the operands of fence instructions, so
-software is responsible for untagging those addresses.
+> > > @@ -6838,10 +6840,13 @@ void vmx_set_apic_access_page_addr(struct kvm=
+_vcpu *vcpu)
+> > >  		vmcs_write64(APIC_ACCESS_ADDR, pfn_to_hpa(pfn));
+> > >  =
 
-Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
----
+> > >  	/*
+> > > -	 * Do not pin apic access page in memory, the MMU notifier
+> > > -	 * will call us again if it is migrated or swapped out.
+> > > +	 * Do not pin the APIC access page in memory so that it can be free=
+ly
+> > > +	 * migrated, the MMU notifier will call us again if it is migrated =
+or
+> > > +	 * swapped out.  KVM backs the memslot with anonymous memory, the p=
+fn
+> > > +	 * should always point at a refcounted page (if the pfn is valid).
+> > >  	 */
+> > > -	kvm_release_pfn_clean(pfn);
+> > > +	if (!WARN_ON_ONCE(!refcounted_page))
+> > > +		kvm_release_page_clean(refcounted_page);
+> > Why it's not
+> > if (!WARN_ON_ONCE(!refcounted_page)) {
+> > 	if (writable)
+> > 		kvm_release_page_dirty(refcounted_page)
+> > 	else
+> > 		kvm_release_page_clean(refcounted_page)
+> > }
+> > =
 
-Changes in v2:
- - Fix build error with KASAN_GENERIC
- - Use symbolic definitons for SBI firmware features call
- - Update indentation in scripts/Makefile.kasan
- - Use kasan_params to set hwasan-generate-tags-with-calls=1
+> > or simply not pass "writable" to __kvm_faultin_pfn() as we know the slo=
+t is
+> > not read-only and then set dirty ?
+> =
 
- Documentation/dev-tools/kasan.rst | 14 ++++---
- arch/riscv/Kconfig                |  4 +-
- arch/riscv/include/asm/cache.h    |  4 ++
- arch/riscv/include/asm/kasan.h    | 20 ++++++++++
- arch/riscv/include/asm/page.h     | 19 ++++++++--
- arch/riscv/include/asm/pgtable.h  |  6 +++
- arch/riscv/include/asm/tlbflush.h |  4 +-
- arch/riscv/kernel/setup.c         |  6 +++
- arch/riscv/kernel/smpboot.c       |  8 +++-
- arch/riscv/lib/Makefile           |  2 +
- arch/riscv/lib/kasan_sw_tags.S    | 61 +++++++++++++++++++++++++++++++
- arch/riscv/mm/kasan_init.c        | 32 +++++++++++++++-
- arch/riscv/mm/physaddr.c          |  4 ++
- scripts/Makefile.kasan            |  5 +++
- 14 files changed, 174 insertions(+), 15 deletions(-)
- create mode 100644 arch/riscv/lib/kasan_sw_tags.S
+> __kvm_faultin_pfn() requires a non-NULL @writable.  The intent is to help=
+ ensure
+Ah, right.
 
-diff --git a/Documentation/dev-tools/kasan.rst b/Documentation/dev-tools/kasan.rst
-index d7de44f5339d..6548aebac57f 100644
---- a/Documentation/dev-tools/kasan.rst
-+++ b/Documentation/dev-tools/kasan.rst
-@@ -22,8 +22,8 @@ architectures, but it has significant performance and memory overheads.
- 
- Software Tag-Based KASAN or SW_TAGS KASAN, enabled with CONFIG_KASAN_SW_TAGS,
- can be used for both debugging and dogfood testing, similar to userspace HWASan.
--This mode is only supported for arm64, but its moderate memory overhead allows
--using it for testing on memory-restricted devices with real workloads.
-+This mode is only supported on arm64 and riscv, but its moderate memory overhead
-+allows using it for testing on memory-restricted devices with real workloads.
- 
- Hardware Tag-Based KASAN or HW_TAGS KASAN, enabled with CONFIG_KASAN_HW_TAGS,
- is the mode intended to be used as an in-field memory bug detector or as a
-@@ -340,12 +340,14 @@ Software Tag-Based KASAN
- ~~~~~~~~~~~~~~~~~~~~~~~~
- 
- Software Tag-Based KASAN uses a software memory tagging approach to checking
--access validity. It is currently only implemented for the arm64 architecture.
-+access validity. It is currently only implemented for the arm64 and riscv
-+architectures.
- 
- Software Tag-Based KASAN uses the Top Byte Ignore (TBI) feature of arm64 CPUs
--to store a pointer tag in the top byte of kernel pointers. It uses shadow memory
--to store memory tags associated with each 16-byte memory cell (therefore, it
--dedicates 1/16th of the kernel memory for shadow memory).
-+or the pointer masking (Sspm) feature of RISC-V CPUs to store a pointer tag in
-+the top byte of kernel pointers. It uses shadow memory to store memory tags
-+associated with each 16-byte memory cell (therefore, it dedicates 1/16th of the
-+kernel memory for shadow memory).
- 
- On each memory allocation, Software Tag-Based KASAN generates a random tag, tags
- the allocated memory with this tag, and embeds the same tag into the returned
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 62545946ecf4..d08b99f6bf76 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -121,6 +121,7 @@ config RISCV
- 	select HAVE_ARCH_JUMP_LABEL if !XIP_KERNEL
- 	select HAVE_ARCH_JUMP_LABEL_RELATIVE if !XIP_KERNEL
- 	select HAVE_ARCH_KASAN if MMU && 64BIT
-+	select HAVE_ARCH_KASAN_SW_TAGS if MMU && 64BIT
- 	select HAVE_ARCH_KASAN_VMALLOC if MMU && 64BIT
- 	select HAVE_ARCH_KFENCE if MMU && 64BIT
- 	select HAVE_ARCH_KGDB if !XIP_KERNEL
-@@ -291,7 +292,8 @@ config PAGE_OFFSET
- 
- config KASAN_SHADOW_OFFSET
- 	hex
--	depends on KASAN_GENERIC
-+	depends on KASAN
-+	default 0xffffffff00000000 if KASAN_SW_TAGS
- 	default 0xdfffffff00000000 if 64BIT
- 	default 0xffffffff if 32BIT
- 
-diff --git a/arch/riscv/include/asm/cache.h b/arch/riscv/include/asm/cache.h
-index 570e9d8acad1..232288a060c6 100644
---- a/arch/riscv/include/asm/cache.h
-+++ b/arch/riscv/include/asm/cache.h
-@@ -16,6 +16,10 @@
- #define ARCH_KMALLOC_MINALIGN	(8)
- #endif
- 
-+#ifdef CONFIG_KASAN_SW_TAGS
-+#define ARCH_SLAB_MINALIGN	(1ULL << KASAN_SHADOW_SCALE_SHIFT)
-+#endif
-+
- /*
-  * RISC-V requires the stack pointer to be 16-byte aligned, so ensure that
-  * the flat loader aligns it accordingly.
-diff --git a/arch/riscv/include/asm/kasan.h b/arch/riscv/include/asm/kasan.h
-index a4e92ce9fa31..f6b378ba936d 100644
---- a/arch/riscv/include/asm/kasan.h
-+++ b/arch/riscv/include/asm/kasan.h
-@@ -25,7 +25,11 @@
-  *      KASAN_SHADOW_OFFSET = KASAN_SHADOW_END -
-  *                              (1ULL << (64 - KASAN_SHADOW_SCALE_SHIFT))
-  */
-+#if defined(CONFIG_KASAN_GENERIC)
- #define KASAN_SHADOW_SCALE_SHIFT	3
-+#elif defined(CONFIG_KASAN_SW_TAGS)
-+#define KASAN_SHADOW_SCALE_SHIFT	4
-+#endif
- 
- #define KASAN_SHADOW_SIZE	(UL(1) << ((VA_BITS - 1) - KASAN_SHADOW_SCALE_SHIFT))
- /*
-@@ -37,6 +41,14 @@
- 
- #define KASAN_SHADOW_OFFSET	_AC(CONFIG_KASAN_SHADOW_OFFSET, UL)
- 
-+#ifdef CONFIG_KASAN_SW_TAGS
-+#define KASAN_TAG_KERNEL	0x7f /* native kernel pointers tag */
-+#endif
-+
-+#define arch_kasan_set_tag(addr, tag)	__tag_set(addr, tag)
-+#define arch_kasan_reset_tag(addr)	__tag_reset(addr)
-+#define arch_kasan_get_tag(addr)	__tag_get(addr)
-+
- void kasan_init(void);
- asmlinkage void kasan_early_init(void);
- void kasan_swapper_init(void);
-@@ -48,5 +60,13 @@ void kasan_swapper_init(void);
- 
- #endif /* CONFIG_KASAN */
- 
-+#ifdef CONFIG_KASAN_SW_TAGS
-+bool kasan_boot_cpu_enabled(void);
-+int kasan_cpu_enable(void);
-+#else
-+static inline bool kasan_boot_cpu_enabled(void) { return false; }
-+static inline int kasan_cpu_enable(void) { return 0; }
-+#endif
-+
- #endif
- #endif /* __ASM_KASAN_H */
-diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
-index 6e2f79cf77c5..43c625a4894d 100644
---- a/arch/riscv/include/asm/page.h
-+++ b/arch/riscv/include/asm/page.h
-@@ -89,6 +89,16 @@ typedef struct page *pgtable_t;
- #define PTE_FMT "%08lx"
- #endif
- 
-+#ifdef CONFIG_KASAN_SW_TAGS
-+#define __tag_set(addr, tag)	((void *)((((u64)(addr) << 7) >> 7) | ((u64)(tag) << 57)))
-+#define __tag_reset(addr)	((void *)((s64)((u64)(addr) << 7) >> 7))
-+#define __tag_get(addr)		((u8)((u64)(addr) >> 57))
-+#else
-+#define __tag_set(addr, tag)	(addr)
-+#define __tag_reset(addr)	(addr)
-+#define __tag_get(addr)		0
-+#endif
-+
- #if defined(CONFIG_64BIT) && defined(CONFIG_MMU)
- /*
-  * We override this value as its generic definition uses __pa too early in
-@@ -168,7 +178,7 @@ phys_addr_t linear_mapping_va_to_pa(unsigned long x);
- #endif
- 
- #define __va_to_pa_nodebug(x)	({						\
--	unsigned long _x = x;							\
-+	unsigned long _x = (unsigned long)__tag_reset(x);			\
- 	is_linear_mapping(_x) ?							\
- 		linear_mapping_va_to_pa(_x) : kernel_mapping_va_to_pa(_x);	\
- 	})
-@@ -192,7 +202,10 @@ extern phys_addr_t __phys_addr_symbol(unsigned long x);
- #define pfn_to_virt(pfn)	(__va(pfn_to_phys(pfn)))
- 
- #define virt_to_page(vaddr)	(pfn_to_page(virt_to_pfn(vaddr)))
--#define page_to_virt(page)	(pfn_to_virt(page_to_pfn(page)))
-+#define page_to_virt(page)	({						\
-+	__typeof__(page) __page = page;						\
-+	__tag_set(pfn_to_virt(page_to_pfn(__page)), page_kasan_tag(__page));	\
-+})
- 
- #define page_to_phys(page)	(pfn_to_phys(page_to_pfn(page)))
- #define phys_to_page(paddr)	(pfn_to_page(phys_to_pfn(paddr)))
-@@ -209,7 +222,7 @@ static __always_inline void *pfn_to_kaddr(unsigned long pfn)
- #endif /* __ASSEMBLY__ */
- 
- #define virt_addr_valid(vaddr)	({						\
--	unsigned long _addr = (unsigned long)vaddr;				\
-+	unsigned long _addr = (unsigned long)__tag_reset(vaddr);		\
- 	(unsigned long)(_addr) >= PAGE_OFFSET && pfn_valid(virt_to_pfn(_addr));	\
- })
- 
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index e79f15293492..ae6fa9dba0fc 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -916,7 +916,13 @@ static inline pte_t pte_swp_clear_exclusive(pte_t pte)
-  */
- #ifdef CONFIG_64BIT
- #define TASK_SIZE_64	(PGDIR_SIZE * PTRS_PER_PGD / 2)
-+/*
-+ * When pointer masking is enabled for the kernel's privilege mode,
-+ * __access_ok() must reject tagged aliases of kernel memory.
-+ */
-+#ifndef CONFIG_KASAN_SW_TAGS
- #define TASK_SIZE_MAX	LONG_MAX
-+#endif
- 
- #ifdef CONFIG_COMPAT
- #define TASK_SIZE_32	(_AC(0x80000000, UL) - PAGE_SIZE)
-diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
-index 72e559934952..68b3a85c6960 100644
---- a/arch/riscv/include/asm/tlbflush.h
-+++ b/arch/riscv/include/asm/tlbflush.h
-@@ -31,14 +31,14 @@ static inline void local_flush_tlb_all_asid(unsigned long asid)
- /* Flush one page from local TLB */
- static inline void local_flush_tlb_page(unsigned long addr)
- {
--	ALT_SFENCE_VMA_ADDR(addr);
-+	ALT_SFENCE_VMA_ADDR(__tag_reset(addr));
- }
- 
- static inline void local_flush_tlb_page_asid(unsigned long addr,
- 					     unsigned long asid)
- {
- 	if (asid != FLUSH_TLB_NO_ASID)
--		ALT_SFENCE_VMA_ADDR_ASID(addr, asid);
-+		ALT_SFENCE_VMA_ADDR_ASID(__tag_reset(addr), asid);
- 	else
- 		local_flush_tlb_page(addr);
- }
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index a2cde65b69e9..fdc72edc4857 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -299,6 +299,12 @@ void __init setup_arch(char **cmdline_p)
- 	riscv_user_isa_enable();
- }
- 
-+void __init smp_prepare_boot_cpu(void)
-+{
-+	if (kasan_boot_cpu_enabled())
-+		kasan_init_sw_tags();
-+}
-+
- bool arch_cpu_is_hotpluggable(int cpu)
- {
- 	return cpu_has_hotplug(cpu);
-diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-index 0f8f1c95ac38..a1cc555691b0 100644
---- a/arch/riscv/kernel/smpboot.c
-+++ b/arch/riscv/kernel/smpboot.c
-@@ -29,6 +29,7 @@
- #include <asm/cacheflush.h>
- #include <asm/cpu_ops.h>
- #include <asm/irq.h>
-+#include <asm/kasan.h>
- #include <asm/mmu_context.h>
- #include <asm/numa.h>
- #include <asm/tlbflush.h>
-@@ -210,7 +211,11 @@ void __init smp_cpus_done(unsigned int max_cpus)
- asmlinkage __visible void smp_callin(void)
- {
- 	struct mm_struct *mm = &init_mm;
--	unsigned int curr_cpuid = smp_processor_id();
-+	unsigned int curr_cpuid;
-+
-+	/* Must be called first, before referencing any dynamic allocations */
-+	if (kasan_boot_cpu_enabled() && kasan_cpu_enable())
-+		return;
- 
- 	if (has_vector()) {
- 		/*
-@@ -225,6 +230,7 @@ asmlinkage __visible void smp_callin(void)
- 	mmgrab(mm);
- 	current->active_mm = mm;
- 
-+	curr_cpuid = smp_processor_id();
- 	store_cpu_topology(curr_cpuid);
- 	notify_cpu_starting(curr_cpuid);
- 
-diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-index 8eec6b69a875..ae36616fe1f5 100644
---- a/arch/riscv/lib/Makefile
-+++ b/arch/riscv/lib/Makefile
-@@ -20,3 +20,5 @@ lib-$(CONFIG_RISCV_ISA_ZBC)	+= crc32.o
- obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
- lib-$(CONFIG_RISCV_ISA_V)	+= xor.o
- lib-$(CONFIG_RISCV_ISA_V)	+= riscv_v_helpers.o
-+
-+obj-$(CONFIG_KASAN_SW_TAGS) += kasan_sw_tags.o
-diff --git a/arch/riscv/lib/kasan_sw_tags.S b/arch/riscv/lib/kasan_sw_tags.S
-new file mode 100644
-index 000000000000..f7d3e0acba6a
---- /dev/null
-+++ b/arch/riscv/lib/kasan_sw_tags.S
-@@ -0,0 +1,61 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2020 Google LLC
-+ * Copyright (C) 2024 SiFive
-+ */
-+
-+#include <linux/linkage.h>
-+
-+/*
-+ * Report a tag mismatch detected by tag-based KASAN.
-+ *
-+ * A compiler-generated thunk calls this with a custom calling convention.
-+ * Upon entry to this function, the following registers have been modified:
-+ *
-+ *   x1/ra:     clobbered by call to this function
-+ *   x2/sp:     decremented by 256
-+ *   x6/t1:     tag from shadow memory
-+ *   x7/t2:     tag from pointer
-+ *   x10/a0:    fault address
-+ *   x11/a1:    fault description
-+ *   x28/t3:    clobbered by thunk
-+ *   x29/t4:    clobbered by thunk
-+ *   x30/t5:    clobbered by thunk
-+ *   x31/t6:    clobbered by thunk
-+ *
-+ * The caller has decremented the SP by 256 bytes, and stored the following
-+ * registers in slots on the stack according to their number (sp + 8 * xN):
-+ *
-+ *   x1/ra:     return address to user code
-+ *   x8/s0/fp:  saved value from user code
-+ *   x10/a0:    saved value from user code
-+ *   x11/a1:    saved value from user code
-+ */
-+SYM_CODE_START(__hwasan_tag_mismatch)
-+	/* Store the remaining unclobbered caller-saved regs */
-+	sd	t0, (8 *  5)(sp)
-+	sd	a2, (8 * 12)(sp)
-+	sd	a3, (8 * 13)(sp)
-+	sd	a4, (8 * 14)(sp)
-+	sd	a5, (8 * 15)(sp)
-+	sd	a6, (8 * 16)(sp)
-+	sd	a7, (8 * 17)(sp)
-+
-+	/* a0 and a1 are already set by the thunk */
-+	ld	a2, (8 *  1)(sp)
-+	call	kasan_tag_mismatch
-+
-+	ld	ra, (8 *  1)(sp)
-+	ld	t0, (8 *  5)(sp)
-+	ld	a0, (8 * 10)(sp)
-+	ld	a1, (8 * 11)(sp)
-+	ld	a2, (8 * 12)(sp)
-+	ld	a3, (8 * 13)(sp)
-+	ld	a4, (8 * 14)(sp)
-+	ld	a5, (8 * 15)(sp)
-+	ld	a6, (8 * 16)(sp)
-+	ld	a7, (8 * 17)(sp)
-+	addi	sp, sp, 256
-+	ret
-+SYM_CODE_END(__hwasan_tag_mismatch)
-+EXPORT_SYMBOL(__hwasan_tag_mismatch)
-diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
-index c301c8d291d2..50f0e7a03cc8 100644
---- a/arch/riscv/mm/kasan_init.c
-+++ b/arch/riscv/mm/kasan_init.c
-@@ -11,6 +11,10 @@
- #include <asm/fixmap.h>
- #include <asm/pgalloc.h>
- 
-+#ifdef CONFIG_KASAN_SW_TAGS
-+static bool __kasan_boot_cpu_enabled __ro_after_init;
-+#endif
-+
- /*
-  * Kasan shadow region must lie at a fixed address across sv39, sv48 and sv57
-  * which is right before the kernel.
-@@ -323,8 +327,11 @@ asmlinkage void __init kasan_early_init(void)
- {
- 	uintptr_t i;
- 
--	BUILD_BUG_ON(KASAN_SHADOW_OFFSET !=
--		KASAN_SHADOW_END - (1UL << (64 - KASAN_SHADOW_SCALE_SHIFT)));
-+	if (IS_ENABLED(CONFIG_KASAN_GENERIC))
-+		BUILD_BUG_ON(KASAN_SHADOW_OFFSET !=
-+			KASAN_SHADOW_END - (1UL << (64 - KASAN_SHADOW_SCALE_SHIFT)));
-+	else
-+		BUILD_BUG_ON(KASAN_SHADOW_OFFSET != KASAN_SHADOW_END);
- 
- 	for (i = 0; i < PTRS_PER_PTE; ++i)
- 		set_pte(kasan_early_shadow_pte + i,
-@@ -356,6 +363,10 @@ asmlinkage void __init kasan_early_init(void)
- 				 KASAN_SHADOW_START, KASAN_SHADOW_END);
- 
- 	local_flush_tlb_all();
-+
-+#ifdef CONFIG_KASAN_SW_TAGS
-+	__kasan_boot_cpu_enabled = !kasan_cpu_enable();
-+#endif
- }
- 
- void __init kasan_swapper_init(void)
-@@ -534,3 +545,20 @@ void __init kasan_init(void)
- 	csr_write(CSR_SATP, PFN_DOWN(__pa(swapper_pg_dir)) | satp_mode);
- 	local_flush_tlb_all();
- }
-+
-+#ifdef CONFIG_KASAN_SW_TAGS
-+bool kasan_boot_cpu_enabled(void)
-+{
-+	return __kasan_boot_cpu_enabled;
-+}
-+
-+int kasan_cpu_enable(void)
-+{
-+	struct sbiret ret;
-+
-+	ret = sbi_ecall(SBI_EXT_FWFT, SBI_EXT_FWFT_SET,
-+			SBI_FWFT_POINTER_MASKING_PMLEN, 7, 0, 0, 0, 0);
-+
-+	return sbi_err_map_linux_errno(ret.error);
-+}
-+#endif
-diff --git a/arch/riscv/mm/physaddr.c b/arch/riscv/mm/physaddr.c
-index 18706f457da7..6d1cf6ffd54e 100644
---- a/arch/riscv/mm/physaddr.c
-+++ b/arch/riscv/mm/physaddr.c
-@@ -8,6 +8,8 @@
- 
- phys_addr_t __virt_to_phys(unsigned long x)
- {
-+	x = __tag_reset(x);
-+
- 	/*
- 	 * Boundary checking aginst the kernel linear mapping space.
- 	 */
-@@ -24,6 +26,8 @@ phys_addr_t __phys_addr_symbol(unsigned long x)
- 	unsigned long kernel_start = kernel_map.virt_addr;
- 	unsigned long kernel_end = kernel_start + kernel_map.size;
- 
-+	x = __tag_reset(x);
-+
- 	/*
- 	 * Boundary checking aginst the kernel image mapping.
- 	 * __pa_symbol should only be used on kernel symbol addresses.
-diff --git a/scripts/Makefile.kasan b/scripts/Makefile.kasan
-index 693dbbebebba..72a8c9d5fb0e 100644
---- a/scripts/Makefile.kasan
-+++ b/scripts/Makefile.kasan
-@@ -91,6 +91,11 @@ ifeq ($(call clang-min-version, 150000)$(call gcc-min-version, 130000),y)
- 	kasan_params += hwasan-kernel-mem-intrinsic-prefix=1
- endif
- 
-+# RISC-V requires dynamically determining if stack tagging can be enabled.
-+ifdef CONFIG_RISCV
-+	kasan_params += hwasan-generate-tags-with-calls=1
-+endif
-+
- endif # CONFIG_KASAN_SW_TAGS
- 
- # Add all as-supported KASAN LLVM parameters requested by the configuration.
--- 
-2.45.1
+> the caller is actually checking whether a readable vs. writable mapping w=
+as
+> acquired.  For cases that explicitly pass FOLL_WRITE, it's awkward, but t=
+hose
+> should be few and far between.
+Yes, a little weird though nothing wrong in this case by passing "writable"
+without checking its value back :)
 
+> =
+
+> > if (!WARN_ON_ONCE(!refcounted_page))
+> > 	kvm_release_page_dirty(refcounted_page)
+> =
+
+> Ya, this is probably more correct?  Though I would strongly prefer to mak=
+e any
+> change in behavior on top of this series.  The use of kvm_release_page_cl=
+ean()
+> was added by commit 878940b33d76 ("KVM: VMX: Retry APIC-access page reloa=
+d if
+> invalidation is in-progress"), and I suspect the only reason it added the
+> kvm_set_page_accessed() call is because there was no "unused" variant.  I=
+.e. there
+> was no concious decision to set Accessed but not Dirty.
+Thanks for the explanation.
+I asked that because I noticed that the policies for setting Accessed or Di=
+rty
+for the APIC access page are not aligned between L1 (only Accessed) and L2 =
+(Dirty).
 
 _______________________________________________
 linux-riscv mailing list
