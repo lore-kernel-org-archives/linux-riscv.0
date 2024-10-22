@@ -4,94 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85068D15D9D
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Oct 2024 11:07:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73CCAD15DBB
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Oct 2024 11:30:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ze6hdQbhZSvXNbC/JoT0gf5P2Z4YdlhYacfXVHqNo1s=; b=Wt9PQuzm7Yogqw
-	rxLY3iU9GtnO2pO6Jp/qtAmbxAXHXAk71qkoHHTpsu3bLUCg9J05b3WIqWb8lSN7uJBismGwhhNsu
-	SJWLoOVz9cIhOaKsBLRNNMb8KkkUMPpiSt3AqhGgbCoBG2rxPi81+f2sEJ3V7WuCzpevWXzipjNzt
-	vvsNRdO3O0S3txYJc/q4sswomugP84nUdVPTgRTDulH0zLzIgd+cyDI3jDPmk+rt09s1rtxo0VDhL
-	RCB6ueViraf8OTwMB10ZTXPC9U0gQiVjbSWsvBAIf3WqemWAHhfn5l7FPisg7dGe3P04pgWoilhlb
-	zJGE42LHEsOLPOMY8s/w==;
+	List-Owner; bh=IXZS6Z8QDj4wcAxqrEhhvNMyaEDLoHcZdhFq9kGqtVo=; b=BHTM1vxiNrgrE8
+	wvRqovbH0cop5IRnXiod09vynAbUtnmolPvA2yPEUxN6PR/I3xrTBlowV3NsfNJD93TB15pEOqrdD
+	4xiC/zyPk3pGdPMNyjDz8NmLMfajSbRDLCZGqSFquJkwb00O2JabmMFHTyEgj/jt8M9aD/v8VUlz6
+	IePpdQ6e5w5iJrP0RpjQE8C+h8SR4MVklvf0ra3/dliqRjv+WkwJZps0TZZqEv4PAOCQUfda0dmoA
+	kgU7GxIz1e+zJS1LpX47WW6A5GpEUe2/1OBmgaVLlnylkyr1fqT78wR2wq+f0gHeR3MykdjL4Rde4
+	Rv957pMKIlDs9pdzz3xQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3CjN-0000000Adxo-3hzI;
-	Tue, 22 Oct 2024 11:07:17 +0000
-Received: from mgamail.intel.com ([192.198.163.17])
+	id 1t3D60-0000000AhMb-1va7;
+	Tue, 22 Oct 2024 11:30:40 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3Chq-0000000AdkK-1WXx;
-	Tue, 22 Oct 2024 11:05:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1729595142; x=1761131142;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=lk6aSBgrBEc1NRKveTngB3JmIdfkK85pmGw8ldyXGEM=;
-  b=duoHEe1AAVWZwrTfVvs9QJ3zuv7E9TSdpii+8q6oYlIlgXK8Xu8G2s9+
-   t/HA5iEE382whTqnNTYre/WskpuzjNBaAfyZrLgOs5kzk2zAeSdOtk48x
-   PzSa19p5yF+2uO+ddVBH4prDrV5lxIj38ns3NwziETHyO+W+2oYFFZLda
-   x64+CVYa0kmE1zTgd3g6tgBcSxnMD9Q3CJj/jgLqlS+v+hAGesnsNk0Bj
-   AeDsEGlmeHIkARykd2DK/oMpef5HVjfy4dDl1MCx3m633CWa1JtALXQGn
-   yillsiZCRfEzJ/Dx674bWBWPCyDgqGG6KOFJXt3hbumLjY8jNjK1qLn4D
-   Q==;
-X-CSE-ConnectionGUID: W4WwBh5qR2yrn/8em2NIKA==
-X-CSE-MsgGUID: vQu00oraQ9G+fJfimVJG3g==
-X-IronPort-AV: E=McAfee;i="6700,10204,11232"; a="29014477"
-X-IronPort-AV: E=Sophos;i="6.11,223,1725346800"; 
-   d="scan'208";a="29014477"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Oct 2024 04:05:40 -0700
-X-CSE-ConnectionGUID: M5Fes5M9R4qe3m5f1zbR5Q==
-X-CSE-MsgGUID: bsraSG9CSeiejIeei9+NFg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,223,1725346800"; 
-   d="scan'208";a="79778327"
-Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by orviesa010.jf.intel.com with ESMTP; 22 Oct 2024 04:05:33 -0700
-Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1t3Che-000TTS-2k;
-	Tue, 22 Oct 2024 11:05:30 +0000
-Date: Tue, 22 Oct 2024 19:04:36 +0800
-From: kernel test robot <lkp@intel.com>
-To: Inochi Amaoto <inochiama@gmail.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	netdev@vger.kernel.org, Yixun Lan <dlan@gentoo.org>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
+	id 1t3C1j-0000000AVkT-0Lmd;
+	Tue, 22 Oct 2024 10:22:23 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-2e30db524c2so3996502a91.1;
+        Tue, 22 Oct 2024 03:22:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1729592530; x=1730197330; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=sI849jpnNtz3jUPY9JimvHmQMDeWZfkp6+41mM9VEbU=;
+        b=ZPrKGPIAmzdnyV9LrLnMk3a6XxyZvnAmWQxTY7vQzJz4mGj9zWBZizDtks1FC55MJH
+         ZD0cn+RVaJK0aEBnn2PlG1TLj44D9JYl/aR2NnK13++EofD0db39uqjLwiRUL1aN1+ps
+         XHMAjopQkqivFGtg9Nrjs3ROkzzsYi67IvMKtz8SNXSup+es4m90pgonprp4T+XAHTTL
+         YErYC9NeE0fA8TpOGEHS4FUMQVDdbDdLPW861c7sVEQR79HBNmc9ODaLYLnv26x5NJlT
+         q+12hLqmm0fqmMGVP3J2qO1ij8I73jIJ+Ewru9qhbpyc1TGk8k4PxsP4I5I+q4eET5qI
+         pOjg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729592530; x=1730197330;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=sI849jpnNtz3jUPY9JimvHmQMDeWZfkp6+41mM9VEbU=;
+        b=U6ItZmOaoIlKMXuHMKu3Fs3r2BeqKkFItIJ4qyZZzCqj5qxVszup7GVJFw1rxWh81J
+         vT8mcXzIzwykwX3cvpDZtxyTCWr6Z0bSoxaviybLbjPUIJvmI1BSQlEsd2FBdmkvLVnW
+         mXmGDRVrKt48Yn8qwmC2KjTI0B96+bqBYmoNk+uf02hsZlXzt7Pr4QaWJh3KU5I2fPTG
+         kL0FP4KlhEA36mkcEYZA8lL/4rzxl868fKFvDPCkbJA/00W9nVvLI91cC7BH1/iPPUl6
+         ACGyr/nUztHuBHdsqkGmASejmqtKRhs67PNFB/mA17W/Txx1r950Kvj7SfQXL5NPqmIw
+         EZhw==
+X-Forwarded-Encrypted: i=1; AJvYcCUoQG6U2oI9tLLwbtlc4aYhHCb7IY6ggUVCJaMBFgxcp9XT70/RDSHa7LHoikIwZEGwVX3+IkMrUaYWXv0=@lists.infradead.org, AJvYcCWURJ3/M0Ul7XJdE49zH4aTFtP+T3pYwqUc/OfdG0yi/8u8gzT3IZFZHCDhJH34Xb4PJo6JqdQ04yn/Y2zRgRwr@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzby8OfP705gHkoBpLTEupMF7GXwHAysQFju+T2AMCS4GrxECeq
+	XCMwCI2bLmTQaE/Zs6OASvqQwr+INJ/u1R0oCh3dm+R6Y2ytw9dO
+X-Google-Smtp-Source: AGHT+IF0yrkWnZfHUykTJ4Fo4aQzxqBmdzqmVMi+fptihu1U4ST488NkYyut5AtEoorOS8tcNGE7TA==
+X-Received: by 2002:a17:90a:740a:b0:2c8:65cf:e820 with SMTP id 98e67ed59e1d1-2e5616c4202mr17264934a91.2.1729592530050;
+        Tue, 22 Oct 2024 03:22:10 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e5ad517911sm5728653a91.57.2024.10.22.03.22.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 22 Oct 2024 03:22:09 -0700 (PDT)
+Date: Tue, 22 Oct 2024 18:21:49 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>, Inochi Amaoto <inochiama@gmail.com>
+Cc: Chen Wang <unicorn_wang@outlook.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Inochi Amaoto <inochiama@outlook.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Jose Abreu <joabreu@synopsys.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Yixun Lan <dlan@gentoo.org>, netdev@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
 	linux-riscv@lists.infradead.org
 Subject: Re: [PATCH 4/4] net: stmmac: Add glue layer for Sophgo SG2044 SoC
-Message-ID: <202410221853.0nt4WyvW-lkp@intel.com>
-References: <20241021103617.653386-5-inochiama@gmail.com>
+Message-ID: <424erlm55tuorjvs2xgmanzpximvey22ufhzf3fli7trpimxih@st4yz53hpzzr>
+References: <20241021103617.653386-1-inochiama@gmail.com>
+ <20241021103617.653386-5-inochiama@gmail.com>
+ <227daa87-1924-4b0b-80db-77507fc20f19@lunn.ch>
+ <gwtiuotmwj2x3d5rhfrploj7o763yjye4jj7vniomv77s7crqx@5jwrpwrlwn4s>
+ <65720a16-d165-4379-a01f-54340fb907df@lunn.ch>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20241021103617.653386-5-inochiama@gmail.com>
+In-Reply-To: <65720a16-d165-4379-a01f-54340fb907df@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241022_040542_441827_EBD411BB 
-X-CRM114-Status: GOOD (  13.34  )
+X-CRM114-CacheID: sfid-20241022_032211_144169_DBC20000 
+X-CRM114-Status: GOOD (  17.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,83 +106,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Inochi,
+On Mon, Oct 21, 2024 at 03:27:18PM +0200, Andrew Lunn wrote:
+> > It is related to the RGMII delay. On sg2044, when the phy 
+> > sets rx-delay, the interal mac is not set the same delay, 
+> > so this is needed to be set.
+> 
+> This is the wrong way to do it. Please look at how phy-mode should be
+> used, the four different "rgmii" values. Nearly everybody gets this
+> wrong, so there are plenty of emails from me in the netdev list about
+> how it should be done.
+> 
 
-kernel test robot noticed the following build warnings:
+The phy-mode is alreay set to the "rgmii-id" and a rx delay is already
+set (a default tx delay is set by the phy driver). In the scenario 
+the extra bit is used to fix 2ns difference between the sampling clock
+and data. It is more like an extra setting and the kernel can not handle
+it by only setting the phy-mode.
 
-[auto build test WARNING on robh/for-next]
-[also build test WARNING on sophgo/for-next sophgo/fixes net-next/main net/main linus/master v6.12-rc4 next-20241021]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+This is draft dts patch for the sg2044 gmac.
+https://github.com/project-inochi/linux/commit/381cb6000044a89cb13d6d9c839e9bbc7b9d2e5a
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Inochi-Amaoto/dt-bindings-net-snps-dwmac-Add-dwmac-5-30a-version/20241021-184301
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
-patch link:    https://lore.kernel.org/r/20241021103617.653386-5-inochiama%40gmail.com
-patch subject: [PATCH 4/4] net: stmmac: Add glue layer for Sophgo SG2044 SoC
-config: x86_64-allyesconfig (https://download.01.org/0day-ci/archive/20241022/202410221853.0nt4WyvW-lkp@intel.com/config)
-compiler: clang version 18.1.8 (https://github.com/llvm/llvm-project 3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241022/202410221853.0nt4WyvW-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202410221853.0nt4WyvW-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c:41:2: warning: variable 'rate' is used uninitialized whenever switch default is taken [-Wsometimes-uninitialized]
-      41 |         default:
-         |         ^~~~~~~
-   drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c:46:36: note: uninitialized use occurs here
-      46 |         ret = clk_set_rate(dwmac->clk_tx, rate);
-         |                                           ^~~~
-   drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c:28:20: note: initialize the variable 'rate' to silence this warning
-      28 |         unsigned long rate;
-         |                           ^
-         |                            = 0
-   1 warning generated.
-
-Kconfig warnings: (for reference only)
-   WARNING: unmet direct dependencies detected for MODVERSIONS
-   Depends on [n]: MODULES [=y] && !COMPILE_TEST [=y]
-   Selected by [y]:
-   - RANDSTRUCT_FULL [=y] && (CC_HAS_RANDSTRUCT [=y] || GCC_PLUGINS [=n]) && MODULES [=y]
-
-
-vim +/rate +41 drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
-
-    24	
-    25	static void sophgo_dwmac_fix_mac_speed(void *priv, unsigned int speed, unsigned int mode)
-    26	{
-    27		struct sophgo_dwmac *dwmac = priv;
-    28		unsigned long rate;
-    29		int ret;
-    30	
-    31		switch (speed) {
-    32		case SPEED_1000:
-    33			rate = 125000000;
-    34			break;
-    35		case SPEED_100:
-    36			rate = 25000000;
-    37			break;
-    38		case SPEED_10:
-    39			rate = 2500000;
-    40			break;
-  > 41		default:
-    42			dev_err(dwmac->dev, "invalid speed %u\n", speed);
-    43			break;
-    44		}
-    45	
-    46		ret = clk_set_rate(dwmac->clk_tx, rate);
-    47		if (ret)
-    48			dev_err(dwmac->dev, "failed to set tx rate %lu\n", rate);
-    49	}
-    50	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Regards,
+Inochi
 
 _______________________________________________
 linux-riscv mailing list
