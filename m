@@ -4,119 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33610CFA454
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Oct 2024 17:11:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B611DCFA453
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Oct 2024 17:12:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pNnpezSet4h2miKu7sUz50wErSePR/wEjbu4a/T3hMU=; b=v4CmLyFK7WI/Bq
-	DBlly57RYBUDXhwqQCbnSfMUESY5vOc4TXdWMlcGQ/RJNV/h1iD1PC0DcG7FDqUVJp//fkhqY++c6
-	Y1n9ggY7xQW4qDzXthVxElGdh96xWNwTmtDo19N1pcsaKOD1GQokZgnFtaY+9kwINN2KpDnaxQqea
-	fIaxV9bHZbwel5NbivRLAqiUpltvpD91uUTGqt8j/9WZlqhovA/KpemlAAmwIk421aG8RRp0NW0ru
-	ijDTo7yOQkDWB6MtgtY6YblNVGl0nndOqHntFJ8QMO9Rb0HSsIh6Uesyfv8W94eB0Y4YG1UuaQjPS
-	ot2Fm39GVYU2rvqoOBlw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=JFIO3AOUVvxciJxvEnHvkLGnO9QkIc+pCjuAAFuELWg=; b=bkJs7P7J3kA5Sc607epPAbUJe1
+	XVU+fWPmVF0W4spXlyyiGJ95GZtxsKtaMeIBopkmDyBNxb5ZABrFgR/vzMm0F6HJpwyBJPI23OqOw
+	/8Dc1onYox3WFRfWwLKN2Hx+IKfTc+GPmU9V/zylBxDNrvI0GluC1qKuHu9WmaQLcPBnzUWx7SkXj
+	KoXq75sz6mPYWEMFJrMw9iFZW3cWJGCogSngfanxEM3QWPjc+Qigkh8Bm96ujW7Awp3haG5Z/BF0f
+	3iUDk4NLux1MAgJKz1xOQB8peNEpFNdKohhCEs0iJrunUriXqY84I19xkF0452zEcWE2zBE87bHXe
+	r9kJCUcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3etQ-0000000FJs3-3n7q;
-	Wed, 23 Oct 2024 17:11:32 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t3eu7-0000000FK7s-3fT5;
+	Wed, 23 Oct 2024 17:12:15 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3eF3-0000000FAk5-3Omf;
-	Wed, 23 Oct 2024 16:29:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 49FACA41869;
-	Wed, 23 Oct 2024 16:29:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 049B0C4CEE4;
-	Wed, 23 Oct 2024 16:29:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729700987;
-	bh=nyFGHJdxaOJGfMON4ADcqNZmm4B8ZcjCFybfUwv2QVo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CdMzqkFoGWX2b7PqUYjaOLgPsSgx3plKCU2vqNIX57DWGYdA1jQq4ksX86hcp0Ugv
-	 TTVaihtq3olFqvVRmH4ux8HQokYedngI7cAAhfPrCPYYsXHZZoiN6pzJ3nAylPiH7K
-	 bb3YEyoMAywWZl5IK4NAIOnByYJRe15tMtAbd8c35ogVw5e7dfuIjpFNGGCC1fiF6J
-	 /n44T1S2NIJoA2evc0gIvR+SyqVMDPqyfLYX2YcniiVUZMFhNwBT2CtJTAHhahGj3z
-	 RBCgFt12Z6rRkFTgodgEgYga72XUQsWs+/9cBfVknah4t5l6IuPX9VAK7YH01aas8U
-	 j3vCYJbVvZIxQ==
-From: Mike Rapoport <rppt@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>,
-	Luis Chamberlain <mcgrof@kernel.org>
-Cc: Andreas Larsson <andreas@gaisler.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Borislav Petkov <bp@alien8.de>,
-	Brian Cain <bcain@quicinc.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christoph Hellwig <hch@infradead.org>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Guo Ren <guoren@kernel.org>,
-	Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Kent Overstreet <kent.overstreet@linux.dev>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Matt Turner <mattst88@gmail.com>,
-	Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Simek <monstr@monstr.eu>,
-	Mike Rapoport <rppt@kernel.org>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>,
-	Song Liu <song@kernel.org>,
-	Stafford Horne <shorne@gmail.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Vineet Gupta <vgupta@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org,
-	linux-alpha@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-modules@vger.kernel.org,
-	linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-sh@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org,
-	linux-um@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org
-Subject: [PATCH v7 8/8] x86/module: enable ROX caches for module text on 64 bit
-Date: Wed, 23 Oct 2024 19:27:11 +0300
-Message-ID: <20241023162711.2579610-9-rppt@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241023162711.2579610-1-rppt@kernel.org>
-References: <20241023162711.2579610-1-rppt@kernel.org>
-MIME-Version: 1.0
+	id 1t3eNU-0000000FBvs-0CRs
+	for linux-riscv@lists.infradead.org;
+	Wed, 23 Oct 2024 16:38:33 +0000
+Received: from mail-oa1-f71.google.com (mail-oa1-f71.google.com [209.85.160.71])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 9B6B54120C
+	for <linux-riscv@lists.infradead.org>; Wed, 23 Oct 2024 16:38:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1729701507;
+	bh=2KGO9/x+zR1sj8A0z8FXdfQsavpMZB5tjb8iXzv7MBc=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=V1Iderx9JlR6zj0++K1DvT4PfpXa8YcCAWcd2xKVMUJ8E/CUPPRocpHHZQOV4viqs
+	 JogGMeSLznHtoD0qRIzrpylLmsbwkkcss8ErCxf+u3m1dxz4jz9TB2/ee6hIVplyxb
+	 TDJIVFGHP09llo3KZMGjaOqGdZrDa3rqAmGVmIJPtr3pMudedsgRelsmzynvzYc85B
+	 x3EmnTAHUdanhTRcjExTq9TEjOFWbq3usb/NphDcm83Z4ej3l3H8dZ4x5UcwWLGDkS
+	 +E7OiKcuPm1MiZHk807QCHrRer1XpcpHrhss/edq42+am11Pp0S7jw0KIo6edSKQDO
+	 NVEAY7YolvBiA==
+Received: by mail-oa1-f71.google.com with SMTP id 586e51a60fabf-288a2ae6d73so71473fac.1
+        for <linux-riscv@lists.infradead.org>; Wed, 23 Oct 2024 09:38:27 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729701506; x=1730306306;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=2KGO9/x+zR1sj8A0z8FXdfQsavpMZB5tjb8iXzv7MBc=;
+        b=Yga+kMos8xaAOJN5p/NwIJWTK8lSrMqmxmHJ5gXq+L/doKNbCiur7Sh7Cvd9nhxLZZ
+         11GHKUdw13XYy9PGqtdVlUSCyML0qKi+iSjSRk+QoBI4ryhD+Yi5GloEZKzhBnnAh1FL
+         w2gN6DoMqFi7MOpan6f5yzFBMOJeczMaDCPyilU+CXij/At0TO4E7gf3JUnpn35Icts7
+         klpz4VRgw3cSxpHMw9mu25Jf8yJDbIWKVoTdogE1QuB0UGc5wI8bBIXTbBZHVVGuDVxV
+         HiMGGlz5tBLJLoHurNEv3gqxUKfiA7YMf6uDz3ZrPRYB6kFsNTiyXPAgeYXgMmsyl6CW
+         O1rA==
+X-Forwarded-Encrypted: i=1; AJvYcCViYYUdq/0PDGHVA9NBRVvWpSXZof77zRe+WUeISoedNnY8qWd89PMBLVI+M4aEK0YPI7CkwCLXZfPAbQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw9k+XuBg8h42Q98VNtllqGRFq9OajpTpJV0FTtRDA4ey6Q7ifk
+	xT1DXi/+7uLH4b7IqW1WQXUljOEpOulZfGil1SH1XBlUUTiUfYfffX3oy7Da54KmN8boDhjEEJ1
+	QrmvgsGT42K9N5xJamacgJGZnm9+eaolJULsIKoTowOviinXMzYsKBP46SI3KEzrxcepoVqquM0
+	Kq+tLXYboK2wBUOS1j1UQHCOxOrUQZ+6UUOxGtDqPhmKDm1xmk+l4dp0tO
+X-Received: by 2002:a05:6871:58a1:b0:287:c014:c979 with SMTP id 586e51a60fabf-28ccb404424mr3446470fac.13.1729701506407;
+        Wed, 23 Oct 2024 09:38:26 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGYKVer8iHAkiMMpVseZz+FbkbvOVCl9iXO7WeY67iQ2hOj/Lh97N9pnwdvNGMM13TWHpzNMqvtkjAlCvvT1/E=
+X-Received: by 2002:a05:6871:58a1:b0:287:c014:c979 with SMTP id
+ 586e51a60fabf-28ccb404424mr3446372fac.13.1729701504622; Wed, 23 Oct 2024
+ 09:38:24 -0700 (PDT)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 23 Oct 2024 12:38:24 -0400
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <20241020134959.519462-3-guodong@riscstar.com>
+References: <20241020134959.519462-1-guodong@riscstar.com> <20241020134959.519462-3-guodong@riscstar.com>
+Mime-Version: 1.0
+Date: Wed, 23 Oct 2024 12:38:23 -0400
+Message-ID: <CAJM55Z9amwkWEK5GGKMiqh_6NQY=TBQhjEuFdMPBFd_hHM==4Q@mail.gmail.com>
+Subject: Re: [PATCH v5 2/3] dt-bindings: riscv: starfive: add deepcomputing,fml13v01
+To: Guodong Xu <guodong@riscstar.com>, Conor Dooley <conor@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Emil Renner Berthing <kernel@esmil.dk>, rafal@milecki.pl, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Heiko Stuebner <heiko.stuebner@cherry.de>, Michael Zhu <michael.zhu@starfivetech.com>, 
+	Drew Fustini <drew@beagleboard.org>, Alexandru Stan <ams@frame.work>, Daniel Schaefer <dhs@frame.work>, 
+	Sandie Cao <sandie.cao@deepcomputing.io>, Yuning Liang <yuning.liang@deepcomputing.io>, 
+	Huiming Qiu <huiming.qiu@deepcomputing.io>, Alex Elder <elder@riscstar.com>, linux@frame.work, 
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_092949_995315_D97835DB 
-X-CRM114-Status: GOOD (  14.57  )
+X-CRM114-CacheID: sfid-20241023_093832_428325_C54AFFB4 
+X-CRM114-Status: UNSURE (   5.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,93 +110,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+Guodong Xu wrote:
+> From: Sandie Cao <sandie.cao@deepcomputing.io>
+>
+> Add "deepcomputing,fml13v01" as a StarFive SoC-based board.
+>
+> The DeepComputing FML13V01 board incorporates a StarFive JH7110 SoC, and
+> it's designed for the Framework Laptop 13 Chassis, which has (Framework)
+> SKU FRANHQ0001.
+>
+> Signed-off-by: Sandie Cao <sandie.cao@deepcomputing.io>
+> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+> [elder@riscstar.com: considerably shortened the description]
+> Signed-off-by: Alex Elder <elder@riscstar.com>
+> Signed-off-by: Guodong Xu <guodong@riscstar.com>
 
-Enable execmem's cache of PMD_SIZE'ed pages mapped as ROX for module
-text allocations on 64 bit.
-
-Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-Reviewed-by: Luis Chamberlain <mcgrof@kernel.org>
-Tested-by: kdevops <kdevops@lists.linux.dev>
----
- arch/x86/Kconfig   |  1 +
- arch/x86/mm/init.c | 37 ++++++++++++++++++++++++++++++++++++-
- 2 files changed, 37 insertions(+), 1 deletion(-)
-
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index 2852fcd82cbd..ff71d18253ba 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -83,6 +83,7 @@ config X86
- 	select ARCH_HAS_DMA_OPS			if GART_IOMMU || XEN
- 	select ARCH_HAS_EARLY_DEBUG		if KGDB
- 	select ARCH_HAS_ELF_RANDOMIZE
-+	select ARCH_HAS_EXECMEM_ROX		if X86_64
- 	select ARCH_HAS_FAST_MULTIPLIER
- 	select ARCH_HAS_FORTIFY_SOURCE
- 	select ARCH_HAS_GCOV_PROFILE_ALL
-diff --git a/arch/x86/mm/init.c b/arch/x86/mm/init.c
-index eb503f53c319..c2e4f389f47f 100644
---- a/arch/x86/mm/init.c
-+++ b/arch/x86/mm/init.c
-@@ -1053,18 +1053,53 @@ unsigned long arch_max_swapfile_size(void)
- #ifdef CONFIG_EXECMEM
- static struct execmem_info execmem_info __ro_after_init;
- 
-+#ifdef CONFIG_ARCH_HAS_EXECMEM_ROX
-+void execmem_fill_trapping_insns(void *ptr, size_t size, bool writeable)
-+{
-+	/* fill memory with INT3 instructions */
-+	if (writeable)
-+		memset(ptr, INT3_INSN_OPCODE, size);
-+	else
-+		text_poke_set(ptr, INT3_INSN_OPCODE, size);
-+}
-+#endif
-+
- struct execmem_info __init *execmem_arch_setup(void)
- {
- 	unsigned long start, offset = 0;
-+	enum execmem_range_flags flags;
-+	pgprot_t pgprot;
- 
- 	if (kaslr_enabled())
- 		offset = get_random_u32_inclusive(1, 1024) * PAGE_SIZE;
- 
- 	start = MODULES_VADDR + offset;
- 
-+	if (IS_ENABLED(CONFIG_ARCH_HAS_EXECMEM_ROX)) {
-+		pgprot = PAGE_KERNEL_ROX;
-+		flags = EXECMEM_KASAN_SHADOW | EXECMEM_ROX_CACHE;
-+	} else {
-+		pgprot = PAGE_KERNEL;
-+		flags = EXECMEM_KASAN_SHADOW;
-+	}
-+
- 	execmem_info = (struct execmem_info){
- 		.ranges = {
--			[EXECMEM_DEFAULT] = {
-+			[EXECMEM_MODULE_TEXT] = {
-+				.flags	= flags,
-+				.start	= start,
-+				.end	= MODULES_END,
-+				.pgprot	= pgprot,
-+				.alignment = MODULE_ALIGN,
-+			},
-+			[EXECMEM_KPROBES ... EXECMEM_BPF] = {
-+				.flags	= EXECMEM_KASAN_SHADOW,
-+				.start	= start,
-+				.end	= MODULES_END,
-+				.pgprot	= PAGE_KERNEL,
-+				.alignment = MODULE_ALIGN,
-+			},
-+			[EXECMEM_MODULE_DATA] = {
- 				.flags	= EXECMEM_KASAN_SHADOW,
- 				.start	= start,
- 				.end	= MODULES_END,
--- 
-2.43.0
-
+Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 
 _______________________________________________
 linux-riscv mailing list
