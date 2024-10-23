@@ -4,83 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36B53CFA44E
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Oct 2024 16:21:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF77DCFA451
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Oct 2024 16:21:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=xI3VmZxb2N635oOcswk8yE+bZ/CfNkALT56xHMKBg0M=; b=N6S6td8ENcFgmA
-	3AlaWNRP2AL+PDwR495QQxQbkYUjvx0YCC6/CKkkurbHeBqR8rt1YJnlA6maDlMj8TgAXeywisOiR
-	BMpcjVlPW4+knFY0CIBjddXt3kca3ycH5bthAlBMq5DY9ETdbK4qzvDfx5+KG8L/uOKvuztTSzMbO
-	QFYoaorgN3Oa+NcZHteIkMfOlZEGEAj3puFymMKfMbbhfhbSOAaSTk8QscKUZTlVQcN/dePKJ0qTw
-	2qaYYA1OpC7Hg5F+cisw9qSz/gyS34E0TpHlCIQn0DTtV51inHY4+GtQOH1R2QEd/L5L89jKYAKDW
-	4CtpsOwsJZpYZknWZrbg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pnq6uLD18Ub4TFBOUHqG992wf6loA9svC78E5AwoUWI=; b=MXOXG1/xhaHcQ494wWm1dBVoK8
+	3y/vzLnGxyrFXHy19HVLvOZHe4X5At9km3J7PWCa2BZ6BH56v4CDWOJs2E50E1B3WWdluCF3R7kRh
+	631QK5gF2mUfo9NRYM3y86IJrROFavu0i5pXeJfBt8hayiLVTAyB8FbJJyO0m4Pa7UMc9h6aCVWUI
+	EQygXyfmwnUd5vsBD297fYvbqZ1iaYUnwPIb8ZqGtISMkrkffVrM9K7nXxKszVPSqSzt0W1J0eARn
+	kTuAWKGDd8uKBXsR+xRw5uvDO03M1XHr2ahtpFMCO9uArjAfvGNkwTk5FkW7kpzeB/6g8VZ4uHH68
+	fI6DZq7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3e6d-0000000F7FR-0NTK;
-	Wed, 23 Oct 2024 16:21:07 +0000
-Received: from azure-sdnproxy.icoremail.net ([207.46.229.174])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3dN1-0000000Eyd6-1A2y
+	id 1t3e6z-0000000F7Op-10pq;
+	Wed, 23 Oct 2024 16:21:29 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t3dQR-0000000EzHl-2J2K
 	for linux-riscv@lists.infradead.org;
-	Wed, 23 Oct 2024 15:34:02 +0000
-Received: from hust.edu.cn (unknown [172.16.0.50])
-	by app2 (Coremail) with SMTP id HwEQrAA34BRAFxln5_IjAQ--.57530S2;
-	Wed, 23 Oct 2024 23:33:20 +0800 (CST)
-Received: from pride-PowerEdge-R740.. (unknown [222.20.126.129])
-	by gateway (Coremail) with SMTP id _____wC3sEM4FxlnydKZAA--.10656S2;
-	Wed, 23 Oct 2024 23:33:13 +0800 (CST)
-From: Dongliang Mu <dzm91@hust.edu.cn>
-To: si.yanteng@linux.dev,
-	Alex Shi <alexs@kernel.org>,
-	Yanteng Si <siyanteng@loongson.cn>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Dongliang Mu <dzm91@hust.edu.cn>
-Cc: hust-os-kernel-patches@googlegroups.com,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	llvm@lists.linux.dev
-Subject: [PATCH] docs/zh_CN: add the translation of kbuild/llvm.rst
-Date: Wed, 23 Oct 2024 23:32:02 +0800
-Message-ID: <20241023153235.1291567-1-dzm91@hust.edu.cn>
-X-Mailer: git-send-email 2.43.0
+	Wed, 23 Oct 2024 15:37:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1E7DDA40243;
+	Wed, 23 Oct 2024 15:37:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 994C9C4CEC6;
+	Wed, 23 Oct 2024 15:37:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729697850;
+	bh=fS3eJ8P+ux9S0OqEOhIia1lXSwXNpwLliBMdv3pspAU=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=Ima94U6JgLfMy6s+cI3f0gVuBeruARRjleGmf80bjUWfJlQ1ythLCxLloTRSwob5D
+	 aJhF4xCCVD1f92vdHfdtnqeSg3n+JvahF2Y4OWP37JTDwMk0mRp3tW9YkmKCZIozcH
+	 47ZOYU2xTqPI4VoY3aepCTe3TDZ/qKosjWwViJyxYqscWHUbiyAQNltp5CG9O0S0wz
+	 jMkcJWDR+XMOQegavNF9+HP7hUbCx/cp7hbh7TV2rge8nY4eyFBCfQyzo6NLhBPmgg
+	 XhTnNxs27VlEMgvU0ynXSbZXi3QvR4CiH1IlIhAa1mJSwE36n7XcazpUSKuANf2Sv4
+	 x8yldypMS3AJA==
+From: Puranjay Mohan <puranjay@kernel.org>
+To: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Alexei Starovoitov <ast@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>, Andrii Nakryiko
+ <andrii@kernel.org>, bpf@vger.kernel.org, Daniel Borkmann
+ <daniel@iogearbox.net>, "David S. Miller" <davem@davemloft.net>, "Eduard
+ Zingerman" <eddyz87@gmail.com>, Eric Dumazet <edumazet@google.com>, Hao Luo
+ <haoluo@google.com>, Helge Deller <deller@gmx.de>, Jakub Kicinski
+ <kuba@kernel.org>, "James E.J. Bottomley"
+ <James.Bottomley@hansenpartnership.com>, Jiri Olsa <jolsa@kernel.org>,
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
+ linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Martin KaFai Lau <martin.lau@linux.dev>,
+ Mykola Lysenko <mykolal@fb.com>, netdev@vger.kernel.org, Palmer Dabbelt
+ <palmer@dabbelt.com>, Paolo Abeni <pabeni@redhat.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Shuah Khan <shuah@kernel.org>, Song Liu
+ <song@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Yonghong Song
+ <yonghong.song@linux.dev>
+Subject: Re: [PATCH bpf-next 4/5] selftests/bpf: Add benchmark for
+ bpf_csum_diff() helper
+In-Reply-To: <mb61p8qugc955.fsf@kernel.org>
+References: <20241021122112.101513-1-puranjay@kernel.org>
+ <20241021122112.101513-5-puranjay@kernel.org>
+ <CAEf4BzY1LgCF1VOoAQkMdDTx87C0mfyftMvhvVU4GpsFc6fw5g@mail.gmail.com>
+ <mb61pa5ewbfpk.fsf@kernel.org>
+ <CAEf4BzZ-gfBqez-QJCSRVOPnvz-inaiVdNGOFRCdc2KQbnmeZQ@mail.gmail.com>
+ <mb61p8qugc955.fsf@kernel.org>
+Date: Wed, 23 Oct 2024 15:37:07 +0000
+Message-ID: <mb61pttd2bzks.fsf@kernel.org>
 MIME-Version: 1.0
-X-CM-TRANSID: HwEQrAA34BRAFxln5_IjAQ--.57530S2
-Authentication-Results: app2; spf=neutral smtp.mail=dzm91@hust.edu.cn;
-X-Coremail-Antispam: 1UD129KBjvJXoWxtry3tFWfXw47JrW3KFy3Arb_yoWftrWfpF
-	Z7CryfGanxJFyjyryI9F4Duw1rCw4kCa4jv3WrJw10vr1IvFy0v3W2kFW093srW3yxC34U
-	JFyfCr1jyFy7CrDanT9S1TB71UUUUjJqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUHqb7Iv0xC_KF4lb4IE77IF4wAFc2x0x2IEx4CE42xK8VAvwI8I
-	cIk0rVWrJVCq3wA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK021l84ACjcxK6xIIjx
-	v20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j6r4UJwA2z4x0Y4vE
-	x4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq3wAaw2AFwI0_JF
-	0_Jw1lnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqjxCEc2xF
-	0cIa020Ex4CE44I27wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0EF7xvrVAajcxG14v26F
-	4j6r4UJwAv7VCjz48v1sIEY20_GFW3Jr1UJwAv7VCY1x0262k0Y48FwI0_Gr1j6F4UJwAm
-	72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lc7CjxVAaw2AFwI0_Jw0_GFyl42
-	xK82IYc2Ij64vIr41l42xK82IY6x8ErcxFaVAv8VW8uFyUJr1UMxC20s026xCaFVCjc4AY
-	6r1j6r4UMxCIbckI1I0E14v26r126r1DMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7
-	xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIccxYrVCIc48FwI0_Xr0_Ar1l
-	IxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUCVW8JwCI42IY6xIIjxv20xvEc7CjxV
-	AFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r4j
-	6F4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07Ut3k
-	ZUUUUU=
-X-CM-SenderInfo: asqsiiirqrkko6kx23oohg3hdfq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_083359_517329_81F3675B 
-X-CRM114-Status: UNSURE (   9.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241023_083731_742474_76B24494 
+X-CRM114-Status: GOOD (  21.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,164 +86,124 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============0256313335532813196=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RmluaXNoIHRoZSB0cmFuc2xhdGlvbiBvZiBrYnVpbGQvbGx2bS5yc3QgYW5kIG1vdmUgbGx2bSBm
-cm9tIFRPRE8KdG8gdGhlIG1haW4gYm9keS4KClVwZGF0ZSB0byBjb21taXQgMTQ1MDgyZWJmY2Yw
-ICgiRG9jdW1lbnRhdGlvbi9sbHZtOiB0dXJuIG1ha2UgY29tbWFuZApmb3IgY2NhY2hlIGludG8g
-Y29kZSBibG9jayIpCgpTaWduZWQtb2ZmLWJ5OiBEb25nbGlhbmcgTXUgPGR6bTkxQGh1c3QuZWR1
-LmNuPgotLS0KIC4uLi90cmFuc2xhdGlvbnMvemhfQ04va2J1aWxkL2luZGV4LnJzdCAgICAgICB8
-ICAgMyArLQogLi4uL3RyYW5zbGF0aW9ucy96aF9DTi9rYnVpbGQvbGx2bS5yc3QgICAgICAgIHwg
-MjAzICsrKysrKysrKysrKysrKysrKwogMiBmaWxlcyBjaGFuZ2VkLCAyMDUgaW5zZXJ0aW9ucygr
-KSwgMSBkZWxldGlvbigtKQogY3JlYXRlIG1vZGUgMTAwNjQ0IERvY3VtZW50YXRpb24vdHJhbnNs
-YXRpb25zL3poX0NOL2tidWlsZC9sbHZtLnJzdAoKZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRpb24v
-dHJhbnNsYXRpb25zL3poX0NOL2tidWlsZC9pbmRleC5yc3QgYi9Eb2N1bWVudGF0aW9uL3RyYW5z
-bGF0aW9ucy96aF9DTi9rYnVpbGQvaW5kZXgucnN0CmluZGV4IDBiYTk2YWVjYjEzYS4uM2Y5YWI1
-MmZhNWJiIDEwMDY0NAotLS0gYS9Eb2N1bWVudGF0aW9uL3RyYW5zbGF0aW9ucy96aF9DTi9rYnVp
-bGQvaW5kZXgucnN0CisrKyBiL0RvY3VtZW50YXRpb24vdHJhbnNsYXRpb25zL3poX0NOL2tidWls
-ZC9pbmRleC5yc3QKQEAgLTE3LDYgKzE3LDcgQEAKICAgICBnY2MtcGx1Z2lucwogICAgIGtidWls
-ZAogICAgIHJlcHJvZHVjaWJsZS1idWlsZHMKKyAgICBsbHZtCiAKIFRPRE86CiAKQEAgLTI1LDcg
-KzI2LDcgQEAgVE9ETzoKIC0gbWFrZWZpbGVzCiAtIG1vZHVsZXMKIC0gaXNzdWVzCi0tIGxsdm0K
-KwogCiAuLiBvbmx5OjogIHN1YnByb2plY3QgYW5kIGh0bWwKIApkaWZmIC0tZ2l0IGEvRG9jdW1l
-bnRhdGlvbi90cmFuc2xhdGlvbnMvemhfQ04va2J1aWxkL2xsdm0ucnN0IGIvRG9jdW1lbnRhdGlv
-bi90cmFuc2xhdGlvbnMvemhfQ04va2J1aWxkL2xsdm0ucnN0Cm5ldyBmaWxlIG1vZGUgMTAwNjQ0
-CmluZGV4IDAwMDAwMDAwMDAwMC4uZjcxMDkyMTQ0YTI2Ci0tLSAvZGV2L251bGwKKysrIGIvRG9j
-dW1lbnRhdGlvbi90cmFuc2xhdGlvbnMvemhfQ04va2J1aWxkL2xsdm0ucnN0CkBAIC0wLDAgKzEs
-MjAzIEBACisuLiBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMAorCisuLiBpbmNsdWRl
-OjogLi4vZGlzY2xhaW1lci16aF9DTi5yc3QKKworOk9yaWdpbmFsOiBEb2N1bWVudGF0aW9uL2ti
-dWlsZC9sbHZtLnJzdAorOlRyYW5zbGF0b3I6IOaFleWGrOS6riBEb25nbGlhbmcgTXUgPGR6bTkx
-QGh1c3QuZWR1LmNuPgorCis9PT09PT09PT09PT09PT09PT09PT09PT09PQor5L2/55SoIENsYW5n
-L0xMVk0g5p6E5bu6IExpbnV4Cis9PT09PT09PT09PT09PT09PT09PT09PT09PQorCivmnKzmlofm
-oaPku4vnu43lpoLkvZXkvb/nlKggQ2xhbmcg5ZKMIExMVk0g5bel5YW35p6E5bu6IExpbnV4IOWG
-heaguOOAggorCivlhbPkuo4KKy0tLS0KKworTGludXgg5YaF5qC45Lyg57uf5LiK5LiA55u05L2/
-55SoIEdOVSDlt6Xlhbfpk77vvIjlpoIgR0NDIOWSjCBiaW51dGlsc++8iei/m+ihjOe8luivkeOA
-guaMgee7reeahOW3peS9nOS9v+W+lworYENsYW5nIDxodHRwczovL2NsYW5nLmxsdm0ub3JnLz5g
-XyDlkowgYExMVk0gPGh0dHBzOi8vbGx2bS5vcmcvPmBfIOW3peWFt+WPrwor5L2c5Li65Y+v6KGM
-55qE5pu/5Luj5ZOB44CC5LiA5Lqb5Y+R6KGM54mI77yM5aaCIGBBbmRyb2lkIDxodHRwczovL3d3
-dy5hbmRyb2lkLmNvbS8+YF/jgIEKK2BDaHJvbWVPUyA8aHR0cHM6Ly93d3cuY2hyb21pdW0ub3Jn
-L2Nocm9taXVtLW9zPmBf44CBYE9wZW5NYW5kcml2YQorPGh0dHBzOi8vd3d3Lm9wZW5tYW5kcml2
-YS5vcmcvPmBfIOWSjCBgQ2hpbWVyYSBMaW51eAorPGh0dHBzOi8vY2hpbWVyYS1saW51eC5vcmcv
-PmBfIOS9v+eUqCBDbGFuZyDnvJbor5HnmoTlhoXmoLjjgILosLfmrYzlkowgTWV0YSDnmoTmlbDm
-ja7kuK3lv4MKK+mbhue+pOS5n+i/kOihjOeUsSBDbGFuZyDnvJbor5HnmoTlhoXmoLjjgIIKKwor
-YExMVk0g5piv55SxIEMrKyDlr7nosaHlrp7njrDnmoTlt6Xlhbfpk77nu4Tku7bpm4blkIggPGh0
-dHBzOi8vd3d3LmFvc2Fib29rLm9yZy9lbi9sbHZtLmh0bWw+YF/jgIIKK0NsYW5nIOaYryBMTFZN
-IOeahOWJjeerr++8jOaUr+aMgSBDIOivreiogOWSjOWGheaguOaJgOmcgOeahCBHTlUgQyDmianl
-sZXvvIzlhbblj5Hpn7PkuLogImtsYW5nIu+8jOiAjOmdngorInNlZS1sYW5nIuOAggorCivkvb/n
-lKggTExWTSDmnoTlu7oKKy0tLS0tLS0tLS0tLS0tCisKK+mAmui/h+S7peS4i+WRveS7pOiwg+eU
-qCBgYG1ha2VgYDo6CisKKwltYWtlIExMVk09MQorCivkuLrkuLvmnLrnm67moIfov5vooYznvJbo
-r5HjgILlr7nkuo7kuqTlj4nnvJbor5E6OgorCisJbWFrZSBMTFZNPTEgQVJDSD1hcm02NAorCitM
-TFZNPSDlj4LmlbAKKy0tLS0tLS0tLS0KKworTExWTSDmnIkgR05VIGJpbnV0aWxzIOW3peWFt+ea
-hOabv+S7o+WTgeOAgui/meS6m+W3peWFt+WPr+S7peWNleeLrOWQr+eUqOOAguS7peS4i+aYr+aU
-r+aMgeeahCBtYWtlIOWPmOmHjwor5a6M5pW05YiX6KGoOjoKKworCW1ha2UgQ0M9Y2xhbmcgTEQ9
-bGQubGxkIEFSPWxsdm0tYXIgTk09bGx2bS1ubSBTVFJJUD1sbHZtLXN0cmlwIFwKKwkgIE9CSkNP
-UFk9bGx2bS1vYmpjb3B5IE9CSkRVTVA9bGx2bS1vYmpkdW1wIFJFQURFTEY9bGx2bS1yZWFkZWxm
-IFwKKwkgIEhPU1RDQz1jbGFuZyBIT1NUQ1hYPWNsYW5nKysgSE9TVEFSPWxsdm0tYXIgSE9TVExE
-PWxkLmxsZAorCitgYExMVk09MWBgIOaJqeWxleS4uuS4iui/sOWRveS7pOOAggorCivlpoLmnpzk
-vaDnmoQgTExWTSDlt6XlhbfkuI3lnKggUEFUSCDkuK3vvIzkvaDlj6/ku6Xkvb/nlKjku6Xmlpzm
-naDnu5PlsL7nmoQgTExWTSDlj5jph4/mj5DkvpvlroPku6znmoTkvY3nva46OgorCisJbWFrZSBM
-TFZNPS9wYXRoL3RvL2xsdm0vCisKK+i/meWwhuS9v+eUqCBgYC9wYXRoL3RvL2xsdm0vY2xhbmdg
-YOOAgWBgL3BhdGgvdG8vbGx2bS9sZC5sbGRgYCDnrYnlt6XlhbfjgILkuZ/lj6/ku6UKK+S9v+eU
-qOS7peS4i+WRveS7pDo6CisKKwlQQVRIPS9wYXRoL3RvL2xsdm06JFBBVEggbWFrZSBMTFZNPTEK
-Kwor5aaC5p6c5L2g55qEIExMVk0g5bel5YW35bim5pyJ54mI5pys5ZCO57yA77yM5bm25LiU5L2g
-5biM5pyb5rWL6K+V6K+l54m55a6a54mI5pys6ICM6Z2e5peg5ZCO57yA55qE5Y+v5omn6KGM5paH
-5Lu277yMCivnsbvkvLzkuo4gYGBMTFZNPTFgYO+8jOS9oOWPr+S7peS9v+eUqCBgYExMVk1gYCDl
-j5jph4/kvKDpgJLor6XlkI7nvIA6OgorCisJbWFrZSBMTFZNPS0xNAorCivov5nlsIbkvb/nlKgg
-YGBjbGFuZy0xNGBg44CBYGBsZC5sbGQtMTRgYCDnrYnlt6XlhbfjgILkuLrkuobmlK/mjIHluKbm
-nInniYjmnKzlkI7nvIDnmoTmoJHlpJbot6/lvoTnu4TlkIjvvIwKK+aIkeS7rOW7uuiurjo6CisK
-KwlQQVRIPS9wYXRoL3RvL2xsdm0vOiRQQVRIIG1ha2UgTExWTT0tMTQKKworYGBMTFZNPTBgYCDk
-uI7nnIHnlaUgYGBMTFZNYGAg5a6M5YWo5LiN5ZCM77yM5a6D5bCG6KGo546w5b6X5YOPIGBgTExW
-TT0xYGDjgILlpoLmnpzkvaDlj6rluIzmnJvkvb/nlKgKK+afkOS6myBMTFZNIOW3peWFt++8jOiv
-t+S9v+eUqOWug+S7rOWQhOiHqueahCBtYWtlIOWPmOmHj+OAggorCivlnKjpgJrov4fkuI3lkIzl
-kb3ku6TphY3nva7lkozmnoTlu7rml7bvvIzlupTkuLrmr4/mrKHosIPnlKggYGBtYWtlYGAg6K6+
-572u55u45ZCM55qEIGBgTExWTT1gYCDlgLzjgILlpoLmnpwKK+i/kOihjOeahOiEmuacrOacgOe7
-iOS8muiwg+eUqCBgYG1ha2VgYO+8jOWImei/mOW6lOWwhiBgYExMVk09YGAg6K6+572u5Li6546v
-5aKD5Y+Y6YeP44CCCisKK+S6pOWPiee8luivkQorLS0tLS0tLS0KKwor5Y2V5LiqIENsYW5nIOe8
-luivkeWZqOS6jOi/m+WItuaWh+S7tu+8iOWPiuWFtuWvueW6lOeahCBMTFZNIOW3peWFt++8iemA
-muW4uOS8muWMheWQq+aJgOacieaUr+aMgeeahOWQjuerr++8jOi/meWPr+S7pQor566A5YyW5Lqk
-5Y+J57yW6K+R77yM5bCk5YW25piv5L2/55SoIGBgTExWTT0xYGAg5pe244CC5aaC5p6c5LuF5L2/
-55SoIExMVk0g5bel5YW377yMYGBDUk9TU19DT01QSUxFYGAKK+aIluebruagh+S4ieWFg+e7hOWJ
-jee8gOWwseWPmOW+l+S4jeW/heimgeOAguekuuS+izo6CisKKwltYWtlIExMVk09MSBBUkNIPWFy
-bTY0CisKK+S9nOS4uua3t+WQiCBMTFZNIOWSjCBHTlUg5bel5YW355qE56S65L6L77yM5a+55LqO
-5YOPIGBgQVJDSD1zMzkwYGAg6L+Z5qC355uu5YmN5bCa5LiN5pSv5oyBCitgYGxkLmxsZGBgIOaI
-liBgYGxsdm0tb2JqY29weWBgIOeahOebruagh++8jOS9oOWPr+S7pemAmui/h+S7peS4i+aWueW8
-j+iwg+eUqCBgYG1ha2VgYDo6CisKKwltYWtlIExMVk09MSBBUkNIPXMzOTAgTEQ9czM5MHgtbGlu
-dXgtZ251LWxkLmJmZCBcCisJICBPQkpDT1BZPXMzOTB4LWxpbnV4LWdudS1vYmpjb3B5CisKK+at
-pOekuuS+i+Wwhuiwg+eUqCBgYHMzOTB4LWxpbnV4LWdudS1sZC5iZmRgYCDkvZzkuLrpk77mjqXl
-majlkowKK2BgczM5MHgtbGludXgtZ251LW9iamNvcHlgYO+8jOWboOatpOivt+ehruS/neWug+S7
-rOWcqOS9oOeahCBgYCRQQVRIYGAg5Lit44CCCisKK+W9kyBgYExMVk09MWBgIOacquiuvue9ruaX
-tu+8jGBgQ1JPU1NfQ09NUElMRWBgIOS4jeS8mueUqOS6jue7mSBDbGFuZyDnvJbor5Hlmajkuozo
-v5vliLbmlofku7YKK++8iOaIluebuOW6lOeahCBMTFZNIOW3peWFt++8iea3u+WKoOWJjee8gO+8
-jOiAjCBHTlUg5bel5YW35YiZ6ZyA6KaB6L+Z5qC35YGa44CCCisKK0xMVk1fSUFTPSDlj4LmlbAK
-Ky0tLS0tLS0tLS0tLS0tCisKK0NsYW5nIOWPr+S7pee8luivkeaxh+e8luS7o+eggeOAguS9oOWP
-r+S7peS8oOmAkiBgYExMVk1fSUFTPTBgYCDnpoHnlKjmraTooYzkuLrvvIzkvb8gQ2xhbmcg6LCD
-55SoCivnm7jlupTnmoTpnZ7pm4bmiJDmsYfnvJblmajjgILnpLrkvos6OgorCisJbWFrZSBMTFZN
-PTEgTExWTV9JQVM9MAorCivlnKjkuqTlj4nnvJbor5Hml7bvvIzkvaDpnIDopoHkvb/nlKggYGBD
-Uk9TU19DT01QSUxFYGAg5LiOIGBgTExWTV9JQVM9MGBg77yM5LuO6ICM6K6+572uCitgYC0tcHJl
-Zml4PWBgIOS9v+W+l+e8luivkeWZqOWPr+S7peWvueW6lOeahOmdnumbhuaIkOaxh+e8luWZqO+8
-iOmAmuW4uO+8jOWcqOmdouWQkeWPpuS4gOenjeaetuaehOaXtu+8jAor5L2g5LiN5oOz5L2/55So
-57O757uf5rGH57yW5Zmo77yJ44CC5L6L5aaCOjoKKworCW1ha2UgTExWTT0xIEFSQ0g9YXJtIExM
-Vk1fSUFTPTAgQ1JPU1NfQ09NUElMRT1hcm0tbGludXgtZ251ZWFiaS0KKworQ2NhY2hlCistLS0t
-LS0KKworYGBjY2FjaGVgYCDlj6/ku6XkuI4gYGBjbGFuZ2BgIOS4gOi1t+S9v+eUqO+8jOS7peaU
-ueWWhOWQjue7reaehOW7uu+8iOWwveeuoeWcqOS4jeWQjOaehOW7uuS5i+mXtAorS0JVSUxEX0JV
-SUxEX1RJTUVTVEFNUF8g5bqU6K6+572u5Li65ZCM5LiA56Gu5a6a5YC877yM5Lul6YG/5YWNIDEw
-MCUg55qE57yT5a2Y5pyq5ZG95Lit77yMCivor6bop4EgUmVwcm9kdWNpYmxlX2J1aWxkc18g6I63
-5Y+W5pu05aSa5L+h5oGv77yJOjoKKworCUtCVUlMRF9CVUlMRF9USU1FU1RBTVA9JycgbWFrZSBM
-TFZNPTEgQ0M9ImNjYWNoZSBjbGFuZyIKKworLi4gX0tCVUlMRF9CVUlMRF9USU1FU1RBTVA6IGti
-dWlsZC5odG1sI2tidWlsZC1idWlsZC10aW1lc3RhbXAKKy4uIF9SZXByb2R1Y2libGVfYnVpbGRz
-OiByZXByb2R1Y2libGUtYnVpbGRzLmh0bWwjdGltZXN0YW1wcworCivmlK/mjIHnmoTmnrbmnoQK
-Ky0tLS0tLS0tLS0KKworTExWTSDlubbkuI3mlK/mjIEgTGludXgg5YaF5qC45omA5pyJ5Y+v5pSv
-5oyB55qE5p625p6E77yM5ZCM5qC377yM5Y2z5L2/IExMVk0g5pSv5oyB5p+Q5LiA5p625p6E77yM
-5Lmf5bm25LiN5oSP5ZGz552A5ZyoCivor6XmnrbmnoTkuIvlhoXmoLjlj6/ku6XmraPluLjmnoTl
-u7rmiJblt6XkvZzjgILku6XkuIvmmK/lvZPliY0gYGBDQz1jbGFuZ2BgIOaIliBgYExMVk09MWBg
-IOaUr+aMgeeahOaetuaehOaAu+e7k+OAggor5pSv5oyB57qn5Yir5a+55bqU5LqOIE1BSU5UQUlO
-RVJTIOaWh+S7tuS4reeahCAiUyIg5YC844CC5aaC5p6c5p+Q5Liq5p625p6E5pyq5YiX5Ye677yM
-5YiZ6KGo56S6IExMVk0g5LiN5pSv5oyB5a6DCivmiJblrZjlnKjlt7Lnn6Xpl67popjjgILkvb/n
-lKjmnIDmlrDnmoTnqLPlrprniYggTExWTSDmiJbnlJroh7PlvIDlj5HniYjmnKzpgJrluLjkvJrl
-vpfliLDmnIDkvbPnu5PmnpzjgILkuIDkuKrmnrbmnoTnmoQKK2BgZGVmY29uZmlnYGAg6YCa5bi4
-6aKE5pyf6IO95aSf6Imv5aW95bel5L2c77yM5L2G5p+Q5Lqb6YWN572u5Y+v6IO95a2Y5Zyo5bCa
-5pyq5Y+R546w55qE6Zeu6aKY44CC5qyi6L+O5Zyo5Lul5LiLCivpl67popjot5/ouKrlmajkuK3m
-j5DkuqTplJnor6/miqXlkYrvvIEKKworLi4gbGlzdC10YWJsZTo6CisgICA6d2lkdGhzOiAxMCAx
-MCAxMAorICAgOmhlYWRlci1yb3dzOiAxCisKKyAgICogLSDmnrbmnoQKKyAgICAgLSDmlK/mjIHn
-uqfliKsKKyAgICAgLSBgYG1ha2VgYCDlkb3ku6QKKyAgICogLSBhcm0KKyAgICAgLSDmlK/mjIEK
-KyAgICAgLSBgYExMVk09MWBgCisgICAqIC0gYXJtNjQKKyAgICAgLSDmlK/mjIEKKyAgICAgLSBg
-YExMVk09MWBgCisgICAqIC0gaGV4YWdvbgorICAgICAtIOe7tOaKpAorICAgICAtIGBgTExWTT0x
-YGAKKyAgICogLSBsb29uZ2FyY2gKKyAgICAgLSDnu7TmiqQKKyAgICAgLSBgYExMVk09MWBgCisg
-ICAqIC0gbWlwcworICAgICAtIOe7tOaKpAorICAgICAtIGBgTExWTT0xYGAKKyAgICogLSBwb3dl
-cnBjCisgICAgIC0g57u05oqkCisgICAgIC0gYGBMTFZNPTFgYAorICAgKiAtIHJpc2N2CisgICAg
-IC0g5pSv5oyBCisgICAgIC0gYGBMTFZNPTFgYAorICAgKiAtIHMzOTAKKyAgICAgLSDnu7TmiqQK
-KyAgICAgLSBgYExMVk09MWBgIO+8iExMVk0gPj0gMTguMS4w77yJ77yMYGBDQz1jbGFuZ2BgIO+8
-iExMVk0gPCAxOC4xLjDvvIkKKyAgICogLSB1bSAo55So5oi35qih5byPKQorICAgICAtIOe7tOaK
-pAorICAgICAtIGBgTExWTT0xYGAKKyAgICogLSB4ODYKKyAgICAgLSDmlK/mjIEKKyAgICAgLSBg
-YExMVk09MWBgCisKK+iOt+WPluW4ruWKqQorLS0tLS0tLS0KKworLSBg572R56uZIDxodHRwczov
-L2NsYW5nYnVpbHRsaW51eC5naXRodWIuaW8vPmBfCistIGDpgq7ku7bliJfooaggPGh0dHBzOi8v
-bG9yZS5rZXJuZWwub3JnL2xsdm0vPmBfOiA8bGx2bUBsaXN0cy5saW51eC5kZXY+CistIGDml6fp
-gq7ku7bliJfooajmoaPmoYggPGh0dHBzOi8vZ3JvdXBzLmdvb2dsZS5jb20vZy9jbGFuZy1idWls
-dC1saW51eD5gXworLSBg6Zeu6aKY6Lef6Liq5ZmoIDxodHRwczovL2dpdGh1Yi5jb20vQ2xhbmdC
-dWlsdExpbnV4L2xpbnV4L2lzc3Vlcz5gXworLSBJUkM6ICNjbGFuZ2J1aWx0bGludXgg5ZyoIGly
-Yy5saWJlcmEuY2hhdAorLSBgVGVsZWdyYW0gPGh0dHBzOi8vdC5tZS9DbGFuZ0J1aWx0TGludXg+
-YF86IEBDbGFuZ0J1aWx0TGludXgKKy0gYOe7tOWfuiA8aHR0cHM6Ly9naXRodWIuY29tL0NsYW5n
-QnVpbHRMaW51eC9saW51eC93aWtpPmBfCistIGDliJ3lrabogIXpl67popggPGh0dHBzOi8vZ2l0
-aHViLmNvbS9DbGFuZ0J1aWx0TGludXgvbGludXgvaXNzdWVzP3E9aXMlM0FvcGVuK2lzJTNBaXNz
-dWUrbGFiZWwlM0ElMjJnb29kK2ZpcnN0K2lzc3VlJTIyPmBfCisKKy4uIF96aF9jbl9nZXR0aW5n
-X2xsdm06CisKK+iOt+WPliBMTFZNCistLS0tLS0tLS0KKwor5oiR5Lus5ZyoIGBrZXJuZWwub3Jn
-IDxodHRwczovL2tlcm5lbC5vcmcvcHViL3Rvb2xzL2xsdm0vPmBfIOaPkOS+m+mihOe8luivkeea
-hOeos+WumueJiCBMTFZN44CCCivov5nkupvniYjmnKzlt7Lnu4/pkojlr7kgTGludXgg5YaF5qC4
-5p6E5bu677yM5L2/55So6YWN572u5paH5Lu25pWw5o2u6L+b6KGM5LyY5YyW44CC55u46L6D5LqO
-5YW25LuW5Y+R6KGM54mI5Lit55qEIExMVk3vvIzlroPku6zlupTor6UKK+iDveaPkOmrmOWGheag
-uOaehOW7uuaXtumXtOOAggorCivku6XkuIvmmK/kuIDkupvmnInliqnkuo7ku47mupDku6PnoIHm
-noTlu7ogTExWTSDmiJbpgJrov4flj5HooYzniYjnmoTljIXnrqHnkIblmajojrflj5YgTExWTSDn
-moTpk77mjqXjgIIKKworLSBodHRwczovL3JlbGVhc2VzLmxsdm0ub3JnL2Rvd25sb2FkLmh0bWwK
-Ky0gaHR0cHM6Ly9naXRodWIuY29tL2xsdm0vbGx2bS1wcm9qZWN0CistIGh0dHBzOi8vbGx2bS5v
-cmcvZG9jcy9HZXR0aW5nU3RhcnRlZC5odG1sCistIGh0dHBzOi8vbGx2bS5vcmcvZG9jcy9DTWFr
-ZS5odG1sCistIGh0dHBzOi8vYXB0Lmxsdm0ub3JnLworLSBodHRwczovL3d3dy5hcmNobGludXgu
-b3JnL3BhY2thZ2VzL2V4dHJhL3g4Nl82NC9sbHZtLworLSBodHRwczovL2dpdGh1Yi5jb20vQ2xh
-bmdCdWlsdExpbnV4L3RjLWJ1aWxkCistIGh0dHBzOi8vZ2l0aHViLmNvbS9DbGFuZ0J1aWx0TGlu
-dXgvbGludXgvd2lraS9CdWlsZGluZy1DbGFuZy1mcm9tLXNvdXJjZQorLSBodHRwczovL2FuZHJv
-aWQuZ29vZ2xlc291cmNlLmNvbS9wbGF0Zm9ybS9wcmVidWlsdHMvY2xhbmcvaG9zdC9saW51eC14
-ODYvCi0tIAoyLjQzLjAKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cg==
+--===============0256313335532813196==
+Content-Type: multipart/signed; boundary="=-=-=";
+	micalg=pgp-sha512; protocol="application/pgp-signature"
+
+--=-=-=
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Puranjay Mohan <puranjay@kernel.org> writes:
+
+> Andrii Nakryiko <andrii.nakryiko@gmail.com> writes:
+>
+>> On Tue, Oct 22, 2024 at 3:21=E2=80=AFAM Puranjay Mohan <puranjay@kernel.=
+org> wrote:
+>>>
+>>> Andrii Nakryiko <andrii.nakryiko@gmail.com> writes:
+>>>
+>>> > On Mon, Oct 21, 2024 at 5:22=E2=80=AFAM Puranjay Mohan <puranjay@kern=
+el.org> wrote:
+>>> >>
+>>> >> Add a microbenchmark for bpf_csum_diff() helper. This benchmark work=
+s by
+>>> >> filling a 4KB buffer with random data and calculating the internet
+>>> >> checksum on different parts of this buffer using bpf_csum_diff().
+>>> >>
+>>> >> Example run using ./benchs/run_bench_csum_diff.sh on x86_64:
+>>> >>
+>>> >> [bpf]$ ./benchs/run_bench_csum_diff.sh
+>>> >> 4                    2.296 =C2=B1 0.066M/s (drops 0.000 =C2=B1 0.000=
+M/s)
+>>> >> 8                    2.320 =C2=B1 0.003M/s (drops 0.000 =C2=B1 0.000=
+M/s)
+>>> >> 16                   2.315 =C2=B1 0.001M/s (drops 0.000 =C2=B1 0.000=
+M/s)
+>>> >> 20                   2.318 =C2=B1 0.001M/s (drops 0.000 =C2=B1 0.000=
+M/s)
+>>> >> 32                   2.308 =C2=B1 0.003M/s (drops 0.000 =C2=B1 0.000=
+M/s)
+>>> >> 40                   2.300 =C2=B1 0.029M/s (drops 0.000 =C2=B1 0.000=
+M/s)
+>>> >> 64                   2.286 =C2=B1 0.001M/s (drops 0.000 =C2=B1 0.000=
+M/s)
+>>> >> 128                  2.250 =C2=B1 0.001M/s (drops 0.000 =C2=B1 0.000=
+M/s)
+>>> >> 256                  2.173 =C2=B1 0.001M/s (drops 0.000 =C2=B1 0.000=
+M/s)
+>>> >> 512                  2.023 =C2=B1 0.055M/s (drops 0.000 =C2=B1 0.000=
+M/s)
+>>> >
+>>> > you are not benchmarking bpf_csum_diff(), you are benchmarking how
+>>> > often you can call bpf_prog_test_run(). Add some batching on the BPF
+>>> > side, these numbers tell you that there is no difference between
+>>> > calculating checksum for 4 bytes and for 512, that didn't seem strange
+>>> > to you?
+>>>
+>>> This didn't seem strange to me because if you see the tables I added to
+>>> the cover letter, there is a clear improvement after optimizing the
+>>> helper and arm64 even shows a linear drop going from 4 bytes to 512
+>>> bytes, even after the optimization.
+>>>
+>>
+>> Regardless of optimization, it's strange that throughput barely
+>> differs when you vary the amount of work by more than 100x. This
+>> wouldn't be strange if this checksum calculation was some sort of
+>> cryptographic hash, where it's intentional to have the same timing
+>> regardless of amount of work, or something along those lines. But I
+>> don't think that's the case here.
+>>
+>> But as it is right now, this benchmark is benchmarking
+>> bpf_prog_test_run(), as I mentioned, which seems to be bottlenecking
+>> at about 2mln/s throughput for your machine. bpf_csum_diff()'s
+>> overhead is trivial compared to bpf_prog_test_run() overhead and
+>> syscall/context switch overhead.
+>>
+>> We shouldn't add the benchmark that doesn't benchmark the right thing.
+>> So just add a bpf_for(i, 0, 100) loop doing bpf_csum_diff(), and then
+>> do atomic increment *after* the loop (to minimize atomics overhead).
+>
+> Thanks, now I undestand what you meant. Will add the bpf_for() in the
+> next version.
+
+I have decided to drop this patch as even after adding bpf_for() the
+difference between 4B and 512B is not that much. So, benchmarking
+bpf_csum_diff() using this triggering based framework is not useful.
+
+So, v2 will not have this patch but the cover letter will still have the
+tables to show the difference before/after the optimization.
+
+Thanks,
+Puranjay
+
+--=-=-=
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iIoEARYKADIWIQQ3wHGvVs/5bdl78BKwwPkjG3B2nQUCZxkYJBQccHVyYW5qYXlA
+a2VybmVsLm9yZwAKCRCwwPkjG3B2nZcNAP9LuNyLHGuE8urrunhTq/wpaMGlCwOS
+BXyQadJTABXgvgEAvD4mhW6uC3odQDgdGxBrVV/Q1eBzFf4WxzCGVME9lAw=
+=u12U
+-----END PGP SIGNATURE-----
+--=-=-=--
+
+
+--===============0256313335532813196==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0256313335532813196==--
+
