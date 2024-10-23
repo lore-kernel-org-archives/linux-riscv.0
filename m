@@ -4,98 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E716DCFA455
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Oct 2024 17:26:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 869F2CFA45E
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Oct 2024 18:24:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=1QJOuFWwKfGBm9CS/V1qVIrhh7KTWpnakS4IfW4Ecbc=; b=OoJlHyRjPAC8EWDZBiKthMyMar
-	NeeBh9woTSdYi2FDkC9CHecCXI52sXIT5Hyc7WiMe/59SgsuTHzsqCDAUTxEEJBNz1h8DRY9frH5l
-	xPBptg+oSRl170grumEbiB9HrdKGj6yebzLbufsqdqkOfrblAS2cVl+pR26MSfDjceyg9qCZKYMNs
-	bZs7n9SwUDTtcnxaumIfmnChTATGIpgIgtOeTp8KNBR/8XINlrUA7B49KQMSvuwSRPpzeW08VzzPo
-	9GNx4vHQyKtuVio5uj2Wr0kdIv4EDW82tEAbSSp3Gxrf6OPv4eU94BVGnSRXvwsBe7byR3Zk9IewF
-	Q+xVpprg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=uUBiCEJv/p9ryxdQDmlK6FWJH4m3DAEXtqSjxkkq9Z4=; b=grCJSa2XHXFdKo
+	FizGaEaPVOr7UMCCepJUzmMUA0tBkdLWqXTp0s1+lQttr1QVWgmxI5TrM9x1siSJt3zlzdEUxgDZ6
+	HepyCf813YC7nbDCw2Koo6hXhNOaYDp7h4WzF7h0oPQNN8tE+uxSR6Azt6fbPfcT2rkJbJslzqvtr
+	Zd+hufzHb0J2/bwSS2KKZclgNE57hrJk0cLtHgOcKVzoefpYNhUrYJFeppu97btdhh0tBrKRnpvhS
+	3Rg4ndBXXnRNfu90j01HfIhA4yiuMUumL6cpSzA8A++aTewWqew+y95kPyFESP7TmRmxFzF337oZW
+	zbDYR4mSWf1nAcV23KRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3f7o-0000000FMsq-3fAN;
-	Wed, 23 Oct 2024 17:26:24 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1t3g1T-0000000FVtJ-2PIk;
+	Wed, 23 Oct 2024 18:23:55 +0000
+Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3eY9-0000000FD5v-4Bdm
-	for linux-riscv@lists.infradead.org;
-	Wed, 23 Oct 2024 16:49:35 +0000
-Received: from mail-oa1-f70.google.com (mail-oa1-f70.google.com [209.85.160.70])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id E6A764120F
-	for <linux-riscv@lists.infradead.org>; Wed, 23 Oct 2024 16:49:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1729702171;
-	bh=w2QaCC8q/9wFycITOyNXbtjclLYtA/uPr5wOP7wkZg4=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=lajEjjnaOld7ZLmATWTgV0F65cRG4Fil+kWozfLhUYUkFhBACuCacIz3/s3aMNCli
-	 invc05LX5t/39eT29jpNULVpfR0pOiudhP9q7wxoIuE8DSwXkbsBFkfdjKeVyq1Hj2
-	 juPWnz5wYPYoTr65QIEFWD1BmuS8b87h033ppOtt+pdOyQ4OLvEgkm/pEIhU2yKOZh
-	 9L0OY+nCR/LhhjVZ4MBwgyt1c6+DAe3aK87IYruFU8jMdMFr+rgjMMxFY4GK5B+J4f
-	 FhuEh/z2gJfGsw22bF1GsBZwMxrYFvLMdH4yD+e2dz2xzouqM7rn5P907XP3DAx2Ib
-	 7D8jPSL3TpUIA==
-Received: by mail-oa1-f70.google.com with SMTP id 586e51a60fabf-288b904d3d3so67285fac.0
-        for <linux-riscv@lists.infradead.org>; Wed, 23 Oct 2024 09:49:31 -0700 (PDT)
+	id 1t3ewQ-0000000FKzw-3CKQ;
+	Wed, 23 Oct 2024 17:14:41 +0000
+Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-460b2e4c50fso226351cf.0;
+        Wed, 23 Oct 2024 10:14:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1729703677; x=1730308477; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ocy032bdcho2couvO6/QgCKu9IriwGzbqAqGCvUdpMA=;
+        b=DlFascAy0qRppbN6Oq8wVzykesTAfIumgli1icFpEYYkYYXpkjG4xeWFj5kKCeRrPF
+         PBw7ciPkj/kAUbFsDb3nb4GeizIONy8nx61CqyZm2VtLQtXb2wNSYkHJgmCy4Ycf04Vb
+         rQj8AvBMpzC6zQydrGdyPnKZjZTqjURECuQnM/cYNvqkUi4/g+S/evvix4PQAhz0Q6kA
+         NKwGaMehEiyb1948M76tz/K9BQy6+FQtOCcDtUPnFF/6TE/HoZxGLExAPSRnC/aofcmC
+         1Mesf/c5VW9X7PQdTKWAbCIiEvBogzx0u9WAr32A+QDOSi3+v1IxDxbpWigkQBmNzraF
+         u9hg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729702169; x=1730306969;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=w2QaCC8q/9wFycITOyNXbtjclLYtA/uPr5wOP7wkZg4=;
-        b=Sj5VadJnmdGtLopygnc0Er/rKpherbxVaWTnNu8XSSon+OtFXxOMpa/fFTcHEOtkB1
-         tshlD11u+bmbIkGBbAWkvDVxgDS8laVUND6Jed9dBaBHJi+9A5ZzPTrgK+nqFkFImpyI
-         KAHcYSohjfzaDynX2vbYdjXn8GhVeCLdh+Y+jFxGx9XthBWs3h073K2AKldWZhTNPue2
-         AHny7FdJjfjvw4s0c62eiSsOK+rAhPb7N7wuR+Yz6LrHH0cGK1Xfq3MjplX//iWRqvtT
-         gglFOn/FVTbNUttIZneL0awWWddrExjHWv3IAXbZsMjkMntkJ6pMx9/nO4ruzWsuIlTJ
-         RRJA==
-X-Forwarded-Encrypted: i=1; AJvYcCVc1ay7pp+TChCIf2C4YuQLCl0VheJgzQ7UzWkYroNXiIWDIlv+7bnh5wmQZRL2RArxdi1lmhdrcdp0kg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywdk8IbquH/Fp3isMP2B/Ve6myjR0n2RQIbMU+1P494ELQQ86AG
-	hofr6vuoQjoj4HrNXWrPDhZ62JuqalFg7JQLuXmEDX8W74VJ1VOPzNNbcQXlr/gy/8mMlxBfIwp
-	bzZogUQUrp5JzYRq3DDdQOobdHbkV9qwxLvuI/lzt3CEZDIoYgXfmcDIhU3xT1qKSBwQKX9xaB1
-	UTapJ1srmc6XEHo/uY2ZcQ07l7sFkBwUj2Pwgr0DPBeJpM8msp7E+YvFKG
-X-Received: by 2002:a05:6870:a905:b0:260:eae3:5ec2 with SMTP id 586e51a60fabf-28ccb4a44e1mr3290256fac.26.1729702169194;
-        Wed, 23 Oct 2024 09:49:29 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHAONy/ra7wiBLGnnWDTFW/U6U7FnGggdnF7DYXmB3kSGSkFwOtZGKVkkKys9wyfe40jfUT0o4lf5kU/ZKjmnA=
-X-Received: by 2002:a05:6870:a905:b0:260:eae3:5ec2 with SMTP id
- 586e51a60fabf-28ccb4a44e1mr3290232fac.26.1729702168925; Wed, 23 Oct 2024
- 09:49:28 -0700 (PDT)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 23 Oct 2024 12:49:28 -0400
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20241021-crimson-translate-291eaba4e640@spud>
-References: <20241020134959.519462-1-guodong@riscstar.com> <20241020134959.519462-4-guodong@riscstar.com>
- <ae5gels34ozgzrcrwz53wj22hoy5cq3crn3dmkhitxlffmnavt@6lbmrcpjmqyd>
- <20241021-unroll-empower-3ab903615d6d@spud> <c048d270-7a07-4807-b816-0f4e0aeb67f7@kernel.org>
- <2b449955-6596-4c9a-9799-f15d186e260f@riscstar.com> <20241021-crimson-translate-291eaba4e640@spud>
-Mime-Version: 1.0
-Date: Wed, 23 Oct 2024 12:49:28 -0400
-Message-ID: <CAJM55Z_jp7ZGUcV=4Ciq0ZMPbrf_YARpSDwWgxBa9OjbYzhiFw@mail.gmail.com>
-Subject: Re: [PATCH v5 3/3] riscv: dts: starfive: add DeepComputing FML13V01
- board device tree
-To: Conor Dooley <conor@kernel.org>, Alex Elder <elder@riscstar.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Guodong Xu <guodong@riscstar.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, rafal@milecki.pl, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Heiko Stuebner <heiko.stuebner@cherry.de>, 
-	Michael Zhu <michael.zhu@starfivetech.com>, Drew Fustini <drew@beagleboard.org>, 
-	Alexandru Stan <ams@frame.work>, Daniel Schaefer <dhs@frame.work>, 
-	Sandie Cao <sandie.cao@deepcomputing.io>, Yuning Liang <yuning.liang@deepcomputing.io>, 
-	Huiming Qiu <huiming.qiu@deepcomputing.io>, linux@frame.work, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+        d=1e100.net; s=20230601; t=1729703677; x=1730308477;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Ocy032bdcho2couvO6/QgCKu9IriwGzbqAqGCvUdpMA=;
+        b=lACaTpggdbWR7D5faVhhiij1JNUo1WZMqMo37eszYJjD+u3iTqxC8PKNrSIq5bAZ2R
+         KKRIfDJ2/gDKGBP5uFGRQZTkO6Pk/D8ZtOgunLKzTClyzJO+zROQFq64wwvzG4brCa2+
+         Ee06aCKYRErNPOTJCk5lx03udPFrxV0Hv0zo2fdbvJWdlPGQ2LBVBPkeYOsBaHk68diH
+         QNFfeX5E2dDX+kLmjBV/6OHA3gUHZsQa55h8QWuHnOCiX9J4+ZuhzJbWTTk86q3XZa1r
+         kQgSfsIiWmQtg3xEI1tXIkslpOmFyqtgjzVtrIoYcvvbbpXyIKbmbOEljSnC1MRKsaQR
+         8nHw==
+X-Forwarded-Encrypted: i=1; AJvYcCUZ82J3KAx6lrEUbK5PMbdqeVSCr6/96BCruTj/azybSjnJMSLzpapKDrRUArShbuzNeO+NyNkCe+li7yw=@lists.infradead.org, AJvYcCUtgDB/Yu/mG0h83mIipJNLmhBLCAQQuf+OUAd3i9oB3c1Rr7TBkRdHugcA04rhU85WDApYfA==@lists.infradead.org, AJvYcCVCZm8ZGu8XESSmqufbBxpYczZvTsPHMDcgxkUp5asHigu5BtGo31CID7ts1pz6UUJJO3QN9YGPLguzDBIx02K+rw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzuOVBd8YM9JMkYRk6fMrUILlJvHhEkYvsf0VFIPxxmzhYG6WJN
+	Fl/ttGteq9o6NBtfbsuE6LUxRzy/LZayB/xOQwKMJW7Qj6QpKhmL
+X-Google-Smtp-Source: AGHT+IH4iUuNlJ5a4C6P+CxLaR5teClGbQdmg1jOeGXfO69rKTgzE6VI3Y8w6vkgZ/WvzrJsQJMOEA==
+X-Received: by 2002:ac8:7f51:0:b0:460:e593:45aa with SMTP id d75a77b69052e-461146c97admr42391941cf.33.1729703677086;
+        Wed, 23 Oct 2024 10:14:37 -0700 (PDT)
+Received: from localhost (fwdproxy-ash-007.fbsv.net. [2a03:2880:20ff:7::face:b00c])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6ce009e5407sm41539416d6.129.2024.10.23.10.14.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Oct 2024 10:14:36 -0700 (PDT)
+From: Usama Arif <usamaarif642@gmail.com>
+To: robh@kernel.org,
+	mark.rutland@arm.com,
+	will@kernel.org
+Cc: leitao@debian.org,
+	catalin.marinas@arm.com,
+	tglx@linutronix.de,
+	chris@zankel.net,
+	saravanak@google.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	kexec@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	linux-sh@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-openrisc@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-csky@vger.kernel.org,
+	Usama Arif <usamaarif642@gmail.com>
+Subject: [PATCH v2] of/fdt: add dt_phys arg to early_init_dt_scan and early_init_dt_verify
+Date: Wed, 23 Oct 2024 18:14:26 +0100
+Message-ID: <20241023171426.452688-1-usamaarif642@gmail.com>
+X-Mailer: git-send-email 2.43.5
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_094934_321516_AB7B3CDD 
-X-CRM114-Status: GOOD (  29.38  )
+X-CRM114-CacheID: sfid-20241023_101438_964690_F606DDD6 
+X-CRM114-Status: GOOD (  22.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,90 +106,379 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Conor Dooley wrote:
-> On Mon, Oct 21, 2024 at 08:44:16AM -0500, Alex Elder wrote:
-> > On 10/21/24 7:47 AM, Krzysztof Kozlowski wrote:
-> > > On 21/10/2024 13:16, Conor Dooley wrote:
-> > > > On Mon, Oct 21, 2024 at 09:17:59AM +0200, Krzysztof Kozlowski wrote:
-> > > > > On Sun, Oct 20, 2024 at 09:49:59PM +0800, Guodong Xu wrote:
-> > > > > > From: Sandie Cao <sandie.cao@deepcomputing.io>
-> > > > > > +&camss {
-> > > > > > +	status = "disabled";
-> > > > > > +};
-> > > > > > +
-> > > > > > +&csi2rx {
-> > > > > > +	status = "disabled";
-> > > > > > +};
-> > > >
-> > > > You can drop these two, I marked them disabled in the common file
-> > > > earlier this week.
-> > > > 1
-> > > > > > +
-> > > > > > +&gmac0 {
-> > > > > > +	status = "disabled";
-> > > > > > +};
-> > > > > > +
-> > > > > > +&i2c0 {
-> > > > > > +	status = "disabled";
-> > > > > > +};
-> > > > > > +
-> > > > > > +&pwm {
-> > > > > > +	status = "disabled";
-> > > > > > +};
-> > > > > > +
-> > > > > > +&pwmdac {
-> > > > > > +	status = "disabled";
-> > > > > > +};
-> > > > > > +
-> > > > > > +&spi0 {
-> > > > > > +	status = "disabled";
-> > > > >
-> > > > > If your board has to disable all these, then they should not have been
-> > > > > enabled in DTSI in the first place. Only blocks present and working in
-> > > > > the SoC (without amny external needs) should be enabled.
-> > > > >
-> > > > > I suggest to fix that aspect first.
-> > > >
-> > > > Eh, I don't think I agree. Having 5 disables here is a lesser evil than
-> > > > reproducing 90% of jh7110-common.dtsi or shunting a bunch of stuff
-> > > > around. Emil?
-> > >
-> > > Why reproducing 90%? Only enable would be here, no? Or you want to say
-> > > the common DTSI has things which do not exist?
-> >
-> > For what it's worth, I agree with Krzysztof.  In the (long) cover
-> > page we pointed this out, and offered to do it in a followup patch.
-> > But if requested we can do it now.
-> >
-> > So in v6, a new patch would be inserted before the other three,
-> > and it would:
-> > - Remove the status = "okay" lines for those nodes that are not enabled
-> >   in this new platform, in "jh7110-common.dtsi"
-> > - Add nodes where appropriate in:
-> >     jh7110-milkv-mars.dts
-> >     jh7110-pine64-star64.dts
-> >     jh7110-starfive-visionfive-2.dtsi
-> >   They'll look like this, to enable the ones disabled above, e.g.:
-> >     &gmac0 {
-> >         status = "okay";
-> >     };
-> >
-> >     &i2c0 {
-> >         status = "okay";
-> >     };
-> >
-> > You guys should come to agreement, but I do think what Krzysztof says
-> > is the right approach.  And unless convinced otherwise, this will be
-> > what shows up in the next version of this series.
->
-> Ultimately, it is up to Emil how he wants these laid out.
+ __pa() is only intended to be used for linear map addresses and using
+it for initial_boot_params which is in fixmap for arm64 will give an
+incorrect value. Hence save the physical address when it is known at
+boot time when calling early_init_dt_scan for arm64 and use it at kexec
+time instead of converting the virtual address using __pa().
 
-Thanks, but I agree. Please begin with a patch moving the nodes that are no
-longer common out of jh7110-common.dtsi and into the vf2, mars and pine64
-consumers. You should probably do the same with the &usb0 node instead
-of overriding the dr_mode property.
+Reported-by: Breno Leitao <leitao@debian.org>
+Suggested-by: Mark Rutland <mark.rutland@arm.com>
+Signed-off-by: Usama Arif <usamaarif642@gmail.com>
+Fixes: ac10be5cdbfa ("arm64: Use common of_kexec_alloc_and_setup_fdt()")
+---
+v1 -> 2:
+- pass dt_phys in early_init_dt_scan instead of creating
+  anorther arch->dt function (Rob Herring)
+---
+ arch/arc/kernel/devtree.c              |  2 +-
+ arch/arm/kernel/devtree.c              |  2 +-
+ arch/arm64/kernel/setup.c              |  6 +++++-
+ arch/csky/kernel/setup.c               |  4 ++--
+ arch/loongarch/kernel/setup.c          |  2 +-
+ arch/microblaze/kernel/prom.c          |  2 +-
+ arch/mips/kernel/prom.c                |  2 +-
+ arch/mips/kernel/relocate.c            |  2 +-
+ arch/nios2/kernel/prom.c               |  4 ++--
+ arch/openrisc/kernel/prom.c            |  2 +-
+ arch/powerpc/kernel/dt_cpu_ftrs.c      |  2 +-
+ arch/powerpc/kernel/prom.c             |  2 +-
+ arch/powerpc/platforms/pseries/plpks.c |  2 +-
+ arch/riscv/kernel/setup.c              |  2 +-
+ arch/sh/kernel/setup.c                 |  2 +-
+ arch/um/kernel/dtb.c                   |  2 +-
+ arch/x86/kernel/devicetree.c           |  2 +-
+ arch/xtensa/kernel/setup.c             |  2 +-
+ drivers/of/fdt.c                       | 14 ++++++++------
+ drivers/of/kexec.c                     |  2 +-
+ include/linux/of_fdt.h                 |  5 +++--
+ 21 files changed, 36 insertions(+), 29 deletions(-)
 
-/Emil
+diff --git a/arch/arc/kernel/devtree.c b/arch/arc/kernel/devtree.c
+index 4c9e61457b2f..cc6ac7d128aa 100644
+--- a/arch/arc/kernel/devtree.c
++++ b/arch/arc/kernel/devtree.c
+@@ -62,7 +62,7 @@ const struct machine_desc * __init setup_machine_fdt(void *dt)
+ 	const struct machine_desc *mdesc;
+ 	unsigned long dt_root;
+ 
+-	if (!early_init_dt_scan(dt))
++	if (!early_init_dt_scan(dt, __pa(dt)))
+ 		return NULL;
+ 
+ 	mdesc = of_flat_dt_match_machine(NULL, arch_get_next_mach);
+diff --git a/arch/arm/kernel/devtree.c b/arch/arm/kernel/devtree.c
+index fdb74e64206a..3b78966e750a 100644
+--- a/arch/arm/kernel/devtree.c
++++ b/arch/arm/kernel/devtree.c
+@@ -200,7 +200,7 @@ const struct machine_desc * __init setup_machine_fdt(void *dt_virt)
+ 
+ 	mdesc_best = &__mach_desc_GENERIC_DT;
+ 
+-	if (!dt_virt || !early_init_dt_verify(dt_virt))
++	if (!dt_virt || !early_init_dt_verify(dt_virt, __pa(dt_virt)))
+ 		return NULL;
+ 
+ 	mdesc = of_flat_dt_match_machine(mdesc_best, arch_get_next_mach);
+diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
+index b22d28ec8028..177262739c49 100644
+--- a/arch/arm64/kernel/setup.c
++++ b/arch/arm64/kernel/setup.c
+@@ -175,7 +175,11 @@ static void __init setup_machine_fdt(phys_addr_t dt_phys)
+ 	if (dt_virt)
+ 		memblock_reserve(dt_phys, size);
+ 
+-	if (!dt_virt || !early_init_dt_scan(dt_virt)) {
++	/*
++	 * dt_virt is a fixmap address, hence __pa(dt_virt) can't be used.
++	 * Pass dt_phys directly.
++	 */
++	if (!dt_virt || !early_init_dt_scan(dt_virt, dt_phys)) {
+ 		pr_crit("\n"
+ 			"Error: invalid device tree blob at physical address %pa (virtual address 0x%px)\n"
+ 			"The dtb must be 8-byte aligned and must not exceed 2 MB in size\n"
+diff --git a/arch/csky/kernel/setup.c b/arch/csky/kernel/setup.c
+index 51012e90780d..fe715b707fd0 100644
+--- a/arch/csky/kernel/setup.c
++++ b/arch/csky/kernel/setup.c
+@@ -112,9 +112,9 @@ asmlinkage __visible void __init csky_start(unsigned int unused,
+ 	pre_trap_init();
+ 
+ 	if (dtb_start == NULL)
+-		early_init_dt_scan(__dtb_start);
++		early_init_dt_scan(__dtb_start, __pa(dtb_start));
+ 	else
+-		early_init_dt_scan(dtb_start);
++		early_init_dt_scan(dtb_start, __pa(dtb_start));
+ 
+ 	start_kernel();
+ 
+diff --git a/arch/loongarch/kernel/setup.c b/arch/loongarch/kernel/setup.c
+index 00e307203ddb..10d878204018 100644
+--- a/arch/loongarch/kernel/setup.c
++++ b/arch/loongarch/kernel/setup.c
+@@ -290,7 +290,7 @@ static void __init fdt_setup(void)
+ 	if (!fdt_pointer || fdt_check_header(fdt_pointer))
+ 		return;
+ 
+-	early_init_dt_scan(fdt_pointer);
++	early_init_dt_scan(fdt_pointer, __pa(fdt_pointer));
+ 	early_init_fdt_reserve_self();
+ 
+ 	max_low_pfn = PFN_PHYS(memblock_end_of_DRAM());
+diff --git a/arch/microblaze/kernel/prom.c b/arch/microblaze/kernel/prom.c
+index e424c796e297..76ac4cfdfb42 100644
+--- a/arch/microblaze/kernel/prom.c
++++ b/arch/microblaze/kernel/prom.c
+@@ -18,7 +18,7 @@ void __init early_init_devtree(void *params)
+ {
+ 	pr_debug(" -> early_init_devtree(%p)\n", params);
+ 
+-	early_init_dt_scan(params);
++	early_init_dt_scan(params, __pa(params));
+ 	if (!strlen(boot_command_line))
+ 		strscpy(boot_command_line, cmd_line, COMMAND_LINE_SIZE);
+ 
+diff --git a/arch/mips/kernel/prom.c b/arch/mips/kernel/prom.c
+index 6062e6fa589a..4fd6da0a06c3 100644
+--- a/arch/mips/kernel/prom.c
++++ b/arch/mips/kernel/prom.c
+@@ -41,7 +41,7 @@ char *mips_get_machine_name(void)
+ 
+ void __init __dt_setup_arch(void *bph)
+ {
+-	if (!early_init_dt_scan(bph))
++	if (!early_init_dt_scan(bph, __pa(bph)))
+ 		return;
+ 
+ 	mips_set_machine_name(of_flat_dt_get_machine_name());
+diff --git a/arch/mips/kernel/relocate.c b/arch/mips/kernel/relocate.c
+index 7eeeaf1ff95d..cda7983e7c18 100644
+--- a/arch/mips/kernel/relocate.c
++++ b/arch/mips/kernel/relocate.c
+@@ -337,7 +337,7 @@ void *__init relocate_kernel(void)
+ #if defined(CONFIG_USE_OF)
+ 	/* Deal with the device tree */
+ 	fdt = plat_get_fdt();
+-	early_init_dt_scan(fdt);
++	early_init_dt_scan(fdt, __pa(fdt));
+ 	if (boot_command_line[0]) {
+ 		/* Boot command line was passed in device tree */
+ 		strscpy(arcs_cmdline, boot_command_line, COMMAND_LINE_SIZE);
+diff --git a/arch/nios2/kernel/prom.c b/arch/nios2/kernel/prom.c
+index 9a8393e6b4a8..db049249766f 100644
+--- a/arch/nios2/kernel/prom.c
++++ b/arch/nios2/kernel/prom.c
+@@ -27,7 +27,7 @@ void __init early_init_devtree(void *params)
+ 	if (be32_to_cpup((__be32 *)CONFIG_NIOS2_DTB_PHYS_ADDR) ==
+ 		 OF_DT_HEADER) {
+ 		params = (void *)CONFIG_NIOS2_DTB_PHYS_ADDR;
+-		early_init_dt_scan(params);
++		early_init_dt_scan(params, __pa(params));
+ 		return;
+ 	}
+ #endif
+@@ -37,5 +37,5 @@ void __init early_init_devtree(void *params)
+ 		params = (void *)__dtb_start;
+ #endif
+ 
+-	early_init_dt_scan(params);
++	early_init_dt_scan(params, __pa(params));
+ }
+diff --git a/arch/openrisc/kernel/prom.c b/arch/openrisc/kernel/prom.c
+index 19e6008bf114..e424e9bd12a7 100644
+--- a/arch/openrisc/kernel/prom.c
++++ b/arch/openrisc/kernel/prom.c
+@@ -22,6 +22,6 @@
+ 
+ void __init early_init_devtree(void *params)
+ {
+-	early_init_dt_scan(params);
++	early_init_dt_scan(params, __pa(params));
+ 	memblock_allow_resize();
+ }
+diff --git a/arch/powerpc/kernel/dt_cpu_ftrs.c b/arch/powerpc/kernel/dt_cpu_ftrs.c
+index af4263594eb2..1bee15c013e7 100644
+--- a/arch/powerpc/kernel/dt_cpu_ftrs.c
++++ b/arch/powerpc/kernel/dt_cpu_ftrs.c
+@@ -867,7 +867,7 @@ bool __init dt_cpu_ftrs_init(void *fdt)
+ 	using_dt_cpu_ftrs = false;
+ 
+ 	/* Setup and verify the FDT, if it fails we just bail */
+-	if (!early_init_dt_verify(fdt))
++	if (!early_init_dt_verify(fdt, __pa(fdt)))
+ 		return false;
+ 
+ 	if (!of_scan_flat_dt(fdt_find_cpu_features, NULL))
+diff --git a/arch/powerpc/kernel/prom.c b/arch/powerpc/kernel/prom.c
+index 0be07ed407c7..88cbe432cad5 100644
+--- a/arch/powerpc/kernel/prom.c
++++ b/arch/powerpc/kernel/prom.c
+@@ -791,7 +791,7 @@ void __init early_init_devtree(void *params)
+ 	DBG(" -> early_init_devtree(%px)\n", params);
+ 
+ 	/* Too early to BUG_ON(), do it by hand */
+-	if (!early_init_dt_verify(params))
++	if (!early_init_dt_verify(params, __pa(params)))
+ 		panic("BUG: Failed verifying flat device tree, bad version?");
+ 
+ 	of_scan_flat_dt(early_init_dt_scan_model, NULL);
+diff --git a/arch/powerpc/platforms/pseries/plpks.c b/arch/powerpc/platforms/pseries/plpks.c
+index 4a595493d28a..b1667ed05f98 100644
+--- a/arch/powerpc/platforms/pseries/plpks.c
++++ b/arch/powerpc/platforms/pseries/plpks.c
+@@ -683,7 +683,7 @@ void __init plpks_early_init_devtree(void)
+ out:
+ 	fdt_nop_property(fdt, chosen_node, "ibm,plpks-pw");
+ 	// Since we've cleared the password, we must update the FDT checksum
+-	early_init_dt_verify(fdt);
++	early_init_dt_verify(fdt, __pa(fdt));
+ }
+ 
+ static __init int pseries_plpks_init(void)
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index a2cde65b69e9..26c886db4fb3 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -227,7 +227,7 @@ static void __init init_resources(void)
+ static void __init parse_dtb(void)
+ {
+ 	/* Early scan of device tree from init memory */
+-	if (early_init_dt_scan(dtb_early_va)) {
++	if (early_init_dt_scan(dtb_early_va, __pa(dtb_early_va))) {
+ 		const char *name = of_flat_dt_get_machine_name();
+ 
+ 		if (name) {
+diff --git a/arch/sh/kernel/setup.c b/arch/sh/kernel/setup.c
+index 620e5cf8ae1e..f2b6f16a46b8 100644
+--- a/arch/sh/kernel/setup.c
++++ b/arch/sh/kernel/setup.c
+@@ -255,7 +255,7 @@ void __ref sh_fdt_init(phys_addr_t dt_phys)
+ 	dt_virt = phys_to_virt(dt_phys);
+ #endif
+ 
+-	if (!dt_virt || !early_init_dt_scan(dt_virt)) {
++	if (!dt_virt || !early_init_dt_scan(dt_virt, __pa(dt_virt))) {
+ 		pr_crit("Error: invalid device tree blob"
+ 			" at physical address %p\n", (void *)dt_phys);
+ 
+diff --git a/arch/um/kernel/dtb.c b/arch/um/kernel/dtb.c
+index 4954188a6a09..8d78ced9e08f 100644
+--- a/arch/um/kernel/dtb.c
++++ b/arch/um/kernel/dtb.c
+@@ -17,7 +17,7 @@ void uml_dtb_init(void)
+ 
+ 	area = uml_load_file(dtb, &size);
+ 	if (area) {
+-		if (!early_init_dt_scan(area)) {
++		if (!early_init_dt_scan(area, __pa(area))) {
+ 			pr_err("invalid DTB %s\n", dtb);
+ 			memblock_free(area, size);
+ 			return;
+diff --git a/arch/x86/kernel/devicetree.c b/arch/x86/kernel/devicetree.c
+index 64280879c68c..59d23cdf4ed0 100644
+--- a/arch/x86/kernel/devicetree.c
++++ b/arch/x86/kernel/devicetree.c
+@@ -305,7 +305,7 @@ void __init x86_flattree_get_config(void)
+ 			map_len = size;
+ 		}
+ 
+-		early_init_dt_verify(dt);
++		early_init_dt_verify(dt, __pa(dt));
+ 	}
+ 
+ 	unflatten_and_copy_device_tree();
+diff --git a/arch/xtensa/kernel/setup.c b/arch/xtensa/kernel/setup.c
+index bdec4a773af0..e51f2060e830 100644
+--- a/arch/xtensa/kernel/setup.c
++++ b/arch/xtensa/kernel/setup.c
+@@ -216,7 +216,7 @@ static int __init xtensa_dt_io_area(unsigned long node, const char *uname,
+ 
+ void __init early_init_devtree(void *params)
+ {
+-	early_init_dt_scan(params);
++	early_init_dt_scan(params, __pa(params));
+ 	of_scan_flat_dt(xtensa_dt_io_area, NULL);
+ 
+ 	if (!command_line[0])
+diff --git a/drivers/of/fdt.c b/drivers/of/fdt.c
+index 4d528c10df3a..546e76ac407c 100644
+--- a/drivers/of/fdt.c
++++ b/drivers/of/fdt.c
+@@ -457,6 +457,7 @@ int __initdata dt_root_addr_cells;
+ int __initdata dt_root_size_cells;
+ 
+ void *initial_boot_params __ro_after_init;
++phys_addr_t initial_boot_params_pa __ro_after_init;
+ 
+ #ifdef CONFIG_OF_EARLY_FLATTREE
+ 
+@@ -1136,17 +1137,18 @@ static void * __init early_init_dt_alloc_memory_arch(u64 size, u64 align)
+ 	return ptr;
+ }
+ 
+-bool __init early_init_dt_verify(void *params)
++bool __init early_init_dt_verify(void *dt_virt, phys_addr_t dt_phys)
+ {
+-	if (!params)
++	if (!dt_virt)
+ 		return false;
+ 
+ 	/* check device tree validity */
+-	if (fdt_check_header(params))
++	if (fdt_check_header(dt_virt))
+ 		return false;
+ 
+ 	/* Setup flat device-tree pointer */
+-	initial_boot_params = params;
++	initial_boot_params = dt_virt;
++	initial_boot_params_pa = dt_phys;
+ 	of_fdt_crc32 = crc32_be(~0, initial_boot_params,
+ 				fdt_totalsize(initial_boot_params));
+ 
+@@ -1173,11 +1175,11 @@ void __init early_init_dt_scan_nodes(void)
+ 	early_init_dt_check_for_usable_mem_range();
+ }
+ 
+-bool __init early_init_dt_scan(void *params)
++bool __init early_init_dt_scan(void *dt_virt, phys_addr_t dt_phys)
+ {
+ 	bool status;
+ 
+-	status = early_init_dt_verify(params);
++	status = early_init_dt_verify(dt_virt, dt_phys);
+ 	if (!status)
+ 		return false;
+ 
+diff --git a/drivers/of/kexec.c b/drivers/of/kexec.c
+index 9ccde2fd77cb..5b924597a4de 100644
+--- a/drivers/of/kexec.c
++++ b/drivers/of/kexec.c
+@@ -301,7 +301,7 @@ void *of_kexec_alloc_and_setup_fdt(const struct kimage *image,
+ 	}
+ 
+ 	/* Remove memory reservation for the current device tree. */
+-	ret = fdt_find_and_del_mem_rsv(fdt, __pa(initial_boot_params),
++	ret = fdt_find_and_del_mem_rsv(fdt, initial_boot_params_pa,
+ 				       fdt_totalsize(initial_boot_params));
+ 	if (ret == -EINVAL) {
+ 		pr_err("Error removing memory reservation.\n");
+diff --git a/include/linux/of_fdt.h b/include/linux/of_fdt.h
+index d69ad5bb1eb1..b8d6c0c20876 100644
+--- a/include/linux/of_fdt.h
++++ b/include/linux/of_fdt.h
+@@ -31,6 +31,7 @@ extern void *of_fdt_unflatten_tree(const unsigned long *blob,
+ extern int __initdata dt_root_addr_cells;
+ extern int __initdata dt_root_size_cells;
+ extern void *initial_boot_params;
++extern phys_addr_t initial_boot_params_pa;
+ 
+ extern char __dtb_start[];
+ extern char __dtb_end[];
+@@ -70,8 +71,8 @@ extern u64 dt_mem_next_cell(int s, const __be32 **cellp);
+ /* Early flat tree scan hooks */
+ extern int early_init_dt_scan_root(void);
+ 
+-extern bool early_init_dt_scan(void *params);
+-extern bool early_init_dt_verify(void *params);
++extern bool early_init_dt_scan(void *dt_virt, phys_addr_t dt_phys);
++extern bool early_init_dt_verify(void *dt_virt, phys_addr_t dt_phys);
+ extern void early_init_dt_scan_nodes(void);
+ 
+ extern const char *of_flat_dt_get_machine_name(void);
+-- 
+2.43.5
+
 
 _______________________________________________
 linux-riscv mailing list
