@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19D7BCFA44E
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Oct 2024 16:21:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D35BFCFA450
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Oct 2024 16:21:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wO6XskAwSJUrkEpqyOKF9pXPR/sAVCdvP7Mu07xRUo0=; b=Xgq4RvqH5+SAUk
-	CU02efcJ9uGtv4sjb5jWzeUb6614Kr30OptJWgpMAFRK6ZLv06ve01ozmb2GyLJnaybDeUotbrzm4
-	miwbzuXeHADdIH/Ny06D1bYZgjS3YHKmWhQ3Np3hhBvfTCC6iJJmD4RhNBbdXkWZRxDWaHq61Vb8Y
-	5XT8h1b83ztOFgovXZ1NB2odRS05/bOSQV3UhI13IiQ6cMhqDhzyxDrwiJskxA/1T70eXdzv/nh2i
-	4W9Jc01drvwkDFOnvZUecm61oaGS+bV8Vf/NXtPMnhnSm3p4PSPIStg7XCASdu/dHALp4eUvGZBv2
-	jjq7APOvVo5AKQcySlCw==;
+	List-Owner; bh=9FEJKETmpz9xbalT969kp43nQhBrHQdnmSjVacmhK4U=; b=i+ftIYGQ/8CBN9
+	3ipmcryn3s3YJbr4SbNGNhUVLX2VFLYgkzuKX7USRk2WNxbhGIxXRbIPwH2dRnCeo92QZ/HrEuabA
+	VtSgLZfBjLnawhA8VcCXAzXRF2bR/sqJIj1bqC9W4OsPGKtKhj9jLPBNPZ8uhnlxYoXylVexrTw9M
+	bJYjgdp/47Rx0pqvhdznqYwol+Jcn82ws/v2Qp+eb+a2wNjcJ8sLmfFE8A3o5DhtLb4xByA5jZqSk
+	sp16MXUJcj87w8a/RbiH1YG9n7xqlEmgg2AhXIGL+gCVntGRT2b9UJITvlPFsodcMqlMKw/xYkY6L
+	okCBOdnvLwJaeOcLoC6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3e7F-0000000F7XZ-15rS;
-	Wed, 23 Oct 2024 16:21:45 +0000
+	id 1t3e7G-0000000F7Yo-4229;
+	Wed, 23 Oct 2024 16:21:46 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3dSp-0000000EzhY-3yHC
+	id 1t3dSt-0000000Ezi6-4ADF
 	for linux-riscv@lists.infradead.org;
-	Wed, 23 Oct 2024 15:40:01 +0000
+	Wed, 23 Oct 2024 15:40:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C8585A40A4F;
-	Wed, 23 Oct 2024 15:39:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47E74C4CEC6;
-	Wed, 23 Oct 2024 15:39:58 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4EF03A40B02;
+	Wed, 23 Oct 2024 15:39:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E4C4C4CEC6;
+	Wed, 23 Oct 2024 15:40:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729697998;
-	bh=iKa9bcxI6W9fsHF/fh/13PtU+WQ5xvNEzWBxiNVZ7eU=;
+	s=k20201202; t=1729698001;
+	bh=nSdVA5MW1We6lUcKc4+jRLpfFEwr2d4DMmlFJ4WTfIs=;
 	h=From:To:Subject:Date:In-Reply-To:References:From;
-	b=OOlIQD7juHvuvkhsOoG+/kUGScwiJurQiWGsl4I4bILYyLzGx6igrE/Ko+XkW62sZ
-	 JkU0TTtOjREB4eintBt4Nv0IL82qybWWFnPX4nYHaTqVH76y58z3hTTiaLFXK2VY5g
-	 T+SWopByQfU9fbMR5m+6ZvIFLhOmz2xghWxrVrWt+EtGXSXvDIem7eYstRyxhsgTID
-	 hu4JpFrAQBpSerM1QMdMxV+AG+9MwwzBkJA60mPBGfbkjUysBB/LeEiezzTP0U7YUp
-	 bMOzvcDSdKhj3HxMxVjtV+odXbBPb+5pKkIooFR2Jzd4efOUP498DNakBTV/TV7+Zc
-	 xEjo1cJQ4kcvA==
+	b=roqLfdSdbvS+1R9+FXLW8/9YB4n5M46Bp0zOYYV9lVHZ3Hw8HOXGfUylGhQKjKVjA
+	 pEbGrx/RQA+m1qxUSfFikYm4gfcKKtxaRyRy2luWjIF2LsGEMdwMrZxLiZAZ/SSplR
+	 K9SItAmEtaZwmq8bO6D4PQpprbnSSU/GCgyRGirfksipGPlW8DUzAg1kSc8bXoxr59
+	 nY+B+zYt/3RCvIO9GE/TGMAkrg61+u9F9WKpnZQ1ZT5thap3Ea0/V49lAmqcauKkce
+	 mhY/MPYvFDODpBPmRQSIIi9JpJFklR1dx1iTZT8ys1UCMuGi46cHphtXnoWfWphX3r
+	 VHerPMOpmJShQ==
 From: Puranjay Mohan <puranjay@kernel.org>
 To: Albert Ou <aou@eecs.berkeley.edu>,
 	Alexei Starovoitov <ast@kernel.org>,
@@ -74,17 +74,16 @@ To: Albert Ou <aou@eecs.berkeley.edu>,
 	Song Liu <song@kernel.org>,
 	Stanislav Fomichev <sdf@fomichev.me>,
 	Yonghong Song <yonghong.song@linux.dev>
-Subject: [PATCH bpf-next v2 3/4] selftests/bpf: don't mask result of bpf_csum_diff() in test_verifier
-Date: Wed, 23 Oct 2024 15:39:21 +0000
-Message-Id: <20241023153922.86909-4-puranjay@kernel.org>
+Subject: [PATCH bpf-next v2 4/4] selftests/bpf: Add a selftest for bpf_csum_diff()
+Date: Wed, 23 Oct 2024 15:39:22 +0000
+Message-Id: <20241023153922.86909-5-puranjay@kernel.org>
 X-Mailer: git-send-email 2.40.1
 In-Reply-To: <20241023153922.86909-1-puranjay@kernel.org>
 References: <20241023153922.86909-1-puranjay@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_084000_069478_9BA69334 
-X-CRM114-Status: UNSURE (   8.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241023_084004_188930_3315393A 
+X-CRM114-Status: GOOD (  16.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,31 +95,492 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhlIGJwZl9jc3VtX2RpZmYoKSBoZWxwZXIgaGFzIGJlZW4gZml4ZWQgdG8gcmV0dXJuIGEgMTYt
-Yml0IHZhbHVlIGZvcgphbGwgYXJjaHMsIHNvIG5vdyB3ZSBkb24ndCBuZWVkIHRvIG1hc2sgdGhl
-IHJlc3VsdC4KClRoaXMgY29tbWl0IGlzIGJhc2ljYWxseSByZXZlcnRpbmcgdGhlIGJlbG93OgoK
-Y29tbWl0IDYxODUyNjZjNWE4NSAoInNlbGZ0ZXN0cy9icGY6IE1hc2sgYnBmX2NzdW1fZGlmZigp
-IHJldHVybiB2YWx1ZQp0byAxNiBiaXRzIGluIHRlc3RfdmVyaWZpZXIiKQoKU2lnbmVkLW9mZi1i
-eTogUHVyYW5qYXkgTW9oYW4gPHB1cmFuamF5QGtlcm5lbC5vcmc+CkFja2VkLWJ5OiBEYW5pZWwg
-Qm9ya21hbm4gPGRhbmllbEBpb2dlYXJib3gubmV0PgpSZXZpZXdlZC1ieTogVG9rZSBIw7hpbGFu
-ZC1Kw7hyZ2Vuc2VuIDx0b2tlQHJlZGhhdC5jb20+Ci0tLQogdG9vbHMvdGVzdGluZy9zZWxmdGVz
-dHMvYnBmL3Byb2dzL3ZlcmlmaWVyX2FycmF5X2FjY2Vzcy5jIHwgMyArLS0KIDEgZmlsZSBjaGFu
-Z2VkLCAxIGluc2VydGlvbigrKSwgMiBkZWxldGlvbnMoLSkKCmRpZmYgLS1naXQgYS90b29scy90
-ZXN0aW5nL3NlbGZ0ZXN0cy9icGYvcHJvZ3MvdmVyaWZpZXJfYXJyYXlfYWNjZXNzLmMgYi90b29s
-cy90ZXN0aW5nL3NlbGZ0ZXN0cy9icGYvcHJvZ3MvdmVyaWZpZXJfYXJyYXlfYWNjZXNzLmMKaW5k
-ZXggOTVkN2VjYzEyOTYzYi4uNDE5NWFhODI0YmE1NSAxMDA2NDQKLS0tIGEvdG9vbHMvdGVzdGlu
-Zy9zZWxmdGVzdHMvYnBmL3Byb2dzL3ZlcmlmaWVyX2FycmF5X2FjY2Vzcy5jCisrKyBiL3Rvb2xz
-L3Rlc3Rpbmcvc2VsZnRlc3RzL2JwZi9wcm9ncy92ZXJpZmllcl9hcnJheV9hY2Nlc3MuYwpAQCAt
-MzY4LDggKzM2OCw3IEBAIF9fbmFrZWQgdm9pZCBhX3JlYWRfb25seV9hcnJheV8yXzEodm9pZCkK
-IAlyNCA9IDA7CQkJCQkJXAogCXI1ID0gMDsJCQkJCQlcCiAJY2FsbCAlW2JwZl9jc3VtX2RpZmZd
-OwkJCQlcCi1sMF8lPToJcjAgJj0gMHhmZmZmOwkJCQkJXAotCWV4aXQ7CQkJCQkJXAorbDBfJT06
-CWV4aXQ7CQkJCQkJXAogIgk6CiAJOiBfX2ltbShicGZfY3N1bV9kaWZmKSwKIAkgIF9faW1tKGJw
-Zl9tYXBfbG9va3VwX2VsZW0pLAotLSAKMi40MC4xCgoKX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
-c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
-bi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Add a selftest for the bpf_csum_diff() helper. This selftests runs the
+helper in all three configurations(push, pull, and diff) and verifies
+its output. The correct results have been computed by hand and by the
+helper's older implementation.
+
+Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
+Acked-by: Daniel Borkmann <daniel@iogearbox.net>
+---
+ .../selftests/bpf/prog_tests/test_csum_diff.c | 408 ++++++++++++++++++
+ .../selftests/bpf/progs/csum_diff_test.c      |  42 ++
+ 2 files changed, 450 insertions(+)
+ create mode 100644 tools/testing/selftests/bpf/prog_tests/test_csum_diff.c
+ create mode 100644 tools/testing/selftests/bpf/progs/csum_diff_test.c
+
+diff --git a/tools/testing/selftests/bpf/prog_tests/test_csum_diff.c b/tools/testing/selftests/bpf/prog_tests/test_csum_diff.c
+new file mode 100644
+index 0000000000000..107b20d43e839
+--- /dev/null
++++ b/tools/testing/selftests/bpf/prog_tests/test_csum_diff.c
+@@ -0,0 +1,408 @@
++// SPDX-License-Identifier: GPL-2.0
++/* Copyright Amazon.com Inc. or its affiliates */
++#include <test_progs.h>
++#include "csum_diff_test.skel.h"
++
++#define BUFF_SZ 512
++
++struct testcase {
++	unsigned long long to_buff[BUFF_SZ / 8];
++	unsigned int to_buff_len;
++	unsigned long long from_buff[BUFF_SZ / 8];
++	unsigned int from_buff_len;
++	unsigned short seed;
++	unsigned short result;
++};
++
++#define NUM_PUSH_TESTS 4
++
++struct testcase push_tests[NUM_PUSH_TESTS] = {
++	{
++		.to_buff = {
++			0xdeadbeefdeadbeef,
++		},
++		.to_buff_len = 8,
++		.from_buff = {},
++		.from_buff_len = 0,
++		.seed = 0,
++		.result = 0x3b3b
++	},
++	{
++		.to_buff = {
++			0xdeadbeefdeadbeef,
++			0xbeefdeadbeefdead,
++		},
++		.to_buff_len = 16,
++		.from_buff = {},
++		.from_buff_len = 0,
++		.seed = 0x1234,
++		.result = 0x88aa
++	},
++	{
++		.to_buff = {
++			0xdeadbeefdeadbeef,
++			0xbeefdeadbeefdead,
++		},
++		.to_buff_len = 15,
++		.from_buff = {},
++		.from_buff_len = 0,
++		.seed = 0x1234,
++#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
++		.result = 0xcaa9
++#else
++		.result = 0x87fd
++#endif
++	},
++	{
++		.to_buff = {
++			0x327b23c66b8b4567,
++			0x66334873643c9869,
++			0x19495cff74b0dc51,
++			0x625558ec2ae8944a,
++			0x46e87ccd238e1f29,
++			0x507ed7ab3d1b58ba,
++			0x41b71efb2eb141f2,
++			0x7545e14679e2a9e3,
++			0x5bd062c2515f007c,
++			0x4db127f812200854,
++			0x1f16e9e80216231b,
++			0x66ef438d1190cde7,
++			0x3352255a140e0f76,
++			0x0ded7263109cf92e,
++			0x1befd79f7fdcc233,
++			0x6b68079a41a7c4c9,
++			0x25e45d324e6afb66,
++			0x431bd7b7519b500d,
++			0x7c83e4583f2dba31,
++			0x62bbd95a257130a3,
++			0x628c895d436c6125,
++			0x721da317333ab105,
++			0x2d1d5ae92443a858,
++			0x75a2a8d46763845e,
++			0x79838cb208edbdab,
++			0x0b03e0c64353d0cd,
++			0x54e49eb4189a769b,
++			0x2ca8861171f32454,
++			0x02901d820836c40e,
++			0x081386413a95f874,
++			0x7c3dbd3d1e7ff521,
++			0x6ceaf087737b8ddc,
++			0x4516dde922221a70,
++			0x614fd4a13006c83e,
++			0x5577f8e1419ac241,
++			0x05072367440badfc,
++			0x77465f013804823e,
++			0x5c482a977724c67e,
++			0x5e884adc2463b9ea,
++			0x2d51779651ead36b,
++			0x153ea438580bd78f,
++			0x70a64e2a3855585c,
++			0x2a487cb06a2342ec,
++			0x725a06fb1d4ed43b,
++			0x57e4ccaf2cd89a32,
++			0x4b588f547a6d8d3c,
++			0x6de91b18542289ec,
++			0x7644a45c38437fdb,
++			0x684a481a32fff902,
++			0x749abb43579478fe,
++			0x1ba026fa3dc240fb,
++			0x75c6c33a79a1deaa,
++			0x70c6a52912e685fb,
++			0x374a3fe6520eedd1,
++			0x23f9c13c4f4ef005,
++			0x275ac794649bb77c,
++			0x1cf10fd839386575,
++			0x235ba861180115be,
++			0x354fe9f947398c89,
++			0x741226bb15b5af5c,
++			0x10233c990d34b6a8,
++			0x615740953f6ab60f,
++			0x77ae35eb7e0c57b1,
++			0x310c50b3579be4f1,
++		},
++		.to_buff_len = 512,
++		.from_buff = {},
++		.from_buff_len = 0,
++		.seed = 0xffff,
++		.result = 0xca45
++	},
++};
++
++#define NUM_PULL_TESTS 4
++
++struct testcase pull_tests[NUM_PULL_TESTS] = {
++	{
++		.from_buff = {
++			0xdeadbeefdeadbeef,
++		},
++		.from_buff_len = 8,
++		.to_buff = {},
++		.to_buff_len = 0,
++		.seed = 0,
++		.result = 0xc4c4
++	},
++	{
++		.from_buff = {
++			0xdeadbeefdeadbeef,
++			0xbeefdeadbeefdead,
++		},
++		.from_buff_len = 16,
++		.to_buff = {},
++		.to_buff_len = 0,
++		.seed = 0x1234,
++		.result = 0x9bbd
++	},
++	{
++		.from_buff = {
++			0xdeadbeefdeadbeef,
++			0xbeefdeadbeefdead,
++		},
++		.from_buff_len = 15,
++		.to_buff = {},
++		.to_buff_len = 0,
++		.seed = 0x1234,
++#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
++		.result = 0x59be
++#else
++		.result = 0x9c6a
++#endif
++	},
++	{
++		.from_buff = {
++			0x327b23c66b8b4567,
++			0x66334873643c9869,
++			0x19495cff74b0dc51,
++			0x625558ec2ae8944a,
++			0x46e87ccd238e1f29,
++			0x507ed7ab3d1b58ba,
++			0x41b71efb2eb141f2,
++			0x7545e14679e2a9e3,
++			0x5bd062c2515f007c,
++			0x4db127f812200854,
++			0x1f16e9e80216231b,
++			0x66ef438d1190cde7,
++			0x3352255a140e0f76,
++			0x0ded7263109cf92e,
++			0x1befd79f7fdcc233,
++			0x6b68079a41a7c4c9,
++			0x25e45d324e6afb66,
++			0x431bd7b7519b500d,
++			0x7c83e4583f2dba31,
++			0x62bbd95a257130a3,
++			0x628c895d436c6125,
++			0x721da317333ab105,
++			0x2d1d5ae92443a858,
++			0x75a2a8d46763845e,
++			0x79838cb208edbdab,
++			0x0b03e0c64353d0cd,
++			0x54e49eb4189a769b,
++			0x2ca8861171f32454,
++			0x02901d820836c40e,
++			0x081386413a95f874,
++			0x7c3dbd3d1e7ff521,
++			0x6ceaf087737b8ddc,
++			0x4516dde922221a70,
++			0x614fd4a13006c83e,
++			0x5577f8e1419ac241,
++			0x05072367440badfc,
++			0x77465f013804823e,
++			0x5c482a977724c67e,
++			0x5e884adc2463b9ea,
++			0x2d51779651ead36b,
++			0x153ea438580bd78f,
++			0x70a64e2a3855585c,
++			0x2a487cb06a2342ec,
++			0x725a06fb1d4ed43b,
++			0x57e4ccaf2cd89a32,
++			0x4b588f547a6d8d3c,
++			0x6de91b18542289ec,
++			0x7644a45c38437fdb,
++			0x684a481a32fff902,
++			0x749abb43579478fe,
++			0x1ba026fa3dc240fb,
++			0x75c6c33a79a1deaa,
++			0x70c6a52912e685fb,
++			0x374a3fe6520eedd1,
++			0x23f9c13c4f4ef005,
++			0x275ac794649bb77c,
++			0x1cf10fd839386575,
++			0x235ba861180115be,
++			0x354fe9f947398c89,
++			0x741226bb15b5af5c,
++			0x10233c990d34b6a8,
++			0x615740953f6ab60f,
++			0x77ae35eb7e0c57b1,
++			0x310c50b3579be4f1,
++		},
++		.from_buff_len = 512,
++		.to_buff = {},
++		.to_buff_len = 0,
++		.seed = 0xffff,
++		.result = 0x35ba
++	},
++};
++
++#define NUM_DIFF_TESTS 4
++
++struct testcase diff_tests[NUM_DIFF_TESTS] = {
++	{
++		.from_buff = {
++			0xdeadbeefdeadbeef,
++		},
++		.from_buff_len = 8,
++		.to_buff = {
++			0xabababababababab,
++		},
++		.to_buff_len = 8,
++		.seed = 0,
++		.result = 0x7373
++	},
++	{
++		.from_buff = {
++			0xdeadbeefdeadbeef,
++		},
++		.from_buff_len = 7,
++		.to_buff = {
++			0xabababababababab,
++		},
++		.to_buff_len = 7,
++		.seed = 0,
++#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
++		.result = 0xa673
++#else
++		.result = 0x73b7
++#endif
++	},
++	{
++		.from_buff = {
++			0,
++		},
++		.from_buff_len = 8,
++		.to_buff = {
++			0xabababababababab,
++		},
++		.to_buff_len = 8,
++		.seed = 0,
++		.result = 0xaeae
++	},
++	{
++		.from_buff = {
++			0xdeadbeefdeadbeef
++		},
++		.from_buff_len = 8,
++		.to_buff = {
++			0,
++		},
++		.to_buff_len = 8,
++		.seed = 0xffff,
++		.result = 0xc4c4
++	},
++};
++
++#define NUM_EDGE_TESTS 4
++
++struct testcase edge_tests[NUM_EDGE_TESTS] = {
++	{
++		.from_buff = {},
++		.from_buff_len = 0,
++		.to_buff = {},
++		.to_buff_len = 0,
++		.seed = 0,
++		.result = 0
++	},
++	{
++		.from_buff = {
++			0x1234
++		},
++		.from_buff_len = 0,
++		.to_buff = {
++			0x1234
++		},
++		.to_buff_len = 0,
++		.seed = 0,
++		.result = 0
++	},
++	{
++		.from_buff = {},
++		.from_buff_len = 0,
++		.to_buff = {},
++		.to_buff_len = 0,
++		.seed = 0x1234,
++		.result = 0x1234
++	},
++	{
++		.from_buff = {},
++		.from_buff_len = 512,
++		.to_buff = {},
++		.to_buff_len = 0,
++		.seed = 0xffff,
++		.result = 0xffff
++	},
++};
++
++static unsigned short trigger_csum_diff(const struct csum_diff_test *skel)
++{
++	u8 tmp_out[64 << 2] = {};
++	u8 tmp_in[64] = {};
++	int err;
++	int pfd;
++
++	LIBBPF_OPTS(bpf_test_run_opts, topts,
++		.data_in = tmp_in,
++		.data_size_in = sizeof(tmp_in),
++		.data_out = tmp_out,
++		.data_size_out = sizeof(tmp_out),
++		.repeat = 1,
++	);
++	pfd = bpf_program__fd(skel->progs.compute_checksum);
++	err = bpf_prog_test_run_opts(pfd, &topts);
++	if (err)
++		return -1;
++
++	return skel->bss->result;
++}
++
++static void test_csum_diff(struct testcase *tests, int num_tests)
++{
++	struct csum_diff_test *skel;
++	unsigned short got;
++	int err;
++
++	for (int i = 0; i < num_tests; i++) {
++		skel = csum_diff_test__open();
++		if (!ASSERT_OK_PTR(skel, "csum_diff_test open"))
++			return;
++
++		skel->rodata->to_buff_len = tests[i].to_buff_len;
++		skel->rodata->from_buff_len = tests[i].from_buff_len;
++
++		err = csum_diff_test__load(skel);
++		if (!ASSERT_EQ(err, 0, "csum_diff_test load"))
++			goto out;
++
++		memcpy(skel->bss->to_buff, tests[i].to_buff, tests[i].to_buff_len);
++		memcpy(skel->bss->from_buff, tests[i].from_buff, tests[i].from_buff_len);
++		skel->bss->seed = tests[i].seed;
++
++		got = trigger_csum_diff(skel);
++		ASSERT_EQ(got, tests[i].result, "csum_diff result");
++
++		csum_diff_test__destroy(skel);
++	}
++
++	return;
++out:
++	csum_diff_test__destroy(skel);
++}
++
++void test_test_csum_diff(void)
++{
++	if (test__start_subtest("csum_diff_push"))
++		test_csum_diff(push_tests, NUM_PUSH_TESTS);
++	if (test__start_subtest("csum_diff_pull"))
++		test_csum_diff(pull_tests, NUM_PULL_TESTS);
++	if (test__start_subtest("csum_diff_diff"))
++		test_csum_diff(diff_tests, NUM_DIFF_TESTS);
++	if (test__start_subtest("csum_diff_edge"))
++		test_csum_diff(edge_tests, NUM_EDGE_TESTS);
++}
+diff --git a/tools/testing/selftests/bpf/progs/csum_diff_test.c b/tools/testing/selftests/bpf/progs/csum_diff_test.c
+new file mode 100644
+index 0000000000000..9438f1773a589
+--- /dev/null
++++ b/tools/testing/selftests/bpf/progs/csum_diff_test.c
+@@ -0,0 +1,42 @@
++// SPDX-License-Identifier: GPL-2.0
++/* Copyright Amazon.com Inc. or its affiliates */
++#include <linux/types.h>
++#include <linux/bpf.h>
++#include <bpf/bpf_helpers.h>
++#include <bpf/bpf_tracing.h>
++
++#define BUFF_SZ 512
++
++/* Will be updated by benchmark before program loading */
++char to_buff[BUFF_SZ];
++const volatile unsigned int to_buff_len = 0;
++char from_buff[BUFF_SZ];
++const volatile unsigned int from_buff_len = 0;
++unsigned short seed = 0;
++
++short result;
++
++char _license[] SEC("license") = "GPL";
++
++SEC("tc")
++int compute_checksum(void *ctx)
++{
++	int to_len_half = to_buff_len / 2;
++	int from_len_half = from_buff_len / 2;
++	short result2;
++
++	/* Calculate checksum in one go */
++	result2 = bpf_csum_diff((void *)from_buff, from_buff_len,
++				(void *)to_buff, to_buff_len, seed);
++
++	/* Calculate checksum by concatenating bpf_csum_diff()*/
++	result = bpf_csum_diff((void *)from_buff, from_buff_len - from_len_half,
++			       (void *)to_buff, to_buff_len - to_len_half, seed);
++
++	result = bpf_csum_diff((void *)from_buff + (from_buff_len - from_len_half), from_len_half,
++			       (void *)to_buff + (to_buff_len - to_len_half), to_len_half, result);
++
++	result = (result == result2) ? result : 0;
++
++	return 0;
++}
+-- 
+2.40.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
