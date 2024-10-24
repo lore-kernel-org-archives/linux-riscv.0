@@ -4,94 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50D79D1038D
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Oct 2024 22:29:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E216D1038E
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Oct 2024 23:57:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fMDLfoI+cOOEUxRjjp2bOCkZJSHgVGQ1mwvYIVzjEMQ=; b=kFQKFnD/4JH54K
-	SxXseCVrf2z+3BxxcCFX71MGN1XHBLlatDo+x28IUwqa7gHEozsXvqggcDKvbnoUZBZBu0GKS77KQ
-	amtHP8Taw45ENM0AMiq6KH76ovshTxSTT2EahCeQ+Xf2Kc/9ILgiYLCsi9IUSQCNb0Fl4Y9vmaYM9
-	j45hIo4jJZt2W1xF5tN3BRiNZjtHgc0AC+ZBGkzV8iHE1upeXtpGsNRsuifeHWJIgP80anWwnzLtB
-	YtARdz6j3YZQXcWxrK9F08bIOlT1kalFVCYDz1kw8Hf/iupIht6dTOIbrLRApmvyJGdcYjGdlUZ0T
-	J8J4nT5NzuUelFoinNFQ==;
+	List-Owner; bh=WlfLuqsZY7ouTVT+ZwHBf6Rx9RxuUu6pxjBdwBRQAFc=; b=Z/V1hfI/EQhklY
+	cLhrnKvGM4vqFTXeTf+bZPJc84WDefnoY2YAspQKQS7llVawU0r7cwfgpgrz/Tiz1514Jfrb6oTJW
+	kydpKxTcV4VyORfHTMFXK1IJbLFKyiIsC5NCOWCMmLOKv1lTayA61KOfHs64kdZ+j6/GgL20xPWUT
+	feFPm9QL1y127mPjTCWPOqBWBw54FkH8kf7ZBpp/FJ79x4+4rVNo6fQktmbrLgw/erDsy0yaUVFuT
+	+qMNt9u62H8Zt98bvGWlFepMMiJMq1VqU7WJE0KWdqainUHjTbRn3tSI14TZMWFYZl4HeIwaIHFVY
+	j7BeC3HCT/NBrE29m1QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t46Km-00000001xUn-14A2;
-	Thu, 24 Oct 2024 22:29:36 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1t47hY-000000023eN-3xtS;
+	Thu, 24 Oct 2024 23:57:12 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t46JC-00000001xM1-06uy;
-	Thu, 24 Oct 2024 22:27:59 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-2e2e8c8915eso1052026a91.3;
-        Thu, 24 Oct 2024 15:27:57 -0700 (PDT)
+	id 1t47hU-000000023dI-1tkT
+	for linux-riscv@lists.infradead.org;
+	Thu, 24 Oct 2024 23:57:10 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-539e4b7409fso1583574e87.0
+        for <linux-riscv@lists.infradead.org>; Thu, 24 Oct 2024 16:57:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729808877; x=1730413677; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=fD7JZCX3WSpRYBUjkGKdk6/F/9roVP52zuSU1cyvQeQ=;
-        b=Z+bP6AhAl+uVq8/O6PSaQ0yER6WB6RLFmhVxLk7VN/RHTYozxfTWcrI0H34GvTekp/
-         +0F04eyCSKRE+VcJZX9RKKgtyytbUutcsxxFcB2Ufb/8N3x+kmfjU5lYP34UQ71qps8n
-         E9Lgryjjdcc5QoBx2PHoUGGB70/XJoycuGMJpKnI/S/MXBuWm8VO9oPp4K/8a7JYLlk5
-         tH82Gl9UbirMkY2cNoakmXnTLXennPmSgN/iOHQZqvIbdYa6+rWZfZlE9yJFSdYTChHm
-         9WfFtWfG0GPG9mXHUzHmrTvuK9KCXqL8ANyGduC11p/smMrP3SMf3Stb3uwGb0tKOT8h
-         hASw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729808877; x=1730413677;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=atishpatra.org; s=google; t=1729814225; x=1730419025; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=fD7JZCX3WSpRYBUjkGKdk6/F/9roVP52zuSU1cyvQeQ=;
-        b=So6jp3AW5ox1jq8CX4GRZWjK4DWlU6Ng9O8NEDOuj8plIdh/6YQEFHwWovhnSO6FH+
-         6XpnBrGgOa+kRGBPW3jfnm0yQatPOyHurO2A0jCLYXXF5sLZjUHgpWePfHUM6jQUmzJ+
-         3WwxctY5l9CDPGu3raDKiFjE8/LCuZVjnq7oqbpRnhyOhh0YW9w2R6W9gIjBifzY7tib
-         9fjwX+NWdMpCxJaeLx8n0QXtdd/etFjfr3YGB7g3MMitFfdE8BxD1k+83l4EuE4wrUV+
-         Mu2zhULYz8fQFsZhSBbBHXIvLEzd0En/VNVcomQrFm7aUBLCcfnx8ts1xMeY8f3t9NbH
-         GP0g==
-X-Forwarded-Encrypted: i=1; AJvYcCVQm+uYpe4uJ1g2iilhXq2u4LblhqIPGbOr780g3lRJYh/Z3w9KXu7wDwA9ooLrsRley7E32RxTOb5YOXlExXzI@lists.infradead.org, AJvYcCXzwqP+/6k5tQMor8DXVpLqLQ+ETHm7kTz9+SUtMPnKudGogC+EXy0xubR+LJP4e/RPz7hW+3XnaQDJMfw=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzJHCEQQVCCy8ODlbx+hV3YWWYjLWsaaOgF3rqKDxmKfa1f+NfW
-	OyKdaXa/HWtf4VT9MLCC1T+uS8lrCJIo2GAWkdjwqy5cz/QZauq0
-X-Google-Smtp-Source: AGHT+IGQmCYk2RoxkOpXP4PJ+QT2gDC7178GzCSx0ES9YMS9JzYskSa3vPomTHV9tDwOnPLPR2pM0w==
-X-Received: by 2002:a17:90b:17c1:b0:2e0:9d3e:bc2a with SMTP id 98e67ed59e1d1-2e76b6cda50mr8866774a91.32.1729808876652;
-        Thu, 24 Oct 2024 15:27:56 -0700 (PDT)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e77e57f74asm2019615a91.46.2024.10.24.15.27.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Oct 2024 15:27:56 -0700 (PDT)
-Date: Fri, 25 Oct 2024 06:27:02 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Conor Dooley <conor@kernel.org>, Inochi Amaoto <inochiama@gmail.com>
-Cc: Chen Wang <unicorn_wang@outlook.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Inochi Amaoto <inochiama@outlook.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Jose Abreu <joabreu@synopsys.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Yixun Lan <dlan@gentoo.org>, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 2/4] dt-bindings: net: Add support for Sophgo SG2044 dwmac
-Message-ID: <s2rbj66rarjs33fvmyrwtmeq562pbx7mif5fld56tnk3fm73m5@hlsufkbunu3t>
-References: <20241021103617.653386-1-inochiama@gmail.com>
- <20241021103617.653386-3-inochiama@gmail.com>
- <20241022-crisply-brute-45f98632ef78@spud>
- <yt2idyivivcxctosec3lwkjbmr4tmctbs4viefxsuqlsvihdeh@alya6g27625l>
- <20241023-paper-crease-befa8239f7f0@spud>
- <5cv7wcdddxa4ruggrk36cwaquo5srcrjqqwefqzcju2s3yhl73@ekpyw6zrpfug>
- <20241024-wad-dusk-3d49f9ac4dff@spud>
+        bh=J9rfSyJCD8BY6O6PSI+2pcUwGXf0gHlX8f+v+C08yQM=;
+        b=OkKZxIEIUujlj2s4r4BkFmKvbvHIA1oDYVH+26oy62QhEIDgC7AVZcH4jlMmiwEYhm
+         fHpvZUtULpS8E2zsF5ZxxFZ+GVbo2aMdpTwWVBazYCyCMz2uapM/MsL/tk4m4pEFTLxz
+         tFfdkiuzmuUmEH6L5icP2T9X7rgsQuVaw7RuU=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729814225; x=1730419025;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=J9rfSyJCD8BY6O6PSI+2pcUwGXf0gHlX8f+v+C08yQM=;
+        b=hgbHipeGhk9E4CNhQLqDz3MAGU5gEN4Umb3Ywkt53phEkyzA3WSCLQP8UStwxX1xe1
+         +hLUtDsdAvB8bEvvXSzmjwWaw7WGpH2TjAyolm4sA4b9igAZiLDGvWdMuDRSTnXnVmry
+         +icJaLIZW1vIAz6V1WKfO3K4caD3D1L4eWk/SJs8LZx4LmrtfgzFIs3jeubE6xYXqO2e
+         EuwM/uyRWZi2JYtjpOFuy7rT/9vdfAZSRFmJc43n9btlYkjfMZor6uwMnPTv+2NKFj2H
+         iJ1kz0K9x/ISwaGtHsOnSaGaTCVdDixixeLDtpejvuqXW3B3raxAzxJgSQ1nF04iZ0nJ
+         sX1w==
+X-Forwarded-Encrypted: i=1; AJvYcCUyz72cSvRvmGlcPr3OYhVwJTl0Yid+WwA69Dpla4tcOGmkNDFFhgonFSdF08S4WCji0hQWMm7sok/oQw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwZ5bg9B1gYt3xvSO6oziYlB6uoOcajIJoW+P5Yd9ZpLC1Gcqmu
+	LNiI8+0VW90u+GZ07d9dw5RjST9Mo+RpZYaN6Zp3N41UFqX/vC4OARgWkw/abKKbRD9oOj2Ityc
+	O/pssupOapTfHQ+5SY4MABkf774yZsa40S/NMN4j7m97uaJ0=
+X-Google-Smtp-Source: AGHT+IFtzZLHt5IRuxdRf/8xBTE1piSCrKaHJKNOKHhV4Xc3UGvVG8tpLg0Gm5PGJN+M0D4zkk4RZYGEvImxki54eug=
+X-Received: by 2002:a19:6a12:0:b0:539:fd75:2b6c with SMTP id
+ 2adb3069b0e04-53b2375231dmr1061157e87.21.1729814225295; Thu, 24 Oct 2024
+ 16:57:05 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241024-wad-dusk-3d49f9ac4dff@spud>
+References: <20241020194734.58686-1-apatel@ventanamicro.com> <20241020194734.58686-14-apatel@ventanamicro.com>
+In-Reply-To: <20241020194734.58686-14-apatel@ventanamicro.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Thu, 24 Oct 2024 16:56:53 -0700
+Message-ID: <CAOnJCU+WAUJbBjVvjvdGbWs8ELVDYkARqqzZceHdzHzgYko2ig@mail.gmail.com>
+Subject: Re: [PATCH v2 13/13] RISC-V: KVM: Use NACL HFENCEs for KVM request
+ based HFENCEs
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Andrew Jones <ajones@ventanamicro.com>, Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_152758_095225_F88CA02A 
-X-CRM114-Status: GOOD (  28.10  )
+X-CRM114-CacheID: sfid-20241024_165708_614963_706BA737 
+X-CRM114-Status: GOOD (  14.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,111 +85,111 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 24, 2024 at 06:04:31PM +0100, Conor Dooley wrote:
-> On Thu, Oct 24, 2024 at 06:38:29AM +0800, Inochi Amaoto wrote:
-> > On Wed, Oct 23, 2024 at 09:49:34PM +0100, Conor Dooley wrote:
-> > > On Wed, Oct 23, 2024 at 08:31:24AM +0800, Inochi Amaoto wrote:
-> > > > On Tue, Oct 22, 2024 at 06:28:06PM +0100, Conor Dooley wrote:
-> > > > > On Mon, Oct 21, 2024 at 06:36:15PM +0800, Inochi Amaoto wrote:
-> > > > > > The GMAC IP on SG2044 is almost a standard Synopsys DesignWare MAC
-> > > > > > with some extra clock.
-> > > > > > 
-> > > > > > Add necessary compatible string for this device.
-> > > > > > 
-> > > > > > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> > > > > > ---
-> > > > > >  .../devicetree/bindings/net/snps,dwmac.yaml   |   1 +
-> > > > > >  .../bindings/net/sophgo,sg2044-dwmac.yaml     | 145 ++++++++++++++++++
-> > > > > >  2 files changed, 146 insertions(+)
-> > > > > >  create mode 100644 Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
-> > > > > > 
-> > > > > > diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> > > > > > index 3c4007cb65f8..69f6bb36970b 100644
-> > > > > > --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> > > > > > +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> > > > > > @@ -99,6 +99,7 @@ properties:
-> > > > > >          - snps,dwmac-5.30a
-> > > > > >          - snps,dwxgmac
-> > > > > >          - snps,dwxgmac-2.10
-> > > > > > +        - sophgo,sg2044-dwmac
-> > > > > >          - starfive,jh7100-dwmac
-> > > > > >          - starfive,jh7110-dwmac
-> > > > > >  
-> > > > > > diff --git a/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml b/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
-> > > > > > new file mode 100644
-> > > > > > index 000000000000..93c41550b0b6
-> > > > > > --- /dev/null
-> > > > > > +++ b/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
-> > > > > > @@ -0,0 +1,145 @@
-> > > > > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > > > > +%YAML 1.2
-> > > > > > +---
-> > > > > > +$id: http://devicetree.org/schemas/net/sophgo,sg2044-dwmac.yaml#
-> > > > > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > > > > +
-> > > > > > +title: StarFive JH7110 DWMAC glue layer
-> > > > > > +
-> > > > > > +maintainers:
-> > > > > > +  - Inochi Amaoto <inochiama@gmail.com>
-> > > > > > +
-> > > > > > +select:
-> > > > > > +  properties:
-> > > > > > +    compatible:
-> > > > > > +      contains:
-> > > > > > +        enum:
-> > > > > > +          - sophgo,sg2044-dwmac
-> > > > > > +  required:
-> > > > > > +    - compatible
-> > > > > > +
-> > > > > > +properties:
-> > > > > > +  compatible:
-> > > > > > +    items:
-> > > > > > +      - const: sophgo,sg2044-dwmac
-> > > > > > +      - const: snps,dwmac-5.30a
-> > > > > > +
-> > > > > > +  reg:
-> > > > > > +    maxItems: 1
-> > > > > > +
-> > > > > > +  clocks:
-> > > > > > +    items:
-> > > > > > +      - description: GMAC main clock
-> > > > > > +      - description: PTP clock
-> > > > > > +      - description: TX clock
-> > > > > > +
-> > > > > > +  clock-names:
-> > > > > > +    items:
-> > > > > > +      - const: stmmaceth
-> > > > > > +      - const: ptp_ref
-> > > > > > +      - const: tx
-> > > > > > +
-> > > > > > +  sophgo,syscon:
-> > > > > 
-> > > > > How many dwmac instances does the sg2044 have?
-> > > > > 
-> > > > 
-> > > > Only one, there is another 100G dwxgmac instance, but it does not
-> > > > use this syscon.
-> > > 
-> > > That dwxgmac is a different device, with a different compatible etc?
-> > 
-> > Yes, it needs a different compatiable, and maybe a new binding is needed
-> > since the 100G and 1G IP are different.
-> 
-> In that case, you don't /need/ a syscon property at all, much less one
-> with offsets. You can just look up the syscon by compatible and hard
-> code the offset in the driver.
-
-Good, look up the syscon is a good idea. Thanks for this suggestion.
-
-Regards,
-Inochi
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU3VuLCBPY3QgMjAsIDIwMjQgYXQgMTI6NDjigK9QTSBBbnVwIFBhdGVsIDxhcGF0ZWxAdmVu
+dGFuYW1pY3JvLmNvbT4gd3JvdGU6Cj4KPiBXaGVuIHJ1bm5pbmcgdW5kZXIgc29tZSBvdGhlciBo
+eXBlcnZpc29yLCB1c2UgU0JJIE5BQ0wgYmFzZWQgSEZFTkNFcwo+IGZvciBUTEIgc2hvb3QtZG93
+biB2aWEgS1ZNIHJlcXVlc3RzLiBUaGlzIG1ha2VzIEhGRU5DRXMgZmFzdGVyIHdoZW5ldmVyCj4g
+U0JJIG5lc3RlZCBhY2NlbGVyYXRpb24gaXMgYXZhaWxhYmxlLgo+Cj4gU2lnbmVkLW9mZi1ieTog
+QW51cCBQYXRlbCA8YXBhdGVsQHZlbnRhbmFtaWNyby5jb20+Cj4gLS0tCj4gIGFyY2gvcmlzY3Yv
+a3ZtL3RsYi5jIHwgNTcgKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKy0tLS0tLS0tLS0t
+LS0KPiAgMSBmaWxlIGNoYW5nZWQsIDQwIGluc2VydGlvbnMoKyksIDE3IGRlbGV0aW9ucygtKQo+
+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva3ZtL3RsYi5jIGIvYXJjaC9yaXNjdi9rdm0vdGxi
+LmMKPiBpbmRleCAyM2MwZTgyYjUxMDMuLjJmOTFlYTVmODQ5MyAxMDA2NDQKPiAtLS0gYS9hcmNo
+L3Jpc2N2L2t2bS90bGIuYwo+ICsrKyBiL2FyY2gvcmlzY3Yva3ZtL3RsYi5jCj4gQEAgLTE0LDYg
+KzE0LDcgQEAKPiAgI2luY2x1ZGUgPGFzbS9jc3IuaD4KPiAgI2luY2x1ZGUgPGFzbS9jcHVmZWF0
+dXJlLmg+Cj4gICNpbmNsdWRlIDxhc20vaW5zbi1kZWYuaD4KPiArI2luY2x1ZGUgPGFzbS9rdm1f
+bmFjbC5oPgo+Cj4gICNkZWZpbmUgaGFzX3N2aW52YWwoKSAgcmlzY3ZfaGFzX2V4dGVuc2lvbl91
+bmxpa2VseShSSVNDVl9JU0FfRVhUX1NWSU5WQUwpCj4KPiBAQCAtMTg2LDE4ICsxODcsMjQgQEAg
+dm9pZCBrdm1fcmlzY3ZfZmVuY2VfaV9wcm9jZXNzKHN0cnVjdCBrdm1fdmNwdSAqdmNwdSkKPgo+
+ICB2b2lkIGt2bV9yaXNjdl9oZmVuY2VfZ3ZtYV92bWlkX2FsbF9wcm9jZXNzKHN0cnVjdCBrdm1f
+dmNwdSAqdmNwdSkKPiAgewo+IC0gICAgICAgc3RydWN0IGt2bV92bWlkICp2bWlkOwo+ICsgICAg
+ICAgc3RydWN0IGt2bV92bWlkICp2ID0gJnZjcHUtPmt2bS0+YXJjaC52bWlkOwo+ICsgICAgICAg
+dW5zaWduZWQgbG9uZyB2bWlkID0gUkVBRF9PTkNFKHYtPnZtaWQpOwo+Cj4gLSAgICAgICB2bWlk
+ID0gJnZjcHUtPmt2bS0+YXJjaC52bWlkOwo+IC0gICAgICAga3ZtX3Jpc2N2X2xvY2FsX2hmZW5j
+ZV9ndm1hX3ZtaWRfYWxsKFJFQURfT05DRSh2bWlkLT52bWlkKSk7Cj4gKyAgICAgICBpZiAoa3Zt
+X3Jpc2N2X25hY2xfYXZhaWxhYmxlKCkpCj4gKyAgICAgICAgICAgICAgIG5hY2xfaGZlbmNlX2d2
+bWFfdm1pZF9hbGwobmFjbF9zaG1lbSgpLCB2bWlkKTsKPiArICAgICAgIGVsc2UKPiArICAgICAg
+ICAgICAgICAga3ZtX3Jpc2N2X2xvY2FsX2hmZW5jZV9ndm1hX3ZtaWRfYWxsKHZtaWQpOwo+ICB9
+Cj4KPiAgdm9pZCBrdm1fcmlzY3ZfaGZlbmNlX3Z2bWFfYWxsX3Byb2Nlc3Moc3RydWN0IGt2bV92
+Y3B1ICp2Y3B1KQo+ICB7Cj4gLSAgICAgICBzdHJ1Y3Qga3ZtX3ZtaWQgKnZtaWQ7Cj4gKyAgICAg
+ICBzdHJ1Y3Qga3ZtX3ZtaWQgKnYgPSAmdmNwdS0+a3ZtLT5hcmNoLnZtaWQ7Cj4gKyAgICAgICB1
+bnNpZ25lZCBsb25nIHZtaWQgPSBSRUFEX09OQ0Uodi0+dm1pZCk7Cj4KPiAtICAgICAgIHZtaWQg
+PSAmdmNwdS0+a3ZtLT5hcmNoLnZtaWQ7Cj4gLSAgICAgICBrdm1fcmlzY3ZfbG9jYWxfaGZlbmNl
+X3Z2bWFfYWxsKFJFQURfT05DRSh2bWlkLT52bWlkKSk7Cj4gKyAgICAgICBpZiAoa3ZtX3Jpc2N2
+X25hY2xfYXZhaWxhYmxlKCkpCj4gKyAgICAgICAgICAgICAgIG5hY2xfaGZlbmNlX3Z2bWFfYWxs
+KG5hY2xfc2htZW0oKSwgdm1pZCk7Cj4gKyAgICAgICBlbHNlCj4gKyAgICAgICAgICAgICAgIGt2
+bV9yaXNjdl9sb2NhbF9oZmVuY2VfdnZtYV9hbGwodm1pZCk7Cj4gIH0KPgo+ICBzdGF0aWMgYm9v
+bCB2Y3B1X2hmZW5jZV9kZXF1ZXVlKHN0cnVjdCBrdm1fdmNwdSAqdmNwdSwKPiBAQCAtMjUxLDYg
+KzI1OCw3IEBAIHN0YXRpYyBib29sIHZjcHVfaGZlbmNlX2VucXVldWUoc3RydWN0IGt2bV92Y3B1
+ICp2Y3B1LAo+Cj4gIHZvaWQga3ZtX3Jpc2N2X2hmZW5jZV9wcm9jZXNzKHN0cnVjdCBrdm1fdmNw
+dSAqdmNwdSkKPiAgewo+ICsgICAgICAgdW5zaWduZWQgbG9uZyB2bWlkOwo+ICAgICAgICAgc3Ry
+dWN0IGt2bV9yaXNjdl9oZmVuY2UgZCA9IHsgMCB9Owo+ICAgICAgICAgc3RydWN0IGt2bV92bWlk
+ICp2ID0gJnZjcHUtPmt2bS0+YXJjaC52bWlkOwo+Cj4gQEAgLTI1OSwyNiArMjY3LDQxIEBAIHZv
+aWQga3ZtX3Jpc2N2X2hmZW5jZV9wcm9jZXNzKHN0cnVjdCBrdm1fdmNwdSAqdmNwdSkKPiAgICAg
+ICAgICAgICAgICAgY2FzZSBLVk1fUklTQ1ZfSEZFTkNFX1VOS05PV046Cj4gICAgICAgICAgICAg
+ICAgICAgICAgICAgYnJlYWs7Cj4gICAgICAgICAgICAgICAgIGNhc2UgS1ZNX1JJU0NWX0hGRU5D
+RV9HVk1BX1ZNSURfR1BBOgo+IC0gICAgICAgICAgICAgICAgICAgICAgIGt2bV9yaXNjdl9sb2Nh
+bF9oZmVuY2VfZ3ZtYV92bWlkX2dwYSgKPiAtICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICBSRUFEX09OQ0Uodi0+dm1pZCksCj4gLSAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZC5hZGRyLCBkLnNpemUsIGQub3JkZXIpOwo+
+ICsgICAgICAgICAgICAgICAgICAgICAgIHZtaWQgPSBSRUFEX09OQ0Uodi0+dm1pZCk7Cj4gKyAg
+ICAgICAgICAgICAgICAgICAgICAgaWYgKGt2bV9yaXNjdl9uYWNsX2F2YWlsYWJsZSgpKQo+ICsg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbmFjbF9oZmVuY2VfZ3ZtYV92bWlkKG5hY2xf
+c2htZW0oKSwgdm1pZCwKPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICBkLmFkZHIsIGQuc2l6ZSwgZC5vcmRlcik7Cj4gKyAgICAgICAgICAgICAg
+ICAgICAgICAgZWxzZQo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAga3ZtX3Jpc2N2
+X2xvY2FsX2hmZW5jZV9ndm1hX3ZtaWRfZ3BhKHZtaWQsIGQuYWRkciwKPiArICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBk
+LnNpemUsIGQub3JkZXIpOwo+ICAgICAgICAgICAgICAgICAgICAgICAgIGJyZWFrOwo+ICAgICAg
+ICAgICAgICAgICBjYXNlIEtWTV9SSVNDVl9IRkVOQ0VfVlZNQV9BU0lEX0dWQToKPiAgICAgICAg
+ICAgICAgICAgICAgICAgICBrdm1fcmlzY3ZfdmNwdV9wbXVfaW5jcl9mdyh2Y3B1LCBTQklfUE1V
+X0ZXX0hGRU5DRV9WVk1BX0FTSURfUkNWRCk7Cj4gLSAgICAgICAgICAgICAgICAgICAgICAga3Zt
+X3Jpc2N2X2xvY2FsX2hmZW5jZV92dm1hX2FzaWRfZ3ZhKAo+IC0gICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIFJFQURfT05DRSh2LT52bWlkKSwgZC5hc2lkLAo+
+IC0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGQuYWRkciwg
+ZC5zaXplLCBkLm9yZGVyKTsKPiArICAgICAgICAgICAgICAgICAgICAgICB2bWlkID0gUkVBRF9P
+TkNFKHYtPnZtaWQpOwo+ICsgICAgICAgICAgICAgICAgICAgICAgIGlmIChrdm1fcmlzY3ZfbmFj
+bF9hdmFpbGFibGUoKSkKPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG5hY2xfaGZl
+bmNlX3Z2bWFfYXNpZChuYWNsX3NobWVtKCksIHZtaWQsIGQuYXNpZCwKPiArICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkLmFkZHIsIGQuc2l6ZSwg
+ZC5vcmRlcik7Cj4gKyAgICAgICAgICAgICAgICAgICAgICAgZWxzZQo+ICsgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAga3ZtX3Jpc2N2X2xvY2FsX2hmZW5jZV92dm1hX2FzaWRfZ3ZhKHZt
+aWQsIGQuYXNpZCwgZC5hZGRyLAo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGQuc2l6ZSwgZC5vcmRlcik7Cj4gICAg
+ICAgICAgICAgICAgICAgICAgICAgYnJlYWs7Cj4gICAgICAgICAgICAgICAgIGNhc2UgS1ZNX1JJ
+U0NWX0hGRU5DRV9WVk1BX0FTSURfQUxMOgo+ICAgICAgICAgICAgICAgICAgICAgICAgIGt2bV9y
+aXNjdl92Y3B1X3BtdV9pbmNyX2Z3KHZjcHUsIFNCSV9QTVVfRldfSEZFTkNFX1ZWTUFfQVNJRF9S
+Q1ZEKTsKPiAtICAgICAgICAgICAgICAgICAgICAgICBrdm1fcmlzY3ZfbG9jYWxfaGZlbmNlX3Z2
+bWFfYXNpZF9hbGwoCj4gLSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgUkVBRF9PTkNFKHYtPnZtaWQpLCBkLmFzaWQpOwo+ICsgICAgICAgICAgICAgICAgICAg
+ICAgIHZtaWQgPSBSRUFEX09OQ0Uodi0+dm1pZCk7Cj4gKyAgICAgICAgICAgICAgICAgICAgICAg
+aWYgKGt2bV9yaXNjdl9uYWNsX2F2YWlsYWJsZSgpKQo+ICsgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgbmFjbF9oZmVuY2VfdnZtYV9hc2lkX2FsbChuYWNsX3NobWVtKCksIHZtaWQsIGQu
+YXNpZCk7Cj4gKyAgICAgICAgICAgICAgICAgICAgICAgZWxzZQo+ICsgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAga3ZtX3Jpc2N2X2xvY2FsX2hmZW5jZV92dm1hX2FzaWRfYWxsKHZtaWQs
+IGQuYXNpZCk7Cj4gICAgICAgICAgICAgICAgICAgICAgICAgYnJlYWs7Cj4gICAgICAgICAgICAg
+ICAgIGNhc2UgS1ZNX1JJU0NWX0hGRU5DRV9WVk1BX0dWQToKPiAgICAgICAgICAgICAgICAgICAg
+ICAgICBrdm1fcmlzY3ZfdmNwdV9wbXVfaW5jcl9mdyh2Y3B1LCBTQklfUE1VX0ZXX0hGRU5DRV9W
+Vk1BX1JDVkQpOwo+IC0gICAgICAgICAgICAgICAgICAgICAgIGt2bV9yaXNjdl9sb2NhbF9oZmVu
+Y2VfdnZtYV9ndmEoCj4gLSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgUkVBRF9PTkNFKHYtPnZtaWQpLAo+IC0gICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIGQuYWRkciwgZC5zaXplLCBkLm9yZGVyKTsKPiArICAgICAgICAg
+ICAgICAgICAgICAgICB2bWlkID0gUkVBRF9PTkNFKHYtPnZtaWQpOwo+ICsgICAgICAgICAgICAg
+ICAgICAgICAgIGlmIChrdm1fcmlzY3ZfbmFjbF9hdmFpbGFibGUoKSkKPiArICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIG5hY2xfaGZlbmNlX3Z2bWEobmFjbF9zaG1lbSgpLCB2bWlkLAo+
+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkLmFkZHIs
+IGQuc2l6ZSwgZC5vcmRlcik7Cj4gKyAgICAgICAgICAgICAgICAgICAgICAgZWxzZQo+ICsgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAga3ZtX3Jpc2N2X2xvY2FsX2hmZW5jZV92dm1hX2d2
+YSh2bWlkLCBkLmFkZHIsCj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIGQuc2l6ZSwgZC5vcmRlcik7Cj4gICAgICAgICAgICAg
+ICAgICAgICAgICAgYnJlYWs7Cj4gICAgICAgICAgICAgICAgIGRlZmF1bHQ6Cj4gICAgICAgICAg
+ICAgICAgICAgICAgICAgYnJlYWs7Cj4gLS0KPiAyLjQzLjAKPgoKUmV2aWV3ZWQtYnk6IEF0aXNo
+IFBhdHJhIDxhdGlzaHBAcml2b3NpbmMuY29tPgotLSAKUmVnYXJkcywKQXRpc2gKCl9fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
+bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
+YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
