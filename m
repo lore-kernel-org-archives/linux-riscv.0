@@ -4,81 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19A25CE8E97
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Oct 2024 17:06:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03FD8CE8E99
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Oct 2024 17:25:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=czEbO261p3wvu/UYCwlOZmGqCXBtBpyzkywaoihmq/I=; b=wq8iM7OHHPIHSX4gaal+6XEHZ3
-	W+USEzCeVrqfhOiofzKlxsIFXXZZqspfIpLdIwLGW72prKWoZF1BYnunA0n4ATS0KrukO2F1wTzHw
-	INMTHi/TKwKUPkhGCYIXrv6MsobjUgk0VXjLb+NVZBPP7SfTekdFx+2ffM7/A08igRqQWlsVAFqjj
-	mVKlqdboe7iJPRl4dLTCcI5HD6f8woqsR6TBCHaLbAbZmZ/qNxt7+XA6R21ho/Mvud2m4/rWdS92Y
-	xSSzjYagqR9X3WTMn9rOMcZzCByMsaUM90W2zmObeCW1xVGQxoLPcToPuP/ItFSGi9tzP87DgT36k
-	CiLEQxLg==;
+	bh=V7KUpe6rS9GQpZipbT6E/YGqEeKWM9B1LD4C+FMcmAA=; b=mg07DDa/8s1D+oyEjNfnS8X3uw
+	Rfn7GDnLkdS72eaZLKvOU6WnNpZRP3VSaKQ3Z0yMAu+nB1P+QFGrwIEg3FMmVxRSuVaGfUHjGM1eT
+	8IDBqcjhgGJRe7kxSplhX+U1JiqJNcFAGKJxSuBB1u4DTZStsUlmzmpQdr5s2XSUymQFyi3j3gHSw
+	++EEr/7Kff6djq8z/8ypE4DAirsrXsu7/deqYlNbNA0DtX2MI4Ikun1V/9xgXQ0yR49Rst6qnGDyJ
+	Y/MGwP6By3cGwm0TqrS1BJKoeoqlAzsXTCxLs5nAduoepvUF8SZwNzqItSGV72o2V5EsOBh78lE3H
+	93SBdntw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t41Hs-00000001DDK-1je5;
-	Thu, 24 Oct 2024 17:06:16 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t41aQ-00000001HEl-4ABK;
+	Thu, 24 Oct 2024 17:25:26 +0000
+Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t41GJ-00000001D2W-2EEI;
-	Thu, 24 Oct 2024 17:04:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1DCD2A455D3;
-	Thu, 24 Oct 2024 17:04:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29819C4CEC7;
-	Thu, 24 Oct 2024 17:04:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729789478;
-	bh=ywLWv1DymM9Q8rNWDVKF/A2+zd9RhYsw+C3ioFEB2fo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dBaqX6iQKVO2I3p6DrGwLpuLJB3LSA0XH7X+UprC50IkkggRW+Y2RLdcIiDwDCh1X
-	 k+uJyk8o/qqWWHi++gPxZfzbD15LyxpL7tsAN911NmSofjDWqtsMyWrv9j8+PQ/chd
-	 KKLAcTKow+XkNETi9/tPj7EgkZb4/bv4CB27O4p8I8fTzDI6cgXZ9K8Uy1q3PbZJgY
-	 NDAPrF/8A+KBJZchG6LgnkuCzfmc7S2vi96lqSFyQsbJKNlo6Orqoj44edCGXhcRbv
-	 duePaGbfb7zsTbuX4hn7EHv1IC6gyoJce7RQg5U1tvB2KYrPrVUH2+ag7ZbxPjeP1M
-	 FygRhSMkxMAiw==
-Date: Thu, 24 Oct 2024 18:04:31 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Chen Wang <unicorn_wang@outlook.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Yixun Lan <dlan@gentoo.org>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 2/4] dt-bindings: net: Add support for Sophgo SG2044 dwmac
-Message-ID: <20241024-wad-dusk-3d49f9ac4dff@spud>
-References: <20241021103617.653386-1-inochiama@gmail.com>
- <20241021103617.653386-3-inochiama@gmail.com>
- <20241022-crisply-brute-45f98632ef78@spud>
- <yt2idyivivcxctosec3lwkjbmr4tmctbs4viefxsuqlsvihdeh@alya6g27625l>
- <20241023-paper-crease-befa8239f7f0@spud>
- <5cv7wcdddxa4ruggrk36cwaquo5srcrjqqwefqzcju2s3yhl73@ekpyw6zrpfug>
+	id 1t41Lw-00000001E0P-1nzu;
+	Thu, 24 Oct 2024 17:10:29 +0000
+Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-2fb51e00c05so17975991fa.0;
+        Thu, 24 Oct 2024 10:10:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1729789826; x=1730394626; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=FTKrnBluD4JxPICdqME0ajZ+Fx27J0/+WYJKBnAywrU=;
+        b=lC6ROgjl5Tlb3e7Uaks14jFSYg0MNlgrm8aXNKp3lQ49QwzUbd8ZpM25HqmCmSINUv
+         HzccDnbPDiqjsKkL/SAnLpv/DvLsV5uf3O+tl2gzKo05Pe6JKiUX/8YRv2dfOp2A72Hm
+         ESlCOrJy2jCk/SQ7T+vd8SwwHjgyxxrt0OFUgCEkgHJvwzI9nR40zWC3FcNPpKkOQNMk
+         ARNfOxh7gRLqovUGwcqQ33YO3Ni2lMOtSk8s1rbgSYWQy139xazXRpEFybds8sY23GAR
+         l3+AHBoEtYZu58TZvco4ESu6QMZaNKZj8hMgC6pRgXday+8qdWjFaTa91JAWwrew0t01
+         MBeQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729789826; x=1730394626;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FTKrnBluD4JxPICdqME0ajZ+Fx27J0/+WYJKBnAywrU=;
+        b=MqRPFXzU2RjE7Mzmu5AaPnCq0qxuaKueKk6/qJDBLQC+SG2+G04p/PouSJAw17beaB
+         WtKa1Lbrw1B2EQIFmV4XfXSWtSCKLwJUs0SrXCI50agd+DprtxwGyB6tYbOXrvS/6P6H
+         zP3Oi1+JDAZDrurBpmIcVBvY0Jun9nfDToGun48Ev8IY0eCZBa26tOY4JId/cIggspPU
+         mN6m1yWOfqhOHJzsZw86iYfNsriND9YpZqR8EVzHf/mtGLCKNTYQgml1WFwJPS+/cBTS
+         xOH9hh0sIlsvJycMY6emCKh+G7fc9R4atCgUePlJ5k0d8NKu5K7UXodu7xW3d4RRAyuX
+         hhaA==
+X-Forwarded-Encrypted: i=1; AJvYcCX7JJnkKhKs1HR3xlr6LqsopJVnCvwwhREgKEIicyIm43XoUF9f+Zk4m5ZGjD0+SmBv/WOWPMU0FPycZCMh4x+R@lists.infradead.org, AJvYcCXkxGfrxiuep6gbx08l2yvz2J/l+QVHB9G8t2axf1rSRzGphBqDjeg9GCazia7I9T2EfqpjqyT/gylCJsxwpqEk0A==@lists.infradead.org, AJvYcCXtR0QBrFM2HhjB1iEta0kA4Ai7JtmuYSUAtGasjLnZIvUpb2RPrmKHw9GrpEJILRMrk5ZHLjTmjW+RLzM=@lists.infradead.org
+X-Gm-Message-State: AOJu0YyxyEbAzss+WWyqJ4/FqesR7sTay64QjFLZrlp9jaeyxeqhid1o
+	pTTJIVlTLB2D7Vt5v9dKKuRmBsHPNgrYIOmxai3qMCglX9JSHVoT
+X-Google-Smtp-Source: AGHT+IE6fiv+vs26SxlA2LCU8dr7H03wlCXlCxw07cHtczrt07/pTtUnxZ56Zdpp4aB7P5gDnnkT3Q==
+X-Received: by 2002:a05:651c:1545:b0:2fb:3960:9667 with SMTP id 38308e7fff4ca-2fc9d31b55bmr61721431fa.14.1729789825771;
+        Thu, 24 Oct 2024 10:10:25 -0700 (PDT)
+Received: from orome (p200300e41f26ec00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f26:ec00:f22f:74ff:fe1f:3a53])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9a91370e75sm641392466b.130.2024.10.24.10.10.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Oct 2024 10:10:25 -0700 (PDT)
+Date: Thu, 24 Oct 2024 19:10:23 +0200
+From: Thierry Reding <thierry.reding@gmail.com>
+To: Celeste Liu <coelacanthushex@gmail.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>, 
+	Anup Patel <anup@brainfault.org>, Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, 
+	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+	Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Russell King <linux@armlinux.org.uk>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, Tony Lindgren <tony@atomide.com>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, Palmer Dabbelt <palmer@rivosinc.com>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, 
+	linux-sh@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rpi-kernel@lists.infradead.org, linux-omap@vger.kernel.org, linux-tegra@vger.kernel.org, 
+	Stefan Wahren <wahrenst@gmx.net>, Kevin Hilman <khilman@baylibre.com>
+Subject: Re: [PATCH v3 4/4] arm: defconfig: drop RT_GROUP_SCHED=y from
+ bcm2835/tegra/omap2plus
+Message-ID: <6m77wg6b76abyk2ebfniayxvrabvzur7onwar4isajb6tvfxbv@7a24p2xkmevj>
+References: <20240910-fix-riscv-rt_group_sched-v3-0-486e75e5ae6d@gmail.com>
+ <20240910-fix-riscv-rt_group_sched-v3-4-486e75e5ae6d@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <5cv7wcdddxa4ruggrk36cwaquo5srcrjqqwefqzcju2s3yhl73@ekpyw6zrpfug>
+In-Reply-To: <20240910-fix-riscv-rt_group_sched-v3-4-486e75e5ae6d@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_100439_721716_29CC6403 
-X-CRM114-Status: GOOD (  27.35  )
+X-CRM114-CacheID: sfid-20241024_101028_494179_853327E6 
+X-CRM114-Status: GOOD (  17.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,135 +99,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3621393023669639073=="
+Content-Type: multipart/mixed; boundary="===============2121165654387019389=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============3621393023669639073==
+--===============2121165654387019389==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="r+PW8kyxnTDRk3Vc"
+	protocol="application/pgp-signature"; boundary="mgvujidfj33lw4eo"
 Content-Disposition: inline
 
 
---r+PW8kyxnTDRk3Vc
-Content-Type: text/plain; charset=us-ascii
+--mgvujidfj33lw4eo
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 4/4] arm: defconfig: drop RT_GROUP_SCHED=y from
+ bcm2835/tegra/omap2plus
+MIME-Version: 1.0
 
-On Thu, Oct 24, 2024 at 06:38:29AM +0800, Inochi Amaoto wrote:
-> On Wed, Oct 23, 2024 at 09:49:34PM +0100, Conor Dooley wrote:
-> > On Wed, Oct 23, 2024 at 08:31:24AM +0800, Inochi Amaoto wrote:
-> > > On Tue, Oct 22, 2024 at 06:28:06PM +0100, Conor Dooley wrote:
-> > > > On Mon, Oct 21, 2024 at 06:36:15PM +0800, Inochi Amaoto wrote:
-> > > > > The GMAC IP on SG2044 is almost a standard Synopsys DesignWare MAC
-> > > > > with some extra clock.
-> > > > >=20
-> > > > > Add necessary compatible string for this device.
-> > > > >=20
-> > > > > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> > > > > ---
-> > > > >  .../devicetree/bindings/net/snps,dwmac.yaml   |   1 +
-> > > > >  .../bindings/net/sophgo,sg2044-dwmac.yaml     | 145 ++++++++++++=
-++++++
-> > > > >  2 files changed, 146 insertions(+)
-> > > > >  create mode 100644 Documentation/devicetree/bindings/net/sophgo,=
-sg2044-dwmac.yaml
-> > > > >=20
-> > > > > diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yam=
-l b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> > > > > index 3c4007cb65f8..69f6bb36970b 100644
-> > > > > --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> > > > > +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> > > > > @@ -99,6 +99,7 @@ properties:
-> > > > >          - snps,dwmac-5.30a
-> > > > >          - snps,dwxgmac
-> > > > >          - snps,dwxgmac-2.10
-> > > > > +        - sophgo,sg2044-dwmac
-> > > > >          - starfive,jh7100-dwmac
-> > > > >          - starfive,jh7110-dwmac
-> > > > > =20
-> > > > > diff --git a/Documentation/devicetree/bindings/net/sophgo,sg2044-=
-dwmac.yaml b/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
-> > > > > new file mode 100644
-> > > > > index 000000000000..93c41550b0b6
-> > > > > --- /dev/null
-> > > > > +++ b/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.y=
-aml
-> > > > > @@ -0,0 +1,145 @@
-> > > > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > > > +%YAML 1.2
-> > > > > +---
-> > > > > +$id: http://devicetree.org/schemas/net/sophgo,sg2044-dwmac.yaml#
-> > > > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > > > +
-> > > > > +title: StarFive JH7110 DWMAC glue layer
-> > > > > +
-> > > > > +maintainers:
-> > > > > +  - Inochi Amaoto <inochiama@gmail.com>
-> > > > > +
-> > > > > +select:
-> > > > > +  properties:
-> > > > > +    compatible:
-> > > > > +      contains:
-> > > > > +        enum:
-> > > > > +          - sophgo,sg2044-dwmac
-> > > > > +  required:
-> > > > > +    - compatible
-> > > > > +
-> > > > > +properties:
-> > > > > +  compatible:
-> > > > > +    items:
-> > > > > +      - const: sophgo,sg2044-dwmac
-> > > > > +      - const: snps,dwmac-5.30a
-> > > > > +
-> > > > > +  reg:
-> > > > > +    maxItems: 1
-> > > > > +
-> > > > > +  clocks:
-> > > > > +    items:
-> > > > > +      - description: GMAC main clock
-> > > > > +      - description: PTP clock
-> > > > > +      - description: TX clock
-> > > > > +
-> > > > > +  clock-names:
-> > > > > +    items:
-> > > > > +      - const: stmmaceth
-> > > > > +      - const: ptp_ref
-> > > > > +      - const: tx
-> > > > > +
-> > > > > +  sophgo,syscon:
-> > > >=20
-> > > > How many dwmac instances does the sg2044 have?
-> > > >=20
-> > >=20
-> > > Only one, there is another 100G dwxgmac instance, but it does not
-> > > use this syscon.
-> >=20
-> > That dwxgmac is a different device, with a different compatible etc?
+On Tue, Sep 10, 2024 at 08:51:10PM +0800, Celeste Liu wrote:
+> Commit 673ce00c5d6c ("ARM: omap2plus_defconfig: Add support for distros
+> with systemd") said it's because of recommendation from systemd. But
+> systemd changed their recommendation later.[1]
 >=20
-> Yes, it needs a different compatiable, and maybe a new binding is needed
-> since the 100G and 1G IP are different.
+> For cgroup v1, if turned on, and there's any cgroup in the "cpu" hierarch=
+y it
+> needs an RT budget assigned, otherwise the processes in it will not be ab=
+le to
+> get RT at all. The problem with RT group scheduling is that it requires t=
+he
+> budget assigned but there's no way we could assign a default budget, sinc=
+e the
+> values to assign are both upper and lower time limits, are absolute, and =
+need to
+> be sum up to < 1 for each individal cgroup. That means we cannot really c=
+ome up
+> with values that would work by default in the general case.[2]
+>=20
+> For cgroup v2, it's almost unusable as well. If it turned on, the cpu con=
+troller
+> can only be enabled when all RT processes are in the root cgroup. But it =
+will
+> lose the benefits of cgroup v2 if all RT process were placed in the same =
+cgroup.
+>=20
+> Red Hat, Gentoo, Arch Linux and Debian all disable it. systemd also doesn=
+'t
+> support it.
+>=20
+> [1]: https://github.com/systemd/systemd/commit/f4e74be1856b3ac058acbf1be3=
+21c31d5299f69f
+> [2]: https://bugzilla.redhat.com/show_bug.cgi?id=3D1229700
+>=20
+> Tested-by: Stefan Wahren <wahrenst@gmx.net>
+> Acked-by: Kevin Hilman <khilman@baylibre.com>
+> Signed-off-by: Celeste Liu <CoelacanthusHex@gmail.com>
+> ---
+>  arch/arm/configs/bcm2835_defconfig   | 1 -
+>  arch/arm/configs/omap2plus_defconfig | 1 -
+>  arch/arm/configs/tegra_defconfig     | 1 -
+>  3 files changed, 3 deletions(-)
 
-In that case, you don't /need/ a syscon property at all, much less one
-with offsets. You can just look up the syscon by compatible and hard
-code the offset in the driver.
+Any idea who will want to pick this up? Probably something the ARM SoC
+maintainers can do directly, in which case:
 
---r+PW8kyxnTDRk3Vc
+Acked-by: Thierry Reding <treding@nvidia.com>
+
+--mgvujidfj33lw4eo
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZxp+HgAKCRB4tDGHoIJi
-0mRYAQC5zNH78v/p+H9bscKX2XQ4j6+YJ0OaAX6+AvjpwXd/WAEAzV4GkyhyPnWN
-1Bs5WxGAGbqBkGnxejt/DzUIguij7wc=
-=/5rz
+iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmcaf38ACgkQ3SOs138+
+s6Eb2RAAph/IveI76N2c7lk/cbmWs1cQoFHZmyzXgY26ZBU9nc81ILsjchLmkF85
+h1M3kPkxMquC56MplXj0gSQGCIQIuLlbJf/cR4bL+PPOw7ecV5Dwg3cvg17do6+w
+7+zAVkx+pXA8HbBAqVpHuQcP+YyPN4GEFDy8L8bdOa3GrAdpFKehSTCvr0cmvZCD
+LtNd8P4xocqpMrxdGbH3YcOT/eJtbwlmRCYbeWavOtFfdiiIuNH73drj1L67sOjv
+A0rgJOdsEtMCQG/sCtMkGd7KY62fZCE4nTu9RUM4/ett8nlROC674VgvJrpCW6Ym
+hSZmJaRPXSInSFk9olAC3wWChah4WncpBj7qEfZ8g8dwMchFeGwgYTxxmCUIV7o8
+A1Q1pbb1BMAS64SRaLv2bRkuWJ0FdI0bll+pihc7MSYtiWAuP5muOxK6QWdbr/ig
+tTpYEh0PSsBkBAJ4zswAfXggM0HOUzqUOVsGDW0ky95K9pVDuDF9LVIY1FuEMgDw
+72WHhE1zsbgVlfzTIOC0s8cD9ghl6e49g/TIl+BHxLh3xEWz2DOY8yLyj5M2OCgk
+2Y+9jS20AREVOhtvxmeW5MDJavSj+4LXvqQE/7G63JDamadu/N1GYPfCqmQxQSiW
+WaSdrnjknZjngwZWPQ+1p4LgKnlEr78OUc/jCnsSMyYXnBb3EzA=
+=YCp7
 -----END PGP SIGNATURE-----
 
---r+PW8kyxnTDRk3Vc--
+--mgvujidfj33lw4eo--
 
 
---===============3621393023669639073==
+--===============2121165654387019389==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -229,5 +200,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============3621393023669639073==--
+--===============2121165654387019389==--
 
