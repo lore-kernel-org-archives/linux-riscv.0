@@ -4,58 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6385D0BB4E
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Oct 2024 01:56:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1012CD0BB58
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Oct 2024 03:39:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
-	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=lvo337FEG1SKaD4BVfu7hWBdo/Nrp7nq28iIhwGsKAA=; b=g3c58XrAIM4hdV
-	xjCGqn39jCqAdKr1+pSUueeYcG6Utatp70tiEZFWC+6lTOm8Qw2Gl+xXhwVCNBds2+nK+PpdL3gsf
-	H+u+8rJlAcIV22ROL8MiC73j/yD12Manj1Thv9w+vcrr8G547aN8mbgdan10n7KgSu3wUGs7kwy6B
-	VXkA0xy752Ywlk0DN3lXjnCkCrJYrAEgocBEJlu4KRlCS5Sl4xlLkfhReeXeMRLrmznnNHduZeP45
-	acccIFczetiJSkukCgXOcsCnsswTY+J1D0jcFZJSQE1QVKE+eCqIKyBA03uixb4rnjLR43nnI37/d
-	WzR4zP+iPj6x/eyVxxvw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=g5t9/wBPMz4KQZETPXGLp5SOfqnfcQeoXHlytXs6o2s=; b=btgP+WFt2WJg+r
+	kx9rzKB8RflSZRVnUFtxHBAx3D76m3N8DAgSQz8jetk4JT1xXxE3It5Q4H8JmXxBNK2VJiyZU5qad
+	/O8VaKFKgjVzGETSW4gVe3CnkEE93jQzVTD/EBo6DhKyMCGOQqyAclrS6Mp6bNjSxTQ037p/S2lWf
+	QA2qjXSyKpN6Ehnv76jOeFEy0GK9cll/7l3oAbwDFvdN5NYCY3ijIdBZpsZOQyLAKTE9LBi1yq47+
+	3amE6NbAgVbbPg6xS000k7OjTMs6GhHykHTXtZe3M/VZrtnT40y9xssrJm5eTO1j8LEtZAW/77WoS
+	hExzlTcP+cNarZLd1XnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3n5f-0000000GTEZ-1aVq;
-	Thu, 24 Oct 2024 01:56:43 +0000
-Received: from szxga04-in.huawei.com ([45.249.212.190])
+	id 1t3ohM-0000000Gd8e-3PGj;
+	Thu, 24 Oct 2024 03:39:44 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3n5c-0000000GTCV-30N5
-	for linux-riscv@lists.infradead.org;
-	Thu, 24 Oct 2024 01:56:42 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.17])
-	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4XYprl5ljjz2FbTk;
-	Thu, 24 Oct 2024 09:55:03 +0800 (CST)
-Received: from kwepemg200008.china.huawei.com (unknown [7.202.181.35])
-	by mail.maildlp.com (Postfix) with ESMTPS id C1C841A0188;
-	Thu, 24 Oct 2024 09:56:27 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by kwepemg200008.china.huawei.com
- (7.202.181.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 24 Oct
- 2024 09:56:27 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <jic23@kernel.org>, <lars@metafoo.de>, <paul.walmsley@sifive.com>,
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <nuno.sa@analog.com>,
-	<javier.carrasco.cruz@gmail.com>, <sunke@kylinos.cn>,
-	<conor.dooley@microchip.com>, <anshulusr@gmail.com>, <ruanjinjie@huawei.com>,
-	<kimseer.paller@analog.com>, <michael.hennerich@analog.com>,
-	<linux-iio@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <noname.nuno@gmail.com>
-Subject: [PATCH v2] iio: dac: Kconfig: Fix build error for ltc2664
-Date: Thu, 24 Oct 2024 09:55:53 +0800
-Message-ID: <20241024015553.1111253-1-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
+	id 1t3ofm-0000000Gcva-3w3d;
+	Thu, 24 Oct 2024 03:38:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1729741060; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=nX8OPXDW2cthIEqTMyQQblZpQUeRm1tlYext1Oo30sTtYHYcktbP6QkNaRaRkvMdBZhtUx8VMyuOZ1yo+FGGeGS0iCscen2p3GnJ1SyL8u2H85tjngG+AQ708fA/Wbe6xOriUcybgk3FqcZLV5d+YhhpIyUQHTpiQ1V0GZwo2ow=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1729741060; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=4wf2lEGNiKikemuz3JoVmC7ikUs3mn2DyQw2oAk/xb4=; 
+	b=XjLhS44GYUwiRMfeiBLSXehbyRQHvo6kaknTjIG114GAewi+zh78rAsKEHBbblqZNUaD0HYnVdKY6QBZ6HfPRPHw1RR+8ptBY9I6yekRvVWAnJN/gZfNwiXZ1CivAP7+qd4eraONzUwIs+Q/hbulsRZ56dZh8+L2v3nWUBAIzd4=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=dmitry.osipenko@collabora.com;
+	dmarc=pass header.from=<dmitry.osipenko@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1729741060;
+	s=zohomail; d=collabora.com; i=dmitry.osipenko@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=4wf2lEGNiKikemuz3JoVmC7ikUs3mn2DyQw2oAk/xb4=;
+	b=cQ8vcj5jczCZFZamwVhgcpKC2ZP4/1MdOILVTF2hjwXwseYRu8QXQXCHBGN8Z7WZ
+	5WRt1sT0vEYnud2HTzfxLFosZXJPwKulFSBtZYX0ZqRX2NJ5tO7GS2OAuoHhYA9KkpX
+	kVPN3Qtgq2O/ILYUE5VKlxxBj81B828bnHdKV/qo=
+Received: by mx.zohomail.com with SMTPS id 1729741058928285.49991825731297;
+	Wed, 23 Oct 2024 20:37:38 -0700 (PDT)
+Message-ID: <03c316c7-5268-40cd-af1c-4c8454506ab2@collabora.com>
+Date: Thu, 24 Oct 2024 06:37:28 +0300
 MIME-Version: 1.0
-X-Originating-IP: [10.90.53.73]
-X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
- kwepemg200008.china.huawei.com (7.202.181.35)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v13 00/85] KVM: Stop grabbing references to PFNMAP'd pages
+To: Sean Christopherson <seanjc@google.com>,
+ Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao
+ <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
+ Huacai Chen <chenhuacai@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
+ Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Janosch Frank <frankja@linux.ibm.com>,
+ Claudio Imbrenda <imbrenda@linux.ibm.com>
+Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, =?UTF-8?Q?Alex_Benn=C3=A9e?=
+ <alex.bennee@linaro.org>, Yan Zhao <yan.y.zhao@intel.com>,
+ David Matlack <dmatlack@google.com>, David Stevens <stevensd@chromium.org>,
+ Andrew Jones <ajones@ventanamicro.com>
+References: <20241010182427.1434605-1-seanjc@google.com>
+From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20241010182427.1434605-1-seanjc@google.com>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_185640_922414_531DCE8E 
-X-CRM114-Status: GOOD (  10.03  )
+X-CRM114-CacheID: sfid-20241023_203807_080282_588EA76A 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,40 +93,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-If REGMAP_SPI is n and LTC2664 is y, the following build error occurs:
+On 10/10/24 21:23, Sean Christopherson wrote:
+> TL;DR: Eliminate KVM's long-standing (and heinous) behavior of essentially
+> guessing which pfns are refcounted pages (see kvm_pfn_to_refcounted_page()).
+> 
+> Getting there requires "fixing" arch code that isn't obviously broken.
+> Specifically, to get rid of kvm_pfn_to_refcounted_page(), KVM needs to
+> stop marking pages/folios dirty/accessed based solely on the pfn that's
+> stored in KVM's stage-2 page tables.
+> 
+> Instead of tracking which SPTEs correspond to refcounted pages, simply
+> remove all of the code that operates on "struct page" based ona the pfn
+> in stage-2 PTEs.  This is the back ~40-50% of the series.
+>  
+> For x86 in particular, which sets accessed/dirty status when that info
+> would be "lost", e.g. when SPTEs are zapped or KVM clears the dirty flag
+> in a SPTE, foregoing the updates provides very measurable performance
+> improvements for related operations.  E.g. when clearing dirty bits as
+> part of dirty logging, and zapping SPTEs to reconstitue huge pages when
+> disabling dirty logging.
+> 
+> The front ~40% of the series is cleanups and prep work, and most of it is
+> x86 focused (purely because x86 added the most special cases, *sigh*).
+> E.g. several of the inputs to hva_to_pfn() (and it's myriad wrappers),
+> can be removed by cleaning up and deduplicating x86 code.
+> 
+> v13:
+>  - Rebased onto v6.12-rc2
+>  - Collect reviews. [Alex and others]
+>  - Fix a transient bug in arm64 and RISC-V where KVM would leak a page
+>    refcount. [Oliver]
+>  - Fix a dangling comment. [Alex]
+>  - Drop kvm_lookup_pfn(), as the x86 that "needed" it was stupid and is (was?)
+>    eliminated in v6.12.
+>  - Drop check_user_page_hwpoison(). [Paolo]
+>  - Drop the arm64 MTE fixes that went into 6.12.
+>  - Slightly redo the guest_memfd interaction to account for 6.12 changes.
 
-	riscv64-unknown-linux-gnu-ld: drivers/iio/dac/ltc2664.o: in function `ltc2664_probe':
-	ltc2664.c:(.text+0x714): undefined reference to `__devm_regmap_init_spi'
+Thanks a lot for working on this patchset! I tested it with native
+amdgpu/intel contexts and venus/virgl with dGPU and iGPU, no problems
+spotted. Please merge sooner, this will unblock lots of new virtio-gpu
+features.
 
-Select REGMAP_SPI instead of REGMAP for LTC2664 to fix it.
+Tested-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
 
-Fixes: 4cc2fc445d2e ("iio: dac: ltc2664: Add driver for LTC2664 and LTC2672")
-Reviewed-by: Nuno Sa <nuno.sa@analog.com>
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
----
-v2:
-- Select REGMAP_SPI instead of REGMAP.
-- Update the commit subject.
-- Add Reviewed-by.
----
- drivers/iio/dac/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/iio/dac/Kconfig b/drivers/iio/dac/Kconfig
-index 45e337c6d256..9f5d5ebb8653 100644
---- a/drivers/iio/dac/Kconfig
-+++ b/drivers/iio/dac/Kconfig
-@@ -380,7 +380,7 @@ config LTC2632
- config LTC2664
- 	tristate "Analog Devices LTC2664 and LTC2672 DAC SPI driver"
- 	depends on SPI
--	select REGMAP
-+	select REGMAP_SPI
- 	help
- 	  Say yes here to build support for Analog Devices
- 	  LTC2664 and LTC2672 converters (DAC).
 -- 
-2.34.1
+Best regards,
+Dmitry
 
 
 _______________________________________________
