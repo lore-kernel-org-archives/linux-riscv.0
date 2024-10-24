@@ -4,93 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 534FDD0BB64
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Oct 2024 06:44:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDF09D0BB72
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Oct 2024 08:17:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LHFlsQYvSEcbq+APz+pB2FH7WUBBEJT3Odtifbr9Sts=; b=IoZuRb6OnxJHYu
-	PJpXDtnE1V1mzt57qeGH9/8W0qGSQpV8psid3XHm7EBD7O6htvCL2A9Y694FQn8TsonZJY+NEJzjV
-	6HcoGGC4L8nrLnEqGsBG5FC5c2OZ+9g0c+1PEdtznlImHWpkWEUbk67QbHukxDeRfdg19rg8Fq8QC
-	jZlQDm/QgMtIW84GzWhIsKdBSQJGd5V2wo2yk7FlcvV20ep6VBwNYtvWhAofCCR/dxjynBGTWNLBM
-	ysu1fsgOHYRVx9EiYHxm8V7Md5SpUfKX+Q/5OVCJ8Qwb9yNV0pP/0jDoyuct2FMpvGJyFNYbAuw8y
-	8247SzvdGtf/Qa2mQj0Q==;
+	List-Owner; bh=UWCiIrBhPvHVnWFMJMVSLG51YyHNkfBpKgq13BXvPTE=; b=ooprublbCkMNES
+	C0j6UK6vT4EZkKiThRIfFZy1kRgGjfBAMbPURxDxtgOm3q+aO4sd7hkmJzfAYJCeMjIDfsFSUNQG+
+	bjV/JHd6NQHN5Zpb2uhNp7fGleVpj9iOptKs0LGRPxbe9h3P/JuVtPVxtPvWKwRFi1AUr//MAWQIa
+	cS3u6HxB97jM+wBk8wkzKJauG6aDXbZG22GjQNGtVrNko1YIp/uepyXLc8GwmR3nNaWpgk7JtrzoF
+	GmFBwUiw/7V3Z2AUZ2s+oTZ9XVgtCL7jsbTnAo9/tKaAJnTrtnRGFLbq5H7LWOgSrRLqPhLpGaTd7
+	rDd/yb3ZDJsM3VfoiCvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3ra6-0000000GxS5-0MGp;
-	Thu, 24 Oct 2024 06:44:26 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1t3t2F-0000000HFn0-05YL;
+	Thu, 24 Oct 2024 08:17:35 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3ra2-0000000GxQx-06dF
-	for linux-riscv@lists.infradead.org;
-	Thu, 24 Oct 2024 06:44:24 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-2e2ad9825a7so446609a91.0
-        for <linux-riscv@lists.infradead.org>; Wed, 23 Oct 2024 23:44:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729752261; x=1730357061; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AaogxiHUoCYyHxAdte/yNMniP8G2o14XXGmFLTDHNXU=;
-        b=IX1/c8zOeD1HVlRzaeOQ2Vs7EVS7yFsxappyS1XhqdOTlpwNzpikZfuGt3RjNWdFHK
-         lKTXUbOAURT58bus5ia5blZQCSY9JTQSr/Dk4hjxnQsV2Jcny/0NaozS98+M+PB8kFZy
-         GqSzx1q3XtbodIfuTBsFhEu4zQF2egwRxpt+gl9xAu0MLZJkED3ti4b6ZKi0G4qMquD+
-         Qj6NyecFawy308J1lkk5a7G7iezDdlNCEwa+8D02qXJNIXnPkEJqf6mDGuceZmLRxpPl
-         I4+CPUckjPxxafES60vv7kR2zf3i9ScjlvLwGxBMZbcdNr60j8hS71O9wVqboytok5Ou
-         RYqw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729752261; x=1730357061;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=AaogxiHUoCYyHxAdte/yNMniP8G2o14XXGmFLTDHNXU=;
-        b=VTxrZhXVSqIHP7GoYl/h9HGukqzhitK0umSvchpPNFX4o2bFneYd84oaI+kqbEPvzj
-         GvaLCXDpSpt4os/d1ZZD8X3Q9Ztdgq+80a03Wki2lHl3LTVrvW+rBMqGu8dk5/Pgg1e4
-         D86NI/dttSIwK52c9H02fzlxAod7UCYyNbGs33uTdMv588wY6RKNogDOYsi17mudY0n/
-         A+s7rFI5IS/1XYYnKvqDFERMBlQeJLEtOO/m/0QLvd9NIn2zCW+O1SNLHiGcSZyE+rZY
-         Ezgb13jbv5fXPYubeGNmQjgCmIBl1KL62WwvPtkrvPj3d+OYVDE1vcx8mY0jX9Pgulmp
-         gm4w==
-X-Forwarded-Encrypted: i=1; AJvYcCWpBDZiZeStaO0C/2nyHlIJfbnQeCMTdHSF7EGFLW4mvXY27do/YojI9VpvIb72vM5zt91XVze5vYaCNQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YypPlPwsTpfCJYMRyR6Z1Z5nnVGuHBmPkz/i8dXdQPrJTXFJP1l
-	gk37R7tl8d/UgxIGX7DAQp+S8pikykkZhRCAVTwy1WHM+vcDzm/XWWqPgA==
-X-Google-Smtp-Source: AGHT+IFO3UiABhI+bPJ0y2wgQJOiCFf/0oQbrvXjoKa6w6HlFw6fHRVp+DnR2U0pG+alS4yvg04Xdw==
-X-Received: by 2002:a17:90b:3007:b0:2e0:a926:19b1 with SMTP id 98e67ed59e1d1-2e77f74ef8fmr957730a91.38.1729752260937;
-        Wed, 23 Oct 2024 23:44:20 -0700 (PDT)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e76df29f23sm2654774a91.3.2024.10.23.23.44.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Oct 2024 23:44:20 -0700 (PDT)
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Chen Wang <unicorn_wang@outlook.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	id 1t3t2B-0000000HFjy-12Ae;
+	Thu, 24 Oct 2024 08:17:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5129A5C53EF;
+	Thu, 24 Oct 2024 08:17:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 612D5C4CEC7;
+	Thu, 24 Oct 2024 08:16:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729757849;
+	bh=Ox/ZYsBrrmbPK3A2QSUcQ8QfXoa69FGJYXDNNRcdBnE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kUYTT8Tx/x5v0ueXFlaIbTgM/tC1LFzcQH/Bk/9E/G27ofyIbDJ7VnB94NYJst0cv
+	 rwM3dJS8U0ddWOUUXyYJ5U2DbjwqikH39DsU8Z9vNeIPIaGV5iltmAX+1Y07CtyHuu
+	 qjH8xAIYsTm3k2jYsPE3Yg78rgh4kjznfSO7VPR6GqKUwnNvv6GGqa5UsKhK6x1lWv
+	 w5QasDDvCUMmBgmW/lX8F5rn9hH0iBupLlusSquog8hp4ocLfovmnzNHmy5eiFqmmK
+	 d1E2Of3Az/DoYE4MNq3gGFDCWEofW+6fRLAOpgssfQgrtruzoRtxJno9OxgV2pJlkI
+	 Cl6tQ0r75+5yg==
+Date: Thu, 24 Oct 2024 11:13:11 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Andy Lutomirski <luto@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>,
+	Brian Cain <bcain@quicinc.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christoph Hellwig <hch@infradead.org>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Kent Overstreet <kent.overstreet@linux.dev>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Simek <monstr@monstr.eu>, Oleg Nesterov <oleg@redhat.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Guo Ren <guoren@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>
-Cc: Yixun Lan <dlan@gentoo.org>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH 1/3] dt-bindings: pinctrl: Add pinctrl for Sophgo SG2042 series SoC
-Date: Thu, 24 Oct 2024 14:43:54 +0800
-Message-ID: <20241024064356.865055-2-inochiama@gmail.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241024064356.865055-1-inochiama@gmail.com>
-References: <20241024064356.865055-1-inochiama@gmail.com>
+	Peter Zijlstra <peterz@infradead.org>,
+	Richard Weinberger <richard@nod.at>,
+	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
+	Stafford Horne <shorne@gmail.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org, linux-alpha@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, linux-mm@kvack.org,
+	linux-modules@vger.kernel.org, linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+	linux-trace-kernel@vger.kernel.org, linux-um@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
+	sparclinux@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH v6 6/8] x86/module: prepare module loading for ROX
+ allocations of text
+Message-ID: <ZxoBlwkh528r-vef@kernel.org>
+References: <20241016122424.1655560-1-rppt@kernel.org>
+ <20241016122424.1655560-7-rppt@kernel.org>
+ <20241021221519.GA3567210@thelio-3990X>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20241021221519.GA3567210@thelio-3990X>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_234422_092751_D6726507 
-X-CRM114-Status: GOOD (  15.91  )
+X-CRM114-CacheID: sfid-20241024_011731_393511_5546C92E 
+X-CRM114-Status: GOOD (  30.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,328 +117,126 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SG2042 introduces a simple pinctrl device for all configurable pins.
-The pinconf and pinmux are mixed in a 16 bits register for each pin.
-It supports setting pull up/down, drive strength and input schmitt
-trigger.
+Hi Nathan,
 
-Add support for SG2042 pinctrl device.
+On Mon, Oct 21, 2024 at 03:15:19PM -0700, Nathan Chancellor wrote:
+> Hi Mike,
+> 
+> On Wed, Oct 16, 2024 at 03:24:22PM +0300, Mike Rapoport wrote:
+> > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+> > 
+> > When module text memory will be allocated with ROX permissions, the
+> > memory at the actual address where the module will live will contain
+> > invalid instructions and there will be a writable copy that contains the
+> > actual module code.
+> > 
+> > Update relocations and alternatives patching to deal with it.
+> > 
+> > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> 
+> Sorry that you have to hear from me again :) It seems that module
+> loading is still broken with this version of the patch, which is
+> something that I missed in my earlier testing since I only test a
+> monolithic kernel with my regular virtual machine testing. If I build
+> and install the kernel and modules in the VM via a distribution package,
+> I get the following splat at boot:
+>
+>   Starting systemd-udevd version 256.7-1-arch
+>   [    0.882312] SMP alternatives: Something went horribly wrong trying to rewrite the CFI implementation.
+>   [    0.883526] CFI failure at do_one_initcall+0x128/0x380 (target: init_module+0x0/0xff0 [crc32c_intel]; expected type: 0x0c7a3a22)
+>   [    0.884802] Oops: invalid opcode: 0000 [#1] PREEMPT SMP NOPTI
+>   [    0.885434] CPU: 3 UID: 0 PID: 157 Comm: modprobe Tainted: G        W          6.12.0-rc3-debug-next-20241021-06324-g63b3ff03d91a #1 291f0fd70f293827edec681d3c5304f5807a3c7b
+>   [    0.887084] Tainted: [W]=WARN
+>   [    0.887409] Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS unknown 2/2/2022
+>   [    0.888241] RIP: 0010:do_one_initcall+0x128/0x380
+>   [    0.888720] Code: f3 0f 1e fa 41 be ff ff ff ff e9 0f 01 00 00 0f 1f 44 00 00 41 81 e7 ff ff ff 7f 49 89 db 41 ba de c5 85 f3 45 03 53 f1 74 02 <0f> 0b 41 ff d3 0f 1f 00 41 89 c6 0f 1f 44 00 00 c6 04 24 00 65 8b
+>   [    0.890598] RSP: 0018:ff3f93e5c052f970 EFLAGS: 00010217
+>   [    0.891129] RAX: ffffffffb4c105b8 RBX: ffffffffc0602010 RCX: 0000000000000000
+>   [    0.891850] RDX: 0000000000000000 RSI: 0000000000000000 RDI: ffffffffc0602010
+>   [    0.892588] RBP: ff3f93e5c052fc88 R08: 0000000000000020 R09: 0000000000000000
+>   [    0.893305] R10: 000000002a378b84 R11: ffffffffc0602010 R12: 00000000000069c6
+>   [    0.894003] R13: ff1f0090c5596900 R14: ff1f0090c15a55c0 R15: 0000000000000000
+>   [    0.894693] FS:  00007ffb712c0740(0000) GS:ff1f00942fb80000(0000) knlGS:0000000000000000
+>   [    0.895453] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+>   [    0.896020] CR2: 00007ffffc4424c8 CR3: 0000000100af4002 CR4: 0000000000771ef0
+>   [    0.896698] DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+>   [    0.897391] DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400
+>   [    0.898077] PKRU: 55555554
+>   [    0.898337] Call Trace:
+>   [    0.898577]  <TASK>
+>   [    0.898784]  ? __die_body+0x6a/0xb0
+>   [    0.899132]  ? die+0xa4/0xd0
+>   [    0.899413]  ? do_trap+0xa6/0x180
+>   [    0.899740]  ? do_one_initcall+0x128/0x380
+>   [    0.900130]  ? do_one_initcall+0x128/0x380
+>   [    0.900523]  ? handle_invalid_op+0x6a/0x90
+>   [    0.900917]  ? do_one_initcall+0x128/0x380
+>   [    0.901311]  ? exc_invalid_op+0x38/0x60
+>   [    0.901679]  ? asm_exc_invalid_op+0x1a/0x20
+>   [    0.902081]  ? __cfi_init_module+0x10/0x10 [crc32c_intel 5331566c5540f82df397056699bc4ddac8be1306]
+>   [    0.902933]  ? __cfi_init_module+0x10/0x10 [crc32c_intel 5331566c5540f82df397056699bc4ddac8be1306]
+>   [    0.903781]  ? __cfi_init_module+0x10/0x10 [crc32c_intel 5331566c5540f82df397056699bc4ddac8be1306]
+>   [    0.904634]  ? do_one_initcall+0x128/0x380
+>   [    0.905028]  ? idr_alloc_cyclic+0x139/0x1d0
+>   [    0.905437]  ? security_kernfs_init_security+0x54/0x190
+>   [    0.905958]  ? __kernfs_new_node+0x1ba/0x240
+>   [    0.906377]  ? sysfs_create_dir_ns+0x8f/0x140
+>   [    0.906795]  ? kernfs_link_sibling+0xf2/0x110
+>   [    0.907211]  ? kernfs_activate+0x2c/0x110
+>   [    0.907599]  ? kernfs_add_one+0x108/0x150
+>   [    0.907981]  ? __kernfs_create_file+0x75/0xa0
+>   [    0.908407]  ? sysfs_create_bin_file+0xc6/0x120
+>   [    0.908853]  ? __vunmap_range_noflush+0x347/0x420
+>   [    0.909313]  ? _raw_spin_unlock+0xe/0x30
+>   [    0.909692]  ? free_unref_page+0x22c/0x4c0
+>   [    0.910097]  ? __kmalloc_cache_noprof+0x1a8/0x360
+>   [    0.910546]  do_init_module+0x60/0x250
+>   [    0.910910]  __se_sys_finit_module+0x316/0x420
+>   [    0.911351]  do_syscall_64+0x88/0x170
+>   [    0.911699]  ? __x64_sys_lseek+0x68/0xb0
+>   [    0.912077]  ? syscall_exit_to_user_mode+0x97/0xc0
+>   [    0.912538]  ? do_syscall_64+0x94/0x170
+>   [    0.912902]  ? syscall_exit_to_user_mode+0x97/0xc0
+>   [    0.913353]  ? do_syscall_64+0x94/0x170
+>   [    0.913709]  ? clear_bhb_loop+0x45/0xa0
+>   [    0.914071]  ? clear_bhb_loop+0x45/0xa0
+>   [    0.914428]  ? clear_bhb_loop+0x45/0xa0
+>   [    0.914767]  entry_SYSCALL_64_after_hwframe+0x76/0x7e
+>   [    0.915089] RIP: 0033:0x7ffb713dc1fd
+>   [    0.915316] Code: ff c3 66 2e 0f 1f 84 00 00 00 00 00 90 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d e3 fa 0c 00 f7 d8 64 89 01 48
+>   [    0.916491] RSP: 002b:00007ffffc4454a8 EFLAGS: 00000246 ORIG_RAX: 0000000000000139
+>   [    0.916964] RAX: ffffffffffffffda RBX: 000055f28c6a5420 RCX: 00007ffb713dc1fd
+>   [    0.917413] RDX: 0000000000000000 RSI: 000055f26c40cc03 RDI: 0000000000000003
+>   [    0.917858] RBP: 00007ffffc445560 R08: 0000000000000001 R09: 00007ffffc4454f0
+>   [    0.918302] R10: 0000000000000040 R11: 0000000000000246 R12: 000055f26c40cc03
+>   [    0.918748] R13: 0000000000060000 R14: 000055f28c6a4b50 R15: 000055f28c6ac5b0
+>   [    0.919211]  </TASK>
+>   [    0.919356] Modules linked in: crc32c_intel(+)
+>   [    0.919661] ---[ end trace 0000000000000000 ]---
+> 
+> I also see some other WARNs interleaved along the lines of
+> 
+>   [    0.982759] no CFI hash found at: 0xffffffffc0608000 ffffffffc0608000 cc cc cc cc cc
+>   [    0.982767] WARNING: CPU: 5 PID: 170 at arch/x86/kernel/alternative.c:1204 __apply_fineibt+0xa6d/0xab0
+> 
+> The console appears to be a bit of a mess after that initial message.
+> 
+> If there is any more information I can provide or patches I can test, I
+> am more than happy to do so.
+ 
+I've got similar report from kbuild bot a few days ago:
+https://lore.kernel.org/all/202410202257.b7edc376-lkp@intel.com
 
-Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
----
- .../pinctrl/sophgo,sg2042-pinctrl.yaml        |  96 +++++++++
- include/dt-bindings/pinctrl/pinctrl-sg2042.h  | 196 ++++++++++++++++++
- 2 files changed, 292 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/pinctrl/sophgo,sg2042-pinctrl.yaml
- create mode 100644 include/dt-bindings/pinctrl/pinctrl-sg2042.h
+I fixed fineibt handling in v7:
+https://lore.kernel.org/linux-mm/20241023162711.2579610-1-rppt@kernel.org
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/sophgo,sg2042-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/sophgo,sg2042-pinctrl.yaml
-new file mode 100644
-index 000000000000..5060deacd580
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pinctrl/sophgo,sg2042-pinctrl.yaml
-@@ -0,0 +1,96 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pinctrl/sophgo,sg2042-pinctrl.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Sophgo SG2042 Pin Controller
-+
-+maintainers:
-+  - Inochi Amaoto <inochiama@outlook.com>
-+
-+properties:
-+  compatible:
-+    enum:
-+      - sophgo,sg2042-pinctrl
-+
-+  reg:
-+    maxItems: 1
-+
-+patternProperties:
-+  '-cfg$':
-+    type: object
-+    description:
-+      A pinctrl node should contain at least one subnode representing the
-+      pinctrl groups available on the machine.
-+
-+    additionalProperties: false
-+
-+    patternProperties:
-+      '-pins$':
-+        type: object
-+        description: |
-+          Each subnode will list the pins it needs, and how they should
-+          be configured, with regard to muxer configuration, bias input
-+          enable/disable, input schmitt trigger enable, drive strength
-+          output enable/disable state. For configuration detail,
-+          refer to https://github.com/sophgo/sophgo-doc/.
-+
-+        allOf:
-+          - $ref: pincfg-node.yaml#
-+          - $ref: pinmux-node.yaml#
-+
-+        properties:
-+          pinmux:
-+            description: |
-+              The list of GPIOs and their mux settings that properties in the
-+              node apply to. This should be set using the GPIOMUX
-+              macro.
-+
-+          bias-disable: true
-+
-+          bias-pull-up:
-+            type: boolean
-+
-+          bias-pull-down:
-+            type: boolean
-+
-+          drive-strength-microamp:
-+            description: typical current when output high level.
-+            enum: [ 4300, 6400, 8500, 10600, 12800, 14900, 17000, 19100,
-+                    21200, 23300, 25500, 27600, 29700, 31800, 33900, 36000]
-+
-+          input-schmitt-enable: true
-+
-+          input-schmitt-disable: true
-+
-+        required:
-+          - pinmux
-+
-+        additionalProperties: false
-+
-+required:
-+  - compatible
-+  - reg
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/pinctrl/pinctrl-sg2042.h>
-+
-+    pinctrl@30011000 {
-+        compatible = "sophgo,sg2042-pinctrl";
-+        reg = <30011000 0x1000>;
-+
-+        uart0_cfg: uart0-cfg {
-+            uart0-pins {
-+                pinmux = <PINMUX(PIN_UART0_TX, 0)>,
-+                         <PINMUX(PIN_UART0_RX, 0)>;
-+                bias-pull-up;
-+                drive-strength-microamp = <10600>;
-+            };
-+        };
-+    };
-+
-+...
-diff --git a/include/dt-bindings/pinctrl/pinctrl-sg2042.h b/include/dt-bindings/pinctrl/pinctrl-sg2042.h
-new file mode 100644
-index 000000000000..79d5bb8e04f8
---- /dev/null
-+++ b/include/dt-bindings/pinctrl/pinctrl-sg2042.h
-@@ -0,0 +1,196 @@
-+/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
-+/*
-+ * Copyright (C) 2024 Inochi Amaoto <inochiama@outlook.com>
-+ *
-+ */
-+
-+#ifndef _DT_BINDINGS_PINCTRL_SG2042_H
-+#define _DT_BINDINGS_PINCTRL_SG2042_H
-+
-+#define PINMUX(pin, mux) \
-+	(((pin) & 0xffff) | (((mux) & 0xff) << 16))
-+
-+#define PIN_LPC_LCLK			0
-+#define PIN_LPC_LFRAME			1
-+#define PIN_LPC_LAD0			2
-+#define PIN_LPC_LAD1			3
-+#define PIN_LPC_LAD2			4
-+#define PIN_LPC_LAD3			5
-+#define PIN_LPC_LDRQ0			6
-+#define PIN_LPC_LDRQ1			7
-+#define PIN_LPC_SERIRQ			8
-+#define PIN_LPC_CLKRUN			9
-+#define PIN_LPC_LPME			10
-+#define PIN_LPC_LPCPD			11
-+#define PIN_LPC_LSMI			12
-+#define PIN_PCIE0_L0_RESET		13
-+#define PIN_PCIE0_L1_RESET		14
-+#define PIN_PCIE0_L0_WAKEUP		15
-+#define PIN_PCIE0_L1_WAKEUP		16
-+#define PIN_PCIE0_L0_CLKREQ_IN		17
-+#define PIN_PCIE0_L1_CLKREQ_IN		18
-+#define PIN_PCIE1_L0_RESET		19
-+#define PIN_PCIE1_L1_RESET		20
-+#define PIN_PCIE1_L0_WAKEUP		21
-+#define PIN_PCIE1_L1_WAKEUP		22
-+#define PIN_PCIE1_L0_CLKREQ_IN		23
-+#define PIN_PCIE1_L1_CLKREQ_IN		24
-+#define PIN_SPIF0_CLK_SEL1		25
-+#define PIN_SPIF0_CLK_SEL0		26
-+#define PIN_SPIF0_WP			27
-+#define PIN_SPIF0_HOLD			28
-+#define PIN_SPIF0_SDI			29
-+#define PIN_SPIF0_CS			30
-+#define PIN_SPIF0_SCK			31
-+#define PIN_SPIF0_SDO			32
-+#define PIN_SPIF1_CLK_SEL1		33
-+#define PIN_SPIF1_CLK_SEL0		34
-+#define PIN_SPIF1_WP			35
-+#define PIN_SPIF1_HOLD			36
-+#define PIN_SPIF1_SDI			37
-+#define PIN_SPIF1_CS			38
-+#define PIN_SPIF1_SCK			39
-+#define PIN_SPIF1_SDO			40
-+#define PIN_EMMC_WP			41
-+#define PIN_EMMC_CD			42
-+#define PIN_EMMC_RST			43
-+#define PIN_EMMC_PWR_EN			44
-+#define PIN_SDIO_CD			45
-+#define PIN_SDIO_WP			46
-+#define PIN_SDIO_RST			47
-+#define PIN_SDIO_PWR_EN			48
-+#define PIN_RGMII0_TXD0			49
-+#define PIN_RGMII0_TXD1			50
-+#define PIN_RGMII0_TXD2			51
-+#define PIN_RGMII0_TXD3			52
-+#define PIN_RGMII0_TXCTRL		53
-+#define PIN_RGMII0_RXD0			54
-+#define PIN_RGMII0_RXD1			55
-+#define PIN_RGMII0_RXD2			56
-+#define PIN_RGMII0_RXD3			57
-+#define PIN_RGMII0_RXCTRL		58
-+#define PIN_RGMII0_TXC			59
-+#define PIN_RGMII0_RXC			60
-+#define PIN_RGMII0_REFCLKO		61
-+#define PIN_RGMII0_IRQ			62
-+#define PIN_RGMII0_MDC			63
-+#define PIN_RGMII0_MDIO			64
-+#define PIN_PWM0			65
-+#define PIN_PWM1			66
-+#define PIN_PWM2			67
-+#define PIN_PWM3			68
-+#define PIN_FAN0			69
-+#define PIN_FAN1			70
-+#define PIN_FAN2			71
-+#define PIN_FAN3			72
-+#define PIN_IIC0_SDA			73
-+#define PIN_IIC0_SCL			74
-+#define PIN_IIC1_SDA			75
-+#define PIN_IIC1_SCL			76
-+#define PIN_IIC2_SDA			77
-+#define PIN_IIC2_SCL			78
-+#define PIN_IIC3_SDA			79
-+#define PIN_IIC3_SCL			80
-+#define PIN_UART0_TX			81
-+#define PIN_UART0_RX			82
-+#define PIN_UART0_RTS			83
-+#define PIN_UART0_CTS			84
-+#define PIN_UART1_TX			85
-+#define PIN_UART1_RX			86
-+#define PIN_UART1_RTS			87
-+#define PIN_UART1_CTS			88
-+#define PIN_UART2_TX			89
-+#define PIN_UART2_RX			90
-+#define PIN_UART2_RTS			91
-+#define PIN_UART2_CTS			92
-+#define PIN_UART3_TX			93
-+#define PIN_UART3_RX			94
-+#define PIN_UART3_RTS			95
-+#define PIN_UART3_CTS			96
-+#define PIN_SPI0_CS0			97
-+#define PIN_SPI0_CS1			98
-+#define PIN_SPI0_SDI			99
-+#define PIN_SPI0_SDO			100
-+#define PIN_SPI0_SCK			101
-+#define PIN_SPI1_CS0			102
-+#define PIN_SPI1_CS1			103
-+#define PIN_SPI1_SDI			104
-+#define PIN_SPI1_SDO			105
-+#define PIN_SPI1_SCK			106
-+#define PIN_JTAG0_TDO			107
-+#define PIN_JTAG0_TCK			108
-+#define PIN_JTAG0_TDI			109
-+#define PIN_JTAG0_TMS			110
-+#define PIN_JTAG0_TRST			111
-+#define PIN_JTAG0_SRST			112
-+#define PIN_JTAG1_TDO			113
-+#define PIN_JTAG1_TCK			114
-+#define PIN_JTAG1_TDI			115
-+#define PIN_JTAG1_TMS			116
-+#define PIN_JTAG1_TRST			117
-+#define PIN_JTAG1_SRST			118
-+#define PIN_JTAG2_TDO			119
-+#define PIN_JTAG2_TCK			120
-+#define PIN_JTAG2_TDI			121
-+#define PIN_JTAG2_TMS			122
-+#define PIN_JTAG2_TRST			123
-+#define PIN_JTAG2_SRST			124
-+#define PIN_GPIO0			125
-+#define PIN_GPIO1			126
-+#define PIN_GPIO2			127
-+#define PIN_GPIO3			128
-+#define PIN_GPIO4			129
-+#define PIN_GPIO5			130
-+#define PIN_GPIO6			131
-+#define PIN_GPIO7			132
-+#define PIN_GPIO8			133
-+#define PIN_GPIO9			134
-+#define PIN_GPIO10			135
-+#define PIN_GPIO11			136
-+#define PIN_GPIO12			137
-+#define PIN_GPIO13			138
-+#define PIN_GPIO14			139
-+#define PIN_GPIO15			140
-+#define PIN_GPIO16			141
-+#define PIN_GPIO17			142
-+#define PIN_GPIO18			143
-+#define PIN_GPIO19			144
-+#define PIN_GPIO20			145
-+#define PIN_GPIO21			146
-+#define PIN_GPIO22			147
-+#define PIN_GPIO23			148
-+#define PIN_GPIO24			149
-+#define PIN_GPIO25			150
-+#define PIN_GPIO26			151
-+#define PIN_GPIO27			152
-+#define PIN_GPIO28			153
-+#define PIN_GPIO29			154
-+#define PIN_GPIO30			155
-+#define PIN_GPIO31			156
-+#define PIN_MODE_SEL0			157
-+#define PIN_MODE_SEL1			158
-+#define PIN_MODE_SEL2			159
-+#define PIN_BOOT_SEL0			160
-+#define PIN_BOOT_SEL1			161
-+#define PIN_BOOT_SEL2			162
-+#define PIN_BOOT_SEL3			163
-+#define PIN_BOOT_SEL4			164
-+#define PIN_BOOT_SEL5			165
-+#define PIN_BOOT_SEL6			166
-+#define PIN_BOOT_SEL7			167
-+#define PIN_MULTI_SCKT			168
-+#define PIN_SCKT_ID0			169
-+#define PIN_SCKT_ID1			170
-+#define PIN_PLL_CLK_IN_MAIN		171
-+#define PIN_PLL_CLK_IN_DDR_L		172
-+#define PIN_PLL_CLK_IN_DDR_R		173
-+#define PIN_XTAL_32K			174
-+#define PIN_SYS_RST			175
-+#define PIN_PWR_BUTTON			176
-+#define PIN_TEST_EN			177
-+#define PIN_TEST_MODE_MBIST		178
-+#define PIN_TEST_MODE_SCAN		179
-+#define PIN_TEST_MODE_BSD		180
-+#define PIN_BISR_BYP			181
-+
-+#endif /* _DT_BINDINGS_PINCTRL_SG2042_H */
+> Cheers,
+> Nathan
+> 
+
 -- 
-2.47.0
-
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
