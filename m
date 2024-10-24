@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F96ACE8E70
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Oct 2024 12:39:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B186ACE8E6F
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Oct 2024 12:39:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LgqBRy5kJFm1EkFWLHJY8RgAEcapgKKzK/L300BtqOo=; b=uxJc+4Kq1wVi8x
-	dwMmyIThJVBQn/DyfaLCfESQJJNKFiX/7wOCYwRpsNtL1VUYNuF+UTYAjsg8vxrgZcKCTbsNtEoIx
-	+Aq1+LC7XhTW8wPxbMowZK8rej53xoAY1R0Cs8KZkHdxn1uSdmEurbwx4riXnnnr2biNi/Z9kbqhz
-	6Xhri+GsvSQe0zlWgO2FqWotKM7vjkQEudTt0N9/zY4//zsxx4HBFCpNmwFEjMkg7sE1L//HMNfoa
-	O7hc/iqjKu23zcg8LPZ2O5xULag+cP/x3hD0oTxU9z4xSdvpLDkvgxxDp/SK65IdP/3cCBHB4WOge
-	CWdZh4vFZ05UT3+h86nw==;
+	List-Owner; bh=ySc7AYwpHOnzUaOnI0iqeAdTnpfAXIud0fuhDdUemUA=; b=unqR9BzZgl5xcd
+	WSPt0wlulNgYy5zMnKMwvZZElQ5J+qaVfh5GM3OuITU40UMwrxuoMRA63hFP6yqMoD7TOpba4bJno
+	86DveQ8F8kPYD5AvjWt5ETP29q6yb8nUjc43qZMu2Xyng9qCnRpKEk5Ewd9bZettbtyrT9jXFO2hm
+	tgysSKswux51X9KPluG41D4arkO4Rae7fin9oetGB39WaLXPk797iUc3IRqHCV7jMEL0CNQRpPELu
+	EIdtem4W/26hbsknRZCnXQd9US0QzIXhy1oHEK/EQB3SUxLrksC7frjd/i6DNBDYL1tOJcR8SLLwA
+	Ei+VLaZcjWOdACnS5kYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3x7m-00000000MyX-3qh0;
-	Thu, 24 Oct 2024 12:39:34 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t3x7k-00000000MxI-3TLR;
+	Thu, 24 Oct 2024 12:39:32 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3x3D-00000000M4x-1gh4
+	id 1t3x35-00000000M0f-0LHe
 	for linux-riscv@lists.infradead.org;
-	Thu, 24 Oct 2024 12:34:52 +0000
+	Thu, 24 Oct 2024 12:34:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6763CA44F2F;
-	Thu, 24 Oct 2024 12:34:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDCE2C4CEC7;
-	Thu, 24 Oct 2024 12:34:47 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id A9D0E5C5EF8;
+	Thu, 24 Oct 2024 12:34:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0377C4CECC;
+	Thu, 24 Oct 2024 12:34:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729773290;
-	bh=K3gXF6XbnmUL4vxccwBpDJwpWrMAwTUAMTHCmMZNmhU=;
+	s=k20201202; t=1729773282;
+	bh=wSLCfX8wndX+rlS9G+CmOUl2Cwte9stfmakvhsfLyUc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=E2OCOXA1DSNsWokyzFT/mLl5SxryxKZX+3uEFZQikGCaaPIBuqawl6DMXGiXvLUAA
-	 nuqpD+M4WL6rs5QZnaRH5R45WA2EM5M7L+44oDQ/AtqvIzLPji6QNDVFJqv4yoVQbi
-	 G/BZVS3T7GhoCcLBTJLwBlVVHeo+nReL0wEXLfBNloyz2c4Ox9Slr1VPJCEebXan+L
-	 dTc/8m54UOThkT5CrsY16Eyj/yeWy66zIwBkD+1qPvwGuCEvFlweX1Ul5N64E6Dq4M
-	 srpEbt7N6AyG/yjLAd4VzAz/BkcrYwc+/Z9XKdk7ySHhG1ViO5IVOjfEIuy83lMtVy
-	 4a/EtsGZcGeqg==
+	b=iJptutNj5MijtBI9tMs3A1CwAXFGnS8Xtq7G5VnIKvaBVZDYSyyo2PBRt6smOgNwP
+	 1RcfX/Kmt8V2Nn/jpLk3AKIqsMB5XelikZMqVSwAcJlCEroRR3M+8jMODx6T62/cLc
+	 DVFW5KTylQDIS29154ZuSUYCC/JVORfVJT7VvQg7s/G5VT6DRPK9M2TXxNJ7PvteF4
+	 sN2BpJ89g6xCjKw2d52dprCAKOmAQS/ggUyMsNmKTLzKwRZqnXiBBmDXU20/bMm780
+	 MVu4xpa7ZZfEzwE8r7rOQEk7M08YoLhcCl53/Hs0VeDOoTvqNVB6JcGKaL1hQkrHDv
+	 JXxx5eYtZdqyw==
 From: Conor Dooley <conor@kernel.org>
 To: linux-riscv@lists.infradead.org
 Cc: conor@kernel.org,
@@ -53,21 +53,19 @@ Cc: conor@kernel.org,
 	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
 	Andy Chiu <andybnac@gmail.com>,
 	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v2 5/5] dt-bindings: riscv: document vector crypto requirements
-Date: Thu, 24 Oct 2024 13:34:33 +0100
-Message-ID: <20241024-pungent-lasso-42dd3512a3c8@spud>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 2/5] RISC-V: add f & d extension validation checks
+Date: Thu, 24 Oct 2024 13:34:30 +0100
+Message-ID: <20241024-only-crepe-64267d0eebe1@spud>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20241024-fanning-enrage-bcc39f8ed47d@spud>
 References: <20241024-fanning-enrage-bcc39f8ed47d@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2037; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=VOy2t1F9TKOOPNx3M+MXPHgxN3iDgl3UPDedDE/djSQ=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDOlSdtes2OevZCwRtevndV7gEHIv9262WM9tzomNe3Z+K //45+DdjlIWBjEOBlkxRZbE230tUuv/uOxw7nkLM4eVCWQIAxenAExkzndGhn7rDdXb5CRP8WyW 3XL2n4Tnfl2WpeH5b3qLH0+d83Jl71VGholrOFib/4X9zJPsnjjzvdihro2/X8bKyoXfuv7+8hn bbQwA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2981; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=UvTI7yQ4XDO7pBfMOp39hyEWkU6sqFWGVmdNeuF8vEc=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDOlSdldvG/5Z/lq47UnO8or4cNXwyGtqPHNaZoXnf9iUN n21otXbjlIWBjEOBlkxRZbE230tUuv/uOxw7nkLM4eVCWQIAxenAExkXxrDHw537uJ5H1jc//9k utO/bov9ceNitVvn7u2p41zyo61HL5Dhf5WNs8AxESdemY+rLqkJim26lJqhqnVA7OiOq18V7/1 fwgUA
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_053451_628960_E99E6257 
-X-CRM114-Status: UNSURE (   6.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241024_053443_234567_BB8A0295 
+X-CRM114-Status: GOOD (  14.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,65 +84,84 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-Section 35.2. Extensions Overview of [1] says:
-| The Zvknhb and Zvbc Vector Crypto Extensions --and accordingly the composite extensions Zvkn and
-| Zvks-- (sic) require a Zve64x base, or application ("V") base Vector Extension.
-| All of the other Vector Crypto Extensions can be built on any embedded (Zve*) or application ("V") base
-| Vector Extension
+Using Clement's new validation callbacks, support checking that
+dependencies have been satisfied for the floating point extensions.
 
-Apply these rules in the binding, so that invalid combinations can be
-avoided.
+The check for "d" might be slightly confusingly shorter than that of "f",
+despite "d" depending on "f". This is because the requirement that a
+hart supporting double precision must also support single precision,
+should be validated by dt-bindings etc, not the kernel but lack of
+support for single precision only is a limitation of the kernel.
 
-Link: https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-isa-release-698e64a-2024-09-09 [1]
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Since vector will now be disabled proactively, there's no need to clear
+the bit in elf_hwcap in riscv_fill_hwcap() any longer.
+
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../devicetree/bindings/riscv/extensions.yaml | 32 +++++++++++++++++++
- 1 file changed, 32 insertions(+)
+ arch/riscv/kernel/cpufeature.c | 36 +++++++++++++++++++++++-----------
+ 1 file changed, 25 insertions(+), 11 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
-index 20cead7d8af71..38d77043552a3 100644
---- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-+++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-@@ -658,6 +658,38 @@ properties:
-             - contains:
-                 const: zve64f
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 020b19edee2e8..1326049d2ac3b 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -101,6 +101,29 @@ static int riscv_ext_zicboz_validate(const struct riscv_isa_ext_data *data,
+ 	return 0;
+ }
  
-+      - if:
-+          contains:
-+            anyOf:
-+              - const: zvbc
-+              - const: zvkn
-+              - const: zvknhb
-+              - const: zvks
-+        then:
-+          contains:
-+            anyOf:
-+              - const: v
-+              - const: zve64x
++static int riscv_ext_f_validate(const struct riscv_isa_ext_data *data,
++				const unsigned long *isa_bitmap)
++{
++	if (!__riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_d)) {
++		pr_warn_once("This kernel does not support systems with F but not D\n");
++		return -EINVAL;
++	}
 +
-+      - if:
-+          contains:
-+            anyOf:
-+              - const: zvbb
-+              - const: zvkb
-+              - const: zvkg
-+              - const: zvkned
-+              - const: zvknha
-+              - const: zvksed
-+              - const: zvksh
-+              - const: zvknc
-+              - const: zvkng
-+              - const: zvkt
-+        then:
-+          contains:
-+            anyOf:
-+              - const: v
-+              - const: zve32x
++	if (!IS_ENABLED(CONFIG_FPU))
++		return -EINVAL;
 +
- allOf:
-   # Zcf extension does not exist on rv64
-   - if:
++	return 0;
++}
++
++static int riscv_ext_d_validate(const struct riscv_isa_ext_data *data,
++				const unsigned long *isa_bitmap)
++{
++	if (!IS_ENABLED(CONFIG_FPU))
++		return -EINVAL;
++
++	return 0;
++}
++
+ static int riscv_ext_vector_x_validate(const struct riscv_isa_ext_data *data,
+ 				     const unsigned long *isa_bitmap)
+ {
+@@ -350,8 +373,8 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+ 	__RISCV_ISA_EXT_DATA(i, RISCV_ISA_EXT_i),
+ 	__RISCV_ISA_EXT_DATA(m, RISCV_ISA_EXT_m),
+ 	__RISCV_ISA_EXT_DATA(a, RISCV_ISA_EXT_a),
+-	__RISCV_ISA_EXT_DATA(f, RISCV_ISA_EXT_f),
+-	__RISCV_ISA_EXT_DATA(d, RISCV_ISA_EXT_d),
++	__RISCV_ISA_EXT_DATA_VALIDATE(f, RISCV_ISA_EXT_f, riscv_ext_f_validate),
++	__RISCV_ISA_EXT_DATA_VALIDATE(d, RISCV_ISA_EXT_d, riscv_ext_d_validate),
+ 	__RISCV_ISA_EXT_DATA(q, RISCV_ISA_EXT_q),
+ 	__RISCV_ISA_EXT_SUPERSET(c, RISCV_ISA_EXT_c, riscv_c_exts),
+ 	__RISCV_ISA_EXT_SUPERSET_VALIDATE(v, RISCV_ISA_EXT_v, riscv_v_exts, riscv_ext_vector_float_validate),
+@@ -910,15 +933,6 @@ void __init riscv_fill_hwcap(void)
+ 		}
+ 	}
+ 
+-	/*
+-	 * We don't support systems with F but without D, so mask those out
+-	 * here.
+-	 */
+-	if ((elf_hwcap & COMPAT_HWCAP_ISA_F) && !(elf_hwcap & COMPAT_HWCAP_ISA_D)) {
+-		pr_info("This kernel does not support systems with F but not D\n");
+-		elf_hwcap &= ~COMPAT_HWCAP_ISA_F;
+-	}
+-
+ 	if (__riscv_isa_extension_available(NULL, RISCV_ISA_EXT_ZVE32X)) {
+ 		/*
+ 		 * This cannot fail when called on the boot hart
 -- 
 2.45.2
 
