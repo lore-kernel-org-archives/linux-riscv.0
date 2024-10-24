@@ -4,79 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1012CD0BB58
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Oct 2024 03:39:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAF03D0BB5E
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Oct 2024 05:10:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=g5t9/wBPMz4KQZETPXGLp5SOfqnfcQeoXHlytXs6o2s=; b=btgP+WFt2WJg+r
-	kx9rzKB8RflSZRVnUFtxHBAx3D76m3N8DAgSQz8jetk4JT1xXxE3It5Q4H8JmXxBNK2VJiyZU5qad
-	/O8VaKFKgjVzGETSW4gVe3CnkEE93jQzVTD/EBo6DhKyMCGOQqyAclrS6Mp6bNjSxTQ037p/S2lWf
-	QA2qjXSyKpN6Ehnv76jOeFEy0GK9cll/7l3oAbwDFvdN5NYCY3ijIdBZpsZOQyLAKTE9LBi1yq47+
-	3amE6NbAgVbbPg6xS000k7OjTMs6GhHykHTXtZe3M/VZrtnT40y9xssrJm5eTO1j8LEtZAW/77WoS
-	hExzlTcP+cNarZLd1XnQ==;
+	List-Owner; bh=agGTFMSKwnt8ASPMZDeWty28HUUaQ6EI5Wprnj4CVaM=; b=a4EjmDCmfurhGx
+	TW7nl+ohMCSI91zt4gGea9KhU7h7JF537hIjlUnnzoNaaQDe5Ys72Cx/PbW2wLcQS0mbKa9EL0d7/
+	naSA7ECFN/EI1hOORDBN0bd44eaAUtDwdZd+14jlLFWkLlpLwKUCmJL7VXUj9qy/lpYi2+gEQx/Nu
+	n86X4lLpVNkexy+9OUgJMxkd81U6yDd4O8CkAU5Iqzt/wEC7NtYjUGcLCwwDTe02+HBT02NMgm30b
+	K/W16JMda8Ij7EBbAEOVCZ44yJ0/ZXE5LoM31HjR3GSCAbWMF0EHv+cq0cLw79OvH/5QhvbO564Fc
+	xVPvRdMn5L6R3s422t8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3ohM-0000000Gd8e-3PGj;
-	Thu, 24 Oct 2024 03:39:44 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1t3q79-0000000Glfj-1CJ2;
+	Thu, 24 Oct 2024 05:10:27 +0000
+Received: from mail-io1-xd2b.google.com ([2607:f8b0:4864:20::d2b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3ofm-0000000Gcva-3w3d;
-	Thu, 24 Oct 2024 03:38:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1729741060; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=nX8OPXDW2cthIEqTMyQQblZpQUeRm1tlYext1Oo30sTtYHYcktbP6QkNaRaRkvMdBZhtUx8VMyuOZ1yo+FGGeGS0iCscen2p3GnJ1SyL8u2H85tjngG+AQ708fA/Wbe6xOriUcybgk3FqcZLV5d+YhhpIyUQHTpiQ1V0GZwo2ow=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1729741060; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=4wf2lEGNiKikemuz3JoVmC7ikUs3mn2DyQw2oAk/xb4=; 
-	b=XjLhS44GYUwiRMfeiBLSXehbyRQHvo6kaknTjIG114GAewi+zh78rAsKEHBbblqZNUaD0HYnVdKY6QBZ6HfPRPHw1RR+8ptBY9I6yekRvVWAnJN/gZfNwiXZ1CivAP7+qd4eraONzUwIs+Q/hbulsRZ56dZh8+L2v3nWUBAIzd4=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=dmitry.osipenko@collabora.com;
-	dmarc=pass header.from=<dmitry.osipenko@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1729741060;
-	s=zohomail; d=collabora.com; i=dmitry.osipenko@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=4wf2lEGNiKikemuz3JoVmC7ikUs3mn2DyQw2oAk/xb4=;
-	b=cQ8vcj5jczCZFZamwVhgcpKC2ZP4/1MdOILVTF2hjwXwseYRu8QXQXCHBGN8Z7WZ
-	5WRt1sT0vEYnud2HTzfxLFosZXJPwKulFSBtZYX0ZqRX2NJ5tO7GS2OAuoHhYA9KkpX
-	kVPN3Qtgq2O/ILYUE5VKlxxBj81B828bnHdKV/qo=
-Received: by mx.zohomail.com with SMTPS id 1729741058928285.49991825731297;
-	Wed, 23 Oct 2024 20:37:38 -0700 (PDT)
-Message-ID: <03c316c7-5268-40cd-af1c-4c8454506ab2@collabora.com>
-Date: Thu, 24 Oct 2024 06:37:28 +0300
+	id 1t3q5X-0000000GlUL-1m9C;
+	Thu, 24 Oct 2024 05:08:48 +0000
+Received: by mail-io1-xd2b.google.com with SMTP id ca18e2360f4ac-83aae6aba1aso20364839f.2;
+        Wed, 23 Oct 2024 22:08:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1729746526; x=1730351326; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=h+fsHdO3eEGRLBsyxvQ4eLN0TAO1AeUct9QR19BrA5o=;
+        b=YroKnSaWeE2jdbnRY6Fa1pT8AnCSheWel76A77e23+3LGtBj3kqpmPBO48BINYCeCC
+         ehdJ6XaylFn7CABHDULApTU44/h13inTwcv7DuHIeljLAfJSHOjBub/2eV4aVwnKVnOF
+         Bo90jr1QJvjZKoasXAF8JguztGYblxr4QDcspF/lLeSx7+ihAAr+ReVKahsfynAdGZgF
+         WlHtj08nQqYFiOkAnSbIFVuSU0M/0x7LCPVXSBaAlvhjBYX9QqQQ0Rxbb9xuQHRUp4wt
+         1EfphltZIqpI0KZiFni59st6UbTqcrkVn0Rd3RaGOn3vzmSOlOQ3GcnitoiGUbYXfDEZ
+         9KVg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729746526; x=1730351326;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=h+fsHdO3eEGRLBsyxvQ4eLN0TAO1AeUct9QR19BrA5o=;
+        b=IovxbvqwF7F9Rbx3lUKAi6glO4+QXek8T+eWx/hV4/5Itph7d1Njvcuvr0VVqWFZhb
+         FONy9RJddgLhjSiXrdhta/nWHiIiskz6nmum03s3wgkCa6XB/ewCso/2D1tOOFze7MS2
+         ZUNpXc33kHenuvVHXI+tpq/FU91HbgY6k/36GeHZCMAxEpYPE8BkQoihy+/qCTWhTTq0
+         lDEIA3GBWbWLxfWULhw0nOfgr1rrj1e0n57jpOrq0ZbQHlU4n/cxflG7PSOipylf0EFl
+         8CNbwMqCyQFzhxkCtZnN+ln6RLdAws+sOQQAAMo3+fA9rOV5wp9o+gHI3qDd1Dz7ACVW
+         E+Vg==
+X-Forwarded-Encrypted: i=1; AJvYcCUHjuhlZpYNGPVzCwcChI60mbingo5jGpgu4Wio1G4lJ25h1XbC1H2YdITgPMButuN9byi/XYM/tZvSS/rVJid4@lists.infradead.org, AJvYcCW2Ske96EtBnelPHVEQNUXFR77PCAk9GjbnZqdjvsVvvRj2X/7PDyhbhHR1lSv+LdF8/MrwislKNssG7mQ=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxgyB1T3qSGVo1e7QMt5+Hn0Q1AYTyeDv7cKEZISjhZ25Vw61T6
+	zxY83ovF2kfw1v+hY5fxnRyQnOytmqJ2zT8dDT9ZkLAzBdJYS6NN
+X-Google-Smtp-Source: AGHT+IG5X1vksF/tv0wq/h048to95RzgD7AYZAZKnCMoZdlNaKEv7NrmBxQKxyy/6w+cY2qtmyTkfA==
+X-Received: by 2002:a05:6602:15c6:b0:83a:a305:d9f3 with SMTP id ca18e2360f4ac-83af61f1857mr646877539f.12.1729746526016;
+        Wed, 23 Oct 2024 22:08:46 -0700 (PDT)
+Received: from localhost ([121.250.214.124])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7eaeabc118fsm7788874a12.70.2024.10.23.22.08.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Oct 2024 22:08:45 -0700 (PDT)
+Date: Thu, 24 Oct 2024 13:08:24 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
+	Inochi Amaoto <inochiama@gmail.com>, Chen Wang <unicorn_wang@outlook.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Inochi Amaoto <inochiama@outlook.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Jose Abreu <joabreu@synopsys.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>
+Cc: Yixun Lan <dlan@gentoo.org>, netdev@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 2/4] dt-bindings: net: Add support for Sophgo SG2044 dwmac
+Message-ID: <o46c732wznqvz2p4gkqtjjratxwrgntw4mqballph7fjitvmhw@lylkpsqdp2ar>
+References: <20241021103617.653386-1-inochiama@gmail.com>
+ <20241021103617.653386-3-inochiama@gmail.com>
+ <CAJM55Z8SnjQFui0J2hOD34HmBsGqZfxn8e_KAWhXxiqswqv6Ww@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 00/85] KVM: Stop grabbing references to PFNMAP'd pages
-To: Sean Christopherson <seanjc@google.com>,
- Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao
- <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
- Huacai Chen <chenhuacai@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
- Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Janosch Frank <frankja@linux.ibm.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>
-Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, loongarch@lists.linux.dev,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, =?UTF-8?Q?Alex_Benn=C3=A9e?=
- <alex.bennee@linaro.org>, Yan Zhao <yan.y.zhao@intel.com>,
- David Matlack <dmatlack@google.com>, David Stevens <stevensd@chromium.org>,
- Andrew Jones <ajones@ventanamicro.com>
-References: <20241010182427.1434605-1-seanjc@google.com>
-From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20241010182427.1434605-1-seanjc@google.com>
-X-ZohoMailClient: External
+Content-Disposition: inline
+In-Reply-To: <CAJM55Z8SnjQFui0J2hOD34HmBsGqZfxn8e_KAWhXxiqswqv6Ww@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_203807_080282_588EA76A 
-X-CRM114-Status: GOOD (  14.26  )
+X-CRM114-CacheID: sfid-20241023_220847_489008_956C1091 
+X-CRM114-Status: GOOD (  19.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,54 +105,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/10/24 21:23, Sean Christopherson wrote:
-> TL;DR: Eliminate KVM's long-standing (and heinous) behavior of essentially
-> guessing which pfns are refcounted pages (see kvm_pfn_to_refcounted_page()).
+On Wed, Oct 23, 2024 at 07:41:28PM -0400, Emil Renner Berthing wrote:
+> Inochi Amaoto wrote:
+> > The GMAC IP on SG2044 is almost a standard Synopsys DesignWare MAC
+> > with some extra clock.
+> >
+> > Add necessary compatible string for this device.
+> >
+> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> > ---
+> >  .../devicetree/bindings/net/snps,dwmac.yaml   |   1 +
+> >  .../bindings/net/sophgo,sg2044-dwmac.yaml     | 145 ++++++++++++++++++
+> >  2 files changed, 146 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
+> >
+> > diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> > index 3c4007cb65f8..69f6bb36970b 100644
+> > --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> > +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> > @@ -99,6 +99,7 @@ properties:
+> >          - snps,dwmac-5.30a
+> >          - snps,dwxgmac
+> >          - snps,dwxgmac-2.10
+> > +        - sophgo,sg2044-dwmac
+> >          - starfive,jh7100-dwmac
+> >          - starfive,jh7110-dwmac
+> >
+> > diff --git a/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml b/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
+> > new file mode 100644
+> > index 000000000000..93c41550b0b6
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
+> > @@ -0,0 +1,145 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/net/sophgo,sg2044-dwmac.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: StarFive JH7110 DWMAC glue layer
 > 
-> Getting there requires "fixing" arch code that isn't obviously broken.
-> Specifically, to get rid of kvm_pfn_to_refcounted_page(), KVM needs to
-> stop marking pages/folios dirty/accessed based solely on the pfn that's
-> stored in KVM's stage-2 page tables.
+> I think you forgot to change this when you copied the binding.
 > 
-> Instead of tracking which SPTEs correspond to refcounted pages, simply
-> remove all of the code that operates on "struct page" based ona the pfn
-> in stage-2 PTEs.  This is the back ~40-50% of the series.
->  
-> For x86 in particular, which sets accessed/dirty status when that info
-> would be "lost", e.g. when SPTEs are zapped or KVM clears the dirty flag
-> in a SPTE, foregoing the updates provides very measurable performance
-> improvements for related operations.  E.g. when clearing dirty bits as
-> part of dirty logging, and zapping SPTEs to reconstitue huge pages when
-> disabling dirty logging.
+> /Emil
 > 
-> The front ~40% of the series is cleanups and prep work, and most of it is
-> x86 focused (purely because x86 added the most special cases, *sigh*).
-> E.g. several of the inputs to hva_to_pfn() (and it's myriad wrappers),
-> can be removed by cleaning up and deduplicating x86 code.
-> 
-> v13:
->  - Rebased onto v6.12-rc2
->  - Collect reviews. [Alex and others]
->  - Fix a transient bug in arm64 and RISC-V where KVM would leak a page
->    refcount. [Oliver]
->  - Fix a dangling comment. [Alex]
->  - Drop kvm_lookup_pfn(), as the x86 that "needed" it was stupid and is (was?)
->    eliminated in v6.12.
->  - Drop check_user_page_hwpoison(). [Paolo]
->  - Drop the arm64 MTE fixes that went into 6.12.
->  - Slightly redo the guest_memfd interaction to account for 6.12 changes.
 
-Thanks a lot for working on this patchset! I tested it with native
-amdgpu/intel contexts and venus/virgl with dGPU and iGPU, no problems
-spotted. Please merge sooner, this will unblock lots of new virtio-gpu
-features.
+Thanks, I will fix it.
 
-Tested-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
-
--- 
-Best regards,
-Dmitry
-
+Regards,
+Inochi
 
 _______________________________________________
 linux-riscv mailing list
