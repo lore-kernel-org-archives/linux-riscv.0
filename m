@@ -4,42 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4818D1036C
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Oct 2024 20:48:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50D79D1038D
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Oct 2024 22:29:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0+goMj1770IXu0amBJQo8HHbhPn1RMvxhkULL1iNb+8=; b=PYxD9sjQYqzbe9
-	TG+xRdeQiKTMqoeTaDacTtH4+P/RqppKAXzxMp0VWHSWJXnkf0OHORBezRBAD/KEBshYdnPqf0Ycw
-	/5Pzm5aAdNUCoPABlqo/bX8FzgVFhw/mtf/y7TkAQxvLyqX4EHs9wXAXUmaCwMWUOc9hOI7w2yWX1
-	5eR5btLRZ3rq9i4Lz+RcrwmalYm/9uFDANnY7bzDsCgdObY4IYc9L0djklQ30g35fIw87G0FmcCUu
-	qeyE1Aac7EAwsR5CB3yRgZL1EwydeJqdHYN1X5Lbq6yc+sz4dJNb8WIsgVuWGe4GTe509oNcroNJK
-	5vbNxyM1IkzQLKpaihUQ==;
+	List-Owner; bh=fMDLfoI+cOOEUxRjjp2bOCkZJSHgVGQ1mwvYIVzjEMQ=; b=kFQKFnD/4JH54K
+	SxXseCVrf2z+3BxxcCFX71MGN1XHBLlatDo+x28IUwqa7gHEozsXvqggcDKvbnoUZBZBu0GKS77KQ
+	amtHP8Taw45ENM0AMiq6KH76ovshTxSTT2EahCeQ+Xf2Kc/9ILgiYLCsi9IUSQCNb0Fl4Y9vmaYM9
+	j45hIo4jJZt2W1xF5tN3BRiNZjtHgc0AC+ZBGkzV8iHE1upeXtpGsNRsuifeHWJIgP80anWwnzLtB
+	YtARdz6j3YZQXcWxrK9F08bIOlT1kalFVCYDz1kw8Hf/iupIht6dTOIbrLRApmvyJGdcYjGdlUZ0T
+	J8J4nT5NzuUelFoinNFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t44l7-00000001mjS-2csL;
-	Thu, 24 Oct 2024 20:48:41 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1t46Km-00000001xUn-14A2;
+	Thu, 24 Oct 2024 22:29:36 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t44hM-00000001lx0-2Hl1
-	for linux-riscv@lists.infradead.org;
-	Thu, 24 Oct 2024 20:44:50 +0000
-Date: Fri, 25 Oct 2024 04:44:36 +0800
-From: Yixun Lan <dlan@gentoo.org>
-To: Conor Dooley <conor@kernel.org>
-Subject: Re: [PATCH] MAINTAINERS: setup support for SpacemiT SoC tree
-Message-ID: <20241024204436-GYB1356851@gentoo>
-References: <20241023-00-k1-maintainer-v1-1-c06b791cc2ee@gentoo.org>
- <20241024-penpal-skillet-c44a389e0d4d@spud>
+	id 1t46JC-00000001xM1-06uy;
+	Thu, 24 Oct 2024 22:27:59 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-2e2e8c8915eso1052026a91.3;
+        Thu, 24 Oct 2024 15:27:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1729808877; x=1730413677; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=fD7JZCX3WSpRYBUjkGKdk6/F/9roVP52zuSU1cyvQeQ=;
+        b=Z+bP6AhAl+uVq8/O6PSaQ0yER6WB6RLFmhVxLk7VN/RHTYozxfTWcrI0H34GvTekp/
+         +0F04eyCSKRE+VcJZX9RKKgtyytbUutcsxxFcB2Ufb/8N3x+kmfjU5lYP34UQ71qps8n
+         E9Lgryjjdcc5QoBx2PHoUGGB70/XJoycuGMJpKnI/S/MXBuWm8VO9oPp4K/8a7JYLlk5
+         tH82Gl9UbirMkY2cNoakmXnTLXennPmSgN/iOHQZqvIbdYa6+rWZfZlE9yJFSdYTChHm
+         9WfFtWfG0GPG9mXHUzHmrTvuK9KCXqL8ANyGduC11p/smMrP3SMf3Stb3uwGb0tKOT8h
+         hASw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729808877; x=1730413677;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fD7JZCX3WSpRYBUjkGKdk6/F/9roVP52zuSU1cyvQeQ=;
+        b=So6jp3AW5ox1jq8CX4GRZWjK4DWlU6Ng9O8NEDOuj8plIdh/6YQEFHwWovhnSO6FH+
+         6XpnBrGgOa+kRGBPW3jfnm0yQatPOyHurO2A0jCLYXXF5sLZjUHgpWePfHUM6jQUmzJ+
+         3WwxctY5l9CDPGu3raDKiFjE8/LCuZVjnq7oqbpRnhyOhh0YW9w2R6W9gIjBifzY7tib
+         9fjwX+NWdMpCxJaeLx8n0QXtdd/etFjfr3YGB7g3MMitFfdE8BxD1k+83l4EuE4wrUV+
+         Mu2zhULYz8fQFsZhSBbBHXIvLEzd0En/VNVcomQrFm7aUBLCcfnx8ts1xMeY8f3t9NbH
+         GP0g==
+X-Forwarded-Encrypted: i=1; AJvYcCVQm+uYpe4uJ1g2iilhXq2u4LblhqIPGbOr780g3lRJYh/Z3w9KXu7wDwA9ooLrsRley7E32RxTOb5YOXlExXzI@lists.infradead.org, AJvYcCXzwqP+/6k5tQMor8DXVpLqLQ+ETHm7kTz9+SUtMPnKudGogC+EXy0xubR+LJP4e/RPz7hW+3XnaQDJMfw=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzJHCEQQVCCy8ODlbx+hV3YWWYjLWsaaOgF3rqKDxmKfa1f+NfW
+	OyKdaXa/HWtf4VT9MLCC1T+uS8lrCJIo2GAWkdjwqy5cz/QZauq0
+X-Google-Smtp-Source: AGHT+IGQmCYk2RoxkOpXP4PJ+QT2gDC7178GzCSx0ES9YMS9JzYskSa3vPomTHV9tDwOnPLPR2pM0w==
+X-Received: by 2002:a17:90b:17c1:b0:2e0:9d3e:bc2a with SMTP id 98e67ed59e1d1-2e76b6cda50mr8866774a91.32.1729808876652;
+        Thu, 24 Oct 2024 15:27:56 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e77e57f74asm2019615a91.46.2024.10.24.15.27.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Oct 2024 15:27:56 -0700 (PDT)
+Date: Fri, 25 Oct 2024 06:27:02 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Conor Dooley <conor@kernel.org>, Inochi Amaoto <inochiama@gmail.com>
+Cc: Chen Wang <unicorn_wang@outlook.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Inochi Amaoto <inochiama@outlook.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Jose Abreu <joabreu@synopsys.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Yixun Lan <dlan@gentoo.org>, netdev@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 2/4] dt-bindings: net: Add support for Sophgo SG2044 dwmac
+Message-ID: <s2rbj66rarjs33fvmyrwtmeq562pbx7mif5fld56tnk3fm73m5@hlsufkbunu3t>
+References: <20241021103617.653386-1-inochiama@gmail.com>
+ <20241021103617.653386-3-inochiama@gmail.com>
+ <20241022-crisply-brute-45f98632ef78@spud>
+ <yt2idyivivcxctosec3lwkjbmr4tmctbs4viefxsuqlsvihdeh@alya6g27625l>
+ <20241023-paper-crease-befa8239f7f0@spud>
+ <5cv7wcdddxa4ruggrk36cwaquo5srcrjqqwefqzcju2s3yhl73@ekpyw6zrpfug>
+ <20241024-wad-dusk-3d49f9ac4dff@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20241024-penpal-skillet-c44a389e0d4d@spud>
+In-Reply-To: <20241024-wad-dusk-3d49f9ac4dff@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_134448_631236_421D5B43 
-X-CRM114-Status: GOOD (  32.03  )
+X-CRM114-CacheID: sfid-20241024_152758_095225_F88CA02A 
+X-CRM114-Status: GOOD (  28.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -51,129 +103,109 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Meng Zhang <kevin.z.m@hotmail.com>, linux-kernel@vger.kernel.org, Jesse Taube <mr.bossman075@gmail.com>, Yangyu Chen <cyy@cyyself.name>, soc@kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Inochi Amaoto <inochiama@outlook.com>, linux-riscv@lists.infradead.org, Meng Zhang <zhangmeng.kevin@spacemit.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor:
-
-once more thing, I'd like to add one additonal mailinglist info,
-which make sure all spacemit future patches flow to linux-riscv mailinglist
-
-L: linux-riscv@lists.infradead.org
-
-let me know if this is not ok?
-
-On 16:31 Thu 24 Oct     , Conor Dooley wrote:
-> On Wed, Oct 23, 2024 at 12:18:19PM +0800, Yixun Lan wrote:
-> > Add myself as maintainer of SpacemiT's SoC tree, which
-> > suggested by Conor [1].
+On Thu, Oct 24, 2024 at 06:04:31PM +0100, Conor Dooley wrote:
+> On Thu, Oct 24, 2024 at 06:38:29AM +0800, Inochi Amaoto wrote:
+> > On Wed, Oct 23, 2024 at 09:49:34PM +0100, Conor Dooley wrote:
+> > > On Wed, Oct 23, 2024 at 08:31:24AM +0800, Inochi Amaoto wrote:
+> > > > On Tue, Oct 22, 2024 at 06:28:06PM +0100, Conor Dooley wrote:
+> > > > > On Mon, Oct 21, 2024 at 06:36:15PM +0800, Inochi Amaoto wrote:
+> > > > > > The GMAC IP on SG2044 is almost a standard Synopsys DesignWare MAC
+> > > > > > with some extra clock.
+> > > > > > 
+> > > > > > Add necessary compatible string for this device.
+> > > > > > 
+> > > > > > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> > > > > > ---
+> > > > > >  .../devicetree/bindings/net/snps,dwmac.yaml   |   1 +
+> > > > > >  .../bindings/net/sophgo,sg2044-dwmac.yaml     | 145 ++++++++++++++++++
+> > > > > >  2 files changed, 146 insertions(+)
+> > > > > >  create mode 100644 Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
+> > > > > > 
+> > > > > > diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> > > > > > index 3c4007cb65f8..69f6bb36970b 100644
+> > > > > > --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> > > > > > +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> > > > > > @@ -99,6 +99,7 @@ properties:
+> > > > > >          - snps,dwmac-5.30a
+> > > > > >          - snps,dwxgmac
+> > > > > >          - snps,dwxgmac-2.10
+> > > > > > +        - sophgo,sg2044-dwmac
+> > > > > >          - starfive,jh7100-dwmac
+> > > > > >          - starfive,jh7110-dwmac
+> > > > > >  
+> > > > > > diff --git a/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml b/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
+> > > > > > new file mode 100644
+> > > > > > index 000000000000..93c41550b0b6
+> > > > > > --- /dev/null
+> > > > > > +++ b/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
+> > > > > > @@ -0,0 +1,145 @@
+> > > > > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > > > > > +%YAML 1.2
+> > > > > > +---
+> > > > > > +$id: http://devicetree.org/schemas/net/sophgo,sg2044-dwmac.yaml#
+> > > > > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > > > > > +
+> > > > > > +title: StarFive JH7110 DWMAC glue layer
+> > > > > > +
+> > > > > > +maintainers:
+> > > > > > +  - Inochi Amaoto <inochiama@gmail.com>
+> > > > > > +
+> > > > > > +select:
+> > > > > > +  properties:
+> > > > > > +    compatible:
+> > > > > > +      contains:
+> > > > > > +        enum:
+> > > > > > +          - sophgo,sg2044-dwmac
+> > > > > > +  required:
+> > > > > > +    - compatible
+> > > > > > +
+> > > > > > +properties:
+> > > > > > +  compatible:
+> > > > > > +    items:
+> > > > > > +      - const: sophgo,sg2044-dwmac
+> > > > > > +      - const: snps,dwmac-5.30a
+> > > > > > +
+> > > > > > +  reg:
+> > > > > > +    maxItems: 1
+> > > > > > +
+> > > > > > +  clocks:
+> > > > > > +    items:
+> > > > > > +      - description: GMAC main clock
+> > > > > > +      - description: PTP clock
+> > > > > > +      - description: TX clock
+> > > > > > +
+> > > > > > +  clock-names:
+> > > > > > +    items:
+> > > > > > +      - const: stmmaceth
+> > > > > > +      - const: ptp_ref
+> > > > > > +      - const: tx
+> > > > > > +
+> > > > > > +  sophgo,syscon:
+> > > > > 
+> > > > > How many dwmac instances does the sg2044 have?
+> > > > > 
+> > > > 
+> > > > Only one, there is another 100G dwxgmac instance, but it does not
+> > > > use this syscon.
+> > > 
+> > > That dwxgmac is a different device, with a different compatible etc?
 > > 
-> > Link: https://lore.kernel.org/all/20241018234615-GYA2124001@gentoo/ [1]
-> > Signed-off-by: Yixun Lan <dlan@gentoo.org>
-> > ---
-> > This will setup proper maintainer info about Spacemit's kernel tree,
-> > which should help to take soc and device tree patches, and send the
-> > pull request up to Arnd's soc tree.
-> > 
-> > I asked Kevin to host the kernel tree under SpacemiT's account
-> > on github, which should help people to get access more easily,
-> > and promote the tree a little bit.
+> > Yes, it needs a different compatiable, and maybe a new binding is needed
+> > since the 100G and 1G IP are different.
 > 
-> What do you mean by "get access more easily"?
-> 
-I'd collect all patches of spacemit (including those sent by others)
-and put them into a staging WIP branch, for people who interested to
-download/test (not strongly related to upstream work..)
+> In that case, you don't /need/ a syscon property at all, much less one
+> with offsets. You can just look up the syscon by compatible and hard
+> code the offset in the driver.
 
-for not hosting the tree at my personal account, as I'd wish more
-people to join as the maintainer, which would be easy to manage this..
+Good, look up the syscon is a good idea. Thanks for this suggestion.
 
-> In case it is not clear, noone other than those listed in the
-> maintainers entry should be pushing content to the fixes/next
-> branches and all patches must go through the mailing lists and review
-yes, I understand
-
-> process. I'm sure you're well aware of this, but I've never interacted
-> with spacemit and don't know if they are.
-> 
-yes, I will make sure them aware of this.
-
-> Make sure you add the fixes/next branches to linux-next when you have
-> the branches established.
-> 
-ok, I will send email to Stephen once this patch accepted
-
-> > I could take this patch through this spacemit's soc tree if no objection,
-> > of cource, after got ACK.
-> 
-> Yes, do it along with the base series, when that goes in.
-> 
-sure, will take it along with initial DT series
-
-> > ---
-> >  MAINTAINERS | 9 +++++++++
-> >  1 file changed, 9 insertions(+)
-> > 
-> > diff --git a/MAINTAINERS b/MAINTAINERS
-> > index e9659a5a7fb3347d649855992a559e3526d18443..4087023593f7a0b2d5c5827df682230c329f82a9 100644
-> > --- a/MAINTAINERS
-> > +++ b/MAINTAINERS
-> > @@ -19791,6 +19791,7 @@ F:	arch/riscv/boot/dts/
-> >  X:	arch/riscv/boot/dts/allwinner/
-> >  X:	arch/riscv/boot/dts/renesas/
-> >  X:	arch/riscv/boot/dts/sophgo/
-> > +X:	arch/riscv/boot/dts/spacemit/
-> >  X:	arch/riscv/boot/dts/thead/
-> 
-> Huh, this is not meant to look like that. Looks like the patch went
-> missing. I'll have to rectify that. You can drop this hunk. I'm going
-> to invert it:
-> https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/commit/?h=riscv-soc-fixes
-> 
-ok
-> >  
-> >  RISC-V PMU DRIVERS
-> > @@ -21578,6 +21579,14 @@ W:	https://linuxtv.org
-> >  Q:	http://patchwork.linuxtv.org/project/linux-media/list/
-> >  F:	drivers/media/dvb-frontends/sp2*
-> >  
-> > +SPACEMIT SoC Support
-> > +M:	Yixun Lan <dlan@gentoo.org>
-> 
-> I'd like to see someone else here, but if noone is volunteering
-> themselves, we can hardly force them!
-> 
-sure, let's give people some time to consider, and I will send an updated version
-next week..
-
-> > +S:	Maintained
-> > +T:	git https://github.com/spacemit-com/linux
-> > +F:	arch/riscv/boot/dts/spacemit/
-> > +N:	spacemit
-> > +K:	spacemit
-> > +
-> >  SPANISH DOCUMENTATION
-> >  M:	Carlos Bilbao <carlos.bilbao.osdev@gmail.com>
-> >  R:	Avadhut Naik <avadhut.naik@amd.com>
-> > 
-> > ---
-> > base-commit: 42f7652d3eb527d03665b09edac47f85fb600924
-> > change-id: 20241023-00-k1-maintainer-46eb3f31e6f2
-> > 
-> > Best regards,
-> > -- 
-> > Yixun Lan <dlan@gentoo.org>
-> > 
-
-
-
--- 
-Yixun Lan (dlan)
-Gentoo Linux Developer
-GPG Key ID AABEFD55
+Regards,
+Inochi
 
 _______________________________________________
 linux-riscv mailing list
