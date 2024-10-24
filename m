@@ -4,103 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDF09D0BB72
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Oct 2024 08:17:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FF74D0BB7F
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Oct 2024 09:44:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UWCiIrBhPvHVnWFMJMVSLG51YyHNkfBpKgq13BXvPTE=; b=ooprublbCkMNES
-	C0j6UK6vT4EZkKiThRIfFZy1kRgGjfBAMbPURxDxtgOm3q+aO4sd7hkmJzfAYJCeMjIDfsFSUNQG+
-	bjV/JHd6NQHN5Zpb2uhNp7fGleVpj9iOptKs0LGRPxbe9h3P/JuVtPVxtPvWKwRFi1AUr//MAWQIa
-	cS3u6HxB97jM+wBk8wkzKJauG6aDXbZG22GjQNGtVrNko1YIp/uepyXLc8GwmR3nNaWpgk7JtrzoF
-	GmFBwUiw/7V3Z2AUZ2s+oTZ9XVgtCL7jsbTnAo9/tKaAJnTrtnRGFLbq5H7LWOgSrRLqPhLpGaTd7
-	rDd/yb3ZDJsM3VfoiCvw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PCUapGSnfQkQbmQC5Iw8i3aKGIWxa775rGfkYmf4ook=; b=fgQe3zRatUWgqMHdWsHhAu7dhU
+	bYMIay/NUwZ+lkZyNyze7Ygn0bHZ56Wz1BHRtAVy5444G84W3zpRPKTJjjRDA1P9VrmAUPHIRxGhb
+	jDnD3in7+y35gzOjq81eLXnOjY2lrTwA7htoLKPhYMa2Ui5dwobqM7Z1iF+UvMih+9Yd/c9sSLdYU
+	K5XRoO4dTpvaqi4vCCkeV7biqThrAi8YqSaXJJ47m0XZAy2Rnb5rgU3QqJ8OOWz2KZhfIiVe1Oe3j
+	HS5+/dmwhjZyNKwrhU/XBvnE2GSvo8Dm5FvBPaNFIDmEgNxrD+jE+6a614kVASHb0zQBwaaOja/xw
+	+78Q0DVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3t2F-0000000HFn0-05YL;
-	Thu, 24 Oct 2024 08:17:35 +0000
+	id 1t3uO5-0000000HX7n-25zS;
+	Thu, 24 Oct 2024 09:44:13 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3t2B-0000000HFjy-12Ae;
-	Thu, 24 Oct 2024 08:17:33 +0000
+	id 1t3uGl-0000000HUkD-1AOp
+	for linux-riscv@lists.infradead.org;
+	Thu, 24 Oct 2024 09:36:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5129A5C53EF;
-	Thu, 24 Oct 2024 08:17:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 612D5C4CEC7;
-	Thu, 24 Oct 2024 08:16:57 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id EAE8D5C5F35;
+	Thu, 24 Oct 2024 09:36:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E91ABC4CEE6;
+	Thu, 24 Oct 2024 09:36:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729757849;
-	bh=Ox/ZYsBrrmbPK3A2QSUcQ8QfXoa69FGJYXDNNRcdBnE=;
+	s=k20201202; t=1729762597;
+	bh=zcC4+p14p6ZR5MkdPN8Cp6S/KVzMoixwgOEc8MBNQF8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kUYTT8Tx/x5v0ueXFlaIbTgM/tC1LFzcQH/Bk/9E/G27ofyIbDJ7VnB94NYJst0cv
-	 rwM3dJS8U0ddWOUUXyYJ5U2DbjwqikH39DsU8Z9vNeIPIaGV5iltmAX+1Y07CtyHuu
-	 qjH8xAIYsTm3k2jYsPE3Yg78rgh4kjznfSO7VPR6GqKUwnNvv6GGqa5UsKhK6x1lWv
-	 w5QasDDvCUMmBgmW/lX8F5rn9hH0iBupLlusSquog8hp4ocLfovmnzNHmy5eiFqmmK
-	 d1E2Of3Az/DoYE4MNq3gGFDCWEofW+6fRLAOpgssfQgrtruzoRtxJno9OxgV2pJlkI
-	 Cl6tQ0r75+5yg==
-Date: Thu, 24 Oct 2024 11:13:11 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Andy Lutomirski <luto@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>,
-	Brian Cain <bcain@quicinc.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christoph Hellwig <hch@infradead.org>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Kent Overstreet <kent.overstreet@linux.dev>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Simek <monstr@monstr.eu>, Oleg Nesterov <oleg@redhat.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
-	Stafford Horne <shorne@gmail.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linux-mm@kvack.org,
-	linux-modules@vger.kernel.org, linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org, linux-um@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v6 6/8] x86/module: prepare module loading for ROX
- allocations of text
-Message-ID: <ZxoBlwkh528r-vef@kernel.org>
-References: <20241016122424.1655560-1-rppt@kernel.org>
- <20241016122424.1655560-7-rppt@kernel.org>
- <20241021221519.GA3567210@thelio-3990X>
+	b=HEAu94QhimLFI+Xcdhg0+H3j6LGofpklHLJ+WWGpR2i5OkWMMKya53CeEfvv141VE
+	 qoU0VVsumM5mwq/RHtwNKPQ2dQc5D1RR/UfJibLjhZQx1+bvIlKs3f9XPHj0Yi6UeP
+	 G+CU7pBATyAbQJH60YISoAYxEV7ISnV5wiJjr6F35vlBSNICmfZ9baAGU2QjAJYcBI
+	 2RLMRYWASYUjBkr+qoQAxbT1Uvhebvp8FHuIbpm+2B4+7jAmt8Z4s5AAz9Ggg7CV7V
+	 gYd5CDTsx6aU3NszaMvgL1omwMwKQlW02AxEP/Jwh0jQdf5y0vhuRQbl1VJWGbeWrm
+	 misttjtDALY4g==
+Date: Thu, 24 Oct 2024 10:36:33 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Cc: linux-i2c@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Andi Shyti <andi.shyti@kernel.org>, Wolfram Sang <wsa@kernel.org>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] i2c: microchip-core: actually use repeated sends
+Message-ID: <20241024-snagged-elated-d168d0d6bf35@spud>
+References: <20240930-uneasy-dorsal-1acda9227b0d@spud>
+ <Zvu38H2Y-pRryFFQ@shikoro>
+ <20241001-haphazard-fineness-ac536ff4ae96@spud>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241021221519.GA3567210@thelio-3990X>
+In-Reply-To: <20241001-haphazard-fineness-ac536ff4ae96@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_011731_393511_5546C92E 
-X-CRM114-Status: GOOD (  30.09  )
+X-CRM114-CacheID: sfid-20241024_023639_496624_B4607553 
+X-CRM114-Status: GOOD (  49.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,133 +70,161 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1449566024261500930=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Nathan,
 
-On Mon, Oct 21, 2024 at 03:15:19PM -0700, Nathan Chancellor wrote:
-> Hi Mike,
-> 
-> On Wed, Oct 16, 2024 at 03:24:22PM +0300, Mike Rapoport wrote:
-> > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-> > 
-> > When module text memory will be allocated with ROX permissions, the
-> > memory at the actual address where the module will live will contain
-> > invalid instructions and there will be a writable copy that contains the
-> > actual module code.
-> > 
-> > Update relocations and alternatives patching to deal with it.
-> > 
-> > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> 
-> Sorry that you have to hear from me again :) It seems that module
-> loading is still broken with this version of the patch, which is
-> something that I missed in my earlier testing since I only test a
-> monolithic kernel with my regular virtual machine testing. If I build
-> and install the kernel and modules in the VM via a distribution package,
-> I get the following splat at boot:
->
->   Starting systemd-udevd version 256.7-1-arch
->   [    0.882312] SMP alternatives: Something went horribly wrong trying to rewrite the CFI implementation.
->   [    0.883526] CFI failure at do_one_initcall+0x128/0x380 (target: init_module+0x0/0xff0 [crc32c_intel]; expected type: 0x0c7a3a22)
->   [    0.884802] Oops: invalid opcode: 0000 [#1] PREEMPT SMP NOPTI
->   [    0.885434] CPU: 3 UID: 0 PID: 157 Comm: modprobe Tainted: G        W          6.12.0-rc3-debug-next-20241021-06324-g63b3ff03d91a #1 291f0fd70f293827edec681d3c5304f5807a3c7b
->   [    0.887084] Tainted: [W]=WARN
->   [    0.887409] Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS unknown 2/2/2022
->   [    0.888241] RIP: 0010:do_one_initcall+0x128/0x380
->   [    0.888720] Code: f3 0f 1e fa 41 be ff ff ff ff e9 0f 01 00 00 0f 1f 44 00 00 41 81 e7 ff ff ff 7f 49 89 db 41 ba de c5 85 f3 45 03 53 f1 74 02 <0f> 0b 41 ff d3 0f 1f 00 41 89 c6 0f 1f 44 00 00 c6 04 24 00 65 8b
->   [    0.890598] RSP: 0018:ff3f93e5c052f970 EFLAGS: 00010217
->   [    0.891129] RAX: ffffffffb4c105b8 RBX: ffffffffc0602010 RCX: 0000000000000000
->   [    0.891850] RDX: 0000000000000000 RSI: 0000000000000000 RDI: ffffffffc0602010
->   [    0.892588] RBP: ff3f93e5c052fc88 R08: 0000000000000020 R09: 0000000000000000
->   [    0.893305] R10: 000000002a378b84 R11: ffffffffc0602010 R12: 00000000000069c6
->   [    0.894003] R13: ff1f0090c5596900 R14: ff1f0090c15a55c0 R15: 0000000000000000
->   [    0.894693] FS:  00007ffb712c0740(0000) GS:ff1f00942fb80000(0000) knlGS:0000000000000000
->   [    0.895453] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
->   [    0.896020] CR2: 00007ffffc4424c8 CR3: 0000000100af4002 CR4: 0000000000771ef0
->   [    0.896698] DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
->   [    0.897391] DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400
->   [    0.898077] PKRU: 55555554
->   [    0.898337] Call Trace:
->   [    0.898577]  <TASK>
->   [    0.898784]  ? __die_body+0x6a/0xb0
->   [    0.899132]  ? die+0xa4/0xd0
->   [    0.899413]  ? do_trap+0xa6/0x180
->   [    0.899740]  ? do_one_initcall+0x128/0x380
->   [    0.900130]  ? do_one_initcall+0x128/0x380
->   [    0.900523]  ? handle_invalid_op+0x6a/0x90
->   [    0.900917]  ? do_one_initcall+0x128/0x380
->   [    0.901311]  ? exc_invalid_op+0x38/0x60
->   [    0.901679]  ? asm_exc_invalid_op+0x1a/0x20
->   [    0.902081]  ? __cfi_init_module+0x10/0x10 [crc32c_intel 5331566c5540f82df397056699bc4ddac8be1306]
->   [    0.902933]  ? __cfi_init_module+0x10/0x10 [crc32c_intel 5331566c5540f82df397056699bc4ddac8be1306]
->   [    0.903781]  ? __cfi_init_module+0x10/0x10 [crc32c_intel 5331566c5540f82df397056699bc4ddac8be1306]
->   [    0.904634]  ? do_one_initcall+0x128/0x380
->   [    0.905028]  ? idr_alloc_cyclic+0x139/0x1d0
->   [    0.905437]  ? security_kernfs_init_security+0x54/0x190
->   [    0.905958]  ? __kernfs_new_node+0x1ba/0x240
->   [    0.906377]  ? sysfs_create_dir_ns+0x8f/0x140
->   [    0.906795]  ? kernfs_link_sibling+0xf2/0x110
->   [    0.907211]  ? kernfs_activate+0x2c/0x110
->   [    0.907599]  ? kernfs_add_one+0x108/0x150
->   [    0.907981]  ? __kernfs_create_file+0x75/0xa0
->   [    0.908407]  ? sysfs_create_bin_file+0xc6/0x120
->   [    0.908853]  ? __vunmap_range_noflush+0x347/0x420
->   [    0.909313]  ? _raw_spin_unlock+0xe/0x30
->   [    0.909692]  ? free_unref_page+0x22c/0x4c0
->   [    0.910097]  ? __kmalloc_cache_noprof+0x1a8/0x360
->   [    0.910546]  do_init_module+0x60/0x250
->   [    0.910910]  __se_sys_finit_module+0x316/0x420
->   [    0.911351]  do_syscall_64+0x88/0x170
->   [    0.911699]  ? __x64_sys_lseek+0x68/0xb0
->   [    0.912077]  ? syscall_exit_to_user_mode+0x97/0xc0
->   [    0.912538]  ? do_syscall_64+0x94/0x170
->   [    0.912902]  ? syscall_exit_to_user_mode+0x97/0xc0
->   [    0.913353]  ? do_syscall_64+0x94/0x170
->   [    0.913709]  ? clear_bhb_loop+0x45/0xa0
->   [    0.914071]  ? clear_bhb_loop+0x45/0xa0
->   [    0.914428]  ? clear_bhb_loop+0x45/0xa0
->   [    0.914767]  entry_SYSCALL_64_after_hwframe+0x76/0x7e
->   [    0.915089] RIP: 0033:0x7ffb713dc1fd
->   [    0.915316] Code: ff c3 66 2e 0f 1f 84 00 00 00 00 00 90 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d e3 fa 0c 00 f7 d8 64 89 01 48
->   [    0.916491] RSP: 002b:00007ffffc4454a8 EFLAGS: 00000246 ORIG_RAX: 0000000000000139
->   [    0.916964] RAX: ffffffffffffffda RBX: 000055f28c6a5420 RCX: 00007ffb713dc1fd
->   [    0.917413] RDX: 0000000000000000 RSI: 000055f26c40cc03 RDI: 0000000000000003
->   [    0.917858] RBP: 00007ffffc445560 R08: 0000000000000001 R09: 00007ffffc4454f0
->   [    0.918302] R10: 0000000000000040 R11: 0000000000000246 R12: 000055f26c40cc03
->   [    0.918748] R13: 0000000000060000 R14: 000055f28c6a4b50 R15: 000055f28c6ac5b0
->   [    0.919211]  </TASK>
->   [    0.919356] Modules linked in: crc32c_intel(+)
->   [    0.919661] ---[ end trace 0000000000000000 ]---
-> 
-> I also see some other WARNs interleaved along the lines of
-> 
->   [    0.982759] no CFI hash found at: 0xffffffffc0608000 ffffffffc0608000 cc cc cc cc cc
->   [    0.982767] WARNING: CPU: 5 PID: 170 at arch/x86/kernel/alternative.c:1204 __apply_fineibt+0xa6d/0xab0
-> 
-> The console appears to be a bit of a mess after that initial message.
-> 
-> If there is any more information I can provide or patches I can test, I
-> am more than happy to do so.
- 
-I've got similar report from kbuild bot a few days ago:
-https://lore.kernel.org/all/202410202257.b7edc376-lkp@intel.com
+--===============1449566024261500930==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="hfVLrGzLBGvcsMsZ"
+Content-Disposition: inline
 
-I fixed fineibt handling in v7:
-https://lore.kernel.org/linux-mm/20241023162711.2579610-1-rppt@kernel.org
 
-> Cheers,
-> Nathan
-> 
+--hfVLrGzLBGvcsMsZ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
--- 
-Sincerely yours,
-Mike.
+Yo,
+
+On Tue, Oct 01, 2024 at 11:16:24AM +0100, Conor Dooley wrote:
+> On Tue, Oct 01, 2024 at 10:50:56AM +0200, Wolfram Sang wrote:
+> > > At present, where repeated sends are intended to be used, the
+> > > i2c-microchip-core driver sends a stop followed by a start. Lots of i=
+2c
+> >=20
+> > Oh, this is wrong. Was this just overlooked or was maybe older hardware
+> > not able to generated correct repeated-starts?
+>=20
+> Overlooked, because the devices that had been used until recently didn't
+> care about whether they got a repeated start or stop + start. The bare
+> metal driver upon which the Linux one was originally based had a trivial
+> time of supporting repeated starts because it only allows specific sorts
+> of transfers. I kinda doubt you care, but the bare metal implementation
+> is here:
+> https://github.com/polarfire-soc/polarfire-soc-bare-metal-library/blob/61=
+4a67abb3023ba47ea6d1b8d7b9a9997353e007/src/platform/drivers/mss/mss_i2c/mss=
+_i2c.c#L737
+>=20
+> It just must have been missed that the bare metal method was not replaced.
+>=20
+> > > devices must not malfunction in the face of this behaviour, because t=
+he
+> > > driver has operated like this for years! Try to keep track of whether=
+ or
+> > > not a repeated send is required, and suppress sending a stop in these
+> > > cases.
+> >=20
+> > ? I don't get that argument. If the driver is expected to do a repeated
+> > start, it should do a repeated start. If it didn't, it was a bug and you
+> > were lucky that the targets could handle this. Because most controllers
+> > can do repeated starts correctly, we can also argue that this works for
+> > most targets for years. In the unlikely event that a target fails after
+> > converting this driver to proper repeated starts, the target is buggy
+> > and needs fixing. It would not work with the majority of other
+> > controllers this way.
+> >=20
+> > I didn't look at the code but reading "keeping track whether rep start
+> > is required" looks wrong from a high level perspective.
+>=20
+> I think if you had looked at the code, you'd (hopefully) understand what
+> I meant w.r.t. tracking that.
+> The design of this IP is pretty old, and intended for use with other
+> logic implemented in FPGA fabric where each interrupt generated by
+> the core would be the stimulus for the state machine controlling it to
+> transition state. Cos of that, when controlling it from software, the
+> interrupt handler assumes the role of that state machine. When I talk
+> about tracking whether or not a repeated send is required, that's
+> whether or not a particular message in a transfer requires it, not
+> whether or not the target device requires them or not.
+>=20
+> Currently the driver operates by iterating over a list of messages in a
+> transfer, and calling send() for each one, and then effectively "looping"
+> in the interrupt handler until the message has been sent. By looking at
+> the current code, you can see that the completion's "lifecycle" matches
+> that. Currently, at the end of each message being sent
+> 	static irqreturn_t mchp_corei2c_handle_isr(struct mchp_corei2c_dev *idev)
+> 	{
+> =09
+> 		<snip>
+> =09
+> 		/* On the last byte to be transmitted, send STOP */
+> 		if (last_byte)
+> 			mchp_corei2c_stop(idev);
+> =09
+> 		if (last_byte || finished)
+> 			complete(&idev->msg_complete);
+> =09
+> 		return IRQ_HANDLED;
+> 	}
+> a stop is put on the bus, unless !last_byte, which is only true in error
+> cases. Clearly I don't need to explain why that is a problem to you...
+> You'd think that we could do something like moving the stop out of the
+> interrupt handler, and to the loop in mchp_corei2c_xfer(), where we have
+> access to the transfer's message list and can check if a stop should be
+> sent or not - that's not really possible with the hardware we have.
+>=20
+> When the interrupt handler completes, it clears the interrupt bit in the
+> IP, as you might expect. The controller IP uses that as the trigger to
+> transition state in its state machine, which is detailed in
+> https://ww1.microchip.com/downloads/aemDocuments/documents/FPGA/ProductDo=
+cuments/UserGuides/ip_cores/directcores/CoreI2C_HB.pdf
+> On page 23, row 0x28, you can see the case that (IIRC) is the
+> problematic one. It is impossible to leave this state without triggering
+> some sort of action.
+> The only way that I could see to make this work correctly was to get the
+> driver track whether or not the next message required a repeated start or
+> not, so as to transition out of state 0x28 correctly.
+>=20
+> Unfortunately, then the clearing of the interrupt bit causing state
+> transitions kicked in again - after sending a repeated start, it will
+> immediately attempt to act (see state 0x10 on page 23). Without
+> reworking the driver to send entire transfers "in one go" (where the
+> completion is that of the transfer rather than the message as it
+> currently is) the controller will re-send the last target address +
+> read/write command it sent, instead of the next one. That's why there's
+> so many changes outside of the interrupt handler and so many additional
+> members in the controller's private data structure.
+>=20
+> I hope that that at least makes some sense..
+>=20
+> > The driver
+> > should do repeated start when it should do repeated start.
+>=20
+> Yup, that's what I'm trying to do here :)
+
+I'd like to get this fix in, and Andi only had some minor comments that
+didn't require a respin. I don't want to respin or resend while this
+conversation remains unresolved.
+
+Thanks,
+Conor.
+
+--hfVLrGzLBGvcsMsZ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZxoVIQAKCRB4tDGHoIJi
+0sT4AP4gyW2JC+ZvXZHXcGYN2FJ6YO7+hYJzdRLR+I/1VXj58QEAh9nOFblwYbJB
++cl/h8Md3RPx7N08+bDVx8LOeRrZJwY=
+=F2Ka
+-----END PGP SIGNATURE-----
+
+--hfVLrGzLBGvcsMsZ--
+
+
+--===============1449566024261500930==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1449566024261500930==--
+
