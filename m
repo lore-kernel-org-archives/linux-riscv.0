@@ -4,82 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C0FFD0BB46
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Oct 2024 23:58:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6385D0BB4E
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Oct 2024 01:56:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QbBVdrYimOM1PRfleuvDoot27803tmOg1jN6m63byWs=; b=Dq7/Reidb7Qjz0
-	2PJdAl77UVjqY61/8cqj4KZtVbiAUNe2f0Tf/jSIFHT3C1WqSC6sWQskOwDVmw412deNpFSk+Hkbo
-	CpxpdyEludse+9/YxX82EuzeQHwu6VzKGQ77Nc5NU/svPu/jbrsjpKRez3UabTSgvJOFUvINhHXlM
-	Yi6fsaYt69c7fahXFtKF2W0g/DEkMSRXIwdZqHo4bjrGe3fuPW68GQOjjLaneiQBa1JOCYaxAgR7Q
-	+ahFvIRCJfoV5UaChv5STdPLYD6T/Qq1Slq9SWOP6z2Gb8tz0aWiRktijsboY6RpRejzAiqj/sIOQ
-	nDkGvV3HDSR3m3aIVRWw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=lvo337FEG1SKaD4BVfu7hWBdo/Nrp7nq28iIhwGsKAA=; b=g3c58XrAIM4hdV
+	xjCGqn39jCqAdKr1+pSUueeYcG6Utatp70tiEZFWC+6lTOm8Qw2Gl+xXhwVCNBds2+nK+PpdL3gsf
+	H+u+8rJlAcIV22ROL8MiC73j/yD12Manj1Thv9w+vcrr8G547aN8mbgdan10n7KgSu3wUGs7kwy6B
+	VXkA0xy752Ywlk0DN3lXjnCkCrJYrAEgocBEJlu4KRlCS5Sl4xlLkfhReeXeMRLrmznnNHduZeP45
+	acccIFczetiJSkukCgXOcsCnsswTY+J1D0jcFZJSQE1QVKE+eCqIKyBA03uixb4rnjLR43nnI37/d
+	WzR4zP+iPj6x/eyVxxvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3lFK-0000000GHUk-3dtO;
-	Wed, 23 Oct 2024 23:58:34 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1t3n5f-0000000GTEZ-1aVq;
+	Thu, 24 Oct 2024 01:56:43 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3lDn-0000000GHFS-15h5;
-	Wed, 23 Oct 2024 23:57:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=RoRcRsT4dhnXehgIrOkavzDeXndrmIy2Jhqon6Rlw04=; b=xXaPPxsWzvAbAQuddJCjS9yg5d
-	2/VF7BtvdVpWAbUQBX7qUUcBsszBfqG67ZBz0MoKXGrjtUWuGGs6saIWYGdTn8TV4PvEJkmh0Y136
-	u6FUSMwVJaXCsPav2KWXtqSUkpKEBVRtn/vlgfd4QeXco3meEX/lWhBFZXMyMqHmxtOI=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1t3lDL-00B1qp-9U; Thu, 24 Oct 2024 01:56:31 +0200
-Date: Thu, 24 Oct 2024 01:56:31 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Chen Wang <unicorn_wang@outlook.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Yixun Lan <dlan@gentoo.org>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 4/4] net: stmmac: Add glue layer for Sophgo SG2044 SoC
-Message-ID: <6f0e1c34-d5d3-4ee5-9374-768e67a0c067@lunn.ch>
-References: <227daa87-1924-4b0b-80db-77507fc20f19@lunn.ch>
- <gwtiuotmwj2x3d5rhfrploj7o763yjye4jj7vniomv77s7crqx@5jwrpwrlwn4s>
- <65720a16-d165-4379-a01f-54340fb907df@lunn.ch>
- <424erlm55tuorjvs2xgmanzpximvey22ufhzf3fli7trpimxih@st4yz53hpzzr>
- <66f35d1b-fd26-429b-bbf9-d03ed0c1edaf@lunn.ch>
- <zum7n3656qonk4sdfu76owfs4jk2mkjrzayd57uuoqeb6iiris@635pw3mqymqd>
- <d691a687-c0e2-48a9-bf76-d0a086aa7870@lunn.ch>
- <amg64lxjjetkzo5bpi7icmsfgmt5e7jmu2z2h3duqy2jcloj7s@nma2hjk4so5b>
- <79f9b971-8b3f-4f31-ab42-42a31d505607@lunn.ch>
- <uzlmckuziavq5qeybvfm7htycprzogvkfdqj2pxrjmdkuovfut@5euc5nou7aly>
+	id 1t3n5c-0000000GTCV-30N5
+	for linux-riscv@lists.infradead.org;
+	Thu, 24 Oct 2024 01:56:42 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.17])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4XYprl5ljjz2FbTk;
+	Thu, 24 Oct 2024 09:55:03 +0800 (CST)
+Received: from kwepemg200008.china.huawei.com (unknown [7.202.181.35])
+	by mail.maildlp.com (Postfix) with ESMTPS id C1C841A0188;
+	Thu, 24 Oct 2024 09:56:27 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by kwepemg200008.china.huawei.com
+ (7.202.181.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 24 Oct
+ 2024 09:56:27 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <jic23@kernel.org>, <lars@metafoo.de>, <paul.walmsley@sifive.com>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <nuno.sa@analog.com>,
+	<javier.carrasco.cruz@gmail.com>, <sunke@kylinos.cn>,
+	<conor.dooley@microchip.com>, <anshulusr@gmail.com>, <ruanjinjie@huawei.com>,
+	<kimseer.paller@analog.com>, <michael.hennerich@analog.com>,
+	<linux-iio@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <noname.nuno@gmail.com>
+Subject: [PATCH v2] iio: dac: Kconfig: Fix build error for ltc2664
+Date: Thu, 24 Oct 2024 09:55:53 +0800
+Message-ID: <20241024015553.1111253-1-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <uzlmckuziavq5qeybvfm7htycprzogvkfdqj2pxrjmdkuovfut@5euc5nou7aly>
+X-Originating-IP: [10.90.53.73]
+X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
+ kwepemg200008.china.huawei.com (7.202.181.35)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_165659_316519_12BFFBEA 
-X-CRM114-Status: GOOD (  19.48  )
+X-CRM114-CacheID: sfid-20241023_185640_922414_531DCE8E 
+X-CRM114-Status: GOOD (  10.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,28 +72,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 24, 2024 at 06:36:06AM +0800, Inochi Amaoto wrote:
-> On Wed, Oct 23, 2024 at 02:42:16PM +0200, Andrew Lunn wrote:
-> > > Yes, this is what I have done at the beginning. At first I only
-> > > set up the phy setting and not set the config in the syscon. 
-> > > But I got a weird thing: the phy lookback test is timeout. 
-> > > Although the datasheet told it just adds a internal delay for 
-> > > the phy, I suspect sophgo does something more to set this delay.
-> > 
-> > You need to understand what is going on here. Just because it works
-> > does not mean it is correct.
-> > 
-> 
-> It seems like there is a missing info in the SG2044 doc: setting the
-> syscon internal delay bit is not enabling the internal mac delay, but
-> disable it. Now everything seems like normal: the mac adds no delay,
-> and the phy adds its delay. 
+If REGMAP_SPI is n and LTC2664 is y, the following build error occurs:
 
-That makes a lot more sense.
+	riscv64-unknown-linux-gnu-ld: drivers/iio/dac/ltc2664.o: in function `ltc2664_probe':
+	ltc2664.c:(.text+0x714): undefined reference to `__devm_regmap_init_spi'
 
-Thanks for digging into the details.
+Select REGMAP_SPI instead of REGMAP for LTC2664 to fix it.
 
-	Andrew
+Fixes: 4cc2fc445d2e ("iio: dac: ltc2664: Add driver for LTC2664 and LTC2672")
+Reviewed-by: Nuno Sa <nuno.sa@analog.com>
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+---
+v2:
+- Select REGMAP_SPI instead of REGMAP.
+- Update the commit subject.
+- Add Reviewed-by.
+---
+ drivers/iio/dac/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/iio/dac/Kconfig b/drivers/iio/dac/Kconfig
+index 45e337c6d256..9f5d5ebb8653 100644
+--- a/drivers/iio/dac/Kconfig
++++ b/drivers/iio/dac/Kconfig
+@@ -380,7 +380,7 @@ config LTC2632
+ config LTC2664
+ 	tristate "Analog Devices LTC2664 and LTC2672 DAC SPI driver"
+ 	depends on SPI
+-	select REGMAP
++	select REGMAP_SPI
+ 	help
+ 	  Say yes here to build support for Analog Devices
+ 	  LTC2664 and LTC2672 converters (DAC).
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
