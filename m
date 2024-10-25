@@ -4,73 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9E0AD0C601
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Oct 2024 12:36:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E9A9D0C612
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Oct 2024 13:56:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=G6h+V7l9Zew3l8uTPVfRc7ingHfSZcV+RkMRfQYYHwM=; b=d6ZK28N/qO6e5i
-	h4CU6raofrGS5tA3xZUif8hKeJeQHO7wusMjw7v65rO9UWweB0wF1Ts8xks6nmz0RU17swf/FP0z8
-	bRldyI8onM9u/Bp9lbtkBTJiCIieiJzCo9nVVd1SW9z+d67Gz0xAIXnhgwfEM5mAulUMJsF99EwKg
-	D7ieGb0VtwcV3PMvNtnopS6eRooJyzeBcEftZknv7Y7DY0wXeymeIVAPjuA8W0e0KXCuM/jkTbsYD
-	rOmwF+Nrc8+TxXtBh/BUk6DxoIFLlv5sLaB0QQxbkLr1bpz2Z9gWdcHdQaWEEeTjp0JUxFZC/1Amp
-	QR6F3J/sGwOPHzYo1T4w==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
+	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=mGsQ3uaakTwvsQvgmEFFczqAL1pQ4ByONaWiLUiouGk=; b=v6RZOBFXuBEZEHLYNKSCX/jV7I
+	A087W9p8qN1a8kZTt1R/0bxW2vdanHlu40vvWHsJZIH0ZxAsDwM96MWBrgk+NbyIR47XDg0nuZQMD
+	fHhouKO7iJzNltmbMSd28I8EY3Zlp2pA+PLn1FR09V6VqIUVA/xKKy9mi74BC8+8eW+kvokOhDj2u
+	RBLY7XqisitUjrIpicUqS2tHJX8AqQWIqLV809NdQGKjMB9ZJKWboyCG87IFyIYhRw+e4jgr6Rdpx
+	HjYttosqeQRAMVi5AXIJzkTgJeJs5FUu8a/F0SuE0xteGg9mbytqgWGhouDFafaDDxZZQmxP35FYT
+	Mokd8jiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4JYS-00000003fz7-0yj9;
-	Fri, 25 Oct 2024 12:36:36 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1t4KnQ-00000003tif-1ET0;
+	Fri, 25 Oct 2024 13:56:08 +0000
+Received: from fhigh-b7-smtp.messagingengine.com ([202.12.124.158])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4JYO-00000003fw6-1zrc
-	for linux-riscv@lists.infradead.org;
-	Fri, 25 Oct 2024 12:36:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1729859792; x=1761395792;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=QawCFqr5BT6CrXbkDHPVmxbNPAmvASHSPaF+S3p29tU=;
-  b=WUwG62ArS2xgRrUEgfw30QPDOZrXeCXecKSkGbZWc+3j3NXGfEp8N5ES
-   xpAiRBGeGnA+BbV1+lyMgtNl4udA720b6k1mgVHLb0YaHJDNbxHV3Z2rq
-   8I6lWjpRCEDbNW8/lrTTPWkVDEdHkbomCiW2OVV435yu25HbUQH69pZVU
-   JUpBBDNMex2L5CQj+yFtmJC6HVM+62ZFHexwTRUMadsN99Gh7svdESeqv
-   mfDKWg7pbV5rgccEp3aZpaoykk7pzvW2xoH1AopJo4r8/C5HOK1zJ61bk
-   irxfSS6XgNGsQ1L2XeisLjv55mv7deqDgHKOsHpk+1pjg0v7u0trPtuyK
-   g==;
-X-CSE-ConnectionGUID: X92f2WlyQymcF1jpVGgAqw==
-X-CSE-MsgGUID: N+DaUVr+Rratp8G4QRKpvg==
-X-IronPort-AV: E=Sophos;i="6.11,231,1725346800"; 
-   d="scan'208";a="33481559"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 25 Oct 2024 05:36:30 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Fri, 25 Oct 2024 05:35:44 -0700
-Received: from valentina.microchip.com (10.10.85.11) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Fri, 25 Oct 2024 05:35:42 -0700
-From: Valentina Fernandez <valentina.fernandezalanis@microchip.com>
-To: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<peterlin@andestech.com>, <conor.dooley@microchip.com>,
-	<conor+dt@kernel.org>, <ycliang@andestech.com>, <dminus@andestech.com>,
-	<prabhakar.mahadev-lad.rj@bp.renesas.com>, <jassisinghbrar@gmail.com>,
-	<robh@kernel.org>, <krzk+dt@kernel.org>,
-	<valentina.fernandezalanis@microchip.com>
-CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<devicetree@vger.kernel.org>
-Subject: [PATCH v2 0/3] Add Microchip IPC mailbox
-Date: Fri, 25 Oct 2024 13:51:07 +0100
-Message-ID: <20241025125110.1347757-1-valentina.fernandezalanis@microchip.com>
-X-Mailer: git-send-email 2.34.1
+	id 1t4KVZ-00000003qFH-1iOq;
+	Fri, 25 Oct 2024 13:37:43 +0000
+Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 54D1325400C4;
+	Fri, 25 Oct 2024 09:37:37 -0400 (EDT)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-10.internal (MEProxy); Fri, 25 Oct 2024 09:37:37 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1729863457;
+	 x=1729949857; bh=mTD/E8mUSNoNp+vtjeW8NYfb5u7ndnKHIytXzDhahwE=; b=
+	nTq77u+YbjEK1oOGqWOEMss4pavBeea5xmfNB5v8n1RQ22NxJIlmfp2TzT4IKpOx
+	caApVTp1/TP1+2AFsH+6DaC7B1jXPpi59lVd0QmK1g4cyigLCbwCjjCU5UZejO28
+	8c3d8AGT1CdV1FpUSe8Ohc2JPaB0EAv7X1aw4eGMMqsDN9QNF4MBCkY7XT7NWXhL
+	O/OEAgSYzhCEctYt3/dxus3LsMgxjvtStf4TUCEi3KDe+iRqYuAwvWG/ws/9TCTb
+	91Febe33d87M4u4RsAc2PSDoS2l7TEXW3ZHH0N9mqk4H/wIO2sYqmM++nNVpXfOu
+	l8mVjbE2Y3ckzB0U2VTGjA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1729863457; x=
+	1729949857; bh=mTD/E8mUSNoNp+vtjeW8NYfb5u7ndnKHIytXzDhahwE=; b=Y
+	Yd+CaNQUnHw9YsFM/xsr4EEUnyKUrgtD2vti8QGZood/Hu9648OKjYo4bH7A6Neg
+	jnJDKNvwBYkFvlybTuqF2bH/KaZKDCsMPx9nvXzHCWTKjsCUnllyUHCbFyKAeDhX
+	YNkya00Lwsz0+acBTk9P7pZOFNJx3BvJUubdQClXQQcfFmAJOHzcSMDEsFGYeUz+
+	Jg9HE+6A7ymczxjo7UpkNZEyk9ue5mso6y8MDn4M5ldn8ZNSI/lsZrOwKW2qGN95
+	SK1C5a5uk//QbB1mqxfMZZhPvCEMy7uIU9Opdu0mHCbXfdkyJRO6uRsr50PfJcTO
+	dO3S1hvvUj92Ys457iJAw==
+X-ME-Sender: <xms:IJ8bZxsuj29dJ1vr5lHn5cEFvY6c8AEcCMtZGM1az7Jp64ZRgbF05Q>
+    <xme:IJ8bZ6f_PFYR1VPWQ6NunpU9GXYmb8uTFHK2WzhvwLuyhGpOciB1CBT9pvUeu8GH4
+    UYBuOr6HJ-I4-vOr1Q>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddrvdejvddgieeiucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
+    rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
+    htshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddt
+    necuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrd
+    guvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefg
+    gfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpe
+    hmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepudel
+    pdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnh
+    gvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhig
+    qdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplh
+    hinhhugidqshhnphhsqdgrrhgtsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhr
+    tghpthhtoheplhhinhhugidquhhmsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpd
+    hrtghpthhtoheplhhinhhugidqmheikehksehlihhsthhsrdhlihhnuhigqdhmieekkhdr
+    ohhrghdprhgtphhtthhopehlohhonhhgrghrtghhsehlihhsthhsrdhlihhnuhigrdguvg
+    hvpdhrtghpthhtoheplhhinhhugihpphgtqdguvghvsehlihhsthhsrdhoiihlrggsshdr
+    ohhrghdprhgtphhtthhopehhtghhsehlshhtrdguvgdprhgtphhtthhopehlihhnuhigqd
+    grlhhphhgrsehvghgvrhdrkhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:IJ8bZ0w8_fyzDu0Dhxg43egcOQd9fPmeL9IF1HbPQzAPODUmdkywqg>
+    <xmx:IJ8bZ4Ng8v61LIOz9Z6hcNW7TrkYDvZ9-QsNLZ7fNM7Okgrh7sPTiA>
+    <xmx:IJ8bZx-O8B7MlF4JofybzIynmnGJvvLwnq8RLzH_1fknLv9ZsqMu1w>
+    <xmx:IJ8bZ4X5lrN7iDkKbGm85k7BOBq5kmsTovQZ6V9cVszatdT146tmOA>
+    <xmx:IZ8bZ02QO2wzbQXTtXh5NJPoq2r5QyMwBKYu4QPUoTFRk_k35DiZGUWq>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 3B9352220071; Fri, 25 Oct 2024 09:37:36 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
+Date: Fri, 25 Oct 2024 13:37:15 +0000
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Christoph Hellwig" <hch@lst.de>
+Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+ linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ "linux-openrisc@vger.kernel.org" <linux-openrisc@vger.kernel.org>,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-um@lists.infradead.org, Linux-Arch <linux-arch@vger.kernel.org>
+Message-Id: <c9f10ee9-697f-4f45-8c82-a6dc61e5a74e@app.fastmail.com>
+In-Reply-To: <20241023053644.311692-1-hch@lst.de>
+References: <20241023053644.311692-1-hch@lst.de>
+Subject: Re: provide generic page_to_phys and phys_to_page implementations v3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_053632_604375_00DB5402 
-X-CRM114-Status: GOOD (  15.31  )
+X-CRM114-CacheID: sfid-20241025_063742_278560_741678AA 
+X-CRM114-Status: UNSURE (   7.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,70 +124,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello all,
+On Wed, Oct 23, 2024, at 05:36, Christoph Hellwig wrote:
+> page_to_phys is duplicated by all architectures, and from some strange
+> reason placed in <asm/io.h> where it doesn't fit at all.  
+>
+> phys_to_page is only provided by a few architectures despite having a lot 
+> of open coded users.
+>
+> Provide generic versions in <asm-generic/memory_model.h> to make these
+> helpers more easily usable.
+>
 
-This series adds support for the Microchip Inter-Processor Communication
-(IPC) mailbox driver.
+I've applied this to the asm-generic tree now.
 
-I am submitting this v2 with the IPC mailbox patches and without the
-IPC remoteproc drivers, as suggested in v1 [1].
+Thanks for the cleanup!
 
-Microchip's family of RISC-V SoCs typically has one or more clusters
-that can be configured to run in Asymmetric Multi-Processing (AMP) mode.
-
-The Microchip IPC is used to send messages between processors using
-an interrupt signaling mechanism. The driver uses the RISC-V Supervisor
-Binary Interface (SBI) to communicate with software running in machine
-mode (M-mode) to access the IPC hardware block.
-
-Additional details on the Microchip vendor extension and the IPC
-function IDs described in the driver can be found in the following
-documentation:
-
-https://github.com/linux4microchip/microchip-sbi-ecall-extension
-
-The PIC64GX MPU has a Mi-V IHC block, this will be added to the PIC64GX
-dts after the initial upstreaming [2].
-
-[1] https://patchwork.kernel.org/project/linux-remoteproc/cover/20240912170025.455167-1-valentina.fernandezalanis@microchip.com/
-[2] https://patchwork.kernel.org/project/linux-riscv/patch/20240725121609.13101-18-pierre-henry.moussay@microchip.com/
-
-
-changes since v1:
-  - use kmalloc and __pa() instead of DMA API
-  - fix size of buf_base to avoid potential buffer overflow
-  - add kernel doc for exported functions (mchp_ipc_get_chan_id)
-  - use EXPORT_SYMBOL_GPL instead of EXPORT_SYMBOL
-  - drop unnecessary blank line and fix alignment issues
-  - drop of_match_ptr
-  - move MODULE_DEVICE_TABLE next to the definition
-  - reword subject from riscv: asm: vendorid_list to riscv: sbi: vendorid_list
-  - remove the word "driver" from dt-binding commit subject
-  - make interrupt-names a required property for all cases
-  - add dependency on COMPILE_TEST and ARCH_MICROCHIP
-
-Regards,
-Valentina
-
-Valentina Fernandez (3):
-  riscv: sbi: vendorid_list: Add Microchip Technology to the vendor list
-  dt-bindings: mailbox: add binding for Microchip IPC mailbox controller
-  mailbox: add Microchip IPC support
-
- .../bindings/mailbox/microchip,sbi-ipc.yaml   | 108 ++++
- arch/riscv/include/asm/vendorid_list.h        |   1 +
- drivers/mailbox/Kconfig                       |  13 +
- drivers/mailbox/Makefile                      |   2 +
- drivers/mailbox/mailbox-mchp-ipc-sbi.c        | 537 ++++++++++++++++++
- include/linux/mailbox/mchp-ipc.h              |  23 +
- 6 files changed, 684 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/mailbox/microchip,sbi-ipc.yaml
- create mode 100644 drivers/mailbox/mailbox-mchp-ipc-sbi.c
- create mode 100644 include/linux/mailbox/mchp-ipc.h
-
--- 
-2.34.1
-
+     Arnd
 
 _______________________________________________
 linux-riscv mailing list
