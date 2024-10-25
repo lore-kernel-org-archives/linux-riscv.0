@@ -4,73 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D94D4D149CD
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Oct 2024 18:25:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F3C4D149DB
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Oct 2024 18:25:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=h8udF5QPScMljgX1RGyToizSA2URoNGg+Xw7xWhw6iA=; b=QO3J6DPWBDcEcm
-	W+obg1yO93pIjlXzfBXu3d+bS2Br5qLhWhvNuPQQX7YSNS7ByIvvNcOcHwMkfOyCb4zqi37ASxozL
-	0UDghSn81WgLPbBbot2dr/vSPsmpPwzw6FC7AD+kpHF38M05g7KhMIfF3vPqNNE7cGsxGre0VUAKL
-	kM8xCbSSKNkWZnxB39i09FyByhtJRHtTDThotg6lT/gFRkmtlnuc2xZmL7XQXVU/SO0tuwDPmG+aU
-	RjzgpebkLmrcFgN3e3HPTAxolgrlJGJ5dp0BEmM64YykzlHPapcvj/Qluz3KeDgAyYQmY1WaeL7gG
-	DuG8aCxBKHOF3zsWremA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=aNbL9+t63SAUiUfG/vYrnUm6yb5h6spwDOHCFdq+6Js=; b=dNu9hDSf2HcM3i
+	i61JLUZZ0JuoZd6l46ATHxzaoAM95xiYZG7Yg6+YWVPjhC8kOghf0gCDY4nHJead1FcXryDHVuUoY
+	IMVTq8W7D6+lABBOw4/3ThYzjH2HYIoARfwR91WISgdSObYUzkRRSdHJGGTHd/e1XlibcYqTCuhqY
+	pS4tS9bM9bpr/oEmGLGm9H9MtnQf1qU3cQGhyspKxr6kDzoy1vtYY2doq7m7ZkgFAl/pGhPt3OSG4
+	wpjCgf/r86WoykiwGyBAzUHEn0EtlyjFYvSjeiFiwxm4s0iDbkT9dOTExwGCbKqKcGVBGv1dpAiUc
+	u8KLKwS3PHHy/nHzn9AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4OzW-00000004n5h-3pZn;
-	Fri, 25 Oct 2024 18:24:54 +0000
-Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	id 1t4OzY-00000004n6m-2MWU;
+	Fri, 25 Oct 2024 18:24:56 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4OHl-00000004dx4-3Lw7
+	id 1t4OHn-00000004dxa-2Wyo
 	for linux-riscv@lists.infradead.org;
-	Fri, 25 Oct 2024 17:39:43 +0000
-Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-7e6cbf6cd1dso1455604a12.3
-        for <linux-riscv@lists.infradead.org>; Fri, 25 Oct 2024 10:39:40 -0700 (PDT)
+	Fri, 25 Oct 2024 17:39:45 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-2e3010478e6so1725896a91.1
+        for <linux-riscv@lists.infradead.org>; Fri, 25 Oct 2024 10:39:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1729877980; x=1730482780; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=rRtgBgW6s/EQDOLVk7vTju3fTexfS9nXJ3lju+LyV5U=;
-        b=OYSioY2zbZgoFBl9Xp/+HuAOgNM8DV/KvwjQOjG4HQX6PZ5jhxFzWBBn4SV3+2ToWR
-         jjr3UJNPw+F/K/WMAQAIPsF/DZ0BJwVkWAjbFWiKGVd9mufjN11Yfpp7zCdTdcb5jrCQ
-         iu69UNFL6o1qoouAREkQ5CCp92UNiLudxzlhBt3B3ZuAngf5hrKZIrLrUdU34t6F/8v7
-         K/usGW2IpqzSLvn3nY6EYD62o+ok0lkI8b9FuEIMERp+QHU24sCWuJaAFtj7+ETJCjVx
-         NFRsJLNl/sLV1jd34jFOo8zv4jpxFPHofGWLdQv3Zdu6lt6rSCdg3SWanRHaNRNx35ba
-         m+5g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729877980; x=1730482780;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=tenstorrent.com; s=google; t=1729877982; x=1730482782; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=rRtgBgW6s/EQDOLVk7vTju3fTexfS9nXJ3lju+LyV5U=;
-        b=VSBD2eHA4zHNnKuEsp5cOJqAQ6GAiR5FgMUaHS29NORqfYBYcOr1VevI1NF++R0Mzo
-         pGP5Q/xAr8nTqYGqT5J+4EPuGbnxnFDJLNhqmp2RxadtC/jm9o3tF18kVvx4yPtU50Jg
-         WhDlLoDn0vBPDO0aggUtEVZwXpALlX/r3TkHgaw61tFf5TM5tTA4AJupW0cEmS+WvpiL
-         wdKzjelAhoPIUNscoJn7CBXpgsReoEl5PxMxo9Ho+TbDN2P8EQmtJVkllis0JV2ubv64
-         EO/aZURd1SeF7gfd8Ztfc5RtTG0y5R+UBF5je2mSAL6h7d9+v543/STfoqTzxK5CJWuM
-         mFFA==
-X-Forwarded-Encrypted: i=1; AJvYcCXaIVK/8Fi6QZKxbCGMP8NBKUoZGoE10Uf/kSitNM2dB4XhN8fROTgkZv4Q0I00schI9PL85SD71NRrkg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxTWdttB/xSyL6ZJE8UbgSpXItvq6ZA302GKTQO5Uir6cA/T0b9
-	7a77Q26QBerNOEwDWFhmQ420kaL1ccDGDEKbCY5CgtmpQh08GBOlp2fSaOq1BCg=
-X-Google-Smtp-Source: AGHT+IEaYZjwmDMtPye4RiuOg02mqdtcGwqC0dAPHwGmLr3SmAM/hWVbsZOksmPjY0Qxh811xJrTgQ==
-X-Received: by 2002:a17:90b:3ec9:b0:2d3:da6d:8330 with SMTP id 98e67ed59e1d1-2e8f10507f6mr183354a91.4.1729877980066;
-        Fri, 25 Oct 2024 10:39:40 -0700 (PDT)
+        bh=RE/6bdE82IU4QyzbV1hsrlTmhXugWRMXOJiUEpwCLi8=;
+        b=dq/Agh33Dwxt2VyM4Gv4njKpFAq7L8Jp+s9al2yGgTMOTE7A01hyJ84trnD+mONwgi
+         vxIzc+cuQLHQDkzhFh4kg3SZUZ5mz4LLrY8c8DddTE+ahUMmvIuSA0jRJd7+KsstT9cs
+         dhRpIlDKSQRnTPUvySqy0+Pfb9FD4a7OpDLRI/hD4pIOw0y+tFk/npKGdNqDhn3hCYyb
+         oAL6MLalVsZ2/ukQZE237z3qAHotQ6TRyqvFCrYA+58Suzq3WbKvmelRpZ6hoOdZnAeb
+         2+VqWUIiBfwap5y3ivDKnPHoQVK48F7rn0Go+UTyosxrjzzggZfsqieHyea4SiHQu8KK
+         Rmlg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729877982; x=1730482782;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=RE/6bdE82IU4QyzbV1hsrlTmhXugWRMXOJiUEpwCLi8=;
+        b=A9mmCX7ErSfGBkKBz6BDdTzJpmTh5zJn3oW24xPVEU1cCJ2Tx/hbbOFNTjyqKOp/A7
+         VIvSvlteUc6lB+9B2HX5HDOt62jexvEUWAItdskNEs5RXMALxLwgFsmuI1t5z6XH1eyQ
+         Bvk2ION6Ax53JZGadIkCBz/X/DrTM7tylLoZRZE7+TNbiibvdOd0eM9yw8cak9gRqMMj
+         5VZEuDZpXOdnS00BXKyE11v7dQmZTGL/vUSOovpwSZH3EKorvET9CZKUbUEJCKBJNhXg
+         QpQC/XuXBgtzHssXY+h2gAkUdfxsmIAHh8aozEjVWrpJx+BYLegSCFn56DQdMpX2LV1x
+         ka/Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUNbM+u6YrCntZXGKGHARxF6aJDOLvBUWR36fIn6l70nCaSvkRWOuMmY/yhCUVAYykiIlUXjaRzuJdeEw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YypO2WlHiPQmnYngyxzoVMofdoX7XM9hEUZ/6TIUFQJr6aw/fI9
+	5iGSBacX78gIUTruGaaijTQsxv2mqGXe10+BkT5elWRsbQ6GgcwHSKfa8bqpzo8=
+X-Google-Smtp-Source: AGHT+IEVi/JnSEoEmb/oANDw83QHAV0rm+Tjpr64rcE0SEGxppo+dS3Gh8supNN8sTs49Y30HpEovQ==
+X-Received: by 2002:a17:90a:fb8a:b0:2d3:cd27:c480 with SMTP id 98e67ed59e1d1-2e8f11bee8bmr150527a91.33.1729877982182;
+        Fri, 25 Oct 2024 10:39:42 -0700 (PDT)
 Received: from [127.0.1.1] ([4.28.11.157])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e77e4ca3fcsm3813961a91.13.2024.10.25.10.39.38
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e77e4ca3fcsm3813961a91.13.2024.10.25.10.39.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Oct 2024 10:39:39 -0700 (PDT)
+        Fri, 25 Oct 2024 10:39:41 -0700 (PDT)
 From: Drew Fustini <dfustini@tenstorrent.com>
-Subject: [PATCH net-next v5 0/2] Add the dwmac driver support for T-HEAD
- TH1520 SoC
-Date: Fri, 25 Oct 2024 10:39:07 -0700
-Message-Id: <20241025-th1520-gmac-v5-0-38d0a48406ff@tenstorrent.com>
+Date: Fri, 25 Oct 2024 10:39:08 -0700
+Subject: [PATCH net-next v5 1/2] dt-bindings: net: Add T-HEAD dwmac support
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIALvXG2cC/x3MPQqAMAxA4atIZgM1WP+uIg6hRs1glbaIIN7d4
- vgN7z0QJahEGIoHglwa9fAZtizAbexXQZ2zgQzVlSGLaassGVx3dth23DbMvXENQS7OIIve/20
- ELwm93Amm9/0AtTd5gmcAAAA=
+Message-Id: <20241025-th1520-gmac-v5-1-38d0a48406ff@tenstorrent.com>
+References: <20241025-th1520-gmac-v5-0-38d0a48406ff@tenstorrent.com>
+In-Reply-To: <20241025-th1520-gmac-v5-0-38d0a48406ff@tenstorrent.com>
 To: Andrew Lunn <andrew@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
  Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
  Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
@@ -92,8 +91,8 @@ Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
  Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_103941_886841_5A170A2C 
-X-CRM114-Status: GOOD (  19.60  )
+X-CRM114-CacheID: sfid-20241025_103943_707453_8AC52B1C 
+X-CRM114-Status: GOOD (  15.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,83 +109,166 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds support for dwmac gigabit ethernet in the T-Head TH1520
-RISC-V SoC used on boards like BeagleV Ahead and the LicheePi 4A.
+From: Jisheng Zhang <jszhang@kernel.org>
 
-The gigabit ethernet on these boards does need pinctrl support to mux
-the necessary pads. The pinctrl-th1520 driver, pinctrl binding, and
-related dts patches are in linux-next. However, they are not yet in
-net-next/main.
+Add documentation to describe the DesginWare-based GMAC controllers in
+the T-HEAD TH1520 SoC.
 
-Therefore, I am dropping the dts patch for v5 as it will not build on
-net-next/main due to the lack of the padctrl0_apsys pin controller node
-in next-next/main version th1520.dtsi. It does exist in linux-next [1]
-and the two patches in this series allow the ethernet ports to work
-correctly on the LPi4A and Ahead when applied to linux-next.
-
-The dwmac-thead driver in this series does not need the pinctrl-th1520
-driver to build. Nor does the thead,th1520-gmac.yaml binding need the
-pinctrl binding to pass the schema check.
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/arch/riscv/boot/dts/thead/th1520.dtsi
-
-Changes in v5:
- - Rebase on net-next/main
- - Drop the dts patch from this series. It applies to linux-next but
-   not net-next/main.
- - Remove repeated properties from required: in binding
- - Add Rb from Krzysztof for binding
- - Link to v4: https://lore.kernel.org/r/20241020-th1520-dwmac-v4-0-c77acd33ccef@tenstorrent.com
-
-Changes in v4:
- - Rebase on next for pinctrl dependency
- - Add 'net-next' prefix to subject per maintainer-netdev.rst
- - Add clocks, clock-names, interrupts and interrupt-names to binding
- - Simplify driver code by switching from regmap to regualar mmio
-
-Changes in v3:
- - Rebase on v6.12-rc1
- - Remove thead,rx-internal-delay and thead,tx-internal-delay properties
- - Remove unneeded call to thead_dwmac_fix_speed() during probe
- - Fix filename for the yaml file in MAINTAINERS patch
- - Link: https://lore.kernel.org/linux-riscv/20240930-th1520-dwmac-v3-0-ae3e03c225ab@tenstorrent.com/
-
-Changes in v2:
- - Drop the first patch as it is no longer needed due to upstream commit
-   d01e0e98de31 ("dt-bindings: net: dwmac: Validate PBL for all IP-cores")
- - Rename compatible from "thead,th1520-dwmac" to "thead,th1520-gmac"
- - Add thead,rx-internal-delay and thead,tx-internal-delay properties
-   and check that it does not exceed the maximum value
- - Convert from stmmac_dvr_probe() to devm_stmmac_pltfr_probe() and
-   delete the .remove_new hook as it is no longer needed
- - Handle return value of regmap_write() in case it fails
- - Add phy reset delay properties to the BeagleV Ahead device tree
- - Link: https://lore.kernel.org/linux-riscv/20240926-th1520-dwmac-v2-0-f34f28ad1dc9@tenstorrent.com/
-
-Changes in v1:
- - remove thead,gmacapb that references syscon for APB registers
- - add a second memory region to gmac nodes for the APB registers
- - Link: https://lore.kernel.org/all/20240713-thead-dwmac-v1-0-81f04480cd31@tenstorrent.com/
-
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+[drew: rename compatible, add apb registers as second reg of gmac node,
+       add clocks and interrupts poroperties]
+Signed-off-by: Drew Fustini <dfustini@tenstorrent.com>
 ---
-Jisheng Zhang (2):
-      dt-bindings: net: Add T-HEAD dwmac support
-      net: stmmac: Add glue layer for T-HEAD TH1520 SoC
-
  .../devicetree/bindings/net/snps,dwmac.yaml        |   1 +
- .../devicetree/bindings/net/thead,th1520-gmac.yaml | 110 +++++++++
- MAINTAINERS                                        |   2 +
- drivers/net/ethernet/stmicro/stmmac/Kconfig        |  10 +
- drivers/net/ethernet/stmicro/stmmac/Makefile       |   1 +
- drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c  | 268 +++++++++++++++++++++
- 6 files changed, 392 insertions(+)
----
-base-commit: 03fc07a24735e0be8646563913abf5f5cb71ad19
-change-id: 20241025-th1520-gmac-78a76aa90c62
+ .../devicetree/bindings/net/thead,th1520-gmac.yaml | 110 +++++++++++++++++++++
+ MAINTAINERS                                        |   1 +
+ 3 files changed, 112 insertions(+)
 
-Best regards,
+diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+index 4e2ba1bf788c..474ade185033 100644
+--- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+@@ -99,6 +99,7 @@ properties:
+         - snps,dwxgmac-2.10
+         - starfive,jh7100-dwmac
+         - starfive,jh7110-dwmac
++        - thead,th1520-gmac
+ 
+   reg:
+     minItems: 1
+diff --git a/Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml b/Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml
+new file mode 100644
+index 000000000000..6d9de3303762
+--- /dev/null
++++ b/Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml
+@@ -0,0 +1,110 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/thead,th1520-gmac.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: T-HEAD TH1520 GMAC Ethernet controller
++
++maintainers:
++  - Drew Fustini <dfustini@tenstorrent.com>
++
++description: |
++  The TH1520 GMAC is described in the TH1520 Peripheral Interface User Manual
++  https://git.beagleboard.org/beaglev-ahead/beaglev-ahead/-/tree/main/docs
++
++  Features include
++    - Compliant with IEEE802.3 Specification
++    - IEEE 1588-2008 standard for precision networked clock synchronization
++    - Supports 10/100/1000Mbps data transfer rate
++    - Supports RGMII/MII interface
++    - Preamble and start of frame data (SFD) insertion in Transmit path
++    - Preamble and SFD deletion in the Receive path
++    - Automatic CRC and pad generation options for receive frames
++    - MDIO master interface for PHY device configuration and management
++
++  The GMAC Registers consists of two parts
++    - APB registers are used to configure clock frequency/clock enable/clock
++      direction/PHY interface type.
++    - AHB registers are use to configure GMAC core (DesignWare Core part).
++      GMAC core register consists of DMA registers and GMAC registers.
++
++select:
++  properties:
++    compatible:
++      contains:
++        enum:
++          - thead,th1520-gmac
++  required:
++    - compatible
++
++allOf:
++  - $ref: snps,dwmac.yaml#
++
++properties:
++  compatible:
++    items:
++      - enum:
++          - thead,th1520-gmac
++      - const: snps,dwmac-3.70a
++
++  reg:
++    items:
++      - description: DesignWare GMAC IP core registers
++      - description: GMAC APB registers
++
++  reg-names:
++    items:
++      - const: dwmac
++      - const: apb
++
++  clocks:
++    items:
++      - description: GMAC main clock
++      - description: Peripheral registers interface clock
++
++  clock-names:
++    items:
++      - const: stmmaceth
++      - const: pclk
++
++  interrupts:
++    items:
++      - description: Combined signal for various interrupt events
++
++  interrupt-names:
++    items:
++      - const: macirq
++
++required:
++  - clocks
++  - clock-names
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    gmac0: ethernet@e7070000 {
++        compatible = "thead,th1520-gmac", "snps,dwmac-3.70a";
++        reg = <0xe7070000 0x2000>, <0xec003000 0x1000>;
++        reg-names = "dwmac", "apb";
++        clocks = <&clk 1>, <&clk 2>;
++        clock-names = "stmmaceth", "pclk";
++        interrupts = <66>;
++        interrupt-names = "macirq";
++        phy-mode = "rgmii-id";
++        snps,fixed-burst;
++        snps,axi-config = <&stmmac_axi_setup>;
++        snps,pbl = <32>;
++        phy-handle = <&phy0>;
++
++        mdio {
++            #address-cells = <1>;
++            #size-cells = <0>;
++            compatible = "snps,dwmac-mdio";
++
++            phy0: ethernet-phy@0 {
++                reg = <0>;
++            };
++        };
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index f39ab140710f..72dee6d07ced 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -19827,6 +19827,7 @@ L:	linux-riscv@lists.infradead.org
+ S:	Maintained
+ T:	git https://github.com/pdp7/linux.git
+ F:	Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
++F:	Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml
+ F:	arch/riscv/boot/dts/thead/
+ F:	drivers/clk/thead/clk-th1520-ap.c
+ F:	include/dt-bindings/clock/thead,th1520-clk-ap.h
+
 -- 
-Drew Fustini <dfustini@tenstorrent.com>
+2.34.1
 
 
 _______________________________________________
