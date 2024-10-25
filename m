@@ -4,43 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13007D149EA
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Oct 2024 19:32:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E4BFD149E7
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Oct 2024 19:34:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NtFIMZ2SxqABec7Z5CzoQjawaWVR5+oC3IiztGJI20k=; b=ymKyqIoqBzHZ/m
-	K7+FKFZe92kj3sF3pEQ35iK4Cs81QqBCW1gsgp5qM6C1WVxyqj8q3mIBKNTy4VS0Ky0wQCl/4XGJC
-	/Gt5j+izunRh3QncIG8QXi10cAmLGR4fhtawZzs7ruSYSDoEDf/5/pPteupvmcyWeaqOyGvb6UBKt
-	lgjf5qtUHut3wjcU0xyjnrh1m/N2tjBvAzeRRzMqyfy1DAoka/NYstPK67ZagNPn+7bDKRXsLZLgt
-	mbRy5PwrvB4250Kesw31gm/YQVE5JCfBE/FyF7lhrDpHOmeFT5OlfDOScyJy14ByfujPHwkqcSLSB
-	s20gFYD3Yq4xfBqqaNPg==;
+	List-Owner; bh=ikZY3g63aOxhGQPWyBngz2E2Mjdv6kWCgS7DFnYKMWI=; b=QlNu7sTSOsy9Kl
+	eUq5+YixCTHBPeez6kGfmDwSNxQyWXQ83mDkavWQ563XcqbklH6Vl9oa1Ftvo5ehqhF+It7wqi9yE
+	LNPSLWzEHCCLIfo5vahbDfrNNHCyQvJpCi63ML3UcAXixjDbDype3wdMbltZi5aeipd2KdyqutGmS
+	P5HKJl+LvchBff1yAYy0cXhyX3l8ITsxpIK4CiS5xfI0w05nHLsKXyHrMWuDjM+NIlokae0CVhw8E
+	HDIDasjhPDmSuGcYvz53qv4D2wvoY8ZLhLvggbnXXW9kNpsHRYnm4GaoYE2KxDqPodkCv9xcVSbQ3
+	u56/cX/yfD7X6YAZZuBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Q2a-00000004zoG-2Yxo;
-	Fri, 25 Oct 2024 19:32:08 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t4Q4K-000000050I3-1qtk;
+	Fri, 25 Oct 2024 19:33:56 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Pmo-00000004vKt-3yCw;
+	id 1t4Pn2-00000004vS3-1BQX;
+	Fri, 25 Oct 2024 19:16:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=rMnm9AwgmDXEuc2yh8LmdqCJvJnHE1qDq44Z13ehTrw=; b=KEYTed34x4FVPnan2xt3fzsaDy
+	bcghCCx9CCXsZy2by7Feso3h/AllE5YWtWtILibsxQXh5Vk+2L5ZsGqgZy6Pp5bIvJqyxJDwO/PNl
+	WFxhFa9lm9Cotd6RHk2QXHNUnlZZHBPm7aWooxCljxkpSPaX5njuE72qm2n/ftBqXgMYuns6p74lb
+	65fMGlpRqUlBNbu4stbBHOlzVlNt3YfKvaahN5F/5X5W06/lwC07BrIuT9WNfG02nzndmT3JSRDSA
+	I6rTHzarJbx0L7NgEXfPdn0MHGRnzgWM23/ayFzjeEmcuW/fy9La/f+eBQlq9s+r2YC9TnFPWpV6b
+	J1JxR6AA==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t4Pmv-000000092Fy-1f3x;
 	Fri, 25 Oct 2024 19:16:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BD7565C57A7;
-	Fri, 25 Oct 2024 19:15:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30E36C4CEC3;
-	Fri, 25 Oct 2024 19:15:49 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id CF5535C59B9;
+	Fri, 25 Oct 2024 19:15:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47B18C4CEE5;
+	Fri, 25 Oct 2024 19:15:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729883749;
-	bh=DwN16JP9+ENVqlLXmk2XcOqSS0l4MF/dAaiykDZVVoc=;
+	s=k20201202; t=1729883753;
+	bh=WfN2SwQ1SfAPzqKDOcxOjX9pk3UC1SwykLtsIrx3B8I=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=O+BKuaiRUKTM7lT6GElL27PRdKAfI62RsEcD83Ekb/7HKliEMHMJMz/cAEO0mVoc9
-	 SlvxrK9mpPk4sMzpfhnXCX3AlYxH9qQcaAgtrvD2rVsyCqthV2EgjdKR3N3qJjWdqW
-	 nVFkPP0vd8d5NadZ5m+1HENb3ITBx0JPVVUD3EmvwM7v0/rMaSH20g225My5Nppag0
-	 uVdsAOD/Lho2U4V8IYrFjI8b0Ejw592TgGPlwvPcnD26VadjbUEtqzjCAtgUV/vxT5
-	 KLw9o6NGuybXoc9vQS7JlQZfmXMr5bKAuahOr04lm+ShtFa2rsHmLmYXH58Yw8n4Sq
-	 Mh0JiY5Jzz9yg==
+	b=uCCwJHNYYf343z6r1gEo9PunPQGR1ODph4209rcKOCpQYQ+Z9cKoDHqLtaqlEYjIN
+	 2z+sKje/XEHhSVs1cW9BMdxxPDBwY/8FQEVauYvT4cXN2A4iOYNINsY5i0l8MCF3Ai
+	 8q8X0FhxnigxeUIMEBJmTPwhzbSWVaA9MFxkKUhwN8wIFBFZxp4tuHQutYqCnUlmWV
+	 cqk5IIIqvbKBQzhnndsielpobBKgJOaBd54yeDLDV1uZhFlv57rqiHuzwNWxJcKnNA
+	 +UiwI5ZIfG85E83/zepiJUyaJTVqaFMCjzmt83JkiUljxXtaIcF4uNjlFC9cXsmWEg
+	 OwXqjgm4rW7jQ==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: linux-arch@vger.kernel.org,
@@ -57,16 +71,16 @@ Cc: linux-arch@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org,
 	Ard Biesheuvel <ardb@kernel.org>
-Subject: [PATCH v2 10/18] sparc/crc32: expose CRC32 functions through lib
-Date: Fri, 25 Oct 2024 12:14:46 -0700
-Message-ID: <20241025191454.72616-11-ebiggers@kernel.org>
+Subject: [PATCH v2 17/18] f2fs: switch to using the crc32 library
+Date: Fri, 25 Oct 2024 12:14:53 -0700
+Message-ID: <20241025191454.72616-18-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20241025191454.72616-1-ebiggers@kernel.org>
 References: <20241025191454.72616-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_121551_320725_6C21CF47 
-X-CRM114-Status: GOOD (  23.59  )
+X-CRM114-CacheID: sfid-20241025_201558_003543_A7C01590 
+X-CRM114-Status: GOOD (  15.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,407 +99,140 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Eric Biggers <ebiggers@google.com>
 
-Move the sparc CRC32C assembly code into the lib directory and wire it
-up to the library interface.  This allows it to be used without going
-through the crypto API.  It remains usable via the crypto API too via
-the shash algorithms that use the library interface.  Thus all the
-arch-specific "shash" code becomes unnecessary and is removed.
-
-Note: to see the diff from arch/sparc/crypto/crc32c_glue.c to
-arch/sparc/lib/crc32_glue.c, view this commit with 'git show -M10'.
+Now that the crc32() library function takes advantage of
+architecture-specific optimizations, it is unnecessary to go through the
+crypto API.  Just use crc32().  This is much simpler, and it improves
+performance due to eliminating the crypto API overhead.
 
 Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- arch/sparc/Kconfig                      |   1 +
- arch/sparc/crypto/Kconfig               |  10 --
- arch/sparc/crypto/Makefile              |   4 -
- arch/sparc/crypto/crc32c_glue.c         | 184 ------------------------
- arch/sparc/lib/Makefile                 |   2 +
- arch/sparc/lib/crc32_glue.c             |  86 +++++++++++
- arch/sparc/{crypto => lib}/crc32c_asm.S |   2 +-
- 7 files changed, 90 insertions(+), 199 deletions(-)
- delete mode 100644 arch/sparc/crypto/crc32c_glue.c
- create mode 100644 arch/sparc/lib/crc32_glue.c
- rename arch/sparc/{crypto => lib}/crc32c_asm.S (92%)
+ fs/f2fs/Kconfig |  3 +--
+ fs/f2fs/f2fs.h  | 19 +------------------
+ fs/f2fs/super.c | 15 ---------------
+ 3 files changed, 2 insertions(+), 35 deletions(-)
 
-diff --git a/arch/sparc/Kconfig b/arch/sparc/Kconfig
-index dcfdb7f1dae9..0f88123925a4 100644
---- a/arch/sparc/Kconfig
-+++ b/arch/sparc/Kconfig
-@@ -108,10 +108,11 @@ config SPARC64
- 	select ARCH_HAS_GIGANTIC_PAGE
- 	select HAVE_SOFTIRQ_ON_OWN_STACK
- 	select HAVE_SETUP_PER_CPU_AREA
- 	select NEED_PER_CPU_EMBED_FIRST_CHUNK
- 	select NEED_PER_CPU_PAGE_FIRST_CHUNK
-+	select ARCH_HAS_CRC32
+diff --git a/fs/f2fs/Kconfig b/fs/f2fs/Kconfig
+index 68a1e23e1557..5916a02fb46d 100644
+--- a/fs/f2fs/Kconfig
++++ b/fs/f2fs/Kconfig
+@@ -2,12 +2,11 @@
+ config F2FS_FS
+ 	tristate "F2FS filesystem support"
+ 	depends on BLOCK
+ 	select BUFFER_HEAD
+ 	select NLS
+-	select CRYPTO
+-	select CRYPTO_CRC32
++	select CRC32
+ 	select F2FS_FS_XATTR if FS_ENCRYPTION
+ 	select FS_ENCRYPTION_ALGS if FS_ENCRYPTION
+ 	select FS_IOMAP
+ 	select LZ4_COMPRESS if F2FS_FS_LZ4
+ 	select LZ4_DECOMPRESS if F2FS_FS_LZ4
+diff --git a/fs/f2fs/f2fs.h b/fs/f2fs/f2fs.h
+index 33f5449dc22d..1fc5c2743c8d 100644
+--- a/fs/f2fs/f2fs.h
++++ b/fs/f2fs/f2fs.h
+@@ -1761,13 +1761,10 @@ struct f2fs_sb_info {
  
- config ARCH_PROC_KCORE_TEXT
- 	def_bool y
+ 	/* For write statistics */
+ 	u64 sectors_written_start;
+ 	u64 kbytes_written;
  
- config CPU_BIG_ENDIAN
-diff --git a/arch/sparc/crypto/Kconfig b/arch/sparc/crypto/Kconfig
-index cfe5102b1c68..e858597de89d 100644
---- a/arch/sparc/crypto/Kconfig
-+++ b/arch/sparc/crypto/Kconfig
-@@ -14,20 +14,10 @@ config CRYPTO_DES_SPARC64
- 	  Length-preserving ciphers: DES with ECB and CBC modes
- 	  Length-preserving ciphers: Tripe DES EDE with ECB and CBC modes
+-	/* Reference to checksum algorithm driver via cryptoapi */
+-	struct crypto_shash *s_chksum_driver;
+-
+ 	/* Precomputed FS UUID checksum for seeding other checksums */
+ 	__u32 s_chksum_seed;
  
- 	  Architecture: sparc64
+ 	struct workqueue_struct *post_read_wq;	/* post read workqueue */
  
--config CRYPTO_CRC32C_SPARC64
--	tristate "CRC32c"
--	depends on SPARC64
--	select CRYPTO_HASH
--	select CRC32
--	help
--	  CRC32c CRC algorithm with the iSCSI polynomial (RFC 3385 and RFC 3720)
+@@ -1941,25 +1938,11 @@ static inline unsigned int f2fs_time_to_wait(struct f2fs_sb_info *sbi,
+  * Inline functions
+  */
+ static inline u32 __f2fs_crc32(struct f2fs_sb_info *sbi, u32 crc,
+ 			      const void *address, unsigned int length)
+ {
+-	struct {
+-		struct shash_desc shash;
+-		char ctx[4];
+-	} desc;
+-	int err;
 -
--	  Architecture: sparc64
+-	BUG_ON(crypto_shash_descsize(sbi->s_chksum_driver) != sizeof(desc.ctx));
 -
- config CRYPTO_MD5_SPARC64
- 	tristate "Digests: MD5"
- 	depends on SPARC64
- 	select CRYPTO_MD5
- 	select CRYPTO_HASH
-diff --git a/arch/sparc/crypto/Makefile b/arch/sparc/crypto/Makefile
-index d257186c27d1..a2d7fca40cb4 100644
---- a/arch/sparc/crypto/Makefile
-+++ b/arch/sparc/crypto/Makefile
-@@ -10,17 +10,13 @@ obj-$(CONFIG_CRYPTO_MD5_SPARC64) += md5-sparc64.o
+-	desc.shash.tfm = sbi->s_chksum_driver;
+-	*(u32 *)desc.ctx = crc;
+-
+-	err = crypto_shash_update(&desc.shash, address, length);
+-	BUG_ON(err);
+-
+-	return *(u32 *)desc.ctx;
++	return crc32(crc, address, length);
+ }
  
- obj-$(CONFIG_CRYPTO_AES_SPARC64) += aes-sparc64.o
- obj-$(CONFIG_CRYPTO_DES_SPARC64) += des-sparc64.o
- obj-$(CONFIG_CRYPTO_CAMELLIA_SPARC64) += camellia-sparc64.o
+ static inline u32 f2fs_crc32(struct f2fs_sb_info *sbi, const void *address,
+ 			   unsigned int length)
+ {
+diff --git a/fs/f2fs/super.c b/fs/f2fs/super.c
+index 87ab5696bd48..003d3bcb0caa 100644
+--- a/fs/f2fs/super.c
++++ b/fs/f2fs/super.c
+@@ -1670,12 +1670,10 @@ static void f2fs_put_super(struct super_block *sb)
  
--obj-$(CONFIG_CRYPTO_CRC32C_SPARC64) += crc32c-sparc64.o
--
- sha1-sparc64-y := sha1_asm.o sha1_glue.o
- sha256-sparc64-y := sha256_asm.o sha256_glue.o
- sha512-sparc64-y := sha512_asm.o sha512_glue.o
- md5-sparc64-y := md5_asm.o md5_glue.o
+ 	f2fs_destroy_post_read_wq(sbi);
  
- aes-sparc64-y := aes_asm.o aes_glue.o
- des-sparc64-y := des_asm.o des_glue.o
- camellia-sparc64-y := camellia_asm.o camellia_glue.o
--
--crc32c-sparc64-y := crc32c_asm.o crc32c_glue.o
-diff --git a/arch/sparc/crypto/crc32c_glue.c b/arch/sparc/crypto/crc32c_glue.c
-deleted file mode 100644
-index 913b9a09e885..000000000000
---- a/arch/sparc/crypto/crc32c_glue.c
-+++ /dev/null
-@@ -1,184 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0-only
--/* Glue code for CRC32C optimized for sparc64 crypto opcodes.
-- *
-- * This is based largely upon arch/x86/crypto/crc32c-intel.c
-- *
-- * Copyright (C) 2008 Intel Corporation
-- * Authors: Austin Zhang <austin_zhang@linux.intel.com>
-- *          Kent Liu <kent.liu@intel.com>
-- */
--
--#define pr_fmt(fmt)	KBUILD_MODNAME ": " fmt
--
--#include <linux/init.h>
--#include <linux/module.h>
--#include <linux/string.h>
--#include <linux/kernel.h>
--#include <linux/crc32.h>
--
--#include <crypto/internal/hash.h>
--
--#include <asm/pstate.h>
--#include <asm/elf.h>
--#include <linux/unaligned.h>
--
--#include "opcodes.h"
--
--/*
-- * Setting the seed allows arbitrary accumulators and flexible XOR policy
-- * If your algorithm starts with ~0, then XOR with ~0 before you set
-- * the seed.
-- */
--static int crc32c_sparc64_setkey(struct crypto_shash *hash, const u8 *key,
--				 unsigned int keylen)
--{
--	u32 *mctx = crypto_shash_ctx(hash);
--
--	if (keylen != sizeof(u32))
--		return -EINVAL;
--	*mctx = get_unaligned_le32(key);
--	return 0;
--}
--
--static int crc32c_sparc64_init(struct shash_desc *desc)
--{
--	u32 *mctx = crypto_shash_ctx(desc->tfm);
--	u32 *crcp = shash_desc_ctx(desc);
--
--	*crcp = *mctx;
--
--	return 0;
--}
--
--extern void crc32c_sparc64(u32 *crcp, const u64 *data, unsigned int len);
--
--static u32 crc32c_compute(u32 crc, const u8 *data, unsigned int len)
--{
--	unsigned int n = -(uintptr_t)data & 7;
--
--	if (n) {
--		/* Data isn't 8-byte aligned.  Align it. */
--		n = min(n, len);
--		crc = __crc32c_le(crc, data, n);
--		data += n;
--		len -= n;
+ 	kvfree(sbi->ckpt);
+ 
+-	if (sbi->s_chksum_driver)
+-		crypto_free_shash(sbi->s_chksum_driver);
+ 	kfree(sbi->raw_super);
+ 
+ 	f2fs_destroy_page_array_cache(sbi);
+ 	f2fs_destroy_xattr_caches(sbi);
+ #ifdef CONFIG_QUOTA
+@@ -4419,19 +4417,10 @@ static int f2fs_fill_super(struct super_block *sb, void *data, int silent)
+ 		INIT_LIST_HEAD(&sbi->inode_list[i]);
+ 		spin_lock_init(&sbi->inode_lock[i]);
+ 	}
+ 	mutex_init(&sbi->flush_lock);
+ 
+-	/* Load the checksum driver */
+-	sbi->s_chksum_driver = crypto_alloc_shash("crc32", 0, 0);
+-	if (IS_ERR(sbi->s_chksum_driver)) {
+-		f2fs_err(sbi, "Cannot load crc32 driver.");
+-		err = PTR_ERR(sbi->s_chksum_driver);
+-		sbi->s_chksum_driver = NULL;
+-		goto free_sbi;
 -	}
--	n = len & ~7U;
--	if (n) {
--		crc32c_sparc64(&crc, (const u64 *)data, n);
--		data += n;
--		len -= n;
--	}
--	if (len)
--		crc = __crc32c_le(crc, data, len);
--	return crc;
--}
 -
--static int crc32c_sparc64_update(struct shash_desc *desc, const u8 *data,
--				 unsigned int len)
--{
--	u32 *crcp = shash_desc_ctx(desc);
--
--	*crcp = crc32c_compute(*crcp, data, len);
--	return 0;
--}
--
--static int __crc32c_sparc64_finup(const u32 *crcp, const u8 *data,
--				  unsigned int len, u8 *out)
--{
--	put_unaligned_le32(~crc32c_compute(*crcp, data, len), out);
--	return 0;
--}
--
--static int crc32c_sparc64_finup(struct shash_desc *desc, const u8 *data,
--				unsigned int len, u8 *out)
--{
--	return __crc32c_sparc64_finup(shash_desc_ctx(desc), data, len, out);
--}
--
--static int crc32c_sparc64_final(struct shash_desc *desc, u8 *out)
--{
--	u32 *crcp = shash_desc_ctx(desc);
--
--	put_unaligned_le32(~*crcp, out);
--	return 0;
--}
--
--static int crc32c_sparc64_digest(struct shash_desc *desc, const u8 *data,
--				 unsigned int len, u8 *out)
--{
--	return __crc32c_sparc64_finup(crypto_shash_ctx(desc->tfm), data, len,
--				      out);
--}
--
--static int crc32c_sparc64_cra_init(struct crypto_tfm *tfm)
--{
--	u32 *key = crypto_tfm_ctx(tfm);
--
--	*key = ~0;
--
--	return 0;
--}
--
--#define CHKSUM_BLOCK_SIZE	1
--#define CHKSUM_DIGEST_SIZE	4
--
--static struct shash_alg alg = {
--	.setkey			=	crc32c_sparc64_setkey,
--	.init			=	crc32c_sparc64_init,
--	.update			=	crc32c_sparc64_update,
--	.final			=	crc32c_sparc64_final,
--	.finup			=	crc32c_sparc64_finup,
--	.digest			=	crc32c_sparc64_digest,
--	.descsize		=	sizeof(u32),
--	.digestsize		=	CHKSUM_DIGEST_SIZE,
--	.base			=	{
--		.cra_name		=	"crc32c",
--		.cra_driver_name	=	"crc32c-sparc64",
--		.cra_priority		=	SPARC_CR_OPCODE_PRIORITY,
--		.cra_flags		=	CRYPTO_ALG_OPTIONAL_KEY,
--		.cra_blocksize		=	CHKSUM_BLOCK_SIZE,
--		.cra_ctxsize		=	sizeof(u32),
--		.cra_module		=	THIS_MODULE,
--		.cra_init		=	crc32c_sparc64_cra_init,
--	}
--};
--
--static bool __init sparc64_has_crc32c_opcode(void)
--{
--	unsigned long cfr;
--
--	if (!(sparc64_elf_hwcap & HWCAP_SPARC_CRYPTO))
--		return false;
--
--	__asm__ __volatile__("rd %%asr26, %0" : "=r" (cfr));
--	if (!(cfr & CFR_CRC32C))
--		return false;
--
--	return true;
--}
--
--static int __init crc32c_sparc64_mod_init(void)
--{
--	if (sparc64_has_crc32c_opcode()) {
--		pr_info("Using sparc64 crc32c opcode optimized CRC32C implementation\n");
--		return crypto_register_shash(&alg);
--	}
--	pr_info("sparc64 crc32c opcode not available.\n");
--	return -ENODEV;
--}
--
--static void __exit crc32c_sparc64_mod_fini(void)
--{
--	crypto_unregister_shash(&alg);
--}
--
--module_init(crc32c_sparc64_mod_init);
--module_exit(crc32c_sparc64_mod_fini);
--
--MODULE_LICENSE("GPL");
--MODULE_DESCRIPTION("CRC32c (Castagnoli), sparc64 crc32c opcode accelerated");
--
--MODULE_ALIAS_CRYPTO("crc32c");
--
--#include "crop_devid.c"
-diff --git a/arch/sparc/lib/Makefile b/arch/sparc/lib/Makefile
-index ee5091dd67ed..5724d0f356eb 100644
---- a/arch/sparc/lib/Makefile
-+++ b/arch/sparc/lib/Makefile
-@@ -51,5 +51,7 @@ lib-$(CONFIG_SPARC64) += copy_in_user.o memmove.o
- lib-$(CONFIG_SPARC64) += mcount.o ipcsum.o xor.o hweight.o ffs.o
+ 	/* set a block size */
+ 	if (unlikely(!sb_set_blocksize(sb, F2FS_BLKSIZE))) {
+ 		f2fs_err(sbi, "unable to set blocksize");
+ 		goto free_sbi;
+ 	}
+@@ -4872,12 +4861,10 @@ static int f2fs_fill_super(struct super_block *sb, void *data, int silent)
+ 	fscrypt_free_dummy_policy(&F2FS_OPTION(sbi).dummy_enc_policy);
+ 	kvfree(options);
+ free_sb_buf:
+ 	kfree(raw_super);
+ free_sbi:
+-	if (sbi->s_chksum_driver)
+-		crypto_free_shash(sbi->s_chksum_driver);
+ 	kfree(sbi);
+ 	sb->s_fs_info = NULL;
  
- obj-$(CONFIG_SPARC64) += iomap.o
- obj-$(CONFIG_SPARC32) += atomic32.o
- obj-$(CONFIG_SPARC64) += PeeCeeI.o
-+obj-$(CONFIG_CRC32_ARCH) += crc32-sparc.o
-+crc32-sparc-y := crc32_glue.o crc32c_asm.o
-diff --git a/arch/sparc/lib/crc32_glue.c b/arch/sparc/lib/crc32_glue.c
-new file mode 100644
-index 000000000000..26980fd72483
---- /dev/null
-+++ b/arch/sparc/lib/crc32_glue.c
-@@ -0,0 +1,86 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/* Glue code for CRC32C optimized for sparc64 crypto opcodes.
-+ *
-+ * This is based largely upon arch/x86/crypto/crc32c-intel.c
-+ *
-+ * Copyright (C) 2008 Intel Corporation
-+ * Authors: Austin Zhang <austin_zhang@linux.intel.com>
-+ *          Kent Liu <kent.liu@intel.com>
-+ */
-+
-+#define pr_fmt(fmt)	KBUILD_MODNAME ": " fmt
-+
-+#include <linux/init.h>
-+#include <linux/module.h>
-+#include <linux/kernel.h>
-+#include <linux/crc32.h>
-+#include <asm/pstate.h>
-+#include <asm/elf.h>
-+
-+static DEFINE_STATIC_KEY_FALSE(have_crc32c_opcode);
-+
-+u32 crc32_le_arch(u32 crc, const u8 *data, size_t len)
-+{
-+	return crc32_le_base(crc, data, len);
-+}
-+EXPORT_SYMBOL(crc32_le_arch);
-+
-+void crc32c_sparc64(u32 *crcp, const u64 *data, size_t len);
-+
-+u32 crc32c_le_arch(u32 crc, const u8 *data, size_t len)
-+{
-+	size_t n = -(uintptr_t)data & 7;
-+
-+	if (!static_branch_likely(&have_crc32c_opcode))
-+		return crc32c_le_base(crc, data, len);
-+
-+	if (n) {
-+		/* Data isn't 8-byte aligned.  Align it. */
-+		n = min(n, len);
-+		crc = crc32c_le_base(crc, data, n);
-+		data += n;
-+		len -= n;
-+	}
-+	n = len & ~7U;
-+	if (n) {
-+		crc32c_sparc64(&crc, (const u64 *)data, n);
-+		data += n;
-+		len -= n;
-+	}
-+	if (len)
-+		crc = crc32c_le_base(crc, data, len);
-+	return crc;
-+}
-+EXPORT_SYMBOL(crc32c_le_arch);
-+
-+u32 crc32_be_arch(u32 crc, const u8 *data, size_t len)
-+{
-+	return crc32_be_base(crc, data, len);
-+}
-+EXPORT_SYMBOL(crc32_be_arch);
-+
-+static int __init crc32_sparc_init(void)
-+{
-+	unsigned long cfr;
-+
-+	if (!(sparc64_elf_hwcap & HWCAP_SPARC_CRYPTO))
-+		return 0;
-+
-+	__asm__ __volatile__("rd %%asr26, %0" : "=r" (cfr));
-+	if (!(cfr & CFR_CRC32C))
-+		return 0;
-+
-+	static_branch_enable(&have_crc32c_opcode);
-+	crc32_optimizations = CRC32C_OPTIMIZATION;
-+	pr_info("Using sparc64 crc32c opcode optimized CRC32C implementation\n");
-+	return 0;
-+}
-+arch_initcall(crc32_sparc_init);
-+
-+static void __exit crc32_sparc_exit(void)
-+{
-+}
-+module_exit(crc32_sparc_exit);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_DESCRIPTION("CRC32c (Castagnoli), sparc64 crc32c opcode accelerated");
-diff --git a/arch/sparc/crypto/crc32c_asm.S b/arch/sparc/lib/crc32c_asm.S
-similarity index 92%
-rename from arch/sparc/crypto/crc32c_asm.S
-rename to arch/sparc/lib/crc32c_asm.S
-index b8659a479242..ee454fa6aed6 100644
---- a/arch/sparc/crypto/crc32c_asm.S
-+++ b/arch/sparc/lib/crc32c_asm.S
-@@ -1,11 +1,11 @@
- /* SPDX-License-Identifier: GPL-2.0 */
- #include <linux/linkage.h>
- #include <asm/visasm.h>
- #include <asm/asi.h>
+ 	/* give only one another chance */
+ 	if (retry_cnt > 0 && skip_recovery) {
+@@ -5080,7 +5067,5 @@ module_init(init_f2fs_fs)
+ module_exit(exit_f2fs_fs)
  
--#include "opcodes.h"
-+#include "../crypto/opcodes.h"
- 
- ENTRY(crc32c_sparc64)
- 	/* %o0=crc32p, %o1=data_ptr, %o2=len */
- 	VISEntryHalf
- 	lda	[%o0] ASI_PL, %f1
+ MODULE_AUTHOR("Samsung Electronics's Praesto Team");
+ MODULE_DESCRIPTION("Flash Friendly File System");
+ MODULE_LICENSE("GPL");
+-MODULE_SOFTDEP("pre: crc32");
+-
 -- 
 2.47.0
 
