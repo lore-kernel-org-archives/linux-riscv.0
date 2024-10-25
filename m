@@ -4,206 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30540D0C61F
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Oct 2024 15:17:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87692D10399
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Oct 2024 15:53:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
-	References:CC:To:Subject:Date:Message-ID:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=BPZfjqu7vcMyG9ICsj9Od7SODA1gZdQ2pYXou8y6xos=; b=x7It/POT7C3N9j/hwkHtLd+54d
-	AqbfvqqSvI9uF3IUwJuQJPa5+4zzIEQZ52QVNrXuBGVZMVw1onOlEvhwS0s+441sm/3NkI7TfejdC
-	M90LYgJbH47oKVU6mjbPBVFjbq7hOSf1bvP7YZtpemkSoNeT6jV4K9lWQ28c1qMQkUHzuICmpjQ1b
-	kF69Jn3rJMNRlYifSb0iqfEDNAvlIdxsIfq9ZN2aEWDuifA2r3TxIkZUoRwWLJa+rP1P9AUP08yr6
-	sVO+1hVjh/hwlvuUEOH5Qh9klMqLZXGQi+3e6armCCwHc47D9nX9SINFMeJ0xsGUt5UYltBGuo+K6
-	qYX9ynbA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=iJXryFlcgzZn5MODwwFpz1HPrM1j+iwwIP1GllQx4iY=; b=AM18d+TED3E4o9
+	vXG7RSJFAfEbaO1wnJiBpC0MNCxd1/vRuNvSV5BdDkZZI1YVgO9jjX+0yom6kc8+eeGhAQjeKvJJ1
+	zkGlyzeUL/AuTqfbHZwtuipApL10OHB11ztjrj6ZgPQIrz7Aw1jBfJETVy+vGtGVxkH6NZF+9cmtt
+	7xKWU99M6mcoc8NYFNxpPAKIEd6BqjMXlnqJelacvlx2AYlBLkEPI9Km1Qr2aj3gBimuh5pO95SMV
+	hGDo40lLUddPVDIgCoxIt3weVzuuaJqdKZzgYD847lVxgNeoikA18SgteVQ4NqVFc2uoUhsow03NQ
+	kN3lqojLGNyjzoxAtwZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4M3m-00000004CJy-1oN8;
-	Fri, 25 Oct 2024 15:17:06 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1t4Md0-00000004KE5-08wh;
+	Fri, 25 Oct 2024 15:53:30 +0000
+Received: from mgamail.intel.com ([192.198.163.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Lh7-000000045vj-2XSH;
-	Fri, 25 Oct 2024 14:53:59 +0000
+	id 1t4MXz-00000004JTi-2Na5;
+	Fri, 25 Oct 2024 15:48:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1729868022; x=1761404022;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=mH24FSzLSfj98tcFj53A3prTHoWPrsCqLrPJZ06ku/g=;
-  b=fX+m5eTtgCoVLe9omcuw0uLlw+f+JuM0s2Z5w6CHScLI+B6sm0eZ+Ajr
-   gMDEfXuIEZlA3jjFmktO7jYm0OFBDE98GmWlqKxMRmH/kim+JKzsReews
-   zvQIBn+NozKeofRj/uaYtVfzL95Wdge/0J3fmiOql9Ca5E+bOe46gu9k+
-   q/Byv9zsR1hsp2apdGxnb5lkiYGvgkLLSZUJ77pLVqDED4zIa6MWtxBIT
-   OdD1AOLAUJEjFtC+w43cwqLoxp73V1I5eFmP/GLJe3Jll5stb8uSIqsvu
-   nnynl8cU5oqKCnCTQdJqNpz4ITXN7RpTk9V+loQnkqz6IOd5pdPR98Rd4
-   Q==;
-X-CSE-ConnectionGUID: QtKdloy1Q0aUfXnH1QAUpQ==
-X-CSE-MsgGUID: k0zOzlNNSdGahP7og+Spog==
-X-IronPort-AV: E=McAfee;i="6700,10204,11236"; a="29758344"
+  t=1729871299; x=1761407299;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=pYHHIJNTG01AQgTmBwG9U5BsfqO8HYoXVzbsu2Ldj1Y=;
+  b=atUaxLq2g4YKKd1vowsHVR3mhFSQ8GooeBFr3qjZAa3fzV4UPVpAv8NT
+   Aa7MV4Al1BuwTwiHl1Q10w9vR3+Nlvoks74MSKgyZNw6covAtPXWjH6hc
+   eNn100rpFY/apH9FLzZKVHQFpZIcmshFj3kr1T1zkMSEV/v+qzUE7qoiN
+   vUCoWS/z77Z2bNaMCKN4BCoJxmkOIQKifFWqtIbNGF/GNaAdU2smhREnI
+   UowSimO+bL7fsEyEg6GQ4jB00Qo2Tpga+qpm/M59DfAShHUcLcx4vsbFJ
+   /2qseHNudOO44jFYZi/ElI2TuJFu/Lbki5/d9fx8x0VRH9iWlQ0Lq3cKA
+   w==;
+X-CSE-ConnectionGUID: 2gPTC7ntQf+EgD0Oxu9kBQ==
+X-CSE-MsgGUID: 5Sc1fF0DR9+em+JH3k4dMw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11236"; a="28996530"
 X-IronPort-AV: E=Sophos;i="6.11,232,1725346800"; 
-   d="scan'208";a="29758344"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Oct 2024 07:53:38 -0700
-X-CSE-ConnectionGUID: miy9gWN1TwqBHTz+mynviw==
-X-CSE-MsgGUID: nulWmb9CR9edgDZzRGnNNA==
+   d="scan'208";a="28996530"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Oct 2024 08:48:18 -0700
+X-CSE-ConnectionGUID: 6O3g3ryfTOyp22Ft1rrElQ==
+X-CSE-MsgGUID: TeHm3+K9ReK+WrkH/5guHQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.11,232,1725346800"; 
-   d="scan'208";a="80866513"
-Received: from fmsmsx602.amr.corp.intel.com ([10.18.126.82])
-  by orviesa009.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 25 Oct 2024 07:53:37 -0700
-Received: from fmsmsx603.amr.corp.intel.com (10.18.126.83) by
- fmsmsx602.amr.corp.intel.com (10.18.126.82) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39; Fri, 25 Oct 2024 07:53:36 -0700
-Received: from fmsedg601.ED.cps.intel.com (10.1.192.135) by
- fmsmsx603.amr.corp.intel.com (10.18.126.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39 via Frontend Transport; Fri, 25 Oct 2024 07:53:36 -0700
-Received: from NAM12-MW2-obe.outbound.protection.outlook.com (104.47.66.42) by
- edgegateway.intel.com (192.55.55.70) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Fri, 25 Oct 2024 07:53:36 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PlBeukqq6ElkXbZQz71q6qRvRwrH/G/04sf4nBv8Su3P4HlH/bAzk1t721hhXsa+5REGY7nxqqCd+xQ9ri5BC2nrxyLIZMZSWltGHYK24C5n/OeAXGdiK8XMZDFzQ1i/1WkGBeQ1803HUsQdMS2judbhPnjqa3CPXYYFSfhZbu3XPmD5TSK5bVh761sX/BQopmSnrJbEvdMuU0iOZ1M2VuaRvTVVw7T1tjI0PIVIC3MqDB0djXZsZu7l9/Oxd9EOH1c6X3wRP9lzB0XvLxf+TV2tpTtBoGeMiNwNV6x5qARKhQwzrjivhAQLLaRSKZp2T9L0ML2r/pAStHzaXoAlRg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NUqM/Pd5xJWWPkIFSer5ufrsFgxJvu1rvX0SUfiWmGA=;
- b=r3EnkOzzIqdYcNdp7Q6nfAOS/6l7875O1hlgADUXe8HvvhkHYKQkHeEa93dzK81N5AJs6yEK4sDthdf3j9v6eE5L2mx1ptLyhRhgZXXYgc8xuHRNW3BzCO0pJSEuzSNUJWMQ+OYT4lBXAWSGz48MAtPgoNlhLk5HfEfnPjy4hcZebsfm1QSLK/qef/ar6yUyRkucOp8ZgvLiFVdIHuupSWJmE5qJmUE/X2dsMTO3eG/T3itYCrT7gW6vfPjK1YFlp8QuIj/O3/sUkVWH1BzrJB/rpP5QxzaPWkpypozt2zr1VtmR/MwKfJ5OqFI8sZ2Mlfysn0Fzm+ET4PGt6ls1bg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from DS0PR11MB8718.namprd11.prod.outlook.com (2603:10b6:8:1b9::20)
- by LV8PR11MB8723.namprd11.prod.outlook.com (2603:10b6:408:1f8::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.20; Fri, 25 Oct
- 2024 14:53:33 +0000
-Received: from DS0PR11MB8718.namprd11.prod.outlook.com
- ([fe80::4b3b:9dbe:f68c:d808]) by DS0PR11MB8718.namprd11.prod.outlook.com
- ([fe80::4b3b:9dbe:f68c:d808%4]) with mapi id 15.20.8093.018; Fri, 25 Oct 2024
- 14:53:33 +0000
-Message-ID: <e00a0277-c298-47ba-9fdd-8f740f7490cc@intel.com>
-Date: Fri, 25 Oct 2024 16:53:07 +0200
-User-Agent: Mozilla Thunderbird
+   d="scan'208";a="80865917"
+Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
+  by orviesa010.jf.intel.com with ESMTP; 25 Oct 2024 08:48:11 -0700
+Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1t4MXp-000YQm-1F;
+	Fri, 25 Oct 2024 15:48:09 +0000
+Date: Fri, 25 Oct 2024 23:48:04 +0800
+From: kernel test robot <lkp@intel.com>
+To: Inochi Amaoto <inochiama@gmail.com>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>
+Cc: oe-kbuild-all@lists.linux.dev, netdev@vger.kernel.org,
+	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org
 Subject: Re: [PATCH v2 4/4] net: stmmac: Add glue layer for Sophgo SG2044 SoC
-To: Inochi Amaoto <inochiama@gmail.com>
-CC: Chen Wang <unicorn_wang@outlook.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, "Rob
- Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, Inochi Amaoto <inochiama@outlook.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Jose Abreu
-	<joabreu@synopsys.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, "Richard
- Cochran" <richardcochran@gmail.com>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, Yixun
- Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>,
-	<netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-riscv@lists.infradead.org>
-References: <20241025011000.244350-1-inochiama@gmail.com>
- <20241025011000.244350-5-inochiama@gmail.com>
-From: Alexander Lobakin <aleksander.lobakin@intel.com>
-Content-Language: en-US
-In-Reply-To: <20241025011000.244350-5-inochiama@gmail.com>
-X-ClientProxiedBy: DBBPR09CA0011.eurprd09.prod.outlook.com
- (2603:10a6:10:c0::23) To DS0PR11MB8718.namprd11.prod.outlook.com
- (2603:10b6:8:1b9::20)
+Message-ID: <202410252357.pCyOX2bg-lkp@intel.com>
+References: <20241025011000.244350-5-inochiama@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS0PR11MB8718:EE_|LV8PR11MB8723:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2bd8751e-569f-4394-0a99-08dcf504cc2a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7416014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?d2lWcjF0MzNZM3Eyc21JU25GdnJkMVVBUGl3bEdNZHRodWZRV1Y3L2drODgy?=
- =?utf-8?B?TUp5dlpDUlEzZXdSRDc0bEtHSHFHdHJ0ZFh1c3JybXIzK3B6TitEL0ZwNWs0?=
- =?utf-8?B?U2svelp3MVdpcTRYKytvWDBZL1lwUXVpN1JXbDR1dXFPaWRqWWZweWxWbDI5?=
- =?utf-8?B?WGFTR0xKWFBQMGxRbnF5VVcwWWJ2QUhESzAwbW40bEhobTd1ZW1rcnlvM09a?=
- =?utf-8?B?UGEzQzZqdDNZcFI3T3VwNXhyUlZKVE1TaHk4ZUVFY2xsSS9kc0prRW1remdW?=
- =?utf-8?B?WG5UYnJYUGVEaHdQQXBBV1ZjbHNDejN1b3k1djU2M3Q0QVA2Rlk4Nyt6Q0Z4?=
- =?utf-8?B?RXJUUW5UdzRqdUxFMzNMclZobTJnZmViTXROTGFTTWhVVmwvNXI2M0tJZlpp?=
- =?utf-8?B?WkhWeGhVQ1hEcjNpZ0E5OGQ2WTZWSHN2MGZOVXBNNTBaZUJ6S2lHRTljWFpo?=
- =?utf-8?B?WGRDOVdYaGsrRFpMZm9qUXUxZW51OFcvQmFzckFCTG9sZ0F0OGhYcXdkZnVF?=
- =?utf-8?B?bmp3ZjRLOXdmdmhPWlVTRld4R0pna0haWFpoQUhhUGRGVndsQzZDVkcrYW1P?=
- =?utf-8?B?SjBnSU5BMWVzVVZDaUQyemhsUy9lSkpRL1RjUno4bnBDUWh2ZUdLU25MbnVR?=
- =?utf-8?B?SVBEWE9qTlcrMFVyeEtCZ1FzN3NIbmhVTEtGUmFUcTlOdEtkSTNJbWxGOERT?=
- =?utf-8?B?U2FTcmU4WVU2MG4zVmJBVVFaTTl6WHZycnBkMndpSG9LZVRwd0xveGV5NjEr?=
- =?utf-8?B?QWl4TFFVdlE4emxVMXAvRnNvcDM4U3RHT3Z5MzhGZEFZWEV4V1E0VU12Q2d1?=
- =?utf-8?B?QTEra1ZmQjJzWDc4WEU1bTN5OVBBQmJxU290R1Rvd3VRdFZvYmhrd3JmZEcz?=
- =?utf-8?B?d3ZQQnp0ZFJMdjd5SWZ2dzRkallweUp3SFlXTmFsc0FHRS8yV1liYnhJVVdy?=
- =?utf-8?B?MzdQWjVzUUlxeEdYaTNZcnRtNW5BWlVKTTJqQ3ozWlU4S2pzcDVKOTIwcHhS?=
- =?utf-8?B?QTUzdENhV3FkOWQwa05DZW82cllDU04wUUF5N3haaWhmbFY5R20xaUlnOFdJ?=
- =?utf-8?B?NDNtRkZEbVh6cE9Od3kvYmtDdDhueEF5T1BPczNZRWRmN3JWL21kMWtCa3ov?=
- =?utf-8?B?WnF6cUgwK1J4bGVtZDV1QVpkSGR2ZHdIZ2l1ZHgrMjdYK0M3SW9KWEdpeklJ?=
- =?utf-8?B?VVl4Misvenl6eGRYYlZCaUpwbXQvV2RQaXYxRjdERS9UbUJUOUp1UGtQYTdI?=
- =?utf-8?B?dm5QaHNqdzVxYUo4YzlJMitXYWtIMmFCNmVObTBZUGFBTzJVbTVQc3lYbEtP?=
- =?utf-8?B?S1BsWm1Sb2ZPTStaK3BjQ2R3QXkwcURzNWlDVnc2RFhTYWZqdHZBNFFLV0VN?=
- =?utf-8?B?NlFBOVg1cWdPNlZiZFZyeWFZeFJqbzVCbXJlMXlQL2k1eGtrRzBJUkNFa2dL?=
- =?utf-8?B?N0VNKzB1ellrNkJ1VUVYcUZSbXQ3WVh6c1pSQ2RkT2VqSGRML0lpVnByNnFP?=
- =?utf-8?B?MUhQU2MvRXBpQjB2eXpyeGM5ZFdjZU55VXRXNDN0bDFvVGxPVElqeEZuOFEz?=
- =?utf-8?B?S0pJdXRvdkV5MUZlRXlYaG5Yb2xwS0F2cWkweTNYV0N5cWpSdWtrNmhRMFEv?=
- =?utf-8?B?SjNSYUQ0eUx6UjIzU094ZUhjU2JiVGN1VkNYeXVDaXpGM2QzcnFIeEhqK01v?=
- =?utf-8?B?cllhbTNxQjc3MWllWWJvK1d0bVE5RGRxTExjU0tBbXNBdU1ReGN4Z09MUG1K?=
- =?utf-8?Q?u2HroA2Paacfo8pyaDMtBwXL5tVqHu5rW/8VTL/?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR11MB8718.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?anpjZ1Q0cEkvbUttVTNETWtFQmllSEZwWW5BRnQwRXQ5QkYzbXRtTGw1MkJM?=
- =?utf-8?B?WVZiUDFqc3lUd3JPNjEycmlSbVgwOFlvQ0xPb21keVpyd00wV05QaW5ML0JB?=
- =?utf-8?B?OXBORDlsaHg4QnVad3hjb0djRVFNSzFiZGJnVzQ0ZW4yb1VBWWMxZlhGK3dO?=
- =?utf-8?B?a0phaEtjc1VnT3VoeXAwWWFQS0xuT1Z3dG9ha3pVNUlUSDZZcEVqeHhyeW4y?=
- =?utf-8?B?clVzelRsVCthU2V4TDBxbS96Q3BlM2pqRG44eGZ5OTZiS2lsZ1BTVGFOK1Iv?=
- =?utf-8?B?UW5jWFd0Z2JHcnZ4K3EwRXhMOFVYRm5oaGszZWNJWE01Vk5hRnRQcnlZRXBv?=
- =?utf-8?B?aXBnYmJuS3UvaTNkRFJ1dzNwbXJJaHM5cHpCN3YxYzFNMVl1c3ZYbTNlTGww?=
- =?utf-8?B?eGVOS0wxVGdPYWxLeEx0RWo3eXY4SHRCU29EY1lPcWc4Q25QUlc4bldJQVdZ?=
- =?utf-8?B?MjBMN1lOU3kxYk1GNXdPc1MxdWtqNEVXeEd3QTFLcVZ4Um9aY284NnpsK0VH?=
- =?utf-8?B?UDUwelcyU3hSa0xHQ0FjY0srSFljVlM2NzM2L29RNTZtSTNTZk9wZ2RUZ295?=
- =?utf-8?B?TFRTcjBaUlFzZG1KSlZsamNnTW1xTUU2VlhJc0ZSWXUvQXdoV3UvRDVoOEQ1?=
- =?utf-8?B?eFNsOEU4VmhmbDVKUDlvOUp4OGpDaFdIL2VEYUZ4SDBCenlDOHUzdFYzMFN1?=
- =?utf-8?B?cDJydld2SVdjbWlHemFKYUVyeDU5VitwZlpCK0hYUmhna09MNzYyd0x6YU9M?=
- =?utf-8?B?V0RIaXlzcjhuWEV4T3NEUURXaisxMnNTdnRvWXFjQlh1VVNXRG9CVWVjYU1Y?=
- =?utf-8?B?QnlJOUZJSEZSV2c1akMwR3F5VEFaYzJ3STdjTWJyUExVTjZ3amwxTjZkNWoy?=
- =?utf-8?B?ZVBrR1NmUzdjU3ZwV29DNXJXM3ltYXFCWWdyMFFJM2dSNW1mdk0vRklNNEVU?=
- =?utf-8?B?bVFzcHAwQzJRc1BybjkyT2xWMGpGWUJOUnhmRzB1QUlDTm5HbGpBemV5VXR0?=
- =?utf-8?B?ZjcwcXRjdkhiQncvT1AzbVAwNHl4cy9uZHZIVU9KNEhXNmlMVVpid1AxV2tv?=
- =?utf-8?B?TDRZc2pDazhObWtiSTI2cm9JKzJ4SUwvT2FEQWVGUmpKTHdER3IzQmttaU1x?=
- =?utf-8?B?T1c2OHdPSHBHcXZVbnZ4VUxVcGJHUUlEdmlyWEUxcHFvT2dia3hmTGxWZXEw?=
- =?utf-8?B?K2xibXpOdlR0cTZGOEFxdnZzcHNxVEp0TExsQkhLTTRkWWM0c2owbnZ4V3A0?=
- =?utf-8?B?cFo1WHFmbndEK3dQczVic0FxN2dKeTYvb3RmenNNYVIvWWdSR1hSSUZINldG?=
- =?utf-8?B?dWdzTlRZR201a0dUbHY1SzNkVXhIQnA5UFdDdUVLd2NVUE9JRHVlTmpkWUpH?=
- =?utf-8?B?Rmo1OUpiamxqZnR3eFc3TXBPTXh6SnN0SDVmaFFweDBicjNSSktROXJjRHJN?=
- =?utf-8?B?ZHhIckIwTmdYK1ExWlhaYjhqNVpJMlM3SmtRN0F2ejU3Ri96MGVtVURFVzZl?=
- =?utf-8?B?SUdza0NXSnJybE5qNlFPRENaam0xT2pGMnNWaTNnbURGaWVhd05HNHZtdUtY?=
- =?utf-8?B?S0szeXExeFRWd1QwVXVtSDNKOVJCYlNZek1RRnlsTXNkL2Qra3ZZdWJDN1lD?=
- =?utf-8?B?bmpLbFN1d0Y2Wmk5MWhFK2RZdkdOVVVWaFRtQ0d3bnltQktFTXFRekdUdENW?=
- =?utf-8?B?QnpUYUdJWXEvNlp3N2I1UVQ1cGFoaEpjMFVDUjdWdlpUSVJycUhScjRodWtZ?=
- =?utf-8?B?NHpqR2pCZGVpdmdhWWs2TlBkdnNQYkxRU0gzZ1BMU1RqK0FYS3QwZlIxSElF?=
- =?utf-8?B?ZTFkN2FCd0lpRUhySWR5ZG9ibDN6dFJyaFJYRmRHZ2VTNlNpUnRjOUZINGJt?=
- =?utf-8?B?SU9aTjNNangrdUNKT3E4SzlRRDh5RjVQMm8waU53L25idENvZjN0aTAvTmdr?=
- =?utf-8?B?bEV1ZUtHUG8zSjgwOTRkdDVBeDliWk5OWGFQYko2c3RWbyt2WGdtTHBncC9a?=
- =?utf-8?B?c3ROczJWSGNTY0NOOURCMFhyTU4wM1lVak1YejdLMWR2eWxNSDlGdEliZGNM?=
- =?utf-8?B?RG1uQ3JPUC9LYy95U2h4WnVkc1dWLzJEVG51dTluMkpGQVdWRHBYKzFvNVNB?=
- =?utf-8?B?RFd5R25VSnc5MlZNdTJYdWV6enBHdnZvak5CYUduVnF2dWhZYnQwNG5wanZh?=
- =?utf-8?B?bHc9PQ==?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2bd8751e-569f-4394-0a99-08dcf504cc2a
-X-MS-Exchange-CrossTenant-AuthSource: DS0PR11MB8718.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Oct 2024 14:53:33.6826
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: tMFBZs9ULXKP4dgYSJvD2JpKM18OaXn4DJITgBT/wQE7THVQ0AntuJGi5sih6PXfU+cpRLKKSM0hp4EpYq4OyUEQ5lnOywx/HiDsW8miIhs=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR11MB8723
-X-OriginatorOrg: intel.com
+Content-Disposition: inline
+In-Reply-To: <20241025011000.244350-5-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_075341_725139_8EE4EFFD 
-X-CRM114-Status: GOOD (  20.40  )
+X-CRM114-CacheID: sfid-20241025_084819_679356_15767C03 
+X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -220,116 +108,91 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Inochi Amaoto <inochiama@gmail.com>
-Date: Fri, 25 Oct 2024 09:10:00 +0800
+Hi Inochi,
 
-> Adds Sophgo dwmac driver support on the Sophgo SG2044 SoC.
-> 
-> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> ---
->  drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 ++
->  drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
->  .../ethernet/stmicro/stmmac/dwmac-sophgo.c    | 109 ++++++++++++++++++
->  3 files changed, 121 insertions(+)
->  create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
+kernel test robot noticed the following build errors:
 
-[...]
+[auto build test ERROR on robh/for-next]
+[also build test ERROR on sophgo/for-next sophgo/fixes net-next/main net/main linus/master v6.12-rc4 next-20241025]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
-> new file mode 100644
-> index 000000000000..8f37bcf86a73
-> --- /dev/null
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
-> @@ -0,0 +1,109 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +/*
-> + * Sophgo DWMAC platform driver
-> + *
-> + * Copyright (C) 2024 Inochi Amaoto <inochiama@gmail.com>
-> + *
+url:    https://github.com/intel-lab-lkp/linux/commits/Inochi-Amaoto/dt-bindings-net-snps-dwmac-Add-dwmac-5-30a-version/20241025-091315
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
+patch link:    https://lore.kernel.org/r/20241025011000.244350-5-inochiama%40gmail.com
+patch subject: [PATCH v2 4/4] net: stmmac: Add glue layer for Sophgo SG2044 SoC
+config: loongarch-allmodconfig (https://download.01.org/0day-ci/archive/20241025/202410252357.pCyOX2bg-lkp@intel.com/config)
+compiler: loongarch64-linux-gcc (GCC) 14.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241025/202410252357.pCyOX2bg-lkp@intel.com/reproduce)
 
-This empty line is redundant I guess?
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202410252357.pCyOX2bg-lkp@intel.com/
 
-> + */
-> +
-> +#include <linux/bits.h>
-> +#include <linux/mod_devicetable.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/property.h>
-> +#include <linux/mfd/syscon.h>
-> +#include <linux/phy.h>
-> +#include <linux/regmap.h>
+All error/warnings (new ones prefixed by >>):
 
-Here should be alphabetical order.
+   drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c: In function 'sophgo_dwmac_fix_mac_speed':
+>> drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c:30:16: error: implicit declaration of function 'rgmii_clock' [-Wimplicit-function-declaration]
+      30 |         rate = rgmii_clock(speed);
+         |                ^~~~~~~~~~~
+   drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c: In function 'sophgo_sg2044_dwmac_init':
+>> drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c:46:13: warning: unused variable 'ret' [-Wunused-variable]
+      46 |         int ret;
+         |             ^~~
 
-> +
-> +#include "stmmac_platform.h"
-> +
-> +struct sophgo_dwmac {
-> +	struct device *dev;
-> +	struct clk *clk_tx;
-> +};
-> +
-> +static void sophgo_dwmac_fix_mac_speed(void *priv, unsigned int speed, unsigned int mode)
-> +{
-> +	struct sophgo_dwmac *dwmac = priv;
-> +	long rate;
-> +	int ret;
-> +
-> +	rate = rgmii_clock(speed);
-> +	if (ret < 0) {
 
-Did you mean `if (rate < 0)`?
+vim +/rgmii_clock +30 drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
 
-> +		dev_err(dwmac->dev, "invalid speed %u\n", speed);
-> +		return;
-> +	}
-> +
-> +	ret = clk_set_rate(dwmac->clk_tx, rate);
-> +	if (ret)
-> +		dev_err(dwmac->dev, "failed to set tx rate %lu\n", rate);
+    23	
+    24	static void sophgo_dwmac_fix_mac_speed(void *priv, unsigned int speed, unsigned int mode)
+    25	{
+    26		struct sophgo_dwmac *dwmac = priv;
+    27		long rate;
+    28		int ret;
+    29	
+  > 30		rate = rgmii_clock(speed);
+    31		if (ret < 0) {
+    32			dev_err(dwmac->dev, "invalid speed %u\n", speed);
+    33			return;
+    34		}
+    35	
+    36		ret = clk_set_rate(dwmac->clk_tx, rate);
+    37		if (ret)
+    38			dev_err(dwmac->dev, "failed to set tx rate %lu\n", rate);
+    39	}
+    40	
+    41	static int sophgo_sg2044_dwmac_init(struct platform_device *pdev,
+    42					    struct plat_stmmacenet_data *plat_dat,
+    43					    struct stmmac_resources *stmmac_res)
+    44	{
+    45		struct sophgo_dwmac *dwmac;
+  > 46		int ret;
+    47	
+    48		dwmac = devm_kzalloc(&pdev->dev, sizeof(*dwmac), GFP_KERNEL);
+    49		if (!dwmac)
+    50			return -ENOMEM;
+    51	
+    52		dwmac->clk_tx = devm_clk_get_enabled(&pdev->dev, "tx");
+    53		if (IS_ERR(dwmac->clk_tx))
+    54			return dev_err_probe(&pdev->dev, PTR_ERR(dwmac->clk_tx),
+    55					     "failed to get tx clock\n");
+    56	
+    57		dwmac->dev = &pdev->dev;
+    58		plat_dat->bsp_priv = dwmac;
+    59		plat_dat->flags |= STMMAC_FLAG_SPH_DISABLE;
+    60		plat_dat->fix_mac_speed = sophgo_dwmac_fix_mac_speed;
+    61		plat_dat->multicast_filter_bins = 0;
+    62		plat_dat->unicast_filter_entries = 1;
+    63	
+    64		return 0;
+    65	}
+    66	
 
-Don't you want to print the error code here?
-
-		"failed to set tx rate %lu: %pe\n", rate, ERR_PTR(ret));
-
-> +}
-> +
-> +static int sophgo_sg2044_dwmac_init(struct platform_device *pdev,
-> +				    struct plat_stmmacenet_data *plat_dat,
-> +				    struct stmmac_resources *stmmac_res)
-> +{
-> +	struct sophgo_dwmac *dwmac;
-> +	int ret;
-
-Unused var.
-
-> +
-> +	dwmac = devm_kzalloc(&pdev->dev, sizeof(*dwmac), GFP_KERNEL);
-> +	if (!dwmac)
-> +		return -ENOMEM;
-> +
-> +	dwmac->clk_tx = devm_clk_get_enabled(&pdev->dev, "tx");
-> +	if (IS_ERR(dwmac->clk_tx))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(dwmac->clk_tx),
-> +				     "failed to get tx clock\n");
-> +
-> +	dwmac->dev = &pdev->dev;
-> +	plat_dat->bsp_priv = dwmac;
-> +	plat_dat->flags |= STMMAC_FLAG_SPH_DISABLE;
-> +	plat_dat->fix_mac_speed = sophgo_dwmac_fix_mac_speed;
-> +	plat_dat->multicast_filter_bins = 0;
-> +	plat_dat->unicast_filter_entries = 1;
-> +
-> +	return 0;
-> +}
-
-[...]
-
-+ see the build bot report.
-
-Thanks,
-Olek
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
