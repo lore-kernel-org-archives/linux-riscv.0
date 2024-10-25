@@ -4,94 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87692D10399
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Oct 2024 15:53:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 856E4D149C6
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Oct 2024 16:33:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iJXryFlcgzZn5MODwwFpz1HPrM1j+iwwIP1GllQx4iY=; b=AM18d+TED3E4o9
-	vXG7RSJFAfEbaO1wnJiBpC0MNCxd1/vRuNvSV5BdDkZZI1YVgO9jjX+0yom6kc8+eeGhAQjeKvJJ1
-	zkGlyzeUL/AuTqfbHZwtuipApL10OHB11ztjrj6ZgPQIrz7Aw1jBfJETVy+vGtGVxkH6NZF+9cmtt
-	7xKWU99M6mcoc8NYFNxpPAKIEd6BqjMXlnqJelacvlx2AYlBLkEPI9Km1Qr2aj3gBimuh5pO95SMV
-	hGDo40lLUddPVDIgCoxIt3weVzuuaJqdKZzgYD847lVxgNeoikA18SgteVQ4NqVFc2uoUhsow03NQ
-	kN3lqojLGNyjzoxAtwZA==;
+	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
+	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=5AKYw6n2qLyIraHE8AWmhXER0GDiwuc+fVuP56gdl8Y=; b=uJ545ZwoHx8jfS
+	x02AuExOwXFcnzezvu12m+94El+QC/Ha3i+nRtlilpoIhjqzEm7JaStVO81YTu/lKfG8uJAMtcx8l
+	LGWMHIdnWje77gheEzsngi2c9EdvK4q/2L5+dsucH1OYRFSN6MVs1Wz7OiaYzC8YmtnbMT6B7ckAI
+	Er6NFWuGVuuE+FfnVpsF5gOkiFqNbXbvbrN2Dx6itDz2f4rTty54RiMdFRf31bGf6EjgoNixz12mU
+	rOF4rGyrq4OZBXb+ZSrukNwBTkLdXvxbVWrR421y4rDMvGEVRtNgBI/SkmtDdJU7MxLK0JjK8Ha7T
+	noztO213qjTCXUi5dFKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Md0-00000004KE5-08wh;
-	Fri, 25 Oct 2024 15:53:30 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1t4NFc-00000004S3b-3rS8;
+	Fri, 25 Oct 2024 16:33:24 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4MXz-00000004JTi-2Na5;
-	Fri, 25 Oct 2024 15:48:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1729871299; x=1761407299;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=pYHHIJNTG01AQgTmBwG9U5BsfqO8HYoXVzbsu2Ldj1Y=;
-  b=atUaxLq2g4YKKd1vowsHVR3mhFSQ8GooeBFr3qjZAa3fzV4UPVpAv8NT
-   Aa7MV4Al1BuwTwiHl1Q10w9vR3+Nlvoks74MSKgyZNw6covAtPXWjH6hc
-   eNn100rpFY/apH9FLzZKVHQFpZIcmshFj3kr1T1zkMSEV/v+qzUE7qoiN
-   vUCoWS/z77Z2bNaMCKN4BCoJxmkOIQKifFWqtIbNGF/GNaAdU2smhREnI
-   UowSimO+bL7fsEyEg6GQ4jB00Qo2Tpga+qpm/M59DfAShHUcLcx4vsbFJ
-   /2qseHNudOO44jFYZi/ElI2TuJFu/Lbki5/d9fx8x0VRH9iWlQ0Lq3cKA
-   w==;
-X-CSE-ConnectionGUID: 2gPTC7ntQf+EgD0Oxu9kBQ==
-X-CSE-MsgGUID: 5Sc1fF0DR9+em+JH3k4dMw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11236"; a="28996530"
-X-IronPort-AV: E=Sophos;i="6.11,232,1725346800"; 
-   d="scan'208";a="28996530"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Oct 2024 08:48:18 -0700
-X-CSE-ConnectionGUID: 6O3g3ryfTOyp22Ft1rrElQ==
-X-CSE-MsgGUID: TeHm3+K9ReK+WrkH/5guHQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,232,1725346800"; 
-   d="scan'208";a="80865917"
-Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by orviesa010.jf.intel.com with ESMTP; 25 Oct 2024 08:48:11 -0700
-Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1t4MXp-000YQm-1F;
-	Fri, 25 Oct 2024 15:48:09 +0000
-Date: Fri, 25 Oct 2024 23:48:04 +0800
-From: kernel test robot <lkp@intel.com>
-To: Inochi Amaoto <inochiama@gmail.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>
-Cc: oe-kbuild-all@lists.linux.dev, netdev@vger.kernel.org,
-	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 4/4] net: stmmac: Add glue layer for Sophgo SG2044 SoC
-Message-ID: <202410252357.pCyOX2bg-lkp@intel.com>
-References: <20241025011000.244350-5-inochiama@gmail.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241025011000.244350-5-inochiama@gmail.com>
+	id 1t4NEt-00000004Rwr-0NTR
+	for linux-riscv@lists.infradead.org;
+	Fri, 25 Oct 2024 16:32:41 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4315eeb2601so28698935e9.2
+        for <linux-riscv@lists.infradead.org>; Fri, 25 Oct 2024 09:32:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=jrtc27.com; s=gmail.jrtc27.user; t=1729873956; x=1730478756; darn=lists.infradead.org;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lXeTo7Ai0eUmikHGglFs9Z6xKx+weNQarzYjxtYNU8s=;
+        b=R9C74qb3pdRheMq37Rh2rdY5wwZOR20LDZQa/iywDMaPqh0hlWLW7qtdQBPqG2EI70
+         fsj/v+K3rbYAqhT5ZC2H8C07cYOFiBIHi6SIc14SJx/5eBguaQSbKY/H+3uZQdbsu78z
+         msG/Z2xxqus3COX08E51/X9FSQCSD3mVYhfNOxZpnDumnpiAbn7IGVzRqYP16gRAujju
+         jjZlK4zQf5sNS11K4WR+Cz1/iSYXpUsy8MaLhM9wG4UKaxSjoh88KC/2eBUQiTLQEUiG
+         0TD0RBQFuoQ1uXrlD/eotxb6CaqS7r7NkeTbYH4YG2h4DxPezS4SH5P7vrO41DK00Ir0
+         ZkUQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729873956; x=1730478756;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=lXeTo7Ai0eUmikHGglFs9Z6xKx+weNQarzYjxtYNU8s=;
+        b=MGeZ2eQiGzZszvK/O9L1VpLoE0wJEC6/lElgsI2NKUqcILIEC2Kx2F/L9p0aoRKL7I
+         igY7GTWQwHp+X0GAGbXPDduyDkLMY1EkxQbEQYcuMCzZOX3VV5rGiX8bWzW8WEDtEQwL
+         AcgTOFZ8ypqHqTlOoPRhQ1UOBUXv/OHlqUUJcLmx7mW4sLdI5mKjDTUYAWN/z3dXC12X
+         RNeLVS2+3cuG2bZmeAeHSMtE5TlONsew1fkeEwbZwkxHAyOYahheQhLfaAoFbu2VI1fM
+         xSDDm1aLlCiEiMdkFi1vAR4nmS0ZL6YgEnsRsSBs7Wz+jyCVxUz/vmzBSEV1/SClqyaQ
+         NiRQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVYLG8S6Mr3L6KHb3BJAAzHrf5Mpuh5xfw/sAsQMT40hPY1d2cYi5U4mB8gzjjFnXgb5dPFzZuvThWC6A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHRBArCqS+amQAWkIV9hH9Bo6b9CRqv4NWRWC+AGtvZoOLyCDJ
+	4tzFmq1UcXXHIy4/DxcKu2X/tu8UkBEeWhgUMf200rIt7Ta1Mib1TY3P+L5f5UTAfSRMNu+o4jD
+	FS9c=
+X-Google-Smtp-Source: AGHT+IFzsde/CLy2eKazkH1v7HLp95coK36e2ucRf+AtuaN3885jE1bDkPSHOXdWnud0uPfx4xpq7A==
+X-Received: by 2002:a05:600c:1c92:b0:431:604d:b22 with SMTP id 5b1f17b1804b1-4318421133amr122043805e9.16.1729873955703;
+        Fri, 25 Oct 2024 09:32:35 -0700 (PDT)
+Received: from smtpclient.apple ([131.111.5.201])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4319360cc2esm22175455e9.44.2024.10.25.09.32.34
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 25 Oct 2024 09:32:35 -0700 (PDT)
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3818.100.11.1.3\))
+Subject: Re: [PATCH] RISC-V: Enable Zicbom in usermode
+From: Jessica Clarke <jrtc27@jrtc27.com>
+In-Reply-To: <20241025-puritan-sank-b8a828ef5872@spud>
+Date: Fri, 25 Oct 2024 17:32:24 +0100
+Cc: Yunhui Cui <cuiyunhui@bytedance.com>,
+ punit.agrawal@bytedance.com,
+ paul.walmsley@sifive.com,
+ palmer@dabbelt.com,
+ aou@eecs.berkeley.edu,
+ cleger@rivosinc.com,
+ charlie@rivosinc.com,
+ evan@rivosinc.com,
+ samuel.holland@sifive.com,
+ andybnac@gmail.com,
+ linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Message-Id: <3CCBB0AB-169D-4677-9A44-53E4148908D5@jrtc27.com>
+References: <20241025091527.57825-1-cuiyunhui@bytedance.com>
+ <20241025-puritan-sank-b8a828ef5872@spud>
+To: Conor Dooley <conor@kernel.org>
+X-Mailer: Apple Mail (2.3818.100.11.1.3)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_084819_679356_15767C03 
-X-CRM114-Status: GOOD (  13.24  )
+X-CRM114-CacheID: sfid-20241025_093240_596701_836660E2 
+X-CRM114-Status: GOOD (  19.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,98 +100,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Inochi,
-
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on robh/for-next]
-[also build test ERROR on sophgo/for-next sophgo/fixes net-next/main net/main linus/master v6.12-rc4 next-20241025]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Inochi-Amaoto/dt-bindings-net-snps-dwmac-Add-dwmac-5-30a-version/20241025-091315
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
-patch link:    https://lore.kernel.org/r/20241025011000.244350-5-inochiama%40gmail.com
-patch subject: [PATCH v2 4/4] net: stmmac: Add glue layer for Sophgo SG2044 SoC
-config: loongarch-allmodconfig (https://download.01.org/0day-ci/archive/20241025/202410252357.pCyOX2bg-lkp@intel.com/config)
-compiler: loongarch64-linux-gcc (GCC) 14.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241025/202410252357.pCyOX2bg-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202410252357.pCyOX2bg-lkp@intel.com/
-
-All error/warnings (new ones prefixed by >>):
-
-   drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c: In function 'sophgo_dwmac_fix_mac_speed':
->> drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c:30:16: error: implicit declaration of function 'rgmii_clock' [-Wimplicit-function-declaration]
-      30 |         rate = rgmii_clock(speed);
-         |                ^~~~~~~~~~~
-   drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c: In function 'sophgo_sg2044_dwmac_init':
->> drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c:46:13: warning: unused variable 'ret' [-Wunused-variable]
-      46 |         int ret;
-         |             ^~~
-
-
-vim +/rgmii_clock +30 drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
-
-    23	
-    24	static void sophgo_dwmac_fix_mac_speed(void *priv, unsigned int speed, unsigned int mode)
-    25	{
-    26		struct sophgo_dwmac *dwmac = priv;
-    27		long rate;
-    28		int ret;
-    29	
-  > 30		rate = rgmii_clock(speed);
-    31		if (ret < 0) {
-    32			dev_err(dwmac->dev, "invalid speed %u\n", speed);
-    33			return;
-    34		}
-    35	
-    36		ret = clk_set_rate(dwmac->clk_tx, rate);
-    37		if (ret)
-    38			dev_err(dwmac->dev, "failed to set tx rate %lu\n", rate);
-    39	}
-    40	
-    41	static int sophgo_sg2044_dwmac_init(struct platform_device *pdev,
-    42					    struct plat_stmmacenet_data *plat_dat,
-    43					    struct stmmac_resources *stmmac_res)
-    44	{
-    45		struct sophgo_dwmac *dwmac;
-  > 46		int ret;
-    47	
-    48		dwmac = devm_kzalloc(&pdev->dev, sizeof(*dwmac), GFP_KERNEL);
-    49		if (!dwmac)
-    50			return -ENOMEM;
-    51	
-    52		dwmac->clk_tx = devm_clk_get_enabled(&pdev->dev, "tx");
-    53		if (IS_ERR(dwmac->clk_tx))
-    54			return dev_err_probe(&pdev->dev, PTR_ERR(dwmac->clk_tx),
-    55					     "failed to get tx clock\n");
-    56	
-    57		dwmac->dev = &pdev->dev;
-    58		plat_dat->bsp_priv = dwmac;
-    59		plat_dat->flags |= STMMAC_FLAG_SPH_DISABLE;
-    60		plat_dat->fix_mac_speed = sophgo_dwmac_fix_mac_speed;
-    61		plat_dat->multicast_filter_bins = 0;
-    62		plat_dat->unicast_filter_entries = 1;
-    63	
-    64		return 0;
-    65	}
-    66	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMjUgT2N0IDIwMjQsIGF0IDExOjE2LCBDb25vciBEb29sZXkgPGNvbm9yQGtlcm5lbC5vcmc+
+IHdyb3RlOgo+IE9uIEZyaSwgT2N0IDI1LCAyMDI0IGF0IDA1OjE1OjI3UE0gKzA4MDAsIFl1bmh1
+aSBDdWkgd3JvdGU6Cj4+IExpa2UgWmljYm96LCBieSBlbmFibGluZyB0aGUgY29ycmVzcG9uZGlu
+ZyBiaXRzIG9mIHNlbnZjZmcsCj4+IHRoZSBpbnN0cnVjdGlvbnMgY2JvLmNsZWFuLCBjYm8uZmx1
+c2gsIGFuZCBjYm8uaW52YWwgY2FuIGJlCj4+IGV4ZWN1dGVkIG5vcm1hbGx5IGluIHVzZXIgbW9k
+ZS4KPj4gCj4+IFNpZ25lZC1vZmYtYnk6IFl1bmh1aSBDdWkgPGN1aXl1bmh1aUBieXRlZGFuY2Uu
+Y29tPgo+PiAtLS0KPj4gYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jIHwgMiArLQo+PiAx
+IGZpbGUgY2hhbmdlZCwgMSBpbnNlcnRpb24oKyksIDEgZGVsZXRpb24oLSkKPj4gCj4+IGRpZmYg
+LS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMgYi9hcmNoL3Jpc2N2L2tlcm5l
+bC9jcHVmZWF0dXJlLmMKPj4gaW5kZXggMTk5MmVhNjQ3ODZlLi5iYzg1MDUxOGFiNDEgMTAwNjQ0
+Cj4+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL2NwdWZlYXR1cmUuYwo+PiArKysgYi9hcmNoL3Jp
+c2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMKPj4gQEAgLTkyNCw3ICs5MjQsNyBAQCB1bnNpZ25lZCBs
+b25nIHJpc2N2X2dldF9lbGZfaHdjYXAodm9pZCkKPj4gdm9pZCBfX2luaXQgcmlzY3ZfdXNlcl9p
+c2FfZW5hYmxlKHZvaWQpCj4+IHsKPj4gaWYgKHJpc2N2X2hhc19leHRlbnNpb25fdW5saWtlbHko
+UklTQ1ZfSVNBX0VYVF9aSUNCT1opKQo+PiAtIGN1cnJlbnQtPnRocmVhZC5lbnZjZmcgfD0gRU5W
+Q0ZHX0NCWkU7Cj4+ICsgY3VycmVudC0+dGhyZWFkLmVudmNmZyB8PSBFTlZDRkdfQ0JJRSB8IEVO
+VkNGR19DQkNGRSB8IEVOVkNGR19DQlpFOwo+IAo+IEkgYmVsaWV2ZSB3ZSBwcmV2aW91c2x5IGRl
+Y2lkZWQgdGhhdCB1c2Vyc3BhY2Ugc2hvdWxkIG5vdCBiZSBhbGxvd2VkIHRvCj4gdXNlIHppY2Jv
+bSwgYnV0IHRoYXQgbm90IHdpdGhzdGFuZGluZyAtIHRoaXMgaXMgd3JvbmcuIEl0IHNob3VsZCBi
+ZQo+IGNoZWNraW5nIGZvciBaaWNib20sIG5vdCBaaWNib3ouCgpBbGxvd2luZyBjbGVhbi9mbHVz
+aCBpcyBzYWZlIGJ1dCBoYXMgdGhlIHNhbWUgcHJvYmxlbXMgYXMgZmVuY2UuaSB3aXRoCnJlZ2Fy
+ZHMgdG8gbWlncmF0aW5nIGJldHdlZW4gaGFydHMuIEFsbG93aW5nIGludmFsaWRhdGUsIHVubGVz
+cyBtYXBwZWQKdG8gZmx1c2gsIGlzIG5vdCBzYWZlIGluIGdlbmVyYWwgdW5sZXNzIHRoZSBrZXJu
+ZWwgZG9lcyBhIGxvdCBvZgpmbHVzaGluZyB0byBhdm9pZCB1c2Vyc3BhY2UgYWNjZXNzaW5nIGRh
+dGEgaXQgc2hvdWxkbuKAmXQgYmUgYWJsZSB0byBzZWUuCgpBbHNvLCBFTlZDRkdfQ0JJRSBpcyBh
+IG1hc2sgZm9yIGEgbXVsdGktYml0IGZpZWxkLCB3aGljaCBoYXBwZW5zIHRvCmhhdmUgdGhlIHNh
+bWUgdmFsdWUgYXMgRU5WQ0ZHX0NCSUVfSU5WIChpLmUuIHJlYWxseSBpcyBtYWtpbmcgY2JvLmlu
+dmFsCmJlIGFuIGludmFsaWRhdGUpLiBJIG5vdGUgdGhhdCB0aGUgS1ZNIGNvZGUsIHdoaWNoIHRo
+aXMgbGlrZWx5IGNvcGllZApmcm9tKD8pLCBtYWtlcyB0aGUgc2FtZSBtaXN0YWtlLCBidXQgdGhl
+cmUgdGhhdCBpcyB0aGUgaW50ZW5kZWQKYmVoYXZpb3VyLCBpZiBtaXNsZWFkaW5nIGFib3V0IHdo
+YXQgdGhlIGZpZWxkIHJlYWxseSBpcy4KClNvLCB3aXRoIHN1aXRhYmxlIGNhdmVhdHMsIGFsbG93
+aW5nIGNsZWFuL2ZsdXNoIGNvdWxkIGJlIGEgcmVhc29uYWJsZQp0aGluZyB0byBkbyAobWF5YmUg
+dXNlZnVsIGZvciB1c2Vyc3BhY2UgZHJpdmVycyBzbyBsb25nIGFzIHRoZXkgcGluCnRoZW1zZWx2
+ZXMgdG8gYSBzcGVjaWZpYyBoYXJ0PyksIGJ1dCBpbnZhbGlkYXRlIHNob3VsZCBvbmx5IGV2ZXIg
+YmUKYWxsb3dlZCBpZiBtYXBwZWQgdG8gZmx1c2guCgpKZXNzCgoKX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
+bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
+bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
