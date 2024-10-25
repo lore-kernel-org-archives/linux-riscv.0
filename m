@@ -4,74 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 517A2D149F2
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Oct 2024 21:40:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63E7DD149F3
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Oct 2024 21:58:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=v4tDJ7PkI2SK42xuanM5x4b98ikc10RCTaQPNjysmvg=; b=TyYTZEJ0jvWD8U
-	Ms2psnz9qdmD/MxJ0UC5GtqGoVTiizIyY3G7Xn9jtaTCvrxeXDKB/2yITb+E4TslpskCpQt6HpwPL
-	qUG6v8dgO+lbu/pvtxCKRr5UEwFlMBGFPEHo3mh0eCUz3Pvxng9P+paRveWxiSR17UPvf6dVfen4w
-	iUzv/xpX2SJaR68fnILB+MpY2Mcmk4YZ14PLQ6b/XiH9c6KOL/yL6oBV4/37mMKMMz2kG+xXU+jQO
-	gA2sLLsCM7iw8cr0wDXUvAy5b2JbNDehLmY7Ab+H6Q2lALJbLQmV7kein1ppsJS60oBEN6AxIeckz
-	HeNkMq547+cd/rswSw/Q==;
+	List-Owner; bh=qPsb6BO+bm8gtnvgDms0DrHD7h9czHx3b2dgAgD4j78=; b=QNoWTXgsdgMb0D
+	p3xHVXBdAM6VDbd0Vv0I2R4bTlCwYAsDhIlCu9BIrQy5nqsvTW5AnUQmEh6DbEUfLKENGwn2kmfPP
+	tRcAA4Bz/0l64T1v2A5dm4vzHP2IiQmmrk6Fy39Tn7zm+1NLEyi3SstMH87o0KU+aI4fwLGvAUD/D
+	OdfxufWX2mpHL0Tay4gmdpBX2+3I2+kDnwYXZRbTfF5/YpMh5nb08l/acmesvU/ctlDBfHFBzjuRo
+	x5BPclVWULW/a+Qg/D2/XU/jDtKrnfvQwsz5TIb+E2rnE737xqaGXfqGiWX8WclCbRcxGzbQeVQOt
+	YSGGgaUrFkcIWDebxa+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4S2G-00000005KpA-3mCn;
-	Fri, 25 Oct 2024 21:39:56 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t4SJy-00000005NoW-3G5B;
+	Fri, 25 Oct 2024 21:58:14 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4S0N-00000005KG4-2nPg;
-	Fri, 25 Oct 2024 21:38:00 +0000
+	id 1t4SJw-00000005Nnu-1fS9
+	for linux-riscv@lists.infradead.org;
+	Fri, 25 Oct 2024 21:58:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E01ED5C4DC7;
-	Fri, 25 Oct 2024 21:37:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD3DEC4CEC3;
-	Fri, 25 Oct 2024 21:37:58 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7249C5C5C97;
+	Fri, 25 Oct 2024 21:57:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F67CC4CEC3;
+	Fri, 25 Oct 2024 21:58:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729892278;
-	bh=Q8vC22irZ2uA8WYYvmBwW1+2Pm2qVwYkLgdZ6/sItmw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=X9TEdB8NtoLsaY6w4tD051jPTNAuoCaCbQQHkiIzKo7oiJT9AWcwt+FyzmJhovWAp
-	 2pb0msYmVONirDKwQIfh5V3wPV0dcbDz2pSpVcpHIdMk9tXuPDZ5e6Az8xORI991cm
-	 xqLA6sL3m9DoZGlSNnVohRg6luGL7923xAU3nr5tH7OjWBmXsAW7KgEF+MDVfsK2ne
-	 duqlO61GagzVxkZD2Axh5Nb172IRQrUPy3AWEhn1+6vZ+0EOpP8QflDhFwNd3ZyyP/
-	 h1jEpYwivxBADQX2gGh2Yha+akgPxJ0n7Q8ruu2ds379qCqEjs553wHkorArIKfS4N
-	 Vw2SZPUxwQngA==
-Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-2fb5fa911aaso35393011fa.2;
-        Fri, 25 Oct 2024 14:37:58 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVymp3mIgfcIn9UPfq4Ww90R+aW9x/e/1nlshabEPBNgYHr+UFxhjO8JlArcXDrSl5fJnaLCoW6eNAA48SUOJK+@lists.infradead.org, AJvYcCWeOZW1ueVr3cbHZIxyi+johehkzwivudRZp/HvxgSwddv+OIA4OfoQO7mWx5aTY4ZABerW+hbMwgQOjsI=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzJW348go9iO4nBWaunQhu+kJorAjwvPRhrA6L8hasshkzpY5pu
-	Qz3HnB8QA/yKXnbkgZpHiZP16Zhj1dBGTqo3wKAaHxq5exP0p9rNclD5gzCi3hsbg+xR8WgHUOu
-	5kX6o39ANPuzeMZBVYex4VdzA3fQ=
-X-Google-Smtp-Source: AGHT+IEQWINSviRss911g3zsmM49RILDHJN+Ssrcrwx15J0k6BAeeRwcNFxqZbNLbvjIoCqISV0e2QKpM5PEk7ZnG3k=
-X-Received: by 2002:a05:651c:b0d:b0:2fa:d604:e519 with SMTP id
- 38308e7fff4ca-2fcbdf7db48mr5607491fa.11.1729892277115; Fri, 25 Oct 2024
- 14:37:57 -0700 (PDT)
+	s=k20201202; t=1729893491;
+	bh=WaXT3N54W0je/Mf9JECHTQKvU4XqvFR6omMZdeIU/jo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=H1jKf998y+TKcDBxoZWO7Srjy5BxeZPsExybQKizrFgk+PpkacomWzjgPfi2gZX0k
+	 GcV3gQnWT1lPzWgsffOADNQ1fYIQqY51/TGmJnqELBkll4fPmWTI5e8Y0irEkljl8i
+	 3ufBer3vuNsxiQZ3DWkt1yCS+hMNJjqOy5hix5omzsjZAPm2qtwTme6k4zLUXmlZlK
+	 tnEN7HjR0+nGbi7IG5otQ1P8q9KQsFiBwNi6CLKgl3q/Gt0ALdaYMOK3MwWLwGbGux
+	 UHsSQXY2PXI2ef+EUxp/i2+s5Wa2PGwfakGdpyOee8kEE8274hT53ajG44fJdG2gOq
+	 L7RL4siXZj7ZA==
+Date: Fri, 25 Oct 2024 16:58:10 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Deepak Gupta <debug@rivosinc.com>
+Cc: "H. Peter Anvin" <hpa@zytor.com>, rick.p.edgecombe@intel.com,
+	richard.henderson@linaro.org, cleger@rivosinc.com,
+	alexghiti@rivosinc.com, Eric Biederman <ebiederm@xmission.com>,
+	Conor Dooley <conor@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Vlastimil Babka <vbabka@suse.cz>, linux-mm@kvack.org,
+	samitolvanen@google.com, linux-doc@vger.kernel.org,
+	Peter Zijlstra <peterz@infradead.org>, atishp@rivosinc.com,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	linux-kernel@vger.kernel.org, Thomas Gleixner <tglx@linutronix.de>,
+	linux-arch@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>, evan@rivosinc.com,
+	x86@kernel.org, Shuah Khan <shuah@kernel.org>,
+	devicetree@vger.kernel.org, alistair.francis@wdc.com,
+	broonie@kernel.org, Ingo Molnar <mingo@redhat.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-kselftest@vger.kernel.org, Oleg Nesterov <oleg@redhat.com>,
+	linux-riscv@lists.infradead.org, charlie@rivosinc.com,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Arnd Bergmann <arnd@arndb.de>, Albert Ou <aou@eecs.berkeley.edu>,
+	Kees Cook <kees@kernel.org>, andybnac@gmail.com,
+	linux-fsdevel@vger.kernel.org,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Christian Brauner <brauner@kernel.org>, kito.cheng@sifive.com,
+	Borislav Petkov <bp@alien8.de>, jim.shu@sifive.com
+Subject: Re: [PATCH v6 07/33] dt-bindings: riscv: zicfilp and zicfiss in
+ dt-bindings (extensions.yaml)
+Message-ID: <172989348946.964081.3884883100574600652.robh@kernel.org>
+References: <20241008-v5_user_cfi_series-v6-0-60d9fe073f37@rivosinc.com>
+ <20241008-v5_user_cfi_series-v6-7-60d9fe073f37@rivosinc.com>
 MIME-Version: 1.0
-References: <20241025191454.72616-1-ebiggers@kernel.org> <20241025191454.72616-4-ebiggers@kernel.org>
- <CAMj1kXFoer+_yZJWtqBVYfYnzqL9X9bbBRomCL3LDqRcYJ6njQ@mail.gmail.com> <20241025213243.GA2637569@google.com>
-In-Reply-To: <20241025213243.GA2637569@google.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Fri, 25 Oct 2024 23:37:45 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXHZy3yPvonS5ZVof0qa0V_Lxhv5Q7i1UVf5P6D3d+=KRw@mail.gmail.com>
-Message-ID: <CAMj1kXHZy3yPvonS5ZVof0qa0V_Lxhv5Q7i1UVf5P6D3d+=KRw@mail.gmail.com>
-Subject: Re: [PATCH v2 03/18] lib/crc32: expose whether the lib is really
- optimized at runtime
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org, 
-	linux-ext4@vger.kernel.org, linux-f2fs-devel@lists.sourceforge.net, 
-	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, linux-scsi@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
-	sparclinux@vger.kernel.org, x86@kernel.org
+Content-Disposition: inline
+In-Reply-To: <20241008-v5_user_cfi_series-v6-7-60d9fe073f37@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_143759_824605_883BC122 
-X-CRM114-Status: GOOD (  28.57  )
+X-CRM114-CacheID: sfid-20241025_145812_501464_37E7A9AA 
+X-CRM114-Status: UNSURE (   9.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,78 +99,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 25 Oct 2024 at 23:32, Eric Biggers <ebiggers@kernel.org> wrote:
->
-> On Fri, Oct 25, 2024 at 10:32:14PM +0200, Ard Biesheuvel wrote:
-> > On Fri, 25 Oct 2024 at 21:15, Eric Biggers <ebiggers@kernel.org> wrote:
-> > >
-> > > From: Eric Biggers <ebiggers@google.com>
-> > >
-> > > Make the CRC32 library export some flags that indicate which CRC32
-> > > functions are actually executing optimized code at runtime.  Set these
-> > > correctly from the architectures that implement the CRC32 functions.
-> > >
-> > > This will be used to determine whether the crc32[c]-$arch shash
-> > > algorithms should be registered in the crypto API.  btrfs could also
-> > > start using these flags instead of the hack that it currently uses where
-> > > it parses the crypto_shash_driver_name.
-> > >
-> > > Signed-off-by: Eric Biggers <ebiggers@google.com>
-> > > ---
-> > >  arch/arm64/lib/crc32-glue.c  | 15 +++++++++++++++
-> > >  arch/riscv/lib/crc32-riscv.c | 15 +++++++++++++++
-> > >  include/linux/crc32.h        | 15 +++++++++++++++
-> > >  lib/crc32.c                  |  5 +++++
-> > >  4 files changed, 50 insertions(+)
-> > >
-> > ...
-> > > diff --git a/include/linux/crc32.h b/include/linux/crc32.h
-> > > index 58c632533b08..bf26d454b60d 100644
-> > > --- a/include/linux/crc32.h
-> > > +++ b/include/linux/crc32.h
-> > > @@ -35,10 +35,25 @@ static inline u32 __pure __crc32c_le(u32 crc, const u8 *p, size_t len)
-> > >         if (IS_ENABLED(CONFIG_CRC32_ARCH))
-> > >                 return crc32c_le_arch(crc, p, len);
-> > >         return crc32c_le_base(crc, p, len);
-> > >  }
-> > >
-> > > +/*
-> > > + * crc32_optimizations contains flags that indicate which CRC32 library
-> > > + * functions are using architecture-specific optimizations.  Unlike
-> > > + * IS_ENABLED(CONFIG_CRC32_ARCH) it takes into account the different CRC32
-> > > + * variants and also whether any needed CPU features are available at runtime.
-> > > + */
-> > > +#define CRC32_LE_OPTIMIZATION  BIT(0) /* crc32_le() is optimized */
-> > > +#define CRC32_BE_OPTIMIZATION  BIT(1) /* crc32_be() is optimized */
-> > > +#define CRC32C_OPTIMIZATION    BIT(2) /* __crc32c_le() is optimized */
-> > > +#if IS_ENABLED(CONFIG_CRC32_ARCH)
-> > > +extern u32 crc32_optimizations;
-> > > +#else
-> > > +#define crc32_optimizations 0
-> > > +#endif
-> > > +
-> >
-> > Wouldn't it be cleaner to add a new library function for this, instead
-> > of using a global variable?
->
-> The architecture crc32 modules need to be able to write to this.  There could be
-> a setter function and a getter function, but just using a variable is simpler.
->
 
-If we just add 'u32 crc32_optimizations()', there is no need for those
-modules to have init/exit hooks, the only thing they need to export is
-this routine.
+On Tue, 08 Oct 2024 15:36:49 -0700, Deepak Gupta wrote:
+> Make an entry for cfi extensions in extensions.yaml.
+> 
+> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+> ---
+>  Documentation/devicetree/bindings/riscv/extensions.yaml | 14 ++++++++++++++
+>  1 file changed, 14 insertions(+)
+> 
 
-Or perhaps it could even be a static inline, with the right plumbing
-of header files. At least on arm64,
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
-static inline u32 crc32_optimizations() {
-  if (!alternative_have_const_cap_likely(ARM64_HAS_CRC32))
-    return 0;
-  return CRC32_LE_OPTIMIZATION | CRC32_BE_OPTIMIZATION | CRC32C_OPTIMIZATION;
-}
-
-should be all we need.
 
 _______________________________________________
 linux-riscv mailing list
