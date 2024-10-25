@@ -4,95 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDF16D149E8
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Oct 2024 19:57:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0842BD149F2
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Oct 2024 20:31:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ME/mQW8Z3MZ3FyeTS5lJlkKk079hmSgiKbf7dG8RtiM=; b=Ut47qG2DWNjk8U
-	inOMECaVvn5UGIRj/EsFp99rIF1eOfVbagjJVubhSGWh7emCmjbXJC/psk0lTarkTWvvbzfJLQupF
-	gcNGWfDEvyJy+ad/+NGGpq9NNtVJqaKjPOpw70vmwND5mEfH1t0aiHodOJGh0saCiTCOefsPVUaJb
-	sTx2A8uQj3Orn80a6miUoJGZEJWeOSfSKxW6YGr2xaFvfhvVJUPv76FQfy6Jz5n02sa3J/KB29Ycn
-	h/qt+DB+Pra0Jk2sR925T9h3UltJIT8Np7y8sZq8fgpTR9JeI4EfgSjpgXxj8dJXNyl1pqhPbXctP
-	H0oiALKR5VBPYSM0gurA==;
+	List-Owner; bh=XeZp/c/aYg7kwQPQbDzYiSMkk6jo2VivJxn9UB/zvoY=; b=ZW1slJbWY4lDDZ
+	zcmhMbE0552zaGca7nYAhWknJNyxe/ZgLs+fSF7opq5nb6DrctJwNTKTdDFoM7V2GIbYJRP7cAiEG
+	zhu7I9VPsTzahLdaCa1QwuM8JlGOsCf0OSFaEbLi5xFjd7Ncm3LQoc6KgiNt689ccpV0nzBx+kzEq
+	CT92lJk3VvC7xZgh3P7Qi+fLAoF5/0TlApQpfztZ3sNwYE8tnU48IlhIyXeZk0q7T6aUr6CG95/o1
+	FnZIgwZjGXqNF2b4sBfCh8C0L1zloq5TmR6WmH8cFldIPq3GuuCWvKXNKVq1ZBqbjOGXSJeMFWAAJ
+	2ZeoOhZcrc86JiXmENAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4QQg-000000053Jn-1MUT;
-	Fri, 25 Oct 2024 19:57:02 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1t4Qxz-000000056s6-1rGw;
+	Fri, 25 Oct 2024 20:31:27 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Q5v-000000050Yw-3T38;
-	Fri, 25 Oct 2024 19:35:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1729884935; x=1761420935;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=EgyR/UbyJ4Voj9eU/40Jz25ghogHjnVJeexcYHhMjPo=;
-  b=hXq4sh8a+CNHRFtsfsXG27z2fbwkfM8+zYN3GE4Lmq8ES2DXvPkLZku9
-   d/K9e7DOYorgGsC3S3nCYb3b1I/IkNWFbytBsL5dHNcvl8pcthDaE6+w8
-   LigkCwRqz+8xf1ENJBkICa5KjNLzf+BtqDZaOLvImJnGQrdfhBP3zQg8Y
-   qfXjaH6HVIofM6vtDCG4nJWpqCUZQN4dqT2w6JkcUFFvaSoDLt25SFQJO
-   Uo6APOgY+tylZl5CN1px3YhYY6CCEhqkWKvO7LIZP2pk6BQMg4Ij/QqTU
-   07ZHVur4y80CWP60VwbQolbj68ZdXPj1YmL19wd/AC+WpHckDdF1SnZsi
-   A==;
-X-CSE-ConnectionGUID: RfU3Fjg9S56Kmzh4mDmAdQ==
-X-CSE-MsgGUID: Z4VirwkXTPGYg1LcPpGKGw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11236"; a="29007661"
-X-IronPort-AV: E=Sophos;i="6.11,232,1725346800"; 
-   d="scan'208";a="29007661"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Oct 2024 12:35:34 -0700
-X-CSE-ConnectionGUID: fJ4qj/scTtu8exG4VL8VPQ==
-X-CSE-MsgGUID: NN4ixM9NSji1YGfQYgpSdw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,232,1725346800"; 
-   d="scan'208";a="118468872"
-Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by orviesa001.jf.intel.com with ESMTP; 25 Oct 2024 12:35:27 -0700
-Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1t4Q5l-000YoY-0Z;
-	Fri, 25 Oct 2024 19:35:25 +0000
-Date: Sat, 26 Oct 2024 03:34:37 +0800
-From: kernel test robot <lkp@intel.com>
-To: Inochi Amaoto <inochiama@gmail.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	netdev@vger.kernel.org, Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	id 1t4Pml-00000004vHH-0iXS;
+	Fri, 25 Oct 2024 19:15:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id E2FB1A44C37;
+	Fri, 25 Oct 2024 19:13:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92CA0C4CEF7;
+	Fri, 25 Oct 2024 19:15:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729883746;
+	bh=3ki30lOxrwcmmFT8r/BxBSIWiIgjCokra374LPFdTjo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Ewf3k1fN8FI5lfS/6w9IFwZ4u6hVpP/Fl0POKQECBxh2jBWAZpuVIzIUxSZROAKf6
+	 BUjn6UW1aFHZHkDdHUd8K46PyIbTrfUHoQVAnyt5ocYS8KAIh7w0dqiIdNyUqxzRXs
+	 zyainnf7I542RMLlffmEuRba9rENa8Z7OkVP+DX2ya/xa1MGrdlZVjVq8FQzNJyl/h
+	 Mm4tHBFwbQvF4SL1U7JRODcZQsniEHUJfOY3PW1AS/6iECR/HXamD+XEIRJ5Ey1leg
+	 3njI7/DQzTwoOyYlyv6Cw/CUe395fJjoiHorj8UnmtJB+th3baQAp1wmJhGKSKDPWV
+	 wa1UzKFgR/x5g==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: linux-arch@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 4/4] net: stmmac: Add glue layer for Sophgo SG2044 SoC
-Message-ID: <202410260337.pPIMKkX6-lkp@intel.com>
-References: <20241025011000.244350-5-inochiama@gmail.com>
+	linux-crypto@vger.kernel.org,
+	linux-ext4@vger.kernel.org,
+	linux-f2fs-devel@lists.sourceforge.net,
+	linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org
+Subject: [PATCH v2 04/18] crypto: crc32 - don't unnecessarily register arch algorithms
+Date: Fri, 25 Oct 2024 12:14:40 -0700
+Message-ID: <20241025191454.72616-5-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20241025191454.72616-1-ebiggers@kernel.org>
+References: <20241025191454.72616-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241025011000.244350-5-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_123535_926349_5422E241 
-X-CRM114-Status: GOOD (  14.53  )
+X-CRM114-CacheID: sfid-20241025_121547_521234_2DB9500F 
+X-CRM114-Status: GOOD (  13.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,170 +82,88 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Inochi,
+From: Eric Biggers <ebiggers@google.com>
 
-kernel test robot noticed the following build errors:
+Instead of registering the crc32-$arch and crc32c-$arch algorithms if
+the arch-specific code was built, only register them when that code was
+built *and* is not falling back to the base implementation at runtime.
 
-[auto build test ERROR on robh/for-next]
-[also build test ERROR on sophgo/for-next sophgo/fixes net-next/main net/main linus/master v6.12-rc4 next-20241025]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+This avoids confusing users like btrfs which checks the shash driver
+name to determine whether it is crc32c-generic.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Inochi-Amaoto/dt-bindings-net-snps-dwmac-Add-dwmac-5-30a-version/20241025-091315
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
-patch link:    https://lore.kernel.org/r/20241025011000.244350-5-inochiama%40gmail.com
-patch subject: [PATCH v2 4/4] net: stmmac: Add glue layer for Sophgo SG2044 SoC
-config: s390-allmodconfig (https://download.01.org/0day-ci/archive/20241026/202410260337.pPIMKkX6-lkp@intel.com/config)
-compiler: clang version 20.0.0git (https://github.com/llvm/llvm-project 5886454669c3c9026f7f27eab13509dd0241f2d6)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241026/202410260337.pPIMKkX6-lkp@intel.com/reproduce)
+(It would also make sense to change btrfs to test the crc32_optimization
+flags itself, so that it doesn't have to use the weird hack of parsing
+the driver name.  This change still makes sense either way though.)
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202410260337.pPIMKkX6-lkp@intel.com/
+Signed-off-by: Eric Biggers <ebiggers@google.com>
+---
+ crypto/crc32_generic.c  | 8 ++++++--
+ crypto/crc32c_generic.c | 8 ++++++--
+ 2 files changed, 12 insertions(+), 4 deletions(-)
 
-All errors (new ones prefixed by >>):
-
-   In file included from drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c:11:
-   In file included from include/linux/platform_device.h:13:
-   In file included from include/linux/device.h:32:
-   In file included from include/linux/device/driver.h:21:
-   In file included from include/linux/module.h:19:
-   In file included from include/linux/elf.h:6:
-   In file included from arch/s390/include/asm/elf.h:181:
-   In file included from arch/s390/include/asm/mmu_context.h:11:
-   In file included from arch/s390/include/asm/pgalloc.h:18:
-   In file included from include/linux/mm.h:2213:
-   include/linux/vmstat.h:504:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
-     504 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
-     505 |                            item];
-         |                            ~~~~
-   include/linux/vmstat.h:511:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
-     511 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
-     512 |                            NR_VM_NUMA_EVENT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/vmstat.h:518:36: warning: arithmetic between different enumeration types ('enum node_stat_item' and 'enum lru_list') [-Wenum-enum-conversion]
-     518 |         return node_stat_name(NR_LRU_BASE + lru) + 3; // skip "nr_"
-         |                               ~~~~~~~~~~~ ^ ~~~
-   include/linux/vmstat.h:524:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
-     524 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
-     525 |                            NR_VM_NUMA_EVENT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~~
-   In file included from drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c:14:
-   In file included from include/linux/phy.h:16:
-   In file included from include/linux/ethtool.h:18:
-   In file included from include/linux/if_ether.h:19:
-   In file included from include/linux/skbuff.h:28:
-   In file included from include/linux/dma-mapping.h:11:
-   In file included from include/linux/scatterlist.h:9:
-   In file included from arch/s390/include/asm/io.h:93:
-   include/asm-generic/io.h:548:31: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     548 |         val = __raw_readb(PCI_IOBASE + addr);
-         |                           ~~~~~~~~~~ ^
-   include/asm-generic/io.h:561:61: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     561 |         val = __le16_to_cpu((__le16 __force)__raw_readw(PCI_IOBASE + addr));
-         |                                                         ~~~~~~~~~~ ^
-   include/uapi/linux/byteorder/big_endian.h:37:59: note: expanded from macro '__le16_to_cpu'
-      37 | #define __le16_to_cpu(x) __swab16((__force __u16)(__le16)(x))
-         |                                                           ^
-   include/uapi/linux/swab.h:102:54: note: expanded from macro '__swab16'
-     102 | #define __swab16(x) (__u16)__builtin_bswap16((__u16)(x))
-         |                                                      ^
-   In file included from drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c:14:
-   In file included from include/linux/phy.h:16:
-   In file included from include/linux/ethtool.h:18:
-   In file included from include/linux/if_ether.h:19:
-   In file included from include/linux/skbuff.h:28:
-   In file included from include/linux/dma-mapping.h:11:
-   In file included from include/linux/scatterlist.h:9:
-   In file included from arch/s390/include/asm/io.h:93:
-   include/asm-generic/io.h:574:61: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     574 |         val = __le32_to_cpu((__le32 __force)__raw_readl(PCI_IOBASE + addr));
-         |                                                         ~~~~~~~~~~ ^
-   include/uapi/linux/byteorder/big_endian.h:35:59: note: expanded from macro '__le32_to_cpu'
-      35 | #define __le32_to_cpu(x) __swab32((__force __u32)(__le32)(x))
-         |                                                           ^
-   include/uapi/linux/swab.h:115:54: note: expanded from macro '__swab32'
-     115 | #define __swab32(x) (__u32)__builtin_bswap32((__u32)(x))
-         |                                                      ^
-   In file included from drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c:14:
-   In file included from include/linux/phy.h:16:
-   In file included from include/linux/ethtool.h:18:
-   In file included from include/linux/if_ether.h:19:
-   In file included from include/linux/skbuff.h:28:
-   In file included from include/linux/dma-mapping.h:11:
-   In file included from include/linux/scatterlist.h:9:
-   In file included from arch/s390/include/asm/io.h:93:
-   include/asm-generic/io.h:585:33: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     585 |         __raw_writeb(value, PCI_IOBASE + addr);
-         |                             ~~~~~~~~~~ ^
-   include/asm-generic/io.h:595:59: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     595 |         __raw_writew((u16 __force)cpu_to_le16(value), PCI_IOBASE + addr);
-         |                                                       ~~~~~~~~~~ ^
-   include/asm-generic/io.h:605:59: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     605 |         __raw_writel((u32 __force)cpu_to_le32(value), PCI_IOBASE + addr);
-         |                                                       ~~~~~~~~~~ ^
-   include/asm-generic/io.h:693:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     693 |         readsb(PCI_IOBASE + addr, buffer, count);
-         |                ~~~~~~~~~~ ^
-   include/asm-generic/io.h:701:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     701 |         readsw(PCI_IOBASE + addr, buffer, count);
-         |                ~~~~~~~~~~ ^
-   include/asm-generic/io.h:709:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     709 |         readsl(PCI_IOBASE + addr, buffer, count);
-         |                ~~~~~~~~~~ ^
-   include/asm-generic/io.h:718:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     718 |         writesb(PCI_IOBASE + addr, buffer, count);
-         |                 ~~~~~~~~~~ ^
-   include/asm-generic/io.h:727:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     727 |         writesw(PCI_IOBASE + addr, buffer, count);
-         |                 ~~~~~~~~~~ ^
-   include/asm-generic/io.h:736:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     736 |         writesl(PCI_IOBASE + addr, buffer, count);
-         |                 ~~~~~~~~~~ ^
->> drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c:30:9: error: call to undeclared function 'rgmii_clock'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-      30 |         rate = rgmii_clock(speed);
-         |                ^
-   drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c:46:6: warning: unused variable 'ret' [-Wunused-variable]
-      46 |         int ret;
-         |             ^~~
-   17 warnings and 1 error generated.
-
-Kconfig warnings: (for reference only)
-   WARNING: unmet direct dependencies detected for MODVERSIONS
-   Depends on [n]: MODULES [=y] && !COMPILE_TEST [=y]
-   Selected by [y]:
-   - RANDSTRUCT_FULL [=y] && (CC_HAS_RANDSTRUCT [=y] || GCC_PLUGINS [=n]) && MODULES [=y]
-
-
-vim +/rgmii_clock +30 drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
-
-    23	
-    24	static void sophgo_dwmac_fix_mac_speed(void *priv, unsigned int speed, unsigned int mode)
-    25	{
-    26		struct sophgo_dwmac *dwmac = priv;
-    27		long rate;
-    28		int ret;
-    29	
-  > 30		rate = rgmii_clock(speed);
-    31		if (ret < 0) {
-    32			dev_err(dwmac->dev, "invalid speed %u\n", speed);
-    33			return;
-    34		}
-    35	
-    36		ret = clk_set_rate(dwmac->clk_tx, rate);
-    37		if (ret)
-    38			dev_err(dwmac->dev, "failed to set tx rate %lu\n", rate);
-    39	}
-    40	
-
+diff --git a/crypto/crc32_generic.c b/crypto/crc32_generic.c
+index cc064ea8240e..cecd01e4d6e6 100644
+--- a/crypto/crc32_generic.c
++++ b/crypto/crc32_generic.c
+@@ -155,19 +155,23 @@ static struct shash_alg algs[] = {{
+ 	.base.cra_ctxsize	= sizeof(u32),
+ 	.base.cra_module	= THIS_MODULE,
+ 	.base.cra_init		= crc32_cra_init,
+ }};
+ 
++static int num_algs;
++
+ static int __init crc32_mod_init(void)
+ {
+ 	/* register the arch flavor only if it differs from the generic one */
+-	return crypto_register_shashes(algs, 1 + IS_ENABLED(CONFIG_CRC32_ARCH));
++	num_algs = 1 + ((crc32_optimizations & CRC32_LE_OPTIMIZATION) != 0);
++
++	return crypto_register_shashes(algs, num_algs);
+ }
+ 
+ static void __exit crc32_mod_fini(void)
+ {
+-	crypto_unregister_shashes(algs, 1 + IS_ENABLED(CONFIG_CRC32_ARCH));
++	crypto_unregister_shashes(algs, num_algs);
+ }
+ 
+ subsys_initcall(crc32_mod_init);
+ module_exit(crc32_mod_fini);
+ 
+diff --git a/crypto/crc32c_generic.c b/crypto/crc32c_generic.c
+index 04b03d825cf4..47d694da9d4a 100644
+--- a/crypto/crc32c_generic.c
++++ b/crypto/crc32c_generic.c
+@@ -195,19 +195,23 @@ static struct shash_alg algs[] = {{
+ 	.base.cra_ctxsize	= sizeof(struct chksum_ctx),
+ 	.base.cra_module	= THIS_MODULE,
+ 	.base.cra_init		= crc32c_cra_init,
+ }};
+ 
++static int num_algs;
++
+ static int __init crc32c_mod_init(void)
+ {
+ 	/* register the arch flavor only if it differs from the generic one */
+-	return crypto_register_shashes(algs, 1 + IS_ENABLED(CONFIG_CRC32_ARCH));
++	num_algs = 1 + ((crc32_optimizations & CRC32C_OPTIMIZATION) != 0);
++
++	return crypto_register_shashes(algs, num_algs);
+ }
+ 
+ static void __exit crc32c_mod_fini(void)
+ {
+-	crypto_unregister_shashes(algs, 1 + IS_ENABLED(CONFIG_CRC32_ARCH));
++	crypto_unregister_shashes(algs, num_algs);
+ }
+ 
+ subsys_initcall(crc32c_mod_init);
+ module_exit(crc32c_mod_fini);
+ 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.47.0
+
 
 _______________________________________________
 linux-riscv mailing list
