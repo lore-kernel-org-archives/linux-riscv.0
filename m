@@ -4,77 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 936BED149D7
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Oct 2024 16:58:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D94D4D149CD
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Oct 2024 18:25:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tKELYpyMTvXy39S0SZLHL4mMiX3XiKwK3zwS5EAmMs8=; b=rfiEakfme7DIEM
-	B//41PpKSFC4hZi1HMx3DLP/vDVGu1h74bTi/n/tjOaI6Dj24qifoKzzSDwpp3aF8VikFSXNT9HQA
-	RS2t27gbbNR8Yk5MTLUBxeRxohXmuWq2vg3J+0Fk6BqteDnPRsnLHCWe0BEsCnsBY5jld9TVXR10F
-	QiOocsBWAvHXim6+XSIGL4p9xUedNAwnS8t75wnxjsw0DIxHjaggANl4gsR/jvVJ2+BxsdFMP92rM
-	j0dBET6GTpQJ+7NYbUaCNgRbsFxfB5T6Jo8bQmgkZqJH3EtFiIkUeC9sbUDOhDPNZqdW3n0KDeHfz
-	1BRAfwgPNqcgGi0xz7FQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=h8udF5QPScMljgX1RGyToizSA2URoNGg+Xw7xWhw6iA=; b=QO3J6DPWBDcEcm
+	W+obg1yO93pIjlXzfBXu3d+bS2Br5qLhWhvNuPQQX7YSNS7ByIvvNcOcHwMkfOyCb4zqi37ASxozL
+	0UDghSn81WgLPbBbot2dr/vSPsmpPwzw6FC7AD+kpHF38M05g7KhMIfF3vPqNNE7cGsxGre0VUAKL
+	kM8xCbSSKNkWZnxB39i09FyByhtJRHtTDThotg6lT/gFRkmtlnuc2xZmL7XQXVU/SO0tuwDPmG+aU
+	RjzgpebkLmrcFgN3e3HPTAxolgrlJGJ5dp0BEmM64YykzlHPapcvj/Qluz3KeDgAyYQmY1WaeL7gG
+	DuG8aCxBKHOF3zsWremA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Ndc-00000004VT4-1m4X;
-	Fri, 25 Oct 2024 16:58:12 +0000
-Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
+	id 1t4OzW-00000004n5h-3pZn;
+	Fri, 25 Oct 2024 18:24:54 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4NdY-00000004VQg-2VOb
+	id 1t4OHl-00000004dx4-3Lw7
 	for linux-riscv@lists.infradead.org;
-	Fri, 25 Oct 2024 16:58:11 +0000
-Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-2fb443746b8so23829391fa.0
-        for <linux-riscv@lists.infradead.org>; Fri, 25 Oct 2024 09:58:07 -0700 (PDT)
+	Fri, 25 Oct 2024 17:39:43 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-7e6cbf6cd1dso1455604a12.3
+        for <linux-riscv@lists.infradead.org>; Fri, 25 Oct 2024 10:39:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1729875486; x=1730480286; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=VnNtZV1Nj+ZplC7sJE1rA3hnVfsCt9+YnjfLdsGByNU=;
-        b=VfxAOHVmslc8i7IWEfvvwsPvI6vlX/IdQrWrrimVnueNszpzbPM+zbSR7HCadBHpyS
-         ARAc/hzgLGPwT1ZLSTqYp2uyAiiQbpC07gvExCmJFlGgz1RYYjtY9+Iy0PmhWiJOW9h3
-         bkb0T0rBnedNUyVb63zkBULzoJTuVd3zTEm3kOklbP7Qe0jnVDExSFSif1nP201IGnIy
-         K8jlrtFf0X1E2q6LsI5D0U9ua3qyIhJkQq3n2Re4XFehMuUFZnty+qB8EVfXxA4zYTE7
-         qVeqUeQYgBS++9UviVZW7G3miinNZ8PriF4itdT5eQ2Lp1CpnnqMu4oGz4ICHxwDsh90
-         A84Q==
+        d=tenstorrent.com; s=google; t=1729877980; x=1730482780; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=rRtgBgW6s/EQDOLVk7vTju3fTexfS9nXJ3lju+LyV5U=;
+        b=OYSioY2zbZgoFBl9Xp/+HuAOgNM8DV/KvwjQOjG4HQX6PZ5jhxFzWBBn4SV3+2ToWR
+         jjr3UJNPw+F/K/WMAQAIPsF/DZ0BJwVkWAjbFWiKGVd9mufjN11Yfpp7zCdTdcb5jrCQ
+         iu69UNFL6o1qoouAREkQ5CCp92UNiLudxzlhBt3B3ZuAngf5hrKZIrLrUdU34t6F/8v7
+         K/usGW2IpqzSLvn3nY6EYD62o+ok0lkI8b9FuEIMERp+QHU24sCWuJaAFtj7+ETJCjVx
+         NFRsJLNl/sLV1jd34jFOo8zv4jpxFPHofGWLdQv3Zdu6lt6rSCdg3SWanRHaNRNx35ba
+         m+5g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729875486; x=1730480286;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=VnNtZV1Nj+ZplC7sJE1rA3hnVfsCt9+YnjfLdsGByNU=;
-        b=fFY7tI/JDtOP04fFJTEkBTsq8da/t4Z/AusP2gI+ugLKbUf3AdvV8xnPoXHllaL3Zw
-         mHmMZM67XTlb/4krdXowbwdAD30RbgqB0XNrtW0BJFE1Sxm+/ywlyPl9lxWNH5z5nJll
-         WhvQDrdw40hYIavw9okbz+3rq6qTisKoy0AmE2fEo4baX0xzT13xcYcKg9ta4g+vfHuD
-         GH4qS7u5GKM7wzCBJh1Ch5jUorpjxMyWLNJgfMegHby/uQgIDXCXOJ3xjEohNh5aTwSX
-         +5tGwW7qnTDrlvVQJ5UtCTBf9jhESLb+vsFReGslKIMjGdcho1ht3uRaIG3ohGK2cibp
-         3ysA==
-X-Forwarded-Encrypted: i=1; AJvYcCU/aO9eMIky0k86vXIPqeLoWTB2DnzXe3cAAGNHmTnm/seYLjNqSft1atD6FOS9GxUzrH8hTSzqUENTBw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyy6GpnUAX7s/pUH/eulYY0jEVtbZsPC5HpFtZ69+Dx2eByklK7
-	LAj6fcnqBIG0wjHEiy0LPzUmjNYLDtfWnXnquDkr5NzSTnTJ3KhJ+SD2B0IYRIFekrdrQchgR45
-	xDRcmdBA1DvNQ59KthhuWaotfZ846M4KmmSAEWA==
-X-Google-Smtp-Source: AGHT+IGkuarMMIQ+lexEInGHQT599Zcgs3u7VHe9+e328XtdhOpOUCnZpi5ObKnAGmst12pwrMUGM9L80YD5HY+KpX8=
-X-Received: by 2002:a2e:d12:0:b0:2fb:3a12:a582 with SMTP id
- 38308e7fff4ca-2fca8227c1emr34732541fa.23.1729875485826; Fri, 25 Oct 2024
- 09:58:05 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1729877980; x=1730482780;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=rRtgBgW6s/EQDOLVk7vTju3fTexfS9nXJ3lju+LyV5U=;
+        b=VSBD2eHA4zHNnKuEsp5cOJqAQ6GAiR5FgMUaHS29NORqfYBYcOr1VevI1NF++R0Mzo
+         pGP5Q/xAr8nTqYGqT5J+4EPuGbnxnFDJLNhqmp2RxadtC/jm9o3tF18kVvx4yPtU50Jg
+         WhDlLoDn0vBPDO0aggUtEVZwXpALlX/r3TkHgaw61tFf5TM5tTA4AJupW0cEmS+WvpiL
+         wdKzjelAhoPIUNscoJn7CBXpgsReoEl5PxMxo9Ho+TbDN2P8EQmtJVkllis0JV2ubv64
+         EO/aZURd1SeF7gfd8Ztfc5RtTG0y5R+UBF5je2mSAL6h7d9+v543/STfoqTzxK5CJWuM
+         mFFA==
+X-Forwarded-Encrypted: i=1; AJvYcCXaIVK/8Fi6QZKxbCGMP8NBKUoZGoE10Uf/kSitNM2dB4XhN8fROTgkZv4Q0I00schI9PL85SD71NRrkg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxTWdttB/xSyL6ZJE8UbgSpXItvq6ZA302GKTQO5Uir6cA/T0b9
+	7a77Q26QBerNOEwDWFhmQ420kaL1ccDGDEKbCY5CgtmpQh08GBOlp2fSaOq1BCg=
+X-Google-Smtp-Source: AGHT+IEaYZjwmDMtPye4RiuOg02mqdtcGwqC0dAPHwGmLr3SmAM/hWVbsZOksmPjY0Qxh811xJrTgQ==
+X-Received: by 2002:a17:90b:3ec9:b0:2d3:da6d:8330 with SMTP id 98e67ed59e1d1-2e8f10507f6mr183354a91.4.1729877980066;
+        Fri, 25 Oct 2024 10:39:40 -0700 (PDT)
+Received: from [127.0.1.1] ([4.28.11.157])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e77e4ca3fcsm3813961a91.13.2024.10.25.10.39.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 25 Oct 2024 10:39:39 -0700 (PDT)
+From: Drew Fustini <dfustini@tenstorrent.com>
+Subject: [PATCH net-next v5 0/2] Add the dwmac driver support for T-HEAD
+ TH1520 SoC
+Date: Fri, 25 Oct 2024 10:39:07 -0700
+Message-Id: <20241025-th1520-gmac-v5-0-38d0a48406ff@tenstorrent.com>
 MIME-Version: 1.0
-References: <20241020194734.58686-1-apatel@ventanamicro.com>
-In-Reply-To: <20241020194734.58686-1-apatel@ventanamicro.com>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Fri, 25 Oct 2024 22:27:54 +0530
-Message-ID: <CAK9=C2VS6=azRSqXmkuFfp+65s4PUe+GbcTrYwLxQwfB4iB4_Q@mail.gmail.com>
-Subject: Re: [PATCH v2 00/13] Accelerate KVM RISC-V when running as a guest
-To: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Atish Patra <atishp@atishpatra.org>, Andrew Jones <ajones@ventanamicro.com>, 
-	Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+X-B4-Tracking: v=1; b=H4sIALvXG2cC/x3MPQqAMAxA4atIZgM1WP+uIg6hRs1glbaIIN7d4
+ vgN7z0QJahEGIoHglwa9fAZtizAbexXQZ2zgQzVlSGLaassGVx3dth23DbMvXENQS7OIIve/20
+ ELwm93Amm9/0AtTd5gmcAAAA=
+To: Andrew Lunn <andrew@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
+ Jose Abreu <joabreu@synopsys.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
+ Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>, 
+ Fu Wei <wefu@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, Drew Fustini <drew@pdp7.com>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-riscv@lists.infradead.org, Drew Fustini <dfustini@tenstorrent.com>, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_095808_686533_0CE9BDD2 
-X-CRM114-Status: GOOD (  18.00  )
+X-CRM114-CacheID: sfid-20241025_103941_886841_5A170A2C 
+X-CRM114-Status: GOOD (  19.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,65 +105,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBPY3QgMjEsIDIwMjQgYXQgMToxN+KAr0FNIEFudXAgUGF0ZWwgPGFwYXRlbEB2ZW50
-YW5hbWljcm8uY29tPiB3cm90ZToKPgo+IFRoZSBLVk0gUklTQy1WIGh5cGVydmlzb3IgbWlnaHQg
-YmUgcnVubmluZyBhcyBhIGd1ZXN0IHVuZGVyIHNvbWUgb3RoZXIKPiBob3N0IGh5cGVydmlzb3Ig
-aW4gd2hpY2ggY2FzZSB0aGUgY29tcGxldGUgSC1leHRlbnNpb24gZnVuY3Rpb25hbGl0eSB3aWxs
-Cj4gYmUgdHJhcC1uLWVtdWxhdGVkIGJ5IHRoZSBob3N0IGh5cGVydmlzb3IuIEluIHRoaXMgY2Fz
-ZSwgdGhlIEtWTSBSSVNDLVYKPiBwZXJmb3JtYW5jZSBjYW4gYmUgYWNjZWxlcmF0ZWQgdXNpbmcg
-dGhlIFNCSSBuZXN0ZWQgYWNjZWxlcmF0aW9uIChOQUNMKQo+IGV4dGVuc2lvbiBpZiB0aGUgaG9z
-dCBoeXBlcnZpc29yIHByb3ZpZGVzIGl0Lgo+Cj4gVGhlc2Ugc2VyaWVzIGV4dGVuZHMgS1ZNIFJJ
-U0MtViB0byB1c2UgU0JJIE5BQ0wgZXh0ZW5zaW9uIHdoZW5ldmVyCj4gdW5kZXJseWluZyBTQkkg
-aW1wbGVtZW50YXRpb24gKGFrYSBob3N0IGh5cGVydmlzb3IpIHByb3ZpZGVzIGl0Lgo+Cj4gVGhl
-c2UgcGF0Y2hlcyBjYW4gYWxzbyBiZSBmb3VuZCBpbiB0aGUgcmlzY3Zfc2JpX25lc3RlZF92MiBi
-cmFuY2ggYXQ6Cj4gaHR0cHM6Ly9naXRodWIuY29tL2F2cGF0ZWwvbGludXguZ2l0Cj4KPiBUbyB0
-ZXN0IHRoZXNlIHBhdGNoZXMsIHJ1biBLVk0gUklTQy1WIGFzIEd1ZXN0IHVuZGVyIGxhdGVzdCBY
-dmlzb3IKPiBmb3VuZCBhdDogaHR0cHM6Ly9naXRodWIuY29tL3h2aXNvci94dmlzb3IuZ2l0Cj4K
-PiBGb3IgdGhlIHN0ZXBzIHRvIHRlc3Qgb24gWHZpc29yLCByZWZlciB0aGUgWHZpc29yIGRvY3Vt
-ZW50YXRpb24KPiA8eHZpc29yX3NvdXJjZT4vZG9jcy9yaXNjdi9yaXNjdjY0LXFlbXUudHh0IHdp
-dGggdHdvIHNtYWxsIGNoYW5nZXM6Cj4KPiAxKSBJbiBzdGVwIzExLCBtYWtlIHN1cmUgY29tcHJl
-c3NlZCBrdm0ua28sIGd1ZXN0IGtlcm5lbCBpbWFnZSwgYW5kCj4gICAga3ZtdG9vbCBhcmUgcHJl
-c2VudCBpbiB0aGUgcm9vdGZzLmltZwo+IDIpIEluIHN0ZXAjMTQsIG1ha2Ugc3VyZSBBSUEgaXMg
-YXZhaWxhYmxlIHRvIFh2aXNvciBieSB1c2luZwo+ICAgICJ2aXJ0LGFpYT1hcGxpYy1pbXNpYyIg
-YXMgdGhlIFFFTVUgbWFjaGluZSBuYW1lLgo+Cj4gQ2hhbmdlcyBzaW5jZSB2MToKPiAgLSBEcm9w
-cGVkIG5hY2xfc2htZW1fZmFzdCgpIG1hY3JvIGZyb20gUEFUQ0g4Cj4gIC0gQWRkZWQgY29tbWVu
-dHMgaW4gUEFUQ0g4IGFib3V0IHdoaWNoIGJhY2stdG8tYmFjayBuY3NyX3h5eigpCj4gICAgbWFj
-cm9zIGFyZSBzdWItb3B0aW1hbAo+ICAtIE1vdmVkIG5hY2xfc2NyYXRjaF94eXooKSBtYWNyb3Mg
-dG8gUEFUQ0g4Cj4KPiBBbnVwIFBhdGVsICgxMyk6Cj4gICBSSVNDLVY6IEtWTTogT3JkZXIgdGhl
-IG9iamVjdCBmaWxlcyBhbHBoYWJldGljYWxseQo+ICAgUklTQy1WOiBLVk06IFNhdmUvcmVzdG9y
-ZSBIU1RBVFVTIGluIEMgc291cmNlCj4gICBSSVNDLVY6IEtWTTogU2F2ZS9yZXN0b3JlIFNDT1VO
-VEVSRU4gaW4gQyBzb3VyY2UKPiAgIFJJU0MtVjogS1ZNOiBCcmVhayBkb3duIHRoZSBfX2t2bV9y
-aXNjdl9zd2l0Y2hfdG8oKSBpbnRvIG1hY3Jvcwo+ICAgUklTQy1WOiBLVk06IFJlcGxhY2UgYWlh
-X3NldF9odmljdGwoKSB3aXRoIGFpYV9odmljdGxfdmFsdWUoKQo+ICAgUklTQy1WOiBLVk06IERv
-bid0IHNldHVwIFNHRUkgZm9yIHplcm8gZ3Vlc3QgZXh0ZXJuYWwgaW50ZXJydXB0cwo+ICAgUklT
-Qy1WOiBBZGQgZGVmaW5lcyBmb3IgdGhlIFNCSSBuZXN0ZWQgYWNjZWxlcmF0aW9uIGV4dGVuc2lv
-bgo+ICAgUklTQy1WOiBLVk06IEFkZCBjb21tb24gbmVzdGVkIGFjY2VsZXJhdGlvbiBzdXBwb3J0
-Cj4gICBSSVNDLVY6IEtWTTogVXNlIG5hY2xfY3NyX3h5eigpIGZvciBhY2Nlc3NpbmcgSC1leHRl
-bnNpb24gQ1NScwo+ICAgUklTQy1WOiBLVk06IFVzZSBuYWNsX2Nzcl94eXooKSBmb3IgYWNjZXNz
-aW5nIEFJQSBDU1JzCj4gICBSSVNDLVY6IEtWTTogVXNlIFNCSSBzeW5jIFNSRVQgY2FsbCB3aGVu
-IGF2YWlsYWJsZQo+ICAgUklTQy1WOiBLVk06IFNhdmUgdHJhcCBDU1JzIGluIGt2bV9yaXNjdl92
-Y3B1X2VudGVyX2V4aXQoKQo+ICAgUklTQy1WOiBLVk06IFVzZSBOQUNMIEhGRU5DRXMgZm9yIEtW
-TSByZXF1ZXN0IGJhc2VkIEhGRU5DRXMKClF1ZXVlZCB0aGlzIHNlcmllcyBmb3IgTGludXgtNi4x
-MwoKUmVnYXJkcywKQW51cAoKPgo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV9uYWNsLmgg
-fCAyNDUgKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrCj4gIGFyY2gvcmlzY3YvaW5jbHVk
-ZS9hc20vc2JpLmggICAgICB8IDEyMCArKysrKysrKysrKysrKysKPiAgYXJjaC9yaXNjdi9rdm0v
-TWFrZWZpbGUgICAgICAgICAgIHwgIDI3ICsrLS0KPiAgYXJjaC9yaXNjdi9rdm0vYWlhLmMgICAg
-ICAgICAgICAgIHwgMTE0ICsrKysrKysrKy0tLS0tCj4gIGFyY2gvcmlzY3Yva3ZtL21haW4uYyAg
-ICAgICAgICAgICB8ICA1MSArKysrKystCj4gIGFyY2gvcmlzY3Yva3ZtL21tdS5jICAgICAgICAg
-ICAgICB8ICAgNCArLQo+ICBhcmNoL3Jpc2N2L2t2bS9uYWNsLmMgICAgICAgICAgICAgfCAxNTIg
-KysrKysrKysrKysrKysrKysrCj4gIGFyY2gvcmlzY3Yva3ZtL3RsYi5jICAgICAgICAgICAgICB8
-ICA1NyArKysrLS0tCj4gIGFyY2gvcmlzY3Yva3ZtL3ZjcHUuYyAgICAgICAgICAgICB8IDE4NCAr
-KysrKysrKysrKysrKysrLS0tLS0tCj4gIGFyY2gvcmlzY3Yva3ZtL3ZjcHVfc3dpdGNoLlMgICAg
-ICB8IDEzNyArKysrKysrKysrKy0tLS0tLQo+ICBhcmNoL3Jpc2N2L2t2bS92Y3B1X3RpbWVyLmMg
-ICAgICAgfCAgMjggKystLQo+ICAxMSBmaWxlcyBjaGFuZ2VkLCA5NDEgaW5zZXJ0aW9ucygrKSwg
-MTc4IGRlbGV0aW9ucygtKQo+ICBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9pbmNsdWRl
-L2FzbS9rdm1fbmFjbC5oCj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2t2bS9uYWNs
-LmMKPgo+IC0tCj4gMi40My4wCj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
-bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
-bGludXgtcmlzY3YK
+This series adds support for dwmac gigabit ethernet in the T-Head TH1520
+RISC-V SoC used on boards like BeagleV Ahead and the LicheePi 4A.
+
+The gigabit ethernet on these boards does need pinctrl support to mux
+the necessary pads. The pinctrl-th1520 driver, pinctrl binding, and
+related dts patches are in linux-next. However, they are not yet in
+net-next/main.
+
+Therefore, I am dropping the dts patch for v5 as it will not build on
+net-next/main due to the lack of the padctrl0_apsys pin controller node
+in next-next/main version th1520.dtsi. It does exist in linux-next [1]
+and the two patches in this series allow the ethernet ports to work
+correctly on the LPi4A and Ahead when applied to linux-next.
+
+The dwmac-thead driver in this series does not need the pinctrl-th1520
+driver to build. Nor does the thead,th1520-gmac.yaml binding need the
+pinctrl binding to pass the schema check.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/arch/riscv/boot/dts/thead/th1520.dtsi
+
+Changes in v5:
+ - Rebase on net-next/main
+ - Drop the dts patch from this series. It applies to linux-next but
+   not net-next/main.
+ - Remove repeated properties from required: in binding
+ - Add Rb from Krzysztof for binding
+ - Link to v4: https://lore.kernel.org/r/20241020-th1520-dwmac-v4-0-c77acd33ccef@tenstorrent.com
+
+Changes in v4:
+ - Rebase on next for pinctrl dependency
+ - Add 'net-next' prefix to subject per maintainer-netdev.rst
+ - Add clocks, clock-names, interrupts and interrupt-names to binding
+ - Simplify driver code by switching from regmap to regualar mmio
+
+Changes in v3:
+ - Rebase on v6.12-rc1
+ - Remove thead,rx-internal-delay and thead,tx-internal-delay properties
+ - Remove unneeded call to thead_dwmac_fix_speed() during probe
+ - Fix filename for the yaml file in MAINTAINERS patch
+ - Link: https://lore.kernel.org/linux-riscv/20240930-th1520-dwmac-v3-0-ae3e03c225ab@tenstorrent.com/
+
+Changes in v2:
+ - Drop the first patch as it is no longer needed due to upstream commit
+   d01e0e98de31 ("dt-bindings: net: dwmac: Validate PBL for all IP-cores")
+ - Rename compatible from "thead,th1520-dwmac" to "thead,th1520-gmac"
+ - Add thead,rx-internal-delay and thead,tx-internal-delay properties
+   and check that it does not exceed the maximum value
+ - Convert from stmmac_dvr_probe() to devm_stmmac_pltfr_probe() and
+   delete the .remove_new hook as it is no longer needed
+ - Handle return value of regmap_write() in case it fails
+ - Add phy reset delay properties to the BeagleV Ahead device tree
+ - Link: https://lore.kernel.org/linux-riscv/20240926-th1520-dwmac-v2-0-f34f28ad1dc9@tenstorrent.com/
+
+Changes in v1:
+ - remove thead,gmacapb that references syscon for APB registers
+ - add a second memory region to gmac nodes for the APB registers
+ - Link: https://lore.kernel.org/all/20240713-thead-dwmac-v1-0-81f04480cd31@tenstorrent.com/
+
+---
+Jisheng Zhang (2):
+      dt-bindings: net: Add T-HEAD dwmac support
+      net: stmmac: Add glue layer for T-HEAD TH1520 SoC
+
+ .../devicetree/bindings/net/snps,dwmac.yaml        |   1 +
+ .../devicetree/bindings/net/thead,th1520-gmac.yaml | 110 +++++++++
+ MAINTAINERS                                        |   2 +
+ drivers/net/ethernet/stmicro/stmmac/Kconfig        |  10 +
+ drivers/net/ethernet/stmicro/stmmac/Makefile       |   1 +
+ drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c  | 268 +++++++++++++++++++++
+ 6 files changed, 392 insertions(+)
+---
+base-commit: 03fc07a24735e0be8646563913abf5f5cb71ad19
+change-id: 20241025-th1520-gmac-78a76aa90c62
+
+Best regards,
+-- 
+Drew Fustini <dfustini@tenstorrent.com>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
