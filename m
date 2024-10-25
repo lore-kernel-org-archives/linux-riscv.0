@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C7FCD149F6
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Oct 2024 22:34:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF0E3D149F6
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Oct 2024 23:18:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dJMnLM83eZHcdqPE9CcvY2PFHWzd5+niBxK3qzMHxgc=; b=MBokK7lWcNCVTT
-	32Xa0eIZrdx+kjhwAtcCetwod1PI8XFRfAuGwVjEnfCOqADN+m4VVwwTcBm1l8+seENppRiWeD7AF
-	SNeHIOzdRK6yb3eYpdDulVfrLCOYBPK37vPA2oAlBAiZUmd7I/rdKBXkyvQW3oE7nRHPksRaZgXfE
-	njJVBNt6SS0PXum2Q8S+Z7807rPDkBHKaE1JbxTOYymBzhqzjITnVIHRlz4bHgM0q4EgknZYpN4Xl
-	U0WF7rvwpPiKKQK1dlq0X6oaICl7Jh8fVPLWClka1kNEtWCQddUodkFWTHhr4HCzgDgMf87G1Y1jK
-	eAHm9hJeyU0V6g7lkfig==;
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=iBCXrpYWWzaXaU8qziWJjt+0kKIwJqd/frWnWud8n7U=; b=PKR
+	omvDQmRkS++KjdP96UJblpAsy15Yjp9fncjYO+qFFMpSyHdFjJZ5QeCnVnfzrsPSf5K5Fx0qLdbu5
+	4ttbCWz7NyCiRjwohIp0RbSjlW+6VQjqj12rw8QbYM/wvMsU/QAWxrZ4GSzMPS1HNyVZ+luvcNwdG
+	5WOjheOgS2U2sXJfDZX1r5iCHDZidHFWk5vlAaZKr3xNg93ODRF5av5NGfcFXgyJT+m62IpF5wIA8
+	bH+Ik+qRsLilKJ3WPX6S0gh5xDCuTPiiySJVT/oEIafz6dW2SJ0wqeiFbGA1SVPJ8riM6/dRcgHM4
+	BDJiqIQSuTtwhZo7F5Rc703QYIVJRHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4St1-00000005S6t-0XoW;
-	Fri, 25 Oct 2024 22:34:27 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t4TZn-00000005Vmv-2Xrv;
+	Fri, 25 Oct 2024 23:18:39 +0000
+Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4SqY-00000005RXY-3YR2;
-	Fri, 25 Oct 2024 22:31:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2D6DF5C51BA;
-	Fri, 25 Oct 2024 22:31:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE278C4CEC3;
-	Fri, 25 Oct 2024 22:31:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729895514;
-	bh=mVLVxjwpOT42Kb7f4O3vXqKoUSnuXxrku5/kKxjIyIQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=de2ooFjpzQqfyvs6eWpep/LU6bZMauqxFRrPPIOcoo6RLnaqtZhiBAtYfGHHWnscC
-	 dF2y5c896ibxWAiYOAVTj7IgcnlKP5L75BhK0Tc8wjgHsq9xSq4k1kTDEtU1VCVpVV
-	 KnGgdBnEQWIoO/2j34UM4IMNdYaajjOueVlox5Cf9Q4R746AKJSlNaQMSFchAMua3K
-	 xtNbR4CRre/5BmANz4U4u0zWkBsw0zpk3Hxas9iQsUUMtnzMnCcn+DJ54uFulKs2BJ
-	 SwTm/+DeTIx0AxPhIDiLCAroqEegH6HVTKiWTZ/RBPNhDys5MIq020g5RWnq0r3QWN
-	 +fqhDOV967kMA==
-Date: Fri, 25 Oct 2024 22:31:52 +0000
-From: Eric Biggers <ebiggers@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
-	linux-ext4@vger.kernel.org, linux-f2fs-devel@lists.sourceforge.net,
-	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-scsi@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v2 03/18] lib/crc32: expose whether the lib is really
- optimized at runtime
-Message-ID: <20241025223152.GC2637569@google.com>
-References: <20241025191454.72616-1-ebiggers@kernel.org>
- <20241025191454.72616-4-ebiggers@kernel.org>
- <CAMj1kXFoer+_yZJWtqBVYfYnzqL9X9bbBRomCL3LDqRcYJ6njQ@mail.gmail.com>
- <20241025213243.GA2637569@google.com>
- <CAMj1kXHZy3yPvonS5ZVof0qa0V_Lxhv5Q7i1UVf5P6D3d+=KRw@mail.gmail.com>
+	id 1t4TZk-00000005VmT-05tQ
+	for linux-riscv@lists.infradead.org;
+	Fri, 25 Oct 2024 23:18:37 +0000
+Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-460c0f9c13eso23358351cf.0
+        for <linux-riscv@lists.infradead.org>; Fri, 25 Oct 2024 16:18:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1729898314; x=1730503114; darn=lists.infradead.org;
+        h=content-transfer-encoding:to:subject:message-id:date:from
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=Yer41QwqMiWVPqbttI9QHoovSC5uzaObw4oQlNbAvps=;
+        b=FYkOAm3MqTWyXUv034RiM3S4uXNNyNQwT1+4+KoZFyFNWaZOYRqyy+7r37QNCkN48G
+         zGk4Hpw8UPdsH52OmyxsaxKdEZiRoKo7cdWMe0d5cTQR8LMT+3L5dTgSm3YVrXdT4ZZs
+         sdMUr4dVoPKenDOjfDU6Y3lBjsVO4Q9SjxdKFQ4eOX0Tvvmmcm4144lkSpHQrUHag+uh
+         mzC9X+s7vvjS4pA/pvP1RKwXWCodNEIEI0sld4KK5waVkHWA51QDwE6puHTC+Je3hn05
+         iSbySzVChbsbvfJcQPn6X7v+FXpk2k3MnNqcBnzjWCAJgD+EC3ob1gmKtLQcFgxjEqgz
+         ErGw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729898314; x=1730503114;
+        h=content-transfer-encoding:to:subject:message-id:date:from
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Yer41QwqMiWVPqbttI9QHoovSC5uzaObw4oQlNbAvps=;
+        b=tYUte6wMH3MmUClnzrmWQyVu2H5d2YnRvDJ/Gb3UPodYjxuszpdYV9bRTY2dlunrL6
+         exQpbGOsSreN45rS5zjBJfhCIZ6mqFRu/GHNwQt6R8eAvHVmDJhIRP5CkOlRRMA8plNR
+         Xc41ZNMF0F7Hi3iSSQj19OPlXdhP1v5RTlwVEGuYKQSI/6EM17kQ5qrkZg5PSrfWsmbA
+         yEBqZwVLpVWtlTJPw3XxCMBBtU02Tihc/YGyeHT+uAxyrKTHMUUvL3ep9O+5HyVoZOQ6
+         iKKO2N9yGE056ddmgEA8TiNZKXc5QxXZ6yavU96zY2BNO37hTzGB7kmRA2S+/TZ/vS1D
+         Bw+w==
+X-Gm-Message-State: AOJu0YwP9rU23U6c9ApVr3bIaTjqoKOb5P8nv/UvSDjjGnoBvmb5DTFJ
+	pPx/srpj/OAt5TSqh+z5AKOgKNX8JHoDeiNytKdkecsYh9ro8SUEkWocwgCRfiyNQJCWJOPN2bG
+	gcW4y9zGcIa51r4Twhwqfw6pHzNr2SbQJ0Bo=
+X-Google-Smtp-Source: AGHT+IFdGZQh6Elmgy+WW270TmtvhrfInC5CJiYtl8Oo/gqlFX9DciYh8tIejgsp9KPd3Mqp6R0T2Bu1eX6KdvePwUk=
+X-Received: by 2002:a05:622a:1811:b0:458:25ec:68cf with SMTP id
+ d75a77b69052e-4612527aa59mr123954951cf.13.1729898314140; Fri, 25 Oct 2024
+ 16:18:34 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAMj1kXHZy3yPvonS5ZVof0qa0V_Lxhv5Q7i1UVf5P6D3d+=KRw@mail.gmail.com>
+From: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>
+Date: Fri, 25 Oct 2024 16:18:23 -0700
+Message-ID: <CAJ+HfNjAZcpLi11Fv0W9PMC0BCtk8-ojBhjHeA3HRxuaWmabTg@mail.gmail.com>
+Subject: Call for Participation: RISC-V Devroom 2025
+To: linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_153154_997009_7DFCE30F 
-X-CRM114-Status: GOOD (  32.24  )
+X-CRM114-CacheID: sfid-20241025_161836_102862_54B8FBBD 
+X-CRM114-Status: UNSURE (   4.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,93 +80,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 25, 2024 at 11:37:45PM +0200, Ard Biesheuvel wrote:
-> On Fri, 25 Oct 2024 at 23:32, Eric Biggers <ebiggers@kernel.org> wrote:
-> >
-> > On Fri, Oct 25, 2024 at 10:32:14PM +0200, Ard Biesheuvel wrote:
-> > > On Fri, 25 Oct 2024 at 21:15, Eric Biggers <ebiggers@kernel.org> wrote:
-> > > >
-> > > > From: Eric Biggers <ebiggers@google.com>
-> > > >
-> > > > Make the CRC32 library export some flags that indicate which CRC32
-> > > > functions are actually executing optimized code at runtime.  Set these
-> > > > correctly from the architectures that implement the CRC32 functions.
-> > > >
-> > > > This will be used to determine whether the crc32[c]-$arch shash
-> > > > algorithms should be registered in the crypto API.  btrfs could also
-> > > > start using these flags instead of the hack that it currently uses where
-> > > > it parses the crypto_shash_driver_name.
-> > > >
-> > > > Signed-off-by: Eric Biggers <ebiggers@google.com>
-> > > > ---
-> > > >  arch/arm64/lib/crc32-glue.c  | 15 +++++++++++++++
-> > > >  arch/riscv/lib/crc32-riscv.c | 15 +++++++++++++++
-> > > >  include/linux/crc32.h        | 15 +++++++++++++++
-> > > >  lib/crc32.c                  |  5 +++++
-> > > >  4 files changed, 50 insertions(+)
-> > > >
-> > > ...
-> > > > diff --git a/include/linux/crc32.h b/include/linux/crc32.h
-> > > > index 58c632533b08..bf26d454b60d 100644
-> > > > --- a/include/linux/crc32.h
-> > > > +++ b/include/linux/crc32.h
-> > > > @@ -35,10 +35,25 @@ static inline u32 __pure __crc32c_le(u32 crc, const u8 *p, size_t len)
-> > > >         if (IS_ENABLED(CONFIG_CRC32_ARCH))
-> > > >                 return crc32c_le_arch(crc, p, len);
-> > > >         return crc32c_le_base(crc, p, len);
-> > > >  }
-> > > >
-> > > > +/*
-> > > > + * crc32_optimizations contains flags that indicate which CRC32 library
-> > > > + * functions are using architecture-specific optimizations.  Unlike
-> > > > + * IS_ENABLED(CONFIG_CRC32_ARCH) it takes into account the different CRC32
-> > > > + * variants and also whether any needed CPU features are available at runtime.
-> > > > + */
-> > > > +#define CRC32_LE_OPTIMIZATION  BIT(0) /* crc32_le() is optimized */
-> > > > +#define CRC32_BE_OPTIMIZATION  BIT(1) /* crc32_be() is optimized */
-> > > > +#define CRC32C_OPTIMIZATION    BIT(2) /* __crc32c_le() is optimized */
-> > > > +#if IS_ENABLED(CONFIG_CRC32_ARCH)
-> > > > +extern u32 crc32_optimizations;
-> > > > +#else
-> > > > +#define crc32_optimizations 0
-> > > > +#endif
-> > > > +
-> > >
-> > > Wouldn't it be cleaner to add a new library function for this, instead
-> > > of using a global variable?
-> >
-> > The architecture crc32 modules need to be able to write to this.  There could be
-> > a setter function and a getter function, but just using a variable is simpler.
-> >
-> 
-> If we just add 'u32 crc32_optimizations()', there is no need for those
-> modules to have init/exit hooks, the only thing they need to export is
-> this routine.
-> 
-> Or perhaps it could even be a static inline, with the right plumbing
-> of header files. At least on arm64,
-> 
-> static inline u32 crc32_optimizations() {
->   if (!alternative_have_const_cap_likely(ARM64_HAS_CRC32))
->     return 0;
->   return CRC32_LE_OPTIMIZATION | CRC32_BE_OPTIMIZATION | CRC32C_OPTIMIZATION;
-> }
-> 
-> should be all we need.
-
-In 7 of the 9 affected arches, I already have a module_init function that checks
-the CPU features in order to set up static keys.  (arm64 and riscv already used
-alternatives patching, so I kept that.)  It's slightly convenient to set these
-flags at the same time, but yes the above solution would work too.
-
-- Eric
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGVsbG8hCgpXZSBhcmUgcGxlYXNlZCB0byBhbm5vdW5jZSB0aGUgQ2FsbCBmb3IgUGFydGljaXBh
+dGlvbiAoQ2ZQKSBmb3IgdGhlCkZPU0RFTSAyMDI1IFJJU0MtViBEZXZyb29tLiBUaGUgRGV2cm9v
+bSB3aWxsIGJlIGhlbGQgb24gRmVicnVhcnkgMQooU2F0dXJkYXkpLCAyMDI1IGluIEJydXNzZWxz
+LCBCZWxnaXVtLiBUaGUgc3VibWlzc2lvbiBkZWFkbGluZSBmb3IKdGFsayBwcm9wb3NhbHMgaXMg
+RGVjZW1iZXIgMSwgMjAyNC4KCkZPU0RFTSBpcyBhIGZyZWUgZXZlbnQgZm9yIHNvZnR3YXJlIGRl
+dmVsb3BlcnMgdG8gbWVldCwgc2hhcmUgaWRlYXMKYW5kIGNvbGxhYm9yYXRlLiBFdmVyeSB5ZWFy
+LCB0aG91c2FuZHMgb2YgZGV2ZWxvcGVycyBvZiBmcmVlIGFuZCBvcGVuCnNvdXJjZSBzb2Z0d2Fy
+ZSBmcm9tIGFsbCBvdmVyIHRoZSB3b3JsZCBnYXRoZXIgYXQgdGhlIGV2ZW50IGluCkJydXNzZWxz
+LgoKIyBGT1NERU0gMjAyNSBSSVNDLVYgRGV2cm9vbSBDRlAKCkZPU0RFTSAyMDI1IChodHRwczov
+L2Zvc2RlbS5vcmcvMjAyNS8pIHdpbGwgdGFrZSBwbGFjZSBvbiBGZWJydWFyeQoxLTIsIDIwMjUg
+aW4gQnJ1c3NlbHMsIEJlbGdpdW0uIFRoZXJlIHdpbGwgYmUgYSBSSVNDLVYgZGV2ZWxvcGVy4oCZ
+cwpyb29tIG9uIFNhdHVyZGF5IEZlYnJ1YXJ5IDEuCgpBbnkgdG9waWNzIHJlbGF0ZWQgdG8gUklT
+Qy1WIGFyZSB3ZWxjb21lLCBidXQgdHlwaWNhbGx5IGVuY29tcGFzc2VzCnRoZSBSSVNDLVYgSVNB
+LCBvcGVuIHNvdXJjZSBSSVNDLVYgaGFyZHdhcmUgKGUuZy4gY29yZXMsIFNvQ3MsCmFjY2VsZXJh
+dG9ycyksIGFuZCBvcGVuIHNvdXJjZSBSSVNDLVYgc29mdHdhcmUgKGUuZy4gT1MgcG9ydHMsCmVt
+dWxhdG9ycywgdG9vbGNoYWlucykuCgojIyBQcmVzZW50YXRpb24gRGV0YWlscwoKKiBUaGUgZGVm
+YXVsdCBkdXJhdGlvbiBmb3IgdGFsa3Mgd2lsbCBiZSA0NSBtaW51dGVzIGluY2x1ZGluZwogIGRp
+c2N1c3Npb24uIEZlZWwgZnJlZSB0byByZXF1ZXN0IGEgbG9uZ2VyIG9yIHNob3J0ZXIgc2xvdC4K
+KiBQcmVzZW50YXRpb25zIHdpbGwgYmUgcmVjb3JkZWQgYW5kIHN0cmVhbWVkLiBTZW5kaW5nIHlv
+dXIgcHJvcG9zYWwKICBpbXBsaWVzIGdpdmluZyBwZXJtaXNzaW9uIHRvIGhhdmUgeW91ciBwcmVz
+ZW50YXRpb24gcmVjb3JkZWQgYW5kCiAgZGlzdHJpYnV0ZWQgdG9nZXRoZXIgd2l0aCB5b3VyIHNs
+aWRlcyB1bmRlciBhIENyZWF0aXZlIENvbW1vbnMgQ0MtQlkKICBsaWNlbnNlLgoKIyMgU3VibWl0
+IGEgdGFsawoKSGVhZCB0byB0aGUgRk9TREVNIDIwMjUgcHJldGFseAooaHR0cHM6Ly9wcmV0YWx4
+LmZvc2RlbS5vcmcvZm9zZGVtLTIwMjUvY2ZwKSB3ZWJzaXRlLgoKKiBUaGUgdGl0bGUgYW5kIHN1
+YnRpdGxlIG9mIHlvdXIgdGFsayAocGxlYXNlIGJlIGRlc2NyaXB0aXZlLCBhcwogIHRpdGxlcyB3
+aWxsIGJlIGxpc3RlZCB3aXRoIH41MDAgZnJvbSBvdGhlciBwcm9qZWN0cykKKiBTZWxlY3QgIlJJ
+U0MtViBEZXZyb29tIiBhcyB0aGUgdHJhY2suCiogQSBzaG9ydCBhYnN0cmFjdCBvZiBvbmUgcGFy
+YWdyYXBoCiogQSBsb25nZXIgZGVzY3JpcHRpb24gaWYgeW91IHdpc2ggdG8gZG8gc28KKiBBIHNo
+b3J0IGJpbyBhbmQgY29udGFjdCBpbmZvcm1hdGlvbgoqIExpbmtzIHRvIHJlbGF0ZWQgd2Vic2l0
+ZXMgLyBibG9ncyBldGMuCiogVGFsayBkdXJhdGlvbgoKIyMgSW1wb3J0YW50IERhdGVzCgoqIERl
+Y2VtYmVyIDEsIDIwMjQ6IFN1Ym1pc3Npb24gZGVhZGxpbmUgZm9yIHRhbGsgcHJvcG9zYWxzCiog
+RGVjZW1iZXIgMTUsIDIwMjQ6IEFubm91bmNlbWVudCBvZiB0aGUgZmluYWwgc2NoZWR1bGUKKiBG
+ZWJydWFyeSAxIChTYXR1cmRheSksIDIwMjU6IFJJU0MtViBEZXZyb29tCgojIFZvbHVudGVlcmlu
+ZwoKRk9TREVNIG5lZWRzIHlvdSEgRXZlcnkgeWVhciwgdGhlIEZPU0RFTSB0ZWFtIGlzIGFzc2lz
+dGVkIGJ5IGFuCmVudGh1c2lhc3RpYyB0ZWFtIG9mIHZvbHVudGVlcnMgdG8gaGVscCBvdXQgd2l0
+aCB2YXJpb3VzIHRhc2tzIGFuZAptYWtlIHRoZSBldmVudCBhIGZ1biBhbmQgc2FmZSBwbGFjZSBm
+b3IgYWxsIG91ciB2aXNpdG9ycy4KClRoZXJlIGFyZSBzb21lIGJlbmVmaXRzIHRvIGJlaW5nIGEg
+dm9sdW50ZWVyLCBidXQgbW9zdCBpbXBvcnRhbnRseSB5b3UKaGVscCBtYWtlIEZPU0RFTSBwb3Nz
+aWJsZSEKClZpc2l0IGh0dHBzOi8vdm9sdW50ZWVycy5mb3NkZW0ub3JnLyB0byBzaWduIHVwLgoK
+CkNoZWVycywKQmrDtnJuIFTDtnBlbCAoYmpvcm4udG9wZWxAZ21haWwuY29tKQoKX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGlu
+ZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJh
+ZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
