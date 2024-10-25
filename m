@@ -4,87 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71ED4D0C5EC
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Oct 2024 09:16:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4DA6D0C5F9
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Oct 2024 10:11:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=e4as04ts8psVhp7qEKqUbQJu8f3ijcZ+yxEuisweMhs=; b=kGOkQimyrKXqo0
-	P0up9w7uBg6AeXhENJwl71SruNbJ4ITr+CQo2N1Mqfb+XmZSHf67bLr9soQYyjIp08sThk8E8XFHv
-	X7F5Wbdw5wjAnKvXkCQm30pSD+9EsNJ7BXYe7TM/eYvEQg0q5yIjcwZsjaI3K9BfHbLyy1JN1o6c9
-	aR86sb/Jv5ThPwI+Jub8DsMCRyQtodx4N8MHIDpuWEKiU8s4tprYeabrQd6G0BuqTvqOTQnAcO5LL
-	CmsvykP8vUcYWHrzLa6Xc+CxZY0gFmn1P1LP0HUlMTuk2/F1VsTEc9HZFtchKRreF/294lkgLKn8d
-	8Xn3anTI2muuwtRM7D+g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y+bVatd2ftXQrW/g56QisRYtNRYyhyk66eFormiRcqU=; b=z1hYqLAiCAiom6owUEYRg4JH5s
+	ROaqanI6LGWQgLFBX+sJylKj0SiijTqQuK6BH8aBgF0VeZQksxRXy4PHrtSLmfBhIbl2VzO/wPy6Z
+	19OpbopzzGzpfqXSYhulwg9oy+ukS1rxvV6ryRA4n9oWPbdo0JRunIYE2ZBcXUkMjQcxXAUDxyG39
+	hkEYEEYEmxZS3aOop6DtTKNBmEna11La80CEmO+2db/pyzZaEfhKKb935htDLNhN6zE1ncCoB1uDn
+	wCLVtOL2KCzThj48R+WBlnfH5IRyR92M+HPfQ9uU8ktOLujQj93flwfrzXO4mRPLdHqYt1iUqGP/o
+	MFgHEkoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4GQC-000000038E4-2Bl6;
-	Fri, 25 Oct 2024 09:15:52 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1t4HIK-00000003KBX-3QQ3;
+	Fri, 25 Oct 2024 10:11:48 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4GQ8-000000038CT-30x5
+	id 1t4HIH-00000003KAe-47Fy
 	for linux-riscv@lists.infradead.org;
-	Fri, 25 Oct 2024 09:15:50 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-20c803787abso13993325ad.0
-        for <linux-riscv@lists.infradead.org>; Fri, 25 Oct 2024 02:15:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1729847744; x=1730452544; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=+DTUkSYOlRU3ybbwBrGBMsEPjomkF1Ub5awaswPrW1E=;
-        b=OQ/aoQuBYSQQGCJ9TpIF7PKEht8+Jo0L2Tr0gstlPHvc2pdWFvhBZyURBGPDlYt4LM
-         geZ5pJUzqmDnDE+10lr3od+r00oDKnxqvq4IH1AG3bYatsxmHYziqrO4C+f9kEpGntTD
-         CCVr8iQuQA5Cuo7SpW/9r0U9Tyfw30qSw6Tej2rWSxpdZ1SOaROTj5wuV3c6maXQ2QLI
-         HXW7xYl4EXWPoSRQ0leMXJJ7OhrjbjKWYLHekud1/jNt6PIUY2VYb8HdyNI8yJVeN2F6
-         3iTKhBpx6AmdE6m6ZvjAqpXHj2LNjrtvv9HDlEhRUCK7kXK5gGiTDukKOC5TfZB8aZRJ
-         6DiA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729847744; x=1730452544;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=+DTUkSYOlRU3ybbwBrGBMsEPjomkF1Ub5awaswPrW1E=;
-        b=WcjVo00ZjOJ1oh1PuiNzSiYELffKNSZ3BqemJmOrUubt6hl7Flb9wwn9fZRDE1jOuT
-         PWFRC5912+hC7M03Y2Ciw6fF8TLs+f0Zk6lBU7m5zK/ohm10zejtP7RVZuSs1jfeYWV0
-         oDe82lMyVjh+mmtTJdQZKH5qZSaH19LNgi9Fc3sAU41HrqCjZ8T1PZmeIbELxO2YEjUx
-         KmmZDnMrsz8DFNYqBWh/jUSwycb5mnR4QlKaJIvhSDk+ImPxbuiG1PccKZ0PHcnl3lXK
-         VN4RoBYtpbQh2c7TybVJ5bGSZ9q4R4gNQfG6iEqaQ5oN9PliZA/+EGvRU5mXyDJYVKK+
-         xdrg==
-X-Forwarded-Encrypted: i=1; AJvYcCUdwJET4hG14fFejocTwf2tKSKM+odhwbGYLWvaedrCkUrDpW+EIjZv/NE4HactIgfvh37qkh/CMGRDog==@lists.infradead.org
-X-Gm-Message-State: AOJu0YylDouzyjbC2z7yktchCuNx3ruy3mjXAnlhKOlcWN99FCwP8ZPo
-	qhpy8VYwBjVWwn8g6rDhxqYlFkKIBO4vOji9bq2qzRffKkO1wdWyuiUHs3Ng4Pw=
-X-Google-Smtp-Source: AGHT+IGn8hflKpoueeCF8Bfpe5DVo3zhQbZebM4N8tBs0x45FvRc0cwkNA0yiljQQ0ZAfVnKIyBHZg==
-X-Received: by 2002:a17:902:fc4f:b0:20b:a41f:6e4d with SMTP id d9443c01a7336-20fb89650ffmr77091225ad.15.1729847743607;
-        Fri, 25 Oct 2024 02:15:43 -0700 (PDT)
-Received: from L6YN4KR4K9.bytedance.net ([139.177.225.227])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-210bc02ee43sm5946325ad.214.2024.10.25.02.15.39
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 25 Oct 2024 02:15:43 -0700 (PDT)
-From: Yunhui Cui <cuiyunhui@bytedance.com>
-To: punit.agrawal@bytedance.com,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	conor@kernel.org,
-	cleger@rivosinc.com,
-	charlie@rivosinc.com,
-	evan@rivosinc.com,
-	samuel.holland@sifive.com,
-	andybnac@gmail.com,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Yunhui Cui <cuiyunhui@bytedance.com>
-Subject: [PATCH] RISC-V: Enable Zicbom in usermode
-Date: Fri, 25 Oct 2024 17:15:27 +0800
-Message-Id: <20241025091527.57825-1-cuiyunhui@bytedance.com>
-X-Mailer: git-send-email 2.39.2 (Apple Git-143)
+	Fri, 25 Oct 2024 10:11:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id BC903A42D7D;
+	Fri, 25 Oct 2024 10:09:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76075C4CEC3;
+	Fri, 25 Oct 2024 10:11:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729851103;
+	bh=6Ti/rPa9VPGsl7W96k8PIOoxkRU8dllSjyzxVDqDHSk=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=GoXxPioYzk31+wt+0+IRRRxkQF6KQCb9P4pFGaCK5JWftl0Tm7oqWs72+onb32YiF
+	 v3UQ4dcsXWsw0Z/TSgyBCMKwdaOdpCAhJuVWXhsu3bwE7BOonosEF5HqKCX3lr7EHI
+	 G/baMwPa7KAL6mqSjxnwXmb4XhUpmKawhwBRilU8YEmbLT2t+sMIymb9pkSWyhZcOY
+	 J+4hqY7Wu8dz/H6sttVzKqaE6IuYatcMCSb+H7OAtC2wUckWwBbBEMUK4+ticQRVpu
+	 QuLuYRl97UR9RmBq98gd9QAAtKk1VzwzCaXyZjeoiYSkG6CRSLRo+VzpCYsTHXakWs
+	 p50HS9LD45TyA==
+From: Puranjay Mohan <puranjay@kernel.org>
+To: kernel test robot <lkp@intel.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexei Starovoitov <ast@kernel.org>, Andrew Morton
+ <akpm@linux-foundation.org>, Andrii Nakryiko <andrii@kernel.org>,
+ bpf@vger.kernel.org, Daniel Borkmann <daniel@iogearbox.net>, "David S.
+ Miller" <davem@davemloft.net>, Eduard Zingerman <eddyz87@gmail.com>, Eric
+ Dumazet <edumazet@google.com>, Hao Luo <haoluo@google.com>, Helge Deller
+ <deller@gmx.de>, Jakub Kicinski <kuba@kernel.org>, "James E.J. Bottomley"
+ <James.Bottomley@hansenpartnership.com>, Jiri Olsa <jolsa@kernel.org>,
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
+ linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Martin KaFai Lau <martin.lau@linux.dev>,
+ Mykola Lysenko <mykolal@fb.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paolo Abeni <pabeni@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Shuah Khan <skhan@linuxfoundation.org>, Song Liu <song@kernel.org>,
+ Stanislav Fomichev <sdf@fomichev.me>
+Cc: oe-kbuild-all@lists.linux.dev, Linux Memory Management List
+ <linux-mm@kvack.org>, netdev@vger.kernel.org
+Subject: Re: [PATCH bpf-next v2 2/4] bpf: bpf_csum_diff: optimize and
+ homogenize for all archs
+In-Reply-To: <202410251552.LR73LP4V-lkp@intel.com>
+References: <20241023153922.86909-3-puranjay@kernel.org>
+ <202410251552.LR73LP4V-lkp@intel.com>
+Date: Fri, 25 Oct 2024 10:11:11 +0000
+Message-ID: <mb61po738bigw.fsf@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_021548_991213_1C61BFCA 
-X-CRM114-Status: UNSURE (   9.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241025_031146_180959_79CFC053 
+X-CRM114-Status: GOOD (  17.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,38 +82,218 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2724212218864994047=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Like Zicboz, by enabling the corresponding bits of senvcfg,
-the instructions cbo.clean, cbo.flush, and cbo.inval can be
-executed normally in user mode.
+--===============2724212218864994047==
+Content-Type: multipart/signed; boundary="=-=-=";
+	micalg=pgp-sha512; protocol="application/pgp-signature"
 
-Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
----
- arch/riscv/kernel/cpufeature.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+--=-=-=
+Content-Type: text/plain
 
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 1992ea64786e..bc850518ab41 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -924,7 +924,7 @@ unsigned long riscv_get_elf_hwcap(void)
- void __init riscv_user_isa_enable(void)
- {
- 	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_ZICBOZ))
--		current->thread.envcfg |= ENVCFG_CBZE;
-+		current->thread.envcfg |= ENVCFG_CBIE | ENVCFG_CBCFE | ENVCFG_CBZE;
- 	else if (any_cpu_has_zicboz)
- 		pr_warn("Zicboz disabled as it is unavailable on some harts\n");
+kernel test robot <lkp@intel.com> writes:
+
+> Hi Puranjay,
+>
+> kernel test robot noticed the following build warnings:
+>
+> [auto build test WARNING on bpf-next/master]
+>
+> url:    https://github.com/intel-lab-lkp/linux/commits/Puranjay-Mohan/net-checksum-move-from32to16-to-generic-header/20241023-234347
+> base:   https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git master
+> patch link:    https://lore.kernel.org/r/20241023153922.86909-3-puranjay%40kernel.org
+> patch subject: [PATCH bpf-next v2 2/4] bpf: bpf_csum_diff: optimize and homogenize for all archs
+> config: i386-randconfig-061-20241025 (https://download.01.org/0day-ci/archive/20241025/202410251552.LR73LP4V-lkp@intel.com/config)
+> compiler: gcc-12 (Debian 12.2.0-14) 12.2.0
+> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241025/202410251552.LR73LP4V-lkp@intel.com/reproduce)
+>
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202410251552.LR73LP4V-lkp@intel.com/
+>
+> sparse warnings: (new ones prefixed by >>)
+>    net/core/filter.c:1423:39: sparse: sparse: incorrect type in argument 1 (different address spaces) @@     expected struct sock_filter const *filter @@     got struct sock_filter [noderef] __user *filter @@
+>    net/core/filter.c:1423:39: sparse:     expected struct sock_filter const *filter
+>    net/core/filter.c:1423:39: sparse:     got struct sock_filter [noderef] __user *filter
+>    net/core/filter.c:1501:39: sparse: sparse: incorrect type in argument 1 (different address spaces) @@     expected struct sock_filter const *filter @@     got struct sock_filter [noderef] __user *filter @@
+>    net/core/filter.c:1501:39: sparse:     expected struct sock_filter const *filter
+>    net/core/filter.c:1501:39: sparse:     got struct sock_filter [noderef] __user *filter
+>    net/core/filter.c:2321:45: sparse: sparse: incorrect type in argument 2 (different base types) @@     expected restricted __be32 [usertype] daddr @@     got unsigned int [usertype] ipv4_nh @@
+>    net/core/filter.c:2321:45: sparse:     expected restricted __be32 [usertype] daddr
+>    net/core/filter.c:2321:45: sparse:     got unsigned int [usertype] ipv4_nh
+>    net/core/filter.c:10993:31: sparse: sparse: symbol 'sk_filter_verifier_ops' was not declared. Should it be static?
+>    net/core/filter.c:11000:27: sparse: sparse: symbol 'sk_filter_prog_ops' was not declared. Should it be static?
+>    net/core/filter.c:11004:31: sparse: sparse: symbol 'tc_cls_act_verifier_ops' was not declared. Should it be static?
+>    net/core/filter.c:11013:27: sparse: sparse: symbol 'tc_cls_act_prog_ops' was not declared. Should it be static?
+>    net/core/filter.c:11017:31: sparse: sparse: symbol 'xdp_verifier_ops' was not declared. Should it be static?
+>    net/core/filter.c:11029:31: sparse: sparse: symbol 'cg_skb_verifier_ops' was not declared. Should it be static?
+>    net/core/filter.c:11035:27: sparse: sparse: symbol 'cg_skb_prog_ops' was not declared. Should it be static?
+>    net/core/filter.c:11039:31: sparse: sparse: symbol 'lwt_in_verifier_ops' was not declared. Should it be static?
+>    net/core/filter.c:11045:27: sparse: sparse: symbol 'lwt_in_prog_ops' was not declared. Should it be static?
+>    net/core/filter.c:11049:31: sparse: sparse: symbol 'lwt_out_verifier_ops' was not declared. Should it be static?
+>    net/core/filter.c:11055:27: sparse: sparse: symbol 'lwt_out_prog_ops' was not declared. Should it be static?
+>    net/core/filter.c:11059:31: sparse: sparse: symbol 'lwt_xmit_verifier_ops' was not declared. Should it be static?
+>    net/core/filter.c:11066:27: sparse: sparse: symbol 'lwt_xmit_prog_ops' was not declared. Should it be static?
+>    net/core/filter.c:11070:31: sparse: sparse: symbol 'lwt_seg6local_verifier_ops' was not declared. Should it be static?
+>    net/core/filter.c:11076:27: sparse: sparse: symbol 'lwt_seg6local_prog_ops' was not declared. Should it be static?
+>    net/core/filter.c:11079:31: sparse: sparse: symbol 'cg_sock_verifier_ops' was not declared. Should it be static?
+>    net/core/filter.c:11085:27: sparse: sparse: symbol 'cg_sock_prog_ops' was not declared. Should it be static?
+>    net/core/filter.c:11088:31: sparse: sparse: symbol 'cg_sock_addr_verifier_ops' was not declared. Should it be static?
+>    net/core/filter.c:11094:27: sparse: sparse: symbol 'cg_sock_addr_prog_ops' was not declared. Should it be static?
+>    net/core/filter.c:11097:31: sparse: sparse: symbol 'sock_ops_verifier_ops' was not declared. Should it be static?
+>    net/core/filter.c:11103:27: sparse: sparse: symbol 'sock_ops_prog_ops' was not declared. Should it be static?
+>    net/core/filter.c:11106:31: sparse: sparse: symbol 'sk_skb_verifier_ops' was not declared. Should it be static?
+>    net/core/filter.c:11113:27: sparse: sparse: symbol 'sk_skb_prog_ops' was not declared. Should it be static?
+>    net/core/filter.c:11116:31: sparse: sparse: symbol 'sk_msg_verifier_ops' was not declared. Should it be static?
+>    net/core/filter.c:11123:27: sparse: sparse: symbol 'sk_msg_prog_ops' was not declared. Should it be static?
+>    net/core/filter.c:11126:31: sparse: sparse: symbol 'flow_dissector_verifier_ops' was not declared. Should it be static?
+>    net/core/filter.c:11132:27: sparse: sparse: symbol 'flow_dissector_prog_ops' was not declared. Should it be static?
+>    net/core/filter.c:11460:31: sparse: sparse: symbol 'sk_reuseport_verifier_ops' was not declared. Should it be static?
+>    net/core/filter.c:11466:27: sparse: sparse: symbol 'sk_reuseport_prog_ops' was not declared. Should it be static?
+>    net/core/filter.c:11668:27: sparse: sparse: symbol 'sk_lookup_prog_ops' was not declared. Should it be static?
+>    net/core/filter.c:11672:31: sparse: sparse: symbol 'sk_lookup_verifier_ops' was not declared. Should it be static?
+>    net/core/filter.c:1931:43: sparse: sparse: incorrect type in argument 2 (different base types) @@     expected restricted __wsum [usertype] diff @@     got unsigned long long [usertype] to @@
+>    net/core/filter.c:1931:43: sparse:     expected restricted __wsum [usertype] diff
+>    net/core/filter.c:1931:43: sparse:     got unsigned long long [usertype] to
+>    net/core/filter.c:1934:36: sparse: sparse: incorrect type in argument 2 (different base types) @@     expected restricted __be16 [usertype] old @@     got unsigned long long [usertype] from @@
+>    net/core/filter.c:1934:36: sparse:     expected restricted __be16 [usertype] old
+>    net/core/filter.c:1934:36: sparse:     got unsigned long long [usertype] from
+>    net/core/filter.c:1934:42: sparse: sparse: incorrect type in argument 3 (different base types) @@     expected restricted __be16 [usertype] new @@     got unsigned long long [usertype] to @@
+>    net/core/filter.c:1934:42: sparse:     expected restricted __be16 [usertype] new
+>    net/core/filter.c:1934:42: sparse:     got unsigned long long [usertype] to
+>    net/core/filter.c:1937:36: sparse: sparse: incorrect type in argument 2 (different base types) @@     expected restricted __be32 [usertype] from @@     got unsigned long long [usertype] from @@
+>    net/core/filter.c:1937:36: sparse:     expected restricted __be32 [usertype] from
+>    net/core/filter.c:1937:36: sparse:     got unsigned long long [usertype] from
+>    net/core/filter.c:1937:42: sparse: sparse: incorrect type in argument 3 (different base types) @@     expected restricted __be32 [usertype] to @@     got unsigned long long [usertype] to @@
+>    net/core/filter.c:1937:42: sparse:     expected restricted __be32 [usertype] to
+>    net/core/filter.c:1937:42: sparse:     got unsigned long long [usertype] to
+>    net/core/filter.c:1982:59: sparse: sparse: incorrect type in argument 3 (different base types) @@     expected restricted __wsum [usertype] diff @@     got unsigned long long [usertype] to @@
+>    net/core/filter.c:1982:59: sparse:     expected restricted __wsum [usertype] diff
+>    net/core/filter.c:1982:59: sparse:     got unsigned long long [usertype] to
+>    net/core/filter.c:1985:52: sparse: sparse: incorrect type in argument 3 (different base types) @@     expected restricted __be16 [usertype] from @@     got unsigned long long [usertype] from @@
+>    net/core/filter.c:1985:52: sparse:     expected restricted __be16 [usertype] from
+>    net/core/filter.c:1985:52: sparse:     got unsigned long long [usertype] from
+>    net/core/filter.c:1985:58: sparse: sparse: incorrect type in argument 4 (different base types) @@     expected restricted __be16 [usertype] to @@     got unsigned long long [usertype] to @@
+>    net/core/filter.c:1985:58: sparse:     expected restricted __be16 [usertype] to
+>    net/core/filter.c:1985:58: sparse:     got unsigned long long [usertype] to
+>    net/core/filter.c:1988:52: sparse: sparse: incorrect type in argument 3 (different base types) @@     expected restricted __be32 [usertype] from @@     got unsigned long long [usertype] from @@
+>    net/core/filter.c:1988:52: sparse:     expected restricted __be32 [usertype] from
+>    net/core/filter.c:1988:52: sparse:     got unsigned long long [usertype] from
+>    net/core/filter.c:1988:58: sparse: sparse: incorrect type in argument 4 (different base types) @@     expected restricted __be32 [usertype] to @@     got unsigned long long [usertype] to @@
+>    net/core/filter.c:1988:58: sparse:     expected restricted __be32 [usertype] to
+>    net/core/filter.c:1988:58: sparse:     got unsigned long long [usertype] to
+>>> net/core/filter.c:2023:48: sparse: sparse: incorrect type in argument 1 (different base types) @@     expected unsigned int sum @@     got restricted __wsum @@
+>    net/core/filter.c:2023:48: sparse:     expected unsigned int sum
+>    net/core/filter.c:2023:48: sparse:     got restricted __wsum
+>    net/core/filter.c:2026:52: sparse: sparse: incorrect type in argument 1 (different base types) @@     expected unsigned int sum @@     got restricted __wsum @@
+>    net/core/filter.c:2026:52: sparse:     expected unsigned int sum
+>    net/core/filter.c:2026:52: sparse:     got restricted __wsum
+>    net/core/filter.c:2029:40: sparse: sparse: incorrect type in argument 1 (different base types) @@     expected unsigned int sum @@     got restricted __wsum @@
+>    net/core/filter.c:2029:40: sparse:     expected unsigned int sum
+>    net/core/filter.c:2029:40: sparse:     got restricted __wsum
+>    net/core/filter.c:2031:16: sparse: sparse: incorrect type in return expression (different base types) @@     expected unsigned long long @@     got restricted __wsum [usertype] seed @@
+>    net/core/filter.c:2031:16: sparse:     expected unsigned long long
+>    net/core/filter.c:2031:16: sparse:     got restricted __wsum [usertype] seed
+>    net/core/filter.c:2053:35: sparse: sparse: incorrect type in return expression (different base types) @@     expected unsigned long long @@     got restricted __wsum [usertype] csum @@
+>    net/core/filter.c:2053:35: sparse:     expected unsigned long long
+>    net/core/filter.c:2053:35: sparse:     got restricted __wsum [usertype] csum
+>
+> vim +2023 net/core/filter.c
+>
+>   2009	
+>   2010	BPF_CALL_5(bpf_csum_diff, __be32 *, from, u32, from_size,
+>   2011		   __be32 *, to, u32, to_size, __wsum, seed)
+>   2012	{
+>   2013		/* This is quite flexible, some examples:
+>   2014		 *
+>   2015		 * from_size == 0, to_size > 0,  seed := csum --> pushing data
+>   2016		 * from_size > 0,  to_size == 0, seed := csum --> pulling data
+>   2017		 * from_size > 0,  to_size > 0,  seed := 0    --> diffing data
+>   2018		 *
+>   2019		 * Even for diffing, from_size and to_size don't need to be equal.
+>   2020		 */
+>   2021	
+>   2022		if (from_size && to_size)
+>> 2023			return csum_from32to16(csum_sub(csum_partial(to, to_size, seed),
+>   2024							csum_partial(from, from_size, 0)));
+>   2025		if (to_size)
+>   2026			return csum_from32to16(csum_partial(to, to_size, seed));
+>   2027	
+>   2028		if (from_size)
+>   2029			return csum_from32to16(~csum_partial(from, from_size, ~seed));
+>   2030	
+>   2031		return seed;
+>   2032	}
+>   2033	
+
+This file has a lot of such sparse warnings. Specifically, to fix the
+warning introduced by me, I can apply the following diff:
+
+--- >8 ---
+
+diff --git a/net/core/filter.c b/net/core/filter.c
+index e00bec7de9ed..b94037f29b2a 100644
+--- a/net/core/filter.c
++++ b/net/core/filter.c
+@@ -2019,16 +2019,18 @@ BPF_CALL_5(bpf_csum_diff, __be32 *, from, u32, from_size,
+         * Even for diffing, from_size and to_size don't need to be equal.
+         */
+
++       __wsum ret = seed;
++
+        if (from_size && to_size)
+-               return csum_from32to16(csum_sub(csum_partial(to, to_size, seed),
+-                                               csum_partial(from, from_size, 0)));
++               ret = csum_sub(csum_partial(to, to_size, seed), csum_partial(from, from_size, 0));
++
+        if (to_size)
+-               return csum_from32to16(csum_partial(to, to_size, seed));
++               ret =  csum_partial(to, to_size, seed);
+
+        if (from_size)
+-               return csum_from32to16(~csum_partial(from, from_size, ~seed));
++               ret = ~csum_partial(from, from_size, ~seed);
+
+-       return seed;
++       return csum_from32to16((__force unsigned int)ret);
  }
--- 
-2.39.2
 
+--- 8< ---
+
+If others feel that fixing these warnings is useful, I can send another
+version with above diff. I will then also send a separate patch to fix
+all other such warnings in this file.
+
+
+Thanks,
+Puranjay
+
+--=-=-=
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iIoEARYKADIWIQQ3wHGvVs/5bdl78BKwwPkjG3B2nQUCZxtuwBQccHVyYW5qYXlA
+a2VybmVsLm9yZwAKCRCwwPkjG3B2nfkyAP4imd310ZR1kDuVxB4CsHRlzISGXk8D
+YIv2XeoC6q7YkQEAr854TBZtq4tB7ZjChtXhWWuntX12z/pN6VJ2Jpru1gA=
+=CR+Q
+-----END PGP SIGNATURE-----
+--=-=-=--
+
+
+--===============2724212218864994047==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2724212218864994047==--
+
