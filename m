@@ -4,87 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98372D149F1
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Oct 2024 20:34:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72D69D149F3
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Oct 2024 20:46:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+qdtR8LUsBAF1zWBr8z6MmFXxSxi5PmeEeRYKCuLhBo=; b=dL/e3Mk6imY87W
-	ZaL+1hbbLHa3CmsgwGq84jbCfC7rbVegTX3iaiHZ1/6pK91jxCi6ED4KOFES08VUK4Y+u2LEXqh2P
-	1thskPj1B22wSkZJ8zlwdr8FQ30F0BUFSSO5cZKLCwH6fel8vHFNJYWFC3BJyFd1Mbu65/aMFR8kL
-	1kXyZwAvV1M4yqrHnK09f2LRlLQCAngO2EdgWOXPAKYUfrVowsXi0cR2AFdPVPwSO6jeAJ+j5iBCj
-	Q6uRsWYaG96tYq6J+MHVsrMrlS8fDhzJOdmi7D33+AIv4REmAMqR3Mvk0a5M21TsASOBMIt60rT/S
-	Ktq5JVZiHkrqBB425iRw==;
+	List-Owner; bh=Z2GlqsiYUG20Ywe2lj7mTqVBInuHxlILdEEYcsgRBPw=; b=JEF7SyadiLiNCQ
+	2LPCR9OXgduNWcTS1oIp9tfZ/jsoqQkZlA3uLIjHfg7czdWrhUR+RzAqHSOGVAlmz1zIFRWF72LVl
+	tb8uKcOI3qvPqgGZXhi74KpfZAq2llbtedcHsJQ4QU5Rbh/cGy7nOO7Ic1gYZlM1tf+eJh+4kjYMj
+	aUas20EB8JRawkL0jo4tc/qgN6LvXatlKidVQjAOssHyPoEY1G3b5V93rBRAwUw0BK3yFeNCK9MXW
+	2uQ5h7Y7ssvbSR8btqs88Iv2Up8/fOnVIvZFKLipzBh2EF+76/akf0GiqlDgUNUjsdYZzvRDZIGVt
+	VZblik9DaqHsAFDp6/Mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4R0h-000000057Pf-32ng;
-	Fri, 25 Oct 2024 20:34:15 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t4RCX-00000005AQR-3qgX;
+	Fri, 25 Oct 2024 20:46:29 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Qz7-000000057DN-3aMZ;
-	Fri, 25 Oct 2024 20:32:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=cTUERFsy8K5/pl07EUDBeFnq3I9Zkbo0oaQDqVJpurU=; b=It5nVe78K91uT8kuQdJhkexmJQ
-	eItSSK/aEnIbh/58i9VhjvqAzswe0TFNqwfACQRVpAoilRPbrLminiIlGc3tOMehmkBhOT/CEr21E
-	5BrgG5bsSBY13chsAZXERHM1mdwXbVPI0iKAKOtx8awUZPvPMGGjSVYMfWmPBlNR99l/MxIYrd2fv
-	oIN46cfZVUoT4AejWXTphzJmW9tpHYjh/hJTxPeELIt85DBsd2uPa6B1rCrAJdtSQUFXfdDxbVXzx
-	cIFP6nWjNNIh3xZOU5axtE3pMnaZ0TiTFRfPk10OjVK+snF+8O/E1NVINOJKrG41AmMXhDihSe3Ku
-	cMZl5Aiw==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Qz2-000000094Qh-3VxW;
-	Fri, 25 Oct 2024 20:32:36 +0000
+	id 1t4Pms-00000004vJ8-3s5u;
+	Fri, 25 Oct 2024 19:16:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A4DBBA44EED;
-	Fri, 25 Oct 2024 20:30:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8FBFC4CEE4;
-	Fri, 25 Oct 2024 20:32:27 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2841F5C5D65;
+	Fri, 25 Oct 2024 19:15:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD7BEC4CEE6;
+	Fri, 25 Oct 2024 19:15:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729888347;
-	bh=ZOwjJ8kzzckhcIYE8j5hMZsSJUKc5cYu8yXf20E0HuM=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=qQe2ZQ+tSWetaoVGslaOuLKxN45AkmR2qZL3ILBwg0inR1U0Bmqzc2I/H0SPNy1q+
-	 xqhvZ1lVsaUgvK+i94ztGpOyctfsh9xsUmDl7oWGF8DsRY0dU+ALpo3kC2CFzgTRCs
-	 d1Gn2syKnR1u3PGOMFPA5PNTxrRkzCzY8B16NsRjasHVCOlyrTHAR42WYFBMOtUfdG
-	 GuwI0SitSv5h2cI0j6gOREAiw+lsj8YMWu7ap7hTnjYpP9sp1h+2oosiZ+DKa4ioms
-	 DkdlTrqAnhayaHpQbacjuHAxvBZczD1BLzN5cmfWkxHDMqhlulxn98YRbq9P+Xq7+2
-	 Z2GT/dJ3wtK6A==
-Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-2fb51f39394so25776011fa.2;
-        Fri, 25 Oct 2024 13:32:27 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVWlDe8k+eEhAsCbBG74KxHYY1dgveNZVaSexsh6uWOxNLBw60sDKKXBp0xaoenVN9cTFR98D+3tB6aenei6xre@lists.infradead.org, AJvYcCWpnlEjno15EzsBHCdEAK7tMDh1YWCDHunVaw27NkV/VAc0as5yJXh7qV6deiw9uiXF9RdSVumVohyD3fA=@lists.infradead.org
-X-Gm-Message-State: AOJu0YxiTzIV1TfWZnY6+JvT69aIJUMALWmSD5DLZyUXXUZqcsPPrb7Q
-	CmnXUkjXZVFBUIZ1tdwp4bw3bGfGTy5qZb9Mlg7dwWyoTvS6yUyZaVE7G1ePlziDU1kjn6bUS3F
-	THEr+JktZydj/y4FsJ/UFv4jotLY=
-X-Google-Smtp-Source: AGHT+IHWDYSNqGzTxA1yucLBJm6V+3waey3TQHM3kNvlUas/obIoVX4SuU3pAE8hqdaCjuOs8zy+d7cgGIIryFN5WyY=
-X-Received: by 2002:a05:651c:50b:b0:2f9:cc40:6afe with SMTP id
- 38308e7fff4ca-2fcbdfae574mr3209411fa.14.1729888345976; Fri, 25 Oct 2024
- 13:32:25 -0700 (PDT)
+	s=k20201202; t=1729883753;
+	bh=47ZGS4s0ykwzlSaIC0c2LdDMEVdoUJMfULJGERv2xGc=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=CGgvEdI2HmcCddHFdIDPLRGe/0qzRMfmWHT3e1TxcMu5NX6IJoGH+1DOC8qOGtawT
+	 Xunmg9shPSvXO0krBa+FOYW4IINycWH5RSB3zmqd0r2fGYT8Jv/MsY2CYJXw89qt11
+	 TsT7MV6QKxtOWSGD5oOVCZdOnMQVFnWYkRhFxlNRvaFTF2XURchTXQ0xmAz4ew05Vk
+	 PMhS/ZMN9I3EXB1PhhPDjcMmhZyt1DsG4xsqbRcvgRNqDCCPE6KxNke0pn3diY151X
+	 aBljOeeFstzRrZwgTyzgxhWz088kBCTM8TUbHy3aNgfpyKnQsMTgvL4wrahDq7wC4D
+	 SoLq8F1Ea59cA==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org,
+	linux-ext4@vger.kernel.org,
+	linux-f2fs-devel@lists.sourceforge.net,
+	linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>
+Subject: [PATCH v2 16/18] jbd2: switch to using the crc32c library
+Date: Fri, 25 Oct 2024 12:14:52 -0700
+Message-ID: <20241025191454.72616-17-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20241025191454.72616-1-ebiggers@kernel.org>
+References: <20241025191454.72616-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-References: <20241025191454.72616-1-ebiggers@kernel.org> <20241025191454.72616-4-ebiggers@kernel.org>
-In-Reply-To: <20241025191454.72616-4-ebiggers@kernel.org>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Fri, 25 Oct 2024 22:32:14 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXFoer+_yZJWtqBVYfYnzqL9X9bbBRomCL3LDqRcYJ6njQ@mail.gmail.com>
-Message-ID: <CAMj1kXFoer+_yZJWtqBVYfYnzqL9X9bbBRomCL3LDqRcYJ6njQ@mail.gmail.com>
-Subject: Re: [PATCH v2 03/18] lib/crc32: expose whether the lib is really
- optimized at runtime
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org, 
-	linux-ext4@vger.kernel.org, linux-f2fs-devel@lists.sourceforge.net, 
-	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, linux-scsi@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
-	sparclinux@vger.kernel.org, x86@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_213233_312861_3E1C513B 
-X-CRM114-Status: GOOD (  22.42  )
+X-CRM114-CacheID: sfid-20241025_121555_101203_4CCEEE86 
+X-CRM114-Status: GOOD (  19.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,81 +83,200 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 25 Oct 2024 at 21:15, Eric Biggers <ebiggers@kernel.org> wrote:
->
-> From: Eric Biggers <ebiggers@google.com>
->
-> Make the CRC32 library export some flags that indicate which CRC32
-> functions are actually executing optimized code at runtime.  Set these
-> correctly from the architectures that implement the CRC32 functions.
->
-> This will be used to determine whether the crc32[c]-$arch shash
-> algorithms should be registered in the crypto API.  btrfs could also
-> start using these flags instead of the hack that it currently uses where
-> it parses the crypto_shash_driver_name.
->
-> Signed-off-by: Eric Biggers <ebiggers@google.com>
-> ---
->  arch/arm64/lib/crc32-glue.c  | 15 +++++++++++++++
->  arch/riscv/lib/crc32-riscv.c | 15 +++++++++++++++
->  include/linux/crc32.h        | 15 +++++++++++++++
->  lib/crc32.c                  |  5 +++++
->  4 files changed, 50 insertions(+)
->
-...
-> diff --git a/include/linux/crc32.h b/include/linux/crc32.h
-> index 58c632533b08..bf26d454b60d 100644
-> --- a/include/linux/crc32.h
-> +++ b/include/linux/crc32.h
-> @@ -35,10 +35,25 @@ static inline u32 __pure __crc32c_le(u32 crc, const u8 *p, size_t len)
->         if (IS_ENABLED(CONFIG_CRC32_ARCH))
->                 return crc32c_le_arch(crc, p, len);
->         return crc32c_le_base(crc, p, len);
->  }
->
-> +/*
-> + * crc32_optimizations contains flags that indicate which CRC32 library
-> + * functions are using architecture-specific optimizations.  Unlike
-> + * IS_ENABLED(CONFIG_CRC32_ARCH) it takes into account the different CRC32
-> + * variants and also whether any needed CPU features are available at runtime.
-> + */
-> +#define CRC32_LE_OPTIMIZATION  BIT(0) /* crc32_le() is optimized */
-> +#define CRC32_BE_OPTIMIZATION  BIT(1) /* crc32_be() is optimized */
-> +#define CRC32C_OPTIMIZATION    BIT(2) /* __crc32c_le() is optimized */
-> +#if IS_ENABLED(CONFIG_CRC32_ARCH)
-> +extern u32 crc32_optimizations;
-> +#else
-> +#define crc32_optimizations 0
-> +#endif
-> +
+From: Eric Biggers <ebiggers@google.com>
 
-Wouldn't it be cleaner to add a new library function for this, instead
-of using a global variable?
+Now that the crc32c() library function directly takes advantage of
+architecture-specific optimizations, it is unnecessary to go through the
+crypto API.  Just use crc32c().  This is much simpler, and it improves
+performance due to eliminating the crypto API overhead.
 
->  /**
->   * crc32_le_combine - Combine two crc32 check values into one. For two
->   *                   sequences of bytes, seq1 and seq2 with lengths len1
->   *                   and len2, crc32_le() check values were calculated
->   *                   for each, crc1 and crc2.
-> diff --git a/lib/crc32.c b/lib/crc32.c
-> index 47151624332e..194de73f30f8 100644
-> --- a/lib/crc32.c
-> +++ b/lib/crc32.c
-> @@ -336,5 +336,10 @@ u32 __pure crc32_be_base(u32 crc, const u8 *p, size_t len)
->  {
->         return crc32_be_generic(crc, p, len, crc32table_be, CRC32_POLY_BE);
->  }
->  #endif
->  EXPORT_SYMBOL(crc32_be_base);
-> +
-> +#if IS_ENABLED(CONFIG_CRC32_ARCH)
-> +u32 crc32_optimizations;
-> +EXPORT_SYMBOL(crc32_optimizations);
-> +#endif
-> --
-> 2.47.0
->
->
+Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
+Signed-off-by: Eric Biggers <ebiggers@google.com>
+---
+ fs/jbd2/Kconfig      |  2 --
+ fs/jbd2/journal.c    | 25 ++-----------------------
+ include/linux/jbd2.h | 31 +++----------------------------
+ 3 files changed, 5 insertions(+), 53 deletions(-)
+
+diff --git a/fs/jbd2/Kconfig b/fs/jbd2/Kconfig
+index 4ad2c67f93f1..9c19e1512101 100644
+--- a/fs/jbd2/Kconfig
++++ b/fs/jbd2/Kconfig
+@@ -1,11 +1,9 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ config JBD2
+ 	tristate
+ 	select CRC32
+-	select CRYPTO
+-	select CRYPTO_CRC32C
+ 	help
+ 	  This is a generic journaling layer for block devices that support
+ 	  both 32-bit and 64-bit block numbers.  It is currently used by
+ 	  the ext4 and OCFS2 filesystems, but it could also be used to add
+ 	  journal support to other file systems or block devices such
+diff --git a/fs/jbd2/journal.c b/fs/jbd2/journal.c
+index 97f487c3d8fc..56cea5a738a7 100644
+--- a/fs/jbd2/journal.c
++++ b/fs/jbd2/journal.c
+@@ -1373,24 +1373,16 @@ static int journal_check_superblock(journal_t *journal)
+ 		printk(KERN_ERR "JBD2: Can't enable checksumming v1 and v2/3 "
+ 		       "at the same time!\n");
+ 		return err;
+ 	}
+ 
+-	/* Load the checksum driver */
+ 	if (jbd2_journal_has_csum_v2or3_feature(journal)) {
+ 		if (sb->s_checksum_type != JBD2_CRC32C_CHKSUM) {
+ 			printk(KERN_ERR "JBD2: Unknown checksum type\n");
+ 			return err;
+ 		}
+ 
+-		journal->j_chksum_driver = crypto_alloc_shash("crc32c", 0, 0);
+-		if (IS_ERR(journal->j_chksum_driver)) {
+-			printk(KERN_ERR "JBD2: Cannot load crc32c driver.\n");
+-			err = PTR_ERR(journal->j_chksum_driver);
+-			journal->j_chksum_driver = NULL;
+-			return err;
+-		}
+ 		/* Check superblock checksum */
+ 		if (sb->s_checksum != jbd2_superblock_csum(journal, sb)) {
+ 			printk(KERN_ERR "JBD2: journal checksum error\n");
+ 			err = -EFSBADCRC;
+ 			return err;
+@@ -1611,12 +1603,10 @@ static journal_t *journal_init_common(struct block_device *bdev,
+ 
+ 	return journal;
+ 
+ err_cleanup:
+ 	percpu_counter_destroy(&journal->j_checkpoint_jh_count);
+-	if (journal->j_chksum_driver)
+-		crypto_free_shash(journal->j_chksum_driver);
+ 	kfree(journal->j_wbuf);
+ 	jbd2_journal_destroy_revoke(journal);
+ 	journal_fail_superblock(journal);
+ 	kfree(journal);
+ 	return ERR_PTR(err);
+@@ -2194,12 +2184,10 @@ int jbd2_journal_destroy(journal_t *journal)
+ 	if (journal->j_proc_entry)
+ 		jbd2_stats_proc_exit(journal);
+ 	iput(journal->j_inode);
+ 	if (journal->j_revoke)
+ 		jbd2_journal_destroy_revoke(journal);
+-	if (journal->j_chksum_driver)
+-		crypto_free_shash(journal->j_chksum_driver);
+ 	kfree(journal->j_fc_wbuf);
+ 	kfree(journal->j_wbuf);
+ 	kfree(journal);
+ 
+ 	return err;
+@@ -2340,23 +2328,14 @@ int jbd2_journal_set_features(journal_t *journal, unsigned long compat,
+ 			pr_err("JBD2: Cannot enable fast commits.\n");
+ 			return 0;
+ 		}
+ 	}
+ 
+-	/* Load the checksum driver if necessary */
+-	if ((journal->j_chksum_driver == NULL) &&
+-	    INCOMPAT_FEATURE_ON(JBD2_FEATURE_INCOMPAT_CSUM_V3)) {
+-		journal->j_chksum_driver = crypto_alloc_shash("crc32c", 0, 0);
+-		if (IS_ERR(journal->j_chksum_driver)) {
+-			printk(KERN_ERR "JBD2: Cannot load crc32c driver.\n");
+-			journal->j_chksum_driver = NULL;
+-			return 0;
+-		}
+-		/* Precompute checksum seed for all metadata */
++	/* Precompute checksum seed for all metadata */
++	if (INCOMPAT_FEATURE_ON(JBD2_FEATURE_INCOMPAT_CSUM_V3))
+ 		journal->j_csum_seed = jbd2_chksum(journal, ~0, sb->s_uuid,
+ 						   sizeof(sb->s_uuid));
+-	}
+ 
+ 	lock_buffer(journal->j_sb_buffer);
+ 
+ 	/* If enabling v3 checksums, update superblock */
+ 	if (INCOMPAT_FEATURE_ON(JBD2_FEATURE_INCOMPAT_CSUM_V3)) {
+diff --git a/include/linux/jbd2.h b/include/linux/jbd2.h
+index 8aef9bb6ad57..33d25a3d15f1 100644
+--- a/include/linux/jbd2.h
++++ b/include/linux/jbd2.h
+@@ -26,11 +26,11 @@
+ #include <linux/mutex.h>
+ #include <linux/timer.h>
+ #include <linux/slab.h>
+ #include <linux/bit_spinlock.h>
+ #include <linux/blkdev.h>
+-#include <crypto/hash.h>
++#include <linux/crc32c.h>
+ #endif
+ 
+ #define journal_oom_retry 1
+ 
+ /*
+@@ -1239,17 +1239,10 @@ struct journal_s
+ 	 * An opaque pointer to fs-private information.  ext3 puts its
+ 	 * superblock pointer here.
+ 	 */
+ 	void *j_private;
+ 
+-	/**
+-	 * @j_chksum_driver:
+-	 *
+-	 * Reference to checksum algorithm driver via cryptoapi.
+-	 */
+-	struct crypto_shash *j_chksum_driver;
+-
+ 	/**
+ 	 * @j_csum_seed:
+ 	 *
+ 	 * Precomputed journal UUID checksum for seeding other checksums.
+ 	 */
+@@ -1748,14 +1741,11 @@ static inline bool jbd2_journal_has_csum_v2or3_feature(journal_t *j)
+ 	return jbd2_has_feature_csum2(j) || jbd2_has_feature_csum3(j);
+ }
+ 
+ static inline int jbd2_journal_has_csum_v2or3(journal_t *journal)
+ {
+-	WARN_ON_ONCE(jbd2_journal_has_csum_v2or3_feature(journal) &&
+-		     journal->j_chksum_driver == NULL);
+-
+-	return journal->j_chksum_driver != NULL;
++	return jbd2_journal_has_csum_v2or3_feature(journal);
+ }
+ 
+ static inline int jbd2_journal_get_num_fc_blks(journal_superblock_t *jsb)
+ {
+ 	int num_fc_blocks = be32_to_cpu(jsb->s_num_fc_blks);
+@@ -1794,26 +1784,11 @@ static inline unsigned long jbd2_log_space_left(journal_t *journal)
+ #define JBD_MAX_CHECKSUM_SIZE 4
+ 
+ static inline u32 jbd2_chksum(journal_t *journal, u32 crc,
+ 			      const void *address, unsigned int length)
+ {
+-	struct {
+-		struct shash_desc shash;
+-		char ctx[JBD_MAX_CHECKSUM_SIZE];
+-	} desc;
+-	int err;
+-
+-	BUG_ON(crypto_shash_descsize(journal->j_chksum_driver) >
+-		JBD_MAX_CHECKSUM_SIZE);
+-
+-	desc.shash.tfm = journal->j_chksum_driver;
+-	*(u32 *)desc.ctx = crc;
+-
+-	err = crypto_shash_update(&desc.shash, address, length);
+-	BUG_ON(err);
+-
+-	return *(u32 *)desc.ctx;
++	return crc32c(crc, address, length);
+ }
+ 
+ /* Return most recent uncommitted transaction */
+ static inline tid_t  jbd2_get_latest_transaction(journal_t *journal)
+ {
+-- 
+2.47.0
+
 
 _______________________________________________
 linux-riscv mailing list
