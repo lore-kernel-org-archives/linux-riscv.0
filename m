@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52B03D149E7
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Oct 2024 19:40:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15A91D149E8
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Oct 2024 19:40:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wKl0PA1ROgV5Y+jslHHIfa3b5FIwUWulhl0yzMoZ6U8=; b=GTVd4NTt5HGx8k
-	FQilFh2hwcixsmA20BuFIwLoMFoKwfPr3eHeYJh9/DY1xIfeCkloqYJidbksUbn/YWMFK9xCDGI1N
-	GePV42RAuOM75D6Avud1PQdko2udnK9YAXsN3FCOUcObk5+Segbwdy1rQKHWFVVV0Z7HdQ2IvTZe2
-	73iHurXhIW/dcCio5t1Td8Er+izVxywgAgAIPlqibXpLwm7TPgrg6/U49VmQtIKIU+YbS3kPDeqs/
-	wosFyZxzzRCmw0nffb3ULSu1tJCRTZ0LLerccBs4G74aCCsLy5NGX/YBzBNcGK0xl2cUR5ASXhymz
-	fKOVenplqOzYiOtMaPDg==;
+	List-Owner; bh=wnTOU6sesEE55NUImZVzXi55DEW7jlXNlRWuNwH/u4s=; b=xEBTG4Zh8NxmE4
+	SukNbnb6gpbe8uZp0GQ1caMA2YNBZf6NJkHSksmmVEffIosv4+51LiYCpQs0mv8Ig9WFqOi100lPR
+	C8iVILtH1ge3jDUDRRzIVUqM5ZypFoSu2lhnhJCxP1tW6lUQJAacFSVC+O2BU3lkUgzIHCZYu/n0G
+	0ZPqBWuDzECgxJaQF0oCbkg4v1DOfa1cLmXKgzOJt+drwQLMWXlVbXlevccfv7Pwg/GOPEPMx3jkB
+	YvujKvMt5hgl0ROhotaHC4uzEDtqqXBqhz9SQE4Roa6A4f9lMZ7eVW6U4BzNi9LgzxZf1MQ5N1h5n
+	EvCl4/O7SJyOKWHZy+og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4QAU-00000005157-374j;
-	Fri, 25 Oct 2024 19:40:18 +0000
+	id 1t4QAV-0000000515F-2liP;
+	Fri, 25 Oct 2024 19:40:19 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Pn4-00000004vSy-1oNO;
+	id 1t4Pn4-00000004vSz-1pD8;
 	Fri, 25 Oct 2024 19:16:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=KRcBZoCQqGyQ0W5yMS5aiWl2KEVthf2kKul/c6sg/D0=; b=MsLG86TNIry7yE9BUM1F/sLciZ
-	Rht5XX7kJ6EHF3vq5Tw1bUB0LI9m7dA7N3sv/QhNFpY9GmDZtfrCVrBeMSJ/HrCGMa/l6CH57TFWG
-	QW4g2ScPR4hbyq2Q+jQyHuX8m8pmmhbKmpYaIu3M6HaoZCf1POUBH3ID1gHW1gTR8ZarPyNkV1eDo
-	Mj37LAwEOiV7rrOwyTPmheshXaIKmdzyeyKNbtYvAlI9Uw9WSkmvG9LJ/Hq22fniblMfasoqawUML
-	iOD13eZ+cwrwzwMWX+MwNyKNYdYQiM0eSJann23BLW4Afa7aUUHK6AqSCA179zyLoOSdjgJYog8FG
-	hRJdycoQ==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	bh=gT68VJg2Ax+gMpOGHi4H3PWPYTj8DTpPT3IZ5CLlAgo=; b=cIkkKKKu8LahzTo7EKiq1L0XJF
+	ekAOik/YA0kAEGB/wIk5+3bLGjal1iQ6thjeUQIXibsHh2pMIJgFO5K5G/elosk1PHUJ8smM8nGl9
+	6sTTaPrt9/bzaqPeZpJu9y/FlPWYrrXCBz5uHYHCmETIfP3Q8w75ZK4poRK3fMpLHrxUiQGnv3TxE
+	lZlNwMVDsW2N2z8Ja+UB1xL42zSpVWCTvXgAHaW9+JwlF6wdbcpxWYxaVAP7zc/DaeFt87uDnp5p8
+	UDVZSOSh9Sk3fmC+ShlVj81FJ+DUjunmVYTNjjykXEAUwXdCgpIqIfpX3ER+KcDrkRGMIMpLaHyZ2
+	rJ3NzxkQ==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Pmv-000000092Fr-1eyL;
-	Fri, 25 Oct 2024 19:16:04 +0000
+	id 1t4Pmv-000000092Fp-0MMQ;
+	Fri, 25 Oct 2024 19:16:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7B600A44C10;
-	Fri, 25 Oct 2024 19:13:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1EF92C4CEC3;
-	Fri, 25 Oct 2024 19:15:52 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 19FFC5C5FCB;
+	Fri, 25 Oct 2024 19:15:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81C0FC4CEE6;
+	Fri, 25 Oct 2024 19:15:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1729883752;
-	bh=ltl2dzTFUaa7H2aG4AJgeKEj/9DuYykUjD6SD30TiWA=;
+	bh=hmjPSLT23tUvD2mhqpKoKr7fMC5StQtNq+9niGNg1xs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ipG4szb3DG4328MmsVPyJp6+ETWiuIOrRh1RtxIdc52JpjFMZT6C7NnrCDnQJPvB3
-	 wlrM5hFosjiYAbc2aaUxU3qOmClSBUsB7nGQMDItqDwoUVKvP+K/YdBCkf547X/JYV
-	 6v50gEkoVTNLa/JxTA3UEnBP4ZSHulTTMGp5vOng0s/yOMprcrVoREoC+bJBF+1i+k
-	 8WE8jEYf4fYUrl4iCJIxcSrTUNkddQUncrm8MvI6wrxv8Oxxr2jVbgMdXaacAqkbUY
-	 3NmtYwiUZ/fmbK+askwZqVut5AOp4JGVt48bZSX1uHJH4gksL9YSQp7QLBuuSnsCop
-	 txSM9/K3bPbWA==
+	b=MzLmD7ttenyc+h9adVW5j/4jD+Z5Z8P0K29t1D9dfAOxvrlJPCCHoSOV4RyYU7mc4
+	 WbPsgIhtjxpkV+XG3nPg3insOC4hRyvrAtB+xHeMx/2sv8+LDxRpRsk16Im+FD7OHK
+	 nUnqYMuKmUS5CAgLS0hmC8rxRCvAFFRQE3a9LQ6mraoZfPE6Wrh/e4XBMcuOck8H93
+	 z3X/p9oxCzXfkf5TfKY2NnJPejTnokSSKn6ncqoMBQtIfZhYm21QYTDKYkDSTcMGhO
+	 Gis9vIIku/f91IqjUzCIoNWZERD7YQMDSWiIIopXXMdNYw+rvaAmqN5dCLvacPtihK
+	 pwFvIaZg4X8kg==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: linux-arch@vger.kernel.org,
@@ -71,16 +71,16 @@ Cc: linux-arch@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org,
 	Ard Biesheuvel <ardb@kernel.org>
-Subject: [PATCH v2 15/18] ext4: switch to using the crc32c library
-Date: Fri, 25 Oct 2024 12:14:51 -0700
-Message-ID: <20241025191454.72616-16-ebiggers@kernel.org>
+Subject: [PATCH v2 14/18] lib/crc32: make crc32c() go directly to lib
+Date: Fri, 25 Oct 2024 12:14:50 -0700
+Message-ID: <20241025191454.72616-15-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20241025191454.72616-1-ebiggers@kernel.org>
 References: <20241025191454.72616-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_201557_831976_15B8EF8C 
-X-CRM114-Status: GOOD (  17.27  )
+X-CRM114-CacheID: sfid-20241025_201557_650665_35799A7C 
+X-CRM114-Status: GOOD (  19.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,170 +99,171 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Eric Biggers <ebiggers@google.com>
 
-Now that the crc32c() library function directly takes advantage of
-architecture-specific optimizations, it is unnecessary to go through the
-crypto API.  Just use crc32c().  This is much simpler, and it improves
-performance due to eliminating the crypto API overhead.
+Now that the lower level __crc32c_le() library function is optimized for
+each architecture, make crc32c() just call that instead of taking an
+inefficient and error-prone detour through the shash API.
+
+Note: a future cleanup should make crc32c_le() be the actual library
+function instead of __crc32c_le().  That will require updating callers
+of __crc32c_le() to use crc32c_le() instead, and updating callers of
+crc32c_le() that expect a 'const void *' arg to expect 'const u8 *'
+instead.  Similarly, a future cleanup should remove LIBCRC32C by making
+everyone who is selecting it just select CRC32 directly instead.
 
 Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- fs/ext4/Kconfig |  3 +--
- fs/ext4/ext4.h  | 25 +++----------------------
- fs/ext4/super.c | 15 ---------------
- 3 files changed, 4 insertions(+), 39 deletions(-)
+ include/linux/crc32c.h |  7 ++--
+ lib/Kconfig            | 10 ++----
+ lib/Makefile           |  1 -
+ lib/libcrc32c.c        | 74 ------------------------------------------
+ 4 files changed, 8 insertions(+), 84 deletions(-)
+ delete mode 100644 lib/libcrc32c.c
 
-diff --git a/fs/ext4/Kconfig b/fs/ext4/Kconfig
-index e20d59221fc0..c9ca41d91a6c 100644
---- a/fs/ext4/Kconfig
-+++ b/fs/ext4/Kconfig
-@@ -29,12 +29,11 @@ config EXT3_FS_SECURITY
- config EXT4_FS
- 	tristate "The Extended 4 (ext4) filesystem"
- 	select BUFFER_HEAD
- 	select JBD2
- 	select CRC16
+diff --git a/include/linux/crc32c.h b/include/linux/crc32c.h
+index 357ae4611a45..47eb78003c26 100644
+--- a/include/linux/crc32c.h
++++ b/include/linux/crc32c.h
+@@ -1,12 +1,15 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+ #ifndef _LINUX_CRC32C_H
+ #define _LINUX_CRC32C_H
+ 
+-#include <linux/types.h>
++#include <linux/crc32.h>
+ 
+-extern u32 crc32c(u32 crc, const void *address, unsigned int length);
++static inline u32 crc32c(u32 crc, const void *address, unsigned int length)
++{
++	return __crc32c_le(crc, address, length);
++}
+ 
+ /* This macro exists for backwards-compatibility. */
+ #define crc32c_le crc32c
+ 
+ #endif	/* _LINUX_CRC32C_H */
+diff --git a/lib/Kconfig b/lib/Kconfig
+index 07afcf214f35..b894ee64ff95 100644
+--- a/lib/Kconfig
++++ b/lib/Kconfig
+@@ -296,18 +296,14 @@ config CRC7
+ 	  the kernel tree does. Such modules that use library CRC7
+ 	  functions require M here.
+ 
+ config LIBCRC32C
+ 	tristate "CRC32c (Castagnoli, et al) Cyclic Redundancy-Check"
 -	select CRYPTO
 -	select CRYPTO_CRC32C
 +	select CRC32
- 	select FS_IOMAP
- 	select FS_ENCRYPTION_ALGS if FS_ENCRYPTION
  	help
- 	  This is the next generation of the ext3 filesystem.
+-	  This option is provided for the case where no in-kernel-tree
+-	  modules require CRC32c functions, but a module built outside the
+-	  kernel tree does. Such modules that use library CRC32c functions
+-	  require M here.  See Castagnoli93.
+-	  Module will be libcrc32c.
++	  This option just selects CRC32 and is provided for compatibility
++	  purposes until the users are updated to select CRC32 directly.
  
-diff --git a/fs/ext4/ext4.h b/fs/ext4/ext4.h
-index 44b0d418143c..99aa512a7de1 100644
---- a/fs/ext4/ext4.h
-+++ b/fs/ext4/ext4.h
-@@ -31,11 +31,11 @@
- #include <linux/wait.h>
- #include <linux/sched/signal.h>
- #include <linux/blockgroup_lock.h>
- #include <linux/percpu_counter.h>
- #include <linux/ratelimit.h>
+ config CRC8
+ 	tristate "CRC8 function"
+ 	help
+ 	  This option provides CRC8 function. Drivers may select this
+diff --git a/lib/Makefile b/lib/Makefile
+index 773adf88af41..15646679aee2 100644
+--- a/lib/Makefile
++++ b/lib/Makefile
+@@ -161,11 +161,10 @@ obj-$(CONFIG_CRC_ITU_T)	+= crc-itu-t.o
+ obj-$(CONFIG_CRC32)	+= crc32.o
+ obj-$(CONFIG_CRC64)     += crc64.o
+ obj-$(CONFIG_CRC32_SELFTEST)	+= crc32test.o
+ obj-$(CONFIG_CRC4)	+= crc4.o
+ obj-$(CONFIG_CRC7)	+= crc7.o
+-obj-$(CONFIG_LIBCRC32C)	+= libcrc32c.o
+ obj-$(CONFIG_CRC8)	+= crc8.o
+ obj-$(CONFIG_CRC64_ROCKSOFT) += crc64-rocksoft.o
+ obj-$(CONFIG_XXHASH)	+= xxhash.o
+ obj-$(CONFIG_GENERIC_ALLOCATOR) += genalloc.o
+ 
+diff --git a/lib/libcrc32c.c b/lib/libcrc32c.c
+deleted file mode 100644
+index 649e687413a0..000000000000
+--- a/lib/libcrc32c.c
++++ /dev/null
+@@ -1,74 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0-or-later
+-/* 
+- * CRC32C
+- *@Article{castagnoli-crc,
+- * author =       { Guy Castagnoli and Stefan Braeuer and Martin Herrman},
+- * title =        {{Optimization of Cyclic Redundancy-Check Codes with 24
+- *                 and 32 Parity Bits}},
+- * journal =      IEEE Transactions on Communication,
+- * year =         {1993},
+- * volume =       {41},
+- * number =       {6},
+- * pages =        {},
+- * month =        {June},
+- *}
+- * Used by the iSCSI driver, possibly others, and derived from
+- * the iscsi-crc.c module of the linux-iscsi driver at
+- * http://linux-iscsi.sourceforge.net.
+- *
+- * Following the example of lib/crc32, this function is intended to be
+- * flexible and useful for all users.  Modules that currently have their
+- * own crc32c, but hopefully may be able to use this one are:
+- *  net/sctp (please add all your doco to here if you change to
+- *            use this one!)
+- *  <endoflist>
+- *
+- * Copyright (c) 2004 Cisco Systems, Inc.
+- */
+-
 -#include <crypto/hash.h>
-+#include <linux/crc32c.h>
- #include <linux/falloc.h>
- #include <linux/percpu-rwsem.h>
- #include <linux/fiemap.h>
- #ifdef __KERNEL__
- #include <linux/compat.h>
-@@ -1660,13 +1660,10 @@ struct ext4_sb_info {
- 	struct task_struct *s_mmp_tsk;
- 
- 	/* record the last minlen when FITRIM is called. */
- 	unsigned long s_last_trim_minblks;
- 
--	/* Reference to checksum algorithm driver via cryptoapi */
--	struct crypto_shash *s_chksum_driver;
+-#include <linux/err.h>
+-#include <linux/init.h>
+-#include <linux/kernel.h>
+-#include <linux/module.h>
+-#include <linux/crc32c.h>
 -
- 	/* Precomputed FS UUID checksum for seeding other checksums */
- 	__u32 s_csum_seed;
- 
- 	/* Reclaim extents from extent status tree */
- 	struct shrinker *s_es_shrinker;
-@@ -2465,23 +2462,11 @@ static inline __le16 ext4_rec_len_to_disk(unsigned len, unsigned blocksize)
- #define DX_HASH_LAST 			DX_HASH_SIPHASH
- 
- static inline u32 ext4_chksum(struct ext4_sb_info *sbi, u32 crc,
- 			      const void *address, unsigned int length)
- {
--	struct {
--		struct shash_desc shash;
--		char ctx[4];
--	} desc;
+-static struct crypto_shash *tfm;
 -
--	BUG_ON(crypto_shash_descsize(sbi->s_chksum_driver)!=sizeof(desc.ctx));
+-u32 crc32c(u32 crc, const void *address, unsigned int length)
+-{
+-	SHASH_DESC_ON_STACK(shash, tfm);
+-	u32 ret, *ctx = (u32 *)shash_desc_ctx(shash);
+-	int err;
 -
--	desc.shash.tfm = sbi->s_chksum_driver;
--	*(u32 *)desc.ctx = crc;
+-	shash->tfm = tfm;
+-	*ctx = crc;
 -
--	BUG_ON(crypto_shash_update(&desc.shash, address, length));
+-	err = crypto_shash_update(shash, address, length);
+-	BUG_ON(err);
 -
--	return *(u32 *)desc.ctx;
-+	return crc32c(crc, address, length);
- }
- 
- #ifdef __KERNEL__
- 
- /* hash info structure used by the directory hash */
-@@ -3278,15 +3263,11 @@ extern void ext4_group_desc_csum_set(struct super_block *sb, __u32 group,
- extern int ext4_register_li_request(struct super_block *sb,
- 				    ext4_group_t first_not_zeroed);
- 
- static inline int ext4_has_metadata_csum(struct super_block *sb)
- {
--	WARN_ON_ONCE(ext4_has_feature_metadata_csum(sb) &&
--		     !EXT4_SB(sb)->s_chksum_driver);
+-	ret = *ctx;
+-	barrier_data(ctx);
+-	return ret;
+-}
 -
--	return ext4_has_feature_metadata_csum(sb) &&
--	       (EXT4_SB(sb)->s_chksum_driver != NULL);
-+	return ext4_has_feature_metadata_csum(sb);
- }
- 
- static inline int ext4_has_group_desc_csum(struct super_block *sb)
- {
- 	return ext4_has_feature_gdt_csum(sb) || ext4_has_metadata_csum(sb);
-diff --git a/fs/ext4/super.c b/fs/ext4/super.c
-index 16a4ce704460..1a821093cc0d 100644
---- a/fs/ext4/super.c
-+++ b/fs/ext4/super.c
-@@ -1371,12 +1371,10 @@ static void ext4_put_super(struct super_block *sb)
- 	 * Now that we are completely done shutting down the
- 	 * superblock, we need to actually destroy the kobject.
- 	 */
- 	kobject_put(&sbi->s_kobj);
- 	wait_for_completion(&sbi->s_kobj_unregister);
--	if (sbi->s_chksum_driver)
--		crypto_free_shash(sbi->s_chksum_driver);
- 	kfree(sbi->s_blockgroup_lock);
- 	fs_put_dax(sbi->s_daxdev, NULL);
- 	fscrypt_free_dummy_policy(&sbi->s_dummy_enc_policy);
- #if IS_ENABLED(CONFIG_UNICODE)
- 	utf8_unload(sb->s_encoding);
-@@ -4586,19 +4584,10 @@ static int ext4_init_metadata_csum(struct super_block *sb, struct ext4_super_blo
- 		return -EINVAL;
- 	}
- 	ext4_setup_csum_trigger(sb, EXT4_JTR_ORPHAN_FILE,
- 				ext4_orphan_file_block_trigger);
- 
--	/* Load the checksum driver */
--	sbi->s_chksum_driver = crypto_alloc_shash("crc32c", 0, 0);
--	if (IS_ERR(sbi->s_chksum_driver)) {
--		int ret = PTR_ERR(sbi->s_chksum_driver);
--		ext4_msg(sb, KERN_ERR, "Cannot load crc32c driver.");
--		sbi->s_chksum_driver = NULL;
--		return ret;
--	}
+-EXPORT_SYMBOL(crc32c);
 -
- 	/* Check superblock checksum */
- 	if (!ext4_superblock_csum_verify(sb, es)) {
- 		ext4_msg(sb, KERN_ERR, "VFS: Found ext4 filesystem with "
- 			 "invalid superblock checksum.  Run e2fsck?");
- 		return -EFSBADCRC;
-@@ -5638,13 +5627,10 @@ failed_mount8: __maybe_unused
- 	flush_work(&sbi->s_sb_upd_work);
- 	ext4_stop_mmpd(sbi);
- 	del_timer_sync(&sbi->s_err_report);
- 	ext4_group_desc_free(sbi);
- failed_mount:
--	if (sbi->s_chksum_driver)
--		crypto_free_shash(sbi->s_chksum_driver);
+-static int __init libcrc32c_mod_init(void)
+-{
+-	tfm = crypto_alloc_shash("crc32c", 0, 0);
+-	return PTR_ERR_OR_ZERO(tfm);
+-}
 -
- #if IS_ENABLED(CONFIG_UNICODE)
- 	utf8_unload(sb->s_encoding);
- #endif
- 
- #ifdef CONFIG_QUOTA
-@@ -7433,8 +7419,7 @@ static void __exit ext4_exit_fs(void)
- }
- 
- MODULE_AUTHOR("Remy Card, Stephen Tweedie, Andrew Morton, Andreas Dilger, Theodore Ts'o and others");
- MODULE_DESCRIPTION("Fourth Extended Filesystem");
- MODULE_LICENSE("GPL");
+-static void __exit libcrc32c_mod_fini(void)
+-{
+-	crypto_free_shash(tfm);
+-}
+-
+-module_init(libcrc32c_mod_init);
+-module_exit(libcrc32c_mod_fini);
+-
+-MODULE_AUTHOR("Clay Haapala <chaapala@cisco.com>");
+-MODULE_DESCRIPTION("CRC32c (Castagnoli) calculations");
+-MODULE_LICENSE("GPL");
 -MODULE_SOFTDEP("pre: crc32c");
- module_init(ext4_init_fs)
- module_exit(ext4_exit_fs)
 -- 
 2.47.0
 
