@@ -4,75 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C0DCD10C08
-	for <linux-riscv@archiver.kernel.org>; Sun, 27 Oct 2024 08:16:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B59AED116FB
+	for <linux-riscv@archiver.kernel.org>; Sun, 27 Oct 2024 12:16:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ANeoR6IPH91FK/mfVvjW243oT3MBz5Tw/N8qBhDPNiY=; b=EQcBxAP85KgPVO
-	zT7eT6uO1I4eegekCtI1UvBlFkfXVDcpMi1NsUMSq+BzcOgj6LOL8xn/a3n4U3GUp/U4cHmGsRtNr
-	HQ2XtfZPocaLysAWkr5RWqD9Bld+H5CaFQwjqdMvTVUW1fX9XAHUz8TU29pGGO8ecQFwFPEYazaCe
-	aEmtBQ7oegKQ5pyPph9v+jYfwBGOA2//mWdp2kovm24x/jkd4/g33z5+hYfLYiMt0Mv/0Enc63LdK
-	kOR8epZ2253Iz6lTqomYXP/EFTkYgDCyaaIMpoGAvvaFQzJm3gWCo1zLxbwSHfFSgs0Wv/6vluOpE
-	KsQ1gMf9OlrrN0MeC+ZA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=P2+V1woSjbncMUA/OJ5uHfkp76rqWdqPI3+kTnhxb1g=; b=BT4p0ZloOlRvC7b3H7RZte8mt0
+	6L6OMrbkxzqBBeKgVfZeHaKbx57EV6+PEfQR/ky+Lc+Cgrmmc+5wYwC4ZhNyKOTmeaYERpQPJQ51N
+	MPxlglYW32qaNCzKE4VpkLwotG0FLA1c4l2PY+XN+1bJrOfbNlpuM+GTnOosLjJucDJGHZQjbr6Do
+	nS1wg+qHa08AIsmt271eBBY4w+waoOlMq7lfZTp5Uj1MD3zbi0MJLeL54k6eE6+zgX6F3nekDvdWv
+	9K9ZXhFexzzcdW7tCaZBo7eA+iRLEsDSd9a+7gubHGlNGbwoOiCJK6tiIUprj843ol4/YnDPQ7Suu
+	zUwnY68Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4yRx-00000007pCi-1fZf;
-	Sun, 27 Oct 2024 08:16:37 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t52C7-00000008CJY-3ZYS;
+	Sun, 27 Oct 2024 12:16:31 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4yQL-00000007p2A-2osN;
-	Sun, 27 Oct 2024 08:14:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 926B7A40CA1;
-	Sun, 27 Oct 2024 08:12:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 681F1C4CEE8;
-	Sun, 27 Oct 2024 08:14:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730016895;
-	bh=qSAev/CmbF0LEyj0tVSWN8qmCbJsiIZdku/WjaNmB8Q=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=MZrpP4MR25ZJQaUjkXbWvdc5yqspOvJPpoP1laWGfu5qW0Bo5w7+sOKkNN0wFTFc6
-	 PKiAnBHnQLbmymCc6Ix2g32z3lrMLVbYBDbKHRK7wTcnhc0s7TmExnWPBavGFZA2CU
-	 ZxRZ2yQKLbZi954nmodxa3gz2r2765XCY13DTcc/5moZEI1Y5VMl2qOE1/CaCzYfBZ
-	 d0xolS/t0CNAWzjdhJc8/vC18yj/tzng9oiNhW1i1/DM5wimZSMibZgTJJr4RQf+Mz
-	 txNna8i6XM73z7TsjE2DyvvJtyQZu6VY2mWd8g1ZuHlsQxirw+6OUnQuLNMsd9yjTi
-	 Vo6meRtf3emmg==
-Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-2fb51f39394so32281381fa.2;
-        Sun, 27 Oct 2024 01:14:55 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUp5c29Fa2NtL+a1VyMF5YL1fHu2wzoP4pSSZ4q/JbTFJ/QmHomjDHpRUhAn9QZUijK/e0Et9HK0oq9Vh5XUJX/@lists.infradead.org, AJvYcCWLseB0PD9zV9HAsV9C0qyfDuzRcbO30jhfIITbhV6rUIJ5a+Hl9fDquV2dQrc1AzzYHuQsay74AGqfyVk=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy55ybZjrG3nAGsNY7928MvRfQ0huaD0x1F6JIyjCVUgf2TbAfK
-	fpvZw0JWjDUoWfbk6knlajlQDxxXfEHILtx675XFvCepYhE6c8zRlD6N0Ps10U6kV6k7CHdg7GQ
-	eSGzOHSMkwlhFtC7e6ZPUMSVwU4Y=
-X-Google-Smtp-Source: AGHT+IG7GbUAQTdcFb1Y8OjbqKjN3ralEO/b0dHGyoLDxr37yV7KwVs1ozIjCmGYYGFlqbwOihVt3NM/p1aqclI347g=
-X-Received: by 2002:a2e:be9a:0:b0:2fb:58c0:de5b with SMTP id
- 38308e7fff4ca-2fcbdfb098emr13787941fa.11.1730016893642; Sun, 27 Oct 2024
- 01:14:53 -0700 (PDT)
-MIME-Version: 1.0
-References: <20241025191454.72616-1-ebiggers@kernel.org> <20241025191454.72616-5-ebiggers@kernel.org>
- <CAMj1kXEsq7iJThqZ7WA00ei4m59vpC23wPM+Mrj9W+HXfk-aSg@mail.gmail.com>
- <20241025220239.GB2637569@google.com> <20241026040958.GA34351@sol.localdomain>
-In-Reply-To: <20241026040958.GA34351@sol.localdomain>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Sun, 27 Oct 2024 09:14:41 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXGGDNmPSH4nZH4r6b4UyrPEYBbTZibjXkmxU9c=16_hhw@mail.gmail.com>
-Message-ID: <CAMj1kXGGDNmPSH4nZH4r6b4UyrPEYBbTZibjXkmxU9c=16_hhw@mail.gmail.com>
-Subject: Re: [PATCH v2 04/18] crypto: crc32 - don't unnecessarily register
- arch algorithms
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org, 
-	linux-ext4@vger.kernel.org, linux-f2fs-devel@lists.sourceforge.net, 
-	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, linux-scsi@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
-	sparclinux@vger.kernel.org, x86@kernel.org
+	id 1t52C3-00000008CJ4-2Ai5
+	for linux-riscv@lists.infradead.org;
+	Sun, 27 Oct 2024 12:16:29 +0000
+Received: from mail-oo1-f69.google.com (mail-oo1-f69.google.com [209.85.161.69])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 2C3A53F1FC
+	for <linux-riscv@lists.infradead.org>; Sun, 27 Oct 2024 12:16:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1730031383;
+	bh=nxuvBBl/Ikz1GUSyAopGwNtoj+wTTYNKUidSHI4Zw3c=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=cOLKETChPWegF2Gj202JyGVIBA9x2m5mL0IIQ4F7z6tIlPdKlGGIZ582GF91zbQzQ
+	 AvY3uyNm7E2i1Y+U8acTQ6vuP1P3kn0D3uBwsjQcEdD66Ws+I/K5Afx5PFZjuwW5al
+	 w06UzVSxpMI1qGaLu3ewpSGqtqV6zHzSNQg7MU1C01Se8O7cR90BH0eSrBmZ88GfpM
+	 PzsiijipY8pD4p2OdTLI8xjEqc0vq02hpT8proFNfzIX+4x/jxrQLpyXfJY7k9Uk5D
+	 zwD4DQiYSXauEYALxMgU0NYcBoq5C/abZUaTTTgb46YhoevxoDlziEHl5xIupTAUn0
+	 mnWlByFrw2oNg==
+Received: by mail-oo1-f69.google.com with SMTP id 006d021491bc7-5eb649aa7ceso2797272eaf.3
+        for <linux-riscv@lists.infradead.org>; Sun, 27 Oct 2024 05:16:23 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730031382; x=1730636182;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=nxuvBBl/Ikz1GUSyAopGwNtoj+wTTYNKUidSHI4Zw3c=;
+        b=ajGAax0mzTc64FnPUU/saaI678NifqXxPCpQ1nJ1eMUJ3GRgP/hR7Khllf0KVehlLY
+         kzz/ekCOq24zz/hKTnGzeKQbbTIMzC5vxkqpPvApiaLNJZiEa7fyxUjP293NhPxzjTty
+         v4DtEfvp6dhukIg73dHN+bYWvj7imn9VY2UZFGbcURMkRbI2qiYDDRKrs7lvJNR9H5HQ
+         zunQyW5VkjgTa6SFBNg4heSawZpfu9/3wftyXGc0+Uz8Q4c+cZ6f1PrRSF/QnpbRjHgv
+         oEMGwPVRDxjXoASiuDcrQDgJo2m384EAJfFiHq5zCAtZMN9JQS/7fyt/1vGOy4usa+Xr
+         8jgQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVwbeXSVnpYit6exsAjnY8XUxtLof4pfj95xG5v++LF8M0xJBUNm+PXCPya89Gjky24K/dtCkt/4ezYFw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwiP6hklc8NHVNWyFuf3etDDg0L1vHzY7GM39R/q4oeKO7CjyyA
+	B1zldPaI2idJBWYgVpmoFRKLacc9ohuIK6T7U4+9cbEK3U96ZncKSHlkDQicN7pHxhMD4gkiPmj
+	5pSESMk6FX7vNQIKvh4ZLeRhTgmgR6QVwDb6HPSi2974HuqsEyDOUU3wbiq2Has0mKj6qBjiaMT
+	nOiF9o9SaE12iaKONk5gF4/ZiMBcoYyAYLXNXkDrU1t9kfy5eN3R6BXzE6
+X-Received: by 2002:a05:6808:6492:b0:3e6:3ab2:3949 with SMTP id 5614622812f47-3e63ab23f2fmr1443472b6e.44.1730031381746;
+        Sun, 27 Oct 2024 05:16:21 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IG3/p9UcQsOIF9XDrRaePo4CLioUPmMFOdhHm0S4hnuRvPrmJfiLwq408uv86dDavZhe/zgtp+drnC/1fSJ30k=
+X-Received: by 2002:a05:6808:6492:b0:3e6:3ab2:3949 with SMTP id
+ 5614622812f47-3e63ab23f2fmr1443454b6e.44.1730031381414; Sun, 27 Oct 2024
+ 05:16:21 -0700 (PDT)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Sun, 27 Oct 2024 08:16:20 -0400
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <CAPDyKFoQsf89NeX28ms7FtM0QWNqYQ5xtt2=+G1JNCVi2z9=dg@mail.gmail.com>
+References: <20241020142931.138277-1-aurelien@aurel32.net> <CAPDyKFoQsf89NeX28ms7FtM0QWNqYQ5xtt2=+G1JNCVi2z9=dg@mail.gmail.com>
+Mime-Version: 1.0
+Date: Sun, 27 Oct 2024 08:16:20 -0400
+Message-ID: <CAJM55Z_CU5rwMBm7n10jhGk57_T_HWLKYrYaGoc7qvK9irT5yQ@mail.gmail.com>
+Subject: Re: [PATCH] mmc: dw_mmc: take SWIOTLB memory size limitation into account
+To: Ulf Hansson <ulf.hansson@linaro.org>, Aurelien Jarno <aurelien@aurel32.net>
+Cc: William Qiu <william.qiu@starfivetech.com>, 
+	"open list:RISC-V MISC SOC SUPPORT" <linux-riscv@lists.infradead.org>, Jaehoon Chung <jh80.chung@samsung.com>, 
+	Sam Protsenko <semen.protsenko@linaro.org>, 
+	"open list:SYNOPSYS DESIGNWARE MMC/SD/SDIO DRIVER" <linux-mmc@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>, 
+	Ron Economos <re@w6rz.net>, Jing Luo <jing@jing.rocks>, stable@vger.kernel.org, 
+	Adam Green <greena88@gmail.com>, Shawn Lin <shawn.lin@rock-chips.com>, sydarn@proton.me, 
+	Arnd Bergmann <arnd@arndb.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241027_011457_864305_021E3208 
-X-CRM114-Status: GOOD (  46.17  )
+X-CRM114-CacheID: sfid-20241027_051627_843524_6B659C55 
+X-CRM114-Status: GOOD (  19.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,99 +105,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 26 Oct 2024 at 06:10, Eric Biggers <ebiggers@kernel.org> wrote:
+Ulf Hansson wrote:
+> + Adam, Arnd, Shawn-Lin, sydarn
 >
-> On Fri, Oct 25, 2024 at 10:02:39PM +0000, Eric Biggers wrote:
-> > On Fri, Oct 25, 2024 at 10:47:15PM +0200, Ard Biesheuvel wrote:
-> > > On Fri, 25 Oct 2024 at 21:15, Eric Biggers <ebiggers@kernel.org> wrote:
-> > > >
-> > > > From: Eric Biggers <ebiggers@google.com>
-> > > >
-> > > > Instead of registering the crc32-$arch and crc32c-$arch algorithms if
-> > > > the arch-specific code was built, only register them when that code was
-> > > > built *and* is not falling back to the base implementation at runtime.
-> > > >
-> > > > This avoids confusing users like btrfs which checks the shash driver
-> > > > name to determine whether it is crc32c-generic.
-> > > >
-> > >
-> > > I think we agree that 'generic' specifically means a C implementation
-> > > that is identical across all architectures, which is why I updated my
-> > > patch to export -arch instead of wrapping the C code in yet another
-> > > driver just for the fuzzing tests.
-> > >
-> > > So why is this a problem? If no optimizations are available at
-> > > runtime, crc32-arch and crc32-generic are interchangeable, and so it
-> > > shouldn't matter whether you use one or the other.
-> > >
-> > > You can infer from the driver name whether the C code is being used,
-> > > not whether or not the implementation is 'fast', and the btrfs hack is
-> > > already broken on arm64.
-> > >
-> > > > (It would also make sense to change btrfs to test the crc32_optimization
-> > > > flags itself, so that it doesn't have to use the weird hack of parsing
-> > > > the driver name.  This change still makes sense either way though.)
-> > > >
-> > >
-> > > Indeed. That hack is very dubious and I'd be inclined just to ignore
-> > > this. On x86 and arm64, it shouldn't make a difference, given that
-> > > crc32-arch will be 'fast' in the vast majority of cases. On other
-> > > architectures, btrfs may use the C implementation while assuming it is
-> > > something faster, and if anyone actually notices the difference, we
-> > > can work with the btrfs devs to do something more sensible here.
+>
+> On Sun, 20 Oct 2024 at 16:30, Aurelien Jarno <aurelien@aurel32.net> wrote:
 > >
-> > Yes, we probably could get away without this.  It's never really been
-> > appropriate to use the crypto driver names for anything important.  And btrfs
-> > probably should just assume CRC32C == fast unconditionally, like what it does
-> > with xxHash64, or even do a quick benchmark to measure the actual speed of its
-> > hash algorithm (which can also be sha256 or blake2b which can be very fast too).
+> > The Synopsys DesignWare mmc controller on the JH7110 SoC
+> > (dw_mmc-starfive.c driver) is using a 32-bit IDMAC address bus width,
+> > and thus requires the use of SWIOTLB.
 > >
-> > Besides the btrfs case, my concern was there may be advice floating around about
-> > checking /proc/crypto to check what optimized code is being used.  Having
-> > crc32-$arch potentially be running the generic code would make that misleading.
-> > It might make sense to keep it working similar to how it did before.
+> > The commit 8396c793ffdf ("mmc: dw_mmc: Fix IDMAC operation with pages
+> > bigger than 4K") increased the max_seq_size, even for 4K pages, causing
+> > "swiotlb buffer is full" to happen because swiotlb can only handle a
+> > memory size up to 256kB only.
 > >
-> > But I do agree that we could probably get away without this.
+> > Fix the issue, by making sure the dw_mmc driver doesn't use segments
+> > bigger than what SWIOTLB can handle.
+> >
+> > Reported-by: Ron Economos <re@w6rz.net>
+> > Reported-by: Jing Luo <jing@jing.rocks>
+> > Fixes: 8396c793ffdf ("mmc: dw_mmc: Fix IDMAC operation with pages bigger than 4K")
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
 >
-> While testing this patchset I notice that none of the crypto API drivers for
-> crc32 or crc32c even need to be loaded on my system anymore, as everything on my
-> system that uses those algorithms (such as ext4) just uses the library APIs now.
-> That makes the "check /proc/crypto" trick stop working anyway.
+> Thanks for working on this!
+
++1
+
+> Looks like we have managed to mess things
+> up. Besides the issue that you have been working on to fix, apparently
+> there seems to be another one too [1].
 >
-> I think you're right that we shouldn't bother with patches 3-4, and I'll plan to
-> go back to leaving them out in the next version, unless someone yells.
+> Unfortunately, $subject patch doesn't seem to fix the problem in [1],
+> as has been reported by Adam.
 >
+> I have looped in some more people to this thread, hopefully we agree
+> on how this should be fixed properly. Otherwise, I tend to say that we
+> should simply revert the offending commit and start over.
 
-Agreed.
+Yes, unfortunately this patch also doesn't fix MMC when running 6.12-rc4 on the
+StarFive VisionFive V1 (JH7100 SoC).
 
-If we need to make this distinction, it might be cleaner to use the
-static_call API instead, e.g.,
-
-+DECLARE_STATIC_CALL(crc32_le_arch, crc32_le_base);
-+
- static inline u32 __pure crc32_le(u32 crc, const u8 *p, size_t len)
- {
-        if (IS_ENABLED(CONFIG_CRC32_ARCH))
--               return crc32_le_arch(crc, p, len);
-+               return static_call(crc32_le_arch)(crc, p, len);
-        return crc32_le_base(crc, p, len);
- }
-
-and use static_call_update() to update the target if the feature is
-supported. Then, we could check in the driver whether the static call
-points to the default or not:
-
-+static bool have_arch;
-+
- static int __init crc32_mod_init(void)
- {
-+       have_arch = IS_ENABLED(CONFIG_CRC32_ARCH) &&
-+                   static_call_query(crc32_le_arch) != crc32_le_base;
-+
-        /* register the arch flavor only if it differs from the generic one */
--       return crypto_register_shashes(algs, 1 + IS_ENABLED(CONFIG_CRC32_ARCH));
-+       return crypto_register_shashes(algs, 1 + have_arch);
- }
+/Emil
 
 _______________________________________________
 linux-riscv mailing list
