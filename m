@@ -4,70 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89162D13585
-	for <linux-riscv@archiver.kernel.org>; Sun, 27 Oct 2024 20:39:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 265F1D13589
+	for <linux-riscv@archiver.kernel.org>; Sun, 27 Oct 2024 21:52:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tKZ2ZmIrLLRUjWZ5mb62ZrQIFsquziBybYhmpZxuWbs=; b=lVSSFcmnQLluKZ
-	kYKWq3iqX1ui4YrGwIorODCTGO7uJQlmEE6yk60quTV1p9T1M2XUiS9vOW1lX1JUIO71g5UqlZ8S2
-	1+2z5HXoFYsFcgtYiR6UVLmMIO3MfbYjfhmaZ3Ln78sa4Lu/vMwDwLkAI7W74aAoGrTCLibsSPrsB
-	iKDKwQjilrZASDGIHNn5t0K2JBKVebVanWipev4/GFYHEkWFudeyd2+9yQvMG3kJbt4HofTjtJvpy
-	8MbZGURGfr48tVPodYO4hFfsK9X2PmptYcpYG9CNRxWLN0qIAwS2a4GYHbx9OqJjU+rRCqeeQnJ/c
-	SyQiAa9W8Tp9fkrFjGKg==;
+	List-Owner; bh=Bv+mgHYkuq8F8qFM62Xm2TUMDe6u+FZp56cGVHx2oMI=; b=4I1NW/6ETUQCX2
+	eFrJeLcZ8n6n6kpPg6azL9/XnsR3yc6U+eoyOVa/CSKBefLeFobeH/6Z3VkxySI0miR4xDpGCKRME
+	BYdM6kFNI0MSHpCHbAmMPrMsHm6K6XGCOnnLDR8Iqhh9R3p087TB5J2wIfK1fQBnUwjVyUaY7J3hi
+	DnnSR/vRx+8JZVRGxhv+hbU7ujLanYcU5sq1iKiang7Kym4d2v2HXPvY64FN036CRVk7DSEqQ1Fg7
+	VgcUdGN1CIcZnnm8cWVq3MDPp4wbkzka9c9yOjONcDTH2I/gtj+BCk7inEcDZlVinYnCD3oO7zv8m
+	5/zp1pcb4mInlRdKoxcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5A37-00000008rCV-0occ;
-	Sun, 27 Oct 2024 20:39:45 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t5BBF-00000008yIs-1aoJ;
+	Sun, 27 Oct 2024 21:52:13 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5A1U-00000008qv2-32Ud;
-	Sun, 27 Oct 2024 20:38:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 02F9E5C5452;
-	Sun, 27 Oct 2024 20:37:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2625AC4CEC3;
-	Sun, 27 Oct 2024 20:38:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730061483;
-	bh=XVAi1sk2jxjCgto2tP/Cdm3jLw9qfp50pYIUjyARnkM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=O08X3fuW1WWmGgVpPvq2rZy29QwVueFD7a87JA3OxX4D4cRxu9+xwVslSvAXnbiwE
-	 dXJ8CBYNDujLFINfeo/3UlJyt6dBeu+qE70+vIVbnCdNRnA0WIn68vwwtSPDoZFUuj
-	 kftqEQ6MaHWbfJhOF6El0+nmBUFJV7dVxmZz+wWfu4WzAj3GMhSxRshUir1PCEKH40
-	 ps5GPx9F6fh2HpunAKbUVDJKrdW4Lids+mBUejeutozM4enLwwFp1NvskHkoIBVLQi
-	 BESj+1NwAsaV4pEwXPcoK7y9+1im0zrI7VWe8yEdFozd4Z463W8rpuH67YLdBixZyK
-	 zN/ArJWIPszeA==
-Date: Sun, 27 Oct 2024 21:38:00 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Chen Wang <unicorn_wang@outlook.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Inochi Amaoto <inochiama@outlook.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Jose Abreu <joabreu@synopsys.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>, 
-	netdev@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 2/4] dt-bindings: net: Add support for Sophgo SG2044
- dwmac
-Message-ID: <4avwff7m4puralnaoh6pat62nzpovre2usqkmp3q4r4bk5ujjf@j3jzr4p74v4a>
-References: <20241025011000.244350-1-inochiama@gmail.com>
- <20241025011000.244350-3-inochiama@gmail.com>
+	id 1t5BBA-00000008yI4-3tos
+	for linux-riscv@lists.infradead.org;
+	Sun, 27 Oct 2024 21:52:11 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1730065924;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=uy5LdYJketu0MffohoUl/Go4tqbAl9Nu0e0r5sC/9hg=;
+	b=L7lJUOUDWecGzoSMUFeYyRVbMItKoikZPqkTFPPwfUFUmPYHkwCDaV6QZwRfeffPKSUds0
+	EjQDESlPiLzYy01g6Lv9a1rX4eCjqASSNrLv4RLDqAt99nLECf/PFUyPfeVmI7EwknfoMf
+	72jFv8ZWuqVzGFwgozvK7A1OT1b2D35AHmZty9QTbvcaz4Fla2037hXftQTiG2gdGp9vHe
+	RvLXSGiLk8naQYc2oOygwjeVufCXVGvj40tfsxVxIPGnRjgHngT9Hx7HvrztZgyVJwA7DN
+	rwCnJHyG/jTtUyEA7nsL8JOIHsTk6Yk9dq5FURfOdulGPOF5spLZxIfKpJpqAA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1730065924;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=uy5LdYJketu0MffohoUl/Go4tqbAl9Nu0e0r5sC/9hg=;
+	b=UiFmSj6er+DDxtENWNJee2WvTT3oCW0HfJTNQKwWe0Bdj83ReRUBo4a5qWThGF9Gj62GHd
+	5lmFOrjMukqig9CA==
+To: Celeste Liu <coelacanthushex@gmail.com>, =?utf-8?B?QmrDtnJuIFTDtnBl?=
+ =?utf-8?B?bA==?= <bjorn@kernel.org>,
+ Celeste Liu via B4 Relay <devnull+CoelacanthusHex.gmail.com@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, =?utf-8?B?Qmo=?=
+ =?utf-8?B?w7ZybiBUw7ZwZWw=?=
+ <bjorn@rivosinc.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ "Dmitry V. Levin" <ldv@strace.io>, Andrea Bolognani <abologna@redhat.com>,
+ Felix Yan <felixonmars@archlinux.org>, Ruizhe Pan <c141028@gmail.com>,
+ Shiqi Zhang <shiqi@isrc.iscas.ac.cn>, Guo Ren <guoren@kernel.org>, Yao Zi
+ <ziyao@disroot.org>, Han Gao <gaohan@iscas.ac.cn>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+Subject: Re: [PATCH] riscv/entry: get correct syscall number from
+ syscall_get_nr()
+In-Reply-To: <2b1a96b1-dbc5-40ed-b1b6-2c82d3df9eb2@gmail.com>
+References: <87ldya4nv0.ffs@tglx>
+ <3dc10d89-6c0c-4654-95ed-dd6f19efbad4@gmail.com> <87a5ep4k0n.ffs@tglx>
+ <2b1a96b1-dbc5-40ed-b1b6-2c82d3df9eb2@gmail.com>
+Date: Sun, 27 Oct 2024 22:52:03 +0100
+Message-ID: <877c9t43jw.ffs@tglx>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241025011000.244350-3-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241027_133804_834603_8B6E049D 
-X-CRM114-Status: GOOD (  11.85  )
+X-CRM114-CacheID: sfid-20241027_145209_222175_35B32A89 
+X-CRM114-Status: UNSURE (   7.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,27 +90,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 25, 2024 at 09:09:58AM +0800, Inochi Amaoto wrote:
-> The GMAC IP on SG2044 is almost a standard Synopsys DesignWare MAC
-> with some extra clock.
-> 
-> Add necessary compatible string for this device.
-> 
-> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> ---
+On Mon, Oct 28 2024 at 01:01, Celeste Liu wrote:
+> On 2024-10-27 23:56, Thomas Gleixner wrote:
+>> Equivalently you need to be able to modify orig_a0 for changing arg0,
+>> no?
+>
+> Ok. 
+>
+> Greg, could you accept a backport a new API parameter for 
+> PTRACE_GETREGSET/PTRACE_SETREGSET to 4.19 LTS branch?
 
-This should be squashed with a corrected previous patch (why do you need
-to select snps,dwmac-5.30a?), so we clearly see which the fallback and
-specific compatibles being added.
+Fix the problem properly and put a proper Fixes tag on it and worry
+about the backport later.
 
->  .../devicetree/bindings/net/snps,dwmac.yaml   |   1 +
->  .../bindings/net/sophgo,sg2044-dwmac.yaml     | 124 ++++++++++++++++++
->  2 files changed, 125 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
+Thanks,
 
-Best regards,
-Krzysztof
-
+        tglx
 
 _______________________________________________
 linux-riscv mailing list
