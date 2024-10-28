@@ -4,68 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3D55D13588
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Oct 2024 09:59:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFF04D13593
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Oct 2024 09:59:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UJISxSkqwJ4l9KZjQXFFAhiQ1aia72C5uP69W6FaDog=; b=Dn622IV0lH7g5T
-	rlnG7Olp+0J4x5rDFcM70nG5gJDeOJJkOzpOE4lNZSmc84ZBoJScWCyZniJZoUTeFO/KyjiMdPi64
-	GzT4gPqG+YamHC/nr2NyA5T01ksN9FJsQyfJL7VJZITcExg1YCW8kH7xRai2ZauaGaLTx24GOAZ/x
-	mADJb+e3ExlhUC+Qh0amfjG2OOzp8Ry0Vhf0MpOYESSkEikene95iSlr6PNr9Qc0Gt0T/+03IDntL
-	u4EEhwI3UGlPpXFvI7zFw4wKtG4ZP7XxBPUJHi6YpeiD8BcsPPODY/XgjBgKc2Gv8U1dom7mxrtra
-	BjsBRdwhDUri3zQM0I8w==;
+	List-Owner; bh=P5tmEgiEQ1tC/+Us8Z0ec5P3IxMh67wX7E3X0gobj0s=; b=mrF0ZiBPrxyMJV
+	qPrhllisFeVs0RAa0B/f3P+mhSVawoqKP2QdMSNQHHVYYnfA/Eqh5vpTfj5BmWwTStJoJ9BtY+GyN
+	C594sXKZz0D68cu0+mbhobvZUE6Mi7wQ2RHbnEb+lopbHi2zrPV+9hvhzqjpCLSSRYYsPRHhBnS8r
+	bdp1yyD6aPJiXwSgCi9EYHTqwu7TN8rFdW2z029WvbFwYqkfK4vU73/MR5PoqffBYkGBB040swILJ
+	GF0+GAkP9eDb83twxKQfxnCqpEoZ07yW2j8Qc0ZOXLyZ6bqd/OPNllz3ByNteA8HfphDz0VwhTenZ
+	++iGAqtUGN2lOWFexHWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5MWo-0000000AKE5-3WMy;
+	id 1t5MWo-0000000AKDs-0Wle;
 	Mon, 28 Oct 2024 09:59:14 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5MJD-0000000AHQN-3s0L
+	id 1t5MIv-0000000AHMc-3icn
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Oct 2024 09:45:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E2C105C4C17;
-	Mon, 28 Oct 2024 09:44:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 313F1C4CEC3;
-	Mon, 28 Oct 2024 09:45:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730108710;
-	bh=CZVjrLe6GkPeTjP9p6IM60BaHFbsS+yZRoS0y2bNcZY=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=u3wIy3ymToY+1PiSdOFhjUpnlDSk7OhjkPU07qdOpvfzCg9V4oTM07nQp5sIsHpyz
-	 wgauHD8AvPi4SeXkZyzIkl1yikG/728W+gDYMNPeNnLe1njNcayN61O5aF6g8yCsXL
-	 iLoWEAkjEr43JmExmPbIBRxMm96He24ZdinR83Dkif9mGfgI1BmYPhpLsQadHHt7zO
-	 qZ5JYt8o/cNSnjHKlbWNzLz5C4majC3wTtUkcqhSISBY2z74iPX5CiZuVwdl743GWG
-	 JzVxR81e5/osrPeW/g5u0y8drD+cz/VEy2zbvBSTmO4Zv0n+CnifxxoVL4eW4xagBW
-	 TfdhTgpI/h4kw==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Thomas Gleixner <tglx@linutronix.de>, Celeste Liu
- <coelacanthushex@gmail.com>, Celeste Liu via B4 Relay
- <devnull+CoelacanthusHex.gmail.com@kernel.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@rivosinc.com>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, Alexandre Ghiti <alex@ghiti.fr>,
- "Dmitry V. Levin" <ldv@strace.io>, Andrea Bolognani <abologna@redhat.com>,
- Felix Yan <felixonmars@archlinux.org>, Ruizhe Pan <c141028@gmail.com>,
- Shiqi Zhang <shiqi@isrc.iscas.ac.cn>, Guo Ren <guoren@kernel.org>, Yao Zi
- <ziyao@disroot.org>, Han Gao <gaohan@iscas.ac.cn>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-Subject: Re: [PATCH] riscv/entry: get correct syscall number from
- syscall_get_nr()
-In-Reply-To: <87ldya4nv0.ffs@tglx>
-References: <87ldya4nv0.ffs@tglx>
-Date: Mon, 28 Oct 2024 02:45:07 -0700
-Message-ID: <87sesgftng.fsf@all.your.base.are.belong.to.us>
+	Mon, 28 Oct 2024 09:44:55 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4315eac969aso28251775e9.1
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Oct 2024 02:44:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1730108691; x=1730713491; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=PYW2nBqpOT7rpdJAt6yBdXzUTt5ThWvwR8AKSh6PMWk=;
+        b=U822/naicgAoDqjVDYn93b762dmxG9LNNnUMPREOQt91fgDTrJlevXviOCeuJLafQN
+         SWePVlL2iQmXp/f9SOXMGcQC7Y/1dttgtyInxpNH/zK2lx/Ivd1dn8zmqO6b0YUSXaoh
+         wtZKCY6Rh+tKUAdE8QA112NQOwXZ+QItzejOTUJFRObbPVsZR2bwmwrTFXzyGZspBKFB
+         YNFjDW4rlovFFgMNzfNqRI0zLkdX1Za2ombB6Y+poSN97YtJs84jDRCGH7hh+Hx337IQ
+         ZxkAQWDhr19OwXxR/mC+V0XhnQE3heeG7Nwvkbb3Kovwgo2BHEgT8FSaCoCuM6uQ0oY7
+         9D+g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730108691; x=1730713491;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=PYW2nBqpOT7rpdJAt6yBdXzUTt5ThWvwR8AKSh6PMWk=;
+        b=p0A3Zqcr21L4mHqCgwub+r+HKpc9V0HLvPoLGjZL+YWpi2M9fAShA5Tf9x5e0FdT2a
+         TmCMynrRrTrRUHmoZQ3qWlij9Gtn5j5EcPXJPlXDv6fqwxdTnJZuO2XwH9fr7ZoNHKTR
+         UXFe68ga/pctMRDpLiMpLk6JbtKcbT/+Lk2aH9M18hVaEZyWQoiOi4LfnrgGhAKsSdos
+         FPicfl3T79MbunopuV507xRExn9Uu2KKMeXcXr2dIQ6ItnmYKZkiRCvzJKOIvt/Jofu0
+         b9PBmNOcjDp8Plw153W821OXJwwfxwOBM+D0ms+X2yB0SEftaRzlsFd9j4J+5xKFvuSy
+         B0Jg==
+X-Forwarded-Encrypted: i=1; AJvYcCUcXnb6FKeqjyEWJhsCJqjN6O+HZ5W7/jQDmRQWLp/yeQDF/umLnfY736P1qkCaf413rJz2zTxpsfXrSw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzJfCK/xhW0VXMpKQZp6IOwZ1KrP+wgHLB+QUIb5YtN/1o/NJv3
+	sD+j8R7ygRt7FxAw/rZo/eW1QgGOM20aqSEP5mfJaq8huyvVZZ1hk5DPo6ylEUU=
+X-Google-Smtp-Source: AGHT+IEGI3A08qAUBhd5v0Oc5FZbvghNJQAwXWa8dsiUdujloWteFAWUVUDMhuvgj34CSetfJervcg==
+X-Received: by 2002:a05:600c:4e8c:b0:431:7c25:8600 with SMTP id 5b1f17b1804b1-4318b587dd1mr99781975e9.2.1730108691401;
+        Mon, 28 Oct 2024 02:44:51 -0700 (PDT)
+Received: from [192.168.10.46] (146725694.box.freepro.com. [130.180.211.218])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38058b70c44sm8958669f8f.80.2024.10.28.02.44.50
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 28 Oct 2024 02:44:51 -0700 (PDT)
+Message-ID: <5f7179ec-e4ce-4644-8a60-ce407a4d2f11@linaro.org>
+Date: Mon, 28 Oct 2024 10:44:50 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/2] clocksource/drivers/timer-riscv: Stop stimecmp
+ when cpu hotplug
+To: Nick Hu <nick.hu@sifive.com>, greentime.hu@sifive.com,
+ zong.li@sifive.com, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Pavel Machek <pavel@ucw.cz>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Thomas Gleixner <tglx@linutronix.de>, Andrew Jones
+ <ajones@ventanamicro.com>, Conor Dooley <conor.dooley@microchip.com>,
+ Samuel Holland <samuel.holland@sifive.com>,
+ Sunil V L <sunilvl@ventanamicro.com>, linux-pm@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Anup Patel <anup@brainfault.org>
+References: <20241028033928.223218-1-nick.hu@sifive.com>
+ <20241028033928.223218-3-nick.hu@sifive.com>
+Content-Language: en-US
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+In-Reply-To: <20241028033928.223218-3-nick.hu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_024512_038134_E3CE71C8 
-X-CRM114-Status: GOOD (  13.73  )
+X-CRM114-CacheID: sfid-20241028_024453_955433_ADDEE44F 
+X-CRM114-Status: GOOD (  15.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,65 +98,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Thanks for helping out to dissect this! Much appreciated!
-
-Thomas Gleixner <tglx@linutronix.de> writes:
-
-> Let me look at your failure analysis from your first reply:
->
->>  1. strace "tracing": Requires that regs->a0 is not tampered with prior
->>     ptrace notification
->> 
->>     E.g.:
->>     | # ./strace /
->>     | execve("/", ["/"], 0x7ffffaac3890 /* 21 vars */) = -1 EACCES (Permission denied)
->>     | ./strace: exec: Permission denied
->>     | +++ exited with 1 +++
->>     | # ./disable_ptrace_get_syscall_info ./strace /
->>     | execve(0xffffffffffffffda, ["/"], 0x7fffd893ce10 /* 21 vars */) = -1 EACCES (Permission denied)
->>     | ./strace: exec: Permission denied
->>     | +++ exited with 1 +++
->> 
->>     In the second case, arg0 is prematurely set to -ENOSYS
->>     (0xffffffffffffffda).
->
-> That's expected if ptrace_get_syscall_info() is not used. Plain dumping
-> registers will give you the current value on all architectures.
-> ptrace_get_syscall_info() exist exactly for that reason.
-
-Noted! So this shouldn't be considered as a regression. IOW, the
-existing upstream code is OK for this scenario.
-
->>  2. strace "syscall tampering": Requires that ENOSYS is returned for
->>     syscall(-1), and not skipped w/o a proper return value.
->> 
->>     E.g.:
->>     | ./strace -a0 -ewrite -einject=write:error=enospc echo helloject=write:error=enospc echo hello   
->> 
->>     Here, strace expects that injecting -1, would result in a ENOSYS.
->
-> No. It expects ENOSPC with the above command line. man strace:
->
->        If :error=errno option is specified, a fault is injected into a
->        syscall invocation: the syscall number is replaced by -1 which
->        corresponds to an invalid syscall (unless a syscall is specified
->        with :syscall= option), and the error code is specified using a
->        symbolic errno value like ENOSYS or a numeric value within
->        1..4095 range.
->
-> Similar for -einject:retval=$N
->
-> So you cannot overwrite a0 with ENOSYS if the syscall needs to be
-> skipped.
-
-ACK!
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMjgvMTAvMjAyNCAwNDozOSwgTmljayBIdSB3cm90ZToKPiBTdG9wIHRoZSB0aW1lciB3aGVu
+IHRoZSBjcHUgaXMgZ29pbmcgdG8gYmUgb2ZmbGluZSBvdGhlcndpc2UgdGhlCj4gdGltZXIgaW50
+ZXJydXB0IG1heSBiZSBwZW5kaW5nIHdoaWxlIHBlcmZvcm1pbmcgcG93ZXItZG93bi4KPiAKPiBT
+dWdnZXN0ZWQtYnk6IEFudXAgUGF0ZWwgPGFudXBAYnJhaW5mYXVsdC5vcmc+Cj4gTGluazogaHR0
+cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGttbC8yMDI0MDgyOTAzMzkwNC40NzcyMDAtMy1uaWNrLmh1
+QHNpZml2ZS5jb20vVC8jdQo+IFNpZ25lZC1vZmYtYnk6IE5pY2sgSHUgPG5pY2suaHVAc2lmaXZl
+LmNvbT4KPiBSZXZpZXdlZC1ieTogQW51cCBQYXRlbCA8YW51cEBicmFpbmZhdWx0Lm9yZz4KPiAt
+LS0KPiAgIGRyaXZlcnMvY2xvY2tzb3VyY2UvdGltZXItcmlzY3YuYyB8IDYgKysrKysrCj4gICAx
+IGZpbGUgY2hhbmdlZCwgNiBpbnNlcnRpb25zKCspCj4gCj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMv
+Y2xvY2tzb3VyY2UvdGltZXItcmlzY3YuYyBiL2RyaXZlcnMvY2xvY2tzb3VyY2UvdGltZXItcmlz
+Y3YuYwo+IGluZGV4IDQ4Y2U1MGM1ZjVlNi4uMTY2ZGVlMTRlNDZiIDEwMDY0NAo+IC0tLSBhL2Ry
+aXZlcnMvY2xvY2tzb3VyY2UvdGltZXItcmlzY3YuYwo+ICsrKyBiL2RyaXZlcnMvY2xvY2tzb3Vy
+Y2UvdGltZXItcmlzY3YuYwo+IEBAIC0xMjcsNiArMTI3LDEyIEBAIHN0YXRpYyBpbnQgcmlzY3Zf
+dGltZXJfc3RhcnRpbmdfY3B1KHVuc2lnbmVkIGludCBjcHUpCj4gICBzdGF0aWMgaW50IHJpc2N2
+X3RpbWVyX2R5aW5nX2NwdSh1bnNpZ25lZCBpbnQgY3B1KQo+ICAgewo+ICAgCWRpc2FibGVfcGVy
+Y3B1X2lycShyaXNjdl9jbG9ja19ldmVudF9pcnEpOwo+ICsJLyoKPiArCSAqIFN0b3AgdGhlIHRp
+bWVyIHdoZW4gdGhlIGNwdSBpcyBnb2luZyB0byBiZSBvZmZsaW5lIG90aGVyd2lzZQo+ICsJICog
+dGhlIHRpbWVyIGludGVycnVwdCBtYXkgYmUgcGVuZGluZyB3aGlsZSBwZXJmb3JtaW5nIHBvd2Vy
+LWRvd24uCj4gKwkgKi8KPiArCXJpc2N2X2Nsb2NrX2V2ZW50X3N0b3AoKTsKPiArCj4gICAJcmV0
+dXJuIDA7Cj4gICB9CgpTaG91bGQgaXQgbm90IGJlIHRoZSBvcHBvc2l0ZT8KCkZpcnN0IHN0b3Ag
+dGhlIGNsb2NrIHdoaWNoIGNsZWFycyB0aGUgaW50ZXJydXB0IGFuZCB0aGVuIGRpc2FibGUgdGhl
+IGlycT8KCgoKCgotLSAKPGh0dHA6Ly93d3cubGluYXJvLm9yZy8+IExpbmFyby5vcmcg4pSCIE9w
+ZW4gc291cmNlIHNvZnR3YXJlIGZvciBBUk0gU29DcwoKRm9sbG93IExpbmFybzogIDxodHRwOi8v
+d3d3LmZhY2Vib29rLmNvbS9wYWdlcy9MaW5hcm8+IEZhY2Vib29rIHwKPGh0dHA6Ly90d2l0dGVy
+LmNvbS8jIS9saW5hcm9vcmc+IFR3aXR0ZXIgfAo8aHR0cDovL3d3dy5saW5hcm8ub3JnL2xpbmFy
+by1ibG9nLz4gQmxvZwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
+ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
+aXNjdgo=
