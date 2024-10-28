@@ -4,96 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4678FD13570
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Oct 2024 07:19:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52267D13595
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Oct 2024 07:19:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u5o5sKb9IGSadXQ7xKJR3idq9/HZpBAeSYtwJA6r5kQ=; b=rklGnMnjZWhpvd
-	HLqquWycQfws4CbwzC522aSQrtjABYFfDuFNVTjwt952S8G7yCM8hHuU+2FC6VdO2RMzW7jIJRd+Q
-	U3QB7uh/arGdVDd2p7GkmVywzShleCRZ8B9MKrFStiJ5yObZ8uNauQYiouGcXIwZ6YBEXVP5Pbw/E
-	NeQbOo5NjxvJ4msHsQ/xx2Wx6rlzS3m8td9HXzOonlJhgY0GdncF6BhluYkc/qAM1yDzl1kVNwFbx
-	awLz7gCQN6nRR7pU6rbslV4yIg+iSYzdCoTazvAMAsLVkMxihAzQdPTW/cZVuKd4d9BR7W6MMZDmu
-	Vgn1apuxAsIZF3/fzBsA==;
+	List-Owner; bh=PpNpzGyyBj4R+MguJdDmXs3wAUrzidLi7US8qXNBlFE=; b=hZXSkgePeZZbi7
+	wjHbKPU7sWtJJHG9NjutXnKn6cxDr1gUWHIvZP7JFX8QvtgT0KI5mETP3ZegM0v8RYhIl8i1pcntW
+	/0gltG8PEkERv1ehpjl2CDko9WfpPPE+J1uMJZCIAl5IJsx5ymIU5jxPFIs9/oS/hmlsoIh4KtTk6
+	F4eHNGHO7AjxbglDFze2WhZ7s0tFx7VeJeW0SG8OGYrfTmqCaTueRD0NqaURYSGDu3KZPiulDmZ+B
+	GI//aewY1m+WA+u8+NOJhHPPIN3DFxS8+G60VySiUqJonV7tm68y9On83HsRXcXsbsO3j1ilA0v9O
+	mXZclp13JwAG5vw4pQeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5K1p-00000009qI0-0GzB;
-	Mon, 28 Oct 2024 07:19:05 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1t5K1l-00000009qEp-3iw5;
+	Mon, 28 Oct 2024 07:19:01 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5K15-00000009pqI-1A9v
-	for linux-riscv@lists.infradead.org;
-	Mon, 28 Oct 2024 07:18:20 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-20c8c50fdd9so30600655ad.0
-        for <linux-riscv@lists.infradead.org>; Mon, 28 Oct 2024 00:18:19 -0700 (PDT)
+	id 1t5K08-00000009pfj-32uV;
+	Mon, 28 Oct 2024 07:17:22 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-2e2c6bc4840so2918997a91.2;
+        Mon, 28 Oct 2024 00:17:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730099899; x=1730704699; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BAmlP3w7cbuw4vs2LRWu6ikJXLe5vZx2U9ot0QY3nzg=;
-        b=iX/vfBEn88XSyzIinKYJ08hNSEyKnRL8FLJEnBFRW9pYahjZouwcY/0pp45x+In2ct
-         JB6wnXdhS2BVR6TK5tGBi8lrEWSZCHqsQm/+lCBtTosT2RLLpA1blbJ75mUnrYnXmovd
-         m3P/EP2tZ7dZNgVD5ouh8SHZkrM6g4p2d9ufn7A7alzA8acRKk7sbkl24WOi4cku98H7
-         MjfCDxfi/c0ebxrL4nlSrLv2S2GEhJ95sUlkXPXnFCrVeEIzWrHFTRDrZO2j3EWgaenW
-         +VHQ7W9GoZWVRNGXTTYCdb6j4Ag4lv2Ontwjjmmqv8mKQ28PRjgOtDjkO66ErVuY6QHR
-         3WgA==
+        d=gmail.com; s=20230601; t=1730099840; x=1730704640; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=l+Lv0cqccltbLrN2cRosIlLw7fZjxncTIQzMOXjL94g=;
+        b=GO6TKvUih74ZkzGqt+G2BFTRKPxDwdcVkR4xkILInx6J0E6xqG/cf5eUkKMgcHydQ0
+         8HOt80H73Znz3fPD0Zk8a6Q4rzf6iYQbonr/V4in6mOAm6X+iPQqVdn1b4vGxsHqxLwt
+         4jG+ogEd0nGp6il7PNipAIWSDj1D/QA73bFCeKDRSDs/lWWosUelylNppei2oE4p7QmH
+         3eQTbAuMSO9+E3Q1DtYmLfz53+RKGIdD06oxdzKwGrkNOLg1S0v+kOfzt0A5hx6U6X+Z
+         7olDg6TeicCK5eiDZ0VdcvSNJRx4aOmq0xkZzIj3OJfxQdSPw75V51U6mWus6egJCcbC
+         PPyA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730099899; x=1730704699;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=BAmlP3w7cbuw4vs2LRWu6ikJXLe5vZx2U9ot0QY3nzg=;
-        b=XE+TVGhjyHJN1OeiHi0XbM0h7wSFNFYaZrKgjOSVFHPjdo44TWT9VQlrkbdgElfayp
-         IP82b1IhaXtpKUeW+k9aU7/xz7T0SrS0Av2zZK+RHxW3+54nptOV/Urgh0empF+69QGD
-         kuhGYHkd5HDXEDwKTljvafOtk4FhRAy9X+E+ry6MLqQL2DzBb+P6UjT4tkWgc5CM5a8v
-         MHkIyJnJXq7uGqPRfDBpVu0ywQdyHl3yFc2lJPUJ2Nn60SmIOWY21ppGeNJ6EgEHDUjB
-         kg1jGuUkdDwRgY+Gkmka7bGwJhVES2ezsZucsfxaifG9okfIQeUL19w3bxKP/E4xpIdb
-         huGw==
-X-Forwarded-Encrypted: i=1; AJvYcCU7/A9oE9VUCnIrTW+blF//E47EvYEiKXIrQ1YsOJfk+cpNSuw6Yl6vSFrM+y5M6BNhRThZT5ismbKMAA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxzO65k4Q9Ab0J7vgS8igFl7OyNQjitWbcNRKFL5jeXUGVB0Ja6
-	lLafmX7dvxeEv/H1nWoBgtofpkTaroqZIWmcoCAYOFWZjOfVfEhj
-X-Google-Smtp-Source: AGHT+IEUoa5ZbRgyUDvT5sSSexEjNU5hWJ5BN3DtO5DSUyaxLGN5Xl3CDpjSkdhit0QPMLIFVQ49lQ==
-X-Received: by 2002:a17:902:ced2:b0:20b:5aeb:9b8 with SMTP id d9443c01a7336-210c5a7154bmr120474645ad.24.1730099898614;
-        Mon, 28 Oct 2024 00:18:18 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1730099840; x=1730704640;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=l+Lv0cqccltbLrN2cRosIlLw7fZjxncTIQzMOXjL94g=;
+        b=GvKwwQhW8PhI9zO0Bsj1htatYlqxinF7NQ/GdAUgfTI9Ur7RzxVxbhcxFhQXhocHwT
+         9MUBQajIbT+5PcX8B+NOir8Ly2XKrdovriBIGSDuwtGrBNKVNLYDvIbXjYejO9iOnYd8
+         Yy9li9GjXpmLizqWJeM++kk9Te+same6UnMDC6h5wRaxwOnDb9Q6cRHku98CKoLe1XiE
+         8+bbyJMS73ssRgW4diq6ruGlS97ISOPHuYTGTMpJ/BIVa7hqs37/ekL15oKaAYUc2Jwo
+         kJjd3aG+GQzaLBsWczQsM6IeJm6SYvSLJyeLGnHv7oUUDN4dAjpir55Us5fkwgD3eN8K
+         TkwA==
+X-Forwarded-Encrypted: i=1; AJvYcCV+4gzOeeWKyGQ2qRr6kAwanv/4XlwUEcdG9c0wcVuDgW0WbefU6II/v3sAuGTPl2DwdhfIX7eJnSzdLEyJhCYC@lists.infradead.org, AJvYcCWWm1ByNq/xLzc47m58pFNavUEsVxhdfpWmXLc725z0CUNU3wTH3KfxhP1sR2C7nHMBhcS92WHtniOvZJ0=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxDMcE+Ha0vS/pYE/MsY8vmzf/XkI9NTFPQb+TDTgAaBWUMzE+e
+	AqLaeQy4wV5FVVoH+Ct7dx5uv2TvL1FfvWb2YvEstQUeCOTOc2cH
+X-Google-Smtp-Source: AGHT+IHzWBoCJf/unr9JRCs10+RBX8U2VlT071YJUNmeAJD/FQLj2WyaOuVYdAuzuRY5sIOEG1ACqQ==
+X-Received: by 2002:a17:90a:bcf:b0:2e2:effb:618b with SMTP id 98e67ed59e1d1-2e8f106f63cmr9468469a91.13.1730099839533;
+        Mon, 28 Oct 2024 00:17:19 -0700 (PDT)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-210bbf44550sm45265605ad.14.2024.10.28.00.18.18
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e8e36a4860sm6374761a91.32.2024.10.28.00.17.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Oct 2024 00:18:18 -0700 (PDT)
+        Mon, 28 Oct 2024 00:17:19 -0700 (PDT)
+Date: Mon, 28 Oct 2024 15:16:54 +0800
 From: Inochi Amaoto <inochiama@gmail.com>
-To: Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Conor Dooley <conor@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
-	Evan Green <evan@rivosinc.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Andy Chiu <andybnac@gmail.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Xiao Wang <xiao.w.wang@intel.com>,
-	Samuel Holland <samuel.holland@sifive.com>
-Cc: linux-doc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH 3/3] riscv: hwprobe: export bfloat16 ISA extension
-Date: Mon, 28 Oct 2024 15:17:43 +0800
-Message-ID: <20241028071746.869740-4-inochiama@gmail.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241028071746.869740-1-inochiama@gmail.com>
-References: <20241028071746.869740-1-inochiama@gmail.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+	Inochi Amaoto <inochiama@gmail.com>
+Cc: Chen Wang <unicorn_wang@outlook.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Inochi Amaoto <inochiama@outlook.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Jose Abreu <joabreu@synopsys.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>, 
+	netdev@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 2/4] dt-bindings: net: Add support for Sophgo SG2044
+ dwmac
+Message-ID: <gcur4pgotkwp6nd557ftkvlzh5xv3shxvvl3ofictlie2hlxua@f4zxljrgzvke>
+References: <20241025011000.244350-1-inochiama@gmail.com>
+ <20241025011000.244350-3-inochiama@gmail.com>
+ <4avwff7m4puralnaoh6pat62nzpovre2usqkmp3q4r4bk5ujjf@j3jzr4p74v4a>
+ <mwlbdxw7yh5cqqi5mnbhelf4ihqihup4zkzppkxm7ggsb5itbb@mcbyevoat76d>
+ <8eeb1f7c-3198-45ac-be9a-c3d4e5174f1f@kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <8eeb1f7c-3198-45ac-be9a-c3d4e5174f1f@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_001819_342137_F6F7496A 
-X-CRM114-Status: UNSURE (   9.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241028_001720_792141_0E48F3B1 
+X-CRM114-Status: GOOD (  21.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,54 +108,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Export Zfbmin, Zvfbfmin, Zvfbfwma ISA extension through hwprobe.
+On Mon, Oct 28, 2024 at 08:06:25AM +0100, Krzysztof Kozlowski wrote:
+> On 28/10/2024 00:32, Inochi Amaoto wrote:
+> > On Sun, Oct 27, 2024 at 09:38:00PM +0100, Krzysztof Kozlowski wrote:
+> >> On Fri, Oct 25, 2024 at 09:09:58AM +0800, Inochi Amaoto wrote:
+> >>> The GMAC IP on SG2044 is almost a standard Synopsys DesignWare MAC
+> >>> with some extra clock.
+> >>>
+> >>> Add necessary compatible string for this device.
+> >>>
+> >>> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> >>> ---
+> >>
+> >> This should be squashed with a corrected previous patch 
+> > 
+> > Good, I will.
+> > 
+> >> (why do you need to select snps,dwmac-5.30a?), 
+> > 
+> > The is because the driver use the fallback versioned compatible 
+> > string to set up some common arguments. (This is what the patch
+> 
+> Nope. Driver never relies on schema doing select. That's just incorrect.
+> 
 
-Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
----
- Documentation/arch/riscv/hwprobe.rst  | 12 ++++++++++++
- arch/riscv/include/uapi/asm/hwprobe.h |  3 +++
- 2 files changed, 15 insertions(+)
+Yeah, I make a mistake on understanding you. For me, I just followed
+what others do. But there is a comment before this select.
 
-diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
-index 85b709257918..8c30dd06f3c0 100644
---- a/Documentation/arch/riscv/hwprobe.rst
-+++ b/Documentation/arch/riscv/hwprobe.rst
-@@ -239,6 +239,18 @@ The following keys are defined:
-        ratified in commit 98918c844281 ("Merge pull request #1217 from
-        riscv/zawrs") of riscv-isa-manual.
- 
-+  * :c:macro:`RISCV_HWPROBE_EXT_ZFBFMIN`: The Zfbfmin extension is supported as
-+       defined in the RISC-V ISA manual starting from commit 4dc23d6229de
-+       ("Added Chapter title to BF16").
-+
-+  * :c:macro:`RISCV_HWPROBE_EXT_ZVFBFMIN`: The Zvfbfmin extension is supported as
-+       defined in the RISC-V ISA manual starting from commit 4dc23d6229de
-+       ("Added Chapter title to BF16").
-+
-+  * :c:macro:`RISCV_HWPROBE_EXT_ZVFBFWMA`: The Zvfbfwma extension is supported as
-+       defined in the RISC-V ISA manual starting from commit 4dc23d6229de
-+       ("Added Chapter title to BF16").
-+
- * :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: Deprecated.  Returns similar values to
-      :c:macro:`RISCV_HWPROBE_KEY_MISALIGNED_SCALAR_PERF`, but the key was
-      mistakenly classified as a bitmask rather than a value.
-diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
-index 1e153cda57db..95d00a065b4e 100644
---- a/arch/riscv/include/uapi/asm/hwprobe.h
-+++ b/arch/riscv/include/uapi/asm/hwprobe.h
-@@ -72,6 +72,9 @@ struct riscv_hwprobe {
- #define		RISCV_HWPROBE_EXT_ZCF		(1ULL << 46)
- #define		RISCV_HWPROBE_EXT_ZCMOP		(1ULL << 47)
- #define		RISCV_HWPROBE_EXT_ZAWRS		(1ULL << 48)
-+#define		RISCV_HWPROBE_EXT_ZFBFMIN	(1ULL << 49)
-+#define		RISCV_HWPROBE_EXT_ZVFBFMIN	(1ULL << 50)
-+#define		RISCV_HWPROBE_EXT_ZVFBFWMA	(1ULL << 51)
- #define RISCV_HWPROBE_KEY_CPUPERF_0	5
- #define		RISCV_HWPROBE_MISALIGNED_UNKNOWN	(0 << 0)
- #define		RISCV_HWPROBE_MISALIGNED_EMULATED	(1 << 0)
--- 
-2.47.0
+"""
+Select every compatible, including the deprecated ones. This way, we
+will be able to report a warning when we have that compatible, since
+we will validate the node thanks to the select, but won't report it
+as a valid value in the compatible property description
+"""
 
+By reading this, I think there may be some historical reason? Maybe
+someone can explain this.
+
+Regards,
+Inochi
 
 _______________________________________________
 linux-riscv mailing list
