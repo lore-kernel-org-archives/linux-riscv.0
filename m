@@ -4,43 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20275D13593
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Oct 2024 10:53:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E03EFD13570
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Oct 2024 10:53:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gju+KVzOHAaeTp5wdqzv1B2gxqgGyTR7Rl2zBH+8svs=; b=ktaIQrw4ClXNhD
-	zmLGdEgUkzMMmOkuGYUHChTHdQalM91Bl/qXf10j+nq/ClIE/oWMhJZTP4ruMhuZ1pNQnAXv9RUJX
-	eSdjO7jYxrxSwNcraNGp8QrcfD280YlDY8Q1nGBAbHca3y/UcD3NmwJlrVf2xsvsZKSP4pnZMy5Pb
-	6ywvx1GbIVNEC92NzWYb/UD2fqPM9Gxli8ZzZ1+2gyFMipNNEpKW1cku2n9Gzc+BwgP/VWfbMIMIR
-	KWZFXK1S4cp0RR8JeTAqTtiLTkPEiR1xh/OVUe3I6cLVbpOtkeui2EcKUEEda58yVvvOTAbtkdj6j
-	WY6HuOn4JLE8vwkAER1w==;
+	List-Owner; bh=BdDYJK+HGiRHZiU3tDh6SK8HNAXHx3ggmtwiq6dt8uY=; b=tl3m7DcYFT7ENP
+	ghaH7MIkchxcWGTWexdimI4/zPElV0kWE8uN/bwYEb06sP5dSX/jBjWzL8sfVCTa+J7hR2beWijWs
+	sHSvPK7KkzhABs3oDvkxwB/B3BwtwgYM9lfK7HKTO1c33fREqTM2r+hwHJCeE+ZKkYlfhSik7wEFe
+	hR/E8VmEzkej3YuMvTvkeARkTGCHEt16yL4Keukf1iRZQR+rZZN+D4C+GFFXbfZpNlokywsoUYfZ0
+	xmzkCif+SPN8AH4S6BZIfqgyqeGw99OzdQe3gdXb5LCZCjvNyvzinTqnJO+EfHqYz+Lg7tLrLprUz
+	ikQYUJYM5F+sfDGlNj+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5NMv-0000000ATM9-0Nxi;
-	Mon, 28 Oct 2024 10:53:05 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t5NMw-0000000ATNK-19X6;
+	Mon, 28 Oct 2024 10:53:06 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5NLb-0000000AT3c-236h;
-	Mon, 28 Oct 2024 10:52:19 +0000
+	id 1t5NMZ-0000000ATG3-2VQC;
+	Mon, 28 Oct 2024 10:52:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=vRGwCr3IGkDKI3RnHxpJ1UKIsZSuFi+n/eEswoZg4Xo=; b=NV9fdJOlpARawUGTb8UJTG+fhu
+	V+eaIeKENlUTwL82OMPReJFPQWQlIiLpFT8gHDzrVFCe2cp8pwx3IzAZDhDQ4pnkvfa54nPyubueo
+	94h6Kyz/zX4ra/I0jVuFO1q77FZfzfkg+UAITV3CQMyGr4q3KQMDUAh0Im3O0HotlT16Q45iJKSdQ
+	wlmIbbpF4Kh9oeb3yXkLVsiWK23R2TIPrfAA3Y+DieNwBQa8mlOaD5wW5HHSdZbkXVliSlDDozsCt
+	HAm0DUXcLyoRRiX1Yd7oOoXp/ngaMEl7ewldVCW/yJjbdOjQRXL0eBJz6xilmIVfStUzjJOsRstFg
+	nNP587hg==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5NMW-00000009dCo-1u0w;
+	Mon, 28 Oct 2024 10:52:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A9D4FA41BFE;
-	Mon, 28 Oct 2024 10:49:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83936C4CEE8;
-	Mon, 28 Oct 2024 10:51:40 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id C2B635C5897;
+	Mon, 28 Oct 2024 10:51:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB641C4CEE8;
+	Mon, 28 Oct 2024 10:52:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730112702;
-	bh=3q8OmelhAQAHtJG0+WA+DXqVRpr3cx7P46HkfwupuDc=;
+	s=k20201202; t=1730112755;
+	bh=WsmI98TsusQUwfMNedKTmmiRisXjnAxc/6P2yiG/5eg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=JjeXHdmZfO1kM+2WfmAFE1FeuLDlA1lgyzfSm6gh8yC7cz/gBTy6p+ffVYLw5gggB
-	 PNQlE38TAHKljbklsV3FJYHwAxz3Z/6EPUS6UBNHin4vlt6uB7U1pc00hZD44XsxuE
-	 qbUUcEFphwIS+LtL7/AWczSmlYgPFxQcvwQt3NEZHzNzW4+LoHxBWpGjWlnhY5Xmch
-	 9mComtwHBnrbdCSttFSCyzFWl4DHfst0loNyxVWOPRJa0voEJRtaShcsHnJq/Fg4/F
-	 l7L32ROEETxZ/BQP+DVM7e60fyy1Qu1c9VGLghGd1RliDUg6XQcYEXy5Zl8NRbIdrr
-	 34pqoe3/YO57A==
+	b=iLyYkOdAinI7M2L/O01ps4z89DYjQQ6yr9i8TPuwCe/5K93W1nRrlC3z0CgvEMS1X
+	 CQQBNR0e5X3CgIW0JR1uUxH6JXDs/FCmmHMRIPHx7yPPlRh8PaZlqVoFz+DAEwk0cV
+	 cWWuKaypO81OMkzBzovd6Aoz2nfD8Na1oHpB2B0NNFYSvypqJkqiWR4ao0PBGz4YdQ
+	 uyKH1t7Ec0A4LCLBPw8G9GEiBl+FdfqdEV7n2KhTVg86e2GRiF5lvWGO5Bm74cwPF0
+	 +GppQOWtmF65FmOsq+s4bCls4pDNcs81b7843tT4qbe6uBIjMuFZm/BgsJBKh0Lh7d
+	 VMirTp+XZWJKA==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -59,19 +73,19 @@ Cc: Cyan Yang <cyan.yang@sifive.com>,
 	kvm-riscv@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
 	linux-rt-devel@lists.linux.dev
-Subject: [PATCH AUTOSEL 6.11 19/32] RISCV: KVM: use raw_spinlock for critical section in imsic
-Date: Mon, 28 Oct 2024 06:50:01 -0400
-Message-ID: <20241028105050.3559169-19-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.6 08/15] RISCV: KVM: use raw_spinlock for critical section in imsic
+Date: Mon, 28 Oct 2024 06:52:04 -0400
+Message-ID: <20241028105218.3559888-8-sashal@kernel.org>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241028105050.3559169-1-sashal@kernel.org>
-References: <20241028105050.3559169-1-sashal@kernel.org>
+In-Reply-To: <20241028105218.3559888-1-sashal@kernel.org>
+References: <20241028105218.3559888-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.11.5
+X-stable-base: Linux 6.6.58
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_035143_702728_62EF0A9F 
-X-CRM114-Status: GOOD (  10.26  )
+X-CRM114-CacheID: sfid-20241028_105240_932319_4A818804 
+X-CRM114-Status: GOOD (  10.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,7 +122,7 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/arch/riscv/kvm/aia_imsic.c b/arch/riscv/kvm/aia_imsic.c
-index 0a1e859323b45..a8085cd8215e3 100644
+index e808723a85f1b..c1585444f856e 100644
 --- a/arch/riscv/kvm/aia_imsic.c
 +++ b/arch/riscv/kvm/aia_imsic.c
 @@ -55,7 +55,7 @@ struct imsic {
