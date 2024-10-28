@@ -4,88 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E03EFD13570
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Oct 2024 10:53:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A82ED13588
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Oct 2024 10:56:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BdDYJK+HGiRHZiU3tDh6SK8HNAXHx3ggmtwiq6dt8uY=; b=tl3m7DcYFT7ENP
-	ghaH7MIkchxcWGTWexdimI4/zPElV0kWE8uN/bwYEb06sP5dSX/jBjWzL8sfVCTa+J7hR2beWijWs
-	sHSvPK7KkzhABs3oDvkxwB/B3BwtwgYM9lfK7HKTO1c33fREqTM2r+hwHJCeE+ZKkYlfhSik7wEFe
-	hR/E8VmEzkej3YuMvTvkeARkTGCHEt16yL4Keukf1iRZQR+rZZN+D4C+GFFXbfZpNlokywsoUYfZ0
-	xmzkCif+SPN8AH4S6BZIfqgyqeGw99OzdQe3gdXb5LCZCjvNyvzinTqnJO+EfHqYz+Lg7tLrLprUz
-	ikQYUJYM5F+sfDGlNj+g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=aRpMCB1gySvazHKegj+j1/6cIVn05NMzbiDaTND9fP8=; b=n0NapDxQBju/7V
+	L1lVeBdOleCDjOe1TMlFqdwO+7PfFY9aqrraniipqLpq9Va0/mzLWR5Iq8h7KtY+tuvZMahhdHSr3
+	tT+8a8JCbU2pVsVLH2nf++9t2XAB4sl4Kgn78saw4GTaf0445P+Oz6LqO8RBNgoJykPnMyXjxsyS2
+	MCTwINrOgDUoLSa2dT3TGkEy8IYo4GYM/+PqjI8y1+xmBwf0GWspksR3zGQtJRi/+8UU8o4MAWVvZ
+	khLB7PhnK5q6ci4w4F/PvN6Id9U4lgdvaXHo2Fu98uJGpfK5X12tfPX6AcV0eJSFTA1dy2d6ifZTO
+	C+/HtM5hl4motmP8ss5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5NMw-0000000ATNK-19X6;
-	Mon, 28 Oct 2024 10:53:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5NMZ-0000000ATG3-2VQC;
-	Mon, 28 Oct 2024 10:52:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=vRGwCr3IGkDKI3RnHxpJ1UKIsZSuFi+n/eEswoZg4Xo=; b=NV9fdJOlpARawUGTb8UJTG+fhu
-	V+eaIeKENlUTwL82OMPReJFPQWQlIiLpFT8gHDzrVFCe2cp8pwx3IzAZDhDQ4pnkvfa54nPyubueo
-	94h6Kyz/zX4ra/I0jVuFO1q77FZfzfkg+UAITV3CQMyGr4q3KQMDUAh0Im3O0HotlT16Q45iJKSdQ
-	wlmIbbpF4Kh9oeb3yXkLVsiWK23R2TIPrfAA3Y+DieNwBQa8mlOaD5wW5HHSdZbkXVliSlDDozsCt
-	HAm0DUXcLyoRRiX1Yd7oOoXp/ngaMEl7ewldVCW/yJjbdOjQRXL0eBJz6xilmIVfStUzjJOsRstFg
-	nNP587hg==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5NMW-00000009dCo-1u0w;
-	Mon, 28 Oct 2024 10:52:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C2B635C5897;
-	Mon, 28 Oct 2024 10:51:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB641C4CEE8;
-	Mon, 28 Oct 2024 10:52:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730112755;
-	bh=WsmI98TsusQUwfMNedKTmmiRisXjnAxc/6P2yiG/5eg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=iLyYkOdAinI7M2L/O01ps4z89DYjQQ6yr9i8TPuwCe/5K93W1nRrlC3z0CgvEMS1X
-	 CQQBNR0e5X3CgIW0JR1uUxH6JXDs/FCmmHMRIPHx7yPPlRh8PaZlqVoFz+DAEwk0cV
-	 cWWuKaypO81OMkzBzovd6Aoz2nfD8Na1oHpB2B0NNFYSvypqJkqiWR4ao0PBGz4YdQ
-	 uyKH1t7Ec0A4LCLBPw8G9GEiBl+FdfqdEV7n2KhTVg86e2GRiF5lvWGO5Bm74cwPF0
-	 +GppQOWtmF65FmOsq+s4bCls4pDNcs81b7843tT4qbe6uBIjMuFZm/BgsJBKh0Lh7d
-	 VMirTp+XZWJKA==
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Cc: Cyan Yang <cyan.yang@sifive.com>,
-	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
-	Anup Patel <anup@brainfault.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Sasha Levin <sashal@kernel.org>,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	bigeasy@linutronix.de,
-	clrkwllms@kernel.org,
-	rostedt@goodmis.org,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
+	id 1t5NQ9-0000000AU9n-2KYh;
+	Mon, 28 Oct 2024 10:56:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5NMZ-0000000ATEz-1UVf;
+	Mon, 28 Oct 2024 10:53:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 87500497;
+	Mon, 28 Oct 2024 03:53:09 -0700 (PDT)
+Received: from e126645.nice.arm.com (e126645.nice.Arm.com [10.34.111.162])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 2C7E73F73B;
+	Mon, 28 Oct 2024 03:52:35 -0700 (PDT)
+From: Pierre Gondois <pierre.gondois@arm.com>
+To: linux-kernel@vger.kernel.org
+Cc: Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Pierre Gondois <pierre.gondois@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Yunhui Cui <cuiyunhui@bytedance.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Steffen Persvold <spersvold@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	"Borislav Petkov (AMD)" <bp@alien8.de>,
+	Reinette Chatre <reinette.chatre@intel.com>,
+	Tony Luck <tony.luck@intel.com>,
+	Yury Norov <yury.norov@gmail.com>,
+	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
+	linux-acpi@vger.kernel.org,
 	linux-rt-devel@lists.linux.dev
-Subject: [PATCH AUTOSEL 6.6 08/15] RISCV: KVM: use raw_spinlock for critical section in imsic
-Date: Mon, 28 Oct 2024 06:52:04 -0400
-Message-ID: <20241028105218.3559888-8-sashal@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241028105218.3559888-1-sashal@kernel.org>
-References: <20241028105218.3559888-1-sashal@kernel.org>
+Subject: [PATCH] ACPI: CPPC: Make rmw_lock a raw_spin_lock
+Date: Mon, 28 Oct 2024 11:51:49 +0100
+Message-Id: <20241028105200.1205509-1-pierre.gondois@arm.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.6.58
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_105240_932319_4A818804 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20241028_035243_515421_EC50A0A5 
+X-CRM114-Status: UNSURE (   9.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,67 +88,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Cyan Yang <cyan.yang@sifive.com>
+The following BUG was triggered. sugov_update_shared() locks a
+raw_spinlock while cpc_write() locks a spinlock. To have a correct
+wait-type order, update rmw_lock to a raw_spinlock.
 
-[ Upstream commit 3ec4350d4efb5ccb6bd0e11d9cf7f2be4f47297d ]
+Also save irq state.
 
-For the external interrupt updating procedure in imsic, there was a
-spinlock to protect it already. But since it should not be preempted in
-any cases, we should turn to use raw_spinlock to prevent any preemption
-in case PREEMPT_RT was enabled.
+=============================
+[ BUG: Invalid wait context ]
+6.12.0-rc2-XXX #406 Not tainted
+-----------------------------
+kworker/1:1/62 is trying to lock:
+ffffff8801593030 (&cpc_ptr->rmw_lock){+.+.}-{3:3}, at: cpc_write+0xcc/0x370
+other info that might help us debug this:
+context-{5:5}
+2 locks held by kworker/1:1/62:
+  #0: ffffff897ef5ec98 (&rq->__lock){-.-.}-{2:2}, at: raw_spin_rq_lock_nested+0x2c/0x50
+  #1: ffffff880154e238 (&sg_policy->update_lock){....}-{2:2}, at: sugov_update_shared+0x3c/0x280
+stack backtrace:
+CPU: 1 UID: 0 PID: 62 Comm: kworker/1:1 Not tainted 6.12.0-rc2-g9654bd3e8806 #406
+Workqueue:  0x0 (events)
+Call trace:
+  dump_backtrace+0xa4/0x130
+  show_stack+0x20/0x38
+  dump_stack_lvl+0x90/0xd0
+  dump_stack+0x18/0x28
+  __lock_acquire+0x480/0x1ad8
+  lock_acquire+0x114/0x310
+  _raw_spin_lock+0x50/0x70
+  cpc_write+0xcc/0x370
+  cppc_set_perf+0xa0/0x3a8
+  cppc_cpufreq_fast_switch+0x40/0xc0
+  cpufreq_driver_fast_switch+0x4c/0x218
+  sugov_update_shared+0x234/0x280
+  update_load_avg+0x6ec/0x7b8
+  dequeue_entities+0x108/0x830
+  dequeue_task_fair+0x58/0x408
+  __schedule+0x4f0/0x1070
+  schedule+0x54/0x130
+  worker_thread+0xc0/0x2e8
+  kthread+0x130/0x148
+  ret_from_fork+0x10/0x20
 
-Signed-off-by: Cyan Yang <cyan.yang@sifive.com>
-Reviewed-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-Reviewed-by: Anup Patel <anup@brainfault.org>
-Message-ID: <20240919160126.44487-1-cyan.yang@sifive.com>
-Signed-off-by: Paolo Bonzini <pbonzini@redhat.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
+Fixes: 60949b7b8054 ("ACPI: CPPC: Fix MASK_VAL() usage")
+Signed-off-by: Pierre Gondois <pierre.gondois@arm.com>
 ---
- arch/riscv/kvm/aia_imsic.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ drivers/acpi/cppc_acpi.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/arch/riscv/kvm/aia_imsic.c b/arch/riscv/kvm/aia_imsic.c
-index e808723a85f1b..c1585444f856e 100644
---- a/arch/riscv/kvm/aia_imsic.c
-+++ b/arch/riscv/kvm/aia_imsic.c
-@@ -55,7 +55,7 @@ struct imsic {
- 	/* IMSIC SW-file */
- 	struct imsic_mrif *swfile;
- 	phys_addr_t swfile_pa;
--	spinlock_t swfile_extirq_lock;
-+	raw_spinlock_t swfile_extirq_lock;
- };
+diff --git a/drivers/acpi/cppc_acpi.c b/drivers/acpi/cppc_acpi.c
+index 1a40f0514eaa..e7e4bf932e28 100644
+--- a/drivers/acpi/cppc_acpi.c
++++ b/drivers/acpi/cppc_acpi.c
+@@ -1127,7 +1127,7 @@ static int cpc_write(int cpu, struct cpc_register_resource *reg_res, u64 val)
+ 			return -ENODEV;
+ 		}
  
- #define imsic_vs_csr_read(__c)			\
-@@ -622,7 +622,7 @@ static void imsic_swfile_extirq_update(struct kvm_vcpu *vcpu)
- 	 * interruptions between reading topei and updating pending status.
- 	 */
- 
--	spin_lock_irqsave(&imsic->swfile_extirq_lock, flags);
-+	raw_spin_lock_irqsave(&imsic->swfile_extirq_lock, flags);
- 
- 	if (imsic_mrif_atomic_read(mrif, &mrif->eidelivery) &&
- 	    imsic_mrif_topei(mrif, imsic->nr_eix, imsic->nr_msis))
-@@ -630,7 +630,7 @@ static void imsic_swfile_extirq_update(struct kvm_vcpu *vcpu)
- 	else
- 		kvm_riscv_vcpu_unset_interrupt(vcpu, IRQ_VS_EXT);
- 
--	spin_unlock_irqrestore(&imsic->swfile_extirq_lock, flags);
-+	raw_spin_unlock_irqrestore(&imsic->swfile_extirq_lock, flags);
- }
- 
- static void imsic_swfile_read(struct kvm_vcpu *vcpu, bool clear,
-@@ -1051,7 +1051,7 @@ int kvm_riscv_vcpu_aia_imsic_init(struct kvm_vcpu *vcpu)
+-		raw_spin_lock_irqsave(&cpc_desc->rmw_lock, flags);
++		raw_spin_lock(&cpc_desc->rmw_lock);
+ 		switch (size) {
+ 		case 8:
+ 			prev_val = readb_relaxed(vaddr);
+@@ -1142,7 +1142,7 @@ static int cpc_write(int cpu, struct cpc_register_resource *reg_res, u64 val)
+ 			prev_val = readq_relaxed(vaddr);
+ 			break;
+ 		default:
+-			raw_spin_unlock_irqrestore(&cpc_desc->rmw_lock, flags);
++			raw_spin_unlock(&cpc_desc->rmw_lock);
+ 			return -EFAULT;
+ 		}
+ 		val = MASK_VAL_WRITE(reg, prev_val, val);
+@@ -1175,7 +1175,7 @@ static int cpc_write(int cpu, struct cpc_register_resource *reg_res, u64 val)
  	}
- 	imsic->swfile = page_to_virt(swfile_page);
- 	imsic->swfile_pa = page_to_phys(swfile_page);
--	spin_lock_init(&imsic->swfile_extirq_lock);
-+	raw_spin_lock_init(&imsic->swfile_extirq_lock);
  
- 	/* Setup IO device */
- 	kvm_iodevice_init(&imsic->iodev, &imsic_iodoev_ops);
+ 	if (reg->space_id == ACPI_ADR_SPACE_SYSTEM_MEMORY)
+-		raw_spin_unlock_irqrestore(&cpc_desc->rmw_lock, flags);
++		raw_spin_unlock(&cpc_desc->rmw_lock);
+ 
+ 	return ret_val;
+ }
 -- 
-2.43.0
+2.25.1
 
 
 _______________________________________________
