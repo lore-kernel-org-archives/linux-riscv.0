@@ -4,81 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 315E4D5B847
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Oct 2024 23:39:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03334D5B845
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Oct 2024 23:51:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=09e7mV+cCsE7w6ItsXY5xTVmjzYagfD8n8Dn6/sJTqM=; b=H/M9uLz0Yvk20B
-	l7syu/eclahpa+/RxII2Z7e3Clf1NFKmcblgyd5yukPC86EaoBs8HqYRpiPt/5MjfMmLMyLEIKOkg
-	N+4Jp2tMg7HCzo6xmnBe051TOS+SFyVIaMcUJvGk8JxrEBbMTkeePwrJE/DDR+iAH623188FWvMlq
-	NOB4woHLCC7U3/KZSE6URawDFngtscRv9/gxtNf4FvyZCK2wichzc3YaMft+y8vdxe1HItjeeHP58
-	48mnsVWOgKXRajQ+Dsy5ATf/hw+ODZYN/E7d8+hyLHizPjSIFcy2LAalHG6j+hxe9qzMTVpYutkhk
-	IcfIuS3kJY9zIZ262Nkg==;
+	List-Owner; bh=rpc6PABBjaPlwTxuBfo/EE4SsLFQGqS9Eh5F52oM5mk=; b=O+Hz9Yog7D4z4/
+	Etrb+htVzDzfv/VlTSgWlpV08UFQghB2td881Y3/+8Lz22lh+MI0ZiXaQ8Qvph18b1I22zJVaXny1
+	7tRqJSvNTC7/1IcoAsNVJCPeQSY+BDsuobA2WF4GWS8atyy5Nzhr6YV/gZIA8CDNKWPwe7oVFWGbk
+	aZB3WGOskVOOUFKB3Cle5xVnWFyad5njKipeL4Kv20s10fj6YKZiQ4evklPaJ0RzfBP6haUSx1QT0
+	xW4vSrzAyCdHMbMV9nflfOl97qYvRDc4V2G2va49LsBUDUF9B3Wnl3Kol2Fv+GIsQSdHjjt46dpDy
+	px3zcFcJFSNdPP8xEVFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5ZKk-0000000CeTp-2OXj;
-	Mon, 28 Oct 2024 23:39:38 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1t5ZWE-0000000Cg6T-3pzp;
+	Mon, 28 Oct 2024 23:51:30 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5ZKi-0000000CeTJ-0qm0
+	id 1t5ZWB-0000000Cg5X-38DX
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Oct 2024 23:39:37 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-2e31af47681so3868263a91.2
-        for <linux-riscv@lists.infradead.org>; Mon, 28 Oct 2024 16:39:35 -0700 (PDT)
+	Mon, 28 Oct 2024 23:51:29 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-20c7edf2872so43283195ad.1
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Oct 2024 16:51:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730158775; x=1730763575; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1730159487; x=1730764287; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=K7DyiDjyvXKkTuu2TcoYINH5EQOQB3jH39wxFxqTGVo=;
-        b=FcqOZtjjH3eurMUA77uqLd4Axtlbc7fmAGkSRFECtDfkGUn9XopDvJIf71NgHr95b/
-         0gdFWWYfAPQ9KSiAXBS3UBmW1LKReMH6psnqm4I8UGFCY3Q9rsZJPRuqW4+XffQRkC3w
-         77nwVVRh/5blD51JwB/FNNt/uNj1/hOC/vWsz1oghfYFuVCcV6RullFCOBhiwCBk7pMe
-         Er3twANkb81gOUuhQN2gjCAFWejdkzuCcu1lU6e6T4nl2j0Kt2dt+JHwhcEl/mspDfbQ
-         cq7BxjykwzBsB8uouItKEAEaJ5KcViIGA/UcCEjvoTMklgx5Bn5uO+cnD6pzMFQImRcp
-         I0xQ==
+        bh=hBExjAcJs6Aul3nNaLRq3dN0oA7L1rfNiioxXb3aSZw=;
+        b=e/uXzaU+/AoVrXVOp1Y+Mj8s0ZVW0nZrBxlytyJCWyiuO5NHJDnndfKdiMzL/b5+8s
+         LKG3nl2CASj6bSHoVJV9Ptu7+1brRTe2nqMVyo6NdIAzH/fV2V+EqOtNEXNTJPi1Xshp
+         O8zd82HyIq7B5K+o1V+0nTQRzomiBFyFz0LT0H5OFcoAhot0p0ngNMCGV6Ox2jeeIZcc
+         FoA5ZmZPRZ+/fC3kNXXjfBMEPPIwZxgSMZ+OXOt+Kmpf95+A54bLH9DCi/+TVcwbYhOy
+         PtM3SmglGb9WMo/QNRiEKvyQz6HwYb9vbh58q677IhOvSfZBIP6JDlbAGp4+QuxYEoD4
+         /dAA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730158775; x=1730763575;
+        d=1e100.net; s=20230601; t=1730159487; x=1730764287;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=K7DyiDjyvXKkTuu2TcoYINH5EQOQB3jH39wxFxqTGVo=;
-        b=PeOBHEH8HZga5WWN9f5ypvHM1/SAjofyu4JLQHOnXVdgnKtIsaNo0nlYO9107cEFp5
-         8ReYVmyigGcqRutBFHVxoFRGv+ScWEs6tWMDnT9qHd3Zx8E5HGYO1b4GbMxqwsVwlkKz
-         TzBwSePfpcsAPQ2xdvun6F2GcKjljr+/4ijLGJHzHOTZn3rDVbU0soIKtzPFHkgl85tV
-         2/xlASIR5LIKXIx9Z6UjBsm3sxIKnafryV2BgYuhl2QBjz6HWXZO6vI4YvrKnWi1mNxg
-         iQbN/yrWBP2s0MoKbzB0hWLJaifz02P/S2zNEckZ1fG+fKhUSkGtCOa/8wCG4taowAxC
-         HKjw==
-X-Forwarded-Encrypted: i=1; AJvYcCW2tEV0nt3JadNiqQC37BA5VdfijFvZ7moE+4nCOByQDycVfAPQC6nmEvS1SIFp6UTgtPurXG/xt4eLtg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwIkmj4nJ3OP1bokkEVzupSvkRePLZyxYOQw2oW1PMH2qD4ZRd7
-	h+FkKn8H+JAg2G9tFfDn06Td8LLR3rs3/uReT9APiHFLkxRK+6VL
-X-Google-Smtp-Source: AGHT+IEfhvwRKDrINSpj1Q3RCdtGX1BnVmQiUxZygsBUZVuGX/l68vRcrLgWoyyDQ62Y5H8AfjxL8g==
-X-Received: by 2002:a17:90a:ec12:b0:2e2:cfef:86 with SMTP id 98e67ed59e1d1-2e8f104f0b1mr12631047a91.4.1730158774747;
-        Mon, 28 Oct 2024 16:39:34 -0700 (PDT)
-Received: from localhost ([121.250.214.124])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e77e59d826sm9925575a91.52.2024.10.28.16.39.34
+        bh=hBExjAcJs6Aul3nNaLRq3dN0oA7L1rfNiioxXb3aSZw=;
+        b=Qa/uv7EqyU99OZTJhSxjLdqtxipouaGoRr7iSW3YSjzYIcD7YdFtACl85mDwZ3eWW1
+         4+S/d1BUR59k4xS9/njpUJOEyTKNV9ybU2OzjfGNv1WpuT2YbQRd6Zzo4NRCwD5/j4NU
+         VlS3tY0Yy0I019HSJW3+S+pa1OdQxYPHa/B/5VJKbcq9R9veO9c5bhlxzDNhIzoFZXy2
+         Tcw2YXMEx/Ghvo8LwTuV84/sUEjHrN53Ai5LG0dEnqTLUu0z+HeyCEzh4Kcxu9jktzcC
+         GDeYOQ5YjRla13CTK0Pbtcrw2hvjEjqBzv46yj75dHWDGqovNNtFP9nIZPqAyb6AX3fI
+         6i7w==
+X-Forwarded-Encrypted: i=1; AJvYcCW/xyV1Lq3eKo+q3QRD1mX1GNWHInOvIsOQGEholCmnoeJszIP+kUTqxk2WFC3rBSvaJS0D12CBjZWP+Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxlXYu0TqtHPYqaDuLJ92esHrPaHJVTMlEIroVZ0874SndpX7mo
+	/ZejaC/rPcBx+41GDNHOw83HSao1AGr0eAoNIEkQRHa3lcXyPzrFe+sCvQ==
+X-Google-Smtp-Source: AGHT+IEAlu5S8i7peqRrFUMZF8zh2gi3qfjhQkwwkSfMMnI1yIFUJ1hhJtZf/SeEqCbo08WGvwjGRw==
+X-Received: by 2002:a17:90a:3044:b0:2e2:c1d0:68dc with SMTP id 98e67ed59e1d1-2e9220baf2fmr390549a91.9.1730159486593;
+        Mon, 28 Oct 2024 16:51:26 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e8e3771814sm7955697a91.52.2024.10.28.16.51.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Oct 2024 16:39:34 -0700 (PDT)
-Date: Tue, 29 Oct 2024 07:39:09 +0800
+        Mon, 28 Oct 2024 16:51:26 -0700 (PDT)
+Date: Tue, 29 Oct 2024 07:50:45 +0800
 From: Inochi Amaoto <inochiama@gmail.com>
-To: Chen Wang <unicorn_wang@outlook.com>, 
-	Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+To: Thomas Bonnefille <thomas.bonnefille@bootlin.com>, 
+	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@outlook.com>
 Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
 	=?utf-8?Q?Miqu=C3=A8l?= Raynal <miquel.raynal@bootlin.com>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Inochi Amaoto <inochiama@outlook.com>
+	linux-kernel@vger.kernel.org, Inochi Amaoto <inochiama@gmail.com>
 Subject: Re: [PATCH] riscv: dts: sophgo: fix pinctrl base-address
-Message-ID: <a3licezlakpgqsvi65i44wbndvt7y3jalbebuxevuz57ctj6ox@aovdt36w7yeg>
+Message-ID: <dvu67iiddw2hdtfl5ezjxi76idt7pcj6kaapraj6kv4hujh65j@zqhaaiuridrd>
 References: <20241028-fix-address-v1-1-dcbe21e59ccf@bootlin.com>
- <MA0P287MB282284A77094A096573A23F2FE4A2@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <MA0P287MB282284A77094A096573A23F2FE4A2@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
+In-Reply-To: <20241028-fix-address-v1-1-dcbe21e59ccf@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_163936_261422_E6B2F44C 
-X-CRM114-Status: GOOD (  12.27  )
+X-CRM114-CacheID: sfid-20241028_165127_807972_3C141A89 
+X-CRM114-Status: GOOD (  16.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,21 +94,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 29, 2024 at 07:34:41AM +0800, Chen Wang wrote:
-> Hello~, Thomas
+On Mon, Oct 28, 2024 at 11:43:24AM +0100, Thomas Bonnefille wrote:
+> Fix the base-address of the pinctrl controller to match its register
+> address.
 > 
-> This problem is introduced by this patchset [1], which is still on the
-> sophgo/for-next branch and has not been submitted to the main line. So I
-> think the right thing to do is to submit another version v6 with your
-> bugfix.
+> Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+> ---
+>  arch/riscv/boot/dts/sophgo/sg2002.dtsi | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/boot/dts/sophgo/sg2002.dtsi b/arch/riscv/boot/dts/sophgo/sg2002.dtsi
+> index 242fde84443f0d6a2c8476666dfa3d72727071b1..6616f578d190f7aa2a82b233fa9c55267b41ee0e 100644
+> --- a/arch/riscv/boot/dts/sophgo/sg2002.dtsi
+> +++ b/arch/riscv/boot/dts/sophgo/sg2002.dtsi
+> @@ -16,7 +16,7 @@ memory@80000000 {
+>  	};
+>  
+>  	soc {
+> -		pinctrl: pinctrl@3008000 {
+> +		pinctrl: pinctrl@3001000 {
+>  			compatible = "sophgo,sg2002-pinctrl";
+>  			reg = <0x03001000 0x1000>,
+>  			      <0x05027000 0x1000>;
+> 
+> ---
+> base-commit: 45a544a62ef7cac9ecc69585a90da72ca68af898
+> change-id: 20241028-fix-address-e7f0c40eac2c
+> 
+> Best regards,
+> -- 
+> Thomas Bonnefille <thomas.bonnefille@bootlin.com>
 > 
 
-It is OK to let this patch go. If we want to keep the patch persisent,
-it is better to apply a fix than revoke the fault one and apply a new
-version.
-
-Regards,
-Inochi
+Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
 
 _______________________________________________
 linux-riscv mailing list
