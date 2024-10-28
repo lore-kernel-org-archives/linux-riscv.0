@@ -4,109 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EB0AD1358E
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Oct 2024 00:18:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAED4D1358F
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Oct 2024 01:01:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sc137HQqnIhbOU6epPNoCYsmYn5upKakDo5BhL3LdQI=; b=v/J3wThBx4yR+D31SBtvh65yww
-	ReAJVmUB2J5pc0PF26/5B8jCdgHrLBWKyIIx4fRC3rLHDaJG8M4EH1q7/KeD95j3Mpy7ORjne6GWs
-	z60ekn4H1zEUXBCyVjEG3DwOgnPpp6AMPvm2e/4Xwm0FR5c53A0TAqd7snFKe7mI0Tgn/XOAzTqAl
-	/6xxcq7C+tQNJecKsoljpdR8HjImwf2wibAxDyhcYrtTdopNw0/K8uFeLaHEsUQgmQO4vwvpTmEbC
-	RLfwpgTE3Q417nTGhp7lfgkRdR0miFxGS1hnkyUJF6OLKGlaDVrqWS3yn2B8aYsoiL/k1xhMA3UkA
-	mmeeChhg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Lj03iPETua5dK/eUtivLH2awW2JKr0C89AVj0yS6l8Q=; b=jfUH8IXsnJyATd
+	htSt6v+6AWt/oZ5C7vVGxRZKiEFuMHQbaRNvo8YpTR3cF0LtIPDi9qLJ0StkgNzlbifN5RAz3o36d
+	2QceGqiXVHpICl6M31SWvuPWNuDa+i2NkdLyRT6uWs/3bKAcpAxpSVmOacfK4qZFF17MJ5ZORDq/d
+	mSIQiHsjnsGlpSw//s9/9nhfuDjPp8hlppaGkMir6QxTVWmL2u0aeyBvDzV5b8lQqlQCGvXTpIQYU
+	iiW7YxSFUfY/t/G765sehV/DrLyfxML6QE0Jcd7Cz7EnFdeCoOMIvqKjUBG04HPynnowiZ1oje93M
+	jW3s7IPV45sOUbEoQ1Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5DSP-000000097sz-45CJ;
-	Mon, 28 Oct 2024 00:18:05 +0000
-Received: from omta038.useast.a.cloudfilter.net ([44.202.169.37])
+	id 1t5E8R-00000009B9L-2HBW;
+	Mon, 28 Oct 2024 01:01:31 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5DSM-000000097rD-0Z4R
+	id 1t5E8L-00000009B8t-2nqn
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Oct 2024 00:18:04 +0000
-Received: from eig-obgw-6001a.ext.cloudfilter.net ([10.0.30.140])
-	by cmsmtp with ESMTPS
-	id 568LtVTcbg2lz5DS9tFEqY; Mon, 28 Oct 2024 00:17:49 +0000
-Received: from box5620.bluehost.com ([162.241.219.59])
-	by cmsmtp with ESMTPS
-	id 5DS7toGbI2Zy05DS7tSM3U; Mon, 28 Oct 2024 00:17:47 +0000
-X-Authority-Analysis: v=2.4 cv=Q4EZ4J2a c=1 sm=1 tr=0 ts=671ed82b
- a=30941lsx5skRcbJ0JMGu9A==:117 a=30941lsx5skRcbJ0JMGu9A==:17
- a=IkcTkHD0fZMA:10 a=DAUX931o1VcA:10 a=7vwVE5O1G3EA:10
- a=uxgLTjTjiylkul1d-vUA:9 a=QEXdDO2ut3YA:10 a=hTR6fmoedSdf3N0JiVF8:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=w6rz.net;
-	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:
-	Date:Message-ID:From:References:Cc:To:Subject:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=ct8wg4kLyMMfEQg5mOMY7RKn2GG8vdZ2NnPY3zDs58Y=; b=g2pnPtktSDLV7w0LvEuyzXDOVa
-	Hk56yvw2tiUIcOwVf1i2Gg2/DertkMuZ9Hj+WBBB4Nu+ezmi65YX7i4Ji1vmdaI5Fwo1uLg0IpbbY
-	j5Iwk/ENesWiyHO3kCdjf6kNbIuDHbYtou/3CzzwvhT4DQkwkJA4+e3vw1EAXF9dTFKDK4S/YdSKq
-	PEgTs//zKwdL748SqmzOkuvYBoTOCq3bItaYke1E3SKdqiE4a0k2LKjxSHOpTR9iwAXJsysH6Zw+1
-	nx2m6PkOEfNip1R7pQivJ4VAphdM0ftW42M2VLaryR4ty1AkYujn22ku0yWMbhkHmHLauXeW+In7T
-	9F5JPkxQ==;
-Received: from c-73-223-253-157.hsd1.ca.comcast.net ([73.223.253.157]:35924 helo=[10.0.1.47])
-	by box5620.bluehost.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.96.2)
-	(envelope-from <re@w6rz.net>)
-	id 1t5DS6-001d97-0a;
-	Sun, 27 Oct 2024 18:17:46 -0600
-Subject: Re: [PATCH] riscv/entry: get correct syscall number from
- syscall_get_nr()
-To: Thomas Gleixner <tglx@linutronix.de>,
- Celeste Liu <coelacanthushex@gmail.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@kernel.org>,
- Celeste Liu via B4 Relay <devnull+CoelacanthusHex.gmail.com@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, Alexandre Ghiti <alex@ghiti.fr>,
- "Dmitry V. Levin" <ldv@strace.io>, Andrea Bolognani <abologna@redhat.com>,
- Felix Yan <felixonmars@archlinux.org>, Ruizhe Pan <c141028@gmail.com>,
- Shiqi Zhang <shiqi@isrc.iscas.ac.cn>, Guo Ren <guoren@kernel.org>,
- Yao Zi <ziyao@disroot.org>, Han Gao <gaohan@iscas.ac.cn>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-References: <87ldya4nv0.ffs@tglx>
- <3dc10d89-6c0c-4654-95ed-dd6f19efbad4@gmail.com> <87a5ep4k0n.ffs@tglx>
- <2b1a96b1-dbc5-40ed-b1b6-2c82d3df9eb2@gmail.com> <877c9t43jw.ffs@tglx>
-From: Ron Economos <re@w6rz.net>
-Message-ID: <81afb4bf-084b-e061-8ce4-90b76da16256@w6rz.net>
-Date: Sun, 27 Oct 2024 17:17:43 -0700
-User-Agent: Mozilla/5.0 (X11; Linux armv7l; rv:78.0) Gecko/20100101
- Thunderbird/78.14.0
+	Mon, 28 Oct 2024 01:01:29 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-2e2ad9825a7so2569815a91.0
+        for <linux-riscv@lists.infradead.org>; Sun, 27 Oct 2024 18:01:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1730077284; x=1730682084; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=TGuyzdjNbGUg4wkS1hddfWef9vyA9xzodf4AE2EckOY=;
+        b=jjEX48NgM10XJa2aEffJlPchk2bv87SKt/MXMIkg3sz26hPt3T1M1pnkO0DrNDzzsz
+         uFKIXqcCE1FM1YrnBWWcW0e4Gbyk3cRe4kFwVsTV3Q+DqCY4twCpgBooX7l3drzqMQvF
+         mr03Ol7NGFSBBfggw0WjBnpuJszNp6iv2+vMdql7vk2pDd1jAlb8ulx0OibexeOM6y27
+         zWsEaaGcp8+ZkXBU+QEbX5GGw6x+ZBwOdu65psrW4PEjb/ChEzjmaBzt78LWcR8dukCr
+         YCENwoX4YbVNU/bsOa49twY00/CTz+93fx15DeBaCX6Uh/2ofS95yapVJ+t8N3oJGfJ1
+         BLVQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730077284; x=1730682084;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TGuyzdjNbGUg4wkS1hddfWef9vyA9xzodf4AE2EckOY=;
+        b=jmLy+Q+MIH6nEZ4D9OVhH+vH5rkvXRnAIUZKPoE93DJJ9Vt2lmyUffCzcmPd0kBqLW
+         cc7juv5tg1IqeY6jSnCzMT+B6DsZrWvcFgePaRJzP1QRZj1zzOS9X4GQMvl4xP5fwkBK
+         zHZxzX3NRsLAtcN8zuKGRUCBd/YCV/AI9k+pryE33xHLrt+qtaJIaHC4lE7VjM34cAHM
+         ZPJe7rwqw9XNaUxRiT3MBSHUqbdC0+piWcMY2PrEmCFD0DIblDwzLvU/Tg5wAvvu7eGA
+         OGzyGuPPNTkeudqbQhP3gkWRwhRdQm18ic//u8njIIYv8v5LmjMXpiZ5suseAKZIjg+a
+         WDSA==
+X-Forwarded-Encrypted: i=1; AJvYcCUGHofJuckdtzlD2tKdIs5vRjHB+bQ3cIWMAzRxLK7/JooLY5gbRgAR9R7a3OQuNETvq9RmYxCF2sowVw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyiPOb6dUtuBv3SqQf2ihHuM0s2cDHvP+pH3/BLuN+DcwiwLbRE
+	V5dGEz68qwfkCaPq2cD67/xOtEIMhg8zYSDor32hQdDMQbVciw06
+X-Google-Smtp-Source: AGHT+IHsjV0smfvIDlYkmXNEvrusWQRxls/Itp84biZuwx87rVzyEPjTIFEByyu7uUH8BnSuAyfbfA==
+X-Received: by 2002:a17:90a:d481:b0:2e0:d957:1b9d with SMTP id 98e67ed59e1d1-2e8f1071c8dmr9314209a91.13.1730077284426;
+        Sun, 27 Oct 2024 18:01:24 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e77e515126sm7846162a91.30.2024.10.27.18.01.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 27 Oct 2024 18:01:24 -0700 (PDT)
+Date: Mon, 28 Oct 2024 09:00:59 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Thomas Bonnefille <thomas.bonnefille@bootlin.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@outlook.com>, 
+	Chao Wei <chao.wei@sophgo.com>, Conor Dooley <conor@kernel.org>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Samuel Holland <samuel.holland@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	=?utf-8?Q?Miqu=C3=A8l?= Raynal <miquel.raynal@bootlin.com>, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v5 1/2] riscv: dts: sophgo: Add initial SG2002 SoC device
+ tree
+Message-ID: <3vn2m4cgntx6c4y3rgkq7eqdlmlddgzi5w76nyprsle56h6sbh@j4liekhs42av>
+References: <20241010-sg2002-v5-0-a0f2e582b932@bootlin.com>
+ <20241010-sg2002-v5-1-a0f2e582b932@bootlin.com>
 MIME-Version: 1.0
-In-Reply-To: <877c9t43jw.ffs@tglx>
-Content-Language: en-US
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - box5620.bluehost.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - w6rz.net
-X-BWhitelist: no
-X-Source-IP: 73.223.253.157
-X-Source-L: No
-X-Exim-ID: 1t5DS6-001d97-0a
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: c-73-223-253-157.hsd1.ca.comcast.net ([10.0.1.47]) [73.223.253.157]:35924
-X-Source-Auth: re@w6rz.net
-X-Email-Count: 20
-X-Org: HG=bhshared;ORG=bluehost;
-X-Source-Cap: d3NpeHJ6bmU7d3NpeHJ6bmU7Ym94NTYyMC5ibHVlaG9zdC5jb20=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfBgJshssA3GodFmsPgbnoTsueuegIh0NbAffd1eFEIF4u9/tDpwHBzYGvnroBij5ROw8UieszxpsPxxlQZMimiKDdNLWDjaCLCTpKfdKoZ/1s2CAgkDM
- w48oCNw+no5b8pUq8JVccdQmXXevY7Oo0zSCfxq85ePKybKjReUJWgB3Uj6zVfoyr7tKeZ/+INhUbeeVenShU4PfvQ/BbGC3qrU=
+Content-Disposition: inline
+In-Reply-To: <20241010-sg2002-v5-1-a0f2e582b932@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241027_171802_421460_1B584890 
-X-CRM114-Status: UNSURE (   8.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241027_180125_734278_BA977395 
+X-CRM114-Status: GOOD (  18.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,33 +96,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/27/24 2:52 PM, Thomas Gleixner wrote:
-> On Mon, Oct 28 2024 at 01:01, Celeste Liu wrote:
->> On 2024-10-27 23:56, Thomas Gleixner wrote:
->>> Equivalently you need to be able to modify orig_a0 for changing arg0,
->>> no?
->> Ok.
->>
->> Greg, could you accept a backport a new API parameter for
->> PTRACE_GETREGSET/PTRACE_SETREGSET to 4.19 LTS branch?
-> Fix the problem properly and put a proper Fixes tag on it and worry
-> about the backport later.
->
-> Thanks,
->
->          tglx
->
-I wouldn't worry about backporting to the 4.19 kernel. It's essentially 
-prehistoric for RISC-V. There's no device tree support for any hardware. 
-Also, 4.19 will be going EOL very soon (December 2024).
+On Thu, Oct 10, 2024 at 05:07:06PM +0200, Thomas Bonnefille wrote:
+> Add initial device tree for the SG2002 RISC-V SoC by SOPHGO.
+> 
+> Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+> ---
+> The commit adding the bindings for the compatible "sophgo,sg2002-clint"
+> has been applied to Daniel Lezcano git tree. This commit may trigger the
+> bots because of this missing binding.
+> ---
+>  arch/riscv/boot/dts/sophgo/sg2002.dtsi | 42 ++++++++++++++++++++++++++++++++++
+>  1 file changed, 42 insertions(+)
+> 
+> diff --git a/arch/riscv/boot/dts/sophgo/sg2002.dtsi b/arch/riscv/boot/dts/sophgo/sg2002.dtsi
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..242fde84443f0d6a2c8476666dfa3d72727071b1
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/sophgo/sg2002.dtsi
+> @@ -0,0 +1,42 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +/*
+> + * Copyright (C) 2024 Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+> + */
+> +
+> +#include <dt-bindings/interrupt-controller/irq.h>
+> +#include <dt-bindings/pinctrl/pinctrl-sg2002.h>
+> +#include "cv18xx.dtsi"
+> +
+> +/ {
+> +	compatible = "sophgo,sg2002";
+> +
+> +	memory@80000000 {
+> +		device_type = "memory";
+> +		reg = <0x80000000 0x10000000>;
+> +	};
+> +
+> +	soc {
+> +		pinctrl: pinctrl@3008000 {
 
-Ron
+I got the following waring:
+arch/riscv/boot/dts/sophgo/sg2002.dtsi:20.28-25.5: Warning (simple_bus_reg): /soc/pinctrl@3008000: simple-bus unit address format error, expected "3001000"
 
+Could you send a fix patch?
+
+Regards,
+Inochi
+
+> +			compatible = "sophgo,sg2002-pinctrl";
+> +			reg = <0x03001000 0x1000>,
+> +			      <0x05027000 0x1000>;
+> +			reg-names = "sys", "rtc";
+> +		};
+> +	};
+> +};
+> +
+> +&plic {
+> +	compatible = "sophgo,sg2002-plic", "thead,c900-plic";
+> +};
+> +
+> +&clint {
+> +	compatible = "sophgo,sg2002-clint", "thead,c900-clint";
+> +};
+> +
+> +&clk {
+> +	compatible = "sophgo,sg2000-clk";
+> +};
+> +
+> +&sdhci0 {
+> +	compatible = "sophgo,sg2002-dwcmshc";
+> +};
+> 
+> -- 
+> 2.47.0
+> 
 
 _______________________________________________
 linux-riscv mailing list
