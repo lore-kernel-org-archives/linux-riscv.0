@@ -4,65 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69576D3399B
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Oct 2024 16:07:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09C8DD3399B
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Oct 2024 16:38:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ao/K8NUSsF9XQuFU8td7775fkkbz3Q+aRK19jD6Vvc4=; b=c2CXEF/oKEL9aA
-	65lYbERG9vkKyc1tstEzjBYgoO9ZLU61oCbEg2o35V2GEf+u6K4gzTdnRdQv61MoLwOCZ0oFQffLG
-	38SHgINkiCEDFiPTpvgH44Ur5ZYd9vLrcYpRPaQwuOb+8NWoZw8xSSfCJfL8wGR94GcH66sajTspX
-	n7y1O5EA2iKb55Zn6P7z2e8LGyBWFJTx1NE7+lWAA+cQyJDcLTQrNlDNrK5BePuMjRECUxCgxYIdX
-	mPXOewwlthki+CnVJP4eJvfAEPQ90jv90FqrOn5x1L+hdsUi9hu1Y2KBbwWDkGmwTn9uk0mtSk/na
-	5Tbjc5LNDS6jV5kgo1cg==;
+	List-Owner; bh=Prc/796ZZrajh2jZw6I7qAr3JQ+kTartGjeSEIBsFsc=; b=0zrbqgQDGbwLjn
+	HgoY39rnaxT2gQhc9X3eFKroxVwgjSCQkjTb6I6uTLDjhfjnPjrUf/e3hsx8c+Ptt65edgveywYGR
+	AGCRUdAunRmjVRuwPnUt2GQfddNeuQJkObn5UYSrAxi+SkRaCuVgu/oj3i9ALESf9WK+A7im5ZP9D
+	U6XoggaTadxUT6Ye0OoNaQwdyejsodlofp88f0cipLcqicePtzTKrPjoaTbJEJ86qICj1XSCi/iHc
+	cCdSl8zayEUmCjBbbKLALac6DkEx2jYXPQ7V54POh3dTcTfJE3J3qWey6H/feeAy8srOqdwxDVKom
+	jwi8ejtsPrLpN86Xm1EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5SH6-0000000BQLW-0BXc;
-	Mon, 28 Oct 2024 16:07:24 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t5Sky-0000000BWMt-1eZc;
+	Mon, 28 Oct 2024 16:38:16 +0000
+Received: from mail-pl1-x644.google.com ([2607:f8b0:4864:20::644])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Rrb-0000000BLVs-2dlW;
-	Mon, 28 Oct 2024 15:41:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E3FD25C5B61;
-	Mon, 28 Oct 2024 15:40:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F0E1C4CEC3;
-	Mon, 28 Oct 2024 15:40:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730130062;
-	bh=1OnKnskO1uPXHT57ko80fWNSrAKlqsEB3xePdsqM5Vs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=p+bslp5nYFB5IdzYlqcPXUe0Deg2tPLvvs4TWlciZJnyPqj4C7msUDWod/mZ74Wbi
-	 V+npdeWkLAM2YaCU68ORi88AWKUdk+SexkhRmxohs3rLk/42hVRfWw3lmcgEXhKfmW
-	 l+9bfe1QEI3TUsTCQUmiCfe1cOZzdBeIsDmI24fTFiyKZwDu9f4TeXEh9Tmi9Z7A4g
-	 RQuSC3lG7y94YkqEIK4qkURF8Scn98uwTY1D6XvZn72zlsfH7cHelHDCN5wkvgpceU
-	 yWqXIdxX1dAjLGXoC7cRczTCjM1LzpGhlbBh2ntrVJVtMMwopnozbfMsplC2SfLpCE
-	 /bnM2cMZeJadg==
-Date: Mon, 28 Oct 2024 15:40:55 +0000
-From: Will Deacon <will@kernel.org>
-To: Usama Arif <usamaarif642@gmail.com>
-Cc: robh@kernel.org, mark.rutland@arm.com, leitao@debian.org,
-	catalin.marinas@arm.com, tglx@linutronix.de, chris@zankel.net,
-	saravanak@google.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	kexec@lists.infradead.org, loongarch@lists.linux.dev,
-	linux-sh@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, linux-openrisc@vger.kernel.org,
-	linux-mips@vger.kernel.org, linux-csky@vger.kernel.org
-Subject: Re: [PATCH v2] of/fdt: add dt_phys arg to early_init_dt_scan and
- early_init_dt_verify
-Message-ID: <20241028154054.GE2484@willie-the-truck>
-References: <20241023171426.452688-1-usamaarif642@gmail.com>
+	id 1t5SZ8-0000000BUI4-158b
+	for linux-riscv@lists.infradead.org;
+	Mon, 28 Oct 2024 16:26:03 +0000
+Received: by mail-pl1-x644.google.com with SMTP id d9443c01a7336-20c693b68f5so46925985ad.1
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Oct 2024 09:26:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1730132761; x=1730737561; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=zi/YPCKq2pnvwaWzJ1+lBWDNA5pML5O6ykDvgXbiSGY=;
+        b=Q8nG998uumL/9w9xdOrBEt+rF5HMjVOy4AvrhYbXcYLMUjBfHjKvM6swlD40aYVGgR
+         eLoGmlnB5Bh9bfjtq4E5lrXtaQROTZ9NxR+ypD7/KO/mirN//W92n6dtNcrvtpkRZ2lZ
+         lItRL/S8Scxk2CpZXKwPkwKjPJBv/vga4bpw+W4PJLkmaOjZk+vlDsnqrlfnuzlJrjHy
+         Qlrr5qMJJzRN8naAW6gyet9WeYA8ahxNeNxvGgtYfhYSRDOQurcXN6SIrZUyN55Fu3C5
+         529ywmF5fQOaP72tX+cYOhh/h7NVMXllkoW3u1tMOPFsrLwaJzf1oJINJxEnpP0KPrBu
+         e6wQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730132761; x=1730737561;
+        h=content-transfer-encoding:in-reply-to:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=zi/YPCKq2pnvwaWzJ1+lBWDNA5pML5O6ykDvgXbiSGY=;
+        b=Q0w7evhDutHmAADzmRR3o90mI19iO1G0Z8xK4mEknMO7e50szrDpmRuh3YRjYfpIbB
+         UAk224J9mNTSW64l2t12CqlN/j0g7NSZc7Di8TtDuvoIh/kbSZLbT5c61GYCrNxyYaMY
+         GAYFZOUkX1leOZa2Mm5rGB4X1ljHzGPd3Fstl8JAO5Cr/JqrJTu/N0tHglhF8Vr8ri95
+         6ykWrcbb2k3c1M3VBMFY+yV8dN4bGXGwrR/ESly26GXQxls4ZfYMYw0Ro2HAxujn7CK2
+         P/UyO3TC3hl46drsY+G28hWFXdxEYsI/ZnnYXp2tc16t92uYp4I+H5XmZ/L4SLgiSpw+
+         9nJA==
+X-Forwarded-Encrypted: i=1; AJvYcCXscxDFZNNIWX0sxQ9GBvMBsL3AKzZS7bwj5oaJR6Db87W0wv+YI3e/FfWOK//MGhAq7fcYfIBAwtOFDw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRG56kHXUPBFEg1ap/to/ZxSgyK+bICJw7kWFJ0Ak/XbFzmSKh
+	b4uQ6EzkxPrrrqS0j5lr0jkrzNB9S6dI4cgkja4LNt/KQCbcOkGG
+X-Google-Smtp-Source: AGHT+IEEIhIcjSj9a4I/Em/9bk4VIo7UIAOODWRRjuGix7T52NUnL+2Mu/j8znXSNfqN/pfRwVna9Q==
+X-Received: by 2002:a17:902:e848:b0:20b:9998:e2f4 with SMTP id d9443c01a7336-210c6cf705bmr96246315ad.61.1730132760809;
+        Mon, 28 Oct 2024 09:26:00 -0700 (PDT)
+Received: from [127.0.0.1] ([103.156.242.194])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-210bc02eb81sm52187745ad.207.2024.10.28.09.25.55
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 28 Oct 2024 09:26:00 -0700 (PDT)
+From: Celeste Liu <coelacanthushex@gmail.com>
+X-Google-Original-From: Celeste Liu <CoelacanthusHex@gmail.com>
+Message-ID: <109afaab-05c0-4228-8ea0-1dc1aabe904f@gmail.com>
+Date: Tue, 29 Oct 2024 00:25:54 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241023171426.452688-1-usamaarif642@gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv/entry: get correct syscall number from
+ syscall_get_nr()
+Content-Language: en-GB-large
+To: Ron Economos <re@w6rz.net>, Thomas Gleixner <tglx@linutronix.de>,
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
+ Celeste Liu via B4 Relay <devnull+CoelacanthusHex.gmail.com@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ "Dmitry V. Levin" <ldv@strace.io>, Andrea Bolognani <abologna@redhat.com>,
+ Felix Yan <felixonmars@archlinux.org>, Ruizhe Pan <c141028@gmail.com>,
+ Shiqi Zhang <shiqi@isrc.iscas.ac.cn>, Guo Ren <guoren@kernel.org>,
+ Yao Zi <ziyao@disroot.org>, Han Gao <gaohan@iscas.ac.cn>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <87ldya4nv0.ffs@tglx>
+ <3dc10d89-6c0c-4654-95ed-dd6f19efbad4@gmail.com> <87a5ep4k0n.ffs@tglx>
+ <2b1a96b1-dbc5-40ed-b1b6-2c82d3df9eb2@gmail.com> <877c9t43jw.ffs@tglx>
+ <81afb4bf-084b-e061-8ce4-90b76da16256@w6rz.net>
+In-Reply-To: <81afb4bf-084b-e061-8ce4-90b76da16256@w6rz.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_084103_782861_F97875F6 
-X-CRM114-Status: GOOD (  20.04  )
+X-CRM114-CacheID: sfid-20241028_092602_331954_1E4D6A4B 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,90 +110,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 23, 2024 at 06:14:26PM +0100, Usama Arif wrote:
->  __pa() is only intended to be used for linear map addresses and using
-> it for initial_boot_params which is in fixmap for arm64 will give an
-> incorrect value. Hence save the physical address when it is known at
-> boot time when calling early_init_dt_scan for arm64 and use it at kexec
-> time instead of converting the virtual address using __pa().
-> 
-> Reported-by: Breno Leitao <leitao@debian.org>
-> Suggested-by: Mark Rutland <mark.rutland@arm.com>
-> Signed-off-by: Usama Arif <usamaarif642@gmail.com>
-> Fixes: ac10be5cdbfa ("arm64: Use common of_kexec_alloc_and_setup_fdt()")
-> ---
-> v1 -> 2:
-> - pass dt_phys in early_init_dt_scan instead of creating
->   anorther arch->dt function (Rob Herring)
-> ---
->  arch/arc/kernel/devtree.c              |  2 +-
->  arch/arm/kernel/devtree.c              |  2 +-
->  arch/arm64/kernel/setup.c              |  6 +++++-
->  arch/csky/kernel/setup.c               |  4 ++--
->  arch/loongarch/kernel/setup.c          |  2 +-
->  arch/microblaze/kernel/prom.c          |  2 +-
->  arch/mips/kernel/prom.c                |  2 +-
->  arch/mips/kernel/relocate.c            |  2 +-
->  arch/nios2/kernel/prom.c               |  4 ++--
->  arch/openrisc/kernel/prom.c            |  2 +-
->  arch/powerpc/kernel/dt_cpu_ftrs.c      |  2 +-
->  arch/powerpc/kernel/prom.c             |  2 +-
->  arch/powerpc/platforms/pseries/plpks.c |  2 +-
->  arch/riscv/kernel/setup.c              |  2 +-
->  arch/sh/kernel/setup.c                 |  2 +-
->  arch/um/kernel/dtb.c                   |  2 +-
->  arch/x86/kernel/devicetree.c           |  2 +-
->  arch/xtensa/kernel/setup.c             |  2 +-
->  drivers/of/fdt.c                       | 14 ++++++++------
->  drivers/of/kexec.c                     |  2 +-
->  include/linux/of_fdt.h                 |  5 +++--
->  21 files changed, 36 insertions(+), 29 deletions(-)
-> 
-> diff --git a/arch/arc/kernel/devtree.c b/arch/arc/kernel/devtree.c
-> index 4c9e61457b2f..cc6ac7d128aa 100644
-> --- a/arch/arc/kernel/devtree.c
-> +++ b/arch/arc/kernel/devtree.c
-> @@ -62,7 +62,7 @@ const struct machine_desc * __init setup_machine_fdt(void *dt)
->  	const struct machine_desc *mdesc;
->  	unsigned long dt_root;
->  
-> -	if (!early_init_dt_scan(dt))
-> +	if (!early_init_dt_scan(dt, __pa(dt)))
->  		return NULL;
->  
->  	mdesc = of_flat_dt_match_machine(NULL, arch_get_next_mach);
-> diff --git a/arch/arm/kernel/devtree.c b/arch/arm/kernel/devtree.c
-> index fdb74e64206a..3b78966e750a 100644
-> --- a/arch/arm/kernel/devtree.c
-> +++ b/arch/arm/kernel/devtree.c
-> @@ -200,7 +200,7 @@ const struct machine_desc * __init setup_machine_fdt(void *dt_virt)
->  
->  	mdesc_best = &__mach_desc_GENERIC_DT;
->  
-> -	if (!dt_virt || !early_init_dt_verify(dt_virt))
-> +	if (!dt_virt || !early_init_dt_verify(dt_virt, __pa(dt_virt)))
->  		return NULL;
->  
->  	mdesc = of_flat_dt_match_machine(mdesc_best, arch_get_next_mach);
-> diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
-> index b22d28ec8028..177262739c49 100644
-> --- a/arch/arm64/kernel/setup.c
-> +++ b/arch/arm64/kernel/setup.c
-> @@ -175,7 +175,11 @@ static void __init setup_machine_fdt(phys_addr_t dt_phys)
->  	if (dt_virt)
->  		memblock_reserve(dt_phys, size);
->  
-> -	if (!dt_virt || !early_init_dt_scan(dt_virt)) {
-> +	/*
-> +	 * dt_virt is a fixmap address, hence __pa(dt_virt) can't be used.
-> +	 * Pass dt_phys directly.
-> +	 */
-> +	if (!dt_virt || !early_init_dt_scan(dt_virt, dt_phys)) {
 
-nit: It looks like early_init_dt_verify() will now return false if
-!dt_virt, so we can drop the additional check here.
+On 2024-10-28 08:17, Ron Economos wrote:
+> On 10/27/24 2:52 PM, Thomas Gleixner wrote:
+>> On Mon, Oct 28 2024 at 01:01, Celeste Liu wrote:
+>>> On 2024-10-27 23:56, Thomas Gleixner wrote:
+>>>> Equivalently you need to be able to modify orig_a0 for changing arg0,
+>>>> no?
+>>> Ok.
+>>>
+>>> Greg, could you accept a backport a new API parameter for
+>>> PTRACE_GETREGSET/PTRACE_SETREGSET to 4.19 LTS branch?
+>> Fix the problem properly and put a proper Fixes tag on it and worry
+>> about the backport later.
+>>
+>> Thanks,
+>>
+>>          tglx
+>>
+> I wouldn't worry about backporting to the 4.19 kernel. It's essentially prehistoric for RISC-V. There's no device tree support for any hardware. Also, 4.19 will be going EOL very soon (December 2024).
 
-Will
+Ok, I will work on preparing a new patch to add a new set in 
+PTRACE_GETREGSET/PTRACE_SETREGSET.
+
+> 
+> Ron
+> 
 
 _______________________________________________
 linux-riscv mailing list
