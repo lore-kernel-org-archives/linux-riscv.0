@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD06ED13599
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Oct 2024 08:28:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBFDDD13598
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Oct 2024 08:28:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pCwXTk/omVDe1M6PdB/HaWp7lMHv95FvmhZoDmMmJv8=; b=eWfLdUA64ooVqM
-	Q3oyTg0Z0p4w9WKngYh2RLI41ZyKNR2tBxGayF+QZQLVnoQIxv404exy2HpODJtkOB03aPMz6yQsc
-	CKYIfnL/YOxA7+Gp1dd5v2+DQrBpEz3PgaO3xpYY6Md4nQozMnFepr9zMu62NpSv8NjjNELw9jUYV
-	hJqZIoyiST6tDz3cjAKS56EcFpsHq402MkQGgLaH2slUcA4OKwflwF3oHRN95dvBPP9MSzI1yGKBT
-	2lrbtlrgbX0o7b6FdxP82JIx5MTuQGTOhjYmZxgkn22CGHHa2Ecr2n0srjaCsLGID1eUg7NCfiGM3
-	UrFV3YVYpTbk4sTGINlw==;
+	List-Owner; bh=DO7GLYszKhNXGhogZFM5TTrCVOMTkl+d6h3cIbuGBRQ=; b=bkAbXjbuFwFg9C
+	BDVxaEkphPJ+kt+FF6Inf0DDIZbgM15t1pMNmMeHoKiATuBikV+fr+CQowSd2UhW0kf1c+Zuzz7oI
+	Z1x0qUhyg8zYTDwQamJfAYgQz2onp6qKmR/YadDmNRpqaqMq96RUjVKlqM6V+1R2Exp6JJHIFtgpe
+	kdIjIq9kzo0gkz45MHT7/qhSt88HPMqnqFEVrjgMG689nbNB1jxmUUfWGnm/tPsHnrzYlA3aFpz/o
+	Gz2PWJYjoyCiuTA55c3DaKgCXCBZWZZHMnAgCTUdWFI4zMsw+N+xxbCVY3jFc/rqi74v+97bDE3uX
+	1RKaLtJjxY1lnBEmRzFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5L7I-0000000A5fU-3AxN;
+	id 1t5L7I-0000000A5fF-02qQ;
 	Mon, 28 Oct 2024 08:28:48 +0000
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+Received: from mail-oa1-x35.google.com ([2001:4860:4864:20::35])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5L6T-0000000A5Qy-1NbZ
+	id 1t5L67-0000000A5Kl-0SCI
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Oct 2024 08:27:58 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-7eda47b7343so2492552a12.0
-        for <linux-riscv@lists.infradead.org>; Mon, 28 Oct 2024 01:27:57 -0700 (PDT)
+	Mon, 28 Oct 2024 08:27:36 +0000
+Received: by mail-oa1-x35.google.com with SMTP id 586e51a60fabf-29066daf9e2so626750fac.3
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Oct 2024 01:27:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1730104076; x=1730708876; darn=lists.infradead.org;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1730104054; x=1730708854; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=48dfn7mu6W2OgtVA3beq5tOxjI4KGJ1Pme7qMOmIz6I=;
-        b=jpcQXuCwUtN4tPhQrd3tmiOJsqALd9fPNerD16lN2Qatpt9qD93bDRW292fwRS8g+X
-         6bhGEZSVWzdHHcsM1ancId7ZOgnwWhQ39XQgD7LwxAsecCvZRHygkyVvhJ2mM5cUPTbf
-         3GQwUSPllssAjQyOuctb3G6BpujxWZhiqtlHs8/FuDJZfk8WpSTLl6kzvA5xBcGJyc65
-         /x9VVtpuTRyxh0mWjoEZcq9tjWXvCgo+RO8hWkhSuqjv7eJTHTj9Sz9QyMoxcad6yoAT
-         sXPy7yVOGpMfvhg/ZkQeEWOxBhOVPZ3re9maAGX3Zb8UErqFh6ESSUTA4FCChOdl8ypX
-         ZDEw==
+        bh=JUnDdF1NqKOBG1QC1W/FMRUH7DBiKtvIz//4z8kfSg0=;
+        b=bsfgotkKoS0WaUHUWY8J/hPtZzXW4jK/W4eVX9wKRQoEYmceV1xkw01k5QhDuu3nkm
+         UqJpzzNGoesDdV/zgDYLWE9ObqPECx5mbCc8KR82IILNGudWsKNvyJT4+nyvycs7K8pR
+         QL5O72w0kMXWeZmrzv6I7PKeO2cgIcoJxPwh/ojTsS5Cf/FTGLija+HmBV1hXyHXTZMa
+         JCV269tx9ELDc0NPYKid6LjMdrznUqFbBA+/WAiIEMJqJzEb9StvOHgsJMOL5j/qf0Ol
+         E7UlwBrkSObRMdNMIac1hj9JXLMD02yEuKcdF46kwpG0G6zCZtmFrrwvpAL/FdgCr0uk
+         29VA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730104076; x=1730708876;
+        d=1e100.net; s=20230601; t=1730104054; x=1730708854;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=48dfn7mu6W2OgtVA3beq5tOxjI4KGJ1Pme7qMOmIz6I=;
-        b=VCQw5zfmWjHcfTkxW6y3X5anCpbf0jrKmMb7BwdXzbnqu0hBSydD2amXBg2NVjLeho
-         Fxq6GRUE8kCua6VLiwBS7VWzrkvTIJcwXCxC46z3mpEjKOIurcRcyOjM+M7JIchoRRcL
-         7tPlS4chpYl56DBi8CVxTjC2WlxFR/FP4ZgwZmfAgnwqAYZxRt5PqRMWYeJsTnFdrpQG
-         8EgsJr4KGHdtM5qVIQkw4ONFqVJbCk80MqDldVjjvSK3+aNno1BGbV/cHP4LrVG19XTW
-         4ACadaxLiu2Madt/sFHIonozN6GnSOFdiTxsVcvOidnJQ/5oIXt7/4CwEWAjMzS4hcqn
-         pFxQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWZ7swjMRpNRQDysAPPOgMfVKMIHHO57o4kJyW+cD1S+fADXmQkEZmvtOnYE7D9/wPiK2P+koll9NDsPQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwspLzu6m46Yc9wFuP2QRQSB532+OPb/7qHFHVSQAtm2OXE3d05
-	Br/iNVpfpyDma2PCsMLeaU3nOvtvsffWxBiLO8oI6JZXEBRbahNsLwKr/hJ78K1VimjGRgaRObj
-	jLOtAOTvL
-X-Google-Smtp-Source: AGHT+IE8wn9dwa54k3OBS56nEWQqTVNnYe9nbyioaN5RXlYbjJE50o6vpy5ntxzVz9U0L90dN0x4Gg==
-X-Received: by 2002:a05:6a20:d809:b0:1d9:2659:5db1 with SMTP id adf61e73a8af0-1d9a83da862mr10079042637.19.1730104076321;
-        Mon, 28 Oct 2024 01:27:56 -0700 (PDT)
+        bh=JUnDdF1NqKOBG1QC1W/FMRUH7DBiKtvIz//4z8kfSg0=;
+        b=jMSiwo8MXvMjB3NChDIZW/kKlJHKChCYokQfaHk3hwkzVzkipkRkdlZKj3gmg6iD1F
+         jqOqmA3jQDrVwVdEaPlyflZSEalobVk0IA/sabGcsxBx5/zgqhanI8qtHsNQPpk9U5F5
+         uns3GPIEHvQS9sqWoyuj00Erd5AtYu7RvojWzPwY3RMvIUT6OUjKOrKMaQG+0yCaWCjl
+         +vHIOtsMM65v6sY+A6G5dBAVoKCNZ4ceu1VQsgvHJMNo7nWYXVgFihluXhhlwjsJkd8c
+         X5WB32pzMzcbZ2qpapf/BQ2laj6kXDG2WzI6qZpjeWpnQgKYN9Mdni47K4C4ppX2yIat
+         uZ0w==
+X-Forwarded-Encrypted: i=1; AJvYcCWIjghEq3owj3fMCtQQA7JBGoahJyP9N1AoFt7y1ocAfr/OagoUXHLWVAa0DSyq1crEJ8cVHDnC4iPThg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy/r3jyr9vBWLXru7l+0pz7gnml2lfvKXnBCfxVleDXny98HZl6
+	UcpTVaqnd3fESLTNPVvqYnVcLW9eGsUJe19Qz7wym5HaZbDIl0BKWDqojEuePIY=
+X-Google-Smtp-Source: AGHT+IGPk4YXrutX/vs8AXtEdItCylcwMp3wJPOtQTv6GW7g//NaYI/dS10bOiYT0NqDk06ZhYnIQQ==
+X-Received: by 2002:a05:6870:1614:b0:277:7147:26ff with SMTP id 586e51a60fabf-29051d728ebmr4639045fac.35.1730104052900;
+        Mon, 28 Oct 2024 01:27:32 -0700 (PDT)
 Received: from localhost.localdomain ([2a11:3:200::401b])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7205791e451sm5195419b3a.24.2024.10.28.01.27.39
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7205791e451sm5195419b3a.24.2024.10.28.01.27.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Oct 2024 01:27:56 -0700 (PDT)
+        Mon, 28 Oct 2024 01:27:32 -0700 (PDT)
 From: Guodong Xu <guodong@riscstar.com>
 To: Conor Dooley <conor@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -90,16 +89,16 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	linux-kernel@vger.kernel.org,
 	Guodong Xu <guodong@riscstar.com>,
 	Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Subject: [PATCH v7 2/5] riscv: dts: starfive: jh7110-common: move usb0 config to board dts
-Date: Mon, 28 Oct 2024 16:25:50 +0800
-Message-Id: <20241028082553.1989797-3-guodong@riscstar.com>
+Subject: [PATCH v7 1/5] riscv: dts: starfive: jh7110-common: revised device node
+Date: Mon, 28 Oct 2024 16:25:49 +0800
+Message-Id: <20241028082553.1989797-2-guodong@riscstar.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241028082553.1989797-1-guodong@riscstar.com>
 References: <20241028082553.1989797-1-guodong@riscstar.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_012757_391685_F73AF099 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20241028_012735_173640_2175BC2A 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,80 +115,190 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The JH7110 USB0 can operate as a dual-role USB device.  Different
-boards can have different configuration.
+Earlier this year a new DTSI file was created to define common
+properties for the StarFive VisionFive 2 and Milk-V Mars boards,
+both of which use the StarFive JH7110 SoC.  The Pine64 Star64
+board has also been added since that time.
 
-For all current boards this device operates in peripheral mode, but
-on a new board this operates in host mode.  This property will no
-longer be common, so define the "dr_mode" property in the board files
-rather than in the common DTSI file.
+Some of the nodes defined in "jh7110-common.dtsi" are enabled in
+that file because all of the boards including it "want" them
+enabled.
+
+An upcoming patch enables another JH7110 board, but for that
+board not all of these common nodes should be enabled.  Prepare
+for supporting the new board by avoiding enabling these nodes in
+"jh7110-common.dtsi", and enable them instead in these files:
+   jh7110-milkv-mars.dts
+   jh7110-pine64-star64.dts
+   jh7110-starfive-visionfive-2.dtsi
 
 Signed-off-by: Alex Elder <elder@riscstar.com>
 Signed-off-by: Guodong Xu <guodong@riscstar.com>
 Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 ---
 v7: Add Emil's Reviewed-by
+    Fixed a typo in description
 v6: New patch
 
- arch/riscv/boot/dts/starfive/jh7110-common.dtsi              | 5 -----
- arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts           | 5 +++++
- arch/riscv/boot/dts/starfive/jh7110-pine64-star64.dts        | 5 +++++
- .../boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi      | 5 +++++
- 4 files changed, 15 insertions(+), 5 deletions(-)
+ .../boot/dts/starfive/jh7110-common.dtsi      |  5 -----
+ .../boot/dts/starfive/jh7110-milkv-mars.dts   | 17 ++++++++++++++++
+ .../dts/starfive/jh7110-pine64-star64.dts     | 17 ++++++++++++++++
+ .../jh7110-starfive-visionfive-2.dtsi         | 20 +++++++++++++++++++
+ 4 files changed, 54 insertions(+), 5 deletions(-)
 
 diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
-index 9e77f79ec162..87ea81e9fed4 100644
+index c7771b3b6475..9e77f79ec162 100644
 --- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
 +++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
-@@ -637,11 +637,6 @@ &uart0 {
- 	status = "okay";
+@@ -176,7 +176,6 @@ csi2rx_to_camss: endpoint {
+ &gmac0 {
+ 	phy-handle = <&phy0>;
+ 	phy-mode = "rgmii-id";
+-	status = "okay";
+ 
+ 	mdio {
+ 		#address-cells = <1>;
+@@ -196,7 +195,6 @@ &i2c0 {
+ 	i2c-scl-falling-time-ns = <510>;
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&i2c0_pins>;
+-	status = "okay";
  };
  
--&usb0 {
--	dr_mode = "peripheral";
+ &i2c2 {
+@@ -311,7 +309,6 @@ &pcie1 {
+ &pwmdac {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pwmdac_pins>;
 -	status = "okay";
--};
--
- &U74_1 {
- 	cpu-supply = <&vdd_cpu>;
  };
+ 
+ &qspi {
+@@ -350,13 +347,11 @@ uboot@100000 {
+ &pwm {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pwm_pins>;
+-	status = "okay";
+ };
+ 
+ &spi0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&spi0_pins>;
+-	status = "okay";
+ 
+ 	spi_dev0: spi@0 {
+ 		compatible = "rohm,dh2228fv";
 diff --git a/arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts b/arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts
-index 66ad3eb2fd66..0d248b671d4b 100644
+index 5cb9e99e1dac..66ad3eb2fd66 100644
 --- a/arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts
 +++ b/arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts
-@@ -52,3 +52,8 @@ &pwmdac {
- &spi0 {
- 	status = "okay";
+@@ -15,6 +15,11 @@ &gmac0 {
+ 	starfive,tx-use-rgmii-clk;
+ 	assigned-clocks = <&aoncrg JH7110_AONCLK_GMAC0_TX>;
+ 	assigned-clock-parents = <&aoncrg JH7110_AONCLK_GMAC0_RMII_RTX>;
++	status = "okay";
++};
++
++&i2c0 {
++	status = "okay";
+ };
+ 
+ &pcie0 {
+@@ -35,3 +40,15 @@ &phy0 {
+ 	rx-internal-delay-ps = <1500>;
+ 	tx-internal-delay-ps = <1500>;
  };
 +
-+&usb0 {
-+	dr_mode = "peripheral";
++&pwm {
++	status = "okay";
++};
++
++&pwmdac {
++	status = "okay";
++};
++
++&spi0 {
 +	status = "okay";
 +};
 diff --git a/arch/riscv/boot/dts/starfive/jh7110-pine64-star64.dts b/arch/riscv/boot/dts/starfive/jh7110-pine64-star64.dts
-index dbc8612b8464..d5180c67ac55 100644
+index b720cdd15ed6..dbc8612b8464 100644
 --- a/arch/riscv/boot/dts/starfive/jh7110-pine64-star64.dts
 +++ b/arch/riscv/boot/dts/starfive/jh7110-pine64-star64.dts
-@@ -80,3 +80,8 @@ &pwmdac {
- &spi0 {
+@@ -18,6 +18,7 @@ &gmac0 {
+ 	starfive,tx-use-rgmii-clk;
+ 	assigned-clocks = <&aoncrg JH7110_AONCLK_GMAC0_TX>;
+ 	assigned-clock-parents = <&aoncrg JH7110_AONCLK_GMAC0_RMII_RTX>;
++	status = "okay";
+ };
+ 
+ &gmac1 {
+@@ -39,6 +40,10 @@ phy1: ethernet-phy@1 {
+ 	};
+ };
+ 
++&i2c0 {
++	status = "okay";
++};
++
+ &pcie1 {
  	status = "okay";
  };
+@@ -63,3 +68,15 @@ &phy1 {
+ 	motorcomm,tx-clk-10-inverted;
+ 	motorcomm,tx-clk-100-inverted;
+ };
 +
-+&usb0 {
-+	dr_mode = "peripheral";
++&pwm {
++	status = "okay";
++};
++
++&pwmdac {
++	status = "okay";
++};
++
++&spi0 {
 +	status = "okay";
 +};
 diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-index ef93a394bb2f..5f14afb2c24d 100644
+index 18f38fc790a4..ef93a394bb2f 100644
 --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
 +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-@@ -60,3 +60,8 @@ &pwmdac {
- &spi0 {
+@@ -13,6 +13,10 @@ aliases {
+ 	};
+ };
+ 
++&gmac0 {
++	status = "okay";
++};
++
+ &gmac1 {
+ 	phy-handle = <&phy1>;
+ 	phy-mode = "rgmii-id";
+@@ -29,6 +33,10 @@ phy1: ethernet-phy@1 {
+ 	};
+ };
+ 
++&i2c0 {
++	status = "okay";
++};
++
+ &mmc0 {
+ 	non-removable;
+ };
+@@ -40,3 +48,15 @@ &pcie0 {
+ &pcie1 {
  	status = "okay";
  };
 +
-+&usb0 {
-+	dr_mode = "peripheral";
++&pwm {
++	status = "okay";
++};
++
++&pwmdac {
++	status = "okay";
++};
++
++&spi0 {
 +	status = "okay";
 +};
 -- 
