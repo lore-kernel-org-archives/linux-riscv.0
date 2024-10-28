@@ -4,87 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAED4D1358F
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Oct 2024 01:01:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B608CD13590
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Oct 2024 01:14:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Lj03iPETua5dK/eUtivLH2awW2JKr0C89AVj0yS6l8Q=; b=jfUH8IXsnJyATd
-	htSt6v+6AWt/oZ5C7vVGxRZKiEFuMHQbaRNvo8YpTR3cF0LtIPDi9qLJ0StkgNzlbifN5RAz3o36d
-	2QceGqiXVHpICl6M31SWvuPWNuDa+i2NkdLyRT6uWs/3bKAcpAxpSVmOacfK4qZFF17MJ5ZORDq/d
-	mSIQiHsjnsGlpSw//s9/9nhfuDjPp8hlppaGkMir6QxTVWmL2u0aeyBvDzV5b8lQqlQCGvXTpIQYU
-	iiW7YxSFUfY/t/G765sehV/DrLyfxML6QE0Jcd7Cz7EnFdeCoOMIvqKjUBG04HPynnowiZ1oje93M
-	jW3s7IPV45sOUbEoQ1Xw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=T3v4ZH5qVNIbLVkDs6qWYGxwH2KIaVwy5sWsS+jPA9k=; b=0nh0dH0MLuAeWb
+	17RPEw1BJiiAXuW7qHHUc+NH6DPxTTMWHJ0HrTSxCQueWAu7ZExXgnsBfw5JR3WqFK+s1ng5nAYYv
+	2+ps/ua4n0wW/UnDfXlHb865J4q84y5x6HUYfqUpYzn/gtRKY65/cCzrjPdy8CHejq3/Ig1y9vk7i
+	xHnp51hytyOccVLWq4JxWxVMc+n+mGNuvU9zu9Z8FvXME9KxwOHMFkg+Yx3VLyHsOvQHxHm0/Woql
+	2fCaPvtNjx/O8jHURKIgwh2VqYb/Bo02+YnpQtRRCMqteo8JZsGZUvDjn3MfN/fY/+Pmi8lbp8ioB
+	fFpRGBrJjE0B6i7dP5iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5E8R-00000009B9L-2HBW;
-	Mon, 28 Oct 2024 01:01:31 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1t5EKb-00000009C4r-04EL;
+	Mon, 28 Oct 2024 01:14:05 +0000
+Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5E8L-00000009B8t-2nqn
+	id 1t5EKC-00000009C0E-11Ij
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Oct 2024 01:01:29 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-2e2ad9825a7so2569815a91.0
-        for <linux-riscv@lists.infradead.org>; Sun, 27 Oct 2024 18:01:25 -0700 (PDT)
+	Mon, 28 Oct 2024 01:14:02 +0000
+Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-7ede82dbb63so367306a12.2
+        for <linux-riscv@lists.infradead.org>; Sun, 27 Oct 2024 18:13:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730077284; x=1730682084; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=TGuyzdjNbGUg4wkS1hddfWef9vyA9xzodf4AE2EckOY=;
-        b=jjEX48NgM10XJa2aEffJlPchk2bv87SKt/MXMIkg3sz26hPt3T1M1pnkO0DrNDzzsz
-         uFKIXqcCE1FM1YrnBWWcW0e4Gbyk3cRe4kFwVsTV3Q+DqCY4twCpgBooX7l3drzqMQvF
-         mr03Ol7NGFSBBfggw0WjBnpuJszNp6iv2+vMdql7vk2pDd1jAlb8ulx0OibexeOM6y27
-         zWsEaaGcp8+ZkXBU+QEbX5GGw6x+ZBwOdu65psrW4PEjb/ChEzjmaBzt78LWcR8dukCr
-         YCENwoX4YbVNU/bsOa49twY00/CTz+93fx15DeBaCX6Uh/2ofS95yapVJ+t8N3oJGfJ1
-         BLVQ==
+        d=gmail.com; s=20230601; t=1730078019; x=1730682819; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=+3tCahJOmROdPw2eESwWsnhfLTfFzOuQiLcj0eIRRxE=;
+        b=FlIlnG+gqj0UOC3ypMX+sVqLJQF5je57G9K6+ymmRup3PoHgh1gJNFLVpJIejnZZKX
+         qwjvb0pBmrGHfztpgIQ4Em/8c8AqZ2GW1aV4M3XJz6zZoUpvt6WYWAJZOtXvuND624Od
+         YMUMzXR2VB5MbxUf6Vw9fk3J8nepDtDLUtmTKHNkPIrB0oWVGIerz+91iTfEcLAXSdjx
+         CJF7wxMbkSN6lwGImh2ezzTsFkKBLo/xvn6WIH/yygobZ11NJexY/YzdbovYLlCkotZJ
+         RQYn8cybR5a99e+yFYJTun1VCEJZ9M+u+emQ6IQM+X+/OIimXSb4/3iuF6KdaXB5cy2+
+         ZE7g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730077284; x=1730682084;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TGuyzdjNbGUg4wkS1hddfWef9vyA9xzodf4AE2EckOY=;
-        b=jmLy+Q+MIH6nEZ4D9OVhH+vH5rkvXRnAIUZKPoE93DJJ9Vt2lmyUffCzcmPd0kBqLW
-         cc7juv5tg1IqeY6jSnCzMT+B6DsZrWvcFgePaRJzP1QRZj1zzOS9X4GQMvl4xP5fwkBK
-         zHZxzX3NRsLAtcN8zuKGRUCBd/YCV/AI9k+pryE33xHLrt+qtaJIaHC4lE7VjM34cAHM
-         ZPJe7rwqw9XNaUxRiT3MBSHUqbdC0+piWcMY2PrEmCFD0DIblDwzLvU/Tg5wAvvu7eGA
-         OGzyGuPPNTkeudqbQhP3gkWRwhRdQm18ic//u8njIIYv8v5LmjMXpiZ5suseAKZIjg+a
-         WDSA==
-X-Forwarded-Encrypted: i=1; AJvYcCUGHofJuckdtzlD2tKdIs5vRjHB+bQ3cIWMAzRxLK7/JooLY5gbRgAR9R7a3OQuNETvq9RmYxCF2sowVw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyiPOb6dUtuBv3SqQf2ihHuM0s2cDHvP+pH3/BLuN+DcwiwLbRE
-	V5dGEz68qwfkCaPq2cD67/xOtEIMhg8zYSDor32hQdDMQbVciw06
-X-Google-Smtp-Source: AGHT+IHsjV0smfvIDlYkmXNEvrusWQRxls/Itp84biZuwx87rVzyEPjTIFEByyu7uUH8BnSuAyfbfA==
-X-Received: by 2002:a17:90a:d481:b0:2e0:d957:1b9d with SMTP id 98e67ed59e1d1-2e8f1071c8dmr9314209a91.13.1730077284426;
-        Sun, 27 Oct 2024 18:01:24 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1730078019; x=1730682819;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+3tCahJOmROdPw2eESwWsnhfLTfFzOuQiLcj0eIRRxE=;
+        b=GIJfHvyZHjJLeyDZIlD44/Bql8j76Hrl7NNdkZh6DS8QZ/ULOe5DgjYSAAInvhdrcE
+         5TY8KYba9dvilvTFKI92Gai8vVrG3efjLku+XoYB7tQVEYkKFj+/rjTcLKFRSHz4Fhaz
+         B8XgMf1/Ww6qQX1qCTnWIw3LJwlWvJrMId2gWc3yGgQamVhsxesZoxGM1JrV0mWmbx5x
+         0hnlDpRiq+rtLRu007lusuY4L0+4MfxjKh7gXMdahN0mCFtJVCoDSkSzsUW6utYXTyk/
+         dpCdCoTCLM+WUmaV2We+I8AN5igPABW8dkbiZWI9HI4muEqWczDBuR+auWTyn5MM/Hzp
+         RSjA==
+X-Forwarded-Encrypted: i=1; AJvYcCVVNcp/WC7EMjHlO3QPu8Hucmw2xJ7Al9qBgSLuUnTgSLVGz6pM5Df7q3A4UwcqXhhdLYFIMvQ3E+MmcA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJQarc5Cf5jF6BUYM2kopnO2AWyxeIhHIoEpUFSLbY+ccGx4n6
+	eD6XV7M0nWGEh8Wym12M7qKvTv+7ygEyDDYcNb37TlhpMjEMrnvD
+X-Google-Smtp-Source: AGHT+IEn22qT3aAgfP2GIkF4DIPGzct889HLqTlXcqnHoA/L+gK2jDOatquPmlzkbeGD1c41qaA4Wg==
+X-Received: by 2002:a05:6a20:c997:b0:1d9:4639:396b with SMTP id adf61e73a8af0-1d9a83c186bmr9642710637.11.1730078019112;
+        Sun, 27 Oct 2024 18:13:39 -0700 (PDT)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e77e515126sm7846162a91.30.2024.10.27.18.01.23
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72058052be4sm4744556b3a.142.2024.10.27.18.13.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 27 Oct 2024 18:01:24 -0700 (PDT)
-Date: Mon, 28 Oct 2024 09:00:59 +0800
+        Sun, 27 Oct 2024 18:13:38 -0700 (PDT)
 From: Inochi Amaoto <inochiama@gmail.com>
-To: Thomas Bonnefille <thomas.bonnefille@bootlin.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@outlook.com>, 
-	Chao Wei <chao.wei@sophgo.com>, Conor Dooley <conor@kernel.org>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Samuel Holland <samuel.holland@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, 
-	Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
-	=?utf-8?Q?Miqu=C3=A8l?= Raynal <miquel.raynal@bootlin.com>, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v5 1/2] riscv: dts: sophgo: Add initial SG2002 SoC device
- tree
-Message-ID: <3vn2m4cgntx6c4y3rgkq7eqdlmlddgzi5w76nyprsle56h6sbh@j4liekhs42av>
-References: <20241010-sg2002-v5-0-a0f2e582b932@bootlin.com>
- <20241010-sg2002-v5-1-a0f2e582b932@bootlin.com>
+To: Chen Wang <unicorn_wang@outlook.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+Cc: Liu Gui <kenneth.liu@sophgo.com>,
+	Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: [PATCH] riscv: dts: sophgo: Add ethernet configuration for cv18xx
+Date: Mon, 28 Oct 2024 09:13:12 +0800
+Message-ID: <20241028011312.274938-1-inochiama@gmail.com>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241010-sg2002-v5-1-a0f2e582b932@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241027_180125_734278_BA977395 
-X-CRM114-Status: GOOD (  18.09  )
+X-CRM114-CacheID: sfid-20241027_181340_307931_D0AAE7AA 
+X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,79 +107,92 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 10, 2024 at 05:07:06PM +0200, Thomas Bonnefille wrote:
-> Add initial device tree for the SG2002 RISC-V SoC by SOPHGO.
-> 
-> Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-> ---
-> The commit adding the bindings for the compatible "sophgo,sg2002-clint"
-> has been applied to Daniel Lezcano git tree. This commit may trigger the
-> bots because of this missing binding.
-> ---
->  arch/riscv/boot/dts/sophgo/sg2002.dtsi | 42 ++++++++++++++++++++++++++++++++++
->  1 file changed, 42 insertions(+)
-> 
-> diff --git a/arch/riscv/boot/dts/sophgo/sg2002.dtsi b/arch/riscv/boot/dts/sophgo/sg2002.dtsi
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..242fde84443f0d6a2c8476666dfa3d72727071b1
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/sophgo/sg2002.dtsi
-> @@ -0,0 +1,42 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/*
-> + * Copyright (C) 2024 Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-> + */
-> +
-> +#include <dt-bindings/interrupt-controller/irq.h>
-> +#include <dt-bindings/pinctrl/pinctrl-sg2002.h>
-> +#include "cv18xx.dtsi"
-> +
-> +/ {
-> +	compatible = "sophgo,sg2002";
-> +
-> +	memory@80000000 {
-> +		device_type = "memory";
-> +		reg = <0x80000000 0x10000000>;
-> +	};
-> +
-> +	soc {
-> +		pinctrl: pinctrl@3008000 {
+Add DT configuration for ethernet controller for cv18xx SoC.
 
-I got the following waring:
-arch/riscv/boot/dts/sophgo/sg2002.dtsi:20.28-25.5: Warning (simple_bus_reg): /soc/pinctrl@3008000: simple-bus unit address format error, expected "3001000"
+Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+---
+ .../boot/dts/sophgo/cv1812h-huashan-pi.dts    |  4 ++
+ arch/riscv/boot/dts/sophgo/cv18xx.dtsi        | 49 +++++++++++++++++++
+ 2 files changed, 53 insertions(+)
 
-Could you send a fix patch?
+diff --git a/arch/riscv/boot/dts/sophgo/cv1812h-huashan-pi.dts b/arch/riscv/boot/dts/sophgo/cv1812h-huashan-pi.dts
+index 26b57e15adc1..a0acae675a82 100644
+--- a/arch/riscv/boot/dts/sophgo/cv1812h-huashan-pi.dts
++++ b/arch/riscv/boot/dts/sophgo/cv1812h-huashan-pi.dts
+@@ -55,6 +55,10 @@ &emmc {
+ 	non-removable;
+ };
+ 
++&gmac0 {
++	status = "okay";
++};
++
+ &sdhci0 {
+ 	status = "okay";
+ 	bus-width = <4>;
+diff --git a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+index c18822ec849f..50933e5b4c75 100644
+--- a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
++++ b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+@@ -210,6 +210,55 @@ i2c4: i2c@4040000 {
+ 			status = "disabled";
+ 		};
+ 
++		gmac0: ethernet@4070000 {
++			compatible = "snps,dwmac-3.70a";
++			reg = <0x04070000 0x10000>;
++			clocks = <&clk CLK_AXI4_ETH0>, <&clk CLK_ETH0_500M>;
++			clock-names = "stmmaceth", "ptp_ref";
++			interrupts = <31 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "macirq";
++			phy-handle = <&phy0>;
++			phy-mode = "rmii";
++			rx-fifo-depth = <8192>;
++			tx-fifo-depth = <8192>;
++			snps,multicast-filter-bins = <0>;
++			snps,perfect-filter-entries = <1>;
++			snps,aal;
++			snps,txpbl = <8>;
++			snps,rxpbl = <8>;
++			snps,mtl-rx-config = <&gmac0_mtl_rx_setup>;
++			snps,mtl-tx-config = <&gmac0_mtl_tx_setup>;
++			snps,axi-config = <&gmac0_stmmac_axi_setup>;
++			status = "disabled";
++
++			mdio {
++				compatible = "snps,dwmac-mdio";
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				phy0: phy@0 {
++					compatible = "ethernet-phy-ieee802.3-c22";
++					reg = <0>;
++				};
++			};
++
++			gmac0_mtl_rx_setup: rx-queues-config {
++				snps,rx-queues-to-use = <1>;
++				queue0 {};
++			};
++
++			gmac0_mtl_tx_setup: tx-queues-config {
++				snps,tx-queues-to-use = <1>;
++				queue0 {};
++			};
++
++			gmac0_stmmac_axi_setup: stmmac-axi-config {
++				snps,blen = <16 8 4 0 0 0 0>;
++				snps,rd_osr_lmt = <2>;
++				snps,wr_osr_lmt = <1>;
++			};
++		};
++
+ 		uart0: serial@4140000 {
+ 			compatible = "snps,dw-apb-uart";
+ 			reg = <0x04140000 0x100>;
+-- 
+2.47.0
 
-Regards,
-Inochi
-
-> +			compatible = "sophgo,sg2002-pinctrl";
-> +			reg = <0x03001000 0x1000>,
-> +			      <0x05027000 0x1000>;
-> +			reg-names = "sys", "rtc";
-> +		};
-> +	};
-> +};
-> +
-> +&plic {
-> +	compatible = "sophgo,sg2002-plic", "thead,c900-plic";
-> +};
-> +
-> +&clint {
-> +	compatible = "sophgo,sg2002-clint", "thead,c900-clint";
-> +};
-> +
-> +&clk {
-> +	compatible = "sophgo,sg2000-clk";
-> +};
-> +
-> +&sdhci0 {
-> +	compatible = "sophgo,sg2002-dwcmshc";
-> +};
-> 
-> -- 
-> 2.47.0
-> 
 
 _______________________________________________
 linux-riscv mailing list
