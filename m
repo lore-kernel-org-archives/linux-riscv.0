@@ -4,76 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54272D1039A
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Oct 2024 12:57:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D667AD10C11
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Oct 2024 13:04:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FE0J6iq2OJ+A5dKz8QJU6sGsemgSMJqivv3eQGUHbh4=; b=KzCfhYFpobKncl
-	xdy8rUCSKtE1aEcKDUhNAAUu8wruBKcoEeoyqzqeMBGyQthxYuOfOfvFnD99IXqFOv411hrZ8/ip7
-	ssRByu5PFqWI/hxvPuW1HKGk0YpcN5QC2AvA3a6Hj3DvnpTlFKNreWK1P6KK7Jf2Pt/AxQKpJKglH
-	Tt4sfaBDKLJ6qHJDge0UndMWTMGJK96hTSiCIdmjaCzQYEUp/g7Ro99dSCJnsIrTw8OH4+Qd/pLyq
-	H6fjU+Se+F+fobFCHql54VAlw5cDOFGyDio8y9+ScLjo3JnBzjjqjA4rck5dCGxU0iGcIRBGDp/+V
-	GOM8/MIMpt8B1lNaTzHg==;
+	List-Owner; bh=julw9471EyHNoZoK4eehXBuQAGKBtwUeH1EHLKc1m68=; b=HDe2z6tH3qXOnA
+	/hDNS1KWeOXTu0AOzf9bK0s1Xo4uP70rRTQQwsBGe0OUuT1mJn0eobDjAd/iPRUtdoCVlEWnJ5ecK
+	kJjB7Q80jJJpYJ9z1bTABbYNN+Wi8uabGc63VIDLZ33G5136sIehcqz4eDjDkTm1Z+RL5JfsQQItX
+	/fuR9lxukWJ1x29fWbu2bZ+5WOFekuOcAuGQ6ReQdVKAQAbjIgBbX/o1bn2yPZAAR+ITsLZNU7QCA
+	0WzmcOYTnOr+gjuXgX8DXq6Tili30mhABWL7YGy2ncCQ624qgkqg/3jSQuksQ6+mLLNQtuQn9jWxC
+	A34xrMYazLTP9ebKHJrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5PIw-0000000AqnM-1LHU;
-	Mon, 28 Oct 2024 12:57:06 +0000
-Received: from mgamail.intel.com ([198.175.65.12])
+	id 1t5PPd-0000000AsSY-1HVt;
+	Mon, 28 Oct 2024 13:04:01 +0000
+Received: from mail-lj1-x231.google.com ([2a00:1450:4864:20::231])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5PE4-0000000AqAA-1Dx6
+	id 1t5POh-0000000AsFW-0yFk
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Oct 2024 12:52:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1730119924; x=1761655924;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ViqoxvYuvEE/rvI6dbIX3LUOrMTjFBetq6t2H5h8Knk=;
-  b=DnSKD5a47J+L9l2vld6EkP08urNEk/FK0oZINphoNpvsXpU2udWhbPed
-   0scKTKCxQ70BMysUqlMVnslvoJyo1Zxhi5a5hfPPJF0AzDfDoGU3de5JH
-   +/jS3vHb3EpEyW1wpyCKNxOKz6K3aw5bcCdaa5jq/meGw5eiWXg7vaZQR
-   05doTI7NZqpkMHF6BfQKpbONaQed/MDMlsCGVWSEJgxvFIBjpYX/A2Qf1
-   oShtrRtvQ0jRnKTq/R/rtZloVqtWqL7AB7+FDGkPB/7ed1ndf1H7KgPev
-   +k304fdkfTG6FS1esaglwVRXTugZaQSMB6ZB7Jg+k1xMtZIGjdD5p+uVc
-   Q==;
-X-CSE-ConnectionGUID: UmKa0DpDRWW/uKslXwENAQ==
-X-CSE-MsgGUID: gqHPDC/WQEOP664a5YcmSw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11238"; a="41105097"
-X-IronPort-AV: E=Sophos;i="6.11,239,1725346800"; 
-   d="scan'208";a="41105097"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Oct 2024 05:52:03 -0700
-X-CSE-ConnectionGUID: V79q7ukSSDmnEIMuNayl+Q==
-X-CSE-MsgGUID: wRAFbqNRRaOdFfiRMs1v/Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,239,1725346800"; 
-   d="scan'208";a="81668712"
-Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by fmviesa009.fm.intel.com with ESMTP; 28 Oct 2024 05:52:01 -0700
-Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1t5PDy-000cRp-1u;
-	Mon, 28 Oct 2024 12:51:58 +0000
-Date: Mon, 28 Oct 2024 20:51:13 +0800
-From: kernel test robot <lkp@intel.com>
-To: Troy Mitchell <troymitchell988@gmail.com>, andi.shyti@kernel.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, troymitchell988@gmail.com,
-	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 2/2] i2c: spacemit: add support for SpacemiT K1 SoC
-Message-ID: <202410282041.JgAO0LV0-lkp@intel.com>
-References: <20241028053220.346283-3-TroyMitchell988@gmail.com>
+	Mon, 28 Oct 2024 13:03:05 +0000
+Received: by mail-lj1-x231.google.com with SMTP id 38308e7fff4ca-2fb51f39394so41331661fa.2
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Oct 2024 06:03:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1730120581; x=1730725381; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ES/3wWXe3XmsnopHzfvpLs3+vjaLgh8prmQvw49/8v0=;
+        b=PMJZCF4psCFXDF4vV3IeM/WJy9Pei7LzgGOQJzYLvZHYeavhtn5O3RMH7PLWO+VdQA
+         bw/ZyQwv60+/4xxo2uhGb1FQTLLWDF+qxkdaiD94eu7/FQETT0WhfOumcqUtPdvd5lBL
+         ooKX8LUQw9283x6GNMSEhM8m8K+tkEVXqWyszBshrqYUJdsydPD9cOvcb3RVAHUXz4d4
+         Ah1oEmLrLv09WRjJqbgUSD6R0VTsXXwFoFuyZV+a76KnJPyW/+sxYdeb3BZJSjZCZayk
+         9lFJdXsTRz/neMsj5WHBtkUYBZJFp1BjeIO8MG8BGSxODHa2T3tpjPeipVlYN/9PN+BW
+         NRfw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730120581; x=1730725381;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ES/3wWXe3XmsnopHzfvpLs3+vjaLgh8prmQvw49/8v0=;
+        b=AKeEfdpQeP2gFgAIoJjQfSSuj6/SfzGtv5PBK6VlEWtKtQZA7m+jXwf285KxPZA/uc
+         3OQ56ISJR22Yp1OtJdf4mJ4o+G+SJhujBxu2oceG7LlGj+aTtwHklFzPUG+hDh3bcggi
+         V7I3PySQWFRKqdR5Hd/FgAxOW56uaarmwO0r39S1/ZW5+CW2gvrr6QO9QhqlFE3umgFf
+         P5fUJ1p1WfPUD8W7PZC38Gc+Uqq03xVDBPV8SMOWkIiyGGNUeskAVWadJdtvthYR2Oaf
+         Z+uoy13wULh1mGgzoZAf24CzhURstvexad38drwXqnFjg57Clu1NDmM0Fi1FnqR7+pnL
+         5tsA==
+X-Forwarded-Encrypted: i=1; AJvYcCV+2NNGnncjetAP8SXgwsgJhKLhxPatBN0vaWMLPibbTxFRqY8cS0T/xvd1iHIF46JUi8KSUisTsIagNw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy4JcCYJQrG62EmZAsYcHbJ8xGGcegUYiQuYIRJSDIHWnxTOlPf
+	WebkoWeuo6y27XIfkM2LNhR6bCqgB+UyC4nJP2iTHpEt8+1qBOlhYSiRtyxXY5TX+s4b/FFA7Qu
+	U86/lPckqj7MQXZ/7AAzi6LKRZaq7AiU/2qDH6A==
+X-Google-Smtp-Source: AGHT+IFQ2jWEabuLAHBA+snc2ktNpVjAxzzLMDX3og/hhpyaDNPJZ85//6hlPCUzYqpOHfjsDrUMI74wo85pww9rYsA=
+X-Received: by 2002:a2e:381a:0:b0:2fb:3c16:a44a with SMTP id
+ 38308e7fff4ca-2fcbdfd85b8mr27232701fa.19.1730120580778; Mon, 28 Oct 2024
+ 06:03:00 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241028053220.346283-3-TroyMitchell988@gmail.com>
+References: <20241024064356.865055-1-inochiama@gmail.com> <20241024064356.865055-3-inochiama@gmail.com>
+In-Reply-To: <20241024064356.865055-3-inochiama@gmail.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Mon, 28 Oct 2024 14:02:49 +0100
+Message-ID: <CACRpkdbUs1eWgZCvxNYqpnUox2=4nwewBi5YPqSBO8UDhikyLA@mail.gmail.com>
+Subject: Re: [PATCH 2/3] pinctrl: sophgo: add support for SG2042 SoC
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Chen Wang <unicorn_wang@outlook.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Inochi Amaoto <inochiama@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>, 
+	Arnd Bergmann <arnd@arndb.de>, Yixun Lan <dlan@gentoo.org>, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_055204_405393_D88D34D3 
-X-CRM114-Status: GOOD (  11.96  )
+X-CRM114-CacheID: sfid-20241028_060303_295442_7168EAFD 
+X-CRM114-Status: GOOD (  10.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,69 +90,20 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Troy,
-
-kernel test robot noticed the following build warnings:
-
-[auto build test WARNING on andi-shyti/i2c/i2c-host]
-[also build test WARNING on robh/for-next linus/master v6.12-rc5 next-20241028]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Troy-Mitchell/dt-bindings-i2c-spacemit-add-support-for-K1-SoC/20241028-133452
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/andi.shyti/linux.git i2c/i2c-host
-patch link:    https://lore.kernel.org/r/20241028053220.346283-3-TroyMitchell988%40gmail.com
-patch subject: [PATCH v2 2/2] i2c: spacemit: add support for SpacemiT K1 SoC
-config: m68k-allmodconfig (https://download.01.org/0day-ci/archive/20241028/202410282041.JgAO0LV0-lkp@intel.com/config)
-compiler: m68k-linux-gcc (GCC) 14.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241028/202410282041.JgAO0LV0-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202410282041.JgAO0LV0-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   drivers/i2c/busses/i2c-k1.c: In function 'spacemit_i2c_is_last_msg':
->> drivers/i2c/busses/i2c-k1.c:340:12: warning: suggest explicit braces to avoid ambiguous 'else' [-Wdangling-else]
-     340 |         if (i2c->dir == DIR_READ)
-         |            ^
-
-Kconfig warnings: (for reference only)
-   WARNING: unmet direct dependencies detected for GET_FREE_REGION
-   Depends on [n]: SPARSEMEM [=n]
-   Selected by [m]:
-   - RESOURCE_KUNIT_TEST [=m] && RUNTIME_TESTING_MENU [=y] && KUNIT [=m]
-
-
-vim +/else +340 drivers/i2c/busses/i2c-k1.c
-
-   337	
-   338	static int spacemit_i2c_is_last_msg(struct spacemit_i2c_dev *i2c)
-   339	{
- > 340		if (i2c->dir == DIR_READ)
-   341			if (i2c->unprocessed == 1 && i2c->msg_idx == i2c->msg_num - 1)
-   342				return 1;
-   343		else if (i2c->dir == DIR_WRITE)
-   344			if (!i2c->unprocessed && i2c->msg_idx == i2c->msg_num - 1)
-   345				return 1;
-   346	
-   347		return 0;
-   348	}
-   349	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBPY3QgMjQsIDIwMjQgYXQgODo0NOKAr0FNIElub2NoaSBBbWFvdG8gPGlub2NoaWFt
+YUBnbWFpbC5jb20+IHdyb3RlOgoKPiBBZGQgYmFzZSBkcml2ZXIgZm9yIFNHMjA0MiBTb0MgYW5k
+IHBpbiBkZWZpbml0aW9uLgo+Cj4gU2lnbmVkLW9mZi1ieTogSW5vY2hpIEFtYW90byA8aW5vY2hp
+YW1hQGdtYWlsLmNvbT4KClRoaXMgZHJpdmVyIGlzIGNsZWFybHkgZHVwbGljYXRpbmcgYSB0b24g
+b2YgY29kZSBmcm9tIHBpbmN0cmwtY3YxOHh4LmMuCgpXZSBoYXZlIG5vIGludGVyZXN0IGluIGhh
+dmluZyB0byBmaXggYnVncyBpbiB0d28gcGxhY2VzLgoKUGxlYXNlIGZhY3RvciBvdXQgdGhlIGNv
+bW1vbiBjb2RlIGFuZCB1c2UgdGhlIHNhbWUgY29kZQppbiB0aGUgbmV3IGRyaXZlciBpZiB5b3Ug
+Y2FuJ3QgbWFrZSB0aGUgbmV3IGRyaXZlciBhIHNpbXBsZQpzdWJkcml2ZXIgb2NoIHBpbmN0cmwt
+Y3YxOHh4LmMuCgpZb3VycywKTGludXMgV2FsbGVpagoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgo=
