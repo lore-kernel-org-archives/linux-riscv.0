@@ -4,120 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58378D13588
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Oct 2024 07:08:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63AF2D13595
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Oct 2024 07:19:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fsofVR+73Q3+uq5tejW1LYRYvVwr5ab/u/dQnJb2SmA=; b=ifrugcEW7aXMEZ
-	yTeHcZtvZqJPBaZRGZkrusz9cpBvmEXj2Gg2EkL6qLS90hPAl1bbS2WebwDzhunqpx1lhTCXCJqiW
-	W4A6Z8Va1egwihqFxElI+cATikaGZPuIx/I+7/Yycp0niYlpN3kgnBTQQauQPSigIfI21gR050gi1
-	fVyml2s6P95lwgOFC+5WSV0Ff08F8SWdBi+fphqvrv3oreuaEAWV4BiJBfeEKkaQJJcMpr1/qCAKu
-	VrWikb/tdGgCF5Dk2ct6OiSZRQ44yLoUqVg3uPrak7aiPl+rSyELn52cvHuU7fWGx9/KAXCQif7X5
-	Da0Nn3Q31mjAthqsxBpg==;
+	List-Owner; bh=O95UFC16Tez0YTX3qpeGjj/OmUauBypQ+GmrWqkFe/I=; b=45q3POsmcJyFyb
+	Fho19/a9ms9Dvi3eOmDlf9bWroT8IS+wZegHj3v30rLy1offqlUhBkDUfqqo25i7n4sXtotH1Lj9a
+	tDgmXKpuDO4ImXCiW3WCGujtN+T6J7u2kLzwqbCtBU7pW3FkpyjIc85qSOOLvhCScDIP5TOIJE8U5
+	/anEBRbNzrDepGFbJedy0JEiQjgU2BunRLPvqIBrDwFuA/nfAdK/sMADt7NAnUeicThURsMVWx2Y1
+	Inj4XkbMPCcYjDzv5TcNQRHGM23RMzoPnT1bJaHyvoZjfnWZn2danRwgnBjLGl6r2BrfpDmGDSQ9q
+	atEhZQcdtnd/ug0mZJKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5JrN-00000009oEk-29FT;
-	Mon, 28 Oct 2024 07:08:17 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t5K1n-00000009qGF-1UjJ;
+	Mon, 28 Oct 2024 07:19:03 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Jpm-00000009o4Z-1hJk;
-	Mon, 28 Oct 2024 07:06:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 45F47A418CC;
-	Mon, 28 Oct 2024 07:04:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13209C4CEC3;
-	Mon, 28 Oct 2024 07:06:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730099197;
-	bh=C6ecd/IilLnEJaRLZPz9N5mizdHDr5C84R9swhXE194=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=VCUlQA93gEIP1NchFREE5xQcXjzsAzjJIC+oFkDeVy452QZzmUGi5sZvLoVQaPtrk
-	 scwWaNnc7kMoUSpCnEYkUB51OcV+bxrHeRZQotNLpsCHPSOmRricfXNBWQfE8DtJFR
-	 DjSoA/QGAYRZH9+Oh9bdIF7lkuYvmjWZvDnwJzXbWnpNvqJrAeC34lu0ZDnnV+++07
-	 Xysk5czeUUhrXktJlYbj9CTiEOZ2dSz3PmO3GSuoZz3lxwmGdPIz7I7aRzBQm9Ftmo
-	 o+N5Fc3ZxK5nyzZMoyAARIU5/Wo9z78TBK3czpljO1wINA7TgavHydybaFsUfBhskw
-	 Zz80XJvXNYfeQ==
-Message-ID: <8eeb1f7c-3198-45ac-be9a-c3d4e5174f1f@kernel.org>
-Date: Mon, 28 Oct 2024 08:06:25 +0100
+	id 1t5K11-00000009poq-20bQ
+	for linux-riscv@lists.infradead.org;
+	Mon, 28 Oct 2024 07:18:16 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-71e49ad46b1so2560469b3a.1
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Oct 2024 00:18:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1730099894; x=1730704694; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=HHcOCAQRVF6wDwCpz/Ofc5RAAihYPSYxf02RxaoduNk=;
+        b=F3DDyND8Sf1lshcZqkEL9BUzZnEgy8eoTgajIiavJLip4CTJ8VfGYpSKImGa71nfiV
+         nMDPIhNJSZ+Z5/emqkhWcsKpfHURSgxdlFUHXXf8KRgx2aTFS0jBrWeBAf4eAW+fJ/JG
+         nuCBCA7TEPtbwIcI/NufLryGz/WayqVSzrYgRIr2QvzLxcReA8tEfaqNvTsCWzRx/Pl7
+         EHkwXu4NtzZFFN7efpLGyr6haNpdr+q+XJ9qg06ea2+3qS5g/J6IRBRk8CMv6bmJP/mw
+         qhSsxI5GUORhKfzj7LO1+v9c+DxXpHBGXLcvoHFAoDN3FLJwi3B+2UFUfPwoE+V6dek0
+         wvtQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730099894; x=1730704694;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=HHcOCAQRVF6wDwCpz/Ofc5RAAihYPSYxf02RxaoduNk=;
+        b=kM9ay7lFgIQ4LXuTel42X9p+xfm25NLER1vf9Rs2WaXdTkSFqmH+QkTnA2N759TnKj
+         JKbo3b6DaTTx0lXLnyZLTe8e6yBM1p+4E1i0iXon/XBQa2Gm0JaG3DOLEpeVC0F7rx1o
+         /Kj4tPrmzpDSXWxYXhhC5qIiSFjEm+AFs4UcfSyDwLcl85KB+CEdEHs7fpPhFIXKBYRD
+         OiSm440/+krNK5iEF3S2jUx4fxravINS1EbnXcSATVcRd5atLTW9LW/G4uTz5F/+tUo3
+         WKxynNUJCn0miQqvMVQil7iiqXieUmN0xE26NBYY3JNy9aILV8VS2YXFIVH3ZM0nQ5+U
+         YGxw==
+X-Forwarded-Encrypted: i=1; AJvYcCVjvzTTFrxcbbThVASemNkelYeuVzPd+ky93scK1Hco9ja84SxwBiM302NTi0/vY8OsXTj2KVppQ5f8qQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzt1WKVmY3/Pb7EaIEd/tiRGvFNvbmZThdOhmRaXVEHJihT1uWQ
+	SytN3S4FHJIIWj9sv5KpDzVxUiJeFBNgA4DIg3mPMSon+T70F2Yx
+X-Google-Smtp-Source: AGHT+IGxScLweOV74hsHY8ybM05gxHwS+UEjeyeywhEqzfUmk+ssuwJt1d5kawmlBhnicXPFtNf0HQ==
+X-Received: by 2002:a05:6a00:845:b0:71e:6e4a:507a with SMTP id d2e1a72fcca58-72062f4f6c2mr9457615b3a.3.1730099894293;
+        Mon, 28 Oct 2024 00:18:14 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72057a21933sm5266089b3a.173.2024.10.28.00.18.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Oct 2024 00:18:14 -0700 (PDT)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Conor Dooley <conor@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	Evan Green <evan@rivosinc.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Andy Chiu <andybnac@gmail.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Xiao Wang <xiao.w.wang@intel.com>,
+	Samuel Holland <samuel.holland@sifive.com>
+Cc: linux-doc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: [PATCH 1/3] dt-bindings: riscv: add bfloat16 ISA extension description
+Date: Mon, 28 Oct 2024 15:17:41 +0800
+Message-ID: <20241028071746.869740-2-inochiama@gmail.com>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20241028071746.869740-1-inochiama@gmail.com>
+References: <20241028071746.869740-1-inochiama@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/4] dt-bindings: net: Add support for Sophgo SG2044
- dwmac
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Chen Wang <unicorn_wang@outlook.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Inochi Amaoto <inochiama@outlook.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jose Abreu <joabreu@synopsys.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Richard Cochran <richardcochran@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Giuseppe Cavallaro <peppe.cavallaro@st.com>, Yixun Lan <dlan@gentoo.org>,
- Longbin Li <looong.bin@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org
-References: <20241025011000.244350-1-inochiama@gmail.com>
- <20241025011000.244350-3-inochiama@gmail.com>
- <4avwff7m4puralnaoh6pat62nzpovre2usqkmp3q4r4bk5ujjf@j3jzr4p74v4a>
- <mwlbdxw7yh5cqqi5mnbhelf4ihqihup4zkzppkxm7ggsb5itbb@mcbyevoat76d>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <mwlbdxw7yh5cqqi5mnbhelf4ihqihup4zkzppkxm7ggsb5itbb@mcbyevoat76d>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_000638_606821_EC52048F 
-X-CRM114-Status: GOOD (  13.26  )
+X-CRM114-CacheID: sfid-20241028_001815_541567_9DDD414D 
+X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,33 +110,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 28/10/2024 00:32, Inochi Amaoto wrote:
-> On Sun, Oct 27, 2024 at 09:38:00PM +0100, Krzysztof Kozlowski wrote:
->> On Fri, Oct 25, 2024 at 09:09:58AM +0800, Inochi Amaoto wrote:
->>> The GMAC IP on SG2044 is almost a standard Synopsys DesignWare MAC
->>> with some extra clock.
->>>
->>> Add necessary compatible string for this device.
->>>
->>> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
->>> ---
->>
->> This should be squashed with a corrected previous patch 
-> 
-> Good, I will.
-> 
->> (why do you need to select snps,dwmac-5.30a?), 
-> 
-> The is because the driver use the fallback versioned compatible 
-> string to set up some common arguments. (This is what the patch
+Add description for the BFloat16 precision Floating-Point ISA extension,
+(Zfbfmin, Zvfbfmin, Zvfbfwma). which was ratified in commit 4dc23d62
+("Added Chapter title to BF16") of the riscv-isa-manual.
 
-Nope. Driver never relies on schema doing select. That's just incorrect.
+Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+---
+ .../devicetree/bindings/riscv/extensions.yaml | 45 +++++++++++++++++++
+ 1 file changed, 45 insertions(+)
 
-> 3 does). It is also better to have a accurate fallback compatible
-> if we already know what it is.
-
-Best regards,
-Krzysztof
+diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
+index 2cf2026cff57..99d8b70fa321 100644
+--- a/Documentation/devicetree/bindings/riscv/extensions.yaml
++++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+@@ -277,6 +277,12 @@ properties:
+             instructions, as ratified in commit 056b6ff ("Zfa is ratified") of
+             riscv-isa-manual.
+ 
++        - const: zfbfmin
++          description:
++            The standard Zfbfmin extension which provides minimal support for
++            16-bit half-precision brain floating-point instructions, as ratified
++            in commit 4dc23d62 ("Added Chapter title to BF16") of riscv-isa-manual.
++
+         - const: zfh
+           description:
+             The standard Zfh extension for 16-bit half-precision binary
+@@ -467,6 +473,18 @@ properties:
+             in commit 6f702a2 ("Vector extensions are now ratified") of
+             riscv-v-spec.
+ 
++        - const: zvfbfmin
++          description:
++            The standard Zvfbfmin extension for minimal support for vectored
++            16-bit half-precision brain floating-point instructions, as ratified
++            in commit 4dc23d62 ("Added Chapter title to BF16") of riscv-isa-manual.
++
++        - const: zvfbfwma
++          description:
++            The standard Zvfbfwma extension for vectored half-precision brain
++            floating-point widening multiply-accumulate instructions, as ratified
++            in commit 4dc23d62 ("Added Chapter title to BF16") of riscv-isa-manual.
++
+         - const: zvfh
+           description:
+             The standard Zvfh extension for vectored half-precision
+@@ -605,6 +623,33 @@ properties:
+         then:
+           contains:
+             const: zca
++      # Zfbfmin depends on F
++      - if:
++          contains:
++            const: zfbfmin
++        then:
++          contains:
++            const: f
++      # Zvfbfmin depends on V or Zve32f
++      - if:
++          contains:
++            const: zvfbfmin
++        then:
++          oneOf:
++            - contains:
++                const: v
++            - contains:
++                const: zve32f
++      # Zvfbfwma depends on Zfbfmin and Zvfbfmin
++      - if:
++          contains:
++            const: zvfbfwma
++        then:
++          allOf:
++            - contains:
++                const: zfbfmin
++            - contains:
++                const: zvfbfmin
+ 
+ allOf:
+   # Zcf extension does not exist on rv64
+-- 
+2.47.0
 
 
 _______________________________________________
