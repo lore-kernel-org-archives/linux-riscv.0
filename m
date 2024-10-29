@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5E4AD7494F
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Oct 2024 23:44:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3D8ED7494D
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Oct 2024 23:44:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TAnckOz7TWzCuFjVdMEJqv7/PvwWPXT1Vy+gJFG79wM=; b=O2fEkkOgatZCSQ
-	4PtTFc4IsHxW5PmSjyXmpsxDHEWiNeIjgEghYO1B4unF93bAAFdhQqVCfoe9F2MINeBsq5yKgn/Wb
-	ZJd75oJbytaxn8kRnPA/JSxd65kz81CCeO0si+SoQeUdG5QV/yNI1l6Xh7t+y1Rf3tnMENsF8S1BS
-	BJTX6cyfms5+q1fgAp8lTJHZV/mdPwsafzcJAVne1yz9rymO27dpC5YAEDEoknHbB3e3cNr05xalt
-	NHoM3vxQ4TF7YdAqM+3xbTFY7DVuJVSQJoGTGrULaU91rYtBrGgV73/B4JJo9lwNGFlR2oknmrkPL
-	SleKopZ5hH38mQFpW/JA==;
+	List-Owner; bh=f1Nzuxsf7aKjI5kOT5nXJJmqF1Yu9s5rdEkc46z3DvM=; b=gwTYQZ9Kq9d7iC
+	yoH90wCVM9YLkoDX/8UjLfDsebLZmE8M3GVulzcWfCRaOkuLVS+9lSOkN1pv9EP8b5R7/2bQdeI7p
+	uQxvbhEx6TOhtj5aJ0WGz1ad6LOz12eodk1MEfC9uA/DUxfzsuX9D0WOMgJRGinOAuETyedLyU5xp
+	5MUWKk5tyCPY1VSQX5OU1jbS3aaE/pyoJ1r5SOqf6gBF2dpexnD+/UaiWf0+q2fqxeGR8lHdC6naL
+	Tp302Q0Kr+GlxUkPI1auFdk4tRUnnRzg4Ys4VcTLr0DMqeewMPaj6weL9eLtuJHe1bSdQvDvvnRHh
+	qQ557j8MiTFzi+WbZGXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5vst-0000000GDF3-4B82;
-	Tue, 29 Oct 2024 23:44:24 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1t5vsz-0000000GDK5-2gcJ;
+	Tue, 29 Oct 2024 23:44:29 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5vso-0000000GDBE-3Nic
+	id 1t5vsu-0000000GDF2-0RA0
 	for linux-riscv@lists.infradead.org;
-	Tue, 29 Oct 2024 23:44:20 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-71e8235f0b6so4598191b3a.3
-        for <linux-riscv@lists.infradead.org>; Tue, 29 Oct 2024 16:44:18 -0700 (PDT)
+	Tue, 29 Oct 2024 23:44:26 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-7203c74e696so4404039b3a.0
+        for <linux-riscv@lists.infradead.org>; Tue, 29 Oct 2024 16:44:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1730245458; x=1730850258; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1730245463; x=1730850263; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=A27TSZWEvDZAFIGCzgSTP5vgsRCljOGvihxqekfN1m4=;
-        b=T80YEOckH/uvbqIKo9msgqaQ+9JoJ0pT64GXBB6Hp6oEcNmySrqgytfES5gUACIgRn
-         mNHfXZF6MfrtjyCZGRKp2FpNq0AUZeL0ODwXY3CHRFTK70/v6KoStlgNHfHbTYSTVi6o
-         b8OPcS6Qs6dBn58YMIvDVTZNWDQmMHGEyoGfUMFJuoU8V9ZhjO+qlAfONTgFU8n82+fE
-         2Nitn/Ceh1d1RMlsz9SXBBKJLiFEpER0MT+7fK3lJFWAqlo4JELdcJFq5QQ5i+1DOa8Q
-         Kpa4LGuOW6uQ22TvztYoQwl0D5ol5A9OQn6I/et/58E9KVRSjiphr99epjqNDWVC2leM
-         6bPQ==
+        bh=32Fr64bQ4i4M4Gkdnki92yyt1KBIEMerrOdU8b6lAUE=;
+        b=up9WuzTb9o9QdkfbG4SJsoaEt3EDfe+YLo9DE90Mw6NEOT/k96e1n+mFAZ0KdO66Ik
+         F1cwovZ9D5mAR5ZjYO+rwBS1U3PYjId8JC7Innk4YVmgmcoXCl1WTnKbKmYkAYM+YSvZ
+         Q5ip0as2TV8uLzPFPIdMXmDSXuQ3aZVxibGr8RGASxK/1t9st2kfnC141+kwb+YgOC1K
+         gMghlSYZqIlqKDhp4rlUlUOC1iOOm+T5pprOwJOdnWH2G5aqEiTLSxLCYMEAN0aIxx7k
+         tHAKpBE7OagY4SKW/8ji5+iosetEmgNWfiUE+BVRpxzADjCcs+AuCCpK0jD9DtbGu3Pa
+         w+pQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730245458; x=1730850258;
+        d=1e100.net; s=20230601; t=1730245463; x=1730850263;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=A27TSZWEvDZAFIGCzgSTP5vgsRCljOGvihxqekfN1m4=;
-        b=DaHHXYgePnVrkJoIOURMBQSZ/fRlPVkntp7WchY4lTR4sWtXJjLsYgHbttLC2U+Cxt
-         S8F7MTCy3LCcEaIjVxMOutLPdGsLCF6RydkHtMz9Pe+a2sSuDvuils36keIAVZfRtMX9
-         ETNi9LXMnB+z7RMDuNxujkm8g526b7iMCIIbCu2IJlO1Jg3Zmyak1Q6YsUlUnJ5ZUzhL
-         oQPPPCJiExC2Xacly1FF7i3CKTmVLPSyujLkxIgw5dDRHWP45oYAYL7jJzs2w0mxveKS
-         DrWf8kDN7XOEB73+69Kj3D+XHnXDlUu4g0/t8BfV8PFtxVh5J3vRhcuzEHvskU2puGhv
-         r11g==
-X-Forwarded-Encrypted: i=1; AJvYcCWm81Nx8ZWSZleIfETotHfs6a1mkALj1tSy9QiqdI3TLlsqjKYA0wfrc79Z4Ph7jiuvTXgXzQtri777VQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyj4p8p1rzTPZSl3bvtkrSVUo0ovU1KNbqJYo2uBP8x9Ncbiuv4
-	aevQJPj6Kblwk//nBzYOqeNYR7V0jPxSMiIoWFV9rvZ+JJlui5+48vgAfoRdNTk=
-X-Google-Smtp-Source: AGHT+IEl2QOb2QqMdMEvJJy28IFG3kLdP55DbuAo5+86qcvJIXvWMGt1Fwpgzfx+V0+HBr7ZrtesUw==
-X-Received: by 2002:a05:6a20:d521:b0:1d9:181f:e6d8 with SMTP id adf61e73a8af0-1d9a84dd394mr17393682637.31.1730245457862;
-        Tue, 29 Oct 2024 16:44:17 -0700 (PDT)
+        bh=32Fr64bQ4i4M4Gkdnki92yyt1KBIEMerrOdU8b6lAUE=;
+        b=Wp5evh8ZNBye2jAqwTr7hukgrqeq50LKcDmkog4mCeHil8+rxfTWYh+KlKnB6IXm7y
+         KEogJCVmpzkjuotH7sPfs0i5qRWqFJ3uf6jSJfXPI4xerboj4sEohpqm3Tklgz8Byg/h
+         zbpi5RoUijdU4NhbVYf2SrzG5Man85PeoybRKF5vhu9PJWcNFUukGkOYHdKn/l3qYnEb
+         NLrDy5CHug2MV7aOVT+1Z13q4g14W9vM6FV1+wmpvCSNoPTrJPOEdfEFBFM/j6K4Tub6
+         svI8qjRs+R0c8CeNZjr35kuKnKezaA+d6L/CBTHIB65y5v4LrnXbqFnuuL2EFcakDEhT
+         Lfcw==
+X-Forwarded-Encrypted: i=1; AJvYcCVlH1h7qPFy5eyOmjUlN3PfiJmKJ/c4tDkqtvl0MBj9ylO9tZ+h0S9Iy4VihZLfTgxeM1fyPr03grK0UA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYvaCNyUeAAtBgdNvKDru0ZLXpqav+CpuUu+hmrShSHmYI78Nl
+	2+TxuLi4bhb0y5C7xsK6+phjpRdTiGCZ090MSmzYrCLyBOo63Eyh3iyeJ/DVRsE=
+X-Google-Smtp-Source: AGHT+IF9XBA82NtKTvuWXQFZShmgImM2eVgaE8hxac78pAdDA8yPlrXMXV9vOyyNJTLolGWQzFlm1Q==
+X-Received: by 2002:a05:6a00:2d17:b0:71e:5fa1:d3e4 with SMTP id d2e1a72fcca58-72062f86747mr18631012b3a.2.1730245463422;
+        Tue, 29 Oct 2024 16:44:23 -0700 (PDT)
 Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72057921863sm8157643b3a.33.2024.10.29.16.44.15
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72057921863sm8157643b3a.33.2024.10.29.16.44.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Oct 2024 16:44:17 -0700 (PDT)
+        Tue, 29 Oct 2024 16:44:23 -0700 (PDT)
 From: Deepak Gupta <debug@rivosinc.com>
-Date: Tue, 29 Oct 2024 16:44:01 -0700
-Subject: [PATCH v7 01/32] mm: Introduce ARCH_HAS_USER_SHADOW_STACK
+Date: Tue, 29 Oct 2024 16:44:03 -0700
+Subject: [PATCH v7 03/32] riscv: Enable cbo.zero only when all harts
+ support Zicboz
 MIME-Version: 1.0
-Message-Id: <20241029-v5_user_cfi_series-v7-1-2727ce9936cb@rivosinc.com>
+Message-Id: <20241029-v5_user_cfi_series-v7-3-2727ce9936cb@rivosinc.com>
 References: <20241029-v5_user_cfi_series-v7-0-2727ce9936cb@rivosinc.com>
 In-Reply-To: <20241029-v5_user_cfi_series-v7-0-2727ce9936cb@rivosinc.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
@@ -93,13 +94,14 @@ Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
  andybnac@gmail.com, kito.cheng@sifive.com, charlie@rivosinc.com, 
  atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com, 
  alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org, 
- rick.p.edgecombe@intel.com, David Hildenbrand <david@redhat.com>, 
- Deepak Gupta <debug@rivosinc.com>, 
- Carlos Bilbao <carlos.bilbao.osdev@gmail.com>
+ rick.p.edgecombe@intel.com, Samuel Holland <samuel.holland@sifive.com>, 
+ Andrew Jones <ajones@ventanamicro.com>, 
+ Conor Dooley <conor.dooley@microchip.com>, 
+ Deepak Gupta <debug@rivosinc.com>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_164418_895232_6AC0E600 
-X-CRM114-Status: GOOD (  14.99  )
+X-CRM114-CacheID: sfid-20241029_164424_265119_AB198797 
+X-CRM114-Status: GOOD (  25.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,80 +118,107 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Mark Brown <broonie@kernel.org>
+From: Samuel Holland <samuel.holland@sifive.com>
 
-Since multiple architectures have support for shadow stacks and we need to
-select support for this feature in several places in the generic code
-provide a generic config option that the architectures can select.
+Currently, we enable cbo.zero for usermode on each hart that supports
+the Zicboz extension. This means that the [ms]envcfg CSR value may
+differ between harts. Other features, such as pointer masking and CFI,
+require setting [ms]envcfg bits on a per-thread basis. The combination
+of these two adds quite some complexity and overhead to context
+switching, as we would need to maintain two separate masks for the
+per-hart and per-thread bits. Andrew Jones, who originally added Zicboz
+support, writes[1][2]:
 
-Suggested-by: David Hildenbrand <david@redhat.com>
-Acked-by: David Hildenbrand <david@redhat.com>
-Signed-off-by: Mark Brown <broonie@kernel.org>
-Reviewed-by: Rick Edgecombe <rick.p.edgecombe@intel.com>
+  I've approached Zicboz the same way I would approach all
+  extensions, which is to be per-hart. I'm not currently aware of
+  a platform that is / will be composed of harts where some have
+  Zicboz and others don't, but there's nothing stopping a platform
+  like that from being built.
+
+  So, how about we add code that confirms Zicboz is on all harts.
+  If any hart does not have it, then we complain loudly and disable
+  it on all the other harts. If it was just a hardware description
+  bug, then it'll get fixed. If there's actually a platform which
+  doesn't have Zicboz on all harts, then, when the issue is reported,
+  we can decide to not support it, support it with defconfig, or
+  support it under a Kconfig guard which must be enabled by the user.
+
+Let's follow his suggested solution and require the extension to be
+available on all harts, so the envcfg CSR value does not need to change
+when a thread migrates between harts. Since we are doing this for all
+extensions with fields in envcfg, the CSR itself only needs to be saved/
+restored when it is present on all harts.
+
+This should not be a regression as no known hardware has asymmetric
+Zicboz support, but if anyone reports seeing the warning, we will
+re-evaluate our solution.
+
+Link: https://lore.kernel.org/linux-riscv/20240322-168f191eeb8479b2ea169a5e@orel/ [1]
+Link: https://lore.kernel.org/linux-riscv/20240323-28943722feb57a41fb0ff488@orel/ [2]
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 Reviewed-by: Deepak Gupta <debug@rivosinc.com>
-Reviewed-by: Carlos Bilbao <carlos.bilbao.osdev@gmail.com>
+Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
- arch/x86/Kconfig   | 1 +
- fs/proc/task_mmu.c | 2 +-
- include/linux/mm.h | 2 +-
- mm/Kconfig         | 6 ++++++
- 4 files changed, 9 insertions(+), 2 deletions(-)
+ arch/riscv/kernel/cpufeature.c | 7 ++++++-
+ arch/riscv/kernel/suspend.c    | 4 ++--
+ 2 files changed, 8 insertions(+), 3 deletions(-)
 
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index 2852fcd82cbd..8ccae77d40f7 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -1954,6 +1954,7 @@ config X86_USER_SHADOW_STACK
- 	depends on AS_WRUSS
- 	depends on X86_64
- 	select ARCH_USES_HIGH_VMA_FLAGS
-+	select ARCH_HAS_USER_SHADOW_STACK
- 	select X86_CET
- 	help
- 	  Shadow stack protection is a hardware feature that detects function
-diff --git a/fs/proc/task_mmu.c b/fs/proc/task_mmu.c
-index 72f14fd59c2d..23f875e78eae 100644
---- a/fs/proc/task_mmu.c
-+++ b/fs/proc/task_mmu.c
-@@ -971,7 +971,7 @@ static void show_smap_vma_flags(struct seq_file *m, struct vm_area_struct *vma)
- #ifdef CONFIG_HAVE_ARCH_USERFAULTFD_MINOR
- 		[ilog2(VM_UFFD_MINOR)]	= "ui",
- #endif /* CONFIG_HAVE_ARCH_USERFAULTFD_MINOR */
--#ifdef CONFIG_X86_USER_SHADOW_STACK
-+#ifdef CONFIG_ARCH_HAS_USER_SHADOW_STACK
- 		[ilog2(VM_SHADOW_STACK)] = "ss",
- #endif
- #if defined(CONFIG_64BIT) || defined(CONFIG_PPC32)
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index ecf63d2b0582..57533b9cae95 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -354,7 +354,7 @@ extern unsigned int kobjsize(const void *objp);
- #endif
- #endif /* CONFIG_ARCH_HAS_PKEYS */
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 3a8eeaa9310c..e560a253e99b 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -28,6 +28,8 @@
  
--#ifdef CONFIG_X86_USER_SHADOW_STACK
-+#ifdef CONFIG_ARCH_HAS_USER_SHADOW_STACK
- /*
-  * VM_SHADOW_STACK should not be set with VM_SHARED because of lack of
-  * support core mm.
-diff --git a/mm/Kconfig b/mm/Kconfig
-index 4c9f5ea13271..4b2a1ef9a161 100644
---- a/mm/Kconfig
-+++ b/mm/Kconfig
-@@ -1296,6 +1296,12 @@ config NUMA_EMU
- 	  into virtual nodes when booted with "numa=fake=N", where N is the
- 	  number of nodes. This is only useful for debugging.
+ #define NUM_ALPHA_EXTS ('z' - 'a' + 1)
  
-+config ARCH_HAS_USER_SHADOW_STACK
-+	bool
-+	help
-+	  The architecture has hardware support for userspace shadow call
-+          stacks (eg, x86 CET, arm64 GCS or RISC-V Zicfiss).
++static bool any_cpu_has_zicboz;
 +
- source "mm/damon/Kconfig"
+ unsigned long elf_hwcap __read_mostly;
  
- endmenu
+ /* Host ISA bitmap */
+@@ -98,6 +100,7 @@ static int riscv_ext_zicboz_validate(const struct riscv_isa_ext_data *data,
+ 		pr_err("Zicboz disabled as cboz-block-size present, but is not a power-of-2\n");
+ 		return -EINVAL;
+ 	}
++	any_cpu_has_zicboz = true;
+ 	return 0;
+ }
+ 
+@@ -919,8 +922,10 @@ unsigned long riscv_get_elf_hwcap(void)
+ 
+ void riscv_user_isa_enable(void)
+ {
+-	if (riscv_cpu_has_extension_unlikely(smp_processor_id(), RISCV_ISA_EXT_ZICBOZ))
++	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_ZICBOZ))
+ 		csr_set(CSR_ENVCFG, ENVCFG_CBZE);
++	else if (any_cpu_has_zicboz)
++		pr_warn_once("Zicboz disabled as it is unavailable on some harts\n");
+ }
+ 
+ #ifdef CONFIG_RISCV_ALTERNATIVE
+diff --git a/arch/riscv/kernel/suspend.c b/arch/riscv/kernel/suspend.c
+index c8cec0cc5833..9a8a0dc035b2 100644
+--- a/arch/riscv/kernel/suspend.c
++++ b/arch/riscv/kernel/suspend.c
+@@ -14,7 +14,7 @@
+ 
+ void suspend_save_csrs(struct suspend_context *context)
+ {
+-	if (riscv_cpu_has_extension_unlikely(smp_processor_id(), RISCV_ISA_EXT_XLINUXENVCFG))
++	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_XLINUXENVCFG))
+ 		context->envcfg = csr_read(CSR_ENVCFG);
+ 	context->tvec = csr_read(CSR_TVEC);
+ 	context->ie = csr_read(CSR_IE);
+@@ -37,7 +37,7 @@ void suspend_save_csrs(struct suspend_context *context)
+ void suspend_restore_csrs(struct suspend_context *context)
+ {
+ 	csr_write(CSR_SCRATCH, 0);
+-	if (riscv_cpu_has_extension_unlikely(smp_processor_id(), RISCV_ISA_EXT_XLINUXENVCFG))
++	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_XLINUXENVCFG))
+ 		csr_write(CSR_ENVCFG, context->envcfg);
+ 	csr_write(CSR_TVEC, context->tvec);
+ 	csr_write(CSR_IE, context->ie);
 
 -- 
 2.34.1
