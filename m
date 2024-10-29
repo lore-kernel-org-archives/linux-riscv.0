@@ -4,109 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD173D3A679
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Oct 2024 18:03:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A856D3A694
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Oct 2024 19:00:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Cc:Date:In-Reply-To:From:
-	Subject:Mime-Version:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Nzgg8JW1hE0xDU44yT5tw1bXfmmwDW106i6K/MnOiLU=; b=bexTuq7eGRg2sL
-	F9uT3upOjl9MCiD8F8POhDS4+KYOH6PSyf8yKrnWSwNx5o+1QSJPghhCkg7SupBMSDrQBASE/0e7r
-	fWzKtYHNMHqCapk+GwELHzz9drYufA6lNFgzOEaNqSQ/KTLNLPVilwbDQ6Ln00DGuyZsWC+8fxJwT
-	UAqxM5byZXH2JQRLtI3HHrV/cm7L/UmFTB1nSYzT61nYdmgGKozJCV5p1MGAOePMJNiQLigBIdPfz
-	fmUK3j2nTMP8asahaF+ukCvtuwdsDPXz0zm0uTTjaGMrHAwxQ1Tq4WS8vx5/2wFyyxRwgo420xoC1
-	VKJKeICAncg8w3p1xQgg==;
+	List-Owner; bh=jSIEU6Botv2Mm4RzsB/BTLSFlNgRcZt7kVMy+QDhjMo=; b=orkUB6+hwXsc9f
+	Lzh2048kHqXkuKwxUFFdwPdPqdrkSQRbB3nsQT4BdU+PxBokoTvi4UDLy8BhaxGeagRAAuUNLa28R
+	ZomsTvDHJZ6deBDeGiAx7bhzctpIAv2f90XypW6HfjD3a+NRpC319o5i/PYF4EzBIeuU5rMfiz2cJ
+	wp5TV1M0EzSIQqc6Y9jZLPiDvGluGqEJFUDuRTFpx/4E2j5yqtcz9/m6t5eDFd8tRrZfJRR9G0FBe
+	ROmCqUzzlfZC3cJsiim9Lo6kkR5bH7JYzFBK+12Ipg2iQbAzcEPCSyVn7g3B8Flv+x4VWLgA5JLk6
+	Vo6VAivCaK51G9OZ/Rcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5qZM-0000000FRSN-0De6;
-	Tue, 29 Oct 2024 18:03:52 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t5rSH-0000000FbF1-2rHh;
+	Tue, 29 Oct 2024 19:00:37 +0000
+Received: from mail-qk1-x736.google.com ([2607:f8b0:4864:20::736])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5qXf-0000000FRMR-1Its
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 29 Oct 2024 18:02:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=To:References:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Message-ID:Sender:Reply-To:Content-ID:Content-Description;
-	bh=BoW6s+rUCxUCpZyfIxwEwxTIMi7q9DopWXIdFHkjBrE=; b=bR6nDfxB1hhehU70dr4SUp3Zro
-	sRaLn4/xTeXpSHwcharZsVCVR2CxxTwZqgJLRYRWgDhAZGNY/mUgrdqit+4SBRIhGa51+H5r94MwA
-	OsAz044MjRSDvc6EIxAgl6hTpjALsqueIZ2acJAMMfFNPedtk9rE44A0gAtrkmbnX2bbV71Bq1tp8
-	quNGHRc+9JjN/unVPv9dPj4BwsHJRay5B1ZEGH/Gio5LLEM1I102RwUhtrcgIlTb7HSxc1wgd2dSO
-	4DWbmqXoalKYhPqUyXC1vb8kEyeCe5diMLBIeP1dOWP8nZhtncHEXS/D+e/TTjKs4X8ev6PXPYsWZ
-	0PHwMBRg==;
-Received: from out162-62-57-49.mail.qq.com ([162.62.57.49])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5qXa-00000009yfE-2Pe9
-	for linux-riscv@lists.infradead.org;
-	Tue, 29 Oct 2024 18:02:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1730224912; bh=BoW6s+rUCxUCpZyfIxwEwxTIMi7q9DopWXIdFHkjBrE=;
-	h=Subject:From:In-Reply-To:Date:Cc:References:To;
-	b=IudIr2YdDAKQrPcMKAZX1dhHM6jIYdZrEYbi59eQvzUDK8gVxrcN7v2NTW4tczbk7
-	 LlTg99jC5nkNHr51UAtEFw3EKlbyhMgxzvOz64P6xdHtFcxT4U0b9tGsApMvG92uxW
-	 usrjBFE838vERdunUEPBxVR7tP9CT1AbZ1Rce8dk=
-Received: from smtpclient.apple ([2408:8207:18a1:fd20:752a:71a:7814:8c66])
-	by newxmesmtplogicsvrszc25-0.qq.com (NewEsmtp) with SMTP
-	id 250884F; Wed, 30 Oct 2024 02:00:37 +0800
-X-QQ-mid: xmsmtpt1730224837t1sqy8vre
-Message-ID: <tencent_B953631642161A5BF9B004D1B4931C2D7109@qq.com>
-X-QQ-XMAILINFO: M3cUO7vMX4chu1q7adTHRfrbAh6OiaqnsY91xlCkkq6QmsjwEojYKsEQB+6Ory
-	 FWqX+3YSQqfTF1NE6Dr3UxffZuUlExaE/jTqRIUSVh6b834awdrxZAlCBkWN9WmSLfo85eoDPNua
-	 xSvN1Uc71y6MIwlLQUDdJechzgXcBLF4SpehjEbgSTSG/nv2jk3fgjEJUBBt6RPxkO9UulvQ9d23
-	 hTP53I6auLoCc2J3gNvOhGksS9+IScNYIVuZQJMwe9tnxssqE1YUnLh2KiHfYDzFmTPxzRijTQeX
-	 7q4AHZsaYZD1q0Kt+4b2VmHNY8yQRx9SEXWGBce2Klqs77m3p6A7oCUPFZbUfHJD87shOsE5orhV
-	 dVkdufvv61ZK5lfmAGSgUG/p2uogr4xDySgMZGh/41qVzAwVgyGE7Smu0OkG6z8NGWOM6JgrK4dd
-	 TM7YU78HSogBmdMvRFG1TIrIl17UE090SMQHwJZPpHDfWbc3qCupVcZ8HTZoc6N281DTA2FuTeII
-	 /gWijiIp6mx+K1RrOnvOD3SqYu8gYXq1u4BmYLbHAzEfc2Otr+fls8bEzHbWPavqtDIl+v2uv7eP
-	 PI/f7zbvnpEmy7FRARb0V72PC+F+jLxInhkjZwU3/JgZfOAlbYFrZxXRQniZZ6yAdDBhI11KMGy6
-	 Tk8ayl6U9z5Sfk8aGp/IbVobm9SifxFnDa56qS5sOc2VCUxjgCSpe2S89rpQSjiG90IHzhZPqnry
-	 AjWdVwSHgF2qIk7gzdvxs1ed2rGxBRG5Lm63ZEYOzCVMrJYfqiIrSOkLnK9iuoneWJoyufZ7riHs
-	 fL6U4QK/0fPv9ktofUkzKYumo2Lzp99bzKcQV1GxnIKfQSxBSlk3uuxZXTZlgcNZ0Y2r/Gg8bPkJ
-	 PMZYvfA8k1bQFneDMIIEKAvKOzfpSfRY3o4XVYK5U80dWRB6pgyMkTNoDfkCgY06mp6wY8QT7Bx+
-	 /zQCC9fVTmJKwelKTpUGELPaQx2xqGrJ+rXuSN0+43GyOTYOFtQj0JtmbO+kohwxdxe6BCFSRKrx
-	 PzIKir29jqrNXU7ZfA
-X-QQ-XMRINFO: NI4Ajvh11aEj8Xl/2s1/T8w=
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.200.121\))
-Subject: Re: [PATCH v10 10/14] riscv: hwprobe: Add thead vendor extension
- probing
-From: Yangyu Chen <cyy@cyyself.name>
-In-Reply-To: <20240911-xtheadvector-v10-10-8d3930091246@rivosinc.com>
-Date: Wed, 30 Oct 2024 02:00:26 +0800
-Cc: linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- linux-sunxi@lists.linux.dev,
- linux-doc@vger.kernel.org,
- linux-kselftest@vger.kernel.org
-X-OQ-MSGID: <F7EC0D4B-419A-400B-BB28-CB0CC709DB6C@cyyself.name>
-References: <20240911-xtheadvector-v10-0-8d3930091246@rivosinc.com>
- <20240911-xtheadvector-v10-10-8d3930091246@rivosinc.com>
-To: Charlie Jenkins <charlie@rivosinc.com>,
- Conor Dooley <conor@kernel.org>,
- Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Jisheng Zhang <jszhang@kernel.org>,
- Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Samuel Holland <samuel.holland@sifive.com>,
- Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <shuah@kernel.org>,
- Guo Ren <guoren@kernel.org>,
- Evan Green <evan@rivosinc.com>,
- Andy Chiu <andy.chiu@sifive.com>,
- Jessica Clarke <jrtc27@jrtc27.com>,
- Andrew Jones <ajones@ventanamicro.com>
-X-Mailer: Apple Mail (2.3826.200.121)
+	id 1t5qMe-0000000FNre-0iz0;
+	Tue, 29 Oct 2024 17:50:46 +0000
+Received: by mail-qk1-x736.google.com with SMTP id af79cd13be357-7b14554468fso426553785a.1;
+        Tue, 29 Oct 2024 10:50:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1730224242; x=1730829042; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:feedback-id:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BK/pLK7S1V1t6tuat6FFIn60WJ4TxvUKBBBCYp6IBH8=;
+        b=Tj43JDzdpUl/Qm22v4dToujJkdzchRmNp6aMW68cKAQYrqD0Wmvcd3s0HJ6j+ibfPx
+         FfFxXQSRZlHJoeIxNabcHaNKW1p9jC7mq81PHJFvp9GXmMF3YAYed2xBCvjdeTCGFDtt
+         yUoFoWeFjJ5hfLE3K5SFUvJHWeGjyZ0cRxwtx924yT7bh7XibEgfOeG6KQ8SGseQPMJf
+         OzAqP4JVPjq22ohyPHMUpU1jTHu4Bt+9o4YvoNrfQ/7plUm9lphFkeZME4+/OzvYnBrn
+         sYPoCo++EJHY6uV/rWfV9TsC8TD1TVJWaTk69PlaGM6jkJDk6/M09SLLUAzvuhifMG8U
+         HC2w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730224242; x=1730829042;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:feedback-id:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=BK/pLK7S1V1t6tuat6FFIn60WJ4TxvUKBBBCYp6IBH8=;
+        b=vpaID+Sy9hsGzvrCIn2CYTIr5ffN25YOrMJ/Lck4mH2G6lOB7/P3BZ/XiaYL+zc/4s
+         LVI1AuUg0NtMjhK2jBhnfkvPDPqtfR7+5AnNzKSPh3vH8UxGdWMuXxkso7vplr+OVkzJ
+         AkxM+tR3Z1XxG8ajNlHyf+17k3f6bmkaAZ0tNk/sF8p9NoywHHzbHCSNXOtKeNc2KctO
+         25GvyuwHy35jkXAd5fd8Fim0aTbUq1a7sFlRzUGgUAa06Rp5xwcR/Ykx3jwrdfgrEgWN
+         VMlX+1a2/fHMs6s3Yu4qcziM0rlr0XsrBzchxZPzkSLssPNp4nuHO0ZJ4Iu/yanpp5PD
+         d5bQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUVw/HAmAl/7OcmV8I2JASB6LCqwiq2CorYAxzw3zfEs+JL/CucvdTyeVJ9o3+Ny6GPZ7/DXcVXxivpT+ddDQyq@lists.infradead.org, AJvYcCXXGXC0f+NlqkfszCHi6MuP9d4d/IAUBIimcvkcqZOfCJcg2a6nelPYbjnMVG1KX5p6iil+ecZ0aJZzRRM=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxusOE4cm7jozBZdyleuPE9RgsZiniyB9RQzmuY1AELD9epX54g
+	Dt2ok7e9+5ABEPlraozi2aAuy2T07v3B1ao6yEi/G45ioCE/pZJM
+X-Google-Smtp-Source: AGHT+IFGMVOBqxcUtZ7Un1nNcyqmn8u2lqCn/vEwPQlMDhoDECiVmLIANcB5IXjL+WWmWp1X0e6goQ==
+X-Received: by 2002:a05:6214:4603:b0:6cd:6ad4:1fc9 with SMTP id 6a1803df08f44-6d18585e11emr174482126d6.44.1730224242073;
+        Tue, 29 Oct 2024 10:50:42 -0700 (PDT)
+Received: from fauth-a1-smtp.messagingengine.com (fauth-a1-smtp.messagingengine.com. [103.168.172.200])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6d179a565f4sm43845056d6.138.2024.10.29.10.50.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 29 Oct 2024 10:50:41 -0700 (PDT)
+Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
+	by mailfauth.phl.internal (Postfix) with ESMTP id AE8D6120006A;
+	Tue, 29 Oct 2024 13:50:40 -0400 (EDT)
+Received: from phl-mailfrontend-01 ([10.202.2.162])
+  by phl-compute-05.internal (MEProxy); Tue, 29 Oct 2024 13:50:40 -0400
+X-ME-Sender: <xms:cCAhZ5TRRj75IS2Tzjtu63aZzV9zDi1UeLbOZ6_hFfDk7T8qW6AVhg>
+    <xme:cCAhZyxQ2PjsZEtNAV0l77rOvuexoFa8akCFADoXqh3RrCMgjGsi0uyAC3xsAL-fn
+    RK0gk0-jNsrBOCM1w>
+X-ME-Received: <xmr:cCAhZ-0CElQ-ri8IF4FVpuuH9UQmaVHSKBH2w8fJa68UhMEBscThH-OD4OE>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddrvdekuddguddttdcutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
+    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
+    hnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfhfgggtuggjsehttdertddttddv
+    necuhfhrohhmpeeuohhquhhnucfhvghnghcuoegsohhquhhnrdhfvghnghesghhmrghilh
+    drtghomheqnecuggftrfgrthhtvghrnhepgeelgeffvdelgedtgeetfeejvdeiueetueev
+    gffghfejieeuhfefvedtgffgfeeunecuffhomhgrihhnpehrshdrshgsnecuvehluhhsth
+    gvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepsghoqhhunhdomhgvshhm
+    thhprghuthhhphgvrhhsohhnrghlihhthidqieelvdeghedtieegqddujeejkeehheehvd
+    dqsghoqhhunhdrfhgvnhhgpeepghhmrghilhdrtghomhesfhhigihmvgdrnhgrmhgvpdhn
+    sggprhgtphhtthhopeehfedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheprghlih
+    gtvghrhihhlhesghhoohhglhgvrdgtohhmpdhrtghpthhtoheprhhoshhtvgguthesghho
+    ohgumhhishdrohhrghdprhgtphhtthhopehmhhhirhgrmhgrtheskhgvrhhnvghlrdhorh
+    hgpdhrtghpthhtohepmhgrthhhihgvuhdruggvshhnohihvghrshesvghffhhitghiohhs
+    rdgtohhmpdhrtghpthhtohepphgvthgvrhiisehinhhfrhgruggvrggurdhorhhgpdhrtg
+    hpthhtohepjhhpohhimhgsohgvsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehjsggr
+    rhhonhesrghkrghmrghirdgtohhmpdhrtghpthhtoheprghruggssehkvghrnhgvlhdroh
+    hrghdprhgtphhtthhopehojhgvuggrsehkvghrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:cCAhZxCZq3d0UKYNwzqPWrFaA9y-XTAHxm_9BJmjE_XYMRQTg1ygdQ>
+    <xmx:cCAhZyhQmFYGDivfUtONNKb8UmOZ0MNrQs5cpxin0J_THuilmJtVpQ>
+    <xmx:cCAhZ1qtpMwug643Rt8r_Lup_7vByNKCy-1SOxkaayjBBdtdsyEm6w>
+    <xmx:cCAhZ9g8cmPze38Y9VJbL-e8QyQcfXE1cHAdxasFa5rjtWUp949vpQ>
+    <xmx:cCAhZ9TEHmr0HPX_vPEOyHq3JSpvWEm8sDab7uXAAslSI5xYvxNgHwSP>
+Feedback-ID: iad51458e:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 29 Oct 2024 13:50:39 -0400 (EDT)
+Date: Tue, 29 Oct 2024 10:50:38 -0700
+From: Boqun Feng <boqun.feng@gmail.com>
+To: Alice Ryhl <aliceryhl@google.com>
+Cc: Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,	Jason Baron <jbaron@akamai.com>,
+ Ard Biesheuvel <ardb@kernel.org>,	Miguel Ojeda <ojeda@kernel.org>,
+	Alex Gaynor <alex.gaynor@gmail.com>,
+	Wedson Almeida Filho <wedsonaf@gmail.com>,	Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <benno.lossin@proton.me>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	linux-trace-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
+	linux-arch@vger.kernel.org, Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Sean Christopherson <seanjc@google.com>,	Uros Bizjak <ubizjak@gmail.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,	Will Deacon <will@kernel.org>,
+ Marc Zyngier <maz@kernel.org>,	Oliver Upton <oliver.upton@linux.dev>,
+	Mark Rutland <mark.rutland@arm.com>,	Ryan Roberts <ryan.roberts@arm.com>,
+ Fuad Tabba <tabba@google.com>,	linux-arm-kernel@lists.infradead.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,	Albert Ou <aou@eecs.berkeley.edu>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	linux-riscv@lists.infradead.org,	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>, Bibo Mao <maobibo@loongson.cn>,
+	Tiezhu Yang <yangtiezhu@loongson.cn>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>, loongarch@lists.linux.dev
+Subject: Re: [PATCH v11 5/5] rust: add arch_static_branch
+Message-ID: <ZyEgbhWdFa66p-G3@Boquns-Mac-mini.local>
+References: <20241015-tracepoint-v11-0-cceb65820089@google.com>
+ <20241015-tracepoint-v11-5-cceb65820089@google.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20241015-tracepoint-v11-5-cceb65820089@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_180203_309349_7ED9FA3C 
-X-CRM114-Status: GOOD (  28.31  )
+X-CRM114-CacheID: sfid-20241029_105044_243504_47E70438 
+X-CRM114-Status: GOOD (  35.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,209 +160,232 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On 9/12/24 13:55, Charlie Jenkins wrote:
-> Add a new hwprobe key "RISCV_HWPROBE_KEY_VENDOR_EXT_THEAD_0" which
-> allows userspace to probe for the new RISCV_ISA_VENDOR_EXT_XTHEADVECTOR
-> vendor extension.
-
-I believe it's more advantageous to use RISCV_HWPROBE_KEY_VENDOR_EXT_0
-to ensure that this key is shared with all vendors. Subsequently,
-mhartid can select the specific vendor. Each vendor can allocate
-its own extension space within the bitmask.
-
-Therefore, we won't require the addition of a new hardware probe
-key for a new vendor in the future.
-
-RISC-V C-API chooses a similar design.
-
-Link: https://github.com/riscv-non-isa/riscv-c-api-doc/blob/main/src/c-api.adoc#extension-bitmask
-
-> This new key will allow userspace code to probe for which thead vendor
-> extensions are supported. This API is modeled to be consistent with
-> RISCV_HWPROBE_KEY_IMA_EXT_0. The bitmask returned will have each bit
-> corresponding to a supported thead vendor extension of the cpumask set.
-> Just like RISCV_HWPROBE_KEY_IMA_EXT_0, this allows a userspace program
-> to determine all of the supported thead vendor extensions in one call.
-> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> Reviewed-by: Evan Green <evan@rivosinc.com>
+On Tue, Oct 15, 2024 at 01:14:59PM +0000, Alice Ryhl wrote:
+> To allow the Rust implementation of static_key_false to use runtime code
+> patching instead of the generic implementation, pull in the relevant
+> inline assembly from the jump_label.h header by running the C
+> preprocessor on a .rs.S file. Build rules are added for .rs.S files.
+> 
+> Since the relevant inline asm has been adjusted to export the inline asm
+> via the ARCH_STATIC_BRANCH_ASM macro in a consistent way, the Rust side
+> does not need architecture specific code to pull in the asm.
+> 
+> It is not possible to use the existing C implementation of
+> arch_static_branch via a Rust helper because it passes the argument
+> `key` to inline assembly as an 'i' parameter. Any attempt to add a C
+> helper for this function will fail to compile because the value of `key`
+> must be known at compile-time.
+> 
+> Suggested-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+> Co-developed-by: Miguel Ojeda <ojeda@kernel.org>
+> Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
+> Signed-off-by: Alice Ryhl <aliceryhl@google.com>
 > ---
->  arch/riscv/include/asm/hwprobe.h                   |  3 +-
->  .../include/asm/vendor_extensions/thead_hwprobe.h  | 19 +++++++++++
->  .../include/asm/vendor_extensions/vendor_hwprobe.h | 37 ++++++++++++++++++++++
->  arch/riscv/include/uapi/asm/hwprobe.h              |  3 +-
->  arch/riscv/include/uapi/asm/vendor/thead.h         |  3 ++
->  arch/riscv/kernel/sys_hwprobe.c                    |  5 +++
->  arch/riscv/kernel/vendor_extensions/Makefile       |  1 +
->  .../riscv/kernel/vendor_extensions/thead_hwprobe.c | 19 +++++++++++
->  8 files changed, 88 insertions(+), 2 deletions(-)
-> diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
-> index ef01c182af2b..6148e1eab64c 100644
-> --- a/arch/riscv/include/asm/hwprobe.h
-> +++ b/arch/riscv/include/asm/hwprobe.h
-> @@ -1,6 +1,6 @@
->  /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
->  /*
-> - * Copyright 2023 Rivos, Inc
-> + * Copyright 2023-2024 Rivos, Inc
->   */
->    #ifndef _ASM_HWPROBE_H
-> @@ -21,6 +21,7 @@ static inline bool hwprobe_key_is_bitmask(__s64 key)
->  	case RISCV_HWPROBE_KEY_BASE_BEHAVIOR:
->  	case RISCV_HWPROBE_KEY_IMA_EXT_0:
->  	case RISCV_HWPROBE_KEY_CPUPERF_0:
-> +	case RISCV_HWPROBE_KEY_VENDOR_EXT_THEAD_0:
->  		return true;
->  	}
->  diff --git a/arch/riscv/include/asm/vendor_extensions/thead_hwprobe.h b/arch/riscv/include/asm/vendor_extensions/thead_hwprobe.h
+>  rust/Makefile                           |  6 +++++
+>  rust/kernel/.gitignore                  |  3 +++
+>  rust/kernel/arch_static_branch_asm.rs.S |  7 +++++
+>  rust/kernel/jump_label.rs               | 46 ++++++++++++++++++++++++++++++++-
+>  rust/kernel/lib.rs                      | 35 +++++++++++++++++++++++++
+>  scripts/Makefile.build                  |  9 ++++++-
+>  6 files changed, 104 insertions(+), 2 deletions(-)
+> 
+> diff --git a/rust/Makefile b/rust/Makefile
+> index b5e0a73b78f3..c532f48b79de 100644
+> --- a/rust/Makefile
+> +++ b/rust/Makefile
+> @@ -36,6 +36,8 @@ always-$(CONFIG_RUST_KERNEL_DOCTESTS) += doctests_kernel_generated_kunit.c
+>  obj-$(CONFIG_RUST_KERNEL_DOCTESTS) += doctests_kernel_generated.o
+>  obj-$(CONFIG_RUST_KERNEL_DOCTESTS) += doctests_kernel_generated_kunit.o
+>  
+> +always-$(subst y,$(CONFIG_RUST),$(CONFIG_JUMP_LABEL)) += kernel/arch_static_branch_asm.rs
+> +
+>  # Avoids running `$(RUSTC)` for the sysroot when it may not be available.
+>  ifdef CONFIG_RUST
+>  
+> @@ -424,4 +426,8 @@ $(obj)/kernel.o: $(src)/kernel/lib.rs $(obj)/alloc.o $(obj)/build_error.o \
+>      $(obj)/libmacros.so $(obj)/bindings.o $(obj)/uapi.o FORCE
+>  	+$(call if_changed_rule,rustc_library)
+>  
+> +ifneq ($(CONFIG_JUMP_LABEL),)
+> +$(obj)/kernel.o: $(obj)/kernel/arch_static_branch_asm.rs
+> +endif
+> +
+>  endif # CONFIG_RUST
+> diff --git a/rust/kernel/.gitignore b/rust/kernel/.gitignore
 > new file mode 100644
-> index 000000000000..65a9c5612466
+> index 000000000000..d082731007c6
 > --- /dev/null
-> +++ b/arch/riscv/include/asm/vendor_extensions/thead_hwprobe.h
-> @@ -0,0 +1,19 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifndef _ASM_RISCV_VENDOR_EXTENSIONS_THEAD_HWPROBE_H
-> +#define _ASM_RISCV_VENDOR_EXTENSIONS_THEAD_HWPROBE_H
-> +
-> +#include <linux/cpumask.h>
-> +
-> +#include <uapi/asm/hwprobe.h>
-> +
-> +#ifdef CONFIG_RISCV_ISA_VENDOR_EXT_THEAD
-> +void hwprobe_isa_vendor_ext_thead_0(struct riscv_hwprobe *pair, const struct cpumask *cpus);
-> +#else
-> +static inline void hwprobe_isa_vendor_ext_thead_0(struct riscv_hwprobe *pair,
-> +						  const struct cpumask *cpus)
-> +{
-> +	pair->value = 0;
-> +}
-> +#endif
-> +
-> +#endif
-> diff --git a/arch/riscv/include/asm/vendor_extensions/vendor_hwprobe.h b/arch/riscv/include/asm/vendor_extensions/vendor_hwprobe.h
-> new file mode 100644
-> index 000000000000..6b9293e984a9
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/vendor_extensions/vendor_hwprobe.h
-> @@ -0,0 +1,37 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Copyright 2024 Rivos, Inc
-> + */
-> +
-> +#ifndef _ASM_RISCV_SYS_HWPROBE_H
-> +#define _ASM_RISCV_SYS_HWPROBE_H
-> +
-> +#include <asm/cpufeature.h>
-> +
-> +#define VENDOR_EXT_KEY(ext)								\
-> +	do {										\
-> +		if (__riscv_isa_extension_available(isainfo->isa, RISCV_ISA_VENDOR_EXT_##ext)) \
-> +			pair->value |= RISCV_HWPROBE_VENDOR_EXT_##ext;			\
-> +		else									\
-> +			missing |= RISCV_HWPROBE_VENDOR_EXT_##ext;			\
-> +	} while (false)
-> +
-> +/*
-> + * Loop through and record extensions that 1) anyone has, and 2) anyone
-> + * doesn't have.
-> + *
-> + * _extension_checks is an arbitrary C block to set the values of pair->value
-> + * and missing. It should be filled with VENDOR_EXT_KEY expressions.
-> + */
-> +#define VENDOR_EXTENSION_SUPPORTED(pair, cpus, per_hart_vendor_bitmap, _extension_checks)	\
-> +	do {											\
-> +		int cpu;									\
-> +		u64 missing = 0;								\
-> +		for_each_cpu(cpu, (cpus)) {							\
-> +			struct riscv_isavendorinfo *isainfo = &(per_hart_vendor_bitmap)[cpu];	\
-> +			_extension_checks							\
-> +		}										\
-> +		(pair)->value &= ~missing;							\
-> +	} while (false)										\
-> +
-> +#endif /* _ASM_RISCV_SYS_HWPROBE_H */
-> diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
-> index b706c8e47b02..452d0b84f17f 100644
-> --- a/arch/riscv/include/uapi/asm/hwprobe.h
-> +++ b/arch/riscv/include/uapi/asm/hwprobe.h
-> @@ -1,6 +1,6 @@
->  /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
->  /*
-> - * Copyright 2023 Rivos, Inc
-> + * Copyright 2023-2024 Rivos, Inc
->   */
->    #ifndef _UAPI_ASM_HWPROBE_H
-> @@ -82,6 +82,7 @@ struct riscv_hwprobe {
->  #define RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE	6
->  #define RISCV_HWPROBE_KEY_HIGHEST_VIRT_ADDRESS	7
->  #define RISCV_HWPROBE_KEY_TIME_CSR_FREQ	8
-> +#define RISCV_HWPROBE_KEY_VENDOR_EXT_THEAD_0	9
->  /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
->    /* Flags */
-> diff --git a/arch/riscv/include/uapi/asm/vendor/thead.h b/arch/riscv/include/uapi/asm/vendor/thead.h
-> new file mode 100644
-> index 000000000000..43790ebe5faf
-> --- /dev/null
-> +++ b/arch/riscv/include/uapi/asm/vendor/thead.h
+> +++ b/rust/kernel/.gitignore
 > @@ -0,0 +1,3 @@
-> +/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
+> +# SPDX-License-Identifier: GPL-2.0
 > +
-> +#define		RISCV_HWPROBE_VENDOR_EXT_XTHEADVECTOR	(1 << 0)
-> diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
-> index 8d1b5c35d2a7..5a3dc8e66c85 100644
-> --- a/arch/riscv/kernel/sys_hwprobe.c
-> +++ b/arch/riscv/kernel/sys_hwprobe.c
-> @@ -15,6 +15,7 @@
->  #include <asm/uaccess.h>
->  #include <asm/unistd.h>
->  #include <asm/vector.h>
-> +#include <asm/vendor_extensions/thead_hwprobe.h>
->  #include <vdso/vsyscall.h>
->    @@ -241,6 +242,10 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
->  		pair->value = riscv_timebase;
->  		break;
->  +	case RISCV_HWPROBE_KEY_VENDOR_EXT_THEAD_0:
-> +		hwprobe_isa_vendor_ext_thead_0(pair, cpus);
-> +		break;
-> +
->  	/*
->  	 * For forward compatibility, unknown keys don't fail the whole
->  	 * call, but get their element key set to -1 and value set to 0
-> diff --git a/arch/riscv/kernel/vendor_extensions/Makefile b/arch/riscv/kernel/vendor_extensions/Makefile
-> index 353522cb3bf0..866414c81a9f 100644
-> --- a/arch/riscv/kernel/vendor_extensions/Makefile
-> +++ b/arch/riscv/kernel/vendor_extensions/Makefile
-> @@ -2,3 +2,4 @@
->    obj-$(CONFIG_RISCV_ISA_VENDOR_EXT_ANDES)	+= andes.o
->  obj-$(CONFIG_RISCV_ISA_VENDOR_EXT_THEAD)	+= thead.o
-> +obj-$(CONFIG_RISCV_ISA_VENDOR_EXT_THEAD)	+= thead_hwprobe.o
-> diff --git a/arch/riscv/kernel/vendor_extensions/thead_hwprobe.c b/arch/riscv/kernel/vendor_extensions/thead_hwprobe.c
+> +/arch_static_branch_asm.rs
+> diff --git a/rust/kernel/arch_static_branch_asm.rs.S b/rust/kernel/arch_static_branch_asm.rs.S
 > new file mode 100644
-> index 000000000000..2eba34011786
+> index 000000000000..2afb638708db
 > --- /dev/null
-> +++ b/arch/riscv/kernel/vendor_extensions/thead_hwprobe.c
-> @@ -0,0 +1,19 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
+> +++ b/rust/kernel/arch_static_branch_asm.rs.S
+> @@ -0,0 +1,7 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
 > +
-> +#include <asm/vendor_extensions/thead.h>
-> +#include <asm/vendor_extensions/thead_hwprobe.h>
-> +#include <asm/vendor_extensions/vendor_hwprobe.h>
+> +#include <linux/jump_label.h>
 > +
-> +#include <linux/cpumask.h>
-> +#include <linux/types.h>
+> +// Cut here.
 > +
-> +#include <uapi/asm/hwprobe.h>
-> +#include <uapi/asm/vendor/thead.h>
+> +::kernel::concat_literals!(ARCH_STATIC_BRANCH_ASM("{symb} + {off} + {branch}", "{l_yes}"))
+> diff --git a/rust/kernel/jump_label.rs b/rust/kernel/jump_label.rs
+> index 4b7655b2a022..2f2df03a3275 100644
+> --- a/rust/kernel/jump_label.rs
+> +++ b/rust/kernel/jump_label.rs
+> @@ -24,7 +24,51 @@ macro_rules! static_branch_unlikely {
+>          let _key: *const $crate::bindings::static_key_false = ::core::ptr::addr_of!((*_key).$field);
+>          let _key: *const $crate::bindings::static_key = _key.cast();
+>  
+> -        $crate::bindings::static_key_count(_key.cast_mut()) > 0
+> +        #[cfg(not(CONFIG_JUMP_LABEL))]
+> +        {
+> +            $crate::bindings::static_key_count(_key) > 0
+> +        }
 > +
-> +void hwprobe_isa_vendor_ext_thead_0(struct riscv_hwprobe *pair, const struct cpumask *cpus)
-> +{
-> +	VENDOR_EXTENSION_SUPPORTED(pair, cpus,
-> +				   riscv_isa_vendor_ext_list_thead.per_hart_isa_bitmap, {
-> +		VENDOR_EXT_KEY(XTHEADVECTOR);
-> +	});
+> +        #[cfg(CONFIG_JUMP_LABEL)]
+> +        $crate::jump_label::arch_static_branch! { $key, $keytyp, $field, false }
+>      }};
+>  }
+>  pub use static_branch_unlikely;
+> +
+> +/// Assert that the assembly block evaluates to a string literal.
+> +#[cfg(CONFIG_JUMP_LABEL)]
+> +const _: &str = include!(concat!(
+> +    env!("OBJTREE"),
+> +    "/rust/kernel/arch_static_branch_asm.rs"
+> +));
+> +
+> +#[macro_export]
+> +#[doc(hidden)]
+> +#[cfg(CONFIG_JUMP_LABEL)]
+> +macro_rules! arch_static_branch {
+> +    ($key:path, $keytyp:ty, $field:ident, $branch:expr) => {'my_label: {
+> +        $crate::asm!(
+> +            include!(concat!(env!("OBJTREE"), "/rust/kernel/arch_static_branch_asm.rs"));
+> +            l_yes = label {
+> +                break 'my_label true;
+> +            },
+> +            symb = sym $key,
+> +            off = const ::core::mem::offset_of!($keytyp, $field),
+> +            branch = const $crate::jump_label::bool_to_int($branch),
+> +        );
+> +
+> +        break 'my_label false;
+> +    }};
 > +}
+> +
+> +#[cfg(CONFIG_JUMP_LABEL)]
+> +pub use arch_static_branch;
+> +
+> +/// A helper used by inline assembly to pass a boolean to as a `const` parameter.
+> +///
+> +/// Using this function instead of a cast lets you assert that the input is a boolean, and not some
+> +/// other type that can also be cast to an integer.
+> +#[doc(hidden)]
+> +pub const fn bool_to_int(b: bool) -> i32 {
+> +    b as i32
+> +}
+> diff --git a/rust/kernel/lib.rs b/rust/kernel/lib.rs
+> index 55f81f49024e..c0ae9ddd9468 100644
+> --- a/rust/kernel/lib.rs
+> +++ b/rust/kernel/lib.rs
+> @@ -148,3 +148,38 @@ macro_rules! container_of {
+>          ptr.sub(offset) as *const $type
+>      }}
+>  }
+> +
+> +/// Helper for `.rs.S` files.
+> +#[doc(hidden)]
+> +#[macro_export]
+> +macro_rules! concat_literals {
+> +    ($( $asm:literal )* ) => {
+> +        ::core::concat!($($asm),*)
+> +    };
+> +}
+> +
+> +/// Wrapper around `asm!` configured for use in the kernel.
+> +///
+> +/// Uses a semicolon to avoid parsing ambiguities, even though this does not match native `asm!`
+> +/// syntax.
+> +// For x86, `asm!` uses intel syntax by default, but we want to use at&t syntax in the kernel.
+> +#[cfg(target_arch = "x86_64")]
 
+This should be:
+
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
+
+for future proofing and um (usermode linux) support.
+
+> +#[macro_export]
+> +macro_rules! asm {
+> +    ($($asm:expr),* ; $($rest:tt)*) => {
+> +        ::core::arch::asm!( $($asm)*, options(att_syntax), $($rest)* )
+> +    };
+> +}
+> +
+> +/// Wrapper around `asm!` configured for use in the kernel.
+> +///
+> +/// Uses a semicolon to avoid parsing ambiguities, even though this does not match native `asm!`
+> +/// syntax.
+> +// For non-x86 arches we just pass through to `asm!`.
+> +#[cfg(not(target_arch = "x86_64"))]
+
+Ditto.
+
+With these fixed, feel free to add:
+
+Reviewed-by: Boqun Feng <boqun.feng@gmail.com>
+
+Regards,
+Boqun
+
+> +#[macro_export]
+> +macro_rules! asm {
+> +    ($($asm:expr),* ; $($rest:tt)*) => {
+> +        ::core::arch::asm!( $($asm)*, $($rest)* )
+> +    };
+> +}
+> diff --git a/scripts/Makefile.build b/scripts/Makefile.build
+> index 8f423a1faf50..03ee558fcd4d 100644
+> --- a/scripts/Makefile.build
+> +++ b/scripts/Makefile.build
+> @@ -248,12 +248,13 @@ $(obj)/%.lst: $(obj)/%.c FORCE
+>  # Compile Rust sources (.rs)
+>  # ---------------------------------------------------------------------------
+>  
+> -rust_allowed_features := new_uninit
+> +rust_allowed_features := asm_const,asm_goto,new_uninit
+>  
+>  # `--out-dir` is required to avoid temporaries being created by `rustc` in the
+>  # current working directory, which may be not accessible in the out-of-tree
+>  # modules case.
+>  rust_common_cmd = \
+> +	OBJTREE=$(abspath $(objtree)) \
+>  	RUST_MODFILE=$(modfile) $(RUSTC_OR_CLIPPY) $(rust_flags) \
+>  	-Zallow-features=$(rust_allowed_features) \
+>  	-Zcrate-attr=no_std \
+> @@ -303,6 +304,12 @@ quiet_cmd_rustc_ll_rs = $(RUSTC_OR_CLIPPY_QUIET) $(quiet_modtag) $@
+>  $(obj)/%.ll: $(obj)/%.rs FORCE
+>  	+$(call if_changed_dep,rustc_ll_rs)
+>  
+> +quiet_cmd_rustc_rs_rs_S = RSCPP $(quiet_modtag) $@
+> +      cmd_rustc_rs_rs_S = $(CPP) $(c_flags) -xc -C -P $< | sed '1,/^\/\/ Cut here.$$/d' >$@
+> +
+> +$(obj)/%.rs: $(obj)/%.rs.S FORCE
+> +	+$(call if_changed_dep,rustc_rs_rs_S)
+> +
+>  # Compile assembler sources (.S)
+>  # ---------------------------------------------------------------------------
+>  
+> 
+> -- 
+> 2.47.0.rc1.288.g06298d1525-goog
+> 
 
 _______________________________________________
 linux-riscv mailing list
