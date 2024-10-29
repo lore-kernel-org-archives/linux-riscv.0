@@ -4,68 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E599D5B861
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Oct 2024 02:51:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89E08D5B866
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Oct 2024 02:59:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Nc5z+eeKdr8HpwyhA/I0J3P1cLEglljpf4ChtLFCTOM=; b=ZPzji8V97faLZ2
-	YvSubMh+s1XaRc3SZpw80vWn+hSk1QqbDniC3eIn8klz3gamItAQ1ShJjPsraDiniVV1s84KY4SRY
-	/vo9JLzf2qDLPa0AVqs97xxmVcU5aF+Viwi2TPLgyQNdTfAFGvEB2k2VSVo7wGkg8QYDyGvU/YiXw
-	p7loxsaCVTfjcM+tjbJxn10rsK8oE0FlPQXXx5cmfHNsjM1bQ8zySf1zlTFx67VJMYGMxvROgx8HW
-	4mKI/NZtWFSUANTL1lhVMIL8HgH7AKWHBUrHxgz3e42eBP93itwIhdlvnZhJmQ4CUi12siBl/ptDP
-	0VDiACSvOyybZHQ1Ay8w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6674sft2vodq+MtIt9Ict8JEdKkYj1aShhxT5XGc5E8=; b=tcOag9E4UkQVp77lSP07ZLZvyY
+	KcXYHzGu6R+uwly84tcWgJrHsepx5sttrHyvb1oppX6zL9H/wQynl6246owssdrt+vuqU7ddMRWzJ
+	Klvgy+xx4PkuiQ9pCMDRfKwpGLUezeSkXP3r5Gf6jOveYCvKqSdQ8i82zIpVBPinrtFQrH2bPi5BT
+	Rwkcpage+LYxGI6yv/lQPInOw3j0fGBkIPUukVEYhk8JJpDnHvN9bK9K+dL3WznUBa5CgwTRkTr5O
+	fg1LhwI9rgkehrBRmsGSJBSqUAYfL4JIE85bH3GW5QuUm5xMSbWSYRoHrU3m/M+1IxePAPsRMlkkM
+	uEzX4IGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5cJt-0000000D1XT-0K5j;
-	Tue, 29 Oct 2024 02:50:57 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1t5cSA-0000000D2Ib-3sM8;
+	Tue, 29 Oct 2024 02:59:30 +0000
+Received: from mail-maxind01olkn20809.outbound.protection.outlook.com ([2a01:111:f403:281b::809] helo=IND01-MAX-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5cJq-0000000D1Wo-2zqg
+	id 1t5cS8-0000000D2IA-3W0h
 	for linux-riscv@lists.infradead.org;
-	Tue, 29 Oct 2024 02:50:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=4x7+NMYuwtDNvuiXxIkan9s38gNFO7jrlobgIQdg9wI=; b=dvKgnwL+xlxDZYgcteGPA7b1b7
-	mLcb/Toa8r1YLBarjgVedww/AUh/e93nYKxJn0MCiIuXh1j8B+aBur60A4HEBBxqIfiLMvlt4rF0O
-	7jPcAv+gcq+yNAuTKebC5HnZ9CB2ptTJoX+sj2mDMLGrqaP5KDvKrRk1CSAhwJWRWCDY=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1t5cJd-00BWHU-42; Tue, 29 Oct 2024 03:50:41 +0100
-Date: Tue, 29 Oct 2024 03:50:41 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Chen Wang <unicorn_wang@outlook.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
-	Liu Gui <kenneth.liu@sophgo.com>, Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH] riscv: dts: sophgo: Add ethernet configuration for cv18xx
-Message-ID: <ab0ed945-07ff-4aff-9763-e31f156df25f@lunn.ch>
-References: <20241028011312.274938-1-inochiama@gmail.com>
- <87e215a7-0b27-4336-9f9c-e63ade0772ef@lunn.ch>
- <wgggariprpp2wczsljy3vw6kp7vhnrifg6soxdgiio2seyctym@4owbzlg3ngum>
+	Tue, 29 Oct 2024 02:59:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yzhjJ6H6+mXz1tH0UZKmp9iMz6Rm2DyzikTCSwEFyUgp77kn9l7l7mUwaPwHlVEPYlOG568ALS0kyMiEaBR8HkKz1Qp0sm/zf/eF0/Jbj0UEt/lb1TzMuN3QyJLlFZzmyePbvuhYmzqu+KPo+PmLfJxGg7u+NGtggGWMtpIKtcHjv+G2xBXEIC1Qej8IZ13tcYySXfZieq4J/4hUg/6zBoXJZggSxZ+z9NAhr0gXvP60BvoPDakwcAh7dGwb+YT1+m2upKBZM4bEnjE1Wl+NUdUcWoofi9YFPZ0irCJ4penfTT+TNI3nB0xTBwACikpY3569NUBV59Ioaj1pwMfQtg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=an1J5DiTF7T9b7qZ6T5zKT5e2CRSd7gk73Iij3C284Y=;
+ b=gtC66MJ/uA55J+1EpWrS8QYs+SWRbU2oFPYomSXYFaVrUU/KNcb2+OJv3ruq+Caha5HTf39EYXMWTQKQwh3JKtNj6+fi8Vi3YigCLLIkn4lVQ45Tdns8xPgkyx+y3bJriRVJRjh9HKDAWZTHy8anHxgvlZ7hNAKQllpAtYZRZ5tijTkMC/mDD7l3MnXJCC6OZHkGZ3oSTRuWrbjPVYBJEhwf3oiXcL3UeDGuy1+OWyJeCzo8OpmX5jx/Xsz32TwVVzA/imq+MMY/QwXDVcl2OmYZ1bw6fF3SJo6EVn+4Z2/nOY1DfoVEGhswz70xOxoanFbOiqcKdQKAqGFclo5leA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=an1J5DiTF7T9b7qZ6T5zKT5e2CRSd7gk73Iij3C284Y=;
+ b=O9CBycMW5Smyrej4I8rwRjRsOUyhLPM1Z5D8rF/+Ldgvv3Xkq5RyP+iFUDtAybzKSANGXFqhWqkxLtccv+TqKLHPOLOqdiMPpOV9IMJAnN5/Ii8e1Q6quaPzFPAvsM+PkGGIcr/jRpYZnyVEmAyw0hGnHFC0/3ARt6SrZ6/5fhCBAM6Y1QtQZAjgxarUfwFUp3GE1XXBItZqa4utai3GCqP0Edth5JfEdaA+arAUmWTX2tZXyclcfAdZw8XrNXb1QyKIwKOhU9GcvyQwZ0u49cmz4rrgfQRTM9LcOtuFIM7a+2xWqOICLjTrT2TQUtTMaRbFYVRf9TcHEsuAKRt4ww==
+Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:138::5)
+ by PN0P287MB1378.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:189::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.25; Tue, 29 Oct
+ 2024 02:59:13 +0000
+Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ ([fe80::a94:ad0a:9071:806c]) by MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ ([fe80::a94:ad0a:9071:806c%3]) with mapi id 15.20.8093.024; Tue, 29 Oct 2024
+ 02:59:13 +0000
+Message-ID: <MA0P287MB28228810469B6A46D26CAF51FE4B2@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
+Date: Tue, 29 Oct 2024 10:59:04 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] pinctrl: sophgo: add support for SG2042 SoC
+To: Inochi Amaoto <inochiama@gmail.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Inochi Amaoto <inochiama@outlook.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Guo Ren <guoren@kernel.org>, Arnd Bergmann <arnd@arndb.de>
+Cc: Yixun Lan <dlan@gentoo.org>, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <20241024064356.865055-1-inochiama@gmail.com>
+ <20241024064356.865055-3-inochiama@gmail.com>
+From: Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <20241024064356.865055-3-inochiama@gmail.com>
+X-ClientProxiedBy: TYCP301CA0069.JPNP301.PROD.OUTLOOK.COM
+ (2603:1096:405:7d::9) To MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:138::5)
+X-Microsoft-Original-Message-ID: <5157ee00-52ef-438f-a50f-22a746c04e45@outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <wgggariprpp2wczsljy3vw6kp7vhnrifg6soxdgiio2seyctym@4owbzlg3ngum>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MA0P287MB2822:EE_|PN0P287MB1378:EE_
+X-MS-Office365-Filtering-Correlation-Id: e539112b-0638-4e93-3bc9-08dcf7c5ab22
+X-Microsoft-Antispam: BCL:0;ARA:14566002|5072599009|19110799003|15080799006|7092599003|6090799003|8060799006|461199028|3412199025|440099028;
+X-Microsoft-Antispam-Message-Info: kJQHdZcSPnwYWWG33iJ5mXt8Vp+sluj7gcIkxq0eSKlHe2ordQCUN/ro/fSUbrV/9176xs0xRPY8owe6K6ayLLvdIKolXLuulBLordrthploN0PgZTMFYg4FjdD7pFHDyMvfwpNSuDUE7LoevFWu6u+xAwXweWYUEFe1/aVWrCAPOlJk20X+XgUa8dI40q5dBNTPA5FtAHB2+bpMPyWNiqOGyZ9NzTdk44E1BmhZdj4zIMcEAg5oQpgmrui34A+7pGaBwLW/vTkUSGcevNHkEAaoNOOhWjg3bxboxsEXVMILaYng4XZTyXlALS/cBcjl/SqVAp+obHH05QGV3XQN8sVqZxjiux/5vOgvp7QvWqQ+B81mmuKUNLxvgqCMTc9zKBVAuNN6U7A9YpMG/LutFmqOWfuQmcfxqmklWspuVoTGk1Je2hXRIgqd8vnfPcc684rPpbLLAXQiY5g3pTf01CzA/Dkt8hHmZreG3or1KOy4oY9pJYxkO+hwb+NxHWmE06c91/KtLP5rjzqK+hHpj/EBALNYUrh2gZZXjmW5WUxn4nrfWTtLlfxFDKX8K0oo3K/VHNg+3RUj05hhlWuuKoe/RWSTjRFPes3lQAGtA7aLdiKHXhPPhEi2iuORMBmxzDDgsfwInpeJnt1pEZoqck9ZVlz2NZ+6535w7sFp19uUUWd6x7YPZoFw3EBOIPrRAvpk3r9yTcl/wjJbmgOaANHSYYaisP9P5Unms2BZ/HnmA5KZyNgAm/Y2sC2bJ+p7k+79ium7+5fw9ATBO1Stlg==
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?M2VXUXVyaVpHb2NnckNsblBaNlFoYTZ2UmJBSDB6ckhKbnJVemo5U1lHSFN2?=
+ =?utf-8?B?T3czUmtvNmJnUEJBYUdqZ3lrVWlPZjcvUjlkWnE1MmY0Sld6UFlMYThNVzdE?=
+ =?utf-8?B?S2pEZ2lnWjAvZHJrYnNvOUdnNWdUbjBpaW5wKytETkJLZnl3RFVlUklQZEVn?=
+ =?utf-8?B?Sm9tNXRzTEpvelJESkJzZStMNUY5eWl5UDI3RFR5VlhheWx5OENsRDhYVHVo?=
+ =?utf-8?B?WVlLbytLWEkvS3ZYcFF1UGYvVXA5MFR5TDJpS012aUhnYmx0Z0NYRVg0S3k3?=
+ =?utf-8?B?aEZnazBGR3JmQzlMTW40czg5QU5TZzk4VVFWdE5aQm9BOUZqZkVESjVUSDFr?=
+ =?utf-8?B?aW11cUJmVEkxeWo1WlRIOWt2OWRIaGFYUzY0K3lGQmxsZWs4Tmt4ZEp3WGxR?=
+ =?utf-8?B?Q001dERaT0crZnRURUlaWXI3RHdMdlpmd0xtNEwrZFpMV21NZmdITHVNRThP?=
+ =?utf-8?B?U1VLSUNxaWtTVTl3TWVGdzNVMW1KZ2hIY3RYOFRHTkRESnVDaEw0aWU1T21M?=
+ =?utf-8?B?R3k0WFRtNVRxVGEwMTNjODhwYU40bkRLQXFLK3NyOVl5SGYvV0tyZjNTam9T?=
+ =?utf-8?B?ZjNaaXdzdGtqS3NpemphejRLUVE1YTQ1NGhNYVJMV29XK0lGcWxHb1VMWmxH?=
+ =?utf-8?B?eVRqeUZFTFNDWWRmdGdWekFaQlVGMisvbGh4YlV4QWhKMGk0UjkyZDV3dmdm?=
+ =?utf-8?B?c2FRamxPQW9ZbTBhRUQzdDJRWnBOWEZZc2VrQ21LbUZLcmJBZXZ4NFlBdzZW?=
+ =?utf-8?B?RE1LaE5XOUR5KzdnZWMrWlNNbTFaSE9VVGUrRlplcUpKRitUTzUvMVdTWmYr?=
+ =?utf-8?B?ZTI0RTVCUzdwTmYxMGhSU1F3OEZvRFFjOGNJV1FHMUZtcWlvZmwwSVQyY2xz?=
+ =?utf-8?B?RHdHL01xRnVrcTZxVi9tU0FZazVYZDFmV3FaVHNzcDVCby9ndlVZd0JMQlB5?=
+ =?utf-8?B?N0NlT01LZzFzWGFXL04zMnVYWTJoQWpxMWdYRHpQdzgxeEQ4bWx1aUV6OVpF?=
+ =?utf-8?B?NmhjMzJwbmJLdHR6Z1ByMmN4NS83MXRZeVRJVGRNOEJhQmhhVE9mZVVubkQy?=
+ =?utf-8?B?MDd5eTY0dGl4KzhuU21qbHFmN3VXNW1pNVZCMTY1bU9tSUlRL1R4dUVvTjl1?=
+ =?utf-8?B?QThsaGE2VTVNaEtZRnFLSWNEaEdjM040dmZRQ3hMUDBRb2lXaHVwQVlFZmpl?=
+ =?utf-8?B?aGtvNm5DMDF5aVNPejlkcGFYcUVOQno5ZitFckxTNE51WUR6TFdYb0o4aVZV?=
+ =?utf-8?B?RncrYmhMaDZMTzA0Tm1hZ0ZkK3lXazh3dDZrUjFJbmNwRXdxOG01N1g5dElp?=
+ =?utf-8?B?SDlKZkxRcUF5TFBaTXU1RG4zODhyUFlxTWs1MjdsOVBuRmdNVnZSZ1pwVm45?=
+ =?utf-8?B?RTY5R1IvM3hBN044N09VNW1icmp5ZG9wMTZMaC8vNXlxZkR2bFA2NFBqUG9j?=
+ =?utf-8?B?bXdBb3Jralh5NkpuV1c4cTFRTFkyaER2ZDAzZlNnaUc3Nk1WRHVCQmVZRCtB?=
+ =?utf-8?B?MGh4TmxteDg1UHdRWW1leHBwR01URGpsRytPMW9yVDhrREhHKzQyTnhtYy9p?=
+ =?utf-8?B?a2h5L21uNDBrM0tScCttM1VWUk9zZndnRDVTMlh3UlN2TGFoMkhMbTFSbnpY?=
+ =?utf-8?B?MmZOaXFYWW5VeDVDTXgwa1RvSDhkWlYxZUQ4WHdpbmZHRG8xUmJwQk5EWCtV?=
+ =?utf-8?Q?qqZYWiyKoTktzbK01WvM?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e539112b-0638-4e93-3bc9-08dcf7c5ab22
+X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2024 02:59:13.4140
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN0P287MB1378
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_195054_774895_255DB0E4 
-X-CRM114-Status: GOOD (  18.70  )
+X-CRM114-CacheID: sfid-20241028_195928_932335_DE7E40ED 
+X-CRM114-Status: GOOD (  15.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,68 +133,98 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 29, 2024 at 06:43:03AM +0800, Inochi Amaoto wrote:
-> On Mon, Oct 28, 2024 at 02:09:06PM +0100, Andrew Lunn wrote:
-> > > +++ b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
-> > > @@ -210,6 +210,55 @@ i2c4: i2c@4040000 {
-> > >  			status = "disabled";
-> > >  		};
-> > >  
-> > > +		gmac0: ethernet@4070000 {
-> > > +			compatible = "snps,dwmac-3.70a";
-> > > +			reg = <0x04070000 0x10000>;
-> > > +			clocks = <&clk CLK_AXI4_ETH0>, <&clk CLK_ETH0_500M>;
-> > > +			clock-names = "stmmaceth", "ptp_ref";
-> > > +			interrupts = <31 IRQ_TYPE_LEVEL_HIGH>;
-> > > +			interrupt-names = "macirq";
-> > > +			phy-handle = <&phy0>;
-> > > +			phy-mode = "rmii";
-> > > +			rx-fifo-depth = <8192>;
-> > > +			tx-fifo-depth = <8192>;
-> > > +			snps,multicast-filter-bins = <0>;
-> > > +			snps,perfect-filter-entries = <1>;
-> > > +			snps,aal;
-> > > +			snps,txpbl = <8>;
-> > > +			snps,rxpbl = <8>;
-> > > +			snps,mtl-rx-config = <&gmac0_mtl_rx_setup>;
-> > > +			snps,mtl-tx-config = <&gmac0_mtl_tx_setup>;
-> > > +			snps,axi-config = <&gmac0_stmmac_axi_setup>;
-> > > +			status = "disabled";
-> > > +
-> > > +			mdio {
-> > > +				compatible = "snps,dwmac-mdio";
-> > > +				#address-cells = <1>;
-> > > +				#size-cells = <0>;
-> > > +
-> > > +				phy0: phy@0 {
-> > > +					compatible = "ethernet-phy-ieee802.3-c22";
-> > > +					reg = <0>;
-> > > +				};
-> > > +			};
-> > 
-> > It is not clear to me what cv18xx.dtsi represents, 
-> 
-> This is a include file to define common ip for the whole
-> cv18xx series SoCs (cv1800b, cv1812h, sg2000, sg2000).
-> 
-> > and where the PHY node should be, here, or in a .dts file. 
-> > Is this a SOM, and the PHY is on the SOM? 
-> 
-> The phy is on the SoC, it is embedded, and no external phy
-> is supported. So I think the phy node should stay here, not 
-> in the dts file.
 
-So this is correct when the PHY is internal. However, this is normally
-expressed by setting phy-mode to "internal". The stmmac driver might
-however not allow that? If not, please put a comment indicating the
-PHY is part of the SoC.
+On 2024/10/24 14:43, Inochi Amaoto wrote:
+[......]
+> diff --git a/drivers/pinctrl/sophgo/pinctrl-sg2042-ops.c b/drivers/pinctrl/sophgo/pinctrl-sg2042-ops.c
+> new file mode 100644
+> index 000000000000..f1c33b166d01
+> --- /dev/null
+> +++ b/drivers/pinctrl/sophgo/pinctrl-sg2042-ops.c
+> @@ -0,0 +1,583 @@
+[......]
+> +int sg2042_pinctrl_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct sg2042_pinctrl *pctrl;
+> +	const struct sg2042_pinctrl_data *pctrl_data;
+> +	int ret;
+> +
+> +	pctrl_data = device_get_match_data(dev);
+> +	if (!pctrl_data)
+> +		return -ENODEV;
+> +
+> +	if (pctrl_data->npins == 0)
+> +		return dev_err_probe(dev, -EINVAL, "invalid pin data\n");
+> +
+> +	pctrl = devm_kzalloc(dev, sizeof(*pctrl), GFP_KERNEL);
+> +	if (!pctrl)
+> +		return -ENOMEM;
+> +
+> +	pctrl->regs = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(pctrl->regs))
+> +		return PTR_ERR(pctrl->regs);
+> +
+> +	pctrl->pdesc.name = dev_name(dev);
+> +	pctrl->pdesc.pins = pctrl_data->pins;
+> +	pctrl->pdesc.npins = pctrl_data->npins;
+> +	pctrl->pdesc.pctlops = &sg2042_pctrl_ops;
+> +	pctrl->pdesc.pmxops = &sg2042_pmx_ops;
+> +	pctrl->pdesc.confops = &sg2042_pconf_ops;
+> +	pctrl->pdesc.owner = THIS_MODULE;
+> +
+> +	pctrl->data = pctrl_data;
+> +	pctrl->dev = dev;
+> +	raw_spin_lock_init(&pctrl->lock);
+> +	mutex_init(&pctrl->mutex);
+> +
+> +	platform_set_drvdata(pdev, pctrl);
+> +
+> +	ret = devm_pinctrl_register_and_init(dev, &pctrl->pdesc,
+> +					     pctrl, &pctrl->pctl_dev);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret,
+> +				     "fail to register pinctrl driver\n");
+> +
+> +	return pinctrl_enable(pctrl->pctl_dev);
+> +}
+> +EXPORT_SYMBOL_GPL(sg2042_pinctrl_probe);
+Why EXPORT_SYMBOL_GPL? sg2042_pinctrl_probe looks like just a global 
+function should be enough.
+> +
+> +MODULE_DESCRIPTION("Pinctrl OPs for the SG2042 SoC");
+> +MODULE_LICENSE("GPL");
 
-	Andrew
+pinctrl-sg2042-ops.c is just a common file built together with 
+pinctrl-sg2042.c, right? Why you declare it as a module?
+
+> diff --git a/drivers/pinctrl/sophgo/pinctrl-sg2042.c b/drivers/pinctrl/sophgo/pinctrl-sg2042.c
+> new file mode 100644
+> index 000000000000..81411670f855
+> --- /dev/null
+> +++ b/drivers/pinctrl/sophgo/pinctrl-sg2042.c
+> @@ -0,0 +1,642 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Sophgo SG2042 SoC pinctrl driver.
+> + *
+> + * Copyright (C) 2024 Inochi Amaoto <inochiama@outlook.com>
+> + */
+> +
+> +#include <linux/module.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/of.h>
+
+Sort in alphabetic.
+
+[......]
+
+
 
 _______________________________________________
 linux-riscv mailing list
