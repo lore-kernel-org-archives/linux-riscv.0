@@ -4,70 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10DDDD7494F
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Oct 2024 00:37:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F6BDD7494E
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Oct 2024 00:45:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6yfvWEV58HytNKW5YoBKRoFa8iqnS9iIe3kuF+chZ/s=; b=e2+59nAVq6BPcl
-	zyTLhYRrjJzM6N7kU285YnVhQlguIgAC6Gm3RqKrZGjcZPeDuBaqgH3DgCQSyQLGJqDRU9W1TTcf2
-	v00lHIMjjOXrP7CtvoEEUXZA5pBDlO1RnTNp4ZwMMlEFyFP5qGMWjnq4dWbGGJp3zs9TbL4CXtZhX
-	CyWYnoh0Y7uydlPDz8ctercXEnSOHKH4vVupNFzp3mImdJ9SYAO9F8Jm09/ygFJ/Bk7a5Y1BWejaF
-	ftMDFLtZEH2PbxSHXhTDBD+5NgJjGE4gIhTMP88iQDTnCfRw3WYZuClM3AYk2QNK3x06CQz5rzgbc
-	jC4epDB2OpN3eys13yIA==;
+	List-Owner; bh=Ak2w7dVdojV+UkM9LobB2gaWmgkCzZ8OedQaLukyN2E=; b=gWSIhnNcvom1NS
+	UHKxplwM+lP3dMlTPF48PD7VJq7Eu5YHp8e9Jm4tnZdTRoz/nm5ZBikMSS4QV6q1l6twdyQa0/ZFw
+	/cj24rRg2ywlQDM9+w25UgpuRhYBCI2SZsqOXYEh5HEWx9P4e5UVJwAnCEVdaaMytrKLO7uBdC/Np
+	L/bXQ55rZWgyGhyGFSSbvGDwYyc1tU0b+mMmhstUK8gTh35aQRVc+/xKc9G5OzGeG4VL1/NUUgg0p
+	pyaYqjal9t41HZvDA9WrNNlGI9iUI8n6XZk4Rp3YmbToKaNPzOgwB+VUu0SsVyd943ZnXU3OsvqTE
+	MFx3ztXwxdKze5dV2tbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5wiH-0000000GLJ3-0zeT;
-	Wed, 30 Oct 2024 00:37:29 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t5wqF-0000000GMPH-2bm7;
+	Wed, 30 Oct 2024 00:45:43 +0000
+Received: from mail-pf1-f175.google.com ([209.85.210.175])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5wiE-0000000GLIH-0mW8
+	id 1t5vtD-0000000GDW3-0r78
 	for linux-riscv@lists.infradead.org;
-	Wed, 30 Oct 2024 00:37:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 134085C2734;
-	Wed, 30 Oct 2024 00:36:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15805C4CECD;
-	Wed, 30 Oct 2024 00:37:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730248644;
-	bh=dURTOXL4P+eY/enOSnmceDVRo9KrseqCoeA8XcVElsw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DRYqBTHJDng3XM4VBRR//2H+o0boZztE1JfVhqL9YY4GKxjDx/nWR6KWvIIUERLeZ
-	 sRW6yI7bY8det+O1IYT5KkWYqOwBQLovqgvgcFTIDd3GfbjYwjKldfq9IKnw4psTpC
-	 YMMk9wuQQuEhSj8v2ODLbRFCPsE4juPq6vSCk4wdPIlIykUuV6eBpa1caMlYMUXkfC
-	 7g8FV7oWRgekYKhcRW0h4FN7m5nFd+ZXlHhUTdetgBZYtM9SCGd2eGGLteTVwFAd1W
-	 q2sXlUERkwzIVZqeL55dyGZDao2P75xQfVw+eVXm1LS6aeWEtRiuR6FNAiSVlN6wPL
-	 WGIxx/cxxIYXg==
-Date: Tue, 29 Oct 2024 17:37:22 -0700
-From: Namhyung Kim <namhyung@kernel.org>
-To: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	"Liang, Kan" <kan.liang@linux.intel.com>,
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@rivosinc.com>
-Subject: Re: [PATCH] perf, riscv: Wire up perf trace support for RISC-V
-Message-ID: <ZyF_whZ4Ez-jwd-W@google.com>
-References: <20241024190353.46737-1-bjorn@kernel.org>
+	Tue, 29 Oct 2024 23:44:52 +0000
+Received: by mail-pf1-f175.google.com with SMTP id d2e1a72fcca58-71e8235f0b6so4598396b3a.3
+        for <linux-riscv@lists.infradead.org>; Tue, 29 Oct 2024 16:44:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1730245482; x=1730850282; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=2uB6wgL7AUIk24SoLAfGxw+LLkCCjYapUwagzJacJBw=;
+        b=ZCe9nz0rSFW6F5MghYXZVQ2mlJ9RSdA3gmdt2+30p8g9opZ6dMtC8xbJfIk/bpvyOf
+         Z7tZfCv9JBSpd3RlVcMsETUorzEOIW7lJbweWSjBpA29DHwaLplbIAoy5dcmzW6lIPFr
+         vcovQ3MeY+8oYmF6UH8FCa9W52MAlJWiyzuzRv5NMEfV2nvCkeiTDlTAi6t+amGoR0vh
+         gDf9e6/2ReHbb7NReiD62JZ69yU9r5GokoCbpgob48TfvWskqsxxVYzvQ5KPBjdOKc2l
+         qx5GVavKvn4/p+gHLu8nXZEVXQ2nbEmPI7kE/n1si2mU24c0Jo1yjLMO4Qn+pxMvspzY
+         L2Zg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730245482; x=1730850282;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2uB6wgL7AUIk24SoLAfGxw+LLkCCjYapUwagzJacJBw=;
+        b=QZTj2uDzhE975keKAr7cOw+woleTWC9xjrAxVVd7OW+w7IahdbDK+4ii9ebaCnjGXs
+         LFJ9yz/SEW6XQMARqoW0dOC2Nnd9f14s2T1V21shqRxzDY+rYwekyBKL7JPcxl61a8qS
+         clCMHZ4tFWgR82umNL8JbGgio+wwUh5hRWmcehaaOFVvCH/PIB0VVXDzolsSbTZqzp4y
+         OboSAZRMNPpdPwd3TU9N6Pc+iQSokYKT8KKS+jD6O88gkb+MiBWc99q6DxRF8gtx+wLb
+         R2SZtZqqlyaxVyOI6RSMKmZOXKvNzYiEsC6R/om2d63qUfZQtiIltXlNTb02MlvlKs1l
+         cCNw==
+X-Forwarded-Encrypted: i=1; AJvYcCX5ur6wIjmKZzTYM7HVV+8NyvKm+15XFPy1njHc/uJBZ2nuGRB5Ff5FARkGnKITmIamWYN3EegqzAEKPw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwvRXnsJtl129+C2jmHltZGJ5PZNVJwKcdRW0COv6s3DuYQVMy+
+	O3EsXrK9qYOQ427lnqfhXIRHuZPurpLkYZOsqOCUx3z3TUh2ozzz8rasvc2+dJM=
+X-Google-Smtp-Source: AGHT+IE221LbNxuFRa65lyyYoevgLhuJqbF2HZlgl90nwLOZSnaHzzPzVHYzhAHk2jRfxhGW9tswvg==
+X-Received: by 2002:a05:6a00:2d84:b0:71e:693c:107c with SMTP id d2e1a72fcca58-72062fb8107mr18791154b3a.11.1730245481560;
+        Tue, 29 Oct 2024 16:44:41 -0700 (PDT)
+Received: from debug.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72057921863sm8157643b3a.33.2024.10.29.16.44.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 29 Oct 2024 16:44:41 -0700 (PDT)
+From: Deepak Gupta <debug@rivosinc.com>
+Date: Tue, 29 Oct 2024 16:44:10 -0700
+Subject: [PATCH v7 10/32] riscv/mm : ensure PROT_WRITE leads to VM_READ |
+ VM_WRITE
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241024190353.46737-1-bjorn@kernel.org>
+Message-Id: <20241029-v5_user_cfi_series-v7-10-2727ce9936cb@rivosinc.com>
+References: <20241029-v5_user_cfi_series-v7-0-2727ce9936cb@rivosinc.com>
+In-Reply-To: <20241029-v5_user_cfi_series-v7-0-2727ce9936cb@rivosinc.com>
+To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+ Vlastimil Babka <vbabka@suse.cz>, 
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+ Christian Brauner <brauner@kernel.org>, 
+ Peter Zijlstra <peterz@infradead.org>, Oleg Nesterov <oleg@redhat.com>, 
+ Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>, 
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+ linux-mm@kvack.org, linux-riscv@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-arch@vger.kernel.org, 
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ alistair.francis@wdc.com, richard.henderson@linaro.org, jim.shu@sifive.com, 
+ andybnac@gmail.com, kito.cheng@sifive.com, charlie@rivosinc.com, 
+ atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com, 
+ alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org, 
+ rick.p.edgecombe@intel.com, Deepak Gupta <debug@rivosinc.com>
+X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_173726_341875_BFA09B3E 
-X-CRM114-Status: GOOD (  22.44  )
+X-CRM114-CacheID: sfid-20241029_164443_382552_BCFE06B0 
+X-CRM114-Status: GOOD (  21.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,96 +110,119 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGVsbG8sCgpPbiBUaHUsIE9jdCAyNCwgMjAyNCBhdCAxMjowMzo1MVBNIC0wNzAwLCBCasO2cm4g
-VMO2cGVsIHdyb3RlOgo+IEZyb206IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQHJpdm9zaW5jLmNvbT4K
-PiAKPiBSSVNDLVYgZG9lcyBub3QgY3VycmVudGx5IHN1cHBvcnQgcGVyZiB0cmFjZSwgc2luY2Ug
-dGhlIHN5c3RlbSBjYWxsCj4gdGFibGUgaXMgbm90IGdlbmVyYXRlZC4KPiAKPiBQZXJmb3JtIHRo
-ZSBjb3B5L3Bhc3RlIGV4ZXJjaXNlLCB3aXJpbmcgdXAgUklTQy1WIHN5c3RlbSBjYWxsIHRhYmxl
-Cj4gZ2VuZXJhdGlvbi4KCkNhbiBhbnlib2R5IHdpdGggUklTQy1WIHBsZWFzZSB0ZXN0IHRoaXM/
-CgpUaGFua3MsCk5hbWh5dW5nCgo+IAo+IFNpZ25lZC1vZmYtYnk6IEJqw7ZybiBUw7ZwZWwgPGJq
-b3JuQHJpdm9zaW5jLmNvbT4KPiAtLS0KPiAgdG9vbHMvcGVyZi9NYWtlZmlsZS5jb25maWcgICAg
-ICAgICAgICAgICAgICAgIHwgIDYgKystCj4gIHRvb2xzL3BlcmYvYXJjaC9yaXNjdi9NYWtlZmls
-ZSAgICAgICAgICAgICAgICB8IDIyICsrKysrKysrKwo+ICAuLi4vYXJjaC9yaXNjdi9lbnRyeS9z
-eXNjYWxscy9ta3N5c2NhbGx0YmwgICAgfCA0NyArKysrKysrKysrKysrKysrKysrCj4gIHRvb2xz
-L3BlcmYvdXRpbC9zeXNjYWxsdGJsLmMgICAgICAgICAgICAgICAgICB8ICA0ICsrCj4gIDQgZmls
-ZXMgY2hhbmdlZCwgNzggaW5zZXJ0aW9ucygrKSwgMSBkZWxldGlvbigtKQo+ICBjcmVhdGUgbW9k
-ZSAxMDA3NTUgdG9vbHMvcGVyZi9hcmNoL3Jpc2N2L2VudHJ5L3N5c2NhbGxzL21rc3lzY2FsbHRi
-bAo+IAo+IGRpZmYgLS1naXQgYS90b29scy9wZXJmL01ha2VmaWxlLmNvbmZpZyBiL3Rvb2xzL3Bl
-cmYvTWFrZWZpbGUuY29uZmlnCj4gaW5kZXggNGRkYjI3YTQ4ZWVkLi4xZDM4OGU3MWUwY2MgMTAw
-NjQ0Cj4gLS0tIGEvdG9vbHMvcGVyZi9NYWtlZmlsZS5jb25maWcKPiArKysgYi90b29scy9wZXJm
-L01ha2VmaWxlLmNvbmZpZwo+IEBAIC0zMSw3ICszMSw3IEBAICQoY2FsbCBkZXRlY3RlZF92YXIs
-U1JDQVJDSCkKPiAgaWZuZXEgKCQoTk9fU1lTQ0FMTF9UQUJMRSksMSkKPiAgICBOT19TWVNDQUxM
-X1RBQkxFIDo9IDEKPiAgCj4gLSAgaWZlcSAoJChTUkNBUkNIKSwkKGZpbHRlciAkKFNSQ0FSQ0gp
-LHg4NiBwb3dlcnBjIGFybTY0IHMzOTAgbWlwcyBsb29uZ2FyY2gpKQo+ICsgIGlmZXEgKCQoU1JD
-QVJDSCksJChmaWx0ZXIgJChTUkNBUkNIKSx4ODYgcG93ZXJwYyBhcm02NCBzMzkwIG1pcHMgbG9v
-bmdhcmNoIHJpc2N2KSkKPiAgICAgIE5PX1NZU0NBTExfVEFCTEUgOj0gMAo+ICAgIGVuZGlmCj4g
-IAo+IEBAIC04Myw2ICs4MywxMCBAQCBpZmVxICgkKEFSQ0gpLG1pcHMpCj4gICAgTElCVU5XSU5E
-X0xJQlMgPSAtbHVud2luZCAtbHVud2luZC1taXBzCj4gIGVuZGlmCj4gIAo+ICtpZmVxICgkKEFS
-Q0gpLHJpc2N2KQo+ICsgIENGTEFHUyArPSAtSSQoT1VUUFVUKWFyY2gvcmlzY3YvaW5jbHVkZS9n
-ZW5lcmF0ZWQKPiArZW5kaWYKPiArCj4gICMgU28gZmFyIHRoZXJlJ3Mgb25seSB4ODYgYW5kIGFy
-bSBsaWJkdyB1bndpbmQgc3VwcG9ydCBtZXJnZWQgaW4gcGVyZi4KPiAgIyBEaXNhYmxlIGl0IG9u
-IGFsbCBvdGhlciBhcmNoaXRlY3R1cmVzIGluIGNhc2UgbGliZHcgdW53aW5kCj4gICMgc3VwcG9y
-dCBpcyBkZXRlY3RlZCBpbiBzeXN0ZW0uIEFkZCBzdXBwb3J0ZWQgYXJjaGl0ZWN0dXJlcwo+IGRp
-ZmYgLS1naXQgYS90b29scy9wZXJmL2FyY2gvcmlzY3YvTWFrZWZpbGUgYi90b29scy9wZXJmL2Fy
-Y2gvcmlzY3YvTWFrZWZpbGUKPiBpbmRleCA5MGMzYzQ3NmEyNDIuLjQ4MWRhNDUxODY5NSAxMDA2
-NDQKPiAtLS0gYS90b29scy9wZXJmL2FyY2gvcmlzY3YvTWFrZWZpbGUKPiArKysgYi90b29scy9w
-ZXJmL2FyY2gvcmlzY3YvTWFrZWZpbGUKPiBAQCAtNCwzICs0LDI1IEBAIGVuZGlmCj4gIFBFUkZf
-SEFWRV9BUkNIX1JFR1NfUVVFUllfUkVHSVNURVJfT0ZGU0VUIDo9IDEKPiAgUEVSRl9IQVZFX0pJ
-VERVTVAgOj0gMQo+ICBIQVZFX0tWTV9TVEFUX1NVUFBPUlQgOj0gMQo+ICsKPiArIwo+ICsjIFN5
-c2NhbGwgdGFibGUgZ2VuZXJhdGlvbiBmb3IgcGVyZgo+ICsjCj4gKwo+ICtvdXQgICAgOj0gJChP
-VVRQVVQpYXJjaC9yaXNjdi9pbmNsdWRlL2dlbmVyYXRlZC9hc20KPiAraGVhZGVyIDo9ICQob3V0
-KS9zeXNjYWxscy5jCj4gK2luY3BhdGggOj0gJChzcmN0cmVlKS90b29scwo+ICtzeXNkZWYgOj0g
-JChzcmN0cmVlKS90b29scy9hcmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20vdW5pc3RkLmgKPiAr
-c3lzcHJmIDo9ICQoc3JjdHJlZSkvdG9vbHMvcGVyZi9hcmNoL3Jpc2N2L2VudHJ5L3N5c2NhbGxz
-Lwo+ICtzeXN0YmwgOj0gJChzeXNwcmYpL21rc3lzY2FsbHRibAo+ICsKPiArIyBDcmVhdGUgb3V0
-cHV0IGRpcmVjdG9yeSBpZiBub3QgYWxyZWFkeSBwcmVzZW50Cj4gKyQoc2hlbGwgWyAtZCAnJChv
-dXQpJyBdIHx8IG1rZGlyIC1wICckKG91dCknKQo+ICsKPiArJChoZWFkZXIpOiAkKHN5c2RlZikg
-JChzeXN0YmwpCj4gKwkkKFEpJChTSEVMTCkgJyQoc3lzdGJsKScgJyQoQ0MpJyAnJChIT1NUQ0Mp
-JyAkKGluY3BhdGgpICQoc3lzZGVmKSA+ICRACj4gKwo+ICtjbGVhbjo6Cj4gKwkkKGNhbGwgUVVJ
-RVRfQ0xFQU4sIHJpc2N2KSAkKFJNKSAkKGhlYWRlcikKPiArCj4gK2FyY2hoZWFkZXJzOiAkKGhl
-YWRlcikKPiBkaWZmIC0tZ2l0IGEvdG9vbHMvcGVyZi9hcmNoL3Jpc2N2L2VudHJ5L3N5c2NhbGxz
-L21rc3lzY2FsbHRibCBiL3Rvb2xzL3BlcmYvYXJjaC9yaXNjdi9lbnRyeS9zeXNjYWxscy9ta3N5
-c2NhbGx0YmwKPiBuZXcgZmlsZSBtb2RlIDEwMDc1NQo+IGluZGV4IDAwMDAwMDAwMDAwMC4uYzU5
-ZjVlODUyYjk3Cj4gLS0tIC9kZXYvbnVsbAo+ICsrKyBiL3Rvb2xzL3BlcmYvYXJjaC9yaXNjdi9l
-bnRyeS9zeXNjYWxscy9ta3N5c2NhbGx0YmwKPiBAQCAtMCwwICsxLDQ3IEBACj4gKyMhL2Jpbi9z
-aAo+ICsjIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wCj4gKyMKPiArIyBHZW5lcmF0
-ZSBzeXN0ZW0gY2FsbCB0YWJsZSBmb3IgcGVyZi4gRGVyaXZlZCBmcm9tCj4gKyMgcG93ZXJwYyBz
-Y3JpcHQuCj4gKyMKPiArIyBDb3B5cmlnaHQgSUJNIENvcnAuIDIwMTcKPiArIyBBdXRob3Iocyk6
-ICBIZW5kcmlrIEJydWVja25lciA8YnJ1ZWNrbmVyQGxpbnV4LnZuZXQuaWJtLmNvbT4KPiArIyBD
-aGFuZ2VkIGJ5OiBSYXZpIEJhbmdvcmlhIDxyYXZpLmJhbmdvcmlhQGxpbnV4LnZuZXQuaWJtLmNv
-bT4KPiArIyBDaGFuZ2VkIGJ5OiBLaW0gUGhpbGxpcHMgPGtpbS5waGlsbGlwc0Bhcm0uY29tPgo+
-ICsjIENoYW5nZWQgYnk6IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQHJpdm9zaW5jLmNvbT4KPiArCj4g
-K2djYz0kMQo+ICtob3N0Y2M9JDIKPiAraW5jcGF0aD0kMwo+ICtpbnB1dD0kNAo+ICsKPiAraWYg
-ISB0ZXN0IC1yICRpbnB1dDsgdGhlbgo+ICsJZWNobyAiQ291bGQgbm90IHJlYWQgaW5wdXQgZmls
-ZSIgPiYyCj4gKwlleGl0IDEKPiArZmkKPiArCj4gK2NyZWF0ZV9zY190YWJsZSgpCj4gK3sKPiAr
-CWxvY2FsIHNjIG5yIG1heF9ucgo+ICsKPiArCXdoaWxlIHJlYWQgc2MgbnI7IGRvCj4gKwkJcHJp
-bnRmICIlc1xuIiAiCVskbnJdID0gXCIkc2NcIiwiCj4gKwkJbWF4X25yPSRucgo+ICsJZG9uZQo+
-ICsKPiArCWVjaG8gIiNkZWZpbmUgU1lTQ0FMTFRCTF9SSVNDVl9NQVhfSUQgJG1heF9uciIKPiAr
-fQo+ICsKPiArY3JlYXRlX3RhYmxlKCkKPiArewo+ICsJZWNobyAiI2luY2x1ZGUgXCIkaW5wdXRc
-IiIKPiArCWVjaG8gInN0YXRpYyBjb25zdCBjaGFyICpjb25zdCBzeXNjYWxsdGJsX3Jpc2N2W10g
-PSB7Igo+ICsJY3JlYXRlX3NjX3RhYmxlCj4gKwllY2hvICJ9OyIKPiArfQo+ICsKPiArJGdjYyAt
-RSAtZE0gLXggYyAtSSAkaW5jcGF0aC9pbmNsdWRlL3VhcGkgJGlucHV0IFwKPiArCXxhd2sgJyQy
-IH4gIl9fTlIiICYmICQzICF+ICJfX05SMzI2NF8iIHsKPiArCQlzdWIoIl4jZGVmaW5lIF9fTlIo
-MzI2NCk/XyIsICIiKTsKPiArCQlwcmludCB8ICJzb3J0IC1rMiAtbiJ9JyBcCj4gKwl8Y3JlYXRl
-X3RhYmxlCj4gZGlmZiAtLWdpdCBhL3Rvb2xzL3BlcmYvdXRpbC9zeXNjYWxsdGJsLmMgYi90b29s
-cy9wZXJmL3V0aWwvc3lzY2FsbHRibC5jCj4gaW5kZXggN2MxNWRlYzY5MDBkLi4zNDk5ODZmNmU1
-ZjUgMTAwNjQ0Cj4gLS0tIGEvdG9vbHMvcGVyZi91dGlsL3N5c2NhbGx0YmwuYwo+ICsrKyBiL3Rv
-b2xzL3BlcmYvdXRpbC9zeXNjYWxsdGJsLmMKPiBAQCAtNDYsNiArNDYsMTAgQEAgc3RhdGljIGNv
-bnN0IGNoYXIgKmNvbnN0ICpzeXNjYWxsdGJsX25hdGl2ZSA9IHN5c2NhbGx0YmxfbWlwc19uNjQ7
-Cj4gICNpbmNsdWRlIDxhc20vc3lzY2FsbHMuYz4KPiAgY29uc3QgaW50IHN5c2NhbGx0YmxfbmF0
-aXZlX21heF9pZCA9IFNZU0NBTExUQkxfTE9PTkdBUkNIX01BWF9JRDsKPiAgc3RhdGljIGNvbnN0
-IGNoYXIgKmNvbnN0ICpzeXNjYWxsdGJsX25hdGl2ZSA9IHN5c2NhbGx0YmxfbG9vbmdhcmNoOwo+
-ICsjZWxpZiBkZWZpbmVkKF9fcmlzY3YpCj4gKyNpbmNsdWRlIDxhc20vc3lzY2FsbHMuYz4KPiAr
-Y29uc3QgaW50IHN5c2NhbGx0YmxfbmF0aXZlX21heF9pZCA9IFNZU0NBTExUQkxfUklTQ1ZfTUFY
-X0lEOwo+ICtzdGF0aWMgY29uc3QgY2hhciAqY29uc3QgKnN5c2NhbGx0YmxfbmF0aXZlID0gc3lz
-Y2FsbHRibF9yaXNjdjsKPiAgI2VuZGlmCj4gIAo+ICBzdHJ1Y3Qgc3lzY2FsbCB7Cj4gCj4gYmFz
-ZS1jb21taXQ6IGMyZWU5ZjU5NGRhODI2YmVhMTgzZWQxNGYyY2MwMjljNzE5YmY0ZGEKPiAtLSAK
-PiAyLjQ1LjIKPiAKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
-b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YK
+`arch_calc_vm_prot_bits` is implemented on risc-v to return VM_READ |
+VM_WRITE if PROT_WRITE is specified. Similarly `riscv_sys_mmap` is
+updated to convert all incoming PROT_WRITE to (PROT_WRITE | PROT_READ).
+This is to make sure that any existing apps using PROT_WRITE still work.
+
+Earlier `protection_map[VM_WRITE]` used to pick read-write PTE encodings.
+Now `protection_map[VM_WRITE]` will always pick PAGE_SHADOWSTACK PTE
+encodings for shadow stack. Above changes ensure that existing apps
+continue to work because underneath kernel will be picking
+`protection_map[VM_WRITE|VM_READ]` PTE encodings.
+
+Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+---
+ arch/riscv/include/asm/mman.h    | 24 ++++++++++++++++++++++++
+ arch/riscv/include/asm/pgtable.h |  1 +
+ arch/riscv/kernel/sys_riscv.c    | 10 ++++++++++
+ arch/riscv/mm/init.c             |  2 +-
+ 4 files changed, 36 insertions(+), 1 deletion(-)
+
+diff --git a/arch/riscv/include/asm/mman.h b/arch/riscv/include/asm/mman.h
+new file mode 100644
+index 000000000000..ef9fedf32546
+--- /dev/null
++++ b/arch/riscv/include/asm/mman.h
+@@ -0,0 +1,24 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef __ASM_MMAN_H__
++#define __ASM_MMAN_H__
++
++#include <linux/compiler.h>
++#include <linux/types.h>
++#include <uapi/asm/mman.h>
++
++static inline unsigned long arch_calc_vm_prot_bits(unsigned long prot,
++	unsigned long pkey __always_unused)
++{
++	unsigned long ret = 0;
++
++	/*
++	 * If PROT_WRITE was specified, force it to VM_READ | VM_WRITE.
++	 * Only VM_WRITE means shadow stack.
++	 */
++	if (prot & PROT_WRITE)
++		ret = (VM_READ | VM_WRITE);
++	return ret;
++}
++#define arch_calc_vm_prot_bits(prot, pkey) arch_calc_vm_prot_bits(prot, pkey)
++
++#endif /* ! __ASM_MMAN_H__ */
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index e79f15293492..4948a1f18ae8 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -177,6 +177,7 @@ extern struct pt_alloc_ops pt_ops __meminitdata;
+ #define PAGE_READ_EXEC		__pgprot(_PAGE_BASE | _PAGE_READ | _PAGE_EXEC)
+ #define PAGE_WRITE_EXEC		__pgprot(_PAGE_BASE | _PAGE_READ |	\
+ 					 _PAGE_EXEC | _PAGE_WRITE)
++#define PAGE_SHADOWSTACK       __pgprot(_PAGE_BASE | _PAGE_WRITE)
+ 
+ #define PAGE_COPY		PAGE_READ
+ #define PAGE_COPY_EXEC		PAGE_READ_EXEC
+diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
+index d77afe05578f..43a448bf254b 100644
+--- a/arch/riscv/kernel/sys_riscv.c
++++ b/arch/riscv/kernel/sys_riscv.c
+@@ -7,6 +7,7 @@
+ 
+ #include <linux/syscalls.h>
+ #include <asm/cacheflush.h>
++#include <asm-generic/mman-common.h>
+ 
+ static long riscv_sys_mmap(unsigned long addr, unsigned long len,
+ 			   unsigned long prot, unsigned long flags,
+@@ -16,6 +17,15 @@ static long riscv_sys_mmap(unsigned long addr, unsigned long len,
+ 	if (unlikely(offset & (~PAGE_MASK >> page_shift_offset)))
+ 		return -EINVAL;
+ 
++	/*
++	 * If PROT_WRITE is specified then extend that to PROT_READ
++	 * protection_map[VM_WRITE] is now going to select shadow stack encodings.
++	 * So specifying PROT_WRITE actually should select protection_map [VM_WRITE | VM_READ]
++	 * If user wants to create shadow stack then they should use `map_shadow_stack` syscall.
++	 */
++	if (unlikely((prot & PROT_WRITE) && !(prot & PROT_READ)))
++		prot |= PROT_READ;
++
+ 	return ksys_mmap_pgoff(addr, len, prot, flags, fd,
+ 			       offset >> (PAGE_SHIFT - page_shift_offset));
+ }
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 0e8c20adcd98..964810aeb405 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -326,7 +326,7 @@ pgd_t early_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
+ static const pgprot_t protection_map[16] = {
+ 	[VM_NONE]					= PAGE_NONE,
+ 	[VM_READ]					= PAGE_READ,
+-	[VM_WRITE]					= PAGE_COPY,
++	[VM_WRITE]					= PAGE_SHADOWSTACK,
+ 	[VM_WRITE | VM_READ]				= PAGE_COPY,
+ 	[VM_EXEC]					= PAGE_EXEC,
+ 	[VM_EXEC | VM_READ]				= PAGE_READ_EXEC,
+
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
