@@ -4,86 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C0B5D5B858
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Oct 2024 00:31:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 245DCD5B852
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Oct 2024 00:33:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FFLrEhlTl9KA6xieh0OdMozld/psdw+nettdQvel6NM=; b=G9ZhDf37vuXjea
-	SHBks+jzmmuqYKIUjYZ0EtNpYhgMsalwZN9hqxk9l65/R/Eek/fG7REgA8kq+Nc2s0OIRlPuJqQbt
-	adQuLCz6N4IxgzS1DAFGDpQLyVmWKF9TfH29zmex4XoqgL43IbdQLpWkgXOlxFIPzjimxoHeKAjMK
-	cOYqVu94P3rCxpJFYK187ChoqKFU8kOZQTjYkWKaqJ7WrWAYfP4AzsQ+JC7ZVGl6JQgObVXs6vQN/
-	jl3kdApw2Fkbibe2JgkoHOzz2YcPootj2JBHIKOs7thdD8iXxjjuZ5qNZgoc85FnfOTVYtNhJ8/am
-	Sp48qWhLtwBOVlKOnI3Q==;
+	List-Owner; bh=Vi6/8sGRf04SLj1QshcdOcqdkuc8V80FSD9BsspbzvA=; b=3xS7igleaIOfkg
+	vXNHIIYGt744V2PSCOlFprKktXwiLmaUD+OrPX+SbgoBOacayCkiQ5oft/bsZLSfQtqBtlXLbUdDt
+	t/tiiNepLXBINQwZnQvAP1sbpcbw4pwV8oZ8DlsUlC6llHwEzol66Rk9MtcYVnkmukS6h+gwa7EUF
+	jWh/y4EOJ6SuVs7J2CrtXz3nhVTwoXDtwiqp3C7NPukgphK7mV3hy9DUyVwyDIHqrTHvK3G9R1ZdX
+	uiPjbC/SXMsktTzzhzB776qURFkV90IDzkHrbUdyMZZ78YBnoJ75iTH7LlAG6aRIMnXRhD/hTwgxa
+	I0GyS9R8FMsXWx3SWcsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5a8Y-0000000CksH-3ajT;
-	Tue, 29 Oct 2024 00:31:06 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1t5aAd-0000000ClNh-28rt;
+	Tue, 29 Oct 2024 00:33:15 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5a8V-0000000CkrT-0aHu
-	for linux-riscv@lists.infradead.org;
-	Tue, 29 Oct 2024 00:31:04 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-20c7edf2872so43446045ad.1
-        for <linux-riscv@lists.infradead.org>; Mon, 28 Oct 2024 17:31:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730161862; x=1730766662; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=rwP95ZMKY4OhC0gDOi3064T240SYV5VJPiywQTjinP8=;
-        b=XBlutnvhBRL26qgi7ccuZFx2R8OVUq3vUcthK6EFLc+8hidI03Hp4OF4uLGHXHJ8YR
-         WAHtkt8P9lUumiUsKXn/L5SfP4qA9XJqt8M9GUx5SNwWLfgp2j+Djpt+lqkP0MvYW1lF
-         MiobRhWs6FmupvCan/Rz/k4hu8AmOvoHDgX+1XceGJKvoG1wScV+bdso2kGsSkL87J1m
-         6SC3JogY8Zq8wxGuzJbedrJWiS+2hLRcjlteodx93i9GHRkcHFBy026Zva+RiRlFFwL8
-         hyWjNgM9pxhW2DAPbfbbwnl9fcvyiK6+3N1c6ldua6gZh54uPnVR3HgjTwYddnOGliw7
-         03Dw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730161862; x=1730766662;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=rwP95ZMKY4OhC0gDOi3064T240SYV5VJPiywQTjinP8=;
-        b=qJeUMQzzP408U/Xj+RA6QFAIVgsvCP357QgSxQO/FUm+L4wvzicyKeWvEqZKyzSLr+
-         J0E4PDacuTcshrU6eN9TmVSSYgeIR2fu2aB6cQZoVeEtHPUJn9mbpypebMstjXiPZvlt
-         UJQPcZLDKq0IHV5K53AijduMRS4ovK49UR59sEvAwvC9v9Y4z/HNRK0AJFIqcG5wahD4
-         9pArVGgBcBCTNzsta0eo2o/1cF8eE2p9W0fHx7mBJBsbDvnp+widnTU3JKgwW3mXFY76
-         7tzhelodOFDQl1FBBRL+2TxBUcFZI6IZO11fgPstCVjA8UFDTNQK9pd1IX+l7tlhA43G
-         abLw==
-X-Forwarded-Encrypted: i=1; AJvYcCWR9nezhz6q6TsqlByri5OpwGPnwBrqHVzo0hfUvSvwyzGHbz2GNcbLXtCmLeuJBJot+MpU9tjIIwVrJA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3KOBeDdxtNDo6CHmCQOu0SFaonxriliJc/LGS3cEy9xCWnd9J
-	RIac/u8qcx3CVSq/SClNkQIHQg/JU2C8Wvwn5gDit29cNjMVWYlt
-X-Google-Smtp-Source: AGHT+IESpTU6eaOAPHzlKBFpkMOmcfSYW1lo5N6fMf7AqDlKt2Zr1wW2Vpq20ZcUGF0jGeRyRBXr6g==
-X-Received: by 2002:a17:903:2289:b0:20c:b3ea:9006 with SMTP id d9443c01a7336-210eccfcd8emr5541975ad.6.1730161861970;
-        Mon, 28 Oct 2024 17:31:01 -0700 (PDT)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7eddc19e368sm3941319a12.14.2024.10.28.17.31.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Oct 2024 17:31:01 -0700 (PDT)
-Date: Tue, 29 Oct 2024 08:30:20 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Linus Walleij <linus.walleij@linaro.org>, 
-	Inochi Amaoto <inochiama@gmail.com>
-Cc: Chen Wang <unicorn_wang@outlook.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Inochi Amaoto <inochiama@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>, 
-	Arnd Bergmann <arnd@arndb.de>, Yixun Lan <dlan@gentoo.org>, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 2/3] pinctrl: sophgo: add support for SG2042 SoC
-Message-ID: <rbb7nlqjvek3tvjtfrqnamp6bbhmdq6fe57ey3pfk4gvks4yd3@rlc3ri4fmxiy>
-References: <20241024064356.865055-1-inochiama@gmail.com>
- <20241024064356.865055-3-inochiama@gmail.com>
- <CACRpkdbUs1eWgZCvxNYqpnUox2=4nwewBi5YPqSBO8UDhikyLA@mail.gmail.com>
+	id 1t5aAP-0000000ClGa-2tZO;
+	Tue, 29 Oct 2024 00:33:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9F8945C5AC6;
+	Tue, 29 Oct 2024 00:32:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15FD9C4CEC3;
+	Tue, 29 Oct 2024 00:33:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1730161980;
+	bh=h6uTVq+hv9WhN1djveiVDbjzfvV7PyEB+OO+feAAn98=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=1fWOv+Xz4YoVnyfxnShxDcmk+XGg2cxeGv/lJbGGmZOc9bq79BG9xUrfeHzwcoLFZ
+	 Rv5MyOoqKTRjEE47xrnZDVU5/Iqkuyel1uikjJooEeWSjZ7dLpwoDnpOJtTA1MD5yS
+	 vy8b8S696klE0nThRykPJYyXlZUiSbepqDCCk4tk=
+Date: Tue, 29 Oct 2024 01:32:48 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Pierre Gondois <pierre.gondois@arm.com>
+Cc: linux-kernel@vger.kernel.org,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Yunhui Cui <cuiyunhui@bytedance.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Steffen Persvold <spersvold@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	"Borislav Petkov (AMD)" <bp@alien8.de>,
+	Reinette Chatre <reinette.chatre@intel.com>,
+	Tony Luck <tony.luck@intel.com>, Yury Norov <yury.norov@gmail.com>,
+	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev
+Subject: Re: [PATCH] ACPI: CPPC: Make rmw_lock a raw_spin_lock
+Message-ID: <2024102934-bankroll-strongbox-8074@gregkh>
+References: <20241028105200.1205509-1-pierre.gondois@arm.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CACRpkdbUs1eWgZCvxNYqpnUox2=4nwewBi5YPqSBO8UDhikyLA@mail.gmail.com>
+In-Reply-To: <20241028105200.1205509-1-pierre.gondois@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_173103_201282_A5D4DBF0 
-X-CRM114-Status: GOOD (  16.38  )
+X-CRM114-CacheID: sfid-20241028_173301_843634_DF80A8A8 
+X-CRM114-Status: GOOD (  20.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,23 +86,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBPY3QgMjgsIDIwMjQgYXQgMDI6MDI6NDlQTSArMDEwMCwgTGludXMgV2FsbGVpaiB3
-cm90ZToKPiBPbiBUaHUsIE9jdCAyNCwgMjAyNCBhdCA4OjQ04oCvQU0gSW5vY2hpIEFtYW90byA8
-aW5vY2hpYW1hQGdtYWlsLmNvbT4gd3JvdGU6Cj4gCj4gPiBBZGQgYmFzZSBkcml2ZXIgZm9yIFNH
-MjA0MiBTb0MgYW5kIHBpbiBkZWZpbml0aW9uLgo+ID4KPiA+IFNpZ25lZC1vZmYtYnk6IElub2No
-aSBBbWFvdG8gPGlub2NoaWFtYUBnbWFpbC5jb20+Cj4gCj4gVGhpcyBkcml2ZXIgaXMgY2xlYXJs
-eSBkdXBsaWNhdGluZyBhIHRvbiBvZiBjb2RlIGZyb20gcGluY3RybC1jdjE4eHguYy4KPiAKPiBX
-ZSBoYXZlIG5vIGludGVyZXN0IGluIGhhdmluZyB0byBmaXggYnVncyBpbiB0d28gcGxhY2VzLgo+
-IAo+IFBsZWFzZSBmYWN0b3Igb3V0IHRoZSBjb21tb24gY29kZSBhbmQgdXNlIHRoZSBzYW1lIGNv
-ZGUKPiBpbiB0aGUgbmV3IGRyaXZlciBpZiB5b3UgY2FuJ3QgbWFrZSB0aGUgbmV3IGRyaXZlciBh
-IHNpbXBsZQo+IHN1YmRyaXZlciBvY2ggcGluY3RybC1jdjE4eHguYy4KPiAKPiBZb3VycywKPiBM
-aW51cyBXYWxsZWlqCgpJIHdpbGwgaGF2ZSBhIHRyeSB0byBhYnN0YWN0IHRoZSBkaWZmZXJlbnQg
-Y29kZSBhbmQgcmVkdWNlIHRoZSBkdXBsaWNhdGUuCgpSZWdhcmRzLApJbm9jaGkKCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
-bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
-YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Mon, Oct 28, 2024 at 11:51:49AM +0100, Pierre Gondois wrote:
+> The following BUG was triggered. sugov_update_shared() locks a
+> raw_spinlock while cpc_write() locks a spinlock. To have a correct
+> wait-type order, update rmw_lock to a raw_spinlock.
+> 
+> Also save irq state.
+> 
+> =============================
+> [ BUG: Invalid wait context ]
+> 6.12.0-rc2-XXX #406 Not tainted
+> -----------------------------
+> kworker/1:1/62 is trying to lock:
+> ffffff8801593030 (&cpc_ptr->rmw_lock){+.+.}-{3:3}, at: cpc_write+0xcc/0x370
+> other info that might help us debug this:
+> context-{5:5}
+> 2 locks held by kworker/1:1/62:
+>   #0: ffffff897ef5ec98 (&rq->__lock){-.-.}-{2:2}, at: raw_spin_rq_lock_nested+0x2c/0x50
+>   #1: ffffff880154e238 (&sg_policy->update_lock){....}-{2:2}, at: sugov_update_shared+0x3c/0x280
+> stack backtrace:
+> CPU: 1 UID: 0 PID: 62 Comm: kworker/1:1 Not tainted 6.12.0-rc2-g9654bd3e8806 #406
+> Workqueue:  0x0 (events)
+> Call trace:
+>   dump_backtrace+0xa4/0x130
+>   show_stack+0x20/0x38
+>   dump_stack_lvl+0x90/0xd0
+>   dump_stack+0x18/0x28
+>   __lock_acquire+0x480/0x1ad8
+>   lock_acquire+0x114/0x310
+>   _raw_spin_lock+0x50/0x70
+>   cpc_write+0xcc/0x370
+>   cppc_set_perf+0xa0/0x3a8
+>   cppc_cpufreq_fast_switch+0x40/0xc0
+>   cpufreq_driver_fast_switch+0x4c/0x218
+>   sugov_update_shared+0x234/0x280
+>   update_load_avg+0x6ec/0x7b8
+>   dequeue_entities+0x108/0x830
+>   dequeue_task_fair+0x58/0x408
+>   __schedule+0x4f0/0x1070
+>   schedule+0x54/0x130
+>   worker_thread+0xc0/0x2e8
+>   kthread+0x130/0x148
+>   ret_from_fork+0x10/0x20
+> 
+> Fixes: 60949b7b8054 ("ACPI: CPPC: Fix MASK_VAL() usage")
+> Signed-off-by: Pierre Gondois <pierre.gondois@arm.com>
+> ---
+>  drivers/acpi/cppc_acpi.c | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+
+Hi,
+
+This is the friendly patch-bot of Greg Kroah-Hartman.  You have sent him
+a patch that has triggered this response.  He used to manually respond
+to these common problems, but in order to save his sanity (he kept
+writing the same thing over and over, yet to different people), I was
+created.  Hopefully you will not take offence and will fix the problem
+in your patch and resubmit it so that it can be accepted into the Linux
+kernel tree.
+
+You are receiving this message because of the following common error(s)
+as indicated below:
+
+- You have marked a patch with a "Fixes:" tag for a commit that is in an
+  older released kernel, yet you do not have a cc: stable line in the
+  signed-off-by area at all, which means that the patch will not be
+  applied to any older kernel releases.  To properly fix this, please
+  follow the documented rules in the
+  Documentation/process/stable-kernel-rules.rst file for how to resolve
+  this.
+
+If you wish to discuss this problem further, or you have questions about
+how to resolve this issue, please feel free to respond to this email and
+Greg will reply once he has dug out from the pending patches received
+from other developers.
+
+thanks,
+
+greg k-h's patch email bot
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
