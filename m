@@ -4,82 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1993CD5B16F
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Oct 2024 09:08:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 667A3D5B178
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Oct 2024 09:10:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=+F49ClZnSpeTp/4bHdbEPG7aH8J81ua48eYkee3eMCM=; b=KcTCnUSbvgy7Q9
-	hmoH8u1atbrnTrvIXb6NBpfhleC67uldEOyd97V3iqOqzr4z3q9sbO7JUzje4pNFim7FiMMDN87Ij
-	iyjvnq2W8gVs1Tp3ekyB4M4KYVNQ4Lbk7eIT5G0luydlMfh/pskrwRKMcKaIGk7OV6Y+ROhML6N1U
-	QuzL9trUwgHcv9ipHqsP+a7PxdbpQnp2olWJp8EGORlcF63wPxFVmiCMb5zRi6SSv/QtAzgp8Qp70
-	y+TvrpSeIchF8DTkC65VnjtefLmCYSkEAStYSaVnw4eeGd2uVjBEbR7DDVDzd/JMxGnbuCGrywUJM
-	UpDyCq7wmo021sTERjQQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QLnGW7SQgUWRmhDyJn9VstdtIzOe9mLUlj7iMeHxKAE=; b=UQ8On0GUL7p7AHxE4vLzQFqmcj
+	QDmeJ92X7CZ25yKlcNFV8de61tjWSLXLTf1yFaqBI/2jnZsm099dJXNN9b2PUue8AVa/wdoV4i12z
+	gVWl/gJ8zL+X5/BSEBmIex74h8OHxTwgYvnFOdnmUL/1Hb9sFYcPnw4nnikacE8t6zccllYCjtgvI
+	8u6yd898sONC4RLuqLWmK+3TYsF6yrtsjSeIXUUTVa8J+n+OnaZ5xodPl/SJDBKaagaWKrwT9vU4F
+	6HiTkGKug1RN5bILeigzqgzWqjAjjZ+ndfu+FHbqWI8vvzFeXH8SGlPpXRBdkMRCwVnhU8CZjdmU3
+	31PyIGnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5iDG-0000000DpCr-20p8;
-	Tue, 29 Oct 2024 09:08:30 +0000
-Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	id 1t5iEr-0000000DpV1-3Wvo;
+	Tue, 29 Oct 2024 09:10:09 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5i0z-0000000Dm7A-21YR
+	id 1t5i1M-0000000DmF5-1psz
 	for linux-riscv@lists.infradead.org;
-	Tue, 29 Oct 2024 08:55:51 +0000
-Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-7ea6a4f287bso3293491a12.3
-        for <linux-riscv@lists.infradead.org>; Tue, 29 Oct 2024 01:55:48 -0700 (PDT)
+	Tue, 29 Oct 2024 08:56:14 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-37d4c482844so3487240f8f.0
+        for <linux-riscv@lists.infradead.org>; Tue, 29 Oct 2024 01:56:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1730192148; x=1730796948; darn=lists.infradead.org;
-        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xuWnhLJQw+PAY3xEBfJ+QJn2JlieNeFBTgX6ZFMdL84=;
-        b=iaDZunlWlVyd/SC6CMXs8+rQil/VIiTCUA3J8A9FiEaWX24L+OtNaa8igpb7Fwv0BW
-         ZDy1gg+Vh6mWyRNSqN5a6+mqvKdYPdWzf26gvkTwicgncOSl2G1eD/TtXh4MsfauKA3W
-         e+SEIxGOrNw4HRTZsEipLO4qjoZ89A3TRv1p20Y/uHUG0Nt3ebg8OWX+bGEkEDydZSOd
-         YiPWpzW7PkrHPKtKdFm/RNMxDS1tYA9SrzMmiyuT5JjwEzratR3efTay6V+vG9ImR8Qc
-         OGqF1boYjR7LTsXk8FW/8iDmguglndRjmYfHq/5xMQMxGb61aJP8zxgHM26DQuUv6aV3
-         Pa/A==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1730192170; x=1730796970; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=q+tIuf+pw7VgqaoFXTVPLLVE0V3c5Y1bGL0baofA3s8=;
+        b=U0/jA7OzWXpuXZrAGVwiqj5vkYQitd1RgN3soTSM5wruRiEuJE7db1a8frx6VCidVE
+         yx2EcwQAx16mkxFk8paHzppWk2y/pFtSSpmfW6MEzD84cycjlhO1qwmqb1JtVhmWFuLA
+         PX5l4EAnnnxvtyhNEkMskbjuFc8Wgaj+TKhGe4dSUASGrl4VPlDxFFgPKKGrWnlqLPyq
+         mOAwx1Qc5rnc9BYSscnGxfepH8oPFy7IgFEnDPt/0IIuFAI9D2pbACKrSYfE65Ld4YaQ
+         KQzFDJjx1ITPZ5t3HL8H9KtWAWsIciT00d1XuvXHqp3PCyiFZj0lyxgw6Xj4BtHtQE8O
+         cwsw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730192148; x=1730796948;
-        h=message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=xuWnhLJQw+PAY3xEBfJ+QJn2JlieNeFBTgX6ZFMdL84=;
-        b=BgCdG3Y6ku4l3qFL0IGk9xZJ0m5w+5RUGDh4PHM5ERzKltWUB1PayvY5fqzHlvoUob
-         b+cjElMSo3jNSUNLnpVWUZ81CzHaG3TzJXpvz6L+UN9QMCAEJH1jbURZTXQHzUF7aWw1
-         Z+F6LT6OshIX1/iBRc0rJYdjbAUpaa1lsDcYfe2XWePBT8glAbHc2dpynsxUQ9jif/dw
-         Z4fvRsq/e4f5pjHySjeEu5btl4m+OI7KzyvzIy7Vy95JXta6tVylDb4vkO95FVFm7rwK
-         PKQJhN5sBYUmJBojKbk+KNtgxDMpmAdtFT1YBCyUwFs69L5rdw2uIGCmODMdzV/vdA56
-         gohw==
-X-Forwarded-Encrypted: i=1; AJvYcCXajgppJAnntj0Q+2IcltUdIPbcUnPhnIPFnwpQbTcVc4vBTNEQYtPokjfsFYx+/IdWJEI+OG0DqpkCCw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzo4eDppVqrbWQBICmv85Akv5fTp45jEqfhXZPBEbfVPKyr807E
-	RqKiIMyFPRaYlt9F9NCwG44DSD3MjUbVUl94S2dECCBCP3Un29JV8uec1oga+iU=
-X-Google-Smtp-Source: AGHT+IHf0YC+Ea5Ksx4oBfD4ogAxvHzzwCrdPrdXaYrCaa9GKLqYlspwFnf6XIm9UGsHOjhUqPUyrA==
-X-Received: by 2002:a05:6a21:a24c:b0:1cf:2853:bc6c with SMTP id adf61e73a8af0-1d9a84de0a3mr14026908637.33.1730192148007;
-        Tue, 29 Oct 2024 01:55:48 -0700 (PDT)
-Received: from hsinchu26.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72057931a06sm7054189b3a.55.2024.10.29.01.55.45
+        d=1e100.net; s=20230601; t=1730192170; x=1730796970;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=q+tIuf+pw7VgqaoFXTVPLLVE0V3c5Y1bGL0baofA3s8=;
+        b=nFoMJw6i94H/87k6y30QG8pOKQ0Acsa9BbqDd8qmN4Fh7clB5gvM13kVSqsAZCS8cn
+         QrI//bKEsrYBnrgYZYM2OIqKNFQmV13WC1b+nU1cXd4QKVH/8FQS4esqEWFI4YPVB+dG
+         fptVeInx9I+0R2S5MSWO5jOfR/Y4R1OL8LJV+7D5hQwYpzhaCJjeYWSlL7J664tMmoMo
+         JNr1qHJaF1v5ZixAi1n71mCeBIOwYV8AyV7C2Z7Moy5rJDuRJCW0MoQXlMwNH86VvtTa
+         uViBIGPn36jdOtC5geHPTTCAs+zQVQkUL9EeEExn+fg9YvU6PtVhrzUpQOWSczK0dGZp
+         BE9w==
+X-Forwarded-Encrypted: i=1; AJvYcCX52S8VXvR24vUOTVm/Kfmf7T6wlb/eomnH1qigijO9g5rzv16FIN+Mdsi5pB3h/giPTLNoJDadnNy62A==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxp42BXzfztHonXKzlo1UiMObgMswaMcAUJPvRX11z1DgFoIbmr
+	EtG9upCo0bb8wd/EWswUX9RDWm56eXwOg2osbTwqNWxFy+wHTjC0hd6lw13xmUs=
+X-Google-Smtp-Source: AGHT+IEA5JJWXtQoHZ0PdS/MJdUSxxPT9oA+1aQ+m1nReUn2taETur8wxSZ4YWpYW5tyNcpUGNlwNg==
+X-Received: by 2002:a05:6000:1f11:b0:37d:52d0:a59d with SMTP id ffacd0b85a97d-380610f2bd6mr7564818f8f.10.1730192170391;
+        Tue, 29 Oct 2024 01:56:10 -0700 (PDT)
+Received: from localhost (p50915d2d.dip0.t-ipconnect.de. [80.145.93.45])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058b132fbsm11900069f8f.4.2024.10.29.01.56.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Oct 2024 01:55:47 -0700 (PDT)
-From: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-To: linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org
-Cc: greentime.hu@sifive.com,
-	vincent.chen@sifive.com,
-	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Subject: [PATCH v2 1/1] RISC-V: KVM: Fix APLIC in_clrip and clripnum write emulation
-Date: Tue, 29 Oct 2024 16:55:39 +0800
-Message-Id: <20241029085542.30541-1-yongxuan.wang@sifive.com>
-X-Mailer: git-send-email 2.17.1
+        Tue, 29 Oct 2024 01:56:09 -0700 (PDT)
+Date: Tue, 29 Oct 2024 09:56:08 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Conor Dooley <conor.dooley@microchip.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Aleksandr Shubin <privatesub2@gmail.com>, 
+	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Cheo Fusi <fusibrandon13@gmail.com>, linux-pwm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v10 1/3] dt-bindings: pwm: Add binding for Allwinner
+ D1/T113-S3/R329 PWM controller
+Message-ID: <4ioz6f6efs2uhf5mitb4xhebqeryyz5ukple4fkn54wpqep3c4@4ktefld35c3s>
+References: <20241011102751.153248-1-privatesub2@gmail.com>
+ <20241011102751.153248-2-privatesub2@gmail.com>
+MIME-Version: 1.0
+In-Reply-To: <20241011102751.153248-2-privatesub2@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_015549_606203_5FFC9F80 
+X-CRM114-CacheID: sfid-20241029_015612_515923_4B1C300E 
 X-CRM114-Status: GOOD (  11.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,60 +95,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4538480310796332085=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In the section "4.7 Precise effects on interrupt-pending bits"
-of the RISC-V AIA specification defines that:
 
-"If the source mode is Level1 or Level0 and the interrupt domain
-is configured in MSI delivery mode (domaincfg.DM = 1):
-The pending bit is cleared whenever the rectified input value is
-low, when the interrupt is forwarded by MSI, or by a relevant
-write to an in_clrip register or to clripnum."
+--===============4538480310796332085==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ulmatopmaqdyrkp3"
+Content-Disposition: inline
 
-Update the aplic_write_pending() to match the spec.
 
-Fixes: d8dd9f113e16 ("RISC-V: KVM: Fix APLIC setipnum_le/be write emulation")
-Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-Reviewed-by: Vincent Chen <vincent.chen@sifive.com>
----
-v2;
-- add fixes tag (Anup)
-- follow the suggestion from Anup
----
- arch/riscv/kvm/aia_aplic.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+--ulmatopmaqdyrkp3
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Subject: Re: [PATCH v10 1/3] dt-bindings: pwm: Add binding for Allwinner
+ D1/T113-S3/R329 PWM controller
+MIME-Version: 1.0
 
-diff --git a/arch/riscv/kvm/aia_aplic.c b/arch/riscv/kvm/aia_aplic.c
-index da6ff1bade0d..f59d1c0c8c43 100644
---- a/arch/riscv/kvm/aia_aplic.c
-+++ b/arch/riscv/kvm/aia_aplic.c
-@@ -143,7 +143,7 @@ static void aplic_write_pending(struct aplic *aplic, u32 irq, bool pending)
- 	if (sm == APLIC_SOURCECFG_SM_LEVEL_HIGH ||
- 	    sm == APLIC_SOURCECFG_SM_LEVEL_LOW) {
- 		if (!pending)
--			goto skip_write_pending;
-+			goto noskip_write_pending;
- 		if ((irqd->state & APLIC_IRQ_STATE_INPUT) &&
- 		    sm == APLIC_SOURCECFG_SM_LEVEL_LOW)
- 			goto skip_write_pending;
-@@ -152,6 +152,7 @@ static void aplic_write_pending(struct aplic *aplic, u32 irq, bool pending)
- 			goto skip_write_pending;
- 	}
- 
-+noskip_write_pending:
- 	if (pending)
- 		irqd->state |= APLIC_IRQ_STATE_PENDING;
- 	else
--- 
-2.17.1
+Hello,
 
+On Fri, Oct 11, 2024 at 01:27:32PM +0300, Aleksandr Shubin wrote:
+> +  allwinner,pwm-channels:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    description: The number of PWM channels configured for this instance
+> +    enum: [6, 9]
+
+I wonder if the number of channels is a property common enough that we
+can use "num-pwm-channels" here instead of a vendor specific property.
+Or would you suggest a different name? gpio-controller nodes have
+"ngpios", so maybe "npwms"?
+
+A quick grep suggests we already have:
+
+	fsl,pwm-number in mxs-pwm.yaml
+	st,pwm-num-chan in pwm-st.txt
+	snps,pwm-number in snps,dw-apb-timers-pwm2.yaml
+
+As a follow up this could then be used by pwmchip_alloc() to determine
+the number of channels if the passed npwm value is 0.
+
+Best regards
+Uwe
+
+--ulmatopmaqdyrkp3
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmcgoyUACgkQj4D7WH0S
+/k4BJwf8DvGu76czyjVYmp+JyjZGGyzYFVym3ObWj8LAQZ7pr5F6O61BxMrIC/a4
+RWe9joUnrwLy+UJgxerMNtgS1TgnCgb2r8VzdheUJcDwTjPBAPvaa8eOpybmRtSq
+TxJcKF0qlT8bGtWZjRsx/UYKWLZUrrhgOt7CM0LY4kubCeDEwruXHZSy/FtuPvlM
+STFxNDN8fT7KuaqVY7HYvYZw6tOROAwFaxQhMWUIWQIruQyF4+WJ2bVgBQM77bxK
+OgE8BcqpFcCB2NU0qnyDXMqalDPYeh9necn8LrbQ0qXtE11vn5+bOlJvOHQhet8x
+DYJfsCSOcurHrnvmYo50GYpNdoJUrA==
+=2jh3
+-----END PGP SIGNATURE-----
+
+--ulmatopmaqdyrkp3--
+
+
+--===============4538480310796332085==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4538480310796332085==--
+
