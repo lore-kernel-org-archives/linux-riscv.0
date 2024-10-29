@@ -4,86 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13A38D5B873
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Oct 2024 03:41:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 174ECD5B870
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Oct 2024 04:08:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3y4vhE5cnHnuabjSJ7FEYLuzcgGgCRpXmPbrWrk7nFQ=; b=Pbiyr4vsu9/WYd
-	jXFmuaheUEmH9OgI7qUSx8audgowjBUt6RsuBbeAS6W9l26SeoMHQ0ME6UEQKcFvRnkUeA1L71Dlb
-	falcElI8ARMUxBrzBAjnK6jGNYHX72XMU7KgLF0AF1+y3DN0oVacLBEedlJv3uHkXZZ+PdkhUYasn
-	QQfgVmJ0L6LkUfPQ+sVpEEa9y9+7KTN9sUyyMkRjrANjhYdgZYp+kB1xeHZti2YU0Yt9MbelykYkX
-	vO6Le1DxpAmYN9V6YyjbK8XVtwbHRmj3oIVaTolBupb5cCaYVKdpOqgnPyZ+m4ye+ctzqfV1lk8Vj
-	3bWty97y4PZFvZTpEq0w==;
+	List-Owner; bh=ufYTwug4U4+0WNvIH53NoIL5TMtWn7VKFPC4rSTgtfY=; b=I9ZYu57iBGtocK
+	HdAc68f3ejxXrG4A5Jyl8dm2M3d0Wk6hhRE1NDUvT+WPBIfB08OOrzywGAPfajDKAAFP3YgcAs2Eg
+	fKOstYG6tx+iqt6ia8fvHaZx7ByoQV7q7LPD2gEn9uPMLe4p26qHCxF+al8DfmAI6kvP6sZKttapp
+	Oy21OhflJ5d6+xFEa5QZYHZjZvpJrmNZ4cr4KuNmT0sWJOo69rOmrUVYluzLVbNAEVs7g7IwOgJgb
+	YqHZi1PphhI3Xk45nVjpBncQkzpJiBOTVbU+eB8eSxLHpJKKcAHNLXazGSf0FrpFadirfUjHVTRf9
+	p0wV+JYaeMeOtQgKh9vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5d6P-0000000D6pq-24Y6;
-	Tue, 29 Oct 2024 03:41:05 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1t5dXB-0000000D9aB-3ufB;
+	Tue, 29 Oct 2024 04:08:45 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5d6L-0000000D6pN-42gH
+	id 1t5dX9-0000000D9Z9-1Udr
 	for linux-riscv@lists.infradead.org;
-	Tue, 29 Oct 2024 03:41:03 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-20c7edf2872so44202765ad.1
-        for <linux-riscv@lists.infradead.org>; Mon, 28 Oct 2024 20:41:01 -0700 (PDT)
+	Tue, 29 Oct 2024 04:08:44 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-a9a850270e2so813821066b.0
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Oct 2024 21:08:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730173261; x=1730778061; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ekVevv1jyAJ3xBsgkLYdCxq419R6VVRG35CwPktsuZg=;
-        b=L8Vcdp5Z/R8uJWHUghz0FqbDQCrWv7idMlZD6RwzWNdhiWdKlSM43sMW9AirpzwE2E
-         CwdR+ReqA+apbNMPYmy+4zY6kreSAC1zZsseLxW/CGYLKrIfx1vocTb6AinYHnyrH/6S
-         Yl6dH4uqJgnhbjgSScpn8l+fiV7l+ETyrMh59Kv4VFOAMZynUr4ZwZpFpmbHfJXOkfIh
-         B2qq6WgRI4IJMj1+n0wVPUQ1og/8iIHSZwYT5ImMCAMONwMkXF1RIgSEK3+G3XZ4UEFH
-         n0H07NAlQgpfZQMd2oHhkNd4TzS0GPqQh4kTFXQy1ZreZqTsvS4pZOguYOV9omvJcQC1
-         oiIw==
+        d=ventanamicro.com; s=google; t=1730174921; x=1730779721; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=gIIEo7y7oCt4veQqo+0XfxoZ69cq65MS/cK+YlFnMn0=;
+        b=Bh+NlUs0OWM2t3brhvNShQ8UT9mLF+AR4eyrQcO9Rv9uSInaFdMresLS2dHJNQFQkn
+         mHCOM9ajQyQhH5sEPvuD+23edJQGrz6V2Rz0W7k0nNGsGBThHAZ6i0gafptDRAcemaT5
+         7HHB3ks+20oImwNwQMAnP7R6SFzudHTFcCxQJqk1dhl3Bm4cnJhvUxP98Fy1+8oZ1uI7
+         8d1cF0MfLo3Qhb3hkkctTzBCeAkh6dM6lAum1a/zZTKQz0d3Ny5vlLyBnwa8xD3caAp9
+         f3fJHWp4Q6ZuzFeoFw/JuNNHbj/VpgzSACtalH3Td4EAx0O1QODYEQ3XluSbC3uBjM7e
+         3oeA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730173261; x=1730778061;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ekVevv1jyAJ3xBsgkLYdCxq419R6VVRG35CwPktsuZg=;
-        b=LtSLsCBxiv5GfpaamH9WsHeuEXgh4DxWVE2hOpFkKqDftLwuSXXTBdR74P4vwOajU4
-         5DwC8KpufiyS2AK3VuUd38IJPWg2lmHbjwccm9ymJD52Tkdj1Sc6BdNUkY33EIXVyH8I
-         2C1cIlJB+ULZv8KRuVR/nErWI3SHKba9fzqdxzuVqzQJAEkVBDwZ41mm3a6FxbyNEGNd
-         nnkkb4KDkUKwZOAgA0V4AkL738uwsjlh7bJ+BlBJYoN8bwBDs+9xGeXHKKYLfejMExKl
-         NHKhYe/SgolONrDA9ckESc0aQw+NWXBfeOCGskm0AgfwKd4hc1nqba/e6EcUWA0/9MKs
-         Z3Rg==
-X-Forwarded-Encrypted: i=1; AJvYcCVJBpslpZ2RiUfcjDqRmk8Mx9+t+t2k/9ufqxc73oPP3HF1y0J6XJHASeX5iBnfmQBWHhnbyeBaHkNn8g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxIAhtUC924AUf0OW7LpyQiWx4cWtnJfkxQZNfVOavr6Mn3YQMj
-	gmUjYLyt8/M3QRy/6bKWOQdHIDGIUOQOAKif/ztg1a4fPPQH933a
-X-Google-Smtp-Source: AGHT+IGg4uZmqt1m6Va6p3rbQ+Tyl0RvwHVTp7tz0Q8ZTyse2Y3ElJe5nqTaCg155QKgEWvRtOgbQw==
-X-Received: by 2002:a17:903:2289:b0:20c:f39e:4c04 with SMTP id d9443c01a7336-210eccfcd24mr13441505ad.2.1730173260995;
-        Mon, 28 Oct 2024 20:41:00 -0700 (PDT)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-210bbf46fc5sm57866805ad.45.2024.10.28.20.41.00
+        d=1e100.net; s=20230601; t=1730174921; x=1730779721;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=gIIEo7y7oCt4veQqo+0XfxoZ69cq65MS/cK+YlFnMn0=;
+        b=ZrIG4+oPsk9Q0LZtmv6V1ziiQYhHy9hVXuHuECcAPAiyNMKFO87ZC3Wt/GBeaHY+cl
+         OYrcvKCxKhMM4gbD8gBiA26i6J0LZFU0/raR0WBQsOy0AkXDJ92ATyR+O6T5bZC4adSl
+         CWyf3X2lVAhNWieL6glXDBLjyfdULCxCVWLXbAlZmLn+9bv+BdK2v1DX5tBlT2/2CFMN
+         07pEYLkyStwBUxutc7RhM7ptZviNzMUHwcjAe23XtlMcg5AZqCqh0kfgzcLPFinOIzDH
+         XDiPRD5fnLRe445K1+YW462sveYmLjTkXGNCHjN3pWZ/Ku0ip8BAlg5d7pB84qAuoUE6
+         bfSA==
+X-Forwarded-Encrypted: i=1; AJvYcCXikEj6PCdp8aR4RyGjtNW/wFAMnHYXw02dG1o5RYjr+lRc0XQKBPakhGTJEgOSNrkcHYHr7pRzG3mOOw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXpXBKYNtj+6QJ5PdtXJB11nwbMWrqX/fDe8IHy5Ocb4AeGv1y
+	M7vh69jA+6LN8wsmWQrOGxuu5WnRG5KLD7fnM1ClIJFR1VN0KPDC7YhttxwjGGg=
+X-Google-Smtp-Source: AGHT+IFl3f8KVc1QRaQ2b6/c/hH/WJWqrVw7vV+N8eWlNKsh/eF1g5HhOvtGRdGadtFj+TtWOqb8Gg==
+X-Received: by 2002:a17:907:9712:b0:a9a:55de:11f4 with SMTP id a640c23a62f3a-a9de6191f51mr1030052066b.54.1730174920767;
+        Mon, 28 Oct 2024 21:08:40 -0700 (PDT)
+Received: from sunil-laptop ([106.51.196.223])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5cbb62580b1sm3573211a12.15.2024.10.28.21.08.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Oct 2024 20:41:00 -0700 (PDT)
-Date: Tue, 29 Oct 2024 11:40:35 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Chen Wang <unicorn_wang@outlook.com>, 
-	Inochi Amaoto <inochiama@gmail.com>, Linus Walleij <linus.walleij@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Inochi Amaoto <inochiama@outlook.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>, Arnd Bergmann <arnd@arndb.de>
-Cc: Yixun Lan <dlan@gentoo.org>, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 1/3] dt-bindings: pinctrl: Add pinctrl for Sophgo SG2042
- series SoC
-Message-ID: <5x3iitxyebtllze3omjkelez7a7vqat6akbchcosjdmse7bpbv@jyirswzfzinr>
-References: <20241024064356.865055-1-inochiama@gmail.com>
- <20241024064356.865055-2-inochiama@gmail.com>
- <MA0P287MB2822C6EF567040AAEB9F82A5FE4B2@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
+        Mon, 28 Oct 2024 21:08:39 -0700 (PDT)
+Date: Tue, 29 Oct 2024 09:38:29 +0530
+From: Sunil V L <sunilvl@ventanamicro.com>
+To: yunhui cui <cuiyunhui@bytedance.com>
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Alexandre Ghiti <alex@ghiti.fr>, punit.agrawal@bytedance.com,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	ajones@ventanamicro.com, jeeheng.sia@starfivetech.com,
+	haibo1.xu@intel.com, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [External] Re: [PATCH] RISC-V: ACPI: fix early_ioremap to
+ early_memremap
+Message-ID: <ZyBfvfvyry6Wb89H@sunil-laptop>
+References: <20241014094705.71775-1-cuiyunhui@bytedance.com>
+ <d39e4832-50f3-4fc8-ba95-a2d6eefa5abe@ghiti.fr>
+ <CAEEQ3wk6K52RdCat+L91KvfNVkxbj1-3zxjubkn9xy89wK_-bA@mail.gmail.com>
+ <c05e09d0-d996-4712-a6e5-ef77f1f2ff0a@ghiti.fr>
+ <CAEEQ3wmw8B_cOs54H4Z8e2QTGyeE2cAYQwDRyk7KgUUKTFhZ-g@mail.gmail.com>
+ <CAHVXubjDhM6NEF6uf981Y2fNA1Dw=Bu_SNtpso6P1=3Np6BUDw@mail.gmail.com>
+ <CAEEQ3wndPwdaNrJZaqqrbyMBeWTVnV3m8KEehdijtTfXWjuYsw@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <MA0P287MB2822C6EF567040AAEB9F82A5FE4B2@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
+In-Reply-To: <CAEEQ3wndPwdaNrJZaqqrbyMBeWTVnV3m8KEehdijtTfXWjuYsw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_204102_040870_DF5EC33B 
-X-CRM114-Status: GOOD (  30.86  )
+X-CRM114-CacheID: sfid-20241028_210843_422315_CCCB9A6E 
+X-CRM114-Status: GOOD (  44.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,352 +99,98 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 29, 2024 at 09:59:33AM +0800, Chen Wang wrote:
-> Hello ~
-> 
-> On 2024/10/24 14:43, Inochi Amaoto wrote:
-> > SG2042 introduces a simple pinctrl device for all configurable pins.
-> > The pinconf and pinmux are mixed in a 16 bits register for each pin.
-> Can we change this sentence to "For the SG2042 pinctl register file, each
-> register (32 bits) is responsible for two pins, each occupying the upper 16
-> bits and lower 16 bits of the register."
-
-Yeah, it look like more clear. I will take it, thanks.
-
-> > It supports setting pull up/down, drive strength and input schmitt
-> > trigger.
-> > 
-> > Add support for SG2042 pinctrl device.
-> > 
-> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> > ---
-> >   .../pinctrl/sophgo,sg2042-pinctrl.yaml        |  96 +++++++++
-> >   include/dt-bindings/pinctrl/pinctrl-sg2042.h  | 196 ++++++++++++++++++
-> >   2 files changed, 292 insertions(+)
-> >   create mode 100644 Documentation/devicetree/bindings/pinctrl/sophgo,sg2042-pinctrl.yaml
-> >   create mode 100644 include/dt-bindings/pinctrl/pinctrl-sg2042.h
-> > 
-> > diff --git a/Documentation/devicetree/bindings/pinctrl/sophgo,sg2042-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/sophgo,sg2042-pinctrl.yaml
-> > new file mode 100644
-> > index 000000000000..5060deacd580
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/pinctrl/sophgo,sg2042-pinctrl.yaml
-> > @@ -0,0 +1,96 @@
-> > +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/pinctrl/sophgo,sg2042-pinctrl.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: Sophgo SG2042 Pin Controller
-> > +
-> > +maintainers:
-> > +  - Inochi Amaoto <inochiama@outlook.com>
-> > +
-> > +properties:
-> > +  compatible:
-> > +    enum:
-> > +      - sophgo,sg2042-pinctrl
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +
-> > +patternProperties:
-> > +  '-cfg$':
-> > +    type: object
-> > +    description:
-> > +      A pinctrl node should contain at least one subnode representing the
-> > +      pinctrl groups available on the machine.
-> > +
-> > +    additionalProperties: false
-> > +
-> > +    patternProperties:
-> > +      '-pins$':
-> > +        type: object
-> > +        description: |
-> > +          Each subnode will list the pins it needs, and how they should
-> > +          be configured, with regard to muxer configuration, bias input
-> > +          enable/disable, input schmitt trigger enable, drive strength
-> > +          output enable/disable state. For configuration detail,
-> > +          refer to https://github.com/sophgo/sophgo-doc/.
-> More accurate: https://github.com/sophgo/sophgo-doc/tree/main/SG2042/TRM
-> > +
-> > +        allOf:
-> > +          - $ref: pincfg-node.yaml#
-> > +          - $ref: pinmux-node.yaml#
-> > +
-> > +        properties:
-> > +          pinmux:
-> > +            description: |
-> > +              The list of GPIOs and their mux settings that properties in the
-> > +              node apply to. This should be set using the GPIOMUX
-> Not GPIOMUX, should be PINMUX.
-
-I will fix it.
-
-> > +              macro.
-> > +
-> > +          bias-disable: true
-> > +
-> > +          bias-pull-up:
-> > +            type: boolean
-> > +
-> > +          bias-pull-down:
-> > +            type: boolean
-> > +
-> > +          drive-strength-microamp:
-> > +            description: typical current when output high level.
-> > +            enum: [ 4300, 6400, 8500, 10600, 12800, 14900, 17000, 19100,
-> > +                    21200, 23300, 25500, 27600, 29700, 31800, 33900, 36000]
-> Where can I find these enum values in TRM? I just see the field "Driving
-> Selector" occupies 4 bits for each pin.
-
-This is based on the electrical characteristics of the SG2042. However, this
-document is not opened, you may ask sophgo to open it.
-
-> > +          input-schmitt-enable: true
-> > +
-> > +          input-schmitt-disable: true
-> > +
-> > +        required:
-> > +          - pinmux
-> > +
-> > +        additionalProperties: false
-> > +
-> > +required:
-> > +  - compatible
-> > +  - reg
-> > +
-> > +additionalProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    #include <dt-bindings/pinctrl/pinctrl-sg2042.h>
-> > +
-> > +    pinctrl@30011000 {
-> > +        compatible = "sophgo,sg2042-pinctrl";
-> > +        reg = <30011000 0x1000>;
-> > +
-> > +        uart0_cfg: uart0-cfg {
-> > +            uart0-pins {
-> > +                pinmux = <PINMUX(PIN_UART0_TX, 0)>,
-> > +                         <PINMUX(PIN_UART0_RX, 0)>;
-> > +                bias-pull-up;
-> > +                drive-strength-microamp = <10600>;
-> > +            };
-> > +        };
-> > +    };
-> > +
-> > +...
-> > diff --git a/include/dt-bindings/pinctrl/pinctrl-sg2042.h b/include/dt-bindings/pinctrl/pinctrl-sg2042.h
-> > new file mode 100644
-> > index 000000000000..79d5bb8e04f8
-> > --- /dev/null
-> > +++ b/include/dt-bindings/pinctrl/pinctrl-sg2042.h
-> > @@ -0,0 +1,196 @@
-> > +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
-> > +/*
-> > + * Copyright (C) 2024 Inochi Amaoto <inochiama@outlook.com>
-> > + *
-> > + */
-> > +
-> > +#ifndef _DT_BINDINGS_PINCTRL_SG2042_H
-> > +#define _DT_BINDINGS_PINCTRL_SG2042_H
-> > +
-> > +#define PINMUX(pin, mux) \
-> > +	(((pin) & 0xffff) | (((mux) & 0xff) << 16))
-> > +
-> > +#define PIN_LPC_LCLK			0
-> > +#define PIN_LPC_LFRAME			1
-> > +#define PIN_LPC_LAD0			2
-> > +#define PIN_LPC_LAD1			3
-> > +#define PIN_LPC_LAD2			4
-> > +#define PIN_LPC_LAD3			5
-> > +#define PIN_LPC_LDRQ0			6
-> > +#define PIN_LPC_LDRQ1			7
-> > +#define PIN_LPC_SERIRQ			8
-> > +#define PIN_LPC_CLKRUN			9
-> > +#define PIN_LPC_LPME			10
-> > +#define PIN_LPC_LPCPD			11
-> > +#define PIN_LPC_LSMI			12
-> > +#define PIN_PCIE0_L0_RESET		13
-> > +#define PIN_PCIE0_L1_RESET		14
-> > +#define PIN_PCIE0_L0_WAKEUP		15
-> > +#define PIN_PCIE0_L1_WAKEUP		16
-> > +#define PIN_PCIE0_L0_CLKREQ_IN		17
-> > +#define PIN_PCIE0_L1_CLKREQ_IN		18
-> > +#define PIN_PCIE1_L0_RESET		19
-> > +#define PIN_PCIE1_L1_RESET		20
-> > +#define PIN_PCIE1_L0_WAKEUP		21
-> > +#define PIN_PCIE1_L1_WAKEUP		22
-> > +#define PIN_PCIE1_L0_CLKREQ_IN		23
-> > +#define PIN_PCIE1_L1_CLKREQ_IN		24
-> > +#define PIN_SPIF0_CLK_SEL1		25
-> > +#define PIN_SPIF0_CLK_SEL0		26
-> > +#define PIN_SPIF0_WP			27
-> > +#define PIN_SPIF0_HOLD			28
-> > +#define PIN_SPIF0_SDI			29
-> > +#define PIN_SPIF0_CS			30
-> > +#define PIN_SPIF0_SCK			31
-> > +#define PIN_SPIF0_SDO			32
-> > +#define PIN_SPIF1_CLK_SEL1		33
-> > +#define PIN_SPIF1_CLK_SEL0		34
-> > +#define PIN_SPIF1_WP			35
-> > +#define PIN_SPIF1_HOLD			36
-> > +#define PIN_SPIF1_SDI			37
-> > +#define PIN_SPIF1_CS			38
-> > +#define PIN_SPIF1_SCK			39
-> > +#define PIN_SPIF1_SDO			40
-> > +#define PIN_EMMC_WP			41
-> > +#define PIN_EMMC_CD			42
-> > +#define PIN_EMMC_RST			43
-> > +#define PIN_EMMC_PWR_EN			44
-> > +#define PIN_SDIO_CD			45
-> > +#define PIN_SDIO_WP			46
-> > +#define PIN_SDIO_RST			47
-> > +#define PIN_SDIO_PWR_EN			48
-> > +#define PIN_RGMII0_TXD0			49
-> > +#define PIN_RGMII0_TXD1			50
-> > +#define PIN_RGMII0_TXD2			51
-> > +#define PIN_RGMII0_TXD3			52
-> > +#define PIN_RGMII0_TXCTRL		53
-> > +#define PIN_RGMII0_RXD0			54
-> > +#define PIN_RGMII0_RXD1			55
-> > +#define PIN_RGMII0_RXD2			56
-> > +#define PIN_RGMII0_RXD3			57
-> > +#define PIN_RGMII0_RXCTRL		58
-> > +#define PIN_RGMII0_TXC			59
-> > +#define PIN_RGMII0_RXC			60
-> > +#define PIN_RGMII0_REFCLKO		61
-> > +#define PIN_RGMII0_IRQ			62
-> > +#define PIN_RGMII0_MDC			63
-> > +#define PIN_RGMII0_MDIO			64
-> > +#define PIN_PWM0			65
-> > +#define PIN_PWM1			66
-> > +#define PIN_PWM2			67
-> > +#define PIN_PWM3			68
-> > +#define PIN_FAN0			69
-> > +#define PIN_FAN1			70
-> > +#define PIN_FAN2			71
-> > +#define PIN_FAN3			72
-> > +#define PIN_IIC0_SDA			73
-> > +#define PIN_IIC0_SCL			74
-> > +#define PIN_IIC1_SDA			75
-> > +#define PIN_IIC1_SCL			76
-> > +#define PIN_IIC2_SDA			77
-> > +#define PIN_IIC2_SCL			78
-> > +#define PIN_IIC3_SDA			79
-> > +#define PIN_IIC3_SCL			80
-> > +#define PIN_UART0_TX			81
-> > +#define PIN_UART0_RX			82
-> > +#define PIN_UART0_RTS			83
-> > +#define PIN_UART0_CTS			84
-> > +#define PIN_UART1_TX			85
-> > +#define PIN_UART1_RX			86
-> > +#define PIN_UART1_RTS			87
-> > +#define PIN_UART1_CTS			88
-> > +#define PIN_UART2_TX			89
-> > +#define PIN_UART2_RX			90
-> > +#define PIN_UART2_RTS			91
-> > +#define PIN_UART2_CTS			92
-> > +#define PIN_UART3_TX			93
-> > +#define PIN_UART3_RX			94
-> > +#define PIN_UART3_RTS			95
-> > +#define PIN_UART3_CTS			96
-> > +#define PIN_SPI0_CS0			97
-> > +#define PIN_SPI0_CS1			98
-> > +#define PIN_SPI0_SDI			99
-> > +#define PIN_SPI0_SDO			100
-> > +#define PIN_SPI0_SCK			101
-> > +#define PIN_SPI1_CS0			102
-> > +#define PIN_SPI1_CS1			103
-> > +#define PIN_SPI1_SDI			104
-> > +#define PIN_SPI1_SDO			105
-> > +#define PIN_SPI1_SCK			106
-> > +#define PIN_JTAG0_TDO			107
-> > +#define PIN_JTAG0_TCK			108
-> > +#define PIN_JTAG0_TDI			109
-> > +#define PIN_JTAG0_TMS			110
-> > +#define PIN_JTAG0_TRST			111
-> > +#define PIN_JTAG0_SRST			112
-> > +#define PIN_JTAG1_TDO			113
-> > +#define PIN_JTAG1_TCK			114
-> > +#define PIN_JTAG1_TDI			115
-> > +#define PIN_JTAG1_TMS			116
-> > +#define PIN_JTAG1_TRST			117
-> > +#define PIN_JTAG1_SRST			118
-> > +#define PIN_JTAG2_TDO			119
-> > +#define PIN_JTAG2_TCK			120
-> > +#define PIN_JTAG2_TDI			121
-> > +#define PIN_JTAG2_TMS			122
-> > +#define PIN_JTAG2_TRST			123
-> > +#define PIN_JTAG2_SRST			124
-> > +#define PIN_GPIO0			125
-> > +#define PIN_GPIO1			126
-> > +#define PIN_GPIO2			127
-> > +#define PIN_GPIO3			128
-> > +#define PIN_GPIO4			129
-> > +#define PIN_GPIO5			130
-> > +#define PIN_GPIO6			131
-> > +#define PIN_GPIO7			132
-> > +#define PIN_GPIO8			133
-> > +#define PIN_GPIO9			134
-> > +#define PIN_GPIO10			135
-> > +#define PIN_GPIO11			136
-> > +#define PIN_GPIO12			137
-> > +#define PIN_GPIO13			138
-> > +#define PIN_GPIO14			139
-> > +#define PIN_GPIO15			140
-> > +#define PIN_GPIO16			141
-> > +#define PIN_GPIO17			142
-> > +#define PIN_GPIO18			143
-> > +#define PIN_GPIO19			144
-> > +#define PIN_GPIO20			145
-> > +#define PIN_GPIO21			146
-> > +#define PIN_GPIO22			147
-> > +#define PIN_GPIO23			148
-> > +#define PIN_GPIO24			149
-> > +#define PIN_GPIO25			150
-> > +#define PIN_GPIO26			151
-> > +#define PIN_GPIO27			152
-> > +#define PIN_GPIO28			153
-> > +#define PIN_GPIO29			154
-> > +#define PIN_GPIO30			155
-> > +#define PIN_GPIO31			156
-> > +#define PIN_MODE_SEL0			157
-> > +#define PIN_MODE_SEL1			158
-> > +#define PIN_MODE_SEL2			159
-> > +#define PIN_BOOT_SEL0			160
-> > +#define PIN_BOOT_SEL1			161
-> > +#define PIN_BOOT_SEL2			162
-> > +#define PIN_BOOT_SEL3			163
-> > +#define PIN_BOOT_SEL4			164
-> > +#define PIN_BOOT_SEL5			165
-> > +#define PIN_BOOT_SEL6			166
-> > +#define PIN_BOOT_SEL7			167
-> > +#define PIN_MULTI_SCKT			168
-> > +#define PIN_SCKT_ID0			169
-> > +#define PIN_SCKT_ID1			170
-> > +#define PIN_PLL_CLK_IN_MAIN		171
-> > +#define PIN_PLL_CLK_IN_DDR_L		172
-> > +#define PIN_PLL_CLK_IN_DDR_R		173
-> > +#define PIN_XTAL_32K			174
-> > +#define PIN_SYS_RST			175
-> > +#define PIN_PWR_BUTTON			176
-> > +#define PIN_TEST_EN			177
-> > +#define PIN_TEST_MODE_MBIST		178
-> > +#define PIN_TEST_MODE_SCAN		179
-> > +#define PIN_TEST_MODE_BSD		180
-> > +#define PIN_BISR_BYP			181
-> > +
-> > +#endif /* _DT_BINDINGS_PINCTRL_SG2042_H */
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBPY3QgMjksIDIwMjQgYXQgMTE6MDQ6NDlBTSArMDgwMCwgeXVuaHVpIGN1aSB3cm90
+ZToKPiBIaSBBbGV4LAo+IAo+IAo+IE9uIE1vbiwgT2N0IDI4LCAyMDI0IGF0IDk6MzfigK9QTSBB
+bGV4YW5kcmUgR2hpdGkgPGFsZXhnaGl0aUByaXZvc2luYy5jb20+IHdyb3RlOgo+ID4KPiA+IEhp
+IFl1bmh1aSwKPiA+Cj4gPiBTb3JyeSBmb3IgdGhlIGxhdGUgcmVwbHksIEkgd2FzIG9uIHZhY2F0
+aW9uIGxhc3Qgd2Vlay4KPiA+Cj4gPiBPbiBNb24sIE9jdCAyMSwgMjAyNCBhdCA4OjQ14oCvQU0g
+eXVuaHVpIGN1aSA8Y3VpeXVuaHVpQGJ5dGVkYW5jZS5jb20+IHdyb3RlOgo+ID4gPgo+ID4gPiBI
+aSBBbGV4LAo+ID4gPgo+ID4gPiBPbiBNb24sIE9jdCAxNCwgMjAyNCBhdCA5OjAx4oCvUE0gQWxl
+eGFuZHJlIEdoaXRpIDxhbGV4QGdoaXRpLmZyPiB3cm90ZToKPiA+ID4gPgo+ID4gPiA+IE9uIDE0
+LzEwLzIwMjQgMTQ6MzAsIHl1bmh1aSBjdWkgd3JvdGU6Cj4gPiA+ID4gPiBIaSBBbGV4LAo+ID4g
+PiA+ID4KPiA+ID4gPiA+IE9uIE1vbiwgT2N0IDE0LCAyMDI0IGF0IDg6MTLigK9QTSBBbGV4YW5k
+cmUgR2hpdGkgPGFsZXhAZ2hpdGkuZnI+IHdyb3RlOgo+ID4gPiA+ID4+IEhpIFl1bmh1aSwKPiA+
+ID4gPiA+Pgo+ID4gPiA+ID4+IE9uIDE0LzEwLzIwMjQgMTE6NDcsIFl1bmh1aSBDdWkgd3JvdGU6
+Cj4gPiA+ID4gPj4+IFdoZW4gU1ZQQk1UIGlzIGVuYWJsZWQsIF9fYWNwaV9tYXBfdGFibGUoKSB3
+aWxsIGRpcmVjdGx5IGFjY2VzcyB0aGUKPiA+ID4gPiA+Pj4gZGF0YSBpbiBERFIgdGhyb3VnaCB0
+aGUgSU8gYXR0cmlidXRlLCByYXRoZXIgdGhhbiB0aHJvdWdoIGhhcmR3YXJlCj4gPiA+ID4gPj4+
+IGNhY2hlIGNvbnNpc3RlbmN5LCByZXN1bHRpbmcgaW4gaW5jb3JyZWN0IGRhdGEgaW4gdGhlIG9i
+dGFpbmVkIEFDUEkKPiA+ID4gPiA+Pj4gdGFibGUuCj4gPiA+ID4gPj4+Cj4gPiA+ID4gPj4+IFRo
+ZSBsb2c6IEFDUEk6IFtBQ1BJOjB4MThdIEludmFsaWQgemVybyBsZW5ndGguCj4gPiA+ID4gPj4+
+Cj4gPiA+ID4gPj4+IFdlIGRvIG5vdCBhc3N1bWUgd2hldGhlciB0aGUgYm9vdGxvYWRlciBmbHVz
+aGVzIG9yIG5vdC4gV2Ugc2hvdWxkCj4gPiA+ID4gPj4+IGFjY2VzcyBpbiBhIGNhY2hlYWJsZSB3
+YXkgaW5zdGVhZCBvZiBtYWludGFpbmluZyBjYWNoZSBjb25zaXN0ZW5jeQo+ID4gPiA+ID4+PiBi
+eSBzb2Z0d2FyZS4KPiA+ID4gPiA+Pj4KPiA+ID4gPiA+Pj4gU2lnbmVkLW9mZi1ieTogWXVuaHVp
+IEN1aSA8Y3VpeXVuaHVpQGJ5dGVkYW5jZS5jb20+Cj4gPiA+ID4gPj4+IC0tLQo+ID4gPiA+ID4+
+PiAgICBhcmNoL3Jpc2N2L2tlcm5lbC9hY3BpLmMgfCAyICstCj4gPiA+ID4gPj4+ICAgIDEgZmls
+ZSBjaGFuZ2VkLCAxIGluc2VydGlvbigrKSwgMSBkZWxldGlvbigtKQo+ID4gPiA+ID4+Pgo+ID4g
+PiA+ID4+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvYWNwaS5jIGIvYXJjaC9yaXNj
+di9rZXJuZWwvYWNwaS5jCj4gPiA+ID4gPj4+IGluZGV4IDZlMGQzMzNmNTdlNS4uMzE3N2M5YWY4
+NzY0IDEwMDY0NAo+ID4gPiA+ID4+PiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9hY3BpLmMKPiA+
+ID4gPiA+Pj4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvYWNwaS5jCj4gPiA+ID4gPj4+IEBAIC0y
+MTAsNyArMjEwLDcgQEAgdm9pZCBfX2luaXQgX19pb21lbSAqX19hY3BpX21hcF90YWJsZSh1bnNp
+Z25lZCBsb25nIHBoeXMsIHVuc2lnbmVkIGxvbmcgc2l6ZSkKPiA+ID4gPiA+Pj4gICAgICAgIGlm
+ICghc2l6ZSkKPiA+ID4gPiA+Pj4gICAgICAgICAgICAgICAgcmV0dXJuIE5VTEw7Cj4gPiA+ID4g
+Pj4+Cj4gPiA+ID4gPj4+IC0gICAgIHJldHVybiBlYXJseV9pb3JlbWFwKHBoeXMsIHNpemUpOwo+
+ID4gPiA+ID4+PiArICAgICByZXR1cm4gZWFybHlfbWVtcmVtYXAocGh5cywgc2l6ZSk7Cj4gPiA+
+ID4gPj4+ICAgIH0KPiA+ID4gPiA+Pj4KPiA+ID4gPiA+Pj4gICAgdm9pZCBfX2luaXQgX19hY3Bp
+X3VubWFwX3RhYmxlKHZvaWQgX19pb21lbSAqbWFwLCB1bnNpZ25lZCBsb25nIHNpemUpCj4gPiA+
+ID4gPj4KPiA+ID4gPiA+PiBJdCBtYWtlcyBzZW5zZSB0byBtZSBzaW5jZSB3aXRoIHRoaXMsIHdl
+IGRvbid0IGhhdmUgdG8gY2FyZSBhYm91dCBob3cKPiA+ID4gPiA+PiB0aGUgZmlybXdhcmUgbWFw
+cGVkIHRoZSB0YWJsZS4gQW5kIGl0IG1pbWljcyBhbGwgb3RoZXIgYXJjaGl0ZWN0dXJlcwo+ID4g
+PiA+ID4+IChhcm02NCwgbG9vbmdhcmNoIGFuZCB4ODYpLgo+ID4gPiA+ID4+Cj4gPiA+ID4gPj4g
+SGVyZSBpcyB0aGUgY29ycmVzcG9uZGluZyBmaXhlcyB0YWc6Cj4gPiA+ID4gPj4KPiA+ID4gPiA+
+PiBGaXhlczogM2I0MjZkNGI1YjE0ICgiUklTQy1WOiBBQ1BJIDogRml4IGZvciB1c2FnZSBvZiBw
+b2ludGVycyBpbgo+ID4gPiA+ID4+IGRpZmZlcmVudCBhZGRyZXNzIHNwYWNlIikKPiA+ID4gPiA+
+Pgo+ID4gPiA+ID4+IFdpdGggdGhlIGNvcnJlc3BvbmRpbmcgZml4IGluIF9fYWNwaV91bm1hcF90
+YWJsZSgpIGFzIHBvaW50ZWQgYnkgU3VuaWwsCj4gPiA+ID4gPj4geW91IGNhbiBhZGQ6Cj4gPiA+
+ID4gPj4KPiA+ID4gPiA+PiBSZXZpZXdlZC1ieTogQWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlA
+cml2b3NpbmMuY29tPgo+ID4gPiA+ID4+Cj4gPiA+ID4gPj4gQW5kIHJlZ2FyZGluZyB0aGUgc3Bh
+cnNlIGVycm9yLCBJIGRvbid0IHNlZSBhbnkgb3RoZXIgYXJjaGl0ZWN0dXJlCj4gPiA+ID4gPj4g
+Y2FzdGluZyB0byBfX2lvbWVtLCBzbyBtYXliZSB0aGF0J3Mgbm90IG5lY2Vzc2FyeSBhbnltb3Jl
+Pwo+ID4gPiA+ID4gT0suIEkgd2lsbCBtYWtlIHRoZSBjaGFuZ2VzIGluIHYyLiBSZWdhcmRpbmcg
+dGhlIHNwYXJzZSBlcnJvciwgSSB3aWxsCj4gPiA+ID4gPiB1c2UgYW5vdGhlciBwYXRjaCBzcGVj
+aWZpY2FsbHkgdG8gc29sdmUgaXQuIElzIHRoYXQgb2theT8KPiA+ID4gPgo+ID4gPiA+Cj4gPiA+
+ID4gSWYgdGhlIHNlY29uZCBwYXRjaCBvbmx5IGNvbnNpc3RzIGluIGNhc3RpbmcsIEkgd291bGQg
+bm90IHVzZSBhbm90aGVyCj4gPiA+ID4gcGF0Y2ggc2luY2UgdGhlIHBhdGNoIDIgd291bGQgZml4
+IHNvbWV0aGluZyBpbnRyb2R1Y2VkIGluIHBhdGNoIDEuCj4gPiA+ID4KPiA+ID4gPiBCdXQgaWYg
+cGF0Y2ggMiBpcyBtb3JlIGNvbXBsaWNhdGVkLCAgaXQgbWF5IG1ha2Ugc2Vuc2UgdG8gZG8gYXMg
+eW91Cj4gPiA+ID4gc3VnZ2VzdCwgdGhlIGdvYWwgaXMgdG8gbWVyZ2UgcGF0Y2ggMSBhc2FwLgo+
+ID4gPgo+ID4gPiBSZWdhcmRpbmcgcGF0Y2ggMiwgSSBleGVjdXRlZCAibWFrZSAmIG1ha2UgaW5z
+dGFsbCIgZm9yIHNwYXJzZSBvZiB0aGUKPiA+ID4gcmlzY3YgYXJjaC4gSSAiZ2l0IGNsb25lZCIg
+ZnJvbQo+ID4gPiBodHRwczovL2dpdGh1Yi5jb20vQ29uY2h1T0Qvc3BhcnNlLmdpdC4KPiA+ID4g
+VGhlbiB3aGVuIGNvbXBpbGluZyB0aGUga2VybmVsLCB0aGUgZm9sbG93aW5nIGVycm9yIHdhcyBy
+ZXBvcnRlZDoKPiA+ID4KPiA+ID4gY2QgL2RhdGEwMC9jeWgvbGludXgtbmV4dC8KPiA+ID4gbWFr
+ZSBkZWZjb25maWcKPiA+ID4gY3AgLmNvbmZpZyBidWlsZC1yaXNjdjY0Lwo+ID4gPgo+ID4gPiBt
+YWtlIE89YnVpbGQtcmlzY3Y2NC8gQz0xIFc9MSBhcmNoL3Jpc2N2L2tlcm5lbC8gZHJpdmVycy9h
+Y3BpLwo+ID4gPiBkcml2ZXJzL21haWxib3gvIC1qCj4gPiA+IG1ha2VbMV06IEVudGVyaW5nIGRp
+cmVjdG9yeSAnL2RhdGEwMC9jeWgvbGludXgtbmV4dC9idWlsZC1yaXNjdjY0Jwo+ID4gPiAgIEdF
+TiAgICAgTWFrZWZpbGUKPiA+ID4gICBDQyAgICAgIHNjcmlwdHMvbW9kL2VtcHR5Lm8KPiA+ID4g
+ICBDQyAgICAgIHNjcmlwdHMvbW9kL2RldmljZXRhYmxlLW9mZnNldHMucwo+ID4gPiAgIENIRUNL
+ICAgLi4vc2NyaXB0cy9tb2QvZW1wdHkuYwo+ID4gPiBpbnZhbGlkIGFyZ3VtZW50IHRvICctbWFy
+Y2gnOiAnX3ppY3NyX3ppZmVuY2VpJwo+ID4gPgo+ID4gPiBtYWtlWzNdOiAqKiogWy4uL3Njcmlw
+dHMvTWFrZWZpbGUuYnVpbGQ6MjI5OiBzY3JpcHRzL21vZC9lbXB0eS5vXSBFcnJvciAxCj4gPiA+
+IG1ha2VbM106ICoqKiBEZWxldGluZyBmaWxlICdzY3JpcHRzL21vZC9lbXB0eS5vJwo+ID4gPiBt
+YWtlWzNdOiAqKiogV2FpdGluZyBmb3IgdW5maW5pc2hlZCBqb2JzLi4uLgo+ID4gPiBtYWtlWzJd
+OiAqKiogWy9kYXRhMDAvY3loL2xpbnV4LW5leHQvTWFrZWZpbGU6MTIxNTogcHJlcGFyZTBdIEVy
+cm9yIDIKPiA+ID4gbWFrZVsxXTogKioqIFsvZGF0YTAwL2N5aC9saW51eC1uZXh0L01ha2VmaWxl
+OjIyNDogX19zdWItbWFrZV0gRXJyb3IgMgo+ID4gPgo+ID4gPiBEbyB5b3Uga25vdyB0aGUgc29s
+dXRpb24/Cj4gPgo+ID4gSW4gY2FzZSB5b3UgZGlkIG5vdCBmaW5kIHRoZSBzb2x1dGlvbiB5ZXQs
+IEkgd291bGQgc2F5IHRoYXQgeW91cgo+ID4gdG9vbGNoYWluIGlzIHRvbyBvbGQuCj4gPgo+ID4g
+TGV0IG1lIGtub3cgaWYgSSBjYW4gaGVscCwKPiBJdCBtYXkgbm90IGJlIGEgcHJvYmxlbSBvZiBh
+biBvbGQgY29tcGlsZXIuIFRoZSB2ZXJzaW9uIG9mIHRoZQo+IGNvbXBpbGVyIEkgYW0gdXNpbmcg
+aXMgMTMuMi4KPiBJdCBpcyBhIHByb2JsZW0gd2l0aCBzcGFyc2UuIFdoZW4gcnVubmluZyAic3Bh
+cnNlIC0tYXJjaD1yaXNjdgo+IC1tYXJjaD1ydjY0aW1hY196aWNzcl96aWZlbmNlaSBzY3JpcHRz
+L21vZC9lbXB0eS5jIiwgdGhlcmUgaXMgYW4KPiBpbnZhbGlkIGFyZ3VtZW50IGZvciAnLW1hcmNo
+JzogJ196aWNzcl96aWZlbmNlaScuCj4gCkhpIFl1bmh1aSwKCkkgdGhpbmsgeW91IG5lZWQgbGF0
+ZXN0IHNwYXJzZS4gSSByZW1lbWJlciBidWlsZGluZyBzcGFyc2UgZnJvbSBsYXRlc3QKc291cmNl
+cyB0byBhdm9pZCB0aGlzIGVycm9yLgoKaHR0cHM6Ly93d3cua2VybmVsLm9yZy9kb2MvaHRtbC92
+NC4xMS9kZXYtdG9vbHMvc3BhcnNlLmh0bWwKClRoYW5rcywKU3VuaWwKCl9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
+dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
+b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
