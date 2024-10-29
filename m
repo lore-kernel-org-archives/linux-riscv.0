@@ -4,91 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CDE3D5B165
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Oct 2024 08:07:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 303ABD5B164
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Oct 2024 08:48:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iGfzTIyGnSjm1aPwtDFwC2LXyaHTsjCIalFghxNopC4=; b=XJ2SXSFfUlGkdy
-	D1ubG4z/u1tWXm/Uz/buQfPFOAGEqC2cjdcv/AjD5OhXEIupTisAwdKsGnom1dusKIc2iICbYVY82
-	Wj9eWICAgbMwIQwcC47x6rXbXiwbxRzzX1nJTMDRmxqr68ouZUb1EXE/768Sesqe/o8YNpqxmfdIa
-	Jnl81NpnL2i3d3cdO1uJY4uX6oG58BqXGsa60bAhnItyaQH8dvDzIf6l/geJtBz/SVS9rwZyOfx61
-	MsDlhuF+5yCqucEAbblhrZejlS5E98BgwzXhQlLqY1rn//0pQa4rjDEfkq2p/qLjbg1T1b12UAV9Z
-	JViAEvaq9TUw5c/Tr9iw==;
+	List-Owner; bh=u1YVfMQjPxFiIIFt7VHxzgnSEmiLdaGNQ0f0QI39G4U=; b=buOhip6z7zWSYe
+	WK2R7VLnpEfcSWkofqLDf5mwrvYSyUvyxrHkHl/Z1IRthPZHe311D6nj9llCAhLXd+hq7ad8pIPMI
+	2fQpCCy8nMyGK2AeJmHkA4TuP737+mjo9HVjiVm6YoYiPjjhiveiFa2ZXh3/xggsm6S1OWS718xbl
+	+bnIPAT9TWJ6TyiAeO95qsCD+kzBudkHv+GiDBPHdbcRd+h6UnaeGjqdQu1AyeBWCCbapaY7Uz0pj
+	n+P4vZGmLbHWYpzKCmJPz2+00vHYI0IwWc8/tTK4BjJPE/tRLeI0jJROgRfb8C5W0ifrJOq5pkwZQ
+	EgOtoN9yoSIfavC6Kd7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5hFt-0000000Dcda-2fXq;
-	Tue, 29 Oct 2024 08:07:09 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1t5htR-0000000DkvF-3gux;
+	Tue, 29 Oct 2024 08:48:02 +0000
+Received: from mail-pg1-x541.google.com ([2607:f8b0:4864:20::541])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5hC7-0000000Dc4X-0C4N;
-	Tue, 29 Oct 2024 08:03:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=iFdAzUkd+0GcTyGkQ9/oIIo1dvmqpp5hrlTc3EhXZOY=; b=E9WrE7kocNrMH0KBtISYyOsT32
-	PSMSsRWWc5ttyuBz9k08bNtdV2pmnSIxLwf8TSavrfVanzPnFH+vFeWHa8X18XX4W7rs2HhWaEF39
-	lMenGv8tWDu71gfI8++INuZmUySPZj8ECT1w4N5VRO5xYI/DzO+6lz3e6/1j5NgdinKJL8R+6sYWF
-	eWDftBCWLy1wRDPEblOrOj+6ShySW3PiIVJ9DC83Ds6qlsvQRzdWknfrBAB0lg5znZL0QsVoR8zpi
-	LB5SGxCh96C1CN9NxF/9ho2aS0Rb79rGDcq/QHH7rG9oiG32K6IP9wBS4BK0I3BhMQOOMdoFjeky8
-	DpvOJkLg==;
-Received: from [185.156.123.69] (helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1t5hAk-0002ap-A3; Tue, 29 Oct 2024 09:01:50 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>,
- Uwe =?ISO-8859-1?Q?Kleine=2DK=F6nig?= <u.kleine-koenig@baylibre.com>
-Cc: Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Herve Codina <herve.codina@bootlin.com>, Qiang Zhao <qiang.zhao@nxp.com>,
- Hitomi Hasegawa <hasegawa-hitomi@fujitsu.com>,
- Huisong Li <lihuisong@huawei.com>, Linus Walleij <linusw@kernel.org>,
- Imre Kaloz <kaloz@openwrt.org>, Karol Gugala <kgugala@antmicro.com>,
- Mateusz Holenko <mholenko@antmicro.com>, Gabriel Somlo <gsomlo@gmail.com>,
- Yinbo Zhu <zhuyinbo@loongson.cn>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Conor Dooley <conor.dooley@microchip.com>,
- Daire McNamara <daire.mcnamara@microchip.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- Thierry Reding <thierry.reding@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>, Nishanth Menon <nm@ti.com>,
- Santosh Shilimkar <ssantosh@kernel.org>, Michal Simek <michal.simek@amd.com>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Duje =?utf-8?B?TWloYW5vdmnEhw==?= <duje.mihanovic@skole.hr>,
- Mark Brown <broonie@kernel.org>, David Wu <david.wu@rock-chips.com>,
- Jianqun Xu <jay.xu@rock-chips.com>,
- Jay Buddhabhatti <jay.buddhabhatti@amd.com>,
- Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
- Izhar Ameer Shaikh <izhar.ameer.shaikh@amd.com>,
- Naman Trivedi Manojbhai <naman.trivedimanojbhai@amd.com>,
- linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev,
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
- linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-arm-msm@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-tegra@vger.kernel.org,
- linux-pm@vger.kernel.org
-Subject: Re: [PATCH] soc: Switch back to struct platform_driver::remove()
-Date: Tue, 29 Oct 2024 09:01:46 +0100
-Message-ID: <5089490.31r3eYUQgx@phil>
-In-Reply-To: <20241029074859.509587-2-u.kleine-koenig@baylibre.com>
-References: <20241029074859.509587-2-u.kleine-koenig@baylibre.com>
+	id 1t5hhx-0000000Dhgq-1faY
+	for linux-riscv@lists.infradead.org;
+	Tue, 29 Oct 2024 08:36:11 +0000
+Received: by mail-pg1-x541.google.com with SMTP id 41be03b00d2f7-7e6ed072cdaso3660938a12.0
+        for <linux-riscv@lists.infradead.org>; Tue, 29 Oct 2024 01:36:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1730190968; x=1730795768; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=/8NSLt5gROai5eNjRnyzeHIXUrIA3Ff+xSmUEHde5ls=;
+        b=gKz6pGuNn3olvc96g9+HqVzA9tcQ454EyoPH0Je4AAuXvPKmB/O1VtxeTIwTsvKsgi
+         khbHxpTvBfNuoakPs2ptONqj/nTuThNw+QV9Dspn9k0WrWxWzypmBrvNMfjRzTqbVSmX
+         Ia1oBn3UwzRXD1aD5k5/cUoOrgrU4OShMJXuUnUSq4PntKp3SZWQs9/w4BKSk2LgJcVe
+         QdRd6XhAtT+1OUafcl3542H/i5ZW9XFyAqQ6ZO3UCpkqjzcafB1fGiMg3pAC8X+R1jY9
+         yGJpNG/0YVwXxrxRunAE2Ijv7fvsyWl0YaXJ3ZkHk1lG/+sWCDX1Bp9CuPYoBLoBszAc
+         V1gQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730190968; x=1730795768;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=/8NSLt5gROai5eNjRnyzeHIXUrIA3Ff+xSmUEHde5ls=;
+        b=iREcY/KbRx9uaEXQpnugmPpngIfiaalkycKm8DkbFeQFVQ1RqxU2zCyzGGtaa9/nuz
+         R6XPdafNxbdHGI0+aq0xyEAbv8gGF2AlSzuV8rtzxTo0FByRYkyQL+4ls8Y/JjIAFGio
+         mkv5bZFLJg/+PDLW2SnrD8FoADTg5dpCXvX1dwHjqgPJPHjmSNig8NTwTBtdQ9feMdqM
+         /RAaAeP+lKmlPO4De6GVKee1nMQvsbs+m8TgexXsSy+cR3wRCUqvLYpcari/h+a8JrAd
+         nCofKQDUXdNXFGWTNLKkROXuZU15PTNgqHgckHO+wr9JHkBCNm4YSqH9SYITuqJYkW5/
+         67BQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWbsRj7J2eYaotshI3W7qV3EzzSyKWIo7lOpCmg7inpEtd6FTI2doWgqOGjviVle7yUi3b/Lugo3ZAu5A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzuS0Fb7t1JAGDnH31ujoR4zzILE12NviyNUVQJSwXVPqkHmixx
+	VbnCtMYOeIqATfQEH0Ct40Z26um2tp6ub8b+r4XUd2QcPRvsYEf9Hj9ypFJvnLmRhVjfKRw=
+X-Google-Smtp-Source: AGHT+IHBlSsRarPjE08Y8GtoBvAeCWe8nYN7P9fMO3ywfLAmEctgr9vvRZpfDmJHAhNB1E9ogzoalQ==
+X-Received: by 2002:a05:6a21:390:b0:1d9:83cc:fd48 with SMTP id adf61e73a8af0-1d9a83ca001mr14773602637.17.1730190967861;
+        Tue, 29 Oct 2024 01:36:07 -0700 (PDT)
+Received: from [127.0.0.1] ([2602:f919:106::1b8])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-210bbf6d605sm62414185ad.93.2024.10.29.01.36.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 29 Oct 2024 01:36:07 -0700 (PDT)
+Message-ID: <dbeea869-54cd-43fe-9021-783d641f1278@gmail.com>
+Date: Tue, 29 Oct 2024 16:36:00 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] dt-bindings: i2c: spacemit: add support for K1 SoC
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: andi.shyti@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <20241028053220.346283-1-TroyMitchell988@gmail.com>
+ <20241028053220.346283-2-TroyMitchell988@gmail.com>
+ <6zx3tqdc5bma2vutexwigzlir6nr6adp7arg4qwl5ieyd3avbu@5yyhv57ttwcl>
+Content-Language: en-US
+From: Troy Mitchell <troymitchell988@gmail.com>
+In-Reply-To: <6zx3tqdc5bma2vutexwigzlir6nr6adp7arg4qwl5ieyd3avbu@5yyhv57ttwcl>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_010315_128519_B5D6369B 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20241029_013609_479415_C6898AE1 
+X-CRM114-Status: GOOD (  13.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,35 +92,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, 29. Oktober 2024, 08:48:58 CET schrieb Uwe Kleine-K=F6nig:
-> After commit 0edb555a65d1 ("platform: Make platform_driver::remove()
-> return void") .remove() is (again) the right callback to implement for
-> platform drivers.
-> =
+On 2024/10/28 15:38, Krzysztof Kozlowski wrote:
+> On Mon, Oct 28, 2024 at 01:32:19PM +0800, Troy Mitchell wrote:
+>> The I2C of K1 supports fast-speed-mode and high-speed-mode,
+>> and supports FIFO transmission.
+>>
+>> Signed-off-by: Troy Mitchell <TroyMitchell988@gmail.com>
+>> ---
+> 
+> Where is the changelog? Nothing here, nothing in cover letter.
+> 
+> I asked for several changes, so now I don't know if you implemented
+> them.
 
-> Convert all platform drivers below drivers/soc to use .remove(), with
-> the eventual goal to drop struct platform_driver::remove_new(). As
-> .remove() and .remove_new() have the same prototypes, conversion is done
-> by just changing the structure member name in the driver initializer.
-> =
+I deleted the FIFO property because I believe your suggestion is correct.
+this should be decided by the driver, even though the FIFO is provided
+by the hardware.
 
-> On the way do a few whitespace changes to make indention consistent.
-> =
-
-> Signed-off-by: Uwe Kleine-K=F6nig <u.kleine-koenig@baylibre.com>
-
-
->  drivers/soc/rockchip/io-domain.c            | 8 ++++----
-
-For the Rockchip part:
-Acked-by: Heiko Stuebner <heiko@sntech.de>
-
-
+Apologies for missing the changelog. To correct this, should I send a v3 
+version with the changelog or resend v2?
+> 
+> Best regards,
+> Krzysztof
+> 
 
 _______________________________________________
 linux-riscv mailing list
