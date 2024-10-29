@@ -4,77 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 245DCD5B852
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Oct 2024 00:33:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F112BD5B854
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Oct 2024 01:26:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Vi6/8sGRf04SLj1QshcdOcqdkuc8V80FSD9BsspbzvA=; b=3xS7igleaIOfkg
-	vXNHIIYGt744V2PSCOlFprKktXwiLmaUD+OrPX+SbgoBOacayCkiQ5oft/bsZLSfQtqBtlXLbUdDt
-	t/tiiNepLXBINQwZnQvAP1sbpcbw4pwV8oZ8DlsUlC6llHwEzol66Rk9MtcYVnkmukS6h+gwa7EUF
-	jWh/y4EOJ6SuVs7J2CrtXz3nhVTwoXDtwiqp3C7NPukgphK7mV3hy9DUyVwyDIHqrTHvK3G9R1ZdX
-	uiPjbC/SXMsktTzzhzB776qURFkV90IDzkHrbUdyMZZ78YBnoJ75iTH7LlAG6aRIMnXRhD/hTwgxa
-	I0GyS9R8FMsXWx3SWcsA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=vRZglKLEfA20MvheyOFNHhpTkP9X8TSERp3667OJO9Q=; b=n0vX4nBt10Yosa
+	EgfXvm4/QpMvUod0RgmauFsccycKCOXyUKIoCD/hCFpDA9HN5NGTBoZeeFJho8it75gPVBMEtPG8a
+	PXMKTPF/LKybHR/jrX1t7pVeMdZrBWOQms28i4kJJeij4HR5FY96yKn+IZIxDJDGcYufpPn5xw2Ao
+	h9zhlOVTv96H0SKKPEetekAv6NDLasTl/MN854iXgOCM7zHbR2u3slwQxO0pqM5tcutKOhcrDEgg7
+	vDIPmnIwmzE7ABHewK8kajygfUi3dd/uRM5CyP/UmzyCQ3zzkoHrfNPAZKfzrtaHzofC5Ac44lMuQ
+	QMRSxJJIA553k5oF/eFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5aAd-0000000ClNh-28rt;
-	Tue, 29 Oct 2024 00:33:15 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t5azc-0000000Cr4P-36u0;
+	Tue, 29 Oct 2024 01:25:56 +0000
+Received: from mail-oa1-x2b.google.com ([2001:4860:4864:20::2b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5aAP-0000000ClGa-2tZO;
-	Tue, 29 Oct 2024 00:33:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9F8945C5AC6;
-	Tue, 29 Oct 2024 00:32:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15FD9C4CEC3;
-	Tue, 29 Oct 2024 00:33:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1730161980;
-	bh=h6uTVq+hv9WhN1djveiVDbjzfvV7PyEB+OO+feAAn98=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=1fWOv+Xz4YoVnyfxnShxDcmk+XGg2cxeGv/lJbGGmZOc9bq79BG9xUrfeHzwcoLFZ
-	 Rv5MyOoqKTRjEE47xrnZDVU5/Iqkuyel1uikjJooEeWSjZ7dLpwoDnpOJtTA1MD5yS
-	 vy8b8S696klE0nThRykPJYyXlZUiSbepqDCCk4tk=
-Date: Tue, 29 Oct 2024 01:32:48 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Pierre Gondois <pierre.gondois@arm.com>
-Cc: linux-kernel@vger.kernel.org,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Yunhui Cui <cuiyunhui@bytedance.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Steffen Persvold <spersvold@gmail.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	"Borislav Petkov (AMD)" <bp@alien8.de>,
-	Reinette Chatre <reinette.chatre@intel.com>,
-	Tony Luck <tony.luck@intel.com>, Yury Norov <yury.norov@gmail.com>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev
-Subject: Re: [PATCH] ACPI: CPPC: Make rmw_lock a raw_spin_lock
-Message-ID: <2024102934-bankroll-strongbox-8074@gregkh>
-References: <20241028105200.1205509-1-pierre.gondois@arm.com>
+	id 1t5axE-0000000Cqkd-2Ywv
+	for linux-riscv@lists.infradead.org;
+	Tue, 29 Oct 2024 01:23:30 +0000
+Received: by mail-oa1-x2b.google.com with SMTP id 586e51a60fabf-28896d9d9deso2348032fac.2
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Oct 2024 18:23:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1730165006; x=1730769806; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=sk1dZREUQVGIecYh311eheCmxNasMewq/5f/DZTF0Vs=;
+        b=Ca7r5d+RFlt07zhLMmU19k6RuCgyZ3pOCzggQv7KJXbRwSm7frtgvd1ft05AdnsnoI
+         qt7RCiErwvT5lmgx16DpVwwZtCzb7RCu6m3GdC0IQGOCaWWU/Be49qHNt6FfmEv8H54k
+         f8dXdGBUjEZsqBR9FKgpM8Jxrd25On3WfPQ4a/etQ5vpnkTnfVtqQARQsYT10YmeSZy8
+         NWU7FW4HJOwh1BzIFfhonAOmZJYTrtBowbAizqW4GdOPv3pt5QEpU6Mk3v9eCzhorX4T
+         Bkf6cHTw0Km7S2D5G0q0kavsyEKxrHOzFppKen5YcuQ4NopOEZ2w4sTLT/h6OLmMljAo
+         G+gA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730165006; x=1730769806;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=sk1dZREUQVGIecYh311eheCmxNasMewq/5f/DZTF0Vs=;
+        b=To8Ojsdfu2EYNBVonYekI0p6ViQ06n+sk/hvof73g3Ek6T+T4PhZiCPpfUbeUnBcLz
+         k8CbqdtPHH3rF5lM8y4H3D7KLhr3cPF4pjMikjqXJb+Cm750s4qvsrSREzmIqpakAoyy
+         K44fYkR5lANeBwdfcPPNy1KlNCVaMw1PkRANDfwLyG78sIOfGyPn0c8zk9OzoFSjFH3W
+         QIagQhlGtkAMqIrsfh315ae4unnEZcL+PAHTl9empgbpdqf4MaVOZNDQA3vUeRnJn8hq
+         Vx8I4thfnGvsQ+FHPz5MUU/NO4+sCkOs3lkqX6AR9ddJWwW4XBcU+e4dV8XXTk2CoaoM
+         z/Cw==
+X-Forwarded-Encrypted: i=1; AJvYcCXzkYe01xhTrSG5nFU7OaK4CwAZKh1dSCdoFZpc6gjLbag9MaV4yjtHDIgjS8cJ4wgNxS3nY/+85dIKCA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy5hd+/Mlbw4G1VCOg5tq5yBcBKOI9t7kQy1TqY0zoADxDew5Ym
+	DD9KOys7UKsxrcLtOdQd05LkjEh9F8FDdvfJw38+E/bwrKNqGlz3
+X-Google-Smtp-Source: AGHT+IHWlqEV6BxbZIE4WDegspeRBJZliX4tFPnZbewy2MWHbK07FHcV9Rw3Pe924sDNMakmCs4aYQ==
+X-Received: by 2002:a05:6870:912a:b0:288:6d23:5f24 with SMTP id 586e51a60fabf-29051d493d3mr9099606fac.31.1730165006551;
+        Mon, 28 Oct 2024 18:23:26 -0700 (PDT)
+Received: from localhost.localdomain ([122.8.183.87])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2903824c853sm2494682fac.51.2024.10.28.18.23.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Oct 2024 18:23:25 -0700 (PDT)
+From: Chen Wang <unicornxw@gmail.com>
+To: linus.walleij@linaro.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	inochiama@outlook.com,
+	linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Cc: Chen Wang <unicorn_wang@outlook.com>
+Subject: [PATCH] dt-bindings: pinctrl: correct typo of description for cv1800
+Date: Tue, 29 Oct 2024 09:23:12 +0800
+Message-Id: <20241029012312.3448287-1-unicornxw@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241028105200.1205509-1-pierre.gondois@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_173301_843634_DF80A8A8 
-X-CRM114-Status: GOOD (  20.46  )
+X-CRM114-CacheID: sfid-20241028_182328_675860_B35AD1AD 
+X-CRM114-Status: GOOD (  10.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,84 +97,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 28, 2024 at 11:51:49AM +0100, Pierre Gondois wrote:
-> The following BUG was triggered. sugov_update_shared() locks a
-> raw_spinlock while cpc_write() locks a spinlock. To have a correct
-> wait-type order, update rmw_lock to a raw_spinlock.
-> 
-> Also save irq state.
-> 
-> =============================
-> [ BUG: Invalid wait context ]
-> 6.12.0-rc2-XXX #406 Not tainted
-> -----------------------------
-> kworker/1:1/62 is trying to lock:
-> ffffff8801593030 (&cpc_ptr->rmw_lock){+.+.}-{3:3}, at: cpc_write+0xcc/0x370
-> other info that might help us debug this:
-> context-{5:5}
-> 2 locks held by kworker/1:1/62:
->   #0: ffffff897ef5ec98 (&rq->__lock){-.-.}-{2:2}, at: raw_spin_rq_lock_nested+0x2c/0x50
->   #1: ffffff880154e238 (&sg_policy->update_lock){....}-{2:2}, at: sugov_update_shared+0x3c/0x280
-> stack backtrace:
-> CPU: 1 UID: 0 PID: 62 Comm: kworker/1:1 Not tainted 6.12.0-rc2-g9654bd3e8806 #406
-> Workqueue:  0x0 (events)
-> Call trace:
->   dump_backtrace+0xa4/0x130
->   show_stack+0x20/0x38
->   dump_stack_lvl+0x90/0xd0
->   dump_stack+0x18/0x28
->   __lock_acquire+0x480/0x1ad8
->   lock_acquire+0x114/0x310
->   _raw_spin_lock+0x50/0x70
->   cpc_write+0xcc/0x370
->   cppc_set_perf+0xa0/0x3a8
->   cppc_cpufreq_fast_switch+0x40/0xc0
->   cpufreq_driver_fast_switch+0x4c/0x218
->   sugov_update_shared+0x234/0x280
->   update_load_avg+0x6ec/0x7b8
->   dequeue_entities+0x108/0x830
->   dequeue_task_fair+0x58/0x408
->   __schedule+0x4f0/0x1070
->   schedule+0x54/0x130
->   worker_thread+0xc0/0x2e8
->   kthread+0x130/0x148
->   ret_from_fork+0x10/0x20
-> 
-> Fixes: 60949b7b8054 ("ACPI: CPPC: Fix MASK_VAL() usage")
-> Signed-off-by: Pierre Gondois <pierre.gondois@arm.com>
-> ---
->  drivers/acpi/cppc_acpi.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
+From: Chen Wang <unicorn_wang@outlook.com>
 
-Hi,
+It should be PINMUX/PINMUX2, not GPIOMUX/GPIOMUX2, see
+<dt-bindings/pinctrl/pinctrl-cv1800b.h>.
 
-This is the friendly patch-bot of Greg Kroah-Hartman.  You have sent him
-a patch that has triggered this response.  He used to manually respond
-to these common problems, but in order to save his sanity (he kept
-writing the same thing over and over, yet to different people), I was
-created.  Hopefully you will not take offence and will fix the problem
-in your patch and resubmit it so that it can be accepted into the Linux
-kernel tree.
+Fixes: 64aa494de6fa ("dt-bindings: pinctrl: Add pinctrl for Sophgo CV1800 series SoC.")
+Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
+---
+ .../devicetree/bindings/pinctrl/sophgo,cv1800-pinctrl.yaml      | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-You are receiving this message because of the following common error(s)
-as indicated below:
+diff --git a/Documentation/devicetree/bindings/pinctrl/sophgo,cv1800-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/sophgo,cv1800-pinctrl.yaml
+index 1e6a55afe26a..feb4785a3fac 100644
+--- a/Documentation/devicetree/bindings/pinctrl/sophgo,cv1800-pinctrl.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/sophgo,cv1800-pinctrl.yaml
+@@ -58,7 +58,7 @@ patternProperties:
+           pinmux:
+             description: |
+               The list of GPIOs and their mux settings that properties in the
+-              node apply to. This should be set using the GPIOMUX or GPIOMUX2
++              node apply to. This should be set using the PINMUX or PINMUX2
+               macro.
+ 
+           bias-pull-up:
 
-- You have marked a patch with a "Fixes:" tag for a commit that is in an
-  older released kernel, yet you do not have a cc: stable line in the
-  signed-off-by area at all, which means that the patch will not be
-  applied to any older kernel releases.  To properly fix this, please
-  follow the documented rules in the
-  Documentation/process/stable-kernel-rules.rst file for how to resolve
-  this.
+base-commit: 81983758430957d9a5cb3333fe324fd70cf63e7e
+-- 
+2.34.1
 
-If you wish to discuss this problem further, or you have questions about
-how to resolve this issue, please feel free to respond to this email and
-Greg will reply once he has dug out from the pending patches received
-from other developers.
-
-thanks,
-
-greg k-h's patch email bot
 
 _______________________________________________
 linux-riscv mailing list
