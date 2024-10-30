@@ -4,81 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCD25D7495A
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Oct 2024 03:52:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70FB9D74978
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Oct 2024 06:44:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=o0gVhGVU5nnm4DQBayfJi2BtV60/J1Bzma6mX91Te3Y=; b=uRK0Cz5zNSVRu6
-	1MpJMIWfzQLHDQVOn1DCsQI5UNi7VUPLWde7+BHeCYlWOAHp28Dq7ipJUQ7bcYtO9oeOcyWkXMExL
-	V/RFlOggJQ5bYjn4++Nofu7HaCS5A/I2yfHt8L2aHN9HBuvN7muLDO5uUAt/cW6WRUlB5Vm4I2bdy
-	f716Gke1LDpw0lksQiNaDLXRMbbF3M1nZN2w3nNMP27ylFRDYm8RxOQTakMEYF1OyFA0B7RmwpXHm
-	EfZsgDaSFC+0Z8WQeMMnL+rN9o4Np8mciNwTaR+VMub+KBjc6AadGpL8F3yWZpm4jtuV6al1goWTj
-	okj69cHUtY4WM96GbHZQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=M3xsLHyiafUVMD52208UZirq6PxtgTW/RtKF1oB/+Rc=; b=4ChQq7HPtI3GE1
+	QB0eb/KrTy+qN1Mo73tX95A+8GmSLZ8IzleDwC7ATtu0+rFCx9BE+P7R32DIT6iKPmGwQ3/sPay4q
+	EZhEFImDnPhZRv24CheET9ddVjBcphOvsxUO9PjUYQPaJRGaDrZkRsR6Yn3Cy38uBgX/EtPiatvJW
+	cKfby12xIDhqDLzMyRM6XPzaEk7dsy5W/yKkd2scevVozXQ4yKl8Mj9swIj64UBA+/2zHq2Q6RjqV
+	lpUipP7QZ4KTLiUZlLQNBTt9IbR4KpI+6Uie2rwLE+1B1k6yThRosJ74pVdD1qrBQMxHTV0hTTrSq
+	0iNF2m/4e2uESEB39+Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5zl0-0000000Gd19-1B07;
-	Wed, 30 Oct 2024 03:52:30 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1t62RN-0000000H0fh-0YXF;
+	Wed, 30 Oct 2024 06:44:25 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5zkw-0000000Gd0n-3xqP
+	id 1t62RJ-0000000H0eN-42wF
 	for linux-riscv@lists.infradead.org;
-	Wed, 30 Oct 2024 03:52:29 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-2e2e88cb0bbso4766475a91.3
-        for <linux-riscv@lists.infradead.org>; Tue, 29 Oct 2024 20:52:26 -0700 (PDT)
+	Wed, 30 Oct 2024 06:44:23 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4314c452180so3143415e9.0
+        for <linux-riscv@lists.infradead.org>; Tue, 29 Oct 2024 23:44:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730260346; x=1730865146; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=LbwvVTwOy+SO0yRgFOz9kS/o1vQ7kE8X5/o9C5j2WJ4=;
-        b=fH4biBmq+ESlWiCwcwuC1R5Ngq0V4Kr4QYfqxKJKE4domW8u+Tr4HckBLWoww6kbrt
-         9kqxGz9uwzOJkyb1DZo6V9JoSqPpch9Nwsc6AhdQaYw1J+d7PfVEKjuz39tuFUSMr3Wk
-         tOYn87QpRpUn6HImSbts5JdCWKAckEtBg24d1/uQ0fB8zBVcyMkJ5IMj9mUHvGyS3+Ih
-         46mFeS2EirOu1CAkt4oKvBcMP9OKtmaLzjhkIm/5n+mxB4rA/MCMV/kpKL4zK6XjhCiM
-         YlHsFzZNNJa1x0xBztUJipSbME/G+TkKyoc0NEW4ShoVVY1vPl24XuVY0pq/gP4Gj5nW
-         5Wjw==
+        d=gmail.com; s=20230601; t=1730270660; x=1730875460; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=MmAW25Xq+08xhdq2HO0pkvHqB0sZSIrEGg3huWOKOV0=;
+        b=bGb48Ph1qBacTy7CCdSpgBgNcnko1QZwpozNBFfRwcBw46O5UPVV/FBS3eLwnNIBQI
+         ai2zAl20QSxPPjNHSby8qMMnQ4jJS7woLdUs3ViiuiWL4VMU5TlFwLzIM69MQzgS/KiD
+         1jmvfFK3XO0v3g01pbKDogWryKkoAg3dOKHSSOC2f6S/Np+vcfXZUrWm6Ivax4lOOr0h
+         v1DGWUWpL0JYyQ33cIjo/byog4H7or85FO6Iywwna3XUQRD2AarDhfQcyOIcGlpr1lB+
+         xZdfPcaEgT/K+wdf/G2asdwQrR5rab7POo/q9n/LwnsP2E5bEraWqG+rIFepYLnOPulY
+         cuwA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730260346; x=1730865146;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=LbwvVTwOy+SO0yRgFOz9kS/o1vQ7kE8X5/o9C5j2WJ4=;
-        b=FtYInVW15kLZkwRX2JpRSoVaBDetJgynGpnh9WPe06BGvjIFqAtynk4sR1gHNVCOZP
-         K2aZ5Orp9p0ZGlwqxBI+z2gBojDYBegtvqrRgA2lBWX8G2i9Jf4ZdVj7Xkj6nbNZWMOM
-         ExsNWdLuUvG96nTMhNSJuQbh6BpKwM0YP4BFtzHAMuR8LuH2t/SATeDfhqq43NFwGdFh
-         tZM+UE5SauCU/mMHktjBAHTl3A2dBA9eMQceGoYBMM0kt5z2qI1iRaiJnB8kuQ9RZu1c
-         Up/LUjGE18Yn+FftVksW7fGa+wakDU05vSgma1CpoJ+1CTibhTcx6XxArA+w72Qng2PX
-         V0ww==
-X-Forwarded-Encrypted: i=1; AJvYcCXC48I/nCXoq9zgZHxhoZ7hNEB0JkL2Sr63B9SIaODPmWTgUvcMAVeLx3nxbo5eqdmEKsJywF6KrSPFeg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzifO8X2OK/j9h3AujD2JXZjMgGjfkebrrqLosDH7IEoD62/5SB
-	MqekDOt9i/ty5teGwOGa1dJhu5S79I0uwgTzZfedUhCXsC3+c/66
-X-Google-Smtp-Source: AGHT+IHyC/i13QPcOKD2CFv23b+jdVC2FHNMqnX9p8U1AHLFjS2zjB6luXhurheF98UBB3QUMm+kZQ==
-X-Received: by 2002:a17:90a:b111:b0:2e2:d16e:8769 with SMTP id 98e67ed59e1d1-2e8f106926emr15758945a91.15.1730260346047;
-        Tue, 29 Oct 2024 20:52:26 -0700 (PDT)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e92fbe07cesm525438a91.43.2024.10.29.20.52.25
+        d=1e100.net; s=20230601; t=1730270660; x=1730875460;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=MmAW25Xq+08xhdq2HO0pkvHqB0sZSIrEGg3huWOKOV0=;
+        b=X0g4UgXESskWJF5aEA+9ayrp2XIxmNiyzPjN7DcZBxTM2nmy1M0D8xEaqdiCWsCNki
+         s8tAQPLLn7injGQ2Db2lEQgxz93/B2xKXysWqlMF5igrbwoo3kzdJYZwyj4sHtp0Waza
+         VQDsvzRr51psK2pHaKh7WoNqYMWqJkmveUnhEMavAd7OnNJtpAW2riI5dxm36or1mj78
+         DtGfHIFD0v0C17hJ3YHnnR0J26B7nCg7bcXksGypuSCToSYBbyBoGE0IgX+3cEC6VV3p
+         eeCNavxyO7wbnnJuloPWtKhD8UGGnzTTTDg81EvnhYLqvSG9L2UeOp5F2XnXFu91cf6w
+         U7Uw==
+X-Forwarded-Encrypted: i=1; AJvYcCUosQYyABS9f+2r7Y0sU00WBZlcdbFXXXY0LNqu4tytGauF5ahVRx2CbSBGOub2uP2W+H334iQxdM5Kow==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzwnd30KH0QKBplGdo6OkWvkZggG9pNTNQ2CznEcioY3WcmDEKa
+	OS7A8sSQbp9x6mFrsp+L7L0JGbd3pu2HWRsdWpFsgW82Y707tgrY
+X-Google-Smtp-Source: AGHT+IE04UHobsipZRhjEUzyXYGDVgV5T/lYJ6JQc+mK46hY0hvvTcPS2K/ZH1cAZUvWtfyIwLDZ5A==
+X-Received: by 2002:a05:600c:1990:b0:42c:b826:a26c with SMTP id 5b1f17b1804b1-431bd703983mr8293365e9.8.1730270659725;
+        Tue, 29 Oct 2024 23:44:19 -0700 (PDT)
+Received: from [127.0.1.1] ([213.208.157.67])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-431bd9ca704sm11249655e9.41.2024.10.29.23.44.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Oct 2024 20:52:25 -0700 (PDT)
-Date: Wed, 30 Oct 2024 11:50:54 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Thomas Bonnefille <thomas.bonnefille@bootlin.com>, 
-	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@outlook.com>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
-	=?utf-8?Q?Miqu=C3=A8l?= Raynal <miquel.raynal@bootlin.com>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Inochi Amaoto <inochiama@gmail.com>
-Subject: Re: [PATCH] riscv: dts: sophgo: fix pinctrl base-address
-Message-ID: <ihmors43w3ttfun7c4fj75ahh2hnhafdxhlmocbxfwttigj3fq@wxud2d2srisn>
-References: <20241028-fix-address-v1-1-dcbe21e59ccf@bootlin.com>
+        Tue, 29 Oct 2024 23:44:19 -0700 (PDT)
+From: Javier Carrasco <javier.carrasco.cruz@gmail.com>
+Subject: [PATCH 0/2] cpuidle: riscv-sbi: fix device node release in early
+ exit of for_each_possible_cpu
+Date: Wed, 30 Oct 2024 07:44:08 +0100
+Message-Id: <20241030-cpuidle-riscv-sbi-cleanup-v1-0-5e08a22c9409@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241028-fix-address-v1-1-dcbe21e59ccf@bootlin.com>
+X-B4-Tracking: v=1; b=H4sIALjVIWcC/x3MQQqDMBBG4avIrDtgYhHiVUoXZvK3DkgaMiiCe
+ HdDl9/ivZMMVWE0dSdV7Gr6yw3u0ZEsc/6CNTWT7/3T9T6wlE3TCq5qsrNFZVkx560wQhwkhhF
+ uTNT6UvHR4/9+va/rBjbbwBRrAAAA
+To: Anup Patel <anup@brainfault.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Atish Patra <atishp@rivosinc.com>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, linux-pm@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Javier Carrasco <javier.carrasco.cruz@gmail.com>, stable@vger.kernel.org
+X-Mailer: b4 0.14-dev
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1730270658; l=1106;
+ i=javier.carrasco.cruz@gmail.com; s=20240312; h=from:subject:message-id;
+ bh=BpGY/eDm3rqBN7WhGt8Gp/hzEZK3r2dryyGFB17Y+qg=;
+ b=Fi6G0zA8GxCLTTdxKa+iqQDjcH+qVUO0DqHCmAOYnKZNPnjqlM26MfkkjHWg5JOGPx43G+3hI
+ BaHi4Gjt/YkDDRSSo/e1d/N6fxTxCtY3SXoh1IxP9YGLfFYEhCmY8qE
+X-Developer-Key: i=javier.carrasco.cruz@gmail.com; a=ed25519;
+ pk=lzSIvIzMz0JhJrzLXI0HAdPwsNPSSmEn6RbS+PTS9aQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_205228_224196_88A8D279 
-X-CRM114-Status: UNSURE (   8.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241029_234422_042083_FCC1B0ED 
+X-CRM114-Status: GOOD (  10.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,13 +107,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 28, 2024 at 11:43:24AM +0100, Thomas Bonnefille wrote:
-> Fix the base-address of the pinctrl controller to match its register
-> address.
-> 
-> Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+This series releases the np device_node when it is no longer required by
+adding the missing calls to of_node_put() to make the fix compatible
+with all affected stable kernels. Then, the more robust approach via
+cleanup attribute is used to simplify the handling and prevent issues if
+the loop gets new execution paths.
 
-Fixes: 93b61555f509 ("riscv: dts: sophgo: Add initial SG2002 SoC device tree")
+These issues were found while analyzing the code, and the patches have
+been successfully compiled, but not tested on real hardware as I don't
+have access to it. Any volunteering for testing is always more than
+welcome.
+
+Signed-off-by: Javier Carrasco <javier.carrasco.cruz@gmail.com>
+---
+Javier Carrasco (2):
+      cpuidle: riscv-sbi: fix device node release in early exit of for_each_possible_cpu
+      cpuidle: riscv-sbi: use cleanup attribute for np in for_each_possible_cpu
+
+ drivers/cpuidle/cpuidle-riscv-sbi.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+---
+base-commit: 6fb2fa9805c501d9ade047fc511961f3273cdcb5
+change-id: 20241029-cpuidle-riscv-sbi-cleanup-e9b3cb96e16d
+
+Best regards,
+-- 
+Javier Carrasco <javier.carrasco.cruz@gmail.com>
 
 
 _______________________________________________
