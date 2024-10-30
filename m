@@ -4,70 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D1E3D5CCB3
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Oct 2024 14:41:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 006CAD5CCB6
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Oct 2024 15:01:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wLsuwZhfK4yluVEkJt1e+UwSzNh6b7kQcSTakU1k6F4=; b=PxJKklvXfDEGkI
-	q/y6tPyUWlJa9Y/OvQw6vx0muFmk4p5py8MTl5vNffWgM/GnOtfr3EgI7yUJqfWssGNBkWOY+yV99
-	qScj62J2QHnqomGhT3hs3fb7YyEEcfXzb0w3Xm+9A8Hm3Ahsd9CemeD5vQVaSXkyRvADePlB7jInU
-	Aelrn0UYhWOm4CeQUwn+g13Vm0xSPhmcs2YofH8yipQ+LXa0uBhPTFSBg2Mg5Q87EhCW+kug4HrpE
-	RRzFYtNGJXz2c1BgX3BHCxN2k9zTpDajZRXAGwS+7ietSRUnqCqkeMHoMz93nxvoHXYNGjFn7gglJ
-	xI988aPr3klP4dIaTF2w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=o5ZgvaAu2XJvdEazbQNzyU1ndFHlLZmWuSvOLN40NBc=; b=Eh1FJlbMhAB81S
+	xBLrFfqmWdUMX2z0coQ/eIdxzR9OSFF65NZXnN3jeOewA3ZYXAbaS403dv4NrxqYmvumPjfLRFmLi
+	PGMwhajGZV9tud56Aw1HJwmDnZQ51iwF0D+ByHyVu+tZyoM9FOsk41grVyPe/3LqwTENBx99WSTx0
+	gMze89IKMkOVvimd5iDtdfcSoBMc06k21Yx8EpNZNxQNT9qgJtr8ePn2yIskOsoUMlo51Xz9fG3UU
+	8vJkZSrFq6eG4P3fKvHcmdlLdEWU0QXo1P/WVp8NheJV4rPjITqaHzwQ9bsiZkHTWNm6uryfC1IcT
+	DqydJfJGUyRVNe06PWrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t69sm-00000000gvH-1FgC;
-	Wed, 30 Oct 2024 14:41:12 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t6ABn-00000000l58-3DZI;
+	Wed, 30 Oct 2024 15:00:51 +0000
+Received: from smtp-fw-80008.amazon.com ([99.78.197.219])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t69s1-00000000gq4-0Ecq
-	for linux-riscv@lists.infradead.org;
-	Wed, 30 Oct 2024 14:40:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E5E845C5C72;
-	Wed, 30 Oct 2024 14:39:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EC33C4CECE;
-	Wed, 30 Oct 2024 14:40:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730299223;
-	bh=vB3pvWOA7axGK3P12THCJTUlY17q7zuJreBzEmisMrM=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=C+qQ0ibRuSgpkjSdXWVlurXrPNrevIoPI9+ZnWRSvtKm8Rw++dcE3rn7jrBK46ZvI
-	 wqRY1cg12sMJqfI4CGeRUPQR0CmfZc4pb3ZjYQjkDA44j/WurH9LyJCuvLEaxM8sTu
-	 iyW57V89pBj4cFmIGOW3NGa2rj0v2j9vAnyU4n6P++DckrkzkaRCoMQ9IH7zuF+OP4
-	 hQ5DwFzOa3Ebiy9UPxy8RlftGZ+2cNRt2DKrPmQ/jlCMeAWVBbb0Zri66YX/KwtBkj
-	 INuWWGA2UnAi7RVsS2Dqpnugg87fR6Fr7Bx550vO4OFm8LglVv8jWo8w+Mv7ej03x7
-	 iJteFwZwvRWnA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70DAF380AC22;
-	Wed, 30 Oct 2024 14:40:32 +0000 (UTC)
+	id 1t694y-00000000Xdj-08RH;
+	Wed, 30 Oct 2024 13:49:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.co.uk; i=@amazon.co.uk; q=dns/txt;
+  s=amazon201209; t=1730296183; x=1761832183;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=r1QMDZCnRymQeRRBpcOx6ZreXT7450ZDAPuRRJDuiN0=;
+  b=gOUutbK+X/hhi3QhKLnLebFqRBku+ISsNikzmFgDB7S2oihmAfuYuBso
+   DESYPFo161r4AXSl2hzSZ17wf47AjMlPcdzASf6izFlVk+oDzj6CLifF3
+   NzZoT6pRQNGZZDe+78R5+XSyRp98va00mb8/MuOfnOFhLAmIYD+bb2IVs
+   I=;
+X-IronPort-AV: E=Sophos;i="6.11,245,1725321600"; 
+   d="scan'208";a="141949542"
+Received: from pdx4-co-svc-p1-lb2-vlan3.amazon.com (HELO smtpout.prod.us-east-1.prod.farcaster.email.amazon.dev) ([10.25.36.214])
+  by smtp-border-fw-80008.pdx80.corp.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Oct 2024 13:49:37 +0000
+Received: from EX19MTAUWA001.ant.amazon.com [10.0.38.20:55646]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.24.36:2525] with esmtp (Farcaster)
+ id b62929fd-fda7-42c8-9f60-587e2125a407; Wed, 30 Oct 2024 13:49:36 +0000 (UTC)
+X-Farcaster-Flow-ID: b62929fd-fda7-42c8-9f60-587e2125a407
+Received: from EX19D003UWB004.ant.amazon.com (10.13.138.24) by
+ EX19MTAUWA001.ant.amazon.com (10.250.64.218) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
+ Wed, 30 Oct 2024 13:49:36 +0000
+Received: from EX19MTAUWA001.ant.amazon.com (10.250.64.204) by
+ EX19D003UWB004.ant.amazon.com (10.13.138.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.35;
+ Wed, 30 Oct 2024 13:49:35 +0000
+Received: from email-imr-corp-prod-pdx-all-2c-8a67eb17.us-west-2.amazon.com
+ (10.25.36.214) by mail-relay.amazon.com (10.250.64.204) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id
+ 15.2.1258.34 via Frontend Transport; Wed, 30 Oct 2024 13:49:35 +0000
+Received: from ua2d7e1a6107c5b.home (dev-dsk-roypat-1c-dbe2a224.eu-west-1.amazon.com [172.19.88.180])
+	by email-imr-corp-prod-pdx-all-2c-8a67eb17.us-west-2.amazon.com (Postfix) with ESMTPS id C4A404032D;
+	Wed, 30 Oct 2024 13:49:26 +0000 (UTC)
+From: Patrick Roy <roypat@amazon.co.uk>
+To: <tabba@google.com>, <quic_eberman@quicinc.com>, <david@redhat.com>,
+	<seanjc@google.com>, <pbonzini@redhat.com>, <jthoughton@google.com>,
+	<ackerleytng@google.com>, <vannapurve@google.com>, <rppt@kernel.org>
+CC: Patrick Roy <roypat@amazon.co.uk>, <graf@amazon.com>,
+	<jgowans@amazon.com>, <derekmn@amazon.com>, <kalyazin@amazon.com>,
+	<xmarcalx@amazon.com>, <linux-mm@kvack.org>, <corbet@lwn.net>,
+	<catalin.marinas@arm.com>, <will@kernel.org>, <chenhuacai@kernel.org>,
+	<kernel@xen0n.name>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
+	<aou@eecs.berkeley.edu>, <hca@linux.ibm.com>, <gor@linux.ibm.com>,
+	<agordeev@linux.ibm.com>, <borntraeger@linux.ibm.com>, <svens@linux.ibm.com>,
+	<gerald.schaefer@linux.ibm.com>, <tglx@linutronix.de>, <mingo@redhat.com>,
+	<bp@alien8.de>, <dave.hansen@linux.intel.com>, <x86@kernel.org>,
+	<hpa@zytor.com>, <luto@kernel.org>, <peterz@infradead.org>,
+	<rostedt@goodmis.org>, <mhiramat@kernel.org>,
+	<mathieu.desnoyers@efficios.com>, <shuah@kernel.org>, <kvm@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <loongarch@lists.linux.dev>,
+	<linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>,
+	<linux-trace-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>
+Subject: [RFC PATCH v3 0/6] Direct Map Removal for guest_memfd
+Date: Wed, 30 Oct 2024 13:49:04 +0000
+Message-ID: <20241030134912.515725-1-roypat@amazon.co.uk>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-Subject: Re: [PATCH bpf-next v3 0/4] Optimize bpf_csum_diff() and homogenize for
- all archs
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <173029923127.1361326.16471187092779052308.git-patchwork-notify@kernel.org>
-Date: Wed, 30 Oct 2024 14:40:31 +0000
-References: <20241026125339.26459-1-puranjay@kernel.org>
-In-Reply-To: <20241026125339.26459-1-puranjay@kernel.org>
-To: Puranjay Mohan <puranjay@kernel.org>
-Cc: aou@eecs.berkeley.edu, ast@kernel.org, akpm@linux-foundation.org,
- andrii@kernel.org, bpf@vger.kernel.org, daniel@iogearbox.net,
- davem@davemloft.net, eddyz87@gmail.com, edumazet@google.com,
- haoluo@google.com, deller@gmx.de, kuba@kernel.org,
- James.Bottomley@HansenPartnership.com, jolsa@kernel.org,
- john.fastabend@gmail.com, kpsingh@kernel.org, linux-kernel@vger.kernel.org,
- linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
- martin.lau@linux.dev, mykolal@fb.com, netdev@vger.kernel.org,
- palmer@dabbelt.com, pabeni@redhat.com, paul.walmsley@sifive.com,
- puranjay12@gmail.com, shuah@kernel.org, song@kernel.org, sdf@fomichev.me,
- yonghong.song@linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_074025_163669_43E66982 
-X-CRM114-Status: GOOD (  10.15  )
+X-CRM114-CacheID: sfid-20241030_064944_225118_8EF43208 
+X-CRM114-Status: GOOD (  17.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,40 +103,97 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Unmapping virtual machine guest memory from the host kernel's direct map
+is a successful mitigation against Spectre-style transient execution
+issues: If the kernel page tables do not contain entries pointing to
+guest memory, then any attempted speculative read through the direct map
+will necessarily be blocked by the MMU before any observable
+microarchitectural side-effects happen. This means that Spectre-gadgets
+and similar cannot be used to target virtual machine memory. Roughly 60%
+of speculative execution issues fall into this category [1, Table 1].
 
-This series was applied to bpf/bpf-next.git (net)
-by Daniel Borkmann <daniel@iogearbox.net>:
+This patch series extends guest_memfd with the ability to remove its
+memory from the host kernel's direct map, to be able to attain the above
+protection for KVM guests running inside guest_memfd.
 
-On Sat, 26 Oct 2024 12:53:35 +0000 you wrote:
-> Changes in v3:
-> v2: https://lore.kernel.org/all/20241023153922.86909-1-puranjay@kernel.org/
-> - Fix sparse warning in patch 2
-> 
-> Changes in v2:
-> v1: https://lore.kernel.org/all/20241021122112.101513-1-puranjay@kernel.org/
-> - Remove the patch that adds the benchmark as it is not useful enough to be
->   added to the tree.
-> - Fixed a sparse warning in patch 1.
-> - Add reviewed-by and acked-by tags.
-> 
-> [...]
+=== Changes to v2 ===
 
-Here is the summary with links:
-  - [bpf-next,v3,1/4] net: checksum: move from32to16() to generic header
-    https://git.kernel.org/bpf/bpf-next/c/db71aae70e3e
-  - [bpf-next,v3,2/4] bpf: bpf_csum_diff: optimize and homogenize for all archs
-    https://git.kernel.org/bpf/bpf-next/c/6a4794d5a3e2
-  - [bpf-next,v3,3/4] selftests/bpf: don't mask result of bpf_csum_diff() in test_verifier
-    https://git.kernel.org/bpf/bpf-next/c/b87f584024e1
-  - [bpf-next,v3,4/4] selftests/bpf: Add a selftest for bpf_csum_diff()
-    https://git.kernel.org/bpf/bpf-next/c/00c1f3dc66a3
+- Handle direct map removal for physically contiguous pages in arch code
+  (Mike R.)
+- Track the direct map state in guest_memfd itself instead of at the
+  folio level, to prepare for huge pages support (Sean C.)
+- Allow configuring direct map state of not-yet faulted in memory
+  (Vishal A.)
+- Pay attention to alignment in ftrace structs (Steven R.)
 
-You are awesome, thank you!
+Most significantly, I've reduced the patch series to focus only on
+direct map removal for guest_memfd for now, leaving the whole "how to do
+non-CoCo VMs in guest_memfd" for later. If this separation is
+acceptable, then I think I can drop the RFC tag in the next revision
+(I've mainly kept it here because I'm not entirely sure what to do with
+patches 3 and 4).
+
+=== Implementation ===
+
+This patch series introduces a new flag to the KVM_CREATE_GUEST_MEMFD
+that causes guest_memfd to remove its pages from the host kernel's
+direct map immediately after population/preparation.  It also adds
+infrastructure for tracking the direct map state of all gmem folios
+inside the guest_memfd inode. Storing this information in the inode has
+the advantage that the code is ready for future hugepages extensions,
+where only removing/reinserting direct map entries for sub-ranges of a
+huge folio is a valid usecase, and it allows pre-configuring the direct
+map state of not-yet faulted in parts of memory (for example, when the
+VMM is receiving a RX virtio buffer from the guest).
+
+=== Summary ===
+
+Patch 1 (from Mike Rapoport) adds arch APIs for manipulating the direct
+map for ranges of physically contiguous pages, which are used by
+guest_memfd in follow up patches. Patch 2 adds the
+KVM_GMEM_NO_DIRECT_MAP flag and the logic for configuring direct map
+state of freshly prepared folios. Patches 3 and 4 mainly serve an
+illustrative purpose, to show how the framework from patch 2 can be
+extended with routines for runtime direct map manipulation. Patches 5
+and 6 deal with documentation and self-tests respectively.
+
+[1]: https://download.vusec.net/papers/quarantine_raid23.pdf
+[RFC v1]: https://lore.kernel.org/kvm/20240709132041.3625501-1-roypat@amazon.co.uk/
+[RFC v2]: https://lore.kernel.org/kvm/20240910163038.1298452-1-roypat@amazon.co.uk/
+
+Mike Rapoport (Microsoft) (1):
+  arch: introduce set_direct_map_valid_noflush()
+
+Patrick Roy (5):
+  kvm: gmem: add flag to remove memory from kernel direct map
+  kvm: gmem: implement direct map manipulation routines
+  kvm: gmem: add trace point for direct map state changes
+  kvm: document KVM_GMEM_NO_DIRECT_MAP flag
+  kvm: selftests: run gmem tests with KVM_GMEM_NO_DIRECT_MAP set
+
+ Documentation/virt/kvm/api.rst                |  14 +
+ arch/arm64/include/asm/set_memory.h           |   1 +
+ arch/arm64/mm/pageattr.c                      |  10 +
+ arch/loongarch/include/asm/set_memory.h       |   1 +
+ arch/loongarch/mm/pageattr.c                  |  21 ++
+ arch/riscv/include/asm/set_memory.h           |   1 +
+ arch/riscv/mm/pageattr.c                      |  15 +
+ arch/s390/include/asm/set_memory.h            |   1 +
+ arch/s390/mm/pageattr.c                       |  11 +
+ arch/x86/include/asm/set_memory.h             |   1 +
+ arch/x86/mm/pat/set_memory.c                  |   8 +
+ include/linux/set_memory.h                    |   6 +
+ include/trace/events/kvm.h                    |  22 ++
+ include/uapi/linux/kvm.h                      |   2 +
+ .../testing/selftests/kvm/guest_memfd_test.c  |   2 +-
+ .../kvm/x86_64/private_mem_conversions_test.c |   7 +-
+ virt/kvm/guest_memfd.c                        | 280 +++++++++++++++++-
+ 17 files changed, 384 insertions(+), 19 deletions(-)
+
+
+base-commit: 5cb1659f412041e4780f2e8ee49b2e03728a2ba6
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.47.0
 
 
 _______________________________________________
