@@ -4,70 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78C18D74954
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Oct 2024 01:50:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCD25D7495A
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Oct 2024 03:52:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CcHWfTavI9TTIAvdIJ8X8jIbiyI9nqNPZr6BOB2+9NY=; b=PIWAPawEWgbXFm
-	IijQf9UQsi0vXnaBy7DljBNpNtWPr6dnbTG90MA4UbvvDtO5OKvKcC7IeseAMz3Sj1PcP8aed0oky
-	d3i6rSSrFYFNkmxWEDAqcU/kiYegyAnhBWk5BReiIpE0cNU4GFCXIJ82jVWGnSGH4avfXYTLlKqNO
-	snPJBk6UqyajGuBkstx8w/FxF5Zhui/czX74xCljIfLVU5zzuP/xmaXGW9Sxho7qXZ2FA79G9yhZD
-	PP2nat/2Tm3Ci/5FuBAZohAPFiSt1vqn3TGlCKEpBpVnoWfKeE27QHsMVv0W+htJJ4DPYGCQFqsnM
-	qhBEx8Vc547iJHREOiyg==;
+	List-Owner; bh=o0gVhGVU5nnm4DQBayfJi2BtV60/J1Bzma6mX91Te3Y=; b=uRK0Cz5zNSVRu6
+	1MpJMIWfzQLHDQVOn1DCsQI5UNi7VUPLWde7+BHeCYlWOAHp28Dq7ipJUQ7bcYtO9oeOcyWkXMExL
+	V/RFlOggJQ5bYjn4++Nofu7HaCS5A/I2yfHt8L2aHN9HBuvN7muLDO5uUAt/cW6WRUlB5Vm4I2bdy
+	f716Gke1LDpw0lksQiNaDLXRMbbF3M1nZN2w3nNMP27ylFRDYm8RxOQTakMEYF1OyFA0B7RmwpXHm
+	EfZsgDaSFC+0Z8WQeMMnL+rN9o4Np8mciNwTaR+VMub+KBjc6AadGpL8F3yWZpm4jtuV6al1goWTj
+	okj69cHUtY4WM96GbHZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5xqW-0000000GTOx-3Ij2;
-	Wed, 30 Oct 2024 01:50:04 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t5zl0-0000000Gd19-1B07;
+	Wed, 30 Oct 2024 03:52:30 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5xo7-0000000GSvX-29TY;
-	Wed, 30 Oct 2024 01:47:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DE1015C56BC;
-	Wed, 30 Oct 2024 01:46:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C4A2C4CECD;
-	Wed, 30 Oct 2024 01:47:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730252854;
-	bh=yY/c+Ers7lzRZ2/3Cil0sCo9++1VJGqVZ3Deuce2yLw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=VSKPNlsAp8xtYZqJ+lL3YeYwf9h/KFmuUS0SrU0Kd242zkRGAHj2tZolSWx5TqYYy
-	 4nMY2czlPWVQ7utq52nGSF20rvImvjjAqmR+9w2LTQC0Jd/gfxj3NZ9GkeXjHBfZFb
-	 493wcFo0ZPkd83UmmFKOxxYlg8TrGNdnH1pelNWwl/0f/1aPmchj9yj4oJh5/10lRP
-	 oV7fTfv0EkNj5fjXslkR1HT9ZdVhkfAtoO+CBBc9i2tnpqDenWV0yzF5Ev0csWkAzl
-	 2DhqaGvlKXAJGKFu1dSBT59LPjrL7SLpRWY+1G37QnNyRq8Ix79lrwXLYqfkDisGmN
-	 WjR19ra5keh9A==
-Date: Tue, 29 Oct 2024 18:47:32 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Drew Fustini <dfustini@tenstorrent.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Giuseppe Cavallaro
- <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, Emil Renner Berthing
- <emil.renner.berthing@canonical.com>, Jisheng Zhang <jszhang@kernel.org>,
- Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Andrew Lunn <andrew+netdev@lunn.ch>, Drew Fustini
- <drew@pdp7.com>, netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH net-next v5 2/2] net: stmmac: Add glue layer for T-HEAD
- TH1520 SoC
-Message-ID: <20241029184732.2e3ef7b7@kernel.org>
-In-Reply-To: <20241025-th1520-gmac-v5-2-38d0a48406ff@tenstorrent.com>
-References: <20241025-th1520-gmac-v5-0-38d0a48406ff@tenstorrent.com>
-	<20241025-th1520-gmac-v5-2-38d0a48406ff@tenstorrent.com>
+	id 1t5zkw-0000000Gd0n-3xqP
+	for linux-riscv@lists.infradead.org;
+	Wed, 30 Oct 2024 03:52:29 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-2e2e88cb0bbso4766475a91.3
+        for <linux-riscv@lists.infradead.org>; Tue, 29 Oct 2024 20:52:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1730260346; x=1730865146; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=LbwvVTwOy+SO0yRgFOz9kS/o1vQ7kE8X5/o9C5j2WJ4=;
+        b=fH4biBmq+ESlWiCwcwuC1R5Ngq0V4Kr4QYfqxKJKE4domW8u+Tr4HckBLWoww6kbrt
+         9kqxGz9uwzOJkyb1DZo6V9JoSqPpch9Nwsc6AhdQaYw1J+d7PfVEKjuz39tuFUSMr3Wk
+         tOYn87QpRpUn6HImSbts5JdCWKAckEtBg24d1/uQ0fB8zBVcyMkJ5IMj9mUHvGyS3+Ih
+         46mFeS2EirOu1CAkt4oKvBcMP9OKtmaLzjhkIm/5n+mxB4rA/MCMV/kpKL4zK6XjhCiM
+         YlHsFzZNNJa1x0xBztUJipSbME/G+TkKyoc0NEW4ShoVVY1vPl24XuVY0pq/gP4Gj5nW
+         5Wjw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730260346; x=1730865146;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LbwvVTwOy+SO0yRgFOz9kS/o1vQ7kE8X5/o9C5j2WJ4=;
+        b=FtYInVW15kLZkwRX2JpRSoVaBDetJgynGpnh9WPe06BGvjIFqAtynk4sR1gHNVCOZP
+         K2aZ5Orp9p0ZGlwqxBI+z2gBojDYBegtvqrRgA2lBWX8G2i9Jf4ZdVj7Xkj6nbNZWMOM
+         ExsNWdLuUvG96nTMhNSJuQbh6BpKwM0YP4BFtzHAMuR8LuH2t/SATeDfhqq43NFwGdFh
+         tZM+UE5SauCU/mMHktjBAHTl3A2dBA9eMQceGoYBMM0kt5z2qI1iRaiJnB8kuQ9RZu1c
+         Up/LUjGE18Yn+FftVksW7fGa+wakDU05vSgma1CpoJ+1CTibhTcx6XxArA+w72Qng2PX
+         V0ww==
+X-Forwarded-Encrypted: i=1; AJvYcCXC48I/nCXoq9zgZHxhoZ7hNEB0JkL2Sr63B9SIaODPmWTgUvcMAVeLx3nxbo5eqdmEKsJywF6KrSPFeg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzifO8X2OK/j9h3AujD2JXZjMgGjfkebrrqLosDH7IEoD62/5SB
+	MqekDOt9i/ty5teGwOGa1dJhu5S79I0uwgTzZfedUhCXsC3+c/66
+X-Google-Smtp-Source: AGHT+IHyC/i13QPcOKD2CFv23b+jdVC2FHNMqnX9p8U1AHLFjS2zjB6luXhurheF98UBB3QUMm+kZQ==
+X-Received: by 2002:a17:90a:b111:b0:2e2:d16e:8769 with SMTP id 98e67ed59e1d1-2e8f106926emr15758945a91.15.1730260346047;
+        Tue, 29 Oct 2024 20:52:26 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e92fbe07cesm525438a91.43.2024.10.29.20.52.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 29 Oct 2024 20:52:25 -0700 (PDT)
+Date: Wed, 30 Oct 2024 11:50:54 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Thomas Bonnefille <thomas.bonnefille@bootlin.com>, 
+	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@outlook.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	=?utf-8?Q?Miqu=C3=A8l?= Raynal <miquel.raynal@bootlin.com>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Inochi Amaoto <inochiama@gmail.com>
+Subject: Re: [PATCH] riscv: dts: sophgo: fix pinctrl base-address
+Message-ID: <ihmors43w3ttfun7c4fj75ahh2hnhafdxhlmocbxfwttigj3fq@wxud2d2srisn>
+References: <20241028-fix-address-v1-1-dcbe21e59ccf@bootlin.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20241028-fix-address-v1-1-dcbe21e59ccf@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_184735_627831_29B9FE98 
-X-CRM114-Status: UNSURE (   8.84  )
+X-CRM114-CacheID: sfid-20241029_205228_224196_88A8D279 
+X-CRM114-Status: UNSURE (   8.03  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,59 +95,14 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 25 Oct 2024 10:39:09 -0700 Drew Fustini wrote:
-> +static int thead_dwmac_set_phy_if(struct plat_stmmacenet_data *plat)
-> +{
-> +	struct thead_dwmac *dwmac = plat->bsp_priv;
-> +	u32 phyif;
-> +
-> +	switch (plat->mac_interface) {
-> +	case PHY_INTERFACE_MODE_MII:
-> +		phyif = PHY_INTF_MII_GMII;
-> +		break;
-> +	case PHY_INTERFACE_MODE_RGMII:
-> +	case PHY_INTERFACE_MODE_RGMII_ID:
-> +	case PHY_INTERFACE_MODE_RGMII_TXID:
-> +	case PHY_INTERFACE_MODE_RGMII_RXID:
-> +		phyif = PHY_INTF_RGMII;
-> +		break;
-> +	default:
-> +		dev_err(dwmac->dev, "unsupported phy interface %d\n",
-> +			plat->mac_interface);
-> +		return -EINVAL;
-> +	};
+On Mon, Oct 28, 2024 at 11:43:24AM +0100, Thomas Bonnefille wrote:
+> Fix the base-address of the pinctrl controller to match its register
+> address.
+> 
+> Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
 
-unnecessary semicolon
+Fixes: 93b61555f509 ("riscv: dts: sophgo: Add initial SG2002 SoC device tree")
 
-> +
-> +	writel(phyif, dwmac->apb_base + GMAC_INTF_CTRL);
-> +	return 0;
-> +}
-> +
-> +static int thead_dwmac_set_txclk_dir(struct plat_stmmacenet_data *plat)
-> +{
-> +	struct thead_dwmac *dwmac = plat->bsp_priv;
-> +	u32 txclk_dir;
-> +
-> +	switch (plat->mac_interface) {
-> +	case PHY_INTERFACE_MODE_MII:
-> +		txclk_dir = TXCLK_DIR_INPUT;
-> +		break;
-> +	case PHY_INTERFACE_MODE_RGMII:
-> +	case PHY_INTERFACE_MODE_RGMII_ID:
-> +	case PHY_INTERFACE_MODE_RGMII_TXID:
-> +	case PHY_INTERFACE_MODE_RGMII_RXID:
-> +		txclk_dir = TXCLK_DIR_OUTPUT;
-> +		break;
-> +	default:
-> +		dev_err(dwmac->dev, "unsupported phy interface %d\n",
-> +			plat->mac_interface);
-> +		return -EINVAL;
-> +	};
-
-unnecessary semicolon
--- 
-pw-bot: cr
 
 _______________________________________________
 linux-riscv mailing list
