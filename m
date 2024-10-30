@@ -4,83 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E19ECD7497F
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Oct 2024 08:47:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFBA1D5CC81
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Oct 2024 09:49:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1uXwzin2/UFdu94FkbwMc6td0EBTVaNaT9IIe/Jmmqw=; b=0Tcw/c9+qtXg3R
-	ZOihgbrBhx3VcAhc+N4ompekKk1kiDQMsB415qnDFZXXDi1uFPY0oaG+KicdU1peAtGBRl5bW5Bff
-	AjGfUOINQJZDm6IEi586RBpwvl426+rV2Zr3aRDB9MxK4+GyrldiN9fWdZEiDkcUTIQ1gqzdLrAt+
-	3+p8jbwrXgYJntm6FAdoY5vP9DF+2I7KWwwpyDQbJXyj6KXK1zfvAQaFYJnAQ970Kwc3ie0D64JZU
-	O3TQakRo8YQwVUZwcwf6YQkEFDcP9/5XuLr7SIoDc0BT8aNpiV4a8CscwEq0OoAk3M4gCT09XU8Hu
-	lCIq0KjG58fh+IJYNopg==;
+	List-Owner; bh=R2VBvfq41d93i6EViGZBPPR5rDHxNWdj9OeS9zoE684=; b=OkDFCYPpYmzBxO
+	9hvnW62ntCdSvnZLSAHE8xe4Oob4LENmJ0Lf2Vx92ldP9MUzWI6/6PaWjKkp0tO2tKTZtYN3Bh9GZ
+	HsQ/RJrTh9FwjJLLRo+areeNPr1PerPedeRrikatfsk/pr96JrDRqLUXMRA7obPHaT6fNsblFY/bT
+	g8O4YJ84Cq6VWmQEdSq8Xq+0tlCkk5msbbtH0rD7hfoXcHmoqLQMwnIwp453gC6hFFPeFaIJg4ULd
+	QSZ8Xh+frsH5nPuomm3Afd0d2GRiXxHAoNowJeMBqlRDUTVItXLZyKS97/RNCHNKmx81O7kCw1o/k
+	kPAbmrznQJH22MQjRzfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t64MC-0000000HJhr-3dOU;
-	Wed, 30 Oct 2024 08:47:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t64Kq-0000000HJVP-0Dhp;
-	Wed, 30 Oct 2024 08:45:50 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1A737113E;
-	Wed, 30 Oct 2024 01:46:13 -0700 (PDT)
-Received: from [10.57.89.111] (unknown [10.57.89.111])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4B1993F73B;
-	Wed, 30 Oct 2024 01:45:34 -0700 (PDT)
-Message-ID: <e33a8ead-ca36-4570-92ac-b27708f50023@arm.com>
-Date: Wed, 30 Oct 2024 08:45:32 +0000
+	id 1t65KB-0000000HRUQ-1Eqc;
+	Wed, 30 Oct 2024 09:49:11 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t65K8-0000000HRTc-0qiO
+	for linux-riscv@lists.infradead.org;
+	Wed, 30 Oct 2024 09:49:10 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-20c9978a221so69866515ad.1
+        for <linux-riscv@lists.infradead.org>; Wed, 30 Oct 2024 02:49:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1730281747; x=1730886547; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=lSwaSXBIpjqVkyV12CEixJTdRNCxUGANMEGYJ3Ap4Vg=;
+        b=NsZqpZDftd2t960l5wYa1IFeR6JPKsq//1O+xhKo1+z6g5yE5UV3uQxGfqwX+3C5hi
+         TpnJy8L7j+0a167gucCzqSrwhyAbsK+rqGd/cw1LYOdKN8dQ+6I+h87s9SX4YfJH3Nij
+         Fh7XiBztAim63FdjcYxujWwqUAlvMoeUhuGnfkWcCX8mc9ElwNsLNfyckP++cIG4LiBW
+         5H0PaZh+mhHqSkymX0+k8Na+JLWZITVOZDPXjfkwzQjYSP4OKWHIeZHc2S8GhY1pc8i8
+         GTIO1+0CanMx5ItBw3LlotwCjJlSkB85NMTIrJoQsW42bzOX2i2wO6ZlKcWM44gd4ISF
+         nDrg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730281747; x=1730886547;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=lSwaSXBIpjqVkyV12CEixJTdRNCxUGANMEGYJ3Ap4Vg=;
+        b=ainqAdefKOF0XQQz1w8A8snq9txjRJ96ZxbcBBxJ1Zpu6S4FJ/Gmd1Sb+xrSkyqQLK
+         aR05jCvjEG5P6MJIz0wcFDSiNN5g7WkFWYSdGKBnBI/DMH9vVLDOE7MyDYyVF5dPf/76
+         gL7e8KHN62tf88lKrUqmWNMgJcRJxZGnp1VY+v/GfWAbHRa8ckQKVRWgmxFuGgKADqWP
+         iFWcIfheBLBGFZ94V8w0LCNDtmHXuekkLzG+/2Drkcg1d9QLBDmVZDiW6LAhRu623BCa
+         jJcKK+13WyrmN3tGRYWNhaxb4Y58ot79PGvHmV9ok3MwIiqaVwvNjsT6apZCYtBuGasS
+         wysg==
+X-Forwarded-Encrypted: i=1; AJvYcCWRTgeIQqVIXb3WpOPMpur20OgUsc7vKOqn7cqmJZdFwDf0CIgkihBoR09iSPr6EJ7YLxr38Ck26I+yzg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxyu7DWBGVB+V1P9yflTk7RLj6yYP3ssvcAgaud8gtS+b++VlkR
+	PVV1WRvbi/RTxlVXjMlMkRtScPR0brsBiebl1jlZANSr3M7Oj+zKPqW0jGaVSZg=
+X-Google-Smtp-Source: AGHT+IF5owZ613IN08gSTF1W4NumSlPE9N+GNRcutDlRWZGvuBkpKbCkuSRP83keNi1c5BU43LWC/Q==
+X-Received: by 2002:a17:903:124d:b0:20c:5cb1:ddf0 with SMTP id d9443c01a7336-210c68a9c2bmr199322865ad.10.1730281746621;
+        Wed, 30 Oct 2024 02:49:06 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:e17:9700:16d2:7456:6634:9626? ([2a01:e0a:e17:9700:16d2:7456:6634:9626])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-210bc0864d7sm78342745ad.303.2024.10.30.02.48.57
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 30 Oct 2024 02:49:06 -0700 (PDT)
+Message-ID: <ca1cb4b8-e206-4bc3-adf3-3801fd05f8e8@rivosinc.com>
+Date: Wed, 30 Oct 2024 10:48:47 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v1 01/57] mm: Add macros ahead of supporting boot-time
- page size selection
-Content-Language: en-GB
-To: "David S. Miller" <davem@davemloft.net>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Anton Ivanov <anton.ivanov@cambridgegreys.com>,
- Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Chris Zankel <chris@zankel.net>, Dave Hansen <dave.hansen@linux.intel.com>,
- David Hildenbrand <david@redhat.com>, Dinh Nguyen <dinguyen@kernel.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Greg Marsden <greg.marsden@oracle.com>, Helge Deller <deller@gmx.de>,
- Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Ivan Ivanov <ivan.ivanov@suse.com>, Johannes Berg
- <johannes@sipsolutions.net>,
- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
- Jonas Bonn <jonas@southpole.se>, Kalesh Singh <kaleshsingh@google.com>,
- Marc Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Matthias Brugger <mbrugger@suse.com>, Max Filippov <jcmvbkbc@gmail.com>,
- Miroslav Benes <mbenes@suse.cz>, Rich Felker <dalias@libc.org>,
- Richard Weinberger <richard@nod.at>, Stafford Horne <shorne@gmail.com>,
- Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
- Yoshinori Sato <ysato@users.sourceforge.jp>, x86@kernel.org
-Cc: linux-alpha@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
- linux-hexagon@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-mm@kvack.org, linux-openrisc@vger.kernel.org,
- linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-um@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
- sparclinux@vger.kernel.org
-References: <20241014105514.3206191-1-ryan.roberts@arm.com>
- <20241014105912.3207374-1-ryan.roberts@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20241014105912.3207374-1-ryan.roberts@arm.com>
+Subject: Re: [PATCH 3/3] riscv: hwprobe: export bfloat16 ISA extension
+To: Inochi Amaoto <inochiama@gmail.com>, Jonathan Corbet <corbet@lwn.net>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Evan Green <evan@rivosinc.com>,
+ Charlie Jenkins <charlie@rivosinc.com>,
+ Andrew Jones <ajones@ventanamicro.com>, Andy Chiu <andybnac@gmail.com>,
+ Xiao Wang <xiao.w.wang@intel.com>, Samuel Holland <samuel.holland@sifive.com>
+Cc: linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+References: <20241028071746.869740-1-inochiama@gmail.com>
+ <20241028071746.869740-4-inochiama@gmail.com>
+Content-Language: en-US
+From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
+In-Reply-To: <20241028071746.869740-4-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_014548_231142_DF63DAA1 
-X-CRM114-Status: GOOD (  47.14  )
+X-CRM114-CacheID: sfid-20241030_024908_262885_2F6A6F59 
+X-CRM114-Status: GOOD (  15.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,487 +97,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi all (especially mm people!),
-
-
-On 14/10/2024 11:58, Ryan Roberts wrote:
-> arm64 can support multiple base page sizes. Instead of selecting a page
-> size at compile time, as is done today, we will make it possible to
-> select the desired page size on the command line.
-> 
-> In this case PAGE_SHIFT and it's derivatives, PAGE_SIZE and PAGE_MASK
-> (as well as a number of other macros related to or derived from
-> PAGE_SHIFT, but I'm not worrying about those yet), are no longer
-> compile-time constants. So the code base needs to cope with that.
-> 
-> As a first step, introduce MIN and MAX variants of these macros, which
-> express the range of possible page sizes. These are always compile-time
-> constants and can be used in many places where PAGE_[SHIFT|SIZE|MASK]
-> were previously used where a compile-time constant is required.
-> (Subsequent patches will do that conversion work). When the arch/build
-> doesn't support boot-time page size selection, the MIN and MAX variants
-> are equal and everything resolves as it did previously.
-> 
-> Additionally, introduce DEFINE_GLOBAL_PAGE_SIZE_VAR[_CONST]() which wrap
-> global variable defintions so that for boot-time page size selection
-> builds, the variable being wrapped is initialized at boot-time, instead
-> of compile-time. This is done by defining a function to do the
-> assignment, which has the "constructor" attribute. Constructor is
-> preferred over initcall, because when compiling a module, the module is
-> limited to a single initcall but constructors are unlimited. For
-> built-in code, constructors are now called earlier to guarrantee that
-> the variables are initialized by the time they are used. Any arch that
-> wants to enable boot-time page size selection will need to select
-> CONFIG_CONSTRUCTORS.
-> 
-> These new macros need to be available anywhere PAGE_SHIFT and friends
-> are available. Those are defined via asm/page.h (although some arches
-> have a sub-include that defines them). Unfortunately there is no
-> reliable asm-generic header we can easily piggy-back on, so let's define
-> a new one, pgtable-geometry.h, which we include near where each arch
-> defines PAGE_SHIFT. Ugh.
-
-I haven't had any feedback on this particular patch yet. It would be great to
-get this one into v6.13, since once this is in place, the changes in other
-subsystems can go via their respective trees without any dependency issues.
-Although time is getting tight.
-
-If anyone has any feedback for this patch it would be great to hear it now. Then
-I'll re-post on it's own in a couple of days time.
-
-Thanks,
-Ryan
-
-
-> 
-> -------
-> 
-> Most of the problems that need to be solved over the next few patches
-> fall into these broad categories, which are all solved with the help of
-> these new macros:
-> 
-> 1. Assignment of values derived from PAGE_SIZE in global variables
-> 
->   For boot-time page size builds, we must defer the initialization of
->   these variables until boot-time, when the page size is known. See
->   DEFINE_GLOBAL_PAGE_SIZE_VAR[_CONST]() as described above.
-> 
-> 2. Define static storage in units related to PAGE_SIZE
-> 
->   This static storage will be defined according to PAGE_SIZE_MAX.
-> 
-> 3. Define size of struct so that it is related to PAGE_SIZE
-> 
->   The struct often contains an array that is sized to fill the page. In
->   this case, use a flexible array with dynamic allocation. In other
->   cases, the struct fits exactly over a page, which is a header (e.g.
->   swap file header). In this case, remove the padding, and manually
->   determine the struct pointer within the page.
-> 
-> 4. BUILD_BUG_ON() with values derived from PAGE_SIZE
-> 
->   In most cases, we can change these to compare againt the appropriate
->   limit (either MIN or MAX). In other cases, we must change these to
->   run-time BUG_ON().
-> 
-> 5. Ensure page alignment of static data structures
-> 
->   Align instead to PAGE_SIZE_MAX.
-> 
-> 6. #ifdeffery based on PAGE_SIZE
-> 
->   Often these can be changed to c code constructs. e.g. a macro that
->   returns a different value depending on page size can be changed to use
->   the ternary operator and the compiler will dead code strip it for the
->   compile-time constant case and runtime evaluate it for the non-const
->   case. Or #if/#else/#endif within a function can be converted to c
->   if/else blocks, which are also dead code stripped for the const case.
->   Sometimes we can change the c-preprocessor logic to use the
->   appropriate MIN/MAX limit.
-> 
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-> ---
-> 
-> ***NOTE***
-> Any confused maintainers may want to read the cover note here for context:
-> https://lore.kernel.org/all/20241014105514.3206191-1-ryan.roberts@arm.com/
-> 
->  arch/alpha/include/asm/page.h          |  1 +
->  arch/arc/include/asm/page.h            |  1 +
->  arch/arm/include/asm/page.h            |  1 +
->  arch/arm64/include/asm/page-def.h      |  2 +
->  arch/csky/include/asm/page.h           |  3 ++
->  arch/hexagon/include/asm/page.h        |  2 +
->  arch/loongarch/include/asm/page.h      |  2 +
->  arch/m68k/include/asm/page.h           |  1 +
->  arch/microblaze/include/asm/page.h     |  1 +
->  arch/mips/include/asm/page.h           |  1 +
->  arch/nios2/include/asm/page.h          |  2 +
->  arch/openrisc/include/asm/page.h       |  1 +
->  arch/parisc/include/asm/page.h         |  1 +
->  arch/powerpc/include/asm/page.h        |  2 +
->  arch/riscv/include/asm/page.h          |  1 +
->  arch/s390/include/asm/page.h           |  1 +
->  arch/sh/include/asm/page.h             |  1 +
->  arch/sparc/include/asm/page.h          |  3 ++
->  arch/um/include/asm/page.h             |  2 +
->  arch/x86/include/asm/page_types.h      |  2 +
->  arch/xtensa/include/asm/page.h         |  1 +
->  include/asm-generic/pgtable-geometry.h | 71 ++++++++++++++++++++++++++
->  init/main.c                            |  5 +-
->  23 files changed, 107 insertions(+), 1 deletion(-)
->  create mode 100644 include/asm-generic/pgtable-geometry.h
-> 
-> diff --git a/arch/alpha/include/asm/page.h b/arch/alpha/include/asm/page.h
-> index 70419e6be1a35..d0096fb5521b8 100644
-> --- a/arch/alpha/include/asm/page.h
-> +++ b/arch/alpha/include/asm/page.h
-> @@ -88,5 +88,6 @@ typedef struct page *pgtable_t;
->  
->  #include <asm-generic/memory_model.h>
->  #include <asm-generic/getorder.h>
-> +#include <asm-generic/pgtable-geometry.h>
->  
->  #endif /* _ALPHA_PAGE_H */
-> diff --git a/arch/arc/include/asm/page.h b/arch/arc/include/asm/page.h
-> index def0dfb95b436..8d56549db7a33 100644
-> --- a/arch/arc/include/asm/page.h
-> +++ b/arch/arc/include/asm/page.h
-> @@ -6,6 +6,7 @@
->  #define __ASM_ARC_PAGE_H
->  
->  #include <uapi/asm/page.h>
-> +#include <asm-generic/pgtable-geometry.h>
->  
->  #ifdef CONFIG_ARC_HAS_PAE40
->  
-> diff --git a/arch/arm/include/asm/page.h b/arch/arm/include/asm/page.h
-> index 62af9f7f9e963..417aa8533c718 100644
-> --- a/arch/arm/include/asm/page.h
-> +++ b/arch/arm/include/asm/page.h
-> @@ -191,5 +191,6 @@ extern int pfn_valid(unsigned long);
->  
->  #include <asm-generic/getorder.h>
->  #include <asm-generic/memory_model.h>
-> +#include <asm-generic/pgtable-geometry.h>
->  
->  #endif
-> diff --git a/arch/arm64/include/asm/page-def.h b/arch/arm64/include/asm/page-def.h
-> index 792e9fe881dcf..d69971cf49cd2 100644
-> --- a/arch/arm64/include/asm/page-def.h
-> +++ b/arch/arm64/include/asm/page-def.h
-> @@ -15,4 +15,6 @@
->  #define PAGE_SIZE		(_AC(1, UL) << PAGE_SHIFT)
->  #define PAGE_MASK		(~(PAGE_SIZE-1))
->  
-> +#include <asm-generic/pgtable-geometry.h>
-> +
->  #endif /* __ASM_PAGE_DEF_H */
-> diff --git a/arch/csky/include/asm/page.h b/arch/csky/include/asm/page.h
-> index 0ca6c408c07f2..95173d57adc8b 100644
-> --- a/arch/csky/include/asm/page.h
-> +++ b/arch/csky/include/asm/page.h
-> @@ -92,4 +92,7 @@ static inline unsigned long virt_to_pfn(const void *kaddr)
->  #include <asm-generic/getorder.h>
->  
->  #endif /* !__ASSEMBLY__ */
-> +
-> +#include <asm-generic/pgtable-geometry.h>
-> +
->  #endif /* __ASM_CSKY_PAGE_H */
-> diff --git a/arch/hexagon/include/asm/page.h b/arch/hexagon/include/asm/page.h
-> index 8a6af57274c2d..ba7ad5231695f 100644
-> --- a/arch/hexagon/include/asm/page.h
-> +++ b/arch/hexagon/include/asm/page.h
-> @@ -139,4 +139,6 @@ static inline unsigned long virt_to_pfn(const void *kaddr)
->  #endif /* ifdef __ASSEMBLY__ */
->  #endif /* ifdef __KERNEL__ */
->  
-> +#include <asm-generic/pgtable-geometry.h>
-> +
->  #endif
-> diff --git a/arch/loongarch/include/asm/page.h b/arch/loongarch/include/asm/page.h
-> index e85df33f11c77..9862e8fb047a6 100644
-> --- a/arch/loongarch/include/asm/page.h
-> +++ b/arch/loongarch/include/asm/page.h
-> @@ -123,4 +123,6 @@ extern int __virt_addr_valid(volatile void *kaddr);
->  
->  #endif /* !__ASSEMBLY__ */
->  
-> +#include <asm-generic/pgtable-geometry.h>
-> +
->  #endif /* _ASM_PAGE_H */
-> diff --git a/arch/m68k/include/asm/page.h b/arch/m68k/include/asm/page.h
-> index 8cfb84b499751..4df4681b02194 100644
-> --- a/arch/m68k/include/asm/page.h
-> +++ b/arch/m68k/include/asm/page.h
-> @@ -60,5 +60,6 @@ extern unsigned long _ramend;
->  
->  #include <asm-generic/getorder.h>
->  #include <asm-generic/memory_model.h>
-> +#include <asm-generic/pgtable-geometry.h>
->  
->  #endif /* _M68K_PAGE_H */
-> diff --git a/arch/microblaze/include/asm/page.h b/arch/microblaze/include/asm/page.h
-> index 8810f4f1c3b02..abc23c3d743bd 100644
-> --- a/arch/microblaze/include/asm/page.h
-> +++ b/arch/microblaze/include/asm/page.h
-> @@ -142,5 +142,6 @@ static inline const void *pfn_to_virt(unsigned long pfn)
->  
->  #include <asm-generic/memory_model.h>
->  #include <asm-generic/getorder.h>
-> +#include <asm-generic/pgtable-geometry.h>
->  
->  #endif /* _ASM_MICROBLAZE_PAGE_H */
-> diff --git a/arch/mips/include/asm/page.h b/arch/mips/include/asm/page.h
-> index 4609cb0326cf3..3d91021538f02 100644
-> --- a/arch/mips/include/asm/page.h
-> +++ b/arch/mips/include/asm/page.h
-> @@ -227,5 +227,6 @@ static inline unsigned long kaslr_offset(void)
->  
->  #include <asm-generic/memory_model.h>
->  #include <asm-generic/getorder.h>
-> +#include <asm-generic/pgtable-geometry.h>
->  
->  #endif /* _ASM_PAGE_H */
-> diff --git a/arch/nios2/include/asm/page.h b/arch/nios2/include/asm/page.h
-> index 0722f88e63cc7..2e5f93beb42b7 100644
-> --- a/arch/nios2/include/asm/page.h
-> +++ b/arch/nios2/include/asm/page.h
-> @@ -97,4 +97,6 @@ extern struct page *mem_map;
->  
->  #endif /* !__ASSEMBLY__ */
->  
-> +#include <asm-generic/pgtable-geometry.h>
-> +
->  #endif /* _ASM_NIOS2_PAGE_H */
-> diff --git a/arch/openrisc/include/asm/page.h b/arch/openrisc/include/asm/page.h
-> index 1d5913f67c312..a0da2a9842241 100644
-> --- a/arch/openrisc/include/asm/page.h
-> +++ b/arch/openrisc/include/asm/page.h
-> @@ -88,5 +88,6 @@ static inline unsigned long virt_to_pfn(const void *kaddr)
->  
->  #include <asm-generic/memory_model.h>
->  #include <asm-generic/getorder.h>
-> +#include <asm-generic/pgtable-geometry.h>
->  
->  #endif /* __ASM_OPENRISC_PAGE_H */
-> diff --git a/arch/parisc/include/asm/page.h b/arch/parisc/include/asm/page.h
-> index 4bea2e95798f0..2a75496237c09 100644
-> --- a/arch/parisc/include/asm/page.h
-> +++ b/arch/parisc/include/asm/page.h
-> @@ -173,6 +173,7 @@ extern int npmem_ranges;
->  
->  #include <asm-generic/memory_model.h>
->  #include <asm-generic/getorder.h>
-> +#include <asm-generic/pgtable-geometry.h>
->  #include <asm/pdc.h>
->  
->  #define PAGE0   ((struct zeropage *)absolute_pointer(__PAGE_OFFSET))
-> diff --git a/arch/powerpc/include/asm/page.h b/arch/powerpc/include/asm/page.h
-> index 83d0a4fc5f755..4601c115b6485 100644
-> --- a/arch/powerpc/include/asm/page.h
-> +++ b/arch/powerpc/include/asm/page.h
-> @@ -300,4 +300,6 @@ static inline unsigned long kaslr_offset(void)
->  #include <asm-generic/memory_model.h>
->  #endif /* __ASSEMBLY__ */
->  
-> +#include <asm-generic/pgtable-geometry.h>
-> +
->  #endif /* _ASM_POWERPC_PAGE_H */
-> diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
-> index 7ede2111c5917..e5af7579e45bf 100644
-> --- a/arch/riscv/include/asm/page.h
-> +++ b/arch/riscv/include/asm/page.h
-> @@ -204,5 +204,6 @@ static __always_inline void *pfn_to_kaddr(unsigned long pfn)
->  
->  #include <asm-generic/memory_model.h>
->  #include <asm-generic/getorder.h>
-> +#include <asm-generic/pgtable-geometry.h>
->  
->  #endif /* _ASM_RISCV_PAGE_H */
-> diff --git a/arch/s390/include/asm/page.h b/arch/s390/include/asm/page.h
-> index 16e4caa931f1f..42157e7690a77 100644
-> --- a/arch/s390/include/asm/page.h
-> +++ b/arch/s390/include/asm/page.h
-> @@ -275,6 +275,7 @@ static inline unsigned long virt_to_pfn(const void *kaddr)
->  
->  #include <asm-generic/memory_model.h>
->  #include <asm-generic/getorder.h>
-> +#include <asm-generic/pgtable-geometry.h>
->  
->  #define AMODE31_SIZE		(3 * PAGE_SIZE)
->  
-> diff --git a/arch/sh/include/asm/page.h b/arch/sh/include/asm/page.h
-> index f780b467e75d7..09533d46ef033 100644
-> --- a/arch/sh/include/asm/page.h
-> +++ b/arch/sh/include/asm/page.h
-> @@ -162,5 +162,6 @@ typedef struct page *pgtable_t;
->  
->  #include <asm-generic/memory_model.h>
->  #include <asm-generic/getorder.h>
-> +#include <asm-generic/pgtable-geometry.h>
->  
->  #endif /* __ASM_SH_PAGE_H */
-> diff --git a/arch/sparc/include/asm/page.h b/arch/sparc/include/asm/page.h
-> index 5e44cdf2a8f2b..4327fe2bfa010 100644
-> --- a/arch/sparc/include/asm/page.h
-> +++ b/arch/sparc/include/asm/page.h
-> @@ -9,4 +9,7 @@
->  #else
->  #include <asm/page_32.h>
->  #endif
-> +
-> +#include <asm-generic/pgtable-geometry.h>
-> +
->  #endif
-> diff --git a/arch/um/include/asm/page.h b/arch/um/include/asm/page.h
-> index 9ef9a8aedfa66..f26011808f514 100644
-> --- a/arch/um/include/asm/page.h
-> +++ b/arch/um/include/asm/page.h
-> @@ -119,4 +119,6 @@ extern unsigned long uml_physmem;
->  #define __HAVE_ARCH_GATE_AREA 1
->  #endif
->  
-> +#include <asm-generic/pgtable-geometry.h>
-> +
->  #endif	/* __UM_PAGE_H */
-> diff --git a/arch/x86/include/asm/page_types.h b/arch/x86/include/asm/page_types.h
-> index 52f1b4ff0cc16..6d2381342047f 100644
-> --- a/arch/x86/include/asm/page_types.h
-> +++ b/arch/x86/include/asm/page_types.h
-> @@ -71,4 +71,6 @@ extern void initmem_init(void);
->  
->  #endif	/* !__ASSEMBLY__ */
->  
-> +#include <asm-generic/pgtable-geometry.h>
-> +
->  #endif	/* _ASM_X86_PAGE_DEFS_H */
-> diff --git a/arch/xtensa/include/asm/page.h b/arch/xtensa/include/asm/page.h
-> index 4db56ef052d22..86952cb32af23 100644
-> --- a/arch/xtensa/include/asm/page.h
-> +++ b/arch/xtensa/include/asm/page.h
-> @@ -200,4 +200,5 @@ static inline unsigned long ___pa(unsigned long va)
->  #endif /* __ASSEMBLY__ */
->  
->  #include <asm-generic/memory_model.h>
-> +#include <asm-generic/pgtable-geometry.h>
->  #endif /* _XTENSA_PAGE_H */
-> diff --git a/include/asm-generic/pgtable-geometry.h b/include/asm-generic/pgtable-geometry.h
-> new file mode 100644
-> index 0000000000000..358e729a6ac37
-> --- /dev/null
-> +++ b/include/asm-generic/pgtable-geometry.h
-> @@ -0,0 +1,71 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifndef ASM_GENERIC_PGTABLE_GEOMETRY_H
-> +#define ASM_GENERIC_PGTABLE_GEOMETRY_H
-> +
-> +#if   defined(PAGE_SHIFT_MAX) && defined(PAGE_SIZE_MAX) && defined(PAGE_MASK_MAX) && \
-> +      defined(PAGE_SHIFT_MIN) && defined(PAGE_SIZE_MIN) && defined(PAGE_MASK_MIN)
-> +/* Arch supports boot-time page size selection. */
-> +#elif defined(PAGE_SHIFT_MAX) || defined(PAGE_SIZE_MAX) || defined(PAGE_MASK_MAX) || \
-> +      defined(PAGE_SHIFT_MIN) || defined(PAGE_SIZE_MIN) || defined(PAGE_MASK_MIN)
-> +#error Arch must define all or none of the boot-time page size macros
-> +#else
-> +/* Arch does not support boot-time page size selection. */
-> +#define PAGE_SHIFT_MIN	PAGE_SHIFT
-> +#define PAGE_SIZE_MIN	PAGE_SIZE
-> +#define PAGE_MASK_MIN	PAGE_MASK
-> +#define PAGE_SHIFT_MAX	PAGE_SHIFT
-> +#define PAGE_SIZE_MAX	PAGE_SIZE
-> +#define PAGE_MASK_MAX	PAGE_MASK
-> +#endif
-> +
-> +/*
-> + * Define a global variable (scalar or struct), whose value is derived from
-> + * PAGE_SIZE and friends. When PAGE_SIZE is a compile-time constant, the global
-> + * variable is simply defined with the static value. When PAGE_SIZE is
-> + * determined at boot-time, a pure initcall is registered and run during boot to
-> + * initialize the variable.
-> + *
-> + * @type: Unqualified type. Do not include "const"; implied by macro variant.
-> + * @name: Variable name.
-> + * @...:  Initialization value. May be scalar or initializer.
-> + *
-> + * "static" is declared by placing "static" before the macro.
-> + *
-> + * Example:
-> + *
-> + * struct my_struct {
-> + *         int a;
-> + *         char b;
-> + * };
-> + *
-> + * static DEFINE_GLOBAL_PAGE_SIZE_VAR(struct my_struct, my_variable, {
-> + *         .a = 10,
-> + *         .b = 'e',
-> + * });
-> + */
-> +#if PAGE_SIZE_MIN != PAGE_SIZE_MAX
-> +#define __DEFINE_GLOBAL_PAGE_SIZE_VAR(type, name, attrib, ...)		\
-> +	type name attrib;						\
-> +	static int __init __attribute__((constructor)) __##name##_init(void)	\
-> +	{								\
-> +		name = (type)__VA_ARGS__;				\
-> +		return 0;						\
-> +	}
-> +
-> +#define DEFINE_GLOBAL_PAGE_SIZE_VAR(type, name, ...)			\
-> +	__DEFINE_GLOBAL_PAGE_SIZE_VAR(type, name, , __VA_ARGS__)
-> +
-> +#define DEFINE_GLOBAL_PAGE_SIZE_VAR_CONST(type, name, ...)		\
-> +	__DEFINE_GLOBAL_PAGE_SIZE_VAR(type, name, __ro_after_init, __VA_ARGS__)
-> +#else /* PAGE_SIZE_MIN == PAGE_SIZE_MAX */
-> +#define __DEFINE_GLOBAL_PAGE_SIZE_VAR(type, name, attrib, ...)		\
-> +	type name attrib = __VA_ARGS__;					\
-> +
-> +#define DEFINE_GLOBAL_PAGE_SIZE_VAR(type, name, ...)			\
-> +	__DEFINE_GLOBAL_PAGE_SIZE_VAR(type, name, , __VA_ARGS__)
-> +
-> +#define DEFINE_GLOBAL_PAGE_SIZE_VAR_CONST(type, name, ...)		\
-> +	__DEFINE_GLOBAL_PAGE_SIZE_VAR(const type, name, , __VA_ARGS__)
-> +#endif
-> +
-> +#endif /* ASM_GENERIC_PGTABLE_GEOMETRY_H */
-> diff --git a/init/main.c b/init/main.c
-> index 206acdde51f5a..ba1515eb20b9d 100644
-> --- a/init/main.c
-> +++ b/init/main.c
-> @@ -899,6 +899,8 @@ static void __init early_numa_node_init(void)
->  #endif
->  }
->  
-> +static __init void do_ctors(void);
-> +
->  asmlinkage __visible __init __no_sanitize_address __noreturn __no_stack_protector
->  void start_kernel(void)
->  {
-> @@ -910,6 +912,8 @@ void start_kernel(void)
->  	debug_objects_early_init();
->  	init_vmlinux_build_id();
->  
-> +	do_ctors();
-> +
->  	cgroup_init_early();
->  
->  	local_irq_disable();
-> @@ -1360,7 +1364,6 @@ static void __init do_basic_setup(void)
->  	cpuset_init_smp();
->  	driver_init();
->  	init_irq_proc();
-> -	do_ctors();
->  	do_initcalls();
->  }
->  
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAyOC8xMC8yMDI0IDA4OjE3LCBJbm9jaGkgQW1hb3RvIHdyb3RlOgo+IEV4cG9ydCBaZmJt
+aW4sIFp2ZmJmbWluLCBadmZiZndtYSBJU0EgZXh0ZW5zaW9uIHRocm91Z2ggaHdwcm9iZS4KPiAK
+PiBTaWduZWQtb2ZmLWJ5OiBJbm9jaGkgQW1hb3RvIDxpbm9jaGlhbWFAZ21haWwuY29tPgo+IC0t
+LQo+ICBEb2N1bWVudGF0aW9uL2FyY2gvcmlzY3YvaHdwcm9iZS5yc3QgIHwgMTIgKysrKysrKysr
+KysrCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS91YXBpL2FzbS9od3Byb2JlLmggfCAgMyArKysKPiAg
+MiBmaWxlcyBjaGFuZ2VkLCAxNSBpbnNlcnRpb25zKCspCj4gCj4gZGlmZiAtLWdpdCBhL0RvY3Vt
+ZW50YXRpb24vYXJjaC9yaXNjdi9od3Byb2JlLnJzdCBiL0RvY3VtZW50YXRpb24vYXJjaC9yaXNj
+di9od3Byb2JlLnJzdAo+IGluZGV4IDg1YjcwOTI1NzkxOC4uOGMzMGRkMDZmM2MwIDEwMDY0NAo+
+IC0tLSBhL0RvY3VtZW50YXRpb24vYXJjaC9yaXNjdi9od3Byb2JlLnJzdAo+ICsrKyBiL0RvY3Vt
+ZW50YXRpb24vYXJjaC9yaXNjdi9od3Byb2JlLnJzdAo+IEBAIC0yMzksNiArMjM5LDE4IEBAIFRo
+ZSBmb2xsb3dpbmcga2V5cyBhcmUgZGVmaW5lZDoKPiAgICAgICAgIHJhdGlmaWVkIGluIGNvbW1p
+dCA5ODkxOGM4NDQyODEgKCJNZXJnZSBwdWxsIHJlcXVlc3QgIzEyMTcgZnJvbQo+ICAgICAgICAg
+cmlzY3YvemF3cnMiKSBvZiByaXNjdi1pc2EtbWFudWFsLgo+ICAKPiArICAqIDpjOm1hY3JvOmBS
+SVNDVl9IV1BST0JFX0VYVF9aRkJGTUlOYDogVGhlIFpmYmZtaW4gZXh0ZW5zaW9uIGlzIHN1cHBv
+cnRlZCBhcwo+ICsgICAgICAgZGVmaW5lZCBpbiB0aGUgUklTQy1WIElTQSBtYW51YWwgc3RhcnRp
+bmcgZnJvbSBjb21taXQgNGRjMjNkNjIyOWRlCj4gKyAgICAgICAoIkFkZGVkIENoYXB0ZXIgdGl0
+bGUgdG8gQkYxNiIpLgo+ICsKPiArICAqIDpjOm1hY3JvOmBSSVNDVl9IV1BST0JFX0VYVF9aVkZC
+Rk1JTmA6IFRoZSBadmZiZm1pbiBleHRlbnNpb24gaXMgc3VwcG9ydGVkIGFzCj4gKyAgICAgICBk
+ZWZpbmVkIGluIHRoZSBSSVNDLVYgSVNBIG1hbnVhbCBzdGFydGluZyBmcm9tIGNvbW1pdCA0ZGMy
+M2Q2MjI5ZGUKPiArICAgICAgICgiQWRkZWQgQ2hhcHRlciB0aXRsZSB0byBCRjE2IikuCj4gKwo+
+ICsgICogOmM6bWFjcm86YFJJU0NWX0hXUFJPQkVfRVhUX1pWRkJGV01BYDogVGhlIFp2ZmJmd21h
+IGV4dGVuc2lvbiBpcyBzdXBwb3J0ZWQgYXMKPiArICAgICAgIGRlZmluZWQgaW4gdGhlIFJJU0Mt
+ViBJU0EgbWFudWFsIHN0YXJ0aW5nIGZyb20gY29tbWl0IDRkYzIzZDYyMjlkZQo+ICsgICAgICAg
+KCJBZGRlZCBDaGFwdGVyIHRpdGxlIHRvIEJGMTYiKS4KPiArCj4gICogOmM6bWFjcm86YFJJU0NW
+X0hXUFJPQkVfS0VZX0NQVVBFUkZfMGA6IERlcHJlY2F0ZWQuICBSZXR1cm5zIHNpbWlsYXIgdmFs
+dWVzIHRvCj4gICAgICAgOmM6bWFjcm86YFJJU0NWX0hXUFJPQkVfS0VZX01JU0FMSUdORURfU0NB
+TEFSX1BFUkZgLCBidXQgdGhlIGtleSB3YXMKPiAgICAgICBtaXN0YWtlbmx5IGNsYXNzaWZpZWQg
+YXMgYSBiaXRtYXNrIHJhdGhlciB0aGFuIGEgdmFsdWUuCj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlz
+Y3YvaW5jbHVkZS91YXBpL2FzbS9od3Byb2JlLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9h
+c20vaHdwcm9iZS5oCj4gaW5kZXggMWUxNTNjZGE1N2RiLi45NWQwMGEwNjViNGUgMTAwNjQ0Cj4g
+LS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL3VhcGkvYXNtL2h3cHJvYmUuaAo+ICsrKyBiL2FyY2gv
+cmlzY3YvaW5jbHVkZS91YXBpL2FzbS9od3Byb2JlLmgKPiBAQCAtNzIsNiArNzIsOSBAQCBzdHJ1
+Y3QgcmlzY3ZfaHdwcm9iZSB7Cj4gICNkZWZpbmUJCVJJU0NWX0hXUFJPQkVfRVhUX1pDRgkJKDFV
+TEwgPDwgNDYpCj4gICNkZWZpbmUJCVJJU0NWX0hXUFJPQkVfRVhUX1pDTU9QCQkoMVVMTCA8PCA0
+NykKPiAgI2RlZmluZQkJUklTQ1ZfSFdQUk9CRV9FWFRfWkFXUlMJCSgxVUxMIDw8IDQ4KQo+ICsj
+ZGVmaW5lCQlSSVNDVl9IV1BST0JFX0VYVF9aRkJGTUlOCSgxVUxMIDw8IDQ5KQo+ICsjZGVmaW5l
+CQlSSVNDVl9IV1BST0JFX0VYVF9aVkZCRk1JTgkoMVVMTCA8PCA1MCkKPiArI2RlZmluZQkJUklT
+Q1ZfSFdQUk9CRV9FWFRfWlZGQkZXTUEJKDFVTEwgPDwgNTEpCgpIaSBJbm9jaGksCgpUaGVzZSBz
+aG91bGQgYmUgYWRkZWQgYXMgd2VsbCBpbiBzeXNfaHdwcm9iZS5jIChzZWUgaHdwcm9iZV9pc2Ff
+ZXh0MCgpKS4KClRoYW5rcywKCkNsw6ltZW50Cgo+ICAjZGVmaW5lIFJJU0NWX0hXUFJPQkVfS0VZ
+X0NQVVBFUkZfMAk1Cj4gICNkZWZpbmUJCVJJU0NWX0hXUFJPQkVfTUlTQUxJR05FRF9VTktOT1dO
+CSgwIDw8IDApCj4gICNkZWZpbmUJCVJJU0NWX0hXUFJPQkVfTUlTQUxJR05FRF9FTVVMQVRFRAko
+MSA8PCAwKQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
+Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
