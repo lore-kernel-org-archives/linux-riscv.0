@@ -4,105 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6162AD5CCB6
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Oct 2024 15:01:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B529CD6B6A7
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Oct 2024 16:19:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2ie4NV3AJCKBz6fR0Reppfu5isoE5g+8ZNA6FE9CGk8=; b=YyQhBbHGPwyHhv
-	0UO284npbJki0oM03uZh30SzwYmljhjy/fDLiqUoRMMq2F1/ftmCuYGDRg1pnO52xelrVYh/w1zfw
-	6m2uwXEm/axRq5CgjuBLAgCOs2NUlGFMX358pWgdYioyO8M45O7e/76f44L1Kr7VnQ2aFCHevybOZ
-	nOxWWou6DlNs2lBC85e8MjzZ8RkVLXhWkPWSIi8PKJxfaOTBTdWwX/2j81OLGYz76pryS/zaoyWin
-	GNc/3VyEEL3N6minGbrMjyD0R/Mfjb/uDmijQ2ib/mtSjWejlni8RApQ6Jz3vaqsFGBvJ+wV5ZP5Z
-	ilVDcSam7Ztd/d2iVrLQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=/BZnWbIWPH1vqHXJEo+yIPmFc4y2/epBcqSkJzwND0M=; b=njEPteBBpxBss3Zsaor+F1sxFv
+	Kaf6v0ExlJ9OroGvt4E2Cm3miJnFN3a6ohtw7Bf64xH8qK/P2ldKqulAsM1oMnSIS/mH8kOn/qROk
+	U8lRXoQZb00VKTgHqYpBHm1WIm/uocMKK6LAH17rWiFrQweHEgV/LQZxqWuicvtnMD5PVoAS5zhBw
+	HEmKzzKJVt35QALgt+0IZYOIiufA5T8QC1A1wugTdqbUcwidRB3PQWVvuOzBGiVDHfkQhuZbno/zI
+	YJFv86Ns1uP8kYnmzuGf3Nc8LV/AHXg3VEZSSuSN2rqgE2cICP9ORHFYDpn0nHZey8Gyp/mjT4RJx
+	W7Hy90nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6ABs-00000000l8m-2c1Z;
-	Wed, 30 Oct 2024 15:00:56 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t6BPz-000000013BW-1hoS;
+	Wed, 30 Oct 2024 16:19:35 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t695l-00000000XtK-0QAP;
-	Wed, 30 Oct 2024 13:50:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=k/QSX0mI8qQz8W316WTJxbTS4bB3Lyue/iJHbqNfB18=; b=SHRXxI13D0ji02DVnBA+S2vAWG
-	075oe+6UZFaPWSjZC8HtDJhB3p6eXmMzQwYPMtlPTID5rQSlCfXRP5YAroHgHg8vKQJeo3/Drq/Z6
-	3ycYhUivybiWoLOpTWXRyGrDHNIxTuMPrkwc3hI/RVmRBX1KtcjxEQ/E4vD+dyXq8cQE7kdfl8dFS
-	wDO2wrE1rxjOBl0+QjcU8LiKsREf+Nw77Ah36NV4I/o/nNDSVS8N5bltk/Hf0igen/IK3xBPZptFb
-	pGoDqi2bhjwVcXYA8wpP8gR1C9pRAtG1LnkJpU1WXwxU1DY06MRInV8u0s7J1Gxu1Jj2y56p5Jw1m
-	RJI1ox/A==;
-Received: from smtp-fw-80009.amazon.com ([99.78.197.220])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t695h-0000000AFoi-0pin;
-	Wed, 30 Oct 2024 13:50:31 +0000
+	id 1t6BBw-000000010MG-3FS2
+	for linux-riscv@lists.infradead.org;
+	Wed, 30 Oct 2024 16:05:06 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-e02fff66a83so11159062276.0
+        for <linux-riscv@lists.infradead.org>; Wed, 30 Oct 2024 09:05:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.co.uk; i=@amazon.co.uk; q=dns/txt;
-  s=amazon201209; t=1730296229; x=1761832229;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=k/QSX0mI8qQz8W316WTJxbTS4bB3Lyue/iJHbqNfB18=;
-  b=Q2vVFiG8cQn0RugB/GF2zlj6k/7HeQNrZJV54Q6JaVyaJ2SuN90f0SQf
-   T4NyllQM4wPQFt91heMlrkp9RTGtifENyOGQeMx5PwzC+X0+FTlioAamm
-   e6bOM2ZG2Qe/crqfqVENN2iXtGzmDSppgJjtPmLnd+2+bgwzqHgO8zxtY
-   g=;
-X-IronPort-AV: E=Sophos;i="6.11,245,1725321600"; 
-   d="scan'208";a="142980689"
-Received: from pdx4-co-svc-p1-lb2-vlan2.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.25.36.210])
-  by smtp-border-fw-80009.pdx80.corp.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Oct 2024 13:50:27 +0000
-Received: from EX19MTAEUB001.ant.amazon.com [10.0.43.254:32764]
- by smtpin.naws.eu-west-1.prod.farcaster.email.amazon.dev [10.0.20.52:2525] with esmtp (Farcaster)
- id cb6221e8-e82a-4b95-aff9-f29080c6cf67; Wed, 30 Oct 2024 13:50:26 +0000 (UTC)
-X-Farcaster-Flow-ID: cb6221e8-e82a-4b95-aff9-f29080c6cf67
-Received: from EX19D014EUA004.ant.amazon.com (10.252.50.41) by
- EX19MTAEUB001.ant.amazon.com (10.252.51.28) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
- Wed, 30 Oct 2024 13:50:23 +0000
-Received: from EX19MTAUEA002.ant.amazon.com (10.252.134.9) by
- EX19D014EUA004.ant.amazon.com (10.252.50.41) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
- Wed, 30 Oct 2024 13:50:23 +0000
-Received: from email-imr-corp-prod-pdx-all-2c-8a67eb17.us-west-2.amazon.com
- (10.43.8.2) by mail-relay.amazon.com (10.252.134.34) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id
- 15.2.1258.34 via Frontend Transport; Wed, 30 Oct 2024 13:50:22 +0000
-Received: from ua2d7e1a6107c5b.home (dev-dsk-roypat-1c-dbe2a224.eu-west-1.amazon.com [172.19.88.180])
-	by email-imr-corp-prod-pdx-all-2c-8a67eb17.us-west-2.amazon.com (Postfix) with ESMTPS id 93E2B41303;
-	Wed, 30 Oct 2024 13:50:13 +0000 (UTC)
-From: Patrick Roy <roypat@amazon.co.uk>
-To: <tabba@google.com>, <quic_eberman@quicinc.com>, <david@redhat.com>,
-	<seanjc@google.com>, <pbonzini@redhat.com>, <jthoughton@google.com>,
-	<ackerleytng@google.com>, <vannapurve@google.com>, <rppt@kernel.org>
-CC: Patrick Roy <roypat@amazon.co.uk>, <graf@amazon.com>,
-	<jgowans@amazon.com>, <derekmn@amazon.com>, <kalyazin@amazon.com>,
-	<xmarcalx@amazon.com>, <linux-mm@kvack.org>, <corbet@lwn.net>,
-	<catalin.marinas@arm.com>, <will@kernel.org>, <chenhuacai@kernel.org>,
-	<kernel@xen0n.name>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
-	<aou@eecs.berkeley.edu>, <hca@linux.ibm.com>, <gor@linux.ibm.com>,
-	<agordeev@linux.ibm.com>, <borntraeger@linux.ibm.com>, <svens@linux.ibm.com>,
-	<gerald.schaefer@linux.ibm.com>, <tglx@linutronix.de>, <mingo@redhat.com>,
-	<bp@alien8.de>, <dave.hansen@linux.intel.com>, <x86@kernel.org>,
-	<hpa@zytor.com>, <luto@kernel.org>, <peterz@infradead.org>,
-	<rostedt@goodmis.org>, <mhiramat@kernel.org>,
-	<mathieu.desnoyers@efficios.com>, <shuah@kernel.org>, <kvm@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <loongarch@lists.linux.dev>,
-	<linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>,
-	<linux-trace-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>
-Subject: [RFC PATCH v3 4/6] kvm: gmem: add trace point for direct map state changes
-Date: Wed, 30 Oct 2024 13:49:08 +0000
-Message-ID: <20241030134912.515725-5-roypat@amazon.co.uk>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241030134912.515725-1-roypat@amazon.co.uk>
-References: <20241030134912.515725-1-roypat@amazon.co.uk>
-MIME-Version: 1.0
+        d=google.com; s=20230601; t=1730304303; x=1730909103; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=54C00wXILAP4wDE2WJebdXFCv98gErGHm0LgpmOmMWo=;
+        b=wmTQg7PQflnr6dkXAcpe9RKGmTkp8ArLhxNweId2ClEv/hmlwvoEIL2DZccxHoYITq
+         ZOu0mMYhEs4KpfZRhscxhG9YDDTwbvHguySmYaxl+JRScoTx3F8fRkjNEUjrq/fZQxFM
+         7Qh8A4eVLFMqTv1XQQYkbsPF/RXhrfIbOpxc11sGihL2KbbxVGPmGdRbw4Pn70FgRaCp
+         QZ+dDptQWl4Ib1P3WXBywM6svVULy1yfXDZv1KYU3N26gs8Jc3Wsu0CWgPyVLqNraEKy
+         T4JO9UDy7PJoXC2rvcMxNSbG+884ketKWPF+VZ9V72WeLqtgD5pcfqz32FTmI2s9DTf6
+         J2qw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730304303; x=1730909103;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=54C00wXILAP4wDE2WJebdXFCv98gErGHm0LgpmOmMWo=;
+        b=k8cy37AkgSAXCaZRi165iHtd50uH32IoBdSAvGe41oI2o+vhaFF80mk6vA3yYKqtK7
+         1UZMUCVIQ4l5Q+ZgRtVY0dBQWKrGUjp6Lf514fPiNyT1ky5bMDb4UMLC8bRgWvxYSxDN
+         xdH9UWE15zP7TDLpBRwejNkSwLcutTIHRiImaqEOrNizc168e/KeDLwqItFJJikwoqnF
+         CnH8sQCGTu+NI9/4h+j6e4KLCqcHJDXdOqzmZ9iy37pZ6V8xKXQ+mpQPDIeK0bCvWoP3
+         SLJ+0LnqIo2Bi2Q2lqJ7OYRnjrozpE7Q6eDKXclfHWxW4L5iBl+4nzTb3HQ+a2X3aLku
+         W27g==
+X-Forwarded-Encrypted: i=1; AJvYcCWOgROOa6fZWbCQwE/x5LtN0Nac+CBq+jtkazyftA4250Wg0TFxk0+K7ecoqBomcwBhVjJAgt853sqL5g==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxs/Xa5bT3Q/vIFxx26O0JOVPrRaSN2KPRq5zMVaT9BN9GZEyxN
+	sQzdeRzjSqJEmKvK2cY5GilJiYbE2oG5iOd7CVSIKLMFKiujNzo6x382sZcOT4E8/HKmXooFsV1
+	E8aFI12whzRC+fg==
+X-Google-Smtp-Source: AGHT+IH02CpxvtSPol89CK83WsKKG+/9Mwolu1CUUBZ+Whn8Inwxg2VMatkn1IVi7GLj+0ruemL1utAOuG8/YqM=
+X-Received: from aliceryhl.c.googlers.com ([fda3:e722:ac3:cc00:28:9cb1:c0a8:35bd])
+ (user=aliceryhl job=sendgmr) by 2002:a25:7481:0:b0:e2e:3031:3f0c with SMTP id
+ 3f1490d57ef6-e3087bc8ca5mr10454276.7.1730304302410; Wed, 30 Oct 2024 09:05:02
+ -0700 (PDT)
+Date: Wed, 30 Oct 2024 16:04:26 +0000
+In-Reply-To: <20241030-tracepoint-v12-0-eec7f0f8ad22@google.com>
+Mime-Version: 1.0
+References: <20241030-tracepoint-v12-0-eec7f0f8ad22@google.com>
+X-Developer-Key: i=aliceryhl@google.com; a=openpgp; fpr=49F6C1FAA74960F43A5B86A1EE7A392FDE96209F
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4317; i=aliceryhl@google.com;
+ h=from:subject:message-id; bh=6E1WLLql+lELSHgkVX0zcOXTthdmIBZjrDBlYLHV8VE=;
+ b=owEBbQKS/ZANAwAKAQRYvu5YxjlGAcsmYgBnIlkij9ArugE0ISxftxYGap6R5sPzZ34MTem3X
+ YAfJWcND5GJAjMEAAEKAB0WIQSDkqKUTWQHCvFIvbIEWL7uWMY5RgUCZyJZIgAKCRAEWL7uWMY5
+ RtyHEACM0N0SSCrGkN7dCmCzwyY3cCJ5+/ZS8EiisT++meOQqOellWnDP/PWSwMYNbKLQj01avU
+ DJklGMUi2rgWkgWLWUw3GrMRK/18oqPSId9Yq7MRtYctCEBNv4faTk2F5MMNKzh2HAbp896wyn/
+ +OUeotpRorcYeqS+fhvGRpZUsOt1I4hRqeCODknNXG7YJfnveRdyeX19Nqoc5Nmrr/Uxd/dfeSt
+ +izMRDn9xRkm4BNbNX1yq7vxHnxw03+3+w2BuTdWsH+PLbA+jLAlxlYckKuVq3d81QH7/gRF5yo
+ 7Bmw48EA4n5UMfHLSMXW6eu6yyNK/4rXD98UpVyaC0tmhhzevjQCifkvST3x0kK43p1ik/cpkal
+ MSJn+2cTR1oSj+CjlBikD10FZecb3FGmhyvrlttp71kJqGbsuhJeKmPlg+/CLdw3SVqr8fxyI1U
+ 8AokMAWfRmWN/BaLCLAHONLfPeoaVdg79U5+cIJeaAipIbx41O8Zan7uEfKAwyK8BTa/ialGsSi
+ UvFlK8LwyS8au0VyyKicDxE7Tswji9RMwtfM4BmxSauM4ltVnXcRWuSQpV3V2W7tJkLqtZu77EN
+ Kyr2CONG7Heet1+fPXd8k35lT0KGZoZdqTppbnog7dJLj1eDulTzDBYyiVEbnrBibgMGBS/dBZA Bfq3ja4N4Z6u9OQ==
+X-Mailer: b4 0.13.0
+Message-ID: <20241030-tracepoint-v12-3-eec7f0f8ad22@google.com>
+Subject: [PATCH v12 3/5] rust: samples: add tracepoint to Rust sample
+From: Alice Ryhl <aliceryhl@google.com>
+To: Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, 
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Josh Poimboeuf <jpoimboe@kernel.org>, Jason Baron <jbaron@akamai.com>, 
+	Ard Biesheuvel <ardb@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
+	Wedson Almeida Filho <wedsonaf@gmail.com>, Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+	"=?utf-8?q?Bj=C3=B6rn_Roy_Baron?=" <bjorn3_gh@protonmail.com>, Benno Lossin <benno.lossin@proton.me>, 
+	Andreas Hindborg <a.hindborg@kernel.org>
+Cc: linux-trace-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, linux-arch@vger.kernel.org, 
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Sean Christopherson <seanjc@google.com>, Uros Bizjak <ubizjak@gmail.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Mark Rutland <mark.rutland@arm.com>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Fuad Tabba <tabba@google.com>, 
+	linux-arm-kernel@lists.infradead.org, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <apatel@ventanamicro.com>, 
+	Andrew Jones <ajones@ventanamicro.com>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
+	Conor Dooley <conor.dooley@microchip.com>, Samuel Holland <samuel.holland@sifive.com>, 
+	linux-riscv@lists.infradead.org, Huacai Chen <chenhuacai@kernel.org>, 
+	WANG Xuerui <kernel@xen0n.name>, Bibo Mao <maobibo@loongson.cn>, 
+	Tiezhu Yang <yangtiezhu@loongson.cn>, Andrew Morton <akpm@linux-foundation.org>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, loongarch@lists.linux.dev, 
+	Alice Ryhl <aliceryhl@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_135029_654200_6DC9633A 
-X-CRM114-Status: GOOD (  12.77  )
+X-CRM114-CacheID: sfid-20241030_090504_845040_83E35A88 
+X-CRM114-Status: GOOD (  18.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,87 +127,145 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add tracepoints to kvm_gmem_set_direct_map and
-kvm_gmem_folio_set_direct_map.
+This updates the Rust printing sample to invoke a tracepoint. This
+ensures that we have a user in-tree from the get-go even though the
+patch is being merged before its real user.
 
-The above operations can cause folios to be insert/removed into/from the
-direct map. We want to be able to make sure that only those gmem folios
-that we expect KVM to access are ever reinserted into the direct map,
-and that all folios that are temporarily reinserted are also removed
-again at a later point. Processing ftrace output is one way to verify
-this.
-
-Signed-off-by: Patrick Roy <roypat@amazon.co.uk>
+Reviewed-by: Boqun Feng <boqun.feng@gmail.com>
+Signed-off-by: Alice Ryhl <aliceryhl@google.com>
 ---
- include/trace/events/kvm.h | 22 ++++++++++++++++++++++
- virt/kvm/guest_memfd.c     |  5 +++++
- 2 files changed, 27 insertions(+)
+ MAINTAINERS                        |  1 +
+ include/trace/events/rust_sample.h | 31 +++++++++++++++++++++++++++++++
+ rust/bindings/bindings_helper.h    |  1 +
+ samples/rust/Makefile              |  3 ++-
+ samples/rust/rust_print.rs         | 18 ++++++++++++++++++
+ samples/rust/rust_print_events.c   |  8 ++++++++
+ 6 files changed, 61 insertions(+), 1 deletion(-)
 
-diff --git a/include/trace/events/kvm.h b/include/trace/events/kvm.h
-index 74e40d5d4af42..f3d852c18fa08 100644
---- a/include/trace/events/kvm.h
-+++ b/include/trace/events/kvm.h
-@@ -489,6 +489,28 @@ TRACE_EVENT(kvm_test_age_hva,
- 	TP_printk("mmu notifier test age hva: %#016lx", __entry->hva)
- );
- 
-+#ifdef CONFIG_KVM_PRIVATE_MEM
-+TRACE_EVENT(kvm_gmem_direct_map_state_change,
-+	TP_PROTO(pgoff_t start, pgoff_t end, bool state),
-+	TP_ARGS(start, end, state),
+diff --git a/MAINTAINERS b/MAINTAINERS
+index a097afd76ded..a9b71411d77a 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -20223,6 +20223,7 @@ C:	zulip://rust-for-linux.zulipchat.com
+ P:	https://rust-for-linux.com/contributing
+ T:	git https://github.com/Rust-for-Linux/linux.git rust-next
+ F:	Documentation/rust/
++F:	include/trace/events/rust_sample.h
+ F:	rust/
+ F:	samples/rust/
+ F:	scripts/*rust*
+diff --git a/include/trace/events/rust_sample.h b/include/trace/events/rust_sample.h
+new file mode 100644
+index 000000000000..dbc80ca2e465
+--- /dev/null
++++ b/include/trace/events/rust_sample.h
+@@ -0,0 +1,31 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Tracepoints for `samples/rust/rust_print.rs`.
++ *
++ * Copyright (C) 2024 Google, Inc.
++ */
 +
++#undef TRACE_SYSTEM
++#define TRACE_SYSTEM rust_sample
++
++#if !defined(_RUST_SAMPLE_TRACE_H) || defined(TRACE_HEADER_MULTI_READ)
++#define _RUST_SAMPLE_TRACE_H
++
++#include <linux/tracepoint.h>
++
++TRACE_EVENT(rust_sample_loaded,
++	TP_PROTO(int magic_number),
++	TP_ARGS(magic_number),
 +	TP_STRUCT__entry(
-+		__field(pgoff_t, start)
-+		__field(pgoff_t, end)
-+		__field(bool, state)
++		__field(int, magic_number)
 +	),
-+
 +	TP_fast_assign(
-+		__entry->start = start;
-+		__entry->end = end;
-+		__entry->state = state;
++		__entry->magic_number = magic_number;
 +	),
-+
-+	TP_printk("changed direct map state of guest_memfd range %lu to %lu to %s",
-+		  __entry->start, __entry->end, __entry->state ? "present" : "not present")
++	TP_printk("magic=%d", __entry->magic_number)
 +);
-+#endif
 +
- #endif /* _TRACE_KVM_MAIN_H */
- 
- /* This part must be outside protection */
-diff --git a/virt/kvm/guest_memfd.c b/virt/kvm/guest_memfd.c
-index 54387828dcc6a..a0b3b9cacd361 100644
---- a/virt/kvm/guest_memfd.c
-+++ b/virt/kvm/guest_memfd.c
-@@ -7,6 +7,7 @@
- #include <linux/set_memory.h>
- 
- #include "kvm_mm.h"
-+#include "trace/events/kvm.h"
- 
- struct kvm_gmem {
- 	struct kvm *kvm;
-@@ -169,6 +170,8 @@ static __always_unused int kvm_gmem_folio_set_direct_map(struct folio *folio, pg
- 	r = __kvm_gmem_folio_set_direct_map(folio, start, end, state);
- 	folio_unlock(folio);
- 
-+	trace_kvm_gmem_direct_map_state_change(start, end, state);
++#endif /* _RUST_SAMPLE_TRACE_H */
 +
- unlock_xa:
- 	xa_unlock(&gmem_priv->direct_map_state);
- out:
-@@ -216,6 +219,8 @@ static __always_unused int kvm_gmem_set_direct_map(struct inode *inode, pgoff_t
- 		folio_batch_release(&fbatch);
- 	}
++/* This part must be outside protection */
++#include <trace/define_trace.h>
+diff --git a/rust/bindings/bindings_helper.h b/rust/bindings/bindings_helper.h
+index 752572e638a6..b072c197ce9e 100644
+--- a/rust/bindings/bindings_helper.h
++++ b/rust/bindings/bindings_helper.h
+@@ -23,6 +23,7 @@
+ #include <linux/tracepoint.h>
+ #include <linux/wait.h>
+ #include <linux/workqueue.h>
++#include <trace/events/rust_sample.h>
  
-+	trace_kvm_gmem_direct_map_state_change(start, end, state);
+ /* `bindgen` gets confused at certain things. */
+ const size_t RUST_CONST_HELPER_ARCH_SLAB_MINALIGN = ARCH_SLAB_MINALIGN;
+diff --git a/samples/rust/Makefile b/samples/rust/Makefile
+index 03086dabbea4..f29280ec4820 100644
+--- a/samples/rust/Makefile
++++ b/samples/rust/Makefile
+@@ -1,6 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
++ccflags-y += -I$(src)				# needed for trace events
+ 
+ obj-$(CONFIG_SAMPLE_RUST_MINIMAL)		+= rust_minimal.o
+-obj-$(CONFIG_SAMPLE_RUST_PRINT)			+= rust_print.o
++obj-$(CONFIG_SAMPLE_RUST_PRINT)			+= rust_print.o rust_print_events.o
+ 
+ subdir-$(CONFIG_SAMPLE_RUST_HOSTPROGS)		+= hostprogs
+diff --git a/samples/rust/rust_print.rs b/samples/rust/rust_print.rs
+index 6eabb0d79ea3..6d14b08cac1c 100644
+--- a/samples/rust/rust_print.rs
++++ b/samples/rust/rust_print.rs
+@@ -69,6 +69,8 @@ fn init(_module: &'static ThisModule) -> Result<Self> {
+ 
+         arc_print()?;
+ 
++        trace::trace_rust_sample_loaded(42);
 +
- 	xa_unlock(&gmem_priv->direct_map_state);
- out:
- 	return r;
+         Ok(RustPrint)
+     }
+ }
+@@ -78,3 +80,19 @@ fn drop(&mut self) {
+         pr_info!("Rust printing macros sample (exit)\n");
+     }
+ }
++
++mod trace {
++    use core::ffi::c_int;
++
++    kernel::declare_trace! {
++        /// # Safety
++        ///
++        /// Always safe to call.
++        unsafe fn rust_sample_loaded(magic: c_int);
++    }
++
++    pub(crate) fn trace_rust_sample_loaded(magic: i32) {
++        // SAFETY: Always safe to call.
++        unsafe { rust_sample_loaded(magic as c_int) }
++    }
++}
+diff --git a/samples/rust/rust_print_events.c b/samples/rust/rust_print_events.c
+new file mode 100644
+index 000000000000..a9169ff0edf1
+--- /dev/null
++++ b/samples/rust/rust_print_events.c
+@@ -0,0 +1,8 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright 2024 Google LLC
++ */
++
++#define CREATE_TRACE_POINTS
++#define CREATE_RUST_TRACE_POINTS
++#include <trace/events/rust_sample.h>
+
 -- 
-2.47.0
+2.47.0.163.g1226f6d8fa-goog
 
 
 _______________________________________________
