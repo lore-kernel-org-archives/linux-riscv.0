@@ -4,89 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4639EE68956
-	for <linux-riscv@archiver.kernel.org>; Thu, 31 Oct 2024 05:46:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8547FE68956
+	for <linux-riscv@archiver.kernel.org>; Thu, 31 Oct 2024 06:09:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ejscrv7NtDD7lMCZf003FeaMJMJDPb4JqC13u9GcTxo=; b=xu+vahbjTBOJG9
-	FUu4hDKq3qk7h5udhm5w2VhXd+tjv2IHrvbp7/e06KSUj1o70OMAkS+sh0w1+FbjCEnzL43Vqed/0
-	EQEl3mhwIgI9XU3jXVhCCCM0mgyibT3mTu1AmDFA/NEWDq/oPuOYTmhLQBbLYgw0r9PrKKPB8hnfA
-	+QFjg+i1eT7bglnek6ol4/RrNZwvbMZOaviI55OG2RvRGps4emurTri5QJl3gtRjJCxri1klWof5V
-	ZFlfO4IWBqVj+Hy5dTVY3CHhlyr3C3NT7XR342Hodi08laPj0IqlyITaDxrek2Te974Yk6wLGaGmg
-	esuvPqLqoUcO8LHGpAIw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=M3uc+0NAcE8xrYw/0zKHV/rikA7PT9Eqgabcgunnn5Q=; b=QtNfGVLd2nwzGP
+	VHgNMLNgbi2MSB2ScxhRo7Cwq5qDAZbDYs1boS+6ZBZpzSvq4LdwNPrbQuJ3C0K2PyeZ1rLLk2YZG
+	WIV4kHvJ3VitkXbDsNfR2qUOApI3FSTcSEEV/nhSA222VICuPPOgaUBjV6T5Yg3gRq8DigUwey4ax
+	ZZ8brg/19MHxTQEPca8Lnwg+mTmJ0DleD6UHgvjUTdsWUz5eFcdFf6xECbb9Jo+J5R5eDo8dKO937
+	4HHJ1en7NjX0y2B43JPpwqstiojE6z+vGoprElMrgII3wIenRaAM4MqI0ytq2Y76FaOeLzei1xq+3
+	Rzj1EXYgvQ/aMVpCsVdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6O0Q-00000002csK-14Wo;
-	Thu, 31 Oct 2024 05:46:02 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1t6ONC-00000002eMt-1w1m;
+	Thu, 31 Oct 2024 06:09:34 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6O0O-00000002crg-0Ptk
+	id 1t6ON8-00000002eLb-3iNP
 	for linux-riscv@lists.infradead.org;
-	Thu, 31 Oct 2024 05:46:01 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-2e2eba31d3aso429419a91.2
-        for <linux-riscv@lists.infradead.org>; Wed, 30 Oct 2024 22:45:59 -0700 (PDT)
+	Thu, 31 Oct 2024 06:09:32 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-72070d341e5so495737b3a.1
+        for <linux-riscv@lists.infradead.org>; Wed, 30 Oct 2024 23:09:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730353559; x=1730958359; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=x9b2UEQxs0odyhfy9TOY1tUz8U+i9PmL23XX2DMzkGI=;
-        b=Yz8m1zzk6qUma/q8L5/n/qHY4bh16DtnrXsfo+g9MOOFC6uG2+nyFXsKcIcFPOMwvl
-         H/TxqUaLFxOHOe1+rR+na6/7/V2EApPJ/7Ynq4RTYTxiN31va6bOnBAsGgEYL4RmH1kc
-         22a4kX9mGNnGitawLEe4rOgzxwncenaU/ZCTzkf43skgTtK/tG3vBbe6nS0YFt2YRwp9
-         1HfqOWl1yEnAEDRIWeb+0/q3KU5LSKVnKBylJYcJUsSiQ6Z2oWDBn+a7sQjriYBQzpxJ
-         mAPEpU/dMdcXIsTSiK6PGuQ3HMhyQBkhiMqcYJeP9HvmZLh5ASj05aOhJx6NKh9ETtlm
-         iGdQ==
+        d=gmail.com; s=20230601; t=1730354970; x=1730959770; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=+hXhUJ16K48c/4M1PVquU5XI4OJkfgD0FwNltOSyGs8=;
+        b=Xyy5gand+9YsOy7zUQAEuFESyVCchqkVTPGHnBaJOWXyAAmERZK+h6YlQV6A5txJl7
+         SViTuhRsboXm1adO0KXWY2AcU0rLzTyx51pJuE3IsIKDk6Z4LAxEBnfCtnI1RBTZTFBj
+         q89IhmEYp5RGtG2xX95CcDEimn0qyEM5XVQHZAvdoM3e/VgmBWv++Y2w7/rdHqxZyrhA
+         flWWDz4nyEYGWpEvOk9tZpo1GMReBe4ahjBbfRyhTDmARFaCPr4TLqgDYuq8FYhcCBdf
+         CHeJf5IIGFZvpV4bkiL1SelvfxIMSZcr5rslYcDVyepmrHbVHAutR86W/6mOmsmY/Uw9
+         tCGA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730353559; x=1730958359;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=x9b2UEQxs0odyhfy9TOY1tUz8U+i9PmL23XX2DMzkGI=;
-        b=mbozsV+UoSLWbMA6k7qHo9KezyxiWvh1iQCX590XOeJsJ2RMYFcgFfsp6RqcZmLANd
-         BJk9+iGQP5/W9YoLXnHRy1A3f3anvSBOCG8BbiqJjHV8Z4GXriUMYn+9Xy2scjrX5V+v
-         b8BZDPn/ELkZD8v/pJwoSMH/ADeWaLGQ/1WAFq+46/plhy21sVaOxVQeWLWH44AKAXAc
-         CNxVcytBR4W/uqTo3dPArCW12MTcfBhVrqTcaM+W4aGI83rcmzWCq3RL/r0R0KJyDREV
-         9k2yjvK2om1kJrSVkZ2RrmZ+/Qd1mwuGHSA5JBPZmo/ACvp8UAYyVV+zDfmcZR1vuBK7
-         IYIA==
-X-Forwarded-Encrypted: i=1; AJvYcCUsyO+eS8e1c67gYUVCqymj28rAFsO+1N82E9ew2QkXvdsqHQaL3C5gJgVKxwvX6BZJyo0rMqz6SnYo1A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzhKHOU1Jd1ysa291xgC0pAxXSuufVEtNubWMtcxlh8Z0yKnU2c
-	h30/f8RIXP1pelZb2eIVkSXF5Rip/ostfJfaKA8FteJUgz7py/Xi
-X-Google-Smtp-Source: AGHT+IEowWgm7vFzjvUbXcogbmidT9I+NuH0UhkIydSz86yZ+2NbVSVDMLuTxioICPD//NAuV5bhHA==
-X-Received: by 2002:a17:90a:fa8e:b0:2c9:df1c:4a58 with SMTP id 98e67ed59e1d1-2e8f1087e8bmr21635954a91.23.1730353558912;
-        Wed, 30 Oct 2024 22:45:58 -0700 (PDT)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e92fa0ea24sm2839654a91.6.2024.10.30.22.45.57
+        d=1e100.net; s=20230601; t=1730354970; x=1730959770;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+hXhUJ16K48c/4M1PVquU5XI4OJkfgD0FwNltOSyGs8=;
+        b=Dyf9ls4jbaJ9NzeiZ0c3L0vTf1nrZ3IDXvp7ve19nMWMLVNaOodonPXHCU7RkHqlHA
+         JMhhlSlZcJ18OqQyiNg7e7ctSA5CMdzHBNs0G+A/xTYmYL2M+/AML9ICaX1D3io9ssma
+         vbp/uwr8oXQi6//NoMiWgcu7PSLTc4uSPBmonMKMqyEWlv5DsgBMj2/VzQr73F4zAz6j
+         EmaVBrY8cDshLHGBp5ssuUrKPtEDbB7z2YBopxLFtks5zyPsT8CxzL1OCTomN78sxqrD
+         wczo5k5CWUIm4Xx5o2+HSBUqj5ZQTjxj21g1iJkIQF+JSCNZgsWs9etaTtS3CMEFt4P3
+         Vlsg==
+X-Forwarded-Encrypted: i=1; AJvYcCXzcqhrGV8K8uMLeWbvtYP4SyfbTKMttBDBqvziZ4K99nj+Q6VzCVTOZryNwp5mtRGFuvmCO7uYpWPqjA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyf3hxNBOQIRw3AtmOquDsFDC/dwJQmku6a3/ANifQQCLHjGQVx
+	ycfr7HOS/+NB/XR6Vkyq3O36ilpsRSMf8TE1vvrYN2rrFdeMWCBI
+X-Google-Smtp-Source: AGHT+IGZ8LKVJxabPfVlar0jt5TJvCKTWMjDb3+j9MXgWzPHCHpqAnxCluoqe0yzk5w7hesyU6UCxw==
+X-Received: by 2002:a05:6a00:1397:b0:714:15ff:a2a4 with SMTP id d2e1a72fcca58-720b9c96d0emr2848144b3a.13.1730354969715;
+        Wed, 30 Oct 2024 23:09:29 -0700 (PDT)
+Received: from localhost ([121.250.214.124])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-720bc1b86b2sm572230b3a.37.2024.10.30.23.09.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Oct 2024 22:45:57 -0700 (PDT)
-Date: Thu, 31 Oct 2024 13:45:29 +0800
+        Wed, 30 Oct 2024 23:09:29 -0700 (PDT)
 From: Inochi Amaoto <inochiama@gmail.com>
-To: Anup Patel <anup@brainfault.org>, Thomas Gleixner <tglx@linutronix.de>
-Cc: Inochi Amaoto <inochiama@gmail.com>, 
-	Chen Wang <unicorn_wang@outlook.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Peter Zijlstra <peterz@infradead.org>, 
-	Inochi Amaoto <inochiama@outlook.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, Yangyu Chen <cyy@cyyself.name>, 
-	Hal Feng <hal.feng@starfivetech.com>, Yixun Lan <dlan@gentoo.org>, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 2/3] irqchip: add T-HEAD C900 ACLINT SSWI driver
-Message-ID: <t77tpj3zmabezppo4f2znseauml7w22zdddotdoenmhalm2yaq@vxkjqkleut6w>
-References: <20241022040218.450573-1-inochiama@gmail.com>
- <20241022040218.450573-3-inochiama@gmail.com>
- <87jzdr2vyg.ffs@tglx>
- <CAAhSdy3Rmhhv5uzOzCT_B3EzQiXgV1FejZQbc5sLpwwFOXd5cg@mail.gmail.com>
+To: Chen Wang <unicorn_wang@outlook.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Guo Ren <guoren@kernel.org>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Yangyu Chen <cyy@cyyself.name>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Hal Feng <hal.feng@starfivetech.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v5 0/3] riscv: interrupt-controller: Add T-HEAD C900 ACLINT SSWI
+Date: Thu, 31 Oct 2024 14:08:56 +0800
+Message-ID: <20241031060859.722258-1-inochiama@gmail.com>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAAhSdy3Rmhhv5uzOzCT_B3EzQiXgV1FejZQbc5sLpwwFOXd5cg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_224600_166657_AAB3E9A8 
-X-CRM114-Status: GOOD (  21.58  )
+X-CRM114-CacheID: sfid-20241030_230930_951625_A2A6E9D2 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,36 +104,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBPY3QgMzEsIDIwMjQgYXQgMTA6Mzc6MTBBTSArMDUzMCwgQW51cCBQYXRlbCB3cm90
-ZToKPiBIaSBUaG9tYXMsCj4gCj4gT24gVHVlLCBPY3QgMjksIDIwMjQgYXQgMToxNuKAr1BNIFRo
-b21hcyBHbGVpeG5lciA8dGdseEBsaW51dHJvbml4LmRlPiB3cm90ZToKPiA+Cj4gPiBPbiBUdWUs
-IE9jdCAyMiAyMDI0IGF0IDEyOjAyLCBJbm9jaGkgQW1hb3RvIHdyb3RlOgo+ID4gPiBBZGQgYSBk
-cml2ZXIgZm9yIHRoZSBULUhFQUQgQzkwMCBBQ0xJTlQgU1NXSSBkZXZpY2UsIHdoaWNoIGlzIGFu
-Cj4gPiA+IGVuaGFuY2VkIGltcGxlbWVudGF0aW9uIG9mIHRoZSBSSVNDLVYgQUNMSU5UIFNTV0kg
-c3BlY2lmaWNhdGlvbi4KPiA+ID4gVGhpcyBkZXZpY2UgYWxsb3dzIHRoZSBzeXN0ZW0gdG8gc2Vu
-ZCBpcGkgdmlhIGZhc3QgZGV2aWNlIGludGVyZmFjZS4KPiA+ID4KPiA+ID4gU2lnbmVkLW9mZi1i
-eTogSW5vY2hpIEFtYW90byA8aW5vY2hpYW1hQGdtYWlsLmNvbT4KPiA+Cj4gPiBDYW4gc29tZW9u
-ZSBmcm9tIHRoZSBSSVNDViBmb2xrcyBwbGVhc2UgY29uZmlybSB0aGF0IHRodGlzIGlzIGdvb2Qg
-dG8KPiA+IGdvPwo+IAo+IFRoZSBULUhFQUQgQzkwMCBBQ0xJTlQgU1NXSSBpcyBub3QgY29tcGxp
-YW50IHRvIGFueSBSSVNDLVYgc3BlY2lmaWNhdGlvbgo+IHNvIGF0IHRoaXMgcG9pbnQgaXQgaXMg
-YSBULUhFQUQgc3BlY2lmaWMgZGV2aWNlLiBUaGUgUklTQy1WIEFDTElOVCBTU1dJCj4gc3BlY2lm
-aWNhdGlvbiBjaXRlZCBieSB0aGlzIGRyaXZlciB3YXMgbmV2ZXIgcmF0aWZpZWQgYnkgUklTQy1W
-IGludGVybmF0aW9uYWwKPiBpbi1mYXZvciBvZiB0aGUgcmF0aWZpZWQgUklTQy1WIEFJQSBzcGVj
-aWZpY2F0aW9uIHdoaWNoIGhhcyBhIG11Y2ggY2xlYW5lcgo+IHdheSBvZiBkb2luZyBJUEkgKGFz
-IHNvZnR3YXJlIGluamVjdGVkIE1TSXMpIGltcGxlbWVudGVkIGJ5IHRoZSBJTVNJQwo+IGRyaXZl
-ciBhbmQgdGhpcyBhbHNvIHN1cHBvcnRzIElQSSB2aXJ0dWFsaXphdGlvbi4KPiAKPiBTaW5jZSB0
-aGlzIGlzIGEgVC1IRUFEIHNwZWNpZmljIGltcGxlbWVudGF0aW9uLCB0aGUgZGVzY3JpcHRpb24g
-aW4gYWxsCj4gcGF0Y2hlcyBvZiB0aGlzIHNlcmllcyBzaG91bGQgYmUgdXBkYXRlZCB0byByZXBs
-YWNlIHJlZmVyZW5jZXMgb2YgdGhlCj4gUklTQy1WIEFDTElOVCBTU1dJIHNwZWNpZmljYXRpb24g
-d2l0aCBwdWJsaWNseSBhdmFpbGFibGUgVC1IRUFECj4gZG9jdW1lbnRhdGlvbi4gT25jZSwgdGhp
-cyBpcyBkb25lLCBJIHRoaW5rIHRoaXMgc2VyaWVzIGNhbiBnbyBhaGVhZC4KPiAKPiBSZWdhcmRz
-LAo+IEFudXAKClRoYW5rcyBmb3IgeW91ciBraW5kbHkgZXhwbGFuYXRpb24uIEkgd2lsbCB1cGRh
-dGUgYWxsIHRoZSBkZXNjcmlwdGlvbgphYm91dCB0aGVzZSBwYXRjaC4KClJlZ2FyZHMsCklub2No
-aQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
-cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+New version of T-HEAD C920[1] implement a fully featured ACLINT device
+(This core is used by Sophgo SG2044). This ACLINT device provides a
+SSWI field to support fast S-mode IPI. This SSWI device is like the
+MSWI device in CLINT/ACLINT, but for S-mode.
+
+Add full support for T-HEAD C900 SSWI device.
+
+[1] https://www.xrvm.com/product/xuantie/C920
+
+Changed from v1:
+1. patch 2: use computed reg offset to avoid uncessary reg additions
+   when setting/clearing irq.
+2. patch 2: fix mulitple format issues and improve some comments.
+3. patch 2: disable cpu irq when CPU is stopped.
+
+Changed from v2:
+1. patch 2: add SXSTATUS.CLINTEE check for T-HEAD cores.
+2. patch 2: add select GENERIC_IRQ_IPI_MUX in Kconfig
+
+Changed from v3:
+1. patch 2: add SMP depends in Kconfig
+
+Changed from v4:
+1. patch 1/2: update the description to mark the device is T-HEAD specific
+
+Inochi Amaoto (3):
+  dt-bindings: interrupt-controller: Add Sophgo SG2044 ACLINT SSWI
+  irqchip: add T-HEAD C900 ACLINT SSWI driver
+  riscv: defconfig: Enable T-HEAD C900 ACLINT SSWI drivers
+
+ .../thead,c900-aclint-sswi.yaml               |  58 ++++++
+ arch/riscv/configs/defconfig                  |   1 +
+ drivers/irqchip/Kconfig                       |  12 ++
+ drivers/irqchip/Makefile                      |   1 +
+ drivers/irqchip/irq-thead-c900-aclint-sswi.c  | 176 ++++++++++++++++++
+ include/linux/cpuhotplug.h                    |   1 +
+ 6 files changed, 249 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-sswi.yaml
+ create mode 100644 drivers/irqchip/irq-thead-c900-aclint-sswi.c
+
+--
+2.47.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
