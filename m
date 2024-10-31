@@ -4,88 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2934E6748C
-	for <linux-riscv@archiver.kernel.org>; Thu, 31 Oct 2024 22:47:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3A3EE6748F
+	for <linux-riscv@archiver.kernel.org>; Thu, 31 Oct 2024 23:13:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xcERKbnEerprrafyGsimCYbX3M0VxHLZXlqulWdT2NM=; b=MywdJN+Eog5qTQ
-	w1Eu3DPbU1v6tXgxdTj7PxTjeaFcPq4SRzIjCN+AuqhVK5vmN+jhFScmHoZgRi8Zz+7wz9CysJM1X
-	tjNfOPB1zCxAln7MYQYonSXHrh2iYqRatli+uFyK+6JbXIph5JDBwxbmiuYAdhYsNerG8P587e8fM
-	5nPngqPqeOzuKIJS8JLDwq+GDlNLx1YB7i7q2LcWX8yZA8a/p8OP+i0WohzxZsJB9cYVn5CXG+1Il
-	SInrN/bZJClviGxfJH91ZHYXp5sq7w30x7U7COzVKDQWixU7psFiPVVciu/gfaRPanbXfNh8NJ4Gt
-	qnONdxufU+nqq6Emazgw==;
+	List-Owner; bh=cITVX5ISmG40PPqo7QSjZOIuedTH8MMjncA1BCQVV+c=; b=Vdh1llTr2TMHL1
+	MYvgWvX3fGmouw8jrVbY+U6ZowKZiuYzzaUqbLw3IxzoajELbvikSztTVhCruCG4jt1ahaaUsEqbV
+	Hcu1J5f+kNaxfe3eR+rXLjdEVKEJXyAiJgusgZMOgXj62YKHIo4S9s3TZDUgT8Y9GPb2g9Baksb5d
+	bta2T5tIxAFanjrWhQxizJaHfL6BXaT7iGoaZgiN3aYMFZezuIM9nDC1qRr5paPhL+RTOJH0t7Gmc
+	iT2Kid/YYNjv0n1GnoZuy48Ae07nfcTCfon7oIXpKlHVm5XHjdzVurUk5+AS7lK3dp6mqY1+hdgIs
+	iynmnZCa79kvrCbqvUwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6dwh-000000055b3-05MX;
-	Thu, 31 Oct 2024 22:47:15 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1t6eMD-000000059cF-0KWf;
+	Thu, 31 Oct 2024 23:13:37 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6dwe-000000055Zy-47u1
+	id 1t6eM9-000000059aR-0hia
 	for linux-riscv@lists.infradead.org;
-	Thu, 31 Oct 2024 22:47:14 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-20c7ee8fe6bso13818925ad.2
-        for <linux-riscv@lists.infradead.org>; Thu, 31 Oct 2024 15:47:11 -0700 (PDT)
+	Thu, 31 Oct 2024 23:13:35 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-2e2eba31d3aso1087723a91.2
+        for <linux-riscv@lists.infradead.org>; Thu, 31 Oct 2024 16:13:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730414831; x=1731019631; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1730416412; x=1731021212; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=wQCrudqNvXdy7lrxuF49N08JEGcOIqKAEAmppY5ECKA=;
-        b=B+7N003WVjMDe/7Qsx2tUXj9pbjeEM5wShqRiaTAgkP9Frw8S6l+QTsqBs9z+tammm
-         atWadPnsM8TEFWxNF7Q/AOyn6jysT+pMFgkMOAbZrS7rvuk9F8uwruwq67hs/PXsUzJ5
-         WXy3fiBwXlk4rIpYcUoI4CnIZPEfRMdWRF+WZSttNy7Zzk/mn8nqWkWevyC6ziUXXk/z
-         o2gSQuHKsU+LHRV4iIneHvpkZVVfr4qt7fuL3bRkR2iJd/+mCpZdnDleOxuB5LYbOCNQ
-         yHCjj9lx4JesM+GigN8z9FWSXFbo694onhFZeisplVvSsj6nr/5UhxOHv+8nmWDnJLeO
-         1dkw==
+        bh=Ii0kEwrxMeKD6ai8F4P/+h5BX5m5f6101kjzvcy1Bp8=;
+        b=cWpMHsJUKL4crVx8qu9L6UjIAyZX8Fjfjr5JUIK7VHWs9VTJXRnNqHnqejxTggZoXO
+         sJxdsGXrIYnt1iHWpBRQw8GiyagMO9fjPKEtZViECjPEFf7IAcj8pB4ghTz/pzw25mhB
+         mUSLZL1PSZ8Zl0QWM/xIey/WfNAmclexzHHmozOcS9tW4hYLJ1D3ynSMjE90Uqx51zOh
+         2jIbh6LhwOaGzD4YzHOc0/RhOO20rkTWPNzZGMK9EXq4EMQDDGz5L3q1xxI1Ui8r9o5G
+         7wlKozECBeGNxvpavK+znngNrfY9rak5X/TNzyH/Qn4GDiTuAeWwxHk1C0fgjTcEJEj1
+         jmVw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730414831; x=1731019631;
+        d=1e100.net; s=20230601; t=1730416412; x=1731021212;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=wQCrudqNvXdy7lrxuF49N08JEGcOIqKAEAmppY5ECKA=;
-        b=EKehlJimhyvryCIMPfGprKudUZRGx77FPulJgvIKdYc0gK6n+HEJE48/U8PO0i2wZd
-         XbSEsjz6DZl+ah9nu2YnFWo1KNeZYyroJt3G4ZJvufJfezdqHzF1iom9TssBK2INMkUc
-         bFLDgqzgnjgMVWZNO57xk00Q8xrGOJpmBLdAGw3g8wwiXK0UWr5M8ir7QCbe5/Am3MJb
-         2Cy+1bxWUvEWnU1kAti4J+liYaOIDjJMuYmMrfggak1MlN87/ZY1JA9dUBN7ZL8eUSzG
-         yu7aXmpm1j6Y+Pm0FF3nazS3S3+n5st88WvwACCrPfsv3fXFVxDhqDe7H4ZJL5JSLg5a
-         96aA==
-X-Forwarded-Encrypted: i=1; AJvYcCWqbEg1rSWiamibFZ3x8No5lhsDUIq910LTMgkz9ieaGObTm5OutLpwx7EB7faYxw5DXvVytaKAQVws4Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxGLO01rvAgWyzc3RAl33AlZSiqzsyFzo42KG3dfGm/RPb0IClX
-	QEP5YBBTIHWp3UYApZVy1c0H0CmewFQ4uNSvuolgC1e///ELFDjt
-X-Google-Smtp-Source: AGHT+IHG/sKyN58dDIoIT5G3OVlXe0NhTIIngTp1CVkh2jnU+eHCNSuLvxChS6xstMqP1z4RZCpBEw==
-X-Received: by 2002:a17:902:e5c2:b0:20b:6188:fc5e with SMTP id d9443c01a7336-210c6ae9baemr269872565ad.28.1730414830985;
-        Thu, 31 Oct 2024 15:47:10 -0700 (PDT)
+        bh=Ii0kEwrxMeKD6ai8F4P/+h5BX5m5f6101kjzvcy1Bp8=;
+        b=W4A1zZ9r10nvuitzd50zVbc3nH3EGxqLpUclrr8E6yKHtB4WQzD9R1g5UKgpNe1b3L
+         DLtQbpy/+e/+O0jsIaTODvfNhO7gRWuiTAcp9VwO3vJDwoOrQCtmbJGygaZf3oPRIz5c
+         mSGoi56pDYtd/2XnvSSnPg98mc+ZtgACaZKqK0LhtBHW0JXk3pzeN7azvHmNnAJ09R3f
+         hNuSUqcjXnFdd6/l+yidWVEIBXR/4cznKc91uTZTJmC8GI0+HOO92nZ+wCoXWEmjlhsV
+         hLoN8d0SBCkq5YApAF/894t49t+bM1SOwal8X+9pu72kfrdce2lkBSk+pgodbE47tmaW
+         vgpQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVDgC9ihjKYh26KUDhn0npkTBljcBvVtyFv8YZxu0RvN0ysDCJhxIYa88y9f2R5/gbN8TVx8SXGnBgMpQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzBuK1IYhyvFONaTUTV4u81PK/Qdg16fZRSjTQOZFyLb15znlsN
+	rq1oaZimrdkuBdKJASzTLLjwBarcOnFjoztoDW6CdNRlRSwjGrEm
+X-Google-Smtp-Source: AGHT+IGT9BughKRRNW5nz1IyDJrjjO/pXrWdnusD1MQeMuR+s0APSOVSBqdDkMHvxgC5e8Kip24JwQ==
+X-Received: by 2002:a17:90b:1c10:b0:2e2:cef9:8f68 with SMTP id 98e67ed59e1d1-2e8f1059571mr24207222a91.4.1730416411738;
+        Thu, 31 Oct 2024 16:13:31 -0700 (PDT)
 Received: from localhost ([121.250.214.124])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e93daacb29sm1700296a91.14.2024.10.31.15.47.10
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e92fa57cc3sm3936055a91.32.2024.10.31.16.13.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 31 Oct 2024 15:47:10 -0700 (PDT)
-Date: Fri, 1 Nov 2024 06:46:39 +0800
+        Thu, 31 Oct 2024 16:13:31 -0700 (PDT)
+Date: Fri, 1 Nov 2024 07:13:03 +0800
 From: Inochi Amaoto <inochiama@gmail.com>
-To: Andrew Lunn <andrew@lunn.ch>, Inochi Amaoto <inochiama@gmail.com>
-Cc: Chen Wang <unicorn_wang@outlook.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Inochi Amaoto <inochiama@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+To: Thomas Gleixner <tglx@linutronix.de>, Conor Dooley <conor@kernel.org>, 
+	Inochi Amaoto <inochiama@gmail.com>
+Cc: Conor Dooley <conor+dt@kernel.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
 	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Richard Cochran <richardcochran@gmail.com>, Jisheng Zhang <jszhang@kernel.org>, 
-	Thomas Bonnefille <thomas.bonnefille@bootlin.com>, Liu Gui <kenneth.liu@sophgo.com>, Yixun Lan <dlan@gentoo.org>, 
-	Longbin Li <looong.bin@gmail.com>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH] riscv: dts: sophgo: Add ethernet configuration for cv18xx
-Message-ID: <nkydxanwucqmbzzz2fb24xyelrouj6gvhuuou2ssbf4tvvhfea@6uiuueim7m3a>
-References: <20241028011312.274938-1-inochiama@gmail.com>
- <87e215a7-0b27-4336-9f9c-e63ade0772ef@lunn.ch>
- <wgggariprpp2wczsljy3vw6kp7vhnrifg6soxdgiio2seyctym@4owbzlg3ngum>
- <ftfp2rwkytqmzruogcx66d5qkn4tzrgyjtlz4hdduxhwit3tok@kczgzrjdxx46>
- <e389a60d-2fe3-46fd-946c-01dd3a0a0f6f@lunn.ch>
+	Peter Zijlstra <peterz@infradead.org>, Inochi Amaoto <inochiama@outlook.com>, 
+	Guo Ren <guoren@kernel.org>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	Yangyu Chen <cyy@cyyself.name>, Anup Patel <apatel@ventanamicro.com>, 
+	Hal Feng <hal.feng@starfivetech.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v5 1/3] dt-bindings: interrupt-controller: Add Sophgo
+ SG2044 ACLINT SSWI
+Message-ID: <tjoe7t45tbogrjmyip6lhkqprpc42mkmgysb7xinoreehsgnz7@uqqsp6llevy5>
+References: <20241031060859.722258-1-inochiama@gmail.com>
+ <20241031060859.722258-2-inochiama@gmail.com>
+ <esuteqvz37blehx6wa5cj5ixlglcbullhuls3rcvjtuiviqqpb@ojho3arlnwst>
+ <20241031-armored-marbled-36cfb6d599e3@spud>
+ <87ikt8wh8l.ffs@tglx>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <e389a60d-2fe3-46fd-946c-01dd3a0a0f6f@lunn.ch>
+In-Reply-To: <87ikt8wh8l.ffs@tglx>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_154713_049652_CA33E442 
-X-CRM114-Status: GOOD (  22.77  )
+X-CRM114-CacheID: sfid-20241031_161333_239010_2405A138 
+X-CRM114-Status: GOOD (  17.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,74 +106,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 31, 2024 at 02:04:31PM +0100, Andrew Lunn wrote:
-> > > > > +		gmac0: ethernet@4070000 {
-> > > > > +			compatible = "snps,dwmac-3.70a";
-> > > > > +			reg = <0x04070000 0x10000>;
-> > > > > +			clocks = <&clk CLK_AXI4_ETH0>, <&clk CLK_ETH0_500M>;
-> > > > > +			clock-names = "stmmaceth", "ptp_ref";
-> > > > > +			interrupts = <31 IRQ_TYPE_LEVEL_HIGH>;
-> > > > > +			interrupt-names = "macirq";
-> > > > > +			phy-handle = <&phy0>;
-> > > > > +			phy-mode = "rmii";
-> > > > > +			rx-fifo-depth = <8192>;
-> > > > > +			tx-fifo-depth = <8192>;
-> > > > > +			snps,multicast-filter-bins = <0>;
-> > > > > +			snps,perfect-filter-entries = <1>;
-> > > > > +			snps,aal;
-> > > > > +			snps,txpbl = <8>;
-> > > > > +			snps,rxpbl = <8>;
-> > > > > +			snps,mtl-rx-config = <&gmac0_mtl_rx_setup>;
-> > > > > +			snps,mtl-tx-config = <&gmac0_mtl_tx_setup>;
-> > > > > +			snps,axi-config = <&gmac0_stmmac_axi_setup>;
-> > > > > +			status = "disabled";
-> > > > > +
-> > > > > +			mdio {
-> > > > > +				compatible = "snps,dwmac-mdio";
-> > > > > +				#address-cells = <1>;
-> > > > > +				#size-cells = <0>;
-> > > > > +
-> > > > > +				phy0: phy@0 {
-> > > > > +					compatible = "ethernet-phy-ieee802.3-c22";
-> > > > > +					reg = <0>;
-> > > > > +				};
-> > > > > +			};
-> > > > 
-> > > > It is not clear to me what cv18xx.dtsi represents, 
-> > > 
-> > > This is a include file to define common ip for the whole
-> > > cv18xx series SoCs (cv1800b, cv1812h, sg2000, sg2000).
-> > > 
-> > > > and where the PHY node should be, here, or in a .dts file. 
-> > > > Is this a SOM, and the PHY is on the SOM? 
-> > > 
-> > > The phy is on the SoC, it is embedded, and no external phy
-> > > is supported. So I think the phy node should stay here, not 
-> > > in the dts file.
-> > 
-> > There is a mistake, Some package supports external rmii/mii
-> > phy. So I will move this phy definition to board specific.
+On Thu, Oct 31, 2024 at 02:10:18PM +0100, Thomas Gleixner wrote:
+> On Thu, Oct 31 2024 at 12:38, Conor Dooley wrote:
+> > On Thu, Oct 31, 2024 at 02:14:40PM +0800, Inochi Amaoto wrote:
+> >> On Thu, Oct 31, 2024 at 02:08:57PM +0800, Inochi Amaoto wrote:
+> >> > Sophgo SG2044 has a new version of T-HEAD C920, which implement
+> >> > a fully featured T-HEAD ACLINT device. This ACLINT device contains
+> >> > a SSWI device to support fast S-mode IPI.
+> >> > 
+> >> > Add necessary compatible string for the T-HEAD ACLINT sswi device.
+> >> > 
+> >> > Link: https://www.xrvm.com/product/xuantie/C920
+> >> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> >> 
+> >> Hi, Conor,
+> >> 
+> >> Could you review it again? I have updated the description of
+> >> the binding and mark the device is T-HEAD specific.
+> >
+> > Only thing I would say is that
+> > title: Sophgo sg2044 ACLINT Supervisor-level Software Interrupt Device
+> > should probably be
+> > title: T-Head c900 ACLINT Supervisor-level Software Interrupt Device
+> > or similar, since this isn't Sophgo's IP.
+> >
+> > w/ that,
+> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> > (dunno if Thomas is willing to change that on application)
 > 
-> When there is an external PHY, does the internal PHY still exists? If
-> it does, it should be listed, even if it is not used.
-> 
-> Do the internal and external PHY share the same MDIO bus? 
+> Yes
 
-They share the same MDIO bus and phy id setting. When an external phy
-is select, the internal one is not initialized and can not be accessed
-by the SoC.
-
-> I've seen some SoCs with complex MDIO muxes for internal vs external
-> PHYs.
-> 
-> 	Andrew
-
-There is a switch register on the SoC to decide which phy/mode is used. 
-By defaut is internal one with rmii mode. I think a driver is needed to
-handle this properly.
-
-Regards,
-Inochi
+Thanks.
 
 _______________________________________________
 linux-riscv mailing list
