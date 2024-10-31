@@ -4,54 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 196D7D6B6A7
-	for <linux-riscv@archiver.kernel.org>; Thu, 31 Oct 2024 12:22:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 436B9D6B6A7
+	for <linux-riscv@archiver.kernel.org>; Thu, 31 Oct 2024 12:22:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=8tM0QATJCeES2ZioA/m9AheW1vwVURHYa9Y1fHIEJQA=; b=uVc
-	4WlyeD6gqL9Xl7lr82C4AoUB+jO+TlDP6xrBx1MU0gtJBoI9hqMsRnrUA1Uf7SlNn1NyHYKlc8LtS
-	GjupECCAUiOjLfvhQrQ73ZwiDViLF8kbuMVX0oUOOolXpQo8Dwk+ncLp+a8WU6b0xJMAiXjt6rKtK
-	t9pD9cJ0k6s8JSHVjfEMKvwp3HeRgnpe8ipDYd48FGFvu4kofwyyoWxhw4guEJSzHLs2gW31xEJyY
-	owWjsuAEhbdNOKfKS6fIVA1+KZAZ1Ndzn2j6ra0Ebd9KTgx027zj31KRc04QD452IJ3+IksnKih7S
-	WYALsuqgm0DnJI+K09fOnXGulUmuxSA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XruraQjK8nfH14TuupKjcV8lKjyMUpSFVNJ08+xGgvc=; b=C4MSlwqsDSNtdR
+	9Z/Jmg+TnXosTyqXe/hLUHyiL4oCCbZlO8Uy79Zng1pM29tpMiRtVgzKVBVZnPIfX1Q/9ip/oB0Nj
+	LWwIGsvBI+WVLFofDO6O8b80EsOh7JY8B4O4dRDsrNBJmBjUw5YNBJ1WwjRwkK1o+mqPBoDtj3jc+
+	0QVmdQwe5giKrVIwiU5ip0keN8tREE/NIUrJL/fg2p7+2QKfuGSJQTAc/yoduikOVvN68l1vJ8bbt
+	aaQmBhMnHyQbBjlfdSrxppayssg2SPnYVO7J8aryTWNVyJ9mJOD+xegeotQXmODFyrRZyI2fh3Ypd
+	wLzBMKaWrP8i+TA/grcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6UCJ-00000003Vqn-3ycA;
+	id 1t6UCJ-00000003Vqh-1Pz2;
 	Thu, 31 Oct 2024 12:22:43 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6UBz-00000003Vpd-0dqG
+	id 1t6UB3-00000003ViG-0f1C
 	for linux-riscv@lists.infradead.org;
-	Thu, 31 Oct 2024 12:22:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 29B2AA4417E
-	for <linux-riscv@lists.infradead.org>; Thu, 31 Oct 2024 12:20:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6850C4E671;
-	Thu, 31 Oct 2024 12:22:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730377341;
-	bh=1CwaCKaAMFiIdn0h6+nFasiEDWSxxpKstil5b0DbBG0=;
-	h=Date:From:To:Cc:Subject:From;
-	b=SbYWQ5ijCpOBDSwCVkiITvxKkQy9BPXK/4/Ok2DFQKEtTrY4RIMQ+VnX77Eu7Ool+
-	 Q8pjDfNwr5hfUzyNqXuXn5zqGgGwy/acP2OBXwSN+JT1SRlLZZq/bV8jLDFyModLN/
-	 WFN5ZZhT1QsKpIBLmqHBzFh8oY7ycKWzfDNtLqqzDqBCUqWRCrstb+PpXY4VnR+rKO
-	 yGhzRAD5HrodvlLonzWN2rzlgDiRu5ygoU5uAN20A2lEhAy3cZGQl7UGb5ZDUrK8ba
-	 nL1QnugES9xpusokSTxjqtXRIct4lME5nevSxRLLK/PewucVtvwa8oXAAOqSINK9Nz
-	 5SIxF25CttgPQ==
-Date: Thu, 31 Oct 2024 12:22:18 +0000
-From: Conor Dooley <conor@kernel.org>
-To: soc@kernel.org
-Cc: conor@kernel.org, linux-riscv@lists.infradead.org
-Subject: [GIT PULL] RISC-V soc fixes for v6.12-rc6
-Message-ID: <20241031-colossal-cassette-617817c9bec3@spud>
+	Thu, 31 Oct 2024 12:21:26 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-43169902057so7010375e9.0
+        for <linux-riscv@lists.infradead.org>; Thu, 31 Oct 2024 05:21:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1730377283; x=1730982083; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=tifA01aEwpCB7k+rl2olkAmgjeZifjZgKwXOFawd/9Q=;
+        b=UxeIlhioEhpvORkr42w3F8ojBAqdjhIE4OvAu52wDR9PHWiLsHVR3YTgEHuQSiBlG5
+         gHK92li/YDrHEffZhfYAi/RAjdbzbNnny4HnZB0A15IeIe0TbeOKKShlKHBkD6w1wbNS
+         KNQG6yWTnUyNF1nSUp7bmO35hwb8YFPeAQnK0xOSKww/Ik+JT1hcjNdd/mqxrZ4RqfjM
+         WNGo5BAZK6h1ajhimoXp/Ay/9Gh81Bz3EuxcQSJS9XoHUHDqQvcbCC6/4xKf4Enw3FyV
+         AcN8H/vJn+wbto9s0u3mGMY5RwH4gS4FQ92M03mNNVNDmXqPrWA+YFspsNZakny0D0NN
+         B/mw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730377283; x=1730982083;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=tifA01aEwpCB7k+rl2olkAmgjeZifjZgKwXOFawd/9Q=;
+        b=vWZY2Y2mBmMz4zQZDRlfugQVMP6pZWxxtukhMKVaJzasNLIRNBP0gZsN+qzDZvOR1X
+         IllGXRDvpYu/xmAXWpQp2vqzX93itI+w8RmEEt8LMF1NBVQGoGmL7jtxCQi8rhptSc8D
+         K+YvqGkp10mR+3BLWUtplyHlkBoGRyMm1xjNmRBuvMDTGRvqPq2AJHZr4OaK3K2bdEoY
+         PVNCQxNm+Nn9fyhxmwM1ALOGIKgmBHBmcRpaCYnlv1FR9+pwBx36nK8bHkRWxOLILW4c
+         tN949poyBS2XGJPxgQktBowJWP868fkTrKa1JYmuVSS8Xtd/4BZZpuJcUGNHfCYOA9wP
+         gGdg==
+X-Forwarded-Encrypted: i=1; AJvYcCVcjk51UljI/qOpglz46rEc52W/GefNAiqXLTvQL0Jqdm+abmF9jB9SN9asiP8cBUcfYvHaVa3C2d189w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxK7OgSmVjj92Nb5R6CIXYm8FbRqDjfIPyl4GQzOGknEtGuGMsq
+	3TJqQZwktLL+0BY68SsvsWE7nhm5zLgICD97BekY1e8wIZvyvF3H
+X-Google-Smtp-Source: AGHT+IHBp1TxQM76X7gohSGb17rZI4WDJf50xd41RLJtG/+yD5bf+XGvKdhWF0CXlWSUO85e3Qvd4A==
+X-Received: by 2002:a05:600c:19d3:b0:431:5044:e388 with SMTP id 5b1f17b1804b1-431bb9d0aeamr60992515e9.22.1730377283328;
+        Thu, 31 Oct 2024 05:21:23 -0700 (PDT)
+Received: from [127.0.1.1] (2a02-8389-41cf-e200-d7b9-afdb-c541-d023.cable.dynamic.v6.surfer.at. [2a02:8389:41cf:e200:d7b9:afdb:c541:d023])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381c10b7e1bsm1975728f8f.1.2024.10.31.05.21.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 31 Oct 2024 05:21:22 -0700 (PDT)
+From: Javier Carrasco <javier.carrasco.cruz@gmail.com>
+Date: Thu, 31 Oct 2024 13:21:17 +0100
+Subject: [PATCH v2] cpuidle: riscv-sbi: fix device node release in early
+ exit of for_each_possible_cpu
 MIME-Version: 1.0
+Message-Id: <20241031-cpuidle-riscv-sbi-cleanup-v2-1-aae62d383118@gmail.com>
+X-B4-Tracking: v=1; b=H4sIADx2I2cC/32Nyw6CMBBFf4XM2jFtQWJd8R+GRRlGmIRXWmk0h
+ H+3Etcuz0nuuRsE9sIBbtkGnqMEmacE5pQB9W7qGKVNDEaZQitjkZZV2oHRS6CIoRGkgd20Lsi
+ 2yamxJeuyhbRfPD/kdbTvdeJewnP27+Mq6q/9VXP1pxo1KrywujpjyBbKVt3oZDjTPEK97/sH7
+ jkudcIAAAA=
+To: Anup Patel <anup@brainfault.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Atish Patra <atishp@rivosinc.com>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, linux-pm@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Javier Carrasco <javier.carrasco.cruz@gmail.com>
+X-Mailer: b4 0.14-dev
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1730377282; l=1974;
+ i=javier.carrasco.cruz@gmail.com; s=20240312; h=from:subject:message-id;
+ bh=z7qRdrc/aNJJoVPFpdm9WaJa+syCyVzHfCsRPb9pirs=;
+ b=CB9ImtE+5I0MlaIX2MMtoX1tMIgGy+QmeqoCgGwhOl6uPJ//3TZYqNIhCtenKmP9r5lbBf99l
+ Wiw5cWse1/6ApwFEAY3rtmazsgzl3CVlgSV3VpPNZdA+lgRrQprlUkw
+X-Developer-Key: i=javier.carrasco.cruz@gmail.com; a=ed25519;
+ pk=lzSIvIzMz0JhJrzLXI0HAdPwsNPSSmEn6RbS+PTS9aQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_052223_370058_014D7CC1 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20241031_052125_242923_1CBB7D4C 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,97 +103,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2362360974524316130=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The 'np' device_node is initialized via of_cpu_device_node_get(), which
+requires explicit calls to of_node_put() when it is no longer required
+to avoid leaking the resource.
 
---===============2362360974524316130==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="kTm0+sFzuK+Ucblh"
-Content-Disposition: inline
+Instead of adding the missing calls to of_node_put() in all execution
+paths, use the cleanup attribute for 'np' by means of the __free()
+macro, which automatically calls of_node_put() when the variable goes
+out of scope. Given that 'np' is only used within the
+for_each_possible_cpu(), reduce its scope to release the nood after
+every iteration of the loop.
 
+Fixes: 6abf32f1d9c5 ("cpuidle: Add RISC-V SBI CPU idle driver")
+Signed-off-by: Javier Carrasco <javier.carrasco.cruz@gmail.com>
+---
+Changes in v2:
+- Squash patches for mainline solution without intermediate steps.
+- Link to v1: https://lore.kernel.org/r/20241030-cpuidle-riscv-sbi-cleanup-v1-0-5e08a22c9409@gmail.com
+---
+ drivers/cpuidle/cpuidle-riscv-sbi.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
---kTm0+sFzuK+Ucblh
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+diff --git a/drivers/cpuidle/cpuidle-riscv-sbi.c b/drivers/cpuidle/cpuidle-riscv-sbi.c
+index 14462c092039..3a78d6b7598b 100644
+--- a/drivers/cpuidle/cpuidle-riscv-sbi.c
++++ b/drivers/cpuidle/cpuidle-riscv-sbi.c
+@@ -504,12 +504,13 @@ static int sbi_cpuidle_probe(struct platform_device *pdev)
+ 	int cpu, ret;
+ 	struct cpuidle_driver *drv;
+ 	struct cpuidle_device *dev;
+-	struct device_node *np, *pds_node;
++	struct device_node *pds_node;
+ 
+ 	/* Detect OSI support based on CPU DT nodes */
+ 	sbi_cpuidle_use_osi = true;
+ 	for_each_possible_cpu(cpu) {
+-		np = of_cpu_device_node_get(cpu);
++		struct device_node *np __free(device_node) =
++			of_cpu_device_node_get(cpu);
+ 		if (np &&
+ 		    of_property_present(np, "power-domains") &&
+ 		    of_property_present(np, "power-domain-names")) {
 
-Hey Arnd,
+---
+base-commit: 6fb2fa9805c501d9ade047fc511961f3273cdcb5
+change-id: 20241029-cpuidle-riscv-sbi-cleanup-e9b3cb96e16d
 
-Please pull some fixes that I have accumulated for this cycle.
+Best regards,
+-- 
+Javier Carrasco <javier.carrasco.cruz@gmail.com>
 
-Cheers,
-Conor.
-
-The following changes since commit 8e929cb546ee42c9a61d24fae60605e9e3192354:
-
-  Linux 6.12-rc3 (2024-10-13 14:33:32 -0700)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ tags/riscv-soc-fixes-for-v6.12-rc6
-
-for you to fetch changes up to 384f2024e1a100b9b977a697f5e7cb151b00550d:
-
-  MAINTAINERS: invert Misc RISC-V SoC Support's pattern (2024-10-24 16:27:10 +0100)
-
-----------------------------------------------------------------
-RISC-V soc fixes for v6.12-rc6
-
-StarFive:
-Two minor dts fixes, one setting the correct eth phy delay parameters
-and one disabling unused nodes that caused warnings at probe time.
-
-Firmware:
-Fix the poll_complete() implementation in the auto-update driver so that
-it behaves as the framework expects.
-
-Misc:
-Update the maintainer pattern for my dts entry, so that it covers
-the specific platforms listed , rather than including all riscv
-platforms with the list platforms excluded.
-
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-
-----------------------------------------------------------------
-Conor Dooley (3):
-      firmware: microchip: auto-update: fix poll_complete() to not report spurious timeout errors
-      riscv: dts: starfive: disable unused csi/camss nodes
-      MAINTAINERS: invert Misc RISC-V SoC Support's pattern
-
-E Shattow (1):
-      riscv: dts: starfive: Update ethernet phy0 delay parameter values for Star64
-
- MAINTAINERS                                        | 10 +++---
- arch/riscv/boot/dts/starfive/jh7110-common.dtsi    |  2 --
- .../boot/dts/starfive/jh7110-pine64-star64.dts     |  3 +-
- drivers/firmware/microchip/mpfs-auto-update.c      | 42 ++++------------------
- 4 files changed, 12 insertions(+), 45 deletions(-)
-
---kTm0+sFzuK+Ucblh
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZyN2egAKCRB4tDGHoIJi
-0l8BAPwM5TGTM2+fHKZL9/2adoAeE49F75k6RB4gH04AoCG9PgD/V/QzcxcfGFkI
-KjoZYDFLg8MVrgoyz/hxMELOmbij4w8=
-=65OL
------END PGP SIGNATURE-----
-
---kTm0+sFzuK+Ucblh--
-
-
---===============2362360974524316130==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2362360974524316130==--
-
