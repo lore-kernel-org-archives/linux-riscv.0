@@ -4,104 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E80BFE68954
-	for <linux-riscv@archiver.kernel.org>; Thu, 31 Oct 2024 06:15:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EE87E68954
+	for <linux-riscv@archiver.kernel.org>; Thu, 31 Oct 2024 06:16:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2alGwf+8dAhaOoIh/GQyYOGbRijkoboMpveukaQ+0kM=; b=jd97ZdkCmUTP4U
-	sqCqWUKyAmK0nRrMIlGx9zBr18xVa7aZd8zZB9g65ApZ17jFdAkyoG7Oi2bwqirctTQE4BCw0Mwa8
-	QQ+4ju4Fve2XW0SjT6BvkaidqU79DFo4A17KgSqZsMhi70rcZJiW3UWEowS/7QlU45p4nuFOc/UzF
-	dm90a4q3xlRPCb/AmSnNK79s9DXgmq7c1GXW28pA72Ci6B0uoTfGYUWxZAYUOwgz8BEiAvvlTU4Cu
-	ia4QuYGH3Jbyk9ZJw3tT8eKSs10feKPPs8EUxLbfD1rMU8K7XtHG6CotWZaAqNmZ48zwwPodXU4b9
-	LeknkjTAdFuIIa0M+jIA==;
+	List-Owner; bh=L3P1uvJbu/n7t0mSsK0MigTlAPxoAXPI7dNO2uBlKOQ=; b=UVI2+5jtOv/t5c
+	JfRL6Ko/XJic6eFN8//OL0ttMb3teS02uOWRfT4RsSrXo6xqxxuMjCRLqToP5O1yXINZlIpHu9ana
+	9ou4OmpgMHgkls1fT1TfnU6A5xfFuJ+WJxFpiv+qP4QwlM292F5W3M3tEbPTTmZM07eZ9jemVoGaF
+	fP1eV65aTeGZy7Kqu03J8MZ3xghqoAgV81Hprkg3zprMAPT8zTCM0DUWd3jz4lmsZpbbz2UYu1xv+
+	J48OV2wOTGiWehq9rRDoGTjcW5KNZ2a5nMge/sFVUOFURTRHc9UejpU8F+cEo1iJe/0PPGGzMIuOC
+	Ccwc64JHjadsVKrQ7pcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6OSt-00000002f8x-1Nxe;
-	Thu, 31 Oct 2024 06:15:27 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t6OU9-00000002fHh-3oXP;
+	Thu, 31 Oct 2024 06:16:45 +0000
+Received: from mail-il1-x12b.google.com ([2607:f8b0:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6OSr-00000002f8A-0t3G
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 31 Oct 2024 06:15:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=XNHizp3vdR2jJwWfWzhOjHw4wEUjGKp2hXV+t4+ArSE=; b=GkHQCuuGe/iXCgKa/4Udb0I9JE
-	cdLhxFSVSxE7MNRYHsnietvZXMO3u5gj/VsNSRmcwU+SiwlHDHulf2cPvZ7NTlcUaZYt/oHNo00n6
-	vJ6h0sBv29eriz10KI/RcfMsxQl0hxQ+g3DPAtRyIfbCcZEjntp4+DkETElSH0OgiP8t+4mpf2HyP
-	KPGBbSR4sVAqNH56lp7FFoIcsEXgGfBAjwTRL0Jenl+3vz6UWuvlavMxXEL+yHDVpbhdMMDYMN/N1
-	F33w5sI2fVUcKsQ+5wjXgIGOy2Qgrz2T+USL9w9gSGb1dMdqHKCaTEsBE0VgP/VmXi/7XYw/kUzKB
-	5g3DbVtg==;
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6OSg-0000000AOoo-2xCe
+	id 1t6OU7-00000002fH2-2k8E
 	for linux-riscv@lists.infradead.org;
-	Thu, 31 Oct 2024 06:15:22 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-71e592d7f6eso436494b3a.3
-        for <linux-riscv@lists.infradead.org>; Wed, 30 Oct 2024 23:15:10 -0700 (PDT)
+	Thu, 31 Oct 2024 06:16:44 +0000
+Received: by mail-il1-x12b.google.com with SMTP id e9e14a558f8ab-3a3a5cd2a3bso2145775ab.3
+        for <linux-riscv@lists.infradead.org>; Wed, 30 Oct 2024 23:16:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730355309; x=1730960109; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1730355402; x=1730960202; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=XNHizp3vdR2jJwWfWzhOjHw4wEUjGKp2hXV+t4+ArSE=;
-        b=hS8TBB+ivEgCZrBbcZ5jDUhqhjWQfwkYVUyBLXcJ+FEYv8laSMwz0qtaWd2D9wtZAb
-         Jagc/KhGwIvuSAdi43jxdneYWZWmgrclHLp6jCuWCY1P3TtoEh2qy+yqAafcg103lGOT
-         551Qb9WfK8cuEQN9BHs+z300I+eCS97RXz0/RpY2M7zw5BkGkdBVuMLtsI8PeT1EO2Og
-         y86P/UtJ1dDJ5MuPoYFww7q0G1AYa0jgmVQw/IppDKqd88wx/S2/YbnmXutWJpTamsOZ
-         8HVLeDRgVj1VRvkfE9ADWigtjx+5FslMviL5/Ngy2/jB9qiApfClCSKpgzeLhRnPR2NC
-         kDbQ==
+        bh=EuWXK1FTmmyHPdq/HX3ciQnkpD6mZ9pTPXfUjDd7qVw=;
+        b=mSfKUztZjWCXdSl/L/usAkE38YT0O2A6wH7/OXvXTIg0NScme6RJDQM0Yfmci/xdU/
+         t+p+hGpZVAQixSeEcVDPAta2l6FcqVkV3z62S9vbuZBSGZWzBqE3B1ASgVaZPeDOiEmY
+         ZWt/sgNLM0dEx7aVhhlWegpdsjkCjCI2YGXy2bAEstmiyNDpiir3LYKgomWnV691VaIV
+         OzI4OyyYbmB4Fo0xENnemgtipwl+FphBIt3L0IU5AKIQVERxi0hseodxRwcsmmNxhdgy
+         xPYg9UIdAwsFXa8QsI/pXD4/shB5d7mIoQ1PUXXWkMM6NJlzhMoqIwuV28zpmBDrdSdt
+         u1og==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730355309; x=1730960109;
+        d=1e100.net; s=20230601; t=1730355402; x=1730960202;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=XNHizp3vdR2jJwWfWzhOjHw4wEUjGKp2hXV+t4+ArSE=;
-        b=caduQ+KNs4BfL+vZOkst1IfSST3tbgur7R0wS3yU6ZnWvUVBLsM2zsNGTlz/eYHLvy
-         4dEdhgIixVpt5FMYmiQeB3710w+JuX9ErEsZ/GCBvveYS+WThvEZVA0hGrVNVH3v6tFV
-         wMYWTrBOXUjxKrAy0aDGxdAmHnIdY1DbgUiXnm8jnEE1oKUoH5hQPY48bKRuudn+HQGA
-         RpuzGSIL7Vt5BpNUUgGBneycCjwJkmymrWCEWGmFbe8pN3KGcVsPv83GBW7qK2I3KBiG
-         OotFn9t1yNCIeEo6+GPq7OmyDYBfVckI8WHTAzom4tZL3/rR08RKzo2op93q+gjTiEJv
-         AKBw==
-X-Forwarded-Encrypted: i=1; AJvYcCVf4C6LjJXQB5/WcHiBiScywu8r0rugJ1zmYGXcxyfXgm5iK/fRO96hT70DjBEG8vBlKuW6IthxT+v+gg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxNWVntg7wB+M7UIOi5O02GFgoEbiRnswAZO9HeHUkrLhJA7ygJ
-	W5xSu/RT/MatleS+0uEYJb5c3qJ+B0WznFaEBPR0UQvGFt7Bdvgu
-X-Google-Smtp-Source: AGHT+IHe8ZlhfO4mUD9OaBTVRSTp19pxfjwgeX5Q24Oh31kpwAwy3z/U7oVNpbqUXJpwMzMLLWNxEw==
-X-Received: by 2002:a05:6a00:b48:b0:71e:69e:596b with SMTP id d2e1a72fcca58-7206306de29mr24794428b3a.17.1730355308831;
-        Wed, 30 Oct 2024 23:15:08 -0700 (PDT)
+        bh=EuWXK1FTmmyHPdq/HX3ciQnkpD6mZ9pTPXfUjDd7qVw=;
+        b=O8Qvwy68dG08GfHn699UCFc4H8eJSlCGmazUYLG7z4mLbDeNiz3DUxzGaXxHlojyZ4
+         8XHdkR/V5+a71sasivT/z6ogBwTJhKyCYj6pMeqWwkl01kdMVvFb3nde9YZWDmQfIpj2
+         TQwExOnHVJQxUixla65dkENyNeos+6r99sPZBEROyKlpsBtlRhcrz0V9XOxXRSYx8bDs
+         7FUIcmkK1YOgIXsNleZdWl54Mn1u9iJWtHx1e/tUKa7ylvNkrNYm1I5Knqtyp0QvR6/O
+         gavpTUxDmrNCS9DF8jzzmJO3RvQADEesSfhvqq0ZfuJECxAkPeylufOD4eOAa70D8Ozm
+         JLZA==
+X-Forwarded-Encrypted: i=1; AJvYcCVwU7hQfDnPCZ7W1mXIvOdh/Kq/9taaVtNdP+NyRpIkHStt0h/KTnxHVAr68YADjSpgytDgkbpG8L3pDw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIkJ0jH+sj36CpKWFjKpnyaBjF3HXOzGjJnKfzBFLx3nk3i9B+
+	dm1SG12WUFn9Ufu4AsiVuzL4T8T3Kp4DEoCGSQ7dWKRPyuf2L94P
+X-Google-Smtp-Source: AGHT+IEjlco9iARxa0bQC4eLe4X9RvrtbLwAsHFCOo4/n8JV2mCJn3xvzg1nlMhFCJCWEVeRqZ3nSA==
+X-Received: by 2002:a05:6e02:1c29:b0:3a0:8d60:8ba4 with SMTP id e9e14a558f8ab-3a4ed2e066fmr9182655ab.16.1730355402297;
+        Wed, 30 Oct 2024 23:16:42 -0700 (PDT)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-720bc2c54c2sm567916b3a.134.2024.10.30.23.15.08
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7ee452aa703sm499528a12.27.2024.10.30.23.16.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Oct 2024 23:15:08 -0700 (PDT)
-Date: Thu, 31 Oct 2024 14:14:40 +0800
+        Wed, 30 Oct 2024 23:16:41 -0700 (PDT)
+Date: Thu, 31 Oct 2024 14:16:13 +0800
 From: Inochi Amaoto <inochiama@gmail.com>
-To: Conor Dooley <conor+dt@kernel.org>
-Cc: Chen Wang <unicorn_wang@outlook.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Peter Zijlstra <peterz@infradead.org>, Inochi Amaoto <inochiama@outlook.com>, 
-	Guo Ren <guoren@kernel.org>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Yangyu Chen <cyy@cyyself.name>, Anup Patel <apatel@ventanamicro.com>, 
-	Hal Feng <hal.feng@starfivetech.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>, 
-	Inochi Amaoto <inochiama@gmail.com>, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+To: Chen Wang <unicornxw@gmail.com>, linus.walleij@linaro.org, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, inochiama@outlook.com, 
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v5 1/3] dt-bindings: interrupt-controller: Add Sophgo
- SG2044 ACLINT SSWI
-Message-ID: <esuteqvz37blehx6wa5cj5ixlglcbullhuls3rcvjtuiviqqpb@ojho3arlnwst>
-References: <20241031060859.722258-1-inochiama@gmail.com>
- <20241031060859.722258-2-inochiama@gmail.com>
+Cc: Chen Wang <unicorn_wang@outlook.com>
+Subject: Re: [PATCH] dt-bindings: pinctrl: correct typo of description for
+ cv1800
+Message-ID: <3vgu3mw6eqdbv4lbenihpgfouupspeivfox7qu5upxdzfl5l4y@azhfscgilvfs>
+References: <20241029012312.3448287-1-unicornxw@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20241031060859.722258-2-inochiama@gmail.com>
+In-Reply-To: <20241029012312.3448287-1-unicornxw@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_061517_310832_6720F457 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20241030_231643_716983_713CCDA7 
+X-CRM114-Status: GOOD (  16.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,24 +95,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 31, 2024 at 02:08:57PM +0800, Inochi Amaoto wrote:
-> Sophgo SG2044 has a new version of T-HEAD C920, which implement
-> a fully featured T-HEAD ACLINT device. This ACLINT device contains
-> a SSWI device to support fast S-mode IPI.
+On Tue, Oct 29, 2024 at 09:23:12AM +0800, Chen Wang wrote:
+> From: Chen Wang <unicorn_wang@outlook.com>
 > 
-> Add necessary compatible string for the T-HEAD ACLINT sswi device.
+> It should be PINMUX/PINMUX2, not GPIOMUX/GPIOMUX2, see
+> <dt-bindings/pinctrl/pinctrl-cv1800b.h>.
 > 
-> Link: https://www.xrvm.com/product/xuantie/C920
-> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> Fixes: 64aa494de6fa ("dt-bindings: pinctrl: Add pinctrl for Sophgo CV1800 series SoC.")
+> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
+> ---
+>  .../devicetree/bindings/pinctrl/sophgo,cv1800-pinctrl.yaml      | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/pinctrl/sophgo,cv1800-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/sophgo,cv1800-pinctrl.yaml
+> index 1e6a55afe26a..feb4785a3fac 100644
+> --- a/Documentation/devicetree/bindings/pinctrl/sophgo,cv1800-pinctrl.yaml
+> +++ b/Documentation/devicetree/bindings/pinctrl/sophgo,cv1800-pinctrl.yaml
+> @@ -58,7 +58,7 @@ patternProperties:
+>            pinmux:
+>              description: |
+>                The list of GPIOs and their mux settings that properties in the
+> -              node apply to. This should be set using the GPIOMUX or GPIOMUX2
+> +              node apply to. This should be set using the PINMUX or PINMUX2
+>                macro.
+>  
+>            bias-pull-up:
+> 
+> base-commit: 81983758430957d9a5cb3333fe324fd70cf63e7e
+> -- 
+> 2.34.1
+> 
 
-Hi, Conor,
-
-Could you review it again? I have updated the description of
-the binding and mark the device is T-HEAD specific.
-
-Regards,
-Inochi
-
+Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
 
 _______________________________________________
 linux-riscv mailing list
