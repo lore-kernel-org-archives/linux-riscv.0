@@ -4,150 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ED2CE6896B
-	for <linux-riscv@archiver.kernel.org>; Thu, 31 Oct 2024 09:50:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 659D4E68974
+	for <linux-riscv@archiver.kernel.org>; Thu, 31 Oct 2024 10:42:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VicvoL3Blb0Fu9WJgojLx/cKHPCsq8KbvDuMNKz0Sc0=; b=YkYiqSNamepa8Y
-	ZAXj+VjALtY13RPCDH2Ntrfvr5r+FZ9vyxSOrhXgzPCuCaioJ0ker4xca3NfYBXww7LZosjYzsWUZ
-	zgR4/2rpnnjPqBFKcWtwITazHdoIkWOM/MW7JBcJ45K0vjVfUVqEuOZ8Bt95JlM6PTIWJbxH+Dlof
-	3eF5+D1ZKbQFMPIC9+EchWSluHo63rI0xO5xezw2v3NYT3pc1AqFv32R3JkaTTRJHJ+ecy3oKaqIa
-	myytISr3V2fOmAxhuf5pR8fmg/N6+LXZsn0oXp2HitnquAxGeScv6+qlXiUgG0c4qyWfCC9TmWYvu
-	IIKsigVBNySY7R9EqS/A==;
+	List-Owner; bh=p9gs8AO5y1wlbw6UCojltIHWx5dfG/odfK6r2KFCsac=; b=2ErxZ+7SbGqUV/
+	neUd/OzXB4BBZ2Jjqnuaq0fcRJxrj0l60Og1HnZahSmlq5g2XWXbItNkmSChsw+LwFD8REwH1Y60t
+	emmBclXqjRhKSLsGfP6vC3hO+E6/mYpWIAN8dSrol5LMwd5Ufq2kF9aL968mgCFcA3dIYHXmao6G4
+	b0XJJu7aZF1NIrflmITpPymhFTkXJarFl1gLGSZBEq1zbhuOeSPLjmEfFcMB8TBFUhWqZb75RuEgi
+	V0cg5Kfu34lFhmWjFbmr0ukbfYysiKzVEy0KQjVqTugi8aB8ibS/ZvMvW7+Cegl710wM05caPqE5+
+	x5mI0w5WnBCRch91Dpsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6Rot-000000038qH-2T44;
-	Thu, 31 Oct 2024 09:50:23 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1t6SdJ-00000003Has-0Y9r;
+	Thu, 31 Oct 2024 10:42:29 +0000
+Received: from smtp-fw-52003.amazon.com ([52.119.213.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6Rop-000000038p6-0lSu
-	for linux-riscv@lists.infradead.org;
-	Thu, 31 Oct 2024 09:50:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1730368218;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=8dIcxwobV6BNAuIuaE7aLzJugH838eIdiZ2hVMt1ILQ=;
-	b=W7x3+uoMCQhYfayA53p63kRppyei6GNX1cI2Qy7RrncGPb8q+zH6U1Q8R7WVTGABYwzyZN
-	jvxQOjubk5ZeOVGiBQvuAJ6sTkI27LT/T6Wd64A1eAI4CqGRPMueS4GU5B+K0lktYE/C6w
-	v3RlPn2xuvDaBkHhWn2MEFBi9JdjiL0=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-392-pDxpGl4HPey9Ce_nLLPJaA-1; Thu, 31 Oct 2024 05:50:16 -0400
-X-MC-Unique: pDxpGl4HPey9Ce_nLLPJaA-1
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-37d67fe93c6so417969f8f.0
-        for <linux-riscv@lists.infradead.org>; Thu, 31 Oct 2024 02:50:16 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730368215; x=1730973015;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:from:references:cc:to:subject:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=8dIcxwobV6BNAuIuaE7aLzJugH838eIdiZ2hVMt1ILQ=;
-        b=QURKkhXFVQAVhRMVVwXP3cOrSiWwZCPHmObj0n1FDyZvoT3XV3883GMeNT5k4MZBwU
-         Sq/pi5u/2RZeBkqMRvZB8SnK+hAf3FCmGCCzEF3lj8Aa/XjGiyqlQo092wLN2TtjaRCS
-         fUGw7+7zS3QO5FGgkINZc7uulQjI5hNuNXTU7qduBUOeo06nyQfEYamCkF7aajkwpt4B
-         jB/PIMF0Lo26vyc17JVVvWmt9rCZxXvfl979T8dgoJj4pLd9wl+SvVOiGJG3JeHl32Ow
-         lXoQjtOT9TT14ttiQP/umIl8sDe+q12uxk9SDbFsnnm/QCFK7wmdYmHeJGNitWOAuA4L
-         vXCg==
-X-Forwarded-Encrypted: i=1; AJvYcCUmIDq26/cHWLBVmE2VhpYlub96Fy2YSrbxTBZL+E9pj8m322V5vpz7ROg9klRDPC+AzdQZfZNnKnFWNQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+JDMptWwreyoAxSlzN1A6vrolXYtYi3U9V+pyXlnLTmsTJzzb
-	H9ZcTw+Zk9mdBjL6hxkXCXUWAEGemmA7djchCXS7ECSQ/yw+rB6zzTLHAjz0z5ayv6Q79P5VaYb
-	edzYpDsGPRd3U5qwVXwnI0FInwMJwWrjb1ZxSEZP1YpUQzF1kBe+HMox70xTs/Fm/MA==
-X-Received: by 2002:a05:6000:1866:b0:37d:33a3:de14 with SMTP id ffacd0b85a97d-381be7adfdemr2447483f8f.7.1730368214960;
-        Thu, 31 Oct 2024 02:50:14 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFeVaRdVGCqBIKY+7Vfj4lrlXB4BTEaQ/Q5YZsm5NFKJxn9YuGzq2b6/rrf6LYaZ8QcgqCaug==
-X-Received: by 2002:a05:6000:1866:b0:37d:33a3:de14 with SMTP id ffacd0b85a97d-381be7adfdemr2447426f8f.7.1730368214468;
-        Thu, 31 Oct 2024 02:50:14 -0700 (PDT)
-Received: from ?IPV6:2003:cb:c70a:ed00:7ddf:1ea9:4f7a:91fe? (p200300cbc70aed007ddf1ea94f7a91fe.dip0.t-ipconnect.de. [2003:cb:c70a:ed00:7ddf:1ea9:4f7a:91fe])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381c10d49d4sm1605679f8f.34.2024.10.31.02.50.11
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 31 Oct 2024 02:50:13 -0700 (PDT)
-Message-ID: <4aa0ccf4-ebbe-4244-bc85-8bc8dcd14e74@redhat.com>
-Date: Thu, 31 Oct 2024 10:50:10 +0100
+	id 1t6SdF-00000003HZX-3T3d;
+	Thu, 31 Oct 2024 10:42:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.co.uk; i=@amazon.co.uk; q=dns/txt;
+  s=amazon201209; t=1730371346; x=1761907346;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=2XSQmg9XPL/tUl5Uy9X9cqzqndsoHfM/nyIda+DnmYs=;
+  b=G1ybttS3y3zx+KEFtHXzeCg7NdXJenfGQeVa3GuZ6ji81NAGtPbD11jN
+   8dgTsRI5WNNTysregZm4Heg1qvpRjE6/KBBofi/MR8lBUpVE0HbJL7xmn
+   MsNmv4HBhTfTN0qU8KXXJl/QzfwdlUdmfyGdi8nGNEfa4xMZEzfffU6CX
+   0=;
+X-IronPort-AV: E=Sophos;i="6.11,247,1725321600"; 
+   d="scan'208";a="37873631"
+Received: from iad12-co-svc-p1-lb1-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.43.8.6])
+  by smtp-border-fw-52003.iad7.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Oct 2024 10:42:19 +0000
+Received: from EX19MTAUWA001.ant.amazon.com [10.0.38.20:53488]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.22.121:2525] with esmtp (Farcaster)
+ id f575b9e2-c87c-4dc7-9ccf-8641a67b176b; Thu, 31 Oct 2024 10:42:18 +0000 (UTC)
+X-Farcaster-Flow-ID: f575b9e2-c87c-4dc7-9ccf-8641a67b176b
+Received: from EX19D003UWB002.ant.amazon.com (10.13.138.11) by
+ EX19MTAUWA001.ant.amazon.com (10.250.64.217) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
+ Thu, 31 Oct 2024 10:42:09 +0000
+Received: from EX19MTAUWA001.ant.amazon.com (10.250.64.204) by
+ EX19D003UWB002.ant.amazon.com (10.13.138.11) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.35;
+ Thu, 31 Oct 2024 10:42:09 +0000
+Received: from email-imr-corp-prod-iad-all-1b-a03c1db8.us-east-1.amazon.com
+ (10.25.36.214) by mail-relay.amazon.com (10.250.64.204) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id
+ 15.2.1258.34 via Frontend Transport; Thu, 31 Oct 2024 10:42:08 +0000
+Received: from [127.0.0.1] (dev-dsk-roypat-1c-dbe2a224.eu-west-1.amazon.com [172.19.88.180])
+	by email-imr-corp-prod-iad-all-1b-a03c1db8.us-east-1.amazon.com (Postfix) with ESMTPS id 524C0804C3;
+	Thu, 31 Oct 2024 10:42:02 +0000 (UTC)
+Message-ID: <27646c08-f724-49f7-9f45-d03bad500219@amazon.co.uk>
+Date: Thu, 31 Oct 2024 10:42:00 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [RFC PATCH v3 0/6] Direct Map Removal for guest_memfd
-To: Patrick Roy <roypat@amazon.co.uk>, tabba@google.com,
- quic_eberman@quicinc.com, seanjc@google.com, pbonzini@redhat.com,
- jthoughton@google.com, ackerleytng@google.com, vannapurve@google.com,
- rppt@kernel.org
-Cc: graf@amazon.com, jgowans@amazon.com, derekmn@amazon.com,
- kalyazin@amazon.com, xmarcalx@amazon.com, linux-mm@kvack.org,
- corbet@lwn.net, catalin.marinas@arm.com, will@kernel.org,
- chenhuacai@kernel.org, kernel@xen0n.name, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, hca@linux.ibm.com,
- gor@linux.ibm.com, agordeev@linux.ibm.com, borntraeger@linux.ibm.com,
- svens@linux.ibm.com, gerald.schaefer@linux.ibm.com, tglx@linutronix.de,
- mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
- hpa@zytor.com, luto@kernel.org, peterz@infradead.org, rostedt@goodmis.org,
- mhiramat@kernel.org, mathieu.desnoyers@efficios.com, shuah@kernel.org,
- kvm@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org
+To: David Hildenbrand <david@redhat.com>, <tabba@google.com>,
+	<quic_eberman@quicinc.com>, <seanjc@google.com>, <pbonzini@redhat.com>,
+	<jthoughton@google.com>, <ackerleytng@google.com>, <vannapurve@google.com>,
+	<rppt@kernel.org>
+CC: <graf@amazon.com>, <jgowans@amazon.com>, <derekmn@amazon.com>,
+	<kalyazin@amazon.com>, <xmarcalx@amazon.com>, <linux-mm@kvack.org>,
+	<corbet@lwn.net>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<chenhuacai@kernel.org>, <kernel@xen0n.name>, <paul.walmsley@sifive.com>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <hca@linux.ibm.com>,
+	<gor@linux.ibm.com>, <agordeev@linux.ibm.com>, <borntraeger@linux.ibm.com>,
+	<svens@linux.ibm.com>, <gerald.schaefer@linux.ibm.com>, <tglx@linutronix.de>,
+	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
+	<x86@kernel.org>, <hpa@zytor.com>, <luto@kernel.org>, <peterz@infradead.org>,
+	<rostedt@goodmis.org>, <mhiramat@kernel.org>,
+	<mathieu.desnoyers@efficios.com>, <shuah@kernel.org>, <kvm@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <loongarch@lists.linux.dev>,
+	<linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>,
+	<linux-trace-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>
 References: <20241030134912.515725-1-roypat@amazon.co.uk>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- WNyWQQ==
-Organization: Red Hat
-In-Reply-To: <20241030134912.515725-1-roypat@amazon.co.uk>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
+ <4aa0ccf4-ebbe-4244-bc85-8bc8dcd14e74@redhat.com>
+From: Patrick Roy <roypat@amazon.co.uk>
 Content-Language: en-US
+Autocrypt: addr=roypat@amazon.co.uk; keydata=
+ xjMEY0UgYhYJKwYBBAHaRw8BAQdA7lj+ADr5b96qBcdINFVJSOg8RGtKthL5x77F2ABMh4PN
+ NVBhdHJpY2sgUm95IChHaXRodWIga2V5IGFtYXpvbikgPHJveXBhdEBhbWF6b24uY28udWs+
+ wpMEExYKADsWIQQ5DAcjaM+IvmZPLohVg4tqeAbEAgUCY0UgYgIbAwULCQgHAgIiAgYVCgkI
+ CwIEFgIDAQIeBwIXgAAKCRBVg4tqeAbEAmQKAQC1jMl/KT9pQHEdALF7SA1iJ9tpA5ppl1J9
+ AOIP7Nr9SwD/fvIWkq0QDnq69eK7HqW14CA7AToCF6NBqZ8r7ksi+QLOOARjRSBiEgorBgEE
+ AZdVAQUBAQdAqoMhGmiXJ3DMGeXrlaDA+v/aF/ah7ARbFV4ukHyz+CkDAQgHwngEGBYKACAW
+ IQQ5DAcjaM+IvmZPLohVg4tqeAbEAgUCY0UgYgIbDAAKCRBVg4tqeAbEAtjHAQDkh5jZRIsZ
+ 7JMNkPMSCd5PuSy0/Gdx8LGgsxxPMZwePgEAn5Tnh4fVbf00esnoK588bYQgJBioXtuXhtom
+ 8hlxFQM=
+In-Reply-To: <4aa0ccf4-ebbe-4244-bc85-8bc8dcd14e74@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_025019_303659_44AD2227 
-X-CRM114-Status: GOOD (  15.82  )
+X-CRM114-CacheID: sfid-20241031_034226_063699_D0A009D3 
+X-CRM114-Status: GOOD (  19.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,58 +112,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 30.10.24 14:49, Patrick Roy wrote:
-> Unmapping virtual machine guest memory from the host kernel's direct map
-> is a successful mitigation against Spectre-style transient execution
-> issues: If the kernel page tables do not contain entries pointing to
-> guest memory, then any attempted speculative read through the direct map
-> will necessarily be blocked by the MMU before any observable
-> microarchitectural side-effects happen. This means that Spectre-gadgets
-> and similar cannot be used to target virtual machine memory. Roughly 60%
-> of speculative execution issues fall into this category [1, Table 1].
+On Thu, 2024-10-31 at 09:50 +0000, David Hildenbrand wrote:
+> On 30.10.24 14:49, Patrick Roy wrote:
+>> Unmapping virtual machine guest memory from the host kernel's direct map
+>> is a successful mitigation against Spectre-style transient execution
+>> issues: If the kernel page tables do not contain entries pointing to
+>> guest memory, then any attempted speculative read through the direct map
+>> will necessarily be blocked by the MMU before any observable
+>> microarchitectural side-effects happen. This means that Spectre-gadgets
+>> and similar cannot be used to target virtual machine memory. Roughly 60%
+>> of speculative execution issues fall into this category [1, Table 1].
+>>
+>> This patch series extends guest_memfd with the ability to remove its
+>> memory from the host kernel's direct map, to be able to attain the above
+>> protection for KVM guests running inside guest_memfd.
+>>
+>> === Changes to v2 ===
+>>
+>> - Handle direct map removal for physically contiguous pages in arch code
+>>    (Mike R.)
+>> - Track the direct map state in guest_memfd itself instead of at the
+>>    folio level, to prepare for huge pages support (Sean C.)
+>> - Allow configuring direct map state of not-yet faulted in memory
+>>    (Vishal A.)
+>> - Pay attention to alignment in ftrace structs (Steven R.)
+>>
+>> Most significantly, I've reduced the patch series to focus only on
+>> direct map removal for guest_memfd for now, leaving the whole "how to do
+>> non-CoCo VMs in guest_memfd" for later. If this separation is
+>> acceptable, then I think I can drop the RFC tag in the next revision
+>> (I've mainly kept it here because I'm not entirely sure what to do with
+>> patches 3 and 4).
 > 
-> This patch series extends guest_memfd with the ability to remove its
-> memory from the host kernel's direct map, to be able to attain the above
-> protection for KVM guests running inside guest_memfd.
+> Hi,
 > 
-> === Changes to v2 ===
+> keeping upcoming "shared and private memory in guest_memfd" in mind, I
+> assume the focus would be to only remove the direct map for private memory?
 > 
-> - Handle direct map removal for physically contiguous pages in arch code
->    (Mike R.)
-> - Track the direct map state in guest_memfd itself instead of at the
->    folio level, to prepare for huge pages support (Sean C.)
-> - Allow configuring direct map state of not-yet faulted in memory
->    (Vishal A.)
-> - Pay attention to alignment in ftrace structs (Steven R.)
+> So in the current upstream state, you would only be removing the direct
+> map for private memory, currently translating to "encrypted"/"protected"
+> memory that is inaccessible either way already.
 > 
-> Most significantly, I've reduced the patch series to focus only on
-> direct map removal for guest_memfd for now, leaving the whole "how to do
-> non-CoCo VMs in guest_memfd" for later. If this separation is
-> acceptable, then I think I can drop the RFC tag in the next revision
-> (I've mainly kept it here because I'm not entirely sure what to do with
-> patches 3 and 4).
+> Correct?
 
-Hi,
+Yea, with the upcomming "shared and private" stuff, I would expect the
+the shared<->private conversions would call the routines from patch 3 to
+restore direct map entries on private->shared, and zap them on
+shared->private.
 
-keeping upcoming "shared and private memory in guest_memfd" in mind, I 
-assume the focus would be to only remove the direct map for private memory?
+But as you said, the current upstream state has no notion of "shared"
+memory in guest_memfd, so everything is private and thus everything is
+direct map removed (although it is indeed already inaccessible anyway
+for TDX and friends. That's what makes this patch series a bit awkward
+:( )
 
-So in the current upstream state, you would only be removing the direct 
-map for private memory, currently translating to "encrypted"/"protected" 
-memory that is inaccessible either way already.
+> -- 
+> Cheers,
+> 
+> David / dhildenb
+> 
 
-Correct?
-
--- 
-Cheers,
-
-David / dhildenb
-
+Best, 
+Patrick
 
 _______________________________________________
 linux-riscv mailing list
