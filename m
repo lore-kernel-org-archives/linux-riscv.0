@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3100CE674A6
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Nov 2024 06:04:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32279E674A7
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Nov 2024 06:04:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iAfKqLVd+joSmHNyQS6/FGumifXLk4fYDzxWFM0ON1Y=; b=2t57K6yo0DMX7B
-	4hGsevzfXBqfj4f+oPSqgxlrDIcUYCbbNRzmeryApbwIM6Ld4CwKNumuAkMBv7AF1nS4QEtUlilUb
-	NTbieQz/DZptipLRfZ/78nDrnrrgEhlH3ABEFNBZIuq4mmcIXEaov2ao+i7B99BQPNC3Qicg8mgQe
-	suJ4RIpcvjzTcz6+VQh/ZagfJiy4GWjwG5yUqLAwCTtoFPgR8qq4iG9uj+5J/lWGCbPm7ND0cfVsd
-	EiV0l/uGhbgKgO7B+hyI2DZPyLQvMzvk+OdP5wkGJ35kHA5WMAgzAh6kDUibXONncFGDUcjLki3Py
-	D3Aibas2g7EhxfFF/S5g==;
+	List-Owner; bh=ayMO4nFslI9B7lqsRLZCBC3bbenuAR8Fusxywst5YeQ=; b=kRiabTCTfm43yV
+	rjw8fFqKaEYCUCRKF/B2Y+CCldgD/7PWVbrRsMWrdx/b0QofHZ4TqH9S8wdfDEct6YtijKvPJhDuk
+	hcT7Wdu7CCNUiwQI+FQ+nojWKP0SJyAFYZfPXn7WJluF4f/U4jLr1VKxuEnpclftfuio/GnwvnBng
+	K/pYS7DsbNpYhO90vLm5ETQhIe0jogbyyC4MhA5ooI+aVbQaPCVwVXDVC9uUngMmPwc+ucHd8IZoW
+	gdmTy9drVTzDxUvFhSNBCVitqBf82mbUFoD0W/1IFWNSnxOPEtROYQADCdjJHq3Zm4/BdX1K6/lnX
+	tGLsr2wuvlbn9wuiyjpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6klz-00000005u3i-1bkP;
-	Fri, 01 Nov 2024 06:04:39 +0000
-Received: from mail-qv1-xf30.google.com ([2607:f8b0:4864:20::f30])
+	id 1t6kmB-00000005uDb-1K2K;
+	Fri, 01 Nov 2024 06:04:51 +0000
+Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6klS-00000005teQ-3axr;
-	Fri, 01 Nov 2024 06:04:10 +0000
-Received: by mail-qv1-xf30.google.com with SMTP id 6a1803df08f44-6d18dff41cdso10906396d6.0;
-        Thu, 31 Oct 2024 23:04:05 -0700 (PDT)
+	id 1t6klV-00000005thJ-2hfq;
+	Fri, 01 Nov 2024 06:04:14 +0000
+Received: by mail-qk1-x729.google.com with SMTP id af79cd13be357-7b1b224f6c6so114264185a.3;
+        Thu, 31 Oct 2024 23:04:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730441045; x=1731045845; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1730441048; x=1731045848; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:feedback-id:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=A6tG39HqwvxlfRrBPWElR6isULD+PRgdHmRoN4FVkag=;
-        b=CuuveHPVtkJWMuag0Af/A+Ncp0xFE/6x/M2YsezAsqF/o/noHg1udtip6Ny6P+WkaW
-         He4p1XR3vPJyVJXIgrilpu9VW8qmBUjDBWeeLtXbABIBnb6vGu3jhTa/qstdaUkIZCAb
-         4riQv/2Sb7+clXRd+ooAd2O2nmrLvNOvh4ePHLe0TnjYCed6HmIgI5Yss8oXgSIKAbun
-         FkpNyJsF/3VZ4cEWGgETUjnYZ0kn+lDf0z1HmInjXjqzRJQCTiFXK0GWMLEAOHQ4UZhK
-         CdaAhJgg7RQ6CB6m9Z5dFtXfTKBK+/x/vzFDzg94dBe+bz3d+hiCJqOaF5UiRYseBhKn
-         h87A==
+        bh=HedkcmZuTLLzFJb9CZIBHRUYnKPqPD+H8D+47bw5J50=;
+        b=lG4e6zUuDl9edFy9SBo7OEmZtsPBb5vY+VwCJEyd7HezAVMI8DGIRH3TB5ZpqLQ04y
+         Cc5OBpY/zLUSpcAIU0h9c4U2lIhqzIdM4k7uT5Z0iy2aVqqg7mbrIhJBVv8Db2aaja+p
+         M1qp+8H1bXBczlYDfOWb/qpZtQDCL6xrRqUR5flAvnW+oMs8KfoD7OVqh/O+QGCDrS1R
+         a1smpJxnCURnV9R0KICmWbRULuZKS9xPwt0PZzFJlrro962XoBPh9s1zf44ewUwuf5PZ
+         SL/C+pjgLc0C4GK4p7z9E51CKxYPhWwQctI59ti0FJaz46KvfkTYYWyT45mpJeA2rQwo
+         6CXw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730441045; x=1731045845;
+        d=1e100.net; s=20230601; t=1730441048; x=1731045848;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:feedback-id:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=A6tG39HqwvxlfRrBPWElR6isULD+PRgdHmRoN4FVkag=;
-        b=AXc6JuU1b7+nfbDZ3CLK0LMG0snHXPu864EDxYmv59CAbtnosfv3eVR9B6AmKx4Zhx
-         d6jzulC49T5bNAmvIKXYzooohb3D7V/1vlabMjLh5j9RA+btPI0eYvJsFi5EV3Gb8kc7
-         d5QqE39u9PbFTEfoA4cE/5MTsOjxCNv1zuwQLQIXSgluGtSSo9WZcWa32X9og4ADyWF7
-         2vfqunsBHEwaKTwhzYNll4y1e2mQMOU4q31EmhULVvcXDhoR9O30JuIi6XkE2G1CRp+q
-         DrR8rsgbU+fKNLSJ9BVBAcElkLOOxVFM+9g6lGcUyvBHufxedis0SkU1kvjSnU7UHsDj
-         iGXg==
-X-Forwarded-Encrypted: i=1; AJvYcCV9q5vDmj1RyfWfNvsA92fqEZ+o3x6wOcPmxPhJMVTjeNSbc5afdaPUuelG+1akrM500J4Qt9uS1j0VGSc=@lists.infradead.org, AJvYcCVh5CHzCXSXxEKno3XWxM4aoYapuOqmg5mtmec832NLEUpnd1VYxEs+GFIU60RV5zF5BYksRmd52HMcW/p4uxYc@lists.infradead.org
-X-Gm-Message-State: AOJu0YwenSwhB+Ka3dxPfSq7nevjFToYEhQtkhqL/RMctEq4mXBFjVlr
-	BuLBOVHIWhW8MhGDh1zgEA7AJ8i3eOtnfjegPyXuLwzNLP8ei+I+
-X-Google-Smtp-Source: AGHT+IFtPDQpnEfGDYf1MmQMy0Ftb/LAJarvVqvfSwx3qBw/GVNSOA1uCeVT60t5HopFhvrmJymKdw==
-X-Received: by 2002:a05:6214:5348:b0:6d3:4992:f585 with SMTP id 6a1803df08f44-6d34992f616mr104514016d6.49.1730441044801;
-        Thu, 31 Oct 2024 23:04:04 -0700 (PDT)
+        bh=HedkcmZuTLLzFJb9CZIBHRUYnKPqPD+H8D+47bw5J50=;
+        b=IqWyyPkpL30d8X8zEscNVGsaruADYx+2GBwDqBKc6k9o5ZWJZkArEa/wBm9DFHAMu+
+         GPe5HkpRp3cDeyI9Mn6aDR6hVeQl7bi2FCAfWGrpG8jv8TxFcQWY6tNuDYhXhP3iwloV
+         HdZR6kT9ekb4OLJWbyYlkYEprhZtL9SK3MZmaDILqLftqBWFVQsan7niNCmYxBDGFvXa
+         RU2Sg6FklD3nlEgT/upPB2M67AMTcimVe7ux07Zjb5JUh9xIeqSYcoChK1Cwbo6Izdaq
+         Ye4C7Wc4BjDho3jNWbna3dQ44bpRax8MAas9ZW5Nx4ULx51DVv9vL3Atx4mDKDRiOnOz
+         nvfA==
+X-Forwarded-Encrypted: i=1; AJvYcCUh0DnfC1vQPQrRuIpnJ9rPbQtWeoJHFkmhsdgtJeBoXv/sNMf5BFe8LJan9vo+JsLGlPzIhWJnTzNJ2TXnYX5a@lists.infradead.org, AJvYcCV7YDkUPhJYQwjsa/0bptjU3gLBbleWtlef+tIQIK8uIP2f5Cr5PoHdu8bpuE0/BU5Eb4iLiwhjSktpp/U=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxr2O8ej3zyqZi1HkHZ0pwjeVFHqdRpJ9mBOvJYF6l7niu/Iowi
+	NgFE5MvPgb/35APg85sWlPjoQic+8xvzzjWzguY/hwI53C2hxYeq
+X-Google-Smtp-Source: AGHT+IFjNsIlEurpXPjF8KNlWfgLlf1NKfyfrV0QuV/GBtGTbA0qW3F/s1nZzTSXWMiWahQF6/N9wQ==
+X-Received: by 2002:a05:620a:444c:b0:7ab:3ec9:f4c7 with SMTP id af79cd13be357-7b2fb982785mr233693885a.35.1730441047663;
+        Thu, 31 Oct 2024 23:04:07 -0700 (PDT)
 Received: from fauth-a2-smtp.messagingengine.com (fauth-a2-smtp.messagingengine.com. [103.168.172.201])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7b2f3a7045bsm140747785a.73.2024.10.31.23.04.03
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7b2f39e9dd6sm142079785a.1.2024.10.31.23.04.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 31 Oct 2024 23:04:04 -0700 (PDT)
-Received: from phl-compute-12.internal (phl-compute-12.phl.internal [10.202.2.52])
-	by mailfauth.phl.internal (Postfix) with ESMTP id A2B0D1200043;
-	Fri,  1 Nov 2024 02:04:03 -0400 (EDT)
-Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-12.internal (MEProxy); Fri, 01 Nov 2024 02:04:03 -0400
-X-ME-Sender: <xms:U28kZ4ja5LWAoU3yfdto9YffBnntil7uUTgczdBRrUYZKEv2btRd8g>
-    <xme:U28kZxBYHbxlZdQi9ryR9nVcf3Dt1GVAl3wOeehcX1LNRUuyoQ09TQMXk_ZjoSHfg
-    mEmu5J42uBN4wHzQg>
-X-ME-Received: <xmr:U28kZwE3vXuFtU6mK7fc1-Lvj8OilcmMDSlV9ABGW3CfHcTMX1TEKiPgpt-UzQ>
+        Thu, 31 Oct 2024 23:04:07 -0700 (PDT)
+Received: from phl-compute-03.internal (phl-compute-03.phl.internal [10.202.2.43])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 8C55F1200043;
+	Fri,  1 Nov 2024 02:04:06 -0400 (EDT)
+Received: from phl-mailfrontend-02 ([10.202.2.163])
+  by phl-compute-03.internal (MEProxy); Fri, 01 Nov 2024 02:04:06 -0400
+X-ME-Sender: <xms:Vm8kZ8cNSO-S9POofHLm4Zmnu0qOwabKxgMKGWVd_SBj8gtYw76ElQ>
+    <xme:Vm8kZ-PDeCtaO29ac6kuBMMFzcH1-uoD2s8JBJSjRf4y_lH2h_WXYYY77kdkkw7kV
+    NALLz84yjAkv_PbXg>
+X-ME-Received: <xmr:Vm8kZ9ixDWk-mW1YSb_nxXIrQVx2QIcF9H3SENmC9oap1rbE2614R627wVA>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddrvdekkedgkeekucetufdoteggodetrfdotf
     fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
     rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
     htshculddquddttddmnecujfgurhephffvvefufffkofgjfhgggfestdekredtredttden
     ucfhrhhomhepuehoqhhunhcuhfgvnhhguceosghoqhhunhdrfhgvnhhgsehgmhgrihhlrd
     gtohhmqeenucggtffrrghtthgvrhhnpeegleejiedthedvheeggfejveefjeejkefgveff
-    ieeujefhueeigfegueehgeeggfenucevlhhushhtvghrufhiiigvpedvnecurfgrrhgrmh
+    ieeujefhueeigfegueehgeeggfenucevlhhushhtvghrufhiiigvpedunecurfgrrhgrmh
     epmhgrihhlfhhrohhmpegsohhquhhnodhmvghsmhhtphgruhhthhhpvghrshhonhgrlhhi
     thihqdeiledvgeehtdeigedqudejjeekheehhedvqdgsohhquhhnrdhfvghngheppehgmh
     grihhlrdgtohhmsehfihigmhgvrdhnrghmvgdpnhgspghrtghpthhtohepheejpdhmohgu
@@ -89,14 +89,14 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddrvdekkedgkeekucetufdoteggod
     hpthhtoheplhhkmhhmsehlihhsthhsrdhlihhnuhigrdguvghvpdhrtghpthhtohepohhj
     vggurgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghlvgigrdhgrgihnhhorhesgh
     hmrghilhdrtghomhdprhgtphhtthhopeifvggushhonhgrfhesghhmrghilhdrtghomh
-X-ME-Proxy: <xmx:U28kZ5S9yoZIs7IW9AC7EnrOMNOqs8HEN3ixerhOZkN5FxVuQwmcLA>
-    <xmx:U28kZ1x0WeOFpLKtfjJf3QxURbgBdAQD-QZzqlYqUc4c9UxD8aDGIA>
-    <xmx:U28kZ37PV7nEHBhCjP5is95pa1QT1aCTegkWgEoSyzwvIT4fJKVsqg>
-    <xmx:U28kZywelM1bn0bGZrshBPINCbhspnqfODCvXGwpbjTGAK-ZyI1TYA>
-    <xmx:U28kZ5gtbZyUKsexuxYAueAlEkJOtr4eKxBDt8MK-SSvoYd1I4pADr7w>
+X-ME-Proxy: <xmx:Vm8kZx81oJCz2H1FajZFY8CI_4MBm31Nqj-UuZ_MwL0pvSGuClClJQ>
+    <xmx:Vm8kZ4s8yJr9iRwTBo_G5mzHxs1dxnXzXak5YD1yt2BU0pnddpgObw>
+    <xmx:Vm8kZ4FFsag_4jiBTRLMh8DHCgSUGAwjfKuORlWZc1OsT4pVO9EpcQ>
+    <xmx:Vm8kZ3MPdnviiNJ7g44k53kHADVIEwVsv0I9f0cSmj1HAMjhOCB02w>
+    <xmx:Vm8kZ9Oy2qM5_VsiogkpsGZ1u4TP4xsVaf6eSzs-Y_9Rcyzvata9LSOs>
 Feedback-ID: iad51458e:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 1 Nov 2024 02:04:03 -0400 (EDT)
+ 1 Nov 2024 02:04:05 -0400 (EDT)
 From: Boqun Feng <boqun.feng@gmail.com>
 To: rust-for-linux@vger.kernel.org,
 	rcu@vger.kernel.org,
@@ -141,16 +141,16 @@ Cc: Miguel Ojeda <ojeda@kernel.org>,	Alex Gaynor <alex.gaynor@gmail.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,	Albert Ou <aou@eecs.berkeley.edu>,
 	linux-riscv@lists.infradead.org
-Subject: [RFC v2 08/13] rust: sync: atomic: Add Atomic<{usize,isize}>
-Date: Thu, 31 Oct 2024 23:02:31 -0700
-Message-ID: <20241101060237.1185533-9-boqun.feng@gmail.com>
+Subject: [RFC v2 10/13] rust: sync: atomic: Add arithmetic ops for Atomic<*mut T>
+Date: Thu, 31 Oct 2024 23:02:33 -0700
+Message-ID: <20241101060237.1185533-11-boqun.feng@gmail.com>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20241101060237.1185533-1-boqun.feng@gmail.com>
 References: <20241101060237.1185533-1-boqun.feng@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_230406_997987_C0ED6091 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20241031_230409_823952_A56B0151 
+X-CRM114-Status: GOOD (  14.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,94 +167,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add generic atomic support for `usize` and `isize`. Note that instead of
-mapping directly to `atomic_long_t`, the represention type
-(`AllowAtomic::Repr`) is selected based on CONFIG_64BIT. This reduces
-the necessarity of creating `atomic_long_*` helpers, which could save
-the binary size of kernel if inline helpers are not available.
+(This is more an RFC)
+
+Add arithmetic operations support for `Atomic<*mut T>`. Currently the
+semantics of arithmetic atomic operation is the same as pointer
+arithmetic, that is, e.g. `Atomic<*mut u64>::add(1)` is adding 8
+(`size_of::<u64>`) to the pointer value.
+
+In Rust std library, there are two sets of pointer arithmetic for
+`AtomicPtr`:
+
+* ptr_add() and ptr_sub(), which is the same as Atomic<*mut T>::add(),
+  pointer arithmetic.
+
+* byte_add() and byte_sub(), which use the input as byte offset to
+  change the pointer value, e.g. byte_add(1) means adding 1 to the
+  pointer value.
+
+We can either take the approach in the current patch and add byte_add()
+later on if needed, or start with ptr_add() and byte_add() naming.
 
 Signed-off-by: Boqun Feng <boqun.feng@gmail.com>
 ---
- rust/kernel/sync/atomic.rs | 71 ++++++++++++++++++++++++++++++++++++++
- 1 file changed, 71 insertions(+)
+ rust/kernel/sync/atomic.rs | 29 +++++++++++++++++++++++++++++
+ 1 file changed, 29 insertions(+)
 
 diff --git a/rust/kernel/sync/atomic.rs b/rust/kernel/sync/atomic.rs
-index b2e81e22c105..4166ad48604f 100644
+index e62c3cd1d3ca..cbe5d40d9e36 100644
 --- a/rust/kernel/sync/atomic.rs
 +++ b/rust/kernel/sync/atomic.rs
-@@ -102,3 +102,74 @@ fn delta_into_repr(d: Self::Delta) -> Self::Repr {
-         d as _
+@@ -197,3 +197,32 @@ fn from_repr(repr: Self::Repr) -> Self {
+         repr as _
      }
  }
 +
-+// SAFETY: `usize` has the same size and the alignment as `i64` for 64bit and the same as `i32` for
-+// 32bit.
-+unsafe impl generic::AllowAtomic for usize {
-+    #[cfg(CONFIG_64BIT)]
-+    type Repr = i64;
-+    #[cfg(not(CONFIG_64BIT))]
-+    type Repr = i32;
-+
-+    fn into_repr(self) -> Self::Repr {
-+        self as _
-+    }
-+
-+    fn from_repr(repr: Self::Repr) -> Self {
-+        repr as _
-+    }
-+}
-+
 +/// ```rust
-+/// use kernel::sync::atomic::{Atomic, Full, Relaxed};
++/// use kernel::sync::atomic::{Atomic, Relaxed};
 +///
-+/// let x = Atomic::new(42usize);
++/// let s: &mut [i32] = &mut [1, 3, 2, 4];
 +///
-+/// assert_eq!(42, x.fetch_add(12, Full));
-+/// assert_eq!(54, x.load(Relaxed));
++/// let x = Atomic::new(s.as_mut_ptr());
 +///
-+/// x.add(13, Relaxed);
++/// x.add(1, Relaxed);
 +///
-+/// assert_eq!(67, x.load(Relaxed));
++/// let ptr = x.fetch_add(1, Relaxed); // points to the 2nd element.
++/// let ptr2 = x.load(Relaxed); // points to the 3rd element.
++///
++/// // SAFETY: `ptr` and `ptr2` are valid pointers to the 2nd and 3rd elements of `s` with writing
++/// // provenance, and no other thread is accessing these elements.
++/// unsafe { core::ptr::swap(ptr, ptr2); }
++///
++/// assert_eq!(s, &mut [1, 2, 3, 4]);
 +/// ```
-+impl generic::AllowAtomicArithmetic for usize {
-+    type Delta = usize;
-+
-+    fn delta_into_repr(d: Self::Delta) -> Self::Repr {
-+        d as _
-+    }
-+}
-+
-+// SAFETY: `isize` has the same size and the alignment as `i64` for 64bit and the same as `i32` for
-+// 32bit.
-+unsafe impl generic::AllowAtomic for isize {
-+    type Repr = i64;
-+
-+    fn into_repr(self) -> Self::Repr {
-+        self as _
-+    }
-+
-+    fn from_repr(repr: Self::Repr) -> Self {
-+        repr as _
-+    }
-+}
-+
-+/// ```rust
-+/// use kernel::sync::atomic::{Atomic, Full, Relaxed};
-+///
-+/// let x = Atomic::new(42isize);
-+///
-+/// assert_eq!(42, x.fetch_add(12, Full));
-+/// assert_eq!(54, x.load(Relaxed));
-+///
-+/// x.add(13, Relaxed);
-+///
-+/// assert_eq!(67, x.load(Relaxed));
-+/// ```
-+impl generic::AllowAtomicArithmetic for isize {
++impl<T> generic::AllowAtomicArithmetic for *mut T {
 +    type Delta = isize;
 +
++    /// The behavior of arithmetic operations
 +    fn delta_into_repr(d: Self::Delta) -> Self::Repr {
-+        d as _
++        // Since atomic arithmetic operations are wrapping, so a wrapping_mul() here suffices even
++        // if overflow may happen.
++        d.wrapping_mul(core::mem::size_of::<T>() as _) as _
 +    }
 +}
 -- 
