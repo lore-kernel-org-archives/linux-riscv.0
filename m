@@ -4,100 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2320E6F064
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Nov 2024 14:51:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55A45E6F063
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Nov 2024 14:55:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FlE6OyQ/eJP+ii+TZAL9ygqU4Kor5QmBYIGpc8jepQ8=; b=FqD4bVs6EIbgLd
-	UT+TVoVMghIQnAopZNdUq4Fxlkyj4VFnXKVasPkgYUCfYBLj1TCh/MZN/elJ8hM1y8TKqPOkja5Cn
-	Nb1QWGGAcnXto0B4YsJrrqDOtOHlpOgCIyyEIbTI56gUMA3MbOp7Y2F1228vZy0Kj+/ejaxjUojZQ
-	gn4O8P5JsgTrZs7X7+wWyGJ1HANTX8ksxrW/nf3Aj2s6/DcMeQC3SWIKj7UVwCbM41nG6bSLbOozZ
-	yLBCbFmiXmrUdJr0y9gS/LykK1Q9LY8CzNKnqGsNKXSsw4rqa48YBL2MSV2T8x/vYZsEwXuXz1rQf
-	z9RpVesfwukoWBe4CL6g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	MIME-Version:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe
+	:List-Id:Message-ID:To:From:CC:Subject:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=n5dYnd1SzUd5eyt3jgNl+rmwJG+oUInl41dI8l7kKWw=; b=uN3
+	Jk6G2UuLww1izoS/KBV2C+YcQKpZFy3+gyFLjM7E69ikKtXmscbuA/R791/GkRFwAK+YpZhg1peVS
+	voev7EcV84uXPL932ZDqJ8Zlhgo8hgYQ35OwE3ieUv3RXwVvta987Z4PspWoLwhnVpQMmyT2qe1uf
+	ZyRjnkoU1VZDm/yrpOXumjjh6WLSmDtYr/4cs/6AXXkT9OGsvR7h27tKFhyrV/OnwSNWgMrWbBpAH
+	h6VcfiRomdLiRhBam7GqhNBm+etG+ZKZmpH9S0+tiQsu7j/PaYfo60x1dHk5vk88MPEy2ZNTWcToD
+	BZIL0GpIHb4tithi3eCEq0wYWBD8jNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6szI-00000007OpX-1GjE;
-	Fri, 01 Nov 2024 14:50:56 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1t6t3m-00000007QB3-3rGd;
+	Fri, 01 Nov 2024 14:55:34 +0000
+Received: from mail-il1-x132.google.com ([2607:f8b0:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6sfI-00000007LSq-2At7;
-	Fri, 01 Nov 2024 14:30:18 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-20c7b9087c4so1339395ad.1;
-        Fri, 01 Nov 2024 07:30:15 -0700 (PDT)
+	id 1t6t3i-00000007QAU-3tIk
+	for linux-riscv@lists.infradead.org;
+	Fri, 01 Nov 2024 14:55:33 +0000
+Received: by mail-il1-x132.google.com with SMTP id e9e14a558f8ab-3a4e30bffe3so7002175ab.3
+        for <linux-riscv@lists.infradead.org>; Fri, 01 Nov 2024 07:55:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730471414; x=1731076214; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1730472928; x=1731077728; darn=lists.infradead.org;
+        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=TKAtd4Xz8cLFFFmnHPins+tJ+Mfne7qr3bvUedak18U=;
-        b=IkN51zij/iJdNgC+4CkVLbSE7FQEMfI7rM76DEwa3Nm2B33jjvISrg9if2t2+AQ1N8
-         sLVmaDb3bKSXZ7UULFdUVJx3iGquuwaWprnHzII4uspciotMXwYcHHKo7CvA4y1TALAI
-         hUBK+2YzuXWUWC8aipR8aASn1spUEsrjYoPnNmOrLqFmmw9nlkQVC75AL/l8sETygpzW
-         529h+feWC4QAZbvK9UIT7kNPlc/khmKsTBC1y086ZGU9wCY4uI1ld7LUlwPmxn/httSX
-         ufGKUO6C/uBR5lRHacizTvLEcgH7bAhHDVAovcifsOvhWm5NGJrPC/R1iM6E5pBptqoK
-         QT/w==
+        bh=bt4swa51EyBN4N5PTpyvNVZrsawgvt64yABO9gRAyRQ=;
+        b=OYv/DaHeY5ZuCWbS+ce9EeyDvWcge2r1sZH2oxQlKMXQhSWImdgqHEu8tLTK8hYHKH
+         0Lwrady8o0g/qbsE8hgKqv7e8KM315uRFiYvP6fOhRfCJGc5g4j4CJEMQ94EtAJUxES6
+         rT0SJofbr15S+7yK6Dc/ngdIH+QgocP01L+mA3JM0H8EbkuU+e5Me5X2aP+1VfGGVB0j
+         OJlJT9sTKWE4VwMmn/uur6oq7GyAvItXm1jXtxWX7UoUAfydntmfYp+pXorLotcQRS70
+         3U7yeYyc/T1W+uTcV57f5ueoZDfYd1lWq2ictbw4TF1a8tbLIRRpjvF4AX+sYKV+lT8Y
+         x5AA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730471414; x=1731076214;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1730472928; x=1731077728;
+        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=TKAtd4Xz8cLFFFmnHPins+tJ+Mfne7qr3bvUedak18U=;
-        b=VvwY39OMfzya41qaF4rQGVdbHe5QxiOv1BsxjshMwfay9urNb9gk4EbNTo/DRpewW1
-         xCb4xUP76llTXtzbkkM2nMDJ/9Cfc+kM8fZVOvh4N2nRvwh3hwNRnySmszMbb1FBasoo
-         vbs5S03jRg8mb0Ckjoq8a6d6K/FuWbfFdhl+iMO2dEV6FH5mdhC+sQ3aOhmV44UMNJP5
-         51OsdPEPkfUYfeq87v2tMoYbKbyCTEc6RE2xZiDMtWT4GlYqEukm9d6Ci9xMRcUAXoQN
-         OXVDHFaA3qPuXMbnrIZae6/ozoix3c3wFkomPNVv0CouA4OtEdQauO8UIPW2mSjVaUl1
-         LO0A==
-X-Forwarded-Encrypted: i=1; AJvYcCXOovDrkPukNHLj/WPx2ELq0RfXOcN8A0jrvHVkmqlba94aPnYTfOUJf8aCd1Jamv2RMeura69CpgBUWSNbKURE@lists.infradead.org, AJvYcCXTTZj6hW4JhcrDlJIw4heDoyI+qVI2Ac1tOMS209evQKwPTgGUeIwmM8I5O0PHanJ7HkYeF5Rgh6Vy5gI=@lists.infradead.org
-X-Gm-Message-State: AOJu0YyFBoXNhHTlZnSzAn0ZctgYcpWI+71uUEszrZOfW31dyqg9OH3F
-	piho3hAylU9w/8ctmGW5rmO5bVL7/opRdqiF+bSdBK+6fGcaRUvFRsIs4WHRzw0nZtwa8Fk2PoI
-	SUBDFkT9+VTTXBjG2Kcw2u6j6D8o=
-X-Google-Smtp-Source: AGHT+IGOQhefEp7FLZkdniAIiiIsTLBIszMwpP4/Ctt+MCmEaSNoKLq4eMcSMtSjAgS5QbXUeuU5N7LkDLjPkosOQVw=
-X-Received: by 2002:a17:902:d50c:b0:20c:5da8:47b8 with SMTP id
- d9443c01a7336-210c689759amr141323595ad.5.1730471414470; Fri, 01 Nov 2024
- 07:30:14 -0700 (PDT)
-MIME-Version: 1.0
-References: <20241101060237.1185533-1-boqun.feng@gmail.com>
-In-Reply-To: <20241101060237.1185533-1-boqun.feng@gmail.com>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Fri, 1 Nov 2024 15:30:01 +0100
-Message-ID: <CANiq72ndWJtzSQSFYuVkRPhdan_PvNpvGEhQXKAZKESnt7JVAA@mail.gmail.com>
-Subject: Re: [RFC v2 00/13] LKMM *generic* atomics in Rust
-To: Boqun Feng <boqun.feng@gmail.com>
-Cc: rust-for-linux@vger.kernel.org, rcu@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, 
-	llvm@lists.linux.dev, lkmm@lists.linux.dev, Miguel Ojeda <ojeda@kernel.org>, 
-	Alex Gaynor <alex.gaynor@gmail.com>, Wedson Almeida Filho <wedsonaf@gmail.com>, Gary Guo <gary@garyguo.net>, 
-	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <benno.lossin@proton.me>, Andreas Hindborg <a.hindborg@samsung.com>, 
-	Alice Ryhl <aliceryhl@google.com>, Alan Stern <stern@rowland.harvard.edu>, 
-	Andrea Parri <parri.andrea@gmail.com>, Will Deacon <will@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Nicholas Piggin <npiggin@gmail.com>, 
-	David Howells <dhowells@redhat.com>, Jade Alglave <j.alglave@ucl.ac.uk>, 
-	Luc Maranget <luc.maranget@inria.fr>, "Paul E. McKenney" <paulmck@kernel.org>, 
-	Akira Yokosawa <akiyks@gmail.com>, Daniel Lustig <dlustig@nvidia.com>, 
-	Joel Fernandes <joel@joelfernandes.org>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, kent.overstreet@gmail.com, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, elver@google.com, 
-	Mark Rutland <mark.rutland@arm.com>, Thomas Gleixner <tglx@linutronix.de>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>, Catalin Marinas <catalin.marinas@arm.com>, torvalds@linux-foundation.org, 
-	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org, 
-	Trevor Gross <tmgross@umich.edu>, dakr@redhat.com, 
-	Frederic Weisbecker <frederic@kernel.org>, Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, 
-	Josh Triplett <josh@joshtriplett.org>, Uladzislau Rezki <urezki@gmail.com>, 
-	Steven Rostedt <rostedt@goodmis.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
-	Lai Jiangshan <jiangshanlai@gmail.com>, Zqiang <qiang.zhang1211@gmail.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org
+        bh=bt4swa51EyBN4N5PTpyvNVZrsawgvt64yABO9gRAyRQ=;
+        b=Ns5QCWZ6x7ae84CvoscATLNUnMrZiCLkH76okjTSyVU/nezcO1BN+dhfN7w0Z1LZeW
+         VQFavcdO5DcCPlEKXM2HFPTT/0CqRNI8JtI8uoRgLPW6YKOdWZI8wZvWF6Nd5ibvXx6P
+         C49gbr2g9pmaPox6qSdclqHqsAsFRXdm0o4gl52b6WYPTZXBafPf7oPmjdbp1p9MWxpX
+         jTUOj63t/f+d8MIJhxEiWkZilowdS7QzsgZl03drvOHDid65WTSn0Z1giUdY+Dj2S5zX
+         1cs5s0tpA/XWSuYRJAyNbxZxQcKvIA8fgrRHZF5k/N0HGTY3mySKjPCBmcRCB5HIhYjv
+         U01A==
+X-Gm-Message-State: AOJu0YwbZp0nsbADuZ0RV/9l+sZA/hZpt+ta6nLORPSW5Ew9d2P4mvAd
+	z0v5ACQUmJpwm/sBjTCmxZRBoj4SYTnpEgtp5rrjjMcGeucE2FwWrvLpWLF0oGPZDkyxGNzUkIr
+	n
+X-Google-Smtp-Source: AGHT+IF6j94hRrP4ekrDIjKXWPXH4NsjnW7rLmSJyhM+Ymq1LEGaizXtUkSqACmK3j6DTgKj58BezA==
+X-Received: by 2002:a92:3645:0:b0:3a5:e57c:58d4 with SMTP id e9e14a558f8ab-3a5e57c5987mr77149225ab.20.1730472928397;
+        Fri, 01 Nov 2024 07:55:28 -0700 (PDT)
+Received: from localhost ([192.184.165.199])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7ee45297636sm2550019a12.12.2024.11.01.07.55.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 01 Nov 2024 07:55:27 -0700 (PDT)
+Date: Fri, 01 Nov 2024 07:55:27 -0700 (PDT)
+X-Google-Original-Date: Fri, 01 Nov 2024 07:55:08 PDT (-0700)
+Subject: [GIT PULL] RISC-V Fixes for 6.11-rc6
+CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-26039e8c-5759-4214-aaaa-765d5736b6a4@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_073016_584825_9CC30A48 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20241101_075531_259743_3B54BC34 
+X-CRM114-Status: GOOD (  12.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,18 +82,94 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============7614743097933767828=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBOb3YgMSwgMjAyNCBhdCA3OjAz4oCvQU0gQm9xdW4gRmVuZyA8Ym9xdW4uZmVuZ0Bn
-bWFpbC5jb20+IHdyb3RlOgo+Cj4gVGhpcyB0aW1lLCBJIHRyeSBpbXBsZW1lbnRpbmcgYSBnZW5l
-cmljIGF0b21pYyB0eXBlIGBBdG9taWM8VD5gLCBzaW5jZQo+IEJlbm5vIGFuZCBHYXJ5IHN1Z2dl
-c3RlZCBsYXN0IHRpbWUsIGFuZCBhbHNvIFJ1c3Qgc3RhbmRhcmQgbGlicmFyeSBpcwo+IGFsc28g
-Z29pbmcgdG8gdGhhdCBkaXJlY3Rpb24gWzFdLgoKSSB3b3VsZCBsaWtlIHRvIHRoYW5rIEJvcXVu
-IGZvciB0cnlpbmcgb3V0IHRoaXMgYXBwcm9hY2gsIGV2ZW4gd2hlbiBoZQp3YXNuJ3QgKGFuZCBt
-YXliZSBzdGlsbCBpc24ndCkgY29udmluY2VkLgoKQ2hlZXJzLApNaWd1ZWwKCl9fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
-bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
-YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+--===============7614743097933767828==
+Content-Type: text/plain
+
+The following changes since commit cfb10de18538e383dbc4f3ce7f477ce49287ff3d:
+
+  riscv: Fix kernel stack size when KASAN is enabled (2024-10-01 13:08:11 -0700)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.11-rc6
+
+for you to fetch changes up to 5f153a692bacc295f213e2c632ca557979fad7be:
+
+  Merge commit 'bf40167d54d5' into fixes (2024-10-25 06:18:43 -0700)
+
+----------------------------------------------------------------
+RISC-V Fixes for 6.11-rc6
+
+* A fix that avoids accessing the early boot ACPI tables via unsafe
+  memory attributes, which can result in incorrect ACPI table data
+  appearing.  This can cause all sorts of bad behavior.
+* A fix to avoid compiler-insert library calls in the VDSO.
+* GCC+Rust builds have been disabled, to avoid issues related to ISA
+  string mismatched between the GCC and LLVM Rust implementations.
+* The NX flag is now set in the EFI PE/COFF headers, which is necessary
+  for some distro GRUB versions to boot images.
+* A fix to avoid leaking DT node reference counts on ACPI systems during
+  cache info parsing.
+* CPU numbers are now printed as unsigned values during hotplug.
+* A pair of build fixes for usused macros, which can trigger warnings on
+  some configurations.
+
+----------------------------------------------------------------
+Alexandre Ghiti (2):
+      riscv: vdso: Prevent the compiler from inserting calls to memset()
+      riscv: Do not use fortify in early code
+
+Chunyan Zhang (2):
+      riscv: Remove unused GENERATING_ASM_OFFSETS
+      riscv: Remove duplicated GET_RM
+
+Conor Dooley (1):
+      RISC-V: disallow gcc + rust builds
+
+Heinrich Schuchardt (1):
+      riscv: efi: Set NX compat flag in PE/COFF header
+
+Miquel Sabaté Solà (1):
+      riscv: Prevent a bad reference count on CPU nodes
+
+Palmer Dabbelt (1):
+      Merge commit 'bf40167d54d5' into fixes
+
+WangYuli (1):
+      riscv: Use '%u' to format the output of 'cpu'
+
+Yunhui Cui (1):
+      RISC-V: ACPI: fix early_ioremap to early_memremap
+
+ Documentation/rust/arch-support.rst  | 2 +-
+ arch/riscv/Kconfig                   | 2 +-
+ arch/riscv/errata/Makefile           | 6 ++++++
+ arch/riscv/kernel/Makefile           | 5 +++++
+ arch/riscv/kernel/acpi.c             | 4 ++--
+ arch/riscv/kernel/asm-offsets.c      | 2 --
+ arch/riscv/kernel/cacheinfo.c        | 7 +++++--
+ arch/riscv/kernel/cpu-hotplug.c      | 2 +-
+ arch/riscv/kernel/efi-header.S       | 2 +-
+ arch/riscv/kernel/pi/Makefile        | 6 +++++-
+ arch/riscv/kernel/traps_misaligned.c | 2 --
+ arch/riscv/kernel/vdso/Makefile      | 1 +
+ 12 files changed, 28 insertions(+), 13 deletions(-)
+
+
+--===============7614743097933767828==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7614743097933767828==--
