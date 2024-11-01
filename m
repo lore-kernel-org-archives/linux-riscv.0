@@ -4,92 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B79AED5CC99
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Nov 2024 09:47:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4CD8E6B253
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Nov 2024 12:40:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=b4eYMO+PqiUsXxeccD26CQz3DLuAry/VCByrsGmXdMI=; b=k7S+UI9wCsJqXc
-	Twm2NNxIfbAttO3G69ErrlUoeYKG4VfwCoYx22ifEVJsRem1IjWLcFjTA4nIgTk0mSxD4N+lyfHGf
-	lGwY5LON/wJHZNs1AzOwmBxAPAxzXSuOPlEx1NE1kqpRpeSwQIAKXUamtExSTZQVwchSyiz2FKnBx
-	NbgtWJBv0XIkzHnD2+mCwAJhU0G+epJTGnky4LyeizPG42Si8GsHriWNo9tQQZ7S9Wjwisim4OMoX
-	y8X90mp1bGsRIZ85D7B4Sz7UrU8IhBZqEKCLULD9NT3BD97m86KFYL1TvwNlmfXcpAm6JrA5vfNLc
-	bPCGJ0zg4AacGJOwQrSA==;
+	List-Owner; bh=vZQSGpTPsz3butQ3JZfyA527QTF/dcszG4v1Cbvm7n0=; b=EbMH6xpXOYl2nl
+	sZDJ5qZNynHdskntbiaEqtz46iOwZfN6W6whoQWusy1q+3ShWQjyPj1mYzhySn2S8dzB9KkyuqvV4
+	jGKD3kB5uBN8/pHSjxQyF8VriyN8nM0DiBhtWJqMVbZaWFhUlmqOwJHYweTeLVB8iwhzTR97a9vEI
+	IJAm8sVsj5sYJ3iMZh4qHpOrs5L42KW5QM7eNN3yxWEQwpORWZljjR4rzn3ro6lCx/egKMcSqDWlx
+	H+XN73NOPCyOj+58VwqqYwKh7AqPG5hVhqiL9OS6BmE7H9fT1RKsjZcqUxII1YOlQN9ZLrnzL1DlP
+	B4zO2YdFdNXGjl/6rUJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6oFb-00000006Rsy-1eSb;
-	Fri, 01 Nov 2024 09:47:27 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1t6qwt-000000074eH-24YK;
+	Fri, 01 Nov 2024 12:40:19 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6oDC-00000006RSE-2hKC;
-	Fri, 01 Nov 2024 09:45:00 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-720d5ada03cso114812b3a.1;
-        Fri, 01 Nov 2024 02:44:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730454298; x=1731059098; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=5XPa1IlpixAalo9BA/o5sNKVNrHLCsckth76VFUIYgU=;
-        b=HXlV47BJZbypZhBtZxGenXW/bt1BnFM2h/Hbpu/UFqAFbkxbmrEkETpnHb7BzP4s/z
-         vTQHy9Z3JhZTLXwY2LqvQV0endObGBQVcQvsC1h7AkQhxjKaRT/2Y/UIB5IpZaDH0a7l
-         og0k0VaWlj8nULJDJEHz0FSbjxe+ppbOMkBTje6YvfLpD0WjMz3MlWfgmdbt95vRR+rU
-         WRTVhKChzzTiilc5nhoQLIlaPsrFKjz6+dZUA92eZJAneed/VHXciUIHokTB223wPFaZ
-         lYGv6m/1U9mVWI2YAB0ETL9WLLpfbB10EDjxrxcnqGN23hf0WlmP1nU7sXvFcwc3blIM
-         uIOA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730454298; x=1731059098;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5XPa1IlpixAalo9BA/o5sNKVNrHLCsckth76VFUIYgU=;
-        b=vo7PDNp8O9Jhjgtk4hPal4diHAbZgAoBBYYR8gkQ4oCYvkrXtDGLx0X55I7IF3MKCL
-         VHrPIZip+K8VkJyDh2gNsZaSI525uTynBNyOwgia+Fq1iyCoCJlGd4rTCiuyhLU13RRg
-         8Me9PhFn78kkcyqJMWplEWtH/fj+Ib+Gb2WJ09XwlvFhNtYYeFxdrC9yo1MgZEwOu7Us
-         UL7mBGsDDE8hl9to2k7bw+a9htr7R2IhoT3/2LStUapoHCCIjMMlFSiB4lFwoSObAOuY
-         onBDfH6vGaJ1s2r38NSJriU2MjpnNjKpq2BF0gy48QxukxVw5nkedsZEZStq/z6QEUE7
-         eDMA==
-X-Forwarded-Encrypted: i=1; AJvYcCUj9dskW8WtjKA2LhE3KBAoHSMci1WzjNYusLV0eLVGf4sADpHJkT6dOkwdgrQPD8obndJyH7ywBWQbyFo=@lists.infradead.org, AJvYcCUzZvoGxarOebO8awNu+H9ONryEu5w84eHoKWq/wo/PLYMUd+cZ//SvfO6vH799JebmynezyZsCK4E5VYdcBe7u@lists.infradead.org
-X-Gm-Message-State: AOJu0YwIqteEsjoOlGyUI88ZG5AJf7TyD9A/tiRS3/fAOSfTMMxIFC9f
-	PWKnj84ZoDxDUZChjwowLa1A0h9r82wm7Gr2BTCOEqw52wTvUnYr
-X-Google-Smtp-Source: AGHT+IGzz+VDzAUOmgRPvDn9gKwbiqOY+8Ufm53TjoKqgLSjfioPk2EG5eDX4bVncoKvbVOiHTGVQg==
-X-Received: by 2002:a05:6a21:e8e:b0:1d9:2453:433e with SMTP id adf61e73a8af0-1db91d517c4mr6918796637.4.1730454297630;
-        Fri, 01 Nov 2024 02:44:57 -0700 (PDT)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e92f90c6ddsm4712932a91.0.2024.11.01.02.44.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 01 Nov 2024 02:44:57 -0700 (PDT)
-Date: Fri, 1 Nov 2024 17:44:27 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
-	Inochi Amaoto <inochiama@gmail.com>
-Cc: Chen Wang <unicorn_wang@outlook.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Inochi Amaoto <inochiama@outlook.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Jose Abreu <joabreu@synopsys.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>, 
-	netdev@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH RFC net-next 1/3] dt-bindings: net: Add support for
- Sophgo SG2044 dwmac
-Message-ID: <hlnvrmxos77rw4fftwnyg6q2sfjgvx4vlzdvyuf7kwiuamcvpa@llfuqlijev6t>
-References: <20241101014327.513732-1-inochiama@gmail.com>
- <20241101014327.513732-2-inochiama@gmail.com>
- <uzr6gpmyng3irrhuf3q3bvswlbzyxnr74jwccyosplr32ceczu@jjrva67iq4ce>
+	id 1t6qwq-000000074dK-1g3l
+	for linux-riscv@lists.infradead.org;
+	Fri, 01 Nov 2024 12:40:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=JLfKetvUuxPUYkpPeA7mnXrzdgQkP5ynoIU4H8aYS3U=; b=h0FAhilmGmVBQ5NQWg3uCkBa5Z
+	wBWcuyUI17qGVzn7hgmPZYc8+Y/8faJQW7qsFUCd4+QAan8AfGgxrSLUThwbNqFCSqRFnV8RWNRFl
+	DvvjfhGliWxog9tagmqENZzMNVIlzb7BrBGuszd5VPi+LN8iAw7MpZz4Ue4QhsS0WqoI=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1t6qwa-00BsXZ-SD; Fri, 01 Nov 2024 13:40:00 +0100
+Date: Fri, 1 Nov 2024 13:40:00 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Chen Wang <unicorn_wang@outlook.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
+	Liu Gui <kenneth.liu@sophgo.com>, Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH] riscv: dts: sophgo: Add ethernet configuration for cv18xx
+Message-ID: <5b08e092-c302-43a9-a04d-3566bec96e94@lunn.ch>
+References: <20241028011312.274938-1-inochiama@gmail.com>
+ <87e215a7-0b27-4336-9f9c-e63ade0772ef@lunn.ch>
+ <wgggariprpp2wczsljy3vw6kp7vhnrifg6soxdgiio2seyctym@4owbzlg3ngum>
+ <ftfp2rwkytqmzruogcx66d5qkn4tzrgyjtlz4hdduxhwit3tok@kczgzrjdxx46>
+ <e389a60d-2fe3-46fd-946c-01dd3a0a0f6f@lunn.ch>
+ <nkydxanwucqmbzzz2fb24xyelrouj6gvhuuou2ssbf4tvvhfea@6uiuueim7m3a>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <uzr6gpmyng3irrhuf3q3bvswlbzyxnr74jwccyosplr32ceczu@jjrva67iq4ce>
+In-Reply-To: <nkydxanwucqmbzzz2fb24xyelrouj6gvhuuou2ssbf4tvvhfea@6uiuueim7m3a>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_024458_704606_C6DF028B 
-X-CRM114-Status: GOOD (  17.81  )
+X-CRM114-CacheID: sfid-20241101_054016_469306_32A39A1C 
+X-CRM114-Status: GOOD (  24.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,36 +85,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 01, 2024 at 08:51:11AM +0100, Krzysztof Kozlowski wrote:
-> On Fri, Nov 01, 2024 at 09:43:25AM +0800, Inochi Amaoto wrote:
-> > The GMAC IP on SG2044 is almost a standard Synopsys DesignWare
-> > MAC (version 5.30a) with some extra clock.
+> > > > > > +			mdio {
+> > > > > > +				compatible = "snps,dwmac-mdio";
+> > > > > > +				#address-cells = <1>;
+> > > > > > +				#size-cells = <0>;
+> > > > > > +
+> > > > > > +				phy0: phy@0 {
+> > > > > > +					compatible = "ethernet-phy-ieee802.3-c22";
+> > > > > > +					reg = <0>;
+> > > > > > +				};
+> > > > > > +			};
+> > > > > 
+> > > > > It is not clear to me what cv18xx.dtsi represents, 
+> > > > 
+> > > > This is a include file to define common ip for the whole
+> > > > cv18xx series SoCs (cv1800b, cv1812h, sg2000, sg2000).
+> > > > 
+> > > > > and where the PHY node should be, here, or in a .dts file. 
+> > > > > Is this a SOM, and the PHY is on the SOM? 
+> > > > 
+> > > > The phy is on the SoC, it is embedded, and no external phy
+> > > > is supported. So I think the phy node should stay here, not 
+> > > > in the dts file.
+> > > 
+> > > There is a mistake, Some package supports external rmii/mii
+> > > phy. So I will move this phy definition to board specific.
 > > 
-> > Add necessary compatible string for this device.
+> > When there is an external PHY, does the internal PHY still exists? If
+> > it does, it should be listed, even if it is not used.
 > > 
-> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> > ---
-> >  .../devicetree/bindings/net/snps,dwmac.yaml   |   4 +
-> >  .../bindings/net/sophgo,sg2044-dwmac.yaml     | 124 ++++++++++++++++++
-> >  2 files changed, 128 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
-> > 
+> > Do the internal and external PHY share the same MDIO bus? 
 > 
-> I wish patches for review were not marked as RFC. I remember this
-> patch, so I don't consider this as RFC... but that's rather exception.
-> 
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> 
-> Best regards,
-> Krzysztof
-> 
+> They share the same MDIO bus and phy id setting.
 
-Sorry for the change to RFC. I was told to switch to RFC as it
-has a unmerged dependency since v2. Thanks for your review tag
-and apology for the confusion.
+What do you mean by phy ID?
 
-Regards,
-Inochi
+> When an external phy
+> is select, the internal one is not initialized and can not be accessed
+> by the SoC.
+> 
+> > I've seen some SoCs with complex MDIO muxes for internal vs external
+> > PHYs.
+> > 
+> > 	Andrew
+> 
+> There is a switch register on the SoC to decide which phy/mode is used. 
+> By defaut is internal one with rmii mode. I think a driver is needed to
+> handle this properly.
+
+This sounds like a complex MDIO mux. You should think about this now,
+because others have left this same problem too late and ended up with
+a complex design in order to keep backwards compatibility with old DT
+blobs which don't actually describe the real hardware.
+
+	Andrew
 
 _______________________________________________
 linux-riscv mailing list
