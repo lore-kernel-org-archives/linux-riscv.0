@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3892DE6F085
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Nov 2024 19:39:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4911E6F084
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Nov 2024 19:46:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GN+MrQs95mE6VDD3X1sgST+JaIPUUAv8qM3SBsRFP8U=; b=q+lnUmVOJPhUYy
-	aDc3LDXWmsHL8QLuKfE+l8VtPcfIU8d/Igeolg6QKqZPSC4mTFCg5RkvNOx2VPWuBdvlaImGzB3Gf
-	jdNOEhNZAWKr0oiKrNfiCffYDAYQ3qQodAbF1eGNmo2Rc336L6Ew3VgJRWC5rK1Zkjn7RVuzz78Xd
-	qGKkBLIAa+W7svSkIWCJOBIxVP5DjMOmPPJFrj0HKCPj1nyGEP3lSv49xqn5ImOzcNcpOo2hwYT1m
-	vCGO6svpASffNYfEdftsHuFSeNNUOsNx/6oJPtJDVVsd8v2+D+TrVMitaXapAtl5kf6mMBP2TijgP
-	vazbodgDKyY0G/KYTJ4A==;
+	List-Owner; bh=jmDWNybGbUI/9L+Rg/wYgOYaUz7ud8jnKcvjaIcKDdc=; b=H/etA4kGdPBFnM
+	Uvo9oryq0V6wycURAcblygtnf4YmSbmZMQqyzz8t6vpdtPHPWayTtKIos1O+mLH1bJwCCSiElS9MP
+	q2Q1muDKxJR9/jUG7Ifj0lt2mpYCXMBVhrn8v2O+fExMO0fzg80R70Hch7L2cq1VJ4PsYbFuqhNR8
+	iCO1CLY9W83PZXnzhXlMfjNvkUWx26dDwyKxlw4jZ7UcPIbaW82551+HCdJtAMJrNTLrYwucjIGIa
+	lvxL0cSxRQoDBlDnp2XITIXa1qP5d5iYlWjIz5tHm220GNz3EvIvQTF0kdFgR+LRqnzLVY0oaEdIL
+	gOFIUkqDezQJHUYBRGuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6xUY-000000089ub-1uoP;
-	Fri, 01 Nov 2024 19:39:30 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1t6xb8-00000008Agb-0v6B;
+	Fri, 01 Nov 2024 19:46:18 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6xUU-000000089tg-3FUS;
-	Fri, 01 Nov 2024 19:39:29 +0000
+	id 1t6wco-000000081pK-2fKN;
+	Fri, 01 Nov 2024 18:44:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1730489966; x=1762025966;
+  t=1730486639; x=1762022639;
   h=message-id:date:mime-version:subject:to:cc:references:
    from:in-reply-to:content-transfer-encoding;
-  bh=54QzldtV+oOQ8waAwjCrWq0G6D0V6v+b9usu7SWxFqg=;
-  b=keffBhDtelqHi3ZMfxgNwcEQs1jysUB/SnZovvCXyWrIOrMA6tRZSZ7I
-   j1iH2Rb2CDCysm+WK5xMnZKe7loGVDm+oaoBUriScgbiYEb3hmDWbGzud
-   OHTNGLFohHD8wJ22JyGSpF6yNp+nZD69eU6nFrSkFNq9o/z73brXSKhCF
-   lepx1xYL7bOdUfLqHiWZbrHfATLDxUxghMoVUlQeJ0t7h28jKScuFWQNd
-   nIk4e25OCNjqIUlPZQIfKgWmcvzTFbmZWJzAjhJqGzeBoppxRBTMIwcFF
-   rrpYv//m8x/sISCJwDg3pj5w0dApk+BfysaX/ArfskZIWzr8koLr3I7OV
-   A==;
-X-CSE-ConnectionGUID: dxivy0a3RJWUIJWeOTRDFg==
-X-CSE-MsgGUID: A2Alvns5ThWc6SEWVdBPgQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="47717871"
+  bh=vPc1Ldvq2PDuLY+WWtt/CAl7h5TN13wwfuaoOzg1fOA=;
+  b=hEYxlqx1EP0bVtKAvViD7mmt+HToVWPWoaMri9N9fPoMSYO9DSBRpVmW
+   FXNkvn8gq2vRls3YoZtCAQI/X1EX/EcfDvMOvzvmoBDYjvy/AVPp0YY/d
+   s17ut0VgWjGca3TY54AlK66IWYrA3y3LtKM2JzFtQxBJ4O9Uq43LW0qAV
+   nBaWWhkptS3D9yojujxCNCD9jYv6uItC+zyBwpst4i90bqslYOIIlr+RE
+   fcF7AiaSeAtmBPeRrcciaLNehWmg0mBANkh92aV8qHTlcTXFdQ1+Ci52d
+   QPjnyzxE2EvtubX23AopZCAfvbX5eDrdFYuf6rn1ZDEnC08/aeHCDVsm7
+   Q==;
+X-CSE-ConnectionGUID: R+O2+Ge4Q3ui3LWhGQu7UA==
+X-CSE-MsgGUID: fW+9Vr8tR8GCJFWxGFCFYw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="30216956"
 X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
-   d="scan'208";a="47717871"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Nov 2024 12:39:24 -0700
-X-CSE-ConnectionGUID: OHnYS5S6TcuNT3OY7OKdwA==
-X-CSE-MsgGUID: 2dJ9/DffSeuFoRFq5NBtZA==
+   d="scan'208";a="30216956"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Nov 2024 11:43:57 -0700
+X-CSE-ConnectionGUID: nItOh5W8SBua+HcT4OK75w==
+X-CSE-MsgGUID: Rqmuf4uZTza2bSiqESaTiw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.11,250,1725346800"; 
-   d="scan'208";a="87583065"
+   d="scan'208";a="83866016"
 Received: from ccbilbre-mobl3.amr.corp.intel.com (HELO [10.124.220.146]) ([10.124.220.146])
-  by fmviesa005-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Nov 2024 12:39:22 -0700
-Message-ID: <4a015283-28e2-4459-825a-1fd542b81110@intel.com>
-Date: Fri, 1 Nov 2024 12:39:21 -0700
+  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Nov 2024 11:43:54 -0700
+Message-ID: <d467e6bd-c673-415f-8bb0-91603f06498a@intel.com>
+Date: Fri, 1 Nov 2024 11:43:52 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [RFC PATCH v3 0/6] Direct Map Removal for guest_memfd
 To: "Manwaring, Derek" <derekmn@amazon.com>
-References: <d467e6bd-c673-415f-8bb0-91603f06498a@intel.com>
- <71e9b2c8-0cc4-4646-88f0-7780e108e610@amazon.com>
+References: <51fe5ad1-7057-4d43-b92c-580d187d2aeb@intel.com>
+ <37fbfc65-b145-4a22-a48c-1921204d5635@amazon.com>
 From: Dave Hansen <dave.hansen@intel.com>
 Content-Language: en-US
 Autocrypt: addr=dave.hansen@intel.com; keydata=
@@ -106,10 +106,10 @@ Autocrypt: addr=dave.hansen@intel.com; keydata=
  MTsCeQDdjpgHsj+P2ZDeEKCbma4m6Ez/YWs4+zDm1X8uZDkZcfQlD9NldbKDJEXLIjYWo1PH
  hYepSffIWPyvBMBTW2W5FRjJ4vLRrJSUoEfJuPQ3vW9Y73foyo/qFoURHO48AinGPZ7PC7TF
  vUaNOTjKedrqHkaOcqB185ahG2had0xnFsDPlx5y
-In-Reply-To: <71e9b2c8-0cc4-4646-88f0-7780e108e610@amazon.com>
+In-Reply-To: <37fbfc65-b145-4a22-a48c-1921204d5635@amazon.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_123926_877524_0A8C5A3B 
-X-CRM114-Status: UNSURE (   6.51  )
+X-CRM114-CacheID: sfid-20241101_114358_738031_72D7DB52 
+X-CRM114-Status: UNSURE (   6.67  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -128,16 +128,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/1/24 12:29, Manwaring, Derek wrote:
-> As far as performance, are you talking about just the fracturing or
-> something beyond that? The data Mike brought to LSFMMBPF 2023 showed the
-> perf impact from direct map fragmentation for memfd_secret isn't "that
-> bad" [1].
+On 11/1/24 11:31, Manwaring, Derek wrote:
+>>From that standpoint I'm still tempted to turn the question around a bit
+> for the host kernel's perspective. Like if the host kernel should not
+> (and indeed cannot with TDX controls in place) access guest private
+> memory, why not remove it from the direct map?
 
-Just the fracturing.
+Pretend that the machine check warts aren't there.
 
-Mike's data are interesting, but I still think we're pretty far away
-from saying that the kernel doesn't need large mappings.
+It costs performance and complexity, for an only theoretical gain.  This
+is especially true for a VMM that's not doing a just doing confidential
+guests.  You fracture the direct map to pieces forever (for now).
 
 _______________________________________________
 linux-riscv mailing list
