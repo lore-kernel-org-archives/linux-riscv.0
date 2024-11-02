@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E15DE6F097
-	for <linux-riscv@archiver.kernel.org>; Sat,  2 Nov 2024 00:09:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3279E6F098
+	for <linux-riscv@archiver.kernel.org>; Sat,  2 Nov 2024 00:09:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LnybKwQ2gRumjoj9H+OhVHzM9mXaSAYiFyxj4a7yv+4=; b=urREfNOptmKd9H
-	49+2ckaKS/lSo306Oi/a2TtgjoELD4Z09U20Dea46R4h7Cl9XUAiWnM2XcMPogNPHdbI+W5tbDUbj
-	qxllsKeUnpLZLYiBAL6C5FaLQgxPTzfSFlo9qv/GFjFygSJdpJbCKaB37ypsF8tYU7d7XtUc9CENO
-	Nn6pLAVZY6sp8janwpTlAra4VcHcs2lk0oiB7FtOxK8QpK15RHg329TzeI0ugIm/dFsVagvDPQhsI
-	YLMvrvTwZ4puDoGSvnBENQ2HPXpQpHOhk+Mx/zGOIm1rcn6Lkg8br6Hx0iUWYrb3a59/jiGsxZNMd
-	ycxM8/wcrRFWc1XnYerg==;
+	List-Owner; bh=oveFcgakkXAYnyGV/wex3Qfc2ZSVlC6X1oCXOUYMMAM=; b=sL8QsOf+X4ItjK
+	lexJmL0GETm2HXPt9gO8sgcxcwVdjEclAUiaPsK1Ykg0Nk9/LOqUrKEqSmGSEQVzYAcz1+wU1/hym
+	nOeBaBf1NgLSN1VeiYIIYmgRDa1cP8emtV51Z2Qkz+gEI96IDSZCM1ybTc+6FiQ/CXO0Rs1tzO7s1
+	Asmgq1QBji5kpyC3wlESS9kRM0E3qCcUKkO0/QRuC2ImgbxwgmwAP811bQymv9SP/ZhZF97n04mnF
+	rMZyVCV0CcWVJr/XO51w01WytmpHu4eN6x1CsGa7dZIjA8R6rrzV1EXO0WPs/O8GddWE6mnAe6sLh
+	11Nl8ctAqNvunZpsy+RA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t71hI-00000008a18-0JiD;
-	Sat, 02 Nov 2024 00:08:56 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1t71hK-00000008a3A-12BN;
+	Sat, 02 Nov 2024 00:08:58 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t71hD-00000008Zxy-1Rg0
+	id 1t71hG-00000008ZzU-0sF4
 	for linux-riscv@lists.infradead.org;
-	Sat, 02 Nov 2024 00:08:52 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-2e59746062fso2075863a91.2
-        for <linux-riscv@lists.infradead.org>; Fri, 01 Nov 2024 17:08:50 -0700 (PDT)
+	Sat, 02 Nov 2024 00:08:55 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-2e3d523a24dso1998610a91.0
+        for <linux-riscv@lists.infradead.org>; Fri, 01 Nov 2024 17:08:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1730506130; x=1731110930; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1730506133; x=1731110933; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=mL0WzPRS7hGxrV+VhJxke/rBFtDo9qOrbNgPZOvxHPQ=;
-        b=gykS+aCqG5dT0CqB/A+TuvPWBgYlcZgCV2Mqr7L7xceE5jG7dir3x86oS9H0qaUVsi
-         z5ndGdmum211YTPKW8xHOBHaEIjYINQXi10iep4zTFxxdSxaEN0SWBtdnljW3pU4oFX7
-         cFSOolC0urpjBM8FOMKqi1giP7lQ6J7HFIimsGK5GapfYEHptTQHNnvzQA+xIrtzL0N4
-         qm9MeHagb7EdyIWAcNmJWJouvjGsEOh+JW6dmaIm+LLLG26LeeqZd2GBTElIfsV4BPl+
-         LD2uoKWjUcDCDzcyHgPAIpfA+onltWsBBXfQwyr68kk4jWVOL/Rz/XXW6fjEtC5fPoY5
-         IyYQ==
+        bh=6f0bfv/UG/JqamBlr6Ml5vEqFTtFdcwNeUu8mlrjgUs=;
+        b=TIIkhkA8gQKOCKOzdF3vs5gAtcBzlkzSeyXaNXISyco0ZsKAbll+4Ik1bPG8oP98Ns
+         kBqziNrlxuMiv0W0OWcZXMU4p9s7B+PSJitbW7D0p8Lh4JLPTLKm3nSrx2/zYCXOI+KL
+         QP//wYoa2gyPcGLoyCnpt6Uf7ou8rZ9RktD8p1xHmFZM3PixUOGA/Vu2l1tcLa0Bfzv/
+         MlB80o9uAUxq9ltl6GrHCEc8VmYylvTS8jehYp9fPW5HBODN+P17C/vRaRpA9s3W/ZkB
+         vqHYM0zR7itGkzCN/MnlUe4DC3wzdszaC3u9WIqmV4OjQnGYs5hBggAyDmYXzhZfPnaV
+         cXJQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730506130; x=1731110930;
+        d=1e100.net; s=20230601; t=1730506133; x=1731110933;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=mL0WzPRS7hGxrV+VhJxke/rBFtDo9qOrbNgPZOvxHPQ=;
-        b=j+TdZx5HqTxJMtxjI/XwpOJpaq5yyNLXU3ZSr+0+yDWwSGWr/1kojYEXIDS/43w84J
-         fzpU0MeCBEvfsN2kBQNJxla8CtCN8JBTAsTMVGsYiDTet/66CKkeRruBGq1q4CP5Nk3b
-         JcjtxQ+8EQjO+yIetwBreaeo71zljSEwX3jWQcFRXcqQuzBSNFMf2wnhLhxggtp34Sf7
-         yt0YcKA7HtbW9AXr+rA8hWK971ZmU+FPQe4SmH8jktze1/vijfbWUF1ROAkYfAeAXSKS
-         vn2HrIL0vDXGfraTKHhgn80Zmi7FcFxp7Nuxb8BImSdQsfk6rOXtZJTX6s3Uf1Ggbs9R
-         gDEw==
-X-Forwarded-Encrypted: i=1; AJvYcCVXNYqpQ9EU8HZb5g08u6AW/568dIHVYReEFPuy3lDOs9CVoGe4W+ucKp/KFLUI27btP3d7N3tpakJAWQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywnk6N410JJK+xGpLLsARX91WOMAqIK7uBC21g+3sJQOwRyoA43
-	wcZFPhuK5mvIpc15X8gZfUAqA2M5amHR6YjFinDyCYeYfcHSvlHjBKgY2LX/Djo=
-X-Google-Smtp-Source: AGHT+IEAzP0/lUzcVjGHo7zMNTFPjFuS/q2EkpeAXen6krZ/qDoO/6VUQL430cJI3dz42uV1XEAj6g==
-X-Received: by 2002:a17:90b:2d8d:b0:2e2:cd79:ec06 with SMTP id 98e67ed59e1d1-2e93c18815cmr12230152a91.10.1730506130083;
-        Fri, 01 Nov 2024 17:08:50 -0700 (PDT)
+        bh=6f0bfv/UG/JqamBlr6Ml5vEqFTtFdcwNeUu8mlrjgUs=;
+        b=f0HF8gWIefppD+oB1+VvT1h1agsue8g03SeK2y/EzXSIuEBaltfgbPrCMCQ183k71U
+         qkmItU7/PPyyHIcc71S1zNvFtdu2MsDvP4kDb/WL5rMu1/wD3p01iqNwGQ+JR1Y7+vJb
+         8rBZ5nDAXu0Ky28G0AqWs75xWM4/0SPL4T3i6M2TY6TJkaEyd2ia/L8KPRDdT8mSoLvV
+         fLHF4V7FbdMbHBiPOgJ/CHdcYo6gCIiCPGxKTDvXMD5jzDJpR+T0kRodhFcvnOndvrjX
+         TlzCfLn+Irt1ZQNpNlhyUnGKRrqfkV0ZnVBOfHuF99aOFKl62/lEUNKerihsXjoPIxrX
+         XAhQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVO0AI4Zyb4OMqRJTT9odhzk+xecNW5zFB/sUAk+vHKxC84HK00CyYczYGFVmOhqnMtPt6E5Qv3eE2/OA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwKblWb47Tz/twdWxBu1ZUFbK22BJtDPNzqyGFLUFimmylHz0so
+	IjKLgcsbKae5e03HzsDBzSrFVNpjrmFV1DRFq+X2+RKLD2RCyxqkvjHukl4p0y0=
+X-Google-Smtp-Source: AGHT+IFzEa5gdEJWrmZ3qEErWiVz4Nclj5KffdLeaW0o88JxBl0OqASLc7B/YtrAYBvQuvsBiZVowQ==
+X-Received: by 2002:a17:90a:7c03:b0:2e2:e6fa:cfef with SMTP id 98e67ed59e1d1-2e8f11bad3emr24772724a91.25.1730506133062;
+        Fri, 01 Nov 2024 17:08:53 -0700 (PDT)
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e92fc00856sm5505749a91.54.2024.11.01.17.08.49
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e92fc00856sm5505749a91.54.2024.11.01.17.08.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 01 Nov 2024 17:08:49 -0700 (PDT)
+        Fri, 01 Nov 2024 17:08:52 -0700 (PDT)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	linux-riscv@lists.infradead.org,
@@ -75,16 +75,16 @@ Cc: devicetree@vger.kernel.org,
 	Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH 03/11] riscv: mm: Deduplicate pgtable address conversion functions
-Date: Fri,  1 Nov 2024 17:07:57 -0700
-Message-ID: <20241102000843.1301099-4-samuel.holland@sifive.com>
+Subject: [PATCH 05/11] riscv: ptdump: Only show N and MT bits when enabled in the kernel
+Date: Fri,  1 Nov 2024 17:07:59 -0700
+Message-ID: <20241102000843.1301099-6-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.45.1
 In-Reply-To: <20241102000843.1301099-1-samuel.holland@sifive.com>
 References: <20241102000843.1301099-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_170851_433419_2CA8BA00 
-X-CRM114-Status: GOOD (  13.39  )
+X-CRM114-CacheID: sfid-20241101_170854_269064_137A0A76 
+X-CRM114-Status: GOOD (  13.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,263 +101,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Some functions were defined equivalently in both pgtable.h and
-pgtable-64.h. Keep only one definition, and move it to pgtable-64.h
-unless it is also used for Sv32. Note that while Sv32 uses only two
-levels of page tables, the kernel is not consistent with how they are
-folded. THP requires pfn_pmd()/pmd_pfn() and mm/init.c requires
-pfn_pgd()/pgd_pfn(), so for now both are provided.
+When the Svnapot or Svpbmt extension is not implemented, the
+corresponding page table bits are reserved, and must be zero. There is
+no need to show them in the ptdump output.
+
+When the Kconfig option for an extension is disabled, we assume it is
+not implemented. In that case, the kernel may provide a fallback
+definition for the fields, like how _PAGE_MTMASK is defined on riscv32.
+Using those fallback definitions in ptdump would produce incorrect
+results. To avoid this, hide the fields from the ptdump output.
 
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
 
- arch/riscv/include/asm/pgtable-32.h |  4 ++++
- arch/riscv/include/asm/pgtable-64.h | 28 ++++++++++++++--------------
- arch/riscv/include/asm/pgtable.h    | 23 ++++-------------------
- arch/riscv/mm/init.c                |  8 ++++----
- arch/riscv/mm/kasan_init.c          |  8 ++++----
- 5 files changed, 30 insertions(+), 41 deletions(-)
+ arch/riscv/mm/ptdump.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/include/asm/pgtable-32.h b/arch/riscv/include/asm/pgtable-32.h
-index 00f3369570a8..23137347dc15 100644
---- a/arch/riscv/include/asm/pgtable-32.h
-+++ b/arch/riscv/include/asm/pgtable-32.h
-@@ -33,6 +33,10 @@
- 					  _PAGE_WRITE | _PAGE_EXEC |	\
- 					  _PAGE_USER | _PAGE_GLOBAL))
+diff --git a/arch/riscv/mm/ptdump.c b/arch/riscv/mm/ptdump.c
+index 9d5f657a251b..58a7322e9a82 100644
+--- a/arch/riscv/mm/ptdump.c
++++ b/arch/riscv/mm/ptdump.c
+@@ -135,11 +135,13 @@ struct prot_bits {
  
-+#define pud_pfn(pud)				(pmd_pfn((pmd_t){ pud }))
-+#define p4d_pfn(p4d)				(pud_pfn((pud_t){ p4d }))
-+#define pgd_pfn(pgd)				(p4d_pfn((p4d_t){ pgd }))
-+
- static const __maybe_unused int pgtable_l4_enabled;
- static const __maybe_unused int pgtable_l5_enabled;
- 
-diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
-index 0897dd99ab8d..33e7ff049c4a 100644
---- a/arch/riscv/include/asm/pgtable-64.h
-+++ b/arch/riscv/include/asm/pgtable-64.h
-@@ -213,19 +213,20 @@ static inline pud_t pfn_pud(unsigned long pfn, pgprot_t prot)
- 	return __pud((pfn << _PAGE_PFN_SHIFT) | pgprot_val(prot));
- }
- 
--static inline unsigned long _pud_pfn(pud_t pud)
-+#define pud_pfn pud_pfn
-+static inline unsigned long pud_pfn(pud_t pud)
- {
- 	return __page_val_to_pfn(pud_val(pud));
- }
- 
- static inline pmd_t *pud_pgtable(pud_t pud)
- {
--	return (pmd_t *)pfn_to_virt(__page_val_to_pfn(pud_val(pud)));
-+	return (pmd_t *)pfn_to_virt(pud_pfn(pud));
- }
- 
- static inline struct page *pud_page(pud_t pud)
- {
--	return pfn_to_page(__page_val_to_pfn(pud_val(pud)));
-+	return pfn_to_page(pud_pfn(pud));
- }
- 
- #define mm_p4d_folded  mm_p4d_folded
-@@ -257,11 +258,6 @@ static inline pmd_t pfn_pmd(unsigned long pfn, pgprot_t prot)
- 	return __pmd((pfn << _PAGE_PFN_SHIFT) | prot_val);
- }
- 
--static inline unsigned long _pmd_pfn(pmd_t pmd)
--{
--	return __page_val_to_pfn(pmd_val(pmd));
--}
--
- #define mk_pmd(page, prot)    pfn_pmd(page_to_pfn(page), prot)
- 
- #define pmd_ERROR(e) \
-@@ -316,7 +312,7 @@ static inline p4d_t pfn_p4d(unsigned long pfn, pgprot_t prot)
- 	return __p4d((pfn << _PAGE_PFN_SHIFT) | pgprot_val(prot));
- }
- 
--static inline unsigned long _p4d_pfn(p4d_t p4d)
-+static inline unsigned long p4d_pfn(p4d_t p4d)
- {
- 	return __page_val_to_pfn(p4d_val(p4d));
- }
-@@ -324,7 +320,7 @@ static inline unsigned long _p4d_pfn(p4d_t p4d)
- static inline pud_t *p4d_pgtable(p4d_t p4d)
- {
- 	if (pgtable_l4_enabled)
--		return (pud_t *)pfn_to_virt(__page_val_to_pfn(p4d_val(p4d)));
-+		return (pud_t *)pfn_to_virt(p4d_pfn(p4d));
- 
- 	return (pud_t *)pud_pgtable((pud_t) { p4d_val(p4d) });
- }
-@@ -332,7 +328,7 @@ static inline pud_t *p4d_pgtable(p4d_t p4d)
- 
- static inline struct page *p4d_page(p4d_t p4d)
- {
--	return pfn_to_page(__page_val_to_pfn(p4d_val(p4d)));
-+	return pfn_to_page(p4d_pfn(p4d));
- }
- 
- #define pud_index(addr) (((addr) >> PUD_SHIFT) & (PTRS_PER_PUD - 1))
-@@ -378,10 +374,15 @@ static inline void pgd_clear(pgd_t *pgd)
- 		set_pgd(pgd, __pgd(0));
- }
- 
-+static inline unsigned long pgd_pfn(pgd_t pgd)
-+{
-+	return __page_val_to_pfn(pgd_val(pgd));
-+}
-+
- static inline p4d_t *pgd_pgtable(pgd_t pgd)
- {
- 	if (pgtable_l5_enabled)
--		return (p4d_t *)pfn_to_virt(__page_val_to_pfn(pgd_val(pgd)));
-+		return (p4d_t *)pfn_to_virt(pgd_pfn(pgd));
- 
- 	return (p4d_t *)p4d_pgtable((p4d_t) { pgd_val(pgd) });
- }
-@@ -389,9 +390,8 @@ static inline p4d_t *pgd_pgtable(pgd_t pgd)
- 
- static inline struct page *pgd_page(pgd_t pgd)
- {
--	return pfn_to_page(__page_val_to_pfn(pgd_val(pgd)));
-+	return pfn_to_page(pgd_pfn(pgd));
- }
--#define pgd_page(pgd)	pgd_page(pgd)
- 
- #define p4d_index(addr) (((addr) >> P4D_SHIFT) & (PTRS_PER_P4D - 1))
- 
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index e79f15293492..3e0e1177107d 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -258,19 +258,19 @@ static inline pgd_t pfn_pgd(unsigned long pfn, pgprot_t prot)
- 	return __pgd((pfn << _PAGE_PFN_SHIFT) | prot_val);
- }
- 
--static inline unsigned long _pgd_pfn(pgd_t pgd)
-+static inline unsigned long pmd_pfn(pmd_t pmd)
- {
--	return __page_val_to_pfn(pgd_val(pgd));
-+	return __page_val_to_pfn(pmd_val(pmd));
- }
- 
- static inline struct page *pmd_page(pmd_t pmd)
- {
--	return pfn_to_page(__page_val_to_pfn(pmd_val(pmd)));
-+	return pfn_to_page(pmd_pfn(pmd));
- }
- 
- static inline unsigned long pmd_page_vaddr(pmd_t pmd)
- {
--	return (unsigned long)pfn_to_virt(__page_val_to_pfn(pmd_val(pmd)));
-+	return (unsigned long)pfn_to_virt(pmd_pfn(pmd));
- }
- 
- static inline pte_t pmd_pte(pmd_t pmd)
-@@ -673,21 +673,6 @@ static inline pmd_t pmd_mkinvalid(pmd_t pmd)
- 	return __pmd(pmd_val(pmd) & ~(_PAGE_PRESENT|_PAGE_PROT_NONE));
- }
- 
--#define __pmd_to_phys(pmd)  (__page_val_to_pfn(pmd_val(pmd)) << PAGE_SHIFT)
--
--static inline unsigned long pmd_pfn(pmd_t pmd)
--{
--	return ((__pmd_to_phys(pmd) & PMD_MASK) >> PAGE_SHIFT);
--}
--
--#define __pud_to_phys(pud)  (__page_val_to_pfn(pud_val(pud)) << PAGE_SHIFT)
--
--#define pud_pfn pud_pfn
--static inline unsigned long pud_pfn(pud_t pud)
--{
--	return ((__pud_to_phys(pud) & PUD_MASK) >> PAGE_SHIFT);
--}
--
- static inline pmd_t pmd_modify(pmd_t pmd, pgprot_t newprot)
- {
- 	return pte_pmd(pte_modify(pmd_pte(pmd), newprot));
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 0e8c20adcd98..7282b62b7e8d 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -497,7 +497,7 @@ static void __meminit create_pmd_mapping(pmd_t *pmdp,
- 		ptep = pt_ops.get_pte_virt(pte_phys);
- 		memset(ptep, 0, PAGE_SIZE);
- 	} else {
--		pte_phys = PFN_PHYS(_pmd_pfn(pmdp[pmd_idx]));
-+		pte_phys = PFN_PHYS(pmd_pfn(pmdp[pmd_idx]));
- 		ptep = pt_ops.get_pte_virt(pte_phys);
- 	}
- 
-@@ -599,7 +599,7 @@ static void __meminit create_pud_mapping(pud_t *pudp, uintptr_t va, phys_addr_t
- 		nextp = pt_ops.get_pmd_virt(next_phys);
- 		memset(nextp, 0, PAGE_SIZE);
- 	} else {
--		next_phys = PFN_PHYS(_pud_pfn(pudp[pud_index]));
-+		next_phys = PFN_PHYS(pud_pfn(pudp[pud_index]));
- 		nextp = pt_ops.get_pmd_virt(next_phys);
- 	}
- 
-@@ -625,7 +625,7 @@ static void __meminit create_p4d_mapping(p4d_t *p4dp, uintptr_t va, phys_addr_t
- 		nextp = pt_ops.get_pud_virt(next_phys);
- 		memset(nextp, 0, PAGE_SIZE);
- 	} else {
--		next_phys = PFN_PHYS(_p4d_pfn(p4dp[p4d_index]));
-+		next_phys = PFN_PHYS(p4d_pfn(p4dp[p4d_index]));
- 		nextp = pt_ops.get_pud_virt(next_phys);
- 	}
- 
-@@ -682,7 +682,7 @@ void __meminit create_pgd_mapping(pgd_t *pgdp, uintptr_t va, phys_addr_t pa, phy
- 		nextp = get_pgd_next_virt(next_phys);
- 		memset(nextp, 0, PAGE_SIZE);
- 	} else {
--		next_phys = PFN_PHYS(_pgd_pfn(pgdp[pgd_idx]));
-+		next_phys = PFN_PHYS(pgd_pfn(pgdp[pgd_idx]));
- 		nextp = get_pgd_next_virt(next_phys);
- 	}
- 
-diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
-index c301c8d291d2..bac65e3268a4 100644
---- a/arch/riscv/mm/kasan_init.c
-+++ b/arch/riscv/mm/kasan_init.c
-@@ -171,7 +171,7 @@ static void __init kasan_early_clear_pud(p4d_t *p4dp,
- 	if (!pgtable_l4_enabled) {
- 		pudp = (pud_t *)p4dp;
- 	} else {
--		base_pud = pt_ops.get_pud_virt(pfn_to_phys(_p4d_pfn(p4dp_get(p4dp))));
-+		base_pud = pt_ops.get_pud_virt(pfn_to_phys(p4d_pfn(p4dp_get(p4dp))));
- 		pudp = base_pud + pud_index(vaddr);
- 	}
- 
-@@ -196,7 +196,7 @@ static void __init kasan_early_clear_p4d(pgd_t *pgdp,
- 	if (!pgtable_l5_enabled) {
- 		p4dp = (p4d_t *)pgdp;
- 	} else {
--		base_p4d = pt_ops.get_p4d_virt(pfn_to_phys(_pgd_pfn(pgdp_get(pgdp))));
-+		base_p4d = pt_ops.get_p4d_virt(pfn_to_phys(pgd_pfn(pgdp_get(pgdp))));
- 		p4dp = base_p4d + p4d_index(vaddr);
- 	}
- 
-@@ -242,7 +242,7 @@ static void __init kasan_early_populate_pud(p4d_t *p4dp,
- 	if (!pgtable_l4_enabled) {
- 		pudp = (pud_t *)p4dp;
- 	} else {
--		base_pud = pt_ops.get_pud_virt(pfn_to_phys(_p4d_pfn(p4dp_get(p4dp))));
-+		base_pud = pt_ops.get_pud_virt(pfn_to_phys(p4d_pfn(p4dp_get(p4dp))));
- 		pudp = base_pud + pud_index(vaddr);
- 	}
- 
-@@ -280,7 +280,7 @@ static void __init kasan_early_populate_p4d(pgd_t *pgdp,
- 	if (!pgtable_l5_enabled) {
- 		p4dp = (p4d_t *)pgdp;
- 	} else {
--		base_p4d = pt_ops.get_p4d_virt(pfn_to_phys(_pgd_pfn(pgdp_get(pgdp))));
-+		base_p4d = pt_ops.get_p4d_virt(pfn_to_phys(pgd_pfn(pgdp_get(pgdp))));
- 		p4dp = base_p4d + p4d_index(vaddr);
- 	}
- 
+ static const struct prot_bits pte_bits[] = {
+ 	{
+-#ifdef CONFIG_64BIT
++#ifdef CONFIG_RISCV_ISA_SVNAPOT
+ 		.mask = _PAGE_NAPOT,
+ 		.set = "N",
+ 		.clear = ".",
+ 	}, {
++#endif
++#ifdef CONFIG_RISCV_ISA_SVPBMT
+ 		.mask = _PAGE_MTMASK_SVPBMT,
+ 		.set = "MT(%s)",
+ 		.clear = "  ..  ",
+@@ -215,7 +217,7 @@ static void dump_prot(struct pg_state *st)
+ 		if (val) {
+ 			if (pte_bits[i].mask == _PAGE_SOFT)
+ 				sprintf(s, pte_bits[i].set, val >> 8);
+-#ifdef CONFIG_64BIT
++#ifdef CONFIG_RISCV_ISA_SVPBMT
+ 			else if (pte_bits[i].mask == _PAGE_MTMASK_SVPBMT) {
+ 				if (val == _PAGE_NOCACHE_SVPBMT)
+ 					sprintf(s, pte_bits[i].set, "NC");
 -- 
 2.45.1
 
