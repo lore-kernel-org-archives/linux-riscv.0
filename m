@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C04C0E67809
-	for <linux-riscv@archiver.kernel.org>; Sat,  2 Nov 2024 20:17:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16018E67809
+	for <linux-riscv@archiver.kernel.org>; Sat,  2 Nov 2024 20:18:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Gb0KmxwtASDRcsaM/IGhp32zpCEgpimh4FbREzIwFHA=; b=5GAUqzDrwoR5oj
-	K5KloBSzHEyVubVcZLc69rMUfKTp/WeHL4z/w7PTWhj7Jk3kdpAlnqITFiEzNg3SvfGS4OhQzbuWC
-	zHv3aACNU7UvhtMK38ouPchGqsVV653lEgPhKvrCg6GUzWMTX7fpl36oCCJuifclxbmP0Lwgs/vHA
-	nEf5uc5w2ZgKAxK7b61MQZGKRwUDUsbO+dmWvB67f1+TLKAA6EAuh0iLagFx7hXIOgviK+EBTTd1+
-	OWbYSQ1xGrMQ32BqvfQENtHru3FEtAjvjUvjpILr8pZPYWF9377Hr1tpfsZFXPpfwt13VWvS/4CHt
-	eSYY3k3kd/nXqYpWE14Q==;
+	List-Owner; bh=QQQeDnxgwfH+/725ophZe1xQQuB9nr3jkTFB6T7Dlt4=; b=KTEi0MgmbAxffS
+	mp3QYFNReL81DU26fovcc3y0lwXxVnHyReSsgO5Lw3QZ8QlQYbK7VuHtfJ2Lc3ZWl3H+9pH4i5GXE
+	SEKk1H8YlY4rrWmuuouP5eZ/r9VeRNv3SulDrFKsbtYtD6sfRHk/frrXiMBgPv0bjKEuIth/Pn4J3
+	rph1dEsFLd4mhxEoHb3CeWaryOdckvGKDYXjSBybLieVmjb7Xo0k3tRyz9OYQCrOr1OqJziDWIpkA
+	8pL9hcCtR/tR9pikPp7nPMklASEaQ2mvFWQZOIE7ZzyK31p7qmwH+EmcawI6Gr0LXAllmQMRMzhP4
+	L4LwuDAB1j6pB6SCuduw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7KYL-0000000ALls-3xnq;
-	Sat, 02 Nov 2024 20:16:57 +0000
-Received: from mail-il1-x12a.google.com ([2607:f8b0:4864:20::12a])
+	id 1t7KZX-0000000ALwT-1VOn;
+	Sat, 02 Nov 2024 20:18:11 +0000
+Received: from mail-io1-xd36.google.com ([2607:f8b0:4864:20::d36])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7KYI-0000000ALlE-1Ktb
+	id 1t7KZU-0000000ALvs-36ND
 	for linux-riscv@lists.infradead.org;
-	Sat, 02 Nov 2024 20:16:55 +0000
-Received: by mail-il1-x12a.google.com with SMTP id e9e14a558f8ab-3a3a5cd2a3bso11220615ab.3
-        for <linux-riscv@lists.infradead.org>; Sat, 02 Nov 2024 13:16:53 -0700 (PDT)
+	Sat, 02 Nov 2024 20:18:10 +0000
+Received: by mail-io1-xd36.google.com with SMTP id ca18e2360f4ac-83ac817aac3so122445039f.0
+        for <linux-riscv@lists.infradead.org>; Sat, 02 Nov 2024 13:18:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1730578613; x=1731183413; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1730578687; x=1731183487; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=mfwK4sEdTx9F/aBDurQK3UATh0DRHqT2tqgZLd5JDpc=;
-        b=P17Pg8mJKXxv3aJOuG5jHeDVxPQpjtgAlm3BlYrbVuURJGyRu+/36wG+nq0qHH9rOx
-         8A4pAnQdlKvt6uInGM5GylMQKxK3bITjdBgGF+TPBHlXQeHNXa/K0CXhw8mISGmFPFvq
-         sIbIlKiqSLCyG9PfyrhvAvQHmG3qgslgSgYOnkaQDR6tU1pOUjCR6G8ud6tLR7s5ekWP
-         mw5XRAIJGjvX1BDQ1eKcoU5GxivoceEDV9dc2SH4zRW46c7RvDdto1LNj0LlPvWh6s8f
-         CT5vZrslRctwjLnCyBUJjXWAXBD0Z+nQTsCPMCBur181SP+UL9TcygyXyEkpvAEHAP7Z
-         o7WA==
+        bh=Uv6c+k0dm8ixfMK+kRUbChJ5vy9Z65ImLeSVIElSlFk=;
+        b=R42MIOmoEj1rCIlJ1vRrWs9koldoN4EQ12Db45IiJbFu3jIvTCTGzgao829k2BswLj
+         Qws6MfATnnPKF6lhsjoNeY98QJMKsYDUfW3fcvg8JqNfkblzYtQi7RHSPHyvpf/lW1Bx
+         VGRmLEnSd5zG1schvR742fJTZsXmfKWHe3+f/yaP94aQZJIhdmLXfSpa9X58HslS8gwE
+         lQRobZd505lDtLKeA+EpZXTfvVCC008zkuRLt2nNrfkZYPX0OCZC+DHo6kChIligAAT7
+         Ba40hv8eAB84pO0/i2N87c0OSdDOQjzN5OcDT1Hrl2gE1sh5bsdcYMm9M14yjVG7MOnM
+         qiwg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730578613; x=1731183413;
+        d=1e100.net; s=20230601; t=1730578687; x=1731183487;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=mfwK4sEdTx9F/aBDurQK3UATh0DRHqT2tqgZLd5JDpc=;
-        b=U43hROjQ6wQZXn1vfr9TU20rRtnHBC1M/zd+xr+wCMPLEzWr2tV9H7Fc+a8P+ki3/Y
-         TQUlG6I+PCLUP9u8kZFvpI6ezfbsavs8wXb+g+ySv6o+YKnxJrkMGOv48caXVpKc09bT
-         SudzfYVLsJnMoesqlJ91z+TN4VyMwPjrfzT3mTF9NUzEU5aZSZ3/66xTVvnNtzk/x30r
-         uX8CP9f5i7TsH8AIIG0KNUYxspHE4gk6F+M3+MmMQo8fKUKgnTC1x5aTtYkGSz4bW5SZ
-         1rD+fK/KGVZjEd/1R4oNOlHIZnSgGxr5BwXskckwJ2YRgYr9jQy7v10q7sy/hGelxmfe
-         SizA==
-X-Forwarded-Encrypted: i=1; AJvYcCV2OzVVpUOiVc2KyzzO3uF1nW3FHRZAreaEqn9KSJ/bnjA9CSWc77AKy4gt/L8os6GlCHumolfB9Nxddg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyqZ//yNx0olP4+VJHLzbSSu0ZD+LavlCHWD0wY3vZ+UihpGAvV
-	OJeksTEboxHfRRJjx2XoPBdkZt3P17XMZ6QCwhNLelQR5tBUEogQBSrPwda5Uco=
-X-Google-Smtp-Source: AGHT+IHxkCjpiwvEUT4o38BUaI3lSwIPU5kBEbJUiHJaWVt4Bg1m1dEkBKxTOmT48n1sycp0+0I3CQ==
-X-Received: by 2002:a05:6e02:52e:b0:3a5:e3bc:c1bf with SMTP id e9e14a558f8ab-3a5e3bcc3ddmr127637225ab.23.1730578613043;
-        Sat, 02 Nov 2024 13:16:53 -0700 (PDT)
+        bh=Uv6c+k0dm8ixfMK+kRUbChJ5vy9Z65ImLeSVIElSlFk=;
+        b=I8CPVFrdIwixAREzBH/uzKz0dcJkrMmcp5ZAbVhLtL6Kwzwws+grwRgPQa8yMi7eSn
+         sEpTSAjj8A7Ltee7jbuFJX7Hi4RNbV494rYAzCznHrpQikKwrr61RgrWgwMhuzf7KPb9
+         xfed5jcZDFTzmDjr1zWQEVY/qzx8d+EClKBee6ssvVSciOEgdgMyjLsppwRJqq9bwxoF
+         8gf8g/HL7p7EofvoaNCNCORvaJwoFMAX31YqgpdiyRrydxzh6kDIFjWk+T2J4ybYToUc
+         9s2It30Sdl+4RkwKUUS6UVzqoOr4E1j2AKo+UHGiYmkRY7DfDkNNTsc5N9fQNcJRiUTG
+         3BmQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWomXClmdp18GmvtjseT/bYkA83Min4iRTs1XRQ+h9JTaiXEyCcdhCz6La3nNnMxAAZyf97U9RjnnRH9A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwvkMcehayhiyp27cToM18PhuWfmsSlnN4hn2pWKTbbWrk54Cku
+	vvmAQ+Yar+rbXUrHOE0Uo8MQWTo3eyaVm6tpqRvnBUptQ2eYCAYocuNoIeLwxpE=
+X-Google-Smtp-Source: AGHT+IEJc+EiNFpj9B5V/ByTf51tnyN0Vtl+t+p6pQirqCmqUqbkma3bOQA4lF2nU6yG6Loqga/zcQ==
+X-Received: by 2002:a05:6602:2d8d:b0:83a:97e7:8bcf with SMTP id ca18e2360f4ac-83b5676f6c7mr1760042139f.11.1730578687159;
+        Sat, 02 Nov 2024 13:18:07 -0700 (PDT)
 Received: from [100.64.0.1] ([147.124.94.167])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3a6a97cf520sm14786615ab.25.2024.11.02.13.16.51
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4de0497794asm1274337173.88.2024.11.02.13.18.05
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 02 Nov 2024 13:16:52 -0700 (PDT)
-Message-ID: <43f05f71-71f7-4073-ae3b-5f5fa35ad2b8@sifive.com>
-Date: Sat, 2 Nov 2024 15:16:51 -0500
+        Sat, 02 Nov 2024 13:18:06 -0700 (PDT)
+Message-ID: <9617eb4f-842d-4678-926e-478471de479b@sifive.com>
+Date: Sat, 2 Nov 2024 15:18:05 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/2] RISC-V: clarify what some RISCV_ISA* config
- options do
+Subject: Re: [PATCH v4 2/2] RISC-V: separate Zbb optimisations requiring and
+ not requiring toolchain support
 To: Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org
 Cc: Conor Dooley <conor.dooley@microchip.com>, xiao.w.wang@intel.com,
  Andrew Jones <ajones@ventanamicro.com>, pulehui@huawei.com,
@@ -78,13 +78,13 @@ Cc: Conor Dooley <conor.dooley@microchip.com>, xiao.w.wang@intel.com,
  Pu Lehui <pulehui@huaweicloud.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
  <bjorn@kernel.org>
 References: <20241024-aspire-rectify-9982da6943e5@spud>
- <20241024-overdue-slogan-0b0f69d3da91@spud>
+ <20241024-chump-freebase-d26b6d81af33@spud>
 From: Samuel Holland <samuel.holland@sifive.com>
 Content-Language: en-US
-In-Reply-To: <20241024-overdue-slogan-0b0f69d3da91@spud>
+In-Reply-To: <20241024-chump-freebase-d26b6d81af33@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241102_131654_432886_DE619A14 
-X-CRM114-Status: GOOD (  14.61  )
+X-CRM114-CacheID: sfid-20241102_131808_816570_89E323FA 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,23 +104,26 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On 2024-10-24 5:19 AM, Conor Dooley wrote:
 > From: Conor Dooley <conor.dooley@microchip.com>
 > 
-> During some discussion on IRC yesterday and on Pu's bpf patch [1]
-> I noticed that these RISCV_ISA* Kconfig options are not really clear
-> about their implications. Many of these options have no impact on what
-> userspace is allowed to do, for example an application can use Zbb
-> regardless of whether or not the kernel does. Change the help text to
-> try and clarify whether or not an option affects just the kernel, or
-> also userspace. None of these options actually control whether or not an
-> extension is detected dynamically as that's done regardless of Kconfig
-> options, so drop any text that implies the option is required for
-> dynamic detection, rewording them as "do x when y is detected".
+> It seems a bit ridiculous to require toolchain support for BPF to
+> assemble Zbb instructions, so move the dependency on toolchain support
+> for Zbb optimisations out of the Kconfig option and to the callsites.
 > 
-> Link: https://lore.kernel.org/linux-riscv/20240328-ferocity-repose-c554f75a676c@spud/ [1]
+> Zbb support has always depended on alternatives, so while adjusting the
+> config options guarding optimisations, remove any checks for
+> whether or not alternatives are enabled.
+> 
 > Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 > ---
->  arch/riscv/Kconfig | 36 +++++++++++++++++++-----------------
->  1 file changed, 19 insertions(+), 17 deletions(-)
+>  arch/riscv/Kconfig                    |  4 ++--
+>  arch/riscv/include/asm/arch_hweight.h |  6 +++---
+>  arch/riscv/include/asm/bitops.h       |  4 ++--
+>  arch/riscv/include/asm/checksum.h     |  3 +--
+>  arch/riscv/lib/csum.c                 | 21 +++------------------
+>  arch/riscv/lib/strcmp.S               |  5 +++--
+>  arch/riscv/lib/strlen.S               |  5 +++--
+>  arch/riscv/lib/strncmp.S              |  5 +++--
+>  8 files changed, 20 insertions(+), 33 deletions(-)
 
 Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
 
