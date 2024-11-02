@@ -4,73 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36241E677F8
-	for <linux-riscv@archiver.kernel.org>; Sat,  2 Nov 2024 10:01:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4944E677F8
+	for <linux-riscv@archiver.kernel.org>; Sat,  2 Nov 2024 10:21:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4DIS1AXpe3yVoDMcP3p7R5Rzx9CpU6HylW4xOdCkJAM=; b=M+pwCJbGDpXFxk
-	tQKxga75a9qgL+y4DaLYpMMHkpldNkIL3Qz/uRROz7+/lVQPEOOQxs0HABZlBe/RBF70rr3RNA18t
-	O6bPREGmAoHq5kN3lPUWnvEkWtHJnNFJPcO7YfZtCmfdk9MpzsPadBes9DgC+0I12u5rOqZ6ITUqS
-	zZJ4iZfeHk2KjIb7FmA7eS40ViBMTUsMSh4bkDM9EzR5LZte62c7GtFhCzsdgnkbQKILdxwuQN8xK
-	oKwgs3bR7EgSLSS4+s+V/guGnwGCC4cmddSqL2W7eZIOyqoUPhMxL0ySEMxPUUfsPx1HtdLuQk0JX
-	BuEcJF1AvJsBVYOIWolg==;
+	List-Owner; bh=7fzely3xbqTDdAeSmFnNsgmJRIv7NqxVv+C5FSaPR9w=; b=eGgHrE7FksFDZE
+	UzN8JNp32eUfxkYP00quvFhf9Ed4KElITs13su+qQQ9ssRgJXl3UZusm/FHi1CDBAeknvH+gDat67
+	8RtOc/RG+3ojL1G51PKrj2S2GuMZiTCEH1kgMHUkRx1vBUISU9GnA0QjiSDw1FmyAy80U/bYirfLj
+	wrkdkhCnMIUkCCPSyW6B08IxweLYeKsy+srfOrjpw+naOGZcLGa3+or2uGqhpLxpf9+g+5QoAt1YI
+	C4rubwKuBiGLe4m4iAPJ/y2orBWITwR+gO3BZzCnSttC1t2IlycHWHOwacxzywVGFIOc/3eWNqQWh
+	pDwyeUhIvZXMP/+SRFfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7AwE-00000009R9m-46CU;
-	Sat, 02 Nov 2024 10:00:58 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t7BGH-00000009UG0-2s64;
+	Sat, 02 Nov 2024 10:21:41 +0000
+Received: from abb.hmeau.com ([144.6.53.87])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7AuY-00000009R00-45Q7;
-	Sat, 02 Nov 2024 09:59:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 743195C0F7D;
-	Sat,  2 Nov 2024 09:58:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D464C4CEC3;
-	Sat,  2 Nov 2024 09:59:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730541554;
-	bh=jzcc2qtlo3q2yjXZFmDXUgFRfJJPX4XAPzkwICumNQI=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=pTAZ258u/Bm55mgKfduPxcJ4+l7utIbI96FN3uHiYroZBZHAbnvfCZty3m5Rr2XH+
-	 F9H9kpY23mllFcm03reDqSDwYlj6z0PqW6iPcayBoJoKDOej6utxzDbE1LxiDgLJej
-	 urb0cE+UNWmcsBfRHpQmITbawEzxNGoWVLCC3Y8Sm8pFGBsK9d4GCjck+Inw9773Iv
-	 K9VihTfRaPahcmoyEauQixFxZyTUMGJWDTOfYvXPoPOgSsyaIxQpyV/cg9HQXOUiLk
-	 wu2j/IQnCytheMbmA1fvWXZkbzI7ui/5dw0pO/X8IJ8Hh4LoxB9jvG2GJ0onELclPL
-	 6WJfZCxg2RXng==
-Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-2fb5fa911aaso39974791fa.2;
-        Sat, 02 Nov 2024 02:59:13 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWbOzUI6HQeL7tHU6VuJz3+/CCl93ASwOYA5vfqRie4Y4249crPdF547NpI8FWfMLAAY+aAowIWMb9VgjzATxnn@lists.infradead.org, AJvYcCWq3D866z5/sLdKnJ6BQEExiQVvK9qb8Xpjj2a5EhVgA28l0708CgzuU+wp3uzN4OOfbnSJa3iLxPDdvNM=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzN/sCKG9KTwrvOgOwBFqq/G2kTsmQlruy4htx9vtW+0G9Sdepe
-	JRVx1sgV4zIYE+kSZnf6xwBzBgRtd4mHBJer+AyIIh8LSF68/N0x6ATOMzFXByzkqa1bOmHsNRq
-	92UhfnTKi1XBgOD6pK62IdddGdAY=
-X-Google-Smtp-Source: AGHT+IEqeG8VCff0uhjP4V5ORLaNGD6KRrpJIJXC1kxDqwtW+gAEc3mfRLYGB8V+37TlYDdzVpYd4mw53pqQuHqGPG8=
-X-Received: by 2002:a05:651c:19a5:b0:2fa:de13:5c34 with SMTP id
- 38308e7fff4ca-2fedb7c7ad4mr47293611fa.19.1730541552417; Sat, 02 Nov 2024
- 02:59:12 -0700 (PDT)
-MIME-Version: 1.0
-References: <20241026040958.GA34351@sol.localdomain> <ZyX0uGHg4Cmsk2oz@gondor.apana.org.au>
-In-Reply-To: <ZyX0uGHg4Cmsk2oz@gondor.apana.org.au>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Sat, 2 Nov 2024 10:58:53 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXFfPtO0vd1KqTa+QNSkRWNR7SUJ_A_zX6-Hz5HVLtLYtw@mail.gmail.com>
-Message-ID: <CAMj1kXFfPtO0vd1KqTa+QNSkRWNR7SUJ_A_zX6-Hz5HVLtLYtw@mail.gmail.com>
+	id 1t7BEb-00000009U5z-0wyz;
+	Sat, 02 Nov 2024 10:19:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
+	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=yYa+7XoJuDdb76oEmaiyHNPbnto6CbOy5cbqLih549g=; b=IxqSkCyyTRJ8QPfyWdRdr2qHrJ
+	tpnjvWqxXTt+J7vxVmfkjrXd/rdKT+0RFdwGzbsRsMR9EdmzQEnFrsAgTnaI9+pdPBY3Pn9re79Nj
+	57c2proTZGddCmA7w8N1JXHF1QdjpqJ+rO1URQev5azBEyB5hCBbYGnbLrSwTrfwTX1ksXWj0DUCf
+	yuXLmD7dk6/d8YNZezbMYQ6VdXKIYeLQYq1Pq312XFyr1DfhbY4I3pSC7QOr5wrJ+HBrserJJF9gW
+	0q+8FZncsHy0y1xio+hERsUI6SlHqDVBhozBkFMWrc3INF748cH6QiBntZMGgC5ZBSYXHEMi51PKW
+	hRrho1rQ==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1t7BEX-00Dy0V-01;
+	Sat, 02 Nov 2024 18:19:54 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Sat, 02 Nov 2024 18:19:52 +0800
+Date: Sat, 2 Nov 2024 18:19:52 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Eric Biggers <ebiggers@kernel.org>, linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org, linux-ext4@vger.kernel.org,
+	linux-f2fs-devel@lists.sourceforge.net, linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev, sparclinux@vger.kernel.org,
+	x86@kernel.org
 Subject: Re: [PATCH v2 04/18] crypto: crc32 - don't unnecessarily register
  arch algorithms
-To: Herbert Xu <herbert@gondor.apana.org.au>
-Cc: Eric Biggers <ebiggers@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-crypto@vger.kernel.org, linux-ext4@vger.kernel.org, 
-	linux-f2fs-devel@lists.sourceforge.net, linux-mips@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	linux-scsi@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	loongarch@lists.linux.dev, sparclinux@vger.kernel.org, x86@kernel.org
+Message-ID: <ZyX8yEqnjXjJ5itO@gondor.apana.org.au>
+References: <20241026040958.GA34351@sol.localdomain>
+ <ZyX0uGHg4Cmsk2oz@gondor.apana.org.au>
+ <CAMj1kXFfPtO0vd1KqTa+QNSkRWNR7SUJ_A_zX6-Hz5HVLtLYtw@mail.gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAMj1kXFfPtO0vd1KqTa+QNSkRWNR7SUJ_A_zX6-Hz5HVLtLYtw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241102_025915_077862_21C4D1F0 
-X-CRM114-Status: UNSURE (   9.73  )
+X-CRM114-CacheID: sfid-20241102_031957_288091_16133DE4 
+X-CRM114-Status: UNSURE (   6.54  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,24 +83,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 2 Nov 2024 at 10:45, Herbert Xu <herbert@gondor.apana.org.au> wrote:
+On Sat, Nov 02, 2024 at 10:58:53AM +0100, Ard Biesheuvel wrote:
 >
-> Eric Biggers <ebiggers@kernel.org> wrote:
-> >
-> > While testing this patchset I notice that none of the crypto API drivers for
-> > crc32 or crc32c even need to be loaded on my system anymore, as everything on my
-> > system that uses those algorithms (such as ext4) just uses the library APIs now.
-> > That makes the "check /proc/crypto" trick stop working anyway.
->
-> What's stopping us from removing them altogether?
->
+> At least btrfs supports a variety of checksums/hashes (crc32c, xxhash,
+> sha) via the shash API.
 
-At least btrfs supports a variety of checksums/hashes (crc32c, xxhash,
-sha) via the shash API.
+OK, given that btrfs is still doing this, I think we should still
+register crc32c-arch conditionally.  Having it point to crc32c-generic
+is just confusing (at least if you use btrfs).
 
-There are some other remaining uses of crc32c using shash or sync
-ahash where the algo is hardcoded (NVMe, infiniband) so I imagine
-those might be candidates for conversion as well.
+Thanks,
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
 _______________________________________________
 linux-riscv mailing list
