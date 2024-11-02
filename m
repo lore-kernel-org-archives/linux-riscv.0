@@ -4,75 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50B56E677FC
-	for <linux-riscv@archiver.kernel.org>; Sat,  2 Nov 2024 11:59:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D9F3E67802
+	for <linux-riscv@archiver.kernel.org>; Sat,  2 Nov 2024 15:28:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i95DX+p/eKy+8+QArX8EUxg3ZCMFN/8Q9DLi0C8UhMQ=; b=DJMwD6HkiAxzFo
-	KAMUfsmJeVe5Ui0aj5JrTgXT0gqmlNo2SSSFIcq6id6gf0i3mZ41OW//+wEQT8E+Fx69aCZJGQbLz
-	OLQ++AJqFpAvXANYitQi6+ejjeYlX9ghIt+Dk2eBHQiBXuqIvFXor6jfFVt7uYYHgDpa8q44jaWfv
-	YGgnkzL8lWmIHxnd5UJwiuJtvucoIilHEdgk94xmyOT3sPtTYTvYhjugcHYvozdpvz1vzJLYPhivF
-	V5RI6acGcejQhqfNwNDJcGkrApfxZ6SER6N/1MFepMYBoDuKNcZgYT0o+7dX8x0c75L7hBGiPDc9e
-	0NqnnafKKKkRNz9z7v3g==;
+	List-Owner; bh=av4gDuZ7TNOl7yEsGsZ8qOwm9kxEEhoDkmJS/D8tKg4=; b=yCcsfoMLkJh+wR
+	LZRF30xFcFs4TI1riOUesauugyv7FcfgSsI4qaA3j1QpTni3+CAJMnMqqZBHhny8X1SyVVKQOJ22e
+	gt+DtV21mdNN1JbcaP5GpUWh3YyNm9faSSc4WrxEhE0LqlQxOBjzGKtvTFRPsWIofEc2XijpQgJ8O
+	yZI+J2U/+9XfVK/hIVlhjxqrXYycnMcyyyqYh2mL6Gi3YYJ0TBAphnsMT/mEu7kdnXaar9PoyBBpF
+	9iYP8ielN6ZaGjh+vstVbGLJdP1zDcRTB8wn+BXkNH8znzgo6Ih4ihV+j23j6HouaLhpfoIyRRMn9
+	JU7914roIx9OghjBenbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7CmZ-00000009ewn-2Yxr;
-	Sat, 02 Nov 2024 11:59:07 +0000
-Received: from mail-pf1-f174.google.com ([209.85.210.174])
+	id 1t7G3X-00000009x5s-24NO;
+	Sat, 02 Nov 2024 15:28:51 +0000
+Received: from mgamail.intel.com ([198.175.65.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7Chq-00000009dvb-2xRW
+	id 1t7G3T-00000009x5D-1h6o
 	for linux-riscv@lists.infradead.org;
-	Sat, 02 Nov 2024 11:54:16 +0000
-Received: by mail-pf1-f174.google.com with SMTP id d2e1a72fcca58-720d01caa66so1302733b3a.2
-        for <linux-riscv@lists.infradead.org>; Sat, 02 Nov 2024 04:54:14 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730548453; x=1731153253;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cVx7U4bzYVpyfgKjWQr0MaSdBVExKH9K4jnX08inNnM=;
-        b=Hvop8hDlpwaQkVV79QAEu2oaUEGclaG4peEBEaAuqjh0+SygWOd8/LIYYB2v0x3RPY
-         YDfxVzlXTNWY8uQ9My6EW8EIhQY1Mk47ML/2K76kJqktPfaZHT5/0JHQ0e81GGBPZBZr
-         YAYIV4alOPtqbgQm8uqL0rpa0lIgwUJENDlj4CzPkcCixrPsAEiM4kUwb8okOi7RdMjt
-         M7tuBHbzdGfU4PnXoTb3LurdA0hw095bAdRwiJIqVeLHD8KB5awboaPxPK4cJAS4cRSX
-         OC1A+OCTWKZnm+afwS6rII/QnfMUZUH6baVyr3YICvMCIcRSenMbhJz4/hyCJsSYqO0K
-         WS8g==
-X-Forwarded-Encrypted: i=1; AJvYcCXTaf964O4GPTLCorXYr6K/65zOAS6KJNB0UjbcBSaNxzxH5KKWLACU7MgR7+jhy+3wSsLwAYaxbmOVVA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxqRfBTee6Y82Cc+PjULP254N8vB4IrPWP+c/N87cfIAy9CukVB
-	LxVFcVcM/0oYhPDHLMDpUzHUAJLtOq/uMWNxSNOIt2sxHL3IpRCZ
-X-Google-Smtp-Source: AGHT+IHADfTBPOuMjseNhPZnBBPX7nUxyp7rMazi1phiYKiysXu9Wg3hN940Yi3yFmnRm7R8Dx3VBQ==
-X-Received: by 2002:a05:6a21:164a:b0:1d9:69cd:ae22 with SMTP id adf61e73a8af0-1db91dec892mr13325470637.30.1730548453509;
-        Sat, 02 Nov 2024 04:54:13 -0700 (PDT)
-Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-720bc31874bsm3986223b3a.213.2024.11.02.04.54.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 02 Nov 2024 04:54:12 -0700 (PDT)
-Date: Sat, 2 Nov 2024 20:54:11 +0900
-From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Conor Dooley <conor@kernel.org>, linux-pci@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v5 2/2] PCI: microchip: rework reg region handing to
- support using either instance 1 or 2
-Message-ID: <20241102115411.GE2260768@rocinante>
-References: <20240814-outmost-untainted-cedd4adcd551@spud>
- <20241101195129.GA1318063@bhelgaas>
+	Sat, 02 Nov 2024 15:28:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1730561327; x=1762097327;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=zAUFqbRnx3QrIZL0lXYiEoGKtF5VPcXttxczM7SZY6c=;
+  b=Zzhs1+t3DPDDIk4C2X7UmpgKhi1/1ePiS/wTBw7vJZTeKVSvvvWYGRlu
+   YmYsb2ejqEWoiKc5WejAC+xY2sizixPv55fTPiR5GRoqXbtz/Eq0FReIz
+   rQWO7y/4ByXo21Pa4/XzPKT3Nupo1e8HBrE6fewAyOt8fXY5bGhJ3BF9Z
+   8Bxl7b4SigA1StWn9ImA2x6uFsCN04MjFYbtsDL336m3kDmVnd41+Mpzc
+   lcHJLMWH0zehqa5TjxZ6GLFevTnx6JzDmVLP+gIbCESDABL9Y9gdjZvww
+   Ulk1PfQQz+1uKgy+wKB34i2PVPzVQ+E4yswEZge7T1zcePcKez/LLYiQT
+   w==;
+X-CSE-ConnectionGUID: 3/yKK+EGQJiAjJDjfz+bKg==
+X-CSE-MsgGUID: UESXjV9ySKeJUQuvLqWKYg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11244"; a="30411885"
+X-IronPort-AV: E=Sophos;i="6.11,253,1725346800"; 
+   d="scan'208";a="30411885"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Nov 2024 08:28:45 -0700
+X-CSE-ConnectionGUID: B6v/LPEhTo64evpmnST69g==
+X-CSE-MsgGUID: jRQcgbeoT7+OwZQGIUT5vA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,253,1725346800"; 
+   d="scan'208";a="83685863"
+Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
+  by orviesa007.jf.intel.com with ESMTP; 02 Nov 2024 08:28:42 -0700
+Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1t7G3L-000j6H-1q;
+	Sat, 02 Nov 2024 15:28:39 +0000
+Date: Sat, 2 Nov 2024 23:28:33 +0800
+From: kernel test robot <lkp@intel.com>
+To: Samuel Holland <samuel.holland@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org, Conor Dooley <conor@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>
+Subject: Re: [PATCH 10/11] riscv: mm: Use physical memory aliases to apply
+ PMAs
+Message-ID: <202411022337.JHozQieV-lkp@intel.com>
+References: <20241102000843.1301099-11-samuel.holland@sifive.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20241101195129.GA1318063@bhelgaas>
+In-Reply-To: <20241102000843.1301099-11-samuel.holland@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241102_045414_771752_AE709A19 
-X-CRM114-Status: GOOD (  24.87  )
+X-CRM114-CacheID: sfid-20241102_082847_545304_C4FD41A6 
+X-CRM114-Status: UNSURE (   9.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,47 +98,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Hi Samuel,
 
-> > The PCI host controller on PolarFire SoC has multiple "instances", each
-> > with their own bridge and ctrl address spaces. The original binding has
-> > an "apb" register region, and it is expected to be set to the base
-> > address of the host controllers register space. Defines in the driver
-> > were used to compute the addresses of the bridge and ctrl address ranges
-> > corresponding to instance1. Some customers want to use instance0 however
-> > and that requires changing the defines in the driver, which is clearly
-> > not a portable solution.
-> 
-> The subject mentions "instance 1 or 2".
-> 
-> This paragraph implies adding support for "instance0" ("customers want
-> to use instance0").
-> 
-> The DT patch suggests that we're adding support for "instance2"
-> ("customers want to use instance2").
-> 
-> Both patches suggest that the existing support is for "instance 1".
-> 
-> Maybe what's being added is "instance 2", and this commit log should
-> s/instance0/instance 2/ ?  And probably s/instance1/instance 1/ so the
-> style is consistent?
-> 
-> Is this a "pick one or the other but not both" situation, or does this
-> device support two independent PCIe controllers?
-> 
-> I first thought this driver supported a single PCIe controller, and
-> you were adding support for a second independent controller.
-> 
-> But the fact that you say "the [singular] host controller on
-> PolarFire", and you're not changing mc_host_probe() to call
-> pci_host_common_probe() more than once makes me think there is only a
-> single PCIe controller, and for some reason you can choose to operate
-> it using either register set 1 or register set 2.
+kernel test robot noticed the following build errors:
 
-Conor, let me know if we need to clarify the commit log per Bjorn's
-questions.  If so, then I will do it directly on the branch.
+[auto build test ERROR on robh/for-next]
+[also build test ERROR on linus/master v6.12-rc5 next-20241101]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-	Krzysztof
+url:    https://github.com/intel-lab-lkp/linux/commits/Samuel-Holland/dt-bindings-riscv-Describe-physical-memory-regions/20241102-081311
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
+patch link:    https://lore.kernel.org/r/20241102000843.1301099-11-samuel.holland%40sifive.com
+patch subject: [PATCH 10/11] riscv: mm: Use physical memory aliases to apply PMAs
+config: riscv-defconfig (https://download.01.org/0day-ci/archive/20241102/202411022337.JHozQieV-lkp@intel.com/config)
+compiler: clang version 20.0.0git (https://github.com/llvm/llvm-project 639a7ac648f1e50ccd2556e17d401c04f9cce625)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241102/202411022337.JHozQieV-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202411022337.JHozQieV-lkp@intel.com/
+
+All errors (new ones prefixed by >>, old ones prefixed by <<):
+
+>> ERROR: modpost: "riscv_fixup_memory_alias" [arch/riscv/kvm/kvm.ko] undefined!
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
