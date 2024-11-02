@@ -4,85 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 342F8E677FC
-	for <linux-riscv@archiver.kernel.org>; Sat,  2 Nov 2024 11:34:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAC28E677FC
+	for <linux-riscv@archiver.kernel.org>; Sat,  2 Nov 2024 11:59:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V61fi7cNktKuw4InVp9mpw2gtSpxbZUTwjjLcs/FsRk=; b=OFbL53L+/IgkAj
-	R8RNZcwk6aVCnJ7F9biLZIseiasTlsC07p0FGI6KNpfpvmJHb27HoTXDsv6q0784xzp/bBdO9Nqo5
-	rxe0JJGSPL1EEmEqY8FqaBlg7yqWgjGO0h9jjQMDUtdlJCOlIw+WL2IAAOV9qqPFoh0W/a81z/1bd
-	NIpbO/y6heWDPVtUhGQT830EW6EpApo9TKdiv++0jj46rDftMqHkq5LmN6bAngboxILQPtXSXr1t+
-	vpNSZIvo584Y0hpgTrGZqmfiNb5n39my66O1LGSSdZEn28y7OYmMo+12Bu6XQ3jERBJR05jIq0WcE
-	XbenmyfTIpVgwA1TUPDg==;
+	List-Owner; bh=fu1b6UvcPr+IvvKL5N/zALTYSvy9ziDPd/hUxBGIi4E=; b=wXJzSQ56HH5Wyl
+	pKIY6kaneuHSad90c4DlRAoI/QTVv9ltAwDjqHHI3+Jee/bpezsLkL8HO7Vrh1swfbLr93CvLrlay
+	LiW22LWN70Jn5opBBg2d1wwkRT5S8OznT0a8hlORT1BDKv0xA32NM0/00JE01iKvvnjyHE5pdGMg9
+	DyEtNstOy3fyQGDY0qWIJh0iNqkW9QG/vyawy2EMduhXIIHPbHBvO3j3k5GEPGH3Kuh3/PCQdKUmC
+	Zj35le9d3VC0rKfLMK393HuHFnkjBnbM2GrkZ4I0LKqu+wxflC7+PPOCLT2KEcsxlMPmtu9n6EYJx
+	vmq7EPahLDznyF/wcUzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7COh-00000009aCx-392g;
-	Sat, 02 Nov 2024 11:34:27 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1t7CmY-00000009ewb-473y;
+	Sat, 02 Nov 2024 11:59:06 +0000
+Received: from mail-pl1-f170.google.com ([209.85.214.170])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7COJ-00000009a5c-2lKr
+	id 1t7Cf3-00000009cvA-4BmC
 	for linux-riscv@lists.infradead.org;
-	Sat, 02 Nov 2024 11:34:05 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-7d4fa972cbeso2115039a12.2
-        for <linux-riscv@lists.infradead.org>; Sat, 02 Nov 2024 04:34:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730547243; x=1731152043; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QJwVRqFiaLvbfZMx0epyTUOxfCpcBzEpVcmmFC1PExA=;
-        b=XvKcmnPDl7ytM+7U2xqMvlLoW7KvBzG561umXBKC23sKO1aOLnOBs8dhVZwnV2gGFb
-         0IIlY+BUQiBDAPzD0fhwxfp81c5ZslGRHt3I7lDfXernxhxfKdFIJoDkf8MFdwEq3jjZ
-         PnISSlAhzMp2tcavtd4747gIxT4KZAtg2VX3Gsy6qYA5UK0hVqXeECFT2X+AWDT0rIEC
-         QOuu3u0PygmeSFdWjZwqSYtZHrQaDKc4hpDYPyVAS6uuwlZ9PXefW5+23+5uYG6K6ca2
-         n24ldJpo8yILQShsLNvGQOaFOFIAm2Z+MTB0TY669WarcK29xZ5cxvUPv8dQd7NYSLnX
-         f/Ew==
+	Sat, 02 Nov 2024 11:51:26 +0000
+Received: by mail-pl1-f170.google.com with SMTP id d9443c01a7336-20cdbe608b3so29420535ad.1
+        for <linux-riscv@lists.infradead.org>; Sat, 02 Nov 2024 04:51:19 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730547243; x=1731152043;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=QJwVRqFiaLvbfZMx0epyTUOxfCpcBzEpVcmmFC1PExA=;
-        b=ea1l2l+TVait0Z0nw3iU2RXgGaTjgvAFhvjChWTRnCE7T4fbcY/6kLbIK9+StdxdDv
-         Tf7v2L0uAWPxoAW+TUGoZqOst2gXckkXo/j1mqC7gwh1Y3R8kZy5SUdeb46NdFOCna1k
-         LbjDpsiMGoFtbPO0ViXBoWwzXHz1ygxJcgQFCOrk8mha+Gm/8DwIxbTuntL0w0iOrunm
-         1n7DWI6CeA2tDnGL+RwmKGhzuqbMkqj1T/icRmK5VfxM1WtMARhH6aU5oxcDznRHbKLC
-         aYE1AUa3BJ9xE0g5n7rJQ+W5k4j9WZBV+fVBLX4UWyYS+JRX79gXLcydqvLzz8yi74Ji
-         yO4Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWniUiTSQrEzgBRYV0kaKmcGPytj4YfUG2ulIHyoSYSJpGtuVg6PhAE3hvp9Pl3PE77lCmGKP2GsEVh9Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzKdNNtOu/nAreTf/GHe71KuiRsEeU8aZHtM5f8oh8DdR/TVgld
-	j0vvcTY2mETxxEIRFncFzM9EguN98xyjR0+9pKNukYx4qqCT/fiK
-X-Google-Smtp-Source: AGHT+IHjH3YaQv/7yAR/oDJWHwHW/7AX5VV4a7rQxUbdRITTCl6mcEEMRSpePQiSUvKPeNoACJHiRA==
-X-Received: by 2002:a17:90b:278d:b0:2e9:48d0:3b59 with SMTP id 98e67ed59e1d1-2e948d03d29mr7841945a91.8.1730547242689;
-        Sat, 02 Nov 2024 04:34:02 -0700 (PDT)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e93daac455sm4681492a91.19.2024.11.02.04.34.02
+        d=1e100.net; s=20230601; t=1730548279; x=1731153079;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SumbS2GlLN6Ge4KobuqZ4Ta6vn1tA8zUMD7vy4+oyGA=;
+        b=Obi5Q6mYdF7UFx8BHSlyFrhHK/U7R2h1z/TljLTu10SIKYOsiyDZf/Snj0R0EM6wFN
+         tACFgmX/mjYNFl2wAQ5UAtLtsguq/SdN/nnD1Ok45HBYEhkNry6FMfB9JTH0MKO7ICiS
+         82HHtKqG9f0iHEs2QfnFRWrj7ZHP0Kvwz9nxstS2IGcc2Nvw6WWhy5LPhxOVofRcmYPv
+         XqQQg/qDEoDfKiVRl4FlOYLudVR79NLGCQLZBddOhvMo50+1uje/zU8VxKK/HEsGZogz
+         RBdy2ek9dP0/K67c8KV3baS0vKGsLrL5cg9deOKC76ibS/tr0kZj1Zaw9f/zEeF7T77s
+         0oHw==
+X-Forwarded-Encrypted: i=1; AJvYcCVIkostpIaMGhcP7Sc/5BrSl2PfcPb0F8FkI/s0R1wiokEaLo5WdjTVwz4CNbYoY/bfFO03ZYgg4KHlOQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzuFwz0jaXDWaWdM/kEu4G4lNx8L0nc9MjqhN8drQSKR8I6TVfk
+	Sti/1RyCDpDjD7h3z66GUL2Md6Z35Epc3RyQv89t6KOSqJak4AF7
+X-Google-Smtp-Source: AGHT+IH6jVuGSDDb5B4lDu4bF7D71MjlMGLUoBzzLb13+ySFPYr3w6Q7+xKM1bHXJ8Sh4Ihl+rI/UQ==
+X-Received: by 2002:a17:902:e741:b0:20c:cf39:fe2d with SMTP id d9443c01a7336-210f74f48e4mr184327185ad.5.1730548279202;
+        Sat, 02 Nov 2024 04:51:19 -0700 (PDT)
+Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211057a2723sm32849345ad.178.2024.11.02.04.51.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 02 Nov 2024 04:34:02 -0700 (PDT)
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-Cc: Inochi Amaoto <inochiama@gmail.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	=?UTF-8?q?Miqu=C3=A8l=20Raynal?= <miquel.raynal@bootlin.com>,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: dts: sophgo: fix pinctrl base-address
-Date: Sat,  2 Nov 2024 19:33:26 +0800
-Message-ID: <173054635856.778838.205612154809931860.b4-ty@gmail.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241028-fix-address-v1-1-dcbe21e59ccf@bootlin.com>
-References: <20241028-fix-address-v1-1-dcbe21e59ccf@bootlin.com>
+        Sat, 02 Nov 2024 04:51:18 -0700 (PDT)
+Date: Sat, 2 Nov 2024 20:51:17 +0900
+From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-pci@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v5 0/2] PCI: microchip: support using either instance 1
+ or 2
+Message-ID: <20241102115117.GD2260768@rocinante>
+References: <20240814-setback-rumbling-c6393c8f1a91@spud>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240814-setback-rumbling-c6393c8f1a91@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241102_043403_718068_3344AD8B 
-X-CRM114-Status: UNSURE (   6.59  )
+X-CRM114-CacheID: sfid-20241102_045122_208056_429C90DA 
+X-CRM114-Status: UNSURE (   9.51  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -100,20 +88,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 28 Oct 2024 11:43:24 +0100, Thomas Bonnefille wrote:
-> Fix the base-address of the pinctrl controller to match its register
-> address.
-> 
-> 
+Hello,
 
-Applied to for-next, thanks!
+> The current driver and binding for PolarFire SoC's PCI controller assume
+> that the root port instance in use is instance 1. The second reg
+> property constitutes the region encompassing both "control" and "bridge"
+> registers for both instances. In the driver, a fixed offset is applied to
+> find the base addresses for instance 1's "control" and "bridge"
+> registers. The BeagleV Fire uses root port instance 2, so something must
+> be done so that software can differentiate. This series splits the
+> second reg property in two, with dedicated "control" and "bridge"
+> entries so that either instance can be used.
 
-[1/1] riscv: dts: sophgo: fix pinctrl base-address
-      https://github.com/sophgo/linux/commit/44196383a26fcacbd6dcf5a1ab2dd8bf8e4132c0
+Applied to controller/microchip, thank you!
 
-Thanks,
-Inochi
+[01/02] PCI: dt-bindings: PCI: microchip,pcie-host: Fix reg properties
+        https://git.kernel.org/pci/pci/c/ae5ebdb405dd
+[02/02] PCI: microchip: Rework reg region handing to support using either instance 1 or 2
+        https://git.kernel.org/pci/pci/c/e071e6bd9940
 
+	Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
