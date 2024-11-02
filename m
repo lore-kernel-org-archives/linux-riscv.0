@@ -4,65 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D482E6F09A
-	for <linux-riscv@archiver.kernel.org>; Sat,  2 Nov 2024 01:31:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 431D1E67497
+	for <linux-riscv@archiver.kernel.org>; Sat,  2 Nov 2024 03:48:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
-	In-Reply-To:Cc:To:From:MIME-Version:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=KTBnHe2dx/665n3dbSBjPUvmBl2PO1mEL/bkwzke4EQ=; b=dllcWOniUtSu9iN+JvGuzi4Dqo
-	dGyp6QDrQmogPOqmqdiTocIoqzYHIp+ZNQ2aT+WtJUCltU1lyQByKkF5OBH3LvSUPRjeKMMx01kEB
-	cXXcPosFzbJpl1ZniaW07G0AaVSp1X9cgFudtlNNraJaw8pL55TW3GfrJqJBD3QEpJxO6t7yfKTPw
-	5KjwMkXcy9nLhGMP5Q++zOUxS6EBvy2eQdcicak6sA67sdFJsV7U5OcUk1Qbw5V4wHY980VfyStYa
-	cjGyLGw7xNeYlL+YyTCrID6Kpvb6fGlMQiDsY1Ou1Q1QnBMQf2DAQAnRk1Pqy5Ti79LuGEZ48p6D7
-	MlFCaqGQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=DOvzDJQfvm5Lw5jDF2E3x1E1LW9Fz3lUn64zngWURg4=; b=u5fI7o6aTa+gCA
+	TjJY3zIx32IA5T/FTxgEBvPSMTKfzl/8Fp7IX6nrjJZuXZRqnqsMAzklkCQBrANO01NfMuRtUlamz
+	DiflHcc2Bhvc7j44s2fHWqS9Kk5LNSpLSEIH+89IthEcemZaq/EYkwGZ7TOt6CHDJ/X8SRLAJGIwe
+	QN/yqqcpLY77/4p2I2Sia/8DZztHTVaLhwhRyyK1h9+AoBwb26czXkrGciGvvLEFviHaiwx+9Q7aL
+	P5l8rLVmyeYI308hcuLnv9Uz8hV16B22dyGH7Z+niAaT4IxLj4I6YMtLh/yTWDE0YKZq2520LdtUS
+	RDIKg9Yr7jAK8ssdadgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t72zH-00000008oJd-46uw;
-	Sat, 02 Nov 2024 01:31:35 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t757m-00000008yDO-2f7O;
+	Sat, 02 Nov 2024 03:48:30 +0000
+Received: from mail-io1-xd2d.google.com ([2607:f8b0:4864:20::d2d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t72zE-00000008oIf-21Jc
+	id 1t757j-00000008yCt-2sFk
 	for linux-riscv@lists.infradead.org;
-	Sat, 02 Nov 2024 01:31:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id ABBB9A44EE6;
-	Sat,  2 Nov 2024 01:29:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A39FEC4CECD;
-	Sat,  2 Nov 2024 01:31:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730511090;
-	bh=bZaX/EKorv9Z86U2/e2k8gpDQqOWK/Dh9xHiMTqLh74=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=pyFAeDOiUgAVKpl62xURWlUGzVcEvk3W/Zj1JjUj7TH672oZj/EYrbjj1bkZVTaWZ
-	 NS0rPlJx+apy0pv6LRheVEqRK7BtOiBBPACx9IdhGXHFgR81eyokoEqJbkg9pbot2Z
-	 28ueuMRQU2NZSnaTA0+gw0Qbt1Bp8Isfg6Hwj1FE/XsdguLgLKwQiSddlgtCh+5Tuu
-	 rZ5pznQ/v+S8c7zDxosbXnUhBnynN/gBNihdMYQAIWiV1voxlrOHA0OzFrQPXmuj8Z
-	 gxVXRXT40wa2kHaWKCaKbnqNJOHYo6cvh2+1m7aYQ5SNxgtAuosGGLlwBh1nMv6uhZ
-	 Miid/CtPr05Qw==
-Date: Fri, 01 Nov 2024 20:31:28 -0500
+	Sat, 02 Nov 2024 03:48:29 +0000
+Received: by mail-io1-xd2d.google.com with SMTP id ca18e2360f4ac-83abcfb9f39so78709139f.1
+        for <linux-riscv@lists.infradead.org>; Fri, 01 Nov 2024 20:48:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1730519306; x=1731124106; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=cFAxfJPYMHZcgM/IbSJdK8jCoxixwBpatcLPEMEnlyg=;
+        b=h/QYUIAd9cwyTEA7AXyAQ597aK6mjVzqXnz08/4gaCPdHtBl2NLh/i8D5NW/7pDgQr
+         iDgoIQOJeaazi5iMXT8m2fxpiEkpFf2sbSgM+j5RApezBcOTDsenz3ZfmjHQypf4Aeaf
+         fWCF1FWxe5zOzfu3iqs/68sljLj6/yc5vvgczBK3XlsKcvmVfOv1kod05cwBUFNwQQOh
+         uhUoQ/KflAswRX2z7YLNSjG7/BmuPHv+RTeM6kTNrhjQGG/36vao5W407R0JRERY0M0r
+         25dcQWBgQ77TwUCPtP6iVKa+anzZ+WyM/4jmRb7fHzn9etzSn2BrN7TkeUTx5QjCYj+i
+         EUZQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730519306; x=1731124106;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=cFAxfJPYMHZcgM/IbSJdK8jCoxixwBpatcLPEMEnlyg=;
+        b=vclj0CI4FCC1un8u62eQM/MPg2kXVt+5asW/NqPBDfzRPU6qthaWFfREAbAu4aD0ns
+         M5nsi+wyq/Yi9O16XQ9El6G8NrokYZnWLCtuS9Mfwmma/JxMzGQWELdJmRTBGSntdJPq
+         N/hbD3bsEPLz1WFvgUG0cvWJcnavb2Y3phSiUjHALQhZy1K/ErAEyWvJMmVNhBYyXhMV
+         24q4QpiQftq1500yyKfptzRizc9H8fIgDFbdHRa5Uwxe4NdusZq4x1JoPU5Vohedkadi
+         s/JabK2UnuLd8mQKGhS9nDQYWQKyQTq3GX08oEDWMdDG+jWQrkoC1Uch6MUB4k7sasjN
+         hbPA==
+X-Forwarded-Encrypted: i=1; AJvYcCVZ5AzMkgfarKJWQLOVVJoZb/UG9Si1AQ1exCO9/fQgZXrHOynkrBvfrYeQu8wcoHL2aeVRcuKP+dUpbw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzGKBDQfw8ksP4I9t1zl/Q79b+5qWJRPR8OFGxuM+Oou1TzdVqm
+	GW68kMMxZv25ftsGjIVNcrcz293q1xcZKZf0TL7D6bBeIAhGLfR1tzRtNeHDa2s=
+X-Google-Smtp-Source: AGHT+IEjX1mR0HcedUZXdXQVrMhUH8jXN4cBozN2zssjtGKah59T7pHiVZuQPT9WVqvySZ4MDCEgRw==
+X-Received: by 2002:a6b:7e44:0:b0:805:2048:a492 with SMTP id ca18e2360f4ac-83b7133cf86mr460121839f.6.1730519306354;
+        Fri, 01 Nov 2024 20:48:26 -0700 (PDT)
+Received: from [100.64.0.1] ([147.124.94.167])
+        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-83b67bb57a5sm108525239f.28.2024.11.01.20.48.25
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 01 Nov 2024 20:48:25 -0700 (PDT)
+Message-ID: <846b4f2a-602e-431e-affc-0e995db5eee5@sifive.com>
+Date: Fri, 1 Nov 2024 22:48:24 -0500
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: devicetree@vger.kernel.org, Conor Dooley <conor@kernel.org>, 
- Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, 
- linux-kernel@vger.kernel.org, 
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, 
- Alexandre Ghiti <alexghiti@rivosinc.com>
-In-Reply-To: <20241102000843.1301099-2-samuel.holland@sifive.com>
-References: <20241102000843.1301099-1-samuel.holland@sifive.com>
- <20241102000843.1301099-2-samuel.holland@sifive.com>
-Message-Id: <173051108892.583398.1565228083513288043.robh@kernel.org>
-Subject: Re: [PATCH 01/11] dt-bindings: riscv: Describe physical memory
- regions
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] dt-bindings: i2c: spacemit: add support for K1 SoC
+To: Troy Mitchell <troymitchell988@gmail.com>, andi.shyti@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <20241028053220.346283-1-TroyMitchell988@gmail.com>
+ <20241028053220.346283-2-TroyMitchell988@gmail.com>
+Content-Language: en-US
+From: Samuel Holland <samuel.holland@sifive.com>
+In-Reply-To: <20241028053220.346283-2-TroyMitchell988@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_183132_674324_83F97D91 
-X-CRM114-Status: GOOD (  14.16  )
+X-CRM114-CacheID: sfid-20241101_204827_781169_947F2F9C 
+X-CRM114-Status: GOOD (  15.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,59 +96,97 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Troy,
 
-On Fri, 01 Nov 2024 17:07:55 -0700, Samuel Holland wrote:
-> Information about physical memory regions is needed by both the kernel
-> and M-mode firmware. For example, the kernel needs to know about
-> noncacheable aliases of cacheable memory in order to allocate coherent
-> memory pages for DMA. M-mode firmware needs to know about aliases so it
-> can protect itself from lower-privileged software. Firmware also needs
-> to know the platform's Physical Address Width in order to efficiently
-> implement Smmpt.
+On 2024-10-28 12:32 AM, Troy Mitchell wrote:
+> The I2C of K1 supports fast-speed-mode and high-speed-mode,
+> and supports FIFO transmission.
 > 
-> The RISC-V Privileged Architecture delegates the description of Physical
-> Memory Attributes to the platform. On DT-based platforms, it makes sense
-> to put this information in the devicetree.
-> 
-> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+> Signed-off-by: Troy Mitchell <TroyMitchell988@gmail.com>
 > ---
+>  .../bindings/i2c/spacemit,k1-i2c.yaml         | 51 +++++++++++++++++++
+>  1 file changed, 51 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
 > 
->  .../bindings/riscv/physical-memory.yaml       | 101 ++++++++++++++++++
->  include/dt-bindings/riscv/physical-memory.h   |  44 ++++++++
->  2 files changed, 145 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/riscv/physical-memory.yaml
->  create mode 100644 include/dt-bindings/riscv/physical-memory.h
-> 
+> diff --git a/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml b/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
+> new file mode 100644
+> index 000000000000..57af66f494e7
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
+> @@ -0,0 +1,51 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/i2c/spacemit,k1-i2c.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: I2C controller embedded in SpacemiT's K1 SoC
+> +
+> +maintainers:
+> +  - Troy Mitchell <troymitchell988@gmail.com>
+> +
+> +properties:
+> +  compatible:
+> +    const: spacemit,k1-i2c
+> +
+> +  reg:
+> +    maxItems: 2
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 1
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Looking at the K1 user manual (9.1.4.77 RCPU I2C0 CLOCK RESET CONTROL
+REGISTER(RCPU_I2C0_CLK_RST)), I see two clocks (pclk, fclk) and a reset, which
+looks to be standard across the peripherals in this SoC. Please be sure that the
+binding covers all resources needed to use this peripheral.
 
-yamllint warnings/errors:
+> +
+> +  clock-frequency:
+> +    description:
+> +      Desired I2C bus clock frequency in Hz. As only fast and high-speed
+> +      modes are supported by hardware, possible values are 100000 and 400000.
+> +    enum: [100000, 400000]
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/riscv/physical-memory.example.dtb: /: compatible: 'oneOf' conditional failed, one must be fixed:
-	['starfive,jh7100'] is too short
-	'starfive,jh7100' is not one of ['beagle,beaglev-starlight-jh7100-r0', 'starfive,visionfive-v1']
-	'starfive,jh7100' is not one of ['milkv,mars', 'pine64,star64', 'starfive,visionfive-2-v1.2a', 'starfive,visionfive-2-v1.3b']
-	from schema $id: http://devicetree.org/schemas/riscv/starfive.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/riscv/physical-memory.example.dtb: /: 'model' is a required property
-	from schema $id: http://devicetree.org/schemas/root-node.yaml#
+This looks wrong. In the manual I see:
 
-doc reference errors (make refcheckdocs):
+* Supports standard-mode operation up to 100 Kbps
+* Supports fast-mode operation up to 400Kbps
+* Supports high-speed mode (HS mode) slave operation up to 3.4Mbps(High-speed
+I2C only)
+* Supports high-speed mode (HS mode) master operation up to 3.3 Mbps (High-speed
+I2C only)
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20241102000843.1301099-2-samuel.holland@sifive.com
+So even ignoring HS mode, 100 kHz and 400 kHz are only the maximums, not fixed
+frequencies.
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
+Regards,
+Samuel
 
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+> +    default: 100000
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +  - clocks
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    i2c@d4010800 {
+> +        compatible = "spacemit,k1-i2c";
+> +        reg = <0x0 0xd4010800 0x0 0x38>;
+> +        interrupt-parent = <&plic>;
+> +        interrupts = <36>;
+> +        clocks = <&ccu 90>;
+> +        clock-frequency = <100000>;
+> +    };
+> +
+> +...
 
 
 _______________________________________________
