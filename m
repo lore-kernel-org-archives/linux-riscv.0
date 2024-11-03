@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F34CD11196
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Nov 2024 00:01:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C208D11194
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Nov 2024 00:01:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ikZY3g63aOxhGQPWyBngz2E2Mjdv6kWCgS7DFnYKMWI=; b=tpuUbcM5fJUPYs
-	uu9gcVufMk7fzJZAUizJsPFTxmiYVHUDQOmcextgPl4TTEOn8zuafFT5ufi7TQzMixXXu8yGRLJbQ
-	Iz+ymaraqzbj8vJBmmU37MZUqert5BbLNufe2FK3J5jOLs2x2+AehbcSEuePms0S5trUWSTiKejA2
-	aEIoEG8p2J+tZo/5rQqdHaYLFfIXYzdFY7Ao+jUu233SoSwoDd6z20Zg8yQgIYKWQ0uRKMi2Asf3X
-	ewYZ3qbcReiDZCY3o5M1epOOUqhPl5d/iEUrirpeBBYOeSDJpXM5+eVVOt5iXIcxO25pSLJ6JY99U
-	RMuUjo0EayrJtC8tLJuA==;
+	List-Owner; bh=Z2GlqsiYUG20Ywe2lj7mTqVBInuHxlILdEEYcsgRBPw=; b=bZuIOjB0O+ZvbM
+	VUcNz3tykrtHZ9jALlVgwTFktDxbHVAtzzggG+bK2NT0C4UxqxwbQgjekMxv4CTibw/zY1uZOGmuY
+	berVGH6qIvqjd6RnQw8gYfifFO/PZHxEW2bTQhBRH4Mc0jfZcKmlgfJ0ib+8yIDhfho31YU+N2ObI
+	SJHcQPKvXmkllMgdI8KYa3s4VLojl3DIK/aChPtlrfD0tl0/CVx2pu2koO9xOOUPzRwuOxFGR+u2z
+	Q8naDETzUS7O25G73y84CMhLnwIYmAlIjKwDFwxu7Gyh00OZveSoqj92e4pb9hJkdPrVOQg4nqyGy
+	ogVjALKsqK32yyYltL/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7kWn-0000000CH4I-1NVI;
-	Mon, 04 Nov 2024 00:01:05 +0000
+	id 1t7kWl-0000000CH48-3B6j;
+	Mon, 04 Nov 2024 00:01:03 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7j9G-0000000C8OU-2XBY;
+	id 1t7j9F-0000000C8S3-1WOp;
 	Sun, 03 Nov 2024 22:32:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 98297A41F34;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 11301A41F1A;
 	Sun,  3 Nov 2024 22:30:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23D20C4CECD;
-	Sun,  3 Nov 2024 22:32:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90D6FC4CED5;
+	Sun,  3 Nov 2024 22:32:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1730673153;
-	bh=WfN2SwQ1SfAPzqKDOcxOjX9pk3UC1SwykLtsIrx3B8I=;
+	bh=47ZGS4s0ykwzlSaIC0c2LdDMEVdoUJMfULJGERv2xGc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ncJC7MH9f55fhT2iNp4ZGfgqP7KHuE7wemzzV22Z1RB/6rZX0YywjK4cWT6F4kgQu
-	 UCaCPlfmreev/pK63M1sZ7RvNNF5SmFtAQrjpr3KR1BHf9QS7SVy/pj4BVmX3P6VqQ
-	 FrGrQcXq1YnOmAmEQyHq9y4lzpkQKxUUcq9jtL67bjHifb7rexexd24s56L7e2ZMi7
-	 SSwDcJ6PFYFrIJdIhdSFsMB9XoaDWjJu+WTNUIolMnvVQZRQQQZO9jjVE99Tv11X3a
-	 kkYlUNWGwP5shTWE8Us+pJs0v8sX0+Bq3JRf+wpALI+UnuKai7iVjidTYXu362kAZz
-	 dA7qo5/0IeuCA==
+	b=q1ykIOa7FhBo5TG7EEGuwlAX6JD+hfMRhamK4oMNyVrZDpMPqHTEGAsVbnERHXS8T
+	 +I2XrUziRIKheWu2BlQzXwfZ1l1bjNXguqDK6VXaR/wct879oJyJjpLfr0pqdPRjDc
+	 pgJpJHsZKjL5na6IEdo8DdvwhyfhSCkVyu7UUX9dnortqHNcN8xxIOrpJweL/Ycdzc
+	 TNs6Kild/tZIS7PV10QKFjAyOPbFF38dNBQncvaP5igKWCs7GauQI5N8BGs/n6dj5r
+	 PX3uI/nZ89HFy8Q/OKlj/f+oQiZJDSlGKwqNEM0h+hztwIegm5uD3SmzhUbQinAYA0
+	 pW57GbYyXw9gw==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: linux-arch@vger.kernel.org,
@@ -57,16 +57,16 @@ Cc: linux-arch@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org,
 	Ard Biesheuvel <ardb@kernel.org>
-Subject: [PATCH v3 17/18] f2fs: switch to using the crc32 library
-Date: Sun,  3 Nov 2024 14:31:53 -0800
-Message-ID: <20241103223154.136127-18-ebiggers@kernel.org>
+Subject: [PATCH v3 16/18] jbd2: switch to using the crc32c library
+Date: Sun,  3 Nov 2024 14:31:52 -0800
+Message-ID: <20241103223154.136127-17-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20241103223154.136127-1-ebiggers@kernel.org>
 References: <20241103223154.136127-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241103_143242_939430_F130A8AB 
-X-CRM114-Status: GOOD (  14.67  )
+X-CRM114-CacheID: sfid-20241103_143241_664051_3E1B5206 
+X-CRM114-Status: GOOD (  18.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,140 +85,195 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Eric Biggers <ebiggers@google.com>
 
-Now that the crc32() library function takes advantage of
+Now that the crc32c() library function directly takes advantage of
 architecture-specific optimizations, it is unnecessary to go through the
-crypto API.  Just use crc32().  This is much simpler, and it improves
+crypto API.  Just use crc32c().  This is much simpler, and it improves
 performance due to eliminating the crypto API overhead.
 
 Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- fs/f2fs/Kconfig |  3 +--
- fs/f2fs/f2fs.h  | 19 +------------------
- fs/f2fs/super.c | 15 ---------------
- 3 files changed, 2 insertions(+), 35 deletions(-)
+ fs/jbd2/Kconfig      |  2 --
+ fs/jbd2/journal.c    | 25 ++-----------------------
+ include/linux/jbd2.h | 31 +++----------------------------
+ 3 files changed, 5 insertions(+), 53 deletions(-)
 
-diff --git a/fs/f2fs/Kconfig b/fs/f2fs/Kconfig
-index 68a1e23e1557..5916a02fb46d 100644
---- a/fs/f2fs/Kconfig
-+++ b/fs/f2fs/Kconfig
-@@ -2,12 +2,11 @@
- config F2FS_FS
- 	tristate "F2FS filesystem support"
- 	depends on BLOCK
- 	select BUFFER_HEAD
- 	select NLS
+diff --git a/fs/jbd2/Kconfig b/fs/jbd2/Kconfig
+index 4ad2c67f93f1..9c19e1512101 100644
+--- a/fs/jbd2/Kconfig
++++ b/fs/jbd2/Kconfig
+@@ -1,11 +1,9 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ config JBD2
+ 	tristate
+ 	select CRC32
 -	select CRYPTO
--	select CRYPTO_CRC32
-+	select CRC32
- 	select F2FS_FS_XATTR if FS_ENCRYPTION
- 	select FS_ENCRYPTION_ALGS if FS_ENCRYPTION
- 	select FS_IOMAP
- 	select LZ4_COMPRESS if F2FS_FS_LZ4
- 	select LZ4_DECOMPRESS if F2FS_FS_LZ4
-diff --git a/fs/f2fs/f2fs.h b/fs/f2fs/f2fs.h
-index 33f5449dc22d..1fc5c2743c8d 100644
---- a/fs/f2fs/f2fs.h
-+++ b/fs/f2fs/f2fs.h
-@@ -1761,13 +1761,10 @@ struct f2fs_sb_info {
+-	select CRYPTO_CRC32C
+ 	help
+ 	  This is a generic journaling layer for block devices that support
+ 	  both 32-bit and 64-bit block numbers.  It is currently used by
+ 	  the ext4 and OCFS2 filesystems, but it could also be used to add
+ 	  journal support to other file systems or block devices such
+diff --git a/fs/jbd2/journal.c b/fs/jbd2/journal.c
+index 97f487c3d8fc..56cea5a738a7 100644
+--- a/fs/jbd2/journal.c
++++ b/fs/jbd2/journal.c
+@@ -1373,24 +1373,16 @@ static int journal_check_superblock(journal_t *journal)
+ 		printk(KERN_ERR "JBD2: Can't enable checksumming v1 and v2/3 "
+ 		       "at the same time!\n");
+ 		return err;
+ 	}
  
- 	/* For write statistics */
- 	u64 sectors_written_start;
- 	u64 kbytes_written;
+-	/* Load the checksum driver */
+ 	if (jbd2_journal_has_csum_v2or3_feature(journal)) {
+ 		if (sb->s_checksum_type != JBD2_CRC32C_CHKSUM) {
+ 			printk(KERN_ERR "JBD2: Unknown checksum type\n");
+ 			return err;
+ 		}
  
--	/* Reference to checksum algorithm driver via cryptoapi */
--	struct crypto_shash *s_chksum_driver;
+-		journal->j_chksum_driver = crypto_alloc_shash("crc32c", 0, 0);
+-		if (IS_ERR(journal->j_chksum_driver)) {
+-			printk(KERN_ERR "JBD2: Cannot load crc32c driver.\n");
+-			err = PTR_ERR(journal->j_chksum_driver);
+-			journal->j_chksum_driver = NULL;
+-			return err;
+-		}
+ 		/* Check superblock checksum */
+ 		if (sb->s_checksum != jbd2_superblock_csum(journal, sb)) {
+ 			printk(KERN_ERR "JBD2: journal checksum error\n");
+ 			err = -EFSBADCRC;
+ 			return err;
+@@ -1611,12 +1603,10 @@ static journal_t *journal_init_common(struct block_device *bdev,
+ 
+ 	return journal;
+ 
+ err_cleanup:
+ 	percpu_counter_destroy(&journal->j_checkpoint_jh_count);
+-	if (journal->j_chksum_driver)
+-		crypto_free_shash(journal->j_chksum_driver);
+ 	kfree(journal->j_wbuf);
+ 	jbd2_journal_destroy_revoke(journal);
+ 	journal_fail_superblock(journal);
+ 	kfree(journal);
+ 	return ERR_PTR(err);
+@@ -2194,12 +2184,10 @@ int jbd2_journal_destroy(journal_t *journal)
+ 	if (journal->j_proc_entry)
+ 		jbd2_stats_proc_exit(journal);
+ 	iput(journal->j_inode);
+ 	if (journal->j_revoke)
+ 		jbd2_journal_destroy_revoke(journal);
+-	if (journal->j_chksum_driver)
+-		crypto_free_shash(journal->j_chksum_driver);
+ 	kfree(journal->j_fc_wbuf);
+ 	kfree(journal->j_wbuf);
+ 	kfree(journal);
+ 
+ 	return err;
+@@ -2340,23 +2328,14 @@ int jbd2_journal_set_features(journal_t *journal, unsigned long compat,
+ 			pr_err("JBD2: Cannot enable fast commits.\n");
+ 			return 0;
+ 		}
+ 	}
+ 
+-	/* Load the checksum driver if necessary */
+-	if ((journal->j_chksum_driver == NULL) &&
+-	    INCOMPAT_FEATURE_ON(JBD2_FEATURE_INCOMPAT_CSUM_V3)) {
+-		journal->j_chksum_driver = crypto_alloc_shash("crc32c", 0, 0);
+-		if (IS_ERR(journal->j_chksum_driver)) {
+-			printk(KERN_ERR "JBD2: Cannot load crc32c driver.\n");
+-			journal->j_chksum_driver = NULL;
+-			return 0;
+-		}
+-		/* Precompute checksum seed for all metadata */
++	/* Precompute checksum seed for all metadata */
++	if (INCOMPAT_FEATURE_ON(JBD2_FEATURE_INCOMPAT_CSUM_V3))
+ 		journal->j_csum_seed = jbd2_chksum(journal, ~0, sb->s_uuid,
+ 						   sizeof(sb->s_uuid));
+-	}
+ 
+ 	lock_buffer(journal->j_sb_buffer);
+ 
+ 	/* If enabling v3 checksums, update superblock */
+ 	if (INCOMPAT_FEATURE_ON(JBD2_FEATURE_INCOMPAT_CSUM_V3)) {
+diff --git a/include/linux/jbd2.h b/include/linux/jbd2.h
+index 8aef9bb6ad57..33d25a3d15f1 100644
+--- a/include/linux/jbd2.h
++++ b/include/linux/jbd2.h
+@@ -26,11 +26,11 @@
+ #include <linux/mutex.h>
+ #include <linux/timer.h>
+ #include <linux/slab.h>
+ #include <linux/bit_spinlock.h>
+ #include <linux/blkdev.h>
+-#include <crypto/hash.h>
++#include <linux/crc32c.h>
+ #endif
+ 
+ #define journal_oom_retry 1
+ 
+ /*
+@@ -1239,17 +1239,10 @@ struct journal_s
+ 	 * An opaque pointer to fs-private information.  ext3 puts its
+ 	 * superblock pointer here.
+ 	 */
+ 	void *j_private;
+ 
+-	/**
+-	 * @j_chksum_driver:
+-	 *
+-	 * Reference to checksum algorithm driver via cryptoapi.
+-	 */
+-	struct crypto_shash *j_chksum_driver;
 -
- 	/* Precomputed FS UUID checksum for seeding other checksums */
- 	__u32 s_chksum_seed;
+ 	/**
+ 	 * @j_csum_seed:
+ 	 *
+ 	 * Precomputed journal UUID checksum for seeding other checksums.
+ 	 */
+@@ -1748,14 +1741,11 @@ static inline bool jbd2_journal_has_csum_v2or3_feature(journal_t *j)
+ 	return jbd2_has_feature_csum2(j) || jbd2_has_feature_csum3(j);
+ }
  
- 	struct workqueue_struct *post_read_wq;	/* post read workqueue */
+ static inline int jbd2_journal_has_csum_v2or3(journal_t *journal)
+ {
+-	WARN_ON_ONCE(jbd2_journal_has_csum_v2or3_feature(journal) &&
+-		     journal->j_chksum_driver == NULL);
+-
+-	return journal->j_chksum_driver != NULL;
++	return jbd2_journal_has_csum_v2or3_feature(journal);
+ }
  
-@@ -1941,25 +1938,11 @@ static inline unsigned int f2fs_time_to_wait(struct f2fs_sb_info *sbi,
-  * Inline functions
-  */
- static inline u32 __f2fs_crc32(struct f2fs_sb_info *sbi, u32 crc,
+ static inline int jbd2_journal_get_num_fc_blks(journal_superblock_t *jsb)
+ {
+ 	int num_fc_blocks = be32_to_cpu(jsb->s_num_fc_blks);
+@@ -1794,26 +1784,11 @@ static inline unsigned long jbd2_log_space_left(journal_t *journal)
+ #define JBD_MAX_CHECKSUM_SIZE 4
+ 
+ static inline u32 jbd2_chksum(journal_t *journal, u32 crc,
  			      const void *address, unsigned int length)
  {
 -	struct {
 -		struct shash_desc shash;
--		char ctx[4];
+-		char ctx[JBD_MAX_CHECKSUM_SIZE];
 -	} desc;
 -	int err;
 -
--	BUG_ON(crypto_shash_descsize(sbi->s_chksum_driver) != sizeof(desc.ctx));
+-	BUG_ON(crypto_shash_descsize(journal->j_chksum_driver) >
+-		JBD_MAX_CHECKSUM_SIZE);
 -
--	desc.shash.tfm = sbi->s_chksum_driver;
+-	desc.shash.tfm = journal->j_chksum_driver;
 -	*(u32 *)desc.ctx = crc;
 -
 -	err = crypto_shash_update(&desc.shash, address, length);
 -	BUG_ON(err);
 -
 -	return *(u32 *)desc.ctx;
-+	return crc32(crc, address, length);
++	return crc32c(crc, address, length);
  }
  
- static inline u32 f2fs_crc32(struct f2fs_sb_info *sbi, const void *address,
- 			   unsigned int length)
+ /* Return most recent uncommitted transaction */
+ static inline tid_t  jbd2_get_latest_transaction(journal_t *journal)
  {
-diff --git a/fs/f2fs/super.c b/fs/f2fs/super.c
-index 87ab5696bd48..003d3bcb0caa 100644
---- a/fs/f2fs/super.c
-+++ b/fs/f2fs/super.c
-@@ -1670,12 +1670,10 @@ static void f2fs_put_super(struct super_block *sb)
- 
- 	f2fs_destroy_post_read_wq(sbi);
- 
- 	kvfree(sbi->ckpt);
- 
--	if (sbi->s_chksum_driver)
--		crypto_free_shash(sbi->s_chksum_driver);
- 	kfree(sbi->raw_super);
- 
- 	f2fs_destroy_page_array_cache(sbi);
- 	f2fs_destroy_xattr_caches(sbi);
- #ifdef CONFIG_QUOTA
-@@ -4419,19 +4417,10 @@ static int f2fs_fill_super(struct super_block *sb, void *data, int silent)
- 		INIT_LIST_HEAD(&sbi->inode_list[i]);
- 		spin_lock_init(&sbi->inode_lock[i]);
- 	}
- 	mutex_init(&sbi->flush_lock);
- 
--	/* Load the checksum driver */
--	sbi->s_chksum_driver = crypto_alloc_shash("crc32", 0, 0);
--	if (IS_ERR(sbi->s_chksum_driver)) {
--		f2fs_err(sbi, "Cannot load crc32 driver.");
--		err = PTR_ERR(sbi->s_chksum_driver);
--		sbi->s_chksum_driver = NULL;
--		goto free_sbi;
--	}
--
- 	/* set a block size */
- 	if (unlikely(!sb_set_blocksize(sb, F2FS_BLKSIZE))) {
- 		f2fs_err(sbi, "unable to set blocksize");
- 		goto free_sbi;
- 	}
-@@ -4872,12 +4861,10 @@ static int f2fs_fill_super(struct super_block *sb, void *data, int silent)
- 	fscrypt_free_dummy_policy(&F2FS_OPTION(sbi).dummy_enc_policy);
- 	kvfree(options);
- free_sb_buf:
- 	kfree(raw_super);
- free_sbi:
--	if (sbi->s_chksum_driver)
--		crypto_free_shash(sbi->s_chksum_driver);
- 	kfree(sbi);
- 	sb->s_fs_info = NULL;
- 
- 	/* give only one another chance */
- 	if (retry_cnt > 0 && skip_recovery) {
-@@ -5080,7 +5067,5 @@ module_init(init_f2fs_fs)
- module_exit(exit_f2fs_fs)
- 
- MODULE_AUTHOR("Samsung Electronics's Praesto Team");
- MODULE_DESCRIPTION("Flash Friendly File System");
- MODULE_LICENSE("GPL");
--MODULE_SOFTDEP("pre: crc32");
--
 -- 
 2.47.0
 
