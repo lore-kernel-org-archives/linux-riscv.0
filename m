@@ -4,93 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50306D11041
-	for <linux-riscv@archiver.kernel.org>; Sun,  3 Nov 2024 13:39:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DEC8D11080
+	for <linux-riscv@archiver.kernel.org>; Sun,  3 Nov 2024 14:00:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kFn8lOLH/zNkOI0zw9lmnNFZduYnfsATBgEufqhdHdE=; b=aud37BNFGMBUnc
-	45STKO773gNwjX2n54DHPabHIRb+iIhFPi+KcRrJy/+S3lhHQF/SC3cs8Uj3c9yKzvuqB8SDPBVyH
-	3urdKPfmWSc4yUGhFYmlPTwWFYxT2aWwDHI1Pifk+fk9VfgYwpe7t52oLVRXye2lWjJ8SR8063a3O
-	9XUm9sTur6QKt/54jtENv0zMT0teNR/ReoI4lb/iUubcFTm8Ly9NcgPJxm0YyGzYoyaHzKfAcpmjg
-	ufPZSeex9FSS8lFAamBT68xBLZWD6yjVv0a/m5plChenNFO5KbYScbaPaI9pZcirBLNBEDMG6lbej
-	BXRXGF6U0BEm56ljuLPw==;
+	List-Owner; bh=hmlJYMcVuI7D9v3n1l3UIe45CNd+OfQt77F6t1gCaik=; b=OcjJ9dr2AFmHMa
+	3DG9OsTDiATQxvpyDCkNjssKngGn2tjbOndhR721CvWUAVLrsG9rtjGEqUVVqKS3xs+bJgu/LaVeq
+	/q69NARMxeNQIwl4Q+2Ui22NEvD/3cAslo4SVKvvtW2c14BTzbTCDS9u3ApS36xW3YKafxlF/PPHV
+	S8MQKC/7Grj15NZcUlLeUNqorvNDof06Y+VoTMZE5XVg0+Peh6FJoVd5qVvhaDHQrW3gL1HqnbAwA
+	42w9oDU9y0Q5Y29+jd9G20FMeqfeSEYqReCwLY/9IeZ42wm7FmH1F5qycoZwU8Nagr59a6tdd6N34
+	go8Dli1O7X90ioa8QCmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7apR-0000000BTRM-30Vk;
-	Sun, 03 Nov 2024 13:39:41 +0000
-Received: from smtpbgbr2.qq.com ([54.207.22.56])
+	id 1t7b9s-0000000BVpX-2dod;
+	Sun, 03 Nov 2024 14:00:48 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7anj-0000000BTIM-0W2a;
-	Sun, 03 Nov 2024 13:37:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1730641022;
-	bh=0u2qY5VmW02QoZQQ8PVGB0RvEt+gYfighmeowfpBp9Q=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=KLF8HuA2XZZA8PyiFIvxZyWe/QyPFXt7v/I0izyxgFtQDYw727X9/PTsC+BZn74Y0
-	 mWRYJkxiA6zPS+DHh2CYqTkCl6rOZpFl9M65nsnUxXhTKvCMjUxLR4CJ4QUZsLa+Ci
-	 r1taA2f3NHlHgNNy0bmBr+6w+ezN9xazZzSxWx9w=
-X-QQ-mid: bizesmtpip2t1730641018t4vihmk
-X-QQ-Originating-IP: OJFfFUb+TagDtWAwy6uc0+sLCBe0njxsmdHE22f+THA=
-Received: from avenger-OMEN-by-HP-Gaming-Lapto ( [localhost])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Sun, 03 Nov 2024 21:36:56 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 16809586154877906677
-From: WangYuli <wangyuli@uniontech.com>
-To: ebiggers@kernel.org
-Cc: ardb@kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-crypto@vger.kernel.org,
-	linux-ext4@vger.kernel.org,
-	linux-f2fs-devel@lists.sourceforge.net,
-	linux-kernel@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-scsi@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev,
-	kernel@xen0n.name,
-	chenhuacai@kernel.org,
-	xry111@xry111.site,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org
-Subject: Re: [PATCH v2 06/18] loongarch/crc32: expose CRC32 functions through lib
-Date: Sun,  3 Nov 2024 21:36:55 +0800
-Message-ID: <DA8BCDFFEACDA1C6+20241103133655.217375-1-wangyuli@uniontech.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20241025191454.72616-7-ebiggers@kernel.org>
+	id 1t7b6k-0000000BVO1-2C26;
+	Sun, 03 Nov 2024 13:57:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 337C15C4336;
+	Sun,  3 Nov 2024 13:56:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 014DBC4CECD;
+	Sun,  3 Nov 2024 13:57:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730642252;
+	bh=VxXH6aqpqHLHF5oRJ5vnT5vpm2uvtxBA9AHVL/CAjN8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EgyAPyUVzD+RX89LUiOchP3Aw0Js3GqP/DtnP8pAtBfaDedVT967mnJ82pBpE9KRN
+	 ftK066xUf9/ky+dJfz8zo3ZrlOBBIwzAtGdFfjJW9BVBxme/2A7kncMayzUKYZ5xhE
+	 Vmbx+QZrBR8d8lG3rs/hr5GcPBgei7uWbzXvPZxURjQuM+X2Jr3q9fjSTk/A+86b8b
+	 PyY1dLiWpn2qN/lGx/OjiSXOJsgO36lUUbVoSgk7DuHWX2RDImBvvO7ui25Wr0tZYV
+	 0Xe+h5Xj9lpyGr/BCNqgwMBTm5cG9eqiST44/fbsaiqt3sqcAsOAptCwqbnUAM9n9Z
+	 n3EbHG0jaagjw==
+Date: Sun, 3 Nov 2024 05:57:30 -0800
+From: Eric Biggers <ebiggers@kernel.org>
+To: WangYuli <wangyuli@uniontech.com>
+Cc: ardb@kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+	linux-ext4@vger.kernel.org, linux-f2fs-devel@lists.sourceforge.net,
+	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev, kernel@xen0n.name, chenhuacai@kernel.org,
+	xry111@xry111.site, sparclinux@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH v2 06/18] loongarch/crc32: expose CRC32 functions through
+ lib
+Message-ID: <20241103135730.GA813@quark.localdomain>
 References: <20241025191454.72616-7-ebiggers@kernel.org>
+ <DA8BCDFFEACDA1C6+20241103133655.217375-1-wangyuli@uniontech.com>
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtpip:uniontech.com:qybglogicsvrgz:qybglogicsvrgz8a-1
-X-QQ-XMAILINFO: N6YgFB7a9ocC3pQJxWcp7+Xrliways2mu9o23knf3Akmh/U/46tifWDD
-	Zmtnw9LJxsopTQbaWubtG2dud51nf2xYcha4+Y69C4C+471DwmOCqpoN4zAxO47wDQV70EZ
-	NB803/RTtOafS5LsEhSa2pXT/Pm7oip6cyqFoW2d4vF6i4qRl8uYTDzWiPcWi4I7LnVqYol
-	BpRoSEkl96raCfa8axlwSr+Opdc1J1kd/dHhlgucsXsEQSWLrUzY32rUWk6i5P+scqQkVIK
-	jaY3bibsRScpv8SvXBr7qp630Y3JCBCkyKJHLRkuKPcUcMUvpxBqGThWo0h6lFeNDWD4QLR
-	p3aME94npPL6RcZXYKUvVa7VWjLkvLkIvBgSFWr+i7DjY+GO4CL9qTmD1mUtq0/dY4MMoZ9
-	pU+PF4eXaZUg1JW7idWVj+tMR8BvxgXJkoGHXZAldv0sDMxeJbWWoxEz1NL9d+6WFkZQnYC
-	ObfHL/lbp9IyRiliBfTys5F3EZq/NIDMu/GTJri6lKmIVwC/jNbP70A/MHHO+b7OgOdQEDE
-	9cos+lNIZ9Dw86cxmAU8H4QV6jITKpPTMPcPao/Dd3X1c3EZM5Vu6Yad56RlKep0ijS7HXT
-	/4+f3kTvpruvd/R9i9NH68vhmH4i2VHf+6Vt4d0ZkzZc6kpLIrPImsVVxDncJ0dujKtt8EG
-	Ki3aXDVoVBnRBauPb2KMM9UlcpXqpcciSqMuYccju7lsz5RQBGFivjwxVU56aMjBKuLv/fr
-	yVLwCCcyGGoiQvaS4+l8EkXpXHEudfXQwgCyAFQw7RHNSlhOi/hGvXC/FSkkVXBiVCv+YE+
-	G9Z/guufiX1OsWMn71A8ut7xId7Myr9NuM2AwPHUK08M4Yl+7NgqMDXwW1BRva+2om8swWn
-	GiA+XwShgUOR8f5Jd2X3Vg/8InqTxLLLxnmikIWKz9iGJXaFFMNrCdY0myqjuXrkmbYUyj1
-	bAP+/SqWN89I4c0O+8KUfu2gefQ/h8AFF5bdbes65vo3CaaVI3WdHG5UpHIKmcAay0B2Jnd
-	H48V7DL5nPqZUyKv6J
-X-QQ-XMRINFO: Mp0Kj//9VHAxr69bL5MkOOs=
-X-QQ-RECHKSPAM: 0
+Content-Disposition: inline
+In-Reply-To: <DA8BCDFFEACDA1C6+20241103133655.217375-1-wangyuli@uniontech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241103_053756_013027_9C779AC5 
-X-CRM114-Status: UNSURE (   3.90  )
+X-CRM114-CacheID: sfid-20241103_055734_636141_1A1B0A0B 
+X-CRM114-Status: UNSURE (   8.75  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,14 +80,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Even though the narrower CRC instructions doesn't require GRLEN=64, they still *aren't* part of LA32 (LoongArch reference manual v1.10, Volume 1, Table 2-1).
-Link: https://lore.kernel.org/all/0a7d0a9e-c56e-4ee2-a83b-00164a450abe@xen0n.name/
+On Sun, Nov 03, 2024 at 09:36:55PM +0800, WangYuli wrote:
+> Even though the narrower CRC instructions doesn't require GRLEN=64, they still *aren't* part of LA32 (LoongArch reference manual v1.10, Volume 1, Table 2-1).
+> Link: https://lore.kernel.org/all/0a7d0a9e-c56e-4ee2-a83b-00164a450abe@xen0n.name/
+> 
+> Therefore, we could not directly add ARCH_HAS_CRC32 to config LOONGARCH.
+> 
 
-Therefore, we could not directly add ARCH_HAS_CRC32 to config LOONGARCH.
+There's still a runtime CPU feature check of cpu_has(CPU_FEATURE_CRC32).
+See arch/loongarch/lib/crc32-loongarch.c.  So it's the same as before.
+ARCH_HAS_CRC32 just means that the file will be compiled.
 
-Thanks,
---
-WangYuli
+If you're trying to say that you think this file should be built only when
+CONFIG_64BIT=y, then that would be an existing bug since the existing file
+arch/loongarch/crypto/crc32-loongarch.c was built for both 32-bit and 64-bit.
+But if you think this is a bug, I can fix this too.
+
+- Eric
 
 _______________________________________________
 linux-riscv mailing list
