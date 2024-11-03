@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD0CED11100
-	for <linux-riscv@archiver.kernel.org>; Sun,  3 Nov 2024 14:53:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 632A1D11101
+	for <linux-riscv@archiver.kernel.org>; Sun,  3 Nov 2024 14:54:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9kRKqQ5UXLGzODQfxDxI9nK7DK4jncXta0FhxXOfE70=; b=hbJWkiXyjNimeV
-	h2dWu9tCZeylgmyIXEcH26mZlzV5m7wGf2u/kvJyQ/8/A53tWak69U6Owd67IDMbtWtcyUQOWesJn
-	Mr9cI1GbbGeZ0bxdqpmKQhJGuT6lp1n2xYVhS2Xy5qbvo2CkybNwwNAGzQHg049DH8uge9cIAIS4r
-	gy9TBQJztwExJIAVz3+7qxibGinJ2rB6yg7C6BzcR/7C79sA7R9wOuMdVTjftUvZXIKseylfQ/u5X
-	laIz79mbpQDHwRWRMOFECiDZ2l1Bck2PuHnqewD1f8/ZnIhFvMrGBh8g0ADyJK2YB4rKnSgYgrV0x
-	/Um7DSmownSu02kuOlUw==;
+	List-Owner; bh=O9S/PE2Qe1LCKRodbuyOrqzBPbXk+c18GxGFxHKlOXo=; b=dSn5VFDal10b6x
+	p9nuDxCwZQKZTDqzsYjGT4r8dCNjFvQ0CU42wyhj6Qtbuiuhs1Yr7WsYI9WvGk2/Ojc1OksaPQ1NY
+	/wslcLNIm6bSEPROsLiPIa/aX9Ij6X8FOJBn6K3JboWaPz1c9dMobYdr+91Hbvnv7jJfk5csrHT/x
+	NxFkglt8d3BNJWT6bWg7puTs2WyuwwdVvjoSvF8NADzlx+4nSlzvBRmbo3LxNNgujzc6Z1PVBOHgq
+	4T2caoNvbM954ppNsdjtA54i7mquThdT21wYN9j+WXntaDVbkAyrzPytQql6oBv56DmdMRU0UThNU
+	zMhnanf+K+GWcVjrCNJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7byP-0000000BZ9B-0bPm;
-	Sun, 03 Nov 2024 14:53:01 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1t7bzO-0000000BZLK-1VJ0;
+	Sun, 03 Nov 2024 14:54:02 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7byM-0000000BZ8A-3XCr
+	id 1t7bzL-0000000BZKf-349H
 	for linux-riscv@lists.infradead.org;
-	Sun, 03 Nov 2024 14:53:00 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-37d462c91a9so2057418f8f.2
-        for <linux-riscv@lists.infradead.org>; Sun, 03 Nov 2024 06:52:58 -0800 (PST)
+	Sun, 03 Nov 2024 14:54:00 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-37d47eff9acso2180711f8f.3
+        for <linux-riscv@lists.infradead.org>; Sun, 03 Nov 2024 06:53:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1730645577; x=1731250377; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1730645638; x=1731250438; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Ll6PO6fq7jekV3yT3oRS1DwKakMdlEGxiDtEOFhGbwU=;
-        b=2gIazIiZ5YEQ+IbfX+SjXQHhhSfEwzvX6EXLv4PA9vByW9N+Fd3HPAJK7zIl+vP38v
-         XFB12zgbZRxYrD+LAnI68hwRqfIFmQv5+mN25v382QWeTC56UrlHBY1UQYiPC4kZDZCc
-         BMG+vHv0Qt1ea4SrOlpU+M3gJv6VNAqsqE3O4eGn/5HaPaWpGCBadU3VlOh8O6knfoHQ
-         4gm0ruge+HlPdBtIyfWZ/gHWUWAWCE6TmjNBsIij6EkuU/idbX0YM6eGwgxp07IugrLM
-         Cm0e9Q4BZMntgZdYiO9ZIeKF+rBTaqCW6A4fyN37pGxsJqTnlGpkTzTVWf30XMI+bCTq
-         pkdA==
+        bh=Nql3DD9359qdXdLLpVtxL8oa+5wIDas5DqswNkA3KmI=;
+        b=sxD46vKLcOv8WbXNSOd/Ll+Ir28ZzBMxg4OW1baZn8eNq4kK4yGjFZ7lvIP3XBBAtj
+         RGofedpfatF6TipRhEpoTGRdx4TQsvrJezvYpY6jvdnyq8YkED78RmorFdaquNPzE6bn
+         xFeclBXV/BWnUtXpS8phbE7ZnznCOjHNn9Ji0aPJpVpyWl4JmQKYEN3Gga230UiC13AY
+         PY5k6PMTINubAtlH3T4bttJhxWaC+U0c1c+YywRKoC9m+9NXA08Zwo1RE0HeXAgvhiOv
+         /8W44v4WkZx/caFwKbocuBRhwESmm/Lj4dIvVJCk8yGFdKkDmDgqvXkffaaAWqQtP+PA
+         uelQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730645577; x=1731250377;
+        d=1e100.net; s=20230601; t=1730645638; x=1731250438;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Ll6PO6fq7jekV3yT3oRS1DwKakMdlEGxiDtEOFhGbwU=;
-        b=lg0p++D3gKB7nqtvb9OURwvcaZI6tBk5CMYogN6LParFwx2DjdYKPfgTLZwqFOdTmS
-         QRZU5g7dOT3dXLuwhoeD4sk95WyfXypTUJtv+l4IJWd4LVeAVrLr6nBuR7jiwwIbhyzC
-         q1cMoFYUKwJIJ61kK4xnlUm9fXtHBeJC4GjcogDZcgo/2LJB7D/39ZRglDguAsSbAT3N
-         Mz1V8OpnN0FEiUeHof0ErXjTUMxs36hjEcE6gAwnpLtmIHif9zQDZY4rDX40dsQhmMlT
-         4wDbEHKIT3lvkcf1sFhlkW8MefLqU0jK4FVBmbuOUlcqyZVP3vzY16DrVdMfhQAl1Qtt
-         +//w==
-X-Forwarded-Encrypted: i=1; AJvYcCXjb9NKlX5CmTRPgr/EnEQfYm2P4xwQIp3gfmV1TCT0M/V5/2J3z8ga6o6LzG8Yp6Zh+plWPi9b/2YN1Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMUPzUMx+ZgmMh4Y2aJLFlOmsB//OXQXs2fxNOX1HASS5KkSkh
-	f7ycEiKv/3jlGwBoDEPjtQGJkfTt1gJijeQJjg2AsAgM5g9mxfQ0c06cLodYVBs=
-X-Google-Smtp-Source: AGHT+IFvsXKhMz1fjru6A+QnFRydk5FLICcqibf9uwIL5DAG/Ic4jbFEh3bsH3jcltqVkAZyHMwFyA==
-X-Received: by 2002:a05:6000:1b08:b0:378:89be:1825 with SMTP id ffacd0b85a97d-381b710fbb0mr11387559f8f.49.1730645577054;
-        Sun, 03 Nov 2024 06:52:57 -0800 (PST)
+        bh=Nql3DD9359qdXdLLpVtxL8oa+5wIDas5DqswNkA3KmI=;
+        b=X58q1eOSU97JEgNSBL4Q1xJtmUVCb8CTuQ3Ch0nMcgCt2I40guMhT91OKT6ij+ZdPV
+         wRAdrEqTPUWPqAXfKRQCoTgyUXUtyTNBBdCNYWwITWViJ6DzAhW9QumxBiIj7YNzt/WT
+         htz8NBBOOuyN/TWM0kbtRaKT1QinHRsPhvAA0HPOrFWGW6vbwFPp9gRHmb6lhEc2EyTt
+         UXDh1q2iYMbh3OZGXKJNX/FkMlEgU0WaPxLlyhmaotvsQnc8ELf5WUkHvP/kDD3tUmII
+         AmWU1tYVETvE1lOp2Mu2QBLocUMx6SvnfQHJd52oetnRwvgTNhPX1waaK0jsN3qZ0NiA
+         pYrw==
+X-Forwarded-Encrypted: i=1; AJvYcCVGEtMVdSegmbzZMXT1iLy/sgrE1NGy8k0fWqF4PblrVpgfJWs9MuwSniGLmsOAFyUM0PNeVap1MB6UrQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwZVHktR7+conu3G31TpV+tDZc7EMy8dCn2TU2NYBco8cyu/5So
+	mtf3peSbVOdWgcqvoihkHJCcjFiJTwF0DxBVNrvHk4YIVVNAwZZze30tIPsr0wQ=
+X-Google-Smtp-Source: AGHT+IEzqXU+n6yFRFqvDrou02tN/4/eCcsT/sjowi0L/ehc2kcbHr+rCGMDYfv6CZMwRO5vLoFRDw==
+X-Received: by 2002:a5d:47ac:0:b0:371:9360:c4a8 with SMTP id ffacd0b85a97d-381c7a472ecmr8333590f8f.6.1730645638302;
+        Sun, 03 Nov 2024 06:53:58 -0800 (PST)
 Received: from alex-rivos.ba.rivosinc.com (lfbn-lyo-1-472-36.w2-7.abo.wanadoo.fr. [2.7.62.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381c113e642sm10721990f8f.68.2024.11.03.06.52.56
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381c10d7e0fsm10710932f8f.47.2024.11.03.06.53.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 03 Nov 2024 06:52:56 -0800 (PST)
+        Sun, 03 Nov 2024 06:53:57 -0800 (PST)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Jonathan Corbet <corbet@lwn.net>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
@@ -88,16 +88,17 @@ To: Jonathan Corbet <corbet@lwn.net>,
 	linux-arch@vger.kernel.org
 Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
 	Andrew Jones <ajones@ventanamicro.com>
-Subject: [PATCH v6 01/13] riscv: Move cpufeature.h macros into their own header
-Date: Sun,  3 Nov 2024 15:51:41 +0100
-Message-Id: <20241103145153.105097-2-alexghiti@rivosinc.com>
+Subject: [PATCH v6 02/13] riscv: Do not fail to build on byte/halfword operations with Zawrs
+Date: Sun,  3 Nov 2024 15:51:42 +0100
+Message-Id: <20241103145153.105097-3-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20241103145153.105097-1-alexghiti@rivosinc.com>
 References: <20241103145153.105097-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241103_065258_909985_50090656 
-X-CRM114-Status: GOOD (  14.89  )
+X-CRM114-CacheID: sfid-20241103_065359_793805_38BD6FAE 
+X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,174 +115,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-asm/cmpxchg.h will soon need riscv_has_extension_unlikely() macros and
-then needs to include asm/cpufeature.h which introduces a lot of header
-circular dependencies.
+riscv does not have lr instructions on byte and halfword but the
+qspinlock implementation actually uses such atomics provided by the
+Zabha extension, so those sizes are legitimate.
 
-So move the riscv_has_extension_XXX() macros into their own header which
-prevents such circular dependencies by including a restricted number of
-headers.
+Then instead of failing to build, just fallback to the !Zawrs path.
 
 Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 ---
- arch/riscv/include/asm/cpufeature-macros.h | 66 ++++++++++++++++++++++
- arch/riscv/include/asm/cpufeature.h        | 61 ++------------------
- 2 files changed, 70 insertions(+), 57 deletions(-)
- create mode 100644 arch/riscv/include/asm/cpufeature-macros.h
+ arch/riscv/include/asm/cmpxchg.h | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/arch/riscv/include/asm/cpufeature-macros.h b/arch/riscv/include/asm/cpufeature-macros.h
-new file mode 100644
-index 000000000000..a8103edbf51f
---- /dev/null
-+++ b/arch/riscv/include/asm/cpufeature-macros.h
-@@ -0,0 +1,66 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright 2022-2024 Rivos, Inc
-+ */
-+
-+#ifndef _ASM_CPUFEATURE_MACROS_H
-+#define _ASM_CPUFEATURE_MACROS_H
-+
-+#include <asm/hwcap.h>
-+#include <asm/alternative-macros.h>
-+
-+#define STANDARD_EXT		0
-+
-+bool __riscv_isa_extension_available(const unsigned long *isa_bitmap, unsigned int bit);
-+#define riscv_isa_extension_available(isa_bitmap, ext)	\
-+	__riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_##ext)
-+
-+static __always_inline bool __riscv_has_extension_likely(const unsigned long vendor,
-+							 const unsigned long ext)
-+{
-+	asm goto(ALTERNATIVE("j	%l[l_no]", "nop", %[vendor], %[ext], 1)
-+	:
-+	: [vendor] "i" (vendor), [ext] "i" (ext)
-+	:
-+	: l_no);
-+
-+	return true;
-+l_no:
-+	return false;
-+}
-+
-+static __always_inline bool __riscv_has_extension_unlikely(const unsigned long vendor,
-+							   const unsigned long ext)
-+{
-+	asm goto(ALTERNATIVE("nop", "j	%l[l_yes]", %[vendor], %[ext], 1)
-+	:
-+	: [vendor] "i" (vendor), [ext] "i" (ext)
-+	:
-+	: l_yes);
-+
-+	return false;
-+l_yes:
-+	return true;
-+}
-+
-+static __always_inline bool riscv_has_extension_unlikely(const unsigned long ext)
-+{
-+	compiletime_assert(ext < RISCV_ISA_EXT_MAX, "ext must be < RISCV_ISA_EXT_MAX");
-+
-+	if (IS_ENABLED(CONFIG_RISCV_ALTERNATIVE))
-+		return __riscv_has_extension_unlikely(STANDARD_EXT, ext);
-+
-+	return __riscv_isa_extension_available(NULL, ext);
-+}
-+
-+static __always_inline bool riscv_has_extension_likely(const unsigned long ext)
-+{
-+	compiletime_assert(ext < RISCV_ISA_EXT_MAX, "ext must be < RISCV_ISA_EXT_MAX");
-+
-+	if (IS_ENABLED(CONFIG_RISCV_ALTERNATIVE))
-+		return __riscv_has_extension_likely(STANDARD_EXT, ext);
-+
-+	return __riscv_isa_extension_available(NULL, ext);
-+}
-+
-+#endif /* _ASM_CPUFEATURE_MACROS_H */
-diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
-index 45f9c1171a48..87ed88fc950d 100644
---- a/arch/riscv/include/asm/cpufeature.h
-+++ b/arch/riscv/include/asm/cpufeature.h
-@@ -8,9 +8,11 @@
+diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
+index ebbce134917c..ac1d7df898ef 100644
+--- a/arch/riscv/include/asm/cmpxchg.h
++++ b/arch/riscv/include/asm/cmpxchg.h
+@@ -245,6 +245,11 @@ static __always_inline void __cmpwait(volatile void *ptr,
+ 		 : : : : no_zawrs);
  
- #include <linux/bitmap.h>
- #include <linux/jump_label.h>
-+#include <linux/kconfig.h>
-+#include <linux/percpu-defs.h>
-+#include <linux/threads.h>
- #include <asm/hwcap.h>
--#include <asm/alternative-macros.h>
--#include <asm/errno.h>
-+#include <asm/cpufeature-macros.h>
- 
- /*
-  * These are probed via a device_initcall(), via either the SBI or directly
-@@ -103,61 +105,6 @@ extern const size_t riscv_isa_ext_count;
- extern bool riscv_isa_fallback;
- 
- unsigned long riscv_isa_extension_base(const unsigned long *isa_bitmap);
--
--#define STANDARD_EXT		0
--
--bool __riscv_isa_extension_available(const unsigned long *isa_bitmap, unsigned int bit);
--#define riscv_isa_extension_available(isa_bitmap, ext)	\
--	__riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_##ext)
--
--static __always_inline bool __riscv_has_extension_likely(const unsigned long vendor,
--							 const unsigned long ext)
--{
--	asm goto(ALTERNATIVE("j	%l[l_no]", "nop", %[vendor], %[ext], 1)
--	:
--	: [vendor] "i" (vendor), [ext] "i" (ext)
--	:
--	: l_no);
--
--	return true;
--l_no:
--	return false;
--}
--
--static __always_inline bool __riscv_has_extension_unlikely(const unsigned long vendor,
--							   const unsigned long ext)
--{
--	asm goto(ALTERNATIVE("nop", "j	%l[l_yes]", %[vendor], %[ext], 1)
--	:
--	: [vendor] "i" (vendor), [ext] "i" (ext)
--	:
--	: l_yes);
--
--	return false;
--l_yes:
--	return true;
--}
--
--static __always_inline bool riscv_has_extension_unlikely(const unsigned long ext)
--{
--	compiletime_assert(ext < RISCV_ISA_EXT_MAX, "ext must be < RISCV_ISA_EXT_MAX");
--
--	if (IS_ENABLED(CONFIG_RISCV_ALTERNATIVE))
--		return __riscv_has_extension_unlikely(STANDARD_EXT, ext);
--
--	return __riscv_isa_extension_available(NULL, ext);
--}
--
--static __always_inline bool riscv_has_extension_likely(const unsigned long ext)
--{
--	compiletime_assert(ext < RISCV_ISA_EXT_MAX, "ext must be < RISCV_ISA_EXT_MAX");
--
--	if (IS_ENABLED(CONFIG_RISCV_ALTERNATIVE))
--		return __riscv_has_extension_likely(STANDARD_EXT, ext);
--
--	return __riscv_isa_extension_available(NULL, ext);
--}
--
- static __always_inline bool riscv_cpu_has_extension_likely(int cpu, const unsigned long ext)
- {
- 	compiletime_assert(ext < RISCV_ISA_EXT_MAX, "ext must be < RISCV_ISA_EXT_MAX");
+ 	switch (size) {
++	case 1:
++		fallthrough;
++	case 2:
++		/* RISC-V doesn't have lr instructions on byte and half-word. */
++		goto no_zawrs;
+ 	case 4:
+ 		asm volatile(
+ 		"	lr.w	%0, %1\n"
 -- 
 2.39.2
 
