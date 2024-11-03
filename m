@@ -4,43 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7B4DD11188
-	for <linux-riscv@archiver.kernel.org>; Sun,  3 Nov 2024 18:14:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D82D2D11194
+	for <linux-riscv@archiver.kernel.org>; Sun,  3 Nov 2024 22:13:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=I+8cJjlwxx4DvmymfKZCEYuelfKMERyR1LaX5KgZONA=; b=4TsgAebsquUcyL
-	+m3rO2u4rX0DLQ3Ob6RFIBz68smQbUnzKwSfq1WRiJ/Xh3NWa+gDiP6g/fAhyyODUBEzNFlbfheWK
-	o5SbNsXIelRD3q79UQIULmMELv3dFaxErci+nuc0JFm2xNvPhNDEWsh3MRCLJjp1Bvy/RYyw6lK8D
-	I604Apfb9u+nXTh84sDU2shcBEO0rSl7O+S+YfT6p+0YnVFr9PAo5koObxmz0PaYbECdRA97InDJE
-	naamz8RkuBYQ0zPLvQC47+z2cRchmBfX416qqqlt8/TJZNssK20SycB0H1e+cMOk2uvO+eFwZkKkr
-	z9GXm4828hkhtcxlhnUQ==;
+	List-Owner; bh=HudM1H6vh/aWWAUnmR+VtE10E+AJv/15wdIWd7cTous=; b=DUSZmLGkySAREh
+	J6tcEoyqec97R2HrhoPIxkgIMFqX5xyWBQhWI6ldNwZ20f61RKUkZz9ZZKwU84Si4QM/evhGFRtKI
+	dNZXIMe4YTV20+iH9vW8TFiOqGyMbiOKB73la+x81rfdEMMcijVCL/UwfUC3ils7ObUue6z7ZhcQn
+	ZhWbe1blpKTo99JEBCYjN9yR8wAxWHCxKy5YQDPKWv+nkK1y/57YmFDvLXS8toKwkYAi9rq9RpFcl
+	3Xd3gXxuxLcsZw756msG1MfDp56WTkXoUR1P7pO1f1kUavFtujiidoqfJOuNfn7S8Oo04hqJ6ebVx
+	j2fOJdtTRZft+6xgA+vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7f7V-0000000BpYe-1CRw;
-	Sun, 03 Nov 2024 18:14:37 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1t7iqn-0000000C7M9-0ThJ;
+	Sun, 03 Nov 2024 22:13:37 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7f5o-0000000BpRJ-3iiq;
-	Sun, 03 Nov 2024 18:12:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=TEDfJQj5mI10kN+wwdoFMrm2dhK/uEbxmEe+uWSOm58=; b=XAVMEtgHPm/CP5wWXga647XAud
-	6XcRKMh9aHdy/WSXMnyv0lcsVsP31xBUkB6gt42dk51LOeK3mP3vGzZuDO+BynAXr8RbffNaPwisr
-	b2A1/qOYDLd8KJEtKXHJyUx7QCvA+t1cet2cGFBMPtnX33cs9f23+P0TUkemsaAqOD3c=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1t7f5M-00C1y2-MF; Sun, 03 Nov 2024 19:12:24 +0100
-Date: Sun, 3 Nov 2024 19:12:24 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Drew Fustini <dfustini@tenstorrent.com>
-Cc: "David S. Miller" <davem@davemloft.net>,
+	id 1t7imz-0000000C789-1kmL;
+	Sun, 03 Nov 2024 22:09:43 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-72097a5ca74so3367367b3a.3;
+        Sun, 03 Nov 2024 14:09:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1730671780; x=1731276580; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=/rHJELaF04JBRi0aLmrWuxoS3tWtyUhwmRJRrDNiPz8=;
+        b=S8laLkhXFxuQTCMEBgEQKLYGYS1tiv3v+/vnn8OyjxmUnyVv0FDvG3Jp4nwGxZgjrr
+         tu/Kad9Li9UYh3L2xAIh3jESZcT/vBBolPQmOXzqIezkfzdDo9ZY5zGdglU6bFF5POkt
+         YW5qKF5FA5teoKOnKEam3ZgLXMfVKCgI98d8VEvVbLpXnfJ7SnnX8PrXGqL7ZhqmnWPV
+         qFVNrIyXn3BkoxAIZey7HNpELNl+hFkmT3KaSo4KBhEh/gkI11bWif/8h2DH23IcuJLu
+         u9KhPQHgrAu9KAcSiPscZeDO6jSTl3WqhglJtiJw1ic4KfUBZJ9SnLlPB5a2So9YsLq5
+         QVAQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730671780; x=1731276580;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/rHJELaF04JBRi0aLmrWuxoS3tWtyUhwmRJRrDNiPz8=;
+        b=Is+oZnNbSLDcA723hTFpJIrEey/EMkcYfCe9ycyBUIC+VzjYdoO7fvW/6fYTFpMvYw
+         Vk1GX/XZjP4Nh2RGM6PL+XexnqQD37AAeK+JlvJSRTwX1/jd4dJDwkWIIYcsK94qEAvB
+         eD44zS8YhXPSATYWI9U+UNTXbPWQI0yDiFOaS1/g0p81xz5dB/C8mZA05lGajS6packx
+         W5uNop2+Y/Pxbrv2+Osx0SktK1YSgf8enqrDL+P1k4q5Zt7MIPJ0BxsSG6h6kBB+Lw8D
+         V44ZyWoNpdjrhJf9ifrNt1VYoEf4Wcfu9pgozOpTFv4Lzve/x1266pjaHzC9QP5TbQ/9
+         o9Dg==
+X-Forwarded-Encrypted: i=1; AJvYcCVqmyE9BbjkaFBdcec+hK5dpg3KB8mK2JgQnDT14EeqNlNmnMEOknz8CKRaAw60SkALTudyxAryLJIoHSji0dYR@lists.infradead.org, AJvYcCWkbxxcD+ANzlHe/xTvzDja+wzn90ompsFAyPJDsBAqOd7RwbP3+Yc8mAbPxJTdvFwHYRfOCOdsiONvRlU=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxe2yUK70Da18gbSe3InT/6t+ZMhJF5VfEb5AAT/VlAeOMuZL3C
+	0ovTGi5TXv++zZEKjycLIMZze1uS3iy39lUR69lxyK5e2Lzn0axJ
+X-Google-Smtp-Source: AGHT+IFKyJJZHHJG1xrvYibWpBIs/FS0N3kdjWrsxFMjWgEPFe5BpYTq3ei0lG/0AXdt3oOlAP3xDg==
+X-Received: by 2002:a05:6a20:e605:b0:1d9:dfd:93c0 with SMTP id adf61e73a8af0-1dba556fdc2mr13977660637.49.1730671780063;
+        Sun, 03 Nov 2024 14:09:40 -0800 (PST)
+Received: from x1 (71-34-69-82.ptld.qwest.net. [71.34.69.82])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-720bc1ba033sm6074536b3a.34.2024.11.03.14.09.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 03 Nov 2024 14:09:38 -0800 (PST)
+Date: Sun, 3 Nov 2024 14:09:37 -0800
+From: Drew Fustini <pdp7pdp7@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Drew Fustini <dfustini@tenstorrent.com>,
+	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
 	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
 	Rob Herring <robh@kernel.org>,
@@ -63,14 +88,15 @@ Cc: "David S. Miller" <davem@davemloft.net>,
 	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Subject: Re: [PATCH net-next v7 0/2] Add the dwmac driver support for T-HEAD
  TH1520 SoC
-Message-ID: <662a8258-291d-4cfc-b21a-f3c92f9588f2@lunn.ch>
+Message-ID: <Zyf0oVGk6FiVrPsB@x1>
 References: <20241103-th1520-gmac-v7-0-ef094a30169c@tenstorrent.com>
+ <662a8258-291d-4cfc-b21a-f3c92f9588f2@lunn.ch>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20241103-th1520-gmac-v7-0-ef094a30169c@tenstorrent.com>
+In-Reply-To: <662a8258-291d-4cfc-b21a-f3c92f9588f2@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241103_101252_946133_AF8DBF7D 
-X-CRM114-Status: GOOD (  11.97  )
+X-CRM114-CacheID: sfid-20241103_140941_481794_EA81425E 
+X-CRM114-Status: GOOD (  17.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,24 +113,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 03, 2024 at 08:57:58AM -0800, Drew Fustini wrote:
-> This series adds support for dwmac gigabit ethernet in the T-Head TH1520
-> RISC-V SoC used on boards like BeagleV Ahead and the LicheePi 4A.
+On Sun, Nov 03, 2024 at 07:12:24PM +0100, Andrew Lunn wrote:
+> On Sun, Nov 03, 2024 at 08:57:58AM -0800, Drew Fustini wrote:
+> > This series adds support for dwmac gigabit ethernet in the T-Head TH1520
+> > RISC-V SoC used on boards like BeagleV Ahead and the LicheePi 4A.
+> > 
+> > The gigabit ethernet on these boards does need pinctrl support to mux
+> > the necessary pads. The pinctrl-th1520 driver, pinctrl binding, and
+> > related dts patches are in linux-next. However, they are not yet in
+> > net-next/main.
+> > 
+> > Therefore, I am dropping the dts patch for v5 as it will not build on
+> > net-next/main due to the lack of the padctrl0_apsys pin controller node
+> > in next-next/main version th1520.dtsi.
 > 
-> The gigabit ethernet on these boards does need pinctrl support to mux
-> the necessary pads. The pinctrl-th1520 driver, pinctrl binding, and
-> related dts patches are in linux-next. However, they are not yet in
-> net-next/main.
+> You should send the .dts patch to the Maintainer responsible for
+> merging all the RISC-V DT patches, maybe via a sub Maintainer. All the
+> different parts will then meet up in linux-next.
 > 
-> Therefore, I am dropping the dts patch for v5 as it will not build on
-> net-next/main due to the lack of the padctrl0_apsys pin controller node
-> in next-next/main version th1520.dtsi.
+> 	Andrew
 
-You should send the .dts patch to the Maintainer responsible for
-merging all the RISC-V DT patches, maybe via a sub Maintainer. All the
-different parts will then meet up in linux-next.
+I am the maintainer for arch/riscv/boot/dts/thead. I'm planning to apply
+the dts patch to my for-next branch once this series with the binding
+and driver are applied to net-next.
 
-	Andrew
+Thanks,
+Drew
 
 _______________________________________________
 linux-riscv mailing list
