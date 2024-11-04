@@ -4,82 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19384D1BDE7
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Nov 2024 19:34:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0611D1BDE7
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Nov 2024 19:41:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U8UVtoX87tO9taJT4hYPPl6jV2A4M+ayS/IhXvfIS7g=; b=KvD4gUFxX4DCQK
-	nv4Xo8xMfUg8NAKmDC0m7kdnx0e0Te8OAmeIAAVsBpkIEgv8d6OXfdm3OgAgyU65fUyuczLXsmJrv
-	kzBIlxyqNOVg1C5OvjGJ9PVk2U2hFbnzgJwxeVFMPRlkGaaDOWujAs7e2qnFv7r4j3FTJFjLFwHiM
-	Dys2RNqRzVdG7HQE/2VnlFHNnWFVIPiduu4n3Jfo8/+TPtjm8PCQAJjC4ugK/+f6z+h39TNhv9NCQ
-	61iFkbYsJjDjtBx8Pq3INd1aUOPSewN0X98D4G4dGm6Xm+rhAL2kizIdwOtaQY+UkH2C0va3IWLOC
-	j7QnA8Y4lMCKUXFQz/oA==;
+	List-Owner; bh=sR0EPihkWHVqyQcjZI53GQPe6C17PcfgqCxfIbwzJpY=; b=j5JDD+6VyfdYin
+	HT97fMHjKzz/3NpeYVznuLIa3p9Sc3Qto9eGBqAAtZc8DsXwYdPMhA/KiuUprjIO2/Tv27De+YyVK
+	NeppN+Cbb3DVchfPFuajzdxH+qFwuvYtVEMlJTXug4IWzPn0SzGyD/LT/jJZDeynX5orE5bYHsGxr
+	4NqpzxCZpaUIgfhl1JRc8d/IfiEGfCFKczgzgGizE56omJ9wv+MLU3o3x8zBBuLbkQpABHosZOuuy
+	77UGfcfZppsigg0XgJdJOUkGWpt5iucSUTsHvDoRrH0rXk2Fbmum4LAknaf7A5uWH4zDCB+rM3rL2
+	PyFKhDEYeXIbYQ47LTFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t82qS-0000000Eucd-1Kjx;
-	Mon, 04 Nov 2024 19:34:36 +0000
-Received: from mail-oo1-xc33.google.com ([2607:f8b0:4864:20::c33])
+	id 1t82x8-0000000Evvi-3Wrt;
+	Mon, 04 Nov 2024 19:41:30 +0000
+Received: from ms.lwn.net ([2600:3c01:e000:3a1::42])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t82kS-0000000Etdw-2kb4
+	id 1t82x6-0000000EvvH-1PvY
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Nov 2024 19:28:26 +0000
-Received: by mail-oo1-xc33.google.com with SMTP id 006d021491bc7-5ebc27fdc30so2430914eaf.2
-        for <linux-riscv@lists.infradead.org>; Mon, 04 Nov 2024 11:28:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730748503; x=1731353303; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=VzNSBwfqv5RMOk+iTL2p4n+4xz8bY6vzv1XRWCkFoUw=;
-        b=RSKfOL5UcZn0uSaQDZmS6RNe3F9+Ogg6v/srbl3UYaBHudjPMcj/6SM8nwBhxKAC/g
-         p0/eJosFlWmN1gPVeMkm6fc01Xi7QCOA6Y3YYNp+MKufmNH4SQa1P7vCUYds569sTCmO
-         7mwFTFPE9GF/zELPIxi6c3i/hdW24IMNkAIBPkwMQ6G3QoxEgVw8aU3MytX98Z0jFVXL
-         O/rcAWHt7vWv55JdLfgM7D6mZlf4rfCc1Xi3DsDJsLRRUG2yTFvGcRNUeBLOA3S3ggz2
-         FSiiQJWkUFD6gpb5/8S5FqRr5Cy1HRnB4Bdq3WKd97Rbt4+V0OnaBgdsgLaVawvBszTB
-         ergQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730748503; x=1731353303;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=VzNSBwfqv5RMOk+iTL2p4n+4xz8bY6vzv1XRWCkFoUw=;
-        b=aOwmfFLiAXeSJE6nu1VAkP5UnxKHitQrKS/6PH+t1BVf/D9fm5i+HBFj3Pm/MER7a4
-         UQf6sO26eZlughFmyTHvr4mLl7oezauNGW5gHdmHz4E3hWQnQ2YPiYCFkqyeqLLN1WPI
-         a81aJNmwPQJOslXgTf098yR3J6oj/MqYwmT9e6eRTeLrr2yN3/plCBNkgij2Cz4ljCXX
-         1ss1tKbanMz7z9ii03dLl8RWfuHsCtfNOQo7fP7ZFLymoECO/wQTJZ9Dqhs11JBPBH83
-         3N04t1zCxUD01GpjFXUWu8pLyoJT7gqZ4eS330h2d008HGnmrLrqU1E8ozEihEgs/1zT
-         ve+g==
-X-Forwarded-Encrypted: i=1; AJvYcCXenA/oTshWlfPzVDh13uh2oT1/pnGKG1InEzKDtdevM6Zm2iwu64DDHB2/DtS7YA9klhtTPooM1fcr7A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxtOc3Zjhb/5tIkOq9/KKRxy6GW0DKtrZxZNvhWJVPUW2W2dcFv
-	rqDgwpx0QwNjrjoiitgrTKKNTrazYjoPtnd7gasAj0taAyFBQjf3cA0ltNwuI4LOzHYHztwv5UM
-	FU+ZZsMc7l/UH+DUul3W/nmCaHlVC3w==
-X-Google-Smtp-Source: AGHT+IGIG32r9in+QfMAZeroaZPlTVZht5B6vJdC60syp76/vE/ZoshB2cvJMG3UXj+CkQFMi/mJ7Er8nRgBVNx+lZY=
-X-Received: by 2002:a05:6820:1885:b0:5ee:bb2:bdd4 with SMTP id
- 006d021491bc7-5ee0bb2c243mr4053231eaf.1.1730748502801; Mon, 04 Nov 2024
- 11:28:22 -0800 (PST)
+	Mon, 04 Nov 2024 19:41:29 +0000
+DKIM-Filter: OpenDKIM Filter v2.11.0 ms.lwn.net 479A142C30
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lwn.net; s=20201203;
+	t=1730749286; bh=/IFed8QuxmGzZBbHkfBNbEfyJ1RoaIBovaPG1f0VPG8=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=n8PZ+lvdV9S8DRrV5uughGMOtaA9H3oWENpGvlYt/sC2JQoufU1tcxY54Ptc9v2tC
+	 GZtZM7inLdMb3Yg6hJr21LWAY5u/TYR1V1M6N1BZY2JeX9pA5Rh22sWTTP11xVydlV
+	 L7aqqZFthR/iVCvg+akLG1EMYJDr6AW0o1X4BsrOEOZkeVwA3GsWdm8ywJvgXzrxTr
+	 8KUmLUeJrUFWIT5li55End9O/KFWWamMROt8jQEW913d5F3fFqJ4B0dhJS6qa0namB
+	 gziO8YJDsdCDAuzVKp0LxwQQMp79ykXyEG6y1/rg0UiUVae33IF2xZ8VT1JDZUuraP
+	 XHhzFLoqK0O/A==
+Received: from localhost (unknown [IPv6:2601:280:5e00:625::1fe])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by ms.lwn.net (Postfix) with ESMTPSA id 479A142C30;
+	Mon,  4 Nov 2024 19:41:26 +0000 (UTC)
+From: Jonathan Corbet <corbet@lwn.net>
+To: Dongliang Mu <dzm91@hust.edu.cn>, si.yanteng@linux.dev, Alex Shi
+ <alexs@kernel.org>, Yanteng Si <siyanteng@loongson.cn>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Nathan Chancellor <nathan@kernel.org>, Nick
+ Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>,
+ Justin Stitt <justinstitt@google.com>, Dongliang Mu <dzm91@hust.edu.cn>
+Cc: hust-os-kernel-patches@googlegroups.com, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ llvm@lists.linux.dev
+Subject: Re: [PATCH] docs/zh_CN: add the translation of kbuild/llvm.rst
+In-Reply-To: <20241023153235.1291567-1-dzm91@hust.edu.cn>
+References: <20241023153235.1291567-1-dzm91@hust.edu.cn>
+Date: Mon, 04 Nov 2024 12:41:25 -0700
+Message-ID: <87wmhi7pne.fsf@trenco.lwn.net>
 MIME-Version: 1.0
-References: <20241025125110.1347757-1-valentina.fernandezalanis@microchip.com>
- <20241025125110.1347757-4-valentina.fernandezalanis@microchip.com>
- <CABb+yY3cDD-E-P1MPKQjdX7R2XVVKjwXUW-BANWcz-9aR6kskA@mail.gmail.com> <ee8b10e3-ccd2-409e-82d0-612107f3fe26@microchip.com>
-In-Reply-To: <ee8b10e3-ccd2-409e-82d0-612107f3fe26@microchip.com>
-From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Mon, 4 Nov 2024 13:28:11 -0600
-Message-ID: <CABb+yY1Oy-vdXSQBQHoqzsK8xpXXfHw5ZQ5Q6gjv0gdFK2hwDA@mail.gmail.com>
-Subject: Re: [PATCH v2 3/3] mailbox: add Microchip IPC support
-To: Valentina.FernandezAlanis@microchip.com
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	peterlin@andestech.com, Conor.Dooley@microchip.com, conor+dt@kernel.org, 
-	ycliang@andestech.com, dminus@andestech.com, 
-	prabhakar.mahadev-lad.rj@bp.renesas.com, robh@kernel.org, krzk+dt@kernel.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_112824_720772_A3510975 
-X-CRM114-Status: GOOD (  16.90  )
+X-CRM114-CacheID: sfid-20241104_114128_398037_ED7E614D 
+X-CRM114-Status: UNSURE (   9.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,32 +74,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBOb3YgNCwgMjAyNCBhdCAxOjAx4oCvUE0gPFZhbGVudGluYS5GZXJuYW5kZXpBbGFu
-aXNAbWljcm9jaGlwLmNvbT4gd3JvdGU6Cj4KPiBPbiAwMy8xMS8yMDI0IDAwOjIzLCBKYXNzaSBC
-cmFyIHdyb3RlOgoKPiBSZWdhcmRpbmcgdGhlIEVYUE9SVCBmdW5jdGlvbiwgSSB1bmRlcnN0YW5k
-IHRoYXQgaXTigJlzIGFsc28gcG9zc2libGUgdG8KPiByZXRyaWV2ZSBjb25fcHJpdiBmcm9tIG1i
-b3hfY2hhbiBpbiB0aGUgY2xpZW50LiBIb3dldmVyLCBJIGZlbHQgaXQgd291bGQKPiBiZSBjbGVh
-bmVyIHRvIGV4cG9ydCB0aGUgZnVuY3Rpb24gdG8gb2J0YWluIHRoZSBjaGFubmVsIElEIGRpcmVj
-dGx5LAo+IHJhdGhlciB0aGFuIGRlY2xhcmluZyB0aGUgc3RydWN0IGlwY19jaGFuX2luZm8gaW4g
-YSBoZWFkZXIgZmlsZSB0byBtYWtlCj4gaXQgYWNjZXNzaWJsZSB0byB0aGUgY2xpZW50Lgo+Cj4g
-SWYgbmVjZXNzYXJ5LCBJIGNhbiByZW1vdmUgdGhlIGZ1bmN0aW9uIGFuZCBpbnN0ZWFkIGV4cG9z
-ZSBzdHJ1Y3QKPiBpcGNfY2hhbl9pbmZvIGluIGxpbnV4L21haWxib3gvbWNocC1pcGMuaC4KPgpZ
-ZXMgcGxlYXNlIGF2b2lkIEVYUE9SVCBhdCBhbnkgY29zdC4gVGhleSBhcmUgb25seSBhY2NlcHRh
-YmxlIHdoZW4gbm8Kb3RoZXIgbWVhbnMgZXhpc3QuCgo+ID4KPiA+PiArc3RhdGljIHN0cnVjdCBw
-bGF0Zm9ybV9kcml2ZXIgbWNocF9pcGNfZHJpdmVyID0gewo+ID4+ICsgICAgICAgLmRyaXZlciA9
-IHsKPiA+PiArICAgICAgICAgICAgICAgLm5hbWUgPSAibWljcm9jaGlwX2lwYyIsCj4gPj4gKyAg
-ICAgICAgICAgICAgIC5vZl9tYXRjaF90YWJsZSA9IG1jaHBfaXBjX29mX21hdGNoLAo+ID4+ICsg
-ICAgICAgfSwKPiA+PiArICAgICAgIC5wcm9iZSA9IG1jaHBfaXBjX3Byb2JlLAo+ID4gVGhlIGRy
-aXZlciBjb3VsZCBiZSBidWlsdCBhcyBhIG1vZHVsZSwgc28gcGxlYXNlIHByb3ZpZGUgLnJlbW92
-ZSgpCj4gPiBldmVuIGlmIHlvdSBuZXZlciBpbnRlbmQgdG8gdW5sb2FkIGl0Lgo+IEluIHRoaXMg
-cGFydGljdWxhciBjYXNlLCB0aGVyZSBpcyBub3RoaW5nIHNwZWNpZmljIHRvIGltcGxlbWVudCBp
-biB0aGUKPiAucmVtb3ZlKCkgZnVuY3Rpb24gYmVjYXVzZSBhbGwgcmVzb3VyY2VzIGFsbG9jYXRl
-ZCBpbiB0aGUgLnByb2JlKCkKPiBmdW5jdGlvbiBhcmUgbWFuYWdlZCB1c2luZyBkZXZtXyoKCk9L
-LgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
-cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Dongliang Mu <dzm91@hust.edu.cn> writes:
+
+> Finish the translation of kbuild/llvm.rst and move llvm from TODO
+> to the main body.
+>
+> Update to commit 145082ebfcf0 ("Documentation/llvm: turn make command
+> for ccache into code block")
+>
+> Signed-off-by: Dongliang Mu <dzm91@hust.edu.cn>
+> ---
+>  .../translations/zh_CN/kbuild/index.rst       |   3 +-
+>  .../translations/zh_CN/kbuild/llvm.rst        | 203 ++++++++++++++++++
+>  2 files changed, 205 insertions(+), 1 deletion(-)
+>  create mode 100644 Documentation/translations/zh_CN/kbuild/llvm.rst
+
+Applied, thanks.
+
+jon
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
