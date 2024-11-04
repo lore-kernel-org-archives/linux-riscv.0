@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7368D1CA05
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Nov 2024 22:31:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF5CED1CA08
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Nov 2024 22:46:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=b2Uk3nSpe3b4X++5fCztVvBb603zybrFD70o7cJljAM=; b=pZfGFpupCuFgBE
-	gzxjmpZkdC1Du7QkwhTNz5Ws+TfpNYTiTRuIQB9xQKET/asQ1yA5G1TJssuUqEIgiBg28tUz8+9TN
-	XdW4USxEd20cNq0H2ZvDteIYcPDjRbOFYHRO4nAspsua57oS4vDb1ne+3SlIc+j+XLyYcqpsaDycy
-	ONno1QCKoJGZoxspyYmJVY35HQMeb8j5QX/6+mGehpxN4DJVepRQM8yD46txI8Dtp5u6GRh4EVngH
-	A7QJlk3fJcM4tvI/eataWY7h2hoDHGnqJYYj3CCIVhYWp7rxPTqOHalFEY7MS6RhWN/eJ15EPhEWz
-	t4pRrsOqvyG1vtpvgjEA==;
+	List-Owner; bh=EhPeBWI65tIdSgyf0FSmiNfKN6I6w1y+/i9uNCznWpI=; b=n4HHYOd55KIwno
+	gUJeWF7N51BDRPHl3kxdyXyDJZ32LhunHKYE0TXH1NhFyrcMQ6Li553vTq65DdYfJ7302w7GwwAyd
+	kxaXCcM0Slo5etWpYQHqNRhZXpCilQgQvwouGdqiSAIYaJ+VsnEfBsslLwlz4jEsDu4eP34XgIC9q
+	ZbM+WVkyetZ7NDQO7Kiw91nUU4CJ/eVOGhiAK4tW9+u2yP4vwjthlmONWVhUtuu/zFOTbEd1ICJg/
+	A7rUX/SVjgAUcOFpIT1huw4luPVnyhKTLMdKC4hXlnElrW+FVOtopCGIXPIOWNw7G4pFKSH8Swy6Z
+	UU4ZzkRqEao3rVQqA2dQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t85bQ-0000000FIzg-0xY0;
-	Mon, 04 Nov 2024 22:31:16 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1t85pv-0000000FKTT-14EV;
+	Mon, 04 Nov 2024 22:46:15 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t84Hy-0000000F5gk-2CMX
+	id 1t84IN-0000000F5vF-3SZL
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Nov 2024 21:07:14 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-720be27db74so3104554b3a.1
-        for <linux-riscv@lists.infradead.org>; Mon, 04 Nov 2024 13:07:06 -0800 (PST)
+	Mon, 04 Nov 2024 21:07:34 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-20c70abba48so41261905ad.0
+        for <linux-riscv@lists.infradead.org>; Mon, 04 Nov 2024 13:07:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1730754426; x=1731359226; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1730754451; x=1731359251; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=vP1pIbsSZb4hForwiyb7rcVbJV1I9NbEzj9yF2KJSy0=;
-        b=lrVWmotOhWhUfVm4QEeRYwq6jqUocexZndJQus9cwxmNj12p/LbYEieBvQdLCa0jm5
-         wVb6OJ65aOd9dekmVVDvuK2rAYVUwSoGcQMHNs0X3e5XsQYnOk+OUhtwsJxTyJBvM9ih
-         +HI5jnQKYNoAxvYuAtZw/X/pV4irJYsRmsphZDVL+OqGj89DlTvb3YwvkfYvBsHNGUPm
-         2vdqOBXEYItpg+1pFa4lrr8ayf4s0kmpDANqbl11kxPS1tGvaje6MLwz/IxtMYCZ+jHw
-         N+570zBEQonYoQ9aky66bn6aqErKPP6QY4AdBnNixB0Rjm78kM1oqRLlpzrCHS1N+YEe
-         juTw==
+        bh=o1ySFoC2Gtls3bHo/wztRlUS3fRNstRWKzdIgj1r38o=;
+        b=H1gae3hxIoIujHQhB9kbJKzP26+dzkhI3p5AjUBBl8+PeZOpGXvZIEob3R9VmSb99Z
+         KWHDgRxxyBDwTnfLQ99zi+PSRJS1wKLS8OYNgtMzJ+IoO8CyNC89pC/BAu5/9CXw+NOJ
+         mk+NUAL1ku9oTG1jEu4ycG4a7hhhscZYecyY0CHPxktr/2E8l7De8VWInLszV7lp0rbg
+         e9OcP86AnsAueKiNSkaMi8edASbk3VAf/0/yYajVGhrmMGuM79ZaXCdTj2y372ssfLsZ
+         ZFKkd6snVRdstq5YoGwsEl2NamVgvck+wwCpHZscxD1Iy5VwZ3/Uw36Klre/BDr0b6XD
+         EjEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730754426; x=1731359226;
+        d=1e100.net; s=20230601; t=1730754451; x=1731359251;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=vP1pIbsSZb4hForwiyb7rcVbJV1I9NbEzj9yF2KJSy0=;
-        b=Tq6JzDqblaQ6xSPD5Y83tHW5ISarrC420ucGNFFwH2ZnAcsevzbQkRRmuQGKDsEAVn
-         87OsmCMdaF8SodFWewEW+60WtxQrkOVpm9gm3rT3/Xgj11VnbkqWHe4J16VTcxY0JPbl
-         uUFtYrlD/aNEW32k52Ch8gt9EZzCjR07LcjMO/q3koamiSjjrUPv51OxQFDDHpSAPm1N
-         TnvnDUX/BeSUppzs6CtBJks39cCr+iKNEPiSWpP4Sc63SggRgCnAGFFpyh1thgdRy7Bx
-         nnocHj6QhJeJo1d1wFU+tsIqqOX7jHrlG3ljlajB7HBrLmX5npgr9mn23ZqANTv+NTdq
-         8zxw==
-X-Forwarded-Encrypted: i=1; AJvYcCUI3zkXTLWvXGfR3LzhvpJq/7LptiY3DLk4UmADku+47UnIgat2mDaRis2NE34fj0zlN6POXx1SgJL8kg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFGNz4ieVFrBFff2+mV5S6vwnysrLzzQC/VW4M9ycaeCE9R6B+
-	tnW/Ul/XE0B1d2Y+x2PMaWO0XHrv9P2cn8+GvlEaNa3u8L7DtpCjCEumNOnv0n8=
-X-Google-Smtp-Source: AGHT+IH6JLGzPG/PPLQJ2+W78B7CrQMVh75GwCzcHBPZZkuhjNB+8Yo5Do3gJScH5rnx6Wk+mdOSVQ==
-X-Received: by 2002:a05:6a00:2988:b0:71e:591d:cb4c with SMTP id d2e1a72fcca58-720c962a2b3mr25196232b3a.1.1730754425735;
-        Mon, 04 Nov 2024 13:07:05 -0800 (PST)
+        bh=o1ySFoC2Gtls3bHo/wztRlUS3fRNstRWKzdIgj1r38o=;
+        b=W6XKUNAyKKuWGdKi/BGw0N0eMe8Kbq/qVaE54tFOJt2m8bdIEWYUbbyZjt6eMOPXxU
+         v7moXSd25i5RsEtJoZrHJ65gICZLY4F52GpEyctzsSIVeXAUbNGodMpn7Hutluz0n8yL
+         4PuTJoVWpQ9NHYKaj7HggoV0vUTEHTt/HX1dO9lqEynB3KYjxnxGSDqRZuXL3GkEKj7r
+         ZopJG25oBqFLyDm9KKVbx58byMB6fyHQ1sq4o8Gja2ZlG9rQVj3YnGq2S9smvCgHYmyo
+         2hRipCO5KgBrqPZ4KOUYP3ELeW1e8E3J7YCLqtONjCJhZC4fD7HRPv/i3dkvUxRRyJ1v
+         HcCA==
+X-Forwarded-Encrypted: i=1; AJvYcCXYqtqm8W7wES+vzndv9wtATD4fJ/ipqSxCWlESEBicW8fPVBK7NtWHULJ6CeVxbJ3LX+JzRJylvU+YQg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxRYlRE3lKOZSGokvSOQb5+9PTNP+aw4XJnHNJtFNm+7St/FngT
+	Vt1b7rv3hLdhvdjZKB82qDFqrwU7Krjq4poX1egHfuOxdmjjiB1kdICU+lGETv4=
+X-Google-Smtp-Source: AGHT+IHZLeSvLWg+c/NrV1mAHttcDSQz0V6uMdp60JV/DKhgnpjHS++3JuhXIce0N0Lwyi3IT2MGOw==
+X-Received: by 2002:a17:902:e887:b0:20c:dee0:7256 with SMTP id d9443c01a7336-2111b023916mr190990075ad.58.1730754451077;
+        Mon, 04 Nov 2024 13:07:31 -0800 (PST)
 Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7ee490e08f4sm7248293a12.40.2024.11.04.13.07.03
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7ee490e08f4sm7248293a12.40.2024.11.04.13.07.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 04 Nov 2024 13:07:04 -0800 (PST)
+        Mon, 04 Nov 2024 13:07:30 -0800 (PST)
 From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Mon, 04 Nov 2024 13:06:11 -0800
-Subject: [PATCH RFT 09/16] perf tools: alpha: Support syscall header
+Date: Mon, 04 Nov 2024 13:06:18 -0800
+Subject: [PATCH RFT 16/16] perf tools: Remove dependency on libaudit
 MIME-Version: 1.0
-Message-Id: <20241104-perf_syscalltbl-v1-9-9adae5c761ef@rivosinc.com>
+Message-Id: <20241104-perf_syscalltbl-v1-16-9adae5c761ef@rivosinc.com>
 References: <20241104-perf_syscalltbl-v1-0-9adae5c761ef@rivosinc.com>
 In-Reply-To: <20241104-perf_syscalltbl-v1-0-9adae5c761ef@rivosinc.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
@@ -91,17 +91,17 @@ Cc: linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
  Charlie Jenkins <charlie@rivosinc.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=24110; i=charlie@rivosinc.com;
- h=from:subject:message-id; bh=e+CAPOF55Csb6TzWwDG1YU6eIKWV2J4mI3bDitFoSuY=;
- b=owGbwMvMwCHWx5hUnlvL8Y3xtFoSQ7qmeazjsUsMExUkz4vcjdnRd8cww99exNpeS+1zE3vJg
- /8rHe52lLIwiHEwyIopsvBca2BuvaNfdlS0bALMHFYmkCEMXJwCMBHpIkaG9W61Kayn/9wX2VLe
- Yryqhy0s/99iSQcNyx0dfuvrTiWLMDIsjfyT8lfmepSH9/HPCjYVMSudsoX/3hBb35tSLvLjTRg
- DAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=16980; i=charlie@rivosinc.com;
+ h=from:subject:message-id; bh=6y7pW6bYatWs4fz6JTfktAE3Hfhz62HJ2j6IOeJjUHM=;
+ b=owGbwMvMwCHWx5hUnlvL8Y3xtFoSQ7qmebxL5oMlb+IOdLy1/ltSrHsgxZPluHSAJ9Mse8cp+
+ c1h07I6SlkYxDgYZMUUWXiuNTC33tEvOypaNgFmDisTyBAGLk4BmEj0BUaGOQ0hzpO67N4q8dn9
+ CWQ6m7eoW5Tv38vIYzdSWKprhf4/ZGRYKK724egidt2CqSKaZl4rrmesMWPdItj5pK32EsOeM6l
+ MAA==
 X-Developer-Key: i=charlie@rivosinc.com; a=openpgp;
  fpr=7D834FF11B1D8387E61C776FFB10D1F27D6B1354
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_130706_909799_E4AEB8A3 
-X-CRM114-Status: GOOD (  15.35  )
+X-CRM114-CacheID: sfid-20241104_130732_008830_B9474EE1 
+X-CRM114-Status: GOOD (  22.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,595 +118,450 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-alpha uses a syscall table, use that in perf instead of requiring
-libaudit.
+All architectures now support HAVE_SYSCALL_TABLE_SUPPORT, so the flag is
+no longer needed. With the removal of the flag, the related
+GENERIC_SYSCALL_TABLE can also be removed. libaudit was only used as a
+fallback for when HAVE_SYSCALL_TABLE_SUPPORT was not defined, so
+libaudit is also no longer needed for any architecture.
 
 Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
 ---
- tools/perf/Makefile.config                         |   2 +-
- tools/perf/Makefile.perf                           |   2 +-
- tools/perf/arch/alpha/entry/syscalls/Kbuild        |   2 +
- .../arch/alpha/entry/syscalls/Makefile.syscalls    |   5 +
- tools/perf/arch/alpha/entry/syscalls/syscall.tbl   | 504 +++++++++++++++++++++
- tools/perf/arch/alpha/include/syscall_table.h      |   2 +
- tools/perf/check-headers.sh                        |   1 +
- 7 files changed, 516 insertions(+), 2 deletions(-)
+ Documentation/admin-guide/workload-tracing.rst |  2 +-
+ tools/build/feature/Makefile                   |  4 --
+ tools/build/feature/test-libaudit.c            | 11 ------
+ tools/perf/Documentation/perf-check.txt        |  1 -
+ tools/perf/Makefile.config                     | 31 +--------------
+ tools/perf/Makefile.perf                       | 14 -------
+ tools/perf/builtin-check.c                     |  1 -
+ tools/perf/builtin-help.c                      |  2 -
+ tools/perf/builtin-trace.c                     | 30 ---------------
+ tools/perf/perf.c                              |  6 +--
+ tools/perf/tests/make                          |  7 +---
+ tools/perf/util/env.c                          |  4 +-
+ tools/perf/util/generate-cmdlist.sh            |  4 +-
+ tools/perf/util/syscalltbl.c                   | 52 --------------------------
+ 14 files changed, 10 insertions(+), 159 deletions(-)
 
+diff --git a/Documentation/admin-guide/workload-tracing.rst b/Documentation/admin-guide/workload-tracing.rst
+index b2e254ec8ee8..6be38c1b9c5b 100644
+--- a/Documentation/admin-guide/workload-tracing.rst
++++ b/Documentation/admin-guide/workload-tracing.rst
+@@ -83,7 +83,7 @@ scripts/ver_linux is a good way to check if your system already has
+ the necessary tools::
+ 
+   sudo apt-get build-essentials flex bison yacc
+-  sudo apt install libelf-dev systemtap-sdt-dev libaudit-dev libslang2-dev libperl-dev libdw-dev
++  sudo apt install libelf-dev systemtap-sdt-dev libslang2-dev libperl-dev libdw-dev
+ 
+ cscope is a good tool to browse kernel sources. Let's install it now::
+ 
+diff --git a/tools/build/feature/Makefile b/tools/build/feature/Makefile
+index 1658596188bf..728420d3888f 100644
+--- a/tools/build/feature/Makefile
++++ b/tools/build/feature/Makefile
+@@ -15,7 +15,6 @@ FILES=                                          \
+          test-gtk2.bin                          \
+          test-gtk2-infobar.bin                  \
+          test-hello.bin                         \
+-         test-libaudit.bin                      \
+          test-libbfd.bin                        \
+          test-libbfd-buildid.bin		\
+          test-disassembler-four-args.bin        \
+@@ -236,9 +235,6 @@ $(OUTPUT)test-libunwind-debug-frame-arm.bin:
+ $(OUTPUT)test-libunwind-debug-frame-aarch64.bin:
+ 	$(BUILD) -lelf -llzma -lunwind-aarch64
+ 
+-$(OUTPUT)test-libaudit.bin:
+-	$(BUILD) -laudit
+-
+ $(OUTPUT)test-libslang.bin:
+ 	$(BUILD) -lslang
+ 
+diff --git a/tools/build/feature/test-libaudit.c b/tools/build/feature/test-libaudit.c
+deleted file mode 100644
+index f5b0863fa1ec..000000000000
+--- a/tools/build/feature/test-libaudit.c
++++ /dev/null
+@@ -1,11 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0
+-#include <libaudit.h>
+-
+-extern int printf(const char *format, ...);
+-
+-int main(void)
+-{
+-	printf("error message: %s\n", audit_errno_to_name(0));
+-
+-	return audit_open();
+-}
+diff --git a/tools/perf/Documentation/perf-check.txt b/tools/perf/Documentation/perf-check.txt
+index 10f69fb6850b..27e6b97961f3 100644
+--- a/tools/perf/Documentation/perf-check.txt
++++ b/tools/perf/Documentation/perf-check.txt
+@@ -51,7 +51,6 @@ feature::
+                 dwarf_getlocations      /  HAVE_DWARF_GETLOCATIONS_SUPPORT
+                 dwarf-unwind            /  HAVE_DWARF_UNWIND_SUPPORT
+                 auxtrace                /  HAVE_AUXTRACE_SUPPORT
+-                libaudit                /  HAVE_LIBAUDIT_SUPPORT
+                 libbfd                  /  HAVE_LIBBFD_SUPPORT
+                 libcapstone             /  HAVE_LIBCAPSTONE_SUPPORT
+                 libcrypto               /  HAVE_LIBCRYPTO_SUPPORT
 diff --git a/tools/perf/Makefile.config b/tools/perf/Makefile.config
-index 682354d2d4ec..71cb7390c66a 100644
+index 787be3201eec..352f32f5cb81 100644
 --- a/tools/perf/Makefile.config
 +++ b/tools/perf/Makefile.config
-@@ -36,7 +36,7 @@ ifneq ($(NO_SYSCALL_TABLE),1)
-   endif
+@@ -28,20 +28,7 @@ include $(srctree)/tools/scripts/Makefile.arch
  
-   # architectures that use the generic syscall table scripts
--  ifeq ($(SRCARCH),$(filter $(SRCARCH),riscv arc csky arm sh sparc xtensa x86))
-+  ifeq ($(SRCARCH),$(filter $(SRCARCH),riscv arc csky arm sh sparc xtensa x86 alpha))
-     NO_SYSCALL_TABLE := 0
-     CFLAGS += -DGENERIC_SYSCALL_TABLE
-     CFLAGS += -I$(OUTPUT)arch/$(SRCARCH)/include/generated
+ $(call detected_var,SRCARCH)
+ 
+-ifneq ($(NO_SYSCALL_TABLE),1)
+-  NO_SYSCALL_TABLE := 1
+-
+-  # architectures that use the generic syscall table scripts
+-  ifeq ($(SRCARCH),$(filter $(SRCARCH),riscv arc csky arm sh sparc xtensa x86 alpha parisc arm64 loongarch mips powerpc s390))
+-    NO_SYSCALL_TABLE := 0
+-    CFLAGS += -DGENERIC_SYSCALL_TABLE
+-    CFLAGS += -I$(OUTPUT)arch/$(SRCARCH)/include/generated
+-  endif
+-
+-  ifneq ($(NO_SYSCALL_TABLE),1)
+-    CFLAGS += -DHAVE_SYSCALL_TABLE_SUPPORT
+-  endif
+-endif
++CFLAGS += -I$(OUTPUT)arch/$(SRCARCH)/include/generated
+ 
+ # Additional ARCH settings for ppc
+ ifeq ($(SRCARCH),powerpc)
+@@ -784,21 +771,7 @@ ifndef NO_LIBUNWIND
+ endif
+ 
+ ifneq ($(NO_LIBTRACEEVENT),1)
+-  ifeq ($(NO_SYSCALL_TABLE),0)
+-    $(call detected,CONFIG_TRACE)
+-  else
+-    ifndef NO_LIBAUDIT
+-      $(call feature_check,libaudit)
+-      ifneq ($(feature-libaudit), 1)
+-        $(warning No libaudit.h found, disables 'trace' tool, please install audit-libs-devel or libaudit-dev)
+-        NO_LIBAUDIT := 1
+-      else
+-        CFLAGS += -DHAVE_LIBAUDIT_SUPPORT
+-        EXTLIBS += -laudit
+-        $(call detected,CONFIG_TRACE)
+-      endif
+-    endif
+-  endif
++  $(call detected,CONFIG_TRACE)
+ endif
+ 
+ ifndef NO_LIBCRYPTO
 diff --git a/tools/perf/Makefile.perf b/tools/perf/Makefile.perf
-index b45e3ec8947b..6a972ef1685d 100644
+index 410d850f7b9a..a21d4d0994af 100644
 --- a/tools/perf/Makefile.perf
 +++ b/tools/perf/Makefile.perf
-@@ -311,7 +311,7 @@ FEATURE_TESTS := all
+@@ -59,8 +59,6 @@ include ../scripts/utilities.mak
+ #
+ # Define NO_LIBNUMA if you do not want numa perf benchmark
+ #
+-# Define NO_LIBAUDIT if you do not want libaudit support
+-#
+ # Define NO_LIBBIONIC if you do not want bionic support
+ #
+ # Define NO_LIBCRYPTO if you do not want libcrypto (openssl) support
+@@ -119,10 +117,6 @@ include ../scripts/utilities.mak
+ #
+ # Define LIBBPF_DYNAMIC to enable libbpf dynamic linking.
+ #
+-# Define NO_SYSCALL_TABLE=1 to disable the use of syscall id to/from name tables
+-# generated from the kernel .tbl or unistd.h files and use, if available, libaudit
+-# for doing the conversions to/from strings/id.
+-#
+ # Define NO_LIBPFM4 to disable libpfm4 events extension.
+ #
+ # Define NO_LIBDEBUGINFOD if you do not want support debuginfod
+@@ -310,10 +304,7 @@ ifeq ($(filter feature-dump,$(MAKECMDGOALS)),feature-dump)
+ FEATURE_TESTS := all
  endif
  endif
- # architectures that use the generic syscall table
--ifeq ($(SRCARCH),$(filter $(SRCARCH),riscv arc csky arm sh sparc xtensa x86))
-+ifeq ($(SRCARCH),$(filter $(SRCARCH),riscv arc csky arm sh sparc xtensa x86 alpha))
+-# architectures that use the generic syscall table
+-ifeq ($(SRCARCH),$(filter $(SRCARCH),riscv arc csky arm sh sparc xtensa x86 alpha parisc arm64 loongarch mips powerpc s390))
  include $(srctree)/tools/perf/scripts/Makefile.syscalls
- endif
+-endif
  include Makefile.config
-diff --git a/tools/perf/arch/alpha/entry/syscalls/Kbuild b/tools/perf/arch/alpha/entry/syscalls/Kbuild
-new file mode 100644
-index 000000000000..9a41e3572c3a
---- /dev/null
-+++ b/tools/perf/arch/alpha/entry/syscalls/Kbuild
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0
-+syscall-y += syscalls_64.h
-diff --git a/tools/perf/arch/alpha/entry/syscalls/Makefile.syscalls b/tools/perf/arch/alpha/entry/syscalls/Makefile.syscalls
-new file mode 100644
-index 000000000000..690168aac34d
---- /dev/null
-+++ b/tools/perf/arch/alpha/entry/syscalls/Makefile.syscalls
-@@ -0,0 +1,5 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+syscall_abis_64  +=
-+
-+syscalltbl = $(srctree)/tools/perf/arch/alpha/entry/syscalls/syscall.tbl
-diff --git a/tools/perf/arch/alpha/entry/syscalls/syscall.tbl b/tools/perf/arch/alpha/entry/syscalls/syscall.tbl
-new file mode 100644
-index 000000000000..74720667fe09
---- /dev/null
-+++ b/tools/perf/arch/alpha/entry/syscalls/syscall.tbl
-@@ -0,0 +1,504 @@
-+# SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note
-+#
-+# system call numbers and entry vectors for alpha
-+#
-+# The format is:
-+# <number> <abi> <name> <entry point>
-+#
-+# The <abi> is always "common" for this file
-+#
-+0	common	osf_syscall			alpha_syscall_zero
-+1	common	exit				sys_exit
-+2	common	fork				alpha_fork
-+3	common	read				sys_read
-+4	common	write				sys_write
-+5	common	osf_old_open			sys_ni_syscall
-+6	common	close				sys_close
-+7	common	osf_wait4			sys_osf_wait4
-+8	common	osf_old_creat			sys_ni_syscall
-+9	common	link				sys_link
-+10	common	unlink				sys_unlink
-+11	common	osf_execve			sys_ni_syscall
-+12	common	chdir				sys_chdir
-+13	common	fchdir				sys_fchdir
-+14	common	mknod				sys_mknod
-+15	common	chmod				sys_chmod
-+16	common	chown				sys_chown
-+17	common	brk				sys_osf_brk
-+18	common	osf_getfsstat			sys_ni_syscall
-+19	common	lseek				sys_lseek
-+20	common	getxpid				sys_getxpid
-+21	common	osf_mount			sys_osf_mount
-+22	common	umount2				sys_umount
-+23	common	setuid				sys_setuid
-+24	common	getxuid				sys_getxuid
-+25	common	exec_with_loader		sys_ni_syscall
-+26	common	ptrace				sys_ptrace
-+27	common	osf_nrecvmsg			sys_ni_syscall
-+28	common	osf_nsendmsg			sys_ni_syscall
-+29	common	osf_nrecvfrom			sys_ni_syscall
-+30	common	osf_naccept			sys_ni_syscall
-+31	common	osf_ngetpeername		sys_ni_syscall
-+32	common	osf_ngetsockname		sys_ni_syscall
-+33	common	access				sys_access
-+34	common	osf_chflags			sys_ni_syscall
-+35	common	osf_fchflags			sys_ni_syscall
-+36	common	sync				sys_sync
-+37	common	kill				sys_kill
-+38	common	osf_old_stat			sys_ni_syscall
-+39	common	setpgid				sys_setpgid
-+40	common	osf_old_lstat			sys_ni_syscall
-+41	common	dup				sys_dup
-+42	common	pipe				sys_alpha_pipe
-+43	common	osf_set_program_attributes	sys_osf_set_program_attributes
-+44	common	osf_profil			sys_ni_syscall
-+45	common	open				sys_open
-+46	common	osf_old_sigaction		sys_ni_syscall
-+47	common	getxgid				sys_getxgid
-+48	common	osf_sigprocmask			sys_osf_sigprocmask
-+49	common	osf_getlogin			sys_ni_syscall
-+50	common	osf_setlogin			sys_ni_syscall
-+51	common	acct				sys_acct
-+52	common	sigpending			sys_sigpending
-+54	common	ioctl				sys_ioctl
-+55	common	osf_reboot			sys_ni_syscall
-+56	common	osf_revoke			sys_ni_syscall
-+57	common	symlink				sys_symlink
-+58	common	readlink			sys_readlink
-+59	common	execve				sys_execve
-+60	common	umask				sys_umask
-+61	common	chroot				sys_chroot
-+62	common	osf_old_fstat			sys_ni_syscall
-+63	common	getpgrp				sys_getpgrp
-+64	common	getpagesize			sys_getpagesize
-+65	common	osf_mremap			sys_ni_syscall
-+66	common	vfork				alpha_vfork
-+67	common	stat				sys_newstat
-+68	common	lstat				sys_newlstat
-+69	common	osf_sbrk			sys_ni_syscall
-+70	common	osf_sstk			sys_ni_syscall
-+71	common	mmap				sys_osf_mmap
-+72	common	osf_old_vadvise			sys_ni_syscall
-+73	common	munmap				sys_munmap
-+74	common	mprotect			sys_mprotect
-+75	common	madvise				sys_madvise
-+76	common	vhangup				sys_vhangup
-+77	common	osf_kmodcall			sys_ni_syscall
-+78	common	osf_mincore			sys_ni_syscall
-+79	common	getgroups			sys_getgroups
-+80	common	setgroups			sys_setgroups
-+81	common	osf_old_getpgrp			sys_ni_syscall
-+82	common	setpgrp				sys_setpgid
-+83	common	osf_setitimer			compat_sys_setitimer
-+84	common	osf_old_wait			sys_ni_syscall
-+85	common	osf_table			sys_ni_syscall
-+86	common	osf_getitimer			compat_sys_getitimer
-+87	common	gethostname			sys_gethostname
-+88	common	sethostname			sys_sethostname
-+89	common	getdtablesize			sys_getdtablesize
-+90	common	dup2				sys_dup2
-+91	common	fstat				sys_newfstat
-+92	common	fcntl				sys_fcntl
-+93	common	osf_select			sys_osf_select
-+94	common	poll				sys_poll
-+95	common	fsync				sys_fsync
-+96	common	setpriority			sys_setpriority
-+97	common	socket				sys_socket
-+98	common	connect				sys_connect
-+99	common	accept				sys_accept
-+100	common	getpriority			sys_osf_getpriority
-+101	common	send				sys_send
-+102	common	recv				sys_recv
-+103	common	sigreturn			sys_sigreturn
-+104	common	bind				sys_bind
-+105	common	setsockopt			sys_setsockopt
-+106	common	listen				sys_listen
-+107	common	osf_plock			sys_ni_syscall
-+108	common	osf_old_sigvec			sys_ni_syscall
-+109	common	osf_old_sigblock		sys_ni_syscall
-+110	common	osf_old_sigsetmask		sys_ni_syscall
-+111	common	sigsuspend			sys_sigsuspend
-+112	common	osf_sigstack			sys_osf_sigstack
-+113	common	recvmsg				sys_recvmsg
-+114	common	sendmsg				sys_sendmsg
-+115	common	osf_old_vtrace			sys_ni_syscall
-+116	common	osf_gettimeofday		sys_osf_gettimeofday
-+117	common	osf_getrusage			sys_osf_getrusage
-+118	common	getsockopt			sys_getsockopt
-+120	common	readv				sys_readv
-+121	common	writev				sys_writev
-+122	common	osf_settimeofday		sys_osf_settimeofday
-+123	common	fchown				sys_fchown
-+124	common	fchmod				sys_fchmod
-+125	common	recvfrom			sys_recvfrom
-+126	common	setreuid			sys_setreuid
-+127	common	setregid			sys_setregid
-+128	common	rename				sys_rename
-+129	common	truncate			sys_truncate
-+130	common	ftruncate			sys_ftruncate
-+131	common	flock				sys_flock
-+132	common	setgid				sys_setgid
-+133	common	sendto				sys_sendto
-+134	common	shutdown			sys_shutdown
-+135	common	socketpair			sys_socketpair
-+136	common	mkdir				sys_mkdir
-+137	common	rmdir				sys_rmdir
-+138	common	osf_utimes			sys_osf_utimes
-+139	common	osf_old_sigreturn		sys_ni_syscall
-+140	common	osf_adjtime			sys_ni_syscall
-+141	common	getpeername			sys_getpeername
-+142	common	osf_gethostid			sys_ni_syscall
-+143	common	osf_sethostid			sys_ni_syscall
-+144	common	getrlimit			sys_getrlimit
-+145	common	setrlimit			sys_setrlimit
-+146	common	osf_old_killpg			sys_ni_syscall
-+147	common	setsid				sys_setsid
-+148	common	quotactl			sys_quotactl
-+149	common	osf_oldquota			sys_ni_syscall
-+150	common	getsockname			sys_getsockname
-+153	common	osf_pid_block			sys_ni_syscall
-+154	common	osf_pid_unblock			sys_ni_syscall
-+156	common	sigaction			sys_osf_sigaction
-+157	common	osf_sigwaitprim			sys_ni_syscall
-+158	common	osf_nfssvc			sys_ni_syscall
-+159	common	osf_getdirentries		sys_osf_getdirentries
-+160	common	osf_statfs			sys_osf_statfs
-+161	common	osf_fstatfs			sys_osf_fstatfs
-+163	common	osf_asynch_daemon		sys_ni_syscall
-+164	common	osf_getfh			sys_ni_syscall
-+165	common	osf_getdomainname		sys_osf_getdomainname
-+166	common	setdomainname			sys_setdomainname
-+169	common	osf_exportfs			sys_ni_syscall
-+181	common	osf_alt_plock			sys_ni_syscall
-+184	common	osf_getmnt			sys_ni_syscall
-+187	common	osf_alt_sigpending		sys_ni_syscall
-+188	common	osf_alt_setsid			sys_ni_syscall
-+199	common	osf_swapon			sys_swapon
-+200	common	msgctl				sys_old_msgctl
-+201	common	msgget				sys_msgget
-+202	common	msgrcv				sys_msgrcv
-+203	common	msgsnd				sys_msgsnd
-+204	common	semctl				sys_old_semctl
-+205	common	semget				sys_semget
-+206	common	semop				sys_semop
-+207	common	osf_utsname			sys_osf_utsname
-+208	common	lchown				sys_lchown
-+209	common	shmat				sys_shmat
-+210	common	shmctl				sys_old_shmctl
-+211	common	shmdt				sys_shmdt
-+212	common	shmget				sys_shmget
-+213	common	osf_mvalid			sys_ni_syscall
-+214	common	osf_getaddressconf		sys_ni_syscall
-+215	common	osf_msleep			sys_ni_syscall
-+216	common	osf_mwakeup			sys_ni_syscall
-+217	common	msync				sys_msync
-+218	common	osf_signal			sys_ni_syscall
-+219	common	osf_utc_gettime			sys_ni_syscall
-+220	common	osf_utc_adjtime			sys_ni_syscall
-+222	common	osf_security			sys_ni_syscall
-+223	common	osf_kloadcall			sys_ni_syscall
-+224	common	osf_stat			sys_osf_stat
-+225	common	osf_lstat			sys_osf_lstat
-+226	common	osf_fstat			sys_osf_fstat
-+227	common	osf_statfs64			sys_osf_statfs64
-+228	common	osf_fstatfs64			sys_osf_fstatfs64
-+233	common	getpgid				sys_getpgid
-+234	common	getsid				sys_getsid
-+235	common	sigaltstack			sys_sigaltstack
-+236	common	osf_waitid			sys_ni_syscall
-+237	common	osf_priocntlset			sys_ni_syscall
-+238	common	osf_sigsendset			sys_ni_syscall
-+239	common	osf_set_speculative		sys_ni_syscall
-+240	common	osf_msfs_syscall		sys_ni_syscall
-+241	common	osf_sysinfo			sys_osf_sysinfo
-+242	common	osf_uadmin			sys_ni_syscall
-+243	common	osf_fuser			sys_ni_syscall
-+244	common	osf_proplist_syscall		sys_osf_proplist_syscall
-+245	common	osf_ntp_adjtime			sys_ni_syscall
-+246	common	osf_ntp_gettime			sys_ni_syscall
-+247	common	osf_pathconf			sys_ni_syscall
-+248	common	osf_fpathconf			sys_ni_syscall
-+250	common	osf_uswitch			sys_ni_syscall
-+251	common	osf_usleep_thread		sys_osf_usleep_thread
-+252	common	osf_audcntl			sys_ni_syscall
-+253	common	osf_audgen			sys_ni_syscall
-+254	common	sysfs				sys_sysfs
-+255	common	osf_subsys_info			sys_ni_syscall
-+256	common	osf_getsysinfo			sys_osf_getsysinfo
-+257	common	osf_setsysinfo			sys_osf_setsysinfo
-+258	common	osf_afs_syscall			sys_ni_syscall
-+259	common	osf_swapctl			sys_ni_syscall
-+260	common	osf_memcntl			sys_ni_syscall
-+261	common	osf_fdatasync			sys_ni_syscall
-+300	common	bdflush				sys_ni_syscall
-+301	common	sethae				sys_sethae
-+302	common	mount				sys_mount
-+303	common	old_adjtimex			sys_old_adjtimex
-+304	common	swapoff				sys_swapoff
-+305	common	getdents			sys_getdents
-+306	common	create_module			sys_ni_syscall
-+307	common	init_module			sys_init_module
-+308	common	delete_module			sys_delete_module
-+309	common	get_kernel_syms			sys_ni_syscall
-+310	common	syslog				sys_syslog
-+311	common	reboot				sys_reboot
-+312	common	clone				alpha_clone
-+313	common	uselib				sys_uselib
-+314	common	mlock				sys_mlock
-+315	common	munlock				sys_munlock
-+316	common	mlockall			sys_mlockall
-+317	common	munlockall			sys_munlockall
-+318	common	sysinfo				sys_sysinfo
-+319	common	_sysctl				sys_ni_syscall
-+# 320 was sys_idle
-+321	common	oldumount			sys_oldumount
-+322	common	swapon				sys_swapon
-+323	common	times				sys_times
-+324	common	personality			sys_personality
-+325	common	setfsuid			sys_setfsuid
-+326	common	setfsgid			sys_setfsgid
-+327	common	ustat				sys_ustat
-+328	common	statfs				sys_statfs
-+329	common	fstatfs				sys_fstatfs
-+330	common	sched_setparam			sys_sched_setparam
-+331	common	sched_getparam			sys_sched_getparam
-+332	common	sched_setscheduler		sys_sched_setscheduler
-+333	common	sched_getscheduler		sys_sched_getscheduler
-+334	common	sched_yield			sys_sched_yield
-+335	common	sched_get_priority_max		sys_sched_get_priority_max
-+336	common	sched_get_priority_min		sys_sched_get_priority_min
-+337	common	sched_rr_get_interval		sys_sched_rr_get_interval
-+338	common	afs_syscall			sys_ni_syscall
-+339	common	uname				sys_newuname
-+340	common	nanosleep			sys_nanosleep
-+341	common	mremap				sys_mremap
-+342	common	nfsservctl			sys_ni_syscall
-+343	common	setresuid			sys_setresuid
-+344	common	getresuid			sys_getresuid
-+345	common	pciconfig_read			sys_pciconfig_read
-+346	common	pciconfig_write			sys_pciconfig_write
-+347	common	query_module			sys_ni_syscall
-+348	common	prctl				sys_prctl
-+349	common	pread64				sys_pread64
-+350	common	pwrite64			sys_pwrite64
-+351	common	rt_sigreturn			sys_rt_sigreturn
-+352	common	rt_sigaction			sys_rt_sigaction
-+353	common	rt_sigprocmask			sys_rt_sigprocmask
-+354	common	rt_sigpending			sys_rt_sigpending
-+355	common	rt_sigtimedwait			sys_rt_sigtimedwait
-+356	common	rt_sigqueueinfo			sys_rt_sigqueueinfo
-+357	common	rt_sigsuspend			sys_rt_sigsuspend
-+358	common	select				sys_select
-+359	common	gettimeofday			sys_gettimeofday
-+360	common	settimeofday			sys_settimeofday
-+361	common	getitimer			sys_getitimer
-+362	common	setitimer			sys_setitimer
-+363	common	utimes				sys_utimes
-+364	common	getrusage			sys_getrusage
-+365	common	wait4				sys_wait4
-+366	common	adjtimex			sys_adjtimex
-+367	common	getcwd				sys_getcwd
-+368	common	capget				sys_capget
-+369	common	capset				sys_capset
-+370	common	sendfile			sys_sendfile64
-+371	common	setresgid			sys_setresgid
-+372	common	getresgid			sys_getresgid
-+373	common	dipc				sys_ni_syscall
-+374	common	pivot_root			sys_pivot_root
-+375	common	mincore				sys_mincore
-+376	common	pciconfig_iobase		sys_pciconfig_iobase
-+377	common	getdents64			sys_getdents64
-+378	common	gettid				sys_gettid
-+379	common	readahead			sys_readahead
-+# 380 is unused
-+381	common	tkill				sys_tkill
-+382	common	setxattr			sys_setxattr
-+383	common	lsetxattr			sys_lsetxattr
-+384	common	fsetxattr			sys_fsetxattr
-+385	common	getxattr			sys_getxattr
-+386	common	lgetxattr			sys_lgetxattr
-+387	common	fgetxattr			sys_fgetxattr
-+388	common	listxattr			sys_listxattr
-+389	common	llistxattr			sys_llistxattr
-+390	common	flistxattr			sys_flistxattr
-+391	common	removexattr			sys_removexattr
-+392	common	lremovexattr			sys_lremovexattr
-+393	common	fremovexattr			sys_fremovexattr
-+394	common	futex				sys_futex
-+395	common	sched_setaffinity		sys_sched_setaffinity
-+396	common	sched_getaffinity		sys_sched_getaffinity
-+397	common	tuxcall				sys_ni_syscall
-+398	common	io_setup			sys_io_setup
-+399	common	io_destroy			sys_io_destroy
-+400	common	io_getevents			sys_io_getevents
-+401	common	io_submit			sys_io_submit
-+402	common	io_cancel			sys_io_cancel
-+405	common	exit_group			sys_exit_group
-+406	common	lookup_dcookie			sys_ni_syscall
-+407	common	epoll_create			sys_epoll_create
-+408	common	epoll_ctl			sys_epoll_ctl
-+409	common	epoll_wait			sys_epoll_wait
-+410	common	remap_file_pages		sys_remap_file_pages
-+411	common	set_tid_address			sys_set_tid_address
-+412	common	restart_syscall			sys_restart_syscall
-+413	common	fadvise64			sys_fadvise64
-+414	common	timer_create			sys_timer_create
-+415	common	timer_settime			sys_timer_settime
-+416	common	timer_gettime			sys_timer_gettime
-+417	common	timer_getoverrun		sys_timer_getoverrun
-+418	common	timer_delete			sys_timer_delete
-+419	common	clock_settime			sys_clock_settime
-+420	common	clock_gettime			sys_clock_gettime
-+421	common	clock_getres			sys_clock_getres
-+422	common	clock_nanosleep			sys_clock_nanosleep
-+423	common	semtimedop			sys_semtimedop
-+424	common	tgkill				sys_tgkill
-+425	common	stat64				sys_stat64
-+426	common	lstat64				sys_lstat64
-+427	common	fstat64				sys_fstat64
-+428	common	vserver				sys_ni_syscall
-+429	common	mbind				sys_ni_syscall
-+430	common	get_mempolicy			sys_ni_syscall
-+431	common	set_mempolicy			sys_ni_syscall
-+432	common	mq_open				sys_mq_open
-+433	common	mq_unlink			sys_mq_unlink
-+434	common	mq_timedsend			sys_mq_timedsend
-+435	common	mq_timedreceive			sys_mq_timedreceive
-+436	common	mq_notify			sys_mq_notify
-+437	common	mq_getsetattr			sys_mq_getsetattr
-+438	common	waitid				sys_waitid
-+439	common	add_key				sys_add_key
-+440	common	request_key			sys_request_key
-+441	common	keyctl				sys_keyctl
-+442	common	ioprio_set			sys_ioprio_set
-+443	common	ioprio_get			sys_ioprio_get
-+444	common	inotify_init			sys_inotify_init
-+445	common	inotify_add_watch		sys_inotify_add_watch
-+446	common	inotify_rm_watch		sys_inotify_rm_watch
-+447	common	fdatasync			sys_fdatasync
-+448	common	kexec_load			sys_kexec_load
-+449	common	migrate_pages			sys_migrate_pages
-+450	common	openat				sys_openat
-+451	common	mkdirat				sys_mkdirat
-+452	common	mknodat				sys_mknodat
-+453	common	fchownat			sys_fchownat
-+454	common	futimesat			sys_futimesat
-+455	common	fstatat64			sys_fstatat64
-+456	common	unlinkat			sys_unlinkat
-+457	common	renameat			sys_renameat
-+458	common	linkat				sys_linkat
-+459	common	symlinkat			sys_symlinkat
-+460	common	readlinkat			sys_readlinkat
-+461	common	fchmodat			sys_fchmodat
-+462	common	faccessat			sys_faccessat
-+463	common	pselect6			sys_pselect6
-+464	common	ppoll				sys_ppoll
-+465	common	unshare				sys_unshare
-+466	common	set_robust_list			sys_set_robust_list
-+467	common	get_robust_list			sys_get_robust_list
-+468	common	splice				sys_splice
-+469	common	sync_file_range			sys_sync_file_range
-+470	common	tee				sys_tee
-+471	common	vmsplice			sys_vmsplice
-+472	common	move_pages			sys_move_pages
-+473	common	getcpu				sys_getcpu
-+474	common	epoll_pwait			sys_epoll_pwait
-+475	common	utimensat			sys_utimensat
-+476	common	signalfd			sys_signalfd
-+477	common	timerfd				sys_ni_syscall
-+478	common	eventfd				sys_eventfd
-+479	common	recvmmsg			sys_recvmmsg
-+480	common	fallocate			sys_fallocate
-+481	common	timerfd_create			sys_timerfd_create
-+482	common	timerfd_settime			sys_timerfd_settime
-+483	common	timerfd_gettime			sys_timerfd_gettime
-+484	common	signalfd4			sys_signalfd4
-+485	common	eventfd2			sys_eventfd2
-+486	common	epoll_create1			sys_epoll_create1
-+487	common	dup3				sys_dup3
-+488	common	pipe2				sys_pipe2
-+489	common	inotify_init1			sys_inotify_init1
-+490	common	preadv				sys_preadv
-+491	common	pwritev				sys_pwritev
-+492	common	rt_tgsigqueueinfo		sys_rt_tgsigqueueinfo
-+493	common	perf_event_open			sys_perf_event_open
-+494	common	fanotify_init			sys_fanotify_init
-+495	common	fanotify_mark			sys_fanotify_mark
-+496	common	prlimit64			sys_prlimit64
-+497	common	name_to_handle_at		sys_name_to_handle_at
-+498	common	open_by_handle_at		sys_open_by_handle_at
-+499	common	clock_adjtime			sys_clock_adjtime
-+500	common	syncfs				sys_syncfs
-+501	common	setns				sys_setns
-+502	common	accept4				sys_accept4
-+503	common	sendmmsg			sys_sendmmsg
-+504	common	process_vm_readv		sys_process_vm_readv
-+505	common	process_vm_writev		sys_process_vm_writev
-+506	common	kcmp				sys_kcmp
-+507	common	finit_module			sys_finit_module
-+508	common	sched_setattr			sys_sched_setattr
-+509	common	sched_getattr			sys_sched_getattr
-+510	common	renameat2			sys_renameat2
-+511	common	getrandom			sys_getrandom
-+512	common	memfd_create			sys_memfd_create
-+513	common	execveat			sys_execveat
-+514	common	seccomp				sys_seccomp
-+515	common	bpf				sys_bpf
-+516	common	userfaultfd			sys_userfaultfd
-+517	common	membarrier			sys_membarrier
-+518	common	mlock2				sys_mlock2
-+519	common	copy_file_range			sys_copy_file_range
-+520	common	preadv2				sys_preadv2
-+521	common	pwritev2			sys_pwritev2
-+522	common	statx				sys_statx
-+523	common	io_pgetevents			sys_io_pgetevents
-+524	common	pkey_mprotect			sys_pkey_mprotect
-+525	common	pkey_alloc			sys_pkey_alloc
-+526	common	pkey_free			sys_pkey_free
-+527	common	rseq				sys_rseq
-+528	common	statfs64			sys_statfs64
-+529	common	fstatfs64			sys_fstatfs64
-+530	common	getegid				sys_getegid
-+531	common	geteuid				sys_geteuid
-+532	common	getppid				sys_getppid
-+# all other architectures have common numbers for new syscall, alpha
-+# is the exception.
-+534	common	pidfd_send_signal		sys_pidfd_send_signal
-+535	common	io_uring_setup			sys_io_uring_setup
-+536	common	io_uring_enter			sys_io_uring_enter
-+537	common	io_uring_register		sys_io_uring_register
-+538	common	open_tree			sys_open_tree
-+539	common	move_mount			sys_move_mount
-+540	common	fsopen				sys_fsopen
-+541	common	fsconfig			sys_fsconfig
-+542	common	fsmount				sys_fsmount
-+543	common	fspick				sys_fspick
-+544	common	pidfd_open			sys_pidfd_open
-+545	common	clone3				alpha_clone3
-+546	common	close_range			sys_close_range
-+547	common	openat2				sys_openat2
-+548	common	pidfd_getfd			sys_pidfd_getfd
-+549	common	faccessat2			sys_faccessat2
-+550	common	process_madvise			sys_process_madvise
-+551	common	epoll_pwait2			sys_epoll_pwait2
-+552	common	mount_setattr			sys_mount_setattr
-+553	common	quotactl_fd			sys_quotactl_fd
-+554	common	landlock_create_ruleset		sys_landlock_create_ruleset
-+555	common	landlock_add_rule		sys_landlock_add_rule
-+556	common	landlock_restrict_self		sys_landlock_restrict_self
-+# 557 reserved for memfd_secret
-+558	common	process_mrelease		sys_process_mrelease
-+559	common  futex_waitv                     sys_futex_waitv
-+560	common	set_mempolicy_home_node		sys_ni_syscall
-+561	common	cachestat			sys_cachestat
-+562	common	fchmodat2			sys_fchmodat2
-+563	common	map_shadow_stack		sys_map_shadow_stack
-+564	common	futex_wake			sys_futex_wake
-+565	common	futex_wait			sys_futex_wait
-+566	common	futex_requeue			sys_futex_requeue
-+567	common	statmount			sys_statmount
-+568	common	listmount			sys_listmount
-+569	common	lsm_get_self_attr		sys_lsm_get_self_attr
-+570	common	lsm_set_self_attr		sys_lsm_set_self_attr
-+571	common	lsm_list_modules		sys_lsm_list_modules
-+572	common  mseal				sys_mseal
-diff --git a/tools/perf/arch/alpha/include/syscall_table.h b/tools/perf/arch/alpha/include/syscall_table.h
-new file mode 100644
-index 000000000000..b53e31c15805
---- /dev/null
-+++ b/tools/perf/arch/alpha/include/syscall_table.h
-@@ -0,0 +1,2 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#include <asm/syscalls_64.h>
-diff --git a/tools/perf/check-headers.sh b/tools/perf/check-headers.sh
-index e9e352579e6d..a821df1fd4c0 100755
---- a/tools/perf/check-headers.sh
-+++ b/tools/perf/check-headers.sh
-@@ -206,6 +206,7 @@ check_2 tools/perf/arch/arm/entry/syscalls/syscall.tbl arch/arm/tools/syscall.tb
- check_2 tools/perf/arch/sh/entry/syscalls/syscall.tbl arch/sh/kernel/syscalls/syscall.tbl
- check_2 tools/perf/arch/sparc/entry/syscalls/syscall.tbl arch/sparc/kernel/syscalls/syscall.tbl
- check_2 tools/perf/arch/xtensa/entry/syscalls/syscall.tbl arch/xtensa/kernel/syscalls/syscall.tbl
-+check_2 tools/perf/arch/alpha/entry/syscalls/syscall.tbl arch/alpha/entry/syscalls/syscall.tbl
+ endif
  
- for i in "${BEAUTY_FILES[@]}"
- do
+@@ -1098,11 +1089,6 @@ endif
+ 		$(INSTALL) $(OUTPUT)perf-archive -t '$(DESTDIR_SQ)$(perfexec_instdir_SQ)'
+ 	$(call QUIET_INSTALL, perf-iostat) \
+ 		$(INSTALL) $(OUTPUT)perf-iostat -t '$(DESTDIR_SQ)$(perfexec_instdir_SQ)'
+-ifndef NO_LIBAUDIT
+-	$(call QUIET_INSTALL, strace/groups) \
+-		$(INSTALL) -d -m 755 '$(DESTDIR_SQ)$(STRACE_GROUPS_INSTDIR_SQ)'; \
+-		$(INSTALL) trace/strace/groups/* -m 644 -t '$(DESTDIR_SQ)$(STRACE_GROUPS_INSTDIR_SQ)'
+-endif
+ ifndef NO_LIBPERL
+ 	$(call QUIET_INSTALL, perl-scripts) \
+ 		$(INSTALL) -d -m 755 '$(DESTDIR_SQ)$(perfexec_instdir_SQ)/scripts/perl/Perf-Trace-Util/lib/Perf/Trace'; \
+diff --git a/tools/perf/builtin-check.c b/tools/perf/builtin-check.c
+index 0b76b6e42b78..5af0987d7d4c 100644
+--- a/tools/perf/builtin-check.c
++++ b/tools/perf/builtin-check.c
+@@ -31,7 +31,6 @@ struct feature_status supported_features[] = {
+ 	FEATURE_STATUS("dwarf_getlocations", HAVE_DWARF_GETLOCATIONS_SUPPORT),
+ 	FEATURE_STATUS("dwarf-unwind", HAVE_DWARF_UNWIND_SUPPORT),
+ 	FEATURE_STATUS("auxtrace", HAVE_AUXTRACE_SUPPORT),
+-	FEATURE_STATUS("libaudit", HAVE_LIBAUDIT_SUPPORT),
+ 	FEATURE_STATUS("libbfd", HAVE_LIBBFD_SUPPORT),
+ 	FEATURE_STATUS("libcapstone", HAVE_LIBCAPSTONE_SUPPORT),
+ 	FEATURE_STATUS("libcrypto", HAVE_LIBCRYPTO_SUPPORT),
+diff --git a/tools/perf/builtin-help.c b/tools/perf/builtin-help.c
+index 0854d3cd9f6a..7be6fb6df595 100644
+--- a/tools/perf/builtin-help.c
++++ b/tools/perf/builtin-help.c
+@@ -447,9 +447,7 @@ int cmd_help(int argc, const char **argv)
+ #ifdef HAVE_LIBELF_SUPPORT
+ 		"probe",
+ #endif
+-#if defined(HAVE_LIBAUDIT_SUPPORT) || defined(HAVE_SYSCALL_TABLE_SUPPORT)
+ 		"trace",
+-#endif
+ 	NULL };
+ 	const char *builtin_help_usage[] = {
+ 		"perf help [--all] [--man|--web|--info] [command]",
+diff --git a/tools/perf/builtin-trace.c b/tools/perf/builtin-trace.c
+index d3f11b90d025..0374dedaa2ef 100644
+--- a/tools/perf/builtin-trace.c
++++ b/tools/perf/builtin-trace.c
+@@ -2069,30 +2069,11 @@ static int trace__read_syscall_info(struct trace *trace, int id)
+ 	const char *name = syscalltbl__name(trace->sctbl, id);
+ 	int err;
+ 
+-#ifdef HAVE_SYSCALL_TABLE_SUPPORT
+ 	if (trace->syscalls.table == NULL) {
+ 		trace->syscalls.table = calloc(trace->sctbl->syscalls.max_id + 1, sizeof(*sc));
+ 		if (trace->syscalls.table == NULL)
+ 			return -ENOMEM;
+ 	}
+-#else
+-	if (id > trace->sctbl->syscalls.max_id || (id == 0 && trace->syscalls.table == NULL)) {
+-		// When using libaudit we don't know beforehand what is the max syscall id
+-		struct syscall *table = realloc(trace->syscalls.table, (id + 1) * sizeof(*sc));
+-
+-		if (table == NULL)
+-			return -ENOMEM;
+-
+-		// Need to memset from offset 0 and +1 members if brand new
+-		if (trace->syscalls.table == NULL)
+-			memset(table, 0, (id + 1) * sizeof(*sc));
+-		else
+-			memset(table + trace->sctbl->syscalls.max_id + 1, 0, (id - trace->sctbl->syscalls.max_id) * sizeof(*sc));
+-
+-		trace->syscalls.table	      = table;
+-		trace->sctbl->syscalls.max_id = id;
+-	}
+-#endif
+ 	sc = trace->syscalls.table + id;
+ 	if (sc->nonexistent)
+ 		return -EEXIST;
+@@ -2439,18 +2420,7 @@ static struct syscall *trace__syscall_info(struct trace *trace,
+ 
+ 	err = -EINVAL;
+ 
+-#ifdef HAVE_SYSCALL_TABLE_SUPPORT
+ 	if (id > trace->sctbl->syscalls.max_id) {
+-#else
+-	if (id >= trace->sctbl->syscalls.max_id) {
+-		/*
+-		 * With libaudit we don't know beforehand what is the max_id,
+-		 * so we let trace__read_syscall_info() figure that out as we
+-		 * go on reading syscalls.
+-		 */
+-		err = trace__read_syscall_info(trace, id);
+-		if (err)
+-#endif
+ 		goto out_cant_read;
+ 	}
+ 
+diff --git a/tools/perf/perf.c b/tools/perf/perf.c
+index 4def800f4089..9f99c6979409 100644
+--- a/tools/perf/perf.c
++++ b/tools/perf/perf.c
+@@ -84,7 +84,7 @@ static struct cmd_struct commands[] = {
+ #endif
+ 	{ "kvm",	cmd_kvm,	0 },
+ 	{ "test",	cmd_test,	0 },
+-#if defined(HAVE_LIBTRACEEVENT) && (defined(HAVE_LIBAUDIT_SUPPORT) || defined(HAVE_SYSCALL_TABLE_SUPPORT))
++#if defined(HAVE_LIBTRACEEVENT)
+ 	{ "trace",	cmd_trace,	0 },
+ #endif
+ 	{ "inject",	cmd_inject,	0 },
+@@ -514,10 +514,6 @@ int main(int argc, const char **argv)
+ 		fprintf(stderr,
+ 			"trace command not available: missing libtraceevent devel package at build time.\n");
+ 		goto out;
+-#elif !defined(HAVE_LIBAUDIT_SUPPORT) && !defined(HAVE_SYSCALL_TABLE_SUPPORT)
+-		fprintf(stderr,
+-			"trace command not available: missing audit-libs devel package at build time.\n");
+-		goto out;
+ #else
+ 		setup_path();
+ 		argv[0] = "trace";
+diff --git a/tools/perf/tests/make b/tools/perf/tests/make
+index a5040772043f..0d2b6c85dc03 100644
+--- a/tools/perf/tests/make
++++ b/tools/perf/tests/make
+@@ -86,7 +86,6 @@ make_no_libdw_dwarf_unwind := NO_LIBDW_DWARF_UNWIND=1
+ make_no_backtrace   := NO_BACKTRACE=1
+ make_no_libcapstone := NO_CAPSTONE=1
+ make_no_libnuma     := NO_LIBNUMA=1
+-make_no_libaudit    := NO_LIBAUDIT=1
+ make_no_libbionic   := NO_LIBBIONIC=1
+ make_no_auxtrace    := NO_AUXTRACE=1
+ make_no_libbpf	    := NO_LIBBPF=1
+@@ -97,7 +96,6 @@ make_no_libllvm     := NO_LIBLLVM=1
+ make_with_babeltrace:= LIBBABELTRACE=1
+ make_with_coresight := CORESIGHT=1
+ make_no_sdt	    := NO_SDT=1
+-make_no_syscall_tbl := NO_SYSCALL_TABLE=1
+ make_no_libpfm4     := NO_LIBPFM4=1
+ make_with_gtk2      := GTK2=1
+ make_refcnt_check   := EXTRA_CFLAGS="-DREFCNT_CHECKING=1"
+@@ -122,10 +120,10 @@ make_static         := LDFLAGS=-static NO_PERF_READ_VDSO32=1 NO_PERF_READ_VDSOX3
+ # all the NO_* variable combined
+ make_minimal        := NO_LIBPERL=1 NO_LIBPYTHON=1 NO_GTK2=1
+ make_minimal        += NO_DEMANGLE=1 NO_LIBELF=1 NO_LIBUNWIND=1 NO_BACKTRACE=1
+-make_minimal        += NO_LIBNUMA=1 NO_LIBAUDIT=1 NO_LIBBIONIC=1
++make_minimal        += NO_LIBNUMA=1 NO_LIBBIONIC=1
+ make_minimal        += NO_LIBDW_DWARF_UNWIND=1 NO_AUXTRACE=1 NO_LIBBPF=1
+ make_minimal        += NO_LIBCRYPTO=1 NO_SDT=1 NO_JVMTI=1 NO_LIBZSTD=1
+-make_minimal        += NO_LIBCAP=1 NO_SYSCALL_TABLE=1 NO_CAPSTONE=1
++make_minimal        += NO_LIBCAP=1 NO_CAPSTONE=1
+ 
+ # $(run) contains all available tests
+ run := make_pure
+@@ -158,7 +156,6 @@ run += make_no_libdw_dwarf_unwind
+ run += make_no_backtrace
+ run += make_no_libcapstone
+ run += make_no_libnuma
+-run += make_no_libaudit
+ run += make_no_libbionic
+ run += make_no_auxtrace
+ run += make_no_libbpf
+diff --git a/tools/perf/util/env.c b/tools/perf/util/env.c
+index 1edbccfc3281..4d915adc7239 100644
+--- a/tools/perf/util/env.c
++++ b/tools/perf/util/env.c
+@@ -471,13 +471,13 @@ const char *perf_env__arch(struct perf_env *env)
+ 
+ const char *perf_env__arch_strerrno(struct perf_env *env __maybe_unused, int err __maybe_unused)
+ {
+-#if defined(HAVE_SYSCALL_TABLE_SUPPORT) && defined(HAVE_LIBTRACEEVENT)
++#if defined(HAVE_LIBTRACEEVENT)
+ 	if (env->arch_strerrno == NULL)
+ 		env->arch_strerrno = arch_syscalls__strerrno_function(perf_env__arch(env));
+ 
+ 	return env->arch_strerrno ? env->arch_strerrno(err) : "no arch specific strerrno function";
+ #else
+-	return "!(HAVE_SYSCALL_TABLE_SUPPORT && HAVE_LIBTRACEEVENT)";
++	return "!HAVE_LIBTRACEEVENT";
+ #endif
+ }
+ 
+diff --git a/tools/perf/util/generate-cmdlist.sh b/tools/perf/util/generate-cmdlist.sh
+index 1b5140e5ce99..6a73c903d690 100755
+--- a/tools/perf/util/generate-cmdlist.sh
++++ b/tools/perf/util/generate-cmdlist.sh
+@@ -38,7 +38,7 @@ do
+ done
+ echo "#endif /* HAVE_LIBELF_SUPPORT */"
+ 
+-echo "#if defined(HAVE_LIBTRACEEVENT) && (defined(HAVE_LIBAUDIT_SUPPORT) || defined(HAVE_SYSCALL_TABLE_SUPPORT))"
++echo "#if defined(HAVE_LIBTRACEEVENT)"
+ sed -n -e 's/^perf-\([^ 	]*\)[ 	].* audit*/\1/p' command-list.txt |
+ sort |
+ while read cmd
+@@ -51,7 +51,7 @@ do
+ 	    p
+      }' "Documentation/perf-$cmd.txt"
+ done
+-echo "#endif /* HAVE_LIBTRACEEVENT && (HAVE_LIBAUDIT_SUPPORT || HAVE_SYSCALL_TABLE_SUPPORT) */"
++echo "#endif /* HAVE_LIBTRACEEVENT */"
+ 
+ echo "#ifdef HAVE_LIBTRACEEVENT"
+ sed -n -e 's/^perf-\([^ 	]*\)[ 	].* traceevent.*/\1/p' command-list.txt |
+diff --git a/tools/perf/util/syscalltbl.c b/tools/perf/util/syscalltbl.c
+index 9341f0d442fe..7e24e4164da9 100644
+--- a/tools/perf/util/syscalltbl.c
++++ b/tools/perf/util/syscalltbl.c
+@@ -9,20 +9,12 @@
+ #include <stdlib.h>
+ #include <linux/compiler.h>
+ #include <linux/zalloc.h>
+-#ifdef HAVE_SYSCALL_TABLE_SUPPORT
+ #include <string.h>
+ #include "string2.h"
+ 
+-#if defined(GENERIC_SYSCALL_TABLE)
+ #include <syscall_table.h>
+ const int syscalltbl_native_max_id = SYSCALLTBL_MAX_ID;
+ static const char *const *syscalltbl_native = syscalltbl;
+-#else
+-const int syscalltbl_native_max_id = 0;
+-static const char *const syscalltbl_native[] = {
+-	[0] = "unknown",
+-};
+-#endif
+ 
+ struct syscall {
+ 	int id;
+@@ -130,47 +122,3 @@ int syscalltbl__strglobmatch_first(struct syscalltbl *tbl, const char *syscall_g
+ 	*idx = -1;
+ 	return syscalltbl__strglobmatch_next(tbl, syscall_glob, idx);
+ }
+-
+-#else /* HAVE_SYSCALL_TABLE_SUPPORT */
+-
+-#include <libaudit.h>
+-
+-struct syscalltbl *syscalltbl__new(void)
+-{
+-	struct syscalltbl *tbl = zalloc(sizeof(*tbl));
+-	if (tbl)
+-		tbl->audit_machine = audit_detect_machine();
+-	return tbl;
+-}
+-
+-void syscalltbl__delete(struct syscalltbl *tbl)
+-{
+-	free(tbl);
+-}
+-
+-const char *syscalltbl__name(const struct syscalltbl *tbl, int id)
+-{
+-	return audit_syscall_to_name(id, tbl->audit_machine);
+-}
+-
+-int syscalltbl__id(struct syscalltbl *tbl, const char *name)
+-{
+-	return audit_name_to_syscall(name, tbl->audit_machine);
+-}
+-
+-int syscalltbl__id_at_idx(struct syscalltbl *tbl __maybe_unused, int idx)
+-{
+-	return idx;
+-}
+-
+-int syscalltbl__strglobmatch_next(struct syscalltbl *tbl __maybe_unused,
+-				  const char *syscall_glob __maybe_unused, int *idx __maybe_unused)
+-{
+-	return -1;
+-}
+-
+-int syscalltbl__strglobmatch_first(struct syscalltbl *tbl, const char *syscall_glob, int *idx)
+-{
+-	return syscalltbl__strglobmatch_next(tbl, syscall_glob, idx);
+-}
+-#endif /* HAVE_SYSCALL_TABLE_SUPPORT */
 
 -- 
 2.34.1
