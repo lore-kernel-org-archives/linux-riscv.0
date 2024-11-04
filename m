@@ -4,73 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A31AD132AC
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Nov 2024 11:00:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92833D132B0
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Nov 2024 11:28:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=f9b3+PFC93aKOfe1wrovtjWwI5th+C8+9fT1+8P0G2w=; b=SV0YFCnd3Bc0Ql
-	wPtFERzwkYjgRFXFMD7FRt2urc4exFeorn7DX+wV2ttapA2pEW8MtJ4K8m5tsPZORdetaEH3mT4+L
-	v4IA0vKyS4J/PCLDPX7joHtwY4hMnMgA1Woxa1KHdXKBC7DvopO4i6jLHQcRThK9Hdg5qcMgRtA2e
-	RIYOI8YafNj7fjQMvT3FHENvfLKYwyKnkkwNMxrvLkQ5oL1p9iwXmA3UndWP/vWkqLzoI3pHV+Ot8
-	Av9+g5QnSsdSHzS5DkCqGt8v04UHJ/tYiGPxjgqp4uapn5LoqSNWPvmQ6BdQtCfFkBa1QT0SDvQmh
-	q2Z23j0rEwylYHpk19Ow==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wXNX6RhpoJy7CI9ZJyMTnjMdDoBpbqJlnF8CwKWcG1E=; b=awZRr5qo0dsXYXnqotFAgJcoWK
+	9LUSHgOnPgmKICnB42E5wJUF1hrBksDbveh+uckS1QFevPpjkr4v8oboh4O+VTCSQa7B+CBTv4Kcn
+	EcYFI68aMfZ81yqeg44uNCAWwpwkcO5vo3r0anh0h9F16bgrr+uzCBRGscYE6PTvsC7ZkKYi2HwyB
+	lC6DZEg/c2BKsqyJSguKoBDoEYvFwJV61adpknn3WBVpoyohmHT8jO4UzVWBCjjlCO+uizOt/tdz/
+	cUwUAyJ+tvuy5NdEQyLMkth2Mgnynv/ryiApDsYu4Ro2ftRZTYp+z1FO3sFBNUnRDngelD+E9kcx5
+	ZuorUALA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7up9-0000000DPOC-1l5e;
-	Mon, 04 Nov 2024 11:00:43 +0000
+	id 1t7vFh-0000000DWAN-2AK5;
+	Mon, 04 Nov 2024 11:28:09 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7ulX-0000000DOOT-0tiB;
-	Mon, 04 Nov 2024 10:57:00 +0000
+	id 1t7v6f-0000000DTp9-33o0
+	for linux-riscv@lists.infradead.org;
+	Mon, 04 Nov 2024 11:18:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 3F1A6A42DA6;
-	Mon,  4 Nov 2024 10:55:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 216D7C4CED1;
-	Mon,  4 Nov 2024 10:56:58 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8033BA42A31;
+	Mon,  4 Nov 2024 11:16:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB53EC4CECE;
+	Mon,  4 Nov 2024 11:18:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730717818;
-	bh=6qFxuwoqjmsBXA5afiRPckV6EYzE55EhM//TIyBTrQ4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=EADOQrSt03YURgotEa0RPC+Q+iLgiLTpyDunuCSyI8JrnJ8j4YEhKIdjW/X9XmfJY
-	 sTCnqIY+Z2AkNeyzcvIvr+dGT6FfLBfZvlbrdb8z2SiV9hm+elSOB97O2rE7ro9EXq
-	 0i/CQC7v2klAcuIyDxn2pg7/smSOsw0dT4Hhws9swr3/XRUtzPo+CxQGrrBX7df8D/
-	 5J0t2oN4EkGyZAZoiEf4JRfD6nAiE3emF0OuGcBGMMWHNR23yXfKnSbJVb11OHm5BV
-	 KUm+3gkbO7B14khPoblQ7uBvr3V7hMm9Omm80Fu2OU58gX+loUjMi/2DNHEoGYci8U
-	 QgiPNae8TP/uQ==
-Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-2fb3110b964so32945951fa.1;
-        Mon, 04 Nov 2024 02:56:58 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUgiY1dUP1goPjkssBp8EvYhCckjC1WXyK7+kfGbcseMadBbnzz1SO4+2ffzZhp2hz+oDPMAXbSzMMX3+POmBod@lists.infradead.org, AJvYcCVc8tED5J2vMYpqxwi4qRU8aN88m9kXv4UD7k61JUTODzQqhKaYjj0s7g/x38vnbSMcbjsRoBc7FFI23tc=@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywo2uet7pxdnaQvfJa2mobRVXoXN0GX4kEVVu+eWcOmmX6Kocx+
-	P75guEG3ZrleRmR0c56MhPMIBcgNSJGjiK/tQA9W1wtXBDoSq4YREdCO/ozm+so1FZiM/WwGQpe
-	3mtkZd5s4/RauotoGqYhB8KPz/x8=
-X-Google-Smtp-Source: AGHT+IGbnKnh4aAfaULtSCmiukLUpnKZU5MlHxJghtOAuKX/zIcXfbKXe/xSvudBsLa83HeLXpJgE1iAQVUbiw2PNrM=
-X-Received: by 2002:a05:651c:1508:b0:2fa:fc41:cf80 with SMTP id
- 38308e7fff4ca-2fedb7ecd4amr43930581fa.43.1730717816511; Mon, 04 Nov 2024
- 02:56:56 -0800 (PST)
+	s=k20201202; t=1730719128;
+	bh=dPYBbaZDduNI0r2YV+lknaETuYjrZTPFY+763BUwGkY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NhPiOPq/MAF8Mgv5z5c4nAv+K8Ik4BEZpQjtnrhmvqQyuNX8cCKcOpodWGW9nZzbC
+	 5Lw4uqvaC40QVKSsifKjEPR4EsQyGDK3gdJ8DaBu+XYeoOYQoJ7SeeCNa5il9fl8ye
+	 hy181fS9Ea1zvX4xW46q/Bt91sREIC9jqvgmDyDym8foGP7bw2AtT7zGNuFeCM2IlS
+	 DhPlhYXwwmw/Fad6wM73qKYUnYAEPTVyutMMoUs6wUW4gF3lFff+4yChlZqU5fnEKb
+	 DMQ//FpswkWeAG29nUamJDziZhp06JmCNLCFdE7ljDVjOj2jrVYJk6GrMF361g9A/u
+	 PsRz7WQzSF9tA==
+Date: Mon, 4 Nov 2024 11:18:43 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: linux-pci@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v5 2/2] PCI: microchip: rework reg region handing to
+ support using either instance 1 or 2
+Message-ID: <20241104-stabilize-friday-94705c3dc244@spud>
+References: <20240814-outmost-untainted-cedd4adcd551@spud>
+ <20241101195129.GA1318063@bhelgaas>
 MIME-Version: 1.0
-References: <20241103223154.136127-1-ebiggers@kernel.org> <20241103223154.136127-5-ebiggers@kernel.org>
-In-Reply-To: <20241103223154.136127-5-ebiggers@kernel.org>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Mon, 4 Nov 2024 11:56:45 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXH3C1xP7865V-mJ+3=FDHTR-df909=7jift_Z6dmp58Gw@mail.gmail.com>
-Message-ID: <CAMj1kXH3C1xP7865V-mJ+3=FDHTR-df909=7jift_Z6dmp58Gw@mail.gmail.com>
-Subject: Re: [PATCH v3 04/18] crypto: crc32 - don't unnecessarily register
- arch algorithms
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org, 
-	linux-ext4@vger.kernel.org, linux-f2fs-devel@lists.sourceforge.net, 
-	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, linux-scsi@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
-	sparclinux@vger.kernel.org, x86@kernel.org
+In-Reply-To: <20241101195129.GA1318063@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_025659_402680_21C0FB06 
-X-CRM114-Status: GOOD (  22.04  )
+X-CRM114-CacheID: sfid-20241104_031849_915084_24C37FD0 
+X-CRM114-Status: GOOD (  31.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,101 +74,102 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0963364968077217029=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 3 Nov 2024 at 23:32, Eric Biggers <ebiggers@kernel.org> wrote:
->
-> From: Eric Biggers <ebiggers@google.com>
->
-> Instead of registering the crc32-$arch and crc32c-$arch algorithms if
-> the arch-specific code was built, only register them when that code was
-> built *and* is not falling back to the base implementation at runtime.
->
-> This avoids confusing users like btrfs which checks the shash driver
-> name to determine whether it is crc32c-generic.
->
-> (It would also make sense to change btrfs to test the crc32_optimization
-> flags itself, so that it doesn't have to use the weird hack of parsing
-> the driver name.  This change still makes sense either way though.)
->
-> Signed-off-by: Eric Biggers <ebiggers@google.com>
 
-Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
+--===============0963364968077217029==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="TfnHo0vXNK+c6Gwh"
+Content-Disposition: inline
 
-> ---
->  crypto/crc32_generic.c  | 8 ++++++--
->  crypto/crc32c_generic.c | 8 ++++++--
->  2 files changed, 12 insertions(+), 4 deletions(-)
->
-> diff --git a/crypto/crc32_generic.c b/crypto/crc32_generic.c
-> index cc064ea8240e..783a30b27398 100644
-> --- a/crypto/crc32_generic.c
-> +++ b/crypto/crc32_generic.c
-> @@ -155,19 +155,23 @@ static struct shash_alg algs[] = {{
->         .base.cra_ctxsize       = sizeof(u32),
->         .base.cra_module        = THIS_MODULE,
->         .base.cra_init          = crc32_cra_init,
->  }};
->
-> +static int num_algs;
-> +
->  static int __init crc32_mod_init(void)
->  {
->         /* register the arch flavor only if it differs from the generic one */
-> -       return crypto_register_shashes(algs, 1 + IS_ENABLED(CONFIG_CRC32_ARCH));
-> +       num_algs = 1 + ((crc32_optimizations() & CRC32_LE_OPTIMIZATION) != 0);
-> +
-> +       return crypto_register_shashes(algs, num_algs);
->  }
->
->  static void __exit crc32_mod_fini(void)
->  {
-> -       crypto_unregister_shashes(algs, 1 + IS_ENABLED(CONFIG_CRC32_ARCH));
-> +       crypto_unregister_shashes(algs, num_algs);
->  }
->
->  subsys_initcall(crc32_mod_init);
->  module_exit(crc32_mod_fini);
->
-> diff --git a/crypto/crc32c_generic.c b/crypto/crc32c_generic.c
-> index 04b03d825cf4..985da981d6e2 100644
-> --- a/crypto/crc32c_generic.c
-> +++ b/crypto/crc32c_generic.c
-> @@ -195,19 +195,23 @@ static struct shash_alg algs[] = {{
->         .base.cra_ctxsize       = sizeof(struct chksum_ctx),
->         .base.cra_module        = THIS_MODULE,
->         .base.cra_init          = crc32c_cra_init,
->  }};
->
-> +static int num_algs;
-> +
->  static int __init crc32c_mod_init(void)
->  {
->         /* register the arch flavor only if it differs from the generic one */
-> -       return crypto_register_shashes(algs, 1 + IS_ENABLED(CONFIG_CRC32_ARCH));
-> +       num_algs = 1 + ((crc32_optimizations() & CRC32C_OPTIMIZATION) != 0);
-> +
-> +       return crypto_register_shashes(algs, num_algs);
->  }
->
->  static void __exit crc32c_mod_fini(void)
->  {
-> -       crypto_unregister_shashes(algs, 1 + IS_ENABLED(CONFIG_CRC32_ARCH));
-> +       crypto_unregister_shashes(algs, num_algs);
->  }
->
->  subsys_initcall(crc32c_mod_init);
->  module_exit(crc32c_mod_fini);
->
-> --
-> 2.47.0
->
->
+
+--TfnHo0vXNK+c6Gwh
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, Nov 01, 2024 at 02:51:29PM -0500, Bjorn Helgaas wrote:
+> On Wed, Aug 14, 2024 at 09:08:42AM +0100, Conor Dooley wrote:
+> > From: Conor Dooley <conor.dooley@microchip.com>
+> >=20
+> > The PCI host controller on PolarFire SoC has multiple "instances", each
+> > with their own bridge and ctrl address spaces. The original binding has
+> > an "apb" register region, and it is expected to be set to the base
+> > address of the host controllers register space. Defines in the driver
+> > were used to compute the addresses of the bridge and ctrl address ranges
+> > corresponding to instance1. Some customers want to use instance0 however
+> > and that requires changing the defines in the driver, which is clearly
+> > not a portable solution.
+>=20
+> The subject mentions "instance 1 or 2".
+>=20
+> This paragraph implies adding support for "instance0" ("customers want
+> to use instance0").
+>=20
+> The DT patch suggests that we're adding support for "instance2"
+> ("customers want to use instance2").
+>=20
+> Both patches suggest that the existing support is for "instance 1".
+>=20
+> Maybe what's being added is "instance 2", and this commit log should
+> s/instance0/instance 2/ ?  And probably s/instance1/instance 1/ so the
+> style is consistent?
+
+Hmm no, it would be s/instance1/instance 2/ & s/instance0/instance 1/.
+The indices are 1-based, not 0-based.
+
+> Is this a "pick one or the other but not both" situation, or does this
+> device support two independent PCIe controllers?
+>=20
+> I first thought this driver supported a single PCIe controller, and
+> you were adding support for a second independent controller.
+>=20
+
+I don't know if they are fully independent (Daire would have to confirm)
+but as far as the driver in linux is concerned they are. As far as I
+know, you could operate both instances at the same time, but I've not
+heard of any customer that is actually doing that nor tested it myself.
+Operating both instances would require another node in the devicetree,
+which should work fine given the private data structs are allocated at
+runtime. I think the config space is shared.
+
+> But the fact that you say "the [singular] host controller on
+> PolarFire", and you're not changing mc_host_probe() to call
+> pci_host_common_probe() more than once makes me think there is only a
+> single PCIe controller, and for some reason you can choose to operate
+> it using either register set 1 or register set 2.
+
+The wording I've used mostly stems from conversations with Daire. We've
+kinda been saying that there's a single controller with two root port
+instances. Each root port instance is connected to different IOs,
+they're more than just different registers for accessing the same thing.
+
+--TfnHo0vXNK+c6Gwh
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZyitkwAKCRB4tDGHoIJi
+0tNQAP9ldG40/6k9HNbXDTXUEnTF1pjijRt/gdkaj938jXDjRgD/cJ24UOeT9ncp
+xClPvRUyDFamEevdesGEqLyarnTIzg0=
+=TAA0
+-----END PGP SIGNATURE-----
+
+--TfnHo0vXNK+c6Gwh--
+
+
+--===============0963364968077217029==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0963364968077217029==--
+
